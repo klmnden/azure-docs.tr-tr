@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: b6f6653381b5fcf80b9647c64334dfed1a2230bb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c6d5954ed3547666236130753dfd53d10475df43
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230861"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308997"
 ---
 # <a name="view-service-fabric-health-reports"></a>Service Fabric sistem durumu raporlarını görüntüleme
 Azure Service Fabric tanıtır bir [sistem durumu modeli](service-fabric-health-introduction.md) hangi sistem bileşenleri ve watchdogs yerel koşulları rapor için sistem durumu varlıklarını ile bunların izleme. [Sistem durumu deposu](service-fabric-health-introduction.md#health-store) varlıkları iyi durumda olup olmadığını belirlemek için tüm sistem durumu verileri toplar.
@@ -613,7 +613,7 @@ HealthStatistics      :
 ```
 
 ### <a name="rest"></a>REST
-Partition health ile alabileceğiniz bir [GET isteği](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition) veya [POST isteği](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) gövdesinde tanımlanan sistem durumu ilkeleri içerir.
+Partition health ile alabileceğiniz bir [GET isteği](/rest/api/servicefabric/sfclient-api-getpartitionhealth) veya [POST isteği](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) gövdesinde tanımlanan sistem durumu ilkeleri içerir.
 
 ## <a name="get-replica-health"></a>Çoğaltma sistem durumu alma
 Sistem durum bilgisi olan hizmet çoğaltma ya da durum bilgisi olmayan hizmet örneği döndürür. Giriş:

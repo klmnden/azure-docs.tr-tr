@@ -17,18 +17,18 @@ ms.date: 11/13/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3ecf837af735b97e269eb3fdc01d2e56ec40fb6e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: be10af7096a11fb27971af9dc28036df4a4b0968
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624514"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423567"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 ve OAuth 2.0 istemci kimlik bilgileri akışı
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Kullanabileceğiniz [OAuth 2.0 istemci kimlik bilgileri verme](http://tools.ietf.org/html/rfc6749#section-4.4) RFC olarak da adlandırılır 6749 içinde belirtilen *iki bacaklı OAuth*, uygulamanın kimliğini kullanarak web barındırılan kaynaklara erişmek için. Hemen bir kullanıcı etkileşimi olmadan arka planda çalışması gereken sunucudan sunucuya etkileşimleri için bu tür bir verme yaygın olarak kullanılır. Bu tür uygulamalar genellikle olarak ifade edilir *Daemon'ları* veya *hizmet hesapları*.
+Kullanabileceğiniz [OAuth 2.0 istemci kimlik bilgileri verme](https://tools.ietf.org/html/rfc6749#section-4.4) RFC olarak da adlandırılır 6749 içinde belirtilen *iki bacaklı OAuth*, uygulamanın kimliğini kullanarak web barındırılan kaynaklara erişmek için. Hemen bir kullanıcı etkileşimi olmadan arka planda çalışması gereken sunucudan sunucuya etkileşimleri için bu tür bir verme yaygın olarak kullanılır. Bu tür uygulamalar genellikle olarak ifade edilir *Daemon'ları* veya *hizmet hesapları*.
 
 OAuth 2.0 istemci kimlik bilgileri, başka bir web hizmetini çağırırken bir kullanıcının kimliğine bürünmek yerine kendi kimlik bilgilerini kullanmak için bir web hizmetinin (gizli istemci) akış izinleri verin. Bu senaryoda istemci genellikle bir orta katman web hizmeti, arka plan programı hizmeti veya web sitesi olur. Daha yüksek bir güvence düzeyi için Azure Active Directory (Azure AD) kimlik bilgisi olarak (bir paylaşılan gizlilik) yerine bir sertifika kullanmak arama hizmeti de sağlar.
 

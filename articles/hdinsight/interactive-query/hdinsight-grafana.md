@@ -9,24 +9,24 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 973913e81157d2158074e50a61be0d73e5606ec3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 8103c06e3fec51316e367de903ed84d0023568bc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006150"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308163"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Azure HDInsight, erişim Grafana
 
 
-Grafana popüler, açık kaynaklı bir grafik ve Pano Oluşturucu ' dir. Grafana zengin özelliğidir; yalnızca kullanıcılarının özelleştirilebilir oluşturmasına izin vermez ve paylaşılabilir panolar da şablonlu/Script panolar, LDAP tümleştirme, birden çok veri kaynağına ve daha fazlasını sunar.
+[Grafana](https://grafana.com/) popüler, açık kaynaklı bir grafik ve Pano Oluşturucusu. Grafana zengin özelliğidir; yalnızca kullanıcılarının özelleştirilebilir oluşturmasına izin vermez ve paylaşılabilir panolar da şablonlu/Script panolar, LDAP tümleştirme, birden çok veri kaynağına ve daha fazlasını sunar.
 
 Şu anda, Grafana yalnızca Azure HDInsight etkileşimli sorgu kümesi türünde tarafından desteğidir.
 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
-## <a name="create-a-hadoop-cluster"></a>Hadoop kümesi oluşturma
+## <a name="create-an-apache-hadoop-cluster"></a>Bir Apache Hadoop kümesi oluşturma
 
 Bu bölümde, bir Azure Resource Manager şablonu kullanarak HDInsight içinde bir etkileşimli sorgu kümesi oluşturun. Bu makaleyi izlemek için Kaynak Yöneticisi şablonuyla deneyim sahibi olmak gerekli değildir. 
 
@@ -51,11 +51,11 @@ Bu bölümde, bir Azure Resource Manager şablonu kullanarak HDInsight içinde b
     |**Kaynak grubu**     | Bir kaynak grubu oluşturun veya mevcut bir kaynak grubunu seçin.  Kaynak grubu, Azure bileşenleri için bir kapsayıcıdır.  Bu durumda, kaynak grubu HDInsight kümesini ve bağımlı Azure Depolama hesabını içermektedir. |
     |**Konum**     | Kümenizi oluşturmak istediğiniz bir Azure konumunu seçin.  Daha iyi performans için kendinize yakın bir konum seçin. |
     |**Küme Türü**     | **hadoop**’u seçin. |
-    |**Küme Adı**     | Hadoop kümesi için bir ad girin. HDInsight’taki tüm kümeler aynı DNS ad alanını paylaştığından, bu adın benzersiz olması gerekir. Ad, harf, rakam ve kısa çizgilerin dahil olduğu en fazla 59 karakterden oluşabilir. Adın ilk ve son karakterleri, kısa çizgi olamaz. |
+    |**Küme Adı**     | Apache Hadoop kümesi için bir ad girin. HDInsight’taki tüm kümeler aynı DNS ad alanını paylaştığından, bu adın benzersiz olması gerekir. Ad, harf, rakam ve kısa çizgilerin dahil olduğu en fazla 59 karakterden oluşabilir. Adın ilk ve son karakterleri, kısa çizgi olamaz. |
     |**Küme oturum açma adı ve parolası**     | Varsayılan oturum açma adı **admin**’dir. Parola en az 10 karakter uzunluğunda olmalıdır ve en az bir rakam, bir büyük harf, bir küçük harf, bir alfasayısal olmayan karakter (' " ` karakterleri hariç\) içermelidir. "Pass@word1" gibi genel parolalar **sağlamadığınızdan** emin olun.|
     |**SSH kullanıcı adı ve parolası**     | Varsayılan kullanıcı adı **sshuser** şeklindedir.  SSH kullanıcı adını yeniden adlandırabilirsiniz.  SSH kullanıcı parolasının gereksinimleri, küme oturum açma parolasıyla aynıdır.|
        
-    Şablondaki bazı özellikler sabit kodlanmış olabilir.  Bu değerleri şablondan yapılandırabilirsiniz. Bu özellikler hakkında daha fazla açıklama için bkz. [HDInsight'ta Hadoop kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md).
+    Şablondaki bazı özellikler sabit kodlanmış olabilir.  Bu değerleri şablondan yapılandırabilirsiniz. Bu özellikler hakkında daha fazla açıklama için bkz: [Apache Hadoop kümeleri oluşturma HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 3. **Yukarıdaki hüküm ve koşulları kabul ediyorum**’u ve **Panoya sabitle**’yi seçip **Satın al**’a tıklayın. Portal panosunda **Dağıtım gönderiliyor** başlıklı yeni bir kutucuk görürsünüz. Bir küme oluşturmak yaklaşık 20 dakika sürer.
 
@@ -106,7 +106,7 @@ Makaleyi tamamladıktan sonra kümeyi silmek isteyebilirsiniz. HDInsight ile, ve
 3. **Kaynak grubunu sil**’i seçerek, kümeyi ve varsayılan depolama hesabını içeren kaynak grubunu silin. Kaynak grubu silindiğinde depolama hesabının da silindiğini unutmayın. Depolama hesabını tutmak istiyorsanız, yalnızca küme silmeyi seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, Kaynak Yöneticisi şablonu kullanarak Linux tabanlı bir HDInsight kümesi oluşturmayı ve temel Hive sorguları gerçekleştirmeyi öğrendiniz. Sonraki makalede, HDInsight üzerinde Hadoop kullanarak ayıklama, dönüştürme ve yükleme (ETL) işlemi gerçekleştirmeyi öğreneceksiniz.
+Bu makalede, Resource Manager şablonu kullanarak Linux tabanlı HDInsight kümesi oluşturma ve temel Apache Hive sorguları gerçekleştirmeyi öğrendiniz. Sonraki makalede, HDInsight üzerinde Hadoop kullanarak ayıklama, dönüştürme ve yükleme (ETL) işlemi gerçekleştirmeyi öğreneceksiniz.
 
 > [!div class="nextstepaction"]
 >[HDInsight üzerinde Apache Hive kullanarak verileri ayıklama, dönüştürme ve yükleme](../hdinsight-analyze-flight-delay-data-linux.md)
@@ -118,9 +118,9 @@ Kendi verilerinizle çalışmaya başlamaya hazırsanız ve HDInsight’ın veri
 
 HDInsight ile veri çözümleme hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* Visual Studio'da Hive sorguları gerçekleştirme dahil, HDInsight ile Hive kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile Hive kullanma](../hdinsight-use-hive.md).
-* Verileri dönüştürmek için kullanılan bir dil olan Pig hakkında bilgi için bkz. [HDInsight ile Pig kullanma](../hdinsight-use-pig.md).
-* Hadoop’ta verileri işleyen programları yazmanın bir yöntemi olan MapReduce hakkında bilgi edinmek için bkz. [HDInsight ile MapReduce kullanma](../hdinsight-use-mapreduce.md).
+* Visual Studio'dan Hive sorguları gerçekleştirme dahil, HDInsight ile Hive kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile Hive kullanma Apache](../hdinsight-use-hive.md).
+* Verileri dönüştürmek için kullanılan bir dil olan pig hakkında bilgi için bkz: [HDInsight ile Apache Pig kullanma](../hdinsight-use-pig.md).
+* Hadoop'ta verileri işleyen programları yazmanın bir yöntemi olan Apache Hadoop MapReduce hakkında bilgi edinmek için bkz. [HDInsight ile Apache Hadoop MapReduce kullanma](../hdinsight-use-mapreduce.md).
 * HDInsight’taki verileri çözümlemek amacıyla Visual Studio için HDInsight Araçları kullanma hakkında bilgi edinmek için bkz. [HDInsight için Visual Studio Hadoop araçlarını kullanmaya başlama](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 

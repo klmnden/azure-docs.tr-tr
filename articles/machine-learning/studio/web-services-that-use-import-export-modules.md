@@ -1,5 +1,5 @@
 ---
-title: İçeri/dışarı aktarma verileri Azure Machine Learning web hizmetleri kullanarak | Microsoft Docs
+title: İçeri/dışarı aktarma verileri Azure Machine Learning Studio web hizmetleri kullanarak | Microsoft Docs
 description: Bir web hizmetinden veri alıp göndermek için verileri içeri aktar ve dışarı veri modülleri'ni kullanmayı öğrenin.
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 3fa33572e60a43c66eca404e426232f9864a294e
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ee7d0fb4792983099dc6192de8f85338daee357f
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264650"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306956"
 ---
-# <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>Veri Alma ve Veri Gönderme modüllerini kullanan Azure ML web hizmetleri dağıtma
+# <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Veri içeri aktarma ve veri dışarı aktarma modüllerini kullanan Azure Machine Learning Studio web hizmetlerini dağıtma
 
 Tahmine dayalı bir deneme oluştururken, genellikle bir web hizmeti giriş ve çıkış ekleyin. Denemeyi dağıttığınızda, tüketicilerin gönderebilir ve giriş ve çıkışları aracılığıyla web hizmetinden veri al. Bazı uygulamalar için bir tüketicinin verileri bir veri akışı'ndan kullanılabilir veya Azure Blob Depolama gibi bir dış veri kaynağı zaten bulunan. Bu gibi durumlarda, web hizmeti giriş ve çıkışları kullanarak verileri okumasına ve yazmasına gerek yoktur. Bunlar, bunun yerine, toplu işlem yürütme hizmeti (BES) veri kaynağından verileri içeri aktarma modülü kullanarak verileri okumak için kullanabilir ve puanlama sonuç verileri dışarı aktarma modülünü kullanarak farklı veri konumuna yazma.
 

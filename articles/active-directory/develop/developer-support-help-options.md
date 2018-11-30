@@ -17,12 +17,12 @@ ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 9b2ccce4ef6fad4f7710ba2092d67ac5f4e73b71
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 60186d44437a866793b40c9d6f0263235803475f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39602014"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422448"
 ---
 # <a name="support-and-help-options-for-developers"></a>Geliştiriciler için destek ve Yardım seçenekleri 
 
@@ -50,7 +50,7 @@ Burada *{Your arama terimlerini}* arama anahtar sözcüklerinizi olduğu.
 
 ## <a name="use-our-development-support-tools"></a>Geliştirme desteği araçlarımızı kullanın
 
-|Araç  |Açıklama  |
+|Aracı  |Açıklama  |
 |---------|---------|
 |[jwt.MS](https://jwt.ms)| Talep adlarını ve değerlerini çözülecek kimliği veya erişim belirteçleri yapıştırın |
 |[Hata kodu Çözümleyicisi](https://apps.dev.microsoft.com/portal/tools/errors)| Oturum açma sırasında alınan hata kodu yapıştırın veya sayfaları olası nedenleri ve düzeltmeleri görmek için onay |
@@ -67,13 +67,13 @@ Bir arama ile sorununuzun yanıtını bulamazsanız, yeni Stack Overflow soru g�
 
 |Bileşen/alan  |Etiketler  |
 |---------|---------|
-|ADAL kitaplığı |[[adal]](http://stackoverflow.com/questions/tagged/adal)|
-|MSAL kitaplığı     |[[msal]](http://stackoverflow.com/questions/tagged/msal)|
-|OWIN ara yazılımı  |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)|
-|[Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  |[[azure ad b2b]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)|
-|[Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  |[[azure-ad-b2c]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)|
-|[Microsoft Graph API'si](https://developer.microsoft.com/graph/) |[[microsoft graph]](http://stackoverflow.com/questions/tagged/microsoft-graph)
-|Herhangi bir alan için kimlik doğrulama veya yetkilendirme ilgili konular |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)
+|ADAL kitaplığı |[[adal]](https://stackoverflow.com/questions/tagged/adal)|
+|MSAL kitaplığı     |[[msal]](https://stackoverflow.com/questions/tagged/msal)|
+|OWIN ara yazılımı  |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)|
+|[Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  |[[azure ad b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
+|[Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  |[[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
+|[Microsoft Graph API'si](https://developer.microsoft.com/graph/) |[[microsoft graph]](https://stackoverflow.com/questions/tagged/microsoft-graph)
+|Herhangi bir alan için kimlik doğrulama veya yetkilendirme ilgili konular |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
 > [!TIP]
 > Stack Overflow aşağıdaki gönderilerinden sorular yapma konusunda ipuçları içerir ve bu yönergeleri izleyerek kaynak kodu - ekleme ipuçları topluluk üyelerinin değerlendirmek ve sorularınıza hızla yanıt olasılığını artırmaya yardımcı olabilir:  

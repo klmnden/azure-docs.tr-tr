@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB ölçek ve performans testi | Microsoft Docs
-description: Ölçek ve performans ile Azure Cosmos DB testi gerçekleştirmek öğrenin
+description: Ölçek ve performans testi Azure Cosmos DB ile yapmayı öğrenin
 keywords: Performans testi
 services: cosmos-db
 author: SnehaGunda
@@ -11,46 +11,46 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: ce2c0ddcce3813990bf819477f7db425d70e3595
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09ed72c73acf16f944c3b1101aff5ea04acb624d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612308"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308180"
 ---
-# <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Performansı ve ölçeği Azure Cosmos DB ile test etme
+# <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Performans ve ölçek testi ile Azure Cosmos DB
 
-Performans ve ölçek testi adımdır bir anahtar uygulama geliştirme. Birçok uygulama için veritabanı katmanı genel performans ve ölçeklenebilirlik üzerinde önemli bir etkiye sahiptir. Bu nedenle performans testi için kritik bir bileşen olur. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) esnek ölçek ve tahmin edilebilir performans için amaca değil. Bu özellikler bir yüksek performanslı veritabanı katmanı gereken uygulamalar için mükemmel bir sığdırma kolaylaştırır. 
+Performans ve ölçek testi, uygulama geliştirme önemli bir adım olduğunu. Birçok uygulama için veritabanı katmanı genel performans ve ölçeklenebilirlik üzerinde önemli bir etkisi yoktur. Bu nedenle performans testi, kritik bir bileşen gereklidir. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) esnek ölçek ve öngörülebilir performans için özel olarak tasarlanmış. Bu özellikler, yüksek performanslı veritabanı katmanı gerek duyan uygulamalar için mükemmel bir uyum sağlar. 
 
-Bu makalede kendi Azure Cosmos DB iş yükleri için performansı test paketleri uygulama geliştiricileri için başvuru değildir. Ayrıca, yüksek performanslı uygulama senaryoları için Azure Cosmos DB değerlendirmek için de kullanılabilir. Yalıtılmış performans veritabanını öncelikle sınama odaklanır, ancak aynı zamanda üretim uygulamaları için en iyi yöntemleri içerir.
+Bu makalede, Azure Cosmos DB iş yükleri için performansı test paketlerini uygulama geliştiricilerine yönelik bir başvurudur. Ayrıca, yüksek performanslı uygulama senaryoları için Azure Cosmos DB değerlendirmek için de kullanılabilir. Veritabanını öncelikle yalıtılmış performans testi üzerinde odaklanmaktadır, ancak üretim uygulamaları için en iyi uygulamalar da içerir.
 
-Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlayın mümkün olacaktır: 
+Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlamak mümkün olacaktır: 
 
-* Azure Cosmos DB performans testi için bir örnek .NET istemci uygulaması nereden bulabilirim? 
-* My istemci uygulamasından nasıl Azure Cosmos DB ile yüksek işleme düzeyleri elde?
+* Azure Cosmos DB performans testi için örnek .NET istemci uygulaması nerede bulabilirim? 
+* İstemci uygulamamı nasıl Azure Cosmos DB ile yüksek aktarım hızı düzeylerine ulaşabilirsiniz?
 
-Kodu ile çalışmaya başlamak için projesinden indirmeniz [Azure Cosmos DB performans örnek testi](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark). 
+Kod ile çalışmaya başlamak için içinden projeyi karşıdan [Azure Cosmos DB performans örnek test](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark). 
 
 > [!NOTE]
-> Bu uygulama amacı, az sayıda istemci makineleri ile Azure Cosmos DB'den en iyi performansı elde etme göstermektir. Örnek (hangi herhangi bir sınır ölçeklendirebilirsiniz) Azure Cosmos DB en yüksek işleme kapasitesi değil elde etmek için hedefidir.
+> Bu uygulama amacı, az sayıda istemci makine ile Azure Cosmos DB'den en iyi performansı elde etme göstermektir. Örnek amacı, yoğun işleme kapasitesi (Bu sınırlar ölçeklendirebilirsiniz) Azure Cosmos DB, elde yok etmektir.
 > 
 > 
 
-Azure Cosmos DB performansını artırmak istemci tarafı yapılandırma seçenekleri arıyorsanız bkz [Azure Cosmos DB performans ipuçları](performance-tips.md).
+Azure Cosmos DB performansını artırmak, istemci tarafı yapılandırma seçenekleri arıyorsanız bkz [Azure Cosmos DB performans ipuçları](performance-tips.md).
 
-## <a name="run-the-performance-testing-application"></a>Performans uygulama testi çalıştırma
-Başlamak için en hızlı derlemek ve .NET örneği çalıştırmak için aşağıdaki adımlarda açıklandığı gibi yoludur. Ayrıca, kaynak kodu gözden geçirin ve benzer yapılandırmaları üzerinde kendi istemci uygulamalarını uygulamak.
+## <a name="run-the-performance-testing-application"></a>Performans uygulama testi Çalıştır
+Başlamak için hızlı derlemek ve bir .NET örneği çalıştırmak için aşağıdaki adımlarda anlatıldığı gibi yoludur. Ayrıca, kaynak kodu gözden geçirin ve kendi istemci uygulamalar üzerinde benzer yapılandırmaları uygular.
 
-**1. adım:** projesinden indirmeniz [Azure Cosmos DB performans örnek testi](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark), veya GitHub depoyu çatallaştırmanız.
+**1. adım:** içinden projeyi karşıdan [Azure Cosmos DB performans örnek test](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark), veya GitHub depo çatalı oluşturma.
 
 **2. adım:** EndpointUrl ve AuthorizationKey, CollectionThroughput ve DocumentTemplate (App.config dosyasında isteğe bağlı) ayarlarını değiştirin.
 
 > [!NOTE]
-> Yüksek verimlilik koleksiyonlarla sağlamadan önce başvurmak [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/cosmos-db/) koleksiyon başına maliyetleri tahmin etme. Azure Cosmos DB faturaları depolama ve işleme saatlik temelinde bağımsız olarak. Silerek veya test sonra Azure Cosmos DB koleksiyonlarınızı verimini azaltmayı maliyetleri kaydedebilirsiniz.
+> Yüksek aktarım hızı koleksiyonlarla sağlamadan önce başvurmak [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/cosmos-db/) koleksiyon başına maliyetlerini tahmin etmek için. Azure Cosmos DB, depolama ve aktarım hızını bağımsız olarak bir saatlik olarak düzenler. Silerek veya test edildikten sonra Azure Cosmos DB koleksiyonları verimini azaltmayı maliyetlerinden tasarruf edebilirler.
 > 
 > 
 
-**3. adım:** derleyin ve komut satırından konsol uygulamasını çalıştırın. Aşağıdakine benzer bir çıktı görmeniz gerekir:
+**3. adım:** derleyin ve konsol uygulamasını komut satırından çalıştırın. Şuna benzer bir çıktı görmeniz gerekir:
 
     C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
@@ -93,15 +93,15 @@ Başlamak için en hızlı derlemek ve .NET örneği çalıştırmak için aşa�
     Press any key to exit...
 
 
-**(Gerekiyorsa) 4. adım:** bildirilen üretilen işi (RU/s) aracından aynı olması gerekir ya da daha yüksek sağlanan işleme koleksiyonunun veya koleksiyonları kümesi. Değilse, küçük artışlarla DegreeOfParallelism artırma sınırına ulaştığında yardımcı olabilir. İstemci uygulamanızı akışından plateaus, uygulamanın birden çok örneğini ek istemci makineleri başlatın. Bu adım yardıma gereksinim duyarsanız, e-posta askcosmosdb@microsoft.com veya bir destek bileti gelen dosya [Azure portal](https://portal.azure.com).
+**(Gerekirse) 4. adım:** rapor işleme (RU/s) aracından aynı olmalıdır veya koleksiyon için sağlanan aktarım hızı veya koleksiyonları kümesi daha yüksek. Yüklü değilse, DegreeOfParallelism küçük artışlarla artırma sınırı ulaşmanıza yardımcı olabilir. İstemci uygulamanızı akışından plateaus, ek istemci makinelerinde birden fazla uygulamayı başlatın. Bu adımla ilgili yardıma ihtiyacınız varsa, e-posta askcosmosdb@microsoft.com veya bir destek bileti dosya [Azure portalında](https://portal.azure.com).
 
-Uygulamayı oluşturduktan sonra farklı deneyebilirsiniz [ilkeleri dizin](indexing-policies.md) ve [tutarlılık düzeylerini](consistency-levels.md) üretilen iş ve gecikmeyi üzerindeki etkilerini anlamak için. Kaynak kodu gözden geçirmek ve kendi test paketleri ya da üretim uygulamaları için benzer yapılandırmaları uygulamak.
+Uygulamayı oluşturduktan sonra farklı deneyebilirsiniz [dizinleme ilkeleri](index-policy.md) ve [tutarlılık düzeyleri](consistency-levels.md) aktarım hızı ve gecikme süresini üzerindeki etkilerini anlamak için. Ayrıca, kaynak kodu gözden geçirin ve kendi test paketleri veya üretim uygulamaları için benzer yapılandırmaları uygulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, nasıl performansı ve ölçeği bir .NET konsol uygulaması kullanarak Azure Cosmos DB ile test gerçekleştirebileceğiniz en arama. Daha fazla bilgi için aşağıdaki makalelere bakın:
+Bu makalede, nasıl performans ve ölçek bir .NET konsol uygulaması kullanarak Azure Cosmos DB ile testi gerçekleştirebilirsiniz incelemiştik. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [Azure Cosmos DB performans örnek testi](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
+* [Azure Cosmos DB performans örnek test etme](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
 * [Azure Cosmos DB performansını artırmak için istemci yapılandırma seçenekleri](performance-tips.md)
-* [Sunucu tarafı Azure Cosmos DB'de bölümlendirme](partition-data.md)
+* [Sunucu tarafı Azure Cosmos DB'de bölümleme](partition-data.md)
 
 

@@ -17,12 +17,12 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ad7bb3c3a7bd50521b968b7c1a4e21027fbe18f2
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 0fc81a75e79d7f570bd55c9c30a464e5bbb9ad1c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986061"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423441"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 ve OAuth 2.0 On-Behalf-Of akış
 
@@ -133,7 +133,7 @@ Başarılı yanıtı aşağıdaki parametrelerle bir JSON OAuth 2.0 yanıtındak
 
 | Parametre | Açıklama |
 | --- | --- |
-| token_type |Belirteç türü değeri gösterir. Azure AD destekleyen tek tür **taşıyıcı**. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: taşıyıcı belirteç kullanımı (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Belirteç türü değeri gösterir. Azure AD destekleyen tek tür **taşıyıcı**. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: taşıyıcı belirteç kullanımı (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |Erişim belirtecinde verilen kapsam. |
 | expires_in |Süre (saniye cinsinden) erişim belirteci geçerlidir. |
 | access_token |İstenen erişim belirteci. Arama hizmeti, alıcı hizmetinde kimlik doğrulaması için bu belirteci kullanabilirsiniz. |

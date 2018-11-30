@@ -1,5 +1,5 @@
 ---
-title: 'Adım 4: Eğitme ve Tahmine dayalı analiz modellerini değerlendirme | Microsoft Docs'
+title: "4. adım: Tahmine dayalı analiz modellerini - Azure Machine Learning Studio'da eğitim | Microsoft Docs"
 description: "Tahmine dayalı çözüm Kılavuzu geliştirme, adım 4: eğitme, Puanlama ve Azure Machine Learning Studio'da birden fazla modeli değerlendirin."
 services: machine-learning
 documentationcenter: ''
@@ -16,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: d0277db665259d485c5a5a06f0013f3c0d6a177c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 4b4ffcf8e6c886a2f182c844f940e53c24d1efa0
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261794"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313478"
 ---
-# <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>Kılavuz Adımı 4: Öngörücü analiz modelleri hakkında eğitim ve değerlendirme
+# <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models-in-machine-learning-studio"></a>Kılavuz adımı 4: Eğitme ve Machine Learning Studio'da Tahmine dayalı analiz modellerini değerlendirme
 Bu konu örnek dördüncü adımı içeren [bir Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirin](walkthrough-develop-predictive-solution.md)
 
-1. [Bir Machine Learning çalışma alanı oluşturma](walkthrough-1-create-ml-workspace.md)
+1. [Machine Learning Studio çalışma alanı oluşturma](walkthrough-1-create-ml-workspace.md)
 2. [Mevcut verileri yükleme](walkthrough-2-upload-data.md)
 3. [Yeni bir deneme oluşturma](walkthrough-3-create-new-experiment.md)
 4. **Modelleri eğitme ve değerlendirme**
@@ -41,7 +41,7 @@ Biz bu örnekte geliştirmekte olduğunuz deneme biz modelleri iki farklı türd
 Biz seçebilirsiniz çeşitli modeli vardır. Kullanılabilir modelleri görmek için genişletin **Machine Learning** modül paletindeki düğümünü ve ardından **modeli Başlat** ve altındaki düğümleri. Bu deneyin amacı doğrultusunda, seçeneğini belirleyeceğiz [iki sınıflı destekli vektör makinesi] [ two-class-support-vector-machine] (SVM) ve [iki sınıflı artırılmış karar ağacı] [ two-class-boosted-decision-tree] modüller.    
 
 > [!TIP]
-> Çözmeye çalıştığınız belirli sorun hangi Machine Learning algoritmasını en iyi uyan karar vermeyle ilgili Yardım almak için bkz. [Microsoft Azure Machine Learning için algoritma seçme](algorithm-choice.md).
+> Çözmeye çalıştığınız belirli sorun hangi Machine Learning algoritmasını en iyi uyan karar vermeyle ilgili Yardım almak için bkz. [Microsoft Azure Machine Learning Studio için algoritma seçme](algorithm-choice.md).
 > 
 > 
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 7f553300ce87ad24042e4d75b2e6e3742125783b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 34b2658ef4b25b3d545932ceffd2f3cf8969034e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284634"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309371"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Nasıl yapılır: Azure AD join uygulamanızı planlama
 
@@ -62,7 +62,7 @@ Karma Azure AD uygulamanız planlamak için ile kendinizi alıştırın:
 Hibrit Azure AD'ye katılım olabilir, belirli senaryoları tercih edilir olsa da Azure AD join, Windows bulut öncelikli modeliyle doğrultusunda geçiş sağlar. Cihazların yönetimini modernleştirin ve cihaz ile ilgili BT maliyetlerini azaltmak planlıyorsanız, Azure AD join söz konusu amaçlar doğrultusunda harika bir temel sunar.  
 
  
-Hedeflerinizi olması durumunda Azure AD'ye katılım dikkate almanız gereken aşağıdaki ölçütleri:
+Hedeflerinizi aşağıdaki ölçütleri ile hizalamak Azure AD'ye katılım düşünmelisiniz:
 
 - Microsoft 365 kullanıcılarınız için üretkenliği paketi olarak artıyor.
 
@@ -95,12 +95,14 @@ Birleştirilmiş bir ortamda hem WS-Güven ve WS-Federasyon protokollerini deste
 
 - **WS-Trust:** bu protokolü, bir Azure AD alanına katılmış cihazda oturum açın gereklidir. 
 
-Kimlik sağlayıcınız bu protokolleri desteklemiyorsa, Azure AD'ye katılım yerel olarak çalışmaz. Windows 10 1809 ile başlayarak, kullanıcılarınızın bir Azure AD alanına katılmış cihaz bir SAML tabanlı kimlik sağlayıcısı ile oturum açabilirsiniz bir [web oturum açma Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). 
+Kimlik sağlayıcınız bu protokolleri desteklemiyorsa, Azure AD'ye katılım yerel olarak çalışmaz. Windows 10 1809 ile başlayarak, kullanıcılarınızın bir Azure AD alanına katılmış cihaz bir SAML tabanlı kimlik sağlayıcısı ile oturum açabilirsiniz [web oturum açma Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Şu anda web oturumu açma bir yalnızca önizleme özelliğidir.
 
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Akıllı kart ve sertifika tabanlı kimlik doğrulaması
 
 Cihazları Azure AD'ye için akıllı kart veya sertifika tabanlı kimlik doğrulaması'nı kullanamazsınız. Ancak, akıllı kartlar, yapılandırılmış AD FS varsa Azure AD'ye katılmış cihazlar için oturum açmak için kullanılabilir.
+
+**Öneri:** uygulama Windows Hello güçlü, parola olmadan kimlik doğrulaması için Windows 10 cihazlarında iş için.
 
 
 ### <a name="user-configuration"></a>Kullanıcı Yapılandırması
@@ -209,7 +211,9 @@ Bağlı olan makine kimlik doğrulamasını şirket içi uygulamaların Azure AD
 
 **Öneri:** bu uygulamaları devre dışı bırakma ve bunların modern alternatifleri taşımayı düşünün.
 
+### <a name="remote-desktop-services"></a>Uzak Masaüstü Hizmetleri
 
+Konak makine ya da Azure AD'ye katılmış olması ya da Azure AD'ye katılmış karma Azure AD'ye katılmış cihazlar için Uzak Masaüstü bağlantısı gerektirir. Uzak Masaüstü katılmamış veya Windows olmayan bir CİHAZDAN desteklenmiyor. Daha fazla bilgi için [uzak Azure ad Connect katılmış bilgisayar](https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc)
 
 
 ## <a name="understand-your-provisioning-options"></a>Sağlama seçeneklerinizi anlayın

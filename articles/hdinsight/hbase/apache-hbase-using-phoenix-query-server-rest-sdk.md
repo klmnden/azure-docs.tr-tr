@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
-ms.openlocfilehash: f5be273401fa9fdfdc2c97296f5f2265dbb3c447
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f36d89fb01e7892ef10576b7f5f0b5fa86d8a21b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042386"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314260"
 ---
-# <a name="phoenix-query-server-rest-sdk"></a>Phoenix sorgu sunucusu REST SDK'sı
+# <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix sorgu sunucusu REST SDK'sı
 
-[Apache Phoenix](http://phoenix.apache.org/) açık kaynaklı, yüksek düzeyde paralel ilişkisel veritabanı katmanı üst kısmındaki [HBase](apache-hbase-overview.md). Phoenix gibi SSH Araçlar üzerinden SQL benzeri sorguları ile HBase kullanan olanak tanır [SQLLine](apache-hbase-phoenix-squirrel-linux.md). Phoenix, istemci iletişimi için iki aktarım mekanizması destekleyen bir ince istemciyi Phoenix sorgu sunucusu (PQS) adlı bir HTTP sunucusu da sağlar: JSON ve protokol arabellekleri. Protokol arabellekleri varsayılan mekanizmasıdır ve JSON daha verimli bir iletişim sunar.
+[Apache Phoenix](http://phoenix.apache.org/) açık kaynaklı, yüksek düzeyde paralel ilişkisel veritabanı katmanı üst kısmındaki [Apache HBase](apache-hbase-overview.md). Phoenix gibi SSH Araçlar üzerinden SQL benzeri sorguları ile HBase kullanan olanak tanır [SQLLine](apache-hbase-phoenix-squirrel-linux.md). Phoenix, istemci iletişimi için iki aktarım mekanizması destekleyen bir ince istemciyi Phoenix sorgu sunucusu (PQS) adlı bir HTTP sunucusu da sağlar: JSON ve protokol arabellekleri. Protokol arabellekleri varsayılan mekanizmasıdır ve JSON daha verimli bir iletişim sunar.
 
 Bu makalede, ayrı ayrı ve toplu tablolar, upsert satır oluşturma ve SQL deyimlerini kullanarak verileri seçme PQS REST SDK'sını kullanmayı açıklar. Örneklerde [Apache Phoenix sorgu sunucusu için Microsoft .NET sürücüsü](https://www.nuget.org/packages/Microsoft.Phoenix.Client). Bu SDK'sı oluşturulan [Apache Calcite'nın Avatica](https://calcite.apache.org/avatica/) API'ler, protokol arabellekleri için serileştirme biçimi kullanımda.
 
@@ -32,7 +32,7 @@ Apache Phoenix sorgu sunucusu için Microsoft .NET sürücüsü Visual Studio'da
 
 ## <a name="instantiate-new-phoenixclient-object"></a>Yeni PhoenixClient nesnesinin örneğini oluşturma
 
-Kitaplık'ı kullanmaya başlamak için yeni bir örneğini `PhoenixClient` tümleştirilmesidir nesnesi `ClusterCredentials` içeren `Uri` kümesi ve kümenin Hadoop kullanıcı adı ve parola.
+Kitaplık'ı kullanmaya başlamak için yeni bir örneğini `PhoenixClient` tümleştirilmesidir nesnesi `ClusterCredentials` içeren `Uri` kümesi ve kümenin Apache Hadoop kullanıcı adı ve parola.
 
 ```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
@@ -540,5 +540,5 @@ FM: 5
 
 ## <a name="next-steps"></a>Sonraki adımlar 
 
-* [HDInsight, Phoenix](../hdinsight-phoenix-in-hdinsight.md)
-* [HBase REST SDK'sını kullanma](apache-hbase-rest-sdk.md)
+* [HDInsight üzerinde Apache Phoenix](../hdinsight-phoenix-in-hdinsight.md)
+* [Apache HBase REST SDK'sını kullanma](apache-hbase-rest-sdk.md)

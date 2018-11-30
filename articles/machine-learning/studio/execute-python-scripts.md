@@ -1,6 +1,6 @@
 ---
-title: Python machine learning betikleri yürütme | Microsoft Docs
-description: Anahatları Python betikleri Azure Machine Learning ve temel kullanım senaryoları, özellikler ve sınırlamalar için destek temel ilkeleri tasarlayın.
+title: Azure Machine Learning Studio'da Python machine learning betikleri - yürütme | Microsoft Docs
+description: Anahatları Python betikleri Azure Machine Learning Studio, temel kullanım senaryoları, özellikler ve sınırlamalar için destek temel ilkeleri tasarlayın.
 keywords: python machine Learning, pandas python pandas, python betikleri python betiklerini yürütme
 services: machine-learning
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 8378ccaf64dae9c3116bb175e6cb44ba75a2e367
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 958dd91277a81a9082a4149d2b0026fc11bf882a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261539"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317594"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio’da Python machine learning betikleri yürütme
 

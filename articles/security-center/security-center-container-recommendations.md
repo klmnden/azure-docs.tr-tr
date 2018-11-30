@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: d1a89e5732145ca6d03f266741239c7469dfff16
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 1bb28f3ae972e4227265231080b8f37abaf8e130
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46131241"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317554"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Azure Güvenlik Merkezi kapsayıcı önerilerini anlama
 
@@ -29,7 +29,7 @@ Aşağıdaki tablolara, Iaas Linux makineleri ve Docker yapılandırmalarına g�
 
 | Öneri | Açıklama | Düzeltme |
 | --- | --- | --- |
-|Kapsayıcı güvenlik yapılandırmaları güvenlik açıklarını düzeltin |Kapsayıcı güvenlik yapılandırmalarını yapılandırma en iyi uygulamalarına göre güvenlik açıklarını düzeltin.| Kapsayıcı güvenlik yapılandırmalarını güvenlik açıklarını düzeltme için:<br>1. Başarısız kurallar listesini gözden geçirin.<br>2. Her bir kural belirtilen yönergelere göre düzeltin.|
+|Kapsayıcı güvenlik yapılandırmalarındaki güvenlik açıklarını düzeltin |Kapsayıcı güvenlik yapılandırmalarını yapılandırma en iyi uygulamalarına göre güvenlik açıklarını düzeltin.| Kapsayıcı güvenlik yapılandırmalarını güvenlik açıklarını düzeltme için:<br>1. Başarısız kurallar listesini gözden geçirin.<br>2. Her bir kural belirtilen yönergelere göre düzeltin.|
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -42,7 +42,7 @@ Diğer Azure kaynak türü için geçerli öneriler hakkında daha fazla bilgi i
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
 * [Makineleri ve Azure Güvenlik Merkezi'nde uygulamalarınızı koruma](security-center-virtual-machine-protection.md)
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -- Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
 

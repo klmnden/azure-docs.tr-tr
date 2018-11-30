@@ -10,30 +10,30 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 76b417d1592671006d3d5cfa2363e306e4db48fd
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 988301f24f710a3e29fad1254d405501166e8a4e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263052"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309802"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning veri hazırlığı SDK'sı ile verileri dönüştürün
 
-[Azure Machine Learning veri hazırlığı SDK'sı](https://aka.ms/data-prep-sdk) verilerinizi temizlemek için farklı dönüştürme yöntemi sunar. Bu yöntemler sütun ekleme, istenmeyen satırları veya sütunları filtrelemek ve eksik değerleri impute basitleştirir.
+Bu makalede, farklı yöntemler kullanarak verileri yükleme bilgi [Azure Machine Learning veri hazırlığı SDK'sı](https://aka.ms/data-prep-sdk). İşlevler sütunlar eklemek istenmeyen satırları veya sütunları filtrelemek basit hale getirmek ve eksik değerleri impute SDK'sı sunar.
 
-Şu anda aşağıdaki görevleri için yöntemleri vardır:
+Şu anda aşağıdaki görevler için işlev vardır:
+
 - [Bir ifade kullanarak sütun ekleme](#column)
 - [Eksik değerleri impute](#impute-missing-values)
 - [Sütunu örneğe göre türetme](#derive-column-by-example)
 - [Filtreleme](#filtering)
 - [Özel bir Python dönüşümler](#custom-python-transforms)
 
-<a name=column>
 ## <a name="add-column-using-an-expression"></a>Bir ifade kullanarak sütun ekleme
 
-Azure Machine Learning veri hazırlığı SDK içerir `substring` mevcut sütunlar arasında bir değer hesaplamak için kullanın ve ardından yeni bir sütun değeri put ifadeler. Bu örnekte biz veri yükleme ve söz konusu giriş verilerini sütunlar eklemek deneyin.
+Azure Machine Learning veri hazırlığı SDK içerir `substring` mevcut sütunlar arasında bir değer hesaplamak için kullanın ve ardından yeni bir sütun değeri put ifadeler. Bu örnekte, veri yükleme ve sütunları, giriş verilerini eklemeyi deneyin.
 
-```
+```python
 import azureml.dataprep as dprep
 
 # loading data
@@ -48,10 +48,9 @@ dataflow.head(3)
 |2|10140270|HY329253|07/05/2015 11:20:00 PM|121XX S ÖN KAYDET|0486|PİL|BASİT YURTİÇİ PİL|SOKAK|false|true|...|9|53|08B|||2015|07/12/2015 12:42:46 PM|
 
 
+Kullanım `substring(start, length)` önek çalışması sayı sütunu çıkarmak ve yeni bir sütunda, dize koymak için ifade `Case Category`. Geçirme `substring_expression` değişkenini `expression` parametresi ifadesi her kayıtta yürüten yeni bir hesaplanmış sütun oluşturur.
 
-Kullanım `substring(start, length)` önek çalışması sayı sütunu ayıklayın ve bu verilerinizden yeni bir sütun için ifade: çalışması kategorisi.
-
-```
+```python
 substring_expression = dprep.col('Case Number').substring(0, 2)
 case_category = dataflow.add_column(new_column_name='Case Category',
                                     prior_column='Case Number',
@@ -67,8 +66,9 @@ case_category.head(3)
 
 
 
-Kullanım `substring(start)` yalnızca sayı servis talebi sayısı sütundan daha sonra bir sayısal veri türüne dönüştürün ayıklayıp yeni bir sütun için ifade: çalışması kimliği.
-```
+Kullanım `substring(start)` ifade yalnızca sayı çalışması sayı sütunu ayıklayın ve yeni bir sütun oluşturun. Kullanarak bir sayısal veri türü dönüştürme `to_number()` işlev ve dize sütun adı bir parametre olarak geçiriyoruz.
+
+```python
 substring_expression2 = dprep.col('Case Number').substring(2)
 case_id = dataflow.add_column(new_column_name='Case Id',
                               prior_column='Case Number',
@@ -85,9 +85,9 @@ case_id.head(3)
 
 ## <a name="impute-missing-values"></a>Eksik değerleri impute
 
-Azure Machine Learning veri hazırlığı SDK'sı eksik değerleri belirtilen sütunlardaki impute. Bu örnekte, enlem ve boylam değerleri yükleme ve giriş verilerini eksik değerleri impute deneyin.
+SDK'sı eksik değerleri belirtilen sütunlardaki impute. Bu örnekte, enlem ve boylam değerleri yükleme ve giriş verilerini eksik değerleri impute deneyin.
 
-```
+```python
 import azureml.dataprep as dprep
 
 # loading input data
@@ -105,10 +105,11 @@ df.head(5)
 |3|10139885|false|41.902152|-87.754883|
 |4|10140379|false|41.885610|-87.657009|
 
-Üçüncü kayıt enlem ve boylam değerleri eksik. Bu eksik değerleri impute için kullanabileceğiniz `ImputeMissingValuesBuilder` sabit bir program öğrenin. Ya da bir hesaplanmış sütunları impute `MIN`, `MAX`, veya `MEAN` değeri veya `CUSTOM` değeri. Zaman `group_by_columns` belirtilirse, eksik değerler imputed grubuyla tarafından `MIN`, `MAX`, ve `MEAN` grubuna göre hesaplanır.
+Üçüncü kayıt enlem ve boylam değerleri eksik. Bu eksik değerleri impute için kullanmanız `ImputeMissingValuesBuilder` sabit bir ifade öğrenin. Ya da bir hesaplanmış sütunları impute `MIN`, `MAX`, `MEAN` değeri veya `CUSTOM` değeri. Zaman `group_by_columns` belirtilirse, eksik değerler imputed grubuyla tarafından `MIN`, `MAX`, ve `MEAN` grubuna göre hesaplanır.
 
-İlk olarak, hızlı bir şekilde kontrol `MEAN` enlem sütunun değeri.
-```
+Denetleme `MEAN` enlem kullanarak sütun değeri `summarize()` işlevi. Bu işlev dizi sütunların kabul `group_by_columns` toplama düzeyini belirtmek için parametre. `summary_columns` Parametreyi kabul eden bir `SummaryColumnsValue` çağırın. Bu işlev çağrısı geçerli sütun adı olan yeni hesaplanan alan adı belirtir ve `SummaryFunction` gerçekleştirilecek.
+
+```python
 df_mean = df.summarize(group_by_columns=['Arrest'],
                        summary_columns=[dprep.SummaryColumnsValue(column_id='Latitude',
                                                                  summary_column_name='Latitude_MEAN',
@@ -121,10 +122,11 @@ df_mean.head(1)
 |-----|-----|----|
 |0|false|41.878961|
 
-`MEAN` Enlem impute üzere kullanabilmeniz için latitudes değeri iyi görünüyor. Eksik boylam değerini biz bunu dış bilgilere dayanan 42 ile impute.
+`MEAN` Latitudes değerini doğru görünüyor, kullanın `ImputeColumnArguments` bunu impute için işlevi. Bu işlev kabul eden bir `column_id` dize ve `ReplaceValueFunction` impute türü belirtmek için. Eksik boylam değerini, dış bilgilere dayanan 42 impute.
 
+İmpute adımları zincirleme yapılabilir birlikte içine bir `ImputeMissingValuesBuilder` oluşturucu işlevi kullanarak nesne `impute_missing_values()`. `impute_columns` Parametreyi kabul eden bir dizi `ImputeColumnArguments` nesneleri. Çağrı `learn()` impute adımları depolamak için işlev ve kullanarak bir veri akışı nesnesi daha sonra uygulamanızı `to_dataflow()`.
 
-```
+```python
 # impute with MEAN
 impute_mean = dprep.ImputeColumnArguments(column_id='Latitude',
                                           impute_function=dprep.ReplaceValueFunction.MEAN)
@@ -152,20 +154,22 @@ df_imputed.head(5)
 |4|10140379|false|41.885610|-87.657009|
 
 Sonuçta yukarıda gösterildiği gibi eksik enlem ile imputed `MEAN` değerini `Arrest=='false'` grubu. Eksik boylam ile 42 imputed.
-```
+
+```python
 imputed_longitude = df_imputed.to_pandas_dataframe()['Longitude'][2]
 assert imputed_longitude == 42
 ```
 
 ## <a name="derive-column-by-example"></a>Sütunu örneğe göre türetme
-Azure Machine Learning veri hazırlığı SDK'sı daha gelişmiş araçlar istenen sonuçları örneklerini kullanarak sütunları türetme olanağını biridir. Bu, hedef türevi elde etmek için kod oluşturmak için SDK'sı bir örnek vermek sağlar.
 
-```
+Azure Machine Learning veri hazırlığı SDK'sı daha gelişmiş araçlar istenen sonuçları örneklerini kullanarak sütunları türetme olanağını biridir. Bu, hedeflenen dönüşümü elde etmek için kod oluşturabilmek SDK'sı bir örnek vermek sağlar.
+
+```python
 import azureml.dataprep as dprep
 dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/BostonWeather.csv')
-df = dataflow.head(10)
-df
+dataflow.head(10)
 ```
+
 ||DATE|REPORTTPYE|HOURLYDRYBULBTEMPF|HOURLYRelativeHumidity|HOURLYWindSpeed|
 |----|----|----|----|----|----|
 |0|1/1/2015 0:54|FM-15|22|50|10|
@@ -179,11 +183,9 @@ df
 |8|1/1/2015 6:54|FM-15|23|50|14|
 |9|1/1/2015 7:00|FM-12|23|50|14|
 
-Gördüğünüz gibi bu oldukça basit bir dosyadır. Ancak, tarih ve saat olduğu bir biçimde bu dosyayı bir veri kümesiyle katılmak gerektiğini varsayar ' 10 Mart 2018'den | 02: 00 - 04: 00 '.
+Tarih ve saat olduğu bir biçimde bu dosyayı bir veri kümesiyle katılmak gerektiğini varsayar ' 10 Mart 2018'den | 02: 00 - 04: 00 '.
 
-Gereksinim duyduğunuz şekle verileri dönüştürebilirsiniz.
-
-```
+```python
 builder = dataflow.builders.derive_column_by_example(source_columns=['DATE'], new_column_name='date_timerange')
 builder.add_example(source_data=df.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
 builder.preview() 
@@ -202,17 +204,14 @@ builder.preview()
 |8|1/1/2015 6:54|1 Ocak 2015 6 AM - 8: 00|
 |9|1/1/2015 7:00|1 Ocak 2015 6 AM - 8: 00|
 
-Yukarıdaki kod, ilk türetilmiş sütun için bir oluşturucu oluşturur. Kaynak sütunlar dikkate alınması gereken bir dizi sağlanan (`DATE`) ve yeni bir sütun eklemek için bir ad.
+Yukarıdaki kod, ilk türetilmiş sütun için bir oluşturucu oluşturur. Kaynak sütunlar dikkate alınması gereken bir dizi sağlayın (`DATE`), yeni bir sütun eklemek için bir ad. İlk örnek olarak ikinci satırında (dizin 1) geçirin ve türetilmiş sütunu için beklenen bir değer verin.
 
-Daha sonra ilk örnek, ikinci satırında (dizin 1) geçirilen ve türetilmiş sütunu için beklenen bir değer getirdi.
-
-Son olarak, aradığınız `builder.preview()` kaynak sütunun yanındaki türetilmiş sütuna görebilirsiniz. Biçimi iyi görünüyor, ancak yalnızca aynı tarih için "1 Ocak 2015" değerleri görebilirsiniz.
+Son olarak, çağrı `builder.preview()` kaynak sütunun yanındaki türetilmiş sütuna görebilirsiniz. Biçimi doğru görünüyor, ancak yalnızca aynı tarih için "1 Ocak 2015" değerleri görebilirsiniz.
 
 Şimdi, istediğiniz satır sayısını geçirin `skip` satırları görmek için üst birazcık daha indiğimde.
 
 ```
-preview_df = builder.preview(skip=30)
-preview_df
+builder.preview(skip=30)
 ```
 
 ||DATE|date_timerange|
@@ -228,14 +227,11 @@ preview_df
 |38|2/11/2015 4:00|1 Şubat 2015'te 4-6'da|
 |39|2/11/2015 4:54|1 Şubat 2015'te 4-6'da|
 
-Oluşturulan program ile ilgili bir sorun burada görebilirsiniz: yalnızca yukarıda sağlanan bir örneğe bağlı olarak, bu durumda istediklerinizi değil olduğu "Gün/ay/yıl" olarak bir tarihi ayrıştırmak türet program seçtiniz.
+Burada oluşturulan program ile ilgili bir sorun görürsünüz. Yalnızca yukarıda sağlanan bir örneğe bağlı olarak, bu durumda istediklerinizi değil olduğu "Gün/ay/yıl" olarak bir tarihi ayrıştırmak türet program seçtiniz. Bu sorunu gidermek için başka bir örnek kullanarak sağlamak `add_example()` işlevini `builder` değişkeni.
 
-Bu sorunu gidermek için başka bir örnek vermeniz gerekir.
-
-```
+```python
 builder.add_example(source_data=preview_df.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
-preview_df = builder.preview(skip=30, count=10)
-preview_df
+builder.preview(skip=30, count=10)
 ```
 
 ||DATE|date_timerange|
@@ -251,10 +247,9 @@ preview_df
 |38|1/2/2015 4:00|2 Ocak 2015 04: 00 - 6'da|
 |39|1/2/2015 4:54|2 Ocak 2015 04: 00 - 6'da|
 
+Satırları doğru bir şekilde işlemek artık ' 1/2/2015' 'Oca ancak türetilmiş sütun boyunca başka baktığınızda, 2 2015' olarak gördüğünüz değerleri sonunda türetilmiş sütununda hiçbir şey vardır. Bu sorunu gidermek için başka bir örnek için satır 66 sağlamanız gerekir.
 
-Şimdi, satırları düzgün bir şekilde işler ' 1/2/2015' 'Oca ancak türetilmiş sütun boyunca başka baktığınızda, 2 2015' olarak görebilirsiniz sonunda değerleri türetilmiş sütununda hiçbir şey vardır. Bu sorunu gidermek için başka bir örnek için satır 66 sağlamanız gerekir.
-
-```
+```python
 builder.add_example(source_data=preview_df.iloc[66], example_value='Jan 29, 2015 8PM-10PM')
 builder.preview(count=10)
 ```
@@ -272,14 +267,13 @@ builder.preview(count=10)
 |8|1/2/2015 4:00|2 Ocak 2015 04: 00 - 6'da|
 |9|1/2/2015 4:54|2 Ocak 2015 04: 00 - 6'da|
 
-Her şey iyi görünüyor, ancak bunun tam olarak ne istedik olduğunu fark edeceksiniz. Ayrı tarih ve saat ile için ihtiyaç duyduğunuz ' |' doğru biçimde oluşturulacak.
+Ayrı tarih ve saat ile ' |', başka bir örnek ekleyin. Preview sürümünden bir satırda geçirmek yerine bu kez, sütun adı'değerine sözlüğü oluşturmak `source_data` parametresi.
 
-Bu sorunu gidermek için başka bir örnek ekleyebilirsiniz. Preview sürümünden bir satırda geçirmek yerine bu kez, sütun adı'değerine sözlüğü oluşturmak `source_data` parametresi.
-
-```
+```python
 builder.add_example(source_data={'DATE': '11/11/2015 0:54'}, example_value='Nov 11, 2015 | 12AM-2AM')
 builder.preview(count=10)
 ```
+
 ||DATE|date_timerange|
 |-----|-----|-----|
 |0|1/1/2015 22:54|None|
@@ -293,12 +287,10 @@ builder.preview(count=10)
 |8|1/2/2015 4:00|None|
 |9|1/2/2015 4:54|None|
 
-Bu açıkça artık türetilmiş bir sütunda herhangi bir değere sahip tek satır bizim sağladığımız örnek ile tam olarak eşleşen olanlardır gibi olumsuz etkileri vardı.
+Bu açıkça artık türetilmiş bir sütunda herhangi bir değere sahip tek satır bizim sağladığımız örnek ile tam olarak eşleşen olanlardır gibi olumsuz etkileri vardı. Çağrı `list_examples()` geçerli örnek türetme bir listesini görmek için oluşturucu nesne üzerinde.
 
-Örneklere göz atalım:
-```
+```python
 examples = builder.list_examples()
-examples
 ```
 
 | |DATE|Örnek|example_id|
@@ -308,11 +300,11 @@ examples
 |2|29/1/2015 20:54|29 Ocak 2015'te 8-10 PM|-3|
 |3|11/11/2015 0:54|11 Kasım 2015 \| 12: 00 - 02: 00|-4|
 
-Tutarsız örnek sağladık görebilirsiniz. Bu sorunu düzeltmek için doğru olanlarla ilk üç örnekleri değiştirmek için ihtiyacımız (dahil olmak üzere ' |' tarih ve saat arasında).
+Bu durumda, tutarsız örnekler sağlanmıştır. Bu sorunu düzeltmek için ilk üç örnekler doğru oluşturduklarıyla değiştirin (dahil olmak üzere ' |' tarih ve saat arasında).
 
-Biz bunu yanlış örnekler silerek elde edebilirsiniz (ya da geçirerek `example_row` pandas DataFrame veya geçirerek `example_id` değeri) ve yeni ekleme örnekleri geri değiştirilebilir.
+Yanlış örnekler silerek tutarsız örnekleri düzeltme (ya da geçirerek `example_row` pandas DataFrame veya geçirerek `example_id` değeri) ve yeni ekleme örnekleri geri değiştirilebilir.
 
-```
+```python
 builder.delete_example(example_id=-1)
 builder.delete_example(example_row=examples.iloc[1])
 builder.delete_example(example_row=examples.iloc[2])
@@ -335,12 +327,11 @@ builder.preview()
 | 8 | 1/1/2015 6:54 | 1 Ocak 2015 \| 6 AM - 8: 00|
 | 9 | 1/1/2015 7:00 | 1 Ocak 2015 \| 6 AM - 8: 00|
 
-Artık verileri doğru bakar ve son olarak diyoruz `to_dataflow()` Oluşturucusu'eklenen istenen türetilmiş sütunlar bir veri akışı döndürülür.
+Artık verileri doğru bakar ve çağırmanızı `to_dataflow()` Oluşturucusu'eklenen istenen türetilmiş sütunlar bir veri akışı döndürülür.
 
-```
+```python
 dataflow = builder.to_dataflow()
 df = dataflow.to_pandas_dataframe()
-df
 ```
 
 ## <a name="filtering"></a>Filtreleme
@@ -348,12 +339,14 @@ df
 SDK'sı yöntemleri içerir `Dataflow.drop_columns` ve `Dataflow.filter` izin verecek şekilde satırları veya sütunları filtreleyin.
 
 ### <a name="initial-setup"></a>Başlangıç kurulumu
-```
+
+```python
 import azureml.dataprep as dprep
 from datetime import datetime
 dataflow = dprep.read_csv(path='https://dprepdata.blob.core.windows.net/demo/green-small/*')
 dataflow.head(5)
 ```
+
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Store_and_fwd_flag|RateCodeID|Pickup_longitude|Pickup_latitude|Dropoff_longitude|Dropoff_latitude|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 |0|None|None|None|None|None|None|None|None|None|None|None|None|None|
@@ -370,10 +363,11 @@ Sütunları filtrelemek, kullanın `Dataflow.drop_columns`. Bu yöntem bırakmak
 
 Bu örnekte, `drop_columns` dizeleri listesini alır. Her bir dizenin bırakmak istediğiniz sütunu tam olarak eşleşmelidir.
 
-``` 
+```python
 dataflow = dataflow.drop_columns(['Store_and_fwd_flag', 'RateCodeID'])
 dataflow.head(5)
 ```
+
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Pickup_longitude|Pickup_latitude|Dropoff_longitude|Dropoff_latitude|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 |0|None|None|None|None|None|None|None|None|None|None|None|
@@ -383,12 +377,14 @@ dataflow.head(5)
 |4|2013-08-01 10:38:35|2013-08-01 10:38:51|0|0|0|0|1|.00|0|0|3.25|
 
 #### <a name="filtering-columns-with-regex"></a>Regex sütunlarla filtreleme
-Alternatif olarak, `ColumnSelector` ifade normal bir ifadeyle eşleşen sütunları kaldırın. Bu örnekte, biz bir ifadeyle eşleşen tüm sütunları kaldırın `Column*|.*longitude|.*latitude`.
 
-```
+Alternatif olarak, `ColumnSelector` ifade normal bir ifadeyle eşleşen sütunları kaldırın. Bu örnekte, bir ifadeyle eşleşen tüm sütunlar bırak `Column*|.*longitude|.*latitude`.
+
+```python
 dataflow = dataflow.drop_columns(dprep.ColumnSelector('Column*|.*longitud|.*latitude', True, True))
 dataflow.head(5)
 ```
+
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|
 |0|None|None|None|None|None|None|None|
@@ -403,18 +399,19 @@ Satırları filtrele, kullanın `DataFlow.filter`. Bu yöntem, Azure Machine Lea
 
 ### <a name="filtering-rows-with-simple-expressions"></a>Basit ifadelerle satırları filtreleme
 
-İfade Oluşturucu kullanın `col`, bir dize bağımsız değişkeni bir sütun adı belirtin `col('column_name')` ve aşağıdaki standart işleçlerden birlikte >, <>, =, < =, ==,! =, bir ifade gibi derleme `col('Tip_amount') > 0`. Son olarak, yerleşik ifadesine geçirmek `Dataflow.filter` işlevi.
+İfade Oluşturucu kullanın `col`, bir dize bağımsız değişkeni bir sütun adı belirtin `col('column_name')`. Bu ifade aşağıdaki standart işleçlerden ile birlikte kullanma >, <>, =, < =, ==,! gibi bir ifade oluşturmak için = `col('Tip_amount') > 0`. Son olarak, yerleşik ifadesine geçirmek `Dataflow.filter` işlevi.
 
 Bu örnekte, `dataflow.filter(col('Tip_amount') > 0)` sütunları içeren yeni bir veri akışı döndüren değerini `Tip_amount` 0'dan büyük.
 
 > [!NOTE] 
 > `Tip_amount` ilk karşı diğer sayısal değerleri karşılaştırma bir ifade oluşturmak sağlıyor sayısal, dönüştürülür.
 
-```
+```python
 dataflow = dataflow.to_number(['Tip_amount'])
 dataflow = dataflow.filter(dprep.col('Tip_amount') > 0)
 dataflow.head(5)
 ```
+
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|
 |0|2013-08-01 19:33:28|2013-08-01 19:35:21|5|.00|0.08|0|4.58|
@@ -429,11 +426,12 @@ Karmaşık ifadeleri kullanarak filtre uygulamak için ifade oluşturuculara sah
 
 Bu örnekte, `Dataflow.filter` sütunları içeren yeni bir veri akışı döndürür burada `'Passenger_count'` 5'ten az olan ve `'Tolls_amount'` 0'dan büyük.
 
-```
+```python
 dataflow = dataflow.to_number(['Passenger_count', 'Tolls_amount'])
 dataflow = dataflow.filter(dprep.f_and(dprep.col('Passenger_count') < 5, dprep.col('Tolls_amount') > 0))
 dataflow.head(5)
 ```
+
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|
 |0|2013-08-08 12:16:00|2013-08-08 12:16:00|1.0|.00|2.25|5.00|19.75|
@@ -447,7 +445,7 @@ dataflow.head(5)
 > [!NOTE]
 > `lpep_pickup_datetime` ve `Lpep_dropoff_datetime` kurmamızı diğer datetime değerleri karşı karşılaştırma bir ifade oluşturmak tarih saat önce dönüştürülür.
 
-```
+```python
 dataflow = dataflow.to_datetime(['lpep_pickup_datetime', 'Lpep_dropoff_datetime'], ['%Y-%m-%d %H:%M:%S'])
 dataflow = dataflow.to_number(['Total_amount', 'Trip_distance'])
 mid_2013 = datetime(2013,7,1)
@@ -470,9 +468,9 @@ dataflow.head(5)
 |3|2013-08-25 16:46:51 + 00:00|2013-08-25 17:13:55 + 00:00|2.0|9.66|7.37|5.33|44.20|
 |4|2013-08-25 17:42:11 + 00:00|2013-08-25 18:02:57 + 00:00|1.0|9.60|6.87|5.33|41.20|
 
-## <a name="custom-python-transforms"></a>Özel bir Python dönüşümler 
+## <a name="custom-python-transforms"></a>Özel bir Python dönüşümler
 
-Python kod yazmak için kolay bir şey yapmanız gerektiğinde senaryoları olacaktır. SDK, kullanabileceğiniz üç uzantı noktaları sağlar.
+Her zaman olmayacaktır senaryoları dönüştürme yapmak için en kolay seçenek kendi betik yazarken. SDK, özel bir Python betikleri için kullanabileceğiniz üç uzantı noktaları sağlar.
 
 - Yeni bir betik sütun
 - Yeni betik filtresi
@@ -484,13 +482,14 @@ Her uzantısı hem ölçek büyütme ve ölçek genişletme çalışma zamanı i
 
 Bazı verileri Azure Blobundan yükleyerek başlayın.
 
-```
+```python
 import azureml.dataprep as dprep
 col = dprep.col
 
 df = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv', skip_rows=1)
 df.head(5)
 ```
+
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|-----|
 |0|ALABAMA|1|101710|Hale ilçe|10171002158| |
@@ -499,14 +498,15 @@ df.head(5)
 |3|ALABAMA|1|101710|Hale ilçe|10171000588|2|
 |4|ALABAMA|1|101710|Hale ilçe|10171000589| |
 
-Veri kümesi trim ve bazı temel dönüşümler yapın.
+Veri kümesinin trim ve bazı temel dönüşümler yapın.
 
-```
+```python
 df = df.keep_columns(['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
 df = df.replace_na(columns=['leanm10', 'MAM_MTH00numvalid_1011'], custom_na_list='.')
 df = df.to_number(['ncessch', 'MAM_MTH00numvalid_1011'])
 df.head(5)
 ```
+
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
 |0|ALABAMA|Hale ilçe|1.017100e + 10|None|
@@ -515,9 +515,9 @@ df.head(5)
 |3|ALABAMA|Hale ilçe|1.017100e + 10|2|
 |4|ALABAMA|Hale ilçe|1.017100e + 10|None|
 
-Null değerler için bir filtre kullanarak bakın. Bazı bulmak, bu nedenle şimdi bu eksik değerlerin doldurun.
+Null değerler aşağıdaki filtre kullanarak arayın.
 
-```
+```python
 df.filter(col('MAM_MTH00numvalid_1011').is_null()).head(5)
 ```
 
@@ -531,17 +531,19 @@ df.filter(col('MAM_MTH00numvalid_1011').is_null()).head(5)
 
 ### <a name="transform-partition"></a>Bölüm dönüştürme
 
-Tüm null değerleri 0 ile değiştirmek için kullanışlı pandas işlevi kullanabilirsiniz. Bu kod bölümü tarafından bulunan tüm veri kümesinin birer birer çalıştırılır. Bu, büyük bir veri kümesi üzerinde çalışma zamanı tarafından bölüm bölüm veri işlerken paralel olarak bu kod çalıştırabilir anlamına gelir.
+Tüm null değerleri 0 ile değiştirmek için bir pandas işlevini kullanın. Bu kod, tek seferde tüm veri kümesi üzerinde bir bölümü tarafından çalıştırılır. Başka bir deyişle, bir büyük veri kümesini temel çalışma zamanı tarafından bölüm bölüm veri işlerken paralel olarak bu kod çalıştırabilir.
 
-```
+Python betiğini çağrılan bir işlev tanımlamalıdır `transform()` iki bağımsız değişkeni almayan `df` ve `index`. `df` Bağımsız değişken bölümü için veri içeren bir pandas dataframe olacaktır ve `index` değişkendir bölümünün benzersiz bir tanımlayıcı. Dönüştürme işlevi tam olarak geçirilen veri çerçevesi düzenleyebilirsiniz ancak bir dataframe döndürmelidir. Python betiğini içe aktaran tüm kitaplıkları, veri akışı çalıştırıldığı ortama mevcut olması gerekir.
+
+```python
 df = df.transform_partition("""
 def transform(df, index):
     df['MAM_MTH00numvalid_1011'].fillna(0,inplace=True)
     return df
 """)
-h = df.head(5)
-h
+df.head(5)
 ```
+
 ||stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
 |0|ALABAMA|Hale ilçe|1.017100e + 10|0.0|
@@ -554,14 +556,16 @@ h
 
 Ülke adı ve durum adı olan yeni bir sütun oluşturmak için ve eyalet adı analizden yararlanmak için Python kodu kullanabilirsiniz. Bunu yapmak için `new_script_column()` veri akışı üzerinde yöntemi.
 
-```
+Python betiğini çağrılan bir işlev tanımlamalıdır `newvalue()` tek bir bağımsız değişken almayan `row`. `row` Bağımsız değişkeni olan bir, dict (`key`: sütun adı `val`: geçerli değer) ve veri kümesindeki her satır için bu işleve geçirilir. Bu işlev, yeni bir sütun kullanılacak bir değer döndürmesi gerekir. Python betiğini içe aktaran tüm kitaplıkları, veri akışı çalıştırıldığı ortama mevcut olması gerekir.
+
+```python
 df = df.new_script_column(new_column_name='county_state', insert_after='leanm10', script="""
 def newvalue(row):
     return row['leanm10'] + ', ' + row['stnam'].title()
 """)
-h = df.head(5)
-h
+df.head(5)
 ```
+
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
 |0|ALABAMA|Hale ilçe|Hale ilçe, Alabama|1.017100e + 10|0.0|
@@ -569,18 +573,18 @@ h
 |2|ALABAMA|Hale ilçe|Hale ilçe, Alabama|1.017100e + 10|0.0|
 |3|ALABAMA|Hale ilçe|Hale ilçe, Alabama|1.017100e + 10|2.0|
 |4|ALABAMA|Hale ilçe|Hale ilçe, Alabama|1.017100e + 10|0.0|
+
 ### <a name="new-script-filter"></a>Yeni betik filtresi
 
-Şimdi, yalnızca 'Hale' olduğu yeni satır kümesine filtre uygulamak için bir Python ifadesi Oluştur `county_state` sütun. Bir ifade döndürür `True` satır tutmak istiyorsanız ve `False` satır bırakmak.
+Veri kümesi yalnızca 'Hale' olduğu yeni satırlara filtrelemek için bir Python ifadesi Oluştur `county_state` sütun. Bir ifade döndürür `True` satır tutmak istiyorsanız ve `False` satır bırakmak.
 
-```
+```python
 df = df.new_script_filter("""
 def includerow(row):
     val = row['county_state']
     return 'Hale' not in val
 """)
-h = df.head(5)
-h
+df.head(5)
 ```
 
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|

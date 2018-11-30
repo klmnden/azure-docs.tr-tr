@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 11/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: 925f45f8d251882cfc8acf4b04902cea45451dd4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 91ee57ccd676d1d5e806e3f22eed3389d0fe5e73
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007272"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334202"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>İşletim sistemi güvenlik yapılandırmaları (Önizleme) Azure Güvenlik Merkezi'nde özelleştirme
 
@@ -32,7 +32,7 @@ Azure Güvenlik Merkezi'nin izlediği güvenlik yapılandırmalarını bir dizi 
 Kuralları özelleştirerek, kuruluşlar, kendi ortamlarından daha uygun olan yapılandırma seçenekleri denetleyebilirsiniz. Özelleştirilmiş değerlendirme ilkesi ayarlayabilir ve Abonelikteki tüm geçerli makinelerde uygulayın.
 
 > [!NOTE]
-> - Şu anda işletim sistemi güvenlik yapılandırması özelleştirmesini Windows Server 2008, 2008 R2, 2012 ve 2012 R2 sürümleri yalnızca işletim sistemleri için kullanılabilir.
+> - Şu anda işletim sistemi güvenlik yapılandırması özelleştirmesini Windows Server 2008, 2008 R2, 2012, 2012 R2 ve 2016 sürümleri yalnızca işletim sistemleri için kullanılabilir.
 > - Yapılandırma tüm Vm'leri ve seçilen abonelik altındaki tüm çalışma alanlarına bağlı olan bilgisayarlar için geçerlidir.
 > - İşletim sistemi güvenlik yapılandırması özelleştirme, yalnızca Güvenlik Merkezi'nin standart katmanında kullanılabilir.
 >
@@ -60,7 +60,7 @@ Güvenlik Merkezi'nde varsayılan işletim sistemi güvenlik yapılandırmasın�
 3.  Özelleştirmek istediğiniz abonelik satırının **ayarlarını Düzenle**.
 
 4. Seçin **güvenlik yapılandırmalarını Düzenle**.  
-    
+
     !["Güvenlik yapılandırmalarını Düzenle" penceresi](media/security-center-customize-os-security-config/blade.png)
 
 5. İndirmek, düzenlemek ve değiştirilen dosya karşıya yükleme adımlarını izleyin.

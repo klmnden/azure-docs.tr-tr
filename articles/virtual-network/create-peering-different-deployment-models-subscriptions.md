@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 01e8b5c518931411ba6e2d75168de6753bf55260
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 34c11c911b6c2ffbc4d4800cd7203a8d430814fb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971731"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311254"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Oluşturma bir sanal ağ eşlemesi - farklı dağıtım modelleri ve abonelikler
 
@@ -97,7 +97,7 @@ Bu öğreticide, farklı hesapları her abonelik için kullanılır. İki abonel
 
 ## <a name="cli"></a>Oluşturma eşleme - Azure CLI
 
-Bu öğreticide, farklı hesapları her abonelik için kullanılır. İki abonelik için izinleri olan bir hesap kullanıyorsanız, aynı hesabı kullanmak için tüm adımları, azure'dan günlüğe kaydetme adımları atlayın ve kullanıcı rol atamaları oluşturan komut satırlarını kaldırın. Değiştirin UserA@azure.com ve UserB@azure.com tüm Kullanıcıa ve kullanıcıb'in için kullanmakta olduğunuz kullanıcı adları ile aşağıdaki betikler. Azure Klasik CLI ve Azure CLI kullanarak aşağıdaki adımları tamamlayın. Yalnızca'i seçerek Azure Cloud shell'den adımları tamamlayabilirsiniz **deneyin** herhangi biri aşağıdaki adımları veya yükleyerek düğmesini [Klasik CLI](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [CLI](/cli/azure/install-azure-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve Yerel bilgisayarınızda komutları.
+Bu öğreticide, farklı hesapları her abonelik için kullanılır. İki abonelik için izinleri olan bir hesap kullanıyorsanız, aynı hesabı kullanmak için tüm adımları, azure'dan günlüğe kaydetme adımları atlayın ve kullanıcı rol atamaları oluşturan komut satırlarını kaldırın. Değiştirin UserA@azure.com ve UserB@azure.com tüm Kullanıcıa ve kullanıcıb'in için kullanmakta olduğunuz kullanıcı adları ile aşağıdaki betikler. Azure Klasik CLI ve Azure CLI kullanarak aşağıdaki adımları tamamlayın. Yalnızca'i seçerek Azure Cloud shell'den adımları tamamlayabilirsiniz **deneyin** herhangi biri aşağıdaki adımları veya yükleyerek düğmesini [Klasik CLI](/cli/azure/install-classic-cli) ve [CLI](/cli/azure/install-azure-cli) ve Yerel bilgisayarınızda komutları.
 
 1. Cloud Shell otomatik olarak, Azure'da oturum açtığı için Cloud Shell kullanıyorsanız, 2. adıma atlayın. Bir komut oturumu açın ve uygulamada oturum açma azure'a `azure login` komutu.
 2. Klasik CLI Hizmet Yönetimi modunda girerek çalıştırın `azure config mode asm` komutu.
@@ -272,7 +272,7 @@ Bu öğreticide, farklı hesapları her abonelik için kullanılır. İki abonel
 ## <a name="delete"></a>Kaynakları silme
 Bu öğreticiyi tamamladığınızda, kullanım ücret ödememeniz öğreticide oluşturulan kaynakları silmek isteyebilirsiniz. Bir kaynak grubunun silinmesi kaynak grubundaki tüm kaynakları da siler.
 
-### <a name="delete-portal"></a>Azure portalı
+### <a name="delete-portal"></a>Azure portal
 
 1. Portal arama kutusuna **myResourceGroupA**. Arama sonuçlarında tıklayın **myResourceGroupA**.
 2. Üzerinde **myResourceGroupA** dikey penceresinde tıklayın **Sil** simgesi.

@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: aad23f1b50a3156d01ce127270e29368f82d18b3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 569030cc6d72d206411a73703ec0d359e033bef7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014049"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311679"
 ---
-# <a name="use-azure-kubernetes-service-with-kafka-on-hdinsight"></a>Azure Kubernetes hizmeti, HDInsight üzerinde Kafka ile kullanma
+# <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Azure Kubernetes hizmeti, HDInsight üzerinde Apache Kafka ile kullanma
 
-Azure Kubernetes Service (AKS), HDInsight kümesinde Kafka ile kullanmayı öğrenin. Bu belgedeki adımlarda, AKS içinde barındırılan bir Node.js uygulaması Kafka ile bağlantısını doğrulamak için kullanın. Bu uygulamanın kullandığı [kafka düğümlü](https://www.npmjs.com/package/kafka-node) Kafka ile iletişim kurmak için paket. Kullandığı [Socket.io](https://socket.io/) olay odaklı tarayıcı istemci ve AKS barındırılan arka uç arasındaki Mesajlaşma için.
+Azure Kubernetes Service (AKS) ile kullanmayı öğrenin [Apache Kafka](https://kafka.apache.org/) HDInsight kümesi üzerinde. Bu belgedeki adımlarda, AKS içinde barındırılan bir Node.js uygulaması Kafka ile bağlantısını doğrulamak için kullanın. Bu uygulamanın kullandığı [kafka düğümlü](https://www.npmjs.com/package/kafka-node) Kafka ile iletişim kurmak için paket. Kullandığı [Socket.io](https://socket.io/) olay odaklı tarayıcı istemci ve AKS barındırılan arka uç arasındaki Mesajlaşma için.
 
 [Apache Kafka](https://kafka.apache.org), gerçek zamanlı akış verisi işlem hatları ve uygulamaları oluşturmak için kullanılabilen, açık kaynak dağıtılmış akış platformudur. Azure Kubernetes hizmeti, barındırılan Kubernetes ortamınızı yöneten ve kapsayıcılı uygulamaları dağıtmak hızlı ve kolaylaştırır. Bir Azure sanal ağı kullanarak, iki hizmet bağlanabilirsiniz.
 
@@ -93,14 +93,14 @@ Bir AKS kümesi zaten yoksa, nasıl oluşturacağınızı öğrenmek için aşa�
 
     Diğer alanları varsayılan değerde bırakın ve ardından __Tamam__ eşlemesini yapılandırmak üzere.
 
-## <a name="install-kafka-on-hdinsight"></a>HDInsight üzerinde Kafka yükleyin
+## <a name="install-apache-kafka-on-hdinsight"></a>HDInsight üzerinde Apache Kafka yükleyin
 
 HDInsight kümesinde Kafka oluşturma, HDInsight için daha önce oluşturduğunuz sanal ağa eklemeniz gerekir. Kafka kümesi oluşturma hakkında daha fazla bilgi için bkz. [Kafka kümesi oluşturma](apache-kafka-get-started.md) belge.
 
 > [!IMPORTANT]
 > Kümeyi oluştururken kullanmanız gerekir __Gelişmiş ayarlar__ HDInsight için oluşturduğunuz sanal ağa bağlanma.
 
-## <a name="configure-kafka-ip-advertising"></a>Kafka IP reklam yapılandırma
+## <a name="configure-apache-kafka-ip-advertising"></a>Apache Kafka IP reklam yapılandırma
 
 Etki alanı adları yerine IP adreslerini tanıtmak için Kafka yapılandırmak için aşağıdaki adımları kullanın:
 
@@ -152,7 +152,7 @@ Etki alanı adları yerine IP adreslerini tanıtmak için Kafka yapılandırmak 
 
 Bu noktada, Kafka ve Azure Kubernetes hizmeti eşlenen sanal ağlarda aracılığıyla iletişime dahildir. Bu bağlantıyı test etmek için aşağıdaki adımları kullanın:
 
-1. Test uygulama tarafından kullanılan bir Kafka konu oluşturun. Kafka konu oluşturma hakkında daha fazla bilgi için bkz: [Kafka kümesi oluşturma](apache-kafka-get-started.md) belge.
+1. Test uygulama tarafından kullanılan bir Kafka konu oluşturun. Kafka konu oluşturma hakkında daha fazla bilgi için bkz: [Apache Kafka kümesi oluşturma](apache-kafka-get-started.md) belge.
 
 2. Örnek uygulamayı indirin [ https://github.com/Blackmist/Kafka-AKS-Test ](https://github.com/Blackmist/Kafka-AKS-Test).
 
@@ -161,7 +161,7 @@ Bu noktada, Kafka ve Azure Kubernetes hizmeti eşlenen sanal ağlarda aracılı�
     * `var topic = 'mytopic'`: Değiştirin `mytopic` bu uygulama tarafından kullanılan Kafka konu adına sahip.
     * `var brokerHost = '176.16.0.13:9092`: Değiştirin `176.16.0.13` kümenizin aracı konaklarından iç IP adresi ile.
 
-        İç IP adresi Aracısı kümedeki konaklar (workernodes) bulmak için bkz [Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes) belge. IP adresi başladığı etki alanı adı ile girişlerden birini seçin `wn`.
+        İç IP adresi Aracısı kümedeki konaklar (workernodes) bulmak için bkz [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes) belge. IP adresi başladığı etki alanı adı ile girişlerden birini seçin `wn`.
 
 4. Bir komut satırında `src` directory bağımlılıkları yükler ve dağıtım için bir görüntü oluşturmak için Docker'ı kullanma:
 
@@ -224,12 +224,12 @@ Bu noktada, Kafka ve Azure Kubernetes hizmeti eşlenen sanal ağlarda aracılı�
 
 HDInsight’ta Apache Kafka kullanma hakkında bilgi almak için aşağıdaki bağlantıları kullanın:
 
-* [HDInsight'ta Kafka kullanmaya başlama](apache-kafka-get-started.md)
+* [HDInsight üzerinde Apache Kafka ile çalışmaya başlama](apache-kafka-get-started.md)
 
-* [MirrorMaker kullanarak HDInsight üzerinde Kafka kopyası oluşturma](apache-kafka-mirroring.md)
+* [MirrorMaker HDInsight üzerinde Apache Kafka'nın bir çoğaltma oluşturmak için kullanın](apache-kafka-mirroring.md)
 
-* [Apache Storm’u HDInsight üzerinde Kafka ile kullanma](../hdinsight-apache-storm-with-kafka.md)
+* [Apache Storm'u HDInsight üzerinde Apache Kafka ile kullanma](../hdinsight-apache-storm-with-kafka.md)
 
-* [Apache Spark’ı HDInsight üzerinde Kafka ile kullanma](../hdinsight-apache-spark-with-kafka.md)
+* [HDInsight üzerinde Apache Kafka ile Apache Spark kullanma](../hdinsight-apache-spark-with-kafka.md)
 
-* [Azure Sanal Ağ üzerinden Kafka’ya bağlanma](apache-kafka-connect-vpn-gateway.md)
+* [Apache Kafka ile bir Azure sanal ağına bağlanma](apache-kafka-connect-vpn-gateway.md)

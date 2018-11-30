@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d4523a9e2d5a5466c1617930d14a8a2d25a0e16f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d77e5265349db2fc433d2bb9a42140a6a4209ba1
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238786"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317509"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik yapılandırmalarını düzeltme
 Azure Güvenlik Merkezi, sanal makineleri (VM'ler) ve Vm'leri hale getirebilecek yapılandırması için ve saldırı karşısında daha savunmasız bilgisayarları işletim sistemi (OS) günlük analiz eder. Güvenlik Merkezi, işletim sistemi yapılandırması önerilen güvenlik yapılandırması kurallarını eşleşmiyor ve bu güvenlik açıklarına değinen yapılandırma değişiklikleri önerir, güvenlik açıklarını gidermek önerir.
@@ -101,7 +101,7 @@ Bu makalede Güvenlik Merkezi'nin önerisini "Düzelt güvenlik yapılandırmala
 Güvenlik Merkezi hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * Desteklenen Windows ve Linux Vm'leri listesi için bkz. [desteklenen platformlar Azure Güvenlik Merkezi'nde](security-center-os-coverage.md).
-* Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinmek için [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md).
+* Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinmek için [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md).
 * Öneriler, Azure kaynaklarınızı korumanıza nasıl yardımcı bilgi edinmek için [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md).
 * Azure kaynaklarınızın durumunu izlemek öğrenmek için bkz: [güvenlik durumunu, Azure Güvenlik Merkezi'nde izleme](security-center-monitoring.md).
 * Yönetme ve güvenlik uyarılarını yanıtlama hakkında bilgi edinmek için [yönetme ve Azure Güvenlik Merkezi'nde güvenlik uyarılarını yanıtlama](security-center-managing-and-responding-alerts.md).

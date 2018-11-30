@@ -10,28 +10,28 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 602ea8028cf89b23df692d5c2fb9b781f64bcad4
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7062d98d40c15f4e9e873038fc12fc1b104c996d
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341693"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333488"
 ---
 # <a name="categorizing-images"></a>Resimleri kategorilere ayırma
 
-Görüntü işleme, etiketleme ve açıklamaları ek olarak, önceki sürümlerde tanımlanmış sınıflandırma tabanlı kategorileri döndürür. Bu kategoriler, üst/alt hereditary hiyerarşileri ile bir sınıflandırma olarak düzenlenir. Tüm kategoriler İngilizce'dir. Tek başına veya birlikte yeni modeli etiketleme kullanılabilir.
+Görüntü işleme, etiketleme ve açıklamaları ek olarak, önceki sürümlerde tanımlanmış sınıflandırma tabanlı kategorileri döndürür. Bu kategoriler, üst/alt kalıtsal hiyerarşileriyle bir taksonomi olarak düzenlenmiştir. Tüm kategoriler İngilizcedir. Tek başına veya birlikte yeni modeli etiketleme kullanılabilir.
 
-## <a name="the-86-category-concept"></a>Kategori 86 kavramı
+## <a name="the-86-category-concept"></a>86 kategori kavramı
 
-Aşağıdaki diyagramda görüldüğü 86 kavramları listesini bağlı olarak, görüntü geniş özel arasında değişen sınıflandırılabilir. Metin biçimindeki tam sınıflandırma için bkz: [kategori sınıflandırma](category-taxonomy.md).
+Aşağıdaki diyagramda görüldüğü 86 kavramları listesini bağlı olarak, görüntü geniş özel arasında değişen sınıflandırılabilir. Metin biçiminde tam taksonomi için bkz. [Kategori Taksonomisi](category-taxonomy.md).
 
-![Çözümleme kategorisi](./Images/analyze_categories.png)
+![Kategori sınıflandırma tüm kategorilerde gruplanmış listesi](./Images/analyze_categories-v2.png)
 
 ## <a name="image-categorization-examples"></a>Resmi kategori örnekleri
 
 Görüntü işleme örnek görüntünün görsel özelliklerini halinde kategorilere ayrılması zaman döndürür aşağıdaki JSON yanıtı gösterilir.
 
-![Kadın tavan](./Images/woman_roof.png)
+![Çatıda Kadın](./Images/woman_roof.png)
 
 ```json
 {
@@ -54,10 +54,10 @@ Aşağıdaki tabloda tipik görüntü kümesi ve görüntü işleme tarafından 
 
 | Görüntü | Kategori |
 |-------|----------|
-| ![Aile fotoğrafı](./Images/family_photo.png) | people_group |
-| ![Şirin köpek](./Images/cute_dog.png) | animal_dog |
-| ![Dış Sıradağlar](./Images/mountain_vista.png) | outdoor_mountain |
-| ![İşleme Gıda ekmek analiz edin](./Images/bread.png) | food_bread |
+| ![Aile Fotoğrafı](./Images/family_photo.png) | people_group |
+| ![Şirin Köpek](./Images/cute_dog.png) | animal_dog |
+| ![Dış Mekanda Dağ](./Images/mountain_vista.png) | outdoor_mountain |
+| ![Görüntü Analizi Yiyecek Ekmek](./Images/bread.png) | food_bread |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

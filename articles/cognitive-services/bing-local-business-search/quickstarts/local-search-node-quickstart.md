@@ -10,12 +10,12 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 16f5b0fc94964a143f56191b1e4a99dc48891110
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: d60f2aca912f279f84710863e5f6ce507de64cb0
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852359"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309183"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Hızlı Başlangıç: Bing yerel iş arama Node.js kullanarak API için bir sorgu gönderin.
 
@@ -29,7 +29,7 @@ Bu örnek uygulama, arama sorgusu için API'sinden yerel yanıt verilerini alır
 
 * [JavaScript isteği kitaplığı](https://github.com/request/request)
 
-Olmalıdır bir [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) Bing API'leri ile. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) bu hızlı başlangıç için yeterlidir. Ücretsiz deneme tarafından sağlanan erişim anahtarı kullanın.
+Olmalıdır bir [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) Bing API'leri ile. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) bu hızlı başlangıç için yeterlidir. Ücretsiz deneme tarafından sağlanan erişim anahtarı kullanın.  Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ##<a name="code-scenario"></a>Kod senaryosu
 Aşağıdaki kod, tanımlar alır ve isteği gönderir. Aşağıdaki adımları izler:
@@ -51,12 +51,12 @@ let https = require('https');
 let subscriptionKey = 'your-access-key';
 
 let host = 'api.cognitive.microsoft.com/bing';
-let path = '/v7.0/search';
+let path = '/v7.0/localbusinesses/search';
 
 let mkt = 'en-US';
 let q = 'hotel in Bellevue';
 
-let params = '?q=' + encodeURI(q) + "&appid=" + accessKey + "&mkt=" + mkt;
+let params = '?q=' + encodeURI(q) + "&mkt=" + mkt;
 
 let response_handler = function (response) {
     let body = '';

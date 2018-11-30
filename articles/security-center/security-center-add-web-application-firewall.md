@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8ae1a4b7b8ce2e82856b63bd108e44a111dfd3fe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7b633b1787fc34658a84a2810de6673f9530cbf3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246591"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310659"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde bir web uygulaması güvenlik duvarı ekleme
 Azure Güvenlik Merkezi bir web uygulaması Güvenlik Duvarı (WAF) eklemek, bir Microsoft iş ortağından, web uygulamalarınızın güvenliğini sağlamak için önerebilir. Bu belge, bu öneriyi uygulamak nasıl bir örnek üzerinden açıklanmaktadır.
@@ -73,7 +73,7 @@ Bu belgede Güvenlik Merkezi önerisini "Add bir web uygulaması." uygulama nas�
 
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Güvenlik durumunu, Azure Güvenlik Merkezi'nde izleme](security-center-monitoring.md) --Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.

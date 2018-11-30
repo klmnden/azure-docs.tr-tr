@@ -10,12 +10,12 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: e0a8238de7266af2e4cddac49d012e03c561ec6b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 3513ada8a911c36a31c5796214cfe35d088320b7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975950"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316047"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Hızlı Başlangıç: Bing yerel iş arama API'si bir sorgu gönderinC#
 
@@ -28,7 +28,7 @@ Bu örnek uygulama, arama sorgusu için API'sinden yerel yanıt verilerini alır
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)’nin herhangi bir sürümü.
 * Linux/MacOS kullanıyorsanız bu uygulama, [Mono](http://www.mono-project.com/) kullanılarak çalıştırılabilir.
 
-Bing Arama API'lerine sahip bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde sağlanan erişim anahtarı gerekir.
+Bing Arama API'lerine sahip bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) bu hızlı başlangıç için yeterlidir.  Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-the-request"></a>İstek oluşturma 
 

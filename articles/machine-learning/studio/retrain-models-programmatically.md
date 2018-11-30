@@ -1,5 +1,5 @@
 ---
-title: Machine Learning modellerini programlama yoluyla yeniden eğitme | Microsoft Docs
+title: Azure program aracılığıyla - Machine Learning Studio'da modelleri yeniden eğitme | Microsoft Docs
 description: Program aracılığıyla bir modeli yeniden eğitme ve Azure Machine Learning'de yeni eğitim modeli kullanmak için web hizmetini güncelleştirmek hakkında bilgi edinin.
 services: machine-learning
 documentationcenter: ''
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 2dd72446bd1238b7c70535bf848d52909f82d990
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: b38143fe6f1f1cf3e65a2989e1b0a71c28530b2a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262236"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313394"
 ---
-# <a name="retrain-machine-learning-models-programmatically"></a>Machine Learning modellerini programlı olarak yeniden eğitme
-Bu izlenecek yolda, program aracılığıyla kullanarak bir Azure Machine Learning Web hizmetini yeniden eğitme hakkında bilgi edineceksiniz C# ve Machine Learning Batch Execution hizmeti.
+# <a name="retrain-machine-learning-studio-models-programmatically"></a>Machine Learning Studio modellerini programlama yoluyla yeniden eğitme
+Bu izlenecek yolda, program aracılığıyla bir Azure Machine Learning Studio web hizmeti kullanarak yeniden eğitme hakkında bilgi edineceksiniz C# ve Machine Learning Batch Execution hizmeti.
 
 Model retrained sonra aşağıdaki izlenecek yollar, Tahmine dayalı web hizmeti olarak modeli güncelleştirmek nasıl göster:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Başkalarının veri bilimi örnekler: Azure Machine Learning kopyalama | Microsoft Docs'
+title: 'Başkalarının veri bilimi örnekler: Azure Machine Learning Studio kopyalama | Microsoft Docs'
 description: 'Veri bilimi, ticari sır: başkalarının çalışmanıza sizin için gerçekleştirmesini istemeniz alın. Machine learning örnekleri, Azure yapay ZEKA Galeriden alın.'
 keywords: Veri bilimi örnekler, kümeleme algoritması örnek kümeleme algoritması, machine learning örneği
 services: machine-learning
@@ -17,12 +17,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
-ms.openlocfilehash: 3b856b749edef38672fa584db2884121c4b6be22
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e573a0394fa47cd6325fe582366242644232cf3d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262731"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313784"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Veri bilimi için başkalarının çalışmalarını kopyalama
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Seri yeni başlayanlar için veri bilimi

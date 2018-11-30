@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning Web hizmeti parametrelerini kullanma | Microsoft Docs
+title: Azure Machine Learning Studio web hizmeti parametrelerini kullanma | Microsoft Docs
 description: Web hizmeti erişim sağlandığında modelinizi davranışını değiştirmek için Azure Machine Learning Web hizmeti parametrelerini kullanma
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 34ae252ff2c37a6e4e9f90155c4fda79b81e29a2
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0e8a1a4bb90f935bf3890bd803b9375d10261aa7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264344"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312019"
 ---
-# <a name="use-azure-machine-learning-web-service-parameters"></a>Azure Machine Learning Web Hizmeti Parametrelerini kullanma
+# <a name="use-azure-machine-learning-studio-web-service-parameters"></a>Azure Machine Learning Studio web hizmeti parametrelerini kullanma
 Bir Azure Machine Learning web hizmeti modülleri ile yapılandırılabilir parametreler içeren bir denemeyi yayımlayarak oluşturulur. Bazı durumlarda, web hizmetinin çalıştığı sırada modülü davranışını değiştirmek isteyebilirsiniz. *Web hizmeti parametreleri* bu işi yapmanıza olanak sağlar. 
 
 Yaygın olarak karşılaşılan örneklerden ayarlama [verileri içeri aktarma] [ reader] modülü web hizmeti erişim sağlandığında yayımlanan web hizmeti kullanıcı farklı bir veri kaynağına belirtebilirsiniz. Veya yapılandırma [verileri dışarı aktarma] [ writer] modülü böylece farklı bir hedef belirtilebilir. Diğer örnekler için bit sayısı kadar değiştireceğiniz [özellik karma] [ feature-hashing] modül veya sayısı istenen özellikleri [özellik seçimi süzgeç tabanlı] [ filter-based-feature-selection] modülü. 

@@ -1,5 +1,5 @@
 ---
-title: '3. adım: yeni bir Machine Learning denemesi oluşturma | Microsoft Docs'
+title: '3. adım: yeni bir Machine Learning Studio denemesine - Azure oluşturun. | Microsoft Docs'
 description: "Adım 3 / geliştirme Tahmine dayalı çözüm Kılavuzu: Azure Machine Learning Studio'da yeni bir eğitim denemesini oluşturun."
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 47126006c96b1bfefe90b030805aac1d6af6c0db
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: a6f12c536cfc18ed0be55ec1755c7fe5179006ba
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262257"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317537"
 ---
-# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>Kılavuz Adımı 3: Yeni bir Azure Machine Learning denemesi oluşturma
+# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>Kılavuz adımı 3: yeni bir Azure Machine Learning Studio'da deneme oluşturma
 Bu kılavuz, üçüncü adımıdır [bir Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirin](walkthrough-develop-predictive-solution.md)
 
 1. [Bir Machine Learning çalışma alanı oluşturma](walkthrough-1-create-ml-workspace.md)

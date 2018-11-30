@@ -1,6 +1,6 @@
 ---
-title: Machine learning örneklerinden denemeler oluşturma - Azure | Microsoft Docs
-description: Azure AI Gallery ve Azure Machine Learning ile yeni denemeler oluşturmak için örnek makine öğrenimi denemelerini nasıl kullanacağınızı öğrenin.
+title: Örneklerden - Azure Machine Learning Studio denemeleri oluşturma | Microsoft Docs
+description: Azure AI Gallery ve Azure Machine Learning Studio ile yeni denemeler oluşturmak için örnek makine öğrenimi denemeleri kullanmayı öğrenin.
 keywords: machine learning örnekleri, örnek deneme, machine learning örneği, AI örnekleri
 services: machine-learning
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
-ms.openlocfilehash: 7bb6f054b81b21783cecb15c3b5caa9bcf6f77cd
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 568732c5a1d2abbb9f304b624d885b2a3c692706
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264299"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306689"
 ---
 # <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>Azure AI Gallery’de çalışma örneklerinden machine learning denemeleri oluşturma
 

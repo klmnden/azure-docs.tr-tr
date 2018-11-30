@@ -1,5 +1,5 @@
 ---
-title: Web Hizmeti uç noktalarını Machine Learning'de oluşturma | Microsoft Docs
+title: Machine Learning - Azure Machine Learning Studio Web Hizmeti uç noktalarını oluşturma | Microsoft Docs
 description: Web Hizmeti uç noktalarını Azure Machine Learning'de oluşturma
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: f046db11bf3c04c9ea15e759b4e0080cab4f71d5
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 266970bec1e61dca808bb6358f2b4580359ee70d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265075"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314022"
 ---
-# <a name="creating-endpoints"></a>Uç nokta oluşturma
+# <a name="creating-endpoints"></a>Uç nokta oluşturma 
 > [!NOTE]
 >  Bu konu, uygulanabilir teknikleri açıklar bir **Klasik** Machine Learning Web hizmeti.
 > 
@@ -31,7 +31,7 @@ ms.locfileid: "52265075"
 
 Müşterilerinize İleri Satış Web Hizmetleri oluşturduğunuzda, Web hizmeti oluşturulduğu denemeye hala bağlı olan her müşteri için eğitilen modelleri vermeniz gerekir. Ayrıca, herhangi bir güncelleştirme deneme seçerek bir uç noktaya özelleştirmelerin üzerine yazmadan uygulanmalıdır.
 
-Bunu yapmak için Azure Machine Learning, dağıtılan bir Web hizmeti için birden fazla uç nokta oluşturmanıza olanak sağlar. Her Web Hizmeti uç noktasını ayrı ayrı ele, kısıtlanan yönetilen ve. Her uç benzersiz URL'yi ve müşterilerinize dağıtabilirsiniz yetkilendirme anahtar noktasıdır.
+Bunu gerçekleştirmek için Azure Machine Learning Studio, dağıtılan bir Web hizmeti için birden fazla uç nokta oluşturmanıza olanak sağlar. Her Web Hizmeti uç noktasını ayrı ayrı ele, kısıtlanan yönetilen ve. Her uç benzersiz URL'yi ve müşterilerinize dağıtabilirsiniz yetkilendirme anahtar noktasıdır.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

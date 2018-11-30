@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: da114cc343d04165d5a6a2137aeb2b675258230a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 805270fa4cc051929ecb1362f2d3cd4455a17a60
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015341"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423390"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Nasıl yapılır: Azure erişim denetimi Hizmeti'nden geçiş
 
@@ -113,7 +113,7 @@ Kasım 2017'den itibaren tamamen desteklenen ve işletimsel tüm erişim denetim
 
 Erişim denetimi bileşenleri kullanımdan zamanlamasını şu şekildedir:
 
-- **Kasım 2017**: Klasik Azure portalında Azure AD Yöneticisi deneyimi [kullanımdan kaldırıldığında](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Bu noktada, erişim denetimi ad alanı yönetimi yeni ve ayrılmış bir URL'de kullanılabilir: `http://manage.windowsazure.com?restoreClassic=true`. İsterseniz bu URl, var olan ad alanları görüntülemek, etkinleştirmek ve ad alanları devre dışı bırakma ve ad alanları, silmek için kullanın.
+- **Kasım 2017**: Klasik Azure portalında Azure AD Yöneticisi deneyimi [kullanımdan kaldırıldığında](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Bu noktada, erişim denetimi ad alanı yönetimi yeni ve ayrılmış bir URL'de kullanılabilir: `https://manage.windowsazure.com?restoreClassic=true`. İsterseniz bu URl, var olan ad alanları görüntülemek, etkinleştirmek ve ad alanları devre dışı bırakma ve ad alanları, silmek için kullanın.
 - **2 Nisan 2018**: Klasik Azure portalı tamamen devre dışı bırakılan, erişim denetimi ad alanı yönetim herhangi bir URL kullanılabilir artık anlamına gelir. Bu noktada, devre dışı bırakmak veya etkinleştirmek, silemez veya erişim denetimi ad alanlarınıza listeleme. Erişim denetimi Yönetim Portalı ve tam olarak işlevsel konumunda bulunan ancak olacaktır `https://\<namespace\>.accesscontrol.windows.net`. Erişim denetimi tüm diğer bileşenleri normal şekilde çalışmaya devam eder.
 - **7 Kasım 2018'den**: tüm erişim denetimi bileşenleri kalıcı olarak kapat. Bu, erişim denetimi Yönetim Portalı, yönetim hizmeti, STS'ye ve belirteç dönüştürme kuralı altyapısı içerir. Bu noktada, erişim denetimi için gönderilen tüm istekler (konumundaki \<ad alanı\>. accesscontrol.windows.net) başarısız. Var olan tüm uygulamaları ve Hizmetleri için diğer teknolojiler de bu süreden önce geçirdiğiniz.
 
@@ -139,7 +139,7 @@ Access Control tarafından artık verilen belirteçleri kabul eden her bir Micro
 | Azure Backup | [Azure Backup Aracısı'nı yükseltme](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
-<!-- Azure RemoteApp deprecated in favor of Citrix: http://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
+<!-- Azure RemoteApp deprecated in favor of Citrix: https://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
 <!-- Exchange push notifications are moving, customers don't need to move -->
 <!-- Retail federation services are moving, customers don't need to move -->
 <!-- Azure StorSimple: TODO -->

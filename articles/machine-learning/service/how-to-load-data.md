@@ -9,28 +9,31 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 09/24/2018
-ms.openlocfilehash: f8092c7a05935dcb2ca176bee2c5820b50f3c814
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 11/20/2018
+ms.openlocfilehash: 208d6958b56dafbfacc45ecb05a71c14ac024ab4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263562"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309887"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Yükleme ve Azure Machine Learning ile veri okuma
 
-Kullanım [Azure Machine Learning veri hazırlığı SDK'sı](https://aka.ms/data-prep-sdk) giriş verisi farklı türler yüklenemedi. 
+Bu makalede, farklı yöntemler kullanarak verileri yükleme bilgi [Azure Machine Learning veri hazırlığı SDK'sı](https://aka.ms/data-prep-sdk). SDK'sı dahil olmak üzere birden çok veri alımı özellikleri destekler:
 
-Verilerinizi yüklemek için verileri dosya türünü ve parametrelerini belirtin
+* Birçok dosya türünü parametre çıkarımı (kodlama, ayırıcı, üst bilgiler) ayrıştırma ile yükleme
+* Tür-dönüştürme çıkarımı kullanılarak sırasında dosya yükleniyor
+* MS SQL Server ve Azure Data Lake Storage bağlantı desteği
 
-## <a name="use-text-line-data"></a>Metin satırı verileri kullanma 
-Verileri yüklemek için en kolay yollarından biri, metin satırı okuma sağlamaktır.
+## <a name="load-text-line-data"></a>Metin satırı veri yükleme 
 
-Örnek kod aşağıda verilmiştir:
+Bir veri akışı basit metin verileri okumak için kullanın `read_lines()` isteğe bağlı parametreleri belirtmeden.
+
 ```python
 dataflow = dprep.read_lines(path='./data/text_lines.txt')
 dataflow.head(5)
 ```
+
 ||Çizgi|
 |----|-----|
 |0|Tarih \| \| en düşük sıcaklık \| \| en yüksek sıcaklık|
@@ -39,33 +42,22 @@ dataflow.head(5)
 |3|2015-07-3 \| \| -7.0 \| \| 10.5|
 |4|2015-07-4 \| \| -5.5 \| \| 9.3|
 
-Veriler alınır sonra tam veri kümesi için bir pandas DataFrame alabilirsiniz.
+Bir Pandas dataframe veri akışı nesneyi dönüştürmek için aşağıdaki kodu çalıştırın sonra verileri alınır.
 
-Örnek kod aşağıda verilmiştir:
 ```python
-df = dataflow.to_pandas_dataframe()
-df
+pandas_df = dataflow.to_pandas_dataframe()
 ```
-Örnek çıktı:
-||Çizgi|
-|----|-----|
-|0|Tarih\| \| en düşük sıcaklık\| \| en yüksek sıcaklık|
-|1|2015-07-1\| \| 4.1\| \| 10.0|
-|2|2015-07-2\| \| 0.8\| \| 10.8|
-|3|2015-07-3\| \| 7.0\| \| 10.5|
-|4|2015-07-4\| \| 5.5\| \| 9.3|
 
-## <a name="use-csv-data"></a>CSV verileri kullanın
-Ayrılmış dosyalar okurken, temel alınan çalışma zamanı sağlamak yerine ayrıştırma parametreler (örneğin, kodlama, kullanıp kullanmayacağınızı üst bilgiler, vb. bir ayırıcı) Infer izin verebilirsiniz. Bu örnekte, yalnızca konumunu belirterek bir dosyayı okuma girişimi. 
+## <a name="load-csv-data"></a>CSV veri yükleme
 
-Örnek kod aşağıda verilmiştir:
+Temel çalışma zamanı, sınırlandırılmış dosyalar okurken, ayrıştırma parametreleri (kodlama, üst bilgiler vb. kullanılacağını ayırıcı.) çıkarabilir. Yalnızca konumunu belirterek bir CSV dosyası okuma girişimi için aşağıdaki kodu çalıştırın.
+
 ```python
 # SAS expires June 16th, 2019
 dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
 dataflow.head(5)
 ```
 
-Örnek çıktı:
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|-----|
 |0||stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
@@ -74,14 +66,14 @@ dataflow.head(5)
 |3|ALABAMA|1|101710|Hale ilçe|10171002156| |
 |4|ALABAMA|1|101710|Hale ilçe|10171000588|2|
 
-Parametrelerden biri belirtebilirsiniz okuduğunuz dosyalarında atlanacak satır sayısıdır. Yinelenen satırına filtrelemek için aşağıdaki kodu kullanın.
+Yükleme sırasında satırları tutmak için tanımlama `skip_rows` parametresi. Bu parametre (bir tabanlı bir dizin kullanarak) CSV dosyasında azalan yükleme satırları atlar.
+
 ```python
 dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1)
 dataflow.head(5)
 ```
 
-Örnek çıktı:
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|-----|
 |0|ALABAMA|1|101710|Hale ilçe|10171002158|29|
@@ -90,8 +82,8 @@ dataflow.head(5)
 |3|ALABAMA|1|101710|Hale ilçe|10171000588|2|
 |4|ALABAMA|1|101710|Hale ilçe|10171000589|23 |
 
-Ardından, sütunların veri türlerini bakabilirsiniz.
-Örnek kod aşağıda verilmiştir:
+Sütun veri türlerini görüntülemek için aşağıdaki kodu çalıştırın.
+
 ```python
 dataflow.head(1).dtypes
 
@@ -105,7 +97,7 @@ MAM_MTH00numvalid_1011    object
 dtype: object
 ```
 
-Ne yazık ki, tüm birbirine karışmamasını dizeler olarak geri geldi. Varsayılan olarak, Azure Machine Learning veri hazırlığı SDK'sı, veri türünü değiştirmez nedeni budur. Biz okuma veri kaynağı bir metin dosyası olduğundan SDK tüm değerleri dize olarak okur. Bu örnekte, ancak sayı olarak sayısal sütunları ayrıştırılacak istiyoruz. Bunu yapmak için current_culture inference_arguments parametresi ayarlayabilirsiniz.
+Varsayılan olarak, Azure Machine Learning veri hazırlığı SDK'sı, veri türünü değiştirmez. Makaleyi okuduğunuz veri kaynağı bir metin dosyası olduğundan SDK tüm değerleri dize olarak okur. Bu örnekte, sayı olarak sayısal sütunları ayrıştırılması gerekip. Ayarlama `inference_arguments` parametresi `InferenceArguments.current_culture()` otomatik olarak çıkarır ve dosyanın okuma sırasında sütun türlerini dönüştürmek için.
 
 ```
 dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
@@ -123,45 +115,17 @@ ALL_MTH00numvalid_1011    float64
 dtype: object
 ```
 
-Birkaç sütunların düzgün sayı olarak algılandı ve kendi türü için float64 ayarlanır. Bitti alımı ile tam veri kümesi için bir pandas DataFrame alabilirsiniz.
-Örnek kod aşağıda verilmiştir:
-```python
-df = dataflow.to_pandas_dataframe()
-df
-```
-
-Örnek çıktı:
-| |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
-|-----|-------|---------| -------|------|-----|
-|0|ALABAMA|Hale ilçe|1.017100e + 10|49.0|
-|1|ALABAMA|Hale ilçe|1.017100e + 10|40.0|
-|2|ALABAMA|Hale ilçe|1.017100e + 10|43.0|
-|3|ALABAMA|Hale ilçe|1.017100e + 10|2.0|
-|4|ALABAMA|Hale ilçe|1.017100e + 10|23.0|
+Bazı sütunların düzgün sayısal algılandı ve kendi tür kümesine `float64`.
 
 ## <a name="use-excel-data"></a>Excel verilerini kullanma
-Azure Machine Learning veri hazırlığı SDK'sını içeren bir `read_excel` Excel dosyalarını yüklemek için işlevi. Örnek kod aşağıda verilmiştir:
-```python
-dataflow = dprep.read_excel(path='./data/excel.xlsx')
-dataflow.head(5)
-```
 
-Örnek çıktı:
-||Column1|Column2|Sütun3|Sütun4|Sütun5|Sütun6|Column7|Column8|
-|------|------|------|-----|------|-----|-------|----|-----|
-|0|Hoba|Demir, IVB|60000000.0|Bulunamadı|1920.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |-19.58333|17.91667|
-|1|Cabo York|Demir, IIIAB|58200000.0|Bulunamadı|1818.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |76.13333|-64.93333|
-|2|Campo del Cielo|Demir, IAB MG|50000000.0|Bulunamadı|1576.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |-27.46667|-60.58333|
-|3|Diablo Canyon|Demir, IAB MG|30000000.0|Bulunamadı|1891.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |35.05000|-111.03333|
-|4|Armanty|Demir, IIIE|28000000.0|Bulunamadı|1898.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |47.00000|88.00000|
+SDK'sını içeren bir `read_excel()` Excel dosyalarını yüklemek için işlevi. Varsayılan olarak, çalışma kitabındaki ilk sayfa işlevi yükler. Yüklemek için belirli bir sayfaya tanımlamak için tanımladığınız `sheet_name` parametresiyle sayfa adı dize değeri.
 
-Excel dosyası birinci sayfasını yüklediniz. Açıkça yüklemek istediğiniz sayfanın adını belirterek aynı sonucu elde edebilirsiniz. Bunun yerine ikinci sayfa yüklemek istiyorsanız, bağımsız değişken olarak abonenin adını sağlayabilirsiniz. Örneğin:
 ```python
 dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2')
 dataflow.head(5)
 ```
 
-Örnek çıktı:
 ||Column1|Column2|Sütun3|Sütun4|Sütun5|Sütun6|Column7|Column8|
 |------|------|------|-----|------|-----|-------|----|-----|
 |0|None|None|None|None|None|None|None|None|None|
@@ -170,14 +134,12 @@ dataflow.head(5)
 |3|boyut sayısı|Unvan|Studio|Dünya çapında|Yerel / %|Column1|Deniz aşırı / %|Column2|Yıl ^|
 |4|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009 ^|5|
 
-Gördüğünüz gibi tablonun ikinci sayfasında üst bilgiler ve üç boş satır yoktu. İşlev bağımsız uygun şekilde değiştirmeniz gerekir. Örneğin:
+Çıktı, ikinci sayfa verileri üç boş satır üstbilgileri önce olduğunu gösterir. `read_excel()` İşlevi satırları ve üst bilgileri kullanmak için isteğe bağlı parametreler içeriyor. İlk üç satırı atlamak için aşağıdaki kodu çalıştırın ve dördüncü satırı başlık olarak kullanma.
+
 ```python
 dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_header=True, skip_rows=3)
-df = dataflow.to_pandas_dataframe()
-df
 ```
 
-Örnek çıktı:
 ||boyut sayısı|Unvan|Studio|Dünya çapında|Yerel / %|Column1|Deniz aşırı / %|Column2|Yıl ^|
 |------|------|------|-----|------|-----|-------|----|-----|-----|
 |0|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009 ^|
@@ -186,14 +148,15 @@ df
 |3|4|Harry Potter ve Deathly Hallows 2. Bölüm|WB|1341.5|381|0.284|960.5|0.716|2011|
 |4|5|Dondurulmuş|BV|1274.2|400.7|0.314|873.5|0.686|2013|
 
-## <a name="use-fixed-width-data-files"></a>Sabit genişlikli veri dosyalarını kullanma
-Sabit genişlikli dosyalar için uzaklık listesi belirtebilirsiniz. İlk sütun Uzaklık 0. Örneğin başlatmak için her zaman varsayılır:
+## <a name="load-fixed-width-data-files"></a>Sabit genişlikte veri dosyalarını yükleme
+
+Loadfixed genişlikli dosyalar için karakter ofsetleri listesini belirtin. İlk sütunda, her zaman sıfır uzaklığında başlatmak için varsayılır.
+
 ```python
 dataflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
 dataflow.head(5)
 ```
 
-Örnek çıktı:
 ||010000|99999|SAHTE NORVEÇ|NO|NO_1|ENRS|Column7|Column8|Column9|
 |------|------|------|-----|------|-----|-------|----|-----|----|
 |0|010003|99999|SAHTE NORVEÇ|NO|NO|ENSO||||
@@ -202,18 +165,13 @@ dataflow.head(5)
 |3|010014|99999|SOERSTOKKEN|NO|NO|ENSO|+59783|+005350|+00500|
 |4|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
 
+Üst bilgi algılama önlemek ve doğru verileri ayrıştırmak için geçirmek `PromoteHeadersMode.NONE` için `header` parametresi.
 
-Dosyaları bir üstbilgi varsa, ilk satır verisi olarak kabul isteyebilirsiniz. Geçirerek `PromoteHeadersMode.NONE` üstbilgi anahtar sözcük bağımsız değişkeni için üst bilgi algılama önlemek ve doğru verileri alın. Örneğin:
 ```python
 dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
                           offsets=[7, 13, 43, 46, 52, 58, 65, 73],
                           header=dprep.PromoteHeadersMode.NONE)
-
-df = dataflow.to_pandas_dataframe()
-df
 ```
-
-Örnek çıktı:
 
 ||Column1|Column2|Sütun3|Sütun4|Sütun5|Sütun6|Column7|Column8|Column9|
 |------|------|------|-----|------|-----|-------|----|-----|----|
@@ -224,28 +182,29 @@ df
 |4|010014|99999|SOERSTOKKEN|NO|NO|ENSO|+59783|+005350|+00500|
 |5|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
 
-## <a name="use-sql-data"></a>SQL verileri kullanın
-Azure Machine Learning veri hazırlığı SDK'sı, SQL sunuculardan veri de yükleyebilirsiniz. Şu anda yalnızca Microsoft SQL Server desteklenir.
-SQL Server'dan veri okumak için gerekli bağlantı bilgilerini içeren bir veri kaynağı nesnesi oluşturun. Örneğin:
+## <a name="load-sql-data"></a>SQL veri yükleme
+
+SDK Ayrıca verileri bir SQL kaynağı'ndan yükleyin. Şu anda yalnızca Microsoft SQL Server desteklenir. Oluşturma bir SQL server verilerini okumak için bir `MSSQLDataSource` bağlantı parametrelerini içeren nesne. Parola parametresi `MSSQLDataSource` kabul eden bir `Secret` nesne. Gizli bir nesne iki şekilde oluşturabilirsiniz:
+
+* Gizli anahtarı ve değeri yürütme altyapısı ile kaydedin. 
+* Gizli dizi ile yalnızca oluşturma bir `id` (gizli değer zaten yürütme ortamında kayıtlı olup olmadığını) kullanarak `dprep.create_secret("[SECRET-ID]")`.
+
 ```python
-secret = dprep.register_secret("[SECRET-USERNAME]", "[SECRET-PASSWORD]")
+secret = dprep.register_secret(value="[SECRET-PASSWORD]", id="[SECRET-ID]")
 
 ds = dprep.MSSQLDataSource(server_name="[SERVER-NAME]",
                            database_name="[DATABASE-NAME]",
                            user_name="[DATABASE-USERNAME]",
-                           password=[DATABASE-PASSWORD])
+                           password=secret)
 ```
-Gördüğünüz gibi parola parametresi `MSSQLDataSource` gizli bir nesneyi kabul eder. Gizli bir nesne iki yolla alabilirsiniz:
--   Gizli anahtarı ve değeri yürütme altyapısı ile kaydedin. 
--   Gizli dizi ile yalnızca bir kimlik (yararlı yürütme ortamında gizli değer zaten kayıtlı değilse) oluşturun.
 
-Bir veri kaynağı nesnesi oluşturduktan sonra veri okumak için geçebilirsiniz. Örneğin:
+Bir veri kaynağı nesnesi oluşturduktan sonra Sorgu çıktısı verileri okumak için geçebilirsiniz.
+
 ```python
 dataflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
 dataflow.head(5)
 ```
 
-Örnek çıktı:
 ||ProductID|Ad|ProductNumber|Renk|StandardCost|ListPrice|Boyut|Ağırlık|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|ROWGUID|ModifiedDate|
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 |0|680|HL yol kadrosu - siyah, 58|FR R92B 58|Siyah|1059.3100|1431.50|58|1016.04|18|6|2002-06-01: 00:00:00 + 00:00|None|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|2008-03-11 |0:01:36.827000 + 00:00|
@@ -254,74 +213,54 @@ dataflow.head(5)
 |3|708|Spor-100 Kask, siyah|HL U509|Siyah|13.0863|34.99 Dolar|None|None|35|33|2005-07-01: 00:00:00 + 00:00|None|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|a25a44fb-c2de-4268-958f-110b8d7621e2|2008-03-11 |10:01:36.827000 + 00:00|
 |4|709|DAĞ bisikleti Çorapları, M|BÖYLE B909 M|Beyaz|3.3963|9.50|M|None|27|18|2005-07-01: 00:00:00 + 00:00|2006-06-30 00:00:00 + 00:00|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|18f95f47-1540-4e02-8f1f-cc1bcb6828d0|2008-03-11 |10:01:36.827000 + 00:00|
 
-```python
-df = dataflow.to_pandas_dataframe()
-df.dtypes
-```
-
-Örnek çıktı:
-```
-ProductID                                     int64
-Name                                         object
-ProductNumber                                object
-Color                                        object
-StandardCost                                float64
-ListPrice                                   float64
-Size                                         object
-Weight                                      float64
-ProductCategoryID                             int64
-ProductModelID                                int64
-SellStartDate             datetime64[ns, UTC+00:00]
-SellEndDate                                  object
-DiscontinuedDate                             object
-ThumbNailPhoto                               object
-ThumbnailPhotoFileName                       object
-rowguid                                      object
-ModifiedDate              datetime64[ns, UTC+00:00]
-dtype: object
-```
-
 ## <a name="use-azure-data-lake-storage"></a>Azure Data Lake depolama kullanma
+
 Var olan iki yolu SDK'sı Azure Data Lake depolamaya erişmek için gerekli OAuth belirteci elde:
--   Kullanıcının Azure CLI ile oturum açma son oturum açma oturumu bir erişim belirteci alma
--   Bir hizmet sorumlusu (SP) ve sertifika parolası olarak kullanın.
+
+* Bir son kullanıcının Azure CLI ile oturum açma oturumunda erişim belirtecini alma
+* Bir hizmet sorumlusu (SP) ve sertifika parolası olarak kullanın.
 
 ### <a name="use-an-access-token-from-a-recent-azure-cli-session"></a>Yeni bir Azure CLI oturumu bir erişim belirteci kullanın
-Yerel makinenizde aşağıdaki komutu çalıştırın:
 
-> [!NOTE] 
-> Kullanıcı hesabınızın birden fazla Azure kiracısının bir üyesiyse, Kiracı, AAD URL ana bilgisayar adı biçiminde belirtmeniz gerekir.
+Yerel makinenizde aşağıdaki komutu çalıştırın.
 
-
-Örneğin:
 ```azurecli
 az login
 az account show --query tenantId
 dataflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dataflow.head(5) head
 ```
+
+> [!NOTE] 
+> Kullanıcı hesabınızın birden fazla Azure kiracısının bir üyesiyse, Kiracı, AAD URL ana bilgisayar adı biçiminde belirtmeniz gerekir.
+
 ### <a name="create-a-service-principal-with-the-azure-cli"></a>Azure CLI ile hizmet sorumlusu oluşturma
-Bir hizmet sorumlusu oluşturmak için Azure CLI'yı ve karşılık gelen sertifikayı kullanabilirsiniz. Bu belirli bir hizmet sorumlusu okuyucu Azure Data Lake Storage hesabını yalnızca 'dpreptestfiles' sınırlı kapsamı ile yapılandırılır.  Örneğin:
+
+Bir hizmet sorumlusu ve ilgili sertifikayı oluşturmak için Azure CLI'yı kullanın. Bu belirli bir hizmet sorumlusu ile yapılandırılmış `reader` Azure Data Lake Storage hesabını yalnızca 'dpreptestfiles' sınırlı kapsamı ile rolü.
+
 ```azurecli
 az account set --subscription "Data Wrangling development"
 az ad sp create-for-rbac -n "SP-ADLS-dpreptestfiles" --create-cert --role reader --scopes /subscriptions/35f16a99-532a-4a47-9e93-00305f6c40f2/resourceGroups/dpreptestfiles/providers/Microsoft.DataLakeStore/accounts/dpreptestfiles
 ```
+
 Bu komut yayan `appId` ve sertifika dosyasını (genellikle, giriş klasörü) yolu. .Crt dosyası, ortak sertifika hem de özel anahtarı PEM biçiminde içerir.
 
-Parmak izi ayıklayın:
 ```
 openssl x509 -in adls-dpreptestfiles.crt -noout -fingerprint
 ```
 
-Azure Data Lake Store dosya sistemine ACL yapılandırmak için kullanıcının veya bu örneğin, hizmet sorumlusu nesne kimliği'ni kullanın. Örneğin:
+Azure Data Lake Store dosya sistemine ACL yapılandırmak için kullanıcının objectID kullanın. Bu örnekte, hizmet sorumlusu kullanılır.
+
 ```azurecli
 az ad sp show --id "8dd38f34-1fcb-4ff9-accd-7cd60b757174" --query objectId
 ```
 
-Yapılandırmak için `Read` ve `Execute` erişim Azure Data Lake Store dosya sistemi için ACL klasörleri ve dosyaları için tek tek yapılandırmanız gerekir. Ana HDFS ACL modelini devralmayı desteklemez. Bunun nedeni, budur. Örneğin:
+Yapılandırmak için `Read` ve `Execute` erişim Azure Data Lake Store dosya sistemi için ACL klasörleri ve dosyaları için ayrı ayrı yapılandırın. Ana HDFS ACL modelini devralmayı desteklemez. Bunun nedeni, budur. 
+
 ```azurecli
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r-x" --path /
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r--" --path /farmers-markets.csv
 ```
+
 ```
 certThumbprint = 'C2:08:9D:9E:D1:74:FC:EB:E9:7E:63:96:37:1C:13:88:5E:B9:2C:84'
 certificate = ''
@@ -330,8 +269,10 @@ with open('./data/adls-dpreptestfiles.crt', 'rt', encoding='utf-8') as crtFile:
 
 servicePrincipalAppId = "8dd38f34-1fcb-4ff9-accd-7cd60b757174"
 ```
+
 ### <a name="acquire-an-oauth-access-token"></a>OAuth erişim belirteci alma
-Kullanım `adal` paket (aracılığıyla: `pip install adal`) kimlik doğrulaması bağlamını MSFT Kiracı'da oluşturmak ve bir OAuth erişim belirteci almak için. ADLS için kaynak belirteci isteği için olmalıdır 'https://datalake.azure.net', çoğu diğer Azure kaynaklarından farklı.
+
+Kullanım `adal` paket (`pip install adal`) kimlik doğrulaması bağlamını MSFT Kiracı'da oluşturmak ve bir OAuth erişim belirteci almak için. ADLS için kaynak belirteci isteği için olmalıdır 'https://datalake.azure.net', çoğu diğer Azure kaynaklarından farklı.
 
 ```python
 import adal
@@ -349,4 +290,4 @@ dataflow.to_pandas_dataframe().head()
 |1|1011871|Stearns yerimizle Çiftçilerden'Pazar|http://Stearnshomestead.com |6975 ridge yol|Parma|Cuyahoga|
 |2|1011878|100 mil Pazar|http://www.pfcmarkets.com |507 Harrison St|Kalamazoo|Kalamazoo|
 |3|1009364|106 S. ana Sokak Çiftçilerden Pazar|http://thetownofsixmile.wordpress.com/ |106 S. ana Sokak|Altı mil|||
-|4|1010691|10 Steet topluluk Çiftçilerden Pazar|http://agrimissouri.com/mo-grown/grodetail.php... |10 Sokak ve Poplar|Lamar|Barton|
+|4|1010691|10 Sokak topluluk Çiftçilerden Pazar|http://agrimissouri.com/mo-grown/grodetail.php... |10 Sokak ve Poplar|Lamar|Barton|

@@ -16,16 +16,16 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 8879cc331c5d0e8c6aab24e8c6178d96ab23bf9d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8738205aec8e0b00115a185886ca293b2f96033c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955410"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422380"
 ---
 # <a name="native-apps"></a>Yerel uygulamalar
 
-Bir kullanıcı adına bir web API'si çağırma uygulamaları yerel uygulamalardır. Bu senaryo genel bir istemci ile OAuth 2.0 yetkilendirme kodu verme türü, 4.1 bölümünde anlatıldığı gibi üzerine inşa edilmiştir [OAuth 2.0 belirtimini](http://tools.ietf.org/html/rfc6749). Yerel uygulama OAuth 2.0 protokolünü kullanarak bu kullanıcı için bir erişim belirteci alır. Bu erişim belirteci daha sonra kullanıcı yetkisi verir ve istenen kaynağa döndüren API web isteği gönderilir.
+Bir kullanıcı adına bir web API'si çağırma uygulamaları yerel uygulamalardır. Bu senaryo genel bir istemci ile OAuth 2.0 yetkilendirme kodu verme türü, 4.1 bölümünde anlatıldığı gibi üzerine inşa edilmiştir [OAuth 2.0 belirtimini](https://tools.ietf.org/html/rfc6749). Yerel uygulama OAuth 2.0 protokolünü kullanarak bu kullanıcı için bir erişim belirteci alır. Bu erişim belirteci daha sonra kullanıcı yetkisi verir ve istenen kaynağa döndüren API web isteği gönderilir.
 
 ## <a name="diagram"></a>Diyagram
 

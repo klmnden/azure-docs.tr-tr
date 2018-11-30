@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: bdcc0510503e48caf70f4f0d91d7602d767ca9ab
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: e060075fbcf6a5083e51b753e119cb5471129a79
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092487"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308487"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Yedekleme ve geri yükleme Azure SQL veri ambarı
 Yedekleme ve geri yükleme şeklini Azure SQL veri ambarı'nda öğrenin. Kullanım verileri kurtarma anlık görüntüleri ambar veya birincil bölge içinde önceki bir geri yükleme noktası veri Ambarınızı kopyalayın. Farklı bir coğrafi bölgeye geri yüklemek için coğrafi olarak yedekli yedeklemeleri kullanım veri ambarı. 
@@ -68,7 +68,7 @@ SQL veri ambarı coğrafi yedekleme için günde bir kez gerçekleştiren bir [e
 Coğrafi yedekleme varsayılan olarak etkindir. Veri ambarınız Gen1 ise yapabilecekleriniz [çıkma](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) istiyorsanız. Veri koruma garanti yerleşik olarak 2. nesil için coğrafi-yedeklemelerden kapatılamaz.
 
 > [!NOTE]
-> Coğrafi yedekleme için daha kısa bir RPO gerektiriyorsa, bu özellik için oy [burada](https://feedback.azure.com/forums/307516-sql-data-warehouse). Ayrıca, bir kullanıcı tanımlı bir geri yükleme noktası oluşturma ve farklı bir bölgede yeni bir veri ambarı yeni oluşturulan geri yükleme noktasından geri yükleme. Geri yükledikten sonra çevrimiçi veri ambarına sahip ve, duraklatma süresiz olarak bilgi işlem maliyetlerinden tasarruf için. Duraklatılmış veritabanı, Azure Premium depolama fiyattan depolama ücreti alınmaz. ' i tıklatın ve ardından duraklatabilirsiniz. Veri ambarı etkin bir kopyasını gerekir, hangi yalnızca birkaç dakika sürer devam edebilir.
+> Coğrafi yedekleme için daha kısa bir RPO gerektiriyorsa, bu özellik için oy [burada](https://feedback.azure.com/forums/307516-sql-data-warehouse). Ayrıca, bir kullanıcı tanımlı bir geri yükleme noktası oluşturma ve farklı bir bölgede yeni bir veri ambarı yeni oluşturulan geri yükleme noktasından geri yükleme. Geri yükledikten sonra çevrimiçi veri ambarına sahip ve, duraklatma süresiz olarak bilgi işlem maliyetlerinden tasarruf için. Duraklatılmış veritabanı, Azure Premium depolama fiyattan depolama ücreti alınmaz. ' i tıklatın ve ardından duraklatabilirsiniz.<!-- should this be removed or is something missing? --> Veri ambarı etkin bir kopyasını gerekir, hangi yalnızca birkaç dakika sürer devam edebilir.
 >
 
 

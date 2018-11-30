@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 788ce1f2543b9ed76d718cf01d28292f49594414
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 62bc6507e4b56c9df31a561f7677907486b0d562
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037363"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421598"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Bir Azure Hizmet Yönetim sertifikasını karşıya yükleyin
 Yönetim sertifikaları, Azure tarafından sağlanan Klasik dağıtım modeli ile kimlik doğrulaması sağlar. Birçok programları ve Araçları (örneğin, Visual Studio ya da Azure SDK'sı) bu sertifikaları yapılandırma ve çeşitli Azure Hizmetleri dağıtımını otomatikleştirmek için kullanın. 
@@ -38,7 +38,7 @@ Ayrıca [Azure Active Directory](https://azure.microsoft.com/services/active-dir
 ## <a name="upload-a-management-certificate"></a>Bir yönetim sertifikasını karşıya yükleyin
 Sonra bir yönetim sertifikası oluşturulan, (yalnızca ortak anahtarı içeren .cer dosyası) portalına karşıya yükleyebilirsiniz. Sertifika Portalı'nda kullanılabilir olduğunda, eşleşen bir sertifika (özel anahtarı) olan herkes yönetim API'si bağlanabilir ve ilgili abonelik için kaynaklara erişim.
 
-1. [Azure Portal](http://portal.azure.com)’da oturum açın.
+1. [Azure Portal](https://portal.azure.com)’da oturum açın.
 2. Tıklayın **tüm hizmetleri** alt Azure hizmeti listenin seçip **abonelikleri** içinde _genel_ hizmeti grubu.
 
     ![Abonelik menü](./media/azure-api-management-certs/subscriptions_menu.png)

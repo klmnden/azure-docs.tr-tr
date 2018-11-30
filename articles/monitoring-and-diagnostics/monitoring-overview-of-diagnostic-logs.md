@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 630c8e5f48ba475755c3c9ffe632fcba086437e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1fc1d3b4418b178921dc32ee834342b75fa31f20
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983132"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311084"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Toplama ve Azure kaynaklarınızdan günlük verilerini kullanma
 
@@ -45,7 +45,7 @@ Tanılama günlükleri ile yapabileceklerinizden bazıları şunlardır:
 Günlükleri yayan biri ile aynı abonelikte değil Event Hubs ad alanı veya bir depolama hesabını kullanabilirsiniz. Ayarı yapılandıran kullanıcının her iki aboneliğin uygun RBAC erişiminiz olması gerekir.
 
 > [!NOTE]
->  Şu anda arşivlenemiyor ağ akışı günlükleri bir depolama hesabı, güvenli bir sanal ağda.
+>  Şu anda, ağ akışı günlükleri güvenli bir sanal ağda olduğu bir depolama hesabına arşivlenemiyor.
 
 > [!WARNING]
 > Depolama hesabındaki günlük verilerinin biçimi, 1 Kasım 2018 tarihinde JSON Satırları olarak değişecektir. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./monitor-diagnostic-logs-append-blobs.md) 

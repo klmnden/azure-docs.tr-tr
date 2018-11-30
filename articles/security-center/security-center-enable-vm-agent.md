@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 74a6c0c4a66de75dd9e50d7b81e7e6ae7bf7519a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 7a059cd5c22306c42adc4c7c8fcc4e52c3ebcd00
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244619"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313580"
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde VM aracısını etkinleştirin
 VM Aracısı sanal makinelerinde (VM'ler) için yüklenmelidir [veri toplama özelliğini etkinleştirmeyi](security-center-enable-data-collection.md).  Azure Güvenlik Merkezi, hangi VM'lerin VM Aracısı gerektirir ve bu vm'lerdeki VM Aracısı etkinleştirmenizi önerir görmenize olanak sağlar.
@@ -40,7 +40,7 @@ VM Aracısı, Azure Marketi’nden dağıtılan VM’ler için varsayılan olara
 ## <a name="see-also"></a>Ayrıca bkz.
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) - Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md) - Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) - Önerilerin Azure kaynaklarınızı korumanıza nasıl yardım edeceği hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) - Azure kaynaklarınızın sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) - Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.

@@ -10,12 +10,12 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: cbf07ce5d7c539699892f4c04e97451b18f62201
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: d48f24048225f4a0571915c2e27b931f858e8f6e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977174"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316982"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Hızlı Başlangıç: Bing yerel iş arama API'si python'da bir sorgu gönderin
 
@@ -27,7 +27,7 @@ Bu örnek uygulama, arama sorgusu için API'sinden yerel yanıt verilerini alır
 
 * [Python](https://www.python.org/) 2.x veya 3.x
  
-Olmalıdır bir [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) Bing API'leri ile. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) bu hızlı başlangıç için yeterlidir. Ücretsiz deneme tarafından sağlanan erişim anahtarı kullanın.
+Olmalıdır bir [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) Bing API'leri ile. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) bu hızlı başlangıç için yeterlidir. Ücretsiz deneme tarafından sağlanan erişim anahtarı kullanın.  Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="run-the-complete-application"></a>Tam uygulama çalıştırma
 

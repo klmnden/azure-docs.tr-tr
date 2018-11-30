@@ -1,6 +1,6 @@
 ---
-title: '6. adım: Machine Learning Web hizmetine erişme | Microsoft Docs'
-description: 'Adım 6 / geliştirme Tahmine dayalı çözüm Kılavuzu: etkin bir Azure Machine Learning Web hizmeti erişim.'
+title: '6. adım: Machine Learning Studio web sservice erişim | Microsoft Docs'
+description: 'Adım 6 / geliştirme Tahmine dayalı çözüm Kılavuzu: etkin bir Azure Machine Learning Studio web hizmeti erişim.'
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: b71f98c9ba4e21f2a33b62977ec54f6230443e1b
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 5402f228a650a1a3d3282180a52f9e9f9cc10a3a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264157"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306463"
 ---
-# <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>Kılavuz Adımı 6: Azure Machine Learning web hizmetine erişim
+# <a name="walkthrough-step-6-access-the-azure-machine-learning-studio-web-service"></a>Kılavuz adımı 6: Azure Machine Learning Studio web hizmetine erişme
 
 Bu kılavuz, son adımdır [bir Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirin](walkthrough-develop-predictive-solution.md)
 

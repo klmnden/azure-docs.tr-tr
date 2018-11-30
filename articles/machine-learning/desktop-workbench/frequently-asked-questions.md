@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4785f87515663831b1177c6c0958d3d965351797
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 45cf987d9af7b7dd0e8f05056b49ba56835603e7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996579"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313954"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning hakkında sık sorulan sorular
 
@@ -171,4 +171,4 @@ Hayır, yeni hizmetleri herhangi bir veri kısıtlamaları dayatır değil. Anca
 
 **Azure Machine Learning Microsoft Bilişsel araç seti nasıl ilişkilidir?**
 
-[Microsoft Bilişsel Araç Seti](https://www.microsoft.com/cognitive-toolkit/) sunduğumuz yeni araçları ve Hizmetleri tarafından desteklenen çok sayıda çerçeveleri biridir. Bilişsel Araç Seti kullanmak ve popüler makine öğrenimi modellerini akış iletme derin sinir ağları, karmaşık ağ dahil olmak üzere birleştirmek sağlayan bir birleşik derin öğrenme araç seti olan Sequence Sequence ve yinelenen ağlar. Microsoft Bilişsel araç seti ile ilgili daha fazla bilgi için müşterilerimize [ürün belgelerine](https://docs.microsoft.com/cognitive-toolkit/). 
+[Microsoft Bilişsel Araç Seti](https://docs.microsoft.com/cognitive-toolkit/) sunduğumuz yeni araçları ve Hizmetleri tarafından desteklenen çok sayıda çerçeveleri biridir. Bilişsel Araç Seti kullanmak ve popüler makine öğrenimi modellerini akış iletme derin sinir ağları, karmaşık ağ dahil olmak üzere birleştirmek sağlayan bir birleşik derin öğrenme araç seti olan Sequence Sequence ve yinelenen ağlar. Microsoft Bilişsel araç seti ile ilgili daha fazla bilgi için müşterilerimize [ürün belgelerine](https://docs.microsoft.com/cognitive-toolkit/). 

@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 601169cc62a99438f661adc06ab166b545606edb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: abd64b7d2fa7930f5b6177c7ac037840da34dc18
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624599"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333590"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Azure Active Directory rapor saklama ilkeleri
 
@@ -32,7 +32,7 @@ Bu makalede, Azure Active Directory'de farklı bir etkinlik raporları için ver
 | Azure AD sürümü | Koleksiyonu Başlat |
 | :--              | :--   |
 | Azure AD Premium P1 <br /> Azure AD Premium P2 | Ne zaman bir abonelik için kaydolun |
-| Azure AD Ücretsiz | İlk açtığınızda [Azure Active Directory dikey](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) veya [API'leri raporlama](https://aka.ms/aadreports)  |
+| Azure AD Ücretsiz <br /> Azure AD Basic | İlk açtığınızda [Azure Active Directory dikey](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) veya [API'leri raporlama](https://aka.ms/aadreports)  |
 
 ---
 

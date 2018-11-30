@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a8baa67296c721fdda4cb0728e1b68f2e67e217c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 92474bdead021429792f5d51a28ffb7bafc5be2b
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824243"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334253"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Azure İzleyici günlükler için ölçüm uyarıları oluşturma  
 
@@ -21,10 +21,10 @@ ms.locfileid: "51824243"
 Azure İzleyicisi'ni destekleyen [ölçüm uyarı türü](monitoring-near-real-time-metric-alerts.md) üzerinden avantajları olduğu [Klasik uyarılar](alert-metric-classic.md). Ölçümler kullanılabilir [Azure hizmetlerinin büyük listesi](monitoring-supported-metrics.md). Bu makalede (yani) bir alt kümesi için kaynak - kullanımını açıklar `Microsoft.OperationalInsights/workspaces`. 
 
 Ölçümleriniz Azure veya şirket içi kaynaklar dahil olmak üzere günlüklerinden ölçümleri bir parçası olarak ayıklanan popüler Log Analytics günlükleri ile ilgili ölçüm Uyarıları'nı kullanabilirsiniz. Desteklenen Log Analytics çözümleri aşağıda listelenmiştir:
-- [Performans sayaçları](../log-analytics/log-analytics-data-sources-performance-counters.md) Windows ve Linux makineler için
+- [Performans sayaçları](../azure-monitor/platform/data-sources-performance-counters.md) Windows ve Linux makineler için
 - [Aracı sistem durumu sinyal kayıtları](../azure-monitor/insights/solution-agenthealth.md)
 - [Güncelleştirme yönetimi](../automation/automation-update-management.md) kayıtları
-- [Olay verilerini](../log-analytics/log-analytics-data-sources-windows-events.md) günlükleri
+- [Olay verilerini](../azure-monitor/platform/data-sources-windows-events.md) günlükleri
  
 Kullanmak için birçok faydası vardır **günlükleri için ölçüm uyarıları** sorgu tabanlı üzerinden [günlük uyarıları](alert-log.md) Azure'da; bunlardan bazıları aşağıda listelenmiştir:
 - Ölçüm uyarıları için günlükleri çatalları verileri neredeyse gerçek zamanlı izleme olanağı ve ölçüm uyarıları aynı emin olmak için günlük kaynağından sunar
@@ -47,8 +47,8 @@ Log Analytics'te Azure İzleyici - ölçümler ile işlenmeden önce popüler g�
 Log Analytics veri çalışır Ölçüm günlükleri için toplanan önce aşağıdaki yukarı ve kullanılabilir ayarlanmalıdır:
 1. **Etkin Log Analytics çalışma alanı**: geçerli ve etkin Log Analytics çalışma alanı mevcut olmalıdır. Daha fazla bilgi için [Azure portalında Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md).
 2. **Aracı için Log Analytics çalışma alanı yapılandırılmış**: önceki adımda kullanılan Log Analytics çalışma alanına Azure Vm'leri (veya) şirket içi Vm'leri için veri göndermek yapılandırılacak aracının gerekir. Daha fazla bilgi için [Log Analytics - Aracısı genel bakış](../azure-monitor/platform/agents-overview.md).
-3. **Desteklenen Log Analytics çözümleri yüklü**: Log Analytics çözümü, yapılandırılmış ve gönderen verileri Log Analytics çalışma alanına - desteklenen olmalıdır çözümler [Windows ve Linux için performans sayaçları](../log-analytics/log-analytics-data-sources-performance-counters.md), [Aracı sistem durumu sinyal kayıtlarını](../azure-monitor/insights/solution-agenthealth.md), [güncelleştirme yönetimi, ve [olay verilerini](../log-analytics/log-analytics-data-sources-windows-events.md).
-4. **Günlükleri göndermek için yapılandırılmış analiz çözümleri oturum**: Log Analytics çözümü, gerekli günlükleri/veri karşılık gelen olmalıdır [Log Analytics çalışma alanları için desteklenen ölçümler](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) etkin. Örneğin, *% kullanılabilir bellek* sayacı bunu yapılandırılmalıdır [performans sayaçları](../log-analytics/log-analytics-data-sources-performance-counters.md) çözüm ilk.
+3. **Desteklenen Log Analytics çözümleri yüklü**: Log Analytics çözümü, yapılandırılmış ve gönderen verileri Log Analytics çalışma alanına - desteklenen olmalıdır çözümler [Windows ve Linux için performans sayaçları](../azure-monitor/platform/data-sources-performance-counters.md), [Aracı sistem durumu sinyal kayıtlarını](../azure-monitor/insights/solution-agenthealth.md), [güncelleştirme yönetimi, ve [olay verilerini](../azure-monitor/platform/data-sources-windows-events.md).
+4. **Günlükleri göndermek için yapılandırılmış analiz çözümleri oturum**: Log Analytics çözümü, gerekli günlükleri/veri karşılık gelen olmalıdır [Log Analytics çalışma alanları için desteklenen ölçümler](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) etkin. Örneğin, *% kullanılabilir bellek* sayacı bunu yapılandırılmalıdır [performans sayaçları](../azure-monitor/platform/data-sources-performance-counters.md) çözüm ilk.
 
 ## <a name="configuring-metric-alert-for-logs"></a>Yapılandırma günlükleri için ölçüm Uyarısı
  Ölçüm uyarıları oluşturulabilir ve Resource Manager şablonları, REST API, PowerShell ve Azure CLI Azure portalını kullanarak yönetilen. Günlükleri için ölçüm uyarıları olduğundan bir değişken ölçüm uyarıları - önkoşulları tamamladıktan sonra günlükler için ölçüm uyarısı için belirtilen Log Analytics çalışma alanı oluşturulabilir. Tüm özelliklerini ve işlevlerini [ ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md) yükü şema, geçerli bir kota sınırları ve faturalandırılan fiyat; günlükleri de için ölçüm uyarıları için geçerli olacaktır.
@@ -58,8 +58,7 @@ Adım adım ayrıntıları ve örnekleri - bakın [oluşturma ve ölçüm Uyarı
 - Seçilen ölçüm uyarısı için seçilen sinyal *Log Analytics çalışma alanı* türünde **ölçüm**
 - Belirli koşullar veya boyut filtreleri kullanarak kaynak filtresi; çok boyutlu ölçümler için günlükleri
 - Yapılandırma sırasında *sinyal mantığını*, yayılmasını boyut (bilgisayar gibi) birden çok değeri tek bir uyarı oluşturulabilir.
-- Varsa **değil** seçilen için ölçüm uyarısı oluşturmak için Azure portalını kullanarak *Log Analytics çalışma alanı*; ardından el ile kullanıcı gerekir ilk kullanarakbirölçümgünlükverileridönüştürmekiçinaçıkbirkuraloluşturun[Azure İzleyici - zamanlanmış sorgu kuralları](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules
-).
+- Varsa **değil** seçilen için ölçüm uyarısı oluşturmak için Azure portalını kullanarak *Log Analytics çalışma alanı*; ardından el ile kullanıcı gerekir ilk kullanarakbirölçümgünlükverileridönüştürmekiçinaçıkbirkuraloluşturun[Azure İzleyici - zamanlanmış sorgu kuralları](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules).
 
 > [!NOTE]
 > Azure portalı - Log Analytics çalışma alanı için ölçüm uyarısı oluşturma sırasında ölçüm günlük verileri dönüştürme kuralı karşılık gelen [Azure İzleyici - zamanlanmış sorgu kuralları](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) arka planda otomatik olarak oluşturulan  *herhangi bir eylem veya kullanıcı müdahalesi gerektirmeden*. Azure portal dışındaki yollardan günlükleri oluşturma için ölçüm uyarısı için bkz: [günlükleri için ölçüm uyarıları için kaynak şablonu](#resource-template-for-metric-alerts-for-logs) bölümünde ölçüm uyarısı önce ölçüm dönüştürme kuralı için bir temel ScheduledQueryRule günlük oluşturma örnek anlamına gelir oluşturulan günlüklerde ölçüm uyarısı için hiçbir veri olacaktır oluşturma - else.

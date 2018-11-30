@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory denetim günlükleri ile Azure günlük tümleştirme | Microsoft Docs
-description: Azure günlük tümleştirme hizmeti yüklemek ve Azure denetim günlükleri günlüklerinden tümleştirme hakkında bilgi edinin
+title: Azure Active Directory denetim günlükleri ile Azure günlük tümleştirmesi | Microsoft Docs
+description: Azure günlük tümleştirmesi hizmeti yüklemek ve Azure denetim günlükleri günlüklerinden tümleştirme hakkında bilgi edinin
 services: security
 documentationcenter: na
 author: Barclayn
@@ -15,27 +15,27 @@ ums.workload: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 07299b960747528dde8dcefc70055442c2150486
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 0b27cd314dd03375b2d2e6ba537cda74e2ec4310
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236000"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313250"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Azure Active Directory denetim günlüklerini tümleştirme
 
-Azure Active Directory (Azure AD) denetim olayları Azure Active Directory'de oluştu ayrıcalıklı Eylemler belirlemenize yardımcı olur. Gözden geçirerek izleyebilirsiniz olay türlerini görebilirsiniz [Azure Active Directory Denetim Raporu olayları](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md).
+Azure Active Directory (Azure AD) denetim olayları, Azure Active Directory'de oluştu ayrıcalıklı Eylemler belirlemenize yardımcı olur. Gözden geçirerek izleyebileceğiniz olay türleri görebilirsiniz [Azure Active Directory Denetim Raporu olayları](../active-directory/reports-monitoring/concept-audit-logs.md).
 
 
 >[!IMPORTANT]
-> Azure günlük tümleştirme özelliği 01/06/2019 tarafından kullanım dışı kalacaktır. AzLog yüklemeleri 27 Haz 2018 tarafından devre dışı bırakılacak. Taşıma iletme gözden geçirme sonrası yapmanız gerekenler hakkında yönergeler için [SIEM araçları ile tümleştirmek için kullanım Azure İzleyicisi](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> Azure günlük tümleştirme özelliği 06/01/2019 tarafından kullanımdan kaldırılacaktır. 27 Haziran 2018 tarihine kadar AzLog indirmeler devre dışı bırakılır. Taşıma iletme gözden geçirme sonrası yapmanız gerekenler hakkında rehberlik için [SIEM araçlarla tümleştirmek için kullanım Azure İzleyici](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Azure Active Directory Tümleştirme adımları denetim günlükleri
 
 > [!NOTE]
-> Bu makaledeki adımları denemeden önce gözden geçirmeniz gerekir [başlama](security-azure-log-integration-get-started.md) makalesi ve ilgili adımları tamamlayın.
+> Bu makaledeki adımlarda çalışmadan önce gözden geçirmeniz gerekir [başlama](security-azure-log-integration-get-started.md) makalesini inceleyin ve ilgili adımları tamamlayın.
 
-1. Komut istemi açın ve şu komutu çalıştırın:
+1. Bir komut istemi açın ve şu komutu çalıştırın:
 
    ``cd c:\Program Files\Microsoft Azure Log Integration``
 
@@ -43,9 +43,9 @@ Azure Active Directory (Azure AD) denetim olayları Azure Active Directory'de ol
  
    ``azlog createazureid``
 
-   Bu komut için Azure oturum açma bilgilerinizi ister. Komutu daha sonra bir Azure Active Directory oturum açma kullanıcı bir yönetici, bir ortak yönetici veya sahibi olduğu Azure abonelikleri barındıran Azure AD kiracılar hizmet sorumlusu oluşturur. Oturum açma kullanıcı yalnızca Konuk kullanıcı olarak Azure AD kiracısı ise komut başarısız olur. Azure kimlik doğrulaması Azure AD üzerinden yapılır. Azure günlük tümleştirmesi için bir hizmet sorumlusu oluşturma Azure aboneliklerinden okuma erişimi verilir Azure AD kimlik oluşturur.
+   Bu komut için Azure oturum açma bilgilerinizi ister. Komut daha sonra Azure Active Directory Hizmet sorumlusu oturum açma kullanıcı bir yönetici, ortak yönetici veya sahibi olduğu Azure abonelikleri barındıran Azure AD kiracılarıyla oluşturur. Yalnızca Konuk kullanıcı Azure AD kiracısında oturum açan kullanıcı olduğundan komut başarısız olur. Azure kimlik doğrulamasını Azure AD gerçekleştirilir. Azure günlük tümleştirmesi için hizmet sorumlusu oluşturma, Azure aboneliklerinden okumak üzere erişim verilen Azure AD kimliğini oluşturur.
 
-3. Kiracı kimliğinizi sağlamak için aşağıdaki komutu çalıştırın Komutu çalıştırmak için Kiracı yöneticisi rolünün üyesi olması gerekir.
+3. Kiracı kimliğinizi sağlamak için aşağıdaki komutu çalıştırın Komutu çalıştırmak için Kiracı yönetici rolünün üyesi olmanız gerekir.
 
    ``Azlog.exe authorizedirectoryreader tenantId``
 
@@ -53,27 +53,27 @@ Azure Active Directory (Azure AD) denetim olayları Azure Active Directory'de ol
 
    ``AZLOG.exe authorizedirectoryreader ba2c0000-d24b-4f4e-92b1-48c4469999``
 
-4. Azure Active Directory denetim günlüğü JSON dosyalarını bunları oluşturulduğunu doğrulamak için aşağıdaki klasörler denetleyin:
+4. Azure Active Directory denetim günlüğü JSON dosyalarını bunları oluşturulduğunu onaylamak için aşağıdaki klasörleri denetleyin:
 
    * **C:\Users\azlog\AzureActiveDirectoryJson**
    * **C:\Users\azlog\AzureActiveDirectoryJsonLD**
 
-Aşağıdaki video bu makalede ele alınan adımları gösterir:
+Aşağıdaki video bu makalede ele alınan adımları göstermektedir:
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Azure-AD-Integration/player]
 
 
 > [!NOTE]
-> Güvenlik bilgileri ve Olay yönetimi (SIEM) sistem bilgileri JSON dosyalarında getiren ayrıntılı yönergeler için SIEM satıcınıza başvurun.
+> Güvenlik bilgileri ve Olay yönetimi (SIEM) sistemi JSON dosyalarındaki bilgileri getirme ayrıntılı yönergeler için SIEM satıcınıza başvurun.
 
-Topluluk Yardım ile de kullanılabilir [Azure günlük tümleştirme MSDN Forumu](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). Bu forumda birbirine soruları yanıtlar, ipuçları ve püf noktaları ile desteklemek için Azure günlük tümleştirme topluluk kişilere sağlar. Ayrıca, Azure günlük tümleştirme takım Bu forumda izler ve mümkün olduğunca yardımcı olur.
+Topluluk Yardımı, aracılığıyla [Azure günlük tümleştirme MSDN Forumu](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). Bu forum birbirine sorular ve yanıtlar, ipuçları ve püf noktaları ile desteklemek için Azure günlük tümleştirmesi topluluğundaki kişiler sağlar. Ayrıca, Azure günlük tümleştirmesi takım bu Forumu izler ve mümkün olduğunda yardımcı olur.
 
-Ayrıca açabilirsiniz bir [destek isteği](../azure-supportability/how-to-create-azure-support-request.md). Seçin **günlük tümleştirme** destek isteyen hizmet olarak.
+Ayrıca açabileceğiniz bir [destek isteği](../azure-supportability/how-to-create-azure-support-request.md). Seçin **günlük tümleştirmesi** destek isteme hizmet olarak.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure günlük tümleştirmesi hakkında daha fazla bilgi için bkz:
 
-* [Microsoft Azure günlük tümleştirme Azure günlükleri için](https://www.microsoft.com/download/details.aspx?id=53324): Bu Yükleme Merkezi sayfası ayrıntıları, sistem gereksinimleri ve yükleme yönergeleri için Azure günlük tümleştirme sağlar.
-* [Azure günlük tümleştirme giriş](security-azure-log-integration-overview.md): Bu makalede Azure günlük tümleştirme, önemli işlevleri ve nasıl çalıştığı tanıtılır.
+* [Microsoft Azure günlük tümleştirmesi Azure günlükleri](https://www.microsoft.com/download/details.aspx?id=53324): Bu İndirme Merkezi sayfasında, ayrıntıları, sistem gereksinimleri ve yükleme yönergeleri için Azure günlük tümleştirmesi sağlar.
+* [Azure günlük tümleştirmesine giriş](security-azure-log-integration-overview.md): Bu makale Azure günlük tümleştirmesi, önemli işlevleri ve nasıl çalıştığını tanıtır.
 * [Azure günlük tümleştirme SSS](security-azure-log-integration-faq.md): Bu makalede Azure günlük tümleştirmesi hakkında sorular yanıtlanmaktadır.
-* [Azure tanılama ve Azure için yeni özellikler denetim günlüklerini](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): Bu blog gönderisine Azure denetim günlükleri tanıtır ve yardımcı diğer özellikleri Azure kaynaklarınızı işlemleri alın.
+* [Yeni özellikler için Azure tanılama ve Azure denetim günlükleri](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): Bu blog gönderisinde size Azure denetim günlükleri tanıtır ve işlemler, Azure kaynaklarınızın yardımcı olan diğer özellikler hakkında bilgi.

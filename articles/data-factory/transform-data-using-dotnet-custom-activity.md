@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 77e5d6c278436a1fc192421c9867106409389a66
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 424de36dbbd3b09e635679900110148b9edd0242
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888230"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422891"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -278,8 +278,8 @@ namespace SampleApp
   Activity Output section:
   "exitcode": 0
   "outputs": [
-    "https://shengcstorbatch.blob.core.windows.net/adfjobs/<GUID>/output/stdout.txt",
-    "https://shengcstorbatch.blob.core.windows.net/adfjobs/<GUID>/output/stderr.txt"
+    "https://<container>.blob.core.windows.net/adfjobs/<GUID>/output/stdout.txt",
+    "https://<container>.blob.core.windows.net/adfjobs/<GUID>/output/stderr.txt"
   ]
   "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)"
   Activity Error section:
@@ -292,7 +292,11 @@ Aşağı Akış etkinliklerde stdout.txt içeriği istiyorsanız, ifadede stdout
 
   > [!IMPORTANT]
   > - Activity.json linkedServices.json ve datasets.json Batch görevin çalışma zamanı klasöründe depolanır. Bu örnekte, activity.json linkedServices.json ve datasets.json depolanır "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" yolu. Gerekirse, ayrı ayrı temizlenmesi gerekir. 
-  > - Şirket içinde barındırılan tümleştirme çalışma zamanı, anahtarlar veya parolalar gibi hassas bilgilerin kimlik bilgileri sağlamak için şirket içinde barındırılan Integration Runtime tarafından şifrelenir bağlı hizmetler kullanımlar için özel ağ ortamına müşteri kalır tanımlı. Bu şekilde, özel uygulama kodu tarafından başvurulduğunda hassas bazı alanlar eksik olabilir. Bağlı hizmet başvurusunu gerekirse kullanmak yerine extendedProperties SecureString kullanın. 
+  > - Şirket içinde barındırılan tümleştirme çalışma zamanı kullanan bağlı Hizmetleri için müşteri kimlik bilgisi kalır emin olmak için şirket içinde barındırılan Integration Runtime şifrelenir, anahtarlar veya parolalar gibi hassas bilgilerin özel ağ ortamında tanımlı. Bu şekilde, özel uygulama kodu tarafından başvurulduğunda hassas bazı alanlar eksik olabilir. Bağlı hizmet başvurusunu gerekirse kullanmak yerine extendedProperties SecureString kullanın. 
+
+## <a name="pass-outputs-to-another-activity"></a>Başka bir etkinlik çıktıları geçişi
+
+Azure Data Factory için özel bir etkinlik kodunuzda özel değerleri geri gönderebilir. Bunları yazarak bunu yapabilirsiniz `outputs.json` uygulamanızdan. Veri Fabrikası içeriğini kopyalar `outputs.json` ve etkinlik çıkış değeri olarak ekler `customOutput` özelliği. (2 MB boyut sınırını içindir.) İçeriği kullanmak istiyorsanız `outputs.json` aşağı akış etkinlikleri değeri ifade kullanarak alabilirsiniz `@activity('<MyCustomActivity>').output.customOutput`.
 
 ## <a name="retrieve-securestring-outputs"></a>SecureString çıkışlar alınamıyor
 

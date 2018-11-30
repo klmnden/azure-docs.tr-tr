@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 0a4a31a4905de38de444604c8ffdf4d4a2e632d4
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e4deb40f2c9dfb080739f4426129223b152baea9
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515871"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335666"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Windows için sanal makine seri Konsolu
 
@@ -133,7 +133,7 @@ Varsayılan olarak, seri konsol erişimi tüm VM'ler için Etkin Abonelikler var
 > Etkinleştirmek veya seri konsol bir abonelik için devre dışı bırakmak için abonelik için yazma izinleri olmalıdır. Bu izinleri içerir ancak için yönetici veya sahip rollerinin sınırlı değildir. Özel roller ayrıca yazma izinlerine sahip olabilir.
 
 ### <a name="subscription-level-disable"></a>Abonelik düzeyinde devre dışı bırak
-Seri konsol tüm bir abonelik için devre dışı bırakılabilir [devre dışı konsol REST API çağrısı](https://docs.microsoft.com/rest/api/serialconsole/console/console_disableconsole). Kullanabileceğiniz **deneyin** işlevi devre dışı bırakın ve bir abonelik için seri konsol etkinleştirmek için bu API belgeleri sayfasında kullanılabilir. Abonelik Kimliğinizi girin **Subscriptionıd**, "varsayılan" girin **varsayılan**ve ardından **çalıştırma**. Azure CLI komutları henüz kullanılamamaktadır.
+Seri konsol tüm bir abonelik için devre dışı bırakılabilir [devre dışı konsol REST API çağrısı](/rest/api/serialconsole/console/disableconsole). Kullanabileceğiniz **deneyin** işlevi devre dışı bırakın ve bir abonelik için seri konsol etkinleştirmek için bu API belgeleri sayfasında kullanılabilir. Abonelik Kimliğinizi girin **Subscriptionıd**, "varsayılan" girin **varsayılan**ve ardından **çalıştırma**. Azure CLI komutları henüz kullanılamamaktadır.
 
 ![REST API'yi deneyin](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 

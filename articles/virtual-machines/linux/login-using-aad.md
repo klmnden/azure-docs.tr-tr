@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 8bf87f9d1d1ab6da4b034890f1fbe058199eca41
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4f86dee539e3cc5a90db828ed11dbd225a00555d
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007153"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334644"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory kimlik doğrulama (Önizleme) kullanarak Azure'da bir Linux sanal makinede oturum açın
 
@@ -39,7 +39,7 @@ Linux sanal makineleri, azure'da oturum açmak için Azure AD kimlik doğrulamas
 
 - **Sorunsuz bir işbirliği:** With Role-Based erişim denetimi (RBAC) belirtebilirsiniz kimin yönetici ayrıcalıklarıyla veya normal bir kullanıcı belirli bir VM'nin oturum açabilirsiniz. Kullanıcılar katılın veya takımınızın bırakın, uygun erişim vermek sanal makine için RBAC İlkesi güncelleştirebilirsiniz. Bu deneyim Vm'leri gereksiz SSH ortak anahtarlarını kaldırmak için temizleme gerek kalmadan daha çok daha kolaydır. Çalışanlar, kuruluşunuzun bırakın ve kullanıcı hesabı devre dışı ya da Azure AD'deki kaldırıldı, artık kaynaklarınıza erişimi yok.
 
-### <a name="supported-azure-regions-and-linux-distributions"></a>Desteklenen Azure bölgeleri ve Linux dağıtımları
+## <a name="supported-azure-regions-and-linux-distributions"></a>Desteklenen Azure bölgeleri ve Linux dağıtımları
 
 Aşağıdaki Linux dağıtımı şu anda bu özellik Önizleme sırasında desteklenmektedir:
 

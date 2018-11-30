@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: b3d46e10facdef26b36c910a5c23b40a415a2894
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2e65c5f0d6c2d493abcd61bea4077cbdd8ff95fa
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988451"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52331572"
 ---
 ## <a name="register-your-application"></a>Uygulamanızı kaydetme
 
@@ -32,18 +32,18 @@ Bir uygulamayı kaydetme birden çok yolu vardır. Gereksinimlerinize en uygun s
 1. Oturum [(Önizleme) Azure portalı uygulaması kayıt](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) bir uygulamayı kaydetme.
 1. Üzerinde **bir uygulamayı kaydetme** sayfasında, uygulamanız için bir ad girin.
 1. Altında **desteklenen hesap türleri**seçin **herhangi bir kuruluş dizinini ve kişisel Microsoft hesapları hesaplarında**.
-1. İşiniz bittiğinde seçin **kaydetme**.
+1. Bittiğinde **Kaydet**’i seçin.
 1. İndirmek ve yeni uygulamanız için tek bir tıklamayla otomatik olarak yapılandırmak için hızlı başlangıç yönergeleri izleyin.
 
 ### <a name="option-2-register-your-application-advanced-mode"></a>2. seçenek: Register uygulamanızı (Gelişmiş mod)
 
 1. Oturum [Azure portalında](https://portal.azure.com/) bir uygulamayı kaydetme.
-1. Hesabınız birden fazla kiracıya erişmenizi sağlar, seçin, hesabınızdaki sağ üst köşe ve portal oturumunuzu ayarlamak istediğiniz Azure AD ile Kiracı.
-1. Sol gezinti bölmesinde seçin **Azure Active Directory** hizmet ve ardından **uygulama kayıtları (Önizleme) > Yeni kayıt**.
+1. Hesabınız size birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzu istediğiniz Azure AD kiracısına ayarlayın.
+1. Sol taraftaki gezinti bölmesinde **Azure Active Directory** hizmetini seçin ve ardından **Uygulama kayıtları (Önizleme) > Yeni kayıt** seçeneğini belirleyin.
 1. Zaman **bir uygulamayı kaydetme** sayfası görüntülenirse, uygulamanız için bir ad girin.
 1. Altında **desteklenen hesap türleri**seçin **herhangi bir kuruluş dizinini ve kişisel Microsoft hesapları hesaplarında**.
 1. Altında **yeniden yönlendirme URI'si** bölümünden **Web** platform ve uygulama URL'sine değerine göre web sunucunuzda kümesi. Ayarlayın ve Visual Studio ve düğüm yeniden yönlendirme URL'sini almak hakkında yönergeler için aşağıdaki bölümlere bakın.
-1. İşiniz bittiğinde seçin **kaydetme**.
+1. Bittiğinde **Kaydet**’i seçin.
 1. Uygulamasında **genel bakış** sayfa, Not **uygulama (istemci) kimliği** değeri.
 1. Bu Hızlı Başlangıç [örtük izin akışı](../articles/active-directory/develop/v2-oauth2-implicit-grant-flow.md) etkinleştirilecek. Kayıtlı uygulama sol gezinti bölmesinde seçin **kimlik doğrulaması**.
 1. İçinde **Gelişmiş ayarlar**altında **örtük vermeyi**, her ikisini de etkinleştirmek **kimlik belirteçlerini** ve **erişim belirteçlerini** onay kutularını. Bu uygulama kullanıcılarının oturumunu ve bir API'yi çağırmak sonun kimliği ve erişim belirteçler gereklidir.
@@ -67,7 +67,8 @@ Bir uygulamayı kaydetme birden çok yolu vardır. Gereksinimlerinize en uygun s
 
     ```javascript
     var applicationConfig = {
-        clientID: "[Enter the application Id here]",
+        clientID: "Enter_the_Application_Id_here",
+        authority: "https://login.microsoftonline.com/common",
         graphScopes: ["user.read"],
         graphEndpoint: "https://graph.microsoft.com/v1.0/me"
     };

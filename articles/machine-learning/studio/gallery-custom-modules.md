@@ -1,5 +1,5 @@
 ---
-title: Azure AI Gallery özel modüller | Microsoft Docs
+title: Azure AI Gallery özel modüller - Azure Machine Learning Studio | Microsoft Docs
 description: Azure AI Gallery'de özel machine learning modüllerinin keşfedin.
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.openlocfilehash: 9ca07adecaa8d6e8b51d20014c95d4147a4a5eb8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: a504bcfbbcd70c1d6fc8402d4c232e7e8a5476b0
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263512"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313750"
 ---
-# <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Azure AI Gallery'de özel machine learning modüllerinin keşfedin
+# <a name="machine-learning-studio-discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Machine Learning Studio: özel makine öğrenme modülleri Azure AI Gallery'de keşfedin
 
 [Azure AI Gallery](http://gallery.cortanaintelligence.com) birkaç farklı [özel modüller](https://gallery.cortanaintelligence.com/customModules) Azure Machine Learning Studio'da özelliklerini genişletin. Daha da Gelişmiş Tahmine dayalı analiz çözümleri geliştirebilirsiniz denemelerinizi içinde kullanmak için modülleri içeri aktarabilirsiniz.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5ea8718b90a82e904f54e5569d36f27146ffe5f1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3e8333b521832579a942d3fffb06103ad0431acc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253168"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316626"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme
 Bu belge, Azure kaynaklarınızı korumanıza yardımcı olması için Azure Güvenlik Merkezi'nde öneriler kullanma hakkında bilgi vermektedir.
@@ -34,13 +34,13 @@ Güvenlik Merkezi düzenli aralıklarla Azure kaynaklarınızın güvenlik durum
 
 ## <a name="implementing-security-recommendations"></a>Güvenlik önerilerini uygulama
 ### <a name="set-recommendations"></a>Ayarlama önerileri
-İçinde [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md), şunların nasıl yapıldığını öğrenirsiniz:
+İçinde [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md), şunların nasıl yapıldığını öğrenirsiniz:
 
 * Güvenlik ilkeleri yapılandırın.
 * Veri toplamayı etkinleştir.
 * Güvenlik ilkenizin bir parçası olarak görmek için hangi önerilerin seçin.
 
-Geçerli ilke önerileri Merkezi sistem güncelleştirmeleri, temel kurallar, kötü amaçlı yazılımdan koruma programları etrafında [ağ güvenlik grupları](../virtual-network/security-overview.md) alt ağları ve ağ arabirimleri, SQL veritabanı denetimi, SQL veritabanı saydam veri şifrelemesi, ve web uygulaması güvenlik duvarları.  [Güvenlik ilkelerini ayarlama](security-center-policies.md) her öneri seçeneği açıklamasını sağlar.
+Geçerli ilke önerileri Merkezi sistem güncelleştirmeleri, temel kurallar, kötü amaçlı yazılımdan koruma programları etrafında [ağ güvenlik grupları](../virtual-network/security-overview.md) alt ağları ve ağ arabirimleri, SQL veritabanı denetimi, SQL veritabanı saydam veri şifrelemesi, ve web uygulaması güvenlik duvarları.  [Güvenlik ilkelerini ayarlama](security-center-azure-policy.md) her öneri seçeneği açıklamasını sağlar.
 
 ### <a name="monitor-recommendations"></a>İzleme önerileri
 Bir güvenlik ilkesi tanımladıktan sonra, Güvenlik Merkezi olası güvenlik açıklarını tanımlamak için kaynaklarınızın güvenlik durumunu analiz eder. **Önerileri** altında kutucuğuna **genel bakış** Güvenlik Merkezi tarafından tanımlanan öneriler toplam sayısı bildiğiniz sağlar.
@@ -135,7 +135,7 @@ Tüm önerileri gözden geçirdikten sonra bir önce uygulamanız karar verebili
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu belgede, Güvenlik Merkezi'nde güvenlik önerilerini yaptınız. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) — Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md) — Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) - Azure kaynaklarınızın sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 * [Yönetme ve Azure Güvenlik Merkezi'nde güvenlik uyarılarını yanıtlama](security-center-managing-and-responding-alerts.md) — yönetme ve güvenlik uyarılarını yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.

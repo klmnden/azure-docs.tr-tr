@@ -14,12 +14,12 @@ ms.component: compliance
 ms.date: 11/15/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: c1ae6e8c67ab42207aea73932bb2e887db727f16
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 5a68657a0aaedb389ccaaacebb890583ab6292ee
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263393"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307857"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Azure AD ile uygulama erişimi ve Grup üyeleri erişim gözden geçirmesi oluşturma
 
@@ -77,7 +77,7 @@ Bu makalede grubu üyeleri veya uygulama erişimi için yeni bir erişim gözden
 1. Kullanım **Gözden Geçiren değil yanıt** Gözden Geçiren tarafından gözden geçirme süresi içinde geçirilmedi kullanıcıların ne olacağını belirlemek için liste. Bu ayar, gözden geçirenler tarafından el ile gözden geçirdikten kullanıcılar etkilemez. Son gözden geçirenin karar verme ise, kullanıcının erişim kaldırılacak.
 
     - **Hiçbir değişiklik** -kullanıcının erişimini değiştirmeden bırakın
-    - **Uygulama erişimini kaldırmak** -kullanıcının erişimini Kaldır
+    - **Erişimi Kaldır** -kullanıcının erişimini Kaldır
     - **Erişimi onayla** -kullanıcının erişimini onaylama
     - **Öneriler alın** - reddetme üzerinde sistemin öneri alın veya kullanıcı onaylama erişim devam
 

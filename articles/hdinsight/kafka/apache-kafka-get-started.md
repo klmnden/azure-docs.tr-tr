@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 10/12/2018
-ms.openlocfilehash: 9edb85fcaa2c3f9c58cc74c55d52e4dbbf751727
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 5b1768978425d3153f775e20a1a4c44a39794779
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014525"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315963"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Hızlı Başlangıç: HDInsight kümesi üzerinde Apache Kafka oluşturma
 
@@ -28,7 +28,7 @@ Bu hızlı başlangıçta, Azure portalını kullanarak [Apache Kafka](https://k
 >
 > Daha fazla bilgi için [Sanal ağ kullanarak Apache Kafka'ya bağlanma](apache-kafka-connect-vpn-gateway.md) belgesine bakın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -127,7 +127,7 @@ HDInsight kümesinde Apache Kafka oluşturmak için aşağıdaki adımları kull
 
 ## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
 
-1. Apache Kafka kümesinin birincil baş düğümüne bağlanmak için aşağıdaki komutu kullanın. `sshuser` değerini, SSH kullanıcı adıyla değiştirin. `mykafka` değerini Apache Kafka kümenizin adıyla değiştirme
+1. Apache Kafka kümesinin birincil baş düğümüne bağlanmak için aşağıdaki komutu kullanın. `sshuser` değerini, SSH kullanıcı adıyla değiştirin. Değiştirin `mykafka` , Apache Kafkacluster adı
 
     ```bash
     ssh sshuser@mykafka-ssh.azurehdinsight.net
@@ -161,11 +161,11 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ssuhuser@hn0-mykafk:~$
 ```
 
-## <a id="getkafkainfo"></a>Zookeeper ve Aracı konak bilgilerini alma
+## <a id="getkafkainfo"></a>Apache Zookeeper ve aracı konak bilgilerini alma
 
-Kafka ile çalışırken *Zookeeper* ve *Aracı* konaklarını bilmeniz gerekir. Bu konaklar Apache Kafka API'si ve Kafka ile gönderilen yardımcı programların birçoğu ile birlikte kullanılır.
+Kafka ile çalışırken bilmeniz gerekir *Apache Zookeeper* ve *Aracısı* konaklar. Bu konaklar Apache Kafka API'si ve Kafka ile gönderilen yardımcı programların birçoğu ile birlikte kullanılır.
 
-Bu bölümde, kümedeki Ambari REST API’sinden ana bilgisayar bilgilerini alırsınız.
+Bu bölümde, küme üzerinde Apache Ambari REST API konak bilgilerini alın.
 
 1. Küme ile SSH bağlantısından aşağıdaki komutu kullanarak `jq` yardımcı programını yükleyin. Bu yardımcı program, JSON belgelerini ayrıştırmak için kullanılır ve ana bilgisayar bilgilerini almak için yararlıdır:
    
@@ -249,7 +249,7 @@ Kafka, veri akışlarını *konular* içinde depolar. Konuları yönetmek için 
         > [!IMPORTANT] 
         > Apache Kafka, Azure hata etki alanları ile uyumlu değildir. Konular için bölüm çoğaltmaları oluşturulurken, çoğaltmalar yüksek kullanılabilirlik için düzgün şekilde dağıtılmayabilir.
 
-        Yüksek kullanılabilirlik sağlamak için [Kafka bölüm yeniden dengeleme aracını](https://github.com/hdinsight/hdinsight-kafka-tools) kullanın. Bu araç, Apache Kafka kümenizin baş düğümüyle kurulan bir SSH bağlantısından çalıştırılmalıdır.
+        Yüksek kullanılabilirlik sağlamak için kullanın [Apache Kafka bölüm yeniden Dengeleme aracını](https://github.com/hdinsight/hdinsight-kafka-tools). Bu araç, Apache Kafka kümenizin baş düğümüyle kurulan bir SSH bağlantısından çalıştırılmalıdır.
 
         Apache Kafka verilerinizin en yüksek kullanılabilirliğe sahip olması için aşağıdaki durumlarda konunuz için bölüm çoğaltmalarını yeniden dengelemeniz gerekir:
 
@@ -311,7 +311,7 @@ Daha önce oluşturduğunuz test konu başlığında kayıtları depolamak ve ar
 
 4. Tüketiciyi durdurmak için __Ctrl + C__ tuşlarını kullanın.
 
-Ayrıca programlı olarak üretici ve tüketici de oluşturabilirsiniz. Bu API’yi kullanmayla ilgili bir örnek için [HDInsight ile Kafka Üretici ve Tüketici API’si](apache-kafka-producer-consumer-api.md) belgesine göz atın.
+Ayrıca programlı olarak üretici ve tüketici de oluşturabilirsiniz. Bu API kullanma örneği için bkz: [Apache Kafka üretici ve tüketici API'si HDInsight ile](apache-kafka-producer-consumer-api.md) belge.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -331,5 +331,5 @@ Azure portalını kullanarak kaynak grubunu kaldırmak için:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Apache Spark’ı Kafka ile kullanma](../hdinsight-apache-kafka-spark-structured-streaming.md)
+> [Apache Kafka ile Apache Spark kullanma](../hdinsight-apache-kafka-spark-structured-streaming.md)
 

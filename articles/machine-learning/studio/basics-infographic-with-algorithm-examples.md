@@ -1,5 +1,5 @@
 ---
-title: 'Bilgi grafiği: Machine learning temel bilgileri - algoritma örnekleri | Microsoft Docs'
+title: 'Bilgi grafiği: Machine learning temel bilgileri - algoritma örnekleri - Azure Machine Learning Studio | Microsoft Docs'
 description: Machine learning temel bilgileri anlaşılması kolay bir bakış algoritma örnekleri içerir. İndirilebilir bilgi grafiği çoğu machine learning soruları kapsar.
 keywords: machine learning yeni başlayanlar, machine learning soruları, popüler algoritmaları, algoritma bilgi grafiği Machine learning temel bilgileri, algoritma örnekleri
 services: machine-learning
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: fcc85b62786cd776034e57d421262b82ecf54975
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ccbe152901ff7f59548239a1d59e585b8e356c23
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265126"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308011"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>İndirilebilir Bilgi Grafiği: Algoritma örnekleri ile machine learning temel bilgileri
 Machine learning temel bilgileri yaygın machine learning soruları yanıtlamak için kullanılan popüler algoritmaları hakkında bilgi edinmek için bu bilgi grafiği anlaşılması kolay bakış indirin. Algoritma örnekleri hangi algoritmaları ve kullanıldıkları anlamak machine learning Acemi yardımcı olur.

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 21fa41db2e205a7b17deae6d018308fe6e7ff213
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: fd9094d646b917cf811c28c9770fc2427a404ab4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006779"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309047"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>HDInsight üzerinde Kafka ile Apache Kafka konularını çoğaltma MirrorMaker kullanın
 
@@ -25,11 +25,11 @@ Bu örnekte, yansıtma konular iki HDInsight kümeleri arasında çoğaltmak iç
 > [!WARNING]
 > Yansıtma, hataya dayanıklılık elde etmek için bir yol değerlendirilmemelidir. Uzaklık içindeki bir konuya öğelerine kaynak ve hedef kümeler arasında farklı nedenle istemciler birbirinin yerine iki kullanamazsınız.
 >
-> Hataya dayanıklılık hakkında endişeleriniz varsa, çoğaltma konular için küme içinde ayarlamanız gerekir. Daha fazla bilgi için [HDInsight üzerinde Kafka kullanmaya başlama](apache-kafka-get-started.md).
+> Hataya dayanıklılık hakkında endişeleriniz varsa, çoğaltma konular için küme içinde ayarlamanız gerekir. Daha fazla bilgi için [HDInsight üzerinde Apache Kafka ile çalışmaya başlama](apache-kafka-get-started.md).
 
-## <a name="how-kafka-mirroring-works"></a>Kafka yansıtma nasıl çalışır?
+## <a name="how-apache-kafka-mirroring-works"></a>Apache Kafka ile yansıtma nasıl çalışır
 
-Yansıtma için çalışır MirrorMaker aracını (Apache Kafka parçası) kullanarak, kayıtları kaynak kümede konulardan ve ardından hedef kümede yerel bir kopyasını oluşturun. MirrorMaker kullanan bir (veya daha fazla) *tüketiciler* kaynak kümesinden okuyan ve *üretici* (hedef) yerel kümeye yazar.
+Kullanarak çalışır yansıtma [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) Aracı (Apache Kafka parçası) kaynak kümede konulardan, kayıtları ve ardından hedef kümede yerel bir kopyasını oluşturun. MirrorMaker kullanan bir (veya daha fazla) *tüketiciler* kaynak kümesinden okuyan ve *üretici* (hedef) yerel kümeye yazar.
 
 Aşağıdaki diyagramda, yansıtma işlemini gösterir:
 
@@ -56,7 +56,7 @@ Farklı ağlarda Kafka kümeleri arasında yansıtmak gerekiyorsa, aşağıdaki 
 
 İki Azure sanal ağları bağlama hakkında daha fazla bilgi için bkz. [bir VNet-VNet bağlantısını yapılandırma](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
-## <a name="create-kafka-clusters"></a>Kafka kümeleri oluşturma
+## <a name="create-apache-kafka-clusters"></a>Apache Kafka kümeleri oluşturma
 
 Bir Azure sanal ağı oluşturabilirsiniz ve el ile Kafka kümeleri olsa da bir Azure Resource Manager şablonu kullanmak daha kolaydır. Bir Azure sanal ağı ve iki Kafka kümeleri, Azure aboneliğinize dağıtmak için aşağıdaki adımları kullanın.
 
@@ -106,7 +106,7 @@ Bir Azure sanal ağı oluşturabilirsiniz ve el ile Kafka kümeleri olsa da bir 
 
     Bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Kaynak kümesi için Zookeeper konakları bulmak için aşağıdaki komutları kullanın:
+2. Kaynak kümesi için Apache Zookeeper konakları bulmak için aşağıdaki komutları kullanın:
 
     ```bash
     # Install jq if it is not installed
@@ -295,10 +295,10 @@ Bu belgedeki adımlarda, aynı Azure kaynak grubu içinde her iki küme oluştur
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Bu belgede, bir Kafka kümesinin bir çoğaltma oluşturmak üzere MirrorMaker kullanmayı öğrendiniz. Kafka ile çalışmak için diğer yollarını bulmak için aşağıdaki bağlantıları kullanın:
+Bu belgede, nasıl kullanacağınızı öğrendiniz [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) bir kopyasını oluşturmak için bir [Apache Kafka](https://kafka.apache.org/) kümesi. Kafka ile çalışmak için diğer yollarını bulmak için aşağıdaki bağlantıları kullanın:
 
 * [Apache Kafka MirrorMaker belgeleri](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) cwiki.apache.org konumunda.
 * [HDInsight üzerinde Apache Kafka ile çalışmaya başlama](apache-kafka-get-started.md)
-* [Apache Spark’ı HDInsight üzerinde Kafka ile kullanma](../hdinsight-apache-spark-with-kafka.md)
-* [Apache Storm’u HDInsight üzerinde Kafka ile kullanma](../hdinsight-apache-storm-with-kafka.md)
-* [Azure Sanal Ağ üzerinden Kafka’ya bağlanma](apache-kafka-connect-vpn-gateway.md)
+* [HDInsight üzerinde Apache Kafka ile Apache Spark kullanma](../hdinsight-apache-spark-with-kafka.md)
+* [Apache Storm'u HDInsight üzerinde Apache Kafka ile kullanma](../hdinsight-apache-storm-with-kafka.md)
+* [Apache Kafka ile bir Azure sanal ağına bağlanma](apache-kafka-connect-vpn-gateway.md)

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 086399f669b704a0ae2c9f719906e7efa672b5b1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262521"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422805"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Azure sanal makinelerini yedeklemek hazırlama
 
@@ -49,13 +49,14 @@ Ortamınızı hazırlama önce bu sınırlamalar anladığınızdan emin olun:
 * Linux Linux birleşik anahtar Kurulum (LUKS) şifreleme ile şifrelenmiş VM'ler için yedekleme desteklenmez.
 * Küme Paylaşılan birimleri (CSV) veya genişleme dosya sunucusu yapılandırması içeren VM'lerin yedeklenmesi önerilmemektedir. Bu yapıldığında, CSV yazıcılar hata beklenir. Bunlar, bir anlık görüntü görevi sırasında küme yapılandırmasında bulunan tüm sanal makineler içeren gerektirir. Azure Backup, çoklu VM tutarlılığı desteklememektedir.
 * Yedekleme verileri, bir VM'ye bağlı ağ sürücülerini içermez.
-* Geri yükleme sırasında mevcut bir sanal makinenin değiştirilmesi desteklenmez. VM'in mevcut olduğunda VM geri yükleme girişimi geri yükleme işlemi başarısız olur.
+* **Varolan** seçeneğini **geri yükleme Yapılandırması** yardımcı mevcut geçerli VM diskleri seçilen geri yükleme noktası ile değiştirin. Bu işlem, yalnızca geçerli VM varsa gerçekleştirilebilir. 
 * Bölgeler arası yedeklemek ve geri yükleme desteklenmez.
 * Yukarı arka yapılandırılırken emin **güvenlik duvarları ve sanal ağlar** depolama hesabı ayarlarını tüm ağlardan erişime izin verin.
 * Depolama hesabınız için güvenlik duvarı ve sanal ağ ayarlarını yapılandırdıktan sonra seçili ağlar için seçin **güvenilen Microsoft hizmetlerinin bu depolama hesabına erişmesine izin ver** Azure Backup hizmeti etkinleştirmek için bir özel durum olarak ağla kısıtlı depolama hesabına erişim. Öğe düzeyinde kurtarma ağla kısıtlı depolama hesapları için desteklenmiyor.
 * Tüm genel bölgelerde Azure sanal makineleri yedekleyebilir. (Bkz [denetim listesi](https://azure.microsoft.com/regions/#services) desteklenen bölgelerin.) Aradığınız bölge bugün desteklenmiyorsa, kasa oluşturma sırasında aşağı açılan listede görünmez.
 * Birden çok DC yapılandırmasının bir parçasıdır (DC) sanal makine bir etki alanı denetleyicisini geri yükleme yalnızca PowerShell aracılığıyla desteklenir. Daha fazla bilgi için bkz. [DC çoklu etki alanı denetleyicisini geri yükleme](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Anlık görüntü yazma Hızlandırıcısı etkinleştirilmiş disk üzerinde desteklenmiyor. Bu kısıtlama, sanal makinenin tüm disklerinin bir uygulamayla tutarlı anlık görüntü gerçekleştirmek için Azure Backup hizmeti yeteneğini engeller.
+* Azure Backup, Azure VM'yi yedekleme için gün ışığından tasarruf değişiklikler için saat otomatik ayarlama desteklemez. Zorunlu kılınırsa, gün ışığından tasarruf saat değişikliği dikkate almak için ilkeyi değiştirin.
 * Aşağıdaki özel ağ yapılandırmaları olan bir sanal makineler geri yalnızca PowerShell aracılığıyla desteklenir. Geri yükleme işlemi tamamlandıktan sonra kullanıcı arabiriminde geri yükleme iş akışı aracılığıyla oluşturulan sanal makineler bu ağ yapılandırmaları yoktur. Daha fazla bilgi için bkz. [özel ağ yapılandırmalarını geri Vm'lerle](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
   * Sanal makineler altında Yük Dengeleyiciyi yapılandırma (iç ve dış)
   * Birden çok ayrılmış IP adreslerine sahip sanal makineler

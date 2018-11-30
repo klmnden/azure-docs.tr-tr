@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 11/26/2018
 ms.author: shlo
-ms.openlocfilehash: 23f00280a69212b9e623ae1da16a681ca30c9d51
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: e38a0ec39227b0064175c3c39d32bf87970ef9f5
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42056341"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423737"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach etkinliği, Azure Data Factory
 ForEach etkinliği, işlem hattınızda yinelenen bir denetim akışını tanımlar. Bu etkinlik bir koleksiyon üzerinde yinelemek için kullanılır ve bir döngüde belirtilen etkinlikleri yürütür. Bu etkinliğin döngü uygulaması, programlama dillerindeki Foreach döngü yapısına benzer.
@@ -572,6 +572,17 @@ ForEach bir tüm yinelemeleri çıktısını toplamak için ifade `@activity('Na
 ]
 
 ```
+
+## <a name="limitations-and-workarounds"></a>Sınırlamalar ve geçici çözümler
+
+ForEach etkinliği ve önerilen geçici çözümleri bazı sınırlamalar aşağıda verilmiştir.
+
+| Sınırlama | Geçici çözüm |
+|---|---|
+| Başka bir ForEach döngüsü içinde bir ForEach döngüsü (ya da Until döngüsü) iç içe olamaz. | Burada bir iç işlem hattı ile iç içe döngü üzerinden dış işlem hattı çalıştırmasıyla dış ForEach döngüsü yinelenir iki düzeyli işlem hattı tasarım. |
+| ForEach etkinliği limitinde `batchCount` 50 paralel işleme ve en fazla 100.000 öğe. | Burada dış işlem hattı ForEach etkinliği ile bir iç işlem hattı yinelenir iki düzeyli işlem hattı tasarım. |
+| | |
+
 ## <a name="next-steps"></a>Sonraki adımlar
 Data Factory tarafından desteklenen diğer denetim akışı etkinlikleri bakın: 
 

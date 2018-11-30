@@ -1,5 +1,5 @@
 ---
-title: Machine Learning Studio işlevlerine genel bakış diyagramı | Microsoft Belgeleri
+title: -Azure olan Machine Learning Studio işlevlerine genel bakış diyagramı | Microsoft Docs
 description: Tahmine dayalı bir analiz denemesi geliştirmek ve bu denemeyi Azure bulutunda faaliyete geçirmek üzere Studio'nun nasıl kullanılacağını gösteren, Azure Machine Learning Studio'nun işlevlerinin yazdırılabilir bir diyagramı.
 keywords: machine learning studio,genel bakış diyagramı,indirme
 services: machine-learning
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/04/2017
-ms.openlocfilehash: 283a37cd708dfd41a7840cef2f4236fd887130bf
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: d972cc9f162e16d5b688919dcdb5b7b06ad90736
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262644"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312472"
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Azure Machine Learning Studio işlevlerine genel bakış diyagramı
 **Microsoft Azure Machine Learning Studio İşlevlerine Genel Bakış** diyagramı, tahmine dayalı bir analiz modeli geliştirmek ve bunu Azure bulutunda faaliyete geçirmek için Studio'yu nasıl kullanacağınız konusunda üst düzey bir genel bakış sağlar.

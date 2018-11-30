@@ -1,6 +1,6 @@
 ---
-title: API Management genel bakış ile Azure Service Fabric | Microsoft Docs
-description: Bu makale, Service Fabric uygulamaları için bir ağ geçidi olarak Azure API Yönetimi'ni kullanarak bir giriş var.
+title: Azure Service Fabric ile API Management genel bakış | Microsoft Docs
+description: Bu makale, Service Fabric uygulamaları için bir ağ geçidi olarak Azure API Yönetimi'ni kullanarak bir giriş niteliğindedir.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,102 +14,108 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 6bf7ea90bb5351411984110fd8fb05c2f8cb0650
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 01b67cc0c20710fcf7c9a072e0ba3baaf286852a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205170"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423652"
 ---
-# <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric ile Azure API Management genel bakış
+# <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric ile Azure API Yönetimi'ne genel bakış
 
-Bulut uygulamalarının normalde kullanıcılar, cihazlar ve diğer uygulamalara tek giriş noktası sağlamak için bir ön uç ağ geçidine ihtiyacı vardır. Service Fabric bir ağ geçidi herhangi bir durum bilgisiz hizmeti gibi olabilir bir [ASP.NET Core uygulama](service-fabric-reliable-services-communication-aspnetcore.md), veya başka bir hizmeti gibi trafik giriş için tasarlanmış [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IOT hub'ı](https://docs.microsoft.com/azure/iot-hub/), veya [Azure API Management](https://docs.microsoft.com/azure/api-management/).
+Bulut uygulamalarının normalde kullanıcılar, cihazlar ve diğer uygulamalara tek giriş noktası sağlamak için bir ön uç ağ geçidine ihtiyacı vardır. Service Fabric'te, bir ağ geçidi herhangi bir durum bilgisi olmayan hizmet gibi olabilir bir [ASP.NET Core uygulaması](service-fabric-reliable-services-communication-aspnetcore.md), veya başka bir hizmet gibi trafik girişi için tasarlanmış [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IOT hub'ı](https://docs.microsoft.com/azure/iot-hub/), veya [Azure API Management](https://docs.microsoft.com/azure/api-management/).
 
-Bu makale, Service Fabric uygulamaları için bir ağ geçidi olarak Azure API Yönetimi'ni kullanarak bir giriş var. API Management Service Fabric, arka uç Service Fabric hizmetlerinize yönlendirme kuralları zengin bir dizi API yayımlamanıza olanak tanıyan ile doğrudan tümleşir. 
+Bu makale, Service Fabric uygulamaları için bir ağ geçidi olarak Azure API Yönetimi'ni kullanarak bir giriş niteliğindedir. API Management, zengin bir arka uç Service Fabric hizmetleriniz için yönlendirme kuralları kümesiyle API'ler yayımlamanıza olanak tanıyan, Service Fabric ile doğrudan tümleşir. 
+
+## <a name="availability"></a>Kullanılabilirlik
+
+> [!IMPORTANT]
+> Bu özellik kullanılabilir **Premium** ve **Geliştirici** katmanları API Yönetimi'nin gerekli nedeniyle sanal ağ desteği.
 
 ## <a name="architecture"></a>Mimari
-Ortak bir Service Fabric mimarisi HTTP API'leri arka uç hizmetlerini HTTP çağrıları yapan bir tek sayfalı web uygulaması kullanır. [Service Fabric başlama örnek uygulama](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) Bu mimarinin bir örneği gösterir.
 
-Bu senaryoda, bir durum bilgisi olmayan web hizmeti için Service Fabric uygulamaya ağ geçidi olarak görev yapar. Bu yaklaşım, aşağıdaki çizimde gösterildiği gibi arka uç hizmetlerine proxy HTTP isteğinin bir web hizmeti yazmak gerektirir:
+Ortak bir Service Fabric mimarisi HTTP API'lerini kullanıma sunan arka uç Hizmetleri HTTP çağrıları yapan tek sayfalı web uygulaması kullanır. [Service Fabric kullanmaya başlama örnek uygulamasını](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) Bu mimarinin bir örneği gösterilmektedir.
+
+Bu senaryoda, bir durum bilgisi olmayan web hizmeti, Service Fabric uygulamasına ağ geçidi olarak görev yapar. Bu yaklaşım, arka uç hizmetlerine proxy HTTP isteğinin bir web hizmeti aşağıdaki diyagramda gösterildiği gibi yazmak gerektirir:
 
 ![Service Fabric ile Azure API Management topolojisine genel bakış][sf-web-app-stateless-gateway]
 
-Uygulamaları karmaşıklığı arttıkça, bu nedenle bir API çok arka uç hizmetlerini önünde sunmalıdır ağ geçitleri yapın. Azure API Management yönlendirme kuralları, erişim denetimi, hız sınırlaması, izleme, olay günlüğünü ve bölümünüzün minimum çabayla yanıt önbelleğe alma ile karmaşık API'leri işlemek için tasarlanmıştır. Azure API Management Service Fabric hizmet bulma, bölüm çözümleme ve çoğaltma seçimi durum bilgisiz kendi API ağ geçidi yazmak zorunda kalmamak için akıllıca isteklerini doğrudan arka uç Service Fabric Hizmetleri'nde yönlendirmek için destekler. 
+Uygulamaların karmaşıklığı arttıkça, bu nedenle çok arka uç Hizmetleri önünde bir API sunması gerekir ağ geçitleri yapın. Azure API Management, karmaşık yönlendirme kuralları, erişim denetimi, hız sınırlaması, izleme, olay günlüğü ve sizin için en az iş ile yanıt önbelleğe alma API'lerle işlemek için tasarlanmıştır. Azure API Management, Service Fabric hizmet bulma, bölümleme çözümlemesi ve çoğaltma seçimi durum bilgisiz kendi API ağ geçidi yazmak zorunda kalmamak için akıllı bir şekilde istekleri Service fabric'teki arka uç hizmetlerine doğrudan yönlendirmeyi destekler. 
 
-HTTP API çağrıları yönetilir ve aşağıdaki çizimde gösterildiği gibi Azure API Management yönlendirilmiş sırada bu senaryoda, web kullanıcı Arabirimi hala bir web hizmeti aracılığıyla sunulur:
+HTTP API çağrıları yönetilen ve Azure API Management aracılığıyla Aşağıdaki diyagramda gösterildiği gibi yönlendirilen olsa Bu senaryoda, web kullanıcı Arabirimi yine de bir web hizmeti aracılığıyla sunulur:
 
 ![Service Fabric ile Azure API Management topolojisine genel bakış][sf-apim-web-app]
 
 ## <a name="application-scenarios"></a>Uygulama senaryoları
 
-Durum bilgisiz ya da durum bilgisi olan Service Fabric Hizmetleri'nde olabilir ve üç düzenleri birini kullanarak bölümlendirilebilir: singleton, int 64 aralığı ve adlandırılmış. Hizmet uç noktası çözümleme belirli hizmet örneği, belirli bir bölüm tanımlayan gerektirir. Bir uç nokta bir hizmetin her iki hizmet örneği adı çözülürken (örneğin, `fabric:/myapp/myservice`) yanı sıra belirli bir bölüm hizmetinin belirtilmelidir, söz konusu olduğunda tek bölüm dışındaki.
+Service fabric'te Hizmetleri olabilir durum bilgisi olmayan ya da durum bilgisi olan ve üç düzenlerden birini kullanarak bölümlendirilebilir: tekil, int 64 aralığı ve adlandırılmış. Hizmet uç noktası çözümleme, belirli bir hizmet örneğine belirli bir bölümünü tanımlayan gerektirir. Bir uç nokta bir hizmetin her iki hizmet örneği adı çözülürken (örneğin, `fabric:/myapp/myservice`) hizmetinin belirli bölümü belirtilmelidir olarak, söz konusu olduğunda tek bölüm hariç.
 
-Azure API Management durum bilgisi olmayan hizmetler, durum bilgisi olan hizmetler ve tüm bölümleme düzeni, herhangi bir birleşimini ile kullanılabilir.
+Azure API yönetimi, durum bilgisi olmayan hizmetler, durum bilgisi olan hizmetler ve herhangi bir bölümleme düzeni, herhangi bir birleşimini ile kullanılabilir.
 
-## <a name="send-traffic-to-a-stateless-service"></a>Durum bilgisiz hizmete trafiği Gönder
+## <a name="send-traffic-to-a-stateless-service"></a>Trafiği bir durum bilgisi olmayan hizmete gönderme
 
-En basit durumda, trafik için bir durum bilgisiz hizmet örneği iletilir. Bunun için bir Service Fabric Service Fabric arka uç özel durum bilgisiz hizmet örneğinde eşleyen uç gelen işleme ilkesiyle bir API Management işlemi içerir. Bu hizmete gönderilen istekleri rastgele bir durum bilgisiz hizmet örneği kopyasına gönderilir.
+En basit durumda, trafiği durum bilgisi olmayan hizmet örneğine iletilir. Bunu başarmak için bir gelen işlem İlkesi ile bir Service Fabric Service Fabric arka uç, belirli bir durum bilgisi olmayan hizmet örneğine eşleyen uç API Management işlemi içerir. Bu hizmete gönderilen isteklerin rastgele bir durum bilgisi olmayan hizmet örneği kopyasına gönderilir.
 
 #### <a name="example"></a>Örnek
-Aşağıdaki senaryoda, bir Service Fabric uygulaması adlı bir durum bilgisi olmayan hizmetin içeren `fabric:/app/fooservice`, iç HTTP API gösterir. Hizmet örneği adı tanınmış ve doğrudan gelen işleme API Management ilkesinde sabit kodlanmış olabilir. 
+Aşağıdaki senaryoda, bir Service Fabric uygulaması adlı bir durum bilgisi olmayan hizmet içeren `fabric:/app/fooservice`, iç HTTP API sunar. Hizmet örneği adı bilinen ve doğrudan gelen işlem API Management ilkesinde sabit kodlanmış olabilir. 
 
 ![Service Fabric ile Azure API Management topolojisine genel bakış][sf-apim-static-stateless]
 
-## <a name="send-traffic-to-a-stateful-service"></a>Durum bilgisi olan bir hizmet için trafiği Gönder
+## <a name="send-traffic-to-a-stateful-service"></a>Bir durum bilgisi olan hizmet için trafiği gönderme
 
-Durum bilgisiz servis senaryosu benzer, trafik bir durum bilgisi olan hizmet örneğine iletilebilir. Bu durumda, bir API Management işlem bir Service Fabric belirli bir belirli bir bölüm için bir istek eşleyen uç gelen işleme ilkesiyle içeren *durum bilgisi olan* hizmet örneği. Bazı girdi bir URL yolu değerinde gibi gelen HTTP istek kullanarak bir lambda yöntemle hesaplanan üzere her istek eşlemek için bölüm. İlke, yalnızca birincil çoğaltma veya okuma işlemleri için rastgele bir çoğaltma istekleri göndermek için yapılandırılabilir.
+Durum bilgisi olmayan hizmet senaryosu benzer, trafiği durum bilgisi olan hizmet örneğine iletilebilir. Bu durumda, bir gelen işlem İlkesi ile bir Service Fabric, belirli bir bölüme belirli bir istek eşleyen uç bir API Management işlemini içeren *durum bilgisi olan* hizmet örneği. Gelen HTTP istek URL yolu bir değer gibi bazı girişini kullanarak bir lambda yöntemi aracılığıyla hesaplanır üzere her istek eşlemek için bölüm. İlke, yalnızca birincil çoğaltmaya veya okuma işlemleri için rastgele bir çoğaltmaya istekleri göndermek için yapılandırılabilir.
 
 #### <a name="example"></a>Örnek
 
-Aşağıdaki senaryoda, bir Service Fabric uygulaması adlı bölümlenmiş bir durum bilgisi olan hizmeti içeren `fabric:/app/userservice` bir iç HTTP API gösterir. Hizmet örneği adı tanınmış ve doğrudan gelen işleme API Management ilkesinde sabit kodlanmış olabilir.  
+Aşağıdaki senaryoda, bir Service Fabric uygulaması adlı bölümlendirilmiş bir durum bilgisi olan hizmeti içeren `fabric:/app/userservice` , iç HTTP API sunar. Hizmet örneği adı bilinen ve doğrudan gelen işlem API Management ilkesinde sabit kodlanmış olabilir.  
 
-Hizmet Int64 bölüm düzenini kullanarak iki bölüm ve kapsayan bir anahtar aralığı bölümlenmiş `Int64.MinValue` için `Int64.MaxValue`. Arka uç İlkesi dönüştürerek bu aralıktaki bir bölüm anahtarı hesaplar `id` herhangi bir algoritma bölüm anahtarı hesaplamak için burada kullanılabilse de URL istek yolunda bir 64-bit tamsayı olarak sağlanan değer. 
+Hizmet Int64 bölüm şeması iki bölüm ve kapsayan bir anahtar aralığı ile kullanarak bölümlenmiş `Int64.MinValue` için `Int64.MaxValue`. Arka uç İlkesi dönüştürerek bir bölüm anahtarı, aralıktaki hesaplar `id` herhangi bir algoritma burada bölüm anahtarı hesaplamak için kullanılabilir olsa da URL istek yolunda bir 64-bit tamsayıya sağlanan değer. 
 
 ![Service Fabric ile Azure API Management topolojisine genel bakış][sf-apim-static-stateful]
 
-## <a name="send-traffic-to-multiple-stateless-services"></a>Birden fazla durum bilgisi olmayan hizmetler için trafiği Gönder
+## <a name="send-traffic-to-multiple-stateless-services"></a>Birden çok durum bilgisi olmayan hizmetler için trafiği gönderme
 
-Daha gelişmiş senaryolarda istekleri için birden fazla hizmet örneği eşleyen bir API Management işlemi tanımlayabilirsiniz. Bu durumda, her işlem istekleri Gelen HTTP istek, durum bilgisi olan hizmetler, söz konusu olduğunda ve URL yolu veya sorgu dizesi gibi bir bölüm hizmet örneği içinde değerlere göre belirli hizmet örneği eşleyen bir ilke içerir. 
+Daha gelişmiş senaryolarda, istekleri birden fazla hizmet örneği için eşleşen bir API Management işlemi tanımlayabilirsiniz. Bu durumda, her işlem istekleri için gelen HTTP istek, URL yolu veya sorgu dizesi gibi ve durum bilgisi olan hizmetler söz konusu olduğunda bir bölüm içinde hizmet örneği değerlerine dayalı belirli bir hizmet örneğine eşleyen bir ilke içerir. 
 
-Bunun için bir Service Fabric gelen HTTP isteğinden alınan değerlere göre Service Fabric arka uç durum bilgisiz service örneğinde eşleyen uç gelen işleme ilkesiyle bir API Management işlemi içerir. Bir hizmet örneği isteklerine hizmet örneğinin rastgele bir kopyasını gönderilir.
+Bunu başarmak için bir gelen işlem İlkesi ile bir Service Fabric gelen HTTP isteğinden alınan değerlere göre Service Fabric arka uç durum bilgisi olmayan hizmet örneğinde eşleyen uç API Management işlemi içerir. Bir hizmet örneği isteklerine hizmet örneği için rastgele bir çoğaltma gönderilir.
 
 #### <a name="example"></a>Örnek
 
-Bu örnekte, aşağıdaki formül kullanılarak dinamik olarak oluşturulan bir adla uygulamanın her bir kullanıcı için yeni bir durum bilgisiz hizmet örneği oluşturulur:
+Bu örnekte, bir uygulamanın her bir kullanıcı için aşağıdaki formülü kullanarak dinamik olarak oluşturulan bir adla yeni bir durum bilgisi olmayan hizmet örneği oluşturulur:
  
  - `fabric:/app/users/<username>`
 
- Her hizmet için benzersiz bir ad olsa da, adları eylemli veya yönetici giriş ve böylece APIM ilkeleri veya yönlendirme kuralları sabit kodlanmış olamaz Hizmetleri yanıt kullanıcı olarak oluşturulur çünkü bilinmez. Bir isteğin gönderileceği hizmetin adını arka uç ilke tanımı bunun yerine, üretildi `name` URL istek yolu sağlanan değer. Örneğin:
+ Her hizmet benzersiz bir adı vardır, ancak adlarını ön Hizmetleri yanıt kullanıcı olarak oluşturulur veya yönetici giriş ve bu nedenle APIM ilkeleri ya da yönlendirme kuralları sabit kodlanmış olamaz çünkü bilinmez. Bir istek göndermek hangi hizmetin adını arka uç İlkesi tanımından bunun yerine, oluşturulur `name` URL istek yolunda sağlanan değeri. Örneğin:
 
   - Bir istek `/api/users/foo` hizmet örneğine yönlendirilir `fabric:/app/users/foo`
   - Bir istek `/api/users/bar` hizmet örneğine yönlendirilir `fabric:/app/users/bar`
 
 ![Service Fabric ile Azure API Management topolojisine genel bakış][sf-apim-dynamic-stateless]
 
-## <a name="send-traffic-to-multiple-stateful-services"></a>Birden fazla durum bilgisi olan hizmet için trafiği Gönder
+## <a name="send-traffic-to-multiple-stateful-services"></a>Trafiği göndermek için birden çok durum bilgisi olan hizmetler
 
-Durum bilgisiz hizmet örneğe benzer bir API Management işlem istekleri birden fazla eşleyebilirsiniz **durum bilgisi olan** hizmet örneği, bu, aynı zamanda durumda her bir durum bilgisi olan hizmet örneği için bölüm çözümlemesi gerekebilir.
+Durum bilgisi olmayan hizmet örneğe benzer bir API Management işlem istekleri birden fazla eşleyebilirsiniz **durum bilgisi olan** hizmet örneği, siz de durumda her bir durum bilgisi olan hizmet örneği için bölümleme çözümlemesi gerçekleştirmek gerekebilir.
 
-Bunun için bir Service Fabric gelen HTTP isteğinden alınan değerlere göre Service Fabric arka uç durum bilgisi olan hizmet örneğinde eşleyen uç gelen işleme ilkesiyle bir API Management işlemi içerir. Belirli hizmet örneği için bir istek eşleştirmesi yanı sıra, istek Ayrıca hizmet örneği içinde belirli bir bölüm ve isteğe bağlı olarak birincil çoğaltmayı veya bölüm içinde rastgele bir ikincil çoğaltma için eşlenebilir.
+Bunu başarmak için bir gelen işlem İlkesi ile bir Service Fabric gelen HTTP isteğinden alınan değerlere göre Service Fabric arka uç durum bilgisi olan hizmet örneğinde eşleyen uç API Management işlemi içerir. Belirli bir hizmet örneği için bir istek eşleme yanı sıra istek Ayrıca hizmet örneği içinde belirli bir bölüme ve isteğe bağlı olarak birincil çoğaltma ya da bölüm içindeki rastgele bir ikincil çoğaltma eşlenebilir.
 
 #### <a name="example"></a>Örnek
 
-Bu örnekte, aşağıdaki formül kullanılarak dinamik olarak oluşturulan bir adla uygulama her bir kullanıcı için yeni bir durum bilgisi olan hizmet örneği oluşturulur:
+Bu örnekte, uygulamanın her bir kullanıcı için aşağıdaki formülü kullanarak dinamik olarak oluşturulan bir adla yeni bir durum bilgisi olan hizmet örneği oluşturulur:
  
  - `fabric:/app/users/<username>`
 
- Her hizmet için benzersiz bir ad olsa da, adları eylemli veya yönetici giriş ve böylece APIM ilkeleri veya yönlendirme kuralları sabit kodlanmış olamaz Hizmetleri yanıt kullanıcı olarak oluşturulur çünkü bilinmez. Bir isteğin gönderileceği hizmetin adını arka uç ilke tanımı bunun yerine, üretildi `name` değeri sağlanan URL istek yolu. Örneğin:
+ Her hizmet benzersiz bir adı vardır, ancak adlarını ön Hizmetleri yanıt kullanıcı olarak oluşturulur veya yönetici giriş ve bu nedenle APIM ilkeleri ya da yönlendirme kuralları sabit kodlanmış olamaz çünkü bilinmez. Bir istek göndermek hangi hizmetin adını arka uç İlkesi tanımından bunun yerine, oluşturulur `name` değeri sağlanan URL istek yolu. Örneğin:
 
   - Bir istek `/api/users/foo` hizmet örneğine yönlendirilir `fabric:/app/users/foo`
   - Bir istek `/api/users/bar` hizmet örneğine yönlendirilir `fabric:/app/users/bar`
 
-Her hizmet örneği iki bölüm ve kapsayan bir anahtar aralığı Int64 bölüm düzeni kullanılarak da bölümlenmiş `Int64.MinValue` için `Int64.MaxValue`. Arka uç İlkesi dönüştürerek bu aralıktaki bir bölüm anahtarı hesaplar `id` herhangi bir algoritma bölüm anahtarı hesaplamak için burada kullanılabilse de URL istek yolunda bir 64-bit tamsayı olarak sağlanan değer. 
+Her hizmet örneği, ayrıca Int64 bölüm düzenini kullanarak iki bölüm ve kapsayan bir anahtar aralığı bölümlenen `Int64.MinValue` için `Int64.MaxValue`. Arka uç İlkesi dönüştürerek bir bölüm anahtarı, aralıktaki hesaplar `id` herhangi bir algoritma burada bölüm anahtarı hesaplamak için kullanılabilir olsa da URL istek yolunda bir 64-bit tamsayıya sağlanan değer. 
 
 ![Service Fabric ile Azure API Management topolojisine genel bakış][sf-apim-dynamic-stateful]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-İzleyin [öğretici](service-fabric-tutorial-deploy-api-management.md) ilk Service Fabric kümenizle API Management API Management ve akış isteklerini hizmetlerinize ayarlamak için.
+İzleyin [öğretici](service-fabric-tutorial-deploy-api-management.md) ilk Service Fabric kümenizi hizmetleriniz için API yönetimi ve akış isteği API Management aracılığıyla ayarlamak için.
 
 <!-- links -->
 

@@ -1,6 +1,6 @@
 ---
-title: Görüntüleri arama API'si hızlı başlangıç | Microsoft Docs
-description: Bing görüntüleri arama API'si ile çalışmaya başlamak gösterilmiştir.
+title: Resim arama API'si hızlı başlangıç | Microsoft Docs
+description: Bing görüntü arama API'sini kullanmaya başlama işlemini gösterir.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
@@ -10,43 +10,43 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 9e211cf5acd17ab80948d0b7161bdd2a9220c4a6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5742efb2dca02565735cf308d9ede9316ce6d12e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351622"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314873"
 ---
 # <a name="your-first-images-search-query"></a>Sorgu ilk görüntülerinizi arama
 
-İlk aramanız yapabilmeniz için önce bir Bing arama Bilişsel hizmetler abonelik anahtarı almanız gerekir. Bir anahtar almak için bkz: [deneyin Bilişsel Hizmetler](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
+İlk çağrınızı yapmadan önce bir Bing Arama Bilişsel Hizmetler abonelik anahtarı almanız gerekir. Anahtar almak için bkz. [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).  Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-Resim arama sonuçları almak için aşağıdaki uç noktaya bir GET isteği gönder:  
+Görüntü arama sonuçlarını almak için aşağıdaki uç noktaya bir GET isteği gönder:  
   
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/search
 ```
   
-İstek HTTPS protokolünü kullanmanız gerekir.
+İstek, HTTPS protokolünü kullanmalıdır.
 
-Tüm istekleri bir sunucusundan kaynaklanan öneririz. Bir istemci uygulaması bir parçası olarak anahtar dağıtma bir kötü amaçlı üçüncü erişmek taraf için daha fazla fırsatı sağlar. Ayrıca, bir sunucudan çağrıları yapma tek bir yükseltme noktası API gelecek sürümlerinde sağlar.
+Tüm isteklerin bir sunucudan gönderilmesini öneririz. Anahtarı bir istemci uygulamanın parçası olarak dağıtmak, kötü amaçlı bir üçüncü tarafa anahtara erişmek için daha fazla fırsat sunar. Ayrıca bir sunucudan çağrı yapmak API'nin gelecek sürümleri için tek bir yükseltme noktası sağlar.
 
-İstek belirtmelisiniz [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) kullanıcının arama terimi içeren sorgu parametresi. İsteğe bağlı olsa da, istek de belirtmeniz gerekir [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#mkt) alınması için sonuçları istediğiniz Pazar tanımlayan sorgu parametresi. Listesini isteğe bağlı parametreleri gibi sorgu `freshness` ve `size`, bkz: [sorgu parametreleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query-parameters). Tüm sorgu parametre değerleri URL kodlanmış olmalıdır.  
+İstek kullanıcının arama terimini içeren [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) sorgu parametresini belirtmelidir. Tercihe bağlı olmakla birlikte, istek, sonuçların gelmesini istediğiniz pazarı tanımlayan [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#mkt) sorgu parametresini de belirtmelidir. `freshness` ve `size` gibi isteğe bağlı sorgu parametrelerinin bir listesi için bkz. [Sorgu Parametreleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query-parameters). Tüm sorgu parametre değerleri URL olarak kodlanmış olmalıdır.  
   
-İstek belirtmelisiniz [Apim abonelik anahtar Ocp](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#subscriptionkey) üstbilgi. İsteğe bağlı olsa da, aşağıdaki üst bilgiler de belirtmeniz önerilir:  
+İstek [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#subscriptionkey) üstbilgisini belirtmelidir. İsteğe bağlı olmakla birlikte şu üstbilgileri de belirtmeniz önerilir:  
   
--   [Kullanıcı Aracısı](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#useragent)  
--   [X MSEdge ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#clientid)  
--   [X arama ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#clientip)  
--   [X arama konumu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#location)  
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#useragent)  
+-   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#clientid)  
+-   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#clientip)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#location)  
 
-İstemci IP ve konum üstbilgileri konumu kullanan içerik döndürmek için önemlidir.  
+İstemci IP'si ve konum üstbilgileri konuma duyarlı içerik döndürmek için önemlidir.  
 
-Tüm istek ve yanıt üstbilgileri listesi için bkz: [üstbilgileri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#headers).
+Tüm istek ve yanıt üstbilgilerinin bir listesi için bkz. [Üstbilgiler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#headers).
 
 ## <a name="the-request"></a>İstek
 
-Tüm üstbilgiler ve önerilen sorgu parametreleri içeren bir arama isteğine gösterir. Eğer öyleyse ilk zaman herhangi bir Bing API'leri çağırma, istemci kimliği üstbilgisi dahil etmeyin. Yalnızca istemci kimliği, daha önce Bing API'si çağırdıktan ve kullanıcı ve aygıt bileşimi için bir istemci kimliği Bing döndürülen içerir. 
+Aşağıda önerilen tüm sorgu parametrelerini ve üst bilgilerini içeren bir arama isteği gösterilmektedir. Bu ise ilk kez herhangi bir Bing API'leri çağırma, istemci kimliği üst bilgisi içermez. İstemci kimliğini yalnızca önceden bir Bing API'sini çağırdıysanız ve Bing, kullanıcı ve cihaz birleşimi için bir istemci kimliği döndürdüyse dahil edin. 
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  
@@ -57,7 +57,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Önceki istek yanıtı gösterir.
+Aşağıda, bir önceki isteğin yanıtı gösterilmektedir.
 
 ```json
 {
@@ -132,10 +132,10 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Out API deneyin. Git [görüntü arama API sınama Konsolu'nu](https://dev.cognitive.microsoft.com/docs/services/8336afba49a84475ba401758c0dbf749/operations/571fab09dbe2d933e891028f). 
+API’yi deneyin. Git [resim arama API'si sınama Konsolu'nu](https://dev.cognitive.microsoft.com/docs/services/8336afba49a84475ba401758c0dbf749/operations/571fab09dbe2d933e891028f). 
 
-Yanıt nesneleri kullanma hakkında daha fazla bilgi için bkz [Web arama](./search-the-web.md).
+Yanıt nesnelerini kullanma ile ilgili ayrıntılar için bkz. [Web’de arama yapma](./search-the-web.md).
 
-Görüntü veya tanındı kişiler görüntüde yer aldığı web sayfaları gibi bir görüntü ile ilgili Öngörüler alma hakkında daha fazla ayrıntı için bkz: [görüntü Öngörüler](./image-insights.md).  
+Görüntüyü ya da tanındı kişiler görüntüsüne dahil etme web sayfaları gibi bir görüntü ile ilgili Öngörüler alma hakkında daha fazla bilgi için bkz [resim öngörüleri](./image-insights.md).  
   
-Sosyal medya üzerinde eğilim görüntüleri hakkında daha fazla ayrıntı için bkz: [eğilim görüntüleri](./trending-images.md).  
+Sosyal medyada popüler görüntüleri hakkında daha fazla bilgi için bkz. [popüler resimler](./trending-images.md).  

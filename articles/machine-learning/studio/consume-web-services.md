@@ -1,6 +1,6 @@
 ---
-title: Bir Azure Machine Learning Web hizmetini kullanma | Microsoft Docs
-description: Bir machine learning hizmeti dağıtıldıktan sonra gerçek zamanlı istek-yanıt hizmeti ya da bir toplu yürütme hizmeti olarak kullanılabilir hale getirileceğini RESTFul Web hizmeti tüketilebilir.
+title: Bir Azure Machine Learning Studio web hizmetini kullanma | Microsoft Docs
+description: Bir machine learning hizmeti Azure Machine Learning Studio dağıtıldıktan sonra RESTFul Web hizmeti gerçek zamanlı istek-yanıt hizmeti ya da bir toplu yürütme hizmeti olarak kullanılabilir.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
-ms.openlocfilehash: 0f95ea1de572beb02cd1680864d3fee781e9abc1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: df837c64cf0e40f3bfc1c596b2950a9d23c74a90
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262831"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309115"
 ---
-# <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Bir Azure Machine Learning Web hizmetini kullanma
+# <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Bir Azure Machine Learning Studio web hizmetini kullanma
 
 Bir Azure Machine Learning Tahmine dayalı modeli bir Web hizmeti olarak dağıtma sonra veri göndermek ve Öngörüler almak için bir REST API kullanabilirsiniz. Gerçek zamanlı veya toplu iş modunda veriler gönderebilir.
 

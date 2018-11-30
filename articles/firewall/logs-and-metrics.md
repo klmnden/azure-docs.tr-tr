@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: article
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 6d8d0b2dc0f6baf48d2aacb9c7203937aef08d15
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0698f1dbc491781089ef94eec32f2a427fd3cca4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957806"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422397"
 ---
 # <a name="azure-firewall-logs"></a>Azure güvenlik duvarı günlükleri
 
 Güvenlik duvarı günlüklerini kullanarak Azure Güvenlik Duvarı'nı izleyebilirsiniz. Ayrıca etkinlik günlüklerini kullanarak Azure Güvenlik Duvarı kaynaklarıyla ilgili işlemleri denetleyebilirsiniz.
 
-Bu günlüklerden bazılarına portaldan erişebilirsiniz. Günlükler [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Depolama ve Event Hubs'a gönderilebilir, Log Analytics'te veya Excel ve Power BI gibi farklı araçlarda analiz edilebilir.
+Bu günlüklerden bazılarına portaldan erişebilirsiniz. Günlükler [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Depolama ve Event Hubs'a gönderilebilir, Log Analytics'te veya Excel ve Power BI gibi farklı araçlarda analiz edilebilir.
 
 ## <a name="diagnostic-logs"></a>Tanılama günlükleri
 

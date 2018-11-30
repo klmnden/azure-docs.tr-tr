@@ -15,12 +15,12 @@ ms.date: 10/19/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: ad0ab8790c9d66dbba87d466e9661ef8cf33eef3
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 89852e90daa548dc82455cb6317d367b7423ba65
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456907"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425217"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile SharePoint uzaktan erişimi etkinleştirme
 
@@ -119,7 +119,7 @@ SPN'ler ayarlamanız için en kolay yolu, zaten sitelerinizin bulunabilecek SPN 
 1. SPN ile site başka bir makineden göz atın.
  Bunu yaptığınızda, Kerberos biletleri uygun kümesi makinede önbelleğe alınır. Bu anahtarları için taranan hedef siteye SPN'sini içerir.
 
-2. Adında bir araç kullanarak bu site için SPN çekebilirsiniz [Klist](http://web.mit.edu/kerberos/krb5-devel/doc/user/user_commands/klist.html). Tarayıcıda siteye erişmek için kullanıcı olarak aynı bağlamda çalışan bir komut penceresinde aşağıdaki komutu çalıştırın:
+2. Adında bir araç kullanarak bu site için SPN çekebilirsiniz [Klist](https://web.mit.edu/kerberos/krb5-devel/doc/user/user_commands/klist.html). Tarayıcıda siteye erişmek için kullanıcı olarak aynı bağlamda çalışan bir komut penceresinde aşağıdaki komutu çalıştırın:
 ```
 Klist
 ```

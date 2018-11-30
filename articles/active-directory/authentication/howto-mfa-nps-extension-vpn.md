@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 0754b13704810816b1650010a00185031ca41f5d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f08bf6a65a93c31d76c5b336cc6ef433153d71c4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297580"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423126"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure için ağ ilkesi sunucusu uzantısı kullanarak VPN altyapınız ile Azure mfa'yı tümleştirme
 
@@ -86,7 +86,7 @@ Bu bölümde MFA Uzak Masaüstü Ağ geçidi ile tümleştirebilirsiniz önce ta
 * Ağ İlkesi ve Erişim Hizmetleri rolü
 * Azure multi-Factor Authentication lisansı
 * Windows Server yazılımı
-* Kitaplıkları
+* Kitaplıklar
 * Azure Active Directory (Azure AD) ile şirket içi Active Directory 
 * Azure Active Directory GUID kimliği
 
@@ -109,7 +109,7 @@ Azure multi-Factor Authentication için lisans gereklidir ve bir Azure AD Premiu
 
 NPS uzantısı, Windows Server 2008 R2 SP1 gerektirir veya daha sonra Ağ İlkesi ve Erişim Hizmetleri rolü yüklü. Bu kılavuzda yer alan tüm adımları, Windows Server 2016 ile gerçekleştirildi.
 
-### <a name="libraries"></a>Kitaplıkları
+### <a name="libraries"></a>Kitaplıklar
 
 Aşağıdaki kitaplıklar NPS uzantısı ile otomatik olarak yüklenir:
 
@@ -438,7 +438,7 @@ Azure multi-Factor Authentication günlük ilgili bir olayın aşağıda göster
 
 Gelişmiş sorun giderme yapmak için NPS hizmetinin yüklendiği NPS veritabanı biçimi günlük dosyalarına başvurun. Günlük dosyaları oluşturulur _%SystemRoot%\System32\Logs_ klasör virgülle ayrılmış metin dosyalarını olarak. Günlük dosyalarının açıklaması için bkz [NPS veritabanı biçimi günlük dosyalarını yorumlamak](https://technet.microsoft.com/library/cc771748.aspx). 
 
-Bunları bir elektronik tabloya veya veritabanına dışarı aktarılmadığı sürece yorumlamak bu günlük dosyaları girişleri zordur. Birçok Internet Kimlik Doğrulama Hizmeti (günlük dosyaları yorumlama içinde size yardımcı olması için çevrimiçi Araçlar ayrıştırma IAS) bulabilirsiniz. Bir çıkış böyle indirilebilir [paylaşılan yazılım uygulama](http://www.deepsoftware.com/iasviewer) şurada gösterilmiştir: 
+Bunları bir elektronik tabloya veya veritabanına dışarı aktarılmadığı sürece yorumlamak bu günlük dosyaları girişleri zordur. Birçok Internet Kimlik Doğrulama Hizmeti (günlük dosyaları yorumlama içinde size yardımcı olması için çevrimiçi Araçlar ayrıştırma IAS) bulabilirsiniz. Bir çıkış böyle indirilebilir [paylaşılan yazılım uygulama](https://www.deepsoftware.com/iasviewer) şurada gösterilmiştir: 
 
 ![Paylaşılan yazılım uygulama](./media/howto-mfa-nps-extension-vpn/image49.png)
 

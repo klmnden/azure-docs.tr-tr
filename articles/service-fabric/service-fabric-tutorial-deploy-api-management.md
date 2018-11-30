@@ -15,18 +15,23 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 0d7c3691b3496da7c178f7dc13b981abdff48d4a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 207dad0386ec53be1e8a860a85fe6670d8542043
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255021"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422652"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Azure'da Service Fabric ile API Management'ı tümleştirme
 
 Azure API Management'ı Service Fabric'le dağıtmak ileri düzey bir senaryodur.  Arka uç Service Fabric hizmetleriniz için zengin bir yönlendirme kuralları kümesiyle API'ler yayımlamanız gerektiğinde, API Management yararlı olur. Bulut uygulamalarının normalde kullanıcılar, cihazlar ve diğer uygulamalara tek giriş noktası sağlamak için bir ön uç ağ geçidine ihtiyacı vardır. Service Fabric'te, trafik girişi için tasarlanmış durum bilgisi olmayan ASP.NET Core uygulaması, Event Hubs, IoT Hub veya Azure API Management gibi herhangi bir hizmet ağ geçidi olabilir.
 
 Bu makalede nasıl ayarlandığı gösterilmektedir [Azure API Management](../api-management/api-management-key-concepts.md) trafiği yönlendirmek için Service Fabric arka uç hizmetinde Service Fabric ile.  Tamamladığınızda, API Management'ı VNET'e dağıtmış, trafiği durum bilgisi olmayan arka uç hizmetlerine göndermek için API işlemini yapılandırmış olursunuz. Service Fabric ile Azure API Management senaryoları hakkında daha fazla bilgi edinmek için, [genel bakış](service-fabric-api-management-overview.md) makalesine bakın.
+
+## <a name="availability"></a>Kullanılabilirlik
+
+> [!IMPORTANT]
+> Bu özellik kullanılabilir **Premium** ve **Geliştirici** katmanları API Yönetimi'nin gerekli nedeniyle sanal ağ desteği.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

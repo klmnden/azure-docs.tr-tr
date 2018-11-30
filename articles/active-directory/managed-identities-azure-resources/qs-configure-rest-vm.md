@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: 58643593970fa00822e79ed54f91d56c45ebba65
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 6f147aa7066db19c1be451b0a5ac49bfce9f571b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578578"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422942"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>REST API çağrıları kullanarak bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlik yapılandırma
 
@@ -69,10 +69,80 @@ Etkin sistem tarafından atanan yönetilen kimlik ile bir Azure VM oluşturmak i
    ``` 
 
 4. Azure Resource Manager REST uç noktasını çağırmak için CURL kullanarak bir VM oluşturun. Aşağıdaki örnekte adlı bir VM oluşturur *myVM* bir sistem tarafından atanan ile kimliği, istek gövdesinde değeri tarafından tanımlandığı gibi yönetilen `"identity":{"type":"SystemAssigned"}`. Değiştirin `<ACCESS TOKEN>` değeriyle bir taşıyıcı belirteç istendiğinde önceki adımda alınan ve `<SUBSCRIPTION ID>` değeri ortamınız için uygun şekilde.
- 
-    ```bash
-    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PUT -d '{"location":"westus","name":"myVM","identity":{"type":"SystemAssigned"},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
-    ```
+
+   ```bash
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PUT -d '{"location":"westus","name":"myVM","identity":{"type":"SystemAssigned"},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"<SECURE PASSWORD STRING>"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   ```
+
+   ```HTTP
+   PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+   
+   **İstek üst bilgileri**
+   |İstek üstbilgisi  |Açıklama  |
+   |---------|---------|
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+   
+   **İstek gövdesi**
+
+   ```JSON
+     {
+       "location":"westus",
+       "name":"myVM",
+       "identity":{
+          "type":"SystemAssigned"
+       },
+       "properties":{
+          "hardwareProfile":{
+             "vmSize":"Standard_D2_v2"
+          },
+          "storageProfile":{
+             "imageReference":{
+                "sku":"2016-Datacenter",
+                "publisher":"MicrosoftWindowsServer",
+                "version":"latest",
+                "offer":"WindowsServer"
+             },
+             "osDisk":{
+                "caching":"ReadWrite",
+                "managedDisk":{
+                   "storageAccountType":"Standard_LRS"
+                },
+                "name":"myVM3osdisk",
+                "createOption":"FromImage"
+             },
+             "dataDisks":[
+                {
+                   "diskSizeGB":1023,
+                   "createOption":"Empty",
+                   "lun":0
+                },
+                {
+                   "diskSizeGB":1023,
+                   "createOption":"Empty",
+                   "lun":1
+                }
+             ]
+          },
+          "osProfile":{
+             "adminUsername":"azureuser",
+             "computerName":"myVM",
+             "adminPassword":"myPassword12"
+          },
+          "networkProfile":{
+             "networkInterfaces":[
+                {
+                   "id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic",
+                   "properties":{
+                      "primary":true
+                   }
+                }
+             ]
+          }
+       }
+    }  
+   ```
 
 ### <a name="enable-system-assigned-identity-on-an-existing-azure-vm"></a>Sistem tarafından atanan kimliği mevcut bir Azure sanal makinesinde etkinleştirin
 
@@ -90,7 +160,26 @@ Sistem tarafından atanan yönetilen kimlik olmadan ilk olarak sağlanan bir VM 
    > VM'ye atanmış olan tüm mevcut kullanıcı tarafından atanan yönetilen kimlikleri Sil yoksa emin olmak için bu CURL komutu kullanarak kullanıcı tarafından atanan yönetilen kimlikleri listesi gerekir: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"`. Kullanıcı tarafından atanan kimlikleri tanımlandığı gibi VM'ye atanmış varsa yönetilen `identity` değerini yanıt olarak, sistem tarafından atanan yönetilen kimlik vm'nizde etkinleştirirken kullanıcı tarafından atanan yönetilen kimlikleri korumak nasıl oluşturulduğunu gösteren adım 3 bölümüne atlayın.
 
    ```bash
-    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   ```
+
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+   **İstek üst bilgileri**
+   |İstek üstbilgisi  |Açıklama  |
+   |---------|---------|
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+   
+   **İstek gövdesi**
+    
+   ```JSON
+    {  
+       "identity":{  
+          "type":"SystemAssigned"
+       }
+    }
    ```
 
 3. Sistem tarafından atanan yönetilen kimlikle bir VM üzerinde kullanıcı tarafından atanan mevcut yönetilen kimliklerini etkinleştirmek için eklemeniz gerekir `SystemAssigned` için `type` değeri.  
@@ -105,11 +194,63 @@ Sistem tarafından atanan yönetilen kimlik olmadan ilk olarak sağlanan bir VM 
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+   **İstek üst bilgileri**
+
+   |İstek üstbilgisi  |Açıklama  |
+   |---------|---------|
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+
+   **İstek gövdesi**
+
+   ```JSON
+    {  
+       "identity":{  
+          "type":"SystemAssigned, UserAssigned",
+          "userAssignedIdentities":{  
+             "/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{  
+    
+             },
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{  
+    
+             }
+          }
+       }
+    }
+   ```
+
    **API SÜRÜM 2017-12-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
+
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
+   ```
+    
+   **İstek üst bilgileri**
+
+   |İstek üstbilgisi  |Açıklama  |
+   |---------|---------|
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+   **İstek gövdesi**
+
+   ```JSON
+    {  
+       "identity":{  
+          "type":"SystemAssigned, UserAssigned",
+          "identityIds":[  
+             "/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1",
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"
+          ]
+       }
+    }
+   ```   
 
 ### <a name="disable-system-assigned-managed-identity-from-an-azure-vm"></a>Yönetilen kimlik sistem tarafından atanan bir Azure VM'den devre dışı bırak
 
@@ -130,7 +271,27 @@ Yönetilen kimlik sistem tarafından atanan bir VM'de devre dışı bırakmak i�
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
-3. Yönetilen kimlik sistem tarafından atanan kullanıcı tarafından atanan yönetilen kimlikleri olan bir sanal makineden kaldırmak için `SystemAssigned` gelen `{"identity":{"type:" "}}` tutma bir değer `UserAssigned` değeri ve `userAssignedIdentities` sözlüğü değerlerini kullanıyorsanız **API sürümü 2018-06-01**. Kullanıyorsanız **API Sürüm 2017-12-01** ya da daha önce koruma `identityIds` dizisi.
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+   **İstek üst bilgileri**
+
+   |İstek üstbilgisi  |Açıklama  |
+   |---------|---------|
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+
+   **İstek gövdesi**
+
+   ```JSON
+    {  
+       "identity":{  
+          "type":"None"
+       }
+    }
+   ```
+
+   Yönetilen kimlik sistem tarafından atanan kullanıcı tarafından atanan yönetilen kimlikleri olan bir sanal makineden kaldırmak için `SystemAssigned` gelen `{"identity":{"type:" "}}` tutma bir değer `UserAssigned` değeri ve `userAssignedIdentities` sözlüğü değerlerini kullanıyorsanız **API sürümü 2018-06-01**. Kullanıyorsanız **API Sürüm 2017-12-01** ya da daha önce koruma `identityIds` dizisi.
 
 ## <a name="user-assigned-managed-identity"></a>Kullanıcı tarafından atanan yönetilen kimlik
 
@@ -162,17 +323,165 @@ Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabını
 
 5. Azure Resource Manager REST uç noktasını çağırmak için CURL kullanarak bir VM oluşturun. Aşağıdaki örnekte adlı bir VM oluşturur *myVM* kaynak grubundaki *myResourceGroup* kullanıcı tarafından atanan bir yönetilen kimlikle `ID1`, istek gövdesinde değeritarafındantanımlanan`"identity":{"type":"UserAssigned"}`. Değiştirin `<ACCESS TOKEN>` değeriyle bir taşıyıcı belirteç istendiğinde önceki adımda alınan ve `<SUBSCRIPTION ID>` değeri ortamınız için uygun şekilde.
  
-   
    **API SÜRÜMÜ 2018-06-01**
-    
-   ```bash   
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PUT -d '{"location":"westus","name":"myVM",{"identity":{"type":"UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
-   ``` 
 
+   ```bash   
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PUT -d '{"location":"westus","name":"myVM","identity":{"type":"UserAssigned","identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   ```
+    
+   ```HTTP
+   PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+
+   **İstek üst bilgileri**
+
+   |İstek üstbilgisi  |Açıklama  |
+   |---------|---------|
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+
+   **İstek gövdesi**
+
+   ```JSON
+    {  
+       "location":"westus",
+       "name":"myVM",
+       "identity":{  
+          "type":"UserAssigned",
+          "identityIds":[  
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
+          ]
+       },
+       "properties":{  
+          "hardwareProfile":{  
+             "vmSize":"Standard_D2_v2"
+          },
+          "storageProfile":{  
+             "imageReference":{  
+                "sku":"2016-Datacenter",
+                "publisher":"MicrosoftWindowsServer",
+                "version":"latest",
+                "offer":"WindowsServer"
+             },
+             "osDisk":{  
+                "caching":"ReadWrite",
+                "managedDisk":{  
+                   "storageAccountType":"Standard_LRS"
+                },
+                "name":"myVM3osdisk",
+                "createOption":"FromImage"
+             },
+             "dataDisks":[  
+                {  
+                   "diskSizeGB":1023,
+                   "createOption":"Empty",
+                   "lun":0
+                },
+                {  
+                   "diskSizeGB":1023,
+                   "createOption":"Empty",
+                   "lun":1
+                }
+             ]
+          },
+          "osProfile":{  
+             "adminUsername":"azureuser",
+             "computerName":"myVM",
+             "adminPassword":"myPassword12"
+          },
+          "networkProfile":{  
+             "networkInterfaces":[  
+                {  
+                   "id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic",
+                   "properties":{  
+                      "primary":true
+                   }
+                }
+             ]
+          }
+       }
+    }
+
+   ```
+  
    **API SÜRÜM 2017-12-01**
 
    ```bash   
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PUT -d '{"location":"westus","name":"myVM",{"identity":{"type":"UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PUT -d '{"location":"westus","name":"myVM","identity":{"type":"UserAssigned","identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   ```
+
+   ```HTTP
+   PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
+   ```
+
+   **İstek üst bilgileri**
+
+   |İstek üstbilgisi  |Açıklama  |
+   |---------|---------|
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+
+   **İstek gövdesi**
+
+   ```JSON
+    {
+       "location":"westus",
+       "name":"myVM",
+       "identity":{
+          "type":"UserAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
+          ]
+       },
+       "properties":{
+          "hardwareProfile":{
+             "vmSize":"Standard_D2_v2"
+          },
+          "storageProfile":{
+             "imageReference":{
+                "sku":"2016-Datacenter",
+                "publisher":"MicrosoftWindowsServer",
+                "version":"latest",
+                "offer":"WindowsServer"
+             },
+             "osDisk":{
+                "caching":"ReadWrite",
+                "managedDisk":{
+                   "storageAccountType":"Standard_LRS"
+                },
+                "name":"myVM3osdisk",
+                "createOption":"FromImage"
+             },
+             "dataDisks":[
+                {
+                   "diskSizeGB":1023,
+                   "createOption":"Empty",
+                   "lun":0
+                },
+                {
+                   "diskSizeGB":1023,
+                   "createOption":"Empty",
+                   "lun":1
+                }
+             ]
+          },
+          "osProfile":{
+             "adminUsername":"azureuser",
+             "computerName":"myVM",
+             "adminPassword":"myPassword12"
+          },
+          "networkProfile":{
+             "networkInterfaces":[
+                {
+                   "id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic",
+                   "properties":{
+                      "primary":true
+                   }
+                }
+             ]
+          }
+       }
+    }
    ```
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-vm"></a>Kullanıcı tarafından atanan bir yönetilen kimlik mevcut bir Azure VM'ye atayın
@@ -187,11 +496,19 @@ Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabını
 
 2.  Burada bulunan yönergeleri kullanarak bir kullanıcı tarafından atanan yönetilen kimliği oluşturma [kullanıcı tarafından atanan bir yönetilen kimlik oluşturma](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
 
-3.  Varolan bir kullanıcı veya sistem tarafından atanan sanal Makineye atanmış olan yönetilen kimlikleri silme emin olmak için aşağıdaki CURL komutunu kullanarak sanal Makineye atanan kimlik türlerini listelemek gerekir. Sanal makine ölçek kümesine atanan kimlikleri yönetiliyorsa, bunlar altında listelenen `identity` değeri.
+3. Varolan bir kullanıcı veya sistem tarafından atanan sanal Makineye atanmış olan yönetilen kimlikleri silme emin olmak için aşağıdaki CURL komutunu kullanarak sanal Makineye atanan kimlik türlerini listelemek gerekir. Sanal makine ölçek kümesine atanan kimlikleri yönetiliyorsa, bunlar altında listelenen `identity` değeri.
 
-    ```bash
-    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>" 
-    ```
+   ```bash
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>" 
+   ```
+
+   ```HTTP
+   GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
+   ```
+   **İstek üst bilgileri**
+   |İstek üstbilgisi  |Açıklama  |
+   |---------|---------|
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.
 
     Herhangi bir kullanıcı veya sistem tarafından atanan yönetilen kimlikleri tanımlandığı gibi VM'ye atanmış varsa `identity` değerini yanıt olarak, adım 5 k sistem tarafından atanan yönetilen kimlik üzerinde kullanıcı tarafından atanan bir yönetilen kimlik eklenirken korumak nasıl oluşturulduğunu gösteren atlayın Sanal makinenizin.
 
@@ -205,10 +522,59 @@ Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabını
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+   **İstek üst bilgileri**
+
+   |İstek üstbilgisi  |Açıklama  |
+   |---------|---------|
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        |
+ 
+   **İstek gövdesi**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"UserAssigned",
+          "userAssignedIdentities":{
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{
+    
+             }
+          }
+       }
+    }
+   ```
+
    **API SÜRÜM 2017-12-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   ```
+
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
+   ```
+   
+   **İstek üst bilgileri**
+
+   |İstek üstbilgisi  |Açıklama  |
+   |---------|---------|
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+
+   **İstek gövdesi**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"userAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
+          ]
+       }
+    }
    ```
 
 5. Mevcut bir kullanıcı tarafından atanan veya sistem tarafından atanan varsa yönetilen VM'nize atanan kimliği:
@@ -223,6 +589,35 @@ Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabını
    curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+   
+   **İstek üst bilgileri**
+
+   |İstek üstbilgisi  |Açıklama  |
+   |---------|---------|
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+
+   **İstek gövdesi**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned, UserAssigned",
+          "userAssignedIdentities":{
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{
+    
+             },
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{
+    
+             }
+          }
+       }
+    }
+   ```
+
    **API SÜRÜM 2017-12-01**
 
    Tutmak istediğiniz kullanıcı tarafından atanan yönetilen kimlikleri korur `identityIds` dizi değeri kullanıcı tarafından atanan yeni yönetilen kimlik eklenirken.
@@ -230,8 +625,33 @@ Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabını
    Örneğin, yönetilen kimlik sistem tarafından atanan ve kullanıcı tarafından atanan bir yönetilen kimlik varsa `ID1` şu anda VM'nize atanan ve kullanıcı tarafından atanan bir yönetilen kimlik eklemek istediğiniz `ID2` ona: 
 
    ```bash
-   curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned","UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
+
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
+   ```
+
+   **İstek üst bilgileri**
+
+   |İstek üstbilgisi  |Açıklama  |
+   |---------|---------|
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+
+   **İstek gövdesi**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned,UserAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1",
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"
+          ]
+       }
+    }
+   ```   
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Kullanıcı tarafından atanan bir yönetilen kimlik bir Azure VM'den kaldırın.
 
@@ -244,10 +664,20 @@ Bir VM için bir kullanıcı tarafından atanan kimliği kaldırmak için hesab�
    ```
 
 2. VM'ye atanmış tutun veya sistem tarafından atanan bir yönetilen kimlik kaldırmak istediğiniz tüm mevcut kullanıcı tarafından atanan yönetilen kimlikleri silme emin olmak için aşağıdaki CURL komutunu kullanarak yönetilen kimlikleri listesi gerekir: 
- 
+
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
+ 
+   ```HTTP
+   GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
+   ```
+
+   **İstek üst bilgileri**
+   |İstek üstbilgisi  |Açıklama  |
+   |---------|---------|
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.
  
    Sanal Makineye atanan kimlikleri yönetiliyorsa, yanıtta listelendikleri `identity` değeri.
 
@@ -261,6 +691,30 @@ Bir VM için bir kullanıcı tarafından atanan kimliği kaldırmak için hesab�
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":null}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+
+   **İstek üst bilgileri**
+
+   |İstek üstbilgisi  |Açıklama  |
+   |---------|---------|
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+
+   **İstek gövdesi**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned, UserAssigned",
+          "userAssignedIdentities":{
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":null
+          }
+       }
+    }
+   ```
+
    **API SÜRÜM 2017-12-01**
 
    Yalnızca kullanıcı tarafından atanan identity(s) tutmak istediğiniz yönetilen korumak `identityIds` dizisi:
@@ -269,10 +723,55 @@ Bir VM için bir kullanıcı tarafından atanan kimliği kaldırmak için hesab�
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
+   ```
+
+   **İstek üst bilgileri**
+
+   |İstek üstbilgisi  |Açıklama  |
+   |---------|---------|
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+   |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.        | 
+
+   **İstek gövdesi**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned, UserAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
+          ]
+       }
+    }
+   ```
+
 Sistem tarafından atanan sanal makinenizin sahiptir ve yönetilen kimlikleri, kullanıcı tarafından atanan tüm kullanıcı tarafından atanan yönetilen kimlikleri aşağıdaki komutu kullanarak yalnızca sistem tarafından atanan yönetilen kimliği kullanma geçerek kaldırabilirsiniz varsa:
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+```
+
+```HTTP
+PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+```
+
+**İstek üst bilgileri**
+
+|İstek üstbilgisi  |Açıklama  |
+|---------|---------|
+|*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+|*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci. | 
+
+**İstek gövdesi**
+
+```JSON
+{
+   "identity":{
+      "type":"SystemAssigned"
+   }
+}
 ```
     
 Yönetilen kimlikleri yalnızca kullanıcı tarafından atanan VM'niz varsa ve tüm bunları kaldırmak istiyor musunuz, aşağıdaki komutu kullanın:
@@ -280,6 +779,28 @@ Yönetilen kimlikleri yalnızca kullanıcı tarafından atanan VM'niz varsa ve t
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
 ```
+
+```HTTP
+PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+```
+
+**İstek üst bilgileri**
+
+|İstek üstbilgisi  |Açıklama  |
+|---------|---------|
+|*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
+|*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci.| 
+
+**İstek gövdesi**
+
+```JSON
+{
+   "identity":{
+      "type":"None"
+   }
+}
+```
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Oluşturma, liste veya REST kullanarak yönetilen kimlikleri kullanıcı tarafından atanan silme hakkında bilgi için bkz:

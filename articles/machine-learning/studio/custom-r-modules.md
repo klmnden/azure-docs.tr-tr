@@ -1,6 +1,6 @@
 ---
-title: Azure Machine learning'de özel R modülleri yazma | Microsoft Docs
-description: Hızlı Başlangıç-Azure Machine learning'de özel R modülleri yazma için bunu kullanın.
+title: Özel R modülleri Azure Machine Learning Studio'da tanımlama | Microsoft Docs
+description: Bu konuda, yazar ve Azure Machine learning'de özel bir R modülü dağıtma işlemleri açıklanmaktadır. Bu özel R modülleri nedir ve hangi dosyaların bunları tanımlamak için kullanılan açıklar. Bu, bir modül tanımlama dosyaları oluşturmak nasıl ve dağıtım için modül bir Machine Learning Studio çalışma alanında kaydetmeyi nasıl göstermektedir.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,15 +16,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: 812914b3b7746f75aa88cbefda3f7d4b1a591125
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: b8ab22f1567102ed79ccf6e0bf49dbdbc3f42ea9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263273"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308448"
 ---
-# <a name="author-custom-r-modules-in-azure-machine-learning"></a>Azure Machine Learning'de özel R modülleri yazma
-Bu konuda, yazar ve Azure Machine learning'de özel bir R modülü dağıtma işlemleri açıklanmaktadır. Bu özel R modülleri nedir ve hangi dosyaların bunları tanımlamak için kullanılan açıklar. Bu, bir modül tanımlama dosyaları oluşturmak nasıl ve dağıtım için modül bir Machine Learning çalışma alanında kaydetmeyi nasıl göstermektedir. Ardından, özel modül tanımında kullanılan öznitelikler ve öğeler daha ayrıntılı olarak açıklanmıştır. Yardımcı işlevleri ve dosyaları ve birden çok çıktı nasıl kullanılacağı da ele alınmıştır. 
+# <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Özel R modülleri Azure Machine Learning Studio'da tanımlayın
+
+Bu konuda, yazar ve Azure Machine Learning Studio'da özel bir R modülü dağıtma işlemleri açıklanmaktadır. Bu özel R modülleri nedir ve hangi dosyaların bunları tanımlamak için kullanılan açıklar. Bu, bir modül tanımlama dosyaları oluşturmak nasıl ve dağıtım için modül bir Machine Learning çalışma alanında kaydetmeyi nasıl göstermektedir. Ardından, özel modül tanımında kullanılan öznitelikler ve öğeler daha ayrıntılı olarak açıklanmıştır. Yardımcı işlevleri ve dosyaları ve birden çok çıktı nasıl kullanılacağı da ele alınmıştır. 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

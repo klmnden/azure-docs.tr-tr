@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 935fef5ea988908787ae04688985606acec41bfd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ac58c6b951a03b403375fdc17dcd45f8e624deac
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387286"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311462"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Sağlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına kullanıcı otomatikleştirin
 
@@ -255,7 +255,7 @@ Ancak, B2B kullanıcıları Azure AD kullanarak SaaS uygulamasında oturum açab
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>Otomatik kullanıcı SaaS uygulamaları çalışmaya dinamik grupları ile Azure AD'de sağlamayı mu?
 
-Evet. Ne zaman "eşitleme yalnızca atanan kullanıcılar ve gruplar için" yapılandırılmış, sağlama hizmetini Azure AD kullanıcı sağlama kaldırabilir kullanıcılara veya bir SaaS uygulamasında üyesi olduğu olup olmadığı hakkında bir [dinamik grup](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Dinamik gruplar, "tüm kullanıcılar ve grupları eşitleme" seçeneği ile de çalışır.
+Evet. Ne zaman "eşitleme yalnızca atanan kullanıcılar ve gruplar için" yapılandırılmış, sağlama hizmetini Azure AD kullanıcı sağlama kaldırabilir kullanıcılara veya bir SaaS uygulamasında üyesi olduğu olup olmadığı hakkında bir [dinamik grup](../users-groups-roles/groups-create-rule.md). Dinamik gruplar, "tüm kullanıcılar ve grupları eşitleme" seçeneği ile de çalışır.
 
 Ancak, dinamik gruplar kullanımını SaaS uygulamaları için Azure AD'den sağlama uçtan uca kullanıcı genel performansını etkileyebilir. Lütfen dinamik gruplar kullanırken, bu uyarılar ve öneriler göz önünde bulundurun:
 

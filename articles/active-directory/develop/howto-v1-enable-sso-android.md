@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: c7d1665eece966053f52e118bb0d6f7f5ec4cba6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2c7ccd8d2022631e32c240007a782d2382aac518
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957872"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422856"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Nasıl yapılır: Android ADAL kullanarak uygulamalar arası SSO'yu etkinleştirin
 
@@ -130,7 +130,7 @@ Bu yeniden yönlendirme URI'sini kullanarak, uygulama kayıt kaydedebilirsiniz [
 
 #### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>3. adım: uygulamanızda doğru izinleri ayarlayın
 
-Android Aracısı uygulama, uygulamalar arasında kimlik bilgilerini yönetmek için Android işletim sistemi Hesap Yöneticisi özelliğini kullanır. Android'de aracı kullanmak için uygulama bildiriminizi Accountmanager'a hesaplarını kullanmak için izinleri olmalıdır. Bu izinleri ayrıntılı olarak ele alınmıştır [burada Google belgeler için Hesap Yöneticisi](http://developer.android.com/reference/android/accounts/AccountManager.html)
+Android Aracısı uygulama, uygulamalar arasında kimlik bilgilerini yönetmek için Android işletim sistemi Hesap Yöneticisi özelliğini kullanır. Android'de aracı kullanmak için uygulama bildiriminizi Accountmanager'a hesaplarını kullanmak için izinleri olmalıdır. Bu izinleri ayrıntılı olarak ele alınmıştır [burada Google belgeler için Hesap Yöneticisi](https://developer.android.com/reference/android/accounts/AccountManager.html)
 
 Özellikle, bu izinler şunlardır:
 

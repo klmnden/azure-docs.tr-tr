@@ -6,18 +6,18 @@ author: bryanla
 manager: mbaldwin
 services: key-vault
 ms.author: bryanla
-ms.date: 09/05/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: d9fc845316d6e785d8215ac738b893ebc080d911
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1eadea53dda60ef5ac8bbbc3d9e9cfe4b5b373dc
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300979"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423601"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET kullanarak Azure Key Vault hizmetten hizmete kimlik doğrulaması
 
@@ -183,18 +183,16 @@ Azure AD ile imzalamak için bir sertifika kullanmak için:
 
 1. Oluşturma bir [hizmet sorumlusu sertifikasını](/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
 
-2. Sertifika ya da dağıtma _LocalMachine_ veya _CurrentUser_ depolayın. 
+2. Sertifika ya da dağıtma *LocalMachine* veya *CurrentUser* depolayın. 
 
 3. Adlı bir ortam değişkenini ayarlamak **AzureServicesAuthConnectionString** için:
 
     ```
     RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};
-          CertificateStoreLocation={LocalMachine or CurrentUser}
+          CertificateStoreLocation={CertificateStore}
     ```
  
-    Değiştirin _{AppID}_, _{Tenantıd}_, ve _{Thumbprint}_ 1. adımda oluşturulan değerlere sahip.
-
-    **CertificateStoreLocation** olmalıdır _CurrentUser_ veya _LocalMachine_dağıtım planınıza göre.
+    Değiştirin *{AppID}*, *{Tenantıd}*, ve *{Thumbprint}* 1. adımda oluşturulan değerlere sahip. Değiştirin *{CertificateStore}* ya da ile `LocalMachine` veya `CurrentUser`dağıtım planınıza göre.
 
 4. Uygulamayı çalıştırın. 
 

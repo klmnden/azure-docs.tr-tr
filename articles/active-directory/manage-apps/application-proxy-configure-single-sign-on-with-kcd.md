@@ -15,12 +15,12 @@ ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 1178d85f295c6ac01f367db8adc2c9b855cdc829
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: dbb7fca08e8d5c59842f7ddfb02b463a42efadb7
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347843"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422296"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos kısıtlanmış temsil için çoklu oturum açma uygulamalarınıza uygulama ara sunucusu ile
 
@@ -74,7 +74,7 @@ Active Directory yapılandırması, uygulama ara sunucusu bağlayıcısını ve 
 
 Sharepointserviceaccount SPS makine hesabının veya SPS uygulama havuzu altında çalıştığı hizmet hesabı olabilir.
 
-## <a name="configure-single-sign-on"></a>Çoklu oturum açmayı yapılandırın 
+## <a name="configure-single-sign-on"></a>Çoklu oturum açmayı yapılandırma 
 1. Açıklanan yönergelere göre uygulamanızı yayımlayın [uygulama ara sunucusu ile uygulama yayımlama](application-proxy-publish-azure-portal.md). Seçtiğinizden emin olun **Azure Active Directory** olarak **ön kimlik doğrulama yöntemi**.
 2. Uygulamanızı kurumsal uygulamalar listesinde göründükten sonra seçin ve **çoklu oturum açma**.
 3. Çoklu oturum açma modu ayarlamak **tümleşik Windows kimlik doğrulaması**.  
@@ -144,5 +144,5 @@ Ancak, bu uygulama diğer çeşitli HTTP yanıtlarında yanıtlar karşın bazı
 * [Uygulama Ara sunucusu ile ilgili sorunları giderme](application-proxy-troubleshoot.md)
 
 
-En yeni haberler ve güncelleştirmeler için [Uygulama Ara Sunucusu bloguna](http://blogs.technet.com/b/applicationproxyblog/) göz atın
+En yeni haberler ve güncelleştirmeler için [Uygulama Ara Sunucusu bloguna](https://blogs.technet.com/b/applicationproxyblog/) göz atın
 

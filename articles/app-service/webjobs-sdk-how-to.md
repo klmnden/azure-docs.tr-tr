@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 3e06dc82baed4043ce490769aa0ec84ab3de8c24
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 2266f63f9689ec4d22659eb4a7c4876e25fa08b1
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577020"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335223"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay temelli bir arka plan işlemleri için Azure Web işleri SDK'sını kullanma
 
@@ -462,7 +462,7 @@ ASP.NET için geliştirilmiş günlüğe kaydetme çerçevesi öneririz ve [baş
 
 ### <a name="log-filtering"></a>Günlük Filtresi
 
-Tarafından oluşturulan her günlük bir `ILogger` örneği ilişkili bir `Category` ve `Level`. [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel#Microsoft_Extensions_Logging_LogLevel) bir sabit listesidir ve tamsayı kodu göreli önemi gösterir:
+Tarafından oluşturulan her günlük bir `ILogger` örneği ilişkili bir `Category` ve `Level`. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) bir sabit listesidir ve tamsayı kodu göreli önemi gösterir:
 
 |LogLevel    |Kod|
 |------------|---|
@@ -474,7 +474,7 @@ Tarafından oluşturulan her günlük bir `ILogger` örneği ilişkili bir `Cate
 |Kritik    | 5 |
 |None        | 6 |
 
-Her kategori için belirli bir bağımsız olarak filtrelenebilir [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel). Örneğin, blob tetikleyicisi yalnızca işleme için tüm günlükleri görmek isteyebilirsiniz `Error` ve diğer her şey için daha yüksek.
+Her kategori için belirli bir bağımsız olarak filtrelenebilir [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel). Örneğin, blob tetikleyicisi yalnızca işleme için tüm günlükleri görmek isteyebilirsiniz `Error` ve diğer her şey için daha yüksek.
 
 Filtreleme kurallarını belirtmek daha kolay hale getirmek için Web işleri SDK'sı sağlar. `LogCategoryFilter` geçirilebilen çoğu Application Insights ve konsol dahil olmak üzere mevcut günlük sağlayıcıları.
 

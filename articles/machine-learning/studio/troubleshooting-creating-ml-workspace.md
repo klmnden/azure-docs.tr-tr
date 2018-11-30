@@ -1,6 +1,6 @@
 ---
-title: 'Sorun giderme: Oluşturma ve bir Machine Learning çalışma alanına bağlayın | Microsoft Docs'
-description: Oluşturma ve bir Azure Machine Learning çalışma alanına bağlanırken yaygın sorunların çözümleri
+title: 'Sorun giderme: Oluşturma, Machine Learning Studio çalışma alanına - Azure bağlayın | Microsoft Docs'
+description: Bu kılavuz, Azure Machine Learning Studio çalışma alanları ayarlarken çözümleri bazı zorluklar sık karşılaşıldı. sağlar.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: f86018c78de842717bf387c007fdd4c7cd048ef1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 5e52abeeef7d40ac5594f4edfa2b80ef553081e4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265211"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312081"
 ---
-# <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>Sorun giderme kılavuzu: Machine Learning çalışma alanı oluşturun ve bağlanın
-Bu kılavuz, Azure Machine Learning çalışma alanları ayarlarken çözümleri bazı zorluklar sık karşılaşıldı. sağlar.
+# <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-studio-workspace"></a>Sorun giderme kılavuzu: oluşturma ve bir Machine Learning Studio çalışma alanına bağlayın
+Bu kılavuz, Azure Machine Learning Studio çalışma alanları ayarlarken çözümleri bazı zorluklar sık karşılaşıldı. sağlar.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

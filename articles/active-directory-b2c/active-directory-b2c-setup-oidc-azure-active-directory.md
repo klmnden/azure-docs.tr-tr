@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9b9754c9087f2d0064cc1aa75e76520731dfb3a9
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 86e5381096633e58d7a1a28ac94728136273c685
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242867"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312791"
 ---
 # <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>Oturum açma Azure Active Directory hesaplarını Azure Active Directory B2C'de yerleşik bir ilke ayarlama
 
@@ -26,7 +26,7 @@ Bu makalede Azure Active Directory (Azure AD) B2C'de yerleşik bir ilke kullanar
 
 ## <a name="create-an-azure-ad-app"></a>Bir Azure AD uygulamanızı oluşturma
 
-Belirli kullanıcılar için oturum açma etkinleştirmek için Azure AD kuruluş ihtiyacınız kuruluş içinde bir uygulamayı kaydetme, Azure AD B2C kiracısı ile aynı Azure AD kiracısına.
+Belirli kullanıcılar için oturum açma etkinleştirmek için Azure AD kuruluş ihtiyacınız kuruluş içinde bir uygulamayı kaydetme Azure AD kiracısı, Azure AD B2C kiracınızı ile aynı değil.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Üst menüde dizin ve abonelik filtresi tıklattıktan sonra Azure AD kiracınıza içeren dizine seçerek Azure AD kiracınıza içeren dizine kullandığınızdan emin olun.

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: fdac7d1fd7fbcea28d6ce8e614e4968f168566ba
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3e1acb714cfc1c059f8d02240c2a6d49be9f4971
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010596"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335291"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Log analytics'te özel alanlar
 **Özel alanlar** özelliği Log Analytics, Log analytics'te var olan kayıtların kendi arama yapılabilir alanlar ekleyerek genişletebilir olanak tanır.  Özel alanlar, diğer özellikleri aynı kaydın ayıklanan verilerden otomatik olarak doldurulur.
@@ -81,7 +81,7 @@ Kullanarak yönetim grubunuzdaki tüm özel alanların listesini görüntüleyeb
 Özel bir alanı kaldırmak için iki yolu vardır.  İlk **Kaldır** yukarıda açıklandığı gibi tam bir listesi görüntülerken, her bir alan için seçeneği.  Diğer kayıt alıp alanın sol düğmesine yöntemidir.  Menü, özel bir alanı kaldırmak için bir seçenek içerir.
 
 ## <a name="sample-walkthrough"></a>Örnek kılavuz
-Aşağıdaki bölümde, bir özel alan oluşturuluyor, tam bir örneği açıklanmaktadır.  Bu örnek bir hizmetin durumunu değiştirme belirten Windows olayları hizmeti adını ayıklar.  Bu Windows bilgisayarlarda sistem günlüğündeki hizmet denetimi yöneticisi tarafından oluşturulan olayları kullanır.  Bu örneği takip etmek istiyorsanız, olmalıdır [sistem günlüğü bilgilerini olay toplama](log-analytics-data-sources-windows-events.md).
+Aşağıdaki bölümde, bir özel alan oluşturuluyor, tam bir örneği açıklanmaktadır.  Bu örnek bir hizmetin durumunu değiştirme belirten Windows olayları hizmeti adını ayıklar.  Bu Windows bilgisayarlarda sistem günlüğündeki hizmet denetimi yöneticisi tarafından oluşturulan olayları kullanır.  Bu örneği takip etmek istiyorsanız, olmalıdır [sistem günlüğü bilgilerini olay toplama](../azure-monitor/platform/data-sources-windows-events.md).
 
 Biz, hizmet denetimi yöneticisinden olay, hizmet başlatma veya durdurma gösteren olay Kimliğini 7036 sahip tüm olaylar döndürmek için aşağıdaki sorguyu girin.
 
@@ -141,5 +141,5 @@ Süre kadar yeni geçtikten sonra toplanan olayları, görebiliriz **Service_CF*
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [günlük aramaları](log-analytics-queries.md) özel alanlar için ölçütleri kullanarak sorguları oluşturmak için.
-* İzleyici [özel günlük dosyalarını](log-analytics-data-sources-custom-logs.md) , özel alanlara kullanarak ayrıştırılamıyor.
+* İzleyici [özel günlük dosyalarını](../azure-monitor/platform/data-sources-custom-logs.md) , özel alanlara kullanarak ayrıştırılamıyor.
 

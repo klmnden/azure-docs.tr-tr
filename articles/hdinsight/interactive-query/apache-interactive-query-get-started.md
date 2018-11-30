@@ -9,61 +9,62 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: c1af99d64f9d9a7544d98ad34da5953fdda58222
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6086c03961294a18fbf6a106188593c79c88d663
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012886"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310006"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>HDInsight ile etkileşimli Sorgu'yu kullanma
-Etkileşimli sorgu (Hive, LLAP olarak da adlandırılan veya [düşük gecikme süresi analitik işleme](https://cwiki.apache.org/confluence/display/Hive/LLAP)) olan Azure HDInsight [küme türü](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Etkileşimli sorgu bellek içi önbelleğe alma, daha hızlı ve daha etkileşimli Hive sorguları getiren destekler.
+Etkileşimli sorgu (Hive, Apache LLAP olarak da adlandırılan veya [düşük gecikme süresi analitik işleme](https://cwiki.apache.org/confluence/display/Hive/LLAP)) olan Azure HDInsight [küme türü](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Etkileşimli sorgu bellek içi önbelleğe alma, Apache Hive sorguları daha hızlı ve daha etkileşimli getiren destekler.
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)] 
 
-Etkileşimli sorgu kümesi, bir Hadoop kümesi ' farklıdır. Bu, yalnızca Hive hizmeti içerir. 
+Etkileşimli sorgu kümesi, bir Apache Hadoop kümesinden farklıdır. Bu, yalnızca Hive hizmeti içerir. 
 
 > [!NOTE]
-> Etkileşimli sorgu kümesi Ambari Hive görünümünü, Beeline ve Microsoft Hive açık veritabanı bağlantısı sürücü (Hive ODBC) aracılığıyla yalnızca Hive hizmete erişebilir. Hive konsolunu, templeton da, Klasik Azure CLI veya Azure PowerShell erişemez. 
+> Etkileşimli sorgu kümesi Apache Ambari Hive görünümünü, Beeline ve Microsoft Hive açık veritabanı bağlantısı sürücü (Hive ODBC) aracılığıyla yalnızca Hive hizmete erişebilir. Hive konsolunu, templeton da, Klasik Azure CLI veya Azure PowerShell erişemez. 
 > 
 > 
 
 ## <a name="create-an-interactive-query-cluster"></a>Etkileşimli sorgu kümesi oluşturma
-Bir HDInsight kümesi oluşturma hakkında daha fazla bilgi için bkz: [Hadoop kümeleri oluşturma HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Etkileşimli sorgu kümesi türünü seçin.
+Bir HDInsight kümesi oluşturma hakkında daha fazla bilgi için bkz: [Apache Hadoop kümeleri oluşturma HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Etkileşimli sorgu kümesi türünü seçin.
 
-## <a name="execute-hive-queries-from-interactive-query"></a>Etkileşimli sorgu Hive sorguları yürütme
+## <a name="execute-apache-hive-queries-from-interactive-query"></a>Apache Hive sorguları, etkileşimli sorgu yürütme
 Hive sorguları çalıştırmak için aşağıdaki seçenekleriniz vardır:
 
 * Power BI kullanma
 
-    Bkz: [görselleştirme etkileşimli sorgu Hive verilerini Power BI'da Azure HDInsight ile](./apache-hadoop-connect-hive-power-bi-directquery.md) bkz [Power BI'da Azure HDInsight ile büyük verileri görselleştirme](../hadoop/apache-hadoop-connect-hive-power-bi.md).
+    Bkz: [Power BI'da Azure HDInsight ile verileri görselleştirme etkileşimli Apache Hive sorgusu](./apache-hadoop-connect-hive-power-bi-directquery.md) bkz [Power BI'da Azure HDInsight ile büyük verileri görselleştirme](../hadoop/apache-hadoop-connect-hive-power-bi.md).
  
-* Zeppelin kullanma
+* Apache Zeppelin kullanma
 
-    Bkz: [kullanın Azure HDInsight Hive sorguları çalıştırmak için Zeppelin'i ](../hdinsight-connect-hive-zeppelin.md).
+    Bkz: [Azure HDInsight Apache Hive sorguları çalıştırmak için kullanım Apache Zeppelin ](../hdinsight-connect-hive-zeppelin.md).
 
 * Visual Studio'yu kullanma
 
-    Bkz: [bağlanın Azure HDInsight ve Visual Studio için Data Lake Araçları'nı kullanarak Hive sorgularını çalıştırmak](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries).
+    Bkz: [bağlanın Azure HDInsight ve Visual Studio için Data Lake Araçları'nı kullanarak çalışma Apache Hive sorguları](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries).
 
 * Visual Studio Code'u kullanma
 
-    Bkz: [kullanım Visual Studio Code için Hive, LLAP veya pySpark](../hdinsight-for-vscode.md).
-* Ambari Hive görünümünü kullanarak Hive çalıştırın.
+    Bkz: [kullanım Visual Studio Code için Apache Hive, LLAP veya pySpark](../hdinsight-for-vscode.md).
+* Apache Hive, Apache Ambari Hive görünümünü kullanarak çalıştırın.
   
-    Bkz: [Azure HDInsight, Hadoop ile Hive görünümünü kullanma](../hadoop/apache-hadoop-use-hive-ambari-view.md).
-* Beeline'ı kullanarak Hive çalıştırın.
+    Bkz: [Azure HDInsight, Apache Hadoop ile Apache Hive görünümünü kullanma](../hadoop/apache-hadoop-use-hive-ambari-view.md).
+
+* Apache Hive, Beeline'ı kullanarak çalıştırın.
   
-    Bkz: [Beeline ile HDInsight Hadoop ile Hive kullanma](../hadoop/apache-hadoop-use-hive-beeline.md).
+    Bkz: [Beeline ile HDInsight, Apache Hadoop ile Apache Hive kullanma](../hadoop/apache-hadoop-use-hive-beeline.md).
   
     Beeline baş düğümünden veya boş bir kenar düğümünü kullanabilirsiniz. Bir boş kenar düğümünü Beeline kullanmanızı öneririz. Boş bir kenar düğümünü kullanarak bir HDInsight kümesi oluşturma hakkında daha fazla bilgi için bkz: [HDInsight içinde boş kenar düğümlerini kullanma](../hdinsight-apps-use-edge-node.md).
-* Hive, Hive ODBC kullanarak çalıştırın.
+* Apache Hive, Hive ODBC kullanarak çalıştırın.
   
-    Bkz: [Microsoft Hive ODBC sürücüsü ile hadoop'a bağlama Excel](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
+    Bkz: [Microsoft Hive ODBC sürücüsü ile Apache Hadoop Excel'e bağlanma](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
 
 Java veritabanı bağlantısı (JDBC) bağlantı dizesi bulmak için:
 
-1. Ambari için aşağıdaki URL'yi kullanarak oturum açın: https://\<küme adı\>. AzureHDInsight.net.
+1. Apache Ambari aşağıdaki URL'yi kullanarak oturum açın: https://\<küme adı\>. AzureHDInsight.net.
 2. Sol menüde **Hive**.
 3. URL'yi kopyalamak için Pano simgesini seçin:
    
@@ -73,10 +74,10 @@ Java veritabanı bağlantısı (JDBC) bağlantı dizesi bulmak için:
 
 * Bilgi nasıl [içinde HDInsight etkileşimli sorgu kümelerine oluşturma](../hdinsight-hadoop-provision-linux-clusters.md).
 * Bilgi edinmek için nasıl [Power BI'da Azure HDInsight ile büyük verileri görselleştirme](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-* Bilgi edinmek için nasıl [Azure HDInsight Hive sorguları çalıştırmak için Zeppelin'i kullanma ](../hdinsight-connect-hive-zeppelin.md).
-* Bilgi edinmek için nasıl [Visual Studio için Data Lake Araçları'nı kullanarak Hive sorguları çalıştırma](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries).
+* Bilgi edinmek için nasıl [Azure HDInsight Apache Hive sorguları çalıştırmak için Apache Zeppelin kullanma ](../hdinsight-connect-hive-zeppelin.md).
+* Bilgi edinmek için nasıl [Visual Studio için Data Lake Araçları'nı kullanarak Apache Hive sorguları çalıştırma](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries).
 * Bilgi edinmek için nasıl [Visual Studio Code için HDInsight araçlarını kullanma](../hdinsight-for-vscode.md).
-* Bilgi edinmek için nasıl [HDInsight, Hadoop ile Hive görünümünü kullanma](../hadoop/apache-hadoop-use-hive-ambari-view.md)
-* Bilgi edinmek için nasıl [HDInsight Hive sorguları göndermek için Beeline kullanma](../hadoop/apache-hadoop-use-hive-beeline.md).
-* Bilgi edinmek için nasıl [Excel'i Microsoft Hive ODBC sürücüsü ile Hadoop'a bağlama](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
+* Bilgi edinmek için nasıl [HDInsight, Apache Hadoop ile Apache Hive görünümünü kullanma](../hadoop/apache-hadoop-use-hive-ambari-view.md)
+* Bilgi edinmek için nasıl [HDInsight, Apache Hive sorguları göndermek için Beeline kullanma](../hadoop/apache-hadoop-use-hive-beeline.md).
+* Bilgi edinmek için nasıl [Excel'i Microsoft Hive ODBC sürücüsü ile Apache Hadoop'a bağlama](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
 

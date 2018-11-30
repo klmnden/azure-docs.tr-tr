@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: 8986f18b9f1f2953ad0612679d31996628870cb1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a965cd70e3eba04f278cf432196b9386b537462d
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988232"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424349"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Azure Active Directory'de kiralama
 
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD), kullanıcılar ve uygulamalar gibi nesneleri 
 
 ## <a name="who-can-sign-in-to-your-app"></a>Kimin uygulamanıza oturum?
 
-Uygulamaları geliştirmeye geldiğinde, geliştiricilerin uygulamalarını tek kiracılı ya da çok kiracılı uygulama kaydı sırasında olması için yapılandırmayı seçebilirsiniz [Azure portalında](http://portal.azure.com).
+Uygulamaları geliştirmeye geldiğinde, geliştiricilerin uygulamalarını tek kiracılı ya da çok kiracılı uygulama kaydı sırasında olması için yapılandırmayı seçebilirsiniz [Azure portalında](https://portal.azure.com).
 * Tek kiracılı uygulamalar yalnızca kendi ana Kiracı olarak da bilinir, kayıtlı olan bir kiracı kullanılabilir.
 * Çok kiracılı uygulamalar, kullanıcılar kendi giriş kiracısında hem de diğer kiracılar için kullanılabilir.
 

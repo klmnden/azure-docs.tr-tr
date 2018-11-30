@@ -1,5 +1,5 @@
 ---
-title: Machine Learning Studio'da deneme yinelemelerini yönetme | Microsoft Docs
+title: Machine Learning Studio'da - Azure deneme yinelemelerini yönetme | Microsoft Docs
 description: Azure Machine Learning Studio'da deneme yinelemelerini yönetme
 services: machine-learning
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 31fab58a82487d0a5a3d39fd0ac1e907bc5565eb
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: b96ab59db8c4586304a864ee432dbd1c74b25fd6
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262474"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313546"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio’da deneme yinelemelerini yönetme
 Tahmine dayalı analiz modeli geliştirmek olduğu bir süreçtir - çeşitli işlevleri ve denemenizi parametrelerini değiştirirken, memnun ana kadar sonuçlarınız yakınsanır eğitilmiş ve verimli bir model vardır. Bu işlem için anahtar deneme parametreleri ve yapılandırmaları çeşitli yinelemeler izlemektir.

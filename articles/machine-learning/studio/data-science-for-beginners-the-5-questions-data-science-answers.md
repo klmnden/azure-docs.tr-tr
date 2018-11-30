@@ -1,5 +1,5 @@
 ---
-title: 5 veri bilimi - yeni başlayanlar için veri bilimi - Azure Machine Learning soruları | Microsoft Docs
+title: 5 veri bilimi - yeni başlayanlar için veri bilimi - Azure Machine Learning Studio soruları | Microsoft Docs
 description: Yeni başlayanlar için veri bilimi 5 sorular veri Biliminin yanıtladığı ile başlayarak 5 kısa video, temel kavramları öğretir. Azure Machine Learning hizmetinden.
 keywords: Veri bilimi, veri bilimi yeni başlayanlar, veri bilimi yapmak, yeni başlayanlar, veri bilimi temelleri, veri bilimi soruları, veri bilimi video, veri bilimi giriş
 services: machine-learning
@@ -17,12 +17,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 2e3d8805bfbe5b55aed111090cf1f7c02acb6a76
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c59b4783c59c44604738a3056b3484e11ff90363
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262049"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314175"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Yeni Başlayanlar için Veri Bilimi video 1: Veri bilimiyle ilgili 5 sorunun yanıtı
 Veri bilimi için hızlı bir giriş yapın *yeni başlayanlar için veri bilimi* beş kısa videolardan bir veri bilimi insanı olarak. Bu videolarda temel ancak yararlı veri bilimi ilginizi çeken veya veri uzmanları ile çalışır.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: e7bb7f0c4cb63390b91012e071589611991a2866
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4bd2b72596912d968ad6fc323ce32e620336d932
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068341"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316999"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Gelişmiş tehdit koruması ile Azure Güvenlik Merkezi
 
@@ -99,12 +99,12 @@ Zararsız bir Windows Defender ATP test uyarı oluşturmak için:
 
 3. Komut başarılı olursa, Azure Güvenlik Merkezi panosunu hem de Windows Defender ATP portalında yeni bir uyarı görürsünüz. Bu uyarı görünmesi birkaç dakika sürebilir.
 
-4. Güvenlik Merkezi'nde uyarı gözden geçirmek için Git **güvenlik uyarıları** >  **şüpheli Powershell komut satırı**.
+4. Güvenlik Merkezi'nde uyarı gözden geçirmek için Git **güvenlik uyarıları** >  **şüpheli Powershell komut satırı**.
 
 5. Araştırma penceresinden Windows Defender ATP portalına gitmek için bağlantıyı seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md): Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+- [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md): Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 - [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md): önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
 - [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md): Azure kaynaklarınızın sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.

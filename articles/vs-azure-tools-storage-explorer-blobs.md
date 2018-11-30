@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 8315647afec0166b41ce7a75f491077edd56db46
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: fd13cb25fbe3696bf67615ef956f478b7c355547
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036269"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422061"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Depolama Gezgini ile Azure Blob depolama kaynaklarını yönetme
 ## <a name="overview"></a>Genel Bakış
@@ -29,7 +29,7 @@ Verileri genel olarak herkese açık kullanıma sunmak veya uygulama verilerini 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
-* [Depolama Gezgini’ni indirip yükleme](http://www.storageexplorer.com)
+* [Depolama Gezgini’ni indirip yükleme](https://www.storageexplorer.com)
 * [Bir Azure depolama hesabı veya hizmetine bağlanma](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Blob kapsayıcısı oluşturma
@@ -213,7 +213,7 @@ Aşağıdaki adımlar, bir blob kapsayıcısı içinde BLOB'ları (ve klasörler
      3. Onay iletişim kutusunda **Evet**’i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [En son Depolama Gezgini yayın notlarını ve videolarını](http://www.storageexplorer.com) görüntüleyin.
+* [En son Depolama Gezgini yayın notlarını ve videolarını](https://www.storageexplorer.com) görüntüleyin.
 * [Azure bloblarını, tablolarını, kuyruklarını ve dosyalarını kullanarak uygulama oluşturma](https://azure.microsoft.com/documentation/services/storage/) hakkında bilgi edinin.
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png

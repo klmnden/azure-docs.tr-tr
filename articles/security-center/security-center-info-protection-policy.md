@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: ac4aa3c8aafae24736cc7b48a9ca4e8ba9fd0742
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e3dfbc4fc4d7ed40ebac7de6fe78398b13eafd58
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125196"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316557"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi (Önizleme) SQL bilgi koruması ilkesinde özelleştirme
  
@@ -38,7 +38,7 @@ Sınıflandırma mekanizması, sınıflandırma sınıflandırma - olun iki biri
  
 Information Protection etiketleri ve varsayılan olarak kullanılan bilgi türleri, yerleşik bir dizi ile birlikte gelir. Bunlar özelleştirmek için Azure Güvenlik Merkezi'nde Information protection ilkesinin özelleştirebilirsiniz.
  
-## <a name="customize-the-information-protection-policy"></a>Information protection ilkesinin özelleştirme
+## <a name="customize-the-information-protection-policy"></a>Bilgi koruma ilkesini özelleştirme
 Kiracınızda Azure Information protection ilkesinin özelleştirmek için ihtiyacınız [kiracının kök yönetim grubunda yönetim ayrıcalıkları](security-center-management-groups.md). 
  
 1. Güvenlik Merkezi ana menüsünde seçin **Güvenlik İlkesi**.
@@ -54,7 +54,7 @@ Kiracınızda Azure Information protection ilkesinin özelleştirmek için ihtiy
 2. İçinde **yapılandırma duyarlılık etiketi** ekranı oluşturabilir veya etiket adını ve açıklamasını değiştirin. Etiket getirerek etkin veya devre dışı olup olmadığını da ayarlayabilirsiniz **etkin** Aç veya kapat. Son olarak, ekleme veya etiketle ilişkili bilgi türlerini kaldırın. Sınıflandırma önerileri ilişkili duyarlılık etiketi, bilgi türünü otomatik olarak içerecektir eşleşen herhangi bir veri bulundu.
 3. **Tamam** düğmesine tıklayın.
  
-   ![Duyarlılık etiketi yapılandırma](./media/security-center-info-protection-policy/config-sensitivity-label.png)
+   ![Duyarlılık etiketini yapılandırın](./media/security-center-info-protection-policy/config-sensitivity-label.png)
  
 4. Etiketleri duyarlılık artan, sırasına göre listelenir. Etiketler arasında sıralamasını değiştirmek için tablodaki yeniden sıralamak veya etiketlerin sürükleyin **Yukarı Taşı** ve **Aşağı Taşı** sırasını değiştirmek için düğmeler. 
  
@@ -86,7 +86,7 @@ Bu makalede, Azure Güvenlik Merkezi'nde bir SQL bilgi koruması ilkesi tanımla
 Güvenlik ilkeleri ve Azure Güvenlik Merkezi veri güvenliği hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
  
 - [Güvenlik ilkelerine genel bakış](security-center-policies-overview.md): Güvenlik Merkezi'nde güvenlik ilkelerini genel bir bakış edinin
-- [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md): Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin
+- [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md): Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin
 - [Azure Güvenlik Merkezi veri güvenliği](security-center-data-security.md): Güvenlik Merkezi'nin nasıl yönetir ve verileri koruyan öğrenin
 
 

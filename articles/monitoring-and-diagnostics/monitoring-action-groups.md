@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/26/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 3ce7c5111fa176bb7fa734f54084b9e14e7afbef
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1b66f40594d0dd578e2e5680fb0d5bb0f82f1241
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016055"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311815"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure portalında Eylem grupları oluşturma ve yönetme
 ## <a name="overview"></a>Genel Bakış ##
@@ -76,6 +76,8 @@ Bir eylem grubu 1000 adede kadar e-posta eylemleri olabilir. Bkz: [bilgileri sı
 **ITSM** -en fazla 10 olabilir bir eylem grubu ITSM eylem ITSM eylemleri bir ITSM bağlantısı gerektirir. Oluşturmayı bir [ITSM bağlantısı](../log-analytics/log-analytics-itsmc-overview.md).
 
 **Mantıksal uygulama** -10 adede kadar mantıksal uygulama eylemleri bir eylem grubu içinde olabilir
+
+**İşlev uygulaması** -işlevi eylemleri v2 işlev uygulamalarını'uygulama "files" için "AzureWebJobsSecretStorageType" ayarı yapılandırmak için şu anda gerektiren işlevleri API aracılığıyla okurken yapılandırılan uygulamalar için işlev tuşlarını görmek [ Anahtar Yönetimi işlevleri V2'de değişiklikleri]( https://aka.ms/funcsecrets) daha fazla bilgi için.
 
 **Runbook** -bir eylem grubu başvuru için en fazla 10 Runbook eylemleri olabilir [Azure abonelik hizmeti limitleri](../azure-subscription-service-limits.md) sınırları üzerinde Runbook yükler
 

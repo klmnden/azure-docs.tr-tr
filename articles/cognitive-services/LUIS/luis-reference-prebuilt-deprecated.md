@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: ae23e6b8fd1d2f6d63293a9626880ae3823afc61
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5f722e9eae45f2df86b8c0831ffd33ad3edd8e5b
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033286"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334117"
 ---
 # <a name="deprecated-entities"></a>Kullanım dışı varlıklar
 Aşağıdaki önceden oluşturulmuş varlıklar kullanım dışıdır ve yeni LUIS uygulamalara eklenemez.
@@ -29,7 +29,7 @@ Aşağıdaki önceden oluşturulmuş varlıklar kullanım dışıdır ve yeni LU
 
 #### <a name="3-geography-subtypes"></a>3 Coğrafya alt türleri
 
-Önceden oluşturulmuş varlık   |   Örnek utterance   |   JSON
+Önceden oluşturulmuş varlık   |   Örnek konuşma   |   JSON
 ------|------|------|
 ```builtin.geography.city```   |  ```seattle```    |```{ "type": "builtin.geography.city", "entity": "seattle" }```|
 ```builtin.geography.city```   |  ```paris```    |```{ "type": "builtin.geography.city", "entity": "paris" }```|
@@ -64,7 +64,7 @@ Aşağıdaki tabloda Ansiklopedi yerleşik varlık içeren 100'den fazla alt tü
  ```
 
 
-Önceden oluşturulmuş varlık   |   Önceden oluşturulmuş varlık (alt türleri)   |   Örnek utterance
+Önceden oluşturulmuş varlık   |   Önceden oluşturulmuş varlık (alt türleri)   |   Örnek konuşma
 ------|------|------|
 ```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.people.person ```|```bryan adams``` |
 ```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.film.producer ```| ```walt disney``` |

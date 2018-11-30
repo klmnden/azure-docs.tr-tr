@@ -8,14 +8,14 @@ ms.author: nitinver
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 7/7/2017
-ms.openlocfilehash: e25a2dcaf9b7c820f5d7e0312fb2cb55fc558882
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 771f01f18c5cb54a0458d624a65ec1a69345cadd
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593908"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317237"
 ---
-# <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Azure HDInsight'ı kullanarak HBase sorunlarını giderme
+# <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Azure HDInsight'ı kullanarak Apache HBase sorunlarını giderme
 
 Apache Ambari yüklerde Apache HBase ile çalışırken sık karşılaşılan sorunlar ve çözümleri hakkında bilgi edinin.
 
@@ -30,7 +30,7 @@ Açıkları olabilir çevrimdışı bölgeleri nedeni, bu nedenle atamaları ön
 Atanmamış bölgeleri normal bir duruma getirmek için aşağıdaki adımları tamamlayın:
 
 1. SSH kullanarak HDInsight HBase kümesi için oturum açın.
-2. ZooKeeper Kabuk ile bağlanmak için çalıştırın `hbase zkcli` komutu.
+2. Apache ZooKeeper Kabuk ile bağlanmak için çalıştırın `hbase zkcli` komutu.
 3. Çalıştırma `rmr /hbase/regions-in-transition` komutu veya `rmr /hbase-unsecure/regions-in-transition` komutu.
 4. Alanından çıkmak için `hbase zkcli` kullanın, Kabuk `exit` komutu.
 5. Apache Ambari UI'ı açın ve ardından etkin HBase Master hizmetini yeniden başlatın.
@@ -46,7 +46,7 @@ Kullandığınız zaman zaman aşımı sorunlarıyla ilgili olası bir neden `hb
 ### <a name="resolution-steps"></a>Çözüm adımları
 
 1. SSH kullanarak HDInsight HBase kümesi için oturum açın.
-2. ZooKeeper Kabuk ile bağlanmak için çalıştırın `hbase zkcli` komutu.
+2. Apache ZooKeeper Kabuk ile bağlanmak için çalıştırın `hbase zkcli` komutu.
 3. Çalıştırma `rmr /hbase/regions-in-transition` veya `rmr /hbase-unsecure/regions-in-transition` komutu.
 4. Çıkmak için `hbase zkcli` kullanın, Kabuk `exit` komutu.
 5. Ambari UI içinde etkin HBase Master hizmetini yeniden başlatın.
@@ -56,7 +56,7 @@ Kullandığınız zaman zaman aşımı sorunlarıyla ilgili olası bir neden `hb
 
 ### <a name="issue"></a>Sorun
 
-Yerel Hadoop dağıtılmış dosya sistemi (HDFS), HDInsight kümesinde güvenli modda takıldı.
+Yerel Apache Hadoop dağıtılmış dosya sistemi (HDFS), HDInsight kümesinde güvenli modda takıldı.
 
 ### <a name="detailed-description"></a>Ayrıntılı bir açıklaması
 
@@ -211,7 +211,7 @@ HDInsight küme aşağı ölçeklendirilebilir bir çok az sayıda düğüm. Aş
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
-Phoenix ile bağlantı için bir etkin ZooKeeper düğümü IP adresini sağlamanız gerekir. Hangi sqlline.PY üzerinden ZooKeeper hizmete bağlanmaya çalışan ve çalışıyor olduğundan emin olun.
+Apache Phoenix ile bağlantı için etkin bir Apache ZooKeeper düğümü IP adresini sağlamanız gerekir. Hangi sqlline.PY üzerinden ZooKeeper hizmete bağlanmaya çalışan ve çalışıyor olduğundan emin olun.
 1. HDInsight kümesine SSH kullanarak oturum açın.
 2. Aşağıdaki komutu girin:
                 
@@ -247,7 +247,7 @@ Phoenix ile bağlantı için bir etkin ZooKeeper düğümü IP adresini sağlama
    ```apache
            ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
    ```
-6. Ambari UI içinde tüm ZooKeeper düğümleri HMaster hizmetini yeniden başlatmak için aşağıdaki adımları tamamlayın:
+6. Apache Ambari UI içinde tüm ZooKeeper düğümleri HMaster hizmetini yeniden başlatmak için aşağıdaki adımları tamamlayın:
 
     1. İçinde **özeti** HBase bölümüne gidin **HBase** > **etkin HBase Master**. 
     2. İçinde **bileşenleri** bölümünde, HBase Master hizmetini yeniden başlatın.
@@ -331,7 +331,7 @@ Bu, HMaster hizmeti ile bilinen bir sorundur. Küme genel başlangıç görevler
   
 ### <a name="resolution-steps"></a>Çözüm adımları
 
-1. Ambari UI içinde Git **HBase** > **yapılandırmaları**. Özel hbase-site.xml dosyasında aşağıdaki ayarı ekleyin: 
+1. Apache Ambari UI'nızda Git **HBase** > **yapılandırmaları**. Özel hbase-site.xml dosyasında aşağıdaki ayarı ekleyin: 
 
    ```apache
    Key: hbase.master.namespace.init.timeout Value: 2400000  
@@ -344,9 +344,9 @@ Bu, HMaster hizmeti ile bilinen bir sorundur. Küme genel başlangıç görevler
 
 ### <a name="issue"></a>Sorun
 
-Bir bölge sunucusu üzerinde bir yeniden başlatma hatası aşağıdaki en iyi yöntemleri tarafından engellenebilir. HBase bölge sunucuları yeniden başlatmak planlama yaparken ağır iş yükü etkinlik duraklatma öneririz. Shutdown devam ederken bölge sunucuları ile bağlanmak bir uygulama devam ederse, bölge sunucusu yeniden başlatma işlemi birkaç dakika daha yavaş olur. Ayrıca, önce tüm tabloları Temizle iyi bir fikirdir. Tablolarını temizlemek nasıl bir başvuru için bkz: [HDInsight HBase: HBase kümesi yeniden başlatma zamanı tabloları temizlenerek geliştirmek nasıl](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+Bir bölge sunucusu üzerinde bir yeniden başlatma hatası aşağıdaki en iyi yöntemleri tarafından engellenebilir. HBase bölge sunucuları yeniden başlatmak planlama yaparken ağır iş yükü etkinlik duraklatma öneririz. Shutdown devam ederken bölge sunucuları ile bağlanmak bir uygulama devam ederse, bölge sunucusu yeniden başlatma işlemi birkaç dakika daha yavaş olur. Ayrıca, önce tüm tabloları Temizle iyi bir fikirdir. Tablolarını temizlemek nasıl bir başvuru için bkz: [HDInsight HBase: Apache HBase kümesi yeniden başlatma zamanı tabloları temizlenerek geliştirmek nasıl](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
-HBase bölge Ambari UI sunuculardan üzerinde yeniden başlatma işlemi'ı başlattığınızda, bölge sunucuları kapanmış, ancak hemen yeniden başlatma anında görün. 
+HBase bölge Apache Ambari UI sunuculardan üzerinde yeniden başlatma işlemi'ı başlattığınızda, bölge sunucuları kapanmış, ancak hemen yeniden başlatma anında görün. 
 
 Arka planda neler olduğunu aşağıda verilmiştir: 
 

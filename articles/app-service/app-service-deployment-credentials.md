@@ -1,41 +1,30 @@
 ---
-title: Azure App Service dağıtımı kimlik bilgileri | Microsoft Docs
+title: Azure App Service için dağıtım kimlik bilgilerini yapılandırma | Microsoft Docs
 description: Azure App Service dağıtım kimlik bilgilerini kullanmayı öğrenin.
 services: app-service
 documentationcenter: ''
-author: dariagrigoriu
-manager: erikre
-editor: mollybos
+author: cephalin
+manager: jpconnoc
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/05/2016
-ms.author: dariagrigoriu
-ms.openlocfilehash: 79841887ce8413970cb7dff0ca0099d4e0745a68
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/22/2018
+ms.author: cephalin
+ms.openlocfilehash: a04057023308087adbf449b8f91af6a473c11c1e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259318"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312104"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Azure App Service için dağıtım kimlik bilgilerini yapılandırma
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) iki tür kimlik bilgilerini destekler [yerel Git dağıtımı](app-service-deploy-local-git.md) ve [FTP/S dağıtım](app-service-deploy-ftp.md). Bunlar Azure Active Directory kimlik bilgilerinizi ile aynı değildir.
 
-* **Kullanıcı düzeyinde kimlik**: tek tüm Azure hesabı için kimlik bilgileri kümesi. Azure hesabı için erişim iznine sahip olduğu herhangi bir abonelikte, herhangi bir uygulama için App Service'e dağıtmak için kullanılabilir. Yapılandırdığınız varsayılan kimlik bilgileri kümesi bunlar **uygulama hizmetleri** > **&lt;app_name >** > **dağıtım kimlik bilgileri**. Bu ayrıca varsayılandır GUI portalında ortaya kümesi (gibi **genel bakış** ve **özellikleri** , uygulamanızın [kaynak sayfası](../azure-resource-manager/resource-group-portal.md#manage-resources)).
+* **Kullanıcı düzeyinde kimlik**: tek tüm Azure hesabı için kimlik bilgileri kümesi. Azure hesabı için erişim iznine sahip olduğu herhangi bir abonelikte, herhangi bir uygulama için App Service'e dağıtmak için kullanılabilir. GUI portalında ortaya varsayılan kümesi olan (gibi **genel bakış** ve **özellikleri** uygulamanın [kaynak sayfası](../azure-resource-manager/resource-group-portal.md#manage-resources)). Bir kullanıcı rolü tabanlı erişim denetimi (RBAC) veya coadmin izinler aracılığıyla uygulama erişimi verildiğinde kullanıcı erişimi iptal kadar onun kendi kullanıcı düzeyi kimlik bilgilerini kullanabilirsiniz. Bu kimlik bilgileri, diğer Azure kullanıcıları ile paylaşmayın.
 
-    > [!NOTE]
-    > Rol tabanlı erişim denetimi (RBAC) veya ortak yönetici izinleri aracılığıyla Azure kaynaklarına erişimi temsilci, erişimi iptal kadar bir uygulamaya erişim aldığı her Azure kullanıcı kendi kişisel kullanıcı düzeyi kimlik bilgilerini kullanabilirsiniz. Bu dağıtım kimlik bilgileri Azure başkalarıyla Paylaşılmaması gereken.
-    >
-    >
-
-* **Uygulama düzeyinde kimlik**: tek her uygulama için kimlik bilgileri kümesi. Yalnızca bu uygulamasına dağıtmak için kullanılabilir. Her uygulama, uygulama oluşturma sırasında otomatik olarak oluşturulur ve uygulamanın bulunan yayımlama profili kimlik bilgileri. Kimlik bilgilerini el ile yapılandıramazsınız, ancak bunları bir uygulama için dilediğiniz zaman sıfırlayabilirsiniz.
-
-    > [!NOTE]
-    > Vermek için birisi erişmek için bu kimlik bilgileri ile rol tabanlı erişim denetimi (RBAC), katkıda bulunan yapmanız gereken veya Web uygulamasında daha yüksek. Okuyucular, yayımlama izin verilmez ve bu nedenle bu kimlik bilgilerine erişemez.
-    >
-    >
+* **Uygulama düzeyinde kimlik**: tek her uygulama için kimlik bilgileri kümesi. Yalnızca bu uygulamasına dağıtmak için kullanılabilir. Her uygulama için kimlik bilgileri uygulama oluşturma sırasında otomatik olarak oluşturulur. El ile yapılandırılmış, ancak sıfırlanabilir. Bir kullanıcı (RBAC) aracılığıyla uygulama düzeyinde kimlik bilgilerine erişim izni verilecek kullanıcı katkıda bulunan olması gerekir veya uygulamada daha yüksek. Okuyucular, yayımlama izin verilmez ve bu kimlik bilgilerine erişemez.
 
 ## <a name="userscope"></a>Ayarlayın ve kullanıcı düzeyi kimlik bilgilerini sıfırlama
 
@@ -43,12 +32,11 @@ Bir uygulamanın kullanıcı düzeyinde kimlik bilgilerinizi yapılandırabilece
 
 Kullanıcı düzeyinde kimlik bilgilerinizi yapılandırmak için:
 
-1. İçinde [Azure portalında](https://portal.azure.com), App Service'ı tıklayın >  **&lt;any_app >** > **dağıtım kimlik bilgileri**.
+1. İçinde [Azure portalında](https://portal.azure.com), soldaki menüden **uygulama hizmetleri** > **&lt;any_app >** > **dağıtım Merkezi** > **dağıtım kimlik bilgileri**.
 
-    > [!NOTE]
-    > Portalda dağıtım kimlik bilgileri sayfasında erişebilmeniz için önce en az bir uygulama olmalıdır. Bununla birlikte, [Azure CLI](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set), mevcut bir uygulamayı olmadan kullanıcı düzeyinde kimlik yapılandırabilirsiniz.
+    Portalda dağıtım kimlik bilgileri sayfasında erişebilmeniz için önce en az bir uygulama olmalıdır. Bununla birlikte, [Azure CLI](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set), mevcut bir uygulamayı olmadan kullanıcı düzeyinde kimlik yapılandırabilirsiniz.
 
-2. Kullanıcı adı ve parola yapılandırın ve ardından **Kaydet**.
+2. Tıklayın **kullanıcı kimlik bilgilerini**, kullanıcı adı ve parola yapılandırın ve ardından **kayıt kimlik bilgileri**.
 
     ![](./media/app-service-deployment-credentials/deployment_credentials_configure.png)
 
@@ -61,35 +49,20 @@ ve *FTP* uygulamanızın dağıtım kullanıcı adı **özellikleri**.
 ![](./media/app-service-deployment-credentials/deployment_credentials_properties.png)
 
 > [!NOTE]
-> Azure kullanıcı düzeyinde dağıtım parolanızı göstermez. Parolayı unutursanız alınamıyor. Ancak, bu bölümdeki adımları izleyerek kimlik bilgilerinizi sıfırlayabilirsiniz.
+> Azure kullanıcı düzeyinde dağıtım parolanızı göstermez. Parolanızı unutursanız, bu bölümdeki adımları izleyerek kimlik bilgilerinizi sıfırlayabilirsiniz.
 >
 >  
 
 ## <a name="appscope"></a>Alma ve uygulama düzeyinde kimlik bilgilerini sıfırlama
-App Service her uygulama için uygulama düzeyinde kimlik bilgileri XML dosyasında depolanan yayımlama profili.
-
 Uygulama düzeyinde kimlik bilgilerini almak için:
 
-1. İçinde [Azure portalında](https://portal.azure.com), App Service'ı tıklayın >  **&lt;any_app >** > **genel bakış**.
+1. İçinde [Azure portalında](https://portal.azure.com), soldaki menüden **uygulama hizmetleri** > **&lt;any_app >** > **dağıtım Merkezi** > **dağıtım kimlik bilgileri**.
 
-2. Tıklayın **... Daha fazla** > **yayımlama profili Al**, ve indirme başladığında için bir. PublishSettings dosyası.
+2. Tıklayın **uygulama kimlik**, tıklatıp **kopyalama** kullanıcı adı veya parola kopyalamak için bağlantı.
 
-    ![](./media/app-service-deployment-credentials/publish_profile_get.png)
+    ![](./media/app-service-deployment-credentials/deployment_credentials_app_level.png)
 
-3. Açık. PublishSettings dosyası ve bulma `<publishProfile>` özniteliğine sahip etiket `publishMethod="FTP"`. Daha sonra kendi `userName` ve `password` öznitelikleri.
-Bu, uygulama düzeyinde kimlik bilgileridir.
-
-    ![](./media/app-service-deployment-credentials/publish_profile_editor.png)
-
-    Kullanıcı düzeyinde kimlik, FTP dağıtım kullanıcı adı biçiminde benzer `<app_name>\<username>`, ve Git dağıtım kullanıcı adı yalnızca `<username>` önceki olmadan `<app_name>\`.
-
-Uygulama düzeyinde kimlik bilgilerini sıfırlamak için:
-
-1. İçinde [Azure portalında](https://portal.azure.com), App Service'ı tıklayın >  **&lt;any_app >** > **genel bakış**.
-
-2. Tıklayın **... Daha fazla** > **yayımlama profilini Sıfırla**. Tıklayın **Evet** sıfırlamasını onaylamak için.
-
-    Sıfırlama eylemi herhangi daha önce indirilen geçersiz kılar. PublishSettings dosyaları.
+Uygulama düzeyinde kimlik bilgilerini sıfırlamak için tıklayın **kimlik bilgilerini sıfırlama** aynı iletişim.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

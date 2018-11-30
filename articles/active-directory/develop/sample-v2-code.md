@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 4a2cb6fa310cc56b4c5ccb1cb625b88431f70783
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 6b6dd80f649b0c92aacdb5711e88d7710db5f51b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633861"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424451"
 ---
 # <a name="azure-active-directory-code-samples-v20-endpoint"></a>Azure Active Directory kod örnekleri (v2.0 uç noktası)
 
@@ -73,7 +73,7 @@ Aşağıdaki örnekler, Microsoft Graph API'sini veya kendi kullanıcı adını 
 
 İstemci uygulaması | Platform | Akış/verme | Microsoft Graph çağrıları | Bir ASP.NET Core 2.0 Web API'si çağıran
 ------------------ | -------- |  ----------| ---------- | -------------------------
-Masaüstü (WPF)      | ![.NET / C#](media/sample-v2-code/logo_NET.png) | Etkileşimli | [DotNet Masaüstü msgraph v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [DotNet-yerel-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+Masaüstü (WPF)      | ![.NET / C#](media/sample-v2-code/logo_NET.png) | Etkileşimli | [DotNet Masaüstü msgraph v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [DotNet-yerel-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
 Masaüstü (konsol)   | ![.NET / C# (Masaüstü)](media/sample-v2-code/logo_NET.png) | Tümleşik Windows Kimlik Doğrulaması |[DotNet IWA v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2)
 Masaüstü (konsol)   | ![.NET / C# (Masaüstü)](media/sample-v2-code/logo_NETcore.png) | Kullanıcı adı/parola |[dotnetcore yukarı v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)
 Mobile (UWP)   | ![.NET / C# (UWP)](media/sample-v2-code/logo_windows.png) | Etkileşimli |[DotNet-yerel-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |

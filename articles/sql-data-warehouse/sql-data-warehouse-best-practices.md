@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/18/2018
+ms.date: 11/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 81fd5ea082fe05c9908b2eb0689aba9a4fe4e789
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 0324a6f71a0a30fc9f3005a041b4c5413e6af8da
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307141"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317311"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı için en iyi yöntemler
 Bu makalede, Azure SQL veri ambarı en iyi performans elde etmenize yardımcı olması için en iyi bir koleksiyonudur.  Bu makalede, temel ve kolay anlaşılır kavramların yanı sıra ileri düzey kavramlarla ilgili özet bilgilere yer verilmektedir.  Bu makalenin amacı, veri ambarınızı oluşturmanız sırasında size temel noktalarda rehberlik yapmak ve odaklanmanız gereken önemli noktalara dikkat çekmektir.  Her bölümde bir kavram tanıtılmakta ve ardından ilgili kavramı ayrıntılı bir şekilde açıklayan ileri düzey makalelere bağlantı verilmektedir.
@@ -39,7 +39,7 @@ Küçük bir tabloya bir INSERT deyimiyle tek seferlik yükleme yapmak veya `INS
 Ayrıca bkz. [INSERT][INSERT]
 
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>Verileri hızlıca yüklemek ve dışarı aktarmak için PolyBase kullanın
-SQL Veri Ambarı, veri yüklemek ve dışarı aktarmak için Azure Data Factory, PolyBase ve BCP gibi birçok aracı destekler.  Performansın yüksek öneme sahip olmadığı küçük miktarlardaki veriler için bu araçlardan herhangi birini kullanabilirsiniz.  Ancak, büyük hacimli verileri yüklerken veya dışarı aktarırken ya da yüksek performansa ihtiyaç duyduğunuzda, PolyBase en iyi çözüm olacaktır.  PolyBase, SQL Veri Ambarı’nın MPP (Massively Parallel Processing - Büyük Ölçekli Paralel İşleme) mimarisini kullanarak büyük verileri diğer tüm araçlardan daha hızlı bir şekilde yükleyecek ve dışarı aktaracak şekilde tasarlanmıştır.  PolyBase yükleri CTAS veya INSERT INTO ile çalıştırılabilir.  **CTAS, işlem günlüğünü en aza indiren ve verilerinizi en hızlı yükleyen seçenektir.**  Azure Data Factory, PolyBase yüklerini de destekler.  PolyBase, Gzip de dahil olmak üzere birçok dosya biçimi için destek sunar.  **gzip metin dosyalarını kullanırken verimi en üst düzeye çıkarmak için dosyaları 60 veya daha fazla parçaya bölerek daha çok paralel işlem oluşturabilirsiniz.**  Toplam hızı artırmak için verilerinizi aynı anda yükleyin.
+SQL Veri Ambarı, veri yüklemek ve dışarı aktarmak için Azure Data Factory, PolyBase ve BCP gibi birçok aracı destekler.  Performansın yüksek öneme sahip olmadığı küçük miktarlardaki veriler için bu araçlardan herhangi birini kullanabilirsiniz.  Ancak, büyük hacimli verileri yüklerken veya dışarı aktarırken ya da yüksek performansa ihtiyaç duyduğunuzda, PolyBase en iyi çözüm olacaktır.  PolyBase, SQL Veri Ambarı’nın MPP (Massively Parallel Processing - Büyük Ölçekli Paralel İşleme) mimarisini kullanarak büyük verileri diğer tüm araçlardan daha hızlı bir şekilde yükleyecek ve dışarı aktaracak şekilde tasarlanmıştır.  PolyBase yükleri CTAS veya INSERT INTO ile çalıştırılabilir.  **CTAS, işlem günlüğünü en aza indiren ve verilerinizi en hızlı yükleyen seçenektir.**  Azure Data Factory PolyBase yüklerini destekler ve CTAS olarak benzer bir performans elde edebilirsiniz.  PolyBase, Gzip de dahil olmak üzere birçok dosya biçimi için destek sunar.  **gzip metin dosyalarını kullanırken verimi en üst düzeye çıkarmak için dosyaları 60 veya daha fazla parçaya bölerek daha çok paralel işlem oluşturabilirsiniz.**  Toplam hızı artırmak için verilerinizi aynı anda yükleyin.
 
 Ayrıca bkz. [Yerel veriler][Load data], [PolyBase kullanma kılavuzu][Guide for using PolyBase], [Azure SQL Veri Ambarı yükleme modelleri ve stratejileri][Azure SQL Data Warehouse loading patterns and strategies], [Azure Data Factory ile veri yükleme][Load Data with Azure Data Factory], [Azure Data Factory ile veri taşıma][Move data with Azure Data Factory], [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT], [Create table as select (CTAS)][Create table as select (CTAS)]
 

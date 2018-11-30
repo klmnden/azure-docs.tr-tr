@@ -17,16 +17,16 @@ ms.date: 04/17/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a830527f65cdbd485ef57ea43e4564363f3ca98b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3b60a659700b1e464f4d8f70516a2ceaa0f08b6b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967770"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423754"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Openıd Connect ile Azure Active Directory kullanarak web uygulamalarına erişim yetkisi verme
 
-[Openıd Connect](http://openid.net/specs/openid-connect-core-1_0.html) olan OAuth 2.0 protokolünü üzerinde oluşturulan Basit kimlik katmanı. OAuth 2.0 tanımlar ve mekanizmaları [ **erişim belirteçlerini** ](access-tokens.md) erişmek için korumalı kaynaklara, ancak bunlar tanımlamıyor kimlik bilgilerini sağlamak için standart yöntemleri. Openıd Connect kimlik doğrulaması için OAuth 2.0 Yetkilendirme işlemi bir genişletme olarak uygular. Biçiminde son kullanıcı hakkında bilgi sağlayan bir [ `id_token` ](id-tokens.md) , kullanıcının kimliğini doğrular ve kullanıcının temel profil bilgilerini sağlar.
+[Openıd Connect](https://openid.net/specs/openid-connect-core-1_0.html) olan OAuth 2.0 protokolünü üzerinde oluşturulan Basit kimlik katmanı. OAuth 2.0 tanımlar ve mekanizmaları [ **erişim belirteçlerini** ](access-tokens.md) erişmek için korumalı kaynaklara, ancak bunlar tanımlamıyor kimlik bilgilerini sağlamak için standart yöntemleri. Openıd Connect kimlik doğrulaması için OAuth 2.0 Yetkilendirme işlemi bir genişletme olarak uygular. Biçiminde son kullanıcı hakkında bilgi sağlayan bir [ `id_token` ](id-tokens.md) , kullanıcının kimliğini doğrular ve kullanıcının temel profil bilgilerini sağlar.
 
 Openıd Connect, bir sunucuda barındırılan ve tarayıcı erişilen bir web uygulaması oluşturuyorsanız, bizim kullanılması önerilir.
 
@@ -96,7 +96,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | nonce |gerekli |Ortaya çıkan dahil olan ve uygulama tarafından oluşturulan isteğinde bulunan bir değer `id_token` talep olarak. Uygulama, belirteç yeniden yürütme saldırıları azaltmak için bu değer daha sonra doğrulayabilirsiniz. Genellikle bir rastgele, benzersiz bir dize veya isteğinin kaynağı tanımlamak için kullanılan GUID değeridir. |
 | redirect_uri |Önerilen |Burada kimlik doğrulama yanıtlarının gönderilebilen veya uygulamanız tarafından alınan uygulamanızın redirect_uri. Bu url olarak kodlanmış olması dışında Portalı'nda kayıtlı redirect_uris biri tam olarak eşleşmesi gerekir. |
 | response_mode |isteğe bağlı |Sonuçta elde edilen authorization_code uygulamanıza geri göndermek için kullanılması gereken yöntemini belirtir. Desteklenen değerler şunlardır: `form_post` için *HTTP form post* ve `fragment` için *URL parçası belirtmesini*. Web uygulamaları için kullanılması önerilir `response_mode=form_post` belirteçleri, uygulamanızın en güvenli aktarımı emin olmak için. Bir id_token dahil olmak üzere herhangi bir akış için varsayılan değer `fragment`.|
-| durum |Önerilen |Belirteç yanıtta döndürülen isteğinde bulunan bir değer. Bu, istediğiniz herhangi bir içerik dizesi olabilir. Rastgele oluşturulmuş bir benzersiz değer için genellikle kullanılan [siteler arası istek sahteciliğini saldırılarını önleme](http://tools.ietf.org/html/rfc6749#section-10.12). Durum, uygulama kullanıcının durumu hakkındaki bilgileri sayfasında ya da görünümü üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce kodlamak için de kullanılır. |
+| durum |Önerilen |Belirteç yanıtta döndürülen isteğinde bulunan bir değer. Bu, istediğiniz herhangi bir içerik dizesi olabilir. Rastgele oluşturulmuş bir benzersiz değer için genellikle kullanılan [siteler arası istek sahteciliğini saldırılarını önleme](https://tools.ietf.org/html/rfc6749#section-10.12). Durum, uygulama kullanıcının durumu hakkındaki bilgileri sayfasında ya da görünümü üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce kodlamak için de kullanılır. |
 | istemi |isteğe bağlı |Gerekli olan kullanıcı etkileşimi türünü belirtir. Şu anda, geçerli değerler yalnızca 'login', 'none' olan ve 'onay'. `prompt=login` Bu isteğin negating çoklu oturum açma kimlik bilgilerini girmesini zorlar. `prompt=none` -tersidir kullanıcı hiçbir etkileşimli istemi olmadan sunulmayan sağlar. İstek sessiz bir şekilde çoklu oturum açma aracılığıyla tamamlanamıyorsa, uç nokta bir hata döndürür. `prompt=consent` Kullanıcı uygulamayı izinler istendiği anın, oturum açtıktan sonra iletişim Tetikleyicileri OAuth onay vermiş olursunuz. |
 | login_hint |isteğe bağlı |Önceden, kullanıcı adını biliyorsanız, kullanıcı için oturum açma sayfası kullanıcı adı/e-posta adresi alanının önceden doldurmak için kullanılabilir. Uygulamalar genellikle kullanıcı adı önceki oturum açma kullanarak bir zaten ayıklanan yeniden kimlik doğrulaması sırasında bu parametreyi kullanın `preferred_username` talep. |
 
@@ -117,7 +117,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | Parametre | Açıklama |
 | --- | --- |
 | id_token |`id_token` İstenen uygulama. Kullanabileceğiniz `id_token` kullanıcının kimliğini doğrulamak ve kullanıcı bir oturumla başlayın. |
-| durum |Ayrıca belirteci yanıtta döndürülen isteğinde bulunan bir değer. Rastgele oluşturulmuş bir benzersiz değer için genellikle kullanılan [siteler arası istek sahteciliğini saldırılarını önleme](http://tools.ietf.org/html/rfc6749#section-10.12). Durum, uygulama kullanıcının durumu hakkındaki bilgileri sayfasında ya da görünümü üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce kodlamak için de kullanılır. |
+| durum |Ayrıca belirteci yanıtta döndürülen isteğinde bulunan bir değer. Rastgele oluşturulmuş bir benzersiz değer için genellikle kullanılan [siteler arası istek sahteciliğini saldırılarını önleme](https://tools.ietf.org/html/rfc6749#section-10.12). Durum, uygulama kullanıcının durumu hakkındaki bilgileri sayfasında ya da görünümü üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce kodlamak için de kullanılır. |
 
 ### <a name="error-response"></a>Hata yanıtı
 

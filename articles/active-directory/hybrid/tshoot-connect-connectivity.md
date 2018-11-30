@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7f34b0015a4a6d7b8c2c23f539cf21232adaec58
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5d5eee525c6f071840d186cb6bd54faf9bf2787b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311104"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310676"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Azure AD connect'teki bağlantı sorunlarını giderme
 Bu makalede, Azure AD Connect ve Azure AD arasındaki bağlantıyı nasıl çalıştığını ve bağlantı sorunlarını gidermek nasıl açıklanmaktadır. Bu proxy sunucusu olan bir ortamda görülebilmesi büyük olasılıkla sorunlardır.
@@ -46,7 +46,7 @@ Aşağıdaki tabloda bu URL'leri, Azure AD'ye hiç bağlanabilmesi için mutlak 
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |CRL listelerini indirmek için kullanılır. |
 | \*. verisign.com |HTTP/80 |CRL listelerini indirmek için kullanılır. |
-| \*.entrust.com |HTTP/80 |CRL listeleri için mfa'yı indirmek için kullanılır. |
+| \*. entrust.net |HTTP/80 |CRL listeleri için mfa'yı indirmek için kullanılır. |
 | \*.windows.net |HTTPS/443 |Azure AD'de oturum açmak için kullanılır. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |MFA için kullanılır. |
 | \*.microsoftonline.com |HTTPS/443 |Azure AD dizininizi yapılandırın ve verileri içeri/dışarı aktarma için kullanılır. |

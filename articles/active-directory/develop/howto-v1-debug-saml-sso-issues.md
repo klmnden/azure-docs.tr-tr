@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: bcdc665c59a900d4c57d03140654fffec26af0eb
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 7f653eca0c768cc35df039cbd51153484710d80a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706764"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422262"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için SAML tabanlı çoklu oturum açma hata ayıklama
 
@@ -75,7 +75,7 @@ MyApps güvenli oturum açma uzantısı yüklemeden hatayı gidermek için:
     - Sorunun kök nedenini tanımlayan bir ifade.
 2.  Azure AD'ye geri dönün ve bulma **Test çoklu oturum açma** dikey penceresi.
 3.  Yukarıdaki metin kutusuna **çözümleme Hadoop'u**, hata iletisi yapıştırın.
-3.  Tıklayın **çözümleme Hadoop'u** adımlar bu sorunu çözmek için görüntülenecek. Kılavuz, SAML isteğini veya SAML yanıtını bilgileri gerektirebilir. MyApps güvenli oturum açma uzantı kullanmıyorsanız, bir aracı aşağıdaki gibi ihtiyacınız olabilecek [Fiddler](http://www.telerik.com/fiddler) SAML isteği ve yanıt almanızı sağlar.
+3.  Tıklayın **çözümleme Hadoop'u** adımlar bu sorunu çözmek için görüntülenecek. Kılavuz, SAML isteğini veya SAML yanıtını bilgileri gerektirebilir. MyApps güvenli oturum açma uzantı kullanmıyorsanız, bir aracı aşağıdaki gibi ihtiyacınız olabilecek [Fiddler](https://www.telerik.com/fiddler) SAML isteği ve yanıt almanızı sağlar.
 4.  SAML çoklu oturum açma hizmeti Azure Active Directory'den alınan URL'si SAML isteğindeki hedef karşılık doğrulayın
 5.  Azure Active Directory'de uygulama için yapılandırdığınız aynı tanımlayıcıyı SAML isteğindeki veren olduğunu doğrulayın. Azure AD veren dizininizde uygulamayı bulmak için kullanır.
 6.  Burada Azure Active Directory'den SAML belirteci almak uygulamanın beklediği AssertionConsumerServiceURL olduğunu doğrulayın. Azure Active Directory'de, bu değeri yapılandırabilirsiniz, ancak SAML isteğinde bir parçasıysa, zorunlu değildir.
@@ -90,7 +90,7 @@ Hatayı gidermek için:
 1. Uygulama Azure AD galerisindeki ise, uygulamanın Azure AD ile tümleştirmeye yönelik tüm adımları uyguladıysanız doğrulayın. Uygulamanız için tümleştirme yönergeleri bulmak için bkz: [SaaS uygulama tümleştirmesi öğreticileri listesi](../saas-apps/tutorial-list.md).
 2. SAML yanıtını alın.
     - My Apps güvenli oturum açma uzantısı yüklü değilse, gelen **Test çoklu oturum açma** dikey penceresinde tıklayın **SAML yanıtını indirme**.
-    - Uzantı yüklü değilse gibi bir araç kullanın [Fiddler](http://www.telerik.com/fiddler) SAML yanıtını almak için. 
+    - Uzantı yüklü değilse gibi bir araç kullanın [Fiddler](https://www.telerik.com/fiddler) SAML yanıtını almak için. 
 3. Bu öğeleri yanıt SAML belirtecindeki dikkat edin:
     - Kullanıcının benzersiz tanımlayıcısı Nameıd değeri ve biçimi
     - Belirtecinde verilen talepleri

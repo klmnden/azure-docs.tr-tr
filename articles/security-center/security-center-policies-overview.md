@@ -1,6 +1,6 @@
 ---
-title: Azure Güvenlik Merkezi güvenlik ilkesi ayarları | Microsoft Docs
-description: Azure Güvenlik Merkezi güvenlik ilkesi ayarlarını yapılandırın.
+title: Azure Güvenlik Merkezi Ayarları | Microsoft Docs
+description: Azure Güvenlik Merkezi ayarlarını yapılandırın.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,23 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3d2687f56b69174fde783060d994e3c01763ec94
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2aa4545aa79260bea792392e1bebf4166253fc87
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256638"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315724"
 ---
-# <a name="security-policy-settings"></a>Güvenlik ilkesi ayarları
-Bu makalede Güvenlik Merkezi'ndeki ilke ayarları güvenliğine genel bakış sağlar.
+# <a name="security-center-settings"></a>Güvenlik Merkezi Ayarları
+Bu makalede Güvenlik Merkezi'ndeki ayarları genel bir bakış sağlar.
 
-## <a name="what-are-security-policies"></a>Güvenlik ilkeleri nedir?
-Güvenlik ilkesi iş yüklerinizin istenen yapılandırmasını tanımlar ve şirketin veya yasal düzenlemelerin gerektirdiği güvenlik gereksinimlerine uyum sağlanmasına yardımcı olur. Azure Güvenlik Merkezi'nde Azure Abonelikleriniz için ilkeler tanımlayın ve bunları iş yükü türüne veya verilerinizin duyarlılığına göre uygun hale getirin. Örneğin, kişisel bilgiler gibi düzenlenen veriler kullanan uygulamalar, diğer iş yükleri yüksek seviyede güvenliği gerektirebilir.
-
-Aşağıdaki güvenlik ilkesi altında ayarlayabilirsiniz:
+Güvenlik İlkesi altında aşağıdaki ayarları ulaşılabilir:
 
 - **Veri toplama**: aracı sağlama belirler ve [veri toplama](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) ayarları.
-- **Güvenlik İlkesi**: hangi denetimleri izlediğini Güvenlik Merkezi ve önerir belirler. Düzenleyebileceğiniz [Güvenlik İlkesi](security-center-policies.md) Güvenlik Merkezi'nde. Ayrıca [Azure İlkesi](security-center-azure-policy.md) yeni tanımları oluşturmak için ek ilkeler tanımlamak ve yönetim gruplarına ilkeler atama. 
+- **Güvenlik İlkesi**: hangi denetimleri izlediğini Güvenlik Merkezi ve önerir belirler. Düzenleyebileceğiniz [Güvenlik İlkesi](security-center-azure-policy.md) Güvenlik Merkezi'nde. Ayrıca [Azure İlkesi](security-center-azure-policy.md) yeni tanımları oluşturmak için ek ilkeler tanımlamak ve yönetim gruplarına ilkeler atama. 
 - **E-posta bildirimleri**: güvenlik ilgili kişi belirler ve [e-posta bildirimi](security-center-provide-security-contact-details.md) ayarları.
 - **Fiyatlandırma katmanı**: ücretsiz veya standart tanımlar [fiyatlandırma seçimi](security-center-pricing.md). Seçtiğiniz katman, kapsam dahilindeki kaynaklar için hangi Güvenlik Merkezi özelliklerinin kullanılabilir olduğunu belirler. Bir katman için abonelik, kaynak grupları ve çalışma alanları belirtebilirsiniz.
 
@@ -49,7 +46,7 @@ Güvenlik Merkezi, kullanıcıları, grupları ve Azure Hizmetleri için atanan 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, Azure Güvenlik Merkezi'nde güvenlik ilkeleri hakkında bilgi edindiniz. Azure Güvenlik Merkezi hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md): Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md): Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md): Güvenlik Merkezi önerilerini Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
 * [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md): Azure kaynaklarınızın sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md): Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.

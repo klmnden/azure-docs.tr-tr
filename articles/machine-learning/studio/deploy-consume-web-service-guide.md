@@ -1,6 +1,6 @@
 ---
-title: 'Azure Machine Learning Web Hizmetleri: Dağıtım ve kullanım | Microsoft Docs'
-description: Dağıtma ve web hizmetlerini kullanma kaynaklar'ı tıklatın.
+title: 'Machine learning web Hizmetleri: dağıtım ve kullanım - Azure Machine Learning Studio | Microsoft Docs'
+description: Machine learning iş akışları ve Modellerinizi web Hizmetleri olarak dağıtmak için Azure Machine Learning'ı kullanabilirsiniz. Bu web Hizmetleri, ardından, makine öğrenme modellerini uygulamalardan gerçek zamanlı olarak veya toplu iş modunda tahminleri yapmak için internet üzerinden çağırmak için de kullanılabilir.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 886cf0669565eeb87050331d787c33eb8b19d8c1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: a192bb50fe6931130492fad037f83e301e401762
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261251"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315554"
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Azure Machine Learning Web Hizmetleri: Dağıtım ve kullanım
-Makine öğrenimi iş akışları ve Modellerinizi web Hizmetleri olarak dağıtmak için Azure Machine Learning'ı kullanabilirsiniz. Bu web Hizmetleri, ardından, makine öğrenimi modelleri, toplu iş modunda veya gerçek zamanlı Öngörüler yapmak için Internet üzerinden uygulamalarından çağırmaları için de kullanılabilir. RESTful web hizmetleri olduğu için bunları çeşitli programlama dilleri ve platformları, .NET ve Java gibi ve Excel gibi uygulamaları çağırabilirsiniz.
+Machine learning iş akışları ve Modellerinizi web Hizmetleri olarak dağıtmak için Azure Machine Learning'ı kullanabilirsiniz. Bu web Hizmetleri, ardından, makine öğrenme modellerini uygulamalardan gerçek zamanlı olarak veya toplu iş modunda tahminleri yapmak için Internet üzerinden çağırmak için de kullanılabilir. RESTful web hizmetleri olduğu için bunları çeşitli programlama dilleri ve platformları, .NET ve Java gibi ve Excel gibi uygulamaları çağırabilirsiniz.
 
 Sonraki bölümlerde, kılavuzlar, kod ve başlamanıza yardımcı olan belgeler için bağlantılar sağlar.
 

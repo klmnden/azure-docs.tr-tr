@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/04/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 83f648b67ae4f8e6fb964d82c245f1c7ba475542
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: e7cf7518a20f1901e3347350f090c9a8588a7a7c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568549"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422924"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Azure'da bir web rolünde Twilio kullanarak telefon görüşmesi yapma
 Bu kılavuz, Azure'da barındırılan bir web sayfasından çağrı yapmak için Twilio kullanma gösterilmektedir. Aşağıdaki ekran görüntüsünde gösterildiği gibi sonuç uygulamayı verilen sayının ve ileti ile arama yapmak için kullanıcıya sorar.
@@ -29,7 +29,7 @@ Bu kılavuz, Azure'da barındırılan bir web sayfasından çağrı yapmak için
 ## <a name="twilio-prereqs"></a>Önkoşullar
 Bu konudaki kodu kullanmak için aşağıdakileri yapmanız gerekir:
 
-1. Twilio hesap ve kimlik doğrulama Al belirtecine [Twilio konsol][twilio_console]. Twilio ile çalışmaya başlamak için oturum açın [ https://www.twilio.com/try-twilio ] [ try_twilio]. Bölümünde fiyatlar değerlendirebilirsiniz [ http://www.twilio.com/pricing ] [ twilio_pricing]. Twilio tarafından sağlanan API hakkında daha fazla bilgi için bkz: [ http://www.twilio.com/voice/api ] [ twilio_api].
+1. Twilio hesap ve kimlik doğrulama Al belirtecine [Twilio konsol][twilio_console]. Twilio ile çalışmaya başlamak için oturum açın [ https://www.twilio.com/try-twilio ] [ try_twilio]. Bölümünde fiyatlar değerlendirebilirsiniz [ https://www.twilio.com/pricing ] [ twilio_pricing]. Twilio tarafından sağlanan API hakkında daha fazla bilgi için bkz: [ https://www.twilio.com/voice/api ] [ twilio_api].
 2. Ekleme *Twilio .NET kitaplığı* web rolünüz. Bkz: **Twilio kitaplıkları web rolü projenize eklemek için**, bu konunun devamındaki.
 
 Temel oluşturma konusunda bilgi sahibi olmanız gerekir [Azure Web rolünde][azure_webroles_get_started].
@@ -126,7 +126,7 @@ namespace WebRole1
                 // Create a URL using the Twilio message and the user-entered
                 // text. You must replace spaces in the user's text with '%20'
                 // to make the text suitable for a URL.
-                var url = $"http://twimlets.com/message?Message%5B0%5D={myMessage.Replace(" ", "%20")}";
+                var url = $"https://twimlets.com/message?Message%5B0%5D={myMessage.Replace(" ", "%20")}";
                 var twimlUri = new Uri(url);
 
                 // Display the endpoint, API version, and the URL for the message.
@@ -148,7 +148,7 @@ namespace WebRole1
 
 ![Twilio ve ASP.NET kullanarak azure çağrı yanıtı][twilio_dotnet_basic_form_output]
 
-TwiML hakkında daha fazla bilgi şu adreste bulunabilir: [ http://www.twilio.com/docs/api/twiml ] [ twiml]. Hakkında daha fazla bilgi &lt;Say&gt; ve diğer Twilio fiilleri şu yolda bulunabilir: [ http://www.twilio.com/docs/api/twiml/say ] [ twilio_say].
+TwiML hakkında daha fazla bilgi şu adreste bulunabilir: [ https://www.twilio.com/docs/api/twiml ] [ twiml]. Hakkında daha fazla bilgi &lt;Say&gt; ve diğer Twilio fiilleri şu yolda bulunabilir: [ https://www.twilio.com/docs/api/twiml/say ] [ twilio_say].
 
 ## <a id="nextsteps"></a>Sonraki adımlar
 Bu kod, Azure üzerinde ASP.NET web rolünde Twilio kullanarak temel işlevselliğini göstermek için sağlanmıştır. Üretimde Azure'a dağıtmadan önce daha fazla hata işleme veya diğer özellikler eklemek isteyebilirsiniz. Örneğin:
@@ -162,15 +162,15 @@ Bu kod, Azure üzerinde ASP.NET web rolünde Twilio kullanarak temel işlevselli
 * [Azure'dan ses ve SMS özellikleri için Twilio kullanma](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_console]: https://www.twilio.com/console
-[twilio_pricing]: http://www.twilio.com/pricing
-[try_twilio]: http://www.twilio.com/try-twilio
-[twilio_api]: http://www.twilio.com/voice/api
+[twilio_pricing]: https://www.twilio.com/pricing
+[try_twilio]: https://www.twilio.com/try-twilio
+[twilio_api]: https://www.twilio.com/voice/api
 [verify_phone]: https://www.twilio.com/console/phone-numbers/verified
 
 [twilio_dotnet_basic_form]: ./media/partner-twilio-cloud-services-dotnet-phone-call-web-role/WA_twilio_dotnet_basic_form.png
 [twilio_dotnet_basic_form_output]: ./media/partner-twilio-cloud-services-dotnet-phone-call-web-role/WA_twilio_dotnet_basic_form_output.png
 
-[twiml]: http://www.twilio.com/docs/api/twiml
+[twiml]: https://www.twilio.com/docs/api/twiml
 
 
 
@@ -181,10 +181,10 @@ Bu kod, Azure üzerinde ASP.NET web rolünde Twilio kullanarak temel işlevselli
 [howto_sql_azure_dotnet]: https://www.windowsazure.com/develop/net/how-to-guides/sql-database/
 
 
-[twilio_docs_security]: http://www.twilio.com/docs/security
-[twilio_docs]: http://www.twilio.com/docs
-[twilio_say]: http://www.twilio.com/docs/api/twiml/say
+[twilio_docs_security]: https://www.twilio.com/docs/security
+[twilio_docs]: https://www.twilio.com/docs
+[twilio_say]: https://www.twilio.com/docs/api/twiml/say
 
 
-[azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
+[azure_runtime_ref_dotnet]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 [azure_webroles_get_started]: https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-get-started

@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 8941a7332c19b1a9d5c04abb0e4b03ae83e98016
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 143df8a8c82e84b193bdb48a3d41682fca19156b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260491"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315436"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Azure IOT Hub ile HDInsight üzerinde Apache kafka'yı kullanma
 
-Nasıl kullanacağınızı öğrenin [Kafka bağlanmak Azure IOT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) HDInsight üzerinde Apache Kafka ile Azure IOT hub'ı arasında veri taşımak için bağlayıcı. Bu belgede, IOT hub'ı bağlayıcı bir küme kenar düğümüne çalışmayı öğrenin.
+Nasıl kullanacağınızı öğrenin [Apache Kafka bağlanmak Azure IOT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) HDInsight üzerinde Apache Kafka ile Azure IOT hub'ı arasında veri taşımak için bağlayıcı. Bu belgede, IOT hub'ı bağlayıcı bir küme kenar düğümüne çalışmayı öğrenin.
 
-Kafka bağlanmak API sürekli olarak veri çekme Kafka veya başka bir sisteme Kafka'dan veri gönderme bağlayıcıları olanak tanır. [Kafka bağlanmak Azure IOT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) Kafka ile Azure IOT Hub'ından veri çeker bir Bağlayıcıdır. Bu ayrıca verileri Kafka'dan IOT Hub'ına gönderebilirsiniz. 
+Kafka bağlanmak API sürekli olarak veri çekme Kafka veya başka bir sisteme Kafka'dan veri gönderme bağlayıcıları olanak tanır. [Apache Kafka bağlanmak Azure IOT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) Kafka ile Azure IOT Hub'ından veri çeker bir Bağlayıcıdır. Bu ayrıca verileri Kafka'dan IOT Hub'ına gönderebilirsiniz. 
 
 IOT Hub'ından çekme sırasında kullandığınız bir __kaynak__ bağlayıcı. IOT Hub'ına gönderirken kullandığınız bir __havuz__ bağlayıcı. IOT hub'ı bağlayıcı hem kaynak hem de havuz bağlayıcılar sağlar.
 
@@ -84,7 +84,7 @@ Connect API hakkında daha fazla bilgi için bkz. [ https://kafka.apache.org/doc
 >
 >    Bu komut, adlı bir dosya oluşturur. `kafka-connect-iothub-assembly_2.11-0.6.jar` içinde `target/scala-2.11` projesi için dizin.
 
-## <a name="configure-kafka"></a>Kafka yapılandırın
+## <a name="configure-apache-kafka"></a>Apache Kafka yapılandırın
 
 Kenar düğümüne SSH bağlantısından, Kafka Bağlayıcısı'nı tek başına modunda çalışacak şekilde yapılandırmak için aşağıdaki adımları kullanın:
 
@@ -111,7 +111,7 @@ Kenar düğümüne SSH bağlantısından, Kafka Bağlayıcısı'nı tek başına
 
     `wn0-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092,wn1-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092`
 
-4. Zookeeper düğümleri adresini alın. Kümede birçok Zookeeper düğümleri vardır, ancak yalnızca bir veya iki başvuru gerekir. İki Zookeeper düğümleri adresini almak için aşağıdaki komutu kullanın:
+4. Apache Zookeeper düğümleri adresini alın. Kümede birçok Zookeeper düğümleri vardır, ancak yalnızca bir veya iki başvuru gerekir. İki Zookeeper düğümleri adresini almak için aşağıdaki komutu kullanın:
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
@@ -335,7 +335,7 @@ Bağlayıcı aracılığıyla göndermek için aşağıdaki adımları kullanın
     > [!WARNING]
     > Bu yeni bir SSH bağlantısı olduğundan `$KAFKABROKERS` değişken, herhangi bir bilgi içermiyor. Bunu ayarlamak için aşağıdaki yöntemlerden birini kullanın:
     >
-    > * İlk üç adımda kullanın [yapılandırma Kafka](#configure-kafka) bölümü.
+    > * İlk üç adımda kullanın [yapılandırma Apache Kafka](#configure-apache-kafka) bölümü.
     > * Kullanım `echo $KAFKABROKERS` değerlerini alma ve sonra değiştirmek için önceki SSH bağlantısından `$KAFKABROKERS` gerçek değerlerle aşağıdaki komutta.
 
     ```bash
@@ -367,7 +367,7 @@ Havuz Bağlayıcısı'nı kullanma hakkında daha fazla bilgi için bkz. [ https
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu belgede, HDInsight üzerinde Kafka IOT Bağlayıcısı'nı başlatmak için bağlama Kafka API'si kullanmayı öğrendiniz. Kafka ile çalışmak için diğer yollarını bulmak için aşağıdaki bağlantıları kullanın:
+Bu belgede, HDInsight üzerinde Kafka IOT Bağlayıcısı'nı başlatmak için Apache Kafka API'si bağlanmak kullanmayı öğrendiniz. Kafka ile çalışmak için diğer yollarını bulmak için aşağıdaki bağlantıları kullanın:
 
-* [Apache Spark’ı HDInsight üzerinde Kafka ile kullanma](../hdinsight-apache-spark-with-kafka.md)
-* [Apache Storm’u HDInsight üzerinde Kafka ile kullanma](../hdinsight-apache-storm-with-kafka.md)
+* [HDInsight üzerinde Apache Kafka ile Apache Spark kullanma](../hdinsight-apache-spark-with-kafka.md)
+* [Apache Storm'u HDInsight üzerinde Apache Kafka ile kullanma](../hdinsight-apache-storm-with-kafka.md)

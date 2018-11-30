@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 20bd2fe8877c635b0f55bb4f904658a595658518
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: adaeb3087fca57a4a868f4525d588e014ff36fcf
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828714"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335836"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Güncelleştirme yönetimi Linux Aracısı onay sonuçlarında anlama
 
-Makinenize göstermiyorsa birçok nedeni olabilir **hazır** güncelleştirme yönetimi. Ortamında güncelleştirme yönetimi, arka plandaki sorunu belirlemek için bir karma çalışanı aracı durumunu kontrol edebilirsiniz. Bu makalede, Azure portalından ve çevrimdışı senaryolarda sorun gidericisini çalıştırmak anlatılmaktadır.
+Azure makinenize göstermiyorsa birçok nedeni olabilir **hazır** güncelleştirme yönetimi. Ortamında güncelleştirme yönetimi, arka plandaki sorunu belirlemek için bir karma çalışanı aracı durumunu kontrol edebilirsiniz. Bu makalede, Azure portalından ve çevrimdışı senaryolarda sorun gidericisini çalıştırmak anlatılmaktadır.
 
 ## <a name="start-the-troubleshooter"></a>Sorun Gidericisi
 
@@ -54,7 +54,8 @@ Tamamlandığında, sonuçları penceresinde döndürülür. [Bölümleri işare
 
 ### <a name="oms-agent"></a>OMS Aracısı
 
-Bu denetimler sağlar Linux için OMS Aracısı yüklenir. Nasıl yükleneceği hakkında yönergeler için bkz [Linux için aracıyı yükleme](../../log-analytics/log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux).
+Bu denetimler sağlar Linux için OMS Aracısı yüklenir. Nasıl yükleneceği hakkında yönergeler için bkz [Linux için aracıyı yükleme](../../log-analytics//log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux
+).
 
 ### <a name="oms-agent-status"></a>OMS Aracısı durumu
 

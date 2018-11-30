@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/3/2018
+ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: f865a0a609422ae4938a9cccf15d9cd176a9400a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 779efdd509460ac8175b3922097d701edf8b9b68
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227799"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311237"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama
 Bu belge, güvenlik uyarılarını yönetmeniz ve yanıtlamanız için Azure Güvenlik Merkezi’ni kullanmanıza yardımcı olur.
 
 > [!NOTE]
-> Gelişmiş algılamaları etkinleştirmek için Azure Güvenlik Merkezi Standart sürümüne yükseltme yapın. 60 günlük ücretsiz deneme sürümü mevcuttur. Yükseltmek için [Güvenlik İlkesi](security-center-policies.md)’nde Fiyatlandırma Katmanı’nı seçin. Daha fazla bilgi için bkz. [Azure Güvenlik Merkezi fiyatlandırması](security-center-pricing.md).
+> Gelişmiş algılamaları etkinleştirmek için Azure Güvenlik Merkezi Standart sürümüne yükseltme yapın. 60 günlük ücretsiz deneme sürümü mevcuttur. Yükseltmek için [Güvenlik İlkesi](security-center-azure-policy.md)’nde Fiyatlandırma Katmanı’nı seçin. Daha fazla bilgi için bkz. [Azure Güvenlik Merkezi fiyatlandırması](security-center-pricing.md).
 >
 >
 
@@ -63,6 +63,20 @@ Bu sayfanın alt bölümünde her bir uyarı için ayrıntılar bulunur. Sırala
 > [!NOTE]
 > Güvenlik Merkezi tarafından oluşturulan güvenlik uyarıları, Azure Etkinlik Günlüğü altında ayrıca görünür. Azure Etkinlik Günlüğü’ne erişim hakkında daha fazla bilgi için bkz. [Kaynaklara uygulanan eylemleri denetlemek için etkinlik günlüklerini görüntüle](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 >
+
+
+### <a name="alert-severity"></a>Uyarı önem derecesi
+
+> [!NOTE]
+> Uyarı önem derecesi, portalı ve REST API farklı şekilde görüntülenir, farklar aşağıda belirtilmiştir.
+
+-   **Yüksek**: kaynağınızın tehlikeye girmemesini yüksek olasılık yoktur. İçine hemen görünmelidir. Güvenlik Merkezi, hem kötü amaçlı bir eyleme ve uyarı vermek üzere kullanılan bulguları yüksek güvenilirliğe sahip. Örneğin, mimikatz'ı kimlik bilgisi hırsızlığı için kullanılan genel bir aracı gibi bilinen bir kötü amaçlı araç yürütülmesini algılarsa bir uyarı. 
+-   **Orta (REST API'de düşük)**: kaynak tehlikede olduğunu gösterebilecek kuşkulu bir etkinlik büyük olasılıkla budur.
+Güvenlik Merkezi'nin ellerde analitik veya arama Orta ve kötü amaçlı güvenini Orta Yüksek. Bunlar genellikle machine learning'e ya da tabanlı anomali algılama olur. Örneğin, bir oturum açma denemesi, anormal bir konumdan.
+-   **Düşük (REST API'si bilgileri)**: Bu zararsız pozitif ya da engellenen bir saldırı olabilir. 
+    - Güvenlik Merkezi amaç kötü amaçlı ve etkinlik zararsız başarılara yeterli değil. Örneğin, günlük Temizle izlerini gizlemek bir saldırgan çalışır, ancak çoğu durumda, sıradan bir işlem yöneticileri tarafından gerçekleştirilir, bu sorunla karşılaşabilirsiniz bir eylemdir.
+    - İçine bak öneririz ilgi çekici bir durum değilse Güvenlik Merkezi genellikle zaman saldırıları engellendi, sunmayacaktır. 
+-   **Bilgilendirici (REST API'de sessiz)**: yalnızca bir güvenlik olayı altında ayrıntıya ya da kimliği ile belirli bir REST API kullanıyorsanız, uyarı bilgilendirici uyarılar görürsünüz Olay uyarıları, bazıları, yalnızca bilgilendirici olacak şekilde kendi görünebilir, ancak diğer uyarılar bağlamında daha yakından bakın bu durum bir dizi genellikle oluşur. 
 
 ### <a name="filtering-alerts"></a>Uyarıları filtreleme
 Tarihe, duruma ve önem derecesine göre uyarıları filtreleyebilirsiniz. Filtreleme uyarıları, güvenlik uyarıları gösterimi kapsamını daraltmanızın gerektiği senaryolar için faydalı olabilir. Örneğin, sistemde olası bir ihlali araştırdığınız için son 24 saatte oluşan güvenlik uyarılarını ele almak isteyebilirsiniz.

@@ -1,5 +1,5 @@
 ---
-title: NIC devre dışı olduğundan Uzak Masaüstü Azure sanal makineler için kullanılamaz. | Microsoft Docs
+title: NIC devre dışı olduğundan, Azure sanal makineler için uzaktan bağlanamıyor | Microsoft Docs
 description: RDP başarısız olduğu içinde NIC Azure sanal Makinesinde devre dışı bırakıldığından bir sorun gidermeyi öğrenin | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 6b14530bd6b4c1b6617cb1d5c88d710a32e5372c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f9e4731146409f51d16a8c92c01d07a8ff11a7ea
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634726"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314533"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Bir VM'ye Uzak Masaüstü Ağ arabirimini devre dışı bırakıldığından olamaz
 
-Bu makalede, ağ arabirimini devre dışı olduğundan Uzak Masaüstü Azure Windows sanal makinelerin (VM'ler) edilemez bir sorunun nasıl çözüleceği gösterilmektedir.
+Bu makalede, ağ arabirimini devre dışı bırakılırsa, Uzak Masaüstü Bağlantısı Azure Windows sanal makinelerine (VM'ler) yapamazsınız bir sorunun nasıl giderileceği açıklanmaktadır.
 
 > [!NOTE] 
 > Azure, kaynak oluşturmak ve bu kaynaklarla çalışmak için iki dağıtım modeli kullanır: [Resource Manager ve klasik](../../azure-resource-manager/resource-manager-deployment-model.md). Bu makale, Klasik dağıtım modeli yerine yeni dağıtımlar için kullanmanızı öneririz Resource Manager dağıtım modelini kullanarak kapsar. 
@@ -51,7 +51,7 @@ VM için arabirimi etkinleştirmek için seri denetimi kullanın veya [sıfırla
 
         netsh interface set interface name="interface Name" admin=enabled
 
-    Örneğin, "Ethernet 2" birlikte işlemek arabirimi adları ise aşağıdaki komutu çalıştırın:
+    Örneğin, birlikte işlemek arabirimi "Ethernet 2" adında, aşağıdaki komutu çalıştırın:
 
         netsh interface set interface name=""Ethernet 2" admin=enabled
     
@@ -62,8 +62,8 @@ VM için arabirimi etkinleştirmek için seri denetimi kullanın veya [sıfırla
 
     Bu noktada VM yeniden başlatma gerekmez. VM'yi geri erişilebilir olacaktır.
         
-5.  VM'ye bağlanın ve sorunun çözülüp çözülmediğine bakın.
+5.  VM'ye bağlanın ve sorunun çözülüp olup olmadığını görebilirsiniz.
 
 ## <a name="reset-network-interface"></a>Ağ arabirimini sıfırlayın
 
-Ağ arabirimi sıfırlamak için Azure portal veya Azure PowerShell kullanarak alt ağdaki kullanılabilir başka bir IP adresi IP adresini değiştirin. Daha fazla bilgi için [sıfırlama ağ arabirimi](reset-network-interface.md). 
+Ağ arabirimi sıfırlamak için alt ağdaki kullanılabilir başka bir IP adresi IP adresini değiştirin. Bunu yapmak için Azure portal veya Azure PowerShell kullanın. Daha fazla bilgi için [sıfırlama ağ arabirimi](reset-network-interface.md). 

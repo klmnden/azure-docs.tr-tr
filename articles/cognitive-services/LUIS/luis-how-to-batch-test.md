@@ -10,17 +10,19 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: b4c58a13c8b66add8ebd7e535ecac9d7b0f1075b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1560b8e574b0932e258353648c73f030ef19d314
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032130"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333505"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Batch örnek konuşma bir dizi testi
+
  Toplu test LUIS, performansı ölçmek için geçerli eğitilen modelinizde kapsamlı bir testtir. 
 
 <a name="batch-testing"></a>
+
 ## <a name="import-a-dataset-file-for-batch-testing"></a>Toplu test etmek için bir veri kümesi dosyasını içeri aktarma
 
 1. Seçin **Test** üst çubuk ve ardından **test paneli toplu**.
@@ -36,6 +38,7 @@ ms.locfileid: "47032130"
 4. **Done** (Bitti) öğesini seçin. Veri kümesi dosyası eklenir.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>Çalıştırın, yeniden adlandırma, dışarı aktarma veya veri kümesini Sil
+
 Üç nokta çalıştırın, yeniden adlandırma, dışarı aktarma veya veri kümesini silmek için kullanın (***...*** ) veri kümesi satırın sonunda düğmesi.
 
 ![Veri kümesi eylemleri](./media/luis-how-to-batch-test/batch-testing-options.png)
@@ -55,7 +58,9 @@ Testi çalıştırmak için veri kümesi adı seçin. Test tamamlandığında, b
 |![Test simgesi hazır](./media/luis-how-to-batch-test/batch-test-result-blue.png)|Test çalıştırmak hazırdır.|
 
 <a name="access-batch-test-result-details-in-a-visualized-view"></a>
+
 ## <a name="view-batch-test-results"></a>Toplu test sonuçlarını görüntüle 
+
 Toplu test sonuçlarını gözden geçirmek için seçin **bkz sonuçları**.
 
 ![Toplu test sonuçları](./media/luis-how-to-batch-test/run-test-results.png)
@@ -64,6 +69,7 @@ Toplu test sonuçlarını gözden geçirmek için seçin **bkz sonuçları**.
 
 
 <a name="filter-chart-results-by-intent-or-entity"></a>  
+
 ## <a name="filter-chart-results"></a>Grafik sonuçlarını filtreleme
 
 Grafiğin belirli bir amaç veya varlık tarafından filtre uygulamak için sağ taraftaki filtre panelinde hedefi veya varlık'ı seçin. Yaptığınız seçime göre grafiğinde veri noktaları ve bunların dağıtım güncelleştirin. 
@@ -71,6 +77,7 @@ Grafiğin belirli bir amaç veya varlık tarafından filtre uygulamak için sağ
 ![Görselleştirilen toplu Test sonucu](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
 ## <a name="view-single-point-utterance-data"></a>Tek nokta utterance verileri görüntüleme
+
 Grafikte, kendi tahmin kesin puanı görmek için bir veri noktasının gelin. Sayfanın alt kısmındaki konuşma listesinde karşılık gelen kendi utterance almak için bir veri noktasını seçin. 
 
 ![Seçili utterance](./media/luis-how-to-batch-test/selected-utterance.png)
@@ -78,7 +85,9 @@ Grafikte, kendi tahmin kesin puanı görmek için bir veri noktasının gelin. S
 
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## <a name="view-section-data"></a>Bölüm verileri görüntüleme
+
 Bölüm adı gibi dört bölüm grafikte seçin **yanlış pozitif** grafiğin sağ üst. Grafiğin altında bu bölümdeki tüm konuşma listesinde grafiğin altındaki görüntüler. 
 
 ![Seçili konuşma bölümü tarafından](./media/luis-how-to-batch-test/selected-utterances-by-section.png)

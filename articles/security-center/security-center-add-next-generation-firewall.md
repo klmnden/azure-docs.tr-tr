@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a0f472d32e878412532927327a36fe674d4cf6bb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7daefc1de06ac704f0449d065ed748bbe0f1ac61
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261681"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307664"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde yeni nesil güvenlik duvarı ekleme
 Azure Güvenlik Merkezi, yeni nesil Güvenlik Duvarı (NGFW) eklemeniz, bir Microsoft iş ortağından, güvenlik korumaları artırmak için önerebilir. Bu belgede Bunu yapmak nasıl bir örnek sizi yönlendirir.
@@ -62,7 +62,7 @@ Bu belgede Güvenlik Merkezi önerisini "Yeni nesil güvenlik duvarı Ekle." uyg
 
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) --güvenlik ilkelerinin nasıl yapılandırılacağını öğrenin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md) --güvenlik ilkelerinin nasıl yapılandırılacağını öğrenin.
 * [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
 * [Güvenlik durumunu, Azure Güvenlik Merkezi'nde izleme](security-center-monitoring.md) --Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.

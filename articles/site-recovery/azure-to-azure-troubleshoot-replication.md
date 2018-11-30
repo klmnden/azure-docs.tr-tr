@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: asgang
-ms.openlocfilehash: 0ac90d8ef29d4293a5eeb5f932687788320c218e
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 22ea3d955fe2910dc99ab4015165008da899d48e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615805"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312859"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Azure'dan Azure'a VM devam eden çoğaltma sorunlarını giderme
 
@@ -29,7 +29,7 @@ HATA KİMLİĞİ: 153007 </br>
 Azure Site Recovery, tutarlı bir şekilde veri kaynak bölgesinden olağanüstü durum kurtarma bölgeye çoğaltır. ve 5 dakikada kilitlenmeyle tutarlı noktası oluşturur. Site Recovery 60 dakika için kurtarma noktaları oluşturamıyor, ardından kullanıcıyı uyarır. Aşağıda bu hataya neden nedenleri şunlardır:
 
 **1. neden: [yüksek veri değişim oranı kaynak sanal makinede](#high-data-change-rate-on-the-source-virtal-machine)**    
-**2. neden: [ağ bağlantısı sorunu ](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**2. neden: [ağ bağlantısı sorunu ](#Network-connectivity-issue)**
 
 ## <a name="causes-and-solutions"></a>Nedenler ve çözümler
 
@@ -77,5 +77,10 @@ Disk veri değişim sıklığı, 10 MB/sn ise bu seçenek yalnızca mümkündür
 
 ### <a name="Network-connectivity-issue"></a>Ağ bağlantısı sorunu
 
+#### <a name="network-latency-to-cache-storage-account-"></a>Önbellek depolama hesabına ağ gecikmesi:
+ Site Recovery, önbellek depolama hesabına çoğaltılan veriler gönderir ve daha yavaş sanal makineden önbellek depolama hesabı için verileri karşıya yükleme sorunu meydana gelebilir 3 saniye, 4 MB. Herhangi bir sorun olup olmadığını denetlemek için gecikme kullanımıyla ilgili [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) verileri sanal makineden önbellek depolama hesabına yüklemek için.<br>
+Gecikme süresi yüksek ise vm'lerden giden ağ trafiğinizi denetlemek için bir ağ sanal Gereçleri kullandığınızı kontrol edin. Tüm çoğaltma trafiğinin NVA üzerinden geçerse gereç kısıtlanan. Çoğaltma trafiği için NVA geçmez, bir ağ hizmet uç noktaları sanal ağınızda bulunan "Depolama için" oluşturmanızı öneririz. Başvuru [ağ sanal Gereci yapılandırması](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)
+
+#### <a name="network-connectivity"></a>Ağ bağlantısı
 Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP aralıkları VM'den gerekli. Sanal makinenize bir güvenlik duvarının arkasındaysa ya da giden bağlantıyı denetlemek için ağ güvenlik grubu (NSG) kuralları kullanıyorsa bu sorunlardan biri karşılaşıyor.</br>
-Başvurmak [Site kurtarma URL'ler için giden bağlantı](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-troubleshoot-errors?#outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072)
+Başvurmak [Site kurtarma URL'ler için giden bağlantı](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) tüm URL'leri bağlandığınızdan emin olmak için 

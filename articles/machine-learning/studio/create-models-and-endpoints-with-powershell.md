@@ -1,5 +1,5 @@
 ---
-title: Tek bir deneyden birden çok modeller oluşturun | Microsoft Docs
+title: Tek bir deneyden - Azure Machine Learning Studio'da birden fazla modeller oluşturun | Microsoft Docs
 description: Birden çok makine öğrenimi modelleri ve web hizmeti uç noktaları aynı algoritmayı ancak farklı bir eğitim veri kümeleri oluşturmak için PowerShell kullanın.
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: c3ba87459c8c24a948683319f6b3ab54436c88e1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e1a6eb4f61869c3c6299011c46a5953f93cc7305
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262389"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316574"
 ---
-# <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>PowerShell kullanarak bir denemeden çok sayıda Machine Learning modeli ve web hizmeti uç noktası oluşturma
+# <a name="azure-machine-learning-studio-use-powershell-to-create-many-models-and-web-service-endpoints-from-one-experiment"></a>Azure Machine Learning Studio: birçok modelleri ve web hizmeti uç noktaları tek bir deneyden oluşturmak için PowerShell kullanma
+
 Bir ortak makine öğrenimi sorunu şu şekildedir: aynı eğitim iş akışı, sahip ve aynı algoritmayı kullanan çok sayıda model oluşturmak istiyorsunuz. Ancak giriş olarak farklı bir eğitim veri kümesi olmasını istersiniz. Bu makalede tek bir denemede kullanarak uygun ölçekte Azure Machine Learning Studio'da bunun nasıl yapılacağını gösterir.
 
 Örneğin, bir genel bisiklet kiralama franchise işletme sahibi varsayalım. Geçmiş verileri temel alan kiralama talep tahmin etmek için regresyon modeli oluşturmak istiyorsunuz. Dünya genelinde 1.000 kiralama konumları vardır ve her konum için bir veri kümesi derledik. Bunlar, tarih, saat, hava durumu ve trafiği gibi her bir konuma özgü önemli özellikleri içerir.

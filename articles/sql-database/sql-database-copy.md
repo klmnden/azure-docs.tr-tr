@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 639795824bf75bb99d34f12d4dfc4e0695341986
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: f3da1a8cef5abc8fd30a0dc7760005ad5fff5446
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868421"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335378"
 ---
 # <a name="copy-an-transactionally-consistent-copy-of-an-azure-sql-database"></a>Bir Azure SQL veritabanı işlemsel olarak tutarlı bir kopyası kopyalayın
 
@@ -26,6 +26,9 @@ Azure SQL veritabanı, aynı sunucuda veya farklı bir sunucu üzerinde mevcut b
 ## <a name="overview"></a>Genel Bakış
 
 Veritabanı kopyasını kopya isteğini tarihindeki kaynak veritabanı anlık görüntüsüdür. Aynı sunucuda veya farklı bir sunucu, hizmet katmanını ve işlem boyutu veya bir başka işlem boyutu aynı hizmet katmanında (sürüm) seçebilirsiniz. Kopyalama tamamlandıktan sonra tam olarak işlevsel, bağımsız bir veritabanı haline gelir. Bu noktada, yükseltebilir veya tüm sürüm'e düşürebilir. Oturumlar, kullanıcılar ve izinler bağımsız olarak yönetilebilir.  
+
+> [!NOTE]
+> [Veritabanı Yedeklemeleri otomatik](sql-database-automated-backups.md) veritabanı kopyasını oluşturduğunuzda kullanılır.
 
 ## <a name="logins-in-the-database-copy"></a>Veritabanı kopyasını oturum açma
 

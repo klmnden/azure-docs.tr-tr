@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1e6c4097f4886213bde8adcaac51f36a3bfef702
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0f9d786988cb547771b8fd999b911bd228cdc3e2
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010312"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311050"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight'ta Apache HBase örneğiyle çalışmaya başlama
 
-HDInsight’ta HBase kümesi oluşturma, HBase tabloları oluşturma ve tabloları Hive kullanarak sorgulama hakkında bilgi edinin. Genel HBase bilgileri için bkz. [HDInsight HBase’e genel bakış][hdinsight-hbase-overview].
+Oluşturmayı bir [Apache HBase](http://hbase.apache.org/) küme HDInsight, HBase tabloları oluşturmak ve tabloları kullanarak sorgu [Apache Hive](https://hive.apache.org/).  Genel HBase bilgileri için bkz. [HDInsight HBase’e genel bakış][hdinsight-hbase-overview].
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -30,7 +30,7 @@ Bu HBase örneğini denemeye başlamadan önce aşağıdakilere sahip olmanız g
 * [Secure Shell(SSH)](../hdinsight-hadoop-linux-use-ssh-unix.md). 
 * [curl](http://curl.haxx.se/download.html).
 
-## <a name="create-hbase-cluster"></a>HBase kümesi oluşturma
+## <a name="create-apache-hbase-cluster"></a>Apache HBase kümesi oluşturma
 Aşağıdaki yordamda HBase kümesi ve bağlı varsayılan Azure Depolama hesabı oluşturmak için Azure Resource Manager şablonu kullanılmaktadır. Yordamda ve diğer küme oluşturma yöntemlerinde kullanılan parametreleri anlamak için bkz. [HDInsight’ta Linux tabanlı Hadoop kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md). Data Lake Storage Gen2'yi kullanma hakkında daha fazla bilgi için bkz. [Hızlı başlangıç: HDInsight'ta kümeleri ayarlama](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 1. Azure Portal'da bir şablonu açmak için aşağıdaki görüntüye tıklayın. Şablon, [Azure Hızlı Başlangıç şablonları](https://azure.microsoft.com/resources/templates/) içinde bulunur.
@@ -56,13 +56,13 @@ Aşağıdaki yordamda HBase kümesi ve bağlı varsayılan Azure Depolama hesab�
 > 
 
 ## <a name="create-tables-and-insert-data"></a>Tablo oluşturma ve veri ekleme
-HBase kümelerine bağlanmak ve HBase Kabuğu kullanarak HBase tabloları oluşturmak, veri eklemek ve verileri sorgulamak için SSH kullanabilirsiniz. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+HBase kümelerine bağlanmak ve daha sonra kullanmak için SSH kullanabilirsiniz [Apache HBase Kabuğu](http://hbase.apache.org/0.94/book/shell.html) HBase tabloları oluşturmak için veri ve sorgu veri ekleyin. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Çoğu kişi için veriler tablo biçiminde görünür:
 
 ![HDInsight HBase tablo verileri][img-hbase-sample-data-tabular]
 
-HBase’de (Bir BigTable uygulaması), aynı veriler şu şekilde görünür:
+HBase içinde (uygulaması [bulut BigTable](https://cloud.google.com/bigtable/)), aynı veriler şu gibi görünür:
 
 ![HDInsight HBase BigTable verileri][img-hbase-sample-data-bigtable]
 
@@ -100,7 +100,7 @@ HBase’de (Bir BigTable uygulaması), aynı veriler şu şekilde görünür:
    
     Yalnızca bir satır olduğundan tarama komutunu kullanmanızla aynı sonuçları görürsünüz.
    
-    HBase tablo şeması hakkında daha fazla bilgi için bkz. [HBase Şema Tasarımına Giriş][hbase-schema]. HBase komutları hakkında daha fazla bilgi için bkz. [Apache HBase başvuru kılavuzu][hbase-quick-start].
+    HBase tablo şeması hakkında daha fazla bilgi için bkz. [Apache HBase şema tasarımına giriş][hbase-schema]. HBase komutları hakkında daha fazla bilgi için bkz. [Apache HBase başvuru kılavuzu][hbase-quick-start].
 5. Kabuktan çıkış yapma
    
     ```hbaseshell
@@ -124,7 +124,7 @@ HBase’de verileri tablolara yüklemek için bazı yöntemler vardır.  Daha fa
     4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
     16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-İsterseniz, bir metin dosyası oluşturabilir ve dosyayı kendi depolama hesabınıza yükleyebilirsiniz. Yönergeler için bkz. [HDInsight'ta Hadoop işleri için verileri karşıya yükleme][hdinsight-upload-data].
+İsterseniz, bir metin dosyası oluşturabilir ve dosyayı kendi depolama hesabınıza yükleyebilirsiniz. Yönergeler için bkz. [HDInsight Apache Hadoop işleri için verileri karşıya yükleme][hdinsight-upload-data].
 
 > [!NOTE]
 > Bu yordam son yordamda oluşturduğunuz Kişiler HBase tablosunu kullanır.
@@ -144,9 +144,9 @@ HBase’de verileri tablolara yüklemek için bazı yöntemler vardır.  Daha fa
 
 3. HBase kabuğunu açabilir ve tarama komutunu kullanarak tablo içeriğini listeleyebilirsiniz.
 
-## <a name="use-hive-to-query-hbase"></a>Hive kullanarak HBase sorgulama
+## <a name="use-apache-hive-to-query-apache-hbase"></a>Apache Hive, Apache HBase sorgulama kullanın
 
-Hive kullanarak HBase tablolarındaki verileri sorgulayabilirsiniz. Bu bölümde HBase tablosuyla eşlenen bir Hive tablosu oluşturur ve HBase tablosunda verileri sorgulamak için kullanırsınız.
+Kullanarak HBase tablolarındaki verileri sorgulayabilirsiniz [Apache Hive](https://hive.apache.org/). Bu bölümde HBase tablosuyla eşlenen bir Hive tablosu oluşturur ve HBase tablosunda verileri sorgulamak için kullanırsınız.
 
 1. **PuTTY** uygulamasını açın ve kümeye bağlanın.  Önceki yordamda bulunan yönergelere bakın.
 2. Beeline’ı başlatmak için SSH oturumunda aşağıdaki komutu kullanın:
@@ -157,7 +157,7 @@ Hive kullanarak HBase tablolarındaki verileri sorgulayabilirsiniz. Bu bölümde
 
     Beeline hakkında daha fazla bilgi için bkz. [Beeline ile HDInsight’ta Hadoop ile Hive kullanma](../hadoop/apache-hadoop-use-hive-beeline.md).
        
-3. HBase tablosuyla eşlenen bir Hive tablosu oluşturmak için aşağıdaki HiveQL betiğini çalıştırın. Bu deyimi çalıştırmadan önce HBase kabuğunu kullanarak bu öğreticinin daha önceki bölümlerinde başvurulan örnek tablosunu oluşturduğunuzdan emin olun.
+3. Aşağıdaki komutu çalıştırın [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) HBase tablosuyla eşlenen bir Hive tablosu oluşturmak için komut dosyası. Bu deyimi çalıştırmadan önce HBase kabuğunu kullanarak bu öğreticinin daha önceki bölümlerinde başvurulan örnek tablosunu oluşturduğunuzdan emin olun.
 
     ```hiveql   
     CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
@@ -268,13 +268,14 @@ Tutarsızlıkları önlemek için kümeyi silmeden önce HBase tablolarını dev
 HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](../hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, bir HBase kümesi oluşturmayı ve tablo oluşturup bu tablolardaki verileri HBase kabuğundan görüntülemeyi öğrendiniz. Ayrıca HBase tablolarındaki veriler üzerinde bir Hive sorgusu kullanmayı, HBase C# REST API’lerini kullanarak bir HBase tablosu oluşturmayı ve tablodan veri almayı öğrendiniz.
+Bu makalede, bir Apache HBase kümesi oluşturma ve tabloları oluşturma ve verileri tabloların HBase kabuğundan görüntülemeyi öğrendiniz. Ayrıca HBase tablolarındaki veriler üzerinde bir Hive sorgusu kullanmayı, HBase C# REST API’lerini kullanarak bir HBase tablosu oluşturmayı ve tablodan veri almayı öğrendiniz.
 
 Daha fazla bilgi için bkz:
 
-* [HDInsight HBase'e genel bakış][hdinsight-hbase-overview]: HBase büyük miktarda yapılandırılmamış ve yarı yapılandırılmış veri için rastgele erişim ve güçlü tutarlılık sağlayan, Hadoop'ta yerleşik bir Apache, açık kaynak, NoSQL veritabanıdır.
+* [HDInsight Hbase'e genel bakış][hdinsight-hbase-overview]: Apache HBase, Apache büyük miktarlarda yapılandırmamış ve yarı yapılandırılmış veri için rastgele erişim ve güçlü tutarlılık sağlayan Hadoop'ta yerleşik bir Apache, açık kaynak, NoSQL veritabanı olan .
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
+
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hbase-reference]: http://hbase.apache.org/book.html#importtsv
 [hbase-schema]: http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf

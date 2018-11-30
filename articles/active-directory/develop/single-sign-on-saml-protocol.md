@@ -17,12 +17,12 @@ ms.date: 07/19/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: edb8ae501548775932a259621c19acece474018d
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 1d52e3b8871a5af219d1c9eafd559f06bb19f560
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581740"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424892"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Çoklu oturum açma SAML Protokolü
 
@@ -59,7 +59,7 @@ Diğer tüm `AuthnRequest` onay, hedef, AssertionConsumerServiceIndex, Attribute
 
 Azure AD ayrıca yoksayar `Conditions` öğesinde `AuthnRequest`.
 
-### <a name="issuer"></a>Sertifikayı Veren
+### <a name="issuer"></a>Veren
 
 `Issuer` Öğesinde bir `AuthnRequest` biriyle tam olarak eşleşmelidir **ServicePrincipalNames** Azure ad'deki bulut hizmetinde. Genellikle, bu ayar **uygulama kimliği URI'si** uygulama kaydı sırasında belirtilir.
 
@@ -99,7 +99,7 @@ Sağlanırsa, içermez `ProxyCount` özniteliği `IDPListOption` veya `Requester
 ### <a name="signature"></a>İmza
 İçermeyen bir `Signature` öğesinde `AuthnRequest` öğeleri, Azure AD desteklemediğinden kimlik doğrulama isteklerini imzalanmış.
 
-### <a name="subject"></a>Konu
+### <a name="subject"></a>Özne
 Azure AD yoksayar `Subject` öğesinin `AuthnRequest` öğeleri.
 
 ## <a name="response"></a>Yanıt
@@ -108,7 +108,7 @@ Bir istenen oturum açma başarıyla tamamlandığında, Azure AD bulut hizmeti 
 ```
 <samlp:Response ID="_a4958bfd-e107-4e67-b06d-0d85ade2e76a" Version="2.0" IssueInstant="2013-03-18T07:38:15.144Z" Destination="https://contoso.com/identity/inboundsso.aspx" InResponseTo="id758d0ef385634593a77bdf7e632984b6" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
   <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
-  <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+  <ds:Signature xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
     ...
   </ds:Signature>
   <samlp:Status>
@@ -116,7 +116,7 @@ Bir istenen oturum açma başarıyla tamamlandığında, Azure AD bulut hizmeti 
   </samlp:Status>
   <Assertion ID="_bf9c623d-cc20-407a-9a59-c2d0aee84d12" IssueInstant="2013-03-18T07:38:15.144Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
     <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
-    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+    <ds:Signature xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
       ...
     </ds:Signature>
     <Subject>
@@ -155,7 +155,7 @@ Bir istenen oturum açma başarıyla tamamlandığında, Azure AD bulut hizmeti 
 * `Destination`: Oturum açma başarıyla tamamlandığında, bu ayar `RedirectUri` hizmet sağlayıcısının (bulut hizmeti).
 * `InResponseTo`: Bu ayar `ID` özniteliği `AuthnRequest` yanıt başlatılan öğesi.
 
-### <a name="issuer"></a>Sertifikayı Veren
+### <a name="issuer"></a>Veren
 
 Azure AD kümeleri `Issuer` öğesine `https://login.microsoftonline.com/<TenantIDGUID>/` burada <TenantIDGUID> Azure AD kiracısını Kiracı Kimliğini gösterir.
 
@@ -190,7 +190,7 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 
 Ek olarak `ID`, `IssueInstant` ve `Version`, Azure AD şu öğeleri ayarlar `Assertion` yanıtın öğesi.
 
-#### <a name="issuer"></a>Sertifikayı Veren
+#### <a name="issuer"></a>Veren
 
 Bu ayar `https://sts.windows.net/<TenantIDGUID>/`burada <TenantIDGUID> Azure AD kiracısını Kiracı Kimliğini gösterir.
 
@@ -205,12 +205,12 @@ Azure AD, onaylama işlemi yanıt olarak bir başarılı oturum açma imzalar. `
 Bu dijital imzayı üretmek için Azure AD imzalama anahtarı kullanan `IDPSSODescriptor` , meta veri belgesi öğesidir.
 
 ```
-<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+<ds:Signature xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
       digital_signature_here
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>Konu
+#### <a name="subject"></a>Özne
 
 Bu, sahibi olan onaylama deyimlerinde sorumlu belirtir. İçerdiği bir `NameID` öğesi, kimliği doğrulanmış bir kullanıcıyı temsil eder. `NameID` Belirteç hedef kitlesi hizmet sağlayıcısı yönlendirildiği bir hedeflenen tanımlayıcı bir değerdir. Kalıcı - iptal edilebilir, ancak hiçbir zaman atanır. Kullanıcı ile ilgili herhangi bir şey açığa çıkarmadığınızdan ve öznitelik sorgular için bir tanımlayıcı olarak kullanılamaz, ayrıca, donuktur.
 

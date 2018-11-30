@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7b5f4415351ad5b51b874e5dc17349160f65e9ef
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a0d0cbacfa03080d519e5d9e3592ad01ed58b933
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240384"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316592"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde sistem güncelleştirmelerini uygulayın
 Azure Güvenlik Merkezi günlük Windows ve Linux sanal makineleri (VM'ler) ve işletim sistemi güncelleştirmeleri eksik bilgisayarlar izler. Güvenlik Merkezi bir Windows bilgisayarda yapılandırılmış hizmet bağlı olarak Windows Update veya Windows Server Update Services (WSUS) kullanılabilir güvenlik güncelleştirmeleri ve kritik güncelleştirmeler listesini alır. Güvenlik Merkezi, ayrıca Linux sistemlerinde en son güncelleştirmeleri denetler. Sistem Güncelleştirmesi VM'de veya bilgisayarda bulunmuyorsa, Güvenlik Merkezi sistem güncelleştirmelerini uygulayın önerir.
@@ -84,7 +84,7 @@ Bu örnekte, kullanacağız **işlem**.
 ## <a name="next-steps"></a>Sonraki adımlar
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
 * [Güvenlik durumunu, Azure Güvenlik Merkezi'nde izleme](security-center-monitoring.md) --Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.

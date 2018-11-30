@@ -8,14 +8,14 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: ba6d79661a2c07ba3eef1f16a117992a858830b5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 3ae41ff4cf501a58668d25b16027029f6bae4749
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605938"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317504"
 ---
-# <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Azure Time Series Insights Uzaktan izleme ile tümleştirin
+# <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Azure Time Series Insights’ı Uzaktan İzleme ile tümleştirme
 
 Azure Time Series Insights, bulutta IoT ölçekli zaman serisi verilerinin yönetimi için tam olarak yönetilen bir analiz, depolama ve görselleştirme hizmetidir. Time Series Insights, depolamak ve zaman serisi verileri yönetmek, keşfedin ve aynı anda olaylar görselleştirin, kök neden analizi gerçekleştirin ve birden çok siteyi ve varlığı karşılaştırın için kullanabilirsiniz.
 
@@ -49,7 +49,7 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 Ardından, zaman serisi görüşleri, Uzaktan izleme çözümünüze ek bir kaynak dağıtma ve IOT hub'ına bağlanın.
 
-1. [Azure Portal](http://portal.azure.com/)’da oturum açın.
+1. [Azure Portal](http://portal.azure.com/) oturum açın.
 
 1. Seçin **kaynak Oluştur** > **nesnelerin interneti** > **Time Series Insights**.
 
@@ -292,6 +292,6 @@ Ortamını yapılandırmak `standard` yukarıdaki güncelleştirilmiş mikro hiz
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Verilerinizi keşfetme ve bir uyarı Time Series Insights Gezgininde Tanılama hakkında bilgi edinmek için öğreticimize bakın [yürütülmesi bir kök neden analizi](/tutorials).
+* Verilerinizi keşfetme ve bir uyarı Time Series Insights Gezgininde Tanılama hakkında bilgi edinmek için öğreticimize bakın [yürütülmesi bir kök neden analizi](iot-accelerators-remote-monitoring-root-cause-analysis.md).
 
 * Keşfetme ve Time Series Insights gezgininin verilerde sorgulama hakkında bilgi edinmek için ilgili belgelere bakın [Azure Time Series Insights gezgininin](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).

@@ -17,12 +17,12 @@ ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 603da0add9efba4e68088bf0eb6ab919ec9988e2
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 30dff14f322bcd66ea56b4b12843a6293cd95326
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955505"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423805"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory için AppSource sertifikalı alma
 
@@ -118,9 +118,9 @@ AppSource deneme deneyimi hakkında daha fazla bilgi için bkz. [bu videoyu](htt
 
 ## <a name="get-support"></a>Destek alın
 
-Azure AD tümleştirmesi için kullandığımız [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) desteklemek için toplulukla birlikte. 
+Azure AD tümleştirmesi için kullandığımız [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) desteklemek için toplulukla birlikte. 
 
-Sorularınızı Stack Overflow sitesinde ilk sormak ve mevcut sorunları birisi önce sorunuzu sormadığını görmek için Gözat öneririz. Sorularınızı ve yorumlarınızı ile etiketlendiğinden emin [ `[azure-active-directory]` ve `[appsource]` ](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
+Sorularınızı Stack Overflow sitesinde ilk sormak ve mevcut sorunları birisi önce sorunuzu sormadığını görmek için Gözat öneririz. Sorularınızı ve yorumlarınızı ile etiketlendiğinden emin [ `[azure-active-directory]` ve `[appsource]` ](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
 Aşağıdaki yorum bölümünde geri bildirim sağlamak ve geliştirmek ve içeriklerimizde şekil yardımcı kullanın.
 

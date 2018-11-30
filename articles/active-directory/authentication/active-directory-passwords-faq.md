@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 92f9732adadc4eb580d89f8a43cf76177450aeb7
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 50edabb395380c8b0185736205834dd65e47317f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160751"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425276"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Parola yönetimi hakkında sık sorulan sorular
 
@@ -35,7 +35,7 @@ Bu SSS, aşağıdaki bölümlere ayrılmıştır:
 
 * **Kullanıcılar kendi parola sıfırlama verileri kayıt oluşturabilir mi?**
 
-  > **Y:** Evet. Parola sıfırlama etkinleştirildi ve lisansına sahip olduğunuz sürece, kullanıcılar parola sıfırlama kayıt portalı gidebilirsiniz (https://aka.ms/ssprsetup) kimlik doğrulama bilgilerini kaydetmek için. Kullanıcılar ayrıca erişim panelinden kaydetme (http://myapps.microsoft.com). Erişim panelinden kaydedilecek için ihtiyaç duydukları kendi profil resminizi seçin, **profili**ve ardından **parola sıfırlama için kaydolmasını** seçeneği.
+  > **Y:** Evet. Parola sıfırlama etkinleştirildi ve lisansına sahip olduğunuz sürece, kullanıcılar parola sıfırlama kayıt portalı gidebilirsiniz (https://aka.ms/ssprsetup) kimlik doğrulama bilgilerini kaydetmek için. Kullanıcılar ayrıca erişim panelinden kaydetme (https://myapps.microsoft.com). Erişim panelinden kaydedilecek için ihtiyaç duydukları kendi profil resminizi seçin, **profili**ve ardından **parola sıfırlama için kaydolmasını** seçeneği.
   >
   >
 * **S: parola'etkin değilse, bir grup için sıfırlama ve herkes için benim kullanıcılar gerekli yeniden kaydetmeniz etkinleştirmeye karar?**
@@ -170,7 +170,7 @@ Bu SSS, aşağıdaki bölümlere ayrılmıştır:
   >
 * **S: Alanım İlkesi sıfırlama için güvenlik sorularını kullan gerektirmek için yapılandırılmış, ancak farklı şekilde yapılandırılması için Azure yöneticileri gibi görünüyor.**
 
-  > **Y:** bu beklenen bir davranıştır. Microsoft, tüm Azure yöneticisi rolleri için bir tanımlayıcı varsayılan iki ağ geçidi parola sıfırlama İlkesi uygular. Bu, yöneticilerin güvenlik sorularını kullanmasını önler. Bu ilkede hakkında daha fazla bilgi bulabilirsiniz [parola ilkeleri ve kısıtlamaları, Azure Active Directory'de](concept-sspr-policy.md) makalesi.
+  > **Y:** bu beklenen bir davranıştır. Microsoft, tüm Azure yöneticisi rolleri için varsayılan olarak güçlü ve iki aşamalı parola sıfırlama ilkesi uygular. Bu, yöneticilerin güvenlik sorularını kullanmasını önler. Bu ilkede hakkında daha fazla bilgi bulabilirsiniz [parola ilkeleri ve kısıtlamaları, Azure Active Directory'de](concept-sspr-policy.md) makalesi.
   >
   >
 * **S: nasıl bir kullanıcı en fazla sıfırlamak için gereken soru sayısı kaydedildiyse, güvenlik soruları sıfırlama sırasında seçilir?**

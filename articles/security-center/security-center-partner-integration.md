@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi'ndeki tümleşik güvenlik çözümleri | Microso
 description: Azure Güvenlik Merkezi'nin, Azure kaynaklarınızın genel güvenliğini geliştirmek amacıyla iş ortaklarıyla nasıl tümleştirildiğini öğrenin.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/20/2018
-ms.author: terrylan
-ms.openlocfilehash: 1abf9efb5c0bed205ce5b87b1f055c14a11ce9ec
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.date: 11/26/2018
+ms.author: rkarlin
+ms.openlocfilehash: bbdda5012e6132940d00ae23a6d26469b0216fd0
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245027"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335455"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki tümleşik güvenlik çözümleri
 Bu belge Azure Güvenlik Merkezi'ne bağlanmış olan güvenlik çözümlerini yönetmenize ve yenilerini eklemenize yardımcı olur.
@@ -47,14 +47,17 @@ Tümleşik güvenlik çözümleri şu anda aşağıdakileri içermektedir:
 | Uç Nokta Koruması               | Platformlar                             | Güvenlik Merkezi Yüklemesi | Güvenlik Merkezi Bulma |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
 | Windows Defender (Microsoft Kötü Amaçlı Yazılım Koruması)                  | Windows Server 2016                   | Hayır, işletim sisteminde yerleşik           | Evet                       |
-| System Center Endpoint Protection (Microsoft Kötü Amaçlı Yazılım Koruması) | Windows Server 2012 R2, 2012, 2008 R2 | Uzantı ile                | Evet                       |
+| System Center Endpoint Protection (Microsoft Kötü Amaçlı Yazılım Koruması) | Windows Server 2012 R2, 2012, 2008 R2 (aşağıdaki nota bakın) | Uzantı ile                | Evet                       |
 | Trend Micro – Tüm sürümler         | Windows Server Ailesi                 | Hayır                           | Evet                       |
 | Symantec v12.1.1100+              | Windows Server Ailesi                 | Hayır                           | Evet                       |
 | McAfee v10+                       | Windows Server Ailesi                 | Hayır                           | Evet                       |
 | Kaspersky                         | Windows Server Ailesi                 | Hayır                           | Hayır                        |
 | Sophos                            | Windows Server Ailesi                 | Hayır                           | Hayır                        |
 
-
+> [!NOTE]
+> Algılama System Center Endpoint Protection (SCEP) bir Windows Server 2008 R2 sanal makine üzerinde SCEP PowerShell 3.0 (veya üst bir sürümünü) sonra yüklü olmasını gerektirir.
+>
+>
 
 ## <a name="how-security-solutions-are-integrated"></a>Güvenlik çözümlerinin tümleştirilme şekli
 Güvenlik Merkezinden dağıtılan Azure güvenlik çözümleri otomatik olarak bağlanır. Aşağıdakiler dahil olmak üzere diğer güvenlik verisi kaynaklarına da bağlanabilirsiniz:

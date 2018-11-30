@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a7f21d0ebebbe2c811470de384cc5ee9a34ab060
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 449fdbceeb0b64d58c589fe5dbde61302ee27afb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006167"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309217"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde ağ kaynaklarınızı koruma
 Azure Güvenlik Merkezi, ağ güvenliği için en iyi uygulamalar, Azure kaynaklarınızın güvenlik durumunu sürekli olarak analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde sağlamlaştırmak ve kaynaklarınızı korumak için gerekli denetimlerin yapılandırılması işlemi boyunca size rehberlik öneriler oluşturur.
@@ -149,6 +149,6 @@ Diğer Azure kaynak türü için geçerli öneriler hakkında daha fazla bilgi i
 
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -- Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.

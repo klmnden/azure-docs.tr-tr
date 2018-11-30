@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: cce6555c71829110781a6dd13757078b105dbb41
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 253f817099bd2705d8b9ea98741dc8fd28f09efe
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230640"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421666"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Azure Uygulama Hizmeti ile ClearDB MySQL veritabanları hakkında SSS
 Bu SSS ClearDB MySQL veritabanları, Azure Web Apps için satın alma ve kullanma hakkında sık sorulan soruları yanıtlar.
@@ -25,7 +25,7 @@ Bu SSS ClearDB MySQL veritabanları, Azure Web Apps için satın alma ve kullanm
 > [!IMPORTANT]
 > 13 Haziran 2018'den itibaren ClearDB ile doğrudan faturalandırma modeliyle, şu anda Microsoft tarafından faturalandırılan Azure tabanlı müşteriler ClearDB geçti. Bu makaledeki bilgiler güncel değil. Artık oluşturabilir veya Azure'da oluşturulan bir ClearDB veritabanı yükseltme olacaktır.
 >
-> Daha fazla ayrıntı ve sonraki adımlar için bkz. [değişiklikleri ClearDB hizmet planları için](http://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/).
+> Daha fazla ayrıntı ve sonraki adımlar için bkz. [değişiklikleri ClearDB hizmet planları için](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/).
 
 
 ## <a name="what-options-do-i-have-for-mysql-on-azure"></a>Azure üzerinde MySQL için hangi seçenekler var mı?

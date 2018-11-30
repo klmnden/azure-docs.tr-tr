@@ -1,5 +1,5 @@
 ---
-title: Machine Learning'de doğrusal regresyon kullanma | Microsoft Docs
+title: Doğrusal regresyon kullanarak Machine Learning Studio'da - Azure | Microsoft Docs
 description: Excel ve Azure Machine Learning Studio'da doğrusal regresyon modeli karşılaştırması
 metakeywords: ''
 services: machine-learning
@@ -17,14 +17,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: b96143ff587cbf5828f4a1d2d1dc11f5bcc33412
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: d7ff9e157f776ebf683846652fe4788fc35e19af
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261403"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311067"
 ---
-# <a name="using-linear-regression-in-azure-machine-learning"></a>Azure Machine Learning’de doğrusal regresyonu kullanma
+# <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da doğrusal regresyon kullanma
 > *Kate Baroni* ve *Ben Boatman* Kurumsal çözüm mimarları, Microsoft'un veri öngörüleri mükemmel Merkezi olan. Bu makalede, bunlar Azure Machine Learning kullanarak bulut tabanlı bir çözüme varolan bir regresyon analiz paketini geçiş deneyimlerini açıklanmaktadır. 
 > 
 > 

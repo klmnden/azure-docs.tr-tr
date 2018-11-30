@@ -1,5 +1,5 @@
 ---
-title: Bir soru veri yanıtlarını alabileceğiniz - veri bilimi sorunları - Azure Machine Learning isteyin | Microsoft Docs
+title: Bir soru veri yanıtlarını alabileceğiniz - Azure Machine Learning Studio isteyin | Microsoft Docs
 description: Video 3 yeni başlayanlar için veri bilimi sharp veri bilimi soru formüle öğrenin. Sınıflandırma ve regresyon sorular karşılaştırması içerir.
 keywords: Veri bilimi sorunları, veri bilimi sorular sorular, regresyon sorular, sınıflandırma sorular, soru sharp formüle
 services: machine-learning
@@ -17,12 +17,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 812d8ececa17dfe9d798d4454faf2ad66bf62536
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c6d42ed7920b634994adf5313656c77e2df6dd5b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264922"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310846"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Verilerle yanıtlayabileceğiniz bir soru sorun
 ## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Seri yeni başlayanlar için veri bilimi

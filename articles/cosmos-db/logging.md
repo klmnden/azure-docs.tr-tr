@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: e1d4f9f5c91900216398dd651d238fc3fa305234
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 1c25db0a217d6aff984029a28932242b06096735
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823937"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423242"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB tanılama günlüğüne kaydetme
 
@@ -29,7 +29,7 @@ Aşağıdaki görüntüde, farklı türlerde kullanılabilir Azure günlükleri 
 
 ![Çeşitli Azure günlükleri](./media/logging/azurelogging.png)
 
-Görüntüde **işlem kaynaklarını** kendisi için erişebileceğiniz Microsoft konuk işletim sistemi Azure kaynaklarını temsil eder. Örneğin, Azure sanal makineler, sanal makine ölçek kümeleri, Azure Container Service, ve bu şekilde dikkate alınan bilgi işlem kaynakları. İşlem kaynakları etkinlik günlükleri, tanılama günlükleri ve uygulama günlüklerini oluşturur. Daha fazla bilgi edinmek için bkz [azure'da veri izleme kaynakları](../azure-monitor/platform/data-sources.md#) makalesi.
+Görüntüde **işlem kaynaklarını** kendisi için erişebileceğiniz Microsoft konuk işletim sistemi Azure kaynaklarını temsil eder. Örneğin, Azure sanal makineler, sanal makine ölçek kümeleri, Azure Container Service, ve bu şekilde dikkate alınan bilgi işlem kaynakları. İşlem kaynakları etkinlik günlükleri, tanılama günlükleri ve uygulama günlüklerini oluşturur. Daha fazla bilgi edinmek için bkz [azure'da veri izleme kaynakları](../azure-monitor/platform/data-sources.md) makalesi.
 
 **Olmayan işlem kaynakları** içinde edemez temel işletim sistemi erişmek ve iş doğrudan kaynak kaynaklardır. Örneğin, ağ güvenlik grupları, Logic Apps ve benzeri. Azure Cosmos DB işlem dışı bir kaynaktır. Etkinlik günlüğü'nde olmayan işlem kaynakları için günlükleri görüntüleyebilir veya Portalı'nda tanılama günlükleri seçeneğini etkinleştirin. Daha fazla bilgi edinmek için bkz [Azure İzleyici'de veri kaynaklarını](../azure-monitor/platform/data-sources.md) makalesi.
 

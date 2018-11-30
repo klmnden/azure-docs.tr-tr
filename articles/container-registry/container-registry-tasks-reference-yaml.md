@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: danlep
-ms.openlocfilehash: de543798702137905ee5243c6ca8e502152f9c44
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: e91b4e881c0f39304e3042d556f111db2089f7de
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634388"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334491"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR görevleri başvurusu: YAML
 
@@ -428,5 +428,5 @@ Tek adımlı yapıları için bkz. [ACR görevlere genel bakış](container-regi
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
-[az-acr-run]: /cli/azure/acr/run#az-acr-run
+[az-acr-run]: /cli/azure/acr#az-acr-run
 [az-configure]: /cli/azure/reference-index#az-configure

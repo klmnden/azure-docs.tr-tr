@@ -8,16 +8,16 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: dea69e9cfcd3cff24c77698ee4a8ed729a18f087
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 03d7c63d09ddaf64a552a4534612f0f7e9fd249b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011936"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312376"
 ---
-# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Hızlı Başlangıç: HDInsight kümesi üzerinde Kafka oluşturma
+# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Hızlı Başlangıç: HDInsight kümesi üzerinde Apache Kafka oluşturma
 
-Kafka, açık kaynaklı bir dağıtılmış akış platformudur. Yayımla-abone ol ileti kuyruğuna benzer işlevler sağladığı için genellikle ileti aracısı olarak kullanılır. 
+[Apache Kafka](https://kafka.apache.org/) bir açık kaynaklı, dağıtılmış akış platformudur. Yayımla-abone ol ileti kuyruğuna benzer işlevler sağladığı için genellikle ileti aracısı olarak kullanılır. 
 
 Bu hızlı başlangıçta, Azure Resource Manager şablonunu kullanarak bir [Apache Kafka](https://kafka.apache.org) kümesi oluşturmayı öğrenirsiniz. Ayrıca Kafka kullanarak ileti göndermek ve almak için, birlikte sunulan yardımcı programları kullanmayı da öğrenirsiniz.
 
@@ -26,9 +26,9 @@ Bu hızlı başlangıçta, Azure Resource Manager şablonunu kullanarak bir [Apa
 > [!IMPORTANT]
 > Kafka API’sine yalnızca aynı sanal ağ içindeki kaynaklar tarafından erişilebilir. Bu hızlı başlangıçta, doğrudan SSH kullanarak kümeye erişirsiniz. Diğer hizmetleri, ağları veya sanal makineleri Kafka’ya bağlamak için önce bir sanal ağ oluşturmanız e sonra ağ içinde kaynakları oluşturmanız gerekir.
 >
-> Daha fazla bilgi için [Sanal ağ kullanarak Kafka’ya bağlanma](apache-kafka-connect-vpn-gateway.md) belgesine bakın.
+> Daha fazla bilgi için [Sanal ağ kullanarak Apache Kafka'ya bağlanma](apache-kafka-connect-vpn-gateway.md) belgesine bakın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -45,7 +45,7 @@ Bu hızlı başlangıçta, Azure Resource Manager şablonunu kullanarak bir [Apa
     >
     > Daha fazla bilgi için [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md) belgesine bakın.
 
-## <a name="create-a-kafka-cluster"></a>Kafka kümesi oluşturma
+## <a name="create-an-apache-kafka-cluster"></a>Apache Kafka kümesi oluşturma
 
 1. Azure Portal'da bir şablonu açmak için aşağıdaki görüntüye tıklayın.
 
@@ -107,9 +107,9 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ssuhuser@hn0-mykafk:~$
 ```
 
-## <a id="getkafkainfo"></a>Zookeeper ve Aracı konak bilgilerini alma
+## <a id="getkafkainfo"></a>Apache Zookeeper ve aracı konak bilgilerini alma
 
-Kafka ile çalışırken *Zookeeper* ve *Aracı* konaklarını bilmeniz gerekir. Bu konaklar Kafka API’si ve Kafka ile gönderilen yardımcı programların birçoğu ile birlikte kullanılır.
+Kafka ile çalışırken bilmeniz gerekir *Apache Zookeeper* ve *Aracısı* konaklar. Bu konaklar Kafka API’si ve Kafka ile gönderilen yardımcı programların birçoğu ile birlikte kullanılır.
 
 Bu bölümde, kümedeki Ambari REST API’sinden ana bilgisayar bilgilerini alırsınız.
 
@@ -166,7 +166,7 @@ Bu bölümde, kümedeki Ambari REST API’sinden ana bilgisayar bilgilerini alı
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
-## <a name="manage-kafka-topics"></a>Kafka konularını yönetme
+## <a name="manage-apache-kafka-topics"></a>Apache Kafka konularını yönetme
 
 Kafka, veri akışlarını *konular* içinde depolar. Konuları yönetmek için `kafka-topics.sh` yardımcı programını kullanabilirsiniz.
 
@@ -192,7 +192,7 @@ Kafka, veri akışlarını *konular* içinde depolar. Konuları yönetmek için 
         > [!IMPORTANT] 
         > Kafka, Azure hata etki alanları ile uyumlu değildir. Konular için bölüm çoğaltmaları oluşturulurken, çoğaltmalar yüksek kullanılabilirlik için düzgün şekilde dağıtılmayabilir.
 
-        Yüksek kullanılabilirlik sağlamak için [Kafka bölüm yeniden dengeleme aracını](https://github.com/hdinsight/hdinsight-kafka-tools) kullanın. Bu araç bir SSH bağlantısından Kafka kümenizin baş düğümüne doğru çalıştırılmalıdır.
+        Yüksek kullanılabilirlik sağlamak için kullanın [Apache Kafka bölüm yeniden Dengeleme aracını](https://github.com/hdinsight/hdinsight-kafka-tools). Bu araç bir SSH bağlantısından Kafka kümenizin baş düğümüne doğru çalıştırılmalıdır.
 
         Kafka verilerinizin en yüksek kullanılabilirliğe sahip olması için, aşağıdaki durumlarda konunuz için bölüm çoğaltmalarını yeniden dengelemeniz gerekir:
 
@@ -254,7 +254,7 @@ Daha önce oluşturduğunuz test konu başlığında kayıtları depolamak ve ar
 
 4. Tüketiciyi durdurmak için __Ctrl + C__ tuşlarını kullanın.
 
-Ayrıca programlı olarak üretici ve tüketici de oluşturabilirsiniz. Bu API’yi kullanmayla ilgili bir örnek için [HDInsight ile Kafka Üretici ve Tüketici API’si](apache-kafka-producer-consumer-api.md) belgesine göz atın.
+Ayrıca programlı olarak üretici ve tüketici de oluşturabilirsiniz. Bu API kullanma örneği için bkz: [Apache Kafka üretici ve tüketici API'si HDInsight ile](apache-kafka-producer-consumer-api.md) belge.
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
@@ -278,5 +278,5 @@ Azure portalını kullanarak kaynak grubunu kaldırmak için:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Apache Spark’ı Kafka ile kullanma](../hdinsight-apache-kafka-spark-structured-streaming.md)
+> [Apache Kafka ile Apache Spark kullanma](../hdinsight-apache-kafka-spark-structured-streaming.md)
 

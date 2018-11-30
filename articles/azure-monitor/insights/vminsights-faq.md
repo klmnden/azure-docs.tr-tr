@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/08/2018
 ms.author: magoedte
-ms.openlocfilehash: 124488d13d1d303743900ab1de41768633e4f6e0
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 028179fb7718587ec2c277e1c3feb1569e76510d
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715727"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335751"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Azure İzleyici (Önizleme) VM'ler için sık sorulan sorular
 Bu Microsoft FAQ VM'ler için Azure İzleyici hakkında sık sorulan soruların bir listesidir. Çözümü hakkında ek sorularınız varsa, Git [tartışma forumuna](https://feedback.azure.com/forums/34192--general-feedback) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
@@ -40,7 +40,7 @@ Betik tabanlı bir yöntemini kullanmayı tercih ederseniz, bu adımları ele al
 Zaten sanal makinelerinizden veri topluyorsanız, zaten mevcut bir Log Analytics çalışma alanına rapor verilerine yapılandırmadığınız.  Bu çalışma alanı, desteklenen bölgelerden birinde olduğu sürece, Azure İzleyici önceden mevcut olan bu çalışma alanına VM'ler için etkinleştirebilirsiniz.  Zaten kullanmakta olduğunuz çalışma alanı, desteklenen bölgelerden birinde değilse, şu anda sanal makineleri için Azure İzleyici ekleneceği mümkün olmayacaktır.  Etkin bir şekilde ek bölgeler desteklemek için çalışıyoruz.
 
 >[!NOTE]
->Çalışma alanına rapor veren tüm sanal makineler eklemek için bunları Azure İzleyici VM'ler için seçtiğiniz olup olmadığını etkileyen çalışma alanı için performans sayaçlarını yapılandırıyoruz. Performans sayaçları için bir çalışma alanı nasıl yapılandırılacağı hakkında ayrıntılı bilgi için bkz bizim [belgeleri](../../log-analytics/log-analytics-data-sources-performance-counters.md). VM'ler için Azure İzleyici için yapılandırılmış sayaçları hakkında daha fazla bilgi için bkz bizim [ekleme belgeleri](vminsights-onboard.md#performance-counters-enabled).  
+>Çalışma alanına rapor veren tüm sanal makineler eklemek için bunları Azure İzleyici VM'ler için seçtiğiniz olup olmadığını etkileyen çalışma alanı için performans sayaçlarını yapılandırıyoruz. Performans sayaçları için bir çalışma alanı nasıl yapılandırılacağı hakkında ayrıntılı bilgi için bkz bizim [belgeleri](../../azure-monitor/platform/data-sources-performance-counters.md). VM'ler için Azure İzleyici için yapılandırılmış sayaçları hakkında daha fazla bilgi için bkz bizim [ekleme belgeleri](vminsights-onboard.md#performance-counters-enabled).  
 
 ## <a name="why-did-my-vm-fail-to-onboard"></a>Neden sanal Makinem ekleme başarısız oldu?
 Azure portalında bir Azure VM'den ekleme, aşağıdaki adımları olduğunda:

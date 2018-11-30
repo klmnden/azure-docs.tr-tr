@@ -1,6 +1,6 @@
 ---
-title: Azure Machine Learning hakkında sık sorulan sorular (SSS) | Microsoft Belgeleri
-description: "Azure Machine Learning'e giriş: Kolaylaştırılmış tahmine dayalı modelleme için bir bulut hizmetinin faturalamasını, özelliklerini ve sınırlamalarını kapsayan SSS."
+title: Machine Learning Studio sık sorulan sorular (SSS) - Azure | Microsoft Docs
+description: 'Azure Machine Learning Studio: faturalama, özellikler ve bir bulut hizmeti için kolaylaştırılmış Tahmine dayalı modelleme sınırlamaları kapsayan SSS.'
 keywords: machine learning giriş,tahmini modelleme,machine learning nedir
 services: machine-learning
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: 9545c9a0cf77274b4ea68dea7a6640453a849093
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c9c80da55737d0093813b84e33d3d90c5d7d4603
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263443"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309149"
 ---
-# <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning ile ilgili sık sorulan sorular: Faturalama, özellikler, sınırlamalar ve destek
+# <a name="azure-machine-learning-studio-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning Studio hakkında sık sorulan sorular: faturalama, özellikler, sınırlamalar ve Destek
 Aşağıda, tahmine dayalı modeller geliştirmeye ve web hizmetleri aracılığıyla çözümleri faaliyete geçirmeye yönelik bir bulut hizmeti olan Azure Machine Learning hakkında sık sorulan bazı sorular (SSS) ve yanıtları verilmiştir. Bu SSS bölümlerinde faturalama modeli, özellikler, sınırlamalar ve destek dahil olmak üzere hizmetin nasıl kullanılacağına ilişkin sorular sağlanır.
 
 **Burada olmayan bir sorunuz mu var?**
@@ -30,12 +30,6 @@ Aşağıda, tahmine dayalı modeller geliştirmeye ve web hizmetleri aracılığ
 Azure Machine Learning'in MSDN üzerinde veri bilimi topluluğu üyelerinin Azure Machine Learning hakkında sorular sorabileceği bir forumu da bulunur. Forum, Azure Machine Learning ekibi tarafından izlenir. Yanıt aramak veya yeni bir soru sormak için [Azure Machine Learning Forumuna](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) gidin.
 
 ## <a name="general-questions"></a>Genel sorular
-**Azure Machine Learning nedir?**
-
-Azure Machine Learning, tahmine dayalı analitik çözümleri bulutta oluşturmak, test etmek, işletmek ve yönetmek için kullanabileceğiniz tam olarak yönetilen bir hizmettir. Yalnızca bir tarayıcıyla oturum açabilir, verileri yükleyebilir ve anında makine öğrenimi denemelerine başlayabilirsiniz. Tahmine dayalı sürükle ve bırak modelleme, büyük bir modül paleti ve başlangıç şablonları kitaplığı, ortak makine öğrenimi görevlerini basit ve hızlı hale getirir. Daha fazla bilgi için bkz. [Azure Machine Learning hizmetine genel bakış](https://azure.microsoft.com/services/machine-learning/). Makine öğrenimiyle ilgili önemli terimleri ve kavramları açıklayan bir giriş için bkz. [Azure Machine Learning'e giriş](what-is-machine-learning.md).
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 **Machine Learning Studio nedir?**
 
 Machine Learning Studio, bir web tarayıcısı kullanarak erişebileceğiniz bir çalışma ekranı ortamıdır. Machine Learning Studio, deneme şeklinde uçtan uca veri bilimi akışı oluşturmanıza yardımcı olan bir görsel birleştirme arabiriminde bir modül paleti barındırır.

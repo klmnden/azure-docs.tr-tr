@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 11/21/2018
 ms.author: juliako
-ms.openlocfilehash: 70a3de35f6fd942bca5355db3a7c6b57aec6adbc
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 598587a0fe726ccf65f062833f84b352ca03c077
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613945"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315537"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 sürüm notları 
 
@@ -27,6 +27,13 @@ ms.locfileid: "51613945"
 * Hata düzeltmeleri
 * Kullanım dışı işlev
 * Değişiklikleri planları
+
+## <a name="known-issues"></a>Bilinen sorunlar
+
+> [!NOTE]
+> Şu anda Azure portalında v3 kaynakları yönetmek için kullanamazsınız. Kullanım [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, desteklenen Sdk'lardan birini veya.
+
+Daha fazla bilgi için [Media Services v2'den v3 taşımak için geçiş kılavuzunu](migrate-from-v2-to-v3.md#known-issues).
 
 ## <a name="november-2018"></a>Kasım 2018
 

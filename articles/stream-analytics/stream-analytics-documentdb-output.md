@@ -4,17 +4,16 @@ description: Bu makalede, çıkış veri arşivleme ve düşük gecikme süreli 
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 8dc85c55dd67d8acd394d7922e947c91234ef23b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.date: 11/21/2017
+ms.openlocfilehash: 9bdb012db2e7502d765fd342a636591bbbcb2c6c
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957157"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311747"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Cosmos DB için Azure Stream Analytics çıkışı  
 Stream Analytics hedefleyebilir [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) yapılandırılmamış JSON verileri üzerinde veri arşivleme ve düşük gecikme süreli sorgular için JSON çıkışında, etkinleştirme. Bu belge, bu yapılandırmayı uygulamak için bazı en iyi uygulamaları kapsar.
@@ -26,7 +25,10 @@ Kişiler için Cosmos DB ile bilginiz, göz atın [Azure Cosmos DB'nin öğrenme
 > Diğer Azure Cosmos DB API henüz desteklenmiyor. Noktası Azure Stream Analytics Azure Cosmos DB hesaplarına diğer API'lerle oluşturduysanız, verileri düzgün bir şekilde depolanabilir değil. 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>Bir çıkış hedefi olarak Cosmos DB ile ilgili temel bilgiler
-Stream Analytics, Azure Cosmos DB çıktı sonuçları Cosmos DB koleksiyonlarınız JSON çıktısını işleme akışınız yazılmasını etkinleştirir. Stream Analytics, bunun yerine, ön maliyet oluşturmanızı gerektiren koleksiyonları veritabanınızdaki oluşturmaz. Cosmos DB koleksiyonları fatura maliyetlerini sizin tarafınızdan denetlenir ve böylece performans, tutarlılık ve koleksiyonlarınız kullanarak doğrudan kapasitesini ayarlama budur [Cosmos DB API'leri](https://msdn.microsoft.com/library/azure/dn781481.aspx). 
+Stream Analytics, Azure Cosmos DB çıktı sonuçları Cosmos DB koleksiyonlarınız JSON çıktısını işleme akışınız yazılmasını etkinleştirir. Stream Analytics, bunun yerine, ön maliyet oluşturmanızı gerektiren koleksiyonları veritabanınızdaki oluşturmaz. Cosmos DB koleksiyonları fatura maliyetlerini sizin tarafınızdan denetlenir ve böylece performans, tutarlılık ve koleksiyonlarınız kullanarak doğrudan kapasitesini ayarlama budur [Cosmos DB API'leri](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+
+> [!Note]
+> 0.0.0.0 izin verilen IP listesi için Azure Cosmos DB Güvenlik Duvarı'nı eklemeniz gerekir.
 
 Cosmos DB koleksiyonu seçeneklerden bazıları aşağıda açıklanmıştır.
 

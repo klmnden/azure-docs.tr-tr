@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 85fea195b05bea8a1db70f8b5b81cabdfe7c6c72
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8525b1450ae8b7badfe1c569c2040ecf1ab78070
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041518"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314380"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>(Önizleme) Azure HDInsight üzerinde Apache Kafka için kendi anahtarını Getir
 
@@ -83,7 +83,7 @@ Anahtarları key vault'ta güvenli bir şekilde döndürmek için Azure portal v
 
    Küme oluşturma sırasında tam sağlayan anahtar anahtar sürümü dahil olmak üzere URL. Örneğin, `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Yönetilen kimlik kümeye atamak ve anahtar URI'si sağlamak gerekir.
 
-## <a name="faq-for-byok-to-kafka"></a>Kafka için bYok ile ilgili SSS
+## <a name="faq-for-byok-to-apache-kafka"></a>BYOK için Apache Kafka hakkında SSS
 
 **Kafka kümesinin, my anahtar kasasına nasıl erişebilir?**
 

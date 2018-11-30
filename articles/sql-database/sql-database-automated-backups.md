@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 36099a49cc9e6c810727606bb73d2669f1e0df79
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 9c5cdf6c2baf4197b693b522848fc1fd04db7abf
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985701"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422519"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Otomatik SQL veritabanını yedekleme hakkında bilgi edinin
 
@@ -42,7 +42,7 @@ Bu yedeklemeler için kullanabilirsiniz:
 
 ## <a name="how-long-are-backups-kept"></a>Yedeklemeleri ne kadar saklanır
 
-Her SQL veritabanı yedeği, veritabanının Hizmet katmanını temel alır ve arasında farklı bir varsayılan saklama süresi olan [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md). Bir veritabanı için yedekleme bekletme süresi güncelleştirebilirsiniz. Bkz: [değişiklik yedekleme Bekletme dönemi](#how-to-change-backup-retention-period) daha fazla ayrıntı için.
+Her bir SQL veritabanı bağlı olduğu 7 ila 35 gün arasında bir varsayılan yedekleme bekletme süresi olan [satın alma modeli ve Hizmet katmanını](#pitr-retention-period). (Bu özellik, yakında yönetilen örneği'nde etkinleştirilecek) Azure mantıksal sunucusu üzerinde bir veritabanı için yedekleme bekletme süresi güncelleştirebilirsiniz. Bkz: [değişiklik yedekleme Bekletme dönemi](#how-to-change-backup-retention-period) daha fazla ayrıntı için.
 
 Bir veritabanı silerseniz, SQL veritabanı yedeklemeleri için çevrimiçi bir veritabanı olduğu aynı şekilde tutar. Örneğin, bir yedi günlük tutma süresine sahip bir temel veritabanı silerseniz, dört gün eski bir yedek üç gün boyunca kaydedilir.
 

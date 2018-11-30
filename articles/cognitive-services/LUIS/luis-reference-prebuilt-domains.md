@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: f424abd339bda6c29079e3d286cbe96593f16f52
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 287a0986d921798bc7735e5a75d279f010712b16
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040049"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335632"
 ---
 # <a name="prebuilt-domain-reference"></a>Önceden derlenmiş etki alanı başvurusu
 Bu başvuru, hakkında bilgi sağlar. [önceden oluşturulmuş etki alanları](luis-how-to-use-prebuilt-domains.md), önceden oluşturulmuş koleksiyon hedefleri ve LUIS sunan varlıkların olduğu.
@@ -27,27 +27,27 @@ LUIS, 20 önceden oluşturulmuş etki alanı sunar.
 
 | Önceden oluşturulmuş etki alanı | Açıklama | Desteklenen Diller |
 | ---------------- |-----------------------|:------:|
-| Takvim | Amaç ve varlıkları ekleme, silme veya randevu düzenleme, katılımcı kullanılabilirlik denetimi ve bir takvim etkinliği hakkında bilgi bulma için Takvim etki alanı sağlar.| tr-TR<br/> zh-CN |
-| Kamera | Kamera etki alanı, resim, video kaydetmek ve yayın video, uygulama almak için amaç ve varlıkları sağlar.| tr-TR |
-| İletişim | İleti gönderme ve telefon çağrıları yapma.| tr-TR <br/> zh-CN |
-| Eğlence  | Müzik, film ve TV ile ilgili sorgularını işleme.| tr-TR |
-| Olaylar | Konserlerden, festivallerinden, spor oyunları ve Komedi biletlerini kayıt gösterir.| tr-TR |
-| Uygunluk | Uygunluk etkinliklerini izleme ilgili istekleri işleme.| tr-TR |
-| Oyun | Çok oyunculu oyun, oyun bir taraf ilgili istekleri işleme.| tr-TR |
-| HomeAutomation | Cihazları ve ışıklar gibi Akıllı Giriş cihazları denetleme.| tr-TR<br/> zh-CN |
-| MovieTickets | Bir film tiyatro filmleri bilet kayıt.| tr-TR |
-| Müzik | Müziği bir müzik çalar.| tr-TR<br/> zh-CN |
-| Not | Amaç ve varlıkları oluşturma, düzenleme ve notları bulma ile ilgili not etki alanı sağlar.| tr-TR<br/> zh-CN |
-| OnDevice | Hedefleri ve cihaz denetlemek için ilgili varlıkları OnDevice etki alanı sağlar.| tr-TR<br/> zh-CN |
-| Basamak  | İşletmeler, kurumlar, Restoran, ortak alanları ve adresleri gibi yerlerde ilgili sorgular işleme.| tr-TR<br/> zh-CN |
-| Anımsatıcı | Oluşturma, düzenleme ve anımsatıcılar bulma ile ilgili istekleri işleme.| tr-TR<br/> zh-CN |
-| RestaurantReservation | Restoran ayırmalarını yönetmek için istek işleme.| tr-TR<br/> zh-CN |
-| Taksi | Rezervasyonlar bir taksi için işleme.| tr-TR<br/> zh-CN |
-| Çevirme | Metni bir hedef dile çevirerek.| tr-TR<br/> zh-CN |
-| TV | TV denetleme.| tr-TR |
-| Altyapı Hizmetleri  | "Yardım" gibi birden çok etki alanı ortak olan isteklerin işlenmesinden "yinelemek", "baştan başlayın."| tr-TR |
-| Hava durumu | Hava durumu raporları ve tahminlerini alınıyor.| tr-TR<br/> zh-CN |
-| Web | Bir Web sitesine yönlendirir.| tr-TR<br/> zh-CN |
+| Takvim | Amaç ve varlıkları ekleme, silme veya randevu düzenleme, katılımcı kullanılabilirlik denetimi ve bir takvim etkinliği hakkında bilgi bulma için Takvim etki alanı sağlar.| en-US<br/> zh-CN |
+| Kamera | Kamera etki alanı, resim, video kaydetmek ve yayın video, uygulama almak için amaç ve varlıkları sağlar.| en-US |
+| İletişim | İleti gönderme ve telefon çağrıları yapma.| en-US <br/> zh-CN |
+| Eğlence  | Müzik, film ve TV ile ilgili sorgularını işleme.| en-US |
+| Olaylar | Konserlerden, festivallerinden, spor oyunları ve Komedi biletlerini kayıt gösterir.| en-US |
+| Uygunluk | Uygunluk etkinliklerini izleme ilgili istekleri işleme.| en-US |
+| Oyun | Çok oyunculu oyun, oyun bir taraf ilgili istekleri işleme.| en-US |
+| HomeAutomation | Cihazları ve ışıklar gibi Akıllı Giriş cihazları denetleme.| en-US<br/> zh-CN |
+| MovieTickets | Bir film tiyatro filmleri bilet kayıt.| en-US |
+| Müzik | Müziği bir müzik çalar.| en-US<br/> zh-CN |
+| Not | Amaç ve varlıkları oluşturma, düzenleme ve notları bulma ile ilgili not etki alanı sağlar.| en-US<br/> zh-CN |
+| OnDevice | Hedefleri ve cihaz denetlemek için ilgili varlıkları OnDevice etki alanı sağlar.| en-US<br/> zh-CN |
+| Yerler  | İşletmeler, kurumlar, Restoran, ortak alanları ve adresleri gibi yerlerde ilgili sorgular işleme.| en-US<br/> zh-CN |
+| Anımsatıcı | Oluşturma, düzenleme ve anımsatıcılar bulma ile ilgili istekleri işleme.| en-US<br/> zh-CN |
+| RestaurantReservation | Restoran ayırmalarını yönetmek için istek işleme.| en-US<br/> zh-CN |
+| Taksi | Rezervasyonlar bir taksi için işleme.| en-US<br/> zh-CN |
+| Çevirme | Metni bir hedef dile çevirerek.| en-US<br/> zh-CN |
+| TV | TV denetleme.| en-US |
+| Altyapı Hizmetleri  | "Yardım" gibi birden çok etki alanı ortak olan isteklerin işlenmesinden "yinelemek", "baştan başlayın."| en-US |
+| Hava durumu | Hava durumu raporları ve tahminlerini alınıyor.| en-US<br/> zh-CN |
+| Web | Bir Web sitesine yönlendirir.| en-US<br/> zh-CN |
 
 Aşağıdaki bölümlerde her etki alanı ile ilgili daha fazla ayrıntı için bkz.
 
@@ -68,7 +68,7 @@ Hedefleri ve takvim girişlerinin ilgili varlıkları Takvim etki alanı sağlar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
 | Konum | Takvim öğesi, toplantı veya randevu konumu. Adres, şehir ve bölgeler konumları, iyi örneklerdir.| 209 Nashville uygulamaları <br/><br/>897 Krep Merkezi<br/><br/>İş dışındaki vakitlerimi|
-| Konu | Bir toplantıda veya randevu başlığı.| Diş'ın randevu <br/><br/>Öğle yemeği Julia ile<br/><br/>Doktor randevu|
+| Özne | Bir toplantıda veya randevu başlığı.| Diş'ın randevu <br/><br/>Öğle yemeği Julia ile<br/><br/>Doktor randevu|
 
 ## <a name="camera"></a>Kamera 
 Hedefleri ve bir kamera kullanımıyla ilgili varlıkları kamera etki alanı sağlar. Intents bir fotoğraf, selfie, ekran görüntüsü veya görüntü yakalama ve video uygulamaya yayınlamak kapsar.
@@ -107,7 +107,7 @@ Hedefleri ve e-posta, iletileri ve telefon aramaları ilgili varlıkları ileti�
 | FindContact| Ada göre iletişim bilgilerini bulabilir.|Carol'ın telefon numarası bulun<br/>Carol'ın numarasını göster<br/>|
 | FindSpeedDial| Bir telefon numarası için ve tersi ayarlamak hızlı arama numarası bulun.|Arama numaramı 5 nedir?<br/>Kümesi çevirmek hızı var mı?<br/>941 5555 333 arama numaralı nedir?|
 | GetForwardingsStatus| Çağrı iletme geçerli durumunu alın.|My çağrı iletme açık mı?<br/>Çağrı Durumum açık veya kapalı olma bildir<br/>|
-| GoBack| Önceki adıma geri dönün.|Twitter dönün<br/>Bir adıma geri dönün<br/>Geri dön|
+| GoBack| Önceki adıma geri dönün.|Twitter dönün<br/>Bir adıma geri dönün<br/>Geri git|
 | Yoksayma| Gelen bir arama yoksayın.|Yanıt yok<br/>Çağrı yoksay|
 | IgnoreWithMessage| Gelen bir arama yoksay ve bunun yerine metin ile yanıtla.|Bu aramayı yanıtlamalı yoktur ancak bir ileti gönderin.<br/>Yoksay ve bir metin geri gönderin.|
 | PressKey| Bir düğme veya sayı tuş takımında tuşuna basın.|Arama yıldız.<br/>1 2 3'e basın.|
@@ -154,11 +154,11 @@ Etki alanı hedefleri ve filmler, müzik, oyunlar ve TV aramayla ilgili varlıkl
 | ContentRating | Medya, film derecelendirmesi G veya R gibi içerik.|Video çocuk.<br/>PG derecelendirilir.|
 | Tarzı | Film, oyun, uygulama veya şarkı Tarz.|Comedies<br/>Dramas<br/>Komik|
 | Anahtar sözcüğü| Bir genel arama anahtar sözcüğü bir öznitelik belirtmemeye daha belirli ortam yuvalarda yok.|Parçalar<br/>Ay Irmağı<br/>Amelia Earhart|
-| Dil | Ortamda, film veya şarkı konuşulan dili gibi kullanılan dil.|Fransızca<br/>Türkçe<br/>Kore dili|
+| Dil | Ortamda, film veya şarkı konuşulan dili gibi kullanılan dil.|Fransızca <br/>Türkçe<br/>Korece|
 | MediaFormat | İçinde medya biçimlendirilmiş ek özel teknik türü.|HD filmler<br/>3B filmler<br/>İndirilebilir|
 | MediaSource | Depolama veya medya almak için Market.|Netflix<br/>Asal|
 | MediaSubTypes| Medya türleri filmler ve oyunlar küçük.|Tanıtımlar<br/>DLC<br/>Tanıtımları|
-| Uyruğu| Bir film, Göster ya da şarkı oluşturulduğu ülke.|Fransızca<br/>Almanca<br/>Kore dili|
+| Uyruğu| Bir film, Göster ya da şarkı oluşturulduğu ülke.|Fransızca <br/>Almanca <br/>Korece|
 | Kişi| Aktör, Müdür, üretici, müzisyen veya sanatçı bir film, uygulamayı, oyunu veya TV programı ilişkili.|Madonna<br/>Stanley Kubrick|
 | Rol| Medya oluşturma kişinin oynadığı rolü.|İmzalar<br/>Yöneten<br/>Tarafından|
 | Unvan| Bir film, uygulama, oyun, TV programı veya Şarkı adı.|Arkadaş<br/>Minecraft|
@@ -171,7 +171,7 @@ Varlıkları ayırtmak konserlerden, festivallerinden, spor oyunları ve Komedi 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Rehberi| Bir olay için bilet satın alın.|Bu hafta symphony için bilet satın almak istiyorum.|
+| Book| Bir olay için bilet satın alın.|Bu hafta symphony için bilet satın almak istiyorum.|
 
 
 ### <a name="entities"></a>Varlıklar
@@ -250,7 +250,7 @@ When is Captain Omar showing?
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Rehberi | Film biletleri satın alın.|Bana iki biletleri lideri Omar ve iki musketeers rezervasyonu<br/>Yarının film için bilet satın almak istiyorum<br/>Bir bilet Captian Omar Kısım 2 için sonraki Çarşamba istiyorum|
+| Book | Film biletleri satın alın.|Bana iki biletleri lideri Omar ve iki musketeers rezervasyonu<br/>Yarının film için bilet satın almak istiyorum<br/>Bir bilet Captian Omar Kısım 2 için sonraki Çarşamba istiyorum|
 |GetShowTime| Showtime filmin alın.|Ne zaman lideri Omar gösteriliyor?|
 
 
@@ -377,7 +377,7 @@ Can you make the screen brighter?
 | mediaType | Cihaz tarafından işlenen medya türü.|Müzik<br/>Film<br/>TV programları|
 | SettingType | Ayar veya düzenlemek için kullanıcının istediği ayarlar paneli türü.|WiFi<br/>Kablosuz ağ<br/>Renk şeması<br/>Bildirim Merkezi|
 
-## <a name="places"></a>Basamak  
+## <a name="places"></a>Yerler  
 Basamak etki alanı, işletmelerin, kurum, Restoran, ortak alanları ve adresleri gibi yerlerde ilgili sorguları işlemek için hedefleri sağlar.
 
 ### <a name="examples"></a>Örnekler
@@ -415,7 +415,7 @@ At what time does Safeway close?
 |Derecelendirme|Bir restoran veya yer derecelendirmesi açıklamasını alın.|Kaç yıldızı Contoso Inn var mı?|
 |ReadAloud|Basamak listesini sesli okuyun.|Beni ilk oku<br/>Bana ayrıntıları okuyun|
 |SelectItem|Bir alan veya yer ile ilgili seçimler listesinden bir öğe seçin.|İkinci seçin<br/>İlk seçin|
-|ShowMap|Bir alan haritasını göster.|İkincisi için bir haritasını Göster<br/>Haritasını Göster<br/>Harita üzerinde San Francisco Bul|
+|ShowMap|Bir alan haritasını göster.|İkincisi için bir haritasını Göster<br/>Haritayı göster<br/>Harita üzerinde San Francisco Bul|
 |ShowNext|Bir dizinin sonraki öğeyi gösterir.|Sonrakini Göster<br/>Sonraki Sayfaya Git|
 |ShowPrevious|Önceki öğeyle bir dizide gösterir.|Öncekine Göster<br/>önceki<br/>Öncekine git|
 |StartOver|Uygulamayı yeniden başlatın veya yeni bir oturum başlatın.|Yeniden başlayın<br/>Yeni oturum<br/>
@@ -511,7 +511,7 @@ Cancel my Uber
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Rehberi | Bir taksi çağırın. |Bana bir cab Al<br/>Bir taksi bulun<br/>Bana bir uber kitap x|
+| Book | Bir taksi çağırın. |Bana bir cab Al<br/>Bir taksi bulun<br/>Bana bir uber kitap x|
 | İptal | Bir taksi kayıt için ilgili eylemi iptal eder.|My taksi iptal et<br/>My Uber iptal et|
 | İzle | Taksi yolu izleyin.|Ne kadar uzun my taksi için beklemek zorunda?<br/>My Uber nerede?|
 
@@ -546,7 +546,7 @@ Translate this sentence to English
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| TargetLanguage | Bir çeviri hedef dili.|Fransızca<br/>Almanca<br/>Kore dili|
+| TargetLanguage | Bir çeviri hedef dili.|Fransızca <br/>Almanca <br/>Korece|
 | Metin | Çevrilecek metin.|Hello World<br/>Günaydın<br/>İyi akşamlar|
 
 ## <a name="tv"></a>TV 
@@ -588,7 +588,7 @@ Repeat last question please
 | İptal | Eylemi iptal eder.|İletiyi iptal et<br/>Artık e-posta göndermek istemiyorum|
 | Onayla | Bir eylemi onaylayın.|Evet oh olduğumu onaylıyorum<br/>İyi onaylayan<br/>Tamamdır onaylayan|
 | FinishTask | Kullanıcı başlatılan bir görevi tamamlayın.|İşim bitti<br/>İşim bitti<br/>Yapıldığını|
-| GoBack | Bir adıma geri dönün veya bir önceki adıma geri dönün.|Twitter'da geri dönün<br/>Bir adıma geri dönün<br/>Geri dön|
+| GoBack | Bir adıma geri dönün veya bir önceki adıma geri dönün.|Twitter'da geri dönün<br/>Bir adıma geri dönün<br/>Geri git|
 | Yardım | Yardım isteği.|Lütfen yardımcı olun<br/>Yardımı<br/>Yardım|
 | Yinele | Bir eylemi yineleyin.|Lütfen son soru tekrarlayın<br/>Son şarkı yineleyin|
 | ShowNext | Bir dizinin sonraki öğeyi gösterir. |Sonrakini Göster<br/>Sonraki Sayfaya Git|

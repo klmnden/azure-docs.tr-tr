@@ -5,15 +5,15 @@ services: storage
 author: fauhse
 ms.service: storage
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 11/26/2018
 ms.author: fauhse
 ms.component: files
-ms.openlocfilehash: 25bec4bdbae5b206d23fa300f139f55f86b8167e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 3a1cc0a28ef5a4861d86373ce39258936639baab
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434390"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333362"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure Dosya Eşitleme proxy’si ve güvenli duvarı ayarları
 Azure dosya eşitleme, şirket içi sunucularınızı Azure çok siteli eşitleme ve bulut katmanlaması özellikleri etkinleştirme dosyaları'na bağlanır. Bu nedenle, bir şirket içi sunucu internet'e bağlanması gerekir. Bir BT yöneticisi Azure bulut hizmetlerine erişmek sunucu için en iyi yolu karar vermeniz gerekir.
@@ -46,7 +46,7 @@ Azure dosya eşitleme bulunamazsınız kullanılabilir azure'a otomatik olarak u
 ## <a name="proxy"></a>Ara sunucu
 Azure dosya eşitleme uygulamaya özgü ve makine genelindeki proxy ayarlarını destekler.
 
-**Uygulamaya özel proxy ayarlarını** Azure dosya eşitleme trafiği için özel bir ara sunucu yapılandırmasına izin verin. Uygulamaya özgü proxy ayarları 3.0.12.0 Aracı sürüm veya üstü ve aracı yükleme sırasında veya Set-StorageSyncProxyConfiguration PowerShell cmdlet'i kullanılarak yapılandırılabilir.
+**Uygulamaya özel proxy ayarlarını** Azure dosya eşitleme trafiği için özel bir ara sunucu yapılandırmasına izin verin. Uygulamaya özgü proxy ayarları 4.0.1.0 Aracı sürüm veya üstü ve aracı yükleme sırasında veya Set-StorageSyncProxyConfiguration PowerShell cmdlet'i kullanılarak yapılandırılabilir.
 
 Uygulamaya özel proxy ayarlarını yapılandırmak için PowerShell komutları:
 ```PowerShell

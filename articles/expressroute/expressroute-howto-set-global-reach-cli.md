@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: 9d41ab26876d464187466f566bbfafc4861c799d
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708790"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333304"
 ---
 # <a name="configure-expressroute-global-reach-using-azure-cli-preview"></a>Azure CLI (Önizleme) kullanarak ExpressRoute küresel erişim yapılandırma
 Bu makalede Azure CLI kullanarak ExpressRoute Global erişim yapılandırmanıza yardımcı olur. Daha fazla bilgi için [ExpressRouteRoute Global erişim](expressroute-global-reach.md).

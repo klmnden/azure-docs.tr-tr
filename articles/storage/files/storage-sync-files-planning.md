@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a2864ca743adf4ced1418630940146fed21b7fd5
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 89ab5ecb4e1a6a39e785a51c61e1344631b1f394
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625309"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335189"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -109,10 +109,11 @@ CSV sonuçları görüntülemek için:
 ```
 
 ### <a name="system-requirements"></a>Sistem Gereksinimleri
-- Windows Server 2012 R2 veya Windows Server 2016 çalıştıran bir sunucu:
+- Windows Server 2012 R2, Windows Server 2016 veya Windows Server 2019 çalıştıran bir sunucu:
 
     | Sürüm | Desteklenen SKU'ları | Desteklenen dağıtım seçenekleri |
     |---------|----------------|------------------------------|
+    | Windows Server 2019 | Datacenter ve Standard | Tam (bir kullanıcı Arabirimi ile sunucu) |
     | Windows Server 2016 | Datacenter ve Standard | Tam (bir kullanıcı Arabirimi ile sunucu) |
     | Windows Server 2012 R2 | Datacenter ve Standard | Tam (bir kullanıcı Arabirimi ile sunucu) |
 
@@ -198,10 +199,10 @@ Microsoft'un şirket içi virüsten koruma çözümleri, Windows Defender ve Sys
 ### <a name="backup-solutions"></a>Yedekleme çözümleri
 Virüsten koruma çözümleri gibi yedekleme çözümleri, katmanlı dosyalar geri çağırma bildirimi yayımlayabiliriz neden olabilir. Bulut yedekleme çözümü yerine şirket içi yedekleme ürün Azure dosya paylaşımını yedekleme kullanmanızı öneririz.
 
-Şirket içi yedekleme çözümü kullanıyorsanız, yedeklemeler eşitleme grubundaki bulut katmanlamasını devre dışı olan bir sunucuda gerçekleştirilmelidir. Sunucu uç noktası konumdaki dosyaları geri yükleme, dosya düzeyinde geri yükleme seçeneğini kullanın. Eşitleme grubundaki tüm uç noktalar için dosyaları geri eşitlenir ve mevcut dosyaları yedeklemeden geri sürümle değiştirilir.
+Şirket içi yedekleme çözümü kullanıyorsanız, yedeklemeler eşitleme grubundaki bulut katmanlamasını devre dışı olan bir sunucuda gerçekleştirilmelidir. Bir geri yükleme gerçekleştirirken, birim düzeyinde veya dosya düzeyinde geri yükleme seçenekleri kullanın. Eşitleme grubundaki tüm uç noktalar için dosyaları dosya düzeyinde geri yükleme seçeneğini kullanarak geri eşitlenir ve mevcut dosyaları yedeklemeden geri sürümle değiştirilir.  Azure dosya paylaşımını veya diğer sunucu uç noktaları yeni dosya sürümlerinde birim düzeyinde geri yüklemeler yerini almaz.
 
 > [!Note]  
-> Uygulama algılayan birim düzeyi ve tam kurtarma (BMR) geri yükleme seçenekleri beklenmeyen sonuçlara neden olabilir ve şu anda desteklenmiyor. Bu geri yükleme seçenekleri gelecekteki bir sürümde desteklenir.
+> Tam kurtarma (BMR) geri yükleme beklenmeyen sonuçlara neden olabilir ve şu anda desteklenmiyor.
 
 ### <a name="encryption-solutions"></a>Şifreleme çözümleri
 Şifreleme çözümleri için destek nasıl uygulanana üzerinde bağlıdır. Azure dosya eşitleme ile çalışma bilinmektedir:

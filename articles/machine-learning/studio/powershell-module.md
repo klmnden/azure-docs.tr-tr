@@ -1,5 +1,5 @@
 ---
-title: Machine Learning için PowerShell Modülü | Microsoft Docs
+title: Machine Learning Studio - Azure PowerShell Modülü | Microsoft Docs
 description: Azure Machine Learning için PowerShell modülü genel önizleme modunda kullanılabilir. Oluşturmak ve çalışma alanlarını, denemeleri, web hizmetleri ve yönetmek için PowerShell'i kullanın.
 keywords: deneme,doğrusal regresyon,makine öğrenimi algoritmaları,makine öğrenimi öğreticisi,tahmine dayalı modelleme teknikleri,veri bilimi deneyi
 services: machine-learning
@@ -17,14 +17,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.openlocfilehash: 795ce4e86c5fd8dac34f18cbbe80dd1395d94c5c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 3191ff845f72c87b85fdd414716ed9a00b022d06
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263137"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312036"
 ---
-# <a name="powershell-module-for-microsoft-azure-machine-learning"></a>Microsoft Azure Machine Learning için PowerShell modülü
+# <a name="powershell-module-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio için PowerShell Modülü
 Azure Machine Learning için PowerShell modülü, çalışma alanlarını, denemeleri, veri kümeleri, Klasik web hizmetleri ve daha fazla yönetmek için Windows PowerShell'i kullanma olanak tanıyan güçlü bir araçtır.
 
 Belgeleri görüntüleyin ve modülü tam kaynak koduyla birlikte, indirme [ https://aka.ms/amlps ](https://aka.ms/amlps). 

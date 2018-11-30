@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a41b236182c18a83b6c83a38fd8420a013313d56
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d086b958ddca6caded19cc02a790f8091aba993e
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315094"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425194"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Özel konular için örnekleri
 Azure AD Connect ile Azure AD örneğini dünya çapında en yaygın olarak kullanılan ve Office 365. Ancak diğer örnekleri de vardır ve bu URL'leri ve diğer özel durumlar için farklı gereksinimler vardır.
 
 ## <a name="microsoft-cloud-germany"></a>Microsoft Bulut Almanya
-[Microsoft Cloud Almanya](http://www.microsoft.de/cloud-deutschland) bir Alman veri Emanetçisi tarafından işletilir bağımsız bir bulut.
+[Microsoft Cloud Almanya](https://www.microsoft.de/cloud-deutschland) bir Alman veri Emanetçisi tarafından işletilir bağımsız bir bulut.
 
 | URL'lerin Ara sunucuda açmak için |
 | --- |

@@ -1,6 +1,6 @@
 ---
 title: AMQP 1.0 ile Java Service Bus API'sini kullanma | Microsoft Docs
-description: Advanced Message Queuing Protodol (AMQP) 1.0 ile Azure Service Bus ile Java mesaj hizmeti (JMS) kullanma
+description: Advanced Message Queuing Protocol (AMQP) 1.0 ile Azure Service Bus ile Java mesaj hizmeti (JMS) kullanma
 services: service-bus-messaging
 documentationcenter: java
 author: spelluru
@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: spelluru
-ms.openlocfilehash: 9a223c67e0c1f2e71d2953be63924a114e7420af
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: fbd74b227afd2191616100d74c7864eacf015add
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018239"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308079"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Hizmet veri yolu AMQP 1.0 ile Java mesaj hizmeti (JMS) API kullanma
 Advanced Message Queuing Protocol (AMQP) 1.0 sağlam, platformlar arası Mesajlaşma uygulamaları oluşturmak için kullanabileceğiniz bir verimli, güvenilir, hat düzeyinde bir Mesajlaşma protokolüdür.
@@ -66,7 +66,7 @@ queue.QUEUE = queue1
 #### <a name="setup-jndi-context-and-configure-the-connectionfactory"></a>JNDI bağlam kurulumu ve ConnectionFactory yapılandırma
 
 **ConnectionString** 'paylaşılan erişim ilkeleri' kullanılabilir bir başvuru [Azure portalı](https://portal.azure.com) altında **birincil bağlantı dizesi**
-```
+```java
 // The connection string builder is the only part of the azure-servicebus SDK library
 // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
 // connection string. 
@@ -89,7 +89,7 @@ Destination queue = (Destination) context.lookup("QUEUE");
 Bir hedef Qpid özellikleri dosya JNDI sağlayıcısında tanımlamak için kullanılan giriş aşağıdaki biçimi şöyledir:
 
 Üretici için hedef sıra oluşturmak için- 
-```
+```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
 
@@ -103,7 +103,7 @@ MessageProducer producer = session.createProducer(queue);
 ```
 
 Tüketici için bir hedef sıra oluşturmak için- 
-```
+```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
 
@@ -297,7 +297,7 @@ public class JmsQueueQuickstart {
 ```
 
 ### <a name="run-the-application"></a>Uygulamayı çalıştırma
-Geçirmek **bağlantı dizesi** uygulamayı çalıştırmak için paylaşılan uygulama erişimini ilkelerinin.
+Geçirmek **bağlantı dizesi** uygulamayı çalıştırmak için paylaşılan erişim ilkeleri'nden.
 Çıkış biçiminde uygulamayı çalıştırarak aşağıdadır:
 
 ```
@@ -351,7 +351,7 @@ Yani JMS Service Bus ile AMQP 1.0 üzerinden kullanırken, aşağıdaki kısıtl
 
 Ek olarak, Azure Service Bus denetim düzlemi veri düzlemine öğesinden ayırır ve bu nedenle birkaç JMS'ın dinamik topoloji işlevleri desteklemiyor olabilir:
 
-| Desteklenmeyen yöntemi          | değiştirin                                                                             |
+| Desteklenmeyen yöntemi          | Şununla değiştir                                                                             |
 |-----------------------------|------------------------------------------------------------------------------------------|
 | createDurableSubscriber     | ileti Seçici taşıma konu aboneliği oluştur                                 |
 | createDurableConsumer       | ileti Seçici taşıma konu aboneliği oluştur                                 |

@@ -1,5 +1,5 @@
 ---
-title: R ile denemenizi genişletme | Microsoft Docs
+title: R - Azure Machine Learning Studio ile denemenizi genişletme | Microsoft Docs
 description: Azure Machine Learning Studio'da R dili ile R betiği yürütme modülünü kullanarak genişletmek nasıl.
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 30ed2a71fcf00a511802afb5b126829b918615d6
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: df6453f1cf6e8b372239d528067a7258d645518d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263069"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311017"
 ---
-# <a name="extend-your-experiment-with-r"></a>R ile denemenizi genişletme
+# <a name="azure-machine-learning-studio-extend-your-experiment-with-r"></a>Azure Machine Learning Studio: R ile denemenizi genişletme 
 Kullanarak Azure Machine Learning Studio'da R diliyle işlevselliğini genişletebilirsiniz [R betiği yürütme] [ execute-r-script] modülü.
 
 Bu modül, birden çok giriş veri kümeleri kabul eder ve tek bir veri kümesi çıktı olarak verir. Bir R betiği yazabilirsiniz **R betiği** parametresinin [R betiği yürütme] [ execute-r-script] modülü.
@@ -33,7 +33,7 @@ Her giriş bağlantı noktasına modülü, aşağıdakine benzer kod kullanarak 
     dataset1 <- maml.mapInputPort(1)
 
 ## <a name="listing-all-currently-installed-packages"></a>Şu anda yüklü tüm paketlerin listesi
-Yüklü paketler listesini değiştirebilirsiniz. Şu anda yüklü paketler listesini bulunabilir [R paketleri Azure Machine Learning tarafından desteklenen](https://msdn.microsoft.com/library/azure/mt741980.aspx).
+Yüklü paketler listesini değiştirebilirsiniz. Şu anda yüklü paketler listesini bulunabilir [R paketleri Azure Machine Learning Studio tarafından desteklenen](https://msdn.microsoft.com/library/azure/mt741980.aspx).
 
 Aşağıdaki kodu girerek yüklü paketleri tam, güncel listesini alabilirsiniz [R betiği yürütme] [ execute-r-script] Modülü:
 

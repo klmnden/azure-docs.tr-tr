@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: terrylan
-ms.openlocfilehash: 978ef8087665edb3f0bfaa0bd0a55f4d8ab9a12d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 3640e4affe42986106791cba50f6cbfd97906806
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251517"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308333"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Güvenliği artırmak için Azure Güvenlik Merkezi'ni kullanarak önerileri
 Güvenlik İlkesi yapılandırma ve sonra Azure Güvenlik Merkezi tarafından sağlanan öneriler uygulayarak bir önemli güvenlik olayı olasılığını azaltabilirsiniz. Bu makalede güvenlik ilkeleri ve öneriler Güvenlik Merkezi'nde güvenlik saldırısını önlemeye yardımcı olmak için nasıl kullanılacağını gösterir.
@@ -30,7 +30,7 @@ Güvenlik İlkesi yapılandırma ve sonra Azure Güvenlik Merkezi tarafından sa
 >
 
 ## <a name="managing-security-recommendations"></a>Güvenlik önerilerini yönetme
-Güvenlik İlkesi belirtilen abonelik veya kaynak grubundaki kaynaklar için önerilen denetim kümesini tanımlar. Güvenlik Merkezi'nde şirketinizin güvenlik gereksinimlerine göre ilkeleri tanımlarsınız. Daha fazla bilgi için bkz. [Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md).
+Güvenlik İlkesi belirtilen abonelik veya kaynak grubundaki kaynaklar için önerilen denetim kümesini tanımlar. Güvenlik Merkezi'nde şirketinizin güvenlik gereksinimlerine göre ilkeleri tanımlarsınız. Daha fazla bilgi için bkz. [Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md).
 
 Kaynak grupları için güvenlik ilkeleri abonelik düzeyinden devralındığı.
 

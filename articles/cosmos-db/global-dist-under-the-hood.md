@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d104b5de22281817626f8de0f41029e76e06e3a2
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 5db43c6488a4592eb46d9a0fe9a044dde36fc494
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824821"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423356"
 ---
 # <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Azure Cosmos DB genel dağıtımını - başlık altında
 
@@ -72,7 +72,7 @@ Birden çok yazma bölgeleri ile yapılandırılmış Cosmos veritabanları içi
 
 Tek bir veya birden çok yazma bölgeleri ile Cosmos veritabanı yapılandırma olsun, beş iyi tanımlanmış tutarlılık modellerinden seçebilirsiniz. Yeni eklenen desteği sayesinde, birden fazla yazma bölgeleri etkinleştirmek için birkaç önemli yönlerini tutarlılık düzeyleri şunlardır:  
 
-Olarak önce sınırlanmış eskime durumu tutarlılık tüm okuma k ön eklerine veya t son yazma saniyeler içinde tüm bölgelerin olacağını garanti eder. Ayrıca, sınırlanmış eskime durumu tutarlılık okuma monoton ve tutarlı ön ek Garantisi ile sağlanır. Koruma entropi protokolü, oranı sınırlı bir biçimde çalışır ve ön ekler değil accumulate ve yazma backpressure uygulanacak yok sağlar. Daha önce oturum tutarlılık monoton garanti eder, monoton yazma, kendi yazma okuma gibi yazma aşağıdaki okuma ve tutarlı ön ek dünya genelinde garanti eder. Güçlü tutarlılık ile yapılandırılmış veritabanları için sistem anahtarlara tek bir öncü her bölüm kümelerinin atayarak yazma bölgesi. 
+Olarak önce sınırlanmış eskime durumu tutarlılık tüm okuma k ön eklerine veya t son yazma saniyeler içinde tüm bölgelerin olacağını garanti eder. Ayrıca, sınırlanmış eskime durumu tutarlılık okuma monoton ve tutarlı ön ek Garantisi ile sağlanır. Koruma entropi protokolü, oranı sınırlı bir biçimde çalışır ve ön ekler değil accumulate ve yazma backpressure uygulanacak yok sağlar. Daha önce oturum tutarlılık monoton garanti eder, monoton yazma, kendi yazma okuma gibi yazma aşağıdaki okuma ve tutarlı ön ek dünya genelinde garanti eder. Güçlü tutarlılık ile avantajlarını yapılandırılmış veritabanları için multi-Uzmanlaşma (düşük yazma gecikme süresi, yüksek yazma kullanılabilirliği) uygulanmaz nedeniyle zaman uyumlu çoğaltma bölgeler arasında.
 
 Cosmos DB'de beş tutarlılık modeli semantiği açıklanan [burada](consistency-levels.md) ve üst düzey bir TLA + belirtimlerini kullanarak matematiksel olarak gösterilen [burada](https://github.com/Azure/azure-cosmos-tla).
 

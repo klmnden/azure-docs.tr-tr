@@ -347,5 +347,5 @@
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=active-directory)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)

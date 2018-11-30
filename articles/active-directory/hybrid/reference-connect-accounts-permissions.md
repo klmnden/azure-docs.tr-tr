@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a3bce69236586bcd0a250c47f1129ac0d94e8b26
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ef8b621b41bb43c46ef728e28d3b312ac49f1da3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231491"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308792"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Hesaplar ve izinler
 
@@ -39,7 +39,10 @@ Azure AD Connect, şirket içi veya Windows Server Active Directory Azure Active
 
 Azure AD Connect çalıştırmak için kullanılan üç bu hesabı ek olarak, Azure AD Connect'i yüklemek için aşağıdaki ek hesaplar gerekir.  Bunlar:
 
-- **AD DS kuruluş yöneticisi hesabı**: Azure AD Connect'i yüklemek için kullanılan
+- **Yerel yönetici hesabı**: Azure AD Connect kullanan yüklüyor ve kimin yerel yönetici izinlerine sahip bir makinede yönetici.
+
+- **AD DS kuruluş yöneticisi hesabı**: isteğe bağlı olarak yukarıdaki "AD DS bağlayıcı hesabı" oluşturmak için kullanılır.
+
 - **Azure AD genel yönetici hesabı**: Azure AD Bağlayıcısı hesabı oluşturup Azure AD'ye yapılandırmak için kullanılır.
 
 - **(İsteğe bağlı) SQL SA hesabı**: SQL Server'ın tam sürümünü kullanırken ad eşitleme veritabanını oluşturmak için kullanılır.  Bu SQL Server yerel veya uzak Azure AD Connect yüklemesi için olabilir.  Bu hesap aynı kuruluş yöneticisi olarak hesap olabilir.  Veritabanı sağlama, artık SQL Yöneticisi tarafından bant dışında yapılabilmesi ve ardından veritabanı sahibi haklarıyla Azure AD Connect Yöneticisi tarafından yüklenir.  Hakkında bilgi için bkz bu [SQL yönetici temsilcisi izinlerini kullanarak Azure AD Connect'i yükleme](how-to-connect-install-sql-delegation.md)

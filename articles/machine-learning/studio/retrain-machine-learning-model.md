@@ -1,5 +1,5 @@
 ---
-title: Bir Machine Learning modeli yeniden eğitme | Microsoft Docs
+title: Azure Machine Learning Studio'da model - yeniden eğitme | Microsoft Docs
 description: Modeli yeniden eğitme ve Azure Machine Learning'de yeni eğitim modeli kullanmak için Web hizmetini güncelleştirmek hakkında bilgi edinin.
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: eea04b93349311cca6f88c10ddaf9c1b47828558
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 1f2505eda232c518ccb24b32fad91fb36dd11b01
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262814"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317934"
 ---
-# <a name="retrain-a-machine-learning-model"></a>Bir Machine Learning modeli yeniden eğitme
+# <a name="retrain-an-azure-machine-learning-studio-model"></a>Bir Azure Machine Learning Studio modeli yeniden eğitme
 Azure Machine Learning, machine learning modellerini, operasyonel hale getirme sürecinin bir parçası olarak, modelinizi eğitilmiş ve kaydedilir. Ardından, bir Tahmine dayalı Web hizmeti oluşturmak için kullanabilirsiniz. Web hizmeti web siteleri, panolar ve mobil uygulamalarda tüketilebilir. 
 
 Machine Learning kullanarak oluşturduğunuz modelleri genellikle statik değildir. Yeni veriler kullanılabilir olduğunda ya da kendi veri tüketici API'si varsa, model eğitilebileceği gerekir. 

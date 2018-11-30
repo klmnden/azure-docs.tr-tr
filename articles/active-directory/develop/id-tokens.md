@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 35e6cd988a0532221d88b22cdd51fc29d7f17ba9
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: ab2c0f671eaf6147baad24b426c4a527f07e136f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158763"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422414"
 ---
 # <a name="id-tokens"></a>Kimlik belirteçleri
 
@@ -70,8 +70,8 @@ Bu v2.0 örnek belirtecinde görüntülemek [jwt.ms](https://jwt.ms/#id_token=ey
 |`idp`|Dize, genellikle bir STS URI | Belirtecin öznesinin kimliğini doğrulayan kimlik sağlayıcısını kaydeder. -Veren olarak aynı kiracıda değil kullanıcı hesabının konukların sürece örneği için bu değer veren talep değeri için aynıdır. Talep mevcut değilse, değeri anlamına `iss` bunun yerine kullanılabilir.  Kişisel hesapları orgnizational bağlamda (bir Azure AD kiracısına davet örneği için bir kişisel hesap) kullanılan `idp` talep 'live.com' veya Microsoft hesabı kiracısının içeren bir STS URI olabilir `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 |`nbf` |  int, UNIX zaman damgası | "Nbf" (önce değil) talep işlem önüne JWT değil kabul edilmesi gereken zamanı tanımlar.|
 |`exp` |  int, UNIX zaman damgası | "Exp" (süre) talep veya daha sonra JWT gerekir işleme için kabul sona erme zamanı tanımlar.  Kaynak belirteci de - bu süreden önce örneğin kimlik değişikliği gerekli değildir veya belirteç iptali algılandı reddedebilir olduğunu unutmayın. |
-| `c_hash`| Dize |Yalnızca bir OAuth 2.0 yetkilendirme kodu ile kimlik belirteci verildiğinde kod karma kimlik belirteçleri bulunur. Bir yetkilendirme kodu özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla ayrıntı için bkz. [Openıd Connect belirtimi](http://openid.net/specs/openid-connect-core-1_0.html). |
-|`at_hash`| Dize |Belirteç karması Kimliğinde bulunan erişim yalnızca zaman kimlik belirteci bir OAuth 2.0 erişim belirteci ile verilen belirteçler. Bir erişim belirteci özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla ayrıntı için bkz. [Openıd Connect belirtimi](http://openid.net/specs/openid-connect-core-1_0.html). |
+| `c_hash`| Dize |Yalnızca bir OAuth 2.0 yetkilendirme kodu ile kimlik belirteci verildiğinde kod karma kimlik belirteçleri bulunur. Bir yetkilendirme kodu özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla ayrıntı için bkz. [Openıd Connect belirtimi](https://openid.net/specs/openid-connect-core-1_0.html). |
+|`at_hash`| Dize |Belirteç karması Kimliğinde bulunan erişim yalnızca zaman kimlik belirteci bir OAuth 2.0 erişim belirteci ile verilen belirteçler. Bir erişim belirteci özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla ayrıntı için bkz. [Openıd Connect belirtimi](https://openid.net/specs/openid-connect-core-1_0.html). |
 |`aio` | Donuk dize | Belirteci yeniden kullanım için verileri kaydetmek üzere Azure AD tarafından kullanılan bir iç talep. Yoksayılacak.|
 |`preferred_username` | Dize | Kullanıcıyı temsil eden birincil kullanıcı adı. Bir e-posta adresi, telefon numarası veya belirli bir biçimdeki olmadan genel bir kullanıcı adı olabilir. Değerini değişebilir ve zaman içinde değişebilir. Değişebilir olduğundan, bu değer yetkilendirme kararları vermek için kullanılmamalıdır. `profile` Kapsamı, bu talebi için gereklidir.|
 |`email` | Dize | `email` Talep bir e-posta adresine sahip Konuk hesapları için varsayılan olarak mevcut.  Uygulamanız için yönetilen kullanıcılar (Bu aynı kiracıda kaynak olarak) e-posta talebi isteyebilir kullanarak `email` [isteğe bağlı bir talep](active-directory-optional-claims.md).  V2.0 uç noktası ile uygulamanızı da isteğinde bulunabilirsiniz `email` Openıd Connect kapsam - isteğe bağlı bir talep ve kapsam talebi almak için isteği gerekmez.  E-posta talebi yalnızca kullanıcının profil bilgilerini adreslenebilir posta destekler. |

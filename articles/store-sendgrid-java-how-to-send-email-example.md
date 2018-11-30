@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: 400c8ac229e00e818e336f1c47b126d3e8a2d155
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c2f2a6e5f2dd551cfb300d333081874fef2f405c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253848"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421956"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Bir Azure dağıtımında Java'dan SendGrid kullanarak e-posta gönderme
 Aşağıdaki örnek, Azure'da barındırılan bir web sayfasından e-postaları göndermek için Sendgrid'i nasıl kullanabileceğinizi gösterir. Elde edilen uygulama, aşağıdaki ekran görüntüsünde gösterildiği gibi kullanıcıdan e-posta değerlerini ister.
@@ -32,7 +32,7 @@ Sonuçta elde edilen e-posta aşağıdaki ekran görüntüsüne benzer olacaktı
 
 Bu konudaki kodu kullanmak için aşağıdakileri yapmanız gerekir:
 
-1. Javax.mail jar dosyaları dışındaki, örneğin almak <http://www.oracle.com/technetwork/java/javamail/index.html>.
+1. Javax.mail jar dosyaları dışındaki, örneğin almak <https://www.oracle.com/technetwork/java/javamail/index.html>.
 2. Jar dosyaları dışındaki Java derleme yolu ekleyin.
 3. Bu Java uygulaması oluşturmak için Eclipse kullanıyorsanız, SendGrid kitaplıklarını Eclipse'nın dağıtım derleme özelliğini kullanarak uygulama dağıtım dosyanızda (WAR) içerebilir. Bu Java uygulaması oluşturmak için Eclipse kullanmıyorsanız kitaplıkları aynı Azure rol Java uygulamanızı olarak içerdiği ve uygulama sınıf yolunuza eklendi emin olun.
 
@@ -45,7 +45,7 @@ Aşağıdaki kod, e-posta göndermek için kullanıcı verilerini almak için bi
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" %>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
     <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -101,7 +101,7 @@ Emailform.jsp biçiminde tamamladığınızda çağrılır, aşağıdaki kod, e-
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" import="javax.activation.*, javax.mail.*, javax.mail.internet.*, java.util.Date, java.util.Properties" %>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
     <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">

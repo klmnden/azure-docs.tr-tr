@@ -1,65 +1,66 @@
 ---
 title: Azure SQL Veritabanı sorgulamak için Java kullanma | Microsoft Docs
-description: Bu konu başlığı altında, Java kullanarak Azure SQL Veritabanına bağlanan ve Transact-SQL deyimleriyle veritabanını sorgulayan bir program oluşturma işlemi gösterilir.
+description: Bir Azure SQL veritabanına bağlanan bir program oluşturmak için Java kullanın ve T-SQL deyimlerini kullanarak sorgu işlemi gösterilmektedir.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
 ms.devlang: java
 ms.topic: quickstart
 author: ajlam
 ms.author: andrela
-ms.reviewer: ''
+ms.reviewer: v-masebo
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 2e8e47e8f2b61105a720c36d5b91a04df094c5d6
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.date: 11/20/2018
+ms.openlocfilehash: afa975a593fd962050c9f894ec091d7f64579138
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912365"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52332622"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Hızlı Başlangıç: Java kullanarak Azure SQL veritabanı sorgulama
 
-Bu hızlı başlangıçta [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) kullanarak bir Azure SQL veritabanına bağlanma ve Transact-SQL deyimleriyle veri sorgulama işlemleri gösterilir.
+Bu makalede nasıl yapılacağı açıklanır [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) bir Azure SQL veritabanına bağlanmak için. Ardından, T-SQL deyimleriyle veri kullanabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için aşağıdaki önkoşulların karşılandığından emin olun:
+Bu örnek tamamlamak için aşağıdaki önkoşulların karşılandığından emin olun:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Bu hızlı başlangıçta kullanacağınız bilgisayarın genel IP adresi için [sunucu düzeyinde bir güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md).
+- A [sunucu düzeyinde güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md) kullanmakta olduğunuz bilgisayarın genel IP adresi
 
-- İşletim sisteminiz için Java ve ilgili yazılımları yüklediniz:
+- Yüklü işletim sisteminiz için Java ile ilgili yazılım:
 
-    - **MacOS**: Homebrew ve Java’yı ve ardından Maven’i yükleyin. Bkz: [1.2 ve 1.3 adımları](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
-    - **Ubuntu**: Java Development Kit’i ve Maven’i yükleyin. Bkz: [1.2, 1.3 ve 1.4 adımları](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
-    - **Windows**: Java Development Kit’i ve Maven’i yükleyin. Bkz: [1.2 ve 1.3 adımları](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).    
+  - **MacOS**Homebrew ve Java yükleyin ve ardından Maven'i yükleyin. Bkz: [1.2 ve 1.3 adımları](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
 
-## <a name="sql-server-connection-information"></a>SQL Server bağlantı bilgileri
+  - **Ubuntu**, Java, Java Development Kit yükleyin, ardından Maven'i yükleyin. Bkz: [1.2, 1.3 ve 1.4 adımları](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
+
+  - **Windows**Java yükleyin ve ardından Maven'i yükleyin. Bkz: [1.2 ve 1.3 adımları](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).
+
+## <a name="get-database-connection"></a>Veritabanı bağlantı Al
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-## <a name="create-maven-project-and-dependencies"></a>**Maven projesi ve bağımlılıklarını oluşturma**
-1. Terminalde **sqltest** adlı yeni bir Maven projesi oluşturun. 
+## <a name="create-the-project"></a>Proje oluşturma
 
-   ```bash
-   mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
-   ```
+1. Terminalde *sqltest* adlı yeni bir Maven projesi oluşturun.
 
-2. İstendiğinde **Y** girin.
-3. Dizini **sqltest** olarak değiştirin ve sık kullandığınız metin düzenleyicisinde ***pom.xml*** dosyasını açın.  Aşağıdaki kodu kullanarak **SQL Server için Microsoft JDBC Sürücüsünü** projenizin bağımlılıklarına ekleyin:
+    ```bash
+    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0" --batch-mode
+    ```
 
-   ```xml
-   <dependency>
-       <groupId>com.microsoft.sqlserver</groupId>
-       <artifactId>mssql-jdbc</artifactId>
-       <version>6.4.0.jre8</version>
-   </dependency>
-   ```
+1. Dizini *sqltest* olarak değiştirin ve sık kullandığınız metin düzenleyicisinde *pom.xml* dosyasını açın. Ekleme **SQL Server için Microsoft JDBC sürücüsü** için aşağıdaki kodu kullanarak proje bağımlılıklarınızı.
 
-4. Yine ***pom.xml*** dosyasında, aşağıdaki özellikleri projenize ekleyin.  Özellikler bölümünüz yoksa, bağımlılıklardan sonra ekleyebilirsiniz.
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.sqlserver</groupId>
+        <artifactId>mssql-jdbc</artifactId>
+        <version>7.0.0.jre8</version>
+    </dependency>
+    ```
+
+1. Yine *pom.xml* dosyasında, aşağıdaki özellikleri projenize ekleyin. Özellikler bölümünüz yoksa, bağımlılıklardan sonra ekleyebilirsiniz.
 
    ```xml
    <properties>
@@ -68,82 +69,89 @@ Bu hızlı başlangıcı tamamlamak için aşağıdaki önkoşulların karşıla
    </properties>
    ```
 
-5. ***Pom.xml*** dosyasını kaydedin ve kapatın.
+1. *Pom.xml* dosyasını kaydedin ve kapatın.
 
-## <a name="insert-code-to-query-sql-database"></a>SQL veritabanını sorgulamak için kod girme
+## <a name="add-code-to-query-database"></a>Veritabanını sorgula için kod ekleyin
 
-1. Maven projenizde, şu konumda zaten ***App.java*** adlı bir dosyanız olmalıdır: ..\sqltest\src\main\java\com\sqlsamples\App.java
+1. Adlı bir dosya zaten olmalıdır *App.java* Maven projenize adresinde yer alan:
 
-2. Dosyayı açın ve içeriğini aşağıdaki kod ile değiştirin; sonra sunucunuz, veritabanınız, kullanıcınız ve parolanız için uygun değerleri ekleyin.
+   *.. \sqltest\src\main\java\com\sqldbsamples\App.Java*
 
-   ```java
-   package com.sqldbsamples;
+1. Dosyayı açıp içeriğini aşağıdaki kodla değiştirin. Ardından, sunucu, veritabanı, kullanıcı ve parola için uygun değerleri ekleyin.
 
-   import java.sql.Connection;
-   import java.sql.Statement;
-   import java.sql.PreparedStatement;
-   import java.sql.ResultSet;
-   import java.sql.DriverManager;
+    ```java
+    package com.sqldbsamples;
 
-   public class App {
+    import java.sql.Connection;
+    import java.sql.Statement;
+    import java.sql.PreparedStatement;
+    import java.sql.ResultSet;
+    import java.sql.DriverManager;
 
-    public static void main(String[] args) {
-    
-        // Connect to database
-           String hostName = "your_server.database.windows.net";
-           String dbName = "your_database";
-           String user = "your_username";
-           String password = "your_password";
-           String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
-           Connection connection = null;
+    public class App {
 
-           try {
-                   connection = DriverManager.getConnection(url);
-                   String schema = connection.getSchema();
-                   System.out.println("Successful connection - Schema: " + schema);
+        public static void main(String[] args) {
 
-                   System.out.println("Query data example:");
-                   System.out.println("=========================================");
+            // Connect to database
+            String hostName = "your_server.database.windows.net";
+            String dbName = "your_database";
+            String user = "your_username";
+            String password = "your_password";
+            String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;"
+                + "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
+            Connection connection = null;
 
-                   // Create and execute a SELECT SQL statement.
-                   String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName " 
-                       + "FROM [SalesLT].[ProductCategory] pc "  
-                       + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
-                
-                   try (Statement statement = connection.createStatement();
-                       ResultSet resultSet = statement.executeQuery(selectSql)) {
+            try {
+                connection = DriverManager.getConnection(url);
+                String schema = connection.getSchema();
+                System.out.println("Successful connection - Schema: " + schema);
 
-                           // Print results from select statement
-                           System.out.println("Top 20 categories:");
-                           while (resultSet.next())
-                           {
-                               System.out.println(resultSet.getString(1) + " "
-                                   + resultSet.getString(2));
-                           }
+                System.out.println("Query data example:");
+                System.out.println("=========================================");
+
+                // Create and execute a SELECT SQL statement.
+                String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName "
+                    + "FROM [SalesLT].[ProductCategory] pc "  
+                    + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
+
+                try (Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(selectSql)) {
+
+                    // Print results from select statement
+                    System.out.println("Top 20 categories:");
+                    while (resultSet.next())
+                    {
+                        System.out.println(resultSet.getString(1) + " "
+                            + resultSet.getString(2));
+                    }
                     connection.close();
-                   }                   
-           }
-           catch (Exception e) {
-                   e.printStackTrace();
-           }
-       }
-   }
-   ```
+                }
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    ```
+
+   > [!NOTE]
+   > Kod örneği kullanan **AdventureWorksLT** Azure SQL veritabanı örneği.
 
 ## <a name="run-the-code"></a>Kodu çalıştırma
 
-1. Komut isteminde aşağıdaki komutları çalıştırın:
+1. Komut isteminde programı çalıştırın.
 
-   ```bash
-   mvn package
-   mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
-   ```
+    ```bash
+    mvn package -DskipTests
+    mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
+    ```
 
-2. En üst 20 satırın döndürüldüğünü doğrulayın ve sonra uygulama penceresini kapatın.
-
+1. En çok 20 satırlar döndürülür ve uygulama penceresini kapatın doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [İlk Azure SQL veritabanınızı tasarlama](sql-database-design-first-database.md)
-- [SQL Server için Microsoft JDBC sürücüsü](https://github.com/microsoft/mssql-jdbc)
-- [Sorun bildirin/soru sorun](https://github.com/microsoft/mssql-jdbc/issues)
 
+- [İlk Azure SQL veritabanınızı tasarlama](sql-database-design-first-database.md)  
+
+- [SQL Server için Microsoft JDBC sürücüsü](https://github.com/microsoft/mssql-jdbc)  
+
+- [Sorun bildirin/soru sorun](https://github.com/microsoft/mssql-jdbc/issues)  

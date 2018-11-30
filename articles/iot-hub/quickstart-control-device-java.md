@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: 172c3011221e04bfdb4a4f3ae1515fe0eb10065b
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 454c3961cb31e147f647095c0a3a71a6c65630f1
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515259"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422127"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Hızlı Başlangıç: IoT hub’a bağlı bir cihazı denetleme (Java)
 
@@ -69,9 +69,9 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
 
 1. Aşağıdaki komutları Azure Cloud Shell'de çalıştırarak IoT Hub CLI uzantısını ekleyin ve cihaz kimliğini oluşturun. 
 
-   **YourIoTHubName** : aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adı ile değiştirin.
+   **YourIoTHubName**: aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adı ile değiştirin.
 
-   **MyJavaDevice**: Kaydedilen cihaza verilen addır. Gösterilen MyJavaDevice değerini kullanın. Cihazınız için farklı bir ad seçerseniz bu makalenin geri kalan bölümünde aynı adı kullanmanız ve örnek uygulamaları çalıştırmadan önce bunlarda da cihaz adını güncelleştirmeniz gerekir.
+   **MyJavaDevice**: Bu değer için kayıtlı cihaza verilen addır. Gösterilen MyJavaDevice değerini kullanın. Cihazınız için farklı bir ad seçerseniz bu makalenin geri kalan bölümünde aynı adı kullanmanız ve örnek uygulamaları çalıştırmadan önce bunlarda da cihaz adını güncelleştirmeniz gerekir.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -81,11 +81,11 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
 
 2. Yeni kaydettiğiniz cihazın _cihaz bağlantı dizesini_ almak için aşağıdaki komutları Azure Cloud Shell'de çalıştırın:
 
-   **YourIoTHubName**: Bu yer tutucusunu IoT hub'ınız için seçtiğiniz adla değiştirin.
+   **YourIoTHubName**: aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adıyla değiştirin.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
-      -hub-name YourIoTHubName \
+      --hub-name YourIoTHubName \
       --device-id MyJavaDevice \
       --output table
     ```
@@ -100,7 +100,7 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
 
 Arka uç uygulamasının iletileri almak üzere IoT hub’ınıza bağlanmasını sağlamak için bir _hizmet bağlantı dizesi_ de gerekir. Aşağıdaki komut, IoT hub'ınız için hizmeti bağlantı dizesini alır:
    
-**YourIoTHubName** : aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adı ile değiştirin.
+**YourIoTHubName**: aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adı ile değiştirin.
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name YourIoTHubName --output table

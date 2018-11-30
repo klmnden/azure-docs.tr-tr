@@ -3,19 +3,19 @@ title: Arama site, barındırılan UI Bing özel arama kullanın
 titlesuffix: Azure Cognitive Services
 description: Nasıl yapılandırılacağını açıklar Bing özel arama kullanıcı Arabirimi barındırılan.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
-ms.openlocfilehash: 77845cb60dac707326acdb08b0198f8725a36f62
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: c71597cf540cca67b9558ce28d20ce1d21ae0243
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48813983"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424995"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Barındırılan UI deneyiminizi yapılandırın
 
@@ -29,7 +29,7 @@ Web uygulamanız için barındırılan bir kullanıcı Arabirimi yapılandırmak
   
 2. Özel arama örneği tıklayın. Örneği oluşturmak için bkz [ilk Bing özel arama örneğinizin oluşturma](quick-start.md).  
 
-3. Tıklayın **barındırılan UI** sekmesi.  
+3. **Barındırılan kullanıcı arabirimi** sekmesine tıklayın.  
   
 4. Bir düzen seçin.
   
@@ -37,13 +37,13 @@ Web uygulamanız için barındırılan bir kullanıcı Arabirimi yapılandırmak
   - Sonuçları yalnızca &mdash; bu düzeni yalnızca arama sonuçlarını görüntüler. Bu düzen, bir arama kutusu görüntülemez. Sorgu parametresini ekleyerek arama sorgusu sağlamanız gerekir (& q =\<sorgu dizesi >) istek URL'SİNDE JavaScript kod parçacığını veya HTML uç noktası bağlantısını için.
   - POP üzerinden &mdash; bu düzen, bir arama kutusu sağlar ve bir kayan kaplama arama sonuçlarını görüntüler.
       
-5. Bir renk temasını seçin. Olası temaları şunlardır: 
+5. Bir renk teması seçin. Olası temaları şunlardır: 
   
   - Klasik
   - Koyu
   - Skyline mavi
 
-  Her temaları temayı ile web uygulamanızı en iyi çalıştığını görmek için tıklayın. Renk teması daha iyi web uygulamanızla tümleştirmek için ince ayar yapmak gerekiyorsa **Özelleştir tema**. Tüm renk yapılandırmaları tüm düzen temaları için geçerlidir. Bir rengini değiştirmek için ilgili metin kutusunda rengin RGB ONALTILIK değerini (örneğin, #366eb8) girin. Veya, renk düğmesini tıklatın ve sizin için uygun Gölge'ye tıklayın. 
+  Her temaları temayı ile web uygulamanızı en iyi çalıştığını görmek için tıklayın. Web uygulamanıza uygun hale getirmek için renk temasında ayarlama yapmanız gerekiyorsa **Temayı özelleştir**'e tıklayın. Tüm renk yapılandırmaları her düzen temasıyla kullanılamaz. Bir rengi değiştirmek için rengin RGB HEX değerini (örneğin, #366eb8) ilgili metin kutusuna girin. Veya, renk düğmesini tıklatın ve sizin için uygun Gölge'ye tıklayın. 
   
   Bir renk değiştirdikten sonra değişikliğin sağdaki Önizleme örnek etkilemesi denetleyin. Her zaman tıklayabilirsiniz **Varsayılana Sıfırla** seçilen tema için varsayılan renklere dönebilirsiniz.
 
@@ -105,7 +105,7 @@ Web uygulamanız için barındırılan bir kullanıcı Arabirimi yapılandırmak
 > [!NOTE]
 > Sağ bölmede, özel barındırılan UI yapılandırmada değişiklik yapmak gibi yapılan değişiklikler için görsel bir başvuru sağlar. Görüntülenen arama sonuçlarını Örneğiniz için gerçek sonuçlar değildir.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## <a name="consume-custom-ui"></a>Özel kullanıcı Arabirimi kullanma
 
@@ -143,5 +143,5 @@ Barındırılan kullanıcı Arabirimi, ya da kullanmak için:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Metni vurgulayacak şekilde decoration işaretçileri kullanma](./hit-highlighting.md)
-- [Sayfa Web sayfaları](./page-webpages.md)
+- [Metni vurgulamak için süsleme işaretçilerini kullanma](./hit-highlighting.md)
+- [Sayfa web sayfaları](./page-webpages.md)

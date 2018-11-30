@@ -1,6 +1,6 @@
 ---
-title: Azure Machine Learning'de bir şirket içi SQL Server kullanmak | Microsoft Docs
-description: Bir şirket içi SQL Server veritabanındaki verileri Azure Machine Learning ile Gelişmiş analiz gerçekleştirmek için kullanın.
+title: Şirket içi Azure Machine Learning Studio ile SQL Server | Microsoft Docs
+description: Bir şirket içi SQL Server veritabanındaki verileri Azure Machine Learning Studio ile Gelişmiş analiz gerçekleştirmek için kullanın.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: 83ec812f18e7e47f30db79a6d665d60fae9e0e5d
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: d28c39ef909cffdc1ed907e05b60e61f02353710
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263222"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310965"
 ---
 # <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Şirket içi SQL Server veritabanındaki verileri kullanarak Azure Machine Learning ile gelişmiş analiz gerçekleştirme
 
 Genellikle şirket içi verilerle çalışacak kuruluşların avantajı ölçek ve makine öğrenimi iş yükleri için bulutun çevikliğinden yapmak istiyorsunuz. Ancak, geçerli iş süreçleri ve iş akışları, şirket içi verileri buluta taşıyarak kesintiye istemiyorsanız. Azure Machine Learning artık bir şirket içi SQL Server veritabanından veri okumak ve ardından eğitim ve bu verilerle bir model Puanlama destekler. Artık bu el ile kopyalayın ve Bulut ve şirket içi sunucunuz arasında veri eşitlemeyi gerekmez. Bunun yerine, **verileri içeri aktarma** , eğitim ve puanlama işleri için modülü Azure Machine Learning Studio'da doğrudan, şirket içi SQL Server veritabanından artık bkz.
 
-Bu makalede nasıl giriş yapılır genel bir bakış SQL server verilerini Azure Machine Learning içine şirket sağlar. Çalışma alanları, modüller, veri kümeleri, denemeler, gibi Azure Machine Learning kavramlarını aşina varsayar *vb.*.
+Bu makalede nasıl giriş yapılır genel bir bakış SQL server verilerini Azure Machine Learning Studio'ya şirket sağlar. Çalışma alanları, modüller, veri kümeleri, denemeler, gibi Azure Machine Learning kavramlarını aşina varsayar *vb.*.
 
 > [!NOTE]
 > Bu özellik, ücretsiz çalışma alanları için kullanılamaz. Machine Learning fiyatlandırma ve katmanlar hakkında daha fazla bilgi için bkz: [Azure Machine Learning fiyatlandırması](https://azure.microsoft.com/pricing/details/machine-learning/).

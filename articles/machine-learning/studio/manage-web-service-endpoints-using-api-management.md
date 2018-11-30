@@ -1,5 +1,5 @@
 ---
-title: API Yönetimi'ni kullanarak AzureML web hizmetlerini yönetme hakkında bilgi edinin | Microsoft Docs
+title: Machine Learning Studio web hizmetlerini API Management - Azure'ı kullanarak yönetme | Microsoft Docs
 description: API Management kullanarak AzureML web hizmetlerini yönetmek nasıl gösteren bir kılavuz.
 keywords: machine Learning, API management
 services: machine-learning
@@ -17,16 +17,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: bc0c8f40c8e2fb75e95e1745b53332aa8e4588ca
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0a262b2f8716c6d950dc84793a88277f62c3e6a9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265228"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308248"
 ---
-# <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>API Yönetimini kullanarak AzureML web hizmetlerini yönetme hakkında bilgi edinin
+# <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>API Yönetimi'ni kullanarak Azure Machine Learning Studio web hizmetlerini yönetme
 ## <a name="overview"></a>Genel Bakış
-Bu kılavuz AzureML web hizmetlerinizi yönetmek için API Yönetimi'ni kullanarak hızla gerçekleştirmek nasıl gösterir.
+Bu kılavuzda, Azure Machine Learning Studio web hizmetlerinizi yönetmek için API Yönetimi'ni kullanarak hızla gösterilir.
 
 ## <a name="what-is-azure-api-management"></a>Azure API Management nedir?
 Azure API Management REST API uç noktalarınızın kullanıcı erişimi, kullanımı azaltma ve izleme Panosu tanımlayarak yönetmenizi sağlayan bir Azure hizmetidir. Tıklayın [burada](https://azure.microsoft.com/services/api-management/) Azure API Management hakkında ayrıntılı bilgi için. Tıklayın [burada](../../api-management/api-management-get-started.md) Azure API Management'i kullanmaya başlama hakkında bir kılavuz için. Bu kılavuzu temel alır, bu diğer Kılavuzu, ürünler, geliştirici abonelikleri ve kullanım yönelik Kompozit oluşturma bildirimi yapılandırmaları, fiyatlandırma katmanı, yanıt işleme, kullanıcı kimlik doğrulaması dahil olmak üzere diğer konuları kapsar.

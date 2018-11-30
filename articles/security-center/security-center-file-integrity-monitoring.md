@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0376f09d4d7d6c952cbef40751a2729045f68061
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9cfb098fd8e6cb777b6cd968f92b20baabfab705
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255852"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314001"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Dosya bütünlüğünü Azure Güvenlik Merkezi'nde izleme
 Dosya bütünlüğünü izleme (FIM), Azure Güvenlik Merkezi'nde bu kılavuzu kullanarak yapılandırmayı öğrenin.
@@ -205,7 +205,7 @@ FIM devre dışı bırakabilirsiniz. FIM Azure değişiklik izleme çözümü, o
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede Güvenlik Merkezi'ndeki Dosya bütünlüğünü izleme (FIM) kullanmayı öğrendiniz. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Güvenlik ilkelerini ayarlama](security-center-policies.md) --Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Güvenlik ilkelerini ayarlama](security-center-azure-policy.md) --Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Güvenlik önerilerini yönetme](security-center-recommendations.md) --önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
 * [Güvenlik durumunu izleme](security-center-monitoring.md)--Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Yönetme ve güvenlik uyarılarını yanıtlama](security-center-managing-and-responding-alerts.md)--yönetme ve güvenlik uyarılarını yanıtlama hakkında bilgi edinin.

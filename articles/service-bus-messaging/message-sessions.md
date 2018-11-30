@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2018
 ms.author: spelluru
-ms.openlocfilehash: 523394010058ace7f61da2196a110fd3e6db610c
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f1f796f7dc0a5ca4e1143f07303c218117e745e7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739868"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314328"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>İleti oturumları: ilk çıkar (FIFO) ilk olarak, 
 
 Microsoft Azure Service Bus oturumları, ilgili iletilerin sınırsız dizilerinin birleşik ve sıralı işlemeyi etkinleştirin. Hizmet veri yolu FIFO garantisi hayata geçirmek için oturumları kullanın. Service Bus iletileri arasındaki ilişkiyi doğası hakkında belirleyici değildir ve ayrıca burada bir ileti sırası başlangıç veya bitiş belirlemek için belirli bir modelde tanımlamıyor.
 
 > [!NOTE]
-> Service Bus'ın temel katman, oturumları desteklemez. Standart ve premium katmanlarda, oturumları desteklemez. Daha fazla bilgi için [Service Bus fiyatlandırma](/pricing/details/service-bus/).
+> Service Bus'ın temel katman, oturumları desteklemez. Standart ve premium katmanlarda, oturumları desteklemez. Daha fazla bilgi için [Service Bus fiyatlandırma](service-bus-pricing-billing.md).
 
 Gönderen, gönderme iletilerini konusu veya kuyruğundan ayarlayarak bir oturumu oluşturabilirsiniz [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) özelliğini oturuma benzersiz olan bazı uygulama tanımlı tanımlayıcı. Bu değer AMQP 1.0 protokol düzeyinde eşlenir *Grup Kimliği* özelliği.
 

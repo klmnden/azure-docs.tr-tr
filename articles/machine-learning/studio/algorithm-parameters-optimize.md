@@ -1,6 +1,6 @@
 ---
-title: Azure Machine Learning algoritmalarınızı en iyi duruma getirme | Microsoft Docs
-description: Azure Machine learning'de algoritma için en iyi parametresi seçin açıklanmaktadır.
+title: Algoritmalar Azure Machine Learning Studio için en iyi duruma getirme | Microsoft Docs
+description: Azure Machine Learning Studio'da bir algoritma için en iyi parametresi seçin açıklanmaktadır.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: c5445833d9f0e003304af3a1f60fb82a372898bf
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: f4b7ba04f643fc823ca627e279faea31dee9d2a4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261828"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314725"
 ---
-# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning"></a>Azure Machine Learning algoritmalarınızı iyileştirmek için parametreleri seçin
+# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da algoritmalarınızı iyileştirmek için parametreleri seçin
+
 Bu konuda, Azure Machine learning'de algoritma için doğru hiper parametre seçin açıklar. Çoğu makine öğrenimi algoritmaları ayarlanacak parametrelere sahip. Bir model eğitip yaparken bu parametrelerin değerlerini sağlamasını gerekir. Eğitilen modelin çalışıp çalışmadığını seçtiğiniz model parametreleri bağlıdır. Parametreleri en uygun kümesini bulma işlemi olarak bilinir *model seçimi*.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]

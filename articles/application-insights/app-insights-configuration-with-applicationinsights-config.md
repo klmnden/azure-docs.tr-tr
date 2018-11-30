@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: c99ccecedbb2645bdcdec3b2c90c1c3c39f8b5c8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: b8e9a5591c33368698172d996d5c8ac699ad4602
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250892"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335206"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config veya .xml ile Application Insights SDK yapılandırma
 Application Insights .NET SDK'sı NuGet paketlerini birtakım oluşur. [Çekirdek paket](http://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights'a telemetri göndermek için API sağlar. [Ek paketleri](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) telemetri sağlamak *modülleri* ve *başlatıcılar* telemetri uygulamanız ve onun içeriği otomatik olarak izlemek için. Yapılandırma dosyası ayarlayarak, etkinleştirmek veya telemetri modülleri ve başlatıcılar devre dışı bırakın ve bunlardan bazıları için parametreleri ayarlayın.
@@ -271,7 +271,7 @@ TelemetryClient öğesinin tüm örneklerini anahtarını ayarlamak için standa
       Microsoft.ApplicationInsights.Extensibility.
         TelemetryConfiguration.Active.InstrumentationKey =
           // - for example -
-          WebConfigurationManager.Settings["ikey"];
+          WebConfigurationManager.AppSettings["ikey"];
       //...
 ```
 

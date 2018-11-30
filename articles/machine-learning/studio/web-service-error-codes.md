@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning REST API hata kodları | Microsoft Docs
+title: Azure Machine Learning Studio REST API hata kodları | Microsoft Docs
 description: Bu hata kodları, bir Azure Machine Learning web hizmeti üzerinde bir işlem tarafından döndürülebilir.
 keywords: ''
 services: machine-learning
@@ -17,16 +17,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 92e85f123cc19d579a86d5cdedfaaf1df8c24e4c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 274fbced61318a6617b04ea3092e8e2f96a10940
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263249"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314910"
 ---
-# <a name="machine-learning-rest-api-error-codes"></a>Machine Learning REST API hata kodları
+# <a name="machine-learning-studio-rest-api-error-codes"></a>Machine Learning Studio REST API hata kodları
  
-Aşağıdaki hata kodları, bir Azure Machine Learning web hizmeti üzerinde bir işlem tarafından döndürülebilir.
+Aşağıdaki hata kodları, bir Azure Machine Learning Studio web hizmeti üzerinde bir işlem tarafından döndürülebilir.
  
 ## <a name="badargument-http-status-code-400"></a>BadArgument (HTTP durum kodu 400)
  
@@ -146,7 +146,7 @@ Kaynak bulunamadı.
  
 ## <a name="requesttimeout-http-status-code-408"></a>RequestTimeout (HTTP durum kodu 408)
  
-İşlemi izin verilen sürede tamamlanamadı.
+İşlem izin verilen sürede tamamlanamadı.
  
 | Hata kodu | Kullanıcı iletisi |
 | ---------- |--------------|
@@ -249,7 +249,7 @@ Hizmet geçici olarak kullanılamıyor.
  
 ## <a name="gatewaytimeout-http-status-code-504"></a>GatewayTimeout (HTTP durum kodu 504)
  
-İşlemi izin verilen sürede tamamlanamadı.
+İşlem izin verilen sürede tamamlanamadı.
  
 | Hata kodu | Kullanıcı iletisi |
 | ---------- |--------------|

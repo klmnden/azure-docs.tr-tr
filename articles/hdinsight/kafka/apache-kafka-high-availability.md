@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: e2cd03f28e4a3cd8176f6126817c61508697af94
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e39829d4fa08e466f98930becc831c6f4b551aed
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007799"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315843"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>HDInsight’ta Apache Kafka ile verilerinizin yüksek kullanılabilirliği
 
-Temel donanım rafı yapılandırmasından yararlanmak üzere Kafka için bölüm çoğaltmalarını nasıl yapılandıracağınız hakkında bilgi edinin. Bu yapılandırma, HDInsight’taki Apache Kafka’da depolanmış verilerin kullanılabilir olmasını sağlar.
+Temel Donanım Rafı yapılandırmasından yararlanmak Apache Kafka konular için bölüm çoğaltmalarını yapılandırmayı öğrenin. Bu yapılandırma, HDInsight’taki Apache Kafka’da depolanmış verilerin kullanılabilir olmasını sağlar.
 
-## <a name="fault-and-update-domains-with-kafka"></a>Kafka ile hata ve güncelleme etki alanları
+## <a name="fault-and-update-domains-with-apache-kafka"></a>Apache Kafka ile hata ve güncelleme etki alanları
 
 Hata etki alanı, bir Azure veri merkezinde temel donanımlardan oluşan mantıksal bir gruplandırmadır. Her hata etki alanı ortak bir güç kaynağı ve ağ anahtarına sahiptir. Bir HDInsight kümesi içindeki düğümleri uygulayan sanal makineler ve yönetilen diskler, bu hata etki alanlarına dağıtılır. Bu mimari, fiziksel donanım hatalarının olası etkisini sınırlar.
 
@@ -44,15 +44,15 @@ Kafka verilerinizin en yüksek kullanılabilirliğe sahip olmasını istiyorsan�
 
 Yalnızca iki hata etki alanı içeren bir bölge kullanmanız gerekiyorsa, çoğaltmaları iki hata etki alanına eşit oranda yaymak için çoğaltma faktörü olarak 4 kullanın.
 
-Konu oluşturma ve çoğaltma faktörü ayarlama örneği için [HDInsight’ta Kafka kullanmaya başlama](apache-kafka-get-started.md) belgesine bakın.
+Konu oluşturma ve çoğaltma faktörü ayarlama örneği için bkz: [HDInsight üzerinde Apache Kafka kullanmaya başlama](apache-kafka-get-started.md) belge.
 
 ## <a name="how-to-rebalance-partition-replicas"></a>Bölüm çoğaltmalarını yeniden dengeleme
 
-Seçili konuları yeniden dengelemek için [Kafka bölüm yeniden dengeleme aracını](https://github.com/hdinsight/hdinsight-kafka-tools) kullanın. Bu araç bir SSH oturumundan Kafka kümenizin baş düğümüne doğru çalıştırılmalıdır.
+Kullanım [Apache Kafka bölüm yeniden Dengeleme aracını](https://github.com/hdinsight/hdinsight-kafka-tools) seçili konuları yeniden dengelemek için. Bu araç bir SSH oturumundan Kafka kümenizin baş düğümüne doğru çalıştırılmalıdır.
 
 SSH kullanarak HDInsight’a bağlanma hakkında daha fazla bilgi için [HDInsight ile SSH’yi kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md) belgesine bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [HDInsight’ta Kafka ölçeklenebilirliği](apache-kafka-scalability.md)
-* [HDInsight'ta Kafka ile yansıtma](apache-kafka-mirroring.md)
+* [HDInsight üzerinde Apache Kafka'nın ölçeklenebilirlik](apache-kafka-scalability.md)
+* [HDInsight üzerinde Apache Kafka ile yansıtma](apache-kafka-mirroring.md)

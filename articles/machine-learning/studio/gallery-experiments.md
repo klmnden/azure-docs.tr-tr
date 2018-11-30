@@ -1,5 +1,5 @@
 ---
-title: Azure AI Gallery denemeleri | Microsoft Docs
+title: Azure AI Gallery denemeleri - Azure Machine Learning Studio | Microsoft Docs
 description: Bul ve Azure AI Gallery'de denemeleri paylaşın.
 services: machine-learning
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: 43e5cc14ac98b85dd50391380033834cf642b1a9
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 66b5e30a26c57676bdd65b4861d34ca90c0c25af
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264480"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317475"
 ---
 # <a name="discover-experiments-in-azure-ai-gallery"></a>Azure AI Gallery'de denemeleri bulma
 
-[Azure AI Gallery](http://gallery.cortanaintelligence.com) sahip birçok farklı [denemeleri](https://gallery.cortanaintelligence.com/experiments) de geliştirilmiştir [Azure Machine Learning Studio](https://studio.azureml.net). Belirli bir makine öğrenme, karmaşık makine öğrenimi sorunlar için tam olarak geliştirilen çözümleri için teknik gösteren hızlı kavram kanıtı denemeleri denemeleri çeşitler barındırır.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com) çeşitli sahip [denemeleri](https://gallery.cortanaintelligence.com/experiments) de geliştirilmiştir [Azure Machine Learning Studio](https://studio.azureml.net). Belirli bir makine öğrenme, karmaşık makine öğrenimi sorunlar için tam olarak geliştirilen çözümleri için teknik gösteren hızlı kavram kanıtı denemeleri denemeleri çeşitler barındırır.
 
 > [!NOTE]
 > Bir ***deneme*** Machine Learning Studio'da Tahmine dayalı analiz modeli oluşturmak için kullanabileceğiniz bir tuvaldir. Model, ile çeşitli analitik modüllere veri bağlanarak oluşturun. Farklı fikirleri deneyin, deneme çalıştırmaları yapın ve sonunda azure'da bir web hizmeti olarak modelinizi dağıtma. Temel bir deneme oluşturmak nasıl bir örnek için bkz [makine öğrenimi Öğreticisi: Azure Machine Learning Studio'da ilk denemenizi oluşturma](create-experiment.md). Tahmine dayalı analiz çözümü oluşturmak nasıl daha kapsamlı bir kılavuz için bkz: [izlenecek yol: bir Azure Machine learning'de kredi riski değerlendirmesi için Tahmine dayalı analiz çözümü geliştirme](walkthrough-develop-predictive-solution.md).

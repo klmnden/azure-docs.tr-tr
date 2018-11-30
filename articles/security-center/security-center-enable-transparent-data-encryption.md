@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1f49930449c5ca342159f2a4eca3d7167dfed925
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 765a3a985a2198951ed17292dc376b25adfccc03
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244653"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314817"
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde saydam veri şifrelemesini etkinleştirme
 Azure Güvenlik Merkezi, TDE zaten etkin değilse, SQL veritabanlarında saydam veri şifrelemesi (TDE) etkinleştirmenizi önerir. TDE, verilerinizi korur ve, veritabanı, ilişkili yedeklemeler ve işlem günlük dosyaları, bekleyen değişiklikleri uygulamanıza gerek kalmadan şifreleyerek uyumluluk gereksinimlerini karşılamanıza yardımcı olur. Daha fazla bilgi edinmek için [Azure SQL veritabanı ile saydam veri şifrelemesi](https://msdn.microsoft.com/library/dn948096).
@@ -51,7 +51,7 @@ Bu makalede Güvenlik Merkezi'nin önerisini "Saydam veri şifrelemesini etkinle
 
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
 * [Güvenlik durumunu, Azure Güvenlik Merkezi'nde izleme](security-center-monitoring.md) --Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.

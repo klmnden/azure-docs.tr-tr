@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 99b78b063803ff1fb1cda6dfb3b240577d8bbbe6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0bd49f831655f5ffaf7f1d943aca552ddd8447a0
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258893"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309166"
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-databases-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde SQL veritabanlarında denetim ve tehdit algılamayı etkinleştirme
 Azure Güvenlik Merkezi, Denetim, tüm SQL veritabanları için Denetim ve tehdit algılamayı etkinleştirmek ve tehdit algılama zaten etkin önerir. Denetim ve tehdit algılama, mevzuatla uyumluluk, veritabanı etkinliğini anlama ve ifade eden tutarsızlıklar ve anomaliler, elde yardımcı olabilir işletme sorunlarını veya şüpheli güvenlik ihlallerini.
@@ -51,7 +51,7 @@ Bu makalede Güvenlik Merkezi'nin önerisini "etkin denetim ve tehdit algılama 
 
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
 * [Güvenlik durumunu, Azure Güvenlik Merkezi'nde izleme](security-center-monitoring.md) --Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.

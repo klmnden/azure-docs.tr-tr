@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 16291e4f4915dd6328a2015407fa06dc8f62fba1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 10ff2118ade13980250608bf4bc238e8ff2f9c64
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011893"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312995"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, artırılmış görünürlük ve Microsoft Azure kaynaklarınızın güvenliğini denetim ile tehditleri önleyin, algılayın ve yardımcı olan bir hizmet hakkında sorular yanıtlanmaktadır.
@@ -250,7 +250,7 @@ Azure Güvenlik Merkezi sürücü güvenlik önerilerini ve izlemeyi etkinleşti
 ### <a name="who-can-modify-a-security-policy"></a>Güvenlik İlkesi değiştirebilecekleri?
 Güvenlik ilkesini değiştirmek için bir güvenlik yöneticisi veya sahibi veya katkıda bulunanı o aboneliğin olması gerekir.
 
-Güvenlik İlkesi yapılandırma konusunda bilgi için bkz: [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md).
+Güvenlik İlkesi yapılandırma konusunda bilgi için bkz: [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md).
 
 ### <a name="what-is-a-security-recommendation"></a>Bir güvenlik önerisi nedir?
 Azure Güvenlik Merkezi, Azure kaynaklarınızın güvenlik durumunu analiz eder. Olası güvenlik açıkları tanımlandığında, öneri oluşturulur. Öneriler gerekli denetimi yapılandırma işlemi boyunca size rehberlik. Örnekler şunlardır:

@@ -1,9 +1,9 @@
 ---
-title: Azure Güvenlik Merkezi güvenlik ilkelerini ayrı ayrı veya Azure ilkeleri bir parçası olarak ayarlanabilir | Microsoft Docs
-description: Bu belge Azure Güvenlik Merkezi'nde veya Azure İlkesi'nde ilkeleri ayarlamak için yardımcı olur.
+title: Azure Güvenlik Merkezi güvenlik ilkelerini Azure ilkeleri bir parçası olarak ve Güvenlik Merkezi'nde görüntülenen | Microsoft Docs
+description: Bu belge, Azure İlkesi'nde ilkeleri ayarlamak veya bunları Azure Güvenlik Merkezi'nde görüntülemek için yardımcı olur.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
@@ -12,27 +12,39 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/5/2018
-ms.author: terrylan
-ms.openlocfilehash: 0b38c6895421b43d6f80e0c34cc23b379a673559
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/25/2018
+ms.author: rkarlin
+ms.openlocfilehash: 330b66e64484417e50f39c35cf90a6fd62b1e888
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261953"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334678"
 ---
-# <a name="setting-security-policies-in-security-center-or-in-azure-policy"></a>Azure İlkesi'nde ya da Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama
+# <a name="view-security-policies"></a>Güvenlik ilkeleri görüntüle
 
-Bu makale Azure Güvenlik Merkezi güvenlik ilkelerini yapılandırmanıza yardımcı olur. Azure güvenliğini merkezi ilkeleri tümleşir Azure ilkeleri, bunları ya da Güvenlik Merkezi belirli bir abonelikte veya içinde ayarlayabilirsiniz [Azure İlkesi](../azure-policy/azure-policy-introduction.md)ve birden çok yönetim grupları arasında ilkeleri ayarlamanıza olanak sağlar Abonelikleri...
+Bu makalede, güvenlik ilkeleri nasıl yapılandırılır ve bunları Güvenlik Merkezi'nde görüntülemek nasıl açıklanmaktadır. Azure Güvenlik Merkezi otomatik olarak atar, [yerleşik güvenlik ilkeleri](security-center-policy-definitions.md) eklendikten her abonelikte. Bunları yapılandırabilirsiniz [Azure İlkesi](../azure-policy/azure-policy-introduction.md), ayrıca sağlayan yönetim grupları arasında ve birden çok aboneliğe ilkeleri ayarlamak.
+
+PowerShell kullanarak ilkeler ayarlama konusunda yönergeler için bkz: [hızlı başlangıç: Azure RM PowerShell modülünü kullanarak uyumlu olmayan kaynakları belirlemek üzere bir ilke ataması oluşturma](../azure-policy/assign-policy-definition-ps.md).
+
+
 
 ## <a name="what-are-security-policies"></a>Güvenlik ilkeleri nedir?
-Güvenlik ilkesi iş yüklerinizin istenen yapılandırmasını tanımlar ve şirketin veya yasal düzenlemelerin gerektirdiği güvenlik gereksinimlerine uyum sağlanmasına yardımcı olur. Azure Güvenlik Merkezi'nde Azure Abonelikleriniz için ilkeler tanımlayın ve bunları iş yükü türüne veya verilerinizin duyarlılığına göre uygun hale getirin. Örneğin, kişisel bilgiler gibi düzenlenen veriler kullanan uygulamalar, diğer iş yükleri yüksek seviyede güvenliği gerektirebilir. Abonelikler arasında ya da Yönetim grupları bir ilke ayarlamak için bunları kümesinde [Azure İlkesi](../azure-policy/azure-policy-introduction.md).
+Güvenlik ilkesi iş yüklerinizin istenen yapılandırmasını tanımlar ve şirketin veya yasal düzenlemelerin gerektirdiği güvenlik gereksinimlerine uyum sağlanmasına yardımcı olur. Azure İlkesi'nde Azure Abonelikleriniz için ilkeler tanımlayın ve bunları iş yükü türüne veya verilerinizin duyarlılığına göre uygun hale getirin. Örneğin, kişisel bilgiler gibi düzenlenen veriler kullanan uygulamalar, diğer iş yükleri yüksek seviyede güvenliği gerektirebilir. Abonelikler arasında ya da Yönetim grupları bir ilke ayarlamak için bunları kümesinde [Azure İlkesi](../azure-policy/azure-policy-introduction.md).
+
+
+
+Güvenlik ilkelerinizi size Azure Güvenlik Merkezi'nde güvenlik önerilerini. Uyumluluk, olası zayıflıkları belirlemek ve tehditleri önlemeye yardımcı olmak için onlarla izleyebilirsiniz. Listesini sizin için uygun seçeneği belirleme hakkında daha fazla bilgi için bkz. [yerleşik güvenlik ilkeleri](security-center-policy-definitions.md).
+
+### <a name="management-groups"></a>Yönetim grupları
+Kuruluşunuzda birden fazla abonelik varsa bu abonelikler için verimli bir şekilde erişim, ilke ve uyumluluk yönetimi gerçekleştirmek isteyebilirsiniz. Azure Yönetim Grupları, aboneliklerin üzerinde bir kapsam sunar. Abonelikleri "yönetim grupları" adlı kapsayıcılarla düzenler ve yönetim ilkelerinizi bu yönetim gruplarına uygularsınız. Bir yönetim grubu içindeki aboneliklerin tümü otomatik olarak yönetim grubuna uygulanmış olan ilkeleri devralır. Her dizinde "kök" yönetim grubu olarak adlandırılan tek bir üst düzey yönetim grubu bulunur. Diğer tüm yönetim grupları ve abonelikler hiyerarşide en üstte yer alan bu kök yönetim grubunun altındadır. Bu kök yönetim grubu, genel ilkelerin ve RBAC atamalarının dizin düzeyinde uygulanmasını sağlar. Azure Güvenlik Merkezi ile kullanmak için Yönetim grupları ayarlamak için yönergeleri izleyin. [kazanmak için Azure Güvenlik Merkezi, Kiracı genelinde görünürlük](security-center-management-groups.md).
 
 > [!NOTE]
-> Bir yönetim grubunun parçası veya birden çok ilke atamaları sahip bir abonelik daha önce güvenlik ilkelerini yapılandırdıysanız, Azure aracılığıyla yönetim grubu düzeyinde ilke yönetebilmeniz için bu ilkeleri Güvenlik Merkezi'nde gri renkte görünür İlke sayfası. 
+> Yönetim gruplarının ve aboneliklerin hiyerarşisini anlamanız önemlidir. Yönetim grupları, kök yönetimi ve yönetim grubu erişimi hakkında daha fazla bilgi edinmek için bkz. [Kaynaklarınızı Azure Yönetim Gruplarıyla düzenleme](../governance/management-groups/index.md#root-management-group-for-each-directory).
+>
 
 ## <a name="how-security-policies-work"></a>Güvenlik ilkeleri nasıl çalışır?
-Güvenlik Merkezi, Azure aboneliklerinizin her biri için otomatik olarak varsayılan bir güvenlik ilkesi oluşturur. Güvenlik Merkezi'nde ilkeleri düzenleyebilir ya da Azure İlkesi’ni kullanarak aşağıdakileri yapabilirsiniz:
+Güvenlik Merkezi, Azure aboneliklerinizin her biri için otomatik olarak varsayılan bir güvenlik ilkesi oluşturur. Şunları yapmak için Azure İlkesi ilkeleri düzenleyebilirsiniz:
 - Yeni ilke tanımları oluşturma.
 - Bir kuruluşun tamamını veya kuruluş içindeki iş birimini temsil edebilen yönetim gruplarına ve aboneliklere ilkeler atama.
 - İlke uyumluluğunu izleme.
@@ -41,9 +53,9 @@ Azure İlkesi hakkında daha fazla bilgi için [Uyumluluğu zorlamak için ilke 
 
 Bir Azure ilkesi aşağıdaki bileşenlerden oluşur:
 
-- **İlke**: Bir kuraldır.
-- **Girişim**: İlkelerden oluşan bir koleksiyondur.
-- **Atama**: Bir girişimin veya ilkenin belirli bir kapsama (yönetim grubu, abonelik veya kaynak grubu) uygulanmasıdır.
+- A **ilke** bir kuraldır.
+- Bir **girişim** ilkeleri oluşan bir koleksiyondur.
+- Bir **atama** bir ilke veya girişim uygulama belirli bir kapsama (Yönetim grubu, abonelik veya kaynak grubu).
 
 Bir kaynak, kendisine atanmış olan ilkelere göre değerlendirilir ve kaynağın uyumlu olduğu ilke sayısına göre bir uyumluluk oranına sahip olur.
 
@@ -54,67 +66,45 @@ Güvenlik Merkezi, kullanıcıları, grupları ve Azure Hizmetleri için atanan 
 - Güvenlik Yöneticisi: güvenlik okuyucusu olarak aynı görüntüleme haklarına sahip ve bunlar da güvenlik ilkesini güncelleştirebilir ve öneriler ve Uyarıları kapat.
 
 ## <a name="edit-security-policies"></a>Güvenlik ilkelerini düzenleme
-Güvenlik Merkezi'nde tüm Azure aboneliklerinizin ve yönetim gruplarınızın varsayılan güvenlik ilkesini düzenleyebilirsiniz. Bir güvenlik ilkesini değiştirmek için abonelikte veya ilkeyi içeren yönetim grubunda sahip, katkıda bulunan veya güvenlik yöneticisi rolüne sahip olmanız gerekir. Güvenlik Merkezi'nde güvenlik ilkelerinizi görüntüleme:
+Her Azure aboneliği ve'daki yönetim grupları için varsayılan güvenlik ilkesini düzenleyebilirsiniz [Azure İlkesi](../governance/policy/tutorials/create-and-manage.md). Bir güvenlik ilkesini değiştirmek için abonelikte veya ilkeyi içeren yönetim grubunda sahip, katkıda bulunan veya güvenlik yöneticisi rolüne sahip olmanız gerekir.
 
-> [!NOTE]
-> Bir yönetim grubunun parçası veya birden çok ilke atamaları sahip bir abonelik ayarlamanız herhangi bir ilkeyi Güvenlik Merkezi'nde gri renkte görünür. Bu ilkeleri düzenleyebilirsiniz [Azure İlkesi](../azure-policy/azure-policy-introduction.md). 
+Azure İlkesi'nde bir güvenlik ilkesi düzenleme hakkında yönergeler için bkz ve [oluşturma ve yönetme uyumluluğu zorlamak için ilke](../governance/policy/tutorials/create-and-manage.md).
 
-1. **Güvenlik Merkezi** panosunun **İLKE VE UYUMLULUK** bölümünde **Güvenlik ilkesi**'ni seçin. **İlke Yönetimi** bölmesi açılır.
+## <a name="view-security-policies"></a>Güvenlik ilkeleri görüntüle
 
-    ![İlke Yönetimi bölmesi](./media/security-center-azure-policy/security-center-policies-fig10.png)
+Güvenlik Merkezi'nde güvenlik ilkelerinizi görüntüleme:
 
-  İlke Yönetimi bölmesinde yönetim grubu, abonelik ve çalışma alanı sayısının yanı sıra yönetim grubunuzun yapısı görüntülenir.
+1. İçinde **Güvenlik Merkezi** panoyu seçin **Güvenlik İlkesi**.
+
+    ![İlke Yönetimi bölmesi](./media/security-center-policies/security-center-policy-mgt.png)
+
+  İçinde **İlkesi Yönetimi** ekran, Yönetim grupları, abonelikleri ve çalışma alanlarının yanı sıra, yönetim grubu yapısı sayısını görebilirsiniz.
 
   > [!NOTE]
-  > Güvenlik Merkezi panosunun **Abonelik kapsamı** bölümünde, **İlke Yönetimi** bölmesinde gösterilenden daha fazla abonelik görünebilir. Abonelik kapsamı Standart, Ücretsiz ve “kapsanmayan” aboneliklerin sayısını gösterir. “Kapsanmayan” aboneliklerde Güvenlik Merkezi etkin değildir ve bu abonelikler **İlke Yönetimi** bölmesinde görüntülenmez.
-  >
+  > - Güvenlik Merkezi panosunu aboneliklerin daha yüksek bir sayı gösterebilir **abonelik kapsamı** altında gösterilen aboneliklerin sayısından **İlkesi Yönetimi**. Abonelik kapsamı Standart, Ücretsiz ve “kapsanmayan” aboneliklerin sayısını gösterir. "Kapsanmayan" abonelik, Güvenlik Merkezi'nin etkin olmayan ve altında görüntülenmez **İlkesi Yönetimi**.
   >
 
   Tablodaki sütunlar şunları gösterir:
 
- - İlke Girişimi Ataması: Bir aboneliğe veya yönetim grubuna atanmış olan yerleşik Güvenlik Merkezi ilkeleri ve girişimleridir.
- - Uyumluluk: Bir yönetim grubu, abonelik veya çalışma alanının genel uyumluluk puanını gösterir. Puan, atamaların ağırlıklı ortalamasıdır. Ağırlıklı ortalama, tek bir atamadaki ilke sayısını ve atamanın uygulandığı kaynak sayısını etkiler.
+ - **İlke girişimi atama** – Güvenlik Merkezi [yerleşik ilkeleri](security-center-policy-definitions.md) ve bir abonelik veya yönetim grubuna atanmış olan girişim.
+ - **Uyumluluk** – genel bir yönetim grubu, abonelik veya çalışma alanı için Uyumluluk puanı. Puan, atamaların ağırlıklı ortalamasıdır. Ağırlıklı ortalama, tek bir atamadaki ilke sayısını ve atamanın uygulandığı kaynak sayısını etkiler.
 
  Örneğin aboneliğinizde iki VM ve atanmış beş ilkeli bir girişim varsa aboneliğinizde 10 atama olur. VM'lerin biri ilkelerin ikisiyle uyumlu değilse aboneliğinizin genel uyumluluk puanı %80 olur.
 
- - Kapsam: Yönetim grubu, abonelik veya çalışma alanının üzerinde çalıştığı fiyatlandırma katmanını (Ücretsiz veya Standart) tanımlar.  Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md).
- - Ayarlar: Aboneliklerde **Ayarları düzenle** (bağlantısı bulunur). **Ayarları düzenle**'yi seçtiğinizde aboneliğinizin veri koleksiyonu, fiyatlandırma katmanı ve e-posta bildirimleri gibi ayarları güncelleştirebilirsiniz.
+ - **Kapsamı** – boş veya yönetim grubu, abonelik veya çalışma çalıştığı standart fiyatlandırma katmanı tanımlar.  Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md).
+ - **Ayarları** – aboneliğiniz bağlantıyı **ayarlarını Düzenle**. Seçme **ayarlarını Düzenle** güncelleştirmenize olanak tanır, [Güvenlik Merkezi Ayarları](security-center-policies-overview.md) her abonelik veya yönetim grubu için.
 
-2. Güvenlik ilkesini etkinleştirmek istediğiniz aboneliği veya yönetim grubunu seçin. **Güvenlik ilkesi** açılır.
+2. İlkeleri görüntülemek istediğiniz abonelik veya yönetim grubunu seçin.
 
-3.  **Güvenlik ilkesi** bölümünde **Açık**'ı seçerek Güvenlik Merkezi'nin izlemesini ve öneri sunmasını istediğiniz denetimleri seçin.  Güvenlik Merkezi'nin izlemesini istemediğiniz denetimler için **Kapalı**'yı seçin.
+  - **Güvenlik İlkesi** ekran seçtiğiniz abonelik veya yönetim grubunda atanan ilkeleri tarafından gerçekleştirilecek eylemi yansıtır.
+  - En üstünde, her İlkesi'ni açmak için sağlanan bağlantıları kullanabilirsiniz **atama** abonelik veya yönetim grubuna yöneliktir. Atama erişmek ve düzenlemek veya ilkeyi devre dışı bırakmak için bağlantıları kullanabilirsiniz. Örneğin, belirli bir ilke ataması etkin uç nokta koruma engelleme görürseniz, erişim ilkesi ve düzenleyebilir ya da devre dışı bırakmak için bağlantıyı kullanabilirsiniz.
+  - İlkeler listesinde, abonelik veya yönetim grubu üzerinde etkili uygulama ilkesi görebilirsiniz. Bu kapsama uygulanan her ilke ayarlarını dikkate alınır ve ilke tarafından hangi eylemlerin, toplu sonucu ile sağlanan anlamına gelir. Örneğin bir atama ilkesi devre dışıdır, ancak başka bir programda Auditıfnotexist için ayarlanmış toplu etkisi Auditıfnotexist geçerlidir. Etkin etkisi her zaman önceliklidir.
+  - İlkeleri etkisi olabilir: ekleme, Denetim, AuditIfNotExists, reddetme, Deployıfnotexists, devre dışı bırakıldı. Etkileri nasıl uygulanacağı hakkında daha fazla bilgi için bkz. [anlamak ilke etkileri](../governance/policy/concepts/effects.md).
 
-    ![İlke bileşenleri](./media/security-center-azure-policy/security-policy.png)
-
-4. **Kaydet**’i seçin.
-
-## <a name="available-security-policy-definitions"></a>Kullanılabilir güvenlik ilkesi tanımları
-
-Varsayılan güvenlik ilkesinde mevcut olan ilke tanımlarını anlamak için aşağıdaki tabloya bakın:
-
-| İlke | Etkin ilke ne yapar? |
-| --- | --- |
-| Sistem güncelleştirmeleri |Windows Update veya Windows Server Update Services kaynağından kullanılabilir güvenlik güncelleştirmelerinin ve kritik güncelleştirmelerin günlük listesini alır. Alınan liste, sanal makineleriniz için yapılandırılan hizmete bağlıdır ve eksik güncelleştirmelerin uygulanmasını önerir. Linux sistemleri için bu ilke, kullanılabilir güncelleştirmeleri olan paketleri belirlemek üzere distro ile sağlanan paket yönetim sistemini kullanır. Ayrıca, [Azure Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md) sanal makinelerinden güvenlik güncelleştirmelerini ve kritik güncelleştirmeleri denetler. |
-| Güvenlik yapılandırmaları |Sanal makineyi saldırılara açık hale getirebilecek sorunları belirlemek üzere işletim sistemi yapılandırmalarını günlük olarak çözümler. İlke ayrıca bu güvenlik açıklarını gidermek üzere yapılandırma değişiklikleri yapılmasını önerir. İzlenmekte olan belirli yapılandırmalar hakkında daha fazla bilgi için [önerilen temel kurallar listesi](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) konusunu inceleyin. (Şu an için Windows Server 2016 tam olarak desteklenmemektedir.) |
-| Uç nokta koruması |Virüsleri, casus yazılımları ve diğer kötü amaçlı yazılımları tanımlamaya ve kaldırmaya yardımcı olmak için tüm Windows sanal makinelerine (VM) sağlamak üzere uç nokta ayarlanmasını önerir. |
-| Disk şifrelemesi |Bekleyen verilerin korunmasını geliştirmek için tüm sanal makinelerde disk şifrelemesini etkinleştirmeyi önerir. |
-| Ağ güvenlik grupları |Ortak uç noktalara sahip sanal makinelere gelen ve giden trafiği denetlemek için [ağ güvenlik grupları](../virtual-network/security-overview.md)'nın yapılandırılmasını önerir. Aksi belirtilmediği sürece bir alt ağ için yapılandırılan ağ güvenlik grupları tüm sanal makine ağ arabirimleri tarafından devralınır. Bir ağ güvenlik grubunun yapılandırılıp yapılandırılmadığını denetlemenin yanı sıra, bu ilke gelen trafiğe izin veren kuralları tanımlamak için gelen güvenlik kurallarını değerlendirir. |
-| Web uygulaması güvenlik duvarı |Aşağıdaki durumlardan biri geçerli olduğunda sanal makinelerde bir web uygulaması güvenlik duvarının ayarlanmasını önerir: <ul><li>[Örnek düzeyinde ortak IP](../virtual-network/virtual-networks-instance-level-public-ip.md) kullanılır ve ilişkili ağ güvenlik grubuna yönelik gelen güvenlik kuralları 80/443 numaralı bağlantı noktasına erişime izin verecek şekilde yapılandırılır.</li><li>Yük dengeli IP kullanılır ve ilişkili yük dengeleme ve gelen ağ adresi çevirisi (NAT) kuralları, 80/443 numaralı bağlantı noktasına erişime izin verecek şekilde yapılandırılır. Daha fazla bilgi için bkz. [Yük Dengeleyici için Azure Resource Manager desteği](../load-balancer/load-balancer-arm.md).</li> |
-| Yeni nesil güvenlik duvarı |Ağ korumalarını Azure’da yerleşik olan ağ güvenlik gruplarının ötesine genişletir. Güvenlik Merkezi, yeni nesil güvenlik duvarının önerildiği dağıtımları bulur ve bundan sonra bir sanal gereç ayarlayabilirsiniz. |
-| SQL denetimi ve tehdit algılama |Azure Veritabanı'na erişim denetiminin, araştırma amacıyla uyumluluk ve gelişmiş algılama için etkinleştirilmesini önerir. |
-| SQL şifrelemesi |Azure SQL veritabanınız, ilişkili yedeklemeler ve işlem günlük dosyaları için bekleyen şifrelemenin etkinleştirilmesini önerir. Verilerinizi ihlal edilse bile okunabilir olmaz. |
-| Güvenlik açığı değerlendirmesi |Sanal makinenize bir güvenlik açığı değerlendirme çözümü yüklemenizi önerir. |
-| Depolama şifrelemesi |Şu anda bu özellik Azure Blob ve Azure Dosyaları için kullanılabilir. Depolama Hizmeti Şifrelemesi’ni etkinleştirdikten sonra yalnızca yeni veriler şifrelenir ve bu depolama hesabında var olan dosyalar şifrelenmemiş olarak kalır. |
-| JIT ağ erişimi |Tam zamanında ağ erişimi etkinleştirildiğinde, Güvenlik Merkezi bir ağ güvenlik grubu kuralı oluşturarak Azure VM’lere gelen trafiği kilitler. Gelen trafiğin kilitlenmesi gereken VM bağlantı noktalarını seçersiniz. Daha fazla bilgi için bkz. [Tam zamanında özelliğini kullanarak sanal makine erişimini yönetme](https://docs.microsoft.com/azure/security-center/security-center-just-in-time). |
-
-## <a name="management-groups"></a>Yönetim grupları
-Kuruluşunuzda birden fazla abonelik varsa bu abonelikler için verimli bir şekilde erişim, ilke ve uyumluluk yönetimi gerçekleştirmek isteyebilirsiniz. Azure Yönetim Grupları, aboneliklerin üzerinde bir kapsam sunar. Abonelikleri "yönetim grupları" adlı kapsayıcılarla düzenler ve yönetim ilkelerinizi bu yönetim gruplarına uygularsınız. Bir yönetim grubu içindeki aboneliklerin tümü otomatik olarak yönetim grubuna uygulanmış olan ilkeleri devralır. Her dizinde "kök" yönetim grubu olarak adlandırılan tek bir üst düzey yönetim grubu bulunur. Diğer tüm yönetim grupları ve abonelikler hiyerarşide en üstte yer alan bu kök yönetim grubunun altındadır. Bu kök yönetim grubu, genel ilkelerin ve RBAC atamalarının dizin düzeyinde uygulanmasını sağlar. Yönetim gruplarını Azure Güvenlik Merkezi'yle birlikte kullanacak şekilde ayarlamak için [Azure Güvenlik Merkezi için kiracı genelinde görünürlük kazanma](security-center-management-groups.md). 
+   ![İlkesi ekranı](./media/security-center-policies/policy-screen.png)
 
 > [!NOTE]
-> Yönetim gruplarının ve aboneliklerin hiyerarşisini anlamanız önemlidir. Yönetim grupları, kök yönetimi ve yönetim grubu erişimi hakkında daha fazla bilgi edinmek için bkz. [Kaynaklarınızı Azure Yönetim Gruplarıyla düzenleme](../governance/management-groups/index.md#root-management-group-for-each-directory).
->
->
-
+> - Görüntülersiniz ilkeleri atandığında, birden çok atamaları görebilir ve nasıl her atama, kendi yapılandırıldığını görebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, Güvenlik Merkezi'nde güvenlik ilkelerinin nasıl yapılandırılacağını öğrendiniz. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
@@ -123,7 +113,7 @@ Bu makalede, Güvenlik Merkezi'nde güvenlik ilkelerinin nasıl yapılandırıla
 * [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md): Azure kaynaklarınızın sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve ele alma](security-center-managing-and-responding-alerts.md): Güvenlik uyarılarını yönetme ve ele alma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md): İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi için kiracı genelinde görünürlük kazanma](security-center-management-groups.md): Yönetim gruplarını Azure Güvenlik Merkezi için ayarlamayı öğrenin. 
+* [Azure Güvenlik Merkezi için kiracı genelinde görünürlük kazanma](security-center-management-groups.md): Yönetim gruplarını Azure Güvenlik Merkezi için ayarlamayı öğrenin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md): Hizmet kullanımı ile ilgili sık sorulan soruların yanıtlarını alın.
 * [Azure Güvenlik Blogu](https://blogs.msdn.com/b/azuresecurity/): Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz.
 

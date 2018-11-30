@@ -1,5 +1,5 @@
 ---
-title: '2. adım: Verileri bir Machine Learning denemesine yükleme | Microsoft Docs'
+title: '2. adım: Karşıya veri Machine Learning Studio denemesine - Azure | Microsoft Docs'
 description: "Adım 2 / geliştirme Tahmine dayalı çözüm Kılavuzu: karşıya yükleme, Azure Machine Learning Studio'ya genel veri depolanan."
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 81f0cd108075d39c4694163736ad391cf938f958
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0dc39d42e1ad7cc955b0bdc91d9a4c5cb49a2f2e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263715"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311985"
 ---
-# <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-experiment"></a>Kılavuz Adımı 2: Mevcut verileri bir Azure Machine Learning denemesine yükleme
+# <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-studio-experiment"></a>Kılavuz adımı 2: mevcut verileri bir Azure Machine Learning Studio denemesine yükleme
 Bu kılavuz, ikinci adımıdır [bir Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirin](walkthrough-develop-predictive-solution.md)
 
 1. [Bir Machine Learning çalışma alanı oluşturma](walkthrough-1-create-ml-workspace.md)

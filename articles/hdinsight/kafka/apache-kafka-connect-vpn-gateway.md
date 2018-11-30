@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: da98873b133d69d78271494b991b67caea1d5a11
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 7fd201dd7c766880b1ed892abe3900b523d75145
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283079"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307483"
 ---
-# <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Bir Azure sanal ağı üzerinden HDInsight üzerinde Kafka bağlanma
+# <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Bir Azure sanal ağı üzerinden HDInsight üzerinde Apache kafka'ya bağlanma
 
-Bir Azure sanal ağ üzerinden HDInsight üzerinde Kafka doğrudan bağlanma hakkında bilgi edinin. Bu belge Kafka'ya bağlanmaya ilişkin aşağıdaki yapılandırmaları kullanma bilgi sağlar:
+Bir Azure sanal ağ üzerinden HDInsight üzerinde Apache Kafka doğrudan bağlanma hakkında bilgi edinin. Bu belge Kafka'ya bağlanmaya ilişkin aşağıdaki yapılandırmaları kullanma bilgi sağlar:
 
 * Bir şirket içi ağdaki kaynakları. Yerel ağınızdaki VPN cihazı (yazılım veya donanım) kullanarak bu bağlantı kurulur.
 * Bir VPN yazılım istemcisini kullanarak bir geliştirme ortamından.
@@ -37,7 +37,7 @@ HDInsight Kafka için doğrudan bağlantı genel internet üzerinden izin vermez
     4. Her bir ağın DNS sunucusu arasında iletim yapılandırın.
     5. Sanal ağda HDInsight kümesinde Kafka oluşturmak.
 
-    Daha fazla bilgi için [bir şirket içi ağ üzerinden kafka'ya Connect](#on-premises) bölümü. 
+    Daha fazla bilgi için [Apache Kafka Bağlan bir şirket içi ağdan](#on-premises) bölümü. 
 
 * Tek tek makineler bir VPN ağ geçidi ile VPN istemcisini sanal ağa bağlanır. Bu yapılandırmayı etkinleştirmek için aşağıdaki görevleri gerçekleştirin:
 
@@ -47,7 +47,7 @@ HDInsight Kafka için doğrudan bağlantı genel internet üzerinden izin vermez
     4. Kafka IP reklam için yapılandırın. Bu yapılandırma aracı kullanarak bağlanmak için istemcinin etki alanı adları yerine IP adreslerini sağlar.
     5. İndirin ve geliştirme sisteminde VPN istemcisini kullanır.
 
-    Daha fazla bilgi için [VPN istemcisi ile Kafka Bağlan](#vpnclient) bölümü.
+    Daha fazla bilgi için [bir VPN istemcisi ile Apache Kafka Bağlan](#vpnclient) bölümü.
 
     > [!WARNING]
     > Bu yapılandırma, yalnızca geliştirme amacıyla aşağıdaki sınırlamalar nedeniyle önerilir:
@@ -57,7 +57,7 @@ HDInsight Kafka için doğrudan bağlantı genel internet üzerinden izin vermez
 
 Bir sanal ağda HDInsight kullanma hakkında daha fazla bilgi için bkz. [Azure sanal ağlarını kullanarak HDInsight genişletmek](../hdinsight-extend-hadoop-virtual-network.md).
 
-## <a id="on-premises"></a> Bir şirket içi ağ üzerinden Kafka'ya bağlanma
+## <a id="on-premises"></a> Bir şirket içi ağdan Apache Kafka'ya bağlanma
 
 Şirket içi ağınız ile iletişim kuran bir Kafka kümesi oluşturmak için adımları [HDInsight'ı şirket içi ağınıza bağlama](./../connect-on-premises-network.md) belge.
 
@@ -73,7 +73,7 @@ Bu adımlar aşağıdaki yapılandırmayı oluşturun:
 
 Kafka istemci şirket içinden kümeye bağlantı kurabildiğimizi doğrulamak için içindeki adımları kullanın. [örnek: Python istemcisini](#python-client) bölümü.
 
-## <a id="vpnclient"></a> Bir VPN istemcisi ile Kafka'ya bağlanma
+## <a id="vpnclient"></a> Bir VPN istemcisi ile Apache Kafka için bağlama
 
 Aşağıdaki yapılandırmayı oluşturmak için bu bölümdeki adımları kullanın:
 
@@ -237,7 +237,7 @@ Aşağıdaki yapılandırmayı oluşturmak için bu bölümdeki adımları kulla
 
 ### <a name="configure-kafka-for-ip-advertising"></a>Kafka IP reklam için yapılandırma
 
-Varsayılan olarak, Zookeeper istemcilere Kafka aracılarına etki alanı adını döndürür. Bu yapılandırma, sanal ağdaki varlıklar için ad çözümlemesi kullanılamaz olarak VPN yazılım istemcisi ile çalışmaz. Bu yapılandırma için Kafka, etki alanı adları yerine IP adreslerini tanıtacak şekilde yapılandırmak için aşağıdaki adımları kullanın:
+Varsayılan olarak, Apache Zookeeper istemcilere Kafka aracılarına etki alanı adını döndürür. Bu yapılandırma, sanal ağdaki varlıklar için ad çözümlemesi kullanılamaz olarak VPN yazılım istemcisi ile çalışmaz. Bu yapılandırma için Kafka, etki alanı adları yerine IP adreslerini tanıtacak şekilde yapılandırmak için aşağıdaki adımları kullanın:
 
 1. Bir web tarayıcısı kullanarak Git https://CLUSTERNAME.azurehdinsight.net. Değiştirin __CLUSTERNAME__ HDInsight kümesinde Kafka adı.
 
@@ -371,7 +371,7 @@ Noktadan siteye VPN ağ geçidi ile bir Azure sanal ağ oluşturma hakkında dah
 
 * [Azure PowerShell kullanarak noktadan siteye bağlantı yapılandırma](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
-HDInsight üzerinde Kafka ile çalışma hakkında daha fazla bilgi için şu belgelere göz atın:
+HDInsight üzerinde Apache Kafka ile çalışma hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 
-* [HDInsight'ta Kafka kullanmaya başlama](apache-kafka-get-started.md)
-* [HDInsight üzerinde Kafka ile yansıtma kullanın](apache-kafka-mirroring.md)
+* [HDInsight üzerinde Apache Kafka ile çalışmaya başlama](apache-kafka-get-started.md)
+* [HDInsight üzerinde Apache Kafka ile yansıtma kullanın](apache-kafka-mirroring.md)

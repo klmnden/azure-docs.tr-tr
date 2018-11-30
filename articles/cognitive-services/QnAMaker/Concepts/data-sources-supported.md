@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: e6c654b00ee6be0ed87feb0fb2a5ccba38e5cbe4
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ee88c8dca1521f4cdc2e3ea141d5c1d497061bb4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624886"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422363"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Veri kaynakları için soru-cevap Oluşturucu içeriği
 
@@ -29,6 +29,10 @@ Aşağıdaki tabloda, soru-cevap Oluşturucu tarafından desteklenen içeriği v
 |PDF / DOC|Yapılandırılmış bir soru-cevap, vb. SSS sayfaları, ürün el ile broşürler, inceleme, El İlanı ilke ve Destek Kılavuzu.|[QnA.doc yapılandırılmış](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [örnek Ürün Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf), [örnek yarı structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [beyaz paper.pdf örneği](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
 |Excel|Yapılandırılmış soru-cevap dosyası (RTF dahil olmak üzere HTML desteği)|[Soru-cevap FAQ.xls örneği](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |TXT/TSV|Yapılandırılmış soru-cevap dosyası|[Örnek chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
+
+## <a name="data-source-locations"></a>Veri kaynağı konumları
+
+Yalnızca genel URL, tüm veri kaynakları için geçerlidir. Kimlik doğrulaması gerektiren veri kaynakları paylaşmayın. Dosya kimliği doğrulanmış sitesinden sonra soru ve cevapları ayıklayın için dosya karşıya yükleme seçeneğini kullanın.
 
 ## <a name="faq-urls"></a>SSS URL'leri
 

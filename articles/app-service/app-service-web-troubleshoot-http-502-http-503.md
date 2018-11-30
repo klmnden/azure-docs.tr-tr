@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 1a64e40b13b05fc7f9fdb6f5aa99c8d8cc47c471
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d0d1efcdaab07e77d835319544fc70eb8687702f
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251619"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316353"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>"502 hatalı ağ geçidi" ve "503 Hizmet kullanılamıyor" Azure web uygulamalarınızda HTTP hatalarını giderme
 "502 hatalı ağ geçidi" ve "503 Hizmet kullanılamıyor" olan barındırılan web uygulamanızda sık karşılaşılan [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Bu makalede bu hataları gidermeye yardımcı olur.
@@ -74,22 +74,10 @@ Daha fazla bilgi için bkz.
 <a name="collect" />
 
 ### <a name="2-collect-data"></a>2. Veri toplama
-#### <a name="use-the-azure-app-service-support-portal"></a>Azure uygulama hizmeti destek portalı kullanın
-Web uygulamaları, web uygulamanız için HTTP günlükleri, olay günlükleri, işlem dökümleri ve diğer bakarak ilgili sorunları giderme olanağı sağlar. Destek portalımızı kullanarak tüm bu bilgilere erişebilirsiniz **http://&lt;uygulama adınız >.scm.azurewebsites.net/Support**
+#### <a name="use-the-diagnostics-tool"></a>Tanılama aracını kullanma
+App Service, web uygulamanızı yapılandırma gerektirmeden gidermenize yardımcı olması için akıllı ve etkileşimli bir deneyim sağlar. Web uygulamanızla bir sorunla karşılaşırsanız çalıştırdığınızda, Tanılama aracını daha kolay ve hızlı bir şekilde ve sorunu gidermek için doğru bilgileri size yol göstermesi sorunun ne olduğunu gösterir.
 
-Azure uygulama hizmeti destek portalı üç adımı yaygın bir sorun giderme senaryoları desteklemek için ayrı, üç sekme sağlar:
-
-1. Geçerli davranışını gözlemleyin
-2. Tanılama bilgilerini toplama ve yerleşik Çözümleyicileri çalışan analiz edin
-3. Azaltma
-
-Sorun şu anda karşılaşıyorsanız tıklayın **Çözümle** > **tanılama** > **şimdi Tanıla** sizin için bir tanılama oturumu oluşturmak için toplar HTTP günlükleri, Olay Görüntüleyici günlüklerinde, bellek dökümleri, PHP Hata günlüklerini ve PHP rapor işleme.
-
-Veriler toplandıktan sonra ayrıca veriler üzerinde analiz çalıştırın ve sahip bir HTML raporunu sağlar.
-
-Varsayılan olarak verileri indirmek istediğiniz durumlarda bu D:\home\data\DaaS klasöründe depolanır.
-
-Azure uygulama hizmeti destek Portalı hakkında daha fazla bilgi için bkz. [destek Site uzantısı, Azure Web siteleri için yeni güncelleştirmeler](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites).
+App Service tanılamasını erişmek için App Service uygulamanızı veya App Service Ortamı'nda gidin [Azure portalında](https://portal.azure.com). Sol gezinti bölmesinde, tıklayarak **tanılayın ve sorunlarını çözmek**.
 
 #### <a name="use-the-kudu-debug-console"></a>Kudu hata ayıklama konsolunu kullanma
 Web Apps, hata ayıklama için keşfetmek, ortamınız hakkında bilgi almak için JSON uç noktaları yanı sıra, dosyaları karşıya yükleme için kullanabileceğiniz bir hata ayıklama konsoluna ile birlikte gelir. Bu adlandırılır *Kudu konsolunu* veya *SCM Pano* web uygulamanız için.

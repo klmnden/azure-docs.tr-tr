@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: rkarlin
-ms.openlocfilehash: 98533e3c1454867ff09c53902f0f575d198452a3
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 72acf0f06bbed0129ff322b10a7faf16fd94f712
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320348"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314754"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Tam zamanında özelliğini kullanarak sanal makine erişimini yönetme
 
@@ -262,7 +262,7 @@ Bu makalede, nasıl yalnızca zamanında VM erişimi, Güvenlik Merkezi yardımc
 
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-- [Güvenlik ilkelerini ayarlama](security-center-policies.md) — Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+- [Güvenlik ilkelerini ayarlama](security-center-azure-policy.md) — Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 - [Güvenlik önerilerini yönetme](security-center-recommendations.md) -önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
 - [Güvenlik durumunu izleme](security-center-monitoring.md) — Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 - [Yönetme ve güvenlik uyarılarını yanıtlama](security-center-managing-and-responding-alerts.md) — yönetme ve güvenlik uyarılarını yanıtlama hakkında bilgi edinin.

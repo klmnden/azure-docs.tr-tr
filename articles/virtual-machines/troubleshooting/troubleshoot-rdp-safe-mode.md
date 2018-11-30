@@ -13,23 +13,23 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 8dfe61430423298eea81510d3e92d49066217a05
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 3ff1db9ee7dc34ce529702d61b3ac5970bb5d9df
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708807"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309882"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>VM Güvenli Modu'nda önyüklenir olmadığından bir VM'ye RDP yapılamıyor
 
-Bu makale, bunu yapamazsınız Uzak Masaüstü Azure Windows sanal makinelerin (VM'ler) sanal makine yapılandırıldığından bir sorunun nasıl çözüleceği güvenli moduna önyükleme.
+Bu makale, size bağlanamıyor Azure Windows sanal makinelerine (VM'ler) sanal makine yapılandırıldığından bir sorunun nasıl çözüleceği güvenli moduna önyükleme.
 
 > [!NOTE] 
 > Azure, kaynak oluşturmak ve bu kaynaklarla çalışmak için iki dağıtım modeli kullanır: [Resource Manager ve klasik](../../azure-resource-manager/resource-manager-deployment-model.md). Bu makale, Klasik dağıtım modeli yerine yeni dağıtımlar için kullanmanızı öneririz Resource Manager dağıtım modelini kullanarak kapsar. 
 
 ## <a name="symptoms"></a>Belirtiler 
 
-VM yapılandırıldığından, RDP bağlantısı ve diğer bağlantılar (örneğin, HTTP) azure'da VM yapamazsınız güvenli moduna önyükleme. Ne zaman iade ekran [önyükleme tanılaması](../troubleshooting/boot-diagnostics.md) Azure Portal'da, VM normal önyüklenir, ancak ağ arabirimi yok görebilirsiniz:
+VM yapılandırıldığından, RDP bağlantısı veya diğer bağlantılar (örneğin, HTTP) azure'da VM yapamazsınız güvenli moduna önyükleme. Ne zaman iade ekran [önyükleme tanılaması](../troubleshooting/boot-diagnostics.md) Azure Portal'da, VM normal önyükleme yapmaz, ancak ağ arabirimi kullanılamıyor görebilirsiniz:
 
 ![Güvenli modda ağ inferce hakkında görüntü](./media/troubleshoot-rdp-safe-mode/network-safe-mode.png)
 
@@ -54,11 +54,11 @@ Bu sorunu gidermek için sanal Makinenin normal moduna önyüklemesini yapıland
 
     VM yapılandırıldıysa Güvenli Mod'da önyüklemek için ek bir bayrak altında görürsünüz **Windows önyükleme yükleyicisi** adlı bölüm **başlatılmayı**. Görmüyorsanız, **başlatılmayı** bayrağı, VM değil güvenli modda. Bu makaleyi senaryonuz için geçerli değildir.
 
-    Başlatılmayı bayrağı aşağıdaki değerlerle görünebilir:
+    **Başlatılmayı** bayrağı aşağıdaki değerlerle görünür:
     - En az
     - Ağ
 
-    Bu iki mod hiçbirinde RDP başlatılmaz. Bu nedenle düzeltme aynı kalır.
+    Ya da bu iki mod, RDP başlatılmaz. Bu nedenle, düzeltme aynı kalır.
 
     ![Güvenli modu bayrağını hakkında görüntü](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
 
@@ -66,7 +66,7 @@ Bu sorunu gidermek için sanal Makinenin normal moduna önyüklemesini yapıland
 
         bcdedit /deletevalue {current} safeboot
         
-4. Önyükleme yapılandırma verileri başlatılmayı bayrağı kaldırıldığından emin olmak için kontrol edin:
+4. Önyükleme yapılandırma verileri emin olmak için kontrol **başlatılmayı** bayrağı kaldırıldı:
 
         bcdedit /enum
 
@@ -120,14 +120,14 @@ Döküm günlük ve seri konsol etkinleştirmek için aşağıdaki betiği çal�
         bcdedit /store F:\boot\bcd /enum
     Take note of the Identifier name of the partition that has the **\windows** folder. By default, the  Identifier name is "Default".  
 
-    If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the “safeboot” flag, this article does not apply to your scenario.
+    If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the **safeboot** flag, this article does not apply to your scenario.
 
     ![The image about boot Identifier](./media/troubleshoot-rdp-safe-mode/boot-id.png)
 
 3. Remove the **safeboot** flag, so the VM will boot into normal mode:
 
         bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
-4. Check the boot configuration data to make sure that the safeboot flag is removed:
+4. Check the boot configuration data to make sure that the **safeboot** flag is removed:
 
         bcdedit /store F:\boot\bcd /enum
 5. [Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md). Then check whether the issue is resolved.

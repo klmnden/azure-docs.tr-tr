@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 23369ac9f6cef74bac045017e8f956470e9a1159
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2827461ee78be8d8976ec23e59d489213eb94e31
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248869"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316030"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Azure Güvenlik Merkezi ile güvenlik duruşunuzu güçlendirin
 Bu makalede güvenlik duruşunuzu güçlendirin yardımcı olur. İzleme özellikleri, Azure Güvenlik Merkezi'nde kaynak güvenlik ilkeleriyle uyumluluğunu mümkün ve izleme gibi sıkı olduğundan emin olmak için kullanın.
@@ -27,7 +27,7 @@ Bu makalede güvenlik duruşunuzu güçlendirin yardımcı olur. İzleme özelli
 ## <a name="how-do-you-strengthen-your-security-posture"></a>Nasıl güvenlik duruşunuzu güçlendirin?
 Genellikle izlemeyi, izleme ve bir olayın gerçekleşmesini bekleyip duruma tepki verme olarak ele alırız. Güvenlik duruşunuzu güçlendirme, kuruluş standartlarıyla veya en iyi karşılayan olmayan sistemleri tanımlamak için kaynaklarınızı denetleyen öngörülü bir stratejiye sahip olma anlamına gelir.
 
-Bir aboneliğin kaynakları için [güvenlik ilkelerini](security-center-policies.md) etkinleştirmenizin ardından, Güvenlik Merkezi olası güvenlik açıklarını tanımlamak amacıyla kaynaklarınızın güvenliğini analiz eder. Ağ yapılandırmanız ile ilgili bilgiler hemen kullanımınıza sunulur. Aracının yüklü olduğu VM'ler ve bilgisayarların sayısına bağlı olarak, güvenlik güncelleştirmesi durumu ve işletim sistemi yapılandırması gibi bilgisayar yapılandırma ayarları ve VM’ler hakkında bilgi toplamak bir saat veya daha fazla sürebilir. Sorunlar ve ağınızı sağlamlaştırmak ve risk düzeltmek için yollar tam bir listesini görüntüleyebileceğiniz **önerileri** Döşe.
+Bir aboneliğin kaynakları için [güvenlik ilkelerini](security-center-azure-policy.md) etkinleştirmenizin ardından, Güvenlik Merkezi olası güvenlik açıklarını tanımlamak amacıyla kaynaklarınızın güvenliğini analiz eder. Ağ yapılandırmanız ile ilgili bilgiler hemen kullanımınıza sunulur. Aracının yüklü olduğu VM'ler ve bilgisayarların sayısına bağlı olarak, güvenlik güncelleştirmesi durumu ve işletim sistemi yapılandırması gibi bilgisayar yapılandırma ayarları ve VM’ler hakkında bilgi toplamak bir saat veya daha fazla sürebilir. Sorunlar ve ağınızı sağlamlaştırmak ve risk düzeltmek için yollar tam bir listesini görüntüleyebileceğiniz **önerileri** Döşe.
 
 Güvenlik durumunu, kaynaklarınızı ve kaynak türü başına herhangi bir sorun görüntüleyebilirsiniz:
 
@@ -49,7 +49,7 @@ Güvenlik durumunu, kaynaklarınızı ve kaynak türü başına herhangi bir sor
 ## <a name="see-also"></a>Ayrıca bkz.
 Bu makalede, Azure Güvenlik Merkezi'nde izleme işlevlerini nasıl kullanacağınız hakkında bilgi edindiniz. Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md): Azure Güvenlik Merkezi'nde güvenlik ayarlarını yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md): Azure Güvenlik Merkezi'nde güvenlik ayarlarını yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md): Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md): İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md): Hizmet kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.

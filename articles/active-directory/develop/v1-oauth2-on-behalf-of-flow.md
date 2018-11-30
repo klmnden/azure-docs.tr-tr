@@ -17,12 +17,12 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: ab9f2638de6f74944eb27f024be3000209554cdf
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 72b1ba51f306203092b420e6f2d6186b3307d35d
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345145"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422754"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Hizmetten hizmete temsilci kullanım kullanıcı kimliği On-Behalf-Of akışı çağırır.
 
@@ -181,7 +181,7 @@ Başarılı yanıt, aşağıdaki parametrelerle bir JSON OAuth 2.0 yanıtındaki
 
 | Parametre | Açıklama |
 | --- | --- |
-| token_type |Belirteç türü değeri gösterir. Azure AD destekleyen tek tür **taşıyıcı**. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: taşıyıcı belirteç kullanımı (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Belirteç türü değeri gösterir. Azure AD destekleyen tek tür **taşıyıcı**. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: taşıyıcı belirteç kullanımı (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |Erişim belirtecinde verilen kapsam. |
 | expires_in |Süre (saniye cinsinden) erişim belirteci geçerlidir. |
 | expires_on |Erişim belirtecinin süresinin sona erdiği zaman. Tarih 1970'ten saniye sayısı temsil edilen-01-kadar süre sonu UTC 01T0:0:0Z. Bu değer, önbelleğe alınan belirteç ömrünü belirlemek için kullanılır. |
@@ -272,7 +272,7 @@ Yanıt Base64url UTF8 ile kodlanan bir SAML belirteci içerir.
 
 | Parametre | Açıklama |
 | --- | --- |
-| token_type |Belirteç türü değeri gösterir. Azure AD destekleyen tek tür **taşıyıcı**. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: taşıyıcı belirteç kullanımı (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Belirteç türü değeri gösterir. Azure AD destekleyen tek tür **taşıyıcı**. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: taşıyıcı belirteç kullanımı (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |Erişim belirtecinde verilen kapsam. |
 | expires_in |Süre (saniye cinsinden) erişim belirteci geçerlidir. |
 | expires_on |Erişim belirtecinin süresinin sona erdiği zaman. Tarih 1970'ten saniye sayısı temsil edilen-01-kadar süre sonu UTC 01T0:0:0Z. Bu değer, önbelleğe alınan belirteç ömrünü belirlemek için kullanılır. |

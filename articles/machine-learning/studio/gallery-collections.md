@@ -1,6 +1,6 @@
 ---
-title: Azure AI Gallery koleksiyonları | Microsoft Docs
-description: Bul ve Azure AI Gallery koleksiyonlarında paylaşın.
+title: Azure AI Gallery koleksiyonları - Azure Machine Learning Studio | Microsoft Docs
+description: Azure AI Gallery'de bir koleksiyon, denemeleri, API'leri ve belirli bir çözüm veya kavram için kullandığınız diğer galeri öğeleri gruplandırmak için kullanabilirsiniz. Bunları kullanmak için daha sonra başvurmak için kaydetmeye veya paylaşmak için gruplayabilirsiniz.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: e9b1bfd27e82d3ca091fba850b2e4a9b6b8aa61e
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: cc70405655cd07d87ca5b1004b7666d3b45bc649
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263647"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308690"
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Bul ve Azure AI Gallery koleksiyonlarında paylaşın
 

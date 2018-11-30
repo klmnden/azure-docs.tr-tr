@@ -12,19 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 11/25/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 6060f294820281df3124fb2fc702ece59a006af1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e0eaf88117aa3c67f7ffecad2e3811a22449a5f8
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282416"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312978"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtreler ve dinamik bildirimlere
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Sürüm 2](media-services-dynamic-manifest-overview.md)
+> * [Sürüm 3](../latest/filters-dynamic-manifest-overview.md)
+
 2.17 sürümünden başlayarak, Media Services, varlıklarınız için filtrelerini tanımlamanızı sağlar. Bu filtreler müşterileriniz gibi şeyler seçmesine izin veren sunucu tarafı kurallar şunlardır: yalnızca bir bölümünü (tüm video oynatma) yerine bir video kayıttan yürütme ya da yalnızca bir alt kümesini müşterinizin cihaz işleyebileceğini (ses ve video yorumlama belirtin yerine tüm önayarda varlıkla ilişkili olan). Bu varlıklarınızı filtreleme yoluyla elde edilir **dinamik bildirim**müşterinizin istek üzerine video akışı oluşturan s üzerinde belirtilen filtreleri temel.
 
-Bu konuda, yaygın senaryoları tartışır filtreleri kullanarak filtreler program aracılığıyla nasıl oluşturulacağını gösteren konulara bağlantılar ve müşteriler için çok yararlı olur.
+Bu konuda, yaygın senaryoları tartışır filtreleri kullanarak filtreler program aracılığıyla nasıl oluşturulacağını gösteren konulara bağlantılar ve müşteriler için faydalı olacaktır.
 
 ## <a name="overview"></a>Genel Bakış
 İçeriğinizi (Canlı etkinlik veya isteğe bağlı video akışı) müşterilere teslim ederken hedefiniz, farklı ağ koşulları altındaki çeşitli cihazlara yüksek kaliteli video teslim sağlamaktır. Bu hedef şunları yapmanız elde etmek için:
@@ -102,7 +107,7 @@ Varlık filtreleri iki tür vardır:
 Genel ve yerel filtre türleri tam olarak aynı özelliklere sahiptir. İkisi arasındaki temel fark, hangi senaryolar için ne tür bir olandan daha uygun olduğunu ' dir. Genel filtrelerin trim belirli bir varlık için yerel filtreleri nerede kullanılabilir cihaz profillerinin (işleme filtreleme) genellikle uygundur.
 
 ## <a id="scenarios"></a>Yaygın senaryolar
-İçeriğinizi (Canlı etkinlik veya isteğe bağlı video akışı) müşterilere teslim ederken hedefiniz farklı ağ koşulları altındaki çeşitli cihazlara yüksek kaliteli bir video teslim etmek için önce belirtildiği gibi. Ayrıca, uygulamanızın kaybolabileceğini varlıklarınızı filtreleme ve kullanarak, ilgili diğer gereksinimlerin **dinamik bildirim**s. Aşağıdaki bölümlerde, farklı filtreleme senaryolara kısa bir genel bakış sağlar.
+İçeriğinizi (Canlı etkinlik veya isteğe bağlı video akışı) müşterilere teslim ederken hedefiniz farklı ağ koşulları altındaki çeşitli cihazlara yüksek kaliteli video teslim etmek için önce olarak bahsedilen. Ayrıca, varlıklarınızı filtreleme ve birini kullanarak gerektiren diğer gereksinimleri olabilir **dinamik bildirim**s. Aşağıdaki bölümlerde, farklı filtreleme senaryolara kısa bir genel bakış sağlar.
 
 * Yalnızca belirli cihazlar (yerine, varlıkla ilişkili olan tüm önayarda) işleyebilir ses ve video yorumlama kümesini belirtin. 
 * Yalnızca bir bölümünü (tüm video oynatma) yerine bir video kayıttan yürütme.

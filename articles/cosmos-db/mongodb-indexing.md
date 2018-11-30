@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak
-ms.openlocfilehash: a3dadfc4257d43f9df1b93f5d486e5577b7889d6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ad04976136fc8db04dbe52bf78bea49a9149e5db
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055320"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312706"
 ---
 # <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB: MongoDB API’sinde dizinleme
 
@@ -99,5 +99,5 @@ Yukarıdaki komut, ```db.coll``` koleksiyonunda son 10 saniye içinde değiştir
 Şu anda benzersiz dizinler yalnızca koleksiyon hiçbir belge içermediğinde oluşturulabilir. Popüler MongoDB geçiş araçları, verileri içeri aktardıktan sonra benzersiz dizin oluşturmaya çalışır. Bu sorunu aşmak için kullanıcıların geçiş aracına izin vermek yerine karşılık gelen koleksiyonları ve benzersiz dizinleri el ile oluşturması önerilir (```mongorestore``` için bu davranış komut satırında --noIndexRestore bayrağı kullanılarak elde edilir).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Cosmos DB verileri nasıl dizinler?](../cosmos-db/indexing-policies.md)
+* [Azure Cosmos DB verileri nasıl dizinler?](../cosmos-db/index-policy.md)
 * [Azure Cosmos DB koleksiyonlarındaki verileri yaşam süresi ile otomatik olarak sonlandır](../cosmos-db/time-to-live.md)

@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d063c5e5a5b81f16d8921864ab2e2a0c3504e334
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 878c2596a1d884e26a4b4a4ed4764cfd9ce6b39b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289028"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424109"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokolleri - örtük akışını kullanarak Spa'lar
 
@@ -34,7 +34,7 @@ V2.0 uç noktası ile kullanarak tek sayfalı uygulamanızla hem kişisel ve iş
 * Çok sayıda yetkilendirme sunucularını ve kimlik sağlayıcıları CORS isteklerini desteklemez.
 * Tam sayfada tarayıcı kullanıcı deneyimiyle özellikle bozucu haline uygulama uzağa yeniden yönlendirir.
 
-Bu uygulamalar için (AngularJS, Ember.js, React.js vb.), Azure Active Directory (Azure AD), OAuth 2.0 örtülü izin akışını destekler. Örtük akış açıklanan [OAuth 2.0 belirtimini](http://tools.ietf.org/html/rfc6749#section-4.2). Bunun yararı belirteçleri Azure AD'den bir arka uç sunucusuna gerçekleştirmeden kimlik bilgisi alışverişinin ve uygulamayı vermesidir. Bu, kullanıcının oturumunu, oturumu korumak ve istemcideki tüm diğer web API'leri belirteçleri JavaScript kodu alma okumasına izin verir. Örtük akış özellikle yaklaşık kullanırken dikkate almanız birkaç önemli güvenlik konuları vardır [istemci](http://tools.ietf.org/html/rfc6749#section-10.3) ve [kullanıcı kimliğe bürünme](http://tools.ietf.org/html/rfc6749#section-10.3).
+Bu uygulamalar için (AngularJS, Ember.js, React.js vb.), Azure Active Directory (Azure AD), OAuth 2.0 örtülü izin akışını destekler. Örtük akış açıklanan [OAuth 2.0 belirtimini](https://tools.ietf.org/html/rfc6749#section-4.2). Bunun yararı belirteçleri Azure AD'den bir arka uç sunucusuna gerçekleştirmeden kimlik bilgisi alışverişinin ve uygulamayı vermesidir. Bu, kullanıcının oturumunu, oturumu korumak ve istemcideki tüm diğer web API'leri belirteçleri JavaScript kodu alma okumasına izin verir. Örtük akış özellikle yaklaşık kullanırken dikkate almanız birkaç önemli güvenlik konuları vardır [istemci](https://tools.ietf.org/html/rfc6749#section-10.3) ve [kullanıcı kimliğe bürünme](https://tools.ietf.org/html/rfc6749#section-10.3).
 
 Örtük akış ve Azure AD kimlik doğrulaması JavaScript uygulamanıza eklemek için kullanmak istiyorsanız, açık kaynak JavaScript Kitaplığı kullanmanız önerilir [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js). 
 
@@ -81,7 +81,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `redirect_uri` | Önerilen |Burada kimlik doğrulama yanıtlarının gönderilebilen veya uygulamanız tarafından alınan uygulamanızın redirect_uri. Bu url olarak kodlanmış olması dışında Portalı'nda kayıtlı redirect_uris biri tam olarak eşleşmesi gerekir. |
 | `scope` | gerekli |Kapsamları boşlukla ayrılmış listesi. Openıd Connect için kapsamı içermesi gerekir `openid`, onay için UI "oturumunuzu açma" izni çevirir. İsteğe bağlı olarak ayrıca eklemek isteyebileceğiniz `email` veya `profile` [kapsamları](v2-permissions-and-consent.md) erişmek için ek kullanıcı verileri. Bu isteği çeşitli kaynaklara onay isteme diğer kapsamları da içerebilir. |
 | `response_mode` | isteğe bağlı |Uygulamanıza elde edilen belirteç geri göndermek için kullanılması gereken yöntemini belirtir. İstek bir id_token içeriyorsa, bir erişim belirteci ancak parça için sorgulamak için varsayılan değeri. |
-| `state` | Önerilen |Belirteç yanıtta döndürülecek isteğinde bulunan bir değer. Bu, istediğiniz herhangi bir içerik dizesi olabilir. Rastgele oluşturulmuş bir benzersiz değer için genellikle kullanılan [siteler arası istek sahteciliğini saldırılarını önleme](http://tools.ietf.org/html/rfc6749#section-10.12). Durum, uygulama kullanıcının durumu hakkındaki bilgileri sayfasında ya da görünümü üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce kodlamak için de kullanılır. |
+| `state` | Önerilen |Belirteç yanıtta döndürülecek isteğinde bulunan bir değer. Bu, istediğiniz herhangi bir içerik dizesi olabilir. Rastgele oluşturulmuş bir benzersiz değer için genellikle kullanılan [siteler arası istek sahteciliğini saldırılarını önleme](https://tools.ietf.org/html/rfc6749#section-10.12). Durum, uygulama kullanıcının durumu hakkındaki bilgileri sayfasında ya da görünümü üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce kodlamak için de kullanılır. |
 | `nonce` | gerekli |Sonuçta elde edilen id_token talep olarak dahil edilecek uygulama tarafından oluşturulan bu isteği dahil bir değer. Uygulama, belirteç yeniden yürütme saldırıları azaltmak için bu değer daha sonra doğrulayabilirsiniz. Genellikle istek kaynağı tanımlamak için kullanılan rastgele, benzersiz bir dize değeridir. Yalnızca bir id_token istendiğinde gereklidir. |
 | `prompt` | isteğe bağlı |Gerekli olan kullanıcı etkileşimi türünü belirtir. Şu anda yalnızca geçerli değerler 'login', 'none', 'select_account' olan ve 'onay'. `prompt=login` Bu isteğin negating çoklu oturum açma kimlik bilgilerini girmesini zorunlu tutar. `prompt=none` -tersidir kullanıcı hiçbir etkileşimli istemi olmadan sunulmayan sağlayacaktır. İstek sessiz bir şekilde çoklu oturum açma aracılığıyla tamamlanamıyorsa, v2.0 uç noktasına bir hata döndürür. `prompt=select_account` kullanıcı için bir hesap Seçici, tüm oturumda anımsanacak hesapları nerede görüneceğini gönderir. `prompt=consent` Kullanıcı uygulamayı izinler istendiği anın, oturum açtıktan sonra OAuth onay iletişim tetikler. |
 | `login_hint`  |isteğe bağlı |Önceden, kullanıcı adını biliyorsanız, oturum açma sayfasında kullanıcı için kullanıcı adı/e-posta adresi alanları önceden doldurmak için kullanılabilir. Kullanıcı adı önceki oturum açma kullanarak bir zaten ayıklanan yeniden kimlik doğrulaması sırasında bu parametre genellikle uygulamaları kullanacağı `preferred_username` talep.|
@@ -131,7 +131,7 @@ error=access_denied
 
 ## <a name="validate-the-idtoken"></a>İd_token doğrula
 
-Yalnızca bir id_token alma, kullanıcının kimliğini doğrulamak için yeterli değildir; Ayrıca, id_token'ın imzayı doğrulamak ve uygulamanızın gereksinimlerine göre belirteçteki talepleri doğrulamak gerekir. V2.0 uç noktası kullanan [JSON Web belirteçleri (Jwt'ler)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) ve Belirteçleri imzalamak ve geçerli olduğunu doğrulamak için ortak anahtar şifrelemesi.
+Yalnızca bir id_token alma, kullanıcının kimliğini doğrulamak için yeterli değildir; Ayrıca, id_token'ın imzayı doğrulamak ve uygulamanızın gereksinimlerine göre belirteçteki talepleri doğrulamak gerekir. V2.0 uç noktası kullanan [JSON Web belirteçleri (Jwt'ler)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) ve Belirteçleri imzalamak ve geçerli olduğunu doğrulamak için ortak anahtar şifrelemesi.
 
 Doğrulamak seçebileceğiniz `id_token` istemci kodu, ancak yaygın bir uygulama olan göndermek için `id_token` bir arka uç sunucusuna ve orada doğrulama gerçekleştirin. İd_token imzası doğruladıktan sonra birkaç talepleri doğrulamak için gerekli vardır. Bkz: [ `id_token` başvuru](id-tokens.md) daha fazla bilgi edinmek için de dahil olmak üzere [belirteçleri doğrulama](id-tokens.md#validating-an-idtoken) ve [imzalama anahtarı geçiş işlemi hakkında önemli bilgiler](active-directory-signing-key-rollover.md). Öneririz belirteçleri doğrulamak ve ayrıştırmak için bir kitaplık yapmayı kullanımı - en az bir dil ve platform için kullanılabilir.
 

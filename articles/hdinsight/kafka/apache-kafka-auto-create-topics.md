@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.openlocfilehash: 65dd4b172c0913e11bb7f25909eb062e93a4a03a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e78f0d2012cf4f6152e69fff1bab04f827c0eef7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015239"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310897"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Konular otomatik olarak oluşturmak için HDInsight üzerinde Apache Kafka yapılandırma
 
-Varsayılan olarak, otomatik konu oluşturmayı HDInsight üzerinde kafka'yı etkinleştirmez. Ambari kullanarak var olan kümeleri için otomatik konu oluşturmayı etkinleştirebilirsiniz. Ayrıca, bir Azure Resource Manager şablonu kullanarak yeni bir Kafka kümesi oluştururken otomatik konu oluşturmayı etkinleştirebilirsiniz.
+Varsayılan olarak, [Apache Kafka](https://kafka.apache.org/) HDInsight üzerinde otomatik konu oluşturmayı etkinleştirme değil. Var olan kümeleri kullanarak otomatik konu oluşturmayı etkinleştirebilirsiniz [Apache Ambari](https://ambari.apache.org/). Ayrıca, bir Azure Resource Manager şablonu kullanarak yeni bir Kafka kümesi oluştururken otomatik konu oluşturmayı etkinleştirebilirsiniz.
 
-## <a name="ambari-web-ui"></a>Ambari Web UI
+## <a name="apache-ambari-web-ui"></a>Apache Ambari Web kullanıcı Arabirimi
 
 Ambari Web kullanıcı Arabirimi aracılığıyla var olan bir kümede otomatik konu oluşturmayı etkinleştirmek için aşağıdaki adımları kullanın:
 
@@ -56,7 +56,7 @@ Ambari Web kullanıcı Arabirimi aracılığıyla var olan bir kümede otomatik 
     ![Yeniden başlatma seçimi görüntüsü](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 
 > [!NOTE]
-> Ambari değerleri Ambari REST API aracılığıyla da ayarlayabilirsiniz. Geçerli yapılandırmayı almak, Değiştir, vb. için birden çok REST çağrısı yapmanız gibi genel olarak daha zor, budur. Daha fazla bilgi için [yönetme HDInsight kümeleri Ambari REST API'sini kullanarak](../hdinsight-hadoop-manage-ambari-rest-api.md) belge.
+> Ambari değerleri Ambari REST API aracılığıyla da ayarlayabilirsiniz. Geçerli yapılandırmayı almak, Değiştir, vb. için birden çok REST çağrısı yapmanız gibi genel olarak daha zor, budur. Daha fazla bilgi için [yönetme HDInsight kümeleri Apache Ambari REST API'sini kullanarak](../hdinsight-hadoop-manage-ambari-rest-api.md) belge.
 
 ## <a name="resource-manager-templates"></a>Resource Manager şablonları
 
@@ -79,7 +79,7 @@ Bir Azure Resource Manager şablonu kullanarak bir Kafka kümesi oluştururken, 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Bu belgede, HDInsight üzerinde Kafka için otomatik konu oluşturmayı etkinleştirme öğrendiniz. Kafka ile çalışma hakkında daha fazla bilgi edinmek için aşağıdaki bağlantılara bakın:
+Bu belgede, HDInsight üzerinde Apache Kafka için otomatik konu oluşturmayı etkinleştirme öğrendiniz. Kafka ile çalışma hakkında daha fazla bilgi edinmek için aşağıdaki bağlantılara bakın:
 
-* [Kafka günlüklerini çözümleme](apache-kafka-log-analytics-operations-management.md)
-* [Kafka kümeleri arasında verileri çoğaltma](apache-kafka-mirroring.md)
+* [Apache Kafka günlüklerini çözümleme](apache-kafka-log-analytics-operations-management.md)
+* [Apache Kafka kümeleri arasında verileri çoğaltma](apache-kafka-mirroring.md)

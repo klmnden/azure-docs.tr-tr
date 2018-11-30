@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 9402147e2dab7fbf52fc893f339f6f3b8e112377
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 3fd0dfb327e925ecb28a7ca12e03b79c873118dc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515650"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309353"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory cihaz yönetimi hakkında SSS
 
@@ -93,6 +93,7 @@ Windows 10 ve Windows Server 2016, birleşim durumu temizlemek için AD etki ala
 
 >[!Note] 
 >Kayıtlı cihazlar için kullanıcılar kaynaklara erişemez emin olmak için cihaz silinmeden önceki öneririz. Daha fazla bilgi için [ıntune'da Yönetim için cihazları kaydetme](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+
 ---
 
 # <a name="azure-ad-join-faq"></a>Azure AD katılımı ile ilgili SSS
@@ -103,6 +104,20 @@ Windows 10 ve Windows Server 2016, birleşim durumu temizlemek için AD etki ala
 - Karma Azure AD alanına katılmış aygıtlar için zamanlanmış görev cihazı yeniden kayıt için otomatik kayıt devre dışı bırakmak üzere emin olun. Ardından, açık komut istemini yönetici olarak çalıştırıp türü `dsregcmd.exe /debug /leave`. Alternatif olarak, bu komutu bir komut dosyası olarak toplu olarak ayrılma için birden çok cihazda çalıştırılabilir.
 
 - Azure AD katıldı saf için cihazlar, tüm Azure AD kullanıcı kimlik bilgileriyle oturum açamayacaksınız gibi hesap veya bir oluşturma çevrimdışı bir yerel yönetici olduğundan emin olun. Ardından, Git **ayarları** > **hesapları** > **işe veya okula erişim**. Hesabınızı seçin ve tıklayın **Bağlantıyı Kes**. Komut istemlerini izleyin ve istendiğinde yerel yönetici kimlik bilgilerini girin. Ayrılma işlemi tamamlamak için cihazı yeniden başlatın.
+
+---
+
+**Kullanıcılarım silinmiş veya Azure AD'de devre dışı Azure AD'ye katılmış cihazlar için oturum miyim? ** 
+ **Y:** Evet. Windows, kullanıcılar Masaüstü bile ağ bağlantısı hızlıca erişmek için önceden günlüğe yazılan izin vermek için oturum açma özelliği önbelleğe almıştır. Cihazın silindi veya Azure AD'de devre dışı olduğunda Windows cihaza bilinmiyor. Bu nedenle, daha önce oturum kullanıcılar Masaüstü önbelleğe alınmış oturum açma ile erişmeye devam edebilir. Ancak, cihazın silinmesi veya devre dışı olarak Kullanıcılar Cihaz tabanlı koşullu erişim tarafından korunan herhangi bir kaynağa erişemez. 
+
+Önbelleğe alınmış oturum açma için etkin olarak zaten oturum açmadıysanız kullanıcıların cihaz erişemez. 
+
+---
+
+**Devre dışı bırakılan veya silinen kullanıcılar Azure AD'ye katılmış cihazlarda oturum açabilir miyim? ** 
+ **Y:** Evet, ancak yalnızca sınırlı bir süreliğine. Bir kullanıcı silindi veya Azure AD'de devre dışı olduğunda Windows cihaza hemen bilinmiyor. Bu nedenle, daha önce oturum Masaüstü önbelleğe alınmış oturum açma ile kullanıcıların erişim sağlayabilir. Cihaz (genellikle kısa 4 saat) kullanıcı durumu uyumlu hale geldikten sonra Windows kullanıcılarla Masaüstü erişmesini engeller. Kullanıcı silindi veya Azure AD'de devre dışı olarak bunlar herhangi bir kaynağa erişilemiyor. Bu nedenle tüm belirteçlerin, iptal edilir. 
+
+Önbelleğe alınmış oturum açma için bunları etkin olduğundan, daha önce oturum açmadıysanız silinmiş veya devre dışı bırakılmış kullanıcılar bir cihaz erişemez. 
 
 ---
 

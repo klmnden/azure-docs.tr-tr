@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
-ms.openlocfilehash: 9211a487b9e03d2cecead224584077859bfc7bb7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e25b1e08ea6cb395381c065621e1137eaec2fe20
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253695"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314822"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines"></a>Azure Güvenlik Merkezi ve Azure Sanal Makineler
 [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/), tehditleri önlemenize, algılamanıza ve yanıtlamanıza yardımcı olur. Aboneliklerinizde, tümleşik güvenlik izleme ve ilke yönetimi sağlar; normal koşullarda gözden kaçabilecek tehditleri algılamaya yardımcı olur ve güvenlik çözümlerinin geniş ekosistemiyle çalışır.
@@ -58,7 +58,7 @@ Güvenlik ilkesi, belirtilen abonelik veya kaynak grubundaki kaynaklar için ön
 ![Güvenlik ilkesi](./media/security-center-virtual-machine/security-center-virtual-machine-fig1.png)
 
 > [!NOTE]
-> Kullanılabilen her bir **Önleme ilkesi** hakkında daha fazla bilgi için [Güvenlik ilkeleri ayarlama](security-center-policies.md) makalesine bakın.
+> Kullanılabilen her bir **Önleme ilkesi** hakkında daha fazla bilgi için [Güvenlik ilkeleri ayarlama](security-center-azure-policy.md) makalesine bakın.
 > 
 > 
 
@@ -85,7 +85,7 @@ Bir güvenlik ilkesi tanımladıktan sonra, Güvenlik Merkezi olası güvenlik a
 > 
 
 ## <a name="monitor-security-health"></a>Güvenlik durumunu izleme
-Bir aboneliğin kaynakları için [güvenlik ilkelerini](security-center-policies.md) etkinleştirmenizin ardından, Güvenlik Merkezi olası güvenlik açıklarını tanımlamak amacıyla kaynaklarınızın güvenliğini analiz eder.  **Kaynak güvenlik durumu** dikey penceresinde herhangi bir sorunun yanı sıra kaynaklarınızın güvenlik durumunu da görüntüleyebilirsiniz. **Kaynak güvenliği** sistem durumu kutucuğundaki **Sanal makineler**’e tıkladığınızda **Sanal makineler** dikey penceresi VM’nize yönelik önerilerle birlikte açılır. 
+Bir aboneliğin kaynakları için [güvenlik ilkelerini](security-center-azure-policy.md) etkinleştirmenizin ardından, Güvenlik Merkezi olası güvenlik açıklarını tanımlamak amacıyla kaynaklarınızın güvenliğini analiz eder.  **Kaynak güvenlik durumu** dikey penceresinde herhangi bir sorunun yanı sıra kaynaklarınızın güvenlik durumunu da görüntüleyebilirsiniz. **Kaynak güvenliği** sistem durumu kutucuğundaki **Sanal makineler**’e tıkladığınızda **Sanal makineler** dikey penceresi VM’nize yönelik önerilerle birlikte açılır. 
 
 ![Güvenlik durumu](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
@@ -99,7 +99,7 @@ Uyarıyı tetikleyen olay(lar) ve saldırıyı düzeltmek için (varsa) hangi ad
 ## <a name="see-also"></a>Ayrıca bkz.
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -- Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
 

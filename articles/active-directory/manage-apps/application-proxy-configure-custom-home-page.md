@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e6f4e67d09eacadbbf9d74f417357a87ece0a951
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: d098d38c39788dee7f4a3852d07a762b36fd9a4f
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "50238514"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333760"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si kullanarak yayımlanmış uygulamalar için özel bir ana sayfa ayarlayın
 
@@ -120,7 +120,7 @@ Giriş sayfası URL'si oluşturun ve bu değeri ile uygulamanızı güncelleşti
     $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
     ```
 
-3. Giriş sayfası URL'si istediğiniz değere ayarlayın. Değer yayımlanan bir uygulamanın bir alt etki alanı yolu olmalıdır. Örneğin, giriş sayfası URL değiştirirseniz *https://sharepoint-iddemo.msappproxy.net/* için *https://sharepoint-iddemo.msappproxy.net/hybrid/*, uygulama kullanıcılarının doğrudan özel giriş sayfasına gidin.
+3. Giriş sayfası URL'si istediğiniz değere ayarlayın. Değer yayımlanan bir uygulamanın bir alt etki alanı yolu olmalıdır. Örneğin, giriş sayfası URL değiştirirseniz `https://sharepoint-iddemo.msappproxy.net/` için `https://sharepoint-iddemo.msappproxy.net/hybrid/`, uygulama kullanıcılarının doğrudan özel giriş sayfasına gidin.
 
     ```
     $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"

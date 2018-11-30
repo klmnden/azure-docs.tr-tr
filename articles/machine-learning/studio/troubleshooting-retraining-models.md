@@ -1,6 +1,6 @@
 ---
-title: Bir Azure Machine Learning Klasik web hizmetini yeniden eğitme sorunlarını giderme | Microsoft Docs
-description: Tanımlamak ve bir Azure Machine Learning Web hizmeti için modeli yeniden eğitme durumlarda sık karşılaşılan sorunları aygıtındaki düzeltin.
+title: Azure Machine Learning Studio Klasik web hizmeti - yeniden eğitme sorunlarını giderme | Microsoft Docs
+description: Tanımlamak ve bir Azure Machine Learning Studio web hizmeti için modeli yeniden eğitme, ortak sorunları aygıtındaki düzeltin.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 49a76729d38662667328632c83e98a1211438a98
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 1105b81d0f8ba80bd76bcdf140fe79b9e8a7102d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261710"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307211"
 ---
-# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Sorun giderme bir Azure Machine Learning Klasik web hizmetini yeniden eğitme
+# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Yeniden eğitme bir Azure Machine Learning Studio Klasik web hizmeti sorunlarını giderme
 ## <a name="retraining-overview"></a>Yeniden eğitme genel bakış
 Bir Puanlama web hizmeti olarak öngörücü bir denemeye dağıtırken statik bir modeldir. Yeni veriler kullanılabilir olduğunda ya da kendi veri tüketici API'si varsa, model eğitilebileceği gerekir. 
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 69c77896f894201d1419aaef33470a02ac45ff91
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d044b1ad18df6eee1235e881038bbb9734a999ff
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986297"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317356"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Hızlı Başlangıç: kullanıcılarının oturumunu ve bir JavaScript uygulamasında erişim belirteci alma
 
@@ -36,12 +36,12 @@ Bu hızlı başlangıçta, tek sayfalı uygulama (SPA) kişisel hesaplarında ot
 > #### <a name="step-1-register-your-application"></a>1. Adım: Uygulamanızı kaydetme
 >
 > 1. Oturum [Azure portalında](https://portal.azure.com/) bir uygulamayı kaydetme.
-> 1. Hesabınız birden fazla kiracıya erişmenizi sağlar, seçin, hesabınızdaki sağ üst köşe ve portal oturumunuzu ayarlamak istediğiniz Azure AD ile Kiracı.
-> 1. Sol gezinti bölmesinde seçin **Azure Active Directory** hizmet ve ardından **uygulama kayıtları (Önizleme) > Yeni kayıt**.
+> 1. Hesabınız size birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzu istediğiniz Azure AD kiracısına ayarlayın.
+> 1. Sol taraftaki gezinti bölmesinde **Azure Active Directory** hizmetini seçin ve ardından **Uygulama kayıtları (Önizleme) > Yeni kayıt** seçeneğini belirleyin.
 > 1. Zaman **bir uygulamayı kaydetme** sayfası görüntülenirse, uygulamanız için bir ad girin.
 > 1. Altında **desteklenen hesap türleri**seçin **herhangi bir kuruluş dizinini ve kişisel Microsoft hesapları hesaplarında**.
 > 1. Seçin **Web** platform altında **yeniden yönlendirme URI'si** bölümünde ve değerine `http://localhost:30662/`.
-> 1. İşiniz bittiğinde seçin **kaydetme**.  Uygulamasında **genel bakış** sayfa, Not **uygulama (istemci) kimliği** değeri.
+> 1. Bittiğinde **Kaydet**’i seçin.  Uygulamasında **genel bakış** sayfa, Not **uygulama (istemci) kimliği** değeri.
 > 1. Bu Hızlı Başlangıç [örtük izin akışı](v2-oauth2-implicit-grant-flow.md) etkinleştirilecek. Kayıtlı uygulama sol gezinti bölmesinde seçin **kimlik doğrulaması**.
 > 1. İçinde **Gelişmiş ayarlar**altında **örtük vermeyi**, her ikisini de etkinleştirmek **kimlik belirteçlerini** ve **erişim belirteçlerini** onay kutularını. Bu uygulama kullanıcılarının oturumunu ve bir API'yi çağırmak sonun kimliği ve erişim belirteçler gereklidir.
 > 1. **Kaydet**’i seçin.
@@ -53,7 +53,7 @@ Bu hızlı başlangıçta, tek sayfalı uygulama (SPA) kişisel hesaplarında ot
 > > [Benim için şu değişiklikleri yapın]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Önceden yapılandırılmış](media/quickstart-v2-javascript/green-check.png) uygulamanız bu öznitelikleri ile yapılandırılır.
+> > ![Zaten yapılandırılmış](media/quickstart-v2-javascript/green-check.png) Uygulamanız bu özniteliklerle yapılandırılmış.
 
 #### <a name="step-2-download-the-project"></a>2. Adım: Projeyi indirme
 
@@ -66,7 +66,7 @@ Geliştirme ortamınız için uygun olan bu seçeneklerden birini seçebilirsini
 #### <a name="step-3-configure-your-javascript-app"></a>3. adım: JavaScript uygulamanızı yapılandırın
 
 > [!div renderon="docs"]
-> Düzen `index.html` değiştirin `Enter_the_Application_Id_here` altında `applicationConfig` yeni kaydettiğiniz uygulamayı uygulama kimliği.
+> Düzen `index.html` ayarlayıp `clientID` ve `authority` altındaki değerler `applicationConfig`.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Düzen `index.html` değiştirin `applicationConfig` ile:
@@ -74,13 +74,25 @@ Geliştirme ortamınız için uygun olan bu seçeneklerden birini seçebilirsini
 ```javascript
 var applicationConfig = {
     clientID: "Enter_the_Application_Id_here",
+    authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
     graphScopes: ["user.read"],
     graphEndpoint: "https://graph.microsoft.com/v1.0/me"
 };
 ```
+> [!div renderon="docs"]
+>
+> Konumlar:
+> - `Enter_the_Application_Id_here` - kaydettiğiniz uygulamanın **Uygulama (istemci) Kimliği** değeridir.
+> - `Enter_the_Tenant_Info_Here` - aşağıdaki seçeneklerden birine ayarlanır:
+>   - Uygulamanız **Bu kuruluş dizinindeki hesapları** destekliyorsa, bu değeri **Kiracı Kimliği** veya **Kiracı adı** (örneğin, contoso.microsoft.com) ile değiştirin
+>   - Uygulamanız **Herhangi bir kuruluş dizinindeki hesaplar** yaklaşımını destekliyorsa bu değeri `organizations` ile değiştirin
+>   - Uygulamanız **Herhangi bir kuruluş dizinindeki hesaplar ve kişisel Microsoft hesaplarını** destekliyorsa bu değeri `common` ile değiştirin
+>
+> > [!TIP]
+> > **Uygulama (istemci) Kimliği**, **Dizin (kiracı) Kimliği** ve **Desteklenen hesap türleri** değerlerini bulmak için Azure portalında uygulamanın **Genel bakış** sayfasına gidin.
+
 > [!NOTE]
->Kullanırsanız [Node.js](https://nodejs.org/en/download/), *server.js* dosya sunucusunun 30662 bağlantı noktasında dinleme başlatmak yapılandırılır.
-> Kullanırsanız [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), kod örneği 's *.csproj* dosya sunucusunun 30662 bağlantı noktasında dinleme başlatmak yapılandırılır.
+> Sunucu bağlantı noktası 30662 dinleyecek şekilde yapılandırılmış *server.js* dosyası [Node.js](https://nodejs.org/en/download/) proje ve *.csproj* dosyası [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)proje.
 >
 
 #### <a name="step-4-run-the-project"></a>4. adım: Proje çalıştırma
@@ -121,7 +133,7 @@ npm install msal
 Hızlı Başlangıç kod ayrıca kitaplığı başlatılamıyor işlemini gösterir:
 
 ```javascript
-var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, null, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
+var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, applicationConfig.authority, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
 ```
 
 > |Konum  |  |

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan; kasinh
-ms.openlocfilehash: 8e80d935bac94f3d4b2380799a1aed256828af75
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e963f675dfe2a57fc19f3169beeb1d7d4066af93
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625887"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315605"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Microsoft Azure Backup sunucusu yenilikler
 
@@ -60,6 +60,7 @@ Yüklemesi/yükseltmesi hakkında daha fazla bilgi için MABS adımları Bul [bu
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Sunucunuzu hazırlama veya bir iş yükü korumaya başlamak öğrenin:
+- [MABS V3'de bilinen sorunlar](backup-mabs-release-notes-v3.md)
 - [Backup sunucusu iş yükleri hazırlama](backup-azure-microsoft-azure-backup.md)
 - [Bir VMware sunucusunu yedeklemek için Backup sunucusu kullanma](backup-azure-backup-server-vmware.md)
 - [SQL sunucusunu yedeklemek için Backup sunucusu kullanma](backup-azure-sql-mabs.md)

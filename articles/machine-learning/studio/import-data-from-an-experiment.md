@@ -1,5 +1,5 @@
 ---
-title: Verileri içeri aktarma Machine Learning Studio'ya başka bir denemeden | Microsoft Docs
+title: Verileri içeri aktarma Machine Learning Studio'ya başka bir denemeden - Azure | Microsoft Docs
 description: Nasıl Azure Machine Learning Studio'da eğitim verilerini kaydetmek ve başka bir deneme kullanın.
 keywords: verileri, veri, veri kaynakları, eğitim verilerini içeri aktarma
 services: machine-learning
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: cb024f757772ec22adcf4513c422d41628ab7360
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 098459c3c2c8402a4dbcefd88fd79d0883611053
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265160"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308046"
 ---
 # <a name="import-your-data-into-azure-machine-learning-studio-from-another-experiment"></a>Verilerinizi başka bir denemeden Azure Machine Learning Studio’ya alma
 

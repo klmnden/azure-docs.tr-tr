@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: b94c797bc2351706badb98075514e5324d90a249
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 078c4253f990e3ad2759afb9f5b55832c78d9e73
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52277333"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334100"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Oluşturma ve Azure portalını kullanarak MariaDB sanal ağ hizmet uç noktaları ve sanal ağ kuralları için Azure veritabanı yönetme
 
@@ -54,9 +54,5 @@ Sanal ağ (VNet) Hizmetleri uç noktaları ve kuralları MariaDB için Azure ver
    ![Sanal ağ hizmet uç noktaları etkinleştirilmiş ve oluşturulan sanal ağ kuralı](./media/howto-manage-vnet-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Daha fazla bilgi edinin [SSL, MySQL için Azure veritabanı yapılandırılıyor](howto-configure-ssl.md)
-
-<!--
-- Similarly, you can script to [Enable VNet service endpoints and create a VNET rule for Azure Database for MySQL using Azure CLI](howto-manage-vnet-using-cli.md).
-- For help in connecting to an Azure Database for MySQL server, see [Connection libraries for Azure Database for MySQL](./concepts-connection-libraries.md)
--->
+- Daha fazla bilgi edinin [SSL MariaDB için Azure veritabanı yapılandırılıyor](howto-configure-ssl.md)
+- Benzer şekilde, yazabilirsiniz [etkinleştirme sanal ağ hizmet uç noktalarını ve bir sanal ağ kuralı için Azure CLI kullanarak MariaDB için Azure veritabanı oluşturma](howto-manage-vnet-cli.md).

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: raynew
-ms.openlocfilehash: 076cd987cdc74cad07287c15ad52394ef304f251
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 034cf8b8b822b1baf45f091b4f6154de4f80b6a3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015375"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313148"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için destek matrisi
 
@@ -63,7 +63,7 @@ Site Recovery, desteklenen bir makinede çalışan tüm iş yüklerini çoğalt�
 --- | ---
 Makine ayarları | Azure'a çoğaltılan makineler karşılamalıdır [Azure gereksinimleri](#azure-vm-requirements).
 Windows işletim sistemi | 64 bit Windows Server 2016 (Sunucu Çekirdeği, masaüstü deneyimi ile sunucu), Windows Server 2012 R2, Windows Server 2012, Itanium tabanlı sistemler için Windows Server 2008 R2 ile en az SP1. </br></br>  [Windows Server 2008 ile en az SP2 - 32 bit ve 64 bit](migrate-tutorial-windows-server-2008.md) (yalnızca geçiş). </br></br> Windows 2016 Nano sunucu desteklenmiyor.
-Linux işletim sistemi | Red Hat Enterprise Linux: 5.2 5.11<b>\*\*</b>, 6.1 için 6.10<b>\*\*</b>, 7.0 için 7.5 <br/><br/>CentOS: 5.2 5.11<b>\*\*</b>, 6.1 için 6.10<b>\*\*</b>, 7.0 için 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (çekirdek sürümleri desteklenir)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (çekirdek sürümleri desteklenir)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (çekirdek sürümleri desteklenir)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2 SP3 [ (çekirdek sürümleri desteklenir)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, Red Hat uyumlu çekirdek veya kesilemeyen Enterprise çekirdeği sürüm 3 (UEK3) çalıştıran 6.7 <br/><br/></br>-Çoğaltılan makineler için SP4 SUSE Linux Enterprise Server 11 SP3 ' yükseltme desteklenmez. Yükseltmek için çoğaltmayı devre dışı bırakın ve yükseltmeden sonra yeniden etkinleştirin.</br></br> - [Daha fazla bilgi edinin](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) Linux ve açık kaynak teknolojisi azure'da desteği hakkında. Site Recovery Azure'da Linux sunucuları çalıştırmak için yük devretme işlemlerini yönetir. Ancak Linux satıcılar yalnızca son yaşam geçmediği dağıtım sürümleri için destek sınırlayabilir.<br/><br/> -Linux dağıtımlarında dağıtım podverze yayın/güncelleştirmenin parçası olan stok çekirdekler desteklenir.<br/><br/> -Korumalı makineler arasında önemli Linux dağıtım sürümleri desteklenmez yükseltme. Yükseltmek için çoğaltmayı devre dışı bırak, işletim sistemini yükseltin ve ardından çoğaltmayı yeniden etkinleştirin.<br/><br/> -Red Hat Enterprise Linux 5.2-5.11 veya CentOS 5.2-5.11 çalıştıran sunucular olmalıdır [Linux Integration Services (LIS) bileşenleri](https://www.microsoft.com/download/details.aspx?id=55106) makineler Azure'da önyüklemesini yapmak için yüklü.
+Linux işletim sistemi | Red Hat Enterprise Linux: 5.2 5.11<b>\*\*</b>, 6.1 için 6.10<b>\*\*</b>, 7.0 için 7.5 <br/><br/>CentOS: 5.2 5.11<b>\*\*</b>, 6.1 için 6.10<b>\*\*</b>, 7.0 için 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (çekirdek sürümleri desteklenir)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (çekirdek sürümleri desteklenir)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (çekirdek sürümleri desteklenir)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2 SP3 [ (çekirdek sürümleri desteklenir)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6,8, Red Hat uyumlu çekirdek veya kesilemeyen Enterprise çekirdeği sürüm 3 (UEK3) çalıştıran 6.9 <br/><br/></br>-Çoğaltılan makineler için SP4 SUSE Linux Enterprise Server 11 SP3 ' yükseltme desteklenmez. Yükseltmek için çoğaltmayı devre dışı bırakın ve yükseltmeden sonra yeniden etkinleştirin.</br></br> - [Daha fazla bilgi edinin](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) Linux ve açık kaynak teknolojisi azure'da desteği hakkında. Site Recovery Azure'da Linux sunucuları çalıştırmak için yük devretme işlemlerini yönetir. Ancak Linux satıcılar yalnızca son yaşam geçmediği dağıtım sürümleri için destek sınırlayabilir.<br/><br/> -Linux dağıtımlarında dağıtım podverze yayın/güncelleştirmenin parçası olan stok çekirdekler desteklenir.<br/><br/> -Korumalı makineler arasında önemli Linux dağıtım sürümleri desteklenmez yükseltme. Yükseltmek için çoğaltmayı devre dışı bırak, işletim sistemini yükseltin ve ardından çoğaltmayı yeniden etkinleştirin.<br/><br/> -Red Hat Enterprise Linux 5.2-5.11 veya CentOS 5.2-5.11 çalıştıran sunucular olmalıdır [Linux Integration Services (LIS) bileşenleri](https://www.microsoft.com/download/details.aspx?id=55106) makineler Azure'da önyüklemesini yapmak için yüklü.
 
 
 
@@ -72,26 +72,24 @@ Linux işletim sistemi | Red Hat Enterprise Linux: 5.2 5.11<b>\*\*</b>, 6.1 içi
 
 **Desteklenen sürüm** | **Azure Site Recovery Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
+14.04 LTS | 9.20 | 3.13.0-24-Generic 3.13.0-161-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-21-Generic 4.4.0-138-generic için |
 14.04 LTS | 9.19 | 3.13.0-24-Generic 3.13.0-153-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-21-Generic 4.4.0-131-generic için |
 14.04 LTS | 9.18 | 3.13.0-24-Generic 3.13.0-153-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-21-Generic 4.4.0-130-generic için |
 14.04 LTS | 9.17 | 3.13.0-24-Generic 3.13.0-149-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-21-Generic 4.4.0-127-generic için |
-14.04 LTS | 9.16 | 3.13.0-24-Generic 3.13.0-144-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-21-Generic 4.4.0-119-generic için |
 |||
+16.04 LTS | 9.20 | 4.4.0-21-Generic 4.4.0-138-generic için<br/>4.8.0-34-Generic 4.8.0-58-generic için<br/>4.10.0-14-Generic 4.10.0-42-generic için<br/>4.11.0-13-Generic 4.11.0-14-generic için<br/>4.13.0-16-Generic 4.13.0-45-generic için<br/>4.15.0-13-Generic 4.15.0-38-generic için<br/>4.11.0-1009-Azure 4.11.0-1016-azure için<br/>4.13.0-1005-Azure 4.13.0-1018-azure için <br/>4.15.0-1012-Azure 4.15.0-1025-azure için|
 16.04 LTS | 9.19 | 4.4.0-21-Generic 4.4.0-131-generic için<br/>4.8.0-34-Generic 4.8.0-58-generic için<br/>4.10.0-14-Generic 4.10.0-42-generic için<br/>4.11.0-13-Generic 4.11.0-14-generic için<br/>4.13.0-16-Generic 4.13.0-45-generic için<br/>4.15.0-13-Generic 4.15.0-30-generic için<br/>4.11.0-1009-Azure 4.11.0-1016-azure için<br/>4.13.0-1005-Azure 4.13.0-1018-azure için <br/>4.15.0-1012-Azure 4.15.0-1019-azure için|
 16.04 LTS | 9.18 | 4.4.0-21-Generic 4.4.0-130-generic için<br/>4.8.0-34-Generic 4.8.0-58-generic için<br/>4.10.0-14-Generic 4.10.0-42-generic için<br/>4.11.0-13-Generic 4.11.0-14-generic için<br/>4.13.0-16-Generic 4.13.0-45-generic için |
 16.04 LTS | 9.17 | 4.4.0-21-Generic 4.4.0-127-generic için<br/>4.8.0-34-Generic 4.8.0-58-generic için<br/>4.10.0-14-Generic 4.10.0-42-generic için<br/>4.11.0-13-Generic 4.11.0-14-generic için<br/>4.13.0-16-Generic 4.13.0-43-generic için |
-16.04 LTS | 9.16 | 4.4.0-21-Generic 4.4.0-119-generic için<br/>4.8.0-34-Generic 4.8.0-58-generic için<br/>4.10.0-14-Generic 4.10.0-42-generic için<br/>4.11.0-13-Generic 4.11.0-14-generic için<br/>4.13.0-16-Generic 4.13.0-38-generic için |
-
 
 ### <a name="debian-kernel-versions"></a>Debian çekirdek sürümleri
 
 
 **Desteklenen sürüm** | **Azure Site Recovery Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
-Debian 7 | 9.17,9.18,9.19 | 3.2.0-4-AMD64 3.2.0-6-amd64 için 3.16.0-0.bpo.4-amd64 |
-Debian 7 | 9.16 | 3.2.0-4-AMD64 3.2.0-5-amd64 için 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.17,9.18,9.19,9.20 | 3.2.0-4-AMD64 3.2.0-6-amd64 için 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | 9.19 | 3.16.0-4-AMD64 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 4.9.0-0.bpo.7-amd64 için için |
+Debian 8 | 9.20 | 3.16.0-4-AMD64 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 4.9.0-0.bpo.8-amd64 için için |
 Debian 8 | 9.17, 9.18 | 3.16.0-4-AMD64 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 4.9.0-0.bpo.6-amd64 için için |
 Debian 8 | 9.16 | 3.16.0-4-AMD64 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 4.9.0-0.bpo.6-amd64 için için |
 
@@ -99,6 +97,7 @@ Debian 8 | 9.16 | 3.16.0-4-AMD64 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 4.9.0-0.bpo
 
 **Yayın** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
+SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.20 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.98-default için</br></br>SP3 4.4.73-5-default 4.4.140-94.64-default için |
 SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.19 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.96-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.85-default için</br></br>SP3 4.4.73-5-default 4.4.140-94.42-default için |
 SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.18 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.96-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.85-default için</br></br>SP3 4.4.73-5-default 4.4.138-94.39-default için |
 
@@ -107,11 +106,11 @@ SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.18 | SP1 3.12.49-11-default 3
 **Bileşen** | **Destekleniyor**
 --- | ---
 Dosya sistemleri | ext3, ext4, XFS.
-Birim Yöneticisi | LVM2. LVM'yi veri diskleri için desteklenir. Azure sanal makineler yalnızca tek bir işletim sistemi diski var.
+Birim Yöneticisi | 9.20 sürümünden önce <br/> 1. LVM2 desteklenir. <br/> 2. LVM'yi veri diskleri için desteklenir. <br/> 3. Azure sanal makineler yalnızca tek bir işletim sistemi diski var.<br/><br/>LVM'yi ve LVM2 9.20 sürümünden başlayarak, desteklenir
 Parasanallaştırılmış depolama cihazları | Parasanallaştırılmış sürücüler tarafından dışarı aktarılan cihazlar desteklenmez.
 Birden fazla kuyruk blok g/ç cihazları | Desteklenmiyor.
 HP CCISS depolama denetleyicisi ile fiziksel sunucuları | Desteklenmiyor.
-Dizinler | Bu dizinleri (varsa ayrı bölümler/dosya-sistemleri ayarlanmış) tüm kaynak sunucuyla aynı işletim sistemi diskinde olmalıdır: / (root), makinesiyse, / usr, / usr/local, /var, / etc.</br></br> makinesiyse bir disk bölümünde olmalı ve LVM birim olmaması gerekir.<br/><br/>
+Dizinler | 9.20 sürümünden önce <br/> 1. Aşağıdaki dizinleri (varsa ayrı bölümler/dosya-sistemleri ayarlanmış) tüm kaynak sunucuyla aynı işletim sistemi diskinde olmalıdır: / (root), makinesiyse, / usr, / usr/local, /var, / etc.</br>2. makinesiyse bir disk bölümünde olmalı ve LVM birim olmaması gerekir.<br/><br/> 9.20 sürümünden başlayarak, kısıtlama geçerli değildir.
 Boş alan gereksinimleri| 2 GB/root bölümdeki <br/><br/> Yükleme klasöründeki 250 MB
 XFSv5 | Mobilite hizmeti sürümünden 9.10 ileriye doğru XFS dosya sistemleri gibi meta veri sağlama XFSv5 özellikleri desteklenir. Süper blok XFS kullanarak bölümü için denetlenecek xfs_info yardımcı programını kullanın. Ftype 1 olarak ayarlarsanız, XFSv5 özellikleri kullanılıyor olabilir.
 
@@ -162,7 +161,7 @@ Konak vsan'ı | VMware için Evet<br/><br/> Fiziksel sunucular için yok
 Konak çok yollu (MPIO) | Evet, Microsoft DSM EMC PowerPath 5.7 SP4, EMC PowerPath DSM ile CLARiiON için test
 Konak sanal birimler (VVols) | VMware için Evet<br/><br/> Fiziksel sunucular için yok
 Konuk/sunucu VMDK | Evet
-Konuk/server EFI/UEFI'ye| Kısmi (Windows Server 2012 için Azure ve sonraki VMware sanal makinelerini yalnızca geçiş) </br></br> Tablonun sonundaki nota bakın
+Konuk/server EFI/UEFI'ye| Kısmi (geçiş Azure Windows Server 2012 ve üzeri) </br></br> Tablonun sonundaki nota bakın
 Konuk/sunucu paylaşılan küme diskine | Hayır
 Konuk/sunucu şifreli disk | Hayır
 Konuk/sunucu NFS | Hayır
@@ -183,7 +182,6 @@ Konuk/sunucu çok yollu (MPIO) | Hayır
 > - Azure'a geçiş desteklenir. Şirket içi VMware sitesinde yeniden çalışma desteklenmez.
 > - Sunucu işletim sistemi diskinde dörtten fazla bölümler olmamalıdır.
 > - Mobility hizmeti sürümü 9.13 veya üstü gerektirir.
-> - Fiziksel sunucuları için desteklenmez.
 
 ## <a name="azure-storage"></a>Azure Storage
 

@@ -1,5 +1,5 @@
 ---
-title: Machine learning'de model sonuçlarını yorumlama | Microsoft Docs
+title: Machine Learning Studio'da - Azure model sonuçlarını yorumlama | Microsoft Docs
 description: Bir algoritma kullanarak ve score model çıktıları görselleştirme için en iyi parametresinde nasıl seçeceğinizi öğrenin.
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 7fe481619da217238cc790acac212857566d01f3
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c06b05989270b4199e5d97ca399a1411b73a702b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264990"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310278"
 ---
-# <a name="interpret-model-results-in-azure-machine-learning"></a>Azure Machine learning'de model sonuçlarını yorumlama
+# <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da model sonuçlarını yorumlama
 Bu konuda, görselleştirin ve Azure Machine Learning Studio'da tahmin sonuçlarını yorumlama açıklanmaktadır. Bir modeli eğitilir ve Öngörüler, ("modeli puanlanmış") üzerinde yapılan sonra anlamak ve yorumlamak tahmin sonuç gerekir.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]

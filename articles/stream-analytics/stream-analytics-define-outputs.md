@@ -8,19 +8,19 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.openlocfilehash: 1502277276489d1977540018f2a22681ad48d8a7
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 869941781643d3486506b5a3caed4006019fb3b7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291479"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310057"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışları anlama
 Bu makalede, Azure Stream Analytics işi için çıktıların farklı türde açıklanır. Çıkış, depolamak ve Stream Analytics işi sonuçlarını kaydetmek olanak tanır. Yapabileceğiniz çıktı verilerini kullanarak, İş analizi ve veri depolama verilerinizi daha fazla. 
 
 Stream Analytics sorgunuz tasarlarken, çıkış kullanarak adına başvurmak [yan tümcesi içinde](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). İş başına tek bir çıkış veya birden çok INTO yan tümceleri sorguda sağlayarak ihtiyacınız varsa, iş akışı başına birden çok çıkış kullanabilirsiniz.
 
-Test Stream Analytics işi oluşturmak ve düzenlemek için çıkışları kullanabileceğiniz [Azure portalında](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), ve [Visual Studio](stream-analytics-quick-create-vs.md).
+Test Stream Analytics işi oluşturmak ve düzenlemek için çıkışları kullanabileceğiniz [Azure portalında](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), ve [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Bazı çıkış türleri desteği [bölümleme](#partitioning), ve [çıktı toplu iş boyutu](#output-batch-size) aktarım hızını iyileştirmek için farklılık gösterir.
 
@@ -169,7 +169,7 @@ Stream Analytics'ten | Power BI
 -----|-----|------------
 bigint | Int64
 nvarchar(max) | Dize
-datetime | Tarih saat
+datetime | Tarih Saat
 float | çift
 Kayıt dizisi | Dize türü, sabit değer "IRecord" veya "IArray"
 
@@ -179,12 +179,12 @@ Stream Analytics, olay çıktıdaki ilk kümesini göre veri modeli şemayı alg
 `SELECT *` Satırlarda dinamik şema güncelleştirmesi önlemek için sorgu kaçınılmalıdır. Olası performans etkilerinin yanı sıra sonuçları için geçen süre belirsizliğini ise ayrıca sonuçlanabilir. Power BI panosunda gösterilen gereken alanları tam seçilmesi gerekir. Ayrıca, veri değerleri, seçilen veri türüyle uyumlu olmalıdır.
 
 
-Önceki/geçerli | Int64 | Dize | Tarih saat | çift
+Önceki/geçerli | Int64 | Dize | Tarih Saat | çift
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | Dize | Dize | çift
 çift | çift | Dize | Dize | çift
 Dize | Dize | Dize | Dize |  | Dize | 
-Tarih saat | Dize | Dize |  Tarih saat | Dize
+Tarih Saat | Dize | Dize |  Tarih Saat | Dize
 
 
 ### <a name="renew-power-bi-authorization"></a>Power BI yetkilendirmeyi Yenile

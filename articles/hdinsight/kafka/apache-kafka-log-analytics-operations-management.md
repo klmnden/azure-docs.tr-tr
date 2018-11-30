@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 809196411df56c7448a9d0f983c17c60d5d3b4ae
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: bd8bfb8775bc9c988bb7484ac25f189c3ff46991
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015426"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317288"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>HDInsight üzerinde Apache Kafka için günlüklerini çözümleme
 
 HDInsight üzerinde Apache Kafka tarafından oluşturulan günlükleri analiz etmek için log Analytics kullanmayı öğrenin.
 
-## <a name="enable-log-analytics-for-kafka"></a>Kafka için log Analytics etkinleştir
+## <a name="enable-log-analytics-for-apache-kafka"></a>Apache Kafka için log Analytics etkinleştir
 
 HDInsight için log Analytics etkinleştirme adımları tüm HDInsight kümeleri için aynıdır. Gerekli hizmetlerini oluşturup yapılandırın anlamak için aşağıdaki bağlantıları kullanın:
 
@@ -74,9 +74,9 @@ HDInsight için log Analytics etkinleştirme adımları tüm HDInsight kümeleri
 
 Log Analytics hakkında daha fazla bilgi için bkz. [bir Log Analytics çalışma alanını kullanmaya başlama](../../log-analytics/log-analytics-get-started.md) belge.
 
-Kafka ile çalışma hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
+Apache Kafka ile çalışma hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 
- * [Kafka HDInsight kümeleri arasında yansıtma](apache-kafka-mirroring.md)
- * [HDInsight üzerinde Kafka'nın ölçeklenebilirliğini artırma](apache-kafka-scalability.md)
- * [Spark (DStreams) akışı ile Kafka kullanın](../hdinsight-apache-spark-with-kafka.md)
- * [Spark yapılandırılmış akışı ile Kafka kullanın](../hdinsight-apache-kafka-spark-structured-streaming.md)
+ * [HDInsight kümeleri arasında yansıtmayı Apache Kafka](apache-kafka-mirroring.md)
+ * [HDInsight üzerinde Apache Kafka'nın ölçeklenebilirliğini artırma](apache-kafka-scalability.md)
+ * [Apache Spark ile Apache Kafka (DStreams) akış kullanma](../hdinsight-apache-spark-with-kafka.md)
+ * [Apache Spark kullanma Apache Kafka ile structured streaming](../hdinsight-apache-kafka-spark-structured-streaming.md)

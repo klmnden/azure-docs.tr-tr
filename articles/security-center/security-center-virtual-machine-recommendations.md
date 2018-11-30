@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 52ca063a2e6345f80370c64b376ff09d72643ccc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 626b9199f3de6fe9aba03ba537aa6e6b6e28ba5c
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230623"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310932"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>Azure Güvenlik Merkezi kaynak önerilerini anlama
 
@@ -76,7 +76,7 @@ Diğer Azure kaynak türü için geçerli öneriler hakkında daha fazla bilgi i
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
 * [Makineleri ve Azure Güvenlik Merkezi'nde uygulamalarınızı koruma](security-center-virtual-machine-protection.md)
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -- Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
 

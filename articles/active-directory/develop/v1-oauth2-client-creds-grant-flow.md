@@ -17,12 +17,12 @@ ms.date: 02/08/2017
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: d894dd85bda63c724e391193615e91fc5ca51a3f
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 8f32d8f05d5ba5a7a813157adbf07ff7590153bb
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986160"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425387"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Hizmetten hizmete çağrılar (paylaşılan gizli diziyi veya sertifika) istemci kimlik bilgileri kullanma
 
@@ -105,7 +105,7 @@ Başarılı yanıt, aşağıdaki parametrelerle bir JSON OAuth 2.0 yanıtındaki
 | Parametre | Açıklama |
 | --- | --- |
 | access_token |İstenen erişim belirteci. Çağıran web hizmeti, alıcı web hizmetinde kimlik doğrulaması için bu belirteci kullanabilirsiniz. |
-| token_type |Belirteç türü değeri gösterir. Azure AD destekleyen tek tür **taşıyıcı**. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: taşıyıcı belirteç kullanımı (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Belirteç türü değeri gösterir. Azure AD destekleyen tek tür **taşıyıcı**. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: taşıyıcı belirteç kullanımı (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | expires_in |Ne kadar süreyle erişim belirteci (saniye olarak) geçerli değil. |
 | expires_on |Erişim belirtecinin süresinin sona erdiği zaman. Tarih 1970'ten saniye sayısı temsil edilen-01-kadar süre sonu UTC 01T0:0:0Z. Bu değer, önbelleğe alınan belirteç ömrünü belirlemek için kullanılır. |
 | not_before |Erişim belirteci kullanılabilir duruma süre. Tarih 1970'ten saniye sayısı temsil edilen-01-01T0:0:0Z UTC belirtecin geçerlilik süresini kadar.|

@@ -1,6 +1,6 @@
 ---
-title: Azure Machine Learning Web Hizmetleri portalını kullanma | Microsoft Docs
-description: Azure Machine Learning çalışma alanları, erişimi yönetmek ve dağıtmak ve ML API web hizmetlerini yönetme
+title: Azure Machine Learning Studio Machine Learning Web Hizmetleri portalını - | Microsoft Docs
+description: Machine Learning yeni ve Klasik Web Hizmetleri Microsoft Azure Machine Learning Web Hizmetleri portalını kullanarak yönetebilirsiniz. Klasik Web Hizmetleri ve yeni Web hizmetleri üzerinde farklı temel teknolojileri aldığından, biraz farklı yönetim özellikleri bunların her biri için sizde.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.openlocfilehash: e21d6e05e3d43bbdcc498c9c4b294269cc3069cd
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 78e776da17e8e068ff45e426795fa5d86a92cc79
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261352"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308673"
 ---
-# <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Azure Machine Learning Web Hizmetleri portalını kullanarak bir Web hizmetini yönetme
+# <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Azure Machine Learning Web Hizmetleri portalını kullanarak bir web hizmetini yönetme
 Machine Learning yeni ve Klasik Web Hizmetleri Microsoft Azure Machine Learning Web Hizmetleri portalını kullanarak yönetebilirsiniz. Klasik Web Hizmetleri ve yeni Web hizmetleri üzerinde farklı temel teknolojileri aldığından, biraz farklı yönetim özellikleri bunların her biri için sizde.
 
 Machine Learning Web Hizmetleri portalında şunları yapabilirsiniz:

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: 040ace1eab4062c011ed82a59e7f5bfb789c256b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 7d11460fd1db5ba92725567a41aaaeab9e752adb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945748"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308141"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure'dan Azure'a VM çoğaltmayla sorunları giderme
 
@@ -150,28 +150,36 @@ SuSE Linux sertifika listesini korumak için çözümlemeyin kullandığından, 
 
 Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP aralıkları VM'den gerekli. Sanal makinenize bir güvenlik duvarının arkasındaysa ya da giden bağlantıyı denetlemek için ağ güvenlik grubu (NSG) kuralları kullanıyorsa bu sorunlardan biri karşılaşıyor.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151037-br"></a>1 sorunu: Azure sanal makinesi (151037) Site Recovery ile kayıt olamadı </br>
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>1 sorunu: Azure sanal makinesi (151195) Site Recovery ile kayıt olamadı </br>
 - **Olası nedeni** </br>
-  - Giden erişimi denetlemek için NSG kullanmakta olduğunuz VM ve gerekli IP aralıkları giden erişim için izin verilenler listesinde değil.
-  - Üçüncü taraf güvenlik duvarı araçları kullanıyorsanız ve gerekli IP aralıkları/URL'ler izin verilenler listesinde değil.
+  - Site recovery uç noktalarına DNS çözümleme hatası nedeniyle bağlantı kurulamıyor.
+  - Bu daha sık yeniden koruma sırasında sanal makine üzerinde başarısız oldu, ancak DR bölgesindeki DNS sunucusu erişilebilir değil görülür.
+  
+- **Çözümleme**
+   - Özel DNS kullanıyorsanız sonra emin olun, DNS sunucusu olağanüstü durum kurtarma bölgeden erişilebilir. Sanal Makineye gidin özel bir DNS olup olmadığını denetlemek için > olağanüstü durum kurtarma ağı > DNS sunucuları. DNS sunucusu sanal makineden erişmeyi deneyin. Erişilebilir değilse, ardından erişilebilir DNS sunucusu üzerinde başarısız olan veya DR ağ DNS arasındaki site satırının oluşturma kolaylaştırır.
+  
+    ![COM hatası](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
+ 
 
+### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Sorun 2: (151196) Site Recovery yapılandırması başarısız oldu
+- **Olası nedeni** </br>
+  - Office 365 kimlik doğrulaması ve kimlik IP4 uç noktaları için bağlantı kurulamıyor.
 
 - **Çözümleme**
-   - VM üzerinde giden ağ bağlantısını denetlemek için güvenlik duvarı proxy'si kullanıyorsanız önkoşul URL'leri veya veri merkezi IP aralıkları'nın izin verilenler listesinde olduğundan emin olun. Bilgi için [güvenlik duvarı proxy Kılavuzu](https://aka.ms/a2a-firewall-proxy-guidance).
-   - VM üzerinde giden ağ bağlantısını denetlemek için NSG kurallarını kullanıyorsanız önkoşul veri merkezi IP aralıklarının Güvenilenler listesinde olduğundan emin olun. Bilgi için [ağ güvenlik grubu Kılavuzu](azure-to-azure-about-networking.md).
-   - Güvenilir listeye eklenecek [gerekli URL'leri](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) veya [gerekli IP aralıkları](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), adımları [ağ rehberi belgesi](azure-to-azure-about-networking.md).
+  - Azure Site Recovery, Office 365 IP aralıkları erişimi kimlik doğrulaması için gereklidir.
+    VM üzerinde giden ağ bağlantısını denetlemek için Azure ağ güvenlik grubu (NSG) kuralları/güvenlik duvarı proxy'si kullanıyorsanız, O365 aralıkları için iletişime izin vermek emin olun. Oluşturma bir [Azure Active Directory (AAD) hizmet etiketi](../virtual-network/security-overview.md#service-tags) erişimi için AAD karşılık gelen tüm IP adreslerine izin vermek için NSG kural tabanlı
+        - Azure Active Directory (AAD) gelecekte yeni adresler eklenir, yeni NSG kuralları oluşturmak gerekir.
 
-### <a name="issue-2-site-recovery-configuration-failed-151072"></a>Sorun 2: (151072) Site Recovery yapılandırması başarısız oldu
+
+### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Sorun 3: (151197) Site Recovery yapılandırması başarısız oldu
 - **Olası nedeni** </br>
-  - Site Recovery Hizmeti uç noktalarına bağlantı kurulamıyor
-
+  - Azure Site Recovery Hizmeti uç noktalarına bağlantı kurulamıyor.
 
 - **Çözümleme**
-   - VM üzerinde giden ağ bağlantısını denetlemek için güvenlik duvarı proxy'si kullanıyorsanız önkoşul URL'leri veya veri merkezi IP aralıkları'nın izin verilenler listesinde olduğundan emin olun. Bilgi için [güvenlik duvarı proxy Kılavuzu](https://aka.ms/a2a-firewall-proxy-guidance).
-   - VM üzerinde giden ağ bağlantısını denetlemek için NSG kurallarını kullanıyorsanız önkoşul veri merkezi IP aralıklarının Güvenilenler listesinde olduğundan emin olun. Bilgi için [ağ güvenlik grubu Kılavuzu](https://aka.ms/a2a-nsg-guidance).
-   - Güvenilir listeye eklenecek [gerekli URL'leri](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) veya [gerekli IP aralıkları](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), adımları [ağ rehberi belgesi](site-recovery-azure-to-azure-networking-guidance.md).
+  - Azure Site Recovery gerekli erişim [Site kurtarma IP aralıkları](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) bölgeye bağlı olarak. Bu gerekli IP aralıkları sanal makineden erişilebilir olduğundan emin olun.
+    
 
-### <a name="issue-3-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>3. sorun: ağ trafiği (151072) şirket içi proxy sunucusu üzerinden geçtiğinde A2A çoğaltması başarısız oldu
+### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>4. sorun: ağ trafiği (151072) şirket içi proxy sunucusu üzerinden geçtiğinde A2A çoğaltması başarısız oldu
  - **Olası nedeni** </br>
    - Özel ara sunucu ayarlarını geçersiz ve ASR Mobility Hizmeti Aracısı otomatik-IE proxy ayarları algılamadı
 
