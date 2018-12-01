@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 32fa417d5fcb5c8547dfc7c10b34b3c97ed70559
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 16bcc56dd05c86b7c2adb324de480e7482f80fef
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626074"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724307"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Öğretici: SAS kimlik bilgisiyle Azure Depolama'ya erişmek için Linux VM sistem tarafından atanan kimliğini kullanma
 
@@ -68,9 +68,9 @@ Daha sonra yeni depolama hesabına dosya yükleyecek ve indireceğiz. Dosyalar i
 
 Azure Depolama Azure AD kimlik doğrulamayı yerel olarak desteklemez.  Bununla birlikte, Resource Manager'dan depolama SAS almak için VM'nizin sistem tarafından atanan yönetilen kimliğini kullanabilir ve ardından SAS kullanarak depolamaya erişebilirsiniz.  Bu adımda, VM sistem tarafından atanan yönetilen kimliğinize depolama hesabının SAS değeri için erişim verirsiniz.   
 
-1. Yeni oluşturulan depolama hesabınıza dönün.   
+1. Yeni oluşturulan depolama hesabınıza geri gidin.
 2. Sol bölmedeki **Erişim denetimi (IAM)** bağlantısına tıklayın.  
-3. VM’nize yönelik yeni bir rol ataması eklemek için sayfanın üst kısmındaki **+ Ekle**’ye tıklayın.
+3. Tıklayın **+ rol ataması Ekle** VM'niz için yeni bir rol ataması eklemek için sayfanın en üstünde
 4. Sayfanın sağ tarafında, **Rol** olarak "Depolama Hesabı Katılımcısı" seçeneğini ayarlayın. 
 5. Sonraki açılan listede **Erişimin atanacağı hedef** olarak "Sanal Makine" seçeneğini ayarlayın.  
 6. Ardından, uygun aboneliğin **Abonelik**’te listelendiğinden emin olun ve sonra **Kaynak Grubu**’nu "Tüm kaynak grupları" olarak ayarlayın.  

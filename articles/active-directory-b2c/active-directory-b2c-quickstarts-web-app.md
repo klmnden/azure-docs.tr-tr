@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c4fa3f9cbba558cd743f85119dd9e91bd73ce062
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
-ms.translationtype: HT
+ms.openlocfilehash: edfd17763a7d555e773e7d271ed5cc22a0307996
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250609"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726602"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Hızlı Başlangıç: Azure Active Directory B2C kullanarak ASP.NET uygulaması için oturum açma bilgileri ayarlama
 
@@ -23,7 +23,7 @@ Azure Active Directory (Azure AD) B2C, uygulamanız, işletmeniz ve müşteriler
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - **ASP.NET ve web geliştirme** iş yüküyle [Visual Studio 2017](https://www.visualstudio.com/downloads/). 
 - Facebook’tan, Google’dan, Microsoft’tan veya Twitter’dan bir sosyal hesap.
@@ -35,7 +35,7 @@ Azure Active Directory (Azure AD) B2C, uygulamanız, işletmeniz ve müşteriler
 
     Örnek çözümde iki proje vardır:
 
-    - **TaskWebApp**: Görev listesi oluşturan ve düzenleyen bir web uygulamasıdır. Web uygulaması, kullanıcıların oturum açması için **kaydolma veya oturum açma** ilkesi kullanır.
+    - **TaskWebApp**: Görev listesi oluşturan ve düzenleyen bir web uygulamasıdır. Web uygulaması kullanır **kaydolma veya oturum açma** kullanıcı flow'a kaydolma veya oturum açma kullanıcı.
     - **TaskService**: Görev listesi oluşturma, okuma, güncelleştirme ve silme işlevlerini destekleyen web API’sidir. Web API’si Azure AD B2C tarafından korunur ve web uygulaması tarafından çağrılır.
 
 ## <a name="run-the-application-in-visual-studio"></a>Uygulamayı Visual Studio'da çalıştırma
@@ -67,7 +67,7 @@ Azure Active Directory (Azure AD) B2C, uygulamanız, işletmeniz ve müşteriler
 
 ## <a name="edit-your-profile"></a>Profilinizi düzenleme
 
-Azure Active Directory B2C, kullanıcılara profillerini güncelleme olanağı tanıyan bir işlev sunar. Örnek web uygulaması, iş akışı için bir Azure AD B2C düzenleme profil ilkesi kullanır. 
+Azure Active Directory B2C, kullanıcılara profillerini güncelleme olanağı tanıyan bir işlev sunar. Örnek web uygulaması iş akışı için bir Azure AD B2C düzenleme profil kullanıcı akışını kullanır. 
 
 1. Uygulamanın menü çubuğunda profil adınıza tıklayın ve oluşturduğunuz profili düzenlemek için **Profili düzenle**’yi seçin.
 

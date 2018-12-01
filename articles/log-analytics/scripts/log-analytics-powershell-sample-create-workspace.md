@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Betiği örnek - günlük analizi çalışma alanı oluşturun. | Microsoft Docs
-description: Azure PowerShell Betiği örnek - için günlük analizi çalışma alanı oluşturma
+title: Azure PowerShell betik örneği - bir Log Analytics çalışma alanı oluşturma | Microsoft Docs
+description: Azure PowerShell betik örneği - bir Log Analytics çalışma alanına oluşturma
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -9,42 +9,41 @@ editor: tysonn
 tags: ''
 ms.assetid: ''
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 30d036ae56acc3a798d2776f292243f65cbea43d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5ad04c52da4709a7097ff7915d7af7404d6725eb
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23855442"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680268"
 ---
-# <a name="create-a-log-analytics-workspace-with-powershell"></a>PowerShell ile günlük analizi çalışma alanı oluşturma
+# <a name="create-a-log-analytics-workspace-with-powershell"></a>PowerShell ile bir Log Analytics çalışma alanı oluşturma
 
-Bu komut, hazır ve çalışır hızla üzerinde veri toplama, çözümleme ve alma eylemi başlatmak istiyorsanız, gerekli olan bir Azure günlük analizi çalışma alanı ile alır.  
+Bu betik, çalışmaya hızlıca üzerinde veri toplama, çözümleme ve alma eylemi başlatmak istiyorsanız, gerekli olan Azure Log Analytics çalışma alanıyla alır.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="sample-script"></a>Örnek betik
 
 [!code-powershell[main](../../../powershell_scripts/log-analytics/log-analytics-create-new-resource/log-analytics-create-new-resource.ps1 "Create new Log Analytics workspace")]
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut dosyası, aboneliğinizde yeni bir günlük analizi çalışma alanı oluşturmak için komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu betik, aboneliğinizde yeni bir Log Analytics çalışma alanı oluşturmak için aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [Get-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace) | Varolan bir çalışma alanı hakkındaki bilgileri alır. |
-| [AzureRmOperationalInsightsWorkspace yeni](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace) | Belirtilen kaynak grubunu ve konumu bir çalışma alanı oluşturur. |
+| [Get-Azurermoperationalınsightsworkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace) | Mevcut bir çalışma alanı hakkında bilgi alır. |
+| [Yeni-Azurermoperationalınsightsworkspace](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace) | Belirtilen kaynak grubu ve konumda bir çalışma alanı oluşturur. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure PowerShell modülü hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](/powershell/azure/overview).
+Azure PowerShell modülü hakkında daha fazla bilgi için bkz. [Azure PowerShell belgeleri](/powershell/azure/overview).
 

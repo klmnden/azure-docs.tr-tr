@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/18/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dfaee72be883ee8902fe4550890d757f114ff932
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: e526c5f2f446a1ae8134a3e2ca72fcc42024d904
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426119"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724103"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure portalıyla Batch hesabı oluşturma
 
@@ -91,11 +91,11 @@ Kullanıcı aboneliği modunda ilk Batch hesabınızı oluştururken, aboneliği
 
     ![Microsoft.Batch sağlayıcısını kaydetme][register_provider]
 
-1. **Abonelik** sayfasında **Erişim denetimi (IAM)** > **Ekle**'yi seçin.
+1. İçinde **abonelik** sayfasında **erişim denetimi (IAM)** > **rol atamaları** > **RolatamasıEkle**.
 
     ![Abonelik erişim denetimi][subscription_access]
 
-1. **İzin ekle** sayfasında **Katkıda Bulunan** rolünü seçin ve Batch API'sini arayın. API'yi bulana kadar aşağıdaki dizelerden her birini arayın:
+1. Üzerinde **rol ataması Ekle** sayfasında **katkıda bulunan** rolü, Batch API'sini arayın. API'yi bulana kadar aşağıdaki dizelerden her birini arayın:
     1. **MicrosoftAzureBatch**.
     1. **Microsoft Azure Batch**. Daha yeni Azure AD kiracıları bu adı kullanıyor olabilir.
     1. Batch API'sinin kimliği: **ddbf3205-c6bd-46ae-8127-60eb93363864**. 

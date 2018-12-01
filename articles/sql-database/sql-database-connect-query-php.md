@@ -1,95 +1,94 @@
 ---
-title: Azure SQL Veritabanını sorgulamak için PHP kullanma | Microsoft Docs
-description: Bu konu başlığı altında, PHP kullanarak Azure SQL Veritabanına bağlanan ve Transact-SQL deyimleriyle veritabanını sorgulayan bir program oluşturma işlemi gösterilir.
+title: Azure SQL veritabanını sorgulamak için PHP kullanma | Microsoft Docs
+description: PHP kullanarak Azure SQL veritabanına bağlanan ve T-SQL deyimlerini kullanarak bir program oluşturma işleminin nasıl.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
 ms.devlang: php
 ms.topic: quickstart
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer: ''
+ms.reviewer: v-masebo
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 08bbe22cf0435f667e1fd065e9f747c2c9a92c94
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.date: 11/28/2018
+ms.openlocfilehash: be3ac9fab6c89c65ad9673811e108cefe2c80d00
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914184"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724256"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Hızlı Başlangıç: PHP kullanarak Azure SQL veritabanı sorgulama
 
-Bu hızlı başlangıçta, [PHP](http://php.net/manual/en/intro-whatis.php) kullanarak Azure SQL veritabanına bağlanan ve Transact-SQL deyimleriyle veri sorgulayan bir program oluşturma işleminin nasıl yapılacağı açıklanır.
+Bu makalede nasıl yapılacağı açıklanır [PHP](http://php.net/manual/en/intro-whatis.php) bir Azure SQL veritabanına bağlanmak için. Ardından, T-SQL deyimleriyle veri kullanabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için aşağıdakilere sahip olduğunuzdan emin olun:
+Bu örnek tamamlamak için aşağıdaki önkoşulların karşılandığından emin olun:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Bu hızlı başlangıçta kullanacağınız bilgisayarın genel IP adresi için [sunucu düzeyinde bir güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md).
+- A [sunucu düzeyinde güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md) kullanmakta olduğunuz bilgisayarın genel IP adresi
 
-- İşletim sisteminiz için PHP ve ilgili yazılımları yüklediniz:
+- Yüklü işletim sisteminiz için PHP ile ilgili yazılım:
 
-    - **MacOS**: Homebrew ve PHP yükleyin, ODBC sürücüsünü ve SQLCMD yükleyin, ardından SQL Server için PHP Sürücüsü yükleyin. Bkz. [Adım 1.2, 1.3 ve 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/mac/).
-    - **Ubuntu**:  PHP ve diğer gerekli paketleri yükleyin ve ardından SQL Server için PHP Sürücüsü yükleyin. Bkz. [Adım 1.2 ve 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
-    - **Windows**: IIS Express için PHP’nin en yeni sürümünü, IIS Express’te SQL Server için Microsoft Sürücülerinin en yeni sürümlerini, Chocolatey, ODBC sürücüsü ve SQLCMD’yi yükleyin. Bkz. [Adım 1.2 ve 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).    
+    - **MacOS**, Homebrew ve PHP, ODBC sürücüsünü ve SQLCMD, yükleme sonra SQL Server için PHP sürücüsü yükleyin. Bkz: [1.2, 1.3 ve 2.1 adımları](https://www.microsoft.com/sql-server/developer-get-started/php/mac/).
 
-## <a name="sql-server-connection-information"></a>SQL Server bağlantı bilgileri
+    - **Ubuntu**, PHP ve diğer gerekli paketleri yükleyin ve ardından SQL Server için PHP sürücüsü yükleyin. Bkz: [1.2 ve 2.1 adımları](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
+
+    - **Windows**, IIS Express ve Chocolatey için PHP'yi yükleyin ve ardından ODBC sürücüsü ile SQLCMD'yi yükleyin. Bkz: [1.2 ve 1.3 adımları](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
+
+## <a name="get-database-connection"></a>Veritabanı bağlantı Al
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
-    
-## <a name="insert-code-to-query-sql-database"></a>SQL veritabanını sorgulamak için kod girme
 
-1. Sık kullandığınız metin düzenleyicisinde **sqltest.php** adında yeni bir dosya oluşturun.  
+## <a name="add-code-to-query-database"></a>Veritabanını sorgula için kod ekleyin
 
-2. İçeriğini aşağıdaki kod ile değiştirin ve sunucunuz, veritabanınız, kullanıcınız ve parolanız için uygun değerleri ekleyin.
+1. Sık kullandığınız metin düzenleyicisinde *sqltest.php* adında yeni bir dosya oluşturun.  
+
+1. Dosyanın içeriğini aşağıdaki kodla değiştirin. Ardından, sunucu, veritabanı, kullanıcı ve parola için uygun değerleri ekleyin.
 
    ```PHP
    <?php
-   $serverName = "your_server.database.windows.net";
-   $connectionOptions = array(
-       "Database" => "your_database",
-       "Uid" => "your_username",
-       "PWD" => "your_password"
-   );
-   //Establishes the connection
-   $conn = sqlsrv_connect($serverName, $connectionOptions);
-   $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
-           FROM [SalesLT].[ProductCategory] pc
-           JOIN [SalesLT].[Product] p
-        ON pc.productcategoryid = p.productcategoryid";
-   $getResults= sqlsrv_query($conn, $tsql);
-   echo ("Reading data from table" . PHP_EOL);
-   if ($getResults == FALSE)
-       echo (sqlsrv_errors());
-   while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-    echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
-   }
-   sqlsrv_free_stmt($getResults);
+       $serverName = "your_server.database.windows.net"; // update me
+       $connectionOptions = array(
+           "Database" => "your_database", // update me
+           "Uid" => "your_username", // update me
+           "PWD" => "your_password" // update me
+       );
+       //Establishes the connection
+       $conn = sqlsrv_connect($serverName, $connectionOptions);
+       $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+            FROM [SalesLT].[ProductCategory] pc
+            JOIN [SalesLT].[Product] p
+            ON pc.productcategoryid = p.productcategoryid";
+       $getResults= sqlsrv_query($conn, $tsql);
+       echo ("Reading data from table" . PHP_EOL);
+       if ($getResults == FALSE)
+           echo (sqlsrv_errors());
+       while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
+        echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
+       }
+       sqlsrv_free_stmt($getResults);
    ?>
    ```
 
 ## <a name="run-the-code"></a>Kodu çalıştırma
 
-1. Komut isteminde aşağıdaki komutları çalıştırın:
+1. Komut isteminde, uygulamayı çalıştırın.
 
-   ```php
+   ```bash
    php sqltest.php
    ```
 
-2. En üst 20 satırın döndürüldüğünü doğrulayın ve sonra uygulama penceresini kapatın.
+1. En çok 20 satırlar döndürülür ve uygulama penceresini kapatın doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 - [İlk Azure SQL veritabanınızı tasarlama](sql-database-design-first-database.md)
+
 - [SQL Server için Microsoft PHP Sürücüleri](https://github.com/Microsoft/msphpsql/)
+
 - [Sorun bildirin veya soru sorun](https://github.com/Microsoft/msphpsql/issues)
-- [Yeniden deneme mantığı örneği: PHP ile dayanıklı SQL bağlantısı kurma][step-4-connect-resiliently-to-sql-with-php-p42h]
 
-
-<!-- Link references. -->
-
-[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
-
+- [Yeniden deneme mantığı örneği: SQL PHP ile dayanıklı bağlanma](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)

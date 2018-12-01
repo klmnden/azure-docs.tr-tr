@@ -2,20 +2,20 @@
 title: Paralel iş yükü çalıştırma - Azure Batch Python
 description: Öğretici - Batch Python istemci kitaplığını kullanarak Azure Batch’te ffmpeg ile paralel medya dosyaları işleme
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 11/29/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 3636faa9478555b64bb94f7dcfb1f3f587ecdca9
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.openlocfilehash: 6ece4d7d0a39f5ea9dd4d9503d3bdd11a4bffd89
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814177"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678585"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Öğretici: Python API’si kullanarak Azure Batch ile paralel iş yükü çalıştırma
 
@@ -33,7 +33,7 @@ Bu öğreticide, [ffmpeg](http://ffmpeg.org/) açık kaynak aracını kullanarak
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Python sürüm 2.7 veya 3.3 ya da üzeri](https://www.python.org/downloads/)
 
@@ -65,7 +65,7 @@ Python ortamınızda `pip` kullanarak gerekli paketleri yükleyin.
 pip install -r requirements.txt
 ```
 
-`batch_python_tutorial_ffmpeg.py` dosyasını açın. Batch ve depolama hesabı kimlik bilgilerini, hesaplarınıza özel değerlerle güncelleştirin. Örnek:
+`batch_python_tutorial_ffmpeg.py` dosyasını açın. Batch ve depolama hesabı kimlik bilgilerini, hesaplarınıza özel değerlerle güncelleştirin. Örneğin:
 
 
 ```Python
@@ -89,7 +89,7 @@ python batch_python_tutorial_ffmpeg.py
 Örnek uygulamayı çalıştırdığınızda, konsol çıktısı aşağıdakine benzer. Yürütme sırasında, havuzun işlem düğümleri başlatıldığı sırada `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` konumunda bir duraklama yaşarsınız. 
    
 ```
-Sample start: 12/12/2017 3:20:21 PM
+Sample start: 11/28/2018 3:20:21 PM
 
 Container [input] created.
 Container [output] created.
@@ -105,7 +105,7 @@ Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 Success! All tasks completed successfully within the specified timeout period.
 Deleting container [input]....
 
-Sample end: 12/12/2017 3:29:36 PM
+Sample end: 11/28/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
@@ -166,7 +166,7 @@ input_files = [
 
 ### <a name="create-a-pool-of-compute-nodes"></a>İşlem düğümleri havuzu oluşturma
 
-Ardından örnek, `create_pool` çağrısıyla Batch hesabında bir işlem düğümü havuzu oluşturur. Bu tanımlı işlev; düğüm sayısını, VM boyutunu ve havuz yapılandırmasını ayarlamak üzere Batch [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) sınıfını kullanır. Burada [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) nesnesi, Azure Market’te yayımlanmış bir Ubuntu Server 16.04 LTS görüntüsüne [ImageReference](/python/api/azure.batch.models.imagereference) belirtir. Batch, Azure Market’te çok çeşitli VM görüntülerinin yanı sıra özel VM görüntülerini destekler.
+Ardından örnek, `create_pool` çağrısıyla Batch hesabında bir işlem düğümü havuzu oluşturur. Bu tanımlı işlev; düğüm sayısını, VM boyutunu ve havuz yapılandırmasını ayarlamak üzere Batch [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) sınıfını kullanır. Burada bir [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) nesnesini belirtir bir [Imagereference](/python/api/azure.batch.models.imagereference) Azure Market'te yayımlanmış bir Ubuntu Server 18.04 LTS görüntüsüne. Batch, Azure Market’te çok çeşitli VM görüntülerinin yanı sıra özel VM görüntülerini destekler.
 
 Düğüm sayısı ve VM boyutu, tanımlı sabitler kullanılarak ayarlanır. Batch, adanmış düğümleri ve [düşük öncelikli düğümleri](batch-low-pri-vms.md) destekler ve havuzlarınızda bunlardan birini ya da her ikisini birden kullanabilirsiniz. Adanmış düğümler, havuzunuz için ayrılmıştır. Düşük öncelikli düğümler ise Azure’daki fazlalık VM kapasitesinden indirimli bir fiyat karşılığında sunulur. Azure’da yeterli kapasite yoksa düşük öncelikli düğümler kullanılamaz duruma gelir. Örnek, varsayılan olarak *Standard_A1_v2* boyutunda yalnızca 5 düşük öncelikli düğüm içeren bir havuz oluşturur. 
 
@@ -181,10 +181,10 @@ new_pool = batch.models.PoolAddParameter(
         image_reference=batchmodels.ImageReference(
             publisher="Canonical",
             offer="UbuntuServer",
-            sku="16.04-LTS",
+            sku="18.04-LTS",
             version="latest"
             ),
-        node_agent_sku_id="batch.node.ubuntu 16.04"),
+        node_agent_sku_id="batch.node.ubuntu 18.04"),
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_DEDICATED_POOL_NODE_COUNT,
     target_low_priority_nodes=_LOW_PRIORITY_POOL_NODE_COUNT,

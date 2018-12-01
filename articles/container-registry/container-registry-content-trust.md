@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 08/20/2018
 ms.author: danlep
-ms.openlocfilehash: 1f1e7ce41c00078c0181fc5f32c43b7e5885eef8
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.openlocfilehash: 6db5bb4ee1995e08bd00588203db1fdba87a3db5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857678"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727357"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Azure Container Registry'de içerik güveni
 
@@ -75,15 +75,15 @@ Yalnızca izin verdiğiniz kullanıcılar veya sistemler kayıt defterinize güv
 
 Azure portalda ve Azure CLI ile `AcrImageSigner` rolünün atanmasıyla ilgili ayrıntılı bilgiler aşağıda verilmiştir.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure portalı
 
-Azure portalda kayıt defterinize gidin ve **Erişim Denetimi (IAM)** > **Ekle**'yi seçin. **İzin ekle** bölümünde **Rol** altında `AcrImageSigner` seçin, bir veya daha fazla kullanıcı ya da hizmet sorumlusu **Seçin** ve **Kaydet**'e tıklayın.
+Azure portalında kayıt defterinize gidin ve ardından **erişim denetimi (IAM)** > **rol ataması Ekle**. Altında **rol ataması Ekle**seçin `AcrImageSigner` altında **rol**, ardından **seçin** bir veya daha fazla kullanıcı ya da hizmet sorumluları, ardından **Kaydet**.
 
 Bu örnekte iki varlığa `AcrImageSigner` rolü atanmıştır: "service-principal" adlı bir hizmet sorumlusu ve "Azure User" adlı bir kullanıcı.
 
 ![Azure portalda kayıt defteri için içerik güvenini etkinleştirme][content-trust-02-portal]
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure CLI'si
 
 Azure CLI kullanarak bir kullanıcıya imzalama izni vermek için kullanıcıya `AcrImageSigner` rolünü atayın ve kapsamını kayıt defterinizle sınırlandırın. Komut biçimi şu şekildedir:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 19b4a1382b2a9b6034fd6ac9feed776dcca6a124
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 53f9850d794061f5aaebc556743291ae8f3305fb
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704367"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721298"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>Resource Manager’a erişmek için Windows VM sistem tarafından atanan yönetilen kimliği kullanma
 
@@ -41,7 +41,7 @@ Azure kaynakları için yönetilen kimlikler kullanıldığında kodunuz Azure A
 1.  **Kaynak Grupları** sekmesine gidin. 
 2.  **Windows VM**’niz için oluşturduğunuz **Kaynak Grubu**’nu seçin. 
 3.  Sol paneldeki **Erişim denetimi (IAM)** öğesine gidin. 
-4.  **Windows VM**’nize yeni bir rol ataması eklemek için **Ekle**’ye tıklayın.  **Rol** olarak **Okuyucu**'yu seçin. 
+4.  Ardından **rol ataması Ekle** için yeni bir rol ataması, **Windows VM**.  **Rol** olarak **Okuyucu**'yu seçin. 
 5.  Sonraki açılan listede **Erişimin atanacağı hedef** olarak **Sanal Makine** seçeneğini ayarlayın. 
 6.  Ardından, **Abonelik** açılan listesinde uygun aboneliğin listelendiğinden emin olun. **Kaynak Grubu** için de **Tüm kaynak grupları**'nı seçin. 
 7.  Son olarak **Seç** altındaki açılan listeden Windows VM'nizi seçin ve **Kaydet**’e tıklayın.

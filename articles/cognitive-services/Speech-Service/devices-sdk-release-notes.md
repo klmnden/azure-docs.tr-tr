@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 10ebb5f549aba42c4de74cec2c16ed63f90532a1
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 09db18f38cd64d462815793e3067b29fa0989cf9
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633750"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52719326"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Bilişsel hizmetler konuşma cihazları SDK sürüm notları
 
@@ -24,7 +24,8 @@ Aşağıdaki bölümlerde listesi değişiklikleri en son sürümlerde.
 ## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Bilişsel hizmetler konuşma cihaz SDK'sı 1.1.0: Kasım 2018 sürüm 
 
 * Güncelleştirilmiş [Speech SDK'sı](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) sürüm 1.1.0 bileşeni. Daha fazla bilgi için kendi [sürüm notları](https://aka.ms/csspeech/whatsnew). 
-* Şimdiye kadar alan konuşma tanıma doğruluğunu bizim geliştirilmiş ses işleme algoritması ile geliştirilmiştir  
+* Şimdiye kadar alan konuşma tanıma doğruluğunu sunduğumuz Gelişmiş ses işleme algoritması ile geliştirilmiştir.
+* Örnek uygulama, Çince konuşma tanıma desteği eklendi.
 
 ## <a name="cognitive-services-speech-devices-sdk-101-2018-oct-release"></a>Bilişsel hizmetler konuşma cihaz SDK'sı 1.0.1: Ekim 2018 sürüm 
 

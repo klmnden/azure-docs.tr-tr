@@ -9,18 +9,17 @@ editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 46bc932011a3699dbaced8316bc0e1b514c9a385
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
-ms.translationtype: HT
+ms.openlocfilehash: 5537bfbc9f380517b36508792a21b985aea4656b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043065"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723338"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Log Analytics günlük araması ile toplanan verileri görüntüleme veya çözümleme
 

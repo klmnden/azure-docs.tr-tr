@@ -11,13 +11,13 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 11/07/2018
-ms.openlocfilehash: 382ac23ea4c8e0ec54314bb754c00a8e6e43e9f6
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 11/30/2018
+ms.openlocfilehash: fc5398b4ffb0b9310b6ab13561830d8d3db7a611
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300974"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725752"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Hızlı başlangıç: Azure SQL Veritabanı'nda Machine Learning Services'i (R ile) kullanma (önizleme)
 
@@ -31,7 +31,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Machine Learning Services (R ile) genel önizleme sürümü, SQL Veritabanı'nda varsayılan olarak etkin değildir. Microsoft'ta bir e-posta göndermek [ sqldbml@microsoft.com ](mailto:sqldbml@microsoft.com) genel önizlemeye kaydolmak için.
 
-Programa kaydınız alındıktan sonra Microsoft sizi genel önizleme sürümüne alacak ve var olan veritabanınızı geçirecek veya R özellikli bir hizmette yeni bir veritabanı oluşturacaktır.
+Programa kayıtlı ve Microsoft tarafından yerleşik, genel Önizleme için ya da geçiş sonra mevcut veritabanı veya yeni bir veritabanı üzerinde bir R etkin hizmet oluşturun.
 
 SQL Veritabanı'ndaki Machine Learning Services (R ile) özellikleri şu an için yalnızca tek ve havuza alınmış veritabanları için sanal çekirdek tabanlı **Genel Amaçlı** ve **İş Açısından Kritik** hizmet katmanlarında kullanılabilir durumdadır. Bu ilk genel önizleme sürümünde **Hiper ölçeklendirme** hizmet katmanı veya **Yönetilen Örnek** desteği sunulmamaktadır. Genel önizleme sırasında Machine Learning Services (R ile) hizmetini üretim iş yükleri için kullanmamanız gerekir.
 
@@ -51,11 +51,10 @@ Bu hızlı başlangıç ayrıca sunucu düzeyinde bir güvenlik duvarı kuralı 
 
 ## <a name="different-from-sql-server"></a>SQL Server’dan farkı
 
-Azure SQL Veritabanı'nda sunulan Machine Learning Services (R ile) işlevleri, [SQL Server Machine Learning Services](https://review.docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning) ile benzerdir. Ancak bazı farklar vardır:
+Azure SQL Veritabanı'nda sunulan Machine Learning Services (R ile) işlevleri, [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning) ile benzerdir. Ancak bazı farklar vardır:
 
 - Yalnızca R. Şu an için Python desteği yoktur.
 - `sp_configure` aracılığıyla `external scripts enabled` yapılandırmasına gerek yoktur.
-- Kullanıcılara betik yürütme izni verilmesi gerekmez.
 - Paketlerin **sqlmlutils** aracılığıyla yüklenmesi gerekir.
 - Ayrı dış kaynak idaresi yoktur. R kaynakları katmana bağlı olarak SQL kaynaklarının belirli bir yüzdesini oluşturur.
 
@@ -82,16 +81,26 @@ Machine Learning Services (R ile) özelliklerinin SQL veritabanınızda etkinle�
 
 1. Hata alırsanız Machine Learning Services (R ile) genel önizleme sürümü SQL veritabanınız için etkinleştirilmemiş olabilir. Genel önizleme için kaydolma adımlarını yukarıda bulabilirsiniz.
 
+## <a name="grant-permissions"></a>İzinleri verme
+
+Bir yöneticiyseniz, harici kod otomatik olarak çalıştırabilir. Diğer herkes iznine sahip olmanız gerekir.
+
+Değiştirin `<username>` komutu çalıştırmadan önce geçerli bir veritabanı kullanıcı oturum açma ile.
+
+```sql
+GRANT EXECUTE ANY EXTERNAL SCRIPT TO <username>
+```
+
 ## <a name="basic-r-interaction"></a>Temel R etkileşimi
 
 SQL Veritabanı'nda R kodu çalıştırmak için iki seçeneğiniz vardır:
 
-+ Bir R betiğini sistem saklı yordamının bağımsız değişkeni olarak ekleme, [sp_execute_external_script](https://docs.microsoft.com/sql//relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md).
-+ [Uzak R istemcisinden](https://review.docs.microsoft.com/sql/advanced-analytics/r/set-up-a-data-science-client) SQL veritabanınıza bağlanma ve kodu çalıştırırken SQL Veritabanı'nı işlem bağlamı olarak kullanma.
++ Sistem saklı yordam bağımsız değişken olarak R betiği eklemek [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
++ [Uzak R istemcisinden](https://docs.microsoft.com/sql/advanced-analytics/r/set-up-a-data-science-client) SQL veritabanınıza bağlanma ve kodu çalıştırırken SQL Veritabanı'nı işlem bağlamı olarak kullanma.
 
 Aşağıdaki alıştırma, ilk etkileşim modeline odaklanmıştır: R kodunu bir saklı yordama geçirme.
 
-1. Bir R betiğinin SQL veritabanınızda nasıl çalıştırılabileceğini görmek için basit bir betik çalıştırın.
+1. Nasıl SQL veritabanınızda bir R betiği yürüten görmek için basit bir komut dosyasını çalıştırın.
 
     ```sql
     EXECUTE sp_execute_external_script
@@ -119,7 +128,7 @@ Aşağıdaki alıştırma, ilk etkileşim modeline odaklanmıştır: R kodunu bi
 
 ## <a name="inputs-and-outputs"></a>Girişler ve çıkışlar
 
-Varsayılan olarak [sp_execute_external_script](https://review.docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) tek bir giriş veri kümesi kabul eder ve bu da genellikle geçerli bir SQL sorgusu biçiminde verilir. Diğer giriş türleri SQL değişkenleri olarak geçirilebilir.
+Varsayılan olarak [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) tek bir giriş veri kümesi kabul eder ve bu da genellikle geçerli bir SQL sorgusu biçiminde verilir. Diğer giriş türleri SQL değişkenleri olarak geçirilebilir.
 
 Saklı yordam, çıkış olarak tek bir R veri çerçevesi döndürür ancak değişken olarak skaler değerlerin ve modellerin de çıkış olarak döndürülmesini sağlayabilirsiniz. Örneğin eğitilmiş bir modeli ikili değişken olarak çıkarabilir ve modeli bir tabloya yazmak için bir T-SQL INSERT deyimine geçirebilirsiniz. Ayrıca çizimler (ikili biçimde) veya skaler değerler (tarih ve saat gibi ayrı değerler, modeli eğitmek için harcanan süre gibi) oluşturabilirsiniz.
 
@@ -284,7 +293,7 @@ R kullanarak model eğitebilir ve bu modeli SQL veritabanınızda bir tablo olar
     - Modelin eğitilmesi için kullanılacak giriş verilerini sağlayın.
 
     > [!TIP]
-    > Doğrusal modeller konusunda hafızanızı tazelemeniz gerekiyorsa rxLinMod kullanarak model uydurma sürecini anlatan şu öğreticiyi incelemeniz önerilir: [Doğrusal Modelleri Uydurma](https://docs.microsoft.com/r-server/r/how-to-revoscaler-linear-model)
+    > Doğrusal modeller konusunda hafızanızı tazelemeniz gerekiyorsa rxLinMod kullanarak model uydurma sürecini anlatan şu öğreticiyi incelemeniz önerilir: [Doğrusal Modelleri Uydurma](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
     Modeli oluşturmak için formülü R kodunuzda tanımlar ve verileri giriş parametresi olarak geçirirsiniz.
 
@@ -337,7 +346,7 @@ R kullanarak model eğitebilir ve bu modeli SQL veritabanınızda bir tablo olar
     WHERE model_name = 'default model'
     ```
 
-4. [sp_execute_external_script](https://review.docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) saklı yordamından döndürülen R çıkışı genellikle tek bir veri çerçevesiyle sınırlıdır.
+4. [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) saklı yordamından döndürülen R çıkışı genellikle tek bir veri çerçevesiyle sınırlıdır.
 
     Ancak veri çerçevesine ek olarak skaler değer gibi diğer türlerdeki çıkışları da döndürebilirsiniz.
 
@@ -381,7 +390,7 @@ R kullanarak model eğitebilir ve bu modeli SQL veritabanınızda bir tablo olar
     VALUES (40), (50), (60), (70), (80), (90), (100)
     ```
 
-    Bu örnekte modeliniz **RevoScaleR** paketinin bir parçası olarak sunulan **rxLinMod** algoritmasını temel aldığından genel R `predict` işlevi yerine [rxPredict](https://docs.microsoft.com/r-server/r-reference/revoscaler/rxpredict) işlevini çağırmanız gerekir.
+    Bu örnekte modeliniz **RevoScaleR** paketinin bir parçası olarak sunulan **rxLinMod** algoritmasını temel aldığından genel R `predict` işlevi yerine [rxPredict](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxpredict) işlevini çağırmanız gerekir.
 
     ```sql
     DECLARE @speedmodel varbinary(max) = 
@@ -410,7 +419,7 @@ R kullanarak model eğitebilir ve bu modeli SQL veritabanınızda bir tablo olar
     + Tablodan modeli aldıktan sonra modelde `unserialize` işlevini çağırır.
 
         > [!TIP] 
-        > RevoScaleR tarafından sunulan ve gerçek zamanlı puanlama desteğine sahip yeni [serileştirme işlevlerini](https://docs.microsoft.com/r-server/r-reference/revoscaler/rxserializemodel) de inceleyin.
+        > RevoScaleR tarafından sunulan ve gerçek zamanlı puanlama desteğine sahip yeni [serileştirme işlevlerini](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) de inceleyin.
     + `rxPredict` işlevini uygun bağımsız değişkenlerle modele uygular ve yeni giriş verileri sağlar.
 
     + Örnekte test aşamasında R tarafından döndürülen verilerin şemasını kontrol etmek için `str` işlevi eklenmiştir. Deyimi daha sonra kaldırabilirsiniz.
@@ -439,7 +448,7 @@ SQL veritabanınızda yüklü olmayan bir paketi kullanmanız gerekiyorsa [sqlml
     R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
     ```
 
-    **'R' iç ya da dış komut, çalıştırılabilir program ya da toplu iş dosyası olarak tanınmıyor.** gibi bir hatayla karşılaşmanız R.exe dosyasının Windows **PATH** ortam değişkenine dahil edilmediğini gösterir. Dizini ortam değişkenine ekleyebilir veya komut isteminde ilgili dizine gidebilirsiniz (örneğin, `cd C:\Program Files\R\R-3.5.1\bin`).
+    Şu hatayı alırsanız, "'R' tanınmayan bir iç ya da dış komut, çalıştırılabilir program veya toplu iş dosyası", büyük olasılıkla R.exe yolu içinde bulunmaz geldiğini, **yolu** Windows ortam değişkeni. Dizin için ortam değişkenine ekleyin veya komut isteminde dizinine gidin (örneğin `cd C:\Program Files\R\R-3.5.1\bin`) komutunu çalıştırmadan önce.
 
 1. **R CMD INSTALL** komutunu kullanarak **sqlmlutils** dosyasını yükleyin. Zip dosyasını indirdiğiniz dizini ve dosyanın adını belirtin. Örneğin:
 
@@ -523,7 +532,7 @@ SQL veritabanınızda yüklü olmayan bir paketi kullanmanız gerekiyorsa [sqlml
 
 Machine Learning Services hakkında daha fazla bilgi için aşağıdaki SQL Server Machine Learning Services makalelerini inceleyin. Bu makaleler SQL Server'a yönelik olsa da içindeki bilgilerin çoğu Azure SQL Veritabanı'nda Machine Learning Services (R ile) için de geçerlidir.
 
-- [SQL Server Machine Learning Hizmetleri](https://review.docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Öğretici: SQL Server'da R kullanarak veritabanı içi analizi öğrenme](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [R ve SQL Server için uçtan uca veri bilimi kılavuzu](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [Öğretici: SQL Server verileriyle RevoScaleR R işlevlerini kullanma](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [SQL Server Machine Learning Hizmetleri](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
+- [Öğretici: SQL Server'da R kullanarak veritabanı içi analizi öğrenme](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
+- [R ve SQL Server için uçtan uca veri bilimi kılavuzu](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
+- [Öğretici: SQL Server verileriyle RevoScaleR R işlevlerini kullanma](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)

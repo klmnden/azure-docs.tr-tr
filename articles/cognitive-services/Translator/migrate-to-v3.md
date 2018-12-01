@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 2f0b2984bf2390a9af0b824495b84c71d04aeac2
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: ce6446caf74e16f69369d5ee8ee7b6342870e826
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852852"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682610"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 V3 geçiş
 
@@ -105,11 +105,33 @@ Genel
 
 [Sözlük/örnek](reference/v3-0-dictionary-examples.md)
 
-## <a name="customization"></a>Özelleştirme
+## <a name="compatibility-and-customization"></a>Uyumluluk ve özelleştirme
 
-Microsoft Translator V3 sinirsel makine çevirisi, varsayılan olarak kullanır. Bu nedenle, Microsoft Translator hub'ı ile kullanılamaz. Translator hub'ı yalnızca istatistiksel makine çevirisi eski destekler. Özelleştirme sinirsel çeviri için özel Translator'ı kullanarak kullanıma sunuldu. [Sinirsel makine çevirisi özelleştirme hakkında daha fazla bilgi edinin](customization.md)
+Microsoft Translator V3 sinirsel makine çevirisi, varsayılan olarak kullanır. Bu nedenle, Microsoft Translator hub'ı ile kullanılamaz. Translator hub'ı yalnızca istatistiksel makine çevirisi eski destekler. Özelleştirme sinirsel çeviri için özel Translator'ı kullanarak kullanıma sunuldu. [Sinirsel makine çevirisi özelleştirme hakkında daha fazla bilgi edinin](custom-translator/overview.md)
 
 Sinirsel çeviri V3 metin tanıma API'si ile standart kategorileri (SMT, konuşma tanıma, metin, generalnn) kullanımını desteklemiyor.
+
+| |Uç Nokta|    GDPR işlemci uyumluluğu|  Translator hub'ı kullanın| Özel Translator (Önizleme) kullanma|
+|:-----|:-----|:-----|:-----|:-----|
+|Translator Text API sürüm 2| api.microsofttranslator.com|    Hayır  |Evet    |Hayır|
+|Translator Text API sürüm 3| api.cognitive.microsofttranslator.com|  Evet|    Hayır| Evet|
+
+**Translator Text API sürüm 3**
+* Genel olarak kullanılabilir ve tam olarak desteklenen ' dir.
+* GDPR işlemci olarak uyumlu olduğundan ve tüm ISO 20001 ve SOC 3 sertifika yanı sıra 20018 gereksinimlerini karşılar. 
+* Özel Translator ile (Önizleme), yeni Translator NMT özelleştirme özelliği özelleştirdiğiniz sinir ağı çevirisi sistemleri çağrılacak sağlar. 
+* Microsoft Translator hub'ı kullanarak oluşturduğunuz özel çevirisi sistemleri için erişim sağlamaz.
+
+Translator metin çevirisi API'si, sürüm 3 api.cognitive.microsofttranslator.com uç noktası kullanıyorsanız, kullanmakta olduğunuz.
+
+**Translator Text API sürüm 2**
+* kullanım dışı bırakılmıştır. 30 Nisan 2019 üzerinde durdurulacaktır. 
+* Tüm 20001,20018 ISO ve SOC 3 sertifika gereksinimlerini karşılamıyor. 
+* Translator özelleştirme özelliği ile özelleştirdiğiniz sinir ağı çevirisi sistemleri çağırmak izin vermez.
+* Microsoft Translator hub'ı kullanarak oluşturduğunuz özel çevirisi sistemleri erişim sağlar.
+* Translator metin çevirisi API'si, sürüm 2, api.microsofttranslator.com uç noktası kullanıyorsanız kullanıyor.
+
+Translator API sürümü yok çevirilerinizi bir kaydını oluşturur. Hiçbir zaman çevirilerinizi kimseyle paylaşılmaz. Daha fazla bilgi [Translator yapmama](http://www.aka.ms/NoTrace) Web sayfası.
 
 
 ## <a name="links"></a>Bağlantılar

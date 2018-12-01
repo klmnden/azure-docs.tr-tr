@@ -10,25 +10,23 @@ ms.component: face-api
 ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 283a042bb8ea32f8f6db9bebb211bc2762a3a4c1
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: be3e408b3f5f6393786a35108202d51ae871ea3b
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578085"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679741"
 ---
 # <a name="api-reference"></a>API Başvurusu
 
-Microsoft yüz tanıma API'si, yüz algılama ve tanıma için en gelişmiş algoritmalar sağlayan bir bulut tabanlı bir API'dir.
+Azure yüz tanıma API'si, yüz algılama ve tanıma algoritmaları sağlayan bir bulut tabanlı bir API'dir. Yüz tanıma API'leri, aşağıdaki kategorilerde oluşturan:
 
-Yüz tanıma API'leri aşağıdaki kategorileri içerir:
-
-- [Yüz tanıma, algoritma API'leri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236): gibi çekirdek işlevleri kapsar [algılama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [Bul benzer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [doğrulama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a), [kimliği](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), ve [grubu](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
-- [FaceList yönetim API'leri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b): bir FaceList için yönetmek için kullanılan [Bul benzer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
-- [Kişi yönetimi API'leri LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40): LargePersonGroup kişi yüzleri için yönetmek için kullanılan [kimliği](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
-- [LargePersonGroup yönetim API'leri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d): LargePersonGroup veri kümesi için yönetmek için kullanılan [kimliği](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
-- [LargeFaceList yönetim API'leri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc): bir LargeFaceList için yönetmek için kullanılan [Bul benzer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
-- [Kişi yönetimi API'leri PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c): PersonGroup kişi yüzleri için yönetmek için kullanılan [kimliği](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
-- [PersonGroup yönetim API'leri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244): PersonGroup veri kümesi için yönetmek için kullanılan [kimliği](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+- [Yüz tanıma, algoritma API'leri](https://docs.microsoft.com/rest/api/cognitiveservices/face/face): gibi çekirdek işlevleri kapsar [algılama](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/detectwithstream), [Bul benzer](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar), [doğrulama](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/verifyfacetoface), [kimliği](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify), ve [grubu](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/group).
+- [FaceList yönetim API'leri](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist): bir FaceList için yönetmek için kullanılan [Bul benzer](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar).
+- [Kişi yönetimi API'leri LargePersonGroup](https://docs.microsoft.com/rest/api/cognitiveservices/face/largepersongroupperson): LargePersonGroup kişi yüzleri için yönetmek için kullanılan [kimliği](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
+- [LargePersonGroup yönetim API'leri](https://docs.microsoft.com/rest/api/cognitiveservices/face/largepersongroup): LargePersonGroup veri kümesi için yönetmek için kullanılan [kimliği](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
+- [LargeFaceList yönetim API'leri](https://docs.microsoft.com/rest/api/cognitiveservices/face/largefacelist): bir LargeFaceList için yönetmek için kullanılan [Bul benzer](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar).
+- [Kişi yönetimi API'leri PersonGroup](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroupperson): PersonGroup kişi yüzleri için yönetmek için kullanılan [kimliği](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
+- [PersonGroup yönetim API'leri](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup): PersonGroup veri kümesi için yönetmek için kullanılan [kimliği](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
 
 <!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->

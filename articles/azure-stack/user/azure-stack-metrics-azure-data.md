@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
-ms.openlocfilehash: b0cf2d7856a78bbe2aa531c6e872168e8e33b06a
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 45c06afd0d298c467d8f0a3a42b68bf1948c6ed3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021820"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726755"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Azure Stack'te Azure İzleyici
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri*
 
 Bu makalede, Azure Stack'te Azure İzleyici'hizmetine genel bakış sağlar. Azure İzleyici işlemi ve Azure Stack'te Azure İzleyicisi'ni kullanma hakkında ek bilgiler ele alınmaktadır. 
 
@@ -45,7 +45,7 @@ Kayıt **Microsoft.insights** aboneliğinizin teklif kaynak sağlayıcı ayarlar
 4. Seçin **kaynak sağlayıcıları** altında **ayarları.** 
 5. Bulma **Microsoft.Insights** listesinde ve durum olduğundan emin olun **kayıtlı.**.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
 Azure'da Azure İzleyici gibi Azure Stack'te Azure İzleyici, temel düzeyde altyapı ölçümlerini ve günlüklerini çoğu hizmetleri sağlar.
 
@@ -54,7 +54,7 @@ Azure'da Azure İzleyici gibi Azure Stack'te Azure İzleyici, temel düzeyde alt
 ![Azure İzleyici kaynakları - işlem alt](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
 
 **Microsoft.Compute** Azure Stack'te kaynak sağlayıcısı içerir:
- - Virtual Machines 
+ - Sanal Makineler 
  - Sanal makine ölçek kümeleri
 
 ### <a name="application---diagnostics-logs-application-logs-and-metrics"></a>Uygulama - tanılama günlükleri, uygulama günlükleri ve ölçümler

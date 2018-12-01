@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/16/2018
+ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: d6d1fb9631af06f6bfbb2c360661779281a08905
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: c13a01b392b9bbc93fff2e997cb6d168a441ad07
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975118"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679928"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Hızlı Başlangıç: .NET API ile ilk Azure Batch işinizi çalıştırma
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-quickstart.git
 
 Visual Studio `BatchDotNetQuickstart.sln` çözüm dosyasını içeren dizine gidin.
 
-Çözüm dosyasını Visual Studio'da açın ve `program.cs` içindeki kimlik bilgisi dizelerini hesaplarınız için edindiğiniz değerlerle güncelleştirin. Örneğin:
+Çözüm dosyasını Visual Studio'da açın ve `Program.cs` içindeki kimlik bilgisi dizelerini hesaplarınız için edindiğiniz değerlerle güncelleştirin. Örneğin:
 
 ```csharp
 // Batch account credentials
@@ -143,7 +143,7 @@ Uygulama, Batch hizmetinde havuz, iş ve görevleri oluşturup yönetmek üzere 
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
 
 using (BatchClient batchClient = BatchClient.Open(cred))
-...    
+...
 ```
 
 ### <a name="create-a-pool-of-compute-nodes"></a>İşlem düğümleri havuzu oluşturma
@@ -155,33 +155,42 @@ Düğüm sayısı (`PoolNodeCount`) ve VM boyutu (`PoolVMSize`), tanımlı sabit
 [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) yöntemi, havuzu Batch hizmetine gönderir.
 
 ```csharp
-ImageReference imageReference = new ImageReference(
-    publisher: "MicrosoftWindowsServer",
-    offer: "WindowsServer",
-    sku: "2016-Datacenter-smalldisk",
-    version: "latest");
 
-VirtualMachineConfiguration virtualMachineConfiguration =
-new VirtualMachineConfiguration(
-   imageReference: imageReference,
-   nodeAgentSkuId: "batch.node.windows amd64");
-
-try
+private static VirtualMachineConfiguration CreateVirtualMachineConfiguration(ImageReference imageReference)
 {
-    CloudPool pool = batchClient.PoolOperations.CreatePool(
-    poolId: PoolId,
-    targetDedicatedComputeNodes: PoolNodeCount,
-    virtualMachineSize: PoolVMSize,
-    virtualMachineConfiguration: virtualMachineConfiguration);
-
-    pool.Commit();
+    return new VirtualMachineConfiguration(
+        imageReference: imageReference,
+        nodeAgentSkuId: "batch.node.windows amd64");
 }
+
+private static ImageReference CreateImageReference()
+{
+    return new ImageReference(
+        publisher: "MicrosoftWindowsServer",
+        offer: "WindowsServer",
+        sku: "2016-datacenter-smalldisk",
+        version: "latest");
+}
+
+private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfiguration vmConfiguration)
+{
+    try
+    {
+        CloudPool pool = batchClient.PoolOperations.CreatePool(
+            poolId: PoolId,
+            targetDedicatedComputeNodes: PoolNodeCount,
+            virtualMachineSize: PoolVMSize,
+            virtualMachineConfiguration: vmConfiguration);
+
+        pool.Commit();
+    }
 ...
 
 ```
+
 ### <a name="create-a-batch-job"></a>Batch işi oluşturma
 
-Batch işi bir veya daha fazla görevin mantıksal gruplandırmasıdır. Bir iş, öncelik gibi görevler arasında ortak olan ayarları ve görevlerin çalıştırılacağı havuzu içerir. Uygulama, havuzunuzda bir iş oluşturmak üzere [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) yöntemini kullanır. 
+Batch işi bir veya daha fazla görevin mantıksal gruplandırmasıdır. Bir iş, öncelik gibi görevler arasında ortak olan ayarları ve görevlerin çalıştırılacağı havuzu içerir. Uygulama, havuzunuzda bir iş oluşturmak üzere [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) yöntemini kullanır.
 
 [Commit](/dotnet/api/microsoft.azure.batch.cloudjob.commit) yöntemi, işi Batch hizmetine gönderir. Başlangıçta iş hiçbir görev içermez.
 
@@ -192,15 +201,16 @@ try
     job.Id = JobId;
     job.PoolInformation = new PoolInformation { PoolId = PoolId };
 
-    job.Commit(); 
+    job.Commit();
 }
 ...
 ```
 
 ### <a name="create-tasks"></a>Görev oluşturma
+
 Uygulama, [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) nesnelerinin bir listesini oluşturur. Her görev, [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) özelliği kullanarak giriş `ResourceFile` nesnesini işler. Örnekte, komut satırı giriş dosyasını göstermek üzere Windows `type` komutunu çalıştırır. Bu komut, tanıtım amaçlı basit bir örnektir. Batch kullandığınızda komut satırı, uygulamanızı veya betiğinizi belirttiğiniz yerdir. Batch, işlem düğümlerine uygulama ve betik dağıtmanın birkaç yolunu sağlar.
 
-Sonra uygulama, [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask) yöntemi ile görevleri işe ekler ve işlem düğümleri üzerinde çalışmak üzere kuyruğa alır. 
+Sonra uygulama, [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask) yöntemi ile görevleri işe ekler ve işlem düğümleri üzerinde çalışmak üzere kuyruğa alır.
 
 ```csharp
 for (int i = 0; i < inputFiles.Count; i++)
@@ -216,7 +226,7 @@ for (int i = 0; i < inputFiles.Count; i++)
 
 batchClient.JobOperations.AddTask(JobId, tasks);
 ```
- 
+
 ### <a name="view-task-output"></a>Görev çıkışını görüntüleme
 
 Uygulama, tamamlandığından emin olmak üzere görevleri izlemek için bir [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor) oluşturur. Daha sonra uygulama, [CloudTask.ComputeNodeInformation](/dotnet/api/microsoft.azure.batch.cloudtask.computenodeinformation) özelliğini kullanarak her bir tamamlanmış görevin oluşturduğu `stdout.txt` dosyasını gösterir. Görev başarıyla çalıştırıldığında, görev komutunun çıkışı `stdout.txt` dosyasına yazılır:

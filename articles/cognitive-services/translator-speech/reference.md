@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1fc48687141ea8a7e8cb30d3438d81e8f1088e4f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: c7e14e2c2d6d38055304610c805a6bede10a6828
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340452"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679299"
 ---
 # <a name="translator-speech-api"></a>Translator Konuşma Çevirisi API’si
 
@@ -89,6 +89,9 @@ Toplam dosya boyutu (bayt 4-7) ve "veri" (bayt 40-43) boyutu sıfır olarak ayar
 
 WAV (RIFF) üst bilgisi gönderdikten sonra istemci ses veri öbekleri gönderir. İstemci, sabit bir süre (örneğin akışı 100ms birer birer ses) temsil eden sabit boyutlu öbeklere genellikle akışı sağlanacak.
 
+### <a name="signal-the-end-of-the-utterance"></a>Sinyal utterance sonu
+Translator konuşma tanıma API'si, döküm ve ses akışı çevirisi ses gönderiyorsanız olarak döndürür. Son transkripti, son çeviri ve çevrilmiş ses için yalnızca utterance sonunda döndürülür. Bazı durumlarda utterance sonuna zorlamak isteyebilirsiniz. Lütfen sessizlik 2.5 utterance sonuna zorlamak için saniye gönderin. 
+
 ### <a name="final-result"></a>Son Sonuç
 Bir son konuşma tanıma işleminin sonucu bir utterance sonunda oluşturulur. Bir sonuç hizmetinden istemciye metin türünde bir WebSocket ileti kullanarak aktarılır. İleti içeriğini aşağıdaki özelliklere sahip bir nesnenin JSON seri hale getirme:
 
@@ -149,7 +152,7 @@ Bir örnek nihai sonucu aşağıdaki gibidir:
 }
 ```
 
-### <a name="text-to-speech"></a>Metin okuma
+### <a name="text-to-speech"></a>Metin Okuma
 Metin okuma özelliği etkinleştirildiğinde (bkz `features` parametre aşağıdaki), nihai sonucu konuşulan çevrilen metnin ses tarafından izlenir. Ses verisi öbekli ve hizmetten Binary türünde Websocket iletiler dizisi olarak istemciye gönderilen. Bir istemci, her iletinin FIN bit denetleyerek akışın sonuna algılayabilir. Son ikili ileti bir akışın sonuna belirten, bit FIN kümesine sahip olursunuz. Akış biçimi değerine bağlıdır `format` parametresi.
 
 ### <a name="closing-the-connection"></a>Bağlantı kesiliyor
@@ -171,7 +174,7 @@ Bir istemci uygulaması ses akışı tamamlandı ve son nihai sonucu aldı, WebS
 |Ses|(boş)|Hangi sesli metin okuma çevrilmiş metin işleme için kullanılacağını tanımlar. Değer dilleri API yanıtından tts kapsamda ses tanımlayıcılardan biridir. Bir ses, sistem otomatik olarak ayarlanır belirtilmezse metin okuma özelliği etkinleştirilmişse seçin.|sorgu|dize|
 |Biçim|(boş)|Hizmet tarafından döndürülen metin okuma ses akışı biçimini belirtir. Kullanılabilen seçenekler:<ul><li>`audio/wav`: Oluşturulan dalga biçiminin ses akışı. İstemci, ses biçimi doğru şekilde yorumlamasına WAV başlığı kullanmanız gerekir. Metin okuma için WAV ses tek kanal PCM 24 kHz veya 16 kHz örnekleme oranını 16 bit ' dir.</li><li>`audio/mp3`: MP3 ses akışı.</li></ul>`audio/wav` varsayılan değerdir.|sorgu|dize|
 |ProfanityAction    |(boş)    |Hizmet konuşma dilinde tanınan profanities nasıl işleyeceğini belirtir. Geçerli eylemler şunlardır:<ul><li>`NoAction`: Profanities olduğu gibi bırakılır.</li><li>`Marked`: Profanities işaretçisi ile değiştirilir. Bkz: `ProfanityMarker` parametresi.</li><li>`Deleted`: Profanities silinir. Örneğin, word `"jackass"` ifadesinin bir küfür kabul edilir `"He is a jackass."` olur `"He is a .".`</li></ul>Varsayılan olarak işaretlenmiş.|sorgu|dize|
-|ProfanityMarker|(boş)    |Nasıl algılanan profanities belirtir ne zaman işleneceğini `ProfanityAction` ayarlanır `Marked`. Geçerli seçenekler şunlardır:<ul><li>`Asterisk`: Profanities dize ile değiştirilir `***`. Örneğin, word `"jackass"` ifadesinin bir küfür kabul edilir `"He is a jackass."` olur `"He is a ***.".`</li><li>`Tag`: Küfür içine bir küfür XML etiketi. Örneğin, word `"jackass"` ifadesinin bir küfür kabul edilir `"He is a jackass."` olacak `"He is a <profanity>jackass</profanity>."`.</li></ul>Varsayılan, `Asterisk` değeridir.|sorgu|dize|
+|ProfanityMarker|(boş)    |Nasıl algılanan profanities belirtir ne zaman işleneceğini `ProfanityAction` ayarlanır `Marked`. Geçerli seçenekler şunlardır:<ul><li>`Asterisk`: Profanities dize ile değiştirilir `***`. Örneğin, word `"jackass"` ifadesinin bir küfür kabul edilir `"He is a jackass."` olur `"He is a ***.".`</li><li>`Tag`: Küfür içine bir küfür XML etiketi. Örneğin, word `"jackass"` ifadesinin bir küfür kabul edilir `"He is a jackass."` olacak `"He is a <profanity>jackass</profanity>."`.</li></ul>Varsayılan değer: `Asterisk`.|sorgu|dize|
 |Yetkilendirme|(boş)  |İstemcinin taşıyıcı belirteç değerini belirtir. Önek kullanması `Bearer` değeri tarafından izlenen `access_token` kimlik doğrulama belirteci hizmet tarafından döndürülen değer.|üst bilgi   |dize|
 |Ocp-Apim-Subscription-Key|(boş)|Gerekli if `Authorization` üstbilgisi belirtilmedi.|üst bilgi|dize|
 |access_token|(boş)   |Geçerli bir OAuth erişim belirteci geçirmek için alternatif bir yolu. Taşıyıcı belirteç genellikle üstbilgiyle sağlanan `Authorization`. Bazı websocket kitaplıklar, üst bilgilerini ayarlayacak şekilde istemci kodu izin vermeyin. Böyle bir durumda istemcinin kullanabileceği `access_token` sorgu parametresi geçerli bir belirteç geçirilecek. Varsa, kimlik doğrulamak için bir erişim belirteci kullanarak `Authorization` üst bilgisi ayarlanmadı, ardından `access_token` ayarlamanız gerekir. Hem üst hem de sorgu parametresi ayarlarsanız, sorgu parametresi göz ardı edilir. İstemcileri yalnızca belirtecin geçip için bir yöntem kullanmanız gerekir.|sorgu|dize|

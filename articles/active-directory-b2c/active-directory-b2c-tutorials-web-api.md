@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.author: davidmu
-ms.date: 01/23/2018
+ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 2b70ed174331b88f9afc9aa30d14a585986496a5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
-ms.translationtype: HT
+ms.openlocfilehash: bd900071bbcd894d4fe71e0f8a265d98348eb262
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604350"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726415"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C kullanarak bir web uygulamasından ASP.NET web API'sine erişim izni verme
 
@@ -31,7 +31,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Azure Active Directory B2C’yi bir ASP.NET Web Uygulamasında Kullanıcı Kimlik Doğrulaması için kullanma öğreticisini](active-directory-b2c-tutorials-web-app.md) tamamlayın.
 * **ASP.NET ve web geliştirme** iş yüküyle [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi yükleyin.
@@ -55,8 +55,8 @@ Web API’si kaynaklarının Azure Active Directory’den bir [erişim belirteci
     | Ayar      | Önerilen değer  | Açıklama                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Ad** | Örnek Web API’si | Web API’nizi geliştiricilere tanıtan bir **Ad** girin. |
-    | **Web uygulamasını / web API'sini dahil etme** | Yes | Web API’si için **Evet**’i seçin. |
-    | **Örtük akışa izin verme** | Yes | API [OpenID Connect oturumu](active-directory-b2c-reference-oidc.md) kullandığından **Evet**’i seçin. |
+    | **Web uygulamasını / web API'sini dahil etme** | Evet | Web API’si için **Evet**’i seçin. |
+    | **Örtük akışa izin verme** | Evet | API [OpenID Connect oturumu](active-directory-b2c-reference-oidc.md) kullandığından **Evet**’i seçin. |
     | **Yanıt URL'si** | `https://localhost:44332` | Yanıt URL'leri, Azure AD B2C'nin, API’niz tarafından istenen belirteçleri döndürdüğü uç noktalardır. Bu öğreticide örnek web API’si yerel olarak (localhost) çalışır ve 44332 numaralı bağlantı noktasını dinler. |
     | **Uygulama Kimliği URI'si** | myAPISample | URI, kiracıdaki API’yi benzersiz olarak tanımlar. Bu, kiracı başına birden çok API kaydetmenize olanak sağlar. [Kapsamlar](../active-directory/develop/developer-glossary.md#scopes) korumalı API kaynağına erişimi yönetir ve Uygulama Kimliği URI’si başına tanımlanır. |
     | **Yerel istemci** | Hayır | Bu, bir web API’si olduğu için ve yerel bir istemci olmadığı için Hayır’ı seçin. |
@@ -120,7 +120,7 @@ API’yi kaydettikten ve kapsamları tanımladıktan sonra, web API kodunuzu Azu
 
 Örnek çözümde iki proje vardır:
 
-**Örnek web uygulaması (TaskWebApp):** Görev listesi oluşturmak ve düzenlemek için kullanılan web uygulaması. Web uygulaması, kullanıcıların bir e-posta adresiyle kaydolması veya oturum açması için **kaydolma veya oturum açma** ilkesi kullanır.
+**Örnek web uygulaması (TaskWebApp):** Görev listesi oluşturmak ve düzenlemek için kullanılan web uygulaması. Web uygulaması kullandığı **kaydolma veya oturum açma** ıntune'a kaydolma veya oturum açma e-posta adresi olan kullanıcılar için kullanıcı akışı.
 
 **Örnek web API’si uygulaması (TaskService):** Görev listesi oluşturma, okuma, güncelleştirme ve silme işlevlerini destekleyen web API’si. Web API’si Azure AD B2C tarafından korunur ve web uygulaması tarafından çağrılır.
 
@@ -162,10 +162,10 @@ API’yi kaydettikten ve kapsamları tanımladıktan sonra, web API kodunuzu Azu
     <add key="ida:ClientId" value="<The Application ID for your web API obtained from the Azure portal>"/>
     ```
 
-4. İlke ayarını, kaydolma ve oturum açma ilkelerinizi oluştururken oluşturulan ad ile güncelleştirin.
+4. Kullanıcı akışı ayarı yukarı oturum oluştururken oluşturulan ad ve oturum açma kullanıcı akışı ile güncelleştirme.
 
     ```C#
-    <add key="ida:SignUpSignInPolicyId" value="B2C_1_SiUpIn" />
+    <add key="ida:SignUpSignInUserFlowId" value="B2C_1_SiUpIn" />
     ```
 
 5. Kapsamlar ayarını portalda oluşturduğunuz değerle eşleşecek şekilde yapılandırın.

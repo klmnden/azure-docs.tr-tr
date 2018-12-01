@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 1af7a1d595b39878f3ed30591e8ad78e767e8cf7
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 5127b748111f993f95f940f4add81c42a032e038
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087500"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722097"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack'te desteklenen sanal makine boyutları
 
@@ -28,7 +28,7 @@ Bu makalede, Azure Stack'te kullanılabilir sanal makine (VM) boyutları listele
 
 ## <a name="general-purpose"></a>Genel amaçlı
 
-Dengeli CPU / bellek oranı genel amaçlı bir VM boyutları sunar. Test ve geliştirme, küçük ve orta büyüklükte veri tabanları ve düşük, orta düzey trafiğe sahip web sunucuları için kullanılırlar.
+Dengeli CPU / bellek oranı genel amaçlı bir VM boyutları sunar. Test ve geliştirme, küçük ve orta büyüklükte veri tabanları ve düşük, orta düzey trafiğe sahip web sunucuları için kullanılırlar. Her veri diski hariç temel A serisi, premium VM boyutları için 2300 IOPS ' dir. Temel A veri disk boyutu 500 IOPS ' dir.
 
 ### <a name="basic-a"></a>Temel A
 

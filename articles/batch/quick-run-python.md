@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 0ce9d6854f464efdf0ff6eea8644fedc5ad90d1f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 13ed37dddefc5e71e972248545c3e9242bd233ad
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427339"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678209"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Hızlı başlangıç: Python API’si ile ilk Batch işinizi çalıştırma
 
@@ -110,7 +110,7 @@ Varsayılan yapılandırmasında uygulama çalıştırıldığında tipik yürü
 Bu hızlı başlangıçtaki Python uygulaması şunları yapar:
 
 * Azure depolama hesabınızdaki blob kapsayıcısına üç küçük metin dosyası yükler. Bu dosyalar, Batch görevleri tarafından işlenecek girdilerdir.
-* Ubuntu 16.04 LTS çalıştıran iki işlem düğümüne sahip havuzu oluşturur.
+* Ubuntu 18.04 LTS çalıştıran iki işlem düğümleri havuzu oluşturur.
 * Düğümler üzerinde çalıştırılacak bir iş ve üç görev oluşturur. Her görev bir Bash kabuk komut satırı kullanarak giriş dosyalarından birini işler.
 * Görevler tarafından döndürülen dosyaları gösterir.
 
@@ -151,7 +151,7 @@ batch_client = batch.BatchServiceClient(
 
 ### <a name="create-a-pool-of-compute-nodes"></a>İşlem düğümleri havuzu oluşturma
 
-Uygulama, Batch havuzu oluşturmak için düğüm sayısını, VM boyutunu ve havuz yapılandırmasını ayarlamak üzere Batch [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) sınıfını kullanır. Burada [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) nesnesi, Azure Market’te yayımlanmış bir Ubuntu Server 16.04 LTS görüntüsüne [ImageReference](/python/api/azure.batch.models.imagereference) belirtir. Batch, Azure Market’te çok çeşitli Linux ve Windows Server görüntülerinin yanı sıra özel VM görüntülerini destekler.
+Uygulama, Batch havuzu oluşturmak için düğüm sayısını, VM boyutunu ve havuz yapılandırmasını ayarlamak üzere Batch [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) sınıfını kullanır. Burada bir [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) nesnesini belirtir bir [Imagereference](/python/api/azure.batch.models.imagereference) Azure Market'te yayımlanmış bir Ubuntu Server 18.04 LTS görüntüsüne. Batch, Azure Market’te çok çeşitli Linux ve Windows Server görüntülerinin yanı sıra özel VM görüntülerini destekler.
 
 Düğüm sayısı (`_POOL_NODE_COUNT`) ve VM boyutu (`_POOL_VM_SIZE`), tanımlı sabitlerdir. Varsayılan olarak, örnek 2 boyutunda *Standard_A1_v2* düğümleri havuzu oluşturur. Önerilen boyut, bu hızlı örnek için performans ile maliyetin iyi bir dengesini sunar.
 
@@ -164,10 +164,10 @@ new_pool = batch.models.PoolAddParameter(
         image_reference=batchmodels.ImageReference(
             publisher="Canonical",
             offer="UbuntuServer",
-            sku="16.04-LTS",
+            sku="18.04-LTS",
             version="latest"
             ),
-        node_agent_sku_id="batch.node.ubuntu 16.04"),
+        node_agent_sku_id="batch.node.ubuntu 18.04"),
     vm_size=config._POOL_VM_SIZE,
     target_dedicated_nodes=config._POOL_NODE_COUNT
 )

@@ -10,17 +10,16 @@ ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 2fbf3c902416935f0b1fff0bc423a2535f3ba077
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 90faa1d3a24a77743beb5109373b1b6ba0bb4156
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013005"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722114"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Azure İzleyici Uyarıları ile olaylara yanıt verme
 Azure İzleyici'deki uyarılar, Log Analytics deponuzdaki önemli bilgileri belirleyebilir. Bunlar düzenli aralıklarla otomatik olarak günlük aramaları çalıştıran uyarı kuralları tarafından oluşturulur. Günlük aramasının sonuçları belirli ölçütlerle eşleşirse bir uyarı kaydı oluşturulur ve kayıt otomatik bir yanıt gerçekleştirmek için yapılandırılabilir.  Bu öğretici, [Log Analytics verilerinin panolarını oluşturma ve paylaşma](log-analytics-tutorial-dashboards.md) öğreticisinin devamı niteliğindedir.   

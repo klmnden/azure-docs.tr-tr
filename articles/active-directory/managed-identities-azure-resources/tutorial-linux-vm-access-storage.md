@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: 3d223807d58fc03c0daabb7f800690b1b839d770
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3b608f9f099b2c4d030eefe96ea96c5d3effdc53
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51620809"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725242"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Öğretici: Azure Depolama’ya erişmek için Linux VM sistem tarafından atanan yönetilen kimliği kullanma 
 
@@ -82,7 +82,7 @@ Azure depolama blobundaki verileri almak için VM’nin yönetilen kimliğini ku
 
 1. Yeni oluşturulan depolama hesabınıza geri gidin.  
 2. Sol bölmedeki **Erişim denetimi (IAM)** bağlantısına tıklayın.  
-3. VM’nize yönelik yeni bir rol ataması eklemek için sayfanın üst kısmındaki **+ Ekle**’ye tıklayın.
+3. Tıklayın **+ rol ataması Ekle** VM'niz için yeni bir rol ataması eklemek için sayfanın en üstünde.
 4. **Rol**’ün altında, açılan listeden **Depolama Blob Verileri Okuyucusu (Önizleme)** seçeneğini belirleyin. 
 5. Sonraki açılan listede **Erişimin atanacağı hedef** öğesinin altında **Sanal Makine**’yi seçin.  
 6. Ardından, uygun aboneliğin **Abonelik**’te listelendiğinden emin olun ve sonra **Kaynak Grubu**’nu **Tüm kaynak grupları** olarak ayarlayın.  

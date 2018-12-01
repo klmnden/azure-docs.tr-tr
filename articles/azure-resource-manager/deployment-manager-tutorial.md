@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e4489fd9119bce0e38e14f536f41940b74205e95
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8ec180b40e52c5702495a0124bf8ae33d2dc24a1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425012"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727792"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Öğretici: Azure Deployment Manager’ı Resource Manager şablonlarıyla kullanma (Özel önizleme)
 
@@ -152,7 +152,7 @@ Kullanıcı tarafından atanmış yönetilen bir kimlik oluşturmanız ve abonel
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. [Kullanıcı tarafından atanmış bir yönetilen kimlik](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) oluşturun.
 3. Portalda sol menüden **Abonelikler**’i ve ardından aboneliğinizi seçin.
-4. **Erişim denetimi (IAM)** öğesini ve ardından **Ekle**’yi seçin
+4. Seçin **erişim denetimi (IAM)** ve ardından **rol ataması Ekle**.
 5. Aşağıdaki değerleri yazın veya seçin:
 
     ![Azure Deployment Manager öğreticisi kullanıcı tarafından atanmış yönetilen kimlik erişim denetimi](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-access-control.png)

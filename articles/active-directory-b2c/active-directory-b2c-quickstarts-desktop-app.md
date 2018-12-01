@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b018872eb1bd8575004fc50124c8ab8b77564b15
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
-ms.translationtype: HT
+ms.openlocfilehash: 2e60ede7ca6a1030f689f97ad9fe38a4705126a8
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247581"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725969"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Hızlı Başlangıç - Azure Active Directory B2C kullanarak bir masaüstü uygulaması için oturum açma bilgileri ayarlama 
 
@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) B2C, uygulamanız, işletmeniz ve müşteriler
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - **ASP.NET ve web geliştirme** iş yüküyle [Visual Studio 2017](https://www.visualstudio.com/downloads/). 
 - Facebook’tan, Google’dan, Microsoft’tan veya Twitter’dan bir sosyal hesap.
@@ -60,7 +60,7 @@ Azure Active Directory (Azure AD) B2C, uygulamanız, işletmeniz ve müşteriler
 
 ## <a name="edit-your-profile"></a>Profilinizi düzenleme
 
-Azure AD B2C, kullanıcılara profillerini güncelleme olanağı tanıyan bir işlev sunar. Örnek web uygulaması, iş akışı için bir Azure AD B2C düzenleme profil ilkesi kullanır. 
+Azure AD B2C, kullanıcılara profillerini güncelleme olanağı tanıyan bir işlev sunar. Örnek web uygulaması iş akışı için bir Azure AD B2C düzenleme profil kullanıcı akışını kullanır. 
 
 1. Oluşturduğunuz profili düzenlemek için uygulamanın menü çubuğunda **Profili düzenle**’ye tıklayın.
 

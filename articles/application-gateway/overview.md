@@ -3,25 +3,25 @@ title: Azure Application Gateway nedir?
 description: Uygulamanıza web trafiğini yönetmek için bir Azure uygulama ağ geçidini nasıl kullanabileceğinizi öğrenin.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.workload: infrastructure-services
 ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: 8352a95fa0701f6d2a0261d8d2fe2431971eccef
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
-ms.translationtype: HT
+ms.openlocfilehash: b58237f25a51438f0255243f960cc2a6aed2b0ca
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068104"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679180"
 ---
 # <a name="what-is-azure-application-gateway"></a>Azure Application Gateway nedir?
 
-Azure Application Gateway, web uygulamalarınıza trafiği yönetmenizi sağlayan bir web trafiği yük dengeleyicisidir. 
+Azure Application Gateway, web uygulamalarınıza trafiği yönetmenizi sağlayan bir web trafiği yük dengeleyicisidir. Geleneksel yük dengeleyiciler aktarım katmanında (OSI katman 4 - TCP ve UDP) çalışır ve trafiği kaynak IP adresi ve bağlantı noktasına göre hedef bir IP adresi ve bağlantı noktasına yönlendirir.
 
-Geleneksel yük dengeleyiciler aktarım katmanında (OSI katman 4 - TCP ve UDP) çalışır ve trafiği kaynak IP adresi ve bağlantı noktasına göre hedef bir IP adresi ve bağlantı noktasına yönlendirir. Ancak Application Gateway ile çok daha spesifik olabilirsiniz. Örneğin, gelen URL’yi temel alarak trafiği yönlendirebilirsiniz. Yani `/images` gelen URL’deyse, trafiği görüntüler için yapılandırılmış belirli bir sunucu kümesine (havuz olarak da bilinir) yönlendirebilirsiniz. URL’de `/video` varsa, bu trafik videolar için iyileştirilmiş başka bir havuza yönlendirilir.
+![Uygulama ağ geçidi kavramsal](media/overview/figure1-720.png)
+
+Ancak Application Gateway ile çok daha spesifik olabilirsiniz. Örneğin, gelen URL’yi temel alarak trafiği yönlendirebilirsiniz. Yani `/images` gelen URL’deyse, trafiği görüntüler için yapılandırılmış belirli bir sunucu kümesine (havuz olarak da bilinir) yönlendirebilirsiniz. URL’de `/video` varsa, bu trafik videolar için iyileştirilmiş başka bir havuza yönlendirilir.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1-720.png)
 
@@ -31,7 +31,7 @@ Azure Application Gateway aşağıdaki özellikleri içerir:
 
 ## <a name="autoscaling-public-preview"></a>Otomatik ölçeklendirme genel önizleme sürümü
 
-Application Gateway, bu makalede anlatılan özelliklere ek olarak otomatik ölçeklendirme ve diğer kritik performans geliştirmeleri sunan yeni bir SKU [Standard_V2] genel önizleme sürümü de sunmaktadır.
+Bu makalede açıklanan özelliklerine ek olarak, Application Gateway, ayrıca otomatik ölçeklendirme ve diğer önemli performans geliştirmeleri sunan yeni bir SKU'ya [Standard_V2] genel önizlemesini sunar.
 
 - **Otomatik ölçeklendirme** - Otomatik ölçeklendirme SKU'su kapsamındaki Application Gateway veya WAF dağıtımlarının ölçeği değişen trafik yükü desenlerine göre artırılabilir veya azaltılabilir. Otomatik ölçeklendirme ayrıca sağlama sırasında dağıtım boyutu veya örnek sayısı seçme gereksinimini de ortadan kaldırır. 
 
@@ -44,6 +44,10 @@ Application Gateway, bu makalede anlatılan özelliklere ek olarak otomatik öl�
 - Genel kullanıma açık SKU ile karşılaştırıldığında **5 kat daha iyi SSL yük boşaltma performansı**.
 
 Application Gateway genel önizleme özellikleri hakkında daha fazla bilgi için bkz. [Otomatik Ölçeklendirme Yapan ve Alanlar Arası Yedekli Application Gateway (Genel Önizleme)](application-gateway-autoscaling-zone-redundant.md).
+
+## <a name="secure-sockets-layer-ssl-termination"></a>Güvenli Yuva Katmanı (SSL) sonlandırma
+
+Application Gateway, ağ geçidinde SSL sonlandırmasını destekler. Bu sonlandırmanın ardından, trafik genelde arka uç sunucularına şifrelenmemiş olarak akar. Bu özellik, web sunucularının maliyetli şifreleme ve şifre çözme ek yükünden kurtulmasını sağlar. Ancak bazen şifrelenmemiş iletişimin sunucularına kabul edilebilir bir seçenek değildir. Bu güvenlik gereksinimleri, uyumluluk gereksinimleri nedeniyle olabilir veya uygulamanın yalnızca güvenli bağlantı kabul etmesi olabilir. Bu uygulamalar için application gateway uçtan uca SSL şifrelemesini destekler.
 
 ## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Azure Kubernetes Service (AKS) giriş denetleyicisi önizlemesi 
 
@@ -59,10 +63,6 @@ Bağlantı boşaltma, planlı hizmet güncelleştirmeleri sırasında arka uç h
 Application Gateway, varsayılan hata sayfalarını göstermek yerine özel hata sayfaları oluşturmanızı sağlar. Özel hata sayfası sayesinde kendi logonuzu ve sayfa düzeninizi kullanabilirsiniz.
 
 Daha fazla bilgi için bkz. [Application Gateway özel hata sayfası oluşturma](custom-error.md).
-
-## <a name="secure-sockets-layer-ssl-termination"></a>Güvenli Yuva Katmanı (SSL) sonlandırma
-
-Application Gateway, ağ geçidinde SSL sonlandırmasını destekler. Bu sonlandırmanın ardından, trafik genelde arka uç sunucularına şifrelenmemiş olarak akar. Bu özellik, web sunucularının maliyetli şifreleme ve şifre çözme ek yükünden kurtulmasını sağlar. Ancak sunucularla şifrelenmemiş iletişim, bazen kabul edilebilir bir seçenek olmayabilir. Bunun nedeni, güvenlik gereksinimleri, uyumluluk gereksinimleri veya uygulamanın yalnızca güvenli bağlantı kabul etmesi olabilir. Application Gateway, böyle uygulamalar için uçtan uca SSL şifrelemesini desteklemektedir.
 
 ## <a name="web-application-firewall"></a>Web uygulaması güvenlik duvarı
 
@@ -96,22 +96,15 @@ Application Gateway yeniden yönlendirme desteği aşağıdaki özellikleri suna
 - Yol tabanlı yönlendirme. Bu tür yeniden yönlendirmeler, HTTP’den HTTPS’ye yeniden yönlendirmeyi yalnızca belirli bir site alanında (örneğin `/cart/*` tarafından belirtilen bir alışveriş sepetinde) etkinleştirir.
 - Dış siteye yeniden yönlendirme.
 
-
-
 ## <a name="session-affinity"></a>Oturum benzeşimi
 
 Tanımlama bilgilerine dayalı oturum benzeşimi özelliği, bir kullanıcı oturumunu aynı sunucuda tutmak istediğinizde kullanışlıdır. Ağ geçidi ile yönetilen tanımlama bilgilerini kullanan Application Gateway, sonraki trafiği işleme amacıyla bir kullanıcı oturumundan aynı sunucuya yönlendirebilir. Bu, oturum durumunun bir kullanıcı oturumuna ait sunucuya yerel olarak kaydedildiği durumlarda önemlidir.
 
-
-
-
 ## <a name="websocket-and-http2-traffic"></a>Websocket ve HTTP/2 trafiği
 
 Application Gateway, WebSocket ve HTTP/2 protokolleri için yerel destek sağlar. WebSocket desteğini isteğe bağlı olarak etkinleştirmek veya devre dışı bırakmak için kullanıcı tarafından yapılandırılabilen bir ayar yoktur. HTTP/2 desteği, Azure PowerShell kullanılarak etkinleştirilebilir.
- 
+
 WebSocket ve HTTP/2 protokolleri, uzun süre çalışan bir TCP bağlantısı üzerinden bir sunucu ile bir istemci arasında tam çift yönlü iletişimi etkinleştirir. Bu, web sunucusu ile istemci arasında HTTP tabanlı uygulamalarda gerektiği gibi yoklama olmadan çift yönlü olabilen daha etkileşimli bir iletişime olanak sağlar. Bu protokoller HTTP’den farklı olarak düşük yüke sahiptir ve kaynakların daha verimli bir şekilde kullanılması için aynı TCP bağlantısını birden fazla istek/yanıt için kullanabilir. Bu protokoller, geleneksel HTTP bağlantı noktaları 80 ve 443 üzerinden çalışmak üzere tasarlanmıştır.
-
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

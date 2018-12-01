@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 8f98c4cbca87fd77e3c09c1028bfcb3181907412
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 89aedb33a88a7fb5f0a4e0abed172ba4e1cd091e
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335705"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682086"
 ---
 # <a name="quickstart-detect-text-language-with-the-translator-text-rest-api-c"></a>Hızlı Başlangıç: Translator Text REST API ile metin dili Algıla (C#)
 
@@ -28,7 +28,7 @@ Bu hızlı başlangıç, Translator Metin Çevirisi kaynağına sahip bir [Azure
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Json.NET NuGet paketi](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), veya en sevdiğiniz metin düzenleyiciyi
-* Konuşma hizmeti için bir Azure aboneliği anahtarı
+* Translator Metin Çevirisi için Azure abonelik anahtarı
 
 ## <a name="create-a-net-core-project"></a>.NET Core projesi oluşturma
 

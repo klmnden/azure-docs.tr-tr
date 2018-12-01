@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fdb856f92bf790df0065cfc74ce5896f1d10c47b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 2f9c4acc1a2a98978e12aaf5356a5bc270b8d017
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954118"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724035"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Azure Active Directory B2C nedir?
 
@@ -60,9 +60,9 @@ Azure AD B2C bir kimlik görevini tamamlamak için kimlik sağlayıcılar, müş
 
 Azure AD B2C, uygulamalarınızı hizmet engelleme ve parola saldırılarından korur. Azure AD B2C, kaynakları hizmet reddi saldırılarına karşı korumak için SYN tanımlama bilgileri gibi algılama ve risk azaltma tekniklerinin yanı sıra hız ve bağlantı sınırları kullanır. Risk azaltma özelliği ayrıca parolalara yönelik deneme yanılma saldırısı ve sözlük saldırıları için de sunulur.
 
-#### <a name="built-in-policies"></a>Yerleşik ilkeler
+#### <a name="user-flows"></a>Kullanıcı akışları
 
-Azure AD B2C'ye gönderilen her istek bir ilke belirtir. Uygulamanızın Azure AD B2C ile etkileşim kurma şekli bir ilke tarafından denetlenir. Kaydolma, oturum açma ve profil düzenleme gibi en çok gerçekleştirilen kimlik görevleri için önceden tanımlı yerleşik ilkeler bulunur.  Örneğin bir kaydolma ilkesi aşağıdaki ayarları yapılandırarak davranışları denetlemenizi sağlar:
+Azure AD B2C'ye gönderilen her istek, uygulamanızı Azure AD B2C ile nasıl etkileştiğini davranışını denetleyen bir ilke bir kullanıcı akışı belirtir. Yaygın kimlik görevler için kullanıcı akışları gibi önceden tanımlanmış kaydolma, oturum açma ve profil düzenleme, Azure AD B2C Portalı'nda kullanılabilir.  Örneğin, kayıt kullanıcı akışı, aşağıdaki ayarları yapılandırarak davranışları denetlemenize olanak tanır:
 
 - Müşterinin uygulamaya kaydolmak için kullanabileceği sosyal hesaplar
 - Ad veya posta kodu gibi müşteriden alınan veriler

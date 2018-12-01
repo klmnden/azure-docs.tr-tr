@@ -10,86 +10,98 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 222e37e38772b82e9d9849e3a955b865d43d3c63
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 0b1187083c14fc7c536f6a32f3a41957f53f299b
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957415"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679724"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator metin API'si, dil ve bölge desteği
 
-Translator metin çevirisi API'si için metin çevirisi için aşağıdaki dilleri desteklemektedir. Sinirsel makine çevirisi (NMT), yüksek kaliteli yapay ZEKA destekli makine çevirileri için yeni bir standart olduğundan ve sinir sistem kullanılabilir duruma gelince, Translator Text API V3 kullanarak varsayılan kullanılabilir. Sinirsel makine çevirisi "generalnn" kategorisini kullanarak V2'de kullanılabilir.
+Translator metin çevirisi API'si için metin çevirisi için aşağıdaki dilleri desteklemektedir. Sinirsel makine çevirisi (NMT), yüksek kaliteli yapay ZEKA destekli makine çevirileri için yeni bir standart olduğundan ve sinir sistem kullanılabilir duruma gelince, Translator Text API V3 kullanarak varsayılan kullanılabilir. 
 
 [Makine çevirisi nasıl çalıştığı hakkında daha fazla bilgi edinin](https://www.microsoft.com/translator/mt.aspx)
 
-| Dil    | Çevirme türü |Dil kodu |
-|:----------- |:-------:|:-------------:|
-| Afrikaner dili      | İstatistik |`af`          |
-| Arapça      | Sinir | `ar`          |
-| Arapça, Levantine    | Sinir | `apc`
-| Bangla      | Sinir |`bn`          |
-| Boşnakça (Latin)      | İstatistik |`bs`          |
-| Bulgarca     |  Sinir |`bg`          |
-| Kanton (Geleneksel)      | İstatistik |`yue`          |
-| Katalanca      | İstatistik |`ca`          |
-| Basitleştirilmiş Çince        |  Sinir |`zh-Hans`          |
-| Geleneksel Çince        |  Sinir |`zh-Hant`          |
-| Hırvatça      | Sinir |`hr`          |
-| Çekçe        |  Sinir |`cs`          |
-| Danca        |  Sinir |`da`          |
-| Hollanda dili        |  Sinir |`nl`          |
-| Türkçe       |  Sinir |`en`          |
-| Estonca      | Sinir |`et`          |
-| Fiji Adaları dili      | İstatistik |`fj`          |
-| Filipin dili      | İstatistik |`fil`          |
-| Fince      | Sinir |`fi`          |
-| Fransızca        |  Sinir |`fr`          |
-| Almanca       |  Sinir |`de`          |
-| Yunanca      | Sinir |`el`          |
-| Haiti Kreyolu      | İstatistik |`ht`          |
-| İbranice      | Sinir |`he`          |
-| Hintçe        |  Sinir |`hi`          |
-| Hmong Daw      | İstatistik |`mww`          |
-| Macarca      | Sinir |`hu`          |
-| İzlanda dili      |  Sinir |`is`           |
-| Endonezya dili      | İstatistik |`id`          |
-| İtalyanca        |  Sinir |`it`          |
-| Japonca        |  Sinir |`ja`          |
-| Svahili dili      | İstatistik |`sw`          |
-| Klingon      | İstatistik |`tlh`          |
-| Klingon (plqaD)      | İstatistik |`tlh-Qaak`          |
-| Kore dili        |  Sinir |`ko`          |
-| Letonca      | Sinir |`lv`          |
-| Litvanca      | Sinir |`lt`          |
-| Malgaşça      | İstatistik |`mg`          |
-| Malay dili      | İstatistik |`ms`          |
-| Malta dili      | İstatistik |`mt`          |
-| Norveççe        |  Sinir |`nb`          |
-| Farsça      | İstatistik |`fa`          |
-| Lehçe        |  Sinir |`pl`          |
-| Portekizce        |  Sinir |`pt`          |
-| Queretaro Otomi      | İstatistik |`otq`          |
-| Rumence        |  Sinir |`ro`          |
-| Rusça        |  Sinir |`ru`          |
-| Samoaca      | İstatistik |`sm`          |
-| Sırpça (Kiril)      | İstatistik |`sr-Cyrl`          |
-| Sırpça (Latin)      | İstatistik |`sr-Latn`          |
-| Slovakça     | Sinir |`sk`          |
-| Slovence      | Sinir |`sl`          |
-| İspanyolca        |  Sinir |`es`          |
-| İsveç dili        |  Sinir |`sv`          |
-| Tahitian      | İstatistik |`ty`          |
-| Tamil dili      | İstatistik |`ta`          |
-| Telugu dili   | Sinir   | `te` |
-| Tay Dili      | Sinir |`th`          |
-| Tonga Dili      | İstatistik |`to`          |
-| Türkçe       |  Sinir |`tr`          |
-| Ukrayna dili      | Sinir |`uk`          |
-| Urduca      | İstatistik |`ur`          |
-| Vietnam dili      | Sinir |`vi`          |
-| Galce      | Sinir |`cy`          |
-| Yucatec Maya      | İstatistik |`yua`          |
+**V2 Translator API'si**
+
+> [!NOTE]
+> V2 30 Nisan 2018'de kullanım dışı bırakıldı ve 30 Nisan 2019 üzerinde durdurulacaktır.
+
+* Yalnızca istatistiksel: hiçbir sinir sistemi bu dil için kullanılabilir.
+* Sinir kullanılabilir: sinir sistem kullanılabilir. İlgili parametreyi kullanın `category=generalnn` sinir sistemine erişebilir.
+* Sinir varsayılan: sinir, varsayılan çeviri sistemidir. İlgili parametreyi kullanın `category=smt` Microsoft Translator hub'ı ile kullanmak için istatistiksel sistemine erişebilir.
+* Yalnızca sinir: yalnızca sinirsel çeviri kullanılabilir.
+
+**Translator API v3** V3 Translator API'si, varsayılan olarak sinir ve istatistiksel sistemleri bulunan ve yalnızca sinir sistemi bulunmayan mevcut olduğunda. Özel Translator sinirsel dillerle yalnızca kullanılabilir. 
+
+|Dil|  Dil kodu|  V2 API'Sİ| V3 API|
+|:-----|:-----:|:-----|:-----|
+|Afrikaner dili| `af`    |Yalnızca istatistiksel|  Sinir|
+|Arapça|    `ar`    |Sinir kullanılabilir|  Sinir|
+|Arapça, Levantine| `apc`   |Sinir kullanılabilir|  Sinir|
+|Bangla|    `bn`    |Sinir kullanılabilir|  Sinir|
+|Boşnakça (Latin)|   `bs`    |Yalnızca istatistiksel|  İstatistik|
+|Bulgarca| `bg`    |Sinir kullanılabilir|  Sinir|
+|Kanton (Geleneksel)|   `yue`   |Yalnızca istatistiksel|  İstatistik|
+|Katalanca|   `ca`    |Yalnızca istatistiksel|  İstatistik|
+|Basitleştirilmiş Çince|    `zh-Hans`   |Sinir varsayılan |Sinir|
+|Geleneksel Çince|   `zh-Hant`   |Sinir varsayılan |Sinir|
+|Hırvatça|  `hr`    |Sinir kullanılabilir|  Sinir|
+|Çekçe| `cs`    |Sinir kullanılabilir|  Sinir|
+|Danca|    `da`    |Sinir kullanılabilir   |Sinir|
+|Felemenkçe| `nl`    |Sinir kullanılabilir|  Sinir|
+|Türkçe|   `en`    |Sinir kullanılabilir|  Sinir|
+|Estonca|  `et`    |Sinir kullanılabilir|  Sinir|
+|Fiji Adaları dili|    `fj`    |Yalnızca istatistiksel|  İstatistik|
+|Filipin dili|  `fil`   |Yalnızca istatistiksel|  İstatistik|
+|Fince|   `fi`    |Sinir kullanılabilir|  Sinir|
+|Fransızca |    `fr`    |Sinir kullanılabilir|  Sinir|
+|Almanca |    `de`    |Sinir kullanılabilir|  Sinir|
+|Yunanca| `el`    |Sinir kullanılabilir|  Sinir|
+|Haiti Kreyolu|    `ht`    |Yalnızca istatistiksel   |İstatistik|
+|İbranice |`he`   |Sinir kullanılabilir   |Sinir|
+|Hintçe| `hi`    |Sinir varsayılan|    Sinir|
+|Hmong Daw| `mww`   |Yalnızca istatistiksel|  İstatistik|
+|Macarca| `hu`    |Sinir kullanılabilir|  Sinir|
+|İzlanda dili| `is`    |Yalnızca sinir|   Sinir|
+|Endonezya dili|    `id`    |Yalnızca istatistiksel|  İstatistik|
+|İtalyanca|   `it`    |Sinir kullanılabilir|  Sinir|
+|Japonca|  `ja`    |Sinir kullanılabilir|  Sinir|
+|Svahili dili| `sw`    |Yalnızca istatistiksel|  İstatistik|
+|Klingon|   `tlh`   |Yalnızca istatistiksel|  İstatistik|
+|Klingon (plqaD)|   `tlh-Qaak`  |Yalnızca istatistiksel|  İstatistik|
+|Korece |`ko`   |Sinir kullanılabilir|  Sinir|
+|Letonca|   `lv`    |Sinir kullanılabilir|  Sinir|
+|Litvanca|    `lt`    |Sinir kullanılabilir|  Sinir|
+|Malgaşça|  `mg`    |Yalnızca istatistiksel|  İstatistik|
+|Malay dili| `ms`    |Yalnızca istatistiksel   |İstatistik|
+|Malta dili|   `mt`    |Yalnızca istatistiksel|  İstatistik|
+|Norveççe| `nb`    |Sinir kullanılabilir|  Sinir|
+|Farsça|   `fa`    |Yalnızca istatistiksel|  İstatistik|
+|Lehçe|    `pl`    |Sinir kullanılabilir|  Sinir|
+|Portekizce|    `pt`    |Sinir kullanılabilir|  Sinir|
+|Queretaro Otomi|   `otq`   |Yalnızca istatistiksel|  İstatistik|
+|Rumence|  `ro`    |Sinir kullanılabilir|  Sinir|
+|Rusça|   `ru`    |Sinir kullanılabilir|  Sinir|
+|Samoaca|    `sm`    |Yalnızca istatistiksel|  İstatistik|
+|Sırpça (Kiril)|    `sr-Cyrl`   |Yalnızca istatistiksel|  İstatistik|
+|Sırpça (Latin)|   `sr-Latn`   |Yalnızca istatistiksel   |İstatistik|
+|Slovakça|    `sk`    |Sinir kullanılabilir|  Sinir|
+|Slovence| `sl`    |Sinir kullanılabilir|  Sinir|
+|İspanyolca |   `es`    |Sinir kullanılabilir|  Sinir|
+|İsveççe|   `sv`    |Sinir kullanılabilir   |Sinir|
+|Tahitian|  `ty`    |Yalnızca istatistiksel|  İstatistik|
+|Tamil dili| `ta`    |Yalnızca istatistiksel|  İstatistik|
+|Telugu dili|    `te`    |Yalnızca sinir|   Sinir|
+|Tay Dili|  `th`    |Sinir kullanılabilir|  Sinir|
+|Tonga Dili|    `to`    |Yalnızca istatistiksel|  İstatistik|
+|Türkçe|   `tr`    |Sinir kullanılabilir   |Sinir|
+|Ukrayna dili| `uk`    |Sinir kullanılabilir|  Sinir|
+|Urduca|  `ur`    |Yalnızca istatistiksel|  İstatistik|
+|Vietnam dili|    `vi`    |Sinir kullanılabilir|  Sinir|
+|Galce| `cy`    |Sinir kullanılabilir|  Sinir|
+|Yucatec Maya|  `yua`   |Yalnızca istatistiksel|  İstatistik|
 
 ## <a name="transliteration"></a>Alfabe çevirisi
 
@@ -134,11 +146,11 @@ Sözlük için veya İngilizce arama ve örnekler yöntemleri kullanarak aşağ�
 | Hırvatça      | `hr`          |
 | Çekçe      | `cs`          |
 | Danca      | `da`          |
-| Hollanda dili      | `nl`          |
+| Felemenkçe      | `nl`          |
 | Estonca      | `et`          |
 | Fince      | `fi`          |
-| Fransızca      | `fr`          |
-| Almanca      | `de`          |
+| Fransızca       | `fr`          |
+| Almanca       | `de`          |
 | Yunanca      | `el`          |
 | Haiti Kreyolu      | `ht`          |
 | İbranice      | `he`          |
@@ -151,7 +163,7 @@ Sözlük için veya İngilizce arama ve örnekler yöntemleri kullanarak aşağ�
 | Japonca      | `ja`          |
 | Svahili dili      | `sw`          |
 | Klingon      | `tlh`          |
-| Kore dili      | `ko`          |
+| Korece      | `ko`          |
 | Letonca      | `lv`          |
 | Litvanca      | `lt`          |
 | Malay dili      | `ms`          |
@@ -165,8 +177,8 @@ Sözlük için veya İngilizce arama ve örnekler yöntemleri kullanarak aşağ�
 | Sırpça (Latin)      | `sr-Latn`          |
 | Slovakça     | `sk`          |
 | Slovence      | `sl`          |
-| İspanyolca      | `es`          |
-| İsveç dili      | `sv`          |
+| İspanyolca       | `es`          |
+| İsveççe      | `sv`          |
 | Tamil dili      | `ta`          |
 | Tay Dili      | `th`          |
 | Türkçe      | `tr`          |
@@ -194,14 +206,14 @@ Aşağıdaki dilleri Algıla yöntemi tarafından algılanabilir. Mayıs algıla
 | Hırvatça |
 | Çekçe |
 | Danca |
-| Hollanda dili |
+| Felemenkçe |
 | Türkçe |
 | Esperanto |
 | Estonca |
 | Fince |
-| Fransızca |
+| Fransızca  |
 | Galiçya dili |
-| Almanca |
+| Almanca  |
 | Yunanca |
 | Haiti Kreyolu |
 | İbranice |
@@ -212,13 +224,13 @@ Aşağıdaki dilleri Algıla yöntemi tarafından algılanabilir. Mayıs algıla
 | İrlanda dili |
 | İtalyanca |
 | Japonca |
-| Kore dili |
+| Korece |
 | Kürtçe (Arapça) |
 | Kürtçe (Latin) |
 | Latin |
 | Letonca |
 | Litvanca |
-| Makedonca |
+| Makedonca (EYC) |
 | Malay dili |
 | Malta dili |
 | Norveççe |
@@ -234,9 +246,9 @@ Aşağıdaki dilleri Algıla yöntemi tarafından algılanabilir. Mayıs algıla
 | Slovakça |
 | Slovence |
 | Somali |
-| İspanyolca |
+| İspanyolca  |
 | Svahili dili |
-| İsveç dili |
+| İsveççe |
 | Tagalog dili |
 | Telugu dili |
 | Tay Dili |

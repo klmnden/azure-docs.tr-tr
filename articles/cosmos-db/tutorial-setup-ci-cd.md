@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: f08af7e75c75f9e9c89968b403a1eb7dd93bf521
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: e0b1fe3b58d5781ce1e2d7a0701c58c31e6054a6
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620294"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678942"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Azure DevOps'ta Azure Cosmos DB öykünücüsü derleme göreviyle CI/CD işlem hattı oluşturma
 
@@ -23,7 +23,7 @@ Azure Cosmos DB öykünücüsü, geliştirme amaçlı olarak Azure Cosmos DB hiz
 
 Azure DevOps için Azure Cosmos DB öykünücüsü derleme görevi, bu işlemi bir CI ortamında da gerçekleştirmenizi sağlar. Derleme göreviyle derleme ve yayın iş yüklerinizin bir parçası olarak öykünücüyle test çalıştırabilirsiniz. Bu görev öykünücünün çalıştığı bir Docker kapsayıcı başlatır ve derleme tanımının kalanı tarafından kullanılabilecek bir uç nokta sunar. İstediğiniz sayıda öykünücü örneği oluşturup başlatabilirsiniz ve oluşturduğunuz her örnek ayrı bir kapsayıcıda çalışır. 
 
-Bu makalede Azure DevOps'ta test çalıştırmak için Cosmos DB öykünücüsü derleme görevini kullanan bir ASP.NET uygulaması için CI işlem hattı ayarlama adımları gösterilmektedir. 
+Bu makalede Azure DevOps'ta test çalıştırmak için Cosmos DB öykünücüsü derleme görevini kullanan bir ASP.NET uygulaması için CI işlem hattı ayarlama adımları gösterilmektedir. Benzer bir yaklaşım, Node.js veya Python uygulaması için bir CI işlem hattı ayarlamak için kullanabilirsiniz. 
 
 ## <a name="install-the-emulator-build-task"></a>Öykünücü derleme görevini yükleme
 

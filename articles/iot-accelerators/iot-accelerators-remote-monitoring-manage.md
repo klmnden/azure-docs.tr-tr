@@ -1,35 +1,32 @@
 ---
-title: Azure tabanlı uzaktan izleme çözümündeki cihazları yönetme öğreticisi | Microsoft Docs
-description: Bu öğreticide Uzaktan İzleme çözümü hızlandırıcısına bağlı cihazların nasıl yönetileceği gösterilmektedir.
+title: Bir Azure tabanlı uzaktan izleme çözümü öğreticide cihazları yapılandırma | Microsoft Docs
+description: Bu öğretici için Uzaktan izleme çözüm Hızlandırıcısını bağlı cihazları yapılandırma gösterilmektedir.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 11/08/2018
+ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: b54f7601f66bd115b7ceb937e2c0ebf8ca8eb01e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: b8352b062efdb49df01834bd3c2a5e1393e11a44
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821091"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679163"
 ---
-# <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>Öğretici: İzleme çözümünüze bağlı cihazları yapılandırma ve yönetme
+# <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Öğretici: izleme çözümünüze bağlı cihazları yapılandırma
 
-Bu öğreticide bağlı IoT cihazlarınızı yapılandırmak ve yönetmek için Uzaktan İzleme çözümü hızlandırıcısını kullanacaksınız. Çözüm hızlandırıcısına yeni bir cihaz ekleyecek, cihazı yapılandıracak ve cihazın üretici yazılımını güncelleştireceksiniz.
+Bu öğreticide bağlı IoT cihazlarınızı yapılandırmak ve yönetmek için Uzaktan İzleme çözümü hızlandırıcısını kullanacaksınız. Yeni bir cihaz için çözüm Hızlandırıcısını ekleyip cihaz yapılandırabilirsiniz.
 
-Contoso, tesislerinden birini genişletmek için yeni makineler sipariş etmiştir. Yeni makinelerin teslim edilmesini beklerken çözümünüzün davranışını test etme amacıyla bir simülasyon çalıştırmak istiyorsunuz. Simülasyonu çalıştırmak için Uzaktan İzleme çözümü hızlandırıcısına yeni bir sanal motor cihazı ekleyecek ve bu sanal cihazın eylemlere ve yapılandırma güncelleştirmelerine doğru yanıt verip vermediğini test edeceksiniz.
-
-Uzaktan İzleme çözümü hızlandırıcısı, cihazları yapılandırmak ve yönetmek üzere genişletilebilir bir yöntem sağlamak üzere [işler](../iot-hub/iot-hub-devguide-jobs.md) ve [doğrudan yöntemler](../iot-hub/iot-hub-devguide-direct-methods.md) gibi IoT Hub özelliklerini kullanır. Bu öğreticide sanal cihazlar kullanılmaktadır ancak cihaz geliştiricileri [Uzaktan İzleme çözümü hızlandırıcısına bağlı fiziksel cihazlara da](iot-accelerators-connecting-devices.md) doğrudan yöntemler uygulayabilir.
+Contoso, tesislerinden birini genişletmek için yeni makineler sipariş etmiştir. Yeni makinelerin teslim edilmesini beklerken çözümünüzün davranışını test etme amacıyla bir simülasyon çalıştırmak istiyorsunuz. Simülasyonu çalıştırmak için Uzaktan izleme çözüm hızlandırıcısının ve bu sanal cihazı yapılandırma güncelleştirmeleri doğru şekilde yanıt test için yeni bir sanal altyapı cihaz ekleyin. Bu öğreticide sanal cihazlar kullanılmaktadır ancak cihaz geliştiricileri [Uzaktan İzleme çözümü hızlandırıcısına bağlı fiziksel cihazlara da](iot-accelerators-connecting-devices.md) doğrudan yöntemler uygulayabilir.
 
 Bu öğreticide şunları yaptınız:
 
 >[!div class="checklist"]
 > * Sanal cihaz sağlama.
 > * Sanal cihazı test etme.
-> * Cihazın üretici yazılımını güncelleştirme.
 > * Cihazı yeniden yapılandırma.
 > * Cihazlarınızı düzenleme.
 
@@ -60,24 +57,6 @@ Sanal motor cihazınızın telemetri ve raporlama özellik değeri değerleri g�
 **Device Details** (Cihaz Ayrıntıları) panelinde etiket değerleri, desteklediği metotlar ve cihaz tarafından bildirilen özellikler gibi cihaz hakkındaki diğer bilgiler görüntülenir.
 
 Ayrıntılı tanılama bilgilerini görüntülemek için **Device Details** (Cihaz Ayrıntıları) paneline inerek **Diagnostics** (Tanılama) bölümünü görüntüleyin.
-
-## <a name="act-on-a-device"></a>Cihazda eylem gerçekleştirme
-
-Sanal motor cihazının panodan başlatılan eylemlere doğru yanıt verip vermediğini test etmek için **FirmwareUpdate** metodunu çağırın. Bir metot çalıştırarak cihazda eylem gerçekleştirmek için cihazı listeden seçip **Jobs** (İşler) öğesine tıklayın. Birden fazla cihazda eylem gerçekleştirme istiyorsanız birden fazla cihaz seçebilirsiniz. İçinde **işleri** paneli, select **yöntemleri**. **Engine** (Motor) cihaz modeli üç metot belirtir: **FirmwareUpdate**, **FillTank** ve **EmptyTank**:
-
-[![Motor metotları](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
-
-**FirmwareUpdate** girişini seçin, iş adını **UpdateEngineFirmware**, cihaz yazılımı sürümünü **2.0.0**, üretici yazılımı URI'sini **http://contoso.com/engine.bin** olarak ayarlayıp **Apply** (Uygula) öğesine tıklayın:
-
-[![Üretici yazılımı güncelleştirme yöntemini zamanlama](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatejob-inline.png)](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatejob-expanded.png#lightbox)
-
-İşin durumunu izlemek için **View job status** (İş durumunu görüntüle) öğesine tıklayın:
-
-[![Zamanlanmış cihaz yazılımı güncelleştirme işini izleme](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatestatus-inline.png)](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatestatus-expanded.png#lightbox)
-
-İş tamamlandıktan sonra **Devices** (Cihazlar) sayfasına dönün. Motor cihazının yeni cihaz yazılımı sürümü görüntülenir.
-
-**Devices** (Cihazlar) sayfasından farklı türlerde birden fazla cihaz seçtiğinizde de bu cihazlarda metot çalıştırmak üzere bir iş oluşturabilirsiniz. **Jobs** (İşler) panelinde yalnızca seçilen cihazların tümünde kullanılabilen metotlar gösterilir.
 
 ## <a name="reconfigure-a-device"></a>Cihazı yeniden yapılandırma
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f870902e5bd5ef92d12d1e5e846696c4b26362a3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: e0161073c0c3e7d6ef491a4f2b86510e826b85dc
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425111"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678670"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Öğretici: Azure App Service’te .NET Core ve SQL Veritabanı web uygulaması derleme
 
@@ -43,7 +43,7 @@ Aşağıdakileri nasıl yapacağınızı öğreneceksiniz:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -215,6 +215,10 @@ services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate
 Bu kod, üretimde (Azure ortamını belirtir) çalıştığını algılarsa SQL Veritabanı’na bağlanmak için yapılandırdığınız bağlantı dizesini kullanır.
 
 `Database.Migrate()` çağrısı, Azure’da çalıştırıldığında geçiş yapılandırmasına bağlı olarak .NET Core uygulamanızın gereksinim duyduğu veritabanlarını otomatik olarak oluşturduğundan, işlemleri gerçekleştirmenize yardımcı olur. 
+
+> [!IMPORTANT]
+> İzleyin, ölçeği genişletmek için gereken üretim uygulamaları için en iyi pratikler [üretim geçişleri uygulama](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production).
+> 
 
 Değişikliklerinizi kaydedin ve Git deponuza işleyin. 
 

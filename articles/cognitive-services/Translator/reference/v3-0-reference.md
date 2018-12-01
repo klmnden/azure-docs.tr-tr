@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 6f679536d69f700fd6678eb3bbbb869e42439cde
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 8302a444f28e4fb330a1eedbac9a5da762979d6c
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853362"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681968"
 ---
 # <a name="translator-text-api-v30"></a>Translator metin çevirisi API'si v3.0
 
@@ -31,11 +31,22 @@ Translator metin çevirisi API'si 3 sürümünü modern bir JSON tabanlı Web AP
 
 ## <a name="base-urls"></a>Temel URL
 
-Metin API'si v3.0 aşağıdaki bulutta kullanılabilir:
+Microsoft Translator, birden çok veri merkezi konumlarını dışında sunulur. 6'da şu anda bulunan [Azure bölgeleri](https://azure.microsoft.com/global-infrastructure/regions):
 
-| Açıklama | Bölge | Temel URL                                        |
-|-------------|--------|-------------------------------------------------|
-| Azure       | Genel | api.cognitive.microsofttranslator.com           |
+* **Americas:** Batı ABD 2 ve Batı Orta ABD 
+* **Asya Pasifik:** Güneydoğu Asya ve Kore Güney
+* **Avrupa:** Kuzey Avrupa ve Batı Avrupa
+
+Microsoft Translator metin çevirisi API'si için isteğin geldiği için en yakın veri merkezi tarafından işlenen çoğu durumda isteklerdir. Veri merkezinde hata oluşması halinde, istek bölgenin dışında yönlendirilebilir.
+
+Belirli bir veri merkezi tarafından işlenmek üzere istek zorlamak için istenen bölge uç noktası için API isteğinde genel uç noktası değiştirin:
+
+|Açıklama|Bölge|Temel URL|
+|:--|:--|:--|
+|Azure|Genel|  api.cognitive.microsofttranslator.com|
+|Azure|Kuzey Amerika|   API nam.cognitive.microsofttranslator.com|
+|Azure|Avrupa|  API eur.cognitive.microsofttranslator.com|
+|Azure|Asya Pasifik|    API apc.cognitive.microsofttranslator.com|
 
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
