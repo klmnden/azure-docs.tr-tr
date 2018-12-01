@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: 6a070d9ebd46d117041276436107abcc958d58d4
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 670aafeb8eb107fc5970b70bfa85d7469c343483
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583746"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722862"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Rezervasyonlar Azure kaynaklarını yönetme
 
@@ -54,7 +54,7 @@ Erişim yönetimi için bir ayırma temsilci atamak için:
 2. Seçin **tüm hizmetleri** > **ayırma** erişiminiz listesi ayırmalar için.
 3. Diğer kullanıcılara erişim vermek istediğiniz ayırma seçin.
 4. Seçin **erişim denetimi (IAM)**.
-5. Seçin **ekleme** > **rol** > **sahibi**. Veya sınırlı erişim vermek istiyorsanız, farklı bir rol seçin.
+5. Seçin **rol ataması Ekle** > **rol** > **sahibi**. Veya sınırlı erişim vermek istiyorsanız, farklı bir rol seçin.
 6. Sahip olarak eklemek istediğiniz kullanıcının e-posta adresini yazın.
 7. Kullanıcıyı ve ardından **Kaydet**'i seçin.
 

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cec9e5bfea16e5ba11f8cd7324acf15188fb907a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: b5d3703f052ef47bcbacf0be04072357ee5b9986
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634331"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722607"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C hakkında kullanıcı arabirimi özelleştirme
 
@@ -23,13 +23,13 @@ ms.locfileid: "50634331"
 
 Bu deneyimler geldiğinde gereksinimlerinize bağlı olarak, uygulamanızın kullanıcı arabirimini farklı şekilde özelleştirin. Örneğin:
 
-- Kullanıyorsanız [yerleşik ilkeleri](active-directory-b2c-reference-policies.md) kaydolma veya oturum açma parolasını sıfırlama veya profil düzenleme deneyimlerini uygulamanızdaki sağlamak için kullandığınız [Azure portalı kullanıcı arabirimini özelleştirme](tutorial-customize-ui.md).
+- Kullanıyorsanız [kullanıcı akışları](active-directory-b2c-reference-policies.md) kaydolma veya oturum açma parolasını sıfırlama veya profil düzenleme deneyimlerini uygulamanızdaki sağlamak için kullandığınız [Azure portalı kullanıcı arabirimini özelleştirme](tutorial-customize-ui.md).
 - Oturum açma yalnızca sağladığınızı, eşlik eden parolasını sıfırlama sayfası ve doğrulama e-postalar, için kullanılan özelleştirme adımların aynısını kullanırsanız bir [Azure AD oturum açma sayfasının](../active-directory/fundamentals/customize-branding.md).
 - Müşterilerin kendi profili oturum açmadan önce düzenlemeye çalışırsanız, Azure AD oturum açma sayfasının özelleştirmek için kullanılan aynı adımları kullanarak özelleştirme bir sayfaya yönlendirilirsiniz.
 - Kullanıyorsanız [özel ilkeler](active-directory-b2c-overview-custom.md) kaydolma veya oturum açma, parola sıfırlama veya profil düzenleme, uygulamanızda kullanmak [kullanıcı arabirimini özelleştirmek için ilke dosyaları](active-directory-b2c-ui-customization-custom.md).
 - Bir müşterinin karar temel alınarak dinamik içerik sağlamanız gerekiyorsa, kullandığınız [değiştirebilirsiniz özel ilkeler, içerik sayfasında](active-directory-b2c-ui-customization-custom-dynamic.md) bağlı bir sorgu dizesi içinde gönderilen bir parametre olarak. Örneğin, web veya mobil uygulama geçirdiğiniz parametre dayalı bir Azure AD B2C kaydolma veya oturum açma sayfasında arka plan resmi değiştirir.
 
-Azure AD B2C kod müşterinizin tarayıcıda çalışan ve modern bir yaklaşımı adlı kullanır [çıkış noktaları arası kaynak paylaşımı (CORS)](http://www.w3.org/TR/cors/). Çalışma zamanında, bir ilkede belirttiğiniz URL'den içerik yüklendi. Farklı sayfaları için farklı URL'ler belirtmeniz. İçerik, URL'den yüklendikten sonra Azure AD B2C'den eklenen ve ardından müşterinize görüntülenen bir HTML parçasını ile birleştirilir.
+Azure AD B2C kod müşterinizin tarayıcıda çalışan ve modern bir yaklaşımı adlı kullanır [çıkış noktaları arası kaynak paylaşımı (CORS)](http://www.w3.org/TR/cors/). Çalışma zamanında, bir kullanıcı akışı veya ilkede belirttiğiniz URL'den içerik yüklendi. Farklı sayfaları için farklı URL'ler belirtmeniz. İçerik, URL'den yüklendikten sonra Azure AD B2C'den eklenen ve ardından müşterinize görüntülenen bir HTML parçasını ile birleştirilir.
 
 Başlamadan önce aşağıdaki yönergeleri gözden geçirin:
 
@@ -118,6 +118,6 @@ Etkinleştirerek, HTML içeriği yerelleştirmek [dil özelleştirme](active-dir
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Yerleşik ilkeleri kullanıyorsanız, öğreticisiyle kullanıcı Arabirimi özelleştirme başlayabilirsiniz: [uygulamalarınızı Azure Active Directory B2C, kullanıcı arabirimini özelleştirme](tutorial-customize-ui.md).
+- Kullanıcı akışları kullanıyorsanız öğreticisiyle kullanıcı Arabirimi özelleştirme başlayabilirsiniz: [uygulamalarınızı Azure Active Directory B2C, kullanıcı arabirimini özelleştirme](tutorial-customize-ui.md).
 - Özel ilkeleri kullanıyorsanız, makale ile kullanıcı arabirimini özelleştirme başlayabilirsiniz: [özel bir ilke kullanarak Azure Active Directory B2C'de, uygulamanızın kullanıcı arabirimini özelleştirme](active-directory-b2c-ui-customization-custom.md).
 

@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 9ef5af3f32e6734188d24c520cf0ff1df5044f40
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 486e485a78f767c4d75461558d06068a2e1c4525
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071325"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682818"
 ---
 # <a name="log-analytics-query-examples"></a>Günlük analizi sorgu örnekleri
 Bu makalede, çeşitli örneklerini içerir [sorguları](../log-analytics-queries.md) kullanarak [Kusto dil](https://docs.microsoft.com/azure/kusto/query/) Log Analytics'ten farklı veri türleri alınamadı. Farklı yöntemleri, birleştirmek ve bu örnekleri kendi gereksinimleriniz için kullanabileceğiniz farklı stratejiler tanımlamak için kullanabileceğiniz şekilde, verileri analiz etmek için kullanılır.  

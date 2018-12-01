@@ -5,19 +5,18 @@ services: log-analytics
 ms.service: log-analytics
 ms.subservice: performance
 ms.custom: ''
-ms.devlang: na
 ms.topic: conceptual
 author: danimir
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/26/2018
 ms.author: v-daljep
-ms.openlocfilehash: 57faa347b2733ebf65757b02ee9395f94776cf10
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b2c8ed30e26f5408123fe77606ddfec67479bcad
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635399"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726160"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Analytics (Önizleme) kullanarak Azure SQL veritabanı izleme
 
@@ -29,7 +28,7 @@ Topladığınız ölçümleri çözümle birlikte kullanarak, özel izleme kural
 
 Azure SQL Analytics çözümünü kullanma uygulamalı bir genel bakış ve tipik kullanım senaryoları için katıştırılmış video bakın:
 
->[!VIDEO https://youtu.be/j-NDkN4GIzg]
+>[!VIDEO https://www.youtube.com/embed/j-NDkN4GIzg]
 >
 
 ## <a name="connected-sources"></a>Bağlı kaynaklar
@@ -38,8 +37,8 @@ Azure SQL Analytics, bulut çözümü, Azure SQL veritabanları için tanılama 
 
 | Bağlı Kaynak | Desteklenen | Açıklama |
 | --- | --- | --- |
-| [Azure Tanılama](log-analytics-azure-storage.md) | **Evet** | Azure ölçüm ve günlük verileri Log Analytics'e doğrudan Azure tarafından gönderilir. |
-| [Azure depolama hesabı](log-analytics-azure-storage.md) | Hayır | Log Analytics, verileri bir depolama hesabından okumaz. |
+| [Azure Tanılama](../azure-monitor/platform/collect-azure-metrics-logs.md) | **Evet** | Azure ölçüm ve günlük verileri Log Analytics'e doğrudan Azure tarafından gönderilir. |
+| [Azure depolama hesabı](../azure-monitor/platform/collect-azure-metrics-logs.md) | Hayır | Log Analytics, verileri bir depolama hesabından okumaz. |
 | [Windows aracıları](../azure-monitor/platform/agent-windows.md) | Hayır | Doğrudan Windows aracıları çözüm tarafından kullanılmaz. |
 | [Linux aracıları](log-analytics-quick-collect-linux-computer.md) | Hayır | Doğrudan Linux aracıları çözüm tarafından kullanılmaz. |
 | [System Center Operations Manager yönetim grubu](log-analytics-om-agents.md) | Hayır | Operations Manager Aracısı'ndan doğrudan bir bağlantı Log analytics'e çözüm tarafından kullanılmaz. |

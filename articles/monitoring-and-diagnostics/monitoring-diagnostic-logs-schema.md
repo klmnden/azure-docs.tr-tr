@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 035b12c85720817501da9f4ad580aa8e7da8fdc4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9691e139f8eedd18d3c382d3ea8741125a0e9680
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280536"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679639"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Desteklenen hizmetler, şemalar ve Azure tanılama günlükleri için kategorileri
 
@@ -208,4 +208,4 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 * [Tanılama günlükleri hakkında daha fazla bilgi edinin](monitoring-overview-of-diagnostic-logs.md)
 * [Kaynak tanılama günlükleri için Stream **olay hub'ları**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Azure İzleyici REST API'sini kullanarak kaynak tanılama ayarlarını değiştirme](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Log Analytics ile Azure depolama biriminden günlüklerini çözümleme](../log-analytics/log-analytics-azure-storage.md)
+* [Log Analytics ile Azure depolama biriminden günlüklerini çözümleme](../azure-monitor/platform/collect-azure-metrics-logs.md)

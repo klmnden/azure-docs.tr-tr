@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 10/05/2018
-ms.openlocfilehash: 84529e1097678ba7a039ffaeec57a9293c93dafd
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 19e6693de673eae6fe0b885580975c4cefc35d60
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229648"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725157"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Kimlik doğrulaması ve Azure Logic apps'te yönetilen kimliklerle kaynaklara erişin
 
@@ -128,13 +128,13 @@ Mantıksal uygulamanızın sistem tarafından atanan yönetilen kimlik için ba�
 
 1. Azure portalında, yönetilen kimliğiniz için erişim atamak istediğiniz Azure kaynağına gidin. 
 
-1. Kaynağın menüden **erişim denetimi (IAM)** ve **Ekle**. 
+1. Kaynağın menüden **erişim denetimi (IAM)** ve **rol ataması Ekle**. 
 
-   ![İzin ekleme](./media/create-managed-service-identity/add-permissions-logic-app.png)
+   ![Rol ataması ekle](./media/create-managed-service-identity/add-permissions-logic-app.png)
 
-1. Altında **izinleri eklemek**seçin **rol** kimliği için istediğiniz. 
+1. Altında **rol ataması Ekle**seçin **rol** kimliği için istediğiniz. 
 
-1. İçinde **erişim Ata** özelliği, select **Azure AD kullanıcı, Grup veya uygulama**, henüz seçili değilse.
+1. İçinde **erişim Ata** özelliği, select **Azure AD kullanıcı, Grup veya hizmet sorumlusu**, henüz seçili değilse.
 
 1. İçinde **seçin** kutusunda, mantıksal uygulamanızın adının ilk karakteri ile başlayarak, mantıksal uygulamanızın adı girin. Mantıksal uygulamanızı göründüğünde, mantıksal uygulama seçin.
 

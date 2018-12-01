@@ -9,17 +9,16 @@ ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 9b39eef5accec4764f61ab31dd894d368242ee3d
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 1ecdbdfb657d0372fea87c4260226f9de8ded9ce
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094659"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682512"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Uygulama Haritası: Dağıtılmış uygulamalar Önceliklendirme
 
@@ -33,7 +32,7 @@ Bağımsız bir şekilde dağıtılabilen dağıtılmış mikro uygulamanızın 
 * Bileşenleri rol/sunucu/kapsayıcı örnekleri herhangi bir sayıda çalışır.
 * Bileşenleri ayrı bir Application Insights izleme anahtarı (abonelikler farklı olsa bile) olması ya da farklı roller için tek bir Application Insights izleme anahtarı raporlama gerçekleştirebilirsiniz. Önizleme eşlemesi deneyimi bileşenlerini nasıl ayarladıktan bakılmaksızın gösterir.
 
-## <a name="composite-application-map"></a>Bileşik Uygulama Eşlemesi
+## <a name="composite-application-map"></a>Bileşik uygulama eşlemesi
 
 Tam uygulama topolojisinin birden fazla seviyede ilgili uygulama bileşenleri arasında görebilirsiniz. Bileşenler, farklı Application Insgihts kaynakları veya tek bir kaynaktaki farklı roller olabilir. Uygulama Haritası Application Insights SDK'yi içeren sunucular arasında yapılan aşağıdaki HTTP bağımlılık çağrıları tarafından bileşenlerini bulur. 
 

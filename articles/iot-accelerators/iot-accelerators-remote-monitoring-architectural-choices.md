@@ -6,14 +6,14 @@ manager: camerons
 ms.author: timlav
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/12/2018
+ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 94641796fa77e03efc7158bc3aaf4bde9385c899
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 20af014e5a59cb526d5b96e543b10d5b2b6d6937
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824277"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679605"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Uzaktan izleme mimari seçenekleri
 
@@ -25,7 +25,7 @@ Azure IOT Uzaktan izleme çözüm Hızlandırıcısını açık kaynak, MIT lisa
 
 Uzaktan izleme çözümü önerilen izleyen [Azure IOT başvuru mimarisi](https://aka.ms/iotrefarchitecture).
 
-Bu makalede, mimari ve teknik seçimlerinizi ve, her uzaktan izleme alt sistemlerin dikkate alınan alternatifler açıklanmaktadır. Ancak, Uzaktan izleme çözümünde yapılan Microsoft Teknik seçimleri Uzaktan izleme bir IOT çözümü uygulamak için tek yolu değil. Başarılı bir uygulama oluşturmaya yönelik bir temel olarak teknik uygulama Algıla ve bunu değiştirmeniz gerekir:
+Bu makalede, her uzaktan izleme alt anahtar mimari ve teknik seçimlerinizi açıklanır. Ancak, Uzaktan izleme çözümünde yapılan Microsoft Teknik seçimleri Uzaktan izleme bir IOT çözümü uygulamak için tek yolu değil. Başarılı bir uygulama oluşturmaya yönelik bir temel olarak teknik uygulama Algıla ve bunu değiştirmeniz gerekir:
 
 - Kullanılabilir yetenekler uygun ve kuruluşunuzda deneyimi.
 - Dikey uygulama gereksinimlerinizi karşılayın.
@@ -52,7 +52,8 @@ Azure IOT hub'ı Uzaktan izleme çözümü bulut ağ geçidi olarak kullanılır
 IOT cihaz bağlantısı için kullanabilirsiniz:
 
 - [IOT Hub cihazı SDK'ları](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks) cihazınız için bir yerel istemci uygulamasını gerçekleştirme. SDK'ları, IOT Hub REST API çevresinde sarmalayıcılar teklif ve deneme gibi senaryoları ele.
-- Azure IOT Edge ile tümleştirme, çözüm Hızlandırıcısını dağıtma ve yönetme cihazlarınızda kapsayıcılarda çalıştırılan özel modüller için.
+- Dağıtıp cihazlarınızda kapsayıcılarda çalıştırılan özel modüller yönetmek için Azure IOT Edge ile tümleştirme.
+- IOT hub'ı toplu bağlı cihazları yönetmek için otomatik cihaz yönetimi ile tümleştirme.
 
 ### <a name="stream-processing"></a>Akış işleme
 
@@ -62,7 +63,7 @@ Akış işleme için Uzaktan izleme çözümü, karmaşık kural işleme için A
 
 Azure Time Series Insights hem Azure Cosmos DB, depolama için Uzaktan izleme çözüm Hızlandırıcısını kullanır. Azure zaman serisi görüşleri, IOT hub'ı aracılığıyla bağlı cihazlarınızdan gelen iletileri depolar. Çözüm Hızlandırıcısını soğuk depolama, kuralları tanımlar, uyarılar ve yapılandırma ayarları gibi diğer tüm depolama için Azure Cosmos DB kullanır.
 
-Azure Time Series Insights ve Azure Data Lake gibi çözümler birçok kullanım durumları için uygun olsa azure Cosmos DB IOT uygulamaları için önerilen genel amaçlı sıcak depolama çözümüdür. Azure Time Series Insights ile sayede eğilimleri ve anormallikleri tarafından zaman serisi sensör verileriniz daha ayrıntılı Öngörüler elde edebilirsiniz. Bu özellik, kök neden analizleri gerçekleştirebilir ve masraflı sistem kapatma sürelerini önlemenize olanak sağlar.
+Azure Cosmos DB, IOT uygulamaları için önerilen genel amaçlı sıcak depolama çözümüdür. Ancak, çözümleri Azure Time Series Insights ve Azure Data Lake gibi birçok kullanım için uygundur. Azure Time Series Insights ile sayede eğilimleri ve anormallikleri tarafından zaman serisi sensör verileriniz daha ayrıntılı Öngörüler elde edebilirsiniz. Bu özellik, kök neden analizleri gerçekleştirebilir ve masraflı sistem kapatma sürelerini önlemenize olanak sağlar.
 
 > [!NOTE]
 > Zaman serisi görüşleri Azure Çin Bulutu şu anda kullanılabilir değil. Yeni Uzaktan izleme çözüm Hızlandırıcı dağıtımlarda Azure Çin Bulutu, Cosmos DB için tüm depolama kullanın.

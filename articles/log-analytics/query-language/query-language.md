@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: f8bef8c6ab5c0639f9a99eb2c0443c33d7b6d84e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4ef1e302a305f683155139063891b838d8144008
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244069"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680472"
 ---
 # <a name="log-analytics-query-language"></a>Analytics sorgu dili oturum
 Log Analytics, Azure İzleyici'için günlük toplama ve analiz sağlar. Azure Veri Gezgini yerleşik olarak bulunur ve aynı sorgu dil sürümünü kullanır. [Azure Veri Gezgini sorgu dili belgeleri](/azure/kusto/query) tüm dil ayrıntılarını sahiptir ve Log Analytics sorguları yazma, birincil kaynak olmalıdır. Bu sayfa, sorgu yazmayı öğrenmek ve farkları dilinin Log Analytics uygulaması ile diğer kaynakların bağlantılarını sağlar.

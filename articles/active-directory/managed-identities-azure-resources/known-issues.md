@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 256f36ac56126fc76561a6dbe4281ac4975df6e4
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b535939e200b533c06c97686897e283fb6cf57bc
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632798"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720193"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>SSS ve Azure kaynakları için yönetilen kimliklerle bilinen sorunlar
 
@@ -115,7 +115,7 @@ VM yapılandırma dikey penceresinde, sanal makinenizde görünmüyorsa, ardınd
 
 ### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>Erişim denetimi (IAM) dikey penceresinde sanal makinelere erişim atanamıyor
 
-Varsa **sanal makine** yönelik bir seçenek olarak Azure Portalı'nda görünmez **erişim Ata** içinde **erişim denetimi (IAM)** > **Ekle izinleri**, Azure kaynakları için yönetilen kimlikleri etkinleştirilmemiş sonra portalın bölgeniz henüz. Daha sonra tekrar kontrol edin.  Kimlik için rol ataması VM'İNİZDE hizmet sorumlusunu Azure kaynakları için yönetilen kimlikleri için arama yaparak yine de seçebilirsiniz.  VM'nin adını **seçin** alan ve hizmet sorumlusu arama sonucunda görüntülenir.
+Varsa **sanal makine** yönelik bir seçenek olarak Azure Portalı'nda görünmez **erişim Ata** içinde **erişim denetimi (IAM)** > **Rol Ekle atama**, Azure kaynakları için yönetilen kimlikleri etkinleştirilmemiş sonra portalın bölgeniz henüz. Daha sonra tekrar kontrol edin.  Kimlik için rol ataması VM'İNİZDE hizmet sorumlusunu Azure kaynakları için yönetilen kimlikleri için arama yaparak yine de seçebilirsiniz.  VM'nin adını **seçin** alan ve hizmet sorumlusu arama sonucunda görüntülenir.
 
 ### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>Kaynak grubu veya abonelik taşındıktan sonra başlatmak VM başarısız
 

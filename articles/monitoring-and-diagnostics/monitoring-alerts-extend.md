@@ -8,14 +8,18 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 8aabcf342cde6de9fd4438014c9c400b28470e9b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 22f9375329a69aab000eb54e0b442959aef41766
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632679"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722929"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Azure uyarıları log Analytics uyarıları genişletme
+
+> [!NOTE]
+> Microsoft Azure genel sürümleri için bu makalede açıklanan işlemi zaten tamamlandı. Ancak, yine de ABD kamu sürümleri için geçerlidir.  
+
 Yakın zamanda kadar Azure Log Analytics, Log Analytics verilerine dayalı koşulları proaktif olarak bildirebilirsiniz kendi uyarı işlevleri dahil. Microsoft Operations Management Suite portalında uyarı kuralları Yönetildi Yeni uyarı deneyimi artık Microsoft azure'da çeşitli hizmetlerdeki uyarı tümleştirilmiştir. Bu olarak kullanılabilir **uyarılar** Azure portalında, Azure İzleyici ve etkinlik günlükleri, ölçümler, uyarı destekler ve hem Log Analytics hem de Azure Application Insights günlüğe kaydeder. 
 
 ## <a name="benefits-of-extending-your-alerts"></a>Uyarılarınızı genişletmenin avantajları
@@ -28,10 +32,6 @@ Oluşturma ve Azure portalında, uyarılar gibi yönetme çeşitli avantajları 
 
 ## <a name="process-of-extending-your-alerts"></a>Uyarılarınızı genişletme işlemi
 Uyarıları Log Analytics'ten Azure uyarılarına genişletecektir taşıma işlemi, uyarı tanımınızı, sorgunuzu veya yapılandırmanızı herhangi bir şekilde değiştirmeyi gerektirmez. Gereken tek değişiklik, Azure'da, tüm eylemleri bir eylem grubu kullanarak gerçekleştirmenizi ' dir. Eylem grupları Uyarınız ile zaten ilişkilendirilmiş, bunlar Azure'a genişletilmiş dahil edilir.
-
-> [!NOTE]
-> Microsoft, tamamlanana kadar yinelenen bir dizide 14 Mayıs 2018'de başlayarak Azure uyarıları Log Analytics'e genel bulut örneklerinde oluşturulan uyarıların otomatik olarak genişletilir. Oluşturma sorunları varsa [Eylem grupları](monitoring-action-groups.md), kullanın [düzeltme adımları](monitoring-alerts-extend-tool.md#troubleshooting) otomatik olarak oluşturulan eylem grupları alınamıyor. 5 Temmuz 2018'e kadar bu adımları kullanabilirsiniz. *Azure kamu ve Log Analytics bağımsız bulut kullanıcıları için uygulanamaz*. 
-> 
 
 Azure'a genişletilecek bir Log Analytics çalışma alanı Uyarılardaki zamanladığınızda çalışmaya ve buna herhangi şekilde yapılandırmanızı tehlikeye sağlamadığı devam eder. Zamanlanan uyarılarınızı geçici olarak değiştirilmesi için kullanılamıyor olabilir, ancak bu süre boyunca yeni Azure uyarıları oluşturmaya devam edebilirsiniz. Operations Management Suite portalında uyarıları oluşturma veya düzenleme çalışırsanız, bunları Log Analytics çalışma alanınızdan oluşturmaya devam etmek için seçeneğiniz vardır. Bunları Azure portalında Azure Uyarıları'ndan oluşturulacağını seçebilirsiniz.
 

@@ -9,16 +9,15 @@ documentationcenter: monitoring-and-diagnostics
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: d1b7b5baeba88ec0209abff60e9327031afa8b66
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5ef451da3eae696c3506f25ee9458b3ad3286b07
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633784"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721191"
 ---
 # <a name="azure-monitor-overview"></a>Azure İzleyiciye Genel Bakış
 
@@ -137,7 +136,7 @@ Genellikle, Azure İzleyici diğer sistemlerle tümleştirmek için ve izleme ve
 ### <a name="logic-apps"></a>Logic Apps
 [Logic Apps](https://azure.microsoft.com/services/logic-apps) , görevleri ve farklı sistemlerde ve hizmetlerde ile tümleştirilen iş akışlarını kullanarak iş süreçlerini otomatik hale getirmenizi sağlayan bir hizmettir. Etkinlikler kullanılabilir okuma ve çeşitli diğer sistemleri ile tümleştirme iş akışları oluşturmanıza olanak sağlayan Azure İzleyici'de, ölçüm ve günlükleri yazma.
 
-![Logic App](../log-analytics/media/log-analytics-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
+![Logic App](platform/media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### <a name="api"></a>API
 Birden çok API'ları okuyup ölçüm ve günlükleri için ve Azure İzleyici'den oluşturulan uyarılar erişmenin yanı sıra kullanılabilir. Ayrıca, yapılandırabilir ve uyarılar almak. Bu, Azure İzleyici ile tümleştirilebilen özel çözümler oluşturmak için temel olarak sınırsız olasılıklar sağlar.

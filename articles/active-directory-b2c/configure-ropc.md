@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2ea9356f1292669f115d2bb482419435320f644c
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 1b07825bd3ff46267764467bba815c1097278084
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978834"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726296"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Azure AD B2C'de kaynak sahibi parola kimlik bilgileri akışı yapılandırma
 
@@ -35,14 +35,17 @@ Aşağıdaki akışlara ait desteklenmez:
 - **Sunucudan sunucuya**: kimlik koruma sistemi arayandan (yerel istemci) etkileşim bir parçası olarak toplanan güvenilir bir IP adresi gerekiyor. Bir sunucu tarafı API çağrısı, sunucunun IP adresi kullanılır. Başarısız kimlik doğrulama bir Dinamik Eşik aşılırsa, kimlik koruma sistemi yinelenen bir IP adresi bir saldırgan olarak tanımlayabilir.
 - **Gizli istemci akışı**: uygulama istemci kimliği doğrulanır, ancak uygulama gizli anahtarı doğrulanmamış.
 
-##  <a name="create-a-resource-owner-policy"></a>Kaynak sahibi ilkesi oluşturma
+##  <a name="create-a-resource-owner-user-flow"></a>Kaynak sahibi kullanıcı akışı oluştur
 
-1. Azure portalında Azure AD B2C kiracınızın genel Yöneticisi olarak oturum açın.
-2. Azure AD B2C kiracınıza geçiş yapmak için portalın sağ üst köşedeki B2C dizinini seçin.
-3. Altında **ilkeleri**seçin **kaynak sahibi ilkeleri**.
-4. İlke için bir ad sağlayın *ROPC_Auth*ve ardından **uygulama taleplerini**.
-5. Uygulamanız için aşağıdaki gibi ihtiyacınız uygulama taleplerini seçin *görünen ad*, *e-posta adresi*, ve *kimlik sağlayıcısı*.
-6. **Tamam**’ı ve ardından **Oluştur**’u seçin.
+1.  Azure portalında Azure AD B2C kiracınızın genel Yöneticisi olarak oturum açın.
+2.  Azure AD B2C kiracınıza geçiş yapmak için portalın sağ üst köşedeki B2C dizinini seçin.
+3.  Tıklayın **kullanıcı akışları**seçip **yeni kullanıcı akışı**.
+4.  Tıklayın **tüm** sekmenize **kaynak sahibi**.
+5.  Kullanıcı akışı için bir ad sağlayın *ROPC_Auth*.
+6.  Altında **uygulama taleplerini**, tıklayın **daha fazla Göster**.
+7.  Görünen ad, e-posta adresi ve kimlik sağlayıcısı gibi uygulamanız için gereken uygulama taleplerini seçin.
+8.  **Tamam**’ı ve ardından **Oluştur**’u seçin.
+9.  Tıklayın **kullanıcı akışı çalıştırma**.
 
    Ardından, bu örnek gibi bir uç nokta görürsünüz:
 
@@ -57,9 +60,9 @@ Aşağıdaki akışlara ait desteklenmez:
 4. Bunlar ve ardından gibi diğer tüm değerler bırakın **Oluştur**.
 5. Yeni uygulamayı seçin ve daha sonra kullanmak için uygulama Kimliğini not edin.
 
-## <a name="test-the-policy"></a>Test İlkesi
+## <a name="test-the-user-flow"></a>Kullanıcı akışı test edin
 
-API çağrısında oluşturmak için sık kullanılan API geliştirme uygulamanızı kullanın ve yanıt ilkenizi hata ayıklamak için gözden geçirin. Bunun gibi bir çağrı POST isteğinin gövdesi olarak aşağıdaki tabloda bulunan bilgilerle oluşturun:
+API çağrısında oluşturmak için sık kullanılan API geliştirme uygulamanızı kullanın ve kullanıcı akışınızı hata ayıklamak için yanıt gözden geçirin. Bunun gibi bir çağrı POST isteğinin gövdesi olarak aşağıdaki tabloda bulunan bilgilerle oluşturun:
 - Değiştirin  *\<yourtenant.onmicrosoft.com >* B2C kiracınızın adı.
 - Değiştirin  *\<B2C_1A_ROPC_Auth >* kaynak sahibi parola kimlik bilgilerini ilkenizin tam ada sahip.
 - Değiştirin  *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3 >* kaydınızı'ndan uygulama kimliği.

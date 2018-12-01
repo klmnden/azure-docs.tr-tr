@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 2a0f6b75c540f319848805e8a9bda7b166d5d709
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 13cec39278577a818ef43f1215fd2e6653f15ed2
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138668"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678449"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Azure'da ağ sanal Gereci sorunları
 
 Bir veya VPN bağlantı sorunlarını ve hataları üçüncü kullanırken, ağ sanal Gereci (NVA) Microsoft azure'da taraf VM karşılaşabilirsiniz. Bu makalede, NVA yapılandırmaları için temel Azure Platform gereksinimleri doğrulamanıza yardımcı olmak için temel adımlar sağlanmaktadır.
 
-Üçüncü taraf nva'ları ve Azure platformuyla kendi tümleştirme için teknik destek NVA satıcısı tarafından sağlanır. Bir bağlantı veya bir NVA gerektirir yönlendirme sorunu varsa, şunları yapmalısınız [satıcısını NVA'ın](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) doğrudan.
+Üçüncü taraf nva'ları ve Azure platformuyla kendi tümleştirme için teknik destek NVA satıcısı tarafından sağlanır. 
+
+> [!NOTE]
+> Bir bağlantı veya bir NVA gerektirir yönlendirme sorunu varsa, şunları yapmalısınız [satıcısını NVA'ın](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) doğrudan.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -37,6 +40,7 @@ Bir veya VPN bağlantı sorunlarını ve hataları üçüncü kullanırken, ağ 
 - Udr'ler NVA gelen trafiği doğrudan sanal ağ alt ağları üzerinde
 - Yönlendirme tabloları ve kuralların NVA'dan (örneğin, NIC1 NIC2 için)
 - NVA NIC'leri alma ve ağ trafiğini göndermek doğrulamak için izleme
+- Standart SKU ve genel IP'ler kullanırken NVA'ya yönelik yönlendirilecek bir NSG oluşturulur ve açık bir kural trafiğe izin verecek şekilde koyulmalıdır.
 
 ## <a name="basic-troubleshooting-steps"></a>Temel sorun giderme adımları
 
@@ -73,6 +77,8 @@ PowerShell kullanma
           Execute: $nic2 #and check for an expected output:
           EnableIPForwarding   : True
           NetworkSecurityGroup : null
+
+**Standart SKU Pubilc IP kullanırken denetlemek için NSG** standart SKU ve genel IP'ler kullanırken olmalıdır nva'nın trafiğe izin vermek için bir NSG oluşturulur ve açık bir kural.
 
 **Trafiği NVA yönlendirilebilir olup olmadığını denetleyin**
 

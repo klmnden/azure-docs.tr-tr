@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 10/27/2017
+ms.date: 11/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: caa1b4b3bf1f9b8fb1a34bd58dde04f13fbc6c88
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 367ecd4534a2221e996e706f8b4426ea6f70f213
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614575"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680506"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama
 Birçok ekip verilerini ve ayarlarını izlemeye erişim kesinlikle düzenleyen gerekir. Özel İzleme (destek mühendisleri, devops mühendislerine) üzerinde çalışan takım üyeleri sahipseniz veya yönetilen hizmet sağlayıcısı kullanıyorsanız, bunları oluşturmak için kendi yeteneği sınırlandırırken yalnızca izleme verilerine erişimi vermek isteyebilirsiniz, örneğin, değiştirme, veya kaynakları silin. Bu makalede, azure'da bir kullanıcı için bir yerleşik izleme RBAC rolü uygulamak veya izleme sınırlı izinlere ihtiyaç duyan bir kullanıcı için kendi özel rol oluşturma gösterilmektedir. Ardından, Azure İzleyici ile ilgili kaynaklarınızı ve içerdikleri verilere erişimi nasıl sınırlamak için güvenlik konuları açıklanmaktadır.
@@ -86,7 +86,7 @@ Yukarıdaki yerleşik roller tam ekibinizin ihtiyaçlarını karşılamıyorsa, 
 | Microsoft.Insights/MetricDefinitions/Read |Okunan ölçüm tanımları (bir kaynak için ölçüm kullanılabilir türler listesi). |
 | Microsoft.Insights/Metrics/Read |Bir kaynak için ölçüm okuyun. |
 | Microsoft.Insights/Register/Action |Azure İzleyici kaynak sağlayıcısını kaydedin. |
-| Microsoft.Insights/ScheduledQueryRules/[Read, yazma, silme] |Application Insights için okuma/yazma/silme günlük uyarıları. |
+| Microsoft.Insights/ScheduledQueryRules/[Read, yazma, silme] |Azure İzleyici'de okuma/yazma/silme günlük uyarıları. |
 
 
 
@@ -154,7 +154,7 @@ New-AzureRmRoleDefinition -Role $role
 > 
 
 ### <a name="limiting-access-to-monitoring-related-event-hubs"></a>İzleme ile ilgili olay hub'ları erişimi sınırlandırma
-Event hubs ile benzer bir desen gelebilir, ancak öncelikle bir adanmış dinleme yetkilendirme kuralı oluşturmanız gerekir. Yalnızca izleme ile ilgili olay hub'larına dinlemek için gereken bir uygulamaya erişim vermek istiyorsanız, aşağıdakileri yapın:
+Event hubs ile benzer bir desen gelebilir, ancak öncelikle bir adanmış dinleme yetkilendirme kuralı oluşturmanız gerekir. Vermek istiyorsanız, yalnızca izleme ile ilgili olay hub'larına dinlemek için gereken bir uygulama için erişim aşağıdakileri yapın:
 
 1. Akış yalnızca dinleme talepleri ile izleme verileri için oluşturulan olay hub(ları) bir paylaşılan erişim ilkesi oluşturun. Bu portalda yapılabilir. Örneğin, "monitoringReadOnly." çağırabilirsiniz Mümkünse, tüketiciye doğrudan bu anahtar verin ve bir sonraki adımı atlayın isteyeceksiniz.
 2. Tüketici anahtarı geçici getirebilmesi gerekiyorsa, kullanıcının bu olay hub'ı Listkeys'i eylemi verin. Bu, aynı zamanda tanılama ayarı veya profili event hubs'a akış oturum açabilmesi için gereken kullanıcılar için de gereklidir. Örneğin, bir RBAC kuralı oluşturabilirsiniz:

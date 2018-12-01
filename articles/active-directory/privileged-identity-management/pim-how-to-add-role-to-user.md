@@ -12,12 +12,12 @@ ms.workload: identity
 ms.component: pim
 ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 5f0b5d1695603a7cd2a3c7ac1dbc484e44257d88
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 2b099e1377536b46229b75f25d04ab2c1beb5c11
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249620"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724953"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>Azure AD dizin rollerini PIM atayın
 
@@ -125,13 +125,15 @@ MS-PIM hizmet sorumlusu bir abonelik için kullanıcı erişimi yöneticisi rol�
 
 1. Aboneliğinizi seçin.
 
-1. **Erişim denetimi (IAM)** bölümünde abonelik kapsamındaki mevcut rol ataması listesini görebilirsiniz.
+1. **Erişim denetimi (IAM)** öğesini seçin.
+
+1. Seçin **rol atamaları** abonelik kapsamında rol atamaları geçerli listesini görmek için.
 
    ![Erişim denetimi (IAM) dikey penceresinde bir abonelik için](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
 
 1. Denetleme olmadığını **MS PIM** hizmet sorumlusu atandığı **kullanıcı erişimi Yöneticisi** rol.
 
-1. Aksi takdirde, seçin **Ekle** açmak için **izinleri eklemek** bölmesi.
+1. Aksi takdirde, seçin **rol ataması Ekle** açmak için **rol ataması Ekle** bölmesi.
 
 1. İçinde **rol** aşağı açılan listesinden **kullanıcı erişimi Yöneticisi** rol.
 

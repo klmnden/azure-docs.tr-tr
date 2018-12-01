@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 87ceb682f35626c5bf468afd83a2f4a35901ef2b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4cea2b7feb6d21a0566a4876414b2d75abc29959
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632356"
+ms.locfileid: "52681764"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Azure Otomasyonu runbook'u Log analytics'te verileri toplama
-Bir çeşitli kaynaklardan da dahil olmak üzere önemli miktarda Log analytics'te verileri toplayabilir [veri kaynakları](../../azure-monitor/platform/agent-data-sources.md) aracılarda da [Azure'dan toplanan veriler](../../log-analytics/log-analytics-azure-storage.md).  Veri toplamak gereken, bu standart kaynakları aracılığıyla erişilebilir durumda değil ancak bir senaryo vardır.  Bu durumlarda, kullandığınız [HTTP veri toplayıcı API'sini](../../log-analytics/log-analytics-data-collector-api.md) herhangi bir REST API istemcisinden Log Analytics'e veri yazmak için.  Bu veri toplamayı gerçekleştirmek için genel bir yöntemi, Azure Automation'da bir runbook kullanıyor.   
+Bir çeşitli kaynaklardan da dahil olmak üzere önemli miktarda Log analytics'te verileri toplayabilir [veri kaynakları](../../azure-monitor/platform/agent-data-sources.md) aracılarda da [Azure'dan toplanan veriler](../../azure-monitor/platform/collect-azure-metrics-logs.md).  Veri toplamak gereken, bu standart kaynakları aracılığıyla erişilebilir durumda değil ancak bir senaryo vardır.  Bu durumlarda, kullandığınız [HTTP veri toplayıcı API'sini](../../log-analytics/log-analytics-data-collector-api.md) herhangi bir REST API istemcisinden Log Analytics'e veri yazmak için.  Bu veri toplamayı gerçekleştirmek için genel bir yöntemi, Azure Automation'da bir runbook kullanıyor.   
 
 Bu öğreticide oluşturma ve Log Analytics'e veri yazmak için Azure Otomasyonu'nda runbook zamanlama işleminde size yol gösterir.
 

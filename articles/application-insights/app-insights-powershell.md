@@ -9,16 +9,15 @@ ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 262d2511879047d1723d3b15c4c107b80ba1c297
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b9110222d52a6b4e14faf28d55ae9d10fa067949
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250351"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725786"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>PowerShell ile Application Insights kaynakları oluşturma
 Bu makalede oluşturma ve güncelleştirilmesini otomatikleştirmek gösterilmektedir [Application Insights](app-insights-overview.md) Azure kaynak yönetimi kullanarak otomatik olarak kaynaklar. Örneğin, bir yapı işleminin parçası olarak bunu olabilir. Temel Application Insights kaynağını yanı sıra, oluşturduğunuz [kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md), ayarlayın [uyarılar](app-insights-alerts.md)ayarlayın [düzeni fiyatlandırma](app-insights-pricing.md)ve diğer Azure kaynakları oluşturma .

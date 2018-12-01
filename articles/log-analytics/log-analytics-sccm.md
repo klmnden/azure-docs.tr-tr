@@ -10,17 +10,16 @@ ms.assetid: f2298bd7-18d7-4371-b24a-7f9f15f06d66
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a4c429b1c54c6bf71175abbc763a178792281a0f
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4e20d787bef4da518765d1eeeb33237ddd612606
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633155"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721230"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Configuration Manager'ı Log Analytics'e bağlanma
 System Center Configuration Manager ortamınızı Azure Log Analytics'e eşitleme cihaz koleksiyonu verilere ve Log Analytics ve Azure Otomasyonu bu koleksiyonlara başvuru.  
@@ -38,7 +37,7 @@ Aşağıdaki adımlar, Log Analytics ile Configuration Manager tümleştirmesini
 4. Configuration Manager'da [bağlantı özelliklerini güncelleştirmek](#update-oms-connection-properties) süresi veya kaybolursa hiç olmadığı kadar parolası veya istemci gizli anahtarı.
 5. [Microsoft Monitoring Agent'ı yükleyip](#download-and-install-the-agent) bilgisayarda çalışan Configuration Manager hizmet bağlantı noktası site sistemi rolü. Aracı, Configuration Manager verilerini Log Analytics çalışma alanınıza gönderir.
 6. Log analytics'te [koleksiyonları Configuration Manager'dan içeri aktarma](#import-collections) bilgisayar grupları olarak.
-7. Log Analytics'te verisinin Configuration Manager'dan olarak [bilgisayar grupları](log-analytics-computer-groups.md).
+7. Log Analytics'te verisinin Configuration Manager'dan olarak [bilgisayar grupları](../azure-monitor/platform/computer-groups.md).
 
 Daha fazla Configuration Manager Log analytics'e bağlanma hakkında [verileri Configuration Manager'dan Microsoft Log analytics'e Eşitle](https://technet.microsoft.com/library/mt757374.aspx).
 
@@ -52,8 +51,8 @@ Aşağıdaki yordamda vermesi *katkıda bulunan* Log Analytics çalışma alanı
 1. Azure portalının sol alt köşesinde bulunan **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.<br><br> ![Azure portal](media/log-analytics-sccm/azure-portal-01.png)<br><br>  
 2. Log Analytics çalışma alanlarınızın listesinde değiştirmek için çalışma alanı seçin.
 3. Sol bölmeden **erişim denetimi (IAM)**.
-4. Erişim denetimi sayfasında tıklatın **Ekle** ve **izinleri eklemek** bölmesi görünür.
-5. İçinde **izinleri eklemek** bölmesi altında **rol** açılan listesini seçin **katkıda bulunan** rol.  
+4. Erişim denetimi (IAM) sayfası, tıklayın **rol ataması Ekle** ve **rol ataması Ekle** bölmesi görünür.
+5. İçinde **rol ataması Ekle** bölmesi altında **rol** açılan listesini seçin **katkıda bulunan** rol.  
 6. Altında **erişim Ata** aşağı açılan listesinde, AD'de daha önce oluşturduğunuz Configuration Manager uygulaması'nı seçin ve ardından **Tamam**.  
 
 ## <a name="download-and-install-the-agent"></a>Aracısını indirme ve yükleme
@@ -107,7 +106,7 @@ Cihaz koleksiyonları hiyerarşinizden içeri aktarmak için başlangıç yapıl
    ![Bilgisayar grupları - SCCM sekmesi](./media/log-analytics-sccm/sccm-computer-groups01.png)
 
 ## <a name="view-data-from-configuration-manager"></a>Verileri Configuration Manager'dan görüntüle
-Configuration Manager için bir Log Analytics bağlantısı eklendi ve Configuration Manager hizmet bağlantı noktası site sistem rolünü çalıştıran bilgisayarda aracının yüklü sonra Aracıdan verileri Log Analytics'e gönderilir. Log Analytics'te, Configuration Manager koleksiyon olarak görünür. [bilgisayar grupları](log-analytics-computer-groups.md). Gruplardan görüntüleyebileceğiniz **Configuration Manager** altındaki **Settings\Computer grupları**.
+Configuration Manager için bir Log Analytics bağlantısı eklendi ve Configuration Manager hizmet bağlantı noktası site sistem rolünü çalıştıran bilgisayarda aracının yüklü sonra Aracıdan verileri Log Analytics'e gönderilir. Log Analytics'te, Configuration Manager koleksiyon olarak görünür. [bilgisayar grupları](../azure-monitor/platform/computer-groups.md). Gruplardan görüntüleyebileceğiniz **Configuration Manager** altındaki **Settings\Computer grupları**.
 
 Koleksiyonları içeri aktarıldıktan sonra kaç koleksiyon üyelikleri bilgisayarlarla algılanan görebilirsiniz. Aktarılan koleksiyonları sayısını da görebilirsiniz.
 

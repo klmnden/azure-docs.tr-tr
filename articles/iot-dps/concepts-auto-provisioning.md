@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 025e447995d302c24ab2a7d1c8668857cb47ffdd
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 10648551728e4f3cb41b82433e4cd0d442f9daeb
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42057426"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679265"
 ---
 # <a name="auto-provisioning-concepts"></a>Otomatik sağlama kavramları
 
@@ -63,6 +63,33 @@ Aşağıdaki diyagramda, roller ve işlemleri sıralama sırasında cihaz otomat
 
 > [!NOTE]
 > İsteğe bağlı olarak, üretici "cihaz kimlik kayıt" işlemi cihaz sağlama hizmeti API'lerini kullanarak da gerçekleştirebilirsiniz (yerine işleci aracılığıyla). Bu sıralama ve daha ayrıntılı bir açıklaması için [sıfır dokunma cihaz kaydı ile Azure IOT video](https://youtu.be/cSbDRNg72cU?t=2460) (işaret 41:00 başlayarak)
+
+## <a name="roles-and-azure-accounts"></a>Rolleri ve Azure hesapları
+
+Her rol için bir Azure hesabı nasıl eşlendiğini senaryoya bağlıdır ve söz konusu olabilecek çok sayıda videonuz senaryo vardır. Ortak desenler aşağıdaki rolleri genel olarak eşlenmiş bir Azure hesabına nasıl ile ilgili genel bir yaklaşım sağlamak.
+
+#### <a name="chip-manufacturer-provides-security-services"></a>Yonga üretici güvenlik hizmetleri sağlar.
+
+Bu senaryoda, üretici birinci düzey müşteriler için güvenliği yönetir. Ayrıntılı güvenlik yönetmek zorunda değilsiniz gibi bu senaryo Bu düzey bir müşteriler tarafından tercih edilen. 
+
+Üretici, donanım güvenlik modülleri (HSM'ler) içinde güvenlik sunar. Bu güvenlik anahtarları, sertifikaları, vb. DPS örnekleri ve kayıt grupları Kurulum zaten sahip olası müşterilerden alma üretici içerebilir. Üretici müşterileri için bu güvenlik bilgileri de oluşturabilir.
+
+Bu senaryoda, olabilir iki Azure hesapları dahil:
+
+- **Hesap #1**: büyük olasılıkla bir dereceye işleci ve geliştirici rolleri arasında paylaşılan. Bu taraf HSM yongaları üreticisinden satın alabilirsiniz. Bu yongaları hesabı 1 ile ilişkili DPS örneğine işaret ettiği. DPS kayıtlar ile cihazları birden çok düzeyi iki müşterilere DPS cihaz kayıt ayarlarını yapılandırarak bu taraf kiralayabilir. Bu taraf için son kullanıcı arka uç sistemleri ile cihaz telemetrisi vb. erişmek için arabirim oluşturmak ayrılan IOT hub'ları da olabilir. Bu ikinci durumda, ikinci bir hesabı gerekli değildir.
+
+- **Hesap #2**: son kullanıcıların, ikinci düzey müşterilerin kendi IOT hub'larına sahip olabilir. Bu hesap doğru hub'ına cihaz hesabı 1 yalnızca noktalarıyla ilişkilendirilmiş taraf kiralanmış. Bu yapılandırma, Azure Resource Manager şablonları ile yapılabilir Azure hesapları arasında dağıtım noktaları ve IOT hub'ları bağlama gerektirir.
+
+#### <a name="all-in-one-oem"></a>Hepsi bir arada OEM
+
+Üretici, burada yalnızca bir tek üretici hesaba gereken bir "hepsi bir arada OEM" olabilir. Üretici, güvenlik ve uçtan uca sağlama işlemini gerçekleştirir.
+
+Üretici cihazlar satın almış olan müşteriler için bulut tabanlı bir uygulama sağlayabilir. Bu uygulama üretici tarafından ayrılan IOT Hub ile arabirim.
+
+Bu senaryo için örnekleri, satış makineler veya otomatik kahve makineler temsil eder.
+
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

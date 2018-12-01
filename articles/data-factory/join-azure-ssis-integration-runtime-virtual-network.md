@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 38839379f584b40cdbefad3e4cbb3bc47881c9a7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 1afd98026a2aad552258b636ba078ca4f9bd2d58
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094604"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723151"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Bir Azure-SSIS tümleştirme çalışma zamanını bir sanal ağa katılın
 Bir Azure sanal ağına aşağıdaki senaryolarda, Azure-SSIS Integration runtime (IR) katılın: 
@@ -198,19 +198,21 @@ Sanal ağ için bir Azure-SSIS IR katılabilmesi için önce yapılandırma gere
 
 1. Birleştirme **MicrosoftAzureBatch** için **Klasik sanal makine Katılımcısı** rolü için sanal ağ. 
 
-    a. Seçin **erişim denetimi (IAM)** seçin ve soldaki menüden **Ekle** araç. 
+    a. Seçin **erişim denetimi (IAM)** seçin ve soldaki menüden **rol atamaları** sekmesi. 
 
     !["Erişim denetimi" ve "düğmeleri ekleme"](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
-    b. Üzerinde **izinleri eklemek** sayfasında **Klasik sanal makine Katılımcısı** için **rol**. Yapıştırma **ddbf3205-c6bd-46ae-8127-60eb93363864** içinde **seçin** kutusuna ve ardından **Microsoft Azure Batch** arama sonuçları listesinden. 
+    b. Seçin **rol ataması Ekle**.
 
-    ![Arama sonuçları sayfasında "izinleri ekleme"](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+    c. Üzerinde **rol ataması Ekle** sayfasında **Klasik sanal makine Katılımcısı** için **rol**. Yapıştırma **ddbf3205-c6bd-46ae-8127-60eb93363864** içinde **seçin** kutusuna ve ardından **Microsoft Azure Batch** arama sonuçları listesinden. 
 
-    c. Seçin **Kaydet** ayarları kaydetmek ve sayfasını kapatın. 
+    ![Arama sonuçları sayfasında "rol ataması ekleme"](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+
+    d. Seçin **Kaydet** ayarları kaydetmek ve sayfasını kapatın. 
 
     ![Erişim ayarlarını Kaydet](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
 
-    d. Gördüğünüzü onaylayın **Microsoft Azure Batch** katkıda bulunanlar listesinde. 
+    e. Gördüğünüzü onaylayın **Microsoft Azure Batch** katkıda bulunanlar listesinde. 
 
     ![Azure Batch erişimi onaylama](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
 

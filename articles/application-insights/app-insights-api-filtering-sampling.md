@@ -9,16 +9,15 @@ ms.assetid: 38a9e454-43d5-4dba-a0f0-bd7cd75fb97b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 2f8a22c6cda6c63a225fbfe8fba4cf4c8396b53e
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 4bf8bafaff1b9b93b6d4fea0368b2655e6e6af50
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42056553"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682971"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtreleme ve telemetri, Application Insights SDK'sı ön işleme
 
@@ -99,7 +98,7 @@ Telemetri filtreleme için telemetri işlemci yazma ve SDK'sı ile kaydedin. Tü
     }
 
     ```
-1. Bunu Applicationınsights.config dosyasında ekleyin:
+3. Bunu Applicationınsights.config dosyasında ekleyin:
 
 ```xml
 
@@ -366,7 +365,7 @@ Telemetri işlemciler ve telemetri başlatıcılar arasındaki fark nedir?
 * [ASP.NET başvurusu](https://msdn.microsoft.com/library/dn817570.aspx)
 
 ## <a name="sdk-code"></a>SDK kodu
-* [ASP.NET Core SDK'sı](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
 * [ASP.NET SDK'SI](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [JavaScript SDK'sı](https://github.com/Microsoft/ApplicationInsights-JS)
 

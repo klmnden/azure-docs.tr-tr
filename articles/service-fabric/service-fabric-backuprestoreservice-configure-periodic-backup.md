@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: eeaa0e9a940f16c2416418959c98cd17e4816afc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1a9034d7cbc276f35c5f01b06f6973553222d1c4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387642"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722386"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Azure Service fabric'te düzenli yedekleme yapılandırması anlama
 
@@ -110,6 +110,7 @@ Bir yedekleme İlkesi, aşağıdaki yapılandırmaları oluşur:
             ```
 
         2. _Kullanıcı adı ve parola kullanarak koruma dosya paylaşımı_, dosya paylaşımına erişimi belirli kullanıcılara nereden sağlanır. Dosya Paylaşımı depolama belirtimi, aynı zamanda İkincil kullanıcı adı ve birincil kullanıcı adı ile kimlik doğrulaması başarısız olursa fall sonradan kimlik bilgilerini sağlamak için ikincil parola ve birincil parolayı belirtmek için yeteneği sağlar. Bu durumda, yapılandırmak için alanları ayarlayın _dosya paylaşımı_ tabanlı Yedekleme depolama.
+
             ```json
             {
                 "StorageKind": "FileShare",
@@ -125,6 +126,17 @@ Bir yedekleme İlkesi, aşağıdaki yapılandırmaları oluşur:
 > [!NOTE]
 > Depolama güvenilirliği karşıladığından veya yedekleme verilerinin Güvenilirlik gereksinimleri aşıyor emin olun.
 >
+
+* **Bekletme İlkesi**: yapılandırılmış depolama yedekleri tutma ilkesini belirtir. Yalnızca temel bekletme ilkesi desteklenir.
+    1. **Bekletme İlkesi temel**: en iyi depolama kullanımı artık gerekli yedekleme dosyaları kaldırarak emin olmak için bu bekletme ilkesi sağlar. `RetentionDuration` Yedekleme depolama alanında saklanması gereken zaman aralığını ayarlamanıza imkan belirtilebilir. `MinimumNumberOfBackups` yedeklemeleri belirtilen sayıda bakılmadan, her zaman korunur emin olmak için belirtilebilen isteğe bağlı bir parametredir `RetentionDuration`. Yedeklemeler için korumak için yapılandırma aşağıdaki örnekte gösterilmiştir _10_ gün ve aşağıdaki Git yedeklerini izin vermiyor _20_.
+
+        ```json
+        {
+            "RetentionPolicyType": "Basic",
+            "RetentionDuration" : "P10D",
+            "MinimumNumberOfBackups": 20
+        }
+        ```
 
 ## <a name="enable-periodic-backup"></a>Dönemsel yedeklemeyi etkinleştirme
 Veri yedekleme gereksinimlerini karşılamak için yedekleme İlkesi tanımladıktan sonra yedekleme İlkesi uygun şekilde ya da ile ilişkilendirilmesi gereken bir _uygulama_, veya _hizmet_, veya bir _bölüm_.
@@ -178,6 +190,13 @@ Yedekleme verilerini gerek olduğunda yedekleme ilkelerini devre dışı bırak�
 * Yedekleme ilkesi için devre dışı bir _hizmet_ bölümlerinden biri için bu yedekleme İlkesi yayılmasını sonucu olarak gerçekleştirilecek tüm düzenli veri yedeklemeleri durdurur _hizmet_.
 
 * Yedekleme ilkesi için devre dışı bir _bölüm_ tüm düzenli veri yedekleme yedekleme İlkesi bölüm en nedeniyle gerçekleşen işlemleri durdurur.
+
+* Yedekleme için bir entity(application/service/partition) devre dışı bırakma sırasında `CleanBackup` ayarlanabilir _true_ yapılandırılmış depolama alanındaki tüm yedekleri silmek için.
+    ```json
+    {
+        "CleanBackup": true 
+    }
+    ```
 
 ## <a name="suspend--resume-backup"></a>Askıya alma ve yedeklemeyi Sürdür
 Belirli bir durum verilerinin düzenli yedeklemesi geçici askıya alınması talep edebilir. Bu durumda, gereksinim, bağlı olarak API, kullanılabilir yedekleme askıya bir _uygulama_, _hizmet_, veya _bölüm_. Düzenli yedekleme askıya alma, uygulamanın hiyerarşi uygulandığı noktasından alt ağacı içinde geçişlidir. 

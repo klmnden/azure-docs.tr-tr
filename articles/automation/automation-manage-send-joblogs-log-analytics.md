@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 13ba4d774cbc347830c32385ba4927a0df687159
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6170b69d213470b1f5b7e75c9b102e5e07c09209
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035479"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682903"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>İş durumunu ve iş akışları Automation'ı Log Analytics'e iletme
 
@@ -182,4 +182,4 @@ Log Analytics, Otomasyon işleri için daha fazla operasyonel görünürlük sa�
 * Farklı arama sorguları oluşturma ve Log Analytics ile Otomasyon iş günlüklerini gözden geçirme hakkında daha fazla bilgi için bkz. [Log Analytics'te günlük aramaları](../log-analytics/log-analytics-log-searches.md).
 * Oluşturma ve runbook'lardan çıktı ve hata iletileri alma anlamak için bkz: [Runbook çıkışı ve iletileri](automation-runbook-output-and-messages.md).
 * Runbook yürütme, runbook işlerini izleme ve diğer teknik ayrıntılar hakkında daha fazla bilgi edinmek için bkz. [Runbook işi izleme](automation-runbook-execution.md).
-* Log Analytics ve veri toplama kaynakları hakkında daha fazla bilgi için bkz: [Azure depolama verileri toplamaya Log Analytics'e genel bakış](../log-analytics/log-analytics-azure-storage.md).
+* Log Analytics ve veri toplama kaynakları hakkında daha fazla bilgi için bkz: [Azure depolama verileri toplamaya Log Analytics'e genel bakış](../azure-monitor/platform/collect-azure-metrics-logs.md).

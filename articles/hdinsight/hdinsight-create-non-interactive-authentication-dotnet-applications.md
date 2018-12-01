@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2351e0cdeb6fd17efbe70fdebb12e6c9776c1fa1
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 899adc8d4fb26ac64cd3fbd7096a8b8387900517
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498336"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722301"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Etkileşimli olmayan kimlik doğrulaması .NET HDInsight uygulaması oluşturma
 Microsoft .NET Azure HDInsight uygulamanızın (etkileşimli olmayan) bir uygulamanın kendi kimlik altında ya da uygulamanızın (etkileşimli) oturum açmış kullanıcının kimliği altında çalıştırabilirsiniz. Bu makalede, etkileşimli olmayan kimlik doğrulaması Azure'a bağlanmak ve HDInsight'ı yönetmek için .NET uygulaması oluşturma işlemini gösterir. Etkileşimli bir uygulama örneği için bkz. [Azure HDInsight Bağlan](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -34,11 +34,12 @@ Azure AD uygulamanız atama bir [rol](../role-based-access-control/built-in-role
 **Azure AD uygulamasına sahip rolü eklemek için**
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Sol menüde **kaynak grubu**.
+2. Soldaki menüden **Kaynak grupları**'nı seçin.
 3. Daha sonra Bu öğreticide, Hive sorgu çalıştıracaksınız HDInsight kümesi içeren kaynak grubunu seçin. Çok sayıda kaynak grupları varsa, istediğinizi bulmak için filtre kullanabilirsiniz.
 4. Kaynak grubu menüsünde **erişim denetimi (IAM)**.
-5. Altında **kullanıcılar**seçin **Ekle**.
-6. Azure AD uygulamanız için sahip rolü eklemek için yönergeleri izleyin. Rol başarıyla ekledikten sonra uygulama altında listelenir **kullanıcılar**, sahip rolüne. 
+5. Seçin **rol atamaları** geçerli rol atamaları görmek için sekmesinde.
+6. Sayfanın üst kısmında seçin **rol ataması Ekle**.
+7. Azure AD uygulamanız için sahip rolü eklemek için yönergeleri izleyin. Uygulama rolü başarıyla ekledikten sonra sahip rolünün altında listelenir. 
 
 ## <a name="develop-an-hdinsight-client-application"></a>HDInsight istemci uygulama geliştirme
 

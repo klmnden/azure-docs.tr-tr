@@ -1,5 +1,5 @@
 ---
-title: Linux destekli dağıtımlar | Microsoft Docs
+title: Azure'da desteklenen Linux dağıtımı | Microsoft Docs
 description: Ubuntu, CentOS, Oracle ve SUSE yönergeleri de dahil olmak üzere, Azure destekli dağıtımlarda Linux hakkında bilgi edinin.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: szark
-ms.openlocfilehash: b39ae6b5546e9504b9f37504c486c941ab034399
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3c904dadcb01dc889b159dff9ce1b9114db8103e
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250008"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681815"
 ---
-# <a name="linux-on-distributions-endorsed-by-azure"></a>Tarafından Azure destekli dağıtımlarda Linux
+# <a name="linux-distributions-endorsed-on-azure"></a>Azure'da desteklenen Linux dağıtımı
 İş ortakları, Azure Market'teki Linux görüntüleri sağlar. Desteklenen dağıtım listesine daha da fazla çeşitleme katmak çeşitli Linux topluluklarıyla çalışıyoruz. Bu sırada, Market'ten mevcut olmayan dağıtımlar her zaman kendi Linux yönergeleri izleyerek getirebilir [oluşturma ve karşıya yükleme Linux işletim sistemini içeren bir sanal sabit disk](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
 
 ## <a name="supported-distributions-and-versions"></a>Desteklenen dağıtımlar ve sürümler

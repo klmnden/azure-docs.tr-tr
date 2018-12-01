@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: e2326f56ad367f744bc7895bc8c4bfd6f32d0310
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0612a7798d3cc2e43efc296bd2b749735e74f765
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264888"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720856"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Azure İzleyicisi'nde sorun giderme günlük uyarıları  
 ## <a name="overview"></a>Genel Bakış
 Bu makalede, Azure İzleyici'de günlük uyarıları ayarlama sırasında görülen yaygın sorunların nasıl giderileceğini gösterir. Ayrıca, çözümler işlevselliği veya günlük uyarıları yapılandırma ile ilgili sık sorulan soruların yanıtlarını sağlar. 
 
-Terim **günlük uyarıları** yangın özel bir sorgunun bağlı uyarılar açıklamak için [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) veya [Application Insights](../application-insights/app-insights-analytics.md). Daha fazla ilgili işlevler, terminolojisi ve türlerinde öğrenin [günlük uyarıları - genel bakış](monitor-alerts-unified-log.md).
+Terim **günlük uyarıları** yangın özel bir sorgunun bağlı uyarılar açıklar [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) veya [Application Insights](../application-insights/app-insights-analytics.md). Daha fazla ilgili işlevler, terminolojisi ve türlerinde öğrenin [günlük uyarıları - genel bakış](monitor-alerts-unified-log.md).
 
 > [!NOTE]
 > Bu makalede, Azure portal'ı gösterdiğinde durumları ve uyarı kuralını tetikleyen ve ilişkili bir eylem grupları tarafından gerçekleştirilen bir bildirim dikkate almaz. Böyle durumlarda, ayrıntıları bu makalede şirket edinmek [Eylem grupları](monitoring-action-groups.md).
@@ -35,8 +35,7 @@ Günlük uyarı düzenli aralıklarla çalışan temel sorgunuzu [Log Analytics]
 Veri alımı gecikme gidermek için sistem bekler ve uyarı sorgusu, gerekli verileri değil henüz alınır bulursa, birden çok kez yeniden dener. Sistem ayarlamak üssel olarak artan bir bekleme süresi vardır. Bunlar geciktirmek için veriyi kullanılabilir olduktan sonra günlük uyarı yalnızca Tetikleyiciler yavaş günlük verisi alımı nedeniyle olabilir. 
 
 ### <a name="incorrect-time-period-configured"></a>Süre yanlış yapılandırılmış
-Makalesinde açıklandığı [günlük uyarıları için terimler](monitor-alerts-unified-log.md#log-search-alert-rule---definition-and-types), dönem içinde belirtilen yapılandırmasını sorgu için zaman aralığını belirten zaman. Sorgu yalnızca bu zaman aralığı içinde oluşturulmuş olan kayıtları döndürür. Süre kötüye kullanımı önlemek günlük sorgusu için alınan verileri sınırlar ve hiçbir zaman komut bozar (önce ister) günlük sorguda kullanılan. 
-*Örneğin, zaman aralığı 60 dakika olarak ayarlanmıştır ve sorgu 13: 15'te çalıştırılan 12:15 PM arasında 13: 15'te oluşturulan kayıtları için günlük sorgusu kullanılır. Günlük sorgu süresi komutu gibi kullanıyorsa *önce (1d)*, bu aralık için zaman dilimini ayarlandığından sorgu hala yalnızca 13: 15'te 12:15 PM arasında verileri kullanır.*
+Makalesinde açıklandığı [günlük uyarıları için terimler](monitor-alerts-unified-log.md#log-search-alert-rule---definition-and-types), dönem içinde belirtilen yapılandırmasını sorgu için zaman aralığını belirten zaman. Sorgu yalnızca bu zaman aralığı içinde oluşturulmuş olan kayıtları döndürür. Süre kötüye kullanımı önlemek günlük sorgusu için alınan verileri sınırlar ve hiçbir zaman komut bozar (gibi *önce*) günlük sorguda kullanılan. Örneğin, zaman aralığı 60 dakika olarak ayarlanmıştır ve sorgu 13: 15'te çalıştırılan 12:15 PM arasında 13: 15'te oluşturulan kayıtları için günlük sorgusu kullanılır. Günlük sorgu süresi komutu gibi kullanıyorsa *önce (1d)*, sorgu süre için o interval.* olarak ayarlandığından yine de yalnızca 13: 15'te 12:15 PM arasında verileri kullanır.
 
 Bu nedenle, onay yapılandırma dönemdeki Sorgunuzla eşleşen. Günlük sorgusu kullanıyorsa, daha önce belirtilen örneğin *önce (1d)* yeşil işaretçisi ile gösterildiği gibi ardından zaman aralığı 24 saat veya 1440 dakika (içinde belirtilen kırmızı) olarak sorguyu tasarlandığı gibi yürüten emin olmak için ayarlanması gerekir.
 
@@ -77,12 +76,14 @@ Ayrıntılı sonraki bazı yaygın nedenler neden olan bir yapılandırılmış 
 ### <a name="alert-triggered-by-partial-data"></a>Kısmi veriler tarafından tetiklenen uyarı
 Log Analytics ve Application Insights'ı destekleyen analiz alımı gecikmeleri ve işleme tabi olan; hangi nedeniyle sağlanan günlük uyarı sorgusu çalıştırıldığında - zaman olabilir bir servis talebi almalarının hiçbir veri ya da yalnızca mevcut olan bazı veriler. Daha fazla bilgi için [Log Analytics veri alımı zamanında](../log-analytics/log-analytics-data-ingestion-time.md).
 
-Uyarı kuralı nasıl yapılandırıldığına bağlı olarak olabilir yanlış firing durumunda yok ya da uyarı yürütme zamanında günlüklerinde kısmi veri. Bu gibi durumlarda, uyarı sorgusu veya yapılandırma değiştirildiğinde önerilir. *Günlük uyarı kuralı, örneğin, analiz sorgusundan gelen sonuçları sayısını olduğunda değerinden (5; diyelim) için yapılandırılmış Daha sonra hiçbir veri (sıfır kaydı) veya kısmi sonuçlar (bir kayıt) olduğunda uyarı kuralı tetiklenir. Burada-sonra alımı gecikme gibi aynı sorgu Analytics'te sorgu tam verilerle çalıştırıldığında sonucu 10 kayıtları olarak sağlayabilir.*
+Uyarı kuralı nasıl yapılandırıldığına bağlı olarak olabilir yanlış firing varsa yok veya kısmi veri günlüklerinde uyarı yürütme zamanında. Bu gibi durumlarda, size uyarı sorgusu veya yapılandırma değiştirmenizi önerin. 
+
+Örneğin, günlük uyarı kuralı yapılandırdıysanız hiçbir veri (sıfır kaydı) veya kısmi sonuçlar (bir kayıt) olduğunda bir analytics sorgusunun sonuçlarından sayısı 5'ten az olduğunda tetiklemek için daha sonra bir uyarı tetikler. Ancak, veri alımı gecikme sonrasında tam veri ile aynı sorgu sonucu 10 kayıt sağlayabilir.
 
 ### <a name="alert-query-output-misunderstood"></a>Uyarı sorgusu çıkış yanlış
-Günlük uyarıları için uyarı vermek için mantık analytics sorgusu kullanıcı tarafından sağlanır. Sağlanan analytics sorgusu, çeşitli büyük veri ve matematik işlevleri belirli yapıları oluşturmak için kullanabilirsiniz. Uyarı hizmeti ile verileri belirtilen zaman aralığı için belirtilen aralıklarla müşteri tarafından sağlanan sorgu yürütülür; sağlanan - seçilen uyarı türüne göre sorgu değişir uyarı hizmeti Zarif sağlar ve aynı yapılandırma sinyal mantığını ekranında, "yürütülecek sorgu" bölümünde aşağıda gösterildiği gibi gerektirdiğine Tanık: ![yürütülecek sorgu](./media/monitor-alerts-unified/LogAlertPreview.png)
+Log analytics sorgu uyarılara ilişkin mantığı sağlar. Analytics sorgusu, çeşitli büyük veri ve matematik işlevleri kullanabilir.  Uyarı hizmeti sorgunuzu verilerle zaman belirtilen dönem için belirtilen aralıklarla yürütür. Uyarı hizmeti için sağlanan sorgu görünümünde hafif değişiklikler seçilen uyarı türüne göre yapar. Bu, "yürütülecek sorgu" bölümünde görülebilir *sinyal mantığını yapılandırma* ekranını aşağıda gösterildiği gibi: ![yürütülecek sorgu](./media/monitor-alerts-unified/LogAlertPreview.png)
  
-İçinde gösterilen **yürütülecek sorgu** bölümdür hangi günlük uyarı hizmetinin çalışır; kullanıcı belirtilen sorgu yanı sıra aracılığıyla timespan çalıştırılabilir [analiz portalı](../log-analytics/log-analytics-log-search-portals.md) veya [analizi API'si](https://docs.microsoft.com/rest/api/loganalytics/) -Bunlar uyarı oluşturması işleminden önce anlamak istiyorsanız, hangi uyarı sorgusu çıkış olabilir.
+İçinde gösterilen **yürütülecek sorgu** kutusudur günlük uyarı hizmetinin çalıştırılanlar. Belirtilen sorgu yanı sıra aracılığıyla timespan çalıştırabileceğiniz [analiz portalı](../log-analytics/log-analytics-log-search-portals.md) veya [analizi API'si](https://docs.microsoft.com/rest/api/loganalytics/) ne olabileceği gibi aslında bir uyarı oluşturmadan önce uyarı sorgusu çıkış anlamak istiyorsanız.
  
 ## <a name="next-steps"></a>Sonraki adımlar
 

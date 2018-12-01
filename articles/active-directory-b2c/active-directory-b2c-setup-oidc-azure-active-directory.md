@@ -1,28 +1,28 @@
 ---
-title: Oturum açma Azure Active Directory hesaplarını Azure Active Directory B2C'de yerleşik bir ilke ayarlama | Microsoft Docs
-description: Oturum açma Azure Active Directory hesaplarını Azure Active Directory B2C'de yerleşik bir ilke ayarlama.
+title: Azure Active Directory B2C, bir Azure Active Directory kuruluş için oturum açma ayarlama | Microsoft Docs
+description: Oturum açma için Azure Active Directory B2C, belirli bir Azure Active Directory kuruluşunu ayarlayın.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 86e5381096633e58d7a1a28ac94728136273c685
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c48e4696d572b87a4e1553f9d4a2dc9921361388
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312791"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52719921"
 ---
-# <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>Oturum açma Azure Active Directory hesaplarını Azure Active Directory B2C'de yerleşik bir ilke ayarlama
+# <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C, belirli bir Azure Active Directory kuruluş için oturum açma ayarlama
 
 >[!NOTE]
 > Bu özellik genel Önizleme aşamasındadır. Bu özellik, üretim ortamında kullanmayın.
 
-Bu makalede Azure Active Directory (Azure AD) B2C'de yerleşik bir ilke kullanarak belirli bir Azure Active Directory (Azure AD) kuruluşun kullanıcıları için oturum açma olanağı tanıma gösterilmektedir.
+Bu makalede Azure Active Directory (Azure AD) B2C'de bir kullanıcı akışı kullanarak belirli bir Azure Active Directory (Azure AD) kuruluşun kullanıcıları için oturum açma olanağı tanıma gösterilmektedir.
 
 ## <a name="create-an-azure-ad-app"></a>Bir Azure AD uygulamanızı oluşturma
 

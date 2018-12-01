@@ -4,16 +4,16 @@ description: Azure IOT Edge cihazı, birden çok cihaza yönelik bilgi işleyebi
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a867122aef5dd9d2152bca3ac10c11459ffc03f5
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 55968393ff64d9eed1f5b384094a77d0d169dc5d
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568480"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681203"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Saydam bir ağ geçidi olarak görev yapacak bir IOT Edge cihazı yapılandırma
 
@@ -258,7 +258,11 @@ Komutu ile bir cihaz üzerinde çalışan modüllerine denetleyebilirsiniz `iote
 6. İçinde **gözden geçirme şablonu** sayfasında **Gönder**.
 
 ## <a name="route-messages-from-downstream-devices"></a>Aşağı Akış cihazlardan yönlendirme iletileri
-IOT Edge çalışma zamanı yalnızca modülleri tarafından gönderilen iletiler gibi aşağı akış cihazlardan gönderilen iletiler yönlendirebilirsiniz. Bu verileri buluta göndermeden önce ağ geçidi üzerinde çalışan bir modüldeki analiz gerçekleştirmenize olanak sağlar. Rota adlı bir aşağı akış CİHAZDAN ileti göndermek için kullanılacak `sensor` bir modül adı için `ai_insights`.
+IOT Edge çalışma zamanı yalnızca modülleri tarafından gönderilen iletiler gibi aşağı akış cihazlardan gönderilen iletiler yönlendirebilirsiniz. Bu verileri buluta göndermeden önce ağ geçidi üzerinde çalışan bir modüldeki analiz gerçekleştirmenize olanak sağlar. 
+
+Şu anda, aşağı akış cihazlar tarafından gönderilen iletileri yönlendiren bunları modülleri tarafından gönderilen iletilerden farklılaştırılması tarafından yoludur. Tüm modüller tarafından gönderilen iletiler olarak adlandırılan bir sistem özelliği içeren **connectionModuleId** ancak aşağı akış cihazlar tarafından gönderilen iletileri yapın. Bu sistem özelliği içeren herhangi bir iletiyi hariç tutmak için rota WHERE yan tümcesini kullanabilirsiniz. 
+
+Yolu bir modül adı için aşağı akış herhangi bir CİHAZDAN ileti göndermek için kullanılacak `ai_insights`.
 
 ```json
 {
@@ -269,7 +273,7 @@ IOT Edge çalışma zamanı yalnızca modülleri tarafından gönderilen iletile
 }
 ```
 
-İleti yönlendirme hakkında daha fazla bilgi için bkz. [modül bileşimi](./module-composition.md).
+İleti yönlendirme hakkında daha fazla bilgi için bkz. [modülleri dağıtma ve yollar'kurmak](./module-composition.md#declare-routes).
 
 [!INCLUDE [iot-edge-extended-ofline-preview](../../includes/iot-edge-extended-offline-preview.md)]
 

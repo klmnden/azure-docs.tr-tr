@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: hrasheed
-ms.openlocfilehash: 77f1d0f9d1f9ad07b977750e7701b660781d63e5
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c615188e5f198cb8707b12643e0942e8d8821983
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499389"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725191"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure portalını kullanarak HDInsight Apache Hadoop kümelerini yönetme
 
@@ -64,7 +64,7 @@ Bir HDInsight kümesi oluşturduğunuzda, bir Azure aboneliği belirtmeniz gerek
     1. [Azure Portal](https://portal.azure.com) oturum açın.
     2. Tıklayın **kaynak grupları** kaynak gruplarını listelemek için sol menüden.
     3. HDInsight kümenizi oluşturmak için kullanmak istediğiniz kaynak grubuna tıklayın.
-    4. Tıklayın **erişim denetimi (IAM)**, doğrulayın, (veya bir gruba ait olmanız) en az katkıda bulunan kaynak grubuna erişebilir.
+    4. Tıklayın **erişim denetimi (IAM)** ve **rol atamaları**, doğrulayın, (veya bir gruba ait olmanız) en az katkıda bulunan kaynak grubuna erişebilir.
 
 NoRegisteredProviderFound hata veya MissingSubscriptionRegistration hata alırsanız bkz [Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
@@ -106,7 +106,7 @@ NoRegisteredProviderFound hata veya MissingSubscriptionRegistration hata alırsa
 * **Tanılama ayarları**: Tanılama ölçümleri depolanacağı ayarlarını **destek + sorun giderme**
     * **Kaynak durumu**: bkz [Azure kaynak durumu genel bakış](../service-health/resource-health-overview.md).
     * **Yeni destek isteği**: Microsoft desteği ile bir destek bileti oluşturmanızı sağlar.
-
+    
 6. Tıklayın **özellikleri**:
 
     Özellikler şunlardır:

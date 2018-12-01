@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/22/2018
+ms.date: 11/26/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fe1f2e026aaa4260d34b9b1cb96064053af1c3c7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1e2f1a3c46c9d343c305292a217fff5750f442fa
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568021"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682563"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>SQL Veri Ambarı’nı yükselterek performansı iyileştirme
 Azure SQL veri ambarı, yeni nesil Azure donanım ve depolama mimarisi için yükseltin.
@@ -35,11 +35,44 @@ Bu yükseltme en iyi duruma getirilmiş Gen1 işlem katmanı veri ambarları iç
 ## <a name="before-you-begin"></a>Başlamadan önce
 > [!NOTE]
 > Var olan işlem için iyileştirilmiş Gen1 katmanı veri ambarınızın işlem için iyileştirilmiş Gen2 katmanı kullanılabildiği bir bölgede değil ise, yapabilecekleriniz [coğrafi geri yükleme](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) desteklenen bir bölge için PowerShell aracılığıyla.
-> 
 >
+> 
 
 1. Yükseltilecek en iyi duruma getirilmiş Gen1 işlem katmanı veri ambarı duraklatıldığında [veri ambarı sürdürme](pause-and-resume-compute-portal.md).
+
 2. Birkaç dakika kapalı kalma süresi için hazırlıklı olmalıdır. 
+
+3. Tüm kod başvurularını işlem için iyileştirilmiş Gen1 performans düzeylerini tanımlayın ve bunları eşdeğer işlem için iyileştirilmiş Gen2 performans düzeylerini değiştirin. Aşağıdaki iki örnek verilmiştir, yükseltmeden önce kod başvurularını nerede güncelleştirmeniz gerekir:
+
+   Özgün Gen1 PowerShell komutunu:
+
+   ```powershell
+   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
+   ```
+
+   Değiştirilmiş için:
+
+   ```powershell
+   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
+   ```
+
+   > [!NOTE] 
+   > -RequestedServiceObjectiveName "DW300"-RequestedServiceObjectiveName değiştirilir "DW300**c**"
+   >
+
+   Özgün Gen1 T-SQL komutu:
+
+   ```SQL
+   ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300') ;
+   ```
+
+   Değiştirilmiş için:
+
+   ```sql
+   ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300c') ; 
+   ```
+    > [!NOTE] 
+    > Servıce_objectıve = 'DW300' servıce_objectıve için değiştirilen = ' DW300**c**'
 
 
 
@@ -47,31 +80,37 @@ Bu yükseltme en iyi duruma getirilmiş Gen1 işlem katmanı veri ambarları iç
 
 1. Git, işlem için iyileştirilmiş katmanı veri ambarı Azure Portalı'nda ve tıklayarak Gen1 **yükseltmek için 2. nesil** kartını görevleri sekmesi altındaki: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
     
-> [!NOTE]
-> Görmüyorsanız, **yükseltmek için 2. nesil** kart görevleri sekmesindeki abonelik türü geçerli bölgede sınırlıdır. [Bir destek bileti gönderin](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) , abonelik beyaz listeye almak için.
+    > [!NOTE]
+    > Görmüyorsanız, **yükseltmek için 2. nesil** kart görevleri sekmesindeki abonelik türü geçerli bölgede sınırlıdır.
+    > [Bir destek bileti gönderin](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) , abonelik beyaz listeye almak için.
 
 2. Varsayılan olarak, **önerilen performans düzeyi seçin** veri ambarı için temel alarak en iyi duruma getirilmiş Gen1 işlem katmanında geçerli performans düzeyiniz aşağıdaki eşlemeyi kullanarak:
-    
-   | İşlem için iyileştirilmiş Gen1 katmanı | İşlem için iyileştirilmiş 2. nesil katmanı |
-   | :----------------------: | :-------------------: |
-   |      DEĞERİ DW100 – DW600       |        DW500c         |
-   |          DW1000          |        DW1000c        |
-   |          DW1200          |        DW1500c        |
-   |          DW1500          |        DW1500c        |
-   |          DW2000          |        DW2000c        |
-   |          DW3000          |        DW3000c        |
-   |          DW6000          |        DW6000c        |
 
-3. İş yükünüz çalışıyor ve sessiz modda yükseltmeden önce tamamlandı emin olun. Veri ambarınızın işlem için iyileştirilmiş Gen2 katmanı veri ambarı olarak yeniden çevrimiçi önce birkaç dakika kapalı kalma süresi yaşar. **Yükseltme**. En iyi duruma getirilmiş Gen2 işlem katmanı performans katmanı fiyatına Önizleme dönemi boyunca şu anda yarı-kapalıdır:
-    
+   | İşlem için iyileştirilmiş Gen1 katmanı | İşlem için iyileştirilmiş 2. nesil katmanı |
+   | :-------------------------: | :-------------------------: |
+   |            DEĞERİ DW100            |           DW100c            |
+   |            DW200            |           DW200c            |
+   |            DW300            |           DW300c            |
+   |            DW400            |           DW400c            |
+   |            DW500            |           DW500c            |
+   |            DW600            |           DW500c            |
+   |           DW1000            |           DW1000c           |
+   |           DW1200            |           DW1000c           |
+   |           DW1500            |           DW1500c           |
+   |           DW2000            |           DW2000c           |
+   |           DW3000            |           DW3000c           |
+   |           DW6000            |           DW6000c           |
+
+3. İş yükünüz çalışıyor ve sessiz modda yükseltmeden önce tamamlandı emin olun. Veri ambarınızın işlem için iyileştirilmiş Gen2 katmanı veri ambarı olarak yeniden çevrimiçi önce birkaç dakika kapalı kalma süresi yaşar. **Yükseltme**:
+
    ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
 
 4. **Yükseltme işlemini izleme** tarafından Azure portalında durumu denetleniyor:
 
    ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_3.png)
-   
+
    İlk adım yükseltme işlemini burada tüm oturumları sonlandırılacak ve bağlantıları bırakılacak ölçeklendirme işlemi ("Yükseltme - çevrimdışı") gider. 
-   
+
    Yükseltme işleminin ikinci adım, veri taşıma ("Yükseltme - Online") ' dir. Veri geçişi yavaş sütunlu veri bir yerel SSD önbellek yararlanan yeni depolama mimarisi için eski depolama mimariden taşır bir çevrimiçi akışla arka plan işlemidir. Bu süre boyunca, veri Ambarınızı sorgulamak ve yüklemek için çevrimiçi olacak. Tüm verilerinizi olup olmadığını geçirildikten bağımsız olarak sorgulamak kullanılabilir. Veri geçişi, columnstore segmentleri sayısı veri boyutu ve performans düzeyinize bağlı olarak değişen bir hızda olur. 
 
 5. **İsteğe bağlı öneri:** veri geçiş arka plan işlemi hızlandırmak için hemen veri taşıma çalıştırarak zorlayabilirsiniz [Alter Index yeniden](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) , sorgulama sırasında daha büyük bir SLO tüm birincil columnstore tabloları ve kaynak sınıfı. Bu işlem **çevrimdışı** sayısını ve boyutları tablolarınızı bağlı olarak saat sürebilir akışla arka plan işlemi karşılaştırıldığında; ancak, veri geçişi burada daha sonra tam anlamıyla alabilir çok daha hızlı olacaktır Yeni depolama mimarisi tamamlandıktan sonra yüksek kaliteli satır grupları ile geliştirilmiştir. 
@@ -125,4 +164,3 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Yükseltilen veri Ambarınızı çevrimiçidir. Gelişmiş mimari yararlanmak için bkz: [iş yükü yönetimi için kaynak sınıfları](resource-classes-for-workload-management.md).
- 

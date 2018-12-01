@@ -10,17 +10,16 @@ ms.assetid: 0b1414d9-b0a7-4e4e-a652-d3a6ff1118c4
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: cab78d09038b8ab00c318b3ce615d99139e9b005
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 19eac4e79671aafff2c3461a1e85cd131297074c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634039"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725106"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Azure BT Hizmet Yönetimi Bağlayıcısı'nı kullanarak ITSM araçlara bağlayın
 
@@ -193,7 +192,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Çözümleyen
 - Kapatma tarihi
 - Kaynak
-- Atamayı Alan
+- Atanan
 - Kategori
 - Unvan
 - Açıklama
@@ -214,7 +213,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Oluşturan
 - Kapatma tarihi
 - Kaynak
-- Atamayı Alan
+- Atanan
 - Unvan
 - Tür
 - Kategori
@@ -225,7 +224,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Öncelik
 - Risk
 - Etki
-- Atamayı Alan
+- Atanan
 - Oluşturma Tarihi
 - Kapatılma tarihi
 - Son Değişiklik Tarihi

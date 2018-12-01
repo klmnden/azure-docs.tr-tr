@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b16ac10e10655bbc7e41d9336378228097ca19ff
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 88609f4daac176f082e7f4962d557267946ab98c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014729"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724443"
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: parola karmaşıklık gereksinimlerini yapılandırma
 
@@ -26,22 +26,21 @@ Azure Active Directory B2C (Azure AD B2C) destekleyen bir hesabı oluştururken 
 
 ## <a name="when-password-rules-are-enforced"></a>Parola kuralları ne zaman uygulanır
 
-Kaydolma sırasında veya parola sıfırlama, bir son kullanıcı sağlaması gerekir karmaşıklığı kurallarına uyan bir parola.  Parola karmaşıklığı kurallarına ilke uygulanır.  Kaydolma while sırasında başka bir ilke sekiz karakter dizesi kayıt sırasında gerektiren dört basamaklı bir PIN gerektiren bir ilke olması mümkündür.  Örneğin, yetişkinler alt öğe için farklı bir parola karmaşıklık bir ilke kullanabilirsiniz.
+Kaydolma sırasında veya parola sıfırlama, bir son kullanıcı sağlaması gerekir karmaşıklığı kurallarına uyan bir parola.  Parola karmaşıklığı kurallarına kullanıcı akışı uygulanır.  Bir kullanıcı akışı kaydolma while sırasında başka bir kullanıcı akışı sekiz karakter dizesi kayıt sırasında gerektiren dört basamaklı bir PIN gerekli olması mümkündür.  Örneğin, farklı bir parola karmaşıklık kullanıcı akışı yetişkinler alt öğe için kullanabilir.
 
 Parola karmaşıklığını hiç oturum açma sırasında zorlanır.  Kullanıcıların hiçbir zaman oturum açma sırasında geçerli karmaşıklık gereksinimini karşılamadığı için parola değiştirmesi istenir.
 
-Parola karmaşıklığını yapılandırılabileceği ilke türleri şunlardır:
+Parola karmaşıklığını yapılandırılabileceği kullanıcı Akış türleri şunlardır:
 
-* Kaydolma veya oturum açma ilkesi
-* Parola sıfırlama İlkesi
+* Kaydolma veya oturum açma kullanıcı akışı
+* Parola sıfırlama kullanıcı akışı
 * Özel ilke ([parola karmaşıklığını özel İlkesi'nde yapılandırma](active-directory-b2c-reference-password-complexity-custom.md))
 
 ## <a name="how-to-configure-password-complexity"></a>Parola karmaşıklığını yapılandırma
 
-1. Açık **kaydolma veya oturum açma ilkeleri**.
-2. Bir ilke seçin ve tıklayın **Düzenle**.
-3. Açık **parola karmaşıklığını**.
-4. Bu ilke için bir parola karmaşıklığını değiştirme **basit**, **güçlü**, veya **özel**.
+1. Açık **kullanıcı akışları**.
+2. Kullanıcı akışı seçin ve tıklayın **özellikleri**.
+3. Altında **parola karmaşıklığını**, değiştirmek için bu kullanıcı akışını için parola karmaşıklığını **basit**, **güçlü**, veya **özel**.
 
 ### <a name="comparison-chart"></a>Karşılaştırma grafiği
 

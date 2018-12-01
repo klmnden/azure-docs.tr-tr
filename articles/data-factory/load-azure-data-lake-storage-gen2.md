@@ -9,18 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 558b426ea85decb0309390e36910eb18719e6e99
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 108ced5416eb7cd6826f4f96d4f62fd33e8f5653
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002536"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680863"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-preview-with-azure-data-factory"></a>Azure Data Lake depolama 2. nesil ile veri yükleme (Önizleme) Azure Data Factory ile
 
-[Azure Data Lake depolama Gen2'ye (Önizleme)](../storage/data-lake-storage/introduction.md) analytics çerçeveleri dayanıklı depolama katmana bağlanmak kolaylaştırarak Azure Blob Depolama'ya bir protokolle hiyerarşik dosya sistemi ad alanı ve güvenlik özellikleri ekler. Data Lake depolama Gen2'de (Önizleme), nesne depolama, tüm kalitelerini kalır eklenirken bir dosya sistemi arabirimi avantajları.
+Azure Data Lake depolama Gen2 önizlemesi yerleşik, büyük veri analizi için ayrılmış özellikleri kümesidir [Azure Blob Depolama](../storage/blobs/storage-blobs-introduction.md). Her iki dosya sistemi ve nesne depolama paradigmalarını kullanarak verilerinizi ile arabirim oluşturmasını sağlar.
 
 Azure Data Factory, tam olarak yönetilen bulut tabanlı veri tümleştirme hizmetidir. Hizmet lake zengin bir şirket içi verilerle doldurmak için kullanabileceğiniz bulut tabanlı veri depoları ve zamandan tasarruf edin ve analiz çözümlerinizi oluştururken. Desteklenen bağlayıcılar ayrıntılı bir listesi için tablosuna bakın [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -76,14 +76,14 @@ Bu makalede Data Factory-veri kopyalama aracını kullanarak verileri gösterilm
     ![Kaynak veri deposu s3 sayfası](./media/load-azure-data-lake-storage-gen2/source-data-store-page-s3.png)
     
 4. İçinde **belirtin Amazon S3 bağlantı** sayfasında, aşağıdaki adımları uygulayın:
-   1. Belirtin **erişim anahtarı kimliği** değeri.
-   2. Belirtin **gizli erişim anahtarı** değeri.
-   3. Tıklayın **Bağlantıyı Sına** ayarlarını doğrulamak için seçip **son**.
+
+    1. Belirtin **erişim anahtarı kimliği** değeri.
+    2. Belirtin **gizli erişim anahtarı** değeri.
+    3. Tıklayın **Bağlantıyı Sına** ayarlarını doğrulamak için seçip **son**.
+    4. Yeni bir bağlantı oluşturulduğunu görürsünüz. **İleri**’yi seçin.
    
-   ![Amazon S3 hesabı belirtin](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
-   
-   4. Yeni bir bağlantı oluşturulduğunu görürsünüz. **İleri**’yi seçin.
-   
+    ![Amazon S3 hesabı belirtin](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
+      
 5. İçinde **girdi dosyasını veya klasörünü seçin** sayfasında, üzerinden kopyalamak istediğiniz dosya ve klasör gözatın. Klasör/dosya seçin, **Seç**:
 
     ![Girdi dosyasını veya klasörünü seçin](./media/load-azure-data-lake-storage-gen2/choose-input-folder.png)
@@ -99,7 +99,7 @@ Bu makalede Data Factory-veri kopyalama aracını kullanarak verileri gösterilm
 8. İçinde **belirtin Azure Data Lake Storage bağlantı** sayfasında, aşağıdaki adımları uygulayın:
 
    1. "Depolama hesabı adı" özellikli hesabından açılır listenizi, Data Lake depolama Gen2'ı seçin.
-   2. **İleri**’yi seçin.
+   2. Seçin **son** bağlantı oluşturmak için. Sonra **İleri**’yi seçin.
    
    ![Azure Data Lake depolama Gen2 hesabı belirtin](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
 

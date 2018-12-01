@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 7f0334bdd1922c6ec410ca912ccfbf639e5c770f
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 6aa0ad6d13a7a75a0d9bfb520944c04cae11f1ab
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634447"
+ms.locfileid: "52682988"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure yönetim çözümlerine için veri koleksiyonu ayrıntıları
 Bu makalede bir listesini içerir [yönetim çözümleri](solutions.md) kullanımına Microsoft gelen bağlantılarla ilgili ayrıntılı belgelere.  Ayrıca kendi yöntemi ve Log Analytics ile veri toplama sıklığı hakkında bilgiler sağlar.  Farklı çözümlerin tanımlamak ve farklı yönetim çözümleri için veri akışı ve bağlantı gereksinimlerini anlamak için bu makaledeki bilgileri kullanabilirsiniz. 
@@ -41,7 +41,7 @@ Sütunların açıklamaları aşağıdaki gibidir:
 
 | **Yönetim çözümü** | **Platform** | **Microsoft İzleme Aracısı** | **Operations Manager Aracısı** | **Azure depolama alanı** | **Operations Manager gerekli?** | **Operations Manager aracısı veri yönetim grubu gönderilir.** | **Toplama sıklığı** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Activity Log Analytics](../../log-analytics/log-analytics-activity.md) | Azure | | | | | | bildirim |
+| [Activity Log Analytics](../../azure-monitor/platform/collect-activity-logs.md) | Azure | | | | | | bildirim |
 | [AD Değerlendirmesi](../../azure-monitor/insights/ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 gün |
 | [AD Çoğaltma Durumu](../../azure-monitor/insights/ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 gün |
 | [Aracı Durumu](solution-agenthealth.md) | Windows ve Linux | &#8226; | &#8226; | | | &#8226; | 1 dakika |
@@ -49,7 +49,7 @@ Sütunların açıklamaları aşağıdaki gibidir:
 | [Uyarı Yönetimi](../../azure-monitor/platform/alert-management-solution.md) (Zabbix) |Linux |&#8226; | | | | |1 dakika |
 | [Uyarı Yönetimi](../../azure-monitor/platform/alert-management-solution.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 dakika |
 | [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | yok |
-| [Application Insights Bağlayıcısı (Önizleme)](../../log-analytics/log-analytics-app-insights-connector.md) | Azure | | | |  |  | bildirim |
+| [Application Insights Bağlayıcısı (Önizleme)](../../azure-monitor/platform/app-insights-connector.md) | Azure | | | |  |  | bildirim |
 | [Otomasyon karma çalışanı](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | yok |
 | [Azure uygulama ağ geçidi analizi](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | bildirim |
 | **Yönetim çözümü** | **Platform** | **Microsoft İzleme Aracısı** | **Operations Manager Aracısı** | **Azure depolama alanı** | **Operations Manager gerekli?** | **Operations Manager aracısı veri yönetim grubu gönderilir.** | **Toplama sıklığı** |

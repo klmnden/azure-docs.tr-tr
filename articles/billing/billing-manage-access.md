@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: cwatson
-ms.openlocfilehash: 7a4e19ae5bf770949623f4cee7fa0d3033ccfa29
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 00b29ddf29ae334154d41eedd0bf9e66556e09ad
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582624"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720128"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Azure için fatura bilgilerini erişimi yönetme
 
@@ -72,9 +72,10 @@ Faturalandırma okuyucusu özellik Önizleme aşamasındadır ve henüz genel ol
 
 1. Seçin **erişim denetimi (IAM)**.
 1. Seçin **rol atamaları** Bu abonelik için tüm rol atamalarını görüntülemek için.
-1. Seçin **Ekle** > **rol ataması Ekle**.
+1. Seçin **rol ataması Ekle**.
 1. İçinde **rol** aşağı açılan listesinde **faturalandırma okuyucusu**.
 1. İçinde **seçin** metin eklemek istediğiniz kullanıcı için e-posta veya adı yazın.
+1. Kullanıcıyı seçin.
 1. **Kaydet**’i seçin.
 1. Birkaç dakika sonra kullanıcıya abonelik kapsamında faturalandırma okuyucusu rolü atanır.
 1. Faturalandırma okuyucusu, oturum açmak için bir bağlantı içeren bir e-posta alır.

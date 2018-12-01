@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 07a9d46dff17b43d01a6b411292cf240c32476f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0117a08c76288cda25da2196ec18433b3678e24b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983727"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724647"
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Dolaşım ve işbirliği Azure Machine Learning workbench'te
 
@@ -124,9 +124,9 @@ Proje için uzak bir Git deposu paylaşarak Alice ve Bob ayrıca ana dalda işbi
 ### <a name="use-the-azure-portal-to-add-users"></a>Kullanıcıları eklemek için Azure portalını kullanma
 <a name="portal"></a>
 
-Machine Learning denemesi hesapları, çalışma alanları ve projeler, Azure Resource Manager kaynaklarıdır. Rolleri atamak için kullanabileceğiniz **erişim denetimi** bağlantısını [Azure portalında](https://portal.azure.com). 
+Machine Learning denemesi hesapları, çalışma alanları ve projeler, Azure Resource Manager kaynaklarıdır. Rolleri atamak için kullanabileceğiniz **erişim denetimi (IAM)** bağlantısını [Azure portalında](https://portal.azure.com). 
 
-Kullanıcılara kullanarak eklemek istediğiniz kaynak bulmak **tüm kaynakları** görünümü. Seçin **erişim denetimi (IAM)** bağlantısını ve ardından **kullanıcı ekleme**. 
+Kullanıcılara kullanarak eklemek istediğiniz kaynak bulmak **tüm kaynakları** görünümü. Seçin **erişim denetimi (IAM)** bağlantısını ve ardından **rol ataması Ekle**. 
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
 

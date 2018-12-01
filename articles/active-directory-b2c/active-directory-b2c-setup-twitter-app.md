@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 819e6364aebab11097260c54575ab65914293ce7
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: f0f0b8e0cbb5fbab81a07a28a9d4a2c264be6545
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180538"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52719870"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir Twitter hesabıyla kaydolma ve oturum açma ayarlama
 
@@ -27,14 +27,14 @@ Bir Azure AD B2C kimlik sağlayıcısı olarak twitter'ı kullanmak için bir Tw
 2. Seçin **uygulama oluşturma**.
 3. Girin bir **uygulama adı** ve **uygulama açıklaması**.
 4. İçinde **Web sitesi URL'si**, girin `https://your-tenant.b2clogin.com`. Değiştirin `your-tenant` kiracınızın ada sahip. Örneğin, https://contosob2c.b2clogin.com.
-5. İçin **geri çağırma URL'si**, girin `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-policy-Id/oauth1/authresp`. Değiştirin `your-tenant` Kiracı adınızın adıyla ve `your-policy-Id` ilkenizin tanımlayıcısına sahip. Örneğin, `b2c_1A_signup_signin_twitter`. Tüm harfleri büyük harflerle Azure AD B2C ile Kiracı tanımlansa bile Kiracı adınızın girerken kullanmanız gerekir.
+5. İçin **geri çağırma URL'si**, girin `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Değiştirin `your-tenant` Kiracı adınızın adıyla ve `your-user-flow-Id` kullanıcı akışınızı tanıtıcısı ile. Örneğin, `b2c_1A_signup_signin_twitter`. Tüm harfleri büyük harflerle Azure AD B2C ile Kiracı tanımlansa bile Kiracı adınızın girerken kullanmanız gerekir.
 6. Sayfanın altındaki okuyun ve koşulları kabul edin ve ardından **Oluştur**.
 7. Üzerinde **uygulama ayrıntıları** sayfasında, **Düzenle > Ayrıntıları Düzenle**, kutusunu işaretlemeniz **Twitter etkinleştirme oturum**ve ardından **Kaydet**.
 8. Seçin **anahtarları ve belirteçleri** ve kayıt **tüketici API anahtarı** ve **tüketici API gizli anahtarı** daha sonra kullanılacak değerler.
 
 ## <a name="configure-twitter-as-an-identity-provider-in-your-tenant"></a>Kiracınızdaki bir kimlik sağlayıcısı olarak twitter'ı yapılandırma
 
-1. Oturum [Azure portalında](https://portal.azure.com/) Azure AD B2C kiracınızın genel Yöneticisi olarak.
+1. [Azure portalda](https://portal.azure.com/) Azure AD B2C kiracınızın genel yöneticisi olarak oturum açın.
 2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
 3. Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD B2C**’yi arayıp seçin.
 4. Seçin **kimlik sağlayıcıları**ve ardından **Ekle**.

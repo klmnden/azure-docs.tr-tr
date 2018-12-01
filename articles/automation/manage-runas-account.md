@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 569efa7fbbd111937f00ba3b1e28219c163e2221
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7bd84b42cfa61d199d70e02345f9229a45fd7704
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958168"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726177"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Otomasyonu farklı çalıştır hesaplarını yönetme
 
@@ -358,11 +358,11 @@ Sertifikayı yenilemek için aşağıdakileri yapın:
 
 Kaynaklarda Azure Otomasyonu'nda Otomasyon hedefleyen kontrol etmek için farklı çalıştır hesabı varsayılan olarak abonelikte katılımcı hakları verilir. RunAs hizmet sorumlusu yapabileceklerini sınırlamak gerekiyorsa, hesabı aboneliğe katkıda bulunan rolünden kaldırmak ve belirtmek istediğiniz kaynak grupları için katkıda bulunan olarak ekleyin.
 
-Azure portalında **abonelikleri** ve Otomasyon hesabınızın aboneliği seçin. Seçin **erişim denetimi (IAM)** ve Automation hesabınız için hizmet sorumlusu arayın (gibi görünüyor \<AutomationAccountName\>_unique tanımlayıcı). Hesabı seçin ve tıklayın **Kaldır** abonelikten kaldırmak için.
+Azure portalında **abonelikleri** ve Otomasyon hesabınızın aboneliği seçin. Seçin **erişim denetimi (IAM)** seçip **rol atamaları** sekmesi. Automation hesabınız için hizmet sorumlusu arayın (gibi görünüyor \<AutomationAccountName\>_unique tanımlayıcı). Hesabı seçin ve tıklayın **Kaldır** abonelikten kaldırmak için.
 
 ![Abonelik Katkıda Bulunanlar](media/manage-runas-account/automation-account-remove-subscription.png)
 
-Hizmet sorumlusu bir kaynak grubuna eklemek için Azure portal ve select kaynak grubunu seçin **erişim denetimi (IAM)**. Seçin **Ekle**, bu açılır **izinleri eklemek** sayfası. İçin **rol**seçin **katkıda bulunan**. İçinde **seçin** metin kutusuna farklı çalıştır hesabı için hizmet sorumlusu adını yazın ve listeden seçin. Değişiklikleri kaydetmek için **Kaydet**’e tıklayın. Kaynak grupları, Azure Otomasyonu Garklı Çalıştır hizmet sorumlusu erişimi vermek istediğiniz için bu adımları tamamlayın.
+Hizmet sorumlusu bir kaynak grubuna eklemek için Azure portal ve select kaynak grubunu seçin **erişim denetimi (IAM)**. Seçin **rol ataması Ekle**, bu açılır **rol ataması Ekle** sayfası. İçin **rol**seçin **katkıda bulunan**. İçinde **seçin** metin kutusuna farklı çalıştır hesabı için hizmet sorumlusu adını yazın ve listeden seçin. Değişiklikleri kaydetmek için **Kaydet**’e tıklayın. Kaynak grupları, Azure Otomasyonu Garklı Çalıştır hizmet sorumlusu erişimi vermek istediğiniz için bu adımları tamamlayın.
 
 ## <a name="misconfiguration"></a>Yanlış yapılandırma
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: a564e72cc695830edfa5092eddc1f4f9b80ba519
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b4f38d80bfddc342d83a3552efe5d4a60cf6350f
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583543"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680132"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Azure harcama limiti ve nasıl kaldırılacağını anlama
 
@@ -29,7 +29,7 @@ Azure harcama, kredi tutarı harcama önlemek için mevcut. Birden çok aya yay�
 
 Dağıttığınız Hizmetleri aboneliğinizle aylık miktarı harcadıklarını ücretleri kullanım sonuçlarınızda dahil edilirse, söz konusu fatura dönemindeki kalan için devre dışı bırakılır. 
 
-Örneğin, aboneliğinize dahil olan tüm kredi harcadığınız, dağıttığınız bulut Hizmetleri üretimden kaldırılır ve Azure sanal makineleriniz durdurulur ve serbest. Depolama hesaplarınız ve veritabanlarınızdaki verilerinde bir salt okunur şekilde kullanılabilir.
+Örneğin, aboneliğinize dahil olan tüm kredi harcadığınız, dağıttığınız bulut Hizmetleri üretimden kaldırılır ve Azure sanal makineleriniz durdurulur ve serbest. Depolama hesaplarınızı veriler salt okunur bir şekilde kullanılabilir.
 
 Abonelik teklifinizi birden çok aya yayılan kredi içeriyorsa, bir sonraki fatura döneminin başında, aboneliğiniz otomatik olarak yeniden etkinleştirilmesi. Ardından bulut hizmetlerinizi yeniden dağıtın ve depolama hesaplarınız ile veritabanlarınıza tam erişim sağlama.
 

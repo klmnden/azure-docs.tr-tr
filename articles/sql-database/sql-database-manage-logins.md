@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: f2627aab2598a706e717e8e1d18fd2f8c944835c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/29/2018
+ms.openlocfilehash: 56a121e8b8f7f929b16a0c3507d45402ff586b96
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161480"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682682"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Denetleme ve SQL veritabanı ve SQL veri ambarı veritabanına erişim izni verme
 
@@ -28,7 +28,7 @@ Güvenlik duvarı kurallarını yapılandırmadan sonra Azure'a bağlanma [SQL v
 >  Bu konu, Azure SQL server ve Azure SQL sunucusunda oluşturulan SQL veritabanı ve SQL veri ambarı veritabanları için geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır. 
 
 > [!TIP]
-> Bir öğretici için bkz. [Azure SQL veritabanınızın güvenliğini sağlama](sql-database-security-tutorial.md).
+> Bir öğretici için bkz. [Azure SQL veritabanınızın güvenliğini sağlama](sql-database-security-tutorial.md). Bu öğreticide uygulanmaz **Azure SQL veritabanı yönetilen örneği**.
 
 ## <a name="unrestricted-administrative-accounts"></a>Kısıtlanmamış yönetici hesapları
 Yönetici işlevlerine sahip iki yönetici hesabı (**Sunucu yöneticisi** ve **Active Directory yöneticisi**) vardır. SQL sunucunuzda bu yönetici hesaplarını tanımlamak için Azure portalını açın ve SQL sunucunuzun özelliklerine gidin.
@@ -68,6 +68,10 @@ Sunucu, veritabanı, sunucu düzeyi güvenlik duvarı kuralları oluşturma ve S
 
 
 ## <a name="additional-server-level-administrative-roles"></a>Ek sunucu düzeyinde yönetim rolleri
+
+>[!IMPORTANT]
+>Bu bölümde uygulanmaz **Azure SQL veritabanı yönetilen örneği** bu rolleri özgü olarak **Azure SQL veritabanı**.
+
 Daha önce anlatılan sunucu düzeyi yönetim rollerine ek olarak SQL Veritabanı, ana veritabanında iki adet kısıtlı yönetim rolü sunar. Bu rollere, veritabanı oluşturma veya oturum açma bilgilerini yönetme izinleri veren kullanıcı hesapları eklenebilir.
 
 ### <a name="database-creators"></a>Veritabanı oluşturucuları

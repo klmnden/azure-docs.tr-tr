@@ -8,12 +8,12 @@ ms.author: sahubbar
 ms.date: 09/15/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 35db7bf87c7b72fc31d820c9058b1df8415bd553
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ac5accc72369d811c0d36c4ef64cd8d523a061f3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031314"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724511"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Oluşturma ve Azure IOT Central uygulamanızda bir işi çalıştırma
 
@@ -56,8 +56,13 @@ Bu bölümde, oluşturup bir iş çalıştırmak gösterilir. Her adım fanı su
 
 Çalışmakta olan bir işi durdurmak istiyorsanız, durdurmak istediğiniz çalışan iş adına tıklayın. Seçin **Durdur** panelinde düğmesini. İş durumu, iş durduruldu yansıtacak şekilde değişti görürsünüz.
 
-> [!NOTE]
-> Bir işi durdurulduğunda yeniden başlatılamıyor. İstenen işlemleri ve cihazlarla başka bir iş oluşturmanız gerekir.
+   ![İşi Durdur](./media/howto-run-a-job/stopjob.png)
+
+### <a name="run-a-stopped-job"></a>Durdurulan bir işi çalıştırma
+
+Durdurulmuş bir iş çalıştırmak istiyorsanız, çalıştırmak istediğiniz durdurulmuş iş adına tıklayın. Seçin **çalıştırma** panelinde düğmesini. İş durumu işi yeniden çalıştığını yansıtacak şekilde değiştiğini görürsünüz.
+
+   ![Sürdürülen işi](./media/howto-run-a-job/resumejob.png)
 
 ## <a name="view-the-job-status"></a>İş durumunu görüntüleme
 

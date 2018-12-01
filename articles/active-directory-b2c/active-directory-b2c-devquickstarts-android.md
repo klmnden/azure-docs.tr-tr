@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/06/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 716cf9e47cd71d003513066d390f9dccb5c83dcb
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 4a4b9863d8f74592a8d9a700c3dbc850cd867331
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344135"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725565"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: Bir Android uygulaması kullanarak oturum açın
 
@@ -40,17 +40,17 @@ Ardından B2C dizininizde uygulama oluşturmanız gerekir. Bu, uygulamanız ile 
 * Uygulamanıza atanan **Uygulama Kimliği**'ni kopyalayın. Bu daha sonra gerekecektir.
 * Bir yerel istemcisi ayarlama **yeniden yönlendirme URI'si** (örneğin com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Buna da daha sonra ihtiyacınız olacak.
 
-## <a name="create-your-policies"></a>İlkelerinizi oluşturma
+## <a name="create-your-user-flows"></a>Kullanıcı akışlarınızı oluşturun
 
-Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu uygulama bir kimlik deneyimi içerir: birleşik bir oturum açma ve kaydolma. Açıklandığı gibi bu ilkeyi oluşturmak gereken [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). İlkeyi oluştururken şunları yaptığınızdan emin olun:
+Azure AD B2C'de, her kullanıcı deneyimi tarafından tanımlanan bir [kullanıcı akışı](active-directory-b2c-reference-policies.md), Azure AD davranışını denetleyen ilkeler kümesini olduğu. Bu uygulama bir kimlik deneyimi içerir: oturum açma ve kaydolma birleştirilmiş kullanıcı akışı. Açıklandığı gibi bu kullanıcı akışını oluşturmak gereken [kullanıcı akışı başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). İlkeyi oluştururken şunları yaptığınızdan emin olun:
 
-* Seçin **görünen ad** bir kaydolma ilkenizde özniteliği olarak.
-* Her ilkede uygulamanın talep ettiği **Görünen ad** ve **Nesne Kimliği** öğelerini seçin. Diğer talepleri de seçebilirsiniz.
-* Oluşturduktan sonra her ilkenin **Adını** kaydedin. `b2c_1_` önekine sahip olmalıdır.  Bu ilke adına daha sonra ihtiyacınız olacaktır.
+* Seçin **görünen ad** kullanıcı akışınızı kaydolma bir özniteliği olarak.
+* Seçin **görünen ad** ve **nesne kimliği** uygulama her kullanıcı akışı talepleri. Diğer talepleri de seçebilirsiniz.
+* Kopyalama **adı** oluşturduktan sonra her kullanıcı akış. `b2c_1_` önekine sahip olmalıdır.  Userjourney adı daha sonra ihtiyacınız olacak.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-İlkelerinizi oluşturduktan sonra uygulamanızı oluşturmaya hazırsınız.
+Kullanıcı akış oluşturduktan sonra uygulamanızı oluşturmaya hazırsınız.
 
 ## <a name="download-the-sample-code"></a>Örnek kodu indirin
 
@@ -69,7 +69,7 @@ AppAuth kullanan Azure AD B2C ile çalışma örnek sağladık [github'da](https
 URI bulma belirterek veya yetkilendirme uç noktası ve belirteç uç noktası URI belirterek Azure AD B2C ile iletişim yapılandırabilirsiniz. Her iki durumda da, aşağıdaki bilgiler gerekir:
 
 * Kiracı kimliği (örn. contoso.onmicrosoft.com)
-* İlke adı (örneğin B2C\_1\_SignUpIn)
+* Userjourney adı (örneğin B2C\_1\_SignUpIn)
 
 Yetkilendirme ve belirteç uç noktası URI otomatik olarak bulmayı seçerseniz, URI keşiften bilgileri getirmek gerekir. URI Kiracının değiştirerek oluşturulabilir bulma\_kimliği ve ilke\_aşağıdaki URL adı:
 

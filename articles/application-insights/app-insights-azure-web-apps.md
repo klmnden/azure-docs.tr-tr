@@ -9,16 +9,15 @@ ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
 ms.service: application-insights
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a031ede814a963f25f1a3a3fc9725d9e5670a8e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: f5179730223609def5ddb0e45317c2f986584139
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824651"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680489"
 ---
 # <a name="monitor-azure-web-app-performance"></a>Azure web uygulaması performansını izleme
 [Azure Portal](https://portal.azure.com)’da [Azure web uygulamalarınız](../app-service/app-service-web-overview.md) için uygulama performansını izleme özelliğini ayarlayabilirsiniz. [Azure Application Insights](app-insights-overview.md), uygulamanızı izleyerek uygulama etkinlikleriyle ilgili telemetriyi Application Insights hizmetine gönderir ve telemetri burada depolanıp analiz edilir. Burada, sorunların tanılanmasına, performansın geliştirilmesine ve kullanımın değerlendirilmesine yardımcı olan ölçüm grafikleri ve arama araçları kullanılabilir.
@@ -43,9 +42,9 @@ Azure’da çalışmakta olan bir web uygulamanız varsa zaten bazı izleme veri
 
     ![Web uygulamanızı izleme](./media/app-insights-azure-web-apps/create-resource.png)
 
-2. Kaynağınızı seçin oluşturulduktan sonra **denetimi ve web uygulaması için Application Insights uzantısını güncelleştirme** uzantının güncel olduğundan emin olmak için.
+2. Hangi kaynağı kullanacağını belirlemesinde belirttikten sonra her platformun uygulamanız için veri toplamak için application ınsights'ı nasıl istediğinizi seçebilirsiniz.
 
-     ![Kontrol edin ve site uzantısı'nı güncelleştirin](./media/app-insights-azure-web-apps/check-and-update.png)
+    ![Platform başına seçenekleri belirleyin](./media/app-insights-azure-web-apps/choose-options.png)
 
 3. Application Insights yüklendikten sonra **web uygulamanızı izleyin** .
 
@@ -64,7 +63,7 @@ Azure’da çalışmakta olan bir web uygulamanız varsa zaten bazı izleme veri
 
 *Application Insights’ı nasıl kaldırabilirim veya başka bir kaynağa nasıl geçiş yapabilirim?*
 
-* Azure’da web uygulaması denetimi dikey penceresini açın ve Geliştirme Araçları bölümünden **Uzantılar**’ı açın. Application Insights uzantısını silin. Sonra, İzleme bölümünden Application Insights’ı seçin ve istediğiniz kaynağı oluşturun veya seçin.
+* Azure, web uygulaması denetimi dikey penceresini açın ve ayarları altında **Application Insights**. Application ınsights'ı tıklatarak açabilirsiniz **devre dışı** , üst veya yeni bir kaynak seçin **kaynağınızı değişiklik** bölümü.
 
 ## <a name="build-the-app-with-application-insights"></a>Uygulamayı Application Insights ile derleme
 Application Insights, uygulamanıza bir SDK yükleyerek daha ayrıntılı telemetri sağlayabilir. Bunların başında izleme günlüklerini toplama, [özel telemetri yazma](app-insights-api-custom-events-metrics.md) ve daha ayrıntılı özel durum raporları alma gelir.

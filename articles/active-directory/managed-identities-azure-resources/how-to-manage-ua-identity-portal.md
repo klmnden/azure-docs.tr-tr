@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 2f2f338f7c4ddb885bc909f49815783e616b94c8
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: d54820acf8742ad2f95e8cc8527d9e252ffe3c30
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300464"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720144"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Oluşturma, listeleme, silme veya Azure portalını kullanarak bir kullanıcı tarafından atanan yönetilen kimlik için rol atama
 
@@ -69,18 +69,18 @@ Kullanıcı tarafından atanan bir yönetilen kimlik silmek için hesabınızın
 
 ![Kullanıcı tarafından atanan yönetilen kimlik Sil](./media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
 
-## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Kullanıcı tarafından atanan bir yönetilen kimlik rol atama
+## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Kullanıcı tarafından atanan bir yönetilen kimlik rol atama 
 
 Kullanıcı tarafından atanan bir yönetilen kimlik bir rol atamak için hesabınızın gerekli [kullanıcı erişimi Yöneticisi](/azure/role-based-access-control/built-in-roles#user-access-administrator) rol ataması.
 
 1. Oturum [Azure portalında](https://portal.azure.com) kullanıcı tarafından atanan yönetilen kimlikleri listelemek için Azure aboneliği ile ilişkili bir hesap kullanarak.
 2. Arama kutusuna *yönetilen kimlikleri*ve Hizmetleri altında **yönetilen kimlikleri**.
 3. Aboneliğiniz için kullanıcı tarafından atanan yönetilen kimliklerinin bir listesi döndürülür.  Kullanıcı tarafından atanan ve bir rol atamak istediğiniz yönetilen kimlik seçin.
-4. Seçin **erişim denetimi (IAM)** seçip **Ekle**.
+4. Seçin **erişim denetimi (IAM)** seçip **rol ataması Ekle**.
 
    ![Kullanıcı tarafından atanan yönetilen kimlik Başlat](./media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
 
-5. Ekle izinler dikey penceresinde aşağıdaki değerleri yapılandırın ve ardından **Kaydet**:
+5. Ekle rol atama dikey penceresinde, aşağıdaki değerleri yapılandırın ve ardından **Kaydet**:
    - **Rol** -rol atamak için
    - **Erişim Ata** -kullanıcı tarafından atanan atamak için kaynak yönetilen kimlik
    - **Seçin** -üye erişimi atamak için

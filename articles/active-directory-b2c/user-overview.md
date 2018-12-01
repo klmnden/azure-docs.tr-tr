@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2354bf02b47c9fbc74dbc0dab07e30ca321279cf
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: f517754a8076fc18ed29f7db49f6ff9bfc6c7b3d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669903"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725769"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Kullanıcı hesapları Azure Active Directory B2C, genel bakış
 
@@ -25,7 +25,7 @@ Hesap aşağıdaki türleri kullanılabilir:
 
 - **İş hesabı** - bir iş hesabı, bir kiracı kaynaklara erişebilir ve sahip bir yönetici rolü, kiracılar yönetebilir.
 - **Konuk hesabı** -bir Konuk hesabı yalnızca bir Microsoft hesabı veya uygulamalara erişmek veya kiracılar yönetmek için kullanılan bir Azure Active Directory kullanıcısı olabilir. 
-- **Tüketici hesabı** -bir tüketici hesabı bir Azure AD B2C uygulamasında bir kaydolma İlkesi aracılığıyla veya Azure AD Graph API'si kullanılarak oluşturulur ve Azure AD B2C'ye kayıtlı uygulamalar kullanıcılar tarafından kullanılır. 
+- **Tüketici hesabı** -bir tüketici hesabı bir Azure AD B2C uygulamasında kaydolma kullanıcı akışı aracılığıyla veya Azure AD Graph API'si kullanılarak oluşturulur ve Azure AD B2C'ye kayıtlı uygulamalar kullanıcılar tarafından kullanılır. 
 
 ## <a name="work-account"></a>İş hesabı
 
@@ -73,7 +73,7 @@ Ayrıca [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/a
 
 ## <a name="consumer-user"></a>Tüketici kullanıcı
 
-Tüketici kullanıcı Azure AD B2C ile güvenliği sağlanan uygulamalar için oturum açabilirsiniz, ancak Azure portalı gibi Azure kaynaklarına erişemez.  Tüketici kullanıcı yerel bir hesap veya Facebook veya Twitter gibi Federasyon hesapları kullanabilirsiniz. Bir tüketici hesabı kullanılarak oluşturulan bir [kaydolma veya oturum açma ilkesi](../active-directory-b2c/active-directory-b2c-reference-policies.md).
+Tüketici kullanıcı Azure AD B2C ile güvenliği sağlanan uygulamalar için oturum açabilirsiniz, ancak Azure portalı gibi Azure kaynaklarına erişemez.  Tüketici kullanıcı yerel bir hesap veya Facebook veya Twitter gibi Federasyon hesapları kullanabilirsiniz. Bir tüketici hesabı kullanılarak oluşturulan bir [kaydolma veya oturum açma kullanıcı akışı](../active-directory-b2c/active-directory-b2c-reference-policies.md).
 
 Özel kullanıcı öznitelikleri kullanarak bir tüketici kullanıcı hesabı oluşturulduğunda, toplanan verileri belirtebilirsiniz. Daha fazla bilgi için [Azure Active Directory B2C'de özel öznitelikleri tanımlamak](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md).
 

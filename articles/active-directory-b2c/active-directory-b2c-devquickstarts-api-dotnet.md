@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2e93a8340699d1fcf68c53baa87990e799bc933d
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3283e7b0e0b7e20d4b8522f08ab2460504fa355f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447600"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723440"
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: .NET web API'si oluşturma
 
@@ -39,17 +39,17 @@ Ardından B2C dizininizde bir web API uygulaması oluşturmanız gerekir. Bu, uy
 * **Uygulama Kimliği URI'si** alanına bir uygulama tanımlayıcısı girin. Tam **Uygulama Kimliği URI'si** değerini kopyalayın. Buna daha sonra ihtiyacınız olacak.
 * **Yayımlanmış kapsamlar** menüsü üzerinden izinler ekleyin.
 
-## <a name="create-your-policies"></a>İlkelerinizi oluşturma
+## <a name="create-your-user-flows"></a>Kullanıcı akışlarınızı oluşturun
 
-Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Azure AD B2C ile iletişim kurmak için bir ilke oluşturmanız gerekir. [İlke başvurusu makalesinde](active-directory-b2c-reference-policies.md) açıklanan birleşik kaydolma/oturum açma ilkesinin kullanılması önerilir. İlkeyi oluştururken şunları yaptığınızdan emin olun:
+Azure AD B2C'de, her kullanıcı deneyimi tarafından tanımlanan bir [kullanıcı akışı](active-directory-b2c-reference-policies.md). Azure AD B2C ile iletişim kurmak için bir kullanıcı akışı oluşturmanız gerekir. Birleştirilmiş kullanıcı oturumu açma kaydolma/oturum açma akışını kullanarak açıklandığı öneririz [kullanıcı akışı başvurusu makalesinde](active-directory-b2c-reference-policies.md). Kullanıcı akış oluşturduğunuzda, emin olun:
 
-* İlkenizde, **Görünen ad** ve diğer kaydolma özniteliklerini seçin.
-* Her ilke için uygulamanın talep ettiği gibi **Görünen ad** ve **Nesne Kimliği** öğelerini seçin. Diğer talepleri de seçebilirsiniz.
-* Oluşturduktan sonra her ilkenin **Adını** kaydedin. Bu ilke adına daha sonra ihtiyacınız olacaktır.
+* Seçin **görünen ad** ve diğer kaydolma özniteliklerini kullanıcı akışınızı.
+* Seçin **görünen ad** ve **nesne kimliği** her kullanıcı akış için uygulamanın talep ettiği gibi. Diğer talepleri de seçebilirsiniz.
+* Kopyalama **adı** oluşturduktan sonra her kullanıcı akış. Userjourney adı daha sonra ihtiyacınız olacak.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-İlkeyi başarıyla oluşturduktan sonra uygulamanızı oluşturmaya hazırsınız.
+Kullanıcı akışı başarıyla oluşturduktan sonra uygulamanızı oluşturmaya hazırsınız.
 
 ## <a name="download-the-code"></a>Kodu indirme
 
@@ -63,20 +63,20 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 ### <a name="update-the-azure-ad-b2c-configuration"></a>Azure AD B2C yapılandırmasını güncelleştirme
 
-Örneğimiz, tanıtım kiracımızın ilkelerini ve istemci kimliğini kullanacak şekilde yapılandırılmıştır. Kendi kiracınızı kullanmak istiyorsanız aşağıdakileri yapmanız gerekir:
+Bizim örneğimiz, tanıtım kiracımızın istemci kimliği ve kullanıcı akışları kullanmak için yapılandırılır. Kendi kiracınızı kullanmak istiyorsanız aşağıdakileri yapmanız gerekir:
 
 1. `TaskService` projesinde `web.config` öğesini açın ve şu değerleri değiştirin:
     * kiracı adınızla `ida:Tenant`
     * Web API uygulamanızın kimliği ile `ida:ClientId`
-    * "Kaydolma veya Oturum açma" ilkenizin adıyla `ida:SignUpSignInPolicyId`
+    * `ida:SignUpSignInPolicyId` ile "Kaydolma veya oturum açma" kullanıcı Akış adı
 
 2. `TaskWebApp` projesinde `web.config` öğesini açın ve şu değerleri değiştirin:
     * kiracı adınızla `ida:Tenant`
     * Web uygulamanızın kimliği ile `ida:ClientId`
     * Web uygulamanızın gizli anahtarı ile `ida:ClientSecret`
-    * "Kaydolma veya Oturum açma" ilkenizin adıyla `ida:SignUpSignInPolicyId`
-    * "Profil Düzenleme" ilkenizin adıyla `ida:EditProfilePolicyId`
-    * "Parola Sıfırlama" ilkenizin adıyla `ida:ResetPasswordPolicyId`
+    * `ida:SignUpSignInPolicyId` ile "Kaydolma veya oturum açma" kullanıcı Akış adı
+    * `ida:EditProfilePolicyId` "Profili Düzenle" kullanıcı akışı adıyla
+    * `ida:ResetPasswordPolicyId` ile "Parolayı Sıfırla" kullanıcı Akış adı
     * "Uygulama İlkesi URI'si" ile `api:ApiIdentifier`
 
 
@@ -169,7 +169,7 @@ public class TasksController : ApiController
 
 ### <a name="get-user-information-from-the-token"></a>Belirteçten kullanıcı bilgilerini alma
 
-`TasksController`, görevleri, her görevin göreve "sahip olan" kullanıcı ile ilişkilendirildiği bir veritabanında depolar. Sahip, kullanıcının **nesne kimliği** ile tanımlanır. (Tüm ilkelerinize uygulama talebi olarak nesne kimliği eklemeniz gerekmesinin nedeni budur.)
+`TasksController`, görevleri, her görevin göreve "sahip olan" kullanıcı ile ilişkilendirildiği bir veritabanında depolar. Sahip, kullanıcının **nesne kimliği** ile tanımlanır. (Bir uygulama olarak nesne kimliği eklemeniz gerekmesinin nedeni budur tüm akışlarınız kullanıcı talebi.)
 
 ```CSharp
 // Controllers\TasksController.cs
@@ -204,6 +204,6 @@ public IEnumerable<Models.Task> Get()
 
 Son olarak hem `TaskWebApp` hem de `TaskService` öğesini oluşturup çalıştırın. Kullanıcının yapılacaklar listesinde bazı görevler oluşturun ve istemciyi durdurmanız ve yeniden başlatmanız sonrasında bile API içinde nasıl kalıcı olduğuna dikkat edin.
 
-## <a name="edit-your-policies"></a>İlkelerinizi düzenleme
+## <a name="edit-your-user-flows"></a>Kullanıcı akışlarınızı düzenleyin
 
-Azure AD B2C kullanarak API güvenliğini sağladıktan sonra Kaydolma/Oturum Açma ilkelerinizi deneyebilir ve API üzerindeki etkileri (veya eksiklikleri) görüntüleyebilirsiniz. Ayrıca ilkelerdeki uygulama talepleri denetleyebilir ve web API'sinde kullanılabilen kullanıcı bilgilerini değiştirebilirsiniz. Eklediğiniz tüm talepler bu makalede daha önce açıklandığı gibi `ClaimsPrincipal` nesnesindeki .NET MVC web API'nizde kullanılabilir olacaktır.
+Azure AD B2C kullanarak API sağladıktan sonra oturum-içinde açma/kaydolma kullanıcı akışı ile denemeler yapın ve etkileri görüntüleyebilir (veya eksiklikleri) API. Kullanıcı akışları uygulama talepleri işlemek ve web API'SİNDE kullanılabilen kullanıcı bilgilerini değiştirebilirsiniz. Eklediğiniz tüm talepler bu makalede daha önce açıklandığı gibi `ClaimsPrincipal` nesnesindeki .NET MVC web API'nizde kullanılabilir olacaktır.

@@ -3,29 +3,43 @@ title: Azure Haritalar ile fare olayları işlemek | Microsoft Docs
 description: Harita olayları ile etkileşimli bir Javascript harita yapma
 author: jingjing-z
 ms.author: jinzh
-ms.date: 09/14/2018
+ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 7f033da1f677a956f953d6a7c206710d1773fbfc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b9174d98dd6d4dfb5353d6976d074bb4c91373dc
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245469"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678330"
 ---
 # <a name="interact-with-the-map---mouse-events"></a>Eşleme - fare olayları ile etkileşim kurma
 
-Bu makalede nasıl kullanılacağını gösterir [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) haritanın etkileşimli hale getirmek için.
+Bu makalede nasıl kullanılacağını gösterir [harita sınıfı](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) [olayları](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) olayları harita üzerinde ve harita farklı katmanlardaki vurgulamak için özellik. Ayrıca, harita sınıf olayları özelliği bir HTML işaretçisi ile etkileşim kurduğunuzda olayları vurgulamak için nasıl kullanılacağını gösterir.
 
-## <a name="try-out-the-code"></a>Kodu deneyin
+## <a name="interact-with-the-map"></a>Haritayla etkileşim kurabilir
 
-<iframe height='618' scrolling='no' title='Harita – fare olayları ile etkileşim kurma' src='//codepen.io/azuremaps/embed/bLZEWd/?height=618&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Kalem bkz <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>Haritası – fare olayları ile etkileşimde bulunma</a> Azure haritalar tarafından (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) üzerinde <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Harita – fare olayları ile etkileşim kurma' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Kalem bkz <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>Haritası – fare olayları ile etkileşimde bulunma</a> Azure haritalar tarafından (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) üzerinde <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Harita yukarıdaki yürütmek ve sağ tarafta vurgulanan ilişkili fare olayları görebilirsiniz. Tıklayabilirsiniz **JS sekmesini** görüntüleme ve JavaScript kodunu düzenleyin. De tıklayabilirsiniz **CodePen üzerinde düzenleme** düğmesi ve CodePen üzerinde kod düzenleyin.
+
+## <a name="interact-with-map-layers"></a>Harita katmanları ile etkileşim kurma
+
+<iframe height='600' scrolling='no' title='Harita – katman olayları etkileşim kurma' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Kalem bkz <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>Haritası – katman olayları etkileşim</a> Azure haritalar tarafından (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) üzerinde <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+Yukarıdaki kod, sembol katman ile etkileşime geçtiğimiz sırada yukarı hazırlanın olayları adını vurgular. Tüm sembol, kabarcık, satır ve Çokgen katmanı aynı olay kümesini destekler. Döşeme katmanı bu olayları desteklemez.
+
+## <a name="interact-with-html-marker"></a>HTML işaretçisi ile etkileşim kurma
+
+<iframe height='500' scrolling='no' title='Harita - HTML işaret olayları etkileşim kurma' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Kalem bkz <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>eşleme - HTML işaret olayları etkileşim</a> Azure haritalar tarafından (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) üzerinde <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+Yukarıdaki kod, bir HTML işaretçiye Javascript harita olaylar ekler. Ayrıca, HTML işaretçisi ile etkileşime geçtiğimiz sırada yukarı hazırlanın olayları adını vurgular.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

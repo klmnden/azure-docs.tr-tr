@@ -9,15 +9,15 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/21/2018
+ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c58c1972fee782a93f9641d00376db916021f95
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4a1be3b948ca5571972179e08ba8b85657b0bb8d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634498"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725174"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API'si için Azure Cosmos DB Java SDK: yayın notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -52,6 +52,23 @@ SQL API Java SDK'sı, zaman uyumlu işlemler destekler. Zaman uyumsuz desteği k
 </table></br>
 
 ## <a name="release-notes"></a>Sürüm notları
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Çok bölgeli yazma desteği için doğrudan modu eklendi.
+* Bir proxy sunucudan ServiceUnavailable özel durumlar olarak durum IOExceptions işlemek için destek eklendi.
+* Uç nokta bulma yeniden deneme ilkesi bir hata düzeltildi.
+* Null işaretçi BaseDatabaseAccountConfigurationProvider içinde özel durumlar değil emin olmak için bir hata düzeltildi.
+* Sorgu yineleyici null değerlere döndürmeyen emin olmak için bir hata düzeltildi.
+* Büyük PartitionKey izin emin olmak için bir hata düzeltildi
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+* Çok bölgeli yazma desteği için ağ geçidi modu eklendi.
+
+### <a name="a-name11641164"></a><a name="1.16.4"/>1.16.4
+* Bir sorgu aralıklarını okuma bölüm anahtarı olarak düzeltildi.
+
+### <a name="a-name11631163"></a><a name="1.16.3"/>1.16.3
+* Devamlılık belirteci üstbilgi boyutu DirectHttps modunda ayarlama bir hata düzeltildi.
 
 ### <a name="a-name11621162"></a><a name="1.16.2"/>1.16.2
 * Eklenen akış yük devretme desteği.
@@ -205,6 +222,10 @@ Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm iste
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.1.1](#2.1.1) |21 Kasım 2018 |--- |
+| [2.0.0](#2.0.0) |21 Eylül 2018 |--- |
+| [1.16.4](#1.16.4) |10 Eylül 2018 |--- |
+| [1.16.3](#1.16.3) |09 Eylül 2018 |--- |
 | [1.16.2](#1.16.2) |29 Haziran 2018'e |--- |
 | [1.16.1](#1.16.1) |16 Mayıs 2018 |--- |
 | [1.16.0](#1.16.0) |15 Mart 2018 |--- |

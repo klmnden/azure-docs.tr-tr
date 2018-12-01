@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 5ea9790695b8afe7bd42b98b071869756b301350
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 61f0cff661c79f994a5b3c20646996f617a31b7e
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42447450"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52683073"
 ---
 # <a name="splunk-to-log-analytics"></a>Log analytics'e Splunk
 
@@ -61,7 +59,7 @@ Aşağıdaki tabloda, Log analytics'te Splunk işlevleri için eşdeğer işlevl
 | Normal ifade | Normal ifade ile eşleşir | Splunk'ta, `regex` işleçtir. Log Analytics'te, ilişkisel bir işlecidir. |
 | searchmatch | == | Splunk'ta, `searchmatch` tam dize için arama sağlar.
 | rastgele | rand()<br>rand(n) | Splunk'ın işlevi, 2 sıfırdan bir sayıyı döndürür<sup>31</sup>-1. Log Analytics'e 0,0 ile 1,0, arasında bir sayı döndürür veya 0 ile n-1 arasında sağlanan bir parametre değilse.
-| şimdi | Now() | (1)
+| şimdi | now() | (1)
 | relative_time | ToTimeSpan() | (1)<br>Log Analytics'te relative_time (datetimeVal, offsetVal) Splunk'ın denk datetimeVal + totimespan(offsetVal) şeklindedir.<br>Örneğin, <code>search &#124; eval n=relative_time(now(), "-1d@d")</code> olur <code>...  &#124; extend myTime = now() - totimespan("1d")</code>.
 
 (1 Splunk) işlevi ile çağrılan `eval` işleci. Log Analytics'te bir parçası olarak kullanıldığı `extend` veya `project`.<br>(2 Splunk) işlevi ile çağrılan `eval` işleci. Log Analytics'te ile kullanılabilmesi için `where` işleci.
@@ -80,7 +78,7 @@ Splunk içinde atlayabilirsiniz `search` anahtar sözcüğü tırnak işareti ol
 | |  | |
 |:---|:---|:---|
 | Splunk | **Arama** | <code>search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h</code> |
-| Log Analytics | **Bul** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
+| Log Analytics | **find** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 | | |
 
 ### <a name="filter"></a>Filtre
@@ -126,7 +124,7 @@ Splunk de sahip bir `eval` ile karşılaştırılabilir olmaması gereken işlev
 | | |
 
 
-### <a name="rename"></a>Yeniden adlandır 
+### <a name="rename"></a>Yeniden Adlandır 
 Azure Log Analytics, yeniden adlandırmak ve yeni bir alan oluşturmak için işleç kullanır. Splunk sahip iki ayrı işleçler `eval` ve `rename`.
 
 | |  | |

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8e1c58f2d60ee95189fb583e032d8748fedb88d4
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 2ba34a6d1ecc33e8a4d355aeacb0da8a764a784d
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620226"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679538"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Birden çok makine için güncelleştirmeleri yönetme
 
@@ -128,7 +128,7 @@ Altında bir veya daha fazla sanal makineler için yeni bir güncelleştirme da�
 - **Ad**: güncelleştirme dağıtımını tanımlamak için benzersiz bir ad girin.
 - **İşletim sistemi**: seçin **Windows** veya **Linux**.
 - **Güncelleştirilecek gruplar (önizleme)**: Dağıtımınıza dahil edilecek Azure sanal makinelerinin dinamik grubunu derlemek için bir abonelik, kaynak grupları, konumlar ve etiketler birleşimine göre bir sorgu tanımlayın. Daha fazla bilgi edinmek için bkz. [Dinamik Gruplar](automation-update-management.md#using-dynamic-groups)
-- **Güncelleştirilecek makineler**: kayıtlı arama, içeri aktarılan grubu seçin ya da güncelleştirmek istediğiniz makineleri seçin için makineleri seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir. Güncelleştirme dağıtımı zamanlayabilirsiniz önce bilgisayarın sistem durumunu görebilirsiniz. Log Analytics'te bilgisayar grupları oluşturmaya yönelik farklı yöntemler hakkında bilgi edinmek için bkz. [Computer groups in Log Analytics (Log Analytics'te bilgisayar grupları)](../log-analytics/log-analytics-computer-groups.md)
+- **Güncelleştirilecek makineler**: kayıtlı arama, içeri aktarılan grubu seçin ya da güncelleştirmek istediğiniz makineleri seçin için makineleri seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir. Güncelleştirme dağıtımı zamanlayabilirsiniz önce bilgisayarın sistem durumunu görebilirsiniz. Log Analytics'te bilgisayar grupları oluşturmaya yönelik farklı yöntemler hakkında bilgi edinmek için bkz. [Computer groups in Log Analytics (Log Analytics'te bilgisayar grupları)](../azure-monitor/platform/computer-groups.md)
 
   ![Yeni güncelleştirme dağıtım bölmesi](./media/manage-update-multi/update-select-computers.png)
 

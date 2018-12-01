@@ -7,25 +7,25 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5634c14ee2b25600d66ff0f2c7385b2aaa9f1810
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a1457b2aa571b58502b7d819eb3bcf142c10dac1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699507"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725072"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C özel ilkeleri
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Özel ilkeler, Azure Active Directory (Azure AD) B2C kiracınızın davranışlarını tanımlayan yapılandırma dosyalarıdır. Yerleşik ilkeler, en yaygın kimlik görevleri için Azure AD B2C Portalı'nda önceden tanımlanmıştır. Özel ilkeler, tam olarak birçok farklı görevleri tamamlamak için kimlik geliştiriciler tarafından düzenlenebilir.
+Özel ilkeler, Azure Active Directory (Azure AD) B2C kiracınızın davranışlarını tanımlayan yapılandırma dosyalarıdır. Kullanıcı akışları, en yaygın kimlik görevleri için Azure AD B2C Portalı'nda önceden tanımlanmıştır. Özel ilkeler, tam olarak birçok farklı görevleri tamamlamak için kimlik geliştiriciler tarafından düzenlenebilir.
 
-## <a name="comparing-built-in-policies-and-custom-policies"></a>Yerleşik ve özel ilkelerinin karşılaştırma
+## <a name="comparing-user-flows-and-custom-policies"></a>Kullanıcı akışları ve özel ilkeler karşılaştırma
 
-| | Yerleşik ilkeler | Özel ilkeler |
+| | Kullanıcı akışları | Özel ilkeler |
 |-|-------------------|-----------------|
 | Hedef kullanıcı | Tüm uygulama geliştiricilerin ile veya kimlik uzmanlığı gerektirmeden. | Kimlik uzmanları, sistem tümleştiricilerinin, danışmanlarımızı ve şirket içi kimlik ekipler. Bunlar, Openıdconnect akışlarıyla kendinizi rahat hissedene ve kimlik sağlayıcısı ve talep tabanlı kimlik doğrulaması anlayın. |
 | Yapılandırma yöntemi | Azure portalı ile bir kullanıcı dostu kullanıcı arabirimi (UI). | XML dosyalarını doğrudan düzenleyerek ve ardından Azure portalında yükleme. |
@@ -33,7 +33,7 @@ ms.locfileid: "43699507"
 | Öznitelik özelleştirme | Standart ve özel öznitelikleri. | Aynı |
 | Belirteç ve oturum yönetimi | Özel belirteç ve birden çok oturumu seçeneği. | Aynı |
 | Kimlik Sağlayıcıları | Önceden tanımlanmış yerel ya da sosyal sağlayıcısı. | OIDC standartlara dayalı, OAUTH ve SAML. |
-| Kimlik görevleri | Kaydolma veya oturum açma ile yerel veya birçok sosyal hesap.<br><br>Self Servis parola sıfırlama.<br><br>Profil düzenleme.<br><br>Çok faktörlü kimlik doğrulaması.<br><br>Belirteçleri ve oturum özelleştirin.<br><br>Erişim belirteci akışlar. | Özel kimlik sağlayıcılarını kullanarak yerleşik ilkeleri olarak aynı görevleri tamamlamak veya özel kapsamlarını kullanın.<br><br>Bir kullanıcı hesabı, kayıt zamanında başka bir sistemde sağlayın.<br><br>Kendi e-posta hizmeti sağlayıcısı'nı kullanarak bir Hoş Geldiniz e-posta gönderin.<br><br>Bir kullanıcı deposunun dışında Azure AD B2C'yi kullanın.<br><br>Bir API kullanarak güvenilir bir sistem bilgileriyle sağlanan kullanıcı doğrulayın. |
+| Kimlik görevleri | Kaydolma veya oturum açma ile yerel veya birçok sosyal hesap.<br><br>Self Servis parola sıfırlama.<br><br>Profil düzenleme.<br><br>Çok faktörlü kimlik doğrulaması.<br><br>Belirteçleri ve oturum özelleştirin.<br><br>Erişim belirteci akışlar. | Özel kimlik sağlayıcılarını kullanarak kullanıcı akışları olarak aynı görevleri tamamlamak veya özel kapsamlarını kullanın.<br><br>Bir kullanıcı hesabı, kayıt zamanında başka bir sistemde sağlayın.<br><br>Kendi e-posta hizmeti sağlayıcısı'nı kullanarak bir Hoş Geldiniz e-posta gönderin.<br><br>Bir kullanıcı deposunun dışında Azure AD B2C'yi kullanın.<br><br>Bir API kullanarak güvenilir bir sistem bilgileriyle sağlanan kullanıcı doğrulayın. |
 
 ## <a name="policy-files"></a>İlke dosyaları
 
@@ -43,7 +43,7 @@ ms.locfileid: "43699507"
 - **Dosya uzantıları** -kiracınız için benzersiz yapılandırma değişikliklerini tutar.
 - **Bağlı olan taraf (RP) dosya** -uygulama veya hizmet tarafından çağrılan tek görev odaklı dosyası (bir bağlı olan taraf da bilinir). Benzersiz her görev kendi RP gerektirir ve gereksinimleri marka bağlı olarak, sayı "uygulama kullanım örneklerinin toplam sayısı x toplam." olabilir
 
-Yukarıda gösterilen üç dosya deseni Azure AD B2C'yi yerleşik ilkeleri izleyin, ancak Azure portalında arka planda uzantıları dosyasına değişiklikler yaparken Geliştirici yalnızca RP dosya görür.
+Azure AD B2C kullanıcı akışlarında yukarıda gösterilen üç dosya deseni izleyin, ancak Azure portalında arka planda uzantıları dosyasına değişiklikler yaparken Geliştirici yalnızca RP dosya görür.
 
 ## <a name="custom-policy-core-concepts"></a>Özel ilke temel kavramlar
 

@@ -4,18 +4,17 @@ description: Azure Site Recovery için yapılandırılmış bir kurtarma Hizmetl
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: f351bd715baf86407c249e13aa02cf3c37e374c4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c3e643052c3a4879f1b5cd91e5e58be508880ce5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212429"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722267"
 ---
-# <a name="delete-a-site-recovery-recovery-services-vault"></a>Site Recovery kurtarma Hizmetleri kasasını silme
+# <a name="delete-a-site-recovery-services-vault"></a>Site kurtarma Hizmetleri kasasını silme
 
 Bağımlılıklar Azure Site Recovery kasası silmesi engelleyebilirsiniz. Yapmanız gereken eylemler Site kurtarma senaryosuna bağlı olarak değişiklik gösterir. Azure Yedekleme'de kullanılan bir kasayı silme için bkz: [Azure bir Backup kasasını silme](../backup/backup-azure-delete-vault.md).
 

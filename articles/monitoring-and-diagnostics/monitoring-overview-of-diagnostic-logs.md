@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 1fc1d3b4418b178921dc32ee834342b75fa31f20
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: fe564e9809a3621ca04e4dad75488fb255f7dc0e
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311084"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682954"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Toplama ve Azure kaynaklarınızdan günlük verilerini kullanma
 
@@ -40,7 +40,7 @@ Tanılama günlükleri ile yapabileceklerinizden bazıları şunlardır:
 
 * Kaydetmek için bir [ **depolama hesabı** ](monitoring-archive-diagnostic-logs.md) denetim veya el ile İnceleme. Bekletme süresi (gün cinsinden) kullanarak belirtebilirsiniz **kaynak tanılama ayarlarını**.
 * [Bunları Stream **Event Hubs** ](monitoring-stream-diagnostic-logs-to-event-hubs.md) alımı üçüncü taraf hizmeti veya Power BI gibi özel bir analiz çözümü için.
-* Bunları analiz [Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+* Bunları analiz [Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md)
 
 Günlükleri yayan biri ile aynı abonelikte değil Event Hubs ad alanı veya bir depolama hesabını kullanabilirsiniz. Ayarı yapılandıran kullanıcının her iki aboneliğin uygun RBAC erişiminiz olması gerekir.
 
@@ -235,4 +235,4 @@ Tanılama ayarı ekleme nerede etkinleştirebilir, devre dışı bırakmak veya 
 
 * [Kaynak tanılama günlükleri için Stream **olay hub'ları**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Azure İzleyici REST API'sini kullanarak kaynak tanılama ayarlarını değiştirme](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Log Analytics ile Azure depolama biriminden günlüklerini çözümleme](../log-analytics/log-analytics-azure-storage.md)
+* [Log Analytics ile Azure depolama biriminden günlüklerini çözümleme](../azure-monitor/platform/collect-azure-metrics-logs.md)

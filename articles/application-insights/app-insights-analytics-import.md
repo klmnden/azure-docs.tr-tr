@@ -9,16 +9,15 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5550bbb95b24e12510c69bc3952c346250786994
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 40b2959a59acb10443dfa917814f42cf98954640
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960013"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682716"
 ---
 # <a name="import-data-into-analytics"></a>Analiz verilerini içeri aktarma
 

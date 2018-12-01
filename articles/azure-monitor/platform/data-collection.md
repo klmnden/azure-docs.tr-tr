@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 756e1426d417c47210e3b766d9d67ef1a70d2516
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 5f7c82143ab11787f5ce186623c1ed4903891c18
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334155"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680360"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Azure İzleyici tarafından toplanan verileri izleme
 [Azure İzleyici](../../azure-monitor/overview.md) yardımcı olan bir hizmeti izlemek, uygulamalarınızın ve bunların bağımlı kaynakları olduğundan. Telemetri ve diğer verileri izlenen kaynaklardan bu işleve merkezi depolamadır. Bu makalede, Azure İzleyici tarafından kullanılan bu veriler nasıl depolanır ve kapsamlı bir açıklama sağlar.
@@ -137,13 +137,13 @@ Azure İzleyici tarafından toplanan günlükler, çeşitli kaynaklardan telemet
 ### <a name="sources-of-log-data"></a>Günlük verisi kaynakları
 Log Analytics, çeşitli kaynaklardan hem Azure içindeki ve şirket içi kaynaklardan veri toplayabilir. Log Analytics'e yazılan veri kaynakları şunları içerir:
 
-- [Etkinlik günlükleri](../../log-analytics/log-analytics-activity.md) Azure kaynaklarından, yapılandırmaları ve sistem durumu hakkında bilgiler içerir ve [tanılama günlükleri](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) işleyişlerini Öngörüler sağlayın.
+- [Etkinlik günlükleri](../../azure-monitor/platform/collect-activity-logs.md) Azure kaynaklarından, yapılandırmaları ve sistem durumu hakkında bilgiler içerir ve [tanılama günlükleri](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) işleyişlerini Öngörüler sağlayın.
 - Aracılarda [Windows](../../log-analytics/log-analytics-windows-agent.md) ve [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) konuk işletim sistemi ve uygulamaları şunlara göre Log analytics'e telemetri gönderen sanal makineler [veri kaynakları](../../azure-monitor/platform/agent-data-sources.md) , siz yapılandırırsınız.
 - Uygulama verileri tarafından toplanan [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Belirli bir uygulama veya hizmetten Öngörüler sağlayan veri [izleme çözümleri](../insights/solutions.md) veya kapsayıcı öngörüleri, VM Insights veya kaynak grubu Insights gibi özellikleri.
 - Tarafından toplanan güvenlik verileri [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/).
 - [Ölçümleri](#metrics) Azure kaynaklarından. Bu, ölçümleri 93 günden daha uzun süre saklamak için ve diğer günlük verilerinizi çözümlemenizi sağlar.
-- Yazılan telemetri [Azure depolama](../../log-analytics/log-analytics-azure-storage-iis-table.md).
+- Yazılan telemetri [Azure depolama](../../azure-monitor/platform/azure-storage-iis-table.md).
 - Özel verileri kullanarak herhangi bir REST API istemcisi [HTTP veri toplayıcı API'sini](../../log-analytics/log-analytics-data-collector-api.md) istemci veya bir [Azure Logic App](https://docs.microsoft.com/azure/logic-apps/) iş akışı.
 
 ![Log Analytics bileşenleri](media/data-collection/logs-overview.png)
@@ -170,7 +170,7 @@ Tüm verileri Log Analytics kullanarak alınır bir [günlük sorgusu](../../log
 ### <a name="metrics-to-logs"></a>Günlükler için ölçümleri
 Zengin sorgu dilini kullanarak diğer veri türlerine sahip karmaşık bir analiz gerçekleştirmek için Log Analytics ölçümleri kopyalayabilirsiniz. Ayrıca, zaman içinde eğilim gerçekleştirmenize olanak tanıyan ölçümleri daha uzun süre günlük verileri koruyabilirsiniz. Zaman ölçümleri veya diğer herhangi bir performans verilerini verileri bir günlük olarak davranan Log analytics'te depolanır. Neredeyse gerçek zamanlı analiz ve eğilim ve analiz diğer verilerle için günlükleri kullanırken uyarı desteklemek için ölçümleri kullanın.
 
-Azure kaynaklardan ölçümleri toplamaya yönelik rehberlik alabilirsiniz [toplamak Azure hizmeti günlükleri ve Log analytics'teki kullanım ölçümlerini](../../log-analytics/log-analytics-azure-storage.md). Azure PaaS kaynakları'ndan kaynakları ölçümleri toplamaya ilişkin yönergeler almak [Log Analytics ile Azure PaaS kaynak ölçümleri toplamayı yapılandırmak](../../log-analytics/log-analytics-collect-azurepass-posh.md).
+Azure kaynaklardan ölçümleri toplamaya yönelik rehberlik alabilirsiniz [toplamak Azure hizmeti günlükleri ve Log analytics'teki kullanım ölçümlerini](../../azure-monitor/platform/collect-azure-metrics-logs.md). Azure PaaS kaynakları'ndan kaynakları ölçümleri toplamaya ilişkin yönergeler almak [Log Analytics ile Azure PaaS kaynak ölçümleri toplamayı yapılandırmak](../../azure-monitor/platform/collect-azurepass-posh.md).
 
 ### <a name="logs-to-metrics"></a>Ölçümler için günlükleri
 Daha düşük gecikme süresi ve daha düşük bir maliyetle uyarılar oluşturmak için yukarıda açıklandığı gibi günlükleri, daha hızlı yanıt ölçümleridir. Log Analytics önemli ölçüde ölçümler için uygun olabilir, ancak Azure ölçümleri veritabanında saklanmaz sayısal veri toplar.  Aracılar ve yönetim çözümlerinden toplanan performans verilerini buna yaygın bir örnektir. Bu değerlerden bazıları, ölçüm Gezgini ile analizi ve Uyarılar için kullanılabilir olduğu ölçüm veritabanına kopyalanabilir.

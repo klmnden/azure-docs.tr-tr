@@ -7,34 +7,32 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 15064e90690064e67b296e7a46749f27773c0814
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 456e32e2f5194417f004f80feef1852dd3d0befd
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636909"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723287"
 ---
 # <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Belirteç, oturum ve Azure Active Directory B2C, çoklu oturum açma yapılandırması
 
-Bu özellik, hassas bir denetim üzerinde sağlar bir [ilkeye temel](active-directory-b2c-reference-policies.md), biri:
+Bu özellik, hassas bir denetim üzerinde sağlar bir [kullanıcı akışı başına](active-directory-b2c-reference-policies.md), biri:
 
 - Azure Active Directory (Azure AD) B2C tarafından yayılan güvenlik belirteçlerinin ömrü.
 - Azure AD B2C tarafından yönetilen web uygulaması oturumları ömrü.
 - Azure AD B2C tarafından yayılan güvenlik belirteçlerini önemli Taleplerde biçimleri.
-- Çoklu oturum açma (SSO) davranışı birden fazla uygulama ve ilkeleri, Azure AD B2C kiracınızdaki.
+- Çoklu oturum açma (SSO) davranışı birden fazla uygulama ve kullanıcı Azure AD B2C kiracınızda akar.
 
-Herhangi bir ilke türü bu özelliği kullanabilirsiniz, ancak bu örnek bir kaydolma veya oturum açma ilkesi ile bu özelliği kullanmak nasıl gösterir. Yerleşik ilkeler için bu özelliği Azure AD B2C dizininizde aşağıdaki gibi kullanabilirsiniz:
+Herhangi bir ilke türü bu özelliği kullanabilirsiniz, ancak bu örnek özelliği ile kaydolma veya oturum açma kullanıcı akışı kullanmak nasıl gösterir. Kullanıcı akışları için bu özelliği Azure AD B2C dizininizde aşağıdaki gibi kullanabilirsiniz:
 
-1. Tıklayın **oturum açma veya kaydolma ilkeleri'ni**.
-2. Tıklayarak bir ilkeyi açın. Örneğin, tıklayarak **b2c_1_siupın**.
-3. Tıklayın **Düzenle** menüsünün üstünde.
-4. Tıklayın **belirteç, oturum ve çoklu oturum açma yapılandırması**.
-5. İstediğiniz değişiklikleri yapın. Sonraki bölümlerde kullanılabilir özellikler hakkında bilgi edinin.
-6. **Tamam** düğmesine tıklayın.
-7. Tıklayın **Kaydet** menüsünün üstünde.
+1. Tıklayın **kullanıcı akışları**.
+2. Kullanıcı akışı tıklayarak açın. Örneğin, tıklayarak **b2c_1_siupın**.
+3. **Özellikler**'e tıklayın.
+4. Altında **belirteç uyumluluk ayarları**, istediğiniz değişiklikleri yapın. Sonraki bölümlerde kullanılabilir özellikler hakkında bilgi edinin.
+5. Tıklayın **Kaydet** menüsünün üstünde.
 
 ## <a name="token-lifetimes-configuration"></a>Belirteç ömrünü yapılandırma
 
@@ -57,10 +55,10 @@ Aşağıdaki özellikler, Azure AD B2C tarafından yayılan güvenlik belirteçl
 
 Aşağıdaki kullanım örnekleri, bu özellikleri kullanarak etkinleştirilir:
 
-- Kullanıcı uygulamayı sürekli olarak etkin olduğu sürece, bir mobil uygulamaya oturum açık kalsın açmasına izin verin. Ayarlayabileceğiniz **yenileme belirteci kayan pencere ömrü (gün)** için **Unbounded** , oturum açma ilkesi.
+- Kullanıcı uygulamayı sürekli olarak etkin olduğu sürece, bir mobil uygulamaya oturum açık kalsın açmasına izin verin. Ayarlayabileceğiniz **yenileme belirteci kayan pencere ömrü (gün)** için **Unbounded** oturum açma kullanıcı akışınıza.
 - Uygun erişim belirteç ömrünü ayarlayarak, sektörün güvenlik ve uyumluluk gereksinimlerinizi karşılayın.
 
-Bu ayarlar, parola sıfırlama ilkeleri için kullanılabilir değildir. 
+Kullanıcı akışları parola sıfırlama için bu ayarlar kullanılamaz. 
 
 ## <a name="token-compatibility-settings"></a>Belirteç uyumluluk ayarları
 
@@ -68,7 +66,7 @@ Aşağıdaki özellikler, müşterilerin gerektiğinde iyileştirilmiş izin ver
 
 - **Verici (iss) talebi** -bu özellik, belirteci veren Azure AD B2C kiracısı tanımlar.
     - `https://<domain>/{B2C tenant GUID}/v2.0/` -Varsayılan değer budur.
-    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` -Bu değer, B2C kiracısının hem belirteç istekte kullanılan ilkeyi kimliklerini içerir. Uygulama veya kitaplık ile uyumlu olması için Azure AD B2C gerekip gerekmediğini [Openıd Connect bulma 1.0 belirtimi](http://openid.net/specs/openid-connect-discovery-1_0.html), bu değeri kullanın.
+    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` -Bu değer, B2C kiracısının hem de belirteci istekte kullanılan kullanıcı akışı için kimliklerini içerir. Uygulama veya kitaplık ile uyumlu olması için Azure AD B2C gerekip gerekmediğini [Openıd Connect bulma 1.0 belirtimi](http://openid.net/specs/openid-connect-discovery-1_0.html), bu değeri kullanın.
 - **Konu (sub) talebi** -belirteç için bilgilerini onayladığı varlık bu özelliği tanımlar.
     - **ObjectID** -bu özellik varsayılan değerdir. Dizine kullanıcının nesne kimliği doldurur `sub` belirtecinde talep.
     - **Desteklenmeyen** - bu özellik, yalnızca geriye dönük uyumluluk için sağlanır ve için geçiş öneririz **objectID** yapabilecekleriniz hemen sonra.
@@ -91,16 +89,16 @@ Aşağıdaki kullanım örnekleri, bu özellikleri kullanarak etkinleştirilir:
 - Uygun web uygulaması oturumu ayarlayarak, sektörün güvenlik ve uyumluluk gereksinimlerini karşılamak yaşam süresi yok.
 - Kimlik doğrulamasından sonra ayarlanmış bir süre içinde web uygulamanızı yüksek güvenlikli bir parçası olan bir kullanıcı etkileşimi zorlar. 
 
-Bu ayarlar, parola sıfırlama ilkeleri için kullanılabilir değildir.
+Kullanıcı akışları parola sıfırlama için bu ayarlar kullanılamaz.
 
 ## <a name="single-sign-on-sso-configuration"></a>Çoklu oturum açma (SSO) yapılandırması
 
-B2C kiracınızda birden çok uygulama ve ilkeleri varsa, Kullanıcı etkileşimlerine arasında yönetebileceğiniz kullanarak **çoklu oturum açma yapılandırması** özelliği. Özelliği aşağıdaki ayarlardan birini ayarlayabilirsiniz:
+B2C kiracınızda birden çok uygulama ve kullanıcı akışları varsa, Kullanıcı etkileşimlerine arasında yönetebileceğiniz kullanarak **çoklu oturum açma yapılandırması** özelliği. Özelliği aşağıdaki ayarlardan birini ayarlayabilirsiniz:
 
-- **Kiracı** -Bu ayar varsayılan ayardır. Bu ayarı kullanarak B2C kiracınıza aynı kullanıcı oturumuna paylaşmak için birden çok uygulama ve ilkeleri sağlar. Bir uygulamaya bir kullanıcı oturum açtıktan sonra Örneğin, kullanıcı aynı zamanda sorunsuz bir şekilde başka bir Contoso eriştiği üzerine ilaç, içine oturum açabilirsiniz.
+- **Kiracı** -Bu ayar varsayılan ayardır. Bu ayar kullanılarak sağlayan birden çok uygulama ve kullanıcı akışları B2C kiracınızda aynı kullanıcı oturumuna paylaşmak için. Bir uygulamaya bir kullanıcı oturum açtıktan sonra Örneğin, kullanıcı aynı zamanda sorunsuz bir şekilde başka bir Contoso eriştiği üzerine ilaç, içine oturum açabilirsiniz.
 - **Uygulama** -diğer uygulamalar bağımsız bir uygulama için yalnızca bir kullanıcı oturumu korumak bu ayarı sağlar. Örneğin, Contoso ilaç için (aynı kimlik bilgileri ile), oturum açmak için kullanıcının kullanıcı zaten Contoso alışveriş imzalansa bile isterseniz, başka bir uygulama aynı B2C Kiracı. 
-- **İlke** -Bu ayar, bir kullanıcı oturumu şemayı kullanan uygulamaların bağımsız bir ilke için özel olarak korumak sağlar. Kullanıcı zaten açık ve çok faktörlü kimlik doğrulaması (MFA) adım tamamlandı, ilkeye bağlı oturumu süresi dolmadığı sürece Örneğin, kullanıcı erişim daha yüksek güvenlik için birden çok uygulama bölümlerini verilebilir.
-- **Devre dışı bırakılmış** - bu orces tüm kullanıcı gezintisinde her yürütme İlkesi'nin üzerinde çalıştırmak için kullanıcı ayarı. Örneğin, böylece uygulamanızda (paylaşılan bir masaüstü senaryo) oturum açmak birden fazla kullanıcı, tek bir kullanıcı çalışırken bile tüm süre boyunca oturum açmış durumda kalır.
+- **İlke** -Bu ayar, bir kullanıcı oturumu şemayı kullanan uygulamaların bağımsız bir kullanıcı akışı için özel olarak korumak sağlar. Kullanıcı zaten açık ve çok faktörlü kimlik doğrulaması (MFA) adım tamamlandı, kullanıcı akışa bağlı oturumu süresi dolmadığı sürece Örneğin, kullanıcı erişim daha yüksek güvenlik için birden çok uygulama bölümlerini verilebilir.
+- **Devre dışı bırakılmış** -bu ayarı, ilkenin her yürütme tüm kullanıcı akışını çalıştırmak için kullanıcı zorlar. Örneğin, böylece uygulamanızda (paylaşılan bir masaüstü senaryo) oturum açmak birden fazla kullanıcı, tek bir kullanıcı çalışırken bile tüm süre boyunca oturum açmış durumda kalır.
 
-Bu ayarlar, parola sıfırlama ilkeleri için kullanılabilir değildir. 
+Kullanıcı akışları parola sıfırlama için bu ayarlar kullanılamaz. 
 

@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
-ms.openlocfilehash: b60be3db14a756407e62540bb89f3b0924597067
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 87e197821be7c7c72ca1704d6b0123d76d41b30f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49960588"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721094"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Nasıl yapılır: bir Azure AD kaynaklarına erişmek uygulama ve hizmet sorumlusu oluşturmak için portalı kullanma
 
@@ -65,9 +65,9 @@ Abonelik, kaynak grubu veya kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha 
    Aradığınız bir abonelik görmüyorsanız seçin **genel abonelik filtresi**. Seçili için portalda istediğiniz aboneliği olduğundan emin olun. 
 
 1. Seçin **erişim denetimi (IAM)**.
-1. **Add (Ekle)** seçeneğini belirleyin.
+1. Seçin **rol ataması Ekle**.
 
-   ![Ekle'yi seçin](./media/howto-create-service-principal-portal/select-add.png)
+   ![Rol ataması Ekle'yi seçin](./media/howto-create-service-principal-portal/select-add.png)
 
 1. Uygulamayı atamak istediğiniz rolü seçin. Gibi eylemleri yürütmek uygulama izin vermek için **yeniden**, **Başlat** ve **Durdur** örnekleri, select **katkıda bulunan** rol. Varsayılan olarak, Azure AD uygulamaları kullanılabilir seçenekleri görüntülenmiyor. Uygulamanızı bulmak için adını arayın ve seçin.
 

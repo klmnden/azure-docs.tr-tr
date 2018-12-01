@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: bf7f1f58250d94d821e6ec41266b518d7ebe105b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 25d5bd3b798af181b8dd4e7028dd4a531995d464
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427565"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682614"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Bir ağ güvenlik grubu tanılama günlüğüne kaydetme
 
@@ -132,7 +132,7 @@ Görüntüleyebilir ve günlüklerini analiz edin. Daha fazla bilgi için [gör�
 Tanılama verilerini olabilir:
 - [Bir Azure depolama hesabına yazılan](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), denetim ya da el ile İnceleme. Kaynak tanılama ayarlarını kullanarak elde tutma süresi (gün cinsinden) belirtebilirsiniz.
 - [Olay hub'ına akış](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) alımı bir üçüncü taraf hizmeti veya Power BI gibi özel analiz çözümü için.
-- [Azure Log Analytics'e yazılan](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
+- [Azure Log Analytics'e yazılan](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
 
 ## <a name="log-categories"></a>Günlük kategorileri
 

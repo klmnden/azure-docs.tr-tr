@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: f8e16af629eaa18b49b054be9fc478d633263ddb
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: d023bf4428790667ef192a3ce981087694224f50
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45637768"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724545"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>SLES azure'da Red Hat Enterprise Linux üzerinde Pacemaker ayarlama
 
@@ -224,10 +224,10 @@ Giriş dosyası için aşağıdaki içeriği kullanın. İhtiyacınız olan içe
 1. Tüm kaynaklar dikey penceresini açın
 1. İlk küme düğümüne sanal makinesini seçin
 1. Erişim denetimi (IAM)'ye tıklayın.
-1. Ekle'ye tıklayın.
+1. Ekle rol ataması
 1. "Linux sınır Aracısı rolü" rolü seçin
 1. Yukarıda oluşturduğunuz uygulamanın adını girin
-1. Tamam'a tıklayın
+1. Kaydet’e tıklayın.
 
 İkinci küme düğümü için yukarıdaki adımları yineleyin.
 

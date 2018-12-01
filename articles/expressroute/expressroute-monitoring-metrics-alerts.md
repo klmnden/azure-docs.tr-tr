@@ -5,22 +5,26 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: fcdaf10ad30cee0e7b79304ff21d67560522875c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 90735ac04c95ee3d270853c18eddebd3f11dd8c1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377806"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725973"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute izleme, ölçümler ve uyarılar
 
- Bu makalede, ExpressRoute izleme, Ölçümler ve uyarılar anlamanıza yardımcı olur. Azure İzleyici, uyarıları, tüm Azure tanılama günlükleri sorunlarınız için tüm ölçümleri tek sağlanır.
+Bu makalede, ExpressRoute izleme, Ölçümler ve uyarılar anlamanıza yardımcı olur. Azure İzleyici, uyarıları, tüm Azure tanılama günlükleri sorunlarınız için tüm ölçümleri tek sağlanır.
+ 
+>[!NOTE]
+>Kullanarak **Klasik ölçüm** önerilmez. 
+>
 
 ## <a name="circuit-metrics"></a>Bağlantı hattı ölçümleri
 
-Gidilecek **ölçümleri**, izlemek istediğiniz bağlantı hattı için ExpressRoute sayfasını tıklatın. Altında **izleme** görüntüleyebileceğiniz **ölçümleri**. BitsInPerSecond veya BitsOutPerSecond ve toplama'yı seçin. İsteğe bağlı olarak, eşleme türü başına ölçümler gösterecektir bölme uygulayabilirsiniz.
+Gidilecek **ölçümleri**, izlemek istediğiniz bağlantı hattı için ExpressRoute sayfasını tıklatın. Altında **izleme**, görüntüleyebileceğiniz **ölçümleri**. BitsInPerSecond veya BitsOutPerSecond ve toplama'yı seçin. İsteğe bağlı olarak, bölme, eşleme türü başına ölçümleri gösteren uygulayabilirsiniz.
 
 ![Bağlantı hattı ölçümleri](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
@@ -47,7 +51,6 @@ Gidilecek **ölçümleri**, izlemek istediğiniz bağlantı hattı için Express
 
   ![eylem grubu](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
 
-
 4. Tanımlamak ve eylem grubunu ekleyin.
 
   ![eylem grubu Ekle](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
@@ -61,9 +64,10 @@ Gidilecek **ölçümleri**, izlemek istediğiniz bağlantı hattı için Express
 İçinde **Uyarı ölçütleri**, seçebileceğiniz **etkinlik günlüğü** sinyal türü ve sinyal seçin.
 
   ![başka bir](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
-
+  
 ## <a name="next-steps"></a>Sonraki adımlar
-* ExpressRoute bağlantınızı yapılandırın.
+
+ExpressRoute bağlantınızı yapılandırın.
   
   * [Bağlantı hattı oluşturma ve değiştirme](expressroute-howto-circuit-arm.md)
   * [Eşleme yapılandırması oluşturma ve değiştirme](expressroute-howto-routing-arm.md)

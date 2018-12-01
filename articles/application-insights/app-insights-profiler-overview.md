@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: bba15ee901e7ccecc513f526339bde2fcc6277fa
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 7780c10233a0ce256ee6e9015f40ea789516c25b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142573"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726908"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Azure Application Insights ile profil üretim uygulamaları
 ## <a name="enable-profiler-for-your-application"></a>Uygulamanız için Profiler'ı etkinleştir
@@ -38,7 +37,7 @@ Profiler şirket içinde çalışan resmi olarak desteklenmez, ancak bazı sahib
 
 ## <a name="view-profiler-data"></a>Profil Oluşturucu verileri görüntüle
 
-Profil Oluşturucu izlemeleri yüklenecek için sırada etkin bir şekilde işleme uygulamanızı ister. Bir denemeyi yapıyorsanız, web app kullanarak istekleri oluşturabilir [Application Insights performans testi](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Yeni Profiler'ı etkinleştirdiyseniz, kısa bir yük testi çalıştırabilirsiniz. Yük testi çalışırken, basın **profili artık** düğmesine [ **Profiler Ayarları sayfası**](). Profil Oluşturucu çalışmaya başladıktan sonra yaklaşık olarak her saatte bir kez ve iki dakikalık bir süre boyunca rastgele profil. Uygulama istekleri gitmenize işliyorsa, Profiler izlemeleri saatte yükleyin.
+Profil Oluşturucu izlemeleri yüklenecek için sırada etkin bir şekilde işleme uygulamanızı ister. Bir denemeyi yapıyorsanız, web app kullanarak istekleri oluşturabilir [Application Insights performans testi](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Yeni Profiler'ı etkinleştirdiyseniz, kısa bir yük testi çalıştırabilirsiniz. Yük testi çalışırken, basın **profili artık** düğmesine [ **Profiler Ayarları sayfası**](app-insights-profiler-settings.md#profiler-settings-page). Profil Oluşturucu çalışmaya başladıktan sonra yaklaşık olarak her saatte bir kez ve iki dakikalık bir süre boyunca rastgele profil. Uygulama istekleri gitmenize işliyorsa, Profiler izlemeleri saatte yükleyin.
 
 Uygulamanız bazı trafik alır ve profil oluşturucu trances karşıya yüklemek için zaman bulana sonra görüntülemek üzere izlemesi olmalıdır. Bu işlem, 5-10 dakika sürebilir. İzlemeleri görüntülemek için Git **performans** bölmesinde **eylemleri** profiler izlemeleri görüntülemek ve ardından **Profiler izlemeleri** düğmesi.
 

@@ -8,18 +8,17 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: c1e5b420c4821732aa8cc19328b0955070100926
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d173cd8ddcd713e39fc925a101b42bdd918e5499
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138522"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721163"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Kullanıcı davranış analizi araçları Application ınsights sorunlarını giderme
 Hakkında sorularınız [kullanıcı davranış analizi araçları Application ınsights'ta](app-insights-usage-overview.md): [kullanıcılar, oturumlar, etkinlikler](app-insights-usage-segmentation.md), [Huniler](usage-funnels.md), [kullanıcı akışları](app-insights-usage-flows.md), [Bekletme](app-insights-usage-retention.md), veya Kohortlar? Bazı soruların yanıtları aşağıdadır.

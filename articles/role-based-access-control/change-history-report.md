@@ -15,12 +15,12 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5a67cdcef7f39830b747dec5f2c980483e1ab91
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 62389edabb6d510fa1294affeb8e874efd18fc06
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978344"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678432"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>RBAC değişiklikler için etkinlik günlüklerini görüntüleme
 
@@ -119,9 +119,9 @@ Başlamak için temel adımlar şunlardır:
 
 1. [Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md).
 
-1. [Etkinlik günlüğü analizi çözümü yapılandırma](../log-analytics/log-analytics-activity.md#configuration) çalışma alanınız için.
+1. [Etkinlik günlüğü analizi çözümü yapılandırma](../azure-monitor/platform/collect-activity-logs.md#configuration) çalışma alanınız için.
 
-1. [Etkinlik günlüklerini görüntüleme](../log-analytics/log-analytics-activity.md#using-the-solution). Etkinlik Log Analytics'e Genel Bakış sayfasına gitmek için hızlı bir yolu **Log Analytics** seçeneği.
+1. [Etkinlik günlüklerini görüntüleme](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Etkinlik Log Analytics'e Genel Bakış sayfasına gitmek için hızlı bir yolu **Log Analytics** seçeneği.
 
    ![Log Analytics portalı seçeneğinde](./media/change-history-report/azure-log-analytics-option.png)
 

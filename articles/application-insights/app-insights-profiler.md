@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9aae08aa5906f341a890ac15e30d2863109d83a2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 2f726c9c70e6e46ad2e82e9d6f15dae2c9d3d008
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140017"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724698"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Application Insights ile canlı Azure web apps profili
 
@@ -31,18 +30,18 @@ Web uygulaması için Profiler'ı etkinleştirmek için aşağıdaki yönergeler
 * [Sanal Makineler](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 
-Application Insights Profiler Application Insights site uzantısı ile yüklenir. Site uzantısını yüklemek ve bunu Azure Web Apps için profil almak için yapılandırmanız gerekir. Kaynak kodunda App Insights SDK'sı dahil olsa bile bir Web uygulamasını dağıttıktan sonra Profil Oluşturucu etkinleştirmek için aşağıdaki adımları izleyin.
+Application Insights Profiler uygulama hizmetleri çalışma zamanı bir parçası olarak önceden yüklenmiş, ancak Azure Web Apps için get profilleri açın duruma getirmeniz gerekir. Kaynak kodunda App Insights SDK'sı dahil olsa bile bir Web uygulamasını dağıttıktan sonra Profil Oluşturucu etkinleştirmek için aşağıdaki adımları izleyin.
 
 1. Git **uygulama hizmetleri** bölmesinde Azure portalında.
 1. Gidin **Ayarları > İzleme** bölmesi.
 
    ![Uygulama Hizmetleri portalında App ınsights'ı etkinleştirme](./media/app-insights-profiler/AppInsights-AppServices.png)
 
-1. Ya da bölmesinde web uygulamanızı izlemek için var olan App Insights kaynağı seçin veya yeni bir kaynak oluşturmak için yönergeleri izleyin. Tüm varsayılan seçenekleri kabul edin. **Kod düzeyi tanılama** varsayılan olarak açıktır ve Profiler sağlar.
+1. Ya da bölmesinde web uygulamanızı izlemek için var olan App Insights kaynağı seçin veya yeni bir kaynak oluşturmak için yönergeleri izleyin. Ayrıca Profiler olduğundan emin olun **üzerinde**.
 
    ![App Insights site uzantısı Ekle][Enablement UI]
 
-1. Profiler olan App Insights site uzantısı artık yüklüdür ve uygulama hizmetleri uygulama ayarı kullanılarak etkinleştirilir.
+1. Profiler, artık bir uygulama hizmetleri uygulama ayarı kullanılarak etkinleştirilir.
 
     ![Profiler uygulama ayarı][profiler-app-setting]
 

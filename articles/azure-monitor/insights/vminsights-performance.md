@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 2ece5700965018a8a9a98e16a1577309a909b7b7
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: cfee8295fc344b1210010a463612fe7d10de280d
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335002"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682920"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Nasıl yapılır Azure İzleyici ile grafik performansı için Vm'leri (Önizleme)
 VM'ler için Azure İzleyici, birkaç ana performans göstergelerini (KPI'lar) bir sanal makineye ne kadar iyi belirlemenize yardımcı olmak için şu gerçekleştiriyor hedefleyen bir dizi performans grafiklerini içerir. Performans sorunlarını, anormallikleri belirlemek ya da seçili ölçüme göre kaynak kullanımını görüntülemek için her bir makine listeleyen bir perspektif geçiş grafikleri bir süre boyunca kaynak kullanımını gösterir. Performans ile işlem yapılırken dikkate alınması gereken çok sayıda öğe olsa da, işletim sisteminde işlemci, bellek, ağ bağdaştırıcıları ve diskleri bildirilen olarak sanal makineler için Azure İzleyici odaklanmıştır. Performans sistem durumu izleme özelliğini tamamlar ve bir olası sistem bileşeni hatası, destek ayarlama ve iyileştirme verimlilik elde etmek için gösteren sorunları ortaya veya kapasite planlamasını desteklemek yardımcı olur.  
@@ -33,7 +33,7 @@ Azure İzleyici'den performans özelliği, ortamınızda ya da aboneliklerinizde
 
 ![VM performansı en iyi N listesi görünümü](./media/vminsights-performance/vminsights-performance-aggview-01.png)
 
-Üzerinde **üst N grafikleri** sekmesinde çözümden ile etkin çalışma alanını seçin, birden fazla Log Analytics çalışma alanınız varsa, **çalışma** sayfanın üstündeki Seçici. **Grubu** Seçici, abonelikler, kaynak grupları döndürecektir [bilgisayar grupları](../../log-analytics/log-analytics-computer-groups.md)ve bilgisayarların daha fazla filtrelemek için kullanabileceğiniz seçili çalışma alanına ilgili sanal makine ölçek kümeleri Sonuçlar bu sayfadaki ve diğer sayfalara grafiklerde sunulur. Seçiminiz yalnızca performans özelliğini uygular ve durumu ya da harita taşımaz.  
+Üzerinde **üst N grafikleri** sekmesinde çözümden ile etkin çalışma alanını seçin, birden fazla Log Analytics çalışma alanınız varsa, **çalışma** sayfanın üstündeki Seçici. **Grubu** Seçici, abonelikler, kaynak grupları döndürecektir [bilgisayar grupları](../../azure-monitor/platform/computer-groups.md)ve bilgisayarların daha fazla filtrelemek için kullanabileceğiniz seçili çalışma alanına ilgili sanal makine ölçek kümeleri Sonuçlar bu sayfadaki ve diğer sayfalara grafiklerde sunulur. Seçiminiz yalnızca performans özelliğini uygular ve durumu ya da harita taşımaz.  
 
 Varsayılan olarak, son 24 saat grafikleri göster. Kullanarak **TimeRange** Seçici, sorgulayabilir nasıl performans geçmişte baktığı göstermek için 30 günlük geçmiş zaman aralıkları için.   
 

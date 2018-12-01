@@ -9,15 +9,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/29/2018
 ms.author: markgal
-ms.openlocfilehash: ae02a1bcbf00a022cfd884b02141ce084f1fffa8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 806d68370921a7658066a9bad770b36b4e8e59bf
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232469"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680047"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Azure’da sanal makine yedekleme altyapınızı planlama
-Bu makalede, performans ve sanal makine yedekleme altyapınızı planlama yapmanıza yardımcı olması için kaynak önerileri sağlar. Ayrıca, yedekleme hizmeti önemli yönlerini tanımlar; Bu görünüşler Mimarinizi, belirlemede önemli kapasite planlaması ve zamanlama. Belirttiyseniz [ortamınızı hazırladığınız](backup-azure-arm-vms-prepare.md), planlama, sonraki adıma başlamadan önce [Vm'lerini yedekleme](backup-azure-arm-vms.md). Azure sanal makineleri hakkında daha fazla bilgiye ihtiyacınız varsa bkz [sanal makineler belgeleri](https://azure.microsoft.com/documentation/services/virtual-machines/). 
+Bu makalede, performans ve sanal makine yedekleme altyapınızı planlama yapmanıza yardımcı olması için kaynak önerileri sağlar. Ayrıca, yedekleme hizmeti önemli yönlerini tanımlar; Bu görünüşler Mimarinizi, belirlemede önemli kapasite planlaması ve zamanlama. Belirttiyseniz [ortamınızı hazırladığınız](backup-azure-arm-vms-prepare.md), planlama, sonraki adıma başlamadan önce [Vm'lerini yedekleme](backup-azure-arm-vms.md). Azure sanal makineleri hakkında daha fazla bilgiye ihtiyacınız varsa bkz [sanal makineler belgeleri](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 > [!NOTE]
 > Bu makalede, yönetilen ve yönetilmeyen diskler için kullanılır. Yönetilmeyen diskler kullanıyorsanız depolama hesabı önerileri vardır. Kullanırsanız [Azure yönetilen diskler](../virtual-machines/windows/managed-disks-overview.md), performans veya kaynak kullanımı sorunları hakkında endişelenmeniz gerekmez. Azure depolama alanı kullanımı sizin için en iyi duruma getirir.
@@ -96,7 +96,19 @@ Toplam yedek süresi 24 saatten az, artımlı yedeklemeler için geçerlidir, an
 
 ### <a name="why-are-backup-times-longer-than-12-hours"></a>12 saatten uzun yedekleme sürelerine neden misiniz?
 
-Yedekleme iki aşamadan oluşur: anlık görüntü alma ve anlık görüntüleri kasasına aktarma. Backup hizmeti, depolama için iyileştirir. Anlık görüntü verileri bir kasaya aktarırken hizmeti, yalnızca artımlı değişiklikler önceki anlık görüntüden aktarır.  Artımlı değişiklikleri belirlemek için hizmet bloğu sağlama toplamını hesaplar. Bir blok değiştirilirse, blok kasaya gönderilecek bir blok olarak tanımlanır. Ardından hizmet tatbikatları her veri aktarmak için en aza indirmek fırsatlar arar tanımlanan blokları, daha fazla. Hizmet, tüm değiştirilen blokları değerlendirme sonra değişiklikleri birleştirir ve bunları kasaya gönderir. Bazı eski uygulamalarda parçalanmış, küçük yazma işlemlerini depolama için uygun değildir. Anlık görüntü birçok küçük, parçalanmış yazma içeriyorsa, hizmet uygulamaları tarafından yazılan verilerin işlenmesi ek zaman harcadığı. Sanal makine içinde çalışan uygulamalar için önerilen uygulama yazma işlemlerini blok en az 8 KB'tır. Uygulamanız değerinden 8 KB'lik bir blok kullanıyorsa, yedekleme performansı parametreden etkilenir. Uygulamanızın performansını artırmak için ayarlama hakkında bilgi için bkz: [uygulamalarını Azure depolama ile en iyi performans için ayarlama](../virtual-machines/windows/premium-storage-performance.md). Makaleyi yedekleme performansı Premium depolama örnekler kullansa standart depolama diskleri için geçerli bir kılavuzdur.
+Yedekleme iki aşamadan oluşur: anlık görüntü alma ve anlık görüntüleri kasasına aktarma. Backup hizmeti, depolama için iyileştirir. Anlık görüntü verileri bir kasaya aktarırken hizmeti, yalnızca artımlı değişiklikler önceki anlık görüntüden aktarır.  Artımlı değişiklikleri belirlemek için hizmet bloğu sağlama toplamını hesaplar. Bir blok değiştirilirse, blok kasaya gönderilecek bir blok olarak tanımlanır. Ardından hizmet tatbikatları her veri aktarmak için en aza indirmek fırsatlar arar tanımlanan blokları, daha fazla. Hizmet, tüm değiştirilen blokları değerlendirme sonra değişiklikleri birleştirir ve bunları kasaya gönderir. Bazı eski uygulamalarda parçalanmış, küçük yazma işlemlerini depolama için uygun değildir. Anlık görüntü birçok küçük, parçalanmış yazma içeriyorsa, hizmet uygulamaları tarafından yazılan verilerin işlenmesi ek zaman harcadığı. Sanal makine içinde çalışan uygulamalar için önerilen uygulama yazma işlemlerini blok en az 8 KB'tır. Uygulamanız değerinden 8 KB'lik bir blok kullanıyorsa, yedekleme performansı parametreden etkilenir. Uygulamanızın performansını artırmak için ayarlama hakkında bilgi için bkz: [uygulamalarını Azure depolama ile en iyi performans için ayarlama](../virtual-machines/windows/premium-storage-performance.md). Makaleyi yedekleme performansı Premium depolama örnekler kullansa standart depolama diskleri için geçerli bir kılavuzdur.<br>
+Yedekleme uzun süre çeşitli nedenlerle olabilir:
+  1. **Yeni eklenen bir disk zaten korumalı bir VM için ilk yedekleme** <br>
+    Bir VM zaten varsa, yeni diskler sonra yedekleme eklendiğinde aşamasında artımlı yedekleme, yeni disk boyutuna bağlı olarak 1 gün SLA kaçırabilirsiniz.
+  2. **Parçalanma** <br>
+    Müşteri uygulama küçük parçalanmış yazma alan hatalı yapılandırılmışsa.<br>
+  3. **Aşırı müşteri depolama hesabı** <br>
+      a. Yedekleme sırasında müşterinin üretim uygulama süresi zamanlanırsa.  
+      b. Birden fazla 5-10 diskleri aynı depolama hesabından barındırılır.<br>
+  4. **Tutarlılık Check(CC) modu** <br>
+      > 1 TB için yedekleme nedenlerden dolayı CC modunda durumda diskler, aşağıda belirtilen:<br>
+        a. Yönetilen disk müşteri VM yeniden başlatma işleminin bir parçası olarak taşır.<br>
+        b. Müşteri temel blob anlık görüntüye yükseltir.<br>
 
 ## <a name="total-restore-time"></a>Toplam geri yükleme süresi
 

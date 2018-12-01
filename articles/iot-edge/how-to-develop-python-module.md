@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c3cf2b703760debb368e26d629ee73f56ce93d39
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 3097e6fcfcd219f73927131106e1f35ff54210b0
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441272"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679435"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-python-modules-for-azure-iot-edge"></a>Geliştirmek ve Azure IOT Edge için Python modüllerini hata ayıklamak için Visual Studio Code kullanın
 
@@ -108,7 +108,7 @@ Her modül klasöründe birkaç Docker dosya için farklı bir kapsayıcı tür�
     ptvsd.break_into_debugger()
     ```
 
-   Örneğin, hata ayıklamak istiyorsanız `receive_message_callback` yöntemi. Tek satırlık bir kod gibi aşağıda insect kullanabilirsiniz.
+   Örneğin, hata ayıklamak istiyorsanız `receive_message_callback` yöntemi. Tek satır aşağıdaki gibi kod ekleyebilirsiniz.
 
     ```python
     def receive_message_callback(message, hubManager):

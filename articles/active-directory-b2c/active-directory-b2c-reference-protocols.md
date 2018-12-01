@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/07/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6cfa3e0cb23f13b50c0fb7cd4f07a8d53c0f3186
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: fa6ae230a209d804f244d8bc46a3c6ac1abf6071
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340775"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725582"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: Kimlik doğrulama protokolleri
 Azure Active Directory B2C (Azure AD B2C) sağlayan kimlik uygulamalarınız için hizmet olarak iki sektör standardı protokolleri destekleyerek: Openıd Connect ve OAuth 2.0. Hizmet standartlarıyla uyumlu olduğu halde bu protokolleri, iki belirtilmesinden küçük farklılıklar olabilir. 
@@ -50,12 +50,12 @@ Neredeyse tüm OAuth ve Openıd Connect akışı içinde dört taraflar Exchange
 
 * **Kaynak sunucusu** kaynağı veya veri bulunduğu olduğu. Bu, güvenli bir şekilde kimlik doğrulaması ve OAuth istemci yetki vermek için yetkilendirme sunucusu güvenir. Ayrıca bir kaynağa erişim izni sağlamak için taşıyıcı erişim belirteçlerini kullanır.
 
-## <a name="policies"></a>İlkeler
+## <a name="policies-and-user-flows"></a>İlkeleri ve kullanıcı akışları
 Tartışmaya, Azure AD B2C ilkeleri hizmetinin en önemli özelliklerdir. Azure AD B2C ilkeleri sunarak standart OAuth 2.0 ve Openıd Connect protokollerini genişletir. Bunlar, daha fazlasını Basit kimlik doğrulaması ve yetkilendirmesi gerçekleştirmek için Azure AD B2C izin verir. 
 
-İlkeleri tamamen kaydolma, oturum açma dahil olmak üzere, tüketici kimlik deneyimi açıklamak ve profil düzenleme. Bir yönetici kullanıcı Arabiriminde ilkeleri tanımlanabilir. HTTP kimlik doğrulaması isteklerini bir özel sorgu parametresi kullanarak gerçekleştirilebilir. 
+Yardımcı olması için en yaygın kimlik görevleri ayarlayın, adlı önceden tanımlanmış, yapılandırılabilir ilkeleri Azure AD B2C portal içerir **kullanıcı akışları**. Kullanıcı akışları tamamen kaydolma, oturum açma dahil olmak üzere, tüketici kimlik deneyimi açıklamak ve profil düzenleme. Kullanıcı akışları, bir yönetici kullanıcı Arabiriminde tanımlanabilir. HTTP kimlik doğrulaması isteklerini bir özel sorgu parametresi kullanarak gerçekleştirilebilir. 
 
-Bunları anlamak için zamanınız olması gerekir böylece ilkeleri OAuth 2.0 ve Openıd Connect, standart özellikleri değildir. Daha fazla bilgi için [Azure AD B2C İlkesi başvurusu Kılavuzu](active-directory-b2c-reference-policies.md).
+Bunları anlamak için zamanınız olması gerekir böylece ilkeleri ve kullanıcı akışları OAuth 2.0 ve Openıd Connect, standart özellikleri değildir. Daha fazla bilgi için [Azure AD B2C kullanıcı akışı Başvuru Kılavuzu](active-directory-b2c-reference-policies.md).
 
 ## <a name="tokens"></a>Belirteçler
 OAuth 2.0 ve Openıd Connect Azure AD B2C uygulamasını taşıyıcı belirteçleri, JSON web belirteçleri (Jwt'ler) gösterilen taşıyıcı belirteçlerini dahil olmak üzere kapsamlı kullanımını sağlar. Taşıyıcı belirteç korumalı bir kaynağın "bearer" erişim veren bir basit güvenlik belirtecidir.

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7671a0a99e12463fcce5ff33fbcba7e8677dde05
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 91102b9fe57b2291ce1d1678b71b3a8b0b834864
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006203"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721978"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Active Directory B2C'de kullanılabilir uygulama türleri
 
@@ -26,7 +26,7 @@ Azure AD B2C'yi kullanan her uygulamanın kayıtlı olması gerekir, [Azure AD B
 * Bir **uygulama kimliği** , uygulamanızın benzersiz olarak tanımlar.
 * A **yanıt URL'si** yanıtları uygulamanıza geri yönlendirmek için kullanılabilir.
 
-Azure AD B2C'ye gönderilen her istek bir **ilke** belirtir. Bir ilke Azure AD davranışını denetler. Bu uç noktaları, yüksek oranda ölçeklenebilir kullanıcı deneyimi kümesi oluşturmak için de kullanabilirsiniz. Ortak ilkelere kaydolma, oturum açma ve profil düzenleme ilkeleri dahildir. İlkeler hakkında bilginiz yoksa devam etmeden önce Azure AD B2C [genişletilebilir ilke çerçevesini](active-directory-b2c-reference-policies.md) okumanız gerekir.
+Azure AD B2C'ye gönderilen her isteği belirtir bir **kullanıcı akışı**, Azure AD davranışını denetleyen bir ilke olduğu. Bu uç noktaları, yüksek oranda ölçeklenebilir kullanıcı deneyimi kümesi oluşturmak için de kullanabilirsiniz. Kullanıcı akışları genel ilkeleri de dahil olmak üzere, ayarlama kaydolma, oturum açma ve profil düzenleme ilkeleri yardımcı olacak bir kümesini sunuyoruz. Ancak, kendi özel ilkeleri de oluşturabilirsiniz. İlkeler hakkında bilginiz yoksa devam etmeden önce Azure AD B2C [genişletilebilir ilke çerçevesini](active-directory-b2c-reference-policies.md) okumanız gerekir.
 
 Her uygulamanın etkileşimini benzer bir üst düzey deseni izler:
 

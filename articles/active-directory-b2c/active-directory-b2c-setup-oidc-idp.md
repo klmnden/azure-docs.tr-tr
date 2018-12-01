@@ -7,26 +7,26 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 30bc3e0f1a8230bdbcad653c8c2db7dc078629bb
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 49f3f80832597b231aec812a4c1613da9897f72a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180357"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722454"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak Openıd Connect ile kaydolma ve oturum açma ayarlama
 
 >[!NOTE]
 > Bu özellik genel Önizleme aşamasındadır. Bu özellik, üretim ortamında kullanmayın.
 
-[Openıd Connect](http://openid.net/specs/openid-connect-core-1_0.html) kullanıcıların güvenli bir şekilde oturum açmak için kullanılan OAuth 2.0 üzerinde yerleşik bir kimlik doğrulama protokolüdür. Gibi bu protokolü kullanan çoğu kimlik sağlayıcıları [Azure AD'ye](active-directory-b2c-setup-oidc-azure-active-directory.md), Azure AD B2C'de desteklenir. Bu makalede, özel Openıd Connect kimlik sağlayıcıları, yerleşik ilkeleri nasıl ekleyebileceğinizi açıklar.
+[Openıd Connect](http://openid.net/specs/openid-connect-core-1_0.html) kullanıcıların güvenli bir şekilde oturum açmak için kullanılan OAuth 2.0 üzerinde yerleşik bir kimlik doğrulama protokolüdür. Gibi bu protokolü kullanan çoğu kimlik sağlayıcıları [Azure AD'ye](active-directory-b2c-setup-oidc-azure-active-directory.md), Azure AD B2C'de desteklenir. Bu makalede, özel Openıd Connect kimlik sağlayıcıları kullanıcı akışlarınızı nasıl ekleyebileceğiniz açıklanmaktadır.
 
 ## <a name="add-the-identity-provider"></a>Kimlik sağlayıcısı Ekle
 
-1. Oturum [Azure portalında](https://portal.azure.com/) Azure AD B2C kiracınızın genel Yöneticisi olarak.
+1. [Azure portalda](https://portal.azure.com/) Azure AD B2C kiracınızın genel yöneticisi olarak oturum açın.
 2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
 3. Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD B2C**’yi arayıp seçin.
 4. Seçin **kimlik sağlayıcıları**ve ardından **Ekle**.

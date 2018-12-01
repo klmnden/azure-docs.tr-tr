@@ -9,17 +9,16 @@ editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 8337d6b353b6651a2699176813220ed7a7a0f879
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5010426db97a9cd404d265d1ea9b319877eda1de
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634804"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723967"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS portalında Azure'a taşıma
 
@@ -92,7 +91,7 @@ Uyarı yönetimi çözümü (uyarı türünü kayıtlarla) tarafından toplanan 
 OMS mobil uygulaması ile birlikte OMS portalı sunsetted olacaktır. OMS mobil uygulamasını yerine, BT altyapısı, panolar ve kaydedilmiş sorgular hakkındaki bilgilere erişmek için Azure portalında doğrudan tarayıcınızdan mobil cihazınıza erişebilirsiniz. Uyarıları almak için yapılandırmanız [Azure Eylem grupları](../monitoring-and-diagnostics/monitoring-action-groups.md) SMS veya sesli çağrı biçiminde bildirimleri almak için
 
 ## <a name="application-insights-connector-and-solution"></a>Application Insights Bağlayıcısı ve çözümü
-[Application Insights Bağlayıcısı](log-analytics-app-insights-connector.md) Log Analytics çalışma alanınıza Application Insights verileri getirmek için bir yol sağlar. Bu veri çoğaltma, altyapı ve uygulama veriler üzerinde görünürlük etkinleştirmek için gerekli.
+[Application Insights Bağlayıcısı](../azure-monitor/platform/app-insights-connector.md) Log Analytics çalışma alanınıza Application Insights verileri getirmek için bir yol sağlar. Bu veri çoğaltma, altyapı ve uygulama veriler üzerinde görünürlük etkinleştirmek için gerekli.
 
 Desteğiyle [kaynaklar arası sorgular](log-analytics-cross-workspace-search.md), artık veri çoğaltmak için bu gereksinimi yoktur. Bu nedenle, varolan bir Application Insights çözümü kullanımdan kaldırılacaktır. Ekim dan başlayarak, yeni bir Application Insights kaynaklarını Log Analytics çalışma alanına bağlamak mümkün olmayacaktır. Var olan bağlantıları ve panolar 15 Ocak 2019 kadar çalışmaya devam eder.
 

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: juliako
-ms.openlocfilehash: a74f2e53127b506f42ff49018c3df2985396646d
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: b167d3424d520cf8be515eec9d495164dd9785ab
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619834"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682104"
 ---
 # <a name="liveevent-latency-in-media-services"></a>Media Services Livestream gecikme süresi
 
@@ -43,7 +43,7 @@ LiveEvent liveEvent = new LiveEvent(
             streamOptions: new List<StreamOptionsFlag?>()
             {
                 // Set this to Default or Low Latency
-                // To use low latency optimally, you should tune your encoder settings down to 1 second GOP size instead of 2 seconds.
+                // To use low latency optimally, you should tune your encoder settings down to 1 second "Group Of Pictures" (GOP) length instead of 2 seconds.
                 StreamOptionsFlag.LowLatency
             }
         );
@@ -51,14 +51,23 @@ LiveEvent liveEvent = new LiveEvent(
 
 Tam örneğe bakın: [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
 
-## <a name="pass-through-liveevents-latency"></a>Doğrudan LiveEvents gecikme süresi
+## <a name="liveevents-latency"></a>LiveEvents gecikme süresi
 
-Aşağıdaki tabloda, Media Services, katkı akışın ne zaman bir oynatıcı kayıttan yürütme isteyebilir hizmetinin ulaştığında zamandan itibaren ölçülür (LowLatency bayrağı etkinleştirildiğinde) gecikme süresi için tipik sonuçları gösterilmektedir.
+Aşağıdaki tablolarda, Media Services, bir Görüntüleyici oynatıcıda kayıttan yürütme gördüğünde hizmetinin katkı akış ulaştığında zamandan itibaren ölçülür (LowLatency bayrağı etkinleştirildiğinde) gecikme süresi için tipik sonuçları gösterir. Düşük gecikme süresi en iyi şekilde kullanmak için Kodlayıcı ayarlarınızı aşağı 1 saniye "Grubu, resimleri" (GOP) uzunluğunu ayarlayın. Daha yüksek bir GOP uzunluğu kullanırken, bant genişliği kullanımını en aza indirmek ve altında aynı kare hızı bit hızı azaltma. Daha az hareket videoları bu durum özellikle yararlıdır.
+
+### <a name="pass-through"></a>Geçiş 
 
 ||2S GOP düşük gecikme süresi etkin|1s GOP düşük gecikme süresi etkin|
 |---|---|---|
 |AMP tire|10'luk bloklar|8s|
 |HLS üzerinde yerel iOS player|14s|10'luk bloklar|
+
+### <a name="live-encoding"></a>Live encoding
+
+||2S GOP düşük gecikme süresi etkin|1s GOP düşük gecikme süresi etkin|
+|---|---|---|
+|AMP tire|14s|10'luk bloklar|
+|HLS üzerinde yerel iOS player|18s|13s|
 
 > [!NOTE]
 > Uçtan uca gecikme süresi, yerel ağ koşullara bağlı olarak ya da bir CDN önbelleğe alma katmanı ile tanışın farklılık gösterebilir. Tam yapılandırmalarınızı test etmeniz gerekir.

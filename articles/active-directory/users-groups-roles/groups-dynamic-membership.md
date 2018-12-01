@@ -14,12 +14,12 @@ ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: adb53bb5722bff2374097626e8a3f1679ca00788
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0c14055209c6094585e0d1df892fea24a3f3ea55
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633538"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721077"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory'de gruplar için dinamik Üyelik kuralları
 
@@ -352,7 +352,7 @@ Aşağıdaki cihaz öznitelikleri kullanılabilir.
  deviceCategory | Geçerli cihaz kategorisi adı | (device.deviceCategory - eq "KCG")
  deviceManufacturer | herhangi bir dize değeri | (device.deviceManufacturer - eq "Samsung")
  deviceModel | herhangi bir dize değeri | (device.deviceModel - eq "iPad hava")
- deviceOwnership | Kişisel, Kurumsal, bilinmeyen | (device.deviceOwnership - eq "Kurumsal")
+ deviceOwnership | Kişisel, şirket, bilinmeyen | (device.deviceOwnership - eq "Şirket")
  DomainName | herhangi bir dize değeri | (device.domainName - eq "contoso.com")
  enrollmentProfileName | Apple cihaz kayıt profili ya da Windows Autopilot profili adı | (device.enrollmentProfileName - eq "DEP iPhone")
  isRooted | doğru yanlış | (device.isRooted - eq true)
@@ -360,6 +360,9 @@ Aşağıdaki cihaz öznitelikleri kullanılabilir.
  deviceId | Geçerli bir Azure AD cihaz kimliği | (device.deviceId - eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | Geçerli bir Azure AD nesne kimliği |  (device.objectId - eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
  systemLabels | Modern iş yeri cihazları etiketleme için Intune cihaz özelliği eşleşen herhangi bir dize | (device.systemLabels-"M365Managed" içerir)
+
+> [!Note]  
+> Dinamik gruplar için cihazları oluştururken deviceOwnership için değer "Şirket" eşit ayarlamanız gerekir. Intune cihaz sahipliğini şirket bunun yerine gösterilir. Başvurmak [OwnerTypes](https://docs.microsoft.com/en-us/intune/reports-ref-devices#ownertypes) daha fazla ayrıntı için. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

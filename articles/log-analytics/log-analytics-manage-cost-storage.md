@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 8343c27693538480757a879e477ec77fba08de3d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 350c009f77bc37ae2201b1d5c3b701e89301b7aa
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958347"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721706"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Veri hacmi ve saklama Log analytics'te kontrol ederek maliyet yönetme
 
@@ -73,7 +72,7 @@ Gözden geçirme [Log Analytics kullanımı ve Tahmini maliyetler](log-analytics
 ### <a name="manage-the-maximum-daily-data-volume"></a>Maksimum günlük veri hacmini yönetme 
 Log Analytics günlük içe alma veri hacmi yönetmek için bir sınır yapılandırma aşağıdaki adımları açıklanmaktadır.  
 
-1. Çalışma alanınızda seçin **kullanım ve Tahmini maliyetler** sol bölmeden.
+1. Çalışma alanınızın sayfasında, soldaki bölmeden **Kullanım ve tahmini maliyetler**’i seçin.
 2. Üzerinde **kullanım ve Tahmini maliyetler** sayfasında seçilen çalışma alanı için **veri hacmi Yönetimi** sayfanın üst. 
 5. Günlük üst sınır olan **OFF** varsayılan olarak – tıklayın **ON** etkinleştirin ve ardından veri birimi sınırı GB/gün.<br><br> ![Log Analytics'e veri sınırını yapılandırın](media/log-analytics-manage-cost-storage/set-daily-volume-cap-01.png)
 
@@ -99,8 +98,8 @@ Uyarı tanımlanır ve sınıra ulaşıldıktan sonra bir uyarı tetiklenir ve e
 ## <a name="change-the-data-retention-period"></a>Veri saklama süresini değiştirme 
 Aşağıdaki adımları ne kadar günlük verileri çalışma alanınızda tarafından tutulur yapılandırma açıklanmaktadır.
  
-1. Çalışma alanınızda seçin **kullanım ve Tahmini maliyetler** sol bölmeden.
-2. Üzerinde **kullanım ve Tahmini maliyetler** sayfasında **veri hacmi Yönetimi** sayfanın üst.
+1. Çalışma alanınızın sayfasında, soldaki bölmeden **Kullanım ve tahmini maliyetler**’i seçin.
+2. **Kullanım ve tahmini maliyetler** sayfasının üst kısmındaki **Veri hacmi yönetimi**'ni seçin.
 5. Bölmede artırın veya gün sayısını azaltın, ardından kaydırıcıyı **Tamam**.  Kullanıyorsanız *ücretsiz* katmanı, veri bekletme süresini değiştirmek mümkün olmayacaktır ve bu ayarı denetlemek için ücretli katmana yükseltmeniz gerekir.<br><br> ![Çalışma alanı veri saklama ayarını değiştirme](media/log-analytics-manage-cost-storage/manage-cost-change-retention-01.png)
 
 ## <a name="troubleshooting"></a>Sorun giderme

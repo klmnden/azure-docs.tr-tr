@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 08/13/2018
 ms.reviewer: mbullwin
 ms.author: nimolnar
-ms.openlocfilehash: f20963f030c9040b696f7d6a33b25bcee2dc517f
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f38c4a03a0d9b67b6ec8b20e489a6e4926d511c4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40130296"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720239"
 ---
 # <a name="dependency-auto-collection"></a>Bağımlılık otomatik toplama
 

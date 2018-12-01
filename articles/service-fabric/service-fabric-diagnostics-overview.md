@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 82c02c0212fd79d8847d374022b6ac8f862f042a
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 8d6865349f103278131a02c2385557fb53ee24f5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291122"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720601"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric için izleme ve tanılama
 
@@ -40,9 +40,10 @@ Uygulama izleme hakkında harika geliştiriciler tüm araçları ve uygulamanız
 ## <a name="platform-cluster-monitoring"></a>İzleme Platformu (küme)
 Bir kullanıcı, kullanıcı kodu kendisi, ancak Tanılama hakkında Service Fabric platformdan yazdığından hangi telemetrisi üzerinde uygulamadan gelen denetiminde mi? Service Fabric'in hedefleri uygulamalar donanım hatalarına dayanıklı tutmak biridir. Bu hedef platformun Sistem Hizmetleri, altyapı sorunları ve hızlı bir şekilde diğer düğümlere yük devretme iş yüklerini kümedeki algılama özelliğini aracılığıyla sağlanır. Ancak bu durumda, Sistem Hizmetleri sorunları varsa ne olur? Ya da hizmetleri yerleşimi için kuralları, dağıtmak veya bir iş yükü taşımak ise çalışılıyor, ihlal? Service Fabric, kümenizdeki gerçekleşen etkinliği hakkında bilgilendirilmesi emin olmak için daha fazla bilgi ve bunları tanılama sağlar. Küme izleme için bazı örnek senaryolar şunlardır:
 
-* Service Fabric, uygulamalarınız yerleştirme ve kümeyi geçici Dengeleme açısından beklediğim şekilde davrandığından? 
-* Kullanıcı eylemlerini onaylanır ve beklendiği gibi üzerinde yürütülen kümenizde alınır? Örneğin Ölçeklendirme, yük devretme, dağıtımları
-* Hangi düğümün kümenin parçası olan izlemek ve bana bildiren bir Service Fabric olan bir sorun oluştuğunda birinde?
+Service Fabric olayları hazır kapsamlı bir dizi sağlar. Bunlar [Service Fabric olayları](service-fabric-diagnostics-events.md) Eventstore'a veya işlevsel kanal (olay kanalı platform tarafından sunulan) aracılığıyla erişilebilir. 
+* Eventstore'a - Eventstore'a Service Fabric platform olaylarına Service Fabric Explorer'da ve REST API aracılığıyla kullanılabilir sağlayan bir platform tarafından sunulan bir özelliktir. Bir anlık görüntü görünümü kümenizdeki her varlık için örneğin düğüm, hizmet, uygulama ve olayın zamana dayalı sorgu neler olduğunu görebilirsiniz. Ayrıca Eventstore'a hakkında daha fazla bilgi [Eventstore'a genel bakış](service-fabric-diagnostics-eventstore.md).    
+
+* Service Fabric olay kanalları - üzerinde Windows, Service Fabric olayları ile ilgili bir dizi tek bir ETW sağlayıcısından kullanılabilir `logLevelKeywordFilters` arasında işletimsel ve veri ve ileti kanalı - almak için kullanılır, ayırabiliriz dışarı giden yolu budur Fabric olayları gerektiğinde üzerinde filtre uygulanacak hizmeti. Linux üzerinde Service Fabric olayları LTTng gelir ve bir depolama tablosuna nerede bunlar gerektiği şekilde filtrelenebilen gelen yerleştirilir. Bu Kanallar, küme durumunu daha iyi anlamak için kullanılan seçkin, yapılandırılmış olayları içerir. Tanılama varsayılan olarak bu kanallar olayları gelecekte sorgulamak için nereye gönderileceğini bir Azure depolama tablosuna oluşturduğunuz küme oluşturma sırasında etkinleştirilir. 
 
 Sağlanan tanılama olayları hazır kapsamlı bir dizi biçiminde alır. Bunlar [Service Fabric olayları](service-fabric-diagnostics-events.md) düğümleri, uygulamalar, hizmetler, bölümler vb. gibi farklı varlıkları platformunda tarafından gerçekleştirilen eylemler gösterilmektedir. Platform aşağı gitmek için bir düğüm varsa son senaryoda yukarıdaki yayma bir `NodeDown` olay ve bildirim hemen, tercih ettiğiniz izleme aracı tarafından. Diğer ortak örnekler `ApplicationUpgradeRollbackStarted` veya `PartitionReconfigured` yük devretmesi sırasında. **Aynı olayları, hem Windows hem de Linux kümelerinde kullanılabilir.**
 

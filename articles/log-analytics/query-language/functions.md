@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 23079c265cc0c7bd8aa11270ecd38003d87eb30f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: f5b668c69917cc1ba652be4c93e9da4cb5ef6671
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51855164"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681425"
 ---
 # <a name="using-functions-in-azure-monitor-log-analytics"></a>Azure İzleyici Log Analytics'te işlevlerini kullanma
 
@@ -64,7 +62,7 @@ Update
 | where UpdateState == "Needed"
 ```
 
-SQL ile ilgili gerekli güvenlik güncelleştirmeleri için arama diğerine oluşturun.
+Başka bir sorgu ve başvuru oluşturma _security_updates_last_day_ SQL ile ilgili gerekli güvenlik güncelleştirmeleri için aranacak işlev.
 
 ```Kusto
 security_updates_last_day | where Title contains "SQL"

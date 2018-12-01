@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: 9d0cb566ffb8fbec4b99b0f0eeca79b21d1b0dde
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 2c5e99c16ed6ae0df9af4783fb6431edcbb6f100
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335138"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725412"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET uygulamalarında özel durumlarda anlık görüntü hata ayıklama
 
@@ -202,7 +201,7 @@ Abonelik sahipleri Ata `Application Insights Snapshot Debugger` rol kullanıcıl
 
 1. Azure portalında Application Insights kaynağına gidin.
 1. Tıklayın **erişim denetimi (IAM)**.
-1. Tıklayın **+ Ekle** düğmesi.
+1. Tıklayın **+ rol ataması Ekle** düğmesi.
 1. Seçin **Application Insights Snapshot Debugger** gelen **rolleri** aşağı açılan listesi.
 1. Arayın ve kullanıcı eklemek için bir ad girin.
 1. Tıklayın **Kaydet** rolüne kullanıcı eklemek için Ekle düğmesine.

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/07/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5f95b71497b59eafff09d4add2b4bb1c20656592
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 9f475c7bc373afd8a109873908bb583bc07708f1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339367"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722556"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Bir iOS uygulaması kullanarak oturum açın
 
@@ -38,16 +38,16 @@ Ardından B2C dizininizde uygulama oluşturmanız gerekir. Uygulama kaydı, uygu
 * Uygulamanıza atanan **Uygulama Kimliği**'ni kopyalayın. Daha sonra bu GUID gerekir.
 * Ayarlanmış bir **yeniden yönlendirme URI'si** (örneğin, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect) özel bir düzen ile. Daha sonra bu URI gerekir.
 
-## <a name="create-your-policies"></a>İlkelerinizi oluşturma
-Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu uygulama bir kimlik deneyimi içerir: birleşik bir oturum açma ve kaydolma. Bu ilkeyi açıklandığı gibi oluşturmak [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). İlkeyi oluştururken şunları yaptığınızdan emin olun:
+## <a name="create-your-user-flows"></a>Kullanıcı akışlarınızı oluşturun
+Azure AD B2C'de, her kullanıcı deneyimi tarafından tanımlanan bir [kullanıcı akışı](active-directory-b2c-reference-policies.md). Bu uygulama bir kimlik deneyimi içerir: birleşik bir oturum açma ve kaydolma. Bu kullanıcı akışını açıklandığı gibi oluşturmak [kullanıcı akışı başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). İlkeyi oluştururken şunları yaptığınızdan emin olun:
 
 * Altında **kaydolma özniteliklerini**, öznitelik seçin **görünen ad**.  Diğer öznitelikler de seçebilirsiniz.
 * Altında **uygulama taleplerini**, talepleri seçmek **görünen ad** ve **kullanıcının nesne kimliği**. Diğer talepleri de seçebilirsiniz.
-* Oluşturduktan sonra her ilkenin **Adını** kaydedin. İlke adınızı ön ekine sahip `b2c_1_` ilkeyi kaydettiğinizde.  Daha sonra ilke adı gerekir.
+* Kopyalama **adı** oluşturduktan sonra her kullanıcı akış. Kullanıcı akışı adınızı ön ekine sahip `b2c_1_` kullanıcı akışı kaydettiğinizde.  Userjourney adı daha sonra gerekir.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-İlkelerinizi oluşturduktan sonra uygulamanızı oluşturmaya hazırsınız.
+Kullanıcı akış oluşturduktan sonra uygulamanızı oluşturmaya hazırsınız.
 
 ## <a name="download-the-sample-code"></a>Örnek kodu indirin
 AppAuth kullanan Azure AD B2C ile çalışma örnek sağladık [github'da](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Kodu indirin ve çalıştırın. Azure AD B2C kiracınızı kullanmak için yönergeleri izleyin. [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md).
@@ -64,7 +64,7 @@ Bu örnek tarafından Benioku yönergeleri takip ederek oluşturulduğu [iOS App
 
 Yetkilendirme uç noktası ve belirteç uç noktası URI belirterek Azure AD B2C ile iletişim yapılandırabilirsiniz.  Bu bir URI'leri oluşturmak için aşağıdaki bilgiler gereklidir:
 * Kiracı kimliği (örneğin, contoso.onmicrosoft.com)
-* İlke adı (örneğin, B2C\_1\_SignUpIn)
+* Userjourney adı (örneğin, B2C\_1\_SignUpIn)
 
 URI Kiracının değiştirerek oluşturulabilir ve belirteç uç noktasına\_kimliği ve ilke\_aşağıdaki URL adı:
 

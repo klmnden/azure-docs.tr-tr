@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 0f69a7f5e7aef4da798ec7c9ce3b7af3a456c00e
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 22c9aeaa9f02d91ea90083fae69f28fa5984c565
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613367"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680625"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 
@@ -83,7 +83,7 @@ Azure portalında etkinlik günlüğünüz bu alanlara göre filtreleyebilirsini
 
 Bir filtre kümesi tanımlandıktan sonra bir sorgu her zaman belirli olayları takip etmek için Azure panonuza sabitleyebilirsiniz.
 
-Daha fazla güç için tıklayabilirsiniz **günlükleri** etkinlik günlüğü verilerinizi gösteren bir simge [Log Analytics Activity Log Analytics çözümünü](../log-analytics/log-analytics-activity.md). Etkinlik günlüğü dikey günlükleri bir temel filtre/göz atma deneyimini sunar, ancak Log Analytics, Özet, sorgu ve daha güçlü şekilde verilerinizi görselleştirmek sağlar.
+Daha fazla güç için tıklayabilirsiniz **günlükleri** etkinlik günlüğü verilerinizi gösteren bir simge [Log Analytics Activity Log Analytics çözümünü](../azure-monitor/platform/collect-activity-logs.md). Etkinlik günlüğü dikey günlükleri bir temel filtre/göz atma deneyimini sunar, ancak Log Analytics, Özet, sorgu ve daha güçlü şekilde verilerinizi görselleştirmek sağlar.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Günlük profilini ile Etkinlik günlüğünü dışarı aktarma
 A **günlük profilini** etkinlik günlüğünüzü nasıl verilir denetimleri. Günlük profilini kullanarak, aşağıdakileri yapılandırabilirsiniz:

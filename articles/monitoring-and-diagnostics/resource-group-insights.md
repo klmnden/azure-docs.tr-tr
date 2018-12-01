@@ -7,17 +7,16 @@ manager: carmonm
 ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 4b24ab406cc9cdbc3ce03ee203ec034843d5630a
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: fd54d3425e342de688c5b573a4c329ab32af0c98
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986432"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682002"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Kaynak grupları, Azure İzleyici (Önizleme) ile izleme
 
@@ -64,7 +63,7 @@ Uygulamanızın ne etmişsinizdir yavaş çalışıyor veya kullanıcılar hata 
 
 Çoğu kaynak türleri, Azure İzleyici çalışma galeri şablonları açılır. Oluşturduğunuz her bir çalışma kitabının kaydedilmiş, ekibinizle paylaşılan ve gelecekte benzer sorunları tanılamak için yeniden kullanılan özelleştirilebilir.
 
-### <a name="investigate-failures"></a>Hataları Araştır
+### <a name="investigate-failures"></a>Hataları araştır
 
 Hataları sekme seçimine test etmek için **hataları** altında **Araştır** sol menüdeki.
 
@@ -100,7 +99,7 @@ Bu tablo görselleştirmesine yönlendiren temel alınan Log Analytics sorgusu o
 
 Sorguyu doğrudan değiştirebilirsiniz. Referans olarak kullanın ve bundan kendi özel parametreli çalışma kitabı tasarlarken ödünç alın.
 
-### <a name="investigate-performance"></a>Performansını araştırın
+### <a name="investigate-performance"></a>Performansı araştır
 
 Çalışma kitaplarının kendi galeri performans sunar. App Service için önceden oluşturulmuş uygulama performansını çalışma kitabı aşağıdaki görünümü sunar:
 

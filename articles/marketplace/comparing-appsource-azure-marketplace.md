@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 926fc46a4afd4e434e9769802ac096347b4ce4f0
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: f204f01fae0bd01f9f2f0e242c63ec2070d6d195
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620090"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678058"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>AppSource ve Azure Market karşılaştırma
 İçinde vitrinler [Azure Marketi](https://azuremarketplace.microsoft.com) ve [Microsoft AppSource](https://appsource.microsoft.com) benzersiz müşteri gereksinimleri hizmet. Hedef müşterilere vitrinler, rol için kullanın. Hizmet, müşteriye göre ve doğru çözümü sunabilir.
@@ -29,7 +29,7 @@ Bir mağaza seçmek için teklifinizi hedef kitlesi belirleyerek başlayın. Bir
 
 | Azure Market | AppSource |
 |:--- |:--- |
-| BT uzmanları ve geliştiriciler | İş karar mekanizmalarına |
+| BT uzmanları ve geliştiriciler | İş kullanıcılarına ve iş karar mekanizmalarına |
  
 Aşağıdaki tabloda bir mağaza kullanmanın avantajları açıklanmaktadır:
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 90c434a37d3209e0c11a04425c337ec6930cfd00
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 85e6dc8d72588ff64c0119a6c1944755ce5686f4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025268"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720941"
 ---
 <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager Test Sürüşü
 =================================
@@ -382,15 +382,13 @@ Kaydet’e tıklayın. Son adım, bu kayıtlı uygulama için uygulama Kimliğin
 Verilen kullanıyoruz uygulamayı aboneliğinize dağıtmak için biz uygulamanın abonelik üzerinde katkıda bulunan olarak eklemeniz gerekir. Bu yönergeleri olarak olan aşağıda:
 
 1. Abonelikler dikey penceresine gidin ve yalnızca Test Sürüşü için kullanmakta olduğunuz uygun aboneliği seçin.
-2. Erişim denetimi (IAM) tıklayın.
-3. Tıklama + yeni dikey pencerede ekleyin.
-4. Rol katkıda bulunan olarak ayarlayın.
-5. AAD uygulaması adını yazın ve rol atamak için AAD uygulaması'nı seçin.
-6. Tıklayın kaydedildiğinde.
-
-![Yeni bir erişim denetimi sorumlusu ekleme](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
-
-![İzin Ekle](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Tıklayın **erişim denetimi (IAM)**.
+1. Tıklayın **rol atamaları** sekmesi.  ![Yeni bir erişim denetimi sorumlusu ekleme](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Tıklayın **rol ataması Ekle**.
+1. Rol olarak ayarla **katkıda bulunan**.
+1. Azure AD uygulama adını yazın ve rol atamak için uygulamayı seçin.
+    ![İzin Ekle](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. **Kaydet**’e tıklayın.
 
 **Azure AD uygulama anahtarı -** *gerekli* bir kimlik doğrulama anahtarını oluşturmak için son alandır. Anahtarı altında anahtarı bir açıklama ekleyin, ardından süresiz olarak süresini Kaydet'i belirleyin. Bu **önemli** süresi dolmuş zorunda kalmamak için anahtar, hangi test sürüşünüz üretimde çalışmamasına neden olur. Bu değeri kopyalayın ve gerekli Test Sürüşü alanına yapıştırın.
 

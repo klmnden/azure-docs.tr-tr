@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 3e8230ea7b2d6d0e44468bd90289ee82d5a82367
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 0226e5dc03c3f10b951a4e4cc1d97a999c952f3b
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715715"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678891"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Uygulama bileşenleri anlamak için Vm'leri (Önizleme) Map için Azure İzleyicisi'ni kullanma
 Windows ve Linux ortamınızı Azure İzleyici ile iki şekilde VM'ler için doğrudan bir sanal makineden veya Azure İzleyici'den VM grupları arasında gösterilebilir azure'da çalışan sanal makineler üzerinde bulunan uygulama bileşenlerini görüntüleme. 
@@ -107,7 +107,7 @@ Azure İzleyici'den eşleme özelliğini sanal makinelerinizi ve bunların bağ�
 
 ![Azure İzleyici çok VM'li eşlemesi genel bakış](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Gelen **çalışma** sayfanın üst kısmındaki seçiciyi birden fazla Log Analytics çalışma alanı varsa Çözümle etkin olduğundan ve kendisine rapor veren sanal makinelerin bulunduğu çalışma alanını seçin. **Grubu** Seçici, abonelikler, kaynak grupları döndürecektir [bilgisayar grupları](../../log-analytics/log-analytics-computer-groups.md)ve VM ölçek kümeleri seçilen çalışma alanına ilgili bilgisayar. Seçiminiz yalnızca eşleme özelliğini uygular ve performans ya da harita taşımaz.
+Gelen **çalışma** sayfanın üst kısmındaki seçiciyi birden fazla Log Analytics çalışma alanı varsa Çözümle etkin olduğundan ve kendisine rapor veren sanal makinelerin bulunduğu çalışma alanını seçin. **Grubu** Seçici, abonelikler, kaynak grupları döndürecektir [bilgisayar grupları](../../azure-monitor/platform/computer-groups.md)ve VM ölçek kümeleri seçilen çalışma alanına ilgili bilgisayar. Seçiminiz yalnızca eşleme özelliğini uygular ve performans ya da harita taşımaz.
 
 Varsayılan olarak, son 30 dakika eşlemeyi gösterir. Kullanarak **TimeRange** Seçici, geçmiş zaman aralıkları (örneğin, bir olay sırasında veya bir değişikliği oluşmadan önce) bağımlılıkları geçmişte nasıl baktığı göstermek için bir saat için sorgulayabilir.   
 

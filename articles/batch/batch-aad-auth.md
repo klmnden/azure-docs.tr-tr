@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: 67f8b49cd2205403dec8843beebb92c9f41f6e37
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 964ef3bd988d71bfb90dbaa473b4b259769064b3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955805"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722064"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Batch hizmeti çözümlerinin Active Directory ile kimlik doğrulaması
 
@@ -139,9 +139,10 @@ Bir hizmet sorumlusu ile kimlik doğrulamak için uygulamanıza bir RBAC rolü a
 
 1. Azure portalında, uygulamanız tarafından kullanılan Batch hesabına gidin.
 2. İçinde **ayarları** select Batch hesabı dikey penceresinde **erişim denetimi (IAM)**.
-3. **Ekle** düğmesine tıklayın. 
-4. Gelen **rol** açılan, ya da seçin _katkıda bulunan_ veya _okuyucu_ uygulamanız için rol. Bu roller hakkında daha fazla bilgi için bkz. [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](../role-based-access-control/overview.md).  
-5. İçinde **seçin** uygulamanızın adını girin. Listeden uygulama seçin ve tıklayın **Kaydet**.
+3. Tıklayın **rolü atamalarını** sekmesi.
+4. Tıklayın **rol ataması Ekle** düğmesi. 
+5. Gelen **rol** açılan, ya da seçin _katkıda bulunan_ veya _okuyucu_ uygulamanız için rol. Bu roller hakkında daha fazla bilgi için bkz. [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](../role-based-access-control/overview.md).  
+6. İçinde **seçin** uygulamanızın adını girin. Listeden uygulama seçin ve tıklayın **Kaydet**.
 
 Uygulamanız, artık bir RBAC rolü atanmış erişim denetimi ayarlarınızı görüntülenmelidir. 
 

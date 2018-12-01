@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
-ms.openlocfilehash: 7cf7078353de27c35a607fa8ef1921d6ed4b54b4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5ab54dcd94ebf0a1bad71613a8d749cef0de64f4
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247356"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678687"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service üzerindeki işletim sistemi işlevi
 Bu makalede çalışan tüm Windows uygulamaları için kullanılabilir olan ortak temel işletim sistemi işlevi [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Bu işlev, dosya, ağ ve kayıt defteri erişim ve tanılama günlüklerini ve olayları içerir. 
@@ -60,7 +60,12 @@ Aşağıdaki bölümlerde, App Service uygulamaları için kullanılabilir olan 
 - (Ve müşteriler için erişilemez) yalnızca App Service tarafından kullanılan Azure paket cspkg dosyalarını içeren bir uygulama sürücüsü
 - Boyutu VM boyutuna bağlı olarak farklılık gösterir. "kullanıcı" sürücü (C:\ sürücüsü). 
 
-Uygulamanız büyüdükçe, disk kullanımını izlemek önemlidir. Disk kotası üst sınırına ulaşıldığında, uygulamanıza olumsuz etkileri olabilir.
+Uygulamanız büyüdükçe, disk kullanımını izlemek önemlidir. Disk kotası üst sınırına ulaşıldığında, uygulamanıza olumsuz etkileri olabilir. Örneğin: 
+
+- Uygulama, yeterli disk alanı olduğunu belirten bir hata oluşturabilecek.
+- Kudu konsoluna göz atarken, disk hataları görebilirsiniz.
+- VSTS veya Visual Studio dağıtım başarısız olabilir `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
+- Uygulamanız yavaş performans düşebilir.
 
 <a id="NetworkDrives"></a>
 

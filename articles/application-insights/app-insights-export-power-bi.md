@@ -9,16 +9,15 @@ ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e19735f604fdcd6d6642814e776fd9987d11fde
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4a30e562b04a3414a1305604a521e0d659753142
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499498"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720414"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights'tan Power BI akışı
 [Power BI](http://www.powerbi.com/) verileri analiz etmek ve öngörüleri paylaşmak yardımcı olan bir iş araçları paketidir. Her cihazda kullanılabilen zengin panolar. Analytics sorguları da dahil olmak üzere pek çok kaynaktan veri birleştirebilir [Azure Application Insights](app-insights-overview.md).
@@ -52,18 +51,18 @@ Yükleme [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
     ![Ekran görüntüsü, Power BI Desktop ile vurgulanmış Gelişmiş Düzenleyici](./media/app-insights-export-power-bi/power-bi-import-analytics-query.png)
 
-1. Power BI'ın Azure erişmesine izin vermek için kimlik bilgilerini sağlamanız gerekebilir. Kullanım **kuruluş hesabı** için Microsoft hesabınızla oturum açın.
+5. Power BI'ın Azure erişmesine izin vermek için kimlik bilgilerini sağlamanız gerekebilir. Kullanım **kuruluş hesabı** için Microsoft hesabınızla oturum açın.
    
     ![Ekran Power BI sorgu Ayarları iletişim kutusu](./media/app-insights-export-power-bi/power-bi-import-sign-in.png)
 
     Kimlik bilgilerini doğrulamak ihtiyacınız varsa **veri kaynağı ayarları** sorgu Düzenleyicisi'nde menü komutu. Power BI için kimlik bilgilerinizi farklı olabilecek, Azure için kullandığınız kimlik bilgilerini belirttiğinizden emin olun.
-2. Sorgunuz için bir görselleştirmeyi seçin ve x eksenini, y ekseni ve boyut kesimlere için alanları seçin.
+6. Sorgunuz için bir görselleştirmeyi seçin ve x eksenini, y ekseni ve boyut kesimlere için alanları seçin.
    
     ![Power BI Desktop ekran görselleştirme seçenekleri](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
-3. Raporunuzu Power BI bulut çalışma alanınıza yayımlayın. Burada, diğer web sayfalarına eşitlenmiş sürüm ekleyebilir.
+7. Raporunuzu Power BI bulut çalışma alanınıza yayımlayın. Burada, diğer web sayfalarına eşitlenmiş sürüm ekleyebilir.
    
     ![Ekran görüntüsü, Power BI Desktop, Yayımla düğmesi](./media/app-insights-export-power-bi/publish-power-bi.png)
-4. Rapor aralıklarla el ile yenileme veya zamanlanmış yenileme seçenekleri sayfasında ayarlayın.
+8. Rapor aralıklarla el ile yenileme veya zamanlanmış yenileme seçenekleri sayfasında ayarlayın.
 
 ### <a name="export-a-funnel"></a>Bir huni dışarı aktarma
 1. [Huni olun](usage-funnels.md).

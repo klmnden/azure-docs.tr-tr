@@ -9,16 +9,15 @@ ms.assetid: 0c2a084f-6e71-467b-a6aa-4ab222f17153
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: b1cd2e8d7649de48f34efb0c7d839e17906a29bf
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 258147498c4b37a5a00482090d5408f7c5619557
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044994"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681305"
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>.NET izleme günlüklerini Application ınsights'ı keşfedin
 NLog, log4Net veya System.Diagnostics.Trace ASP.NET uygulamanızı Tanılama izleme için kullanırsanız, gönderilen günlüklerinizi olabilir [Azure Application Insights][start], burada, arama ve keşfedebilirsiniz bunları. Günlüklerinizi, böylece her kullanıcı isteği hizmet ile ilişkilendirilmiş izlemeleri tanımlamak ve bunları diğer olayları ve özel durum raporları ilişkilendirmek uygulamanızdan gelen telemetri ile birleştirilir.

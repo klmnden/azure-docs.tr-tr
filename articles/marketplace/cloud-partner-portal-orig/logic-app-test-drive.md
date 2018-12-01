@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f0fd4efe7fc6f8f217d889b5f87c133b5e250b54
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 938472edf0c82da6f3e1fdaf4e6b052ac178bd8a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811672"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722982"
 ---
 <a name="logic-app-test-drive"></a>Mantıksal uygulamayı Test Sürüşü
 ====================
@@ -48,7 +48,7 @@ Doldurmak için sonraki bölüme, Teklif Ayrıntıları, Test Sürüşü hakkın
 
 ![Test sürücü ayrıntıları](./media/azure-resource-manager-test-drive/howtopub2.png)
 
-**Açıklama -** *[gerekli alan]* budur burada Test Sürüşünüz nedir hakkında temel bir açıklama yazın. Müşteri, hangi senaryolarını Test Sürüşünüz ürününüzü hakkında kapsayan okumak için buraya gelir. 
+**Açıklama -** *[gerekli alan]* budur burada Test Sürüşünüz nedir hakkında temel bir açıklama yazın. Müşteri, hangi senaryolarını Test Sürüşünüz ürününüzü hakkında kapsayan okumak için buraya gelir. 
 
 **Kullanıcı el ile -** *[gerekli alan]* Test Sürüşü deneyiminizin ayrıntılı izlenecek yolu budur. Müşteri, bu açılır ve tam olarak kendi Test Sürüşü yapmasını istediğiniz aracılığıyla size yol. Bu içeriği kolayca izleyin ve anlamak önemlidir! (.Pdf dosyası olması gerekir)
 
@@ -126,15 +126,13 @@ Kaydet’e tıklayın. Son adım, bu kayıtlı uygulama için uygulama Kimliğin
 Verilen kullanıyoruz uygulamayı aboneliğinize dağıtmak için biz uygulamanın abonelik üzerinde katkıda bulunan olarak eklemeniz gerekir. Bu yönergeleri olarak olan aşağıda:
 
 1. Abonelikler dikey penceresine gidin ve yalnızca Test Sürüşü için kullanmakta olduğunuz uygun aboneliği seçin.
-2. Erişim denetimi (IAM) tıklayın.
-3. Tıklama + yeni dikey pencerede ekleyin.
-4. Rol katkıda bulunan olarak ayarlayın.
-5. AAD uygulaması adını yazın ve rol atamak için AAD uygulaması'nı seçin.
-6. Tıklayın kaydedildiğinde.
-
-![Yeni bir erişim denetimi sorumlusu ekleme Azure Active Directory](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
-
-![Azure Active Directory izinleri](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Tıklayın **erişim denetimi (IAM)**.
+1. Tıklayın **rol atamaları** sekmesi.  ![Yeni bir erişim denetimi sorumlusu ekleme Azure Active Directory](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Tıklayın **rol ataması Ekle**.
+1. Rol olarak ayarla **katkıda bulunan**.
+1. Azure AD uygulama adını yazın ve rol atamak için uygulamayı seçin.
+    ![Azure Active Directory izinleri](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. **Kaydet**’e tıklayın.
 
 **Azure AD uygulama anahtarı -** *[gerekli alan]* bir kimlik doğrulama anahtarını oluşturmak için son alandır. Anahtarı altında anahtarı bir açıklama ekleyin, ardından süresiz olarak süresini Kaydet'i belirleyin. Bu **önemli** süresi dolmuş zorunda kalmamak için anahtar, hangi test sürüşünüz üretimde çalışmamasına neden olur. Bu değeri kopyalayın ve gerekli Test Sürüşü alanına yapıştırın.
 

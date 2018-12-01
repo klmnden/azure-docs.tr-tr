@@ -13,26 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 33a5b6e894c9c2b74f4c85ee96d59c0313a4bbe2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: adbe33bedf23e37c2d3fd485965dea86edbd269a
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446985"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681475"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure Active Directory kullanarak Azure API Management'ta Geliştirici hesaplarını yetkilendirme
 
 Bu makalede Azure Active Directory'den (Azure AD) kullanıcıları için geliştirici portalına erişim sağlamak nasıl gösterir. Bu kılavuzda ayrıca kullanıcıları içeren dış grupları ekleyerek Azure AD kullanıcı gruplarını yönetme işlemini gösterir.
-
-> [!NOTE]
-> Azure AD tümleştirmesi kullanılabilir [geliştirici, standart ve Premium](https://azure.microsoft.com/pricing/details/api-management/) yalnızca katmanları.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
 - İçeri aktarma ve Azure API Management örneği yayımlama. Daha fazla bilgi için [içeri aktarma ve yayımlama](import-and-publish.md).
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Azure AD'yi kullanarak Geliştirici hesaplarını yetkilendirme
 

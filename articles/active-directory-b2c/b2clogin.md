@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7b460efbdc50c5b243c3ef78bad568b720e75e59
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: ffceb8fd6f1afcd054bfc4c4035fb2b8b93ed390
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635566"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720550"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Kümesi yeniden yönlendirme URL'leri b2clogin.com için Azure Active Directory B2C için
 
@@ -29,7 +29,7 @@ B2clogin.com kullanma, ek avantajlar gibi sunar:
 Bu ayar b2clogin.com kullanırken değiştirmeniz gerekebileceğini göz önünde bulundurun:
 
 - Yeniden yönlendirme ayarlama b2clogin.com kullanmak için kimlik sağlayıcısı uygulamalarınızda URL'leri. 
-- B2clogin.com ilke başvuruları ve belirteç uç noktalar için kullanılacak Azure AD B2C'yi uygulamanız ayarlayın. 
+- Azure AD B2C uygulamanızı b2clogin.com kullanıcı akışı başvuruları ve belirteç uç noktalarını kullanacak şekilde ayarlayın. 
 - MSAL kullanıyorsanız, ayarlanacak ihtiyacınız **ValidateAuthority** özelliğini `false`.
 - Tüm değiştirdiğinizden emin olun **izin verilen çıkış noktaları** CORS ayarları için tanımladığınız [kullanıcı arabirimi özelleştirme](active-directory-b2c-ui-customization-custom-dynamic.md).  
 
@@ -56,7 +56,7 @@ Kimlik sağlayıcıları için kurulum bilgi aşağıdaki makalelerde bulabilirs
 
 ## <a name="update-your-application"></a>Uygulamanızı güncelleştirme
 
-Azure AD B2C'yi uygulamanız büyük olasılıkla başvurduğu `login.microsoftonline.com` ilke başvuruları ve belirteç uç noktaları gibi çeşitli yerlerde.  Kullanmak için yetkilendirme uç noktası, belirteç uç noktası ve veren güncelleştirildiğini doğrulayın `your-tenant-name.b2clogin.com`.  
+Azure AD B2C'yi uygulamanız büyük olasılıkla başvurduğu `login.microsoftonline.com` kullanıcı akışı başvuruları ve belirteç uç noktaları gibi çeşitli yerlerde.  Kullanmak için yetkilendirme uç noktası, belirteç uç noktası ve veren güncelleştirildiğini doğrulayın `your-tenant-name.b2clogin.com`.  
 
 ## <a name="set-the-validateauthority-property"></a>ValidateAuthority özelliğini ayarlayın
 

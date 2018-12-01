@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/30/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 32dbef04febb1f3a0cdd8654fc5ec1c5c367439e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 1e3dbe04652be479a327ed9494299f89ef13492a
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820010"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679401"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Uygulamanızı FTP/S kullanarak Azure App Service'e dağıtma
 
@@ -31,7 +31,7 @@ Uygulamanız için FTP/S uç nokta zaten etkin değil. FTP/S dağıtımını etk
 
 İçinde [Azure portalında](https://portal.azure.com), uygulamanızın açın [kaynak sayfası](../azure-resource-manager/resource-group-portal.md#manage-resources).
 
-FTP panoyu açmak için **sürekli teslim (Önizleme)** > **FTP** > **Pano**.
+FTP panoyu açmak için **Dağıtım Merkezi** > **FTP** > **Pano**.
 
 ![FTP panoyu Aç](./media/app-service-deploy-ftp/open-dashboard.png)
 
@@ -107,6 +107,6 @@ Azure App Service, hem etkin ve Pasif modu bağlanmayı destekler. (İşletim si
 
 Daha gelişmiş dağıtım senaryoları için deneyin [Git ile azure'a dağıtma](app-service-deploy-local-git.md). Git tabanlı azure'a dağıtım, sürüm denetimi, paket geri yükleme, MSBuild ve daha fazlasını sağlar.
 
-## <a name="more-resources"></a>Daha Fazla Kaynak
+## <a name="more-resources"></a>Diğer kaynaklar
 
 * [Azure App Service'e dağıtım kimlik bilgileri](app-service-deployment-credentials.md)

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 43812b68b10f9e4f8510d24cb08c8bb368b3b8f8
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: e81efb0a7977bbd50c63834f676b7cc75201dc68
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445778"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680694"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Azure Machine Learning Python istemci kitaplığını kullanarak Python ile veri kümelerine erişim
 Microsoft Azure Machine Learning Python istemci kitaplığı önizlemesi, Azure Machine Learning veri kümeleriniz için yerel bir Python ortamından güvenli erişimi etkinleştirebilir ve oluşturulmasını ve yönetimini bir çalışma alanındaki veri kümesi sağlar.
@@ -61,7 +61,7 @@ Makinenizde git varsa, doğrudan git deposundan yüklemek için pip kullanabilir
 ## <a name="datasetAccess"></a>Veri kümeleri erişmesine Studio kod parçacıklarını kullanma
 Python istemci kitaplığı, programlı erişim, var olan veri kümelerine çalıştırılmış denemelerle sağlar.
 
-Studio web arabiriminden, indirmek ve veri kümeleri konumu makinenizde pandas DataFrame nesne olarak seri durumdan için gerekli tüm bilgileri içeren kod parçacıkları oluşturabilirsiniz.
+Studio web arabiriminden, indirmek ve yerel makinenizde pandas DataFrame nesne olarak seri durumdan veri kümeleri için gerekli tüm bilgileri içeren kod parçacıkları oluşturabilirsiniz.
 
 ### <a name="security"></a>Veri erişimi için güvenlik
 Python istemci kitaplığı ile kullanılacak çalışma alanı kimliği ve yetkilendirme içerir Studio tarafından sağlanan kod parçacıkları belirteci. Bu, çalışma alanınız için tam erişim sağlamak ve bir parola gibi korunmalıdır.

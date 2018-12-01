@@ -1,5 +1,5 @@
 ---
-title: Azure dijital İkizlerini nesneleri blobları ekleme | Microsoft Docs
+title: Azure dijital İkizlerini nesnelerine BLOB Ekle | Microsoft Docs
 description: Azure dijital İkizlerini nesneleri blobları ekleme anlama
 author: kingdomofends
 manager: alinast
@@ -8,18 +8,18 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adgera
-ms.openlocfilehash: 0929a4a63eee35d21723c980887d6b4217898682
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 8a68ba35ddf7caacbf2339d87c5aeef80f470ba4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51688187"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725633"
 ---
-# <a name="how-to-add-blobs-to-objects-in-azure-digital-twins"></a>Azure dijital İkizlerini nesneleri BLOB'ları ekleme
+# <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Azure dijital İkizlerini nesnelerine BLOB Ekle
 
-Genel dosya türlerinden (örneğin, resimler ve günlükleri) yapılandırılmamış temsillerini blobudur. Ne tür verilerin temsil eden bir MIME türü kullanarak BLOB'ları izlemek (örneğin: "image/jpeg") ve meta verileri (adı, açıklamayı, türü, vb.).
+Resimler ve günlükleri gibi yaygın dosya türleri yapılandırılmamış temsillerini blobudur. Bir MIME türü kullanarak temsil ettikleri ne tür veriler BLOB'ları izlemek (örneğin: "image/jpeg") ve meta verileri (adı, açıklamayı, türü ve benzeri).
 
-Azure dijital İkizlerini, cihazlar, alanları ve kullanıcılar için BLOB'ları eklemeyi destekler. BLOB'ları, bir kullanıcı, cihaz fotoğraf, video, bir harita veya bir günlük için profil resmi temsil edebilir.
+Azure dijital İkizlerini cihazlara, boşluk ve kullanıcılara düğmelere bloblarını destekler. BLOB'ları, bir kullanıcı, cihaz fotoğraf, video, bir harita veya bir günlük için bir profil resmi temsil edebilir.
 
 > [!NOTE]
 > Bu makalede varsayılır:
@@ -28,45 +28,45 @@ Azure dijital İkizlerini, cihazlar, alanları ve kullanıcılar için BLOB'lar�
 
 ## <a name="uploading-blobs-an-overview"></a>Blobları karşıya yükleme: bir genel bakış
 
-Çok bölümlü istekleri, özel uç noktaları ve onların ilgili işlevleri Blobları karşıya yüklemek için kullanılır.
+Çok bölümlü istekleri, özel uç noktaları ve onların ilgili işlevleri blobları karşıya yüklemek için kullanabilirsiniz.
 
 > [!IMPORTANT]
-> Çok bölümlü istekleri temel üç parça bilgi gerektirir. Azure dijital çiftleri için:
+> Çok bölümlü istekleri üç parça bilgi gerekir:
 > * A **Content-Type** üst bilgi:
 >   * `application/json; charset=utf-8`
->   * `multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
-> * A **içerik düzeni**: `form-data; name="metadata"`.
-> * Karşıya yüklenecek dosya içeriği.
+>   * `multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`
+> * A **içerik düzeni**: `form-data; name="metadata"`
+> * Karşıya yüklenecek dosya içeriği
 >
-> Tam **Content-Type** ve **Content-Disposition** kullanım senaryosuna bağlı olarak değişebilir.
+> **Content-Type** ve **Content-Disposition** bilgi kullanım senaryosuna bağlı olarak farklılık gösterir.
 
-Her çok parçalı istek, birkaç parçalara ayrılır. Azure dijital İkizlerini yönetim API'leri için çok bölümlü istekleri bozuk **iki** (**2**) gibi bölümler:
+Azure dijital İkizlerini yönetim API'leri için çok bölümlü isteklerini iki bölümden oluşur:
 
-1. İlk bölümü gereklidir ve ilişkili bir MIME türü gibi Blob meta verilerini içeren **Content-Type** ve **Content-Disposition** yukarıda.
+* Gösterildiği şekilde ilişkili olan bir MIME türü gibi meta veriler BLOB **Content-Type** ve **Content-Disposition** bilgileri
 
-1. İkinci bölümü, gerçek Blob içeriklerini (dosya yapılandırılmamış içeriğini) içerir.  
+* BLOB içeriklerini (dosya yapılandırılmamış içeriğini)  
 
 İki bölümü hiçbiri için gerekli olan **düzeltme eki** istekleri. Her ikisi için gerekli olan **POST** veya oluşturma işlemleri.
 
 ### <a name="blob-metadata"></a>Blob meta verileri
 
-Ek olarak **Content-Type** ve **Content-Disposition**, çok bölümlü isteklerini doğru JSON gövdesi de belirtmeniz gerekir. Göndermek için hangi JSON gövdesi gerçekleştirilmekte olan HTTP isteği işlemi türüne bağlıdır.
+Ek olarak **Content-Type** ve **Content-Disposition**, çok bölümlü isteklerini doğru JSON gövdesi belirtmeniz gerekir. Göndermek için hangi JSON gövdesi gerçekleştirilmekte olan HTTP isteği işlemi türüne bağlıdır.
 
-Kullanılan dört ana JSON şemalarının şunlardır:
+Dört ana JSON şemalarının şunlardır:
 
-![Alanı BLOB'ları][1]
+![JSON şemaları][1]
 
-Bu model şemaları, tam ayrıntılı sağlanan Swagger belgelerinde açıklanmıştır.
+Swagger belgeler, bu modeli şemaları tam ayrıntılı açıklar.
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
-Sağlanan başvuru belgeleri okuyarak kullanma hakkında bilgi edinin [Swagger'ı kullanmayı](./how-to-use-swagger.md).
+Başvuru belgeleri okuyarak kullanma hakkında bilgi edinin [Swagger'ı kullanmayı](./how-to-use-swagger.md).
 
 ### <a name="examples"></a>Örnekler
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-Bir metin dosyası olarak bir Blob yükleyen ve boşluk ile ilişkilendiren bir POST isteğinde bulunmak için:
+Yapmak için bir **POST** bir metin dosyası olarak bir blob yükleyen ve boşluk ile ilişkilendirir isteği:
 
 ```plaintext
 POST YOUR_MANAGEMENT_API_URL/spaces/blobs HTTP/1.1
@@ -97,10 +97,10 @@ This is my blob content. In this case, some text, but I could also be uploading 
 | --- | --- |
 | *USER_DEFINED_BOUNDARY* | Çok bölümlü içerik sınır adı |
 
-Bir .NET uygulaması aynı Blob karşıya yükleme sınıfını kullanarak aşağıda sağlanan [MultipartFormDataContent](https://docs.microsoft.com/dotnet/api/system.net.http.multipartformdatacontent):
+Aşağıdaki kod bir sınıf kullanarak aynı blob karşıya yükleme, .NET uygulamasıdır [MultipartFormDataContent](https://docs.microsoft.com/dotnet/api/system.net.http.multipartformdatacontent):
 
 ```csharp
-//Supply your metaData in a suitable format
+//Supply your metadata in a suitable format
 var multipartContent = new MultipartFormDataContent("USER_DEFINED_BOUNDARY");
 
 var metadataContent = new StringContent(JsonConvert.SerializeObject(metaData), Encoding.UTF8, "application/json");
@@ -116,15 +116,15 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 ## <a name="api-endpoints"></a>API uç noktaları
 
-Aşağıda, ana uç noktalarının ve kendi özel işlevler bir kılavuz sağlanır.
+Aşağıdaki bölümlerde, çekirdek uç noktaları aracılığıyla ve bunların işlevlerini açıklamaktadır.
 
 ### <a name="devices"></a>Cihazlar
 
-Blobları cihazlara eklenebilir. (Yönetim API'leri için Swagger başvuru belgeleri gösteren) aşağıdaki görüntü, Blob tüketimi için cihaz ile ilgili API uç noktaları ve bunları geçirmek için gerekli yol parametreleri belirtir:
+Bloblar için cihazlar ekleyebilirsiniz. Aşağıdaki görüntüde Yönetimi API'leri için Swagger başvuru belgeleri gösterilmektedir. Bu, cihazla ilgili API uç noktaları için blob tüketimi ve uygulamasına geçirmek için gerekli yol parametreleri belirtir.
 
 ![Cihaz BLOB'ları][2]
 
-Örneğin, güncelleştirmek veya Blob oluşturma ve Blob için bir cihaz eklemek için bir PATCH isteği için yapılır:
+Örneğin, güncelleştirmek veya blob oluşturma ve blob için bir cihaz eklemek için olun bir **düzeltme eki** isteği:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
@@ -132,25 +132,25 @@ YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 
 | Parametre | Şununla değiştir |
 | --- | --- |
-| *YOUR_BLOB_ID* | İstenen Blob kimliği |
+| *YOUR_BLOB_ID* | İstenen blob kimliği |
 
-Başarılı istekler yanıtta DeviceBlob JSON nesnesi döndürür. DeviceBlobs aşağıdaki JSON şemaya uygun:
+Başarılı istekler döndürür bir **DeviceBlob** yanıt JSON nesnesi. **DeviceBlob** nesneleri uymak için aşağıdaki JSON şeması:
 
 | Öznitelik | Tür | Açıklama | Örnekler |
 | --- | --- | --- | --- |
-| **DeviceBlobType** | Dize | Bir cihaza bağlı bir Blob kategorisi | `Model` ve `Specification` |
-| **DeviceBlobSubtype*** | Dize | DeviceBlobType daha ayrıntılı bir Blob alt kategorisi | `PhysicalModel`, `LogicalModel`, `KitSpecification`, ve `FunctionalSpecification` |
+| **DeviceBlobType** | Dize | Bir cihaza bağlı bir blob kategorisi | `Model` ve `Specification` |
+| **DeviceBlobSubtype** | Dize | Daha fazla belirli bir blob subcategory **DeviceBlobType** | `PhysicalModel`, `LogicalModel`, `KitSpecification`, ve `FunctionalSpecification` |
 
 > [!TIP]
 > Yukarıdaki tabloda başarıyla döndürülen istek verileri işlemek için kullanın.
 
 ### <a name="spaces"></a>Alanları
 
-Bloblar için alanları bağlı olmalıdır. Aşağıdaki görüntüde uygulamasına geçirmek için bir yol parametreleri birlikte BLOB'ları işlemek için sorumlu tüm boşluk API uç noktaları listeler:
+Ayrıca, blobları için alanları ekleyebilirsiniz. Aşağıdaki görüntü, alanı API uç noktalarını blobları işlenmesinden sorumludur listeler. Ayrıca, bu uç noktalarına geçmek için herhangi bir yol parametreleri listeler.
 
 ![Alanı BLOB'ları][3]
 
-Örneğin, bir Blob için bir alanı eklenmiş döndürmek için bir GET isteği olun:
+Örneğin, bir blob için bir alanı eklenmiş döndürülecek olun bir **alma** isteği:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
@@ -158,24 +158,24 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 
 | Parametre | Şununla değiştir |
 | --- | --- |
-| *YOUR_BLOB_ID* | İstenen Blob kimliği |
+| *YOUR_BLOB_ID* | İstenen blob kimliği |
 
-PATCH isteğinde aynı uç noktaya bir meta veri açıklamasını güncelleştirin ve Blob yeni bir sürümünü oluşturmak izin verir. HTTP isteği, tüm gerekli meta ve çok bölümlü form verilerinin yanı sıra düzeltme eki yöntemi kullanılarak yapılır.
+Yapmadan bir **düzeltme eki** isteği aynı uç noktasına bir meta veri açıklamasını güncelleştirin ve blob yeni bir sürümünü oluşturmak sağlar. HTTP isteği aracılığıyla yapılan **düzeltme eki** yöntemi, tüm gerekli meta ve çok bölümlü form verilerinin yanı sıra.
 
-Başarılı işlemler aşağıdaki şemaya uyan ve döndürülen veri tüketmek için kullanılan bir SpaceBlob döndürür:
+Başarılı işlemler dönüş bir **SpaceBlob** aşağıdaki şemaya uygun nesne. Döndürülen veri tüketmek için kullanabilirsiniz.
 
 | Öznitelik | Tür | Açıklama | Örnekler |
 | --- | --- | --- | --- |
-| **SpaceBlobType** | Dize | Bir alana bağlı bir Blob kategorisi | `Map` ve `Image` |
-| **SpaceBlobSubtype** | Dize | SpaceBlobType daha ayrıntılı bir Blob alt kategorisi | `GenericMap`, `ElectricalMap`, `SatelliteMap`, ve `WayfindingMap` |
+| **SpaceBlobType** | Dize | Bir alana bağlı bir blob kategorisi | `Map` ve `Image` |
+| **SpaceBlobSubtype** | Dize | Daha fazla belirli bir blob subcategory **SpaceBlobType** | `GenericMap`, `ElectricalMap`, `SatelliteMap`, ve `WayfindingMap` |
 
 ### <a name="users"></a>Kullanıcılar
 
-Blobları kullanıcı modellerine bağlı (söylemek profil resmi ilişkilendirmek). Aşağıdaki görüntüde ilgili kullanıcıları API uç noktalarını gösterir ve tüm gerekli yol parametreleri gibi bir `id`:
+Blobları kullanıcı modelleri (örneğin, bir profil resmi ilişkilendirmek için) ekleyebilirsiniz. Aşağıdaki resim gibi ilgili kullanıcı API uç noktaları ve tüm gerekli yol parametreleri gösterir `id`:
 
 ![Kullanıcı BLOB'ları][4]
 
-Örneğin, bir kullanıcıya bağlı olarak bir Blob getirmek için gerekli tüm form verilerini içeren bir GET isteği olun:
+Örneğin, bir kullanıcıya bağlı olarak bir blob getirilecek olun bir **alma** gerekli form veri isteği:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
@@ -183,18 +183,18 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 
 | Parametre | Şununla değiştir |
 | --- | --- |
-| *YOUR_BLOB_ID* | İstenen Blob kimliği |
+| *YOUR_BLOB_ID* | İstenen blob kimliği |
 
-Döndürülen JSON (UserBlobs), aşağıdaki JSON modelleri için de uyumlu olacaktır:
+Döndürülen JSON (**UserBlob** nesneleri) için aşağıdaki JSON modelleri uyar:
 
 | Öznitelik | Tür | Açıklama | Örnekler |
 | --- | --- | --- | --- |
-| **UserBlobType** | Dize | Bir kullanıcıya bağlı bir Blob kategorisi | `Image` ve `Video` |
-| **UserBlobSubtype** |  Dize | UserBlobType daha ayrıntılı bir Blob alt kategorisi | `ProfessionalImage`, `VacationImage`, ve `CommercialVideo` |
+| **UserBlobType** | Dize | Bir kullanıcıya bağlı bir blob kategorisi | `Image` ve `Video` |
+| **UserBlobSubtype** |  Dize | Daha fazla belirli bir blob subcategory **UserBlobType** | `ProfessionalImage`, `VacationImage`, ve `CommercialVideo` |
 
 ## <a name="common-errors"></a>Sık karşılaşılan hatalar
 
-Doğru üst bilgi bilgileri dahil değil:
+Sık karşılaşılan doğru üst bilgi bilgileri dahil değil:
 
 ```JSON
 {
@@ -207,7 +207,7 @@ Doğru üst bilgi bilgileri dahil değil:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sağlanan Azure İkizlerini dijital Swagger başvuru belgeleri hakkında daha fazla bilgi edinmek için [dijital Swagger İkizlerini kullanma](how-to-use-swagger.md).
+Azure dijital çiftleri için Swagger başvuru belgeleri hakkında daha fazla bilgi edinmek için [kullanımı Azure dijital İkizlerini Swagger](how-to-use-swagger.md).
 
 <!-- Images -->
 [1]: media/how-to-add-blobs/blob-models.PNG

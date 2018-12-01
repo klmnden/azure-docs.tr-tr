@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 9d3d1e5ba7ebc7e2afefb31df3be9f2a8f43e153
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 34a72bb38c87902648ad92261a70d6545f10d0fa
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685404"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723695"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>SLES azure'daki SUSE Linux Enterprise Server üzerinde Pacemaker ayarlama
 
@@ -527,10 +527,10 @@ Giriş dosyası için aşağıdaki içeriği kullanın. İhtiyacınız olan içe
 1. Tüm kaynaklar dikey penceresini açın
 1. İlk küme düğümüne sanal makinesini seçin
 1. Erişim denetimi (IAM)'ye tıklayın.
-1. Ekle'ye tıklayın.
+1. Ekle rol ataması
 1. "Linux sınır Aracısı rolü" rolü seçin
 1. Yukarıda oluşturduğunuz uygulamanın adını girin
-1. Tamam'a tıklayın
+1. Kaydet’e tıklayın.
 
 İkinci küme düğümü için yukarıdaki adımları yineleyin.
 

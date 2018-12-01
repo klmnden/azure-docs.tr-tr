@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 11/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: caa1b6f31325cd67aad106f7829bd32a5e7aeb53
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c6202ff6f00412a779fb62b7a3bcc3f30ecbb25a
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635824"
+ms.locfileid: "52682338"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -52,7 +52,7 @@ Raporları dayanarak bilgisayarınızın ne kaynağı üzerinde nasıl güncel �
 
 Zamanlanmış bir dağıtım oluşturarak, yazılım güncelleştirmelerinin gerekli olduğu bilgisayarlara güncelleştirmeleri dağıtabilir ve yükleyebilirsiniz. Olarak sınıflandırılmış güncelleştirmeler *isteğe bağlı* Windows bilgisayarlar için dağıtım kapsamına dahil değildir. Yalnızca gerekli güncelleştirmeleri dağıtım kapsamına dahildir. 
 
-Zamanlanmış dağıtım, bilgisayarları açıkça belirterek veya seçerek uygun güncelleştirmeleri hangi hedef bilgisayarların alma tanımlayan bir [bilgisayar grubu](../log-analytics/log-analytics-computer-groups.md) belirli bir bilgisayar kümesinin günlük aramaları dayanır. Onayla ve güncelleştirmeleri yüklenebilir süreyi ayarlamak için bir zamanlama de belirtirsiniz.
+Zamanlanmış dağıtım, bilgisayarları açıkça belirterek veya seçerek uygun güncelleştirmeleri hangi hedef bilgisayarların alma tanımlayan bir [bilgisayar grubu](../azure-monitor/platform/computer-groups.md) belirli bir bilgisayar kümesinin günlük aramaları dayanır. Onayla ve güncelleştirmeleri yüklenebilir süreyi ayarlamak için bir zamanlama de belirtirsiniz.
 
 Güncelleştirmeler Azure Automation’daki runbook'lar tarafından yüklenir. Bu runbook'ları görüntüleyemezsiniz ve runbook'lar herhangi bir yapılandırma gerekmez. Güncelleştirme dağıtımı oluşturulduğunda, güncelleştirme dağıtımına dahil edilen bilgisayarlar için belirtilen zamanda ana güncelleştirme runbook'unu başlatan bir zamanlama oluşturur. Ana runbook, gerekli güncelleştirmelerin yükleneceği her aracıda bir alt runbook başlatır.
 
@@ -192,7 +192,7 @@ Makine, güncelleştirme veya dağıtım hakkında bilgi döndüren bir günlük
 
 ## <a name="install-updates"></a>Güncelleştirmeleri yükle
 
-Çalışma alanınızdaki tüm Linux ve Windows bilgisayarlar için güncelleştirmeleri değerlendirdikten sonra oluşturarak gerekli güncelleştirmeleri yükleyebilirsiniz bir *güncelleştirme dağıtım*. Güncelleştirme dağıtımı bir veya daha fazla bilgisayar için gerekli güncelleştirmelerin zamanlanmış yüklemesidir. Tarih ve saat için dağıtım ve bilgisayar veya bilgisayar grubundaki bir dağıtım kapsamında içerecek şekilde belirt Bilgisayar grupları hakkında daha fazla bilgi edinmek için bkz. [Log Analytics’te bilgisayar grupları](../log-analytics/log-analytics-computer-groups.md).
+Çalışma alanınızdaki tüm Linux ve Windows bilgisayarlar için güncelleştirmeleri değerlendirdikten sonra oluşturarak gerekli güncelleştirmeleri yükleyebilirsiniz bir *güncelleştirme dağıtım*. Güncelleştirme dağıtımı bir veya daha fazla bilgisayar için gerekli güncelleştirmelerin zamanlanmış yüklemesidir. Tarih ve saat için dağıtım ve bilgisayar veya bilgisayar grubundaki bir dağıtım kapsamında içerecek şekilde belirt Bilgisayar grupları hakkında daha fazla bilgi edinmek için bkz. [Log Analytics’te bilgisayar grupları](../azure-monitor/platform/computer-groups.md).
 
  Güncelleştirme dağıtımınıza bilgisayar gruplarını eklediğinizde, grup üyeliği bir zamanlama oluşturma sırasında yalnızca bir kez değerlendirilir. Sonraki değişiklikler bir grup için geçerli değildir. Bu kullanım almak için [dinamik gruplar](#using-dynamic-groups), bu grupları dağıtım sırasında çözümlenir ve bir sorgu tarafından tanımlanır.
 
@@ -210,7 +210,7 @@ Yeni bir güncelleştirme dağıtımı oluşturmak için Seç **güncelleştirme
 | Adı |Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad. |
 |İşletim Sistemi| Linux veya Windows|
 | Grupları güncelleştir (Önizleme)|Abonelik, kaynak grupları, konumları ve etiketleri, dağıtımınızdaki dahil etmek için Azure vm'leri dinamik bir grup oluşturmak için bir birleşimini temel bir sorgu tanımlarsınız. Daha fazla bilgi için bkz: [dinamik gruplar](automation-update-management.md#using-dynamic-groups)|
-| Güncelleştirilecek makineler |İçeri aktarılan grubu, kayıtlı bir aramayı seçin veya makine açılan listeden seçin ve tek bir makine seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir.</br> Log Analytics'te bilgisayar grupları oluşturmaya yönelik farklı yöntemler hakkında bilgi edinmek için bkz. [Computer groups in Log Analytics (Log Analytics'te bilgisayar grupları)](../log-analytics/log-analytics-computer-groups.md) |
+| Güncelleştirilecek makineler |İçeri aktarılan grubu, kayıtlı bir aramayı seçin veya makine açılan listeden seçin ve tek bir makine seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir.</br> Log Analytics'te bilgisayar grupları oluşturmaya yönelik farklı yöntemler hakkında bilgi edinmek için bkz. [Computer groups in Log Analytics (Log Analytics'te bilgisayar grupları)](../azure-monitor/platform/computer-groups.md) |
 |Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin|
 |Güncelleştirmeleri Ekle/Dışla|Bu açılır **dahil edin/dışlayın** sayfası. Dahil edilecek veya dışlanacak güncelleştirmeler ayrı sekmelerdedir. Ekleme nasıl ele alındığını daha fazla bilgi için bkz: [ekleme davranışı](automation-update-management.md#inclusion-behavior) |
 |Zamanlama ayarları|Her iki kez başlatın ve saati seçin veya yineleme için yineleme|

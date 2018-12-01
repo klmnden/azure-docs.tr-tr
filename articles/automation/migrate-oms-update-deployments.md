@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d0b380aa6046daa235098516a8c93d3ba72533a6
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: d2e99abfbc89d96f1dc5ca3c59789e13dd157a10
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42057130"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678959"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>OMS güncelleştirme dağıtımlarınızı Azure'a geçirme
 
@@ -43,7 +43,7 @@ Gelecekte doğrudan Azure portalının altında gidebilirsiniz **tüm hizmetleri
 
 ## <a name="recreate-existing-deployments"></a>Var olan dağıtımları yeniden oluşturun
 
-OMS portalında oluşturulan tüm güncelleştirme dağıtımları sahip bir [kayıtlı araması](../log-analytics/log-analytics-computer-groups.md) olarak da bilinen bir bilgisayar grubu, var olan güncelleştirme dağıtımının aynı ada sahip. Kayıtlı arama güncelleştirme dağıtımına dahil zamanlanan makinelerin listesini içerir.
+OMS portalında oluşturulan tüm güncelleştirme dağıtımları sahip bir [kayıtlı araması](../azure-monitor/platform/computer-groups.md) olarak da bilinen bir bilgisayar grubu, var olan güncelleştirme dağıtımının aynı ada sahip. Kayıtlı arama güncelleştirme dağıtımına dahil zamanlanan makinelerin listesini içerir.
 
 ![Güncelleştirme Yönetimi](media/migrate-oms-update-deployments/oms-deployment.png)
 
@@ -61,12 +61,12 @@ Güncelleştirilecek makineler için mevcut bir OMS dağıtım tarafından kulla
 | --- | --- |
 |Adı |Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad. |
 |İşletim Sistemi| Seçin **Linux** veya **Windows**.|
-|Güncelleştirilecek makineler |İçeri aktarılan grubu, kayıtlı bir aramayı seçin veya makine açılan listeden seçin ve tek bir makine seçin. Seçerseniz **makineler**, makinenin hazır olma gösterilen **güncelleştirme ARACISI hazırlığı** sütun.</br> Log Analytics'te bilgisayar grupları oluşturmak için farklı yöntemler hakkında bilgi edinmek için bkz: [Log analytics'te bilgisayar grupları](../log-analytics/log-analytics-computer-groups.md) |
+|Güncelleştirilecek makineler |İçeri aktarılan grubu, kayıtlı bir aramayı seçin veya makine açılan listeden seçin ve tek bir makine seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir.</br> Log Analytics'te bilgisayar grupları oluşturmaya yönelik farklı yöntemler hakkında bilgi edinmek için bkz. [Computer groups in Log Analytics (Log Analytics'te bilgisayar grupları)](../azure-monitor/platform/computer-groups.md) |
 |Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin. CentOS desteklemiyor bu kullanıma hazır.|
 |Hariç tutulacak güncelleştirmeler|Hariç tutulacak güncelleştirmeler girin. Windows için KB makalesi olmadan girin **KB** önek. Linux için paket adını girin veya bir joker karakterini kullanın.  |
 |Zamanlama ayarları|Başlangıç saati seçin ve ardından ya da **kez** veya **yinelenen** yinelenme.|| Bakım penceresi |Güncelleştirmeler için dakika sayısı. Değer, 30 dakika ve 6 saatten az olamaz. |
 | Bakım penceresi |Güncelleştirmeler için dakika sayısı. Değeri olması olamaz az 30 dakika ve en fazla 6 saat |
-| Denetim yeniden başlatma| Araçtaki nasıl yeniden başlatma yapılması gerekir.</br>Kullanılabilen seçenekler şunlardır:</br>(Varsayılan) gerekliyse yeniden başlatma</br>Her zaman yeniden Başlat</br>Hiçbir zaman yeniden başlatma</br>Yalnızca yeniden - güncelleştirmeleri yüklenmez|
+| Denetim yeniden başlatma| Araçtaki nasıl yeniden başlatma yapılması gerekir.</br>Kullanılabilen seçenekler:</br>Gerekirse yeniden başlat (Varsayılan)</br>Her zaman yeniden başlat</br>Hiçbir zaman yeniden başlatma</br>Yalnızca yeniden başlatma - güncelleştirmeleri yüklemez|
 
 Tıklayın **zamanlanan güncelleştirme dağıtımları** yeni oluşturulan güncelleştirme dağıtım durumunu görüntülemek için.
 

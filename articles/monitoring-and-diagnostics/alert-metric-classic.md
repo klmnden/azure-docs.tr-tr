@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: e18b670b94962c0e7aa469402228fd4ed95d846b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 9b9789979f6fa3beb606007ca252827c7a1599e0
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287260"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682291"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Klasik ölçüm uyarılarını yönetme
 
@@ -126,36 +126,9 @@ Bu bölüm, komutları oluşturun, görüntüleyin ve klasik ölçüm uyarılar�
     Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Kullanabileceğiniz `Add-AlertRule` cmdlet'ini oluşturmak, güncelleştirmek veya bir uyarı kuralı devre dışı bırakın. E-posta ve Web kancası özellikleri kullanarak oluşturabileceğiniz `New-AzureRmAlertRuleEmail` ve `New-AzureRmAlertRuleWebhook`sırasıyla. Uyarı kuralı cmdlet'te, bu özellikler için eylem olarak atayın. **eylemleri** uyarı kuralı bir özelliğidir. Aşağıdaki tabloda, bir ölçüm kullanarak bir uyarı oluşturmak için kullanılan değerleri ve parametreler açıklanmaktadır.
-
-    | parametre | değer |
-    | --- | --- |
-    | Ad |simpletestdiskwrite |
-    | Bu uyarı kuralının konumu |Doğu ABD |
-    | ResourceGroup |montest |
-    | TargetResourceId |/Subscriptions/S1/resourceGroups/montest/providers/Microsoft.COMPUTE/virtualMachines/testconfig |
-    | Oluşturulan uyarının MetricName |\PhysicalDisk (_Total) \Disk Yazma/sn. Bkz: `Get-MetricDefinitions` cmdlet'i tam ölçüm adları almak nasıl hakkında |
-    | İşleci |GreaterThan |
-    | Eşik değerini (sayısı/sn, bu ölçümün) |1 |
-    | Pencereboyutu (ss: dd: biçimi) |00:05:00 |
-    | Toplayıcı (istatistiği ölçümün ortalama sayısı, bu durumda kullanır) |Ortalama |
-    | özel e-postaları (dize dizisi) |'foo@example.com','bar@example.com' |
-    | sahipleri, Katkıda Bulunanlar ve okuyucular için e-posta Gönder |-SendToServiceOwners |
-
-9. Bir e-posta eylem oluşturun
-
-    ```PowerShell
-    $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
-    ```
-
-10. Bir Web kancası Eylem oluştur
-
-    ```PowerShell
-    $actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com?token=mytoken
-    ```
+8. Klasik bir uyarı kuralları artık PowerShell oluşturulabilir. Yeni kullanması gereken bir uyarı kuralı oluşturmak için ['AzureRmMetricAlertRule Ekle'](https://docs.microsoft.com/powershell/module/azurerm.insights/add-azurermmetricalertrule?view=azurermps-6.13.0) komutu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Resource Manager şablonu ile klasik ölçüm uyarısı oluşturma](monitoring-enable-alerts-using-template.md).
 - [Web kancası kullanarak bir Azure sistem bilgisini Klasik ölçüm uyarısı sahip](insights-webhooks-alerts.md).
-
