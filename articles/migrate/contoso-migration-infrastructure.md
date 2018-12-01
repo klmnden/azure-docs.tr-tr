@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: 2210aaa5d4d0ba9d730e5aee97972565ea0c1090
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 32a489ee6266018ef1160a0870fe236cc6a72d36
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092992"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726993"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - geçiş altyapısı dağıtma
 
@@ -256,8 +256,8 @@ Azure [rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/ro
 
 Contoso yöneticileri artık, şirket içi ad'nizden eşitlenmiş AD grupları rollerini atar.
 
-1. İçinde **ControlCobRG** kaynak grubu, bunlar tıklayın **erişim denetimi (IAM)** > **Ekle**.
-2. İçinde **eklemek izinleri** > **rol**, > **katkıda bulunan**, seçtikleri **ContosoCobRG** listeden AD grubu. Grup içinde görünür ardından **seçili üyeleri** listesi. 
+1. İçinde **ControlCobRG** kaynak grubu, bunlar tıklayın **erişim denetimi (IAM)** > **rol ataması Ekle**.
+2. İçinde **rol ataması Ekle** > **rol**, > **katkıda bulunan**, seçtikleri **ContosoCobRG** listeden AD grubu. Grup içinde görünür ardından **seçili üyeleri** listesi. 
 3. Diğer kaynak gruplarının aynı izinlere sahip kullanıcılar bu yineleyin (dışında **ContosoAzureAdmins**), katkıda bulunan izinleri kaynak grubuyla eşleşen bir AD hesabı ekleyerek.
 4. İçin **ContosoAzureAdmins** AD grubu, bunlar atama **sahibi** rol.
 

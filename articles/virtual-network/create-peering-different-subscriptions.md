@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: cb8644ea4d949e81e4fb68bf572956bfe3444c0c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 04ed8e0e99f0aba4ca067700f8a651b6d6c52423
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997905"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727486"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Bir sanal ağ eşleme - oluşturma-Resource Manager, farklı abonelikler
 
@@ -58,7 +58,7 @@ Aşağıdaki adımlar, her abonelik için farklı hesaplar kullanma. İki abonel
     - **Konum**: *Doğu ABD*
 4. İçinde **kaynak Ara** türü portalın üst kısmındaki kutusu *myVnetA*. Seçin **myVnetA** arama sonuçlarında görüntülendiğinde. 
 5. Seçin **erişim denetimi (IAM)** seçenekleri sol taraftaki dikey listesinden.
-6. Altında **myVnetA - erişim denetimi (IAM)** seçin **+ Ekle**.
+6. Altında **myVnetA - erişim denetimi (IAM)** seçin **+ rol ataması Ekle**.
 7. Seçin **ağ Katılımcısı** içinde **rol** kutusu.
 8. İçinde **seçin** kutusunda, seçin *Kullanıcıb*, veya aramak için Kullanıcıb'in e-posta adresini yazın.
 9. **Kaydet**’i seçin.
@@ -294,7 +294,7 @@ Sanal ağlar farklı Aboneliklerde olması ve aboneliklerin farklı Azure Active
 ## <a name="delete"></a>Kaynakları silme
 Bu öğreticiyi tamamladığınızda, kullanım ücret ödememeniz öğreticide oluşturulan kaynakları silmek isteyebilirsiniz. Bir kaynak grubunun silinmesi kaynak grubundaki tüm kaynakları da siler.
 
-### <a name="delete-portal"></a>Azure portalı
+### <a name="delete-portal"></a>Azure portal
 
 1. Azure portalında UserA oturum açın.
 2. Portal arama kutusuna **myResourceGroupA**. Arama sonuçlarında seçin **myResourceGroupA**.

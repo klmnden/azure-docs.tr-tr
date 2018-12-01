@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b42dc0f86a70feb06b32a20c7cbdd513920f65d6
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 816992fa05613bc8904cfaf4b34345a02c9b3ba2
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263530"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728302"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -36,6 +36,17 @@ Azure AD Connect'ten yükseltme adımları | Farklı yöntemlere [en son önceki
 Gerekli izinler | Bir güncelleştirmeyi uygulamak için gereken izinler için bkz: [hesapları ve izinleri](reference-connect-accounts-permissions.md#upgrade).
 
 İndir | [Azure AD Connect'i indirme](https://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="12680"></a>1.2.68.0
+
+### <a name="release-status"></a>Yayın durumu 
+
+30/11/2018: indirme için yayımlanan
+
+### <a name="fixed-issues"></a>Düzeltilen sorunlar
+
+Bu düzeltme derleme, burada kimlik doğrulama hatası MSOnline PowerShell Galerisi modüldeki eşitleme sunucusu bağımsız varlığı nedeniyle ortaya çıkabilir çakışma düzeltir.
+
 
 
 ## <a name="12670"></a>1.2.67.0

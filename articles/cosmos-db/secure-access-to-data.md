@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: ed97a2c31897d1e5e61421ea489a35af377f4f37
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0d5243a1dd2a7c9244860da15d39f407b281e1e3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621454"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726806"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Azure Cosmos DB verilere erişimin güvenliğini sağlama
 Bu makalede depolanan verilere erişimin güvenliğini sağlama genel bir bakış sağlar [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -180,8 +180,8 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 Azure Cosmos DB hesabı okuyucusu erişimi kullanıcı hesabınıza eklemek için Azure portalında aşağıdaki adımları uygulayın, bir abonelik sahibi var.
 
 1. Azure portalını açın ve Azure Cosmos DB hesabınızı seçin.
-2. Tıklayın **erişim denetimi (IAM)** sekmesine ve ardından **+ Ekle**.
-3. İçinde **izinleri eklemek** bölmesinde, **rol** kutusunda **Cosmos DB hesabı okuyucusu rolü**.
+2. Tıklayın **erişim denetimi (IAM)** sekmesine ve ardından **+ rol ataması Ekle**.
+3. İçinde **rol ataması Ekle** bölmesinde, **rol** kutusunda **Cosmos DB hesabı okuyucusu rolü**.
 4. İçinde **kutusuna erişim atama**seçin **Azure AD kullanıcı, Grup veya uygulama**.
 5. Dizininizde, erişim vermek istediğiniz kullanıcı, Grup veya uygulama seçin.  Görünen ad, e-posta adresi veya nesne tanımlayıcıları dizin arama yapabilirsiniz.
     Seçilen kullanıcıya, gruba veya uygulamaya seçili Üyeler listesinde görünür.

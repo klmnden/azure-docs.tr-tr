@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: c26421f848cf25e391589fa791f801e30fd14797
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d4eac6a2a0b4b9414fdf110c599ff557cabeede5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50208910"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727112"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Bulut çözümü sağlayıcısı (CSP) programı ile çok kiracılı ortamında VMware olağanüstü durum kurtarmayı ayarlama
 
@@ -72,9 +72,13 @@ Kiracının abonelik Microsoft iş ortağı merkezi panosuna erişebilirsiniz.
 
       ![Kiracının CSP aboneliği sayfası](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-      (b) artık ilgili ayrıntıları girerek ve izinlerini seçmek veya bir CSV dosyasındaki kullanıcı listesi yükleyerek yeni bir kullanıcı oluşturun.
+    (b) artık ilgili ayrıntıları girerek ve izinlerini seçmek veya bir CSV dosyasındaki kullanıcı listesi yükleyerek yeni bir kullanıcı oluşturun.
+    
     c) yeni bir kullanıcı oluşturduktan sonra Azure portalına geri dönün. İçinde **abonelik** sayfasında, ilgili aboneliği seçin.
-    d) select **erişim denetimi (IAM)** ve ardından **Ekle**, ilgili erişim düzeyine sahip bir kullanıcı eklemek için. CSP Portalı aracılığıyla oluşturulan kullanıcılar, bir erişim düzeyi tıklattıktan sonra açılan sayfanın üzerinde otomatik olarak görüntülenir.
+
+    d) select **erişim denetimi (IAM)** ve ardından **rol atamaları**.
+
+    e) tıklayın **rol ataması Ekle** ilgili erişim düzeyine sahip bir kullanıcı eklemek için. CSP Portalı aracılığıyla oluşturulan kullanıcılar rol atamalarını sekmesinde görüntülenir.
 
       ![Kullanıcı ekleme](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 

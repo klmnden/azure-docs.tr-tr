@@ -9,16 +9,15 @@ ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: b2a93c7d3b512a34ab5d2e4fd020415739466c2e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 820c1baaf920dc2ada2aba1a4a8cc3b11ab2db2d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235301"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726823"
 ---
 # <a name="enterprise-plan-details"></a>Kurumsal plan ayrıntıları
 

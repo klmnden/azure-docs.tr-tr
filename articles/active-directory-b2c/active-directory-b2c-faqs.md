@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8cec3d3695eaff8719757dd022951b969de99f6a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: bccbf5462668913f6f3025e8d2274c115d49457f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010652"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727251"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Sık sorulan sorular (SSS) 
 Bu sayfa, Azure Active Directory (Azure AD) B2C hakkında sık sorulan sorular yanıtlanmaktadır. Geri güncelleştirmeleri kontrol etmeyi unutmayın.
@@ -34,7 +34,7 @@ Bir Azure AD kiracısında kiracıya ait olan kullanıcıların oturum açma for
 
 Bir Azure AD B2C kiracısında uygulamaların çoğu kullanıcının herhangi bir rastgele bir e-posta adresi ile oturum açmak istediğiniz (örneğin, joe@comcast.net, bob@gmail.com, sarah@contoso.com, veya jim@live.com). Bu hesap türü, bir yerel hesaptır.  Rastgele kullanıcı adları yerel hesapları (örneğin, ALi, bob, sarah veya jim) destekliyoruz. Azure portalında Azure AD B2C için kimlik sağlayıcıları yapılandırma sırasında bu iki yerel hesap türünden birini seçebilirsiniz. Azure AD B2C kiracınıza tıklayın **kimlik sağlayıcıları** seçip **kullanıcıadı** altında yerel hesaplar. 
 
-Uygulamaları için kullanıcı hesapları, her zaman bir kaydolma İlkesi, kaydolma veya oturum ile oluşturulmalıdır-ilke veya Azure AD Graph API'yi kullanarak. Azure portalında oluşturulan kullanıcı hesaplarını, yalnızca Kiracı yönetmek için kullanılır.
+Uygulamaları için kullanıcı hesapları, her zaman kaydolma veya oturum açma kullanıcı akışı, bir kayıt kullanıcı akış yoluyla veya Azure AD Graph API'sini kullanarak oluşturulmalıdır. Azure portalında oluşturulan kullanıcı hesaplarını, yalnızca Kiracı yönetmek için kullanılır.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Hangi sosyal kimlik sağlayıcıları artık destekliyorsunuz? Hangilerinin gelecekte desteklemeyi planlıyor musunuz?
 Şu anda Facebook, Google +, LinkedIn, Amazon, Twitter (Önizleme), WeChat (Önizleme), Weibo (Önizleme) ve h destekliyoruz (Önizleme). Müşteri talebine göre diğer popüler sosyal kimlik sağlayıcıları için destek ekleyeceğiz.
@@ -79,8 +79,8 @@ Azure AD B2C kiracısı oluştururken sağladığınız Azure AD B2C Kiracı ad�
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Nasıl my mevcut kullanıcı adları, parolalar ve profilleri my veritabanından Azure AD B2C'ye geçişini sağlayabilir miyim?
 Azure AD Graph API, geçiş aracı yazmak için kullanabilirsiniz. Bkz: [Kullanıcı Geçiş Kılavuzu](active-directory-b2c-user-migration.md) Ayrıntılar için.
 
-### <a name="what-password-policy-is-used-for-local-accounts-in-azure-ad-b2c"></a>Parola ilkeleri, Azure AD B2C'de yerel hesaplar için kullanılır?
-Yerel hesaplar için Azure AD B2C parola ilkesini ilkesi için Azure AD temel alır. Azure AD B2C kaydolma, kaydolma veya oturum açma ve parola ilkelerini kullanır "güçlü" parola gücünü sıfırlama ve parolaları sona ermez. Okuma [Azure AD parola ilkesi](https://msdn.microsoft.com/library/azure/jj943764.aspx) daha fazla ayrıntı için. Hesap kilitlemeleri uygulayın ve parolaları hakkında daha fazla bilgi için bkz: [yönettiği kaynaklar ve Azure Active Directory B2C verilerinde tehditleri](active-directory-b2c-reference-threat-management.md).
+### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Hangi parola kullanıcı akışını Azure AD B2C'de yerel hesaplar için kullanılır?
+Yerel hesaplar için Azure AD B2C parola kullanıcı akışı ilkesi için Azure AD temel alır. Azure AD B2C kaydolma, kaydolma veya oturum açma ve parola sıfırlama kullanıcı akışları "güçlü" parola gücünü kullanın ve parolaları dolmasın. Okuma [Azure AD parola ilkesi](https://msdn.microsoft.com/library/azure/jj943764.aspx) daha fazla ayrıntı için. Hesap kilitlemeleri uygulayın ve parolaları hakkında daha fazla bilgi için bkz: [yönettiği kaynaklar ve Azure Active Directory B2C verilerinde tehditleri](active-directory-b2c-reference-threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Şirket içi Active Directory dizinimde Azure AD B2C'ye depolanan müşteri kimliklerini geçirmek için Azure AD Connect kullanabilir miyim?
 Hayır, Azure AD Connect, Azure AD B2C ile çalışmak için tasarlanmamıştır. Kullanmayı [Graph API'si](active-directory-b2c-devquickstarts-graph-dotnet.md) kullanıcı geçişi için.  Bkz: [Kullanıcı Geçiş Kılavuzu](active-directory-b2c-user-migration.md) Ayrıntılar için.

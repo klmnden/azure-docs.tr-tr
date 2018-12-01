@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 97bd2081df8c90f885996629862f25cbec8fd2c2
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 2498fbef8d13fe9c61fd474dbbb678aa0b133e8a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860240"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728421"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Data factory'yi kullanarak Data Lake depolama Gen1 gelen ve giden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,7 +55,7 @@ Farklı araçlar/API'lerini kullanarak bir Azure Data Lake Store gönderip bural
 
 Verileri kopyalamak için bir işlem hattı oluşturmanın en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturmaya ilişkin bir öğretici için bkz. [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md).
 
-Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu** , **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
 
 API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için bir kaynak veri deposundan veri taşıyan bir işlem hattı oluşturmak için aşağıdaki adımları gerçekleştirin:
 
@@ -207,14 +207,14 @@ Kod içinde kullanılan Data Factory sınıfları hakkında daha fazla bilgi iç
 
 1. Emin `subscriptionId` ve `resourceGroupName` bağlı hizmeti belirtin `typeProperties` gerçekten data lake hesabınıza ait olanlardır.
 
-2. En az izni olduğundan emin olun "**okuyucu**" rolüne kullanıcı veya hizmet sorumlusu data lake hesabı. Bunu yapmak nasıl aşağıda verilmiştir:
+2. En az izni olduğundan emin olun **okuyucu** rolüne kullanıcı veya hizmet sorumlusu data lake hesabı. Bunu yapmak nasıl aşağıda verilmiştir:
 
     1. Azure Portal gidin -> Data Lake Store hesabınız
-    2. Data Lake Store dikey penceresinde "erişim denetimi (IAM)" tıklayın
-    3. Dikey penceresinde "erişim denetimi (IAM)", "Ekle" düğmesine tıklayın
-    4. "Rolünü" "Okuyucu" olarak ayarlayın ve kullanıcı veya erişim vermek için kopya için kullandığınız hizmet sorumlusu seçin
+    2. Tıklayın **erişim denetimi (IAM)** Data Lake Store dikey
+    3. Tıklayın **rol ataması Ekle**
+    4. Ayarlama **rol** olarak **okuyucu**, kullanıcı veya erişim vermek için kopya için kullandığınız hizmet sorumlusu seçin
 
-3. Kullanıcı veya hizmet sorumlusu için "Okuyucu" rolünü vermek istemiyorsanız alernative olmaktır [yürütme konumu açıkça belirtmeniz](data-factory-data-movement-activities.md#global) kopyalama activitywith, Data Lake Store konumu olarak. Örnek:
+3. Vermek istemiyorsanız **okuyucu** kullanıcı veya hizmet sorumlusu, alternatif rolüdür için [yürütme konumu açıkça belirtmeniz](data-factory-data-movement-activities.md#global) kopyalama activitywith, Data Lake Store konumu olarak. Örnek:
 
     ```json
     {
@@ -244,7 +244,7 @@ Bir Data Lake Store, girdi verilerini temsil eden bir veri kümesi belirtmek iç
 | **Dosya adı** |Azure Data Lake Store dosya adı. **FileName** özelliği isteğe bağlıdır ve büyük küçük harfe duyarlı. <br/><br/>Belirtirseniz **fileName**, etkinlik (kopyalama dahil) belirli bir dosya üzerinde çalışır.<br/><br/>Zaman **fileName** belirtilmezse, tüm dosyalarda kopyalama içerir **folderPath** giriş veri kümesinde.<br/><br/>Zaman **fileName** için bir çıktı veri kümesi belirtilmedi ve **preserveHierarchy** belirtilmezse etkinlik havuzunda oluşturulan dosya adıdır veri biçiminde. _GUID_.txt'. Örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Hayır |
 | **partitionedBy** |**PartitionedBy** özelliği, isteğe bağlıdır. Bir dinamik yol ve dosya adı için zaman serisi verilerini belirtmek için kullanabilirsiniz. Örneğin, **folderPath** veri her saat için parametreli olabilir. Ayrıntılar ve örnekler için bkz. [partitionedBy özelliği](#using-partitionedby-property). |Hayır |
 | **Biçim** | Şu biçim türlerini desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, ve  **ParquetFormat**. Ayarlama **türü** özelliği altında **biçimi** şu değerlerden biri olarak. Daha fazla bilgi için [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [JSON biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [ORC biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi ](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümlerine [Azure Data Factory tarafından desteklenen dosya ve sıkıştırma biçimleri](data-factory-supported-file-and-compression-formats.md) makalesi. <br><br> Dosyaları kopyalamak istiyorsanız "olarak-olan" dosya tabanlı depoları arasında (ikili kopya) atlamak `format` hem girdi ve çıktı veri kümesi tanımları bölümünde. |Hayır |
-| **sıkıştırma** | Veri sıkıştırma düzeyi ve türünü belirtin. Desteklenen türler **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyleri **Optimal** ve **en hızlı**. Daha fazla bilgi için [Azure Data Factory tarafından desteklenen dosya ve sıkıştırma biçimleri](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
+| **Sıkıştırma** | Veri sıkıştırma düzeyi ve türünü belirtin. Desteklenen türler **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyleri **Optimal** ve **en hızlı**. Daha fazla bilgi için [Azure Data Factory tarafından desteklenen dosya ve sıkıştırma biçimleri](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
 
 ### <a name="the-partitionedby-property"></a>PartitionedBy özelliği
 Dinamik belirtebilirsiniz **folderPath** ve **fileName** ile zaman serisi verilerinin özelliklerini **partitionedBy** özelliği, Data Factory işlevleri ve sistem değişkenleri. Ayrıntılar için bkz [Azure Data Factory - işlevler ve sistem değişkenleri](data-factory-functions-variables.md) makalesi.
@@ -299,11 +299,11 @@ Bu bölümde, elde edilen davranışını özyinelemeli ve copyBehavior değer f
 | özyinelemeli | copyBehavior | Sonuç davranış |
 | --- | --- | --- |
 | true |preserveHierarchy |Bir kaynak klasörü Klasör1 aşağıdaki yapıya sahip: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hedef klasör Klasör1 kaynak aynı yapıda ile oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
-| true |flattenHierarchy |Bir kaynak klasörü Klasör1 aşağıdaki yapıya sahip: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hedef Klasör1 aşağıdaki yapısı ile oluşturulur: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fıle1'de otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya2 için otomatik olarak oluşturulan ad<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya3 için otomatik olarak oluşturulan ad<br/>&nbsp;&nbsp;&nbsp;&nbsp;File4 için otomatik olarak oluşturulan ad<br/>&nbsp;&nbsp;&nbsp;&nbsp;File5 için otomatik olarak oluşturulan ad |
+| true |flattenHierarchy |Bir kaynak klasörü Klasör1 aşağıdaki yapıya sahip: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hedef Klasör1 aşağıdaki yapısı ile oluşturulur: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya2 için otomatik olarak oluşturulan ad<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya3 için otomatik olarak oluşturulan ad<br/>&nbsp;&nbsp;&nbsp;&nbsp;File4 için otomatik olarak oluşturulan ad<br/>&nbsp;&nbsp;&nbsp;&nbsp;File5 için otomatik olarak oluşturulan ad |
 | true |mergeFiles |Bir kaynak klasörü Klasör1 aşağıdaki yapıya sahip: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hedef Klasör1 aşağıdaki yapısı ile oluşturulur: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de dosya2 + dosya3 + File4 + 5 dosyası içeriği otomatik olarak oluşturulan dosya adında bir dosya halinde birleştirilir |
 | false |preserveHierarchy |Bir kaynak klasörü Klasör1 aşağıdaki yapıya sahip: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hedef klasör Klasör1 aşağıdaki yapısı ile oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/><br/><br/>Subfolder1 dosya3 File4 ve File5 ile değil teslim alındı. |
-| false |flattenHierarchy |Bir kaynak klasörü Klasör1 aşağıdaki yapıya sahip:<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hedef klasör Klasör1 aşağıdaki yapısı ile oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fıle1'de otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya2 için otomatik olarak oluşturulan ad<br/><br/><br/>Subfolder1 dosya3 File4 ve File5 ile değil teslim alındı. |
-| false |mergeFiles |Bir kaynak klasörü Klasör1 aşağıdaki yapıya sahip:<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hedef klasör Klasör1 aşağıdaki yapısı ile oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de + dosya2 içeriği otomatik olarak oluşturulan dosya adında bir dosya halinde birleştirilir. fıle1'de otomatik olarak oluşturulan adı<br/><br/>Subfolder1 dosya3 File4 ve File5 ile değil teslim alındı. |
+| false |flattenHierarchy |Bir kaynak klasörü Klasör1 aşağıdaki yapıya sahip:<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hedef klasör Klasör1 aşağıdaki yapısı ile oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya2 için otomatik olarak oluşturulan ad<br/><br/><br/>Subfolder1 dosya3 File4 ve File5 ile değil teslim alındı. |
+| false |mergeFiles |Bir kaynak klasörü Klasör1 aşağıdaki yapıya sahip:<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hedef klasör Klasör1 aşağıdaki yapısı ile oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de + dosya2 içeriği otomatik olarak oluşturulan dosya adında bir dosya halinde birleştirilir. Fıle1'de otomatik olarak oluşturulan adı<br/><br/>Subfolder1 dosya3 File4 ve File5 ile değil teslim alındı. |
 
 ## <a name="supported-file-and-compression-formats"></a>Desteklenen dosya ve sıkıştırma biçimleri
 Ayrıntılar için bkz [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md) makalesi.

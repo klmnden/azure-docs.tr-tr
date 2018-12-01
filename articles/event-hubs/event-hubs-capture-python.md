@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 11/16/2018
 ms.author: shvija
-ms.openlocfilehash: 76102e1238346cbbb8f5159d2ffcd94c788c16d6
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 0733d26839cbb2dc40f4dd99b60d6a5628cc1f1a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056018"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727095"
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>Event Hubs yakalama izlenecek yol: Python
 
@@ -38,10 +38,9 @@ Bu örnekte [Azure Python SDK'sı](https://azure.microsoft.com/develop/python/) 
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Python 2.7.x
-- Bir Azure aboneliği
-- Etkin bir [Event Hubs ad alanı ve olay hub'ı](event-hubs-create.md)
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
+- Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+- Etkin bir [Event Hubs ad alanı ve olay hub'ı](event-hubs-create.md). 
+- Etkinleştirme **yakalama** özelliği olay hub'ı yönergeleri izleyerek: [Event Hubs Azure portalını kullanarak yakalama özelliğini etkinleştirme](event-hubs-capture-enable-through-portal.md)
 
 ## <a name="create-an-azure-blob-storage-account"></a>Bir Azure Blob Depolama hesabı oluşturma
 1. [Azure portalında][Azure portal] oturum açın.

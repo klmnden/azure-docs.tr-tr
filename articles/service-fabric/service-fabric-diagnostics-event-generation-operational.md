@@ -12,92 +12,97 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
+ms.date: 10/23/2018
 ms.author: dekapur
-ms.openlocfilehash: 03dac03405588ba00a0f8ca5b127956c40853e36
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: a568fc6316211755fabc15ab3cf0227e3a87cb01
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868522"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727367"
 ---
 # <a name="list-of-service-fabric-events"></a>Service Fabric olayları listesi 
 
-Service Fabric kümenizi durumunu bildirmek üzere küme olayları birincil bir dizi kullanıma sunan [Service Fabric olayları](service-fabric-diagnostics-events.md). Bunlar düğümlerinizi ve kümenizin Service Fabric tarafından gerçekleştirilen eylemler veya tarafından küme sahibi/işleci yönetim kararlara dayanır. Bu olaylar sorgulayarak erişilebilir [Eventstore'a](service-fabric-diagnostics-eventstore.md) kümenizdeki ya da işlevsel kanal aracılığıyla. Service Fabric olayları Olay Görüntüleyicisi'nde gördüğünüz Windows makinelerde işlevsel kanal ayrıca olay günlüğüne - ölçekledikçe. 
+Service Fabric kümenizi durumunu bildirmek üzere küme olayları birincil bir dizi kullanıma sunan [Service Fabric olayları](service-fabric-diagnostics-events.md). Bunlar düğümlerinizi ve kümenizin Service Fabric tarafından gerçekleştirilen eylemler veya tarafından küme sahibi/işleci yönetim kararlara dayanır. Bu olayları, yapılandırma dahil olmak üzere bir sayı yapılandırarak erişilebilir [Log Analytics ile kümenizi](service-fabric-diagnostics-oms-setup.md), veya sorgulama [Eventstore'a](service-fabric-diagnostics-eventstore.md). Service Fabric olayları Olay Görüntüleyicisi'nde gördüğünüz Windows makinelerde bu olayları olay günlüğüne - beslenir. 
 
->[!NOTE]
->Sürümleri < 6.2 kümeleri için Service Fabric olayları listesi için lütfen aşağıdaki bölüme bakın. 
+Bu olayların özelliklerinden bazıları şunlardır
+* Her olay küme içindeki belirli bir varlığa bağlıdır örneğin uygulama, hizmet, düğüm, çoğaltma.
+* Her olay bir dizi ortak alanları içerir: Eventınstanceıd EventName ve kategorisi.
+* Her olay, olay ile ilişkili varlığa geri tie alanları içerir. Örneğin, ApplicationCreated olay oluşturulan uygulama adını tanımlayan alanları gerekir.
+* Olayları bunlar kullanılabileceği bir şekilde yapılandırılmış yapmak için Araçlar çeşitli daha fazla analiz. Ayrıca, ilgili olay ayrıntılarını, uzun bir dize yerine ayrı özellik olarak tanımlanır. 
+* Olayları olarak yazılır Service fabric'te farklı alt sistemleri, aşağıdaki Source(Task) tarafından tanımlanır. Daha fazla bilgi, şirket içinde bu alt sistemlerin kullanılabilir [Service Fabric mimarisi](service-fabric-architecture.md) ve [Service Fabric teknik genel bakış](service-fabric-technical-overview.md).
 
-Bunların eşleneceğine varlık sıralama ölçütü bir platformda kullanılabilir tüm olayların bir listesi sunulmaktadır.
+Varlık tarafından düzenlenen bu Service Fabric olaylarının bir listesi aşağıda verilmiştir.
 
 ## <a name="cluster-events"></a>Küme olayları
 
 **Küme yükseltme olayları**
 
-| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Sürüm |
-| --- | --- | --- | --- | --- | --- |
-| 29627 | ClusterUpgradeStarted | Bir küme yükseltmesi başlatıldı | CM | Bilgilendirici | 1 |
-| 29628 | ClusterUpgradeCompleted | Bir küme yükseltmesi tamamlandı| CM | Bilgilendirici | 1 |
-| 29629 | ClusterUpgradeRollbackStarted | Bir küme yükseltmesi için geri alma başlatıldı | CM | Bilgilendirici | 1 |
-| 29630 | ClusterUpgradeRollbackCompleted | Bir küme yükseltmesi geri alma tamamlandı | CM | Bilgilendirici | 1 |
-| 29631 | ClusterUpgradeDomainCompleted | Bir küme yükseltmesi sırasında bir etki alanı yükseltme tamamlandı | CM | Bilgilendirici | 1 |
+Küme yükseltme hakkında daha fazla ayrıntı bulunabilir [burada](service-fabric-cluster-upgrade-windows-server.md).
+
+| EventID | Ad | Kategori | Açıklama |Kaynak (görev) | Düzey | 
+| --- | --- | --- | --- | --- | --- | 
+| 29627 | ClusterUpgradeStarted | Yükseltme | Bir küme yükseltmesi başlatıldı | CM | Bilgilendirici |
+| 29628 | ClusterUpgradeCompleted | Yükseltme | Bir küme yükseltmesi tamamlandı | CM | Bilgilendirici | 
+| 29629 | ClusterUpgradeRollbackStarted | Yükseltme | Bir küme yükseltmesi için geri alma başlatıldı  | CM | Uyarı | 
+| 29630 | ClusterUpgradeRollbackCompleted | Yükseltme | Bir küme yükseltmesi geri alma tamamlandı | CM | Uyarı | 
+| 29631 | ClusterUpgradeDomainCompleted | Yükseltme | Bir yükseltme etki alanını bir küme yükseltmesi sırasında yükseltmeyi tamamladı. | CM | Bilgilendirici | 
 
 ## <a name="node-events"></a>Düğüm olayları
 
 **Düğüm yaşam döngüsü olayları** 
 
-| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Sürüm |
-| --- | --- | ---| --- | --- | --- |
-| 18602 | NodeDeactivateCompleted | Bir düğüm devre dışı bırakma tamamlandı | FM | Bilgilendirici | 1 |
-| 18603 | NodeUp | Kümenin bir düğümü başlatıldı algıladı. | FM | Bilgilendirici | 1 |
-| 18604 | NodeDown | Kümenin bir düğümü kapatıldı algıladı. |  FM | Bilgilendirici | 1 |
-| 18605 | NodeAddedToCluster | Kümeye yeni bir düğüm eklenmiştir. | FM | Bilgilendirici | 1 |
-| 18606 | NodeRemovedFromCluster | Kümeden bir düğümü kaldırıldı | FM | Bilgilendirici | 1 |
-| 18607 | NodeDeactivateStarted | Bir düğüm devre dışı bırakma başlatıldı | FM | Bilgilendirici | 1 |
-| 25620 | NodeOpening | Bir düğüm başlatılıyor. İlk düğüm yaşam döngüsü aşaması | FabricNode | Bilgilendirici | 1 |
-| 25621 | NodeOpenSucceeded | Bir düğüm başarıyla başlatıldı | FabricNode | Bilgilendirici | 1 |
-| 25622 | NodeOpenFailed | Bir düğüm başlatılamadı | FabricNode | Bilgilendirici | 1 |
-| 25623 | NodeClosing | Bir düğümü kapatılıyor. Son aşama düğüm yaşam döngüsünün başlangıcı | FabricNode | Bilgilendirici | 1 |
-| 25624 | NodeClosed | Bir düğüm başarıyla kapatıldı | FabricNode | Bilgilendirici | 1 |
-| 25625 | NodeAborting | Bir düğüm ungracefully kapanmaya başlıyor | FabricNode | Bilgilendirici | 1 |
-| 25626 | NodeAborted | Bir düğüm ungracefully kapatıldı | FabricNode | Bilgilendirici | 1 |
+| EventID | Ad | Kategori | Açıklama |Kaynak (görev) | Düzey |
+| --- | --- | ---| --- | --- | --- | 
+| 18602 | NodeDeactivateCompleted | StateTransition | Bir düğüm devre dışı bırakma tamamlandı | FM | Bilgilendirici | 
+| 18603 | NodeUp | StateTransition | Kümenin bir düğümü başlatıldı algıladı. | FM | Bilgilendirici | 
+| 18604 | NodeDown | StateTransition | Kümenin bir düğümü kapatıldı algıladı. Bir düğümü yeniden başlatma sırasında NodeUp olay tarafından izlenen bir NodeDown olayı görürsünüz. |  FM | Hata | 
+| 18605 | NodeAddedToCluster | StateTransition |  Yeni bir düğüm kümeye eklenen ve Service Fabric uygulamaları bu düğüme dağıtabilirsiniz. | FM | Bilgilendirici | 
+| 18606 | NodeRemovedFromCluster | StateTransition |  Bir düğümün kümeden kaldırılmış olabilir. Service Fabric uygulamaları bu düğüm için artık dağıtır | FM | Bilgilendirici | 
+| 18607 | NodeDeactivateStarted | StateTransition |  Bir düğüm devre dışı bırakma başlatıldı | FM | Bilgilendirici | 
+| 25621 | NodeOpenSucceeded | StateTransition |  Bir düğüm başarıyla başlatıldı | FabricNode | Bilgilendirici | 
+| 25622 | NodeOpenFailed | StateTransition |  Bir düğüm başlatmak ve halka katılmak başarısız oldu | FabricNode | Hata | 
+| 25624 | NodeClosed | StateTransition |  Bir düğüm başarıyla kapatıldı | FabricNode | Bilgilendirici | 
+| 25626 | NodeAborted | StateTransition |  Bir düğüm ungracefully kapatıldı | FabricNode | Hata | 
 
 ## <a name="application-events"></a>Uygulama olayları
 
 **Uygulama yaşam döngüsü olayları**
 
-| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Sürüm |
-| --- | --- | ---| --- | --- | --- |
-| 29620 | ApplicationCreated | Yeni bir uygulama oluşturuldu | CM | Bilgilendirici | 1 |
-| 29625 | ApplicationDeleted | Var olan bir uygulamayı silindi | CM | Bilgilendirici | 1 |
-| 23083 | ApplicationProcessExited | Bir uygulamadaki bir işlemden çıkıldı | Barındırma | Bilgilendirici | 1 |
+| EventID | Ad | Kategori | Açıklama |Kaynak (görev) | Düzey | 
+| --- | --- | --- | --- | --- | --- | 
+| 29620 | ApplicationCreated | Yaşam döngüsü | Yeni bir uygulama oluşturuldu | CM | Bilgilendirici | 
+| 29625 | ApplicationDeleted | Yaşam döngüsü | Var olan bir uygulamayı silindi | CM | Bilgilendirici | 
+| 23083 | ApplicationProcessExited | Yaşam döngüsü | Bir uygulamadaki bir işlemden çıkıldı | Barındırma | Bilgilendirici | 
 
 **Uygulama yükseltme olayları**
 
-| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Sürüm |
-| --- | --- | ---| --- | --- | --- |
-| 29621 | ApplicationUpgradeStarted | Uygulama yükseltmesi başlatıldı | CM | Bilgilendirici | 1 |
-| 29622 | ApplicationUpgradeCompleted | Uygulama yükseltme tamamlandı | CM | Bilgilendirici | 1 |
-| 29623 | ApplicationUpgradeRollbackStarted | Uygulama yükseltmesi için geri alma başlatıldı |CM | Bilgilendirici | 1 |
-| 29624 | ApplicationUpgradeRollbackCompleted | Uygulama yükseltmeyi geri alma tamamlandı | CM | Bilgilendirici | 1 |
-| 29626 | ApplicationUpgradeDomainCompleted | Uygulama yükseltme sırasında bir etki alanı yükseltme tamamlandı | CM | Bilgilendirici | 1 |
+Uygulama yükseltmeleri hakkında daha fazla ayrıntı bulunabilir [burada](service-fabric-application-upgrade.md).
+
+| EventID | Ad | Kategori | Açıklama |Kaynak (görev) | Düzey | 
+| --- | --- | ---| --- | --- | --- | 
+| 29621 | ApplicationUpgradeStarted | Yükseltme | Uygulama yükseltmesi başlatıldı | CM | Bilgilendirici | 
+| 29622 | ApplicationUpgradeCompleted | Yükseltme | Uygulama yükseltme tamamlandı | CM | Bilgilendirici | 
+| 29623 | ApplicationUpgradeRollbackStarted | Yükseltme | Uygulama yükseltmesi için geri alma başlatıldı |CM | Uyarı | 
+| 29624 | ApplicationUpgradeRollbackCompleted | Yükseltme | Uygulama yükseltmeyi geri alma tamamlandı | CM | Uyarı | 
+| 29626 | ApplicationUpgradeDomainCompleted | Yükseltme | Bir yükseltme etki alanını bir uygulama yükseltmesi sırasında yükseltmeyi tamamladı. | CM | Bilgilendirici | 
 
 ## <a name="service-events"></a>Hizmet olayları
 
 **Hizmet yaşam döngüsü olayları**
 
-| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Sürüm |
+| EventID | Ad | Kategori | Açıklama |Kaynak (görev) | Düzey | 
 | --- | --- | ---| --- | --- | --- |
-| 18657 | ServiceCreated | Yeni bir hizmet oluşturuldu | FM | Bilgilendirici | 1 |
-| 18658 | ServiceDeleted | Var olan bir hizmeti silindi | FM | Bilgilendirici | 1 |
+| 18657 | ServiceCreated | Yaşam döngüsü | Yeni bir hizmet oluşturuldu | FM | Bilgilendirici | 
+| 18658 | ServiceDeleted | Yaşam döngüsü | Var olan bir hizmeti silindi | FM | Bilgilendirici | 
 
 ## <a name="partition-events"></a>Bölüm olayları
 
 **Bölüm taşıma olayları**
 
-| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Sürüm |
+| EventID | Ad | Kategori | Açıklama |Kaynak (görev) | Düzey | 
 | --- | --- | ---| --- | --- | --- |
-| 18940 | PartitionReconfigured | Bölümü yeniden yapılandırma işlemi tamamlandı | RA | Bilgilendirici | 1 |
+| 18940 | PartitionReconfigured | Yaşam döngüsü | Bölümü yeniden yapılandırma işlemi tamamlandı | RA | Bilgilendirici | 
 
 ## <a name="container-events"></a>Kapsayıcı olayları
 
@@ -110,6 +115,12 @@ Bunların eşleneceğine varlık sıralama ölçütü bir platformda kullanılab
 | 23082 | ContainerExited | Bir kapsayıcı çıkıldı - UnexpectedTermination bayrağı denetleyin | Barındırma | Bilgilendirici | 1 |
 
 ## <a name="health-reports"></a>Sistem durumu raporlarının sayısı
+
+[Service Fabric sistem durumu modeli](service-fabric-health-introduction.md) bir zengin, esnek ve Genişletilebilir bir sistem durumu değerlendirmesi sağlar ve raporlama. Service Fabric sürüm 6.2 başlayarak, sistem durumu verileri geçmiş kayıtlarını sistem durumu sağlamak için Platform olayları olarak yazılır. Sistem durumu olayların hacmine düşük tutmak için biz yalnızca aşağıdaki Service Fabric olayları gibi yazın:
+
+* Tüm `Error` veya `Warning` sistem durumu raporlarının sayısı
+* `Ok` geçiş sırasında sistem durumu raporu
+* Olduğunda bir `Error` veya `Warning` sistem durumu olayı süresi dolar. Bu, ne kadar varlık sağlıksız olduğunu belirlemek için kullanılabilir
 
 **Küme sistem durumu raporu olayları**
 
@@ -238,6 +249,7 @@ Olayları 6.2 sürümü önce Service Fabric tarafından sağlanan kapsamlı bir
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Genel hakkında daha fazla bilgi [olay oluşturma platformu düzeyinde](service-fabric-diagnostics-event-generation-infra.md) Service fabric'te
+* Genel Bakış [Service fabric'te tanılama](service-fabric-diagnostics-overview.md)
+* Eventstore'a içinde hakkında daha fazla bilgi [Service Fabric Eventstore'a genel bakış](service-fabric-diagnostics-eventstore.md)
 * Değiştirme, [Azure tanılama](service-fabric-diagnostics-event-aggregation-wad.md) daha fazla günlükleri toplamak için yapılandırma
 * [Application ınsights'ı ayarlama](service-fabric-diagnostics-event-analysis-appinsights.md) günlükleri kanal, işlemsel görmek için

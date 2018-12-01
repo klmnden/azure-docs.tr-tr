@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 5da34e8e79c0df88cfad0b398aa8e1c22f158489
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5f558ea851d63b08885293efcff3fef600f2cc17
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428888"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726398"
 ---
 # <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Azure Blob ve kuyruk verisi ile RBAC (Önizleme) için erişim haklarını yönetme
 
@@ -61,15 +61,16 @@ Aşağıdaki bölümlerde, depolama hesabına kapsamlandırılan veya tek bir ka
 Tüm kapsayıcıları veya Azure portalında depolama hesabındaki sıralara erişim verme yerleşik bir rol atamak için:
 
 1. İçinde [Azure portalında](https://portal.azure.com), depolama hesabınıza gidin.
-2. Depolama hesabınızı seçin ve ardından **erişim denetimi (IAM)** hesabı için erişim denetimi ayarlarını görüntülemek için. Tıklayın **Ekle** düğmesini yeni bir rolü ekleyin.
+1. Depolama hesabınızı seçin ve ardından **erişim denetimi (IAM)** hesabı için erişim denetimi ayarlarını görüntülemek için. Seçin **rol atamaları** rol atamaları listesini görmek için sekmesinde.
 
     ![Depolama erişim denetimi ayarları gösteren ekran görüntüsü](media/storage-auth-aad-rbac/portal-access-control.png)
 
-3. İçinde **izinleri eklemek** penceresinde bir Azure AD kimliğine nasıl atamak için rolü seçin. Ardından bu role atamak istediğiniz kimliğini bulmak için arama yapın. Örneğin, aşağıdaki gösterir görüntüde **depolama Blob verileri Okuyucu (Önizleme)** bir kullanıcıya atanmış rol.
+1. Tıklayın **rol ataması Ekle** düğmesini yeni bir rolü ekleyin.
+1. İçinde **rol ataması Ekle** penceresinde bir Azure AD kimliğine nasıl atamak için rolü seçin. Ardından bu role atamak istediğiniz kimliğini bulmak için arama yapın. Örneğin, aşağıdaki gösterir görüntüde **depolama Blob verileri Okuyucu (Önizleme)** bir kullanıcıya atanmış rol.
 
     ![Bir RBAC rolünün nasıl atanacağını gösteren ekran görüntüsü](media/storage-auth-aad-rbac/add-rbac-role.png)
 
-4. **Kaydet**’e tıklayın. Rol atanmış kimliği bu rolü altında listelenen görünür. Örneğin, aşağıdaki görüntüde eklenen kullanıcıları artık depolama hesabındaki tüm blob verilerine Okuma izinlerine sahip olduğunu gösterir.
+1. **Kaydet**’e tıklayın. Rol atanmış kimliği bu rolü altında listelenen görünür. Örneğin, aşağıdaki görüntüde eklenen kullanıcı artık depolama hesabındaki tüm blob verilerine Okuma izinlerine sahip olduğunu gösterir.
 
     ![Ekran görüntüsü gösteren bir role atanmış kullanıcıların listesi](media/storage-auth-aad-rbac/account-scoped-role.png)
 
@@ -78,17 +79,20 @@ Tüm kapsayıcıları veya Azure portalında depolama hesabındaki sıralara eri
 Bir kapsayıcı veya bir sıra kapsamı belirlenmiş, yerleşik bir rol atamak için adımları da buradakilere benzer. Burada gösterilen yordam, bir kapsayıcı için kapsamlı bir rolü atar, ancak bir kuyruk için kapsamlı bir rol atamak için aynı adımları izleyebilirsiniz: 
 
 1. İçinde [Azure portalında](https://portal.azure.com), depolama hesabınıza gidin ve görüntüleme **genel bakış** hesabı.
-2. BLOB hizmeti altında seçin **Blob'lara göz at**. 
-3. Rol atamak istediğiniz kapsayıcıyı bulun ve kapsayıcının ayarları görüntüleyin. 
-4. Seçin **erişim denetimi (IAM)** kapsayıcısı için erişim denetimi ayarlarını görüntülemek için.
-5. İçinde **izinleri eklemek** penceresinde bir Azure AD kimliğine nasıl atamak istediğiniz rolü seçin. Ardından bu role atamak istediğiniz kimliğini bulmak için arama yapın.
-6. **Kaydet**’e tıklayın. Rol atanmış kimliği bu rolü altında listelenen görünür. Örneğin, aşağıdaki görüntüde eklenen kullanıcı artık adlı kapsayıcıyı verilere Okuma izinleri olmasına gösterilmektedir *örnek kapsayıcı*.
+1. Hizmetler altında **Blobları**. 
+1. Rol atamak istediğiniz kapsayıcıyı bulun ve kapsayıcının ayarları görüntüleyin. 
+1. Seçin **erişim denetimi (IAM)** kapsayıcısı için erişim denetimi ayarlarını görüntülemek için. Seçin **rol atamaları** rol atamaları listesini görmek için sekmesinde.
+
+    ![Ekran görüntüsü kapsayıcı erişim denetimi ayarları](media/storage-auth-aad-rbac/portal-access-control-container.png)
+1. Tıklayın **rol ataması Ekle** düğmesini yeni bir rolü ekleyin.
+1. İçinde **rol ataması Ekle** penceresinde bir Azure AD kimliğine nasıl atamak istediğiniz rolü seçin. Ardından bu role atamak istediğiniz kimliğini bulmak için arama yapın.
+1. **Kaydet**’e tıklayın. Rol atanmış kimliği bu rolü altında listelenen görünür. Örneğin, aşağıdaki görüntüde eklenen kullanıcı artık adlı kapsayıcıyı verilere Okuma izinleri olmasına gösterilmektedir *örnek kapsayıcı*.
 
     ![Ekran görüntüsü gösteren bir role atanmış kullanıcıların listesi](media/storage-auth-aad-rbac/container-scoped-role.png)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-- RBAC hakkında daha fazla bilgi için bkz: [rol tabanlı erişim denetimi ile çalışmaya başlama](../../role-based-access-control/overview.md).
+- RBAC hakkında daha fazla bilgi için bkz: [rol tabanlı erişim denetimi (RBAC) nedir?](../../role-based-access-control/overview.md).
 - Atama ve Azure PowerShell, Azure CLI veya REST API ile RBAC rolü atamalarını yönetme konusunda bilgi almak için şu makalelere bakın:
     - [Azure PowerShell ile rol tabanlı erişim denetimi (RBAC) yönetme](../../role-based-access-control/role-assignments-powershell.md)
     - [Rol tabanlı erişim denetimi (RBAC), Azure CLI ile yönetme](../../role-based-access-control/role-assignments-cli.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 17/07/2018
 ms.author: sedusch
-ms.openlocfilehash: 2f3b8371357403071e70dd2e351cd75dbd34f746
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 2a0934fa3bb46eebba02029a8292b9bee6b12c62
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40006833"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728234"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Azure için SAP LaMa Bağlayıcısı
 
@@ -90,10 +90,10 @@ Hizmet sorumlusu kullanarak Azure kaynaklarınızı varsayılan olarak erişim i
 1. Kaynak grupları dikey penceresini açın
 1. Kullanmak istediğiniz kaynak grubunu seçin
 1. Erişim denetimi (IAM)'ye tıklayın.
-1. Ekle'ye tıklayın
+1. Rol ataması Ekle'e tıklayın
 1. Katkıda bulunan rolü seçin
 1. Yukarıda oluşturduğunuz uygulamanın adını girin
-1. Tamam'ı tıklatın
+1. Kaydet’e tıklayın.
 1. Adım 3'ten 8 SAP LaMa içinde kullanmak istediğiniz tüm kaynak grupları için yineleyin
 
 SAP LaMa Web sitesini açın ve altyapı için gidin. Bulut yöneticileri sekmesine gidin ve Ekle'ye tıklayın. Microsoft Azure bulut bağdaştırıcıyı seçin ve İleri'ye tıklayın. Aşağıdaki bilgileri girin:
@@ -252,7 +252,7 @@ Aşağıdaki profil parametresi /usr/sap/hostctrl/exe/host_profile bulunduğu SA
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 ```
 
-#### <a name="install-sap-hana"></a>SAP HANA yükleyin
+#### <a name="install-sap-hana"></a>SAP HANA yükleme
 
 Komut satırı aracı hdblcm kullanılarak SAP HANA'ya yüklerseniz, bir sanal ana bilgisayar adı sağlamak için parametre--ana bilgisayar adı kullanın. Bir ağ arabirimi için IP adresini sanal ana bilgisayar veritabanı adını eklemek gerekir. Önerilen yöntem sapacext kullanmaktır. Sapacext kullanarak IP adresini bağlarsanız, IP adresi yeniden başlatma sonrası yeniden bağlamaya yönelik emin olun.
 

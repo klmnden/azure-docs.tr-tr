@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
 ms.author: TylerMSFT
-ms.openlocfilehash: 1041f37486c556ae29eed47728336a1ccb518e78
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 154869c3e6bcd44a71480a3cf7363537dddcebf9
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040375"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727690"
 ---
 # <a name="supported-service-fabric-versions"></a>Service Fabric desteklenen sürümler
 
@@ -42,5 +42,6 @@ Desteklenen Service Fabric sürümlerinin listesini ve bunların destek bitiş t
 | 5.7.* | 5.4.164.* |Sürüm 2.7 küçüktür veya eşittir |Aralık 15,2017  |
 | 6.0.* | 5.6.205.* |Sürüm 2.8 küçüktür veya eşittir |30,2018 Mart     |
 | 6.1. * | 5.7.221.* |Sürüm 3.0 küçüktür veya eşittir |Temmuz 15,2018      |
-| 6.2. * | 6.0.232.* |Sürüm 3.1 küçüktür veya eşittir |Ekim 26,2018 |
-| 6.3. * | 6.1.480.* |Sürüm 3.2 küçüktür veya eşittir |Geçerli sürümü ve bu nedenle bitiş tarihi |
+| 6.2. * | 6.0.232.* |Sürüm 3.1 küçüktür veya eşittir |Ekim 26,2018   |
+| 6.3. * | 6.1.480.* |Sürüm 3.2 küçüktür veya eşittir |Şubat 28,2019  |
+| 6.4. * | 6.2.301.* |Sürüm 3.3 küçüktür veya eşittir |Geçerli sürümü ve bu nedenle bitiş tarihi |

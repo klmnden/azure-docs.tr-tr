@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fe35f26fe73661901fa85da65e353fe66adf5d47
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 538208c39d6436c15b95760133e00c980e2e8277
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094226"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727911"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation’da Rol Tabanlı Erişim Denetimi
 
@@ -274,12 +274,13 @@ Aşağıdaki bölümde, Otomasyon hesabınızda RBAC yapılandırmak nasıl gös
 
 1. [Azure portalında](https://portal.azure.com/) oturum açın Otomasyon Hesapları sayfasından Otomasyon hesabınızı açın.
 2. Tıklayarak **erişim denetimi (IAM)** sol üst köşedeki denetimi. Bu açılır **erişim denetimi (IAM)** burada yeni kullanıcıları, grupları ekleyebilir ve Otomasyon yönetmek üzere uygulamalar, hesap ve Otomasyon hesabı için yapılandırılabilen mevcut rolleri sayfası.
+3. Tıklayın **rol atamaları** sekmesi.
 
    ![Erişim düğmesi](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>Yeni kullanıcı ekleme ve rol atama
 
-1. Gelen **erişim denetimi (IAM)** sayfasında **+ Ekle** açmak için **izinleri eklemek** Burada, bir kullanıcı, Grup veya uygulama ekleyebilir ve bunları bir role atayabildiğiniz sayfası.
+1. Gelen **erişim denetimi (IAM)** sayfasında **+ rol ataması Ekle** açmak için **rol ataması Ekle** burada kullanıcıya, gruba veya uygulamaya ekleyebilir ve rol atama sayfası bunları.
 
 2. Kullanılabilir roller listesinden bir rol seçin. Herhangi bir Otomasyon hesabı desteklediği yerleşik roller kullanılabilir veya sizin tanımladığınız herhangi bir özel rol seçebilirsiniz.
 

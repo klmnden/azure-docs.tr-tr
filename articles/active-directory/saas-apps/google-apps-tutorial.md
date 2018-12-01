@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 11/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 4ed571d34e5df67f556f39b898e7ae5efc06a3e1
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: b8f6e69169cd146ec9dd20d8dad43b74ddb59228
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288943"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726891"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Öğretici: Azure Active Directory G Suite ile tümleştirme
 
@@ -32,7 +32,7 @@ G Suite Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Azure AD hesaplarına otomatik olarak imzalanan (çoklu oturum açma) için G Suite açma, kullanıcılarınızın etkinleştirebilirsiniz.
 - Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -43,7 +43,7 @@ G Suite ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğel
 - Google Apps aboneliği veya Google Cloud Platform abonelik.
 
 > [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz. Bu belge, yeni kullanıcı çoklu oturum açma deneyimini kullanarak oluşturuldu. Kurulum, hala eski kullanıyorsanız, farklı görünecektir. G Suite uygulamanın çoklu oturum açma ayarlarını yeni deneyim etkinleştirebilirsiniz. Git **Azure AD, kurumsal uygulamalar**seçin **G Suite**seçin **çoklu oturum açma** ve ardından **yeni deneyimimizi deneyin**.
 
 Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
@@ -72,10 +72,19 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
     Y: Bu senaryoyu etkinleştirmek için iki seçenek vardır. İlk olarak, kullanıcılar Windows 10 cihazları oturum [Azure Active Directory Join](../device-management-introduction.md). Alternatif olarak, kullanıcıların etki alanına katılmış bir şirket içi Active Directory'ye Azure ad çoklu oturum açma için etkinleştirilmiş olan Windows cihazları oturum bir [Active Directory Federasyon Hizmetleri (AD FS)](../hybrid/plan-connect-user-signin.md) dağıtım. Azure AD arasında çoklu oturum açmayı etkinleştirmek için aşağıdaki öğreticiye adımları gerçekleştirmek iki seçenek de gerektirir ve G Suite.
 
+6. **Hata: Geçersiz e-posta**
+
+    Bu kurulumu için e-posta özniteliği, kullanıcıların oturum açabilmesi için gereklidir. Bu öznitelik el ile ayarlanamaz.
+
+    E-posta özniteliği geçerli bir Exchange lisansına sahip herhangi bir kullanıcı için otomatik doldurulur. Kullanıcı e-posta etkin değilse, erişim vermek için bu öznitelik almak uygulama gereksinimleriniz değiştikçe bu hata alınır.
+
+    Bir yönetici hesabıyla portal.office.com tıklayarak Yönetim merkezinde, abonelikler, faturalama, Office 365 aboneliğinizi seçin ve ardından Ata seçeneğine tıklayın, kullanıcılara seçin aboneliğini denetleyin ve sağ bölmede, tıklayarak istediğiniz kullanıcıların gidebilirsiniz lisansları düzenleyin.
+
+    O365 lisansı atandıktan sonra uygulanması bazı dakika sürebilir. Bundan sonra user.mail öznitelik girdiğinizde olur ve sorunun çözülmesi.
+
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.
-Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. G Suite galeri ekleme
 2. Yapılandırma ve test Azure AD çoklu oturum açma
@@ -88,19 +97,19 @@ Azure AD'de G Suite tümleştirmesini yapılandırmak için G Suite Galeriden y�
 
 1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
-    ![image](./media/google-apps-tutorial/selectazuread.png)
+    ![Azure Active Directory düğmesi][1]
 
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![image](./media/google-apps-tutorial/a_select_app.png)
+    ![Kurumsal uygulamalar dikey penceresi][2]
 
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![image](./media/google-apps-tutorial/a_new_app.png)
+    ![Yeni Uygulama düğmesi][3]
 
 4. Arama kutusuna **G Suite**seçin **G Suite** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![image](./media/google-apps-tutorial/a_add_app.png)
+    ![Sonuç listesinde G Suite](./media/google-apps-tutorial/tutorial_gsuite_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
@@ -110,35 +119,33 @@ Tek iş için oturum açma için Azure AD ne G Suite karşılık gelen kullanıc
 
 Yapılandırma ve Azure AD çoklu oturum açma G Suite ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[G Suite test kullanıcısı oluşturma](#create-a-g-suite-test-user)**  - kullanıcı Azure AD gösterimini bağlı G Suite Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Bir G Suite test kullanıcısı oluşturma](#creating-a-g-suite-test-user)**  - kullanıcı Azure AD gösterimini bağlı G Suite Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
+### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve G Suite uygulamanızda çoklu oturum açmayı yapılandırın.
 
 **Azure AD çoklu oturum açma G Suite ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde [Azure portalında](https://portal.azure.com/), **G Suite** uygulama tümleştirme sayfasında **çoklu oturum açma**.
+1. Azure portalında, üzerinde **G Suite** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
-    ![image](./media/google-apps-tutorial/b1_b2_select_sso.png)
+    ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Tıklayın **değişiklik çoklu oturum açma modunu** seçmek için ekranın en üstünde **SAML** modu.
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunu tıklatın **seçin** için **SAML** modu, çoklu oturum açmayı etkinleştirmek için.
 
-      ![image](./media/google-apps-tutorial/b1_b2_saml_ssso.png)
+    ![Çoklu oturum açmayı yapılandırın](common/tutorial_general_301.png)
 
-3. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunu tıklatın **seçin** için **SAML** modu, çoklu oturum açmayı etkinleştirmek için.
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    ![image](./media/google-apps-tutorial/b1_b2_saml_sso.png)
+    ![Çoklu oturum açmayı yapılandırın](common/editconfigure.png)
 
-4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **temel SAML yapılandırma** iletişim.
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![image](./media/google-apps-tutorial/b1-domains_and_urlsedit.png)
-
-5. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+    ![G Suite etki alanı ve URL'ler tek oturum açma bilgileri](./media/google-apps-tutorial/tutorial_gsuite_url.png)
 
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
@@ -150,16 +157,14 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve G
     | `http://google.com` |
     | `http://google.com/a/<yourdomain.com>` |
 
-    ![image](./media/google-apps-tutorial/b1-domains_and_urls.png)
-
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [G Suite istemci Destek ekibine](https://www.google.com/contact/) bu değerleri almak için.
 
-6. G Suite uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
+5. G Suite uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
 
     ![image](./media/google-apps-tutorial/i3-attribute.png)
 
-7. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
+6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
     a. Tıklayın **Düzenle** açmak için düğmeyi **yönetmek, kullanıcı talepleri** iletişim.
 
@@ -171,33 +176,31 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve G
 
     c. **Kaydet**’e tıklayın.
 
-8. Üzerinde **yukarı çoklu oturum açma SAML ile Ayarla** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** olarak başına uygun sertifikayı indirmek için gereksinim ve bilgisayarınıza kaydedin.
+5. Üzerinde **SAML imzalama sertifikası** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
-    ![image](./media/google-apps-tutorial/certificatebase64.png)
+    ![Sertifika indirme bağlantısı](./media/google-apps-tutorial/tutorial_gsuite_certificate.png) 
 
-9. Üzerinde **G Suite kümesi** bölümünde, ihtiyacınıza göre uygun URL'yi kopyalayın.
-
-    Not: URL aşağıdaki bildirebilir
+6. Üzerinde **G Suite kümesi** bölümünde, ihtiyacınıza göre uygun URL'yi kopyalayın.
 
     a. Oturum Açma URL'si:
 
-    b. Azure Ad tanımlayıcısı
+    b. Azure AD Tanımlayıcısı
 
     c. Oturum Kapatma URL'si
 
-    ![image](./media/google-apps-tutorial/d1_saml.png) 
+    ![G Suite yapılandırması](common/configuresection.png)
 
-10. Tarayıcınızda yeni bir sekme açın ve oturum [G Suite Yönetici Konsolu](http://admin.google.com/) yönetici hesabınızı kullanarak.
+9. Tarayıcınızda yeni bir sekme açın ve oturum [G Suite Yönetici Konsolu](http://admin.google.com/) yönetici hesabınızı kullanarak.
 
-11. Tıklayın **güvenlik**. Bağlantıyı görmüyorsanız, bunun altında gizlenebilir **diğer denetimler** ekranın alt kısmındaki menü.
+10. Tıklayın **güvenlik**. Bağlantıyı görmüyorsanız, bunun altında gizlenebilir **diğer denetimler** ekranın alt kısmındaki menü.
 
     ![Güvenlik'e tıklayın.][10]
 
-12. Üzerinde **güvenlik** sayfasında **çoklu oturum açmayı (SSO) ayarlayın.**
+11. Üzerinde **güvenlik** sayfasında **çoklu oturum açmayı (SSO) ayarlayın.**
 
     ![SSO tıklayın.][11]
 
-13. Şu yapılandırma değişiklikleri gerçekleştirin:
+12. Şu yapılandırma değişiklikleri gerçekleştirin:
 
     ![SSO yapılandırma][12]
 
@@ -215,32 +218,32 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve G
 
     g. Tıklayın **değişiklikleri kaydetmek**.
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
 1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-    ![image](./media/google-apps-tutorial/d_users_and_groups.png)
+    ![Azure AD kullanıcısı oluşturun][100]
 
 2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![image](./media/google-apps-tutorial/d_adduser.png)
+    ![Bir Azure AD test kullanıcısı oluşturma](common/create_aaduser_01.png) 
 
 3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    ![image](./media/google-apps-tutorial/d_userproperties.png)
+    ![Bir Azure AD test kullanıcısı oluşturma](common/create_aaduser_02.png)
 
-    a. İçinde **adı** alana **BrittaSimon**.
+    a. İçinde **adı** alanına **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’u seçin.
 
-### <a name="create-a-g-suite-test-user"></a>G Suite test kullanıcısı oluşturma
+### <a name="creating-a-g-suite-test-user"></a>Bir G Suite test kullanıcısı oluşturma
 
 Bu bölümün amacı, G Suite yazılımı Britta Simon adlı bir kullanıcı oluşturmaktır. G Suite otomatik sağlamayı, varsayılan olarak etkin olan destekler. Bu bölümde hiçbir şey yoktur. Bir kullanıcı, G Suite yazılımı zaten yoksa, G Suite yazılımı erişmeye çalıştığında yeni bir tane oluşturulur.
 
@@ -250,31 +253,31 @@ Bu bölümün amacı, G Suite yazılımı Britta Simon adlı bir kullanıcı olu
 > [!NOTE]
 > Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Google Destek ekibine](https://www.google.com/contact/).
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
 Bu bölümde, G Suite erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
 1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**.
 
-    ![image](./media/google-apps-tutorial/d_all_applications.png)
+    ![Kullanıcı Ata][201]
 
 2. Uygulamalar listesinde **G Suite**.
 
-    ![image](./media/google-apps-tutorial/d_all_proapplications.png)
+    ![Çoklu oturum açmayı yapılandırın](./media/google-apps-tutorial/tutorial_gsuite_app.png)
 
 3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![image](./media/google-apps-tutorial/d_leftpaneusers.png)
+    ![Kullanıcı Ata][202]
 
-4. Seçin **Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![image](./media/google-apps-tutorial/d_assign_user.png)
+    ![Kullanıcı Ata][203]
 
 5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
 6. İçinde **atama Ekle** iletişim kutusunda **atama** düğmesi.
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
+### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -286,6 +289,18 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
 * [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
+<!--Image references-->
+
+[1]: common/tutorial_general_01.png
+[2]: common/tutorial_general_02.png
+[3]: common/tutorial_general_03.png
+[4]: common/tutorial_general_04.png
+
+[100]: common/tutorial_general_100.png
+
+[201]: common/tutorial_general_201.png
+[202]: common/tutorial_general_202.png
+[203]: common/tutorial_general_203.png
 <!--Image references-->
 
 [10]: ./media/google-apps-tutorial/gapps-security.png

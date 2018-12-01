@@ -7,25 +7,25 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d5ef77ab0bbf00d4ddbb05b7a38516e3c3e7d800
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 8b32a1eccfc90731d4c3458a0696a8e5900691aa
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968783"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727826"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Özel öznitelikler Azure Active Directory B2C'de tanımlayın
 
  Her müşteriye dönük uygulama, bilgilerin toplanması gerekir için benzersiz gereksinimleri vardır. Azure Active Directory (Azure AD) B2C kiracınızı, verilen ad, Soyadı, şehir ve posta kodu gibi özniteliklerde depolanan bilgileri yerleşik bir dizi ile birlikte gelir. Azure AD B2C ile her bir müşteri hesapta depolanan öznitelik kümesini genişletebilirsiniz. 
  
- Özel öznitelikler oluşturabilirsiniz [Azure portalında](https://portal.azure.com/) ve kaydolma ilkeleri, oturum açma veya kaydolma ilkeleri'ni veya profil düzenleme ilkeleri kullanın. Ayrıca okuma ve yazma bu öznitelikleri kullanarak [Azure AD Graph API'si](active-directory-b2c-devquickstarts-graph-dotnet.md). Azure AD B2C, özel öznitelikler kullanma [Azure AD Graph API Directory şema uzantıları](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
+ Özel öznitelikler oluşturabilirsiniz [Azure portalında](https://portal.azure.com/) ve kaydolma kullanıcı akışları, kaydolma veya oturum açma kullanıcı akışları veya profil düzenleme kullanıcı akışları kullanın. Ayrıca okuma ve yazma bu öznitelikleri kullanarak [Azure AD Graph API'si](active-directory-b2c-devquickstarts-graph-dotnet.md). Azure AD B2C, özel öznitelikler kullanma [Azure AD Graph API Directory şema uzantıları](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
 ## <a name="create-a-custom-attribute"></a>Özel bir öznitelik oluşturma
 
-1. Oturum [Azure portalında](https://portal.azure.com/) Azure AD B2C kiracınızın genel Yöneticisi olarak.
+1. [Azure portalda](https://portal.azure.com/) Azure AD B2C kiracınızın genel yöneticisi olarak oturum açın.
 2. Azure AD B2C kiracınızı içeren dizini kullandığınızdan emin olmak için Azure portalın sağ üst köşesinde bu dizine geçin. Abonelik bilgilerinizi ve ardından **Dizin Değiştir**’i seçin. 
 
     ![Azure AD B2C kiracınıza geçiş yapma](./media/active-directory-b2c-reference-custom-attr/switch-directories.png)
@@ -41,16 +41,15 @@ ms.locfileid: "38968783"
 7. İsteğe bağlı olarak girin bir **açıklama** bilgilendirme amaçlıdır. 
 8. **Oluştur**’a tıklayın.
 
-Özel öznitelik listesinde kullanılabilir **kullanıcı öznitelikleri** ve ilkelerini kullanın. Yalnızca ilk defa herhangi bir ilkede kullanıldığında oluşturulan ve listesine değil eklediğinizde, özel bir öznitelik olan **kullanıcı öznitelikleri**.
+Özel öznitelik listesinde kullanılabilir **kullanıcı öznitelikleri** ve kullanıcı akışlarınızda kullanın. Yalnızca hiçbir kullanıcı akışında kullanılan, ilk kez oluşturulan ve listesine değil eklediğinizde, özel bir öznitelik olan **kullanıcı öznitelikleri**.
 
-## <a name="use-a-custom-attribute-in-your-policy"></a>Özel bir öznitelik ilkenizde kullanın
+## <a name="use-a-custom-attribute-in-your-user-flow"></a>Özel bir öznitelik kullanıcı akışınızı kullanın
 
-1. Azure AD B2C kiracınızı seçin **oturum açma veya kaydolma ilkeleri'ni**.
+1. Azure AD B2C kiracınızı seçin **kullanıcı akışları**.
 2. Açmak için ilke (örneğin, "B2C_1_SignupSignin") seçin. 
-3. **Düzenle**’ye tıklayın.
-4. Seçin **kaydolma özniteliklerini** ve sonra özel öznitelik (örneğin, "ShoeSize") seçin. **Tamam**’a tıklayın.
-5. Seçin **uygulama taleplerini** ve özel özniteliği seçin. **Tamam**’a tıklayın.
+4. Seçin **kullanıcı öznitelikleri** ve sonra özel öznitelik (örneğin, "ShoeSize") seçin. **Kaydet**’e tıklayın.
+5. Seçin **uygulama taleplerini** ve özel özniteliği seçin. 
 6. **Kaydet**’e tıklayın.
 
-Kullanabileceğiniz **Şimdi Çalıştır** müşteri deneyimini doğrulamak için bir ilke özelliği. Görmelisiniz **ShoeSize** öznitelikler listesinde kaydolma yolculuğu sırasında toplanan ve uygulamanıza geri gönderilen belirteçte bakın.
+Kullanabileceğiniz **kullanıcı akışı çalıştırma** müşteri deneyimini doğrulamak için kullanıcı akışı özelliği. Görmelisiniz **ShoeSize** öznitelikler listesinde kaydolma yolculuğu sırasında toplanan ve uygulamanıza geri gönderilen belirteçte bakın.
 

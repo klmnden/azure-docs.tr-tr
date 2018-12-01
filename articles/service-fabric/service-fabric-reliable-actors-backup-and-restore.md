@@ -12,17 +12,22 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2018
+ms.date: 10/29/2018
 ms.author: vturecek
-ms.openlocfilehash: c72aea9d104264243ef0654aea01e0a41f33ed6f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d5922e21dd464b8cbd0075e7bd2515ffa73607e6
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206875"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726942"
 ---
-# <a name="implement-reliable-actors-backup-and-restore"></a>Uygulama Reliable Actors yedekleme ve geri yükleme
-Aşağıdaki örnekte, bir özel aktör hizmeti zaten mevcut remoting dinleyicisi yararlanarak aktör verileri yedeklemek için bir yöntem sunar. `ActorService`:
+# <a name="implement-reliable-actors-backup-and-restore"></a>Reliable Actors uygulama, yedekleme ve geri yükleme
+
+> [!NOTE]
+> Microsoft öneriyor kullanılacak [düzenli yedekleme ve geri yükleme](service-fabric-backuprestoreservice-quickstart-azurecluster.md) güvenilir durum bilgisi olan hizmetler ve Reliable Actors veri yedeklemeyi yapılandırmak için. 
+> 
+
+Aşağıdaki örnekte, bir özel aktör hizmeti uzaktan iletişim dinleyicisi zaten var. avantajlarından yararlanarak aktör verileri yedeklemek için bir yöntem sunar. `ActorService`:
 
 ```csharp
 public interface IMyActorService : IService
@@ -98,7 +103,7 @@ class MyActorServiceImpl extends ActorService implements MyActorService
 }
 ```
 
-Bu örnekte, `IMyActorService` uygulayan bir remoting sözleşme `IService` (C#) ve `Service` (Java) ve ardından tarafından uygulanan `MyActorService`. Üzerinde bu remoting sözleşme yöntemleri ekleyerek `IMyActorService` şimdi de remoting proxy aracılığıyla oluşturarak istemciye kullanılabilir `ActorServiceProxy`:
+Bu örnekte, `IMyActorService` uygulayan bir uzak sözleşme `IService` (C#) ve `Service` (Java) ve ardından tarafından uygulanan `MyActorService`. Bu uzaktan iletişim anlaşması yöntemleri üzerinde ekleyerek `IMyActorService` artık uzaktan iletişimi Ara sunucu aracılığıyla oluşturarak bir istemciye kullanılabilir `ActorServiceProxy`:
 
 ```csharp
 IMyActorService myActorServiceProxy = ActorServiceProxy.Create<IMyActorService>(
@@ -113,12 +118,12 @@ MyActorService myActorServiceProxy = ActorServiceProxy.create(MyActorService.cla
 myActorServiceProxy.backupActorsAsync();
 ```
 
-Reliable Actors hakkında daha fazla bilgi için aşağıdaki okuyun:
-* [Aktör durum yönetimi](service-fabric-reliable-actors-state-management.md)
-* [Aktör yaşam döngüsü ve çöp toplama](service-fabric-reliable-actors-lifecycle.md)
-* [Aktör API başvuru belgeleri](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [.NET örnek kod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java örnek kod](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+Reliable Actors hakkında daha fazla bilgi için bu makaleleri okuyun:
+* [Aktör durumu yönetimi](service-fabric-reliable-actors-state-management.md)
+* [Aktör yaşam döngüsü ve atık toplama](service-fabric-reliable-actors-lifecycle.md)
+* [Aktörler API başvuru belgeleri](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [.NET örnek kodu](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Java örnek kodu](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

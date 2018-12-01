@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptal
+ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: cef080707d6745459f27450c2c66f4aa2ea50ec7
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 38d67de63815037fdf6b6602154653dfd774032c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710690"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728200"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Azure CLI 2.0 ile Log Analytics çalışma alanı oluşturma
 
@@ -128,7 +127,7 @@ Dağıtımın tamamlanması birkaç dakika sürebilir. Tamamlandığında, sonu�
 ## <a name="next-steps"></a>Sonraki adımlar
 Bir çalışma alanı kullanılabilir olduğuna göre telemetri izleme koleksiyonunu yapılandırma, bu verileri çözümlemek için günlük aramaları çalıştıran ve ek veriler ve hakkında analitik bilgiler sağlamak için bir yönetim çözümünü ekleyin.  
 
-* Azure Tanılama veya Azure depolama ile Azure kaynaklarından veri toplamayı etkinleştirmek için bkz: [toplamak Azure hizmeti günlükleri ve Log analytics'teki kullanım ölçümlerini](log-analytics-azure-storage.md).  
+* Azure Tanılama veya Azure depolama ile Azure kaynaklarından veri toplamayı etkinleştirmek için bkz: [toplamak Azure hizmeti günlükleri ve Log analytics'teki kullanım ölçümlerini](../azure-monitor/platform/collect-azure-metrics-logs.md).  
 * Ekleme [System Center Operations Manager veri kaynağı olarak](log-analytics-om-agents.md) , Operations Manager yönetim grubuna bildirimde bulunan aracılardan veri toplamak ve Log Analytics çalışma alanınızda depolamak için.  
 * Connect [Configuration Manager](log-analytics-sccm.md) hiyerarşideki koleksiyona üye olan bilgisayarlara aktarmak için.  
 * Gözden geçirme [yönetim çözümleri](../azure-monitor/insights/solutions.md) kullanılabilir ve ekleme veya bir çözüm çalışma alanınızdan kaldırın.

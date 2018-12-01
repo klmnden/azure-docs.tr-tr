@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 34c11c911b6c2ffbc4d4800cd7203a8d430814fb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 666e4c434d05bb953950893f32c262183055becd
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311254"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728183"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Oluşturma bir sanal ağ eşlemesi - farklı dağıtım modelleri ve abonelikler
 
@@ -56,8 +56,8 @@ Bu öğreticide, farklı hesapları her abonelik için kullanılır. İki abonel
     - **Konum**: *Doğu ABD*
 4. İçinde **kaynak Ara** türü portalın üst kısmındaki kutusu *myVnetA*. Tıklayın **myVnetA** arama sonuçlarında görüntülendiğinde. Bir dikey pencere görünür **myVnetA** sanal ağ.
 5. İçinde **myVnetA** görüntülenen dikey **erişim denetimi (IAM)** dikey dikey pencerenin sol tarafındaki Seçenekleri listesinden.
-6. İçinde **myVnetA - erişim denetimi (IAM)** görüntülenen dikey **+ Ekle**.
-7. İçinde **izinleri eklemek** görüntülenirse, seçin dikey **ağ Katılımcısı** içinde **rol** kutusu.
+6. İçinde **myVnetA - erişim denetimi (IAM)** görüntülenen dikey **+ rol ataması Ekle**.
+7. İçinde **rol ataması Ekle** görüntülenirse, seçin dikey **ağ Katılımcısı** içinde **rol** kutusu.
 8. İçinde **seçin** kutusuna Kullanıcıb seçin veya aramak için Kullanıcıb'in e-posta adresini yazın. Kullanıcılara gösterilen listesi için eşleme ayarlama işlemini ayarladığınız sanal ağ aynı Azure Active Directory kiracısı arasındadır. Listesinde göründüğünde Kullanıcıb'ye tıklayın.
 9. **Kaydet**’e tıklayın.
 10. Portalından UserA olarak oturum açın ve ardından UserB oturum açın.

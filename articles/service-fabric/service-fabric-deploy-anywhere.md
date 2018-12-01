@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/28/2018
+ms.date: 11/28/2018
 ms.author: dekapur
-ms.openlocfilehash: 80b331d32fe1e7bb4eb331bd981106968bc73bed
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: e4540076b29cf3cd51f03239a1868e18a41781d9
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163218"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726534"
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Windows Server veya Linux Service Fabric kümeleri oluşturma
 Service Fabric kümesi bir ağa bağlı, mikro hizmetlerin dağıtıldığı ve yönetildiği sanal veya fiziksel makine kümesidir. Bir makine ya da bir kümenin parçası olan sanal makine bir küme düğümü adı verilir. Kümeler binlerce düğümde için ölçeklendirme yapabilir. Kümeye yeni düğümler eklerseniz, Service Fabric örnekleri ve hizmet bölüm çoğaltmaları sayısının artması düğümleri arasında yeniden dengeler. Genel uygulama performansını artıran ve bellek erişim çekişmesini azaltır. Kümedeki düğümler verimli bir şekilde kullanılmayan, kümedeki düğümlerin sayısını azaltabilirsiniz. Service Fabric yeniden örnekleri ve bölüm çoğaltmalarını azalan her düğümde donanım daha iyi kullanabilmesine için düğüm sayısını arasında yeniden dengeler.
@@ -35,7 +35,9 @@ Bu işletim sistemlerini çalıştıran sanal makinelere kümeleri oluşturmak k
 * Windows Server 2012 R2
 * Windows Server 2016 
 * Windows Server 1709
+* Windows Server 1803
 * Linux Ubuntu 16.04
+* Red Hat Enterprise Linux 7.4 (Önizleme desteği)
 
 > [!NOTE]
 > Service Fabric'te Windows Server 1709 dağıtmaya karar verirseniz, (1), uzun süreli bakım dalı, sürüm gelecekte taşımanız gerekebilir ve (2) kapsayıcıları dağıtma, kapsayıcıları Windows Server 2016'da oluşturulmuş Windows Server üzerinde çalışmaz olmadığını unutmayın  1709 ve bunun tersi de geçerlidir (bunları dağıtmak için bunları yeniden oluşturmak gerekir).

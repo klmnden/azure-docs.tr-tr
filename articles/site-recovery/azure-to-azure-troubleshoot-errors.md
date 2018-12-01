@@ -5,16 +5,15 @@ services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: 7d11460fd1db5ba92725567a41aaaeab9e752adb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 84875a47df1830a7f5aa439a17df233d8c93ba1c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308141"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728251"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure'dan Azure'a VM çoğaltmayla sorunları giderme
 
@@ -61,37 +60,37 @@ SuSE Linux sertifika listesini korumak için çözümlemeyin kullandığından, 
 
       ``# cd /etc/ssl/certs``
 
-3. Symantec kök CA sertifikası mevcut olup olmadığını denetleyin.
+1. Symantec kök CA sertifikası mevcut olup olmadığını denetleyin.
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4. Symantec kök CA sertifika bulunmazsa, dosyayı indirmek için aşağıdaki komutu çalıştırın. Hatalar için denetleyin ve ağ hataları için önerilen eylemi izleyin.
+2. Symantec kök CA sertifika bulunmazsa, dosyayı indirmek için aşağıdaki komutu çalıştırın. Hatalar için denetleyin ve ağ hataları için önerilen eylemi izleyin.
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-5. Baltimore kök CA sertifikası mevcut olup olmadığını denetleyin.
+3. Baltimore kök CA sertifikası mevcut olup olmadığını denetleyin.
 
       ``# ls Baltimore_CyberTrust_Root.pem``
 
-6. Baltimore kök CA sertifika bulunmazsa sertifikayı indirin.  
+4. Baltimore kök CA sertifika bulunmazsa sertifikayı indirin.  
 
     ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-7. DigiCert_Global_Root_CA cert var olup olmadığını denetleyin.
+5. DigiCert_Global_Root_CA cert var olup olmadığını denetleyin.
 
     ``# ls DigiCert_Global_Root_CA.pem``
 
-8. DigiCert_Global_Root_CA bulunmazsa sertifikayı indirmek için aşağıdaki komutları çalıştırın.
+6. DigiCert_Global_Root_CA bulunmazsa sertifikayı indirmek için aşağıdaki komutları çalıştırın.
 
     ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
 
     ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
 
-9. Rehash betiği, bir sertifikayı güncelleştirmek için yeni indirilen sertifika için konu karmaları çalıştırın.
+7. Rehash betiği, bir sertifikayı güncelleştirmek için yeni indirilen sertifika için konu karmaları çalıştırın.
 
     ``# c_rehash``
 
-10. Çözümlemeyin sertifikalarını oluşturuldukça konu karıştırır, kontrol edin.
+8.  Çözümlemeyin sertifikalarını oluşturuldukça konu karıştırır, kontrol edin.
 
     - Komut
 
@@ -120,11 +119,11 @@ SuSE Linux sertifika listesini korumak için çözümlemeyin kullandığından, 
       ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
       -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
 
-11. Filename b204d74a.0 ile VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem dosyanın bir kopyasını oluşturma
+9.  Filename b204d74a.0 ile VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem dosyanın bir kopyasını oluşturma
 
     ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
 
-12. Filename 653b494a.0 ile Baltimore_CyberTrust_Root.pem dosyanın bir kopyasını oluşturma
+10. Filename 653b494a.0 ile Baltimore_CyberTrust_Root.pem dosyanın bir kopyasını oluşturma
 
     ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
 

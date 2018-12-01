@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 507bbc9013d8b02084b639f8d9fac0c7d97503f4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0787d023676c707a987b4b69cb5601394db4bd3b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014287"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728387"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -96,8 +96,9 @@ Aşağıdaki yerleşik rolleri gerekli Microsoft Authorization izinlere sahip:
 Kullanıcı hesabı rolü gerekli izinlere sahip olup olmadığını belirlemek için:  
 1. Azure portalında **kaynak grupları**.
 2. Depolama hesabının bulunduğu kaynak grubunu seçin ve ardından **erişim denetimi (IAM)**.
-3. Seçin **rol** (örneğin, sahibi veya katkıda bulunan) kullanıcı hesabınız için.
-4. İçinde **kaynak sağlayıcısı** listesinden **Microsoft Authorization**. 
+3. Seçin **rol atamaları** sekmesi.
+4. Seçin **rol** (örneğin, sahibi veya katkıda bulunan) kullanıcı hesabınız için.
+5. İçinde **kaynak sağlayıcısı** listesinden **Microsoft Authorization**. 
     * **Rol ataması** olmalıdır **okuma** ve **yazma** izinleri.
     * **Rol tanımı** olmalıdır **okuma** ve **yazma** izinleri.
 
@@ -705,8 +706,9 @@ if ($fileShare -eq $null) {
 
 <a id="troubleshoot-rbac"></a>**Azure dosya eşitleme depolama hesabına erişimi olduğundan emin olun.**  
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
-1. Tıklayın **erişim denetimi (IAM)** kullanıcılar ve uygulamalar listesine gitmek için soldaki İçindekiler üzerinde (*hizmet sorumluları*), depolama hesabınıza erişimi vardır.
-2. Doğrulama **karma dosya eşitleme hizmeti** listesinde görünür **okuyucu ve veri erişimi** rol. 
+1. Tıklayın **erişim denetimi (IAM)** soldaki İçindekiler üzerinde.
+1. Tıklayın **rol atamaları** kullanıcılar ve uygulamalar listesi için sekmesinde (*hizmet sorumluları*), depolama hesabınıza erişimi vardır.
+1. Doğrulama **karma dosya eşitleme hizmeti** listesinde görünür **okuyucu ve veri erişimi** rol. 
 
     ![Depolama hesabının erişim denetimi sekmesindeki karma dosya eşitleme hizmeti hizmet sorumlusu ekran görüntüsü](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
