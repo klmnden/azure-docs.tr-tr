@@ -2,48 +2,56 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
-ms.openlocfilehash: 3485cc96ad1d9ab8f89facf33687a7ab2be43b1e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: f23d2b02bc2a23c5333a48a50532c03f3aa6a031
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133733"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742550"
 ---
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Ayarların ilkeler bölümünde **Oturum açma veya kaydolma ilkeleri**’ni seçip **+ Ekle**’ye tıklayın.
+Altında **Yönet**seçin **kullanıcı akışları** tıklatıp +**yeni kullanıcı akışı**.
 
-![Oturum açma veya kaydolma ilkeleri’ni seçin ve Ekle düğmesine tıklayın.](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-policy.png)
+![Yeni kullanıcı akışı seçin](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-user-flow.png)
 
-Uygulamanızın başvuracağı ilke **Adını** girin. Örneğin, `SiUpIn` girin.
+Üzerinde **önerilen** sekmesinde **oturum yukarı ve oturum açma**.
 
-**Kimlik sağlayıcıları**’nı seçin ve **E-posta ile kaydolma**’yı işaretleyin. İsteğe bağlı olarak, zaten yapılandırılmışsa sosyal kimlik sağlayıcıları öğesini de seçebilirsiniz. **Tamam** düğmesine tıklayın.
+![Oturum seçin ve kullanıcı flow'da oturum açın](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-user-flow-type.png)
 
-![Kimlik sağlayıcısı olarak E-posta ile kaydolma’yı seçin ve Tamam düğmesine tıklayın.](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-identity-providers.png)
+Kullanıcı akışı girin **adı** uygulamanızın başvuru. Örneğin, `SiUpIn` girin.
 
-**Kaydolma öznitelikleri**’ni seçin. Tüketiciden kayıt sırasında toplamak istediğiniz öznitelikleri seçin. Örneğin, **Ülke/Bölge**, **Görünen Ad** ve **Posta Kodu**’nu işaretleyin. **Tamam** düğmesine tıklayın.
+Altında **kimlik sağlayıcıları** ve **e-posta kaydolma**. İsteğe bağlı olarak, zaten yapılandırılmışsa sosyal kimlik sağlayıcıları öğesini de seçebilirsiniz.
 
-![Bazı öznitelikleri seçin ve Tamam düğmesine tıklayın.](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-attributes.png)
+Altında **çok faktörlü kimlik doğrulaması**, seçin ya da **etkin** veya **devre dışı bırakılmış**.
 
-**Uygulama talepleri**’ni seçin. Başarılı bir kayıt veya oturum açma deneyiminden sonra uygulamanıza geri gönderilen yetkilendirme belirteçlerinde döndürülmesini istediğiniz talepleri seçin. Örneğin, **Görünen Ad**, **Kimlik Sağlayıcısı**, **Posta Kodu**, **Kullanıcı yeni** ve **Kullanıcının Nesne Kimliği**’ni işaretleyin.
+![Bir ad girin ve kimlik sağlayıcısı olarak e-posta kaydolma seçin](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-name-identity-providers.png)
 
-![Bazı uygulama taleplerini seçin ve Tamam düğmesine tıklayın.](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-application-claims.png)
+Altında **kullanıcı öznitelikleri ve talepler**seçin **daha fazla Göster** öznitelikleri ve talepler seçim yapabileceğiniz tam listesini görmek için.
 
-İlkeyi eklemek için **Oluştur**’a tıklayın. İlke **B2C_1_SiUpIn** olarak listelenir. Ada **B2C_1_** öneki eklenir.
+İçinde **toplama özniteliği** sütun, tüketiciden kayıt sırasında toplamak istediğiniz öznitelikleri seçin. Örneğin, **Ülke/Bölge**, **Görünen Ad** ve **Posta Kodu**’nu işaretleyin.
 
-**B2C_1_SiUpIn** adını seçerek ilkeyi açın. Tabloda belirtilen ayarlarını doğrulayın, ardından **Şimdi Çalıştır**’a tıklayın.
+İçinde **dönüş talep** sütun, başarılı bir kaydolma veya oturum açma deneyiminden sonra uygulamanıza geri gönderilen yetkilendirme belirteçlerinde döndürülmesini istediğiniz talepleri seçin. Örneğin, **Görünen Ad**, **Kimlik Sağlayıcısı**, **Posta Kodu**, **Kullanıcı yeni** ve **Kullanıcının Nesne Kimliği**’ni işaretleyin.
 
-![İlkeyi seçin ve çalıştırın.](media/active-directory-b2c-create-sign-in-sign-up-policy/run-b2c-signup-signin-policy.png)
+**Tamam** düğmesine tıklayın.
+
+![Bazı kullanıcı öznitelikleri ve talepler seçin ve Tamam düğmesine tıklayın.](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-all-attributes.png)
+
+Tıklayın **Oluştur** kullanıcı akışı eklemek için. Kullanıcı akışı olarak listelenip listelenmediğini **b2c_1_siupın**. Ada **B2C_1_** öneki eklenir.
+
+Seçin **kullanıcı akışı çalıştırma**. Tabloda belirtilen ayarlarını doğrulayın, ardından tıklayın **kullanıcı akışı çalıştırma**.
+
+![Kullanıcı akışı Çalıştır'ı seçin](media/active-directory-b2c-create-sign-in-sign-up-policy/run-user-flow-b2c-signup-signin.png)
 
 | Ayar      | Değer  |
 | ------------ | ------ |
-| **Uygulamalar** | Contoso B2C uygulaması |
-| **Yanıt URL'sini seçin** | `https://localhost:44316/` |
+| **Uygulama** | Contoso B2C uygulaması |
+| **Yanıt URL'si** | `https://localhost:44316/` |
 
 Yeni bir tarayıcı sekmesi açılır. Buradan, oturum açma veya kaydolma için yapılandırılan tüketici deneyimini doğrulayabilirsiniz.
 
 > [!NOTE]
-> İlke oluşturma ve güncelleştirmelerinin etkili olması bir dakika kadar alabilir.
+> Bu bir dakika kullanıcı akışı oluşturma ve güncelleştirmelerinin etkili olması için kapladığı.
 >

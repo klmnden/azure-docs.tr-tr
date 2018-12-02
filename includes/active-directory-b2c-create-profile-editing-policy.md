@@ -2,50 +2,52 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
-ms.openlocfilehash: 9ad715f47f2de9c6f9032ed07232f45fb33b0114
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 0d9f0a24d84bd18bdf1fac84c744cc34a7d89ab3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50132999"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742367"
 ---
-Uygulamanızda profili düzenlemeyi etkinleştirmek istiyorsanız, kullandığınız bir **profil düzenleme** ilkesi. Bu ilke, müşterilerin profil düzenleme ve başarıyla tamamlandığında uygulamanın alacağı belirteçlerin içeriğini sırasında karşılaşacağı deneyimleri açıklar.
+Uygulamanızda profili düzenlemeyi etkinleştirmek istiyorsanız, kullandığınız bir **profil düzenleme** kullanıcı akışı. Bu kullanıcı akışını müşteriler profil düzenleme ve başarıyla tamamlandığında uygulamanın alacağı belirteçlerin içeriğini sırasında karşılaşacağı deneyimleri açıklanmaktadır.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Ayarların ilkeler bölümünde **Profil düzenleme ilkeleri**’ni seçip **+ Ekle**’ye tıklayın.
+Altında **Yönet**seçin **kullanıcı akışları** tıklatıp +**yeni kullanıcı akışı**.
 
-![Profil düzenleme ilkelerini seçin ve Ekle düğmesine tıklayın](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-policy.png)
+![Yeni kullanıcı akışı seçin](media/active-directory-b2c-create-profile-editing-policy/add-b2c-new-user-flow.png)
 
-Uygulamanızın başvuracağı ilke **Adını** girin. Örneğin, `SiPe` girin.
+Üzerinde **önerilen** sekmesinde **profil düzenleme**.
 
-**Kimlik sağlayıcıları**’nı seçin ve **Yerel Hesapla Oturum Aç**’ı işaretleyin. İsteğe bağlı olarak, zaten yapılandırılmışsa sosyal kimlik sağlayıcıları öğesini de seçebilirsiniz. **Tamam** düğmesine tıklayın.
+Kullanıcı akışı girin **adı** uygulamanızın başvuru. Örneğin, `SiPe` girin.
 
-![Kimlik sağlayıcısı olarak Yerel Hesapla Oturum Aç’ı seçin ve Tamam düğmesine tıklayın](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-identity-providers.png)
+Altında **kimlik sağlayıcıları**, kontrol **yerel hesapla oturum aç**. İsteğe bağlı olarak, zaten yapılandırılmışsa sosyal kimlik sağlayıcıları öğesini de seçebilirsiniz.
 
-**Profil öznitelikleri**’ni seçin. Tüketicinin profilinde görüntüleyebileceği ve düzenleyebileceği öznitelikleri seçin. Örneğin, **Ülke/Bölge**, **Görünen Ad** ve **Posta Kodu**’nu işaretleyin. **Tamam** düğmesine tıklayın.
+![Kimlik sağlayıcısı olarak Yerel Hesapla Oturum Aç’ı seçin ve Tamam düğmesine tıklayın](media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-identity-providers.png)
 
-![Bazı öznitelikleri seçin ve Tamam düğmesine tıklayın.](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-attributes.png)
+Altında **kullanıcı öznitelikleri**, tıklayın **daha fazla Göster**. İçinde **toplama özniteliği** sütun profilinde tüketici görüntüleyebilir ve düzenleyebilirsiniz öznitelikleri seçin. Örneğin, **Ülke/Bölge**, **Görünen Ad** ve **Posta Kodu**’nu işaretleyin.
 
-**Uygulama talepleri**’ni seçin. Başarılı bir profil düzenleme deneyiminden sonra uygulamanıza geri gönderilen yetkilendirme belirteçlerinde döndürülmesini istediğiniz talepleri seçin. Örneğin, **Görünen Ad** ve **Posta Kodu**’nu seçin.
+İçinde **dönüş talep** sütun, başarılı bir profil düzenleme deneyimi sonra uygulamanıza geri gönderilen yetkilendirme belirteçlerinde döndürülmesini istediğiniz talepleri seçin. Örneğin, **Görünen Ad** ve **Posta Kodu**’nu seçin.
 
-![Bazı uygulama taleplerini seçin ve Tamam düğmesine tıklayın.](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-application-claims.png)
+**Tamam** düğmesine tıklayın.
 
-İlkeyi eklemek için **Oluştur**’a tıklayın. İlke **B2C_1_SiPe** olarak listelenir. Ada **B2C_1_** öneki eklenir.
+![Bazı uygulama taleplerini seçin ve Tamam düğmesine tıklayın.](media/active-directory-b2c-create-profile-editing-policy/add-b2c-user-attributes.png)
 
-**B2C_1_SiPe** adını seçerek ilkeyi açın. Tabloda belirtilen ayarlarını doğrulayın, ardından **Şimdi Çalıştır**’a tıklayın.
+Tıklayın **Oluştur** kullanıcı akışı eklemek için. Kullanıcı akışı olarak listelenip listelenmediğini **B2C_1_SiPe**. Ada **B2C_1_** öneki eklenir.
 
-![İlkeyi seçin ve çalıştırın.](media/active-directory-b2c-create-profile-editing-policy/run-b2c-editing-policy.png)
+Seçin **kullanıcı akışı çalıştırma**. Tabloda belirtilen ayarlarını doğrulayın, ardından tıklayın **kullanıcı akışı çalıştırma**.
+
+![Kullanıcı akışı seçin ve çalıştırın](media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-run-user-flow.png)
 
 | Ayar      | Değer  |
 | ------------ | ------ |
-| **Uygulamalar** | Contoso B2C uygulaması |
-| **Yanıt URL'sini seçin** | `https://localhost:44316/` |
+| **Uygulama** | Contoso B2C uygulaması |
+| **Yanıt URL'si** | `https://localhost:44316/` |
 
 Yeni bir tarayıcı sekmesi açılır. Buradan, profil düzenleme için yapılandırılan tüketici deneyimini doğrulayabilirsiniz.
 
 > [!NOTE]
-> İlke oluşturma ve güncelleştirmelerinin etkili olması bir dakika kadar alabilir.
+> Bu bir dakika kullanıcı akışı oluşturma ve güncelleştirmelerinin etkili olması için kapladığı.
 >

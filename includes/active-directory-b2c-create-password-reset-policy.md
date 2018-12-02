@@ -2,42 +2,46 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
-ms.openlocfilehash: bff2543ec48c66c10db697650def0077e3de28be
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 78abb190dccd27c5bf70dfe12f978e1118601815
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133969"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742480"
 ---
-Hassas parola sıfırlama uygulamanızı etkinleştirmek için kullandığınız bir **parola sıfırlama** ilkesi. Kiracı genelinde parola sıfırlama seçeneği Not [burada](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md) belirtilir. Bu ilke, müşterilerin parola sıfırlama ve başarıyla tamamlandığında uygulamanın alacağı belirteçlerin içeriğini sırasında karşılaşacağı deneyimleri açıklar.
+Hassas parola sıfırlama uygulamanızı etkinleştirmek için kullandığınız bir **parola sıfırlama** kullanıcı akışı. Kiracı genelinde parola sıfırlama seçeneği Not belirtilen [burada](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Bu kullanıcı akışını müşterilerin parola sıfırlama ve başarıyla tamamlandığında uygulamanın alacağı belirteçlerin içeriğini sırasında karşılaşacağı deneyimleri açıklanmaktadır.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Ayarların ilkeler bölümünde **Parola sıfırlama ilkeleri**’ni seçip **+ Ekle**’ye tıklayın.
+Altında **Yönet**seçin **kullanıcı akışları** tıklatıp +**yeni kullanıcı akışı**.
 
-![Oturum açma veya kaydolma ilkeleri’ni seçin ve Ekle düğmesine tıklayın.](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-policy.png)
+![Yeni kullanıcı akışı seçin](media/active-directory-b2c-create-password-reset-policy/add-b2c-new-user-flow.png)
 
-Uygulamanızın başvuracağı ilke **Adını** girin. Örneğin, `SSPR` girin.
+Üzerinde **önerilen** sekmesinde **parola sıfırlama**.
 
-**Kimlik sağlayıcıları**’nı seçin ve **E-posta adresi kullanarak parola sıfırla**’yı işaretleyin. **Tamam** düğmesine tıklayın.
+Kullanıcı akışı girin **adı** uygulamanızın başvuru. Örneğin, `SSPR` girin.
 
-![Kimlik sağlayıcısı olarak E-posta adresi kullanarak parola sıfırla’yı seçin ve Tamam düğmesine tıklayın](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-identity-providers.png)
+Altında **kimlik sağlayıcıları**, kontrol **e-posta adresi kullanarak parola Sıfırla**.
 
-**Uygulama talepleri**’ni seçin. Başarılı bir parola sıfırlama deneyiminden sonra uygulamanıza geri gönderilen yetkilendirme belirteçlerinde döndürülmesini istediğiniz talepleri seçin. Örneğin, **Kullanıcının Nesne Kimliği**’ni seçin.
+![Ad ve kimlik sağlayıcısı olarak e-posta adresi kullanarak parola seçin Sıfırla girin](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-identity-providers.png)
+
+Altında **uygulama taleplerini**, tıklayın **daha fazla Göster** ve başarılı bir parola sıfırlama deneyiminden sonra uygulamanıza geri gönderilen yetkilendirme belirteçlerinde döndürülmesini istediğiniz talepleri seçin. Örneğin, **Kullanıcının Nesne Kimliği**’ni seçin.
+
+**Tamam** düğmesine tıklayın.
 
 ![Bazı uygulama taleplerini seçin ve Tamam düğmesine tıklayın.](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-application-claims.png)
 
-İlkeyi eklemek için **Oluştur**’a tıklayın. İlke **B2C_1_SSPR** olarak listelenir. Ada **B2C_1_** öneki eklenir.
+Tıklayın **Oluştur** kullanıcı akışı eklemek için. Kullanıcı akışı olarak listelenip listelenmediğini **B2C_1_SSPR**. Ada **B2C_1_** öneki eklenir.
 
-**B2C_1_SSPR** adını seçerek ilkeyi açın. Tabloda belirtilen ayarlarını doğrulayın, ardından **Şimdi Çalıştır**’a tıklayın.
+Tıklayın **kullanıcı akışı çalıştırma**. Tabloda belirtilen ayarlarını doğrulayın, ardından tıklayın **kullanıcı akışı çalıştırma**.
 
-![İlkeyi seçin ve çalıştırın.](media/active-directory-b2c-create-password-reset-policy/run-b2c-password-reset-policy.png)
+![Kullanıcı akışı seçin ve çalıştırın](media/active-directory-b2c-create-password-reset-policy/add-b2c-sspr-run-user-flow.png)
 
 | Ayar      | Değer  |
 | ------------ | ------ |
-| **Uygulamalar** | Contoso B2C uygulaması |
+| **Uygulama** | Contoso B2C uygulaması |
 | **Yanıt URL'sini seçin** | `https://localhost:44316/` |
 
 Yeni bir tarayıcı sekmesi açılır. Buradan, uygulamanızın parola sıfırlamaya yönelik tüketici deneyimini doğrulayabilirsiniz.

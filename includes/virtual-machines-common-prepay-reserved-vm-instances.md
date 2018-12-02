@@ -1,15 +1,15 @@
 ---
 author: yashesvi
-ms.author: yashar
+ms.author: cwatson
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 09/05/2018
-ms.openlocfilehash: 40551fa60aa17e9a46d24ffdf17bb61a884a48f2
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.date: 11/30/2018
+ms.openlocfilehash: a35c3a9a6d914cf7e6620819b24e34d954f55c2d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585863"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742517"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme
 
@@ -32,7 +32,6 @@ Ayrılmış VM örnekleri, bazı özel durumlar ile çoğu VM boyutları için k
 
 - Ayırma indirimi, aşağıdaki sanal makineleri için geçerli değildir:
   - Klasik VM'ler ve bulut Hizmetleri
-  - Kısıtlanmış vCPU boyutları
   - VM serisi: A serisi, Av2 serisi veya G serisi
   - Vm'leri önizlemede: herhangi bir VM serisi veya Önizleme aşamasında olan boyutu
 - Bulut: Rezervasyon satın Almanya veya Çin bölgelerinde kullanılamaz.

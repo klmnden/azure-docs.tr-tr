@@ -2,36 +2,40 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
-ms.openlocfilehash: 19e7c919345c0f56b274737840f8150f7d710501
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 0ab34d6234db9c13ffe82ccd0e8580217085f631
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133731"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742333"
 ---
-Yalnızca oturum açma, uygulamanızın üzerinde etkinleştirmek istiyorsanız, kullandığınız bir **oturum** ilkesi. Bu ilke, müşterilerin oturum açma ve uygulamanın alacağı belirteçlerin içeriğini sırasında başarılı oturum açma işlemleri üzerinde karşılaşacağı deneyimleri açıklar.
+Yalnızca oturum açma, uygulamanızın üzerinde etkinleştirmek istiyorsanız, kullandığınız bir **oturum** kullanıcı akışı. Bu kullanıcı akışını müşteriler oturum açma ve uygulamanın alacağı belirteçlerin içeriğini sırasında başarılı oturum açma işlemleri üzerinde karşılaşacağı deneyimleri açıklanmaktadır.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
-Tıklayın **oturum açma ilkeleri**.
+Altında **Yönet**seçin **kullanıcı akışları**.
 
-Dikey pencerenin en üstündeki **+Add (+Ekle)** seçeneğine tıklayın.
+Tıklayın +**yeni kullanıcı akışı** dikey penceresinin üstünde.
 
-**Ad**, uygulamanız tarafından kullanılan oturum açma ilke adını belirler. Örneğin, **SiIn** adını girin.
+Altında **kullanıcı akış türü seç**seçin **tüm**ve ardından sürümünü seçin **oturum** kullanmak istiyorsunuz.
 
-**Kimlik sağlayıcıları**’na tıklayın ve **Yerel Hesapla Oturum Aç**’ı seçin. İsteğe bağlı olarak, zaten yapılandırılmışsa sosyal kimlik sağlayıcıları öğesini de seçebilirsiniz. **Tamam** düğmesine tıklayın.
+**Adı** uygulamanız tarafından kullanılan oturum açma kullanıcı Akış adını belirler. Örneğin, **SiIn** adını girin.
 
-**Uygulama talepleri**’ne tıklayın. Burada, başarılı bir oturum açma deneyiminden sonra uygulamanıza geri gönderilen belirteçlerde döndürülmesini istediğiniz talepleri seçin. Örneğin, **Görünen Ad**, **Kimlik Sağlayıcısı**, **Posta Kodu** ve **Kullanıcının Nesne Kimliği**’ni işaretleyin. **Tamam** düğmesine tıklayın.
+Altında **kimlik sağlayıcıları**, bir seçenek belirleyin. Ayrıca, zaten yapılandırılmışsa sosyal kimlik sağlayıcıları seçebilirsiniz. **Tamam** düğmesine tıklayın.
 
-**Oluştur**’a tıklayın. Yeni oluşturduğunuz ilkenin **Oturum açma ilkeleri** dikey penceresinde **B2C_1_SiIn** olarak görüneceğini unutmayın (**B2C\_1\_**  parçası otomatik olarak eklenir).
+Altında **uygulama taleplerini**, tıklayın **daha fazla Göster**.
 
-**B2C_1_SiIn** adına tıklayarak ilkeyi açın.
+İçinde **dönüş talep** sütun, başarılı bir oturum açma deneyiminden sonra uygulamanıza geri gönderilen belirteçlerde döndürülmesini istediğiniz talepleri seçin. Örneğin, **Görünen Ad**, **Kimlik Sağlayıcısı**, **Posta Kodu** ve **Kullanıcının Nesne Kimliği**’ni işaretleyin. **Tamam** düğmesine tıklayın.
 
-**Uygulamalar** açılır menüsünde **Contoso B2C uygulamasını** ve **Yanıt URL'si / Yeniden Yönlendirme URI'si** altında `https://localhost:44321/` seçeneğini belirleyin.
+**Oluştur**’a tıklayın. Yeni oluşturduğunuz kullanıcı akışı olarak göründüğüne dikkat edin **b2c_1_siın** ( **B2C\_1\_**  parçası otomatik olarak eklenir).
 
-**Şimdi çalıştır**’a tıklayın. Yeni bir tarayıcı sekmesi açılır. Buradan, uygulamanız için oturum açmaya yönelik tüketici deneyimi üzerinde işlem yapabilirsiniz.
+Tıklayın **kullanıcı akışı çalıştırma**.
+
+Seçin **Contoso B2C uygulaması** içinde **uygulama** açılır ve `https://localhost:44321/` içinde **yanıt URL'si** açılır.
+
+Tıklayın **kullanıcı akışı çalıştırma**. Yeni bir tarayıcı sekmesi açılır. Buradan, uygulamanız için oturum açmaya yönelik tüketici deneyimi üzerinde işlem yapabilirsiniz.
 
 > [!NOTE]
-> İlke oluşturma ve güncelleştirmelerinin etkili olması bir dakika kadar alabilir.
+> Bu bir dakika kullanıcı akışı oluşturma ve güncelleştirmelerinin etkili olması için kapladığı.
 >

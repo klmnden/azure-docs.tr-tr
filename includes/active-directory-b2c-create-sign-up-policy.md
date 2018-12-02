@@ -2,39 +2,45 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
-ms.openlocfilehash: 511b05e6cae769a5b39ae81a3e67efd05d374511
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 17c0213d63879687e9c6d5f8dca06b9113c44af8
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134280"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742499"
 ---
-Yalnızca etkinleştirmek kaydolma uygulama istiyorsanız, kullandığınız bir **kaydolma** ilkesi. Bu ilke, kayıt sırasında müşteriler üzerinden geçerek deneyimleri açıklar ve üzerinde başarılı kaydolma işlemlerinde uygulamanın aldığı belirteçlerin içeriğini.
+Yalnızca etkinleştirmek kaydolma uygulama istiyorsanız, kullandığınız bir **kaydolma** kullanıcı akışı. Bu kullanıcı akışını, kayıt sırasında müşteriler üzerinden geçerek deneyimleri açıklar ve üzerinde başarılı kaydolma işlemlerinde uygulamanın aldığı belirteçlerin içeriğini.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-**Kaydolma ilkeleri**’ne tıklayın.
+Altında **Yönet**seçin **kullanıcı akışları**.
 
-Dikey pencerenin en üstündeki **+Add (+Ekle)** seçeneğine tıklayın.
+Tıklayın +**yeni kullanıcı akışı** dikey penceresinin üstünde.
 
-**Ad**, uygulamanız tarafından kullanılan kaydolma ilke adını belirler. Örneğin, **SiUp** adını girin.
+Altında **kullanıcı akış türü seç**seçin **tüm**ve ardından sürümünü seçin **kaydolun** kullanmak istiyorsunuz.
 
-**Kimlik sağlayıcıları**’na tıklayın ve **E-posta ile kaydolma**’yı seçin. İsteğe bağlı olarak, zaten yapılandırılmışsa sosyal kimlik sağlayıcıları öğesini de seçebilirsiniz. **Tamam** düğmesine tıklayın.
+**Adı** uygulamanız tarafından kullanılan kaydolma userjourney adı belirler. Örneğin, **SiUp** adını girin.
 
-**Kaydolma öznitelikleri**’ne tıklayın. Burada, tüketiciden kayıt sırasında toplamak istediğiniz öznitelikleri seçin. Örneğin, **Ülke/Bölge**, **Görünen Ad** ve **Posta Kodu**’nu seçin. **Tamam** düğmesine tıklayın.
+Altında **kimlik sağlayıcıları**seçin **e-posta kaydolma**. İsteğe bağlı olarak, zaten yapılandırılmışsa sosyal kimlik sağlayıcıları öğesini de seçebilirsiniz.
 
-**Uygulama talepleri**’ne tıklayın. Burada, başarılı bir kaydolma deneyiminden sonra uygulamanıza geri gönderilen belirteçlerde döndürülmesini istediğiniz talepleri seçin. Örneğin, **Görünen Ad**, **Kimlik Sağlayıcısı**, **Posta Kodu**, **Kullanıcı yeni** ve **Kullanıcının Nesne Kimliği**’ni işaretleyin.
+Altında **kullanıcı öznitelikleri ve talepler**, tıklayın **daha fazla Göster**.
 
-**Oluştur**’a tıklayın. Oluşturduğunuz ilke **Kaydolma ilkeleri** dikey penceresinde **B2C_1_SiUp** olarak görünür (**B2C\_1\_**  parçası otomatik olarak eklenir).
+İçinde **toplama özniteliği** sütun, tüketiciden kayıt sırasında toplamak istediğiniz öznitelikleri seçin. Örneğin, **Ülke/Bölge**, **Görünen Ad** ve **Posta Kodu**’nu seçin.
 
-**B2C_1_SiUp** adına tıklayarak ilkeyi açın.
+İçinde **dönüş talep** sütun, başarılı bir kaydolma deneyiminden sonra uygulamanıza geri gönderilen belirteçlerde döndürülmesini istediğiniz talepleri seçin. Örneğin, **Görünen Ad**, **Kimlik Sağlayıcısı**, **Posta Kodu**, **Kullanıcı yeni** ve **Kullanıcının Nesne Kimliği**’ni işaretleyin.
 
-**Uygulamalar** açılır menüsünde **Contoso B2C uygulamasını** ve **Yanıt URL'si / Yeniden Yönlendirme URI'si** altında `https://localhost:44321/` seçeneğini belirleyin.
+**Tamam** düğmesine tıklayın.
 
-**Şimdi çalıştır**’a tıklayın. Yeni bir tarayıcı sekmesi açılır. Buradan, uygulamanız için kaydolmaya yönelik tüketici deneyimi üzerinde işlem yapabilirsiniz.
+**Oluştur**’a tıklayın. Oluşturulan kullanıcı akışı olarak görünür **B2C_1_SiUp** ( **B2C\_1\_**  parçası otomatik olarak eklenir).
+
+Tıklayın **kullanıcı akışı çalıştırma**.
+
+Seçin **Contoso B2C uygulaması** içinde **uygulama** açılır ve `https://localhost:44321/` içinde **yanıt URL'si** açılır.
+
+Tıklayın **kullanıcı akışı çalıştırma**. Yeni bir tarayıcı sekmesi açılır. Buradan, uygulamanız için kaydolmaya yönelik tüketici deneyimi üzerinde işlem yapabilirsiniz.
 
 > [!NOTE]
-> İlke oluşturma ve güncelleştirmelerinin etkili olması bir dakika kadar alabilir.
+> Bu bir dakika kullanıcı akışı oluşturma ve güncelleştirmelerinin etkili olması için kapladığı.
 >
