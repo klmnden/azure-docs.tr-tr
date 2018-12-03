@@ -11,14 +11,14 @@ ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 10/29/2018
+ms.date: 11/30/2018
 ms.author: mtillman
-ms.openlocfilehash: 836204694fff6f39305e3ead4f85ddd47f447e10
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 38efd682c530e79bdea3747bd6f14faa10d399c4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413086"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723355"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -51,11 +51,11 @@ ms.locfileid: "50413086"
                                                                     <h3><a href="fundamentals/index.yml">Temel konuları öğrenin</a></h3> 
                                                                     <p>
                                                                         <a href="fundamentals/active-directory-whatis.md">Azure AD nedir?</a><br>
-                                                                        <a href="fundamentals/active-directory-get-started-premium.md">Azure AD Premium’a kaydolun</a><br>
-                                                                        <a href="fundamentals/active-directory-access-create-new-tenant.md">Azure AD'ye erişme ve kiracı oluşturma</a><br>
+                                                                        <a href="fundamentals/add-custom-domain.md">Özel bir etki alanı adı ekleme</a><br>
+                                                                        <a href="fundamentals/customize-branding.md">Şirket markası ekleme</a><br>
                                                                         <a href="fundamentals/add-users-azure-active-directory.md">Grup oluşturma ve üye ekleme</a><br>
                                                                         <a href="fundamentals/active-directory-users-assign-role-azure-portal.md">Kullanıcılara rol atama</a><br>
-                                                                        <a href="fundamentals/license-users-groups.md">Kullanıcılara lisans atama</a><br>
+                                                                        <a href="fundamentals/active-directory-how-subscriptions-associated-directory.md">Azure aboneliği ilişkilendirme</a><br>
                                                                         <a href="fundamentals/index.yml"><i>Diğerlerine bakın &gt;</i></a>
                                                                     </p>
                                                                 </div>
@@ -95,41 +95,41 @@ ms.locfileid: "50413086"
                                                     <div class="cardText">
                                                         <h3><a href="manage-apps/index.yml">Uygulama yönetimi</a></h3>
                                                         <p>
-                                                            <a href="manage-apps/add-application-portal.md">Uygulama ekleme</a><br>
-                                                            <a href="manage-apps/configure-single-sign-on-portal.md">Çoklu oturum açmayı (SSO) yapılandırma</a><br>
+                                                            <a href="manage-apps/what-is-single-sign-on.md">Çoklu oturum açma (SSO) nedir?</a><br>
+                                                            <a href="manage-apps/configure-single-sign-on-portal.md">Çoklu oturum açmayı yapılandırma</a><br>
                                                             <a href="manage-apps/application-proxy.md">Şirket içi uygulamalar için Uygulama Ara Sunucusu</a><br>
                                                             <a href="manage-apps/index.yml"><i>Diğerlerine bakın &gt;</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="authentication/index.yml">Kimlik doğrulaması</a></h3>
                                                         <p>
-                                                            <a href="authentication/tutorial-mfa-applications.md">Azure portalı için MFA'yı etkinleştirme</a><br>
-                                                            <a href="authentication/quickstart-sspr.md">Self servis parola sıfırlamayı etkinleştirme</a><br>
-                                                            <a href="authentication/concept-registration-mfa-sspr-converged.md">MFA ve SSPR için yakınsanmış kayıt</a><br>
+                                                            <a href="authentication/concept-mfa-howitworks.md">Nasıl çalışır: Azure MFA</a><br>
+                                                            <a href="authentication/concept-sspr-howitworks.md">Azure AD self servis parola sıfırlama</a><br>
+                                                            <a href="authentication/concept-password-ban-bad.md">Azure AD parola koruması</a><br>
                                                             <a href="authentication/index.yml"><i>Diğerlerine bakın &gt;</i></a>
                                                             </p>
                                                         <br><br>
                                                         <h3><a href="b2b/index.yml">İşletmeden İşletmeye (B2B)</a></h3>
                                                         <p>
-                                                            <a href="b2b/b2b-quickstart-add-guest-users-portal.md">Portala konuk kullanıcılar ekleme</a><br>
-                                                            <a href="b2b/b2b-tutorial-bulk-invite.md">Konuk kullanıcıları toplu davet etme</a><br>
-                                                            <a href="b2b/b2b-tutorial-require-mfa.md">Konuk kullanıcılar için MFA gerektirme</a><br>
+                                                            <a href="b2b/what-is-b2b.md">Azure AD B2B nedir?</a><br>
+                                                            <a href="b2b/add-users-administrator.md">Portala konuk kullanıcılar ekleme</a><br>
+                                                            <a href="b2b/o365-external-user.md">B2B ve Office 365 paylaşımı</a><br>
                                                             <a href="b2b/index.yml"><i>Diğerlerine bakın &gt;</i></a>
                                                             </p>
                                                         <br><br>
                                                         <h3><a href="/azure/active-directory-b2c/index">İşletmeden Müşteriye (B2C)</a></h3>
                                                         <p>
+                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-overview">Azure AD B2C nedir?</a><br>
                                                             <a href="/azure/active-directory-b2c/tutorial-create-tenant">Azure AD B2C kiracısı oluşturma</a><br>
-                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Web uygulamasını kimlik doğrulama için etkinleştirme</a><br>
-                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">ASP.NET web API'sine erişim verme</a><br>
+                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-get-started-custom">Azure AD B2C'deki özel ilkeler</a><br>
                                                             <a href="/azure/active-directory-b2c/index"><i>Diğerlerine bakın &gt;</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="conditional-access/index.yml">Koşullu erişim</a></h3>
                                                         <p>
+                                                            <a href="conditional-access/overview.md">Koşullu erişim nedir?</a><br>
                                                             <a href="conditional-access/app-based-mfa.md">Belirli uygulamalar için MFA gerektirme</a><br>
-                                                            <a href="conditional-access/require-tou.md">Kullanım koşullarının kabul edilmesini gerektirme</a><br>
-                                                            <a href="conditional-access/app-sign-in-risk.md">Oturum riski algılandığında erişimi engelleme</a><br>
+                                                            <a href="conditional-access/location-condition.md">Konuma göre koşullar</a><br>
                                                             <a href="conditional-access/index.yml"><i>Diğerlerine bakın &gt;</i></a>
                                                             </p>
                                                     </div>
@@ -145,40 +145,40 @@ ms.locfileid: "50413086"
                                                         <h3><a href="develop/index.yml">Geliştiriciler</a></h3>
                                                         <p>
                                                             <a href="develop/about-microsoft-identity-platform.md">Microsoft Identity Platform hakkında</a><br>
-                                                            <a href="develop/azure-ad-developers-guide.md">v1.0 platformu</a><br>
-                                                            <a href="develop/v2-overview.md">v2.0 platformu</a><br>
+                                                            <a href="develop/v2-oauth2-auth-code-flow.md">OAuth 2.0 kod akışı verme</a><br>
+                                                            <a href="develop/quickstart-register-app.md">Microsoft kimlik platformu ile uygulama kaydetme</a><br>
                                                             <a href="develop/index.yml"><i>Diğerlerine bakın &gt;</i></a>
                                                             </p>
                                                         <br><br>
                                                         <h3><a href="devices/index.yml">Cihaz yönetimi</a></h3>
                                                         <p>
-                                                            <a href="devices/hybrid-azuread-join-managed-domains.md">Yönetilen etki alanları için hibrit katılımı yapılandırma</a><br>
-                                                            <a href="devices/hybrid-azuread-join-federated-domains.md">Federasyon etki alanları için hibrit katılımı yapılandırma</a><br>
-                                                            <a href="devices/azuread-joined-devices-frx.md">Windows 10 ilk çalıştırma deneyimini yapılandırma</a><br>
+                                                            <a href="devices/overview.md">Cihaz yönetimi nedir?</a><br>
+                                                            <a href="devices/hybrid-azuread-join-plan.md">Hibrit Azure AD katılımını planlama</a><br>
+                                                            <a href="devices/azureadjoin-plan.md">Azure AD katılımını planlama</a><br>
                                                             <a href="devices/index.yml"><i>Diğerlerine bakın &gt;</i></a><br>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="/azure/active-directory-domain-services/index">Etki alanı hizmetleri</a></h3>
                                                         <p>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-overview">Azure AD Etki Alanı Hizmetleri nedir?</a><br>
                                                             <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started">Azure AD Domain Services'i etkinleştirme</a><br>
-                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal">Windows Server VM’yi yönetilen etki alanına ekleme</a><br>
-                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap">Güvenli LDAP'yi yapılandırma</a><br>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy">Grup ilkesini yönetme</a><br>
                                                             <a href="/azure/active-directory-domain-services/index"><i>Diğerlerine bakın &gt;</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="users-groups-roles/index.yml">Kurumsal kullanıcılar</a></h3>
                                                         <p>
-                                                            <a href="users-groups-roles/directory-assign-admin-roles.md">Yönetici rolleri atama</a><br>
-                                                            <a href="users-groups-roles/licensing-groups-assign.md">Gruplara lisans atama</a><br>
                                                             <a href="users-groups-roles/groups-create-rule.md">Dinamik grup oluşturma</a><br>
+                                                            <a href="users-groups-roles/groups-settings-v2-cmdlets.md">Azure AD grupları için PowerShell</a><br>
+                                                            <a href="users-groups-roles/directory-service-limits-restrictions.md">Azure AD hizmet sınırlamaları ve kısıtlamaları</a><br>
                                                             <a href="users-groups-roles/index.yml"><i>Diğerlerine bakın &gt;</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="hybrid/index.yml">Karma kimlik</a></h3>
                                                         <p>
-                                                            <a href="hybrid/how-to-connect-install-roadmap.md">Azure AD Connect'i yükleme</a><br>
+                                                            <a href="hybrid/whatis-hybrid-identity.md">Hibrit kimlik nedir?</a><br>
                                                             <a href="hybrid/how-to-connect-sso.md">Azure AD Connect ile çoklu oturum açma</a><br>
-                                                            <a href="hybrid/how-to-connect-fed-whatis.md">Azure AD Connect ve federasyon</a><br>
+                                                            <a href="hybrid/how-to-connect-install-custom.md">Azure AD Connect özel yüklemesi</a><br>
                                                             <a href="hybrid/index.yml"><i>Diğerlerine bakın &gt;</i></a>
                                                         </p>
                                                     </div>
@@ -193,16 +193,16 @@ ms.locfileid: "50413086"
                                                     <div class="cardText">
                                                         <h3><a href="governance/index.yml">Kimlik idaresi</a></h3>
                                                         <p>
-                                                            <a href="governance/manage-user-access-with-access-reviews.md">Kullanıcı erişimini yönetme</a><br>
-                                                            <a href="governance/manage-guest-access-with-access-reviews.md">Konuk erişimini yönetme</a><br>
-                                                            <a href="governance/active-directory-tou.md">Kullanım koşulları</a><br>
+                                                            <a href="governance/create-access-review.md">Erişim gözden geçirmesi oluşturma</a><br>
+                                                            <a href="governance/perform-access-review.md">Erişim değerlendirmesi başlatma</a><br>
+                                                            <a href="governance/active-directory-tou.md">Kullanım koşullarını kullanma</a><br>
                                                             <a href="governance/index.yml"><i>Diğerlerine bakın &gt;</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="identity-protection/index.yml">Kimlik koruması</a></h3>
                                                         <p>
-                                                            <a href="identity-protection/enable.md">Etkinleştirme</a><br>
-                                                            <a href="identity-protection/playbook.md">Risk olaylarının benzetimini gerçekleştirme</a><br>
+                                                            <a href="identity-protection/overview.md">Kimlik koruması nedir?</a><br>
+                                                            <a href="identity-protection/quickstart-sign-in-risk-policy.md">Oturum riski algılandığında erişimi engelleme</a><br>
                                                             <a href="identity-protection/howto-unblock-user.md">Kullanıcıların engelini kaldırma</a><br>
                                                             <a href="identity-protection/index.yml"><i>Diğerlerine bakın &gt;</i></a>
                                                         </p>
@@ -225,9 +225,9 @@ ms.locfileid: "50413086"
                                                         <br><br>
                                                         <h3><a href="reports-monitoring/index.yml">Raporlar ve izleme</a></h3>
                                                         <p>
-                                                            <a href="reports-monitoring/howto-find-activity-reports.md">Etkinlik raporlarını bulma</a><br>
-                                                            <a href="reports-monitoring/concept-activity-logs-in-azure-monitor.md">Azure İzleyici'deki Azure AD günlüklerini kullanma</a><br>
-                                                            <a href="reports-monitoring/concept-reporting-api.md">Programlı erişim</a><br>
+                                                            <a href="reports-monitoring/concept-audit-logs.md">Denetim günlükleri</a><br>
+                                                            <a href="reports-monitoring/concept-sign-ins.md">Oturum açma günlükleri</a><br>
+                                                            <a href="reports-monitoring/reference-sign-ins-error-codes.md">Oturum açma hata kodları başvurusu</a><br>
                                                             <a href="reports-monitoring/index.yml"><i>Diğerlerine bakın &gt;</i></a>
                                                         </p>
                                                     </div>
