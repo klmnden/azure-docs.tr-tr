@@ -5,6 +5,8 @@ items:
   items:
   - name: Faturanızı anlama
     href: billing-understand-your-bill.md
+  - name: Faturanızı anlama - yalnızca EA
+    href: billing-understand-your-bill-ea.md
   - name: Fatura ve kullanım verilerini alma
     href: billing-download-azure-invoice-daily-usage-date.md
   - name: Üçüncü taraf hizmet değişiklikleri
@@ -18,6 +20,8 @@ items:
   items:
   - name: Beklenmeyen maliyetleri engelleme
     href: billing-getting-started.md
+  - name: EA fiyatlandırmasını görüntüleme
+    href: billing-ea-pricing.md
   - name: Kaynak etiketlerini kullanma
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: Maliyet analizini başlatma - yalnızca EA
@@ -82,6 +86,8 @@ items:
     href: billing-how-to-change-azure-account-profile.md
   - name: Faturalandırmaya erişim izni verme
     href: billing-manage-access.md
+  - name: Azure'da EA rolleri
+    href: billing-understand-ea-roles.md
   - name: İş ortağı kimliğini bağlama
     href: billing-partner-admin-link-started.md
   - name: Fatura hesaplarını görüntüleme
@@ -112,7 +118,9 @@ items:
     href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json
   - name: Azure kaynaklarını taşıma
     href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
-  - name: Kurumsal abonelikler oluşturma
+  - name: Ek abonelik oluşturma
+    href: billing-create-subscription.md
+  - name: Program aracılığıyla Kurumsal abonelikler oluşturma
     href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
   - name: Abonelik bilgilerini dışarı aktarma
     href: billing-export-subscriptions.md
@@ -180,9 +188,9 @@ items:
     items:
     - name: Kurumsal raporlama REST API’si
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: 88e6864df13312c1963e39ff2c23eb63fde50bc2
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 5de05f7b1426a959c046b1e651f09c2f8e584b8a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268149"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497842"

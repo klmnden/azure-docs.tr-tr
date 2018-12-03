@@ -6,17 +6,17 @@ manager: rithorn
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/28/2018
+ms.date: 11/20/2018
 ms.author: rithorn
-ms.openlocfilehash: b5a99ff8cfc0a915b70c6d90b8aa04d020177d54
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.topic: overview
+ms.openlocfilehash: ea34296e170d18a1d5636c50e7cae316b1d97948
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748179"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584617"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Kaynaklarınızı Azure yönetim gruplarıyla düzenleme
 
@@ -28,12 +28,12 @@ Kuruluşunuzda birden fazla abonelik varsa bu abonelikler için verimli bir şek
 
 Birleşik ilke ve erişim yönetimi için kaynaklarınızı bir hiyerarşi altında düzenlemek amacıyla yönetim grupları ve aboneliklerden oluşan esnek bir yapı inşa edebilirsiniz. Aşağıdaki diyagramda, yönetim grupları kullanılarak idare amaçlı bir hiyerarşi oluşturma örneği gösterilmektedir.
 
-![ağaç](./media/MG_overview.png)
+![ağaç](./media/tree.png)
 
-Bu örnekteki bir hiyerarşi oluşturarak, örneğin şirket içi uyumluluk ve güvenlik ilkelerini etkinleştirmek amacıyla "Altyapı Takımı yönetim grubu" üzerinde Batı ABD Bölgesi ile sınırlı VM konumlarına bir ilke uygulayabilirsiniz. Bu ilke, o yönetim grubu altındaki her iki EA aboneliğine devredilir ve o abonelikler altındaki tüm VM’ler için geçerli olur. Bu ilke yönetim grubundan aboneliklere devredildiği için, bu güvenlik ilkesi kaynak ya da abonelik sahibi tarafından değiştirilemez ve daha iyi idareye olanak tanır.
+Bir ilke uygulayabilmek, örneğin "Altyapı Ekibi yönetim grubu" grubunda VM konumlarını ABD Batı Bölgesiyle sınırlayabilmek için hiyerarşi oluşturun. Bu ilke, o yönetim grubu altındaki her iki EA aboneliğine devredilir ve o abonelikler altındaki tüm VM’ler için geçerli olur. Bu güvenlik ilkesi kaynak veya abonelik sahibi tarafından değiştirilemez ve bu da idarenin geliştirilmesine olanak tanır.
 
-Yönetim gruplarını kullanacağınız başka bir senaryo ise birden fazla aboneliğe kullanıcı erişimi sağlamaktır. Birden fazla aboneliği söz konusu yönetim grubu altına taşıyarak, yönetim grubu üzerinde tüm aboneliklere erişimi devralacak bir [rol tabanlı erişim denetimi](../../role-based-access-control/overview.md) (RBAC) ataması oluşturabilirsiniz.
-Birden fazla abonelik üzerinde RBAC atamaları oluşturma gereksinimi olmadan, yönetim grubunda bir atama olması kullanıcıların ihtiyaç duydukları her şeye erişmesini sağlayabilir.
+Yönetim gruplarını kullanacağınız başka bir senaryo ise birden fazla aboneliğe kullanıcı erişimi sağlamaktır. Birçok aboneliği söz konusu yönetim grubu altına taşıyarak, yönetim grubu üzerinde tüm aboneliklere erişimi devralacak bir [rol tabanlı erişim denetimi](../../role-based-access-control/overview.md) (RBAC) ataması oluşturabilirsiniz.
+Yönetim grubunda bir atama olması, farklı abonelikler üzerinde RBAC komut dosyası kullanmak yerine kullanıcıların ihtiyaç duydukları her şeye erişmesini sağlayabilir.
 
 ### <a name="important-facts-about-management-groups"></a>Yönetim grupları hakkında önemli bilgiler
 
@@ -41,7 +41,7 @@ Birden fazla abonelik üzerinde RBAC atamaları oluşturma gereksinimi olmadan, 
 - Bir yönetim grubu en fazla altı derinlik düzeyini destekleyebilir.
   - Bu sınır, Kök düzeyini veya abonelik düzeyini içermez.
 - Her yönetim grubu ve abonelik yalnızca bir üst öğeyi destekler.
-- Her yönetim grubunda birden fazla alt öğe olabilir.
+- Her yönetim grubunda birçok alt öğe olabilir.
 - Tüm abonelikler ve yönetim grupları, her bir dizindeki tek bir hiyerarşi içinde yer alır. Önizleme sırasında özel durumlar için [Kök yönetim grubu hakkında önemli bilgiler](#important-facts-about-the-root-management-group) bölümüne bakın.
 
 ## <a name="root-management-group-for-each-directory"></a>Her dizin için kök yönetim grubu
@@ -73,19 +73,19 @@ Herhangi bir kullanıcı yönetim gruplarını kullanmaya başladığında gerç
 
 ## <a name="trouble-seeing-all-subscriptions"></a>Tüm abonelikler görüntülenirken oluşan sorun
 
-25 Haziran 2018 tarihinden önce, önizlemenin ilk aşamasında yönetim gruplarını kullanmaya başlayan birkaç dizin, tüm aboneliklerin hiyerarşiye katılmaya zorlanmamasıyla ilgili bir hatayla karşılaşabiliyordu.  Bunun nedeni, abonelikleri hiyerarşiye zorlamaya yönelik işlemlerin dizindeki kök yönetim grubunda bir rol veya ilke ataması yapıldıktan sonra uygulanmasıydı.
+25 Haziran 2018 tarihinden önce, önizlemenin ilk aşamasında yönetim gruplarını kullanmaya başlayan birkaç dizin, tüm aboneliklerin hiyerarşiye katılmaya zorlanmamasıyla ilgili bir hatayla karşılaşabiliyordu.  Abonelikleri hiyerarşiye zorlamaya yönelik işlemler dizindeki kök yönetim grubunda bir rol veya ilke ataması yapıldıktan sonra gerçekleştiriliyordu.
 
 ### <a name="how-to-resolve-the-issue"></a>Sorunu çözme
 
-Bu sorunu çözmek için kendi kendine yapılabilen iki seçenek vardır.
+Bu sorunu çözmek için kullanabileceğiniz iki seçenek vardır.
 
 1. Kök yönetim grubundan tüm Rol ve İlke atamalarını kaldırma
-    1. Kök yönetim grubundan bir ilke ve rol atamasını kaldırdığınızda, bir sonraki gece döngüsünde hizmet tüm abonelikleri hiyerarşiye geriye dönük olarak doldurur.  Bu denetim, tüm kiracı aboneliklerine yanlışlıkla erişim verilmediğinden ve ilke ataması yapılmadığından emin olmak için yapılır.
+    1. Kök yönetim grubundan bir ilke ve rol atamasını kaldırdığınızda, bir sonraki gece döngüsünde hizmet tüm abonelikleri hiyerarşiye geriye dönük olarak doldurur.  Bu işlemde, tüm kiracı aboneliklerine yanlışlıkla erişim verilmediğinden ve ilke ataması yapılmadığından emin olunur.
     1. Hizmetlerinizi etkilemeden bu işlemi yapmanın en iyi yolu, rolü veya ilke atamasını Kök yönetim grubunun bir alt düzeyine uygulamaktır. Daha sonra tüm atamaları kök kapsamından çıkarabilirsiniz.
 1. Geriye dönük doldurma işlemini başlatmak için doğrudan API’yi çağırın
-    1. Dizindeki yetkili herhangi bir müşteri *TenantBackfillStatusRequest* veya *StartTenantBackfillRequest* API’lerini çağırabilir. StartTenantBackfillRequest API’si çağrıldığında tüm abonelikleri hiyerarşiye taşımanın ilk kurulum işlemini başlatır. Ayrıca bu işlem, tüm yeni abonelikleri kök yönetim grubunun alt öğesi olmaya zorlama işlemini de başlatır. Bu işlem, kökteki tüm ilkelerin veya erişim atamalarının tüm aboneliklere uygulanabileceğini onayladığınızda kök düzeyinde herhangi bir aboneliği değiştirmeden yapılabilir.
+    1. Dizindeki herhangi bir müşteri *TenantBackfillStatusRequest* veya *StartTenantBackfillRequest* API’lerini çağırabilir. StartTenantBackfillRequest API’si çağrıldığında tüm abonelikleri hiyerarşiye taşımanın ilk kurulum işlemini başlatır. Ayrıca bu işlem, tüm yeni abonelikleri kök yönetim grubunun alt öğesi olmaya zorlama işlemini de başlatır. Bu işlem, kök düzeyde hiçbir atama değiştirilmeden yapılabilir. API'yi çağırarak, kökteki her ilke veya erişim atamasının tüm aboneliklere uygulanmasının sorun olmadığını belirtmiş olursunuz.
 
-Bu geriye dönük doldurma işlemi hakkında sorularınız varsa lütfen adresten bize ulaşın: managementgroups@microsoft.com  
+Bu geriye dönük doldurma işlemi hakkında sorularınız varsa şu adresten bize ulaşın: managementgroups@microsoft.com  
   
 ## <a name="management-group-access"></a>Yönetim grubu erişimi
 
@@ -111,12 +111,26 @@ Aşağıdaki grafikte rollerin listesi ve yönetim gruplarında desteklenen eyle
 
 Özel RBAC rolleri şu anda yönetim gruplarında desteklenmemektedir. Bu maddenin durumunu görüntülemek için [yönetim grubu geri bildirim forumuna](https://aka.ms/mgfeedback) bakın.
 
+## <a name="audit-management-groups-using-activity-logs"></a>Etkinlik günlüklerini kullanarak yönetim gruplarını denetleme
+
+Bu API yoluyla yönetim gruplarını izlemek için [Kiracı Etkinlik Günlüğü API'sini](/rest/api/monitor/tenantactivitylogs) kullanın. Şu anda PowerShell, CLI veya Azure portalını kullanarak yönetim grupları etkinliğini izlemek mümkün değildir.
+
+1. Azure AD kiracısının kiracı yöneticisi olarak, [erişimi yükseltin](../../role-based-access-control/elevate-access-global-admin.md) ve sonra da `/providers/microsoft.insights/eventtypes/management` kapsamı üzerinden denetleyen kullanıcıya Okuyucu rolü atayın.
+1. Denetleyen kullanıcı olarak, yönetim grubu etkinliklerini görmek için [Kiracı Etkinlik Günlüğü API'sini](/rest/api/monitor/tenantactivitylogs) çağırın. Tüm yönetim grubu etkinliği için **Microsoft.Management** Kaynak Sağlayıcısına göre filtrelemek istersiniz.  Örnek:
+
+```
+GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+```
+
+> [!NOTE]
+> Bu API'yi komut satırından rahatça çağırmak için [ARMClient](https://github.com/projectkudu/ARMClient)'ı deneyin.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Yönetim grupları hakkında daha fazla bilgi almak için bkz.:
 
 - [Azure kaynaklarını düzenlemek için yönetim grupları oluşturma](create.md)
 - [Yönetim gruplarınızı değiştirme, silme veya yönetme](manage.md)
-- [Azure PowerShell modülünü yükleme](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [REST API Belirtimini gözden geçirme](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Azure CLI uzantısını yükleme](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [Azure PowerShell Kaynak Modülünde yönetim gruplarını gözden geçirme](https://aka.ms/mgPSdocs)
+- [REST API'de yönetim gruplarını gözden geçirme](https://aka.ms/mgAPIdocs)
+- [Azure CLI'de yönetim gruplarını gözden geçirme](https://aka.ms/mgclidoc)

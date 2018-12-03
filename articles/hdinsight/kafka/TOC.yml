@@ -3,7 +3,7 @@ items:
   href: /azure/hdinsight
 - name: Genel Bakış
   items:
-  - name: HDInsight üzerinde Kafka hakkında
+  - name: HDInsight üzerinde Apache Kafka hakkında
     href: apache-kafka-introduction.md
   - name: Bileşen sürümü oluşturma
     href: ../hdinsight-component-versioning.md
@@ -13,23 +13,23 @@ items:
     maintainContext: true
 - name: Hızlı Başlangıçlar
   items:
-  - name: Kafka kümesi oluşturma - Portal
+  - name: Apache Kafka kümesi oluşturma - Portal
     href: apache-kafka-get-started.md
-  - name: Kafka kümesi oluşturma - PowerShell
+  - name: Apache Kafka kümesi oluşturma - PowerShell
     href: apache-kafka-quickstart-powershell.md
-  - name: Kafka kümesi oluşturma - Şablon
+  - name: Apache Kafka kümesi oluşturma - Şablon
     href: apache-kafka-quickstart-resource-manager-template.md
 - name: Öğreticiler
   items:
-  - name: 1 - Spark yapılandırılmış akışını kullanma
+  - name: 1 - Apache Spark yapılandırılmış akışını kullanma
     href: ../hdinsight-apache-kafka-spark-structured-streaming.md
     maintainContext: true
-  - name: 2 - Storm ile Kafka'dan okuma/yazma
+  - name: 2 - Apache Storm ile Apache Kafka'dan okuma/yazma
     href: ../hdinsight-apache-storm-with-kafka.md
     maintainContext: true
-  - name: 3 - Kafka Üretici ve Tüketici API’sini kullanma
+  - name: 3 - Apache Kafka Üretici ve Tüketici API’sini kullanma
     href: apache-kafka-producer-consumer-api.md
-  - name: 4 - Kafka Streams API'si ile uygulama geliştirme
+  - name: 4 - Apache Kafka Streams API'si ile uygulama geliştirme
     href: apache-kafka-streams-api.md
 - name: Kavramlar
   items:
@@ -44,26 +44,26 @@ items:
   items:
   - name: Otomatik konu oluşturmayı etkinleştirme
     href: apache-kafka-auto-create-topics.md
-  - name: IoT Hub ile Kafka kullanma
+  - name: IoT Hub ile Apache Kafka kullanma
     href: apache-kafka-connector-iot-hub.md
   - name: HDInsight uygulamaları yükleme
     href: ../hdinsight-apps-install-applications.md
     maintainContext: true
-  - name: Sanal ağda Kafka kullanma
+  - name: Sanal ağda Apache Kafka kullanma
     href: apache-kafka-connect-vpn-gateway.md
-  - name: Kafka verilerini çoğaltma
+  - name: Apache Kafka verilerini çoğaltma
     href: apache-kafka-mirroring.md
-  - name: Kafka günlüklerini çözümleme
+  - name: Apache Kafka günlüklerini çözümleme
     href: apache-kafka-log-analytics-operations-management.md
   - name: Akış işlem hatları oluşturma
     items:
-    - name: Spark, Kafka ve Azure Cosmos DB
+    - name: Apache Spark, Apache Kafka ve Azure Cosmos DB
       href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
       maintainContext: true
-    - name: Kafka ve Spark (DStream)
+    - name: Apache Kafka ve Apache Spark (DStream)
       href: ../hdinsight-apache-spark-with-kafka.md
       maintainContext: true
-    - name: Kafka’yı Azure Container Service ile kullanma
+    - name: Azure Container Service ile Apache Kafka kullanma
       href: apache-kafka-azure-container-services.md
   - name: Geliştirme
     items:
@@ -143,7 +143,7 @@ items:
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
       maintainContext: true
-    - name: Hadoop kümelerini yönetme
+    - name: Apache Hadoop kümelerini yönetme
       href: ../hdinsight-administer-use-portal-linux.md
       items:
       - name: .NET SDK kullanma
@@ -156,13 +156,13 @@ items:
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
       maintainContext: true
-    - name: Ambari web kullanıcı arabirimi kullanarak kümeleri yönetme
+    - name: Apache Ambari web kullanıcı arabirimini kullanarak kümeleri yönetme
       href: ../hdinsight-hadoop-manage-ambari.md
       items:
-      - name: Ambari web kullanıcı arabirimiyle kümeleri en iyi duruma getirme
+      - name: Apache Ambari web kullanıcı arabirimiyle kümeleri iyileştirme
         href: ../hdinsight-changing-configs-via-ambari.md
         maintainContext: true
-      - name: Ambari REST API’si kullanma
+      - name: Apache Ambari REST API'sini kullanma
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
       maintainContext: true
@@ -172,7 +172,7 @@ items:
     - name: Depolama hesapları ekleme
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
-    - name: Hadoop işleri için veri yükleme
+    - name: Apache Hadoop işleri için veri yükleme
       href: ../hdinsight-upload-data.md
       maintainContext: true
     - name: Data Lake Store ile birden çok HDInsight kümesi
@@ -196,10 +196,10 @@ items:
     - name: Yavaş ya da başarısız olan bir HDInsight kümesinde sorun giderme
       href: ../hdinsight-troubleshoot-failed-cluster.md
       maintainContext: true
-    - name: HDFS sorunlarını giderme
+    - name: Apache Hadoop HDFS sorunlarını giderme
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
-    - name: YARN sorunlarını giderme
+    - name: Apache Hadoop YARN sorunlarını giderme
       href: ../hdinsight-troubleshoot-yarn.md
       maintainContext: true
     - name: Kaynaklar
@@ -207,13 +207,13 @@ items:
       - name: Linux’ta HDInsight kullanma ile ilgili bilgiler
         href: ../hdinsight-hadoop-linux-information.md
         maintainContext: true
-      - name: Hadoop’ta bellek ve performans
+      - name: Apache Hadoop’ta bellek ve performans
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
       - name: Linux üzerinde Hadoop’ta YARN uygulama günlüklerine erişme
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
-      - name: Hadoop hizmetleri için yığın dökümlerini etkinleştirme
+      - name: Apache Hadoop hizmetleri için yığın dökümlerini etkinleştirme
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
     maintainContext: true
@@ -257,7 +257,7 @@ items:
     href: ../hdinsight-go-sdk-overview.md
   - name: REST
     href: /rest/api/hdinsight/
-  - name: REST (Spark)
+  - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
 - name: Kaynaklar
   items:
@@ -274,9 +274,9 @@ items:
   - name: HDInsight için Windows araçları
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 9b172aaedcab44b4557368c5d2a5bd6dfd010903
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 0b0fc56015adb5fcecd5bcd6ce501c828e694164
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155024"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495666"

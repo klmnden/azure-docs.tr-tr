@@ -5,6 +5,8 @@ items:
   items:
   - name: API Management hakkında
     href: api-management-key-concepts.md
+  - name: API Management özelliklerinin kullanılabilirliği
+    href: api-management-features.md
 - name: Hızlı Başlangıçlar
   items:
   - name: Örnek oluşturma - Portal
@@ -48,6 +50,8 @@ items:
       href: api-management-howto-policies.md
     - name: İlke başvuru dizini
       href: api-management-policies.md
+  - name: Abonelikler
+    href: api-management-subscriptions.md
   - name: Otomasyonu kullanarak yönetme
     href: automation-manage-api-management.md
   - name: Hata işleme
@@ -56,7 +60,7 @@ items:
     href: api-management-api-import-restrictions.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: 'API’leri tanımlama '
+  - name: API’leri tanımlama
     items:
     - name: El ile API ekleme
       href: add-api-manually.md
@@ -90,6 +94,14 @@ items:
     items:
     - name: Performansı iyileştirmek için önbelleğe alma özelliği ekleme
       href: api-management-howto-cache.md
+    - name: Dış önbellek kullanma
+      href: api-management-howto-cache-external.md
+  - name: API'lerinizin güvenliğini sağlama
+    items:
+    - name: Abonelikler oluşturma
+      href: api-management-howto-create-subscriptions.md
+    - name: İstemci sertifikası kimlik doğrulaması kullanarak API’leri güvenli hale getirme
+      href: api-management-howto-mutual-certificates-for-clients.md
   - name: Arka uç güvenliğini sağlama
     items:
     - name: Azure AD ile API’nizi koruma
@@ -138,8 +150,6 @@ items:
       href: api-management-sample-send-request.md
     - name: Özellikleri kullanarak sırları yönetme
       href: api-management-howto-properties.md
-    - name: İstemci sertifikası kimlik doğrulaması kullanarak API’leri güvenli hale getirme
-      href: api-management-howto-mutual-certificates-for-clients.md
     - name: Erişimi kısıtlama ilkeleri
       href: api-management-access-restriction-policies.md
     - name: Gelişmiş ilkeler
@@ -232,9 +242,9 @@ items:
     href: http://aka.ms/apimblog
   - name: Özellik istekleri
     href: http://aka.ms/apimwish
-ms.openlocfilehash: bbd98974e763ae98d7f754e9d8e690d0a8c62870
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 93a5457286e5e69e504e6858d6b9f0e8491b3c30
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339406"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620056"

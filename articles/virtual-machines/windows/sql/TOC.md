@@ -1,6 +1,7 @@
 # Genel Bakış
 ## [Windows SQL Server VM’leri hakkında](virtual-machines-windows-sql-server-iaas-overview.md) 
- 
+## [Sürüm notları](virtual-machines-windows-sql-server-iaas-release-notes.md) 
+
 # Hızlı Başlangıçlar
 ## [SQL VM Oluşturma - Portal](quickstart-sql-vm-create-portal.md)
 ## [SQL VM Oluşturma - PowerShell](quickstart-sql-vm-create-powershell.md)
@@ -40,6 +41,7 @@
 #### [Birden çok bölge](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Yük Devretme Kümesi Örneği
 #### [Yapılandırma](virtual-machines-windows-portal-sql-create-failover-cluster.md)
+## [SQL VM için lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md)
 
 # Başvuru
 ## [Azure PowerShell](/powershell/azure/overview)

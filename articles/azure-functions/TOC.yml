@@ -3,8 +3,10 @@ items:
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: İşlevler Hakkında
+  - name: Azure İşlevleri hakkında
     href: functions-overview.md
+  - name: Dayanıklı İşlevler
+    href: durable/durable-functions-overview.md
   - name: Sunucusuz karşılaştırma
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Hızlı Başlangıçlar
@@ -94,44 +96,6 @@ items:
     href: ip-addresses.md
   - name: Şirket içi işlevler
     href: functions-runtime-overview.md
-  - name: Dayanıklı İşlevler
-    items:
-    - name: Genel Bakış
-      href: durable-functions-overview.md
-    - name: İşlev türleri ve özellikleri
-      href: durable-functions-types-features-overview.md
-    - name: Bağlamalar
-      href: durable-functions-bindings.md
-    - name: Denetim noktası ve yeniden yürütme
-      href: durable-functions-checkpointing-and-replay.md
-    - name: Özel düzenleme durumu
-      href: durable-functions-custom-orchestration-status.md
-    - name: Örnek yönetimi
-      href: durable-functions-instance-management.md
-    - name: HTTP API
-      href: durable-functions-http-api.md
-    - name: Hata işleme
-      href: durable-functions-error-handling.md
-    - name: Tanılama
-      href: durable-functions-diagnostics.md
-    - name: Zamanlayıcılar
-      href: durable-functions-timers.md
-    - name: Dış olaylar
-      href: durable-functions-external-events.md
-    - name: Dış düzenlemeler
-      href: durable-functions-eternal-orchestrations.md
-    - name: Tekil düzenlemeler
-      href: durable-functions-singletons.md
-    - name: Alt düzenlemeler
-      href: durable-functions-sub-orchestrations.md
-    - name: Görev merkezleri
-      href: durable-functions-task-hubs.md
-    - name: Sürüm oluşturma
-      href: durable-functions-versioning.md
-    - name: Performans ve ölçeklendirme
-      href: durable-functions-perf-and-scale.md
-    - name: Olağanüstü durum kurtarma ve coğrafi dağıtım
-      href: durable-functions-disaster-recovery-geo-distribution.md
 - name: Nasıl yapılır kılavuzları
   items:
   - name: Geliştirme
@@ -180,6 +144,30 @@ items:
       href: disable-function.md
   - name: İzleme
     href: functions-monitoring.md
+  - name: Güvenlik
+    items:
+    - name: SSL sertifikası satın alma
+      href: ../app-service/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Kullanıcıların kimliklerini doğrulama
+      items:
+      - name: Azure AD ile kimlik doğrulaması
+        href: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Facebook ile kimlik doğrulaması
+        href: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Google ile kimlik doğrulaması
+        href: ../app-service/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Microsoft hesabıyla kimlik doğrulaması
+        href: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Twitter ile kimlik doğrulaması
+        href: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Gelişmiş kimlik doğrulaması
+      href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: IP kısıtlama
+      href: ../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Yönetilen kimlik kullanma
+      href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Key Vault'tan gizli dizilere başvurma
+      href: ../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Tümleştirme
     items:
     - name: SQL Veritabanı’na bağlanma
@@ -194,24 +182,6 @@ items:
       href: functions-flow-scenario.md
     - name: Yönetilen kimlik kullanma
       href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
-  - name: Dayanıklı İşlevler
-    items:
-    - name: Yükleme
-      href: durable-functions-install.md
-    - name: Zincirleme
-      href: durable-functions-sequence.md
-    - name: Yelpaze dışarı/yelpaze içeri
-      href: durable-functions-cloud-backup.md
-    - name: İzleyiciler
-      href: durable-functions-monitor.md
-    - name: İnsan etkileşimi
-      href: durable-functions-phone-verification.md
-    - name: Birim testi
-      href: durable-functions-unit-testing.md
-    - name: Etkinlik yayımlama
-      href: durable-functions-event-publishing.md
-    - name: Web İşleri SDK’sını kullanma
-      href: durable-functions-webjobs-sdk.md
   - name: Sorun giderme
     items:
     - name: Depolama sorunlarını giderme
@@ -288,13 +258,15 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-functions
   - name: Twitter
     href: https://twitter.com/azurefunctions
+  - name: Ürün geri bildirimi sağlama
+    href: https://feedback.azure.com/forums/355860-azure-functions
   - name: Azure İşlevleri GitHub deposu
     href: https://github.com/Azure/Azure-Functions/
   - name: Hizmet güncelleştirmeleri
     href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: eb408491ee9ed4994324a5fd425e87da6e4c59a1
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: facc469c576bf1de905441bb5b56a00bd745e924
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633793"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632305"
