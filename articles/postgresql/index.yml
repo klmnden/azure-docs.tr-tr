@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 928a251c00952b9b515d41c87821e3b3f821809f
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 0a9d8f08e32d925ea0c01bd372116b20dcb2638a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434611"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840742"
 documentType: LandingData
 title: PostgreSQL Belgeleri için Azure Veritabanı
 metadata:
@@ -12,14 +12,11 @@ metadata:
   title: Azure PostgreSQL Belgeleri - Öğreticiler, API Başvurusu
   description: PostgreSQL için Azure Veritabanı, açık kaynak PostgreSQL veritabanı altyapısını temel alan, Microsoft bulutunda geliştiriciler için oluşturulmuş ilişkisel bir veritabanı hizmetidir.
   services: postgresql
-  author: czeumault
-  manager: carolz
+  author: rachel-msft
+  ms.author: raagyema
   ms.service: postgresql
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/23/2017
-  ms.author: carolz
+  ms.date: 11/30/2018
 abstract:
   description: PostgreSQL için Azure Veritabanı, açık kaynak Postgres veritabanı altyapısını temel alan ilişkisel bir veritabanı hizmetidir.  Bu; kritik iş yüklerini işleyebilen, tahmin edilebilir performans, güvenlik, yüksek kullanılabilirlik ve dinamik ölçeklenebilirlik sunan, tam olarak yönetilen bir hizmet olarak veritabanıdır.  PostgreSQL için Azure Veritabanı ile açık kaynak araçları ve seçtiğiniz platformu kullanarak uygulamalar geliştirin.  Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, PostgreSQL için Azure Veritabanı’nı kullanmayı öğrenin.
 sections:

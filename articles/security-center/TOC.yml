@@ -20,8 +20,6 @@ items:
   expanded: true
 - name: Öğreticiler
   items:
-  - name: Güvenlik ilkelerini tanımlama
-    href: tutorial-security-policy.md
   - name: Kaynaklarınızı koruma
     href: tutorial-protect-resources.md
   - name: Olaylara yanıt verme
@@ -44,6 +42,8 @@ items:
     href: security-center-app-services.md
   - name: Güvenlik ilkelerini görüntüleme
     href: security-center-azure-policy.md
+  - name: Güvenlik ilkelerini düzenleme
+    href: tutorial-security-policy.md
   - name: Bilgi koruma ilkesini özelleştirme
     href: security-center-info-protection-policy.md
   - name: Güvenlik Merkezi ayarları
@@ -219,9 +219,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: Bölgesel kullanılabilirlik
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 4b6187ca5b56ea634524df0294725e23f188d492
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dfcf985e2f7dec286f6b64d508e8525986315a6c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310455"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843368"
