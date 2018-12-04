@@ -11,16 +11,18 @@ items:
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: İşlev oluşturma - Portal
-    href: functions-create-first-azure-function.md
   - name: İşlev oluşturma - Visual Studio
     href: functions-create-your-first-function-visual-studio.md
   - name: İşlev oluşturma - Visual Studio Code
     href: functions-create-first-function-vs-code.md
   - name: İşlev oluşturma - Java/Maven
     href: functions-create-first-java-maven.md
+  - name: İşlev oluşturma - Python
+    href: functions-create-first-function-python.md
   - name: İşlev oluşturma - Azure CLI
     href: functions-create-first-azure-function-azure-cli.md
+  - name: İşlev oluşturma - Portal
+    href: functions-create-first-azure-function.md
   - name: İşlev oluşturma - Linux
     href: functions-create-first-azure-function-azure-cli-linux.md
   - name: Tetikleyiciler
@@ -86,6 +88,8 @@ items:
       href: functions-reference-node.md
     - name: Java
       href: functions-reference-java.md
+    - name: Python
+      href: functions-reference-python.md
   - name: Tanılama
     href: ../app-service/app-service-diagnostics.md
   - name: Performansla ilgili önemli noktalar
@@ -114,6 +118,8 @@ items:
       href: functions-create-maven-intellij.md
     - name: Eclipse geliştirme
       href: functions-create-maven-eclipse.md
+    - name: Linux işlev uygulaması oluşturma
+      href: create-function-app-linux-app-service-plan.md
     - name: Bağlantıları yönetme
       href: manage-connections.md
     - name: Hata işleme
@@ -188,6 +194,14 @@ items:
       href: functions-recover-storage-account.md
 - name: Başvuru
   items:
+  - name: API başvuruları
+    items:
+    - name: Java
+      href: https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable
+    - name: Python
+      href: https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python
+  - name: Uygulama ayarları başvurusu
+    href: functions-app-settings.md
   - name: Bağlamalar
     items:
     - name: Blob depolama
@@ -229,13 +243,12 @@ items:
     - name: Twilio
       href: functions-bindings-twilio.md
   - name: host.json başvurusu
+    href: functions-host-json.md
     items:
     - name: İşlevler 2.x
       href: functions-host-json.md
     - name: İşlevler 1.x
       href: functions-host-json-v1.md
-  - name: Uygulama ayarları başvurusu
-    href: functions-app-settings.md
   - name: OpenAPI başvurusu
     href: functions-api-definition.md
 - name: Kaynaklar
@@ -264,9 +277,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: Hizmet güncelleştirmeleri
     href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: facc469c576bf1de905441bb5b56a00bd745e924
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: bd85d1f3afa9e6ebc580f252782756bff278b9d8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632305"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850668"

@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB Cassandra API tablosuna Java uygulamasıyla örnek veri yükleme | Microsoft Docs
+title: Bir Java uygulaması kullanarak bir Azure Cosmos DB Cassandra API'SİNİN tabloya örnek veri yükleme
 description: Bu makale, bir Java uygulaması kullanarak Azure Cosmos DB Cassandra API hesabındaki bir tabloya örnek kullanıcı verileri yüklemeyi göstermektedir.
 services: cosmos-db
 author: kanshiG
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e116dbf1d49fed1a47b830f9a57cd77a33b7ea9c
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: ac297a04936785c76b7651cb5b78080baf4f684c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740729"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836262"
 ---
 # <a name="tutorial-load-sample-data-into-an-azure-cosmos-db-cassandra-api-table"></a>Öğretici: Azure Cosmos DB Cassandra API tablosuna örnek veri yükleme
 
@@ -26,7 +26,7 @@ Bu öğretici aşağıdaki görevleri kapsar:
 > * Cassandra tablosuna veri yükleme
 > * Uygulamayı çalıştırma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Bu makale çok bölümlü bir öğreticiye aittir. Bu belgeye başlamadan önce [Cassandra API hesabını, anahtar alanını ve tabloyu](create-cassandra-api-account-java.md) oluşturduğunuzdan emin olun.   
 

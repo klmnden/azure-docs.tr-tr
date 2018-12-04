@@ -69,6 +69,8 @@ items:
         href: operator-best-practices-advanced-scheduler.md
       - name: Kimlik doğrulama ve yetkilendirme
         href: operator-best-practices-identity.md
+      - name: İş sürekliliği (BC) ve olağanüstü durum kurtarma (DR)
+        href: operator-best-practices-multi-region.md
     - name: Uygulama geliştiriciler için
       items:
       - name: Kaynak yönetimi
@@ -97,6 +99,12 @@ items:
       maintainContext: true
     - name: Azure AD etkin AKS
       href: aad-integration.md
+    - name: Sanal düğümler oluşturma (önizleme)
+      items:
+      - name: Azure CLI
+        href: virtual-nodes-cli.md
+      - name: Azure portal
+        href: virtual-nodes-portal.md
     - name: Sanal Kubelet kullanma
       href: virtual-kubelet.md
     - name: Küme Otomatik Ölçeklendiricisi kullanma
@@ -260,14 +268,14 @@ items:
   - name: Ürün geri bildirimi sağlama
     href: https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-container-service
+    href: https://stackoverflow.com/questions/tagged/azure-container-service
   - name: Videolar
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: SSS
     href: faq.md
-ms.openlocfilehash: fc7f58330bf5ca0819cf0da494e521324fd2a6ea
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 4bc03d2a50f384527bdfd3612d684cff6a6310e2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441681"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847346"

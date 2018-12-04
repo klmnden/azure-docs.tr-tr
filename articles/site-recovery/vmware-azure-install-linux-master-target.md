@@ -4,14 +4,14 @@ description: Azure Site Recovery kullanılarak Azure'da VMware vm'lerinin olağa
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 415b50b94052e7d428ddfa55d5288c8954a3ff1a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e35a8cf720fffa3a3b4c7d9f1b83c2323041b1c4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212378"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833321"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Bir Linux ana hedef sunucusu yeniden çalışma için yükleyin
 Sanal makinelerinizi azure'a yük devretme sonra sanal makineleri şirket içi siteye geri dönebilirsiniz. Yeniden çalışma için sanal makine azure'dan şirket içi siteye yeniden korumanız gerekir. Bu işlem için trafiği almak için bir şirket içi ana hedef sunucusu gerekir. 
@@ -259,7 +259,7 @@ Bekletme diski oluşturmak için aşağıdaki adımları kullanın:
     
     Seçin **Ekle** dosyayı düzenlemeye başlayabilmesi için. Yeni bir satır oluşturun ve sonra aşağıdaki metni ekleyin. Önceki komutta alınan vurgulanan çok yollu kimliği temel disk çok yollu Kimliğini düzenleyin.
 
-    **/dev/Eşleyici/ <Retention disks multipath id> /mnt/saklama ext4 rw 0 0**
+     **/dev/Eşleyici/ <Retention disks multipath id> /mnt/saklama ext4 rw 0 0**
 
     Seçin **Esc**, Anahtar'a tıklayın ve **: wq** (yazma ve Çık) Düzenleyicisi penceresini kapatın.
 
