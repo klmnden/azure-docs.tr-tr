@@ -4,19 +4,18 @@ description: Azure geçişi hizmetinde değerlendirme hesaplamaları genel bir b
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: 04ae28ca566e97570ec64e78d3408ea8bd1e3d42
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9baf6ea70a8e9fa0dcd8ceefc9f58d7fa972767a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010329"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841974"
 ---
 # <a name="dependency-visualization"></a>Bağımlılık görselleştirme
 
 [Azure geçişi](migrate-overview.md) Hizmetleri grupları şirket içi makinelerin Azure'a geçiş için değerlendirir. Grupları oluşturmak için Azure geçişi bağımlılık görselleştirme işlevini kullanabilirsiniz. Bu makalede, bu özellik hakkında bilgi sağlar.
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -31,7 +30,13 @@ Azure geçişi kullanan [hizmet eşlemesi](../operations-management-suite/operat
 
     ![Log Analytics çalışma alanını ilişkilendir](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- Yeni bir çalışma alanı oluşturduğunuzda, çalışma alanı için bir ad belirtmeniz gerekir. Çalışma alanı aynı bölgede oluşturulduktan sonra [her Azure coğrafyası](https://azure.microsoft.com/global-infrastructure/geographies/) geçiş projesi olarak.
+- Bir çalışma alanı ilişkilendirilirken yeni bir çalışma alanı oluşturun veya mevcut bir paylaşımın seçeneği alırsınız:
+      - Yeni bir çalışma alanı oluşturduğunuzda, çalışma alanı için bir ad belirtmeniz gerekir. Çalışma alanı aynı bölgede oluşturulduktan sonra [her Azure coğrafyası](https://azure.microsoft.com/global-infrastructure/geographies/) geçiş projesi olarak.
+      - Mevcut bir çalışma alanı eklediğinizde, geçiş projesi ile aynı abonelikte kullanılabilir olan tüm çalışma arasından seçim yapabilirsiniz. Yalnızca bu çalışma alanlarının bir bölgede oluşturulan listelendiğine dikkat edin burada [hizmet eşlemesi desteklenir](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Bir çalışma alanı eklemek için çalışma alanına 'Reader' erişiminiz olduğundan emin olun.
+
+  > [!NOTE]
+  > Bir çalışma alanı bir projeye ekledikten sonra daha sonra değiştiremezsiniz.
+
 - İlişkili çalışma alanı anahtarı ile etiketlenmiş **geçiş projesi**ve değer **proje adı**, hangi Azure portalında aramak için kullanabilirsiniz.
 - Projeyle ilişkili çalışma alanına gidin, gidebilirsiniz **Essentials** projenin bölümünü **genel bakış** sayfasında ve çalışma alanına erişim
 

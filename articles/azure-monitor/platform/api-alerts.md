@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 48f178a3316eb7232fad7d39b28aaa2fdcd77bff
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 63346068529591d4d396b0590db96a73782181e9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642910"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838863"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Oluşturma ve REST API ile Log analytics'teki uyarı kurallarını yönet
 Log Analytics uyarı REST API oluşturma ve Log analytics'teki uyarılar yönetmenize olanak sağlar.  Bu makalede, farklı işlemler gerçekleştirmek için API ve birkaç örnek ayrıntılarını sağlar.
@@ -28,7 +28,7 @@ Log Analytics uyarı REST API oluşturma ve Log analytics'teki uyarılar yönetm
 Log Analytics arama REST API, RESTful olduğu ve Azure Resource Manager REST API aracılığıyla erişilebilir. Bu belgede, API'yi kullanarak bir PowerShell komut satırı burada erişilen örnekler bulabilirsiniz [ARMClient](https://github.com/projectkudu/ARMClient), Azure Resource Manager API'si çağırma basitleştiren bir açık kaynak komut satırı aracı. PowerShell ile ARMClient ve Log Analytics arama API'sine erişmek için birçok seçenekten birini kullanılır. Bu araçlarla, Log Analytics çalışma alanları çağrı yapmak ve bunların içindeki arama komutları gerçekleştirmek için RESTful Azure Resource Manager API'si kullanabilir. API, birçok farklı şekilde, program aracılığıyla arama sonuçlarını kullanmanıza olanak sağlayan, arama sonuçları JSON biçiminde çıkarır.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Şu anda ile kayıtlı bir aramayı Log analytics'te uyarıları yalnızca oluşturulabilir.  Başvurabilirsiniz [Log Search REST API'sine](../../log-analytics/log-analytics-queries.md) daha fazla bilgi için.
+Şu anda ile kayıtlı bir aramayı Log analytics'te uyarıları yalnızca oluşturulabilir.  Başvurabilirsiniz [Log Search REST API'sine](../../azure-monitor/log-query/log-query-overview.md) daha fazla bilgi için.
 
 ## <a name="schedules"></a>Zamanlamalar
 Kayıtlı bir aramayı bir veya daha fazla zamanlama olabilir. Ne sıklıkta arama çalıştırma ve zaman aralığı üzerinde ölçütler tanımlanmıştır, zamanlamayı tanımlar.
@@ -140,7 +140,7 @@ Bir ve yalnızca bir uyarı eylemi bir zamanlamaya sahip olmalıdır.  Uyarı ey
 | Severity |Uyarı tetiklendiğinde sınıflandırmak için kullanılan etiketi belirtin.| Her uyarı için önce veya sonra Azure'a genişletilmiş olan gereklidir. |
 | Gizle |Uyarı bildirimleri durdurmak için seçenek. | Her uyarı için isteğe bağlı önce veya sonra Azure'a genişletildi. |
 | Eylem Grupları |Azure burada gerekli Eylemler belirtilmiştir, e-postalar, SMSs, sesli aramalar, Web kancaları, Otomasyon runbook'ları, ITSM bağlayıcılar, vb. gibi - ActionGroup kimlikleri.| Uyarılar Azure'a genişletilmiş olan sonra gerekli|
-| Eylemleri Özelleştirin|ActionGroup select eylemler için standart çıktı değiştirme| Her uyarı için isteğe bağlı kullanılabilir sonra uyarılar Azure'a genişletilir. |
+| Eylemleri özelleştirin|ActionGroup select eylemler için standart çıktı değiştirme| Her uyarı için isteğe bağlı kullanılabilir sonra uyarılar Azure'a genişletilir. |
 | EmailNotification |Birden çok alıcıya e-posta gönderin. | Uyarılar Azure'a uzatıldıysa, gerekli değildir|
 | Düzeltme |Tanımlanan sorunu düzeltme girişiminde bulunmak üzere Azure Otomasyonu'ndaki bir runbook'u başlatın. |Uyarılar Azure'a uzatıldıysa, gerekli değildir|
 | Web kancası eylemleri | JSON olarak istenen hizmetine gelen uyarılar, veri gönderme |Uyarılar Azure'a uzatıldıysa, gerekli değildir|
@@ -148,7 +148,7 @@ Bir ve yalnızca bir uyarı eylemi bir zamanlamaya sahip olmalıdır.  Uyarı ey
 > [!NOTE]
 > 14 Mayıs 2018 tarihinden itibaren bir Log Analytics çalışma alanının Azure genel bulutunda örnekteki tüm uyarıları otomatik olarak Azure'a genişletilir. Bir kullanıcı, gönüllü olarak azure'a genişletme uyarılar 14 Mayıs 2018'den önce başlatabilirsiniz. Daha fazla bilgi için [Log analytics'ten azure'a genişletme uyarılar](../../monitoring-and-diagnostics/monitoring-alerts-extend.md).
 
-#### <a name="thresholds"></a>Eşikler
+#### <a name="thresholds"></a>Eşikleri
 Bir uyarı eylemi, yalnızca tek bir eşik değeri olması gerekir.  Kayıtlı arama sonuçlarını bu arama ile ilişkili bir eylem Eşikte eşleştiğinde, ardından bu eylemi diğer tüm işlemler çalıştırılır.  Böylece eşikleri içermeyen diğer tür Eylemler ile kullanılabilmesi için bir eylem yalnızca bir eşiği de içerebilir.
 
 Eşikleri aşağıdaki tabloda özelliklere sahiptir.
@@ -188,9 +188,9 @@ Log Analytics, daha kolay yönetim ve Önceliklendirme izin vermek için kategor
 
 |Log Analytics önem düzeyi  |Azure Uyarıları önem düzeyi  |
 |---------|---------|
-|kritik |Önem Derecesi 0|
-|uyarı |Önem Derecesi 1|
-|Bilgilendirme | Önem Derecesi 2|
+|Kritik |Önem derecesi 0|
+|uyarı |Önem derecesi 1|
+|Bilgilendirme | Önem derecesi 2|
 
 Örnek yanıt yalnızca eşiğini ve önem derecesine sahip bir eylem için aşağıda verilmiştir. 
 
@@ -281,7 +281,7 @@ Put yöntemi ile var olan bir eylem kimliği için bir zamanlama ilişkili bir e
     $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']} }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
-#### <a name="customize-actions"></a>Eylemleri Özelleştirin
+#### <a name="customize-actions"></a>Eylemleri özelleştirin
 Varsayılan eylemler tarafından standart şablon ve bildirimler için biçim izleyin. Ancak Eylem grupları tarafından kontrol edilir olsa bile, kullanıcı bazı eylemler özelleştirebilirsiniz. Şu anda, e-posta konusu ve Web kancası yükü özelleştirme mümkündür.
 
 ##### <a name="customize-e-mail-subject-for-action-group"></a>Eylem grubu için e-posta konusu özelleştirme
@@ -510,6 +510,6 @@ Put yöntemi, bir zamanlama için bir Web kancası eylemi değiştirmek için va
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [günlük aramaları yapmak için REST API](../../log-analytics/log-analytics-queries.md) Log analytics'te.
+* Kullanım [günlük aramaları yapmak için REST API](../../azure-monitor/log-query/log-query-overview.md) Log analytics'te.
 * Hakkında bilgi edinin [oturum uyarılar azure uyarıları](../../monitoring-and-diagnostics/monitor-alerts-unified-log.md)
 

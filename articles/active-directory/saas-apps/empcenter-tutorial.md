@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: e7e594619c3b7c1ebd34c802d53b3897046a9cd7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 722a5b90b9ca17197cb0a0d117e58a01108d0a9c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426845"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845051"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-empcenter"></a>Öğretici: Azure Active Directory EmpCenter ile tümleştirme
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile EmpCenter yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik bir EmpCenter çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'de EmpCenter tümleştirmesini yapılandırmak için EmpCenter Galeride
 
 **Galeriden EmpCenter eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -119,7 +119,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve E
     | `https://<subdomain>.workforcehosting.com/<instancename>` |
 
     > [!NOTE] 
-    > Değer, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [EmpCenter istemci Destek ekibine](http://www.workforcesoftware.com/services/customer-support/) değeri alınamıyor. 
+    > Değer, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [EmpCenter istemci Destek ekibine](https://www.workforcesoftware.com/services/customer-support/) değeri alınamıyor. 
  
 1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
@@ -129,7 +129,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve E
 
     ![Çoklu oturum açmayı yapılandırın](./media/empcenter-tutorial/tutorial_general_400.png)
 
-1. Çoklu oturum açmayı yapılandırma **EmpCenter** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [EmpCenter Destek ekibine](http://www.workforcesoftware.com/services/customer-support/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+1. Çoklu oturum açmayı yapılandırma **EmpCenter** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [EmpCenter Destek ekibine](https://www.workforcesoftware.com/services/customer-support/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
 > İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -168,7 +168,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="creating-an-empcenter-test-user"></a>Bir EmpCenter test kullanıcısı oluşturma
 
-EmpCenter için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunların EmpCenter sağlanması gerekir. EmpCenter söz konusu olduğunda, kullanıcı hesapları tarafından oluşturulması gerekir, [EmpCenter Destek ekibine](http://www.workforcesoftware.com/services/customer-support/).
+EmpCenter için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunların EmpCenter sağlanması gerekir. EmpCenter söz konusu olduğunda, kullanıcı hesapları tarafından oluşturulması gerekir, [EmpCenter Destek ekibine](https://www.workforcesoftware.com/services/customer-support/).
 
 > [!NOTE]
 > Herhangi diğer EmpCenter kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri tarafından EmpCenter sağlamak için Azure Active Directory kullanıcı hesaplarını sağlanan.

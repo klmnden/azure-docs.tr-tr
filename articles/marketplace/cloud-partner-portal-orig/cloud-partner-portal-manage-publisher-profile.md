@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 16e3e73e00af1cc6c2c531575345f12c288f1b69
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 8459866aa192f2364ae52d0d5d68eace693e127e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853702"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832692"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>'Azure Marketi' ve 'AppSource' yayımcı profilini yönetme
 
@@ -27,7 +27,7 @@ Bu belge görüntüleme ve yönetme kayıtlı yayımcı profilinizi kullanıcıl
 
 Bu zamana kadar bir Azure Market ve AppSource yayımcı haline adımlarını tamamladınız. Yayımcı profil kayıtlı **[bulut iş ortağı portalı](https://cloudpartner.azure.com/)** onay iş ortağı isteğinizin izleyerek. Yayımcı profilinizi tüm teklifleri için geçerli olur ve iş ortağı kayıt sırasında kullanılan hesaptan SKU'ları yayımladınız.
 
-Bir bulut iş ortağı olarak, şirketinizin kaydolmadıysanız bkz [bulut iş ortağı portalını kullanmaya başlama](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal).
+Bir bulut iş ortağı olarak, şirketinizin kaydolmadıysanız bkz [bulut iş ortağı portalını kullanmaya başlama](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal).
 
 **Yayımcı profil**: şirketinizin Azure Market ve AppSource yayımcı profilinizi ayırır. Bu, yayımcı kimliği, görünen ad ve sahibi email(s) oluşur. İyi yönetilen profil görünürlüğünüzü artırın ve Yardım Market kullanıcılarının kolayca belirlemenize ve uygun bir teklif seçin.
 

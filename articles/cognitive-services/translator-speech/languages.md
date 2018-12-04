@@ -101,7 +101,7 @@ Translator konuşma tanıma API'si, metin çevirisi konuşma için bir hedef dil
 | Ukrayna dili      | `uk`          |
 | Urduca      | `ur`          |
 | Vietnam dili      | `vi`          |
-| Galce      | `cy`          |
+| Gaelce      | `cy`          |
 | Yucatec Maya      | `yua`          |
 
 ## <a name="access-the-list-programmatically"></a>Listenin programlamayla erişme

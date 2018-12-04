@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 6aa0ad6d13a7a75a0d9bfb520944c04cae11f1ab
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 38ed7a7fff08003563147d6b8eb9bbc33fb32bc9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682988"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836160"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure yönetim çözümlerine için veri koleksiyonu ayrıntıları
 Bu makalede bir listesini içerir [yönetim çözümleri](solutions.md) kullanımına Microsoft gelen bağlantılarla ilgili ayrıntılı belgelere.  Ayrıca kendi yöntemi ve Log Analytics ile veri toplama sıklığı hakkında bilgiler sağlar.  Farklı çözümlerin tanımlamak ve farklı yönetim çözümleri için veri akışı ve bağlantı gereksinimlerini anlamak için bu makaledeki bilgileri kullanabilirsiniz. 
@@ -79,4 +79,4 @@ Sütunların açıklamaları aşağıdaki gibidir:
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bilgi nasıl [sorguları oluşturma](../../log-analytics/log-analytics-queries.md) yönetim çözümleri tarafından toplanan verileri analiz etmek için.
+* Bilgi nasıl [sorguları oluşturma](../../azure-monitor/log-query/log-query-overview.md) yönetim çözümleri tarafından toplanan verileri analiz etmek için.

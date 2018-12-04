@@ -3,18 +3,18 @@ title: Azure Haritalar ile etkileşimli Harita Arama | Microsoft Docs
 description: Azure Hızlı Başlangıç - Azure Haritalar’ı kullanarak bir demo etkileşimli harita araması başlatma
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/26/2018
+ms.date: 12/02/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d2aa3385dd7556cfc169b42b36d94a3e1d9ee3dd
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 5f828bfd2ceee81daf86382846be0c5ee7f1fe8c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209981"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836585"
 ---
 # <a name="launch-an-interactive-search-map-using-azure-maps"></a>Azure Haritalar’ı kullanarak bir etkileşimli arama haritası başlatma
 
@@ -35,7 +35,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
     - Yeni hesabınıza verilen *Ad*.
     - Bu hesap için kullanmak istediğiniz *Abonelik*.
     - Bu hesap için *Kaynak grubu*. Kaynak grubu için *Yeni oluştur* veya *Mevcut olanı kullan* seçeneğini belirleyebilirsiniz.
-    - *Kaynak grubu konumu*nu seçin.
+    - Seçin *fiyatlandırma katmanı* tercih ettiğiniz.
     - *Lisans*’ı ve *Gizlilik Bildirimi*’ni okuyun ve onay kutusunu işaretleyerek koşulları kabul edin.
     - Son olarak **Oluştur** düğmesine tıklayın.
 

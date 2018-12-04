@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 63f4c4c48dd0fed3130dc99929a0e84c3cba2026
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 531d19925d24930b6a2bd642a8ff0ec55bd6d16f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466056"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841583"
 ---
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>PIM'de yönetebilmeniz için azure AD Dizin rolleri
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -75,7 +75,7 @@ Kullanıcı ayrıca atanmış bir lisansı hizmetin portalını açın veya yön
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Azure AD'de bir kullanıcıya lisans atama
 
-1. Oturum [Azure portalında](http://portal.azure.com) genel Yöneticisi veya sahibi rolüne sahip.
+1. Oturum [Azure portalında](https://portal.azure.com) genel Yöneticisi veya sahibi rolüne sahip.
 
 1. Lisansları ile ilişkili olan ve çalışmak istediğiniz Azure AD dizini seçin.
 
@@ -108,6 +108,6 @@ Kullanıcı ayrıca atanmış bir lisansı hizmetin portalını açın veya yön
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [PIM kullanmaya başlayın](pim-getting-started.md)
+- [PIM kullanmaya başlama](pim-getting-started.md)
 - [Azure AD dizin rollerini PIM atayın](pim-how-to-add-role-to-user.md)
 

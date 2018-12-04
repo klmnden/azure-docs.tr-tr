@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/02/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b4b81546a267e6fd082f83db8b23010f0742771f
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b043c5ebe4c2a02bd4d40ca4b2bb7d5f488f5747
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237917"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837350"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile hazırlanmış veri analizi çözümü oluşturma 
 
@@ -252,7 +252,7 @@ Arşiv depolama olarak başka bir depolama hesabı ve blob kapsayıcısı oluşt
 
 ## <a name="test-the-queue-triggered-function"></a>Test kuyruk ile tetiklenen işlev
 
-1.  Azure portalında işlevine göz atın. Genişletin **günlükleri** sayfanın alt kısmındaki ve günlük akışını değil duraklatıldı emin olun.
+1.  Azure Stack portalında işlevine göz atın. Genişletin **günlükleri** sayfanın alt kısmındaki ve günlük akışını değil duraklatıldı emin olun.
 
 2.  Depolama Gezgini'ni açın ve bu bölümün başında oluşturduğunuz depolama hesabına bağlanın.
 

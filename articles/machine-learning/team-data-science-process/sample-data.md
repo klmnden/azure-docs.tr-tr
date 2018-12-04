@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b7b233532a526879e886950c3a0d8cfe169251a7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 679d812c239e0f626d2872d29bc9de7848399bc6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441511"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844609"
 ---
 # <a name="heading"></a>Örnek verileri Azure blob kapsayıcıları, SQL Server ve Hive tablolarındaki
 
@@ -26,7 +26,7 @@ Aşağıdaki makaleler üç farklı Azure konumlardan birinde depolanan verileri
 * [**SQL Server verilerini** ](sample-data-sql-server.md) hem SQL hem de Python programlama dili kullanarak örneklenir. 
 * [**Tablo verilerini hive** ](sample-data-hive.md) Hive sorgularını kullanarak örneklenir.
 
-Bir adımda bu örnekleme görevdir [Team Data Science işlem (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Bir adımda bu örnekleme görevdir [Team Data Science işlem (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 **Neden veri örneği?**
 

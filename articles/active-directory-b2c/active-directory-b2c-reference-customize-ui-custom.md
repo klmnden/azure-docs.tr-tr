@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c363056fc013cc8b8fd67fb9d656d3550d3bf5a2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8c3684f93bbf5b9fe9f5ea9167396b9822e70c48
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139518"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841634"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Bir kullanıcı yolculuğunun özel ilkeler ile kullanıcı arabirimini özelleştirme
 
@@ -31,7 +31,7 @@ Kesintisiz kullanıcı deneyimi herhangi bir iş tüketici çözüm için bir an
 
 Azure AD B2C Görünüm ve hisse sunulan ve Azure AD B2C tarafından görüntülenen çeşitli sayfalar üzerinde kullanıcı deneyimi (UX) özelleştirmenize olanak sağlar, özel ilkeleri kullanarak.
 
-Bu amaç için Azure AD B2C kod, tüketicinin tarayıcıda çalışan ve modern ve standart bir yaklaşım kullanan [çıkış noktaları arası kaynak paylaşımı (CORS)](http://www.w3.org/TR/cors/) özel içerik işaret etmek için özel bir ilkede belirttiğiniz belirli bir URL'den yüklenecek HTML5/CSS şablonlarınızı. CORS kaynağı kaynaklandığı etki alanı dışındaki başka bir etki alanından istenmesi için bir web sayfasında yazı tipleri gibi sınırlı kaynaklar sağlayan bir mekanizmadır.
+Bu amaç için Azure AD B2C kod, tüketicinin tarayıcıda çalışan ve modern ve standart bir yaklaşım kullanan [çıkış noktaları arası kaynak paylaşımı (CORS)](https://www.w3.org/TR/cors/) özel içerik işaret etmek için özel bir ilkede belirttiğiniz belirli bir URL'den yüklenecek HTML5/CSS şablonlarınızı. CORS kaynağı kaynaklandığı etki alanı dışındaki başka bir etki alanından istenmesi için bir web sayfasında yazı tipleri gibi sınırlı kaynaklar sağlayan bir mekanizmadır.
 
 Burada şablon sayfalarını ait Burada sağladığınız sınırlı metin ve görüntüleri çözümüyle, eski geleneksel, yöntemiyle karşılaştırıldığında Düzen genel görünüm ve denetimin sınırlı CORS şekilde sorunsuz bir deneyim elde etmek için birden çok zorluklarla baştaki sunulduğu HTML5 ve CSS destekler ve olanak sağlar:
 
@@ -69,10 +69,10 @@ Her şeyin beklendiği gibi çalıştığından emin olmak için şunları yapma
 - Mutlak URL kullanın https://yourdomain/content tüm bağlantılar ve CSS içeriği.
 
 > [!TIP]
-> Site üzerinde içerik barındırdığını CORS etkin olduğunu doğrulayın ve CORS istekleri sınamak için site kullanabilirsiniz http://test-cors.org/. Bu site sayesinde, CORS istekleri (CORS destekleniyorsa test etmek için), uzak bir sunucuya göndermek veya CORS istekleri (CORS belirli özelliklerini keşfetmek için) test sunucusuna gönderin.
+> Site üzerinde içerik barındırdığını CORS etkin olduğunu doğrulayın ve CORS istekleri sınamak için site kullanabilirsiniz https://test-cors.org/. Bu site sayesinde, CORS istekleri (CORS destekleniyorsa test etmek için), uzak bir sunucuya göndermek veya CORS istekleri (CORS belirli özelliklerini keşfetmek için) test sunucusuna gönderin.
 
 > [!TIP]
-> Site http://enable-cors.org/ de faydalı kaynaklara CORS fazla kabul ettiğiniz anlamına gelir.
+> Site https://enable-cors.org/ de faydalı kaynaklara CORS fazla kabul ettiğiniz anlamına gelir.
 
 CORS tabanlı bu yaklaşım sayesinde, son kullanıcıların uygulamanızla Azure AD B2C tarafından sunulan sayfaları arasında tutarlı deneyimlerine sahip.
 
@@ -120,7 +120,7 @@ CORS (çıkış noktaları arası kaynak paylaşımı) uç noktanız içerik yü
 Üzerinde içeriğinizin barındırıldığı depolama alanını CORS etkin olduğunu doğrulamak için aşağıdaki adımlarla devam edin:
 
 1. Bir tarayıcı oturumu açın ve sayfasına giderek *unified.html* , depolama hesabındaki konumunun tam URL'yi kullanarak `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Örneğin, https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2. http://test-cors.org sayfasına gidin. Bu site, kullanmakta olduğunuz sayfayı CORS etkin olduğunu doğrulamak sağlar.  
+2. https://test-cors.org sayfasına gidin. Bu site, kullanmakta olduğunuz sayfayı CORS etkin olduğunu doğrulamak sağlar.  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
 -->

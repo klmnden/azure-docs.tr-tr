@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 10de56ac8945be4bb0920f95774b469d283f575b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 81927c4e69f36fbc4859ac2865bc15cbfacb17fb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721383"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843878"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Belirteç başvurusu
 
@@ -30,9 +30,9 @@ Taşıyıcı belirteç korumalı bir kaynağın "bearer" erişim veren bir basit
 
 Taşıyıcı belirteç dışında güvenli bir kanal iletilirse, kötü amaçlı bir taraf belirteç almak ve korumalı kaynağa yetkisiz erişim elde etmek için kullanmak için bir adam-de-ortadaki adam saldırısı kullanabilirsiniz. Depolanan ya da daha sonra kullanmak üzere önbelleğe taşıyıcı belirteçleri, aynı güvenlik ilkeleri uygulayın. Uygulamanızı iletir ve güvenli bir şekilde taşıyıcı belirteçleri depolar her zaman emin olmalısınız.
 
-Taşıyıcı belirteçleri üzerinde ek güvenlik konuları için bkz. [RFC 6750 bölüm 5](http://tools.ietf.org/html/rfc6750).
+Taşıyıcı belirteçleri üzerinde ek güvenlik konuları için bkz. [RFC 6750 bölüm 5](https://tools.ietf.org/html/rfc6750).
 
-Azure AD B2C sorunları belirteçleri birçoğu, JSON web belirteçleri (Jwt'ler) uygulanır. JWT'nin, iki taraf arasında bilgi aktarma compact, URL güvenli bir yoludur. Jwt'ler talepler olarak bilinen bilgileri içerir. Onaylar taşıyıcı hakkında bilgilerin ve belirtecin konu şunlardır. Jwt'ler Taleplerde kodlanmış ve aktarım için seri hale getirilmiş JSON nesneleridir. Azure AD B2C tarafından verilen Jwt'ler imzalanmış ancak şifreli olduğundan, kolayca hata ayıklamak için bir JWT içeriğini inceleyebilirsiniz. Çeşitli araçlar mevcuttur, bunu yapabilirsiniz, dahil olmak üzere [jwt.ms](https://jwt.ms). Jwt'ler hakkında daha fazla bilgi için [JWT belirtimleri](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+Azure AD B2C sorunları belirteçleri birçoğu, JSON web belirteçleri (Jwt'ler) uygulanır. JWT'nin, iki taraf arasında bilgi aktarma compact, URL güvenli bir yoludur. Jwt'ler talepler olarak bilinen bilgileri içerir. Onaylar taşıyıcı hakkında bilgilerin ve belirtecin konu şunlardır. Jwt'ler Taleplerde kodlanmış ve aktarım için seri hale getirilmiş JSON nesneleridir. Azure AD B2C tarafından verilen Jwt'ler imzalanmış ancak şifreli olduğundan, kolayca hata ayıklamak için bir JWT içeriğini inceleyebilirsiniz. Çeşitli araçlar mevcuttur, bunu yapabilirsiniz, dahil olmak üzere [jwt.ms](https://jwt.ms). Jwt'ler hakkında daha fazla bilgi için [JWT belirtimleri](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ### <a name="id-tokens"></a>Kimlik belirteçleri
 
@@ -68,7 +68,7 @@ API'nizi bir erişim belirteci aldığında, bu gerekir [imzayı doğrulamak](#t
 
 Azure AD B2C'yi kullandığınızda, içerik belirteçlerinizden birinin üzerinde ayrıntılı denetime sahiptir. Yapılandırabileceğiniz [kullanıcı akışları](active-directory-b2c-reference-policies.md) ve belirli kullanıcı veri kümelerini işlemlerinde uygulamanız için gerekli talep göndermek için özel ilkeler. Bu talepler kullanıcının gibi standart özellikleri içerebilir `displayName` ve `emailAddress`. Ayrıca içerebilir [özel kullanıcı öznitelikleri](active-directory-b2c-reference-custom-attr.md) , B2C dizininizde tanımlayabilirsiniz. Her bir kimlik ve erişim aldığınız belirteç talep ile ilgili belirli bir kümesini içerir. Uygulamalarınız, bu talepler, güvenli bir şekilde kullanıcılar ve isteklerinin kimliğini doğrulamak için kullanabilirsiniz.
 
-Kimliği belirteçlere talep herhangi belirli bir sırada döndürülmediğini unutmayın. Ayrıca, yeni bir talep kimliği belirteçlerinde herhangi bir zamanda tanıtılabilir. Yeni Talep sunulduğu şekilde uygulamanızı kesmemesi. Azure AD B2C tarafından verilen kimlik ve erişim belirteçlerinde bulunmasını beklediğiniz talepleri aşağıda verilmiştir. Ek taleplerin ilkeleri tarafından belirlenir. Uygulama için örnek kimliği belirteçteki talepler içine yapıştırarak inceleyerek deneyin [jwt.ms](https://jwt.ms). Daha fazla ayrıntı bulunabilir [Openıd Connect belirtimi](http://openid.net/specs/openid-connect-core-1_0.html).
+Kimliği belirteçlere talep herhangi belirli bir sırada döndürülmediğini unutmayın. Ayrıca, yeni bir talep kimliği belirteçlerinde herhangi bir zamanda tanıtılabilir. Yeni Talep sunulduğu şekilde uygulamanızı kesmemesi. Azure AD B2C tarafından verilen kimlik ve erişim belirteçlerinde bulunmasını beklediğiniz talepleri aşağıda verilmiştir. Ek taleplerin ilkeleri tarafından belirlenir. Uygulama için örnek kimliği belirteçteki talepler içine yapıştırarak inceleyerek deneyin [jwt.ms](https://jwt.ms). Daha fazla ayrıntı bulunabilir [Openıd Connect belirtimi](https://openid.net/specs/openid-connect-core-1_0.html).
 
 | Ad | İste | Örnek değer | Açıklama |
 | --- | --- | --- | --- |
@@ -78,8 +78,8 @@ Kimliği belirteçlere talep herhangi belirli bir sırada döndürülmediğini u
 | Sona erme zamanı |`exp` |`1438539443` |Dönem zamanı temsil talep, belirteci geçersiz hale geldiği tarih sona erme saati. Uygulamanız bu talep belirteci ömrü geçerliliğini doğrulamak için kullanmanız gerekir. |
 | Öncesine değil |`nbf` |`1438535543` |Bu talep, belirteci olur geçerli, dönem zamanı gösterilen zamandır. Bu genellikle belirtecin verilmiş süresiyle aynıdır. Uygulamanız bu talep belirteci ömrü geçerliliğini doğrulamak için kullanmanız gerekir. |
 | Sürüm |`ver` |`1.0` |Bu kimlik belirteci, Azure AD tarafından tanımlandığı şekilde sürümüdür. |
-| Kod karması |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Yalnızca belirteç ile birlikte bir OAuth 2.0 yetkilendirme kodu verildiğinde kod karma bir kimlik belirteci dahil edilir. Kod karma bir yetkilendirme kodu özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla ayrıntı için bkz. [Openıd Connect belirtimi](http://openid.net/specs/openid-connect-core-1_0.html).  |
-| Erişim belirteci karması |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Yalnızca belirteç OAuth 2.0 erişim belirteci ile birlikte verildiğinde bir erişim belirteci karma bir kimlik belirteci dahil edilir. Bir erişim belirteci karma bir erişim belirteci özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla ayrıntı için bkz. [Openıd Connect belirtimi](http://openid.net/specs/openid-connect-core-1_0.html)  |
+| Kod karması |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Yalnızca belirteç ile birlikte bir OAuth 2.0 yetkilendirme kodu verildiğinde kod karma bir kimlik belirteci dahil edilir. Kod karma bir yetkilendirme kodu özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla ayrıntı için bkz. [Openıd Connect belirtimi](https://openid.net/specs/openid-connect-core-1_0.html).  |
+| Erişim belirteci karması |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Yalnızca belirteç OAuth 2.0 erişim belirteci ile birlikte verildiğinde bir erişim belirteci karma bir kimlik belirteci dahil edilir. Bir erişim belirteci karma bir erişim belirteci özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla ayrıntı için bkz. [Openıd Connect belirtimi](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | nonce |`nonce` |`12345` |Nonce belirteç yeniden yürütme saldırıları azaltmak için kullanılan bir stratejidir. Uygulamanızı bir geçici öğe içinde bir yetkilendirme isteği kullanarak belirtebilirsiniz `nonce` sorgu parametresi. İstekte sağladığınız değeri içinde değiştirilmemiş yayılan `nonce` yalnızca bir kimlik belirteci talep. Bu uygulamanın oturum belirli bir kimlik belirteci ile ilişkilendirir istekte belirtilen değerle değeri doğrulamak için uygulamanıza sağlar. Uygulamanız kimlik belirteci doğrulama işlemi sırasında bu doğrulaması gerçekleştirmeniz gerekir. |
 | Özne |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Sorumlu olduğu hakkında bir uygulamanın kullanıcı gibi bilgileri belirteci onaylar budur. Bu değer sabittir ve yeniden atandı yeniden veya değiştirilemez. Belirteç bir kaynağa erişmek için kullanıldığında gibi güvenli bir şekilde, yetkilendirme denetimleri gerçekleştirmek için kullanılabilir. Varsayılan olarak, konu talep, dizinde kullanıcının nesne kimliği ile doldurulur. Daha fazla bilgi için bkz. [Azure Active Directory B2C: belirteç, oturum ve çoklu oturum açma yapılandırması](active-directory-b2c-token-session-sso.md). |
 | Kimlik doğrulaması bağlamı sınıf başvurusu |`acr` |Uygulanamaz |Şu anda kullanılmıyor, söz konusu olduğunda eski ilkeleri hariç. Daha fazla bilgi için bkz. [Azure Active Directory B2C: belirteç, oturum ve çoklu oturum açma yapılandırması](active-directory-b2c-token-session-sso.md). |

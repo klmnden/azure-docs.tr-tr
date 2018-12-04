@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 32692cbe7959650d5181c9e9dfcd7dd5ee55a46e
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 8bb95ae776c329e67e9f9936213a9f4c2a0c8f62
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024605"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842603"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Azure AD B2C özel ilkeleri ve kimlik deneyimi çerçevesi sorunlarını giderme
 
@@ -60,7 +60,7 @@ Hata kod parçacığı: `Reason: User is currently logged as a user of 'yourtena
     * Web uygulaması/Web API'si: Hayır
     * Yerel istemci: Hayır
 
-* Azure AD B2C'yi ve istemci tarayıcısı arasında ileti alışverişi izlemek için kullanımı [Fiddler](http://www.telerik.com/fiddler). Bir gösterge kullanıcı yolculuğunuza düzenleme adımlarınızı nerede başarısız olduğunu size yardımcı olabilir.
+* Azure AD B2C'yi ve istemci tarayıcısı arasında ileti alışverişi izlemek için kullanımı [Fiddler](https://www.telerik.com/fiddler). Bir gösterge kullanıcı yolculuğunuza düzenleme adımlarınızı nerede başarısız olduğunu size yardımcı olabilir.
 
 * İçinde **geliştirme modu**, kullanın **Application Insights** yolculuğunuza kimlik deneyimi çerçevesi kullanıcı etkinliğini izlemek için. İçinde **geliştirme modu**, talepler kimlik deneyimi çerçevesi ve API tabanlı Hizmetleri, kimlik sağlayıcıları gibi teknik profiller tarafından tanımlanan çeşitli talep sağlayıcıları arasında alışverişi görebilirsiniz Azure AD B2C kullanıcı dizini ve diğer hizmetleri Azure çok-faktörlü kimlik doğrulaması ister.  
 

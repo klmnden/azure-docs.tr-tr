@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: jeedes
-ms.openlocfilehash: b8f6e69169cd146ec9dd20d8dad43b74ddb59228
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: bcea7848c7331ecd326f0ccb6ab9f543ce972205
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726891"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834698"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Öğretici: Azure Active Directory G Suite ile tümleştirme
 
@@ -154,8 +154,8 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve G
     |--|
     | `google.com/a/<yourdomain.com>` |
     | `google.com` |
-    | `http://google.com` |
-    | `http://google.com/a/<yourdomain.com>` |
+    | `https://google.com` |
+    | `https://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [G Suite istemci Destek ekibine](https://www.google.com/contact/) bu değerleri almak için.
@@ -190,7 +190,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve G
 
     ![G Suite yapılandırması](common/configuresection.png)
 
-9. Tarayıcınızda yeni bir sekme açın ve oturum [G Suite Yönetici Konsolu](http://admin.google.com/) yönetici hesabınızı kullanarak.
+9. Tarayıcınızda yeni bir sekme açın ve oturum [G Suite Yönetici Konsolu](https://admin.google.com/) yönetici hesabınızı kullanarak.
 
 10. Tıklayın **güvenlik**. Bağlantıyı görmüyorsanız, bunun altında gizlenebilir **diğer denetimler** ekranın alt kısmındaki menü.
 

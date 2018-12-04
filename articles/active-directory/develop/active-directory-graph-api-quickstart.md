@@ -18,12 +18,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: sureshja
 ms.custom: aaddev
-ms.openlocfilehash: b8dba999ac6523aad29aae40b528fd010fec0550
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 7a3c3e39792119d296c849c012d4798ec85a0e03
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687359"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845510"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Nasıl yapılır: Azure AD Graph API'sini kullanma
 
@@ -82,7 +82,7 @@ Aşağıdaki özellikler ve Azure AD Graph Gezgini sınırlamaları unutmayın:
 
 ## <a name="using-fiddler-to-write-to-the-directory"></a>Dizine yazmak için Fiddler'ı kullanma
 
-Bu Hızlı Başlangıç Kılavuzu amaçları için 'Azure AD dizininizi karşı yazma işlemleri' gerçekleştiren uygulama Fiddler Web hata ayıklayıcıyı kullanabilirsiniz. Örneğin, alın ve (hangi Azure AD Graph Gezgini ile mümkün değildir) bir kullanıcının profil fotoğrafı karşıya yükleyin. Daha fazla bilgi ve fiddler'ı yüklemek için bkz: [ http://www.telerik.com/fiddler ](http://www.telerik.com/fiddler).
+Bu Hızlı Başlangıç Kılavuzu amaçları için 'Azure AD dizininizi karşı yazma işlemleri' gerçekleştiren uygulama Fiddler Web hata ayıklayıcıyı kullanabilirsiniz. Örneğin, alın ve (hangi Azure AD Graph Gezgini ile mümkün değildir) bir kullanıcının profil fotoğrafı karşıya yükleyin. Daha fazla bilgi ve fiddler'ı yüklemek için bkz: [ https://www.telerik.com/fiddler ](https://www.telerik.com/fiddler).
 
 Aşağıdaki örnekte, Azure AD dizininizde yeni bir güvenlik grubu 'MyTestGroup' oluşturmak için fiddler'ı Web hata ayıklayıcıyı kullanın.
 

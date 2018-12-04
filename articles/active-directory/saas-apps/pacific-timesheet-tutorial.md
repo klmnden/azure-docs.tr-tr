@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 051e39d0e7a58c79eb00bc3dfb73eaf5389617c8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b821da194ce41fc419e769336eeeb5927306684
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448372"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843657"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pacific-timesheet"></a>Öğretici: Azure Active Directory tümleştirmesiyle Pasifik zaman çizelgesi
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi Pasifik zaman çizelgesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Pasifik zaman çizelgesi çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'de Pasifik zaman çizelgesi tümleştirmesini yapılandırmak için Pas
 
 **Galeriden Pasifik zaman çizelgesini eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -117,7 +117,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve P
     b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [Pasifik zaman çizelgesi Destek ekibine](http://www.pacifictimesheet.com/support) bu değerleri almak için.
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [Pasifik zaman çizelgesi Destek ekibine](https://www.pacifictimesheet.com/support) bu değerleri almak için.
  
 1. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
@@ -131,7 +131,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve P
 
     ![Çoklu oturum açmayı yapılandırın](./media/pacific-timesheet-tutorial/tutorial_pacifictimesheet_configure.png) 
 
-1. Çoklu oturum açmayı yapılandırma **Pasifik zaman çizelgesi** tarafı, indirilen göndermek için ihtiyacınız **sertifika (Base64)**, **SAML çoklu oturum açma hizmeti URL'si**ve **SAML varlık kimliği** için [Pasifik zaman çizelgesi Destek ekibine](http://www.pacifictimesheet.com/support). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+1. Çoklu oturum açmayı yapılandırma **Pasifik zaman çizelgesi** tarafı, indirilen göndermek için ihtiyacınız **sertifika (Base64)**, **SAML çoklu oturum açma hizmeti URL'si**ve **SAML varlık kimliği** için [Pasifik zaman çizelgesi Destek ekibine](https://www.pacifictimesheet.com/support). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
 > İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -170,7 +170,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="creating-a-pacific-timesheet-test-user"></a>Pasifik zaman çizelgesi test kullanıcısı oluşturma
 
-Bu bölümde, Pasifik zaman çizelgesinde Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [Pasifik zaman çizelgesi Destek ekibine](http://www.pacifictimesheet.com/support) uygulamada bir kullanıcı oluşturun.
+Bu bölümde, Pasifik zaman çizelgesinde Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [Pasifik zaman çizelgesi Destek ekibine](https://www.pacifictimesheet.com/support) uygulamada bir kullanıcı oluşturun.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 

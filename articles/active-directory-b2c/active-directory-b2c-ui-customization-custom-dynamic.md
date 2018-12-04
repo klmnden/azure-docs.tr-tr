@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 11a14bc8b593e5e7d81e9bdbd4ac4ee3b2bbecaa
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f078c1389e36b82f95b011ca1fbd7fbd1c4f895e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582896"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834247"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: özel ilkeler kullanarak kullanıcı Arabirimi ile dinamik içerik yapılandırma
 
@@ -193,7 +193,7 @@ HTML5 şablonunuzu kullanıma hazırdır. Ancak, kullanıma sunulmadı `ContentD
 * İçerik sunucunuz için CORS etkinleştirilir.
 
     >[!NOTE]
-    >Burada barındırma içeriğinizi site CORS etkinleştirilmiş ve CORS istekleri sınayabilirsiniz doğrulamak için Git [test cors.org](http://test-cors.org/) Web sitesi. 
+    >Burada barındırma içeriğinizi site CORS etkinleştirilmiş ve CORS istekleri sınayabilirsiniz doğrulamak için Git [test cors.org](https://test-cors.org/) Web sitesi. 
 
 * Served içeriğinizi üzerinden güvenli **HTTPS**.
 * Kullanmakta olduğunuz *mutlak URL'ler*, gibi *https://yourdomain/content*, tüm bağlantılar, CSS içeriği ve görüntüler.

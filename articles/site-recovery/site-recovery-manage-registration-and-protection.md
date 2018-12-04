@@ -1,18 +1,18 @@
 ---
 title: Sunucuları kaldırma ve korumayı devre dışı bırakma | Microsoft Docs
 description: Bu makalede Site Recovery kasasından sunucularının kaydını sil ve sanal makineler ve fiziksel sunucuları için korumayı devre dışı bırakın.
-author: rayne-wiselman
-manager: carmonm
+author: rajani-janaki-ram
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
-ms.author: raynew
-ms.openlocfilehash: d7dcf27e106f73c828c2c46d4d7180b1f906e4d8
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.date: 11/27/2018
+ms.author: rajani-janaki-ram
+ms.openlocfilehash: 8e8cabe48f7f1036986a896d0449798f4aea2522
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614863"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844575"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Sunucuları kaldırma ve korumayı devre dışı bırakma
 

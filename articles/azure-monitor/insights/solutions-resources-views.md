@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 97e499612082d0d58cd75bb9f8854b8c4e0f669e
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 3807dcf9ea4625db72b0579e0609641e3aedb088
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635773"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845731"
 ---
 # <a name="views-in-management-solutions-preview"></a>Görünümlerde yönetim çözümleri (Önizleme)
 > [!NOTE]
@@ -90,7 +90,7 @@ Tüm görünüm kaynağı verilen görünümü dosyanızdan Kopyala, ancak çöz
 * Değişkenleri çözümde tanımlanan ve uygun özellikler kullanılır.
 
 ### <a name="log-analytics-api-version"></a>Günlük analizi API'si sürümü
-Bir Resource Manager şablonunda tanımlı tüm Log Analytics kaynakları bir özelliği olan **apiVersion** kullanması gereken kaynak API sürümünü tanımlar.  Bu görünümlerle kullanan sorguları için farklı bir sürümdür [eski ve yükseltilen sorgu dili](../../log-analytics/log-analytics-queries.md).  
+Bir Resource Manager şablonunda tanımlı tüm Log Analytics kaynakları bir özelliği olan **apiVersion** kullanması gereken kaynak API sürümünü tanımlar.  Bu görünümlerle kullanan sorguları için farklı bir sürümdür [eski ve yükseltilen sorgu dili](../../azure-monitor/log-query/log-query-overview.md).  
 
  Aşağıdaki tabloda, eski ve yükseltilen çalışma alanlarında görünümler için Log Analytics API sürümleri belirtir: 
 

@@ -5,14 +5,14 @@ author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: bac995829e90fea35eebf5e5e57a0ffb85bbba0c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 49435665ae1e99dd2b9696e5e5bb048e438dcc4c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211834"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832965"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Çok katmanlı bir IIS tabanlı web uygulamasının olağanüstü durum kurtarmayı ayarlayın
 
@@ -52,13 +52,13 @@ ARR, IIS sunucusu, bir uygulama sunucusu ve SQL Server ile bir IIS tabanlı web 
 
 ![Dört katman olan bir IIS tabanlı web grubu diyagramı](./media/site-recovery-iis/deployment-pattern2.png)
 
-## <a name="site-recovery-support"></a>Site kurtarma desteği
+## <a name="site-recovery-support"></a>Site Recovery desteği
 
 Bu makaledeki örnekler için IIS 7.5 üzerinde Windows Server 2012 R2 Enterprise ile VMware sanal makinelerini kullanın. Site Recovery çoğaltma uygulamaya özgü olmadığından, bu makaledeki önerileri IIS farklı sürümlerini yanı sıra, aşağıdaki tabloda listelenen senaryolarda uygulama beklenir.
 
 ### <a name="source-and-target"></a>Kaynak ve hedef
 
-Senaryo | İkincil bir siteye | Azure'a
+Senaryo | İkincil siteye | Azure’a
 --- | --- | ---
 Hyper-V | Evet | Evet
 VMware | Evet | Evet
@@ -142,7 +142,7 @@ Sanal makinelerin IP adresine göre bir uygulamaya özgü bağımlılığı vars
 
 1. Azure portalında kurtarma Hizmetleri kasanızı seçin.
 2. IIS web grubu için oluşturulan kurtarma planı seçin.
-3. Seçin **yük devretme testi**.
+3. **Yük Devretme Testi**'ni seçin.
 4. Test yük devretme işlemini başlatmak için kurtarma noktası ve Azure sanal ağı'nı seçin.
 5. İkincil bir ortamı yukarı olduğunda doğrulamaları gerçekleştirebilirsiniz.
 6. Yük devretme test ortamı temizlemek için doğrulamaları tamamlandığı zaman seçin **doğrulamaların tamamlanması**.
@@ -153,7 +153,7 @@ Daha fazla bilgi için [Azure Site recovery'de yük devretme testi](site-recover
 
 1. Azure portalında kurtarma Hizmetleri kasanızı seçin.
 1. IIS web grubu için oluşturulan kurtarma planı seçin.
-1. Seçin **yük devretme**.
+1. **Yük devretme**'yi seçin.
 1. Yük devretme işlemini başlatmak için kurtarma noktasını seçin.
 
 Daha fazla bilgi için [Site recovery'de yük devretme](site-recovery-failover.md).

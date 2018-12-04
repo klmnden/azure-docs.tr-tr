@@ -1,21 +1,19 @@
 ---
-title: Değişiklik akışı HL7 FHIR kaynaklar - Azure Cosmos DB | Microsoft Docs
+title: Değişiklik akışı HL7 FHIR kaynaklar - Azure Cosmos DB
 description: Azure Logic Apps, Azure Cosmos DB ve Service Bus'ı kullanarak HL7 FHIR hasta sağlık kaydı için değişiklik bildirimleri ayarlama konusunda bilgi edinin.
 keywords: HL7 fhır
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: aab6e5247830ee444bcab0b15bda34e4464aaad1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 591b79d4d9d44c55c2438d872b61a90abbe6ecad
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565488"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841124"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Logic Apps ve Azure Cosmos DB'yi kullanarak HL7 FHIR sağlık kaydı değişikliklerinin hastalara bildirme
 

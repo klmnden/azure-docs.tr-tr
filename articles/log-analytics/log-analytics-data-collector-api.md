@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 881188e7dab0e50b5bc62258c87cb546020c8410
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 8f12649a126cd618991dce0c98b3472a77acbb8c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723593"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841328"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>HTTP veri toplayıcı API'sini (genel Önizleme) ile Log Analytics veri Gönder
 Bu makalede REST API istemcisinden Log Analytics'e veri göndermek için HTTP veri toplayıcı API'sini kullanmayı gösterir.  Bu betik ya da uygulama tarafından toplanan verileri biçimlendirme, bir isteğe ekleyin ve bu istek Log Analytics tarafından yetkilendirilmiş olması açıklar.  PowerShell, C# ve Python için örnek verilmiştir.
@@ -200,7 +200,7 @@ Bu tabloda eksiksiz hizmet döndürebilir durum kodları listelenmiştir:
 Log Analytics HTTP veri toplayıcı API'sini, arama ile kayıt tarafından gönderilen veri **türü** eşit olan **LogType** , belirttiğiniz değer eklenmiş olan **_CL**. Örneğin, kullandıysanız **MyCustomLog**, tüm kayıtları döndürecekti sonra **türü MyCustomLog_CL =**.
 
 >[!NOTE]
-> Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](log-analytics-queries.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
+> Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](../azure-monitor/log-query/log-query-overview.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
 
 > `MyCustomLog_CL`
 
@@ -469,6 +469,6 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Kullanım [günlük arama API'si](log-analytics-queries.md) Log Analytics depodan veri alınamadı.
+- Kullanım [günlük arama API'si](../azure-monitor/log-query/log-query-overview.md) Log Analytics depodan veri alınamadı.
 
 - Hakkında daha fazla bilgi [veri işlem hattı ile veri toplayıcı API'sini oluşturma](../azure-monitor/platform/create-pipeline-datacollector-api.md) Log analytics'e Logic Apps iş akışı kullanarak.

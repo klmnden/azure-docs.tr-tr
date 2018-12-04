@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9eaed5c8d30d902700af25319d91b77aab645dbc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9fac565922a6dd36608455456c66ff2fe940557a
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318019"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680421"
 documentType: LandingData
 title: Azure Ayrılmış HSM Belgeleri
 metadata:
@@ -31,15 +31,15 @@ sections:
     columns: 3
     items:
     - href: /azure/dedicated-hsm/overview
-      html: <p>Azure ayrılmış HSM'nin ne olduğunu öğrenin.</p>
+      html: <p>Azure Ayrılmış HSM’nin ne olduğunu öğrenin.</p>
       image:
-        src: media/index/i_article.svg
-      title: Ayrılmış HSM'ye genel bakış
+        src: media/index/hsm.svg
+      title: Azure Ayrılmış HSM’ye genel bakış
     - href: /azure/dedicated-hsm/faq
-      html: <p>Sık sorulan sorular.</p>
+      html: <p>Ayrılmış HSM kullanımına yönelik tasarım konusunda dikkat edilmesi gerekenler</p>
       image:
         src: media/index/guide.svg
-      title: SSS
+      title: Dağıtım mimarisine karar verme
 - title: Adım Adım Öğreticiler
   items:
   - type: paragraph
@@ -62,4 +62,4 @@ sections:
     className: cardsD
     items:
     - title: SSS
-      html: <p><a href="/dedicated-hsm/faq/">Sık sorulan sorular</a></p>
+      html: <p><a href="/azure/dedicated-hsm/faq/">Sık sorulan sorular</a></p>

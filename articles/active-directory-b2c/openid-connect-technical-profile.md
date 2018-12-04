@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 40922080857563b86d538586b90513381edb5d89
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 9a20b8df1f0d9cddbde4c4886e11967bc8c04160
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381725"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842424"
 ---
 # <a name="define-a-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Openıd Connect teknik profil bir Azure Active Directory B2C özel ilke tanımlama
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C için destek sağlar [Openıd Connect](http://openid.net/2015/04/17/openid-connect-certification-program/) Protokolü kimlik sağlayıcısı. Openıd Connect 1.0, OAuth 2.0 üzerinde bir kimlik katmanı tanımlar ve teknoloji, modern kimlik doğrulama protokolleri temsil eder.  Bir Openıd Connect ile federasyona teknik profilini, Openıd Connect ile kimlik sağlayıcısı, sosyal var olan oturum izin vererek, Azure AD gibi veya Kurumsal kimlikleri alan.
+Azure Active Directory (Azure AD) B2C için destek sağlar [Openıd Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) Protokolü kimlik sağlayıcısı. Openıd Connect 1.0, OAuth 2.0 üzerinde bir kimlik katmanı tanımlar ve teknoloji, modern kimlik doğrulama protokolleri temsil eder.  Bir Openıd Connect ile federasyona teknik profilini, Openıd Connect ile kimlik sağlayıcısı, sosyal var olan oturum izin vererek, Azure AD gibi veya Kurumsal kimlikleri alan.
 
 ## <a name="protocol"></a>Protokol
 
@@ -85,7 +85,7 @@ Teknik profil de kimlik sağlayıcısı tarafından döndürülen olmayan talepl
 | HttpBinding | Hayır | Erişim belirteci ve taleplerin belirteci uç beklenen HTTP bağlama. Olası değerler: `GET` veya `POST`.  |
 | ValidTokenIssuerPrefixes | Hayır | Her Kiracı için Azure Active Directory gibi bir çok kiracılı kimlik sağlayıcısı kullanarak oturum açmak için kullanılan anahtar. |
 | UsePolicyInRedirectUri | Hayır | Yeniden yönlendirme URI'si oluştururken bir ilke kullanılıp kullanılmayacağını belirtir. Uygulamanız kimlik sağlayıcısı yapılandırdığınızda, yeniden yönlendirme URI'si belirtmeniz gerekir. Yeniden yönlendirme URI'si, Azure AD B2C'ye işaret `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` (login.microsoftonline.com your-Kiracı-name.b2clogin.com ile değişebilir).  Belirtirseniz `false`, kullandığınız her ilke için bir yeniden yönlendirme URI'si eklemeniz gerekir. Örneğin: `https://login.microsoftonline.com/te/{tenant}/{policy}/oauth2/authresp`. |
-| MarkAsFailureOnStatusCode5xx | Hayır | Http durum kodu 5xx aralığında ise, bir dış hizmet isteğine hata olarak işaretlenmiş olup olmadığını gösterir. Varsayılan, `false` değeridir. |
+| MarkAsFailureOnStatusCode5xx | Hayır | Http durum kodu 5xx aralığında ise, bir dış hizmet isteğine hata olarak işaretlenmiş olup olmadığını gösterir. Varsayılan değer: `false`. |
 | DiscoverMetadataByTokenIssuer | Hayır | OIDC meta verileri JWT belirteci vericisi kullanarak bulunan olup olmadığını gösterir. |
 
 ## <a name="cryptographic-keys"></a>Şifreleme anahtarları

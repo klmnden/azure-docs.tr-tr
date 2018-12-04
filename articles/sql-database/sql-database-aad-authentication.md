@@ -11,17 +11,17 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 86e60f339af3d6d467b68d5d3b27d77a9861add1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/03/2018
+ms.openlocfilehash: ff9011dda4a94f323b430a3860eadc8d970a23f7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244092"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838625"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>SQL kimlik doğrulaması için Azure Active Directory kimlik doğrulaması kullanın.
 
-Azure Active Directory kimlik doğrulama mekanizmasıdır Azure'a bağlanma bir [SQL veritabanı](sql-database-technical-overview.md) ve [SQL veri ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) kimlikleri Azure Active Directory (Azure AD) kullanarak. 
+Azure Active Directory kimlik doğrulama mekanizmasıdır Azure'a bağlanma bir [SQL veritabanı](sql-database-technical-overview.md), [yönetilen örneği](sql-database-managed-instance.md), ve [SQL veri ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) kimlikleri kullanarak Azure'da Active Directory (Azure AD). 
 
 > [!NOTE]
 > Bu konu başlığı, Azure SQL sunucusunun yanı sıra Azure SQL sunucusu üzerinde oluşturulmuş olan SQL Veritabanı ve SQL Veri Ambarı veritabanları için de geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır.
@@ -84,15 +84,7 @@ Azure AD aşağıdaki üyeleri, Azure SQL server veya SQL veri ambarı sağlanab
 - Yerel veya Federasyon etki alanına üye olan içeri aktarılan üyelerinden diğer Azure AD'nin.
 - Active Directory grupları güvenlik grupları oluşturulur.
 
-Yönetilen örneği ile ilişkili azure AD sınırlamaları:
-
-- Yalnızca Azure AD Yöneticisi, veritabanları oluşturabilir, Azure AD kullanıcıları için tek bir veritabanı kapsamlı ve bu izne sahip değil
-- Veritabanı sahibi:
-  - Azure AD sorumlusu ' % s'veritabanı (YETKİLENDİRME üzerinde veritabanı ALTER) sahipliğini değiştiremezsiniz ve sahibi olarak ayarlanamaz.
-  - Azure AD Yöneticisi tarafından oluşturulan veritabanları için herhangi bir sahiplik ayarlanır (owner_sid sys.sysdatabases alanıdır 0x1).
-- SQL Aracısı, Azure AD sorumlusu kullanarak oturum açıldığında yönetilemez.
-- Azure AD Yöneticisi EXECUTE AS kullanarak bürünülemez.
-- DAC bağlantı ile Azure AD sorumlusu desteklenmiyor.
+Azure AD oturum açma bilgileri ve kullanıcılar için önizleme özelliği olarak desteklenir [yönetilen örnekler](sql-database-managed-instance.md)
 
 Bu sistem İşlevler, Azure AD sorumlusu altında yürütüldüğünde NULL değerler döndürür:
 

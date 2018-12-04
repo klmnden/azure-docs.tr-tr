@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9f475c7bc373afd8a109873908bb583bc07708f1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 9dbe88e1e179df4560d5094cf3f58ca770541323
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722556"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842281"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Bir iOS uygulaması kullanarak oturum açın
 
@@ -39,7 +39,7 @@ Ardından B2C dizininizde uygulama oluşturmanız gerekir. Uygulama kaydı, uygu
 * Ayarlanmış bir **yeniden yönlendirme URI'si** (örneğin, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect) özel bir düzen ile. Daha sonra bu URI gerekir.
 
 ## <a name="create-your-user-flows"></a>Kullanıcı akışlarınızı oluşturun
-Azure AD B2C'de, her kullanıcı deneyimi tarafından tanımlanan bir [kullanıcı akışı](active-directory-b2c-reference-policies.md). Bu uygulama bir kimlik deneyimi içerir: birleşik bir oturum açma ve kaydolma. Bu kullanıcı akışını açıklandığı gibi oluşturmak [kullanıcı akışı başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). İlkeyi oluştururken şunları yaptığınızdan emin olun:
+Azure AD B2C'de, her kullanıcı deneyimi tarafından tanımlanan bir [kullanıcı akışı](active-directory-b2c-reference-policies.md). Bu uygulama bir kimlik deneyimi içerir: birleşik bir oturum açma ve kaydolma. Bu kullanıcı akışını açıklandığı gibi oluşturmak [kullanıcı akışı başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). İlkeyi oluştururken şunları yaptığınızdan emin olun:
 
 * Altında **kaydolma özniteliklerini**, öznitelik seçin **görünen ad**.  Diğer öznitelikler de seçebilirsiniz.
 * Altında **uygulama taleplerini**, talepleri seçmek **görünen ad** ve **kullanıcının nesne kimliği**. Diğer talepleri de seçebilirsiniz.

@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 8d84801aacfc60bb11aac4c9046a433378a59b79
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2b1dc0ad28a6608e3a46087d31a3d077e9291a3d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314482"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841685"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack gizli Döndür
 
@@ -44,7 +44,7 @@ Azure Stack operatör tarafından sağlanan dönük hizmetleri altyapısı hizme
 
    <sup>*</sup> Yalnızca ortamın kimlik sağlayıcısı Active Directory Federasyon Hizmetleri'nde (AD FS) ise geçerlidir.
 
-> [!NOTE]
+> [!NOTE]  
 > Diğer tüm anahtarları ve BMC dahil olmak üzere dizeleri, güvenli ve parolaları geçiş, kullanıcı ve yönetici hesabı parolalarını yine de el ile yönetici tarafından güncelleştirilir. 
 
 Azure Stack altyapısının bütünlüğünü korumak için düzenli aralıklarla altyapılarını ait gizli dizileri, kuruluşun güvenlik gereksinimleriyle uyumlu sıklık, döndürme olanağı işleçleri gerekir.

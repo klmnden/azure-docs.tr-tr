@@ -1,20 +1,21 @@
 ---
 title: Azure Site Recovery ile VMware olağanüstü durum kurtarması için yapılandırma sunucusunu dağıtma | Microsoft Docs
 description: Bu makalede Azure Site Recovery ile VMware olağanüstü durum kurtarması için yapılandırma sunucusunu dağıtma
-author: rayne-wiselman
-manager: carmonm
+services: site-recovery
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
-ms.author: raynew
-ms.openlocfilehash: 516edd922d6ead9a71f81c3b9b777b15f1fb28ae
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 11/27/2018
+ms.author: ramamill
+ms.openlocfilehash: 5d6510c1e069abe1fc295f2fccd9f2c0a9aad5bf
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233166"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837579"
 ---
-# <a name="deploy-a-configuration-server-for-vmware-disaster-recovery-to-azure"></a>Azure'a VMware olağanüstü durum kurtarması için yapılandırma sunucusunu dağıtma
+# <a name="deploy-a-configuration-server"></a>Yapılandırma sunucusunu dağıtma
 
 Kullanırken bir şirket içi yapılandırma sunucusunu dağıtma [Azure Site Recovery](site-recovery-overview.md) VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için. Yapılandırma sunucusu koordinatları iletişimleri arasında şirket içi VMware ve Azure. Veri çoğaltma işlemlerini yönetir. Bu makalede, VMware Vm'lerini Azure'a çoğaltırken, yapılandırma sunucusu dağıtmak için gereken adımlar anlatılmaktadır. [Bu makaleyi takip](physical-azure-set-up-source.md) fiziksel sunucu çoğaltması için yapılandırma sunucusunu ayarlamak gerekiyorsa.
 

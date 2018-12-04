@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 10/02/2018
+ms.date: 11/30/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 33d6d89e91ecdec00c1b17ecddf91128e9d07526
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: b5f97dac202edd5405c51b75581275166042ac38
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802109"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841464"
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -38,6 +38,8 @@ Geçmişte kapsayıcılar, uygulama bağımlılığı yalıtımı ve kaynak idar
 
 Kapsayıcılar genellikle tek bir uygulamayı çalıştırmak üzere iyileştirilmiştir, ancak söz konusu uygulamaların tam gereksinimleri önemli ölçüde farklı olabilir. Azure Container Instances, CPU çekirdeklerinin ve belleğin tam belirtimlerine imkan vererek en iyi kullanımı sağlar. İhtiyaçlarınıza göre ödeme yapar ve saniye başına faturalandırılırsınız. Böylece harcamalarınızı ihtiyaçlarınıza uyacak şekilde ayarlayabilirsiniz.
 
+Machine learning gibi işlem yoğunluklu işler için Azure Container Instances, NVIDIA Tesla kullanmak için Linux kapsayıcıları zamanlayabilirsiniz [GPU kaynakları](container-instances-gpu.md) (Önizleme).
+
 ## <a name="persistent-storage"></a>Kalıcı depolama
 
 Azure Container Instances ile durum alma ve durumu kalıcı hale getirme işlemleri için, [Azure Dosyaları paylaşımlarını doğrudan bağlama](container-instances-mounting-azure-files-volume.md) olanağı sunuyoruz.
@@ -59,7 +61,7 @@ Azure Container Instances, aynı ana makineyi, yerel ağı, depolama alanını v
 Şu anda önizleme sürümünde olan bu Azure Container Instances özelliği, [kapsayıcı örneklerinin bir Azure sanal ağına dağıtılmasını sağlar](container-instances-vnet.md). Kapsayıcı örneklerini sanal ağınızdaki bir alt ağa dağıtarak şirket içindekiler dahil olmak üzere ([VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md) veya [ExpressRoute](../expressroute/expressroute-introduction.md) aracılığıyla) sanal ağ içindeki diğer kaynaklarla güvenli bir şekilde iletişim kurmalarını sağlayabilirsiniz.
 
 > [!IMPORTANT]
-> Kapsayıcı gruplarının sanal ağa dağıtılması şu an için önizleme sürümündedir ve bazı [sınırlamalar mevcuttur](container-instances-vnet.md#preview-limitations). Önizlemeler, [ek kullanım koşullarını][terms-of-use] kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
+> Azure Container Instances belirli özellikleri önizlemededir ve bazıları şunlardır [sınırlamalar uygulanır](container-instances-vnet.md#preview-limitations). Önizlemeler, [ek kullanım koşullarını][terms-of-use] kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliklerin bazı yönleri genel kullanıma (GA) açılmadan önce değişebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

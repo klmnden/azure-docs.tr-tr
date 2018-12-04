@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: a5910689f34c511c6cf7d8a044ef4358d2e0570d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2b9f3c7905fbb301c74a040a259b2f8666c75377
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445589"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834506"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Öğretici: Azure Active Directory TeamSeer ile tümleştirme
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile TeamSeer yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir TeamSeer çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure ad içinde TeamSeer tümleştirmesini yapılandırmak için TeamSeer Galer
 
 **Galeriden TeamSeer eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -115,7 +115,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve T
      İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://www.teamseer.com/<companyid>`
 
     > [!NOTE] 
-    > Değer, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [TeamSeer istemci Destek ekibine](http://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html) değeri alınamıyor. 
+    > Değer, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [TeamSeer istemci Destek ekibine](https://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html) değeri alınamıyor. 
  
 1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 

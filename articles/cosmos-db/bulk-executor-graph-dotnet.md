@@ -4,21 +4,18 @@ description: BulkExecutor kitaplığını kullanarak Azure Cosmos DB Gremlin API
 services: cosmos-db
 keywords: grafik, gremlin, toplu, bulkexecutor, geçiş, veri, cosmosdb, cosmos, veritabanı, içeri aktarma
 author: luisbosquez
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 39abf6d6da8a8035cf486ceb30b9c21186bbb925
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
-ms.translationtype: HT
+ms.openlocfilehash: d5a25bd7cab68f77a37b14ba41bf3cc832c2125f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234436"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836721"
 ---
 # <a name="using-the-graph-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API'de toplu işlem gerçekleştirmek için grafik BulkExecutor .NET kitaplığını kullanma
 
@@ -118,7 +115,7 @@ e.AddProperty("customProperty", "value");
 
 ## <a name="sample-application"></a>Örnek uygulama
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 * Azure geliştirme iş yüküyle Visual Studio 2017. [Visual Studio 2017 Community Edition](https://visualstudio.microsoft.com/downloads/)'ı ücretsiz kullanmaya başlayabilirsiniz.
 * Azure aboneliği. [Buradan ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db) oluşturabilirsiniz. Alternatif olarak Azure aboneliği kullanmadan [Azure Cosmos DB’yi ücretsiz deneyin](https://azure.microsoft.com/try/cosmosdb/) bağlantısından bir Cosmos DB veritabanı hesabı oluşturabilirsiniz.
 * **Sınırsız koleksiyona** sahip Azure Cosmos DB Gremlin API veritabanı. Bu kılavuz, [.NET ile Azure Cosmos DB Gremlin API'yi](https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet) kullanmaya başlamayı göstermektedir.

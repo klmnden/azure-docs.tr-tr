@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: bd504beabbb126db2cd90ac010dbc2757e571185
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2e515ee61144dfe56d2b5a4fac97da81b0fa8c84
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441908"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834857"
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: bir Windows masaüstü uygulaması oluşturma
 Azure Active Directory (Azure AD) B2C'yi kullanarak masaüstü uygulamanızı birkaç adımda güçlü Self Servis kimlik yönetimi özellikleri ekleyebilirsiniz. Bu makale, kullanıcı oturum açma, kaydolma ve profil yönetimini kapsayan .NET Windows Presentation Foundation (WPF) "Yapılacaklar listesi" uygulamasının nasıl oluşturulacağını gösterir. Uygulama, bir kullanıcı adı veya e-posta kullanarak kaydolma ve oturum açma desteği içerecektir. Facebook ve Google gibi sosyal medya hesaplarını kullanarak, kaydolma ve oturum açma desteği de içerecektir.
@@ -31,7 +31,7 @@ Ardından B2C dizininizde uygulama oluşturmanız gerekir. Bu, uygulamanız ile 
 * Uygulamanıza atanan **Uygulama Kimliği**'ni kopyalayın. Buna daha sonra ihtiyacınız olacak.
 
 ## <a name="create-your-policies"></a>İlkelerinizi oluşturma
-Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu kod örneği, üç kimlik deneyimi içerir: kaydolma, oturum açın ve profillerini düzenleyebilir. Açıklandığı gibi her tür için bir ilke oluşturmak gereken [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Üç ilkeyi oluştururken şunları yaptığınızdan emin olun:
+Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu kod örneği, üç kimlik deneyimi içerir: kaydolma, oturum açın ve profillerini düzenleyebilir. Açıklandığı gibi her tür için bir ilke oluşturmak gereken [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Üç ilkeyi oluştururken şunları yaptığınızdan emin olun:
 
 * Kimlik sağlayıcılar dikey penceresinde **Kullanıcı Kimliği ile kayıt** veya **E-posta ile kayıt** yöntemini seçin.
 * Kaydolma ilkenizde, **Görünen ad** ve diğer kaydolma özniteliklerini seçin.

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 93fc2d78344bea1861ef0131b712ca65c35de0e4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ba5251bdbbddc5370e163a5b78e59878598594c4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722624"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835055"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Bağlayıcı ile log Analytics işlemlerini otomatikleştirmek için Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) çeşitli hizmetler için Eylemler yüzlerce kullanarak otomatik iş akışları oluşturmanıza olanak sağlar. Bir eylem çıktısını, başka farklı hizmetleri arasında tümleştirme oluşturmanızı sağlayan giriş olarak kullanılabilir.  Azure Log Analytics bağlayıcısını Microsoft Flow için Log analytics'te günlük aramaları tarafından alınan verileri içeren iş akışları oluşturmanıza olanak tanır.
@@ -78,7 +78,7 @@ Bu makalede öğreticide otomatik olarak e-posta, Log Analytics Microsoft Flow n
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla bilgi edinin [Log Analytics'te günlük aramaları](log-analytics-queries.md).
+- Daha fazla bilgi edinin [Log Analytics'te günlük aramaları](../azure-monitor/log-query/log-query-overview.md).
 - Daha fazla bilgi edinin [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

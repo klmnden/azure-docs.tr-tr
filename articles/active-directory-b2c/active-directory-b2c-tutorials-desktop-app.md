@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.author: davidmu
-ms.date: 2/28/2018
+ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: a7a861ccff168655d866d8c9205160bface79c9e
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.openlocfilehash: a135dd0b350a6129d94f1c6b0b185c3fb272668f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913419"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834511"
 ---
 # <a name="tutorial-enable-desktop-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C’yi kullanan hesaplarla masaüstü uygulama kimlik doğrulamasını etkinleştirme
 
@@ -25,12 +25,12 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Azure AD B2C kiracınıza örnek masaüstü uygulamasını kaydetme.
-> * Kullanıcı kaydı, oturum açma, profil düzenleme ve parola sıfırlama işlemleri için ilkeler oluşturma.
+> * Kullanıcı için kullanıcı akışları oluşturma kaydolma, oturum açma, profil düzenleme ve parola sıfırlama.
 > * Azure AD B2C kiracınızı kullanmak için örnek uygulamayı yapılandırma.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Kendi [Azure AD B2C Kiracınızı](active-directory-b2c-get-started.md) oluşturun
 * **.NET masaüstü geliştirme** ve **ASP.NET ve web geliştirme** iş yükleriyle [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi yükleyin.
@@ -55,9 +55,9 @@ Uygulamaların Azure Active Directory’den [erişim belirteçlerini](../active-
     | ------------ | ------- | -------------------------------------------------- |
     | **Ad** | Örnek WPF Uygulamam | Uygulamanızı müşterilere açıklayan bir **Ad** girin. | 
     | **Web uygulamasını / web API'sini dahil etme** | Hayır | Masaüstü uygulaması için **Hayır**’ı seçin. |
-    | **Yerel istemci ekle** | Yes | Bu bir masaüstü uygulaması olduğundan yerel istemci olarak kabul edilir. |
+    | **Yerel istemci ekle** | Evet | Bu bir masaüstü uygulaması olduğundan yerel istemci olarak kabul edilir. |
     | **Yönlendirme URI'si** | Varsayılan değerler | Azure AD B2C'nin OAuth 2.0 yanıtındaki kullanıcı aracısını yönlendireceği benzersiz tanımlayıcı. |
-    | **Özel yeniden yönlendirme URI'si** | `com.onmicrosoft.contoso.appname://redirect/path` | `com.onmicrosoft.<your tenant name>.<any app name>://redirect/path` URI’sini girin. İlkeler bu URI’ye belirteç gönderir. |
+    | **Özel yeniden yönlendirme URI'si** | `com.onmicrosoft.contoso.appname://redirect/path` | Girin `com.onmicrosoft.<your tenant name>.<any app name>://redirect/path` kullanıcı akışları bu URI'ye belirteç için. |
     
 3. Uygulamanızı kaydetmek için **Oluştur**’a seçeneğine tıklayın.
 
@@ -67,65 +67,89 @@ Kayıtlı uygulamalar Azure AD B2C kiracısı için uygulamalar listesinde gör�
 
 **Uygulama İstemci Kimliği**’ni not alın. Kimlik, uygulamayı benzersiz bir şekilde tanımlar ve öğreticinin sonraki bölümlerinde uygulamayı yapılandırırken gerekir.
 
-## <a name="create-policies"></a>İlkeleri oluşturma
+## <a name="create-user-flows"></a>Kullanıcı akışları oluşturma
 
-Azure AD B2C ilkesi, kullanıcı iş akışlarını tanımlar. Örneğin, oturum açma, kaydolma, parola değiştirme ve profilleri düzenleme genel iş akışlarıdır.
+Kullanıcı deneyimini kimlik görev için bir Azure AD B2C kullanıcı akışını tanımlar. Örneğin, kaydolma, parola değiştirme ve profilleri düzenleme, oturum açılırken, yaygın kullanıcı Akış şunlardır.
 
-### <a name="create-a-sign-up-or-sign-in-policy"></a>Kaydolma veya oturum açma ilkesi oluşturma
+### <a name="create-a-sign-up-or-sign-in-user-flow"></a>Kaydolma veya oturum açma kullanıcı akışı oluştur
 
-Erişim sağlamak üzere kullanıcıları kaydetmek ve masaüstü uygulamasında oturum açmalarını sağlamak için bir **kaydolma veya oturum açma ilkesi** oluşturun.
+Ardından masaüstü uygulamasına oturum açma erişmek için kullanıcıların oturum açmak için oluşturma bir **kaydolma veya oturum açma kullanıcı akışı**.
 
-1. Azure AD B2C portal sayfasında **Kaydolma veya oturum açma ilkeleri**’ni seçin ve **Ekle**’ye tıklayın.
+1. Azure AD B2C portal sayfasında, seçin **kullanıcı akışları** tıklatıp **yeni kullanıcı akışı**.
+2. Üzerinde **önerilen** sekmesinde **oturum yukarı ve oturum açma**.
 
-    İlkenizi yapılandırmak için aşağıdaki ayarları kullanın:
+    Kullanıcı akışınızı yapılandırmak için aşağıdaki ayarları kullanın:
 
-    ![Kaydolma veya oturum açma ilkesi ekle](media/active-directory-b2c-tutorials-desktop-app/add-susi-policy.png)
-
-    | Ayar      | Önerilen değer  | Açıklama                                        |
-    | ------------ | ------- | -------------------------------------------------- |
-    | **Ad** | SiUpIn | İlke için bir **Ad** girin. İlke adı, **B2C_1_** ön ekine sahip olur. Örnek kodda **B2C_1_SiUpIn** olan tam ilke adını kullanırsınız. | 
-    | **Kimlik sağlayıcı** | E-posta ile kaydolma | Kimlik sağlayıcı, kullanıcıyı benzersiz şekilde tanımlamak için kullanılır. |
-    | **Kaydolma öznitelikleri** | Görünen Ad ve Posta Kodu | Kayıt sırasında kullanıcıdan toplanacak öznitelikleri seçin. |
-    | **Uygulama talepleri** | Görünen Ad, Posta Kodu, Kullanıcının yeni olma durumu, Kullanıcının Nesne Kimliği | [Erişim belirtecine](../active-directory/develop/developer-glossary.md#access-token) eklenmesini istediğiniz [talepleri](../active-directory/develop/developer-glossary.md#claim) seçin. |
-
-2. İlkenizi oluşturmak için **Oluştur**'a tıklayın. 
-
-### <a name="create-a-profile-editing-policy"></a>Profil düzenleme ilkesi oluşturma
-
-Kullanıcıların, kullanıcı profili bilgilerini kendi kendine sıfırlamasına olanak tanımak için bir **profil düzenleme ilkesi** oluşturun.
-
-1. Azure AD B2C portal sayfasında **Profil düzenleme ilkeleri**’ni seçin ve **Ekle**’ye tıklayın.
-
-    İlkenizi yapılandırmak için aşağıdaki ayarları kullanın:
+    ![Kaydolma veya oturum açma kullanıcı Akış ekleme](media/active-directory-b2c-tutorials-desktop-app/add-susi-user-flow.png)
 
     | Ayar      | Önerilen değer  | Açıklama                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Ad** | SiPe | İlke için bir **Ad** girin. İlke adı, **B2C_1_** ön ekine sahip olur. Örnek kodda, **B2C_1_SiPe** olan tam ilke adını kullanırsınız. | 
-    | **Kimlik sağlayıcı** | Yerel Hesap Oturum Açma Bilgileri | Kimlik sağlayıcı, kullanıcıyı benzersiz şekilde tanımlamak için kullanılır. |
-    | **Profil öznitelikleri** | Görünen Ad ve Posta Kodu | Profil düzenleme işlemi sırasında kullanıcıların değiştirebileceği öznitelikleri seçin. |
-    | **Uygulama talepleri** | Görünen Ad, Posta Kodu, Kullanıcının Nesne Kimliği | Başarılı bir profil düzenleme işleminden sonra [erişim belirtecine](../active-directory/develop/developer-glossary.md#access-token) eklenmesini istediğiniz [talepleri](../active-directory/develop/developer-glossary.md#claim) seçin. |
+    | **Ad** | SiUpIn | Girin bir **adı** kullanıcı akışı için. Userjourney adı ön ekine sahip **B2C_1_**. Tam userjourney adı kullandığınız **b2c_1_siupın** örnek kodda. | 
+    | **Kimlik sağlayıcıları** | E-posta ile kaydolma | Kimlik sağlayıcı, kullanıcıyı benzersiz şekilde tanımlamak için kullanılır. |
 
-2. İlkenizi oluşturmak için **Oluştur**'a tıklayın. 
+3.  Altında **kullanıcı öznitelikleri ve talepler**, tıklayın **daha fazla Göster** ve aşağıdaki ayarları seçin:
 
-### <a name="create-a-password-reset-policy"></a>Parola sıfırlama ilkesi oluşturma
+    ![Kullanıcı ekleme öznitelikleri ve talepler](media/active-directory-b2c-tutorials-desktop-app/add-attributes-and-claims.png)
 
-Uygulamanızda parola sıfırlama özelliği sunmak için bir **parola sıfırlama ilkesi** oluşturmanız gerekir. Bu ilke, parola sıfırlama işlemi sırasında müşteri deneyimini ve başarıyla tamamlandığında uygulamanın aldığı belirteçlerin içeriğini açıklar.
+    | Sütun      | Önerilen değerler  | Açıklama                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Öznitelik Topla** | Görünen Ad ve Posta Kodu | Kayıt sırasında kullanıcıdan toplanacak öznitelikleri seçin. |
+    | **Dönüş talep** | Görünen Ad, Posta Kodu, Kullanıcının yeni olma durumu, Kullanıcının Nesne Kimliği | [Erişim belirtecine](../active-directory/develop/developer-glossary.md#access-token) eklenmesini istediğiniz [talepleri](../active-directory/develop/developer-glossary.md#claim) seçin. |
 
-1. Azure AD B2C portal sayfasında **Parola sıfırlama ilkeleri**’ni seçin ve **Ekle**’ye tıklayın.
+4. **Tamam** düğmesine tıklayın.
 
-    İlkenizi yapılandırmak için aşağıdaki ayarları kullanın.
+5. Tıklayın **Oluştur** kullanıcı akışınızı oluşturmak için. 
+
+### <a name="create-a-profile-editing-user-flow"></a>Kullanıcı akışı düzenleme profili oluşturma
+
+Kullanıcı profili bilgilerini kendi kendine sıfırlamasına izin vermek için oluşturduğunuz bir **kullanıcı akışı düzenleme profili**.
+
+1. Azure AD B2C portal sayfasında, seçin **kullanıcı akışı** tıklatıp **yeni kullanıcı akışı**.
+2. Üzerinde **önerilen** sekmesinde **profil düzenleme**.
+
+    Kullanıcı akışınızı yapılandırmak için aşağıdaki ayarları kullanın:
 
     | Ayar      | Önerilen değer  | Açıklama                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Ad** | SSPR | İlke için bir **Ad** girin. İlke adı, **B2C_1_** ön ekine sahip olur. Örnek kodda, **B2C_1_SSPR** olan tam ilke adını kullanırsınız. | 
-    | **Kimlik sağlayıcı** | E-posta adresi kullanarak parola sıfırlama | Bu, kullanıcıyı benzersiz şekilde tanımlamak için kullanılan kimlik sağlayıcıdır. |
-    | **Uygulama talepleri** | Kullanıcının Nesne Kimliği | Başarılı bir parola sıfırlama işleminden sonra [erişim belirtecine](../active-directory/develop/developer-glossary.md#access-token) eklenmesini istediğiniz [talepleri](../active-directory/develop/developer-glossary.md#claim) seçin. |
+    | **Ad** | SiPe | Girin bir **adı** kullanıcı akışı için. Userjourney adı ön ekine sahip **B2C_1_**. Tam userjourney adı kullandığınız **B2C_1_SiPe** örnek kodda. | 
+    | **Kimlik sağlayıcıları** | Yerel Hesap Oturum Açma Bilgileri | Kimlik sağlayıcı, kullanıcıyı benzersiz şekilde tanımlamak için kullanılır. |
 
-2. İlkenizi oluşturmak için **Oluştur**'a tıklayın. 
+3. Altında **kullanıcı öznitelikleri**, tıklayın **daha fazla Göster** ve aşağıdaki ayarları seçin:
+
+    | Sütun      | Önerilen değerler  | Açıklama                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Öznitelik Topla** | Görünen Ad ve Posta Kodu | Profil düzenleme işlemi sırasında kullanıcıların değiştirebileceği öznitelikleri seçin. |
+    | **Dönüş talep** | Görünen Ad, Posta Kodu, Kullanıcının Nesne Kimliği | Başarılı bir profil düzenleme işleminden sonra [erişim belirtecine](../active-directory/develop/developer-glossary.md#access-token) eklenmesini istediğiniz [talepleri](../active-directory/develop/developer-glossary.md#claim) seçin. |
+
+4. **Tamam** düğmesine tıklayın.
+5. Tıklayın **Oluştur** kullanıcı akışınızı oluşturmak için. 
+
+### <a name="create-a-password-reset-user-flow"></a>Parola sıfırlama kullanıcı akışı oluştur
+
+Parola sıfırlama uygulamanızı etkinleştirmek için oluşturmak gereken bir **parola sıfırlama kullanıcı akışı**. Bu kullanıcı akışını yönelik tüketici deneyimi başarıyla tamamlandığında sırasında parola sıfırlama ve uygulamanın aldığı belirteçlerin içeriğini açıklar.
+
+1. Azure AD B2C portal sayfasında, seçin **kullanıcı akışları** tıklatıp **yeni kullanıcı akışı**.
+2. Üzerinde **önerilen** sekmesinde **parola sıfırlama**.
+
+    Kullanıcı akışınızı yapılandırmak için aşağıdaki ayarları kullanın.
+
+    | Ayar      | Önerilen değer  | Açıklama                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Ad** | SSPR | Girin bir **adı** kullanıcı akışı için. Userjourney adı ön ekine sahip **B2C_1_**. Tam userjourney adı kullandığınız **B2C_1_SSPR** örnek kodda. | 
+    | **Kimlik sağlayıcıları** | E-posta adresi kullanarak parola sıfırlama | Bu, kullanıcıyı benzersiz şekilde tanımlamak için kullanılan kimlik sağlayıcıdır. |
+
+3. Altında **uygulama taleplerini**, tıklayın **daha fazla Göster** ve aşağıdaki ayarları seçin:
+
+    | Sütun      | Önerilen değer  | Açıklama                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Dönüş talep** | Kullanıcının Nesne Kimliği | Başarılı bir parola sıfırlama işleminden sonra [erişim belirtecine](../active-directory/develop/developer-glossary.md#access-token) eklenmesini istediğiniz [talepleri](../active-directory/develop/developer-glossary.md#claim) seçin. |
+
+4. **Tamam** düğmesine tıklayın.
+5. Tıklayın **Oluştur** kullanıcı akışınızı oluşturmak için. 
 
 ## <a name="update-desktop-app-code"></a>Masaüstü uygulaması kodunu güncelleştirme
 
-Masaüstü uygulaması kaydedip ilke oluşturduğunuza göre artık uygulamanızı Azure AD B2C kiracınızı kullanacak şekilde yapılandırmanız gerekir. Bu öğretici örnek bir masaüstü uygulamasını yapılandıracaksınız. 
+Masaüstü uygulaması ve oluşturulan kullanıcı akışları edindikten sonra Azure AD B2C kiracınızı kullanacak şekilde yapılandırmanız gerekir. Bu öğretici örnek bir masaüstü uygulamasını yapılandıracaksınız. 
 
 [Bir zip dosyası indirin](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip), [depoya göz atın](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) veya GitHub’dan örneği kopyalayın.
 
@@ -135,7 +159,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.g
 
 Örnek WPF masaüstü uygulaması, bir masaüstü uygulamasının kullanıcıyı kaydetme, kullanıcının oturumunu açma ve korumalı bir web API’sini çağırma işlemleri için Azure AD B2C’yi nasıl kullanabileceğini gösterir.
 
-Kiracınızda uygulama kaydını kullanmak için uygulamayı değiştirmeniz ve oluşturduğunuz ilkeleri yapılandırmanız gerekir. 
+Kiracınızda uygulama kaydını kullanmak ve oluşturduğunuz kullanıcı akışları yapılandırmak için uygulamayı değiştirmeniz gerekir. 
 
 Uygulama ayarlarını değiştirmek için:
 
@@ -148,7 +172,7 @@ Uygulama ayarlarını değiştirmek için:
     private static string ClientId = "The Application ID for your desktop app registered in your tenant";
     ```
 
-3. **PolicySignUpSignIn** değişkenini, bir önceki adımda oluşturduğunuz *kaydolma veya oturum açma ilkesi* adıyla güncelleştirin. *B2C_1_* ön ekini kullanmayı unutmayın.
+3. Güncelleştirme **Policysignupsignın** değişken ile *kaydolma veya oturum açma kullanıcı akışı* bir önceki adımda oluşturduğunuz ad. *B2C_1_* ön ekini kullanmayı unutmayın.
 
     ```C#
     public static string PolicySignUpSignIn = "B2C_1_SiUpIn";
@@ -162,11 +186,11 @@ Masaüstü uygulamasını oluşturup çalıştırmak için **F5** tuşuna basın
 
 ### <a name="sign-up-using-an-email-address"></a>E-posta adresi kullanarak kaydolma
 
-1. Masaüstü uygulamasının bir kullanıcısı olarak kaydolmak için **Oturum Aç** düğmesine tıklayın. Burada, önceki adımda tanımladığınız **B2C_1_SiUpIn** ilkesi kullanılır.
+1. Masaüstü uygulamasının bir kullanıcısı olarak kaydolmak için **Oturum Aç** düğmesine tıklayın. Bu kullanır **b2c_1_siupın** kullanıcı akışı, bir önceki adımda tanımladığınız.
 
 2. Azure AD B2C, kayıt bağlantısı içeren bir oturum açma sayfası sunar. Henüz bir hesabınız yoksa **Hemen kaydol** bağlantısına tıklayın. 
 
-3. Kaydolma iş akışında, kullanıcı kimliğini bir e-posta adresi kullanarak toplamak ve doğrulamak için bir sayfa sunar. Ayrıca kaydolma iş akışı, kullanıcının parolasını ve ilkede tanımlanmış istenen öznitelikleri toplar.
+3. Kaydolma iş akışında, kullanıcı kimliğini bir e-posta adresi kullanarak toplamak ve doğrulamak için bir sayfa sunar. Kaydolma iş akışı, ayrıca kullanıcının parolasını ve kullanıcı Akış içinde tanımlanmış istenen öznitelikleri toplar.
 
     Geçerli bir e-posta adresi kullanın ve doğrulama kodunu kullanarak doğrulamayı gerçekleştirin. Parola ayarlayın. İstenen öznitelikler için değerleri girin. 
 
@@ -185,7 +209,7 @@ Diğer Azure AD B2C öğreticilerini denemeyi planlıyorsanız Azure AD B2C kira
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide Azure AD B2C kiracısı oluşturmayı, ilke oluşturmayı ve örnek masaüstü uygulamasını Azure AD B2C kiracınızı kullanacak şekilde güncelleştirmeyi öğrendiniz. Bir masaüstü uygulamasındaki korumalı bir web API’sini kaydetmeyi, yapılandırmayı ve çağırmayı öğretmek için sonraki öğreticiye geçin.
+Bu öğreticide, bir Azure AD B2C kiracısı oluşturmayı, kullanıcı akışları oluşturma ve Azure AD B2C kiracınızı kullanmak için örnek masaüstü uygulamasını güncelleştirmeyi öğrendiniz. Bir masaüstü uygulamasındaki korumalı bir web API’sini kaydetmeyi, yapılandırmayı ve çağırmayı öğretmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
 > 

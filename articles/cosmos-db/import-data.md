@@ -1,23 +1,20 @@
 ---
-title: Azure Cosmos DB için veritabanı geçişi | Microsoft Docs
+title: Azure Cosmos DB için veritabanı geçiş aracı
 description: MongoDB, SQL Server, Tablo depolama, Amazon DynamoDB, CSV ve JSON dosyaları da dahil olmak üzere çeşitli kaynaklardan Azure Cosmos DB’ye verileri geçirmek için açık kaynak Azure Cosmos DB veri geçişi araçlarının nasıl kullanılacağını öğrenin. CSV’yi JSON’a dönüştürme.
 keywords: csv’yi json’a, veritabanı geçişi araçları, csv’yi json’a dönüştürme
 services: cosmos-db
 author: deborahc
-manager: kfile
-editor: monicar
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: e04e3443cdd3bf7aa32d023fc053950c58cf1449
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: e3968155c2619b5d6b09b68a59ff01607c45fa2b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853974"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843555"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Verilerinizi Azure Cosmos DB'ye geçirmek için Veri geçişi aracını kullanma
 

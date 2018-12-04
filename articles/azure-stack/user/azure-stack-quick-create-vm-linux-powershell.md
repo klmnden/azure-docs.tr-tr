@@ -11,21 +11,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 09c719dd03f375127448851d0af9dada9238d1f1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: a2dea792db39c753d0ea720c8e610a399401315f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377513"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840580"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Hızlı Başlangıç: Azure Stack'te PowerShell kullanarak bir Linux server sanal makinesi oluşturma
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Azure Stack PowerShell kullanarak Ubuntu Server 16.04 LTS sanal makine oluşturabilirsiniz. Bir sanal makine oluşturup, bu makaledeki adımları izleyin.  Bu makalede ayrıca adımları sunar:
+Azure Stack PowerShell kullanarak bir Ubuntu Server 16.04 LTS sanal makine oluşturabilirsiniz. Bir sanal makine oluşturup, bu makaledeki adımları izleyin.  Bu makalede ayrıca adımları sunar:
 
 * Sanal Makine Uzak istemcisi ile bağlanın.
 * NGINX web sunucusu ve varsayılan giriş sayfasını görüntüleyin.
@@ -47,7 +47,7 @@ Azure Stack PowerShell kullanarak Ubuntu Server 16.04 LTS sanal makine oluştura
 
 Bir kaynak grubu, dağıtma ve Azure Stack kaynaklarını yönetme mantıksal bir kapsayıcıdır. Uygulamanızı Geliştirme Seti veya Azure Stack tümleşik sistemi, bir kaynak grubu oluşturmak için aşağıdaki kod bloğu çalıştırın. Bu belgedeki tüm değişkenler için değerler atanır, şu değerleri kullanın veya yeni değerler atayın.
 
-```powershell
+```powershell  
 # Create variables to store the location and resource group names.
 $location = "local"
 $ResourceGroupName = "myResourceGroup"
@@ -61,7 +61,7 @@ New-AzureRmResourceGroup `
 
 Bir depolama hesabı oluşturun ve ardından Ubuntu Server 16.04 LTS görüntüsüne için bir depolama kapsayıcısı oluşturun.
 
-```powershell
+```powershell  
 # Create variables to store the storage account name and the storage account SKU information
 $StorageAccountName = "mystorageaccount"
 $SkuName = "Standard_LRS"
@@ -395,7 +395,7 @@ SSH yüklü olan bir istemci sisteminden sanal makineye bağlanmak için aşağ�
 ssh <Public IP Address>
 ```
 
-İstendiğinde azureuser oturum açma kullanıcı olarak girin. SSH anahtarları oluştururken bir parola kullandıysanız parolayı girmeniz gerekir.
+İstendiğinde, olarak oturum açın **azureuser**. SSH anahtarları oluştururken bir parola kullandıysanız parolayı girmeniz gerekir.
 
 ## <a name="install-the-nginx-web-server"></a>NGINX web sunucusunu yükleme
 

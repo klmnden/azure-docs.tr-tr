@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/06/2018
+ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5129ea20dcf6c866d5391a6a3aad5c54a6fa81af
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 08a16285a6e3e52fc9e2ddce6b6936dfd4639ba8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313080"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835582"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Güvenlik Merkezi'nin Gelişmiş güvenlik için standart katmana yükseltin
 Azure Güvenlik Merkezi, Azure’da, şirket içinde ve diğer bulutlarda çalışan iş yükleri için birleşik güvenlik yönetimi ve gelişmiş tehdit koruması sağlar. Bu, hibrit bulut iş yükleri, hızla gelişen siber saldırı ile uydurmanıza yardımcı olmak için tehditleri ve akıllı algılama maruz kalma riskinizi azaltmak etkin savunmaları üzerinde görünürlük ve denetim sunar.
@@ -28,7 +28,7 @@ Azure Güvenlik Merkezi, Azure’da, şirket içinde ve diğer bulutlarda çalı
 Güvenlik Merkezi iki katmanda sunulur:
 
 - **Ücretsiz** katmanı, tüm Azure abonelikleri üzerinde otomatik olarak etkinleştirilir ve güvenlik ilkesi, sürekli güvenlik değerlendirmesi ve Azure kaynaklarınızı korumanıza yardımcı olması için eyleme dönüştürülebilir güvenlik önerileri sağlar.
-- **Standart** katman ücretsiz katmanı yeteneklerini genişletir özel ve diğer genel bulutlarda çalışan iş yükleri için güvenlik yönetimi ve tehdit koruması, hibrit bulut iş yüklerinde birleşik sağlama. Standart katman da ekler Gelişmiş tehdit algılama özellikleri, ağ saldırılarına ve kötü amaçlı yazılım maruz kalma riskinizi azaltmak için yerleşik davranış analizi ve makine öğrenimi saldırıları ve sıfır gün açıklarından, erişim ve uygulama denetimlerini tanımlamak kullandığı, ve Daha fazla. Standart katman ilk 60 gün boyunca ücretsizdir. Güvenlik Merkezi standart Vm'leri, App Service ve SQL sunucuları gibi Azure kaynaklarını destekler. Azure Güvenlik Merkezi standart varsa kaynak türüne göre desteği seçebilirsiniz. 
+- **Standart** katman ücretsiz katmanı yeteneklerini genişletir özel ve diğer genel bulutlarda çalışan iş yükleri için güvenlik yönetimi ve tehdit koruması, hibrit bulut iş yüklerinde birleşik sağlama. Standart katman da ekler Gelişmiş tehdit algılama özellikleri, ağ saldırılarına ve kötü amaçlı yazılım maruz kalma riskinizi azaltmak için yerleşik davranış analizi ve makine öğrenimi saldırıları ve sıfır gün açıklarından, erişim ve uygulama denetimlerini tanımlamak kullandığı, ve Daha fazla. Deneyebileceğiniz standart katman ücretsizdir. Güvenlik Merkezi standart Vm'leri, App Service ve SQL sunucuları gibi Azure kaynaklarını destekler. Azure Güvenlik Merkezi standart varsa kaynak türüne göre desteği seçebilirsiniz. 
 
 
 Daha fazla bilgi için bkz: Güvenlik Merkezi [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).

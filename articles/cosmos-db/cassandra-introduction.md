@@ -1,22 +1,20 @@
 ---
-title: Azure Cosmos DB Cassandra API'ye giriş | Microsoft Belgeler
+title: Azure Cosmos DB Cassandra API’sine giriş
 description: Mevcut uygulamaları "yükseltmek ve kaydırmak" için Azure Cosmos DB’yi ve yeni uygulamalar geliştirmek için zaten aşina olduğunuz Cassandra sürücüleri ve CQL ile Cassandra API’yi nasıl kullanabileceğinizi öğrenin.
 services: cosmos-db
 author: kanshiG
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
-ms.devlang: na
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 1037f7921093d38d9020bafd9fd3597f27ca5011
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 79c131be14de05e84eb21d6d53eefd1aa224df16
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230259"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835029"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API’sine giriş
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 0463a89b8c320b31929bf5e0322079088c2cdeab
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9cf5092dabf5649f4d063ce05dae169b90228378
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054140"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834103"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clearcompany"></a>Öğretici: Azure Active Directory ClearCompany ile tümleştirme
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile ClearCompany yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir ClearCompany çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de ClearCompany tümleştirmesini yapılandırmak için ClearCompany Ga
 
 **Galeriden ClearCompany eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -119,7 +119,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve C
     İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname>.clearcompany.com`
     
     > [!NOTE] 
-    > Oturum açma URL değeri, gerçek bir değer değil. Bu değer, gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [ClearCompany istemci Destek ekibine](http://www.clearcompany.com/support) bu değeri alınamıyor. 
+    > Oturum açma URL değeri, gerçek bir değer değil. Bu değer, gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [ClearCompany istemci Destek ekibine](https://www.clearcompany.com/support) bu değeri alınamıyor. 
 
 5. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
@@ -133,7 +133,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve C
 
     ![ClearCompany yapılandırma](./media/clearcompany-tutorial/tutorial_clearcompany_configure.png) 
 
-8. Çoklu oturum açmayı yapılandırma **ClearCompany** tarafı, indirilen göndermek için ihtiyacınız **Certificate(Base64)** ve **SAML çoklu oturum açma hizmeti URL'si** için [ ClearCompany Destek ekibine](http://www.clearcompany.com/support). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+8. Çoklu oturum açmayı yapılandırma **ClearCompany** tarafı, indirilen göndermek için ihtiyacınız **Certificate(Base64)** ve **SAML çoklu oturum açma hizmeti URL'si** için [ ClearCompany Destek ekibine](https://www.clearcompany.com/support). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
 > İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -172,7 +172,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-clearcompany-test-user"></a>ClearCompany test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon ClearCompany içinde adlı bir kullanıcı oluşturun. Çalışmak [ClearCompany Destek ekibine](http://www.clearcompany.com/support) ClearCompany platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon ClearCompany içinde adlı bir kullanıcı oluşturun. Çalışmak [ClearCompany Destek ekibine](https://www.clearcompany.com/support) ClearCompany platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
@@ -214,7 +214,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

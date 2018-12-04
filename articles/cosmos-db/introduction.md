@@ -1,21 +1,19 @@
 ---
-title: Azure Cosmos DB’ye Giriş | Microsoft Belgeleri
+title: Azure Cosmos DB’ye giriş
 description: Azure Cosmos DB hakkında bilgi edinin. Bu genel olarak dağıtılan çok modelli veritabanı; düşük gecikme süresi, esnek ölçeklenebilirlik, yüksek kullanılabilirlik için oluşturulmuştur ve NoSQL verileri için yerel destek sunar.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 12e3cf028b4812abd43dd2b6f23190fa6b75157a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: 89f5ae27e7ce3ec3155fd3fdbf42bb0f4322aa10
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242299"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835072"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB’ye hoş geldiniz
 
@@ -50,7 +48,7 @@ Genel olarak dağıtılan, çok modelli bir veritabanı hizmeti olarak Azure Cos
 
 * **Yüksek hızda yanıt veren ve görev açısından kritik uygulamalar oluşturun**
     * Azure Cosmos DB, müşterilerine 99. yüzdebirlik dilimde uçtan uca düşük gecikme süresi garanti etmektedir. 
-    * Cosmos DB, tipik bir 1 KB’lik öğe için aynı Azure bölgesindeki 99. yüzdebirlik dilimde 10 ms’nin altında okumalar ve 15 ms’nin altında dizini oluşturulmuş yazmalar için uçtan uca gecikme süresi garanti eder. Ortalama gecikme süreleri çok daha düşüktür (5 ms’nin altında).
+    * Cosmos DB, tipik bir 1 KB'lik öğe için 10 MS'nin altında okumalar uçtan uca gecikme süresi garanti eder ve aynı Azure bölgesindeki 99. yüzdebirlik 10 MS'nin altında dizini oluşturulmuş yazmalar. Ortalama gecikme süreleri çok daha düşüktür (5 ms’nin altında).
 
 * **"Her zaman açık" özelliği ile kullanılabilirlik endişeniz olmaz**
     * Tek tek tüm bölge veritabanı hesapları için %99,99 kullanılabilirlik SLA'sı ve çok bölgeli tüm veritabanı hesaplarında tümüyle %99,999 okunabilirlik.
@@ -78,11 +76,11 @@ Azure Cosmos DB, geleneksel ilişkisel ve ilişkisel olmayan veritabanlarının 
 | Özellikler | İlişkisel veritabanları   | İlişkisel olmayan (NoSQL) veritabanları |    Azure Cosmos DB |
 | --- | --- | --- | --- |
 | Genel dağıtım | Hayır | Hayır | Evet, çok girişli API'lerle 30'dan fazla bölgede anahtar teslimi dağıtım|
-| Yatay ölçeklendirme | Hayır | Yes | Evet, depolama ve aktarım hızını bağımsız olarak ölçeklendirebilirsiniz | 
-| Gecikme süresi garantileri | Hayır | Yes | Evte, %99 oranında okumalar <10 ms ve yazmalar <15 ms | 
-| Yüksek kullanılabilirlik | Hayır | Yes | Evet, Azure Cosmos DB her zaman açıktır, iyi tanımlanmış PACELC dengelemeleri vardır, ayrıca otomatik ve el ile yük devretme seçenekleri sunar|
-| Veri modeli + API | İlişkisel + SQL | Çoklu model + OSS API’si | Çoklu model + SQL + OSS API’si (yakında daha fazlası sunulacak) |
-| SLA’lar | Yes | Hayır | Evet, gecikme süresi, aktarım hızı, tutarlılık ve kullanılabilirlik için kapsamlı SLA’lar |
+| Yatay ölçeklendirme | Hayır | Evet | Evet, depolama ve aktarım hızını bağımsız olarak ölçeklendirebilirsiniz | 
+| Gecikme süresi garantileri | Hayır | Evet | Evet, 99 oranında okumalar < 10 ms ve yazmalar < 10 ms | 
+| Yüksek kullanılabilirlik | Hayır | Evet | Evet, Azure Cosmos DB her zaman açıktır, iyi tanımlanmış PACELC dengelemeleri vardır, ayrıca otomatik ve el ile yük devretme seçenekleri sunar|
+| Veri modeli + API | İlişkisel + SQL | Çoklu model + OSS API’si | Çoklu model + SQL + OSS API'si |
+| SLA’lar | Evet | Hayır | Evet, gecikme süresi, aktarım hızı, tutarlılık ve kullanılabilirlik için kapsamlı SLA’lar |
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Azure Cosmos DB'den yararlanan çözümler
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 61fb9904e69f5269c345b733ef2396294c6c790a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8c29d054f2e4e9ff4b57785a57e5c6ea512623a6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448181"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840677"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Öğretici: Azure Active Directory Tümleştirme ile Perception Amerika Birleşik Devletleri (UltiPro olmayan)
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi Perception Amerika Birleşik Devletleri (UltiPro olmayan) yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Perception Amerika Birleşik Devletleri (UltiPro olmayan) çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD ile tümleştirme, Perception Amerika Birleşik Devletleri (UltiPro olm
 
 **Galeriden Perception Amerika Birleşik Devletleri (UltiPro olmayan) eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -209,7 +209,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
   
 ### <a name="create-a-perception-united-states-non-ultipro-test-user"></a>Perception Amerika Birleşik Devletleri (UltiPro olmayan) bir test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Perception Amerika Birleşik Devletleri (UltiPro olmayan) adlı bir kullanıcı oluşturun. Çalışmak [Perception Amerika Birleşik Devletleri (UltiPro olmayan) destek ekibi](http://www.ultimatesoftware.com/Contact/ContactUs) Perception Amerika Birleşik Devletleri (UltiPro olmayan) platform kullanıcıları eklemek için.
+Bu bölümde, Britta Simon Perception Amerika Birleşik Devletleri (UltiPro olmayan) adlı bir kullanıcı oluşturun. Çalışmak [Perception Amerika Birleşik Devletleri (UltiPro olmayan) destek ekibi](https://www.ultimatesoftware.com/Contact/ContactUs) Perception Amerika Birleşik Devletleri (UltiPro olmayan) platform kullanıcıları eklemek için.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

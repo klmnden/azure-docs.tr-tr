@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 2b811029e2cadcb89238375e8fe50160a58b0c62
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 7575d55f65598d39a8ffe0c3802cf11fa7470180
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52685016"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837792"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Bilgisayar grupları Log analytics'te günlük aramaları
 
-Log analytics'te bilgisayar grupları kapsamına izin [günlük aramaları](../../log-analytics/log-analytics-queries.md) bilgisayarlar belirli bir dizi.  Her Grup ya da tanımladığınız bir sorgu kullanarak bilgisayarları veya grupları alarak farklı kaynaktaki doldurulur.  Grubun bir günlük aramasına dahil olduğu zaman sonuçları gruptaki bilgisayarlara eşleşen kayıtları sınırlıdır.
+Log analytics'te bilgisayar grupları kapsamına izin [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) bilgisayarlar belirli bir dizi.  Her Grup ya da tanımladığınız bir sorgu kullanarak bilgisayarları veya grupları alarak farklı kaynaktaki doldurulur.  Grubun bir günlük aramasına dahil olduğu zaman sonuçları gruptaki bilgisayarlara eşleşen kayıtları sınırlıdır.
 
 ## <a name="creating-a-computer-group"></a>Bir bilgisayar grubu oluşturuluyor
 Aşağıdaki tabloda yöntemlerden birini kullanarak Log analytics'te bilgisayar grubu oluşturabilirsiniz.  Aşağıdaki bölümlerde her yöntemi hakkında ayrıntılı bilgi sağlanır. 
@@ -70,7 +70,7 @@ Log Analytics, Log Analytics'ten Active Directory güvenlik gruplarını almak i
 
 Grupları içeri aktardığınızda menü grubu üyeliği algılanan bilgisayarların sayısını ve içe aktarılan gruplarının sayısını listeler.  Döndürmek için bu bağlantıları birini tıklayabilirsiniz **ComputerGroup** bu bilgiyi kaydeder.
 
-### <a name="windows-server-update-service"></a>Windows Server Update Service
+### <a name="windows-server-update-service"></a>Windows Server Update Service'in
 WSUS grup üyeliklerini içeri aktarmak için Log Analytics yapılandırdığınızda, herhangi bir Log Analytics aracısını bilgisayarlarla hedefleme grup üyeliğini analiz eder.  İstemci tarafı kullanıyorsanız hedefleme, Log Analytics'e bağlı ve tüm WSUS parçası olan herhangi bir bilgisayar grupları hedefleme Log Analytics'e içe grup üyeliği sahiptir. Sunucu tarafı kullanıyorsanız hedefleme, Log Analytics aracısını Log Analytics'e içeri aktarılacak grup üyeliği bilgileri için sırayla WSUS sunucusunda yüklenmelidir.  Bu üyelik sürekli olarak 4 saatte bir güncelleştirilir. 
 
 Log Analytics, Log Analytics'ten içe aktarma WSUS grupları için yapılandırdığınız **Gelişmiş ayarlar** Azure portalında.  Seçin **bilgisayar grupları**, **WSUS**, ardından **içeri aktarma WSUS grup üyeliklerini**.  Başka bir yapılandırma işlemi gerekmez.
@@ -79,7 +79,7 @@ Log Analytics, Log Analytics'ten içe aktarma WSUS grupları için yapılandırd
 
 Grupları içeri aktardığınızda menü grubu üyeliği algılanan bilgisayarların sayısını ve içe aktarılan gruplarının sayısını listeler.  Döndürmek için bu bağlantıları birini tıklayabilirsiniz **ComputerGroup** bu bilgiyi kaydeder.
 
-### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
+### <a name="system-center-configuration-manager"></a>System Center Configuration Manager'a
 Configuration Manager koleksiyon üyeliklerini içeri aktarmak için Log Analytics yapılandırdığınızda, her bir koleksiyon için bir bilgisayar grubu oluşturur.  Koleksiyon üyeliği bilgilerini, bilgisayar gruplarını güncel kalmasını sağlamak için 3 saatte alınır. 
 
 Configuration Manager koleksiyonları içeri aktarmadan önce şunları yapmalısınız [Configuration Manager'ı Log Analytics'e bağlama](../../log-analytics/log-analytics-sccm.md).  Log Analytics alma daha sonra yapılandırabilirsiniz **Gelişmiş ayarlar** Azure portalında.  Seçin **bilgisayar grupları**, **SCCM**, ardından **alma Configuration Manager koleksiyon üyelikleri**.  Başka bir yapılandırma işlemi gerekmez.
@@ -136,5 +136,5 @@ Active Directory veya WSUS oluşturulan her bilgisayar grup üyeliğini için Lo
 | TimeGenerated |Tarih ve saat bilgisayar grubu oluşturulduğunda veya güncelleştirildiğinde. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [günlük aramaları](../../log-analytics/log-analytics-queries.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.  
+* Hakkında bilgi edinin [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.  
 

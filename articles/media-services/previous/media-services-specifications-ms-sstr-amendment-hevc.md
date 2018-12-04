@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: johndeu;
-ms.openlocfilehash: 6330de2aa67fd83a5d4762c2c13d4916f642743d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f1301ba42c63a8241597bfe0e021a69b2a596758
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250943"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836789"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Kesintisiz Akış Protokolü (MS-SSTR) değişiklik için HEVC
 
@@ -65,7 +65,7 @@ Aşağıdaki koşulları bu belgeye özgü:
 
  ### <a name="121-normative-references"></a>1.2.1 örnek oluşturan başvurular 
 
->  [MS-SSTR] Kesintisiz Akış Protokolü *v20140502* [ http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/[MS-SSTR] .pdf](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
+>  [MS-SSTR] Kesintisiz Akış Protokolü *v20140502* [https://msdn.microsoft.com/library/ff469518.aspx](https://msdn.microsoft.com/library/ff469518.aspx)
 
 >   [ISO/IEC 14496 12] International Organization for Standardization, "--işitsel nesnelerin kodlama--bilgi teknolojileri bölümü 12: ISO temel medya dosyası biçimi", ISO/IEC 14496-12:2014, sürüm 4 artı Corrigendum 1 tarihli Amendments 1 ve 2.
 >   <http://standards.iso.org/ittf/PubliclyAvailableStandards/c061988_ISO_IEC_14496-12_2012.zip>

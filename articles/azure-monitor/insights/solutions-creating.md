@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4fd36d58574b60e3e6351cba03c68b9217bc703d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 2c842efd6c66fd70bbac3969090b71c42c725545
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632475"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839648"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Tasarım ve azure'da (Önizleme) bir yönetim çözümü oluşturun
 > [!NOTE]
@@ -49,7 +49,7 @@ Log Analytics deposunda açıklandığı toplanan veri kaynakları birkaç yol v
 Tüm kullanılabilir veri kaynakları erişilebilir değil veri gerektiren sonra kullanabileceğiniz [HTTP veri toplayıcı API'sini](../../log-analytics/log-analytics-data-collector-api.md) olanak sağlayan bir REST API'sine çağrı yapmadan herhangi bir istemciden Log Analytics depoya veri yazmak.  Özel veri toplama Yönetimi çözümüne en yaygın yolları oluşturmaktır bir [Azure Otomasyonu'nda runbook](../../automation/automation-runbook-types.md) gerekli verileri Azure'a veya dış kaynaklardan toplar ve yazılacak veri toplayıcı API'sini kullanır. Depo.  
 
 ### <a name="log-searches"></a>Günlük aramaları
-[Günlük aramaları](../../log-analytics/log-analytics-queries.md) ayıklayın ve Log Analytics depodaki verileri analiz etmek için kullanılır.  Bunlar, görünümler ve uyarılar, geçici çözümleme veri deposunda gerçekleştirmesine izin verme yanı sıra tarafından kullanılır.  
+[Günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) ayıklayın ve Log Analytics depodaki verileri analiz etmek için kullanılır.  Bunlar, görünümler ve uyarılar, geçici çözümleme veri deposunda gerçekleştirmesine izin verme yanı sıra tarafından kullanılır.  
 
 Herhangi bir görünüm veya uyarılar tarafından kullanılmayan bile kullanıcıya yardımcı olacağını düşündüğünüz tüm sorguları tanımlamanız gerekir.  Bunlar Portalı'nda kayıtlı aramalar kullanabilecekleri olacaktır ve bunları de içerebilir bir [, liste sorguları görselleştirme bölümü](../../azure-monitor/platform/view-designer-parts.md#list-of-queries-part) özel görünümünüzdeki.
 

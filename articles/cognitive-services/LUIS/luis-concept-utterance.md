@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/03/2018
 ms.author: diberry
-ms.openlocfilehash: 2b21102a5416c1fd7e2abb35be677c48ffc63263
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 1f86631d75ceec5fc013c21f74f03b9157c78b4a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638090"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836466"
 ---
 # <a name="utterances-in-luis"></a>LUIS, konuşma
 
@@ -55,6 +55,10 @@ Modelin her yinelemede konuşma büyük bir miktarını eklemeyin. Konuşma onla
 LUIS, etkin dikkatli bir şekilde seçili olan konuşma modelleriyle oluşturur. Çok fazla konuşma eklemek, karışıklığı getirdiği için yararlı değildir.  
 
 Ardından birkaç Konuşma ile başlatmak iyidir [konuşma uç noktası gözden](luis-how-to-review-endoint-utt.md) doğru hedefi tahmin ve varlık ayıklama için.
+
+## <a name="punctuation-marks"></a>Noktalama işaretleri
+
+Bazı istemci uygulamalar üzerinde bu işaretler anlam yerleştirebilirsiniz çünkü LUIS varsayılan olarak, noktalama işaretleri yoksaymaz. Örnek konuşma noktalama hem hiçbir noktalama için her iki stil sırayla aynı göreli puanları döndürülecek kullandığınızdan emin olun. Noktalama, istemci uygulamasında özel bir anlamı varsa, göz önünde bulundurun [noktalama yoksayılıyor](#ignoring-words-and-punctuation) düzenleri kullanarak. 
 
 ## <a name="ignoring-words-and-punctuation"></a>Sözcükleri ve noktalama işaretleri yoksayılıyor
 Belirli sözcükleri ya da örnek utterance, noktalama işareti yok saymak istiyorsanız, kullanan bir [deseni](luis-concept-patterns.md#pattern-syntax) ile _Yoksay_ söz dizimi. 

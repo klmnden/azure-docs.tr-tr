@@ -14,12 +14,12 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 857d58d31565e413a207162202f1a680d7da7c65
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c07b87d88b884b22f44fe108bb28877cb30f973e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250742"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837180"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Azure Active Directory'de yönetici olarak yönetilmeyen bir dizini devralma
 Bu makalede, Azure Active Directory (Azure AD) bir yönetilmeyen dizinde bir DNS etki alanı adı ele iki yolu açıklanır. Bir self servis kullanıcısı, Azure AD kullanan bir bulut hizmetine kaydolduğunda bu kullanıcı, e-posta etki alanına göre yönetilmeyen bir Azure AD dizinine eklenir. Self Servis veya "viral" kayıt bir hizmet için hakkında daha fazla bilgi için bkz. [Azure Active Directory için Self Servis kaydolma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)
@@ -108,7 +108,11 @@ Hizmet planları, SharePoint, OneDrive veya iş için Skype Kurumsal dahil olan 
 
 Yönetilmeyen Kiracı farklı bir bölgede olduğunda anahtar ve şablonları taşınmaz. Örneğin, Avrupa ve Kuzey Amerika içinde olan sahip kiracısı yönetilmeyen Kiracı olur. 
 
-Kişiler için RMS korumalı içeriği açmak için Azure AD kimlik doğrulamasını desteklemek için tasarlanmış olsa da, kullanıcıların içeriği korumaktan engellemez. Kullanıcıların kişiler için RMS aboneliği ile içerik koruma ve anahtar ve şablonları taşınmadı, içeriğin sonra etki alanı devralma erişilemez.    
+Kişiler için RMS korumalı içeriği açmak için Azure AD kimlik doğrulamasını desteklemek için tasarlanmış olsa da, kullanıcıların içeriği korumaktan engellemez. Kullanıcıların kişiler için RMS aboneliği ile içerik koruma ve anahtar ve şablonları taşınmadı, içeriğin sonra etki alanı devralma erişilemez.
+
+#### <a name="more-information-about-power-bi"></a>Power BI hakkında daha fazla bilgi
+
+Devralma yerleştirilir önce oluşturduğunuz bir dış devralma, Power BI içeriğini gerçekleştirirken bir [Power BI arşivlenmiş çalışma](/power-bi/service-admin-power-bi-archived-workspace). El ile yeni kiracıda kullanmak istediğiniz herhangi bir içeriği geçirmeniz gerekir.
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Zorla devralma seçeneği için Azure AD PowerShell cmdlet'leri
 Bu cmdlet'ler içinde kullanılan görebilirsiniz [PowerShell örneği](#powershell-example).

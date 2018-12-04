@@ -13,15 +13,15 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 64b4ab95d4972848c6c0cf7130ec97c2be41ead0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 7fe018a1584561ae12742da6e75f7d265ae82656
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722930"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833559"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>Log Analytics kayıtları standart özellikler
-Verileri [Log Analytics](../log-analytics/log-analytics-queries.md) kümesi her bir özellik kümesi olan bir özel veri türü ile kayıt olarak depolanır. Birçok veri türleri, birden çok türlerinde ortak olan standart özellikleri olacaktır. Bu makalede, bu özellikleri açıklar ve nasıl bunları sorgularında kullanabileceğiniz örnekler sağlar.
+Verileri [Log Analytics](../log-analytics/../azure-monitor/log-query/log-query-overview.md) kümesi her bir özellik kümesi olan bir özel veri türü ile kayıt olarak depolanır. Birçok veri türleri, birden çok türlerinde ortak olan standart özellikleri olacaktır. Bu makalede, bu özellikleri açıklar ve nasıl bunları sorgularında kullanabileceğiniz örnekler sağlar.
 
 Bazı veri türleri, ancak henüz diğerleri bunları görebilirsiniz bu özelliklerin bazıları hala uygulanan sürecinde, olduğundan.
 
@@ -88,6 +88,6 @@ AzureActivity
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Nasıl hakkında daha fazla bilgiyi [Log Analytics verilerinin depolandığı](../log-analytics/log-analytics-queries.md).
+- Nasıl hakkında daha fazla bilgiyi [Log Analytics verilerinin depolandığı](../log-analytics/../azure-monitor/log-query/log-query-overview.md).
 - Ders almak [Log Analytics'te sorgu yazma](../log-analytics/query-language/get-started-queries.md).
 - Ders almak [Log Analytics sorguları tabloları birleştirme](../log-analytics/query-language/joins.md).

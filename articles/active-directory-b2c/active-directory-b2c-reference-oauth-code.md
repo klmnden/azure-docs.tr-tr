@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f39efcbc051bf57ab350357b020039eddd0f7c18
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c6d976869f2a068c393a643bb97cae2f7ac1a470
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720788"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843198"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0 yetkilendirme kod akışı
 Web API'leri gibi korunan kaynakları erişim kazanmak için OAuth 2.0 yetkilendirme kodu verme bir cihazda yüklü uygulamaların kullanabilirsiniz. Azure Active Directory B2C kullanarak (Azure AD B2C) uygulama OAuth 2.0 ekleyebilirsiniz kaydolma, oturum açma ve diğer kimlik yönetimi görevleri, mobil ve Masaüstü uygulamaları için. Bu makalede dilden bağımsızdır. Makalede, biz nasıl HTTP iletileri gönderip herhangi bir açık kaynak kitaplıkları kullanmadan açıklar.
 
-OAuth 2.0 yetkilendirme kod akışı açıklanan [OAuth 2.0 belirtiminin 4.1 bölümünde](http://tools.ietf.org/html/rfc6749). Kimlik doğrulaması ve yetkilendirme çoğu kullanabilirsiniz [uygulama türleri](active-directory-b2c-apps.md)web uygulamaları ve yerel olarak yüklü uygulamalar dahil olmak üzere. OAuth 2.0 yetkilendirme kod akışı tarafından güvenliği sağlanan kaynaklara erişmek için kullanılan, uygulamalarınız için yenileme belirteçlerini ve güvenli bir şekilde erişim belirteçlerini almak için kullanabileceğiniz bir [yetkilendirme sunucusu](active-directory-b2c-reference-protocols.md).  Erişim belirtecinin süresi sona erdiğinde, yenileme belirtecinin yeni erişim (Yenile) belirteçleri istemcinin ve genellikle bir saat sonra sağlar.
+OAuth 2.0 yetkilendirme kod akışı açıklanan [OAuth 2.0 belirtiminin 4.1 bölümünde](https://tools.ietf.org/html/rfc6749). Kimlik doğrulaması ve yetkilendirme çoğu kullanabilirsiniz [uygulama türleri](active-directory-b2c-apps.md)web uygulamaları ve yerel olarak yüklü uygulamalar dahil olmak üzere. OAuth 2.0 yetkilendirme kod akışı tarafından güvenliği sağlanan kaynaklara erişmek için kullanılan, uygulamalarınız için yenileme belirteçlerini ve güvenli bir şekilde erişim belirteçlerini almak için kullanabileceğiniz bir [yetkilendirme sunucusu](active-directory-b2c-reference-protocols.md).  Erişim belirtecinin süresi sona erdiğinde, yenileme belirtecinin yeni erişim (Yenile) belirteçleri istemcinin ve genellikle bir saat sonra sağlar.
 
 Bu makalede odaklanır **genel istemcilere** OAuth 2.0 yetkilendirme kod akışı. Genel bir istemci gizli parolasını bütünlüğünü güvenli bir şekilde korumak için güvenilir olmayan tüm istemci uygulamasıdır. Bu, mobil uygulamaları, Masaüstü uygulamaları ve aslında bir cihazda çalışan ve erişim belirteçlerini almak gereken tüm uygulamaları içerir. 
 

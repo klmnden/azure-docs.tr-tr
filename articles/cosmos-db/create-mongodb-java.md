@@ -1,9 +1,8 @@
 ---
-title: "Azure Cosmos DB: Java ve MongoDB API'siyle bir konsol uygulaması derleme | Microsoft Docs"
+title: "Azure Cosmos DB: Java ve MongoDB API'si konsol uygulaması derleme"
 description: Azure Cosmos DB MongoDB API'sine bağlanmak ve sorgu göndermek için kullanabileceğiniz bir Java kodu örneği sunar
 services: cosmos-db
 author: slyons
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc
@@ -11,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: sclyon
-ms.openlocfilehash: ac5c0427ee178cee3abd71f4fbdfd5f8697f11a7
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.openlocfilehash: c77d6610939322fcf258e1b650672f319baf0815
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698681"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832420"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: Java ve Azure portalıyla bir MongoDB API'si konsol uygulaması derleme
 
@@ -33,7 +32,7 @@ Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritaba
 
 Bu hızlı başlangıçta Azure portalı kullanarak bir Azure Cosmos DB [MongoDB API](mongodb-introduction.md) hesabını, belge veritabanını ve koleksiyonunu nasıl oluşturacağınız anlatılmıştır. Bu adımların ardından [MongoDB Java sürücüsünü](https://docs.mongodb.com/ecosystem/drivers/java/) kullanarak bir konsol uygulaması derleyebilir ve çalıştırabilirsiniz. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu örneği çalıştırmadan önce aşağıdaki önkoşullara sahip olmanız gerekir:
 * JDK 1.7+ (JDK yoksa `apt-get install default-jdk` komutunu çalıştırın)

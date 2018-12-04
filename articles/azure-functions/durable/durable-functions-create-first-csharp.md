@@ -11,20 +11,20 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: c7153823ade64b086eb38046ed6d7cdb0e0a1381
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: a0aed1fd65444397b3ca084cc0100aa5af49c918
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638634"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839523"
 ---
-# <a name="create-your-first-durable-function-in-c"></a>İçinde dayanıklı ilk işlevinizi oluşturmaC#
+# <a name="create-your-first-durable-function-in-c"></a>C'de dayanıklı ilk işlevinizi oluşturma\#
 
 *Dayanıklı işlevler* uzantısıdır [Azure işlevleri](../functions-overview.md) durum bilgisi olan işlevleri, sunucusuz bir ortamda yazmanızı sağlayan. Uzantı durumu ve kontrol noktaları yeniden sizin yerinize yönetir.
 
 Bu makalede, yerel olarak oluşturma ve dayanıklı bir "Merhaba Dünya" işlevi test etmek için Azure işlevleri için Visual Studio 2017 araçlarını kullanmayı öğrenin.  Bu işlev, düzenlemek ve diğer işlevlere yapılan çağrıları zincir. Ardından işlev kodunu Azure’da yayımlayacaksınız. Bu araçlar, Visual Studio 2017’de Azure geliştirme iş yükünün parçası olarak kullanılabilir.
 
-![Bulutta dayanıklı işlevi çalışan](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
+![Dayanıklı işlevi Azure'da çalışan](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -50,7 +50,7 @@ Visual Studio'daki Azure İşlevleri proje şablonu, Azure'daki bir işlev uygul
 
 3. Resmin altındaki tabloda belirtilen ayarları kullanın.
 
-    ![Visual Studio'da Yeni işlev iletişim kutusu](./media/durable-functions-create-first-csharp/functions-vs-new-function.png) 
+    ![Visual Studio'da Yeni işlev iletişim kutusu](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
 
     | Ayar      | Önerilen değer  | Açıklama                      |
     | ------------ |  ------- |----------------------------------------- |

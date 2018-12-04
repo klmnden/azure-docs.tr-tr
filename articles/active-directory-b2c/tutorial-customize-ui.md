@@ -7,25 +7,25 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 588ce454248f0577a52515a4327d1e43013d34a5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f8ebb282d3f6abbc37739891c0f7228bef110d82
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581808"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842688"
 ---
 # <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C uygulamalarınızın, kullanıcı arabirimini özelleştirme
 
-Daha yaygın kullanıcı deneyimleri için gibi kaydolma, oturum açma ve profil düzenleme, kullanabileceğiniz [yerleşik ilkeleri](active-directory-b2c-reference-policies.md) Azure Active Directory (Azure AD) B2C'de. Bu öğreticide bilgiler edinin yardımcı olur nasıl [kullanıcı arabirimini (UI) özelleştirmek](customize-ui-overview.md) kendi HTML ve CSS dosyaları kullanarak bu deneyimleri.
+Daha yaygın kullanıcı deneyimleri için gibi kaydolma, oturum açma ve profil düzenleme, kullanabileceğiniz [kullanıcı akışları](active-directory-b2c-reference-policies.md) Azure Active Directory (Azure AD) B2C'de. Bu öğreticide bilgiler edinin yardımcı olur nasıl [kullanıcı arabirimini (UI) özelleştirmek](customize-ui-overview.md) kendi HTML ve CSS dosyaları kullanarak bu deneyimleri.
 
 Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
 > * UI özelleştirme dosyaları oluşturma
-> * Dosyaları kullanan bir kaydolma ve oturum açma ilkesi oluşturma
+> * Dosyaları kullanan bir kaydolma ve oturum açma kullanıcı Akış oluşturma
 > * Özelleştirilmiş UI testi
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
@@ -61,7 +61,7 @@ Bu öğretici için birçok yolla dosyalarınızı depolayabilirsiniz olsa da, o
 
 ### <a name="enable-cors"></a>CORS'yi etkinleştirme
 
- Bir tarayıcıda Azure AD B2C kod modern ve standart bir yaklaşım, ilkede belirttiğiniz URL'den özel içerik yüklemek için kullanır. Çıkış noktaları arası kaynak paylaşımı (CORS) başka etki alanlarından istenmesi için bir web sayfasında sınırlı kaynaklar sağlar.
+ Bir tarayıcıda Azure AD B2C kod modern ve standart bir yaklaşım, bir kullanıcı akışı belirttiğiniz URL'den özel içerik yüklemek için kullanır. Çıkış noktaları arası kaynak paylaşımı (CORS) başka etki alanlarından istenmesi için bir web sayfasında sınırlı kaynaklar sağlar.
 
 1. Menüde **CORS**.
 2. İçin **çıkış noktaları**, girin `https://your-tenant-name.b2clogin.com`. Değiştirin `your-tenant-name` Azure AD B2C kiracınızın adı. Örneğin, `https://fabrikam.b2clogin.com`. Kiracı adınızın girerken tamamen küçük harf kullanmanız gerekir.
@@ -137,9 +137,9 @@ Bu öğreticide, Azure AD B2C bunlara erişebilmesi için depolama hesabında ol
 4. Daha sonra öğreticide kullanmak üzere karşıya yüklediğiniz dosyanın URL'sini kopyalayın.
 5. İçin 3 ve 4 adımı yineleyin *style.css* dosya.
 
-## <a name="create-a-sign-up-and-sign-in-policy"></a>Kaydolma ve oturum açma ilkesi oluşturma
+## <a name="create-a-sign-up-and-sign-in-user-flow"></a>Kaydolma ve oturum açma kullanıcı akışı oluştur
 
-Bu öğreticideki adımları tamamlamak için Azure AD B2C'de bir test uygulaması ve kaydolma veya oturum açma ilkesi oluşturmanız gerekir. Profil düzenleme gibi diğer kullanıcı deneyimleri için Bu öğreticide açıklanan ilkeler uygulayabilirsiniz.
+Bu öğreticideki adımları tamamlamak için Azure AD B2C'de bir test kullanıcı uygulama ve kaydolma veya oturum açma akışını oluşturmaya gerekir. Profil düzenleme gibi diğer kullanıcı deneyimleri için Bu öğreticide açıklanan ilkeler uygulayabilirsiniz.
 
 ### <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C'yi uygulama oluşturma
 
@@ -153,29 +153,34 @@ Azure AD B2C ile iletişim kiracınızda oluşturduğunuz bir uygulama üzerinde
 6. İçin **Web uygulaması / Web API'sini**seçin `Yes`yazıp enter `https://jwt.ms` için **yanıt URL'si**.
 7. **Oluştur**’a tıklayın.
 
-### <a name="create-the-policy"></a>İlke oluşturma
+### <a name="create-the-user-flow"></a>Kullanıcı akışı oluştur
 
-Özelleştirme dosyaları test etmek için daha önce oluşturduğunuz uygulamayı kullanan yerleşik bir kaydolma veya oturum açma ilkesi oluşturun.
+Özelleştirme dosyaları test etmek için daha önce oluşturduğunuz uygulamayı kullanan bir yerleşik kaydolma veya oturum açma kullanıcı Akış oluşturun.
 
-1. Azure AD B2C kiracınızı seçin **oturum açma veya kaydolma ilkeleri'ni**ve ardından **Ekle**.
-2. İlke için bir ad girin. Örneğin, *signup_signin*. Önek *B2C_1* adına ilke oluşturulduğunda otomatik olarak eklenir.
-3. Seçin **kimlik sağlayıcıları**ayarlayın **kayıt e-posta** için bir yerel hesap ve ardından **Tamam**.
-4. Seçin **kaydolma özniteliklerini**, müşteriden kayıt sırasında toplamak istediğiniz öznitelikleri seçin. Örneğin, **ülke/bölge**, **görünen ad**, ve **posta kodu**ve ardından **Tamam**.
-5. Seçin **uygulama taleplerini**, başarılı bir kaydolma veya oturum açma deneyiminden sonra uygulamanıza geri gönderilen yetkilendirme belirteçlerinde döndürülmesini istediğiniz talepleri seçin. Örneğin, **görünen ad**, **kimlik sağlayıcısı**, **posta kodu**, **kullanıcı yeni** ve **kullanıcının nesne kimliği** ve ardından **Tamam**.
-6. Seçin **sayfa UI özelleştirmesini**seçin **birleşik kaydolma veya oturum açma sayfası**ve ardından **Evet** için **özel sayfa kullan**.
-7. İçinde **özel sayfa URI'si**, için URL girin *özel ui.html* daha önce kaydettiğiniz dosya ve ardından **Tamam**.
-8. **Oluştur**’a tıklayın.
+1. Azure AD B2C kiracınızı seçin **kullanıcı akışları**ve ardından **yeni kullanıcı akışı**.
+2. Üzerinde **önerilen** sekmesinde **oturum yukarı ve oturum açma**.
+3. Kullanıcı akışı için bir ad girin. Örneğin, *signup_signin*. Önek *B2C_1* adına kullanıcı Akış oluşturulduğunda otomatik olarak eklenir.
+4. Altında **kimlik sağlayıcıları**seçin **kayıt e-posta**.
+5. Altında **kullanıcı öznitelikleri ve talepler**, tıklayın **daha fazla Göster**.
+6. İçinde **toplama özniteliği** sütun, müşteriden kayıt sırasında toplamak istediğiniz öznitelikleri seçin. Örneğin, **ülke/bölge**, **görünen ad**, ve **posta kodu**.
+7. İçinde **dönüş talep** sütun, başarılı bir kaydolma veya oturum açma deneyiminden sonra uygulamanıza geri gönderilen yetkilendirme belirteçlerinde döndürülmesini istediğiniz talepleri seçin. Örneğin, **Görünen Ad**, **Kimlik Sağlayıcısı**, **Posta Kodu**, **Kullanıcı yeni** ve **Kullanıcının Nesne Kimliği**’ni işaretleyin.
+8. **Tamam** düğmesine tıklayın.
+9. **Oluştur**’a tıklayın.
+10. Altında **Özelleştir**seçin **sayfa düzenleri**. Seçin **birleşik kaydolma veya oturum açma sayfası**ve ardından **Evet** için **özel sayfa içeriği kullan**.
+11. İçinde **özel sayfa URI'si**, için URL girin *özel ui.html* daha önce kaydettiğiniz dosya.
+12. Sayfanın üst kısmında tıklayın **Kaydet**.
 
-## <a name="test-the-policy"></a>Test İlkesi
+## <a name="test-the-user-flow"></a>Kullanıcı akışı test edin
 
-1. Azure AD B2C kiracınızı seçin **oturum açma veya kaydolma ilkeleri'ni**ve ardından oluşturduğunuz ilkeyi seçin. Örneğin, *B2C_1_signup_signin*.
-2. Oluşturduğunuz uygulama, seçili olduğundan emin olun **uygulama seçin**ve ardından **Şimdi Çalıştır**.
+1. Azure AD B2C kiracınızı seçin **kullanıcı akışları** ve oluşturduğunuz kullanıcı akışı seçin. Örneğin, *B2C_1_signup_signin*.
+2. Sayfanın üst kısmında tıklayın **kullanıcı akışı çalıştırma**.
+3. Tıklayın **kullanıcı akışı çalıştırma** düğmesi.
 
-    ![Kaydolma veya oturum açma ilkesi çalıştırın](./media/tutorial-customize-ui/signup-signin.png)
+    ![Kaydolma veya oturum açma kullanıcı akışı çalıştırma](./media/tutorial-customize-ui/run-user-flow.png)
 
     Oluşturduğunuz CSS dosyasını temel alan bir sayfa Orta öğeleriyle aşağıdaki örneğe benzer görmeniz gerekir:
 
-    ![İlke Sonuçları](./media/tutorial-customize-ui/run-now.png) 
+    ![Kullanıcı akışı sonuçları](./media/tutorial-customize-ui/run-now.png) 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -183,7 +188,7 @@ Bu makalede, öğrendiğiniz nasıl yapılır:
 
 > [!div class="checklist"]
 > * UI özelleştirme dosyaları oluşturma
-> * Dosyaları kullanan bir kaydolma ve oturum açma ilkesi oluşturma
+> * Dosyaları kullanan bir kaydolma ve oturum açma kullanıcı Akış oluşturma
 > * Özelleştirilmiş UI testi
 
 > [!div class="nextstepaction"]

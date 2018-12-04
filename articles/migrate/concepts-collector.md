@@ -4,15 +4,15 @@ description: Azure geçişi, Toplayıcı gerecini hakkında bilgi sağlar.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/28/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 81e6731068db84f02073f02c49bea9a8fb7c7c70
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 5a542ae23bf500125fd08338b2efd30dd42d9a8d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241200"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840920"
 ---
 # <a name="about-the-collector-appliance"></a>Toplayıcı gerecini hakkında
 
@@ -20,21 +20,9 @@ ms.locfileid: "50241200"
 
 Azure geçişi toplayıcısı bir şirket içi vCenter ortam ile değerlendirme amaçları için keşfetmek için kullanılan basit bir gereçtir [Azure geçişi](migrate-overview.md) service, azure'a geçiş işleminden önce.  
 
-## <a name="discovery-methods"></a>Bulma yöntemleri
+## <a name="discovery-method"></a>Bulma yöntemi
 
-Toplayıcı Gereci, tek seferlik bulma veya sürekli bulma için iki seçenek vardır.
-
-### <a name="one-time-discovery"></a>Tek seferlik keşif
-
-Toplayıcı Gereci, bir kerelik vCenter Server Vm'leri hakkında meta veriler toplamak için ile iletişim kurar. Bu yöntemi kullanarak:
-
-- Gerecin Azure geçişi projesi için sürekli olarak bağlı değil.
-- Bulma tamamlandıktan sonra Azure geçişi şirket içi ortamda değişiklikleri yansıtılmıyor. Değişiklikleri yansıtacak şekilde, aynı projede aynı ortamı yeniden bulmak gerekir.
-- Bir VM için performans verilerini toplamak, Gereci vCenter Server'da depolanan geçmiş performans verilerini kullanır. Bu performans geçmişi için geçtiğimiz ay toplar.
-- Geçmiş performans verilerini toplama için üçüncü düzey için vcenter Server istatistik ayarları ayarlamanız gerekir. Düzey 3 ayarladıktan sonra performans sayaçları toplamak vCenter için en az bir gün beklemeniz gerekir. Bu nedenle, en az bir gün sonra bulma çalıştırırken öneririz. 1 haftanın veya 1 ayın performans verilerini temel alarak ortam değerlendirmek istiyorsanız, uygun şekilde beklemeniz gerekir.
-- Bu bulma yöntemi, Azure geçişi içinde eksik boyutlandırma sonuçlanabilir her ölçüm (yerine yoğun sayaçları) için ortalama sayaçları toplar. Sonuçları boyutlandırma daha doğru şekilde almak için sürekli keşif seçeneği kullanmanızı öneririz.
-
-### <a name="continuous-discovery"></a>Sürekli keşif
+Daha önce Toplayıcı Gereci, tek seferlik bulma ve sürekli bulma için iki seçeneğiniz vardı. Tek seferlik model performans verilerini toplama (Düzey 3 ayarlamak için gerekli istatistik ayarları) için vCenter Server istatistik ayarları yararlandı gibi artık kullanım dışıdır ve ayrıca içinde sonuçlanan ortalama sayaçları (yerine yoğun) toplanan alt boyutlandırma. Sürekli bulma model ayrıntılı veri toplama sağlar ve en yüksek sayaçlarını toplamayı nedeniyle doğru boyutlandırma sonuçlanır. Şekli aşağıda verilmiştir:
 
 Toplayıcı gerecini sürekli olarak Azure geçişi projesine bağlı olan ve sürekli olarak VM'lerin performans verilerini toplar.
 
@@ -44,14 +32,16 @@ Toplayıcı gerecini sürekli olarak Azure geçişi projesine bağlı olan ve s�
 - Bu model, performans verilerini toplamak için vCenter Server istatistik ayarları üzerinde bağımlı değildir.
 - Sürekli, dilediğiniz zaman Toplayıcı profil oluşturma durdurabilirsiniz.
 
-Gerecin performans verilerini yalnızca sürekli olarak topladığını unutmayın, şirket içi ortamdaki (ör. VM eklemesi, silmesi, disk eklemesi vb.) hiçbir yapılandırma değişikliğini algılamaz. Şirket içi ortamda bir yapılandırma değişikliği gerçekleşirse değişikliklerin portala yansıması için aşağıdakileri yapabilirsiniz:
+**Anında keyif:** keşif tamamlandıktan sonra sürekli bulma Gereci ile (birkaç VM sayısına bağlı olarak saat sürer), değerlendirmeler hemen oluşturabilirsiniz. Anında sonuç elde etmek için kullanmak istiyorsanız, Keşif yaslanıp performans veri toplama başlar bu yana değerlendirmede boyutlandırma ölçütü seçmelisiniz *şirket içi olarak*. Performans tabanlı değerlendirmeleri için en az bir gün sonra güvenilir boyut önerileri almak için keşif başlatılmadan için beklemeniz önerilir.
+
+Gereç yalnızca performans verilerini sürekli olarak toplar, şirket içi ortamda (yani VM ekleme, silme, disk ekleme vb.) herhangi bir yapılandırma değişikliği algılamaz. Şirket içi ortamda bir yapılandırma değişikliği gerçekleşirse değişikliklerin portala yansıması için aşağıdakileri yapabilirsiniz:
 
 - Öğelerin eklenmesi (VM’ler, diskler, çekirdekler vb.): Bu değişiklikleri Azure portala yansıtmak için keşfi gereçten durdurup yeniden başlatabilirsiniz. Bu, değişikliklerin Azure Geçişi projesinde güncelleştirilmesini sağlar.
 
 - VM silme: Gerecin tasarlanma şekli nedeniyle keşfi durdurup başlatsanız bile VM silme yansıtılmaz. Bunun nedeni takip eden keşiflerin eski keşiflerin üzerine yazılması yerine bunlara eklenmesidir. Bu durumda grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplayarak portaldaki VM’yi yoksayabilirsiniz.
 
 > [!NOTE]
-> Sürekli bulma işlevi Önizleme aşamasındadır. Bu yöntemin ayrıntılı performans verileri toplaması ve doğru boyutlandırmayla sonuçlanması nedeniyle bu yöntemi kullanmanızı öneririz.
+> Bu yöntem, vCenter Server'ın performans veri noktası kullanılabilirlik için istatistik ayarları yararlandı ve sanal makinelerin Azure'a geçiş için eksik boyutlandırma içinde sonuçlanan ortalama performans sayaçlarının toplanan gibi tek seferlik gereç artık kullanım dışı bırakılmıştır.
 
 ## <a name="deploying-the-collector"></a>Toplayıcı dağıtımı
 
@@ -211,7 +201,7 @@ Gereç ayarlandıktan sonra bulma çalıştırabilirsiniz. Nasıl çalıştığ�
 
 ### <a name="collected-metadata"></a>Toplanan meta verileri
 
-Toplayıcı gerecini VM'ler için statik aşağıdaki meta verileri bulur:
+Toplayıcı gerecini her VM için aşağıdaki yapılandırma meta verileri bulur. Sanal makineler için yapılandırma verilerini bulma başlattıktan sonra bir saat kullanılabilir.
 
 - VM görünen adı (temel, vCenter sunucusu)
 - Sanal makinenin envanteri yolu (konak/klasörü vCenter Server)
@@ -224,26 +214,18 @@ Toplayıcı gerecini VM'ler için statik aşağıdaki meta verileri bulur:
 
 #### <a name="performance-counters"></a>Performans sayaçları
 
-- **Tek seferlik**: sayaçları için bir kerelik bulma toplandığında, aşağıdakilere dikkat edin:
+ Toplayıcı gerecini 20 saniyelik bir aralıkta ESXi konağından her VM için aşağıdaki performans sayaçlarını toplar. Bu sayaçlardan vCenter sayaçları ve terminolojiyi ortalama diyor olsa da, 20 saniye örnekleri gerçek zamanlı sayaçları. VM'ler için performans verilerini iki saat sonra keşif devreye girdi portalda kullanılabilir hale gelmeden başlatır. İçin en az doğru doğru boyutlandırma önerilerini almak için Değerlendirmeler performans tabanlı oluşturmadan önce bir gün beklemeniz önerilir. Anında sonuç elde etmek için arıyorsanız, boyutlandırma ölçütü ile değerlendirmeler oluşturabilirsiniz *şirket içi olarak* hangi değil dikkate alınır doğru boyutlandırma için performans verileri.
 
-    - Bu, toplamak ve yapılandırma meta verilerini projeye göndermek için 15 dakika sürebilir.
-    - Yapılandırma verileri toplandıktan sonra portalda kullanılabilir olması performans verilerini bir saate kadar sürebilir.
-    - Meta verileri portalda kullanılabilir olduktan sonra VM'lerin listesi görüntülenir ve değerlendirmesi için grupları oluşturmaya başlayabilir.
-- **Sürekli bulma**: sürekli bulma için aşağıdakilere dikkat edin:
-    - Yapılandırma verileri VM için bulmayı Başlat sonraki bir saat kullanılabilir
-    - Performans verilerini 2 saat sonra kullanılabilir hale gelmeden başlatır.
-    - Bulma başlattıktan sonra ortamı değerlendirmeleri oluşturmadan önce profil cihaz için en az bir gün bekleyin.
-
-**Sayaç** | **Düzey** | **Cihaz başına düzeyi** | **Etki değerlendirmesi**
---- | --- | --- | ---
-CPU.Usage.average | 1 | NA | Önerilen VM boyutu ve maliyet  
-mem.Usage.average | 1 | NA | Önerilen VM boyutu ve maliyet  
-virtualDisk.read.average | 2 | 2 | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
-virtualDisk.write.average | 2 | 2  | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
-virtualDisk.numberReadAveraged.average | 1 | 3 |  Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
-virtualDisk.numberWriteAveraged.average | 1 | 3 |   Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
-NET.Received.average | 2 | 3 |  VM boyutunu hesaplar                          |
-NET.transmitted.average | 2 | 3 | VM boyutunu hesaplar     
+**Sayaç** |  **Etki değerlendirmesi**
+--- | ---
+CPU.Usage.average | Önerilen VM boyutu ve maliyet  
+mem.Usage.average | Önerilen VM boyutu ve maliyet  
+virtualDisk.read.average | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
+virtualDisk.write.average | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
+virtualDisk.numberReadAveraged.average | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
+virtualDisk.numberWriteAveraged.average | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
+NET.Received.average | VM boyutunu hesaplar                          
+NET.transmitted.average | VM boyutunu hesaplar     
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

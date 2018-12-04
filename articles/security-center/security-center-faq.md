@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 10ff2118ade13980250608bf4bc238e8ff2f9c64
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4db786723793ca309b8c0abe7c6ede848649576b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312995"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834613"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, artırılmış görünürlük ve Microsoft Azure kaynaklarınızın güvenliğini denetim ile tehditleri önleyin, algılayın ve yardımcı olan bir hizmet hakkında sorular yanıtlanmaktadır.
@@ -42,7 +42,7 @@ Güvenlik Merkezi iki katmanda sunulur:
 
 **Ücretsiz katmanı** iş ortaklarının güvenlik ürün ve hizmetleriyle Azure kaynakları, temel güvenlik ilkesi, güvenlik önerileri ve tümleştirme güvenlik durumunu görünürlük sağlar.
 
-**Standart katman** algılama özellikleri dahil olmak üzere, tehdit zekası, davranışsal analiz, anomali algılama, güvenlik olayları ve tehdit attribution raporları Gelişmiş tehdit ekler. Standart katman ilk 60 gün boyunca ücretsizdir. İlk 60 günden sonraki hizmeti kullanmaya devam etmeyi tercih ederseniz, biz otomatik olarak ücret alınmaya başlatın.  Yükseltmek için seçin [fiyatlandırma katmanı](https://docs.microsoft.com/azure/security-center/security-center-pricing) güvenlik ilkesinde.
+**Standart katman** algılama özellikleri dahil olmak üzere, tehdit zekası, davranışsal analiz, anomali algılama, güvenlik olayları ve tehdit attribution raporları Gelişmiş tehdit ekler. Bir standart tierfree deneme süresi başlatabilirsiniz. Yükseltmek için seçin [fiyatlandırma katmanı](https://docs.microsoft.com/azure/security-center/security-center-pricing) güvenlik ilkesinde. Daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="permissions"></a>İzinler
 Azure Güvenlik Merkezi, Azure'daki kullanıcılara, gruplara ve hizmetlere atanabilen [yerleşik roller](../role-based-access-control/built-in-roles.md) sağlayan [Rol Tabanlı Erişim Denetimi'ni (RBAC)](../role-based-access-control/role-assignments-portal.md) kullanır.
@@ -133,7 +133,7 @@ Güvenlik Merkezi, önceden bir aracının yüklü olduğunu anlayamaz.  Güvenl
 Microsoft Monitoring uzantısı kaldırırsanız, Güvenlik Merkezi sanal makine ve bazı güvenlik önerilerini güvenlik verilerini toplamak mümkün değildir ve uyarılar kullanılamıyor. 24 saat içinde Güvenlik Merkezi, VM uzantısı eksik ve uzantıyı yükler belirler.
 
 ### <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>Otomatik aracı yükleme ve çalışma alanı oluşturma nasıl durdururum?
-Otomatik aboneliklerinizde güvenlik ilkesinde sağlamayı kapatın kapatabilirsiniz, ancak bu önerilmemektedir. Otomatik sağlama sınırları Güvenlik Merkezi önerilerini ve Uyarıları kapatma. Otomatik sağlama standart fiyatlandırma katmanı abonelikler için gereklidir. Otomatik sağlamayı devre dışı bırakmak için:
+Otomatik aboneliklerinizde güvenlik ilkesinde sağlamayı kapatın kapatabilirsiniz, ancak bu önerilmemektedir. Otomatik sağlama sınırları Güvenlik Merkezi önerilerini ve Uyarıları kapatma. Otomatik sağlamayı devre dışı bırakmak için:
 
 1. Aboneliğiniz için standart katmana yapılandırıldıysa, bu abonelik için Güvenlik İlkesi'ni açın ve seçin **ücretsiz** katmanı.
 
@@ -163,7 +163,8 @@ Aşağıdakiler sizin için geçerliyse, otomatik sağlama dışında bırakmak 
 Geçiş tamamlandıktan sonra Güvenlik Merkezi sanal makine ve bazı güvenlik önerilerini güvenlik verilerini toplamak mümkün değildir ve uyarılar kullanılamıyor. Microsoft Monitoring Agent çıkarsanız, el ile yüklemeniz gerekir. Bkz: [iletişimlerini, önerilen adımlar](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
 
 ### <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>Otomatik sağlama dışında kabul edilirse, önerilen adımlar nelerdir?
-Güvenlik Merkezi, Vm'lerinizden güvenlik verilerini toplamak ve öneriler ve uyarılar sağlamak için Microsoft Monitoring Agent el ile yüklemeniz gerekir. Bkz: [Azure Log Analytics hizmetine bağlama Windows bilgisayarlara](../log-analytics/log-analytics-windows-agent.md) yükleme hakkında yönergeler için.
+
+Güvenlik Merkezi, Vm'lerinizden güvenlik verilerini toplamak ve öneriler ve uyarılar sağlamak için Microsoft Monitoring Agent uzantısını el ile yüklemeniz gerekir. Bkz: [aracı yüklemesi Windows VM için](../virtual-machines/extensions/oms-windows.md) veya [Linux sanal makinesi için aracı yüklemesi](../virtual-machines/extensions/oms-linux.md) yükleme hakkında yönergeler için.
 
 Aracı mevcut özel çalışma alanına bağlanabilir veya Güvenlik Merkezi çalışma alanı oluşturulur. Özel bir çalışma alanı etkin 'Güvenlik' veya 'SecurityCenterFree' çözümü yoksa, bir çözüm uygulamak gerekir. Uygulamak için özel çalışma alanı ya da abonelik seçin ve bir fiyatlandırma katmanı aracılığıyla uygulama **güvenlik ilkesi – fiyatlandırma katmanı** dikey penceresi.
 
@@ -226,7 +227,7 @@ Güvenlik Merkezi çözüm çalışma alanı yüklü zaten mevcut değilse ve ç
 Microsoft Monitoring Agent (olarak değil bir Azure uzantısı) doğrudan VM'de yüklü değilse, Güvenlik Merkezi Microsoft Monitoring Agent yüklemez ve güvenlik izleme sınırlıdır.
 
 ### <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>Güvenlik Merkezi, my mevcut Log Analytics çalışma alanları çözümleri yüklüyor mu? Fatura etkileri nelerdir?
-Güvenlik Merkezi, Güvenlik Merkezi bir VM zaten oluşturduğunuz bir çalışma alanına bağlı belirlediğinde bu çalışma alanındaki fiyatlandırma katmanınızı göre çözümler sağlar. Çözümleri aracılığıyla yalnızca ilgili Azure Vm'lerine, uygulanan [çözüm hedefleme](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting), faturalandırma aynı kalır.
+Güvenlik Merkezi, Güvenlik Merkezi bir VM zaten oluşturduğunuz bir çalışma alanına bağlı belirlediğinde bu çalışma alanındaki fiyatlandırma katmanınızı göre çözümler sağlar. Çözümleri aracılığıyla yalnızca ilgili Azure Vm'lerine, uygulanan [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md), faturalandırma aynı kalır.
 
 - **Ücretsiz katmanı** – Güvenlik Merkezi, çalışma alanı 'SecurityCenterFree' çözümü yükler. Ücretsiz katmanı için faturalandırılmaz.
 - **Standart katman** – Güvenlik Merkezi, çalışma alanı 'Güvenlik' çözümü yükler.
@@ -234,7 +235,7 @@ Güvenlik Merkezi, Güvenlik Merkezi bir VM zaten oluşturduğunuz bir çalışm
    ![Varsayılan çalışma alanı çözümleri][4]
 
 ### <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Çalışma Alanım ortamda zaten var, bunların güvenlik verilerini toplamak için kullanabilir miyim?
-Güvenlik Merkezi, bir VM'nin Microsoft Monitoring Agent yüklüyse Azure uzantı olarak zaten varsa, mevcut bağlı çalışma kullanır. Güvenlik Merkezi çözüm çalışma alanı yüklü zaten mevcut değilse ve çözümü yalnızca ilgili Vm'lere uygulanır [çözüm hedefleme](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting).
+Güvenlik Merkezi, bir VM'nin Microsoft Monitoring Agent yüklüyse Azure uzantı olarak zaten varsa, mevcut bağlı çalışma kullanır. Güvenlik Merkezi çözüm çalışma alanı yüklü zaten mevcut değilse ve çözümü yalnızca ilgili Vm'lere uygulanır [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md).
 
 Güvenlik Merkezi, Microsoft Monitoring Agent, Vm'lerde yüklendiğinde, Güvenlik Merkezi tarafından oluşturulan varsayılan çalışma alanlarını kullanır.
 

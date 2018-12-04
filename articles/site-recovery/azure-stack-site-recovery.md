@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 9da64ebe675f9d481c7474a81fec294d50e49ce7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8285632d8dea76763c65dd06e8be2d7494a47188
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215217"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839003"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure Stack sanal makinelerini Azure'a çoğaltma
 
@@ -207,8 +207,8 @@ Hedef kaynaklarını seçin ve doğrulayın.
 ### <a name="create-a-replication-policy"></a>Çoğaltma ilkesi oluşturma
 
 1. Tıklayın **altyapıyı hazırlama** > **çoğaltma ayarları**.
-2. İçinde **çoğaltma ilkesi oluşturma**, bir ilke adı belirtin.
-3. İçinde **RPO eşiği**, kurtarma noktası hedefi (RPO) sınırı belirtin.
+2. **Çoğaltma ilkesi oluştur** bölümünde bir ilke adı belirtin.
+3. **RPO eşiği** bölümünde kurtarma noktası hedefi (RPO) sınırını belirtin.
     - Çoğaltılan veriler için kurtarma noktalarını uygun şekilde zaman kümesi oluşturulur.
     - Bu ayar, çoğaltma sürekli olduğu etkilemez. Oluşturulan olmadan bir kurtarma noktası eşiği sınırına ulaşıldığında yalnızca bir uyarı verir.
 4. İçinde **kurtarma noktası bekletme**, ne kadar süreyle saklanacağını her kurtarma noktası belirtin. Çoğaltılan VM'ler, belirtilen zaman penceresinde herhangi bir noktaya kurtarılabilir.

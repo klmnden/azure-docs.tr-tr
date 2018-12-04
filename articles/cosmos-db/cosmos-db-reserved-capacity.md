@@ -1,20 +1,19 @@
 ---
-title: Azure Cosmos DB kaynaklarını paradan tasarruf etmek ön ödeme | Microsoft Docs
+title: Azure Cosmos DB kaynaklarını paradan tasarruf etmek ön ödeme
 description: Hesaplama maliyetlerinizden kaydetmek için Azure Cosmos DB ayrılmış kapasite satın alma konusunda bilgi edinin.
 services: cosmos-db
 author: rimman
-manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: d389b3b7e50c83246542fd6b446827055a5a002a
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f1582a54d305cbf2cc1b03b1a7fd2ee6079dd87e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583475"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839237"
 ---
 # <a name="prepay-for-azure-cosmos-db-resources-with-reserved-capacity"></a>Azure Cosmos DB kaynaklarını için ön ödeme ile ayrılmış kapasite
 

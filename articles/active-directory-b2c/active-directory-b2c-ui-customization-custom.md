@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 237d22054ecb4eea58494c1b5066eb8e00ecd2fc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b0e24da86d253139a85e792bf3c59d777cf5db6a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583458"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833957"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de bir özel ilke kullanarak uygulamanızın kullanıcı arabirimini özelleştirme
 
@@ -31,7 +31,7 @@ Bölümündeki adımları tamamlamanız [özel ilkeleri kullanmaya başlama](act
 
 Sayfa UI özelleştirmesi özelliğini kullanarak, herhangi bir özel ilke görünümünü özelleştirebilirsiniz. Ayrıca bu sayede uygulamanızla Azure AD B2C arasında marka ve görsel tutarlılığı sağlayabilirsiniz.
 
-Çalışma şekli şöyledir: Azure AD B2C kod müşterinizin tarayıcıda çalışan ve modern bir yaklaşımı adlı kullanır [çıkış noktaları arası kaynak paylaşımı (CORS)](http://www.w3.org/TR/cors/). İlk olarak, özelleştirilmiş HTML içerikli özel ilkesindeki bir URL belirtin. Azure AD B2C, kullanıcı arabirimi öğelerini URL'nizden yüklenen HTML içeriğiyle birleştirdikten sonra sayfayı müşteriye gösterir.
+Çalışma şekli şöyledir: Azure AD B2C kod müşterinizin tarayıcıda çalışan ve modern bir yaklaşımı adlı kullanır [çıkış noktaları arası kaynak paylaşımı (CORS)](https://www.w3.org/TR/cors/). İlk olarak, özelleştirilmiş HTML içerikli özel ilkesindeki bir URL belirtin. Azure AD B2C, kullanıcı arabirimi öğelerini URL'nizden yüklenen HTML içeriğiyle birleştirdikten sonra sayfayı müşteriye gösterir.
 
 ## <a name="create-your-html5-content"></a>HTML5 içerik oluşturma
 
@@ -111,7 +111,7 @@ BLOB Depolama aşağıdakileri yaparak çıkış noktaları arası kaynak payla�
 
 Aşağıdakileri yaparak hazır kimliğinizi doğrulayın:
 
-1. Git [www.test-cors.org](http://www.test-cors.org/) Web sitesine gidin ve sonra URL'yi yapıştırın **uzak URL** kutusu.
+1. Git [www.test-cors.org](https://www.test-cors.org/) Web sitesine gidin ve sonra URL'yi yapıştırın **uzak URL** kutusu.
 2. Tıklayın **gönderme isteği**.  
     Bir hata alırsanız, emin olun, [CORS ayarları](#configure-cors) doğrudur. Tarayıcı önbelleğini temizlemeniz veya Ctrl + Shift + P tuşlarına basarak bir özel tarama oturumu açmak gerekebilir.
 

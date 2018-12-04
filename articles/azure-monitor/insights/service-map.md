@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: c25bc5d577096078694e3af0de74debe0f906251
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: dd7f76e20e43e24c31f5afd8c8d9eb97db04255f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828747"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843232"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure'da hizmet eşlemesi çözümünü kullanma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Hizmet eşlemesi ile bunları düşündüğünüz gibi sunucularınızı görüntüleyebilirsiniz: kritik Hizmetleri sunmak birbirine sistemleri olarak. Bir aracı yüklemesini dışında hiçbir yapılandırma tüm TCP bağlantılı mimarisi arasında bağlantı noktaları gerekli ve hizmet eşlemesi sunucuları, işlemler, gelen ve giden bağlantı gecikmesi arasındaki bağlantıları gösterir.
@@ -277,7 +277,7 @@ Güncelleştirme yönetimi ile tümleştirme hizmet eşlemesi, her iki çözüm 
 ![Makine değişiklik izleme bölmesinde](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Log Analytics kayıtları
-Hizmet eşlemesi bilgisayar ve envanter verileri için kullanılabilir [arama](../../log-analytics/log-analytics-queries.md) Log analytics'te. Geçiş planlaması kapasite analizi, bulma ve isteğe bağlı performans sorunlarını giderme senaryoları için bu verileri uygulayabilirsiniz.
+Hizmet eşlemesi bilgisayar ve envanter verileri için kullanılabilir [arama](../../azure-monitor/log-query/log-query-overview.md) Log analytics'te. Geçiş planlaması kapasite analizi, bulma ve isteğe bağlı performans sorunlarını giderme senaryoları için bu verileri uygulayabilirsiniz.
 
 Her bir benzersiz bilgisayar ve işlem, bir işlem veya bilgisayar başlatıldığında veya hizmet eşlemesi eklendiğinden, oluşturulan kayıtlarına ek olarak saat başına tek bir kayıt oluşturulur. Bu kayıtları aşağıdaki tablolarda özelliklere sahiptir. Alanları ve değerleri ServiceMapComputer_CL olaylar ServiceMap Azure Resource Manager API'si makine kaynak alanları eşleyin. Alanları ve değerleri ServiceMapProcess_CL olaylar ServiceMap Azure Resource Manager API'si işlem kaynak alanlarını eşleyin. ResourceName_s alanın, karşılık gelen Resource Manager kaynak adı alanında eşleşir. 
 
@@ -504,7 +504,7 @@ Veri toplama ve kullanım hakkında daha fazla bilgi için bkz: [Microsoft Onlin
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi edinin [günlük aramaları](../../log-analytics/log-analytics-queries.md) hizmet eşlemesi tarafından toplanan verileri almak için Log analytics'te.
+Daha fazla bilgi edinin [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) hizmet eşlemesi tarafından toplanan verileri almak için Log analytics'te.
 
 
 ## <a name="troubleshooting"></a>Sorun giderme

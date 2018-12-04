@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/04/2018
+ms.date: 10/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a65a0b8e054b1d0bb6cd4cbeb2daf9be2b132a9e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 3da4ecb1193959fcc8782f8aa5fdf32c130ee238
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304549"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840155"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Bir Web kancası ile bir Azure Otomasyonu runbook'u başlatma
 
@@ -31,7 +31,7 @@ Aşağıdaki tabloda, bir Web kancası için yapılandırmanız gereken özellik
 |:--- |:--- |
 | Ad |İstemciye gösterilmez bu yana bir Web kancası için istediğiniz herhangi bir ad sağlayabilirsiniz. Yalnızca sizin için Azure Otomasyonu'nda runbook tanımlamak için kullanılır. <br> En iyi uygulama, Web kancası kullanan istemcisiyle ilgili bir ad vermesi gerekir. |
 | URL'si |Web kancası URL'si, Web kancası'na bağlı bir runbook başlatmak için bir HTTP POST ile bir istemci çağrıları benzersiz adresidir. Web kancasını oluşturduğunuzda otomatik olarak oluşturulur. Özel bir URL belirtemezsiniz. <br> <br> URL, başka bir kimlik doğrulaması ile üçüncü taraf sistemleri tarafından çağrılacak runbook izin veren bir güvenlik belirteci içeriyor. Bu nedenle, bir parola gibi düşünülmelidir. Güvenlik nedeniyle, Web kancası oluşturulduğunda Azure portalında yalnızca URL'yi görüntüleyebilirsiniz. Gelecekte kullanım için güvenli bir konumda URL'yi not alın. |
-| Sona erme tarihi |Bir sertifikanın gibi her Web kancası aynı zamanda artık kullanılabilir bir sona erme tarihi vardır. Web kancası oluşturulduktan sonra bu sona erme tarihi değiştirilebilir. |
+| Son kullanma tarihi |Bir sertifikanın gibi her Web kancası aynı zamanda artık kullanılabilir bir sona erme tarihi vardır. Web kancası oluşturulduktan sonra bu sona erme tarihi değiştirilebilir. |
 | Etkin |Bir Web kancası, oluşturulduğunda varsayılan olarak etkindir. Devre dışı olarak ayarlarsanız, hiçbir istemci kullanabilmek için. Ayarlayabileceğiniz **etkin** özelliği, Web kancası veya dilediğiniz zaman bir kez oluşturduğunuzda oluşturulur. |
 
 ### <a name="parameters"></a>Parametreler
@@ -133,8 +133,20 @@ param
     [object] $WebhookData
 )
 
+
+
 # If runbook was called from Webhook, WebhookData will not be null.
 if ($WebhookData) {
+
+    # Check header for message to validate request
+    if ($WebhookData.RequestHeader.message -eq 'StartedbyContoso')
+    {
+        Write-Output "Header has required information"}
+    else
+    {
+        Write-Output "Header missing required information";
+        exit;
+    }
 
     # Retrieve VM's from Webhook request body
     $vms = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
@@ -143,7 +155,7 @@ if ($WebhookData) {
 
     Write-Output "Authenticating to Azure with service principal and certificate"
     $ConnectionAssetName = "AzureRunAsConnection"
-    Write-Output "Get connection asset: $ConnectionAssetName" 
+    Write-Output "Get connection asset: $ConnectionAssetName"
 
     $Conn = Get-AutomationConnection -Name $ConnectionAssetName
             if ($Conn -eq $null)
@@ -171,7 +183,7 @@ else {
 
 Aşağıdaki örnek, bir Web kancası ile bir runbook başlatmak için Windows PowerShell kullanır. Bir HTTP isteği yapabilen herhangi bir dilde bir Web kancası kullanabilirsiniz; Windows PowerShell kullanılan bir örnek burada.
 
-Runbook, isteğin gövdesindeki JSON biçimli sanal makinelerin bir listesini bekliyor.
+Runbook, isteğin gövdesindeki JSON biçimli sanal makinelerin bir listesini bekliyor. Runbook yanı üstbilgileri özellikle tanımlanan içerdiğini doğrular ileti Web kancası çağrıyı doğrulamak için geçerlidir.
 
 ```azurepowershell-interactive
 $uri = "<webHook Uri>"
@@ -181,8 +193,8 @@ $vms  = @(
             @{ Name="vm02";ResourceGroup="vm02"}
         )
 $body = ConvertTo-Json -InputObject $vms
-
-$response = Invoke-RestMethod -Method Post -Uri $uri -Body $body
+$header = @{ message="StartedbyContoso"}
+$response = Invoke-RestMethod -Method Post -Uri $uri -Body $body -Headers $header
 $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 ```
 

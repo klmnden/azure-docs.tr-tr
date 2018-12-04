@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: 9c5cdf6c2baf4197b693b522848fc1fd04db7abf
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.date: 12/03/2018
+ms.openlocfilehash: 939c008dbfdb996c84132d5aa0b5ed625e0a68ec
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422519"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837911"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Otomatik SQL veritabanını yedekleme hakkında bilgi edinin
 
@@ -33,8 +33,8 @@ Bu yedeklemeler için kullanabilirsiniz:
 
 - Bir veritabanı saklama süresi içinde bir-belirli bir noktaya için geri yükleyin. Bu işlem, özgün veritabanı ile aynı sunucuda yeni bir veritabanı oluşturur.
 - Silinen bir veritabanını geri yükleme, silinmiş olduğu zaman veya Bekletme dönemi içinde istediğiniz zaman. Silinen veritabanını yalnızca özgün veritabanının oluşturulduğu aynı sunucuya geri yüklenebilir.
-- Bir veritabanını başka bir coğrafi bölgeye geri yükleyin. Bu, sunucunuz ve veritabanınıza erişemediğinde coğrafi olağanüstü durumdan kurtarmanıza olanak tanır. Dünyanın her yerinden herhangi bir mevcut sunucusu içinde yeni bir veritabanı oluşturur.
-- Veritabanı uzun süreli saklama ilkesini (LTR) ile yapılandırılmış olması halinde bir veritabanını belirli bir uzun dönem yedeklemeden geri yükleyin. Bu veritabanının uyumluluk isteği karşılamak için veya uygulamanın eski bir sürümü eski bir sürümüne geri yüklemenize olanak sağlar. Bkz: [uzun süreli saklama](sql-database-long-term-retention.md).
+- Bir veritabanını başka bir coğrafi bölgeye geri yükleyin. Coğrafi geri yükleme, sunucunuz ve veritabanınıza erişemediğinde coğrafi olağanüstü durumdan kurtarmanıza olanak tanır. Dünyanın her yerinden herhangi bir mevcut sunucusu içinde yeni bir veritabanı oluşturur.
+- Veritabanı uzun süreli saklama ilkesini (LTR) ile yapılandırılmış olması halinde bir veritabanını belirli bir uzun dönem yedeklemeden geri yükleyin. LTR veritabanının uyumluluk isteği karşılamak için veya uygulamanın eski bir sürümü eski bir sürümüne geri yüklemenize olanak sağlar. Daha fazla bilgi için bkz. [Uzun süreli saklama](sql-database-long-term-retention.md).
 - Bir geri yükleme gerçekleştirmek için bkz: [veritabanını yedeklerden geri yükleme](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
@@ -42,16 +42,16 @@ Bu yedeklemeler için kullanabilirsiniz:
 
 ## <a name="how-long-are-backups-kept"></a>Yedeklemeleri ne kadar saklanır
 
-Her bir SQL veritabanı bağlı olduğu 7 ila 35 gün arasında bir varsayılan yedekleme bekletme süresi olan [satın alma modeli ve Hizmet katmanını](#pitr-retention-period). (Bu özellik, yakında yönetilen örneği'nde etkinleştirilecek) Azure mantıksal sunucusu üzerinde bir veritabanı için yedekleme bekletme süresi güncelleştirebilirsiniz. Bkz: [değişiklik yedekleme Bekletme dönemi](#how-to-change-backup-retention-period) daha fazla ayrıntı için.
+Her bir SQL veritabanı bağlı olduğu 7 ila 35 gün arasında bir varsayılan yedekleme bekletme süresi olan [satın alma modeli ve Hizmet katmanını](#pitr-retention-period). Azure mantıksal sunucusu üzerinde bir veritabanı için yedekleme bekletme süresi güncelleştirebilirsiniz. Daha fazla bilgi için [değişiklik yedekleme Bekletme dönemi](#how-to-change-the-pitr-backup-retention-period).
 
 Bir veritabanı silerseniz, SQL veritabanı yedeklemeleri için çevrimiçi bir veritabanı olduğu aynı şekilde tutar. Örneğin, bir yedi günlük tutma süresine sahip bir temel veritabanı silerseniz, dört gün eski bir yedek üç gün boyunca kaydedilir.
 
-Yedeklemeler en fazla PITR saklama süresinden daha uzun süre tutmanız gerekiyorsa, bir veya daha fazla uzun vadeli bekletme süreleri veritabanınıza eklemek için yedekleme özelliklerini değiştirebilirsiniz. Bkz: [uzun süreli yedek saklama](sql-database-long-term-retention.md) daha fazla ayrıntı için.
+Yedeklemeler en uzun saklama süresinden daha uzun süre tutmanız gerekiyorsa, bir veya daha fazla uzun vadeli bekletme süreleri veritabanınıza eklemek için yedekleme özelliklerini değiştirebilirsiniz. Daha fazla bilgi için bkz. [Uzun süreli saklama](sql-database-long-term-retention.md).
 
 > [!IMPORTANT]
 > SQL veritabanlarını barındıran Azure SQL server silerseniz, tüm elastik havuzlara ve sunucuya ait veritabanlarına da silinir ve kurtarılamaz. Silinen bir sunucuya geri yükleyemezsiniz. Ancak, uzun süreli saklama yapılandırdıysanız, LTR ile veritabanları için yedekleri silinmez ve bu veritabanlarını geri yüklenebilir.
 
-### <a name="pitr-retention-period"></a>PITR saklama süresi
+### <a name="default-backup-retention-period"></a>Varsayılan yedekleme bekletme süresi
 
 #### <a name="dtu-based-purchasing-model"></a>DTU tabanlı satın alma modeli
 
@@ -63,12 +63,10 @@ DTU tabanlı satın alma modeli kullanılarak oluşturulmuş bir veritabanı iç
 
 #### <a name="vcore-based-purchasing-model"></a>Sanal çekirdek tabanlı satın alma modeli
 
-Kullanıyorsanız [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md), varsayılan yedekleme Bekletme dönemi 7 (hem mantıksal sunucuları ve yönetilen örnekler) gündür.
+Kullanıyorsanız [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md), (tek, havuza alınmış ve yönetilen örnek veritabanları için) varsayılan yedekleme bekletme süresi 7 gündür. Tüm Azure SQL veritabanları için (havuza alınmış, tek ve yönetilen örnek veritabanları yapabilecekleriniz [için 35 gün yedekleme bekletme süresi değiştirme](#how-to-change-the-pitr-backup-retention-period).
 
-- Tek ve havuza alınmış veritabanları için yapabilecekleriniz [için 35 gün yedekleme bekletme süresi değiştirme](#how-to-change-backup-retention-period).
-- Yedekleme bekletme süresi değiştirmek, yönetilen örneği'nde kullanılamaz.
-
-Geçerli saklama süresinin azaltılırsa, yeni bir bekletme değerinden daha eski tüm mevcut yedekleme süresi olan artık kullanılabilir. Geçerli saklama süresini artırmak istiyorsanız, SQL veritabanı uzun bekletme süresine ulaşılana kadar mevcut yedeklemeler tutar.
+> [!WARNING]
+> Geçerli saklama süresinin azaltılırsa, yeni bir bekletme değerinden daha eski tüm mevcut yedekleme süresi olan artık kullanılabilir. Geçerli saklama süresini artırmak istiyorsanız, SQL veritabanı uzun bekletme süresine ulaşılana kadar mevcut yedeklemeler tutar.
 
 ## <a name="how-often-do-backups-happen"></a>Yedeklemeleri ne sıklıkta gerçekleşir
 
@@ -96,21 +94,24 @@ Veritabanınız ile TDE şifrelenmişse, yedeklemeleri otomatik olarak LTR yedek
 
 Sürekli olarak, Azure SQL veritabanı mühendislik ekibi, veritabanlarının otomatik veritabanı yedeklerini geri otomatik olarak hizmet arasında sınar. Geri yükleme sonrasında veritabanları DBCC CHECKDB kullanarak bütünlük denetimi de alır. Bütünlük denetimi sırasında bulunan tüm sorunları mühendislik ekibine bir uyarıya neden olur. Azure SQL veritabanında veri bütünlüğü hakkında daha fazla bilgi için bkz: [Azure SQL veritabanında veri bütünlüğü](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
-## <a name="how-do-automated-backups-impact-my-compliance"></a>Otomatik yedekleri my uyumluluk nasıl etkilediği
+## <a name="how-do-automated-backups-impact-compliance"></a>Otomatik yedekleri uyumluluk nasıl etkilediği
 
-Veritabanı DTU tabanlı hizmet katmanı varsayılan PITR bekletme 35 gün ile bir sanal çekirdek tabanlı hizmet katmanına geçiş yaparken, PITR bekletme uygulamanızın veri kurtarma ilkesi gizliliğinin tehlikeye girmemesini sağlamak için korunur. Varsayılan saklama süresi uyumluluk gereksinimlerinizi karşılamıyorsa, PowerShell veya REST API'sini kullanarak PITR saklama süresini değiştirebilirsiniz. Bkz: [değişiklik yedekleme Bekletme dönemi](#how-to-change-backup-retention-period) daha fazla ayrıntı için.
+Veritabanı DTU tabanlı hizmet katmanı varsayılan PITR bekletme 35 gün ile bir sanal çekirdek tabanlı hizmet katmanına geçiş yaparken, PITR bekletme uygulamanızın veri kurtarma ilkesi gizliliğinin tehlikeye girmemesini sağlamak için korunur. Varsayılan saklama süresi uyumluluk gereksinimlerinizi karşılamıyorsa, PowerShell veya REST API'sini kullanarak PITR saklama süresini değiştirebilirsiniz. Bkz: [değişiklik yedekleme Bekletme dönemi](#how-to-change-the-pitr-backup-retention-period) daha fazla ayrıntı için.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="how-to-change-backup-retention-period"></a>Yedekleme bekletme süresi değiştirme
+## <a name="how-to-change-the-pitr-backup-retention-period"></a>PITR yedekleme saklama süresini değiştirme
 
-> [!Note]
-> Varsayılan yedekleme bekletme süresi (7 gün), yönetilen örneği'nde olacak şekilde değiştirilemiyor.
-
-REST API'si veya PowerShell kullanarak varsayılan saklama süresi değiştirebilirsiniz. Desteklenen değerler şunlardır: 7, 14, 21, 28 veya 35 gün. Aşağıdaki örnekler için 28 gün PITR bekletmeyi değiştirme işlemini göstermektedir.
+Azure portalı, PowerShell veya REST API'yi kullanarak varsayılan PITR yedek saklama süresini değiştirebilirsiniz. Desteklenen değerler şunlardır: 7, 14, 21, 28 veya 35 gün. Aşağıdaki örnekler için 28 gün PITR bekletmeyi değiştirme işlemini göstermektedir.
 
 > [!NOTE]
-> Bu API'leri yalnızca PITR saklama süresini etkiler. Veritabanınız için LTR yapılandırdıysanız, etkilenmeyecektir. Bkz: [uzun süreli yedek saklama](sql-database-long-term-retention.md) LTR bekletme period(s) değiştirme hakkında ayrıntılar için.
+> Bu API'leri yalnızca PITR saklama süresini etkiler. Veritabanınız için LTR yapılandırdıysanız, etkilenmeyecektir. LTR bekletme period(s) değiştirme hakkında daha fazla bilgi için bkz. [uzun süreli saklama](sql-database-long-term-retention.md).
+
+### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Azure portalını kullanarak PITR yedekleme bekletme süresi değiştirme
+
+Azure portalını kullanarak PITR yedekleme bekletme süresi değiştirmek için veritabanına, değiştirmek istediğiniz saklama süresi ve ardından gidin **genel bakış**.
+
+![Değiştirme PITR Azure portalı](./media/sql-database-automated-backup/configure-backup-retention.png)
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>PowerShell kullanarak değişiklik PITR yedekleme bekletme süresi
 
@@ -154,7 +155,7 @@ Durum kodu: 200
 }
 ```
 
-Bkz: [yedekleme bekletme REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies) daha fazla ayrıntı için.
+Daha fazla bilgi için [yedekleme bekletme REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 558df3fa70989aaf9ba182df3a918994c7dc9db6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1f1797cf3022285f81991eb15818b68df195de4b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243718"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834137"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs'de sahibini ve kullanıcıları ekleme
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -69,15 +69,11 @@ Aşağıdaki adımlar bir sahibi veya kullanıcı Azure DevTest labs'deki bir la
 3. İstenen Laboratuvar labs listesinden seçin.
 4. Laboratuvar dikey penceresinde seçin **yapılandırması ve ilkelerini**. 
 5. Üzerinde **yapılandırması ve ilkelerini** sayfasında **erişim denetimi (IAM)** sol taraftaki menüden. 
-6. Seçin **Ekle** bir role kullanıcı eklemek için araç çubuğunda.
-
-    ![Kullanıcı ekle](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
+6. Seçin **rol ataması Ekle** bir role kullanıcı eklemek için araç çubuğunda.
 1. İçinde **izinleri eklemek** penceresinde aşağıdaki eylemleri gerçekleştirin: 
     1. Bir rol seçin (örneğin: DevTest Labs kullanıcısı). Bölüm [her rolde gerçekleştirilebilecek eylemleri](#actions-that-can-be-performed-in-each-role) sahibi, DevTest kullanıcı ve katılımcı rollerdeki kullanıcılar tarafından gerçekleştirilen çeşitli eylemleri listeler.
     2. Role eklenecek kullanıcıyı seçin. 
     3. **Kaydet**’i seçin. 
-
-        ![Kullanıcı rolüne Ekle](./media/devtest-lab-add-devtest-user/add-user.png) 
 11. İçin döndüğünüzde **kullanıcılar** dikey penceresinde kullanıcı eklendi.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>PowerShell kullanarak Laboratuvar için bir dış kullanıcı ekleme

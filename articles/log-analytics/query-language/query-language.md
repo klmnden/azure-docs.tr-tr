@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: bwren
-ms.openlocfilehash: 4ef1e302a305f683155139063891b838d8144008
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 493c48fe87158ee357d98eb0b0d1bd2a4fad5b2f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680472"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843793"
 ---
 # <a name="log-analytics-query-language"></a>Analytics sorgu dili oturum
 Log Analytics, Azure İzleyici'için günlük toplama ve analiz sağlar. Azure Veri Gezgini yerleşik olarak bulunur ve aynı sorgu dil sürümünü kullanır. [Azure Veri Gezgini sorgu dili belgeleri](/azure/kusto/query) tüm dil ayrıntılarını sahiptir ve Log Analytics sorguları yazma, birincil kaynak olmalıdır. Bu sayfa, sorgu yazmayı öğrenmek ve farkları dilinin Log Analytics uygulaması ile diğer kaynakların bağlantılarını sağlar.
@@ -29,7 +29,7 @@ Log Analytics, Azure İzleyici'için günlük toplama ve analiz sağlar. Azure V
 -  [Log Analytics sorguları kullanmaya başlama](get-started-queries.md) Log Analytics verilerini kullanan sorgular yazmak için bir Ders şu oldu.
 
 ## <a name="concepts"></a>Kavramlar
-- [Azure İzleyici'de log Analytics verilerini çözümleme](../log-analytics-queries.md) verir günlük kısa bir genel bakış sorgular ve Log Analytics verilerini nasıl yapılandırıldığını açıklar.
+- [Azure İzleyici'de log Analytics verilerini çözümleme](../../azure-monitor/log-query/log-query-overview.md) verir günlük kısa bir genel bakış sorgular ve Log Analytics verilerini nasıl yapılandırıldığını açıklar.
 - [Log analytics'te verileri çözümleme ve görüntüleme](../log-analytics-log-search-portals.md) oluşturduğunuz ve Log Analytics sorguları çalıştırma portallar açıklamaktadır.
 
 ## <a name="reference"></a>Başvuru

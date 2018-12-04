@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 5532c86271fa6a5f2b573e005993a68ac0a9e248
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 25d2db5dcf3979341fc104643f7178047c29483b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857083"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842841"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Service Bus ile Azure kaynakları için yönetilen kimlikleri 
 
@@ -53,10 +53,8 @@ Uygulamayı oluşturduktan sonra (nasıl yapılır makalesinde de gösterilmişt
 
 Ardından, [Service Bus Mesajlaşması ad alanı oluşturma](service-bus-create-namespace-portal.md) RBAC Önizleme desteğine sahip Azure bölgelerinden birini: **ABD Doğu**, **ABD Doğu 2**, veya **Batı Avrupa** . 
 
-Ad alanınıza gidin **erişim denetimi (IAM)** sayfasında portalda ve ardından **Ekle** için yönetilen kimlik eklemek için **sahibi** rol. Bunu yapmak için web uygulamasının adını arayın **izinleri eklemek** paneli **seçin** alan ve sonra giriş'e tıklayın. Daha sonra **Kaydet**'e tıklayın.
+Ad alanınıza gidin **erişim denetimi (IAM)** sayfasında portalda ve ardından **rol ataması Ekle** için yönetilen kimlik eklemek için **sahibi** rol. Bunu yapmak için web uygulamasının adını arayın **izinleri eklemek** paneli **seçin** alan ve sonra giriş'e tıklayın. Daha sonra **Kaydet**'e tıklayın.
 
-![](./media/service-bus-managed-service-identity/msi2.png)
- 
 Web uygulamasının yönetilen kimlik artık Service Bus ad alanı erişimi olan ve daha önce oluşturduğunuz kuyruğa. 
 
 ### <a name="run-the-app"></a>Uygulamayı çalıştırma

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 4128d113535c67c0b440dc3fb275af05b5c1c1ae
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 79803a749b6d08c94bcbf5f3ca66aac8b7294fa3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306154"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844660"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Güvenlik çerçevesi: Şifreleme | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
@@ -172,8 +172,8 @@ ms.locfileid: "43306154"
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Cihaz işletim sistemi - Windows IOT Core, cihaz bağlantısı - Azure IOT cihaz SDK'ları |
-| **Başvuruları**              | [Windows IOT Core TPM](https://developer.microsoft.com/windows/iot/docs/tpm), [Windows IOT Core TPM ayarlama](https://developer.microsoft.com/windows/iot/win10/setuptpm), [Azure IOT cihaz SDK'sı TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
-| **Adımları** | Simetrik ya da sertifika özel anahtarları güvenli bir şekilde bir donanımda depolama gibi akıllı kart ya da TPM yongaları korumalı. Windows 10 IoT Core TPM kullanıcısı destekler ve kullanılabilecek birkaç uyumlu TPM'ler vardır: https://developer.microsoft.com/windows/iot/win10/tpm. Donanım veya ayrık TPM kullanmanız önerilir. Bir yazılım TPM yalnızca geliştirme ve test amacıyla kullanılmalıdır. TPM kullanılamıyorsa, ve anahtarları hazırlandıktan sonra belirteci oluşturan kod içindeki herhangi bir önemli bilgi sabit kodlama olmadan yazılmalıdır. | 
+| **Başvuruları**              | [Windows IOT Core TPM](https://developer.microsoft.com/windows/iot/docs/tpm), [Windows IOT Core TPM ayarlama](https://docs.microsoft.com/windows/iot-core/secure-your-device/setuptpm), [Azure IOT cihaz SDK'sı TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
+| **Adımları** | Simetrik ya da sertifika özel anahtarları güvenli bir şekilde bir donanımda depolama gibi akıllı kart ya da TPM yongaları korumalı. Windows 10 IoT Core TPM kullanıcısı destekler ve kullanılabilecek birkaç uyumlu TPM'ler vardır: https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm. Donanım veya ayrık TPM kullanmanız önerilir. Bir yazılım TPM yalnızca geliştirme ve test amacıyla kullanılmalıdır. TPM kullanılamıyorsa, ve anahtarları hazırlandıktan sonra belirteci oluşturan kod içindeki herhangi bir önemli bilgi sabit kodlama olmadan yazılmalıdır. | 
 
 ### <a name="example"></a>Örnek
 ```

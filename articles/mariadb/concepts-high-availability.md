@@ -7,16 +7,16 @@ editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 2f06c9515c6ee79ea7475452b7000d1babdbecfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/03/2018
+ms.openlocfilehash: 043988066cae672225b850b57864bddb3155689c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956532"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833848"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı'nda yüksek kullanılabilirlik kavramları
-MariaDB hizmeti için Azure veritabanı, garantili yüksek düzeyde kullanılabilirlik sağlar. Finansal destekli bir hizmet düzeyi sözleşmesi (SLA), genel kullanım sonrasında % 99,99 değerindedir. SLA'ın genel önizlemesi için geçerli değildir. Neredeyse hiçbir uygulama kesinti işbu hizmeti kullanırken.
+MariaDB hizmeti için Azure veritabanı, garantili yüksek düzeyde kullanılabilirlik sağlar. Finansal destekli bir hizmet düzeyi sözleşmesi (SLA), genel kullanım sonrasında % 99,99 değerindedir. Neredeyse hiçbir uygulama kesinti işbu hizmeti kullanırken.
 
 ## <a name="high-availability"></a>Yüksek kullanılabilirlik
 Yüksek kullanılabilirlik (HA) modeli, bir düğüm düzeyinde kesinti oluştuğunda yerleşik yük devretme mekanizmalarına temel alır. Bir düğüm düzeyinde kesinti nedeniyle bir donanım hatası veya hizmet dağıtımı yanıt oluşabilir.
@@ -34,4 +34,4 @@ MariaDB için Azure veritabanı yukarı veya aşağı ölçeklendirildiğinde HA
 Ölçeklendirme işlemi sırasında veritabanı bağlantıları için bir kesinti oluşur. İstemci uygulamalarını kesilir ve açık kaydedilmemiş işlemleri iptal edilir. İstemci uygulama, bağlantı yeniden dener veya yeni bir bağlantı kurar sonra yeni boyutlu örnek bağlantı ağ geçidi yönlendirir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Hizmetine genel bakış için bkz. [MariaDB genel bakış için Azure veritabanı](overview.md)
+- Hizmetine genel bakış için bkz. [MariaDB genel bakış için Azure veritabanı](overview.md)

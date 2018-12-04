@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 456e32e2f5194417f004f80feef1852dd3d0befd
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c93bc018aea92a63adac4889d9496356543c1e52
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723287"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842739"
 ---
 # <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Belirteç, oturum ve Azure Active Directory B2C, çoklu oturum açma yapılandırması
 
@@ -66,7 +66,7 @@ Aşağıdaki özellikler, müşterilerin gerektiğinde iyileştirilmiş izin ver
 
 - **Verici (iss) talebi** -bu özellik, belirteci veren Azure AD B2C kiracısı tanımlar.
     - `https://<domain>/{B2C tenant GUID}/v2.0/` -Varsayılan değer budur.
-    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` -Bu değer, B2C kiracısının hem de belirteci istekte kullanılan kullanıcı akışı için kimliklerini içerir. Uygulama veya kitaplık ile uyumlu olması için Azure AD B2C gerekip gerekmediğini [Openıd Connect bulma 1.0 belirtimi](http://openid.net/specs/openid-connect-discovery-1_0.html), bu değeri kullanın.
+    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` -Bu değer, B2C kiracısının hem de belirteci istekte kullanılan kullanıcı akışı için kimliklerini içerir. Uygulama veya kitaplık ile uyumlu olması için Azure AD B2C gerekip gerekmediğini [Openıd Connect bulma 1.0 belirtimi](https://openid.net/specs/openid-connect-discovery-1_0.html), bu değeri kullanın.
 - **Konu (sub) talebi** -belirteç için bilgilerini onayladığı varlık bu özelliği tanımlar.
     - **ObjectID** -bu özellik varsayılan değerdir. Dizine kullanıcının nesne kimliği doldurur `sub` belirtecinde talep.
     - **Desteklenmeyen** - bu özellik, yalnızca geriye dönük uyumluluk için sağlanır ve için geçiş öneririz **objectID** yapabilecekleriniz hemen sonra.

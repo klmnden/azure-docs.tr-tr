@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: d5cda8830b480e9ef9dff18cb3d7b99e1db55590
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0339889228c80cc3675fd7fde52e75cb84521ab6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442804"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840189"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Öğretici: Azure Active Directory ödül ağ geçidi ile tümleştirme
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile ödül ağ geçidi yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik bir ödül Gateway çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'de ödül ağ geçidi tümleştirmesini yapılandırmak için ödül a�
 
 **Galeriden ödül ağ geçidi eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -129,7 +129,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Bu değerleri almak için ödül Manager portalında bir tümleştirme ayarlama başlatın. Ayrıntıları bulunabilir http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Bu değerleri almak için ödül Manager portalında bir tümleştirme ayarlama başlatın. Ayrıntıları bulunabilir https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
  
 1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
@@ -139,7 +139,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/reward-gateway-tutorial/tutorial_general_400.png)
 
-1. Çoklu oturum açmayı yapılandırma **ödül ağ geçidi** yan için bir tümleştirme ayarlama ödül Manager portalında başlatın. Sertifika imzalama elde edilir ve yapılandırma sırasında karşıya yüklenen meta veriler kullanın. Ayrıntıları bulunabilir http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
+1. Çoklu oturum açmayı yapılandırma **ödül ağ geçidi** yan için bir tümleştirme ayarlama ödül Manager portalında başlatın. Sertifika imzalama elde edilir ve yapılandırma sırasında karşıya yüklenen meta veriler kullanın. Ayrıntıları bulunabilir https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
 
 > [!TIP]
 > İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)

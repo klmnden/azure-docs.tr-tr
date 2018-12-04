@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 69088f7d07312d4110eafea369ea999f0597868b
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 85e39e47c5f532888911c00d3e526e51596f57bb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442004"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832828"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute İzleyicisi
 
@@ -160,4 +160,4 @@ Bildirim kodları görmek ve bunlar üzerinde uyarılar ayarlayın **LogAnalytic
  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Arama günlüklerini](../../log-analytics/log-analytics-queries.md) ayrıntılı ağ performansı verileri kayıtları görüntülemek için.
+[Arama günlüklerini](../../azure-monitor/log-query/log-query-overview.md) ayrıntılı ağ performansı verileri kayıtları görüntülemek için.

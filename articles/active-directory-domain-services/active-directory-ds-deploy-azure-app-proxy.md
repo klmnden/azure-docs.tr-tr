@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 96ef005f095e5ab774a88ec766080f647414a7ce
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4621122d805f37be1578aa7b7c9ae059f3141c77
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155550"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840308"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services yönetilen etki alanı üzerinde Azure AD uygulama ara sunucusu dağıtma
 Azure Active Directory (AD) uygulama proxy'si internet üzerinden erişilecek şirket içi uygulamalar yayımlayarak uzak çalışanları desteklemenize yardımcı olur. Azure AD Domain Services ile artık lift-and-shift ile taşıma eski uygulamaları şirket içinde çalışan Azure altyapı hizmetleri için kullanabilirsiniz. Ardından, kuruluşunuzdaki kullanıcılar için güvenli uzaktan erişim sağlamak için Azure AD uygulama proxy'si kullanarak bu uygulamaları yayımlayabilirsiniz.
@@ -42,7 +42,7 @@ Bu makalede listelenen görevleri gerçekleştirmek için gerekir:
 ## <a name="task-1---enable-azure-ad-application-proxy-for-your-azure-ad-directory"></a>Azure AD dizininiz için görev 1 - Enable Azure AD uygulama ara sunucusu
 Azure AD dizininiz için Azure AD uygulama proxy'sini etkinleştirmek için aşağıdaki adımları gerçekleştirin.
 
-1. Yönetici olarak oturum açın [Azure portalında](http://portal.azure.com).
+1. Yönetici olarak oturum açın [Azure portalında](https://portal.azure.com).
 
 2. Tıklayın **Azure Active Directory** dizin genel bakış getirilecek. Tıklayın **kurumsal uygulamalar**.
 

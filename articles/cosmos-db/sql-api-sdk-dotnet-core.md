@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8243d1e297fa778d4fa27f8365d9bb0a935d21e5
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5a0fb429c36005edca579cbdb7b379e6b04be60b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388013"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840852"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK SQL API'si için: yayın notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -52,6 +52,13 @@ ms.locfileid: "49388013"
 ## <a name="release-notes"></a>Sürüm Notları
 
 Azure Cosmos DB .NET Core SDK'sı özellik eşliği ile en son sürümüne sahip [Azure Cosmos DB .NET SDK'sı](sql-api-sdk-dotnet.md).
+
+### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-Preview
+* 1 önizlemesi [sürüm 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) genel önizlemesi için .NET SDK'sının.
+* Hedef .NET framework 4.6.1+ .NET ve .NET Core 2.0 + destekleyen standardı
+* Yeni nesne modeli, üst düzey CosmosClient ve yöntemleri ile ilgili CosmosDatabases ve CosmosContainers CosmosItems sınıflar arasında bölün. 
+* Akışları için destek. 
+* Durum kodu döndürür ve yanıt döndürüldüğünde yalnızca durum sunucudan CosmosResponseMessage güncelleştirildi. 
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
@@ -189,12 +196,12 @@ Azure Cosmos DB .NET Core SDK'sı özellik eşliği ile en son sürümüne sahip
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
-* Toplama sorguları (sayısı, MIN, MAX, toplam ve ortalama) için destek eklendi. Bkz: [toplama Destek](sql-api-sql-query.md#Aggregates).
+* Toplama sorguları (sayısı, MIN, MAX, toplam ve ortalama) için destek eklendi. Bkz: [toplama Destek](how-to-sql-query.md#Aggregates).
 * Bölümlenmiş koleksiyonlardan 10,100 RU/sn 2500 RU/sn için en düşük aktarım hızını düşürdü.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 
-Azure Cosmos DB .NET Core SDK'sı hızlı, platformlar arası oluşturmanıza olanak sağlayan [ASP.NET Core](https://www.asp.net/core) ve [.NET Core](https://www.microsoft.com/net/core#windows) uygulamaları Windows, Mac ve Linux üzerinde çalıştırılacak. Azure Cosmos DB .NET Core SDK'ın en son sürümünü tam olarak olan [Xamarin](https://www.xamarin.com) uyumlu ve iOS, Android ve Mono (Linux) hedefleyen uygulamalar oluşturmak için kullanılabilir.  
+Azure Cosmos DB .NET Core SDK'sı hızlı, platformlar arası oluşturmanıza olanak sağlayan [ASP.NET Core](https://www.asp.net/core) ve [.NET Core](https://www.microsoft.com/net/core#windows) uygulamaları Windows, Mac ve Linux üzerinde çalıştırılacak. Azure Cosmos DB .NET Core SDK'ın en son sürümünü tam olarak olan [Xamarin](https://www.xamarin.com) uyumlu ve iOS, Android ve Mono (Linux) hedefleyen uygulamalar oluşturmak için kullanılabilir.  
 
 ### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-Preview
 

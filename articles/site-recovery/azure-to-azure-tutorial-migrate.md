@@ -1,30 +1,30 @@
 ---
-title: Azure Site Recovery hizmetini kullanarak Azure IaaS VM'lerini başka bir Azure bölgesine geçirme | Microsoft Docs
-description: Azure IaaS sanal makinelerini bir Azure bölgesinden diğerine geçirmek için Azure Site Recovery’yi kullanın.
+title: Azure Iaas Vm'leri Azure Site Recovery hizmetini kullanarak başka bir Azure bölgesine Taşı | Microsoft Docs
+description: Azure Iaas Vm'leri bir Azure bölgesinden diğerine taşımak için Azure Site RECOVERY'yi kullanın.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9ad994ad3dc1fc350a9a41c23574acfa2bae9629
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 656f58bb9864757635ab5752da6bf31320504415
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212293"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843266"
 ---
-# <a name="migrate-azure-vms-to-another-region"></a>Azure VM’lerini başka bir bölgeye geçirme
+# <a name="move-azure-vms-to-another-region"></a>Azure Vm'lerini başka bir bölgeye Taşı
 
-İş sürekliliği ve olağanüstü durum kurtarma (BCDR) amacıyla şirket içi makinelere ve sanal makinelere yönelik olağanüstü durum kurtarmayı yönetmek ve düzenlemek için [Azure Site Recovery](site-recovery-overview.md) hizmetini kullanmanın yanı sıra, Azure sanal makinelerinin ikincil bir bölgeye geçişini yönetmek için de Site Recovery’yi kullanabilirsiniz. Azure sanal makinelerini geçirmek için sanal makinelere yönelik çoğaltmayı etkinleştirir ve sanal makinelerin yükünü birincil bölgeden seçtiğiniz ikincil bölgeye devredersiniz.
+Kullanmanın yanı sıra [Azure Site Recovery](site-recovery-overview.md) yönetmek ve iş sürekliliği ve olağanüstü durum kurtarma (BCDR) amacıyla şirket içi makinelerin ve Azure Vm'lerinde olağanüstü durum kurtarma düzenlemek için hizmet sitesini de kullanabilirsiniz Kurtarma yönetmek için Azure Vm'leri için ikincil bir bölgeye taşıyın. Azure sanal makineleri taşımak için makinelere yönelik çoğaltmayı etkinleştirir ve bunları birincil bölgeden seçtiğiniz ikincil bölgeye yük devretmek.
 
-Bu öğretici, Azure sanal makinelerini başka bir bölgeye nasıl geçireceğinizi gösterir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide Azure Vm'leri, başka bir bölgeye taşımak gösterilmektedir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Kurtarma hizmetleri kasası oluşturma
-> * Sanal makine için çoğaltmayı etkinleştirme
-> * Sanal makineyi geçirmek için bir yük devretme çalıştırma
+> * VM için çoğaltmayı etkinleştirme
+> * Sanal Makineyi taşımak için yük devretme çalıştırma
 
 Bu öğreticide önceden bir Azure aboneliğiniz olduğu varsayılır. Yoksa, başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) oluşturun.
 
@@ -32,9 +32,9 @@ Bu öğreticide önceden bir Azure aboneliğiniz olduğu varsayılır. Yoksa, ba
 
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-- Geçiş yapmak istediğiniz Azure bölgesinde Azure VM’leriniz olduğundan emin olun.
+- Azure sanal makineleri taşımak istediğiniz Azure bölgesinde olduğundan emin olun.
 - [Senaryo mimarisini ve bileşenlerini ](azure-to-azure-architecture.md) anladığınızdan emin olun.
 - [Destek sınırlamaları ve gereksinimleri](azure-to-azure-support-matrix.md) konusunu inceleyin.
 
@@ -66,12 +66,12 @@ Bu öğreticide önceden bir Azure aboneliğiniz olduğu varsayılır. Yoksa, ba
 
 ### <a name="verify-vm-outbound-access"></a>Sanal makine giden erişimini doğrulama
 
-1. Geçirmek istediğiniz sanal makineler için ağ bağlantısını denetlemek üzere bir kimlik doğrulaması ara sunucusu kullanmadığınızdan emin olun. 
-2. Bu öğreticide, geçirmek istediğiniz sanal makinelerin Internet’e erişebildiği ve giden erişimi denetlemek için güvenlik duvarı ara sunucusu kullanmadığınız varsayılmaktadır. Öyleyse [buradan](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity) gereksinimleri denetleyin.
+1. Taşımak istediğiniz sanal makineleri için ağ bağlantısını denetlemek için bir kimlik doğrulaması Ara sunucusu kullanmadığınızdan emin olun. 
+2. Bu öğreticinin amaçları doğrultusunda, taşımak istediğiniz sanal makinelerin İnternet'e erişebilir ve giden erişimi denetlemek için bir güvenlik duvarı proxy kullanmıyorsanız varsayıyoruz. Öyleyse [buradan](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity) gereksinimleri denetleyin.
 
 ### <a name="verify-vm-certificates"></a>Sanal makine sertifikalarını doğrulama
 
-Geçirmek istediğiniz Azure sanal makinelerinde en son kök sertifikaların tamamının mevcut olup olmadığını kontrol edin. En son kök sertifikalar mevcut değilse güvenlik kısıtlamaları nedeniyle sanal makine, Site Recovery’ye kaydedilemez.
+En son kök sertifikalar Azure Vm'lerinde, taşımak istediğiniz mevcut olduğundan emin olun. En son kök sertifikalar mevcut değilse güvenlik kısıtlamaları nedeniyle sanal makine, Site Recovery’ye kaydedilemez.
 
 - Windows VM’ler için, güvenilir kök sertifikaların tamamı makinede mevcut olacak şekilde sanal makineye en son Windows güncelleştirmelerinin tümünü yükleyin. Bağlantısı kesilmiş bir ortamda, kuruluşunuz için standart Windows Update ve sertifika güncelleştirme işlemlerini uygulayın.
 - Linux VM’ler için, sanal makinedeki en son güvenilir kök sertifikaları ve sertifika iptal listesini almak için Linux dağıtıcınız tarafından sağlanan yönergeleri izleyin.
@@ -113,7 +113,7 @@ Site Recovery, abonelik ve kaynak grubu ile ilişkili VM’lerin listesini alır
 
 
 1. Azure portalında **Sanal makineler**’e tıklayın.
-2. Geçirmek istediğiniz sanal makineyi seçin. Daha sonra, **Tamam**'a tıklayın.
+2. Taşımak istediğiniz VM'yi seçin. Daha sonra, **Tamam**'a tıklayın.
 3. **Ayarlar** menüsünde **Olağanüstü durum kurtarma** seçeneğine tıklayın.
 4. **Olağanüstü durumdan kurtarma yapılandırma** > **Hedef bölge** bölümünde, çoğaltma yapacağınız hedef bölgeyi seçin.
 5. Bu öğretici için diğer varsayılan ayarları kabul edin.
@@ -136,7 +136,7 @@ Site Recovery, abonelik ve kaynak grubu ile ilişkili VM’lerin listesini alır
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide bir Azure VM’yi farklı bir Azure bölgesine geçirdiniz. Şimdi, geçirilen VM için olağanüstü durum kurtarmayı yapılandırabilirsiniz.
+Bu öğreticide bir Azure sanal makinesi farklı bir Azure bölgesine taşındı. Şimdi taşınan sanal makine için olağanüstü durum kurtarmayı yapılandırabilirsiniz.
 
 > [!div class="nextstepaction"]
 > [Geçişten sonra olağanüstü durum kurtarmayı ayarlama](azure-to-azure-quickstart.md)

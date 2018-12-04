@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 329bc41555f2def0e2b7001a7b445cd3de16d439
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 51c19447e115426bd39d39fedc86193c8f091df1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828163"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843317"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Öğretici: ile Uzaktan izleme çözüm Hızlandırıcısını anormallikleri uçta
 
@@ -24,16 +24,26 @@ Uzaktan izleme ile işleme edge tanıtmak için bir sanal Petrol pompa jack ciha
 
 Contoso Intelligent edge modülü sıcaklık anomalileri algılar Petrol pompa jack dağıtmak istiyor. Başka bir edge modülü, Uzaktan izleme çözümü uyarılar gönderir. Bir uyarı aldığınızda, Contoso işleci bir bakım teknisyen gönderebilecek. Contoso, çözüm bir uyarı aldığında çalıştırılacak bir e-posta gönderme gibi otomatik bir eylemi de yapılandırabilirsiniz.
 
-Bu öğreticide, bir IOT Edge cihazı, yerel Windows geliştirme makinesi kullanılır. Petrol pompa jack cihazının simülasyonunu gerçekleştirme ve sıcaklık anomalileri algılamak için edge modüllerini yükleyin.
+Aşağıdaki diyagramda, öğretici senaryoda anahtar bileşenleri gösterilmektedir:
+
+![Genel Bakış](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
 Bu öğreticide şunları yaptınız:
 
 >[!div class="checklist"]
 > * Çözüme bir IOT Edge cihazı Ekle
 > * Bir Edge bildirimi oluşturma
-> * Modüller cihazda çalıştırılacak tanımlayan bir paketini içeri aktarma
+> * Modüller cihazda çalıştırılacak tanımlayan bir paket olarak bildirim alma
 > * Paketi, IOT Edge cihazınıza dağıtma
 > * Bir CİHAZDAN Uyarıları görüntüle
+
+IOT Edge cihazında:
+
+* Çalışma zamanı paketi alır ve modülleri yükler.
+* Stream analytics modülü, içinde pompa sıcaklık anomalileri algılar ve komutları sorunu gönderir.
+* Stream analytics modülü çözüm Hızlandırıcı için filtrelenmiş verileri iletir.
+
+Bu öğreticide, Linux sanal makinesi bir IOT Edge cihazı kullanılır. Bir edge modülü Petrol pompa jack cihazının simülasyonunu de yükleyin.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -41,7 +51,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="add-an-iot-edge-device"></a>IOT Edge cihazı Ekle
+## <a name="add-an-iot-edge-device"></a>IoT Edge cihazı ekleme
 
 IOT Edge cihazı, Uzaktan izleme çözüm Hızlandırıcısını eklemek için iki adımı vardır. Bu bölümde, nasıl kullanılacağını gösterir:
 
@@ -111,54 +121,23 @@ Bir Edge cihazının Edge çalışma zamanı yüklü olmasını gerektirir. Bu �
     az vm create \
       --resource-group IoTEdgeDevices \
       --name EdgeVM \
-      --image Canonical:UbuntuServer:16.04-LTS:latest \
+      --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest \
       --admin-username azureuser \
       --generate-ssh-keys \
       --size Standard_B1ms
     ```
 
-    Genel IP adresini not alın, sonraki adımda ihtiyacınız olduğunda SSH kullanarak bağlanın.
-
-1. SSH kullanarak VM'ye bağlanmak için cloud shell'de aşağıdaki komutu çalıştırın:
+1. Edge çalışma zamanı ile cihaz bağlantı dizesini yapılandırmak için daha önce Not yapılan cihaz bağlantı dizesini kullanarak şu komutu çalıştırın:
 
     ```azurecli-interactive
-    ssh azureuser@{vm IP address}
+    az vm run-command invoke \
+      --resource-group IoTEdgeDevices \
+      --name EdgeVM \
+      --command-id RunShellScript \
+      --scripts 'sudo /etc/iotedge/configedge.sh "YOUR_DEVICE_CONNECTION_STRING"'
     ```
 
-1. Sanal Makineye bağlandığınızda, VM depoda ayarlamak için aşağıdaki komutları çalıştırın:
-
-    ```azurecli-interactive
-    curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-    sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-    ```
-
-1. Edge çalışma zamanları ve kapsayıcı sanal Makineye yüklemek için aşağıdaki komutları çalıştırın:
-
-    ```azurecli-interactive
-    sudo apt-get update
-    sudo apt-get install moby-engine
-    sudo apt-get install moby-cli
-    sudo apt-get update
-    sudo apt-get install iotedge
-    ```
-
-1. Edge çalışma zamanı ile cihaz bağlantı dizesini yapılandırmak için yapılandırma dosyasını düzenleyin:
-
-    ```azurecli-interactive
-    sudo nano /etc/iotedge/config.yaml
-    ```
-
-    Cihaz bağlantı dizesi atadığınız **device_connection_string** değişkeni, yaptığınız değişiklikleri kaydedin ve düzenleyiciden çıkın.
-
-1. Yeni yapılandırmayı kullanmaya Edge çalışma zamanı yeniden başlatın:
-
-    ```azurecli-interactive
-    sudo systemctl restart iotedge
-    ```
-
-1. Artık, SSH oturumundan çıkıp cloud shell kapatın.
+    Çift tırnak işareti içinde bağlantı dizesini eklediğinizden emin olun.
 
 Artık, yüklü ve IOT Edge çalışma zamanı bir Linux cihaz üzerinde yapılandırılan. Bu öğreticide daha sonra bu cihaza IOT Edge modüllerini dağıtmak için Uzaktan izleme çözümü kullanın.
 

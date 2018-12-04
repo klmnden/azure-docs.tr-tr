@@ -4,15 +4,15 @@ description: Azure Geçişi hizmetine genel bir bakış sağlar.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 11/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 85873dc023e63b7cc9f5ba3ff87214c49ac16e34
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 98ff54bcfe67d79d8c15da666aad0bebfe48f6e0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246744"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839743"
 ---
 # <a name="about-azure-migrate"></a>Azure Geçişi Hakkında
 
@@ -36,8 +36,8 @@ Azure Geçişi şunları yapmanıza yardımcı olur:
 - Azure Geçişi yalnızca yönetilen disklerin geçiş değerlendirmesini destekler.
 -  Azure Geçişi projesini yalnızca Birleşik Devletler coğrafyasında oluşturabilirsiniz. Ancak herhangi bir hedef Azure konumu için geçiş planlayabilirsiniz.
     - Geçiş projesi bölgesinde yalnızca şirket içi ortamında keşfedilen meta veriler depolanır.
-    - Meta veriler Orta Batı ABD/Doğu ABD coğrafi bölgelerinden birinde depolanır.
-    - Log Analytics çalışma alanı ile bağımlılık görselleştirmesi kullanırsanız proje ile aynı bölgede oluşturulur.
+    - Meta veriler seçilen coğrafi bölgelerde biriyle depolanır: Batı Orta ABD/Doğu ABD.
+    - Yeni bir Log Analytics çalışma alanı oluşturarak bağımlılık görselleştirmesi kullanırsanız, çalışma alanını proje ile aynı bölgede oluşturulur.
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>Ne için ödeme yapmam gerekiyor?
@@ -51,18 +51,18 @@ Değerlendirme ayarları ihtiyaçlarınıza göre özelleştirilebilir. Değerle
 
 **Özellik** | **Ayrıntılar**
 --- | ---
-**Hedef konum** | Geçişi yapmak istediğiniz Azure konumu.<br/><br/>Azure Geçişi şu anda 30 bölgeyi desteklemektedir. [Hangi bölgeler olduğuna bakın](https://azure.microsoft.com/global-infrastructure/services/). Varsayılan hedef bölge, Batı ABD 2 olarak ayarlanır.
-**Depolama türü** | Azure'da ayırmak istediğiniz disklerin türüdür. Bu özellik, boyutlandırma ölçütü **şirket içi olarak** olduğunda geçerlidir. Hedef disk türünü premium (varsayılan) veya standart yönetilen diskler olarak belirtebilirsiniz. Performans tabanlı boyutlandırma için, disk boyutlandırma önerisi VM'lerin performans verilerine göre otomatik olarak yapılır.
-**Boyutlandırma ölçütü** | Boyutlandırmayı şirket içi sanal makinelerin **performans geçmişini** temel alarak yapabilir veya performans geçmişini dikkate almadan **şirket içi olarak** (varsayılan) yapabilirsiniz.
+**Hedef konum** | Geçişi yapmak istediğiniz Azure konumu.<br/><br/>Azure geçişi, geçiş hedef konumları olarak 33 bölge şu anda destekler. [Hangi bölgeler olduğuna bakın](https://azure.microsoft.com/global-infrastructure/services/). Varsayılan hedef bölge, Batı ABD 2 olarak ayarlanır.
+**Depolama türü** | Yönetilen diskler değerlendirmesinin bir parçası olan tüm VM'ler için ayırmak istediğiniz türü. Boyutlandırma ölçütü ise *şirket içi olarak boyutlandırma* hedef disk türü olarak premium diskler (varsayılan), standart SSD disk veya standart HDD diskler belirtebilirsiniz. İçin *performansa dayalı boyutlandırma*, yukarıdaki seçeneklerin yanı sıra, disk boyutlandırma önerisi otomatik olarak sanal makinelerin performans verilerini göre yapıldığını sağlayacak otomatik seçilecek seçeneğiniz de vardır. Örneğin, elde etmek istiyorsanız bir [Tek Örnekli sanal makine SLA'sı % 99,9 düzeyinde](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), tüm değerlendirmesi diskleri Premium yönetilen diskler olarak önerilen sağlayacak Premium yönetilen diskler olarak depolama türünü belirtmek isteyebilirsiniz. Azure Geçişi’nin yönetilen diskleri yalnızca geçiş değerlendirmesi için desteklediğini unutmayın.
+**Ayrılmış Örnekler** |  Azure'da [ayrılmış örneklere](https://azure.microsoft.com/pricing/reserved-vm-instances/) sahip olup olmama durumunuz. Azure Geçişi, buna göre bir maliyet tahmini oluşturur.
+**Boyutlandırma ölçütü** | Boyutlandırma temel **performans geçmişi** şirket içi sanal makinelerin (varsayılan) veya **şirket içi olarak**, performans geçmişini dikkate almadan.
+**Performans geçmişi** | Varsayılan olarak Azure Geçişi, %95 yüzdebirlik değer ile son günün performans geçmişini kullanarak şirket içi makinelerin performansını değerlendirir.
+**Konfor katsayısı** | Azure Geçişi, değerlendirme sırasında bir tamponu (konfor katsayısı) göz önünde bulundurur. Bu tampon, VM’lerin makine kullanım verilerinin (CPU, bellek, disk ve ağ) üzerine uygulanır. Konfor katsayısı; sezona özgü kullanım, kısa performans geçmişi ve gelecek kullanımlarda oluşabilecek artışlar gibi konuları hesaba katar.<br/><br/> Örneğin, %20 kullanıma sahip 10 çekirdekli bir VM normalde 2 çekirdekli VM ile sonuçlanır. Ancak, 2.0x konfor katsayısı ile sonuç 4 çekirdekli VM olur. Varsayılan konfor ayarı 1,3x’tir.
+**VM serisi** | VM serisi, boyut tahmini için kullanılır. Örneğin, Azure’da A serisi VM’lere geçirmeyi planlamadığınız bir üretim ortamınız varsa, A serisini liste veya serilerin dışında bırakabilirsiniz. Boyutlandırma yalnızca seçili serilerde yapılır.   
+**Para Birimi** | Fatura para birimi. Varsayılan, ABD Doları’dır.
+**İndirim (%)** | Azure teklifinin yanı sıra aldığınız, aboneliğe özgü indirim. Varsayılan ayar, %0’dır.
+**VM çalışma süresi** | Sanal makinelerinizi Azure'da 7/24 çalıştırılması kullanmayacaksanız, bunlar çalıştırıyordur için süresi (gün / ay sayısı) ve her gün saat sayısı belirtebilirsiniz ve maliyet tahminleri uygun şekilde gerçekleştirilir. 31 gün / ay ve günde 24 saat varsayılan değerdir.
 **Azure teklifi** | Kaydolduğunuz [Azure teklifi](https://azure.microsoft.com/support/legal/offer-details/). Azure Geçişi, buna göre bir maliyet tahmini oluşturur.
 **Azure Hibrit Avantajı** | İndirimli fiyatlardan yararlanmak için yazılım güvencesine sahip olup olmadığınız ve [Azure Hibrit Avantajı](https://azure.microsoft.com/pricing/hybrid-use-benefit/) için uygun olup olmadığınız bilgisi.
-**Ayrılmış Örnekler** |  Azure'da [ayrılmış örneklere](https://azure.microsoft.com/pricing/reserved-vm-instances/) sahip olup olmama durumunuz. Azure Geçişi, buna göre bir maliyet tahmini oluşturur.
-**VM çalışma süresi** | VM'lerin Azure'da çalıştırılacağı süre. Maliyet tahminleri bu bilgiye göre gerçekleştirilir.
-**Fiyatlandırma katmanı** | Hedef Azure VM'leri için [fiyatlandırma katmanı (temel/standart)](../virtual-machines/windows/sizes-general.md). Örneğin, bir üretim ortamına geçiş yapmayı planlıyorsanız, daha düşük gecikme süresi ile sanal makineler sağlayan, ancak daha fazla maliyetli olabilecek standart katmanını göz önünde bulundurmak istersiniz. Diğer taraftan bir test ortamında yüksek gecikme süresine ve daha düşük maliyete sahip temel katmanı kullanabilirsiniz. Varsayılan olarak [standart](../virtual-machines/windows/sizes-general.md) katmanı kullanılır.
-**Performans geçmişi** | Varsayılan olarak Azure Geçişi, %95 yüzdebirlik değer ile son günün performans geçmişini kullanarak şirket içi makinelerin performansını değerlendirir.
-**VM serisi** | VM serisi, boyut tahmini için kullanılır. Örneğin, Azure’da A serisi VM’lere geçirmeyi planlamadığınız bir üretim ortamınız varsa, A serisini liste veya serilerin dışında bırakabilirsiniz. Boyutlandırma yalnızca seçili serilerde yapılır.   
-**Konfor katsayısı** | Azure Geçişi, değerlendirme sırasında bir tamponu (konfor katsayısı) göz önünde bulundurur. Bu tampon, VM’lerin makine kullanım verilerinin (CPU, bellek, disk ve ağ) üzerine uygulanır. Konfor katsayısı; sezona özgü kullanım, kısa performans geçmişi ve gelecek kullanımlarda oluşabilecek artışlar gibi konuları hesaba katar.<br/><br/> Örneğin, %20 kullanıma sahip 10 çekirdekli bir VM normalde 2 çekirdekli VM ile sonuçlanır. Ancak, 2.0x konfor katsayısı ile sonuç 4 çekirdekli VM olur. Varsayılan konfor ayarı 1,3x’tir.
-
 
 ## <a name="how-does-azure-migrate-work"></a>Azure Geçişi nasıl çalışır?
 

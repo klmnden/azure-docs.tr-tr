@@ -1,20 +1,18 @@
 ---
-title: Verileri Azure Cosmos DB ile küresel olarak dağıtma | Microsoft Docs
-description: Bir Global olarak dağıtılmış çok modelli veritabanı hizmeti olan Azure Cosmos DB genel veritabanlarından kullanarak çok büyük ölçekli coğrafi çoğaltma, çok yöneticili, yük devretme ve veri kurtarma hakkında öğrenin.
+title: Verileri Azure Cosmos DB ile küresel olarak dağıtma
+description: Bir Global olarak dağıtılmış çok modelli veritabanı hizmeti olan Azure Cosmos DB genel veritabanlarından kullanarak çok büyük ölçekli coğrafi çoğaltma, çok yöneticili, yük devretme ve veri kurtarma hakkında bilgi edinin.
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: 6849574b9d16a9d76fffd4d69742c85941300e89
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 2c217a1a89d3b573bfe2297a263bf55849b5f6e1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679486"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843861"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db"></a>Azure Cosmos DB ile verileri küresel dağıtım
 

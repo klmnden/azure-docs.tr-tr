@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 10/24/2018
-ms.openlocfilehash: 31b09818f901ecf957364ae77fd8c6e636b04342
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/03/2018
+ms.openlocfilehash: 489eccf1b73e7f5df76a3ce681b4479893a9e0ac
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712152"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843215"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları
 
@@ -145,7 +145,7 @@ Bkz: [oluşturma kimlik bilgisi](https://docs.microsoft.com/sql/t-sql/statements
 
 ### <a name="collation"></a>Harmanlama
 
-Sunucu harmanlaması `SQL_Latin1_General_CP1_CI_AS` ve değiştirilemez. Bkz: [harmanlamaları](https://docs.microsoft.com/sql/t-sql/statements/collations).
+Varsayılan örneği harmanlaması `SQL_Latin1_General_CP1_CI_AS` ve oluşturma parametre olarak belirtilebilir. Bkz: [harmanlamaları](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
 ### <a name="database-options"></a>Veritabanı seçenekleri
 
@@ -277,7 +277,8 @@ Bağlı sunucuları yönetilen örneğinde hedefleri sınırlı sayıda destekle
 ### <a name="logins--users"></a>Oturum açma bilgileri / kullanıcılar
 
 - Oluşturulan SQL oturum açmaları `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, ve `FROM SID` desteklenir. Bkz: [Oluştur oturum açma](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
-- Windows oturum açma bilgileri ile oluşturulan `CREATE LOGIN ... FROM WINDOWS` sözdizimi desteklenmiyor.
+- Azure Active Directory (AAD) oturum açmalar oluşturulurken [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) sözdizimi veya [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) söz dizimi desteklenir (**genel Önizleme**).
+- Windows oturum açma bilgileri ile oluşturulan `CREATE LOGIN ... FROM WINDOWS` sözdizimi desteklenmiyor. Azure Active Directory oturum açma bilgileri ve kullanıcılar bu seçeneği kullanın.
 - Örneği oluşturan azure Active Directory (Azure AD) kullanıcı [Kısıtlanmamış yönetici ayrıcalıkları](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts).
 - Yönetici olmayan Azure Active Directory (Azure AD) veritabanı düzeyinde kullanıcılar kullanarak oluşturulabilir `CREATE USER ... FROM EXTERNAL PROVIDER` söz dizimi. Bkz: [kullanıcı oluştur... DIŞ SAĞLAYICISINDAN](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)
 
@@ -333,7 +334,7 @@ Restore deyimleri hakkında daha fazla bilgi için bkz. [geri deyimleri](https:/
 Çapraz örnek hizmet Aracısı desteklenmez:
 
 - `sys.routes` -Önkoşul: Adres sys.routes seçin. Adresi her rotaya yerel olmalıdır. Bkz: [sys.routes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE` -yapamazsınız `CREATE ROUTE` ile `ADDRESS` dışında `LOCAL`. Bkz: [Oluştur ROTA](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
+- `CREATE ROUTE` -kullanamazsınız `CREATE ROUTE` ile `ADDRESS` dışında `LOCAL`. Bkz: [Oluştur ROTA](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
 - `ALTER ROUTE` olamaz `ALTER ROUTE` ile `ADDRESS` dışında `LOCAL`. Bkz: [ALTER ROTA](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql).  
 
 ### <a name="service-key-and-service-master-key"></a>Hizmet anahtarı ve hizmet ana anahtarı
@@ -427,12 +428,12 @@ Aşağıdaki değişkenler, İşlevler ve görünümleri farklı sonuçlar dönd
 
 Her yönetilen örneği 35 TB depolama alanı Azure Premium Disk alanı için ayrılmış olan ve her veritabanını ayrı bir fiziksel diskte yerleştirilir. Disk boyutları 128 GB, 256 GB, 512 GB, 1 TB veya 4 TB olabilir. Diskte kullanılmayan alan değil ücretlendirilir, ancak Azure Premium Disk boyutları toplam 35 TB aşamaz. Bazı durumlarda, yönetilen örneğe 8 TB toplam gerekmeyen 35 TB Azure sınırlama nedeniyle iç parçalanma depolama boyutu aşabilir.
 
-Örneğin, bir yönetilen örnek bir olabilir 1,2 TB boyutunda 4 TB disk ve 248 dosyaları her 1 GB boyutunda ayrı 128 GB diskler üzerinde yerleştirilen yerleştirilir dosya. Bu örnekte:
+Örneğin, bir yönetilen örnek bir olabilir bir 4 TB diskine yerleştirilen boyutu ve ayrı 128 GB diskler üzerinde yerleştirilen 248 dosyaları (her 1 GB boyutunda) 1,2 TB dosya. Bu örnekte:
 
-- Toplam disk depolama boyutudur 4 x 1 TB + 248 x 128 GB = 35 TB.
+- Toplam ayrılmış disk depolama boyutudur 4 x 1 TB + 248 x 128 GB = 35 TB.
 - örneğindeki veritabanları için ayrılan toplam alan olan 1.2 x 1 TB + 248 x 1 GB = 1,4 TB.
 
-Dosyaların, belirli bir dağıtım nedeniyle belirli durumda altında bir yönetilen örnek için beklediğiniz değil bağlı Azure Premium Disk için rezerve 35 TB ulaşmak, bunu göstermektedir.
+Bunu, belirli bir dağıtım dosyalarının nedeniyle belirli durumda altında göstermektedir, yönetilen örneğe beklediğiniz değil bağlı Azure Premium Disk için rezerve 35 TB ulaşmak.
 
 Bu örnekte, var olan veritabanlarını çalışmaya devam eder ve yeni dosyaları eklenmedi sürece herhangi bir sorun büyüyebilir. Ancak yeni veritabanlarını değil oluşturulabilir veya tüm veritabanlarının toplam boyutu örneği boyutu sınırına ulaştığında değil olsa bile yeni disk sürücüsü için yeterli alan olmadığından geri. Döndürülen hata durumda açık değildir.
 
@@ -443,7 +444,10 @@ Bu örnekte, var olan veritabanlarını çalışmaya devam eder ve yeni dosyalar
 
 ### <a name="tooling"></a>Araç kullanımı
 
-SQL Server Management Studio ve SQL Server veri araçları, yönetilen örneği erişirken bazı sorunlar olabilir. Genel kullanılabilirlik önce tüm araçları sorunları ele alınacaktır.
+SQL Server Management Studio (SSMS) ve SQL Server veri Araçları (SSDT) yönetilen örneği erişirken bazı sorunlar olabilir.
+
+- Azure AD oturum açma bilgileri ve kullanıcılar kullanarak (**genel Önizleme**) SSDT ile şu anda desteklenmiyor.
+- Azure AD oturum açma bilgileri ve kullanıcılar için komut dosyası (**genel Önizleme**) SSMS'de desteklenmez.
 
 ### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Bazı görünümler, günlükleri ve iletileri yanlış veritabanı adları
 
@@ -451,7 +455,7 @@ SQL Server Management Studio ve SQL Server veri araçları, yönetilen örneği 
 
 ### <a name="database-mail-profile"></a>Veritabanı posta profili
 
-Yalnızca bir veritabanı posta profili olabilir ve çağrılması gerekir `AzureManagedInstance_dbmail_profile`. Kısa süre içinde kaldırılacak geçici bir sınırlama budur.
+Yalnızca bir veritabanı posta profili olabilir ve çağrılması gerekir `AzureManagedInstance_dbmail_profile`.
 
 ### <a name="error-logs-are-not-persisted"></a>Kalıcı olmayan hata günlükleri
 
@@ -496,7 +500,7 @@ Bu kod içinde aynı örnek verilerle çalışır, ancak MSDTC gereklidir.
 
 ### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>CLR modülleri ve süre bağlı sunucular, yerel IP adresi başvuramaz
 
-Yönetilen örnek ve geçerli örnek süre başvuran bağlı sunucuları/dağıtılmış sorguları yerleştirilen CLR modülleri yerel örneğinin IP çözümlenemiyor. Bu geçici bir hatadır.
+Yönetilen örnek ve geçerli örnek süre başvuran bağlı sunucuları/dağıtılmış sorguları yerleştirilen CLR modülleri yerel örneğinin IP çözümlenemiyor. Bu hata geçici bir sorundur.
 
 **Geçici çözüm**: CLR modülünde, mümkün olduğunda bağlamı bağlantıları kullanın.
 

@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: caef9a93e7d388ab55939876b7cc8344ce6370d0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0b5fe1b1df306bf0930715bc6cfb586e5445f85c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012522"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839968"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Yeniden koruma birincil bölgeye Azure Vm'leri üzerinde başarısız oldu
 
@@ -83,4 +83,4 @@ Yeniden koruma işini tetiklemek için ve diskleri ve hedef sanal Makineyi yok a
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sanal makine korunduktan sonra bir yük devretme başlatabilirsiniz. Yük devretme ikincil bölgedeki VM kapatır ve oluşturur ve bazı küçük kapalı kalma süresi ile birincil bölgedeki VM önyüklenir. Seçtiğiniz bir zaman uygun şekilde ve yük devretme testi çalıştırma öneririz ancak birincil siteye tam bir yük devretme başlatılıyor. [Daha fazla bilgi edinin](site-recovery-failover.md) yük devretme hakkında.
+Sanal makine korunduktan sonra bir yük devretme başlatabilirsiniz. Yük devretme ikincil bölgedeki VM kapatır ve oluşturur ve bazı küçük kapalı kalma süresi ile birincil bölgedeki VM önyüklenir. Bir zaman uygun şekilde seçin ve birincil site için tam bir yük devretmeyi başlatmadan önce yük devretme testi çalıştırma öneririz. [Daha fazla bilgi edinin](site-recovery-failover.md) yük devretme hakkında.

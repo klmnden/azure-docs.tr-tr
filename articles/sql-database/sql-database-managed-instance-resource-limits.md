@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 97c141b6e0c071a8cea27f9a873f28a6c5113a18
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.date: 12/03/2018
+ms.openlocfilehash: c8a100577ba4bc67d12c7376b5897f397d010d4d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394876"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844932"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL veritabanı yönetilen örneği'nın kaynak sınırları genel bakış
 
-Bu makale, Azure SQL veritabanı yönetilen örneği'nın kaynak sınırları genel bir bakış sağlar ve varsayılan bölgesel abonelik limitleri artırmak için isteği oluşturma bilgilerini sağlar. 
+Bu makale, Azure SQL veritabanı yönetilen örneği'nın kaynak sınırları genel bir bakış sağlar ve varsayılan bölgesel abonelik limitleri artırmak için isteği oluşturma bilgilerini sağlar.
 
 > [!NOTE]
 > Diğer yönetilen örnek sınırlamalar için bkz. [sanal çekirdek tabanlı satın alma modeli](sql-database-managed-instance.md#vcore-based-purchasing-model) ve [yönetilen örneğe hizmet katmanları](sql-database-managed-instance.md#managed-instance-service-tiers). Desteklenen özellikler ve T-SQL farklılıkları için bkz: deyimleri [özellik farkları](sql-database-features.md) ve [T-SQL deyimi desteği](sql-database-managed-instance-transact-sql-information.md).
@@ -43,9 +43,9 @@ Azure SQL veritabanı yönetilen örneği, iki donanım oluşturma (4. nesil ve 
 
 ### <a name="service-tier-characteristics"></a>Hizmet katmanı özellikleri
 
-Yönetilen örnek, iki hizmet katmanıyla - genel amaçlı ve iş açısından kritik (genel Önizleme) sahiptir. Bu katmanlar, aşağıdaki tabloda açıklandığı gibi farklı özellikleri sunar:
+İki hizmet katmanıyla - genel amaçlı ve iş açısından kritik yönetilen örnek sahiptir. Bu katmanlar, aşağıdaki tabloda açıklandığı gibi farklı özellikleri sunar:
 
-| **Özellik** | **Genel amaçlı** | **İş açısından kritik (Önizleme)** |
+| **Özellik** | **Genel amaçlı** | **İş açısından kritik** |
 | --- | --- | --- |
 | Sanal çekirdek sayısı\* | 4. nesil: 8, 16, 24<br/>5. nesil: 8, 16, 24, 32, 40, 64, 80 | 4. nesil: 8, 16, 24, 32 <br/> 5. nesil: 8, 16, 24, 32, 40, 64, 80 |
 | Bellek | 4. nesil: 56GB - 156GB<br/>5. nesil: 44GB - 440GB<br/>\*Orantılı sanal çekirdek sayısı | 4. nesil: 56GB - 156GB <br/> 5. nesil: 44GB - 440GB<br/>\*Orantılı sanal çekirdek sayısı |
@@ -53,7 +53,7 @@ Yönetilen örnek, iki hizmet katmanıyla - genel amaçlı ve iş açısından k
 | Veritabanı başına maks. depolama | Örnek başına en fazla depolama boyutu tarafından belirlenir. | Örnek başına en fazla depolama boyutu tarafından belirlenir. |
 | En fazla örnek başına veritabanı sayısı | 100 | 100 |
 | Örnek başına en fazla veritabanı dosyaları | En fazla 280 | Sınırsız |
-| En fazla depolama IOPS bekleniyor | 500-5000 ([veri dosya boyutuna mı bağımlı](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)). | Temel alınan SSD hızınıza bağlıdır. |
+| GÇ verimliliği (yaklaşık) | Çekirdek başına 5000 IOPS'yi 200.000 maksimum IOPS ile |
 
 ## <a name="supported-regions"></a>Desteklenen bölgeler
 
@@ -98,12 +98,12 @@ Bu sınırlar, özel oluşturarak artırılabilir [Azure portalında bir destek 
 
 [Kurumsal Anlaşma (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) abonelikler, GP ve BC örnekleri bileşimlerine sahip olabilir. Ancak, alt ağlar durumlarda yerleşimini ile ilgili bazı kısıtlamalar vardır.
 
-> [!Note] 
+> [!Note]
 > [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) ve [bulut hizmeti sağlayıcısı (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources) abonelik türlerini ya da bir iş açısından kritik olan veya en çok 4 genel amaçlı örnekler için.
 
 Aşağıdaki örnek, boş olmayan alt ağlar ile dağıtım durumları kapsar ve hizmet katmanları, GP ve BC karma.
 
-|Alt ağ sayısı|alt ağ 1|Alt ağı 2|Alt ağ 3|
+|Alt ağ sayısı|Alt Ağ 1|Alt Ağ 2|Alt Ağ 3|
 |:---|:---|:---|:---|
 |1|1 BC ve 8 GP kadar<br>BC 2 ve 4 GP kadar|Yok| Yok|
 |2|0 BC, en fazla 4 GP|1 BC, en fazla 4 GP<br>2 BC, 0 GP|Yok|
@@ -114,9 +114,10 @@ Aşağıdaki örnek, boş olmayan alt ağlar ile dağıtım durumları kapsar ve
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>SQL yönetilen örneği için daha büyük bir kota edinme
 
-Daha fazla yönetilen örnek, geçerli bölgede ihtiyacınız varsa, Azure Portalı'nı kullanarak kota genişletmek için destek talebi gönderebilir. Daha büyük bir kota alma işlemi başlatmak için:
+Daha fazla yönetilen örnek, geçerli bölgede ihtiyacınız varsa, Azure Portalı'nı kullanarak kota genişletmek için destek talebi gönderebilir.
+Daha büyük bir kota alma işlemi başlatmak için:
 
-1. Açık **Yardım + Destek**, tıklatıp **yeni destek isteği**. 
+1. Açık **Yardım + Destek**, tıklatıp **yeni destek isteği**.
 
    ![Yardım ve Destek](media/sql-database-managed-instance-resource-limits/help-and-support.png)
 2. Yeni destek isteği için temel bilgiler sekmesinde:
@@ -140,13 +141,13 @@ Daha fazla yönetilen örnek, geçerli bölgede ihtiyacınız varsa, Azure Porta
      > - Bölge hangi aboneliği sınırı artırılacak gerekiyor
      > - (Hiçbir alt ağda mevcut gerekiyorsa genişletilecek örnekleri, mevcut alt ağlar kota sonra hizmet katmanında başına gerekli sayısını artırın
      > - (Yeni alt ağlara yönetilen örnekleri dağıtmanız gerekiyorsa), yeni alt ağ sayısını ve yeni alt ağlara hizmet katmanında başına örnek sayısı gereklidir.
-     
+
 5. **İleri**’ye tıklayın.
 6. Yeni destek isteği için irtibat bilgileri sekmesinde, tercih edilen iletişim yöntemine (e-posta veya telefon) ve kişi ayrıntılarını girin.
 7. **Oluştur**’a tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Yönetilen örneği hakkında daha fazla bilgi için bkz: [yönetilen örnek nedir?](sql-database-managed-instance.md). 
+- Yönetilen örneği hakkında daha fazla bilgi için bkz: [yönetilen örnek nedir?](sql-database-managed-instance.md).
 - Fiyatlandırma bilgileri için bkz: [SQL veritabanı yönetilen örneği fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 - İlk yönetilen örneğinizi oluşturma konusunda bilgi almak için bkz: [Hızlı Başlangıç Kılavuzu](sql-database-managed-instance-get-started.md).

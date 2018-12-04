@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: cshoe
-ms.openlocfilehash: 9b2539d94c645f71b596e53429e6e0d8cc46b9ad
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b071bfe83ba9ef653db2d6d1debad4e3dfa02580
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016752"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845935"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure işlevleri Tetikleyicileri ve bağlamaları kavramları
 
@@ -231,6 +231,7 @@ Dönüş değeri kullanımını gösteren dile özgü örneğe bakın:
 * [C# betiği (.csx)](#c-script-example)
 * [F#](#f-example)
 * [JavaScript](#javascript-example)
+* [Python](#python-example)
 
 ### <a name="c-example"></a>C# örneği
 
@@ -291,7 +292,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 }
 ```
 
-### <a name="f-example"></a>F # örneği
+### <a name="f-example"></a>F#Örnek
 
 Çıkış bağlaması işte *function.json* dosyası:
 
@@ -304,7 +305,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 }
 ```
 
-F # kodu şu şekildedir:
+İşte F# kod:
 
 ```fsharp
 let Run(input: WorkItem, log: ILogger) =
@@ -334,6 +335,29 @@ module.exports = function (context, input) {
     context.log('Node.js script processed queue message', json);
     context.done(null, json);
 }
+```
+
+### <a name="python-example"></a>Python örnek
+
+Çıkış bağlaması işte *function.json* dosyası:
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+Python kod aşağıdaki gibidir:
+
+```python
+def main(input: azure.functions.InputStream) -> str:
+    return json.dumps({
+        'name': input.name,
+        'length': input.length,
+        'content': input.read().decode('utf-8')
+    })
 ```
 
 ## <a name="binding-datatype-property"></a>Bağlamanın dataType özelliği
@@ -476,7 +500,7 @@ Dosya adı uzantısı gibi bölümleri için ifadeleri de oluşturabilirsiniz. �
  
 ### <a name="binding-expressions---trigger-metadata"></a>Bağlama ifadeleri - tetikleyici meta verileri
 
-Bir tetikleyici (örneğin, tetiklenen bir işlev bir kuyruk iletisinin içeriği) tarafından sağlanan veri yükü yanı sıra birçok tetikleyici ek meta veri değerleri sağlayın. Bu değerleri C# ve F # veya özellikleri giriş parametresi olarak kullanılabilir `context.bindings` JavaScript nesnesi. 
+Bir tetikleyici (örneğin, tetiklenen bir işlev bir kuyruk iletisinin içeriği) tarafından sağlanan veri yükü yanı sıra birçok tetikleyici ek meta veri değerleri sağlayın. Bu değerler, giriş parametreleri olarak kullanılabilir C# ve F# veya özellikleri `context.bindings` JavaScript nesnesi. 
 
 Örneğin, bir Azure kuyruk depolama tetikleyicisi aşağıdaki özellikleri destekler:
 
@@ -541,7 +565,7 @@ Aşağıdaki örnekte gösterildiği *function.json* dosya JSON biçiminde bir b
 }
 ```
 
-Bu C# ve F # içinde çalışmak, aşağıdaki örnekte olduğu gibi seri için alanları tanımlayan bir sınıf gerekir:
+Bu iş C# ve F#, aşağıdaki örnekte olduğu gibi seri için alanları tanımlayan bir sınıf gerekir:
 
 ```csharp
 using System.Net;

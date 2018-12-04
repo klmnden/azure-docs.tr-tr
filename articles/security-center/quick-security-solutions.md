@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: d02c71865f900c2b75da60bd2e989e04a6823d11
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 7783a10badd98a29488732d68267241ff619b645
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005249"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838676"
 ---
 # <a name="quickstart-connect-security-solutions-to-security-center"></a>Hızlı Başlangıç: Güvenlik çözümlerini Güvenlik Merkezi'ne bağlama
 
@@ -30,10 +30,10 @@ Bu hızlı başlangıçta şu işlemleri nasıl yapacağınız gösterilir:
 - CEF Günlükleri kullanarak bir güvenlik çözümünü Güvenlik Merkezi'ne bağlama
 - Bağlantıyı güvenlik çözümü ile doğrulama
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Güvenlik Merkezi ile çalışmaya başlamak için Microsoft Azure aboneliğinizin olması gerekir. Bir aboneliğiniz yoksa [ücretsiz hesap](https://azure.microsoft.com/free/) için kaydolabilirsiniz.
 
-Bu hızlı başlangıcı adım adım uygulamak için Güvenlik Merkezi’nin Standart fiyatlandırma katmanında olmanız gerekir. Güvenlik Merkezi Standart katmanını ilk 60 gün boyunca hiçbir ücret ödemeden deneyebilirsiniz. [Azure aboneliğinizi Güvenlik Merkezi Standart katmanına ekleme](security-center-get-started.md) başlıklı hızlı başlangıçta Standart katmanına nasıl yükseltebileceğiniz adım adım açıklanmıştır.
+Bu hızlı başlangıcı adım adım uygulamak için Güvenlik Merkezi’nin Standart fiyatlandırma katmanında olmanız gerekir. Ücretsiz olarak Güvenlik Merkezi standart deneyebilirsiniz. [Azure aboneliğinizi Güvenlik Merkezi Standart katmanına ekleme](security-center-get-started.md) başlıklı hızlı başlangıçta Standart katmanına nasıl yükseltebileceğiniz adım adım açıklanmıştır. Daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).
 
 Ayrıca, Güvenlik Merkezi’ne zaten bağlı bir Syslog hizmeti ile birlikte bir [Linux makine](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-linux) gerekir.
 

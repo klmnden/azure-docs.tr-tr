@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 1ac4ec13ad404263e2821c2b89b5db299f36005e
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 76c2c7c7e99f10f48464d85030fea64bb7925cd7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642371"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845714"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log analytics'teki uyarı yönetimi çözümü
 
@@ -70,11 +70,11 @@ Tıklayarak **uyarı Yönetimi** açmak için kutucuğa **uyarı Yönetimi** Pan
 | Sütun | Açıklama |
 |:--- |:--- |
 | Kritik Uyarılar |Tüm uyarılar ile uyarı adına göre gruplandırılmış kritik bir önem düzeyi.  Bu uyarı için tüm kayıtları döndüren bir günlük araması çalıştırmak için bir uyarı adına tıklayın. |
-| Uyarı Bildirimleri |Tüm uyarı uyarı uyarı adına göre gruplandırılmış bir önem derecesi.  Bu uyarı için tüm kayıtları döndüren bir günlük araması çalıştırmak için bir uyarı adına tıklayın. |
-| Etkin SCOM Uyarıları |Tüm uyarıları Operations Manager'dan dışında herhangi bir durumu ile toplanan *kapalı* uyarının kaynağına göre gruplandırılmış. |
+| Uyarı bildirimleri |Tüm uyarı uyarı uyarı adına göre gruplandırılmış bir önem derecesi.  Bu uyarı için tüm kayıtları döndüren bir günlük araması çalıştırmak için bir uyarı adına tıklayın. |
+| Etkin SCOM uyarıları |Tüm uyarıları Operations Manager'dan dışında herhangi bir durumu ile toplanan *kapalı* uyarının kaynağına göre gruplandırılmış. |
 | Tüm etkin uyarıları |Tüm uyarılar ile uyarı adına göre gruplandırılmış tüm önem derecesi. Yalnızca Operations Manager uyarıları ile herhangi bir durumu dışında içeren *kapalı*. |
 
-Sağa kaydırdığınızda Pano gerçekleştirmek için tıklayabilirsiniz birkaç yaygın sorguları listeler bir [günlük araması](../../log-analytics/log-analytics-queries.md) uyarı verileri için.
+Sağa kaydırdığınızda Pano gerçekleştirmek için tıklayabilirsiniz birkaç yaygın sorguları listeler bir [günlük araması](../../azure-monitor/log-query/log-query-overview.md) uyarı verileri için.
 
 ![Uyarı Yönetim Panosu](media/alert-management-solution/dashboard.png)
 
@@ -117,8 +117,8 @@ Aşağıdaki tabloda bu çözüm tarafından toplanan uyarı kayıtlarına iliş
 | Uyarı &#124; burada Analytics'teki "OpsManager" ve AlertState ==! "Kapalı" ve TimeRaised = > ago(24h) &#124; sayısı özetlemek = count() SourceDisplayName tarafından |Son 24 saatte oluşturulan etkin uyarılara sahip kaynaklar |
 | Uyarı &#124; burada Analytics'teki "OpsManager" ve AlertSeverity == "error" ve TimeRaised == > ago(24h) ve AlertState! = "Kapalı" |Son 24 hala etkin olan saatte oluşturulan kritik uyarılar |
 | Uyarı &#124; burada Analytics'teki "OpsManager" ve TimeRaised == > ago(24h) ve AlertState "Kapalı" == |Son 24 artık kapatılan saatte oluşturulan uyarılar |
-| Uyarı &#124; burada Analytics'teki "OpsManager" ve TimeRaised == > ago(1d) &#124; sayısı özetlemek = count() AlertSeverity tarafından |Önem derecesine göre gruplandırılmış halde, son 1 günde oluşturulan uyarılar |
-| Uyarı &#124; burada Analytics'teki "OpsManager" ve TimeRaised == > ago(1d) &#124; RepeatCount desc göre sırala |Yineleme sayısına göre sıralanmış halde, son 1 günde oluşturulan uyarılar |
+| Uyarı &#124; burada Analytics'teki "OpsManager" ve TimeRaised == > ago(1d) &#124; sayısı özetlemek = count() AlertSeverity tarafından |Önem derecesine göre gruplandırılmış son 1 günde oluşturulan uyarılar |
+| Uyarı &#124; burada Analytics'teki "OpsManager" ve TimeRaised == > ago(1d) &#124; RepeatCount desc göre sırala |Kendi yineleme sayısına göre sıralanmış son 1 günde oluşturulan uyarılar |
 
 
 

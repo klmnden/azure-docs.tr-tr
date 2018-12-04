@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: 486e485a78f767c4d75461558d06068a2e1c4525
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d5cad3869e74f33a2d1a56352c658bb9c8f23db6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682818"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835803"
 ---
 # <a name="log-analytics-query-examples"></a>Günlük analizi sorgu örnekleri
-Bu makalede, çeşitli örneklerini içerir [sorguları](../log-analytics-queries.md) kullanarak [Kusto dil](https://docs.microsoft.com/azure/kusto/query/) Log Analytics'ten farklı veri türleri alınamadı. Farklı yöntemleri, birleştirmek ve bu örnekleri kendi gereksinimleriniz için kullanabileceğiniz farklı stratejiler tanımlamak için kullanabileceğiniz şekilde, verileri analiz etmek için kullanılır.  
+Bu makalede, çeşitli örneklerini içerir [sorguları](../../azure-monitor/log-query/log-query-overview.md) kullanarak [Kusto dil](https://docs.microsoft.com/azure/kusto/query/) Log Analytics'ten farklı veri türleri alınamadı. Farklı yöntemleri, birleştirmek ve bu örnekleri kendi gereksinimleriniz için kullanabileceğiniz farklı stratejiler tanımlamak için kullanabileceğiniz şekilde, verileri analiz etmek için kullanılır.  
 
 Bkz: [Kusto dil başvurusu](https://docs.microsoft.com/azure/kusto/query/) Bu örneklerde kullanılan farklı anahtar sözcükler hakkında ayrıntılı bilgi için. Git aracılığıyla bir [sorguları oluşturma Ders](get-started-queries.md) Log Analytics'e yeniyseniz.
 

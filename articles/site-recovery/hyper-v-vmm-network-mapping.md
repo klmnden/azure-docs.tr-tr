@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: cecc1df23ebed88db315e7de14ea850ba5297697
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 576194f0b85e95f07ab0370c4be7029d3b8aecb9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212990"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833899"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Azure'a Hyper-V VM'LERİNDE olağanüstü durum kurtarma için ağ eşlemesini hazırlama
 
@@ -23,7 +23,7 @@ Bu makalede, anlamak ve System Center Virtual Machine Manager (VMM) bulutlarınd
 
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Azure'a çoğaltma için ağ eşlemesini hazırlama
 
-Azure, bir kaynak VMM sunucusunda VM ağları arasında ağ eşleme eşlemeler çoğaltma yapıyorsanız ve hedef Azure sanal ağları. Eşleme şunları yapar:
+Azure, bir kaynak VMM sunucusunda VM ağları arasında ağ eşleme eşlemeler çoğaltma yapıyorsanız ve hedef Azure sanal ağları. Eşleme sürecinde şu işlemler gerçekleştirilir:
     -  **Ağ bağlantısı**— çoğaltılan Azure Vm'leri için eşlenen ağ bağlanmasını sağlar. Farklı bir kurtarma planında üzerinden başarısız olsa bile, aynı ağda yük devretme tüm makineler birbirine bağlanabilir.
     - **Ağ geçidi**— bir ağ geçidi hedef Azure ağında ayarlanıp ayarlanmadığını VM'ler diğer şirket içi sanal makinelere bağlanabilir.
 
@@ -37,7 +37,7 @@ Ağ eşleme gibi çalışır:
 
 ## <a name="prepare-network-mapping-for-replication-to-a-secondary-site"></a>İkincil bir siteye çoğaltma için ağ eşlemesini hazırlama
 
-İkincil bir siteye çoğaltma yapıyorsanız, bir kaynak VMM sunucusunda VM ağları ve bir hedef VMM sunucusunda VM ağları arasında ağ eşlemesi eşler. Eşleme şunları yapar:
+İkincil bir siteye çoğaltma yapıyorsanız, bir kaynak VMM sunucusunda VM ağları ve bir hedef VMM sunucusunda VM ağları arasında ağ eşlemesi eşler. Eşleme sürecinde şu işlemler gerçekleştirilir:
 
 - **Ağ bağlantısı**— Vm'lere yük devretme sonrasında uygun ağlara bağlanır. VM çoğaltma kaynak ağına eşlenmiş hedef ağa bağlanır.
 - **En iyi VM yerleştirme**— çoğaltma Vm'leri Hyper-V ana bilgisayar sunucuları üzerinde en iyi şekilde yerleştirir. Çoğaltma sanal makineleri, eşlenen VM ağlarına erişebilen Konaklara yerleştirilir.

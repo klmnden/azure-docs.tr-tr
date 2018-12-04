@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 7319dc02d07ef1e100b39dbe138870676578fd69
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 801dddd3379d3c9c375ab883e98f346c69068033
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634294"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834426"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service ve Azure işlevleri için yönetilen kimliklerini kullanma
 
@@ -210,7 +210,10 @@ Kullanıcı tarafından atanan türü ekleme ve bir oluşturmak ve uygulamanız 
     "name": "[variables('appName')]",
     "location": "[resourceGroup().location]",
     "identity": {
-        "type": "UserAssigned"
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+            "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]": {}
+        }
     },
     "properties": {
         "name": "[variables('appName')]",
@@ -220,7 +223,8 @@ Kullanıcı tarafından atanan türü ekleme ve bir oluşturmak ve uygulamanız 
         "alwaysOn": true
     },
     "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]"
     ]
 }
 ```
@@ -254,9 +258,9 @@ App Service ve Azure işlevleri, bir belirteç almak için basit bir REST protok
 
 .NET uygulamaları ve işlevleri için yönetilen bir kimlik ile çalışmak için en basit yolu Microsoft.Azure.Services.AppAuthentication paketidir. Bu kitaplık, Visual Studio, kullanıcı hesabını kullanarak yerel olarak geliştirme makinenizde, kodunuzu test etmek de sağlayacak [Azure CLI](/cli/azure), ya da Active Directory tümleşik kimlik doğrulaması. Bu kitaplığı ile yerel geliştirme seçenekleri hakkında daha fazla bilgi için bkz. [Microsoft.Azure.Services.AppAuthentication başvurusu]. Bu bölümde, kitaplığı kodunuza kullanmaya başlama işlemini göstermektedir.
 
-1. Başvuruları Ekle [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) ve [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) uygulamanıza NuGet paketleri.
+1. Başvuruları Ekle [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) ve tüm diğer gerekli NuGet paketlerini uygulamanıza. Aşağıdaki örnekte de kullanır [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
-2.  Uygulamanız için aşağıdaki kodu ekleyin:
+2.  Aşağıdaki kodu doğru kaynağı hedeflemek için değiştirme uygulamanıza ekleyin. Bu örnek, Azure anahtar kasası ile çalışmak için iki yolunu gösterir:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
@@ -281,7 +285,7 @@ Yönetilen bir kimlik ile bir uygulama tanımlı iki ortam değişkenleri vardı
 > [!div class="mx-tdBreakAll"]
 > |Parametre adı|İçinde|Açıklama|
 > |-----|-----|-----|
-> |kaynak|Sorgu|AAD kaynak kaynağın URI'sini için bir belirteç elde edilmelidir.|
+> |kaynak|Sorgu|AAD kaynak kaynağın URI'sini için bir belirteç elde edilmelidir. Bu, aşağıdakilerden biri olabilir [Azure Hizmetleri söz konusu destek Azure AD kimlik doğrulamasını](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) veya başka bir kaynağa bir URI.|
 > |API sürümü|Sorgu|Kullanılacak belirteç API sürümü. "2017-09-01", şu anda desteklenen tek sürüm aşamasındadır.|
 > |gizli dizi|Üst bilgi|MSI_SECRET ortam değişkeninin değeri.|
 > |ClientID|Sorgu|(İsteğe bağlı) Kullanılacak kullanıcı tarafından atanan kimlik kimliği. Atlanırsa, sistem tarafından atanan kimlik kullanılır.|

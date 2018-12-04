@@ -4,14 +4,14 @@ description: Azure geçişi hizmeti ve sorun giderme ipuçları için sık karş
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: 0b2954ddfda0ab4c94ddf6176d76d8bcd937fa42
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9303f20d84547dee62e7012e0dca50f47ad54083
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413342"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839594"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
@@ -19,13 +19,13 @@ ms.locfileid: "50413342"
 
 [Azure geçişi](migrate-overview.md) Azure'a geçiş için şirket içi iş yüklerini değerlendirir. Dağıtma ve Azure Geçişi'ni kullanarak sorunları gidermek için bu makaleyi kullanın.
 
-### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>OVA, ancak şirket içi ortamımın silinir Vm'leri hala portalda gösterilir sürekli bulma kullanıyorum.
+### <a name="i-am-using-the-ova-that-continuously-discovers-my-on-premises-environment-but-the-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Sürekli olarak şirket içi ortamımın bulur OVA kullanıyorum, ancak şirket içi ortamımın silinir Vm'leri hala portalında gösterilir.
 
-Gereç sürekli bulma Gereci için sadece performans verilerini sürekli olarak toplar, şirket içi ortamda (yani VM ekleme, silme, disk ekleme vb.) herhangi bir yapılandırma değişikliği algılamaz. Şirket içi ortamda bir yapılandırma değişikliği gerçekleşirse değişikliklerin portala yansıması için aşağıdakileri yapabilirsiniz:
+Sürekli bulma Gereci yalnızca performans verilerini sürekli olarak toplar, şirket içi ortamda (yani VM ekleme, silme, disk ekleme vb.) herhangi bir yapılandırma değişikliği algılamaz. Şirket içi ortamda bir yapılandırma değişikliği gerçekleşirse değişikliklerin portala yansıması için aşağıdakileri yapabilirsiniz:
 
 - Öğelerin eklenmesi (VM’ler, diskler, çekirdekler vb.): Bu değişiklikleri Azure portala yansıtmak için keşfi gereçten durdurup yeniden başlatabilirsiniz. Bu, değişikliklerin Azure Geçişi projesinde güncelleştirilmesini sağlar.
 
-   ![Keşfi durdur](./media/troubleshooting-general/stop-discovery.png)
+   ![Bulma Durdur](./media/troubleshooting-general/stop-discovery.png)
 
 - VM silme: Gerecin tasarlanma şekli nedeniyle keşfi durdurup başlatsanız bile VM silme yansıtılmaz. Bunun nedeni takip eden keşiflerin eski keşiflerin üzerine yazılması yerine bunlara eklenmesidir. Bu durumda grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplayarak portaldaki VM’yi yoksayabilirsiniz.
 
@@ -35,15 +35,36 @@ Kuruluşunuzun Azure Active Directory (Azure AD) kiracısına erişim sahip olma
 
 Davet e-posta alındığında, e-posta açın ve e-posta daveti kabul etmek için bağlantıya tıklayın gerekir. Bunu yaptıktan sonra Azure portalında oturum açmak gereken ve oturum açma yeniden, tarayıcıyı yenilemeyi çalışmaz. Ardından, geçiş projesi oluşturmayı deneyebilirsiniz.
 
+### <a name="i-am-unable-to-export-the-assessment-report"></a>Değerlendirme raporunu dışarı aktaramıyor istiyorum
+
+Portaldan değerlendirme raporunu dışarı bulamıyorsanız, kullanmayı deneyin için değerlendirme raporu indirme URL'sini almak için REST API altında.
+
+1. Yükleme *armclient* (, zaten yüklü değilse), bu bilgisayarda:
+
+a. Bir yönetici komut istemi penceresinde aşağıdaki komutu çalıştırın:  *@powershell - NoProfile - ExecutionPolicy atlama - komut "ıex ((New-Object System.NET.WebClient'a). DownloadString('https://chocolatey.org/install.ps1')) "& & Sıfırla"PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"*
+
+b.In bir yönetici Windows PowerShell penceresinde aşağıdaki komutu çalıştırın: *choco armclient yükleyin*
+
+2.  Azure geçişi REST API'sini kullanarak değerlendirme raporu için indirme URL'sini alma
+
+a.  Bir yönetici Windows PowerShell penceresinde aşağıdaki komutu çalıştırın: *armclient oturum açma* gerek duyduğunuz Azure'da oturum açmak için Azure oturumu açılır açılır.
+
+b.  Aynı PowerShell penceresinde değerlendirme raporu (aşağıda istek URI parametreleri örnek API uygun değerlerle değiştirin) indirme URL'sini almak için aşağıdaki komutu çalıştırın
+
+       *armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02*
+
+Örnek istek ve çıktı:
+
+PS C:\WINDOWS\system32 > armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2 018_12_16_21/downloadUrl? api sürümü 2018-02-02 = {" assessmentReportUrl":"https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r","expirationTime":" 2018-11-20T22:09:30.5681954 + 05:30 "
+
+3. Yanıttan URL'sini kopyalayın ve değerlendirme raporunu indirmek için bir tarayıcıda açın.
+4. Rapor indirme işlemi tamamlandığınızda Excel indirilen klasöre göz atın ve dosyayı görüntülemek için Excel'de açmak için kullanın.
+
 ### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>Sıfır olarak diskler ve ağ bağdaştırıcıları için performans verilerini gösterir
 
 VCenter sunucusundaki istatistik ayarı düzeyini küçüktür üç ayarlanırsa, bu durum oluşabilir. Düzey üç veya daha yüksek, vCenter işlem, depolama ve ağ için VM performans geçmişini saklar. VCenter küçüktür düzeyi üç için depolama ve ağ verileri, ancak yalnızca CPU ve bellek verileri depolar. Bu senaryoda, Azure Geçişi'nde performans verileri gösterildiği gibi sıfır ve Azure geçişi, diskler ve ağ şirket içi makinelerden toplanan meta verileri için boyut önerisi sağlar.
 
 Disk ve ağ performans verileri toplamayı etkinleştirmek için istatistik ayarları düzeyini 3 olarak değiştirin. Ardından, en az ortamınızı keşfedin ve onu değerlendirmek için bir gün bekleyin.
-
-### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Yüklenen aracıları ve bağımlılık görselleştirmesi grupları oluşturmak için kullanılan bildirimi. Şimdi yük devretme, "aracı yükleme" eylem "Bağımlılıkları görüntüle" yerine makineleri Göster gönderin.
-* POST planlanmış veya planlanmamış yük devretme, şirket içi makineleri kapatılır ve eşdeğer makineler çalışmaya Azure'da başlar. Bu makineler, farklı bir MAC adresi alın. Bunlar olup kullanıcı veya şirket içi IP adresi korumak seçiminize bağlı olarak farklı bir IP adresi al. MAC ve IP adresleri farklıysa, Azure geçişi ile herhangi bir hizmet eşlemesi bağımlılık verileri şirket içi makinelerin ilişkilendirmez ve bağımlılıklarını görüntüleme yerine aracıları yüklemek için kullanıcıya sorar.
-* Test yük devretme sonrası beklendiği gibi şirket içi makineleri açık kalır. Azure'da küme çalışmaya başladıktan eşdeğer makineler farklı MAC adresini ve farklı IP adresini almanızdan. Kullanıcı bu makinelerden giden Log Analytics trafiği engeller sürece, Azure geçişi şirket içi makineler hiçbir hizmet eşlemesi bağımlılık verilerle ilişkilendirmez ve bağımlılıklarını görüntüleme yerine aracıları yüklemek için kullanıcıya sorar.
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Ben Azure coğrafyası, bir geçiş projesi olduğunu nasıl bulabilirim burada bulunan meta verileri depolanan tam Azure bölgesinde oluşturulurken belirtilen?
 
@@ -55,8 +76,8 @@ Gidebilirsiniz **Essentials** konusundaki **genel bakış** meta verilerin depol
 
 ### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Azure geçişi toplayıcısı dağıtımı başarısız oldu, hata: sağlanan bir bildirim dosyası geçersiz: Geçersiz OVF bildirim girişi.
 
-1. Azure geçişi toplayıcısı OVA dosyasını doğru karma değerini denetleyerek indirilir olmadığını doğrulayın. Başvurmak [makale](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) karma değeri doğrulayın. Karma değeriyle eşleşmiyor, tekrar OVA dosyasını indirmek ve dağıtımı yeniden deneyin.
-2. Yine başarısız olursa ve OVF dağıtmak için VMware vSphere istemci kullanıyorsanız, vSphere Web istemcisi dağıtmayı deneyin. Yine başarısız olursa farklı web tarayıcısı kullanarak deneyin.
+1. Azure geçişi toplayıcısı OVA dosyasını doğru karma değerini denetleyerek indirilir olmadığını doğrulayın. Karma değerini doğrulamak için [bu makaleye](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) bakın. Karma değeriyle eşleşmiyor, tekrar OVA dosyasını indirmek ve dağıtımı yeniden deneyin.
+2. Yine başarısız olursa ve OVF dağıtımı için VMware vSphere Client uygulamasını kullanıyorsanız vSphere Web Client üzerinden dağıtmayı deneyin. Yine başarısız olursa farklı web tarayıcısı kullanarak deneyin.
 3. VSphere web istemcisi kullanarak ve vCenter Server 6.5 dağıtılmaya çalışılırken, izleyerek doğrudan ESXi ana bilgisayarındaki OVA dağıtmayı deneyin aşağıdaki adımları:
   - ESXi Konağı (yerine doğrudan vCenter Server) bağlanma web istemcisi kullanarak (https:// <*ana bilgisayar IP adresi*> /ui)
   - Giriş gidin > envanteri
@@ -128,7 +149,7 @@ Sorunu hala en son sürümde olursa, Toplayıcı makinesi belirtilen bağlantı 
 3. vCenter’a bağlanmak için doğru bağlantı noktasını belirleyin.
 4. Son olarak vCenter Server’ın çalışır durumda olup olmadığını denetleyin.
 
-## <a name="troubleshoot-dependency-visualization-issues"></a>Bağımlılık görselleştirme sorunlarını giderme
+## <a name="dependency-visualization-issues"></a>Bağımlılık görselleştirme sorunları
 
 ### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>Şirket içi Vm'lerimi Microsoft Monitoring Agent (MMA) ve bağımlılık aracısını yükledim ancak bağımlılıkları artık Azure geçişi Portalı'nda gösterildiğini.
 
@@ -159,30 +180,33 @@ Azure geçişi en fazla bir saatlik süre için bağımlılıklar görmenize ola
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>10'dan fazla Vm'leri gruplar için bağımlılıkları görselleştirme oluşturamıyorum?
 Yapabilecekleriniz [grupları için bağımlılıkları görselleştirme](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) sahip yukarı 10 VM için 10'dan fazla vm'lerle grubunuz varsa öneririz, grupta küçük kullanıcı gruplarına bölün ve bağımlılıklarını görselleştirin.
 
-## <a name="troubleshoot-readiness-issues"></a>Hazır olma durumu sorunlarını giderme
+### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Yüklenen aracıları ve bağımlılık görselleştirmesi grupları oluşturmak için kullanılan bildirimi. Şimdi yük devretme, "aracı yükleme" eylem "Bağımlılıkları görüntüle" yerine makineleri Göster gönderin.
+* POST planlanmış veya planlanmamış yük devretme, şirket içi makineleri kapatılır ve eşdeğer makineler çalışmaya Azure'da başlar. Bu makineler, farklı bir MAC adresi alın. Bunlar olup kullanıcı veya şirket içi IP adresi korumak seçiminize bağlı olarak farklı bir IP adresi al. MAC ve IP adresleri farklıysa, Azure geçişi ile herhangi bir hizmet eşlemesi bağımlılık verileri şirket içi makinelerin ilişkilendirmez ve bağımlılıklarını görüntüleme yerine aracıları yüklemek için kullanıcıya sorar.
+* Test yük devretme sonrası beklendiği gibi şirket içi makineleri açık kalır. Azure'da küme çalışmaya başladıktan eşdeğer makineler farklı MAC adresini ve farklı IP adresini almanızdan. Kullanıcı bu makinelerden giden Log Analytics trafiği engeller sürece, Azure geçişi şirket içi makineler hiçbir hizmet eşlemesi bağımlılık verilerle ilişkilendirmez ve bağımlılıklarını görüntüleme yerine aracıları yüklemek için kullanıcıya sorar.
+
+## <a name="troubleshoot-azure-readiness-issues"></a>Azure için hazır olma sorunlarını giderme
 
 **Sorunu** | **Fix**
 --- | ---
 Desteklenmeyen önyükleme türü | Azure, EFI Önyükleme türündeki sanal makineleri desteklemez. Bir geçiş çalıştırmadan önce için BIOS önyükleme türü dönüştürmek için önerilir. <br/><br/>Kullanabileceğiniz [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) , sanal Makinenin önyükleme türü için BIOS geçişi sırasında olarak tür VM'ler geçişini yapmak için.
 Koşullu olarak desteklenen Windows işletim sistemi | İşletim sistemi, destek sonu tarihi geçti ve bir özel destek anlaşması (CSA) gerekiyor [destek Azure'da](https://aka.ms/WSosstatement), Azure'a geçiş yapmadan önce işletim sistemini yükseltmeyi düşünün.
-Desteklenmeyen Windows İşletim Sistemi | Azure yalnızca destekler [seçili Windows işletim sistemi sürümleri](https://aka.ms/WSosstatement), Azure'a geçiş yapmadan önce makinenin işletim sistemini yükseltmeyi düşünün.
+Desteklenmeyen Windows işletim sistemi | Azure yalnızca destekler [seçili Windows işletim sistemi sürümleri](https://aka.ms/WSosstatement), Azure'a geçiş yapmadan önce makinenin işletim sistemini yükseltmeyi düşünün.
 Koşullu olarak desteklenen Linux işletim sistemi | Azure yalnızca onayladığı [seçili Linux işletim sistemi sürümleri](../virtual-machines/linux/endorsed-distros.md), Azure'a geçiş yapmadan önce makinenin işletim sistemini yükseltmeyi düşünün.
-Desteklenmeyen Linux İşletim Sistemi | Makine Azure'da önyüklenebilir ancak Azure tarafından işletim sistemi desteği sağlanmaz, işletim sistemine yükseltmeniz önerilir bir [Linux sürümü onaylı](../virtual-machines/linux/endorsed-distros.md) Azure'a geçirmeden önce
+Desteklenmeyen Linux işletim sistemi | Makine Azure'da önyüklenebilir ancak Azure tarafından işletim sistemi desteği sağlanmaz, işletim sistemine yükseltmeniz önerilir bir [Linux sürümü onaylı](../virtual-machines/linux/endorsed-distros.md) Azure'a geçirmeden önce
 Bilinmeyen işletim sistemi | Sanal makinenin işletim sistemi 'Diğer' vCenter Server'da, hangi nedeniyle VM'nin Azure için hazır olma Azure geçişi tanımlanamıyor belirtildi. Makinede çalışan işletim sistemi olduğundan emin olun [desteklenen](https://aka.ms/azureoslist) makineyi geçirmeden önce Azure tarafından.
-İşletim sistemi bit genişliği desteklenmiyor | 32 bit işletim sistemi ile Vm'leri Azure'da önyükleme, ancak 32-bit sanal makinenin işletim sistemini yükseltmek için önerilen için 64-bit Azure'a geçiş yapmadan önce.
+Desteklenmeyen işletim sistemi bit genişliği | 32 bit işletim sistemi ile Vm'leri Azure'da önyükleme, ancak 32-bit sanal makinenin işletim sistemini yükseltmek için önerilen için 64-bit Azure'a geçiş yapmadan önce.
 Visual Studio aboneliği gerektirir. | Makinelerin bulunduğu bir Windows istemci işletim sistemi çalıştırılıyor yalnızca Visual Studio aboneliği desteklenir.
 Gerekli depolama performansı için VM bulunamadı. | Azure VM desteği makine için gerekli depolama performansı (IOPS/işleme) aşıyor. Geçiş işleminden önce makine için depolama gereksinimlerini azaltır.
 Gerekli ağ performansı için VM bulunamadı. | Azure VM desteği makine için gerekli ağ performansı (daraltma/genişletme) aşıyor. Makine için ağ gereksinimlerini azaltır.
-VM belirtilen fiyatlandırma katmanında bulunamadı. | Fiyatlandırma katmanını standart olarak ayarlanır, Azure'a geçiş yapmadan önce VM'nin downsizing göz önünde bulundurun. Temel boyutlandırma katmanı ise değerlendirmenin fiyatlandırma katmanını standart olarak değiştirmeyi düşünün.
 VM belirtilen konumda bulunamadı. | Geçiş işleminden önce farklı bir hedef konum kullanın.
 Bir veya daha fazla disk uyumsuz. | VM'ye bir veya daha fazla disk Azure gereksinimlerini karşılamıyor. Sanal Makineye eklenmiş her disk için disk boyutunu < 4 TB olduğundan emin olun, aksi durumda, Azure'a geçiş yapmadan önce disk boyutunu küçültmek. Her disk tarafından ihtiyaç duyduğu performansın (IOPS/işleme) Azure tarafından desteklendiğinden emin olmak [yönetilen sanal makine diskleri](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits).   
 Bir veya daha fazla ağ bağdaştırıcısı uyumsuz. | Makine geçişten önce kullanılmayan ağ bağdaştırıcılarını kaldırın.
 Disk sayısı, sınırı aşıyor | Makine geçişten önce kullanılmayan diskleri kaldırın.
-Disk boyutu, sınırı aşıyor | Azure destekler disklerle boyutu en fazla 4 TB. Geçiş işleminden önce 4 TB'den için diskleri daraltır.
-Disk, belirtilen konumda kullanılamıyor | Geçiş yapmadan önce disk, hedef konumda olduğundan emin olun.
-Disk, belirtilen çoğaltma için kullanılamıyor | Disk değerlendirmesi ayarları (varsayılan olarak LRS) tanımlanan yedeklilik depolama türü kullanmanız gerekir.
+Disk boyutu sınırını aşıyor | Azure destekler disklerle boyutu en fazla 4 TB. Geçiş işleminden önce 4 TB'den için diskleri daraltır.
+Belirtilen konumda disk kullanılamıyor | Geçiş yapmadan önce disk, hedef konumda olduğundan emin olun.
+Disk belirtilen çoğaltma için kullanılamıyor | Disk değerlendirmesi ayarları (varsayılan olarak LRS) tanımlanan yedeklilik depolama türü kullanmanız gerekir.
 Bir iç hata nedeniyle disk uygunluğu belirlenemedi | Grup için yeni bir değerlendirme oluşturmayı deneyin.
-Gerekli çekirdeklere ve belleğe sahip VM bulunamadı | Azure, uygun bir VM türüne ince uygulanamadı. Geçiş yapmadan önce bellek ve şirket içi makinenin çekirdek sayısını azaltın.
+VM gerekli çekirdek ve bellek bulunamadı | Azure, uygun bir VM türüne ince uygulanamadı. Geçiş yapmadan önce bellek ve şirket içi makinenin çekirdek sayısını azaltın.
 Bir iç hata nedeniyle VM uygunluğu belirlenemedi. | Grup için yeni bir değerlendirme oluşturmayı deneyin.
 Bir iç hata nedeniyle bir veya daha fazla disk uygunluğu belirlenemedi. | Grup için yeni bir değerlendirme oluşturmayı deneyin.
 Bir iç hata nedeniyle bir veya daha fazla ağ bağdaştırıcısının uygunluğu belirlenemedi. | Grup için yeni bir değerlendirme oluşturmayı deneyin.
@@ -223,18 +247,18 @@ Olay izleme için Windows toplamak için aşağıdakileri yapın:
 
 | Hata Kodu | Hata adı   | İleti   | Olası nedenler | Önerilen eylem  |
 | --- | --- | --- | --- | --- |
-| 601       | CollectorExpired               | Toplayıcının süresi doldu.                                                        | Toplayıcının Süresi Doldu.                                                                                    | Lütfen toplayıcının yeni bir sürümünü indirip yeniden deneyin.                                                                                      |
-| 751       | UnableToConnectToServer        | '%Name;' adlı vCenter Server'a şu hata nedeniyle bağlanılamıyor: %ErrorMessage;     | Daha fazla ayrıntı için hata iletisini inceleyin.                                                             | Hatayı giderip yeniden deneyin.                                                                                                           |
-| 752       | InvalidvCenterEndpoint         | '%Name;' adlı sunucu bir vCenter Server değil.                                  | vCenter Server ayrıntılarını sağlayın.                                                                       | Doğru vCenter Server ayrıntılarıyla işlemi yeniden deneyin.                                                                                   |
-| 753       | InvalidLoginCredentials        | '%Name;' adlı vCenter Server'a şu hata nedeniyle bağlanılamıyor: %ErrorMessage; | Geçersiz oturum açma kimlik bilgileri nedeniyle vCenter Server bağlantısı başarısız oldu.                             | Sağlanan oturum açma kimlik bilgilerinin doğru olduğundan emin olun.                                                                                    |
-| 754       | NoPerfDataAvaialable           | Performans verileri kullanılamıyor.                                               | VCenter Server'da istatistik düzeyini denetleyin. Performans verilerinin kullanılabilmesi için 3 ayarlanması gerekir. | İstatistik Düzeyini 3 (5 dakika, 30 dakika ve 2 saatlik süre için) olarak değiştirin ve en az bir gün bekledikten sonra yeniden deneyin.                   |
-| 756       | NullInstanceUUID               | InstanceUUID değeri null olan bir makine ile karşılaşıldı                                  | vCenter Server uygun olmayan bir nesneye sahip olabilir.                                                      | Hatayı giderip yeniden deneyin.                                                                                                           |
-| 757       | VMNotFound                     | Sanal makine bulunamadı                                                  | Sanal makine silinmiş olabilir: %VMID;                                                                | vCenter envanterinin kapsamı belirlenirken seçilen sanal makinelerin keşif sırasında mevcut olduğundan emin olun                                      |
+| 601       | CollectorExpired               | Toplayıcının süresi doldu.                                                        | Toplayıcının süresi doldu.                                                                                    | Lütfen yeni bir Toplayıcı ve yeniden deneme sürümünü indirin.                                                                                      |
+| 751       | UnableToConnectToServer        | '% Name;' vCenter Server'a bağlanılamıyor. hata nedeni: % ErrorMessage;     | Daha fazla ayrıntı için hata iletisine bakın.                                                             | Hatayı giderip yeniden deneyin.                                                                                                           |
+| 752       | InvalidvCenterEndpoint         | '% Name;' sunucusu bir vCenter Server değil.                                  | VCenter Server ayrıntılarını sağlayın.                                                                       | Doğru vCenter Server ayrıntılarıyla işlemi yeniden deneyin.                                                                                   |
+| 753       | InvalidLoginCredentials        | VCenter Server'a '% Name;' bağlantı kurulamıyor hatası nedeniyle: % ErrorMessage; | Geçersiz oturum açma kimlik bilgileri nedeniyle vCenter Server'a bağlanılamadı.                             | Sağlanan oturum açma kimlik bilgilerinin doğru olduğundan emin olun.                                                                                    |
+| 754       | NoPerfDataAvaialable           | Performans verileri kullanılamıyor.                                               | VCenter Server'da istatistik düzeyini denetleyin. Performans verilerinin kullanılabilmesi için 3 ayarlanması gerekir. | İstatistik düzeyini 3 (5 dakika, 30 dakika ve 2 saatlik süre) değiştirmek ve en az bir gün bekledikten sonra yeniden deneyin.                   |
+| 756       | NullInstanceUUID               | Instanceuuıd değeri null olan bir makine ile karşılaşıldı                                  | vCenter Server uygun olmayan bir nesneye sahip olabilir.                                                      | Hatayı giderip yeniden deneyin.                                                                                                           |
+| 757       | VMNotFound                     | Sanal makine bulunamadı                                                  | Sanal makine silinmiş olabilir: % VMID;                                                                | VCenter envanterinin kapsamı keşif sırasında mevcut belirlenirken seçilen sanal makineler olduğundan emin olun                                      |
 | 758       | GetPerfDataTimeout             | VCenter isteği zaman aşımına uğradı. İleti % Message;                                  | vCenter Server kimlik bilgileri yanlış                                                              | VCenter sunucusu kimlik bilgilerini denetleyin ve vCenter Server'ın erişilebilir olduğundan emin olun. İşlemi yeniden deneyin. Sorun devam ederse, destek ekibine başvurun. |
-| 759       | VmwareDllNotFound              | VMWare.Vim DLL bulunamadı.                                                     | PowerCLI düzgün bir şekilde yüklenmedi.                                                                   | Lütfen Powerclı düzgün yüklü olup olmadığını denetleyin. İşlemi yeniden deneyin. Sorun devam ederse, destek ekibine başvurun.                               |
-| 800       | ServiceError                   | Azure Geçişi Toplayıcısı hizmeti çalışmıyor.                               | Azure Geçişi Toplayıcısı hizmeti çalışmıyor.                                                       | Hizmeti services.msc kullanarak başlatın ve işlemi yeniden deneyin.                                                                             |
-| 801       | PowerCLIError                  | VMware PowerCLI yüklenemedi.                                          | VMware PowerCLI yüklenemedi.                                                                  | İşlemi yeniden deneyin. Sorun devam ederse kendiniz yükleyin ve işlemi yeniden deneyin.                                                   |
-| 802       | TimeSyncError                  | Saat, İnternet saat sunucusuyla eşitlenmemiş.                            | Saat, İnternet saat sunucusuyla eşitlenmemiş.                                                    | Makinedeki saatin saat dilimine göre doğru ayarlandığından emin olun ve işlemi yeniden deneyin.                                 |
-| 702       | OMSInvalidProjectKey           | Geçersiz proje anahtarı belirtildi.                                                | Geçersiz proje anahtarı belirtildi.                                                                        | İşlemi doğru proje anahtarıyla yeniden deneyin.                                                                                              |
-| 703       | OMSHttpRequestException        | İstek gönderilirken hata oluştu. İleti % Message;                                | Proje kimliği ile anahtarını denetleyerek uç noktanın erişilebilir olduğundan emin olun.                                       | İşlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek'e başvurun.                                                                     |
-| 704       | OMSHttpRequestTimeoutException | HTTP isteği zaman aşımına uğradı. İleti % Message;                                     | Uç noktanın erişilebilir olduğundan emin olmak için proje kimliği ve anahtarını kontrol edin.                                       | İşlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek'e başvurun.                                                                     |
+| 759       | VmwareDllNotFound              | VMWare.Vim DLL bulunamadı.                                                     | Powerclı düzgün şekilde yüklenmedi.                                                                   | Lütfen Powerclı düzgün yüklü olup olmadığını denetleyin. İşlemi yeniden deneyin. Sorun devam ederse, destek ekibine başvurun.                               |
+| 800       | ServiceError                   | Azure geçişi Toplayıcısı hizmeti çalışmıyor.                               | Azure geçişi Toplayıcısı hizmeti çalışmıyor.                                                       | Hizmeti başlatın ve işlemi yeniden deneyin, Services.msc dosyasını kullanın.                                                                             |
+| 801       | PowerCLIError                  | VMware Powerclı yüklenemedi.                                          | VMware Powerclı yüklenemedi.                                                                  | İşlemi yeniden deneyin. Sorun devam ederse kendiniz yükleyin ve işlemi yeniden deneyin.                                                   |
+| 802       | TimeSyncError                  | Saat, internet saat sunucusuyla eşitlenmiş durumda değil.                            | Saat, internet saat sunucusuyla eşitlenmiş durumda değil.                                                    | Bu makinedeki saat doğru bir şekilde makinenin saat dilimini ayarlayın ve işlemi yeniden deneyin emin olun.                                 |
+| 702       | OMSInvalidProjectKey           | Geçersiz Proje anahtarı belirtildi.                                                | Geçersiz Proje anahtarı belirtildi.                                                                        | İşlemi doğru proje anahtarıyla yeniden deneyin.                                                                                              |
+| 703       | OMSHttpRequestException        | İstek gönderilirken hata oluştu. İleti % Message;                                | Proje kimliği ve anahtarını kontrol edin ve uç noktanın erişilebilir olduğundan emin olun.                                       | İşlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek'e başvurun.                                                                     |
+| 704       | OMSHttpRequestTimeoutException | HTTP isteği zaman aşımına uğradı. İleti % Message;                                     | Proje kimliği ve anahtarını kontrol edin ve uç noktanın erişilebilir olduğundan emin olun.                                       | İşlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek'e başvurun.                                                                     |

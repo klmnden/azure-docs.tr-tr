@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: b2011003306e72ac9fb243b640e388e6f3d5e7d3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e537795c9dec5f909810a37d4f13d5664bec05a2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722216"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839985"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure İzleyici verilerini Görselleştirme
 Bu makalede, Azure İzleyici'de depolanan verileri görselleştirmek için kullanılabilen yöntemler bir özetini sağlar. Bu içerir [Azure ölçümleri depolama ölçümleri](../azure-monitor/platform/data-collection.md#metrics) ve [Log Analytics'te günlük verilerini](../azure-monitor/platform/data-collection.md#logs). 
@@ -32,7 +32,7 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 ### <a name="advantages"></a>Avantajları
 - Azure kapsamlı tümleştirme. Görselleştirmeler, ölçüm Gezgini, Log Analytics ve Application Insights da dahil olmak üzere birden çok Azure sayfalarından panolara sabitlenebilir.
 - Ölçüm ve günlükleri hem destekler.
-- Çıkışı dahil olmak üzere birden çok kaynaktan alınan verileri birleştirin [ölçüm Gezgini](../monitoring-and-diagnostics/monitoring-metric-charts.md), [Log Analytics sorguları](../log-analytics/log-analytics-queries.md), ve [eşler](../application-insights/app-insights-app-map.md) ve [kullanılabilirlik]()Application ınsights.
+- Çıkışı dahil olmak üzere birden çok kaynaktan alınan verileri birleştirin [ölçüm Gezgini](../monitoring-and-diagnostics/monitoring-metric-charts.md), [Log Analytics sorguları](../azure-monitor/log-query/log-query-overview.md), ve [eşler](../application-insights/app-insights-app-map.md) ve [kullanılabilirlik]()Application ınsights.
 - Kişisel veya paylaşılan panolar için seçenek. Azure ile tümleşik [rol tabanlı kimlik doğrulaması (RBAC)](../role-based-access-control/overview.md).
 - Otomatik yenileme. Ölçümleri Yenile zaman aralığı en az beş dakika ile bağlıdır. Günlükleri bir dakikada yenileyin.
 - Zaman damgası ve özel parametrelerle parametreli ölçümleri panolar.

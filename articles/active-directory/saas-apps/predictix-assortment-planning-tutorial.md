@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 1069b7f9bdc0301f840e796f49fdb4031d297cf2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a44812ccb89606416b2161a133adf2c781e81bd0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436249"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842042"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Öğretici: Azure Active Directory Tümleştirme Predictix Sınıflama planlama
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi Predictix Sınıflama planlama ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Sınıflama Predictix planlama çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de Sınıflama Predictix planlama tümleştirmesini yapılandırmak iç
 
 **Galeriden Predictix Sınıflama planlama eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -123,7 +123,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | `https://<sub-domain>.dev.ap.predictix.com`|
     
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [Predictix Sınıflama planlama istemci Destek ekibine](http://www.infor.com/support) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [Predictix Sınıflama planlama istemci Destek ekibine](https://www.infor.com/support) bu değerleri almak için. 
  
 
 
@@ -139,7 +139,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Predictix Sınıflama yapılandırmasını planlama](./media/predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_configure.png) 
 
-1. Çoklu oturum açmayı yapılandırma **Sınıflama Predictix planlama** tarafı, indirilen göndermek için ihtiyacınız **Certificate(Base64)**, **SAML varlık kimliği**, **SAML Çoklu oturum açma hizmeti URL'si**, ve **oturum kapatma URL'si** için [Sınıflama Predictix planlama Destek ekibine](http://www.infor.com/support). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+1. Çoklu oturum açmayı yapılandırma **Sınıflama Predictix planlama** tarafı, indirilen göndermek için ihtiyacınız **Certificate(Base64)**, **SAML varlık kimliği**, **SAML Çoklu oturum açma hizmeti URL'si**, ve **oturum kapatma URL'si** için [Sınıflama Predictix planlama Destek ekibine](https://www.infor.com/support). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
 > İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -179,7 +179,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-predictix-assortment-planning-test-user"></a>Predictix Sınıflama planlama test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Sınıflama Predictix Planlanıyor adlı bir kullanıcı oluşturun. Lütfen birlikte çalışarak [Sınıflama Predictix planlama Destek ekibine](http://www.infor.com/contact/) Sınıflama Predictix planlama platform kullanıcıları eklemek için.
+Bu bölümde, Britta Simon Sınıflama Predictix Planlanıyor adlı bir kullanıcı oluşturun. Lütfen birlikte çalışarak [Sınıflama Predictix planlama Destek ekibine](https://www.infor.com/contact/) Sınıflama Predictix planlama platform kullanıcıları eklemek için.
  > [!NOTE]
  > Azure Active Directory hesap sahibinin e-posta alır ve etkin hale gelir önce hesabını onaylamak için bir bağlantı izler.
 

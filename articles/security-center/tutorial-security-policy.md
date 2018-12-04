@@ -1,6 +1,6 @@
 ---
-title: Azure Güvenlik Merkezi Öğreticisi - Güvenlik ilkelerini tanımlama ve değerlendirme | Microsoft Docs
-description: Azure Güvenlik Merkezi Öğreticisi - Güvenlik ilkelerini tanımlama ve değerlendirme
+title: Azure İlkesi'nde güvenlik ilkelerini düzenleme | Microsoft Docs
+description: Azure İlkesi'nde güvenlik ilkeleri düzenleyin.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -9,102 +9,160 @@ editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: fcd3c2a95cea0a838fc16149a0a74fad95ea3300
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
-ms.translationtype: HT
+ms.openlocfilehash: d6cc216f71efcd3b3973cd37349dd5145237f02f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027070"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839339"
 ---
-# <a name="tutorial-define-and-assess-security-policies"></a>Öğretici: Güvenlik ilkelerini tanımlama ve değerlendirme
-Güvenlik Merkezi, iş yüklerinizin istenen yapılandırmasını tanımlamak için güvenlik ilkeleri kullanarak şirketin veya yasal düzenlemelerin gerektirdiği güvenlik gereksinimlerine uyum sağlanmasına yardımcı olur. Azure abonelikleriniz için ilkeler tanımlayıp bunları iş yükü türüne veya verilerinizin duyarlılığına göre uyarladığınızda, Güvenlik Merkezi işlem, uygulama, ağ, veri ve depolama ile kimlik ve erişim kaynaklarınız için güvenlik önerileri sağlayabilir. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+# <a name="edit-security-policies-in-azure-policy"></a>Azure İlkesi'nde güvenlik ilkelerini düzenleme
+Güvenlik Merkezi güvenlik ilkeleri ve yüklerinize nasıl uygulanacağını durumunu görüntülemenize yardımcı olur. Azure Güvenlik Merkezi otomatik olarak atar, [yerleşik güvenlik ilkeleri](security-center-policy-definitions.md) eklendikten her abonelikte. Bunları yapılandırabilirsiniz [Azure İlkesi](../azure-policy/azure-policy-introduction.md), ya da Yönetim grupları arasında ve birden çok aboneliğe ilkeleri ayarlamanıza olanak sağlayan REST API'sini kullanarak. Daha fazla bilgi için bkz. [Azure İlkesi ile Güvenlik Merkezi güvenlik ilkelerini tümleştirme](security-center-azure-policy.md). Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Güvenlik ilkesi yapılandırma
+> * REST API kullanarak bir güvenlik ilkesi yapılandırma
 > * Kaynaklarınızın güvenliğini değerlendirme
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
-Bu öğreticide ele alınan özellikleri adım adım görmek için Güvenlik Merkezi’nin Standart fiyatlandırma katmanında olmanız gerekir. Güvenlik Merkezi Standart katmanını ilk 60 gün boyunca hiçbir ücret ödemeden deneyebilirsiniz. [Azure aboneliğinizi Güvenlik Merkezi Standart katmanına ekleme](security-center-get-started.md) başlıklı hızlı başlangıçta Standart katmanına nasıl yükseltebileceğiniz adım adım açıklanmıştır.
+## <a name="prerequisites"></a>Önkoşullar
+Bu öğreticide ele alınan özellikleri adım adım görmek için Güvenlik Merkezi’nin Standart fiyatlandırma katmanında olmanız gerekir. Ücretsiz olarak Güvenlik Merkezi standart deneyebilirsiniz. Daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/). [Azure aboneliğinizi Güvenlik Merkezi Standart katmanına ekleme](security-center-get-started.md) başlıklı hızlı başlangıçta Standart katmanına nasıl yükseltebileceğiniz adım adım açıklanmıştır.
 
-## <a name="configure-security-policy"></a>Güvenlik ilkesi yapılandırma
-Güvenlik Merkezi, Azure aboneliklerinizin her biri için otomatik olarak varsayılan bir güvenlik ilkesi oluşturur. Güvenlik ilkeleri, ilgili aboneliğin güvenlik gereksinimlerine göre açıp kapatabileceğiniz önerilerden oluşur. Varsayılan güvenlik ilkesinde değişiklik yapmak için aboneliğin sahibi, katkıda bulunanı veya güvenlik yöneticisi olmanız gerekir.
+## <a name="configure-a-security-policy-using-the-rest-api"></a>REST API kullanarak bir güvenlik ilkesi yapılandırma
 
-1. Güvenlik Merkezi ana menüsünde **Güvenlik ilkesi**’ni seçin.
-2. Kullanmak istediğiniz aboneliği seçin.
+Azure İlkesi ile yerel tümleştirme bir parçası olarak, Azure Güvenlik Merkezi ilke ataması oluşturmak için avantajı Azure İlkesi'nin REST API yararlanmanıza olanak sağlar. Aşağıdaki yönergeler, ilke atamaları oluşturulmasını yanı sıra mevcut atamaları özelleştirmesini yol. 
 
-  ![Güvenlik İlkesi](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
+Azure İlkesi önemli Kavramları: 
 
-3. **İşlem ve uygulamalar**, **Ağ** ve **Veri** altında, izlemek istediğiniz her güvenlik yapılandırmasını **Açık** olarak ayarlayın. Güvenlik Merkezi ortamınızın yapılandırmasını sürekli olarak değerlendirir ve bir güvenlik açığıyla karşılaştığında bir güvenlik önerisi oluşturur. Güvenlik yapılandırması önerilmiyorsa veya gerekli değilse **Kapalı**’yı seçin. Örneğin, bir geliştirme ve test ortamında üretim ortamlarındakiyle aynı güvenlik düzeyine sahip olmanız gerekmeyebilir. Ortamınız için geçerli olan ilkeleri seçtikten sonra **Kaydet**’e tıklayın.
+- A **ilke tanımı** bir kuralı 
 
-  ![Güvenlik yapılandırması](./media/tutorial-security-policy/tutorial-security-policy-fig6.png)  
+- Bir **girişim** ilke tanımları (kuralları) oluşan bir koleksiyondur 
 
-Güvenlik Merkezi’nin bu ilkeleri işlemesini ve öneriler oluşturmasını bekleyin. Sistem güncelleştirmeleri ve işletim sistemi yapılandırmaları gibi bazı yapılandırma işlemlerinin tamamlanması 12 saati bulabilirken ağ güvenlik grupları ve şifreleme yapılandırmaları neredeyse anlık olarak değerlendirilir. Güvenlik Merkezi panosunda öneriler göründükten sonra bir sonraki adıma geçebilirsiniz.
+- Bir **atama** girişim veya bir ilke bir uygulama belirli bir kapsama (Yönetim grubu, abonelik, vb.) 
 
-## <a name="assess-security-of-resources"></a>Kaynakların güvenliğini değerlendirme
-1. Güvenlik Merkezi, etkinleştirilen güvenlik ilkelerine göre gerekli durumlarda bir dizi güvenlik önerisi sağlar. İlk olarak sanal makine ve bilgisayar önerilerini incelemelisiniz. Güvenlik Merkezi panosunda **Genel Bakış**'ı ve ardından **İşlem ve uygulamalar**'ı seçin.
+Güvenlik Merkezi, güvenlik ilkelerini içeren yerleşik bir girişim sahiptir. Azure kaynaklarınızın Güvenlik Merkezi'nin ilkelerini değerlendirmek için yönetim grubu veya abonelik değerlendirmek istediğiniz atama oluşturmanız gerekir.  
 
-  ![İşlem](./media/tutorial-security-policy/tutorial-security-policy-fig2.png)
+Yerleşik girişim varsayılan olarak etkin Güvenlik Merkezi'nin ilkeler vardır. Yerleşik girişim belirli ilkelerden devre dışı bırakmayı seçebilirsiniz, örneğin Güvenlik Merkezi'nin ilkeler uygulayabilirsiniz **web uygulaması güvenlik duvarı**, ilkenin etkisi parametresinin değerini değiştirerek için **Devre dışı bırakılmış**. 
 
-  Kırmızı renkli (yüksek öncelikli) önerilere öncelik vererek her bir öneriyi inceleyin. Bu önerilerden bazıları ([uç nokta koruma sorunları](https://docs.microsoft.com/azure/security-center/security-center-install-endpoint-protection) gibi), doğrudan Güvenlik Merkezi’nden uygulanabilecek bir düzeltme yöntemine sahip olabilir. Bazı önerilerse (eksik disk şifrelemesi önerisi gibi) yalnızca düzeltmeyi uygulamaya yönelik yönergeler içerir.
+### <a name="api-examples"></a>API örnekleri
 
-2. Tüm ilgili işlem önerileri için gerekenleri yaptıktan sonra bir sonraki iş yüküne geçmelisiniz: ağ. Güvenlik Merkezi panosunda **Genel Bakış**'a ve sonra **Ağ**’a tıklayın.
+Aşağıdaki örneklerde, bu değişkenleri değiştirin:
 
-  ![Ağ](./media/tutorial-security-policy/tutorial-security-policy-fig3.png)
+- **{} kapsamı**  yönetim grubu adını girin veya abonelik ilkeyi uygulamak.
+- **{poicyAssignmentName}**  girin [ilgili ilke ataması adı](#policy-names).
+- **{name}**  adınızı veya ilke değişikliği onaylayan yöneticisinin adını girin.
 
-  Ağ önerileri sayfasında ağ yapılandırması, İnternet’e yönelik uç noktalar ve ağ topolojisi ile ilgili güvenlik sorunlarının listesi yer alır. **İşlem ve uygulamalar**’da olduğu gibi, bazı ağ önerileri tümleşik düzeltme olanağı sağlarken bazıları sağlamaz.
+Bu örnek, bir abonelik veya yönetim grubu yerleşik Güvenlik Merkezi girişimine atama gösterir
+ 
+    PUT  
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
 
-3. Tüm ilgili ağ önerileri için gerekenleri yaptıktan sonra bir sonraki iş yüküne geçmelisiniz: depolama ve veriler. Güvenlik Merkezi panosunda **Genel Bakış**'a ve sonra **Veriler ve depolama**’ya tıklayın.
+    Request Body (JSON) 
 
-  ![Veri kaynakları](./media/tutorial-security-policy/tutorial-security-policy-fig4.png)
+    { 
 
-  **Veri Kaynakları** sayfası, Azure SQL sunucuları ve veritabanları için denetimi etkinleştirme, SQL veritabanları için şifrelemeyi etkinleştirme ve Azure depolama hesabınızın şifrelenmesini etkinleştirme odaklı öneriler sağlar. Bu iş yüklerine sahip değilseniz herhangi bir öneri görmezsiniz. **İşlem ve uygulamalar**’da olduğu gibi, bazı veri ve depolama önerileri tümleşik düzeltme olanağı sağlarken bazıları sağlamaz.
+      "properties":{ 
 
-4. Tüm ilgili veri ve depolama önerileri için gerekenleri yaptıktan sonra bir sonraki iş yüküne geçmelisiniz: Kimlik ve erişim. Güvenlik Merkezi panosunda **Genel Bakış**'a ve sonra **Kimlik ve erişim**’e tıklayın.
+    "displayName":"Enable Monitoring in Azure Security Center", 
 
-  ![Kimlik ve erişim](./media/tutorial-security-policy/tutorial-security-policy-fig5.png)
+    "metadata":{ 
 
-  **Kimlik ve Erişim** sayfası aşağıdakilere benzer öneriler içerir:
+    "assignedBy":"{Name}" 
 
-   - Aboneliğinizde ayrıcalıklı hesaplar için MFA'yı etkinleştirin
-   - Yazma izinleri olan dış hesapları aboneliğinizden kaldırın
-   - Ayrıcalıklı dış hesapları aboneliğinizden kaldırın
+    }, 
 
-## <a name="clean-up-resources"></a>Kaynakları temizleme
-Bu koleksiyondaki diğer hızlı başlangıçlar ve öğreticiler bu hızlı başlangıcı temel alır. Sonraki hızlı başlangıç ve öğreticilerle çalışmaya devam etmeyi planlıyorsanız Standart katmanını çalıştırmaya devam edin ve otomatik sağlamayı etkinleştirilmiş halde tutun. Devam etmeyi planlamıyorsanız veya Ücretsiz katmanına dönmek istiyorsanız:
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
 
-1. Güvenlik Merkezi ana menüsüne dönüp **Güvenlik İlkesi**’ni seçin.
-2. Ücretsiz katmanına döndürmek istediğiniz aboneliği veya ilkeyi seçin. **Güvenlik ilkesi** açılır.
-3. **İLKE BİLEŞENLERİ** altında **Fiyatlandırma katmanı**’nı seçin.
-4. Aboneliği Standart katmanından Ücretsiz katmanına geçirmek için **Ücretsiz**’i seçin.
-5. **Kaydet**’i seçin.
+    "parameters":{}, 
 
-Otomatik sağlamayı devre dışı bırakmak istiyorsanız:
+    } 
 
-1. Güvenlik Merkezi ana menüsüne dönüp **Güvenlik ilkesi**’ni seçin.
-2. Otomatik sağlamayı hangi abonelik için devre dışı bırakmak istediğinizi belirtin.
-3. Otomatik sağlamayı kapatmak için **Güvenlik ilkesi – Veri Toplama** altındaki **Ekleme** bölümünden **Kapalı**’yı seçin.
-4. **Kaydet**’i seçin.
+    } 
 
->[!NOTE]
-> Otomatik sağlama devre dışı bırakıldığında Microsoft Monitoring Agent’ın sağlandığı Azure VM’lerinden aracı kaldırılmaz. Otomatik sağlamanın devre dışı bırakılması, kaynaklarınızın güvenliğinin izlenmesini kısıtlar.
->
+Bu örnekte, yerleşik Güvenlik Merkezi girişimine aboneliği devre dışı aşağıdaki ilkeleriyle atama gösterir: 
+
+- Sistem güncelleştirmeleri ("systemUpdatesMonitoringEffect") 
+
+- Güvenlik yapılandırmalarını ("systemConfigurationsMonitoringEffect") 
+
+- Uç nokta Koruması ("endpointProtectionMonitoringEffect") 
+
+ 
+      PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+
+      Request Body (JSON) 
+
+      { 
+
+        "properties":{ 
+
+      "displayName":"Enable Monitoring in Azure Security Center", 
+
+      "metadata":{ 
+
+      "assignedBy":"{Name}" 
+
+      }, 
+
+      "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+
+      "parameters":{ 
+
+      "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
+
+      "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
+
+      "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
+
+      }, 
+
+       } 
+
+      } 
+
+Bu örnek, bir atamayı silmeyi işlemini göstermektedir:
+
+    DELETE   
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+
+
+## İlke adları Başvurusu <a name="policy-names"></a>
+
+|Güvenlik Merkezi'ndeki ilke adı|Azure İlkesi'nde görüntülenen bir ilke adı |İlke etkisi parametresi adı|
+|----|----|----|
+|SQL Şifrelemesi |Azure Güvenlik Merkezi'nde şifrelenmemiş SQL veritabanını İzle |sqlEncryptionMonitoringEffect| 
+|SQL Denetimi |Azure Güvenlik Merkezi'nde denetlenmeyen SQL veritabanını izleme |sqlAuditingMonitoringEffect|
+|Sistem güncelleştirmeleri |Azure Güvenlik Merkezi'nde eksik sistem güncelleştirmelerini izleme |systemUpdatesMonitoringEffect|
+|Depolama şifrelemesi |Depolama hesapları için eksik blob şifrelemesini denetler |storageEncryptionMonitoringEffect|
+|JIT ağ erişimi |Azure Güvenlik Merkezi'nde olası ağ yalnızca zamanında (JIT) erişimi izleme |jitNetworkAccessMonitoringEffect |
+|Uyarlamalı uygulama denetimleri |Olası uygulama beyaz listesini Azure Güvenlik Merkezi'nde izleme |adaptiveApplicationControlsMonitoringEffect|
+|Ağ güvenlik grupları |Azure Güvenlik Merkezi'nde esnek ağın genelini erişimi izleme |networkSecurityGroupsMonitoringEffect| 
+|Güvenlik yapılandırmaları |Azure Güvenlik Merkezi'nde işletim sistemi güvenlik açıklarını izleyin |systemConfigurationsMonitoringEffect| 
+|Uç nokta koruması |Azure Güvenlik Merkezi'nde eksik Endpoint Protection'ı izleme |endpointProtectionMonitoringEffect |
+|Disk şifrelemesi |Azure Güvenlik Merkezi'nde şifrelenmemiş VM disklerini izleyin |diskEncryptionMonitoringEffect|
+|Güvenlik açığı değerlendirmesi |Azure Güvenlik Merkezi'nde izleme VM güvenlik açıklarını |vulnerabilityAssesmentMonitoringEffect|
+|Web uygulaması güvenlik duvarı |Azure Güvenlik Merkezi'nde korumasız web uygulamasını izleme |webApplicationFirewallMonitoringEffect |
+|Yeni nesil güvenlik duvarı |Azure Güvenlik Merkezi'nde korumasız ağ uç noktalarını izleme| |
+
+
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, Güvenlik Merkezi ile temel ilke tanımı oluşturmayı ve aşağıdaki konularda iş yükünüzün güvenlik değerlendirmesini yapmayı öğrendiniz:
+Bu makalede, Azure İlkesi'nde güvenlik ilkelerini düzenleme öğrendiniz. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-> [!div class="checklist"]
-> * Şirketinizin veya yasal düzenlemelerin gerektirdiği güvenlik gereksinimlerine uyum sağlanması için güvenlik ilkesi yapılandırma
-> * İşlem, SQL ve depolama, ağ ve uygulama kaynaklarınız için güvenlik değerlendirmesi
+* [Azure Güvenlik Merkezi planlama ve işlemler kılavuzu](security-center-planning-and-operations-guide.md): Azure Güvenlik Merkezi ile ilgili tasarım konularını planlama ve anlama hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md): Azure kaynaklarınızın sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve ele alma](security-center-managing-and-responding-alerts.md): Güvenlik uyarılarını yönetme ve ele alma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md): İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi için kiracı genelinde görünürlük kazanma](security-center-management-groups.md): Yönetim gruplarını Azure Güvenlik Merkezi için ayarlamayı öğrenin.
+* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md): Hizmet kullanımı ile ilgili sık sorulan soruların yanıtlarını alın.
+* [Azure Güvenlik Blogu](https://blogs.msdn.com/b/azuresecurity/): Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz.
 
-Güvenlik Merkezi’ni kullanarak kaynaklarınızı korumayı öğrenmek için bir sonraki öğreticiye geçin.
-
-> [!div class="nextstepaction"]
-> [Kaynaklarınızı koruma](tutorial-protect-resources.md)
+Azure İlkesi hakkında daha fazla bilgi için bkz. [Azure İlkesi nedir?](../azure-policy/azure-policy-introduction.md)

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7cf3db5020d6a100ca6afdd5a1dccd522189720d
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: 3f7b1349788ad2bbd0ffe7b146074947364ce1e4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978511"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835939"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Öğretici: Windows sanal makinelerini izlemek için Azure Güvenlik Merkezi kullanma
 
@@ -107,7 +107,7 @@ Tüm önerilerin listesini göstermek için:
 
 Güvenlik Merkezi, kaynak yapılandırma önerilerine ek olarak tehdit algılama uyarıları görüntüler. Güvenlik uyarıları özelliği, Azure kaynaklarına karşı güvenlik tehditlerini algılamak için her bir sanal makineden, Azure ağ bağlantısı günlükleri ve bağlantılı iş ortağı çözümlerinden toplanan verileri bir araya getirir. Güvenlik Merkezi tehdit algılama özellikleri hakkında ayrıntılı bilgi için [Azure Güvenlik Merkezi algılama özellikleri](../../security-center/security-center-detection-capabilities.md) konusuna bakın.
 
-Güvenlik uyarıları özelliği, Güvenlik Merkezi fiyatlandırma katmanının *Ücretsiz* katmanından *Standart* katmanına yükseltilmesini gerektirir. Bu daha yüksek fiyatlandırma katmanına geçtiğinizde 60 günlük bir **ücretsiz deneme sürümü** bulunur. 
+Güvenlik uyarıları özelliği, Güvenlik Merkezi fiyatlandırma katmanının *Ücretsiz* katmanından *Standart* katmanına yükseltilmesini gerektirir. A **ücretsiz deneme sürümü** bu yüksek fiyatlandırma katmanına geçiş yaptığınızda kullanılabilir. 
 
 Fiyatlandırma katmanını değiştirmek için:  
 

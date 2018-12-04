@@ -4,14 +4,14 @@ description: Bu makalede VMware Vm'lerinin ve fiziksel sunucuları Azure Site Re
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 8cf657b17b7607a8b56869edeabe37e1c5caf219
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: cd50a957894c2c6c4944b0ba3768a00754abaa15
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012284"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835097"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Mobility hizmeti yüklemesi System Center Configuration Manager ile otomatik hale getirin
 

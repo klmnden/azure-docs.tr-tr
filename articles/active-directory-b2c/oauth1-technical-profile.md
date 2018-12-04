@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 10c90b060c184bb911ac149640e8a9570b59e2fb
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 15c6730d752adf48cee2ff509220a033cac91ef2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381637"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842127"
 ---
 # <a name="define-a-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Bir Azure Active Directory B2C özel ilke OAuth1 teknik profil tanımlama
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C için destek sağlar [OAuth 1.0 protokolünü](http://tools.ietf.org/html/rfc5849) kimlik sağlayıcısı. Bu makalede, standartlaştırılmış bu protokolü destekleyen bir talep sağlayıcı ile etkileşim kurmak için bir teknik profil ayrıntılarını açıklar. OAuth1 ile teknik profil ile bir OAuth1 ad'sini birleştirebilir, kimlik sağlayıcısı, sosyal var olan oturum izin vererek, Twitter gibi veya Kurumsal kimlikleri temel.
+Azure Active Directory (Azure AD) B2C için destek sağlar [OAuth 1.0 protokolünü](https://tools.ietf.org/html/rfc5849) kimlik sağlayıcısı. Bu makalede, standartlaştırılmış bu protokolü destekleyen bir talep sağlayıcı ile etkileşim kurmak için bir teknik profil ayrıntılarını açıklar. OAuth1 ile teknik profil ile bir OAuth1 ad'sini birleştirebilir, kimlik sağlayıcısı, sosyal var olan oturum izin vererek, Twitter gibi veya Kurumsal kimlikleri temel.
 
 ## <a name="protocol"></a>Protokol
 

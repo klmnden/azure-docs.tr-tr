@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: c3eecfdf4bc2e6bf6798a6b3845cdc2e2e243341
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: ee2def6287a845cd0fd0260254efb20f9638ab2c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467438"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839050"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Öğretici: Azure DevTest Labs kullanarak bir laboratuvar ayarlama
 Bu öğreticide, Azure portalı kullanarak bir laboratuvar oluşturursunuz. Laboratuvar yöneticisi bir kuruluşta laboratuvar ayarlar, laboratuvarda sanal makineler oluşturur ve ilkeler yapılandırır. Laboratuvar kullanıcıları (örneğin: geliştirici ve test ediciler), laboratuvarda sanal makineler talep eder, sanal makinelere bağlanır ve sanal makineleri kullanır. 
@@ -80,15 +80,11 @@ Aşağıdaki adımlar, Azure portal kullanarak Azure DevTest Labs’de nasıl bi
 1. Soldaki menüden **Yapılandırma ve ilkeler**’i seçin. 
 
     ![Yapılandırma ve ilkeler](./media/tutorial-create-custom-lab/configuration-and-policies-menu.png)
-1. Menüden **Erişim denetimi (IAM)** seçeneğini belirleyin ve araç çubuğundan **+ Ekle**’yi seçin. 
-
-    ![Erişim denetimi - Kullanıcı ekle düğmesi](./media/tutorial-create-custom-lab/access-control-add.png)
+1. Seçin **erişim denetimi (IAM)** seçin ve menü **+ rol ataması Ekle** araç. 
 1. **İzin ekle** sayfasında aşağıdaki eylemleri gerçekleştirin:
     1. **Rol** için **DevTest Labs Kullanıcısı**’nı seçin. 
     2. Eklemek istediğiniz **kullanıcıyı** seçin. 
     3. **Kaydet**’i seçin.
-
-        ![İzin ekleme](./media/tutorial-create-custom-lab/add-lab-user.png)
 4. **Yapılandırma ve ilkeler - Erişim denetimi (IAM)** penceresini kapatmak için sağ köşedeki **X** simgesini seçin. 
 
 ## <a name="cleanup-resources"></a>Kaynakları temizleme

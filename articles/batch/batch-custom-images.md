@@ -2,18 +2,18 @@
 title: Azure Batch havuzu özel bir görüntüden sağlama | Microsoft Docs
 description: Bir toplu işlem yazılım ve uygulamanız için gereken verileri içeren düğümleri sağlamak için özel görüntüden havuz oluşturun. Özel görüntüler, işlem düğümleri Batch iş yüklerinizi çalıştırmak için yapılandırmak için etkili bir yoludur.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/04/2018
-ms.author: danlep
-ms.openlocfilehash: 7d0526dd233afd3976b22d257300681db0bfcead
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.author: lahugh
+ms.openlocfilehash: b296dce0a83971626c8e66ddc314c4d1e07d8602
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885227"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840376"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Sanal makine havuzu oluşturmak için özel görüntü kullanma 
 
@@ -50,7 +50,13 @@ Azure'da bir Azure VM'nin işletim sistemi ve veri disklerinin anlık görüntü
 
 ### <a name="prepare-a-vm"></a>Bir VM hazırlama 
 
-Görüntü için yeni bir VM oluşturuyorsanız, yönetilen bir görüntü için temel görüntü olarak Batch tarafından desteklenen Azure Market görüntüsü kullanmak ve ardından özelleştirin.  Azure Batch tarafından desteklenen Azure Market görüntü başvuruları listesini almak için bkz: [listesi düğüm Aracısı SKU'ları](/rest/api/batchservice/account/listnodeagentskus) işlemi. Bir üçüncü taraf görüntü, temel görüntü olarak kullanamazsınız.
+Görüntü için yeni bir VM oluşturuyorsanız, yönetilen bir görüntü için temel görüntü olarak Batch tarafından desteklenen Azure Market görüntüsü kullanmak ve ardından özelleştirin.  Azure Batch tarafından desteklenen Azure Market görüntü başvuruları listesini almak için bkz: [listesi düğüm Aracısı SKU'ları](/rest/api/batchservice/account/listnodeagentskus) işlemi. 
+
+> [!NOTE]
+> Ek lisans ve satın alma koşulları, temel görüntü olarak içeren bir üçüncü taraf görüntüyü kullanamazsınız. Yönergeler için bu Market görüntüleri hakkında daha fazla bilgi için bkz [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+) veya [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+) VM'ler.
+
 
 * VM'ye yönetilen disk ile oluşturulduğundan emin olun. Bir VM oluşturduğunuzda, varsayılan depolama ayar budur.
 * Sanal makinede özel betik uzantısı gibi Azure uzantıları yüklemeyin. Görüntü önceden yüklenmiş bir uzantı içeriyorsa Azure Batch havuzu dağıtırken sorunlarla karşılaşabilirsiniz.

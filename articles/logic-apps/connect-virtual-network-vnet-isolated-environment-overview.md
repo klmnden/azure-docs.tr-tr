@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 11/29/2018
-ms.openlocfilehash: eb296a436f6c09a4f592ba3a26ee1c3a0f8e18bb
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.date: 12/03/2018
+ms.openlocfilehash: 5046b1012e0074e9548cad050c16eef25c00cee0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678841"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845204"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Tümleştirme service ortamları (ISEs) kullanarak Azure sanal ağ kaynakları için Azure Logic Apps gelen erişimi
 
@@ -64,13 +64,15 @@ ISE ve ISE olmayan bağlayıcıları arasındaki fark tetikleyiciler ve Eylemler
 
 Bir tümleştirme hizmeti ortamı (ISE) oluşturduğunuzda, yeri bir Azure sanal ağı seçin, *ekleme* ortamınızı. Ekleme, sanal ağınızda özel bir Logic Apps hizmetinin örneğini dağıtır. Bu eylem, oluşturduğunuz ve ayrılmış kaynakları mantıksal uygulamalarınızı çalıştırmak için yalıtılmış bir ortam sonuçlanır. Oluşturduğunuz logic apps, işe uygulamalarınızın konum olarak seçin. Bu mantıksal uygulamalar daha sonra doğrudan sanal ağa erişmek ve bu ağdaki kaynaklara da bağlayın. 
 
-Bir sanal ağdaki bir ISE'ye bağlı şirket içi sistemler için logic apps doğrudan bu sistemlerin bu öğelerden herhangi birini kullanarak erişebilir: 
+Bir sanal ağa bağlı sistemler için logic apps doğrudan bu sistemleri bu öğelerden herhangi birini kullanarak erişebilmesi için bu sanal ağa bir işe ekleyemezsiniz: 
 
 * Örneğin, SQL Server sistem için işe Bağlayıcısı
+
 * HTTP eylemi 
+
 * Özel bağlayıcı
 
-Bir sanal ağda olmayan veya işe bağlayıcılar yoksa şirket içi sistemler için bu sisteme sonra bağlanabilirsiniz [ayarlama ve şirket içi veri ağ geçidi kullanma](../logic-apps/logic-apps-gateway-install.md).
+Bir sanal ağa bağlı olmayan veya işe bağlayıcılar yoksa şirket içi sistemler için bu sistemleri tarafından bağlanabilirsiniz [ayarlama ve şirket içi veri ağ geçidini kullanarak](../logic-apps/logic-apps-gateway-install.md).
 
 Ortamınızı ekleme için bir Azure sanal ağı seçebilmek için sanal ağınızda Azure Logic Apps hizmeti için rol tabanlı erişim denetimi (RBAC) izinlerini ayarlamanız gerekir. Bu görev, sizin atamanızı gerektirir **ağ Katılımcısı** ve **Klasik Katılımcısı** Azure Logic Apps hizmetine rolleri.
 Bu izinleri ayarlama hakkında bilgi için bkz: [mantıksal uygulamalar'ten Azure sanal ağlarına bağlanma](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#vnet-access)

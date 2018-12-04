@@ -5,14 +5,14 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: e2cba8cb53e73bd1fc25f1fe43fa0365247e2bd2
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c1714fd6ada45f2b4498a3f5972424200afa9aa3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210831"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838149"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Çok katmanlı bir Dynamics AX uygulamasının olağanüstü durum kurtarmayı ayarlama 
 
@@ -37,7 +37,7 @@ Site Recovery kullanarak Dynamics AX uygulamasının olağanüstü durum kurtarm
 
 Azure kurtarma siteniz olarak ise • Vm'lerinde Azure sanal makine hazır olma durumu değerlendirmesi aracını çalıştırın. Azure sanal makineler ve Site Recovery services ile uyumlu olmaları gerekir.
 
-## <a name="site-recovery-support"></a>Site kurtarma desteği
+## <a name="site-recovery-support"></a>Site Recovery desteği
 
 Bu makalede oluşturmak amacıyla, VMware sanal makineleri ile Windows Server 2012 R2 Enterprise üzerinde Dynamics AX 2012 R3 kullandık. Site recovery çoğaltma uygulamadan bağımsız olduğundan, burada aşağıdaki senaryolar için tutmak için sağlanan önerileri bekliyoruz.
 
@@ -139,7 +139,7 @@ Daha fazla bilgi için SQL Server'a özgü yük devretme testi sırasında [ço�
 
 2. Dynamics AX için oluşturduğunuz kurtarma planı seçin.
 
-3. Seçin **yük devretme testi**.
+3. **Yük Devretme Testi**'ni seçin.
 
 4. Test yük devretme işlemini başlatmak için sanal ağ seçin.
 

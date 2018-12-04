@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4a4b9863d8f74592a8d9a700c3dbc850cd867331
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a5bf15289e91cc568524e8110702b5608118bc2d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725565"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833933"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: Bir Android uygulaması kullanarak oturum açın
 
@@ -42,7 +42,7 @@ Ardından B2C dizininizde uygulama oluşturmanız gerekir. Bu, uygulamanız ile 
 
 ## <a name="create-your-user-flows"></a>Kullanıcı akışlarınızı oluşturun
 
-Azure AD B2C'de, her kullanıcı deneyimi tarafından tanımlanan bir [kullanıcı akışı](active-directory-b2c-reference-policies.md), Azure AD davranışını denetleyen ilkeler kümesini olduğu. Bu uygulama bir kimlik deneyimi içerir: oturum açma ve kaydolma birleştirilmiş kullanıcı akışı. Açıklandığı gibi bu kullanıcı akışını oluşturmak gereken [kullanıcı akışı başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). İlkeyi oluştururken şunları yaptığınızdan emin olun:
+Azure AD B2C'de, her kullanıcı deneyimi tarafından tanımlanan bir [kullanıcı akışı](active-directory-b2c-reference-policies.md), Azure AD davranışını denetleyen ilkeler kümesini olduğu. Bu uygulama bir kimlik deneyimi içerir: oturum açma ve kaydolma birleştirilmiş kullanıcı akışı. Açıklandığı gibi bu kullanıcı akışını oluşturmak gereken [kullanıcı akışı başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). İlkeyi oluştururken şunları yaptığınızdan emin olun:
 
 * Seçin **görünen ad** kullanıcı akışınızı kaydolma bir özniteliği olarak.
 * Seçin **görünen ad** ve **nesne kimliği** uygulama her kullanıcı akışı talepleri. Diğer talepleri de seçebilirsiniz.

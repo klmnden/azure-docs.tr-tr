@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/17/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1db805efe7eaec77fcafeb169b3d99098b57f582
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 88cc884489c29f964d68908dd394f23b5b21790f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978987"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839407"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Azure Active Directory B2C kaydolma, oturum açma, profil düzenleme ve parola sıfırlama ile ASP.NET web uygulaması oluşturma
 
@@ -51,27 +51,27 @@ Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD
 
 İşiniz bittiğinde, uygulama ayarlarında, bir API hem yerel bir uygulama gerekir.
 
-## <a name="create-policies-on-your-b2c-tenant"></a>B2C kiracınızın ilkeleri oluşturma
+## <a name="create-user-flows-on-your-b2c-tenant"></a>B2C kiracınıza kullanıcı akışları oluşturma
 
-Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu kod örneği, üç kimlik deneyimi içerir: **kaydolma ve oturum açma**, **düzenleme profili**, ve **parola sıfırlama**.  Her tür için [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md) tanımlanan şekilde bir ilke oluşturmanız gerekir. Her ilke için görünen ad özniteliği veya talep seçin ve daha sonra kullanmak için ilkenizin adını aşağı kopyalamak için emin olun.
+Azure AD B2C'de, her kullanıcı deneyimi tarafından tanımlanan bir [kullanıcı akışı](active-directory-b2c-reference-policies.md). Kullanıcı akışları en yaygın kimlik deneyimleri ayarlamanıza yardımcı olması için Azure AD B2C portal kullanılabilen önceden tanımlanmış ilkelerdir. Bu kod örneği, üç kimlik deneyimi içerir: **kaydolma ve oturum açma**, **düzenleme profili**, ve **parola sıfırlama**.  Açıklandığı gibi her tür tek bir kullanıcı akışı oluşturmak gereken [kullanıcı akışı başvurusu makalesinde](active-directory-b2c-reference-policies.md). Her kullanıcı bir akışa ilişkin Display name özniteliği veya talep seçin ve daha sonra kullanmak için kullanıcı akışınızı adını tuşunu kopyalamak için emin olun.
 
 ### <a name="add-your-identity-providers"></a>Kimlik sağlayıcılarınızı Ekle
 
 Ayarlarınızı seçin **kimlik sağlayıcıları** ve kullanıcı adı kayıt ya da e-posta kaydolabilirsiniz.
 
-### <a name="create-a-sign-up-and-sign-in-policy"></a>Kaydolma ve oturum açma ilkesi oluşturma
+### <a name="create-a-sign-up-and-sign-in-user-flow"></a>Kaydolma ve oturum açma kullanıcı akışı oluştur
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
-### <a name="create-a-profile-editing-policy"></a>Profil düzenleme ilkesi oluşturma
+### <a name="create-a-profile-editing-user-flow"></a>Kullanıcı akışı düzenleme profili oluşturma
 
 [!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
 
-### <a name="create-a-password-reset-policy"></a>Parola sıfırlama ilkesi oluşturma
+### <a name="create-a-password-reset-user-flow"></a>Parola sıfırlama kullanıcı akışı oluştur
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
-İlkelerinizi oluşturduktan sonra uygulamanızı oluşturmaya hazırsınız.
+Kullanıcı akış oluşturduktan sonra uygulamanızı oluşturmaya hazırsınız.
 
 ## <a name="download-the-sample-code"></a>Örnek kodu indirin
 
@@ -83,16 +83,16 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 Örnek kodu indirdikten sonra başlamak için Visual Studio .sln dosyasını açın. Çözüm dosyası iki proje içerir: `TaskWebApp` ve `TaskService`. `TaskWebApp` kullanıcı ile etkileşime giren MVC web uygulamasıdır. `TaskService`, uygulamanın, her kullanıcının yapılacaklar listesini depolayan arka uç web API'sidir. Bu makalede yalnızca `TaskWebApp` uygulaması ele alınacaktır. Nasıl oluşturulacağını öğrenmek için `TaskService` Azure AD B2C kullanarak bkz [.NET web API Öğreticisi](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## <a name="update-code-to-use-your-tenant-and-policies"></a>Kiracı ve ilkelerini kullanmak için kodu güncelleştirme
+## <a name="update-code-to-use-your-tenant-and-user-flows"></a>Kiracı ve kullanıcı akışlarınızda kullanmak için kodu güncelleştirme
 
-Örneğimiz, tanıtım kiracımızın ilkelerini ve istemci kimliğini kullanacak şekilde yapılandırılmıştır. Kendi kiracınıza bağlamak için açmanız gerekir `web.config` içinde `TaskWebApp` proje ve aşağıdaki değerleri değiştirin:
+Bizim örneğimiz, tanıtım kiracımızın istemci kimliği ve kullanıcı akışları kullanmak için yapılandırılır. Kendi kiracınıza bağlamak için açmanız gerekir `web.config` içinde `TaskWebApp` proje ve aşağıdaki değerleri değiştirin:
 
 * kiracı adınızla `ida:Tenant`
 * Web uygulamanızın kimliği ile `ida:ClientId`
 * Web uygulamanızın gizli anahtarı ile `ida:ClientSecret`
-* "Kaydolma veya Oturum açma" ilkenizin adıyla `ida:SignUpSignInPolicyId`
-* "Profil Düzenleme" ilkenizin adıyla `ida:EditProfilePolicyId`
-* "Parola Sıfırlama" ilkenizin adıyla `ida:ResetPasswordPolicyId`
+* `ida:SignUpSignInPolicyId` ile "Kaydolma veya oturum açma" kullanıcı Akış adı
+* `ida:EditProfilePolicyId` "Profili Düzenle" kullanıcı akışı adıyla
+* `ida:ResetPasswordPolicyId` ile "Parolayı Sıfırla" kullanıcı Akış adı
 
 ## <a name="launch-the-app"></a>Uygulamayı başlatın
 Öğesinden, Visual Studio içinde uygulamayı başlatın. Yapılacaklar listesi sekmesine gidin ve URL'sini Not: https://*YourTenantName*.b2clogin.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName* & client_id =*YourclientID*...
@@ -110,16 +110,16 @@ Sosyal Idp'yi uygulamanıza eklemek için şu makalelere ayrıntılı yönergele
 * [Amazon bir IDP ayarlayın](active-directory-b2c-setup-amzn-app.md)
 * [LinkedIn bir IDP ayarlayın](active-directory-b2c-setup-li-app.md)
 
-Kimlik sağlayıcıları B2C dizininizi ekledikten sonra açıklandığı gibi her yeni IDP içerecek şekilde ilkelerinizi üç Düzenle [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md). İlkelerinizi kaydettikten sonra uygulamayı yeniden çalıştırın.  Oturum açma eklenen yeni IDP görmeniz gerekir ve her kimliğinizi kaydolma seçenekleri deneyimleri.
+Kimlik sağlayıcıları B2C dizininizi ekledikten sonra açıklandığı gibi her yeni IDP eklemek için üç kullanıcı akışları Düzenle [kullanıcı akışı başvurusu makalesinde](active-directory-b2c-reference-policies.md). Kullanıcı akışlarınızı kaydettikten sonra uygulamayı yeniden çalıştırın.  Oturum açma eklenen yeni IDP görmeniz gerekir ve her kimliğinizi kaydolma seçenekleri deneyimleri.
 
-Uygulamanızın ilkelerini deneyebilir ve örnek uygulamanızı üzerindeki etkisini inceleyin. Ekleme veya Idp'yi kaldırmak, uygulama taleplerini yönetmek veya kaydolma özniteliklerini değiştirebilirsiniz. İlkeleri ve kimlik doğrulama isteklerini OWIN nasıl birbirine bağlayın görene kadar denemeler yapın.
+Kullanıcı akışları ile denemeler yapın ve örnek uygulamanız üzerindeki etkisini inceleyin. Ekleme veya Idp'yi kaldırmak, uygulama taleplerini yönetmek veya kaydolma özniteliklerini değiştirebilirsiniz. Kullanıcı akışları, kimlik doğrulama isteklerini ve OWIN nasıl birbirine bağlayın görene kadar denemeler yapın.
 
 ## <a name="sample-code-walkthrough"></a>Örnek kod gözden geçirme
 Aşağıdaki bölümlerde örnek uygulama kodu nasıl yapılandırıldığını gösterir. Bu, gelecekte uygulama geliştirme kılavuz olarak kullanabilirsiniz.
 
 ### <a name="add-authentication-support"></a>Kimlik doğrulama desteği ekleme
 
-Artık uygulamanızı Azure AD B2C'yi kullanacak şekilde yapılandırabilirsiniz. Uygulamanızın Openıd Connect kimlik doğrulaması istek göndererek Azure AD B2C ile iletişim kurar. İstekleri ilkeyi belirterek yürütmek için uygulamanızı istediği kullanıcı deneyimini dikte. Microsoft OWIN Kitaplığı'ı, bu istekleri göndermek, ilkeleri yürütmek, kullanıcı oturumları ve daha fazlasını yönetmek için kullanabilirsiniz.
+Artık uygulamanızı Azure AD B2C'yi kullanacak şekilde yapılandırabilirsiniz. Uygulamanızın Openıd Connect kimlik doğrulaması istek göndererek Azure AD B2C ile iletişim kurar. İstekler kullanıcı akışı belirterek yürütmek için uygulamanızı isteyen kullanıcı deneyimini gerektirir. Microsoft OWIN Kitaplığı'ı, bu istekleri göndermek, kullanıcı akışları yürütme, kullanıcı oturumları ve daha fazlasını yönetmek için kullanabilirsiniz.
 
 #### <a name="install-owin"></a>OWIN yükleme
 
@@ -207,11 +207,11 @@ public partial class Startup
 
 İçinde `OpenIdConnectAuthenticationOptions` Openıd Connect ara yazılım tarafından alınan belirli bildirimleri için geri çağırma işlevleri bir dizi yukarıdaki tanımlarız. Bu davranışların kullanılarak bildirilen bir `OpenIdConnectAuthenticationNotifications` nesne ve içinde depolanan `Notifications` değişkeni. Örneğimizde, olaya bağlı olarak üç farklı geri çağırmaları tanımlarız.
 
-### <a name="using-different-policies"></a>Farklı ilkelerini kullanma
+### <a name="using-different-user-flows"></a>Kullanarak farklı kullanıcı akışları
 
-`RedirectToIdentityProvider` Bildirim, Azure AD B2C'ye bir istek yapıldığında tetiklenir. Geri çağırma işlevi olarak `OnRedirectToIdentityProvider`, farklı bir ilke kullanmak istiyorsanız şu giden çağrısında denetleyin. Parola sıfırlama yapabilir veya bir profili düzenlemek için ilgili ilkeyi gibi parola sıfırlama İlkesi yerine varsayılan "Kaydolma veya oturum açma" ilkesini kullanmanız gerekir.
+`RedirectToIdentityProvider` Bildirim, Azure AD B2C'ye bir istek yapıldığında tetiklenir. Geri çağırma işlevi olarak `OnRedirectToIdentityProvider`, farklı bir kullanıcı akışı kullanmasını istiyorsanız şu giden çağrısında denetleyin. Parola sıfırlama yapabilir veya bir profili düzenlemek için varsayılan "Kaydolma veya oturum açma" kullanıcı akışı yerine kullanıcı akışı parola sıfırlama gibi karşılık gelen kullanıcı akışı kullanmanız gerekir.
 
-Örneğimizde, bir kullanıcı parolasını sıfırlama veya profili düzenlemek istediğinde OWIN bağlamına kullanmayı tercih ederiz İlkesi ekleyeceğiz. Aşağıdakileri yaparak, yapılabilir:
+Örneğimizde, bir kullanıcı parolasını sıfırlama veya profili düzenlemek istediğinde OWIN bağlamına kullanmayı tercih ederiz kullanıcı akışı ekleriz. Aşağıdakileri yaparak, yapılabilir:
 
 ```CSharp
     // Let the middleware know you are trying to use the edit profile policy
@@ -246,7 +246,7 @@ private Task OnRedirectToIdentityProvider(RedirectToIdentityProviderNotification
 
 ### <a name="handling-errors"></a>Hataları işleme
 
-`AuthenticationFailed` Bildirim kimlik doğrulama başarısız olduğunda tetiklenir. İstediğiniz gibi geri çağırma yöntemi hataları başa çıkabilir. Ancak bir denetleyin hata kodu eklemelisiniz `AADB2C90118`. "Kaydolma veya oturum açma" ilkesini yürütülmesi sırasında seçme fırsatı kullanıcının bir **parolanızı mı unuttunuz?** bağlantı. Bu durumda, Azure AD B2C, uygulamanız uygulamanızı parola sıfırlama ilkesini bunun yerine bir isteğin yapmalısınız belirten bu hata kodu gönderir.
+`AuthenticationFailed` Bildirim kimlik doğrulama başarısız olduğunda tetiklenir. İstediğiniz gibi geri çağırma yöntemi hataları başa çıkabilir. Ancak bir denetleyin hata kodu eklemelisiniz `AADB2C90118`. "Kaydolma veya oturum açma" kullanıcı akışı yürütülmesi sırasında seçme fırsatı kullanıcının bir **parolanızı mı unuttunuz?** bağlantı. Bu durumda, uygulamanızın parola sıfırlama kullanıcı akışı bunun yerine bir isteğin yapmalısınız belirten bu hata kodu, uygulamanız Azure AD B2C gönderir.
 
 ```CSharp
 /*
@@ -357,7 +357,7 @@ public void SignOut()
 }
 ```
 
-Kullanabileceğiniz bir ilke açıkça çağırma yanı sıra bir `[Authorize]` kullanıcı imzalı değilse, bir ilke yürüten denetleyicilerinizi etiketinde. Açık `Controllers\HomeController.cs` ve ekleme `[Authorize]` talep denetleyiciye etiketi.  Son ilke yapılandırılmış OWIN seçer `[Authorize]` etiketi isabet.
+Kullanabileceğiniz bir kullanıcı akışı açıkça çağırma yanı sıra bir `[Authorize]` kullanıcı imzalı değilse, bir kullanıcı akışı yürüten denetleyicilerinizi etiketinde. Açık `Controllers\HomeController.cs` ve ekleme `[Authorize]` talep denetleyiciye etiketi.  Son ilke yapılandırılmış OWIN seçer `[Authorize]` etiketi isabet.
 
 ```CSharp
 // Controllers\HomeController.cs

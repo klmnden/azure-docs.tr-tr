@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 08/16/2018
-ms.openlocfilehash: 312425d3ea02d15a992b9a694f09cb2be73b6221
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d0747e9e54a48ecccb7051ad4fe9998d86599ffe
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161599"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840750"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL veritabanı yönetilen örneği bağlantı mimarisi 
 
@@ -66,7 +66,7 @@ Yönetilen örnek bağlantı mimaride daha yakından bakın alalım. Sanal küme
 
 Özel IP adresi için yönetilen örneği iç yük dengeleyici (yönetilen örnek ağ geçidi'için (GW) trafiği yönlendiren ILB) aittir. Birden çok yönetilen örnekler aynı küme içinde potansiyel olarak çalıştırabileceğiniz gibi GW yönetilen örneği ana bilgisayar adı için doğru SQL altyapısı hizmet trafiği yönlendirmek için kullanır. 
 
-Yönetim ve dağıtım hizmetlerini dış yük dengeleyici eşlemeleri genel bir uç nokta kullanarak yönetilen örneğe bağlanın. Trafik yönlendirileceğini yalnızca alan düğümleri yalnızca yönetilen örnek yönetim bileşenleri tarafından kullanılan bağlantı noktaları bir dizi önceden tanımlanmış. Yönetim bileşenler ve yönetim düzlemi arasındaki tüm iletişim karşılıklı kimlik doğrulaması sertifikadır. 
+Yönetim ve dağıtım hizmetlerini yönetilen örneği için kullanılacak bağlantı [yönetim uç noktası](sql-database-managed-instance-management-endpoint.md) dış yük dengeleyici ile eşler. Trafik, yalnızca önceden tanımlanmış birtakım özel olarak yönetilen örnek yönetim bileşenleri tarafından kullanılan bağlantı noktaları üzerinde aldıysanız düğümlere yönlendirilir. Düğümlerde yerleşik güvenlik duvarı, yalnızca belirli IP aralıkları Microsoft gelen trafiğe izin verecek şekilde yapılandırılır. Yönetim bileşenler ve yönetim düzlemi arasındaki tüm iletişim karşılıklı kimlik doğrulaması sertifikadır. 
 
 ## <a name="next-steps"></a>Sonraki adımlar 
 

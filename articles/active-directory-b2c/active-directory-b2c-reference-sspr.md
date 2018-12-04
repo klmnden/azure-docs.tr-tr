@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7dd68f409ad4c8130ed841ddc7ef5910d3b1945c
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c9d6a66a9d54c75fbb20775f0ae4de4d22a7d599
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52719751"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840882"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Self Servis parola sıfırlama müşterileriniz için ayarlama
 Self Servis parola sıfırlama özelliği ile yerel hesaplar için RMS'ye kaydolup, müşteriler kendi parolalarını sıfırlayabilir. Özellikle, uygulamanızın düzenli olarak kullanan müşteriler milyonlarca varsa bu destek ekibinize üzerindeki yükü önemli ölçüde azaltır. Şu anda doğrulanmış e-posta adresi kullanarak yalnızca desteklenen kurtarma yöntemidir.
 
 > [!NOTE]
-> Bu makale uygulanır Self Servis parola sıfırlama V1 bağlamında kullanılan **oturum açın** kullanan kullanıcı akışı **yerel hesapla oturum aç** kimlik sağlayıcısı olarak. Uygulamanızdan çağrılan tamamen özelleştirilebilir bir parola sıfırlama kullanıcı akışları gerekirse bkz [bu makalede](active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
+> Bu makale uygulanır Self Servis parola sıfırlama V1 bağlamında kullanılan **oturum açın** kullanan kullanıcı akışı **yerel hesapla oturum aç** kimlik sağlayıcısı olarak. Uygulamanızdan çağrılan tamamen özelleştirilebilir bir parola sıfırlama kullanıcı akışları gerekirse bkz [bu makalede](active-directory-b2c-reference-policies.md#create-a-password-reset-user-flow).
 > 
 > 
 

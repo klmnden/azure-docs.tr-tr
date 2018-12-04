@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d3cc1a09963c5f7fee613af24c63fd15b1cfffee
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: bf7d639c682e443f29b31b3c6d7438e89c406fde
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811296"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838642"
 ---
 # <a name="how-to-publish-a-new-iot-edge-module-in-the-cloud-partner-portal"></a>Yeni bir IOT Edge modülü bulut iş ortağı Portalı'nda yayımlama
 
@@ -53,7 +53,7 @@ IOT Edge modülü listenizi hazırlamak için aşağıdaki adımları izleyin:
 -   Oturum, [CPP hesabı](https://cloudpartner.azure.com/).
 
 >[!Note]
->Bulut iş ortağı Portalı hakkında genel bilgi için kontrol edebilirsiniz [belgeleri edinin](https://cloudpartner.azure.com/#learn)
+>Bulut iş ortağı Portalı hakkında genel bilgi için kontrol edebilirsiniz [belgeleri edinin](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal)
 
 -   Seçin **yeni teklif**ve ardından **IOT Edge Modülü**.
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 75ec3cf41a70722001ec51185d83aded0a69efff
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 464e497c806a0b3172cbf4f5ae802693def1b435
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52684589"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832675"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Log Analytics ile Azure PaaS kaynak ölçümleri koleksiyonunu yapılandırma
 
@@ -81,7 +81,7 @@ Zaten bir Log Analytics çalışma alanına veri gönderen bir kaynak varsa ve d
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Hakkında bilgi edinin [günlük aramaları](../../log-analytics/log-analytics-queries.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 
+* Hakkında bilgi edinin [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 
 
 * Kullanım [özel alanlar](../../log-analytics/log-analytics-custom-fields.md)(olay kayıtları tek tek alanlarına ayrıştırılamadı.
 

@@ -1,29 +1,27 @@
 ---
 title: 'Azure Cosmos DB: .NET Core ile SQL API’si başlangıç öğreticisi | Microsoft Docs'
 description: Azure Cosmos DB SQL API’si .NET Core SDK'sını kullanarak çevrimiçi bir veritabanı ve C# konsol uygulaması oluşturan öğretici.
-services: cosmos-db
 author: SnehaGunda
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
-ms.custom: devcenter
-ms.openlocfilehash: feb44920c36f2d17dafb1d33ef1c1e680fd37db4
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 772e52960cf76a19c78d50533fe57cbc339ca34a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163563"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838591"
 ---
 # <a name="tutorial-build-a-net-core-app-to-manage-azure-cosmos-db-sql-api-data"></a>Öğretici: Azure Cosmos DB SQL API'si verilerini yönetmek için bir .Net Core uygulaması oluşturma
 
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
+> * [.NET core (Önizleme)](sql-api-dotnet-core-get-started-preview.md)
+> * [.NET](sql-api-get-started.md)
+> * [.NET (Önizleme)](sql-api-dotnet-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)

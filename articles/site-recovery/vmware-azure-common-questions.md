@@ -4,15 +4,15 @@ description: Azure Site Recovery kullanılarak Azure'da şirket içi VMware vm'l
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: c261dd083fed8b9c4a0f3846157c666cbb52083c
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 99e108da5fc9c13d0a9ec65a485055d1b990f8b7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636824"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838236"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -47,14 +47,20 @@ Bir abonelik yöneticisi değilseniz, ihtiyaç duyduğunuz çoğaltma izinleri s
 ## <a name="on-premises"></a>Şirket içi
 
 ### <a name="what-do-i-need-on-premises"></a>Ne şirket içi gerekiyor?
-Şirket içi Site Recovery bileşenleri, tek bir VMware VM'de yüklü gerekir. En az bir ESXi konağı ile de bir VMware altyapısı gerekir ve bir vCenter sunucusu önerilir. Ayrıca, çoğaltma için bir veya daha fazla VMware Vm'lerini gerekir. [Daha fazla bilgi edinin](vmware-azure-architecture.md) VMware-Azure arası mimari hakkında.
 
-Şirket içi yapılandırma sunucusu aşağıdaki iki yöntemden biri ile dağıtılabilir
+Şirket içi şunlar gerekir:
+- Recovery bileşenleri, tek bir VMware VM'de yüklü site.
+- Bir VMware altyapısı, en az bir ESXi ana bilgisayar ve bir vCenter sunucusunun kullanılması önerilir.
+- Bir veya daha fazla VMware çoğaltılacak VM'ler.
 
-1. Yapılandırma sunucusu önceden yüklü bir VM şablonu kullanarak dağıtın. [Buradan daha fazla okuma](vmware-azure-tutorial.md#download-the-vm-template).
-2. Kurulum, tercih ettiğiniz bir Windows Server 2016 makinesinde kullanarak dağıtın. [Buradan daha fazla okuma](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+[Daha fazla bilgi edinin](vmware-azure-architecture.md) VMware-Azure arası mimari hakkında.
 
-Başlarken, kendi Windows Server makinelerinde koruma amacı, koruma etkinleştirme, yapılandırma sunucusunu dağıtma adımları keşfetmek için seçin **Azure'a > sanallaştırılmamış/diğer**.
+Şirket içi yapılandırma sunucusu şu şekilde dağıtılabilir:
+
+- Yapılandırma sunucusunu bir VMware VM olarak dağıtma OVA Şablon önceden yüklenmiş bir yapılandırma sunucusu ile kullanmanızı öneririz.
+- Herhangi bir nedenle bir şablon kullanamıyorsanız, yapılandırma sunucusunu el ile ayarlayabilirsiniz. [Daha fazla bilgi edinin](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+
+
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>Burada şirket içi Vm'leri için çoğaltma?
 Verileri Azure depolama alanına çoğaltır. Bir yük devretme çalıştırdığınızda, Site Recovery depolama hesabından Azure Vm'leri otomatik olarak oluşturur.

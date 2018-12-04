@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 17d1419501b4833d0abc3b5670827d57dfd7a286
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 53837573daef56bad12f627400f7db1ccd1c26cf
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643351"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836976"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Görünüm Tasarımcısı kutucukları Log analytics'te Başvuru Kılavuzu
 Azure Log Analytics'te Görünüm Tasarımcısı kullanarak veri görselleştirmeleri Log Analytics çalışma alanınızdaki çeşitli sunan Azure portalında özel görünümlerinizi oluşturabilirsiniz. Bu makalede, özel görünümlerde kullanılabilir kutucuk ayarlarını bir başvuru kılavuzudur.
@@ -33,7 +33,7 @@ Görünüm Tasarımcısı hakkında daha fazla bilgi için bkz:
 
 Kullanılabilir Görünüm Tasarımcısı kutucuklar, aşağıdaki tabloda açıklanmıştır:  
 
-| Kutucuk | Açıklama |
+| kutucuğu | Açıklama |
 |:--- |:--- |
 | [Sayı](#number-tile) |Bir sorgunun kayıt sayısı. |
 | [İki sayı](#two-numbers-tile) |İki farklı sorgular kayıtlarını sayar. |
@@ -100,7 +100,7 @@ Bu kutucuk, her iki farklı günlük sorguları ve bir etiket kayıtları sayıs
 | Merkezdeki işlemde kullanılan sonuç değerleri |İsteğe bağlı olarak, bir veya daha fazla değer eklemek için artı işaretini (+) seçin. Sorgu sonuçlarını kayıtlarını belirttiğiniz özellik değerleri ile sınırlıdır. Hiçbir değer eklediyseniz tüm kayıtları sorguya dahil edilir. |
 | **Halka** |**> Ek seçenekler** |
 | Renkler |Her üç üst özellik için görüntülenecek rengi. Belirli özellik değerleri için alternatif renkleri belirtmek için kullanın *gelişmiş renk eşleme*. |
-| Gelişmiş Renk Eşleme |Belirli özellik değerleri temsil eden bir renk görüntüler. İlk üç belirttiğiniz değer ise alternatif rengi standart renk yerine görüntülenir. Color özelliği ilk üç değilse, görüntülenmez. |
+| Gelişmiş renk eşleme |Belirli özellik değerleri temsil eden bir renk görüntüler. İlk üç belirttiğiniz değer ise alternatif rengi standart renk yerine görüntülenir. Color özelliği ilk üç değilse, görüntülenmez. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
 | Etkin |Veri akışı doğrulama kutucuğuna etkinleştirilmesi gerekiyorsa, bu bağlantıyı seçin. Bu yaklaşım, veri kullanılabilir durumda değilse alternatif bir ileti sağlar. Normalde bir ileti zaman görünümü yüklü olduğundan ve veri kullanılabilir olduğunda geçici döneminde sağlamak için bir yaklaşım kullanın. |
 | Sorgu |Sorgu veri görünümü için kullanılabilir olup olmadığını belirlemek için çalıştırın. Sorgu hiçbir sonuç döndürmezse, ana sorgunun değeri yerine bir ileti görüntülenir. |
@@ -119,7 +119,7 @@ Zaman içinde birden fazla seri günlük sorgudan gösteren bir çizgi grafik ku
 | **Çizgi grafik** | |
 | Sorgu |Çizgi grafiği için çalıştırılan sorgu. Bir metin değeri ilk özelliğidir ve ikinci özelliği sayısal bir değerdir. Bu sorgu normalde kullandığı *ölçü* sonuçları özetlemek için anahtar sözcüğü. Sorgu kullanıyorsa *aralığı* anahtar sözcüğü, x ekseninde bu zaman aralığını kullanır. Sorgu kullanmıyorsa *aralığı* anahtar sözcüğü, saatlik aralıklarla x ekseni kullanır. |
 | **Çizgi grafik** |**> Y ekseni** |
-| Logaritmik Ölçek Kullan |Y ekseni için Logaritmik ölçek kullanmak için bu bağlantıyı seçin. |
+| Logaritmik ölçek kullan |Y ekseni için Logaritmik ölçek kullanmak için bu bağlantıyı seçin. |
 | Birimler |Sorgu tarafından döndürülen değerler için birimleri belirtin. Bu bilgiler, değer türleri gösteren grafik ve isteğe bağlı olarak değerlerini dönüştürmek için etiketleri görüntülemek için kullanılır. **Birim türü** birim kategorisini belirtir ve tanımlar **geçerli birim türü** kullanılabilir olan değerleri. Bir değer seçerseniz **Dönüştür** gelen sayısal değerleri dönüştürülür sonra **geçerli birim** için yazın **Dönüştür** türü. |
 | Özel Etiket |Y ekseninin yanındaki etiketi için görüntülenecek metni *birim* türü. Etiket yoktur, yalnızca belirtilirse *birim* türü görüntülenir. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
@@ -144,7 +144,7 @@ Bu kutucuk, saati ve bir özetlenmiş değer ile belirtme çizgisi üzerinde bir
 | Seri adı |Belirtme çizgisi değeri olarak kullanılacak serisi özellik değeri. Hiçbir serisi sağlanırsa, sorgudaki tüm kayıtlar kullanılır. |
 | İşlem |Belirtme çizgisi için tek bir değer olarak özetlemek için değer özelliği üzerinde gerçekleştirilen işlem.<ul><li>Ortalama: Tüm kayıtlardan değerlerin ortalamasını.</li><li>Sayısı: Sorgu tarafından döndürülen tüm kayıtların sayısı.</li><li>Son örnek: grafikte dahil son aralığı değeri.</li><li>En fazla: Grafikte yer aralıklarının maksimum değer.</li><li>En düşük: En küçük değerini grafikte yer aralıkları.</li><li>Toplam: Tüm kayıtlardan değerlerinin toplamı.</li></ul> |
 | **Çizgi grafik** |**> Y ekseni** |
-| Logaritmik Ölçek Kullan |Y ekseni için Logaritmik ölçek kullanmak için bu bağlantıyı seçin. |
+| Logaritmik ölçek kullan |Y ekseni için Logaritmik ölçek kullanmak için bu bağlantıyı seçin. |
 | Birimler |Sorgu tarafından döndürülen değerler için birimlerin belirtin. Bu bilgiler değeri türlerini belirtmek görüntü grafiğini etiketlere ve da isteğe bağlı olarak için kullanılan değerleri dönüştürün. *Birim* türü birim kategorisini belirtir ve kullanılabilir tanımlar *geçerli birim* değerler girin. Bir değer seçerseniz *Dönüştür*, sayısal değerler gelen dönüştürülür *geçerli birim* için yazın *Dönüştür* türü. |
 | Özel Etiket |Y ekseninin yanındaki etiketi için görüntülenecek metni *birim* türü. Etiket yoktur, yalnızca belirtilirse *birim* türü görüntülenir. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
@@ -162,7 +162,7 @@ Bu kutucuk, saati ve bir özetlenmiş değer ile belirtme çizgisi üzerinde bir
 |:--- |:--- |
 | Ad |Kutucuğun üst kısmında görüntülenen metin. |
 | Açıklama |Kutucuk adı altında görüntülenen metin. |
-| İlk Grafik | |
+| İlk grafik | |
 | Gösterge |Belirtme çizgisi ilk serisinin altında görüntülenen metin. |
 | Renk |İlk dizideki sütunlar için kullanılan renk. |
 | Grafik sorgusu |İlk seri için çalıştırılan sorgu. Her zaman aralığında kayıtların sayısını grafiğin sütunları tarafından temsil edilir. |
@@ -170,7 +170,7 @@ Bu kutucuk, saati ve bir özetlenmiş değer ile belirtme çizgisi üzerinde bir
 | **İkinci grafik** | |
 | Gösterge |İkinci bir seri için çağrı altında görüntülenen metin. |
 | Renk |Serinin ikinci sütun için kullanılan renk. |
-| Grafik Sorgusu |İkinci bir seri için çalıştırılan sorgu. Her zaman aralığında kayıtların sayısını grafiğin sütunları tarafından temsil edilir. |
+| Grafik sorgusu |İkinci bir seri için çalıştırılan sorgu. Her zaman aralığında kayıtların sayısını grafiğin sütunları tarafından temsil edilir. |
 | İşlem |Belirtme çizgisi için tek bir değer olarak özetlemek için değer özelliği üzerinde gerçekleştirilen işlem.<ul><li>Ortalama: Tüm kayıtlardan değerlerin ortalamasını.</li><li>Sayısı: Sorgu tarafından döndürülen tüm kayıtların sayısı.</li><li>Son örnek: grafikte dahil son aralığı değeri.</li><li>En fazla: Grafikte yer aralıklarının maksimum değer. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
 | Etkin |Veri akışı doğrulama kutucuğuna etkinleştirilmesi gerekiyorsa, bu bağlantıyı seçin. Bu yaklaşım, veri kullanılabilir durumda değilse alternatif bir ileti sağlar. Normalde bir ileti zaman görünümü yüklü olduğundan ve veri kullanılabilir olduğunda geçici döneminde sağlamak için bir yaklaşım kullanın. |
@@ -179,5 +179,5 @@ Bu kutucuk, saati ve bir özetlenmiş değer ile belirtme çizgisi üzerinde bir
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [günlük aramaları](../../log-analytics/log-analytics-queries.md) kutucuklar sorguları desteklemek için.
+* Hakkında bilgi edinin [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) kutucuklar sorguları desteklemek için.
 * Ekleme [görselleştirme bölümleri](view-designer-parts.md) , özel bir görünüm.

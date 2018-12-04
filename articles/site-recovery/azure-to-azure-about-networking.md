@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 37db2dd5908b231b9f04a5c009052d91724f6333
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 76b3d23a042fae452b25b0a707e3c7ff9bbda613
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976257"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838201"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Azure'dan Azure'a çoğaltma ağı hakkında
 

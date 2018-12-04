@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 63c6c231477a1c5abea15903b17843717e61f96a
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 2909f586ce102b319ca9dfeea191c7812e3f6b06
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679963"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842671"
 ---
 # <a name="workspace-expression-in-log-analytics-query"></a>Log Analytics sorgu ifadesinde Workspace()
 
@@ -73,4 +73,4 @@ union
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Bkz: [uygulama ifade](workspace-expression.md) Application Insights uygulamaya başvurmak için.
-- Nasıl çalıştıracağınızı okuyun [Log Analytics verilerini](../../log-analytics/log-analytics-queries.md) depolanır.
+- Nasıl çalıştıracağınızı okuyun [Log Analytics verilerini](../../azure-monitor/log-query/log-query-overview.md) depolanır.

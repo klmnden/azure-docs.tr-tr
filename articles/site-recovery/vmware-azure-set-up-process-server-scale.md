@@ -1,18 +1,18 @@
 ---
 title: VMware Vm'leri ve fiziksel sunucuları Azure Site Recovery ile olağanüstü durum kurtarma sırasında geri başarısız için azure'da bir işlem sunucusu ayarlama | Microsoft Docs
 description: Bu makalede, azure'da bir işlem sunucusu Azure'dan şirket içi VMware Vm'leri ve fiziksel sunucuları olağanüstü durum kurtarma sırasında yeniden çalışma için nasıl ayarlanacağı açıklanır.
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
-ms.author: raynew
-ms.openlocfilehash: 330f0197b8a7735043e93f00dc4baa5578f50228
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 11/27/2018
+ms.author: ramamill
+ms.openlocfilehash: 2ef08831706a018422ea3700c8eb63bd6f95c469
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212242"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834977"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Ek işlem sunucusu ile yeniden çalışma için ölçek
 
@@ -41,6 +41,7 @@ Her korumalı olduğunda, kaynak makinenin 100 GB'lık 3 diskleri ile yapıland�
 Ek işlem sunucusu için Önkoşulları aşağıdaki tabloda özetlenmiştir.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
+
 
 
 ## <a name="download-installation-file"></a>Yükleme dosyasını indirin

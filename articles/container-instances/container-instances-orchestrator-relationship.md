@@ -5,15 +5,15 @@ services: container-instances
 author: seanmck
 ms.service: container-instances
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 11/30/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: c17bdb5a81640a7162ae735a4633a31cdfffbb1d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 08bc344a20ade3d8bb0f7dd23a854fd03ddac006
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803520"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845816"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances ve kapsayıcı düzenleyicileri
 
@@ -40,9 +40,9 @@ Azure Container Instances, tüm orchestrator platformlar, üzerinde çok kapsay�
 
 Altyapının container Instances için Azure tarafından yönetildiğinden, orchestrator platformunun kendini bir uygun konak makinesi üzerinde tek bir kapsayıcıyı çalıştırmak için bulma ile ilgili gerekmez. Bunu her zaman kullanılabilir bulutun esneklik sağlar. Bunun yerine, orchestrator genişletme dahil olmak üzere, çok kapsayıcılı mimarileri ve Eşgüdümlü yükseltmeleri geliştirilmesini basitleştirin görevleri üzerinde odaklanabilirsiniz.
 
-## <a name="potential-scenarios"></a>Olası senaryolar
+## <a name="scenarios"></a>Senaryolar
 
-Azure Container Instances ile orchestrator tümleştirme hala yeni olsa da, birkaç farklı ortamlar ortaya çıkan beklenir:
+Azure Container Instances ile orchestrator tümleştirme hala yeni olsa da, birkaç farklı ortamlar çıkacaktır beklenir:
 
 ### <a name="orchestration-of-container-instances-exclusively"></a>Kapsayıcı düzenleme özel örnekler
 
@@ -54,13 +54,15 @@ Uzun süre çalışan, kararlı iş yükleri için ayrılmış sanal makine küm
 
 Kümedeki sanal makinelerin sayısını ölçeklendirmeye yerine sonra bu makinelere ek kapsayıcıları dağıtma, orchestrator yalnızca ek Azure Container Instances'a kapsayıcıları zamanlayabilir ve bunlar artık olduğunuzda bunları silin gerekli.
 
-## <a name="sample-implementation-virtual-kubelet-for-kubernetes"></a>Örnek uygulama: Kubernetes için Virtual Kubelet
+## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>Örnek uygulama: sanal düğümü için Azure Kubernetes Service (AKS)
 
-[Virtual Kubelet] [ aci-connector-k8s] proje gösteren Azure Container Instances ile kapsayıcı düzenleme platformlarından nasıl tümleştirebilirsiniz.
+Uygulama iş yükleri, hızlı bir şekilde ölçeklendirmek için bir [Azure Kubernetes hizmeti](../aks/intro-kubernetes.md) kullanabileceğiniz (AKS) kümesini *sanal düğümü* Azure Container Instances'da dinamik olarak oluşturulur. Şu anda Önizleme aşamasında olan sanal düğümü ACI çalıştırma pod'ların ve AKS kümesi arasındaki ağ iletişimini etkinleştirin. 
 
-Sanal Kubelet taklit eder, Kubernetes [kubelet] [ kubelet-doc] sınırsız kapasiteye sahip bir düğüm olarak kaydedip oluşturulmasını gönderme [pod'ların] [ pod-doc] olarak Azure Container ınstances'da kapsayıcı grupları.
+Sanal düğümü şu anda Linux kapsayıcı örneklerini destekler. Kullanarak sanal düğümü ile çalışmaya başlama [Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538) veya [Azure portalında](https://go.microsoft.com/fwlink/?linkid=2047545).
 
-Bağlayıcılar diğer düzenleyiciler için hız ve kolaylık, Azure Container ınstances'da kapsayıcı yönetme ile API orchestrator'ın gücünü birleştirerek platform temelleri ile benzer şekilde tümleştirilebilen oluşturulabilir.
+Sanal düğümü kullanan açık kaynak [Virtual Kubelet] [ aci-connector-k8s] Kubernetes taklit edecek şekilde [kubelet] [ kubelet-doc] sınırsız sayıda düğüm olarak kaydederek Kapasite. Virtual Kubelet oluşturulmasını gönderir [pod'ların] [ pod-doc] olarak Azure Container ınstances'da kapsayıcı grupları.
+
+Bkz: [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) sunucusuz kapsayıcı platformlarında Kubernetes API genişletme ek örnekler için proje.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

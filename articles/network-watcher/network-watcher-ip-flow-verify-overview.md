@@ -1,6 +1,6 @@
 ---
-title: IP akış giriş doğrulayın Azure Ağ İzleyicisi | Microsoft Docs
-description: Bu sayfada bir genel bakış sunulmaktadır Ağ İzleyicisi IP'si akış özelliği doğrulayın
+title: Giriş IP akışı doğrulama Azure Ağ İzleyicisi | Microsoft Docs
+description: Bu sayfa genel bir bakış sağlar. Ağ İzleyicisi IP akışı doğrulama yeteneği
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -12,39 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 11/30/2017
 ms.author: jdial
-ms.openlocfilehash: 8a59047a586f3d7ad7c1f29b218396bd688caafd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 88cb7e2cd04d13ade5c581a1ff2dc09669d89ab2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181608"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838013"
 ---
-# <a name="introduction-to-ip-flow-verify-in-azure-network-watcher"></a>IP akış giriş Azure Ağ İzleyicisi doğrulayın
+# <a name="introduction-to-ip-flow-verify-in-azure-network-watcher"></a>Giriş IP akışı doğrulama Azure Ağ İzleyicisi
 
-IP akışı, bir paket izin verilen veya için veya bir sanal makineden reddedildi denetimleri doğrulayın. Bilgi yönü, protokol, yerel IP, uzak IP, yerel bağlantı noktası ve uzak bağlantı noktası oluşur. Paket bir güvenlik grubu tarafından engellenirse Paket reddedildi kuralının adı döndürülür. Kaynak veya hedef IP seçilebilir durumdayken IP akış doğrulayın yardımcı Yöneticiler bağlantı sorunları veya sürümden internet ve gelen veya şirket içi ortamına hızla tanılamak.
+IP akışı doğrulama denetimleri bir paket izin veya için veya bir sanal makineden reddedildi. Yönü, protokol, yerel IP, uzak IP, yerel bağlantı noktası ve uzak bağlantı noktası bilgileri oluşur. Paket bir güvenlik grubu tarafından reddedilirse, paketi reddeden kuralın adı döndürülür. Herhangi bir kaynak veya hedef IP seçilebilir ancak IP akışı doğrulama yardımcı Yöneticiler gelen veya internet ve gelen veya şirket içi ortamına bağlantı sorunları hızla tanılayın.
 
-IP akış doğrulayın hedefleyen bir sanal makinenin ağ arabirimi. Trafik akışı için ya da bu ağ arabirimini yapılandırılan ayarlara göre doğrulanır. IP akış doğrulayın bir ağ güvenlik grubu kural giriş ve çıkış trafiği için veya bir sanal makineden durumunda engelliyor onaylayan yararlıdır.
+IP akışı doğrulama alt ağı veya sanal makine bir NIC gibi ağ arabirimine uygulanmış tüm ağ güvenlik grupları (Nsg) kurallarını bakar. Trafik akışı veya ağ arabirimi için yapılandırılan ayarlara dayanan doğrulanır. IP akışı doğrulama, bir ağ güvenlik grubu kuralı veya bir sanal makineden girişi veya çıkışı trafiği engelleyip engellemediğini onaylayan olarak kullanışlıdır.
 
-Ağ İzleyicisi IP akış çalıştırmayı planladığınız tüm bölgelerde oluşturulması gerekiyor örneği doğrulayın. Ağ İzleyicisi bölgesel bir hizmettir ve yalnızca olması çalıştırılmıştır aynı bölgede kaynaklara karşı. Kullanılan örnek sonuçları etkilemez IP'sini akış doğrulayın, NIC ile ilişkili yol olduğundan hala döndürülüp döndürülmediğini gibi.
+Ağ İzleyicisi IP akışı çalıştırmayı planladığınız tüm bölgelerde oluşturulması gerekiyor örneğini doğrulayın. Ağ İzleyicisi bölgesel bir hizmettir ve yalnızca olması çalıştırdık aynı bölge içindeki kaynaklara karşı. Kullanılan örnek sonuçları etkilemez IP akışı doğrulama, gibi NIC veya alt ağ ile ilişkili hiçbir yolu hala olması döndürülür.
 
 ![1][1]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir paket izin verilen veya portal aracılığıyla belirli bir sanal makine için reddedildi, yapacağınızı öğrenmek için aşağıdaki makaleyi ziyaret edin. [Trafik akışı IP doğrulayın'yle bir VM'yi Portalı'nı kullanarak izin verilip verilmediğini denetleme](diagnose-vm-network-traffic-filtering-problem.md)
+Bir paket izin veya portal aracılığıyla belirli bir sanal makine için reddedildi, öğrenmek için aşağıdaki makaleyi ziyaret edin. [Trafik IP akışı doğrulama ile sanal makine şirket portalını kullanarak izin verilip verilmediğini denetlemek](diagnose-vm-network-traffic-filtering-problem.md)
 
 [1]: ./media/network-watcher-ip-flow-verify-overview/figure1.png
-
-
-
-
-
-
-
-
-
-
-
 

@@ -1,23 +1,19 @@
 ---
-title: Azure Cosmos DB’de SQL ile sorgulama | Microsoft Docs
+title: Azure Cosmos DB’de SQL ile sorgulama
 description: Azure Cosmos DB’de SQL ile sorgulamayı öğrenin
 services: cosmos-db
 author: rafats
-manager: kfile
-editor: ''
-tags: ''
+ms.author: rafats
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: rafats
-ms.openlocfilehash: 5f5a98f0f28eba499b7ea3fa76944c21cf8bf8db
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
-ms.translationtype: HT
+ms.openlocfilehash: 7f8c3f6d11ba7551cb0d0c9398b46bb001b9b75b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958877"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832641"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Öğretici: SQL API’sini kullanarak Azure Cosmos DB’yi sorgulama
 
@@ -65,9 +61,9 @@ Bu makaledeki SQL sorguları aşağıdaki örnek belgeyi kullanır.
 Mevcut örnek veri kümesinde sorgular çalıştıran [Sorgu oyun alanı](https://www.documentdb.com/sql/demo) ve [REST API’si ve SDK’ları](sql-api-sdk-dotnet.md) aracılığıyla, Azure portalındaki Veri Gezgini’ni kullanarak sorgular çalıştırabilirsiniz.
 
 SQL sorguları hakkında daha fazla bilgi için bkz:
-* [SQL sorgusu ve SQL sözdizimi](sql-api-sql-query.md)
+* [SQL sorgusu ve SQL sözdizimi](how-to-sql-query.md)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide, bir Azure Cosmos DB hesabınız ve koleksiyonunuz olduğu varsayılır. Bunlardan biri yok mu? [5 dakikalık hızlı başlangıcı](create-mongodb-nodejs.md) tamamlayın.
 

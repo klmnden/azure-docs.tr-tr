@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 562fc267a056d6908af5b89fd7a93e858f1c6165
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: HT
+ms.openlocfilehash: ba23e9b8ac79a0a2a3899332bfc373665cf561af
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092620"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841175"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Öğretici: Linux sanal makinelerini izlemek için Azure Güvenlik Merkezi kullanma
 
@@ -51,7 +51,7 @@ Sanal makine güvenlik yapılandırmalarına yönelik görünürlük elde edebil
 
 1. Güvenlik Merkezi panosunda **Güvenlik ilkesi**’ne tıklayın ve sonra aboneliğinizi seçin. 
 2. **Veri toplama** için, **Otomatik Sağlama**'da **Açık**'ı seçin.
-3. **Varsayılan çalışma alanı yapılandırması**'nı **Güvenlik Merkezinin oluşturduğu çalışma alanlarını kullan (varsayılan)** olarak bırakın.
+3. **Varsayılan çalışma alanı yapılandırmasını** **Güvenlik Merkezi’nin oluşturduğu çalışma alanlarını kullan (varsayılan)** olarak bırakın.
 4. **Güvenlik Olayları**'nın altında varsayılan **Ortak** seçeneğini koruyun.
 4. Sayfanın üst kısmından **Kaydet**'e tıklayın. 
 
@@ -63,9 +63,9 @@ Güvenlik ilkeleri, Güvenlik Merkezi’nin kendisi için veriler topladığı v
 
 Aboneliğin tümüne bir güvenlik ilkesi oluşturmak için:
 
-1. Güvenlik Merkezi panosunda **Güvenlik ilkesi**’ni, ardından aboneliğinizi seçin.
-2. **Güvenlik ilkesi** dikey penceresinde **Güvenlik ilkesi**'ni seçin. 
-3. ** Güvenlik ilkesi - Güvenlik ilkesi ** dikey penceresinde, aboneliğe uygulanmasını istediğiniz ilke öğelerini açın, diğerlerini kapatın.
+1. Güvenlik Merkezi panosunda **Güvenlik ilkesini**, ardından aboneliğinizi seçin.
+2. **Güvenlik ilkesi** dikey penceresinde **Güvenlik ilkesini** seçin. 
+3. ** Güvenlik ilkesi - Güvenlik ilkesi ** dikey penceresinde, aboneliğe uygulamak istediğiniz ilke öğelerini açın veya kapatın.
 4. Ayarlarınızı seçmeyi tamamladığınızda dikey pencerenin en üstünden **Kaydet**'i seçin. 
 
 ![Benzersiz ilke](./media/tutorial-azure-security/unique-policy.png)
@@ -106,13 +106,13 @@ Tüm önerilerin listesini göstermek için:
 
 Güvenlik Merkezi, kaynak yapılandırma önerilerine ek olarak tehdit algılama uyarıları görüntüler. Güvenlik uyarıları özelliği, Azure kaynaklarına karşı güvenlik tehditlerini algılamak için her bir sanal makineden, Azure ağ bağlantısı günlükleri ve bağlantılı iş ortağı çözümlerinden toplanan verileri bir araya getirir. Güvenlik Merkezi tehdit algılama özellikleri hakkında ayrıntılı bilgi için [Azure Güvenlik Merkezi algılama özellikleri](../../security-center/security-center-detection-capabilities.md) konusuna bakın.
 
-Güvenlik uyarıları özelliği, Güvenlik Merkezi fiyatlandırma katmanının *Ücretsiz* katmanından *Standart* katmanına yükseltilmesini gerektirir. Bu daha yüksek fiyatlandırma katmanına geçtiğinizde 60 günlük bir **ücretsiz deneme sürümü** bulunur. 
+Güvenlik uyarıları özelliği, Güvenlik Merkezi fiyatlandırma katmanının *Ücretsiz* katmanından *Standart* katmanına yükseltilmesini gerektirir. A **ücretsiz deneme sürümü** bu yüksek fiyatlandırma katmanına geçiş yaptığınızda kullanılabilir. 
 
 Fiyatlandırma katmanını değiştirmek için:  
 
 1. Güvenlik Merkezi panosunda **Güvenlik ilkesi**’ne tıklayın ve sonra aboneliğinizi seçin.
 2. **Fiyatlandırma katmanı**'nı seçin.
-3. **Standart**'ı ve dikey pencerenin en üstünden **Kaydet**'i seçin.
+3. **Standart**’ı seçin ve ardından dikey pencerenin üstündeki **Kaydet**’i tıklatın.
 
 
 Fiyatlandırma katmanını değiştirmenizin ardından, güvenlik tehditleri algılandıkça güvenlik uyarıları grafı doldurulmaya başlar.

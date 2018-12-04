@@ -1,21 +1,19 @@
 ---
-title: Bir şablon - Azure Cosmos DB ile bir web uygulaması dağıtma | Microsoft Docs
+title: Bir şablon - Azure Cosmos DB ile bir web uygulaması dağıtma
 description: Azure Cosmos DB hesabı, Azure App Service Web Apps ve Azure Resource Manager şablonu kullanarak örnek bir web uygulamasına dağıtmayı öğrenin.
 services: cosmos-db, app-service\web
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 29a2335a3a4077866b71e4303c240ad8352371ba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 694682264a38d0b35f00fb6611f843ae7e518ba0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243786"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838183"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Azure Cosmos DB ile bir Azure Resource Manager şablonu kullanarak Azure App Service Web Apps'e dağıtın
 Bu öğretici bir Azure Resource Manager şablonu dağıtma ve tümleştirme için nasıl kullanılacağını gösterir [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)e [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) web uygulaması ve bir örnek web uygulaması.

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
-ms.openlocfilehash: ec7b956f080837b297bac56e6237ac0672601ce7
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: a9dee2d88c986ed292567a18c29cd325833b5e6f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344493"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832879"
 ---
 # <a name="secure-azure-machine-learning-web-services-with-ssl"></a>Azure Machine Learning web hizmetleri SSL ile güvenli hale getirme
 
@@ -118,7 +118,7 @@ Ardından, DNS sunucunuzun web hizmetine işaret edecek şekilde güncelleştirm
 
   "Genel IP adresi" görüntüde gösterildiği gibi AKS kümesi "Yapılandırma" sekmesi altındaki DNS güncelleştirin. AKS aracı düğümleri ve diğer ağ kaynakları içeren kaynak grubu altında oluşturulan kaynak türlerini biri olarak genel IP adresini bulabilirsiniz.
 
-  ![Azure Machine Learning hizmeti: web hizmetleri SSL ile güvenli hale getirme](./media/how-to-secure-web-service/aks-public-ip-address.png)Self-
+  ![Azure Machine Learning hizmeti: web hizmetleri SSL ile güvenli hale getirme](./media/how-to-secure-web-service/aks-public-ip-address.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

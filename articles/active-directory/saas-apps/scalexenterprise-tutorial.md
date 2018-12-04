@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 04708806b9e1ba224e7b438f11c68dca82d6320e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 60beecc0895fbfb5d3af7817e8b76e0819c89a99
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448827"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835395"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Öğretici: Azure Active Directory ScaleX Enterprise ile tümleştirme
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Kurumsal ScaleX yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir ScaleX Kurumsal çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'ye ScaleX kuruluşta tümleştirmesini yapılandırmak için ScaleX Kur
 
 **Galeriden ScaleX kuruluş eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -123,7 +123,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
     İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak değeri yazın: `https://platform.rescale.com/saml2/<company id>/sso/`
      
     > [!NOTE] 
-    > Bunlar gerçek değerlerin değildir. Bu değerler gerçek tanımlayıcı, yanıt URL'si veya oturum açma URL'si ile güncelleştirin. İlgili kişi [ScaleX Kurumsal İstemci Destek ekibine](http://info.rescale.com/contact_sales) bu değerleri almak için. 
+    > Bunlar gerçek değerlerin değildir. Bu değerler gerçek tanımlayıcı, yanıt URL'si veya oturum açma URL'si ile güncelleştirin. İlgili kişi [ScaleX Kurumsal İstemci Destek ekibine](https://info.rescale.com/contact_sales) bu değerleri almak için. 
 
 1. ScaleX uygulamanız SAML onaylamalarını SAML belirteci öznitelikleri yapılandırmanıza özel öznitelik eşlemelerini değiştirmek gerektiren belirli bir biçimde bekliyor. Tıklayın **görünümü ve diğer tüm kullanıcı özniteliklerini düzenleyin** özel açmak için onay kutusunu öznitelikleri ayarlar.
 

@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e689f93150d225d5b8c9ee9d5cfc422a1154c45a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 41f6027378e48b525345e29e1d1e08dd2c48aaa5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724562"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843759"
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: Web oturumu açma Openıd Connect ile
 Openıd Connect, kullanıcıların web uygulamalarına güvenli bir şekilde oturum açmak için kullanılan OAuth 2.0 üzerinde yerleşik bir kimlik doğrulama protokolü olan. Azure Active Directory B2C kullanarak Openıd Connect (Azure AD B2C) uygulaması, devredebilir kaydolma, oturum açma ve web uygulamalarınızı Azure Active Directory (Azure AD) içinde diğer kimlik yönetimi deneyimleri. Bu kılavuz dilden bağımsız bir şekilde bunu nasıl gösterir. Bu, HTTP iletileri gönderip bizim açık kaynak kitaplıkları hiçbirini kullanmadan nasıl açıklar.
 
-[Openıd Connect](http://openid.net/specs/openid-connect-core-1_0.html) OAuth 2.0 genişletir *yetkilendirme* protokolü olarak kullanılmak üzere bir *kimlik doğrulaması* protokolü. OAuth kullanarak, çoklu oturum açma gerçekleştirmenizi sağlar. Kavramını sunar bir *kimlik belirteci*, kullanıcının kimliğini doğrulamak ve kullanıcının temel profil bilgilerini almak istemci izin veren bir güvenlik belirteci olduğu.
+[Openıd Connect](https://openid.net/specs/openid-connect-core-1_0.html) OAuth 2.0 genişletir *yetkilendirme* protokolü olarak kullanılmak üzere bir *kimlik doğrulaması* protokolü. OAuth kullanarak, çoklu oturum açma gerçekleştirmenizi sağlar. Kavramını sunar bir *kimlik belirteci*, kullanıcının kimliğini doğrulamak ve kullanıcının temel profil bilgilerini almak istemci izin veren bir güvenlik belirteci olduğu.
 
 Ayrıca, OAuth 2.0 genişlettiğinden, güvenli bir şekilde almak uygulamalar sağlar *erişim belirteçlerini*. Access_tokens tarafından güvenliği sağlanan kaynaklara erişmek için kullanabileceğiniz bir [yetkilendirme sunucusu](active-directory-b2c-reference-protocols.md#the-basics). Bir sunucuda barındırılan ve tarayıcı aracılığıyla erişilen bir web uygulaması derliyorsanız, Openıd Connect öneririz. Azure AD B2C'yi kullanarak, mobil veya Masaüstü uygulamalarınız için Kimlik Yönetimi eklemek istiyorsanız, kullanması gereken [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) Openıd Connect yerine.
 
@@ -120,7 +120,7 @@ error=access_denied
 | durum |Bu bölümdeki ilk tablonun tam açıklamasına bakın. Varsa bir `state` aynı değeri yanıt olarak görünmesi gereken parametresi istekte bulunur. Uygulama olduğunu doğrulamanız gerekir `state` istek ve yanıt değerleri aynıdır. |
 
 ## <a name="validate-the-id-token"></a>Kimlik belirteci doğrulama
-Yalnızca bir kimlik belirteci alma kullanıcının kimliğini doğrulamak yeterli değil. Kimlik belirtecinin imzası doğrulama ve uygulamanızın gereksinimlerini başına belirteçteki talepleri doğrulamak gerekir. Azure AD B2C'yi kullanan [JSON Web belirteçleri (Jwt'ler)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) ve Belirteçleri imzalamak ve geçerli olduğunu doğrulamak için ortak anahtar şifrelemesi.
+Yalnızca bir kimlik belirteci alma kullanıcının kimliğini doğrulamak yeterli değil. Kimlik belirtecinin imzası doğrulama ve uygulamanızın gereksinimlerini başına belirteçteki talepleri doğrulamak gerekir. Azure AD B2C'yi kullanan [JSON Web belirteçleri (Jwt'ler)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) ve Belirteçleri imzalamak ve geçerli olduğunu doğrulamak için ortak anahtar şifrelemesi.
 
 Jwt'ler, tercih dilinizi bağlı olarak doğrulamak için kullanılabilen birçok açık kaynak kitaplıkları vardır. Kendi doğrulama mantığını uygulama yerine bu seçenekleri keşfetmeye öneririz. Buradaki bilgileri düzgün bir şekilde bu kitaplıkları kullanmayı ayırabiliriz yararlı olacaktır.
 
@@ -143,7 +143,7 @@ Kimlik belirteci imzası doğruladıktan sonra doğrulamak için gereken çeşit
 * Doğrulanması `aud` kimlik belirteci uygulamanız için verilmiş emin olmak talep. Değeri, uygulamanızın uygulama kimliği olmalıdır.
 * Doğrulanması `iat` ve `exp` kimlik belirteci sona ermediğinden emin olmak talep.
 
-Gerçekleştirmeniz gereken birkaç daha fazla doğrulamaları vardır. Bu ayrıntılı olarak açıklanan [Openıd Connect çekirdek Spec](http://openid.net/specs/openid-connect-core-1_0.html).  Senaryonuza bağlı olarak ek istekleri doğrulamak isteyebilirsiniz. Bazı ortak doğrulamaları şunlardır:
+Gerçekleştirmeniz gereken birkaç daha fazla doğrulamaları vardır. Bu ayrıntılı olarak açıklanan [Openıd Connect çekirdek Spec](https://openid.net/specs/openid-connect-core-1_0.html).  Senaryonuza bağlı olarak ek istekleri doğrulamak isteyebilirsiniz. Bazı ortak doğrulamaları şunlardır:
 
 * Kullanıcı/kuruluş uygulama için kaydolmuş emin olma.
 * Kullanıcı uygun yetkilendirme/ayrıcalıklara sahip olduğundan emin olmak.

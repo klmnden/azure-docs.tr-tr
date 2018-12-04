@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3f1e34b4d527d076a0bac2e0cb6ef3a901296c57
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cc09998a982f319cfc1d60924d2175a3c17c8465
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612484"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836688"
 ---
 # <a name="define-a-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Bir Azure Active Directory B2C özel ilke OAuth2 teknik profil tanımlama
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C, OAuth2 protokolünü kimlik sağlayıcısı için destek sağlar. Bu yetkilendirme ve temsilci seçilen kimlik doğrulaması için birincil protokolüdür. Daha fazla bilgi için [RFC 6749 OAuth 2.0 yetkilendirme Framework](http://tools.ietf.org/html/rfc6749). İle OAuth2 kimlik sağlayıcısı, sosyal var olan oturum izin vererek, Facebook ve Live.com gibi veya Kurumsal kimlik ile bir OAuth2 devredebilir teknik profili temel.
+Azure Active Directory (Azure AD) B2C, OAuth2 protokolünü kimlik sağlayıcısı için destek sağlar. Bu yetkilendirme ve temsilci seçilen kimlik doğrulaması için birincil protokolüdür. Daha fazla bilgi için [RFC 6749 OAuth 2.0 yetkilendirme Framework](https://tools.ietf.org/html/rfc6749). İle OAuth2 kimlik sağlayıcısı, sosyal var olan oturum izin vererek, Facebook ve Live.com gibi veya Kurumsal kimlik ile bir OAuth2 devredebilir teknik profili temel.
 
 ## <a name="protocol"></a>Protokol
 

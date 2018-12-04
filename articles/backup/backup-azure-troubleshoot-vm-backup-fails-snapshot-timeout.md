@@ -7,14 +7,14 @@ manager: cshepard
 keywords: Azure yedekleme; VM Aracısı; Ağ bağlantısı;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 10/30/2018
+ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 496afab869d8cf1b7b00791913c3082e31b45327
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 9f26a51a8da2c3fec3ff180dbc8c8de08bb0a93a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633929"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833882"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup hatalarında sorunları giderme: aracı veya uzantı ile ilgili sorunlar
 
@@ -77,9 +77,9 @@ Kaydolun ve bir VM için Azure Backup hizmeti zamanlama sonra yedekleme zaman i�
 **2. neden: [güncelleştirmek veya yüklemek yedekleme uzantısı başarısız](#the-backup-extension-fails-to-update-or-load)**  
 **3. neden: [VM internet erişimi yok](#the-vm-has-no-internet-access)**
 
-## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailed - VMSnapshot uzantısı işlemi başarısız oldu
+## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks - VMSnapshot uzantısı işlemi başarısız oldu
 
-**Hata kodu**: ExtentionOperationFailed <br>
+**Hata kodu**: ExtentionOperationFailedForManagedDisks <br>
 **Hata iletisi**: VMSnapshot uzantısı işlemi başarısız oldu<br>
 
 Kaydolun ve bir VM için Azure Backup hizmeti zamanlama sonra yedekleme zaman içinde nokta anlık görüntüsünü almak için VM yedekleme uzantısı ile iletişim kurarak iş başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Anlık görüntü tetiklenmez yedekleme hatası meydana gelebilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve sonra işlemi yeniden deneyin:  
@@ -156,11 +156,11 @@ Ayrıca, giden Internet trafiği için bir yol alt ağınız yoksa, kendi alt a�
 #### <a name="solution"></a>Çözüm
 VM Aracısı bozulduysa veya hizmet durdurulmuş. VM aracısını yeniden yüklemeyi en son sürümü Al yardımcı olur. Ayrıca, hizmeti ile iletişimi yeniden yardımcı olur.
 
-1. VM Hizmetleri (services.msc) Windows Konuk aracısı hizmetinin çalışıp çalışmadığını belirleyin. Windows Konuk Aracısı hizmetini yeniden başlatın ve yedeklemeyi başlatın deneyin.    
-2. Windows Konuk Aracısı hizmetleri, Denetim Masası ' nda görünür değilse Git **programlar ve Özellikler** Windows Konuk aracısı yüklü olup olmadığını belirlemek için.
-4. Windows Konuk Aracısı görünürse **programlar ve Özellikler**, Windows Konuk Aracısı'nı kaldırın.
+1. Windows Azure Konuk aracı hizmetini VM Hizmetleri (services.msc) çalışıp çalışmadığını belirleyin. Windows Azure Konuk aracı hizmetini yeniden başlatın ve yedeklemeyi başlatın deneyin.    
+2. Windows Azure Konuk aracı hizmetini Hizmetleri'nde, Denetim Masası ' nda görünür değilse Git **programlar ve Özellikler** Windows Azure Konuk aracısı yüklü olup olmadığını belirlemek için.
+4. Windows Azure Konuk Aracısı görünürse **programlar ve Özellikler**, Windows Azure Konuk Aracısı'nı kaldırın.
 5. İndirme ve yükleme [Aracısı MSI en son sürümünü](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Yüklemeyi tamamlamak için yönetici hakları olmalıdır.
-6. Windows Konuk Aracısı hizmetlerinin Hizmetleri'nde göründüğünü doğrulayın.
+6. Windows Azure Konuk aracı hizmetleri Hizmetleri'nde göründüğünü doğrulayın.
 7. Bir talep üzerine yedekleme gerçekleştirin:
     * Portalında **Şimdi Yedekle**.
 
@@ -205,7 +205,7 @@ Aşağıdaki koşullar anlık görüntü görevi başarısız olmasına neden:
 | Nedeni | Çözüm |
 | --- | --- |
 | Uzak Masaüstü Protokolü (RDP) VM'yi kapatın, çünkü VM durumu yanlış bildirilir. | VM ile RDP kapatırsanız, sanal Makinenin durumu doğru olup olmadığını belirlemek için portalı denetleyin. Doğru değilse, portaldaki VM kullanarak kapatma **kapatma** sanal makine Panosu'ndan seçeneği. |
-| Sanal makine DHCP'den konak ya da yapı adresi alınamıyor. | DHCP çalışmak için konuk içinde Iaas VM yedekleme için etkinleştirilmesi gerekir. VM konak ya da yapı adresi DHCP yanıttan 245 erişemiyorsanız, indirin veya tüm Uzantıları'nı çalıştırın. Statik özel IP gerekiyorsa, platformu ile yapılandırın. VM içindeki DHCP seçeneği sol etkinleştirilmesi gerekir. Daha fazla bilgi için [iç statik özel IP ayarlama](../virtual-network/virtual-networks-reserved-private-ip.md). |
+| Sanal makine DHCP'den konak ya da yapı adresi alınamıyor. | DHCP çalışmak için konuk içinde Iaas VM yedekleme için etkinleştirilmesi gerekir. VM konak ya da yapı adresi DHCP yanıttan 245 erişemiyorsanız, indirin veya tüm Uzantıları'nı çalıştırın. Statik özel IP gerekiyorsa, içinde yapılandırmalısınız **Azure portalı** veya **PowerShell** ve VM içindeki DHCP seçeneği etkin olduğundan emin olun. PowerShell aracılığıyla statik bir IP ayarlama hakkında daha fazla bilgi için bkz. [Klasik VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm) ve [Resource Manager VM](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface).
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>Backup uzantısı, güncelleştirmek veya yüklemek başarısız
 Uzantıları yüklenemiyor bir anlık görüntü alınamadığından backup başarısız olur.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fa6ae230a209d804f244d8bc46a3c6ac1abf6071
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 19f3318c8bcaf634447285cab2951a89abf13a67
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725582"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837486"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: Kimlik doğrulama protokolleri
 Azure Active Directory B2C (Azure AD B2C) sağlayan kimlik uygulamalarınız için hizmet olarak iki sektör standardı protokolleri destekleyerek: Openıd Connect ve OAuth 2.0. Hizmet standartlarıyla uyumlu olduğu halde bu protokolleri, iki belirtilmesinden küçük farklılıklar olabilir. 
@@ -66,7 +66,7 @@ Bazı güvenlik belirteçleri yetkisiz taraflar, onları kullanmasına engel olm
 
 Taşıyıcı belirteç dışında güvenli bir kanal iletilirse, kötü amaçlı bir taraf belirteç almak ve korumalı kaynağa yetkisiz erişim elde etmek için kullanmak için bir adam-de-ortadaki adam saldırısı kullanabilirsiniz. Depolanan ya da daha sonra kullanmak üzere önbelleğe taşıyıcı belirteçleri, aynı güvenlik ilkeleri uygulayın. Uygulamanızı iletir ve güvenli bir şekilde taşıyıcı belirteçleri depolar her zaman emin olmalısınız.
 
-Ek taşıyıcı belirteci güvenlik konuları için bkz. [RFC 6750 bölüm 5](http://tools.ietf.org/html/rfc6750).
+Ek taşıyıcı belirteci güvenlik konuları için bkz. [RFC 6750 bölüm 5](https://tools.ietf.org/html/rfc6750).
 
 Farklı Azure AD B2C'de kullanılan belirteç türleri hakkında daha fazla bilgi edinilebilir [Azure AD belirteç başvurusu](active-directory-b2c-reference-tokens.md).
 

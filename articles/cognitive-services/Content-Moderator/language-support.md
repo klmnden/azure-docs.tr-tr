@@ -124,7 +124,7 @@ ms.locfileid: "52276389"
 | | Slovence
 | | İspanyolca 
 | | İsveççe
-| | Tacik dili
+| | Tacikçe dili
 | | Tamil dili
 | | Tatarca
 | | Telugu dili
@@ -138,6 +138,6 @@ ms.locfileid: "52276389"
 | | Özbekçe
 | | Valensiyaca
 | | Vietnam dili
-| | Galce
+| | Gaelce
 | | Volof dili
 | | Yorubaca

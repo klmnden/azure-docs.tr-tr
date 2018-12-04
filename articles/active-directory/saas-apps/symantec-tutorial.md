@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: dbf21c7c22a9b3273a65f7e186a2ac02ccae6ba2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b933bc5f5ecb39c3462e4e9bd300f1e07fd718c0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436216"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838784"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Öğretici: Azure Active Directory Tümleştirme Symantec Web güvenlik hizmetini (WSS)
 
@@ -40,7 +40,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Symantec Web güvenlik hizmetini (WSS) ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir Symantec Web güvenlik hizmetini (WSS) hesabı
 
 > [!NOTE]
@@ -63,7 +63,7 @@ Azure AD'de Symantec Web güvenlik hizmetini (WSS) tümleştirmesini yapılandı
 
 **Galeriden Symantec Web güvenlik hizmetini (WSS) eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -170,7 +170,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 Bu bölümde, Britta Simon Symantec Web güvenlik hizmetini (WSS) adlı bir kullanıcı oluşturun. Karşılık gelen uç kullanıcı adı WSS Portalı'nda el ile oluşturulabilir veya birkaç dakika sonra (yaklaşık 15 dakika) WSS portalına eşitlenecek Azure AD'de sağlanan kullanıcılar/gruplar bekleyebilirsiniz. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. Web siteleri göz atmak için kullanılan son kullanıcı makinenin genel IP adresini de Symantec Web güvenlik hizmetini (WSS) portalında sağlanması gerekir.
 
 > [!NOTE]
-> Lütfen [Buraya](http://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1) makinenizin genel IP adresi günceller.
+> Lütfen [Buraya](https://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1) makinenizin genel IP adresi günceller.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

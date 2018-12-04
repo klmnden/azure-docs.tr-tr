@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 77a57afda3859de4a246c15d3b5c0b4ba8e2a8c8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 87003a053823cfc257a3b6f41699feefadbbcc66
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039012"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835174"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>PIM'de Azure AD dizini rol ayarlarını yapılandırma
 
@@ -50,7 +50,15 @@ Kullanım **etkinleştirmeleri** en uzun süreyi saat cinsinden süresi dolmadan
 
 ## <a name="notifications"></a>Bildirimler
 
-Kullanım **bildirimleri** sistem rol etkinleştirmiş onaylama yöneticileri için e-postaları gönderen olup olmadığını belirlemek için anahtarı. Bu, yetkisiz veya aykırı etkinleştirmeleri algılamak için yararlı olabilir.
+Kullanım **bildirimleri** rolleri etkinleştirildiğinde Yöneticiler e-posta bildirimleri alıp almayacaklarını belirtmek için anahtar. Bu, yetkisiz veya aykırı etkinleştirmeleri algılamak için yararlı olabilir.
+
+Ayarlandığında **etkinleştirme**, bildirimler gönderilir:
+
+- Ayrıcalıklı Rol Yöneticisi
+- Güvenlik Yöneticisi
+- Genel Yönetici
+
+Daha fazla bilgi için [e-posta bildirimleri PIM](pim-email-notifications.md).
 
 ## <a name="incidentrequest-ticket"></a>Olay/İstek anahtarı
 

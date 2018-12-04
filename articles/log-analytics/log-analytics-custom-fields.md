@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 62af45d8e093b985d8158b22e369307d8c288493
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: bc99048f4bea1f79bed2ae32d12a1961b188e7ec
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721315"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835837"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Log analytics'te özel alanlar
 **Özel alanlar** özelliği Log Analytics, Log analytics'te var olan kayıtların kendi arama yapılabilir alanlar ekleyerek genişletebilir olanak tanır.  Özel alanlar, diğer özellikleri aynı kaydın ayıklanan verilerden otomatik olarak doldurulur.
@@ -45,9 +45,9 @@ Aşağıdaki bölümler, özel bir alan oluşturmak için yordamı sağlar.  Bu 
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>1. adım – özel alan olan kayıtların tanımlanması
-İlk adım, özel alan alacak kayıtların belirlemektir.  İle başlayan bir [standart günlük araması](log-analytics-queries.md) ve Log Analytics bilgi edineceksiniz model olarak görev yapacak bir kaydı seçin.  Bir özel alana, verileri ayıklamak için önerilere şu belirttiğinizde **alan ayıklama Sihirbazı** burada doğrulamak ve kriterlerinizi açılır.
+İlk adım, özel alan alacak kayıtların belirlemektir.  İle başlayan bir [standart günlük araması](../azure-monitor/log-query/log-query-overview.md) ve Log Analytics bilgi edineceksiniz model olarak görev yapacak bir kaydı seçin.  Bir özel alana, verileri ayıklamak için önerilere şu belirttiğinizde **alan ayıklama Sihirbazı** burada doğrulamak ve kriterlerinizi açılır.
 
-1. Git **günlük araması** ve bir [kayıtları almak için sorgu](log-analytics-queries.md) özel alanı olacaktır.
+1. Git **günlük araması** ve bir [kayıtları almak için sorgu](../azure-monitor/log-query/log-query-overview.md) özel alanı olacaktır.
 2. Log Analytics özel alanını doldurmak için veri yönelik bir model olarak davranmak için kullanacağı bir kaydı seçin.  Bu kayıttaki ayıklamak istediğiniz veri tanımlayacak ve Log Analytics benzer tüm kayıtlar için özel alanını doldurmak için mantığı belirlemek için bu bilgileri kullanır.
 3. Düğmesini seçin ve kaydın herhangi bir metin özelliği solundaki **alanları Ayıkla**.
 4. **Alan ayıklama Sihirbazı açıldığında**, seçtiğiniz kayıt görüntülendiğini **ana örnek** sütun.  Özel alan seçilen özelliklerinde aynı değerlerle kayıtları için tanımlanır.  
@@ -139,6 +139,6 @@ Süre kadar yeni geçtikten sonra toplanan olayları, görebiliriz **Service_CF*
 ![Sorgu tarafından Grup](media/log-analytics-custom-fields/query-group.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [günlük aramaları](log-analytics-queries.md) özel alanlar için ölçütleri kullanarak sorguları oluşturmak için.
+* Hakkında bilgi edinin [günlük aramaları](../azure-monitor/log-query/log-query-overview.md) özel alanlar için ölçütleri kullanarak sorguları oluşturmak için.
 * İzleyici [özel günlük dosyalarını](../azure-monitor/platform/data-sources-custom-logs.md) , özel alanlara kullanarak ayrıştırılamıyor.
 

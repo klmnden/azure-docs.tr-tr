@@ -8,12 +8,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 2a6744bdec48e59b820605bb4d1cc01d32702bcf
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 2ee9f750ff52b8afe4be54233f1374f523a789f4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867774"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845183"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı'nda sunucu günlüklerini 
 PostgreSQL için Azure veritabanı oluşturur, sorgu ve hata günlükleri. Sorgu ve Hata günlüklerini belirlemek, sorun giderme ve yapılandırma hatalarını ve performansın onarmak için kullanılabilir. (İşlem günlükleri için erişim dahil değildir). 
@@ -26,11 +26,11 @@ Günlüğe kaydetme sunucu parametreleri kullanarak sunucunuza günlüğü yapı
 Bu parametreler hakkında daha fazla bilgi için bkz: PostgreSQL'ın [hata bildirimi ve günlüğe kaydetme](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) belgeleri. PostgreSQL parametreleri için Azure veritabanı yapılandırma konusunda bilgi için bkz: [portal belgeleri](howto-configure-server-parameters-using-portal.md) veya [CLI belgeleri](howto-configure-server-parameters-using-cli.md).
 
 ## <a name="access-server-logs-through-portal-or-cli"></a>Portal veya CLI aracılığıyla sunucu günlüklerine erişme
-Günlükleri etkinleştirdiyseniz, bunları günlük depolama kullanılarak PostgreSQL için Azure veritabanı'ndan erişebilirsiniz [Azure portalında](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md)ve Azure REST API'leri. Her 1 saat ya da 100 MB boyutunda günlük dosyalarını döndürmek, hangisinin önce geldiğine. Bu günlük depolama kullanmak için saklama süresini ayarlayabilirsiniz **günlük\_bekletme\_süresi** sunucunuzla ilişkili parametre. Varsayılan değer 3 gündür; en yüksek değer 7 gündür. Sunucunuz, yeterli olmalıdır depolama günlük dosyalarını tutmak için ayrılmış. (Bu bekletme parametre Azure tanılama günlükleri yönetmez.)
+Günlükleri etkinleştirdiyseniz, bunları günlük depolama kullanılarak PostgreSQL için Azure veritabanı'ndan erişebilirsiniz [Azure portalında](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md)ve Azure REST API'leri. Her 1 saat ya da 100 MB boyutunda günlük dosyalarını döndürmek, hangisinin önce geldiğine. Bu günlük depolama kullanmak için saklama süresini ayarlayabilirsiniz **günlük\_bekletme\_süresi** sunucunuzla ilişkili parametre. Varsayılan değer 3 gündür; en yüksek değer 7 gündür. Sunucunuz, yeterli olmalıdır depolama günlük dosyalarını tutmak için ayrılmış. (Bu bekletme parametre Azure tanılama günlükleri yönetmez.)
 
 
 ## <a name="diagnostic-logs"></a>Tanılama günlükleri
-PostgreSQL için Azure veritabanı Azure İzleyici tanılama günlükleri ile tümleştirilir. PostgreSQL sunucunuzda günlükleri etkinleştirdikten sonra bunları için yayılan sahip olmayı seçebilirsiniz [Log Analytics](../log-analytics/log-analytics-queries.md), Event Hubs veya Azure depolama. Tanılama günlüklerini etkinleştirme hakkında daha fazla bilgi için nasıl yapılır bölümüne bakın [tanılama günlükleri belgeleri](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). 
+PostgreSQL için Azure veritabanı Azure İzleyici tanılama günlükleri ile tümleştirilir. PostgreSQL sunucunuzda günlükleri etkinleştirdikten sonra bunları için yayılan sahip olmayı seçebilirsiniz [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Event Hubs veya Azure depolama. Tanılama günlüklerini etkinleştirme hakkında daha fazla bilgi için nasıl yapılır bölümüne bakın [tanılama günlükleri belgeleri](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). 
 
 
 Aşağıdaki tabloda, her oturum açma yenilikler açıklanır. Seçtiğiniz çıkış uç noktası, yer alan alanlar ve değişebilir göründükleri sırayla bağlı olarak. 

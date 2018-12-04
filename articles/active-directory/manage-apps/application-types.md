@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: f483be5866715ddf253daefb197ae3dd87e02d99
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f6c18ce80e1c94ceac56bf188dcf62cc9ea94f7a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249107"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832811"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Uygulamalar listemde beklenmedik bir uygulama
 
@@ -65,7 +65,7 @@ Kiracınızdaki tüm uygulamaları görmek için kullanmanız gerekir **filtre**
 
 5.  Eklediğinizde, yeni bir uygulama kaydı kullanarak özel olarak geliştirilmiş uygulama oluşturarak [V2.0 uygulama kayıt portalı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration#visit-the-microsoft-app-registration-portal)
 
-6.  Bir uygulama eklediğinizde Visual Studio'nun kullanarak geliştirirken [ASP.net kimlik doğrulama yöntemleri](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) veya [bağlı hizmetler](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
+6.  Bir uygulama eklediğinizde Visual Studio'nun kullanarak geliştirirken [ASP.net kimlik doğrulama yöntemleri](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) veya [bağlı hizmetler](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
 
 7.  Kullanarak bir hizmet sorumlusu nesnesi oluşturduğunuzda [Azure AD PowerShell Modülü](/powershell/azure/install-adv2?view=azureadps-2.0)
 

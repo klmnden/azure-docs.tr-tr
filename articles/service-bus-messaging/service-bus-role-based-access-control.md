@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: spelluru
-ms.openlocfilehash: 0da4fdf5afc0cbe76e19260b486aa9112d0d74c8
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 0abcbcee7a5f997aff6b6561cdae17fb8a380098
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854329"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842212"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Etkin Directory Role-Based erişim denetimi (Önizleme)
 
@@ -49,9 +49,7 @@ Yine de bu senaryo için özel bir hesap oluşturmak istiyorsanız [adımları](
 
 Ardından, [Service Bus Mesajlaşması ad alanı oluşturma](service-bus-create-namespace-portal.md) RBAC Önizleme desteğine sahip Azure bölgelerinden birini: **ABD Doğu**, **ABD Doğu 2**, veya **Batı Avrupa** . 
 
-Ad alanı oluşturduktan sonra gidin, **erişim denetimi (IAM)** sayfasında portalda ve ardından **Ekle** sahip rolü için Azure AD kullanıcı hesabı eklemek için. Kendi kullanıcı hesabı kullanıyorsanız ve oluşturduğunuz ad alanı, zaten sahip rolüne sahiptirler. Rolü için farklı bir hesap eklemek için web uygulamasının adını arayın **izinleri eklemek** paneli **seçin** alan ve sonra giriş'e tıklayın. Daha sonra **Kaydet**'e tıklayın.
-
-![](./media/service-bus-role-based-access-control/rbac1.PNG)
+Ad alanı oluşturduktan sonra gidin, **erişim denetimi (IAM)** sayfasında portalda ve ardından **rol ataması Ekle** sahip rolü için Azure AD kullanıcı hesabı eklemek için. Kendi kullanıcı hesabı kullanıyorsanız ve oluşturduğunuz ad alanı, zaten sahip rolüne sahiptirler. Rolü için farklı bir hesap eklemek için web uygulamasının adını arayın **izinleri eklemek** paneli **seçin** alan ve sonra giriş'e tıklayın. Daha sonra **Kaydet**'e tıklayın.
 
 Kullanıcı hesabı artık Service Bus ad alanı erişimi olan ve daha önce oluşturduğunuz kuyruğa.
  

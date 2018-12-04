@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: 93c8d3302444c7d764849fe41d529bc06696243f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: c7f82e9fb286e53f9408e2134dbdc9c2b24ff267
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466180"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837707"
 ---
 # <a name="enable-custom-pronunciation"></a>Özel telaffuz etkinleştir
 Özel telaffuz kullanarak fonetik formu ve görüntüleme bir sözcük veya terimi tanımlayabilirsiniz. Ürün adları veya kısaltmalar gibi özelleştirilmiş koşullarını işlemek için kullanışlıdır. İhtiyacınız olan telaffuz dosyası (Basit .txt dosyası).
@@ -46,7 +46,7 @@ Görüntüleme formu fonetik dizisini konuşulan biçimidir. Harf, sözcükleri 
 ## <a name="supported-pronunciation-characters"></a>Desteklenen telaffuz karakter
 Özel telaffuz şu anda İngilizce (en-US) ve Almanca (de-de) için desteklenir. Konuşulan biçiminde bir terim (özel telaffuz dosyası) ifade etmek için kullanabileceğiniz bir karakter kümesi aşağıdaki tabloda gösterilmiştir: 
 
-| Dil | Karakter |
+| Dil | Karakterler |
 |---------- |----------|
 | İngilizce (en-US) | a, b, c, d, e, f, g, h, i, j, k, m, o, p, q, r, s, t, u, v, w, x, y, z |
 | Almanca (de-de) | ä, ö, ü,?, a, b, c, d, e, f, g, h, i, j, k, m, o, p, q, r, s, t, u, v, w, x, y, z |
@@ -61,7 +61,7 @@ Görüntüleme formu yalnızca özel bir sözcük, terim, bir kısaltma veya var
 >Bu özellik, ortak kelimeler yeniden oluşturun veya konuşulan formunu değiştirmek için kullanımı önerilmemektedir. Bazı olağan dışı bir sözcük (örneğin, kısaltmalar, teknik sözcüklerini veya yabancı kelimeler) yanlış çözülmüş olup olmadığını görmek için kod çözücü çalıştırmak daha iyidir. Varsa, bunları özel telaffuz dosyaya ekleyin. Dil modeli, sözcüklerin görüntüleme formu yalnızca ve her zaman kullanmalısınız. 
 
 ## <a name="requirements-for-the-file-size"></a>Dosya boyutu gereksinimleri
-Söyleniş girişler .txt dosyasının boyutu 1 megabayt (MB) sınırlıdır. Genellikle, büyük miktarlarda verinin bu dosyayı karşıya yükleme gerekmez. Çoğu özel telaffuz dosya boyutu birkaç kilobayt (KB) etkilenebilir. Tüm yerel ayarlar için .txt dosyasının kodlama UTF-8 AĞACI olmalıdır. İngilizce yerel ayarı için ANSI de kullanılabilir.
+Söyleniş girişler .txt dosyasının boyutu 1 megabayt (ücretsiz katmanı anahtarları için 1 KB) sınırlıdır. Genellikle, büyük miktarlarda verinin bu dosyayı karşıya yükleme gerekmez. Çoğu özel telaffuz dosya boyutu birkaç kilobayt (KB) etkilenebilir. Tüm yerel ayarlar için .txt dosyasının kodlama UTF-8 AĞACI olmalıdır. İngilizce yerel ayarı için ANSI de kullanılabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Oluşturarak tanıma doğruluğunu artırmak bir [özel akustik model](how-to-customize-acoustic-models.md).

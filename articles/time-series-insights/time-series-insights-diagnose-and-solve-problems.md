@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 04/09/2018
-ms.openlocfilehash: 399c7b000360a73a9bab06b046be21c9d93a1c70
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: ef06e7b1abd66a2204ef982943fe24354bd7f122
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367143"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837452"
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Time Series Insights ortamınızdaki sorunları tanılayın ve çözün
 
@@ -31,7 +31,7 @@ Bu makalede, zaman serisi görüşleri ortamınıza görebileceğiniz bazı soru
 Neden olmayan görebileceğiniz verilerinizi birkaç genel nedeni vardır [Azure Time Series Insights Gezgini](https://insights.timeseries.azure.com):
 
 ### <a name="possible-cause-a-event-source-data-is-not-in-json-format"></a>Olası nedeni y: olay kaynağı verileri JSON biçiminde değil.
-Azure Time Series Insights, yalnızca JSON verilerini destekler. JSON örnekleri için bkz [desteklenen JSON şekilleri](time-series-insights-send-events.md#supported-json-shapes).
+Azure Time Series Insights, yalnızca JSON verilerini destekler. JSON örnekleri için bkz [desteklenen JSON şekilleri](./how-to-shape-query-json.md).
 
 ### <a name="possible-cause-b-event-source-key-is-missing-a-required-permission"></a>Olası nedeni B: olay kaynağı anahtarı gerekli izni yok
 * Bir IOT Hub için anahtar sağlamanız gereken **hizmetini bağlama** izni.
@@ -70,7 +70,7 @@ Aşağıdaki diyagramda, bir SKU S1 ve 3 kapasiteye sahip bir zaman serisi gör�
 
 Diyagramda gösterildiği gibi günlük giriş ~ 67,000 iletileri hızıdır. Bu oran, kabaca dakikada 46 iletileri çevirir. Her bir olay hub'ı ileti için tek bir zaman serisi görüşleri olay düzleştirilir, bu ortamda herhangi bir kısıtlama görür. Ardından her bir olay hub'ı iletisi 100 Time Series Insights olaylarına düzleştirilir, 4,600 olayları dakikada alınan. 3 kapasiteye sahip bir S1 SKU'ya ortamda dakikada giriş yalnızca 2100 olayları kullanabilirsiniz (günde 1 milyon olaya = 3 birim dakika başına 700 olayları dakika başına 2100 olayları =). Bu nedenle, kısıtlama nedeniyle bir gecikme görürsünüz. 
 
-Mantıksal düzleştirme nasıl çalıştığına ilişkin üst düzey anlamak için bkz. [desteklenen JSON şekilleri](time-series-insights-send-events.md#supported-json-shapes).
+Mantıksal düzleştirme nasıl çalıştığına ilişkin üst düzey anlamak için bkz. [desteklenen JSON şekilleri](./how-to-shape-query-json.md).
 
 ### <a name="recommended-resolution-steps-for-excessive-throttling"></a>Aşırı azaltma için önerilen çözüm adımları
 Lag düzeltmek için SKU kapasitesi ortamınızın artırın. Daha fazla bilgi için [Time Series Insights ortamınızı ölçeklendirme](time-series-insights-how-to-scale-your-environment.md).

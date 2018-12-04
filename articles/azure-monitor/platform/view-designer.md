@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: bbf38d17f2f411fde240a67f6666953b275fb788
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: af2ecad79bef0889ca0d1e47171ebaf9777418ca
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642476"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833406"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Log Analytics'te Görünüm Tasarımcısı kullanarak özel görünümlerini oluşturma
-Görünüm Tasarımcısı'nda kullanarak [Azure Log Analytics](../../log-analytics/log-analytics-queries.md), Azure portalında Log Analytics çalışma alanınızdaki veri görselleştirmenize yardımcı olabilecek çeşitli özel görünümler oluşturabilirsiniz. Bu makalede, Görünüm Tasarımcısı ve yordamlar oluşturmak ve özel görünümler düzenlemek için genel bir bakış sunar.
+Görünüm Tasarımcısı'nda kullanarak [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md), Azure portalında Log Analytics çalışma alanınızdaki veri görselleştirmenize yardımcı olabilecek çeşitli özel görünümler oluşturabilirsiniz. Bu makalede, Görünüm Tasarımcısı ve yordamlar oluşturmak ve özel görünümler düzenlemek için genel bir bakış sunar.
 
 Görünüm Tasarımcısı hakkında daha fazla bilgi için bkz:
 
@@ -42,7 +42,7 @@ Görünüm Tasarımcısı ile oluşturduğunuz görünümleri, aşağıdaki tabl
 |:--- |:--- |
 | Kutucuklar | Log Analytics çalışma alanınızın görüntülenen **genel bakış** sayfası. Her kutucuk, temsil ettiği özel görünüm görsel bir özetini görüntüler. Her kutucuk türüne kayıtlarınız için farklı bir görselleştirme sağlar. Özel bir görünüm için bir kutucuk seçin. |
 | Özel Görünüm | Bir kutucuğu seçtiğinizde görüntülenir. Her görünümü bir veya daha fazla görselleştirme bölümü içerir. |
-| Görselleştirme bölümü | Bir veya daha fazla bağlı Log Analytics çalışma alanındaki veri görselleştirme sunmak [günlük aramaları](../../log-analytics/log-analytics-queries.md). Çoğu bölümleri, üst düzey bir görselleştirme sağlar, bir üst bilgi ve en çok rastlanan sonuçlar görüntüler listesini içerir. Her bölüm türü kayıtlarının Log Analytics çalışma alanındaki farklı bir görselleştirme sağlar. Bölümün ayrıntılı kayıtları sağlayan bir günlük araması gerçekleştirmek için öğeleri seçin. |
+| Görselleştirme bölümü | Bir veya daha fazla bağlı Log Analytics çalışma alanındaki veri görselleştirme sunmak [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md). Çoğu bölümleri, üst düzey bir görselleştirme sağlar, bir üst bilgi ve en çok rastlanan sonuçlar görüntüler listesini içerir. Her bölüm türü kayıtlarının Log Analytics çalışma alanındaki farklı bir görselleştirme sağlar. Bölümün ayrıntılı kayıtları sağlayan bir günlük araması gerçekleştirmek için öğeleri seçin. |
 
 
 ## <a name="work-with-an-existing-view"></a>Var olan bir görünümü ile çalışma

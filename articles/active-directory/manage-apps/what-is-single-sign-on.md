@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 3012f07d8c56f2581a087bc8e43aa4a089bf9589
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: c21d78d1e0660b97c44130539ab3b5c71b8d6f6b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633521"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843045"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için çoklu oturum açma
 Uygulamaları Azure Active Directory (Azure AD) yapılandırırken en uygun çoklu oturum açma yöntemi seçin öğrenin. 
@@ -178,6 +178,6 @@ Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](../fundamentals
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler](../saas-apps/tutorial-list.md)
 * [Çoklu oturum açmayı yapılandırma Öğreticisi](configure-single-sign-on-portal.md)
 * [Uygulamalara erişimi yönetme giriş](what-is-access-management.md)
-* İndirme bağlantısı: [tek oturum açma dağıtım planı](http://aka.ms/SSODeploymentPlan).
+* İndirme bağlantısı: [tek oturum açma dağıtım planı](https://aka.ms/SSODeploymentPlan).
 
 

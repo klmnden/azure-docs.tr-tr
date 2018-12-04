@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b5d3703f052ef47bcbacf0be04072357ee5b9986
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 94f7239bdcdc5ddc91f3ed8b49b59378309711e8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722607"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844966"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C hakkında kullanıcı arabirimi özelleştirme
 
@@ -29,7 +29,7 @@ Bu deneyimler geldiğinde gereksinimlerinize bağlı olarak, uygulamanızın kul
 - Kullanıyorsanız [özel ilkeler](active-directory-b2c-overview-custom.md) kaydolma veya oturum açma, parola sıfırlama veya profil düzenleme, uygulamanızda kullanmak [kullanıcı arabirimini özelleştirmek için ilke dosyaları](active-directory-b2c-ui-customization-custom.md).
 - Bir müşterinin karar temel alınarak dinamik içerik sağlamanız gerekiyorsa, kullandığınız [değiştirebilirsiniz özel ilkeler, içerik sayfasında](active-directory-b2c-ui-customization-custom-dynamic.md) bağlı bir sorgu dizesi içinde gönderilen bir parametre olarak. Örneğin, web veya mobil uygulama geçirdiğiniz parametre dayalı bir Azure AD B2C kaydolma veya oturum açma sayfasında arka plan resmi değiştirir.
 
-Azure AD B2C kod müşterinizin tarayıcıda çalışan ve modern bir yaklaşımı adlı kullanır [çıkış noktaları arası kaynak paylaşımı (CORS)](http://www.w3.org/TR/cors/). Çalışma zamanında, bir kullanıcı akışı veya ilkede belirttiğiniz URL'den içerik yüklendi. Farklı sayfaları için farklı URL'ler belirtmeniz. İçerik, URL'den yüklendikten sonra Azure AD B2C'den eklenen ve ardından müşterinize görüntülenen bir HTML parçasını ile birleştirilir.
+Azure AD B2C kod müşterinizin tarayıcıda çalışan ve modern bir yaklaşımı adlı kullanır [çıkış noktaları arası kaynak paylaşımı (CORS)](https://www.w3.org/TR/cors/). Çalışma zamanında, bir kullanıcı akışı veya ilkede belirttiğiniz URL'den içerik yüklendi. Farklı sayfaları için farklı URL'ler belirtmeniz. İçerik, URL'den yüklendikten sonra Azure AD B2C'den eklenen ve ardından müşterinize görüntülenen bir HTML parçasını ile birleştirilir.
 
 Başlamadan önce aşağıdaki yönergeleri gözden geçirin:
 

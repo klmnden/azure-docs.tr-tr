@@ -1,9 +1,8 @@
 ---
-title: Gremlin API'sini kullanarak Azure Cosmos DB Node.js uygulaması oluşturma | Microsoft Docs
+title: Gremlin API'sini kullanarak Azure Cosmos DB Node.js uygulaması oluşturma
 description: Azure Cosmos DB'ye bağlanmak ve veritabanını sorgulamak için kullanabileceğiniz bir Node.js kod örneği sunar
 services: cosmos-db
 author: luisbosquez
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
@@ -11,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 5f7e2a30ee4ea069e8c08187312f09e33a5a921a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.openlocfilehash: 0f2bcc34a1f82c33c8f640dce8eecccf312651fb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700046"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844219"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-gremlin-api"></a>Azure Cosmos DB: Gremlin API'sini kullanarak bir Node.js uygulaması oluşturma
 
@@ -33,7 +32,7 @@ Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritaba
 
 Bu hızlı başlangıçta Azure portalı kullanarak bir Azure Cosmos DB [Gremlin API](graph-introduction.md) hesabını, veritabanını ve grafiğini nasıl oluşturacağınız anlatılmıştır. Bu adımların ardından açık kaynaklı [Gremlin Node.js](https://www.npmjs.com/package/gremlin) sürücüsünü kullanarak bir konsol uygulaması oluşturabilir ve çalıştırabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu örneği çalıştırmadan önce aşağıdaki önkoşullara sahip olmanız gerekir:
 * [Node.js](https://nodejs.org/en/) v0.10.29 sürümü veya sonraki bir sürüm

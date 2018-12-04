@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 74ecfe50170f35420d3cf5dc5531b0fe1046889d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 14b5f13070554328a47cd80185efb487d887a6d5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433859"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832920"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Öğretici: Azure Active Directory CS yıldız ile tümleştirme
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi CS yıldız ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir yıldız CS çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD CS yıldız tümleştirilmesi yapılandırmak için CS yıldız Galerid
 
 **Galeriden CS yıldız eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -117,7 +117,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve C
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<subdomain>.csstars.com/enterprise/`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [CS yıldız istemci Destek ekibine](http://www.marshclearsight.com/support/) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [CS yıldız istemci Destek ekibine](https://www.marshclearsight.com/support/) bu değerleri almak için. 
  
 1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
@@ -127,7 +127,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve C
 
     ![Çoklu oturum açmayı yapılandırın](./media/cs-stars-tutorial/tutorial_general_400.png) 
 <CS>
-1. Çoklu oturum açmayı yapılandırma **CS yıldız** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [CS yıldız Destek ekibine](http://www.marshclearsight.com/support/). 
+1. Çoklu oturum açmayı yapılandırma **CS yıldız** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [CS yıldız Destek ekibine](https://www.marshclearsight.com/support/). 
 <CE>
 
 > [!TIP]
@@ -169,7 +169,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 Bu bölümün amacı, CS yıldız Britta Simon adlı bir kullanıcı oluşturmaktır.
 
-İletişime geçmeniz CS yıldız oluşturulan bir kullanıcı almak için [CS yıldız Destek ekibine](http://www.marshclearsight.com/support/).
+İletişime geçmeniz CS yıldız oluşturulan bir kullanıcı almak için [CS yıldız Destek ekibine](https://www.marshclearsight.com/support/).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 

@@ -1,28 +1,28 @@
 ---
-title: SQL API’sini kullanarak Azure Cosmos DB ile .NET web uygulaması derleme | Microsoft Docs
+title: SQL API'sini kullanarak Azure Cosmos DB ile .NET web uygulaması oluşturma
 description: Bu hızlı başlangıçta, .NET web uygulaması oluşturmak için Azure Cosmos DB SQL API’sini ve Azure portalını kullanacaksınız
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc, devcenter
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/10/2018
-ms.author: sngun
 clicktale: true
-ms.openlocfilehash: 506d21589ee8c5d284bd9ffc430d8b1d40afb910
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.date: 04/10/2018
+ms.openlocfilehash: a41042dc72fc7883d5b3185453eab446a1378ce4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741734"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832318"
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Hızlı başlangıç: SQL API’sini ve Azure portalını kullanarak Azure Cosmos DB ile .NET web uygulaması derleme
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
+> * [.NET (Önizleme)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -36,7 +36,7 @@ Bu hızlı başlangıç belgesinde Azure portalını kullanarak bir Azure Cosmos
 
 ![Yapılacaklar listesi uygulaması ve örnek veriler](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
 

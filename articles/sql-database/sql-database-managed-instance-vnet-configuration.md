@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 9d3f867dad40017e8e97ec4f5e370533b018263c
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: fcceecbd933980d0ab751fd5e377bbf810b9502e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181184"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837639"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği için bir sanal ağ yapılandırma
 
@@ -66,6 +66,9 @@ Bir yönetilen örnek oluşturmak için aşağıdaki gereksinimlere uygun bir sa
 |yönetim  |80, 443, 12000|TCP     |Herhangi biri              |Herhangi biri        |İzin Ver |
 |mi_subnet   |Herhangi biri           |Herhangi biri     |Herhangi biri              |MI ALT AĞ  |İzin Ver |
 
+  > [!Note]
+  > Zorunlu bir gelen güvenlik kuralları, gelen trafiğe izin verse de _herhangi_ bağlantı noktalarını 9000, 9003, kaynak 1438, 1440, 1452 Bu bağlantı noktaları, yerleşik güvenlik duvarı tarafından korunur. Bu [makale](sql-database-managed-instance-management-endpoint.md) yönetim uç noktası IP adresi Bul ve güvenlik duvarı kurallarını doğrulayın nasıl gösterir. 
+
 ##  <a name="determine-the-size-of-subnet-for-managed-instances"></a>Yönetilen örnek için alt ağ boyutunu belirler
 
 Yönetilen bir örneği oluşturduğunuzda, Azure sanal makineler sağlama sırasında seçtiğiniz katmana bağlı olarak bir dizi ayırır. Bu sanal makineler, alt ağ ile ilişkili olduğundan, bunlar IP adresi gerektirir. Normal işlemler ve hizmet bakım sırasında yüksek kullanılabilirlik sağlamak için Azure ek sanal makineler ayırabilir. Sonuç olarak, alt ağ gerekli IP adresi sayısı bu alt ağdaki yönetilen örnekler sayısından büyüktür. 
@@ -73,7 +76,7 @@ Yönetilen bir örneği oluşturduğunuzda, Azure sanal makineler sağlama sıra
 Tasarıma göre yönetilen örneğe en az 16 IP adresleri bir alt ağda olmalıdır ve en fazla 256 IP adresi kullanıyor olabilirsiniz. Sonuç olarak, alt ağ IP aralıkları tanımlarken, alt ağ maskeleri için/28'i /24 kullanabilirsiniz. 
 
 > [!IMPORTANT]
-> Alt ağ boyutu 16 IP adresleriyle ile başka yönetilen örneğe ölçek genişletme için sınırlı olası tam düşük düzeyde grup üyeliğidir. Seçme alt ağ ön eki en az/27 veya altında önerilir. 
+> Alt ağ boyutu 16 IP adresleriyle ile başka yönetilen örneğe ölçek genişletme için sınırlı olası tam düşük düzeyde grup üyeliğidir. Seçme alt ağ ön eki en az/27 veya altında önerilir. 
 
 Birden çok yönetilen örnek alt ağ içinde dağıtın ve alt ağı boyutuna göre en iyi duruma getirmeyi planlıyorsanız, bir hesaplama oluşturmak için şu parametreleri kullan: 
 
@@ -84,7 +87,7 @@ Birden çok yönetilen örnek alt ağ içinde dağıtın ve alt ağı boyutuna g
 **Örnek**: üç genel amaçlı ve iki iş açısından kritik yönetilen örneği planlama. 5 + 3 * 2 + 2 * 4 = 19 ihtiyacınız anlamına gelir IP adreslerini. IP aralıklarını 2'in gücünü tanımlanan 32 IP aralığı gerekir (2 ^ 5) IP adresi. Bu nedenle, / 27 alt ağ maskesine sahip bir alt ağı ayırmanız gerekir. 
 
 > [!IMPORTANT]
-> Yukarıda gösterilen hesaplama geliştirmelerle daha eski hale gelir. 
+> Yukarıda gösterilen hesaplama geliştirmelerle daha eski hale gelir. 
 
 ## <a name="create-a-new-virtual-network-for-a-managed-instance"></a>Yeni bir sanal ağ için bir yönetilen örnek oluşturma
 

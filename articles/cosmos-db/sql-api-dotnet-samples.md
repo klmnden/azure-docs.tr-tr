@@ -2,21 +2,19 @@
 title: "Azure Cosmos DB: SQL API'si için .NET örnekleri | Microsoft Docs"
 description: CRUD işlemleri gibi Azure Cosmos DB SQL API'sinin kullanıldığı yaygın görevler için GitHub'da C# .NET örnekleri bulabilirsiniz.
 keywords: NoSQL örneği
-services: cosmos-db
 author: rnagpal
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: sample
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.openlocfilehash: 5cee4a736232e7734be85b2940ce457bfbfd1613
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 3aa8e915cff7ba641a0181639ffb4ce26840d476
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262304"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837758"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: SQL API'si için .NET örnekleri
 > [!div class="op_single_selector"]
@@ -29,10 +27,12 @@ ms.locfileid: "52262304"
 > 
 > 
 
-Azure Cosmos DB kaynaklarında CRUD işlemlerini ve diğer yaygın işlemleri gerçekleştiren en yeni örnek çözümler, [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples) GitHub deposuna eklenmiştir. Bu makalede aşağıdakiler sunulmaktadır:
+CRUD işlemleri ve Azure Cosmos DB kaynaklarını üzerinde diğer yaygın işlemler gerçekleştiren en son örnek çözümler dahil edilecek [azure-cosmos-dotnet-v2](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples) GitHub deposu. Bu makalede aşağıdakiler sunulmaktadır:
 
 * Örnek C# proje dosyalarının her birindeki görevlere bağlantılar. 
 * İlgili API başvurusu içeriğine bağlantılar.
+
+.NET SDK'sı sürüm 3.0 (Önizleme) için kod örnekleri için en son örneklere bakın [azure-cosmos-dotnet-v3](https://github.com/Azure/azure-cosmos-dotnet-v3) GitHub deposu. 
 
 **Önkoşullar**
 

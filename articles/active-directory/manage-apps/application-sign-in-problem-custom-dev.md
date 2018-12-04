@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 8ae8fa823b919ec4a67832e7c42088c994bd2d97
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2dade35b05a07b649282ae00bb6fee354adcd195
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357410"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845508"
 ---
 # <a name="problems-signing-in-to-an-custom-developed-application"></a>Özel olarak geliştirilmiş bir uygulamada oturum açarken sorun
 
@@ -32,7 +32,7 @@ Bir uygulamada oturum açması mümkün olmaması için neden olabilecek çeşit
 
 * Kod içinde yapılandırılan izinlerle erişim isteyen kaynak karşılaştırma **gerekli kaynakları** yapılandırdığınız kaynaklar yalnızca istek emin olmak için sekmesinde.
 
-* Bkz: [Azure AD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory) benzer hatalar veya sorunlar için.
+* Bkz: [Azure AD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory) benzer hatalar veya sorunlar için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -42,4 +42,4 @@ Bir uygulamada oturum açması mümkün olmaması için neden olabilecek çeşit
 
 [Uygulama onay ve Azure AD v2.0 için kullanarak yakınsanmış](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
-[Azure AD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory>)
+[Azure AD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory>)

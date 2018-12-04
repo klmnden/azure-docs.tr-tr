@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/03/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 68d5742f5da542d5146997390e470180cf8c5776
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: adde29b0719f777bc6cf3ab86adbdeec4befddf0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620702"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842433"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack için kullanılabilir olan Azure Market öğeleri
 
@@ -236,7 +236,6 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Denetim, izleyin ve sanal makineleri kolayca ve güvenle ile şifreleme. **Tüm CloudLink SecureVM öğeleri indirin.** | Dell EMC |
 | ![Olayİzleyicisi SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [Olayİzleyicisi SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | Olayİzleyicisi SIEM Gelişmiş denetim hazır uyumluluk özellikleri ile güvenlik araçları sunan bir kapsamlı güvenlik platformudur. | Olayİzleyicisi |
 | ![F5](media/azure-stack-marketplace-azure-items/f5.png) | [F5 BIG-IP sanal sürümü](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Yük Dengeleme, GSLB, ağ güvenlik duvarı, DNS, WAF ve uygulama erişimi Gelişmiş. | F5 Networks |
-| ![FortiGate yeni nesil güvenlik duvarı](media/azure-stack-marketplace-azure-items/fortinetsquare.png) | [FortiGate yeni nesil güvenlik duvarı](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-fortigate-singlevm) | Güvenlik Duvarı teknolojisi eksiksiz içerik ve ağ koruması ile güçlü güvenlik özellikleri içeren kapsamlı bir paketi sunar. Uygulama denetimi, virüs koruması, IPS, web filtrelemesi ve VPN'nin güvenlik açığı yönetimi gibi gelişmiş özellikler ile birlikte en son karmaşık güvenlik tehditlerini tanımlamak ve azaltmak için birlikte çalışır. | Fortinet |
 | ![Hortonworks Data Platform (HDP) korumalı alan](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) korumalı alan](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Tarafından HDP %2,5 100 açık kaynak platformu Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari için desteklenen. | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky hibrit bulut güvenliği](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Sorunsuz bir şekilde düzenlenmiş ve Uyarlamalı siber güvenlik ekosistemi Kaspersky hibrit bulut güvenliği sağlar. | Kaspersky Laboratuvar |
 | ![KEMP LoadMaster yük dengeleyici ADC içerik anahtarı](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster yük dengeleyici ADC içerik anahtarı](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 4-7. Katman uygulama teslim denetleyicisini (ADC) yük dengeleyici, içerik anahtarı ve Traffic Manager. | KEMP Technologies Inc. |

@@ -4,14 +4,14 @@ description: Azure geçişi hizmetini kullanarak şirket içi makinelerin çok s
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 11/29/2018
 ms.author: raynew
-ms.openlocfilehash: b5685640a55e2ce52a202c341cb293fe9315ab14
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: b0965d50781ac3bb6c62338a2c6f17317306d249
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240197"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835548"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Büyük bir VMware ortamını bulma ve değerlendirme
 
@@ -50,9 +50,12 @@ Bir kiracı ortamda dağıtıyorsanız, bunu ayarlamak için yöntemlerinden bir
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>Geçiş projeleri ve bulmaları planlama
 
-Tek bir Azure geçişi toplayıcısı birden fazla vCenter sunucuları keşiften (birbiri ardına) destekler ve aynı zamanda birden fazla geçiş projeleri için bulma (birbiri ardına) destekler.
+Vm'leri bulmak için planlama sayısına bağlı olarak, birden çok proje oluşturur ve ortamınızda birden çok gereçlerini dağıtma. (Bulma durdurup parçalarından sürece) tek bir vCenter Server ve tek bir proje için bir gereç bağlanabilir.
 
-Tek seferlik bulma durumunda Toplayıcı yangın içinde çalışır ve unut modeli, bir bulma yaptıktan sonra farklı bir vCenter sunucusu veri toplamak veya farklı bir geçiş projesine göndermek için aynı Toplayıcı kullanabilirsiniz. İkinci bir bulguda tetikleyici çalıştırmak için aynı Toplayıcı kullanamazlar sürekli bulma olması durumunda bir gereç yalnızca tek bir projeye bağlı.
+(Artık kullanım dışı), tek seferlik bir bulma bulma yangın içinde çalışır ve bir bulma tamamlandıktan sonra modeli unutmanız durumunda, farklı bir vCenter sunucusu veri toplamak veya farklı bir geçiş projesine göndermek için aynı Toplayıcısı'nı kullanabilirsiniz.
+
+> [!NOTE]
+> Bu yöntem, vCenter Server'ın performans veri noktası kullanılabilirlik için istatistik ayarları yararlandı ve sanal makinelerin Azure'a geçiş için eksik boyutlandırma içinde sonuçlanan ortalama performans sayaçlarının toplanan gibi tek seferlik gereç artık kullanım dışı bırakılmıştır. Tek seferlik gerecine taşımanız önerilir.
 
 Bulma ve değerlendirme şu sınırlara göre planlayın:
 
@@ -65,7 +68,7 @@ Bulma ve değerlendirme şu sınırlara göre planlayın:
 Bu planlama konuları göz önünde bulundurun:
 
 - Azure geçişi Toplayıcısı'nı kullanarak bir bulma işlemi gerçekleştirdiğinizde, bulma kapsamı bir vCenter Server klasörü, veri merkezi, küme veya konağı ayarlayabilirsiniz.
-- Vcenter Server'daki klasörleri, veri merkezleri, kümeler veya 1.500 makineler SORUMLULUĞUN destekleyen konakların bulmak istediğiniz VM'lerin olan birden fazla keşif yapmak için doğrulayın.
+- Vcenter Server'daki, bulmak istediğiniz VM'lerin klasörleri, veri merkezleri, kümeler veya 1.500 makineler SORUMLULUĞUN destekleyen konakların aynı vCenter Server'dan birden fazla keşif yapmak için doğrulayın.
 - Değerlendirme amacıyla, değerlendirme ve aynı proje içinde bağımlılıklarını makinelerle tutmanızı öneririz. VCenter Server'da, bağımlı makinelere/klasör, veri merkezi veya küme değerlendirmesi için olduğundan emin olun.
 
 Senaryonuza bağlı olarak, aşağıda belirtilen şekilde, bulmalar ayırabilirsiniz:
@@ -73,25 +76,26 @@ Senaryonuza bağlı olarak, aşağıda belirtilen şekilde, bulmalar ayırabilir
 ### <a name="multiple-vcenter-servers-with-less-than-1500-vms"></a>Birden fazla vCenter sunucuları ile 1500'den az VM'ler
 Ortamınızda birden fazla vCenter sunucuları varsa ve sanal makinelerin toplam sayısını 1500'den az ise, senaryo temel alınarak aşağıdaki yaklaşımı kullanabilirsiniz:
 
-**Tek seferlik:** tüm sanal makineler arasında tüm vCenter sunucularını keşfetmek için tek bir Toplayıcı ve tek bir geçiş projesi kullanabilirsiniz. Tek seferlik Toplayıcı, bir kerede bir vCenter Server bulur olduğundan, aynı Toplayıcı tüm vCenter karşı sunucuları, birbiri ardına çalıştırın ve Toplayıcı aynı geçiş projeye işaret edecek. Bulma tamamlandıktan sonra makineler değerlendirmeler oluşturabilirsiniz.
-
 **Sürekli bulma:** sürekli bulma olması durumunda, yalnızca tek bir projeye bir gereç bağlanabilir. Bu nedenle her biri, vCenter sunucuları için bir gereç dağıtın ve ardından uygun şekilde her Gereci ve bulmalar tetikleyici için bir proje oluşturun gerekir.
+
+**Tek seferlik bulma (artık kullanım dışı):** tüm sanal makineler arasında tüm vCenter sunucularını keşfetmek için tek bir Toplayıcı ve tek bir geçiş projesi kullanabilirsiniz. Tek seferlik Toplayıcı, bir kerede bir vCenter Server bulur olduğundan, aynı Toplayıcı tüm vCenter karşı sunucuları, birbiri ardına çalıştırın ve Toplayıcı aynı geçiş projeye işaret edecek. Bulma tamamlandıktan sonra makineler değerlendirmeler oluşturabilirsiniz.
+
 
 ### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>Birden fazla vCenter sunucuları ile 1500'den fazla VM
 
 Tüm vCenter sunucuları arasında birden fazla vCenter sunucuları ile 1500'den küçük sanal makine vCenter sunucusu sayısı, ancak 1500'den fazla VM varsa, (bir geçiş projesi yalnızca 1500 Vm'leri barındırmak) birden çok geçiş projeleri oluşturmanız gerekir. Bu vCenter Server her bir geçiş projesi oluşturma ve bulmaları bölerek elde edebilirsiniz.
 
-**Tek seferlik:** her vCenter Server (birbiri ardına) bulmak için tek bir Toplayıcı kullanabilirsiniz. Aynı anda başlatmak için bulmaları istiyorsanız, birden çok gereçlerini dağıtma ve bulmaları paralel olarak çalıştırmak.
-
 **Sürekli bulma:** birden fazla Toplayıcı cihazları (her bir vCenter sunucusu için bir tane) oluşturun ve her Gereci bir proje ve tetikleyici bulma için uygun şekilde bağlantı kurması gerekir.
+
+**Tek seferlik bulma (artık kullanım dışı):** her vCenter Server (birbiri ardına) bulmak için tek bir Toplayıcı kullanabilirsiniz. Aynı anda başlatmak için bulmaları istiyorsanız, birden çok gereçlerini dağıtma ve bulmaları paralel olarak çalıştırmak.
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Tek bir vcenter Server 1500'den fazla makineler
 
 Tek bir vCenter Server'da 1500'den fazla sanal makineleriniz varsa, birden çok geçiş projelere bulma bölmek gerekir. Bulmaları bölmek için gereç kapsam alanı yararlanın ve konağa, küme, klasör veya bulmak istediğiniz veri merkezinde belirtin. VCenter sunucusu ile 1000 ile de iki klasör varsa, örneğin, VM'ler (Klasör1) ve diğer 800 VM (klasör2), bu klasörleri arasındaki bulmaları bölmek için kapsam alanı kullanabilirsiniz.
 
-**Tek seferlik:** aynı toplayıcısı hem bulmaları tetiklemek için kullanabilirsiniz. İlk bulma kapsamı olarak Klasör1 belirtin ve noktası ilk geçiş projenizi ilk keşif tamamlandıktan sonra aynı Toplayıcı, klasör2 ve geçiş proje ayrıntılarını ikinci geçiş projesi için kapsamı değiştirin ve İkinci keşif yapın.
-
 **Sürekli bulma:** bu durumda, ilk toplayıcı için iki Toplayıcı Gereçleri, oluşturma, kapsam Klasör1 belirtin ve için ilk geçiş projenizi bağlama gerekir. Paralel olarak yapabilecekleriniz ikinci Toplayıcı gerecini kullanarak klasör2 bulmayı Başlat ve ikinci geçiş projeye bağlanın.
+
+**Tek seferlik bulma (artık kullanım dışı):** aynı toplayıcısı hem bulmaları tetiklemek için kullanabilirsiniz. İlk bulma kapsamı olarak Klasör1 belirtin ve noktası ilk geçiş projenizi ilk keşif tamamlandıktan sonra aynı Toplayıcı, klasör2 ve geçiş proje ayrıntılarını ikinci geçiş projesi için kapsamı değiştirin ve İkinci keşif yapın.
 
 ### <a name="multi-tenant-environment"></a>Çok kiracılı ortam
 
@@ -120,14 +124,20 @@ Azure Geçişi, toplayıcı gereci olarak bilinen bir şirket içi VM oluşturur
 Birden çok proje varsa, vCenter Server'a yalnızca bir kez Toplayıcı gerecini indirin gerekir. İndirin ve gerecini ayarlamak sonra her proje için çalıştırın ve benzersiz proje Kimliğini ve anahtarını belirtin.
 
 1. Azure Geçişi projesinde **Kullanmaya Başlama** > **Bul ve Değerlendir** > **Makineleri Keşfet**’ye tıklayın.
-2. **Cihazları keşfet**’te, alet için iki seçenek vardır, tercihinize göre uygun aleti indirmek için **İndir**’i tıklayın.
+2. İçinde **makineleri Bul**, tıklayın **indirin** gereç indirilemedi.
 
-    a. **Tek seferlik keşif:** Bu model için alet, VM’ler hakkında meta veriler toplamak için vCenter Server ile iletişim kurar. VM’lerin performans verilerinin toplanması için, vCenter Server’da depolanan geçmiş performans verilerine dayanır ve son bir ayın performans geçmişini toplar. Bu modelde, Azure Geçişi her ölçüm için ortalama sayacı (en yüksek sayaca karşı) toplar, [daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Bir kerelik bulma olduğundan, Keşif tamamlandıktan sonra şirket içi ortamda değişiklikler yansıtılmaz. Değişikliklerin yansıtılmasını istiyorsanız, aynı ortamın yeniden keşfetmeniz gerekir.
-
-    b. **Sürekli keşif:** Bu model için alet, her VM’nin gerçek zamanlı kullanım verilerini toplamak amacıyla sürekli şirket içi ortamın profilini oluşturur. Bu modelde her ölçüm için en yüksek sayaçlar toplanır (CPU kullanımı, bellek kullanımı vb.). Bu model, performans verilerinin toplanması için vCenter Server’ın istatistik ayarlarına bağlı değildir. Sürekli profil oluşturmayı aletten istediğiniz zaman durdurabilirsiniz.
+    Azure geçişi Gereci vCenter Server ile iletişim kurar ve sürekli olarak şirket içi ortamda, her VM için gerçek zamanlı kullanım verilerini toplamak için profil. Bu, her bir ölçüm (CPU kullanımı, bellek kullanımı vb.) için en yüksek sayaçları toplar. Bu model, performans verilerinin toplanması için vCenter Server’ın istatistik ayarlarına bağlı değildir. Sürekli profil oluşturmayı aletten istediğiniz zaman durdurabilirsiniz.
 
     > [!NOTE]
-    > Sürekli keşif işlevi önizleme aşamasındadır.
+    > Bu yöntem, vCenter Server'ın performans veri noktası kullanılabilirlik için istatistik ayarları yararlandı ve sanal makinelerin Azure'a geçiş için eksik boyutlandırma içinde sonuçlanan ortalama performans sayaçlarının toplanan gibi tek seferlik gereç artık kullanım dışı bırakılmıştır.
+
+    **Anında keyif:** bulma olduğunda (alır birkaç saat VM sayısına bağlı olarak), sürekli bulma gereciyle tamamlamak değerlendirmeler hemen oluşturabilirsiniz. Anında sonuç elde etmek için kullanmak istiyorsanız, Keşif yaslanıp performans veri toplama başlar bu yana değerlendirmede boyutlandırma ölçütü seçmelisiniz *şirket içi olarak*. Performans tabanlı değerlendirmeleri için en az bir gün sonra güvenilir boyut önerileri almak için keşif başlatılmadan için beklemeniz önerilir.
+
+    Gerecin performans verilerini yalnızca sürekli olarak topladığını unutmayın, şirket içi ortamdaki (ör. VM eklemesi, silmesi, disk eklemesi vb.) hiçbir yapılandırma değişikliğini algılamaz. Şirket içi ortamda bir yapılandırma değişikliği gerçekleşirse değişikliklerin portala yansıması için aşağıdakileri yapabilirsiniz:
+
+    - Öğelerin eklenmesi (VM’ler, diskler, çekirdekler vb.): Bu değişiklikleri Azure portala yansıtmak için keşfi gereçten durdurup yeniden başlatabilirsiniz. Bu, değişikliklerin Azure Geçişi projesinde güncelleştirilmesini sağlar.
+
+    - VM silme: Gerecin tasarlanma şekli nedeniyle keşfi durdurup başlatsanız bile VM silme yansıtılmaz. Bunun nedeni takip eden keşiflerin eski keşiflerin üzerine yazılması yerine bunlara eklenmesidir. Bu durumda grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplayarak portaldaki VM’yi yoksayabilirsiniz.
 
 3. İçinde **proje kimlik bilgilerini kopyalama**, kopya kimliği ve anahtarı için proje. Toplayıcıyı yapılandırırken bu bilgilere ihtiyaç duyarsınız.
 
@@ -146,7 +156,17 @@ OVA dosyasını dağıtmadan önce güvenli olup olmadığını denetleyin:
 
 3. Oluşturulan karma aşağıdaki ayarları eşleştiğinden emin olun.
 
-#### <a name="one-time-discovery"></a>Tek seferlik keşif
+#### <a name="continuous-discovery"></a>Sürekli keşif
+
+OVA sürüm 1.0.10.4 için
+
+**Algoritma** | **Karma değeri**
+--- | ---
+MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
+SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
+SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
+
+#### <a name="one-time-discovery-deprecated-now"></a>Tek seferlik bulma (artık kullanım dışı)
 
 OVA sürüm 1.0.9.15 (23/10/2018 tarihinde serbest bırakılmış)
 
@@ -188,16 +208,6 @@ MD5 | d5b6a03701203ff556fa78694d6d7c35
 SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
 SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
 
-#### <a name="continuous-discovery"></a>Sürekli keşif
-
-OVA sürüm 1.0.10.4 için
-
-**Algoritma** | **Karma değeri**
---- | ---
-MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
-SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
-SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
-
 ### <a name="create-the-collector-vm"></a>Toplayıcı VM’yi oluşturma
 
 İndirilen dosyayı vCenter Server'a aktarın:
@@ -221,37 +231,6 @@ Birden çok proje varsa, Kimliğini belirlemek ve her biri için anahtar emin ol
 1. Projede **Başlarken** > **Keşif ve değerlendirme** > **makineleri Bul**.
 2. İçinde **proje kimlik bilgilerini kopyalama**, kopya kimliği ve anahtarı için proje.
     ![Proje kimlik bilgilerini kopyalayın](./media/how-to-scale-assessment/copy-project-credentials.png)
-
-### <a name="set-the-vcenter-statistics-level"></a>VCenter istatistikleri düzeyi
-
-Seçili sanal makinelerle ilgili olarak aşağıdaki statik meta veri toplayıcı gerecini bulur.
-
-1. VM görünen adı (temel, vCenter)
-2. Sanal makinenin envanteri yolu (konak/klasör vcenter)
-3. IP adresi
-4. MAC adresi
-5. İşletim sistemi
-5. Çekirdek, disk, NIC sayısı
-6. Bellek boyutu, Disk boyutları
-7. Ve VM, disk ve aşağıdaki tabloda listelendiği gibi ağ performans sayaçları.
-
-Aşağıdaki tabloda, tek seferlik bulma için toplanır ve aynı zamanda belirli bir sayaç alınamadı, etkilenen değerlendirme sonuçları listeler tam performans sayaçları listeler.
-
-Sürekli bulma için sayaçları (20 saniye aralığı) gerçek zamanlı olarak toplanır. vCenter istatistikleri düzeyi üzerinde hiçbir bağımlılık şekilde. Gereç ardından pay en yüksek değeri 20 saniye örnekleri seçerek boyunca 15 dakikada bir tek veri noktası oluşturmak için 20 saniye örnekleri yukarı ve Azure'a gönderir.
-
-|Sayaç                                  |Düzey    |Cihaz başına düzeyi  |Etki değerlendirmesi                               |
-|-----------------------------------------|---------|------------------|------------------------------------------------|
-|CPU.Usage.average                        | 1       |NA                |Önerilen VM boyutu ve maliyet                    |
-|mem.Usage.average                        | 1       |NA                |Önerilen VM boyutu ve maliyet                    |
-|virtualDisk.read.average                 | 2       |2                 |Disk boyutu, depolama maliyetini ve VM boyutu         |
-|virtualDisk.write.average                | 2       |2                 |Disk boyutu, depolama maliyetini ve VM boyutu         |
-|virtualDisk.numberReadAveraged.average   | 1       |3                 |Disk boyutu, depolama maliyetini ve VM boyutu         |
-|virtualDisk.numberWriteAveraged.average  | 1       |3                 |Disk boyutu, depolama maliyetini ve VM boyutu         |
-|NET.Received.average                     | 2       |3                 |VM boyutu ve ağ maliyeti                        |
-|NET.transmitted.average                  | 2       |3                 |VM boyutu ve ağ maliyeti                        |
-
-> [!WARNING]
-> Daha yüksek bir istatistik düzeyini yalnızca ayarladıysanız, tek seferlik bulma için bir gün için performans sayaçları oluşturma sürer. Bu nedenle, bir gün sonra bulma çalıştırmanızı öneririz. Sürekli bulma modeli için ortamı profili ve ardından değerlendirme oluşturmak Gereci için bulma işlemi başlatılıyor sonra en az bir gün bekleyin.
 
 ### <a name="run-the-collector-to-discover-vms"></a>VM’leri bulmak için toplayıcıyı çalıştırma
 
@@ -280,16 +259,41 @@ Gerçekleştirmeniz gereken her bulma için gerekli kapsam içindeki Vm'leri bul
 6.  İçinde **geçişi projesini belirtin**anahtarı için proje ve Kimliğini belirtin. Kopyaladığınız alamadık, Toplayıcı VM'den Azure portalını açın. Projenin **genel bakış** sayfasında **makineleri Bul** ve değerleri kopyalayın.  
 7.  İçinde **toplama durumunu görüntüle**, Keşif sürecini izleyebilir ve Vm'lerden toplanan meta verilerin kapsam içinde olup olmadığını denetleyin. Toplayıcı, yaklaşık bir bulma süresi sağlar.
 
-
 #### <a name="verify-vms-in-the-portal"></a>VM’lerin portalda olup olmadığını doğrulama
 
-Tek seferlik keşif için, bulma süresi kaç VM bulduğunuza bağlıdır. Genellikle, Toplayıcı çalışmayı durdurduktan sonra 100 VM için yaklaşık bir saat tamamlamak yapılandırma ve performans verileri toplama alır. Keşif bittikten hemen sonra değerlendirmeler (hem performansa dayalı hem de şirket içi değerlendirmeler halinde) oluşturabilirsiniz.
-
-Sürekli keşif için (önizlemede), toplayıcı şirket içi ortamın sürekli profilini oluşturur ve performans verilerini bir saatlik aralıklarla göndermeye devam eder. Keşfin başlamasından bir saat sonra makineleri portalda inceleyebilirsiniz. VM’ler için performansa dayalı değerlendirmeler oluşturmadan önce en az bir gün beklemeniz önerilir.
+Toplayıcı sürekli olarak şirket içi ortamda profil ve performans verilerini bir saatlik zaman aralığı içinde göndermeye devam. Keşfin başlamasından bir saat sonra makineleri portalda inceleyebilirsiniz. VM’ler için performansa dayalı değerlendirmeler oluşturmadan önce en az bir gün beklemeniz önerilir.
 
 1. Geçiş projesinde **Yönet** > **Makineler**’e tıklayın.
 2. Bulmak istediğiniz VM’lerin portalda görüntülenip görüntülenmediğini kontrol edin.
 
+### <a name="data-collected-from-on-premises-environment"></a>Şirket içi ortamdan toplanan veriler
+
+Toplayıcı gerecini seçili sanal makineler hakkında aşağıdaki yapılandırma verilerini bulur.
+
+1. VM görünen adı (temel, vCenter)
+2. Sanal makinenin envanteri yolu (konak/klasör vcenter)
+3. IP adresi
+4. MAC adresi
+5. İşletim sistemi
+5. Çekirdek, disk, NIC sayısı
+6. Bellek boyutu, Disk boyutları
+7. Ve VM, disk ve aşağıdaki tabloda listelendiği gibi ağ performans sayaçları.
+
+Toplayıcı gerecini 20 saniyelik bir aralıkta ESXi konağından her VM için aşağıdaki performans sayaçlarını toplar. Bu sayaçlardan vCenter sayaçları ve terminolojiyi ortalama diyor olsa da, 20 saniye örnekleri gerçek zamanlı sayaçları. Gereç ardından pay en yüksek değeri 20 saniye örnekleri seçerek boyunca 15 dakikada bir tek veri noktası oluşturmak için 20 saniye örnekleri yukarı ve Azure'a gönderir. VM'ler için performans verilerini iki saat sonra keşif devreye girdi portalda kullanılabilir hale gelmeden başlatır. İçin en az doğru doğru boyutlandırma önerilerini almak için Değerlendirmeler performans tabanlı oluşturmadan önce bir gün beklemeniz önerilir. Anında sonuç elde etmek için arıyorsanız, boyutlandırma ölçütü ile değerlendirmeler oluşturabilirsiniz *şirket içi olarak* hangi değil dikkate alınır doğru boyutlandırma için performans verileri.
+
+**Sayaç** |  **Etki değerlendirmesi**
+--- | ---
+CPU.Usage.average | Önerilen VM boyutu ve maliyet  
+mem.Usage.average | Önerilen VM boyutu ve maliyet  
+virtualDisk.read.average | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
+virtualDisk.write.average | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
+virtualDisk.numberReadAveraged.average | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
+virtualDisk.numberWriteAveraged.average | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
+NET.Received.average | VM boyutunu hesaplar                          
+NET.transmitted.average | VM boyutunu hesaplar     
+
+> [!WARNING]
+> VCenter Server'ın performans verilerini toplama için istatistik ayarları yararlandı tek seferlik bir bulma yöntemi artık kullanılmıyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

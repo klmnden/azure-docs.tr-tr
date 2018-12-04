@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 46e05ef45cca5accd6af817a06b63861c41aa2b3
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 28bdbcbbfa014495feb394bde78a197b274f07d9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160622"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844184"
 documentType: LandingData
 title: Azure SQL Veritabanı Yönetilen Örneği
 metadata:
@@ -123,6 +123,7 @@ sections:
     - html: Veritabanınızı kullanılarak geçirilebileceğini doğrulayın <a href="https://www.microsoft.com/download/details.aspx?id=53595">veri geçiş Asisstant</a> veya <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">veritabanı deneme Yardımcısı</a>.
     - html: Yönetilen örneği kullanarak veritabanlarınızı Getir <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">yerel geri yükleme</a> veya <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Data Migration hizmeti</a>.
     - html: SSIS paketlerinizi taşıma <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, SSAS tablolu modellere <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>, ve SSRS raporları için <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">Powerbı Premium</a>.
+    - html: Veri depolama en iyi duruma getirme <a href="https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/">genel amaçlı katmanında</a>.
     - html: En iyi yöntemler ve öneriler Bul <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">örneğinizin güvenli hale getirme</a>.
     - html: Kullanarak verilerinizi dağıtmak <a href="/azure/sql-database/replication-with-sql-database-managed-instance">işlemsel çoğaltma</a>.
 - title: Başvuru

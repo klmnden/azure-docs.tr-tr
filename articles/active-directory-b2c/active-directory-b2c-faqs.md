@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: bccbf5462668913f6f3025e8d2274c115d49457f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 6957a18440dfc225c63a1b1843e2b47af8b841bf
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727251"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842960"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Sık sorulan sorular (SSS) 
 Bu sayfa, Azure Active Directory (Azure AD) B2C hakkında sık sorulan sorular yanıtlanmaktadır. Geri güncelleştirmeleri kontrol etmeyi unutmayın.
@@ -39,7 +39,7 @@ Uygulamaları için kullanıcı hesapları, her zaman kaydolma veya oturum açma
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Hangi sosyal kimlik sağlayıcıları artık destekliyorsunuz? Hangilerinin gelecekte desteklemeyi planlıyor musunuz?
 Şu anda Facebook, Google +, LinkedIn, Amazon, Twitter (Önizleme), WeChat (Önizleme), Weibo (Önizleme) ve h destekliyoruz (Önizleme). Müşteri talebine göre diğer popüler sosyal kimlik sağlayıcıları için destek ekleyeceğiz.
 
-Azure AD B2C'yi de için destek ekledi [özel ilkeler](active-directory-b2c-overview-custom.md).  Bunlar [özel ilkeler](active-directory-b2c-overview-custom.md) destekleyen herhangi bir kimlik sağlayıcısı ile kendi ilkeleri oluşturmak için geliştirici izin [Openıd Connect](http://openid.net/specs/openid-connect-core-1_0.html) veya SAML. 
+Azure AD B2C'yi de için destek ekledi [özel ilkeler](active-directory-b2c-overview-custom.md).  Bunlar [özel ilkeler](active-directory-b2c-overview-custom.md) destekleyen herhangi bir kimlik sağlayıcısı ile kendi ilkeleri oluşturmak için geliştirici izin [Openıd Connect](https://openid.net/specs/openid-connect-core-1_0.html) veya SAML. 
 
 Göz atarak özel ilkeleri kullanmaya başlama bizim [özel ilke başlangıç paketi](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 

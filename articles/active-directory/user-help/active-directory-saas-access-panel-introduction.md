@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: d9ed140d404387b94428cea5d925911806b62552
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 129f77ec9ea4d4e2633e1ea0b02795bc0df26433
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705866"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834715"
 ---
 # <a name="what-is-the-myapps-portal"></a>MyApps portalında nedir?
 
@@ -41,9 +41,9 @@ MyApps portalında, Azure Portalı'ndan ayrıdır. Azure aboneliğinin olmasın�
 
 ## <a name="access-the-myapps-portal"></a>MyApps portalında erişim
 
-MyApps portalında giderek erişebileceğiniz `http://myapps.microsoft.com`.
+MyApps portalında giderek erişebileceğiniz `https://myapps.microsoft.com`.
 
-Oturum açma sayfanız için yapılandırılmış özel marka öğelerini varsa, kuruluşunuzun etki alanı URL'si ekleyerek markalama yükleyebilirsiniz (örneğin, `http://myapps.microsoft.com/<your domain>.com`).
+Oturum açma sayfanız için yapılandırılmış özel marka öğelerini varsa, kuruluşunuzun etki alanı URL'si ekleyerek markalama yükleyebilirsiniz (örneğin, `https://myapps.microsoft.com/<your domain>.com`).
 
 Burada gösterildiği gibi Azure portalında yapılandırılmış herhangi bir etkin veya doğrulanmış etki alanı adı kullanabilirsiniz: ![Wingtip Toys etki alanı adı][2]  
 

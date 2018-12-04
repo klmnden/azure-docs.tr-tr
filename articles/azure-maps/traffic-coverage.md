@@ -57,7 +57,7 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 |Lesotho     |✓         |✓         |
 |Lituanya     |         |✓         |
 |Lüksemburg     |✓         |✓         |
-|Makau ÖİB     |         |✓         |
+|Makao ÖİB     |         |✓         |
 |Malezya     |✓         |✓         |
 |Malta     |✓         |✓         |
 |Meksika     |✓         |✓         |

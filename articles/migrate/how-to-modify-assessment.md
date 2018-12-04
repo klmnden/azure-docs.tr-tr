@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: raynew
-ms.openlocfilehash: d0cfab51b686b5b6eb9617d4424ac3f834de8d6f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2423c4fde177ab50552af580a60c7a15550e5586
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241081"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840444"
 ---
 # <a name="customize-an-assessment"></a>Bir değerlendirmeyi özelleştirme
 
@@ -26,7 +26,6 @@ ms.locfileid: "50241081"
     **Ayar** | **Ayrıntılar** | **Varsayılan**
     --- | --- | ---
     **Hedef konum** | Geçişi yapmak istediğiniz Azure konumu.<br/><br/> Şu anda Azure Geçişi tarafından desteklenen 30 bölge şunlardır: Avustralya Doğu, Avustralya Güneydoğu, Brezilya Güney, Kanada Orta, Kanada Doğu, Orta Hindistan, Orta ABD, Çin Doğu, Çin Kuzey, Doğu Asya, Doğu ABD, Almanya Orta, Almanya Kuzeydoğu, Doğu ABD 2, Japonya Doğu, Japonya Batı, Kore Orta, Kore Güney, Orta Kuzey ABD, Kuzey Avrupa, Orta Güney ABD, Güneydoğu Asya, Güney Hindistan, UK Güney, UK Batı, US Gov Arizona, US Gov Teksas, US Gov Virginia, Orta Batı ABD, Batı Avrupa, Batı Hindistan, Batı ABD ve Batı ABD 2. |  Batı ABD 2, varsayılan konumdur.
-    **Fiyatlandırma katmanı** | Hedef Azure sanal makineleri için [fiyatlandırma katmanını (Temel/Standart)](../virtual-machines/windows/sizes-general.md) belirtebilirsiniz. Örneğin, bir üretim ortamına geçiş yapmayı planlıyorsanız standart katmanını göz önünde istiyor. Öte yandan, bir Geliştirme ve Test ortamınız varsa, daha yüksek gecikme süresi ve daha düşük maliyetle sanal makineler içeren Temel katmanını göz önünde bulundurmak isteyebilirsiniz. | Varsayılan olarak [Standart](../virtual-machines/windows/sizes-general.md) katmanı kullanılır.
     **Depolama türü** | Azure'da atamak istediğiniz diskleri türünü belirtmek için bu özelliği kullanabilirsiniz. Boyutlandırma-şirket içi için hedef disk türünü Premium yönetilen diskler veya standart yönetilen diskler olarak belirtebilirsiniz. Performansa dayalı boyutlandırma için hedef disk türünü otomatik, Premium yönetilen diskler veya standart yönetilen diskler olarak belirtebilirsiniz. Otomatik olarak depolama türü belirttiğinizde, disk önerisi disklerin (IOPS ve aktarım hızı) performans verileri göre yapılır. Örneğin, elde etmek istiyorsanız bir [Tek Örnekli sanal makine SLA'sı % 99,9 düzeyinde](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), tüm değerlendirmesi diskleri Premium yönetilen diskler olarak önerilen sağlayacak Premium yönetilen diskler olarak depolama türünü belirtmek isteyebilirsiniz. Azure Geçişi’nin yönetilen diskleri yalnızca geçiş değerlendirmesi için desteklediğini unutmayın. | Varsayılan değer: Premium yönetilen diskler (boyutlandırma ölçütü ile *şirket içi olarak boyutlandırma*).
     **Ayrılmış Örnekler** |  Azure’da [ayrılmış örneklere](https://azure.microsoft.com/pricing/reserved-vm-instances/) sahip olup olmadığınızı belirttiğinizde Azure Geçişi, maliyeti buna göre tahmin eder. Ayrılmış örnekler bağımsız bölgeler (Azure kamu, Almanya ve Çin) ilgili değildir ve bunlar yalnızca Kullandıkça Öde teklifi Azure Geçişi'ndeki geçerlidir. | 3 yıl ayrılmış örnekleri bu özellik için varsayılan değerdir.
     **Boyutlandırma ölçütü** | Azure için sanal makineleri doğru şekilde boyutlandırmak üzere Azure Geçişi tarafından kullanılacak ölçüt. Performans geçmişini dikkate almadan, *performans tabanlı* boyutlandırma yapabilir veya sanal makineleri *şirket içi olarak* boyutlandırabilirsiniz. | Varsayılan seçenek, performans tabanlı boyutlandırmadır.

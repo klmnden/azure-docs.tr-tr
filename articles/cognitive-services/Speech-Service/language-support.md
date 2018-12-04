@@ -239,7 +239,7 @@ Ses özelleştirme bizim için İngilizce (en-US), ana kara Çince (zh-CN), Fran
 | Ukrayna dili      | `uk`          |
 | Urduca      | `ur`          |
 | Vietnam dili      | `vi`          |
-| Galce      | `cy`          |
+| Gaelce      | `cy`          |
 | Yucatec Maya      | `yua`          |
 
 

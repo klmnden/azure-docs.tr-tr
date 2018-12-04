@@ -10,16 +10,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 9603751db01eaffdf9fbe26164aed53017c5e23c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: fe186966dbddb5aa743e465f897aa5a1a0e07db1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499534"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840223"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Visual Studio Code için Azure HDInsight araçları kullanma
 
-Nasıl kullanacağınızı öğrenin [Visual Studio Code için Azure HDInsight Araçları](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) oluşturmak ve göndermek amacıyla (VS Code) [Apache Hive](https://hive.apache.org/) batch işlerini, etkileşimli Apache Hive sorgularını ve PySpark betiklerini. Azure HDInsight araçları, VS Code tarafından desteklenen platformlardaki yüklenebilir. Bunlar arasında Windows, Linux ve MacOS yer alır. Farklı platformlar için önkoşulları bulabilirsiniz.
+Azure HDInsight araçları Visual Studio Code için (VS Code) oluşturmak ve için Apache Spark, Apache Hive toplu işlerini, etkileşimli Hive sorgularını ve PySpark betiklerini göndermek için nasıl kullanılacağını öğrenin. İlk açıklayacağız VS Code'da HDInsight Araçları'nı yükleme ve ardından Hive ve Spark işleri göndermek nasıl alacağız. 
+
+Azure HDInsight araçları, Windows, Linux ve Macos'ta içeren VS Code tarafından desteklenen platformlara yüklenebilir. Aşağıda farklı platformlar için önkoşulları bulabilirsiniz.
 
 
 ## <a name="prerequisites"></a>Önkoşullar

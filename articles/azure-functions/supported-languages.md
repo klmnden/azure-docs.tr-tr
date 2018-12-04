@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 15d2e40127579fbd278cc3dc18653d782a515caa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f55122b3bf4bb7160459d524b20dd1303cc0fd8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957321"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835429"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure işlevleri'nde desteklenen diller
 
@@ -37,11 +37,9 @@ Destek üç düzeyi vardır:
 
 ### <a name="experimental-languages"></a>Deneysel dil
 
-Deneysel dil sürümünde 1.x düzgün ölçeklendirilemediği ve tüm bağlamaları desteklemez. Örneğin, İşlevler çalışma zamanı çalıştığından 1.x Python yavaş *python.exe* her işlev Çağırma ile. Ve Python HTTP bağlantıları desteklese de, istek nesnesi erişemez.
+Deneysel dil sürümünde 1.x düzgün ölçeklendirilemediği ve tüm bağlamaları desteklemez. Örneğin, varsayılan olarak hangi işlev uygulamaları çalıştırın Vm'lerde yüklü olduğu için sürüm 5.1 1.x PowerShell için Deneysel desteği sınırlıdır. PowerShell betikleri çalıştırmak istiyorsanız, göz önünde bulundurun [Azure Otomasyonu](https://azure.microsoft.com/services/automation/).
 
-Varsayılan olarak hangi işlev uygulamaları çalıştırın Vm'lerde yüklü olduğu için Deneysel desteği 1.x PowerShell sürüm 5.1 sınırlıdır. PowerShell betikleri çalıştırmak istiyorsanız, göz önünde bulundurun [Azure Otomasyonu](https://azure.microsoft.com/services/automation/).
-
-Bunları resmi desteği olduğu Deneysel dillerden, bağlı olduğunuz her şey için kullanmayın. Deneysel dil ile ilgili sorunlar için destek gerektiren durumlarda açılmamalıdır. 
+Deneysel özellikler, bunları resmi desteği olduğundan, bağlı olduğunuz her şey için kullanmayın. Deneysel dil ile ilgili sorunlar için destek gerektiren durumlarda açılmamalıdır. 
 
 Sürüm 2.x çalışma zamanı, Deneysel dilleri desteklemez. Yalnızca dil üretimde desteklenen yeni diller için destek eklenir. 
 
@@ -64,3 +62,6 @@ Azure işlevleri'nde GA veya Önizleme dillerden birini kullanma hakkında daha 
 
 > [!div class="nextstepaction"]
 > [Java](functions-reference-java.md)
+
+> [!div class="nextstepaction"]
+> [Python](functions-reference-python.md)

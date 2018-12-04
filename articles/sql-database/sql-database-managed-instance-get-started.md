@@ -12,16 +12,16 @@ ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
 ms.date: 11/28/2018
-ms.openlocfilehash: b7a3fc6e5dafb59d6981ff4302d4b060b0c73d6b
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 02a7a460799a098b6be10a52d6e1a1598b023454
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499245"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839146"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Hızlı Başlangıç: Azure SQL Veritabanı Yönetilen Örneği oluşturma
 
-Bu hızlı başlangıç, Azure portalda bir Azure SQL Veritabanı [Yönetilen Örneği](sql-database-managed-instance.md) oluşturma adımlarını vermektedir. 
+Bu hızlı başlangıç, Azure portalda bir Azure SQL Veritabanı [Yönetilen Örneği](sql-database-managed-instance.md) oluşturma adımlarını vermektedir.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
@@ -45,7 +45,7 @@ Aşağıdaki adımlar Yönetilen Örneğin nasıl oluşturulacağını gösterir
    | ------ | --------------- | ----------- |
    | **Abonelik** | Aboneliğiniz | İçinde yeni kaynaklar oluşturma izniniz olan bir abonelik |
    |**Yönetilen örnek adı**|Geçerli bir ad|Geçerli adlar için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Yönetilen örnek yöneticisi oturum açma**|Geçerli bir kullanıcı adı|Geçerli adlar için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Ayrılmış bir sunucu düzeyindeki rolüdür gibi "serveradmin" kullanmayın.| 
+   |**Yönetilen örnek yöneticisi oturum açma**|Geçerli bir kullanıcı adı|Geçerli adlar için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Ayrılmış bir sunucu düzeyindeki rolüdür gibi "serveradmin" kullanmayın.|
    |**Parola**|Geçerli bir parola|Parola en az 16 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
    |**Konum**|Yönetilen Örneği oluşturmak istediğiniz konum|Bölgeler hakkında bilgi için bkz. [Azure Bölgeleri](https://azure.microsoft.com/regions/).|
    |**Sanal ağ**|Şunlardan birini seçin **yeni sanal ağ oluştur** veya daha önce bu formda sağladığınız kaynak grubu içinde daha önce oluşturduğunuz bir sanal ağ.| Özel ayarları olan bir Yönetilen Örnek için bir ağ yapılandırmaya ilişkin olarak Github'da [SQL Yönetilen Örnek sanal ağ ortamı şablonu yapılandırma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment)'ya bakın. Yönetilen örneği için ağ ortamını yapılandırma gereksinimleriyle ilgili daha fazla bilgi için bkz: [Azure SQL veritabanı yönetilen örneği için bir sanal ağ yapılandırma](sql-database-managed-instance-vnet-configuration.md). |
@@ -53,15 +53,16 @@ Aşağıdaki adımlar Yönetilen Örneğin nasıl oluşturulacağını gösterir
 
    ![yönetilen örnek formu](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-5. Seçin **fiyatlandırma katmanı** işlem ve depolama kaynaklarını boyutlandırmaya ek olarak için fiyatlandırma katmanı seçeneklerini gözden geçirin. 32 GB bellek ve 16 sanal çekirdekli Genel Amaçlı fiyatlandırma katmanı varsayılan değerdir.
-6. Depolama miktarını ve sanal çekirdek sayısını belirtmek için kaydırıcıları veya metin çubuklarını kullanın. 
-7. İşlem tamamlandığında seçin **Uygula** seçiminizi kaydetmek için.  
-8. Seçin **Oluştur** yönetilen örneği dağıtmak için.
-9. Seçin **bildirimleri** dağıtım durumu görüntülenecek simge.
+5. Yönetilen örnek bir örnek yük devretme grubu ikincil kullanmak için kullanıma al'ı seçin ve DnsAzurePartner yönetilen örnek belirtin. Bu özellik Önizleme aşamasındadır ve eşlik eden ekran görüntüsünde gösterilen değil.
+6. Seçin **fiyatlandırma katmanı** işlem ve depolama kaynaklarını boyutlandırmaya ek olarak için fiyatlandırma katmanı seçeneklerini gözden geçirin. 32 GB bellek ve 16 sanal çekirdekli Genel Amaçlı fiyatlandırma katmanı varsayılan değerdir.
+7. Depolama miktarını ve sanal çekirdek sayısını belirtmek için kaydırıcıları veya metin çubuklarını kullanın.
+8. İşlem tamamlandığında seçin **Uygula** seçiminizi kaydetmek için.  
+9. Seçin **Oluştur** yönetilen örneği dağıtmak için.
+10. Seçin **bildirimleri** dağıtım durumu görüntülenecek simge.
 
     ![yönetilen örnek dağıtım ilerleme durumu](./media/sql-database-managed-instance-get-started/deployment-progress.png)
 
-10. Seçin **dağıtım sürüyor** daha da dağıtımın ilerleme durumunu izlemek üzere yönetilen örnek penceresini açmak için. 
+11. Seçin **dağıtım sürüyor** daha da dağıtımın ilerleme durumunu izlemek üzere yönetilen örnek penceresini açmak için.
 
 > [!IMPORTANT]
 > Bir alt ağdaki ilk örnek için dağıtım sonraki durumda genellikle daha uzun zamandır. Dağıtım işlemi beklediğinizden daha uzun sürdüğü için iptal etme. İkinci Yönetilen Örneğin alt ağda oluşturulması yalnızca birkaç dakika sürer.
@@ -78,7 +79,6 @@ Dağıtım başarıyla tamamlandıktan sonra oluşturulan kaynakları gözden ge
 
 3. Üzerinde **genel bakış** sekmesinde, bulmak **konak** tam ana bilgisayar için yönetilen örneğe yönelik özellik ve kopyalama.
 
-
    ![Yönetilen Örnek kaynakları](./media/sql-database-managed-instance-get-started/host-name.png)
 
    Ad benzer **your_machine_name.a1b2c3d4e5f6.database.windows.net**.
@@ -90,4 +90,4 @@ Dağıtım başarıyla tamamlandıktan sonra oluşturulan kaynakları gözden ge
   - Bir Azure sanal makinesinden bir Yönetilen Örneğe bağlanmayı gösteren bir hızlı başlangıç için bkz: [Azure sanal makine bağlantısı yapılandırma](sql-database-managed-instance-configure-vm.md).
   - Şirket içi bir istemci bilgisayardan noktadan siteye bağlantı kullanarak bir Yönetilen Örneğe bağlanmayı gösteren bir hızlı başlangıç için bkz: [Siteden noktaya bağlantı yapılandırma](sql-database-managed-instance-configure-p2s.md).
 - Mevcut bir SQL Server veritabanını şirket içinden Yönetilen bir örneğe geri yüklerken, veritabanı yedekleme dosyasından geri yükleme işlemini [Geçiş için Azure Veritabanı Geçiş Hizmeti (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) veya [T-SQL RESTORE komutu](sql-database-managed-instance-get-started-restore.md) ile yapabilirsiniz.
-- Sorun gidermeye yönelik yerleşik makine zekasını da içeren gelişmiş Yönetilen Örnek veritabanı performansı izleme seçenekleri için bkz. [Azure SQL Veritabanı'nı Azure SQL Analytics ile izleme](../log-analytics/log-analytics-azure-sql.md)
+- Gelişmiş sorun giderme yerleşik zekaya sahip yönetilen örnek veritabanı performansını izleme için bkz: [kullanarak Azure SQL Analytics İzleyici Azure SQL veritabanı](../log-analytics/log-analytics-azure-sql.md)

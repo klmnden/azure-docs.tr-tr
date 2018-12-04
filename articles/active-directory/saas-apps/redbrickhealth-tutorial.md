@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 11452dfb94a5a1c8cf4734b1ef21a44cccafbea1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bccc7abed9a86bcba74a5d994664a20313f3282a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430517"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833814"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Öğretici: Azure Active Directory tümleştirmesiyle RedBrick sistem durumu
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile RedBrick sistem durumunu yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik RedBrick sistem durumu çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de RedBrick sistem durumu tümleştirmesini yapılandırmak için yöne
 
 **Galeriden RedBrick sistem durumu eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -110,7 +110,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açma bilgileri redBrick etki sağlık ve URL'leri](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_url.png)
 
-    a. İçinde **tanımlayıcı** metin kutusuna bir URL: `http://www.redbrickhealth.com`
+    a. İçinde **tanımlayıcı** metin kutusuna bir URL: `https://www.redbrickhealth.com`
     
     b. İçinde **yanıt URL'si** metin kutusuna bir URL: `https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
     
@@ -205,7 +205,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
   
 ### <a name="create-a-redbrick-health-test-user"></a>RedBrick sistem durumu test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon RedBrick durumunu adlı bir kullanıcı oluşturun. Çalışmak [RedBrick sistem durumu Destek ekibine](https://home.redbrickhealth.com/contact/) RedBrick sistem durumu platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
+Bu bölümde, Britta Simon RedBrick durumunu adlı bir kullanıcı oluşturun. Çalışmak [RedBrick sistem durumu Destek ekibine](https://home.redbrickhealth.com/contact/) RedBrick sistem durumu platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

@@ -1,19 +1,18 @@
 ---
-title: Verilerinizi yönetmek için Azure Cosmos DB Gezgini'ni kullanın | Microsoft Docs
+title: Verilerinizi yönetmek için Azure Cosmos DB Gezgini'ni kullanma
 description: Azure Cosmos DB Gezgini'ni görüntülemek ve Azure Cosmos DB'de depolanan verileri yönetmenize olanak sağlayan bir tek başına web tabanlı arabirimidir.
 services: cosmos-db
 author: deborahc
-manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: dech
-ms.openlocfilehash: 8d1bd0d4331937e37307140e17e5aed1a6e3b0ff
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: be3742bdf6bc5a22947307c44a83b1b231526afd
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060377"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835446"
 ---
 # <a name="use-azure-cosmos-db-explorer-to-manage-your-data"></a>Verilerinizi yönetmek için Azure Cosmos DB Gezgini'ni kullanma 
 

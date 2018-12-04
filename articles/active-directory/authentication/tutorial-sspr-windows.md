@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: bec94e2017660e9804bbc232e0a3163afdaafcb6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 0c5554ca929cbd5231c99e568e987e6e0b7cf6eb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277776"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844847"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Öğretici: Oturum açma ekranından Azure AD parola sıfırlama
 
@@ -26,7 +26,7 @@ Bu öğreticide kullanıcıların parolalarını Windows 10 oturum açma ekranı
 > * Windows Kayıt Defteri ile isteğe bağlı yapılandırma
 > * Kullanıcılarınızın göreceği seçenekleri anlama
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Windows 10 Nisan 2018 Güncelleştirmesi veya aşağıdaki özelliklere sahip daha yeni bir istemci:
    * [Azure AD'ye katılmış](../device-management-azure-portal.md) veya 
@@ -101,23 +101,29 @@ Kullanıcılar oturum açmayı denediklerinde, artık oturum açma ekranında se
 
 Kullanıcılarınız bu özelliği kullanma yönergelerini [İş veya okul parolanızı sıfırlama](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in) konusunda bulabilirler
 
-## <a name="common-issues"></a>Genel sorunlar
+Azure AD denetim günlüğü parola sıfırlamanın oluştuğu yerin IP adresi ve ClientType'ı hakkında bilgi içerir.
+
+![Azure AD denetim günlüğünde oturum açma ekranı parola sıfırlaması örneği](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+## <a name="limitations"></a>Sınırlamalar
 
 Hyper-V kullanarak bu işlevi test ederken, "Parolayı sıfırla" bağlantısı gösterilmiyor.
 
 * Test etmek için kullandığınız sanal makineye gidin, **Görünüm**'e tıklayın ve **Gelişmiş oturum**'un işaretini kaldırın.
 
-Uzak Masaüstü kullanarak bu işlevi test ederken, "Parolayı sıfırla" bağlantısı gösterilmiyor.
+Uzak Masaüstü veya bir Gelişmiş VM oturumu kullanarak bu işlevi test ederken, "parolayı Sıfırla" bağlantısı görünmüyor.
 
 * Şu anda Uzak Masaüstü'nden parola sıfırlama desteklenmiyor.
 
-Windows kilit ekranı kayıt defteri anahtarı veya grup ilkesi ile devre dışı bırakılırsa **Parolayı sıfırla** özelliği bulunmaz.
-
 İlke Ctrl+Alt+Del gerektiriyorsa veya Kilit ekranı bildirimleri kapatılmışsa **Parolayı sıfırla** özelliği çalışmaz.
 
-Azure AD denetim günlüğü parola sıfırlamanın oluştuğu yerin IP adresi ve ClientType'ı hakkında bilgi içerir.
+Aşağıdaki ilke ayarlarını parolalarını sıfırlama olanağı müdahale bilinen
 
-![Azure AD denetim günlüğünde oturum açma ekranı parola sıfırlaması örneği](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+   * Etkin şekilde veya 1 HideFastUserSwitching olan
+   * Etkin şekilde veya 1 DontDisplayLastUserName olan
+   * Etkin şekilde veya 1 NoLockScreen olan
+   * Cihazda EnableLostMode ayarlanır
+   * Explorer.exe özel bir kabuk ile değiştirilir
 
 Windows 10 makinelerinizi bir ara sunucu veya güvenlik duvarı arkasında ise, passwordreset.microsoftonline.com ve ajax.aspnetcdn.com adreslerine yönelik HTTPS trafiğine (443) izin verilmelidir.
 

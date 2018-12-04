@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4600ec9d76f682f0dedf8c802d23b32fd6126481
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: b0044387698e6b7b682061d48249d6e635b32cd5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181507"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842450"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir Weibo hesabı ile kaydolma ve oturum açma ayarlama
 
@@ -25,19 +25,19 @@ ms.locfileid: "47181507"
 
 ## <a name="create-a-weibo-application"></a>Weibo uygulaması oluşturma
 
-Azure Active Directory (Azure AD) B2C'de kimlik sağlayıcısı olarak Weibo hesabı kullanmak için kiracınızda temsil ettiği bir uygulama oluşturmak gerekir. Weibo hesabınız yoksa, adresinden edinebilirsiniz [ http://weibo.com/signup/signup.php?lang=en-us ](http://weibo.com/signup/signup.php?lang=en-us).
+Azure Active Directory (Azure AD) B2C'de kimlik sağlayıcısı olarak Weibo hesabı kullanmak için kiracınızda temsil ettiği bir uygulama oluşturmak gerekir. Weibo hesabınız yoksa, adresinden edinebilirsiniz [ https://weibo.com/signup/signup.php?lang=en-us ](https://weibo.com/signup/signup.php?lang=en-us).
 
-1. Oturum [Weibo Geliştirici Portalı](http://open.weibo.com/) Weibo hesabınızın kimlik bilgileriyle.
+1. Oturum [Weibo Geliştirici Portalı](https://open.weibo.com/) Weibo hesabınızın kimlik bilgileriyle.
 2. Oturum açtıktan sonra sağ üst köşesinde görünen ad'ınızı seçin.
 3. Açılır menüden seçin**编辑开发者信息**(Geliştirici bilgilerini Düzenle).
 4. Gerekli bilgileri girin ve seçin**提交**(Gönder).
 5. E-posta doğrulama işlemi tamamlayın.
-6. Git [kimlik doğrulaması sayfası](http://open.weibo.com/developers/identity/edit).
+6. Git [kimlik doğrulaması sayfası](https://open.weibo.com/developers/identity/edit).
 7. Gerekli bilgileri girin ve seçin**提交**(Gönder).
 
 ### <a name="register-a-weibo-application"></a>Weibo uygulamayı kaydetme
 
-1. Git [yeni Weibo uygulaması kayıt sayfasındaki](http://open.weibo.com/apps/new).
+1. Git [yeni Weibo uygulaması kayıt sayfasındaki](https://open.weibo.com/apps/new).
 2. Gerekli uygulama bilgilerini girin.
 3. Seçin**创建**(oluşturma).
 4. Değerlerini kopyalamayı **uygulama anahtarı** ve **uygulama gizli anahtarı**. Kiracınız için kimlik sağlayıcısı eklemek için bunların her ikisi de gerekir.
@@ -50,7 +50,7 @@ Azure Active Directory (Azure AD) B2C'de kimlik sağlayıcısı olarak Weibo hes
 
 ## <a name="configure-a-weibo-account-as-an-identity-provider"></a>Kimlik sağlayıcısı olarak Weibo hesabı yapılandırın
 
-1. Oturum [Azure portalında](https://portal.azure.com/) Azure AD B2C kiracınızın genel Yöneticisi olarak.
+1. [Azure portalda](https://portal.azure.com/) Azure AD B2C kiracınızın genel yöneticisi olarak oturum açın.
 2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
 3. Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD B2C**’yi arayıp seçin.
 4. Seçin **kimlik sağlayıcıları**ve ardından **Ekle**.

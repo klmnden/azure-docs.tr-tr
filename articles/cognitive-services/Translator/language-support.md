@@ -100,7 +100,7 @@ Translator metin çevirisi API'si için metin çevirisi için aşağıdaki dille
 |Ukrayna dili| `uk`    |Sinir kullanılabilir|  Sinir|
 |Urduca|  `ur`    |Yalnızca istatistiksel|  İstatistik|
 |Vietnam dili|    `vi`    |Sinir kullanılabilir|  Sinir|
-|Galce| `cy`    |Sinir kullanılabilir|  Sinir|
+|Gaelce| `cy`    |Sinir kullanılabilir|  Sinir|
 |Yucatec Maya|  `yua`   |Yalnızca istatistiksel|  İstatistik|
 
 ## <a name="transliteration"></a>Alfabe çevirisi
@@ -185,7 +185,7 @@ Sözlük için veya İngilizce arama ve örnekler yöntemleri kullanarak aşağ�
 | Ukrayna dili      | `uk`          |
 | Urduca      | `ur`          |
 | Vietnam dili      | `vi`          |
-| Galce      | `cy`          |
+| Gaelce      | `cy`          |
 
 ## <a name="languages-detected-by-the-detect-method"></a>Algılama yöntemi tarafından algılanan dil
 
@@ -258,7 +258,7 @@ Aşağıdaki dilleri Algıla yöntemi tarafından algılanabilir. Mayıs algıla
 | Özbekçe (Kiril) |
 | Özbekçe (Latin) |
 | Vietnam dili |
-| Galce |
+| Gaelce |
 | Yidiş |
 
 ## <a name="access-the-list-programmatically"></a>Listenin programlamayla erişme

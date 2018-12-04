@@ -1,20 +1,19 @@
 ---
-title: Toplu Yürütücü .NET kitaplığı kullanarak toplu içeri aktarma gerçekleştirin ve güncelleştirme işlemlerinin Azure Cosmos DB'de | Microsoft Docs
+title: Toplu olarak içeri aktarma ve güncelleştirme işlemlerinin Azure Cosmos DB'de toplu Yürütücü .NET kitaplığı kullanma
 description: Toplu içeri aktarma ve Azure Cosmos DB belgeleri toplu Yürütücü .NET kitaplığını kullanarak güncelleştirin.
 services: cosmos-db
 author: tknandu
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 04894fdd0ffff38ad129097ce839259f2993332c
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: adde24faa4bd0f15eb3a2700021e9ace14fcc6b4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363407"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840988"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Azure Cosmos DB'de toplu işlemleri gerçekleştirmek için toplu Yürütücü .NET kitaplığı kullanma
 

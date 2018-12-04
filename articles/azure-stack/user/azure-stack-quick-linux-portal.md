@@ -7,16 +7,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
-ms.reviewer: ''
+ms.reviewer: kivenkat
 ms.custom: mvc
-ms.openlocfilehash: e82c3de4461e2d663496cd4ae4a98c10e7819466
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 0664316d73b1473ab52b08f8abead2ec33d121b6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025419"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836755"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Hızlı Başlangıç: Azure Stack portal ile Linux server sanal makinesi oluşturma
 
@@ -25,7 +25,7 @@ ms.locfileid: "44025419"
 Azure Stack portalını kullanarak bir Ubuntu Server 16.04 LTS sanal makine oluşturabilirsiniz. Bir sanal makine oluşturup, bu makaledeki adımları izleyin. Bu makalede ayrıca adımları sunar:
 
 * Sanal Makine Uzak istemcisi ile bağlanın.
-* NGINX web sunucusunu yükleyin.
+* Bir NGINX web sunucusunu yükleyin.
 * Kaynaklarınızı temizleme.
 
 > [!NOTE]  
@@ -36,7 +36,7 @@ Azure Stack portalını kullanarak bir Ubuntu Server 16.04 LTS sanal makine olu�
 
 * **Azure Stack marketini içindeki bir Linux görüntüsü**
 
-   Azure Stack marketini varsayılan olarak bir Linux görüntüsü içermiyor. Bir Linux server sanal makinesi oluşturmadan önce Azure Stack operatörü sağladığından emin olmak **Ubuntu Server 16.04 LTS** ihtiyacınız görüntü. İşleç açıklanan bu adımları kullanabilirsiniz [indirme Market öğesi Azure'dan Azure Stack'e](../azure-stack-download-azure-marketplace-item.md) makalesi.
+   Azure Stack marketini varsayılan olarak bir Linux görüntüsü yok. Azure Stack operatörü sağlar sahip olduğunuzdan emin olun **Ubuntu Server 16.04 LTS** , Market'ten görüntüde. İşleç açıklanan bu adımları kullanabilirsiniz [indirme Market öğesi Azure'dan Azure Stack'e](../azure-stack-download-azure-marketplace-item.md) makalesi.
 
 * **Bir SSH istemcisi erişim**
 
@@ -71,7 +71,7 @@ Azure Stack portalında oturum açın. Azure Stack portal'ın adresi, Azure Stac
 
 2. **İşlem**'i ve ardından **Ubuntu Server 16.04 LTS**'yi seçin.
    
-   ![Farklı Linux sunucu](media/azure-stack-quick-linux-portal/select.png)
+   ![Linux sunucusu seçin](media/azure-stack-quick-linux-portal/select.png)
 1. **Oluştur**’a tıklayın.
 
 4. Sanal makine bilgilerini yazın. **Kimlik doğrulama türü** için **SSH ortak anahtarı**’nı seçin. Yapıştırma seçeneğiyle, kaydedilen ve ardından SSH ortak anahtarını **Tamam**.
@@ -97,11 +97,11 @@ Azure Stack portalında oturum açın. Azure Stack portal'ın adresi, Azure Stac
 
 ## <a name="connect-to-the-virtual-machine"></a>Sanal makineye bağlanma
 
-1. Tıklayın **Connect** sanal makine sayfasında. Bu sanal makineye bağlanmak için bir SSH bağlantı dizesi görüntüler. 
+1. Tıklayın **Connect** sanal makine sayfasında. Sanal makineye bağlanmak için SSH bağlantı dizesi bulabilirsiniz. 
 
 2. PuTTY’yi açın.
 
-3. Üzerinde **PuTTY Yapılandırması** kullanacağınız ekran **kategori** penceresinde yukarı veya aşağı kaydırın. Ekranı aşağı kaydırarak **SSH**, genişletme **SSH**ve ardından **Auth**. Tıklayın **Gözat** ve kaydedilen özel anahtar dosyası seçin.
+3. PuTTY yapılandırma ekranına kullanacağınız **kategori** penceresinde yukarı veya aşağı kaydırın. Ekranı aşağı kaydırarak **SSH**, genişletme **SSH**ve ardından **Auth**. Tıklayın **Gözat** ve kaydedilen özel anahtar dosyası seçin.
    ![Sanal makineye bağlanma](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. Yukarı kaydırın **kategori** penceresi ve ardından **oturumu**.
@@ -154,4 +154,4 @@ Artık ihtiyacınız olmayan kaynakları temizleyin. Sanal makineyi ve kaynaklar
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta bir web sunucusu ile temel bir Linux sunucusu sanal makine dağıtıldı. Azure Stack sanal makineleri hakkında daha fazla bilgi için devam [sanal Makineler'de Azure Stack için Değerlendirmeler](azure-stack-vm-considerations.md).
+Bu hızlı başlangıçta, bir web sunucusu ile temel bir Linux sunucusu sanal makine dağıtıldı. Azure Stack sanal makineleri hakkında daha fazla bilgi için devam [sanal Makineler'de Azure Stack için Değerlendirmeler](azure-stack-vm-considerations.md).

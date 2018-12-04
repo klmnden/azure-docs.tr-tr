@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 836fdb5da13465d77c6e9e6ede4780f5d4048597
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ad97543ee6bc40bdee5b0ffc7ec92f061b16dae4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447172"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839543"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Azure üzerinde Scala ve Spark kullanan Veri Bilimi
-Bu makalede, Scala Spark ölçeklenebilir MLlib ve Spark ML paketleri ile bir Azure HDInsight Spark kümesi üzerinde denetimli makine öğrenimi görevlerini kullanmak nasıl gösterir. Oluşturan görevlerinde size yol gösterir [veri bilimi işlemi](https://aka.ms/datascienceprocess): veri alımı ve keşfi, görselleştirme, özellik Mühendisliği, modelleme ve model tüketim. Makaleyi modellerinde Lojistik ve doğrusal regresyon, rastgele ormanları ve gradyan boosted ağaçları (GBTs) ek olarak iki ortak denetimli makine öğrenimi görevlerini içerir:
+Bu makalede, Scala Spark ölçeklenebilir MLlib ve Spark ML paketleri ile bir Azure HDInsight Spark kümesi üzerinde denetimli makine öğrenimi görevlerini kullanmak nasıl gösterir. Oluşturan görevlerinde size yol gösterir [veri bilimi işlemi](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): veri alımı ve keşfi, görselleştirme, özellik Mühendisliği, modelleme ve model tüketim. Makaleyi modellerinde Lojistik ve doğrusal regresyon, rastgele ormanları ve gradyan boosted ağaçları (GBTs) ek olarak iki ortak denetimli makine öğrenimi görevlerini içerir:
 
 * Regresyon problemi: tahminini taksi seyahat ipucunu tutarındaki ($)
 * İkili sınıflandırma: tahmin ipucu ya da taksi dönüş ipucu yok (1/0)
@@ -1100,7 +1100,7 @@ Ardından, özel kod kullanarak model iyileştirin ve en yüksek doğruluğa öl
 Hücre çalıştırma süresi: 61 saniye.
 
 ## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>Spark'a yerleşik machine learning modellerini Scala ile otomatik olarak kullanma
-Azure veri bilimi işlemi oluşturan görevler rehberlik konuları genel bakış için bkz. [Team Data Science Process](https://aka.ms/datascienceprocess).
+Azure veri bilimi işlemi oluşturan görevler rehberlik konuları genel bakış için bkz. [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 [Team Data Science Process Kılavuzu](walkthroughs.md) Team Data Science Process belirli senaryolar için adımları gösteren diğer uçtan uca izlenecek yolları açıklanmaktadır. İzlenecek yollar, ayrıca bir iş akışı veya işlem hattı akıllı bir uygulama oluşturmak için bulut ve şirket içi araçları ve Hizmetleri birleştirme işlemini göstermektedir.
 

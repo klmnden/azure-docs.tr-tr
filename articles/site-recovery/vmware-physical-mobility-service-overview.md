@@ -1,18 +1,18 @@
 ---
 title: VMware Vm'leri ve fiziksel sunucuları Azure Site Recovery ile olağanüstü durum kurtarma için Mobility hizmeti hakkında | Microsoft Docs
 description: VMware Vm'lerini ve fiziksel sunucuları Azure Site Recovery hizmetini kullanarak azure'a olağanüstü durum kurtarma için Mobility Hizmeti Aracısı hakkında bilgi edinin.
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/04/2018
-ms.author: raynew
-ms.openlocfilehash: a3e695e8c238dd4bc333d5cd477e70b93231399b
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.date: 11/27/2018
+ms.author: ramamill
+ms.openlocfilehash: 687feec668e628e36f9c23cec9943220524cc6e9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565029"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841940"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>VMware Vm'lerini ve fiziksel sunucular için Mobility hizmeti hakkında
 

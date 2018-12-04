@@ -1,24 +1,20 @@
 ---
-title: Azure Cosmos DB’de graf verilerini sorgulama | Microsoft Docs
+title: Azure Cosmos DB’de graf verilerini sorgulama
 description: Azure Cosmos DB’de graf verilerini sorgulamayı öğrenin
 services: cosmos-db
 author: luisbosquez
-manager: kfile
-editor: ''
-tags: ''
+ms.author: lbosq
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2018
-ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: e3ed90d0b706e742588a5a0966d9ac3bda44ecbd
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.date: 01/02/2018
+ms.openlocfilehash: 10ec4abc7f38106611a9510cc7bcc0b5ec18b7b0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697451"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833508"
 ---
 # <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>Öğretici: Gremlin kullanarak Azure Cosmos DB Gremlin API’yi sorgulama
 
@@ -29,7 +25,7 @@ Bu makale aşağıdaki görevleri kapsar:
 > [!div class="checklist"]
 > * Gremlin ile verileri sorgulama
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu sorguların çalışması için bir Azure Cosmos DB hesabınız ve kapsayıcıda graf verileriniz olmalıdır. Bunlardan biri yok mu? Bir hesap oluşturmak ve veritabanınızı doldurmak için [5 dakikalık hızlı başlangıç](create-graph-dotnet.md) veya [geliştirici öğreticisini](tutorial-query-graph.md) tamamlayın. [Gremlin konsolunu](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) veya sık kullandığınız Gremlin sürücüsünü kullanarak aşağıdaki sorguları çalıştırabilirsiniz.
 

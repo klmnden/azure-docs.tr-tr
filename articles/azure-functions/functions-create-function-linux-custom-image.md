@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: de15d1f8c268e80ac1659c53a141ec39cc6d3cb8
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 5d03b7075b1ae590c400eb96525ab84d8487fa3e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564818"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840104"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Linux üzerinde özel görüntü kullanarak bir işlev oluşturma (önizleme)
 
@@ -66,6 +66,7 @@ func init MyFunctionProj --docker
 
 * `dotnet`: yeni bir .NET Core sınıf kitaplığı projesi (.csproj) oluşturur.
 * `node`: bir JavaScript projesi oluşturur.
+* `python`: bir Python projesi oluşturur.
 
 Komut yürütüldüğünde, aşağıdaki çıktıya benzer bir şey görürsünüz:
 

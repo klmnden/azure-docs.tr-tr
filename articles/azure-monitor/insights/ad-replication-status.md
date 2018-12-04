@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d0156ccc3caea2f47296740d57422ccc706f84f1
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: be519dd2a6e6948bedeedd4166c7adf466dbb365
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634243"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836381"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Log Analytics ile Active Directory çoğaltma durumunu izleme
 
@@ -110,7 +110,7 @@ Bu listelerden birine herhangi bir öğeye tıkladığınızda, günlük arama �
 
 ![Arama sonuçlarında AD çoğaltma durumu hataları](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-Buradan daha fazla filtrelemek, arama sorguyu değiştirin ve benzeri. Günlük araması'nı kullanma hakkında daha fazla bilgi için bkz. [günlük aramaları](../../log-analytics/log-analytics-queries.md).
+Buradan daha fazla filtrelemek, arama sorguyu değiştirin ve benzeri. Günlük araması'nı kullanma hakkında daha fazla bilgi için bkz. [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md).
 
 **HelpLink** alan belirli hata hakkında ek ayrıntılar ile TechNet sayfanın URL'sini gösterir. Kopyalayın ve bu bağlantı sorunlarını giderme ve hata düzeltme hakkında bilgi için tarayıcı pencerenizi yapıştırın.
 
@@ -154,4 +154,4 @@ Etki alanı denetleyicilerinizden biri bağlama konusunda yardıma ihtiyacınız
 Herhangi bir etki alanı denetleyicilerinizin doğrudan Log Analytics veya System Center Operations Manager bağlanmak istemiyorsanız bkz [AD verilerini Log Analytics'e göndermek olmayan etki alanı denetleyicisi etkinleştirmek için](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [Log Analytics'te günlük aramaları](../../log-analytics/log-analytics-queries.md) ayrıntılı Active Directory çoğaltma Durumu verisini görüntülemek için.
+* Kullanım [Log Analytics'te günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) ayrıntılı Active Directory çoğaltma Durumu verisini görüntülemek için.

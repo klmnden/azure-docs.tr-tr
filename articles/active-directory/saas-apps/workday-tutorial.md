@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
-ms.openlocfilehash: 78b9fe704c5c8a1f81da480787f1791e88bf4f72
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9c789f5fec9b31b53d316b23faad5c438b52137c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714727"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843351"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Öğretici: Azure Active Directory'ye Workday ile tümleştirme
 
@@ -114,7 +114,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve W
 
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://impl.workday.com/<tenant>/login-saml2.htmld`
 
-    b. İçinde **tanımlayıcı** metin kutusuna bir URL: `http://www.workday.com`
+    b. İçinde **tanımlayıcı** metin kutusuna bir URL: `https://www.workday.com`
 
 4. Denetleme **Gelişmiş URL ayarlarını göster** ve aşağıdaki adımı uygulayın:
 
@@ -225,7 +225,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve W
 
     ![SSO yapılandırma](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO yapılandırma")
 
-    a.  İçinde **hizmet sağlayıcı kimliği** metin kutusuna **http://www.workday.com**.
+    a.  İçinde **hizmet sağlayıcı kimliği** metin kutusuna **https://www.workday.com**.
 
     b. Seçin **SP tarafından başlatılan kimlik doğrulama isteği Deflate değil**.
 

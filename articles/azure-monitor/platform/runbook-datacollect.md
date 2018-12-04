@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 4cea2b7feb6d21a0566a4876414b2d75abc29959
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 9f4ee3bdba87747a04dd4a5af9391c9dba6e1b51
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681764"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834232"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Azure Otomasyonu runbook'u Log analytics'te verileri toplama
 Bir çeşitli kaynaklardan da dahil olmak üzere önemli miktarda Log analytics'te verileri toplayabilir [veri kaynakları](../../azure-monitor/platform/agent-data-sources.md) aracılarda da [Azure'dan toplanan veriler](../../azure-monitor/platform/collect-azure-metrics-logs.md).  Veri toplamak gereken, bu standart kaynakları aracılığıyla erişilebilir durumda değil ancak bir senaryo vardır.  Bu durumlarda, kullandığınız [HTTP veri toplayıcı API'sini](../../log-analytics/log-analytics-data-collector-api.md) herhangi bir REST API istemcisinden Log Analytics'e veri yazmak için.  Bu veri toplamayı gerçekleştirmek için genel bir yöntemi, Azure Automation'da bir runbook kullanıyor.   
@@ -145,7 +145,7 @@ Azure Otomasyonu, bir ortama içerir [runbook'unuzu test](../../automation/autom
     ![POST çıkış](media/runbook-datacollect/post-output.png)
 
 ## <a name="5-verify-records-in-log-analytics"></a>5. Log Analytics kayıtları doğrulayın
-Runbook testi tamamlandı ve çıkış başarıyla alındı doğrulandı sonra kayıtları kullanarak oluşturulduğunu doğrulayabilirsiniz bir [Log analytics'te günlük araması](../../log-analytics/log-analytics-queries.md).
+Runbook testi tamamlandı ve çıkış başarıyla alındı doğrulandı sonra kayıtları kullanarak oluşturulduğunu doğrulayabilirsiniz bir [Log analytics'te günlük araması](../../azure-monitor/log-query/log-query-overview.md).
 
 ![Günlük çıktısı](media/runbook-datacollect/log-output.png)
 
