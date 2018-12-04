@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/2/2018
+ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: d88a59d3b9a39a42120b302fd8e7989c968db952
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 27d27f582c1306d8a8370567fd9c6858ad439ca8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624786"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851154"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde veri toplamayı
 Güvenlik Merkezi, Azure sanal makineleri (VM'ler) ve Azure harici bilgisayarları güvenlik açıklarını ve tehditleri izlemek için veri toplar. Veriler, makineden güvenlikle ilgili çeşitli yapılandırmaları ve olay günlüklerini okuyup verileri analiz için çalışma alanınıza kopyalayan Microsoft Monitoring Agent kullanılarak toplanır. Bu tür verilerin örnekleri şunlardır: işletim sistemi türü ve sürümü, işletim sistemi günlükleri (Windows olay günlükleri) çalışan işlemler, makine adı, IP adresleri ve kullanıcı oturum. Microsoft Monitoring Agent, ayrıca kilitlenme bilgi dökümü dosyalarını çalışma alanınıza kopyalar.
@@ -48,7 +48,7 @@ Otomatik sağlama açık olduğunda Güvenlik Merkezi Microsoft Monitoring Agent
 
 Microsoft Monitoring Agent için otomatik sağlamayı etkinleştirmek üzere:
 1. Güvenlik Merkezi ana menüsünde seçin **Güvenlik İlkesi**.
-2. Aboneliği seçin.
+2. Tıklayın **ayarlarını Düzenle** listesinde istediğiniz Abonelik ayarları sütununda.
 
   ![Abonelik seçme][7]
 
@@ -135,7 +135,7 @@ Mevcut bir Log Analytics çalışma alanı seçmek için:
 
     a.  Güvenlik Merkezi ana menüsünde seçin **Güvenlik İlkesi**.
      
-    b.  Aracıyı bağlanmak istediğiniz istediğiniz çalışma alanını seçin.
+    b.  Hangi düşündüğünüz aracı tıklayarak bağlanmak istediğiniz çalışma alanını seçin **ayarlarını Düzenle** listesinde istediğiniz Abonelik ayarları sütununda.
         ![Çalışma alanı seçin][8] c. Fiyatlandırma katmanını ayarlayın.
         ![Fiyatlandırma katmanı seçin][9] 
    

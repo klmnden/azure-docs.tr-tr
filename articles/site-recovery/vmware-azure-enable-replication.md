@@ -3,15 +3,15 @@ title: Azure'da Azure Site Recovery ile VMware olağanüstü durum kurtarma içi
 description: Bu makalede, Azure Site Recovery kullanarak azure'a olağanüstü durum kurtarma için VMware VM çoğaltmayı etkinleştirme açıklar.
 author: asgang
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: c6c5aeece9e49a44654d63a7dc243991a62f2d9a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 51470e9f8e0bffe18d1dc4007433246d084a5cb2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566372"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846676"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Azure'a VMware Vm'leri için çoğaltmayı etkinleştirme
 

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9917656a3bc8fd8cfe7d71786dc39d296a2449c1
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: 93928d7eb84ce986c8a9322188183e4c3dd76d99
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239296"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847873"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Azure bölgeleri arasında Azure VM yük devretme ve ilk duruma döndürme
 
@@ -31,7 +31,7 @@ Bu öğretici, tek bir Azure VM’den ikincil bir Azure bölgesine nasıl yük d
 > [!NOTE]
 > Bu öğretici, kullanıcıya en az özelleştirmeyle bir hedef bölgeye yük devredip geri dönmeyi sağlayan adımlarda rehberlik etmeyi amaçlar. Ağ ile ilgili önemli noktalar, otomasyon veya sorun giderme gibi yük devretmenin çeşitli yönleri hakkında daha fazla bilgi edinmek istiyorsanız, Azure VM’lerine yönelik ‘Nasıl Yapılır’ başlığı altındaki belgelere başvurun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Her şeyin beklenildiği gibi çalışıp çalışmadığını denetlemek için bir [olağanüstü durum kurtarma tatbikatını](azure-to-azure-tutorial-dr-drill.md) tamamladığınızdan emin olun.
 - Yük devretme testini çalıştırmadan önce VM özelliklerini doğrulayın. VM, [Azure gereksinimlerine](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) uymalıdır.

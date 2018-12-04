@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 4f86dee539e3cc5a90db828ed11dbd225a00555d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: e75758c5a4171adc7af56581026a727db2ef4740
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334644"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850984"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory kimlik doğrulama (Önizleme) kullanarak Azure'da bir Linux sanal makinede oturum açın
 
@@ -129,7 +129,7 @@ Azure AD kullanarak Linux sanal makineye oturum açmak belirli bir kullanıcı i
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Azure AD kimlik bilgilerinizi kullanarak Azure Linux sanal makinesinde oturum açın. `-l` Parametresi kendi Azure AD hesabı adresini belirtmenize olanak sağlar. Önceki komutun çıkışında olarak sanal makinenizin genel IP adresini belirtin:
+Azure AD kimlik bilgilerinizi kullanarak Azure Linux sanal makinesinde oturum açın. `-l` Parametresi kendi Azure AD hesabı adresini belirtmenize olanak sağlar. Tüm küçük harflerle hesabı adresleri girilmelidir. Önceki komutta alınan sanal makinenizin genel IP adresini kullanın:
 
 ```azurecli-interactive
 ssh -l azureuser@contoso.onmicrosoft.com publicIps

@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/22/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 46f5f73293875cd89036eb615e7bd81188bc4c67
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d4be7b9c7774163aed8c0efb3414dbd6a794cf7f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210270"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847805"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server için olağanüstü durum kurtarmayı ayarlayın 
 
@@ -35,7 +35,7 @@ SharePoint, Dynamics ve SAP, veri hizmetlerini uygulamak amacıyla gibi uygulama
 * SQL Always On kullanılabilirlik SQL Server 2012 veya 2014 Enterprise sürümleri için olağanüstü durum kurtarma sağlamak için grupları.
 * SQL veritabanı yüksek güvenilirlik modunda, SQL Server 2008 R2 veya SQL Server Standard sürümü (tüm sürümler) için yansıtma.
 
-## <a name="site-recovery-support"></a>Site kurtarma desteği
+## <a name="site-recovery-support"></a>Site Recovery desteği
 
 ### <a name="supported-scenarios"></a>Desteklenen senaryolar
 Site Recovery, SQL Server tabloda özetlendiği gibi koruyabilir.

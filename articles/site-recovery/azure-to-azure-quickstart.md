@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e5f6cbec75a9f652cf05c9608c412e00489288b9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: c0d5b556cfeaf26e58104c1cbb7d394e5594f3e5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212939"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850508"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Bir Azure VM’si için ikincil Azure bölgesine olağanüstü durum kurtarma ayarlama 
 
@@ -54,10 +54,10 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
 
 Çoğaltma işlemini devre dışı bıraktığınızda, birincil bölgedeki VM çoğaltmayı durdurur:
 
-- Kaynak çoğaltma ayarları otomatik olarak temizlenir.
+- Kaynak çoğaltma ayarları otomatik olarak temizlenir. Çoğaltma bir parçası yüklenen Site Recovery uzantısı kaldırılmaz ve el ile kaldırılması gerekiyor lütfen unutmayın. 
 - VM’nin Site Recovery faturalaması da ayrıca durur.
 
-Şu adımlara göre çoğaltmayı durdurun:
+Şu şekilde Çoğaltmayı Durdur
 
 1. VM’yi seçin.
 2. **Olağanüstü durum kurtarma** bölümünde **Çoğaltmayı devre dışı bırak**'a tıklayın.

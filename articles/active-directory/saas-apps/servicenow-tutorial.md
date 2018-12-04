@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: jeedes
-ms.openlocfilehash: 470805b2bb77e367887767b95e0f1e04d79c8f9d
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 5b7baffea8e718810a91ea9687a007d36c806aab
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830744"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850015"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Öğretici: Azure Active Directory ServiceNow ile tümleştirme
 
@@ -41,7 +41,7 @@ Azure AD tümleştirmesi ServiceNow ile yapılandırma için aşağıdakiler ger
 - Azure AD aboneliği
 - Servicenow'ı, bir örnek veya Kiracı, ServiceNow, Calgary sürümü veya üzeri
 - Servicenow'ı hızlı, ServiceNow Express, Helsinki sürümü örneğini veya üzeri
-- ServiceNow kiracısına sahip olmanız gerekir [birden çok sağlayıcı tek oturum üzerinde eklentisi](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) etkin. Bunu aşağıdaki yöntemlerle yapabilirsiniz [hizmet isteği göndererek](https://hi.service-now.com).
+- ServiceNow kiracısına sahip olmanız gerekir [birden çok sağlayıcı tek oturum üzerinde eklentisi](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) etkin. Bunu aşağıdaki yöntemlerle yapabilirsiniz [hizmet isteği göndererek](https://hi.service-now.com).
 - Otomatik yapılandırma için için ServiceNow Çoklu Sağlayıcı eklentisini etkinleştirin.
 
 > [!NOTE]

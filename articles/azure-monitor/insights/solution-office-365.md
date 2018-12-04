@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 14e89d5eab058b9fa42c20811df9c5ac0ceca44a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 80a5b49d27ffc2b75cc9a1092a4d9f17e09bef24
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633206"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848876"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365 Yönetim çözümüne (Önizleme)
 
@@ -30,7 +30,7 @@ Office 365 yönetim çözümü, Log Analytics, Office 365 ortamınızda izlemeni
 - Yapılandırma değişiklikleri veya yüksek ayrıcalıklı işlemleri izlemek için yönetici etkinliklerini izler.
 - Algılama ve kuruluş gereksinimlerinize özelleştirilebilen istenmeyen kullanıcı davranışı araştırın.
 - Denetim ve uyumluluk gösterir. Örneğin, dosya erişim işlemleri ve denetim ve uyumluluk işlemiyle size gibi gizli bilgiler içeren dosyaları üzerinde izleyebilirsiniz.
-- Kullanarak işletimsel sorun giderme işlemleri uygulayabilirsiniz [günlük aramaları](../../log-analytics/log-analytics-queries.md) kuruluşunuzun Office 365 etkinlik verileri üzerinde.
+- Kullanarak işletimsel sorun giderme işlemleri uygulayabilirsiniz [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) kuruluşunuzun Office 365 etkinlik verileri üzerinde.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Yüklenmiş ve yapılandırılmış bu çözüm olan önce gerekli verilmiştir.
@@ -709,6 +709,6 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan güncelleştirme kayıtla
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Ayrıntılı güncelleştirme verilerini görüntülemek için [Log Analytics](../../log-analytics/log-analytics-queries.md)’te Günlük Aramalarını kullanın.
+* Ayrıntılı güncelleştirme verilerini görüntülemek için [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)’te Günlük Aramalarını kullanın.
 * [Kendi panolarınızı oluşturun](../../azure-monitor/platform/dashboards.md) , sık kullanılan Office 365 arama sorgularını görüntülemek için.
 * [Uyarı oluşturma](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) önemli Office 365 etkinliklerini proaktif olarak gönderilecek.  

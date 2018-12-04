@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: cdf3fda4228eadc2921c8fbc1bc72702461d04e4
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 876cb037aab718a91f469f8862c501bb9a29e4d6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642819"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846444"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Log analytics'te Görünüm Tasarımcısı görselleştirme bölümü başvurusu Kılavuzu
 Azure Log Analytics'te Görünüm Tasarımcısı kullanarak veri görselleştirmeleri Log Analytics çalışma alanınızın çeşitli sunan Azure portalında özel görünümlerinizi oluşturabilirsiniz. Bu makalede, özel görünümlerde kullanılabilir görselleştirme bölümleri ayarlarını bir başvuru kılavuzudur.
@@ -363,4 +363,4 @@ Aşağıdaki tabloda, eşikleri için ayarları açıklar:
 | Renk |Eşik değerini gösteren rengi. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [günlük aramaları](../../log-analytics/log-analytics-queries.md) görselleştirme bölümlerinde sorguları desteklemek için.
+* Hakkında bilgi edinin [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) görselleştirme bölümlerinde sorguları desteklemek için.

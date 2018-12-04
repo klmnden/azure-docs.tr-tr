@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jeedes
-ms.openlocfilehash: fd35cb67d0555919a1340c428bac042b67239469
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d51ced3f264a486288c951def7c23a0d95609ac0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427348"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850695"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Öğretici: Mobil Xpense ile Azure Active Directory Tümleştirme
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Mobile Xpense yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir mobil Xpense çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de mobil Xpense tümleştirmesini yapılandırmak için Mobile Xpense G
 
 **Galeriden mobil Xpense eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -121,7 +121,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve m
     İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<sub-domain>.mobilexpense.com/<customername>`
      
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [mobil Xpense istemci Destek ekibine](http://www.mobilexpense.net/contact) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [mobil Xpense istemci Destek ekibine](https://www.mobilexpense.net/contact) bu değerleri almak için. 
 
 1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
@@ -131,7 +131,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve m
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/mobilexpense-tutorial/tutorial_general_400.png)
 
-1. Çoklu oturum açmayı yapılandırma **mobil Xpense** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [mobil Xpense Destek ekibine](http://www.mobilexpense.net/contact). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+1. Çoklu oturum açmayı yapılandırma **mobil Xpense** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [mobil Xpense Destek ekibine](https://www.mobilexpense.net/contact). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
 > İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -170,7 +170,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-mobile-xpense-test-user"></a>Mobil Xpense test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon MobileXpense içinde adlı bir kullanıcı oluşturun. İş ile [MobileXpense Destek ekibine](http://www.mobilexpense.net/contact) MobileXpense platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
+Bu bölümde, Britta Simon MobileXpense içinde adlı bir kullanıcı oluşturun. İş ile [MobileXpense Destek ekibine](https://www.mobilexpense.net/contact) MobileXpense platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

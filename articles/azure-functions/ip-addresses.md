@@ -7,14 +7,14 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 12/03/2018
 ms.author: glenga
-ms.openlocfilehash: a92a4183962f71005577478bf27df9b5fb945acf
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 83e5a15d8a7f9c01f6a180ebceb715600b8a39db
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634371"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849488"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure işlevleri'nde IP adresleri
 
@@ -88,13 +88,13 @@ Gerekirse beyaz liste giden IP adresleri, işlev uygulamaları tarafından kulla
 
 ## <a name="inbound-ip-address-changes"></a>Gelen IP adresi değişiklikleri
 
- Gelen IP adresi **olabilir** ne zaman değiştirmek:
+Gelen IP adresi **olabilir** ne zaman değiştirmek:
 
 - Bir işlev uygulaması silin ve farklı bir kaynak grubunda yeniden oluşturun.
 - Bir kaynak grubunda ve bölgede birlikte son işlev uygulamasını silin ve yeniden oluşturun.
 - Sırasında olduğu gibi bir SSL bağlaması Sil [sertifika yenileme](../app-service/app-service-web-tutorial-custom-ssl.md#renew-certificates)).
 
-Listelenen olanlar gibi tüm eylemler kazanmadı olduğunda gelen IP adresi değişebilir.
+İşlev uygulamanız çalıştığında bir [tüketim planı](functions-scale.md#consumption-plan), olanları listelenen gibi tüm eylemler kazanmadı olduğunda gelen IP adresi değişebilir.
 
 ## <a name="outbound-ip-address-changes"></a>Giden IP adresi değişiklikleri
 
@@ -103,7 +103,7 @@ Bir işlev uygulaması olduğunda değişebilir kümesi kullanılabilir giden IP
 * Gelen IP adresi değişebilir tüm eylemleri.
 * App Service planınızın fiyatlandırma katmanını değiştirin. Uygulamanızı kullanabilir, tüm fiyatlandırma katmanları için tüm olası giden IP adresleri listesi yer `possibleOutboundIPAddresses` özelliği. Bkz: [Bul giden IP'ler](#find-outbound-ip-addresses).
 
-Listelenen olanlar gibi tüm eylemler kazanmadı olduğunda gelen IP adresi değişebilir.
+İşlev uygulamanız çalıştığında bir [tüketim planı](functions-scale.md#consumption-plan), olanları listelenen gibi tüm eylemler kazanmadı olduğunda giden IP adresi değişebilir.
 
 Giden IP adresi değişikliği kasıtlı olarak zorlamak için:
 

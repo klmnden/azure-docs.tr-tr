@@ -1,26 +1,18 @@
 ---
 title: 'Bir bilgisayarı noktadan siteye ve RADIUS kimlik doğrulaması kullanarak bir sanal ağa bağlama: PowerShell | Azure'
-description: Windows ve Mac OS X istemcileri, P2S ve RADIUS kimlik doğrulaması kullanarak bir sanal ağını güvenli bir şekilde bağlanın.
+description: Windows ve Mac OS X istemcileri, P2S ve RADIUS kimlik doğrulaması kullanarak bir sanal ağa güvenli bir şekilde bağlanın.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/12/2018
-ms.author: anzaman
-ms.openlocfilehash: df7afe9324831ffb8e79d7320f2c716ed18a7b4f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.topic: conceptual
+ms.date: 11/30/2018
+ms.author: cherylmc
+ms.openlocfilehash: b5d69b8f9f004da93e5bed05b86e46f6e4214d63
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719694"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847363"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Bir RADIUS kimlik doğrulaması kullanarak bir sanal ağa noktadan siteye bağlantısı yapılandırma: PowerShell
 
@@ -45,14 +37,14 @@ Noktadan Siteye bağlantılar için bir VPN cihazına veya genel kullanıma yön
 
 P2S bağlantıları aşağıdakileri gerektirir:
 
-* RouteBased VPN ağ geçidi. 
+* RouteBased VPN ağ geçidi. 
 * Kullanıcı kimlik doğrulamasını işlemek için bir RADIUS sunucusu. Şirket içinde dağıtılması, RADIUS sunucusu olabilir veya Azure sanal ağı.
 * Bir VPN istemcisi yapılandırma paketini Vnet'e bağlanacak Windows cihazlar için. Bir VPN istemcisi yapılandırma paketi, P2S üzerinden bağlanmak bir VPN istemcisi için gerekli olan ayarları sağlar.
 
 ## <a name="aboutad"></a>P2S VPN için Active Directory (AD) etki alanı kimlik hakkında
 
-AD etki alanı kimlik doğrulaması, kuruluş etki alanı kimlik bilgilerini kullanarak Azure'da oturum açarken kullanıcıların sağlar. Bu AD server ile tümleşen bir RADIUS sunucusu gerektirir. Kuruluşlar, mevcut bir RADIUS dağıtımı da yararlanabilirsiniz.
- 
+AD etki alanı kimlik doğrulaması, kuruluş etki alanı kimlik bilgilerini kullanarak Azure'da oturum açmalarını sağlar. Bu AD server ile tümleşen bir RADIUS sunucusu gerektirir. Kuruluşlar, mevcut bir RADIUS dağıtımı da yararlanabilirsiniz.
+ 
 RADIUS sunucusu şirket içinde yer alabilir ya da Azure vnet'inizde. Kimlik doğrulaması sırasında RADIUS sunucusu ve bağlanan cihaz arasında sürekli geçiş ve ileten bir kimlik doğrulama iletilerinde VPN ağ geçidi görür. VPN ağ geçidi RADIUS sunucusuna ulaşabildiğinden olması önemlidir. RADIUS sunucusu şirket içi ise, azure'dan şirket içi siteye bir VPN siteden siteye bağlantı gereklidir.
 
 Active Directory dışında bir RADIUS sunucusu, ayrıca diğer dış kimlik sistemleri ile tümleştirebilirsiniz. Bu noktadan siteye VPN, MFA seçenekleri dahil olmak üzere kimlik doğrulama seçeneklerini bolca yukarı açar. İle tümleşir kimlik sistemlerinin listesini almak için RADIUS sunucusu satıcı belgelerinize bakın.
@@ -66,13 +58,13 @@ Active Directory dışında bir RADIUS sunucusu, ayrıca diğer dış kimlik sis
 
 ## <a name="before"></a>Başlamadan önce
 
-* Azure aboneliğiniz olduğunu doğrulayın. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) etkinleştirebilir veya [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial) için kaydolabilirsiniz.
+Azure aboneliğiniz olduğunu doğrulayın. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) etkinleştirebilir veya [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial) için kaydolabilirsiniz.
 
-* Azure Resource Manager PowerShell cmdlet'lerinin en son sürümünü yükleyin. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
+[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-### <a name="log-in"></a>Oturum açma
+### <a name="sign-in"></a>Oturum aç
 
-[!INCLUDE [Log in](../../includes/vpn-gateway-ps-login-include.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
 
 ### <a name="example"></a>Örnek değerler
 
@@ -101,31 +93,31 @@ Aşağıdaki adımlar, kaynak grubunda üç alt ağ ile bir kaynak grubunu ve sa
 
 1. Bir kaynak grubu oluşturun.
 
-  ```powershell
+  ```azurepowershell-interactive
   New-AzureRmResourceGroup -Name "TestRG" -Location "East US"
   ```
 2. Sanal ağ için alt ağ yapılandırmalarını oluşturup *FrontEnd*, *BackEnd* ve *GatewaySubnet* olarak adlandırın. Bu ön ekler bildirdiğiniz sanal adres alanının parçası olmalıdır.
 
-  ```powershell
-  $fesub = New-AzureRmVirtualNetworkSubnetConfig -Name "FrontEnd" -AddressPrefix "192.168.1.0/24"  
-  $besub = New-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -AddressPrefix "10.254.1.0/24"  
+  ```azurepowershell-interactive
+  $fesub = New-AzureRmVirtualNetworkSubnetConfig -Name "FrontEnd" -AddressPrefix "192.168.1.0/24"  
+  $besub = New-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -AddressPrefix "10.254.1.0/24"  
   $gwsub = New-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix "192.168.200.0/24"
   ```
 3. Sanal ağı oluşturun.
 
   Bu örnekte, -DnsServer sunucu parametresi isteğe bağlıdır. Bir değer belirtildiğinde yeni bir DNS sunucusu oluşturulmaz. Belirttiğiniz DNS sunucusu IP adresi, sanal ağınızdan bağlandığınız kaynakların adlarını çözümleyebilen bir DNS sunucusu olmalıdır. Bu örnek için özel bir IP adresi kullandık, ancak DNS sunucunuzun IP adresi muhtemelen bu değildir. Kendi değerlerinizi kullandığınızdan emin olun. Belirttiğiniz değer, P2S bağlantı tarafından değil sanal ağa dağıttığınız kaynaklar tarafından kullanılır.
 
-  ```powershell
+  ```azurepowershell-interactive
   New-AzureRmVirtualNetwork -Name "VNet1" -ResourceGroupName "TestRG" -Location "East US" -AddressPrefix "192.168.0.0/16","10.254.0.0/16" -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
   ```
 4. Bir VPN ağ geçidinin genel bir IP adresi olmalıdır. İlk olarak IP adresi kaynağını istemeniz, sonra sanal ağ geçidinizi oluştururken bu kaynağa başvurmanız gerekir. VPN ağ geçidi oluşturulurken, IP adresi kaynağa dinamik olarak atanır. VPN Gateway hizmeti şu anda yalnızca *Dinamik* Genel IP adresi ayırmayı desteklemektedir. Statik bir Genel IP adresi ataması isteğinde bulunamazsınız. Ancak, bu durum IP adresinin VPN ağ geçidinize atandıktan sonra değiştiği anlamına gelmez. Genel IP adresi, yalnızca ağ geçidi silinip yeniden oluşturulduğunda değişir. VPN ağ geçidiniz üzerinde gerçekleştirilen yeniden boyutlandırma, sıfırlama veya diğer iç bakım/yükseltme işlemleri sırasında değişmez.
 
   Dinamik olarak atanmış bir genel IP adresi istemek için değişkenleri belirtir.
 
-  ```powershell
-  $vnet = Get-AzureRmVirtualNetwork -Name "VNet1" -ResourceGroupName "TestRG"  
-  $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet 
-  $pip = New-AzureRmPublicIpAddress -Name "VNet1GWPIP" -ResourceGroupName "TestRG" -Location "East US" -AllocationMethod Dynamic 
+  ```azurepowershell-interactive
+  $vnet = Get-AzureRmVirtualNetwork -Name "VNet1" -ResourceGroupName "TestRG"  
+  $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet 
+  $pip = New-AzureRmPublicIpAddress -Name "VNet1GWPIP" -ResourceGroupName "TestRG" -Location "East US" -AllocationMethod Dynamic 
   $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name "gwipconf" -Subnet $subnet -PublicIpAddress $pip
   ```
 
@@ -133,8 +125,8 @@ Aşağıdaki adımlar, kaynak grubunda üç alt ağ ile bir kaynak grubunu ve sa
 
 Oluşturma ve sanal ağ geçidi yapılandırma önce kimlik doğrulaması için RADIUS sunucunuzun doğru şekilde yapılandırılması.
 
-1. Dağıtılan bir RADIUS sunucusuna sahip değilseniz, birini dağıtın. Dağıtım adımları için RADIUS satıcınız tarafından sağlanan kurulum kılavuzuna başvurun.  
-2. VPN ağ geçidi üzerinde RADIUS RADIUS istemcisi olarak yapılandırın. RADIUS istemcisini eklerken, sanal ağ, oluşturduğunuz GatewaySubnet belirtin. 
+1. Dağıtılan bir RADIUS sunucusuna sahip değilseniz, birini dağıtın. Dağıtım adımları için RADIUS satıcınız tarafından sağlanan kurulum kılavuzuna başvurun.  
+2. VPN ağ geçidi üzerinde RADIUS RADIUS istemcisi olarak yapılandırın. RADIUS istemcisini eklerken, sanal ağ, oluşturduğunuz GatewaySubnet belirtin. 
 3. RADIUS sunucusu ayarladıktan sonra RADIUS sunucusunun IP adresi ve RADIUS istemcisi RADIUS sunucusuna konuşabilir kullanması gereken paylaşılan gizli anahtarını alın. RADIUS sunucusu Azure Vnet'te VM RADIUS sunucusunun CA IP kullanın.
 
 [Ağ ilkesi sunucusu (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) makale AD etki alanı kimlik doğrulaması için Windows RADIUS sunucusu (NPS) yapılandırma hakkında rehberlik sağlar.
@@ -146,34 +138,34 @@ Yapılandırın ve sanal ağınıza ait VPN ağ geçidi oluşturun.
 * 'Vpn' - GatewayType olmalıdır ve - VpnType 'RouteBased' olmalıdır.
 * Bir VPN ağ geçidi bağlı tamamlanması 45 dakika sürebilir [ağ geçidi SKU'sunu](vpn-gateway-about-vpn-gateway-settings.md#gwsku) , seçin.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
 -VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1
 ```
 
 ## 4. <a name="addradius"></a>RADIUS sunucusu ve istemci adres havuzu ekleme
- 
-* -RadiusServer adı veya IP adresi belirtilebilir. Adı belirtin ve şirket içi sunucunun bulunduğu, VPN ağ geçidi adını çözümleyebilmesi olmayabilir. Ardından bu durumda, sunucunun IP adresini belirtmek daha iyi. 
+ 
+* -RadiusServer adı veya IP adresi belirtilebilir. Adı belirtin ve şirket içi sunucunun bulunduğu, VPN ağ geçidi adını çözümleyebilmesi olmayabilir. Ardından bu durumda, sunucunun IP adresini belirtmek daha iyi. 
 * -RadiusSecret RADIUS sunucusunda yapılandırılan eşleşmesi gerekir.
-* -VpnCientAddressPool bağlanan VPN istemcileri bir IP adresi alacağı aralıktır. Bağlantıyı kuracağınız şirket içi konum veya bağlanmak istediğiniz sanal ağ ile çakışmayan özel bir IP adresi aralığı kullanın. Yapılandırılmış bir büyüklükte adres havuzu olduğundan emin olun.  
+* -VpnCientAddressPool bağlanan VPN istemcileri bir IP adresi alacağı aralıktır. Bağlantıyı kuracağınız şirket içi konum veya bağlanmak istediğiniz sanal ağ ile çakışmayan özel bir IP adresi aralığı kullanın. Yapılandırılmış bir büyüklükte adres havuzu olduğundan emin olun.  
 
 1. Güvenli bir dize için RADIUS gizli anahtar oluşturun.
 
-  ```powershell
+  ```azurepowershell-interactive
   $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
   ```
 
 2. RADIUS parolayı girmeniz istenir. Girdiğiniz karakterleri görüntülenmeyecek ve bunun yerine ile değiştirilecek "*" karakteri.
 
-  ```powershell
+  ```azurepowershell-interactive
   RadiusSecret:***
   ```
 3. VPN istemcisi adres havuzu ve RADIUS sunucusu bilgilerini ekleyin.
 
   SSTP yapılandırmaları için:
 
-    ```powershell
+    ```azurepowershell-interactive
     $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
     Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
     -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol "SSTP" `
@@ -182,7 +174,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 
   Ikev2 yapılandırmaları için:
 
-    ```powershell
+    ```azurepowershell-interactive
     $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
     Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
     -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol "IKEv2" `
@@ -191,7 +183,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 
   SSTP ve Ikev2 için
 
-    ```powershell
+    ```azurepowershell-interactive
     $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
     Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
     -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol @( "SSTP", "IkeV2" ) `
@@ -200,7 +192,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 
 ## 5. <a name="vpnclient"></a>VPN istemcisi yapılandırma paketini indirme ve VPN istemcisi ayarlama
 
-VPN istemci yapılandırması, P2S bağlantısı üzerinden Vnet'e bağlama cihazlara olanak tanır. Bir VPN istemcisi yapılandırma paketini oluşturma ve VPN istemcisi ayarlama hakkında bilgi için bkz: [VPN istemci yapılandırması RADIUS kimlik doğrulaması için oluşturma](point-to-site-vpn-client-configuration-radius.md).
+VPN istemci yapılandırması, P2S bağlantısı üzerinden Vnet'e bağlama cihazlara olanak tanır. Bir VPN istemcisi yapılandırma paketini oluşturma ve VPN istemcisi ayarlama hakkında bilgi için bkz: [VPN istemci yapılandırması RADIUS kimlik doğrulaması için oluşturma](point-to-site-vpn-client-configuration-radius.md).
 
 ## <a name="connect"></a>6. Azure'a Bağlanma
 

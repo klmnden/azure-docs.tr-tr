@@ -3,19 +3,18 @@ title: Azure Cosmos DB Cassandra API'sine spark'tan ile çalışma
 description: Bu makale, Cosmos DB Cassandra API'sine tümleştirme spark'tan ana sayfasıdır.
 services: cosmos-db
 author: anagha-microsoft
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: 165919fa3d456786e926f754dba378be38c12588
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: cb58ad60501be43ff4da2db29ab3ad3dfee9aad1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094253"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847142"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Spark'tan Azure Cosmos DB Cassandra API'sine bağlanma
 
@@ -24,7 +23,7 @@ Bu makalede bir dizi makale Azure Cosmos DB Cassandra API'sine tümleştirme spa
 ## <a name="prerequisites"></a>Önkoşullar
 * [Bir Azure Cosmos DB Cassandra API hesabı sağlayın.](create-cassandra-dotnet.md#create-a-database-account)
 
-* Spark ortam tercih ettiğiniz sağlama [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | [Diğer].
+* Spark ortam tercih ettiğiniz sağlama [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Diğer].
 
 ## <a name="dependencies-for-connectivity"></a>Bağlantı için bağımlılıklar
 * **Cassandra için Spark Bağlayıcısı:** Spark Bağlayıcısı Azure Cosmos DB Cassandra API'sine bağlanmak için kullanılır.  Tanımlamak ve bulunan bağlayıcı sürümünü kullanmanız [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) Spark ortamınızı Spark ve Scala sürümleriyle uyumlu.

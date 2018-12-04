@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 93c3bd3f902f08c8f019744b3f30745c1fd9fa01
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 15526cc829d556457a7069df613bb6a8d2a2b23b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442432"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847669"
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Node.js kullanarak bir web API'sinin güvenliğini sağlama
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -47,7 +47,7 @@ Daha sonra, B2C dizininizde Azure AD'ye uygulamanız ile güvenli şekilde ileti
 * Uygulamanıza atanan **Uygulama Kimliği**'ni kopyalayın. Bu veriler daha sonra gerekli olacaktır.
 
 ## <a name="create-your-policies"></a>İlkelerinizi oluşturma
-Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu uygulama iki kimlik deneyimi içerir: kaydolma ve oturum açma. Her tür için [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-policy) tanımlanan şekilde bir ilke oluşturmanız gerekir.  Üç ilkenizi oluştururken şunları yaptığınızdan emin olun:
+Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu uygulama iki kimlik deneyimi içerir: kaydolma ve oturum açma. Her tür için [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow) tanımlanan şekilde bir ilke oluşturmanız gerekir.  Üç ilkenizi oluştururken şunları yaptığınızdan emin olun:
 
 * Kaydolma ilkenizde **Görünen adı** ve diğer kaydolma özniteliklerini seçin.
 * Her ilkede uygulamanın talep ettiği **Görünen ad** ve **Nesne Kimliği** öğelerini seçin.  Diğer talepleri de seçebilirsiniz.
@@ -71,12 +71,12 @@ Tamamlanan uygulama aynı zamanda [.zip dosyası olarak](https://github.com/Azur
 ## <a name="download-nodejs-for-your-platform"></a>Platformunuz için Node.js indirme
 Bu örneği başarılı bir şekilde kullanmak için çalışan bir Node.js yüklemesine sahip olmanız gerekir.
 
-[nodejs.org](http://nodejs.org) adresinden Node.js'yi yükleyin.
+[nodejs.org](https://nodejs.org) adresinden Node.js'yi yükleyin.
 
 ## <a name="install-mongodb-for-your-platform"></a>Platformunuz için MongoDB yükleme
 Bu örneği başarılı bir şekilde kullanmak için çalışan bir MongoDB yüklemesine sahip olmanız gerekir. MongoDB, REST API'nizi sunucu örneklerinde kalıcı hale getirmek için kullanılır.
 
-[mongodb.org](http://www.mongodb.org) adresinden MongoDB'yi yükleyin.
+[mongodb.org](https://www.mongodb.org) adresinden MongoDB'yi yükleyin.
 
 > [!NOTE]
 > Bu kılavuz, MongoDB için bu yazma sırasında `mongodb://localhost` olan varsayılan yükleme ve sunucu uç noktalarını kullandığınızı varsayar.

@@ -6,20 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
-ms.openlocfilehash: cb02ecb06728f5f36a0d51a3ec22cc8ba5cb44e7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.reviewer: kivenkat
+ms.openlocfilehash: 9d6bb8d4327b428bb47d1d44422d816e7b20ed87
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094764"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847533"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Azure Stack'te sanal makineleri kullanma konuları
 
@@ -40,7 +40,7 @@ Azure Stack sanal makineleri isteğe bağlı ve ölçeklenebilir işlem kaynağ�
 | Sanal makine disk performansı | Disk türünü ve boyutuna bağlıdır. | VM diskleri bağlı VM boyutuna bağlıdır başvurmak için [Azure Stack'te desteklenen sanal makine boyutları](azure-stack-vm-sizes.md) makalesi.
 | API sürümleri | Azure, her zaman tüm sanal makine özellikleri için en son API sürümleri vardır. | Azure yığını, bu hizmetler için belirli Azure hizmetlerinin ve belirli API sürümlerini destekler. Desteklenen API sürümlerinin listesi görüntülemek için başvurmak [API sürümlerini](#api-versions) bu makalenin. |
 |Sanal makine kullanılabilirlik kümeleri|Birden çok hata etki alanları (2 veya 3 bölge başına)<br>Birden çok güncelleştirme etki alanları<br>Yönetilen disk desteği|Birden çok hata etki alanları (2 veya 3 bölge başına)<br>Birden çok güncelleştirme etki alanı (en fazla 20)<br>Yönetilen disk desteği yok|
-|Sanal makine ölçek kümeleri|Otomatik ölçeklendirme desteklenmiyor|Otomatik olarak ölçeklendirme desteklenmiyor.<br>Portal, Resource Manager şablonları veya PowerShell kullanarak bir ölçek kümesine daha fazla örnek ekleyin.
+|Sanal makine ölçek kümeleri|Desteklenen otomatik ölçeklendirme|Otomatik ölçeklendirme desteklenmiyor.<br>Portal, Resource Manager şablonları veya PowerShell kullanarak bir ölçek kümesine daha fazla örnek ekleyin.
 
 ## <a name="virtual-machine-sizes"></a>Sanal makine boyutları
 

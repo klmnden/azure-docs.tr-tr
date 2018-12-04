@@ -1,5 +1,5 @@
 ---
-title: Özel SKU'ları | Microsoft Docs
+title: Özel SKU'ları ve planları | Microsoft Docs
 description: Teklif bulunurluğu yönetmek için özel bir SKU'ları kullanma
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 28fe85c6443701d5fb40d4f90dbec9ba445a234d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 519f0354f2a19e106ca1072170721b27357d173e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230249"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849216"
 ---
-<a name="private-skus"></a>Özel SKU'ları
+<a name="private-skus-and-plans"></a>Özel SKU'ları ve planlar
 ============
 
 Özel SKU'ları belirli müşterilere SKU kullanılabilirliğini sınırlamak etkinleştirin. Bir SKU özel olarak işaretlendiğinde, herhangi genel kataloğu dahil olmak üzere kullanılabilir değil [Azure Marketi](https://azuremarketplace.microsoft.com) ve [Azure portalında](http://portal.azure.com). Azure portalında, yalnızca SKU erişimi olan müşteriler, görebilirsiniz. Ayrıca, bunlar ayrıca özel teklifler için erişime sahip oldukları girmeniz istenirdi.
@@ -37,7 +37,7 @@ Aşağıdaki senaryolarda işlemek için özel bir SKU'ları kullanabilirsiniz:
 
 Yalnızca fiyat değiştirmek istiyorsanız, aynı Teklif başka bir SKU'da disklerden yeniden kullanabilirsiniz. Özel SKU'larıyla diskleri SKU'lar arasında yeniden gerekmez.
 
-<a name="mark-a-sku-private"></a>Bir SKU özel işareti
+<a name="mark-a-sku-private"></a>Bir SKU özel olarak işaretle
 ---------------------
 
 Bir SKU özel olarak işaretlemek için SKU özel olup olmadığını soran seçeneğini değiştirin:
@@ -91,7 +91,12 @@ CSV'yi karşıya yükle sınırlı bir kitle için:
 
 Değiştirdiğinizde CSV için el ile girişinde görünümü karşıya yükleyebilir veya el ile girişi CSV'den eski SKU erişimi olan abonelik kimlikleri listesini korunmaz. Bir uyarı görüntülenir ve listede yalnızca teklif kaydedildiğinde üzerine yazılır.
 
-<a name="previewing-private-offers"></a>Önizleme özel teklifler
+<a name="sync-private-subscriptions"></a>Eşitleme özel abonelikler
+-------------------------
+
+Abonelik özel SKU veya planı ile yayımlanan bir teklifi eklerken, İzleyici bilgi eklemek için teklif yeniden yayımlamanız gerekmez. Yalnızca İzleyici eklemek için bir Azure aboneliği kimliği (planları ve SKU'ları) veya Kiracı kimliği (yalnızca planları) kullanın.
+
+<a name="previewing-private-offers"></a>Özel önizleme sunar.
 -------------------------
 
 Önizleme/hazırlama sırasında teklif düzeyi Önizleme abonelikleri SKU erişebilir yalnızca adım. Bu aynı zamanda hangi teklif doğrulamak için sınama aşaması, hedeflenen müşterilerinize gibi görünür ve yayımlama tüm türleri için standart.

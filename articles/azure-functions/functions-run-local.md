@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 6ba2fd85e23f3a0b634319f7399f97bec9ef3954
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 89236575a73325d650f1357ff03abb53bbc7b00c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346431"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848961"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -37,16 +37,6 @@ Aksi belirtilmediği sürece, bu makaledeki örnekler için sürümü olan 2.x.
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions Core Tools’u Yükleme
 
 [Azure işlevleri temel araçları] yerel geliştirme bilgisayarınızda çalıştırabilirsiniz Azure işlevleri çalışma zamanı güç veren aynı çalışma zamanının bir sürümünü içerir. Ayrıca, işlev projelerini dağıtma işlevler oluşturun ve Azure'a bağlanmak için komutları sağlar.
-
-### <a name="v1"></a>Sürüm 1.x
-
-İşlevler 1.x çalışma zamanı araçlarını orijinal sürümünü kullanır. Bu sürümü .NET Framework (4.7) kullanır ve yalnızca Windows bilgisayarlarda desteklenir. Sürüm 1.x Araçları'nı yüklemek için önce [Nodejs'yi yüklemeniz](https://docs.npmjs.com/getting-started/installing-node), npm içerir.
-
-Sürüm 1.x araçlarını yüklemek için aşağıdaki komutu kullanın:
-
-```bash
-npm install -g azure-functions-core-tools@v1
-```
 
 ### <a name="v2"></a>Sürüm 2.x
 
@@ -155,7 +145,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 | **`--force`** | Olduğunda bile var olan dosyalar projeye proje başlatın. Bu ayar, aynı ada sahip mevcut dosyaların üzerine yazar. Proje klasöründeki diğer dosyalar etkilenmez. |
 | **`--no-source-control -n`** | Sürüm Git deposunda varsayılan oluşturulmasını engeller 1.x. Sürüm 2.x git deposu değil varsayılan olarak oluşturuldu. |
 | **`--source-control`** | Bir git deposu oluşturulup oluşturulmadığını denetler. Varsayılan olarak, bir havuz oluşturulmadı. Zaman `true`, bir havuz oluşturulur. |
-| **`--worker-runtime`** | Proje için dil çalışma zamanı ayarlar. Desteklenen değerler şunlardır: `dotnet`, `node` (JavaScript) ve `java`. Ne zaman ayarlanmadı, başlatma sırasında çalışma zamanı seçmeniz istenir. |
+| **`--worker-runtime`** | Proje için dil çalışma zamanı ayarlar. Desteklenen değerler şunlardır: `dotnet`, `node` (JavaScript) `java`, ve `python`. Ne zaman ayarlanmadı, başlatma sırasında çalışma zamanı seçmeniz istenir. |
 
 > [!IMPORTANT]
 > Varsayılan olarak, sürüm 2.x Core Araçları'nın işlevi .NET çalışma zamanı için uygulama projeleri oluşturur [C# sınıf projeleri](functions-dotnet-class-library.md) (.csproj). Visual Studio veya Visual Studio Code ile kullanılan bu C# projeleri, test sırasında ve Azure'a yayımlarken derlenir. Bunun yerine oluşturup olan aynı C# betiği (.csx) çalışmak istiyorsanız sürümünde oluşturulan dosyaları 1.x ve Portalı'nda eklemeniz gerekir `--csx` oluşturup işlevleri dağıttığınızda parametresi.
@@ -420,11 +410,11 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 Temel araçları, dağıtım, iki tür işlevi proje dosyalarını doğrudan işlev uygulamanızı dağıtma ve yalnızca desteklenen özel bir Linux kapsayıcısı dağıtmayı destekler 2.x. Önceden olmalıdır [Azure aboneliğinizde bir işlev uygulamanız oluşturulurken](functions-cli-samples.md#create).
 
-Sürüm 2.x olmalıdır [uzantılarınızı kayıtlı](#register-extensions) yayımlamadan önce projenizdeki. Derleme gerektiren projeler, böylece ikili dosyaları dağıtılabilir oluşturulmalıdır.
+Sürüm 2.x olmalıdır [uzantılarınızı kayıtlı](#register-extensions) yayımlamadan önce projenizdeki. Derleme gerektiren projeler, böylece ikili dosyaları dağıtılabilir oluşturulmalıdır. 
 
 ### <a name="project-file-deployment"></a>Proje dosyası dağıtımı  
 
-En yaygın dağıtım yöntemi, işlev uygulaması projenizi paketlemek ve işlev uygulamanızı paketi dağıtmak için temel araçları ile içerir. İsteğe bağlı olarak yapabilecekleriniz [doğrudan dağıtım paketinden işlevlerinizin çalıştığı](run-functions-from-deployment-package.md).
+En yaygın dağıtım yöntemi, paketi, işlev uygulaması projesi, ikili dosyaları ve bağımlılıkları ve işlev uygulamanızı paketi dağıtmak için temel araçları ile içerir. İsteğe bağlı olarak yapabilecekleriniz [doğrudan dağıtım paketinden işlevlerinizin çalıştığı](run-functions-from-deployment-package.md).
 
 Bir işlev uygulaması ile Azure işlevleri projenizi yayımlamak için kullanın `publish` komutu:
 
@@ -440,14 +430,14 @@ Bu komut var olan işlev uygulamanızı Azure'a yayımlar. Bir hata oluşursa, `
 > Azure portalında bir işlev uygulaması oluşturduğunuzda, bu sürüm kullanır 2.x varsayılan olarak işlev çalışma zamanı. İşlev uygulaması kullanım sürümü yapmak için 1.x çalışma zamanı'ndaki yönergeleri izleyin [sürümünde çalışmasını 1.x](functions-versions.md#creating-1x-apps).  
 > Mevcut işlevleri sahip bir işlev uygulaması için çalışma zamanı sürümünü değiştiremezsiniz.
 
-Sürümler, 1.x ve 2.x'i için uygulama aşağıdaki Yayımlama seçenekleri kullanabilirsiniz:
+Şu Proje Yayımlama seçenekleri sürümleri, 1.x ve 2.x'i için geçerlidir:
 
 | Seçenek     | Açıklama                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Ayarları varsa üzerine yaz isteyen azure'a local.settings.json yayımlamak ayar zaten mevcut. Depolama öykünücüsü kullanıyorsanız, uygulama ayarının değiştirme bir [gerçek depolama bağlantısı](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Uygulama ayarların üzerine yazmak için istemi bastır olduğunda `--publish-local-settings -i` kullanılır.|
 
-Aşağıdaki Yayımlama seçenekleri yalnızca sürümünde desteklenen 2.x:
+Şu Proje Yayımlama seçenekleri yalnızca sürümünde desteklenen 2.x:
 
 | Seçenek     | Açıklama                            |
 | ------------ | -------------------------------------- |
@@ -455,6 +445,8 @@ Aşağıdaki Yayımlama seçenekleri yalnızca sürümünde desteklenen 2.x:
 |**`--list-ignored-files`** | .Funcignore dosyasını temel alan yayımlama sırasında sayılan dosyaların bir listesini görüntüler. |
 | **`--list-included-files`** | .Funcignore dosyasını temel alan yayımlanan, dosyaların listesini görüntüler. |
 | **`--zip`** | Run-From-Zip paketi yayımlayın. Uygulama tanımlı AzureWebJobsStorage ayara sahip olmasını gerektirir. |
+| **`--build-native-deps`** | Python yayımlarken .wheels klasör oluşturmayı atlar uygulamalar çalışmaz. |
+| **`--additional-packages`** | Yerel bağımlılıkları oluştururken yüklemek için paketler listesi. Örneğin: `python3-dev libevent-dev`. |
 | **`--force`** | Bazı senaryolarda önceden yayımlama doğrulama yoksayın. |
 | **`--csx`** | Bir C# betiği (.csx) projesini yayımlayın. |
 | **`--no-build`** | DotNet işlevleri derlenmesini atla. |

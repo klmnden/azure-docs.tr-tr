@@ -1,10 +1,7 @@
 ---
 title: 'Azure Cosmos DB: SQL .NET API, SDK ve kaynakları | Microsoft Docs'
 description: Tüm SQL .NET API ve yayın tarihleri, sona erme tarihlerini ve her bir Azure Cosmos DB .NET SDK'sı sürümü arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin.
-services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
@@ -12,12 +9,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7f8af635eb7d5449a242f3a7708d865c13bb448
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 0ec1f9cf7847e0eb3c48599a4d52412c1a37560d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162815"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851171"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SQL API'si için Azure Cosmos DB .NET SDK: indirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -50,6 +47,14 @@ ms.locfileid: "52162815"
 </table></br>
 
 ## <a name="release-notes"></a>Sürüm notları
+
+### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-Preview
+* 1 önizlemesi [sürüm 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) genel önizlemesi için .NET SDK'sının.
+* Hedef .NET framework 4.6.1+ .NET ve .NET Core 2.0 + destekleyen standardı
+* Yeni nesne modeli, üst düzey CosmosClient ve yöntemleri ile ilgili CosmosDatabases ve CosmosContainers CosmosItems sınıflar arasında bölün. 
+* Akışları için destek. 
+* Durum kodu döndürür ve yanıt döndürüldüğünde yalnızca durum sunucudan CosmosResponseMessage güncelleştirildi. 
+
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
 * Güncelleştirilmiş System.Net.Security 4.3.2 için.
@@ -333,7 +338,7 @@ Devre dışı bırakılan bir SDK'sı kullanarak Azure Cosmos DB yapılan tüm i
 
 <br/>
 
-| Sürüm | Yayın tarihi | Sona erme tarihi |
+| Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
 | [2.1.3](#2.1.3) |15 Ekim 2018 |--- |
 | [2.1.2'yi](#2.1.2) |04 Ekim 2018 |--- |

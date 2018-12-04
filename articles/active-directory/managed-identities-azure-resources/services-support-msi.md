@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 5ff03a4a2aab796084ce726114c2f4b556fd44b1
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a75d3265e70efacc9e581abe32faacb6c5fb1b37
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497955"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850525"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure kaynakları için yönetilen kimlikleri destekleyen hizmetler
 
@@ -45,7 +45,7 @@ Aşağıdaki hizmetler, Azure AD kimlik doğrulamasını desteklemek ve Azure ka
 
 | Hizmet | Kaynak kimliği | Durum | Tarih | Erişim atama |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | `https://management.azure.com/` | Kullanılabilir | Eylül 2017 | [Azure portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) |
+| Azure Resource Manager | `https://management.azure.com/` | Kullanılabilir | Eylül 2017 | [Azure portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) <br>[Azure Resource Manager şablonu](../../role-based-access-control/role-assignments-template.md) |
 | Azure Key Vault | `https://vault.azure.net` | Kullanılabilir | Eylül 2017 | |
 | Azure Data Lake | `https://datalake.azure.net/` | Kullanılabilir | Eylül 2017 | |
 | Azure SQL | `https://database.windows.net/` | Kullanılabilir | Ekim 2017 | |

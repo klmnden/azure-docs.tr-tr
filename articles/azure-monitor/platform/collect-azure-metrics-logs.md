@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: ef2cb2f1bbde857273316181b81eeae743fca20c
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: e8b8dac6d877ab8ab4a0abcdd64ceae1aa48d3ad
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52684785"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848553"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Azure Hizmet Günlükleri ve Log Analytics kullanım ölçümlerini Topla
 
@@ -43,7 +43,7 @@ Toplama günlükleri ve ölçümleri Azure Hizmetleri için dört farklı yolu v
 | Data Lake analytics     | Microsoft.DataLakeAnalytics/accounts    | Tanılama |             | |
 | Data Lake store         | Microsoft.DataLakeStore/accounts        | Tanılama |             | |
 | Olay hub'ı ad alanı     | Microsoft.EventHub/namespaces           | Tanılama | Tanılama | |
-| IoT Hub                | Microsoft.Devices/ıothubs               |             | Tanılama | |
+| IOT hub'ları                | Microsoft.Devices/ıothubs               |             | Tanılama | |
 | Key Vault               | Microsoft.KeyVault/vaults               | Tanılama |             | [Anahtar kasası analizi](../../azure-monitor/insights/azure-key-vault.md) |
 | Yük Dengeleyiciler          | Microsoft.Network/loadBalancers         | Tanılama |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Tanılama | Tanılama | |
@@ -159,4 +159,4 @@ Azure şablonu galeri sahip [Azure Otomasyonu kullanma örnekleri](https://azure
 
 * [Olaylar için IIS ve tablo depolama için BLOB Depolama kullanma](azure-storage-iis-table.md) Azure tablo depolama veya BLOB depolamaya yazılan IIS günlükler, yazma tanılama Hizmetleri için günlüklerini okumak için.
 * [Çözümlerle](../../azure-monitor/insights/solutions.md) veri Öngörüler sağlar.
-* [Arama sorguları kullanılır](../../log-analytics/log-analytics-queries.md) verileri çözümlemek için.
+* [Arama sorguları kullanılır](../../azure-monitor/log-query/log-query-overview.md) verileri çözümlemek için.

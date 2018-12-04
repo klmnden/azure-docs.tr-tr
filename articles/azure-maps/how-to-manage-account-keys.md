@@ -1,19 +1,19 @@
 ---
 title: Azure haritalar hesabı ve anahtarları yönetme | Microsoft Docs
 description: Azure haritalar hesabınızda yönetmek ve erişim anahtarlarınızı yönetmek için Azure portalını kullanabilirsiniz.
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/11/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 12/02/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 29fd63139d31d146cfc67153f35bd57650b08cfa
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 2678b9d9adeddd7599680b6fc3f6e54cecd61a26
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541628"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848111"
 ---
 # <a name="how-to-manage-your-azure-maps-account-and-keys"></a>Azure haritalar hesabı ve anahtarları yönetme
 
@@ -23,7 +23,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="create-a-new-account"></a>Yeni hesap oluşturun
 
-1. [Azure Portal](http://portal.azure.com)’da oturum açın.
+1. [Azure Portal](http://portal.azure.com) oturum açın.
 
 2. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
 
@@ -53,5 +53,10 @@ Ardından, bir onay sayfası görürsünüz. Silme işlemi hesabınızın adın�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Azure haritalar'ı kullanmayı öğrenin arama API'leri, [adres arama](./how-to-search-for-address.md).
-* Azure haritalar'ı kullanmayı öğrenin [JavaScript harita denetimi](./how-to-use-map-control.md).
+Azure haritalar hesabı fiyatlandırma Katmanı'nı yönetmeyi öğrenin:
+> [!div class="nextstepaction"]
+> [Fiyatlandırma Katmanı'nı yönetme](./how-to-manage-pricing-tier.md)
+
+Azure haritalar hesabınız için API kullanım ölçümleri hakkında bilgi edinin:
+> [!div class="nextstepaction"]
+> [Kullanım ölçümlerini görüntüle](./how-to-view-api-usage.md)

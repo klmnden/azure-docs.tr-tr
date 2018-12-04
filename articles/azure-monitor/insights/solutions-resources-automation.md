@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 814646902a88c7170da66397709ff3a8c7b081fd
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 57fda5ea9fdafffd0267f749016ed97b8fc06e15
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715798"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847125"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Bir yönetim çözümü (Önizleme) Azure Automation kaynaklarını ekleme
 > [!NOTE]
@@ -317,8 +317,8 @@ Runbook için önce runbook'u oluşturduğunuzdan emin olun modülü kaynağı b
 ### <a name="updating-modules"></a>Modülleri güncelleştirme
 Ardından bir zamanlama kullanan bir runbook'u içeren bir yönetim çözümü güncelleştirmek ve bu runbook tarafından kullanılan yeni bir modül çözümünüzün yeni sürüme sahip, runbook modülünün eski sürümünü kullanabilirsiniz.  Aşağıdaki runbook'lar çözümünüze ekleyin ve diğer runbook'ların önce çalıştırılacak bir iş oluşturmak gerekir.  Bunun herhangi bir modül olarak güncelleştirildiğinden emin olmanızı sağlar runbook'lar yüklenmeden önce gerekli.
 
-* [Güncelleştirme ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/DisplayScript) tüm çözümünüzdeki runbook'lar tarafından kullanılan modüller en son sürüm olduğundan emin olun.  
-* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/DisplayScript) tüm runbook'ları bunlara ile kullanmak üzere en son modülleri bağlı emin olmak için zamanlama kaynakları yeniden kaydettirin.
+* [Güncelleştirme ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/) tüm çözümünüzdeki runbook'lar tarafından kullanılan modüller en son sürüm olduğundan emin olun.  
+* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/) tüm runbook'ları bunlara ile kullanmak üzere en son modülleri bağlı emin olmak için zamanlama kaynakları yeniden kaydettirin.
 
 
 

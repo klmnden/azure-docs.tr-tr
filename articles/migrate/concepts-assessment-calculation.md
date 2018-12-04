@@ -4,14 +4,14 @@ description: Azure geçişi hizmetinde değerlendirme hesaplamaları genel bir b
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: f7f06636e025eda604caa65ca82d4dd7eb909d3f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ab4af59b71dada84fd99df0299aeccfd5662d474
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165696"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849182"
 ---
 # <a name="assessment-calculations"></a>Değerlendirme hesaplamaları
 
@@ -21,7 +21,6 @@ ms.locfileid: "47165696"
 ## <a name="overview"></a>Genel Bakış
 
 Azure geçişi değerlendirmesi, üç aşamadan oluşur. Boyutlandırma tarafından izlenen bir uygunluğu analiziyle değerlendirme başlar ve son olarak, bir aylık maliyet tahmini. Öncekine geçerse bir makine yalnızca bir sonraki aşamaya taşır. Azure uygunluk denetimi bir makine başarısız olursa, Azure ve boyutlandırma ve maliyet yapılmaz için örneğin, bunu uygun olarak işaretlenir.
-
 
 ## <a name="azure-suitability-analysis"></a>Azure uygunluk analizi
 
@@ -119,22 +118,14 @@ Performansa dayalı boyutlandırma için Azure Geçişi, CPU ile VM'nin belleği
 
    Değerlendirme, düşük güvenilirlik derecelendirmesi alabilir neden aşağıdaki nedenlerle ilgili:
 
-   **Tek seferlik bulma**
+   - Değerlendirmeyi oluşturduğunuz süre boyunca ortamınızın profilini oluşturmadınız. Örneğin, değerlendirmeyi, 1 gün olarak ayarlanmış performans süresiyle oluşturuyorsanız, toplanacak tüm veri noktalarının keşfini başlattıktan sonra en az bir gün beklemeniz gerekir.
 
-   - vCenter Server'daki istatistik ayarı 3 düzeyine ayarlanmamıştır. İstatistik vCenter Server'da ayarı 3 düzeyinden daha düşükse, vCenter Server istatistik ayarları tek seferlik modeli bağlı olduğundan, vCenter Server'dan disk ve ağ için performans verileri toplanmaz. Bu durumda, Azure Geçişi tarafından disk ve ağ için sağlanan öneri, kullanım tabanlı olmaz. Azure Geçişi, diskin IOPS/iş hacmi göz önünde bulundurulmadan diskin Azure’da premium bir disk gerektirip gerektirmediğini belirleyemeyeceğinden, bu örnekte Azure Geçişi tüm diskler için standart diskleri önerir.
-   - VCenter istatistik ayarı keşif başlatılmadan önce daha kısa bir süre için Server'daki 3 düzeyine ayarlanmıştır. Örneğin, bugün istatistik ayarı düzeyini 3 olarak değiştirdiğiniz, yarın ise (24 saat sonra) toplayıcı gerecini kullanarak keşfi başlattığınız bir senaryoyu ele alalım. Bir gün için değerlendirme oluşturuyorsanız tüm veri noktalarına sahip olursunuz ve değerlendirmenin güvenilirlik derecesi 5 yıldız olur. Ancak değerlendirme özelliklerinde performans süresini bir ay olarak değiştiriyorsanız, son bir ay için disk ve ağ performansı verileri kullanılabilir halde olmayacağından güvenilirlik derecesi düşer. Son bir ayın performans verilerini dikkate almak istiyorsanız, keşif başlatmadan önce bir ay boyunca vCenter Server istatistik ayarını 3 düzeyinde tutmanız önerilir.
+   - Değerlendirmenin hesaplandığı dönem boyunca birkaç sanal makine kapatılmıştır. Herhangi bir VM, belirli bir süre boyunca kapatıldıysa o süreye ait performans verilerine sahip olamayız.
 
-   **Sürekli bulma**
-
-   - Ortamınızı değerlendirme oluşturma süresi boyunca profil değil. Örneğin, performans süresi 1 gün olarak ayarlanmış olan değerlendirme oluşturuyorsanız, en az bir gün sonra toplanan almak tüm veri noktaları için bulmayı Başlat için beklemeniz gerekir.
-
-   **Yaygın nedenler**  
-
-   - Değerlendirmenin hesaplandığı dönem boyunca birkaç sanal makine kapatılmıştır. Herhangi bir VM için bazı süresi kapalı, biz o dönem için performans verilerini toplamak mümkün olmayacaktır.
    - Değerlendirmenin hesaplandığı dönem boyunca birkaç sanal makine oluşturulmuştur. Örneğin, son bir ayın performans geçmişi için değerlendirme oluşturuyorsanız, ancak yalnızca bir hafta önce ortamda birkaç sanal makine oluşturulduysa. Bu tür durumlarda yeni sanal makinelerin performans geçmişi, sürenin tamamı boyunca mevcut olmaz.
 
    > [!NOTE]
-   > Herhangi bir değerlendirmenin güvenilirlik derecesi 4 yıldız, tek seferlik modeli için altındaysa size vCenter Server istatistik ayarları düzeyini 3 olarak değiştirmeniz önerilir değerlendirme için dikkate alınması gereken istediğiniz süre için bekleyin (1 gün/1 hafta/1 ay) ve ardından yapın Keşif ve değerlendirme. Sürekli bulma modeli için gereç ortamı profilini oluşturmak için en az bir gün bekleyin ve ardından *yeniden hesapla* değerlendirme. Önceki yapılamaz, performansa dayalı boyutlandırma güvenilir olmayabilir ve geçmek için önerilen *şirket içi olarak boyutlandırma* değerlendirme özelliklerini değiştirerek.
+   > Herhangi bir değerlendirmenin güvenilirlik derecesi 5 yıldızdan düşükse, gereç ortamı profilini oluşturmak için en az bir gün beklemeniz önerilir ve ardından *yeniden hesapla* değerlendirme. Bu yapılamazsa, performansa dayalı boyutlandırma güvenilir olmayabilir ve değerlendirme özellikleri değiştirilerek *şirket içi olarak boyutlandırmaya* geçiş yapılması önerilir.
 
 ## <a name="monthly-cost-estimation"></a>Aylık maliyet tahmini
 

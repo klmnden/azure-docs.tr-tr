@@ -4,15 +4,15 @@ description: Azure’a geçiş için şirket içi VMware VM’lerinin Azure Geç
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/23/2018
+ms.date: 11/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 18e1ecd4896277f0dd0dfc2ceac2185cbdd09b93
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: dddfbab1d40c03659ba346c9f0e898cfefc8d55e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241115"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847992"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure’a geçiş için şirket içi VMware VM’lerini bulma ve değerlendirme
 
@@ -26,16 +26,13 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Değerlendirmek için şirket içi VMware VM’lerini toplamak üzere bir şirket içi toplayıcı sanal makinesi (VM) ayarlayın.
 > * VM’leri gruplandırın ve bir değerlendirme oluşturun.
 
-
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) oluşturun.
 
-
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - **VMware**: Geçirmeyi planladığınız sanal makineler, 5.5, 6.0 veya 6.5 sürümünü çalıştıran vCenter Server tarafından yönetilmelidir. Buna ek olarak, toplayıcı VM’yi dağıtmak için 5.0 veya daha sonraki sürüme sahip bir ESXi konağı gerekir.
 - **vCenter Server hesabı**: vCenter Server’a erişmek için salt okunur bir hesabınız olması gerekir. Azure Geçişi, şirket içi VM’leri bulmak için bu hesabı kullanır.
 - **İzinler**: vCenter Server’da, bir dosyayı .OVA biçiminde içeri aktararak VM oluşturma iznine sahip olmanız gerekir.
-- **İstatistik ayarları**: Bu önkoşul yalnızca tek seferlik keşif modeli için geçerlidir. Çalıştırılacak tek seferlik keşif için vCenter Server’ın istatistik ayarları, dağıtım başlatılmadan önce düzey 3 olarak belirlenmelidir. Ayarlar düzey 3’ün altında olursa değerlendirme gerçekleştirilir, ancak depolama ve ağ için performans verileri toplanmaz. Bu durumda boyut önerileri, CPU ve belleğe ait performans verilerine ve diskin ve ağ bağdaştırıcılarının yapılandırma verilerine bağlı olarak yapılır.
 
 ## <a name="create-an-account-for-vm-discovery"></a>VM bulma işlemi için hesap oluşturma
 
@@ -67,20 +64,21 @@ Azure Geçişi’nin, değerlendirme amacıyla VM’leri otomatik olarak bulmas�
 Azure Geçişi, toplayıcı gereci olarak bilinen bir şirket içi VM oluşturur. Bu VM, şirket içi VMware VM’lerini bulur ve bunlara ilişkin meta verileri Azure Geçişi hizmetine gönderir. Toplayıcı gerecini ayarlamak için, bir .OVA dosyası indirin ve VM’yi oluşturmak için dosyayı şirket içi vCenter sunucusuna aktarın.
 
 1. Azure Geçişi projesinde **Kullanmaya Başlama** > **Bul ve Değerlendir** > **Makineleri Keşfet**’ye tıklayın.
-2. **Cihazları keşfet**’te, alet için iki seçenek vardır, tercihinize göre uygun aleti indirmek için **İndir**’i tıklayın.
+2. İçinde **makineleri Bul**, tıklayın **indirin** gereç indirilemedi.
 
-    a. **Tek seferlik keşif:** Bu model için alet, VM’ler hakkında meta veriler toplamak için vCenter Server ile iletişim kurar. VM’lerin performans verilerinin toplanması için, vCenter Server’da depolanan geçmiş performans verilerine dayanır ve son bir ayın performans geçmişini toplar. Bu modelde, Azure Geçişi her ölçüm için ortalama sayacı (en yüksek sayaca karşı) toplar, [daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Tek seferlik bir keşif olduğu için, keşif tamamlandıktan sonra şirket içi ortamdaki değişiklikler yansıtılmaz. Değişikliklerin yansıtılmasını istiyorsanız, aynı ortamın yeniden keşfetmeniz gerekir.
-
-    b. **Sürekli keşif:** Bu model için alet, her VM’nin gerçek zamanlı kullanım verilerini toplamak amacıyla sürekli şirket içi ortamın profilini oluşturur. Bu modelde her ölçüm için en yüksek sayaçlar toplanır (CPU kullanımı, bellek kullanımı vb.). Bu model, performans verilerinin toplanması için vCenter Server’ın istatistik ayarlarına bağlı değildir. Sürekli profil oluşturmayı aletten istediğiniz zaman durdurabilirsiniz.
-
-    Gerecin performans verilerini yalnızca sürekli olarak topladığını unutmayın, şirket içi ortamdaki (ör. VM eklemesi, silmesi, disk eklemesi vb.) hiçbir yapılandırma değişikliğini algılamaz. Şirket içi ortamda bir yapılandırma değişikliği gerçekleşirse değişikliklerin portala yansıması için aşağıdakileri yapabilirsiniz:
-
-    1. Öğelerin eklenmesi (VM’ler, diskler, çekirdekler vb.): Bu değişiklikleri Azure portala yansıtmak için keşfi gereçten durdurup yeniden başlatabilirsiniz. Bu, değişikliklerin Azure Geçişi projesinde güncelleştirilmesini sağlar.
-
-    2. VM silme: Gerecin tasarlanma şekli nedeniyle keşfi durdurup başlatsanız bile VM silme yansıtılmaz. Bunun nedeni takip eden keşiflerin eski keşiflerin üzerine yazılması yerine bunlara eklenmesidir. Bu durumda grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplayarak portaldaki VM’yi yoksayabilirsiniz.
+    Azure geçişi Gereci vCenter Server ile iletişim kurar ve sürekli olarak şirket içi ortamda, her VM için gerçek zamanlı kullanım verilerini toplamak için profil. Bu, her bir ölçüm (CPU kullanımı, bellek kullanımı vb.) için en yüksek sayaçları toplar. Bu model, performans verilerinin toplanması için vCenter Server’ın istatistik ayarlarına bağlı değildir. Sürekli profil oluşturmayı aletten istediğiniz zaman durdurabilirsiniz.
 
     > [!NOTE]
-    > Sürekli keşif işlevi önizleme aşamasındadır. Bu yöntemin ayrıntılı performans verileri toplaması ve doğru boyutlandırmayla sonuçlanması nedeniyle bu yöntemi kullanmanızı öneririz.
+    > Bu yöntem, vCenter Server'ın performans veri noktası kullanılabilirlik için istatistik ayarları yararlandı ve sanal makinelerin Azure'a geçiş için eksik boyutlandırma içinde sonuçlanan ortalama performans sayaçlarının toplanan gibi tek seferlik gereç artık kullanım dışı bırakılmıştır.
+
+    **Anında keyif:** bulma olduğunda (alır birkaç saat VM sayısına bağlı olarak), sürekli bulma gereciyle tamamlamak değerlendirmeler hemen oluşturabilirsiniz. Anında sonuç elde etmek için kullanmak istiyorsanız, Keşif yaslanıp performans veri toplama başlar bu yana değerlendirmede boyutlandırma ölçütü seçmelisiniz *şirket içi olarak*. Performans tabanlı değerlendirmeleri için en az bir gün sonra güvenilir boyut önerileri almak için keşif başlatılmadan için beklemeniz önerilir.
+
+    Gereç yalnızca performans verilerini sürekli olarak toplar, şirket içi ortamda (yani, VM ekleme, silme, disk ekleme vb.) herhangi bir yapılandırma değişikliği algılamaz. Şirket içi ortamda bir yapılandırma değişikliği gerçekleşirse değişikliklerin portala yansıması için aşağıdakileri yapabilirsiniz:
+
+    - Öğelerin eklenmesi (VM’ler, diskler, çekirdekler vb.): Bu değişiklikleri Azure portala yansıtmak için keşfi gereçten durdurup yeniden başlatabilirsiniz. Bu, değişikliklerin Azure Geçişi projesinde güncelleştirilmesini sağlar.
+
+    - VM silme: Gerecin tasarlanma şekli nedeniyle keşfi durdurup başlatsanız bile VM silme yansıtılmaz. Bunun nedeni takip eden keşiflerin eski keşiflerin üzerine yazılması yerine bunlara eklenmesidir. Bu durumda grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplayarak portaldaki VM’yi yoksayabilirsiniz.
+
 
 3. **Proje kimlik bilgilerini kopyala** bölümünde proje kimliğini ve anahtarı kopyalayın. Toplayıcıyı yapılandırırken bu bilgilere ihtiyaç duyarsınız.
 
@@ -96,7 +94,20 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
     - Örnek kullanım: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Oluşturulan karma bu ayarlara uygun olmalıdır.
 
-#### <a name="one-time-discovery"></a>Tek seferlik keşif
+#### <a name="continuous-discovery"></a>Sürekli keşif
+
+  OVA sürüm 1.0.10.4 için
+
+  **Algoritma** | **Karma değeri**
+  --- | ---
+  MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
+  SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
+  SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
+
+
+#### <a name="one-time-discovery-deprecated-now"></a>Tek seferlik bulma (artık kullanım dışı)
+
+Bu model kullanım dışı bırakıldı, var olan cihazları sağlanan için destek.
 
   OVA sürüm 1.0.9.15 için
 
@@ -121,33 +132,6 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
   MD5 | d0363e5d1b377a8eb08843cf034ac28a
   SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
   SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
-
-  OVA sürüm 1.0.9.8 için
-
-  **Algoritma** | **Karma değeri**
-  --- | ---
-  MD5 | b5d9f0caf15ca357ac0563468c2e6251
-  SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
-  SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
-
-
-  OVA sürüm 1.0.9.7 için
-
-  **Algoritma** | **Karma değeri**
-  --- | ---
-  MD5 | d5b6a03701203ff556fa78694d6d7c35
-  SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-  SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
-
-#### <a name="continuous-discovery"></a>Sürekli keşif
-
-  OVA sürüm 1.0.10.4 için
-
-  **Algoritma** | **Karma değeri**
-  --- | ---
-  MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
-  SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
-  SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
 
 ## <a name="create-the-collector-vm"></a>Toplayıcı VM’yi oluşturma
 
@@ -195,12 +179,9 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
 > Değerlendirmek istediğiniz bir makinenin ayarlarını değiştirirseniz, değerlendirmeyi çalıştırmadan önce yeniden keşfetmeyi tetikleyin. Toplayıcıda, bunu yapmak için **Koleksiyonu yeniden başlat** seçeneğini kullanın. Koleksiyon tamamlandıktan sonra, güncelleştirilmiş değerlendirme sonuçlarını almak için portalda değerlendirmeye yönelik **Yeniden hesapla** seçeneğini belirleyin.
 
 
-
 ### <a name="verify-vms-in-the-portal"></a>VM’lerin portalda olup olmadığını doğrulama
 
-Tek seferlik keşif için, bulma süresi kaç VM bulduğunuza bağlıdır. Genellikle, toplayıcı 100 VM için çalışmayı bitirdikten sonra, yapılandırma ve performans verileri koleksiyonunun tamamlanması yaklaşık bir saat sürer. Keşif bittikten hemen sonra değerlendirmeler (hem performansa dayalı hem de şirket içi değerlendirmeler halinde) oluşturabilirsiniz.
-
-Sürekli keşif için (önizlemede), toplayıcı şirket içi ortamın sürekli profilini oluşturur ve performans verilerini bir saatlik aralıklarla göndermeye devam eder. Keşfin başlamasından bir saat sonra makineleri portalda inceleyebilirsiniz. VM’ler için performansa dayalı değerlendirmeler oluşturmadan önce en az bir gün beklemeniz önerilir.
+Toplayıcı gerecini sürekli olarak şirket içi ortamda profil ve performans verilerini bir saatlik zaman aralığı içinde göndermeye devam. Keşif başlatılmadan bir saat sonra makineleri portalında görüntüleyebilirsiniz.
 
 1. Geçiş projesinde **Yönet** > **Makineler**’e tıklayın.
 2. Bulmak istediğiniz VM’lerin portalda görüntülenip görüntülenmediğini kontrol edin.
@@ -208,7 +189,7 @@ Sürekli keşif için (önizlemede), toplayıcı şirket içi ortamın sürekli 
 
 ## <a name="create-and-view-an-assessment"></a>Değerlendirme oluşturma ve görüntüleme
 
-VM’ler bulunduktan sonra bunları gruplandırın ve bir değerlendirme oluşturun.
+Portalda VM'ler bulunduktan sonra bunları gruplandırın ve değerlendirme oluşturun. Değerlendirmeler Portalı'nda VM'ler bulunduktan sonra şirket olarak hemen oluşturabilirsiniz. Güvenilir boyut önerileri almak için tüm performans temel alan değerlendirmeleri oluşturmadan önce en az bir gün beklemeniz önerilir.
 
 1. Projenin **Genel Bakış** sayfasında **+Değerlendirme oluştur**’a tıklayın.
 2. Değerlendirme özelliklerini gözden geçirmek için **Tümünü görüntüle**’ye tıklayın.
@@ -219,7 +200,7 @@ VM’ler bulunduktan sonra bunları gruplandırın ve bir değerlendirme oluştu
 7. Excel dosyası olarak indirmek için **Değerlendirmeyi dışarı aktar**’a tıklayın.
 
 > [!NOTE]
-> Sürekli keşif için, bir değerlendirme oluşturmadan önce, keşif başladıktan sonra en az bir gün beklemeniz önerilir. Var olan bir değerlendirmeyi en son performans verileriyle güncelleştirmek isterseniz, değerlendirmeyi güncelleştirmek için **Yeniden Hesapla** komutunu kullanabilirsiniz.
+> Bulma, değerlendirme oluşturmadan önce başlangıç sonrasında en az bir gün için beklenecek önemle tavsiye edilir. Var olan bir değerlendirmeyi en son performans verileriyle güncelleştirmek isterseniz, değerlendirmeyi güncelleştirmek için **Yeniden Hesapla** komutunu kullanabilirsiniz.
 
 ### <a name="assessment-details"></a>Değerlendirme ayrıntıları
 
@@ -272,22 +253,14 @@ Performansa dayalı boyutlandırma için Azure Geçişi, CPU ile VM'nin belleği
 
 Aşağıdaki nedenlerle bir değerlendirme için tüm veri noktaları kullanılabilir olmayabilir:
 
-**Tek seferlik keşif**
-
-- vCenter Server'daki istatistik ayarı 3 düzeyine ayarlanmamıştır. Tek seferlik keşif modeli vCenter Server’daki istatistik ayarlarına bağlı olduğu için, vCenter Server’daki istatistik ayarı 3 düzeyinden küçükse vCenter Server’dan disk ve ağ için performans verileri toplanmaz. Bu durumda, Azure Geçişi tarafından disk ve ağ için sağlanan öneri, kullanım tabanlı olmaz. Azure Geçişi, diskin IOPS/iş hacmi göz önünde bulundurulmadan diskin Azure’da premium bir disk gerektirip gerektirmediğini belirleyemeyeceğinden, bu örnekte Azure Geçişi tüm diskler için standart diskleri önerir.
-- vCenter Server’daki istatistik ayarı, keşfi başlatmadan önce, daha kısa bir süre için 3 düzeyi olarak ayarlandı. Örneğin, bugün istatistik ayarı düzeyini 3 olarak değiştirdiğiniz, yarın ise (24 saat sonra) toplayıcı gerecini kullanarak keşfi başlattığınız bir senaryoyu ele alalım. Bir gün için değerlendirme oluşturuyorsanız tüm veri noktalarına sahip olursunuz ve değerlendirmenin güvenilirlik derecesi 5 yıldız olur. Ancak değerlendirme özelliklerinde performans süresini bir ay olarak değiştiriyorsanız, son bir ay için disk ve ağ performansı verileri kullanılabilir halde olmayacağından güvenilirlik derecesi düşer. Son bir ayın performans verilerini dikkate almak istiyorsanız, keşif başlatmadan önce bir ay boyunca vCenter Server istatistik ayarını 3 düzeyinde tutmanız önerilir.
-
-**Sürekli keşif**
-
 - Değerlendirmeyi oluşturduğunuz süre boyunca ortamınızın profilini oluşturmadınız. Örneğin, değerlendirmeyi, 1 gün olarak ayarlanmış performans süresiyle oluşturuyorsanız, toplanacak tüm veri noktalarının keşfini başlattıktan sonra en az bir gün beklemeniz gerekir.
 
-**Yaygın nedenler**  
-
 - Değerlendirmenin hesaplandığı dönem boyunca birkaç sanal makine kapatılmıştır. Herhangi bir VM, belirli bir süre boyunca kapatıldıysa o süreye ait performans verilerine sahip olamayız.
+
 - Değerlendirmenin hesaplandığı dönem boyunca birkaç sanal makine oluşturulmuştur. Örneğin, son bir ayın performans geçmişi için değerlendirme oluşturuyorsanız, ancak yalnızca bir hafta önce ortamda birkaç sanal makine oluşturulduysa. Bu tür durumlarda yeni sanal makinelerin performans geçmişi, sürenin tamamı boyunca mevcut olmaz.
 
 > [!NOTE]
-> Herhangi bir değerlendirmenin güvenilirlik derecesi 4 Yıldız’ın altında ise, tek seferlik keşif modeli için, vCenter Server istatistik ayarları düzeyini 3 olarak değiştirmeniz, değerlendirme için göz önünde bulundurmak istediğiniz süre (1 gün/1 hafta/1 ay) boyunca bekleyip daha sonra keşif ve değerlendirme gerçekleştirmeniz önerilir. Sürekli keşif modeli için, aletin ortamın profilini oluşturması için en az bir gün bekleyin ve ardından değerlendirmeyi *Yeniden hesaplayın*. Bu yapılamazsa, performansa dayalı boyutlandırma güvenilir olmayabilir ve değerlendirme özellikleri değiştirilerek *şirket içi olarak boyutlandırmaya* geçiş yapılması önerilir.
+> Herhangi bir değerlendirmenin güvenilirlik derecesi 5 yıldızdan düşükse, gereç ortamı profilini oluşturmak için en az bir gün bekleyin ve ardından *yeniden hesapla* değerlendirme. Bu yapılamazsa, performansa dayalı boyutlandırma güvenilir olmayabilir ve değerlendirme özellikleri değiştirilerek *şirket içi olarak boyutlandırmaya* geçiş yapılması önerilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

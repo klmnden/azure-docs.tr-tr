@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 35feb1b2aa593d403b3b54781ddbba41964d15e5
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: bc6e77643783e1e9f124bc98ea1eb910304a5f32
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394842"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846479"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bulut Market yayımcısı olur
 
@@ -78,7 +78,7 @@ Aşağıdaki bilgiler istenir:
 Market ekleme ekibimiz, 3. adımda verilen Market kayıt ayrıntıları doğrulayacaktır. Onaylandıktan sonra bir Hoş Geldiniz e-posta ile hesap kimlik bilgilerini ve oturum açma için yönergeler alırsınız [bulut iş ortağı portalı](https://cloudpartner.azure.com).
 
 Kullanacağınız [bulut iş ortağı portalı](https://cloudpartner.azure.com) oluşturmak için yayımlama ve Market teklifleri yönetin. Onay Hoş Geldiniz e-postası aldıktan sonra hemen üzerinde oturum açabileceğiniz [bulut iş ortağı portalı](https://cloudpartner.azure.com) Market'te yayımlama ve teklifinizi oluşturma hakkında ek teknik bilgiler erişmek için Microsoft hesabınızla. 
-*   Bulut iş ortağı portalı kullanma hakkında daha fazla bilgi için [edinin bölümünde Başlarken makaleyi ziyaret](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal). Bu ayrıntılar erişmek için bulut iş ortağı portalı oturum açmanız gerekir.
+*   Bulut iş ortağı portalı kullanma hakkında daha fazla bilgi için [edinin bölümünde Başlarken makaleyi ziyaret](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal). Bu ayrıntılar erişmek için bulut iş ortağı portalı oturum açmanız gerekir.
 *   Sizin sorularınız varsa veya bir ekleme genel bakış çağrı zamanlama gibi diğer makalelerden Bu yayımcı Kılavuzu gözden geçirin veya sorun türü altında bir destek isteği açın > bulut iş ortağı portalı içinden gelen Market ekleme.
 *   Hoş Geldiniz e-postayı almadıysanız, lütfen konu satırını içeren bir e-posta için istenmeyen posta klasörünüzü kontrol edin "için Microsoft Marketplace Hoş Geldiniz!." İstenmeyen posta klasörünüzü hiç e-posta varsa, lütfen [Microsoft desteğine başvurun](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). Destek sayfasında Lütfen seçin: sorun türü > Market ekleme.  Market yayımcı ekleme ekibimiz, sorguları ile yardımcı olmaktan mutluluk duyarız. 
 

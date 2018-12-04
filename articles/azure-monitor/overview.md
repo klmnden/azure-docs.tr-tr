@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 5ef451da3eae696c3506f25ee9458b3ad3286b07
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a3e0125a66c4b8bbda6e0b7087fe5e0e387d43e4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721191"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847397"
 ---
 # <a name="azure-monitor-overview"></a>Azure İzleyiciye Genel Bakış
 
@@ -39,7 +39,7 @@ Birçok Azure kaynağı için kendi genel bakış sayfasında Azure portalında 
 
 ![Ölçümler](media/overview/metrics.png)
 
-Azure İzleyici tarafından toplanan günlük verilerini içeren Log Analytics'e depolanan bir [zengin sorgu dili](../log-analytics/log-analytics-queries.md) hızlı bir şekilde almak, birleştirmek ve toplanan verileri çözümlemek için.  Oluşturma ve test sorguları kullanarak [Log Analytics sayfa](../log-analytics/log-analytics-log-search-portals.md) ile kullanılmak üzere sorguları kaydedebilir ya da doğrudan Azure portalını sonra da bu araçları kullanarak verileri analiz ederek [görselleştirmeler](visualizations.md) veya [ Uyarı kuralları](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+Azure İzleyici tarafından toplanan günlük verilerini içeren Log Analytics'e depolanan bir [zengin sorgu dili](../azure-monitor/log-query/log-query-overview.md) hızlı bir şekilde almak, birleştirmek ve toplanan verileri çözümlemek için.  Oluşturma ve test sorguları kullanarak [Log Analytics sayfa](../log-analytics/log-analytics-log-search-portals.md) ile kullanılmak üzere sorguları kaydedebilir ya da doğrudan Azure portalını sonra da bu araçları kullanarak verileri analiz ederek [görselleştirmeler](visualizations.md) veya [ Uyarı kuralları](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
 
 Log Analytics sorgu dili basit günlük sorguları için uygundur, ancak ayrıca toplamalar, birleştirmeler ve akıllı analiz gibi gelişmiş işlevleri içerir. Sorgu dilini kullanarak hızla edinebilirsiniz [birden çok dersleri](../log-analytics/query-language/get-started-queries.md) kullanılabilir.  [SQL](../log-analytics/query-language/sql-cheatsheet.md) ve [Splunk](../log-analytics/query-language/splunk-cheatsheet.md)’u önceden bilen kullanıcılara belirli yönergeler sağlanır.
 
@@ -82,10 +82,10 @@ Kapsayıcılar için Azure İzleyici, yönetilen Azure Kubernetes Service (AKS) 
 Azure İzleyici VM içgörüler izler, Azure sanal makineleri (VM) uygun ölçekte Windows ve Linux Vm'leri, farklı işlemler ve diğer kaynakları ve dış işlemlere birbirine bağımlılıkları da dahil olmak üzere, sistem durumu ve performansı çözümleyerek. Uygulama bağımlılıkları VM'ler için şirket içi veya başka bir bulut sağlayıcısı barındırılan ve çözüm, performans izleme için destek içerir.  
 
 
-![VM Insights](media/overview/vm-insights.png)
+![VM öngörüleri](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>İzleme çözümleri
-[İzleme çözümleri](../azure-monitor/insights/solutions.md) Azure İzleyici'de belirli bir uygulama veya hizmet için Öngörüler sağlayan paketlenmiş mantık kümeleridir. Bunlar verileri Log Analytics'e kullanarak diğer izleme verilerinin yanı sıra toplama [sorguları](../log-analytics/log-analytics-queries.md) analiz ve [görünümleri](../azure-monitor/platform/view-designer.md) görselleştirme için. İzleme çözümleri [Microsoft'tan kullanılabilir](../azure-monitor/insights/solutions-inventory.md) ve iş ortakları, çeşitli Azure Hizmetleri ve diğer uygulamalar için izleme sağlamak için.
+[İzleme çözümleri](../azure-monitor/insights/solutions.md) Azure İzleyici'de belirli bir uygulama veya hizmet için Öngörüler sağlayan paketlenmiş mantık kümeleridir. Bunlar verileri Log Analytics'e kullanarak diğer izleme verilerinin yanı sıra toplama [sorguları](../azure-monitor/log-query/log-query-overview.md) analiz ve [görünümleri](../azure-monitor/platform/view-designer.md) görselleştirme için. İzleme çözümleri [Microsoft'tan kullanılabilir](../azure-monitor/insights/solutions-inventory.md) ve iş ortakları, çeşitli Azure Hizmetleri ve diğer uygulamalar için izleme sağlamak için.
 
 ![İzleme çözümleri](media/overview/solutions-overview.png)
 
@@ -146,4 +146,4 @@ Aşağıdakiler hakkında daha fazla bilgi edinin:
 
 * [Ölçüm ve günlükleri](../azure-monitor/platform/data-collection.md) Azure İzleyici tarafından toplanan veriler için.
 * [Veri kaynakları](../azure-monitor/platform/data-sources.md) nasıl uygulamanızın farklı bileşenlerini telemetri göndermek için.
-* [Log Analytics](../log-analytics/log-analytics-queries.md) toplanan verileri analiz etmek için.
+* [Log Analytics](../azure-monitor/log-query/log-query-overview.md) toplanan verileri analiz etmek için.

@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: 4a5cb7d15627ac3e48b72567ec3740377b2a0264
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ca3396024fdab31217b00ef7cdd39e4e61504d27
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365679"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851103"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Bulut uygulamalarınızı SaaS erişimi yönetmek için kullanım Kiracı kısıtlamaları
 
 Güvenlik vurgulamak büyük kuruluşlar, bulut Hizmetleri Office 365 gibi ancak kullanıcılar yalnızca onaylanan kaynaklara erişebilir bilmeniz gereken taşımak istiyorum. Geleneksel olarak, erişimi yönetmek istediklerinde şirket etki alanı adlarını veya IP adreslerini kısıtlayın. Bu yaklaşım, SaaS uygulamalarında paylaşılan etki alanı adları outlook.office.com ve login.microsoftonline.com gibi çalışan bir genel bulutta barındırıldığı bir dünyada başarısız olur. Bu adresler engelleme, kullanıcıların web üzerinde Outlook'u tamamen yalnızca bunları onaylı kimlikleri ve kaynaklarına erişimi kısıtlama yerine erişmesini tutacak.
 
-Azure Active Directory'nin bu çözüme Kiracı kısıtlamaları adlı bir özelliktir. Kiracı kısıtlamaları, kuruluşların uygulamalar için çoklu oturum açmayı kullanan Azure AD kiracısına bağlı SaaS bulut uygulamalarına erişimini denetlemek etkinleştirir. Örneğin, diğer kuruluşların bu aynı uygulama örneklerini erişim sağlarken kuruluşunuzun Office 365 uygulamalarına erişim vermek isteyebilirsiniz.  
+Azure Active Directory'nin bu çözüme Kiracı kısıtlamaları adlı bir özelliktir. Kiracı kısıtlamaları, kuruluşların uygulamalar için çoklu oturum açmayı kullanan Azure AD kiracısına bağlı SaaS bulut uygulamalarına erişimini denetlemek etkinleştirir. Örneğin, diğer kuruluşların bu aynı uygulama örneklerini erişim sağlarken kuruluşunuzun Office 365 uygulamalarına erişim vermek isteyebilirsiniz.  
 
 Kiracı kısıtlamaları kuruluşların kullanıcıları erişmesine izin verilen kiracılar listesinde belirtme olanağı sağlar. Ardından Azure AD, yalnızca bu izin verilen kiracılar erişim verir.
 
@@ -34,13 +34,13 @@ Bu makalede, Office 365 için Kiracı kısıtlamaları odaklanır, ancak özelli
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
-Genel çözümü aşağıdaki bileşenlerden oluşur: 
+Genel çözümü aşağıdaki bileşenlerden oluşur: 
 
-1. **Azure AD** – `Restrict-Access-To-Tenants: <permitted tenant list>` varsa, Azure AD yalnızca sorunlar güvenlik belirteçleri için izin verilen kiracılar olduğu. 
+1. **Azure AD** – `Restrict-Access-To-Tenants: <permitted tenant list>` varsa, Azure AD yalnızca sorunlar güvenlik belirteçleri için izin verilen kiracılar olduğu. 
 
-2. **Şirket içi proxy sunucu altyapısı** – listesini içeren başlık eklemek için yapılandırılmış SSL incelenmesi özellikli bir proxy cihaz kiracılar için Azure AD giden trafiğe izin. 
+2. **Şirket içi proxy sunucu altyapısı** – listesini içeren başlık eklemek için yapılandırılmış SSL incelenmesi özellikli bir proxy cihaz kiracılar için Azure AD giden trafiğe izin. 
 
-3. **İstemci yazılımını** – Kiracı kısıtlamalarını desteklemek amacıyla istemci yazılımını istemeniz gerekir belirteçlerini doğrudan Azure AD'den, böylece trafik proxy altyapısı tarafından müdahale edilebilir. Kiracı kısıtlamaları şu anda desteklenen tarayıcı tabanlı bir Office 365 uygulamaları ve Office istemcileri tarafından modern kimlik doğrulaması (gibi OAuth 2.0) kullanıldığında. 
+3. **İstemci yazılımını** – Kiracı kısıtlamalarını desteklemek amacıyla istemci yazılımını istemeniz gerekir belirteçlerini doğrudan Azure AD'den, böylece trafik proxy altyapısı tarafından müdahale edilebilir. Kiracı kısıtlamaları şu anda desteklenen tarayıcı tabanlı bir Office 365 uygulamaları ve Office istemcileri tarafından modern kimlik doğrulaması (gibi OAuth 2.0) kullanıldığında. 
 
 4. **Modern kimlik doğrulaması** – bulut Hizmetleri, Kiracı kısıtlamaları kullanın ve verilmeyen tüm kiracılar için erişimi engellemek için modern kimlik doğrulaması kullanmalıdır. Office 365 bulut Hizmetleri, modern kimlik doğrulama protokolleri kullanmak için varsayılan olarak yapılandırılmalıdır. Office 365 modern kimlik doğrulaması desteğini en son bilgiler için okuma [güncelleştirilmiş Office 365 modern kimlik doğrulaması](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/).
 
@@ -54,7 +54,7 @@ Kiracı kısıtlamaları ile kullanmaya başlamak için iki adım vardır. İlk 
 
 ### <a name="urls-and-ip-addresses"></a>URL'leri ve IP adresleri
 
-Kiracı kısıtlamaları kullanmak için istemcilerin kimliğini doğrulamak için aşağıdaki Azure AD URL'lere bağlanabilir olmalıdır: login.microsoftonline.com login.microsoft.com ve login.windows.net. Ayrıca, erişim için Office 365, istemcilerinize de FQDN/URL'leri bağlanabilmesi gerekir ve IP adresleri tanımlanan [Office 365 URL'leri ve IP adresi aralıkları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2). 
+Kiracı kısıtlamaları kullanmak için istemcilerin kimliğini doğrulamak için aşağıdaki Azure AD URL'lere bağlanabilir olmalıdır: login.microsoftonline.com login.microsoft.com ve login.windows.net. Ayrıca, erişim için Office 365, istemcilerinize de FQDN/URL'leri bağlanabilmesi gerekir ve IP adresleri tanımlanan [Office 365 URL'leri ve IP adresi aralıkları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2). 
 
 ### <a name="proxy-configuration-and-requirements"></a>Proxy yapılandırması ve gereksinimleri
 
@@ -62,7 +62,7 @@ Kiracı kısıtlamaları proxy altyapınızın etkinleştirmek için aşağıdak
 
 #### <a name="prerequisites"></a>Önkoşullar
 
-- Proxy SSL durdurma, HTTP üst bilgi ekleme, gerçekleştirme ve FQDN'ler/URL'leri kullanarak hedefleri filtre olmalıdır. 
+- Proxy SSL durdurma, HTTP üst bilgi ekleme, gerçekleştirme ve FQDN'ler/URL'leri kullanarak hedefleri filtre olmalıdır. 
 
 - İstemciler, SSL iletişimi için Ara sunucu tarafından sunulan sertifika zincirine güvenmelidir. Örneğin, bir iç PKI sertifikaları kullanılıyorsa, iç veren kök sertifika yetkilisi sertifikası güvenilir olması gerekir.
 
@@ -72,14 +72,14 @@ Kiracı kısıtlamaları proxy altyapınızın etkinleştirmek için aşağıdak
 
 Login.microsoftonline.com, login.microsoft.com ve login.windows.net gelen istek için her iki HTTP üst bilgileri ekleyin: *kiracılar için kısıtlama erişim* ve *kısıtlama erişim bağlam*.
 
-Üst bilgileri, aşağıdaki öğeleri içermelidir: 
-- İçin *kiracılar için kısıtlama erişim*, değerini \<Kiracı listesini izin\>, kullanıcıların erişmesine izin vermek istediğiniz kiracılar virgülle ayrılmış listesi verilmiştir. Bir kiracı ile kaydedilen herhangi bir etki alanı, bu listedeki Kiracı tanımlamak için kullanılabilir. Örneğin, hem Contoso ve Fabrikam kiracıları için erişime izin vermek için ad/değer çifti şuna benzer:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
-- İçin *kısıtlama erişim bağlam*, hangi Kiracı, Kiracı kısıtlamaları ayarlama bildirmek, bir tek dizin kimliği değeri. Örneğin, Contoso Kiracı kısıtlamaları İlkesi ayarlamak Kiracı olarak bildirmek için ad/değer çifti şuna benzer: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
+Üst bilgileri, aşağıdaki öğeleri içermelidir: 
+- İçin *kiracılar için kısıtlama erişim*, değerini \<Kiracı listesini izin\>, kullanıcıların erişmesine izin vermek istediğiniz kiracılar virgülle ayrılmış listesi verilmiştir. Bir kiracı ile kaydedilen herhangi bir etki alanı, bu listedeki Kiracı tanımlamak için kullanılabilir. Örneğin, hem Contoso ve Fabrikam kiracıları için erişime izin vermek için ad/değer çifti şuna benzer:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
+- İçin *kısıtlama erişim bağlam*, hangi Kiracı, Kiracı kısıtlamaları ayarlama bildirmek, bir tek dizin kimliği değeri. Örneğin, Contoso Kiracı kısıtlamaları İlkesi ayarlamak Kiracı olarak bildirmek için ad/değer çifti şuna benzer: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
 > [!TIP]
 > Dizin Kimliğinizi bulabilirsiniz [Azure portalında](https://portal.azure.com). Bir yönetici olarak oturum açın, select **Azure Active Directory**, ardından **özellikleri**.
 
-Kullanıcıların kendi HTTP üstbilgisi onaylanmamış kiracıyla eklemesi önlemek için proxy zaten gelen istekteki ise kiracılar için kısıtlama erişim üstbilgi değiştirmesi gerekiyor. 
+Kullanıcıların kendi HTTP üstbilgisi onaylanmamış kiracıyla eklemesi önlemek için proxy zaten gelen istekteki ise kiracılar için kısıtlama erişim üstbilgi değiştirmesi gerekiyor. 
 
 Login.microsoftonline.com login.microsoft.com ve login.windows.net gönderilen tüm istekler için Ara sunucu kullanmak için istemcileri zorlanması gerekir. PAC dosyaları istemcileri bir proxy kullanmak üzere yönlendirmek için kullanılır, örneğin, son kullanıcıların düzenlemek ya da PAC dosyaları devre dışı olmaması gerekir.
 
@@ -116,7 +116,7 @@ Kiracı kısıtlamaları şu anda Office 365 tarayıcı tabanlı uygulamalar tar
 
 Outlook ve Skype için modern kimlik doğrulamasını destekleyen iş istemcileri burada modern kimlik doğrulaması etkin kiracılar karşı eski protokolleri kullanmak hala mümkün olabilir, etkili bir şekilde Kiracı kısıtlamalarını aşabilir. Kimlik doğrulaması sırasında login.microsoftonline.com, login.microsoft.com veya login.windows.net başvurursanız, eski protokolleri kullanan uygulamalar Kiracı kısıtlamaları tarafından engelleniyor olabilir.
 
-Windows için Outlook, müşterileri, son kullanıcıların profillerini için onaylanmamış e-posta hesapları eklemesini engelleyen kısıtlamalar uygulamak seçebilir. Örneğin, [varsayılan olmayan Exchange hesapları ekleme engelle](http://gpsearch.azurewebsites.net/default.aspx?ref=1) Grup İlkesi ayarı.
+Windows için Outlook, müşterileri, son kullanıcıların profillerini için onaylanmamış e-posta hesapları eklemesini engelleyen kısıtlamalar uygulamak seçebilir. Örneğin, [varsayılan olmayan Exchange hesapları ekleme engelle](https://gpsearch.azurewebsites.net/default.aspx?ref=1) Grup İlkesi ayarı.
 
 ## <a name="testing"></a>Test Etme
 
@@ -126,8 +126,8 @@ Kiracı kısıtlamaları tüm kuruluşunuz için uygulamadan önce denemek istiy
 
 Fiddler yakalamak ve HTTP/HTTPS trafiğini, HTTP üst bilgilerini ekleme dahil olmak üzere değiştirmek için kullanılan proxy hata ayıklama ücretsiz bir web tarayıcısı uygulamasıdır. Kiracı kısıtlamaları test etmek için fiddler'ı yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1.  [Fiddler'ı yükleyip](http://www.telerik.com/fiddler).
-2.  Başına HTTPS trafiği şifresini çözmek için fiddler'ı yapılandırma [Fiddler'ın Yardım belgeleri](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
+1.  [Fiddler'ı yükleyip](https://www.telerik.com/fiddler).
+2.  Başına HTTPS trafiği şifresini çözmek için fiddler'ı yapılandırma [Fiddler'ın Yardım belgeleri](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
 3.  Eklemek için fiddler'ı yapılandırma *kiracılar için kısıtlama erişim* ve *kısıtlama erişim bağlam* üstbilgileri özel kuralları kullanarak:
   1. Fiddler'ı Web hata ayıklayıcısı Aracı'nda seçin **kuralları** menü ve select **kuralları Özelleştir...** CustomRules dosyayı açmak için.
   2. Aşağıdaki satırları ekleyin başında *OnBeforeRequest* işlevi. Değiştirin \<Kiracı etki alanı\> bir etki alanında kayıtlı kiracınız ile Örneğin, contoso.onmicrosoft.com. Değiştirin \<dizin kimliği\> , kiracınızın Azure AD GUID tanımlayıcısı.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 5ddd28838e7db7b7f2798b18028aba56246fda4c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b8ff27413888e1745bd9a83e2e2e8c7b77fba34
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437799"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847057"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>Öğretici: Azure Active Directory MCM ile tümleştirme
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile MCM yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik MCM çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'de MCM tümleştirmesini yapılandırmak için MCM Galeriden yönetilen
 
 **Galeriden MCM eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -117,7 +117,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve M
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://myaba.co.uk/<companyname>`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [MCM istemci Destek ekibine](http://mcmtechnology.com/support/) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [MCM istemci Destek ekibine](https://mcmtechnology.com/support/) bu değerleri almak için. 
  
 1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
@@ -127,7 +127,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve M
 
     ![Çoklu oturum açmayı yapılandırın](./media/mcm-tutorial/tutorial_general_400.png) 
 
-1. Çoklu oturum açmayı yapılandırma **MCM** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [MCM Destek ekibine](http://mcmtechnology.com/support/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+1. Çoklu oturum açmayı yapılandırma **MCM** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [MCM Destek ekibine](https://mcmtechnology.com/support/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
 > İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -166,7 +166,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="creating-a-mcm-test-user"></a>MCM test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon MCM içinde adlı bir kullanıcı oluşturun. Çalışmak [MCM Destek ekibine](http://mcmtechnology.com/support/) MCM platform kullanıcıları eklemek için.
+Bu bölümde, Britta Simon MCM içinde adlı bir kullanıcı oluşturun. Çalışmak [MCM Destek ekibine](https://mcmtechnology.com/support/) MCM platform kullanıcıları eklemek için.
 
 > [!NOTE]
 > Herhangi diğer MCM kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri için AAD kullanıcı hesapları sağlamak MCM tarafından sağlanan.

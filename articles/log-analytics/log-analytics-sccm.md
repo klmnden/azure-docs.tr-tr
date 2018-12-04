@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 4e20d787bef4da518765d1eeeb33237ddd612606
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 8e30b1ba093e38f81c9a09a0b9107e5a3b2eb768
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721230"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847380"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Configuration Manager'ı Log Analytics'e bağlanma
 System Center Configuration Manager ortamınızı Azure Log Analytics'e eşitleme cihaz koleksiyonu verilere ve Log Analytics ve Azure Otomasyonu bu koleksiyonlara başvuru.  
@@ -112,7 +112,7 @@ Koleksiyonları içeri aktarıldıktan sonra kaç koleksiyon üyelikleri bilgisa
 
 ![Bilgisayar grupları - SCCM sekmesi](./media/log-analytics-sccm/sccm-computer-groups02.png)
 
-Tek tıkladığınızda, tüm içeri aktarılan gruplarının ya da her gruba ait tüm bilgisayarların görüntüleyen arama açılır. Kullanarak [günlük araması](log-analytics-queries.md), Configuration Manager verilerini detaylı olarak çözümlenmesi başlayabilirsiniz.
+Tek tıkladığınızda, tüm içeri aktarılan gruplarının ya da her gruba ait tüm bilgisayarların görüntüleyen arama açılır. Kullanarak [günlük araması](../azure-monitor/log-query/log-query-overview.md), Configuration Manager verilerini detaylı olarak çözümlenmesi başlayabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [günlük araması](log-analytics-queries.md) Configuration Manager verileriniz hakkında ayrıntılı bilgi görüntülemek için.
+* Kullanım [günlük araması](../azure-monitor/log-query/log-query-overview.md) Configuration Manager verileriniz hakkında ayrıntılı bilgi görüntülemek için.

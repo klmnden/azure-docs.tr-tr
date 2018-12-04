@@ -15,18 +15,18 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 428f094dae2b9a69b58912190d2959a7dfc467ec
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 212628c0ec97524e91ab8eaeb766c3e405023aaf
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365271"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846173"
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Şirket içi uygulamalara güvenli uzaktan erişim sağlama
 
-Çalışanlar, bugün herhangi bir yerde dilediğiniz zaman ve tüm cihazlardan üretken olmasını ister. Kendi cihazlarında iş satış noktası tabletleri, telefonlar veya dizüstü oluşmasından isterler. Ve tüm uygulamalar, her iki SaaS uygulamaları bulutta ve şirket içi Kurumsal uygulama erişebilmesi beklerler. Şirket içi uygulamalara erişim sağlayarak, geleneksel sanal özel ağlar (VPN) veya (DMZ'ler) arındırılmış bölge dahil. Yalnızca bu çözümleri karmaşık ve güvenli hale getirmek sabit, ancak bunlar pahalı ayarlayın ve yönetin.
+Günümüzde çalışanlar her yerden, her zaman ve tüm cihazlardan çalışmak istemektedir. Kendi cihazlarında iş satış noktası tabletleri, telefonlar veya dizüstü oluşmasından isterler. Ve tüm uygulamalar, her iki SaaS uygulamaları bulutta ve şirket içi Kurumsal uygulama erişebilmesi beklerler. Şirket içi uygulamalara erişmek için bugüne kadar sanal özel ağlar (VPN) veya temiz bölgeler (DMZ) kullanılıyordu. Bunlar yalnızca karmaşık ve güvenliği zor sağlanan çözümler değil aynı zamanda kurulumu ve yönetimi yüksek maliyetli seçeneklerdir.
 
-Daha iyi bir yolu yoktur!
+Artık çok daha iyi bir seçenek var!
 
 Modern bir iş gücü mobil öncelikli olarak bulut öncelikli dünyada bir modern uzaktan erişim çözümü gerekir. Azure AD uygulama proxy'si, uzaktan erişim hizmet olarak sunan Azure Active Directory özelliğidir. Bu, dağıtmak, kullanmak ve yönetmek kolay anlamına gelir.
 
@@ -100,5 +100,5 @@ Uygulama Ara sunucusu ile iki adımda kullanmaya başlayın:
 * [Mevcut şirket içi Proxy sunucuları ile çalışma](application-proxy-configure-connectors-with-proxy-servers.md) 
 * [Özel bir ana sayfa olarak ayarla](application-proxy-configure-custom-home-page.md)
 
-En yeni haberler ve güncelleştirmeler için [Uygulama Ara Sunucusu bloguna](http://blogs.technet.com/b/applicationproxyblog/) göz atın
+En yeni haberler ve güncelleştirmeler için [Uygulama Ara Sunucusu bloguna](https://blogs.technet.com/b/applicationproxyblog/) göz atın
 

@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/02/2018
+ms.date: 11/29/2018
 ms.author: moderakh
-ms.openlocfilehash: c8b8397e5d51b67895a6a95ed6d1611813a9aaf6
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: b5c393ada7ba0cfbce5e406046eb7285d5d07259
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300855"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849352"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK'sı SQL API'si için: yayın notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -52,6 +52,11 @@ SQL API Async Java SDK'sı desteği ile zaman uyumsuz işlemleri sağlayarak SQL
 </table></br>
 
 ## <a name="release-notes"></a>Sürüm notları
+
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+* Bir kaynak sızıntısı hata düzeltildi.
+* MultiPolygon desteği eklendi
+* Özel üst bilgilerinde RequestOptions desteği eklendi.
 
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
 * Paketleme hata düzeltildi.
@@ -122,6 +127,7 @@ Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm iste
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.3.0](#2.3.0) |29 Kasım 2018|--- |
 | [2.2.2](#2.2.2) |8 Kasım 2018|--- |
 | [2.2.1](#2.2.1) |2 Kasım 2018|--- |
 | [2.2.0](#2.2.0) |22 Eylül 2018'den|--- |

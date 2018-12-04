@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 510fe187661534c4c82ae7ec62904de51eb4b221
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 0ded8160478fba5f2b4d5d321685451701eb102a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682749"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849080"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS analizi Önizleme çözümü, DNS altyapısıyla ilgili Öngörüler toplayın
 
@@ -190,4 +190,4 @@ Geri bildirim size iki yolu vardır:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Arama günlüklerini](../../log-analytics/log-analytics-queries.md) ayrıntılı DNS günlük kayıtları görüntülemek için.
+[Arama günlüklerini](../../azure-monitor/log-query/log-query-overview.md) ayrıntılı DNS günlük kayıtları görüntülemek için.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 71ecffebe095fd325837aeb1d6e741a2f3321aea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 88952d09672fb4dd2d31878d56a59cb425f53de2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421847"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850457"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Öğretici: Azure Active Directory Mimecast kişisel portalı ile tümleştirme
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi Mimecast kişisel portalıyla yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Mimecast kişisel portalı çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de Mimecast kişisel portalı tümleştirmesini yapılandırmak için M
 
 **Galeriden Mimecast kişisel portalı eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -139,7 +139,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve M
     | Yurtdışında        | `https://jer-api.mimecast.com/login/saml`|
     
     > [!NOTE] 
-    > Tanımlayıcı değerini gerçek değil. Değerini gerçek tanımlayıcısıyla güncelleştirin. İlgili kişi [Mimecast kişisel portalı istemcisi Destek ekibine](http://www.mimecast.com/customer-success/technical-support/) değeri alınamıyor. 
+    > Tanımlayıcı değerini gerçek değil. Değerini gerçek tanımlayıcısıyla güncelleştirin. İlgili kişi [Mimecast kişisel portalı istemcisi Destek ekibine](https://www.mimecast.com/customer-success/technical-support/) değeri alınamıyor. 
 
 1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 

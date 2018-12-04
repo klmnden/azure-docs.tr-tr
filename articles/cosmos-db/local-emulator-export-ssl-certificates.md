@@ -1,22 +1,19 @@
 ---
-title: Azure Cosmos DB Öykünücüsü sertifikalarını dışarı aktarma | Microsoft Docs
+title: Azure Cosmos DB öykünücüsü'nü sertifikaları verme
 description: Windows Sertifika Deposu’nu kullanmayan dil ve çalışma zamanlarında geliştirirken, SSL sertifikalarını dışarı aktarmanız ve yönetmeniz gerekir. Bu gönderi adım adım yönergeler verir.
 services: cosmos-db
 keywords: Azure Cosmos DB Öykünücüsü
 author: David-Noble-at-work
-manager: kfile
-editor: ''
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/06/2017
 ms.author: danoble
-ms.openlocfilehash: 45a909b910fe45d87833b0f3c6ba652503a1d212
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: HT
+ms.openlocfilehash: f73c6f279f4281abb3751f101255ca3707a59641
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41918363"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850389"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Azure Cosmos DB Öykünücü sertifikalarını Java, Python ve Node.js ile kullanmak için dışarı aktarma
 

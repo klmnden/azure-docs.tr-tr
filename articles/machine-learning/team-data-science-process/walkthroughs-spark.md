@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: a7697d2be1a43af93109bb7bbdab50828275f5aa
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 8b7089a034b352366ee6a67e8da3d85c61e9039b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446410"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846275"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>PySpark ve Scala Azure'da kullanarak HDInsight Spark veri bilimi kılavuzları
 
@@ -40,7 +40,7 @@ Bkz: [Gelişmiş Veri keşfi ve modelleme Spark ile](spark-advanced-data-explora
 
 ## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Azure üzerinde Spark Scala kullanarak taksi bahşişlerini tahmin etme
 
-[Kullanım Scala ile Spark azure'da](scala-walkthrough.md) izlenecek yol, bir ipucu Ücretli ve ödenecek tutarlar aralığını beklenen tahmin etmek için New York taksiler verileri kullanır. Bu, Scala ile Spark makine öğrenimi kitaplığı (MLlib) ve bir Azure HDInsight Spark kümesi üzerinde SparkML paketleri görevleri öğrenme denetimli makine kullanmak nasıl gösterir. Oluşturan görevlerinde size yol gösterir [Data Science Process](https://aka.ms/datascienceprocess): veri alımı ve keşfi, görselleştirme, özellik Mühendisliği, modelleme ve model tüketim. Mantıksal ve doğrusal regresyon, rastgele ormanları ve gradyan artırmalı ağaçları modellerinin içerir.
+[Kullanım Scala ile Spark azure'da](scala-walkthrough.md) izlenecek yol, bir ipucu Ücretli ve ödenecek tutarlar aralığını beklenen tahmin etmek için New York taksiler verileri kullanır. Bu, Scala ile Spark makine öğrenimi kitaplığı (MLlib) ve bir Azure HDInsight Spark kümesi üzerinde SparkML paketleri görevleri öğrenme denetimli makine kullanmak nasıl gösterir. Oluşturan görevlerinde size yol gösterir [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): veri alımı ve keşfi, görselleştirme, özellik Mühendisliği, modelleme ve model tüketim. Mantıksal ve doğrusal regresyon, rastgele ormanları ve gradyan artırmalı ağaçları modellerinin içerir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

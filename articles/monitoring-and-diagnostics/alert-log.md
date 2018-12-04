@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 6e6db7ef2f2de075aea41a29e69b2c674efafa17
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: cca15447587fcec7253b449d93fc2f644fe6c249
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635365"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851052"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak günlük uyarıları yönetme  
 
@@ -57,7 +57,7 @@ Ayrıntılı sonraki Azure portal arabirimi kullanarak günlük uyarıları kull
 
    > [!NOTE]
 
-   > Liste sinyal türü - analytics sorgusuna alma uyarılar **günlük (kayıtlı sorgu)**, çizimde görüldüğü gibi. Böylece kullanıcılar Analytics sorgunuzda mükemmel ve gelecekte kullanılmak üzere uyarılar - kaydetmek daha fazla ayrıntı bulunabilir sorgu kaydetme kullanarak [log analytics'te günlük arama özelliğini kullanarak](../log-analytics/log-analytics-queries.md) veya [application ınsights'ta paylaşılan sorgu Analytics](../log-analytics/log-analytics-queries.md). 
+   > Liste sinyal türü - analytics sorgusuna alma uyarılar **günlük (kayıtlı sorgu)**, çizimde görüldüğü gibi. Böylece kullanıcılar Analytics sorgunuzda mükemmel ve gelecekte kullanılmak üzere uyarılar - kaydetmek daha fazla ayrıntı bulunabilir sorgu kaydetme kullanarak [log analytics'te günlük arama özelliğini kullanarak](../azure-monitor/log-query/log-query-overview.md) veya [application ınsights'ta paylaşılan sorgu Analytics](../azure-monitor/log-query/log-query-overview.md). 
 
 1.  *Günlük uyarıları*: içinde seçildiğinde, uyarı için sorgu belirtilebilir **arama sorgusu** sorgu söz dizimi yanlışsa alanda hata kırmızı renkte görüntülenir; alan. Sorgu Sözdizimi doğruysa - başvuru için belirtilen sorgu geçmiş veri son altı saat zaman penceresinden geçen hafta için ince seçeneğiyle bir grafik olarak gösterilir.
 
@@ -246,5 +246,5 @@ Başarılı bir işlem 201 durum yeni uyarı kuralı oluşturma döndürülecek 
 * Hakkında bilgi edinin [oturum uyarılar Azure uyarıları](monitor-alerts-unified-log.md)
 * Anlamak [günlük uyarıları için Web kancası eylemleri](monitor-alerts-unified-log-webhook.md)
 * Daha fazla bilgi edinin [Application Insights](../application-insights/app-insights-analytics.md)
-* Daha fazla bilgi edinin [Log Analytics](../log-analytics/log-analytics-queries.md). 
+* Daha fazla bilgi edinin [Log Analytics](../azure-monitor/log-query/log-query-overview.md). 
 

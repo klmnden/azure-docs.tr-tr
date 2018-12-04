@@ -12,12 +12,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: d150a56c04d29ae44b7dbb05016889ad2bcefe8f
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 7ff57519cfbb99fa705aff6c970951730c501f3e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620328"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846462"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>Komut satırından ilk işlevinizi oluşturma
 
@@ -107,19 +107,6 @@ _Consumption-plan-location_ parametresini ayarlamak, işlev uygulamasının bir 
     // Remaining output has been truncated for readability.
 }
 ```
-
-### <a name="configure-the-function-app-nodejs"></a>İşlev uygulamasını yapılandırma (Node.js)
-
-JavaScript işlev uygulaması oluşturduğunuzda doğru Node.js sürümünü hedeflemeniz önemlidir. İşlevler çalışma zamanı sürüm 2.x, Node.js sürüm 8.x gerektirir. `WEBSITE_NODE_DEFAULT_VERSION` uygulama ayarı Azure’daki işlev uygulaması tarafından kullanılan Node.js sürümünü denetler. Node.js sürümünü `8.11.1` olarak ayarlamak için [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set) komutunu kullanın.
-
-Aşağıdaki Azure CLI komutunda <app_name>, işlev uygulamanızın adıdır.
-
-```azurecli-interactive
-az functionapp config appsettings set --resource-group myResourceGroup \
- --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
-```
-
-Çıkıştaki yeni ayarı doğrulayın.
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 

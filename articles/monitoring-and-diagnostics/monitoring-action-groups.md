@@ -5,19 +5,21 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 11/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 1b66f40594d0dd578e2e5680fb0d5bb0f82f1241
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 99444e6b7ab71a531a95245b8e5056127446dbeb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311815"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847771"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure portalında Eylem grupları oluşturma ve yönetme
 ## <a name="overview"></a>Genel Bakış ##
-Bir eylem grubu kullanıcı tarafından tanımlanan bildirim tercihleri koleksiyonudur. Azure İzleyici ve hizmet Sistem Durumu Uyarıları, uyarı tetiklendiğinde, belirli bir eylem grubu kullanmak için yapılandırılır. Çeşitli uyarılar aynı eylem grubu veya kullanıcının gereksinimlerine bağlı olarak farklı eylem grupları kullanabilir.
+Bir eylem grubu, Azure aboneliğinin sahibi tarafından tanımlanan bildirim tercihleri koleksiyonudur. Azure İzleyici ve hizmet Sistem Durumu Uyarıları Eylem grupları uyarı tetiklendi kullanıcılara bildirmek için kullanın. Çeşitli uyarılar aynı eylem grubu veya kullanıcının gereksinimlerine bağlı olarak farklı eylem grupları kullanabilir.
+
+Ne zaman bir eylem bir kişiye bildirim e-posta ile yapılandırılmış veya SMS kişinin kendisi belirten bir onay alırsınız / Filiz eylem grubuna eklendi.
 
 Bu makalede, Azure portalında Eylem grupları oluşturma ve yönetme işlemini göstermektedir.
 

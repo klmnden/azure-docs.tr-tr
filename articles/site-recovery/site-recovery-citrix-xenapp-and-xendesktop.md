@@ -5,14 +5,14 @@ author: ponatara
 manager: abhemraj
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 0b8d9765766191533745da4c653f1a91ce635c24
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4df7975d4d52e00cce7b57c6f207eb6cb9ea3be3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210321"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847907"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>çok katmanlı Citrix XenApp ve XenDesktop dağıtımı için olağanüstü durum kurtarmayı ayarlama
 
@@ -48,7 +48,7 @@ Citrix XenApp ve XenDesktop dağıtımı ile AD DNS sunucusu, SQL veritabanı su
 ![Dağıtım modeli 1](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-deployment.png)
 
 
-## <a name="site-recovery-support"></a>Site kurtarma desteği
+## <a name="site-recovery-support"></a>Site Recovery desteği
 
 Bu makalede amacıyla VMware sanal makinelerini Citrix dağıtımlarında 6.0 vSphere tarafından yönetilen / DR'yi kurma için System Center VMM 2012 R2 kullanılmış.
 

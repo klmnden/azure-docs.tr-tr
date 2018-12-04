@@ -5,15 +5,15 @@ services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 09/05/2018
+ms.topic: conceptual
+ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: 18d705f68ff06621e30c051dac9fb9607fd043ac
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: e635eddabe239268829d3a907df10392c7e1b6a3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300945"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850967"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Oluşturma ve noktadan siteye için sertifika dışarı aktarma PowerShell'i kullanma
 
@@ -27,7 +27,7 @@ Windows 10 veya Windows Server 2016'ya bir bilgisayara erişiminiz yoksa, kullan
 
 Bir otomatik olarak imzalanan kök sertifika oluşturmak için New-SelfSignedCertificate cmdlet'ini kullanın. Ek bir parametre için bilgi [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-1. Windows 10 veya Windows Server 2016 çalıştıran bir bilgisayarda, yükseltilmiş ayrıcalıklarla bir Windows PowerShell konsolu açın.
+1. Windows 10 veya Windows Server 2016 çalıştıran bir bilgisayarda, yükseltilmiş ayrıcalıklarla bir Windows PowerShell konsolu açın. Bu örnekler, "Deneyin" Azure Cloud Shell'de çalışmaz. Bu örnek yerel olarak çalıştırmanız gerekir.
 2. Otomatik olarak imzalanan kök sertifika oluşturmak için aşağıdaki örneği kullanın. Aşağıdaki örnek, '' Sertifikalar-Geçerli kullanıcı\kişisel\sertifikalar' otomatik olarak yüklenen P2SRootCert' adlı bir otomatik olarak imzalanan kök sertifika oluşturur. Sertifika açarak görüntüleyebilirsiniz *certmgr.msc*, veya *kullanıcı sertifikalarını Yönet*.
 
   ```powershell
@@ -104,7 +104,7 @@ Ek istemci sertifikalarını oluşturma ya da otomatik olarak imzalanan kök ser
 
 ### <a name="export-the-self-signed-root-certificate-and-private-key-to-store-it-optional"></a>Otomatik olarak imzalanan kök sertifika ve (isteğe bağlı) depolamak için özel anahtarı dışarı aktar
 
-Otomatik olarak imzalanan kök sertifikasını dışarı aktarma ve depolamak güvenli olarak yedekleme isteyebilirsiniz. Varsa olabilir, daha sonra başka bir bilgisayara yükleyin ve daha fazla istemci certifiates oluşturur. Otomatik olarak imzalanan kök sertifika .pfx dışarı aktarmak için kök sertifika Seç ve açıklandığı gibi aynı adımları kullanın [bir istemci sertifikasını dışarı aktarma](#clientexport).
+Otomatik olarak imzalanan kök sertifikasını dışarı aktarma ve depolamak güvenli olarak yedekleme isteyebilirsiniz. Varsa olabilir, daha sonra başka bir bilgisayara yükleyin ve daha fazla istemci sertifikalarını oluşturmak. Otomatik olarak imzalanan kök sertifika .pfx dışarı aktarmak için kök sertifika Seç ve açıklandığı gibi aynı adımları kullanın [bir istemci sertifikasını dışarı aktarma](#clientexport).
 
 ## <a name="clientexport"></a>4. İstemci sertifikasını dışarı aktarma
 

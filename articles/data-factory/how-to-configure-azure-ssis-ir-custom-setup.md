@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/3/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: df020fc3a4e2f57730dea7329b08e1e46660e610
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: fab03f12f4099fe2df2525cb3a6fa093170d1c79
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037048"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850185"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS tümleştirme çalışma zamanı Kurulum özelleştirme
 
@@ -131,7 +131,7 @@ Azure-SSIS IR özelleştirmek için aşağıdakiler gerekir:
 
     c. Bağlı genel Önizleme kapsayıcıyı seçin ve çift `CustomSetupScript` klasör. Bu klasörde aşağıdaki öğeler şunlardır:
 
-       1. A `Sample` içeren temel bir görev, Azure-SSIS IR'yi her düğümde yüklemek için özel bir kurulum klasörü Görev birkaç saniye için uyku ancak hiçbir şey yapmaz. Klasörde ayrıca bir `gacutil` içeren klasörü `gacutil.exe`. Ayrıca, `main.cmd` dosya paylaşımları için erişim kimlik bilgilerini kalıcı hale getirmek için açıklamalarını içerir.
+       1. A `Sample` içeren temel bir görev, Azure-SSIS IR'yi her düğümde yüklemek için özel bir kurulum klasörü Görev birkaç saniye için uyku ancak hiçbir şey yapmaz. Klasörde ayrıca bir `gacutil` klasörü, tüm içeriğini (`gacutil.exe`, `gacutil.exe.config`, ve `1033\gacutlrc.dll`), kapsayıcıya olarak kopyalanabilir. Ayrıca, `main.cmd` dosya paylaşımları için erişim kimlik bilgilerini kalıcı hale getirmek için açıklamalarını içerir.
 
        1. A `UserScenarios` gerçek kullanıcı senaryoları için çeşitli özel ayarlar içeren klasör.
 
@@ -146,8 +146,6 @@ Azure-SSIS IR özelleştirmek için aşağıdakiler gerekir:
        1. A `BCP` SQL Server komut satırı yardımcı programlarını yüklemek için özel bir kurulum içeren klasörü (`MsSqlCmdLnUtils.msi`), toplu kopyalama programı da dahil olmak üzere (`bcp`), her düğüme, Azure-SSIS IR
 
        1. Bir `EXCEL` açık kaynaklı derlemeleri yüklemek için özel bir kurulum içeren klasörü (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, ve `ExcelDataReader.dll`), Azure-SSIS IR, her bir düğümde
-
-       1. Bir `MSDTC` , Azure-SSIS IR, her bir düğümünde Microsoft Dağıtılmış İşlem Düzenleyicisi (MSDTC) hizmeti için ağ ve güvenlik yapılandırmaları değiştirmek için özel bir kurulum içeren klasör MSDTC başlatıldığından emin olmak için lütfen paketlerinizi aşağıdaki komutu yürütmek için denetim akışı başındaki yürütme işlemi görevi ekleyin: `%SystemRoot%\system32\cmd.exe /c powershell -Command "Start-Service MSDTC"` 
 
        1. Bir `ORACLE ENTERPRISE` özel kurulum betiği içeren klasörü (`main.cmd`) ve sessiz yükleme yapılandırma dosyası (`client.rsp`) Oracle bağlayıcılar ve OCI sürücü, Azure-SSIS IR Enterprise Edition'ın her düğüme yüklenecek. Bu kurulum Oracle Bağlantı Yöneticisi, kaynak ve hedef kullanmanıza olanak sağlar. İlk olarak, Oracle için Microsoft Connectors v5.0 indirin (`AttunitySSISOraAdaptersSetup.msi` ve `AttunitySSISOraAdaptersSetup64.msi`) öğesinden [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) ve en son Oracle istemcisini - Örneğin, `winx64_12102_client.zip` - [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), bunların tümünü birlikte karşıya `main.cmd` ve `client.rsp` kapsayıcınıza. Oracle için bağlanmak için kullandığınız TNS de indirmek gerekirse `tnsnames.ora`, düzenlemek ve böylece Kurulum sırasında Oracle yükleme klasörüne kopyalanabilir, kapsayıcıya yükleyin.
 

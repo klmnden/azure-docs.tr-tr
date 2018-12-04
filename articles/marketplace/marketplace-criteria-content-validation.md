@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 383f16bf0671e0bdec840afe1abe85e37ed32ce2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 8bf0eac5391ea2d9bbb9ba42887b0a53e075589d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855366"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847244"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Azure Market listelemesi yönergeleri
 
@@ -34,7 +34,7 @@ Tüm teklifleri karşılamalıdır [listeleme tüm gereksinimleri](https://docs.
 |:--- |:--- |:--- |:--- |
 | 1 | Hedef yol | Yapılandırılmış bir müşteri adayı hedefi| OCP Kataloğu ayrıca iş ortağı çözümü sekmesinde listelenen sağlama hedef CRM bilgisi yok | 
 | 2 | Teklif başlığı | Çözüm teklifini tanımlayıcı. İş ortağı Web sitesi çözümde, eşleşme çevrimiçi Tanıtımı | Anahtar arama sözcükleri içerir |
-| 3 | Logo | Logo doğru görüntüler | Logo içerir ve doğru görüntüler [hero görüntüsü](https://cloudpartner.azure.com/#documentation/publish-solution-template) biçimi büyük görüntünün Azure Portalı'nda olduğu |
+| 3 | Logo | Logo doğru görüntüler | Logo içerir ve doğru görüntüler [hero görüntüsü](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish) biçimi büyük görüntünün Azure Portalı'nda olduğu |
 | 4 |  Teklif açıklaması | <br>• 2-3 paragrafta <br>• Çözüm teklifini bir bakışta kolay anlaşılıyor mu <br>• Teklif açıklaması yazım ve dilbilgisi hatalara ücretsizdir <br>• Teklif açıklaması kapsamlı ve yakalar: hedef kitlesi, neden olduğu değerli kullanıcı türü (değer prop) <br>• Teklif açıklamasıdır kavrama kolay paragraf anlatım biçiminde kısa bir cümle ile | <br>• Hedef sektör, (uygunsa) gösterilmiştir. <br>• İyi stili bir cümleden veya tümceciği içerik, izler ve kapsamlı madde işareti, özetleme her paragraf başlığını biçimlendirme (uygun olduğunda) temel avantajlar vurgulamak için işaret eder. Burada amaç, teklifi kolay biçimi görüntüleyip paragraflar okumak zorunda değil bir bakışta anlamak okuyucu içindir. <br>• Her bir paragraf ve okuma gibi bir araba Broşürü arasındaki aralığı yok. Kod lingo açıklayıcı sunan basit bir deyişle, ancak değil teknik özellikleri anlamına gelir ve kapsamlı. | 
 | 5 | Kategorileri ve sektörler | <br>• Kategorilerini özellikleri sunan bir çözüm eşleştir <br>• Çözüm uymayan kategorilerini genişletme değil <br>• En iyi sektör veya tüm seçildi (değilse en iyi sektörler) | <br>• En fazla. 3 kategorileri <br>• En fazla. 3 sektörler |
 | 6 | Görüntüler | <br>Sağlanan gerekir, ancak hiçbir görüntü gereken • görüntü ve yüksek çözünürlüklü bir görüntü. <br>• Görüntü gereksinimleri, CPP içinde listelenir ve ayrıca burada <br>• Metin ekran görüntüsünde yer Temizle görüntüsüyle okunaklı | Çözüm teklifini bir bakışta kolay anlaşılıyor mu |
@@ -63,9 +63,9 @@ Tüm teklifleri karşılamalıdır [listeleme tüm gereksinimleri](https://docs.
 | 4 | StoreFront ayrıntıları: Teklif özeti | Bu, uygulamanızın arama sayfasında en fazla 100 karakter ile görünür | |
 | 5 | StoreFront ayrıntıları: sektörler | Sektörler (en fazla 2): uygulamanızı en iyi şekilde hizalanmış ve uygulanabilir olduğunu sektör seçin. | |
 | 6 | Teklif açıklaması | <br>• Basit bir HTML, dahil olmak üzere, p, em, ul, li, ol ve başlık etiketleri izin verilir. En çok 3000 karakter. <br>• 2-3 paragrafta <br>• Çözüm teklifini bir bakışta kolay anlaşılıyor mu <br>• Açıklama kapsamlı ve yakalar: hedef kitle *, neden olduğu değerli kullanıcı türü (değer prop) <br>• Teklif kavrama kolay paragraf anlatım biçiminde kısa bir cümle ile açıklamasıdır. | <br>• Hedef sektör, (uygunsa) gösterilmiştir. <br>• İyi stili bir cümleden veya tümceciği içerik, izler ve kapsamlı madde işareti, özetleme her paragraf başlığını biçimlendirme (uygun olduğunda) temel avantajlar vurgulamak için işaret eder. Burada amaç, teklifi kolay biçimi görüntüleyip paragraflar okumak zorunda değil bir bakışta anlamak okuyucu içindir. <br>• Her bir paragraf ve okuma gibi bir araba Broşürü arasındaki aralığı yok. Kod lingo açıklayıcı sunan basit bir deyişle, ancak değil teknik özellikleri anlamına gelir ve kapsamlı. | 
-| 7 | Pazarlama Yapıtları | Logo doğru görüntüleme | <br>• Logosu "Azure Portalı'nda biçimi büyük görüntüdür hero görüntüsü" içerir <br>• Logoları: küçük (48 x 48) ve (216 x 216) büyük olan gereksinimleri <br>• Hero resim gereksinimleri: https://cloudpartner.azure.com/#documentation/publish-solution-template <br>• Ekran (en fazla 5): bir .png görüntü çözünürlüğü 1280 x 720 CPP gerektirir. |
+| 7 | Pazarlama Yapıtları | Logo doğru görüntüleme | <br>• Logosu "Azure Portalı'nda biçimi büyük görüntüdür hero görüntüsü" içerir <br>• Logoları: küçük (48 x 48) ve (216 x 216) büyük olan gereksinimleri <br>• Hero resim gereksinimleri: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish <br>• Ekran (en fazla 5): bir .png görüntü çözünürlüğü 1280 x 720 CPP gerektirir. |
 | 8 | Kategorileri ve sektörler | <br>• Kategorilerini özellikleri sunan bir çözüm eşleştir <br>• En az 1 öğe açılır kutusundan seçilmelidir <br>• Çözüm uymayan kategorilerini genişletme değil <br>• En iyi sektör veya tüm seçildi (değilse en iyi sektörler <br>• Çözüm uymayan kategorilerini genişletme değil <br>• En iyi sektör veya tüm seçildi (değilse en iyi sektörler) | En çok, 3 kategori varsa seçili. |
-| 9 | Tedarik Yönetimi | Müşteri adaylarınızı depolanacağı sistem seçin. CRM sisteminize bağlamayı öğrenin [burada](https://aka.ms/cppdocs/get-customer-leads/how-to-connect-your-crm-system-with-the-cloud-partner-portal) |  |
+| 9 | Tedarik Yönetimi | Müşteri adaylarınızı depolanacağı sistem seçin. CRM sisteminize bağlamayı öğrenin [burada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) |  |
 | 10 | Kişiler: Çözüm destek & Yardımı | <br>• Mühendislik ilgili kişi adı: mühendislik birimi ilgili kişisi uygulamanız için bir ad girin. Bu kişi Microsoft Teknik iletişimleri alırsınız.<br>• Mühendislik iletişim e-posta: uygulamanız için mühendislik birimi ilgili kişisi e-posta adresini girin.<br>• Mühendislik telefon iletişim kurar: mühendislik ilgili kişi telefon numarasını girin. ISO telefon numarası gösterimler desteklenir; Ayrıntılar için bkz https://en.wikipedia.org/wiki/E.123.<br>• Destek kişi adı: uygulamanız için destek ilgili kişisi adını girin. Bu kişi Microsoft desteğe ilişkin iletişimleri alırsınız.<br>• Destek iletişim e-posta: uygulamanız için destek ilgili kişisi e-posta adresini girin. <br>• Destek ilgili kişi telefon: Destek iletişim telefon numarası girin. ISO telefon numarası gösterimler desteklenir; Ayrıntılar için bkz https://en.wikipedia.org/wiki/E.123. <br>• Destek URL'si: Destek sayfanız URL'sini girin. | <br>• Tüm listelenen yöntemleri destekler: telefon ve e-posta desteği. <br>Ücretli destek • deneme veya test sürücü dönemi boyunca ücretsiz olarak sunulan |
 | 11 | Yasal Bilgiler |<br>• Gizlilik İlkesi URL'si: uygulamanızın gizlilik ilkesi CPP gizlilik ilkesi URL'si alanında URL'sini girin. <br>• Kullanım koşullarını: uygulamanızın kullanım koşulları girin. Müşterilerin uygulamanızı deneyebilmeniz için önce bu koşulları kabul etmek için gereklidir. |  İlkeleri veya koşulları genel bir URL sitesi kullanılabilir |
 
@@ -75,9 +75,9 @@ Tüm teklifleri karşılamalıdır [listeleme tüm gereksinimleri](https://docs.
 |  | Liste öğesi | Temel gereksinimleri | En iyi gereksinimleri | 
 |:--- |:--- |:--- |:--- |
 |1 |Teklif ayarları | <br>• Teklif kimliği: en çok 50 karakter <br>• Yayımcı kimliği: açılan listeden seçin <br>• Adı: en fazla 50 karakter | Başlık stili açıklama içinde zaten kullanılabilir istemediğiniz yansıtmalar başlıkları uzun. | 
-| 2 | SKU'lar | İş ortağı yeni SKU'larında tıklar.| Başlık stili açıklama içinde zaten kullanılabilir istemediğiniz yansıtmalar başlıkları uzun.  |  |
-| 3 | Market Yapıtları | Logo doğru görüntüleme |<br>• Logosu "Azure Portalı'nda biçimi büyük görüntüdür hero görüntüsü" içerir <br>• Logoları: küçük (48 x 48) ve (216 x 216) büyük olan gereksinimleri <br>• Hero resim gereksinimleri: https://cloudpartner.azure.com/#documentation/publish-solution-template<br>• Ekran (en fazla 5): bir .png görüntü çözünürlüğü 1280 x 720 CPP gerektirir.|
-| 4 | Tedarik Yönetimi |<br>• Yönetim neden: müşteri adaylarınızı depolanacağı sistem seçin. <br>• Öğrenin, CRM sistemine bağlanmak [burada](https://aka.ms/cppdocs/get-customer-leads/how-to-connect-your-crm-system-with-the-cloud-partner-portal) | |
+| 2 | SKU'ları | İş ortağı yeni SKU'larında tıklar.| Başlık stili açıklama içinde zaten kullanılabilir istemediğiniz yansıtmalar başlıkları uzun.  |  |
+| 3 | Market Yapıtları | Logo doğru görüntüleme |<br>• Logosu "Azure Portalı'nda biçimi büyük görüntüdür hero görüntüsü" içerir <br>• Logoları: küçük (48 x 48) ve (216 x 216) büyük olan gereksinimleri <br>• Hero resim gereksinimleri: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Ekran (en fazla 5): bir .png görüntü çözünürlüğü 1280 x 720 CPP gerektirir.|
+| 4 | Tedarik Yönetimi |<br>• Yönetim neden: müşteri adaylarınızı depolanacağı sistem seçin. <br>• Öğrenin, CRM sistemine bağlanmak [burada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
 
 ----
 
@@ -92,7 +92,7 @@ Tüm teklifleri karşılamalıdır [listeleme tüm gereksinimleri](https://docs.
 | 6 | Çözüm destek & Yardımı  | Destek ve Yardım gerekli değildir  | | 
 | 7 | Kullanım Koşulları'nı kullanılabilir & Gizlilik İlkesi  |  İlkeleri veya koşulları gerekli değildir  | | 
 | 8 | Hizmet türleri | Hizmet türü ile eşleşen başlık emin olun. | |
-| 9 | Yetkinlikler |<br>• En az aşağıdakilerden biri olmalıdır:<br>• Uygulama geliştirme <br>• Uygulama tümleştirmesi <br>• Uygulama yaşam döngüsü yönetimi <br>• Bulut platformu <br>• Veri analizi <br>• Veri Merkezi <br>• Veri Platformu <br>• DevOps |
+| 9 | Uzmanlıklar |<br>• En az aşağıdakilerden biri olmalıdır:<br>• Uygulama geliştirme <br>• Uygulama tümleştirmesi <br>• Uygulama yaşam döngüsü yönetimi <br>• Bulut platformu <br>• Veri analizi <br>• Veri Merkezi <br>• Veri Platformu <br>• DevOps |
 | 10 | Ürünler | Azure olmalıdır | |
 | 11 | Ülke/Bölge | Para birimi seçilen ülke ve bölgeye eşleşme emin olun | |
 | 12 | Daha Fazla Bilgi Edinin  | <br>• Bağlantılar alt (altında açıklama, Market bağlantıları soldaki değil) çözümü hakkında daha fazla bilgi için müşteri adayları ve doğru şekilde genel olarak kullanılabilir ve görüntüleme. <br>• Bağlantılar bir "kolay adı" olmalıdır ve dosya adı herhangi bir indirme olarak görünmeyen | |

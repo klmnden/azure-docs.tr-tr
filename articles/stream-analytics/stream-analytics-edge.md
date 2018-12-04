@@ -1,20 +1,19 @@
 ---
 title: IOT Edge (Önizleme) üzerinde Azure Stream Analytics
-description: Edge işleri, Azure Stream Analytics'te oluşturmak ve bunları Azure IOT Edge cihazları runnning için dağıtabilirsiniz.
+description: Edge işleri, Azure Stream Analytics'te oluşturmak ve bunları Azure IOT Edge çalıştıran cihazlara dağıtabilirsiniz.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/16/2017
-ms.openlocfilehash: a9d3b92b9cb3334c8c52a9127a2fab92d187e3d9
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 11/30/2018
+ms.openlocfilehash: 6d3060545946f1f003058932f1ffc50c2a64586f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687444"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846241"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>IOT Edge (Önizleme) üzerinde Azure Stream Analytics
 
@@ -51,7 +50,7 @@ ASA, edge işleri aygıtlara dağıtmak için IOT hub'ı kullanır. Hakkında da
 | ---   | ---   | ---       |  ---      |
 | 1   | **Bir depolama kapsayıcısı oluşturma**   | Azure portal       | Depolama kapsayıcıları, IOT cihazlarınızı, burada erişilebilmelerini iş tanımınızı kaydetmek için kullanılır. <br>  Herhangi bir mevcut depolama kapsayıcısını yeniden kullanabilirsiniz.     |
 | 2   | **ASA edge işi oluşturma**   | Azure portal      |  Select yeni bir iş oluşturma **Edge** olarak **barındırma ortamı**. <br> Bu işlerin buluttan oluşturulan ve yönetilen ve kendi IOT Edge cihazlarında çalıştırın.     |
-| 3   | **IOT Edge ortamınızda aygıtlarınızın Kurulumu**   | Cihazlar      | Yönergeler için [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) veya [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
+| 3   | **IOT Edge ortamınızda aygıtlarınızın Kurulumu**   | Cihaz      | Yönergeler için [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) veya [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **Aygıtlarınızın IOT Edge üzerinde ASA dağıtma**   | Azure portal      |  ASA işi tanımı, daha önce oluşturduğunuz depolama kapsayıcısına dışarı aktarılır.       |
 İzleyebileceğiniz [Bu adım adım öğretici](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) ilk IOT Edge üzerinde ASA işiniz dağıtılacak. Aşağıdaki videoda bir Stream Analytics işi bir IOT edge Cihazınızda çalıştırmak üzere işlemlerini anlamanıza yardımcı olması:  
 
@@ -151,7 +150,7 @@ Ancak aşağıdaki özellikleri, edge işleri için henüz desteklenmiyor:
 * Tek bir adımda 14'ten fazla toplamaları kullanma.
 * Giriş/Çıkış AVRO biçimi. Şu anda yalnızca CSV ve JSON desteklenir.
 * Aşağıdaki SQL işleçleri:
-    * Anomalydetectıon
+    * AnomalyDetection
     * Jeo-uzamsal işleçleri:
         * CreatePoint
         * CreatePolygon
@@ -197,7 +196,7 @@ Başvuru verilerinde Edge ile bir iş oluşturmak için:
 
 3. Bir başvuru veri dosyasının hazır cihaza sahip. Bir Windows kapsayıcı için başvuru veri dosyasının yerel bir sürücüye yerleştirin ve yerel diske Docker kapsayıcısı ile paylaşın. Bir Linux kapsayıcı için Docker birim oluşturma ve birim veri dosyasına doldurun.
 
-4. Dosya yolunu ayarlayın. Bir windows cihazı için mutlak yol kullanın. Bir Linux cihaz için birimin yolunu kullanın.
+4. Dosya yolunu ayarlayın. Windows ana bilgisayar işletim sistemi ve Windows kapsayıcı için mutlak yol kullanın: `E:\<PathToFile>\v1.csv`. Bir Windows konak işletim sistemi ve Linux kapsayıcı veya bir Linux işletim sistemi ve Linux kapsayıcı için yol birimin kullanın: `<VolumeName>/file1.txt`.
 
 ![IOT Edge üzerinde Azure Stream Analytics işine ilişkin yeni başvuru veri girişi](./media/stream-analytics-edge/ReferenceDataNewInput.png)
 
@@ -206,7 +205,6 @@ IOT Edge güncelleştirme başvuru verilerinde bir dağıtım tarafından tetikl
 Başvuru verileri güncelleştirmek için iki yolu vardır:
 * Azure portalından, ASA işi başvuru veri yoluna güncelleştirin.
 * IOT Edge dağıtımı güncelleştirin.
-
 
 ## <a name="license-and-third-party-notices"></a>Lisans ve üçüncü taraf bildirimleri
 * [Önizleme lisans IOT Edge üzerinde Azure Stream Analytics](https://go.microsoft.com/fwlink/?linkid=862827). 

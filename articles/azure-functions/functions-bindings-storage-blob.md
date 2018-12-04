@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: c9e6898d83e5bc1360bb5b1539b12bace8acdb3f
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 4f8135dd26b58b5b285798af5c420aa09b03074b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251048"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850133"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -29,7 +29,7 @@ Bu makalede, Azure işlevleri'nde Azure Blob Depolama bağlamaları ile nasıl �
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Event Grid tetikleyicisinin Blob Depolama hesapları için büyük ölçekli veya soğuk başlangıç gecikmeleri önlemek için Blob Depolama tetikleyici yerine kullanın. Daha fazla bilgi için [tetikleyici](#trigger) bölümü. 
+> Olay Kılavuzu tetikleyicisi için yalnızca blob depolama hesapları için büyük ölçekli veya soğuk başlangıç gecikmeleri önlemek için Blob Depolama tetikleyici yerine kullanın. Daha fazla bilgi için [tetikleyici](#trigger) bölümü.
 
 ## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
 
@@ -79,8 +79,9 @@ Dile özgü örneğe bakın:
 
 * [C#](#trigger---c-example)
 * [C# betiği (.csx)](#trigger---c-script-example)
-* [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [JavaScript](#trigger---javascript-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>Tetikleyici - C# örneği
 
@@ -179,6 +180,42 @@ module.exports = function(context) {
 };
 ```
 
+### <a name="trigger---python-example"></a>Tetikleyici - Python örnek
+
+Aşağıdaki örnek, bir blob tetikleyicisi bağlama gösterir. bir *function.json* dosya ve [Python kodu](functions-reference-python.md) bağlama kullanan. Bir blob eklendiğinde veya güncelleştirdiğiniz işlevi günlüğe yazar `samples-workitems` kapsayıcı.
+
+İşte *function.json* dosyası:
+
+```json
+{
+    "scriptFile": "__init__.py",
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "myblob",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "samples-workitems/{name}",
+            "connection":"MyStorageAccountAppSetting"
+        }
+    ]
+}
+```
+
+Dize `{name}` blob tetikleyicisi yolunda `samples-workitems/{name}` oluşturur bir [ifade bağlama](functions-triggers-bindings.md#binding-expressions-and-patterns) tetikleme blob dosya adı erişmek için işlev kodu kullanabilirsiniz. Daha fazla bilgi için [Blob adı desenlerinin](#trigger---blob-name-patterns) bu makalenin ilerleyen bölümlerinde.
+
+Hakkında daha fazla bilgi için *function.json* dosya özellikleri, bkz: [yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
+
+Python kod aşağıdaki gibidir:
+
+```python
+import logging
+import azure.functions as func
+
+def main(myblob: func.InputStream):
+    logging.info('Python Blob trigger function processed %s', myblob.name)
+```
+
 ### <a name="trigger---java-example"></a>Tetikleyici - Java örnek
 
 Aşağıdaki örnek, bir blob tetikleyicisi bağlama gösterir. bir *function.json* dosya ve [Java kod](functions-reference-java.md) bağlama kullanan. Bir blob eklendiğinde veya güncelleştirdiğiniz işlevi günlüğe yazar `myblob` kapsayıcı.
@@ -228,7 +265,7 @@ public void run(
   ```csharp
   [FunctionName("ResizeImage")]
   public static void Run(
-      [BlobTrigger("sample-images/{name}")] Stream image, 
+      [BlobTrigger("sample-images/{name}")] Stream image,
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
   {
       ....
@@ -240,7 +277,7 @@ public void run(
    ```csharp
   [FunctionName("ResizeImage")]
   public static void Run(
-      [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image, 
+      [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image,
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
   {
       ....
@@ -329,7 +366,7 @@ Aşağıdaki örnek Tetikleyicileri yalnızca blob'larda `input` "orijinal-" diz
 ```json
 "path": "input/original-{name}",
 ```
- 
+
 Blob adı ise *özgün Blob1.txt*, değerini `name` olan işlev kodunu bir değişkende `Blob1`.
 
 ### <a name="filter-on-file-type"></a>Dosya türü üzerinde filtreleme
@@ -348,7 +385,7 @@ Ayraç içindeki dosya adlarını aramak için Küme ayraçları, iki küme ayra
 "path": "images/{{20140101}}-{name}",
 ```
 
-Blob ise  *{20140101}-soundfile.mp3*, `name` işlev kodunu değişken değer *soundfile.mp3*. 
+Blob ise  *{20140101}-soundfile.mp3*, `name` işlev kodunu değişken değer *soundfile.mp3*.
 
 ## <a name="trigger---metadata"></a>Tetikleyici - meta verileri
 
@@ -393,7 +430,7 @@ Bir blobu yeniden işlemeyerek zorlamak için bu blobu için blob giriş Sil *az
 
 ## <a name="trigger---poison-blobs"></a>Tetikleyici - zehirli BLOB'ları
 
-Belirli bir blobu için blob tetikleyici işlevi başarısız olduğunda, Azure işlevleri, varsayılan olarak 5 kez toplam işlev yeniden dener. 
+Belirli bir blobu için blob tetikleyici işlevi başarısız olduğunda, Azure işlevleri, varsayılan olarak 5 kez toplam işlev yeniden dener.
 
 Azure işlevleri 5 tüm denemeler başarısız olursa, adlı bir depolama kuyruğuna bir ileti ekler *webjobs blobtrigger poison*. Kuyruk iletisi zehirli bloblar için aşağıdaki özellikleri içeren bir JSON nesnesidir:
 
@@ -425,8 +462,9 @@ Dile özgü örneğe bakın:
 
 * [C#](#input---c-example)
 * [C# betiği (.csx)](#input---c-script-example)
-* [JavaScript](#input---javascript-example)
 * [Java](#input---java-example)
+* [JavaScript](#input---javascript-example)
+* [Python](#input---python-example)
 
 ### <a name="input---c-example"></a>Giriş - C# örneği
 
@@ -478,7 +516,7 @@ Aşağıdaki örnek, blob giriş ve çıkış bağlamaları, gösterir bir *func
   ],
   "disabled": false
 }
-``` 
+```
 
 [Yapılandırma](#input---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
@@ -527,7 +565,7 @@ Aşağıdaki örnek, blob giriş ve çıkış bağlamaları, gösterir bir *func
   ],
   "disabled": false
 }
-``` 
+```
 
 [Yapılandırma](#input---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
@@ -539,6 +577,57 @@ module.exports = function(context) {
     context.bindings.myOutputBlob = context.bindings.myInputBlob;
     context.done();
 };
+```
+
+### <a name="input---python-example"></a>Giriş - Python örnek
+
+<!--Same example for input and output. -->
+
+Aşağıdaki örnek, blob giriş ve çıkış bağlamaları, gösterir bir *function.json* dosya ve [Python kodu](functions-reference-python.md) bağlamaları kullanır. İşlevi, bir blob bir kopyasını oluşturur. İşlevin blob kopyalama adını içeren bir kuyruk iletisi tarafından tetiklenir. Yeni blob adlı *{originalblobname}-Kopyala*.
+
+İçinde *function.json* dosyası `queueTrigger` meta veri özelliği, blob adı belirtmek için kullanılır `path` özellikleri:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "queuemsg",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "inputblob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "$return",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "__init__.py"
+}
+```
+
+[Yapılandırma](#input---configuration) bölümde, bu özellikleri açıklanmaktadır.
+
+Python kod aşağıdaki gibidir:
+
+```python
+import logging
+import azure.functions as func
+
+def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.InputStream:
+    logging.info('Python Queue trigger function processed %s', inputblob.name)
+    return inputblob
 ```
 
 ### <a name="input---java-example"></a>Giriş - Java örnek
@@ -555,7 +644,7 @@ public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-item
  }
  ```
 
-  İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@BlobInput` ek açıklama parametreleri değeri bir blobun gelmesi.  Bu ek açıklama yerel Java türler, pojo'ları veya kullanarak boş değer atanabilir değer ile kullanılabilir `Optional<T>`. 
+  İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@BlobInput` ek açıklama parametreleri değeri bir blobun gelmesi.  Bu ek açıklama yerel Java türler, pojo'ları veya kullanarak boş değer atanabilir değer ile kullanılabilir `Optional<T>`.
 
 
 ## <a name="input---attributes"></a>Giriş - öznitelikleri
@@ -600,8 +689,8 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**type** | yok | Ayarlanmalıdır `blob`. |
 |**direction** | yok | Ayarlanmalıdır `in`. Özel durumlar belirtilmiştir [kullanım](#input---usage) bölümü. |
 |**Adı** | yok | İşlev kodunu blob temsil eden değişken adı.|
-|**Yolu** |**BlobPath** | Blob yolu. | 
-|**bağlantı** |**bağlantı**| Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [Blob Depolama hesabı](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**Yolu** |**BlobPath** | Blob yolu. |
+|**bağlantı** |**bağlantı**| Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |yok | **Erişim** | Okuma yazma ya da olup olmadığını gösterir. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -639,18 +728,19 @@ Dile özgü örneğe bakın:
 
 * [C#](#output---c-example)
 * [C# betiği (.csx)](#output---c-script-example)
-* [JavaScript](#output---javascript-example)
 * [Java](#output---java-example)
+* [JavaScript](#output---javascript-example)
+* [Python](#output---python-example)
 
 ### <a name="output---c-example"></a>Çıkış - C# örneği
 
-Aşağıdaki örnek, bir [C# işlevi](functions-dotnet-class-library.md) blob tetikleyicisi kullanan ve iki blob bağlamaları çıktı. Görüntü blob'u oluşturulmasına işlevi tetikleyen *örnek görüntüleri* kapsayıcı. Görüntü blob'u küçük ve orta ölçekli kopyalarını oluşturur. 
+Aşağıdaki örnek, bir [C# işlevi](functions-dotnet-class-library.md) blob tetikleyicisi kullanan ve iki blob bağlamaları çıktı. Görüntü blob'u oluşturulmasına işlevi tetikleyen *örnek görüntüleri* kapsayıcı. Görüntü blob'u küçük ve orta ölçekli kopyalarını oluşturur.
 
 ```csharp
 [FunctionName("ResizeImage")]
 public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
+    [BlobTrigger("sample-images/{name}")] Stream image,
+    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall,
     [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
 {
     var imageBuilder = ImageResizer.ImageBuilder.Current;
@@ -710,7 +800,7 @@ Aşağıdaki örnek, blob giriş ve çıkış bağlamaları, gösterir bir *func
   ],
   "disabled": false
 }
-``` 
+```
 
 [Yapılandırma](#output---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
@@ -759,7 +849,7 @@ Aşağıdaki örnek, blob giriş ve çıkış bağlamaları, gösterir bir *func
   ],
   "disabled": false
 }
-``` 
+```
 
 [Yapılandırma](#output---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
@@ -771,6 +861,58 @@ module.exports = function(context) {
     context.bindings.myOutputBlob = context.bindings.myInputBlob;
     context.done();
 };
+```
+
+### <a name="output---python-example"></a>Çıkış - Python örnek
+
+<!--Same example for input and output. -->
+
+Aşağıdaki örnek, blob giriş ve çıkış bağlamaları, gösterir bir *function.json* dosya ve [Python kodu](functions-reference-python.md) bağlamaları kullanır. İşlevi, bir blob bir kopyasını oluşturur. İşlevin blob kopyalama adını içeren bir kuyruk iletisi tarafından tetiklenir. Yeni blob adlı *{originalblobname}-Kopyala*.
+
+İçinde *function.json* dosyası `queueTrigger` meta veri özelliği, blob adı belirtmek için kullanılır `path` özellikleri:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "queuemsg",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "inputblob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "outputblob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "__init__.py"
+}
+```
+
+[Yapılandırma](#output---configuration) bölümde, bu özellikleri açıklanmaktadır.
+
+Python kod aşağıdaki gibidir:
+
+```python
+import logging
+import azure.functions as func
+
+def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
+         outputblob: func.Out[func.InputStream]):
+    logging.info('Python Queue trigger function processed %s', inputblob.name)
+    outputblob.set(inputblob)
 ```
 
 ### <a name="output---java-example"></a>Çıkış - Java örnek
@@ -800,7 +942,7 @@ public String blobCopy(
 ```csharp
 [FunctionName("ResizeImage")]
 public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [BlobTrigger("sample-images/{name}")] Stream image,
     [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
 {
     ...
@@ -812,7 +954,7 @@ Ayarlayabileceğiniz `Connection` özelliğini kullanmak için depolama hesabı 
 ```csharp
 [FunctionName("ResizeImage")]
 public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [BlobTrigger("sample-images/{name}")] Stream image,
     [Blob("sample-images-md/{name}", FileAccess.Write, Connection = "StorageConnectionAppSetting")] Stream imageSmall)
 {
     ...
@@ -832,8 +974,8 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**type** | yok | Ayarlanmalıdır `blob`. |
 |**direction** | yok | Ayarlanmalıdır `out` bir çıkış bağlaması için. Özel durumlar belirtilmiştir [kullanım](#output---usage) bölümü. |
 |**Adı** | yok | İşlev kodunu blob temsil eden değişken adı.  Kümesine `$return` işlev dönüş değeri başvurmak için.|
-|**Yolu** |**BlobPath** | Blob yolu. | 
-|**bağlantı** |**bağlantı**| Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [Blob Depolama hesabı](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**Yolu** |**BlobPath** | Blob yolu. |
+|**bağlantı** |**bağlantı**| Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |yok | **Erişim** | Okuma yazma ya da olup olmadığını gösterir. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

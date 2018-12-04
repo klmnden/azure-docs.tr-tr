@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 4cce49509a452153815c845d9ab72a1b4a8a5b7f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 13a628d37ef67d0a1dc3ad8231229493191c4e7f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357441"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849573"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Oturum açtıktan sonra bir uygulamanın sayfada hata
 
@@ -30,7 +30,7 @@ Uygulamayı Azure AD'ye yanıtından neden kabul etmedi bazı olası nedeni vard
 
 -   Azure AD galeri uygulaması ise, bu makaledeki tüm adımları uyguladığınız doğrulayın [SAML tabanlı çoklu oturum açma, Azure Active Directory'de uygulamalar için hata ayıklama](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
 
--   Gibi bir araç kullanmak [Fiddler](http://www.telerik.com/fiddler) SAML isteği, SAML yanıtını ve SAML belirteci yakalamak için.
+-   Gibi bir araç kullanmak [Fiddler](https://www.telerik.com/fiddler) SAML isteği, SAML yanıtını ve SAML belirteci yakalamak için.
 
 -   SAML yanıtını neyin eksik olduğunu öğrenmek için uygulama satıcısına ile paylaşın.
 

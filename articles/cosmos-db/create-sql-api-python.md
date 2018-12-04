@@ -1,9 +1,8 @@
 ---
-title: "Azure Cosmos DB: Python ve SQL API'si ile bir uygulama derleme | Microsoft Docs"
+title: "Azure Cosmos DB: Python ve SQL API'si ile bir uygulama derleme"
 description: Azure Cosmos DB SQL API'sine bağlanmak ve sorgu göndermek için kullanabileceğiniz bir Python kodu örneği sunar
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc, devcenter
@@ -11,17 +10,18 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: 666b99bcca460e3dd756c9d94912d01945c68909
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: a12107fe0dd25a383e7be1adbc717c7c1c654fa5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035938"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846547"
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB: Python ve Azure portalı ile bir SQL API'si uygulaması derleme
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
+> * [.NET (Önizleme)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -34,7 +34,7 @@ Bu hızlı başlangıçta Azure portalı kullanarak bir Azure Cosmos DB [SQL API
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * \<install location\>\Python36 ve \<install location>\Python36\Scripts ile [Python 3.6](https://www.python.org/downloads/) YOLUNUZA eklendi. 
 * [Visual Studio Code](https://code.visualstudio.com/)

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: a20dec67201cb7d8b7ccd3a7662438f2afabfe63
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 33f04f9deced7c4bc1c27cea5e8c431d4cd5512a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446798"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849335"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure işlevleri HTTP Tetikleyicileri ve bağlamaları
 
@@ -42,7 +42,7 @@ HTTP bağlantıları sağlanır [Microsoft.Azure.WebJobs.Extensions.Http](http:/
 
 ## <a name="trigger"></a>Tetikleyici
 
-HTTP tetikleyicisi olan bir HTTP isteği bir işlev çağırma sağlar. HTTP tetikleyicisi, sunucusuz API oluşturma ve Web kancaları için yanıtlamak için kullanabilirsiniz. 
+HTTP tetikleyicisi olan bir HTTP isteği bir işlev çağırma sağlar. HTTP tetikleyicisi, sunucusuz API oluşturma ve Web kancaları için yanıtlamak için kullanabilirsiniz.
 
 Varsayılan olarak, bir HTTP tetikleyicisi işlevlerini boş bir gövdeye sahip HTTP 200 OK döndürür 1.x veya işlev boş bir gövdeye sahip HTTP 204 Hayır içerik 2.x. Yanıt değiştirmek için yapılandırma bir [HTTP çıktı bağlamasını](#output).
 
@@ -53,8 +53,9 @@ Dile özgü örneğe bakın:
 * [C#](#trigger---c-example)
 * [C# betiği (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
-* [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [JavaScript](#trigger---javascript-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>Tetikleyici - C# örneği
 
@@ -276,6 +277,61 @@ module.exports = function(context, req) {
 };
 ```
 
+### <a name="trigger---python-example"></a>Tetikleyici - Python örnek
+
+Aşağıdaki örnek, bir tetikleyici bağlamasında gösterir. bir *function.json* dosyası ve bir [funkce Pythonu](functions-reference-python.md) bağlama kullanan. İşlev arayan bir `name` parametresi sorgu dizesi veya HTTP isteğinin gövdesi.
+
+İşte *function.json* dosyası:
+
+```json
+{
+    "scriptFile": "__init__.py",
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
+```
+
+[Yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
+
+Python kod aşağıdaki gibidir:
+
+```python
+import logging
+import azure.functions as func
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+    if name:
+        return func.HttpResponse(f"Hello {name}!")
+    else:
+        return func.HttpResponse(
+            "Please pass a name on the query string or in the request body",
+            status_code=400
+        )
+```
+
 ### <a name="trigger---java-example"></a>Tetikleyici - Java örnek
 
 Aşağıdaki örnek, bir tetikleyici bağlamasında gösterir. bir *function.json* dosyası ve bir [Java işlevi](functions-reference-java.md) bağlama kullanan. İşlev bir "Hello" ile tetikleme istek gövdesi Karşılama ön ek bir istek gövdesi ile bir HTTP durum kodu 200 yanıtı döndürür.
@@ -307,7 +363,7 @@ Java kod aşağıdaki gibidir:
 ```java
 @FunctionName("hello")
 public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS), Optional<String> request,
-                        final ExecutionContext context) 
+                        final ExecutionContext context)
     {
         // default HTTP 200 response code
         return String.format("Hello, %s!", request);
@@ -352,12 +408,11 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 
 JavaScript işlevleri için istek gövdesi istek nesnesi yerine işlevler çalışma zamanı sağlar. Daha fazla bilgi için [JavaScript tetikleyicisi örneğinde](#trigger---javascript-example).
 
-
 ### <a name="customize-the-http-endpoint"></a>HTTP uç noktasına özelleştirme
 
 Bir işlev için bir HTTP tetikleyicisi oluşturduğunuzda varsayılan olarak işlev biçiminde bir yol ile adreslenebilir:
 
-    http://<yourapp>.azurewebsites.net/api/<funcname> 
+    http://<yourapp>.azurewebsites.net/api/<funcname>
 
 Bu yol isteğe bağlı kullanarak özelleştirebileceğiniz `route` HTTP tetikleyicisi özellikte bağlama giriş. Örneğin, aşağıdaki *function.json* dosyasını tanımlayan bir `route` özelliği HTTP tetikleyicisi için:
 
@@ -389,7 +444,7 @@ http://<yourapp>.azurewebsites.net/api/products/electronics/357
 Böylece, iki parametre adresi desteklemek işlev kodunu _kategori_ ve _kimliği_. Kullanabilirsiniz [Web API rota kısıtlaması](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) , parametrelere sahip. Aşağıdaki C# işlev kodunu her iki parametre kullanır.
 
 ```csharp
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
+public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id,
                                                 ILogger log)
 {
     if (id == null)
@@ -421,7 +476,7 @@ module.exports = function (context, req) {
     }
 
     context.done();
-} 
+}
 ```
 
 Varsayılan olarak, tüm işlevi yollar ile ön ekli *API*. Ayrıca özelleştirme veya önekini kullanarak kaldırma `http.routePrefix` özelliğinde, [host.json](functions-host-json.md) dosya. Aşağıdaki örnek kaldırır *API* ön eki için boş bir dize kullanarak rota öneki *host.json* dosya.
@@ -533,17 +588,15 @@ Bu işlev uygulama düzeyinde güvenlik yöntemlerden birini kullanarak, HTTP il
 ### <a name="webhooks"></a>Web Kancaları
 
 > [!NOTE]
-> Web kancası modu, yalnızca sürüm için kullanılabilir işlevler çalışma zamanının 1.x.
+> Web kancası modu, yalnızca sürüm için kullanılabilir işlevler çalışma zamanının 1.x. HTTP Tetikleyicileri sürümünde performansını artırmak için bu değişiklik yapılmıştır 2.x.
 
-Web kancası modu için Web kancası yükü ek doğrulama sağlar. Sürüm 2.x temel HTTP tetikleyicisi hala çalışır ve Web kancaları için önerilen yaklaşımdır.
+Sürümünde 1.x, Web kancası şablonları, Web kancası yükü için ek doğrulama sağlar. Sürüm 2.x temel HTTP tetikleyicisi hala çalışır ve Web kancaları için önerilen yaklaşımdır. 
 
 #### <a name="github-webhooks"></a>GitHub Web kancası
 
 GitHub Web kancası için yanıt için ilk işlevinizi ile HTTP tetikleyicisi oluşturma ve ayarlama **webHookType** özelliğini `github`. Ardından kendi URL'sini ve API anahtarını kopyalayın **Web kancası Ekle** GitHub deponuza sayfası. 
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
-
-Bir örnek için, bkz. [GitHub web kancası tarafından tetiklenen bir işlev oluşturma](functions-create-github-webhook-triggered-function.md).
 
 #### <a name="slack-webhooks"></a>Slack Web kancaları
 
@@ -560,7 +613,7 @@ Web kancası yetkilendirme Web kancası alıcı bileşeni tarafından HTTP tetik
 
 HTTP isteği uzunluğu (104,857,600 bayt) 100 MB ile sınırlıdır ve URL uzunluğu (bayt 4.096) 4 KB sınırlıdır. Bu sınırlar tarafından belirtilen `httpRuntime` çalışma zamanının öğesinin [Web.config dosyasını](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
 
-Kullanan bir işlev, HTTP tetikleyicisi olmayan tamamlamak yaklaşık 2,5 dakika içinde ağ geçidi zaman aşımına uğrar ve HTTP 502 hata döndürür. İşlev çalışmaya devam eder, ancak bir HTTP yanıtının geri dönmek mümkün olmayacaktır. Uzun süre çalışan işlevler için zaman uyumsuz desenleri izleyin ve burada isteğinin durumu ping atabilirsiniz bir konum döndürür öneririz. Bir işlev ne kadar çalıştırabilirsiniz hakkında daha fazla bilgi için bkz: [tüketim ölçeklendirme ve barındırma - planı](functions-scale.md#consumption-plan). 
+Kullanan bir işlev, HTTP tetikleyicisi olmayan tamamlamak yaklaşık 2,5 dakika içinde ağ geçidi zaman aşımına uğrar ve HTTP 502 hata döndürür. İşlev çalışmaya devam eder, ancak bir HTTP yanıtının geri dönmek mümkün olmayacaktır. Uzun süre çalışan işlevler için zaman uyumsuz desenleri izleyin ve burada isteğinin durumu ping atabilirsiniz bir konum döndürür öneririz. Bir işlev ne kadar çalıştırabilirsiniz hakkında daha fazla bilgi için bkz: [tüketim ölçeklendirme ve barındırma - planı](functions-scale.md#consumption-plan).
 
 ## <a name="trigger---hostjson-properties"></a>Tetikleyici - host.json özellikleri
 
@@ -574,7 +627,7 @@ HTTP isteği gönderene yanıt bağlama HTTP çıkış kullanın. Bu bağlama, b
 
 ## <a name="output---configuration"></a>Çıkış - yapılandırma
 
-Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini açıklayan *function.json* dosya. C# sınıf kitaplıkları için bunlar için karşılık gelen öznitelik özellikleri yoktur *function.json* özellikleri. 
+Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini açıklayan *function.json* dosya. C# sınıf kitaplıkları için bunlar için karşılık gelen öznitelik özellikleri yoktur *function.json* özellikleri.
 
 |Özellik  |Açıklama  |
 |---------|---------|

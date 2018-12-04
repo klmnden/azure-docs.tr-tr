@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e66f74edf93688a2793b3f24516f8b14328a8bb9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5afb8e03dedbe09c2c95495fb6ff18333f4c648d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634957"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847601"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Log analytics'te SQL Server sistem durumu denetimi çözümü SQL ortamınızla en iyi duruma getirme
 
@@ -184,7 +184,7 @@ Yok saymak için istediğiniz önerilerini varsa, Log Analytics, öneriler, değ
     ```
 
     >[!NOTE]
-    > Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](../../log-analytics/log-analytics-queries.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
+    > Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](../../azure-monitor/log-query/log-query-overview.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -209,7 +209,7 @@ Yok saymak için istediğiniz önerilerini varsa, Log Analytics, öneriler, değ
     ```
 
     >[!NOTE]
-    > Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](../../log-analytics/log-analytics-queries.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
+    > Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](../../azure-monitor/log-query/log-query-overview.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -265,4 +265,4 @@ Yok saymak için istediğiniz önerilerini varsa, Log Analytics, öneriler, değ
 * Evet, bkz: [önerileri yoksay](#ignore-recommendations) yukarıdaki bölümde.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Arama günlüklerini](../../log-analytics/log-analytics-queries.md) ayrıntılı veri SQL sistem durumunu denetleyin ve önerileri çözümleme hakkında bilgi edinmek için.
+* [Arama günlüklerini](../../azure-monitor/log-query/log-query-overview.md) ayrıntılı veri SQL sistem durumunu denetleyin ve önerileri çözümleme hakkında bilgi edinmek için.

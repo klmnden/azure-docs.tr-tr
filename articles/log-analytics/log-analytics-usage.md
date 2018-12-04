@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 03c1afb45ddde994ba79838fc73eb3c16e8510f2
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 843271901b8d58c2c5a6c4cf495997498b8278b6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723984"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848859"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics'te veri kullanımını çözümleme
 
@@ -209,7 +209,7 @@ Günlük uyarısı ölçütlerle eşleştiğinde bilgilendirme yapılması için
 Uyarı aldığınızda, kullanımın neden beklenenden fazla olduğu konusundaki sorunları gidermek için aşağıdaki bölümde yer alan adımları kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Arama dilini nasıl kullanacağınızı öğrenmek için bkz. [Log Analytics'te günlük aramaları](log-analytics-queries.md). Kullanım verilerinde başka analizler yapmak için arama sorgularını kullanabilirsiniz.
+* Arama dilini nasıl kullanacağınızı öğrenmek için bkz. [Log Analytics'te günlük aramaları](../azure-monitor/log-query/log-query-overview.md). Kullanım verilerinde başka analizler yapmak için arama sorgularını kullanabilirsiniz.
 * Bir arama ölçütü karşılandığında size bildirilmesini sağlamak için, [yeni günlük uyarısı oluşturma](../monitoring-and-diagnostics/alert-metric.md) başlığı altında açıklanan adımları kullanın.
 * Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../azure-monitor/insights/solution-targeting.md) özelliğini kullanın.
 * Etkili bir güvenlik olay koleksiyonu ilkesi yapılandırmak için, [Azure Güvenlik Merkezi filtreleme ilkesi](../security-center/security-center-enable-data-collection.md) konusunu gözden geçirin.

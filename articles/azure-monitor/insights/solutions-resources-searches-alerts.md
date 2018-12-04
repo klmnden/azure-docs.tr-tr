@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c496bd6f7ccec4cc08ca5eead02cb06ff3efde09
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 74987d09a9b8979d3c3596c87764f8f3bd4b5795
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715793"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846691"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Log Analytics ekleme aramaları ve Uyarıları kaydedilen yönetim çözümü (Önizleme)
 
@@ -27,7 +27,7 @@ ms.locfileid: "51715793"
 > Şu anda Önizleme aşamasında olan yönetim çözümleri oluşturmak için başlangıç belgeleri budur. Aşağıda açıklanan herhangi bir şema tabi bir değişikliktir.   
 
 
-[Yönetim çözümleri](solutions.md) genellikle içerecektir [kayıtlı aramalar](../../log-analytics/log-analytics-queries.md) çözüm tarafından toplanan verileri çözümlemek için Log analytics'te.  Da belirtebilirler [uyarılar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) kullanıcıya bildir veya otomatik olarak yanıt olarak kritik bir sorunu eylem.  Bu makale, Log Analytics kayıtlı aramalar tanımlamayı açıklar ve uyarılar bir [kaynak yönetimi şablonu](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) olarak eklenebilir böylece [yönetim çözümleri](solutions-creating.md).
+[Yönetim çözümleri](solutions.md) genellikle içerecektir [kayıtlı aramalar](../../azure-monitor/log-query/log-query-overview.md) çözüm tarafından toplanan verileri çözümlemek için Log analytics'te.  Da belirtebilirler [uyarılar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) kullanıcıya bildir veya otomatik olarak yanıt olarak kritik bir sorunu eylem.  Bu makale, Log Analytics kayıtlı aramalar tanımlamayı açıklar ve uyarılar bir [kaynak yönetimi şablonu](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) olarak eklenebilir böylece [yönetim çözümleri](solutions-creating.md).
 
 > [!NOTE]
 > Bu makaledeki örnekleri parametreler ve değişkenler gerekli olduğunu veya yönetim çözümleri için yaygın olduğunu ve açıklanan kullanmak [tasarım ve derleme Azure Yönetimi çözümünde](solutions-creating.md)  
@@ -54,9 +54,9 @@ Aşağıdaki tabloda, bu örnekte kullanılan kaynak için API sürümü listele
 
 
 ## <a name="saved-searches"></a>Kayıtlı Aramalar
-Dahil [kayıtlı aramalar](../../log-analytics/log-analytics-queries.md) çözümünüz tarafından toplanan verileri sorgulamak için kullanıcıların bir çözümde.  Kayıtlı aramalar altında görünen **kayıtlı aramalar** Azure portalında.  Kayıtlı bir aramayı, her uyarı için de gereklidir.   
+Dahil [kayıtlı aramalar](../../azure-monitor/log-query/log-query-overview.md) çözümünüz tarafından toplanan verileri sorgulamak için kullanıcıların bir çözümde.  Kayıtlı aramalar altında görünen **kayıtlı aramalar** Azure portalında.  Kayıtlı bir aramayı, her uyarı için de gereklidir.   
 
-[Log Analytics kayıtlı araması](../../log-analytics/log-analytics-queries.md) kaynaklara sahip bir tür `Microsoft.OperationalInsights/workspaces/savedSearches` ve aşağıdaki yapıya sahiptir.  Kopyalayabilir ve bu kod parçacığı, çözüm dosyasına yapıştırın ve parametre adlarını değiştirmek için bu genel değişkenler ve parametreler içerir. 
+[Log Analytics kayıtlı araması](../../azure-monitor/log-query/log-query-overview.md) kaynaklara sahip bir tür `Microsoft.OperationalInsights/workspaces/savedSearches` ve aşağıdaki yapıya sahiptir.  Kopyalayabilir ve bu kod parçacığı, çözüm dosyasına yapıştırın ve parametre adlarını değiştirmek için bu genel değişkenler ve parametreler içerir. 
 
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",

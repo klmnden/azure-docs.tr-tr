@@ -3,15 +3,15 @@ title: Azure'dan VMware vm'lerinin olağanüstü durum kurtarma sırasında Azur
 description: VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma sırasında azure'a yük devredildikten sonra şirket içi sitede yeniden çalıştırmak öğrenin.
 author: nsoneji
 ms.service: site-recovery
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: nisoneji
-ms.openlocfilehash: becf0b8c9f14d81b0a25fb1727b69452c3ff690c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1c5d5b97465c6747e5f766a1ce8272579d37993d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215183"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850287"
 ---
 # <a name="fail-back-vmware-vms-and-physical-servers-from-azure-to-an-on-premises-site"></a>Başarısız bir şirket içi siteye VMware Vm'lerini ve fiziksel sunucuları Azure'dan geri
 

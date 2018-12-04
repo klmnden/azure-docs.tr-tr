@@ -4,16 +4,16 @@ description: Azure Otomasyonu paylaşılan kaynakları ile ilgili sorunları gid
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/05/2018
+ms.date: 12/3/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 385d2969e65647ab0b5c5e21c07b127104587e7e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ce78c86cdae9a06100fd17d00e0229805e42983b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263564"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848468"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Paylaşılan kaynaklar hatalarla ilgili sorunları giderme
 
@@ -25,11 +25,11 @@ Bu makalede, paylaşılan kaynaklar Azure Automation'da kullanırken çalışabi
 
 #### <a name="issue"></a>Sorun
 
-İçeri aktarma veya modüllerinizi Azure Otomasyonu'nda güncelleştirme olarak takılı bir modül Bul **alma** durumu.
+Bir modül olarak takılmış **alma** aktardığınızda veya modüllerinizi Azure Otomasyonu'nda güncelleştirme durumu.
 
-#### <a name="error"></a>Hata
+#### <a name="cause"></a>Nedeni
 
-PowerShell modüllerini içeri aktarma karmaşık çok adımlı bir işlemdir. Bu işlem, doğru şekilde içeri değil bir modül olasılığını tanıtır. Bu meydana gelirse, geçici bir durumda aldığınız modülü takılabilir. Bu işlem hakkında daha fazla bilgi için bkz. [PowerShell modülünü içeri aktararak]( /powershell/developer/module/importing-a-powershell-module#the-importing-process).
+PowerShell modüllerini içeri aktarma karmaşık çok adımlı bir işlemdir. Bu işlem, doğru şekilde içeri değil bir modül olasılığını tanıtır. Bu gerçekleşirse, geçici bir durumda aldığınız modülü takılabilir. Bu işlem hakkında daha fazla bilgi için bkz. [PowerShell modülünü içeri aktararak]( /powershell/developer/module/importing-a-powershell-module#the-importing-process).
 
 #### <a name="resolution"></a>Çözüm
 
@@ -38,6 +38,28 @@ Bu sorunu çözmek için takılmış modülü kaldırmak **alma** kullanarak dur
 ```azurepowershell-interactive
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
+
+## <a name="run-as-accounts"></a>Farklı Çalıştır hesapları
+
+### <a name="unable-create-update"></a>. Senaryo: Oluşturulacak veya güncelleştirilecek bir farklı çalıştır hesabı oluşturulamıyor
+
+#### <a name="issue"></a>Sorun
+
+Oluşturulacak veya güncelleştirilecek bir farklı çalıştır hesabı denediğinizde aşağıdaki hata iletisine benzer bir hata iletisi:
+
+```error
+You do not have permissions to create…
+```
+
+#### <a name="cause"></a>Nedeni
+
+Bir kaynak grubu düzeyinde kaynak kilitli veya oluşturmak veya farklı çalıştır hesabını güncelleştirmek gereken izinlere sahip değilsiniz.
+
+#### <a name="resolution"></a>Çözüm
+
+Oluşturun veya bir farklı çalıştır hesabını güncelleştirmek için farklı çalıştır hesabı kullanılan çeşitli kaynakları için uygun izinleri olmalıdır. Oluşturmak veya bir farklı çalıştır hesabını güncelleştirmek için gereken izinleri hakkında bilgi edinmek için [farklı çalıştır hesabı izinleri](../manage-runas-account.md#permissions).
+
+Bir kilit nedeniyle sorun ise kilit kilitli kaynağına gidin ve kaldırmak için Tamam olduğunu doğrulayın, kilit sağ tıklayın ve seçin **Sil** kilidini kaldırmak için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

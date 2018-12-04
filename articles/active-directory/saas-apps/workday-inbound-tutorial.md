@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: chmutali
-ms.openlocfilehash: 30354ddb010c22dabe5cd69373ae59daaf4a8b46
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 754c3278cb01e010718fa4d3cb257acf6ffe99c9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346754"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849862"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>Öğretici: Workday otomatik kullanıcı hazırlama (Önizleme) için yapılandırma
 
@@ -128,7 +128,7 @@ Workday AD kullanıcı sağlama çözüme bir veya daha fazla sağlama aracı Wi
 
 Workday ve Active Directory Tümleştirme, değerlendirilmesi için birden çok kaynak ve hedef sistemler mevcuttur:
 
-| Kaynak Sistem | Hedef sistem | Notlar |
+| Kaynak sistem | Hedef sistem | Notlar |
 | ---------- | ---------- | ---------- |
 | Workday | Active Directory etki alanı | Her etki alanı farklı bir hedef sistem olarak kabul edilir |
 | Workday | Azure AD kiracısı | Yalnızca bulutta yer alan kullanıcılar için gerekli |
@@ -725,7 +725,7 @@ Bunu yapmak için kullanmanız gerekir [Workday Studio](https://community.workda
 
     ```
     <?xml version="1.0" encoding="UTF-8"?>
-    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
       <env:Body>
         <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 88531ee1a98eefdf3ee85b4308150f10417858d0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 986640c6af07c5a7ad85cfe8ca1f3d5b8a8aae84
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420232"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846003"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kiteworks"></a>Öğretici: Azure Active Directory Kiteworks ile tümleştirme
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi Kiteworks ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Kiteworks çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'de Kiteworks tümleştirmesini yapılandırmak için Kiteworks Galeride
 
 **Galeriden Kiteworks eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -117,7 +117,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve K
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<subdomain>.kiteworks.com/sp/module.php/saml/sp/saml2-acs.php/sp-sso`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [Kiteworks istemci Destek ekibine](http://accellion.com/support) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [Kiteworks istemci Destek ekibine](https://accellion.com/support) bu değerleri almak için. 
  
 1. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
@@ -201,7 +201,7 @@ Bu bölümün amacı, Britta Simon Kiteworks adlı bir kullanıcı oluşturmakt�
 Kiteworks tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa Kitewors erişme denemesi sırasında oluşturulur.
 
 >[!NOTE]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, iletişime geçmeniz [Kiteworks Destek ekibine](http://accellion.com/support).
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, iletişime geçmeniz [Kiteworks Destek ekibine](https://accellion.com/support).
  
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
