@@ -1,14 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 96efb64ce7d77da567d587857e4a25ae334a3ffc
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 1add464c85d30622bf0940bf20a483ae22d07ea6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707121"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865327"
 documentType: LandingData
-title: Azure Machine Learning hizmeti (önizleme) Belgeleri
+title: Azure Machine Learning Hizmeti Belgeleri
 metadata:
-  title: Azure Machine Learning Belgeleri (önizleme) - Öğreticiler, API başvurusu | Microsoft Docs
+  title: Azure Machine Learning Belgeleri - Öğreticiler, API başvurusu | Microsoft Docs
   meta.description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud. Tutorials, quickstarts, API references, and examples show you how.
   services: machine-learning
   author: j-martens
@@ -41,6 +41,7 @@ sections:
     style: unordered
     items:
     - html: <a href="quickstart-get-started.md">Azure portaldan kullanmaya başlayın</a>
+    - html: <a href="quickstart-create-workspace-with-python.md">Python’ı kullanmaya başlama </a>
 - title: Adım Adım Öğreticiler
   items:
   - type: paragraph
@@ -48,9 +49,10 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-train-models-with-aml">Kendi makine öğrenme modelinizi eğitin</a>
-    - html: <a href="tutorial-auto-train-models">Sizin için otomatik olarak bir model oluşturmamıza ve ayarlamamıza izin verin</a>
-    - html: <a href="tutorial-deploy-models-with-aml">Modeli web hizmeti olarak dağıtın</a>
+    - html: Görüntü sınıflandırması (Bölüm 1)&#58; <a href="tutorial-train-models-with-aml">Kendi makine öğrenmesi modelinizi eğitme</a>
+    - html: Görüntü sınıflandırması (Bölüm 2)&#58; <a href="tutorial-deploy-models-with-aml">Bu modeli dağıtma</a></br>&nbsp;
+    - html: Regresyon (Bölüm 1)&#58; <a href="tutorial-data-prep">NYC Taxi verilerini modelleme için hazırlama</a>
+    - html: Regresyon (Bölüm 2)&#58; <a href="tutorial-auto-train-models">Otomatik makine öğrenmesi kullanarak model oluşturma</a>
   - type: paragraph
     text: '<b>Örnek not defterleri</b>: GitHub’da bulabileceğiniz <a href="https://aka.ms/aml-notebooks">bu Jupyter notebook’lar</a> ile Azure Machine Learning’i keşfedin.'
 - title: Başvuru

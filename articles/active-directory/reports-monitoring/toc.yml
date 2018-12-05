@@ -82,6 +82,8 @@ items:
       href: howto-install-use-log-analytics-views.md
     - name: SumoLogic ile etkinlik günlüklerini tümleştirme
       href: howto-integrate-activity-logs-with-sumologic.md
+    - name: ArcSight ile etkinlik günlüklerini tümleştirme
+      href: howto-integrate-activity-logs-with-arcsight.md
   - name: Sorun giderme
     items:
     - name: Eksik denetim verileri
@@ -118,9 +120,9 @@ items:
     - name: Oturum açma günlüğü şeması
       href: reference-azure-monitor-sign-ins-log-schema.md
   expanded: true
-ms.openlocfilehash: 4763477baca827eca93f05356dd92249f4c0e63c
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 9f5447c644d49c3c1919bb933762392b987b45f6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276622"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870143"

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6dc003473ed228fa8e10bd6a10d5b4b9a3d0ac49
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ef0ecc7a9e89168ed57c75ab24c3233692d77151
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621369"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863576"
 documentType: LandingData
 title: Azure Machine Learning Belgeleri
 metadata:
@@ -17,7 +17,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/31/2018
+  ms.date: 12/04/2018
   ms.author: jmartens
 abstract:
   description: Bu Azure Machine Learning ürünlerini kullanarak uygulamalara ve web sitelerine akıllı algoritma eklemeyi öğrenin.  Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.
@@ -32,53 +32,42 @@ sections:
       html: <p>Bu hizmetin veri bilimcilerinin yapay zeka çözümlerini geliştirmesine ve yönetmesine nasıl yardımcı olduğunu keşfedin<br/> CLI ve Python araçlarıyla kitaplıklarını çeşitli Azure veri ve işlem hizmetleriyle kullanın. Daha fazla bilgi edinin...</p>
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: Azure Machine Learning hizmeti (Önizleme)
-    - href: /azure/machine-learning/studio/
-      html: <p>Verilerinizde tahmine dayalı analiz çözümleri oluşturmak, test etmek ve dağıtmak için işbirliğine dayalı bu sürükle ve bırak özellikli aracın nasıl kullanılabileceğini öğrenin. Daha fazla bilgi edinin... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-      image:
-        src: /azure/machine-learning/media/index/machine-learning-studio.svg
-      title: Azure Machine Learning Studio
-- title: Hızlı Başlangıçlar ve Öğreticiler
+      title: Azure Machine Learning Hizmeti
+- title: Hızlı başlangıçlar ve öğreticiler
   items:
   - type: paragraph
-    text: 'Azure Machine Learning hizmetini (önizleme) ve Studio uygulamasını hızla kurmayı ve kullanmayı öğrenin:'
+    text: 'Azure Machine Learning Hizmetini hızla kurmayı ve kullanmayı öğrenin:'
   - type: table
     style: dataMatrix
     columns:
     - image:
         src: media/index/i_machine-learning.svg
-    - image:
-        src: media/index/machine-learning-studio.svg
     rows:
-    - title: Hizmeti kullanmaya başlama
+    - title: Azure portalında hizmetle çalışmaya başlama
       values:
       - href: /azure/machine-learning/service/quickstart-get-started
-      - href: /azure/machine-learning/studio/create-workspace
+    - title: Python'da hizmetle çalışmaya başlama
+      values:
+      - href: /azure/machine-learning/service/quickstart-create-workspace-with-python
     - title: Verileri modelleme için hazırlama
       values:
-      - href: /azure/machine-learning/service/how-to-data-prep
-      - href: /azure/machine-learning/studio/walkthrough-2-upload-data
+      - href: /azure/machine-learning/service/tutorial-data-prep
     - title: Kendi makine öğrenme modelinizi oluşturma
       values:
       - href: /azure/machine-learning/service/tutorial-train-models-with-aml
-      - href: /azure/machine-learning/studio/walkthrough-3-create-new-experiment
     - title: Algoritmaları otomatik olarak oluşturma ve ayarlama
       values:
       - href: /azure/machine-learning/service/tutorial-auto-train-models
-      - href: 
     - title: Modelinizi web hizmeti olarak dağıtma
       values:
       - href: /azure/machine-learning/service/tutorial-deploy-models-with-aml
-      - href: /azure/machine-learning/studio/walkthrough-5-publish-web-service
     - title: Makine öğrenmesi modellerinizi kullanma
       values:
       - href: /azure/machine-learning/service/how-to-consume-web-service
-      - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
-    - title: ML işlem hatlarınızı oluşturma, iyileştirme ve yönetme
+    - title: Makine öğrenmesi işlem hatlarını oluşturma ve yönetme
       values:
-      - href: /azure/machine-learning/service/concept-ml-pipelines
-      - href: 
-- title: Diğer Microsoft Machine Learning Teknolojileri
+      - href: /azure/machine-learning/service/how-to-create-your-first-pipeline
+- title: Diğer Microsoft makine öğrenmesi teknolojileri
   items:
   - type: list
     style: cards
@@ -90,11 +79,11 @@ sections:
       image:
         src: /azure/machine-learning/media/index/cognitive-services.png
       title: Bilişsel Hizmetler
-    - href: /azure/batch-ai/
-      html: <p>Herhangi bir çerçeveyi kullanarak AI modellerinizle paralel olarak deneme yapmanızı sağlayan ve modelleri kümelenmiş GPU’lar ile büyük ölçekte eğiten, yönetilen bir hizmettir.</p>
+    - href: /azure/machine-learning/studio/
+      html: <p>Verilerinizde tahmine dayalı analiz çözümleri oluşturmak, test etmek ve dağıtmak için işbirliğine dayalı bu sürükle ve bırak özellikli aracın nasıl kullanılabileceğini öğrenin. Daha fazla bilgi edinin... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
       image:
-        src: /azure/machine-learning/media/index/batch.png
-      title: Batch AI Eğitimi
+        src: /azure/machine-learning/media/index/machine-learning-studio.svg
+      title: Azure Machine Learning Studio
     - href: /sql/advanced-analytics/r/r-services
       html: <p>Hem R hem de Python desteği içeren, veritabanında analiz hizmetidir.</p>
       image:
