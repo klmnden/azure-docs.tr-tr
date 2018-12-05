@@ -1,22 +1,21 @@
 ---
-title: Azure Cosmos DB kullanarak Java uygulaması geliştirme öğreticisi | Microsoft Docs
+title: Azure Cosmos DB kullanarak Java uygulaması geliştirme Öğreticisi
 description: Bu Java web uygulaması öğreticisi, Azure Web Siteleri'nde barındırılan bir Java uygulamasında verileri depolamak ve bunlara erişmek için Azure Cosmos DB ve SQL API’sinin nasıl kullanılacağını size gösterir.
 keywords: Uygulama geliştirme, veritabanı öğreticisi, java uygulaması, java web uygulaması öğreticisi, azure, Microsoft azure
 services: cosmos-db
 author: tknandu
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: f60afa88f0730e510a94aae0ac5d4fb3462c8a4e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 01b1a770959b29969fbfd0b4575a45b9c53318b6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421280"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867979"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Azure Cosmos DB ve SQL API’sini kullanarak bir Java web uygulaması oluşturma
 

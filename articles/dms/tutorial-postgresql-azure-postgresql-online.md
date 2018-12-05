@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/26/2018
-ms.openlocfilehash: 004db061e721f0169491e98bd8e7cdd86e08bb01
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.date: 12/04/2018
+ms.openlocfilehash: ba27ceb784cf139c288a89f3191282fb9b364ddc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963616"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864385"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Öğretici: DMS kullanarak PostgreSQL’i çevrimiçi ortamda PostgreSQL için Azure Veritabanına geçirme
 Şirket içi bir PostgreSQL örneğindeki veritabanlarını minimum çalışmama süresi ile [PostgreSQL için Azure Veritabanı](https://docs.microsoft.com/azure/postgresql/)'na geçirmek için Azure Veritabanı Geçiş Hizmeti'ni kullanabilirsiniz. Diğer bir deyişle, geçiş işlemi, uygulamada minimum çalışmama süresi ile gerçekleştirilebilir. Bu öğreticide, Azure Veritabanı Geçiş Hizmeti'nde çevrimiçi bir geçiş etkinliğini kullanarak şirket içi bir PostgreSQL 9.6 örneğindeki **DVD Rental** örnek veritabanını PostgreSQL için Azure Veritabanı'na geçireceksiniz.
@@ -29,10 +29,13 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Geçişi çalıştırma.
 > * Geçişi izleme.
 
+> [!NOTE]
+> Çevrimiçi bir geçiş gerçekleştirmek için Azure veritabanı geçiş hizmeti kullanarak, fiyatlandırma katmanına göre Premium (Önizleme) bağlı olarak bir örnek oluşturmak gerekir.
+
 > [!IMPORTANT]
 > En iyi geçiş deneyimi için Microsoft, Azure Veritabanı Geçiş Hizmeti’nin bir örneğini hedef veritabanıyla aynı Azure bölgesinde oluşturmayı önerir. Verileri bölgeler veya coğrafyalar arasında taşımak, geçiş sürecini yavaşlatabilir ve hatalara neden olabilir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 
 - [PostgreSQL community edition](https://www.postgresql.org/download/) 9.5, 9.6 veya 10.3’ü indirme ve yükleme. Kaynak PostgreSQL Server sürümü 9.5.11, 9.6.7, 10.3 veya üzeri olmalıdır. Daha fazla bilgi için [Desteklenen PostgreSQL Veritabanı Sürümleri](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) makalesine bakın.
@@ -88,7 +91,7 @@ Tablo şemaları, dizinler ve saklı yordamlar gibi tüm veritabanı nesnelerini
     psql -h hostname -U db_username -d db_name < your_schema.sql 
     ```
 
-    Örnek:
+    Örneğin:
 
     ```
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental < dvdrentalSchema.sql
@@ -200,7 +203,7 @@ Tablo şemaları, dizinler ve saklı yordamlar gibi tüm veritabanı nesnelerini
     ```
     az network nic list -g <ResourceGroupName>--query '[].ipConfigurations | [].privateIpAddress'
     ```
-    Örnek:
+    Örneğin:
 
     ```
     az network nic list -g PostgresDemo --query '[].ipConfigurations | [].privateIpAddress'
@@ -435,7 +438,7 @@ Tüm verilerin yakalandığından emin olmak için kaynak ve hedef veritabanlar�
     az dms project task cutover -h
     ```
 
-    Örnek:
+    Örneğin:
 
     ```
     az dms project task cutover --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask  --database-name Inventory

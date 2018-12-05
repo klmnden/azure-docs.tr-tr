@@ -1,21 +1,19 @@
 ---
-title: Azure Cosmos DB Tablo API'si ile kullanmak üzere veri içe aktarma | Microsoft Belgeleri
+title: Azure Cosmos DB Tablo API'si ile kullanmak üzere veri içe aktarma
 description: Azure Cosmos DB Tablo API'si ile kullanmak üzere veri içe aktarma hakkında bilgi edinin.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: 8614bf7009afab8c005d2ffb8b1a78f3694d2af7
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: HT
+ms.openlocfilehash: d277df3fa98564ebec92e548fa070e92cf76f200
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247518"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874048"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Verilerinizi Azure Cosmos DB Tablo API'si hesabına geçirme
 
@@ -28,7 +26,7 @@ Bu öğretici aşağıdaki görevleri kapsar:
 > * AzCopy ile veri içeri aktarma
 > * Tablo API’sinden (önizleme) Tablo API’sine geçiş 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **Aktarım hızını artırma:** Veri geçişinizin süresi, tek bir kapsayıcı veya bir kapsayıcı kümesi için ayarladığınız aktarım hızı miktarına bağlıdır. Büyük veri geçişleri için aktarım hızını artırdığınızdan emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak için aktarım hızını azaltın. Azure portalda aktarım hızını artırma hakkında daha fazla bilgi için bkz. Azure Cosmos DB’de performans düzeyleri ve fiyatlandırma katmanları.
 

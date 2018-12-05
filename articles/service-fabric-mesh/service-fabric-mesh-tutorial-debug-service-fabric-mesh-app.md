@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 27e4c8f6ac24d40a6afacf10175413745f5151d9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 06a7ce6301af6e5a7c04ac5c5a0a1240c21f834e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997021"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887517"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Öğretici: Yerel geliştirme kümenizde çalışan bir Service Fabric Mesh uygulamasının hatalarını ayıklama
 
@@ -42,7 +42,7 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiye başlamadan önce:
 
@@ -52,7 +52,7 @@ Bu öğreticiye başlamadan önce:
 
 ## <a name="download-the-to-do-sample-application"></a>Yapılacaklar örnek uygulamasını indirme
 
-[Bu öğretici serisinin birinci kısmında](service-fabric-mesh-tutorial-create-dotnetcore.md) yapılacaklar örnek uygulamasını oluşturmadıysanız, uygulamayı indirebilirsiniz. Komut penceresinde, örnek uygulama deposunu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
+Örnek uygulama Yapılacaklar oluşturmadıysanız [Bu öğretici serisinin birinci kısmında](service-fabric-mesh-tutorial-create-dotnetcore.md), indirebilirsiniz. Komut penceresinde, örnek uygulama deposunu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
 
 ```
 git clone https://github.com/azure-samples/service-fabric-mesh
@@ -74,9 +74,11 @@ Hizmetinizi yerel olarak derlemek ve çalıştırmak için **F5** tuşuna basın
 
 Yerel dağıtım bittikten ve Visual Studio uygulamanızı çalıştırdıktan sonra, bir tarayıcı penceresinde varsayılan örnek web sayfası açılır.
 
-**Hata ayıklama ipuçları**
+## <a name="debugging-tips"></a>Hata ayıklama ipuçları
 
-`using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` çağrısının hizmete bağlanamamasına neden olan bir sorun mevcuttur. Ana bilgisayarınızın IP adresi değiştiğinde bu durumda karşılaşabilirsiniz. Bunu çözmek için:
+İlk yönergelerini takip ederek (F5) çok daha hızlı çalıştırma hata ayıklamayı [en iyi duruma getirme Visual Studio performansını](service-fabric-mesh-howto-optimize-vs.md).
+
+Şu anda çağrısına neden olan bir sorunu olan `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` başarısız olmasına hizmetine bağlanın. Ana bilgisayarınızın IP adresi değiştiğinde bu durumda karşılaşabilirsiniz. Bunu çözmek için:
 
 1. Uygulamayı yerel kümeden kaldırın (Visual Studio'da, **Derleme** > **Çözümü Temizle**).
 2. Service Fabric Yerel Küme Yöneticisi'nde **Yerel Kümeyi Durdur**'u ve ardından **Yerel Kümeyi Başlat**'ı seçin.
@@ -90,13 +92,13 @@ Uygulama başlatıldığında **404** hatası alırsanız, **service.yaml** içi
 
 ### <a name="debug-in-visual-studio"></a>Visual Studio'da hata ayıklama
 
-Visual Studio'da Service Fabric Mesh uygulamasında hata ayıkladığınızda yerel bir Service Fabric geliştirme kümesi kullanırsınız. Arka uç hizmetinden yapılacaklar öğelerinin nasıl alındığını görmek için OnGet() yönteminde hata ayıklaması yapın.
+Visual Studio'da bir Service Fabric Mesh uygulaması hata ayıklaması yaparken yerel bir Service Fabric geliştirme kümesi kullanıyorsunuz. Arka uç hizmetinden yapılacaklar öğelerinin nasıl alındığını görmek için OnGet() yönteminde hata ayıklaması yapın.
 1. **WebFrontEnd** projesinde **Pages** > **Index.cshtml** > **Index.cshtml.cs** öğesini açın ve **Get** yönteminde bir kesme noktası ayarlayın (17. satır).
 2. **ToDoService** projesinde **TodoController.cs** öğesini açın ve **OnGet** yönteminde bir kesme noktası ayarlayın (15. satır).
 3. Tarayıcınıza geri dönüp sayfayı yenileyin. Web ön ucu `OnGet()` yönteminde kesme noktasına ulaşırsınız. `backendUrl` değişkenini inceleyerek **service.yaml** dosyasında tanımladığınız ortam değişkenlerinin arka uç hizmetiyle bağlantı kurmak için kullanılan URL'yle nasıl birleştirildiği görebilirsiniz.
 4. `client.GetAsync(backendUrl).GetAwaiter().GetResult())` çağrısından ilerleyin (F10); denetleyicinin `Get()` kesme noktasına ulaşırsınız. Bu yöntemde, yapılacaklar öğesi listesinin bellek içi listeden nasıl alındığını görebilirsiniz.
-5. Bitirdiğinizde, **Shift+F5** tuşlarına basarak Visual Studio’da projenizin hata ayıklamasını durdurun.
- 
+5. İşiniz bittiğinde tuşlarına basarak projenizi Visual Studio'da hata ayıklamayı Durdur **Shift + F5**.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Öğreticinin bu bölümünde şunları öğrendiniz:

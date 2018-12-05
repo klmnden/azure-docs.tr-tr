@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: a6ccfa439b58d36ee44d5f8441c2058622965653
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: dc301f218855139cfb3a5faa30109dd5a301eb07
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056924"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871209"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>İndirin ve Azure Stack geliştirme Seti'ni (ASDK) ayıklayın
 Geliştirme Seti ana bilgisayarınız ASDK yüklemeye yönelik temel gereksinimleri karşıladığından emin olduktan sonra indirmeyi ve ayıklamayı ASDK dağıtım paketi Cloudbuilder.vhdx almak için sonraki adım olacaktır.
@@ -29,7 +29,7 @@ Geliştirme Seti ana bilgisayarınız ASDK yüklemeye yönelik temel gereksiniml
 1. Yükleme başlamadan önce bilgisayarınızın aşağıdaki gereksinimleri karşıladığından emin olun:
 
   - Bilgisayarda en az 60 işletim sistemi diski için ayrıca boş dört ayrı, aynı mantıksal sabit disk sürücüler üzerinde disk alanı GB olmalıdır.
-  - [.NET framework 4.6 (veya sonraki bir sürümü)](https://aka.ms/r6mkiy) yüklü olması gerekir.
+  - [.NET framework 4.6 (veya sonraki bir sürümü)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) yüklü olması gerekir.
 
 2. [Başlangıç sayfasına gidin](https://azure.microsoft.com/overview/azure-stack/try/?v=try) , Azure Stack geliştirme Seti'ni indirme, ayrıntılarınızı girin ve ardından **Gönder**.
 3. İndirme ve çalıştırma [Azure Stack Geliştirme Seti için dağıtım denetleyicisi](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409) önkoşul denetleyicisini komut dosyası. Bu tek başına komut dosyası için Azure Stack geliştirme Seti'ni Kurulumu tarafından yapılan ön koşullar denetimleri geçer. Azure Stack Geliştirme Seti için daha büyük paketi yüklemeden önce donanım ve yazılım gereksinimleri karşılayıp onaylamak için bir yol sunar.

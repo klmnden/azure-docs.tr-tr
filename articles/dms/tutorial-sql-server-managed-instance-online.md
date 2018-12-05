@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/10/2018
-ms.openlocfilehash: ab869e53810f049593803d58b3df75d0c083bbd2
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.date: 12/04/2018
+ms.openlocfilehash: ccbfc6e204981a4e14812759715d0482e5b6cb67
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962903"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874776"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Öğretici: DMS kullanarak çevrimiçi ortamda SQL Server'ı Azure SQL Veritabanı Yönetilen Örneği'ne geçirme
 Azure Veritabanı Geçiş Hizmeti'ni kullanarak şirket içi SQL Server örneğindeki veritabanlarını minimum çalışmama süresi ile [Azure SQL Veritabanı Yönetilen Örneği](../sql-database/sql-database-managed-instance.md)'ne geçirebilirsiniz. El ile gerçekleştirilmesi gereken adımlar içeren ek yöntemler için bkz. [Azure SQL Veritabanı Yönetilen Örneği'ne SQL Server örneği geçişi](../sql-database/sql-database-managed-instance-migrate.md).
@@ -33,11 +33,17 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Geçişi izleme.
 > * Hazır olduğunuzda tam geçişi gerçekleştirme.
 
+> [!NOTE]
+> Çevrimiçi bir geçiş gerçekleştirmek için Azure veritabanı geçiş hizmeti kullanarak, fiyatlandırma katmanına göre Premium (Önizleme) bağlı olarak bir örnek oluşturmak gerekir.
+
+> [!IMPORTANT]
+> En iyi geçiş deneyimi için Microsoft, Azure Veritabanı Geçiş Hizmeti’nin bir örneğini hedef veritabanıyla aynı Azure bölgesinde oluşturmayı önerir. Verileri bölgeler veya coğrafyalar arasında taşımak, geçiş sürecini yavaşlatabilir ve hatalara neden olabilir.
+
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
 Bu makalede, SQL Server'dan Azure SQL Veritabanı Yönetilen Örneği’ne çevrimiçi bir geçiş açıklanılır. Çevrimdışı geçiş için bkz. [DMS kullanarak çevrimdışı biçimde SQL Server'ı Azure SQL Veritabanı Yönetilen Örneği'ne geçirme](tutorial-sql-server-to-managed-instance.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 
 - Azure Resource Manager dağıtım modelini kullanarak Azure Veritabanı Geçiş Hizmeti için [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) veya [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) kullanarak şirket içi kaynak sunucularınıza siteden siteye bağlantı sağlayan bir sanal ağ oluşturun. [Azure Veritabanı Geçiş Hizmeti'ni kullanarak yapılan Azure SQL Veritabanı Yönetilen Örnek geçişleri ağ topolojileri hakkında bilgi edinin](https://aka.ms/dmsnetworkformi).

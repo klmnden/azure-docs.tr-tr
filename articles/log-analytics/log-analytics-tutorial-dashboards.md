@@ -15,12 +15,12 @@ ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 6423b1347d5748b46c4ee35928515cec6891e167
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f4d46b7b8ba245c4a7e3eddbe0615c47a1e99096
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725599"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870445"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Log Analytics verilerinin panolarını oluşturma ve paylaşma
 
@@ -55,7 +55,7 @@ Panonuzun yayımlanması için bir abonelik ve kaynak grubu seçmeniz istenir. K
 
 Azure portalında günlük Araması portalından tek bir satırda temel sorgular oluşturabilirsiniz. Günlük Araması portalı bir dış portal başlatılmadan kullanılabilir ve onu kullanarak uyarı kuralları oluşturma, bilgisayar grupları oluşturma ve sorgunun sonuçlarını dışarı aktarma gibi günlük aramalarıyla ilgili çeşitli işlevler gerçekleştirebilirsiniz. 
 
-[Log Analytics portalı](../log-analytics/query-language/get-started-analytics-portal.md), Günlük Araması portalda mevcut olmayan gelişmiş işlevler sağlayan özel bir portaldır. Birden fazla satırda sorgu düzenleme, seçerek kod yürütme, bağlama duyarlı IntelliSense ve Akıllı Analiz özellikleri mevcuttur. Gelişmiş Analiz portalında grafik biçiminde bir performans görünümü oluşturabilir, gelecekteki bir arama için kaydedebilir ve daha önce oluşturulan ortak panoya sabitleyebilirsiniz.   
+[Log Analytics portalı](../azure-monitor/log-query/get-started-portal.md), Günlük Araması portalda mevcut olmayan gelişmiş işlevler sağlayan özel bir portaldır. Birden fazla satırda sorgu düzenleme, seçerek kod yürütme, bağlama duyarlı IntelliSense ve Akıllı Analiz özellikleri mevcuttur. Gelişmiş Analiz portalında grafik biçiminde bir performans görünümü oluşturabilir, gelecekteki bir arama için kaydedebilir ve daha önce oluşturulan ortak panoya sabitleyebilirsiniz.   
 
 Gelişmiş Analiz portalını Günlük Araması portalındaki bir bağlantıdan başlatabilirsiniz.<br> ![Gelişmiş Analiz portalını başlatma](media/log-analytics-tutorial-dashboards/log-analytics-advancedportal-01.png)
 

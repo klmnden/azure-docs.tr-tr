@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: d65c8653bc039b591f1c0fb711dfe68e3fbacd88
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 66688ae762aa646fc72045836c4ec4671bf4b7b4
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353570"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888520"
 ---
 # <a name="configure-deployment-sources"></a>Dağıtım kaynaklarını yapılandırma
 
@@ -38,7 +38,8 @@ Yerel Git ek olarak, aşağıdaki kaynak denetimi sağlayıcıları desteklenir:
 ## <a name="view-deployment-sources-in-app-service-administration"></a>App Service yönetim dağıtım kaynakları görüntüle
 
 1. Azure Stack Yönetici portalında oturum açın (https://adminportal.local.azurestack.external) Hizmet Yöneticisi olarak.
-2. Gözat **kaynak sağlayıcıları** seçip **App Service kaynak sağlayıcısı yönetici**.  ![App Service kaynak sağlayıcısı yönetici][1]
+2. Gözat **tüm hizmetleri** seçip **App Service**.
+    ![App Service kaynak sağlayıcısı yönetici][1]
 3. Tıklayın **kaynak denetimi Yapılandırması**. Tüm yapılandırılan dağıtım kaynakları listesini görebilirsiniz.
     ![App Service kaynak sağlayıcısı yönetici kaynak denetimi yapılandırması][2]
 

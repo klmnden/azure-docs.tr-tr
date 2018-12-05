@@ -14,12 +14,12 @@ ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 5537bfbc9f380517b36508792a21b985aea4656b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f953d13de78702328aef2b75d121e775c5f58f44
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723338"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876807"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Log Analytics günlük araması ile toplanan verileri görüntüleme veya çözümleme
 
@@ -31,7 +31,7 @@ Log Analytics’te, toplanan verileri çözümlemek için sorguları yapılandı
 
 Bu öğreticideki örneği tamamlamak için [Log Analytics çalışma alanına bağlı](log-analytics-quick-collect-azurevm.md) mevcut bir sanal makinenizin olması gerekir.  
 
-Döndürülen verilerle etkileşimli bir şekilde çalışmanın yanı sıra sorguları oluşturma ve düzenleme, iki yöntemden biri kullanılarak gerçekleştirilebilir.  Temel sorgular için Azure portalında Günlük Araması sayfasını, gelişmiş sorgulama için de Gelişmiş Analiz portalını kullanabilirsiniz. İki portal arasındaki işlev farkları hakkında daha fazla bilgi için bkz. [Azure Log Analytics’te günlük sorguları oluşturmaya ve düzenlemeye yönelik portallar](log-analytics-log-search-portals.md)
+Döndürülen verilerle etkileşimli bir şekilde çalışmanın yanı sıra sorguları oluşturma ve düzenleme, iki yöntemden biri kullanılarak gerçekleştirilebilir.  Temel sorgular için Azure portalında Günlük Araması sayfasını, gelişmiş sorgulama için de Gelişmiş Analiz portalını kullanabilirsiniz. İki portal arasındaki işlev farkları hakkında daha fazla bilgi için bkz. [Azure Log Analytics’te günlük sorguları oluşturmaya ve düzenlemeye yönelik portallar](../azure-monitor/log-query/portals.md)
 
 Bu öğreticide, Azure portalındaki Günlük Araması özelliğiyle çalışacağız. 
 

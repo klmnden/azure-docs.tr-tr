@@ -1,10 +1,8 @@
 ---
-title: Azure için MongoDB, Angular ve Node öğreticisi - 3. Bölüm | Microsoft Belgeleri
+title: Azure - 3. kısım için MongoDB, Angular ve Node Öğreticisi
 description: MongoDB için kullandığınız API'lerle Azure Cosmos DB üzerinde Angular ve Node ile bir MongoDB uygulaması oluşturma öğreticisi dizisinin 3. bölümü.
 services: cosmos-db
 author: johnpapa
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
@@ -12,12 +10,12 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: c71e0d221e4605d95dc754127ec44c62a64472f1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.openlocfilehash: fc60e66a2e4433ca1dc44470789fe2fc091c46d7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702291"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870223"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Angular ve Azure Cosmos DB ile bir MongoDB uygulaması oluşturma - 3. Bölüm: Angular ile Kullanıcı Arabirimini Oluşturma
 
@@ -34,7 +32,7 @@ Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yaz�
 
 > [!VIDEO https://www.youtube.com/embed/MnxHuqcJVoM]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Öğreticinin bu bölümüne başlamadan önce öğreticinin [2. bölümündeki](tutorial-develop-mongodb-nodejs-part2.md) adımları tamamladığınızdan emin olun.
 

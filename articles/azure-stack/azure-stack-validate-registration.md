@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/08/2018
+ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 51753a5324bbbcbf4e951628a42dd3bf425354af
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 209793545078a47f91e8fe34c3f85ffb671a2bdb
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957591"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888180"
 ---
 # <a name="validate-azure-registration"></a>Azure kaydı doğrula 
 Azure Stack hazırlık Denetleyicisi Aracı (AzsReadinessChecker), Azure aboneliğinizin Azure Stack ile kullanıma hazır olduğunu doğrulamak için kullanın. Azure Stack dağıtıma başlamadan önce kayıt doğrulayın. Hazırlık denetleyicisi doğrular:
@@ -46,7 +46,7 @@ Aşağıdaki önkoşulların karşılanması gerekir.
 **Azure Active Directory ortamı:**
  - Kullanıcı adı ve parola, Azure Stack ile kullandığınız Azure aboneliği sahibi olan bir hesap için bu seçeneği belirleyin.  
  - Abonelik kimliği için kullanacağınız Azure aboneliği tanımlayın. 
- - Kullanacağınız AzureEnvironment tanımlayın: *AzureCloud*, *AzureGermanCloud*, veya *AzureChinaCloud*.
+ - Kullanacağınız AzureEnvironment belirleyin. AzureCloud, AzureChinaCloud veya kullanmakta olduğunuz hangi Azure aboneliğine bağlı olarak AzureUSGovernment ortam adı parametresi için desteklenen değerler.
 
 ## <a name="validate-azure-registration"></a>Azure kaydı doğrula
 1. Önkoşulları karşılayan bir bilgisayar, bir yönetici bir PowerShell istemi açın ve ardından AzsReadinessChecker yüklemek için aşağıdaki komutu çalıştırın.
@@ -59,21 +59,20 @@ Aşağıdaki önkoşulların karşılanması gerekir.
      > `$subscriptionID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"` 
 
 4. PowerShell isteminden aboneliğinizin doğrulamayı başlatmak için aşağıdaki komutu çalıştırın. 
-   - Değer AzureEnvironment belirtin *AzureCloud*, *AzureGermanCloud*, veya *AzureChinaCloud*.  
+   - Değeri için AzureEnvironment belirtin. AzureCloud, AzureChinaCloud veya kullanmakta olduğunuz hangi Azure aboneliğine bağlı olarak AzureUSGovernment ortam adı parametresi için desteklenen değerler.  
    - Azure Active Directory yöneticiniz ve Azure Active Directory Kiracı adınızı sağlayın. 
 
-   > `Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID`
+   > `Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment <environment name> -RegistrationSubscriptionID $subscriptionID`
 
 5. Aracı çalıştırıldıktan sonra çıkışını gözden geçirin. Oturum açma ve kayıt gereksinimleri için Tamam durumu olduğunu onaylayın. Başarılı bir doğrulama aşağıdaki gibi görünür:  
-````PowerShell
-Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
-Checking Registration Requirements: OK
 
-Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
-Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
-Invoke-AzsRegistrationValidation Completed
-````
-
+    ```PowerShell
+    Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+    Checking Registration Requirements: OK
+    Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+    Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+    Invoke-AzsRegistrationValidation Completed
+    ```
 
 ## <a name="report-and-log-file"></a>Rapor ve günlük dosyası
 Her zaman doğrulama çalışır ve sonuçları günlükleri **AzsReadinessChecker.log** ve **AzsReadinessCheckerReport.json**. Doğrulama sonuçları PowerShell'de bu dosyalarının konumunu görüntüler. 
@@ -90,7 +89,7 @@ Doğrulama denetimi başarısız olursa, hata hakkındaki ayrıntılar PowerShel
 Aşağıdaki örnekler, yaygın doğrulama hataları hakkında rehberlik sağlar.
 
 ### <a name="user-must-be-an-owner-of-the-subscription"></a>Kullanıcı, aboneliğin sahibi olmanız gerekir   
-````PowerShell
+```PowerShell
 Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
 Checking Registration Requirements: Fail 
 Error Details for registration account admin@contoso.onmicrosoft.com:
@@ -100,14 +99,14 @@ Additional help URL https://aka.ms/AzsRemediateRegistration
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsRegistrationValidation Completed
-````
+```
 **Neden** -hesap Azure aboneliğinin bir Yöneticisi değildir.   
 
 **Çözüm** -Azure Stack dağıtım kullanım için faturalandırılır Azure aboneliğinde yönetici olan bir hesap kullanın.
 
 
 ### <a name="expired-or-temporary-password"></a>Süresi dolmuş veya geçici parola 
-````PowerShell
+```PowerShell
 Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
 Checking Registration Requirements: Fail 
 Error Details for registration account admin@contoso.onmicrosoft.com:
@@ -120,7 +119,7 @@ Timestamp: 2018-10-22 11:16:56Z: The remote server returned an error: (401) Unau
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsRegistrationValidation Completed
-````
+```
 **Neden** -hesap parolası ya da süresi dolmuş veya geçici olduğundan oturum açamaz.     
 
 **Çözüm** - PowerShell çalıştırın ve parolayı sıfırlamak için istemleri izleyin. 
@@ -130,17 +129,17 @@ Alternatif olarak, oturum https://portal.azure.com gibi hesabı ve kullanıcı p
 
 
 ### <a name="unknown-user-type"></a>Bilinmeyen kullanıcı türü  
-````PowerShell
+```PowerShell
 Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
 Checking Registration Requirements: Fail 
 Error Details for registration account admin@contoso.onmicrosoft.com:
-Checking Registration failed with: Retrieving TenantId for subscription 3f961d1c-d1fb-40c3-99ba-44524b56df2d using account admin@contoso.onmicrosoft.com failed with unknown_user_type: Unknown Us
+Checking Registration failed with: Retrieving TenantId for subscription <subscription ID> using <account> failed with unknown_user_type: Unknown Us
 er Type
 
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsRegistrationValidation Completed
-````
+```
 **Neden** -hesabı için belirtilen Azure Active Directory ortamını oturum açamaz. Bu örnekte, *AzureChinaCloud* olarak belirtilen *AzureEnvironment*.  
 
 **Çözüm** -hesap belirtilen Azure ortam için geçerli olduğunu doğrulayın. PowerShell'de hesabının belirli bir ortam için geçerli olup olmadığını doğrulamak için aşağıdaki komutu çalıştırın.     

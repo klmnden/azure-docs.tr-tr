@@ -1,22 +1,21 @@
 ---
-title: Azure Cosmos DB SQL API verilerini yönetmek için Async Java SDK'sı ile bir Java uygulaması oluşturma | Microsoft Docs
+title: Azure Cosmos DB SQL API verileri yönetmek için zaman uyumsuz Java SDK'sı ile bir Java uygulaması derleme
 description: Bu öğreticide Azure Cosmos DB SQL API'sinin Async Java uygulaması kullanarak veri depolama ve verilere erişme amacıyla nasıl kullanılacağı gösterilmektedir.
 keywords: nosql öğreticisi, çevrimiçi veritabanı, java konsol uygulaması
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: sngun
-ms.openlocfilehash: c993216a4fbd47fcc48b5576f26ab235586969d4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d9adaaaaf64204e27c07b0728ae4bbc473a5c70a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832063"
+ms.locfileid: "52875561"
 ---
 # <a name="tutorial-build-a-java-app-with-async-java-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Öğretici: Azure Cosmos DB SQL API verilerini yönetmek için Async Java SDK'sı ile bir Java uygulaması oluşturma
 

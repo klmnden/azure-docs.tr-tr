@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: 06bc4be6ee485e61523d210b692c3fe2567cc62c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 2320aaf2d502280a29562a49dfff1e4e9244d079
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443500"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872977"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Öğretici: Service Fabric kümesine CI/CD ile kapsayıcı uygulaması dağıtma
 
@@ -65,7 +65,7 @@ E-postanızı doğrulayın ve kuruluşunuzdaki seçin **hesabı** açılır. Zat
 
 Depoyu yayımlamak, hesabınızda yerel depoyla aynı adda yeni bir takım projesi oluşturur. Mevcut takım projesinde depoyu oluşturmak için, **Depo adının** yanındaki **Gelişmiş**’e tıklayın ve bir takım projesi seçin. **Web üzerinde görüntüleyin**’i seçerek kodunuzu web’de görüntüleyebilirsiniz.
 
-## <a name="configure-continuous-delivery-with-vsts"></a>VSTS ile Sürekli Teslimi Yapılandırma
+## <a name="configure-continuous-delivery-with-azure-pipelines"></a>Azure işlem hatlarında sürekli teslimi Yapılandır
 
 Bir Azure DevOps derleme tanımı, sırayla yürütülen derleme adımları kümesinden oluşan bir iş akışını açıklar. Service Fabric kümenize dağıtmak üzere Service Fabric uygulama paketini ve diğer yapıtları üreten bir derleme tanımı oluşturun. Azure DevOps hakkında daha fazla bilgi [derleme tanımları](https://www.visualstudio.com/docs/build/define/create). 
 

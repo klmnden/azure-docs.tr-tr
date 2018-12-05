@@ -2,19 +2,19 @@
 title: Azure Backup için Azure Resource Manager şablonları
 description: Azure Backup PowerShell Örnekleri
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: sample
 ms.date: 04/18/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 941357d0a8b7fb46a5c2dcebb70681452118f23f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.openlocfilehash: bf6bca668ff97b30789a99dab2f1f3d409ab0624
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406390"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867924"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Azure Backup için Azure Resource Manager şablonları
 

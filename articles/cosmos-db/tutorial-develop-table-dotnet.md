@@ -1,10 +1,8 @@
 ---
-title: 'Azure Cosmos DB: .NET’te Tablo API’si ile geliştirme | Microsoft Docs'
+title: 'Azure Cosmos DB: .NET’te Tablo API’si ile geliştirme'
 description: .NET kullanarak Azure Cosmos DB Tablo API'si ile geliştirmeyi öğrenin
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
@@ -12,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/18/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: c41873d8f87a9a1203cefa37f99098f23e7aab92
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: 02c4ead0f41463a70cc7123427193f835d9cca94
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239022"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877744"
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: .NET’te Tablo API’si ile geliştirme
 
@@ -293,7 +291,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-Azure Cosmos DB, Tablo API’si için Azure Tablo depolama ile aynı sorgu işlevlerini destekler. Azure Cosmos DB ayrıca sıralama, toplamalar, jeo-uzamsal sorgu, hiyerarşi ve çok çeşitli yerleşik işlevleri de destekler. Gelecekteki bir hizmet güncelleştirmesinde Tablo API’sinde ek işlevler sunulacaktır. Bu özelliklere genel bakış için bkz. [Azure Cosmos DB sorgusu](sql-api-sql-query.md). 
+Azure Cosmos DB, Tablo API’si için Azure Tablo depolama ile aynı sorgu işlevlerini destekler. Azure Cosmos DB ayrıca sıralama, toplamalar, jeo-uzamsal sorgu, hiyerarşi ve çok çeşitli yerleşik işlevleri de destekler. Bu özelliklere genel bakış için bkz. [Azure Cosmos DB sorgusu](how-to-sql-query.md). 
 
 ## <a name="replace-an-entity"></a>Bir varlığı değiştirme
 Bir varlığı güncelleştirmek için Tablo hizmetinden alın, varlık nesnesini değiştirin ve değişiklikleri Tablo hizmetine geri kaydedin. Aşağıdaki kod mevcut bir müşterinin telefon numarasını değiştirir. 

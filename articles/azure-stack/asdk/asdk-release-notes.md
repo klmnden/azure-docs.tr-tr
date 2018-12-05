@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 12/03/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: f853bb32f7c452f1b09ca337db2a866bd0890b82
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: c9ac1c228fd3fd4ba666fd7881e387d79929ed9a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427259"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869968"
 ---
 # <a name="asdk-release-notes"></a>ASDK sürüm notları  
 Bu makalede, geliştirmeleri, düzeltmeleri ve bilinen sorunlar Azure Stack geliştirme Seti'ni (ASDK) hakkında bilgi sağlar. Hangi sürümü çalıştırdığınızdan emin değilseniz yapabilecekleriniz [denetlemek için portal'ı kullanmanızı](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -46,32 +46,11 @@ Daha fazla bilgi için [Azure Stack syslog iletmeyi](../azure-stack-integrate-se
 <!-- TBD - IS ASDK --> 
 - Sanal makineler Azure Stack kullanıcı portalında oluşturulan ve DS serisi VM ekleyebilirsiniz veri diskleri yanlış sayıda portalı görüntülenen bir sorun düzeltildi. DS serisi VM'ler gibi çok sayıda veri diski Azure yapılandırması sağlayabilir.
 
-- Aşağıdaki yönetilen disk sorunları içinde 1809 sabittir ve ayrıca 1808 içinde sabit [Azure Stack düzeltme 1.1808.7.113](https://support.microsoft.com/help/4471992/): 
-
-   <!--  2966665 – IS, ASDK --> 
-   - Hangi düğmelere SSD veri diskler yönetilen disk sanal makineler (DS, DSv2, Fs, Fs_V2) bir hata ile başarısız oldu premium boyuta sorun düzeltildi: *'vmname' hata sanal makinenin diskleri güncelleştirilemedi: İstenen işlem gerçekleştirilemiyor VM boyutu için desteklenmeyen 'Premium_LRS' depolama hesabı türü ' Standard_DS/Ds_V2/FS/Fs_v2)*. 
-   
-   - Kullanarak yönetilen disk VM'si oluşturma **createOption**: **iliştirme** şu hatayla başarısız oluyor: *işlemi uzun süre çalışan 'Başarısız' durumuyla başarısız oldu. Ek bilgi: 'bir iç yürütme hatası oluştu.'*
-   Hata kodu: InternalExecutionError ErrorMessage: bir iç yürütme hatası oluştu.
-   
-   Bu sorunu artık düzeltildi.
-
 - <!-- 2702741 -  IS, ASDK --> Dinamik Ayırma kullanılarak dağıtılan hangi genel IP'ler, yöntemi değildi neden olan sorun düzeltildi durdurun-serbest verildiği sonra korunması garanti. Bunlar artık korunur.
 
 - <!-- 3078022 - IS, ASDK --> Bir VM 1808 önce durdu-serbest olduysa, 1808 güncelleştirmeden sonra yeniden tahsis bulunamadı.  Bu sorun 1809 içinde düzeltilmiştir. Bu düzeltmeyle 1809 içinde başlatılamadı ve bu durumda örnek başlatılabilir. Düzeltme aynı zamanda bu sorunu yeniden oluşmasını engeller.
 
-<!-- 3090289 – IS, ASDK --> 
-- Burada 1808 güncelleştirmeyi uyguladıktan sonra aşağıdaki sorunlar yönetilen disklere sahip VM'ler dağıtırken karşılaşabileceğiniz bir sorun düzeltildi:
-
-   1. Aboneliği, yönetilen diskler ile VM dağıtma 1808 güncelleştirmeden önce oluşturulduysa, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için her abonelik için şu adımları izleyin:
-      1. Kiracı Portalı'nda Git **abonelikleri** ve aboneliği bulunamıyor. Tıklayın **kaynak sağlayıcıları**, ardından **Microsoft.Compute**ve ardından **yeniden kaydettirin**.
-      2. Aynı abonelik altında Git **erişim denetimi (IAM)**, doğrulayın **Azure Stack – yönetilen Disk** listelenir.
-   2. Bir konuk dizin ile ilişkili bir abonelik içindeki Vm'leri dağıtma, çok kiracılı bir ortam yapılandırdıysanız, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için aşağıdaki adımları izleyin:
-      1. Uygulama [1808 Azure Stack düzeltme](https://support.microsoft.com/help/4471992).
-      2. Bağlantısındaki [bu makalede](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) her Konuk dizinlerinizi yeniden yapılandırmak için.
-
 - **Çeşitli düzeltmeleri** performans, kararlılık, güvenlik ve Azure Stack tarafından kullanılan işletim sistemi
-
 
 ### <a name="changes"></a>Değişiklikler
 

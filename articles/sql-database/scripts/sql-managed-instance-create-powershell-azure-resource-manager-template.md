@@ -11,15 +11,15 @@ author: jovanpop-msft
 ms.author: jovanpop-msft
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: cee03533f5b2033ab7cb45aa72209789d96606d0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/04/2018
+ms.openlocfilehash: e2075f8a8e54a091dbb82f9ed6d1c8ddaa9da4d0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52852981"
+ms.locfileid: "52869855"
 ---
-# <a name="use-powershell-with-azure-resource-manager-template-to-create-a-azure-sql-database-managed-instance-with-specified-and-configure-a-firewall-rule"></a>Bir güvenlik duvarı kuralı yapılandırın ve belirtilen bir Azure SQL veritabanı yönetilen örneği ile oluşturmak için Azure Resource Manager şablonu ile PowerShell kullanma
+# <a name="use-powershell-with-azure-resource-manager-template-to-create-an-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği oluşturmak için Azure Resource Manager şablonu ile PowerShell kullanma
 
 Azure SQL veritabanı yönetilen örneği, Azure PowerShell kitaplığını ve Azure Resource Manager şablonları kullanılarak oluşturulabilir. 
 
@@ -33,7 +33,7 @@ Azure PowerShell komutları, önceden tanımlanmış Azure Resource Manager şab
 - SQL yönetici kullanıcı adı ve parola. 
 - (Çekirdek sayısını ve en yüksek depolama boyutu) örnek boyutu.
 - VNet ve alt ağ örneği nereye yerleştirileceğini.
-- Sunucu düzeyinde harmanlama örneği.
+- Sunucu düzeyinde harmanlama örneği (Önizleme).
 
 Örnek adı, SQL yönetici kullanıcı adı, VNet/alt ağ ve harmanlama daha sonra değiştirilemez. Diğer örnek özellikleri değiştirilebilir.
 
@@ -112,7 +112,7 @@ $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $SubnetName -VirtualNetwor
 $subnetId = $subnet.Id
 
 # Deploy Instance using Azure Resource Manager template:
-New-AzureRmResourceGroupDeployment  -Name Poland2 -ResourceGroupName $resourceGroup  `
+New-AzureRmResourceGroupDeployment  -Name MyDeployment -ResourceGroupName $resourceGroup  `
                                     -TemplateFile 'C:\...\create-managed-instance.json' `
                                     -instance $name -user $user -pwd $secpasswd -subnetId $subnetId
 ```

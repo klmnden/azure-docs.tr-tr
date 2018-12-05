@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 841448f477accb8a73d543447cd317bb9b427408
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0fd3bebc1e2dba3ab7d1204e779a8c80b97c990b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497593"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864069"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Öğretici 2: Azure Container Instance’da (ACI) bir görüntü sınıflandırma modelini dağıtma
 
@@ -22,7 +22,7 @@ Bu öğretici, **iki bölümden oluşan bir öğretici serisinin ikinci bölüm�
 
 Şimdi, [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/)’da (ACI) modeli web hizmeti olarak dağıtmaya hazırsınız. Web hizmeti, puanlama mantığını ve modelin kendisini kapsülleyen bir görüntüdür; buradaki örnekte Docker görüntüsüdür. 
 
-Öğreticinin bu bölümünde Azure Machine Learning hizmetini (Önizleme) kullanarak aşağıdakileri yapmayı öğreneceksiniz:
+Öğreticinin bu bölümünde Azure Machine Learning hizmetini kullanarak aşağıdakileri yapmayı öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Test ortamınızı ayarlama
@@ -35,10 +35,12 @@ ACI üretim dağıtımları için ideal olmasa da, iş akışını test etmek ve
 
 ## <a name="get-the-notebook"></a>Not defterini alma
 
-Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://aka.ms/aml-notebook-tut-02) olarak sağlanır. `02.deploy-models.ipynb` notebook'unu Azure Notebooks üzerinde veya kendi Jupyter notebook sunucunuzda çalıştırın.
+Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb) olarak sağlanır. `tutorials/img-classification-part2-deploy.ipynb` notebook'unu Azure Notebooks üzerinde veya kendi Jupyter notebook sunucunuzda çalıştırın.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
+>[!NOTE]
+> Bu makalede kod Azure Machine Learning SDK sürümü 1.0.2 ile test edilmiştir
 
 ## <a name="prerequisites"></a>Önkoşullar
 

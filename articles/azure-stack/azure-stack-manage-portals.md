@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/04/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4453516626c39f73deea8fce0d744fcecbd5c3fc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 58856875fa7d7bb3ba63c489fb17790e68f99aec
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085859"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872195"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Azure Stack'te Yönetici portalını kullanma
 
@@ -86,6 +86,10 @@ Yönetici portalını sağ üst köşesinde bulunan Yardım ve Destek simgesini 
 
 - Bu eylem, tümleşik bir sistem kullanıyorsanız, burada doğrudan bir destek bileti Microsoft Müşteri Destek Hizmetleri (CSS) ile açabileceğiniz bir site açar. Başvurmak [destek alınacağı](azure-stack-manage-basics.md#where-to-get-support) zaman orijinal ekipman üreticisi (OEM) donanım satıcısı Desteğinizi veya Microsoft desteği aracılığıyla gideceğine anlamak için.
 - Bu eylem, Geliştirme Seti kullanıyorsanız, Azure Stack Forum sitesine doğrudan açar. Bu Forum düzenli olarak izlenir. Geliştirme Seti değerlendirme ortamı olduğundan, Microsoft CSS sunulan resmi desteği yoktur.
+
+### <a name="quick-access-to-the-azure-roadmap"></a>Azure yol haritası hızlı erişim
+
+Seçerseniz **Yardım ve Destek** (soru işareti) Yönetici portalı ve ardından sağ üst köşesindeki **Azure yol haritası**, yeni bir tarayıcı sekmesi açılır ve sizi Azure yol haritası götürür. Yazarak **Azure Stack** içinde **ürünleri** arama kutusu, tüm Azure Stack yol haritası güncelleştirmeleri görebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

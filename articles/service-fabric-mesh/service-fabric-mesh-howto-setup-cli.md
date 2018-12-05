@@ -5,38 +5,87 @@ services: service-fabric-mesh
 keywords: ''
 author: tylermsft
 ms.author: twhitney
-ms.date: 07/26/2018
+ms.date: 11/28/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: c30f4b9de279f8c02b7f6bc7fa7d9765972899b1
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: dc37ff85deccdd5a1f8703033d300d878f9a7e4c
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977440"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887993"
 ---
-# <a name="set-up-the-service-fabric-mesh-cli"></a>Service Fabric Mesh CLI’yi ayarlama
-Service Fabric Mesh’de kaynak dağıtmak ve yönetmek için Service Fabric Mesh Komut Satırı Arabirimi (CLI) gerekir. 
+# <a name="set-up-service-fabric-mesh-cli"></a>Service Fabric Mesh CLI’yi ayarlama
+Service Fabric Mesh komut satırı arabirimi (CLI) dağıtmak ve yerel olarak ve Azure Service Fabric Mesh kaynakları yönetmek için gereklidir. 
+
+Kullanılabilir CLI üç tür vardır ve bunlar aşağıdaki tabloda özetlenmiştir. 
+
+| CLI Modülü | Hedef ortam |  Açıklama | 
+|---|---|---|
+| az mesh | Azure Service Fabric Mesh | Uygulamalarınızı dağıtma ve Azure Service Fabric Mesh ortama yönelik kaynakları yönetmenize olanak tanıyan birincil CLI. 
+| sfctl | Yerel küme | Dağıtım ve Service Fabric yerel küme kaynaklarında test sağlayan Service Fabric CLI.  
+| Maven CLI | Yerel kümeler ve Azure Service Fabric Mesh | 'Az kafes' ve 'sfctl' çevresinde bir sarmalayıcı sağlayan Java geliştiricilerin tanıdık bir komut satırı deneyimi için yerel hem de Azure geliştirme deneyimi.  
 
 Önizleme için, Azure Fabric Mesh CLI Azure CLI’nin uzantısı olarak yazılır. Azure Cloud Shell’de veya Azure CLI’nin yerel kurulumunda bunu yükleyebilirsiniz. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-## <a name="install-the-service-fabric-mesh-cli-locally"></a>Service Fabric Mesh CLI’sini yerel olarak yükleme
-CLI’yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0.43 veya üzerini yüklemeniz gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. CLI’nin en son sürümünü yüklemek veya en son sürümüne yükseltmek için bkz. [Azure CLI yükleme][azure-cli-install].
+## <a name="install-the-azure-service-fabric-mesh-cli"></a>Azure Service Fabric kafes CLI yükleme
+1. Azure CLI Sürüm 2.0.43 yüklemeniz gerekir ya da daha sonra. Sürümü bulmak için `az --version` komutunu çalıştırın. CLI’nin en son sürümünü yüklemek veya en son sürümüne yükseltmek için bkz. [Azure CLI yükleme][azure-cli-install].
 
-Aşağıdaki komutu kullanarak Azure Service Fabric Mesh CLI uzantısı modülünü yükleyin. 
+2. Aşağıdaki komutu kullanarak Azure Service Fabric CLI'sını Mesh uzantısı modülünü yükleyin. 
 
-```azurecli-interactive
-az extension add --name mesh
+    ```azurecli-interactive
+    az extension add --name mesh
+    ```
+
+3. Aşağıdaki komutu kullanarak mevcut bir Azure Service Fabric CLI'sını Mesh modülü güncelleştirin.
+
+    ```azurecli-interactive
+    az extension update --name mesh
+    ```
+
+## <a name="install-the-service-fabric-cli-sfctl"></a>Service Fabric CLI (sfctl) yükleme 
+
+Yönergeleri takip edin [Service Fabric CLI'yı ayarlama](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli). **Sfctl** modülü, Service Fabric kümeleri yerel makinenizde karşı kaynak modeline bağlı uygulamaları dağıtımını için kullanılabilir. 
+
+## <a name="install-the-maven-cli"></a>CLI Maven'i yükleyin 
+
+Maven CLI makinenizde yüklü olması için aşağıdaki gereksinimleri kullanmak için: 
+
+* [Java](https://www.azul.com/downloads/zulu/)
+* [Maven](http://maven.apache.org/download.cgi)
+* [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* Azure ağ CLI (az kafes) - Azure Service Fabric Mesh hedefine 
+* Yerel küme hedeflemek için SFCTL (sfctl)- 
+
+Service Fabric için Maven CLI hala Önizleme aşamasındadır. 
+
+Maven plugin Maven Java uygulamanızı kullanmak için aşağıdaki kod parçacığı pom.xml dosyanıza ekleyin:
+
+```XML
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>com.microsoft.azure</groupId>
+          <artifactId>azure-sf-maven-plugin</artifactId>
+          <version>0.1.0</version>
+          <configuration>
+            ...
+          </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
 ```
 
-Var olan bir Azure Service Fabric Mesh CLI modülünü güncelleştirmek için aşağıdaki komutu çalıştırın.
+Okuma [Maven CLI başvurusu](service-fabric-mesh-reference-maven.md) bölümü ayrıntılı kullanımı hakkında bilgi edinin.
 
-```azurecli-interactive
-az extension update --name mesh
-```
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Windows dağıtım ortamınızı](service-fabric-mesh-howto-setup-developer-environment-sdk.md) da ayarlayabilirsiniz.

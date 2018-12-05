@@ -1,23 +1,21 @@
 ---
-title: Azure Cosmos DB uygulaması oluşturmak için MongoDB API'lerini kullanma | Microsoft Docs
+title: MongoDB API'lerini kullanarak bir Azure Cosmos DB uygulaması derleme
 description: MongoDB için Azure Cosmos API’lerini kullanarak bir çevrimiçi veritabanı oluşturan öğretici.
 keywords: mongodb örnekleri
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: sample
 ms.date: 03/23/2018
 ms.author: sngun
-ms.openlocfilehash: 188b192cf9b86a2d28a578bbcec0d6b19a8cc5d0
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
-ms.translationtype: HT
+ms.openlocfilehash: e24c64f0042d65cc499e02dff7b53f3ca812f356
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084911"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864086"
 ---
 # <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>Node.js kullanarak MongoDB uygulaması için Azure Cosmos DB: API'lerini oluşturma
 > [!div class="op_single_selector"]

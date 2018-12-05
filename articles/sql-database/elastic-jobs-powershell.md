@@ -3,7 +3,7 @@ title: PowerShell kullanarak Azure SQL Veritabanı Elastik İş aracısı oluşt
 description: PowerShell kullanarak Elastik İş aracısı oluşturmayı öğrenin.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: tutorial
@@ -12,12 +12,12 @@ ms.author: joke
 ms.reviwer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 56dd6eff7744ddddf57b747574ee9800174d6365
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
-ms.translationtype: HT
+ms.openlocfilehash: 9b38e1b6ba55fab46965fdc7a73ab608e1e6b754
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055501"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877811"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>PowerShell kullanarak Elastik İş aracısı oluşturma
 
@@ -35,7 +35,7 @@ Bu öğreticide birden fazla veritabanında sorgu çalıştırmak için gerekli 
 > * Bir işin yürütülmesini başlatma
 > * Bir işi izleme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 

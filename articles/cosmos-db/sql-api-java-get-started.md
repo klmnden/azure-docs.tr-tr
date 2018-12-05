@@ -1,22 +1,21 @@
 ---
-title: 'NoSQL öğreticisi: Azure Cosmos DB Java SDK’sı için SQL API’si | Microsoft Docs'
+title: "NoSQL Öğreticisi: SQL API'si için Azure Cosmos DB Java SDK'sı"
 description: Azure Cosmos DB için SQL API’sini kullanarak çevrimiçi bir veritabanı ve Java konsol uygulaması oluşturan bir NoSQL öğreticisi. Azure SQL, JSON için bir NoSQL veritabanıdır.
 keywords: nosql öğreticisi, çevrimiçi veritabanı, java konsol uygulaması
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: d3354d7e2db7ff33776d5ecd40546b2a3593d702
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1c50b1bc362a66b17097575336bcb2c9bd4856ca
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836432"
+ms.locfileid: "52866092"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL öğreticisi: SQL API Java konsol uygulaması derleme
 

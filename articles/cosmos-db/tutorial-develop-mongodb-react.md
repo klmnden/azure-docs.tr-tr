@@ -1,10 +1,8 @@
 ---
-title: Azure için MongoDB, React ve Node.js öğreticisi | Microsoft Belgeleri
+title: Azure için MongoDB, React ve Node.js Öğreticisi
 description: Video temelli bu öğretici serisiyle Azure Cosmos DB üzerinde React ve Node ile MongoDB için kullandığınız aynı API'leri kullanarak bir MongoDB uygulaması oluşturmayı öğrenirsiniz.
 services: cosmos-db
 author: johnpapa
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
@@ -12,12 +10,12 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: 28651f0b9a2c775292b5c9406f676b45fc4e5d14
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.openlocfilehash: bd72aad51d2649ba6f110ab07b3f85d58da2a09d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701791"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867044"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>React ve Azure Cosmos DB ile bir MongoDB uygulaması oluşturma  
 
@@ -37,7 +35,7 @@ Bu çok bölümlü öğretici aşağıdaki görevleri içerir:
 
 Aynı uygulamayı Angular ile oluşturmak ister misiniz? Bkz. [Angular öğretici video serisi](tutorial-develop-mongodb-nodejs.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * [Node.js](https://www.nodejs.org)
 
 ### <a name="finished-project"></a>Tamamlanmış Proje

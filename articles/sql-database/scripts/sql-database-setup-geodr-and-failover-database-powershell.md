@@ -3,7 +3,7 @@ title: PowerShell örneği-etkin coğrafi çoğaltma-tek Azure SQL Veritabanı |
 description: Tek bir Azure SQL veritabanı için etkin coğrafi çoğaltma ayarlayıp yük devretme işlemi gerçekleştirmek için Azure PowerShell örnek betiği.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
@@ -12,12 +12,12 @@ ms.date: 09/07/2018
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 428bcde30b87d1e81d0eeb43bd865bfe0827e0b8
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
-ms.translationtype: HT
+ms.openlocfilehash: 3a9a3fc0413ebf0eb46487624dfc000df07f48d5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054940"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877946"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-single-azure-sql-database"></a>PowerShell kullanarak tek bir Azure SQL veritabanı için etkin coğrafi çoğaltmayı yapılandırma
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 3fe1ee3d23594d5c1697ed08b17cb0b4d5b7a2fd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.openlocfilehash: 9e8a72564151bea9194ef5180589fa8eae001df5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857644"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863729"
 ---
 # <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>Öğretici: Azure Container Instances’a kapsayıcı dağıtma
 
@@ -52,10 +52,10 @@ az acr credential show --name <acrName> --query "passwords[0].value"
 
 ### <a name="deploy-container"></a>Kapsayıcıyı dağıtma
 
-Şimdi kapsayıcıyı dağıtmak için [az container create][az-container-create] komutunu kullanın. `<acrLoginServer>` ve `<acrPassword>` değerlerini, önceki iki komuttan aldığınız değerlerle değiştirin. `<acrName>` komutunu, kapsayıcı kayıt defterinizin adıyla değiştirin.
+Şimdi kapsayıcıyı dağıtmak için [az container create][az-container-create] komutunu kullanın. `<acrLoginServer>` ve `<acrPassword>` değerlerini, önceki iki komuttan aldığınız değerlerle değiştirin. Değiştirin `<acrName>` kapsayıcı kayıt defterinizin adıyla ve `<aciDnsLabel>` istenen DNS adına sahip.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label <aciDnsLabel> --ports 80
 ```
 
 Birkaç saniye içinde Azure’dan bir ilk yanıt almanız gerekir. `--dns-name-label` değeri, kapsayıcı örneğini oluşturduğunuz Azure bölgesi içinde benzersiz olmalıdır. Komutu yürütürken bir **DNS ad etiketi** hata iletisi alırsanız önceki komutta yer alan değeri değiştirin.
@@ -78,7 +78,7 @@ Dağıtım başarılı olduktan sonra, [az container show][az-container-show] ko
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Örnek:
+Örneğin:
 ```console
 $ az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 "aci-demo.eastus.azurecontainer.io"

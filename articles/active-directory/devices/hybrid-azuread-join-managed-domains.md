@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 48bedff0cd09c3f0dbffdabe6a94847d035a0cf9
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: 7061776ba5325a333033d0f272de3b2663b44351
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963940"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887806"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Öğretici: Yönetilen etki alanları için hibrit Azure Active Directory'ye katılımı yapılandırma
 
@@ -42,7 +42,7 @@ Bu öğreticide, yönetilen etki alanlarındaki cihazlar için hibrit Azure AD'y
 > * Sorun giderme 
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide, şu konularda bilgi sahibi olduğunuz varsayılır:
     
@@ -140,6 +140,8 @@ Bazı etki alanına katılmış cihazlar Windows alt düzey cihazlarıysa şunla
  
 - Cihaz kaydı için yerel intranet ayarlarını yapılandırma
 
+- Sorunsuz çoklu oturum açma (SSO) yapılandırma
+
 - Windows alt düzey cihazlarını denetleme 
 
 
@@ -166,6 +168,11 @@ Windows aşağı düzey cihazlarınızın karma Azure AD'ye katılmasını başa
 - `https://autologon.microsoftazuread-sso.com`.
 
 Ayrıca, kullanıcının yerel intranet bölgesinde **Betik yoluyla durum çubuğu güncelleştirmelerine izin ver** seçeneğini etkinleştirmeniz gerekir.
+
+
+### <a name="configure-seamless-sso"></a>Sorunsuz çoklu oturum açmayı yapılandırın
+
+Ayrıca gerekir, sizin Windows başarıyla tamamlanması hibrit Azure AD'ye katılmak için kimlik doğrulama yöntemi Azure AD geçişli kimlik doğrulaması (PTA) ya da parola karması eşitleme (PHS) kullanan bir yönetilen etki alanındaki alt düzey cihazları bulut [yapılandırın Sorunsuz çoklu oturum açma](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
 
 
 ### <a name="control-windows-down-level-devices"></a>Windows alt düzey cihazlarını denetleme 

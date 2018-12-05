@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 9efb08922f3e6f78266baaf8ae623dd241c09522
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: 867c52d87562c11eff8dfe2abd443a2c068eb9ae
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037626"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871889"
 ---
 # <a name="virtual-network-traffic-routing"></a>Sanal ağ trafiğini yönlendirme
 
@@ -165,7 +165,7 @@ Adres ön eki 0.0.0.0/0 olan bir yol, Azure’a bir alt ağın yol tablosundaki 
         - Cihazla iletişimi engelleyen ilişkili bir ağ güvenlik grubu kuralına sahip olmaması
         - İletişimi reddetmemesi
         - Ağ adresini çevirip iletebilmesi veya trafik ile alt ağdaki hedef kaynak arasında ara sunucu oluşturabilmesi ve trafiği İnternet’e geri döndürebilmesi. 
-    - **Sanal ağ geçidi**: Ağ geçidi bir ExpressRoute sanal ağ geçidi ise, İnternet’e bağlı bir şirket içi cihaz ağ adresini çevirip iletebilir, trafik ile alt ağdaki hedef kaynak arasında ExpressRoute'un [özel eşlemesi](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) üzerinden ara sunucu oluşturabilir. 
+    - **Sanal ağ geçidi**: Ağ geçidi bir ExpressRoute sanal ağ geçidi ise, İnternet’e bağlı bir şirket içi cihaz ağ adresini çevirip iletebilir, trafik ile alt ağdaki hedef kaynak arasında ExpressRoute'un [özel eşlemesi](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#privatepeering) üzerinden ara sunucu oluşturabilir. 
 
 Sanal ağınız bir Azure VPN ağ geçidine bağlıysa, rota tablosunu 0.0.0.0/0 hedefine sahip bir rota içeren [ağ geçidi alt ağına](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) ilişkilendirmeyin. Bunun yapılması, ağ geçidinin düzgün çalışmasını engelleyebilir. Ayrıntılı bilgi için [VPN Gateway FAQ](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gatewayports) sayfasındaki (VPN Gateway ile ilgili SSS) *Why are certain ports opened on my VPN gateway?* (VPN ağ geçidimde belirli bağlantı noktalarının açık olma nedeni nedir?) sorusuna bakın.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights (Önizleme) ortam oluştur | Microsoft Docs
-description: Azure Time Series güncelleştirme ortam oluşturma hakkında bilgi edinin
+title: Azure Time Series Insights (Önizleme) öğreticisi | Microsoft Docs
+description: Azure Time Series Insights (Önizleme) hakkında bilgi edinin
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -9,87 +9,151 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
 ms.date: 11/26/2018
-ms.openlocfilehash: 7e256f032c67649a4a8b01311e70d6bc9307ae92
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ed25d03f7c592476b9284790ac12f9954661a42b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52852973"
+ms.locfileid: "52872314"
 ---
-# <a name="provisioning-and-managing-an-azure-time-series-insights-preview-environment"></a>Sağlama ve bir Azure Time Series Insights (Önizleme) ortamını yönetme
+# <a name="azure-time-series-insights-preview-tutorial"></a>Azure Time Series Insights (Önizleme) öğreticisi
 
-Bu belge, sağlamak ve Azure portalında yeni bir Azure Time Series Insights (Önizleme) ortamı yönetmek açıklar.
+Bu öğreticide, sanal cihazlar verilerle doldurulmuş bir Azure zaman serisi öngörüleri (TSI) önizleme ortamı oluşturma işlemi boyunca size yol gösterir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
-## <a name="overview"></a>Genel Bakış
+* TSI (Önizleme) ortamı oluşturun.
+* Olay Hub'ına TSI (Önizleme) ortama bağlanın.
+* Rüzgar grubu benzetimi için veri akışı TSI Önizleme ortamına çalıştırın.
+* Temel analiz verileri gerçekleştirin.
+* Zaman serisi modeli türü ve hiyerarşi tanımlamak ve örneklerinizin ile ilişkilendirin.
 
-Şu zaman serisi görüşleri güncelleştirme sağlama hakkında kısa bir açıklaması:
+## <a name="create-a-time-series-insights-preview-environment"></a>Time Series Insights (Önizleme) ortamı oluşturma
 
-* Azure zaman serisi öngörüleri (TSI) güncelleştirme ortam sağlayın.
-* Oluşturma işleminin bir parçası sağlamanız gerekir bir **zaman serisi kimliği**. En fazla olabilir **üç** (3) anahtarları. Daha fazla bilgi edinin [seçerek zaman serisi kimlikleri](./time-series-insights-update-how-to-id.md).
-* Bir Azure TSI güncelleştirme ortam sağlarken, iki Azure kaynakları, TSI güncelleştirme ortamı ve bir Azure depolama genel amaçlı V1 hesabı oluşturun.  
-* Gelecekte yeni Azure müşterileri, yalnızca varsayılan olarak bir Azure depolama genel amaçlı V2 hesabına sağlamak için verilir, bu değişiklik meydana geldiğinde bu nedenle, destekleyeceğiz.  
-* Kullanacağınız depolama hesabındaki soğuk/arşivleme özellikleri etkinleştirmeyin.
-* Ardından isteğe bağlı olarak güncelleştirme ortam bir zaman serisi görüşleri desteklenen olay kaynağına (örneğin, IOT Hub) bağlanabilirsiniz.
-* Burada, sağlamak istediğiniz **zaman damgası kimliği** özelliği ve ortam bütün olaylara erişim izni olduğundan emin olmak için benzersiz bir tüketici grubu sağlayın.
-* Sağlandıktan sonra erişim ilkelerini ve iş gereksinimlerinizi destekleyen diğer ortam öznitelikler isteğe bağlı olarak yönetebilirsiniz.
+Bu bölümde bir Azure TSI (Önizleme) kullanarak ortam oluşturmayı açıklar [Azure portalı](https://portal.azure.com/).
 
-## <a name="new-environment-creation"></a>Yeni ortam oluşturma
+1. Azure portalında abonelik hesabınızı kullanarak oturum
+1. Üstteki menüden **+ Kaynak oluştur**'u seçin.
+1. **Nesnelerin İnterneti** kategorisini, ardından **Time Series Insights**’ı seçin.
 
-1. Seçin `PAYG` gelen **SKU** açılır. Sizi ayrıca bir ortam adını girin, hangi abonelik ve kaynak grubu ortamında oluşturmak istediğiniz ve bulunması için ortamı için desteklenen bir konum seçin.  
+  ![öğretici-bir][1]
 
-1. Bir depolama hesabı adı seçerek ve bir çoğaltma seçeneği belirleme yeni bir Azure depolama hesabı oluşturun. Bunun yapılması otomatik olarak yeni bir Azure depolama genel amaçlı V1 hesabı aynı bölgede daha önce seçtiğiniz Azure TSI (Önizleme) ortamı oluşturur.  
+1. Zaman serisi görüşleri ortamı sayfadaki gerekli parametrelerini doldurun ve tıklayarak **sonraki: olay kaynağı**
 
-1. Giriş **zaman serisi kimliği** özelliği:
+  ![öğretici-iki][2]
 
-    > [!IMPORTANT]
-    > **Zaman serisi kimliği** duyarlıdır değişmez ve kez ayarlandıktan sonra değiştirilemez.
+1. Üzerinde **olay kaynağı** sayfasında gerekli parametreleri doldurun ve tıklayarak **gözden geçir + Oluştur**.
 
-    Uygun seçme konusunda daha ayrıntılı bilgi edinin **zaman serisi kimliği** okumayı tarafından [zaman serisi kimlik seçmek için en iyi yöntemler](./time-series-insights-update-how-to-id.md).
+  ![öğretici-üç][3]
 
-    ![environment_details][1]
+1. Tüm ayrıntılarını gözden geçirin ve tıklayın **Oluştur** ortamınızı sağlamaya başlamak için.
 
-1. İsteğe bağlı olarak, bir olay kaynağı ekleyebilirsiniz:
+  ![öğretici-dört][4]
 
-    * Azure IOT Hub ve Event Hubs, Azure TSI seçeneklerini destekler. Ortam oluşturma sırasında yalnızca tek bir olay kaynağı ekleyebilirsiniz, ancak daha sonra bu ek olay kaynağı ekleyebilirsiniz. Tüm olaylar için TSI görünür olduğundan emin olmak için benzersiz bir tüketici grubu oluşturmak idealdir. Varolan bir tüketici grubu seçin veya olay kaynağı eklerken, yeni bir tüketici grubu oluşturun.
+1. Dağıtım başarıyla tamamlandıktan sonra bir bildirim alırsınız.
 
-    * Ayrıca uygun belirlemeniz **zaman damgası** özelliği. Varsayılan olarak, TSI ileti sıraya alınan olayların toplu işleme veya geçmiş verileri karşıya yükleme, doğru olmayabilir her olay kaynağı için kullanır. Bu nedenle, büyük/küçük harfe zaman damgası özelliği, olay kaynağı eklerken girişi için zorunludur.  
+  ![öğretici-beş][5]
 
-     ![environment_event_sources][2]
+## <a name="send-events-to-your-tsi-environment"></a>TSI ortamınıza olayları gönderme
 
-1. Gözden geçir ve oluştur:
+Bu bölümde, TSI ortamınıza bir olay hub'ı üzerinden olayları göndermek için Yeldeğirmeni cihaz simülatörü kullanır.
 
-    ![environment_review][3]
+  1. Azure portalında, olay hub'ı kaynağınıza gidin ve TSI ortamınıza bağlanın. Bilgi [kaynağınızın mevcut bir olay Hub'ına bağlanma](./time-series-insights-how-to-add-an-event-source-eventhub.md).
 
-    Her şeyin doğru olduğundan emin olun!
+  1. Olay hub'ı kaynak sayfasında Git **paylaşılan erişim ilkeleri** ardından **RootManageSharedAccessKey**. Kopyalama **bağlantı dizesi-birincil anahtar** burada görüntülenir.
 
-## <a name="management"></a>Yönetim
+      ![öğretici-altı][6]
 
-Azure portalını kullanarak TSI güncelleştirilmiş ortamınızı yönetmek için sahipsiniz. Büyük sürümler arasında taşınmasını olduğundan kullanıcılar ile TSI tanıdık TSI güncelleştirmesiyle hemen hissedene.
+  1. [https://tsiclientsample.azurewebsites.net/windFarmGen.html]( https://tsiclientsample.azurewebsites.net/windFarmGen.html) kısmına gidin. Bu web uygulaması Yeldeğirmeni cihazların benzetimini yapar.
+  1. Bağlantı dizesi kopyalamıştır içinde 3. adımdaki Yapıştır **olay hub'ı bağlantı dizesi**
 
-Bir L1 TSI ortamı karşı bir S1 veya S2 ortamı Azure portalını kullanarak yönetmedeki başlıca farklar aşağıda verilmiştir:
+      ![öğretici-yedi][7]
 
-* TSI Azure portalı *genel bakış* dikey penceresinde:
+  1. Tıklayarak **için Başlat'ı tıklatın** olayları olay Hub'ına gönderme. Bu aşamada, adlı bir dosya `instances.json` makinenize indirilir. Biz bunu daha sonra ihtiyacınız olacak şekilde bu dosyayı kaydedin.
 
-  * Genel Bakış dikey penceresini kullanarak dışında aynı kalır:
+  1. Olay hub'ına dönün. Artık hub.d tarafından alınan yeni olayların görünmesi
 
-    * Bu kavramı L1 ortamları için uygun olmadığından kapasite kaldırılır.
-    * **Zaman serisi kimliği** özelliği eklendi. Bu zaman sağlama sırasında eklenen ve verilerinizi nasıl bölümlenmiş tanımlayan bir sabit özelliğidir.
-    * Başvuru veri kümelerini kaldırılır.
+     ![öğretici-sekiz][8]
 
-* TSI Azure portalı *yapılandırma* dikey penceresinde:
-  
-  * Bekletme bekletme sınırsız ayarlanacak şekilde kaldırılır.
+## <a name="analyze-data-in-your-environment"></a>Ortamınızı verileri analiz etme
 
-    * Daha fazla denetim için bunu gelecekte eklemek bekliyoruz, ancak şimdilik bir sınır bu ayarlayamazsınız.
-    * Kaldırılan tüm davranışı kapasite, hesap makinesi ve depolama sınırı aştı.
+Bu bölümde, Time Series Insights'ı kullanarak serisi Veri Gezgini güncelleştirme sürenizi temel analiz gerçekleştirir.
 
-* TSI Azure portalı *başvuru* veri dikey penceresi:
+  1. Time Series Insights güncelleştirme gezgininizde URL'sini Azure Portal'da kaynak sayfasından tıklayarak gezinin.
 
-  * Tüm bu dikey pencere, başvuru verileri bir bileşen L1 ortamların olmadığından kaldırıldı.
+      ![öğretici-dokuz][9]
 
-[!INCLUDE [tsi-update-docs](../../includes/time-series-insights-update-documents.md)]
+  1. Explorer'ın tıklayarak **ana öğesiz örnekleri** ortamdaki tüm zaman serisi örnekleri görmek için düğümleri.
+
+     ![öğretici-on][10]
+
+  1. Bu öğreticide, son gün içinde gönderilen verileri çözümlemek için ekleyeceğiz. Bunu yapmak için tıklayın **hızlı süreler** seçip **son 24 saat** seçeneği.
+
+     ![öğretici-on][11]
+
+  1. Seçin **Sensor_0** ve **ortalama değeri Göster** bu zaman serisi örneğinden gönderilen verileri görselleştirmek için.
+
+     ![öğretici-on][12]
+
+  1. Benzer şekilde, temel analiz gerçekleştirmek için diğer zaman serisi örneklerinden gelen verileri çizebilirsiniz.
+
+     ![öğretici-On üç][13]
+
+## <a name="define-a-type--hierarchy"></a>Türü & hiyerarşisini tanımlayın 
+
+Bu bölümde, bir tür hiyerarşisi, yazar ve bunları, zaman serisi örnekleri ile ilişkilendirin. Daha fazla bilgi edinin [zaman serisi modelleri](./time-series-insights-update-tsm.md).
+
+  1. Explorer'ın tıklayarak **modeli** uygulama çubuğunda sekme.
+
+     ![öğretici-on dört][14]
+
+  1. Türleri bölümüne tıklayarak **+ Ekle**. Bu, yeni bir zaman serisi modeli türü oluşturmanızı sağlar.
+
+     ![öğretici-on beş][15]
+
+  1. Türü Düzenleyicisi'nde girin bir **adı**, **açıklama**ve ardından değişkenlerinin ilgili daha fazla bilgi için **ortalama**, **Min**, ve **Max** aşağıda gösterildiği gibi değerleri. Tıklayarak **Oluştur** türünü kaydetmek için.
+
+     ![öğretici-on altı][16]
+
+     ![öğretici-on yedi][17]
+
+  1. İçinde **hiyerarşileri** bölümünde, tıklayarak **+ Ekle**. Bu, yeni bir zaman serisi modeli hiyerarşisi oluşturmanızı sağlar.
+
+     ![öğretici-On sekiz][18]
+
+  1. Hiyerarşi düzenleyiciye bir **adı** ve hiyerarşi düzeyleri aşağıda gösterildiği gibi ekleyin. Tıklayarak **Oluştur** hiyerarşisine kaydetmek için.
+
+     ![öğretici-on dokuz][19]
+
+     ![öğretici-yirmi][20]
+
+  1. İçinde **örnekleri** bölümünde bir örneğini seçin ve tıklayın **Düzenle**. Bu, bir tür ve hiyerarşi Bu örnekle ilişkili olanak tanır.
+
+     ![öğretici-yirmi-bir][21]
+
+  1. Örneği Düzenleyici'de gösterildiği gibi adım 3, 5 yukarıda tanımlanan hiyerarşi ve türünü seçin.
+
+     ![öğretici yirmi iki][22]
+
+  1. Alternatif olarak, tüm örnekleri için aynı anda bunun için düzenleyebileceğiniz `instances.json` daha önce indirilen dosya. Bu dosyada, tüm değiştirmek **TypeID** ve **HierarchyId** Kimliğine sahip alanlar elde adımları 3, yukarıdaki 5.
+
+  1. İçinde **örnekleri** bölümünde, tıklayın **karşıya JSON** ve düzenlenmiş karşıya `instances.json` dosya aşağıda gösterildiği gibi.
+
+     ![öğretici yirmi üç][23]
+
+  1. Gidin **Analytics** sekmesini ve tarayıcınızı yenileyin. Artık, tür ve yukarıda tanımlanan hiyerarşi ile ilişkilendirilmiş tüm örnekler görmeniz gerekir.
+
+     ![öğretici yirmi dört][24]
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
+Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:  
+
+* TSI (Önizleme) ortamı oluşturun.
+* Olay Hub'ına TSI (Önizleme) ortama bağlanın.
+* Bir Rüzgar grubu simülasyonu için veri akışı (Önizleme) TSI ortamına çalıştırın.
+* Temel analiz verileri gerçekleştirin.
+* Hiyerarşi, zaman serisi modeli tür tanımlama ve örneklerinizin ile ilişkilendirin.
+
+TSI güncelleştirme ortamınızı oluşturma işlemini öğrendiğinize göre TSI temel kavramlar hakkında daha fazla bilgi edinebilirsiniz.
 
 TSI depolama yapılandırması hakkında okuyun:
 
@@ -99,9 +163,30 @@ TSI depolama yapılandırması hakkında okuyun:
 Zaman serisi modelleri hakkında daha fazla bilgi edinin:
 
 > [!div class="nextstepaction"]
-> [Azure TSI TSM (Önizleme)](./time-series-insights-update-tsm.md)
+> [Azure TSI (Önizleme) verileri modelleme](./time-series-insights-update-tsm.md)
 
 <!-- Images -->
-[1]: media/v2-update-provision/environment_details.png
-[2]: media/v2-update-provision/environment_event_sources.png
-[3]: media/v2-update-provision/environment_review.png
+[1]: media/v2-update-provision/tutorial-one.png
+[2]: media/v2-update-provision/tutorial-two.png
+[3]: media/v2-update-provision/tutorial-three.png
+[4]: media/v2-update-provision/tutorial-four.png
+[5]: media/v2-update-provision/tutorial-five.png
+[6]: media/v2-update-provision/tutorial-six.png
+[7]: media/v2-update-provision/tutorial-seven.png
+[8]: media/v2-update-provision/tutorial-eight.png
+[9]: media/v2-update-provision/tutorial-nine.png
+[10]: media/v2-update-provision/tutorial-ten.png
+[11]: media/v2-update-provision/tutorial-eleven.png
+[12]: media/v2-update-provision/tutorial-twelve.png
+[13]: media/v2-update-provision/tutorial-thirteen.png
+[14]: media/v2-update-provision/tutorial-fourteen.png
+[15]: media/v2-update-provision/tutorial-fifteen.png
+[16]: media/v2-update-provision/tutorial-sixteen.png
+[17]: media/v2-update-provision/tutorial-seventeen.png
+[18]: media/v2-update-provision/tutorial-eighteen.png
+[19]: media/v2-update-provision/tutorial-nineteen.png
+[20]: media/v2-update-provision/tutorial-twenty.png
+[21]: media/v2-update-provision/tutorial-twenty-one.png
+[22]: media/v2-update-provision/tutorial-twenty-two.png
+[23]: media/v2-update-provision/tutorial-twenty-three.png
+[24]: media/v2-update-provision/tutorial-twenty-four.png

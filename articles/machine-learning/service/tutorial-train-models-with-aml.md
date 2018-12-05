@@ -8,19 +8,19 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 11/21/2018
-ms.openlocfilehash: 53de4715a458c5713a31541da64a4a671bf8c132
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/04/2018
+ms.openlocfilehash: 8d3dd87adaad168d193b53507dbbb40efab57810
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496217"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879494"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Öğretici 1: Azure Machine Learning hizmeti ile görüntü sınıflandırma modelini eğitme
 
-Bu öğreticide, makine öğrenmesi modelini hem yerel olarak hem de uzak işlem kaynaklarında eğitiyorsunuz. Azure Machine Learning hizmetinin (önizleme) eğitim ve dağıtım iş akışını bir Python Jupyter not defterinde kullanacaksınız.  Ardından not defterini şablon olarak kullanıp kendi verilerinizle kendi makine öğrenmesi modelinizi eğitebilirsiniz. Bu öğretici, **iki bölümden oluşan bir öğretici serisinin birinci bölümüdür**.  
+Bu öğreticide, makine öğrenmesi modelini hem yerel olarak hem de uzak işlem kaynaklarında eğitiyorsunuz. Azure Machine Learning hizmetinde bir Python Jupyter not defteri için eğitim ve dağıtım iş akışı'nı kullanacaksınız.  Ardından not defterini şablon olarak kullanıp kendi verilerinizle kendi makine öğrenmesi modelinizi eğitebilirsiniz. Bu öğretici, **iki bölümden oluşan bir öğretici serisinin birinci bölümüdür**.  
 
-Bu öğretici, Azure Machine Learning hizmeti ile [MNIST](http://yann.lecun.com/exdb/mnist/) veri kümesini ve [scikit-learn](http://scikit-learn.org) kitaplığını kullanarak basit bir lojistik regresyonu eğitir.  MNIST, 70.000 gri tonlamalı resimden oluşan popüler bir veri kümesidir. Her resim 28x28 piksel bir el yazısı rakamdır ve 0 ile 9 arası bir sayıyı temsil eder. Amaç, belirli bir resim temsil ettiği rakamı tanımlamak için çok sınıflı bir sınıflandırıcı oluşturmaktır. 
+Bu öğretici, Azure Machine Learning hizmeti ile [MNIST](https://yann.lecun.com/exdb/mnist/) veri kümesini ve [scikit-learn](https://scikit-learn.org) kitaplığını kullanarak basit bir lojistik regresyonu eğitir.  MNIST, 70.000 gri tonlamalı resimden oluşan popüler bir veri kümesidir. Her resim 28x28 piksel bir el yazısı rakamdır ve 0 ile 9 arası bir sayıyı temsil eder. Amaç, belirli bir resim temsil ettiği rakamı tanımlamak için çok sınıflı bir sınıflandırıcı oluşturmaktır. 
 
 Şunları nasıl yapacağınızı öğrenin:
 
@@ -36,16 +36,14 @@ Daha sonra [bu öğreticinin ikinci bölümünde](tutorial-deploy-models-with-am
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
 
 >[!NOTE]
-> Bu makalede kod Azure Machine Learning SDK sürüm 0.1.79 ile test edilmiştir
+> Bu makalede kod Azure Machine Learning SDK sürümü 1.0.2 ile test edilmiştir
 
 ## <a name="get-the-notebook"></a>Not defterini alma
 
-Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://aka.ms/aml-notebook-tut-01) olarak sağlanır. `01.train-models.ipynb` notebook'unu Azure Notebooks üzerinde veya kendi Jupyter notebook sunucunuzda çalıştırın.
+Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb) olarak sağlanır. `tutorials/img-classification-part1-training.ipynb` notebook'unu Azure Notebooks üzerinde veya kendi Jupyter notebook sunucunuzda çalıştırın.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
->[!NOTE]
-> Bu öğreticide Azure Machine Learning SDK sürüm 0.1.74 ile test edilmiştir 
 
 ## <a name="set-up-your-development-environment"></a>Geliştirme ortamınızı kurma
 
@@ -94,11 +92,11 @@ from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-remote-compute-target"></a>Uzak işlem hedefi oluşturma
+### <a name="create-or-attach-existing-amlcompute"></a>Oluşturun veya var olan AMlCompute ekleme
 
-Azure ML işlem yönetilen kümelerinde GPU desteğine sahip VM'ler gibi Azure sanal makineler, makine öğrenimi modellerini eğitmek veri bilimcilerine sağlayan yönetilen bir hizmettir.  Bu öğreticide, bir yönetilen Azure bilgi işlem kümesi eğitim ortamınızı oluşturun. Çalışma alanınızda henüz bir küme yoksa, bu kod sizin için kümeyi oluşturur. 
+Azure Machine Learning yönetilen Compute(AmlCompute) kümelerinde GPU desteğine sahip VM'ler gibi Azure sanal makineler, makine öğrenimi modellerini eğitmek veri bilimcilerine sağlayan bir yönetilen hizmettir.  Bu öğreticide, eğitim ortamınızı AmlCompute oluşturun. Çalışma alanınızda zaten yoksa, bu kod, sizin için işlem kümeleri olarak oluşturur.
 
- **Kümenin oluşturulması yaklaşık 5 dakika sürer.** Çalışma alanınızda zaten küme varsa, bu kod onu kullanır ve oluşturma işlemini atlar.
+ **İşlemin oluşturulması yaklaşık 5 dakika sürer.** İşlem çalışma alanında ise bu kod kullanır ve oluşturma işlemini atlar.
 
 
 ```python
@@ -107,12 +105,17 @@ from azureml.core.compute import ComputeTarget
 import os
 
 # choose a name for your cluster
-compute_name = os.environ.get("BATCHAI_CLUSTER_NAME", "cpucluster")
-compute_min_nodes = os.environ.get("BATCHAI_CLUSTER_MIN_NODES", 0)
-compute_max_nodes = os.environ.get("BATCHAI_CLUSTER_MAX_NODES", 4)
+from azureml.core.compute import AmlCompute
+from azureml.core.compute import ComputeTarget
+import os
+
+# choose a name for your cluster
+compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpucluster")
+compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
+compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
 
 # This example uses CPU VM. For using GPU VM, set SKU to STANDARD_NC6
-vm_size = os.environ.get("BATCHAI_CLUSTER_SKU", "STANDARD_D2_V2")
+vm_size = os.environ.get("AML_COMPUTE_CLUSTER_SKU", "STANDARD_D2_V2")
 
 
 if compute_name in ws.compute_targets:
@@ -132,7 +135,7 @@ else:
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-     # For a more detailed view of current BatchAI cluster status, use the 'status' property    
+     # For a more detailed view of current AmlCompute status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
 
@@ -320,11 +323,10 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 Betiğin verileri nasıl aldığına ve modelleri nasıl kaydettiğine dikkat edin:
 
 + Eğitim betiği verileri içeren dizini bulmak için bir bağımsız değişkeni okur.  Daha sonra işi gönderdiğinizde, bu bağımsız değişken için veri deposuna işaret edersiniz: `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`
-    
+
 + Eğitim betiği modelinizi outputs adlı dizine kaydeder. <br/>
 `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`<br/>
 Bu dizine yazılan her şey otomatik olarak çalışma alanınıza yüklenir. Öğreticide daha sonra bu dizinden modelinize erişeceksiniz.
-
 Veri kümesini doğru yüklemek için eğitim betiğinden `utils.py` dosyasına başvurulur.  Bu betiği betik klasörünüze kopyalayın. Böylelikle, uzak kaynakta eğitim betiğiyle birlikte bu betiğe de erişilebilir.
 
 
@@ -340,12 +342,12 @@ Tahmin aracı nesnesi, çalıştırmayı göndermek için kullanılır.  Şunlar
 
 * Tahmin aracı nesnesinin adı, `est`
 * Betiklerinizi içeren dizin. Bu dizindeki dosyaların tümü yürütülmek üzere küme düğümlerine yüklenir. 
-* Bilgi işlem hedefi.  Bu örnekte, kendi oluşturduğunuz Batch AI kümesini kullanacaksınız
+* Bilgi işlem hedefi.  Bu durumda, oluşturduğunuz Azure Machine Learning işlem kümesi kullanır.
 * Eğitim betik adı, train.py
 * Eğitin betiğinden gerekli parametreler 
 * Eğitim için gereken Python paketleri
 
-Bu öğreticide, bu hedef Batch AI kümesidir. Betik klasördeki tüm dosyaları yürütme için küme düğümlerine yüklenir. Data_folder veri deposunu kullanacak şekilde ayarlanır (`ds.as_mount()`).
+Bu öğreticide, bu AmlCompute hedefidir. Betik klasördeki tüm dosyaları yürütme için küme düğümlerine yüklenir. Data_folder veri deposunu kullanacak şekilde ayarlanır (`ds.as_mount()`).
 
 ```python
 from azureml.train.estimator import Estimator

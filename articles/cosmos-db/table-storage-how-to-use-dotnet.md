@@ -3,19 +3,18 @@ title: .NET kullanarak Azure Tablo depolamayı ve Azure Cosmos DB Tablo API’si
 description: Azure Tablo Depolama veya Azure Cosmos DB Tablo API’sini kullanarak yapılandırılmış verileri bulutta depolayın.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: dbe511f59b62d018115706d31a5cd955576cbaee
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: fd437e42c404bec71036e760b95aef7e005d3fd9
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229006"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880208"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>.NET kullanarak Azure Tablo depolamayı ve Azure Cosmos DB Tablo API’sini kullanmaya başlama
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -31,7 +30,7 @@ Bu örnekte ortak Azure Tablo depolama ve Tablo API’si senaryoları için [.NE
 * Satır ekleme, güncelleştirme ve silme
 * Sorgu tabloları
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu örneği başarıyla tamamlamak için aşağıdakiler gerekir:
 

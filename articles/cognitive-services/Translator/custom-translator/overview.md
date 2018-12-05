@@ -9,14 +9,14 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: overview
-ms.openlocfilehash: 76e6bc006ff6049b631409a3515628fbd169f713
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: f845c064ec3625d205ec346ddfc90c3a1b2c3d8d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976987"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874847"
 ---
-# <a name="what-is-custom-translator-preview"></a>Özel Çevirmen (Önizleme) nedir?
+# <a name="what-is-custom-translator"></a>Özel Translator nedir?
 
 [Özel Translator](https://portal.customtranslator.azure.ai) Translator kuruluşlar, uygulama geliştiricilerinin sağlayan Microsoft Translator hizmeti özelliğidir ve özelleştirilmiş sinirsel makine çevirisi (NMT) sistemleri oluşturmak için dil hizmeti sağlayıcıları. Özelleştirilmiş çeviri sistemleri sorunsuzca mevcut uygulamalarınızın, iş akışları ve Web siteleri ile tümleştirin. [Özel Translator](https://portal.customtranslator.azure.ai/) ne benzer olanağı sunan [Microsoft Translator Hub](https://hub.microsofttranslator.com/) için istatistiksel makine çevirisi (SMT) ancak sinirsel makine çevirisi (NMT) sistemleri için özel olarak yapar.
 

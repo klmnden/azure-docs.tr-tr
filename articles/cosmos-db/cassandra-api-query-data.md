@@ -1,7 +1,6 @@
 ---
-title: Bir Azure Cosmos DB Cassandra API hesabından veri sorgulama
-description: Bu makalede bir Java uygulaması kullanarak Azure Cosmos DB Cassandra API hesabından kullanıcı verileri sorgulama gösterilmektedir.
-services: cosmos-db
+title: "Öğretici: Azure Cosmos DB'de Cassandra API'si hesabından veri sorgulama"
+description: Bu öğreticide, bir Java uygulaması kullanarak bir Azure Cosmos DB Cassandra API'SİNİN hesaptan kullanıcı verilerini sorgulama işlemi gösterilmektedir.
 ms.service: cosmos-db
 author: kanshiG
 ms.author: govindk
@@ -9,26 +8,29 @@ ms.reviewer: sngun
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: a06e7e6159953bfeffa966759d29b91bbcbafd37
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+Customer intent: As a developer, I want to build a Java application to query data stored in a Cassandra API account of Azure Cosmos DB so that customers can manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
+ms.openlocfilehash: 57d83516708e3105ba32f8b83420f06aadf0ace1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739218"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867521"
 ---
-# <a name="tutorial-query-data-from-an-azure-cosmos-db-cassandra-api-account"></a>Öğretici: Bir Azure Cosmos DB Cassandra API hesabından veri sorgulama
+# <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Öğretici: Azure Cosmos DB'de Cassandra API'si hesabından veri sorgulama
 
-Bu öğreticide bir Java uygulaması kullanarak Azure Cosmos DB Cassandra API hesabından kullanıcı verileri sorgulama gösterilmektedir. Java uygulaması [Java sürücüsünü](https://github.com/datastax/java-driver) kullanır ve ID, user name, user city gibi kullanıcı verilerini sorgular. 
+Bir geliştirici olarak, anahtar/değer çiftleri kullanan uygulamalar olabilir. Azure Cosmos DB'de Cassandra API hesabı, depolamak ve anahtar/değer veri sorgulamak için kullanabilirsiniz. Bu öğreticide, bir Java uygulaması kullanarak Azure Cosmos DB'de Cassandra API'si hesabından kullanıcı verilerini sorgulama işlemi gösterilmektedir. Java uygulaması kullanan [Java sürücüsü](https://github.com/datastax/java-driver) ve kullanıcı kimliği, kullanıcı adı ve kullanıcı şehir gibi kullanıcı verileri sorgular. 
 
 Bu öğretici aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
-> * Cassandra tablosu verilerini sorgulama
+> * Cassandra tablosu verileri Sorgulama
 > * Uygulamayı çalıştırma
 
-## <a name="prerequisites"></a>Ön koşullar
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-* Bu makale çok bölümlü bir öğreticiye aittir. Başlamadan önce Cassandra API hesabını, anahtar alanını ve tablosunu oluşturmak ve [tabloya örnek veriler yüklemek](cassandra-api-load-data.md) için önceki adımları tamamladığınızdan emin olun. 
+## <a name="prerequisites"></a>Önkoşullar
+
+* Bu makale çok bölümlü bir öğreticiye aittir. Başlamadan önce Cassandra API hesabı, anahtar alanı tablosu oluşturmak için önceki adımları tamamladığınızdan emin olun ve [tabloya örnek veri yükleyebilir](cassandra-api-load-data.md). 
 
 ## <a name="query-data"></a>Verileri sorgulama
 
@@ -38,7 +40,7 @@ Cassandra API hesabınızdan veri sorgulaması yapmak için aşağıdaki adımla
 
    * Veritabanındaki tüm kullanıcıları sorgulama
    * Kullanıcı kimliğine göre filtreleyerek belirli bir kullanıcıyı sorgulama
-   * Bir tabloyu silme.
+   * Bir tabloyu silmek için
 
    ```java
    /**
@@ -91,7 +93,7 @@ Cassandra API hesabınızdan veri sorgulaması yapmak için aşağıdaki adımla
 ## <a name="run-the-java-app"></a>Java uygulamasını çalıştırma
 1. Bir komut istemi veya terminal penceresi açın. Aşağıdaki kod bloğunu yapıştırın. 
 
-   Bu kod, dizini projeyi oluşturduğunuz klasör yolu ile değiştirir (cd). Ardından hedef klasörde `cosmosdb-cassandra-examples.jar` dosyasını oluşturmak için `mvn clean install` komutunu çalıştırır. Son olarak, Java uygulamasını çalıştırır.
+   Bu kod, proje oluşturduğunuz klasör yoluna dizini (cd) değiştirir. Ardından hedef klasörde `cosmosdb-cassandra-examples.jar` dosyasını oluşturmak için `mvn clean install` komutunu çalıştırır. Son olarak, Java uygulamasını çalıştırır.
 
    ```bash
    cd "cassandra-demo"
@@ -103,9 +105,13 @@ Cassandra API hesabınızdan veri sorgulaması yapmak için aşağıdaki adımla
 
 2. Şimdi Azure portalda **Veri Gezgini**'ni açın ve kullanıcı tablosunun silindiğini doğrulayın.
 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Artık ihtiyaç duyulan, kaynak grubu, Azure Cosmos hesabı ve tüm ilgili kaynakları silin. Bunu yapmak için select sanal makinenin kaynak grubunu seçin. **Sil**ve ardından silmek için kaynak grubunun adını onaylayın.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bu öğreticide Azure Cosmos DB Cassandra API hesabından veri sorgulamayı öğrendiniz. Şimdi bir sonraki makaleye geçebilirsiniz:
+Bu öğreticide, Azure Cosmos DB Cassandra API'SİNİN hesabında buradan veri sorgulamak öğrendiniz. Şimdi bir sonraki makaleye geçebilirsiniz:
 
 > [!div class="nextstepaction"]
 > [Cassandra API hesabına veri geçirme](cassandra-import-data.md)

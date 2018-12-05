@@ -9,21 +9,21 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 09/28/2018
+ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: f4ce197d541b8573e38fd85dcebb575c8ee99f59
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: HT
+ms.openlocfilehash: 3963e2ffb521a4b4732814e9b2992f4e83af1835
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435809"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865633"
 ---
-# <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Azure'da Docker Python ve PostgreSQL web uygulaması oluşturma
+# <a name="build-a-python-and-postgresql-web-app-in-azure-app-service"></a>Azure App Service'te bir Python ve PostgreSQL web uygulaması derleme
 
-[Linux’ta App Service](app-service-linux-intro.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğreticide veritabanı arka ucu olarak PostgreSQL kullanan veri temelli bir Python web uygulamasının nasıl oluşturulacağı gösterilmektedir. İşiniz bittiğinde, Linux üzerinde App Service’te bir Docker kapsayıcısı içinde çalışan bir Python Flask uygulamanız olur.
+[Linux’ta App Service](app-service-linux-intro.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğreticide veritabanı arka ucu olarak PostgreSQL kullanan veri temelli bir Python web uygulamasının nasıl oluşturulacağı gösterilmektedir. İşiniz bittiğinde, Linux üzerinde App Service'te çalışan bir Django uygulaması vardır.
 
-![Linux üzerinde App Service’te Docker Python Flask uygulaması](./media/tutorial-python-postgresql-app/docker-flask-in-azure.png)
+![Linux üzerinde App Service'te Python Django uygulaması](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -32,20 +32,19 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Python uygulamasını PostgreSQL’e bağlama
 > * Uygulamayı Azure’da dağıtma
 > * Tanılama günlüklerini görüntüleme
-> * Veri modelini güncelleştirme ve uygulamayı yeniden dağıtma
 > * Uygulamayı Azure portalında yönetme
 
 Bu makaledeki adımları macOS üzerinde izleyebilirsiniz. Linux ve Windows yönergeleri çoğu durumda aynıdır, ancak bu öğreticide farkları konusunda ayrıntıya girilmemiştir.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
 1. [Git'i yükleyin](https://git-scm.com/)
-1. [Python'ı yükleyin](https://www.python.org/downloads/)
-1. [PostgreSQL’i yükleyin ve çalıştırın](https://www.postgresql.org/download/)
+2. [Python'ı yükleyin](https://www.python.org/downloads/)
+3. [PostgreSQL’i yükleyin ve çalıştırın](https://www.postgresql.org/download/)
 
 ## <a name="test-local-postgresql-installation-and-create-a-database"></a>Yerel PostgreSQL yüklemesini test etme ve bir veritabanı oluşturma
 
@@ -63,12 +62,12 @@ psql postgres
 
 Bağlantınız başarılı olursa, PostgreSQL veritabanınız çalışır. Aksi takdirde, yerel PostgresQL veritabanınızın [İndirmeler - PostgreSQL Çekirdek Dağıtım](https://www.postgresql.org/download/) konusunda işletim sisteminiz için yönergeler izlenilerek başlatıldığından emin olun.
 
-*eventregistration* adlı bir veritabanı oluşturun ve *supersecretpass* parolasıyla *manager* adlı ayrı bir veritabanı kullanıcısı ayarlayın.
+Adlı bir veritabanı oluşturun *pollsdb* ve adlı bir ayrı bir veritabanı kullanıcısı ayarlayın *manager* parolayla *Manager*.
 
 ```sql
-CREATE DATABASE eventregistration;
+CREATE DATABASE pollsdb;
 CREATE USER manager WITH PASSWORD 'supersecretpass';
-GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
+GRANT ALL PRIVILEGES ON DATABASE pollsdb TO manager;
 ```
 
 PostgreSQL istemcisinden çıkmak için `\q` yazın.
@@ -77,7 +76,7 @@ PostgreSQL istemcisinden çıkmak için `\q` yazın.
 
 ## <a name="create-local-python-app"></a>Yerel Python uygulaması oluşturma
 
-Bu adımda, yerel Python Flask projesini ayarlayacaksınız.
+Bu adımda, yerel Python Django projesi olarak ayarlayın.
 
 ### <a name="clone-the-sample-app"></a>Örnek uygulamayı kopyalama
 
@@ -86,53 +85,69 @@ Terminal penceresini açın ve bir çalışma dizinine `CD` yazın.
 Örnek depoyu kopyalamak için aşağıdaki komutları çalıştırın.
 
 ```bash
-git clone https://github.com/Azure-Samples/flask-postgresql-app.git
-cd flask-postgresql-app
+git clone https://github.com/Azure-Samples/djangoapp.git
+cd djangoapp
 ```
 
-Bu örnek depo, bir [Flask](http://flask.pocoo.org/) uygulaması içerir.
+Bu örnek depo içeren bir [Django](https://www.djangoproject.com/) uygulama. Alma izleyerek aynı veri temelli uygulaması olan [başlangıç Öğreticisi Django belgelerinde](https://docs.djangoproject.com/en/2.1/intro/tutorial01/). Bu öğreticide, Django öğretmek değildir, ancak nasıl gösterir dağıtın ve App Service'e bir Django uygulaması (veya başka bir veri temelli Python uygulaması) çalıştırın.
 
-### <a name="run-the-app-locally"></a>Uygulamayı yerel olarak çalıştırma
+### <a name="configure-environment"></a>Ortamı yapılandırma
 
-Gereken paketleri yükleyip uygulamayı başlatın.
+Bir Python sanal ortamı oluşturun ve veritabanı bağlantı ayarları ayarlamak için bir betik kullanın.
 
 ```bash
 # Bash
 python3 -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
-cd app
-FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
-FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
+source ./env.sh
 
 # PowerShell
-pip install virtualenv
-virtualenv venv
-source venv/bin/activate
+py -3 -m venv venv
+venv\scripts\activate
+.\env.ps1
+```
+
+Tanımlanan ortam değişkenleri *env.sh* ve *env.ps1* kullanılan _azuresite/settings.py_ veritabanı ayarlarını tanımlamak için.
+
+### <a name="run-app-locally"></a>Uygulamayı yerel olarak çalıştırma
+
+Gerekli paketleri yükleyin [Django geçişlerini çalıştırarak](https://docs.djangoproject.com/en/2.1/topics/migrations/) ve [bir yönetici kullanıcı oluşturma](https://docs.djangoproject.com/en/2.1/intro/tutorial02/#creating-an-admin-user).
+
+```bash
 pip install -r requirements.txt
-cd app
-Set-Item Env:FLASK_APP ".\app.py"
-DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
-DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
+python manage.py migrate
+python manage.py createsuperuser
+```
+
+Django sunucunun Yönetici kullanıcıyı oluşturduktan sonra çalıştırın.
+
+```bash
+python manage.py runserver
 ```
 
 Uygulama tam olarak yüklendiğinde, şu iletiye benzer bir şey görürsünüz:
 
 ```bash
-INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
-INFO  [alembic.runtime.migration] Will assume transactional DDL.
-INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty message
- * Serving Flask app "app"
- * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+Performing system checks...
+
+System check identified no issues (0 silenced).
+October 26, 2018 - 10:54:59
+Django version 2.1.2, using settings 'azuresite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
 ```
 
-Bir tarayıcıda `http://localhost:5000` sayfasına gidin. **Kaydet!** öğesine tıklayın ve bir test kullanıcısı oluşturun.
+Bir tarayıcıda `http://localhost:8000` sayfasına gidin. Şu iletiyi görürsünüz `No polls are available.`. 
 
-![Yerel olarak çalışan Python Flask uygulaması](./media/tutorial-python-postgresql-app/local-app.png)
+Gidin `http://localhost:8000/admin` ve son adımda oluşturduğunuz yönetici kullanıcı kullanarak oturum açın. Tıklayın **Ekle** yanındaki **sorular** ve bazı seçenekleri yoklama soru oluşturun.
 
-Flask örnek uygulaması, kullanıcı verilerini veritabanında depolar. Bir kullanıcı kaydetmede başarılı olursanız, uygulamanız verileri yerel PostgreSQL veritabanına yazar.
+![Yerel olarak çalışan Python Django uygulaması](./media/tutorial-python-postgresql-app/django-admin-local.png)
 
-Flask sunucusunu istediğiniz zaman durdurmak için, terminale Ctrl+C yazın.
+Gidin `http://localhost:8000` yeniden ve görüntülenen yoklama soruya bakın.
+
+Django örnek uygulamanın kullanıcı verilerini veritabanında depolar. Yoklama soru ekleme sırasında başarılı olursanız, uygulamanız yerel PostgreSQL veritabanına veri yazıyor demektir.
+
+Django sunucunun dilediğiniz zaman durdurmak için terminale Ctrl + C yazın.
 
 ## <a name="create-a-production-postgresql-database"></a>Üretim PostgreSQL veritabanı oluşturma
 
@@ -198,11 +213,11 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 
 ## <a name="connect-python-app-to-production-database"></a>Python uygulamasını üretim veritabanına bağlama
 
-Bu adımda, örnek Flask uygulamanızı oluşturduğunuz PostgreSQL için Azure Veritabanı sunucusuna bağlarsınız.
+Bu adımda, Django örnek uygulamanızı oluşturduğunuz PostgreSQL sunucusu için Azure veritabanına bağlanın.
 
 ### <a name="create-empty-database-and-user-access"></a>Boş veritabanı oluşturma ve kullanıcı erişimi sağlama
 
-Yerel terminal penceresinde, aşağıdaki komutu çalıştırarak veritabanına bağlanın. Yönetici parolanızı girmeniz istendiğinde [PostgreSQL için Azure Veritabanı sunucusu oluşturma](#create-an-azure-database-for-postgresql-server) bölümünde belirttiğiniz parolayı kullanın.
+Cloud Shell'de aşağıdaki komutu çalıştırarak veritabanına bağlanın. Yönetici parolanızı girmeniz istendiğinde [PostgreSQL için Azure Veritabanı sunucusu oluşturma](#create-an-azure-database-for-postgresql-server) bölümünde belirttiğiniz parolayı kullanın.
 
 ```bash
 psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<postgresql_name> postgres
@@ -210,39 +225,55 @@ psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<po
 
 Yerel Postgres sunucunuzda olduğu gibi, Azure Postgres sunucusunda veritabanı ve kullanıcıyı oluşturun.
 
-```bash
-CREATE DATABASE eventregistration;
+```sql
+CREATE DATABASE pollsdb;
 CREATE USER manager WITH PASSWORD 'supersecretpass';
-GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
+GRANT ALL PRIVILEGES ON DATABASE pollsdb TO manager;
 ```
 
 PostgreSQL istemcisinden çıkmak için `\q` yazın.
 
 > [!NOTE]
-> Yönetici kullanıcıyı kullanmak yenine belirli uygulamalar için kısıtlı izinlere sahip olan veritabanı kullanıcıları oluşturmak en iyi uygulamadır. Bu örnekte, `manager` kullanıcısı _yalnızca_ `eventregistration` veritabanı için tam ayrıcalıklara sahiptir.
+> Yönetici kullanıcıyı kullanmak yenine belirli uygulamalar için kısıtlı izinlere sahip olan veritabanı kullanıcıları oluşturmak en iyi uygulamadır. Bu örnekte, `manager` kullanıcısı _yalnızca_ `pollsdb` veritabanı için tam ayrıcalıklara sahiptir.
 
 ### <a name="test-app-connectivity-to-production-database"></a>Uygulamanın üretim veritabanına bağlanıp bağlanmadığını test etme
 
-Yerel terminal penceresine dönüp aşağıdaki komutları çalıştırarak Flask veritabanı geçişini ve Flask sunucusunu çalıştırın.
+Yerel terminal penceresinde, veritabanı ortam değişkenlerini değiştirin (çalıştırarak daha önce yapılandırılan *env.sh* veya *env.ps1*):
 
 ```bash
-FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
-FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
+# Bash
+export DBHOST="<postgresql_name>.postgres.database.azure.com"
+export DBUSER="manager@<postgresql_name>"
+export DBNAME="pollsdb"
+export DBPASS="supersecretpass"
+
+# PowerShell
+$Env:DBHOST = "<postgresql_name>.postgres.database.azure.com"
+$Env:DBUSER = "manager@<postgresql_name>"
+$Env:DBNAME = "pollsdb"
+$Env:DBPASS = "supersecretpass"
 ```
 
-Uygulama tam olarak yüklendiğinde, şu iletiye benzer bir şey görürsünüz:
+Azure veritabanı'na Django geçişi çalıştırın ve bir yönetici kullanıcı oluşturun.
 
 ```bash
-INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
-INFO  [alembic.runtime.migration] Will assume transactional DDL.
-INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty message
- * Serving Flask app "app"
- * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+python manage.py migrate
+python manage.py createsuperuser
 ```
 
-Bir tarayıcıda http://localhost:5000 sayfasına gidin. **Kaydet!** öğesine tıklayın ve bir test kaydı oluşturun. Artık Azure’da veritabanına veri yazıyorsunuz.
+Django sunucunun Yönetici kullanıcıyı oluşturduktan sonra çalıştırın.
 
-![Yerel olarak çalışan Python Flask uygulaması](./media/tutorial-python-postgresql-app/local-app.png)
+```bash
+python manage.py runserver
+```
+
+Gidin `http://localhost:8000` içinde yeniden. Şu iletiyi görürsünüz `No polls are available.` yeniden. 
+
+Gidin `http://localhost:8000/admin` oluşturduğunuz yönetici kullanıcı kullanarak oturum açın ve yoklama soru önce gibi oluşturun.
+
+![Yerel olarak çalışan Python Django uygulaması](./media/tutorial-python-postgresql-app/django-admin-local.png)
+
+Gidin `http://localhost:8000` yeniden ve görüntülenen yoklama soruya bakın. Uygulamanız artık azure'da veritabanına veri yazıyor demektir.
 
 ## <a name="deploy-to-azure"></a>Azure’a dağıtma
 
@@ -250,13 +281,42 @@ Bu adımda, Postgres’e bağlı Python uygulamasını Azure App Service'e dağ�
 
 ### <a name="configure-repository"></a>Depoyu yapılandırma
 
-App Service’te Git dağıtım altyapısı, depo kökünde bir _application.py_ olduğunda `pip` otomasyonunu çağırır. Bu öğreticide, dağıtım altyapısının otomasyonu sizin için çalıştırmasını sağlayacaksınız. Yerel terminal penceresinde, depo köküne gidin, bir kukla _application.py_ oluşturun ve değişikliklerinizi işleyin.
+Django doğrular `HTTP_HOST` üst bilgisinde gelen istekler. Django uygulamanız App Service'te çalışmaya uygulamasının tam etki alanı adı izin verilen konakları eklemeniz gerekir. Açık _azuresite/settings.py_ ve bulma `ALLOWED_HOSTS` ayarı. Çizginin değiştirin:
+
+```python
+ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
+```
+
+Ardından, Django desteklemiyor [üretimde statik dosyaları sunma](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/), bu nedenle bu el ile etkinleştirmeniz gerekir. Bu öğretici için kullandığınız [WhiteNoise](http://whitenoise.evans.io/en/stable/). WhiteNoise paket zaten yer aldığı _requirements.txt_. Django kullanmak için yapılandırmanız yeterlidir. 
+
+İçinde _azuresite/settings.py_, bulma `MIDDLEWARE` ayarlama ve ekleme `whitenoise.middleware.WhiteNoiseMiddleware` ara yazılım listesine hemen altına `django.middleware.security.SecurityMiddleware` ara yazılım. `MIDDLEWARE` Ayarı şöyle görünmelidir:
+
+```python
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    ...
+]
+```
+
+Sonunda _azuresite/settings.py_, aşağıdaki satırları ekleyin.
+
+```python
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+```
+
+WhiteNoise yapılandırma hakkında daha fazla bilgi için bkz. [WhiteNoise belgeleri](http://whitenoise.evans.io/en/stable/).
+
+> [!IMPORTANT]
+> Veritabanı ayarları bölümü zaten ortam değişkenlerini kullanarak en iyi güvenlik uygulamalarını takip eder. Tam dağıtım önerileri için bkz: [Django belgeleri: dağıtım denetim listesi](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).
+
+
+Yaptığınız değişiklikleri depoya uygulayın.
 
 ```bash
-cd ..
-touch application.py
-git add .
-git commit -m "ensure azure automation"
+git commit -am "configure for App Service"
 ```
 
 ### <a name="configure-a-deployment-user"></a>Dağıtım kullanıcısı yapılandırma
@@ -280,7 +340,7 @@ App Service’te, Cloud Shell'de [`az webapp config appsettings set`](/cli/azure
 Şu örnek, veritabanı bağlantı ayrıntılarını uygulama ayarları olarak belirtir. 
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration"
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="pollsdb"
 ```
 
 ### <a name="push-to-azure-from-git"></a>Git üzerinden Azure'a gönderme
@@ -288,42 +348,28 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 [!INCLUDE [app-service-plan-no-h](../../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 ```bash 
-Counting objects: 5, done. 
-Delta compression using up to 4 threads. 
-Compressing objects: 100% (5/5), done. 
-Writing objects: 100% (5/5), 489 bytes | 0 bytes/s, done. 
-Total 5 (delta 3), reused 0 (delta 0) 
-remote: Updating branch 'master'. 
-remote: Updating submodules. 
-remote: Preparing deployment for commit id '6c7c716eee'. 
-remote: Running custom deployment command... 
-remote: Running deployment command... 
-remote: Handling node.js deployment. 
+Counting objects: 7, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 775 bytes | 0 bytes/s, done.
+Total 7 (delta 4), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: Updating submodules.
+remote: Preparing deployment for commit id '6520eeafcc'.
+remote: Generating deployment script.
+remote: Running deployment command...
+remote: Python deployment.
+remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
 . 
 . 
 . 
-remote: Deployment successful. 
+remote: Deployment successful.
+remote: App container will begin restart within 10 seconds.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git 
- * [new branch]      master -> master 
+   06b6df4..6520eea  master -> master
 ```  
 
-### <a name="configure-entry-point"></a>Giriş noktasını yapılandırma
-
-Varsayılan olarak, yerleşik görüntü kök dizinde giriş noktası olarak bir _wsgi.py_ veya _application.py_ dosyası arar ancak giriş noktanız _app/app.py_. Önceden eklediğiniz _application.py_ boştur ve herhangi bir işlevi yoktur.
-
-Cloud Shell’de, özel bir başlatma betiği ayarlamak için [`az webapp config set`](/cli/azure/webapp/config?view=azure-cli-latest#az-webapp-config-set) komutunu çalıştırın.
-
-```azurecli-interactive
-az webapp config set --name <app_name> --resource-group myResourceGroup --startup-file "gunicorn '--bind=0.0.0.0' --chdir /home/site/wwwroot/app app:app"
-```
-
-`--startup-file` parametresi özel bir komutu veya özel komut içeren dosya yolunu alır. Özel komutunuz şu biçimde olmalıdır:
-
-```
-gunicorn '--bind=0.0.0.0' --chdir /home/site/wwwroot/<subdirectory> <module>:<variable>
-```
-
-Özel komutta, giriş noktanız kök dizinde değilse `--chdir` gereklidir ve `<subdirectory>` alt dizindir. `<module>`, _.py_ dosyasının adıdır ve `<variable>` modülde web uygulamanızı temsil eden değişkendir.
+App Service dağıtım sunucusu görür _requirements.txt_ depo kökünde ve Python paket Yönetimi otomatik olarak çalıştırır `git push`.
 
 ### <a name="browse-to-the-azure-web-app"></a>Azure web uygulamasına göz atma
 
@@ -333,91 +379,29 @@ Dağıtılan web uygulamasına göz atın. Uygulama ilk kez çağrıldığında 
 http://<app_name>.azurewebsites.net
 ```
 
-Önceki adımda önceden kaydedilmiş konukların Azure üretim veritabanına kaydedildiğini görürsünüz.
+Daha önce oluşturduğunuz yoklama soru görmeniz gerekir. 
 
-![Azure’da çalışan Python Flask uygulaması](./media/tutorial-python-postgresql-app/docker-app-deployed.png)
+App Service bakarak deponuzda Django projesi algılar bir _wsgi.py_ her alt dizininde oluşturulduğu tarafından `manage.py startproject` varsayılan olarak. Dosyayı bulur, Django uygulaması yükler. App Service Python uygulamaları nasıl yükler ile ilgili daha fazla bilgi için bkz: [yapılandırma yerleşik Python görüntüsünü](how-to-configure-python.md).
+
+Gidin `<app_name>.azurewebsites.net` ve aynı yönetici kullanıcı, oluşturduğunuz kullanarak oturum açın. İsterseniz, bazı yoklama sorularım oluşturmayı deneyin.
+
+![Yerel olarak çalışan Python Django uygulaması](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
 **Tebrikler!** Linux için App Service’te bir Python uygulaması çalıştırıyorsunuz.
 
 ## <a name="access-diagnostic-logs"></a>Tanılama günlüklerine erişim
 
-Python uygulaması bir kapsayıcıda çalıştığından, Linux üzerinde App Service kapsayıcı içinden oluşturulan konsol günlüklerine erişmenize olanak sağlar. Günlükleri bulmak için şu URL’ye gidin:
+Linux üzerinde App Service'te uygulamaları varsayılan bir Docker görüntüsü kapsayıcının içinde çalıştırılır. Kapsayıcı içinde oluşturulan yönlendirilen konsol günlüklerini erişebilirsiniz. Günlükleri almak için önce Cloud Shell'de aşağıdaki komutu çalıştırarak kapsayıcı günlüğü etkinleştirin:
 
-```
-https://<app_name>.scm.azurewebsites.net/api/logs/docker
-```
-
-Her biri bir `href` özelliğine sahip iki JSON nesnesi görmeniz gerekir. Bir `href` Docker konsol günlüklerine işaret eder (`_docker.log` ile biter) ve başka bir `href` Python kapsayıcısı içinden oluşturulan konsol günlüklerine işaret eder. 
-
-```json
-[  
-   {  
-      "machineName":"RD0003FF61ACD0_default",
-      "lastUpdated":"2018-09-27T16:48:17Z",
-      "size":4766,
-      "href":"https://<app_name>.scm.azurewebsites.net/api/vfs/LogFiles/2018_09_27_RD0003FF61ACD0_default_docker.log",
-      "path":"/home/LogFiles/2018_09_27_RD0003FF61ACD0_default_docker.log"
-   },
-   {  
-      "machineName":"RD0003FF61ACD0",
-      "lastUpdated":"2018-09-27T16:48:19Z",
-      "size":2589,
-      "href":"https://<app_name>.scm.azurewebsites.net/api/vfs/LogFiles/2018_09_27_RD0003FF61ACD0_docker.log",
-      "path":"/home/LogFiles/2018_09_27_RD0003FF61ACD0_docker.log"
-   }
-]
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --docker-container-logging filesystem
 ```
 
-Günlüklere gitmek için istediğiniz `href` değerini bir tarayıcı penceresine kopyalayın. Günlüklerin akışı yapılmaz, bu nedenle biraz gecikme olabilir. Yeni günlükleri görmek için tarayıcı sayfasını yenileyin.
+Kapsayıcı günlüğe kaydetme etkinleştirildikten sonra günlük akışını görmek için aşağıdaki komutu çalıştırın:
 
-## <a name="update-data-model-and-redeploy"></a>Veri modelini güncelleştirme ve yeniden dağıtma
-
-Bu adımda, `Guest` modelini güncelleştirerek etkinlik kayıtlarına katılanların sayısını ekleyecek ve güncelleştirmeyi Azure’a yeniden dağıtacaksınız.
-
-Yerel terminal penceresinden, aşağıdaki Git komutunu kullanarak `modelChange` dalından dosyaları kullanıma alın:
-
-```bash
-git checkout origin/modelChange -- .
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
 ```
-
-Bu sonuçlandırma modelde, görünümlerde ve denetleyicilerde gerekli değişiklikleri zaten yapar. Ayrıca *alembic* (`flask db migrate`) aracılığıyla oluşturulan bir veritabanı geçişi içerir. Aşağıdaki git komutu aracılığıyla tüm değişiklikleri görebilirsiniz:
-
-```bash
-git diff master origin/modelChange
-```
-
-### <a name="test-your-changes-locally"></a>Değişikliklerinizi yerel olarak test etme
-
-Flask sunucusunu çalıştırarak değişikliklerinizi yerel olarak test etmek için yerel terminal penceresinde aşağıdaki komutları çalıştırın.
-
-```bash
-source venv/bin/activate
-cd app
-FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
-FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
-```
-
-Değişiklikleri görüntülemek için tarayıcınızda http://localhost:5000 adresine gidin. Test kaydı oluşturun.
-
-![Yerel olarak çalışan Docker kapsayıcısı tabanlı Python Flask uygulaması](./media/tutorial-python-postgresql-app/local-app-v2.png)
-
-### <a name="publish-changes-to-azure"></a>Değişiklikleri Azure’da yayımlama
-
-Yerel terminal penceresinde, değişikliklerinizi Git’e işleyin ve ardından kod değişikliklerini Azure’a gönderin.
-
-```bash 
-git add . 
-git commit -m "updated data model" 
-git push azure master 
-``` 
-
-Azure web uygulamanıza gidin ve yeni işlevleri yeniden deneyin. Sayfayı yenilediğinizden emin olun.
-
-```bash
-http://<app_name>.azurewebsites.net
-```
-
-![Azure App Service’te Docker Python Flask uygulaması](./media/tutorial-python-postgresql-app/docker-flask-in-azure.png)
 
 ## <a name="manage-your-web-app-in-the-azure-portal"></a>Azure portalda web uygulamanızı yönetme
 
@@ -442,14 +426,13 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Python uygulamasını PostgreSQL’e bağlama
 > * Uygulamayı Azure’da dağıtma
 > * Tanılama günlüklerini görüntüleme
-> * Veri modelini güncelleştirme ve uygulamayı yeniden dağıtma
 > * Uygulamayı Azure portalında yönetme
 
 Web uygulamanıza özel bir DNS adı eşlemeyle ilgili bilgi edinmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Yerleşik Python görüntüsünü yapılandırma](how-to-configure-python.md)
+> [Mevcut bir özel DNS adını Azure Web Apps ile eşleme](../app-service-web-tutorial-custom-domain.md)
 
 > [!div class="nextstepaction"]
-> [Mevcut bir özel DNS adını Azure Web Apps ile eşleme](../app-service-web-tutorial-custom-domain.md)
+> [Yerleşik Python görüntüsünü ve hatalarında sorun giderme yapılandırın](how-to-configure-python.md)
 

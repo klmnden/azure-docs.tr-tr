@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 9cffbeae3e73682f5e76523de7ee607285c9fc75
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 10ae943711fcd7516b0fdbe982fd5d9e09227bdc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238635"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864987"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack dağıtım planlama konuları
 Azure Stack geliştirme Seti'ni (ASDK) dağıtmadan önce Geliştirme Seti ana bilgisayarınız bu makalede açıklanan gereksinimleri karşıladığından emin olun.
@@ -121,7 +121,7 @@ Yalnızca IPv4 desteklenir. IPv6 ağı oluşturamazsınız.
 Ağ üzerinde NIC'nin bağlanabileceği kullanılabilir bir DHCP sunucusunun olduğundan emin olun. Kullanılabilir bir DHCP sunucusu yoksa ana bilgisayar tarafından kullanılanın dışında ek bir statik IPv4 ağı hazırlamanız gerekir. Dağıtım parametresi olarak bu IP adresini ve ağ geçidini sağlamanız gerekir.
 
 ### <a name="internet-access"></a>İnternet erişimi
-Azure Stack, doğrudan veya saydam bir ara sunucu üzerinden Internet erişimi gerektirir. Azure Stack, Internet erişimi etkinleştirmek için bir web proxy yapılandırmasını desteklemiyor. Hem ana bilgisayar IP'SİNİN hem de (DHCP veya statik IP tarafından) MAS-BGPNAT01 atanan yeni IP'nin Internet erişimine sahip olmalıdır. Bağlantı noktaları 80 ve 443, graph.windows.net ve login.microsoftonline.com etki alanlarının altında kullanılır.
+Azure Stack, doğrudan veya saydam bir ara sunucu üzerinden Internet erişimi gerektirir. Azure Stack, Internet erişimi etkinleştirmek için bir web proxy yapılandırmasını desteklemiyor. Hem ana bilgisayar IP'SİNİN hem de (DHCP veya statik IP tarafından) AzS-BGPNAT01 atanan yeni IP'nin Internet erişimine sahip olmalıdır. Bağlantı noktaları 80 ve 443, graph.windows.net ve login.microsoftonline.com etki alanlarının altında kullanılır.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

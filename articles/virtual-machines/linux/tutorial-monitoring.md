@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f8310885ddf7e2229054f36b8fda92b92c1ab01e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.openlocfilehash: c271efceacab7f310b8e08a28d101f653c73a186
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406509"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868557"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Öğretici: Azure’da bir Linux sanal makinesini izleme ve güncelleştirme
 
@@ -208,7 +208,7 @@ VM'ye yeni bir Güncelleştirme Dağıtımı zamanlamak için, **Güncelleştirm
 * **Güncelleştirme sınıflandırması**: Güncelleştirme dağıtımının dağıtıma dahil olan yazılım türlerini seçin. Sınıflandırma türleri şunlardır:
   * Kritik güncelleştirmeler ve güvenlik güncelleştirmeleri
   * Diğer güncelleştirmeler
-* **Dışlanacak Güncelleştirmeler** - Güncelleştirme dağıtımı sırasında atlanacak paket adlarının bir listesini sağlayabilirsiniz. Paket adları, joker karakterleri (örn, \*kernal\*) destekler.
+* **Dışlanacak Güncelleştirmeler** - Güncelleştirme dağıtımı sırasında atlanacak paket adlarının bir listesini sağlayabilirsiniz. Paket adları joker karakterleri desteği (gibi \*çekirdek\*).
 
   ![Güncelleştirme Zamanlama Ayarları ekranı](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
 
