@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: 9dead2c8801340a736b6f67010a85f3dd34fbe85
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 5f52dfb4547cfac991387d333c3f5684544d691f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820272"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877519"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure uygulama Hizmeti'ne sürekli dağıtım
 Bu makale için sürekli dağıtım yapılandırma işlemi gösterilmektedir [Azure App Service](app-service-web-overview.md). App Service; BitBucket, GitHub, sürekli dağıtımı sağlar ve [Azure DevOps Hizmetleri](https://www.visualstudio.com/team-services/) Bu hizmetlerden biri olarak mevcut deponuzdaki en son güncelleştirmeleri çekerek.
@@ -47,7 +47,7 @@ GitHub ile bir kez yetkilendirmek yeterlidir. Zaten sahip olduğunuz, tıklaman�
 
 İçinde **yapılandırma** sayfasında, sürekli olarak dağıtmak istediğiniz kuruluş, depoyu ve dalı seçin. İşiniz bittiğinde tıklayın **devam**.
 
-### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>2. seçenek: Azure DevOps Hizmetleri sürekli teslim kullanma
+### <a name="option-2-use-azure-pipelines-preview"></a>2. seçenek: Azure işlem hatları (Önizleme) kullanma
 
 > [!NOTE]
 > App Service'nın Azure DevOps Hizmetleri kuruluşunuzda gerekli Azure işlem hatları oluşturmak rolü Azure hesabınızın olması gerekir **sahibi** Azure aboneliğinizdeki.
@@ -90,15 +90,18 @@ BitBucket ile bir kez yetkilendirmek yeterlidir. Zaten sahip olduğunuz, tıklam
 
 Yapılandırma tamamlandığında, seçili depo yeni işlemeler App Service uygulamanızı sürekli olarak dağıtılır.
 
-## <a name="deploy-continuously-from-azure-devops-services"></a>Azure DevOps Services'den sürekli dağıtım
+## <a name="deploy-continuously-from-azure-repos-devops-services"></a>Azure depoları (DevOps Hizmetleri) sürekli dağıtım
 
-Azure DevOps hizmetleriyle sürekli dağıtımını etkinleştirmek için App Service uygulama sayfasına gidebilirsiniz [Azure portalında](https://portal.azure.com).
+İle sürekli dağıtımı etkinleştirmek için [Azure depoları](https://docs.microsoft.com/azure/devops/repos/index), App Service uygulama sayfanıza gidin [Azure portalında](https://portal.azure.com).
 
-Sol menüde **Dağıtım Merkezi** > **Azure DevOps Hizmetleri** > **devam**. 
+Sol menüde **Dağıtım Merkezi** > **Azure depoları** > **devam**. 
 
 ![](media/app-service-continuous-deployment/vsts-choose-source.png)
 
 İçinde **oluşturma sağlayıcısını** sayfasında derleme sağlayıcıyı seçin ve tıklayın > **devam**.
+
+> [!NOTE]
+> Listede olmayan mevcut bir Azure DevOps Hizmetleri kuruluşa kullanmak istiyorsanız, yapmanız [Azure DevOps hizmetler kuruluşundan Azure aboneliğinize bağlayın](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 ### <a name="option-1-use-app-service-kudu-build-server"></a>1. seçenek: App Service Kudu derleme sunucusu kullanma
 
@@ -111,9 +114,6 @@ Sol menüde **Dağıtım Merkezi** > **Azure DevOps Hizmetleri** > **devam**.
 >
 
 İçinde **yapılandırma** sayfasında **kod** bölümünde, Azure DevOps hizmetler kuruluşundan, proje, depo ve dal sürekli olarak dağıtmak istediğiniz seçin. İşiniz bittiğinde tıklayın **devam**.
-
-> [!NOTE]
-> Listede olmayan mevcut bir Azure DevOps Hizmetleri kuruluşa kullanmak istiyorsanız, yapmanız [Azure DevOps hizmetler kuruluşundan Azure aboneliğinize bağlayın](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 İçinde **yapılandırma** sayfasında **derleme** bölümünde, Azure DevOps Hizmetleri, seçili depo için derleme görevleri çalıştırmak için kullanacağı dil çerçevesi belirtin. İşiniz bittiğinde tıklayın **devam**.
 
@@ -146,11 +146,11 @@ Sol menüde **Dağıtım Merkezi** > **GitHub** veya **Azure DevOps Hizmetleri**
 * [Otomatik olarak bir ASP.NET 4 uygulamasını dağıtmak için bir CI/CD işlem hattı oluşturmak için Azure'u kullanın](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)
 
 [Azure portal]: https://portal.azure.com
-[VSTS Portal]: https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx
+[Azure DevOps portal]: https://azure.microsoft.com/services/devops/
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Azure için PowerShell'i kullanma]: /powershell/azureps-cmdlets-docs
 [Git Belgeleri]: http://git-scm.com/documentation
 
 [Depo oluşturma (GitHub)]: https://help.github.com/articles/create-a-repo
 [Depo oluşturma (BitBucket)]: https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html
-[Azure DevOps hizmetleriyle çalışmaya başlama]: https://www.visualstudio.com/docs/vsts-tfs-overview
+[Azure DevOps hizmetleriyle çalışmaya başlama]: https://docs.microsoft.com/azure/devops/user-guide/devops-alm-overview

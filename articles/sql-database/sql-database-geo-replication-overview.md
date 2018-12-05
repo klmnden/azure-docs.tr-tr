@@ -3,7 +3,7 @@ title: Yük devretme grupları ve etkin coğrafi çoğaltma - Azure SQL veritaba
 description: Etkin coğrafi çoğaltma otomatik yük devretme grupları kullanın ve kesinti olması durumunda otomatik yük devretme etkinleştirin.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: de439683082909e65d285a7946a71eb781287937
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 819b63873fc74d5e38227a93c124f5f9c34ae097
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843487"
+ms.locfileid: "52867401"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Genel Bakış: Etkin coğrafi çoğaltma ve otomatik yük devretme grupları
 
@@ -206,7 +206,7 @@ Uygulamanız, yönetilen örnek, veri katmanı olarak kullanıyorsa, iş sürekl
 
 - **İkincil örneği birincil örnekle aynı DNS bölgesi oluşturma**
 
-  Yeni bir örneği oluşturulduğunda, benzersiz bir kimliği otomatik olarak oluşturulan DNS bölgesi ve örnek DNS adını dahil. Bu örnek biçiminde SAN alanı sağlandığında için çoklu etki alanı (SAN) sertifika &lt;zone_id&gt;. database.windows.net. Bu sertifika, aynı DNS bölgesinde örneğine istemci bağlantılarının kimliğini doğrulamak için kullanılabilir. Birincil örneğe yönelik bağlantının kesintiye yük devretmenin ardından birincil ve ikincil emin olmak için örnekleri aynı DNS bölgesinde olmalıdır. Uygulamanızı Üretim dağıtımı için hazır olduğunda, ikincil bir örneği farklı bir bölgede oluşturun ve DNS bölgesini birincil örneğiyle paylaştığı emin olun. Bu belirtilerek yapılır bir `DNS Zone Partner` isteğe bağlı parametresi `create instance` PowerShell komutu.
+  Yeni bir örneği oluşturulduğunda, benzersiz bir kimliği otomatik olarak oluşturulan DNS bölgesi ve örnek DNS adını dahil. Bu örnek biçiminde SAN alanı sağlandığında için çoklu etki alanı (SAN) sertifika &lt;zone_id&gt;. database.windows.net. Bu sertifika, aynı DNS bölgesinde örneğine istemci bağlantılarının kimliğini doğrulamak için kullanılabilir. Birincil örneğe yönelik bağlantının kesintiye yük devretmenin ardından birincil ve ikincil emin olmak için örnekleri aynı DNS bölgesinde olmalıdır. Uygulamanızı Üretim dağıtımı için hazır olduğunda, ikincil bir örneği farklı bir bölgede oluşturun ve DNS bölgesini birincil örneğiyle paylaştığı emin olun. Bu belirtilerek yapılır bir `DNS Zone Partner` Azure portalı, PowerShell veya REST API'yi kullanarak isteğe bağlı parametre.
 
 - **İki örnek arasındaki çoğaltma trafiğinin etkinleştir**
 
@@ -380,6 +380,7 @@ Otomatik Yük devretme grupları ve etkin daha önce açıklandığı gibi coğr
 | Set-AzureRmSqlDatabaseInstanceFailoverGroup |Yük devretme grubu yapılandırmasını değiştirir|
 | Get-AzureRmSqlDatabaseInstanceFailoverGroup |Yük devretme grubu yapılandırmasını alır.|
 | Anahtar AzureRmSqlDatabaseInstanceFailoverGroup |İkincil sunucuya Yük devretme grubu yük devretme Tetikleyicileri|
+| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Bir yük devretme grubunu kaldırır|
 
 ### <a name="manage-sql-database-failover-using-the-rest-api"></a>REST API kullanarak SQL veritabanı yük devretme yönetme
 

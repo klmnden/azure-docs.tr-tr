@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 19e7506dac82e4d12d5aecbdb5ae1c14fb944c29
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 215cc45f09e15c74a39347e3a62945b45eafa130
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961544"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877675"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile coğrafi olarak dağıtılmış bir uygulama çözümü oluşturma
 
@@ -81,7 +81,7 @@ Bu bölümünde, bir web uygulaması oluşturacaksınız.
 
 > [!div class="checklist"]
 > - Web uygulamaları oluşturma ve yayımlama
-> - VSTS proje için kod ekleyin
+> - Azure depoları için kod ekleyin
 > - Uygulama derleme, birden fazla bulut hedefe gelin.
 > - CD işlem yapılandırma ve yönetme
 
@@ -108,9 +108,9 @@ Azure ve Azure Stack Web uygulamasına dağıtmak için karma CI/CD ayarlama ve 
 > [!Note]  
 > Azure Stack çalıştırma (Windows Server ve SQL) ve App Service dağıtımı için genel olarak uygun görüntülerle gereklidir. App Service belgelerini inceleyin "[Azure Stack'te App Service ile çalışmaya başlamadan önce](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" bölümünde Azure Stack operatörü için.
 
-#### <a name="add-code-to-vsts-project"></a>VSTS proje için kod ekleyin
+#### <a name="add-code-to-azure-repos"></a>Azure depoları için kod ekleyin
 
-1. Oturum açmak için Visual Studio ile bir **proje oluşturma haklarına sahip hesabın** VSTS üzerinde.
+1. Oturum açmak için Visual Studio ile bir **proje oluşturma haklarına sahip hesabın** üzerinde Azure depolar.
 
     Karma sürekli tümleştirme/sürekli teslim (CI/CD), hem uygulama kodunda hem de altyapı kodunu uygulayabilirsiniz. Kullanım [Azure Resource Manager şablonları](https://azure.microsoft.com/resources/templates/) hem özel hem de barındırılan buluta yönelik geliştirme için.
 
@@ -126,13 +126,13 @@ Azure ve Azure Stack Web uygulamasına dağıtmak için karma CI/CD ayarlama ve 
 
     ![Alternatif metin](media\azure-stack-solution-geo-distributed\image3.png)
 
-1.  **VSTS kodu iade** Takım Gezgini'ni kullanarak.
+1.  **Azure depoları kodu iade** Takım Gezgini'ni kullanarak.
 
-2.  Onaylayın **uygulama kodu** Visual Studio Team Services'e denetlendi.
+2.  Onaylayın **uygulama kodu** Azure depolara denetlendi.
 
 ### <a name="create-the-build-definition"></a>Derleme tanımını oluşturun
 
-1. **VSTS oturum** yapı tanımları oluşturma olanağı onaylamak için.
+1. **Azure işlem hatları oturum** yapı tanımları oluşturma olanağı onaylamak için.
 
 2. Ekleme **- r win10-x64** kod. Bu.Net Core ile kendi içinde bir dağıtım tetiklemek gereklidir.
 
@@ -142,11 +142,11 @@ Azure ve Azure Stack Web uygulamasına dağıtmak için karma CI/CD ayarlama ve 
 
 **Bir Azure barındırılan aracı kullanma**
 
-Barındırılan aracı VSTS kullanarak web uygulamaları oluşturmak ve dağıtmak için kullanışlı bir seçenektir. Bakımı ve yükseltmeler, sürekli ve kesintisiz geliştirme, test ve dağıtımını etkinleştirme Microsoft Azure tarafından otomatik olarak gerçekleştirilir.
+Azure işlem hatlarında barındırılan aracı kullanarak web uygulamaları oluşturmak ve dağıtmak için kullanışlı bir seçenektir. Bakımı ve yükseltmeler, sürekli ve kesintisiz geliştirme, test ve dağıtımını etkinleştirme Microsoft Azure tarafından otomatik olarak gerçekleştirilir.
 
 ### <a name="manage-and-configure-the-cd-process"></a>CD işlem yapılandırma ve yönetme
 
-Visual Studio Team Services (VSTS) ve Team Foundation Server (TFS) yüksek oranda yapılandırılabilir ve yönetilebilir bir işlem hattı geliştirme gibi birden çok ortama yayınlar için hazırlama, QA ve üretim ortamlarında; sağlayın onay gerektiren belirli aşamalarda dahil.
+Azure DevOps ve Azure DevOps sunucusu yüksek oranda yapılandırılabilir ve yönetilebilir bir işlem hattı geliştirme gibi birden çok ortama yayınlar için hazırlama, QA ve üretim ortamlarında; sağlayın onay gerektiren belirli aşamalarda dahil.
 
 #### <a name="create-release-definition"></a>Yayın tanımı oluşturma
 

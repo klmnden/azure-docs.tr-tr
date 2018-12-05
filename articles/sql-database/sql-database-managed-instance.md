@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: f3e40f9d10ce3d0515d466e9bbdde324458e624d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e94b9e6d39a8a2694658a4231c54a027523af10c
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834120"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889251"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>SQL veritabanı yönetilen örneği, sanal ağlarla ve neredeyse % 100 uyumluluk kullanın
 
@@ -214,7 +214,7 @@ Yönetilen örnek avantajları engeller her zaman yukarı-başından bu yana bul
 
 ### <a name="managed-instance-administration-features"></a>Yönetilen örnek yönetim özellikleri
 
-Örnek etkinleştirme Sistem Yöneticisi, iş için en önemli şeylere odaklanmak için yönetilen. Birçok sistem yönetici/DBA etkinlikleri gerekli değildir veya bunların basittir. Örneğin, işletim sistemi / RDBMS yükleme ve düzeltme eki uygulama, dinamik boyutlandırma ve yapılandırması, yedekleme, örnek [veritabanı çoğaltması](replication-with-sql-database-managed-instance.md) (sistem veritabanları dahil olmak üzere), yüksek kullanılabilirlik yapılandırması ve yapılandırma sistem durumu ve [performansı izleme](../log-analytics/log-analytics-azure-sql.md) veri akışları.
+Örnek etkinleştirme Sistem Yöneticisi, iş için en önemli şeylere odaklanmak için yönetilen. Birçok sistem yönetici/DBA etkinlikleri gerekli değildir veya bunların basittir. Örneğin, işletim sistemi / RDBMS yükleme ve düzeltme eki uygulama, dinamik boyutlandırma ve yapılandırması, yedekleme, örnek [veritabanı çoğaltması](replication-with-sql-database-managed-instance.md) (sistem veritabanları dahil olmak üzere), yüksek kullanılabilirlik yapılandırması ve yapılandırma sistem durumu ve [performansı izleme](../azure-monitor/insights/azure-sql.md) veri akışları.
 
 > [!IMPORTANT]
 > Desteklenen, kısmen desteklenen ve desteklenmeyen özelliklerin bir listesi için bkz. [SQL veritabanı özellikleri](sql-database-features.md). SQL Server yerine yönetilen örneğinde T-SQL farklılıkları listesi için bkz [SQL Server'dan yönetilen örnek T-SQL farklılıkları](sql-database-managed-instance-transact-sql-information.md)
@@ -228,7 +228,7 @@ Aşağıdaki tabloda, yönetilen örnek sayesinde, uygulamanızın çalıştığ
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 2018-03-07 12.0.2000.8 Telif Hakkı (C) 2018 Microsoft Corporation.|Bu değer, SQL veritabanı olduğu gibi aynı olur.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Bu değer, SQL veritabanı olduğu gibi aynı olur.|
 |`SERVERPROPERTY('EngineEdition')`|8|Bu değer, yönetilen örneğe benzersiz olarak tanımlar.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Tam örnek DNS adı şu biçimde:`<instanceName>`.`<dnsPrefix>`. Database.Windows.NET, burada `<instanceName>` müşteri tarafından sağlanan ad sırada `<dnsPrefix>` Genel DNS adı benzersizliği garanti etme adı otomatik olarak oluşturulan parçasıdır ("wcus17662feb9ce98", örneğin)|Örnek: my-managed-instance.wcus17662feb9ce98.database.windows.net|
+|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Tam örnek DNS adı şu biçimde:`<instanceName>`.`<dnsPrefix>`.Database.Windows.NET, burada `<instanceName>` müşteri tarafından sağlanan ad sırada `<dnsPrefix>` Genel DNS adı benzersizliği garanti etme adı otomatik olarak oluşturulan parçasıdır ("wcus17662feb9ce98", örneğin)|Örnek: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -237,5 +237,5 @@ Aşağıdaki tabloda, yönetilen örnek sayesinde, uygulamanızın çalıştığ
 - Sanal ağ yapılandırması hakkında daha fazla bilgi için bkz. [Yönetilen Örnek Sanal Ağ Yapılandırması](sql-database-managed-instance-vnet-configuration.md).
 - Yönetilen bir örneğini oluşturur ve bir veritabanı yedekleme dosyasından geri yükleyen bir hızlı başlangıç için bkz: [bir yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md).
 - Azure Veritabanı Geçiş Hizmeti’ni (DMS) geçiş için kullanmaya ilişkin bir öğretici için bkz. [DMS kullanarak Yönetilen Örnek geçişi](../dms/tutorial-sql-server-to-managed-instance.md).
-- Gelişmiş sorun giderme yerleşik zekaya sahip yönetilen örnek veritabanı performansını izleme için bkz: [kullanarak Azure SQL Analytics İzleyici Azure SQL veritabanı](../log-analytics/log-analytics-azure-sql.md)
+- Gelişmiş sorun giderme yerleşik zekaya sahip yönetilen örnek veritabanı performansını izleme için bkz: [kullanarak Azure SQL Analytics İzleyici Azure SQL veritabanı](../azure-monitor/insights/azure-sql.md)
 - Fiyatlandırma bilgileri için bkz: [SQL veritabanı yönetilen örneği fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-database/managed/).

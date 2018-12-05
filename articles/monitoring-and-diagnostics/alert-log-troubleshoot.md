@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 0612a7798d3cc2e43efc296bd2b749735e74f765
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 94c03c9aa6e361167b396af5218b308e6cacfafe
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720856"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879817"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Azure İzleyicisi'nde sorun giderme günlük uyarıları  
 ## <a name="overview"></a>Genel Bakış
@@ -30,7 +30,7 @@ Terim **günlük uyarıları** yangın özel bir sorgunun bağlı uyarılar aç�
 İşte bazı yaygın nedenler neden yapılandırılmış bir [Azure İzleyici'de günlük uyarı kuralı](alert-log.md) değil durumu göster [olarak *harekete* beklendiğinde](monitoring-alerts-managing-alert-states.md). 
 
 ### <a name="data-ingestion-time-for-logs"></a>Günlükler için veri alım zamanı
-Günlük uyarı düzenli aralıklarla çalışan temel sorgunuzu [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) veya [Application Insights](../application-insights/app-insights-analytics.md). Log Analytics, binlerce müşteri çeşitli kaynaklardan gelen verileri terabayta kadar dünya genelindeki işlediğinden, hizmet için değişen gecikme süresini saldırılara açıktır. Daha fazla bilgi için [Log Analytics veri alımı zamanında](../log-analytics/log-analytics-data-ingestion-time.md).
+Günlük uyarı düzenli aralıklarla çalışan temel sorgunuzu [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) veya [Application Insights](../application-insights/app-insights-analytics.md). Log Analytics, binlerce müşteri çeşitli kaynaklardan gelen verileri terabayta kadar dünya genelindeki işlediğinden, hizmet için değişen gecikme süresini saldırılara açıktır. Daha fazla bilgi için [Log Analytics veri alımı zamanında](../azure-monitor/platform/data-ingestion-time.md).
 
 Veri alımı gecikme gidermek için sistem bekler ve uyarı sorgusu, gerekli verileri değil henüz alınır bulursa, birden çok kez yeniden dener. Sistem ayarlamak üssel olarak artan bir bekleme süresi vardır. Bunlar geciktirmek için veriyi kullanılabilir olduktan sonra günlük uyarı yalnızca Tetikleyiciler yavaş günlük verisi alımı nedeniyle olabilir. 
 
@@ -56,17 +56,17 @@ Makalenin 8 adımda açıklandığı [Azure portalında günlük uyarı kuralı 
 - üç ardışık ihlaller uyarı mantığı
 - Toplama $table seçilen bağlı
 
-Komut içerdiğinden *... Özetleme ölçütü* ve iki değişken (zaman damgası & $table), sağlanan sistem için "Toplama sırasında" $table seçer. Alana göre sonuç tabloyu sıralar *$table* aşağıda gösterildiği gibi ve ardından her bir tablo türü (gibi availabilityResults) için birden çok AggregatedValue 3 veya daha fazla ardışık ihlaller olup olmadığını görmek için bakar.
+Komut içerdiğinden *Özetleme ölçütü* ve iki değişken (zaman damgası & $table), sağlanan sistem üzerinde toplama için $table seçer. Alana göre sonuç tabloyu sıralar *$table* aşağıda gösterildiği gibi ve ardından her bir tablo türü (gibi availabilityResults) için birden çok AggregatedValue 3 veya daha fazla ardışık ihlaller olup olmadığını görmek için bakar.
 
 ![Birden çok değer ile ölçüm ölçüm sorgu yürütme](./media/monitor-alerts-unified/LogMMQuery.png)
 
-"Toplama sırasında" $table – olduğu gibi veriler (kırmızı); olduğu gibi $table sütununda sıralanır Grup ve "Toplama sırasında" alanı türleri için konum (yani) $table – örneğin: değerleri availabilityResults bir çizim/varlık (olarak vurgulanmış turuncu) olarak kabul edilir. Bu değeri Çizdirmek/varlık – uyarı hizmetinin (gösterildiği yeşil) oluşan üç ardışık ihlaller Tablo değeri 'availabilityResults' için hangi uyarı tetiklenir denetler. Benzer şekilde, tüm diğer değerini üç ardışık ihlaller görülürse - $table, başka bir uyarı bildirimi aynı şeyi olarak tetiklenir; Uyarı hizmetiyle (turuncu) olduğu gibi bir çizim/varlık değerleri zamanına göre otomatik olarak sıralama.
+Toplama sırasında $table olduğu gibi veriler (kırmızı); olduğu gibi $table sütununda sıralanır Grup ve üzerinde toplama alanı türleri için konum (yani) örneğin $table: değerleri availabilityResults bir çizim/varlık (olarak vurgulanmış turuncu) olarak kabul edilir. Bu değeri Çizdirmek/varlık uyarı hizmetinin (gösterildiği yeşil) oluşan üç ardışık ihlaller Tablo değeri 'availabilityResults' için hangi uyarı tetiklenir denetler. Benzer şekilde, tüm diğer değerini üç ardışık ihlaller görülürse - $table, başka bir uyarı bildirimi aynı şeyi olarak tetiklenir; Uyarı hizmetiyle (turuncu) olduğu gibi bir çizim/varlık değerleri zamanına göre otomatik olarak sıralama.
 
-Şimdi varsayalım, ölçüm ölçüsü günlük uyarı kuralı ne zaman değiştirildiğini ve sorgu `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)` aynı kalan üç ardışık ihlaller için uyarı mantığı eklemeden önce yapılandırma geri kalanı ile. "Toplama sırasında" seçeneği bu durumda olacaktır varsayılan: zaman damgası. Sorgu için yalnızca bir değer sağlandığından... Özetleme ölçütü zaman damgası (yani); yürütme sonunda önceki örneğe benzer bir çıktı aşağıda gösterildiği gibi olacaktır. 
+Şimdi varsayalım, ölçüm ölçüsü günlük uyarı kuralı ne zaman değiştirildiğini ve sorgu `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)` aynı kalan üç ardışık ihlaller için uyarı mantığı eklemeden önce yapılandırma geri kalanı ile. "Toplama sırasında" seçeneği bu durumda olacaktır varsayılan: zaman damgası. Sorgu için yalnızca bir değer sağlandığından Özetleme ölçütü zaman damgası (yani); yürütme sonunda önceki örneğe benzer bir çıktı aşağıda gösterildiği gibi olacaktır. 
 
    ![Tekil değer ile ölçüm ölçüm sorgu yürütme](./media/monitor-alerts-unified/LogMMtimestamp.png)
 
-"Toplama sırasında" zaman damgası – olduğu gibi (kırmızı); olduğu gibi zaman damgası sütunu üzerinde veri sıralandı Biz zaman damgası tarafından – örneğin grubu sonra: değerleri `2018-10-17T06:00:00Z` bir çizim/varlık (olarak vurgulanmış turuncu) olarak kabul edilir. Bu değeri Çizdirmek/varlık – uyarı hizmetinin hiçbir ardışık ihlaller tekrarlanan (her zaman damgası değeri yalnızca bir giriş olduğundan) ve bu nedenle uyarı asla tetiklenmez bulabilirsiniz. Bu nedenle böyle bir durumda ya da kullanıcı gerekir-
+Zaman damgası üzerinde toplama olduğu gibi veriler (olduğu gibi "kırmızı); zaman damgası sütunu üzerinde sıralanır Örneğin size zaman damgası tarafından grubu sonra: değerleri `2018-10-17T06:00:00Z` bir çizim/varlık (olarak vurgulanmış turuncu) olarak kabul edilir. Bu değeri Çizdirmek/varlık yok ardışık ihlaller tekrarlanan (her zaman damgası değeri yalnızca bir giriş olduğundan) ve bu nedenle uyarı asla tetiklenmez uyarı hizmetinin bulabilirsiniz. Bu nedenle böyle bir durumda ya da kullanıcı gerekir-
 - Yapılandırılmış "Toplama sırasında" alanını kullanarak yapılan sıralama doğru işlevsiz bir değişken veya mevcut bir değişken (gibi $table) ekleyin.
 - (Veya) dayalı uyarı mantığı kullanmak için uyarı kuralı yeniden *toplam ihlal* bunun yerine uygun şekilde
  
@@ -74,7 +74,7 @@ Komut içerdiğinden *... Özetleme ölçütü* ve iki değişken (zaman damgas�
 Ayrıntılı sonraki bazı yaygın nedenler neden olan bir yapılandırılmış [Azure İzleyici'de günlük uyarı kuralı](alert-log.md) görüntülendiğinde tetiklenebilir [Azure uyarıları](monitoring-alerts-managing-alert-states.md), harekete beklemiyoruz.
 
 ### <a name="alert-triggered-by-partial-data"></a>Kısmi veriler tarafından tetiklenen uyarı
-Log Analytics ve Application Insights'ı destekleyen analiz alımı gecikmeleri ve işleme tabi olan; hangi nedeniyle sağlanan günlük uyarı sorgusu çalıştırıldığında - zaman olabilir bir servis talebi almalarının hiçbir veri ya da yalnızca mevcut olan bazı veriler. Daha fazla bilgi için [Log Analytics veri alımı zamanında](../log-analytics/log-analytics-data-ingestion-time.md).
+Log Analytics ve Application Insights'ı destekleyen analiz alımı gecikmeleri ve işleme tabi olan; hangi nedeniyle sağlanan günlük uyarı sorgusu çalıştırıldığında - zaman olabilir bir servis talebi almalarının hiçbir veri ya da yalnızca mevcut olan bazı veriler. Daha fazla bilgi için [Log Analytics veri alımı zamanında](../azure-monitor/platform/data-ingestion-time.md).
 
 Uyarı kuralı nasıl yapılandırıldığına bağlı olarak olabilir yanlış firing varsa yok veya kısmi veri günlüklerinde uyarı yürütme zamanında. Bu gibi durumlarda, size uyarı sorgusu veya yapılandırma değiştirmenizi önerin. 
 
@@ -83,7 +83,7 @@ Uyarı kuralı nasıl yapılandırıldığına bağlı olarak olabilir yanlış 
 ### <a name="alert-query-output-misunderstood"></a>Uyarı sorgusu çıkış yanlış
 Log analytics sorgu uyarılara ilişkin mantığı sağlar. Analytics sorgusu, çeşitli büyük veri ve matematik işlevleri kullanabilir.  Uyarı hizmeti sorgunuzu verilerle zaman belirtilen dönem için belirtilen aralıklarla yürütür. Uyarı hizmeti için sağlanan sorgu görünümünde hafif değişiklikler seçilen uyarı türüne göre yapar. Bu, "yürütülecek sorgu" bölümünde görülebilir *sinyal mantığını yapılandırma* ekranını aşağıda gösterildiği gibi: ![yürütülecek sorgu](./media/monitor-alerts-unified/LogAlertPreview.png)
  
-İçinde gösterilen **yürütülecek sorgu** kutusudur günlük uyarı hizmetinin çalıştırılanlar. Belirtilen sorgu yanı sıra aracılığıyla timespan çalıştırabileceğiniz [analiz portalı](../log-analytics/log-analytics-log-search-portals.md) veya [analizi API'si](https://docs.microsoft.com/rest/api/loganalytics/) ne olabileceği gibi aslında bir uyarı oluşturmadan önce uyarı sorgusu çıkış anlamak istiyorsanız.
+İçinde gösterilen **yürütülecek sorgu** kutusudur günlük uyarı hizmetinin çalıştırılanlar. Belirtilen sorgu yanı sıra aracılığıyla timespan çalıştırabileceğiniz [analiz portalı](../azure-monitor/log-query/portals.md) veya [analizi API'si](https://docs.microsoft.com/rest/api/loganalytics/) ne olabileceği gibi aslında bir uyarı oluşturmadan önce uyarı sorgusu çıkış anlamak istiyorsanız.
  
 ## <a name="next-steps"></a>Sonraki adımlar
 

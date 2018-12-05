@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 25eb5c732927dcfb18bfd92991391ff99d4e3629
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 2d346739cd2e80546aee921317e278c1cff32b34
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918267"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873147"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Mevcut .NET Azure Mobile Services'ı App Service'a yükseltme
 App Service Mobile, Microsoft Azure kullanarak mobil uygulamalar derlemek için yepyeni bir yoludur. Daha fazla bilgi için bkz. [Mobile Apps nedir?].
@@ -84,18 +84,23 @@ SDK'ları arasındaki farklar kaynaklanan oldukça derleyici hataları olacaktı
 ### <a name="base-configuration"></a>Temel yapılandırma
 Ardından, WebApiConfig.cs içinde değiştirebilirsiniz:
 
-        // Use this class to set configuration options for your mobile service
-        ConfigOptions options = new ConfigOptions();
+```csharp
+// Use this class to set configuration options for your mobile service
+ConfigOptions options = new ConfigOptions();
 
-        // Use this class to set WebAPI configuration options
-        HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
+// Use this class to set WebAPI configuration options
+HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
+```
 
 with
 
-        HttpConfiguration config = new HttpConfiguration();
-        new MobileAppConfiguration()
-            .UseDefaultConfiguration()
-        .ApplyTo(config);
+```csharp
+HttpConfiguration config = new HttpConfiguration();
+new MobileAppConfiguration()
+    .UseDefaultConfiguration()
+.ApplyTo(config);
+
+```
 
 > [!NOTE]
 > Nasıl özellikleri uygulamanızdan Ekle/Kaldır ve yeni .NET sunucu SDK'sı hakkında daha fazla bilgi edinmek istiyorsanız, lütfen bkz [.NET sunucu SDK'sını kullanma] konu.
@@ -110,8 +115,10 @@ Uygulamanızı yaparsa kimlik doğrulaması özelliklerini kullanabilirsiniz, ay
 
 Emin `Configuration()` yöntemi ile sona erecek:
 
-        app.UseWebApi(config)
-        app.UseAppServiceAuthentication(config);
+```csharp
+app.UseWebApi(config)
+app.UseAppServiceAuthentication(config);
+```
 
 Tam kimlik doğrulaması bölümünde ele alınan kimlik doğrulaması ile ilgili ek değişiklikler var.
 
@@ -120,7 +127,9 @@ Mobil Hizmetler'de mobil uygulama adı Entity Framework kurulumunda varsayılan 
 
 Şema, uygulamanızın DbContext ayarlamak için kullanmadan önce olarak aşağıdaki başvurulan aynı şemaya sahip olmasını sağlamak için:
 
-        string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
+```csharp
+string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
+```
 
 Lütfen yukarıdaki Bunu verilirse MS_MobileServiceName olduğundan emin olun. Uygulamanız bu daha önce özelleştirdiyseniz, başka bir şema adı sağlayabilirsiniz.
 
@@ -140,7 +149,7 @@ Azure Mobile Apps, Sistem özellikleri artık özel bir biçime sahip ve aşağ�
 * createdAt
 * updatedAt
 * silindi
-* sürüm
+* version
 
 Mobile Apps istemci SDK'ları için istemci kodu için değişiklik gerekmez yeni sistem özellik adlarını kullanın. REST çağrılarını hizmetinize doğrudan yapıyorsanız ancak, ardından, sorgularınızı uygun şekilde değiştirmeniz gerekir.
 
@@ -156,7 +165,7 @@ Sistem özellikleri adlarını yapılan değişiklikler, çevrimdışı eşitlem
 | id |Dize, gerekli olarak işaretlenmiş |Uzak depoda birincil anahtar |
 | createdAt |Tarih |(isteğe bağlı) eşlenir createdAt sistem özelliği |
 | updatedAt |Tarih |(isteğe bağlı) eşlenir updatedAt sistem özelliği |
-| sürüm |Dize |(isteğe bağlı) eşlemeleri sürüm çakışmaları algılamak için kullanılan |
+| version |Dize |(isteğe bağlı) eşlemeleri sürüm çakışmaları algılamak için kullanılan |
 
 #### <a name="querying-system-properties"></a>Sistem özellikleri sorgulama
 Azure mobil Hizmetleri'nde Sistem özellikleri varsayılan olarak, ancak yalnızca sorgu dizesi kullanarak istendiklerinde gönderilmez `__systemProperties`. Buna karşılık, Azure Mobile Apps sistemde özelliklerdir **her zaman seçili** sunucu SDK'sı nesne modelinin bir parçası olduğundan.
@@ -167,28 +176,30 @@ Böylece devralındığı, Dto'lar değiştirmek için bu sorunu çözmek için 
 
 Örneğin, aşağıdaki tanımlar `TodoItem` hiçbir sistem özellikleri ile:
 
-    using System.ComponentModel.DataAnnotations.Schema;
+```csharp
+using System.ComponentModel.DataAnnotations.Schema;
 
-    public class TodoItem : ITableData
-    {
-        public string Text { get; set; }
+public class TodoItem : ITableData
+{
+    public string Text { get; set; }
 
-        public bool Complete { get; set; }
+    public bool Complete { get; set; }
 
-        public string Id { get; set; }
+    public string Id { get; set; }
 
-        [NotMapped]
-        public DateTimeOffset? CreatedAt { get; set; }
+    [NotMapped]
+    public DateTimeOffset? CreatedAt { get; set; }
 
-        [NotMapped]
-        public DateTimeOffset? UpdatedAt { get; set; }
+    [NotMapped]
+    public DateTimeOffset? UpdatedAt { get; set; }
 
-        [NotMapped]
-        public bool Deleted { get; set; }
+    [NotMapped]
+    public bool Deleted { get; set; }
 
-        [NotMapped]
-        public byte[] Version { get; set; }
-    }
+    [NotMapped]
+    public byte[] Version { get; set; }
+}
+```
 
 Not: hataları alırsanız, `NotMapped`, derlemeye bir başvuruda bulunun `System.ComponentModel.DataAnnotations`.
 
@@ -208,12 +219,16 @@ Artık, bir mobil istemci tarafından kullanılan tüm ApiControllers olması ge
 
 `ApiServices` Nesnedir artık SDK'ın bir parçası. Mobil uygulama ayarlarına erişmek için aşağıdakileri kullanabilirsiniz:
 
-    MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+```csharp
+MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+```
 
 Benzer şekilde, günlüğe kaydetme artık standart ASP.NET izleme yazılmasını kullanılarak gerçekleştirilir:
 
-    ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
-    traceWriter.Info("Hello, World");  
+```csharp
+ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
+traceWriter.Info("Hello, World");  
+```
 
 ## <a name="authentication"></a>Kimlik doğrulama konuları
 Mobil hizmetler kimlik doğrulaması bileşenleri artık App Service kimlik doğrulama/yetkilendirme özelliğini taşınmıştır. Bu, sitenizin okuyarak etkinleştirme hakkında bilgi edinebilirsiniz [mobil uygulamanıza kimlik doğrulaması ekleme](app-service-mobile-ios-get-started-users.md) konu.
@@ -227,11 +242,15 @@ Lütfen, yönetici veya uygulama gibi diğer AuthorizeLevel seçeneklerden birin
 ### <a name="getting-additional-user-information"></a>Ek kullanıcı bilgilerini alma
 Erişim belirteci aracılığıyla ek kullanıcı bilgilerini alabilirsiniz `GetAppServiceIdentityAsync()` yöntemi:
 
-        FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
+```csharp
+FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
+```
 
 Ayrıca, uygulamanızı bağımlılıkları kimlikleri, kullanıcı, bir veritabanında saklamak gibi alırsa, App Service Mobile Apps ile Mobile Services arasındaki kullanıcı kimliklerinin farklı olduğuna dikkat edin önemlidir. Ancak Mobile Services kullanıcı kimliği, elde edebilirsiniz. Tüm ProviderCredentials alt sınıfların, bir kullanıcı kimliği özelliği vardır. Bu nedenle önce örnekten devam etmesini:
 
-        string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
+```csharp
+string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
+```
 
 Uygulamanızı herhangi bir bağımlılığın kullanıcı kimlikleri alırsa, aynı kayıt bir kimlik sağlayıcısı ile mümkünse yararlanın, önemlidir. Yeni bir kayıt ile tanışın eşleşen kullanıcılar verilerine sorunları oluşturabilirsiniz böylece kullanıcı kimlikleri genellikle kullanılan uygulama kaydı kapsamına alınır.
 
@@ -243,9 +262,11 @@ Uygulamanızı bir özel kimlik doğrulama çözümü kullanıyorsanız, yüksel
 
 Sürümleri arasında ana değişiklikleri oluşturucular artık bir uygulama anahtarı gerektirir biridir. Artık yalnızca mobil uygulamanızın URL'SİNDE geçirin. Örneğin, .NET istemcilerde `MobileServiceClient` Oluşturucusu sunuldu:
 
-        public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://contoso.azurewebsites.net", // URL of the Mobile App
-        );
+```csharp
+public static MobileServiceClient MobileService = new MobileServiceClient(
+    "https://contoso.azurewebsites.net", // URL of the Mobile App
+);
+```
 
 Yeni SDK yükleme ve yeni yapıyı aracılığıyla aşağıdaki bağlantıları kullanarak ilgili bilgi edinebilirsiniz:
 
@@ -261,15 +282,10 @@ Yeni istemci sürümü hazır olduğunda, yükseltilen sunucu projenizi karşı 
 [Azure portal]: https://portal.azure.com/
 [Klasik Azure portalı]: https://manage.windowsazure.com/
 [Mobile Apps nedir?]: app-service-mobile-value-prop.md
-[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
 [Mobil uygulama sunucusu SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
-[Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /azure/scheduler/
 [Web işi]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [.NET sunucu SDK'sını kullanma]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
-[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [App Service fiyatlandırması]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET sunucu SDK'sı genel bakış]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 396dbfcfd13f508c33d8a1bb7370d9170b8f8a56
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: b4a4c76ec47d09c43edc74181e0cbddf95e5fa3d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499689"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879188"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager kaynak sağlayıcısı işlemleri
 
@@ -1714,31 +1714,31 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > [!div class="mx-tdCol2BreakAll"]
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
-> | Eylem | Microsoft.DataMigration/locations/operationResults/read | 202 Kabul Edildi yanıtı ile ilgili uzun süreli bir işlemin durumunu alın |
-> | Eylem | Microsoft.DataMigration/locations/operationStatuses/read | 202 Kabul Edildi yanıtı ile ilgili uzun süreli bir işlemin durumunu alın |
-> | Eylem | Microsoft.DataMigration/register/action | Aboneliği Azure Veritabanı Geçiş Hizmet sağlayıcısına kaydeder |
+> | Eylem | Microsoft.DataMigration/locations/operationResults/read | Bir 202 kabul edildi yanıtı ile ilgili bir uzun süre çalışan işlemin durumunu alın |
+> | Eylem | Microsoft.DataMigration/locations/operationStatuses/read | Bir 202 kabul edildi yanıtı ile ilgili bir uzun süre çalışan işlemin durumunu alın |
+> | Eylem | Microsoft.DataMigration/register/action | Aboneliği için Azure veritabanı geçiş hizmet sağlayıcısına kaydeder |
 > | Eylem | Microsoft.DataMigration/services/checkStatus/action | Hizmetin dağıtılmış ve çalışır durumda olup olmadığını denetleyin |
 > | Eylem | Microsoft.DataMigration/services/delete | Bir kaynağı ve tüm alt öğelerini siler |
-> | Eylem | Microsoft.DataMigration/services/projects/accessArtifacts/action | GET veya PUT proje yapıtları için kullanılabilen bir URL oluşturun |
+> | Eylem | Microsoft.DataMigration/services/projects/accessArtifacts/action | GET veya PUT proje yapıtları için kullanılabilecek bir URL oluşturun |
 > | Eylem | Microsoft.DataMigration/services/projects/delete | Bir kaynağı ve tüm alt öğelerini siler |
 > | Eylem | Microsoft.DataMigration/services/projects/files/delete | Bir kaynağı ve tüm alt öğelerini siler |
-> | Eylem | Microsoft.DataMigration/services/projects/files/read | Kaynaklar hakkındaki bilgileri okuyun |
-> | Eylem | Microsoft.DataMigration/services/projects/files/read/action | Dosya içeriğini okumak için kullanılabilecek bir URL alın |
-> | Eylem | Microsoft.DataMigration/services/projects/files/readWrite/action | Dosya içeriğini okumak veya yazmak için kullanılabilecek bir URL alın |
-> | Eylem | Microsoft.DataMigration/services/projects/files/write | Kaynakları ve özelliklerini oluşturun ya da güncelleştirin |
-> | Eylem | Microsoft.DataMigration/services/projects/read | Kaynaklar hakkındaki bilgileri okuyun |
-> | Eylem | Microsoft.DataMigration/services/projects/tasks/cancel/action | O anda çalışıyorsa görevi iptal edin |
+> | Eylem | Microsoft.DataMigration/services/projects/files/read | Kaynaklar hakkında bilgi edinin |
+> | Eylem | Microsoft.DataMigration/services/projects/files/read/action | Dosyanın içeriğini okumak için kullanılabilecek bir URL elde |
+> | Eylem | Microsoft.DataMigration/services/projects/files/readWrite/action | Okumak veya dosyanın içeriğini yazmak için kullanılabilecek bir URL elde |
+> | Eylem | Microsoft.DataMigration/services/projects/files/write | Kaynakları ve bunların özelliklerini oluştur veya güncelleştir |
+> | Eylem | Microsoft.DataMigration/services/projects/read | Kaynaklar hakkında bilgi edinin |
+> | Eylem | Microsoft.DataMigration/services/projects/tasks/cancel/action | Şu anda çalışıyorsa görevi iptal etme |
 > | Eylem | Microsoft.DataMigration/services/projects/tasks/delete | Bir kaynağı ve tüm alt öğelerini siler |
-> | Eylem | Microsoft.DataMigration/services/projects/tasks/read | Kaynaklar hakkındaki bilgileri okuyun |
-> | Eylem | Microsoft.DataMigration/services/projects/tasks/write | Azure Veritabanı Geçiş Hizmeti görevlerini çalıştır |
-> | Eylem | Microsoft.DataMigration/services/projects/write | Azure Veritabanı Geçiş Hizmeti görevlerini çalıştır |
-> | Eylem | Microsoft.DataMigration/services/read | Kaynaklar hakkındaki bilgileri okuyun |
+> | Eylem | Microsoft.DataMigration/services/projects/tasks/read | Kaynaklar hakkında bilgi edinin |
+> | Eylem | Microsoft.DataMigration/services/projects/tasks/write | Azure veritabanı geçiş hizmeti görevleri görevleri çalıştırma |
+> | Eylem | Microsoft.DataMigration/services/projects/write | Azure veritabanı geçiş hizmeti görevleri görevleri çalıştırma |
+> | Eylem | Microsoft.DataMigration/services/read | Kaynaklar hakkında bilgi edinin |
 > | Eylem | Microsoft.DataMigration/services/slots/delete | Bir kaynağı ve tüm alt öğelerini siler |
-> | Eylem | Microsoft.DataMigration/services/slots/read | Kaynaklar hakkındaki bilgileri okuyun |
-> | Eylem | Microsoft.DataMigration/services/slots/write | Kaynakları ve özelliklerini oluşturun ya da güncelleştirin |
+> | Eylem | Microsoft.DataMigration/services/slots/read | Kaynaklar hakkında bilgi edinin |
+> | Eylem | Microsoft.DataMigration/services/slots/write | Kaynakları ve bunların özelliklerini oluştur veya güncelleştir |
 > | Eylem | Microsoft.DataMigration/services/start/action | Geçişleri yeniden işlemesine izin vermek için DMS hizmetini başlatın |
 > | Eylem | Microsoft.DataMigration/services/stop/action | Maliyetlerini en aza indirmek için DMS hizmetini durdurun |
-> | Eylem | Microsoft.DataMigration/services/write | Kaynakları ve özelliklerini oluşturun ya da güncelleştirin |
+> | Eylem | Microsoft.DataMigration/services/write | Kaynakları ve bunların özelliklerini oluştur veya güncelleştir |
 > | Eylem | Microsoft.DataMigration/skus/read | DMS kaynakları tarafından desteklenen SKU'ların bir listesini alın. |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
