@@ -1,128 +1,175 @@
 ---
-title: 'Hızlı Başlangıç: Desteklenen dilleri alma, Java - Translator Metin Çevirisi API’si'
+title: 'Hızlı Başlangıç: Java - olan desteklenen dillerin listesi Translator Text API alın.'
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, Java ile Translator Metin Çevirisi API’sini kullanarak çeviri, başka alfabeye çevirme ve sözlük arama için desteklenen dillerin ve örneklerin bir listesini alacaksınız.
+description: Bu hızlı başlangıçta, çeviri, harf çevirisi ve Translator Text API kullanarak sözlük araması için desteklenen dillerin bir listesini alın.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
+ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 88a5452259978c265b8f48184f9604d9f1b4c238
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 9a5985adb92799726951ad37c1dbd0b72c6c9709
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412492"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889013"
 ---
-# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-java"></a>Hızlı Başlangıç: Translator Metin Çevirisi REST API'si (Java) ile desteklenen dilleri alma
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Hızlı Başlangıç: Java kullanarak desteklenen dillerin listesini almak için Translator Text API kullanın.
 
-Bu hızlı başlangıçta, Translator Metin Çevirisi API’sini kullanarak çeviri, başka alfabeye çevirme ve sözlük arama için desteklenen dillerin ve örneklerin bir listesini alacaksınız.
+Bu hızlı başlangıçta, çeviri, harf çevirisi ve Translator Text API kullanarak sözlük araması için desteklenen dillerin bir listesini alın.
 
-## <a name="prerequisites"></a>Ön koşullar
+Bu hızlı başlangıç, Translator Metin Çevirisi kaynağına sahip bir [Azure Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) gerektirir. Bir hesabınız yoksa, abonelik anahtarı almak için [ücretsiz deneme sürümünü](https://azure.microsoft.com/try/cognitive-services/) kullanabilirsiniz.
 
-Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](https://aka.ms/azure-jdks)’e ihtiyacınız olacak. Eğer varsa sık kullandığınız bir Java IDE’yi veya bir metin düzenleyicisini kullanabilirsiniz.
+## <a name="prerequisites"></a>Önkoşullar
 
-Translator Metin Çevirisi API'sini kullanmak için, ayrıca abonelik anahtarınızın olması gerekir; bkz. [Translator Metin Çevirisi API'sine kaydolma](translator-text-how-to-signup.md).
+* [JDK 7 veya üzeri](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Gradle](https://gradle.org/install/)
+* Translator Metin Çevirisi için Azure abonelik anahtarı
 
-## <a name="languages-request"></a>Diller isteği
+## <a name="initialize-a-project-with-gradle"></a>Gradle ile bir proje başlatın
 
-Aşağıdaki kod, [Diller](./reference/v3-0-languages.md) yöntemini kullanarak çeviri, başka alfabeye çevirme ve sözlük arama için desteklenen dillerin ve örneklerin listesini alır.
+Bu proje için çalışan bir dizine oluşturarak başlayalım. Komut satırını (veya terminal), şu komutu çalıştırın:
 
-1. Sık kullandığınız kod düzenleyicisinde yeni bir Java projesi oluşturun.
-2. Aşağıda sağlanan kodu ekleyin.
-3. `subscriptionKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
-4. Programı çalıştırın.
+```console
+mkdir get-languages-sample
+cd get-languages-sample
+```
+
+Ardından, Gradle proje başlatmak için dağıtacağız. Bu komut temel yapı dosyalarını Gradle için en önemlisi de oluşturacak `build.gradle.kts`, oluşturma ve uygulamanızı yapılandırmak için çalışma zamanında kullanılır. Çalışma dizininizdeki şu komutu çalıştırın:
+
+```console
+gradle init --type basic
+```
+
+Seçmeniz istendiğinde bir **DSL**seçin **Kotlin**.
+
+## <a name="configure-the-build-file"></a>Derleme dosyası yapılandırma
+
+Bulun `build.gradle.kts` ve en sevdiğiniz IDE ya da metin düzenleyici ile açın. Ardından bu yapı yapılandırması içindeki kopyalayın:
+
+```
+plugins {
+    java
+    application
+}
+application {
+    mainClassName = "GetLanguages"
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile("com.squareup.okhttp:okhttp:2.5.0")
+    compile("com.google.code.gson:gson:2.8.5")
+}
+```
+
+Bu örnek OkHttp HTTP isteklerini ve Gson işlemek ve JSON ayrıştırmak bağımlılıkları olduğunu not edin. Derleme yapılandırmaları hakkında daha fazla bilgi edinmek istiyorsanız, bkz. [yeni Gradle derleme oluşturma](https://guides.gradle.org/creating-new-gradle-builds/).
+
+## <a name="create-a-java-file"></a>Bir Java dosyası oluşturma
+
+Şimdi örnek uygulamanız için bir klasör oluşturun. Çalışma dizininizden çalıştırın:
+
+```console
+mkdir -p src/main/java
+```
+
+Ardından, bu klasörde, adlı bir dosya oluşturun `GetLanguages.java`.
+
+## <a name="import-required-libraries"></a>Gerekli kitaplıkları içeri aktarma
+
+Açık `GetLanguages.java` ve bu içeri aktarma deyimleri:
 
 ```java
 import java.io.*;
 import java.net.*;
 import java.util.*;
-import javax.net.ssl.HttpsURLConnection;
+import com.google.gson.*;
+import com.squareup.okhttp.*;
+```
 
-/*
- * Gson: https://github.com/google/gson
- * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: 2.8.1
- */
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+## <a name="define-variables"></a>Değişkenleri tanımlama
 
-/* NOTE: To compile and run this code:
-1. Save this file as Languages.java.
-2. Run:
-    javac Languages.java -cp .;gson-2.8.1.jar -encoding UTF-8
-3. Run:
-    java -cp .;gson-2.8.1.jar Languages
-*/
+İlk olarak, projeniz için genel bir sınıf oluşturmanız gerekir:
 
-public class Languages {
+```java
+public class GetLanguages {
+  // All project code goes here...
+}
+```
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+Bu satırları ekleyin `GetLanguages` sınıfı:
 
-// Replace the subscriptionKey string value with your valid subscription key.
-    static String subscriptionKey = "ENTER KEY HERE";
+```java
+String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+String url = "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0";
+```
 
-    static String host = "https://api.cognitive.microsofttranslator.com";
-    static String path = "/languages?api-version=3.0";
+## <a name="create-a-client-and-build-a-request"></a>Bir istemci oluşturup bir istek oluşturun
 
-    static String output_path = "output.txt";
+Bu satırı `GetLanguages` sınıfı örneğini oluşturmak için `OkHttpClient`:
 
-    public static String GetLanguages () throws Exception {
-        URL url = new URL (host + path);
+```java
+// Instantiates the OkHttpClient.
+OkHttpClient client = new OkHttpClient();
+```
 
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("GET");
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-        connection.setDoOutput(true);
+Ardından, GET isteği oluşturalım.
 
-        StringBuilder response = new StringBuilder ();
-        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
+```java
+// This function performs a GET request.
+public String Get() throws IOException {
+    Request request = new Request.Builder()
+            .url(url).get()
+            .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+            .addHeader("Content-type", "application/json").build();
+    Response response = client.newCall(request).execute();
+    return response.body().string();
+}
+```
 
-        String line;
-        while ((line = in.readLine()) != null) {
-            response.append(line);
-        }
-        in.close();
+## <a name="create-a-function-to-parse-the-response"></a>Yanıtları ayrıştırmak için bir işlev oluşturma
 
-        return response.toString();
-    }
+Bu basit işlev ayrıştırır ve Translator metin tanıma hizmetinden JSON yanıtı prettifies.
 
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(json_text).getAsJsonObject();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
+```java
+// This function prettifies the json response.
+public static String prettify(String json_text) {
+    JsonParser parser = new JsonParser();
+    JsonElement json = parser.parse(json_text);
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    return gson.toJson(json);
+}
+```
 
-    public static void WriteToFile (String data) throws Exception {
-        String json = prettify (data);
-        Writer outputStream = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(output_path), "UTF-8"));
-        outputStream.write(json);
-        outputStream.close();
-    }
+## <a name="put-it-all-together"></a>Hepsini bir araya getirin
 
-    public static void main(String[] args) {
-        try {
-            String response = GetLanguages ();
-            WriteToFile (response);
-        }
-        catch (Exception e) {
-            System.out.println (e);
-        }
+Bir istekte bulunmak ve yanıt almak için son adımdır bakın. Bu satırlar, projenize ekleyin:
+
+```java
+public static void main(String[] args) {
+    try {
+        GetLanguages getLanguagesRequest = new GetLanguages();
+        String response = getLanguagesRequest.Get();
+        System.out.println(prettify(response));
+    } catch (Exception e) {
+        System.out.println(e);
     }
 }
 ```
 
-## <a name="languages-response"></a>Diller yanıtı
+## <a name="run-the-sample-app"></a>Örnek uygulamayı çalıştırma
+
+İşte bu kadar örnek uygulamanızı çalıştırmak hazır olursunuz. Komut satırını (veya terminal oturumu), çalışma dizininizin kök dizinine gidin ve çalıştırın:
+
+```console
+gradle build
+```
+
+## <a name="sample-response"></a>Örnek yanıt
 
 Başarılı bir yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür:
 
@@ -216,3 +263,11 @@ Başarılı bir yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçimind
 
 > [!div class="nextstepaction"]
 > [GitHub’da Java örneklerini keşfedin](https://aka.ms/TranslatorGitHub?type=&language=java)
+
+## <a name="see-also"></a>Ayrıca bkz.
+
+* [Metin çevirme](quickstart-java-translate.md)
+* [Metni başka dilde yazma](quickstart-java-transliterate.md)
+* [Girişe göre dili belirleyin](quickstart-java-detect.md)
+* [Alternatif çeviriler edinme](quickstart-java-dictionary.md)
+* [Girişten tümce uzunluklarını belirleme](quickstart-java-sentences.md)

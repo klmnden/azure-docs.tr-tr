@@ -1,146 +1,179 @@
 ---
 title: 'Hızlı Başlangıç: Cümle uzunluklarını alma, Java - Translator Metin Çevirisi API’si'
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de Java ile Translator Metin Çevirisi API'sini kullanarak metindeki cümlelerin uzunluklarını bulacaksınız.
+description: Bu hızlı başlangıçta, Java ve Translator Text API kullanarak cümle uzunluğu belirlemek öğreneceksiniz.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
+ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 59d3c194f08a8ede6ea2a56f95f7000eafe6c479
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 941467e7756faa4fd06220bafbf733f42b43e8d9
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413256"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888588"
 ---
-# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-java"></a>Hızlı Başlangıç: Translator Metin Çevirisi REST API'si (Java) ile cümle uzunluklarını alma
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>Hızlı Başlangıç: Java kullanarak cümle belirlemek için Translator Text API kullanın.
 
-Bu hızlı başlangıçta, Translator Metin Çevirisi API'sini kullanarak metindeki cümlelerin uzunluklarını bulacaksınız.
+Bu hızlı başlangıçta, Java ve Translator Text API kullanarak cümle uzunlukları belirlemek öğreneceksiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+Bu hızlı başlangıç, Translator Metin Çevirisi kaynağına sahip bir [Azure Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) gerektirir. Bir hesabınız yoksa, abonelik anahtarı almak için [ücretsiz deneme sürümünü](https://azure.microsoft.com/try/cognitive-services/) kullanabilirsiniz.
 
-Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](https://aka.ms/azure-jdks)’e ihtiyacınız olacak. Eğer varsa sık kullandığınız bir Java IDE’yi veya bir metin düzenleyicisini kullanabilirsiniz.
+## <a name="prerequisites"></a>Önkoşullar
 
-Translator Metin Çevirisi API'sini kullanmak için, ayrıca abonelik anahtarınızın olması gerekir; bkz. [Translator Metin Çevirisi API'sine kaydolma](translator-text-how-to-signup.md).
+* [JDK 7 veya üzeri](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Gradle](https://gradle.org/install/)
+* Translator Metin Çevirisi için Azure abonelik anahtarı
 
-## <a name="breaksentence-request"></a>BreakSentence isteği
+## <a name="initialize-a-project-with-gradle"></a>Gradle ile bir proje başlatın
 
-Aşağıdaki kod, [BreakSentence](./reference/v3-0-break-sentence.md) yöntemini kullanarak kaynak metni cümlelere böler.
+Bu proje için çalışan bir dizine oluşturarak başlayalım. Komut satırını (veya terminal), şu komutu çalıştırın:
 
-1. Sık kullandığınız kod düzenleyicisinde yeni bir Java projesi oluşturun.
-2. Aşağıda sağlanan kodu ekleyin.
-3. `subscriptionKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
-4. Programı çalıştırın.
+```console
+mkdir break-sentence-sample
+cd break-sentence-sample
+```
+
+Ardından, Gradle proje başlatmak için dağıtacağız. Bu komut temel yapı dosyalarını Gradle için en önemlisi de oluşturacak `build.gradle.kts`, oluşturma ve uygulamanızı yapılandırmak için çalışma zamanında kullanılır. Çalışma dizininizdeki şu komutu çalıştırın:
+
+```console
+gradle init --type basic
+```
+
+Seçmeniz istendiğinde bir **DSL**seçin **Kotlin**.
+
+## <a name="configure-the-build-file"></a>Derleme dosyası yapılandırma
+
+Bulun `build.gradle.kts` ve en sevdiğiniz IDE ya da metin düzenleyici ile açın. Ardından bu yapı yapılandırması içindeki kopyalayın:
+
+```
+plugins {
+    java
+    application
+}
+application {
+    mainClassName = "BreakSentence"
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile("com.squareup.okhttp:okhttp:2.5.0")
+    compile("com.google.code.gson:gson:2.8.5")
+}
+```
+
+Bu örnek OkHttp HTTP isteklerini ve Gson işlemek ve JSON ayrıştırmak bağımlılıkları olduğunu not edin. Derleme yapılandırmaları hakkında daha fazla bilgi edinmek istiyorsanız, bkz. [yeni Gradle derleme oluşturma](https://guides.gradle.org/creating-new-gradle-builds/).
+
+## <a name="create-a-java-file"></a>Bir Java dosyası oluşturma
+
+Şimdi örnek uygulamanız için bir klasör oluşturun. Çalışma dizininizden çalıştırın:
+
+```console
+mkdir -p src/main/java
+```
+
+Ardından, bu klasörde, adlı bir dosya oluşturun `BreakSentence.java`.
+
+## <a name="import-required-libraries"></a>Gerekli kitaplıkları içeri aktarma
+
+Açık `BreakSentence.java` ve bu içeri aktarma deyimleri:
 
 ```java
 import java.io.*;
 import java.net.*;
 import java.util.*;
-import javax.net.ssl.HttpsURLConnection;
+import com.google.gson.*;
+import com.squareup.okhttp.*;
+```
 
-/*
- * Gson: https://github.com/google/gson
- * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: 2.8.1
- */
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
-/* NOTE: To compile and run this code:
-1. Save this file as BreakSentences.java.
-2. Run:
-    javac BreakSentences.java -cp .;gson-2.8.1.jar -encoding UTF-8
-3. Run:
-    java -cp .;gson-2.8.1.jar BreakSentences
-*/
+## <a name="define-variables"></a>Değişkenleri tanımlama
 
-public class BreakSentences {
+İlk olarak, projeniz için genel bir sınıf oluşturmanız gerekir:
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+```java
+public class BreakSentence {
+  // All project code goes here...
+}
+```
 
-// Replace the subscriptionKey string value with your valid subscription key.
-    static String subscriptionKey = "ENTER KEY HERE";
+Bu satırları ekleyin `BreakSentence` sınıfı. İle birlikte olduğunu fark edeceksiniz `api-version`, giriş dili tanımlayabilirsiniz. Bu örnekte, İngilizce olarak.
 
-    static String host = "https://api.cognitive.microsofttranslator.com";
-    static String path = "/breaksentence?api-version=3.0";
+```java
+String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+String url = "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0&language=en";
+```
 
-    static String text = "How are you? I am fine. What did you do today?";
+## <a name="create-a-client-and-build-a-request"></a>Bir istemci oluşturup bir istek oluşturun
 
-    public static class RequestBody {
-        String Text;
+Bu satırı `BreakSentence` sınıfı örneğini oluşturmak için `OkHttpClient`:
 
-        public RequestBody(String text) {
-            this.Text = text;
-        }
-    }
+```java
+// Instantiates the OkHttpClient.
+OkHttpClient client = new OkHttpClient();
+```
 
-    public static String Post (URL url, String content) throws Exception {
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("POST");
-        connection.setRequestProperty("Content-Type", "application/json");
-        connection.setRequestProperty("Content-Length", content.length() + "");
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-        connection.setRequestProperty("X-ClientTraceId", java.util.UUID.randomUUID().toString());
-        connection.setDoOutput(true);
+Ardından, bir POST isteği oluşturalım. Metni Değiştir çekinmeyin. Metin kaçış karakterleri eklenmelidir.
 
-        DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
-        byte[] encoded_content = content.getBytes("UTF-8");
-        wr.write(encoded_content, 0, encoded_content.length);
-        wr.flush();
-        wr.close();
+```java
+// This function performs a POST request.
+public String Post() throws IOException {
+    MediaType mediaType = MediaType.parse("application/json");
+    RequestBody body = RequestBody.create(mediaType,
+            "[{\n\t\"Text\": \"How are you? I am fine. What did you do today?\"\n}]");
+    Request request = new Request.Builder()
+            .url(url).post(body)
+            .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+            .addHeader("Content-type", "application/json").build();
+    Response response = client.newCall(request).execute();
+    return response.body().string();
+}
+```
 
-        StringBuilder response = new StringBuilder ();
-        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
-        String line;
-        while ((line = in.readLine()) != null) {
-            response.append(line);
-        }
-        in.close();
+## <a name="create-a-function-to-parse-the-response"></a>Yanıtları ayrıştırmak için bir işlev oluşturma
 
-        return response.toString();
-    }
+Bu basit işlev ayrıştırır ve Translator metin tanıma hizmetinden JSON yanıtı prettifies.
 
-    public static String BreakSentences () throws Exception {
-        URL url = new URL (host + path);
+```java
+// This function prettifies the json response.
+public static String prettify(String json_text) {
+    JsonParser parser = new JsonParser();
+    JsonElement json = parser.parse(json_text);
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    return gson.toJson(json);
+}
+```
 
-        List<RequestBody> objList = new ArrayList<RequestBody>();
-        objList.add(new RequestBody(text));
-        String content = new Gson().toJson(objList);
+## <a name="put-it-all-together"></a>Hepsini bir araya getirin
 
-        return Post(url, content);
-    }
+Bir istekte bulunmak ve yanıt almak için son adımdır bakın. Bu satırlar, projenize ekleyin:
 
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonElement json = parser.parse(json_text);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-
-    public static void main(String[] args) {
-        try {
-            String response = BreakSentences ();
-            System.out.println (prettify (response));
-        }
-        catch (Exception e) {
-            System.out.println (e);
-        }
+```java
+public static void main(String[] args) {
+    try {
+        BreakSentence breakSentenceRequest = new BreakSentence();
+        String response = breakSentenceRequest.Post();
+        System.out.println(prettify(response));
+    } catch (Exception e) {
+        System.out.println(e);
     }
 }
 ```
 
-## <a name="breaksentence-response"></a>BreakSentence yanıtı
+## <a name="run-the-sample-app"></a>Örnek uygulamayı çalıştırma
+
+İşte bu kadar örnek uygulamanızı çalıştırmak hazır olursunuz. Komut satırını (veya terminal oturumu), çalışma dizininizin kök dizinine gidin ve çalıştırın:
+
+```console
+gradle build
+```
+
+## <a name="sample-response"></a>Örnek yanıt
 
 Başarılı bir yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür:
 
@@ -166,3 +199,12 @@ Başarılı bir yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçimind
 
 > [!div class="nextstepaction"]
 > [GitHub’da Java örneklerini keşfedin](https://aka.ms/TranslatorGitHub?type=&language=java)
+
+## <a name="see-also"></a>Ayrıca bkz.
+
+* [Metin çevirme](quickstart-java-translate.md)
+* [Metni başka dilde yazma](quickstart-java-transliterate.md)
+* [Girişe göre dili belirleyin](quickstart-java-detect.md)
+* [Alternatif çeviriler edinme](quickstart-java-dictionary.md)
+* [Desteklenen dillerin listesini alma](quickstart-java-languages.md)
+* [Girişten tümce uzunluklarını belirleme](quickstart-java-sentences.md)

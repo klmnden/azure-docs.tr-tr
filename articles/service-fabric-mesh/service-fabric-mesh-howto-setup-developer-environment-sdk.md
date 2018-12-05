@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: tylermsft
 ms.author: twhitney
-ms.date: 08/08/2018
+ms.date: 11/29/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: 0531985cbab9c10b4df8ea3f27ac6c7903790da5
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: bec0b9a7e34f1577f80a99f5380795c479c04bc8
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978239"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890475"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Service Fabric Mesh uygulamalarını derlemek için Windows geliştirme ortamınızı ayarlayın
 
@@ -73,27 +73,31 @@ Aşağıdaki sırayla Service Fabric Mesh çalışma zamanını, SDK'yı ve ara�
 
 ## <a name="build-a-cluster"></a>Küme oluşturma
 
+> [!IMPORTANT]
+> Küme oluşturabilmeniz için Docker'in çalışıyor olması **gerekir**.
+> Terminal penceresi açarak ve hata oluşup oluşmadığını görmek için `docker ps` komutunu çalıştırarak Docker'ı çalışmasını test edin. Yanıt bir hata göstermiyorsa, Docker çalışıyor ve siz de küme oluşturmaya hazırsınız demektir.
+
 Yerel kümeniz yoksa Visual Studio tarafından oluşturulacağından Visual Studio kullanıyorsanız bu adımı atlayabilirsiniz.
 
 Service Fabric uygulamalarını oluşturur ve çalıştırırken hata ayıklama işleminde en iyi performansı elde etmek için, tek düğümlü bir yerel geliştirme kümesi oluşturmanızı öneririz. Service Fabric Mesh projesini her dağıttığınızda veya projenin hatalarını ayıkladığınızda bu küme çalıştırılmalıdır.
 
-Küme oluşturabilmeniz için Docker'in çalışıyor olması **gerekir**. Terminal penceresi açarak ve hata oluşup oluşmadığını görmek için `docker ps` komutunu çalıştırarak Docker'ı çalışmasını test edin. Yanıt bir hata göstermiyorsa, Docker çalışıyor ve siz de küme oluşturmaya hazırsınız demektir.
-
-Çalışma zamanını, SDK'ları ve Visual Studio araçlarını yükledikten sonra geliştirme kümesini oluşturun.
+Artık çalışma zamanı, SDK, Visual Studio Araçları, Docker'ı yükleme ve Docker çalışmasını sonra bir geliştirme kümesi oluşturun.
 
 1. PowerShell pencerenizi kapatın.
 2. Yönetici olarak yeni, yükseltilmiş bir PowerShell penceresi açın. Yüklediğiniz en son yüklenen Service Fabric modüllerinin açılması için bu adım gereklidir.
 3. Aşağıdaki PowerShell komutunu çalıştırarak geliştirme kümesini oluşturun:
 
     ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster -UseMachineName
+    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateMeshCluster -CreateOneNodeCluster
     ```
-
 4. Yerel küme yöneticisi aracını başlatmak için, aşağıdaki PowerShell komutunu çalıştırın:
 
     ```powershell
     . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
     ```
+5. Küme hizmeti sonra Yöneticisi Aracı (, sistem tepsisinde görünür) çalışıyor olduğundan, sağ tıklayın ve tıklayın **yerel kümeyi başlatın**.
+
+![Şekil 1 - başlangıç yerel kümedeki](./media/service-fabric-mesh-howto-setup-developer-environment-sdk/start-local-cluster.png)
 
 Artık Service Fabric Mesh uygulamaları oluşturmaya hazırsınız!
 
@@ -109,5 +113,5 @@ Artık Service Fabric Mesh uygulamaları oluşturmaya hazırsınız!
 [download-runtime]: https://aka.ms/sfruntime
 [download-sdk]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK
 [download-sdkmesh]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-SDK-Mesh
-[download-tools]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.ServiceFabricMesh
+[download-tools]: https://aka.ms/sfmesh_vs2017tools
 [download-visual-studio]: https://www.visualstudio.com/downloads/

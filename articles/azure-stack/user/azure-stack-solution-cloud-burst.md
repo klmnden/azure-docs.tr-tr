@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 645a32f56ee2bdc4132377f2d56f61b963104e42
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 4881f992e5362efc7e4d7ac23898684966a066e0
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334899"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891002"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Öğretici: Azure ile Bulutlar arası ölçeklendirme çözümleri oluşturma
 
@@ -60,7 +60,7 @@ Bu öğreticide, bir örnek ortama oluşturacaksınız:
 
 -   Kiracı abonelik içinde bir Web uygulaması oluşturun. Daha sonra kullanmak için yeni Web App URL'si not edin.
 
--   Kiracı abonelik içinde VSTS sanal makine dağıtın.
+-   Kiracı abonelik içinde Azure işlem hatları sanal makine dağıtın.
 
 -   Windows Server 2016 VM ile .NET 3.5 gereklidir. Bu VM, özel yapı aracısı olarak Azure Stack'te Kiracı aboneliği içinde oluşturulur.
 
@@ -99,9 +99,11 @@ Azure ve Azure Stack Web uygulamasına dağıtmak için karma sürekli tümleşt
 > [!Note]  
 > Azure Stack çalıştırma (Windows Server ve SQL) ve App Service dağıtımı için genel olarak uygun görüntülerle gereklidir. App Service belgelerini inceleyin "[Azure Stack'te App Service ile çalışmaya başlamadan önce](../azure-stack-app-service-before-you-get-started.md)" bölümünde Azure Stack operatörü için.
 
-### <a name="add-code-to-visual-studio-team-services-project"></a>Kod eklemek için Visual Studio Team Services projesi
+### <a name="add-code-to-azure-repos"></a>Azure depoları için kod ekleyin
 
-1. Visual Studio Team Services (VSTS) için VSTS üzerinde proje oluşturma haklarına sahip bir hesapla oturum açın.
+Azure Repos
+
+1. Azure depolara Azure depoları üzerinde proje oluşturma haklarına sahip bir hesapla oturum açın.
 
     Karma CI/CD, hem uygulama kodunda hem de altyapı kodunu uygulayabilirsiniz. Kullanım [Azure Resource Manager şablonları](https://azure.microsoft.com/resources/templates/) hem özel hem de barındırılan buluta yönelik geliştirme için.
 
@@ -117,13 +119,13 @@ Azure ve Azure Stack Web uygulamasına dağıtmak için karma sürekli tümleşt
 
     ![Alternatif metin](media\azure-stack-solution-cloud-burst\image3.png)
 
-2.  VSTS Takım Gezgini'ni kullanarak kodu iade edin.
+2.  Takım Gezgini'ni kullanarak Azure depoları kodu iade edin.
 
-3.  Uygulama kodu Visual Studio Team Services'e işaretli olduğunu doğrulayın.
+3.  Uygulama kodu Azure depolara işaretli olduğunu doğrulayın.
 
 ## <a name="create-the-build-definition"></a>Derleme tanımını oluşturun
 
-1. Yapı tanımları oluşturma olanağı onaylamak için VSTS oturum açın.
+1. Yapı tanımları oluşturma yeteneği doğrulamak için Azure işlem hatları oturum açın.
 
 2. Ekleme **- r win10-x64** kod. Bu.Net Core ile kendi içinde bir dağıtım tetiklemek gereklidir.
 
@@ -133,11 +135,11 @@ Azure ve Azure Stack Web uygulamasına dağıtmak için karma sürekli tümleşt
 
 ## <a name="use-an-azure-hosted-agent"></a>Azure kullanım barındırılan aracı
 
-Vsts'de barındırılan bir aracı kullanmak, web uygulamaları oluşturmak ve dağıtmak için kullanışlı bir seçenektir. Bakımı ve yükseltmeler, sürekli ve kesintisiz geliştirme, test ve dağıtımını etkinleştirme Microsoft Azure tarafından otomatik olarak gerçekleştirilir.
+Azure işlem hatları bir barındırılan aracı kullanın, web uygulamaları oluşturmak ve dağıtmak için kullanışlı bir seçenektir. Bakımı ve yükseltmeler, sürekli ve kesintisiz geliştirme, test ve dağıtımını etkinleştirme Microsoft Azure tarafından otomatik olarak gerçekleştirilir.
 
 ### <a name="manage-and-configure-the-cd-process"></a>CD işlem yapılandırma ve yönetme
 
-Visual Studio Team Services ve Team Foundation Server (TFS) yüksek oranda yapılandırılabilir ve yönetilebilir bir işlem hattı geliştirme gibi birden çok ortama yayınlar için hazırlama, QA ve üretim ortamlarında; sağlayın onay gerektiren belirli aşamalarda dahil.
+Azure işlem hatları ve Azure DevOps sunucusu yüksek oranda yapılandırılabilir ve yönetilebilir bir işlem hattı geliştirme gibi birden çok ortama yayınlar için hazırlama, QA ve üretim ortamlarında; sağlayın onay gerektiren belirli aşamalarda dahil.
 
 ## <a name="create-release-definition"></a>Yayın tanımı oluşturma
 
@@ -228,11 +230,11 @@ Visual Studio Team Services ve Team Foundation Server (TFS) yüksek oranda yapı
 21. Tüm değişiklikleri kaydedin.
 
 > [!Note]  
-> Görevler için bazı ayarları otomatik olarak tanımlanmış olabilir [ortam değişkenlerini](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) bir şablondan bir yayın tanımı oluşturma sırasında. Bu ayarlar görev ayarlarını değiştirilemez; Bunun yerine, üst ortam öğesi bu ayarları düzenleyebilmeniz için seçilmelidir
+> Görevler için bazı ayarları otomatik olarak tanımlanmış olabilir [ortam değişkenlerini](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) bir şablondan bir yayın tanımı oluşturma sırasında. Bu ayarlar görev ayarlarını değiştirilemez; Bunun yerine, üst ortam öğesi bu ayarları düzenleyebilmeniz için seçilmelidir
 
 ## <a name="publish-to-azure-stack-via-visual-studio"></a>Visual Studio aracılığıyla Azure stack'e yayımlama
 
-Visual Studio Online (VSTO) derleme, uç noktaları oluşturarak, Azure Stack için Azure hizmet uygulamaları dağıtabilirsiniz. Azure Stack'e bağlanır yapı aracısı VSTS bağlanır.
+Visual Studio Online (VSTO) derleme, uç noktaları oluşturarak, Azure Stack için Azure hizmet uygulamaları dağıtabilirsiniz. Azure işlem hatları Azure Stack'e bağlanır yapı aracısı bağlanır.
 
 1.  VSTO için oturum açın ve uygulama ayarları sayfasına gidin.
 
@@ -254,18 +256,18 @@ Visual Studio Online (VSTO) derleme, uç noktaları oluşturarak, Azure Stack i�
 
 10. Seçin **değişiklikleri kaydetmek**.
 
-Mevcut uç nokta bilgileri, Azure Stack bağlantı VSTS'ye kullanıma hazırdır. Yapı aracısının Azure Stack'te VSTS'den yönergeler alır ve ardından aracıyı Azure Stack ile iletişim için uç nokta bilgileri iletmez.
+Mevcut uç nokta bilgileri, Azure Stack bağlantı Azure işlem hatlarına kullanıma hazırdır. Yapı aracısının Azure Stack'te Azure işlem hatları yönergeleri alır ve ardından aracıyı Azure Stack ile iletişim için uç nokta bilgileri iletmez.
 
 ## <a name="develop-the-application-build"></a>Uygulama derleme geliştirin
 
 > [!Note]  
 > Azure Stack çalıştırma (Windows Server ve SQL) ve App Service dağıtımı için genel olarak uygun görüntülerle gereklidir. App Service belgelerini inceleyin "[Azure Stack'te App Service ile çalışmaya başlamadan önce](../azure-stack-app-service-before-you-get-started.md)" bölümünde Azure Stack operatörü için.
 
-Kullanım [Azure Resource Manager şablonları gibi web](https://azure.microsoft.com/resources/templates/) hem bulutlara dağıtmak için vsts'den uygulama kodu.
+Kullanım [Azure Resource Manager şablonları gibi web](https://azure.microsoft.com/resources/templates/) uygulama kodu her iki bulutlara dağıtmak için Azure depoları.
 
-### <a name="add-code-to-a-vsts-project"></a>VSTS projesi için kod ekleyin
+### <a name="add-code-to-a-azure-repos-project"></a>Kodu bir Azure depoları projeye Ekle
 
-1.  VSTS'ye Azure Stack üzerinde proje oluşturma haklarına sahip bir hesapla oturum açın. Sonraki ekran görüntüsü yakalamayı HybridCICD projesine bağlanma işlemi gösterilmektedir.
+1.  Azure Stack üzerinde proje oluşturma haklarına sahip bir hesapla Azure depoları için oturum açın. Sonraki ekran görüntüsü yakalamayı HybridCICD projesine bağlanma işlemi gösterilmektedir.
 
 2.  **Depoyu kopyalama** oluşturarak ve varsayılan bir web uygulamasını açma.
 
@@ -273,13 +275,13 @@ Kullanım [Azure Resource Manager şablonları gibi web](https://azure.microsoft
 
 1.  Düzen **WebApplication.csproj** dosya: seçin **Runtimeidentifier** ve win10 x64 ekleyin. Daha fazla bilgi için [müstakil dağıtım](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) belgeleri.
 
-2.  VSTS kodunu denetlemek için Takım Gezgini'ni kullanın.
+2.  Azure depolara kodunu denetlemek için Takım Gezgini'ni kullanın.
 
-3.  Uygulama kodu Visual Studio Team Services'e denetlendi onaylayın.
+3.  Uygulama kodu Azure depolara denetlendi onaylayın.
 
 ### <a name="create-the-build-definition"></a>Derleme tanımını oluşturun
 
-1.  VSTS derleme tanımı oluşturabilirsiniz bir hesapla oturum açın.
+1.  Azure işlem hatları için bir yapı tanımı oluşturmak bir hesapla oturum açın.
 
 2.  Gidin **Web uygulaması derleme** proje sayfası.
 
@@ -289,17 +291,17 @@ Kullanım [Azure Resource Manager şablonları gibi web](https://azure.microsoft
 
 #### <a name="use-an-azure-hosted-build-agent"></a>Azure kullanım barındırılan derleme aracısı
 
-VSTS'de barındırılan derleme Aracısı'nı kullanarak, oluşturmak ve web uygulamalarını dağıtmak için kullanışlı bir seçenektir. Aracı Bakımı ve yükseltmeler, sürekli ve kesintisiz geliştirme döngüsü sağlayan Microsoft Azure tarafından otomatik olarak gerçekleştirilir.
+Azure işlem hatlarında barındırılan derleme Aracısı'nı kullanarak, oluşturmak ve web uygulamalarını dağıtmak için kullanışlı bir seçenektir. Aracı Bakımı ve yükseltmeler, sürekli ve kesintisiz geliştirme döngüsü sağlayan Microsoft Azure tarafından otomatik olarak gerçekleştirilir.
 
 ### <a name="configure-the-continuous-deployment-cd-process"></a>Sürekli dağıtım (CD) işlem yapılandırma
 
-Visual Studio Team Services (VSTS) ve Team Foundation Server (TFS) yüksek oranda yapılandırılabilir ve yönetilebilir bir işlem hattı geliştirme gibi birden çok ortama yayınlar için hazırlama, kalite güvencesi kapsayan (QA) ve üretim sağlar. Bu işlem, belirli bir uygulama yaşam döngüsü aşamalarında onay gerektiren içerebilir.
+Azure işlem hatları ve DevOps Server Azure geliştirme, hazırlama, kalite güvencesi kapsayan (QA) ve üretim gibi birden çok ortama yayınlar için son derece yapılandırılabilir ve yönetilebilir bir işlem hattı sağlar. Bu işlem, belirli bir uygulama yaşam döngüsü aşamalarında onay gerektiren içerebilir.
 
 #### <a name="create-release-definition"></a>Yayın tanımı oluşturma
 
 Bir yayın tanımı oluşturma, uygulamanın son adımı yapı işlemi bağlıdır. Bu yayın tanımı, bir yayın oluşturun ve bir yapı dağıtmak için kullanılır.
 
-1.  VSTS oturum açın ve gidin **derleme ve yayın** projesi için.
+1.  Azure işlem hatları için oturum açın ve gidin **derleme ve yayın** projesi için.
 
 2.  Üzerinde **yayınlar** sekmesinde **[+]** ve ardından çekme **Oluştur yayın tanımı**.
 
@@ -346,7 +348,7 @@ Bir yayın tanımı oluşturma, uygulamanın son adımı yapı işlemi bağlıd�
 23. Tüm değişiklikleri kaydedin.
 
 > [!Note]  
-> Yayın görevleri için bazı ayarları otomatik olarak tanımlanan [ortam değişkenlerini](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) bir şablondan bir yayın tanımı oluşturma sırasında. Bu ayarlar görev ayarlarını değiştirilemez, ancak üst ortam öğeler değiştirilebilir.
+> Yayın görevleri için bazı ayarları otomatik olarak tanımlanan [ortam değişkenlerini](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) bir şablondan bir yayın tanımı oluşturma sırasında. Bu ayarlar görev ayarlarını değiştirilemez, ancak üst ortam öğeler değiştirilebilir.
 
 ## <a name="create-a-release"></a>Bir yayın oluşturun
 

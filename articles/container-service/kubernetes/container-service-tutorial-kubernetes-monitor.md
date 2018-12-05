@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2e118715ea5ff31319f92c70b6dcd2b8045dd026
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b2243851d62cc17dc52407dce051cc2e0f4bcb12
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840835"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889217"
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Log Analytics ile Kubernetes kümesini izleme
 
@@ -143,7 +143,7 @@ Aracılar çalıştırıldıktan sonra Log Analytics’in verileri alıp işleme
 
 ## <a name="access-monitoring-data"></a>İzleme verilerine erişme
 
-[Kapsayıcı çözümü](../../log-analytics/log-analytics-containers.md) ile Log Analytics portalında veya Azure portalında kapsayıcı izleme verilerini görüntüleyin ve analiz edin.
+[Kapsayıcı çözümü](../../azure-monitor/insights/containers.md) ile Log Analytics portalında veya Azure portalında kapsayıcı izleme verilerini görüntüleyin ve analiz edin.
 
 [Log Analytics portalını](https://mms.microsoft.com) kullanarak Kapsayıcı çözümünü yüklemek için **Çözüm Galerisi**’ne gidin. Sonra **Kapsayıcı Çözümü**’nü ekleyin. Alternatif olarak, Kapsayıcı çözümünü [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview)’ten ekleyebilirsiniz.
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 09112aafdbabf0cda2b3ae13af73a9223533a6e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: eb68c7aacb4c62237fc4cd75ec430997b0145454
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979204"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888758"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Öğretici: Çok hizmet sunan bir Service Fabric Mesh uygulaması oluşturma, hata ayıklama, dağıtma ve yükseltme
 
@@ -50,7 +50,7 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiye başlamadan önce:
 
@@ -80,7 +80,7 @@ Ardından **Yeni Service Fabric Hizmeti** iletişim kutusu açılır.
 
 ![Visual Studio yeni Service Fabric Mesh projesi iletişim kutusu](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-service-fabric-service.png)
 
-Ardından **Yeni ASP.NET Core Web Uygulaması** iletişim kutusu açılır. **Yeni ASP.NET Core Web Uygulaması** iletişim kutusunda **Web Uygulaması**'nı seçip **Tamam**'a tıklayın.
+Ardından, ASP.NET Core Web uygulaması iletişim kutusu görürsünüz. **Web Uygulaması**’nı seçin ve **Tamam**’a tıklayın.
 
 ![Visual Studio yeni ASP.NET Core uygulaması](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
@@ -88,13 +88,13 @@ Artık bir Service Fabric Mesh uygulamanız var. Şimdi yapılacak işler bilgil
 
 ## <a name="create-the-to-do-items-model"></a>Yapılacak işler öğelerini içeren modeli oluşturma
 
-Kolaylık olması için yapılacak işler bellekte bir liste halinde depolanır. Yapılacak işler için bir sınıf kitaplığı ve onları barındıracak bir liste oluşturun. **todolistapp** yüklü Visual Studio'da **Dosya** > **Ekle** > **Yeni Proje**'yi seçin.
+Kolaylık olması için yapılacak işler bellekte bir liste halinde depolanır. Yapılacak işler için bir sınıf kitaplığı ve onları barındıracak bir liste oluşturun. Visual Studio şu anda sahip **todolistapp** yüklüyken, çözümü seçin **dosya** > **Ekle** > **yeni proje** .
 
-**Yeni Proje** iletişim kutusunun en üstündeki **Ara** kutusuna `C# .net core class` yazın. **Sınıf Kitaplığı (.NET Core)** şablonunu seçin.
+İçinde **Yeni Proje Ekle** iletişim **arama** kutusunun üstündeki türü `C# .net core class`. **Sınıf Kitaplığı (.NET Core)** şablonunu seçin.
 
 **Ad** kutusuna `Model` yazın. Sınıf kitaplığını oluşturmak için **Tamam**'a tıklayın.
 
-Çözüm gezgininin **Model** bölümünde **Class1.cs** öğesine sağ tıklayıp **Yeniden adlandır**'ı seçin. Sınıfı **ToDoItem.cs** olarak yeniden adlandırın. Tüm başvuruları yeniden adlandırmak isteyip istemediğiniz sorulursa **Evet**'e tıklayın.
+Çözüm gezgininin **Model** bölümünde **Class1.cs** öğesine sağ tıklayıp **Yeniden adlandır**'ı seçin. Sınıfı **ToDoItem.cs** olarak yeniden adlandırın. Olup tüm başvuruları yeniden adlandırmak soran bir istem göründüğünde **Evet**.
 
 Boş `class ToDoItem` içeriğini şununla değiştirin:
 
@@ -124,7 +124,7 @@ public class ToDoItem
 }
 ```
 
-Bu sınıf, yapılacak işler öğelerini temsil eder.
+Bu sınıf, yapılacaklar öğelerini temsil eder.
 
 Visual Studio'da **Model** sınıf kitaplığına sağ tıklayın ve **Ekle** > **Sınıf...** yolunu izleyerek yapılacak işler öğelerini barındıracak bir liste oluşturun. **Yeni Öğe Ekle** iletişim kutusu açılır. **Ad** için `ToDoList.cs` yazın ve **Ekle**'ye tıklayın.
 
@@ -186,9 +186,9 @@ Ardından yapılacak işler öğelerini takip edecek Service Fabric hizmetini ol
 
 Visual Studio'nun **Çözüm Gezgini** penceresinde **todolistapp** öğesine sağ tıklayın ve **Ekle** > **Yeni Service Fabric Hizmeti...** öğesini seçin.
 
-**Yeni Service Fabric Hizmeti** iletişim kutusu açılır. **ASP.NET Core** proje türünü seçin ve **Kapsayıcı işletim sistemi** ayarının **Windows** olduğundan emin olun.
+**Yeni Service Fabric Hizmeti** iletişim kutusu açılır. **ASP.NET Core** proje türünü seçin ve **Kapsayıcı işletim sistemi** ayarının **Windows** olduğundan emin olun. **Hizmet Adı** olarak **ToDoService** yazın. ASP.NET Core hizmetini oluşturmak için **Tamam**'a tıklayın.
 
-**Hizmet Adı** olarak **ToDoService** yazın. ASP.NET Core hizmetini oluşturmak için **Tamam**'a tıklayın. Ardından **Yeni ASP.NET Core Web Uygulaması** iletişim kutusu açılır. Bu iletişim kutusunda **API**'yi ve ardından **Tamam**'ı seçin. Çözüme hizmet için bir proje eklenir.
+Ardından **Yeni ASP.NET Core Web Uygulaması** iletişim kutusu açılır. Bu iletişim kutusunda **API**'yi ve ardından **Tamam**'ı seçin. Çözüme hizmet için bir proje eklenir.
 
 ![Visual Studio yeni ASP.NET Core uygulaması](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-webapi.png)
 
@@ -203,7 +203,7 @@ Bu hizmet yapılacak işler bilgilerini tuttuğundan Model sınıf kitaplığın
 Ardından veri modelinden veri sunumunu gerçekleştiren bir veri bağlamı oluşturun.
 
 Veri bağlamı sınıfı eklemek için çözüm gezgininde **ToDoService** öğesine sağ tıklayıp **Ekle** > **Sınıf** yolunu izleyin.
-Açılan **Yeni Öğe Ekle** iletişim kutusunda **Sınıf** öğesinin seçili olduğundan emin olun ve **Ad** için `DataContext` yazıp **Ekle**'ye tıklayın.
+Açılan **Yeni Öğe Ekle** iletişim kutusunda **Sınıf** öğesinin seçili olduğundan emin olun ve **Ad** için `DataContext.cs` yazıp **Ekle**'ye tıklayın.
 
 **DataContext.cs** içinde boş `class DataContext` içeriğini şununla değiştirin:
 
@@ -313,7 +313,8 @@ Dosyanın içeriğinin tamamını aşağıdaki yapılacak işler öğelerini gö
 </div>
 ```
 
-**Çözüm Gezgini**'nde **Index.cshtml** sayfasını ve ardından **Index.cshtml.cs** dosyasını açarak Index sayfasının kodunu açın.
+' A tıklayın, aşağı açılan simgesi **Index.cshtml** dosyası **Çözüm Gezgini** açın **Index.cshtml.cs**.
+
 **Index.cshtml.cs** dosyasının en üstüne `using System.Net.Http;` ifadesini ekleyin.
 
 `public class IndexModel` içeriğini şununla değiştirin:
@@ -352,26 +353,41 @@ private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.G
 
 URL, hizmet adından ve bağlantı noktasından oluşur. Bu bilgilerin tümü **ToDoService** projesindeki service.yaml dosyasında yer alır.
 
+> [!IMPORTANT]
+> Aşağıdaki adımlarda, YAML dosyaları değiştirilecek.
+> service.yaml dosyasındaki değişkenleri girintilemek için sekme değil boşluk kullanılması gerekir, aksi halde dosya derlenmez. Ortam değişkeni eklediğinizde Visual Studio sekme ekleyebilir. Tüm sekmeleri boşluklarla değiştirin. Hatalar görürsünüz ancak **derleme** hata ayıklama çıkışı, uygulama hala başlatılır ancak Sekmeleri boşluklara dönüştür ve yeniden kadar burada olmaz. service.yaml dosyasında sekme bulunmadığından emin olmak için **Düzenle**  > **Gelişmiş**  > **Boşlukları Görüntüle** yolunu izleyerek Visual Studio düzenleyicisindeki boşlukları görünür duruma getirebilirsiniz.
+> service.yaml dosyalarının İngilizce dil ayarı kullanılarak işlendiğini unutmayın. Ondalık ayırıcı kullanmanız gerekiyorsa, örneğin bir virgül yerine nokta kullanın.
+
 **Çözüm Gezgini**'nde **ToDoService** projesine gidin ve **Hizmet Kaynakları** > **service.yaml** dosyasını açın.
 
 ![Şekil 1 - ToDoService service.yaml dosyası](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-port.png)
 
-* Hizmet adı `ToDoService`, `services:` altında ve `name:` sonrasında bulunur, bkz. yukarıdaki şekilde (1).
-* Bağlantı noktası `20008`, `endpoints:` altında ve `port:` sonrasında bulunur, bkz. yukarıdaki şekilde (2). Projenizin bağlantı noktası numarası farklı olabilir.
+* Hizmet adı `ToDoService`, altında bulunan `services:` (1) yukarıdaki bakın.
+* Bağlantı noktası `80`, altında bulunan `endpoints:` Yukarıdaki şekilde, (2) bakın. Projenizin bağlantı noktası numarası, büyük olasılıkla farklı olacaktır.
 
-Ardından WebFrontEnd projesinin arka uç hizmetini çağırmasını sağlamak için hizmet adı ve bağlantı noktası numarasını temsil eden ortam değişkenleri tanımlanır.
+Ardından, hizmet adını temsil eden ortam değişkenleri tanımlayın ve arka uç hizmeti çağırabilmek için bağlantı noktası numarası WebFrontEnd projedeki ihtiyacımız var.
 
 **Çözüm Gezgini**'nde **WebFrontEnd** > **Hizmet Kaynakları** > **service.yaml** dosyasına gideren arka uç hizmeti adresini belirten değişkenleri tanımlayın.
 
-service.yaml dosyasının `environmentVariables` bölümüne aşağıdaki değişkenleri ekleyin. Boşluklar önemli olduğundan eklediğiniz değişkenleri `environmentVariables:` altındaki diğer değişkenlerle hizalayın.
+Service.yaml dosyasında altında aşağıdaki değişkenleri eklemek `environmentVariables:` (önce kaldırmanız gerekir `#` açıklamadan çıkarın için `environmentVariables:`) boşluk önemlidir altındaki diğer değişkenleri değişkenlerle eklediğiniz şekilde hizalayın `environmentVariables:`. ApiHostPort değeri ToDoService service.yaml dosyasında daha önce görülmemiş ToDoServiceListener için bağlantı noktası değeri eşleşen çok önemlidir.
 
-> [!IMPORTANT]
-> service.yaml dosyasındaki değişkenleri girintilemek için sekme değil boşluk kullanılması gerekir, aksi halde dosya derlenmez. Ortam değişkeni eklediğinizde Visual Studio sekme ekleyebilir. Tüm sekmeleri boşluklarla değiştirin. **Derleme** hata ayıklama çıkışında hata görünse de uygulama başlatılacaktır. Ancak sekmeleri boşluklarla değiştirene kadar çalışmayacaktır. service.yaml dosyasında sekme bulunmadığından emin olmak için **Düzenle**  > **Gelişmiş**  > **Boşlukları Görüntüle** yolunu izleyerek Visual Studio düzenleyicisindeki boşlukları görünür duruma getirebilirsiniz.
-> service.yaml dosyalarının İngilizce dil ayarı kullanılarak işlendiğini unutmayın.  Örneğin, ondalık ayırıcı kullanmanız gerekirse, virgül yerine nokta kullanın.
+```yaml
+- name: ApiHostPort
+  value: 
+- name: ToDoServiceName
+  value: ToDoService
+```
+
+> [!Tip]
+> Değeri belirtmek için iki yolla `ToDoServiceName`: 
+> - Azure Service Fabric Mesh için hizmetini dağıtırken, hem Windows 10 yanı sıra hata ayıklama senaryosunda Çözümler yalnızca hizmet adı.
+> - Tam servicename.appname. Bu yalnızca, Windows 10'da hata ayıklama çalışır.
+> Yalnızca hizmet çözümleme için hizmet adını kullanmak iyi bir uygulamadır.
 
 **WebFrontEnd** projenizin **service.yaml** dosyasının aşağıdakine benzer olması gerekir ancak `ApiHostPort` değeriniz muhtemelen farklı olacaktır:
 
 ![WebFrontEnd projesindeki Service.yaml dosyası](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-envvars.png)
+
 
 Artık Service Fabric Mesh uygulaması görüntüsünü arka uç web hizmetiyle birlikte yerel kümenizde derlemek ve dağıtmak için hazırsınız.
 

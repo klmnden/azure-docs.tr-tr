@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Metinden dili tanımlama, C# - Translator Metin Çevirisi API’si'
+title: "Hızlı Başlangıç: metin dili algılamak C# -Translator metin çevirisi API'si"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, .NET Core ve Translator Text REST API kullanarak sağlanan metin dili algılayın öğreneceksiniz.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 89aedb33a88a7fb5f0a4e0abed172ba4e1cd091e
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: de5088a012a7f5fd210a5aa66805fe865cc09bbe
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682086"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889268"
 ---
-# <a name="quickstart-detect-text-language-with-the-translator-text-rest-api-c"></a>Hızlı Başlangıç: Translator Text REST API ile metin dili Algıla (C#)
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Hızlı Başlangıç: Translator Text API metin dilini kullanarak algılamak için kullanın.C#
 
 Bu hızlı başlangıçta, .NET Core ve Translator Text REST API kullanarak sağlanan metin dili algılayın öğreneceksiniz.
 
