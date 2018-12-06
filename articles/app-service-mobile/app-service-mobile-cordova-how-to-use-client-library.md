@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 6fb8be96c9793e96f1f7d2ad8e212d056d7e9ba5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 358e8cd92fe250741adbbb9208b5e149a5f60216
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467895"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959742"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps için Apache Cordova istemci kitaplığını kullanma
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -167,7 +167,7 @@ Sunucudan anında iletme bildirimleri göndermek için Notification Hubs SDK'sı
 
 ## <a name="more-information"></a>Daha fazla bilgi
 
-Ayrıntılı API ayrıntıları bulabilirsiniz bizim [API belgeleri](http://azure.github.io/azure-mobile-apps-js-client/).
+Ayrıntılı API ayrıntıları bulabilirsiniz bizim [API belgeleri](https://azure.github.io/azure-mobile-apps-js-client/).
 
 <!-- URLs. -->
 [Azure portal]: https://portal.azure.com
@@ -176,7 +176,7 @@ Ayrıntılı API ayrıntıları bulabilirsiniz bizim [API belgeleri](http://azur
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [Azure mobil uygulamalar için Apache Cordova eklentisi]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
-[ilk Apache Cordova uygulamanızı]: http://cordova.apache.org/#getstarted
+[ilk Apache Cordova uygulamanızı]: https://cordova.apache.org/#getstarted
 [phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
 [modul phonegap plugin push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device

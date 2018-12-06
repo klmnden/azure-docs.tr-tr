@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 819b63873fc74d5e38227a93c124f5f9c34ae097
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c951791031b6304a26aadd434fa7336a9c7c474f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867401"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963156"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Genel Bakış: Etkin coğrafi çoğaltma ve otomatik yük devretme grupları
 
@@ -25,7 +25,7 @@ Etkin coğrafi çoğaltma, okunabilir çoğaltma veritabanlarını tek tek aynı
 
 ![Coğrafi çoğaltma](./media/sql-database-geo-replication-failover-portal/geo-replication.png )
 
-Etkin coğrafi çoğaltma, tek veritabanlarını bölgesel disastor veya büyük ölçekli kesinti durumunda hızlı bir olağanüstü durum kurtarma gerçekleştirmek uygulama izin veren bir iş sürekliliği çözümü olarak tasarlanmıştır. Coğrafi çoğaltma etkinleştirildiğinde, uygulama farklı bir Azure bölgesinde bir ikincil veritabanına yük devretme başlatabilirsiniz. En fazla dört ikincil veritabanı aynı veya farklı bölgelerde desteklenir ve ikincil veritabanı salt okunur erişim sorgular için de kullanılabilir. Yük devretmeyi el ile uygulama veya kullanıcı tarafından başlatılması gerekir. Yük devretme işleminden sonra yeni birincil farklı bir bağlantı uç noktası vardır.
+Etkin coğrafi çoğaltma, tek veritabanlarını bölgesel bir olağanüstü durum ya da büyük ölçekli kesinti olması durumunda hızlı bir olağanüstü durum kurtarma gerçekleştirmek uygulama izin veren bir iş sürekliliği çözümü olarak tasarlanmıştır. Coğrafi çoğaltma etkinleştirildiğinde, uygulama farklı bir Azure bölgesinde bir ikincil veritabanına yük devretme başlatabilirsiniz. En fazla dört ikincil veritabanı aynı veya farklı bölgelerde desteklenir ve ikincil veritabanı salt okunur erişim sorgular için de kullanılabilir. Yük devretmeyi el ile uygulama veya kullanıcı tarafından başlatılması gerekir. Yük devretme işleminden sonra yeni birincil farklı bir bağlantı uç noktası vardır.
 
 > [!NOTE]
 > Etkin coğrafi çoğaltma, tüm veritabanları, tüm bölgelerde tüm hizmet katmanlarında kullanılabilir.
@@ -210,7 +210,7 @@ Uygulamanız, yönetilen örnek, veri katmanı olarak kullanıyorsa, iş sürekl
 
 - **İki örnek arasındaki çoğaltma trafiğinin etkinleştir**
 
-  Her örnek kendi VNET'ine izole edilmiş olduğundan, bu sanal ağlar arasında iki yönlü trafik izin verilmesi gerekir. Bkz: [çoğaltma ile SQL veritabanı yönetilen örneği](replication-with-sql-database-managed-instance.md).
+  Her örnek kendi VNET'ine izole edilmiş olduğundan, bu sanal ağlar arasında iki yönlü trafik izin verilmesi gerekir. Bkz: [Azure VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 - **Bir yük devretme grubu yük devretme tüm örneğinin yönetmek için yapılandırma**
 
@@ -229,8 +229,8 @@ Uygulamanız, yönetilen örnek, veri katmanı olarak kullanıyorsa, iş sürekl
 
   > [!NOTE]
   > Belirli hizmet katmanlarında, Azure SQL veritabanı kullanımını destekler. [salt okunur çoğaltmalar](sql-database-read-scale-out.md) yüklemek ve bir salt okunur çoğaltma kapasitesini kullanmaya Bakiye salt okunur sorgu iş yükleri için `ApplicationIntent=ReadOnly` bağlantı parametresi dize. Coğrafi çoğaltmalı ikincil yapılandırıldığında, ya da salt okunur çoğaltma birincil konumda veya coğrafi olarak çoğaltılmış bir konuma bağlanmak için bu özelliği kullanabilirsiniz.
-  > - Salt okunur bir çoğaltması birincil konumda bağlanmak için kullanma &lt;yük devretme grubu adı&gt;.&lt; zone_id&gt;. database.windows.net.
-  > - Salt okunur bir çoğaltması birincil konumda bağlanmak için kullanma &lt;yük devretme grubu adı&gt;.secondary.&lt; zone_id&gt;. database.windows.net.
+  > - Salt okunur bir çoğaltması birincil konumda bağlanmasını sağlayan &lt;yük devretme grubu adı&gt;.&lt; zone_id&gt;. database.windows.net.
+  > - Salt okunur bir çoğaltması birincil konumda bağlanmasını sağlayan &lt;yük devretme grubu adı&gt;.secondary.&lt; zone_id&gt;. database.windows.net.
 - **Performans düşüşü için hazırlıklı olmalıdır**
 
   SQL yük devretme karar, uygulamanın veya kullanılan diğer hizmetlerin geri kalanından bağımsızdır. Uygulama "tek bir bölge ve bazı durumlarda başka bazı bileşenleri ile karışık". Performans düşüşü önlemek için DR bölgesinde yedekli uygulama dağıtımını sağlamak ve bu makalede bir ağ güvenlik yönergelerini izlenmesini <link>.

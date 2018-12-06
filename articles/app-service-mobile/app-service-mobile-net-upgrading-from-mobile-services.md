@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 2d346739cd2e80546aee921317e278c1cff32b34
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 4fd896e3b26ae66621ba49d1bb8a5d86c0dd63ee
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873147"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963275"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Mevcut .NET Azure Mobile Services'ı App Service'a yükseltme
 App Service Mobile, Microsoft Azure kullanarak mobil uygulamalar derlemek için yepyeni bir yoludur. Daha fazla bilgi için bkz. [Mobile Apps nedir?].
@@ -204,7 +204,7 @@ public class TodoItem : ITableData
 Not: hataları alırsanız, `NotMapped`, derlemeye bir başvuruda bulunun `System.ComponentModel.DataAnnotations`.
 
 ### <a name="cors"></a>CORS
-Mobile Services, ASP.NET CORS çözüm sarmalama tarafından bazı CORS desteği dahil. Doğrudan faydalanarak Geliştirici daha fazla denetim sağlamak için bu sarmalama katman kaldırıldı [ASP.NET CORS desteğini](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
+Mobile Services, ASP.NET CORS çözüm sarmalama tarafından bazı CORS desteği dahil. Doğrudan faydalanarak Geliştirici daha fazla denetim sağlamak için bu sarmalama katman kaldırıldı [ASP.NET CORS desteğini](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
 
 Ana CORS kullanıyorsanız sorunlu alanları olan `eTag` ve `Location` üstbilgileri düzgün çalışması için İstemci SDK'ları için sırada izin verilmelidir.
 
@@ -282,7 +282,7 @@ Yeni istemci sürümü hazır olduğunda, yükseltilen sunucu projenizi karşı 
 [Azure portal]: https://portal.azure.com/
 [Klasik Azure portalı]: https://manage.windowsazure.com/
 [Mobile Apps nedir?]: app-service-mobile-value-prop.md
-[Mobil uygulama sunucusu SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
+[Mobil uygulama sunucusu SDK]: https://www.nuget.org/packages/microsoft.azure.mobile.server
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /azure/scheduler/
 [Web işi]: https://github.com/Azure/azure-webjobs-sdk/wiki

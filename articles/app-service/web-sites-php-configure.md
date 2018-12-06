@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 1e5f7ed2fb4c77e0a738cbe6ee6c84b46bc59bb8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f9e863146b78fa510ea6f5b6eb9b3aa0fc4ce926
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230844"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965795"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Azure App Service Web uygulamalarında PHP yapılandırma
 
@@ -148,7 +148,7 @@ Zend uzantıları, kullanarak de desteklenir bir **PHP_ZENDEXTENSIONS** anahtar�
 
 Varsayılan PHP çalışma zamanı yerine App Service Web Apps, PHP komut yürütmek için sağlayan bir PHP çalışma zamanı kullanabilirsiniz. Sağladığınız çalışma zamanı tarafından yapılandırılabilir bir `php.ini` ayrıca sağlayan dosya. Aşağıdaki adımları izleyerek Web Apps ile özel bir PHP çalışma zamanı kullanmak için.
 
-1. Bir iş parçacığı güvenli olmayan, PHP için Windows VC9 veya VC11 uyumlu sürümü edinin. PHP için Windows son sürümleri şurada bulunabilir: [ http://windows.php.net/download/ ]. Eski sürümleri arşiv burada bulunabilir: [ http://windows.php.net/downloads/releases/archives/ ].
+1. Bir iş parçacığı güvenli olmayan, PHP için Windows VC9 veya VC11 uyumlu sürümü edinin. PHP için Windows son sürümleri şurada bulunabilir: [ https://windows.php.net/download/ ]. Eski sürümleri arşiv burada bulunabilir: [ https://windows.php.net/downloads/releases/archives/ ].
 1. Değiştirme `php.ini` dosya, çalışma zamanı için. Sistem-düzey-yalnızca yönergeleridir herhangi bir yapılandırma ayarı Web uygulamaları tarafından göz ardı edilir. (Sistem düzeyi-yalnızca yönergeleri hakkında daha fazla bilgi için bkz. [php.ini yönergeleri listesi]).
 1. İsteğe bağlı olarak, PHP çalışma zamanı uzantılarını ekleyin ve bunları etkinleştirmek `php.ini` dosya.
 1. Ekleme bir `bin` kök dizini ve put PHP çalışma zamanınızı da içeren dizine dizin (örneğin, `bin\php`).
@@ -196,7 +196,7 @@ Daha fazla bilgi için [PHP Geliştirici Merkezi](https://azure.microsoft.com/de
 >
 
 [ücretsiz deneme sürümü]: https://www.windowsazure.com/pricing/free-trial/
-[phpinfo()]: http://php.net/manual/en/function.phpinfo.php
+[phpinfo()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [Php.ini yönergeleri listesi]: http://www.php.net/manual/en/ini.list.php
 [. user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
@@ -206,8 +206,8 @@ Daha fazla bilgi için [PHP Geliştirici Merkezi](https://azure.microsoft.com/de
 [save-button]: ./media/web-sites-php-configure/save-button.png
 [php-extensions]: ./media/web-sites-php-configure/php-extensions.png
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
-[http://windows.php.net/download/]: http://windows.php.net/download/
-[http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
+[https://windows.php.net/download/]: https://windows.php.net/download/
+[https://windows.php.net/downloads/releases/archives/]: https://windows.php.net/downloads/releases/archives/
 [SETPHPVERCLI]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
 [GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png

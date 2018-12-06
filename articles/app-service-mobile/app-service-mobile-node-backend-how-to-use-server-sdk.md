@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: cbedb17bb7563620d0d9db81333d9a79301b4ee0
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 926712d8d38f144c583dcf61c3cd0f078566296a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42817517"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964007"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Mobile Apps Node.js SDK'sını kullanma
 
@@ -152,7 +152,7 @@ Portal kullanarak bir Node.js Mobile Apps arka ucu oluşturduğunuzda **Hızlı 
 
 Aşağıdaki yordam, hızlı başlangıç proje kodu indirmek için bir Git deposu kullanır:
 
-1. Zaten yapmadıysanız, Git, yükleyin. Git'i yüklemek için gerekli adımlar, işletim sistemleri arasında farklılık gösterir. İşletim sistemine özgü dağıtımları ve yükleme yönergeleri için bkz. [yükleme Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
+1. Zaten yapmadıysanız, Git, yükleyin. Git'i yüklemek için gerekli adımlar, işletim sistemleri arasında farklılık gösterir. İşletim sistemine özgü dağıtımları ve yükleme yönergeleri için bkz. [yükleme Git](https://git-scm.com/book/en/Getting-Started-Installing-Git).
 1. Bkz: [deponuzu hazırlama](../app-service/app-service-deploy-local-git.md#prepare-your-repository) arka uç sitenizde Git deposunu etkinleştirmenize. Dağıtım kullanıcı adı ve parolayı not edin.
 1. Mobile Apps arka ucu için bölmesinde Not **Git kopya URL'si** ayarı.
 1. Yürütme `git clone` Git kopya URL'si kullanarak komutu. Gerektiğinde, aşağıdaki örnekte olduğu gibi parolanızı girin:
@@ -242,7 +242,7 @@ module.exports = table;
 
 Tablolar varsayılan olarak dinamik şemayı kullanır. Dinamik şemanın kapatılması genel olarak kapatmak için ayarlanmış `MS_DynamicSchema` false Azure portalında uygulama ayarı.
 
-Tam bir örnek bulabilirsiniz [Yapılacaklar örneği github'daki].
+Tam bir örnek bulabilirsiniz [github'da Yapılacaklar örneği].
 
 ### <a name="howto-staticschema"></a>Statik bir şema kullanarak tabloları tanımlama
 
@@ -382,7 +382,7 @@ Eklediğiniz öneririz **azureMobile.js** için **.gitignore** dosya (veya diğe
 
 Bir uygulama ayarı için:
 
-1. [Azure Portal]’da oturum açın.
+1. [Azure Portal] oturum açın.
 1. Seçin **tüm kaynakları** veya **uygulama hizmetleri**ve ardından mobil uygulamanızın adını seçin.
 1. **Ayarları** bölmesi, varsayılan olarak açılır. Bu işaretlemezse **ayarları**.
 1. Üzerinde **genel** menüsünde **uygulama ayarları**.
@@ -399,7 +399,7 @@ Bir uygulama ayarı için:
 
 Bir veri deposu olarak Azure SQL veritabanı ile tüm Azure App Service uygulama türlerinde aynıdır. Bunu zaten yapmadıysanız, bir Mobile Apps arka ucu oluşturmak için aşağıdaki adımları izleyin:
 
-1. [Azure Portal]’da oturum açın.
+1. [Azure Portal] oturum açın.
 1. Pencerenin üst sol seçin **+ yeni** düğmesi > **Web + mobil** > **mobil uygulama**ve, Mobile Apps arka ucu için bir ad belirtin.
 1. İçinde **kaynak grubu** kutusuna, uygulamanızla aynı adı girin.
 1. App Service planı varsayılan seçilidir. App Service planınızı değiştirmek istiyorsanız:
@@ -794,7 +794,7 @@ var api = {
 module.exports = api;
 ```
 
-Her standart RESTful fiillerden biri parametredir: Al, sonrası, düzeltme eki veya SİLİN. Standart yöntemdir [ExpressJS ara yazılım] gerekli çıktı gönderen bir işlev.
+Her standart RESTful fiillerden biri parametredir: Al, sonrası, düzeltme eki veya SİLİN. Standart yöntemdir [ExpressJS ara yazılımı] gerekli çıktı gönderen bir işlev.
 
 ### <a name="howto-customapi-auth"></a>Özel bir API'ye erişim için kimlik doğrulaması gerektir
 
@@ -910,7 +910,7 @@ Kolay tablolar oluşturmak ve tabloları doğrudan portalda çalışmak için ku
 * createdAt
 * updatedAt
 * silindi
-* sürüm
+* version
 
 Ayrıca, App Service Düzenleyicisi'ni kullanarak tablo işlemleri bile düzenleyebilirsiniz. Seçtiğinizde, **kolay tablolar** arka uç site ayarlarınızda ekleyebilir, değiştirebilir veya bir tablo silme. Tablodaki verileri de görebilirsiniz.
 
@@ -976,19 +976,19 @@ Azure portalını kullanarak Node.js arka uç komut dosyalarınızı App Service
 [Düğüm modüllerini kullanın]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
-[Express]: http://expressjs.com/
-[Swagger]: http://swagger.io/
+[Express]: https://expressjs.com/
+[Swagger]: https://swagger.io/
 
 [Azure portal]: https://portal.azure.com/
-[OData]: http://www.odata.org
+[OData]: https://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp örneği github'daki]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
-[Yapılacaklar örneği github'daki]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
+[github'da Yapılacaklar örneği]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
 [github'daki örnekler dizini]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
 [static-schema sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
 [QueryJS]: https://github.com/Azure/queryjs
 [Visual Studio için node.js araçları 1.1]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [MSSQL Node.js paketi]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
-[ExpressJS ara yazılım]: http://expressjs.com/guide/using-middleware.html
+[Microsoft SQL Server 2014 Express]: https://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[ExpressJS ara yazılımı]: https://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

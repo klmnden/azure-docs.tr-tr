@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: abf09444e92c6faded42a9143b4b5c849a4cf41d
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: be204c8c20825aab75e19acd0157b427ef4a388c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853275"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968672"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>App Service uygulamanızı Microsoft Account login kullanacak şekilde yapılandırma
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -68,5 +68,5 @@ Bu konuda, Azure App Service'ı Microsoft Account bir kimlik doğrulama sağlay�
 
 <!-- URLs. -->
 
-[Uygulamalarım]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Uygulamalarım]: https://go.microsoft.com/fwlink/p/?LinkId=262039
 [Azure portal]: https://portal.azure.com/

@@ -30,18 +30,18 @@ items:
     - name: Toplama - Linux bilgisayarı
       href: ../log-analytics/log-analytics-quick-collect-linux-computer.md?toc=/azure/azure-monitor/toc.json
     - name: Toplama - Windows bilgisayarı
-      href: ../log-analytics/log-analytics-quick-collect-windows-computer.md?toc=/azure/azure-monitor/toc.json
+      href: learn/quick-collect-windows-computer.md
   expanded: true
 - name: Öğreticiler
   items:
   - name: Log Analytics’te verileri analiz etme
-    href: ../log-analytics/log-analytics-tutorial-viewdata.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-viewdata.md
   - name: Log Analytics’te verileri görselleştirme
-    href: ../log-analytics/log-analytics-tutorial-dashboards.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-logs-dashboards.md
   - name: Platform ölçüm ve günlük verilerini arşivleme
     href: ../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md?toc=/azure/azure-monitor/toc.json
   - name: Günlük verileriyle uyarı oluşturma
-    href: ../log-analytics/log-analytics-tutorial-response.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-response.md
   - name: Performans ve zamanlamaya göre otomatik ölçeklendirme
     href: ../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md?toc=/azure/azure-monitor/toc.json
   - name: Uygulama çalışma zamanı özel durumlarını belirleme
@@ -175,15 +175,15 @@ items:
       - name: Çalışma alanı oluşturma
         items:
         - name: Azure portalı kullanma
-          href: ../log-analytics/log-analytics-quick-create-workspace.md?toc=/azure/azure-monitor/toc.json
+          href: learn/quick-create-workspace.md
         - name: Azure CLI kullanma
-          href: ../log-analytics/log-analytics-quick-create-workspace-cli.md?toc=/azure/azure-monitor/toc.json
+          href: learn/quick-create-workspace-cli.md
         - name: Azure PowerShell kullanma
-          href: ../log-analytics/log-analytics-quick-create-workspace-posh.md?toc=/azure/azure-monitor/toc.json
+          href: learn/quick-create-workspace-posh.md
       - name: Çalışma alanını silme
         href: ../log-analytics/log-analytics-manage-del-workspace.md?toc=/azure/azure-monitor/toc.json
       - name: Hizmet sağlayıcılarına yönelik tasarım
-        href: ../log-analytics/log-analytics-service-providers.md?toc=/azure/azure-monitor/toc.json
+        href: platform/service-providers.md
   - name: Veri toplama
     items:
     - name: Aracıları yükleme ve yapılandırma
@@ -717,7 +717,8 @@ items:
         - name: Uygulama verileri
           href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
         - name: Standart özellikler
-          href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
+        - name: Metin verilerini ayrıştırma
+          href: log-query/parse-text.md
       - name: Arama sonuçlarına göre işlem yapma
         href: log-query/take-action.md
       - name: Bilgisayar grupları
@@ -861,7 +862,7 @@ items:
     - name: Azure CLI örnekleri
       href: ../monitoring-and-diagnostics/insights-cli-samples.md?toc=/azure/azure-monitor/toc.json
     - name: Resource Manager şablonları
-      href: ../log-analytics/log-analytics-template-workspace-configuration.md?toc=/azure/monitoring-and-diagnostics/toc.json
+      href: platform/template-workspace-configuration.md
     - name: API
       items:
       - name: REST API’sini kullanma hakkında kılavuz
@@ -1009,9 +1010,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Kod örnekleri
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: d87574fb4e430742a733d92992ef2009e0240d43
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: ee2702e834ce782f5b690cbfc78d300efa1ee602
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889761"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968178"

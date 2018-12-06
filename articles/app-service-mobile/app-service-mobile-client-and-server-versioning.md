@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 1f5626b1001f2d5deb3fa84d64eab6acf6c94b7e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dfdabed95d89e02b5a4b23ba23949cd0aaf838f3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239534"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959404"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Mobile Apps ve Mobile Services istemci ve sunucu sürümü oluşturma
 Azure Mobile Services'ın en son sürüm **Mobile Apps** Azure App Service özelliğidir.
@@ -62,7 +62,7 @@ Aşağıdaki grafik, tüm istemci ve sunucu türleri arasındaki uyumluluk göst
 
 <!-- IMPORTANT!  The anchors for Mobile Services and Mobile Apps MUST be 1.0.0 and 2.0.0 respectively, since there is an exception error message that uses those anchors. -->
 
-<!-- NOTE: the fwlink to this document is http://go.microsoft.com/fwlink/?LinkID=690568 -->
+<!-- NOTE: the fwlink to this document is https://go.microsoft.com/fwlink/?LinkID=690568 -->
 
 ## <a name="1.0.0"></a>Mobil hizmetler istemci ve sunucu
 Aşağıdaki tabloda istemci SDK'ları ile uyumludur **mobil Hizmetler**.
@@ -75,7 +75,7 @@ Not: Mobil hizmetler istemci SDK'ları *olmayan* bir üstbilgi değerini gönder
 | Yönetilen istemci (Windows, Xamarin) |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |yok |
 | iOS |[2.2.2](https://aka.ms/gc6fex) |yok |
 | Android |[2.0.3](https://go.microsoft.com/fwLink/?LinkID=280126) |yok |
-| HTML |[1.2.7](http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) |yok |
+| HTML |[1.2.7](https://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) |yok |
 
 ### <a name="mobile-services-server-sdks"></a>Mobil *Hizmetleri* sunucu SDK'ları
 | Sunucu platformu | Sürüm | Kabul edilen sürüm üst bilgisi |
@@ -128,5 +128,5 @@ Sürüm denetimi sunucusu SDK sürümleri aşağıdaki yer almaktadır:
 [Mobile Apps istemciler]: #MobileAppsClients
 
 
-[Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
+[Mobile App Server SDK]: https://www.nuget.org/packages/microsoft.azure.mobile.server
 [Bir mobil hizmet, Azure App Service'e geçirme]: app-service-mobile-migrating-from-mobile-services.md

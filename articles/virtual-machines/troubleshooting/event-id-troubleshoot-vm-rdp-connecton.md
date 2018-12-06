@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: b84992f5deea1135692c368900f63773b51453bb
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634332"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959691"
 ---
-# <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Olay Kimliğine göre Azure VM RDP bağlantı sorunlarını giderme 
+# <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Azure VM RDP bağlantı sorunlarını olay kimliğine göre giderme 
 
 Bu makale, Uzak Masaüstü Protokolü (RDP) bağlantısını için Azure sanal makinesi (VM) engelleyen sorunları gidermek için olay kimlikleri kullanmayı açıklar.
 
@@ -37,7 +37,7 @@ Bu sorunu gidermek için VM olay günlüklerini gözden geçirin ve ardından a�
 
 ### <a name="create-a-backup-snapshot"></a>Bir yedek anlık görüntüsü oluşturma
 
-Bir yedek anlık görüntüsü oluşturmak için adımları [bir diskin anlık görüntüsünü alma](..\windows\snapshot-copy-managed-disk.md).
+Bir yedek anlık görüntüsü oluşturmak için adımları [bir diskin anlık görüntüsünü alma](../windows/snapshot-copy-managed-disk.md).
 
 ### <a name="connect-to-the-vm-remotely"></a>VM'ye uzaktan bağlanın
 
@@ -56,35 +56,35 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 
 **Günlük adı:** sistem <br />
 **Kaynak:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Tarih:***zaman*  <br />
+**Tarih:***zaman* <br />
 **Olay Kimliği:** 1058 <br />
 **Görev kategorisi:** yok <br />
 **Düzeyi:** hata <br />
 **Anahtar sözcükler:** Klasik <br />
 **Kullanıcı:** yok <br />
-**Bilgisayar:***bilgisayar*  <br />
+**Bilgisayar:***bilgisayar* <br />
 **Açıklama:** RD Oturumu Ana bilgisayarı otomatik olarak imzalanan SSL bağlantıları RD Oturumu Ana Bilgisayar sunucusu kimlik doğrulaması için kullanılan sertifikanın süresi dolmuş değiştirmek başarısız oldu. İlgili durum kodu: erişim engellendi.
 
 **Günlük adı:** sistem <br />
 **Kaynak:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Tarih:***zaman*  <br />
+**Tarih:***zaman* <br />
 **Olay Kimliği:** 1058 <br />
 **Görev kategorisi:** yok <br />
 **Düzeyi:** hata <br />
 **Anahtar sözcükler:** Klasik <br />
 **Kullanıcı:** yok <br />
-**Bilgisayar:***bilgisayar*  <br />
+**Bilgisayar:***bilgisayar* <br />
 **Açıklama:** ilgili durum kodu: nesne zaten mevcut., RD Oturumu Ana Bilgisayar sunucusu SSL bağlantıları üzerinde RD Oturumu Ana bilgisayarı sunucu kimlik doğrulaması için kullanılacak yeni bir otomatik olarak imzalanan sertifika oluşturmak başarısız oldu.
 
 **Günlük adı:** sistem <br />
 **Kaynak:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Tarih:***zaman*  <br />
+**Tarih:***zaman* <br />
 **Olay Kimliği:** 1057 <br />
 **Görev kategorisi:** yok <br />
 **Düzeyi:** hata <br />
 **Anahtar sözcükler:** Klasik <br />
 **Kullanıcı:** yok <br />
-**Bilgisayar:***bilgisayar*  <br />
+**Bilgisayar:***bilgisayar* <br />
 **Açıklama:** RD Oturumu Ana bilgisayarı yeni bir otomatik olarak imzalanan SSL bağlantıları üzerinde RD Oturumu Ana Bilgisayar sunucusu kimlik doğrulaması için kullanılacak bir sertifika oluşturmak başarısız oldu. İlgili durum kodu: anahtar kümesi yok.
 
 Aşağıdaki komutları çalıştırarak 36872 ve 36870 SCHANNEL hata olayları için de göz atabilirsiniz:
@@ -102,7 +102,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Düzeyi:** hata <br />
 **Anahtar sözcükler:**       <br />
 **Kullanıcı:** sistem <br />
-**Bilgisayar:***bilgisayar*  <br />
+**Bilgisayar:***bilgisayar* <br />
 **Açıklama:** SSL sunucu kimlik bilgisi özel anahtarına erişme girişimi sırasında önemli bir hata oluştu. Şifreleme modülünden döndürülen hata kodu 0x8009030D ' dir.  <br />
 10001 iç bir hata durumudur.
 
@@ -224,7 +224,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Düzeyi:** hata <br />
 **Anahtar sözcükler:**       <br />
 **Kullanıcı:** sistem <br />
-**Bilgisayar:***bilgisayar*  <br />
+**Bilgisayar:***bilgisayar* <br />
 **Açıklama:** TLS sunucusu kimlik bilgisi oluşturulurken önemli bir hata oluştu. 10013 iç bir hata durumudur.
  
 ### <a name="cause"></a>Nedeni
@@ -248,13 +248,13 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 
 **Günlük adı:** Microsoft-Windows-TerminalServices-SessionBroker/işlem <br />
 **Kaynak:** Microsoft-Windows-TerminalServices-SessionBroker <br />
-**Tarih:***zaman*  <br />
+**Tarih:***zaman* <br />
 **Olay Kimliği:** 2056 <br />
 **Görev kategorisi:** (109) <br />
 **Düzeyi:** hata <br />
 **Anahtar sözcükler:**       <br />
 **Kullanıcı:** ağ hizmeti <br />
-**Bilgisayar:***bilgisayar fqdn*  <br />
+**Bilgisayar:***bilgisayar fqdn* <br />
 **Açıklama:** olay kimliği 2056 Microsoft-Windows-TerminalServices-SessionBroker kaynağından açıklaması nebyla nalezena. Bu olayı oluşturan bileşen, yerel bilgisayarınızda yüklü değil veya yüklemenin bozuk. Yüklediğinizde veya yerel bilgisayarda bileşen onarın. <br />
 Olay başka bir bilgisayarda bulunuyorsa, görüntü bilgilerini olay ile kayıtlı gerekiyordu. <br />
 Aşağıdaki bilgiler, olay ile eklendi: <br />
@@ -264,13 +264,13 @@ Veritabanına oturum açma başarısız oldu.
 
 **Günlük adı:** Microsoft-Windows-TerminalServices-SessionBroker-istemci/işlem <br />
 **Kaynak:** Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
-**Tarih:***zaman*  <br />
+**Tarih:***zaman* <br />
 **Olay Kimliği:** 1296 <br />
 **Görev kategorisi:** (104) <br />
 **Düzeyi:** hata <br />
 **Anahtar sözcükler:**       <br />
 **Kullanıcı:** ağ hizmeti <br />
-**Bilgisayar:***bilgisayar fqdn*  <br />
+**Bilgisayar:***bilgisayar fqdn* <br />
 **Açıklama:** olay kimliği 1296 Microsoft-Windows-TerminalServices-SessionBroker-Client kaynağından açıklaması nebyla nalezena. Bu olayı oluşturan bileşen, yerel bilgisayarınızda yüklü değil veya yüklemenin bozuk. Yüklediğinizde veya yerel bilgisayarda bileşen onarın.
 Olay başka bir bilgisayarda bulunuyorsa, görüntü bilgilerini olay ile kayıtlı gerekiyordu.
 Aşağıdaki bilgiler, olay ile eklendi:  <br />

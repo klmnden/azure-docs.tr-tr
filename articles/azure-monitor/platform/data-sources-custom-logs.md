@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 11/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 2f0c552c29021400e901e94c643c8f20171638b8
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 03c561001999245b55e6e76b02f8916d0b2d619f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875076"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963241"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log analytics'te özel günlükler
-Log analytics'te özel günlükleri veri kaynağı, hem Windows hem de Linux bilgisayarlarda metin dosyalarından olaylarını toplamanıza olanak sağlar. Birçok uygulama için Windows olay günlüğü veya Syslog gibi standart günlük hizmetlerinin yerine metin dosyaları bilgileri günlüğe kaydetmek.  Toplandığında, her bir kayıtta tek tek alanları kullanarak oturum açma ayrıştırabilirsiniz [özel alanlar](../../azure-monitor/platform/custom-fields.md) Log Analytics özelliğidir.
+Log analytics'te özel günlükleri veri kaynağı, hem Windows hem de Linux bilgisayarlarda metin dosyalarından olaylarını toplamanıza olanak sağlar. Birçok uygulama için Windows olay günlüğü veya Syslog gibi standart günlük hizmetlerinin yerine metin dosyaları bilgileri günlüğe kaydetmek. Toplandığında, verileri ayrı ayrı alanlara sorgularınızdaki ayrıştırmak veya sırasında ayrı alanlar koleksiyonuna olan verileri ayıklayın.
 
 ![Özel günlük toplama](media/data-sources-custom-logs/overview.png)
 
@@ -105,13 +105,10 @@ Log Analytics, özel günlük toplama başladığında, bir günlük araması il
 
 > [!NOTE]
 > RawData özelliği arama sonucunda eksik, tarayıcınızı kapatıp gerekebilir.
->
->
+
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>6. Adım. Özel günlük girişlerini ayrıştırılamıyor
-Tüm günlük girişi adlı tek bir özellik içinde saklanan **RawData**.  Her kayıtta depolanan özellikler girişine bilgilerinin farklı parçaları ayırmak büyük olasılıkla isteyeceksiniz.  Bunu yapmak [özel alanlar](../../azure-monitor/platform/custom-fields.md) Log Analytics özelliğidir.
-
-Özel günlük girişi ayrıştırılırken ilişkin ayrıntılı adımlar burada sağlanmaz.  Lütfen [özel alanlar](../../azure-monitor/platform/custom-fields.md) bu bilgi için belgelere bakın.
+Tüm günlük girişi adlı tek bir özellik içinde saklanan **RawData**.  Her kayıt için ayrı ayrı Özellikler içinde her giriş bilgilerinin farklı parçaları ayırmak büyük olasılıkla isteyeceksiniz. Başvurmak [ayrıştırma metin verilerini Log analytics'te](../log-query/parse-text.md) ayrıştırma seçenekleri için **RawData** birden çok özellikleri.
 
 ## <a name="removing-a-custom-log"></a>Özel günlük kaldırılıyor
 Aşağıdaki işlemi Azure portalında önceden tanımlanmış özel bir günlük kaldırmak için kullanın.
@@ -123,7 +120,7 @@ Aşağıdaki işlemi Azure portalında önceden tanımlanmış özel bir günlü
 ## <a name="data-collection"></a>Veri toplama
 Log Analytics'i yeni girişler her özel günlüğünden yaklaşık her 5 dakikada toplar.  Aracı, onun yerine toplar, her bir günlük dosyasına kaydeder.  Aracıyı bir süre için çevrimdışı olursa, girişler aracının çevrimdışı durumdayken oluşturulmuş olsalar bile sonra Log Analytics girişleri son devre dışı kaldığı toplar.
 
-Günlük giriş öğesinin tüm içeriğini adlı tek bir özellik için yazılan **RawData**.  Bu, analiz ve ayrı olarak tanımlayarak Aranan birden fazla özelliklerini içine ayrıştırabilirsiniz [özel alanlar](../../azure-monitor/platform/custom-fields.md) özel günlük oluşturduktan sonra.
+Günlük giriş öğesinin tüm içeriğini adlı tek bir özellik için yazılan **RawData**.  Bkz [ayrıştırma metin verilerini Log analytics'te](../log-query/parse-text.md) her ayrıştırmak yöntemler için birden çok özellik günlük girişine içeri aktarıldı.
 
 ## <a name="custom-log-record-properties"></a>Özel günlük kaydı özellikleri
 Özel günlük kayıtları, aşağıdaki tabloda günlük adını sağlayan ve özellikleri ile bir türü vardır.
@@ -132,18 +129,8 @@ Günlük giriş öğesinin tüm içeriğini adlı tek bir özellik için yazıla
 |:--- |:--- |
 | TimeGenerated |Tarih ve Log Analytics tarafından toplanan kaydı.  Zamana bağlı bir sınırlayıcı günlük kullanıyorsa, ardından bu girişi toplanan zamandır. |
 | SourceSystem |Aracı kaydı toplandığı türü. <br> OpsManager – Windows Aracısı, doğrudan bağlanın veya System Center Operations Manager <br> Linux – tüm Linux aracıları |
-| RawData |Toplanan girişinin tam metin. |
+| RawData |Toplanan girişinin tam metin. Büyük olasılıkla isteyeceksiniz [ayrı ayrı Özellikler içinde bu verileri ayrıştırmak](../log-query/parse-text.md). |
 | ManagementGroupName |Aracıları System Center Operations yönetmek için yönetim grubunun adı.  Diğer aracılar için AOI - budur\<çalışma alanı kimliği\> |
-
-## <a name="log-searches-with-custom-log-records"></a>Özel günlük kayıtları ile günlük aramaları
-Özel günlükler kayıtlardan herhangi bir veri kaynağından alınan kayıtları gibi Log Analytics çalışma alanında depolanır.  Bunlar, belirli bir günlüğünden toplanan kayıtları almak için arama Type özelliği kullanabilmeniz için günlük tanımladığınızda, sağladığınız adla eşleşen bir tür olacaktır.
-
-Aşağıdaki tabloda özel günlüklerinden kayıtları almak günlük aramaları farklı örnekler sağlar.
-
-| Sorgu | Açıklama |
-|:--- |:--- |
-| MyApp_CL |Tüm olayları özel bir adlandırılmış MyApp_CL günlüğe kaydedin. |
-| MyApp_CL &#124; burada Severity_CF "error" == |Tüm olayları özel bir adlandırılmış MyApp_CL değeriyle oturum *hata* adlı özel bir alanda *Severity_CF*. |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Özel günlük ekleme izlenecek örnek yol
@@ -181,5 +168,5 @@ Bir sorgu kullandığımız *türü MyApp_CL =* toplanan günlük tüm kayıtlar
 ![Özel alanlarla günlük sorgusu](media/data-sources-custom-logs/query-02.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [özel alanlar](../../azure-monitor/platform/custom-fields.md) tek tek alanları için özel oturum açma girişleri ayrıştırılamıyor.
-* Hakkında bilgi edinin [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.
+* Bkz [ayrıştırma metin verilerini Log analytics'te](../log-query/parse-text.md) her ayrıştırmak yöntemler için birden çok özellik günlük girişine içeri aktarıldı.
+* Hakkında bilgi edinin [günlük aramaları](../log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.
