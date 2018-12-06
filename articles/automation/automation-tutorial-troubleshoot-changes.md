@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: değişiklik, izleme, otomasyon
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 11/01/2018
+ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e4ea8f92a562ea4bc90df98d6e459377b9886777
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 95ab686961687829526bb00ed87d43d08aeb7db8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844915"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972278"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Ortamınızdaki değişikliklerle ilgili sorunları giderme
 
@@ -177,12 +177,11 @@ Azure portalda değişiklikleri görüntülemek faydalı olabilir ancak durdurul
 
 Azure portalda durdurulmuş hizmetler için bir uyarı eklemek istiyorsanız **İzleme**’ye gidin. Ardından **Paylaşılan Hizmetler** altında **Uyarılar**’ı seçin ve **+ Yeni uyarı kuralı**’na tıklayın
 
-**1. Uyarı şartını tanımlayın**, **+ Hedefi seç**’e tıklayın. **Kaynak türüne göre filtrele** bölümünden **Log Analytics**’i seçin. Log Analytics çalışma alanınızı ve ardından **Bitti**'yi seçin.
+Tıklayın **seçin** için bir kaynak seçin. Üzerinde **bir kaynak seçin** sayfasında **Log Analytics** gelen **kaynak türüne göre filtre** açılır. Log Analytics çalışma alanınızı ve ardından **Bitti**'yi seçin.
 
 ![Bir kaynak seçin](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
-**+ Ölçüt ekle**'yi seçin.
-**Sinyal mantığını yapılandırma** bölümündeki tablodan **Özel günlük araması**'nı seçin. Arama sorgusu metin kutusuna aşağıdaki sorguyu girin:
+Tıklayın **koşul Ekle**, **sinyal mantığını yapılandırma** tablo seçin sayfasında **özel günlük araması**. Arama sorgusu metin kutusuna aşağıdaki sorguyu girin:
 
 ```loganalytics
 ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
@@ -194,11 +193,9 @@ Bu sorgu, belirtilen zaman çerçevesinde W3SVC hizmeti durdurulan bilgisayarlar
 
 ![Sinyal mantığını yapılandırma](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-**2. Uyarı ayrıntılarını tanımlama** bölümünde uyarı adını ve açıklamasını girin. **Önem derecesi** değerini **Bilgilendirici (önem derecesi 2)**, **Uyarı (önem derecesi 1)**, veya **Kritik (önem derecesi 0)** olarak ayarlayın.
+Altında **Eylem grupları**seçin **Yeni Oluştur**. Eylem grubu, birden çok uyarıda kullanabileceğiniz eylemlerden oluşan bir gruptur. Eylemlere e-posta bildirimleri, runbook'lar, web kancaları ve diğer birçok şey dahildir. Eylem grupları hakkında daha fazla bilgi edinmek için bkz. [Eylem grupları oluşturma ve yönetme](../monitoring-and-diagnostics/monitoring-action-groups.md).
 
-![Uyarı ayrıntılarını tanımlama](./media/automation-tutorial-troubleshoot-changes/define-alert-details.png)
-
-**3. Eylem grubunu tanımlama** bölümünde **Yeni eylem grubu**'nu seçin. Eylem grubu, birden çok uyarıda kullanabileceğiniz eylemlerden oluşan bir gruptur. Eylemlere e-posta bildirimleri, runbook'lar, web kancaları ve diğer birçok şey dahildir. Eylem grupları hakkında daha fazla bilgi edinmek için bkz. [Eylem grupları oluşturma ve yönetme](../monitoring-and-diagnostics/monitoring-action-groups.md).
+Altında **uyarı ayrıntıları**, bir ad ve uyarı için bir açıklama girin. **Önem derecesi** değerini **Bilgilendirici (önem derecesi 2)**, **Uyarı (önem derecesi 1)**, veya **Kritik (önem derecesi 0)** olarak ayarlayın.
 
 **Eylem grubu adı** kutusuna uyarı için ad ve kısa ad. Bu eylem grubu kullanılarak bildirim gönderildiğinde tam grup adı yerine kısa ad kullanılır.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d085777e347e1e892c3a49f4f37aa1d8130ef18c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a5475ad2f487bca90f600406ca9bb8f0925a4988
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005742"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964824"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Bir telemetri kuralı oluşturabilir ve Azure IOT Central uygulamanızdaki bildirimleri ayarlama
 
@@ -36,19 +36,19 @@ Telemetri kuralı oluşturmak için cihaz şablonu en az bir telemetri ölçüm 
 
 1. Herhangi bir kural henüz oluşturmadıysanız, aşağıdaki ekranı görürsünüz:
 
-    ![Henüz hiçbir kural](media\howto-create-telemetry-rules\Rules_Landing_Page.png)
+    ![Henüz hiçbir kural](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
 
 1. Üzerinde **kuralları** sekmesini tıklatın, **şablonu Düzen** ardından **+ yeni kural** kuralları oluşturmak için kullanabileceğiniz türlerini görmek için.
 
 1. Tıklayın **Telemetri** cihaz telemetrisi izlemek için bir kural oluşturmak için.
 
-    ![Kural türü](media\howto-create-telemetry-rules\Rule_Types.png)
+    ![Kural türü](media/howto-create-telemetry-rules/Rule_Types.png)
 
 1. Bu cihaz şablonu kuralında tanımlamanıza yardımcı olacak bir ad girin.
 
 1. Bu şablon için oluşturulan tüm cihazlar için kuralın hemen etkinleştirmek için geçiş **Bu şablon için tüm cihazlar için etkinleştirme kuralı**.
 
-   ![Kural Ayrıntıları](media\howto-create-telemetry-rules\Rule_Detail.png)
+   ![Kural Ayrıntıları](media/howto-create-telemetry-rules/Rule_Detail.png)
     
     Kural cihaz şablonu altındaki tüm cihazlara otomatik olarak uygulanır.
     
@@ -61,7 +61,7 @@ Koşul, kural tarafından izlenen ölçütleri tanımlar.
 
 1. İzlemek istediğiniz telemetri seçin **ölçüm** açılır.
 
-   ![Koşul](media\howto-create-telemetry-rules\Aggregate_Condition_Filled_Out.png)
+   ![Koşul](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
 
 1. Ardından, **toplama**, **işleci**ve bir **eşiği** değeri.
     - Toplama isteğe bağlıdır. Toplama, koşulu karşılayan her telemetri veri noktası için kural tetiklendiğinde. Kuralın ne zaman tetiklemek için yapılandırılmışsa, örneğin, sıcaklık 80 olduğu sonra cihaz sıcaklık > 80 raporlarına zaman hemen instantly kural tetikler.
@@ -78,14 +78,14 @@ Bu bölümde, kural tetiklendiğinde gerçekleştirilecek eylemleri ayarlamak i�
 
 1. Seçin **+** yanındaki **eylemleri**. Burada, kullanılabilir eylemler listesini görürsünüz.  
 
-    ![Eylem Ekle](media\howto-create-telemetry-rules\Add_Action.png)
+    ![Eylem Ekle](media/howto-create-telemetry-rules/Add_Action.png)
 
 1. Seçin **e-posta** eylemi, bir geçerli e-posta adresi girerek **için** alan ve kural tetiklendiğinde e-postanın gövdesinde görüntülenen bir not girin.
 
     > [!NOTE]
     > E-postaları, yalnızca uygulamaya eklenen ve en az bir kez oturum kullanıcılara gönderilir. Daha fazla bilgi edinin [kullanıcı yönetimi](howto-administer.md) Azure IOT Central içinde.
 
-   ![Eylem yapılandırma](media\howto-create-telemetry-rules\Configure_Action.png)
+   ![Eylem yapılandırma](media/howto-create-telemetry-rules/Configure_Action.png)
 
 1. Kuralı kaydetmek için seçin **Kaydet**. Kural, birkaç dakika içinde etkin hale gelir ve uygulamanıza gönderilen telemetri izlemeye başlar. Kuralda belirtilen koşul karşılandığında kural yapılandırılan e-posta eylemi tetikler.
 

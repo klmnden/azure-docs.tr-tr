@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e4ec1ecbde04cbf843f99bdcdf36977a856c3b03
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: eccd81d50c93c2fdeb67e2536a0afa879c08a1b4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52684659"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970289"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Abonelikler arasında Azure Etkinlik Günlüklerini Log Analytics'e toplama
 
@@ -344,4 +344,4 @@ Son adım Log Analytics çalışma alanını denetleyip verilerin beklendiği gi
 Bu makalede, Olay Hub'ından Azure Etkinlik Günlüklerini okumak ve bunları analiz edilmek üzere Log Analytics'e göndermek için bir mantıksal uygulama oluşturdunuz. Log Analytics'te panolar oluşturma da dahil olmak üzere verileri görselleştirme hakkında daha fazla bilgi edinmek için Verileri görselleştirme öğreticisini gözden geçirin.
 
 > [!div class="nextstepaction"]
-> [Günlük Araması verilerini görselleştirme öğreticisi](./../../log-analytics/log-analytics-tutorial-dashboards.md)
+> [Günlük Araması verilerini görselleştirme öğreticisi](./../../azure-monitor/learn/tutorial-logs-dashboards.md)

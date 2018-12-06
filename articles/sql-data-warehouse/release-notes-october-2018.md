@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 11/14/2018
+ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 1edac9f7eac1f47974f4c94f3cae5bb3451f92fd
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e67edf382a49839d890d2c1dec50c44bbb19705a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705387"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966832"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Ekim 2018
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Ekim 2018'de sunulan değişiklikler ve yeni özellikleri açıklar.
@@ -62,6 +62,7 @@ Azure SQL veri ambarı (SQL DW) artık yerel tümleştirme sayesinde Azure Data 
 | **Veri ambarları DW2000 ve daha küçük kaynak sınıflarında Parquet hataları için CETAS** | Bu düzeltme, Parquet kod yolu null başvuru oluşturma dış tablo olarak doğru şekilde tanımlar. |
 |**Kimlik sütunu değeri bazı CTAS işlemi kaybedebilir** | Bir kimlik sütununun değeri zaman korunmayabilir CTASed için başka bir tablo. Bloga bildirdi: [ https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/ ](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/). |
 | **Bir sorgu çalışmaya devam ederken oturum sonlandırıldığında, bazı durumlarda iç hatası** | Bu düzeltme sorgu hala çalışırken bir oturumun sona ererse InvalidOperationException tetiklenir. |
+| **(Kasım 2018'de dağıtılır) Müşteriler, Polybase kullanarak birden çok küçük dosyaları ADLS (Gen1) yüklenmeye çalışılırken bir performansın yaşıyordu.** | Sistem performansı, AAD güvenlik belirtecini doğrulamadan sırasında performansı düşürdüğünü gösterir. Performans sorunları, güvenlik belirteçlerinin önbelleğe almayı etkinleştirerek azaltılabilir. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

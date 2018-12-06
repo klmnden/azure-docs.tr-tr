@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 999017e24f6c4c24735b7e0cc818bf20aaabab62
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3caa45064c41b641aa913e210aa698d818d5355e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338582"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970280"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Microsoft Azure Stack geliştirme Seti'ni (ASDK) sorunlarını giderme
 Bu belge ASDK için genel sorun giderme bilgileri sağlar. Belgelenmemiş bir sorunla karşılaşıyorsanız, kontrol ettiğinizden emin olun [Azure Stack MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) ilişkin daha fazla Yardım ve bilgileri.  
@@ -64,7 +64,7 @@ Evet, bu beklenen bir davranıştır. Çünkü, bu şekilde tasarlanmıştır:
 
 "Artık" VHD'ler görürseniz, klasör, silinen bir depolama hesabı için bir parçası olup olmadığını bilmek önemlidir. Depolama hesabı silindi, hala orada mısınız normal bir durumdur.
 
-Daha fazla bekletme eşiği ve isteğe bağlı kazanma yapılandırma hakkında daha fazla [depolama hesaplarını yönetme](.\.\azure-stack-manage-storage-accounts.md).
+Daha fazla bekletme eşiği ve isteğe bağlı kazanma yapılandırma hakkında daha fazla [depolama hesaplarını yönetme](../azure-stack-manage-storage-accounts.md).
 
 ## <a name="storage"></a>Depolama
 ### <a name="storage-reclamation"></a>Depolama geri kazanma
@@ -72,4 +72,3 @@ Bu portalda gösterilmesi, geri kazanılan Kapasite 14 saate kadar sürebilir. A
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure Stack destek forumunu ziyaret edin](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)
-

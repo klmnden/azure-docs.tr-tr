@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: ergreenl
-ms.openlocfilehash: 31e7307e427b175eb7424ecaee380bd90ce8150e
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 161a9f1ac517d372884e7606dbd2ef30c910bf6b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443415"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968109"
 ---
 # <a name="suspended-domains"></a>Askıya alınan etki alanları
 Azure Active Directory etki alanı Hizmetleri (Azure AD DS) uzun bir süre için yönetilen bir etki alanı hizmeti mümkün olduğunda, yönetilen etki alanı askıya alınmış bir duruma koyar. Bu makalede, yönetilen etki alanlarını neden askıya alınır ve sorunun nasıl düzeltileceği askıya alınmış bir etki alanı açıklanmaktadır.
@@ -28,7 +28,7 @@ Azure Active Directory etki alanı Hizmetleri (Azure AD DS) uzun bir süre için
 
 ## <a name="states-your-managed-domain-can-be-in"></a>Yönetilen etki alanınıza durumlar olabilir
 
-![Askıya alınmış bir etki alanı zaman çizelgesi](media\active-directory-domain-services-suspension\suspension-timeline.PNG)
+![Askıya alınmış bir etki alanı zaman çizelgesi](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
 
 Önceki grafiği, bir Azure AD DS yönetilen etki alanı içinde yer alabileceği olası durumlar açıklanmaktadır.
 

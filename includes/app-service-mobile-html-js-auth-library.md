@@ -4,12 +4,12 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 5f7cbdd98d25855e9b8bb102413bd71148193318
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 488fbb2acbf43ac092a7834fc25f433ef09d2b00
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134151"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52973247"
 ---
 ### <a name="server-auth"></a>Nasıl yapılır: Bir sağlayıcı ile (Sunucu Akışı) kimlik doğrulaması
 Mobile Apps hizmetinin uygulamanızdaki kimlik doğrulama işlemini yönetmesi için kimlik sağlayıcınıza uygulamanızı kaydetmeniz gerekir. Ardından, Azure App Service'te sağlayıcınız tarafından verilen uygulama kimliği ile parolasını yapılandırmanız gerekir.
@@ -52,27 +52,6 @@ client.login(
 
 ```
 Bu örnek, ilgili sağlayıcı SDK’sı tarafından sağlanan belirtecin belirteç değişkenine depolandığını varsayar.
-
-#### <a name="microsoft-account-example"></a>Microsoft Hesabı örneği
-
-Aşağıdaki örnekte Microsoft Hesabı kullanarak Windows Mağazası için çoklu oturum açmayı destekleyen Live SDK’sı kullanılır:
-
-```
-WL.login({ scope: "wl.basic"}).then(function (result) {
-      client.login(
-            "microsoftaccount",
-            {"authenticationToken": result.session.authentication_token})
-      .done(function(results){
-            alert("You are now signed in as: " + results.userId);
-      },
-      function(error){
-            alert("Error: " + err);
-      });
-});
-
-```
-
-Bu örnek, Live Connect’ten, oturum açma işlevi çağrılarak App Service hizmetinize sunulan bir belirteç alır.
 
 ### <a name="auth-getinfo"></a>Nasıl yapılır: Kimliği doğrulanmış kullanıcı hakkında bilgi edinme
 

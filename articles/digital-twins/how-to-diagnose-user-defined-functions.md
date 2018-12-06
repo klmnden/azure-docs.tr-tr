@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: stefanmsft
-ms.openlocfilehash: 559c737c4e8309527d588b59759b93750da33a9e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 85a85fa0a110ba91a423b1be4a24000340d25f8f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837724"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966849"
 ---
 # <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Azure dijital İkizlerini içinde kullanıcı tanımlı işlevlerle sorunlarında hata ayıklama
 
@@ -25,7 +25,7 @@ Azure dijital İkizlerini örneğinizin içinde gerçekleşen tüm sorunlarını
 
 ### <a name="enable-log-analytics-for-your-instance"></a>Örneğiniz için log analytics etkinleştir
 
-Günlükleri ve ölçümleri Azure dijital İkizlerini örneğinizin Azure İzleyici sunulur. Aşağıdaki belgeler, oluşturduğunuz varsayılır bir [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) çalışma alanını kullanarak [Azure portalı](../log-analytics/log-analytics-quick-create-workspace.md)temellidir [Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md), aracılığıyla veya [ PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md).
+Günlükleri ve ölçümleri Azure dijital İkizlerini örneğinizin Azure İzleyici sunulur. Aşağıdaki belgeler, oluşturduğunuz varsayılır bir [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) çalışma alanını kullanarak [Azure portalı](../azure-monitor/learn/quick-create-workspace.md)temellidir [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), aracılığıyla veya [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
 > 5 dakikalık bir gecikmeyle olayları gönderirken karşılaşabilirsiniz **Log Analytics** ilk kez.

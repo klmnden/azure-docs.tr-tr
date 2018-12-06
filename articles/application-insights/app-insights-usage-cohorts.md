@@ -13,18 +13,18 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: fb04a3410291e52f4ea0d02e625bdbf02f64f8c7
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4a7b5cd925bd4b66e25754c30de5cbaf866dab0b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721060"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970638"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights kohortlar
 
 Bir kohort, kullanıcılar, oturumlar, olayları veya bir ortak sahip işlemleri kümesidir. Azure Application Insights'ta bir analitik sorgu tarafından kohortlar tanımlanır. Belirli bir analiz etmek için sahip olduğu durumlarda kullanıcıları veya olayları tekrar tekrar kohortlar, tam olarak ilgilendiğiniz kümesini ifade etmek için daha fazla esneklik verebilirsiniz.
 
-![Kohortlar bölmesi](.\media\app-insights-usage-cohorts\001.png)
+![Kohortlar bölmesi](./media/app-insights-usage-cohorts/001.png)
 
 ## <a name="cohorts-versus-basic-filters"></a>Temel filtreler karşı kohortlar
 
@@ -52,14 +52,14 @@ Ekibinizin bağlı bir kullanıcı uygulamanızı beş veya daha fazla kez belir
 
 4. Değişiklik **UsedAtLeastCustom** için **5 + gün**, bırakıp **süresi** varsayılan 28 gün.
 
-    ![Bağlı kullanıcılar](.\media\app-insights-usage-cohorts\003.png)
+    ![Bağlı kullanıcılar](./media/app-insights-usage-cohorts/003.png)
 
     Bu kohort tüm özel olay veya sayfa görüntüleme 5 üzerinde gönderilen tüm kullanıcı kimlikleri temsil eder. Şimdi gün öncesi ayrı 28.
 
 5. **Kaydet**’i seçin.
 
    > [!TIP]
-   >  Kohortunuzu gibi bir ad verin "Engaged kullanıcılar (5 + gün)." "Raporlarım için" kaydedin veya "raporlar bu kohort görmek için bu Application Insights kaynağına erişimi olan diğer kişiler isteyip istemediğinize bağlı olarak paylaşılan".
+   > Kohortunuzu gibi bir ad verin "Engaged kullanıcılar (5 + gün)." "Raporlarım için" kaydedin veya "raporlar bu kohort görmek için bu Application Insights kaynağına erişimi olan diğer kişiler isteyip istemediğinize bağlı olarak paylaşılan".
 
 6. Seçin **Galerisine dön**.
 
@@ -69,9 +69,10 @@ Kullanıcılar aracını açın. İçinde **Göster** açılan kutusunda, oluşt
 
 Artık kullanıcılar aracı, bu kullanıcıların kohortu için filtrelenmiştir:
 
-![Belirli bir kohort için filtrelenmiş kullanıcılar bölmesi](.\media\app-insights-usage-cohorts\004.png)
+![Belirli bir kohort için filtrelenmiş kullanıcılar bölmesi](./media/app-insights-usage-cohorts/004.png)
 
 Fark gereken bazı önemli noktalar:
+
 * Bu normal filtrelerden oluşturulamıyor. Daha gelişmiş tarih mantığı.
 * Bu kohort kullanıcılar Aracı'nda normal filtreleri kullanarak daha fazla filtre uygulayabilirsiniz. Bu nedenle kohort 28 günlük dönemler halinde windows üzerinde tanımlanmış olsa da, 30, 60 ya da 90 gün olacak şekilde kullanıcılar aracı zaman aralığında ayarlayabilirsiniz.
 
@@ -87,7 +88,7 @@ Olayların kohortlar de yapabilirsiniz. Bu bölümde, tanımladığınız bir ko
 
 3. Seçin **olayları Seçici**.
 
-    ![Olayları Seçici ekran görüntüsü](.\media\app-insights-usage-cohorts\006.png)
+    ![Olayları Seçici ekran görüntüsü](./media/app-insights-usage-cohorts/006.png)
 
 4. İçinde **etkinlikleri** açılan kutusunda, kohorttaki olmasını istediğiniz olayları seçin.
 
@@ -97,11 +98,11 @@ Olayların kohortlar de yapabilirsiniz. Bu bölümde, tanımladığınız bir ko
 
 Önceki iki kohortlar açılır kutuları kullanarak tanımlanmadı. Ancak, toplam esneklik için analytics sorgularını kullanarak kohortlar tanımlayabilirsiniz. Görmek için kullanıcıların kohortu İngiltere ' oluşturma.
 
-![Kohortlar aracın kullanımı walking animasyonlu resmi](.\media\app-insights-usage-cohorts\cohorts0001.gif)
+![Kohortlar aracın kullanımı walking animasyonlu resmi](./media/app-insights-usage-cohorts/cohorts0001.gif)
 
 1. Kohortlar Aracı'nı açın, **Şablon Galerisi** sekmesine tıklayın ve **boş kullanıcılar kohortu**.
 
-    ![Boş kullanıcılar kohortu](.\media\app-insights-usage-cohorts\001.png)
+    ![Boş kullanıcılar kohortu](./media/app-insights-usage-cohorts/001.png)
 
     Üç bölüm bulunur:
     * Burada, daha ayrıntılı bir kohort başkaları için ekibiniz açıklayan bir Markdown metin bölümü.
@@ -136,7 +137,8 @@ Kohortlar ve filtreleri farklıdır. Birleşik Krallık (önceki örnekteki gibi
 * Filtreler sürümü yalnızca Birleşik Krallık olayları gösterir. Ancak, ülkeye veya bölgeye göre bölme, Birleşik Krallık bakın.
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
-- [Analytics sorgu dili](https://go.microsoft.com/fwlink/?linkid=856587)
-- [Kullanıcılar, oturumlar, etkinlikler](app-insights-usage-segmentation.md)
-- [Kullanıcı akışları](app-insights-usage-flows.md)
-- [Kullanıma genel bakış](app-insights-usage-overview.md)
+
+* [Analytics sorgu dili](https://go.microsoft.com/fwlink/?linkid=856587)
+* [Kullanıcılar, oturumlar, etkinlikler](app-insights-usage-segmentation.md)
+* [Kullanıcı akışları](app-insights-usage-flows.md)
+* [Kullanıma genel bakış](app-insights-usage-overview.md)

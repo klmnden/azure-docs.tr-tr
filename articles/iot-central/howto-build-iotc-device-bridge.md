@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 11/8/2018
+ms.date: 12/4/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 83f053a8815f31803f536920497fdc42e72d2a2d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 74ea923ccfc88847ae6d2513b3ef592cc8899b8d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629275"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966883"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>IOT Central, IOT Central için diğer IOT bulutlara bağlanmak için cihaz köprüsü oluşturun
 
@@ -25,7 +25,7 @@ IOT Central cihaz köprüsü, Sigfox, Parçacık, şeyler ağ ve diğer bulutlar
 IOT Central cihaz köprüsü, github'da açık kaynaklı bir çözümdür. Çeşitli Azure kaynakları ile özel bir Azure Resource Manager şablonu Azure aboneliğinize dağıtan bir "Azure'a dağıtın" düğmesi ile kullanıma hazır. Kaynakları şunlardır:
 -   Azure işlev uygulaması
 -   Azure Depolama Hesabı
--   App Service planı (S1 katmanı)
+-   Tüketim Planı
 -   Azure Key Vault işlev uygulaması, cihaz köprüsü kritik parçasıdır. Diğer IOT platformları veya basit bir Web kancası tümleştirmesi aracılığıyla özel hiçbir platforma HTTP POST isteği alır. Sigfox ve parçacık TTN bulutlara bağlanma gösteren örnekler sağladık. Platformunuza işlev uygulamanız için HTTP POST istekleri gönderebilir, özel IOT bulutuna bağlanmak için bu çözümü kolayca genişletebilirsiniz.
 İşlev uygulaması verileri IOT Central tarafından kabul edilen bir biçime dönüştürür ve boyunca DPS API'leri iletir.
 
@@ -37,10 +37,9 @@ IOT Central uygulamanızı yönlendirilmiş ileti cihaz tarafından cihaz Kimli�
 Ayrıntılı Github deposunda ve benioku dosyasındaki yönergeleri listelenir. 
 
 ## <a name="pricing"></a>Fiyatlandırma
-Bu tüm Azure aboneliğinizde barındırılır. Tahmini maliyet sağlanan kaynakların çoğunu geldiği [fiyatı, standart bir App Service planı]( https://azure.microsoft.com/en-us/pricing/details/app-service/windows/). Bu konu hakkında daha fazla bilgi ve bu README dosyasında azaltmak için olası yolları.
+Azure aboneliğinizdeki Azure kaynaklarını barındırılacak. İçinde fiyatlandırması hakkında daha fazla bilgi [Benioku dosyası](https://aka.ms/iotcentralgithubdevicebridge).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
 IOT Central cihaz köprü oluşturulacağını öğrendiniz, önerilen sonraki adım aşağıda verilmiştir:
 
 > [!div class="nextstepaction"]

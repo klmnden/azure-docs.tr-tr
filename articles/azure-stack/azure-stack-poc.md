@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 041d679cfc428278737a5668887e73f13ac694b1
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 89552bc568ce38c6153683e9c3b0f3f26f569083
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50137062"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959555"
 ---
 # <a name="what-is-azure-stack"></a>Azure Stack nedir?
 
@@ -34,7 +34,7 @@ Azure Stack tümleşik sistemleri, bir Microsoft ortaklık sunulur ve [donanım 
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack Geliştirme Seti
 
-Microsoft [Azure Stack Geliştirme Seti (ASDK)](.\asdk\asdk-what-is.md) değerlendirmek ve Azure Stack hakkında bilgi almak için kullanabileceğiniz Azure Stack’in tek düğümlü dağıtımıdır.  Azure ile tutarlı olan araç ve API'leri kullanarak uygulamalar oluşturmak için ASDK bir geliştirme ortamı olarak da kullanabilirsiniz.
+Microsoft [Azure Stack Geliştirme Seti (ASDK)](./asdk/asdk-what-is.md) değerlendirmek ve Azure Stack hakkında bilgi almak için kullanabileceğiniz Azure Stack’in tek düğümlü dağıtımıdır.  Azure ile tutarlı olan araç ve API'leri kullanarak uygulamalar oluşturmak için ASDK bir geliştirme ortamı olarak da kullanabilirsiniz.
 
 >[!Note]
 >ASDK üretim ortamı olarak kullanılmak üzere tasarlanmamıştır.

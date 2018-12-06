@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: cca15447587fcec7253b449d93fc2f644fe6c249
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c2f018915d5e27d4cf16447e403fcb2e1b3f55a6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851052"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969524"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak günlük uyarıları yönetme  
 
@@ -23,10 +23,10 @@ Bu makalede, Azure portalı içinden uyarıları arabirimini kullanarak günlük
 - Ölçüt: Belirli bir koşulu veya mantıksal, sinyalin görülen, tetikleyici
 - Eylem: Bir - bildirim alıcısı için belirli çağrı gönderilen, SMS, Web kancası vb. e-posta.
 
-Terim **günlük uyarıları** dayalı özel sorgu olduğu sinyal uyarılarını açıklamak için [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) veya [Application Insights](../application-insights/app-insights-analytics.md). Daha fazla ilgili işlevler, terminolojisi ve türlerden öğrenin [günlük uyarıları - genel bakış](monitor-alerts-unified-log.md).
+Terim **günlük uyarıları** dayalı özel sorgu olduğu sinyal uyarılarını açıklamak için [Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) veya [Application Insights](../application-insights/app-insights-analytics.md). Daha fazla ilgili işlevler, terminolojisi ve türlerden öğrenin [günlük uyarıları - genel bakış](monitor-alerts-unified-log.md).
 
 > [!NOTE]
-> Popüler günlük verilerini [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) şimdi de Azure İzleyici ölçüm platformda kullanılabilir. Ayrıntılar görünümü için [günlükleri için ölçüm Uyarısı](monitoring-metric-alerts-logs.md)
+> Popüler günlük verilerini [Azure Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) şimdi de Azure İzleyici ölçüm platformda kullanılabilir. Ayrıntılar görünümü için [günlükleri için ölçüm Uyarısı](monitoring-metric-alerts-logs.md)
 
 ## <a name="managing-log-alerts-from-the-azure-portal"></a>Azure portalından günlük uyarıları yönetme
 
@@ -107,7 +107,7 @@ Ayrıntılı sonraki Azure portal arabirimi kullanarak günlük uyarıları kull
 
     Birkaç dakika içinde uyarı etkin ve daha önce açıklandığı gibi tetikler.
 
-Kullanıcılar ayrıca kendi analytics sorgunuzda kesin [Azure portalında günlüklerini analiz sayfası](../log-analytics/log-analytics-log-search-portals.md#log-analytics-page
+Kullanıcılar ayrıca kendi analytics sorgunuzda kesin [Azure portalında günlüklerini analiz sayfası](../azure-monitor/log-query/portals.md#log-analytics-page
 ) ve Ayarla'uyarı ' düğmesiyle - bir uyarı oluşturmak için anında iletme sonra adım 6'dan başlayarak yukarıdaki öğreticide talimatları.
 
  ![Log Analytics - uyarı ayarlama](media/alert-log/AlertsAnalyticsCreate.png)

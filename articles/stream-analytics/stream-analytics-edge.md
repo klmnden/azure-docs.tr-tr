@@ -1,5 +1,5 @@
 ---
-title: IOT Edge (Önizleme) üzerinde Azure Stream Analytics
+title: IoT Edge üzerinde Azure Stream Analytics
 description: Edge işleri, Azure Stream Analytics'te oluşturmak ve bunları Azure IOT Edge çalıştıran cihazlara dağıtabilirsiniz.
 services: stream-analytics
 author: mamccrea
@@ -7,18 +7,15 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.openlocfilehash: 6d3060545946f1f003058932f1ffc50c2a64586f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/04/2018
+ms.openlocfilehash: 920395593509223a63a195ad53eeaf7e6aca108e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846241"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961452"
 ---
-# <a name="azure-stream-analytics-on-iot-edge-preview"></a>IOT Edge (Önizleme) üzerinde Azure Stream Analytics
-
-> [!IMPORTANT]
-> Bu işlevi Önizleme aşamasındadır ve üretim amaçlı kullanım için önerilmez.
+# <a name="azure-stream-analytics-on-iot-edge"></a>IoT Edge üzerinde Azure Stream Analytics
  
 IOT Edge üzerinde Azure Stream Analytics (ASA), böylece cihaz tarafından üretilen verilerin tüm değerini açığa çıkarabilirsiniz yakın neredeyse gerçek zamanlı analitik zekayı IOT cihazlarına dağıtmak için geliştiricilerin güçlendirir. Azure Stream Analytics, düşük gecikme süresi, dayanıklılık, bant genişliği ve uyumluluk verimli kullanımı için tasarlanmıştır. Kuruluşlar artık endüstriyel işlemler yakın Denetim mantığı dağıtabilir ve bulutta yapılan büyük veri analizi tamamlar.  
 
@@ -50,7 +47,7 @@ ASA, edge işleri aygıtlara dağıtmak için IOT hub'ı kullanır. Hakkında da
 | ---   | ---   | ---       |  ---      |
 | 1   | **Bir depolama kapsayıcısı oluşturma**   | Azure portal       | Depolama kapsayıcıları, IOT cihazlarınızı, burada erişilebilmelerini iş tanımınızı kaydetmek için kullanılır. <br>  Herhangi bir mevcut depolama kapsayıcısını yeniden kullanabilirsiniz.     |
 | 2   | **ASA edge işi oluşturma**   | Azure portal      |  Select yeni bir iş oluşturma **Edge** olarak **barındırma ortamı**. <br> Bu işlerin buluttan oluşturulan ve yönetilen ve kendi IOT Edge cihazlarında çalıştırın.     |
-| 3   | **IOT Edge ortamınızda aygıtlarınızın Kurulumu**   | Cihaz      | Yönergeler için [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) veya [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
+| 3   | **IOT Edge ortamınızda aygıtlarınızın Kurulumu**   | Cihazlar      | Yönergeler için [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) veya [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **Aygıtlarınızın IOT Edge üzerinde ASA dağıtma**   | Azure portal      |  ASA işi tanımı, daha önce oluşturduğunuz depolama kapsayıcısına dışarı aktarılır.       |
 İzleyebileceğiniz [Bu adım adım öğretici](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) ilk IOT Edge üzerinde ASA işiniz dağıtılacak. Aşağıdaki videoda bir Stream Analytics işi bir IOT edge Cihazınızda çalıştırmak üzere işlemlerini anlamanıza yardımcı olması:  
 
@@ -220,6 +217,7 @@ Daha fazla yardım için deneyin [Azure Stream Analytics forumumuzu](https://soc
 * [Öğretici IOT Edge üzerinde ASA](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [Bu anketi kullanarak ekibine geri bildirim gönderin](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
 * [Visual Studio Araçları'nı kullanarak Stream Analytics Edge işlerini geliştirme](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+* [API'leri kullanarak Stream Analytics için CI/CD uygulayabileceğinizi](stream-analytics-cicd-api.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

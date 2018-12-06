@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: d784bf3637c83c724c3616a1a42b66c4914b4ff7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f4c687ff0d02c78b88b24834f6c3acfc563ecbfc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987248"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963581"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager'ın sık sorulan sorular (SSS)
 
@@ -134,7 +134,7 @@ Evet, yalnızca yeni destekler ve API Sürüm 2017-03-01 coğrafi yönlendirme y
 ## <a name="traffic-manager-subnet-traffic-routing-method"></a>Alt traffic Manager trafik yönlendirme yöntemi
 
 ### <a name="what-are-some-use-cases-where-subnet-routing-is-useful"></a>Alt ağ yönlendirme yararlı olduğu bazı kullanım örnekleri nelerdir?
-Yönlendirme alt ağı için DNS istekleri IP adreslerini kaynak IP tarafından tanımlanan kullanıcılardan oluşan belirli ayarlar teslim deneyimi ayırt etmenize olanak sağlar. Kullanıcılar, Kurumsal HQ Excel'den bir Web sitesine bağlanan bir örnek gösteren farklı içerik olacaktır. Başka bir olacaktır yalnızca IPv6 kullanıldığında bu ISS'leri alt par performans varsa, yalnızca IPv4 bağlantılarını destekleyen uç noktalarına erişmek için belirli ISS'leri kullanıcıları kısıtlayarak.
+Yönlendirme alt ağı için DNS istekleri IP adreslerini kaynak IP tarafından tanımlanan kullanıcılardan oluşan belirli ayarlar teslim deneyimi ayırt etmenize olanak sağlar. Kullanıcılar bir Web sitesine, Kurumsal HQ bağlanıyorsanız gösteren farklı içerik örnek verilebilir. Başka bir olacaktır yalnızca IPv6 kullanıldığında bu ISS'leri alt par performans varsa, yalnızca IPv4 bağlantılarını destekleyen uç noktalarına erişmek için belirli ISS'leri kullanıcıları kısıtlayarak.
 Alt ağ yönlendirme yöntemini kullanmak için başka bir nedeni, iç içe geçmiş profil diğer profillerinde birlikte ayarlanır. Örneğin, coğrafi yönlendirme yöntemini, kullanıcılarınızın şirketin coğrafı için kullanmak istediğiniz, ancak farklı yönlendirme yöntemi yapmak istediğiniz belirli bir ISP yaparsanız, profili withy alt ağ yönlendirme yöntemi üst profil olarak sahip ve pro belirli bir alt kullanılacak ISS'den geçersiz kılma Dosya ve standart coğrafi profilini herkes için vardır.
 
 ### <a name="how-does-traffic-manager-know-the-ip-address-of-the-end-user"></a>Traffic Manager, son kullanıcının IP adresi nasıl biliyor musunuz?

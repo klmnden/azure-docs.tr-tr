@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: (previous author=fboylu, ms.author=fboylu)
-ms.openlocfilehash: 904e9c22f23255f1bee7f532d7f577c7cd457778
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: d5f6934385d616390baf336404ddd79d4bc2a490
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443755"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965445"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Cortana Intelligence çözüm şablonu Havacılık ve diğer işletmelerden Tahmine dayalı bakım için teknik kılavuz
 
@@ -218,7 +218,7 @@ Aşağıdaki adımlar, Çözüm dağıtımı sırasında oluşturulan Stream Ana
    * Emin ***görselleştirmeler*** bölmesinde açın ve ekranın sağ tarafında gösterilir.
 3. Veri akışını Power BI'da oturum açtıktan sonra akış verilerini görselleştirme başlatabilirsiniz. Bazı sık erişimli yolunu görselleştirmeler içeren bir örnek Pano altındaki kendisine sabitlenir. Uygun veri kümeleri üzerinde bağlı diğer Pano kutucukları oluşturabilirsiniz. Veri oluşturucuyu ne kadar süreyle çalıştırdığınız bağlı olarak numaralarınızı görselleştirmelere farklı olabilir.
 
-    ![Pano görünümü](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
+    ![Pano görünümü](media/cortana-analytics-technical-guide-predictive-maintenance/dashboard-view.png)
 
 1. Kutucuk yukarıdaki – "Filo görünümünü algılayıcı 11 vs. oluşturmak için bazı adımlar aşağıda verilmiştir Eşik 48,26" kutucuğunu:
    

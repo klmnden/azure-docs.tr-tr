@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 12/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6afb54caca572988c566ab7c6325d511e77fbd3e
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 5e00c52c17eac92edc3273e2d765d6c5fd76f59b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582097"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970697"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Azure HDInsight üzerinde çalışan Apache Spark işlerinde hata ayıklama
 
@@ -28,12 +28,12 @@ Aşağıdakilere sahip olmanız gerekir:
 * Not Defteri çalıştırma başlaması gereken  **[Machine learning: Gıda denetimi verileri MLLib kullanarak Tahmine dayalı analiz](apache-spark-machine-learning-mllib-ipython.md)**. Bu not defteri çalıştırmak yönergeler için bağlantıyı izleyin.  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>YARN kullanıcı arabiriminde bir uygulama izleme
-1. YARN UI başlatın. Tıklayın **küme Panosu**ve ardından **YARN**.
+1. YARN UI başlatın. Tıklayın **Yarn** altında **küme panoları**.
    
     ![YARN kullanıcı arabirimini Başlat](./media/apache-spark-job-debugging/launch-yarn-ui.png)
    
    > [!TIP]
-   > Alternatif olarak, Ambari UI YARN kullanıcı Arabiriminden da başlatabilirsiniz. Ambari UI başlatmak için tıklayın **küme Panosu**ve ardından **HDInsight küme Panosu**. Ambari Arabiriminden tıklayın **YARN**, tıklayın **hızlı bağlantılar**etkin Kaynak Yöneticisi'ni tıklatın ve ardından **kaynak yöneticisi kullanıcı Arabirimi**.    
+   > Alternatif olarak, Ambari UI YARN kullanıcı Arabiriminden da başlatabilirsiniz. Ambari UI başlatmak için tıklayın **Ambari giriş** altında **küme panoları**. Ambari Arabiriminden tıklayın **YARN**, tıklayın **hızlı bağlantılar**etkin Kaynak Yöneticisi'ni tıklatın ve ardından **kaynak yöneticisi kullanıcı Arabirimi**.    
    > 
    > 
 2. Jupyter not defterlerini kullanarak Spark işi başlatıldığından, uygulama adına sahip **remotesparkmagics** (Not defterlerinden başlatılan tüm uygulamalara ilişkin ad budur). İşle ilgili daha fazla bilgi almak için uygulama kimliği uygulama adı karşı tıklayın. Bu, uygulama görünümü çalıştırır.
@@ -88,12 +88,12 @@ Spark kullanıcı Arabiriminde daha önce başlatıldı uygulama tarafından ür
 ## <a name="find-information-about-completed-jobs-using-the-spark-history-server"></a>Spark geçmiş sunucusu kullanarak tamamlanan işler hakkında bilgi
 Bir iş tamamlandığında, işle ilgili bilgiler Spark geçmiş sunucusu kalıcı hale getirilir.
 
-1. Spark geçmiş sunucusu, küme dikey penceresinden başlatmak için tıklayın **küme Panosu**ve ardından **Spark geçmiş sunucusu**.
+1. Spark geçmiş sunucusu genel bakış dikey penceresinden başlatmak için tıklayın **Spark geçmiş sunucusu** altında **küme panoları**.
    
     ![Spark geçmiş sunucusu başlatma](./media/apache-spark-job-debugging/launch-spark-history-server.png)
    
    > [!TIP]
-   > Alternatif olarak, Ambari UI Spark geçmiş sunucusu Arabiriminden da başlatabilirsiniz. Ambari UI, küme dikey penceresinden başlatmak için tıklayın **küme Panosu**ve ardından **HDInsight küme Panosu**. Ambari Arabiriminden tıklayın **Spark**, tıklayın **hızlı bağlantılar**ve ardından **Spark geçmiş sunucusu kullanıcı Arabiriminin**.
+   > Alternatif olarak, Ambari UI Spark geçmiş sunucusu Arabiriminden da başlatabilirsiniz. Ambari UI, genel bakış dikey penceresinden başlatmak için tıklayın **Ambari giriş** altında **küme panoları**. Ambari Arabiriminden tıklayın **Spark**, tıklayın **hızlı bağlantılar**ve ardından **Spark geçmiş sunucusu kullanıcı Arabiriminin**.
    > 
    > 
 2. Listelenen tüm tamamlanan uygulamalar görürsünüz. Bir uygulama kimliği, bir uygulamaya daha fazla bilgi için detaya gitmek için tıklayın.
@@ -122,5 +122,3 @@ Bir iş tamamlandığında, işle ilgili bilgiler Spark geçmiş sunucusu kalıc
 * [HDInsight için Apache Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter not defterleri ile dış paketleri kullanma](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Jupyter’i bilgisayarınıza yükleme ve bir HDInsight Spark kümesine bağlanma](apache-spark-jupyter-notebook-install-locally.md)
-
-

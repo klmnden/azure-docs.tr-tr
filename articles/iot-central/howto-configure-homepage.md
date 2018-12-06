@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8e79d05147cae5bf9c46fc1f7c0e7e98574383d5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 39223f49d315e722b13b734b3424d61f630834b1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007629"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966153"
 ---
 ## <a name="configuring-homepage"></a>Giriş sayfası yapılandırma
 
@@ -21,19 +21,19 @@ Giriş sayfası uygulamaya erişimi olan kullanıcılar uygulamanın URL'ye gitt
 
 Örneğin, "Örnek Contoso" şablonu temel alan uygulamalar için giriş sayfası aşağıdadır. Uygulamanız için giriş sayfası özelleştirmek için önce seçin **Düzenle** sağ üstte. 
 
-!["Örnek Contoso" şablonu temel alan uygulamalar için giriş sayfası](media\howto-configure-homepage\image1.png)
+!["Örnek Contoso" şablonu temel alan uygulamalar için giriş sayfası](media/howto-configure-homepage/image1.png)
 
 Seçme **Düzenle**, Pano kitaplığı sol taraftaki bir paneli açılır. Kutucukları ve sayfanızı özelleştirmek için eklenen Pano temelleri çok sayıda tür vardır.
 
-![Pano kitaplığı](media\howto-configure-homepage\image2.png)
+![Pano kitaplığı](media/howto-configure-homepage/image2.png)
 
 Örneğin, ekleyebileceğiniz bir **ayarları ve özellikleri** seçimi ayarlarını ve özelliklerini geçerli değerlerini görüntülemek için kutucuk. Bunu yapmak için önce seçin bir **cihaz şablonu** seçip bir **cihaz örneği**. Bir başlık ve seçin, kutucuğu verdikten sonra bir **ayarı** veya **özelliği** görüntülenecek. Bu durumda seçtik **ayarlamak sıcaklık**. Tıklayarak **Bitti** giriş sayfasında görünmesi için bu kutucuğa neden olur.
 
-!["Cihaz ayrıntıları Yapılandır" form ayarlarına ve özelliklerine ilişkin ayrıntılı](media\howto-configure-homepage\image3.png)
+!["Cihaz ayrıntıları Yapılandır" form ayarlarına ve özelliklerine ilişkin ayrıntılı](media/howto-configure-homepage/image3.png)
 
 Artık bir işleç giriş sayfası görüntülediğinde, cihaz ayarlarını ve özelliklerini görüntüler. Bu kutucuk görebilirsiniz:
 
-![Görüntülenen ayarları ve özellikleri için kutucuğun bulunduğu "Pano" sekmesi](media\howto-configure-homepage\image4.png)
+![Görüntülenen ayarları ve özellikleri için kutucuğun bulunduğu "Pano" sekmesi](media/howto-configure-homepage/image4.png)
 
 Daha fazla uygulamanızın giriş sayfasının nasıl özelleştirebileceğiniz bulmak için çeşitli diğer kutucuk türleri ile Kitaplığı'nda gerçekleştirebileceğiniz işlemleri.
 

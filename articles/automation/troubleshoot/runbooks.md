@@ -4,16 +4,16 @@ description: Azure Otomasyonu runbook'ları ile ilgili sorunları giderme hakkı
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 12/04/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 532d3d73c939a44678091734f2bbff22267ab6b7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 9a60d8c17ba091da7c5eaf0e28160573d5faafa8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094873"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963139"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook'ları ile hatalarını giderme
 
@@ -337,6 +337,27 @@ Alt runbook senaryoyu PowerShell cmdlet'leri şunlardır:
 [Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) -Bu cmdlet, bir runbook başlatın ve runbook için parametreler sağlar
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) -alt runbook'un tamamlandıktan sonra yapılması gereken işlemler varsa her alt için iş durumunu denetlemek Bu cmdlet'i sağlar.
+
+### <a name="429"></a>Senaryo: 429: İstek hızı anda de çok büyük. Lütfen yeniden deneyin
+
+#### <a name="issue"></a>Sorun
+
+Uygulamanızı çalıştırdığınızda aşağıdaki hata iletisini alırsınız `Get-AzureRmAutomationJobOutput` cmdlet:
+
+```
+429: The request rate is currently too large. Please try again
+```
+
+#### <a name="cause"></a>Nedeni
+
+Bu hata, iş çıktısı birçok runbook'tan alınırken oluşabilir [ayrıntılı akışları](../automation-runbook-output-and-messages.md#verbose-stream).
+
+#### <a name="resolution"></a>Çözüm
+
+Bu hatayı çözmek için iki yolu vardır:
+
+* Runbook'u düzenleme ve iş akışları, kendisini çıkaran derlemeninkinden sayısını azaltın.
+* Cmdlet çalışırken alınacak akış sayısını azaltın. Belirtebileceğiniz bunu yapmanın `-Stream Output` parametresi `Get-AzureRmAutomationJobOutput` almak için cmdlet'i yalnızca çıkış akışlarına. 
 
 ## <a name="common-errors-when-importing-modules"></a>Modüller içeri aktarılırken yaygın hataları
 

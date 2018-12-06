@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 12/03/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6d58a62ef70cb5bacb44a3a9832516a30fc91ffa
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: fcc81c8eb3a34b0bda5d91a1a67dd2e04e052967
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248068"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967768"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de (KMSI) içinde Oturumumu açık bırak seçeneğini etkinleştirme
 
@@ -152,7 +152,9 @@ Oluşturduğunuz kullanıcı yolculuğu başlatır bağlı olan taraf (RP) dosya
 
     KMSI'yi kullanarak yapılandırılmış **UserJourneyBehaviors** öğesi. **KeepAliveInDays** özniteliği denetimleri ne kadar süreyle kullanıcının oturum açmış durumda kalır. Aşağıdaki örnekte, KMSI oturumu otomatik olarak kullanım süresi sonu `7` ne sıklıkta sessiz kimlik doğrulaması kullanıcının gerçekleştirdiği bağımsız olarak gün. Ayarı **KeepAliveInDays** değerini `0` KMSI işlevselliği devre dışı bırakır. Varsayılan olarak, bu değer `0`. Varsa değerini **Ssosession** olduğu `Rolling`, KMSI oturumu tarafından Genişletilmiş `7` kullanıcı sessiz kimlik doğrulaması gerçekleştirdiğinde gün.  Varsa `Rolling` olan seçili gün sayısı için minimum tutmalısınız. 
 
-    Değerini **SessionExpiryInSeconds** SSO oturumunun sona erme saati temsil eder. KMSI'yi oturumun veya dolup dolmadığını kontrol etmek için bu Azure AD B2C tarafından dahili olarak kullanılır. Değerini **KeepAliveInDays** web tarayıcısında SSO tanımlama bilgisinin süre sonu/Max-Age değeri belirler. Farklı **SessionExpiryInSeconds**, **KeepAliveInDays** tarayıcı kapatıldığında, tanımlama bilgisi silinmesini önlemek için kullanılır. Yalnızca SSO oturum tanımlama bilgisinin denetlenen yoksa, bir kullanıcının sessiz bir şekilde oturum **KeepAliveInDays**ve süresi değil, hangi tarafından denetlenir **SessionExpiryInSeconds**. Değerini ayarlamak önerilir **SessionExpiryInSeconds** eşdeğer sırada olacak şekilde **KeepAliveInDays** saniye cinsinden aşağıdaki örnekte gösterildiği gibi.
+    Değerini **SessionExpiryInSeconds** SSO oturumunun sona erme saati temsil eder. KMSI'yi oturumun veya dolup dolmadığını kontrol etmek için bu Azure AD B2C tarafından dahili olarak kullanılır. Değerini **KeepAliveInDays** web tarayıcısında SSO tanımlama bilgisinin süre sonu/Max-Age değeri belirler. Farklı **SessionExpiryInSeconds**, **KeepAliveInDays** tarayıcı kapatıldığında, tanımlama bilgisi silinmesini önlemek için kullanılır. Yalnızca SSO oturum tanımlama bilgisinin denetlenen yoksa, bir kullanıcının sessiz bir şekilde oturum **KeepAliveInDays**ve süresi dolduğunda, hangi tarafından denetlenir **SessionExpiryInSeconds**. 
+    
+    Bir kullanıcı değil etkinleştirirseniz **Oturumumu açık bırak** tarafından belirtilen süre geçtikten sonra kaydolma ve oturum açma sayfasında bir oturum süresinin sona **SessionExpiryInSeconds** geçti veya tarayıcı kapatıldı. Bir kullanıcı etkinleştirirse **Oturumumu açık bırak**, değerini **KeepAliveInDays** değerini geçersiz kılar **SessionExpiryInSeconds** ve oturumu sona erme saati belirler. Kullanıcılar bile Tarayıcıyı kapatın ve yeniden açın, bunlar yine de sessiz bir şekilde oturum açma saati içinde olduğu sürece **KeepAliveInDays**. Değerini ayarlamak önerilir **SessionExpiryInSeconds** (1200 saniye), kısa bir süre değerini sırasında olmasını **KeepAliveInDays** oldukça uzun bir süre (7 gün) gösterildiği şekilde ayarlanabilir Aşağıdaki örnekte:
 
     ```XML
     <RelyingParty>
@@ -160,7 +162,7 @@ Oluşturduğunuz kullanıcı yolculuğu başlatır bağlı olan taraf (RP) dosya
       <UserJourneyBehaviors>
         <SingleSignOn Scope="Tenant" KeepAliveInDays="7" />
         <SessionExpiryType>Absolute</SessionExpiryType>
-        <SessionExpiryInSeconds>604800</SessionExpiryInSeconds>
+        <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
       </UserJourneyBehaviors>
       <TechnicalProfile Id="PolicyProfile">
         <DisplayName>PolicyProfile</DisplayName>

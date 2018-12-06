@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 1e2492d978073f63c1c9494d652ec35a7d6565b7
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a0dad228f23b055d68009eb737e0347ade49e94b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274188"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968057"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Azure hesaplarınızı için iş ortağı Kimliğini bağlama
 
@@ -30,7 +30,7 @@ Bu özellik, genel önizlemede kullanılabilir.
 
 - **Konuk kullanıcı:** müşteriniz Konuk kullanıcı olarak ekleyebilir ve herhangi bir RBAC rolü atayın. Daha fazla bilgi için [başka bir dizinden Konuk kullanıcıları eklemek](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
-- **Dizin hesabı:** müşterinizin directory'lerinde kuruluşunuzdaki yeni kullanıcı oluşturma ve herhangi bir RBAC rolü atayın.
+- **Dizin hesabı:** müşteriniz kendi dizininde bir kullanıcı hesabı oluşturduğunuzda ve herhangi bir RBAC rolü atayın.
 
 - **Hizmet sorumlusu:** müşterinizin directory'lerinde kuruluşunuzdaki bir uygulamanızı veya betiğinizi ekleyebilir ve herhangi bir RBAC rolü atayın. Uygulamanızı veya betiğinizi kimliğini, hizmet sorumlusu olarak bilinir.
 

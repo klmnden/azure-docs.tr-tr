@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 5010426db97a9cd404d265d1ea9b319877eda1de
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4dde0663c6db4187cd4728dd88b808fc22b66708
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723967"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964178"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS portalında Azure'a taşıma
 
@@ -71,7 +71,7 @@ Her iki durumda, yöneticinize el ile aşağıdaki tablodan uygun rol ataması g
  
 
 ## <a name="new-workspaces"></a>Yeni çalışma alanları
-Olan artık yeni çalışma alanları OMS portalını kullanarak oluşturamazsınız. Sunulan yönergeleri [Azure portalında Log Analytics çalışma alanı oluşturma](log-analytics-quick-create-workspace.md) Azure portalında yeni bir çalışma alanı oluşturmak için.
+Olan artık yeni çalışma alanları OMS portalını kullanarak oluşturamazsınız. Sunulan yönergeleri [Azure portalında Log Analytics çalışma alanı oluşturma](../azure-monitor/learn/quick-create-workspace.md) Azure portalında yeni bir çalışma alanı oluşturmak için.
 
 ## <a name="changes-to-alerts"></a>Uyarılar için değişiklikler
 
@@ -93,7 +93,7 @@ OMS mobil uygulaması ile birlikte OMS portalı sunsetted olacaktır. OMS mobil 
 ## <a name="application-insights-connector-and-solution"></a>Application Insights Bağlayıcısı ve çözümü
 [Application Insights Bağlayıcısı](../azure-monitor/platform/app-insights-connector.md) Log Analytics çalışma alanınıza Application Insights verileri getirmek için bir yol sağlar. Bu veri çoğaltma, altyapı ve uygulama veriler üzerinde görünürlük etkinleştirmek için gerekli.
 
-Desteğiyle [kaynaklar arası sorgular](log-analytics-cross-workspace-search.md), artık veri çoğaltmak için bu gereksinimi yoktur. Bu nedenle, varolan bir Application Insights çözümü kullanımdan kaldırılacaktır. Ekim dan başlayarak, yeni bir Application Insights kaynaklarını Log Analytics çalışma alanına bağlamak mümkün olmayacaktır. Var olan bağlantıları ve panolar 15 Ocak 2019 kadar çalışmaya devam eder.
+Desteğiyle [kaynaklar arası sorgular](../azure-monitor/log-query/cross-workspace-query.md), artık veri çoğaltmak için bu gereksinimi yoktur. Bu nedenle, varolan bir Application Insights çözümü kullanımdan kaldırılacaktır. Ekim dan başlayarak, yeni bir Application Insights kaynaklarını Log Analytics çalışma alanına bağlamak mümkün olmayacaktır. Var olan bağlantıları ve panolar 15 Ocak 2019 kadar çalışmaya devam eder.
 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure Ağ Güvenlik Grubu Analizi
@@ -111,7 +111,7 @@ Bu çözüm, NSG akış günlüklerini analiz ederek ve aşağıdaki Öngörüle
 NSG günlüklerini mevcut kayıtlı aramalar, uyarılar, panolar için Log Analytics için çalışmaya devam edecek göndermek için tanılama ayarları kullanan devam edebilirsiniz. Çözüm'i zaten yüklemiş olan müşteriler, bildirime kadar kullanmaya devam edebilirsiniz. 5 Eylül başlayarak, ağ güvenlik grubu analizi Çözümü marketten kaldırılacak ve topluluk aracılığıyla kullanıma sunulan bir [Azure Hızlı Başlangıç şablonu](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights).
 
 ## <a name="system-center-operations-manager"></a>System Center Operations Manager
-Belirttiyseniz [Operations Manager yönetim grubunuzu Log Analytics'e bağlı](log-analytics-om-agents.md), ardından bu değişikliği olmadan çalışmaya devam edecektir. Yeni bağlantılar için yine de,'deki yönergeleri izlemeniz gereken [Microsoft System Center Operations Manager yönetim Operations Management Suite yapılandırma paketi](https://blogs.technet.microsoft.com/momteam/2018/07/25/microsoft-system-center-operations-manager-management-pack-to-configure-operations-management-suite/).
+Belirttiyseniz [Operations Manager yönetim grubunuzu Log Analytics'e bağlı](../azure-monitor/platform/om-agents.md), ardından bu değişikliği olmadan çalışmaya devam edecektir. Yeni bağlantılar için yine de,'deki yönergeleri izlemeniz gereken [Microsoft System Center Operations Manager yönetim Operations Management Suite yapılandırma paketi](https://blogs.technet.microsoft.com/momteam/2018/07/25/microsoft-system-center-operations-manager-management-pack-to-configure-operations-management-suite/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Bkz: [OMS portalından Log Analytics kullanıcılar için Azure portalına geçiş hakkında sık sorulan](log-analytics-oms-portal-faq.md) OMS portalından Azure portalına taşıma konusunda yönergeler için.

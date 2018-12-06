@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e10c6580c29784f8d56a31e267c47ec08894113b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 5c5bdb8fad60a2e4196c2c9f74764e27cec5ba62
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418373"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970782"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>Etki alanı ve Azure web apps'te SSL sertifikası sorunları giderme
 
@@ -145,7 +145,7 @@ Alternatif olarak, el ile etki alanını doğrulamak için HTML Web sayfası yö
 3.  Etki alanınızı barındıran web sunucusunun köküne bu dosyayı karşıya yükleyin.
 4.  Seçin **Yenile** sertifika durumunu denetlemek için. Bu, doğrulama tamamlanması için birkaç dakika sürebilir.
 
-Etki alanı doğrulama belirteci 1234abcd ile azure.com için standart bir sertifika satın alma, örneğin, bir web isteği yapılan http://azure.com/1234abcd.html 1234abcd döndürmelidir. 
+Etki alanı doğrulama belirteci 1234abcd ile azure.com için standart bir sertifika satın alma, örneğin, bir web isteği yapılan https://azure.com/1234abcd.html 1234abcd döndürmelidir. 
 
 > [!IMPORTANT]
 > Bir sertifika siparişinin etki alanı doğrulama işlemini tamamlamak için yalnızca 15 gün vardır. 15 gün sonra sertifika yetkilisi, sertifika vermez ve sertifika için ücretlendirilmez. Bu durumda, bu sertifikayı silin ve yeniden deneyin.

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 2eb736891b12c07441bc8828ca07dd0b9fa13d98
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: e346aed2efaab6afcd24e622f577708221b47cb1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458131"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965863"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure işlevleri için uygulama ayarları başvurusu
 
@@ -82,7 +82,7 @@ Kök dizin yolu burada *host.json* dosya ve işlev klasörleri yer. Bir işlev u
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
-Depo veya için anahtar depolama sağlayıcı belirtir. Şu anda desteklenen depoları blob depolama ("Blob") olan ve yerel dosya sistemi ("Files"). Blob sürüm 1 ve 2 sürümündeki dosya sistemi varsayılan değerdir. Sürüm 1 dosya sistemi yalnızca bir app service planında çalıştırmayı işlevler için çalışacağını unutmayın.
+Depo veya için anahtar depolama sağlayıcı belirtir. Şu anda desteklenen depoları blob depolama ("Blob") olan ve yerel dosya sistemi ("Files"). Varsayılan sürüm 2'deki blob ve dosya sistemi sürüm 1'dir.
 
 |Anahtar|Örnek değer|
 |---|------------|
@@ -122,7 +122,7 @@ Bu işlev uygulamasında kullanmak için İşlevler çalışma zamanı sürümü
 
 ## <a name="functionsworkerruntime"></a>İŞLEVLERİ\_ÇALIŞAN\_ÇALIŞMA ZAMANI
 
-İşlev uygulamasına yüklemek için dil alt çalışma zamanı.  Bu, uygulamada (örneğin, "dotnet") kullanılan dil karşılık gelir. Birden çok dilde işlevler için her bir karşılık gelen alt çalışma zamanı değeri ile birden fazla uygulama yayımlamak gerekir.  Geçerli değerler `dotnet` (C# /F #), `node` (JavaScript) ve `java` (Java).
+İşlev uygulamasına yüklemek için dil alt çalışma zamanı.  Bu, uygulamada (örneğin, "dotnet") kullanılan dil karşılık gelir. Birden çok dilde işlevler için her bir karşılık gelen alt çalışma zamanı değeri ile birden fazla uygulama yayımlamak gerekir.  Geçerli değerler `dotnet` (C#/F#), `node` (JavaScript) ve `java` (Java).
 
 |Anahtar|Örnek değer|
 |---|------------|

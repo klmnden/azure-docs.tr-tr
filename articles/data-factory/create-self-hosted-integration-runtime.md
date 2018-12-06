@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 0f48d65d1b3e6d1f608d85cff3a24ef379caa9cf
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: f0040f7e84fefd745b3ca097a4808dc685dd5b72
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284838"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969490"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration runtime (IR) farklı ağ ortamları veri tümleştirme özellikleri sağlamak üzere Azure Data Factory kullanan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -49,7 +49,7 @@ Ne zaman şirket içi arasında veri taşıma ve bir şirket içi veri kaynağı
 
 Kendinden konak IR ile kopyalamak için adımların özeti için üst düzey veri akışı şu şekildedir:
 
-![Yüksek düzey genel bakış](media\create-self-hosted-integration-runtime\high-level-overview.png)
+![Yüksek düzey genel bakış](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. Veri Geliştirici PowerShell cmdlet'ini kullanarak bir şirket içinde barındırılan tümleştirme çalışma zamanı içinde bir Azure data factory oluşturur. Şu anda, Azure portalı, bu özelliği desteklemez.
 2. Veri geliştirici bir şirket içi veri deposu için bağlı hizmet, veri depolarında bağlanmak için kullanması gereken şirket içinde barındırılan tümleştirme çalışma zamanı örneğini belirterek oluşturur. Bağlı hizmet oluşturma işleminin bir parçası olarak, veri geliştiricisi (şu anda desteklenmiyor) kimlik bilgileri Yöneticisi uygulama kimlik doğrulama türleri ve kimlik bilgilerini ayarlamak için kullanır. Kimlik bilgileri Yöneticisi uygulaması, bağlantı ve kimlik bilgilerini kaydetmek için şirket içinde barındırılan tümleştirme çalışma zamanı'nı test etmek için veri deposuyla iletişim kurar.
@@ -131,7 +131,7 @@ Kendinden konak IR üzerinde kullanılabilir bellek düşükse ve CPU kullanım�
 
 Kullanılabilir bellek ve CPU iyi kullanılmaz, ancak / eşzamanlı iş yürütme sınırına ulaştı, bir düğümde çalıştırılabilen eşzamanlı iş sayısını artırarak ölçeği. Kendinden konak IR aşırı yüklendiği etkinlikler zaman aşımına uğruyor. zaman ölçeği isteyebilirsiniz. Aşağıdaki görüntüde gösterildiği gibi bir düğüm için kapasite üst sınırı artırabilirsiniz:  
 
-![Bir düğümde çalıştırılabilen eşzamanlı iş artırma](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
+![Bir düğümde çalıştırılabilen eşzamanlı iş artırma](media/create-self-hosted-integration-runtime/scale-up-self-hosted-IR.png)
 
 ### <a name="tlsssl-certificate-requirements"></a>TLS/SSL sertifikası gereksinimleri
 
@@ -162,33 +162,33 @@ On iki dakikalık bir giriş ve bu özelliği için şu videoyu izleyin:
 
 1. Paylaşılacak şirket içinde barındırılan IR, data factory, bağlantılı IR oluşturmak istediğiniz izni 
 
-   ![Paylaşım sekmesinde izin verme düğmesi](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
+   ![Paylaşım sekmesinde izin verme düğmesi](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
 
-   ![İzinler atama seçimleri](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+   ![İzinler atama seçimleri](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)
 
 2. Paylaşılması için kendinden konak IR kaynak Kimliğini not alın.
 
-   ![Kaynak kodu konumu](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
+   ![Kaynak kodu konumu](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
 
 3. İzinleri verilmiş olan veri fabrikasında (bağlı) yeni bir şirket içinde barındırılan IR oluşturma ve kaynak kimliği girin.
 
-   ![Bir bağlı şirket içinde barındırılan tümleştirme çalışma zamanı oluşturmak için düğme](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
+   ![Bir bağlı şirket içinde barındırılan tümleştirme çalışma zamanı oluşturmak için düğme](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
 
-   ![Adı ve kaynak kimliği için kutuları](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+   ![Adı ve kaynak kimliği için kutuları](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
 
 ### <a name="monitoring"></a>İzleme 
 
 - **Paylaşılan IR**
 
-  ![Bir paylaşılan tümleştirme çalışma zamanı bulma seçimleri](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+  ![Bir paylaşılan tümleştirme çalışma zamanı bulma seçimleri](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
 
-  ![İzleme için sekmesinde](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+  ![İzleme için sekmesinde](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
 - **Bağlantılı IR**
 
-  ![Bir bağlı tümleştirme çalışma zamanı bulma seçimleri](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+  ![Bir bağlı tümleştirme çalışma zamanı bulma seçimleri](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
-  ![İzleme için sekmesinde](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
+  ![İzleme için sekmesinde](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
 
 ### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Şirket içinde barındırılan IR paylaşımı bilinen sınırlamalar
 
@@ -211,12 +211,12 @@ On iki dakikalık bir giriş ve bu özelliği için şu videoyu izleyin:
 
 Simge veya bildirim alanında bir ileti üzerinden imlecinizi taşırsanız, şirket içinde barındırılan tümleştirme çalışma zamanı durumu hakkındaki ayrıntıları bulabilirsiniz.
 
-![Bildirim alanında bildirim](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
+![Bildirim alanında bildirim](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
 
 ## <a name="ports-and-firewall"></a>Bağlantı noktaları ve güvenlik duvarı
 Dikkate alınması gereken iki güvenlik duvarı vardır: *Kurumsal güvenlik duvarınız* kuruluşun merkezi yönlendirici üzerinde çalışan ve *Windows Güvenlik Duvarı* yerel makinede bir arka plan olarak yapılandırılmış olduğu Şirket içinde barındırılan tümleştirme çalışma zamanı yüklenir.
 
-![Güvenlik duvarı](media\create-self-hosted-integration-runtime\firewall.png)
+![Güvenlik duvarı](media/create-self-hosted-integration-runtime/firewall.png)
 
 Konumunda *Kurumsal güvenlik duvarınız* düzeyi, aşağıdaki etki alanları ve giden bağlantı noktalarını yapılandırmak gerekir:
 
@@ -249,11 +249,11 @@ Güvenlik duvarı kuralları düzgün bir şekilde şirket güvenlik duvarı, ş
 ## <a name="proxy-server-considerations"></a>Proxy server konuları
 Kurumsal ağ ortamınızı, internet'e bir proxy sunucusu kullanıyorsa, şirket içinde barındırılan tümleştirme çalışma zamanının uygun proxy ayarlarını kullanmak için yapılandırın. Proxy ilk kayıt aşamasında ayarlayabilirsiniz.
 
-![Ara sunucusunu belirtin](media\create-self-hosted-integration-runtime\specify-proxy.png)
+![Ara sunucusunu belirtin](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
 Şirket içinde barındırılan tümleştirme çalışma zamanı, bulut hizmetine bağlanmak için proxy sunucusunu kullanır. Seçin **değiştir bağlantısını** ilk kurulum sırasında. Proxy ayarı iletişim kutusunu görürsünüz.
 
-![Küme proxy](media\create-self-hosted-integration-runtime\set-http-proxy.png)
+![Küme proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 
 Üç yapılandırma seçeneği vardır:
 
@@ -272,7 +272,7 @@ Ara sunucu ayarlarını görüntüleme veya güncelleştirme istiyorsanız, şir
 
 Görüntüleyebilir ve Configuration Manager aracını kullanarak HTTP Ara sunucusunu güncelleştirin.
 
-![Görünümü Ara](media\create-self-hosted-integration-runtime\view-proxy.png)
+![Görünümü Ara](media/create-self-hosted-integration-runtime/view-proxy.png)
 
 > [!NOTE]
 > NTLM kimlik doğrulaması ile bir proxy sunucusu ayarlayın, Integration runtime konak hizmeti etki alanı hesabı altında çalışır. Daha sonra etki alanı hesabı için parolayı değiştirirseniz, hizmetin yapılandırma ayarlarını güncelleştirmek ve buna göre yeniden unutmayın. Bu gereksinim nedeniyle, parolanızı sık güncelleştirme gerektirmez proxy sunucusuna erişmek için bir özel etki alanı hesabı kullanmanızı öneririz.

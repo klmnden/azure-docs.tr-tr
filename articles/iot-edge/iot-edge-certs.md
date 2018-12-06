@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5ff85f2c9ef708c7cbac9be4933541f063a6c95b
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b1b8c660dfd6ea6890a940a97f5ff1ec1617c28d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568599"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963394"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Azure IOT Edge sertifika kullanım ayrıntısı
 
@@ -51,7 +51,7 @@ Her iki durumda da üretici uç cihazda yerleştirilen cihaz CA sertifikasını 
 
 ### <a name="device-ca-certificate"></a>Cihaz CA sertifikası
 
-Cihaz CA sertifikası oluşturulan ve işlem son ara CA sertifikası tarafından imzalanmış. Bu sertifika, Edge cihazının kendisinde tercihen bir donanım güvenlik modülü (HSM) gibi güvenli depolama yüklenir. Ayrıca, bir cihaz CA sertifikası, bir IOT Edge cihazı benzersiz olarak tanımlar. IOT Edge için cihaz CA sertifikalarını diğer verebilen sertifikadır. Örneğin, cihaz CA sertifikası için cihazların kimliklerini doğrulamak için kullanılan cihaz sertifikaları yaprak sorunları [Azure IOT cihaz sağlama hizmeti](..\iot-dps\about-iot-dps.md).
+Cihaz CA sertifikası oluşturulan ve işlem son ara CA sertifikası tarafından imzalanmış. Bu sertifika, Edge cihazının kendisinde tercihen bir donanım güvenlik modülü (HSM) gibi güvenli depolama yüklenir. Ayrıca, bir cihaz CA sertifikası, bir IOT Edge cihazı benzersiz olarak tanımlar. IOT Edge için cihaz CA sertifikalarını diğer verebilen sertifikadır. Örneğin, cihaz CA sertifikası için cihazların kimliklerini doğrulamak için kullanılan cihaz sertifikaları yaprak sorunları [Azure IOT cihaz sağlama hizmeti](../iot-dps/about-iot-dps.md).
 
 ### <a name="iot-edge-workload-ca"></a>IOT Edge iş yükü CA
 

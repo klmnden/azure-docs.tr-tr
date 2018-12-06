@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: 38c54995c5db90df11e57181e21347bee43a439a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: b7208943a27bcd184100ae426721a2fe8f6e1c72
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445831"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970493"
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Azure API Yönetimi'nde Azure yönetilen hizmet kimliğini kullanma
 
@@ -52,7 +52,7 @@ Bu, oluşturmak ve API Management örneğinizin kimlik yönetmek için Azure bil
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "0.9.0.0"
     },
     "resources": [
@@ -116,7 +116,7 @@ Aşağıdaki örnek, aşağıdaki adımları içeren bir Azure Resource Manager 
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "publisherEmail": {

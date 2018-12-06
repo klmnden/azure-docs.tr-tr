@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 93cbb9a891f83eed623f095f208319c9071e287e
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d38c93f1e6e390117ff5d9e8772119ed1c26fd10
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635552"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965539"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Nasıl için yerleşik Azure izleme VM'ler için (Önizleme)
 Bu makalede, Azure bulma gibi ve uygulama bağımlılıklarını eşleyerek İzleyicisi sanal makinelerin Azure sanal makineler ve sanal makine ölçek kümeleri ve sanal makineler, ortamınızda işletim sistem durumunu izlemek ayarlama işlemi açıklanmaktadır bunlar üzerinde barındırılabilir.  
@@ -48,7 +48,7 @@ Bir Log Analytics çalışma alanında aşağıdaki bölgeler şu anda desteklen
 >Azure sanal makineleri, herhangi bir bölgeden dahil edilmiş olabilir ve Log Analytics çalışma alanı için desteklenen bölgelerin sınırlı değildir.
 >
 
-Bir çalışma alanı yoksa, üzerinden oluşturabilirsiniz [Azure CLI](../../log-analytics/log-analytics-quick-create-workspace-cli.md)temellidir [PowerShell](../../log-analytics/log-analytics-quick-create-workspace-posh.md), [Azure portalında](../../log-analytics/log-analytics-quick-create-workspace.md), veya [Azure Resource Manager](../../log-analytics/log-analytics-template-workspace-configuration.md).  Azure portalında tek bir Azure VM için izleme etkinleştirirseniz, bu işlem sırasında bir çalışma alanı oluşturma seçeneğiniz vardır.  
+Bir çalışma alanı yoksa, üzerinden oluşturabilirsiniz [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)temellidir [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md), [Azure portalında](../../azure-monitor/learn/quick-create-workspace.md), veya [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md).  Azure portalında tek bir Azure VM için izleme etkinleştirirseniz, bu işlem sırasında bir çalışma alanı oluşturma seçeneğiniz vardır.  
 
 Çözümü etkinleştirme ölçekte senaryo ilk Log Analytics çalışma alanınızda aşağıdaki yapılandırma gerektirir:
 
@@ -185,7 +185,7 @@ Azure portalında Azure sanal makinenizin izlemeyi etkinleştirmek için aşağ�
 5. Üzerinde **Azure İzleyici İçgörüler ekleme** sayfasında mevcut bir Log Analytics varsa, aynı abonelikte çalışma alanı, aşağı açılan listeden seçin.  Listenin varsayılan çalışma alanı ve sanal makine abonelikte dağıtılmış konumunu belirler. 
 
     >[!NOTE]
-    >VM izleme verilerini depolamak için yeni bir Log Analytics çalışma alanı oluşturmak istiyorsanız,'ndaki yönergeleri izleyin [Log Analytics çalışma alanı oluşturma](../../log-analytics/log-analytics-quick-create-workspace.md) daha önce desteklenen bölgelerden birinde listelenir.   
+    >VM izleme verilerini depolamak için yeni bir Log Analytics çalışma alanı oluşturmak istiyorsanız,'ndaki yönergeleri izleyin [Log Analytics çalışma alanı oluşturma](../../azure-monitor/learn/quick-create-workspace.md) daha önce desteklenen bölgelerden birinde listelenir.   
 
 İzleme etkinleştirdikten sonra sanal makine için sistem durumu ölçümleri görmeden önce yaklaşık 10 dakika sürebilir. 
 

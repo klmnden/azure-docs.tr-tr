@@ -8,12 +8,12 @@ ms.author: tanmayb
 ms.date: 10/29/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: dbc72e040f3d68ca77c036c41612f57616d1e74e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b72b2183cb796602f05a0a6858d4de108d3cc2c7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016837"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964807"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Bir CSP olarak oluşturun ve bir Azure IOT Central uygulamasına, müşteri adına yönetmek 
 
@@ -23,21 +23,21 @@ Bir CSP olarak oluşturabilir ve Microsoft Azure IOT Central uygulamaları müş
 
 Başlamak için hesabınızı bir Microsoft iş ortağı portalı için oturum açın ve Azure IOT Central bir uygulama oluşturmak istediğiniz bir müşteri seçin. Sol gezinti bölmesinde müşteri için Hizmet Yönetimi gidin
 
-![Microsoft Partner Center, müşteri görünümü](media\howto-create-application-asCSP\image1.png)
+![Microsoft Partner Center, müşteri görünümü](media/howto-create-application-asCSP/image1.png)
 
 Azure IOT Central yönetmek kullanılabilir hizmet olarak listelenir. Sayfasında, yeni uygulamalar oluşturabilir veya bu müşteri için mevcut uygulamaları yönetmek için Azure IOT Central bağlantıya tıklayın.
 
-![Azure IOT Central yönetmek kullanılabilir](media\howto-create-application-asCSP\image2.png)
+![Azure IOT Central yönetmek kullanılabilir](media/howto-create-application-asCSP/image2.png)
 
 Azure IOT Central Uygulama Yöneticisi sayfasına gelirsiniz. Azure IOT Central, Microsoft Partner Center'dan gelen geldiğini ve müşterinin yönetmek için geldiğini bağlam tutar. Bu uygulama Yöneticisi sayfanın üst bilgisinde onaylanır görürsünüz. Buradan, ya da oluşturulan mevcut bir uygulamaya yönetin veya müşteri için yeni bir uygulama oluşturmak daha önce bu müşteri için gidebilirsiniz.
 
-![CSP'ler için Yöneticisi oluşturma](media\howto-create-application-asCSP\image3.png)
+![CSP'ler için Yöneticisi oluşturma](media/howto-create-application-asCSP/image3.png)
 
 Azure IOT Central bir uygulama oluşturmak için tıklayın **yeni uygulama** Döşe. Bu uygulama oluşturma sayfası yüklenir. Bu sayfadaki tüm alanları doldurun ve ardından **Oluştur**. Aşağıdaki alanların her biri hakkında daha fazla bilgi bulabilirsiniz.
 
-![CSP'ler için uygulama sayfası oluşturma](media\howto-create-application-asCSP\image4.png)
+![CSP'ler için uygulama sayfası oluşturma](media/howto-create-application-asCSP/image4.png)
 
-![CSP'ler için uygulama sayfası oluşturma](media\howto-create-application-asCSP\image4-1.png)
+![CSP'ler için uygulama sayfası oluşturma](media/howto-create-application-asCSP/image4-1.png)
 
 ## <a name="payment-plan"></a>Ödeme planı
 
@@ -65,7 +65,7 @@ Daha fazla bilgi için bkz. [Azure Active Directory](https://docs.microsoft.com/
 
 Bir Azure aboneliği, Azure Hizmetleri örneklerini oluşturmanıza olanak sağlar. Azure IOT Central otomatik olarak erişim tüm Azure abonelikleri olan müşterinin bulur ve bunları açılır menüde görüntüler **uygulama oluşturma** sayfası. Yeni bir Azure IOT Central uygulaması oluşturmak için bir Azure aboneliği seçin.
 
-Azure aboneliğiniz yoksa, Microsoft Partner Center'daki oluşturabilirsiniz. Azure abonelik oluşturduktan sonra geri gidin **uygulama oluşturma** sayfası. Yeni aboneliğinizi görünür **Azure abonelik** açılır.
+Azure aboneliğiniz yoksa, Microsoft Partner Center'daki oluşturabilirsiniz. Azure aboneliğini oluşturduktan sonra, **Uygulama Oluştur** sayfasına geri gidin. Yeni aboneliğiniz **Azure Aboneliği** açılan listesinde gösterilir.
 
 Daha fazla bilgi için bkz. [Azure abonelikleri](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
 
@@ -78,17 +78,17 @@ Daha fazla bilgi için bkz. [Azure bölgeleri](https://docs.microsoft.com/azure/
 Azure IOT Central olduğu kullanılabilir bölgeler gördüğünüz [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/regions/services/) sayfası.
 
 > [!Note]
-> Bir bölge seçtikten sonra daha sonra uygulamanızı farklı bir bölgeye taşıyamazsınız.
+> Bölgeyi bir kez seçtiğinizde, uygulamanızı daha sonra başka bir bölgeye taşıyamazsınız.
 
 ## <a name="application-template"></a>Uygulama şablonu
 
-Yeni Azure IOT Central uygulamanız için mevcut uygulama şablonlarından birini seçebilirsiniz. Bir uygulama şablonunu gibi cihaz şablonları önceden tanımlanmış öğeleri içerebilir ve yardımcı olması için panoları kullanmaya başlayın.
+Yeni Azure IOT Central uygulamanız için mevcut uygulama şablonlarından birini seçebilirsiniz. Uygulama şablonu, başlamanıza yardımcı olacak cihaz şablonları ve panolar gibi önceden tanımlanmış öğeleri içerebilir.
 
 | Uygulama şablonu | Açıklama |
 | -------------------- | ----------- |
-| Özel uygulama   | Kendi cihaz şablonlarını ve cihazlarla doldurmak, boş bir uygulama oluşturur. |
-| Örnek Contoso       | Basit bağlı bir cihaz için cihaz şablon içeren bir uygulama oluşturur. Azure IOT Central'ı keşfetmeye başlamak için bu şablonu kullanın. |
-| Örnek Devkits       | Uygulama cihaz şablonları ile MXChip veya Raspberry Pi bir aygıt bağlanmaya hazır oluşturur. Cihaz geliştiriciyseniz bu cihaz üzerinde kodla denemeler bu şablonu kullanın. |
+| Özel uygulama   | Kendi cihaz şablonlarınız ve cihazlarınızla doldurabileceğiniz boş bir uygulama oluşturur. |
+| Contoso Örneği       | Basit bağlı bir cihaz için cihaz şablon içeren bir uygulama oluşturur. Azure IoT Central'ı incelemeye başlamak için bu şablonu kullanın. |
+| Devkits Örneği       | MXChip veya Raspberry Pi cihazını bağlamak amacıyla sizin için hazırlanmış cihaz şablonlarıyla bir uygulama oluşturur. Cihaz geliştiriciyseniz bu cihaz üzerinde kodla denemeler bu şablonu kullanın. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 3c2b44455b417d1bc764337d91a5535d7ffa34a5
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ad6fe023c4e93328331140dc3552ae1afd7c83ef
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783381"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970654"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data factory'de veri taşımayı için güvenlik konuları
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -167,7 +167,7 @@ Aşağıdaki tabloda, Windows Güvenlik Duvarı gelen bağlantı noktası gereks
 | ------------- | ---------------------------------------- |
 | 8050 (TCP)    | PowerShell şifreleme cmdlet tarafından açıklandığı gibi gerekli [Azure Data factory'de şirket içi veri depoları için kimlik bilgilerini şifrele](encrypt-credentials-self-hosted-integration-runtime.md)ve güvenli bir şekilde şirket içi veri depoları için kimlik bilgilerini ayarlamak için kimlik bilgileri Yöneticisi uygulaması Şirket içinde barındırılan tümleştirme çalışma zamanı üzerinde. |
 
-![Ağ geçidi bağlantı noktası gereksinimleri](media\data-movement-security-considerations/gateway-port-requirements.png) 
+![Ağ geçidi bağlantı noktası gereksinimleri](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
 #### <a name="ip-configurations-and-whitelisting-in-data-stores"></a>IP yapılandırmaları ve veri depolarında beyaz listeye ekleme
 Bulut veri depoları, ayrıca, beyaz listeye eklemeniz deposuna erişilirken bir makinenin IP adresi gerektirir. Şirket içinde barındırılan tümleştirme çalışma zamanı makinenin IP adresi izin verilenler listesinde veya Güvenlik Duvarı'nda uygun şekilde yapılandırılmış emin olun.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 075358ad559806c375d44b6a125e8d2839b6632f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 2814ecb0ff9fc49e4763dbe604fef353394f9aac
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726313"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965249"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights ile veri toplama, tutma ve depolama
 
@@ -101,7 +101,6 @@ Microsoft, yalnızca hizmet olanak sağlamak için verileri kullanır.
 
 ## <a name="where-is-the-data-held"></a>Verilerin tutulduğu?
 * ABD, Avrupa veya Güneydoğu Asya. Yeni bir Application Insights kaynağı oluşturduğunuzda, konumu seçebilirsiniz. 
-
 
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Uygulamamı ABD, Avrupa veya Güneydoğu Asya barındırılması gerekir anlama geliyor?
 * Hayır. Uygulamanızı her yerden, kendi şirket içi ana bilgisayarlarına içinde veya bulutta çalıştırabilirsiniz.
@@ -280,6 +279,9 @@ SDK'ları platformları arasında farklılık gösterir ve yüklemek için kulla
 | SDK'sı tanılama |İzleme iletisi veya özel durumu |
 
 Yapabilecekleriniz [verilerin bazıları Applicationınsights.config'i düzenleyerek geçiş][config]
+
+> [!NOTE]
+> İstemci IP, coğrafi konum çıkarsamak için kullanılır ancak IP veriler artık varsayılan olarak depolanır ve sıfır ilişkili alanın yazılan. Kişisel veri işleme hakkında daha fazla anlamak için bunu önermemizin [makale](../log-analytics/log-analytics-personal-data-mgmt.md#application-data). IP adresi depolamanız gerekiyorsa ile bunu yapabilirsiniz bir [telemetri başlatıcısını](./app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## <a name="credits"></a>Jenerik
 Bu ürünü MaxMind kullanılabilir tarafından oluşturulan GeoLite2 veri içeren [ http://www.maxmind.com ](http://www.maxmind.com).

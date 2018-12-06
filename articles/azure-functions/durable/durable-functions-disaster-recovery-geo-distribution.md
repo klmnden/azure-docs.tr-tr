@@ -10,18 +10,19 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d999350f309dbd2bf74bbb3d10e74feddf6ee602
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 34583d8052dfd29a3f08187b88c15e3847a4dbb9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642385"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966288"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>Olağanüstü durum kurtarma ve coğrafi dağıtım
 
 ## <a name="overview"></a>Genel Bakış
 Dayanıklı işlevler Azure, tüm durumu, Azure Depolama'da kalıcı hale getirilir. A [görev hub](durable-functions-task-hubs.md) düzenlemeleri için kullanılan Azure Storage kaynakları için mantıksal bir kapsayıcıdır. Aynı görev hub'ına ait oldukları zaman orchestrator ve etkinlik işlevleri yalnızca birbiriyle etkileşim kurabilir.
 Açıklanan senaryoları kullanılabilirliğini artırmak ve olağanüstü durum kurtarma etkinlikleri sırasında kapalı kalma süresini en aza indirmek için dağıtım seçenekleri önerin.
+
 Azure Depolama'nın kullanımı kılavuzluk edilir olduğundan bu senaryolar Aktif-Pasif yapılandırmada, temel dikkat edin önemlidir. Bu düzen, bir yedekleme (pasif) işlev uygulaması farklı bir bölgeye dağıtmaya dayalıdır. Traffic Manager birincil (etkin) işlev uygulaması için kullanılabilirlik izleyeceksiniz. Birincil başarısız olursa üzerinde yedekleme işlev uygulaması ile başarısız olur. Daha fazla bilgi için [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)'s [öncelik trafik yönlendirme yöntemi.](../../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method)
 
 

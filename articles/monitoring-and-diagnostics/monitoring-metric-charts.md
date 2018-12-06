@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: f82b4dff20e2b26e62889c41b3ff3c27bc86066a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: d1cfaadd06d20a0f57d75cd43d00040c9e44c429
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901424"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966033"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure İzleyici ölçüm Gezgini
 
@@ -100,6 +100,21 @@ Bir ölçüm bölme ölçütü: ölçüm karşılaştırma birbirleriyle nasıl 
    > [!NOTE]
    > Filtreleme ve gruplandırma aynı boyutta hem senaryonuz için ilgisi olmayan ve grafikleri okunmalarını kolaylaştırmak segmentleri gizlemek için kullanın.
 
+## <a name="how-do-i-lock-lower-and-upper-boundaries-of-the-chart-y-axis"></a>Grafik y ekseni alt ve üst sınırları nasıl kilitleme?
+
+Grafiğin büyük değerler daha küçük dalgalanmaları gösterdiğinde y ekseni aralığını kilitleme önemli hale gelir. 
+
+Örneğin, başarılı istek hacmi % %99,99 %99,5 açılır, hizmet kalitesi önemli azalmaya temsil edebilir. Ancak, bir küçük sayısal değeri dalgalanma tercihinize zor veya imkansız bile varsayılan hesap ayarlarından olacaktır. Bu durumda bu küçük bırakma daha belirgin hale getirir %99 grafiğinin en düşük sınır kilitlenemedi. 
+
+Başka bir kullanılabilir bellek bir dalgalanma burada değeri teknik olarak hiçbir zaman 0 ulaşacak örnektir. Daha yüksek bir değer aralığına düzeltme düşme kullanılabilir bellek. nokta kolaylaştırmak. 
+
+Y ekseni aralığını denetlemek için kullanma "..." Grafik menü ve seçin **grafiği Düzenle** grafiği ayarları Gelişmiş erişim için. Y ekseni aralığını bölümündeki değerleri değiştirin veya kullanın **otomatik** varsayılanlara geri düğmesi.
+
+![Ölçüm görüntüsü](./media/monitoring-metric-charts/0013.png)
+
+> [!WARNING]
+> Çeşitli izlemek grafiklerin y ekseni sınırlarını kilitleme sayar veya toplayan bir dönem boyunca zaman (ve dolayısıyla kullanım sayısı, toplam, minimum veya maksimum toplamalar) genellikle otomatik varsayılanlara güvenmek yerine bir sabit zaman ayrıntı düzeyi belirterek gerektirir. Bu gereklidir çünkü zaman ayrıntı düzeyi tarayıcı penceresini yeniden boyutlandırma veya başka bir ekran çözünürlüğünü giden kullanıcı tarafından otomatik olarak değiştirildiğinde grafiklerde değerlerini değiştirin. Elde edilen grafiğin y ekseni aralığını oluşan geçerli seçimi geçersiz kılmalarını görünümünü zaman ayrıntı düzeyi efektleri değiştirin.
+
 ## <a name="how-do-i-pin-charts-to-dashboards"></a>Nasıl grafikleri panolara sabitleyebilirsiniz?
 
 Grafikleri yapılandırdıktan sonra yeniden, büyük olasılıkla diğer izleme telemetri bağlamında görüntülemek veya takımınızla paylaşmak için Pano eklemek isteyebilirsiniz. 
@@ -108,7 +123,7 @@ Yapılandırılmış bir grafik bir panoya sabitlemek için:
 
 Grafiğinizi yapılandırdıktan sonra tıklayarak **grafik Eylemler** menüsü sağ üst köşe grafiğin ve tıklayın **panoya Sabitle**.
 
-   ![Ölçüm görüntüsü](./media/monitoring-metric-charts/0013.png)
+![Ölçüm görüntüsü](./media/monitoring-metric-charts/0013.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

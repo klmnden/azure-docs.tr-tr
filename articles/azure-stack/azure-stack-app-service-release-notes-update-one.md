@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: ee6e4397345b4cb169e7e22d951d4c4fdff5b7b7
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 632cf506477bdc6f35c66a473963168f81e22351
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078724"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971904"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Güncelleştirme 1 sürüm notları Azure Stack üzerinde App Service'e
 
@@ -145,7 +145,7 @@ Bu sürümde site yuvası takas ayrılır. İşlevselliğini geri yüklemek içi
 
       # Commit the changes back to NSG
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-      ```
+    ```
 
 2. Göz atın **CN0 VM** altında Azure Stack Yönetici portalı'nda sanal makineler ve **Bağlan** denetleyici örneği ile bir Uzak Masaüstü oturumu açın. App Service dağıtımı sırasında belirtilen kimlik bilgilerini kullanın.
 3. Başlangıç **yönetici olarak PowerShell** ve aşağıdaki betiği çalıştırın
@@ -197,18 +197,20 @@ Bu sürümde site yuvası takas ayrılır. İşlevselliğini geri yüklemek içi
         # Commit the changes back to NSG
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
-- Çalışanları App Service, var olan bir sanal ağda dağıtılır ve dosya sunucusu yalnızca özel ağda kullanılabilir dosya sunucusuna erişemiyor.
- 
+
+6. Çalışanları App Service, var olan bir sanal ağda dağıtılır ve dosya sunucusu yalnızca özel ağda kullanılabilir dosya sunucusuna erişemiyor.
+
 Mevcut bir sanal ağ ve dosya sunucunuza bağlanmak için bir dahili IP adresine dağıtmayı seçerseniz, çalışan alt ağ ve dosya sunucusu arasında SMB trafiği etkinleştirme bir giden güvenlik kuralı eklemeniz gerekir. Bunu yapmak için Yönetim Portalı'nda WorkersNsg gidin ve aşağıdaki özelliklere sahip bir giden güvenlik kuralı ekleyin:
- * Kaynak: tüm
- * Kaynak bağlantı noktası aralığı: *
- * Hedef: IP adresleri
- * Hedef IP adresi aralığı: dosya sunucusu için IP aralığı
- * Hedef bağlantı noktası aralığı: 445
- * Protokol: TCP
- * Eylem: izin ver
- * Öncelik: 700
- * Ad: Outbound_Allow_SMB445
+
+- Kaynak: tüm
+- Kaynak bağlantı noktası aralığı: *
+- Hedef: IP adresleri
+- Hedef IP adresi aralığı: dosya sunucusu için IP aralığı
+- Hedef bağlantı noktası aralığı: 445
+- Protokol: TCP
+- Eylem: izin ver
+- Öncelik: 700
+- Ad: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Azure Stack üzerinde Azure App Service'te çalışan bulut yöneticileri için bilinen sorunlar
 

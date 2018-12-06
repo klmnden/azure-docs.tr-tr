@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 61ff50cda6ec523964ccf8f885f07c39020fbc88
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 68bac54de4f6a9f16f54032b10031bcf7222c676
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335155"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969320"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Windows Aracısı onay sonuçları güncelleştirme yönetimini anlama
 
@@ -82,7 +82,7 @@ Bu onay belirler olmadığını `HealthService`, Microsoft Monitoring Agent, mak
 
 Hizmet sorunlarını giderme hakkında daha fazla bilgi için bkz: [Microsoft Monitoring Agent çalışmıyor](hybrid-runbook-worker.md#mma-not-running).
 
-Microsoft Monitoring Agent'ı yeniden yüklemek için bkz: [yüklemek ve Microsoft Monitoring Agent'ı yapılandırma](../../log-analytics/log-analytics-quick-collect-windows-computer.md#install-the-agent-for-windows).
+Microsoft Monitoring Agent'ı yeniden yüklemek için bkz: [yüklemek ve Microsoft Monitoring Agent'ı yapılandırma](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
 ### <a name="monitoring-agent-service-events"></a>İzleme Aracısı hizmeti olayları
 

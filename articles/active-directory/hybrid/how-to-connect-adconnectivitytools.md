@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4020d754bd8c7728b43ef583aa7e7d8dbddcebec
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e6f85d327fff1ee32dca6dfb2231b28e6dc96c61
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634463"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965646"
 ---
 # <a name="what-is-the-adconnectivitytool-powershell-module"></a>ADConnectivityTool PowerShell Modülü nedir?
 
@@ -40,7 +40,7 @@ Aracı bulunur: **C:\Program Files\Microsoft Azure Active Directory Connect\Tool
 Bu sorunlardan biri bulunduğunda AADConnect Sihirbazı'nda ilgili hata iletisi görüntülenir:
 
 
-![Hata](media\how-to-connect-adconnectivitytools\error1.png)
+![Hata](media/how-to-connect-adconnectivitytools/error1.png)
 
 Örneğin, ne zaman biz çalıştığınız bir dizin eklemek **dizinlerinizi bağlama** ekran, Azure AD Connect bunu doğrulamak gereken ve 389 bağlantı noktası üzerinden etki alanı denetleyicisi ile iletişim kurabilmesi bekliyor.  Erişilemiyorsa, yukarıdaki ekran görüntüsünde gösterilen hata göreceğiz.  
 

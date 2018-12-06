@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: 39d6b586158ce292f3697af0f7241a3858842374
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f5f42ae5068440c3a90bf3b374238e18781b9770
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722233"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970595"
 ---
 # <a name="local-forwarder"></a>Yerel iletici
 
@@ -39,7 +39,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 1. LF indirin. WindowsServiceHost.zip dosyasından [yerel ileticisi sürüm sayfası](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) GitHub üzerinde.
 
-    ![Yerel ileticisi yayın indirme sayfasının ekran görüntüsü](.\media\opencensus-local-forwarder\001-local-forwarder-windows-service-host-zip.png)
+    ![Yerel ileticisi yayın indirme sayfasının ekran görüntüsü](./media/opencensus-local-forwarder/001-local-forwarder-windows-service-host-zip.png)
 
 2. Tanıtım kolaylığı için bu örnekte, biz yalnızca yolun .zip dosyasına ayıklayacaktır `C:\LF-WindowsServiceHost`.
 
@@ -55,7 +55,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
     Yeni hizmetinizi Hizmetleri GUI türü yoluyla incelemek için ``services.msc``
         
-     ![Yerel iletici hizmetinin ekran görüntüsü](.\media\opencensus-local-forwarder\002-services.png)
+     ![Yerel iletici hizmetinin ekran görüntüsü](./media/opencensus-local-forwarder/002-services.png)
 
 3. **Sağ** seçin ve yeni yerel ileticisi **Başlat**. Hizmetiniz artık çalışır duruma girer.
 
@@ -73,7 +73,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
 6. İstenen ayarlarınızı yerinde olduğundan ve yerel ileticisi için izleme verilerini beklenen onay olarak dinlediğini doğrulamak için ``LocalForwarder.log`` dosya. Dosyanın sonuna görüntüye benzer bir sonuç görmeniz gerekir:
 
-    ![Ekran görüntüsü, LocalForwarder.log dosyası](.\media\opencensus-local-forwarder\003-log-file.png)
+    ![Ekran görüntüsü, LocalForwarder.log dosyası](./media/opencensus-local-forwarder/003-log-file.png)
 
 #### <a name="console-application"></a>Konsol uygulaması
 

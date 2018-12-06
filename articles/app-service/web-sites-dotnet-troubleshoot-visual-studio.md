@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 2028de68b3c50f24c46bfafd804b00e84301a9d7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: eafb4e82a319a0fdbe954757158a09aba83e9be0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256604"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972295"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Visual Studio kullanarak Azure App Service'te bir web uygulaması sorunlarını giderme
 ## <a name="overview"></a>Genel Bakış
@@ -90,7 +90,7 @@ Genellikle bir web projesi ile dağıttığınız `customErrors` bayrağı ayarl
 
 ![Faydasız hata sayfası](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
 
-Sık en kolay yolu, hatanın nedenini bulmak için yukarıdaki ekran görüntüleri ilk yapmak nasıl yapıldığını açıklayan ayrıntılı hata iletileri etkinleştirmektir. Dağıtılmış Web.config dosyasında değişiklik gerektirir. Düzen *Web.config* dosya projede ve projeyi yeniden dağıtın veya oluşturma bir [Web.config dönüşümü](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) ve hata ayıklama derlemesi dağıtmak, ancak daha hızlı bir yolu yoktur: içinde **Çözüm Gezgini** , doğrudan görüntüleyebilir ve kullanarak dosyaları uzak web uygulaması düzenleme *uzak görünümü* özelliği.
+Sık en kolay yolu, hatanın nedenini bulmak için yukarıdaki ekran görüntüleri ilk yapmak nasıl yapıldığını açıklayan ayrıntılı hata iletileri etkinleştirmektir. Dağıtılmış Web.config dosyasında değişiklik gerektirir. Düzen *Web.config* dosya projede ve projeyi yeniden dağıtın veya oluşturma bir [Web.config dönüşümü](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) ve hata ayıklama derlemesi dağıtmak, ancak daha hızlı bir yolu yoktur: içinde **Çözüm Gezgini** , doğrudan görüntüleyebilir ve kullanarak dosyaları uzak web uygulaması düzenleme *uzak görünümü* özelliği.
 
 1. İçinde **Sunucu Gezgini**, genişletme **Azure**, genişletme **App Service**, web uygulamanızı bulunan kaynak grubunu genişletin ve ardından web uygulamanız için düğümünü genişletin.
 
@@ -491,7 +491,7 @@ You can send logs to any or all of three destinations:
 
 You can specify a different severity level for each destination.
 
-Tables make it easy to view details of logs online, and they support streaming; you can query logs in tables and see new logs as they are being created. Blobs make it easy to download logs in files and to analyze them using HDInsight, because HDInsight knows how to work with blob storage. For more information, see **Hadoop and MapReduce** in [Data Storage Options (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options).
+Tables make it easy to view details of logs online, and they support streaming; you can query logs in tables and see new logs as they are being created. Blobs make it easy to download logs in files and to analyze them using HDInsight, because HDInsight knows how to work with blob storage. For more information, see **Hadoop and MapReduce** in [Data Storage Options (Building Real-World Cloud Apps with Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options).
 
 You currently have file system logs set to verbose level; the following steps walk you through setting up information level logs to go to storage account tables. Information level means all logs created by calling `Trace.TraceInformation`, `Trace.TraceWarning`, and `Trace.TraceError` will be displayed, but not logs created by calling `Trace.WriteLine`.
 
@@ -629,12 +629,12 @@ Azure App service'taki web apps sorunlarını giderme hakkında daha fazla bilgi
 
 Belirli bir sorun giderme sorunuz konusunda yardım için şu forumlarından birinde bir iş parçacığı başlatın:
 
-* [Azure Forumu ASP.NET sitesinde](http://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
+* [Azure Forumu ASP.NET sitesinde](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
 * [MSDN'deki Azure Forumu](https://social.msdn.microsoft.com/Forums/windowsazure/).
-* [StackOverflow.com](http://www.stackoverflow.com).
+* [StackOverflow.com](https://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Visual Studio'da hata ayıklama
-Visual Studio'da hata ayıklama modu kullanma hakkında daha fazla bilgi için bkz. [Visual Studio'da hata ayıklama](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) ve [Visual Studio 2010 ile hata ayıklama ipuçları](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
+Visual Studio'da hata ayıklama modu kullanma hakkında daha fazla bilgi için bkz. [Visual Studio'da hata ayıklama](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) ve [Visual Studio 2010 ile hata ayıklama ipuçları](https://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
 
 ### <a name="remote-debugging-in-azure"></a>Uzaktan Azure'da hata ayıklama
 Azure web apps ve WebJobs için uzaktan hata ayıklama hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
@@ -649,7 +649,7 @@ Bir Azure Web API'si veya Mobile Services arka uç, web uygulaması kullanır ve
 ### <a name="tracing-in-aspnet-applications"></a>ASP.NET uygulamalarında izleme
 Internet'te ASP.NET izleme için hiçbir eksiksiz ve güncel tanıtımları vardır. Yapabileceğiniz en iyi olduğu ile çalışmaya başlama MVC yaramadı henüz mevcut ve yeni blog ile ek, Web Forms belirli sorunları odaklanan yazıları için yazılmış eski giriş materyalleri. Aşağıdaki kaynaklar başlatmak için iyi yerler şunlardır:
 
-* [İzleme ve Telemetri (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
+* [İzleme ve Telemetri (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
   E-kitap bölümü Azure bulut uygulamalarında izleme önerileri sunulur.
 * [ASP.NET izleme](https://msdn.microsoft.com/library/ms972204.aspx)<br/>
   Eski ancak yine de konuya temel bir giriş için iyi bir kaynaktır.
@@ -672,12 +672,12 @@ catch (Exception ex)
 }
 ```
 
-* [Azure komut satırı (artı Glimpse!) günlüğe kaydetme akış Tanılama izleme](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
-  Visual Studio'da nasıl hangi Bu öğreticiyi uygulamak için komut satırını kullanmayı gösterir. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) ASP.NET uygulamalarında hata ayıklama için bir araçtır.
+* [Azure komut satırı (artı Glimpse!) günlüğe kaydetme akış Tanılama izleme](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
+  Visual Studio'da nasıl hangi Bu öğreticiyi uygulamak için komut satırını kullanmayı gösterir. [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) ASP.NET uygulamalarında hata ayıklama için bir araçtır.
 * [Web Apps günlüğe kaydetme ve tanılama - David Ebbo ile kullanarak](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) ve [günlükleri - David Ebbo ile Web uygulamalarından akış](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   Scott Hanselman ve David Ebbo videosu.
 
-Hata günlüğü için kendi izleme kodu yazmak için alternatif bir açık kaynak günlüğe kaydetme çerçevesi gibi kullanmaktır [ELMAH](http://nuget.org/packages/elmah/). Daha fazla bilgi için [Scott Hanselman'ın blog yazılarını ELMAH hakkında](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
+Hata günlüğü için kendi izleme kodu yazmak için alternatif bir açık kaynak günlüğe kaydetme çerçevesi gibi kullanmaktır [ELMAH](https://nuget.org/packages/elmah/). Daha fazla bilgi için [Scott Hanselman'ın blog yazılarını ELMAH hakkında](https://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
 Ayrıca, ASP.NET kullanmanız gerekmez veya `System.Diagnostics` akış izleme Azure'dan günlüğe kaydeder. Akış günlüğü hizmeti Azure web uygulaması tüm akışları *.txt*, *.html*, veya *.log* içinde bulduğu dosya *LogFiles* klasör. Bu nedenle, web uygulamasının dosya sistemine yazma kendi günlük sisteminin oluşturabilir ve dosyanızı otomatik olarak akış ve indirildi. Tek yapmanız gereken dosyaları oluşturan yazma uygulama kodu olan *d:\home\logfiles* klasör.
 
@@ -686,13 +686,13 @@ Web sunucusu günlüklerini analiz etme hakkında daha fazla bilgi için aşağ�
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Web sunucusu günlüklerini verilerini görüntülemek için bir aracı (*.log* dosyaları).
-* [IIS performans sorunu veya uygulama LogParser kullanarak hataları giderme ](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [IIS performans sorunu veya uygulama LogParser kullanarak hataları giderme ](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Web sunucusu günlükleri analiz etmek için kullanabileceğiniz günlük ayrıştırıcısı aracı giriş.
 * [LogParser kullanarak Robert McMurray'tarafından blog gönderileri](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [IIS 7.0, IIS 7.5 ve IIS 8.0 HTTP durum kodu](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Başarısız istek izleme günlükleri çözümleme
-Microsoft TechNet Web içeren bir [kullanarak başarısız istek izleme](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing) bölümünde, bu günlükleri kullanmayı anlamak için yararlı olabilir. Ancak, bu belge esas olarak başarısız istek izleme Azure Web Apps'te yapamayacağınız IIS Yöneticisi'nde yapılandırma üzerinde durulmaktadır.
+Microsoft TechNet Web içeren bir [kullanarak başarısız istek izleme](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing) bölümünde, bu günlükleri kullanmayı anlamak için yararlı olabilir. Ancak, bu belge esas olarak başarısız istek izleme Azure Web Apps'te yapamayacağınız IIS Yöneticisi'nde yapılandırma üzerinde durulmaktadır.
 
 [GetStarted]: app-service-web-get-started-dotnet.md
 [GetStartedWJ]: https://github.com/Azure/azure-webjobs-sdk/wiki

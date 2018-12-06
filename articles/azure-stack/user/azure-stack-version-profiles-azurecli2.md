@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 2c862dcaf5f9267265879faa8ac927ddf7515419
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 6251a0c7fd43a12dbe02a0013f1530557d142d25
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277282"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969966"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack'te Azure CLI ile API Sürüm profillerini kullanma
 
@@ -36,7 +36,7 @@ Azure CLI ve bilgisayarınızda yüklü diğer bağımlı kitaplıkların sürü
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack CA kök sertifikasını güven
 
-1. Azure Stack CA kök sertifikası alın [, Azure Stack operatörü](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) ve buna güvenmesi. Azure Stack CA kök sertifikasına güvenmek için mevcut Python sertifikayı ekleyin.
+1. Azure Stack CA kök sertifikası alın [, Azure Stack operatörü](../azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) ve buna güvenmesi. Azure Stack CA kök sertifikasına güvenmek için mevcut Python sertifikayı ekleyin.
 
 1. Makinenizde sertifika konumu bulun. Konum, Python yüklediğiniz bağlı olarak değişiklik gösterebilir. Sahip olması gerekir [pip](https://pip.pypa.io) ve [certifi](https://pypi.org/project/certifi/) Modülü yüklü. Aşağıdaki bash isteminde Python komutunu kullanabilirsiniz:
 
@@ -242,6 +242,6 @@ CLI, Azure Stack'te kullanırken dikkat edilmesi gereken bazı bilinen sorunlar 
 
 [Şablonları Azure CLI ile dağıtma](azure-stack-deploy-template-command-line.md)
 
-[Azure Stack kullanıcıları (işleç) için Azure CLI'yi etkinleştirme](..\azure-stack-cli-admin.md)
+[Azure Stack kullanıcıları (işleç) için Azure CLI'yi etkinleştirme](../azure-stack-cli-admin.md)
 
 [Kullanıcı izinlerini yönetme](azure-stack-manage-permissions.md)

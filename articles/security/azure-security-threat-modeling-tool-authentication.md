@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: b4b6e91f9b20166f63a4710f42726bf1d4090022
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e502004db62713585d68cdda6f80b4e4024dde28
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251568"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971224"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Güvenlik çerçevesi: Kimlik doğrulaması | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
@@ -322,7 +322,7 @@ MSMQ her zaman Windows etki alanı veya sertifika kimlik doğrulaması için gel
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel, .NET Framework 3 |
 | **Öznitelikleri**              | İstemci kimlik bilgisi türü - yok |
-| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
+| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
 | **Adımları** | Kimlik doğrulaması olmaması, herkesin bu hizmete erişebilmesi için olduğu anlamına gelir. İstemcilerinden kimlik doğrulamasını yapmaz bir hizmetin, tüm kullanıcıların işlevselliğini erişmesine izin verir. İstemci kimlik bilgilerini doğrulamak için uygulamayı yapılandırma. Bu, Windows ya da sertifika aktarım clientCredentialType ayarlayarak yapılabilir. |
 
 ### <a name="example"></a>Örnek

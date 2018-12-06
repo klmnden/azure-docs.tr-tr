@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 7c67cac7a5579386921b2b949e9312cb4e5da172
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2aa59bcf0d56358601b81730abe330a56ca35d02
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984681"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966917"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Döküm ve geri yükleme kullanarak PostgreSQL veritabanınızı geçirme
 Kullanabileceğiniz [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) bir döküm dosyası bir PostgreSQL veritabanı ayıklanacak ve [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) PostgreSQL veritabanı pg_dump tarafından oluşturulan bir arşiv dosyasını geri.
@@ -71,7 +71,7 @@ Var olan PostgreSQL veritabanınızın PostgreSQL hizmeti için Azure veritaban�
     ```
 
 ### <a name="for-the-restore"></a>Geri yüklemek için
-- PostgreSQL sunucusu için geçiş yaptığınız ve ağ gecikme süresini azaltmak için o VM'den pg_restore yapmak için Azure veritabanı ile aynı bölgede bir Azure VM yedekleme dosyasını gitme öneririz. Ayrıca VM yaratılırken öneririz [accelerated networking](..\virtual-network\create-vm-accelerated-networking-powershell.md) etkin.
+- PostgreSQL sunucusu için geçiş yaptığınız ve ağ gecikme süresini azaltmak için o VM'den pg_restore yapmak için Azure veritabanı ile aynı bölgede bir Azure VM yedekleme dosyasını gitme öneririz. Ayrıca VM yaratılırken öneririz [accelerated networking](../virtual-network/create-vm-accelerated-networking-powershell.md) etkin.
 - Varsayılan olarak yapılması gerekir, ancak veri ekleme sonra create INDEX deyimi doğrulamak için döküm dosyasını açın. Böyle değilse, veri eklendikten sonra create INDEX deyimi taşıyın.
 - Anahtarlar geri yükleme -Fc ve -j *#* geri paralel hale getirmek için. *#* hedef sunucuda çekirdek sayısıdır. İle deneyebilirsiniz *#* yönelik etkisini öğrenmek için iki kez hedef sunucu çekirdek sayısı için ayarlayın. Örneğin:
 

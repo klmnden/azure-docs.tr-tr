@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: 6fb9ebe2b0afc645bbdfb6de6a8551440644fe59
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d88a82921e5baee06aacc09fafe274a8c56780c7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836092"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972414"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB veritabanı güvenliği
 
@@ -75,7 +75,7 @@ Ve bunu görünse de açık, son [büyük ölçekli veritabanı ihlallerini](htt
 |Şirketin coğrafı|Azure Cosmos DB bağımsız bölgeler (örneğin, Almanya, Çin, ABD Devleti) için veri yönetimi sağlar.|
 |Korunan tesislerde|Azure Cosmos DB'de veriler, Azure'un korumalı veri merkezlerinde ssd'lerde depolanır.<br><br>Daha fazla bilgi [Microsoft küresel veri merkezleri](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
 |HTTPS/SSL/TLS şifrelemesi|Tüm istemci hizmeti Azure Cosmos DB etkileşimleri SSL/TLS 1.2 özellikli olan. Ayrıca, tüm içi veri merkezi ve çapraz veri merkezine çoğaltma SSL/TLS 1.2 zorlanan vardır.|
-|Bekleme sırasında şifreleme|Azure Cosmos DB'ye depolanan tüm veriler bekleme durumundayken şifrelenir. Daha fazla bilgi [Azure Cosmos DB bekleme sırasında şifreleme](.\database-encryption-at-rest.md)|
+|Bekleme sırasında şifreleme|Azure Cosmos DB'ye depolanan tüm veriler bekleme durumundayken şifrelenir. Daha fazla bilgi [Azure Cosmos DB bekleme sırasında şifreleme](./database-encryption-at-rest.md)|
 |Düzeltme eki uygulama sunucuları|Yönetilen bir veritabanı Azure Cosmos DB, sizin için otomatik olarak yapılır yönetin ve sunucuları, düzeltme eki ihtiyacını ortadan kaldırır.|
 |Yönetim hesapları ile güçlü parolalar|Biz bile bu gereksinim bahsetmeniz gerekir, ancak bazı rakiplerimizin, bir yönetici hesabı parolası ile Azure Cosmos DB'de olması mümkün değildir geldiğimize inanmak.<br><br> Güvenliği SSL ve HMAC gizli tabanlı kimlik doğrulaması aracılığıyla varsayılan olarak yerleşik.|
 |Güvenlik ve veri koruma sertifikaları|Sertifikaları veri listesi kadar en genel görmek için [Azure uyumluluk site](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) aktardığınızdan yanı sıra [Azure uyumluluk belge](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) tüm sertifikaları edinerek (Cosmos arayın). 25 Nisan 2018'de post kullanıma daha odaklı okumak için [Azure #CosmosDB: güvenli, özel, uyumlu](https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/) içeren SOC 1/2 Tür 2, HITRUST, PCI DSS düzey 1, ISO 27001, HIPAA, FedRAMP yüksek ve diğer birçok.

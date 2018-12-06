@@ -4,22 +4,19 @@ description: Microsoft Azure sanal ağları hakkında sık sorulan sorulara yan�
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: tysonn
-ms.assetid: 54bee086-a8a5-4312-9866-19a1fba913d0
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 6c429931a7a17ab62892ecc774a5cca15a532f72
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 49f7e0b19f454e37e70774f3a675bd5094687114
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237643"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967087"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure sanal ağına sık sorulan sorular (SSS)
 
@@ -233,7 +230,7 @@ Evet. Küresel VNet eşlemesi, farklı bölgelerdeki sanal ağları eşlemenize 
 Evet. Farklı Azure Active Directory kiracıları için aboneliklerinizi aitse (yerel veya genel olup olmadığını) VNet eşlemesini oluşturmak mümkündür. PowerShell veya CLI bunu yapabilirsiniz. Portal henüz desteklenmiyor.
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Eşleme bağlantısını konusu Ağımda *başlatılan* durum, neden bağlanamıyorum?
-Eşleme bağlantınızda bir başlatılan durumda ise, bu yalnızca bir bağlantı oluşturduğunuz anlamına gelir. Çift yönlü bağlantı kurmak için oluşturulması gerekir bir başarıyla bağlantı. Örneğin, eş VNet A ile VNet b için bir bağlantı Sanalağa için sanalağb eşlenir ve Sanalağb Sanalağa için oluşturulması gerekir. Her iki bağlantı oluşturuluyor durumuna değiştirecek *bağlandı.*
+Eşleme bağlantınızda bir başlatılan durumda ise, bu yalnızca bir bağlantı oluşturduğunuz anlamına gelir. Başarılı bir bağlantı kurulabilmesi için çift yönlü bağlantıyı yeniden oluşturulması gerekir. Örneğin, eş VNet A ile VNet b için bir bağlantı Sanalağa için sanalağb eşlenir ve Sanalağb Sanalağa için oluşturulması gerekir. Her iki bağlantı oluşturuluyor durumuna değiştirecek *bağlandı.*
 
 ### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>Eşleme bağlantısını konusu Ağımda *bağlantısı kesilmiş* neden olamaz oluşturabilirim eşleme bağlantı durumu?
 Sanal ağ eşleme bağlantısını bağlantısı kesik durumda ise, oluşturulan bağlantılardan birini silindi anlamına gelir. Yeniden eşleme bir bağlantı kurulabilmesi için bağlantıyı silip yeniden oluşturmanız gerekir.
@@ -242,7 +239,7 @@ Sanal ağ eşleme bağlantısını bağlantısı kesik durumda ise, oluşturulan
 Evet. Abonelikler arasında ve farklı bölgelerdeki sanal ağları eşleyebilirsiniz.
 
 ### <a name="can-i-peer-two-vnets-with-matching-or-overlapping-address-ranges"></a>İki sanal ağ ile eşleşen ya da çakışan adres aralıkları eşler arası?
-Hayır. Adres alanlarından sanal ağ eşlemesi etkinleştirmek için değil overalap gerekir.
+Hayır. VNet eşlemesi etkinleştirmek için adres alanları çakışmamalıdır.
 
 ### <a name="how-much-do-vnet-peering-links-cost"></a>VNet eşlemesi bağlantı maliyeti ne kadar musunuz?
 Bir VNet eşleme bağlantısı oluşturmak için ücret alınmaz. Eşleme bağlantıları arasında veri aktarımı ücretlendirilir. [Burada gördüğünüz](https://azure.microsoft.com/pricing/details/virtual-network/).
@@ -257,7 +254,7 @@ Sanal ağ eşleme bağlantılarını gitmesi *bağlantısı kesilmiş* bir VNet 
 Hayır. Geçişli eşleme desteklenmiyor. C ve VNetC Bunun gerçekleşmesi için eş gerekir.
 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Eşleme bağlantıları için herhangi bir bant genişliği sınırlaması var mı?
-Hayır. VNet eşlemesi, yerel veya genel bant genişliği kısıtlamalar uygulamaz. Yalnızca VM veya işlem kaynak sınırları bant genişliğidir.
+Hayır. VNet eşlemesi, yerel veya genel bant genişliği kısıtlamalar uygulamaz. Bant genişliği, VM veya işlem kaynağı tarafından yalnızca sınırlıdır.
 
 ## <a name="virtual-network-tap"></a>Sanal ağ TAP
 
@@ -280,3 +277,108 @@ Sanal ağ TAP Geliştirici Önizleme aşamasındadır. Önizleme sırasında hiz
 ### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>Hızlandırılmış için ağ [Linux](create-vm-accelerated-networking-cli.md) veya [Windows](create-vm-accelerated-networking-powershell.md) desteklenen sanal ağ TAP?
 
 Bir DOKUNUN yapılandırması ile hızlandırılmış ağ etkin bir sanal makineye bağlı ağ arabirimi eklemek mümkün olacaktır. Ancak, sanal makinede gecikme süresi ve performans yük boşaltma trafiği yansıtma için şu anda Azure tarafından desteklenmediğinden DOKUNUN yapılandırma hızlandırılmış ağ bağlantısı ekleyerek etkilenecek.
+
+## <a name="virtual-network-service-endpoints"></a>Sanal ağ hizmeti uç noktaları
+
+### <a name="what-is-the-right-sequence-of-operations-to-set-up-service-endpoints-to-an-azure-service"></a>Bir Azure hizmeti için hizmet uç noktaları ayarlama işlemlerini doğru dizi nedir?
+Bir hizmet uç noktaları aracılığıyla Azure hizmet kaynağıyla güvenliğini sağlamak için iki adımı vardır:
+1. Azure hizmeti için hizmet uç noktalarını etkinleştirin.
+2. Sanal ağ ACL'leri Azure hizmetini ayarlayın.
+
+İlk adım bir ağ tarafı işlemi ve ikinci adım bir hizmet kaynak tarafı işlemi. Adımların ikisini de aynı yönetici veya yönetici rolüne RBAC izinler göre farklı yöneticiler tarafından gerçekleştirilebilir. İlk üzerinde hizmet uç noktaları Azure hizmet tarafında VNet ACL'leri ayarı önce sanal ağınız için kapatmanızı öneririz. Bu nedenle, sanal ağ hizmet uç noktalarını ayarlamak için yukarıda listelenen sırayla adımların gerçekleştirilmesi gerekir.
+
+>[!NOTE]
+> Yukarıda açıklanan iki işlem izin verilen VNet ve alt ağ için Azure hizmet erişimini sınırlayabilirsiniz önce tamamlanması gerekir. Yalnızca ağ tarafında Azure hizmeti için hizmet uç noktası açmak, sınırlı erişim sağlamaz. Ayrıca, Azure hizmet tarafında de VNet ACL'leri ayarlamanız gerekir.
+
+Özel durumlar için yukarıdaki sırasıyla belirli hizmetler (örneğin, SQL ve CosmosDB) izin **IgnoreMissingVnetServiceEndpoint** bayrağı. Bayrağı ayarlandığında **True**, sanal ağ ACL'leri, ağ tarafında hizmet uç noktaları ayarlama önce Azure hizmet tarafında ayarlanabilir. Burada, belirli IP Güvenlik Duvarı Azure hizmetlerinde yapılandırılır ve genel IPv4 adresine kaynak IP değişir olduğundan, hizmet uç noktalarını ağ tarafında açmak için bir bağlantı bırakma neden olabilir durumlarda müşterilere yardımcı olmak için bu bayrağı Azure hizmetleri sağlama özel bir adresi. Hizmet uç noktaları ağ tarafta ayarlamadan önce Azure hizmet tarafında VNet ACL'leri ayarı, bağlantı bırakma önlemeye yardımcı olabilir.
+
+### <a name="do-all-azure-services-reside-in-the-azure-virtual-network-provided-by-the-customer-how-does-vnet-service-endpoint-work-with-azure-services"></a>Tüm Azure Hizmetleri müşteri tarafından sağlanan Azure sanal ağ alanında bulunan? Sanal ağ hizmet uç noktası, Azure Hizmetleri ile nasıl çalışır?
+
+Hayır, tüm Azure Hizmetleri, müşterinin sanal ağında bulunur. Azure depolama, Azure SQL ve Azure Cosmos DB, genel IP adresleri üzerinden erişilebilen çok kiracılı hizmetler gibi Azure veri çoğunluğu Hizmetleri. Azure Hizmetleri için sanal ağ tümleştirmesi hakkında daha fazla bilgi [burada](virtual-network-for-azure-services.md). 
+
+(Sanal ağ hizmet uç noktası ağ tarafında açmak ve Azure hizmet tarafında uygun sanal ağ ACL'leri ayarlama) sanal ağ hizmet uç noktaları özelliği kullandığınızda, izin verilen bir VNet ve alt ağ bir Azure hizmetine erişimi sınırlıdır.
+
+### <a name="how-does-vnet-service-endpoint-provide-security"></a>Sanal ağ hizmet uç noktası güvenlik nasıl sağlar?
+
+(Sanal ağ hizmet uç noktası ağ tarafında açmak ve Azure hizmet tarafında uygun sanal ağ ACL'leri ayarlama) sanal ağ hizmet uç noktası özelliği izin verilen VNet ve alt ağ, ağ düzeyinde güvenlik ve yalıtım, bu nedenle sağlayan Azure hizmet erişimi sınırlar Azure hizmet trafiği. Tüm trafiği sanal ağ hizmet uç noktaları kullanarak, bu nedenle genel internet'ten başka bir yalıtım katmanı sağlayarak, Microsoft omurga üzerinden akar. Ayrıca, müşteriler Azure hizmet kaynaklarının genel Internet erişimini tamamen kaldırmak ve yalnızca kendi sanal ağ IP Güvenlik Duvarı ve sanal ağ ACL'leri, bu nedenle Azure hizmet kaynaklarının yetkisiz gelen koruma bir birleşimi yoluyla gelen trafiğe izin vermeyi seçebilir erişim.      
+
+### <a name="what-does-the-vnet-service-endpoint-protect---vnet-resources-or-azure-service"></a>Ne yaptığını sanal ağ hizmet uç noktası koruma - ağ kaynakları veya Azure hizmeti mi?
+Sanal ağ hizmet uç noktaları, Azure hizmet kaynaklarının korunmasına yardımcı olur. Sanal ağ kaynakları, ağ güvenlik grupları (Nsg'ler) korunur.
+
+### <a name="is-there-any-cost-for-using-vnet-service-endpoints"></a>Sanal ağ hizmet uç noktalarının kullanımından herhangi bir maliyet var mı?
+
+Hayır, sanal ağ hizmet uç noktalarının kullanımından ek ücret yoktur.
+
+### <a name="can-i-turn-on-vnet-service-endpoints-and-set-up-vnet-acls-if-the-virtual-network-and-the-azure-service-resources-belong-to-different-subscriptions"></a>Sanal ağ hizmet uç noktaları üzerinde etkinleştirmek ve miyim sanal ağ ve Azure hizmet kaynaklarının farklı aboneliklere ait sanal ağ ACL'leri verilirse?
+
+Evet, olabilir. Sanal ağlar ve Azure hizmet kaynakları aynı veya farklı Aboneliklerde olabilir. Sanal ağ ve Azure hizmet kaynakları aynı Active Directory (AD) kiracısı altında olması gerekir, tek gereksinim olmasıdır.
+
+### <a name="can-i-turn-on-vnet-service-endpoints-and-set-up-vnet-acls-if-the-virtual-network-and-the-azure-service-resources-belong-to-different-ad-tenants"></a>Sanal ağ hizmet uç noktaları üzerinde etkinleştirmek ve miyim sanal ağ ve Azure hizmet kaynaklarının farklı AD kiracılara ait sanal ağ ACL'leri verilirse?
+Hayır, sanal ağ hizmet uç noktaları ve sanal ağ ACL'leri AD kiracılarında desteklenmez.
+
+### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-express-route-gateway-access-azure-paas-service-over-vnet-service-endpoints"></a>Azure sanal ağ geçidi (VPN) veya Express route ağ geçidi bağlanan bir şirket içi cihazın IP adresi, sanal ağ hizmet uç noktaları Azure PaaS hizmeti erişebilir miyim?
+Varsayılan olarak sanal ağlara ayrılmış olan Azure hizmeti kaynaklarına şirket içi ağlardan erişmek mümkün değildir. Şirket içi gelen trafiğe izin vermek istiyorsanız, genel (genelde NAT) IP de izin vermeniz gerekir, şirket içi ya da ExpressRoute adreslerinden. Bu IP adresleri IP güvenlik duvarı yapılandırması Azure hizmet kaynakları için eklenebilir.
+
+### <a name="can-i-use-vnet-service-endpoint-feature-to-secure-azure-service-to-multiple-subnets-with-in-a-virtual-network-or-across-multiple-virtual-networks"></a>Azure hizmeti için birden çok alt ağa sahip bir sanal ağdaki veya birden çok sanal ağ arasında güvenli hale getirmek için sanal ağ hizmet uç noktası özelliğini kullanabilir miyim?
+Bir sanal ağ içindeki veya birden çok sanal ağda birden fazla alt ağdaki Azure hizmetlerinin güvenliğini sağlamak için hizmet uç noktaları her alt ağ tarafında ayrı ayrı etkinleştirebilir ve oluşturarak tüm alt ağların Azure hizmet kaynaklarını güvenli hale getirme Azure Hizmet tarafı uygun VNet ACL'ler.
+ 
+### <a name="how-can-i-filter-outbound-traffic-from-a-virtual-network-to-azure-services-and-still-use-service-endpoints"></a>Nasıl Azure Hizmetleri için sanal ağdan giden trafiği filtrelemek ve hizmet uç noktaları kullanmaya devam?
+Sanal ağdan bir Azure hizmetine giden trafiği incelemek veya filtrelemek istiyorsanız, sanal ağda ağ sanal Gereci dağıtabilirsiniz. Ardından, ağ sanal gerecinin dağıtılmış ve güvenli Azure hizmet kaynağını yalnızca bu alt ağ ile sanal ağ ACL'leri olduğu alt ağ hizmet uç noktaları uygulayabilirsiniz. Bu senaryo Azure hizmet erişimini ağ sanal Gereci filtresi kullanarak yalnızca belirli Azure kaynaklarına sanal ağınızdan kısıtlamak istiyorsanız yararlı olabilir. Daha fazla bilgi için bkz. [Ağ sanal gereçleri ile çıkış](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+### <a name="what-happens-when-you-access-an-azure-service-account-that-has-virtual-network-access-control-list-acl-enabled-from-outside-the-vnet"></a>VNet dışından gelen etkin sanal ağ erişim denetimi listesi (ACL) sahip bir Azure hizmeti hesabına eriştiğinde ne olur?
+HTTP 404 hatası döndürülür.
+
+### <a name="are-subnets-of-a-virtual-network-created-in-different-regions-allowed-to-access-an-azure-service-account-in-another-region"></a>Başka bir bölgede bir Azure hizmeti hesabına erişmesi için izin verilen farklı bölgelerde oluşturulmuş sanal ağ alt ağları misiniz? 
+Evet, Azure hizmetlerinin çoğu için farklı bölgelerde oluşturulmuş sanal ağlar başka bir bölgede Azure hizmetlerini sanal ağ hizmet uç noktaları yoluyla erişebilirsiniz. Örneğin, bir Azure Cosmos DB hesabı Batı ABD veya Doğu ABD ve sanal ağları birden çok bölgede sanal ağı Azure Cosmos DB erişebilirsiniz. Depolama ve SQL özel durumlar ve doğası gereği Bölgesel ve hem sanal ağ hem de Azure hizmetiyle aynı bölgede olması gerekir.
+  
+### <a name="can-an-azure-service-have-both-vnet-acl-and-an-ip-firewall"></a>Bir Azure hizmeti, VNet ACL hem bir IP Güvenlik Duvarı olabilir mi?
+Evet, sanal ağ ACL'si ve bir IP Güvenlik Duvarı'nı birlikte bulunabilir. Her iki özellik, diğer yalıtım ve güvenlik sağlamak için tamamlar.
+ 
+### <a name="what-happens-if-you-delete-a-virtual-network-or-subnet-that-has-service-endpoint-turned-on-for-azure-service"></a>Bir sanal ağ veya Azure hizmeti için açık hizmet uç noktası olan alt ağ'ı silersem ne olur?
+Sanal ağlar ve alt ağları silinmesini bağımsız işlemler ve hatta hizmet uç noktaları Azure Hizmetleri için açık olduğunda desteklenir. Azure hizmetlerinin VNet, bu sanal ağlar ve alt ağlar için ayarlama ACL'leri sahip olduğu durumlarda bir VNet veya VNet Hizmeti uç noktası açık olan alt silindiğinde ile Azure hizmet devre dışı bırakılmış VNet ACL'leri bilgileri ilişkili.
+ 
+### <a name="what-happens-if-azure-service-account-that-has-vnet-service-endpoint-enabled-is-deleted"></a>VNet Hizmeti uç noktası etkin olan Azure hizmet hesabı silinirse ne olur?
+Azure hizmet hesabının silinmesini bağımsız bir işlemdir ve hizmet uç noktası ağ tarafta etkinleştirilir ve sanal ağ ACL'leri Azure hizmet tarafında ayarlanır bile desteklenir. 
+
+### <a name="what-happens-to-the-source-ip-address-of-a-resource-like-a-vm-in-a-subnet-that-has-vnet-service-endpoint-enabled"></a>Sanal ağ hizmet uç noktası etkin olan bir kaynağın (örneğin, bir VM alt ağ) kaynak IP adresine ne olacak?
+Sanal ağ hizmet uç noktaları etkin olduğunda, kaynak IP adresleri, sanal ağınızın alt ağdaki kaynaklara anahtarları Azure hizmeti trafiği için Azure sanal ağ özel IP adresleri genel IPv4 adresi kullanarak. Bu Azure Hizmetleri başarısız için genel bir IPv4 adresi için daha önce ayarlanan belirli bir IP Güvenlik Duvarı neden olabileceğini unutmayın. 
+
+### <a name="does-service-endpoint-route-always-take-precedence"></a>Hizmet uç noktası rotası her zaman öncelikli mu?
+Hizmet uç noktaları BGP yolları önceliklidir ve en uygun yönlendirme sağlamak için hizmet uç noktası trafiğini bir sistem yolu ekleyin. Hizmet uç noktaları, Microsoft Azure omurga ağı üzerinde her zaman hizmet trafiğini sanal ağınızdan doğrudan hizmete yönlendirir. [Azure sanal ağ trafiği yönlendirme] nasıl Azure yol seçtiği hakkında daha fazla bilgi için bkz. (sanal-ağ-udr-overview.md).
+ 
+### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>NSG bir alt ağdaki hizmet uç noktaları ile nasıl çalışır?
+Azure hizmete erişmek için Nsg'ler giden bağlantıya izin gerekir. Tüm İnternet'e giden trafik, Nsg'ler açtıysanız, hizmet uç noktası trafiğini çalışması gerekir. Yalnızca hizmet etiketleri kullanarak IP hizmetine giden trafiği de sınırlayabilirsiniz.  
+ 
+### <a name="what-permissions-do-i-need-to-set-up-service-endpoints"></a>Hizmet uç noktalarını ayarlamak hangi izinlerin gerekiyor?
+Hizmet uç noktaları sanal ağda birbirinden bağımsız olarak sanal ağda yazma erişimine sahip bir kullanıcı tarafından yapılandırılabilir. Azure hizmet kaynaklarını bir sanal ağ ile sınırlamak için kullanıcının eklenen alt ağlarda **Microsoft.Network/JoinServicetoaSubnet** iznine sahip olması gerekir. Bu izin, varsayılan olarak yerleşik Hizmet Yöneticisi rolü dahil edilir ve özel roller oluşturularak değiştirilebilir. Yerleşik rolleri hakkında daha fazla bilgi edinin ve belirli izinlerin atanması [özel roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json).
+ 
+
+### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>Azure Hizmetleri için sanal ağ trafiği yalnızca belirli bir azure hizmet kaynakları sanal ağ hizmet uç noktaları izin vererek filtre sağlayabilirsiniz? 
+
+Sanal ağ (VNet) hizmet uç noktası ilkelerini yalnızca belirli bir Azure hizmet kaynaklarını hizmet uç noktaları izin vererek, Azure Hizmetleri için sanal ağ trafiğini filtreleme olanak sağlar. Uç noktası ilkeleri, Azure Hizmetleri için sanal ağ trafiğinden ayrıntılı erişim denetimi sağlar. Hizmet uç noktası ilkeleri hakkında daha fazla bilgi [burada](virtual-network-service-endpoint-policies-overview.md).
+ 
+### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>Herhangi bir sınır üzerinde kaç tane sanal ağ hizmet uç noktaları miyim my sanal ağdan ayarlayabilirsiniz vardır?
+Sanal ağ hizmet uç noktaları bir sanal ağdaki toplam sayısına bir sınır yoktur. Bir Azure hizmet kaynağında (Azure Depolama hesabı gibi), hizmetler kaynağın güvenliğini sağlamak amacıyla kullanılan alt ağ sayısını sınırlandırabilir. Aşağıdaki tabloda bazı örnek sınırlar gösterilmektedir: 
+
+|||
+|---|---|
+|Azure hizmeti| Sanal ağ kuralları sınırlamaları|
+|Azure Storage| 100|
+|Azure SQL| 128|
+|Azure SQL Veri Ambarı|  128|
+|Azure anahtar kasası|    128|
+|Azure Cosmos DB|   64|
+|Azure Olay Hub'ı|   128|
+|Azure Service Bus| 128|
+|Azure Data Lake Store V1|  100|
+ 
+>[!NOTE]
+> Sınırları, bağlı olarak Azure hizmet değişikliklerini tabi. Hizmetler ayrıntılarını ilgili hizmet belgesine bakın. 
+
+
+
+
+  
+
+
+

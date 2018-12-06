@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: c8a100577ba4bc67d12c7376b5897f397d010d4d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1512098c29c8916a0486ed66b438654ba29f0601
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844932"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968246"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL veritabanı yönetilen örneği'nın kaynak sınırları genel bakış
 
@@ -52,8 +52,12 @@ Azure SQL veritabanı yönetilen örneği, iki donanım oluşturma (4. nesil ve 
 | En büyük depolama boyutu | 8 TB | Gen 4: 1 TB <br/> 5. nesil: <br/>-1 TB 8, 16 sanal çekirdek<br/>-24 sanal çekirdek 2 TB<br/>-32, 40, 64 4 TB 80 sanal çekirdekler |
 | Veritabanı başına maks. depolama | Örnek başına en fazla depolama boyutu tarafından belirlenir. | Örnek başına en fazla depolama boyutu tarafından belirlenir. |
 | En fazla örnek başına veritabanı sayısı | 100 | 100 |
-| Örnek başına en fazla veritabanı dosyaları | En fazla 280 | Sınırsız |
-| GÇ verimliliği (yaklaşık) | Çekirdek başına 5000 IOPS'yi 200.000 maksimum IOPS ile |
+| Örnek başına en fazla veritabanı dosyaları | En fazla 280 | Veritabanı başına 32.767 dosyaları |
+| IOPS (yaklaşık) | dosya başına 500-7500<br/>\*[Dosya boyutuna bağlıdır](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (1375 sanal çekirdek başına) |
+| GÇ gecikmesi (yaklaşık) | 5-10 ms | 1-2 ms |
+| En fazla tempDB boyutu | 192 1920 GB (24 GB sanal çekirdek başına) | Örnek başına en fazla depolama boyutu tarafından belirlenir. |
+
+- En fazla depolama boyutu sınırı ile karşılaştırıldığında örnek depolama boyutu hem kullanıcı hem de sistem veritabanları dahil edilmiştir. Kullanım <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> toplam alanı veritabanı tarafından kullanılan belirlemek için sistem görünümü. Hata günlüklerini kalıcı değildir ve boyutu dahil değildir. Yedekleme depolama boyutu dahil edilmez.
 
 ## <a name="supported-regions"></a>Desteklenen bölgeler
 

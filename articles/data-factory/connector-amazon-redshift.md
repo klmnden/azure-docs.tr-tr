@@ -1,6 +1,6 @@
 ---
-title: Amazon Azure Data Factory kullanarak Redshift veri kopyalama | Microsoft Docs
-description: Verileri Amazon Redshift desteklenen havuz veri depoları için Azure Data Factory kullanarak kopyalama hakkında bilgi edinin.
+title: Azure Data Factory kullanarak Amazon Redshift'ten verileri kopyalama | Microsoft Docs
+description: Desteklenen bir havuz veri depolarına Amazon Redshift'ten Azure Data Factory kullanarak veri kopyalama hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,54 +13,54 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 6d36733b63645fd86580ccdc5af756739f77338c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 686b602828856e75300152c41bfe4c35cd6a8219
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048154"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970170"
 ---
-# <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Amazon Azure Data Factory kullanarak Redshift veri kopyalama
+# <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Azure Data Factory kullanarak Amazon Redshift'ten verileri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-amazon-redshift-connector.md)
 > * [Geçerli sürüm](connector-amazon-redshift.md)
 
 
-Bu makalede kopya etkinliği Azure Data Factory'de bir Amazon Redshift verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
+Bu makalede, kopyalama etkinliği Azure Data Factory'de veri bir Amazon Redshift'ten kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Verileri Amazon Redshift tüm desteklenen havuz veri deposuna kopyalayabilirsiniz. Kaynakları/havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+Amazon Redshift'ten verileri desteklenen havuz veri deposuna kopyalayabilirsiniz. Kaynakları/havuz kopyalama etkinliği tarafından desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
-Özellikle, bu Amazon Redshift bağlayıcı sorgu veya yerleşik Redshift UNLOAD destek kullanarak Redshift veri alma destekler.
+Özellikle, bu Amazon Redshift Bağlayıcısı sorgu veya yerleşik Redshift'i Kaldır Destek kullanarak Redshift'ten verileri alınırken destekler.
 
 > [!TIP]
-> Büyük miktarlarda verinin Redshift kopyalarken en iyi performansı elde etmek için yerleşik Redshift UNLOAD Amazon S3 aracılığıyla kullanmayı düşünün. Bkz [Amazon Redshift verileri kopyalamak için kullanım UNLOAD](#use-unload-to-copy-data-from-amazon-redshift) ayrıntıları bölümü.
+> Büyük miktarlarda verinin Redshift'ten kopyalama işlemi sırasında en iyi performansı elde etmek için yerleşik Redshift'i Kaldır aracılığıyla Amazon S3 kullanmayı düşünün. Bkz: [kullanım verileri Amazon Redshift'ten kopyalamak için kaldırma](#use-unload-to-copy-data-from-amazon-redshift) ayrıntıları bölümü.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Kopyalama yapıyorsanız bir şirket içi veri veri depolamak kullanarak [Self-hosted tümleştirmesi çalışma zamanı](create-self-hosted-integration-runtime.md), tümleştirme çalışma zamanı (makinenin IP adresini kullan) Amazon Redshift kümesine erişimi verin. Bkz: [küme erişim yetkisi](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) yönergeler için.
-* Bir Azure veri deposuna veri kopyalama olup [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653) işlem IP adresi ve Azure veriler tarafından kullanılan SQL aralıkları için merkezleri.
+* Kopyalamakta olduğunuz, şirket içi veriler için veri depolamak kullanarak [şirket içinde barındırılan tümleştirme çalışma zamanı](create-self-hosted-integration-runtime.md), Integration Runtime (makinenin IP adresini kullan) Amazon Redshift kümesine erişim. Bkz: [kümeye erişim yetkisi](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) yönergeler için.
+* Bir Azure veri deposuna veri kopyalama olup [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653) işlem IP adresi ve Azure veri tarafından kullanılan SQL aralıkları ortalar.
 
 ## <a name="getting-started"></a>Başlarken
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Aşağıdaki bölümler, Amazon Redshift bağlayıcıya Data Factory varlıklarını belirli tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
+Aşağıdaki bölümler, Amazon Redshift Bağlayıcısı özel Data Factory varlıkları tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
-## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
+## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
 
-Aşağıdaki özellikler, Amazon Redshift bağlantılı hizmeti için desteklenir:
+Amazon Redshift bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **AmazonRedshift** | Evet |
-| sunucu |IP adresi veya ana bilgisayar Amazon Redshift sunucunun adıdır. |Evet |
-| port |İstemci bağlantılarını dinlemek için Amazon Redshift sunucunun kullandığı TCP bağlantı noktası numarası. |Hayır, varsayılan 5439 yöneliktir |
+| sunucu |IP adresi veya ana bilgisayar adı Amazon Redshift sunucusunun. |Evet |
+| port |Amazon Redshift sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası sayısı. |Hayır, 5439 varsayılandır |
 | veritabanı |Amazon Redshift veritabanının adı. |Evet |
 | kullanıcı adı |Veritabanına erişimi olan kullanıcı adı. |Evet |
-| password |Kullanıcı hesabının parolası. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). |Evet |
-| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
+| password |Kullanıcı hesabı için parola. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). |Evet |
+| connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel ağında bulunuyorsa), Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
 **Örnek:**
 
@@ -90,14 +90,14 @@ Aşağıdaki özellikler, Amazon Redshift bağlantılı hizmeti için destekleni
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
-Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için veri kümeleri makalesine bakın. Bu bölümde, Amazon Redshift veri kümesi tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için veri kümeleri makalesine bakın. Bu bölümde, Amazon Redshift veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Amazon Redshift verileri kopyalamak için kümesine tür özelliği ayarlamak **RelationalTable**. Aşağıdaki özellikler desteklenir:
+Verileri Amazon Redshift'ten kopyalamak için dataset öğesinin type özelliği ayarlamak **RelationalTable**. Aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Veri kümesi türü özelliği ayarlamak: **RelationalTable** | Evet |
-| tableName | Amazon Redshift tablo adı. | ("Sorgu" etkinliği kaynağındaki belirtilmişse) yok |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **RelationalTable** | Evet |
+| tableName | Amazon Redshift veritabanındaki tablo adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -118,21 +118,21 @@ Amazon Redshift verileri kopyalamak için kümesine tür özelliği ayarlamak **
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
-Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde, Amazon Redshift kaynak tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, Amazon Redshift kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
 ### <a name="amazon-redshift-as-source"></a>Amazon Redshift kaynağı olarak
 
-Amazon Redshift verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **AmazonRedshiftSource**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **kaynak** bölümü:
+Verileri Amazon Redshift'ten kopyalamak için kopyalama etkinliği kaynak türünü ayarlayın. **AmazonRedshiftSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **AmazonRedshiftSource** | Evet |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: seçin * from MyTable. |(Veri kümesinde "tableName" belirtilmişse) yok |
-| redshiftUnloadSettings | Amazon Redshift UNLOAD kullanırken özellik grubu. | Hayır |
-| s3LinkedServiceName | Bir Amazon S3 to-edilecek geçici bir depolama alanı olarak kullanılan "AmazonS3" türünün bir bağlantılı hizmet adı belirterek başvuruyor. | UNLOAD kullanıyorsanız Evet |
-| bucketName | Geçici verileri depolamak için S3 demetini gösterir. Sağlanmazsa, Data Factory hizmeti bunu otomatik olarak oluşturur.  | UNLOAD kullanıyorsanız Evet |
+| type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **AmazonRedshiftSource** | Evet |
+| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: seçin * MyTable öğesinden. |Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| redshiftUnloadSettings | Amazon Redshift kaldırma kullanırken özellik grubu. | Hayır |
+| s3LinkedServiceName | Bir Amazon S3 How-to-edilecek bir geçiş deposu olarak kullanılan "AmazonS3" türündeki bağlı hizmetin adı belirterek başvuruyor. | UNLOAD kullanıyorsanız Evet |
+| bucketName | Geçici verileri depolamak için S3 demetini gösterir. Sağlanmazsa, Data Factory hizmeti, otomatik olarak oluşturur.  | UNLOAD kullanıyorsanız Evet |
 
-**Örnek: Amazon Redshift kaynağında UNLOAD kullanarak kopyalama etkinliği**
+**Örnek: UNLOAD kullanarak kopyalama etkinliği, Amazon Redshift kaynak**
 
 ```json
 "source": {
@@ -148,17 +148,17 @@ Amazon Redshift verileri kopyalamak için kopyalama etkinliği için kaynak tür
 }
 ```
 
-UNLOAD Amazon Redshift sonraki bölümünden verimli bir şekilde veri kopyalamak için nasıl kullanılacağı hakkında daha fazla bilgi edinin.
+Verileri verimli bir şekilde bir sonraki bölümden Amazon redshift'ten kopyalamak için Kaldır'ı kullanma hakkında daha fazla bilgi edinin.
 
-## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>UNLOAD Amazon Redshift verileri kopyalamak için kullanın
+## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Verileri Amazon Redshift'ten kopyalamak için Kaldır'ı kullanın
 
-[UNLOAD](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) Amazon Basit Depolama Birimi Hizmeti (Amazon S3) üzerindeki bir veya daha fazla dosyalarına bir sorgunun sonuçlarını unload Amazon Redshift tarafından sağlanan bir mekanizması. Amazon tarafından Redshift büyük bir veri kümesinin kopyalamak için önerilen yoldur.
+[UNLOAD](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) Amazon Redshift, Amazon basit depolama hizmeti (Amazon S3 için) bir veya daha fazla dosyaları için bir sorgunun sonuçlarını kaldırmak tarafından sağlanan bir mekanizma. Tarafından Amazon Redshift'ten büyük veri kümesi kopyalamak için önerilen yoldur.
 
-**Örnek: veri Amazon Redshift Azure SQL veri kaldırma, hazırlanmış Kopyala ve PolyBase kullanarak ambarına kopyalama**
+**Örnek: veri Amazon Redshift'ten Azure SQL kaldırma, hazırlanmış kopya ve PolyBase kullanarak veri ambarı için kopyalama**
 
-Bu örnek için kullanım örneği, etkinlik bellekten verilerini Amazon Redshift Amazon S3 "redshiftUnloadSettings" ve verilerini Amazon S3 Azure Blob "stagingSettings" belirtildiği gibi yapılandırıldığı gibi son PolyBase verileri SQL veri yüklemek için kullanın Ambar. Tüm iç biçimi kopyalama etkinliği tarafından düzgün bir şekilde ele alınır.
+Bu örnek için kullanım örneği, Amazon S3 için Amazon redshift'ten kopyalama etkinliği bellekten veri "redshiftUnloadSettings" ve veri kopyalama Amazon S3'ndan Azure Blob için "stagingSettings" belirtildiği gibi yapılandırılmış olarak son verileri SQL veri yüklemek için PolyBase kullanın Ambarı. Tüm iç biçimi, kopyalama etkinliği tarafından düzgün bir şekilde ele alınır.
 
-![SQL DW kopyalama iş akışı için Redshift](media\copy-data-from-amazon-redshift\redshift-to-sql-dw-copy-workflow.png)
+![SQL DW kopyalama iş akışı için Redshift](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 "activities":[
@@ -206,7 +206,7 @@ Bu örnek için kullanım örneği, etkinlik bellekten verilerini Amazon Redshif
 
 ## <a name="data-type-mapping-for-amazon-redshift"></a>Amazon Redshift için veri türü eşlemesi
 
-Amazon Redshift veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Amazon Redshift veri türlerinden Azure Data Factory geçici veri türleri için kullanılır. Bkz: [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md) nasıl kopyalama etkinliği kaynak şema ve veri türü için havuz eşlemeleri hakkında bilgi edinmek için.
+Verileri Amazon Redshift'ten kopyalama yapılırken, aşağıdaki eşlemeler Amazon Redshift veri türlerinden Azure veri fabrikası geçici veri türleri için kullanılır. Bkz: [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md) eşlemelerini nasıl yapar? kopyalama etkinliği kaynak şema ve veri türü için havuz hakkında bilgi edinmek için.
 
 | Amazon Redshift veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
@@ -215,7 +215,7 @@ Amazon Redshift veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Am
 | CHAR |Dize |
 | DATE |DateTime |
 | ONDALIK |Ondalık |
-| ÇİFT DUYARLIKLI |çift |
+| ÇİFT DUYARLIK |çift |
 | TAMSAYI |Int32 |
 | GERÇEK |Tek |
 | TAMSAYI |Int16 |
@@ -224,4 +224,4 @@ Amazon Redshift veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Am
 | VARCHAR |Dize |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kaynakları ve havuzlarını Azure Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md##supported-data-stores-and-formats).
+Azure Data Factory kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md##supported-data-stores-and-formats).

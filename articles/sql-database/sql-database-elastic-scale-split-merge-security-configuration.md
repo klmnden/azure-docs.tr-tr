@@ -3,21 +3,21 @@ title: Ayırma-birleştirme güvenliği yapılandırma | Microsoft Docs
 description: X409 ayarlamak için esnek ölçeklendirme ayırma/birleştirme hizmetiyle şifreleme için sertifikalar.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: VanMSFT
+ms.author: vanto
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 6967805044bb11e9aed3fe66d580df059f7a461a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.openlocfilehash: 06e9b443c5b0dc1c23b325c7127511f8542a1a11
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231406"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964841"
 ---
 # <a name="split-merge-security-configuration"></a>Ayırma-birleştirme güvenliği yapılandırma
 Ayırma/birleştirme hizmetini kullanmak için doğru güvenlik yapılandırmanız gerekir. Hizmet, Microsoft Azure SQL veritabanı'nın esnek ölçeklendirme özelliği bir parçasıdır. Daha fazla bilgi için [esnek ölçek bölme ve birleştirme Service Öğreticisi](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -142,7 +142,7 @@ Algılama ve hizmet reddi saldırılarını önlemek için desteklenen iki farkl
 Bunlar daha fazla IIS dinamik IP güvenlik konusunda belgelenen özellikleri temel alır. Ne zaman bu yapılandırmasının değiştirilmesi aşağıdaki etmenlere dikkat:
 
 * Proxy ve ağ adresi çevirisi cihazlar üzerinde uzak konak bilgilerini davranışı
-* Her isteğin web rolünde herhangi bir kaynağa (örneğin yükleniyor komut dosyaları, görüntüler vb.) olarak kabul edilir
+* Her isteğin web rolünde herhangi bir kaynağa (örneğin yüklenirken komut dosyaları, görüntüler vb.) olarak kabul edilir
 
 ## <a name="restricting-number-of-concurrent-accesses"></a>Eş zamanlı erişimi sayısını sınırlandırma
 Bu davranış yapılandırdığınız ayarlar şunlardır:
@@ -166,7 +166,7 @@ Reddedilen bir isteğin yanıtını aşağıdaki ayarı yapılandırır:
 Desteklenen diğer değerler için dinamik IP Güvenlik IIS'de belgelere bakın.
 
 ## <a name="operations-for-configuring-service-certificates"></a>Hizmet sertifikaları yapılandırma işlemleri
-Bu konu, yalnızca başvuru amacıyla kullanılır. Lütfen bölümünde açıklanan yapılandırma adımlarını izleyin:
+Bu konu, yalnızca başvuru amacıyla kullanılır. Bölümünde açıklanan yapılandırma adımlarını izleyin:
 
 * SSL sertifikası yapılandırma
 * İstemci sertifikaları yapılandırma
@@ -178,7 +178,7 @@ Yürütün:
       -n "CN=myservice.cloudapp.net" ^
       -e MM/DD/YYYY ^
       -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -sv MySSL.pvk MySSL.cer
 
 Özelleştirme için:
@@ -221,9 +221,9 @@ Tüm hesap / hizmetiyle iletişim kuracak makinede aşağıdaki adımları izley
 * Güvenilen Kök Sertifika Yetkilileri deposuna sertifika İçeri Aktar
 
 ## <a name="turn-off-client-certificate-based-authentication"></a>İstemci sertifika tabanlı kimlik doğrulamasını devre dışı Aç
-Yalnızca istemci sertifika tabanlı kimlik doğrulaması desteklenir ve başka mekanizmalar karşılandığından (örneğin Microsoft Azure sanal ağı) sürece devre dışı bırakılması hizmet uç noktalarına erişimine izin verir.
+Yalnızca istemci sertifika tabanlı kimlik doğrulaması desteklenir ve başka mekanizmalar karşılandığından (örneğin, Microsoft Azure sanal ağı) sürece devre dışı bırakılması hizmet uç noktalarına erişimine izin verir.
 
-Bu ayarlar, hizmet yapılandırma dosyasında özelliği kapatmak için false değiştirin:
+Bu ayarlar, hizmet yapılandırma dosyasında özelliği devre dışı bırakmak için false değiştirin:
 
     <Setting name="SetupWebAppForClientCertificates" value="false" />
     <Setting name="SetupWebserverForClientCertificates" value="false" />
@@ -239,7 +239,7 @@ Bir sertifika yetkilisi olarak davranacak şekilde otomatik olarak imzalanan bir
     -n "CN=MyCA" ^
     -e MM/DD/YYYY ^
      -r -cy authority -h 1 ^
-     -a sha1 -len 2048 ^
+     -a sha256 -len 2048 ^
       -sr localmachine -ss my ^
       MyCA.cer
 
@@ -280,7 +280,7 @@ Aşağıdaki ayarı değerini aynı parmak izine sahip güncelleştirin:
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
 
 ## <a name="issue-client-certificates"></a>İstemci sertifikaları
-Her hizmete erişmek için yetkili kullanan özel his/hers yayımlanan bir istemci sertifikasına sahip olmalıdır ve his/hers kendi özel anahtarıyla korumak için güçlü bir parola seçmeniz gerekir. 
+Her hizmete erişim yetkisi verilen kendi özel kullanım için bir istemci sertifikasına sahip olmalıdır ve özel anahtarıyla korumak için kendi güçlü bir parola seçmeniz gerekir. 
 
 Aşağıdaki adımları otomatik olarak imzalanan sertifika burada oluşturulan ve depolanan aynı makinede yürütülmelidir:
 
@@ -288,7 +288,7 @@ Aşağıdaki adımları otomatik olarak imzalanan sertifika burada oluşturulan 
       -n "CN=My ID" ^
       -e MM/DD/YYYY ^
       -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -in "MyCA" -ir localmachine -is my ^
       -sv MyID.pvk MyID.cer
 
@@ -316,14 +316,14 @@ Parolayı girin ve ardından bu seçeneklere sahip sertifika verme:
 * Bu sertifika yayımlanmaktadır tek dışarı aktarma parolası seçmeniz gerekir
 
 ## <a name="import-client-certificate"></a>İstemci sertifika İçeri Aktar
-Kendisi için bir istemci sertifikası verildi her derse hizmetiyle iletişim kurmak için kullanacağı makineleri içindeki anahtar çiftinden almanız gerekir:
+Kendisi için bir istemci sertifikası verildi her hizmetiyle iletişim kurmak için kullanacağı makineleri içindeki anahtar çiftinden almanız gerekir:
 
 * Çift tıklayın. Windows Gezgini'nde PFX dosyası
 * İçeri aktarma sertifikayı Kişisel depolama ile en az bu seçeneği:
   * Seçili tüm genişletilmiş özellikleri Ekle
 
 ## <a name="copy-client-certificate-thumbprints"></a>İstemci sertifikası parmak izleri kopyalayın
-Kendisi için bir istemci sertifikası yayımlandığı her parmak izini his/hers edinmek için şu adımları izlemelisiniz hizmet yapılandırma dosyasına eklenecek bir sertifika:
+Kendisi için bir istemci sertifikası verildi her bir hizmet yapılandırma dosyasına eklenir, sertifikanın parmak izini edinmek için şu adımları uygulamanız gerekir:
 
 * Certmgr.exe çalıştırın
 * Kişisel sekmesini seçin.
@@ -339,7 +339,7 @@ Hizmete erişim verilen istemci sertifikaların parmak izleriyle virgülle ayrı
     <Setting name="AllowedClientCertificateThumbprints" value="" />
 
 ## <a name="configure-client-certificate-revocation-check"></a>İstemci sertifika iptal denetimi yapılandırma
-Varsayılan ayar, istemcinin sertifika iptal durumunu için sertifika yetkilisi ile denetlemez. İstemci sertifikaları veren sertifika yetkilisinin tür denetimler destekliyorsa denetimleri etkinleştirmek için aşağıdaki ayarı X509RevocationMode numaralandırmada tanımlanan değerlerden biriyle değiştirin:
+Varsayılan ayar, istemcinin sertifika iptal durumunu için sertifika yetkilisi ile denetlemez. İstemci sertifikaları veren sertifika yetkilisi tür denetimler destekliyorsa denetimleri etkinleştirmek için aşağıdaki ayarı X509RevocationMode numaralandırmada tanımlanan değerlerden biriyle değiştirin:
 
     <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
 

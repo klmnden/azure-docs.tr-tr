@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: 537c94976dbb4f7753b7fafb3b6c94e97cc2cc17
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6cc4a5d5bfc2056f2517bcbcecb19b9f6b2f437a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126335"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966271"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Depolama Gezgini'ni kullanarak Azure Data Lake depolama Gen1 kaynaklarını yönetme
 
@@ -136,7 +136,7 @@ Aşağıdaki öğeler, bir Data Lake depolama Gen1 hesabında kaynakları nasıl
 
    ![Karşıya yükleme devam ederken iletişim kutusu](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-drag.png) 
 
-> [!NOTE] 
+> [!NOTE]
 > Karşıya yüklemeyi başlatmak için doğrudan yerel bilgisayarda klasör ve dosyaları sürükleyebilirsiniz. 
        
 ### <a name="download-folders-or-files-to-your-local-computer"></a>Klasörleri veya dosyaları yerel bilgisayarınıza indirme
@@ -164,7 +164,7 @@ Dosya indirilir ve temel alınan dosya türü ile ilişkili uygulama kullanılar
 
 ![Klasörü kopyalama seçimleri](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-copy-paste.png)
 
-> [!NOTE] 
+> [!NOTE]
 > Depolama türleri arasında kopyalama/yapıştırma işlemleri desteklenmez. Data Lake depolama Gen1 klasörleri veya dosyaları kopyalayabilir ve bunları başka bir Data Lake depolama Gen1 hesabına yapıştırabilirsiniz. Ancak *olamaz* Data Lake depolama Gen1 klasörleri veya dosyaları kopyalayın ve Azure Blob Depolama veya tersine yapıştırın.
 > 
 > Kopyalama/yapıştırma işlemi, klasör ve dosyaları yerel bilgisayara indirip ardından hedef konuma yükleyerek çalışır. Araç, eylemi arka uçta *gerçekleştirmez*. Büyük dosyalarda kopyalama/yapıştırma işlemi yavaştır. Yüksek performanslı dosya kopyalama/taşıma iyileştirmeleri devam ediyor.

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/15/2018
+ms.date: 12/5/2018
 ms.author: roiyz
-ms.openlocfilehash: ee74d4520e867604f50c70f2b6449f12ff3bd8b9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 2a29cae6e7f391dfee75e89ea91525268db3fa62
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495988"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971972"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Windows için NVIDIA GPU sürücüsünün uzantısı
 
@@ -78,17 +78,8 @@ Aşağıdaki JSON şema uzantısı gösterir.
 | type | NvidiaGpuDriverWindows | dize |
 | typeHandlerVersion | 1.2 | int |
 
-### <a name="settings"></a>Ayarlar
-
-Tüm ayarlar isteğe bağlıdır. Varsayılan davranış yükleyecek en son desteklenen sürücü olarak uygulanabilir.
-
-| Ad | Açıklama | Varsayılan Değer | Geçerli Değerler | Veri Türü |
-| ---- | ---- | ---- | ---- | ---- |
-| driverVersion | NV: Kılavuz sürücü sürümü<br> NC/ND: CUDA sürücü sürümü | en son | KILAVUZ: "411.81", "391.81", "391.58", "391.03"<br> CUDA: "398.75", "397.44", "390.85" | dize |
-| installGridND | ND serisi VM'ler hakkında kılavuz sürücüsünü yükleyin | false | TRUE, false | boole |
 
 ## <a name="deployment"></a>Dağıtım
-
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager Şablonu 
 
@@ -135,8 +126,6 @@ Set-AzureRmVMExtension
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Aşağıdaki örnek, yukarıdaki ARM ve PowerShell örneğinde yansıtır ve ayrıca varsayılan olmayan sürücü yüklemesi için örnek olarak özel ayarları ekler. Özellikle, bir ND serisi VM sağlanıyor olsa bile belirli bir kılavuz sürücü yükler.
-
 ```azurecli
 az vm extension set `
   --resource-group myResourceGroup `
@@ -145,8 +134,6 @@ az vm extension set `
   --publisher Microsoft.HpcCompute `
   --version 1.2 `
   --settings '{ `
-    "driverVersion": "391.03",
-    "installGridND": true
   }'
 ```
 

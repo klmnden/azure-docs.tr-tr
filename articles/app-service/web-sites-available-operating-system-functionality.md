@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
-ms.openlocfilehash: 5ab54dcd94ebf0a1bad71613a8d749cef0de64f4
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: ebb95093d96a3c1fd36565831215355b18ac5d1a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678687"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968434"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service üzerindeki işletim sistemi işlevi
 Bu makalede çalışan tüm Windows uygulamaları için kullanılabilir olan ortak temel işletim sistemi işlevi [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Bu işlev, dosya, ağ ve kayıt defteri erişim ve tanılama günlüklerini ve olayları içerir. 
@@ -85,7 +85,7 @@ Bir uygulamayı çalıştıran sanal makineye bağlı yerel sürücülerde App S
 
 App Service'nın yerel geçici depolama nasıl kullandığını iki dizin için ASP.NET dosyaları örnekleridir ve IIS dizinini sıkıştırılmış dosyaları dışarıda bırak. ASP.NET derleme sistemi "ASP.NET dosyaları" dizininin bir geçici derleme önbellek konumu olarak kullanır. IIS "IIS geçici sıkıştırılmış dosyalar" dizini sıkıştırılmış yanıt çıkışı depolamak için kullanır. İki dosya kullanım (yanı sıra diğer) bu tür, App Service'te uygulama başına geçici yerel depolama alanına eşleştirilir. Bu yeniden eşleme işlevselliği beklendiği gibi devam etmesini sağlar.
 
-App Service her uygulamada "daha fazla burada açıklanan uygulama havuzu kimliği" olarak adlandırılan bir rastgele benzersiz düşük ayrıcalıklı çalışan işlem kimliği çalışan: [ http://www.iis.net/learn/manage/configuring-security/application-pool-identities ](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Uygulama kodu, işletim sistemi sürücüsüne (D:\ sürücüsüne) temel salt okunur erişim için bu kimliği kullanır. Bu, uygulama kodu ortak bir dizin yapıları listesi ve işletim sistemi sürücüsünde ortak dosyaları okuma anlamına gelir. Bu, sağladığınızda bir biraz geniş erişim düzeyini, aynı dizinleri ve dosyaları erişilebilir olacak şekilde görünebilir ancak bir Azure çalışan rolünde barındırılan hizmet ve sürücü içeriğini okuyun. 
+App Service her uygulamada "daha fazla burada açıklanan uygulama havuzu kimliği" olarak adlandırılan bir rastgele benzersiz düşük ayrıcalıklı çalışan işlem kimliği çalışan: [ https://www.iis.net/learn/manage/configuring-security/application-pool-identities ](https://www.iis.net/learn/manage/configuring-security/application-pool-identities). Uygulama kodu, işletim sistemi sürücüsüne (D:\ sürücüsüne) temel salt okunur erişim için bu kimliği kullanır. Bu, uygulama kodu ortak bir dizin yapıları listesi ve işletim sistemi sürücüsünde ortak dosyaları okuma anlamına gelir. Bu, sağladığınızda bir biraz geniş erişim düzeyini, aynı dizinleri ve dosyaları erişilebilir olacak şekilde görünebilir ancak bir Azure çalışan rolünde barındırılan hizmet ve sürücü içeriğini okuyun. 
 
 <a name="multipleinstances"></a>
 

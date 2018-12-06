@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 8020db5f099f0d2c3dc8203f2d4afeea6a38cb41
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 52657ae18b6fd06408887df82bd822eb2ff8fffe
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844762"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964365"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Şirket içi Hyper-V Vm'lerini azure'a olağanüstü durum kurtarması için destek matrisi
 
@@ -170,6 +170,9 @@ VM türü | 1. nesil<br/><br/> Nesil 2--Windows | 2. kuşak Vm'leri bir işletim
 --- | --- | ---
 Kasa kaynak grupları arasında taşıma<br/><br/> İçinde ve arasında abonelikler | Hayır | Hayır
 Depolama, ağ, Azure Vm'leri kaynak grupları arasında taşıma<br/><br/> İçinde ve arasında abonelikler | Hayır | Hayır
+
+> [!NOTE]
+> (SCVMM olan/olmayan yönetilen) Hyper-Vm'leri, şirket içinden Azure'a çoğaltırken, yalnızca bir AD kiracısına bir belirli ortam - Hyper-V sitesi veya SCVMM uygun olarak çoğaltma yapabilirsiniz.
 
 
 ## <a name="provider-and-agent"></a>Sağlayıcı ve aracı

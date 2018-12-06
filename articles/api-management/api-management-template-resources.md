@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 36b64912eb3393ad496d04ff656bed5b0c41566c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 790d05201550461b095cfefd32f0330f37697e0b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444776"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970340"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management şablon kaynakları
 Azure API Management aşağıdaki türdeki kaynakları portal şablonları kullanılmak üzere Geliştirici sağlar.  
@@ -176,7 +176,7 @@ Azure API Management aşağıdaki türdeki kaynakları portal şablonları kulla
 |WebDocumentationTemplatesDeveloperKey|Abonelik anahtarınızı belirtin|  
 |WebDocumentationTemplatesJavaApache|Bu örnek HTTP Components'tan (Apache HTTP istemcisini kullanır http://hc.apache.org/httpcomponents-client-ga/)|  
 |WebDocumentationTemplatesOptionalParams|İsteğe bağlı parametreler için değerleri gereken şekilde belirtin|  
-|WebDocumentationTemplatesPhpPackage|Bu örnek HTTP_Request2 paketini kullanır. (daha fazla bilgi için: http://pear.php.net/package/HTTP_Request2)|  
+|WebDocumentationTemplatesPhpPackage|Bu örnek HTTP_Request2 paketini kullanır. (daha fazla bilgi için: https://pear.php.net/package/HTTP_Request2)|  
 |WebDocumentationTemplatesPythonValuesForPath|Gerekirse yol parametreleri ({...} olarak gösterilir) ve istek gövdesi için değerler belirtin|  
 |WebDocumentationTemplatesRequestBody|İstek gövdesi belirtin|  
 |WebDocumentationTemplatesRequiredParams|Aşağıdaki gerekli parametreler için değerleri belirtin|  
@@ -571,13 +571,13 @@ Azure API Management aşağıdaki türdeki kaynakları portal şablonları kulla
 |ApiManagementUserLimitReached|Bu hizmet izin verilen kullanıcıların sayısı sınırına ulaştı. Lütfen daha yüksek bir fiyatlandırma katmanına yükseltin.|  
   
 ##  <a name="glyphs"></a> Glif kaynakları  
- API Management Geliştirici portal şablonları gelen karakter kullanabilirsiniz [önyükleme gelen Glyphicons](http://getbootstrap.com/components/#glyphicons). Bu karakterleri kümesini yazı tipi biçiminden 250'den fazla karakter içeren [Glyphicon](http://glyphicons.com/) Halflings ayarlayın. Bu kümesindeki bir karakteri kullanmak için aşağıdaki sözdizimini kullanın.  
+ API Management Geliştirici portal şablonları gelen karakter kullanabilirsiniz [önyükleme gelen Glyphicons](https://getbootstrap.com/components/#glyphicons). Bu karakterleri kümesini yazı tipi biçiminden 250'den fazla karakter içeren [Glyphicon](https://glyphicons.com/) Halflings ayarlayın. Bu kümesindeki bir karakteri kullanmak için aşağıdaki sözdizimini kullanın.  
   
 ```html  
 <span class="glyphicon glyphicon-user">  
 ```  
   
- Glif tam listesi için bkz. [önyükleme gelen Glyphicons](http://getbootstrap.com/components/#glyphicons).
+ Glif tam listesi için bkz. [önyükleme gelen Glyphicons](https://getbootstrap.com/components/#glyphicons).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Şablonlar ile çalışma hakkında daha fazla bilgi için bkz. [şablonlarını kullanarak API Management Geliştirici portalını özelleştirmek nasıl](api-management-developer-portal-templates.md).

@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: a162d0c19bef28e6e4566d39c2dc3b82a87a4aa9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6fef56d780fe664e79f66fa23be526aec71d7e7b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242101"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971173"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Azure Market görüntüsü kullanarak Azure kaynakları için yönetilen kimliğe sahip bir Terraform Linux sanal makinesi oluşturma
 
@@ -24,7 +24,7 @@ Terraform Market görüntüsü, Terraform'u el ile yükleme ve yapılandırmanı
 
 Bu Terraform VM görüntüsü için yazılım ücreti alınmaz. Yalnızca sağlanan sanal makinenin boyutuna göre belirlenen Azure donanımı kullanım ücretlerini ödersiniz. İşlem ücretleri hakkında daha fazla bilgi için bkz. [Linux sanal makineleri fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Linux Terraform sanal makinesi oluşturmak için bir Azure aboneliğine sahip olmanız gerekir. Henüz yoksa [ücretsiz Azure hesabınızı hemen oluşturun](https://azure.microsoft.com/free/).  
 
 ## <a name="create-your-terraform-virtual-machine"></a>Terraform sanal makinenizi oluşturma 
@@ -37,7 +37,7 @@ Linux Terraform sanal makinesi örneği oluşturma adımları aşağıda verilmi
 
 3. Terraform ayrıntıları sekmesinin sağ alt bölümünde **Oluştur** düğmesini seçin.
 
-    ![Terraform sanal makinesi oluşturma](media\terraformmsi.png)
+    ![Terraform sanal makinesi oluşturma](media/terraformmsi.png)
 
 4. Aşağıdaki bölümlerde Terraform Linux sanal makinesini oluşturmak için sihirbaza girmeniz gereken değerler verilmiştir. Aşağıdaki bölümde bu adımları yapılandırmak için gerekli olan değerler belirtilmiştir.
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/24/2018
+ms.date: 12/05/2018
 ms.author: roiyz
-ms.openlocfilehash: 2c8ac43d96c100f0c26281fea1d4e9eba41bc178
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1370f541f8913d86db948a3165d6660a8cd66528
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282347"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963513"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows için özel betik uzantısı
 
@@ -37,11 +37,11 @@ Bu belge, Azure PowerShell modülü, Azure Resource Manager şablonları ve soru
 
 ### <a name="operating-system"></a>İşletim Sistemi
 
-Özel betik uzantısı için Linux işletim sisteminin, daha fazla bilgi için desteklenen uzantısı uzantısı çalışmayacak görmeniz [makale](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
+Özel betik uzantısı'nı Linux daha fazla bilgi için desteklenen uzantısı uzantısı OSs çalışmayacak için bkz: Bu [makale](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
 
 ### <a name="script-location"></a>Betik konumu
 
-Azure Blob depolamaya erişmek için Azure Blob Depolama kimlik bilgilerini kullanmak için uzantıyı kullanabilirsiniz. Alternatif olarak, VM iç dosya sunucusu vb. gibi GitHub, o uç noktasına yönlendirebilir sürece betik konumu herhangi where, olabilir.
+Azure Blob depolamaya erişmek için Azure Blob Depolama kimlik bilgilerini kullanmak için uzantıyı kullanabilirsiniz. Alternatif olarak, VM iç dosya sunucusu vb. gibi GitHub, o uç noktasına yönlendirebilir sürece herhangi bir yerde, betik konumu olabilir.
 
 
 ### <a name="internet-connectivity"></a>Internet bağlantısı
@@ -52,15 +52,15 @@ Kodunuzu yerel bir sunucusundaysa sonra ek güvenlik duvarı/ağ güvenlik hala 
 ### <a name="tips-and-tricks"></a>İpuçları ve Püf Noktaları
 * Bu uzantı için en yüksek hata oranı hata, komut dosyasını çalıştırır test komut dosyasında sözdizimi hataları kaynaklanır ve başarısız olduğu bulmak daha kolay hale getirmek için komut dosyası bir günlük daha koyun de.
 * Eşgüçlüdür, komut dosyaları yazmak için yeniden birden çok kez yanlışlıkla çalıştırma alınamadı, da sistem değişiklikleri neden olmaz.
-* Betikleri çalıştırdıklarında kullanıcı girişi gerektirmeyen emin olun.
+* Çalıştırdıklarında betikleri kullanıcı girişi gerektirmeyen emin olun.
 * Çalıştırılacak betik için izin verilen 90 dakika, başarısız bir sağlama uzantının uzun herhangi bir şey neden olur.
-* Yeniden başlatma komut dosyası içine koymayın bu yüklenmekte olan diğer uzantılarla sorunlarına neden olur ve sonrası yeniden başlatma, uzantıyı yeniden başlatma sonrasında devam etmez. 
-* Yeniden başlatma neden olacak bir betiğiniz varsa, uygulama yükleme ve betikler vb. çalıştırın. Windows zamanlanmış bir görev veya DSC veya Chef, Puppet uzantıları gibi araçları kullanarak yeniden zamanlamanız gerekir.
+* Yeniden başlatma komut dosyası içine koymayın, bu eylem, yüklenmekte olan diğer uzantılarla sorunlarına neden olur. Sonrası yeniden başlatma, yeniden başlatma sonrasında uzantısı devam olmaz. 
+* Yeniden başlatma neden olacak bir betiğiniz varsa, uygulama yükleme ve betikler vb. çalıştırın. Windows zamanlanmış bir görev veya DSC veya Chef, Puppet uzantıları gibi araçları kullanarak yeniden başlatma zamanlayabilirsiniz.
 * Uzantısı Windows zamanlanmış bir görev oluşturmak için kullanmanız gereken sonra her önyükleme, bir komut dosyası çalıştırmak istiyorsanız, uzantı yalnızca bir komut dosyası bir kez çalışır.
 * Çalışacak bir betik zamanlama istiyorsanız, Windows zamanlanmış bir görev oluşturmak için uzantıyı kullanmanız gerekir. 
-* Komut dosyası çalıştırılırken, yalnızca Azure portal veya CLI 'geçirmeyi' bir uzantı durumu görürsünüz. Çalışan bir betiğin daha sık aralıklı durum güncelleştirmeleri isterseniz, kendi çözümünüzü oluşturmak gerekir.
+* Komut dosyası çalıştırılırken, yalnızca Azure portal veya CLI 'geçirmeyi' bir uzantı durumu görürsünüz. Çalışan bir betiğin daha sık aralıklı durum güncelleştirmeleri isterseniz kendi çözümünüzü oluşturmak gerekir.
 * Özel betik uzantısı yerel olarak proxy sunucularını desteklemez, ancak komut dosyanızın içinde proxy sunucuları gibi destekleyen bir dosya aktarım aracı kullanabilir *Curl* 
-* Betikler veya komutlar System.Environment.UserInteractive varsayılan olmayan dizin konumlarını unutmayın, bu durumu çözmek için mantığı vardır.
+* Varsayılan olmayan dikkat, betikler veya komutlar ihtiyaç duyabilir dizin konumları sahip bu durumu yönetmek için mantığı.
 
 
 ## <a name="extension-schema"></a>Uzantı şeması
@@ -92,7 +92,8 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
         "settings": {
             "fileUris": [
                 "script location"
-            ]
+            ],
+            "timestamp":123456789
         },
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
@@ -113,6 +114,7 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
 | type | CustomScriptExtension | dize |
 | typeHandlerVersion | 1.9 | int |
 | fileUris (örn.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
+| zaman damgası (örn.) | 123456789 | 32 bit tamsayı |
 | commandToExecute (örn.) | PowerShell - ExecutionPolicy sınırsız - dosya yapılandırma-müzik-app.ps1 | dize |
 | storageAccountName (örn.) | examplestorageacct | dize |
 | storageAccountKey (örn.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | dize |
@@ -123,19 +125,20 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
 #### <a name="property-value-details"></a>Özellik değeri ayrıntıları
  * `commandToExecute`: (**gerekli**, string) yürütmek için giriş noktası betiği. Bu alan, bunun yerine komutunuz parolalar gibi gizli dizileri içeren ya da kendi fileUris büyük/küçük harfe duyarlıdır kullanın.
 * `fileUris`: (isteğe bağlı, dize dizisi) dosyaların indirilmesi için URL.
+* `timestamp` Bu alan yalnızca bu alanın değerini değiştirerek bir yeniden betiğin tetiklemek için (isteğe bağlı, 32 bit tamsayı) kullanın.  Kabul edilebilir tamsayı değerdeki; yalnızca önceki değerinden farklı olmalıdır.
 * `storageAccountName`: (isteğe bağlı, dize) depolama hesabı adı. Depolama kimlik bilgileri, belirtirseniz, tüm `fileUris` URL'leri, Azure BLOB'ları için olmalıdır.
 * `storageAccountKey`: (isteğe bağlı, dize) depolama hesabı erişim anahtarı
 
 Ortak veya korumalı ayarlarında aşağıdaki değerleri ayarlayabilirsiniz Bu, uzantı hem genel hem de korumalı ayarlarında aşağıdaki değerleri ayarlandığı herhangi bir yapılandırma reddeder.
 * `commandToExecute`
 
-Hata ayıklama, ancak için genel ayarları yararlı olabilir kullanarak korumalı ayarları kullanmanız önerilir.
+Hata ayıklama, ancak için genel ayarları yararlı olabilir kullanarak, korumalı ayarları kullanmanız önerilir.
 
-Genel ayarlar, betik yürütüldüğü VM düz metin olarak gönderilir.  Korumalı ayarları, yalnızca Azure ve VM bildiği bir anahtar kullanılarak şifrelenir. Gönderildiği gibi VM ayarları kaydedildi, ayarları şifrelenmiş yani bunlar şifrelenmiş VM üzerinde kaydedilir. Şifrelenmiş değerler şifresini çözmek için kullanılan sertifika, VM üzerinde depolanan ve çalışma zamanında ayarlarını (gerekiyorsa) şifresini çözmek için kullanılan.
+Genel ayarlar, betik yürütüldüğü VM düz metin olarak gönderilir.  Korumalı ayarları, yalnızca Azure ve VM bildiği bir anahtar kullanılarak şifrelenir. Gönderildiği gibi VM ayarları kaydedildi, ayarları şifrelenmiş diğer bir deyişle, bunlar şifrelenmiş VM üzerinde kaydedilir. Şifrelenmiş değerler şifresini çözmek için kullanılan sertifika, VM üzerinde depolanan ve çalışma zamanında ayarlarını (gerekiyorsa) şifresini çözmek için kullanılan.
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
 
-Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir. Önceki bölümde açıklanan JSON şeması bir Azure Resource Manager şablonunda bir Azure Resource Manager şablon dağıtımı sırasında özel betik uzantısı'nı çalıştırmak için kullanılabilir. Aşağıdaki örnekler özel betik uzantısı kullanma işlemini gösterir:
+Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir. Önceki bölümde ayrıntılı JSON şema, bir Azure Resource Manager şablonunda bir Azure Resource Manager şablon dağıtımı sırasında özel betik uzantısı'nı çalıştırmak için kullanılabilir. Aşağıdaki örnekler özel betik uzantısı kullanma işlemini gösterir:
 
 * [Öğretici: Azure Resource Manager şablonları ile sanal makine uzantıları dağıtma](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
 * [Windows ve Azure SQL DB iki katmanlı uygulama dağıtma](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
@@ -182,7 +185,7 @@ Set-AzureRmVMExtension -ResourceGroupName myRG `
 ```
 
 ### <a name="running-scripts-from-a-local-share"></a>Betikleri yerel bir paylaşımından çalıştırma
-Bu örnekte, komut dosyası konumunuz için yerel bir SMB sunucusu kullanmak isteyebileceğiniz Not gerektirmeyen başka bir programda dışındaki diğer ayarları geçirmek *commandToExecute*.
+Bu örnekte, komut dosyası konumunuz için yerel bir SMB sunucusu kullanmak isteyebileceğiniz Not, başka bir programda dışındaki diğer ayarları geçirmek gerekmez *commandToExecute*.
 
 ```powershell
 $ProtectedSettings = @{"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File \\filesvr\build\serverUpdate1.ps1"};
@@ -199,9 +202,9 @@ Set-AzureRmVMExtension -ResourceGroupName myRG
 ```
 
 ### <a name="how-to-run-custom-script-more-than-once-with-cli"></a>Özel betik CLI ile birden çok kez çalıştırmayı öğrenin
-Özel betik uzantısı birden çok kez çalıştırmak istiyorsanız, bunu yalnızca bu koşullar altında yapabilirsiniz:
+Özel betik uzantısı birden çok kez çalıştırmak istiyorsanız, bu koşullar altında bu eylem yalnızca yapabilirsiniz:
 1. Uzantı 'Name' parametresi önceki dağıtım uzantısı ile aynıdır.
-2. Komutu yeniden çalıştırılmayacak yapılandırma aksi güncelleştirmeniz gerekir, örneğin, dinamik bir özellik olarak bir zaman damgası gibi komut ekleyebilirsiniz. 
+2. Komut yeniden yürütülmesi olmaz yapılandırma aksi güncelleştirmeniz gerekir. Dinamik bir özellik gibi bir zaman damgası komutu içine ekleyebilirsiniz.
 
 ## <a name="troubleshoot-and-support"></a>Sorun giderme ve Destek
 
@@ -222,9 +225,9 @@ Belirtilen dosyalar, hedef sanal makinedeki aşağıdaki dizine yüklenir.
 ```cmd
 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
-Burada `<n>` , uzantının çalıştırmaları arasında değişebilir ondalık bir tamsayıdır.  `1.*` Gerçek, geçerli değerle `typeHandlerVersion` uzantısı değeri.  Örneğin, gerçek dizin olabilir `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
+Burada `<n>` uzantının çalıştırmaları arasında değişebilir bir ondalık tamsayı.  `1.*` Gerçek, geçerli değerle `typeHandlerVersion` uzantısı değeri.  Örneğin, gerçek dizin olabilir `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
 
-Yürütülürken `commandToExecute` komut uzantısı bu dizin ayarlar (örneğin, `...\Downloads\2`) geçerli çalışma dizini. Böylece üzerinden indirilen dosyaları bulmak için göreli yolların kullanılması `fileURIs` özelliği. Örnekler için aşağıdaki tabloya bakın.
+Yürütülürken `commandToExecute` komut uzantısı bu dizin ayarlar (örneğin, `...\Downloads\2`) geçerli çalışma dizini. Bu işlem üzerinden indirilen dosyaları bulmak için göreli yolların kullanılması tanır `fileURIs` özelliği. Örnekler için aşağıdaki tabloya bakın.
 
 Zaman içinde mutlak indirme yolunu değişebildiğinden, göreli komut dosyası yolları için iyileştirilmiş en iyisidir `commandToExecute` dize, mümkün olduğunda. Örneğin:
 ```json
@@ -244,4 +247,4 @@ Zaman içinde mutlak indirme yolunu değişebildiğinden, göreli komut dosyası
 
 ### <a name="support"></a>Destek
 
-Bu makalede herhangi bir noktada daha fazla yardıma ihtiyacınız olursa, üzerinde Azure uzmanlarıyla iletişime geçebilirsiniz [Azure MSDN ve Stack Overflow forumları](https://azure.microsoft.com/support/forums/). Alternatif olarak, bir Azure destek olayına dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) ve Destek Al'ı seçin. Azure desteği hakkında daha fazla bilgi için okuma [Microsoft Azure desteği SSS](https://azure.microsoft.com/support/faq/).
+Bu makalede herhangi bir noktada daha fazla yardıma ihtiyacınız olursa, üzerinde Azure uzmanlarıyla iletişime geçebilirsiniz [Azure MSDN ve Stack Overflow forumları](https://azure.microsoft.com/support/forums/). Bir Azure destek olayına dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) ve Destek Al'ı seçin. Azure desteği hakkında daha fazla bilgi için okuma [Microsoft Azure desteği SSS](https://azure.microsoft.com/support/faq/).

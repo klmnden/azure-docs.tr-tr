@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: bdae72f5ed4ebed87842ade05ec7a6bc21d349dc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 4711c766c2a074c25f019ce5b523e0ba8b599c17
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086650"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971326"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure işlevleri C# Geliştirici Başvurusu
 
@@ -81,7 +81,7 @@ Tetikleyici özniteliğini tetikleyici türü belirtir ve giriş verileri için 
 Yöntem imzası tetikleyici özniteliğiyle kullanılan farklı parametreler içerebilir. Ekleyebileceğiniz ek parametreler bazıları şunlardır:
 
 * [Giriş ve çıkış bağlamaları](functions-triggers-bindings.md) özniteliklerle tasarlayarak işaretlenen.  
-* Bir `ILogger` veya `TraceWriter` parametresi için [günlüğü](#logging).
+* Bir `ILogger` veya `TraceWriter` ([yalnızca 1.x sürümü](functions-versions.md#creating-1x-apps)) parametresi için [günlüğü](#logging).
 * A `CancellationToken` parametresi için [kapatılmasını](#cancellation-tokens).
 * [İfadeleri bağlama](functions-triggers-bindings.md#binding-expressions-and-patterns) meta verileri için parametreleri tetikleyin.
 
@@ -233,7 +233,7 @@ public static class ICollectorExample
 
 ## <a name="logging"></a>Günlüğe kaydetme
 
-Çıkış akış günlüklerinizi oturum C#, türünde bir bağımsız değişken içeren [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Bu ad öneririz `log`. Kullanmaktan kaçının `Console.Write` Azure işlevleri'nde.
+Çıkış akış günlüklerinizi oturum C#, türünde bir bağımsız değişken içeren [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Bu ad öneririz `log`, aşağıdaki örnekte olduğu gibi:  
 
 ```csharp
 public static class SimpleExample
@@ -248,8 +248,7 @@ public static class SimpleExample
 } 
 ```
 
-> [!NOTE]
-> Yerine kullanabileceğiniz daha yeni bir günlüğe kaydetme çerçevesi hakkında daha fazla bilgi için `TraceWriter`, bakın [yazma günlükleri C# işlevleri](functions-monitoring.md#write-logs-in-c-functions) içinde **İzleyici Azure işlevleri** makalesi.
+Kullanmaktan kaçının `Console.Write` Azure işlevleri'nde. Daha fazla bilgi için bkz. [yazma oturum açtığında C# işlevleri](functions-monitoring.md#write-logs-in-c-functions) içinde **İzleyici Azure işlevleri** makalesi.
 
 ## <a name="async"></a>zaman uyumsuz
 

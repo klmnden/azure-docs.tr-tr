@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 08cbff7bc58f5925dee9b77ff195d362af4379d8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: aa1d5a4fc29b6fa5fc751edfd40e61d8762f6bd7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245758"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965351"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Geliştirme ve Visual Studio - Azure App Service kullanarak Web işleri dağıtma
 
@@ -35,7 +35,7 @@ Visual Studio WebJobs özellikli konsol uygulama projesini dağıttığında, ik
 
 WebJobs'ın etkinleştirilmiş bir proje için eklenen aşağıdaki öğeleri içerir:
 
-* [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet paketi.
+* [Microsoft.Web.WebJobs.Publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet paketi.
 * A [webjob yayımlama settings.json](#publishsettings) dağıtım ve Zamanlayıcı ayarlarını içeren dosya. 
 
 ![Dağıtım bir WebJob olarak etkinleştirmek için bir konsol uygulaması için eklenen gösteren diyagram](./media/websites-dotnet-deploy-webjobs/convert.png)
@@ -97,7 +97,7 @@ WebJobs özellikli yeni bir proje oluşturmak için konsol uygulaması proje şa
     Aynı çözüm içindeki bir web projesi dağıtıldığında otomatik olarak bir WebJob olarak dağıtmak için yapılandırılmış bir proje oluşturun. İlgili web uygulama içinde çalıştırdığınız web uygulamasında, webjob'ı çalıştırmak istediğinizde bu seçeneği kullanın.
 
 > [!NOTE]
-> WebJobs yeni proje şablonu otomatik olarak NuGet paketlerini yükler ve kodu içerir *Program.cs* için [WebJobs SDK](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Web işleri SDK'yı kullanmak istemiyorsanız, kaldırmak veya değiştirmek `host.RunAndBlock` deyiminde *Program.cs*.
+> WebJobs yeni proje şablonu otomatik olarak NuGet paketlerini yükler ve kodu içerir *Program.cs* için [WebJobs SDK](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Web işleri SDK'yı kullanmak istemiyorsanız, kaldırmak veya değiştirmek `host.RunAndBlock` deyiminde *Program.cs*.
 > 
 > 
 
@@ -130,7 +130,7 @@ Bu iletişim kutusunda alanları üzerinde alanlarına karşılık gelen **WebJo
 > 
 
 ## <a id="publishsettings"></a>webjob-publish-settings.json
-Bir konsol uygulaması Web işleri dağıtımı için yapılandırdığınızda, Visual Studio'yu yükler [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet paketi ve planlama bilgileri depolar bir *webjob yayımlama settings.json*  proje dosyasında *özellikleri* WebJobs proje klasörü. Bu dosyanın bir örnek aşağıda verilmiştir:
+Bir konsol uygulaması Web işleri dağıtımı için yapılandırdığınızda, Visual Studio'yu yükler [Microsoft.Web.WebJobs.Publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet paketi ve planlama bilgileri depolar bir *webjob yayımlama settings.json*  proje dosyasında *özellikleri* WebJobs proje klasörü. Bu dosyanın bir örnek aşağıda verilmiştir:
 
         {
           "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",

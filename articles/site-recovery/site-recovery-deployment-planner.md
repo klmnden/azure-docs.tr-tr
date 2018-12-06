@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 45ce5bfc516d51feddad7ebdad5828705b14620d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 58dc344cc7ab40218a122e34a9032276107a944c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850853"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964467"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Azure Site Recovery dağıtım planlayıcısı hakkında vmware'den azure'a
 Bu makale, VMware’den Azure’a üretim dağıtımları için Azure Site Recovery Dağıtım Planlayıcısı kullanım kılavuzudur.
@@ -99,9 +99,9 @@ Sunucu, profili oluşturulacak VM’leri tutan vCenter sunucusu/vSphere ESXi ana
 Klasör birden fazla dosya ve alt klasör içerir. Yürütülebilir dosya, üst klasördeki ASRDeploymentPlanner.exe dosyasıdır.
 
     Örnek: .zip dosyasını E:\ sürücüsüne kopyalayıp ayıklayın.
-    E:\ASR Deployment Planner_v2.2.zip
+    E:\ASR Deployment Planner_v2.3.zip
 
-    E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>Dağıtım Planlayıcısı’nı en son sürüme güncelleştirme
 Dağıtım Planlayıcısı’nın önceki sürümüne sahipseniz şunlardan birini yapın:
@@ -117,7 +117,7 @@ Dağıtım Planlayıcısı’nın önceki sürümüne sahipseniz şunlardan biri
 
 
 ## <a name="version-history"></a>Sürüm geçmişi
-En son Site Recovery Dağıtım Planlayıcısı aracı sürümü 2.2’dir.
+En son Site Recovery dağıtım planlayıcısı aracı sürümü 2.3 ' dir.
 Her güncelleştirmede eklenen düzeltmeler için [Site Recovery Dağıtım Planlayıcısı sürüm geçmişi](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) sayfasına bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar

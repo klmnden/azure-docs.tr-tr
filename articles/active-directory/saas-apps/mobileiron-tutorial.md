@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2017
 ms.author: jeedes
-ms.openlocfilehash: 1b6527207793558c132be4cf004b7d6fdde14a90
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 8bdf49f4cea7c6f0ff30e37bcf1cf2fed3abc2bb
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584120"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963819"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Öğretici: Azure Active Directory MobileIron ile tümleştirme
 
@@ -50,24 +50,27 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 - Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
+
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.
+Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden MobileIron ekleme
 1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-mobileiron-from-the-gallery"></a>Galeriden MobileIron ekleme
+
 Azure AD'de MobileIron tümleştirmesini yapılandırmak için MobileIron Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden MobileIron eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi][1]
 
 1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
-    
+
 1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
@@ -103,7 +106,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve M
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
 1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+
     ![Çoklu oturum açma iletişim kutusu](./media/mobileiron-tutorial/tutorial_mobileiron_samlbase.png)
 
 1. Üzerinde **MobileIron etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
@@ -119,12 +122,13 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve M
     ![Çoklu oturum açmayı MobileIron etki alanı ve URL'ler](./media/mobileiron-tutorial/tutorial_mobileiron_url1.png)
 
     İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<host>.mobileiron.com/user/login.html`
-    
-    > [!NOTE]  Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Bu öğreticinin ilerleyen bölümlerinde açıklanan MobileIron, Yönetim Portalı'ndan anahtarı ve ana bilgisayar değerlerini alırsınız.
+
+    > [!NOTE]
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Bu öğreticinin ilerleyen bölümlerinde açıklanan MobileIron, Yönetim Portalı'ndan anahtarı ve ana bilgisayar değerlerini alırsınız.
 
 1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
-    ![Sertifika indirme bağlantısı](./media/mobileiron-tutorial/tutorial_mobileiron_certificate.png) 
+    ![Sertifika indirme bağlantısı](./media/mobileiron-tutorial/tutorial_mobileiron_certificate.png)
 
 1. Tıklayın **Kaydet** düğmesi.
 
@@ -134,7 +138,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve M
 
 1. Git **yönetici** > **kimlik**.
 
-   * Seçin **AAD** seçeneğini **bulut IDP kurulumu hakkında bilgi** alan.
+   - Seçin **AAD** seçeneğini **bulut IDP kurulumu hakkında bilgi** alan.
 
     ![Tek yönetici oturum açma düğmesi yapılandırın](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
@@ -143,7 +147,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve M
     ![Tek yönetici oturum açma düğmesi yapılandırın](./media/mobileiron-tutorial/key.png)
 
 1. İçinde **MobileIron bulut alana meta veri dosyası dışarı aktarma ve içeri aktarma** tıklayın **Dosya Seç** Azure portalından indirilen meta verilerini karşıya yüklemek için. Tıklayın **Bitti** yüklendikten sonra.
- 
+
     ![Yönetim meta verileri düğmesi çoklu oturum açmayı yapılandırın](./media/mobileiron-tutorial/tutorial_mobileiron_adminmetadata.png)
 
 > [!TIP]
@@ -203,20 +207,20 @@ MobileIron söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir g�
     1. İçinde **ad** metin kutusunda, Britta gibi kullanıcı adını girin.
 
     1. İçinde **Soyadı** metin kutusunda, son Simon gibi kullanıcı adını girin.
-    
-    1. **Bitti**’ye tıklayın.  
+
+    1. **Bitti**’ye tıklayın.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Azure çoklu oturum açma kullanmak için MobileIron erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+![Kullanıcı rolü atayın][200]
 
 **Britta Simon MobileIron için atamak için aşağıdaki adımları gerçekleştirin:**
 
 1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı Ata][201] 
+    ![Kullanıcı Ata][201]
 
 1. Uygulamalar listesinde **MobileIron**.
 
@@ -235,19 +239,18 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için MobileIron erişim verer
 1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
 1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
+
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim panelinde MobileIron kutucuğa tıkladığınızda, otomatik olarak MobileIron uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
-
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -262,4 +265,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/mobileiron-tutorial/tutorial_general_201.png
 [202]: ./media/mobileiron-tutorial/tutorial_general_202.png
 [203]: ./media/mobileiron-tutorial/tutorial_general_203.png
-

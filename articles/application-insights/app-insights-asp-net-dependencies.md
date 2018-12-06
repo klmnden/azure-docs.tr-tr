@@ -10,19 +10,17 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/08/2018
+ms.date: 12/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 767497a6ced0eb54559b9bdd10761b659e32a33f
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 034e611f6ea95675dc3169feefe1916a81c50943
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681033"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972380"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application ınsights'ı: bağımlılık izleme
 A *bağımlılık* uygulamanız tarafından çağrılan bir dış bileşen. Bu genellikle adlı HTTP veya bir veritabanı veya dosya sistemi kullanılarak bir hizmettir. [Application Insights](app-insights-overview.md) ne sıklıkta bağımlılık çağrı başarısız olur ve uygulama bağımlılıkları için bekleyeceği süreyi ölçer. Belirli çağrıları incelemek ve bunları istekler ve özel durumlar için ilişkilendirebilirsiniz.
-
-![örnek grafikler](./media/app-insights-asp-net-dependencies/10-intro.png)
 
 Kullanıma hazır bağımlılık İzleyicisi, şu anda bu tür bir bağımlılık çağrıları raporları:
 
@@ -30,13 +28,16 @@ Kullanıma hazır bağımlılık İzleyicisi, şu anda bu tür bir bağımlılı
   * SQL veritabanları
   * ASP.NET web uygulamaları ve HTTP tabanlı bağlamalar kullanan WCF hizmetleri
   * Yerel veya uzak HTTP çağrıları
-  * Azure Cosmos DB, tablo, blob depolama ve kuyruk
+  * Azure Cosmos DB, tablo, blob depolama ve kuyruk 
 * Web sayfaları
   * AJAX çağrıları
 
 Kullanarak çalışır izleme [bayt kod Araçları](https://msdn.microsoft.com/library/z9z62c29.aspx) seçili metotları geçici bir çözüm. En düşük performansa getirdiği yüktür.
 
 Ayrıca, diğer bağımlılıklar, istemci ve sunucu kodunda her ikisi de izlemek için kendi SDK çağrıları yazabilirsiniz kullanarak [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
+
+> [!NOTE]
+> Azure Cosmos DB yalnızca otomatik olarak izlenir [HTTP/HTTPS](../cosmos-db/performance-tips.md#networking) kullanılır. TCP modu, Application Insights tarafından yakalanan olmaz.
 
 ## <a name="set-up-dependency-monitoring"></a>Bağımlılık izleme işlevini ayarlama
 Kısmi bağımlılık bilgileri tarafından otomatik olarak toplanan [Application Insights SDK'sı](app-insights-asp-net.md). Tam veri almak için ana bilgisayar sunucusu için uygun aracıyı yükleyin.

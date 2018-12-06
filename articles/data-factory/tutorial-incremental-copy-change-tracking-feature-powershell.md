@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 246b423e69fa8fb73db45f44fa17c1bc65407681
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: be08740024e87179a48f3dfd6f8406fa6a2bbca6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090734"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963530"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Değişiklik izleme bilgilerini kullanarak Azure SQL Veritabanından Azure Blob Depolama alanına verileri artımlı olarak yükleme 
 Bu öğreticide, kaynak Azure SQL veritabanındaki **değişiklik izleme** bilgilerine dayanan değişiklik verilerini Azure blob depolamasına yükleyen bir işlem hattına sahip olan bir Azure veri fabrikası oluşturursunuz.  
@@ -68,7 +68,7 @@ Bu öğreticide, aşağıdaki iki işlemi gerçekleştiren iki işlem hattı olu
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Azure PowerShell. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps) konusundaki yönergeleri izleyerek en güncel Azure PowerShell modüllerini yükleyin.
 * **Azure SQL Veritabanı**. Veritabanını **kaynak** veri deposu olarak kullanabilirsiniz. Azure SQL Veritabanınız yoksa, oluşturma adımları için [Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started-portal.md) makalesine bakın.
 * **Azure Depolama hesabı**. Blob depolamayı **havuz** veri deposu olarak kullanabilirsiniz. Azure depolama hesabınız yoksa, oluşturma adımları için [Depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md) makalesine bakın. **adftutorial** adlı bir kapsayıcı oluşturun. 
@@ -445,26 +445,26 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGr
 1. [Azure portalı](https://portal.azure.com)’nda oturum açın.
 2. **Tüm hizmetler**’e tıklayın, `data factories` anahtar sözcüğüyle arama yapın ve **Veri fabrikaları** seçeneğini belirleyin. 
 
-    ![Veri fabrikaları menüsü](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-data-factories-menu-1.png)
+    ![Veri fabrikaları menüsü](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png)
 3. Veri fabrikaları listesinde **veri fabrikanızı** arayın ve bunu seçerek Veri fabrikası sayfasını başlatın. 
 
-    ![Veri fabrikanızı arama](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-search-data-factory-2.png)
+    ![Veri fabrikanızı arama](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-search-data-factory-2.png)
 4. Veri fabrikası sayfasında **İzleme ve Yönetme** kutucuğuna tıklayın. 
 
-    ![İzleme ve Yönetme kutucuğu](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-monitor-manage-tile-3.png)    
+    ![İzleme ve Yönetme kutucuğu](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
 5. **Veri Tümleştirme Uygulaması** ayrı bir sekmede başlatılır. Tüm **işlem hattı çalıştırmalarını** ve bunların durumlarını görebilirsiniz. Aşağıdaki örnekte işlem hattı çalıştırmasının durumunun **Başarılı** olarak belirtildiğini görebilirsiniz. **Parametreler** sütunundaki bağlantıya tıklayarak işlem hattına geçirilen parametreleri denetleyebilirsiniz. Bir hata oluştuysa, **Hata** sütununda bir bağlantı görürsünüz. **Eylemler** sütunundaki bağlantıya tıklayın. 
 
-    ![İşlem hattı çalıştırmaları](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-pipeline-runs-4.png)    
+    ![İşlem hattı çalıştırmaları](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
 6. **Eylemler** sütunundaki bağlantıya tıkladığınızda, işlem hattına yönelik tüm **eylem çalıştırmalarını** gösteren sayfayı görürsünüz. 
 
-    ![Etkinlik çalıştırmaları](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-activity-runs-5.png)
+    ![Etkinlik çalıştırmaları](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
 7. **İşlem hattı çalıştırmaları** görünümüne dönmek için, resimde gösterildiği gibi **İşlem hatları** seçeneğine tıklayın. 
 
 
 ### <a name="review-the-results"></a>Sonuçları gözden geçirin
 `adftutorial` kapsayıcısının `incremental-<GUID>.txt` klasöründe `incchgtracking` adlı bir dosya görürsünüz. 
 
-![Tam kopyadan çıkış dosyası](media\tutorial-incremental-copy-change-tracking-feature-powershell\full-copy-output-file.png)
+![Tam kopyadan çıkış dosyası](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png)
 
 Dosyada Azure SQL veritabanından veriler olmalıdır:
 
@@ -633,16 +633,16 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Res
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Artımlı kopyalama işlem hattını izleme
 1. **Veri Tümleştirme Uygulaması**’nda **işlem hattı çalıştırmaları** görünümünü yenileyin. Listede IncrementalCopyPipeline değerini gördüğünüzü onaylayın. **Eylemler** sütunundaki bağlantıya tıklayın.  
 
-    ![İşlem hattı çalıştırmaları](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-pipeline-runs-6.png)    
+    ![İşlem hattı çalıştırmaları](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
 2. **Eylemler** sütunundaki bağlantıya tıkladığınızda, işlem hattına yönelik tüm **eylem çalıştırmalarını** gösteren sayfayı görürsünüz. 
 
-    ![Etkinlik çalıştırmaları](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-activity-runs-7.png)
+    ![Etkinlik çalıştırmaları](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
 3. **İşlem hattı çalıştırmaları** görünümüne dönmek için, resimde gösterildiği gibi **İşlem hatları** seçeneğine tıklayın. 
 
 ### <a name="review-the-results"></a>Sonuçları gözden geçirin
 `adftutorial` kapsayıcısının `incchgtracking` klasöründe ikinci dosyayı görürsünüz. 
 
-![Artımlı kopyadan çıkış dosyası](media\tutorial-incremental-copy-change-tracking-feature-powershell\incremental-copy-output-file.png)
+![Artımlı kopyadan çıkış dosyası](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png)
 
 Dosyada yalnızca Azure SQL veritabanındaki değişiklik verileri olmalıdır. `U` bulunan kayıt, veritabanındaki güncelleştirilmiş satırdır ve `I` ise eklenen bir satırdır. 
 

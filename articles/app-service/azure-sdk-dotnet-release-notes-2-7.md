@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 01a02296354ebe3d60f0e1fda6a6da8554a265fd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4c5a4dfcdde91d1bd0c2728ff9d071d4c2f73f0e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239075"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969779"
 ---
 # <a name="azure-sdk-for-net-27-and-net-271-release-notes"></a>.NET 2.7 ve .NET 2.7.1 için Azure SDK sürüm notları
 ## <a name="overview"></a>Genel Bakış
@@ -40,7 +40,7 @@ Azure SDK 2.7 ile eklenen oturum geliştirmeler yalnızca Visual Studio 2015'te 
 Güncelleştirilmiş **Mobile Apps** en yeni yansıtacak şekilde şablonları [NuGet paketini](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) ve Kurulum işlemi.
 
 ### <a name="service-bus"></a>Service Bus
-Genel hata düzeltmeleri ve geliştirmeleri. Güncelleştirmeleri ve özellikleri hakkında daha fazla ayrıntı için lütfen en son sürüm notları için başvuru [Service Bus NuGet](http://www.nuget.org/packages/WindowsAzure.ServiceBus/).
+Genel hata düzeltmeleri ve geliştirmeleri. Güncelleştirmeleri ve özellikleri hakkında daha fazla ayrıntı için lütfen en son sürüm notları için başvuru [Service Bus NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/).
 
 ### <a name="hdinsight-tools"></a>HDInsight araçları
 Bu sürümde aşağıdaki güncelleştirmeler yapılmıştır. Bu güncelleştirmeler için Önizleme aşamasındadır. Daha fazla bilgi için [bu blog](https://go.microsoft.com/fwlink/?LinkId=619108).

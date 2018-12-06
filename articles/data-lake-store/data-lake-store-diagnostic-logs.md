@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 91cbebecc227d24337b2d1b421dd1611bf0fac46
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 357257d38c444eae8077568993d49816e3c090a3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390805"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966084"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 için tanılama günlüklerine erişme
 Azure Data Lake depolama Gen1 hesabınızı ve hesabınız için toplanan günlükleri görüntülemek için günlüğe kaydetme tanılama etkinleştirmeyi öğrenin.
@@ -46,7 +46,7 @@ Kuruluşlar, verilerin ne sıklıkla erişilen verileri erişen kullanıcıları
         
         * Seçeneğini **Stream olay hub'ına** Azure olay Hub'ına günlük veri akışı. Büyük olasılıkla gerçek zamanda gelen günlükleri analiz etmek için bir aşağı akış işleme işlem hattı varsa bu seçeneği kullanın. Bu seçeneği belirlerseniz, Azure Event Hub kullanmak istediğiniz için ayrıntıları sağlamanız gerekir.
 
-        * Seçeneğini **Log Analytics'e gönderme** Azure Log Analytics hizmetine oluşturulan günlük verileri çözümlemek için kullanılacak. Bu seçeneği belirlerseniz, günlük analizini gerçekleştirin kullanacağınız için Log Analytics çalışma alanı ayrıntılarını sağlamanız gerekir. Bkz: [görünümü veya Log Analytics günlük araması ile toplanan verileri analiz etmek](../log-analytics/log-analytics-tutorial-viewdata.md) Log Analytics kullanma hakkında bilgi.
+        * Seçeneğini **Log Analytics'e gönderme** Azure Log Analytics hizmetine oluşturulan günlük verileri çözümlemek için kullanılacak. Bu seçeneği belirlerseniz, günlük analizini gerçekleştirin kullanacağınız için Log Analytics çalışma alanı ayrıntılarını sağlamanız gerekir. Bkz: [görünümü veya Log Analytics günlük araması ile toplanan verileri analiz etmek](../azure-monitor/learn/tutorial-viewdata.md) Log Analytics kullanma hakkında bilgi.
      
    * Denetim günlükleri veya istek günlükleri veya her ikisi de almak isteyip istemediğinizi belirtin.
    * Verilerin korunması gereken gün sayısını belirtin. Bekletme yalnızca günlük verileri arşivlemek için Azure depolama hesabı kullanıyorsanız geçerlidir.
@@ -178,7 +178,7 @@ JSON biçimli bir denetim günlüğüne örnek girişini İşte. Her blob olarak
 | StreamName |Dize |İşlem yolu üzerinde gerçekleştirildi |
 
 ## <a name="samples-to-process-the-log-data"></a>Günlük verileri işlemek için örnekleri
-Günlükleri Azure Data Lake depolama Gen1 Azure Log Analytics'e gönderirken (bkz [görünümü veya Log Analytics günlük araması ile toplanan verileri analiz etmek](../log-analytics/log-analytics-tutorial-viewdata.md) Log Analytics kullanımıyla ilgili ayrıntılar için), aşağıdaki sorguyu listesini içeren bir tablo döndürür kullanıcısı, olayların süresi ve olay sayısı görsel bir grafiğin yanı sıra etkinliğin saati için görünen adları. Kullanıcı GUID'si göstermek için kolayca değiştirilebilir ya da diğer öznitelikleri:
+Günlükleri Azure Data Lake depolama Gen1 Azure Log Analytics'e gönderirken (bkz [görünümü veya Log Analytics günlük araması ile toplanan verileri analiz etmek](../azure-monitor/learn/tutorial-viewdata.md) Log Analytics kullanımıyla ilgili ayrıntılar için), aşağıdaki sorguyu listesini içeren bir tablo döndürür kullanıcısı, olayların süresi ve olay sayısı görsel bir grafiğin yanı sıra etkinliğin saati için görünen adları. Kullanıcı GUID'si göstermek için kolayca değiştirilebilir ya da diğer öznitelikleri:
 
 ```
 search *

@@ -5,23 +5,73 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 10/17/2018
+ms.date: 11/19/2018
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: d91cc91c65e525726b0d615b46699a1af590ac94
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: HT
+ms.openlocfilehash: 7628260efff34b52ca7d4bd4c35cce279d5474b3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085538"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965419"
 ---
-# <a name="introduction-to-object-storage-in-azure"></a>Azure’da nesne depolamaya giriş
+# <a name="introduction-to-azure-blob-storage"></a>Azure Blob depolamaya giriş
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
+
+## <a name="blob-storage-resources"></a>BLOB depolama kaynaklarını
+
+BLOB Depolama üç tür kaynak sunar:
+
+- **Depolama hesabı**. 
+- A **kapsayıcı** depolama hesabındaki
+- A **blob** bir kapsayıcıda 
+
+Aşağıdaki diyagramda bu kaynaklar arasındaki ilişki gösterilmektedir.
+
+![Blob Depolama mimarisi diyagramı](./media/storage-blob-introduction/blob1.png)
+
+### <a name="storage-accounts"></a>Depolama hesapları
+
+Bir depolama hesabı, Azure, verileriniz için benzersiz bir ad sağlar. Azure Storage'a depoladığınız her nesnenin benzersiz hesabınızın adını içeren bir adresi vardır. Hesap adı ve Azure Depolama Hizmeti uç noktası birleşimi depolama hesabınız için uç noktaları oluşturur.
+
+Örneğin, depolama hesabınızın adı *mystorageaccount*, Blob Depolama için varsayılan uç nokta ise:
+
+```
+http://mystorageaccount.blob.core.windows.net 
+```
+
+Bir depolama hesabı oluşturmak için bkz: [depolama hesabı oluşturma](../common/storage-quickstart-create-account.md). Depolama hesapları hakkında daha fazla bilgi için bkz. [Azure depolama hesabına genel bakış](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+### <a name="containers"></a>Kapsayıcılar
+
+Bir kapsayıcı, BLOB, dosya sistemindeki bir dizin için benzer bir dizi düzenler. Depolama hesabında sınırsız sayıda kapsayıcı olabilir ve her kapsayıcı sınırsız sayıda blob depolayabilir. 
+
+  > [!NOTE]
+  > Kapsayıcı adındaki harfler küçük harf olmalıdır. Adlandırma kapsayıcıları hakkında daha fazla bilgi için bkz. [adlandırma ve başvuran kapsayıcıları, Blobları ve meta verileri](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
+
+### <a name="blobs"></a>Bloblar
+ 
+Azure depolama üç tür BLOB destekler:
+
+* **Blok blobları** yaklaşık 4,7 TB'a kadar metin ve ikili verileri depolayın. Blok blobları, ayrı ayrı yönetilebilen veri bloklarından oluşur.
+* **Ekleme blobları** bloklarını yapılan blok blobları gibi çalışır, ancak için optimize edilmiş ekleme işlemleri. Ekleme blobları sanal makine verilerini günlüğe alma gibi senaryolar için idealdir.
+* **Sayfa blobları** deposu rastgele erişim boyutu 8 TB'a kadar dosyaları. Sayfa blobları Azure sanal makineler için diskler olarak sanal sabit disk (VHD) dosyaları işleme depolar. Sayfa BLOB'ları hakkında daha fazla bilgi için bkz. (.. / articles/storage/blobs/storage-blob-pageblob-overview.md)
+
+BLOB'ları farklı türleri hakkında daha fazla bilgi için bkz. [anlama blok Blobları, ekleme Blobları ve sayfa Blobları](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+
+## <a name="move-data-to-blob-storage"></a>Blob depolamaya veri taşıma
+
+Blob depolama alanına geçirme var olan veriler için birkaç çözüm mevcuttur:
+
+- **AzCopy** Windows ve Linux kapsayıcılar arasında veya depolama hesaplarınız arasında verileri ve Blob depolama alanından kopyalar kullanımı kolay bir komut satırı aracı içindir. AzCopy hakkında daha fazla bilgi için bkz: [AzCopy v10 ile veri aktarma (Önizleme)](../common/storage-use-azcopy-v10.md). 
+- **Azure depolama veri taşıma Kitaplığı** Azure depolama hizmetleri arasında verileri taşımak için bir .NET kitaplığı. AzCopy yardımcı programı ile veri taşıma kitaplığı yerleşik olarak bulunur. Daha fazla bilgi için [başvuru belgeleri](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement) veri taşıma kitaplığı. 
+- **Azure Data Factory** paylaşılan erişim imzası hesap anahtarını kullanarak verileri ve Blob depolama alanından kopyalama destekler hizmet sorumlusu veya yönetilen kimliklerini Azure kaynaklarında kimlik doğrulama için. Daha fazla bilgi için [veri kopyalama ya da Azure Blob depolamadan Azure Data Factory kullanarak](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
+- **Blobfuse** bir Azure Blob Depolama için sanal dosya sistemi sürücüsüdür. Blobfuse mevcut blok blobu verileriniz depolama hesabınızda Linux dosya sistemi üzerinden erişmek için kullanabilirsiniz. Daha fazla bilgi için [bağlama Blob depolamaya bir dosya sistemi ile blobfuse olarak nasıl](storage-how-to-mount-container-linux.md).
+- **Azure Data Box Disk** aktarma verileri Blob Depolama için büyük veri kümeleri veya ağ kısıtlamaları veri yüklemeyi kablo üzerinden kullanışsız değişiklik yaptığınızda şirket için bir hizmettir. Microsoft’tan katı hal sürücüleri (SSD’ler) istemek için [Azure Data Box Disk](../../databox/data-box-disk-overview.md)’i kullanabilirsiniz. Daha sonra verilerinizi bu disklere kopyalayabilir ve Blob depolama alanında yüklenmelerini sağlamak için Microsoft’a geri gönderebilirsiniz.
+- **Azure içeri/dışarı aktarma hizmeti** sağladığınız ve sizin verilerinizi Microsoft ardından birlikte gelen sabit sürücüleri depolama hesabınızdan büyük miktarlarda veri aktarmak için bir yol sağlar. Daha fazla bilgi için [Blob depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmetini kullanmak](../common/storage-import-export-service.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Depolama hesabı oluşturma](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [.NET ile Blob depolamayı kullanmaya başlama](storage-dotnet-how-to-use-blobs.md)
-* [.NET kullanan Azure Depolama örnekleri](../common/storage-samples-dotnet.md)
-* [Java kullanan Azure Depolama örnekleri](../common/storage-samples-java.md)
+* [Azure depolama ölçeklenebilirlik ve performans hedefleri](../common/storage-scalability-targets.md)

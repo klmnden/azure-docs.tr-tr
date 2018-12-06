@@ -2,17 +2,17 @@
 title: Azure ExpressRoute ile ilgili SSS | Microsoft Docs
 description: ExpressRoute SSS, desteklenen Azure hizmetlerini, maliyet, verileri ve bağlantıları, SLA'sı, sağlayıcıları ve konumları, bant genişliği ve ek teknik ayrıntılar hakkında bilgi içerir.
 services: expressroute
-author: cherylmc
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/23/2018
-ms.author: cherylmc
-ms.openlocfilehash: 8cde172207717aca2af5dfa706f7d9c6d290c36e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 10/28/2018
+ms.author: jaredro;cherylmc
+ms.openlocfilehash: 728e5b9b4934372e060374aeb273843d695c4ba8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239211"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972465"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute SSS
 
@@ -68,8 +68,8 @@ ExpressRoute destekler [üç yönlendirme etki alanı](expressroute-circuit-peer
 
 * Power BI
 * Dynamics 365 Finans ve operasyon (eski adıyla Dynamics AX Online bilinir) için
-* Azure hizmetlerinin çoğu desteklenir. Lütfen doğrudan destek doğrulamak için kullanmak istediğiniz hizmeti ile denetleyin.<br>
-  Aşağıdaki hizmetler desteklenmez:
+* Azure hizmetlerinin çoğu desteklenir. Lütfen doğrudan destek doğrulamak için kullanmak istediğiniz hizmeti ile denetleyin.<br><br>
+  **Aşağıdaki hizmetler desteklenmez**:
     * CDN
     * Multi-factor Authentication
     * Traffic Manager
@@ -81,7 +81,7 @@ ExpressRoute destekler [üç yönlendirme etki alanı](expressroute-circuit-peer
 * Power BI
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure küresel hizmetler community)
-* Azure hizmetlerinin çoğu desteklenir. Lütfen doğrudan destek doğrulamak için kullanmak istediğiniz hizmeti ile denetleyin.<br>Aşağıdaki hizmetler **desteklenmiyor**:
+* Azure hizmetlerinin çoğu desteklenir. Lütfen doğrudan destek doğrulamak için kullanmak istediğiniz hizmeti ile denetleyin.<br><br>**Aşağıdaki hizmetler desteklenmez**:
     * CDN
     * Multi-factor Authentication
     * Traffic Manager

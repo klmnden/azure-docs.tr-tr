@@ -2,18 +2,18 @@
 title: Azure Backup sunucusu ile VMware sunucularını yedekleme
 description: Azure veya disk bir VMware vCenter/ESXi sunucularını yedeklemek için Azure Backup sunucusu kullanma. Bu makalede adım sağlayan adım adım yönergeler için Yedekleme (veya korumak) = VMware iş yüklerinizi.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
-ms.openlocfilehash: ce7b255359c076ddae642ed44f056e444b655e25
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e39e5d12610164ca4a1372830cf25ea203fd382c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216419"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968843"
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>Bir VMware sunucusunu yedeklemek'ı Azure'da yedekleme
 
@@ -55,7 +55,7 @@ Bu sorunu düzeltmek ve güvenli bir bağlantı oluşturmak için güvenilen kö
 4. Sağ **download.zip**ve ardından **tümünü Ayıkla** içerik ayıklanamadı.
 
     .Zip dosyasının içeriğini adlı bir klasöre ayıklar **sertifikaları**. İki tür dosyaların sertifikaları klasöründe yer alır. Kök sertifika dosyasını.0 ve.1 gibi numaralı bir dizi ile başlayan uzantısına sahiptir.
-    
+
     CRL dosyasını .r0 veya .r1 gibi bir dizi ile başlayan uzantısına sahiptir. CRL dosyasını bir sertifika ile ilişkilidir.
 
     ![Yerel olarak ayıklanan dosyasını indirin ](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
@@ -249,7 +249,7 @@ Azure Backup sunucusu için VMware sunucusu eklemeden önce yükleme [Azure Back
     ![Azure Backup sunucusu kimlik bilgisi Ekle iletişim kutusu](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
     Tıklayın **Ekle** Azure Backup sunucusu için yeni kimlik bilgisi eklemek için. Yeni kimlik bilgisi listede görünür **kimlik bilgilerini Yönet** iletişim kutusu.
-    
+
     ![Azure Backup sunucusu kimlik bilgilerini Yönet iletişim kutusu](./media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 5. Kapatmak için **kimlik bilgilerini Yönet** iletişim kutusu, tıklayın **X** sağ üst köşedeki.
@@ -271,7 +271,7 @@ Azure Backup sunucusu için VMware sunucusu eklemeden önce yükleme [Azure Back
 
 2. Üzerinde **seçin üretim sunucusu türünü** sayfasında **VMware sunucularını**ve ardından **sonraki**.
 
-3. İçinde **sunucu adı/IP adresi**, tam etki alanı adı (FQDN) veya VMware sunucusunun IP adresini belirtin. Tüm ESXi sunucuları aynı vCenter tarafından yönetiliyorsa, vCenter adı kullanabilirsiniz.
+3. İçinde **sunucu adı/IP adresi**, tam etki alanı adı (FQDN) veya (ESXi ana bilgisayar sunucusu) VMware sunucusunun IP adresini belirtin. Tüm ESXi sunucuları aynı vCenter tarafından yönetiliyorsa, vCenter adı kullanabilirsiniz.
 
     ![VMware server FQDN veya IP adresi belirtin](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 

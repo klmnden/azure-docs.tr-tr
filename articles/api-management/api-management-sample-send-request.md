@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: fdcc230171006c6388e75b947e10a73fb953001a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bfb08cb3bb81917414e4d34afe47964b738980e7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294688"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970187"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Azure API Management hizmetinden dış hizmetler kullanma
 Azure API Management hizmetinde kullanılabilir ilkeleri faydalı iş tamamen gelen istek, giden yanıt ve temel yapılandırma bilgilerini göre çeşitli işlemleri gerçekleştirebilirsiniz. Ancak, API Yönetimi'nden dış hizmetlerle etkileşim için ilkeleri açılır daha fazla fırsatlarının.
@@ -68,13 +68,13 @@ Slack, gelen web kancaları kavramı vardır. Gelen web kancasını yapılandır
 `send-request` İlke etkinleştirir karmaşık işleme işlevleri gerçekleştiren ve verileri API management hizmet döndürmek için bir dış hizmet kullanarak daha fazla ilke işleme için kullanılabilir.
 
 ### <a name="authorizing-reference-tokens"></a>Başvuru belirteçleri yetkilendirme
-API Management'ın önemli bir işlev, arka uç kaynaklarına korumaktır. API'niz tarafından kullanılan yetkilendirme sunucusu oluşturursa [JWT belirteçleri](http://jwt.io/) kendi OAuth2 akışının parçası olarak olarak [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) mu kullanabileceğiniz sonra `validate-jwt` belirtecin geçerliliğini doğrulamak için ilke. Bazı yetkilendirme sunucusu adı verilir oluşturmak [başvuru belirteçleri](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) , doğrulanamıyor yetkilendirme sunucusu için bir geri çağırma işlemini yapmadan.
+API Management'ın önemli bir işlev, arka uç kaynaklarına korumaktır. API'niz tarafından kullanılan yetkilendirme sunucusu oluşturursa [JWT belirteçleri](https://jwt.io/) kendi OAuth2 akışının parçası olarak olarak [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) mu kullanabileceğiniz sonra `validate-jwt` belirtecin geçerliliğini doğrulamak için ilke. Bazı yetkilendirme sunucusu adı verilir oluşturmak [başvuru belirteçleri](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) , doğrulanamıyor yetkilendirme sunucusu için bir geri çağırma işlemini yapmadan.
 
 ### <a name="standardized-introspection"></a>Standartlaştırılmış iç denetim
 Geçmişte, yetkilendirme sunucusu bir başvuru belirteçle doğrulama hiçbir standartlaştırılmış bir yol olmuştur. Ancak en son önerilen standart [RFC 7662](https://tools.ietf.org/html/rfc7662) nasıl bir kaynak sunucuda bir belirtecin geçerliliğini doğrulayabilirsiniz tanımlar IETF tarafından yayımlandı.
 
 ### <a name="extracting-the-token"></a>Belirteç ayıklanıyor
-İlk adım yetkilendirme üst bilgisinden ayıklamaktır belirteç. Üst bilgi değeri ile biçimlendirilmelidir `Bearer` Yetkilendirme düzeni, tek bir boşluk ve yetkilendirme belirteci olarak başına [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Ne yazık ki burada Yetkilendirme düzeni atlanırsa durumlar vardır. Ayrıştırılırken bu hesap için API Management üstbilgi değeri bir alana ayırır ve dizeleri döndürülen diziden son dizeyse seçer. Bu, hatalı biçimlendirilmiş yetkilendirme üstbilgileri için geçici bir çözüm sağlar.
+İlk adım yetkilendirme üst bilgisinden ayıklamaktır belirteç. Üst bilgi değeri ile biçimlendirilmelidir `Bearer` Yetkilendirme düzeni, tek bir boşluk ve yetkilendirme belirteci olarak başına [RFC 6750](https://tools.ietf.org/html/rfc6750#section-2.1). Ne yazık ki burada Yetkilendirme düzeni atlanırsa durumlar vardır. Ayrıştırılırken bu hesap için API Management üstbilgi değeri bir alana ayırır ve dizeleri döndürülen diziden son dizeyse seçer. Bu, hatalı biçimlendirilmiş yetkilendirme üstbilgileri için geçici bir çözüm sağlar.
 
 ```xml
 <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
@@ -118,7 +118,7 @@ Kullanabileceğiniz bir `<choose>` belirteç geçersiz olduğu ve bu durumda, al
 </choose>
 ```
 
-Olarak başına [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) açıklayan nasıl `bearer` belirteçleri kullanılmalıdır, API Management ayrıca döndürür bir `WWW-Authenticate` 401 yanıt üst bilgisi. WWW-Authenticate amacı bir istemcide düzgün yetkili isteğinin nasıl oluşturulduğunun bildirin. Çeşitli yaklaşımlar OAuth2 framework ile olası nedeniyle, gerekli tüm bilgileri iletişim kurmak zordur. Neyse ki devam ettiği yardımcı olmak için çaba vardır [istemcileri bulmak nasıl düzgün bir şekilde istekleri kaynak sunucuya yetki vereceğiniz](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
+Olarak başına [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) açıklayan nasıl `bearer` belirteçleri kullanılmalıdır, API Management ayrıca döndürür bir `WWW-Authenticate` 401 yanıt üst bilgisi. WWW-Authenticate amacı bir istemcide düzgün yetkili isteğinin nasıl oluşturulduğunun bildirin. Çeşitli yaklaşımlar OAuth2 framework ile olası nedeniyle, gerekli tüm bilgileri iletişim kurmak zordur. Neyse ki devam ettiği yardımcı olmak için çaba vardır [istemcileri bulmak nasıl düzgün bir şekilde istekleri kaynak sunucuya yetki vereceğiniz](https://tools.ietf.org/html/draft-jones-oauth-discovery-00).
 
 ### <a name="final-solution"></a>Son çözüm
 Sonunda, şu ilkeyi alın:

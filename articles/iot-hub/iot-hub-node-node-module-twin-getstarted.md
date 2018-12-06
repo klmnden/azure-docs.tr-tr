@@ -9,12 +9,12 @@ ms.devlang: node
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: fa77e117b8045be4ef0566e388c4e8df08c95fe2
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 4016471be05c1062eb389ab4851330f3a80dbcb2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42056440"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969035"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>Node.js arka ucu ile Node.js cihaz IOT hub'ı modül kimlik ve modül ikizi ile çalışmaya başlama
 
@@ -35,18 +35,17 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 * IOT hub'ı.
 * Son yükleme [Node.js SDK'sı](https://github.com/Azure/azure-iot-sdk-node).
 
-
 IoT hub'ınızı oluşturdunuz ve bu öğreticinin geri kalanını tamamlamak için gereken ana bilgisayar adı ve IoT Hub bağlantı dizesine sahipsiniz.
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Bir cihaz kimliği ve bir modül kimliği, IOT hub'ı oluşturma
 
 Bu bölümde, IOT hub'ınızdaki kimlik kayıt defterinde bir cihaz kimliği ve bir modül kimliği oluşturan bir Node.js uygulaması oluşturun. Kimlik kayıt defterinde girişi olmayan bir cihaz veya modül, IoT hub'ına bağlanamaz. Daha fazla bilgi için [IoT Hub geliştirici kılavuzunun][lnk-devguide-identity] "Kimlik kayıt defteri" bölümüne bakın. Bu konsol uygulamasını çalıştırdığınızda, hem cihaz hem de modül için benzersiz bir kimlik ve anahtar oluşturur. Cihazınız ve modülünüz, IoT Hub’ına cihazdan buluta iletileri gönderdiğinde kendisini tanımlamak için bu değerleri kullanır. Kimlikler büyük/küçük harfe duyarlıdır.
 
-1.  Kodunuzu saklamak için bir dizin oluşturun.
-2. Bu dizin içinde ilk çalıştırma **npm init -y** boş bir package.json varsayılan değerlerle oluşturma. Bu işlev, kodunuz için proje dosyasıdır.
-3. Çalıştırma **npm yükleme -S azure-iothub@modules-preview**  hizmeti SDK'sını yüklemek için içinde **node_modules** alt. 
+1. Kodunuzu saklamak için bir dizin oluşturun.
+2. Bu dizin içinde ilk çalıştırma **npm init -y** boş bir package.json varsayılan değerlerle oluşturma. Bu işlev, kodunuz için proje dosyasıdır.
+3. Çalıştırma **npm yükleme -S azure-iothub@modules-preview ** hizmeti SDK'sını yüklemek için içinde **node_modules** alt.
 
-    > [!NOTE] 
+    > [!NOTE]
     > Alt ad node_modules "düğümü kitaplığı" auto'yu word modülü kullanır. IOT hub'ı olan modüller ilgisi terimini buraya sahiptir.
 
 4. Dizininizde aşağıdaki .js dosyası oluşturun. Bu çağrı **add.js**. Kopyalayıp hub adını ve hub bağlantı dizesini yapıştırın.
@@ -126,7 +125,7 @@ Bu bölümde, oluşturduğunuz bir Node.js uygulamasını sanal Cihazınızda mo
     > [!NOTE]
     > Npm yükleme komutu düşünüyor yavaş. Sabırlı olun, onu bir paket deposundaki kodu çok sayıda çekiyor.
 
-    > [!NOTE] 
+    > [!NOTE]
     > Npm hata bildiren bir hata görürseniz! kayıt defteri hata ayrıştırma json, bunu yoksaymak güvenlidir. Npm hata bildiren bir hata görürseniz! kayıt defteri hata ayrıştırma json, bunu yoksaymak güvenlidir.
 
 3. Twin.js adlı bir dosya oluşturun. Kopyalayın ve yapıştırın, modül kimliği dizesi.
@@ -180,7 +179,7 @@ Bu bölümde, oluşturduğunuz bir Node.js uygulamasını sanal Cihazınızda mo
     });
     ```
 
-2. Şimdi, bu komutla çalıştırın **düğüm twin.js**.
+2. Şimdi, bu komutla çalıştırın **düğüm twin.js**.
 
     ```
     F:\temp\module_twin>node twin.js
@@ -200,9 +199,8 @@ IoT Hub’ı kullanmaya başlamak ve diğer IoT senaryolarını keşfetmek için
 * [Cihaz yönetimini kullanmaya başlama][lnk-device-management]
 * [IoT Edge ile çalışmaya başlama][lnk-iot-edge]
 
-
 <!-- Images. -->
-[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
+[15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

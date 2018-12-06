@@ -10,17 +10,17 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: d60f2aca912f279f84710863e5f6ce507de64cb0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 409e4d2e71766ddba2b1d7bcf7e10afdbe298104
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309183"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968555"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Hızlı Başlangıç: Bing yerel iş arama Node.js kullanarak API için bir sorgu gönderin.
 
 Bu hızlı başlangıçta, Azure Bilişsel hizmet olduğu Bing yerel iş arama API'si için istekleri göndermeye başlamak için kullanın. Bu basit uygulama, node.js'de yazılmış olsa da API'si bir RESTful Web tüm programlama dillerini HTTP isteğinde bulunan ve JSON ayrıştırma özelliğine sahip uyumlu hizmetidir.
- 
+
 Bu örnek uygulama, arama sorgusu için API'sinden yerel yanıt verilerini alır. `hotel in Bellevue`.
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -31,14 +31,15 @@ Bu örnek uygulama, arama sorgusu için API'sinden yerel yanıt verilerini alır
 
 Olmalıdır bir [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) Bing API'leri ile. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) bu hızlı başlangıç için yeterlidir. Ücretsiz deneme tarafından sağlanan erişim anahtarı kullanın.  Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-##<a name="code-scenario"></a>Kod senaryosu
+## <a name="code-scenario"></a>Kod senaryosu
+
 Aşağıdaki kod, tanımlar alır ve isteği gönderir. Aşağıdaki adımları izler:
 
 1. Ana bilgisayar ve yol ile uç noktayı belirtmek için değişkenleri bildirme.
-2. Sorgu belirtin ve sorgu parametresi ekleyin. 
+2. Sorgu belirtin ve sorgu parametresi ekleyin.
 3. Yanıt için bir işleyici işlevi oluşturma.
 4. İsteği oluşturur ve Ocp-Apim-Subscription-Key üstbilgisi ekler arama işlevini tanımlar.
-5. Search işlevini çalıştırma. 
+5. Search işlevini çalıştırma.
 
 Bu tanıtımda kullanılan kodun tamamı aşağıda verilmiştir:
 
@@ -92,6 +93,7 @@ Search();
 ````
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Yerel iş arama hızlı başlangıç](local-quickstart.md)
-- [Yerel iş arama Java hızlı başlangıç](local-search-java-quickstart.md)
-- [Yerel iş arama Python hızlı başlangıç](local-search-python-quickstart.md)
+
+* [Yerel iş arama hızlı başlangıç](local-quickstart.md)
+* [Yerel iş arama Java hızlı başlangıç](local-search-java-quickstart.md)
+* [Yerel iş arama Python hızlı başlangıç](local-search-python-quickstart.md)

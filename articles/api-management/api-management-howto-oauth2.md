@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: c0e502c1627ebe9d63ca43cb46b982bb0639f3d7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 87e5b6098ff9ee74ef8a4314362c30c436d5ad20
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444742"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967938"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>OAuth 2.0 kullanarak Azure API Management'ta Geliştirici hesaplarını yetkilendirme nasıl
 
-Çok sayıda API desteği [OAuth 2.0](http://oauth.net/2/) API güvenliğini sağlama ve yalnızca geçerli kullanıcı erişimi vardır ve yalnızca bunlar başlıklı kaynaklarına erişebilmek emin olun. Böyle API'leri ile Azure API Management'ın etkileşimli Geliştirici konsolu kullanmak için hizmet ile OAuth 2.0 etkin API çalışması için hizmet örneği yapılandırmanızı sağlar.
+Çok sayıda API desteği [OAuth 2.0](https://oauth.net/2/) API güvenliğini sağlama ve yalnızca geçerli kullanıcı erişimi vardır ve yalnızca bunlar başlıklı kaynaklarına erişebilmek emin olun. Böyle API'leri ile Azure API Management'ın etkileşimli Geliştirici konsolu kullanmak için hizmet ile OAuth 2.0 etkin API çalışması için hizmet örneği yapılandırmanızı sağlar.
 
 ## <a name="prerequisites"> </a>Önkoşulları
 
@@ -143,7 +143,7 @@ Aşağıdaki video ve eşlik eden OAuth 2.0 ve API Management'ı kullanma hakkı
 [Caching policies]: api-management-policy-reference.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
-[http://oauth.net/2/]: http://oauth.net/2/
+[https://oauth.net/2/]: https://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 
 [Prerequisites]: #prerequisites

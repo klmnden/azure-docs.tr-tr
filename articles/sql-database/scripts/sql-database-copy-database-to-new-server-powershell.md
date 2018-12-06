@@ -12,16 +12,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/07/2018
-ms.openlocfilehash: 209ee97f65f13037d5c87082615bcf37074a91c7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
-ms.translationtype: HT
+ms.openlocfilehash: 02e945d838da552e2054c9547a2a6a26c73e273d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055869"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963678"
 ---
 # <a name="use-powershell-to-copy-a-sql-database-to-a-new-server"></a>PowerShell kullanarak SQL veritabanını yeni bir sunucuya kopyalama
 
-Bu PowerShell betiği örneği, yeni bir sunucuda mevcut bir veritabanının kopyasını oluşturur. 
+Bu PowerShell betiği örneği, yeni bir sunucuda mevcut bir veritabanının kopyasını oluşturur.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]

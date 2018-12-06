@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 32f3dd0543e841c4aae87cf48654c95a4609e51a
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: c6e28554f86a6a7de5d50027ceb552e15856bc96
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682852"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970867"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service ortamlarında hazırlık ayarlama
 <a name="Overview"></a>
@@ -58,7 +58,7 @@ Uygulama çalıştırmalıdır **standart**, **Premium**, veya **yalıtılmış*
 4. Uygulamanızın kaynak dikey penceresinde **dağıtım yuvalarını**, Metrikler ve yapılandırma gibi herhangi bir uygulama kümesiyle Bu yuvanın kaynak dikey penceresini açmak için bir dağıtım yuvası'ye tıklayın. Yuva adını dağıtım yuvası görüntülediğiniz hatırlatmak için dikey pencerenin en üstünde gösterilir.
    
     ![Dağıtım yuvası başlığı][StagingTitle]
-5. Uygulama URL'sini yuvanın dikey penceresinde tıklayın. Dağıtım yuvası kendi ana bilgisayar adı olan hem de dinamik uygulama dikkat edin. Dağıtım yuvası genel erişimi sınırlamak için bkz: [web erişimi engellemek için üretim dışı dağıtım yuvaları App Service Web uygulaması –](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
+5. Uygulama URL'sini yuvanın dikey penceresinde tıklayın. Dağıtım yuvası kendi ana bilgisayar adı olan hem de dinamik uygulama dikkat edin. Dağıtım yuvası genel erişimi sınırlamak için bkz: [web erişimi engellemek için üretim dışı dağıtım yuvaları App Service Web uygulaması –](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
 Dağıtım yuvası oluşturulduktan sonra içerik yok. Farklı bir depo dalı veya tamamen farklı bir depoya yuvaya dağıtabilirsiniz. Yuvanın yapılandırmasını da değiştirebilirsiniz. İçerik güncelleştirmeleri için dağıtım yuvasıyla ilişkili yayımlama profilini veya dağıtım kimlik bilgilerini kullanın.  Örneğin, [bu yuva git ile yayımlama](app-service-deploy-local-git.md).
 
@@ -258,7 +258,7 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 İçin [Azure CLI](https://github.com/Azure/azure-cli) bkz: dağıtım yuvaları için komutları [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure App Service Web uygulaması – üretim dışı dağıtım yuvalarını web erişimi engelle](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
+[Azure App Service Web uygulaması – üretim dışı dağıtım yuvalarını web erişimi engelle](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
 [Linux üzerinde App Service'e Giriş](../app-service/containers/app-service-linux-intro.md)  
 [Microsoft Azure ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/)
 

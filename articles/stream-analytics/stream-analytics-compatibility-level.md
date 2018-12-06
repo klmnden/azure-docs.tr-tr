@@ -8,12 +8,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 83bbb777f5af6d29736db3b53ca39c449402c78e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: e4a4aa7bb944ec15d4283893c0f3e8c647a1d8b4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977722"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968638"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics işleri için uyumluluk düzeyi
  
@@ -27,7 +27,7 @@ Uyumluluk düzeyi, bir stream analytics işi çalışma zamanı davranışını 
 
 Uyumluluk düzeyini güncelleştirmeden önce işi durdurmanız emin olun. İşinizi çalışır durumda olup olmadığını uyumluluk düzeyini güncelleştirilemiyor. 
 
-![Portalı'nda uyumluluk düzeyi](media\stream-analytics-compatibility-level/image1.png)
+![Portalı'nda uyumluluk düzeyi](media/stream-analytics-compatibility-level/image1.png)
 
  
 Uyumluluk düzeyini güncelleştirdiğinizde, T-SQL derleyicisi iş seçili uyumluluk düzeyine karşılık gelen söz dizimi ile doğrular. 

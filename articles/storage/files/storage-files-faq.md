@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 29f09034988acde3643eebe368445caab035fabd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 761637a9c44cc490d6633aeb1a9b8d81f8885583
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387512"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972091"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular (SSS)
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilen bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlarda eşzamanlı olarak bağlayabilir. Ayrıca verilerin kullanıldığı yakın, hızlı erişim için Azure dosya eşitleme'ı kullanarak Azure dosya paylaşımları Windows Server makinelerinde önbelleğe alabilir.
@@ -45,7 +45,7 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
 
     Azure dosyaları, özellikle bir dosya sistemidir. Azure dosyaları, bildiğiniz ve sevdiğiniz şirket içi işletim sistemleri ile çalışmanın yıllara ait tüm dosya özetleri sahiptir. Azure Blob Depolama gibi Azure dosyaları REST arabirimi ve REST tabanlı istemci kitaplıkları sağlar. Azure Blob Depolama farklı olarak, Azure dosyaları Azure dosya paylaşımları için SMB erişim sunar. SMB kullanarak dosya sistemine herhangi özel bir sürücü ekleme ya da herhangi bir kod yazmadan olmadan bir Azure dosya paylaşımı doğrudan Windows, Linux veya macOS, şirket içinde veya sanal makineleri, bulutta bağlayabilir. Ayrıca verilerin kullanıldığı yakın, hızlı erişim için Azure dosya eşitleme'ı kullanarak Azure dosya paylaşımlarını şirket içi dosya sunucularında önbelleğe alabilir. 
    
-    Azure Blob Depolama ile Azure dosyaları arasındaki farklar hakkında daha ayrıntılı bir açıklaması için bkz [Azure Blob Depolama, Azure dosyaları veya Azure diskleri ne zaman kullanılacağını belirleme](../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Azure Blob Depolama hakkında daha fazla bilgi edinmek için [Blob depolamaya giriş](../blobs/storage-blobs-introduction.md).
+    Azure Blob Depolama ile Azure dosyaları arasındaki farklar hakkında daha ayrıntılı bir açıklaması için bkz [Azure Blob Depolama, Azure dosyaları veya Azure diskleri ne zaman kullanılacağını belirleme](../common/storage-decide-blobs-files-disks.md). Azure Blob Depolama hakkında daha fazla bilgi edinmek için [Blob depolamaya giriş](../blobs/storage-blobs-introduction.md).
 
 * <a id="files-versus-disks"></a>**Azure diskleri yerine neden bir Azure dosya paylaşımı kullanmam gerekir?**  
     Azure diskleri bir disk yalnızca bir disktir. Azure diskleri değeri almak için Azure'da çalışan bir sanal makineye bir disk eklemeniz gerekir. Azure diskleri, bir şirket içi sunucusunda bir disk için kullanacağınız her şey için kullanılabilir. Bir işletim sistemi diski olarak, bir işletim sistemi için takas alanı veya bir uygulama için ayrılmış depolama olarak kullanabilirsiniz. Bir ilgi çekici Azure diskleri için Azure dosya paylaşımının nerede kullanabileceğinizi aynı yerde kullanmak için bulutta bir dosya sunucusu oluşturmak için kullanılır. Bir dosya sunucusunu Azure sanal Makineler'de dağıtma (NFS protokolü desteği veya premium depolama gibi) ile Azure dosyaları şu anda desteklenmeyen dağıtım seçenekleri gerektirdiğinde, Azure dosya depolama almak için bir yüksek performanslı yoludur. 
@@ -54,7 +54,7 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
 
     Hem Azure dosyaları hem de Azure sanal Makineler'de (Azure diskleri arka uç depolama alanı olarak kullanmanın yanı sıra) barındırılan bir dosya sunucusu en iyi şekilde almak için bir yaklaşım bir dosya sunucusunda bir VM bulut üzerinde barındırılan Azure dosya eşitleme yüklemektir. Azure dosya paylaşımını dosya sunucunuz ile aynı bölgede ise, bulut katmanlama ve birim boş alan yüzdesi (% 99) en ayarı etkinleştirebilirsiniz. Bu, verilerin en az çoğaltma sağlar. NFS Protokolü gerektiren uygulamalar desteği gibi dosya sunucularınızı, istediğiniz tüm uygulamaları da kullanabilirsiniz.
 
-    Azure'da yüksek performanslı ve yüksek oranda kullanılabilir bir dosya sunucusu kurmak için bir seçenek hakkında daha fazla bilgi için bkz. [dağıtma Iaas VM Konuk kümeleri Microsoft Azure'da](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). Azure dosyaları ile Azure disklerini arasındaki farklar hakkında daha ayrıntılı açıklaması için bkz: [Azure Blob Depolama, Azure dosyaları veya Azure diskleri ne zaman kullanılacağını belirleme](../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Azure diskleri hakkında daha fazla bilgi için bkz: [Azure yönetilen disklere genel bakış](../../virtual-machines/windows/managed-disks-overview.md).
+    Azure'da yüksek performanslı ve yüksek oranda kullanılabilir bir dosya sunucusu kurmak için bir seçenek hakkında daha fazla bilgi için bkz. [dağıtma Iaas VM Konuk kümeleri Microsoft Azure'da](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). Azure dosyaları ile Azure disklerini arasındaki farklar hakkında daha ayrıntılı açıklaması için bkz: [Azure Blob Depolama, Azure dosyaları veya Azure diskleri ne zaman kullanılacağını belirleme](../common/storage-decide-blobs-files-disks.md). Azure diskleri hakkında daha fazla bilgi için bkz: [Azure yönetilen disklere genel bakış](../../virtual-machines/windows/managed-disks-overview.md).
 
 * <a id="get-started"></a>
 **Nasıl Azure dosyaları'nı kullanarak başlayabilirim?**  
@@ -205,7 +205,7 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
     Dosya Paylaşımı dağıtıldığı abonelik eklendiği VM'nin etki alanına katılmış olduğundan ve aynı Azure AD kimlik bilgilerini kullanarak Azure dosyaları erişebiliyorsa Azure AD Domain Services azure'daki olarak aynı Azure AD kiracısı ile ilişkili ise. Sınırlama yok abonelikte uygulanan ancak ilişkili Azure AD Kiracı.    
     
 * <a id="ad-support-subscription"></a>
-**Azure AD kimlik doğrulaması SMB üzerinden Azure dosyaları için dosya paylaşımı assoicated olduğu birincil kiracıdan farklı bir Azure AD kiracınız ile etkinleştirebilirim?**
+**Azure AD kimlik doğrulaması SMB üzerinden Azure dosyaları için dosya paylaşımı ile ilişkili olduğu birincil kiracıdan farklı bir Azure AD kiracınız ile etkinleştirebilirim?**
 
     Hayır, Azure dosyaları, yalnızca dosya paylaşımı ile aynı abonelikte bulunan Azure AD kiracısı ile Azure AD tümleştirmeyi destekler. Yalnızca bir aboneliği Azure AD kiracısı ile ilişkili olabilir.
 

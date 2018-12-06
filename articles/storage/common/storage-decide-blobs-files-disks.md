@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c7e9c841e7a1d73fcdedd99e210eefb1e52bbf3e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 9819b2bf3c5e5a07d788dc7f51b674a07e6c41ef
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498754"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972346"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Azure Blobları, Azure dosyaları veya Azure diskleri ne zaman kullanılacağını belirleme
 
@@ -26,7 +26,7 @@ Aşağıdaki tabloda, dosyaları, Blobları ve diskleri karşılaştırır ve he
 | Özellik | Açıklama | Kullanılması gereken durumlar |
 |--------------|-------------|-------------|
 | **Azure dosyaları** | İstemci kitaplıkları, bir SMB arabirim sağlar ve bir [REST arabirimi](/rest/api/storageservices/file-service-rest-api) her yerden erişim sağlayan depolanan dosyalar için. | "Kaldırma ve kaydırma" istediğiniz zaten ve Azure'da çalışan diğer uygulamalar arasında veri paylaşımı için yerel dosya sistemi API kullanan bulut için bir uygulama.<br/><br/>Geliştirme ve hata ayıklama çok sayıda sanal makinelerden erişilmesi gereken araçları depolamak istiyorsanız. |
-| **Azure BLOB'ları** | İstemci kitaplıkları sağlar ve bir [REST arabirimi](/rest/api/storageservices/blob-service-rest-api) depolanabilir ve blok blobları, büyük bir ölçekte erişilen yapılandırılmamış verileri sağlar. | Rastgele erişim senaryoları ve akış'ı desteklemek üzere uygulama istediğiniz.<br/><br/>Uygulama verilerine her yerden erişebilir olmasını istediğiniz. |
+| **Azure BLOB'ları** | İstemci kitaplıkları sağlar ve bir [REST arabirimi](/rest/api/storageservices/blob-service-rest-api) depolanabilir ve blok blobları, büyük bir ölçekte erişilen yapılandırılmamış verileri sağlar.<br/><br/>Ayrıca destekler [Azure Data Lake depolama Gen2](../blobs/data-lake-storage-introduction.md) Kurumsal büyük veri analizi çözümleri. | Rastgele erişim senaryoları ve akış'ı desteklemek üzere uygulama istediğiniz.<br/><br/>Uygulama verilerine her yerden erişebilir olmasını istediğiniz.<br/><br/>Bir kurumsal veri gölü, Azure üzerinde oluşturmayı ve büyük veri analizi gerçekleştirmek istiyorsunuz. |
 | **Azure diskleri** | İstemci kitaplıkları sağlar ve bir [REST arabirimi](/rest/api/compute/manageddisks/disks/disks-rest-api) kalıcı olarak depolanır ve bir bağlı sanal sabit diskten erişilen verileri sağlar. | Lift- and -shift okumak ve kalıcı diske veri yazmak için yerel dosya sistemi API kullanan uygulamaları istiyorsunuz.<br/><br/>Disk bağlı olduğu sanal makinenin dışında erişilebilir için gerekli olmayan verileri depolamak istediğiniz. |
 
 ## <a name="comparison-files-and-blobs"></a>Karşılaştırma: Dosyalar ve Bloblar

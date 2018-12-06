@@ -15,20 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: 171180eb373553dfa0c971b22e3cf62e450829ed
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a46f2b4ed1bb3fc5fff65a627bd3d808ed85ffce
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233618"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967291"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Azure’da CentOS tabanlı bir sanal makine hazırlama
+
 * [Azure'da CentOS 6.x sanal makine hazırlama](#centos-6x)
 * [Azure'da CentOS 7.0 + sanal makine hazırlama](#centos-70)
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 Bu makalede, bir CentOS zaten yüklü olduğunu varsayar (veya benzer bir türev) bir sanal sabit disk için Linux işletim sistemi. Birden çok araç, .vhd dosyaları, örneğin bir Hyper-V gibi sanallaştırma çözümü oluşturmak için mevcut. Yönergeler için [Hyper-V rolünü yükleme ve sanal makine yapılandırma](https://technet.microsoft.com/library/hh846766.aspx).
 
 **CentOS yükleme notları**
@@ -48,16 +50,16 @@ Bu makalede, bir CentOS zaten yüklü olduğunu varsayar (veya benzer bir türev
 2. Tıklayın **Connect** sanal makine için bir konsol penceresi açın.
 
 3. CentOS 6'da, Azure Linux Aracısı ile NetworkManager engelleyebilir. Bu paket, aşağıdaki komutu çalıştırarak kaldırın:
-   
+
         # sudo rpm -e --nodeps NetworkManager
 
 4. Oluşturma veya düzenleme dosya `/etc/sysconfig/network` ve aşağıdaki metni ekleyin:
-   
+
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
 5. Oluşturma veya düzenleme dosya `/etc/sysconfig/network-scripts/ifcfg-eth0` ve aşağıdaki metni ekleyin:
-   
+
         DEVICE=eth0
         ONBOOT=yes
         BOOTPROTO=dhcp
@@ -67,12 +69,12 @@ Bu makalede, bir CentOS zaten yüklü olduğunu varsayar (veya benzer bir türev
         IPV6INIT=no
 
 6. Ethernet arabirimleri için statik kuralları oluşturmaktan kaçınmak için udev kurallarını değiştirin. Bu kurallar, bir sanal makinede Microsoft Azure veya Hyper-V: kopyalarken sorunlara neden olabilir
-   
+
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 
 7. Ağ hizmeti, aşağıdaki komutu çalıştırarak önyükleme sırasında başlar emin olun:
-   
+
         # sudo chkconfig network on
 
 8. Azure veri merkezleri içinde barındırılır ve ardından değiştirin OpenLogic yansıtmalar kullanmak istiyorsanız, `/etc/yum.repos.d/CentOS-Base.repo` aşağıdaki depolardan dosyasıyla.  Bu ayrıca ekler **[openlogic]** Azure Linux aracısı gibi ek paketlerini içeren depo:
@@ -82,14 +84,14 @@ Bu makalede, bir CentOS zaten yüklü olduğunu varsayar (veya benzer bir türev
         baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
         enabled=1
         gpgcheck=0
-        
+
         [base]
         name=CentOS-$releasever - Base
         #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra
         baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
         gpgcheck=1
         gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
-        
+
         #released updates
         [updates]
         name=CentOS-$releasever - Updates
@@ -97,7 +99,7 @@ Bu makalede, bir CentOS zaten yüklü olduğunu varsayar (veya benzer bir türev
         baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
         gpgcheck=1
         gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
-        
+
         #additional packages that may be useful
         [extras]
         name=CentOS-$releasever - Extras
@@ -114,7 +116,7 @@ Bu makalede, bir CentOS zaten yüklü olduğunu varsayar (veya benzer bir türev
         gpgcheck=1
         enabled=0
         gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
-        
+
         #contrib - packages by Centos Users
         [contrib]
         name=CentOS-$releasever - Contrib
@@ -124,16 +126,15 @@ Bu makalede, bir CentOS zaten yüklü olduğunu varsayar (veya benzer bir türev
         enabled=0
         gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
-    >[!Note]
-    Bu kılavuzda kalan kullanmakta olduğunuz varsayılır en az `[openlogic]` aşağıdaki Azure Linux Aracısı'nı yüklemek için kullanılacak bir depo.
-
+    > [!Note]
+    > Bu kılavuzda kalan kullanmakta olduğunuz varsayılır en az `[openlogic]` aşağıdaki Azure Linux Aracısı'nı yüklemek için kullanılacak bir depo.
 
 9. /Etc/yum.conf için aşağıdaki satırı ekleyin:
-    
+
         http_caching=packages
 
 10. Geçerli yum meta verileri temizlemek ve en son paketlerle sistemi güncelleştirmek için aşağıdaki komutu çalıştırın:
-    
+
         # yum clean all
 
     CentOS daha eski bir sürümü için bir görüntü oluşturmakta olduğunuz sürece, tüm paketlerin en son sürüme güncelleştirmek için önerilir:
@@ -143,43 +144,42 @@ Bu makalede, bir CentOS zaten yüklü olduğunu varsayar (veya benzer bir türev
     Bu komutu çalıştırdıktan sonra bir yeniden başlatma gerekli olabilir.
 
 11. (İsteğe bağlı) Linux Integration Services (LIS) sürücülerini yükleyin.
-   
-    >[!IMPORTANT]
-    Adım **gerekli** için CentOS 6,3 ve önceki ve sonraki sürümleri için isteğe bağlı.
+
+    > [!IMPORTANT]
+    > Adım **gerekli** için CentOS 6,3 ve önceki ve sonraki sürümleri için isteğe bağlı.
 
         # sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
         # sudo yum install microsoft-hyper-v
 
     Alternatif olarak, el ile yükleme yönergeleri izleyebilirsiniz [LIS indirme sayfasına](https://go.microsoft.com/fwlink/?linkid=403033) RPM VM'nizi üzerine yüklemek için.
- 
+
 12. Azure Linux Aracısı'nı ve bağımlılıklarını yükleyin:
-    
+
         # sudo yum install python-pyasn1 WALinuxAgent
-    
+
     Bunlar zaten açıklandığı kaldırılmamışsa NetworkManager gnome paketleri 3. adımında ve WALinuxAgent paket NetworkManager kaldırılır.
 
-
 13. Kernel önyükleme satırına grub yapılandırmanızda ek çekirdek parametreleri için Azure içerecek şekilde değiştirin. Bunu yapmak için açık `/boot/grub/menu.lst` bir metin düzenleyicisinde ve varsayılan çekirdek aşağıdaki parametreleri içerir:
-    
+
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300
-    
+
     Bu, Azure size yardımcı olabilir ilk seri bağlantı noktası için tüm konsol iletileri gönderilir sağlayacak sorunları hata ayıklama desteği.
-    
+
     Yukarıdakine ek olarak, ancak önerilir *Kaldır* aşağıdaki parametreleri:
-    
+
         rhgb quiet crashkernel=auto
-    
+
     Grafik ve sessiz önyükleme seri bağlantı noktasına gönderilmesi için tüm günlükleri istediğimiz bir bulut ortamında kullanışlı değildir.  `crashkernel` Seçenek olabilir sol isterseniz yapılandırılmış, ancak Not daha küçük VM boyutlarına sorunlu olabilecek bu parametre VM'de 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır.
 
-    >[!Important]
-    CentOS 6.5 ve daha önceki çekirdek parametresi de ayarlamanız gerekir `numa=off`. Red Hat bkz [KB 436883](https://access.redhat.com/solutions/436883).
+    > [!Important]
+    > CentOS 6.5 ve daha önceki çekirdek parametresi de ayarlamanız gerekir `numa=off`. Red Hat bkz [KB 436883](https://access.redhat.com/solutions/436883).
 
 14. SSH sunucusu yüklü ve önyükleme sırasında başlatılacak şekilde yapılandırılmış emin olun.  Bu, genellikle varsayılan değerdir.
 
 15. İşletim sistemi diski üzerinde takas alanı oluşturabilirsiniz.
-    
+
     Azure Linux Aracısı, Azure üzerinde sağladıktan sonra VM'ye bağlı yerel kaynak disk kullanılan takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak olduğuna dikkat edin bir *geçici* disk ve sanal Makinenin sağlaması kaldırıldığında boşaltılabilir. Azure Linux Aracısı'nı yükledikten sonra (önceki adıma bakın), aşağıdaki parametrelerle değiştirin `/etc/waagent.conf` uygun şekilde:
-    
+
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
         ResourceDisk.MountPoint=/mnt/resource
@@ -187,16 +187,17 @@ Bu makalede, bir CentOS zaten yüklü olduğunu varsayar (veya benzer bir türev
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
 16. Sanal makinenin sağlamasını kaldırma ve Azure'da sağlama için hazırlamak için aşağıdaki komutları çalıştırın:
-    
+
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
 17. Tıklayın **eylem -> kapatma aşağı** Hyper-V Yöneticisi'nde. Linux VHD'nizi artık Azure'a yüklenmek hazırdır.
 
-
 - - -
+
 ## <a name="centos-70"></a>CentOS 7.0 +
+
 **CentOS 7 (ve benzer türevleri) değişiklikleri**
 
 Azure için bir CentOS 7 sanal makinesini hazırlama çok benzeyen CentOS 6, ancak önemli bazı önemli farklılıklar vardır:
@@ -212,12 +213,12 @@ Azure için bir CentOS 7 sanal makinesini hazırlama çok benzeyen CentOS 6, anc
 2. Tıklayın **Connect** sanal makine için bir konsol penceresi açın.
 
 3. Oluşturma veya düzenleme dosya `/etc/sysconfig/network` ve aşağıdaki metni ekleyin:
-   
+
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
 4. Oluşturma veya düzenleme dosya `/etc/sysconfig/network-scripts/ifcfg-eth0` ve aşağıdaki metni ekleyin:
-   
+
         DEVICE=eth0
         ONBOOT=yes
         BOOTPROTO=dhcp
@@ -228,24 +229,24 @@ Azure için bir CentOS 7 sanal makinesini hazırlama çok benzeyen CentOS 6, anc
         NM_CONTROLLED=no
 
 5. Ethernet arabirimleri için statik kuralları oluşturmaktan kaçınmak için udev kurallarını değiştirin. Bu kurallar, bir sanal makinede Microsoft Azure veya Hyper-V: kopyalarken sorunlara neden olabilir
-   
+
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
 
 6. Azure veri merkezleri içinde barındırılır ve ardından değiştirin OpenLogic yansıtmalar kullanmak istiyorsanız, `/etc/yum.repos.d/CentOS-Base.repo` aşağıdaki depolardan dosyasıyla.  Bu ayrıca ekler **[openlogic]** Azure Linux Aracısı paketlerini içeren depo:
-   
+
         [openlogic]
         name=CentOS-$releasever - openlogic packages for $basearch
         baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
         enabled=1
         gpgcheck=0
-        
+
         [base]
         name=CentOS-$releasever - Base
         #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra
         baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
         gpgcheck=1
         gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-        
+
         #released updates
         [updates]
         name=CentOS-$releasever - Updates
@@ -253,7 +254,7 @@ Azure için bir CentOS 7 sanal makinesini hazırlama çok benzeyen CentOS 6, anc
         baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
         gpgcheck=1
         gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-        
+
         #additional packages that may be useful
         [extras]
         name=CentOS-$releasever - Extras
@@ -261,7 +262,7 @@ Azure için bir CentOS 7 sanal makinesini hazırlama çok benzeyen CentOS 6, anc
         baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
         gpgcheck=1
         gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-        
+
         #additional packages that extend functionality of existing packages
         [centosplus]
         name=CentOS-$releasever - Plus
@@ -271,11 +272,11 @@ Azure için bir CentOS 7 sanal makinesini hazırlama çok benzeyen CentOS 6, anc
         enabled=0
         gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
-    >[!Note]
-    Bu kılavuzda kalan kullanmakta olduğunuz varsayılır en az `[openlogic]` aşağıdaki Azure Linux Aracısı'nı yüklemek için kullanılacak bir depo.
+    > [!Note]
+    > Bu kılavuzda kalan kullanmakta olduğunuz varsayılır en az `[openlogic]` aşağıdaki Azure Linux Aracısı'nı yüklemek için kullanılacak bir depo.
 
 7. Geçerli yum meta verileri temizlemek ve tüm güncelleştirmeleri yüklemek için aşağıdaki komutu çalıştırın:
-   
+
         # sudo yum clean all
 
     CentOS daha eski bir sürümü için bir görüntü oluşturmakta olduğunuz sürece, tüm paketlerin en son sürüme güncelleştirmek için önerilir:
@@ -285,27 +286,27 @@ Azure için bir CentOS 7 sanal makinesini hazırlama çok benzeyen CentOS 6, anc
     Bir yeniden başlatma belki de bu komutu çalıştırdıktan sonra gerekiyor.
 
 8. Kernel önyükleme satırına grub yapılandırmanızda ek çekirdek parametreleri için Azure içerecek şekilde değiştirin. Bunu yapmak için açık `/etc/default/grub` bir metin düzenleyicisi ve düzenleme `GRUB_CMDLINE_LINUX` parametresi, örneğin:
-   
+
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
-   
+
    Bu, Azure size yardımcı olabilir ilk seri bağlantı noktası için tüm konsol iletileri gönderilir sağlayacak sorunları hata ayıklama desteği. NIC için de yeni CentOS 7 adlandırma kurallarını devre dışı bırakır. Yukarıdakine ek olarak, ancak önerilir *Kaldır* aşağıdaki parametreleri:
-   
+
         rhgb quiet crashkernel=auto
-   
+
     Grafik ve sessiz önyükleme seri bağlantı noktasına gönderilmesi için tüm günlükleri istediğimiz bir bulut ortamında kullanışlı değildir. `crashkernel` Seçenek olabilir sol isterseniz yapılandırılmış, ancak Not daha küçük VM boyutlarına sorunlu olabilecek bu parametre VM'de 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır.
 
 9. İşiniz bittiğinde düzenleme `/etc/default/grub` başına, yukarıda grub yapılandırması yeniden oluşturmak için aşağıdaki komutu çalıştırın:
-   
+
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 10. Bir görüntüden oluşturuyorsanız **VMware, VirtualBox veya KVM:** initramfs içinde olduğundan emin olun Hyper-V sürücüleri dahil edilir:
-   
+
    Düzen `/etc/dracut.conf`, içeriği ekleyin:
-   
+
         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
-   
+
    İnitramfs yeniden oluşturun:
-   
+
         # sudo dracut -f -v
 
 11. Azure Linux Aracısı'nı ve bağımlılıklarını yükleyin:
@@ -314,9 +315,9 @@ Azure için bir CentOS 7 sanal makinesini hazırlama çok benzeyen CentOS 6, anc
         # sudo systemctl enable waagent
 
 12. İşletim sistemi diski üzerinde takas alanı oluşturabilirsiniz.
-   
+
    Azure Linux Aracısı, Azure üzerinde sağladıktan sonra VM'ye bağlı yerel kaynak disk kullanılan takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak olduğuna dikkat edin bir *geçici* disk ve sanal Makinenin sağlaması kaldırıldığında boşaltılabilir. Azure Linux Aracısı'nı yükledikten sonra (önceki adıma bakın), aşağıdaki parametrelerle değiştirin `/etc/waagent.conf` uygun şekilde:
-   
+
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
         ResourceDisk.MountPoint=/mnt/resource
@@ -324,7 +325,7 @@ Azure için bir CentOS 7 sanal makinesini hazırlama çok benzeyen CentOS 6, anc
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
 13. Sanal makinenin sağlamasını kaldırma ve Azure'da sağlama için hazırlamak için aşağıdaki komutları çalıştırın:
-   
+
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
@@ -332,5 +333,5 @@ Azure için bir CentOS 7 sanal makinesini hazırlama çok benzeyen CentOS 6, anc
 14. Tıklayın **eylem -> kapatma aşağı** Hyper-V Yöneticisi'nde. Linux VHD'nizi artık Azure'a yüklenmek hazırdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık Azure'da yeni sanal makineler oluşturmak için CentOS Linux sanal sabit diski kullanmaya hazırsınız. Bu Azure'a .vhd dosyasını karşıya ilk kez kullanıyorsanız, bkz. [bir özel diskten Linux VM oluşturma](upload-vhd.md#option-1-upload-a-vhd).
 
+Artık Azure'da yeni sanal makineler oluşturmak için CentOS Linux sanal sabit diski kullanmaya hazırsınız. Bu Azure'a .vhd dosyasını karşıya ilk kez kullanıyorsanız, bkz. [bir özel diskten Linux VM oluşturma](upload-vhd.md#option-1-upload-a-vhd).

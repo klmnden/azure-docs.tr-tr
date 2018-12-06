@@ -10,13 +10,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 05/17/2018
-ms.openlocfilehash: cb3d8629d5d72644e647da14e7c3b31a4914814d
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 12/05/2018
+ms.openlocfilehash: 6523828b522379dd1cd70f1c548caf7af15b5d90
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159579"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964774"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Azure SQL veritabanı için Gelişmiş tehdit koruması
 
@@ -32,7 +32,7 @@ SQL Gelişmiş tehdit Koruması (ATP), veri bulma & Sınıflandırma, güvenlik 
 
 Bunların tümü etkinleştirmek için özellikler dahil sonra SQL ATP etkinleştirin. ATP’yi tüm veritabanı sunucunuzda tek tıkla etkinleştirebilir ve sunucuda bulunan tüm veritabanlarına uygulayabilirsiniz. 
 
-ATP fiyatlandırma 15 ABD Doları/düğüm/korunan her SQL veritabanı sunucusu bir düğüm olarak sayıldığı ay, Azure Güvenlik Merkezi standart katmanını ile hizalar. İlk 60 gün sonra geçerlilik ücretsiz deneme süresi kabul edilir ve ücret alınmaz. Daha fazla bilgi için [Azure Güvenlik Merkezi fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/security-center/).
+ATP fiyatlandırması, Azure Güvenlik Merkezi standart katmanı, korunan her SQL veritabanı sunucusu bir düğüm olarak sayıldığı ile hizalar. Yeni korunan kaynakları, Güvenlik Merkezi standart katmanının ücretsiz deneme için uygun. Daha fazla bilgi için [Azure Güvenlik Merkezi fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/security-center/).
 
 
 ## <a name="getting-started-with-atp"></a>ATP ile çalışmaya başlama 
@@ -45,7 +45,7 @@ Giderek ATP'yi etkinleştirme **Gelişmiş tehdit koruması** altında **güvenl
 ![ATP'yi etkinleştirme](./media/sql-advanced-protection/enable_atp.png) 
 
 > [!NOTE]
-> ATP maliyeti, 15 ABD Doları/düğüm/ay, tüm SQL mantıksal sunucusuna bir düğümü olduğu kadardır. Bu nedenle yalnızca bir kez ATP ile sunucudaki tüm veritabanlarını korumak için ödeme yaparsınız. İlk 60 gün ücretsiz deneme sürümü olarak kabul edilir.
+> ATP maliyeti, Azure Güvenlik Merkezi standart katmanı bir düğümü olduğu tüm SQL mantıksal sunucusu, düğüm başına fiyatlandırma ile hizalanır. Bu nedenle yalnızca bir kez ATP ile sunucudaki tüm veritabanlarını korumak için ödeme yaparsınız. Ürününü ATP başlangıçta ücretsiz bir deneme deneyebilirsiniz.
 
 ## <a name="2-configure-vulnerability-assessment"></a>2. Güvenlik Açığı değerlendirmesi yapılandırma
 

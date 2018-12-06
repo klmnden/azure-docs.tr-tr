@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi araması | Microsoft Docs
 description: Log Analytics arama Azure Güvenlik Merkezi güvenlik verilerinizi analiz edin ve almak için nasıl kullandığını öğrenin.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
-ms.author: terrylan
-ms.openlocfilehash: ec8c11dcea825dfaab19643e7aefc68a82542fa9
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: rkarlin
+ms.openlocfilehash: 19aed3d3da1250e6ad47bf9266f2e57aa255156a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301540"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963788"
 ---
 # <a name="azure-security-center-search"></a>Azure Güvenlik Merkezi arama
 Azure Güvenlik Merkezi kullanan [Log Analytics arama](../log-analytics/log-analytics-log-searches.md) almak ve güvenlik verilerinizi analiz edin. Log Analytics, hızlı bir şekilde verileri almak ve birleştirmek için bir sorgu dili içerir. Güvenlik Merkezi'nden Log Analytics arama sorguları oluşturma ve toplanan verileri çözümlemek için yararlanabilirsiniz.

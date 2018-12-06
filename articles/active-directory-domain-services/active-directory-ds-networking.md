@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/01/2017
 ms.author: ergreenl
-ms.openlocfilehash: eb97e709e18daba3722dc43a869ef034dbe573cf
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: c13a4606219ebdb1d23a83a0bd3bdf14f1a3882e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157437"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970918"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD Domain Services ilgili ağ konuları
 ## <a name="how-to-select-an-azure-virtual-network"></a>Nasıl bir Azure sanal ağı seçin
@@ -102,7 +102,7 @@ Aşağıdaki tabloda örnek bir Azure AD Domain Services yönetilen etki alanı 
 
 Ayrıca, NSG ayrıca internet üzerinden güvenli LDAP erişimini kilitlemek nasıl gösterir. Bu kural, güvenli LDAP erişimi için yönetilen etki alanınıza internet üzerinden etkinleştirmediyseniz atlayın. NSG, TCP bağlantı noktası IP adresleri üzerinden 636 yalnızca belirtilen bir kümesinden gelen LDAPS erişime izin veren kuralları kümesi içerir. Belirtilen IP adresleri internet üzerinden LDAPS erişime izin vermek için NSG kuralı DenyAll NSG kuralı daha yüksek bir önceliğe sahiptir.
 
-![Örnek internet üzerinden LDAPS erişimin güvenliğini sağlamak için NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
+![Örnek internet üzerinden LDAPS erişimin güvenliğini sağlamak için NSG](./media/active-directory-domain-services-alerts/default-nsg.png)
 
 **Daha fazla bilgi** - [ağ güvenlik grubu oluşturma](../virtual-network/manage-network-security-group.md).
 

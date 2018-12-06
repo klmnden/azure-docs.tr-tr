@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 54ceadc8173526e8638e70c8c859109eea157fa7
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 79d78faa53962ea72178281d75cef3c2f61320b1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614047"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971513"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS tarafından güvenliği bağlantısı kesilmiş bir Azure Stack ortamına bir App Service kaynak sağlayıcısı ekleme
 
@@ -200,7 +200,7 @@ App Service bağlantısı kesilmiş bir ortamda dağıtmak için önce Internet'
 2. Durumu altında genel bakış, görmek için iade **durumu** görüntüler **tüm roller hazır**.
 
     ![App Service Yönetimi](media/azure-stack-app-service-deploy/image12.png)
-    
+
 > [!NOTE]
 > Mevcut bir sanal ağ ve dosya için bağlanmak için bir iç IP adresi dağıtmayı seçerseniz, çalışan alt ağ ve dosya sunucusu arasında SMB trafiği etkinleştirme bir giden güvenlik kuralı eklemeniz gerekir.  Bunu yapmak için Yönetim Portalı'nda WorkersNsg gidin ve aşağıdaki özelliklere sahip bir giden güvenlik kuralı ekleyin:
 > * Kaynak: tüm
@@ -221,9 +221,9 @@ Dağıtma ve App Service kaynak sağlayıcısı kaydetme sonra kullanıcılar, w
 > [!NOTE]
 > Planı içinde Microsoft.Web ad alanı olan bir teklif oluşturun gerekir. Ardından, bu teklife abone olan bir kiracı aboneliğinizin olması gerekir. Daha fazla bilgi için [oluştur Teklif](azure-stack-create-offer.md) ve [plan oluşturma](azure-stack-create-plan.md).
 >
-*Gerekir* Azure Stack üzerinde App Service kullanan uygulamalar oluşturmak için bir kiracı aboneliğinizin olması. App Service kaynak sağlayıcısı Yönetim için bir Hizmet Yöneticisi Yönetici portalında tamamlayabilirsiniz yalnızca özellikleri ilgilidir. Bu özellikler, kapasite ekleme, dağıtım kaynaklarını yapılandırma ve çalışan katmanları ve SKU'ları ekleme içerir.
+> *Gerekir* Azure Stack üzerinde App Service kullanan uygulamalar oluşturmak için bir kiracı aboneliğinizin olması. App Service kaynak sağlayıcısı Yönetim için bir Hizmet Yöneticisi Yönetici portalında tamamlayabilirsiniz yalnızca özellikleri ilgilidir. Bu özellikler, kapasite ekleme, dağıtım kaynaklarını yapılandırma ve çalışan katmanları ve SKU'ları ekleme içerir.
 >
-Üçüncü Teknik Önizleme'den itibaren web API ve Azure'ı oluşturmak için uygulamaları İşlevler, Kiracı portalı kullanın ve Kiracı aboneliğinizin olması gerekir.
+> Üçüncü Teknik Önizleme'den itibaren web API ve Azure'ı oluşturmak için uygulamaları İşlevler, Kiracı portalı kullanın ve Kiracı aboneliğinizin olması gerekir.
 
 1. Azure Stack Kiracı portalında **+ kaynak Oluştur** > **Web + mobil** > **Web uygulaması**.
 

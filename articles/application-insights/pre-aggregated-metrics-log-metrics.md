@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 136279a94d64b846247c436eb7a5fb487e05b41a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d095be8c5d921001ab4a492d2385938020fa8ce0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946910"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967223"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Günlük tabanlı ve önceden toplanan ölçümler Application ınsights
 
@@ -55,7 +55,7 @@ Vardır [özel ölçümler Application Insights SDK'sından gönderme yolları](
 
 Kullanarak gönderdiğiniz tüm ölçümler [trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) veya [GetMetric ve TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) API çağrılarıdır otomatik olarak hem günlükleri ve ölçümleri depolarında depolanan. Ancak, özel ölçüm günlük tabanlı sürümü her zaman tüm boyutlar tutarken ölçüm önceden toplanmış sürümünü herhangi bir boyutu ile varsayılan olarak depolanır. Özel ölçümler boyutlarını koleksiyonunda kapatma [kullanım ve tahmini maliyet](https://docs.microsoft.com/azure/application-insights/app-insights-pricing) "Özel ölçüm boyutlara etkin uyarı" denetleyerek sekmesinde: 
 
-![Kullanım ve tahmini maliyet](.\media\pre-aggregated-metrics-log-metrics\001-cost.png)
+![Kullanım ve tahmini maliyet](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
 
 ## <a name="why-is-collection-of-custom-metrics-dimensions-turned-off-by-default"></a>Neden özel ölçümler boyutları koleksiyonu varsayılan olarak kapalıdır?
 
@@ -65,7 +65,7 @@ Boyutsuz özel ölçümler depolama (en fazla bir kota) ücretsiz kalır ancak g
 
 Grafiklerle grafikleri önceden toplanmış ve günlük tabanlı ölçümleri ve yazar panolara çizmek için Azure İzleyici ölçüm Gezgini'ni kullanın. İstediğiniz Application Insights kaynağını seçtikten sonra standart (Önizleme) ve günlük tabanlı ölçümler arasında geçiş yapmak için ad alanı seçiciyi kullanın veya özel bir ölçüm ad alanı seçin:
 
-![Ölçüm ad alanı](.\media\pre-aggregated-metrics-log-metrics\002-metric-namespace.png)
+![Ölçüm ad alanı](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

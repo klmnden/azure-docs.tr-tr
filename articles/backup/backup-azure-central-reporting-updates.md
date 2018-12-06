@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: adigan
-ms.openlocfilehash: 575b994fb34d673578b1a40ae4bdd9f6716b6687
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 65ab497b2467846a324d10f8487ab384a01441ee
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720040"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968894"
 ---
 # <a name="update-the-azure-backup-central-reporting-content-pack"></a>Azure Backup merkezi raporlama içerik paketini güncelleştir 
 
@@ -41,30 +41,30 @@ Azure Backup içerik Paketi'ne ile gelen önceden yapılandırılmış raporlar�
 
 ### <a name="summary"></a>Özet
    
-![Özet](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Summary.png)
+![Özet](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Summary.png)
 
 ### <a name="billing"></a>Faturalandırma
 
-![Faturalandırma](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Billing.png)
+![Faturalandırma](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Billing.png)
 
 ### <a name="compliance"></a>Uyumluluk
 
-![Uyumluluk](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Compliance.png)
+![Uyumluluk](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Compliance.png)
 
 ### <a name="storage"></a>Depolama
 
-![Depolama](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Storage.png)
+![Depolama](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Storage.png)
 
 ### <a name="backup-items"></a>Yedekleme öğeleri
-![Yedekleme öğeleri](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-BackupItem.png)
+![Yedekleme öğeleri](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-BackupItem.png)
 
 ### <a name="alerts"></a>Uyarılar
 
-![Uyarılar](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Alerts.png)
+![Uyarılar](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Alerts.png)
 
 ### <a name="jobs"></a>İşler
 
-![İşler](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Jobs.png)
+![İşler](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Jobs.png)
     
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 950ab0b07a97c044b124e56c8d43b79aae29ec88
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b781c4657306beb92e730e22e56e6a75359f4401
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721281"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964143"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>OMS portalından Log Analytics kullanıcılar için Azure portalına geçiş için sık sorulan sorular
 Log Analytics, OMS portalında adı verilen kendi portalı başlangıçta yapılandırmasını yönetmek ve toplanan verileri analiz etmek için kullanılır.  Bu Portalı'ndan tüm işlevselliği Azure portalında nerede geliştirilecek sürdürecektir taşındı.
@@ -37,7 +37,7 @@ Hayır. Bu yüzden geçirilmesi gereken bir şey Log Analytics'e kendisine yapı
 Azure portalında Log Analytics çalışma alanınıza erişimi yoksa, izinlerinizi kullanarak yapılandırmak gereken [Azure rol tabanlı erişim](../role-based-access-control/role-assignments-portal.md). Çalışma alanı izinlerini yönetme hakkında daha fazla bilgi için bkz [çalışma alanlarını yönetme](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Uyarılarla ilgili izinleri yönetme hakkında daha fazla bilgi için bkz. [Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
 
 ## <a name="how-do-i-create-a-new-workspace"></a>Yeni bir çalışma alanı nasıl oluşturulur? 
-Azure portalında çalışma alanlarını listesinden tıklayın **Ekle** çalışma alanları listesinde.  Tüm Ayrıntılar için bkz. [Azure portalında Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md).
+Azure portalında çalışma alanlarını listesinden tıklayın **Ekle** çalışma alanları listesinde.  Tüm Ayrıntılar için bkz. [Azure portalında Log Analytics çalışma alanı oluşturma](../log-analytics/../azure-monitor/learn/quick-create-workspace.md).
 
 ![Genel Bakış sayfası](media/log-analytics-oms-portal-faq/new-workspace.png)
 
@@ -112,7 +112,7 @@ OMS portalındaki çözüm galerisinden yönetim çözümlerini yükleme ve bunl
 Uyarı kuralları log Analytics sorgularına dayalı yönetilen artık [deneyimi uyarı birleşik](../monitoring-and-diagnostics/alert-metric.md). Bkz: [uyarıları Log Analytics'ten Azure uyarılarına genişletecektir genişletme](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) yapılandırma ve Azure portalında uyarıları kullanma hakkında bilgi.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Panolarım nasıl erişim sağlanır?
-[Panom'u](../log-analytics/../azure-monitor/platform/dashboards.md) Log analytics'te özelliği kullanımdan kaldırıldı. Bu özellik, bir özel Görünüm Tasarımcısı bölümleri koleksiyonunuz için izin verilen ve yerleşik Azure Panosu işlevselliğe göre almıştır. Log Analytics kullanarak verileri görselleştirmek devam [Görünüm Tasarımcısı](../log-analytics/../azure-monitor/platform/view-designer.md) paylaşılan görünümler için. Görsel öğeler bu görünümden ya da için de sabitleyebilirsiniz [bireysel sorguya](../log-analytics/log-analytics-tutorial-dashboards.md) Azure panolara.
+[Panom'u](../log-analytics/../azure-monitor/platform/dashboards.md) Log analytics'te özelliği kullanımdan kaldırıldı. Bu özellik, bir özel Görünüm Tasarımcısı bölümleri koleksiyonunuz için izin verilen ve yerleşik Azure Panosu işlevselliğe göre almıştır. Log Analytics kullanarak verileri görselleştirmek devam [Görünüm Tasarımcısı](../log-analytics/../azure-monitor/platform/view-designer.md) paylaşılan görünümler için. Görsel öğeler bu görünümden ya da için de sabitleyebilirsiniz [bireysel sorguya](../log-analytics/../azure-monitor/learn/tutorial-logs-dashboards.md) Azure panolara.
 
 ## <a name="how-do-i-check-my-usage"></a>Kullanımım nasıl kontrol edebilirim?
 Artık kolayca görüntüleyebilir ve Log Analytics, maliyet ve kullanım seçerek yönetme **kullanım ve Tahmini maliyetler** çalışma alanınızdaki.
@@ -126,4 +126,4 @@ Sınırlı bir süre için portal bu URL, kendi çalışma alanı adı ile eriş
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Bulma ve yönetim çözümlerini yükleme](../azure-monitor/insights/solutions.md) Azure portalını kullanarak.
-- Hakkında bilgi edinin [Azure portalında günlük araması](log-analytics-log-search-portals.md).
+- Hakkında bilgi edinin [Azure portalında günlük araması](../azure-monitor/log-query/portals.md).

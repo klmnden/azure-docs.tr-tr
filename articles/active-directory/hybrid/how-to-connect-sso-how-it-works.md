@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6f93d7c4b76d635a221c2711ce9d4ef0de2286f6
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 236a9dac64fa98b9db68a610de097c1deba3e7ee
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687410"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970441"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sorunsuz çoklu oturum açma: ayrıntılı Teknik İnceleme
 
@@ -29,6 +29,7 @@ Bu makalede, Azure Active Directory sorunsuz çoklu oturum açma (sorunsuz SSO) 
 ## <a name="how-does-seamless-sso-work"></a>Sorunsuz çoklu oturum açma nasıl çalışır?
 
 Bu bölüm, üç bölümü vardır:
+
 1. Sorunsuz çoklu oturum açma özelliği kurulumu.
 2. Nasıl bir tek kullanıcı işlemi bir web tarayıcısında oturum açma sorunsuz çoklu oturum açma ile çalışır.
 3. Nasıl sorunsuz SSO ile oturum açma tek bir kullanıcı işlemi yerel bir istemci üzerinde çalışır.
@@ -36,6 +37,7 @@ Bu bölüm, üç bölümü vardır:
 ### <a name="how-does-set-up-work"></a>Nasıl iş ayarlayamayan dilbilimsel?
 
 Sorunsuz çoklu oturum açma etkin gösterildiği gibi Azure AD Connect kullanarak [burada](how-to-connect-sso-quick-start.md). Bu özellik etkinleştirilirken, aşağıdaki adımlar oluşur:
+
 - Adlı bir bilgisayar hesabı `AZUREADSSOACC` (Azure AD temsil eden), şirket içi Active Directory (AD) her AD ormanında oluşturulur.
 - Bilgisayar hesabının Kerberos şifre çözme anahtarı güvenli bir şekilde Azure AD ile paylaşılır. Birden fazla AD ormanına varsa, her biri kendi Kerberos şifre çözme anahtarı gerekir.
 - Ayrıca, Azure AD oturum açma sırasında kullanılan iki URL temsil etmek için iki Kerberos hizmet asıl adı (SPN) oluşturulur.

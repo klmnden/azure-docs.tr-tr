@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: bd5082d9f66e65bb487c9216131b7e13f825340e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8b43ef81385f1d185fdd63d2a33453c75684fd21
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246659"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969933"
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management etki alanları arası ilkeler
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -38,7 +38,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 ```xml  
 <cross-domain>  
    <!-Policy configuration is in the Adobe cross-domain policy file format,   
-      see http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html-->  
+      see https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html-->  
 </cross-domain>  
 ```  
   
@@ -56,7 +56,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 |Ad|Açıklama|Gerekli|  
 |----------|-----------------|--------------|  
-|etki alanları arası|Kök öğe. Alt öğeleri için uygun olmalıdır [Adobe etki alanları arası ilke dosyası belirtimi](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Evet|  
+|etki alanları arası|Kök öğe. Alt öğeleri için uygun olmalıdır [Adobe etki alanları arası ilke dosyası belirtimi](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Evet|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -127,7 +127,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |----------|-----------------|--------------|-------------|  
 |cors|Kök öğe.|Evet|Yok|  
 |izin verilen çıkış noktaları|İçeren `origin` etki alanları arası istek için izin verilen çıkış noktaları açıklayan öğeleri. `allowed-origins` tek bir içerebilir `origin` belirten öğesi `*` her türlü kaynağa veya bir veya daha fazla izin vermek için `origin` öğeleri içeren bir URI.|Evet|Yok|  
-|Kaynak|Değer ya da olabilir `*` tüm kaynaklar veya tek bir kaynak belirten bir URI izin vermek için. URI bir şema, konak ve bağlantı noktasını içermelidir.|Evet|Bir URI bağlantı noktası belirtilmezse, HTTP için 80 numaralı bağlantı noktası kullanılır ve HTTPS için 443 numaralı bağlantı noktası kullanılır.|  
+|kaynak|Değer ya da olabilir `*` tüm kaynaklar veya tek bir kaynak belirten bir URI izin vermek için. URI bir şema, konak ve bağlantı noktasını içermelidir.|Evet|Bir URI bağlantı noktası belirtilmezse, HTTP için 80 numaralı bağlantı noktası kullanılır ve HTTPS için 443 numaralı bağlantı noktası kullanılır.|  
 |izin verilen yöntemleri|Yöntemleri dışında GET veya POST izin verilir, bu öğe gereklidir. İçeren `method` desteklenen HTTP fiilleri öğeleri.|Hayır|Bu bölümde mevcut değilse, GET ve POST desteklenir.|  
 |method|Bir HTTP fiilini belirtir.|En az bir `method` öğesi, varsa gereklidir `allowed-methods` bölüm mevcut.|Yok|  
 |izin verilen üstbilgileri|Bu öğeyi içeren `header` istekte bulunan üst bilgi adlarını belirten öğeleri.|Hayır|Yok|  

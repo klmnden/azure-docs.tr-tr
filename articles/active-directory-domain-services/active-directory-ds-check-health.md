@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: a9248e2310e509bbc4f527608246b47543a03fc4
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: aee8492c73ace608abaeca9d833494e041d2b9dd
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502186"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969013"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Bir Azure AD Domain Services yönetilen etki alanının sistem durumunu denetle
 
@@ -32,7 +32,7 @@ Sistem durumu sayfası, Azure Portal'da kullanarak, yönetilen etki alanınızda
 2. Durumunu görüntülemek istediğiniz etki alanına tıklayın.
 3. Sol gezinti bölmesinden **sistem durumu**.
 
-Aşağıdaki resimde bir örnek sistem durumu sayfası gösterilmektedir: ![örnek sistem durumu sayfası](.\media\active-directory-domain-services-alerts\health-page.png)
+Aşağıdaki resimde bir örnek sistem durumu sayfası gösterilmektedir: ![örnek sistem durumu sayfası](./media/active-directory-domain-services-alerts/health-page.png)
 
 >[!NOTE]
 > Yönetilen etki alanınızın sistem saatte değerlendirilir. Yönetilen etki alanınızla değişiklikleri yaptıktan sonra yönetilen etki alanınızın güncelleştirilmiş durumunu görüntülemek için sonraki değerlendirme döngüsünde kadar bekleyin. Yönetilen etki alanınızın sistem en son ne zaman değerlendirildiği sağ üst köşedeki "Son Değerlendirme" zaman damgası gösterilir.
@@ -43,10 +43,10 @@ Aşağıdaki resimde bir örnek sistem durumu sayfası gösterilmektedir: ![örn
 
 | Durum | Simge | Açıklama |
 | --- | :----: | --- |
-| Çalışıyor | <img src= ".\media\active-directory-domain-services-alerts\running-icon.png" width = "15"> | Yönetilen etki alanınıza sorunsuz çalışmasını ve herhangi bir kritik veya uyarı uyarı yok. Bu etki alanının bilgilendirici uyarılar olabilir. |
-| İlgilenilmesi (uyarı) | <img src= ".\media\active-directory-domain-services-alerts\warning-icon.png" width = "15"> | Yönetilen etki alanınızda hiçbir kritik uyarı yok, ancak ele alınması gereken bir veya daha fazla uyarı bildirimleri vardır. |
-| İlgilenilmesi (kritik) | <img src= ".\media\active-directory-domain-services-alerts\critical-icon.png" width = "15"> | Yönetilen etki alanınızda bir veya daha fazla kritik uyarı var. Uyarı ve/veya bilgilendirici uyarılar da sahip olabilirsiniz. |
-| Dağıtılıyor | <img src= ".\media\active-directory-domain-services-alerts\deploying-icon.png" width = "15"> | Dağıtılan sürecinde, etki alanıdır. |
+| Çalışıyor | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15"> | Yönetilen etki alanınıza sorunsuz çalışmasını ve herhangi bir kritik veya uyarı uyarı yok. Bu etki alanının bilgilendirici uyarılar olabilir. |
+| İlgilenilmesi (uyarı) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15"> | Yönetilen etki alanınızda hiçbir kritik uyarı yok, ancak ele alınması gereken bir veya daha fazla uyarı bildirimleri vardır. |
+| İlgilenilmesi (kritik) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15"> | Yönetilen etki alanınızda bir veya daha fazla kritik uyarı var. Uyarı ve/veya bilgilendirici uyarılar da sahip olabilirsiniz. |
+| Dağıtılıyor | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15"> | Dağıtılan sürecinde, etki alanıdır. |
 
 ## <a name="monitors"></a>İzleyiciler
 Azure AD etki alanı Hizmetleri düzenli olarak izler, yönetilen etki alanınız yönlerini izleyiciler var. Yönetilen etki alanınız için tüm etkin uyarıları çözümlemek için İzleyici iyi durumda tutmak için en iyi yolu var.

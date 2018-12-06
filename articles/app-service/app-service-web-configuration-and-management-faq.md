@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 8cc47fc7ec60027851525b98cdf95e7d534ea556
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: b98b0ea68e91bad2a62f40d3dc611308f1bed2de
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241863"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967751"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure'daki Web uygulamaları için yapılandırma ve yönetim hakkında SSS
 
@@ -106,7 +106,7 @@ Daha fazla bilgi için [App Service sertifikaları ve özel etki alanları hakk�
 
 ## <a name="why-do-i-see-the-message-partially-succeeded-when-i-try-to-back-up-my-web-app"></a>Web Uygulamam geri yüklemeye çalıştığımda neden "Kısmen başarılı oldu" iletisini görüyorum?
 
-Yaygın bir nedeni, yedekleme hatası bazı dosyalar uygulama tarafından olmasıdır. Yedekleme gerçekleştirirken kullanımda olan dosyalar kilitli olmadığı. Bu, bu dosyalar yedeklenen engeller ve bir "Kısmen başarılı" durumu neden olabilir. Büyük olasılıkla bu yedekleme işleminden gelen dosyaları hariç tutarak oluşmasını engelleyebilir. Yalnızca gerekli öğeleri oluşturan geri seçebilirsiniz. Daha fazla bilgi için [sitenizi Azure web apps ile yalnızca önemli bölümleri yedekleme](http://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/).
+Yaygın bir nedeni, yedekleme hatası bazı dosyalar uygulama tarafından olmasıdır. Yedekleme gerçekleştirirken kullanımda olan dosyalar kilitli olmadığı. Bu, bu dosyalar yedeklenen engeller ve bir "Kısmen başarılı" durumu neden olabilir. Büyük olasılıkla bu yedekleme işleminden gelen dosyaları hariç tutarak oluşmasını engelleyebilir. Yalnızca gerekli öğeleri oluşturan geri seçebilirsiniz. Daha fazla bilgi için [sitenizi Azure web apps ile yalnızca önemli bölümleri yedekleme](https://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/).
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>Gelen HTTP yanıt üstbilgi nasıl kaldırabilirim?
 
@@ -288,7 +288,7 @@ Docs sağlayıcısı oturum açma işlemleri tanımlamak için çeşitli kimlik 
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Ne miyim yeniden yönlendirme varsayılan *. azurewebsites.net etki alanında my Azure web uygulamanızın özel etki alanı için mi?
 
-Azure, varsayılan Web Apps kullanarak yeni bir Web sitesi oluşturduğunuzda *sitename*. azurewebsites.net etki alanında, sitenize atanır. Bir özel konak adı sitenize ekleyin ve varsayılan erişebilmesi için kullanıcıların istemediğiniz *. azurewebsites.net etki alanında, varsayılan URL yeniden yönlendirebilirsiniz. Özel etki alanınızda Web sitesinin varsayılan etki alanından tüm trafik yönlendirme hakkında bilgi edinmek için [varsayılan etki alanı, Azure web apps'te özel etki alanınızı yeniden yönlendirme](http://zainrizvi.io/blog/block-default-azure-websites-domain/).
+Azure, varsayılan Web Apps kullanarak yeni bir Web sitesi oluşturduğunuzda *sitename*. azurewebsites.net etki alanında, sitenize atanır. Bir özel konak adı sitenize ekleyin ve varsayılan erişebilmesi için kullanıcıların istemediğiniz *. azurewebsites.net etki alanında, varsayılan URL yeniden yönlendirebilirsiniz. Özel etki alanınızda Web sitesinin varsayılan etki alanından tüm trafik yönlendirme hakkında bilgi edinmek için [varsayılan etki alanı, Azure web apps'te özel etki alanınızı yeniden yönlendirme](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Hangi sürümün nasıl belirleyebilirim .NET App Service'te sürümü yüklenir?
 

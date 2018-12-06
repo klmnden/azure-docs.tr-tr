@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 92474bdead021429792f5d51a28ffb7bafc5be2b
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 7fd3ace1acf8442b7df2af90f458e69daf0c270c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334253"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966713"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Azure İzleyici günlükler için ölçüm uyarıları oluşturma  
 
@@ -45,7 +45,7 @@ Log Analytics'te Azure İzleyici - ölçümler ile işlenmeden önce popüler g�
 
 ## <a name="prerequisites-for-metric-alert-for-logs"></a>Günlükler için ölçüm uyarısı için Önkoşullar
 Log Analytics veri çalışır Ölçüm günlükleri için toplanan önce aşağıdaki yukarı ve kullanılabilir ayarlanmalıdır:
-1. **Etkin Log Analytics çalışma alanı**: geçerli ve etkin Log Analytics çalışma alanı mevcut olmalıdır. Daha fazla bilgi için [Azure portalında Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md).
+1. **Etkin Log Analytics çalışma alanı**: geçerli ve etkin Log Analytics çalışma alanı mevcut olmalıdır. Daha fazla bilgi için [Azure portalında Log Analytics çalışma alanı oluşturma](../azure-monitor/learn/quick-create-workspace.md).
 2. **Aracı için Log Analytics çalışma alanı yapılandırılmış**: önceki adımda kullanılan Log Analytics çalışma alanına Azure Vm'leri (veya) şirket içi Vm'leri için veri göndermek yapılandırılacak aracının gerekir. Daha fazla bilgi için [Log Analytics - Aracısı genel bakış](../azure-monitor/platform/agents-overview.md).
 3. **Desteklenen Log Analytics çözümleri yüklü**: Log Analytics çözümü, yapılandırılmış ve gönderen verileri Log Analytics çalışma alanına - desteklenen olmalıdır çözümler [Windows ve Linux için performans sayaçları](../azure-monitor/platform/data-sources-performance-counters.md), [Aracı sistem durumu sinyal kayıtlarını](../azure-monitor/insights/solution-agenthealth.md), [güncelleştirme yönetimi, ve [olay verilerini](../azure-monitor/platform/data-sources-windows-events.md).
 4. **Günlükleri göndermek için yapılandırılmış analiz çözümleri oturum**: Log Analytics çözümü, gerekli günlükleri/veri karşılık gelen olmalıdır [Log Analytics çalışma alanları için desteklenen ölçümler](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) etkin. Örneğin, *% kullanılabilir bellek* sayacı bunu yapılandırılmalıdır [performans sayaçları](../azure-monitor/platform/data-sources-performance-counters.md) çözüm ilk.
