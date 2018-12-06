@@ -12,15 +12,15 @@ ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 11/29/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7985c8e9e26126040d842ded998a953281daa2ae
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 0f6ede488ae118f8df00febda3c53eabb73f2030
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953561"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890237"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Öğretici: Visual Studio kullanarak Service Fabric uygulaması yükseltme hakkında bilgi edinin
 
@@ -48,22 +48,29 @@ Bu öğreticiye başlamadan önce:
 
 ## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Visual Studio kullanarak bir Service Fabric Mesh hizmet yükseltme
 
-Bu makalede, bir mikro hizmet uygulamasından bağımsız olarak yükseltebilirsiniz gösterilmektedir.  Bu örnekte biz değiştirecek `WebFrontEnd` görev Kategorisi'ne görüntülemek için hizmet. Daha sonra size dağıtılmış hizmet yükseltmeniz.
+Bu makalede bir mikro hizmet uygulama içinde sürümüne yükseltme yapmayı gösterir. Bu örnekte biz değiştireceksiniz `WebFrontEnd` görev Kategorisi'ne görüntülemek ve bunu verildiğinde CPU miktarını artırmak için hizmet. Daha sonra size dağıtılmış hizmet yükseltmeniz.
 
 ## <a name="modify-the-config"></a>Yapılandırma değiştirme
 
-Yükseltme, kod değişiklikleri, yapılandırma değişikliği veya her ikisi de nedeniyle olabilir.  Bir yapılandırma değişikliği tanıtmak için açık `WebFrontEnd` projenin `service.yaml` dosyası (altında olduğu **hizmet kaynakları** düğümü).
+Bir Service Fabric Mesh uygulaması oluşturduğunuzda, Visual studio ekler bir **parameters.yaml** her dağıtım ortamı (Bulut ve yerel) dosyası. Bu dosyalarda, parametreler ve ardından service.yaml veya network.yaml gibi kafes *.yaml dosyanızdan başvurulan değerleri tanımlayabilirsiniz.  Visual Studio bazı değişkenler, hizmeti ne kadar CPU gibi sağlar.
 
-İçinde `resources:` bölümünde `cpu:` 0,5 olarak 1.0, web ön ucu yoğun olarak kullanılacak olasılığına öğesinden. Bunu artık şöyle görünmelidir:
+Güncelleştireceğiz `WebFrontEnd_cpu` cpu kaynakları güncelleştirmek için parametre `1.5` olasılığına, **WebFrontEnd** hizmet daha yoğun bir şekilde kullanılır.
 
-```xml
-              ...
-              resources:
-                requests:
-                  cpu: 1.0
-                  memoryInGB: 1
-              ...
-```
+1. İçinde **todolistapp** altında proje **ortamları** > **bulut**açın **parameters.yaml** dosya. Değiştirme `WebFrontEnd_cpu`, değerini `1.5`. Parametre adı, hizmet adıyla başında `WebFrontEnd_` aynı ada sahip farklı hizmetler için geçerli parametreler ayırmak için en iyi uygulama olarak.
+
+    ```xml
+    WebFrontEnd_cpu: 1.5
+    ```
+
+2. Açık **WebFrontEnd** projenin **service.yaml** altında dosya **WebFrontEnd** > **hizmet kaynakları**.
+
+    Unutmayın, `resources:` bölümünde `cpu:` ayarlanır `"[parameters('WebFrontEnd_cpu')]"`. Bulut değeri için proje oluşturulduğunda, `'WebFrontEnd_cpu` alınır **ortamları** > **bulut** > **parameters.yaml** dosya ve olacak `1.5`. Projeyi yerel olarak çalıştırmak için oluşturuluyorsa, değer alınır **ortamları** > **yerel** > **parameters.yaml** dosyası ve '0,5' olacaktır.
+
+> [!Tip]
+> Varsayılan olarak, bir eş profile.yaml dosyanın parametre dosyasını profile.yaml dosyanın değerlerini sağlamak için kullanılır.
+> Örneğin, ortamları > bulut > parameters.yaml ortamları için parametre değerlerini sağlar > bulut > profile.yaml.
+>
+> Aşağıdaki profile.yaml dosyasına ekleyerek bunu geçersiz kılabilirsiniz:`parametersFilePath=”relative or full path to the parameters file”` gibi `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` veya `parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Modeli Değiştir
 
@@ -125,28 +132,29 @@ Derleme ve görevleri listeler web sayfasında yeni bir kategori sütunu gördü
 
 ## <a name="upgrade-the-app-from-visual-studio"></a>Uygulamayı Visual Studio'dan yükseltme
 
-Bir kod yükseltme veya bir yapılandırma yükseltme yapmakta olan bağımsız olarak (Bu durumda biz ikisini de uygulamak), Service Fabric Mesh uygulamanızı Azure sağ yükseltmek **todolistapp** Visual Studio seçip **Yayımla ...**
+Olup, yapmadan bir kod yükseltme veya bir yapılandırma yükseltme (Bu durumda düşünüyorsunuz her ikisi de), Service Fabric Mesh uygulamanızı azure'da sağ tıklayarak yükseltin **todolistapp** Visual Studio ve ardından **Yayımla...**
 
 Ardından **Service Fabric Uygulamasını Yayımla** iletişim kutusunu göreceksiniz.
 
+Kullanma **hedef profil** bu dağıtım için kullanılacak profile.yaml dosyasını seçmek için açılır. U seçiyoruz bulutta uygulama Yükseltmekte olduğunuz **cloud.yaml** açılır menüde, kullanacağınız `WebFrontEnd_cpu` bu dosyada tanımlanan 1.0 değeri.
+
 ![Visual Studio Service Fabric Mesh yayımla iletişim kutusu](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 
-Azure hesabınızı ve aboneliğinizi seçin. Emin **konumu** Yapılacaklar uygulamayı Azure'a ilk yayımlandığında kullandığınız konumuna ayarlayın. Bu makalede kullanılan **Doğu ABD**.
+Azure hesabınızı ve aboneliğinizi seçin. Ayarlama **konumu** Yapılacaklar uygulamayı Azure'a ilk yayımlandığında, kullandığınız konuma. Bu makalede kullanılan **Doğu ABD**.
 
-Emin **kaynak grubu** Yapılacaklar uygulamayı Azure'a ilk yayımlandığında, kullandığınız kaynak grubunu ayarlanır.
+Ayarlama **kaynak grubu** Yapılacaklar uygulamayı Azure'a ilk yayımlandığında, kullandığınız kaynak grubu.
 
-Emin **Azure Container Registry** Yapılacaklar uygulamayı Azure'a ilk yayımlandığında, oluşturduğunuz azure kapsayıcı kayıt defteri adı için ayarlanır.
+Ayarlama **Azure Container Registry** Yapılacaklar uygulamayı Azure'a ilk yayımlandığında, oluşturduğunuz azure kapsayıcı kayıt defteri adı için.
 
 Yayımla iletişim kutusunda basın **Yayımla** azure'da Yapılacaklar uygulama yükseltme düğmesi.
 
-Seçerek yükseltmesinin ilerleme durumunu izleyebilirsiniz **Service Fabric Araçları** bölmesinde Visual Studio **çıkış** penceresi. Yükseltme tamamlandıktan sonra **Service Fabric Araçları** çıkış IP adresini ve bağlantı noktası, uygulamanızın bir URL biçiminde görüntülenir.
+Seçerek yükseltmesinin ilerleme durumunu izlemek **Service Fabric Araçları** bölmesinde Visual Studio **çıkış** penceresi. 
+
+Görüntü oluşturulur ve Azure Container Registry'ye gönderildi sonra bir **durumu** bağlantı Azure portalında dağıtımı izlemek için tıklayabileceği çıktıda görünür.
+
+Yükseltme tamamlandıktan sonra **Service Fabric Araçları** çıkış IP adresini ve bağlantı noktası, uygulamanızın bir URL biçiminde görüntülenir.
 
 ```json
-Packaging Application...
-Building Images...
-Web1 -> C:\Code\ServiceFabricMeshApp\ToDoService\bin\Any CPU\Release\netcoreapp2.0\ToDoService.dll
-Uploading the images to Azure Container Registy...
-Deploying application to remote endpoint...
 The application was deployed successfully and it can be accessed at http://10.000.38.000:20000.
 ```
 
