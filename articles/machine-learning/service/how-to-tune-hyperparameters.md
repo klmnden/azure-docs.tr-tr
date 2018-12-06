@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: e66dcac1d83c71174ad5d7c3fdcd2310143f8e01
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.date: 12/04/2018
+ms.openlocfilehash: b722af6fd5dd29a5b7cef8581d27d421825fb323
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140815"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868166"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>İçin model ayarlama hiperparametreleri
 
@@ -36,8 +36,6 @@ Derin öğrenme / machine learning senaryolarda model performansını yoğun ola
 
 Azure Machine Learning, Hiper parametre araştırma verimli bir şekilde otomatik hale getirmek önemli zamandan ve kaynaklardan tasarruf sağlar. Hiper parametre değerleri aralığı belirtin ve eğitim en fazla çalıştırır. Sistem sonra otomatik olarak farklı parametre yapılandırmaları ile birden çok eş zamanlı çalıştırma başlatır ve seçtiğiniz bir ölçüme göre ölçülen en iyi performansı sonuçlanır yapılandırma bulur. Zayıf performanslı eğitim çalıştırmalarının otomatik olarak erken sonlandırıldı, bilgi işlem kaynaklarının gereksiz azaltır. Bu kaynaklar, diğer hiper parametre yapılandırmalarını keşfetmek için bunun yerine kullanılır.
 
->[!NOTE]
-> Bu makalede kod Azure Machine Learning SDK sürüm 0.168 ile test edilmiştir 
 
 ## <a name="define-search-space"></a>Arama alanı tanımlayın
 
@@ -311,7 +309,7 @@ hyperdrive_run = experiment.submit(hyperdrive_run_config)
 Azure Machine Learning SDK'sı, eğitim, ilerleme durumunu görselleştirir bir not defteri pencere öğesi çalıştığı sağlar. Aşağıdaki kod parçacığı bir Jupyter not defteri tek bir yerde çalışır ayarlama tüm, Hiper parametre görselleştirir:
 
 ```Python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(hyperdrive_run).show()
 ```
 
@@ -348,10 +346,9 @@ print('\n batch size:',parameter_values[7])
 ```
 
 ## <a name="sample-notebook"></a>Örnek Not Defteri
-Başvurun 
-* [Training/03.Train-hyperparameter-Tune-Deploy-With-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow) hiperparametreleri Tensorflow modeli için ayarlama hakkında bir öğretici. 
-
-Bu not alın:
+Bu not defterleri için bakın:
+* [How-to-use-azureml/Training-With-DEEP-Learning/Train-hyperparameter-Tune-Deploy-With-pytorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch) 
+* [How-to-use-azureml/Training-With-DEEP-Learning/Train-hyperparameter-Tune-Deploy-With-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
