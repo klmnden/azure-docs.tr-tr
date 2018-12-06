@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: 15bfe871731f5a6a04cae623faf0bd27cdba27fc
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 5dccfe61eaf97f27b211aa6812145f21f2098738
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233200"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961272"
 ---
 # <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>Azure Log Analytics'te Azure Logic Apps ile B2B iletilerini izleme
 
@@ -27,7 +27,7 @@ Tümleştirme hesabı ticari ortaklar arasında B2B iletişim kurduktan sonra i�
 
 * Tanılama günlük kaydı ile ayarlanmış bir mantıksal uygulama. Bilgi [bir mantıksal uygulama oluşturma işlemini](quickstart-create-first-logic-app-workflow.md) ve [nasıl ayarlanacağı, mantıksal uygulama için günlüğe kaydetmeyi](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
-* Önceki gereksinimlerini sonra izleme ve Log Analytics aracılığıyla B2B iletişimi izlemek için kullandığınız bir Log Analytics çalışma alanı da gerekir. Bir Log Analytics çalışma alanınız yoksa, bilgi [bir Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md).
+* Önceki gereksinimlerini sonra izleme ve Log Analytics aracılığıyla B2B iletişimi izlemek için kullandığınız bir Log Analytics çalışma alanı da gerekir. Bir Log Analytics çalışma alanınız yoksa, bilgi [bir Log Analytics çalışma alanı oluşturma](../azure-monitor/learn/quick-create-workspace.md).
 
 * Mantıksal uygulamanıza bağlı olan tümleştirme hesabı. Bilgi [mantıksal uygulamanızın bağlantısını içeren bir tümleştirme hesabı oluşturma](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 

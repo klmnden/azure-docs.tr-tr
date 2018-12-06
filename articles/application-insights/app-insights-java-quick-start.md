@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: b36e4598f5ff20b921c5cd150ae19be233cc2d14
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
-ms.translationtype: HT
+ms.openlocfilehash: 4ed5363cc927c3e36e6efa7554511d78e1e96d24
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246522"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970935"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Java Web Uygulamanızı İzlemeye Başlama
 
@@ -24,7 +24,7 @@ Azure Application Insights ile web uygulamanızı kullanılabilirlik, performans
 
 Bu hızlı başlangıç, Application Insights SDK'sını var olan bir Java Dynamic Web Projesine eklerken size kılavuzluk eder.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için:
 
@@ -67,7 +67,7 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
 
    ![Yeni App Insights kaynağı formu](./media/app-insights-java-quick-start/000-j.png)
 
-2. "Birlikte Çalış" alanına ```http://dl.microsoft.com/eclipse``` değerini kopyalayın > **Java için Azure Araç Seti**’ni işaretleyin > **Java için Application Insights Eklentisi**’ni seçin > "Gerekli yazılımı bulmak için yükleme sırasında tüm güncelleştirme siteleriyle iletişime geçin" seçeneğinin işaretini kaldırın.
+2. "Birlikte Çalış" alanına ```http://dl.microsoft.com/eclipse``` değerini kopyalayın > **Java için Azure Araç Seti**’ni işaretleyin > **Java için Application Insights Eklentisi**’ni seçin >  "Gerekli yazılımı bulmak için yükleme sırasında tüm güncelleştirme siteleriyle iletişime geçin" seçeneğinin işaretini kaldırın.
 
 3. Yükleme tamamlandıktan sonra **Eclipse’i Yeniden Başlatmanız** istenir.
 
@@ -130,7 +130,7 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
 
    ![Sunucu ölçüm grafikleri](./media/app-insights-java-quick-start/livemetricsjava.png)
 
-Java izleme hakkında daha fazla bilgi için [ek App Insights Java belgelerine](.\app-insights-java-get-started.md) bakın.
+Java izleme hakkında daha fazla bilgi için [ek App Insights Java belgelerine](./app-insights-java-get-started.md) bakın.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

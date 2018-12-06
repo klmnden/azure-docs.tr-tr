@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: bd72abd4f8f23414ea1003c74d2f90cde3b51d34
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 326fd38f7cb738540a389c93de2a9b5be015e0d7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034346"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968741"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Geri dönülemez veri kaybından kurtarma
 
@@ -40,11 +40,11 @@ Bu senaryo, bir arıza olması durumunda, tüm yükleme ekipmanları ve özel bu
 
 Azure başlangıç korumanın yolculuğu, altyapı ve uygulama/Kiracı verilerini ayrı olarak yedekleme ile başlar. Bu belge altyapısını koruma nasıl etkinleştireceğinizi de açıklar. 
 
-![İlk Azure Stack dağıtımı](media\azure-stack-backup\azure-stack-backup-workflow1.png)
+![İlk Azure Stack dağıtımı](media/azure-stack-backup/azure-stack-backup-workflow1.png)
 
 Tüm veriler kaybolur burada kötü örneği senaryoları Azure Stack kurtarma, Azure Stack ve tüm kullanıcı verilerini o dağıtımı için altyapı verileri benzersiz geri işlemidir. 
 
-![Azure Stack'i yeniden dağıtma](media\azure-stack-backup\azure-stack-backup-workflow2.png)
+![Azure Stack'i yeniden dağıtma](media/azure-stack-backup/azure-stack-backup-workflow2.png)
 
 ## <a name="restore"></a>Geri Yükleme
 

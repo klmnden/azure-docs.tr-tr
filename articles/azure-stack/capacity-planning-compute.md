@@ -16,22 +16,22 @@ ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.custom: mvc
-ms.openlocfilehash: b98879483d35a91810c9e9ab5e0ac81151bde52f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 8dcc64350e25be0c8131dc75d96f2a8938944eaf
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368852"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962190"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Azure Stack işlem kapasitesi planlama
-[Azure Stack üzerinde desteklenen VM boyutları](.\user\azure-stack-vm-sizes.md) Azure'da desteklediği bir alt kümesidir. Azure kaynak sınırları boyunca operasyonda ekstra tüketimi kaynakların (yerel ve hizmet düzeyi sunucusu) önlemek için birçok vektörleri uygular. Diğer kiracıların kaynakları overconsume, Kiracı kullanımı için bazı limitler izlenmesi olmadan Kiracı deneyimleri düşer. Sanal makineden ağ çıkışı için Azure sınırlamaları eşleşen bant genişliği sınırlaması Azure Stack'te yerinde vardır. Depolama kaynakları için depolama IOPS limitlerine depolama erişimi için kiracılar tarafından temel operasyonda ekstra tüketimi kaynak önlemek için Azure Stack üzerinde uygulanmıştır.  
+[Azure Stack üzerinde desteklenen VM boyutları](./user/azure-stack-vm-sizes.md) Azure'da desteklediği bir alt kümesidir. Azure kaynak sınırları boyunca operasyonda ekstra tüketimi kaynakların (yerel ve hizmet düzeyi sunucusu) önlemek için birçok vektörleri uygular. Diğer kiracıların kaynakları overconsume, Kiracı kullanımı için bazı limitler izlenmesi olmadan Kiracı deneyimleri düşer. Sanal makineden ağ çıkışı için Azure sınırlamaları eşleşen bant genişliği sınırlaması Azure Stack'te yerinde vardır. Depolama kaynakları için depolama IOPS limitlerine depolama erişimi için kiracılar tarafından temel operasyonda ekstra tüketimi kaynak önlemek için Azure Stack üzerinde uygulanmıştır.  
 
 ## <a name="vm-placement-and-virtual-to-physical-core-overprovisioning"></a>VM yerleştirme ve sanal-fiziksel çekirdek açıdan
 Azure Stack'te VM yerleştirme için kullanılacak belirli bir sunucu belirtmek bir kiracı için hiçbir yolu yoktur. VM yerleştirme sırasında yalnızca olup yeterli bellek bu VM türü için konakta noktadır. Azure Stack bellek fazla kullanma değil; Ancak, bir overcommit çekirdek sayısı, izin verilir. Sanal-fiziksel çekirdek açıdan oranı bir faktör olarak var olan konumunda yerleştirme algoritmaları arama olduğundan, her konak farklı bir oran olabilir. 
 
 Azure'da, bir kullanılabilirlik kümesindeki birden çok hata etki alanlarına için sanal makineleri bir çoklu VM üretim sisteminin yüksek kullanılabilirlik elde etmek için yerleştirilir. Bu, bir kullanılabilirlik kümesine yerleştirilir Vm'leri birbirinden fiziksel olarak yalıtılmış bir raf hata dayanıklılığı için aşağıdaki diyagramda gösterildiği gibi izin vermek için anlamına gelir:
 
-![Hata ve güncelleme etki alanları](media\azure-stack-capacity-planning\domains.png)
+![Hata ve güncelleme etki alanları](media/azure-stack-capacity-planning/domains.png)
 
 
 Azure Stack altyapısını hatalara karşı dayanıklı olsa da, (Yük Devretme Kümelemesi) temel alınan teknoloji hala bazı kapalı kalma süresi VM'ler için etkilenen bir fiziksel sunucuda bir donanım arızası olması durumunda artmasına neden olur. Şu anda Azure Stack Azure ile tutarlı olacak şekilde en fazla üç hata etki alanı ile bir kullanılabilirlik sahip destekler. Vm'leri bir kullanılabilirlik kümesine yerleştirilir bunları mümkün olduğunca eşit olarak birden çok hata etki alanları üzerinde (Azure Stack düğüm) yayarak birbirinden fiziksel olarak izole edilmiş olur. Bir donanım hatası varsa, başarısız hata etki alanı Vm'lerden diğer düğümleri yeniden, ancak, mümkün olduğunda, aynı kullanılabilirlik kümesindeki diğer vm'lerden ayrı hata etki alanlarında tutulur. Donanım tekrar çevrimiçi olduğunda, yüksek kullanılabilirliği sürdürmek için Vm'leri yeniden Dengelenecek.

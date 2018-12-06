@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 9410d895c791cd860c53542091608263f601b225
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 1009660df94eb145bbc37c27662411032bd87110
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682495"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970952"
 ---
 # <a name="configure-containers"></a>Kapsayıcıları yapılandırma
 
@@ -91,7 +91,7 @@ Aşağıdaki tabloda altında desteklenen yapılandırma ayarları açıklanmakt
 
 ## <a name="billing-configuration-setting"></a>Yapılandırma ayarı faturalama
 
-`Billing` Yapılandırma ayarı, Azure üzerinde yüz tanıma kaynağın URI'sini kullanılan kapsayıcısı için fatura bilgileri izlemek için uç nokta belirtir. Bu yapılandırma ayarı için bir değer belirtmeniz gerekir ve Azure üzerinde bir yüz kaynak için geçerli bir uç noktası URI değeri olmalıdır.
+`Billing` Yapılandırma ayarı, Azure üzerinde yüz tanıma kaynağın URI'sini kullanılan kapsayıcısı için fatura bilgileri ölçmek için uç nokta belirtir. Bu yapılandırma ayarı için bir değer belirtmeniz gerekir ve Azure üzerinde bir yüz kaynak için geçerli bir uç noktası URI değeri olmalıdır.
 
 > [!IMPORTANT]
 > [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), Ve [ `Eula` ](#eula-configuration-setting) yapılandırma ayarlarını birlikte kullanılır ve üçünü de için geçerli değerler sağlamanız gerekir bunları; Aksi takdirde kapsayıcınızı başlatılamıyor. Bir kapsayıcı örneği oluşturmak için bu yapılandırma ayarlarını kullanma hakkında daha fazla bilgi için bkz. [faturalama](face-how-to-install-containers.md#billing).
@@ -143,6 +143,8 @@ Depolama senaryosu alanından ayrı olarak yönetilir takar giriş ve çıkış 
 
 > [!IMPORTANT]
 > [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), Ve [ `Eula` ](#eula-configuration-setting) yapılandırma ayarlarını birlikte kullanılır ve üçünü de için geçerli değerler sağlamanız gerekir bunları; Aksi takdirde kapsayıcınızı başlatılamıyor. Bir kapsayıcı örneği oluşturmak için bu yapılandırma ayarlarını kullanma hakkında daha fazla bilgi için bkz. [faturalama](face-how-to-install-containers.md#billing).
+
+Bilişsel hizmetler kapsayıcılar, Azure kullanımını düzenleyen sözleşmenize altında lisanslanmıştır. Azure kullanımınızı var olan bir anlaşma değilse, Azure'un kullanımını düzenleyen sözleşmenize Microsoft çevrimiçi abonelik (çevrimiçi hizmet koşulları kullanımız) sözleşmesi olduğunu kabul etmiş olursunuz. Önizlemeler için de ek kullanım koşulları için Microsoft Azure önizlemeleri için kabul etmiş olursunuz. Kapsayıcı kullanarak bu koşulları kabul etmiş olursunuz.
 
 ## <a name="fluentd-configuration-settings"></a>Fluentd yapılandırma ayarları
 

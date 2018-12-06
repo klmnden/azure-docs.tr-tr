@@ -1,25 +1,20 @@
 ---
-title: Azure PowerShell Betiği-Azure Cosmos DB için çok bölgeli çoğaltma | Microsoft Docs
+title: Azure PowerShell Betiği - Azure Cosmos DB için çok bölgeli çoğaltma
 description: Azure PowerShell Betiği Örneği - Azure Cosmos DB için çok bölgeli çoğaltma
 services: cosmos-db
-documentationcenter: cosmosdb
-author: SnehaGunda
-manager: kfile
-tags: azure-service-management
 ms.service: cosmos-db
+author: SnehaGunda
+ms.author: sngun
 ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 ms.date: 05/10/2017
-ms.author: sngun
-ms.openlocfilehash: 99d6a0852fbdb031b34abca433569f9297ecd740
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: HT
+ms.openlocfilehash: 8bc2b44f240327d8272af8a20c117c770377421f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41921071"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52954592"
 ---
 # <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-powershell"></a>PowerShell kullanarak bir Azure Cosmos DB veritabanı hesabını birden çok bölgede çoğaltma ve yük devretme önceliklerini yapılandırma
 

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: d7d47b61c926c6704a06dacc55f00d77a1266988
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: d8d88484181c3c38f64cf8f00f9d8feaa3b0217a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038374"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962571"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Yönetim Portalı'ndan Azure Stack için yedeklemeyi etkinleştirme
-Azure Stack yedekleme oluşturabilmesi altyapı Backup Hizmeti Yönetim Portalı aracılığıyla etkinleştirin. Bu yedeklemeler bulut kurtarma durumunda kullanarak ortamınızda geri yüklemek için kullanabileceğiniz [geri dönülemez bir arıza](.\azure-stack-backup-recover-data.md). Bulut kurtarma amacı, Kurtarma tamamlandıktan sonra operatörler ve kullanıcılar portalına geri dönüp oturum açabildiğinizden emin sağlamaktır. Kullanıcılar, rol tabanlı erişim izinleri ve rolleri, özgün planları, teklifleri ve önceden tanımlı bilgi işlem, depolama ve ağ kotaları dahil olmak üzere geri aboneliklerini sahip olacaktır.
+Azure Stack yedekleme oluşturabilmesi altyapı Backup Hizmeti Yönetim Portalı aracılığıyla etkinleştirin. Bu yedeklemeler bulut kurtarma durumunda kullanarak ortamınızda geri yüklemek için kullanabileceğiniz [geri dönülemez bir arıza](./azure-stack-backup-recover-data.md). Bulut kurtarma amacı, Kurtarma tamamlandıktan sonra operatörler ve kullanıcılar portalına geri dönüp oturum açabildiğinizden emin sağlamaktır. Kullanıcılar, rol tabanlı erişim izinleri ve rolleri, özgün planları, teklifleri ve önceden tanımlı bilgi işlem, depolama ve ağ kotaları dahil olmak üzere geri aboneliklerini sahip olacaktır.
 
 Ancak, altyapı yedekleme hizmeti, Iaas Vm'leri, ağ yapılandırmaları ve depolama hesapları, BLOB'ları, tabloları gibi depolama kaynaklarını yedeklemez ve daha önce mevcut birini bulut kurtarma işleminden sonra oturum açan kullanıcıların tamamlandıktan şekilde vb. görmezsiniz kaynaklar. Platform (PaaS) hizmet olarak kaynakları ve veri Ayrıca hizmet tarafından yedeklenmez. 
 
@@ -58,31 +58,31 @@ Yöneticiler ve kullanıcılar için yedekleme ve Iaas ve PaaS kaynakları ayrı
     ```
 10. Seçin **Tamam** yedekleme denetleyicisi ayarlarınızı kaydetmek için.
 
-    ![Azure Stack - yedekleme denetleyicisi ayarları](media\azure-stack-backup\backup-controller-settings.png)
+    ![Azure Stack - yedekleme denetleyicisi ayarları](media/azure-stack-backup/backup-controller-settings.png)
 
 ## <a name="start-backup"></a>Yedeklemeyi Başlat
 Bir yedekleme başlatmak için tıklayın **Şimdi Yedekle** isteğe bağlı yedekleme başlatmak için. İsteğe bağlı yedekleme sonraki zamanlanmış yedekleme için saat değiştirmez. Görev tamamlandıktan sonra ayarları onaylayın **Essentials**:
 
-![Azure Stack - isteğe bağlı yedekleme](media\azure-stack-backup\scheduled-backup.png)
+![Azure Stack - isteğe bağlı yedekleme](media/azure-stack-backup/scheduled-backup.png)
 
 PowerShell cmdlet'ini de çalıştırabilirsiniz **başlangıç AzsBackup** Azure Stack yönetim bilgisayarınızda. Daha fazla bilgi için [Azure Stack yedekleme](azure-stack-backup-back-up-azure-stack.md).
 
 ## <a name="enable-or-disable-automatic-backups"></a>Etkinleştirmek veya devre dışı otomatik yedekleme
 Yedeklemeler, otomatik yedeklemeyi etkinleştirdiğinizde zamanlanır. Sonraki zamanlama yedekleme zamanını kontrol edebilirsiniz **Essentials**. 
 
-![Azure Stack - isteğe bağlı yedekleme](media\azure-stack-backup\on-demand-backup.png)
+![Azure Stack - isteğe bağlı yedekleme](media/azure-stack-backup/on-demand-backup.png)
 
 Sonraki zamanlanmış yedeklemeleri devre dışı bırakmanız gerekirse, tıklayarak **Otomatik yedeklemeleri devre dışı**. Devre dışı bırakma otomatik yedeklemeler, yapılandırılan yedekleme ayarları tutar ve yedekleme zamanlaması korur. Bu eylem, gelecekteki yedeklemeler atlamak için Zamanlayıcı yalnızca söyler. 
 
-![Azure Stack - devre dışı bırakma zamanlanmış yedeklemeler](media\azure-stack-backup\disable-auto-backup.png)
+![Azure Stack - devre dışı bırakma zamanlanmış yedeklemeler](media/azure-stack-backup/disable-auto-backup.png)
 
 Sonraki zamanlanmış yedeklemelerin içinde devre dışı olduğunu onaylayın **Essentials**:
 
-![Azure Stack - yedeklemeleri devre dışı bırakıldı onaylayın](media\azure-stack-backup\confirm-disable.png)
+![Azure Stack - yedeklemeleri devre dışı bırakıldı onaylayın](media/azure-stack-backup/confirm-disable.png)
 
 Tıklayarak **etkinleştirmek otomatik yedeklemeler** zamanlanan saatte gelecekte yedeklemeleri başlatmak için Zamanlayıcı bildirmek için. 
 
-![Azure Stack - enable zamanlanmış yedeklemeler](media\azure-stack-backup\enable-auto-backup.png)
+![Azure Stack - enable zamanlanmış yedeklemeler](media/azure-stack-backup/enable-auto-backup.png)
 
 
 > [!Note]  

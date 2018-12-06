@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: d3340131c1f174201cc9fd1dcb31bd4a4b8cd07a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 8c8a15af39972b79086a3eb2d392fdc4e7635323
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854093"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959436"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Hızlı Başlangıç: Görüntü İşleme SDK'sını ve C# dilini kullanarak küçük resim oluşturma
 
@@ -32,7 +32,7 @@ Bu hızlı başlangıçta, Görüntü İşleme Windows istemci kitaplığını k
 > [!TIP]
 > Güncel kodu [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)'dan Visual Studio çözümü olarak alın.
 
-`GenerateThumbnailAsync` ve `GenerateThumbnailInStreamAsync` yöntemleri sırasıyla uzak ve yerel görüntüler için [Küçük Resim Alma API’sini](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) sarmalar.  Bir görüntünün küçük resmini oluşturmak için bu yöntemleri kullanabilirsiniz. Giriş görüntüsünün en boy oranından farklı olabilen bir yükseklik ve genişlik belirtirsiniz. Görüntü İşleme, ilgi bölgesini akıllı bir şekilde belirlemek için akıllı kırpma özelliğini kullanır ve ilgili bölgeyi temel alan kırpma koordinatları oluşturur.
+`GenerateThumbnailAsync` ve `GenerateThumbnailInStreamAsync` yöntemleri sırasıyla uzak ve yerel görüntüler için [Küçük Resim Alma API’sini](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) sarmalar.  Bir görüntünün küçük resmini oluşturmak için bu yöntemleri kullanabilirsiniz. Giriş görüntüsünün en boy oranından farklı olabilen bir yükseklik ve genişlik belirtirsiniz. Görüntü işleme, akıllı bir şekilde ilgi belirlemek ve söz konusu bölgeyi temel alan kırpma koordinatları oluşturmak için akıllı kırpma kullanır.
 
 Örneği çalıştırmak için aşağıdaki adımları uygulayın:
 

@@ -8,28 +8,28 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/02/2018
 ms.topic: article
-ms.openlocfilehash: 977fef390c0efecd47ec5e19b1a82c05e2ecfd0f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 22eeb3993cd408a8369236683da3db466a348a30
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160754"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956790"
 ---
 # <a name="ansible-with-azure"></a>Ansible ile Azure
 
-[Ansible](http://www.ansible.com) bulut sağlama, yapılandırma yönetimi ve uygulama dağıtımlarını otomatikleştiren bir açık kaynaklı üründür. Ansible'ı kullanarak sanal makineler, kapsayıcılar ve ağ sağlama ve bulut altyapıları tamamlayın. Ayrıca, Ansible, dağıtımını ve yapılandırmasını, ortamınızdaki kaynakları otomatikleştirmenize olanak sağlar.
+[Ansible](https://www.ansible.com) bulut sağlama, yapılandırma yönetimi ve uygulama dağıtımlarını otomatikleştiren bir açık kaynaklı üründür. Ansible'ı kullanarak sanal makineler, kapsayıcılar ve ağ sağlama ve bulut altyapıları tamamlayın. Ayrıca, Ansible, dağıtımını ve yapılandırmasını, ortamınızdaki kaynakları otomatikleştirmenize olanak sağlar.
 
 Bu makalede, Ansible ile Azure kullanmanın avantajlarından bazıları temel bir bakış sağlar.
 
 ## <a name="ansible-playbooks"></a>Ansible playbook'ları
 
-[Ansible playbook'ları](http://docs.ansible.com/ansible/latest/playbooks.html) Ansible'nın yapılandırma, dağıtım ve düzenleme dil. Bunlar, uzak sistemlere uygulamak istediğiniz ilke ya da genel bir BT süreç adımlarda bir kümesini tanımlayabilirsiniz. Playbook oluşturduğunuzda bir model, bir yapılandırma veya bir işlemi tanımlayan bir YAML kullanarak bunu.
+[Ansible playbook'ları](https://docs.ansible.com/ansible/latest/playbooks.html) Ansible'nın yapılandırma, dağıtım ve düzenleme dil. Bunlar, uzak sistemlere uygulamak istediğiniz ilke ya da genel bir BT süreç adımlarda bir kümesini tanımlayabilirsiniz. Playbook oluşturduğunuzda bir model, bir yapılandırma veya bir işlemi tanımlayan bir YAML kullanarak bunu.
 
 ## <a name="ansible-modules"></a>Ansible modülleri
 
-Ansible'ı içeren bir paketi [Ansible modülleri](http://docs.ansible.com/ansible/latest/modules_by_category.html) , yürütülebilir aracılığıyla ya da uzak konaklar üzerinde doğrudan [playbook'ları](http://docs.ansible.com/ansible/latest/playbooks.html). Kullanıcılar ayrıca kendi modülleri oluşturabilir. Modüller, hizmetleri, paketler veya dosyaları - gibi sistem kaynaklarının - denetlemek veya sistem komutlarını çalıştırmak için kullanılabilir.
+Ansible'ı içeren bir paketi [Ansible modülleri](https://docs.ansible.com/ansible/latest/modules_by_category.html) , yürütülebilir aracılığıyla ya da uzak konaklar üzerinde doğrudan [playbook'ları](https://docs.ansible.com/ansible/latest/playbooks.html). Kullanıcılar ayrıca kendi modülleri oluşturabilir. Modüller, hizmetleri, paketler veya dosyaları - gibi sistem kaynaklarının - denetlemek veya sistem komutlarını çalıştırmak için kullanılabilir.
 
-Azure Hizmetleri ile etkileşim kurmak için ansible'ı dizisi içeren [Ansible bulut modülleri](http://docs.ansible.com/ansible/list_of_cloud_modules.html#azure) kolayca oluşturabilir ve azure'daki altyapınız için araçlar sağlar. 
+Azure Hizmetleri ile etkileşim kurmak için ansible'ı dizisi içeren [Ansible bulut modülleri](https://docs.ansible.com/ansible/list_of_cloud_modules.html#azure) kolayca oluşturabilir ve azure'daki altyapınız için araçlar sağlar. 
 
 ## <a name="migrate-existing-workload-to-azure"></a>Mevcut iş yükünü Azure'a geçirme
 
@@ -40,7 +40,7 @@ Ansible altyapınızı tanımlamak için kullandığınız bir kez otomatik olar
 Ansible'ı bulutta yerel uygulamaları gibi Azure mikro hizmetler kullanılarak azure'da otomatikleştirmenizi sağlar [Azure işlevleri](https://azure.microsoft.com//services/functions/) ve [azure'da Kubernetes](https://azure.microsoft.com/services/container-service/kubernetes/).  
 
 ## <a name="manage-deployments-with-dynamic-inventory"></a>Dinamik envanterle dağıtımları yönetin
-Aracılığıyla kendi [dinamik stok](http://docs.ansible.com/ansible/intro_dynamic_inventory.html) özelliği, Ansible sağlar özelliği çekme stok Azure kaynaklarından. Sonra mevcut Azure dağıtımlarınızı etiketleyin ve bu etiketli dağıtımların Ansible aracılığıyla yönetebilirsiniz.
+Aracılığıyla kendi [dinamik stok](https://docs.ansible.com/ansible/intro_dynamic_inventory.html) özelliği, Ansible sağlar özelliği çekme stok Azure kaynaklarından. Sonra mevcut Azure dağıtımlarınızı etiketleyin ve bu etiketli dağıtımların Ansible aracılığıyla yönetebilirsiniz.
 
 ## <a name="additional-azure-marketplace-options"></a>Ek Azure Marketi seçenekleri
 [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) Azure Market görüntüsü Red Hat, kuruluşların BT otomasyonunu ölçeklendirin ve karmaşık dağıtımları arasında fiziksel, sanal yönetmek ve bulut altyapılarının yardımcı olur. Ansible Tower görünürlük, Denetim, güvenlik ve verimlilik günümüzde kuruluşlar için gerekli ek düzeyleri sağlayan özellikler içerir. Ansible Tower Azure ve SSH anahtarları gibi kimlik bilgilerini şifreler; böylece kimlik bilgilerinizi ifşa eden riski olmadan daha az deneyimli çalışanlar için işleri devredebilirsiniz.

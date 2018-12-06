@@ -16,15 +16,15 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 62eccba1b876ca8272dacbbd97a1d28c8b796081
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 345d62f4045e7b9279d52acf70cc340d088f5db0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138319"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961340"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>Azure Stack geliştirme Seti'ni nedir?
-[Microsoft Azure Stack tümleşik sistemleri](.\.\azure-stack-poc.md) aralık boyutu 4-16 düğümlerden ve tüm dünyada bir donanım iş ortağı ve Microsoft tarafından desteklenir. Azure Stack tümleşik sistemleri, üretim iş yükleriniz için yeni senaryoları etkinleştirmek için kullanın. Tümleşik sistemler altyapıyı yöneten ve hizmetleri sunan Azure Stack operatörü kullanıyorsanız bkz bizim [operatör belgeleri](https://docs.microsoft.com/azure/azure-stack).
+[Microsoft Azure Stack tümleşik sistemleri](../azure-stack-poc.md) aralık boyutu 4-16 düğümlerden ve tüm dünyada bir donanım iş ortağı ve Microsoft tarafından desteklenir. Azure Stack tümleşik sistemleri, üretim iş yükleriniz için yeni senaryoları etkinleştirmek için kullanın. Tümleşik sistemler altyapıyı yöneten ve hizmetleri sunan Azure Stack operatörü kullanıyorsanız bkz bizim [operatör belgeleri](https://docs.microsoft.com/azure/azure-stack).
 
 Azure Stack geliştirme Seti'ni (ASDK) indirin ve kullanabileceğiniz bir Azure Stack, tek düğümlü dağıtımıdır **ücretsiz**. Tek bir ana bilgisayar sunucu bilgisayarda çalışan karşılayan veya aşan sanal makinelerin içinde tüm ASDK bileşenler yüklü [en düşük donanım gereksinimlerini](asdk-deploy-considerations.md#hardware). ASDK Azure Stack'i değerlendirin ve Azure'da tutarlı araç ve API'leri kullanarak modern uygulamalar geliştirin, bir ortam sağlamak üzere tasarlanmıştır bir *üretim dışı* ortam. 
 
@@ -48,9 +48,9 @@ Tek düğümlü ASDK dağıtımları çok düğümlü Azure Stack dağıtımlar�
 |Açıklama|ASDK|Çok düğümlü Azure Stack|
 |-----|-----|-----|
 |**Ölçeklendirme**|Tüm bileşenleri tek bir düğüm server yüklü bir bilgisayara yüklenir.|4-16 düğüm boyutu değişebilir.|
-|**Esnekliği**|Tek bir düğüm yapılandırması, yüksek kullanılabilirlik sağlamaz|[Yüksek kullanılabilirlik](.\.\azure-stack-key-features.md#high-availability-for-azure-stack) özellikleri desteklenir.|
-|**Ağ**|ASDK AzS-BGPNAT01 isimli bir VM'nin tüm ASDK ağ trafiği yönlendirmek için kullanır. Ek geçiş gereksinimi yoktur.|Çok düğümlü dağıtımda AzS-BGPNAT01 VM yok. Daha karmaşık [ağ Yönlendirme Altyapısı](.\.\azure-stack-network.md#network-infrastructure) Top-Of-Rack (TOR), temel kart yönetim denetleyicisi (BMC) ve Kenarlık (veri merkezi ağı) anahtarları dahil olmak üzere gereklidir.|
-|**Düzeltme eki ve güncelleştirme işlemi**|ASDK yeni bir sürümüne taşımak için Geliştirme Seti ana bilgisayarda ASDK yeniden dağıtmanız gerekir.|[Düzeltme eki uygulama ve güncelleştirme](.\.\azure-stack-updates.md) yüklü olan Azure Stack sürümü güncelleştirmek için kullanılan işlem.|
+|**Esnekliği**|Tek bir düğüm yapılandırması, yüksek kullanılabilirlik sağlamaz|[Yüksek kullanılabilirlik](../azure-stack-key-features.md#high-availability-for-azure-stack) özellikleri desteklenir.|
+|**Ağ**|ASDK AzS-BGPNAT01 isimli bir VM'nin tüm ASDK ağ trafiği yönlendirmek için kullanır. Ek geçiş gereksinimi yoktur.|Çok düğümlü dağıtımda AzS-BGPNAT01 VM yok. Daha karmaşık [ağ Yönlendirme Altyapısı](../azure-stack-network.md#network-infrastructure) Top-Of-Rack (TOR), temel kart yönetim denetleyicisi (BMC) ve Kenarlık (veri merkezi ağı) anahtarları dahil olmak üzere gereklidir.|
+|**Düzeltme eki ve güncelleştirme işlemi**|ASDK yeni bir sürümüne taşımak için Geliştirme Seti ana bilgisayarda ASDK yeniden dağıtmanız gerekir.|[Düzeltme eki uygulama ve güncelleştirme](../azure-stack-updates.md) yüklü olan Azure Stack sürümü güncelleştirmek için kullanılan işlem.|
 |**Destek**|Azure Stack MSDN Forumu. Microsoft Müşteri Hizmetleri ve desteği (CSS) desteği *değil* üretim dışı ortamlar için kullanılabilir.|[Azure Stack MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) ve tam CSS desteği.|
 | | |
 

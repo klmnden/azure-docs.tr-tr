@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 8c30af5023cb83ee1f9ca0f41db5b7f977cc4bc7
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 1725be4209bfc9335654c574098c43102eca5a2d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883916"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961187"
 ---
 # <a name="monitor-migration-activity"></a>Geçiş etkinliğini izleme
 Bu makalede, bir veritabanı ve tablo düzeyindeki hem bir geçiş işleminin ilerleme durumunu izlemek nasıl öğrenin.
@@ -24,7 +24,7 @@ Bu makalede, bir veritabanı ve tablo düzeyindeki hem bir geçiş işleminin il
 ## <a name="monitor-at-the-database-level"></a>Veritabanı düzeyinde izleme
 Veritabanı düzeyinde etkinliğini izlemek için veritabanı düzeyinde dikey penceresini görüntüleyin:
 
-![Veritabanı düzeyinde dikey penceresi](media\how-to-monitor-migration-activity\dms-database-level-blade.png)
+![Veritabanı düzeyinde dikey penceresi](media/how-to-monitor-migration-activity/dms-database-level-blade.png)
 
 > [!NOTE]
 > Veritabanı köprü seçerek tablolar ve geçiş aşamaları listesini gösterir.
@@ -104,7 +104,7 @@ Tablo düzeyinde etkinliğini izlemek için tablo düzeyi dikey penceresini gör
 
 Dikey pencerenin alt kısmındaki tabloları listeler ve hızlı geçiş ilerleme durumu özetini gösterir.
 
-![Tablo düzeyi dikey penceresi - hızlı özeti](media\how-to-monitor-migration-activity\dms-table-level-blade-summary.png)
+![Tablo düzeyi dikey penceresi - hızlı özeti](media/how-to-monitor-migration-activity/dms-table-level-blade-summary.png)
 
 Aşağıdaki tabloda, tablo düzeyi ayrıntıları gösterilen alanlar açıklanır.
 
@@ -123,9 +123,9 @@ Aşağıdaki tabloda, tablo düzeyi ayrıntıları gösterilen alanlar açıklan
 ## <a name="monitor-at-table-level--detailed-summary"></a>Tablo düzeyinde – ayrıntılı Özet izleme
 Tam Yük ve artımlı veri eşitleme geçiş ilerleme durumunu gösteren iki sekme bulunur.
     
-![Tam Yük sekmesi](media\how-to-monitor-migration-activity\dms-full-load-tab.png)
+![Tam Yük sekmesi](media/how-to-monitor-migration-activity/dms-full-load-tab.png)
 
-![Artımlı veri eşitleme sekmesi](media\how-to-monitor-migration-activity\dms-incremental-data-sync-tab.png)
+![Artımlı veri eşitleme sekmesi](media/how-to-monitor-migration-activity/dms-incremental-data-sync-tab.png)
 
 Aşağıdaki tabloda, tablo düzeyi geçiş sürüyor gösterilen alanlar açıklanır.
 

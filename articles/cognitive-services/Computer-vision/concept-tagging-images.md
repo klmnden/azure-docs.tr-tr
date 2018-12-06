@@ -10,18 +10,18 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 0025cdcfaa64a262a5ca54ab4db5a84f6a5768ba
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7e9181b6e805a768ca5dd8ed558b8feea45f22d3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338922"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960916"
 ---
 # <a name="tagging-images"></a>Resimleri etiketleme
 
-Görüntü işleme, 2000'den fazla tanınabilir nesne, canlı, manzara ve Eylemler alan etiketler döndürür. Etiketlerin belirsiz olduğunda veya bilinmediği API yanıtı 'bilinen bir ayar bağlamında etiketin anlamını açıklamak için ipuçları' sağlar. Etiketleri bir sınıflandırma düzenlenmiş ve devralma hiyerarşi yok. İçerik etiket koleksiyonu, 'description' tam cümlelerden biçimlendirilmiş insan tarafından okunabilir dili olarak görüntülenen bir görüntü için temel oluşturur. Bu noktada İngilizce için görüntü açıklaması yalnızca desteklenen dil olduğunu unutmayın.
+Görüntü işleme tanınabilir nesne, canlı, manzara ve Eylemler binlerce alan etiketler döndürür. Belirsiz veya herkesçe bilinmeyen etiketler söz konusu olduğunda, API yanıtı, etiketin anlamının bilinen bir ortama ilişkin bağlamda açıklığa kavuşturulması için "ipuçları" sağlar. Etiketler taksonomi olarak tanınmaz ve hiçbir devralma hiyerarşisi yoktur. Bir içerik etiketi koleksiyonu, tam tümceler halinde biçimlendirilmiş insan tarafından okunabilir dilde görüntülenen bir görüntü 'açıklamasının' temelini oluşturur. Şu noktada görüntü açıklaması için desteklenen tek dilin İngilizce olduğunu unutmayın.
 
-Görüntü işleme algoritmaları, bir görüntü yüklemek veya bir resim URL'si belirtme sonra nesneleri, canlı ve Eylemler görüntüde tanımlanmış temel alan etiketler çıktı. Etiketleme, ana konu, bir kişi, ön planda gibi sınırlı değildir, ancak ayrıca ayarı (iç veya dış) mobilyası, araçları, tesisin, hayvanlar, Donatılar, vb. araçları içerir.
+Görüntü işleme algoritmaları, bir görüntü yüklemek veya bir resim URL'si belirtme sonra nesneleri, canlı ve Eylemler görüntüde tanımlanmış temel alan etiketler çıktı. Etiketleme yalnızca temel konu ile sınırlı kalmayıp ortam (iç mekân veya dış mekân), mobilyalar, aletler, bitkiler, hayvanlar, aksesuarlar, araçlar ve benzeri öğeleri de kapsar.
 
 ## <a name="image-tagging-example"></a>Resim etiketleme örneği
 

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 6d4f96a2c1d288648543a92614cab0f8cf5ee2ea
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d5e97d82a011bc4aba29aa597a7fc6473d17a3b2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256009"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970799"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Müşterilerin uygulamanızı nasıl kullandığını anlamak için Azure Application Insights’ı kullanın
 
@@ -31,7 +31,7 @@ Azure Application Insights, kullanıcıların uygulamanızla nasıl etkileşim k
 > * Kullanıcıların uygulamanızda nasıl gezindiğini inceleme
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -53,20 +53,20 @@ Bu öğreticiyi tamamlamak için:
 2. Menüden **Kullanıcılar**'ı seçin.
 3. Varsayılan görünümde son 24 saat içinde uygulamanıza bağlanan benzersiz kullanıcı sayısı gösterilir.  Bu bilgileri filtrelemek için zaman aralığını değiştirebilir ve diğer ölçütleri ayarlayabilirsiniz.
 
-    ![Sorgu Tasarımcısı](media\app-insights-tutorial-users\QueryBuilder.png)
+    ![Sorgu Tasarımcısı](media/app-insights-tutorial-users/QueryBuilder.png)
 
 6. **Sırasında** açılan menüsüne tıklayın ve zaman aralığını 7 gün olarak değiştirin.  Bu işlem paneldeki grafiklerde yer alan bilgi miktarını artırır.
 
-    ![Zaman aralığını değiştirme](media\app-insights-tutorial-users\TimeRange.png)
+    ![Zaman aralığını değiştirme](media/app-insights-tutorial-users/TimeRange.png)
 
 4. **Bölme ölçütü** açılan menüsüne tıklayarak grafiğe kullanıcı özelliğine göre bir döküm ekleyin.  **Ülke veya bölge**'yi seçin.  Grafikte aynı veriler yer alır ancak her ülkedeki kullanıcı sayısı dökümünü görüntülemenizi sağlar.
 
-    ![Ülke veya bölge grafiği](media\app-insights-tutorial-users\CountryorRegion.png)
+    ![Ülke veya bölge grafiği](media/app-insights-tutorial-users/CountryorRegion.png)
 
 5. İmleci grafikteki çubukların üzerinde gezdirdiğinizde her bir ülkeye ait sayının yalnızca ilgili çubuğun gösterdiği zaman aralığını yansıttığını görebilirsiniz.
 6. Sağ taraftaki kullanıcı verilerinizle analiz gerçekleştiren **İçgörüler** sütununa bakın.  Burada zaman içindeki benzersiz oturum sayısı ve kullanıcı verilerinin önemli bir kısmını oluşturan ortak özellikleri içeren kayıtlar gibi bilgiler sunulur 
 
-    ![İçgörüler sütunu](media\app-insights-tutorial-users\insights.png)
+    ![İçgörüler sütunu](media/app-insights-tutorial-users/insights.png)
 
 
 ## <a name="analyze-user-sessions"></a>Kullanıcı oturumlarını analiz etme
@@ -75,15 +75,15 @@ Bu öğreticiyi tamamlamak için:
 1. Menüden **Oturumlar**'ı seçin.
 2. Grafiğe göz attığınızda verileri filtrelemek ve ayrıntılara inmek için **Kullanıcılar** paneliyle aynı seçeneklere sahip olduğunuzu göreceksiniz.
 
-    ![Oturumlar Sorgu Tasarımcısı](media\app-insights-tutorial-users\SessionsBuilder.png)
+    ![Oturumlar Sorgu Tasarımcısı](media/app-insights-tutorial-users/SessionsBuilder.png)
 
 3. Sağ taraftaki **Bu oturumların örneği** bölmesinde olayların çoğunu içeren oturumlar listelenir.  Bu oturumları analiz etmek ilginizi çekebilir.
 
-    ![Bu oturumların örneği](media\app-insights-tutorial-users\SessionsSample.png)
+    ![Bu oturumların örneği](media/app-insights-tutorial-users/SessionsSample.png)
 
 4. Bu oturumlardan birine tıklayarak oturumdaki tüm eylemleri gösteren **Oturum Zaman Çizelgesi**'ni görüntüleyebilirsiniz.  Bu seçenek, çok sayıda özel duruma sahip olan oturumlar gibi bilgileri tanımlamanıza yardımcı olabilir.
 
-    ![Oturum Zaman Çizelgesi](media\app-insights-tutorial-users\SessionsTimeline.png)
+    ![Oturum Zaman Çizelgesi](media/app-insights-tutorial-users/SessionsTimeline.png)
 
 ## <a name="group-together-similar-users"></a>Benzer kullanıcıları gruplama
 **Kohort**, benzer özelliklere göre gruplanan kullanıcı kümesidir.  Kohortları kullanarak diğer panellerdeki verileri filtreleyebilir ve belirli bir kullanıcı grubunu analiz edebilirsiniz.  Örneğin yalnızca bir satın alma işlemini tamamlamış olan kullanıcıları analiz etmek isteyebilirsiniz.
@@ -92,12 +92,12 @@ Bu öğreticiyi tamamlamak için:
 2.  Yeni bir kohort oluşturmak için **Yeni**'ye tıklayın.
 3.  **Şunu kullanan:** açılan menüsünü seçip bir eylem belirleyin.  Yalnızca raporun zaman aralığında bu eylemi gerçekleştirmiş olan kullanıcılar dahil edilir.
 
-    ![Belirli eylemleri gerçekleştirmiş olan kohort](media\app-insights-tutorial-users\CohortsDropdown.png)
+    ![Belirli eylemleri gerçekleştirmiş olan kohort](media/app-insights-tutorial-users/CohortsDropdown.png)
 
 4.  Menüden **Kullanıcılar**'ı seçin.
 5.  **Göster** açılan menüsünde yeni oluşturduğunuz kohortu seçin.  Grafik verileri bu kullanıcılarla sınırlanır.
 
-    ![Kullanıcılar aracındaki kohort](media\app-insights-tutorial-users\UsersCohort.png)
+    ![Kullanıcılar aracındaki kohort](media/app-insights-tutorial-users/UsersCohort.png)
 
 
 ## <a name="compare-desired-activity-to-reality"></a>İstenen etkinliği gerçek değerlerle karşılaştırma
@@ -105,16 +105,16 @@ Bu öğreticiyi tamamlamak için:
 
 1. Menüden **Huniler**'i seçin ve **Yeni**'ye tıklayın. 
 
-    ![](media\app-insights-tutorial-users\funnelsnew.png)
+    ![](media/app-insights-tutorial-users/funnelsnew.png)
 
 2. **Huni Adı** alanına bir ad yazın.
 3. Her adım için bir eylem seçerek en az iki adımdan oluşan bir huni oluşturun.  Eylemler listesi, Application Insights'tan alınan kullanım verileriyle oluşturulur.
 
-    ![](media\app-insights-tutorial-users\funnelsedit.png)
+    ![](media/app-insights-tutorial-users/funnelsedit.png)
 
 4. **Kaydet**'e tıklayarak huniyi kaydedin ve sonuçlarını görüntüleyin.  Huninin sağ tarafındaki pencere, ilk etkinlikten önceki ve son etkinlikten sonraki en yaygın etkinlikleri göstererek belirli bir işlem sırası etrafındaki kullanıcı eğilimlerini anlamanıza yardımcı olur.
 
-    ![](media\app-insights-tutorial-users\funnelsright.png)
+    ![](media/app-insights-tutorial-users/funnelsright.png)
 
 
 ## <a name="learn-which-customers-return"></a>Dönüş yapan müşterileri öğrenme
@@ -123,11 +123,11 @@ Bu öğreticiyi tamamlamak için:
 1. Menüden **Elde tutma**'yı seçin.
 2. Analiz edilen bilgiler varsayılan olarak bir eylem gerçekleştiren ve ardından herhangi bir eylem gerçekleştirmek için geri dönen kullanıcıları kapsar.  Bu filtreyi yalnızca satın alma işlemini tamamladıktan sonra geri dönen kullanıcılar gibi istediğiniz farklı bir bilgiyle değiştirebilirsiniz.
 
-    ![](media\app-insights-tutorial-users\retentionquery.png)
+    ![](media/app-insights-tutorial-users/retentionquery.png)
 
 3. Ölçütlerle eşleşen geri dönen kullanıcılar farklı süreler için grafik ve tablo biçiminde gösterilir.  Tipik bir düzende, zaman içinde geri dönen kullanıcı sayısında kademeli bir düşüş olacaktır.  Bir zaman aralığından bir sonrakine geçişte ani bir düşüş olması bir sorun olduğunu gösterebilir. 
 
-    ![](media\app-insights-tutorial-users\retentiongraph.png)
+    ![](media/app-insights-tutorial-users/retentiongraph.png)
 
 ## <a name="analyze-user-navigation"></a>Kullanıcı gezintisini analiz etme
 **Kullanıcı akışı**, kullanıcıların uygulamanızın sayfaları ve özellikleri arasında nasıl gezindiğini görselleştirir.  Bu da kullanıcıların belirli bir sayfadan geçiş yaptıkları yerler, uygulamanızdan çıkış yapma şekli düzenli olarak tekrarlanan eylemler gibi sorulara yanıt bulmanıza yardımcı olur.
@@ -136,15 +136,15 @@ Bu öğreticiyi tamamlamak için:
 2.  **Yeni**'ye tıklayarak yeni bir kullanıcı akışı oluşturun ve ardından **Düzenle**'ye tıklayarak ayrıntılarını düzenleyin.
 3.  **Zaman Aralığı** değerini 7 güne çıkarın ve ardından ilk olayı seçin.  Akış, bu olayla başlayan kullanıcı oturumlarını izler.
 
-    ![](media\app-insights-tutorial-users\flowsedit.png)
+    ![](media/app-insights-tutorial-users/flowsedit.png)
 
 4.  Kullanıcı akışı görüntülenir ve farklı kullanıcı yolları ile oturum sayıları da gösterilir.  Mavi çizgiler kullanıcının geçerli eylemden sonra bir eylem gerçekleştirdiğini gösterir.  Kırmızı çizgi kullanıcı oturumunun sonlandırıldığını gösterir.
 
-    ![](media\app-insights-tutorial-users\flows.png)
+    ![](media/app-insights-tutorial-users/flows.png)
 
 5.  Akıştaki bir olayı kaldırmak için eylemin köşesindeki **x** simgesine ve ardından **Grafik Oluştur**'a tıklayın.  Grafik yeniden çizilir ve olay örnekleri kaldırılır.  **Düzenle**'ye tıkladığınızda olayın **Dışlanan olaylar** alanına eklenmiş olduğunu görebilirsiniz.
 
-    ![](media\app-insights-tutorial-users\flowsexclude.png)
+    ![](media/app-insights-tutorial-users/flowsexclude.png)
 
 ## <a name="consolidate-usage-data"></a>Kullanım verilerini birleştirme
 **Çalışma kitapları** veri görselleştirmelerini, Analytics sorgularını ve metinleri etkileşimli belgelere dönüştürür.  Çalışma kitaplarını kullanarak yaygın kullanım bilgilerini gruplandırabilir, belirli bir olayla ilgili bilgileri birleştirebilir veya uygulamanızın kullanımıyla ilgili ekibinize rapor verebilirsiniz.
@@ -153,12 +153,12 @@ Bu öğreticiyi tamamlamak için:
 2.  Yeni bir çalışma kitabı oluşturmak için **Yeni**'ye tıklayın.
 3.  Son bir gündeki tüm kullanım verilerinin çubuk grafik olarak gösterildiği bir sorgu otomatik olarak sağlanır.  Bu sorguyu kullanabilir, el ile düzenleyebilir veya **Örnek sorgular**'a tıklayarak diğer yararlı sorgulardan seçim yapabilirsiniz.
 
-    ![](media\app-insights-tutorial-users\samplequeries.png)
+    ![](media/app-insights-tutorial-users/samplequeries.png)
 
 4.  **Düzenleme bitti**'ye tıklayın.
 5.  Çalışma kitabının en üstündeki metni düzenlemek için üst bölmeden **Düzenle**'ye tıklayın.  Bu çalışma kitabı markdown kullanılarak biçimlendirilir.
 
-    ![](media\app-insights-tutorial-users\markdown.png)
+    ![](media/app-insights-tutorial-users/markdown.png)
 
 6.  Kullanıcı bilgilerini içeren bir grafik eklemek için **Kullanıcı ekle**'ye tıklayın.  Dilerseniz grafiğin ayrıntılarını düzenleyin ve **Düzenleme bitti**'ye tıklayarak kaydedin.
 

@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: ergreenl
-ms.openlocfilehash: 12611c9a4016b634cb865bbf609b1c7a6961abb7
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b73739ca6d392af191d1a51eca2d646a8a5cd4c4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155074"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955081"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Mevcut Azure AD Domain Services yönetilen etki alanı için eşleşmeyen dizin hataları çözün
 Mevcut bir Azure AD Domain Services yönetilen etki alanına sahip olduğunuz. Azure portalına gidin ve yönetilen etki alanında görüntülemek, aşağıdaki hata iletisini görürsünüz:
 
-![Eşleşmeyen dizin hatası](.\media\getting-started\mismatched-tenant-error.png)
+![Eşleşmeyen dizin hatası](./media/getting-started/mismatched-tenant-error.png)
 
 Hata çözümlenene kadar bu yönetilen etki alanını yönetemezsiniz.
 

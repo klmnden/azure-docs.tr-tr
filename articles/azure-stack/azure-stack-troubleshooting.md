@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: c463599190c5bfaac47a70dbca7b8a67dc830f3a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b6ec3283121a3403afb80ccad81f313decf16c88
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363495"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957649"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack sorunlarını giderme
 
@@ -43,7 +43,7 @@ Seçili olduğunda bu davranış büyük olasılıkla yalnızca bir PowerShell k
 Azure stack'teki Vm'leri dağıtmadan önce bir Windows Server görüntüsünü ve galeri öğesi eklenmesi gerekir.
 
 ### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>My Azure Stack ana bilgisayar yeniden başlatıldıktan sonra bazı VM'ler otomatik olarak başlatılamayabilir.
-Ana bilgisayar yeniden başlatıldıktan sonra Azure Stack Hizmetleri hemen kullanılamaz fark edebilirsiniz.  Azure Stack olmasıdır [altyapı Vm'leri](..\azure-stack\asdk\asdk-architecture.md#virtual-machine-roles) ve kaynak sağlayıcıları tutarlılık denetimi için biraz zaman alabilir ama sonunda otomatik olarak başlatılacak.
+Ana bilgisayar yeniden başlatıldıktan sonra Azure Stack Hizmetleri hemen kullanılamaz fark edebilirsiniz.  Azure Stack olmasıdır [altyapı Vm'leri](../azure-stack/asdk/asdk-architecture.md#virtual-machine-roles) ve kaynak sağlayıcıları tutarlılık denetimi için biraz zaman alabilir ama sonunda otomatik olarak başlatılacak.
 
 Ayrıca, bu Kiracı Vm'leri otomatik olarak Azure Stack Geliştirme Seti konağın yeniden başlatmanın ardından başlatma fark edebilirsiniz. Bu bilinen bir sorundur ve yalnızca çevrimiçi duruma getirmek için birkaç adımı gerektirir:
 

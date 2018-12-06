@@ -9,12 +9,12 @@ ms.date: 07/03/2018
 ms.topic: sample
 ms.service: azure-functions
 ms.custom: mvc
-ms.openlocfilehash: 680115f64b16059c415d295cf7c6a15301de5a3f
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.openlocfilehash: 17e33e3c0e6b06266025a7f0e6403789c9468a16
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166109"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957495"
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-azure-devops"></a>Bir işlev uygulaması oluşturma ve işlev kodunu Azure DevOps'tan dağıtma
 

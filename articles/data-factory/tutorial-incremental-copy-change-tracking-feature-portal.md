@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: f06094fb82f10276f7a41d1b22f6dd99836a497f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: eaafc8acb73dd48e213d05d953d9ada457c53132
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095519"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957274"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Değişiklik izleme bilgilerini kullanarak Azure SQL Veritabanından Azure Blob Depolama alanına verileri artımlı olarak yükleme 
 Bu öğreticide, kaynak Azure SQL veritabanındaki **değişiklik izleme** bilgilerine dayanan değişiklik verilerini Azure blob depolamasına yükleyen bir işlem hattına sahip olan bir Azure veri fabrikası oluşturursunuz.  
@@ -68,7 +68,7 @@ Bu öğreticide, aşağıdaki iki işlemi gerçekleştiren iki işlem hattı olu
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * **Azure SQL Veritabanı**. Veritabanını **kaynak** veri deposu olarak kullanabilirsiniz. Azure SQL Veritabanınız yoksa, oluşturma adımları için [Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started-portal.md) makalesine bakın.
 * **Azure Depolama hesabı**. Blob depolamayı **havuz** veri deposu olarak kullanabilirsiniz. Azure depolama hesabınız yoksa, oluşturma adımları için [Depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md) makalesine bakın. **adftutorial** adlı bir kapsayıcı oluşturun. 
 
@@ -322,7 +322,7 @@ Bu adımda, kaynak veri deposundaki (Azure SQL Veritabanı) tüm verileri hedef 
 ### <a name="review-the-results"></a>Sonuçları gözden geçirin
 `adftutorial` kapsayıcısının `incremental-<GUID>.txt` klasöründe `incchgtracking` adlı bir dosya görürsünüz. 
 
-![Tam kopyadan çıkış dosyası](media\tutorial-incremental-copy-change-tracking-feature-portal\full-copy-output-file.png)
+![Tam kopyadan çıkış dosyası](media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file.png)
 
 Dosyada Azure SQL veritabanından veriler olmalıdır:
 
@@ -411,7 +411,7 @@ Bu adımda, aşağıdaki etkinliklerle bir işlem hattı oluşturursunuz ve bunu
     2. **Parametreyi içeri aktar**’ı seçin. 
     3. **Saklı yordam parametreleri** bölümünde, parametreler için aşağıdaki değerleri belirtin: 
 
-        | Adı | Tür | Değer | 
+        | Ad | Tür | Değer | 
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | Dize | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
@@ -445,7 +445,7 @@ Bu adımda, aşağıdaki etkinliklerle bir işlem hattı oluşturursunuz ve bunu
 ### <a name="review-the-results"></a>Sonuçları gözden geçirin
 `adftutorial` kapsayıcısının `incchgtracking` klasöründe ikinci dosyayı görürsünüz. 
 
-![Artımlı kopyadan çıkış dosyası](media\tutorial-incremental-copy-change-tracking-feature-portal\incremental-copy-output-file.png)
+![Artımlı kopyadan çıkış dosyası](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-output-file.png)
 
 Dosyada yalnızca Azure SQL veritabanındaki değişiklik verileri olmalıdır. `U` bulunan kayıt, veritabanındaki güncelleştirilmiş satırdır ve `I` ise eklenen bir satırdır. 
 

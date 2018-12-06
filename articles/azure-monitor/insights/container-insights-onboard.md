@@ -14,29 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: a2219de6dfae9e17be1595d224c597fb31e00cae
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 4747c06ddb56a86c2efc7340043efdd019b86049
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715738"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962918"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers-preview"></a>Kapsayıcılar (Önizleme) için yerleşik Azure izleme 
 Bu makalede Kubernetes ortamlara dağıtılmış ve barındırılan iş yüklerinin performansını izlemek için Azure İzleyici'kapsayıcıları için kurma [Azure Kubernetes hizmeti](https://docs.microsoft.com/azure/aks/).
 
+Kapsayıcılar için Azure İzleyici desteklenen aşağıdaki yöntemleri kullanarak AKS yeni dağıtımlar için etkin hale getirilebilir:
+
+* Azure portalından veya Azure CLI ile yönetilen bir Kubernetes kümesi dağıtma
+* Kullanarak bir Kubernetes kümesi oluşturma [Terraform ve AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
+
+Bir izleme de etkinleştirebilirsiniz veya daha fazla mevcut AKS Azure portalından veya Azure CLI ile kümeleri. 
+
 ## <a name="prerequisites"></a>Önkoşullar 
 Başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
 
-- Bir yeni veya mevcut AKS kümesi.
-- Linux sürümü için kapsayıcı bir Log Analytics aracısını microsoft / oms:ciprod04202018 veya üzeri. Sürüm numarası, aşağıdaki biçimde bir tarih tarafından temsil edilen: *mmddyyyy*. Aracı, bu özelliğin ekleme sırasında otomatik olarak yüklenir. 
-- Log Analytics çalışma alanı. Yeni AKS kümesini izlemeyi etkinleştirin veya AKS kümesi aboneliğin varsayılan kaynak grubunda bir varsayılan çalışma alanı oluşturma ekleme deneyimi sağlar, oluşturabilirsiniz. Kendiniz oluşturmayı seçerseniz, üzerinden oluşturabilirsiniz [Azure Resource Manager](../../log-analytics/log-analytics-template-workspace-configuration.md)temellidir [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), veya [Azure portalında](../../log-analytics/log-analytics-quick-create-workspace.md).
-- Kapsayıcı izlemeyi etkinleştirmek için Log Analytics katkıda bulunan rolü. Log Analytics çalışma alanına erişimi denetleme hakkında daha fazla bilgi için bkz. [çalışma alanlarını yönetme](../../log-analytics/log-analytics-manage-access.md).
+- Log Analytics çalışma alanı. Yeni AKS kümesini izlemeyi etkinleştirin veya AKS kümesi aboneliğin varsayılan kaynak grubunda bir varsayılan çalışma alanı oluşturma ekleme deneyimi sağlar, oluşturabilirsiniz. Kendiniz oluşturmayı seçerseniz, üzerinden oluşturabilirsiniz [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)temellidir [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), veya [Azure portalında](../../azure-monitor/learn/quick-create-workspace.md).
+- Kapsayıcı izlemeyi etkinleştirmek için Log Analytics katkıda bulunan rolünün bir üyesi olursunuz. Log Analytics çalışma alanına erişimi denetleme hakkında daha fazla bilgi için bkz. [çalışma alanlarını yönetme](../../log-analytics/log-analytics-manage-access.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 ## <a name="components"></a>Bileşenler 
 
-Performans izleme olanağı, kümedeki tüm düğümlerin performans ve olay verilerini toplar ve Linux için kapsayıcı bir Log Analytics aracısını kullanır. Aracı otomatik olarak dağıtılan ve kapsayıcı izleme etkinleştirdikten sonra belirtilen Log Analytics çalışma alanı ile kayıtlı. 
+Performans izleme olanağı, kümedeki tüm düğümlerin performans ve olay verilerini toplar ve Linux için kapsayıcı bir Log Analytics aracısını kullanır. Aracı otomatik olarak dağıtılan ve kapsayıcılar için Azure İzleyicisi'ni etkinleştirdikten sonra belirtilen Log Analytics çalışma alanı ile kayıtlı. Microsoft dağıtılmış sürüm, / oms:ciprod04202018 veya sonraki ve bir tarihi şu biçimde temsil edilir: *mmddyyyy*. 
 
 >[!NOTE] 
 >Bir AKS kümesi zaten dağıttıysanız, bu makalenin sonraki bölümlerinde gösterildiği gibi Azure CLI'yı veya sağlanan bir Azure Resource Manager şablonu kullanarak izlemeyi etkinleştirin. Kullanamazsınız `kubectl` yükseltmek için silmek, yeniden dağıtın veya aracıyı dağıtın. Şablon kümeyle aynı kaynak grubunda dağıtılması gerekiyor."
@@ -45,13 +50,15 @@ Performans izleme olanağı, kümedeki tüm düğümlerin performans ve olay ver
 [Azure Portal](https://portal.azure.com) oturum açın. 
 
 ## <a name="enable-monitoring-for-a-new-cluster"></a>Yeni bir küme için izlemeyi etkinleştir
-Dağıtım sırasında Azure portalında veya Azure CLI ile yeni bir AKS kümesi izlemeyi etkinleştirebilirsiniz. Hızlı Başlangıç makalesinde adımları [Azure Kubernetes Service (AKS) kümesini dağıtma](../../aks/kubernetes-walkthrough-portal.md) portaldan etkinleştirmek istiyorsanız. Üzerinde **izleme** sayfası için **izlemeyi etkinleştirme** seçeneği için **Evet**ve ardından mevcut bir Log Analytics çalışma alanını seçin veya yeni bir tane oluşturun. 
+Dağıtım sırasında Terraform veya Azure CLI ile Azure portalında yeni bir AKS kümesi izlemesini etkinleştirebilirsiniz.  Hızlı Başlangıç makalesinde adımları [Azure Kubernetes Service (AKS) kümesini dağıtma](../../aks/kubernetes-walkthrough-portal.md) portaldan etkinleştirmek istiyorsanız. Üzerinde **izleme** sayfası için **izlemeyi etkinleştirme** seçeneği için **Evet**ve ardından mevcut bir Log Analytics çalışma alanını seçin veya yeni bir tane oluşturun. 
 
 Azure CLI ile oluşturulan yeni bir AKS kümesi izlemeyi etkinleştirmek için hızlı başlangıç makalesinde bölümünde adım izleyin [oluşturma AKS kümesi](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
 >Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanmayı gerekir. Azure CLI Sürüm 2.0.43 çalıştırıyor olmanız gerekir veya üzeri. Sürümünüzü belirlemek için çalıştırma `az --version`. Gerekirse yükleyin veya Azure CLI'yı yükseltmek için bkz: [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 >
+
+Eğer [Terraform kullanarak bir AKS kümesi dağıtma](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md), bağımsız değişken ekleyerek kapsayıcılar için Azure İzleyici etkinleştirebilirsiniz [ **addon_profile** ](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) ve belirtme**oms_agent**.  
 
 İzleme etkin ve tüm yapılandırma görevleri başarıyla tamamlandıktan sonra iki yöntemden biriyle kümenizin performansı izleyebilirsiniz:
 
@@ -103,7 +110,7 @@ AKS kümenizin Azure portalında Azure İzleyicisi'nden izlemeyi etkinleştirmek
     ![AKS kapsayıcı ınsights izlemeyi etkinleştir](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
 
     >[!NOTE]
-    >Küme izleme verilerini depolamak için yeni bir Log Analytics çalışma alanı oluşturmak istiyorsanız,'ndaki yönergeleri izleyin [Log Analytics çalışma alanı oluşturma](../../log-analytics/log-analytics-quick-create-workspace.md). AKS kapsayıcı dağıtılan aynı abonelikte çalışma alanı oluşturmak emin olun. 
+    >Küme izleme verilerini depolamak için yeni bir Log Analytics çalışma alanı oluşturmak istiyorsanız,'ndaki yönergeleri izleyin [Log Analytics çalışma alanı oluşturma](../../azure-monitor/learn/quick-create-workspace.md). AKS kapsayıcı dağıtılan aynı abonelikte çalışma alanı oluşturmak emin olun. 
  
 İzleme etkinleştirdikten sonra küme için sistem durumu ölçümleri görmeden önce yaklaşık 15 dakika sürebilir. 
 
@@ -125,7 +132,7 @@ Azure portalında AKS kapsayıcınızı izlemeyi etkinleştirmek için aşağıd
     ![AKS kapsayıcı sistem durumu izlemeyi etkinleştir](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
 
     >[!NOTE]
-    >Küme izleme verilerini depolamak için yeni bir Log Analytics çalışma alanı oluşturmak istiyorsanız,'ndaki yönergeleri izleyin [Log Analytics çalışma alanı oluşturma](../../log-analytics/log-analytics-quick-create-workspace.md). AKS kapsayıcı dağıtılan aynı abonelikte çalışma alanı oluşturmak emin olun. 
+    >Küme izleme verilerini depolamak için yeni bir Log Analytics çalışma alanı oluşturmak istiyorsanız,'ndaki yönergeleri izleyin [Log Analytics çalışma alanı oluşturma](../../azure-monitor/learn/quick-create-workspace.md). AKS kapsayıcı dağıtılan aynı abonelikte çalışma alanı oluşturmak emin olun. 
  
 İzleme etkinleştirdikten sonra küme için işletimsel veri görmeden önce yaklaşık 15 dakika sürebilir. 
 
@@ -140,7 +147,7 @@ Bu yöntem, iki JSON şablonları içerir. Yapılandırmayı, izlemeyi etkinleş
 >Şablon, aynı kaynak grubunda kümesi olarak dağıtılması gerekiyor.
 >
 
-Log Analytics çalışma alanını el ile oluşturulması gerekir. Çalışma alanı oluşturmak için bunu aracılığıyla ayarlayabilirsiniz [Azure Resource Manager](../../log-analytics/log-analytics-template-workspace-configuration.md)temellidir [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), veya [Azure portalında](../../log-analytics/log-analytics-quick-create-workspace.md).
+Log Analytics çalışma alanını el ile oluşturulması gerekir. Çalışma alanı oluşturmak için bunu aracılığıyla ayarlayabilirsiniz [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)temellidir [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), veya [Azure portalında](../../azure-monitor/learn/quick-create-workspace.md).
 
 Bir şablon kullanarak kaynakları dağıtma kavramıyla alışkın değilseniz, bkz:
 * [Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma](../../azure-resource-manager/resource-group-template-deploy.md)

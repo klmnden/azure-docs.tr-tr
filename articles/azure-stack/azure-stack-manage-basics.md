@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 5d3073c3ed499ecdb20243e6db2b217aec3e1448
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f22754a16c4765989b5773d099fc3ecda73040db
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254528"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972397"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack yönetim temel bilgileri
 Azure Stack Yönetim için yeni bilmeniz gereken birkaç şey vardır. Bu kılavuz, Azure Stack operatörü olarak sizin rolünüze genel bir bakış ve hızlı bir şekilde üretken olmak için bunları kullanıcılarınıza söylemeniz gerekenler sağlar.
@@ -32,9 +32,9 @@ Bir Azure Stack tümleşik sistemi kullanıyorsanız, Azure Stack güncelleştir
  
 ### <a name="development-kit"></a>Geliştirme Seti
 
-Azure Stack geliştirme Seti'ni kullanıyorsanız, gözden [Azure Stack nedir?](.\asdk\asdk-what-is.md) makalenin amacı, Geliştirme Seti ve kısıtlamalarını anladığınızdan emin olun. ", Azure Stack'i değerlendirin ve geliştirme ve üretim dışı ortamda uygulamalarınızı test etmek bir korumalı alan," olarak Geliştirme Seti kullanmanız gerekir. (Dağıtım bilgileri için bkz. [Azure Stack geliştirme Seti'ni dağıtım](.\asdk\asdk-install.md) makale.)
+Azure Stack geliştirme Seti'ni kullanıyorsanız, gözden [Azure Stack nedir?](./asdk/asdk-what-is.md) makalenin amacı, Geliştirme Seti ve kısıtlamalarını anladığınızdan emin olun. ", Azure Stack'i değerlendirin ve geliştirme ve üretim dışı ortamda uygulamalarınızı test etmek bir korumalı alan," olarak Geliştirme Seti kullanmanız gerekir. (Dağıtım bilgileri için bkz. [Azure Stack geliştirme Seti'ni dağıtım](./asdk/asdk-install.md) makale.)
 
-Azure'da olduğu gibi biz yenilikleri hızlıca sunun. Biz yeni derlemeler düzenli olarak kullanıma sunarız. Geliştirme Seti çalıştırıyorsanız ve taşımak en son sürüme gerekir istediğiniz [Azure Stack'i yeniden dağıtma](.\asdk\asdk-redeploy.md). Güncelleştirme paketleri uygulanamıyor. Bu işlem zaman alır, ancak en son özellikleri deneyin avantajdır. Web Geliştirme Seti belgelerine en son sürüm yapısı yansıtır.
+Azure'da olduğu gibi biz yenilikleri hızlıca sunun. Biz yeni derlemeler düzenli olarak kullanıma sunarız. Geliştirme Seti çalıştırıyorsanız ve taşımak en son sürüme gerekir istediğiniz [Azure Stack'i yeniden dağıtma](./asdk/asdk-redeploy.md). Güncelleştirme paketleri uygulanamıyor. Bu işlem zaman alır, ancak en son özellikleri deneyin avantajdır. Web Geliştirme Seti belgelerine en son sürüm yapısı yansıtır.
 
 ## <a name="learn-about-available-services"></a>Kullanılabilir hizmetleri hakkında bilgi edinin
 

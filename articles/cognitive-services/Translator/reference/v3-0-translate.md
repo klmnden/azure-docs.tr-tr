@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 847794d46addc7f3cba09437c2d2c6e8a3a04e89
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: bf13ca603927c85784e446157a79cd96fb70ca05
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165433"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956997"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator metin çevirisi API'si 3.0: Çevir
 
@@ -42,11 +42,11 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   </tr>
   <tr>
     <td>başlangıç</td>
-    <td>*İsteğe bağlı parametre*.<br/>Giriş metninin dilini belirtir. Hangi dillerin bakarak gelen çevirmek kullanılabilir olduğunu bulmak [desteklenen diller](.\v3-0-languages.md) kullanarak `translation` kapsam. Varsa `from` parametresi belirtilmezse, otomatik dil algılama kaynak dili belirlemek için uygulanır.</td>
+    <td>*İsteğe bağlı parametre*.<br/>Giriş metninin dilini belirtir. Hangi dillerin bakarak gelen çevirmek kullanılabilir olduğunu bulmak [desteklenen diller](./v3-0-languages.md) kullanarak `translation` kapsam. Varsa `from` parametresi belirtilmezse, otomatik dil algılama kaynak dili belirlemek için uygulanır.</td>
   </tr>
   <tr>
     <td>-</td>
-    <td>*Gerekli parametre*.<br/>Çıkış metnini dilini belirtir. Hedef Dil olmalıdır [desteklenen diller](.\v3-0-languages.md) dahil `translation` kapsam. Örneğin, `to=de` Almanca çevrilemedi.<br/>Sorgu dizesinde parametresini tekrarlayarak birden fazla dili için aynı anda çevirmek mümkündür. Örneğin, `to=de&to=it` Almanca ve İtalyanca çevrilemedi.</td>
+    <td>*Gerekli parametre*.<br/>Çıkış metnini dilini belirtir. Hedef Dil olmalıdır [desteklenen diller](./v3-0-languages.md) dahil `translation` kapsam. Örneğin, `to=de` Almanca çevrilemedi.<br/>Sorgu dizesinde parametresini tekrarlayarak birden fazla dili için aynı anda çevirmek mümkündür. Örneğin, `to=de&to=it` Almanca ve İtalyanca çevrilemedi.</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -86,7 +86,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   </tr>
   <tr>
     <td>AllowFallback</td>
-    <td>*İsteğe bağlı parametre*.<br/>Özel bir sistemde mevcut değil, hizmet genel sistem geri izin verildiğini belirtir. Olası değerler şunlardır: `true` (varsayılan) veya `false`.<br/><br/>`allowFallback=false` Çeviri sistemleri için eğitim yalnızca kullanması gerektiğini belirtir `category` istek tarafından belirtilen. Dil Y X diline yönelik bir çeviri pivot diliyle E, ardından tüm sistemler zincirindeki zincir gerektiriyorsa (X -> E ve E -> Y) özel ve aynı kategoride olması gerekir. Belirli bir kategoriye sahip hiçbir sistemi bulunursa istek bir 400 durum kodu döndürür. `allowFallback=true` özel bir sistemde mevcut değil, hizmet genel sistem geri izin verildiğini belirtir.
+    <td>*İsteğe bağlı parametre*.<br/>Özel bir sistemde mevcut değil, hizmet genel sistem geri izin verildiğini belirtir. Olası değerler şunlardır: `true` (varsayılan) veya `false`.<br/><br/>`allowFallback=false` Çeviri sistemleri için eğitim yalnızca kullanması gerektiğini belirtir `category` istek tarafından belirtilen. Dil Y X diline yönelik bir çeviri pivot diliyle E, ardından tüm sistemler zincirindeki zincir gerektiriyorsa (X -> E ve E -> Y) özel ve aynı kategoride olması gerekir. Belirli bir kategoriye sahip hiçbir sistemi bulunursa istek bir 400 durum kodu döndürür. `allowFallback=true` Özel bir sistemde mevcut değil, hizmet genel sistem geri izin verildiğini belirtir.
 </td>
   </tr>
 </table> 

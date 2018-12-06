@@ -9,24 +9,21 @@ manager: cshankar
 ms.reviewer: anshan
 ms.workload: big-data
 ms.topic: overview
-ms.date: 11/28/2018
-ms.openlocfilehash: 5400d8eeba1983d3137b5145c2f885faee036417
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/05/2018
+ms.openlocfilehash: 01c3c580027fd682ccd7dc099def6dd6b2770d65
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853152"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962537"
 ---
 # <a name="azure-time-series-insights-overview"></a>Azure Time Series Insights genel bakış
 
-Azure zaman serisi öngörüleri (TSI) bir uçtan uca hizmet olarak Platform-A-alma, işlem, depolama ve yüksek oranda contextualized, zaman serisi iyileştirilmiş IOT ölçekli veri sorgulamak için ' dir. Bu nedenle, Azure TSI operasyonel analiz yanı sıra geçici veri keşfi için idealdir. TSI karşıladığını endüstriyel IOT dağıtımları geniş gerektiğini sunan benzersiz şekilde genişletilebilir, özelleştirilmiş, hizmetidir.
+Azure zaman serisi öngörüleri (TSI) bir uçtan uca hizmet olarak Platform-A-veri alabilen, işlem, depolama ve geçici veri keşfi, yanı sıra operasyonel analiz için ideal olan, yüksek oranda contextualized, zaman serisi iyileştirilmiş IOT ölçekli veriler sorgu için olan. Azure TSI karşıladığını endüstriyel IOT dağıtımları geniş gerektiğini sunan bir benzersiz şekilde genişletilebilir ve özelleştirilmiş hizmetidir.
 
-## <a name="what-is-iot-data"></a>IOT verilerini nedir?
+## <a name="defining-iot-data"></a>IOT verilerini tanımlama
 
-IOT, herhangi bir 'endüstriyel' veri varlık açısından yoğun kaynak gerektiren kuruluşlarda kullanılabilir verilerdir.
-Sıcaklık, hareket, nem gibi oldukça gürültülü ölçümleri kayıt varlıklar aralığındaki geniş göndermesinden itibaren geçen IOT verilerini genellikle yüksek oranda yapılandırılmamış.
-
-Ayrıca, bu veri akışlarını Sık önemli boşlukları, bozuk bir ileti ve false okumalar tarafından belirlenir. Herhangi bir çözümlemesi gerçekleşebilmesi bu akıştaki verilerin temizlenmesi gerekir. IOT verilerini anlamlı yalnızca ilk-(örneğin, CRM veya ERP) veya üçüncü taraf gelen ek verisi girişleri bağlamında genellikle veri kaynakları (örneğin, hava durumu veya konum).
+IOT, herhangi bir "endüstriyel" veri varlığı yoğun kuruluşlarda kullanılabilir verilerdir. Sıcaklık, hareket, nem gibi oldukça gürültülü ölçümleri kayıt varlıklar aralığındaki geniş göndermesinden itibaren geçen IOT verilerini genellikle yüksek oranda yapılandırılmamış. Ayrıca, bu veri akışlarını Sık önemli boşlukları, bozuk bir ileti ve false okumalar tarafından belirlenir. Herhangi bir çözümlemesi gerçekleşebilmesi bu akıştaki verilerin temizlenmesi gerekir. IOT verilerini genellikle yalnızca CRM veya ERP gibi birinci taraf geldiğini ek verisi girişleri bağlamında anlamlı) veya üçüncü taraf veri kaynaklarından (örneğin, hava durumu veya konum).
 
 Sonuç olarak, bu verileri yalnızca göz ardı edilebilir avantajlarının işlem ve işletme amacıyla kullanılır. Bu tür veriler iş raporlama ve analiz için tutarlı, kapsamlı, geçerli ve doğru bilgileri sağlar. Durumun dönüş IOT toplanan verileri eyleme dönüştürülebilir içgörüler haline, bu nedenle birkaç önemli özellikleri gerektirir:
 
@@ -40,13 +37,13 @@ Tipik bir IOT veri akışı aşağıdaki gibi konabilecek:
 
 ## <a name="azure-time-series-insights-for-industrial-iot"></a>Endüstriyel IOT için Azure Time Series Insights
 
-Geçerli IOT yatay farklı. Bu, müşterilerin kapsayıcı üretim, otomobil, Petrol ve gaz, güç & yardımcı programı, akıllı Binalar ve danışmanlık içerir. Geçici veri keşfi verinin şeklini bilinmeyen yanı sıra operasyonel analiz Operasyonel Verimliliği için şema (açıkça Modellenen) veriler üzerinde olduğu senaryolar içerir. Bu senaryolar, genellikle yan yana var ve farklı kullanım durumlarına destekler. Çok katmanlı depolama (sıcak ve soğuk) teknolojilerinden değerinde zaman serisi verileri depolama olanağı ve açıkça model ve varlık tabanlı operasyonel zeka sorgularını en iyi duruma getirme olanağı olma gibi platform özelliklerinden başarısı için anahtar Endüstriyel IOT kuruluşlara ve kendi dijital revolution.
+Geçerli IOT yatay farklı. Bu, üretim, otomotiv kapsayan müşteriler, enerji, yardımcı programlar, akıllı Binalar ve danışmanlık sektörler içerir. Geçici veri keşfi verinin şeklini bilinmeyen yanı sıra operasyonel analiz Operasyonel Verimliliği için şema (açıkça Modellenen) veriler üzerinde olduğu senaryolar içerir. Bu senaryolar, genellikle yan yana var ve farklı kullanım durumlarına destekler. Çok katmanlı depolama (sıcak ve soğuk) teknolojilerinden değerinde zaman serisi verileri depolama olanağı ve açıkça model ve varlık tabanlı operasyonel zeka sorgularını en iyi duruma getirme olanağı olma gibi platform özelliklerinden başarısı için anahtar Endüstriyel IOT kuruluşlara ve kendi dijital revolution.
 
-Azure TSI, hem IOT veri keşfi, hem de operasyonel içgörüler için kapsamlı bir uçtan uca hizmet olarak Platform-A teklifidir. Zaman serisi görüşleri, IOT ölçekli zaman serisi verilerini analiz etmek için tam olarak yönetilen bulut hizmeti sunar.
+Azure TSI, hem IOT veri keşfi, aynı zamanda operasyonel içgörüler için kapsamlı bir uçtan uca hizmet olarak Platform-A teklifidir. TSI IOT ölçekli zaman serisi verilerini analiz etmek için tam olarak yönetilen bulut hizmeti sunar.
 
-Müşteriler ham veri bir şemasız, bellek içi, deposuna ve bir dağıtılmış sorgu altyapısı ve API üzerinden etkileşimli geçici sorguları gerçekleştirme yapabilir milyarlarca olayı saniyeler içinde görselleştirmek için zengin kullanıcı deneyimimizi yararlanın. Daha fazla bilgi edinin bizim [veri keşfi özellikleri](./time-series-insights-overview.md).
+Müşteriler ham verileri şemasız, bellek içi, bir depolama alanında depolayabilirsiniz. Müşteriler bir dağıtılmış sorgu altyapısı ile etkileşimli geçici sorgular daha sonra gerçekleştirebilirsiniz ve milyarlarca olayı saniyeler içinde görselleştirmek için API yararlanarak zengin kullanıcı deneyimi. Daha fazla bilgi edinin bizim [veri keşfi özellikleri](./time-series-insights-overview.md).
 
-TSI, ayrıca şu anda genel Önizlemedeki özellikler operasyonel içgörüler sunar. Time Series Insights, etkileşimli veri keşfi ve operasyonel zeka ile birlikte IOT varlıklarından toplanan verilerinizden daha fazla değer türetmek müşterilerin sağlar. Özellikle, genel Önizleme Teklifi aşağıdaki anahtar özelliklerini destekler:
+TSI, ayrıca şu anda önizlemede operasyonel içgörüler özellikleri sunar. TSI, etkileşimli veri keşfi ve operasyonel zeka ile birlikte IOT varlıklarından toplanan verilerinizden daha fazla değer türetmek müşterilerin sağlar. Özellikle, Önizleme Teklifi aşağıdaki anahtar özelliklerini destekler:
 
 * Bir ölçeklenebilir, performans ve saniyeler içinde zaman serisi verilerini değerinde eğilim yıl için bulut tabanlı bir IOT çözümü sağlayan maliyet açısından iyileştirilmiş zaman serisi veri deposu.
 * Varlıklar ve cihazlardan türetilmiş ve türetilmeyen sinyaller ile ilişkili meta verileri ve etki alanını tanımlamak için anlam modeli desteği.
@@ -59,41 +56,28 @@ Güncelleştirilmiş özelliklerini gösteren bir üst düzey veri akış diyagr
 
   ![Temel işlevler][2]
 
-Bu anahtar endüstriyel IOT özelliklerini sunulmasıyla birlikte, Azure TSI aşağıdaki faydaları sağlar.
+Bu anahtar endüstriyel IOT özelliklerini sunulmasıyla birlikte, Azure TSI aşağıdaki faydaları sağlar:
 
-* IOT ölçekli zaman serisi verilerinin çok katmanlı depolama
+| | |
+| ---| ---|
+| **IOT ölçekli zaman serisi verilerinin çok katmanlı depolama** | Veri almak için bir genel veri işleme işlem hattı, etkileşimli sorgular için Orta Gecikmeli depolama ve/veya soğuk depolama, büyük hacimli verileri depolamak için özelliği deposu veri müşterileri sahiptir. Müşterilerin, yüksek performanslı, varlık tabanlı avantajlarından faydalanabilirsiniz [sorguları](./time-series-insights-update-tsq.md). |
+| **Ham telemetri contextualizing ve varlık dayalı Öngörüler türetme için zaman serisi modeli** | Müşteriler bağlama göre ele alınmasına ham telemetri verileri tanımlayıcı ile [zaman serisi modeli](./time-series-insights-update-tsm.md) ve yüksek oranda cihaz tabanlı sorgular performans ve maliyet iyileştirme ile zengin operasyonel zeka türetilir. |
+| **Diğer veri çözümleriyle sorunsuz tümleştirme** | Azure TSI içindeki veriler olduğundan [depolanan](./time-series-insights-update-storage-ingress.md) açık kaynaklı Apache Parquet dosyalarında müşterileri kolayca diğer veri çözümleriyle tümleştirilebilir (ilk ya da üçüncü taraf) iş zekası dahil olmak üzere, uçtan uca senaryolar için Gelişmiş makine Machine Learning, Tahmine dayalı analiz, vs. |
+| **Gerçek zamanlı veri araştırması** | [Azure TSI Gezgini](./time-series-insights-update-explorer.md) görselleştirme tüm veri alımı komut zinciri ile akış için kullanıcı deneyimi sunar. Kısa bir süre içinde bir olay kaynağı bağladıktan sonra müşteriler görüntüleyebilir, keşfedin ve olay verilerini bir cihaz verileri beklenen şekilde yayma ve bir IOT varlık sistem durumu, üretkenlik ve genel verimliliğini izlemeye olup olmadığını doğrulamak için kullanılan sorgu. |
+| **Kök neden analizini ve anormallik algılama** | [Azure TSI Gezgini](./time-series-insights-update-explorer.md) gerçekleştirin ve kaydetmek çok adımlı, kök neden analizi için desen hem perspektif görünüm destekler. Azure Stream Analytics ile birlikte, müşteriler Azure TSI uyarıları ve neredeyse gerçek zamanlı olarak anomalileri algılamak için kullanabilirsiniz. |
+| **TSI platforma özel uygulamalar oluşturun** | Azure TSI destekler [JavaScript SDK'sı](./tutorial-explore-js-client-lib.md). SDK, zengin denetimleri ve sorguları yönelik Basitleştirilmiş erişim sağlar. SDK'sı, müşterilerin belirli iş ihtiyaçlarını karşılamak için özel IOT uygulamaları Azure TSI üzerine yapı sağlar. Müşteriler ayrıca Azure TSI kullanın [sorgu API'leri](./time-series-insights-update-tsq.md) doğrudan sürücü verilerini özel IOT uygulamaları için. |
 
-  * Veri almak için bir genel veri işleme işlem hattı ile müşteriler sıcak depolama için etkileşimli sorgular ve/veya soğuk depolama, büyük hacimli verileri depolamak için verileri depolamak ve yüksek performanslı, varlık tabanlı sorgular faydalanmak özelliğine sahiptir.
+## <a name="next-steps"></a>Sonraki adımlar
 
-  * Depolama katmanları arasında dinamik yönlendirme yakında kullanıma sunulacaktır.
-
-* Zaman serisi modeli ham telemetri contextualizing ve varlık dayalı Öngörüler türetme
-
-  * Müşteriler ham telemetri verileri açıklayıcı zaman serisi modeli ile bağlama göre ele alınmasına ve yüksek oranda cihaz tabanlı sorgular performans ve maliyet iyileştirme ile zengin operasyonel zeka türetilir.
-
-* Diğer veri çözümleriyle sorunsuz tümleştirme
-  
-  * Azure Time Series Insights veri açık kaynaklı Apache Parquet dosyalarda depolandığından, müşterilerin diğer veri çözümleriyle kolayca tümleştirebilirsiniz (ilk ya da üçüncü taraf) makine öğrenimi, Gelişmiş iş zekası gibi uçtan uca senaryolar Tahmine dayalı analiz, vb.
-
-* Gerçek zamanlı veri araştırması
-
-  * Tüm veri alımı komut zinciri ile akış görselliğini Azure Time Series Insights Gezgini kullanıcı deneyimi sağlar. Kısa bir süre içinde bir olay kaynağı bağladıktan sonra müşteriler görüntüleyebilir, keşfedin ve olay verilerini bir cihaz verileri beklenen şekilde yayma ve bir IOT varlık sistem durumu, üretkenlik ve genel verimliliğini izlemeye olup olmadığını doğrulamak için kullanılan sorgu.
-
-* Kök neden analizini ve anormallik algılama
-
-  * Azure Time Series Insights Gezgini, desenleri ve çok adımlı kök neden analizi gerçekleştirin ve perspektif görünüm destekler. Azure Stream Analytics ile birlikte, müşteriler, uyarılar ve neredeyse gerçek zamanlı olarak anomalileri algılamak için zaman serisi görüşleri kullanabilir.
-
-* Time Series Insights platforma özel uygulamalar oluşturun
-
-  * Azure Time Series Insights JavaScript SDK'sı ile zengin denetimleri ve müşterilerin bireysel işletme gereksinimlerine uyacak şekilde özel IOT uygulamaları Time Series Insights platform üzerinde derleme için sorguları yönelik Basitleştirilmiş erişim destekler.
-  * Müşteriler, özel IOT uygulamalarınızı doğrudan sürücü verilere Time Series Insights sorgu API'lerini de kullanabilirsiniz.
-
-## <a name="next-steps"></a>Sonraki Adımlar
-
-Azure TSI özel Önizleme ile kullanmaya başlamak hazır olursunuz:
+Azure TSI (Önizleme) kullanmaya başlamak hazır olursunuz:
 
 > [!div class="nextstepaction"]
 > [Hızlı Başlangıç kılavuzunu okuyun](./time-series-insights-update-quickstart.md)
+
+Kullanım örnekleri hakkında bilgi edinin:
+
+> [!div class="nextstepaction"]
+> [Azure TSI kullanım örnekleri](./time-series-insights-update-use-cases.md)
 
 <!-- Images -->
 [1]: media/v2-update-overview/overview_one.png

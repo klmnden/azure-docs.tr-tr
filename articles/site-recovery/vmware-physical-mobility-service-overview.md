@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 687feec668e628e36f9c23cec9943220524cc6e9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e3967319cd41399209bd50886bce88efc8ba6ba6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841940"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956525"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>VMware Vm'lerini ve fiziksel sunucular için Mobility hizmeti hakkında
 
@@ -56,11 +56,11 @@ Microsoft ASR_UA\*DEBIAN8 64\*release.tar.gz | Debian 8
 2. Kasa portalda açın > **çoğaltılan öğeler**.
 3. Yapılandırma sunucusunu en son sürüm ise "Yeni Site recovery çoğaltma aracısı güncelleştirmesi kullanılabilir. okuyan bir bildirim görür Yüklemek için tıklayın."
 
-     ![Çoğaltılan öğeler penceresi](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+     ![Çoğaltılan öğeler penceresi](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 
 4. Bildirime tıklayın ve **Aracısı güncelleştirmesi**, Mobility hizmetini yükseltmek istediğiniz makineleri seçin. Daha sonra, **Tamam**'a tıklayın.
 
-     ![Çoğaltılan öğeler VM listesi](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+     ![Çoğaltılan öğeler VM listesi](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 5. Her seçili makineler için Mobility hizmetini güncelleştirme işlemi başlatır.
 

@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
-ms.openlocfilehash: e2f3a5655b2fbedf3ad80d555421599e26225196
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 09a7f02df1102e42bc45b4615a2af4235372bcdc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982130"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957036"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Görüntü İşleme API'si Sürüm 1.0 nedir?
 
@@ -44,7 +44,7 @@ Bulut tabanlı Görüntü İşleme API’si, geliştiriciler için görüntüler
 * Görüntü boyutu: 50 x 50 pikselden büyük.
 
 ## <a name="tagging-images"></a>Görüntüleri Etiketleme
-Görüntü İşleme API'si, 2000’den fazla tanınabilir eşya, canlı, manzara ve eylemi temel alan etiketler döndürür. Belirsiz veya herkesçe bilinmeyen etiketler söz konusu olduğunda, API yanıtı, etiketin anlamının bilinen bir ortama ilişkin bağlamda açıklığa kavuşturulması için "ipuçları" sağlar. Etiketler taksonomi olarak tanınmaz ve hiçbir devralma hiyerarşisi yoktur. Bir içerik etiketi koleksiyonu, tam tümceler halinde biçimlendirilmiş insan tarafından okunabilir dilde görüntülenen bir görüntü 'açıklamasının' temelini oluşturur. Şu noktada görüntü açıklaması için desteklenen tek dilin İngilizce olduğunu unutmayın.
+Görüntü işleme API'si, tanınabilir nesne, canlı, manzara ve Eylemler binlerce alan etiketler döndürür. Belirsiz veya herkesçe bilinmeyen etiketler söz konusu olduğunda, API yanıtı, etiketin anlamının bilinen bir ortama ilişkin bağlamda açıklığa kavuşturulması için "ipuçları" sağlar. Etiketler taksonomi olarak tanınmaz ve hiçbir devralma hiyerarşisi yoktur. Bir içerik etiketi koleksiyonu, tam tümceler halinde biçimlendirilmiş insan tarafından okunabilir dilde görüntülenen bir görüntü 'açıklamasının' temelini oluşturur. Şu noktada görüntü açıklaması için desteklenen tek dilin İngilizce olduğunu unutmayın.
 
 Görüntüyü karşıya yükledikten veya bir görüntü URL'si belirttikten sonra, Görüntü İşleme API'sinin algoritmaları görüntüde tanımlanan eşyalar, canlılar ve eylemlere dayalı olarak etiketleri verir. Etiketleme yalnızca temel konu ile sınırlı kalmayıp ortam (iç mekân veya dış mekân), mobilyalar, aletler, bitkiler, hayvanlar, aksesuarlar, araçlar ve benzeri öğeleri de kapsar.
 
@@ -267,12 +267,12 @@ Not: Bu teknoloji şu an için önizleme aşamasındadır ve yalnızca İngilizc
 ## <a name="generating-thumbnails"></a>Küçük Resimler Oluşturma
 Küçük resim, tam boyutlu bir görüntünün küçük gösterimidir. Telefon, tablet ve PC gibi çeşitli cihazlar, farklı kullanıcı deneyimi (UX) düzenleri ve küçük resim boyutları gereğini ortaya çıkarmıştır. Akıllı kırpmayı kullanan bu Görüntü İşleme API'si özelliği, bu sorunu çözmeye yardımcı olur.
 
-Görüntüyü karşıya yükledikten sonra, yüksek kaliteli bir küçük resim oluşturulur ve Görüntü İşleme API'sinin algoritması görüntüdeki nesneleri analiz eder. Ardından 'ilgilenilen bölgenin' gereksinimlerine uyacak şekilde görüntüyü kırpar. Çıkış, aşağıdaki resimde gösterildiği gibi özel bir çerçeve içinde görüntülenir. Oluşturulan küçük resim, kullanıcının ihtiyaçlarını karşılayacak şekilde, özgün görüntünün en boy oranından farklı bir en boy oranı kullanılarak sunulabilir.
+Görüntüyü karşıya yükledikten sonra, yüksek kaliteli bir küçük resim oluşturulur ve Görüntü İşleme API'sinin algoritması görüntüdeki nesneleri analiz eder. Ardından, 'ilgi' gereksinimlerini resmi kırpar. Çıkış, aşağıdaki resimde gösterildiği gibi özel bir çerçeve içinde görüntülenir. Oluşturulan küçük resim, kullanıcının ihtiyaçlarını karşılayacak şekilde, özgün görüntünün en boy oranından farklı bir en boy oranı kullanılarak sunulabilir.
 
 Küçük resim algoritması şöyle çalışır:
 
-1. Dikkat dağıtan öğeleri görüntüden çıkarır ve ana nesneyi, 'ilgilenilen bölgeyi' tanır.
-2. Belirlenen ilgilenilen bölge temelinde görüntüyü kırpar.
+1. Görüntüden dikkat dağıtıcı öğeleri kaldırır ve bir ana nesnesi, 'ilgi' tanır.
+2. İlgilendiğiniz tanımlanan alana dayalı resmi kırpar.
 3. Hedef küçük resmin boyutlarına uyması için en boy oranını değiştirir.
 
 ![Küçük Resimler](./Images/thumbnail-demo.png)

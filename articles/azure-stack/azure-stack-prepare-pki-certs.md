@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: ef9fe0e05343f9c99656634a075b1bd464a13c7e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: c26dcbc2fab7cff3134846234cafaa481fd5ba1a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379598"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972047"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Azure Stack PKI sertifikaları dağıtımı için hazırlama
 Sertifika dosyalarını [seçim, CA'dan alınan](azure-stack-get-pki-certs.md) içeri ve dışarı Azure yığını'nın sertifika gereksinimleri eşleşen özelliklere sahip.
@@ -38,15 +38,15 @@ Hazırlama ve Azure Stack PKI sertifikalarını doğrulamak için aşağıdaki a
 
 1. İçinde **Sertifika Alma Sihirbazı'nı**seçin **yerel makine** içeri aktarma konumu olarak. **İleri**’yi seçin. Aşağıdaki ekranda, sonraki yeniden tıklayın.
 
-    ![Yerel makine içeri aktarma konumu](.\media\prepare-pki-certs\1.png)
+    ![Yerel makine içeri aktarma konumu](./media/prepare-pki-certs/1.png)
 
 1.  Seçin **tüm sertifika aşağıdaki depolama alanına yerleştir** seçip **Kurumsal güven** konumu olarak. Tıklayın **Tamam** sertifika deposu seçimi iletişim kutusunu kapatın ve ardından **sonraki**.
 
-    ![Sertifika deposu yapılandırma](.\media\prepare-pki-certs\3.png)
+    ![Sertifika deposu yapılandırma](./media/prepare-pki-certs/3.png)
 
     a. Bir PFX alıyorsanız, ek bir iletişim kutusu ile sunulur. Üzerinde **özel anahtar korumasını** sayfasında, sertifika dosyaları için parolayı girin ve sonra etkinleştirin **bu anahtarı verilebilir olarak işaretle. Bu sayede veya anahtarlarınızı sonradan** seçeneği. **İleri**’yi seçin.
 
-    ![Anahtarı verilebilir olarak işaretle](.\media\prepare-pki-certs\2.png)
+    ![Anahtarı verilebilir olarak işaretle](./media/prepare-pki-certs/2.png)
 
 1. İçeri aktarma işlemini tamamlamak için Son'u tıklatın.
 
@@ -58,11 +58,11 @@ Sertifika Yöneticisi MMC konsolu açın ve yerel makine sertifika deposuna bağ
 
 1. Dosya,'ı Ekle/Kaldır ek bileşenini sonra sertifikaları seçin Ekle'ye tıklayın.
 
-    ![Sertifikalar ek bileşenini Ekle](.\media\prepare-pki-certs\mmc-2.png)
+    ![Sertifikalar ek bileşenini Ekle](./media/prepare-pki-certs/mmc-2.png)
  
 1. Bilgisayar hesabını seçin, İleri'ye tıklayın, sonra yerel bilgisayarı seçin sonra son. Ekle/Kaldır ek bileşenini sayfasını kapatmak için Tamam'a tıklayın.
 
-    ![Sertifikalar ek bileşenini Ekle](.\media\prepare-pki-certs\mmc-3.png)
+    ![Sertifikalar ek bileşenini Ekle](./media/prepare-pki-certs/mmc-3.png)
 
 1. Sertifikalar için Gözat > Kurumsal güven > sertifika konumu. Sağ tarafta sertifikanızı gördüğünüzü doğrulayın.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/12/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: b2483d93fdc83970ca1568326f4bc728de16f77c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3df4be80e1a979590a05ff10601485e950de54bd
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038876"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962226"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Parolanızla değil telefonunuzla oturum açma
 Yalnızca, hesaplarınızı iki aşamalı doğrulamayı çalıştırdıktan sonra gerçekleştirerek korunmasına yardımcı olur, parolanızı girin, ancak artık Microsoft hesabınızın parolasını tamamen değiştirmek Microsoft Authenticator uygulaması.
@@ -43,13 +43,13 @@ Kuruluşunuz bu yeni deneyim üzerinde kapattıysa açmak ve telefonla oturum a�
 
     Kullanıcı adınızı girdikten sonra oturum açmayı Microsoft Authenticator uygulamasını aracılığıyla onaylamak isteyen iki basamaklı bir sayı ile bir sayfa görürsünüz. Bu oturum yöntem kullanmak istemiyorsanız, seçebileceğiniz **bunun yerine parolanızı kullanın**, parolanızı kullanarak oturum açın.
 
-    ![Oturum açma kutusunu Onayla](media\microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
+    ![Oturum açma kutusunu Onayla](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
 
 2. Microsoft Authentication uygulamasında isteyen bir bildirim alırsınız **oturum onaylama**. Seçin **Onayla** oturum açma denemesi tanımak durumunda. Aksi takdirde seçin **Reddet**. 
 
 3. Bkz: aynı numaraya dokunun **oturum onaylama** ekran. Telefonunuzun PIN veya biyometrik anahtarınızı kimlik doğrulamasını tamamlamak için kullanın.
 
-    ![Oturum açma seçin numarasıyla kutuyu Onayla](media\microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
+    ![Oturum açma seçin numarasıyla kutuyu Onayla](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
 
 ## <a name="turn-on-phone-sign-in-for-your-personal-account"></a>Telefonda kişisel hesabınızla oturum açın 
 Telefonla oturum açma, kişisel Microsoft hesabınız için Outlook.com, Xbox veya Skype oturum açmak için kullandığınız hesap gibi kapatabilirsiniz.

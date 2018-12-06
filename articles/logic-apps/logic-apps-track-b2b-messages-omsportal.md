@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 0bfb652d9e64b9dbf61ad4032f1449fd484cc80a
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: aacdaf4ec55b1223ce993a7246ed9f0405a5054e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233574"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957190"
 ---
 # <a name="track-b2b-messages-with-azure-log-analytics"></a>Azure Log Analytics ile B2B iletilerini izleme
 
@@ -37,11 +37,11 @@ Tümleştirme hesabı ticari ortaklar arasında B2B iletişim kurduktan sonra i�
 
 * Henüz kaydolmadıysanız [Log Analytics için tanılama verilerini yayımlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
-* Önceki gereksinimlerini sonra Log Analytics aracılığıyla B2B iletişimi izlemek için kullandığınız bir Log Analytics çalışma alanı da gerekir. Bir Log Analytics çalışma alanınız yoksa, bilgi [bir Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md).
+* Önceki gereksinimlerini sonra Log Analytics aracılığıyla B2B iletişimi izlemek için kullandığınız bir Log Analytics çalışma alanı da gerekir. Bir Log Analytics çalışma alanınız yoksa, bilgi [bir Log Analytics çalışma alanı oluşturma](../azure-monitor/learn/quick-create-workspace.md).
 
 ## <a name="install-logic-apps-b2b-solution"></a>Logic Apps B2B çözümü yükleme
 
-Log Analytics, mantıksal uygulamanız için B2B iletilerini izleme olabilir önce ekleme **Logic Apps B2B** Log analytics'e çözüm. Daha fazla bilgi edinin [Log Analytics çözümleri ekleme](../log-analytics/log-analytics-quick-create-workspace.md).
+Log Analytics, mantıksal uygulamanız için B2B iletilerini izleme olabilir önce ekleme **Logic Apps B2B** Log analytics'e çözüm. Daha fazla bilgi edinin [Log Analytics çözümleri ekleme](../azure-monitor/learn/quick-create-workspace.md).
 
 1. [Azure portalda](https://portal.azure.com) **Tüm hizmetler**’i seçin. Arama kutusuna "log analytics" bulup seçin **Log Analytics**.
 

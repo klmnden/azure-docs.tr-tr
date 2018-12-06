@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: quickstart
-ms.date: 11/30/2018
+ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: e9a286e4ce510cd673a7069b8b7e7d6f631ffb6a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 9929662f1fe4612e51c82248f64e3191f7fdb223
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726449"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955216"
 ---
 # <a name="quickstart-configure-azure-dns-for-name-resolution-by-using-the-portal"></a>Hızlı Başlangıç: Portalı kullanarak Azure DNS ad çözümlemesi için yapılandırma
 
@@ -30,7 +30,7 @@ You can also perform these steps using [Azure PowerShell](dns-getstarted-powersh
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 Tüm portal adımları için oturum açın [Azure portalında](https://portal.azure.com).
-   
+
 ## <a name="create-a-dns-zone"></a>DNS bölgesi oluşturma
 
 Bir DNS bölgesi bir etki alanı için DNS girişleri içerir. Etki alanınızı Azure DNS'de barındırmaya başlamak için bu etki alanı adı için bir DNS bölgesi oluşturun. 
@@ -68,7 +68,7 @@ DNS bölgesi içinde etki alanınız için DNS girişleri veya kayıtları oluş
    - **TTL birimi**: seçin **saat**. İçin zaman birimi budur **TTL** değeri. 
    - **IP adresi**: Bu hızlı örnek için türü *10.10.10.10*. Bu değer, kayıt adının IP adresini çözümler olur. Gerçek hayattaki bir senaryoda, web sunucunuz için genel IP adresini girmeniz gerekir.
 
-Bu hızlı başlangıçta, gerçek bir etki alanı kullanmaz olmadığından, Azure DNS ad sunucularını bir etki alanı adı kayıt şirketinize yapılandırmanıza gerek yoktur. Gerçek bir etki alanı ile web sunucusu veya uygulamaya bağlanmak için ana bilgisayar adını çözümlemek için internet'teki herkes istersiniz. Azure DNS ad sunucularıyla ad sunucusu kayıtlarını değiştirmek için etki alanı adı kayıt sayfasını ziyaret edin. Daha fazla bilgi için bkz. [Bir etki alanını Azure DNS'ye devretme](dns-delegate-domain-azure-dns.md).
+Bu hızlı başlangıçta, gerçek bir etki alanı kullanmaz olmadığından, Azure DNS ad sunucularını bir etki alanı adı kayıt şirketinize yapılandırmanıza gerek yoktur. Gerçek bir etki alanı ile web sunucusu veya uygulamaya bağlanmak için ana bilgisayar adını çözümlemek için internet'teki herkes istersiniz. Azure DNS ad sunucularıyla ad sunucusu kayıtlarını değiştirmek için etki alanı adı kayıt sayfasını ziyaret edin. Daha fazla bilgi için [Öğreticisi: etki alanınızı Azure DNS'de konak](dns-delegate-domain-azure-dns.md#delegate-the-domain).
 
 ## <a name="test-the-name-resolution"></a>Ad çözümlemesini test etme
 

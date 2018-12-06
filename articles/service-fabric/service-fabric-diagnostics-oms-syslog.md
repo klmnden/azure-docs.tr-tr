@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 5989ec9f95e2f5129a128d19326833718f37b508
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ec2b623650818877930ac6b95a17ee264f07efdf
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52730389"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959552"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Service Fabric Linux kümesi Syslog olayları
 
@@ -94,7 +94,7 @@ Duyurmak için değişiklikler aşağıda belirtilmiştir
 ```
 
 ## <a name="log-analytics-integration"></a>Log Analytics tümleştirmesi
-Bu Syslog olayları Log Analytics gibi izleme aracında okuyabilir. Bu [yönergeleri] kullanarak Azure Marketi'nde kullanarak Log Analytics çalışma alanı oluşturabilirsiniz. (.. / log-analytics/log-analytics-quick-create-workspace.md) de Log Analytics aracısını toplayıp bu verileri çalışma alanına gönderme kümenize eklemeniz gerekir. Performans sayaçları toplamak için kullanılan aracının aynısı budur. 
+Bu Syslog olayları Log Analytics gibi izleme aracında okuyabilir. Bu [yönergeleri] kullanarak Azure Marketi'nde kullanarak Log Analytics çalışma alanı oluşturabilirsiniz. (.. / azure-monitor/learn/quick-create-workspace.md) de Log Analytics aracısını toplayıp bu verileri çalışma alanına gönderme kümenize eklemeniz gerekir. Performans sayaçları toplamak için kullanılan aracının aynısı budur. 
 
 1. Gidin `Advanced Settings` dikey penceresi
 

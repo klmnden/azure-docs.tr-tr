@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: a5f3b206b83beb15ee3b29d5d5b9e389e85a91fb
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 32d0e0f48a99b5c06b1efa61e6e1a53cf5b0e61b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466996"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971802"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Kullanım ve faturalandırma Azure Stack'te
 
@@ -35,9 +35,9 @@ Azure stack'teki her kaynak sağlayıcısı, kaynak kullanımı başına kullan�
 
 Varsa [Azure Stack örneğinizin Azure Active Directory'ye](azure-stack-register.md), Azure Stack, Azure ticari için kullanım verileri göndermek için yapılandırılır. Verileri Azure'a karşıya yüklendikten sonra faturalandırma portalı üzerinden ya da Azure kaynak kullanımı API'leri kullanarak erişebilirsiniz. Hangi kullanım verileri Azure'a daha bildirilir bilgi edinmek için [veri Kullanım raporlaması](azure-stack-usage-reporting.md).  
 
-Aşağıdaki görüntüde, kullanım işlem hattında anahtar bileşenleri gösterilmektedir: 
+Aşağıdaki görüntüde, kullanım işlem hattında anahtar bileşenleri gösterilmektedir:
 
-![Kullanım işlem hattı](media\azure-stack-billing-and-chargeback\usagepipeline.png)
+![Kullanım işlem hattı](media/azure-stack-billing-and-chargeback/usagepipeline.png)
 
 ## <a name="what-usage-information-can-i-find-and-how"></a>Hangi kullanım bilgilerini bulabilirim ve nasıl?
 

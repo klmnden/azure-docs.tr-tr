@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: ae8739a65efbe7662a8f72e961d772fecaf4b527
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a4c96ea75bae69fa5a1af13e4e8b908759817e95
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303707"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959334"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service için Yerel Git Dağıtımı
 
@@ -30,7 +30,7 @@ Bu nasıl yapılır kılavuzunda kodunuzu dağıtma işlemi gösterilmektedir [A
 
 Bu nasıl yapılır Kılavuzu'ndaki adımları izlemek için:
 
-* [Git’i yükleyin](http://www.git-scm.com/downloads).
+* [Git’i yükleyin](https://www.git-scm.com/downloads).
 * Dağıtmak istediğiniz kodu ile bir yerel Git deposu korur.
 
 Örneği takip etmek için bir örnek depoya kullanmak için yerel terminal penceresinde aşağıdaki komutu çalıştırın:

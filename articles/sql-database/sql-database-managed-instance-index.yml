@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 28bdbcbbfa014495feb394bde78a197b274f07d9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7e7d2fed15ba9fbbdddbd19ebfad40b4f9f7c6d0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844184"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962343"
 documentType: LandingData
 title: Azure SQL Veritabanı Yönetilen Örneği
 metadata:
@@ -18,8 +18,8 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  ms.date: 11/11/2018
-  ms.author: jovanpop-msft
+  ms.date: 12/05/2018
+  ms.author: jovanpop
 abstract:
   description: Azure SQL veritabanı yönetilen örneği bir tam olarak yönetilen SQL Server veritabanı altyapısı Azure bulutunda barındırılan örneğidir. SQL Server veritabanınızı buluta geçirme için en iyi PaaS seçenek budur. Oluşturma ve müşterilerimize hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle yönetilen örneği kullanma hakkında bilgi edinin.
   aside:
@@ -65,6 +65,19 @@ sections:
     - title: Gelişmiş güvenlik
       href: /azure/sql-database/sql-database-security-index
       html: <p>Örnek ve yerleşik Azure SQL veritabanı güvenlik özelliklerine sahip veritabanları güvenli hale getirin.<p>
+- title: Yeni ve önizleme özellikleri
+  items:
+  - type: paragraph
+    text: 'Sürekli olarak yeni özelliklerle yönetilen örnek geliştirme duyuyoruz:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="sql-database-managed-instance#business-critical-service-tier">İş kritik hizmet katmanı</a> artık <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">genel kullanılabilirlik (GA)</a>.
+    - html: (Önizleme) <a href="https://aka.ms/managed-instance-aadlogins">Oluşturma Azure AD oturum açma bilgileri</a> kullanarak <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">oluşturma oturum açma gelen dış sağlayıcı</a> .
+    - html: (Önizleme) Örneği oluşturma <a href="https://aka.ms/managed-instance-collation">tercih ettiğiniz sunucu düzeyinde harmanlama</a>.
+    - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Yedek saklama 35 gün öncesine yapılandırma</a> -belirli bir noktaya geri yükleme. Unutmayın, kullanabilmeniz için uzun süreli yedek saklama (en fazla 10 yıl) hala etkinleştirilmedi <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">yalnızca kopya yedekleri</a> alternatif olarak.
+    - html: (Önizleme) Kullanım <a href="https://aka.ms/managed-instance-failover-groups">coğrafi olarak dağıtılmış bir yük devretme grupları</a> başka bir bölgede örneğinin bir kopyasını tutmak ve verilerinizi bile bölgesel bir olağanüstü durum senaryosunda kullanılabilir olmasını sağlamak için.
+    - html: (Önizleme) <a href="https://aka.ms/managed-instance-tde-byok">Kendi şifreleme anahtarlarınızı Getir</a> geçirme saydam veri şifrelemesi (TDE) zaten etkinleştirilmiş olan şirket içi veritabanlarını sırada.
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
@@ -123,7 +136,6 @@ sections:
     - html: Veritabanınızı kullanılarak geçirilebileceğini doğrulayın <a href="https://www.microsoft.com/download/details.aspx?id=53595">veri geçiş Asisstant</a> veya <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">veritabanı deneme Yardımcısı</a>.
     - html: Yönetilen örneği kullanarak veritabanlarınızı Getir <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">yerel geri yükleme</a> veya <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Data Migration hizmeti</a>.
     - html: SSIS paketlerinizi taşıma <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, SSAS tablolu modellere <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>, ve SSRS raporları için <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">Powerbı Premium</a>.
-    - html: Veri depolama en iyi duruma getirme <a href="https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/">genel amaçlı katmanında</a>.
     - html: En iyi yöntemler ve öneriler Bul <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">örneğinizin güvenli hale getirme</a>.
     - html: Kullanarak verilerinizi dağıtmak <a href="/azure/sql-database/replication-with-sql-database-managed-instance">işlemsel çoğaltma</a>.
 - title: Başvuru

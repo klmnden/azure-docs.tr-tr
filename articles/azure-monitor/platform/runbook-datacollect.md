@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 9f4ee3bdba87747a04dd4a5af9391c9dba6e1b51
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ac0e004039465171c615bbd3c79f361ceb764166
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834232"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962259"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Azure Otomasyonu runbook'u Log analytics'te verileri toplama
-Bir çeşitli kaynaklardan da dahil olmak üzere önemli miktarda Log analytics'te verileri toplayabilir [veri kaynakları](../../azure-monitor/platform/agent-data-sources.md) aracılarda da [Azure'dan toplanan veriler](../../azure-monitor/platform/collect-azure-metrics-logs.md).  Veri toplamak gereken, bu standart kaynakları aracılığıyla erişilebilir durumda değil ancak bir senaryo vardır.  Bu durumlarda, kullandığınız [HTTP veri toplayıcı API'sini](../../log-analytics/log-analytics-data-collector-api.md) herhangi bir REST API istemcisinden Log Analytics'e veri yazmak için.  Bu veri toplamayı gerçekleştirmek için genel bir yöntemi, Azure Automation'da bir runbook kullanıyor.   
+Bir çeşitli kaynaklardan da dahil olmak üzere önemli miktarda Log analytics'te verileri toplayabilir [veri kaynakları](../../azure-monitor/platform/agent-data-sources.md) aracılarda da [Azure'dan toplanan veriler](../../azure-monitor/platform/collect-azure-metrics-logs.md).  Veri toplamak gereken, bu standart kaynakları aracılığıyla erişilebilir durumda değil ancak bir senaryo vardır.  Bu durumlarda, kullandığınız [HTTP veri toplayıcı API'sini](../../azure-monitor/platform/data-collector-api.md) herhangi bir REST API istemcisinden Log Analytics'e veri yazmak için.  Bu veri toplamayı gerçekleştirmek için genel bir yöntemi, Azure Automation'da bir runbook kullanıyor.   
 
 Bu öğreticide oluşturma ve Log Analytics'e veri yazmak için Azure Otomasyonu'nda runbook zamanlama işleminde size yol gösterir.
 
@@ -30,7 +30,7 @@ Bu öğreticide oluşturma ve Log Analytics'e veri yazmak için Azure Otomasyonu
 ## <a name="prerequisites"></a>Önkoşullar
 Bu senaryo, aşağıdaki kaynakları Azure aboneliğinizde yapılandırılmış gerektirir.  Her ikisi de ücretsiz bir hesap olabilir.
 
-- [Log Analytics çalışma alanı](../../log-analytics/log-analytics-quick-create-workspace.md).
+- [Log Analytics çalışma alanı](../../azure-monitor/learn/quick-create-workspace.md).
 - [Azure Otomasyonu hesabı](../..//automation/automation-quickstart-create-account.md).
 
 ## <a name="overview-of-scenario"></a>Senaryoya genel bakış
@@ -41,7 +41,7 @@ Bu öğreticide, Otomasyon işleri hakkında bilgi toplayan bir runbook yazacaks
 
 
 ## <a name="1-install-data-collector-api-module"></a>1. Veri Toplayıcı API'sini modülünü yükleme
-Her [HTTP veri toplayıcı API'sini istekten](../../log-analytics/log-analytics-data-collector-api.md#create-a-request) uygun şekilde biçimlendirilmesi gerekir ve bir yetkilendirme üst bilgisi ekleyin.  Runbook'unuza bunu yapabilirsiniz, ancak bu süreci kolaylaştırır, modül kullanarak gereken kod miktarını azaltır.  Kullanabileceğiniz bir modül [OMSIngestionAPI Modülü](https://www.powershellgallery.com/packages/OMSIngestionAPI) PowerShell galerisinde.
+Her [HTTP veri toplayıcı API'sini istekten](../../azure-monitor/platform/data-collector-api.md#create-a-request) uygun şekilde biçimlendirilmesi gerekir ve bir yetkilendirme üst bilgisi ekleyin.  Runbook'unuza bunu yapabilirsiniz, ancak bu süreci kolaylaştırır, modül kullanarak gereken kod miktarını azaltır.  Kullanabileceğiniz bir modül [OMSIngestionAPI Modülü](https://www.powershellgallery.com/packages/OMSIngestionAPI) PowerShell galerisinde.
 
 Kullanılacak bir [Modülü](../../automation/automation-integration-modules.md) bir runbook'ta Otomasyon hesabınızda yüklenmelidir.  Aynı hesaptaki herhangi bir runbook, ardından modüldeki işlevleri kullanabilirsiniz.  Yeni modül seçerek yükleyebileceğiniz **varlıklar** > **modülleri** > **Modül Ekle** Otomasyon hesabınızdaki.  
 
@@ -216,4 +216,4 @@ Bir runbook her başlatıldığında [bir iş oluşturulur](../../automation/aut
 - Runbook'unuza paketini bir [yönetimi çözümü](../../azure-monitor/insights/solutions-creating.md) müşterilere dağıtmak için.
 - Daha fazla bilgi edinin [Log Analytics](https://docs.microsoft.com/azure/log-analytics/).
 - Daha fazla bilgi edinin [Azure Otomasyonu](https://docs.microsoft.com/azure/automation/).
-- Daha fazla bilgi edinin [HTTP veri toplayıcı API'sini](../../log-analytics/log-analytics-data-collector-api.md).
+- Daha fazla bilgi edinin [HTTP veri toplayıcı API'sini](../../azure-monitor/platform/data-collector-api.md).

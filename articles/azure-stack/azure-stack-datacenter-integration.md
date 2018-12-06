@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 9e5a8cf59d4f1dc47495c5889f8ed4aae64f7ff7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3cbe7c1d458e95aa27c51f0d1c9f61326888a5ab
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720455"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962690"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure Stack tümleşik sistemleri için veri merkezi tümleştirme konuları
 Bir Azure Stack tümleşik sisteminde ilgileniyorsanız, bazı önemli planlama konuları dağıtım ve sistem Merkezinizde nasıl uyduğunu anlamanız gerekir. Bu makalede, Azure Stack çok düğümlü sisteminiz için önemli altyapısı kararları vermenize yardımcı olmak için bu konuları üst düzey bir genel bakış sağlar. Bu noktalar anlaşılması, veri merkezinizi Azure Stack dağıtırken OEM donanım satıcınız ile çalışırken yardımcı olur.  
@@ -57,7 +57,7 @@ Azure Stack dağıtımı, ya da Azure AD veya AD FS için kullanmak istediğiniz
 
 Katılabilmesi için bir Active Directory etki alanı, vb. olup kimlik sağlayıcısı seçtiğiniz Kiracı sanal makineleri, kimlik sistemi ve kullandıkları, hesapları ilgisi yoktur. Ayrı budur.
 
-Bir kimlik sağlayıcısı seçme hakkında daha fazla bilgi [Azure Stack tümleşik sistemleri bağlantı modelleri makale](.\azure-stack-connection-models.md).
+Bir kimlik sağlayıcısı seçme hakkında daha fazla bilgi [Azure Stack tümleşik sistemleri bağlantı modelleri makale](./azure-stack-connection-models.md).
 
 ### <a name="ad-fs-and-graph-integration"></a>AD FS ve graf tümleştirme
 Kimlik sağlayıcısı olarak AD FS kullanarak Azure Stack dağıtmayı tercih ederseniz, Azure Stack üzerinde AD FS örneği ile bir federasyon güveni mevcut bir AD FS örneği ile tümleştirmeniz gerekir. Bu, Azure Stack kaynakları ile kimlik doğrulaması yapmak için var olan bir Active Directory ormanında kimlikleri sağlar.

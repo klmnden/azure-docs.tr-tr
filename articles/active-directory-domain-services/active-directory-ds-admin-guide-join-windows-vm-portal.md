@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 753818526ad637db0baa13c92e92d2725b19dbf8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 748345bf89e7f746b8ef388ad5cabc987a07d1f8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158353"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957683"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Windows Server sanal makinesini yönetilen bir etki alanına ekleme
 Bu makalede, Azure portalını kullanarak bir Windows Server sanal makine dağıtma gösterilmektedir. Ardından, sanal makine bir Azure Active Directory etki alanı Hizmetleri (Azure AD DS) yönetilen etki alanına ekleme işlemini gösterir.
@@ -30,7 +30,7 @@ Bu makalede, Azure portalını kullanarak bir Windows Server sanal makine dağı
 ## <a name="step-1-create-a-windows-server-virtual-machine"></a>1. adım: bir Windows Server sanal makinesi oluşturma
 Azure AD DS etkin sanal ağa katılmış bir Windows sanal makine oluşturmak için aşağıdaki adımları uygulayın:
 
-1. [Azure Portal](http://portal.azure.com) oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Sol bölmenin en üstünde seçin **yeni**.
 3. **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin.
 

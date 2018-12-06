@@ -1,30 +1,28 @@
 ---
-title: 'Azure Cosmos DB: SQL söz dizimi sorgusu başvurusu | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL söz dizimi sorgusu başvurusu'
 description: Azure Cosmos DB SQL sorgu dili için başvuru belgeleri.
 services: cosmos-db
 author: LalithaMV
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
-ms.devlang: na
 ms.topic: reference
 ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 4492324b174c97325f40110b7500d5b0e99a926b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 26dc21a7d6d24df70a0d7884c67180624074636a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623953"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972482"
 ---
-# <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL söz dizimi başvurusu
+# <a name="azure-cosmos-db-sql-language-reference"></a>Azure Cosmos DB SQL dil başvurusu 
 
-Tanıdık bir SQL (yapılandırılmış sorgu dili) kullanarak belgelerin sorgulanmasını azure Cosmos DB destekler, bir açık şema veya ikincil dizinlerin oluşturulmasını gerek kalmadan, hiyerarşik JSON belgelerini dilbilgisi ister. Bu makalede SQL API hesabı ile uyumlu SQL sorgu dili sözdizimi için belgeler sağlar. Örnek SQL sorguları için bkz [Cosmos DB'de SQL sorguları](sql-api-sql-query.md).  
+Tanıdık bir SQL (yapılandırılmış sorgu dili) kullanarak belgelerin sorgulanmasını azure Cosmos DB destekler, bir açık şema veya ikincil dizinlerin oluşturulmasını gerek kalmadan, hiyerarşik JSON belgelerini dilbilgisi ister. Bu makalede SQL API hesabı ile uyumlu SQL sorgu dili sözdizimi için belgeler sağlar. Örnek SQL sorguları için bkz [Cosmos DB'de SQL sorguları](how-to-sql-query.md).  
   
 Ziyaret [sorgu oyun alanı](http://www.documentdb.com/sql/demo) burada Cosmos DB'yi deneyin ve bizim veri kümesinde SQL sorguları çalıştırın.  
   
 ## <a name="select-query"></a>SELECT sorgusu  
-Her sorgu bir SELECT yan tümcesi ve isteğe bağlı FROM oluşur ve WHERE yan tümcelerini başına ANSI SQL standartları. Genellikle, her sorgu için kaynak FROM yan tümcesindeki numaralandırılmış alan şeklinde. Ardından filtre WHERE yan tümcesinde bir alt kümesi JSON belgelerini almak için kaynak uygulanır. Son olarak, SELECT yan tümcesi, select listesindeki istenen JSON değerleri proje için kullanılır. SELECT deyimleri tanımlamak için kullanılan kuralları söz dizimi kuralları bölümünde tabloda verilmiştir. Örnekler için bkz [SELECT sorgu örnekleri](sql-api-sql-query.md#SelectClause)
+Her sorgu bir SELECT yan tümcesi ve isteğe bağlı FROM oluşur ve WHERE yan tümcelerini başına ANSI SQL standartları. Genellikle, her sorgu için kaynak FROM yan tümcesindeki numaralandırılmış alan şeklinde. Ardından filtre WHERE yan tümcesinde bir alt kümesi JSON belgelerini almak için kaynak uygulanır. Son olarak, SELECT yan tümcesi, select listesindeki istenen JSON değerleri proje için kullanılır. SELECT deyimleri tanımlamak için kullanılan kuralları söz dizimi kuralları bölümünde tabloda verilmiştir. Örnekler için bkz [SELECT sorgu örnekleri](how-to-sql-query.md#SelectClause)
   
 **Söz dizimi**  
   
@@ -69,7 +67,7 @@ T-SQL stili açıklamaları gibi sorgu dili destekler
 Boşluk karakterleri ve açıklamalar herhangi bir anlam dilbilgisi değil olsa da, belirteçlerin ayırmak için kullanılmalıdır. Örneğin: `-1e5` tek bir sayı belirteç süre olan`: – 1 e5` eksi bir belirteç sayısı 1 ve tanımlayıcı e5 tarafından izlenir.  
 
 ##  <a name="bk_select_query"></a> SELECT yan tümcesi  
-Yan tümceleri SELECT deyiminde, yukarıda gösterildiği gibi sıralanmış olmaları gerekmektedir. İsteğe bağlı yan tümceleri herhangi biri atlanabilir. Ancak, isteğe bağlı yan tümceleri kullanıldığında, doğru sırada yer almalıdır. Örnekler için bkz [SELECT sorgu örnekleri](sql-api-sql-query.md#SelectClause).
+Yan tümceleri SELECT deyiminde, yukarıda gösterildiği gibi sıralanmış olmaları gerekmektedir. İsteğe bağlı yan tümceleri herhangi biri atlanabilir. Ancak, isteğe bağlı yan tümceleri kullanıldığında, doğru sırada yer almalıdır. Örnekler için bkz [SELECT sorgu örnekleri](how-to-sql-query.md#SelectClause).
 
 **Söz dizimi**  
 
@@ -132,7 +130,7 @@ Her ikisi de `SELECT <select_list>` ve `SELECT *` "söz dizimi sugar" olan ve a�
 [SELECT yan tümcesi](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> FROM yan tümcesi  
-Kaynak veya birleştirilmiş kaynakları belirtir. Kaynak filtre veya sorguyu daha sonra öngörülen sürece FROM yan tümcesi isteğe bağlıdır. Bu yan tümce amacı, veri kaynağına bağlı sorgu çalışmalıdır belirtmektir. Yaygın olarak tüm kaynak kapsayıcısıdır, ancak bir kapsayıcının alt bunun yerine belirtebilirsiniz. Bu yan tümce belirtilmezse, diğer yan tümceleri hala FROM yan tümcesi tek bir belge sağladıysanız olarak yürütülür. Örnekler için bkz [yan tümcesi ÖRNEKLERDEN](sql-api-sql-query.md#FromClause)
+Kaynak veya birleştirilmiş kaynakları belirtir. Kaynak filtre veya sorguyu daha sonra öngörülen sürece FROM yan tümcesi isteğe bağlıdır. Bu yan tümce amacı, veri kaynağına bağlı sorgu çalışmalıdır belirtmektir. Yaygın olarak tüm kaynak kapsayıcısıdır, ancak bir kapsayıcının alt bunun yerine belirtebilirsiniz. Bu yan tümce belirtilmezse, diğer yan tümceleri hala FROM yan tümcesi tek bir belge sağladıysanız olarak yürütülür. Örnekler için bkz [yan tümcesi ÖRNEKLERDEN](how-to-sql-query.md#FromClause)
   
 **Söz dizimi**  
   
@@ -216,7 +214,7 @@ Bir kapsayıcı ifade kapsayıcı kapsamlı veya belge kapsamlı olabilir:
   
 Geçerli sürümde, Cosmos DB iç birleştirmeler destekler. Ek birleştirme özellikleri yeni çıkacak. 
 
-İç birleştirmeler birleştirme işleminde katılan kümeleri, eksiksiz bir çapraz ürün sonuçlanır. Çok yönlü birleştirme sonucunu, burada her bir tanımlama grubu değeri katılan birleştirme işleminde ayarlamak diğer adlı ile ilişkilendirilir ve bu diğer ad diğer yan tümceleri içinde başvurarak erişilebilir N-öğe dizilerini kümesidir. Örnekler için bkz [birleştirme anahtar sözcüğü örnekleri](sql-api-sql-query.md#Joins)
+İç birleştirmeler birleştirme işleminde katılan kümeleri, eksiksiz bir çapraz ürün sonuçlanır. Çok yönlü birleştirme sonucunu, burada her bir tanımlama grubu değeri katılan birleştirme işleminde ayarlamak diğer adlı ile ilişkilendirilir ve bu diğer ad diğer yan tümceleri içinde başvurarak erişilebilir N-öğe dizilerini kümesidir. Örnekler için bkz [birleştirme anahtar sözcüğü örnekleri](how-to-sql-query.md#Joins)
   
 Birleşimin değerlendirme katılımcı kümelerinin bağlam kapsamına bağlıdır:  
   
@@ -311,7 +309,7 @@ Aşağıdaki FROM yan tümcesi göz atalım: `<from_source1> JOIN <from_source2>
  [SELECT yan tümcesi](#bk_select_query)  
   
 ##  <a name="bk_where_clause"></a> WHERE yan tümcesi  
- Sorgu tarafından döndürülen belgeler için arama koşulunu belirtir. Örnekler için bkz [WHERE yan tümcesi örnekleri](sql-api-sql-query.md#WhereClause)
+ Sorgu tarafından döndürülen belgeler için arama koşulunu belirtir. Örnekler için bkz [WHERE yan tümcesi örnekleri](how-to-sql-query.md#WhereClause)
   
  **Söz dizimi**  
   
@@ -336,7 +334,7 @@ WHERE <filter_condition>
  Filtre olarak belirtilen bir ifade döndürülecek belge sırada koşul true olarak değerlendirilmelidir. Başka bir değer koşulu, Boole değeri true yerine getirecek yalnızca: tanımsız, null, false, sayı, dizi veya nesne karşılamaz koşul.  
   
 ##  <a name="bk_orderby_clause"></a> ORDER BY yan tümcesi  
- Sorgu tarafından döndürülen sonuçları sıralama düzenini belirtir. Örnekler için bkz [ORDER BY yan tümcesi örnekleri](sql-api-sql-query.md#OrderByClause)
+ Sorgu tarafından döndürülen sonuçları sıralama düzenini belirtir. Örnekler için bkz [ORDER BY yan tümcesi örnekleri](how-to-sql-query.md#OrderByClause)
   
  **Söz dizimi**  
   
@@ -374,7 +372,7 @@ ORDER BY <sort_specification>
  Sorgu dil bilgisi, özellik tarafından birden çok sipariş desteklese de, Cosmos DB sorgu çalışma zamanı yalnızca tek bir özelliğe karşı ve yalnızca özellik adlarının (değil karşı hesaplanan Özellikler) göre sıralamayı destekler. Sıralama, aynı zamanda dizin oluşturma ilkesini özelliği ve verilen duyarlık ile belirtilen tür için bir aralık dizini içerir gerektirir. Daha fazla ayrıntı için dizin oluşturma ilkesi belgeleri bakın.  
   
 ##  <a name="bk_scalar_expressions"></a> Skaler ifade  
- Skaler bir ifade, semboller ve işleçleri tek bir değer almak için değerlendirilen bir birleşimidir. Basit ifadeler sabitler, özellik başvuru, dizi öğesi başvuruları, diğer başvurular veya işlev çağrıları olabilir. Basit ifadeler işleçleri kullanarak karmaşık ifadelere birleştirilebilir. Örnekler için bkz [skaler ifade örnekleri](sql-api-sql-query.md#scalar-expressions)
+ Skaler bir ifade, semboller ve işleçleri tek bir değer almak için değerlendirilen bir birleşimidir. Basit ifadeler sabitler, özellik başvuru, dizi öğesi başvuruları, diğer başvurular veya işlev çağrıları olabilir. Basit ifadeler işleçleri kullanarak karmaşık ifadelere birleştirilebilir. Örnekler için bkz [skaler ifade örnekleri](how-to-sql-query.md#scalar-expressions)
   
  Skaler ifade olabilecek değerler hakkında daha fazla bilgi için bkz: [sabitleri](#bk_constants) bölümü.  
   
@@ -2905,6 +2903,6 @@ SELECT ST_ISVALIDDETAILED({
   
 ## <a name="next-steps"></a>Sonraki adımlar  
 
-- [SQL söz dizimi ve Cosmos DB SQL sorgusu](sql-api-sql-query.md)
+- [SQL söz dizimi ve Cosmos DB SQL sorgusu](how-to-sql-query.md)
 
 - [Cosmos DB belgeleri](https://docs.microsoft.com/azure/cosmos-db/)  

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: f5049d6092bfc6b3f70ebafdc501e02ad9fe7936
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: c6d827629850de88940f41febeeca61b812d692e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431788"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958534"
 ---
 # <a name="notification-settings-in-azure-ad-domain-services"></a>Azure AD Etki Alanı Hizmetleri'nde bildirim ayarları
 
@@ -41,7 +41,7 @@ Sayfada tüm Azure AD Domain Services için e-posta bildirimlerinin e-posta alı
 
 Aşağıdaki resimde, bir e-posta bildirimi örneğidir:
 
-![Örnek e-posta bildirimi](.\media\active-directory-domain-services-alerts\email-alert.png)
+![Örnek e-posta bildirimi](./media/active-directory-domain-services-alerts/email-alert.png)
 
 E-posta uyarı üzerinde mevcut olan yönetilen bir etki alanı hem de Azure portalında Azure AD Domain Services durumu sayfasına zaman algılama ve bağlantı vererek belirtir.
 

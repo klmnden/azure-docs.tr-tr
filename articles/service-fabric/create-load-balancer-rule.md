@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: ryanwi
-ms.openlocfilehash: e4c3bf627c4a5e01c4d9001fcbb0feed0b92209f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e41e5d48141b120ec1f80b0faa899bda07a2934e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008051"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962072"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Service Fabric kümesi için bağlantı noktalarını açma
 
 Azure Service Fabric kümenizle dağıtılan yük dengeleyici trafiği bir düğümde çalışan uygulamanıza yönlendirir. Farklı bir bağlantı noktası kullanacak şekilde değiştirirseniz, bu bağlantı noktasını kullanıma sunma (veya farklı bir bağlantı noktası route gerekir) Azure yük dengeleyicide.
 
-Service Fabric kümenizi Azure'a dağıtıldığında, bir yük dengeleyici sizin için otomatik olarak oluşturuldu. Bir yük dengeleyici yoksa bkz [bir Internet'e yönelik Yük Dengeleyiciyi yapılandırma](..\load-balancer\load-balancer-get-started-internet-portal.md).
+Service Fabric kümenizi Azure'a dağıtıldığında, bir yük dengeleyici sizin için otomatik olarak oluşturuldu. Bir yük dengeleyici yoksa bkz [bir Internet'e yönelik Yük Dengeleyiciyi yapılandırma](../load-balancer/load-balancer-get-started-internet-portal.md).
 
 ## <a name="configure-service-fabric"></a>Service fabric yapılandırın
 
@@ -33,7 +33,7 @@ Service Fabric uygulamanızı **ServiceManifest.xml** yapılandırma dosyasını
 
 ## <a name="create-a-load-balancer-rule"></a>Yük dengeleyici kuralı oluşturma
 
-Bir yük dengeleyici kuralı, internet'e yönelik bir bağlantı noktasını açar ve uygulamanız tarafından kullanılan iç düğümün bağlantı trafiğini. Bir yük dengeleyici yoksa bkz [bir Internet'e yönelik Yük Dengeleyiciyi yapılandırma](..\load-balancer\load-balancer-get-started-internet-portal.md).
+Bir yük dengeleyici kuralı, internet'e yönelik bir bağlantı noktasını açar ve uygulamanız tarafından kullanılan iç düğümün bağlantı trafiğini. Bir yük dengeleyici yoksa bkz [bir Internet'e yönelik Yük Dengeleyiciyi yapılandırma](../load-balancer/load-balancer-get-started-internet-portal.md).
 
 Bir yük dengeleyici kuralı oluşturmak için aşağıdaki bilgileri toplamak gerekir:
 
@@ -68,7 +68,7 @@ Azure CLI komutunu aşağıdaki tabloda açıklanan birkaç parametrelere sahipt
 
 
 >[!NOTE]
->Azure CLI ile bir yük dengeleyici oluşturma hakkında daha fazla bilgi için bkz. [Azure CLI ile bir yük dengeleyici oluşturma](..\load-balancer\load-balancer-get-started-internet-arm-cli.md).
+>Azure CLI ile bir yük dengeleyici oluşturma hakkında daha fazla bilgi için bkz. [Azure CLI ile bir yük dengeleyici oluşturma](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -104,7 +104,7 @@ $lb | Set-AzureRmLoadBalancer
 İlgili `New-AzureRmLoadBalancerRuleConfig` komutu `-FrontendPort` yük dengeleyici kullanıma sunar, dış bağlantılar için bağlantı noktasını temsil eder ve `-BackendPort` service fabric uygulaması için dinlediği bağlantı noktasını temsil eder.
 
 >[!NOTE]
->PowerShell ile bir yük dengeleyici oluşturma hakkında daha fazla bilgi için bkz. [PowerShell ile bir yük dengeleyici oluşturma](..\load-balancer\load-balancer-get-started-internet-arm-ps.md).
+>PowerShell ile bir yük dengeleyici oluşturma hakkında daha fazla bilgi için bkz. [PowerShell ile bir yük dengeleyici oluşturma](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 4881f992e5362efc7e4d7ac23898684966a066e0
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 57624133b249a8ec2ece90eac4a64729e4d15151
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891002"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968212"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Öğretici: Azure ile Bulutlar arası ölçeklendirme çözümleri oluşturma
 
@@ -107,17 +107,17 @@ Azure Repos
 
     Karma CI/CD, hem uygulama kodunda hem de altyapı kodunu uygulayabilirsiniz. Kullanım [Azure Resource Manager şablonları](https://azure.microsoft.com/resources/templates/) hem özel hem de barındırılan buluta yönelik geliştirme için.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image1.JPG)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image1.JPG)
 
 2. **Depoyu kopyalama** oluşturarak ve varsayılan bir web uygulamasını açma.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image2.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image2.png)
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Uygulama hizmetleri için kendi içinde bir web uygulaması dağıtımı her iki bulut oluşturma
 
 1.  Düzen **WebApplication.csproj** dosya. Seçin **Runtimeidentifier** ve ekleme **win10 x64**. (Bkz [Self-contained dağıtım](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) belgelerine.) 
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image3.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image3.png)
 
 2.  Takım Gezgini'ni kullanarak Azure depoları kodu iade edin.
 
@@ -129,7 +129,7 @@ Azure Repos
 
 2. Ekleme **- r win10-x64** kod. Bu.Net Core ile kendi içinde bir dağıtım tetiklemek gereklidir.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image4.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image4.png)
 
 3. Yapı çalıştırın. [Müstakil dağıtım derleme](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) işlem, Azure ve Azure Stack üzerinde çalışabilen yapıtları yayımlar.
 
@@ -143,87 +143,87 @@ Azure işlem hatları ve Azure DevOps sunucusu yüksek oranda yapılandırılabi
 
 ## <a name="create-release-definition"></a>Yayın tanımı oluşturma
 
-![Alternatif metin](media\azure-stack-solution-cloud-burst\image5.png)
+![Alternatif metin](media/azure-stack-solution-cloud-burst/image5.png)
 
 1.  Seçin **yanı sıra** altında yeni bir yayın eklemek için Ekle düğmesine **sürümler sekmesinde** VSO derleme ve yayın sayfasında.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image6.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image6.png)
 
 2. Azure uygulama hizmeti dağıtımının şablonu uygulayın.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image7.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image7.png)
 
 3. Altında yapıt ekleme, Azure bulut derleme uygulaması için yapıt ekleyin.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image8.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image8.png)
 
 4. İşlem hattı sekmesi altında seçin **aşama, görev** ortamının bağlamak ve Azure bulut ortamına değerlerini ayarlayın.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image9.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image9.png)
 
 5. Ayarlama **ortam adı** Azure seçip **abonelik** Azure bulut uç noktası için.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image10.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image10.png)
 
 6. Ortam adı altında gerekli ayarlamak **Azure uygulama hizmeti adı**.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image11.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image11.png)
 
 7. Girin **Hosted VS2017** barındırılan Azure bulut ortamı için aracı kuyruğu altında.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image12.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image12.png)
 
 8. Azure App Service'e dağıtma geçerli menüde **paket veya klasör** ortam için. Seçin **Tamam** için **klasör konumu**.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image13.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image13.png)
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image14.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image14.png)
 
 9. Tüm değişiklikleri kaydetmek ve geri dönüp **yayın ardışık düzeni**.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image15.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image15.png)
 
 10. Azure Stack uygulaması için derleme seçerek yeni bir yapıt ekleyin.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image16.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image16.png)
 
 11. Azure uygulama hizmeti dağıtımının uygulayarak bir daha fazla ortam ekleyin.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image17.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image17.png)
 
 12. Azure Stack yeni ortam adı.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image18.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image18.png)
 
 13. Azure Stack ortamı altında bulmak **görev** sekmesi.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image19.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image19.png)
 
 14. Azure Stack uç noktası için bir abonelik seçin.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image20.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image20.png)
 
 15. Azure Stack web uygulaması adı, uygulama hizmeti adı ayarlayın.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image21.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image21.png)
 
 16. Azure Stack Aracısı'nı seçin.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image22.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image22.png)
 
 17. Azure uygulama hizmeti Dağıt altında bölümü geçerli seçin **paket veya klasör** ortam için. Seçin **Tamam** klasör konumuna.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image23.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image23.png)
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image24.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image24.png)
 
 18. Değişken sekmesi altında adlı bir değişken ekleyin `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`, değer olarak ayarlanmış **true**ve Azure Stack için kapsam.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image25.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image25.png)
 
 19. Seçin **sürekli** yapıtları hem de etkin dağıtım tetikleyicisi simgesi **devam eder** dağıtım tetikleyicisi.
 
-    ![Alternatif metin](media\azure-stack-solution-cloud-burst\image26.png)
+    ![Alternatif metin](media/azure-stack-solution-cloud-burst/image26.png)
 
 20. Seçin **dağıtım öncesi** Azure Stack ortamında koşullar simgesi ve tetikleyici kümesine **sürümünden sonra.**
 
@@ -307,7 +307,7 @@ Bir yayın tanımı oluşturma, uygulamanın son adımı yapı işlemi bağlıd�
 
 3.  Üzerinde **bir şablon seçin**, seçin **Azure uygulama hizmeti dağıtımının**ve ardından **Uygula**.
 
-4.  Üzerinde **yapıt ekleme**, gelen ** kaynak (derleme tanımı), Azure bulut yapı uygulamayı seçin.
+4.  Üzerinde **yapıt ekleme**, gelen **kaynak (derleme tanımı)** Azure bulut yapı uygulamayı seçin.
 
 5.  Üzerinde **işlem hattı** sekmesinde **1. Aşama**, **1 görev** bağlantı **ortam görevlerini görüntüle**.
 
@@ -323,7 +323,7 @@ Bir yayın tanımı oluşturma, uygulamanın son adımı yapı işlemi bağlıd�
 
 11. Tüm değişiklikleri kaydetmek ve geri dönüp **işlem hattı**.
 
-12. Üzerinde **işlem hattı** sekmesinde **yapıt ekleme**ve **NorthwindCloud Traders-tekne** gelen ** kaynak (derleme tanımı) ** listesi.
+12. Üzerinde **işlem hattı** sekmesinde **yapıt ekleme**ve **NorthwindCloud Traders-tekne** gelen **kaynak (derleme tanımı)** listesi.
 
 13. Üzerinde **bir şablon seçin**, başka bir ortama ekleyin. Çekme **Azure uygulama hizmeti dağıtımının** seçip **Uygula**.
 

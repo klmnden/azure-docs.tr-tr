@@ -10,12 +10,12 @@ keywords: azure otomasyonu, DSC, powershell, istenen durum yapılandırması, g�
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 8f6473603bb6e6ae734bde722742c58514d777c8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.openlocfilehash: f91464ebdd29c082fd721e9e4b2e029de991cc1e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428105"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958712"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure Otomasyonu'na giriş
 
@@ -40,18 +40,26 @@ Konuk içi kaynaklar hakkında stok bilgisi alarak yüklü uygulamalar ve diğer
 
 Azure Otomasyonu ile karma ortamlardaki Windows ve Linux sistemlerini güncelleştirebilirsiniz. Azure, şirket içi ve diğer bulutlar üzerindeki güncelleştirme uyumluluğu hakkında görünürlük elde edersiniz. Güncelleştirmelerin belirli bir bakım aralığında yüklenmesini sağlamak için zamanlanmış dağıtım oluşturabilirsiniz. Bir makineye yüklenmemesi gereken güncelleştirmeleri dağıtım kapsamından çıkarabilirsiniz.
 
-### <a name="shared-capabilities"></a>Paylaşılan özellikler
+### <a name="shared-resources"></a>Paylaşılan kaynaklar
 
 Azure Otomasyonu, büyük ölçekli ortamlarınızda otomasyon ve yapılandırma kolaylığı sunmak için bir dizi paylaşılan kaynak sunar.
 
-* **[Rol tabanlı erişim denetimi](automation-role-based-access-control.md)**: Hesap erişimini görevlerin yazar özellikleri verilmeden çalıştırılmasını sağlayan bir Otomasyon operatörü rolüyle denetleyin.
-* **[Değişkenler](automation-variables.md)**: Farklı runbook'larda ve yapılandırmalarda kullanılabilecek içeriği tutmak için bir yöntem sağlar. Runbook'larda ve onlara başvuran yapılandırmalarda değişiklik yapmadan değerleri değiştirebilirsiniz.
-* **[Kimlik bilgileri](automation-credentials.md)**: Çalışma zamanında runbook'lar ve yapılandırmalar tarafından kullanılabilecek hassas bilgileri güvenle depolayın.
-* **[Sertifikalar](automation-certificates.md)**: Kimlik doğrulaması ve dağıtılan kaynakların güvenliğini sağlama amacıyla kullanmak üzere depolayın ve çalışma zamanında kullanılabilir duruma getirin.
-* **[Bağlantılar](automation-connections.md)**: Bağlantı kaynaklarındaki sistemlere bağlanırken kullanılacak bilgileri içeren ad/değer çiftlerini depolayın. Bağlantılar, çalışma zamanında kullanılmak üzere runbook ve yapılandırmalarda modül yazarı tarafından tanımlanır.
 * **[Zamanlamalar](automation-schedules.md)**: Otomasyonu önceden tanımlanmış zamanlarda tetikleme amacıyla hizmette kullanılır.
-* **[Kaynak denetimiyle tümleştirme](automation-source-control-integration.md)**: Kod ile yapılandırma gerçekleştirilmesini ve bu sayede runbook'ların veya yapılandırmaların kaynak denetim sistemine alınmasını sağlar.
-* **[PowerShell modülleri](automation-integration-modules.md)**: Bu modüller Azure'u ve diğer sistemleri yönetmek için kullanılır. Microsoft, üçüncü taraf, topluluk veya özel tanımlı cmdlet'ler ve DSC kaynakları için Otomasyon hesabına aktarın.
+* **[Modüller](automation-integration-modules.md)**  -modülleri, Azure ve diğer sistemleri yönetmek için kullanılır. Otomasyon hesabına Microsoft, üçüncü taraf, topluluk veya özel tanımlı cmdlet'ler ve DSC kaynaklarını içeri aktarın.
+* **[Modüller Galerisi](automation-runbook-gallery.md)**  -yerel tümleştirme PowerShell Galerisi, runbook'ları görüntülemek ve bunları Otomasyon hesabına aktarın.
+* **[Python 2 paketleri](python-packages.md)**  -Python runbook'larınızı kullanmak için Otomasyon hesabı Ekle Python 2 paketler.
+* **[Kimlik bilgileri](automation-credentials.md)**: Çalışma zamanında runbook'lar ve yapılandırmalar tarafından kullanılabilecek hassas bilgileri güvenle depolayın.
+* **[Bağlantılar](automation-connections.md)**: Bağlantı kaynaklarındaki sistemlere bağlanırken kullanılacak bilgileri içeren ad/değer çiftlerini depolayın. Bağlantılar, çalışma zamanında kullanılmak üzere runbook ve yapılandırmalarda modül yazarı tarafından tanımlanır.
+* **[Sertifikalar](automation-certificates.md)**: Kimlik doğrulaması ve dağıtılan kaynakların güvenliğini sağlama amacıyla kullanmak üzere depolayın ve çalışma zamanında kullanılabilir duruma getirin.
+* **[Değişkenler](automation-variables.md)**: Farklı runbook'larda ve yapılandırmalarda kullanılabilecek içeriği tutmak için bir yöntem sağlar. Runbook'larda ve onlara başvuran yapılandırmalarda değişiklik yapmadan değerleri değiştirebilirsiniz.
+
+### <a name="source-control-integration"></a>Kaynak denetimi tümleştirmesi
+
+Azure Otomasyonu yeteneği olan [kaynak denetimi ile Birleşen](source-control-integration.md) hangi yükseltir yapılandırma burada runbook'ları veya yapılandırmaları işaretli bir kaynak denetim sistemine kod olarak.
+
+### <a name="role-based-access-control"></a>Rol tabanlı erişim denetimi
+
+Azure Otomasyonu tabanlı erişim denetimi Otomasyon hesabına erişimi denetlemek için rol destekler ve kaynaklarını yapılandırma, Otomasyon hesabı, runbook'ları ve işleri, RBAC hakkında daha fazla bilgi için bkz: [Azure için rol tabanlı erişim denetimi Otomasyon](automation-role-based-access-control.md).
 
 ### <a name="windows-and-linux"></a>Windows ve Linux
 

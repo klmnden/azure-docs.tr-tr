@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: cded90d4f36e353241bb594bae35b7c7e03599b9
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
-ms.translationtype: HT
+ms.openlocfilehash: 0ede6c0c55e2f953e0d109d2d371313759ed4d06
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436020"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965164"
 ---
 # <a name="what-is-api-management"></a>API Management nedir?
 
@@ -59,7 +59,7 @@ Sistem aşağıdaki bileşenlerden oluşur:
   * Bir hesap oluşturma ve API anahtarlarını almak için abone olma.
   * Kendi kullanımlarına ilişkin analize erişme.
 
-Daha fazla bilgi için bkz. [Bulut tabanlı API Management: API'lerin Gücünden Yararlanma](http://j.mp/ms-apim-whitepaper) PDF teknik incelemesi. API Management hakkında CITO Research tarafından hazırlanan tanıtım amaçlı bu teknik inceleme şunları içerir: 
+Daha fazla bilgi için bkz. [Bulut tabanlı API Management: API'lerin Gücünden Yararlanma](https://j.mp/ms-apim-whitepaper) PDF teknik incelemesi. API Management hakkında CITO Research tarafından hazırlanan tanıtım amaçlı bu teknik inceleme şunları içerir: 
  
  * Yaygın API gereksinimleri ve sorunları
  * API'leri ayırma ve cepheleri sunma

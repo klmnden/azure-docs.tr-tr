@@ -10,18 +10,18 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: aab9651092f7ad5dbc78c31db8df4ef3538fedfc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 82cc5d940a48cfca33a4ad9e160905df34f86454
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039981"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960473"
 ---
 # <a name="quickstart-change-model-using-c"></a>Hızlı Başlangıç: C# kullanarak model değiştirme
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * En son [**Visual Studio Community sürümü**](https://www.visualstudio.com/downloads/).
@@ -98,9 +98,7 @@ LUIS kimliklerini ve dizelerini **Program** sınıfına ekleyin.
 
 **Program** sınıfına dosyadan örnek konuşmaları ekleyin.
 
-   [!code-csharp[Add example utterances from file.
-](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.
-")]
+   [!code-csharp[Add example utterances from file.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.")]
 
 Değişiklikler modele uygulandıktan sonra modeli eğitin. **Program** sınıfına yöntemi ekleyin.
 

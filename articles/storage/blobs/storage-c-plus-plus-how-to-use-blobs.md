@@ -8,23 +8,21 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.component: blobs
-ms.openlocfilehash: d0b0f8ef2fcc4307482b4ccffcb46410eaba33d5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: f928f27c8c1dbfe6c65cb25cb5c34680fc58bff3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306213"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955879"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>BLOB depolama alanından C++ kullanma
 
-Bu kılavuzda Azure Blob Depolama hizmetini kullanarak, yaygın senaryoları gerçekleştirmek nasıl gösterir. Örnekler C++ dilinde yazılmıştır ve [C++ için Azure Depolama İstemci Kitaplığı](http://github.com/Azure/azure-storage-cpp/blob/master/README.md)’nı kullanır. Kapsanan senaryolar, karşıya yükleme, listeleme, indirme ve BLOB'ları silmeden içerir.  
+Bu kılavuz, yaygın senaryoları Azure Blob depolamayı kullanarak nasıl gerçekleştireceğinizi gösterir. Örnekleri karşıya yükleme, listesinde, indirmek ve blobları silme işlemini göstermektedir. Örnekler C++ dilinde yazılmıştır ve [C++ için Azure Depolama İstemci Kitaplığı](http://github.com/Azure/azure-storage-cpp/blob/master/README.md)’nı kullanır.   
+
+Blob Depolama hakkında daha fazla bilgi için bkz: [Azure Blob depolamaya giriş](storage-blobs-introduction.md).
 
 > [!NOTE]
 > Bu kılavuz C++ için Azure Depolama İstemci Kitaplığı sürüm 1.0.0 ve üzerini hedefler. Microsoft öneriyor aracılığıyla kullanılabilir olan C++ için depolama istemci Kitaplığı'nın en son sürümünü kullanarak [NuGet](http://www.nuget.org/packages/wastorage) veya [GitHub](https://github.com/Azure/azure-storage-cpp).
-
-## <a name="what-is-blob-storage"></a>Blob storage nedir?
-
-[!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 

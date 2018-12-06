@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: b83c67e5c2ca47e73c1743d8eeaea03a8d92ea1f
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 48295a48700ee8b7331ae9811b7dd43a0ec8fa69
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247861"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959895"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Azure İzleyici tanılama günlükleri bir depolama hesabına arşivlenmiş biçimi değişiklik için hazırlama
 
@@ -47,11 +47,11 @@ Yalnızca, bu değişiklikten etkilenen:
  
 Azure depolama hesabınız için veri gönderen kaynak tanılama ayarlarını olup olmadığını belirlemek için gidebilirsiniz **İzleyici** bölümü portalın tıklayarak **tanılama ayarları**ve tanımlayın sahip herhangi bir kaynağa **tanı durumu** kümesine **etkin**:
 
-![Azure İzleyici tanılama ayarları dikey penceresi](./media/monitor-diagnostic-logs-append-blobs\portal-diag-settings.png)
+![Azure İzleyici tanılama ayarları dikey penceresi](./media/monitor-diagnostic-logs-append-blobs/portal-diag-settings.png)
 
 Tanı durumu etkin ayarlanırsa, etkin bir tanılama ayarı, bu kaynağa sahip. Kaynak tanılama ayarları depolama hesabı için veri gönderen, görmek için tıklayın:
 
-![Depolama hesabı etkin](./media/monitor-diagnostic-logs-append-blobs\portal-storage-enabled.png)
+![Depolama hesabı etkin](./media/monitor-diagnostic-logs-append-blobs/portal-storage-enabled.png)
 
 Bu kaynak tanılama ayarlarını kullanarak depolama hesabı için veri gönderen kaynaklarınız varsa, bu depolama hesabındaki verilerin biçimi bu değişiklikten etkilenecek. Bu depolama hesaplarından dışına işleyen özel bir araç yoksa, biçimini değiştirme, etkilemez.
 

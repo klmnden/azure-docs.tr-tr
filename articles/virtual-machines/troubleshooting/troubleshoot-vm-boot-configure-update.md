@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: 2bcdb2b458327a5e87dc36e4a5f50f0ac46bf96a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 722bf7b42e500e3e6a46f48646ff1fd2edfb68f1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621046"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955745"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>VM başlatma işlemi “Windows Hazırlanıyor. Bilgisayarınızı kapatmayın.” iletisinde takılıyor Azure'da
 
@@ -113,7 +113,7 @@ VM şifreli bir VM ise doğrulayın. Bunu yapmak için şu adımları uygulayın
 
 ### <a name="create-a-snapshot"></a>Anlık görüntü oluşturma
 
-Anlık görüntü oluşturmak için adımları izleyin. [bir diskin anlık görüntüsünü alma](..\windows\snapshot-copy-managed-disk.md).
+Anlık görüntü oluşturmak için adımları izleyin. [bir diskin anlık görüntüsünü alma](../windows/snapshot-copy-managed-disk.md).
 
 ## <a name="collect-an-os-memory-dump"></a>Bir işletim sistemi bellek dökümünü Topla
 

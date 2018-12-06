@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: c6ecb7d4c1e5b648373fcaa3f44c6294329d33c2
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 565c0ed877cf4500131f7ad3099f3c7d3f1a1220
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801174"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955046"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Haber arama API'si Yükseltme Kılavuzu
 
@@ -25,7 +25,7 @@ Bu Yükseltme Kılavuzu, sürüm 5 ve Bing haber arama API'si 7 sürümü arası
 
 ### <a name="endpoints"></a>Uç Noktalar
 
-- Uç noktanın sürüm numarası için v7 v5 değiştirildi. Örneğin, https://api.cognitive.microsoft.com/bing/\ * \*v7.0**/news/search.
+- Uç noktanın sürüm numarası için v7 v5 değiştirildi. Örneğin, https://api.cognitive.microsoft.com/bing/ **v7.0**  /haber/arama.
 
 ### <a name="error-response-objects-and-error-codes"></a>Hata yanıtı nesneleri ve hata kodları
 
@@ -34,7 +34,6 @@ Bu Yükseltme Kılavuzu, sürüm 5 ve Bing haber arama API'si 7 sürümü arası
 - Aşağıdaki alanları eklenen `Error` nesne.  
   - `subCode`&mdash;Hata kodu ayrık demetlerin içine mümkünse bölümleri
   - `moreDetails`&mdash;İçinde açıklanan hata hakkında ek bilgi `message` alan
-   
 
 - V5 hata kodları ile aşağıdaki olası yerine `code` ve `subCode` değerleri.
 
@@ -77,18 +76,18 @@ Engellendi|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>Sorgu parametreleri
 
-- Ürünleri ayarladığınız bir olası değer eklenen [kategori](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) sorgu parametresi için. Bkz: [kategorilere göre pazarlara](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#categories-by-market).  
-    
-- Eklenen [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortby) tarihe göre sıralanan en son ilk popüler konularını döndüren sorgu parametresi.  
-  
+- Ürünleri ayarladığınız bir olası değer eklenen [kategori](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) sorgu parametresi için. Bkz: [kategorilere göre pazarlara](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#categories-by-market).
+
+- Eklenen [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortby) tarihe göre sıralanan en son ilk popüler konularını döndüren sorgu parametresi.
+
 - Eklenen [beri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#since) Bing tarafından veya daha sonra belirtilen UNIX dönem zaman damgası bulunan popüler konularını döndüren sorgu parametresi.
 
 ### <a name="object-changes"></a>Nesnesi değişiklikleri
 
-- Eklenen `mentions` alanı [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) nesne. `mentions` Alan (kişi veya basamak) makalesinde bulunan varlıkların listesini içerir.  
-  
-- Eklenen `video` alanı [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) nesne. `video` Alan haber makalesine yönlendiren ilgili bir video içerir. Video geçerli bir \<iframe\> , size ekleyebilir veya hareketli bir küçük resim.   
-  
-- Eklenen `sort` alanı [haber](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) nesne. `sort` Alan makaleleri sıralama düzenini gösterir. Örneğin, makaleleri, ilgi düzeyi (varsayılan) ya da tarih sıralanır.  
-  
+- Eklenen `mentions` alanı [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) nesne. `mentions` Alan (kişi veya basamak) makalesinde bulunan varlıkların listesini içerir.
+
+- Eklenen `video` alanı [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) nesne. `video` Alan haber makalesine yönlendiren ilgili bir video içerir. Video geçerli bir \<iframe\> , size ekleyebilir veya hareketli bir küçük resim.
+
+- Eklenen `sort` alanı [haber](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) nesne. `sort` Alan makaleleri sıralama düzenini gösterir. Örneğin, makaleleri, ilgi düzeyi (varsayılan) ya da tarih sıralanır.
+
 - Eklenen [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortvalue) bir sıralama düzeni tanımlayan nesne. `isSelected` Alan, yanıt sıralama kullanılıp gösterir. Varsa **true**, yanıt sıralama kullanılır. Varsa `isSelected` olduğu **false**, URL'de kullandığınız `url` alan farklı bir sıralama düzeni istemek için.

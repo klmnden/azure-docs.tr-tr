@@ -1,18 +1,18 @@
 ---
-title: Azure CLI Betiği-Azure Cosmos DB Cassandra API hesabı, veritabanı ve tablosu oluşturma | Microsoft Docs
+title: Azure CLI betiği-Azure Cosmos DB Cassandra API'SİNİN hesap oluşturma, veritabanı ve tablo
 description: Azure CLI Betiği Örneği - Azure Cosmos DB Cassandra API hesabı, veritabanı ve tablosu oluşturma
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: 72eb26599ce2f57e7178d5741851b6e442a62e23
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 381dc16366b4772f828ed474637d029324703c9e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019604"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961563"
 ---
 # <a name="azure-cosmos-db-create-a-cassandra-api-account-using-azure-cli"></a>Azure Cosmos DB: Azure CLI’yi kullanarak Cassandra API hesabı oluşturma
 

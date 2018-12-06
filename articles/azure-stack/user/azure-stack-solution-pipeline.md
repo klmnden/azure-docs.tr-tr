@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 77f9e52da8ada9cdf56d4a710bba65492cc17f75
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 36637137741aef6b34ab8e70109d692f5399043a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280750"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967070"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Öğretici: Azure ve Azure uygulama dağıtma yığını
 
@@ -126,27 +126,27 @@ Bir hizmet sorumlusu kimlik doğrulaması için bir anahtar gerektirir. Bir anah
 
 1. Azure Active Directory'deki **Uygulama kayıtları**'nda uygulamanızı seçin.
 
-    ![Uygulamayı seçin](media\azure-stack-solution-hybrid-pipeline\000_01.png)
+    ![Uygulamayı seçin](media/azure-stack-solution-hybrid-pipeline/000_01.png)
 
 2. Değerini not edin **uygulama kimliği**. Azure DevOps Hizmetleri'nde hizmet uç noktasını yapılandırırken bu değeri kullanır.
 
-    ![Uygulama Kimliği](media\azure-stack-solution-hybrid-pipeline\000_02.png)
+    ![Uygulama Kimliği](media/azure-stack-solution-hybrid-pipeline/000_02.png)
 
 3. Kimlik doğrulama anahtarını oluşturmak için **Ayarlar**'ı seçin.
 
-    ![Uygulama ayarlarını düzenleme](media\azure-stack-solution-hybrid-pipeline\000_03.png)
+    ![Uygulama ayarlarını düzenleme](media/azure-stack-solution-hybrid-pipeline/000_03.png)
 
 4. Kimlik doğrulama anahtarını oluşturmak için **Anahtarlar**'ı seçin.
 
-    ![Anahtar ayarlarını yapılandırma](media\azure-stack-solution-hybrid-pipeline\000_04.png)
+    ![Anahtar ayarlarını yapılandırma](media/azure-stack-solution-hybrid-pipeline/000_04.png)
 
 5. Anahtar için bir açıklama sağlayın ve anahtar süresini ayarlayın. İşiniz bittiğinde **Kaydet**’i seçin.
 
-    ![Anahtar açıklaması ve süresi](media\azure-stack-solution-hybrid-pipeline\000_05.png)
+    ![Anahtar açıklaması ve süresi](media/azure-stack-solution-hybrid-pipeline/000_05.png)
 
     Anahtar, anahtar kaydettikten sonra **değer** görüntülenir. Bu değer daha sonra alınamıyor çünkü bu değeri kopyalayın. Sağladığınız **anahtar değerini** uygulaması olarak oturum açmak için uygulama kimliği. Anahtarı, uygulamanızın alabileceği bir konumda depolayın.
 
-    ![Anahtar değeri](media\azure-stack-solution-hybrid-pipeline\000_06.png)
+    ![Anahtar değeri](media/azure-stack-solution-hybrid-pipeline/000_06.png)
 
 ### <a name="get-the-tenant-id"></a>Kiracı Kimliğinizi alma
 
@@ -154,15 +154,15 @@ Hizmet uç noktası yapılandırmasının bir parçası olarak, Azure DevOps hiz
 
 1. **Azure Active Directory**'yi seçin.
 
-    ![Kiracı için Azure Active Directory](media\azure-stack-solution-hybrid-pipeline\000_07.png)
+    ![Kiracı için Azure Active Directory](media/azure-stack-solution-hybrid-pipeline/000_07.png)
 
 2. Kiracı kimliğini almak için Azure AD kiracınızda **Özellikler**'i seçin.
 
-    ![Kiracı özelliklerini görüntüleme](media\azure-stack-solution-hybrid-pipeline\000_08.png)
+    ![Kiracı özelliklerini görüntüleme](media/azure-stack-solution-hybrid-pipeline/000_08.png)
 
 3. **Dizin kimliği**'ni kopyalayın. Bu değer kiracı kimliğinizdir.
 
-    ![Dizin Kimliği](media\azure-stack-solution-hybrid-pipeline\000_09.png)
+    ![Dizin Kimliği](media/azure-stack-solution-hybrid-pipeline/000_09.png)
 
 ### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>Azure Stack aboneliğine kaynakları dağıtmak için hizmet sorumlusu haklar
 
@@ -172,27 +172,27 @@ Abonelik, kaynak grubu veya kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha 
 
 1. Uygulamayı atamak istediğiniz kapsam düzeyine gidin. Örneğin abonelik kapsamında bir rol atamak için seçin **abonelikleri**.
 
-    ![Abonelikleri seçin](media\azure-stack-solution-hybrid-pipeline\000_10.png)
+    ![Abonelikleri seçin](media/azure-stack-solution-hybrid-pipeline/000_10.png)
 
 2. İçinde **abonelik**, Visual Studio Enterprise'ı seçin.
 
-    ![Visual Studio Enterprise](media\azure-stack-solution-hybrid-pipeline\000_11.png)
+    ![Visual Studio Enterprise](media/azure-stack-solution-hybrid-pipeline/000_11.png)
 
 3. Visual Studio Enterprise'ı seçin **erişim denetimi (IAM)**.
 
-    ![Access Control (IAM)](media\azure-stack-solution-hybrid-pipeline\000_12.png)
+    ![Access Control (IAM)](media/azure-stack-solution-hybrid-pipeline/000_12.png)
 
 4. **Add (Ekle)** seçeneğini belirleyin.
 
-    ![Ekle](media\azure-stack-solution-hybrid-pipeline\000_13.png)
+    ![Ekle](media/azure-stack-solution-hybrid-pipeline/000_13.png)
 
 5. İçinde **izinleri eklemek**, rolü seçin, uygulamayı atamak istediğiniz. Bu örnekte, **sahibi** rol.
 
-    ![Sahip rolü](media\azure-stack-solution-hybrid-pipeline\000_14.png)
+    ![Sahip rolü](media/azure-stack-solution-hybrid-pipeline/000_14.png)
 
 6. Varsayılan olarak, Azure Active Directory uygulamaları kullanılabilir seçenekleri görüntülenmiyor. Uygulamanızı bulmak için adını sağlamalısınız **seçin** arama alanı. Uygulamayı seçin.
 
-    ![Uygulama arama sonucu](media\azure-stack-solution-hybrid-pipeline\000_16.png)
+    ![Uygulama arama sonucu](media/azure-stack-solution-hybrid-pipeline/000_16.png)
 
 7. Seçin **Kaydet** rol atama tamamlanması. Bu kapsam için bir role atanmış kullanıcı listesinde uygulamanızı görürsünüz.
 
@@ -212,37 +212,37 @@ Bir kişisel erişim Azure DevOps hizmetlerine erişmek için belirteci oluştur
 
 2. Seçin **Güvenliği Yönet** için erişim belirteci oluşturma sayfası.
 
-    ![Kullanıcı oturumu açma](media\azure-stack-solution-hybrid-pipeline\000_17.png)
+    ![Kullanıcı oturumu açma](media/azure-stack-solution-hybrid-pipeline/000_17.png)
 
-    ![Bir proje seçin](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+    ![Bir proje seçin](media/azure-stack-solution-hybrid-pipeline/000_18.png)
 
-    ![Kişisel erişim belirteci ekleme](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
+    ![Kişisel erişim belirteci ekleme](media/azure-stack-solution-hybrid-pipeline/000_18a.png)
 
-    ![Belirteç oluştur](media\azure-stack-solution-hybrid-pipeline\000_18b.png)
+    ![Belirteç oluştur](media/azure-stack-solution-hybrid-pipeline/000_18b.png)
 
 3. Belirteci kopyalayın.
 
     > [!Note]
     > Belirteç bilgileri kaydedin. Bu bilgi saklanmaz ve web sayfası çıktığınızda tekrar gösterilmeyecektir.
 
-    ![Kişisel erişim belirteci](media\azure-stack-solution-hybrid-pipeline\000_19.png)
+    ![Kişisel erişim belirteci](media/azure-stack-solution-hybrid-pipeline/000_19.png)
 
 ### <a name="install-the-azure-devops-services-build-agent-on-the-azure-stack-hosted-build-server"></a>Azure Stack'te Azure DevOps hizmetler derleme aracısı yükleme barındırılan derleme sunucusu
 
 1. Derleme, Azure Stack konakta dağıtılan sunucunuza bağlanın.
 2. Yükleme ve dağıtma yapı aracısını kullanarak kişisel bir hizmet olarak erişim belirteci (PAT) ve VM Yöneticisi farklı çalıştır hesabı.
 
-    ![Derleme Aracısı'nı indirme](media\azure-stack-solution-hybrid-pipeline\010_downloadagent.png)
+    ![Derleme Aracısı'nı indirme](media/azure-stack-solution-hybrid-pipeline/010_downloadagent.png)
 
 3. Ayıklanan derleme aracısı klasöre gidin. Çalıştırma **config.cmd** dosyasını yükseltilmiş bir komut isteminden.
 
-    ![Ayıklanan derleme aracısı](media\azure-stack-solution-hybrid-pipeline\000_20.png)
+    ![Ayıklanan derleme aracısı](media/azure-stack-solution-hybrid-pipeline/000_20.png)
 
-    ![Derleme aracısı kaydedilmeye](media\azure-stack-solution-hybrid-pipeline\000_21.png)
+    ![Derleme aracısı kaydedilmeye](media/azure-stack-solution-hybrid-pipeline/000_21.png)
 
 4. Config.cmd sona erdiğinde, derleme aracısı klasörü ek dosyalarla güncelleştirilir. Ayıklanan içeriğiyle klasörü aşağıdaki gibi görünmelidir:
 
-    ![Yapı Aracısı klasör güncelleştirme](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
+    ![Yapı Aracısı klasör güncelleştirme](media/azure-stack-solution-hybrid-pipeline/009_token_file.png)
 
     Azure DevOps Hizmetleri klasörü aracıyı görebilirsiniz.
 
@@ -250,23 +250,23 @@ Bir kişisel erişim Azure DevOps hizmetlerine erişmek için belirteci oluştur
 
 Visual Studio Online (VSTO) derleme, uç noktaları oluşturarak, Azure Stack için Azure hizmet uygulamaları dağıtabilirsiniz. Azure DevOps Hizmetleri Azure Stack'e bağlanır yapı aracısı bağlanır.
 
-![VSTO NorthwindCloud örnek uygulaması](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
+![VSTO NorthwindCloud örnek uygulaması](media/azure-stack-solution-hybrid-pipeline/012_securityendpoints.png)
 
 1. VSTO için oturum açın ve uygulama ayarları sayfasına gidin.
 2. Üzerinde **ayarları**seçin **güvenlik**.
 3. İçinde **Azure DevOps Hizmetleri gruplarında**seçin **uç noktasını oluşturanlar**.
 
-    ![NorthwindCloud uç noktasını oluşturanlar](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
+    ![NorthwindCloud uç noktasını oluşturanlar](media/azure-stack-solution-hybrid-pipeline/013_endpoint_creators.png)
 
 4. Üzerinde **üyeleri** sekmesinde **Ekle**.
 
-    ![Üye ekle](media\azure-stack-solution-hybrid-pipeline\014_members_tab.png)
+    ![Üye ekle](media/azure-stack-solution-hybrid-pipeline/014_members_tab.png)
 
 5. İçinde **kullanıcılar ve gruplar ekleme**, bir kullanıcı adı girin ve kullanıcının kullanıcılar listesinden seçin.
 6. Seçin **değişiklikleri kaydetmek**.
 7. İçinde **Azure DevOps Hizmetleri gruplarında** listesinden **uç nokta yöneticileri**.
 
-    ![NorthwindCloud uç nokta yöneticileri](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
+    ![NorthwindCloud uç nokta yöneticileri](media/azure-stack-solution-hybrid-pipeline/015_save_endpoint.png)
 
 8. Üzerinde **üyeleri** sekmesinde **Ekle**.
 9. İçinde **kullanıcılar ve gruplar ekleme**, bir kullanıcı adı girin ve kullanıcının kullanıcılar listesinden seçin.
@@ -297,13 +297,13 @@ Aşağıdaki eşlemeyi kullanarak bir hizmet bağlantı oluşturabilirsiniz:
 
 Uç nokta oluşturulduktan sonra Azure Stack bağlantı DevOps kullanıma hazırdır. Azure stack'teki derleme aracısı DevOps yönergeleri alır ve ardından aracı iletişimi için Azure Stack ile uç nokta bilgileri iletmez.
 
-![Derleme aracısı Azure AD](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+![Derleme aracısı Azure AD](media/azure-stack-solution-hybrid-pipeline/016_save_changes.png)
 
 ### <a name="create-an-endpoint-for-ad-fs"></a>AD FS için bir uç nokta oluşturma
 
 Azure DevOps en son güncelleştirmesi, bir hizmet sorumlusu kimlik doğrulaması için bir sertifika kullanarak bir hizmet bağlantısı oluşturmak için sağlar. Kimlik sağlayıcısı olarak AD FS ile Azure Stack dağıtıldığında bu gereklidir. 
 
-![Derleme aracısı AD FS](media\azure-stack-solution-hybrid-pipeline\image06.png)
+![Derleme aracısı AD FS](media/azure-stack-solution-hybrid-pipeline/image06.png)
 
 Aşağıdaki eşlemeyi kullanarak bir hizmet bağlantı oluşturabilirsiniz:
 
@@ -342,17 +342,17 @@ Karma CI/CD, hem uygulama kodunda hem de altyapı kodunu uygulayabilirsiniz. Kul
 
 1. Azure DevOps Hizmetleri için Azure Stack üzerinde proje oluşturma haklarına sahip bir kuruluş ile oturum açın. Sonraki ekran görüntüsü yakalamayı HybridCICD projesine bağlanma işlemi gösterilmektedir.
 
-    ![Bir projeye bağlanın](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
+    ![Bir projeye bağlanın](media/azure-stack-solution-hybrid-pipeline/017_connect_to_project.png)
 
 2. **Depoyu kopyalama** oluşturarak ve varsayılan bir web uygulamasını açma.
 
-    ![Depoyu Kopyala](media\azure-stack-solution-hybrid-pipeline\018_link_arm.png)
+    ![Depoyu Kopyala](media/azure-stack-solution-hybrid-pipeline/018_link_arm.png)
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Uygulama hizmetleri için kendi içinde bir web uygulaması dağıtımı her iki bulut oluşturma
 
 1. Düzenle **WebApplication.csproj** dosya: seçin **Runtimeidentifier** ve ardından ekleyin `win10-x64.` daha fazla bilgi için [müstakil dağıtım](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) belgeleri.
 
-    ![Runtimeidentifier yapılandırın](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
+    ![Runtimeidentifier yapılandırın](media/azure-stack-solution-hybrid-pipeline/019_runtimeidentifer.png)
 
 2. Azure DevOps hizmetlerine kodunu denetlemek için Takım Gezgini'ni kullanın.
 
@@ -366,7 +366,7 @@ Karma CI/CD, hem uygulama kodunda hem de altyapı kodunu uygulayabilirsiniz. Kul
 
 3. İçinde **bağımsız değişkenleri**, ekleme **- r win10-x64** kod. .Net Core ile kendi içinde bir dağıtım tetiklemek için bu gereklidir.
 
-    ![Bağımsız değişken derleme işlem hattı ekleyin](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+    ![Bağımsız değişken derleme işlem hattı ekleyin](media/azure-stack-solution-hybrid-pipeline/020_publish_additions.png)
 
 4. Yapı çalıştırın. [Müstakil dağıtım derleme](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) işlem, Azure ve Azure Stack üzerinde çalışabilen yapıtları yayımlar.
 
@@ -385,89 +385,89 @@ Yayın işlem hattı oluşturmak, son adım, uygulamanızdaki yapı işlemi olur
 1. Azure DevOps Hizmetleri için oturum açın ve gidin **Azure işlem hatları** projeniz için.
 2. Üzerinde **yayınlar** sekmesinde  **\[ +]** ve ardından çekme **Oluştur yayın tanımı**.
 
-   ![Yayın işlem hattı oluşturma](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+   ![Yayın işlem hattı oluşturma](media/azure-stack-solution-hybrid-pipeline/021a_releasedef.png)
 
 3. Üzerinde **bir şablon seçin**, seçin **Azure uygulama hizmeti dağıtımının**ve ardından **Uygula**.
 
-    ![Şablonu uygula](media\azure-stack-solution-hybrid-pipeline\102.png)
+    ![Şablonu uygula](media/azure-stack-solution-hybrid-pipeline/102.png)
 
 4. Üzerinde **yapıt ekleme**, gelen **kaynak (derleme tanımı)** aşağı açılır menüsünde, Azure bulut yapı uygulamayı seçin.
 
-    ![Yapıt ekleme](media\azure-stack-solution-hybrid-pipeline\103.png)
+    ![Yapıt ekleme](media/azure-stack-solution-hybrid-pipeline/103.png)
 
 5. Üzerinde **işlem hattı** sekmesinde **1. Aşama**, **1 görev** bağlantı **ortam görevlerini görüntüle**.
 
-    ![İşlem hattı görünümü görevleri](media\azure-stack-solution-hybrid-pipeline\104.png)
+    ![İşlem hattı görünümü görevleri](media/azure-stack-solution-hybrid-pipeline/104.png)
 
 6. Üzerinde **görevleri** sekmesinde, Azure olarak girin **ortam adı** gelen AzureCloud Traders Web EP seçip **Azure aboneliği** aşağı açılan listesi.
 
-    ![Ortam değişkenlerini belirleme](media\azure-stack-solution-hybrid-pipeline\105.png)
+    ![Ortam değişkenlerini belirleme](media/azure-stack-solution-hybrid-pipeline/105.png)
 
 7. Girin **Azure uygulama hizmeti adı**, sonraki ekran görüntüsünde "northwindtraders" olduğu.
 
-    ![Uygulama hizmeti adı](media\azure-stack-solution-hybrid-pipeline\106.png)
+    ![Uygulama hizmeti adı](media/azure-stack-solution-hybrid-pipeline/106.png)
 
 8. Aracı aşaması için seçin **Hosted VS2017** gelen **aracı kuyruğu** aşağı açılan listesi.
 
-    ![Barındırılan aracı](media\azure-stack-solution-hybrid-pipeline\107.png)
+    ![Barındırılan aracı](media/azure-stack-solution-hybrid-pipeline/107.png)
 
 9. İçinde **Azure App Service'e dağıtma**, geçerli seçin **paket veya klasör** ortam için.
 
-    ![Paket ya da klasör seç](media\azure-stack-solution-hybrid-pipeline\108.png)
+    ![Paket ya da klasör seç](media/azure-stack-solution-hybrid-pipeline/108.png)
 
 10. İçinde **seçin dosya veya klasör**seçin **Tamam** için **konumu**.
 
-    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\109.png)
+    ![Alternatif metin](media/azure-stack-solution-hybrid-pipeline/109.png)
 
 11. Tüm değişiklikleri kaydetmek ve geri dönüp **işlem hattı**.
 
-    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\110.png)
+    ![Alternatif metin](media/azure-stack-solution-hybrid-pipeline/110.png)
 
 12. Üzerinde **işlem hattı** sekmesinde **yapıt ekleme**ve **NorthwindCloud Traders-tekne** gelen **kaynak (derleme tanımı)** aşağı açılan listesi.
 
-    ![Yeni yapıt ekleme](media\azure-stack-solution-hybrid-pipeline\111.png)
+    ![Yeni yapıt ekleme](media/azure-stack-solution-hybrid-pipeline/111.png)
 
 13. Üzerinde **bir şablon seçin**, başka bir ortama ekleyin. Çekme **Azure uygulama hizmeti dağıtımının** seçip **Uygula**.
 
-    ![Şablonu seçin](media\azure-stack-solution-hybrid-pipeline\112.png)
+    ![Şablonu seçin](media/azure-stack-solution-hybrid-pipeline/112.png)
 
 14. "Azure Stack" olarak girin **ortam adı**.
 
-    ![Ortam adı](media\azure-stack-solution-hybrid-pipeline\113.png)
+    ![Ortam adı](media/azure-stack-solution-hybrid-pipeline/113.png)
 
 15. Üzerinde **görevleri** sekmesinde, bulmak ve Azure Stack seçin.
 
-    ![Azure Stack ortamı](media\azure-stack-solution-hybrid-pipeline\114.png)
+    ![Azure Stack ortamı](media/azure-stack-solution-hybrid-pipeline/114.png)
 
 16. Gelen **Azure aboneliği** aşağı açılan listesinde, Azure Stack uç noktası için "AzureStack Traders tekne EP"'i seçin.
 
-    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\115.png)
+    ![Alternatif metin](media/azure-stack-solution-hybrid-pipeline/115.png)
 
 17. Azure Stack web uygulaması adı olarak girin **uygulama hizmeti adı**.
 
-    ![Uygulama hizmeti adı](media\azure-stack-solution-hybrid-pipeline\116.png)
+    ![Uygulama hizmeti adı](media/azure-stack-solution-hybrid-pipeline/116.png)
 
 18. Altında **Aracısı Seçimi**, "Alanının AzureStack - bDouglas" arasından **aracı kuyruğu** aşağı açılan listesi.
 
-    ![Aracı çekme](media\azure-stack-solution-hybrid-pipeline\117.png)
+    ![Aracı çekme](media/azure-stack-solution-hybrid-pipeline/117.png)
 
 19. İçin **Azure App Service'e dağıtma**, geçerli seçin **paket veya klasör** ortam için. Üzerinde **dosya veya klasörü seçin**seçin **Tamam** klasör **konumu**.
 
-    ![Paket ya da klasör seçin](media\azure-stack-solution-hybrid-pipeline\118.png)
+    ![Paket ya da klasör seçin](media/azure-stack-solution-hybrid-pipeline/118.png)
 
-    ![Konum Onayla](media\azure-stack-solution-hybrid-pipeline\119.png)
+    ![Konum Onayla](media/azure-stack-solution-hybrid-pipeline/119.png)
 
 20. Üzerinde **değişkeni** sekmesinde, bulmak adlı değişken **VSTS_ARM_REST_IGNORE_SSL_ERRORS**. Değişken değeri ayarlamak **true**ve kapsamı ayarlayın **Azure Stack**.
 
-    ![Yapılandırma değişkeni](media\azure-stack-solution-hybrid-pipeline\120.png)
+    ![Yapılandırma değişkeni](media/azure-stack-solution-hybrid-pipeline/120.png)
 
 21. Üzerinde **işlem hattı** sekmesinde **sürekli dağıtım tetikleyicisi** kümesi ve NorthwindCloud Traders-Web yapıt simgesi **sürekli dağıtım tetikleyicisi** için **Etkin**.  "NorthwindCloud Traders tekne" yapıtı için aynı işlevi görür.
 
-    ![Küme sürekli dağıtım tetikleyicisi](media\azure-stack-solution-hybrid-pipeline\121.png)
+    ![Küme sürekli dağıtım tetikleyicisi](media/azure-stack-solution-hybrid-pipeline/121.png)
 
 22. Azure Stack ortamı için seçin **dağıtım öncesi koşulları** simge tetikleyiciyi ayarlayın **sürümünden sonra**.
 
-    ![Dağıtım öncesi koşulları tetikleyici Ayarla](media\azure-stack-solution-hybrid-pipeline\122.png)
+    ![Dağıtım öncesi koşulları tetikleyici Ayarla](media/azure-stack-solution-hybrid-pipeline/122.png)
 
 23. Yaptığınız tüm değişiklikleri kaydedin.
 
@@ -480,15 +480,15 @@ Yayın ardışık düzeni için yapılan değişiklikleri tamamladığınıza g�
 
 1. Üzerinde **işlem hattı** sekmesini **yayın** açılan listesindeki **yayın oluştur**.
 
-    ![Bir yayın oluşturun](media\azure-stack-solution-hybrid-pipeline\200.png)
+    ![Bir yayın oluşturun](media/azure-stack-solution-hybrid-pipeline/200.png)
 
 2. Yayını için bir açıklama girin, doğru yapıtlar seçili olduğunu görmek için kontrol edin ve ardından **Oluştur**. Birkaç dakika sonra yeni yayın oluşturuldu ve yayın adı bir bağlantı gösterilir belirten bir başlık görüntülenir. Sürüm özeti sayfasında görmek için bağlantıyı seçin.
 
-    ![Sürüm oluşturma başlığı](media\azure-stack-solution-hybrid-pipeline\201.png)
+    ![Sürüm oluşturma başlığı](media/azure-stack-solution-hybrid-pipeline/201.png)
 
 3. Sürüm özeti sayfasında sürüm hakkındaki ayrıntıları gösterir. Aşağıdaki ekran görüntüsünde "Release-2" için **ortamları** bölümünde gösterildiği **dağıtım durumu** Azure "Sürüyor" olarak ve Azure Stack için durumu başarılı"için". Azure ortamı için dağıtım durumu "Başarılı" için değiştiğinde, yayın onay için hazır olduğunu belirten bir başlık görüntülenir. Ne zaman bir dağıtımı Beklemede veya başarısız oldu, mavi bir **(i)** bilgi simgesi gösterilir. Gecikme veya hatanın nedenini içeren bir açılır pencere için simgesinin üzerine gelin.
 
-    ![Sürüm özeti sayfasında](media\azure-stack-solution-hybrid-pipeline\202.png)
+    ![Sürüm özeti sayfasında](media/azure-stack-solution-hybrid-pipeline/202.png)
 
 Listesi gibi diğer görünümleri sürümleri, ayrıca onay bekliyor belirten bir simge görüntülenir. Ortam adı ve dağıtımıyla ilgili daha fazla ayrıntı için bu simge açılır gösterir. Sürümler ve sürümler onay bekliyor bkz: Genel ilerlemesi yönetici görmek için kolay bir işlemdir.
 
@@ -502,7 +502,7 @@ Bu bölüm, nasıl izleyebilir ve tüm dağıtımları izleyin gösterir. İki A
 
 2. Dağıtım tamamlandıktan sonra tüm günlük dosyasına sağ bölmede görüntülenir. Seçebilirsiniz **adım** sol bölmesinde "İşi başlatılamıyor" gibi tek bir adım için günlük dosyasına bakın. Tek tek günlükleri görme olanağı, izlemek ve genel dağıtım bölümlerinde hata ayıklamak kolaylaştırır. Ayrıca **Kaydet** bir adım için günlük dosyasına veya **tüm günlükleri zip olarak indir**.
 
-    ![Yayın günlükleri](media\azure-stack-solution-hybrid-pipeline\203.png)
+    ![Yayın günlükleri](media/azure-stack-solution-hybrid-pipeline/203.png)
 
 3. Açık **özeti** sürüm hakkındaki genel bilgileri görmek için sekmesinde. Bu görünüm, yapı, için dağıtılan ortamları, dağıtım durumu ve sürüm hakkındaki diğer bilgileri hakkındaki ayrıntıları gösterir.
 

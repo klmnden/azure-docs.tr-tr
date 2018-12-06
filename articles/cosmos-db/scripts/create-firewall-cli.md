@@ -1,17 +1,17 @@
 ---
-title: Azure CLI Betiği-Azure Cosmos DB için güvenlik duvarı oluşturma | Microsoft Docs
+title: Azure CLI betiği-oluşturma Azure Cosmos DB için güvenlik duvarı
 description: Azure CLI Betik Örneği - Azure Cosmos DB için güvenlik duvarı oluşturma
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: b43fff02f247e557d018a74772ca115543d904bf
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 793fc68bfcd2d7afdc7a5a4b1916737889d27ba5
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013046"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955375"
 ---
 # <a name="azure-cosmos-db-create-a-firewall-using-azure-cli"></a>Azure Cosmos DB: Azure CLI’yı kullanarak güvenlik duvarı oluşturma
 

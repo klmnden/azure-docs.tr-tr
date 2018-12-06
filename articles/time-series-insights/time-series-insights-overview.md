@@ -9,13 +9,13 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: overview
-ms.date: 01/26/2018
-ms.openlocfilehash: f865086a7e57898adb7d43ec0c02c7d38ef0da9c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.date: 12/05/2018
+ms.openlocfilehash: 91ceb98768db2ce8917c17c9def58e65791bf6bf
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365585"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955149"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Azure Time Series Insights nedir?
 
@@ -34,9 +34,9 @@ Time Series Insights dört temel işe sahiptir:
 
 Verilerinizin zaman serisi olup olmadığından emin değilseniz dikkate almanız gereken noktalar burada verilmiştir.  Zaman serisi verileri bir varlığın veya işlemin zaman içindeki değişimini gösterir.  Zaman damgasına sahip olması ve en anlamlı eksenin zaman olmasıyla diğer verilerden ayrılır.  Zaman serisi verileri genellikle zaman sıralamasında gelir ve genelde veritabanınıza güncelleştirme yerine ekleme olarak işlenir.  Time Series Insights her yeni olayı bir satır olarak yakalayıp depoladığından zaman içindeki değişiklik ölçülür ve bu sayede geriye doğru bakarak gelecekteki değişiklikleri tahmin etmenizi sağlar.  Büyük hacimlerdeki verilerin depolanması, dizinlenmesi, sorgulanması, analiz edilmesi ve görselleştirilmesi zor olabilir.  
 
-## <a name="video"></a>Video: 
+## <a name="video"></a>Video
 
-### <a name="in-this-video-we-provide-an-overview-of-time-series-insights-a-cloud-based-iot-analytics-platformbr"></a>Bu videoda, bulut tabanlı IoT analizi platformu olan Time Series Insights’ın bir genel bakışı sağlanmaktadır.</br>
+Bu videoda, bulut tabanlı IoT analizi platformu olan Time Series Insights’ın bir genel bakışı sağlanmaktadır.
 
 > [!VIDEO https://www.youtube.com/embed/qNc9gQTLROs]
 

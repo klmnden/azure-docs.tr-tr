@@ -8,66 +8,55 @@ ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/24/2018
-ms.openlocfilehash: 9af7e57db0e465f59f43c93d0b5f6ec220836ff7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/04/2018
+ms.openlocfilehash: 44c5cce103996f1774fb87b46760c23dc9ab575c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308197"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957717"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Denemeler ve Azure Machine learning'de eğitim metriklerini izleme
 
 Azure Machine Learning hizmetinde denemelerinizi izleyebilir ve modeli oluşturma işlemi geliştirmek için ölçümleri izleyin. Bu makalede, günlük eğitim betiğinizi eklemek için farklı yollar hakkında bilgi edineceksiniz ile deneme gönderme **start_logging** ve **ScriptRunConfig**, ilerleme durumunu denetlemek nasıl bir çalışan iş ve çalıştırmanın sonuçlarını görüntüleme. 
 
->[!NOTE]
-> Bu makalede kod Azure Machine Learning SDK sürüm 0.1.74 ile test edilmiştir 
 
 ## <a name="list-of-training-metrics"></a>Eğitim ölçümlerin listesi 
 
-Aşağıdaki ölçümler, bir denemeyi eğitim sırasında çalıştırılacak eklenebilir. Bir çalıştırmada izlenebilir daha ayrıntılı bir listesi görmek için bkz: [SDK başvuru belgeleri](https://aka.ms/aml-sdk).
+Aşağıdaki ölçümler, bir denemeyi eğitim sırasında çalıştırılacak eklenebilir. Bir çalıştırmada izlenebilir daha ayrıntılı bir listesi görmek için bkz: [sınıfı başvuru belgeleri çalıştırma](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
-|Tür| Funkce Pythonu | Örnek | Notlar|
-|----|:----|:----|:----|
-|Skaler değerler | `run.log(name, value, description='')`| `run.log("accuracy", 0.95) ` |Günlük bir sayısal veya dize değeri belirtilen ada sahip farklı çalıştır. Bir ölçüm için bir çalıştırma günlüğe kaydetme, denemeyi çalıştırma kaydı depolanması, ölçüm neden olur.  Bu ölçüm oluşan bir vektörü olarak kabul sonucu bir çalıştırma içinde birden çok kez aynı Ölçüm oturum açabilirsiniz.|
-|Listeler| `run.log_list(name, value, description='')`| `run.log_list("accuracies", [0.6, 0.7, 0.87])` | Belirtilen ada sahip farklı çalıştır değerlerin bir listesini oturum.|
-|Satır| `run.log_row(name, description=None, **kwargs)`| `run.log_row("Y over X", x=1, y=0.4)` | Kullanarak *log_row* kwargs içinde anlatıldığı gibi birden çok sütun içeren bir ölçü oluşturur. Her adlandırılmış parametre ile belirtilen değer bir sütun oluşturur.  *log_row* rasgele bir tanımlama grubu ya da birden çok kez bir döngüde tam bir tablo oluşturmak için oturum volat pouze jednou.|
-|Tablo| `run.log_table(name, value, description='')`| `run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]})` | Sözlük nesnesi, verilen ada sahip farklı çalıştır oturum açın. |
-|Görüntüler| `run.log_image(name, path=None, plot=None)`| `run.log_image("ROC", plt)` | Görüntü çalıştırma kaydı için oturum açın. Bir görüntü dosyası veya bir matplotlib oturum log_image kullanın çizim farklı çalıştır.  Bu görüntüler, görünür ve çalışma kaydındaki benzer olacaktır.|
-|Bir etiketi| `run.tag(key, value=None)`| `run.tag("selected", "yes")` | Bir dize anahtarı ve isteğe bağlı dize değeri olan çalıştırma etiketleyin.|
-|Dosya veya dizin karşıya yükleme|`run.upload_file(name, path_or_stream)`| Run.upload_file ("best_model.pkl", ". / model.pkl") | Çalıştırma kaydı için bir dosya yükleyin. Çalıştırmaları otomatik olarak varsayılan olarak belirtilen çıkış dizini dosyasında yakala ". / çıkışlar" türleri çoğu çalıştırın.  Yalnızca ek dosyalar yüklenmek üzere gerektiğinde kullanım upload_file veya bir çıktı dizini belirtilmedi. Eklemeyi önerin `outputs` BT'nin çıkış dizinine karşıya, böylece adı. Tüm ilişkili olan dosyaları listeleyebilirsiniz bu çalıştırma kaydı tarafından çağırılır `run.get_file_names()`|
+|Tür| Funkce Pythonu | Notlar|
+|----|:----|:----|
+|Skaler değerler |İşlev:<br>`run.log(name, value, description='')`<br><br>Örnek:<br>Run.log ("doğruluğu", 0.95) |Günlük bir sayısal veya dize değeri belirtilen ada sahip farklı çalıştır. Bir ölçüm için bir çalıştırma günlüğe kaydetme, denemeyi çalıştırma kaydı depolanması, ölçüm neden olur.  Bu ölçüm oluşan bir vektörü olarak kabul sonucu bir çalıştırma içinde birden çok kez aynı Ölçüm oturum açabilirsiniz.|
+|Listeler|İşlev:<br>`run.log_list(name, value, description='')`<br><br>Örnek:<br>Run.log_list ("doğruluk" [0,6, 0,7, 0.87]) | Belirtilen ada sahip farklı çalıştır değerlerin bir listesini oturum.|
+|Satır|İşlev:<br>' run.log_row (adı, açıklama = None, ** kwargs)<br>Örnek:<br>Run.log_row ("Y" X üzerinden x = 1, y 0.4 =) | Kullanarak *log_row* kwargs içinde anlatıldığı gibi birden çok sütun içeren bir ölçü oluşturur. Her adlandırılmış parametre ile belirtilen değer bir sütun oluşturur.  *log_row* rasgele bir tanımlama grubu ya da birden çok kez bir döngüde tam bir tablo oluşturmak için oturum volat pouze jednou.|
+|Tablo|İşlev:<br>`run.log_table(name, value, description='')`<br><br>Örnek:<br>Run.log_table ("Y" X üzerinden {"x": [1, 2, 3], "y": [0,6, 0,7, 0.89]}) | Sözlük nesnesi, verilen ada sahip farklı çalıştır oturum açın. |
+|Görüntüler|İşlev:<br>`run.log_image(name, path=None, plot=None)`<br><br>Örnek:<br>Run.log_image ("ROC",. sys) | Görüntü çalıştırma kaydı için oturum açın. Bir görüntü dosyası veya bir matplotlib oturum log_image kullanın çizim farklı çalıştır.  Bu görüntüler, görünür ve çalışma kaydındaki benzer olacaktır.|
+|Bir etiketi|İşlev:<br>`run.tag(key, value=None)`<br><br>Örnek:<br>run.tag (","Evet"seçeneği") | Bir dize anahtarı ve isteğe bağlı dize değeri olan çalıştırma etiketleyin.|
+|Dosya veya dizin karşıya yükleme|İşlev:<br>`run.upload_file(name, path_or_stream)`<br> <br> Örnek:<br>Run.upload_file ("best_model.pkl", ". / model.pkl") | Çalıştırma kaydı için bir dosya yükleyin. Çalıştırmaları otomatik olarak varsayılan olarak belirtilen çıkış dizini dosyasında yakala ". / çıkışlar" türleri çoğu çalıştırın.  Yalnızca ek dosyalar yüklenmek üzere gerektiğinde kullanım upload_file veya bir çıktı dizini belirtilmedi. Eklemeyi önerin `outputs` BT'nin çıkış dizinine karşıya, böylece adı. Tüm ilişkili olan dosyaları listeleyebilirsiniz bu çalıştırma kaydı tarafından çağırılır `run.get_file_names()`|
 
 > [!NOTE]
 > Skalerler, listeler, satır ve tablolar için ölçümleri türü olabilir: kayan noktalı sayı, tamsayı veya dize.
 
-## <a name="log-metrics-for-experiments"></a>Denemeleri için günlük ölçümleri
+## <a name="start-logging-metrics"></a>Günlüğe kaydetme ölçümleri Başlat
 
 İzlemek veya denemenizi izlemek istiyorsanız, çalıştırma gönderdiğinizde oturum başlatmak için kod eklemeniz gerekir. Çalıştırma gönderim tetiklemek için yollar şunlardır:
 * __Run.start_logging__ - günlük işlevleri eğitim komut dosyanıza ekleyin ve bir etkileşimli günlüğe kaydetme oturumu içinde belirtilen denemeyi başlatın. **start_logging** dizüstü bilgisayarlar gibi senaryolarda kullanım için etkileşimli bir çalışma oluşturur. Oturumu sırasında günlüğe kaydedilen tüm ölçümler, denemeyi çalıştırma kaydı eklenir.
 * __ScriptRunConfig__ - günlük işlevleri eğitim komut dosyanıza ekleyin ve Çalıştır tüm betik klasörünü yükleyemedi.  **ScriptRunConfig** betiği için yapılandırmaları ayarlamayı çalıştırmaları için bir sınıftır. Bu seçenekle tamamlanmasından almak veya izlemek için görsel bir pencere öğesi almak için izleme kodu ekleyebilirsiniz.
 
-## <a name="set-up-the-workspace-and-experiment"></a>Çalışma alanı ve deneme ayarlama
-Günlüğe kaydetme ve deneme gönderme eklemeden önce çalışma ve deneme ayarlamanız gerekir.
+## <a name="set-up-the-workspace"></a>Çalışma alanını ayarlama
+Günlüğe kaydetme ve deneme gönderme eklemeden önce çalışma alanını ayarlamanız gerekir.
 
 1. Çalışma alanı yükleyin. Çalışma alanı yapılandırması ayarlama hakkında daha fazla bilgi edinmek için izleyin [hızlı](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started).
 
   ```python
-  from azureml.core import Workspace, Run
+  from azureml.core import Experiment, Run, Workspace
   import azureml.core
   
   ws = Workspace(workspace_name = <<workspace_name>>,
                subscription_id = <<subscription_id>>,
                resource_group = <<resource_group>>)
    ```
-
-2. Deneme oluşturma.
-
-  ```python
-  from azureml.core import Experiment
-
-  # make up an arbitrary name
-  experiment_name = 'train-in-notebook'
-  ```
   
 ## <a name="option-1-use-startlogging"></a>1. seçenek: start_logging kullanma
 
@@ -102,22 +91,34 @@ Aşağıdaki örnek, yerel Jupyter not defterini yerel olarak basit bir sklearn 
 2. Azure Machine Learning hizmeti SDK'sını kullanarak deneme izleme ekleyebilir ve kalıcı bir modeli çalıştırma kaydı denemesine yükleme. Aşağıdaki kod, etiketler, günlükleri, ekler ve denemeyi çalıştırmak için bir model dosyası yükler.
 
   ```python
-  experiment = Experiment(workspace = ws, name = experiment_name)
-  run = experiment.start_logging()
-  run.tag("Description","My first run!")
+  # Get an experiment object from Azure Machine Learning
+  experiment = Experiment(workspace = ws, name = "train-within-notebook")
+  
+  # Create a run object in the experiment
+  run = experiment.start_logging()# Log the algorithm parameter alpha to the run
   run.log('alpha', 0.03)
-  reg = Ridge(alpha = 0.03)
-  reg.fit(data['train']['X'], data['train']['y'])
-  preds = reg.predict(data['test']['X'])
-  run.log('mse', mean_squared_error(preds, data['test']['y']))
-  joblib.dump(value = reg, filename = 'model.pkl')
-  # Upload file directly to the outputs folder
-  run.upload_file(name = 'outputs/model.pkl', path_or_stream = './model.pkl')
 
+  # Create, fit, and test the scikit-learn Ridge regression model
+  regression_model = Ridge(alpha=0.03)
+  regression_model.fit(data['train']['X'], data['train']['y'])
+  preds = regression_model.predict(data['test']['X'])
+
+  # Output the Mean Squared Error to the notebook and to the run
+  print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
+  run.log('mse', mean_squared_error(data['test']['y'], preds))
+
+  # Save the model to the outputs directory for capture
+  joblib.dump(value=regression_model, filename='outputs/model.pkl')
+
+  # Take a snapshot of the directory containing this notebook
+  run.take_snapshot('./')
+
+  # Complete the run
   run.complete()
+  
   ```
 
-Komut dosyası ile biter ```run.complete()```, tamamlandı olarak çalıştırmayı işaretler.  Bu, genellikle etkileşimli bir not defteri senaryolarda kullanılır.
+Komut dosyası ile biter ```run.complete()```, tamamlandı olarak çalıştırmayı işaretler.  Bu işlev, genellikle etkileşimli bir not defteri senaryolarda kullanılır.
 
 ## <a name="option-2-use-scriptrunconfig"></a>2. seçenek: ScriptRunConfig kullanma
 
@@ -125,7 +126,7 @@ Komut dosyası ile biter ```run.complete()```, tamamlandı olarak çalıştırma
 
 Bu örnek, yukarıda temel sklearn Ridge modeli genişletir. Alfa değerleri ölçümleri yakalamak için model ve deneme altında çalıştığı eğitilen modeller üzerinde basit bir parametre için tarama Süpürme yapar. Örnek, bir kullanıcı tarafından yönetilen ortamında yerel olarak çalıştırılır. 
 
-1. Bir eğitim betiği oluşturun. Bu kullanır ```%%writefile%%``` betik klasöre eğitim kod yazma ```train.py```.
+1. Bir eğitim betiği oluşturun. Bu kod ```%%writefile%%``` betik klasöre eğitim kod yazma ```train.py```.
 
   ```python
   %%writefile $project_folder/train.py
@@ -208,7 +209,8 @@ Bu örnek, yukarıda temel sklearn Ridge modeli genişletir. Alfa değerleri öl
 
   ```python
   from azureml.core import ScriptRunConfig
-
+  
+  experiment = Experiment(workspace=ws, name="train-on-local")
   src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
   run = experiment.submit(src)
   ```
@@ -221,11 +223,28 @@ Kullanırken **ScriptRunConfig** göndermek için gereken yöntemini çalıştı
 1. Jupyter pencere öğesi, çalışma tamamlanması beklenirken görüntüleyin.
 
   ```python
-  from azureml.train.widgets import RunDetails
+  from azureml.widgets import RunDetails
   RunDetails(run).show()
   ```
 
   ![Ekran görüntüsü, Jupyter not defteri pencere öğesi](./media/how-to-track-experiments/widgets.PNG)
+
+2. **[Çalıştırmalarını otomatik makine öğrenme]**  Grafikleri önceki bir çalıştırma işleminden erişmek için. Lütfen değiştirin `<<experiment_name>>` uygun deney adı ile:
+
+   ``` 
+   from azureml.train.widgets import RunDetails
+   from azureml.core.run import Run
+
+   experiment = Experiment (workspace, <<experiment_name>>)
+   run_id = 'autoML_my_runID' #replace with run_ID
+   run = Run(experiment, run_id)
+   RunDetails(run).show()
+   ```
+
+  ![Ekran görüntüsü, Jupyter not defteri pencere öğesi](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
+
+
+Daha fazla işlem hattını bir işlem hattı tıklama ayrıntılarını görüntülemek için keşfetmek tabloda istediğiniz ve grafikleri, Azure portalından bir açılır pencere içinde işlenir.
 
 ### <a name="get-log-results-upon-completion"></a>Tamamlandıktan sonra günlük sonuçlarını alma
 
@@ -235,19 +254,20 @@ Beklerken diğer görevleri çalıştırabileceği şekilde onlara eğitim ve iz
 
 Eğitilen modeli kullanarak bir ölçümleri görüntüleyebilir ```run.get_metrics()```. Artık tüm en iyi modeli belirlemek için yukarıdaki örnekte, günlüğe kaydedilen ölçümleri de alabilirsiniz.
 
-<a name='view-the-experiment-in-the-web-portal'/>
+<a name="view-the-experiment-in-the-web-portal"></a>
 ## <a name="view-the-experiment-in-the-azure-portal"></a>Azure portalında deneme görüntüleyin
 
-Bir deney çalışması tamamlandığında kayıtlı denemeyi çalıştırma kaydı için göz atabilirsiniz. Bunu iki şekilde yapabilirsiniz:
+Bir deney çalışması tamamlandığında kayıtlı denemeyi çalıştırma kaydı için göz atabilirsiniz. Yapabileceğiniz iki yolla geçmişine erişebilir:
 
 * Farklı Çalıştır URL'sini doğrudan ```print(run.get_portal_url())```
-* Çalıştırma adı göndererek çalıştırma ayrıntılarını görüntüleyin. (Bu durumda, ```run```). Bu, deney adı, kimliği, türü, durum, Ayrıntılar sayfası, Azure portalına bir bağlantı ve belgeler için bir bağlantı gösterir.
+* Çalıştırma adı göndererek çalıştırma ayrıntılarını görüntüleyin. (Bu durumda, ```run```). Bu şekilde deney adı, kimliği, türü, durum, Ayrıntılar sayfası, Azure portalına bir bağlantı ve belgeler için bir bağlantı gösterir.
 
 Farklı Çalıştır bağlantısını çalıştırma ayrıntıları sayfasına doğrudan Azure portalında getirir. Burada, özellikleri, izlenen ölçümler, görüntüleri ve deneme günlüğe kaydedilen grafik görebilirsiniz. Bu durumda, MSE ve alfa değerleri oturum.
 
   ![Azure portalında çalıştırma ayrıntılarını, ekran görüntüsü](./media/how-to-track-experiments/run-details-page-web.PNG)
 
 Ayrıca, herhangi bir çıkış veya çalıştırma için günlükleri görüntüleyin veya anlık görüntüsünü ve böylelikle deneme klasörü başkalarıyla paylaşabilirsiniz gönderdiğiniz denemeyi indirin.
+
 ### <a name="viewing-charts-in-run-details"></a>Grafikler çalıştırma ayrıntılarını görüntüleme
 
 Bir çalıştırma sırasında günlük kaydı ölçümleri farklı kayıt türleri için API'leri kullanma ve bunları Azure portalındaki grafikleri olarak görüntülemek için çeşitli yollar vardır. 
@@ -259,13 +279,146 @@ Bir çalıştırma sırasında günlük kaydı ölçümleri farklı kayıt türl
 |Bir satır ile 2 sayısal sütunlara tekrar tekrar oturum|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|İki değişken çizgi grafik|
 |2 sayısal sütunlara sahip günlüğü tablosu|`run.log_table(name='Sine Wave', value=sines)`|İki değişken çizgi grafik|
 
+<a name="auto"></a>
+## <a name="understanding-automated-ml-charts"></a>ML grafikleri anlama otomatik
+
+Bir otomatik bir not defteri ML işi gönderdikten sonra bu çalıştırma geçmişini, machine learning hizmeti çalışma alanını içinde bulunabilir. 
+
+Aşağıdakiler hakkında daha fazla bilgi edinin:
++ [Grafikler ve sınıflandırma modelleri için Eğriler](#classification)
++ [Grafikler ve graflar için regresyon modelleri](#regression)
++ [Modeli açıklayan özelliği](#model-explain-ability-and-feature-importance)
+
+
+### <a name="how-to-see-run-charts"></a>Çalıştırma grafikleri görmek nasıl:
+
+1. Çalışma alanınıza gidin. 
+
+1. Seçin **denemeleri** çalışma alanınızın en soldaki panelde.
+
+  ![Deneme menüsünün ekran görüntüsü](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_menu.PNG)
+
+1. İlginizi çeken bir denemeyi seçin.
+
+  ![Deneme menüsünün ekran görüntüsü](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
+
+1. Tabloda, çalıştırma numarası seçin.
+
+   ![Deneme menüsünün ekran görüntüsü](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.PNG)
+
+1.  Tabloda, yineleme numarasını daha fazlasını keşfetmek istediğiniz modeli seçin.
+
+   ![Deneme menüsünün ekran görüntüsü](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
+
+
+
+### <a name="classification"></a>Sınıflandırma
+
+Otomatik makine öğrenimi özellikleri, Azure Machine Learning kullanarak oluşturduğunuz her sınıflandırma modeli için aşağıdaki grafikleri görebilirsiniz: 
++ [Karışıklık Matrisi](#confusion-matrix)
++ [Duyarlık geri çekme grafiği](#precision-recall-chart)
++ [Alıcı bir işlem özelliklerini (ya da ROC)](#ROC)
++ [Eğri Yükselt](#lift-curve)
++ [Kazançlar eğri](#gains-curve)
++ [Ayar çizimi](#calibration-plot)
+
+#### <a name="confusion-matrix"></a>Karışıklık Matrisi
+
+Karışıklık matrisi performansını bir sınıflandırma modeli tanımlamak için kullanılır. Her bir satır gerçek sınıf örneklerini görüntüler ve her sütun, tahmin edilen sınıf örneklerini temsil eder. Karışıklık matrisi doğru sınıflandırılmış etiketleri ve belirli bir model için yanlış sınıflandırılmış etiketleri gösterir.
+
+Sınıflandırma sorunlar için Azure Machine Learning, bir karışıklık matrisi otomatik olarak oluşturulan her model için sağlar. Her bir karışıklık matrisi için otomatik ML doğru sınıflandırılmış etiketleri kırmızı, yeşil ve yanlış sınıflandırılmış etiket olarak gösterir. Dairenin boyutu bu depo içindeki örnek sayısını temsil eder. Ayrıca, tahmin edilen her etiket ve her true etiket sıklığı sayısı bitişik çubuk grafiklerdeki sağlanır. 
+
+Örnek 1: Bir sınıflandırma modeli ile düşük doğruluk ![düşük doğruluk ile bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
+
+Örnek 2: Bir sınıflandırma modeli ile yüksek doğruluk (idealdir) ![yüksek doğruluk ile bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
+
+
+#### <a name="precision-recall-chart"></a>Duyarlık geri çekme grafiği
+
+Bu grafiği, duyarlık geri çekme eğrileri kesinlik ve belirli iş sorununuz için geri çağırma arasında kabul edilebilir bir ilişki hangi modelle belirlemek her model için karşılaştırabilirsiniz. Bu grafik, makro ortalama duyarlık geri çekme, mikro ortalama duyarlık geri çekme ve duyarlık-tüm sınıflar için bir model ile ilişkili geri çağırma gösterir.
+
+Terim duyarlık sınıflandırıcı tüm örnekleri doğru şekilde etiketlemek için bu özelliği temsil eder. Geri çağırma belirli bir etiketi tüm örneklerini bulmak bir sınıflandırıcı özelliği temsil eder. Duyarlık geri çekme eğriyi iki Bu kavramlar arasındaki ilişkiyi gösterir. İdeal olarak, model % 100 kesinlik ve % 100 doğruluğu sahip olması gerekir.
+
+Örnek 1: Bir sınıflandırma modeli ile düşük duyarlılık ve düşük geri çağırma ![düşük duyarlılık ve düşük geri çağırma sahip bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
+
+Örnek 2: ~ %100 kesinlik ve ~ %100 çağırma (idealdir) ile sınıflandırma modeli bir ![sınıflandırma modeli Yüksek duyarlılık ve çağırma](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
+
+#### <a name="roc"></a>ROC
+
+Özelliği (veya ROC) çalışan ve belirli bir modelde yanlış sınıflandırılmış etiketlerini doğru sınıflandırılmış etiketlerin bir çizim alıcıdır. Eğitim modeller olarak yüksek sapması veri kümeleri üzerinde yanlış pozitif etiketleri gösterme ROC eğrisi daha bilgilendirici olabilir.
+
+Örnek 1: Bir sınıflandırma modeli ile düşük true etiketleri ve yüksek false etiketleri ![düşük true etiketleri ve yüksek false etiketleri ile sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.PNG)
+
+Örnek 2: Bir sınıflandırma modeli ile yüksek true etiketleri ve düşük false etiketleri ![yüksek true etiketleri ve düşük false etiketleri ile bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
+
+#### <a name="lift-curve"></a>Eğri Yükselt
+
+Otomatik olarak bu belirli modelin değeri kazanç görüntülemek için taban çizgisine Azure Machine Learning ile geliştirilmiş modelinin lift karşılaştırabilirsiniz.
+
+Lift grafikleri bir sınıflandırma modeli performansını değerlendirmek için kullanılır. Bu, ne kadar daha iyi, bir model karşılaştırıldığında bir model ile yapmak, bekleyebileceğiniz gösterir. 
+
+Örnek 1: Model bir rastgele seçim modeli daha da kötüsü gerçekleştirir ![rastgele seçim daha da kötüsü olarak modelleyen bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.PNG)
+
+Örnek 2: Model bir rastgele seçim modeli daha iyi gerçekleştirir ![daha iyi bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.PNG)
+
+#### <a name="gains-curve"></a>Kazançlar eğri
+
+Kazançlar grafiği her veri bölümü tarafından bir sınıflandırma modeli performansını değerlendirir. Bu, veri kümesinin ne kadar iyi gerçekleştirmesini bekleyebilirsiniz karşı bir rastgele seçim modeli karşılaştırması, her yüzdebirlik dilime gösterir.
+
+İstenen bir erişim modelden karşılık gelen bir yüzdesini kullanarak sınıflandırma kesme seçmenize yardımcı olmak için toplam kazancı grafik kullanın. Bu bilgiler eşlik eden lift grafik sonuçları bakarak başka bir yol sağlar.
+
+Örnek 1: Bir sınıflandırma modeli ile en az kazanç ![kazanç en az bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
+
+Örnek 2: Bir sınıflandırma modeli ile önemli kazanç ![önemli kazanç ile bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
+
+#### <a name="calibration-plot"></a>Ayar çizimi
+
+Tüm sınıflandırma sorunları ayarlama satır micro-ortalama, makro ortalama ve her sınıfta belirli bir Tahmine dayalı model için gözden geçirebilirsiniz. 
+
+Bir ayar çizim, Tahmine dayalı bir modelin güvenle görüntülemek için kullanılır. Bunu "olasılık" temsil ettiği bazı etiket altında belirli bir örneğine ait olasılığını tahmin edilen olasılığını ve gerçek olasılığını arasındaki ilişkiyi gösteren göre yapar. Y ile de ayarlanmış bir model hizalar = x, Öngörüler makul başarılara olduğu satır. Fazla kişiye modeli ile y hizalar = 0 satırı, burada tahmin olasılık mevcuttur ancak gerçek hiç olasılık yoktur.
+
+1. örnek: Daha iyi ayarlanmış model ![ daha iyi ayarlanmış modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
+
+Örnek 2: Bir aşırı gizli modeli ![fazla kişiye modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
+
+### <a name="regression"></a>Regresyon
+Her bir regresyon modeli için otomatik makine öğrenimi özellikleri, Azure Machine Learning kullanarak yapı, aşağıdaki grafikleri görebilirsiniz: 
++ [Tahmin edilen vs. TRUE](#pvt)
++ [Kalanlar Histogramı](#histo)
+
+<a name="pvt"></a>
+
+#### <a name="predicted-vs-true"></a>Tahmin edilen vs. True
+
+Tahmin edilen vs. TRUE, tahmin edilen bir değer ile ilişkilendirilmesini true değeri için regresyon problemi arasındaki ilişkiyi gösterir. Bu grafiğin y yakın olarak model performansını ölçmek için kullanılan = x satır tahmin edilen değerler, Tahmine dayalı bir model doğruluğunu daha iyi.
+
+Sonrasında her çalıştırma, tahmin edilen bir karşılaştırması için her bir regresyon modeli true grafı görebilirsiniz. Veri gizliliği korumak için değerleri birlikte binned ve her bir depo boyutu, grafik alanı alt kısmında bulunan bir çubuk grafik olarak gösterilir. Tahmine dayalı model hatası kenar boşlukları, model olması gerektiği ideal değerle gösteren açık gölge alanı ile karşılaştırabilirsiniz.
+
+Örnek 1: Bir regresyon modeli ile Öngörüler düşük doğruluk ![Öngörüler düşük doğruluk ile bir regresyon modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.PNG)
+
+Örnek 2: Bir regresyon modeli, Öngörüler yüksek doğruluk ile ![kendi Öngörüler yüksek doğruluk ile bir regresyon modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.PNG)
+
+<a name="histo"></a>
+
+#### <a name="histogram-of-residuals"></a>Kalanlar Histogramı
+
+Bir fazlalığı gözlemlenen y – tahmin edilen y temsil eder. Bir hata ile düşük sapması göstermek için 0 ortalanmış bir bell eğri olarak Kalanlar histogram şeklinde. 
+
+Örnek 1: Bir regresyon modeli ile kendi hataları sapması ![SA regresyon modeli ile kendi hataları sapması](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.PNG)
+
+Örnek 2: Bir regresyon modeli ile hataları daha eşit dağıtım ![bir regresyon modeli ile hataları daha eşit dağıtım](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.PNG)
+
+### <a name="model-explain-ability-and-feature-importance"></a>Model açıklayan özelliği ve özellik önem derecesi
+
+Özellik önem nasıl değerli bir model oluşturma, her bir özellik olduğunu gösteren bir puan verir. Genel olarak Tahmine dayalı bir model sınıfı başına model özellik önem puanını gözden geçirebilirsiniz. Özellik nasıl önemini her sınıf karşı ve genel karşılaştırır görebilirsiniz.
+
+![Özellik açıklama özelliği](./media/how-to-track-experiments/azure-machine-learning-auto-ml-feature_explain1.PNG)
+
 ## <a name="example-notebooks"></a>Örnek Not Defterleri
 Aşağıdaki not defterleri, bu makaledeki kavramları göstermektedir:
-* [01.Getting-Started/01.Train-within-Notebook/01.Train-within-Notebook.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/01.train-within-notebook)
-* [01.Getting-Started/02.Train-on-Local/02.Train-on-Local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
-* [01.Getting-Started/06.Logging-api/06.Logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/06.logging-api/06.logging-api.ipynb)
-
-Bu not defterlerini alın:
+* [How-to-use-azureml/Training/Train-within-Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training\train-within-notebook)
+* [How-to-use-azureml/Training/Train-on-Local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
+* [How-to-use-azureml/Training/Logging-api/Logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: bc88ca63f14c5480210455abcf403771b6a4c232
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ef4a445539efa27ebd154980a4ea8b70b5aba082
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264138"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956917"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Hızlı Başlangıç: Becerileri ve örnek verileri kullanarak bilişsel arama işlem hattı oluşturma
 
@@ -66,7 +66,7 @@ Bu senaryoda özel olarak Azure hizmetleri kullanılır. İhtiyaç duyduğunuz h
 
 1. **Kaynak oluştur**’a tıklayın, Azure Search’ü arayın ve **Oluştur**’a tıklayın. İlk kez bir arama hizmeti ayarlıyorsanız ve daha fazla yardıma ihtiyacınız varsa bkz. [Portalda Azure Search hizmeti oluşturma](search-create-service-portal.md).
 
-  ![Pano portalı](./media/cognitive-search-tutorial-blob/create-service-full-portal.png "Portalda Azure Search hizmeti oluşturma")
+  ![Pano portalı](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Portalda Azure Search hizmeti oluşturma")
 
 1. Kaynak grubu için, bu hızlı başlangıçta oluşturduğunuz tüm kaynakları içerecek bir kaynak grubu oluşturun. Böylece, hızlı başlangıcı tamamladıktan sonra kaynakları temizlemeniz kolaylaşır.
 
@@ -76,12 +76,14 @@ Bu senaryoda özel olarak Azure hizmetleri kullanılır. İhtiyaç duyduğunuz h
 
   Ücretsiz hizmet; 3 dizin, 16 MB maksimum blob boyutu ve 2 dizinleme dakikası ile sınırlıdır ve bu da bilişsel aramanın tüm yeteneklerini uygulamak için yeterli değildir. Farklı katmanlara ilişkin sınırları gözden geçirmek için bkz. [Hizmet Sınırları](search-limits-quotas-capacity.md).
 
+  ![Portalda Hizmet tanım sayfası](./media/cognitive-search-tutorial-blob/create-search-service1.png "portalında hizmet tanımı sayfası")
+  ![portalında hizmet tanımı sayfası](./media/cognitive-search-tutorial-blob/create-search-service2.png "hizmet tanımı sayfasında portal")
   > [!NOTE]
   > Bilişsel arama genel önizleme aşamasındadır. Beceri kümesi yürütme şu anda ücretsiz katman da dahil olmak üzere tüm katmanlarda kullanılabilir. İlerleyen zamanlarda bu özelliğin fiyatlandırması duyurulacaktır.
 
 1. Hizmet bilgilerine hızlı erişim için hizmeti panoya sabitleyin.
 
-  ![Portaldaki hizmet tanımı sayfası](./media/cognitive-search-tutorial-blob/create-search-service.png "Portaldaki hizmet tanımı sayfası")
+  ![Portaldaki hizmet tanımı sayfası](./media/cognitive-search-tutorial-blob/create-search-service3.png "Portaldaki hizmet tanımı sayfası")
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Azure Blob hizmetini ayarlama ve örnek veriler yükleme
 
@@ -103,7 +105,7 @@ Azure Search hizmeti panosu sayfasına geri dönün ve komut çubuğundaki **Ver
 
 **Verilerinize bağlanın** > **Azure Blob depolama** bölümünde, oluşturduğunuz hesabı ve kapsayıcıyı seçin. Veri kaynağına bir ad verin ve geri kalanı için varsayılan değerleri kullanın. 
 
-   ![Azure blob yapılandırması](./media/cognitive-search-quickstart-blob/blob-datasource.png)
+   ![Azure blob yapılandırması](./media/cognitive-search-quickstart-blob/blob-datasource2.png)
 
 
 **Tamam**'a tıklayarak veri kaynağını oluşturun.

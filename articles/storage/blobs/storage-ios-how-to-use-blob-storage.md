@@ -6,23 +6,21 @@ author: michaelhauss
 ms.service: storage
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.component: blobs
-ms.openlocfilehash: 43e9acb79b363e8f2cb00f6a4676d450c097bf3e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be9254686eeb285fb4f0a5e29ba60023abee84ab
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262004"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961935"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>BLOB depolama alanından iOS kullanma
 
 Bu makalede, Microsoft Azure Blob depolamayı kullanarak yaygın senaryoları gerçekleştirmek gösterilmektedir. Objective-C ve kullanım örnekleri yazılır [iOS için Azure depolama istemci Kitaplığı](https://github.com/Azure/azure-storage-ios). Kapsanan senaryolar, karşıya yükleme, listeleme, indirme ve BLOB'ları silmeden içerir. BLOB'ları hakkında daha fazla bilgi için bkz. [sonraki adımlar](#next-steps) bölümü. Ayrıca yükleyebilirsiniz [örnek uygulaması](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) hızlıca bir iOS uygulamasına Azure depolama kullanımını görmek için.
 
-## <a name="what-is-blob-storage"></a>Blob storage nedir?
-
-[!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
+Blob Depolama hakkında daha fazla bilgi için bkz: [Azure Blob depolamaya giriş](storage-blobs-introduction.md).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 

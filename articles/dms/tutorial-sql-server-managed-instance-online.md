@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: ccbfc6e204981a4e14812759715d0482e5b6cb67
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 030cd89bbd6407cd2e83a9b56942adbf419e069b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874776"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956712"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Öğretici: DMS kullanarak çevrimiçi ortamda SQL Server'ı Azure SQL Veritabanı Yönetilen Örneği'ne geçirme
 Azure Veritabanı Geçiş Hizmeti'ni kullanarak şirket içi SQL Server örneğindeki veritabanlarını minimum çalışmama süresi ile [Azure SQL Veritabanı Yönetilen Örneği](../sql-database/sql-database-managed-instance.md)'ne geçirebilirsiniz. El ile gerçekleştirilmesi gereken adımlar içeren ek yöntemler için bkz. [Azure SQL Veritabanı Yönetilen Örneği'ne SQL Server örneği geçişi](../sql-database/sql-database-managed-instance-migrate.md).
@@ -64,24 +64,24 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 
 1. Azure portal'da oturum açın, **Tüm hizmetler** seçeneğini belirleyin ve ardından **Abonelikler**'i seçin.
 
-    ![Portal aboneliklerini gösterme](media\tutorial-sql-server-to-managed-instance-online\portal-select-subscriptions.png)        
+    ![Portal aboneliklerini gösterme](media/tutorial-sql-server-to-managed-instance-online/portal-select-subscriptions.png)        
 2. Azure Veritabanı Geçiş Hizmeti örneğini oluşturmak istediğiniz aboneliği seçin ve sonra **Kaynak sağlayıcıları**’nı seçin.
 
-    ![Kaynak sağlayıcılarını gösterme](media\tutorial-sql-server-to-managed-instance-online\portal-select-resource-provider.png)
+    ![Kaynak sağlayıcılarını gösterme](media/tutorial-sql-server-to-managed-instance-online/portal-select-resource-provider.png)
 
 3. "migration" araması yapın ve **Microsoft.DataMigration** öğesinin sağ tarafındaki **Kaydet**'i seçin.
 
-    ![Kaynak sağlayıcısını kaydetme](media\tutorial-sql-server-to-managed-instance-online\portal-register-resource-provider.png)   
+    ![Kaynak sağlayıcısını kaydetme](media/tutorial-sql-server-to-managed-instance-online/portal-register-resource-provider.png)   
 
 ## <a name="create-an-azure-database-migration-service-instance"></a>Azure Veritabanı Geçiş Hizmeti örneğini oluşturma
 
 1. Azure portalda +**Kaynak oluştur**'u seçin, **Azure Veritabanı Geçiş Hizmeti** araması yapın ve açılan listeden **Azure Veritabanı Geçiş Hizmeti**'ni seçin.
 
-     ![Azure Market](media\tutorial-sql-server-to-managed-instance-online\portal-marketplace.png)
+     ![Azure Market](media/tutorial-sql-server-to-managed-instance-online/portal-marketplace.png)
 
 2. **Azure Veritabanı Geçiş Hizmeti** ekranında **Oluştur**'u seçin.
 
-    ![Azure Veritabanı Geçiş Hizmeti örneğini oluşturma](media\tutorial-sql-server-to-managed-instance-online\dms-create1.png)
+    ![Azure Veritabanı Geçiş Hizmeti örneğini oluşturma](media/tutorial-sql-server-to-managed-instance-online/dms-create1.png)
 
 3. **Geçiş Hizmeti oluşturun** ekranında hizmet için bir ad belirtin, aboneliği ve yeni ya da var olan bir kaynak grubunu seçin.
 
@@ -102,7 +102,7 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
    
     Maliyetler ve fiyatlandırma katmanları hakkında daha fazla bilgi için [fiyatlandırma sayfasına](https://aka.ms/dms-pricing) bakın.
    
-    ![DMS hizmetini başlatma](media\tutorial-sql-server-to-managed-instance-online\dms-create-service3.png)
+    ![DMS hizmetini başlatma](media/tutorial-sql-server-to-managed-instance-online/dms-create-service3.png)
 
 7.  Hizmeti oluşturmak için **Oluştur**’u seçin.
 
@@ -112,7 +112,7 @@ Hizmetin bir örneği oluşturulduktan sonra Azure portaldan bulun, açın ve ye
 
 1. Azure portalda **Tüm hizmetler**'i seçin, Azure Veritabanı Geçiş Hizmeti araması yapın ve **Azure Veritabanı Geçiş Hizmeti**'ni seçin.
 
-    ![Azure Veritabanı Geçiş Hizmeti’nin tüm örneklerini bulma](media\tutorial-sql-server-to-managed-instance-online\dms-search.png)
+    ![Azure Veritabanı Geçiş Hizmeti’nin tüm örneklerini bulma](media/tutorial-sql-server-to-managed-instance-online/dms-search.png)
 
 2. **Azure Veritabanı Geçiş Hizmeti ekranında** oluşturduğunuz örneğin adını arayın ve sonuçlardan bu örneği seçin.
  
@@ -120,7 +120,7 @@ Hizmetin bir örneği oluşturulduktan sonra Azure portaldan bulun, açın ve ye
 
 4. **Yeni geçiş projesi** ekranında proje için bir ad belirtin, **Kaynak sunucu türü** metin kutusunda **SQL Server**, **Hedef sunucu türü** metin kutusunda **Azure SQL Veritabanı Yönetilen Örneği** ve **Etkinlik türünü seçin** alanında **Çevrimiçi veri geçişi (önizleme)** seçimini yapın.
 
-   ![DMS projesi oluşturma](media\tutorial-sql-server-to-managed-instance-online\dms-create-project3.png)
+   ![DMS projesi oluşturma](media/tutorial-sql-server-to-managed-instance-online/dms-create-project3.png)
 
 5. Projeyi oluşturmak için **Etkinlik oluştur ve çalıştır**'ı seçin.
 
@@ -135,7 +135,7 @@ Hizmetin bir örneği oluşturulduktan sonra Azure portaldan bulun, açın ve ye
     > [!CAUTION]
     > Otomatik olarak imzalanan sertifika kullanarak şifrelenmiş SSL bağlantıları yüksek güvenlik sağlamaz. Ortadaki adam saldırılarına maruz kalabilirler. Üretim ortamında veya internete bağlı sunucularda otomatik olarak imzalanan sertifika ile SSL kullanımına güvenmemeniz gerekir.
 
-   ![Kaynak Ayrıntıları](media\tutorial-sql-server-to-managed-instance-online\dms-source-details2.png)
+   ![Kaynak Ayrıntıları](media/tutorial-sql-server-to-managed-instance-online/dms-source-details2.png)
 
 3. **Kaydet**’i seçin.
 
@@ -151,7 +151,7 @@ Hizmetin bir örneği oluşturulduktan sonra Azure portaldan bulun, açın ve ye
 
 3. Hedef Azure SQL Veritabanı Yönetilen Örneği'ne bağlanmak için **SQL Kullanıcısı** ve **Parola** bilgilerini girin.
 
-    ![Hedef seçme](media\tutorial-sql-server-to-managed-instance-online\dms-target-details3.png)
+    ![Hedef seçme](media/tutorial-sql-server-to-managed-instance-online/dms-target-details3.png)
 
 2.  **Kaydet**’i seçin.
 
@@ -159,7 +159,7 @@ Hizmetin bir örneği oluşturulduktan sonra Azure portaldan bulun, açın ve ye
 
 1. **Kaynak veritabanlarını seçin** ekranında geçirmek istediğiniz kaynak veritabanını seçin.
 
-    ![Kaynak veritabanlarını seçme](media\tutorial-sql-server-to-managed-instance-online\dms-select-source-databases2.png)
+    ![Kaynak veritabanlarını seçme](media/tutorial-sql-server-to-managed-instance-online/dms-select-source-databases2.png)
 
 2. **Kaydet**’i seçin.
 
@@ -175,7 +175,7 @@ Hizmetin bir örneği oluşturulduktan sonra Azure portaldan bulun, açın ve ye
     |**Azure Depolama Hesabının aboneliği** | Azure Depolama Hesabını içeren aboneliği seçin. |
     |**Azure Depolama Hesabı** | DMS'nin SMB ağ paylaşımındaki yedekleme dosyalarını yükleyebileceği ve veritabanı geçişi için kullanabileceği Azure Depolama Hesabını seçin.  En iyi dosya yükleme performansı için DMS hizmetiyle aynı bölgede bir Depolama Hesabı seçmenizi öneririz. |
     
-    ![Geçiş Ayarlarını Yapılandırma](media\tutorial-sql-server-to-managed-instance-online\dms-configure-migration-settings4.png)
+    ![Geçiş Ayarlarını Yapılandırma](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
 2. **Kaydet**’i seçin.
  
@@ -185,7 +185,7 @@ Hizmetin bir örneği oluşturulduktan sonra Azure portaldan bulun, açın ve ye
 
 2. Geçiş projesiyle ilgili ayrıntıları gözden geçirin ve doğrulayın.
  
-    ![Geçiş projesi özeti](media\tutorial-sql-server-to-managed-instance-online\dms-project-summary3.png)
+    ![Geçiş projesi özeti](media/tutorial-sql-server-to-managed-instance-online/dms-project-summary3.png)
 
 ## <a name="run-and-monitor-the-migration"></a>Geçişi çalıştırma ve izleme
 
@@ -193,11 +193,11 @@ Hizmetin bir örneği oluşturulduktan sonra Azure portaldan bulun, açın ve ye
 
 2. Geçiş etkinliği ekranını güncelleştirmek için **Yenile**'yi seçin.
  
-   ![Geçiş etkinliği sürüyor](media\tutorial-sql-server-to-managed-instance-online\dms-monitor-migration2.png)
+   ![Geçiş etkinliği sürüyor](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration2.png)
 
     İlgili sunucu nesnelerinin geçiş durumunu izlemek için veritabanları ve oturum açma işlemleri kategorilerini genişletebilirsiniz.
 
-   ![Geçiş etkinliği sürüyor](media\tutorial-sql-server-to-managed-instance-online\dms-monitor-migration-extend2.png)
+   ![Geçiş etkinliği sürüyor](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
 
 ## <a name="performing-migration-cutover"></a>Tam geçişi gerçekleştirme
 
@@ -213,11 +213,11 @@ Tam veritabanı yedeği hedef Azure SQL Veritabanı Yönetilen Örneği'ne geri 
 
 4.  **Onayla**'yı ve ardından, **Uygula**'yı seçin.
 
-    ![Tam geçişi tamamlamaya hazırlanma](media\tutorial-sql-server-to-managed-instance-online\dms-complete-cutover.png)
+    ![Tam geçişi tamamlamaya hazırlanma](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
 
 5.  Veritabanı geçişi durumu **Tamamlandı** olarak gösterildiğinde, uygulamalarınızı yeni hedef Azure SQL Veritabanı Yönetilen Örneği'ne bağlayın.
 
-    ![Tam geçiş tamamlandı](media\tutorial-sql-server-to-managed-instance-online\dms-cutover-complete.png)
+    ![Tam geçiş tamamlandı](media/tutorial-sql-server-to-managed-instance-online/dms-cutover-complete.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

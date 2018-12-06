@@ -1,5 +1,5 @@
 ---
-title: Kapsayıcılar'ı yapılandırma
+title: Kapsayıcıları yapılandırma
 titlesuffix: Computer Vision - Cognitive Services - Azure
 description: Görüntü işleme kapsayıcıları için yapılandırma ayarları.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 8df293878486a9cd4ded6e899871c30498c4b68f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 865300f74a74b9768d2d5f5fd532ce9e851b7afb
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635071"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964109"
 ---
-# <a name="configure-containers"></a>Kapsayıcılar'ı yapılandırma
+# <a name="configure-containers"></a>Kapsayıcıları yapılandırma
 
 Görüntü işleme, ortak bir yapılandırma çerçeve metni tanı kapsayıcıyla sağlar, böylece kolayca yapılandırabilir ve depolama, günlüğe kaydetme ve telemetri ve güvenlik ayarları için kapsayıcılarınızı yönetin.
 
@@ -86,7 +86,7 @@ Aşağıdaki tabloda altında desteklenen yapılandırma ayarları açıklanmakt
 
 ## <a name="billing-configuration-setting"></a>Yapılandırma ayarı faturalama
 
-`Billing` Yapılandırma ayarı, Azure üzerinde görüntü işleme kaynağın URI'sini kullanılan kapsayıcısı için fatura bilgileri izlemek için uç nokta belirtir. Bu yapılandırma ayarı için bir değer belirtmeniz gerekir ve Azure üzerinde bir görüntü işleme kaynak için geçerli bir uç noktası URI değeri olmalıdır.
+`Billing` Yapılandırma ayarı, Azure üzerinde görüntü işleme kaynağın URI'sini kullanılan kapsayıcısı için fatura bilgileri ölçmek için uç nokta belirtir. Bu yapılandırma ayarı için bir değer belirtmeniz gerekir ve Azure üzerinde bir görüntü işleme kaynak için geçerli bir uç noktası URI değeri olmalıdır.
 
 > [!IMPORTANT]
 > [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), Ve [ `Eula` ](#eula-configuration-setting) yapılandırma ayarlarını birlikte kullanılır ve üçünü de için geçerli değerler sağlamanız gerekir bunları; Aksi takdirde kapsayıcınızı başlatılamıyor. Bir kapsayıcı örneği oluşturmak için bu yapılandırma ayarlarını kullanma hakkında daha fazla bilgi için bkz. [faturalama](computer-vision-how-to-install-containers.md#billing).
@@ -97,6 +97,8 @@ Aşağıdaki tabloda altında desteklenen yapılandırma ayarları açıklanmakt
 
 > [!IMPORTANT]
 > [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), Ve [ `Eula` ](#eula-configuration-setting) yapılandırma ayarlarını birlikte kullanılır ve üçünü de için geçerli değerler sağlamanız gerekir bunları; Aksi takdirde kapsayıcınızı başlatılamıyor. Bir kapsayıcı örneği oluşturmak için bu yapılandırma ayarlarını kullanma hakkında daha fazla bilgi için bkz. [faturalama](computer-vision-how-to-install-containers.md#billing).
+
+Bilişsel hizmetler kapsayıcılar, Azure kullanımını düzenleyen sözleşmenize altında lisanslanmıştır. Azure kullanımınızı var olan bir anlaşma değilse, Azure'un kullanımını düzenleyen sözleşmenize Microsoft çevrimiçi abonelik (çevrimiçi hizmet koşulları kullanımız) sözleşmesi olduğunu kabul etmiş olursunuz. Önizlemeler için de ek kullanım koşulları için Microsoft Azure önizlemeleri için kabul etmiş olursunuz. Kapsayıcı kullanarak bu koşulları kabul etmiş olursunuz.
 
 ## <a name="fluentd-configuration-settings"></a>Fluentd yapılandırma ayarları
 

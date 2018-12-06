@@ -1,18 +1,18 @@
 ---
-title: Azure CLI Betiği-Azure Cosmos DB MongoDB API hesabı, veritabanı ve koleksiyonu oluşturma | Microsoft Docs
+title: Azure CLI betiği-oluşturma Azure Cosmos DB MongoDB API hesabı, veritabanı ve koleksiyonu
 description: Azure CLI Betiği Örneği-Azure Cosmos DB MongoDB API hesabı, veritabanı ve koleksiyonu oluşturma
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: 6ca603a324dddf243927cf5bb67556edfb1cf7e6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 7c7f3f6907f0c21e3c66a3d814dc355476bec553
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007149"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958358"
 ---
 # <a name="azure-cosmos-db-create-an-mongodb-api-account-using-azure-cli"></a>Azure Cosmos DB: Azure CLI’yı kullanarak MongoDB API hesabı oluşturma
 

@@ -1,6 +1,6 @@
 ---
-title: .NET Standard kitaplığı kullanarak Azure Event Hubs’dan olay alma | Microsoft Belgeleri
-description: .NET Standard'da EventProcessorHost ile iletiler almaya başlama
+title: Azure .NET Core kitaplığı kullanarak Event Hubs'dan olay alma | Microsoft Docs
+description: "' De .NET Core EventProcessorHost ile iletiler almaya başlama"
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 9adbd8b9e7934ebe454d14ac6e47fe96898c9184
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: fb99307182ba3ce8ba49a9ae09c12af173799c87
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234400"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963360"
 ---
-# <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>.NET Standard'da Olay İşlemcisi Konağı ile iletiler almaya başlama
+# <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-core"></a>' De .NET Core olay işlemcisi konağı ile iletiler almaya başlama
 Event Hubs bağlı cihaz ve uygulamalardan büyük miktarlarda olay verileri (telemetri) işleyen bir hizmettir. Verileri Event Hubs’a topladıktan sonra bir depolama kümesi kullanarak depolayabilir veya gerçek zamanlı bir analiz sağlayıcısı kullanarak dönüştürebilirsiniz. Bu büyük ölçekli olay toplama ve işleme özelliği, Nesnelerin İnterneti (IoT) gibi modern uygulama mimarilerinin temel bir bileşenidir. Olay Hub’larının ayrıntılı genel bakışı için bkz. [Olay Hub’larına genel bakış](event-hubs-about.md) ve [Olay Hub’ları özellikleri](event-hubs-features.md).
 
 Bu öğreticide, [Olay İşleyicisi Ana Bilgisayarı](event-hubs-event-processor-host.md)’nı kullanarak bir olay hub’ından iletiler alan .NET Core konsol uygulamasını yazma işlemi gösterilmektedir. [Olay İşleyicisi Ana Bilgisayarı](event-hubs-event-processor-host.md), olay hub’larına ait kalıcı denetim noktalarını ve paralel alımları yöneterek bu olay hub’larına ait alma olaylarını basitleştiren bir .NET sınıfıdır. Olay İşleyicisi Ana Bilgisayarı’nı kullanarak, farklı düğümlerde barındırıldığında bile birden çok alıcı arasında olayları bölebilirsiniz. Bu örnek, tek alıcı için Olay İşleyicisi Ana Bilgisayarı'nın nasıl kullanıldığını göstermektedir. [Olay işleme ölçeğini genişletme] [Olay Hub’ları içeren Olay İşleme Ölçeğini Genişletme] örneği, birden çok alıcıyla Olay İşleyicisi Ana Bilgisayarı'nın nasıl kullanılacağını göstermektedir.
@@ -29,7 +29,7 @@ Bu öğreticide, [Olay İşleyicisi Ana Bilgisayarı](event-hubs-event-processor
 > [!NOTE]
 > Bu hızlı başlangıcı [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver)’dan örnek olarak indirebilir ve `EventHubConnectionString` ve `EventHubName`, `StorageAccountName`, `StorageAccountKey` ve `StorageContainerName` dizelerini olay hub’ınızdaki değerlerle değiştirebilir ve çalıştırabilirsiniz. Alternatif olarak bu öğreticideki adımları izleyerek kendi çözümünüzü de oluşturabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * [Microsoft Visual Studio 2015 veya 2017](https://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2017 kullanılır, ama Visual Studio 2015 de desteklenir.
 * [.NET Core Visual Studio 2015 veya 2017 araçları](https://www.microsoft.com/net/core).
 
@@ -206,7 +206,7 @@ Tebrikler! Olay İşlemcisi Konağı'nı kullanarak bir olay hub’ından iletil
 > Bu öğretici, [EventProcessorHost](event-hubs-event-processor-host.md)’un tek bir örneğini kullanır. Verimliliği artırmak için, birden çok [EventProcessorHost](event-hubs-event-processor-host.md) örneğinin [Ölçeği genişletilmiş olay işleme](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) örneğinde gösterildiği gibi çalıştırmanızı öneririz. Bu gibi durumlarda, alınan olayların yükünü dengelemek üzere birden çok örnek otomatik olarak birbiriyle koordine olur. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu hızlı başlangıçta bir olay hub’ından iletiler alan .Net Standart uygulaması oluşturdunuz. .NET Standardı kullanarak olay hub’ına olaylar göndermeyi öğrenmek için bkz. [Olay hub’ından olaylar gönderme, .NET Standard](event-hubs-dotnet-standard-getstarted-send.md).
+Bu hızlı başlangıçta, bir olay hub'ından iletiler alan .NET Core uygulaması oluşturdunuz. .NET Core kullanarak olay hub'ına olay gönderme hakkında bilgi edinmek için bkz: [olayları event hub'dan - .NET Core Gönder](event-hubs-dotnet-standard-getstarted-send.md).
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
 [2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png

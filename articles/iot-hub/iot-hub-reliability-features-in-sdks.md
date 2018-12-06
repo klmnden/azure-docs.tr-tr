@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 64bd250f324bed53a9f33aa72f6b1daa48e0dc86
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8951680ca9488dabffd02ee084e3f6827122276e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424655"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957461"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Bağlantı ve Azure IOT Hub cihaz SDK'ları kullanarak güvenilir Mesajlaşma yönetme
 
@@ -115,9 +115,8 @@ Diğer dillerde kod örnekleri için aşağıdaki uygulama belgeleri gözden ge�
 - [Düğüm SDK'sı](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-- [Cihaz ve hizmet SDK’ları kullanma](.\iot-hub-devguide-sdks.md)
-- [C için IoT cihaz SDK'sını kullanma](.\iot-hub-device-sdk-c-intro.md)
-- [Kısıtlanmış cihazlar için geliştirme](.\iot-hub-devguide-develop-for-constrained-devices.md)
-- [Mobil cihazlar için geliştirme](.\iot-hub-how-to-develop-for-mobile-devices.md)
+- [Cihaz ve hizmet SDK’ları kullanma](./iot-hub-devguide-sdks.md)
+- [C için IoT cihaz SDK'sını kullanma](./iot-hub-device-sdk-c-intro.md)
+- [Kısıtlanmış cihazlar için geliştirme](./iot-hub-devguide-develop-for-constrained-devices.md)
+- [Mobil cihazlar için geliştirme](./iot-hub-how-to-develop-for-mobile-devices.md)
 - [Sorun giderme cihaz bağlantısını keser](iot-hub-troubleshoot-connectivity.md)

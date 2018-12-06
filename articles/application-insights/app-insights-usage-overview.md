@@ -13,12 +13,12 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: bc80bfacf6896161fae03b9ed93f5fe22e13ada2
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 2ccb4d2ff7beeeac53bafe726122c3b47682db03
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725293"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955438"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights ile kullanım analizi
 
@@ -60,26 +60,6 @@ Kullanıcı ve oturum raporları sayfaları veya özel olaylar verilerinizi filt
 * **Oturumları** rapor sitenize erişen kullanıcı oturumlarının sayısını sayar. Etkinlik birden fazla yarım saat, belirli bir süre tarafından sonlandırıldı, bir kullanıcı tarafından bir süre oturumdur.
 
 [Kullanıcılar, oturumlar ve olaylar araçları hakkında daha fazla bilgi](app-insights-usage-segmentation.md)  
-
-## <a name="page-views"></a>Sayfa görünümleri
-
-Kullanım dikey penceresinden en popüler sayfalarınızı dökümünü almak için sayfa görünümü kutucuğu aracılığıyla tıklayın:
-
-![Genel Bakış dikey penceresinden bir sayfa görünümleri grafiğe tıklayın](./media/app-insights-usage-overview/05-games.png)
-
-Yukarıdaki örnekte, bir oyun web sitesinden bulunur. Grafikten anında görebiliriz:
-
-* Kullanım geçen hafta içinde geliştirilmiş edilmemiş. Belki de arama motoru iyileştirme hakkında düşünüyoruz?
-* Tenis en popüler oyun sayfasıdır. Ek geliştirmeler bu sayfaya odaklanalım.
-* Ortalama olarak, kullanıcıların tenis sayfasını yaklaşık üç kez her hafta ziyaret edin. (Kullanıcılara yaklaşık üç kat daha fazla oturum var.)
-* Çoğu kullanıcı, çalışma saatleri ve ABD çalışma haftası boyunca sitesini ziyaret edin. Belki de biz bir "hızlı gizle" düğmesi web sayfasında sağlamanız gerekir.
-* [Ek açıklamaları](app-insights-annotations.md) yeni sürümleri Web sitesinin ne zaman dağıtılan grafikte göster. Son dağıtımları hiçbiri bir fark edilebilir etkisi kullanımı gerekiyordu.
-
-Trafik sitenize siteniz, sayfa görünümü telemetrisini gönderir, özel bir özellik tarafından bölme gibi daha ayrıntılı olarak araştırmak istersek?
-
-1. Açık **olayları** araç ve Application Insights kaynak menüsünde. Bu araç kaç sayfa görüntülemeleri ve özel olaylar üzerinde filtreleme, cohorting ve segmentasyon seçeneklerini çeşitli tabanlı uygulamanızdan gönderilen analiz etmenize olanak tanır.
-2. "Kullanan" açılır menüde "Any sayfa görünümü" seçin.
-3. "Bölme ölçütü" açılır menüde, sayfa görünümü telemetrisini ayırmak bir özellik seçin.
 
 ## <a name="retention---how-many-users-come-back"></a>Bekletme - kaç kullanıcının döndürülmesini?
 

@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: ''
-ms.openlocfilehash: aa511e98fefaf25a08f55f2aa47c43c9ed10a10f
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 726e0f335a1586dc35aa1f254ea2b1fae729f01a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261054"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957002"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana, Azure hizmetlerinizi izleyin
 Artık Azure Hizmetleri ve uygulamaları izleyebilirsiniz [Grafana](https://grafana.com/) kullanarak [Azure İzleyicisi veri kaynağı eklentisi](https://grafana.com/plugins/grafana-azure-monitor-datasource). Eklenti çeşitli günlükleri ve ölçümler de dahil olmak üzere Azure İzleyici tarafından toplanan uygulama performansı verileri toplar. Grafana Panonuzda daha sonra bu verileri görüntüleyebilirsiniz.
@@ -50,7 +50,7 @@ Bir yerel Grafana sunucusu kurmak için [Grafana yerel ortamınızda yükleyip](
 
 1. Sunucunuzun IP adresini kullanarak açın oturum açma sayfasına *http://\<IP adresi\>: 3000* veya  *\<DNSName >\:3000* tarayıcınızda. Varsayılan bağlantı noktası 3000 olsa da, Kurulum sırasında farklı bir bağlantı noktası seçmiş olabilirsiniz unutmayın. Derlediğiniz Grafana sunucusu için bir oturum açma sayfası görmeniz gerekir.
 
-    ![Grafana oturum açma ekranı](.\media\monitor-how-to-grafana\grafana-login-screen.png)
+    ![Grafana oturum açma ekranı](./media/monitor-how-to-grafana/grafana-login-screen.png)
 
 2. Kullanıcı adı ile oturum *yönetici* ve daha önce oluşturduğunuz Grafana sunucusu yönetici parolası. Bir yerel ayarı kullanıyorsanız, varsayılan parola olacaktır *yönetici*, ve ilk oturum açma bilgilerinize değiştirmek için istenen.
 
@@ -58,7 +58,7 @@ Bir yerel Grafana sunucusu kurmak için [Grafana yerel ortamınızda yükleyip](
 
 Başarıyla oturum açtıktan sonra Azure İzleyici'veri kaynağı eklentisi zaten dahil olduğunu görmeniz gerekir.
 
-![Azure İzleyici eklentisi Grafana içerir](.\media\monitor-how-to-grafana\grafana-includes-azure-monitor-plugin-dark.png)
+![Azure İzleyici eklentisi Grafana içerir](./media/monitor-how-to-grafana/grafana-includes-azure-monitor-plugin-dark.png)
 
 1. Seçin **veri kaynağı Ekle** eklemek ve Azure İzleyici veri kaynağını yapılandırmak için.
 
@@ -83,7 +83,7 @@ Başarıyla oturum açtıktan sonra Azure İzleyici'veri kaynağı eklentisi zat
 5. Application Insights'ı kullanırsanız, uygulama kimliği ve Application Insights API Application Insights temel ölçümleri toplamak için de ekleyebilirsiniz. Daha fazla bilgi için [API anahtarı ve uygulama kimliği alma](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
 6. Seçin **Kaydet**, ve Grafana her bir API için kimlik bilgilerini test. Aşağıdakine benzer bir ileti görürsünüz.  
-    ![Onaylanan config Grafana veri kaynağı](.\media\monitor-how-to-grafana\grafana-data-source-config-approved-dark.png)
+    ![Onaylanan config Grafana veri kaynağı](./media/monitor-how-to-grafana/grafana-data-source-config-approved-dark.png)
 
 ## <a name="build-a-grafana-dashboard"></a>Yapı Grafana Panosu
 
@@ -92,11 +92,11 @@ Başarıyla oturum açtıktan sonra Azure İzleyici'veri kaynağı eklentisi zat
 2. Yeni Pano seçin **Graph**. Diğer grafik seçenekleri deneyebilirsiniz ancak bu makalede *grafik* örnek olarak.
 
 3. Panonuzda boş bir grafik gösterir. Paneli başlığa tıklayın ve seçin **Düzenle** içinde bu grafiği grafiği çizmek için istediğiniz verilerin ayrıntılarını girmek için.
-    ![Grafana yeni graf](.\media\monitor-how-to-grafana\grafana-new-graph-dark.png)
+    ![Grafana yeni graf](./media/monitor-how-to-grafana/grafana-new-graph-dark.png)
 
 4. Azure İzleyici, yapılandırdığınız veri kaynağını seçin.
     * Azure İzleyici toplama ölçümleri - seçin **Azure İzleyici** hizmet açılır. Yukarı, kaynakları ve bu grafikte izlemek için ölçüm seçebileceğiniz Seçici gösterir listesi. Bir VM'den ölçümleri toplamak için ad alanını kullanmak **Microsoft.Compute/VirtualMachines**. VM'ler ve ölçümleri seçtikten sonra Panoda verilerini görüntüleme başlayabilirsiniz.
-    ![Azure İzleyici için Grafana graph yapılandırma](.\media\monitor-how-to-grafana\grafana-graph-config-for-azure-monitor-dark.png)
+    ![Azure İzleyici için Grafana graph yapılandırma](./media/monitor-how-to-grafana/grafana-graph-config-for-azure-monitor-dark.png)
     * Azure Log Analytics'e toplama veri - seçin **Azure Log Analytics** hizmet açılır. Sorgulamak ve sorgu metni ayarlamak istediğiniz çalışma alanını seçin. Burada, zaten veya yeni bir Log Analytics sorgusu kopyalayabilirsiniz. Sorgu yazarken IntelliSense gösterilir ve otomatik tamamlama seçenekleri önerin. Bir görselleştirme türü seçin **zaman serisi** **tablo**, ve sorguyu çalıştırın.
     
     > [!NOTE]
@@ -104,7 +104,7 @@ Başarıyla oturum açtıktan sonra Azure İzleyici'veri kaynağı eklentisi zat
     > Eklentisi ile sağlanan varsayılan sorgu iki makrolarını kullanır: "$__timeFilter() ve $__interval. 
     > Bu makrolar Grafana zaman aralığını ve zaman çizgisi, bir grafik parçası üzerinde yakınlaştırdığınızda dinamik olarak hesaplamak izin verin. Bu makrolar kaldırın ve gibi bir standart süresi filtre kullanın *TimeGenerated > önce (1s)* anlamına gelir grafik yakınlaştırma özelliği destekleyecektir değil, ancak.
     
-    ![Azure Log Analytics için Grafana graph yapılandırma](.\media\monitor-how-to-grafana\grafana-graph-config-for-azure-log-analytics-dark.png)
+    ![Azure Log Analytics için Grafana graph yapılandırma](./media/monitor-how-to-grafana/grafana-graph-config-for-azure-log-analytics-dark.png)
 
 5. Aşağıdaki iki grafik ile basit bir panodur. Sol taraftaki bir, iki sanal makine CPU yüzdesini gösterir. Sağ taraftaki grafik işlemleri işlem API türü tarafından ayrılmış bir Azure depolama hesabındaki gösterir.
     ![Grafana iki grafik örneği](media/monitor-send-to-grafana/grafana6.png)
@@ -140,7 +140,7 @@ Usage
 Tüm kullanılabilir listesinde bir değişken yapılandırabileceğiniz **çözüm** değer verir ve ardından bunu kullanmak için sorgunuzu güncelleştirebilir.
 Yeni bir değişken,'a tıklayın, sağ üst kısımdaki alana Panodaki Ayarlar düğmesi oluşturmak için seçin **değişkenleri**, ardından **yeni**.
 Değişken sayfasında değerlerin listesini almak için çalıştırılacak sorgu ve veri kaynağı tanımlayın.
-![Grafana yapılandırma değişkeni](.\media\monitor-how-to-grafana\grafana-configure-variable-dark.png)
+![Grafana yapılandırma değişkeni](./media/monitor-how-to-grafana/grafana-configure-variable-dark.png)
 
 Oluşturulduktan sonra seçili değerler kullanılacak sorguyu değiştirebilir ve grafiklerinizi uygun şekilde yanıt verir:
 ```
@@ -150,13 +150,13 @@ Usage
 | sort by TimeGenerated
 ```
     
-![Grafana kullanma değişkenleri](.\media\monitor-how-to-grafana\grafana-use-variables-dark.png)
+![Grafana kullanma değişkenleri](./media/monitor-how-to-grafana/grafana-use-variables-dark.png)
 
 ### <a name="create-dashboard-playlists"></a>Pano çalma listeleri oluşturma
 
 Grafana, birçok yararlı özellik Pano çalma listesi biridir. Birden çok Pano oluşturma ve bunları görüntülemek her bir Pano için bir aralık yapılandırma çalma listesi ekleyin. Seçin **Play** dolaşma panoları görmek için. Grubunuz için bir durum Panosu sağlamak büyük duvar İzleyici görüntülemek isteyebilirsiniz.
 
-![Grafana çalma listesi örneği](.\media\monitor-how-to-grafana\grafana7.png)
+![Grafana çalma listesi örneği](./media/monitor-how-to-grafana/grafana7.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
 ms.date: 11/26/2018
-ms.openlocfilehash: ed25d03f7c592476b9284790ac12f9954661a42b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9a8486a5022a58dd9d4b94ddbe71f3a4e66f18cf
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872314"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969507"
 ---
 # <a name="azure-time-series-insights-preview-tutorial"></a>Azure Time Series Insights (Önizleme) öğreticisi
 
@@ -34,23 +34,23 @@ Bu bölümde bir Azure TSI (Önizleme) kullanarak ortam oluşturmayı açıklar 
 1. Üstteki menüden **+ Kaynak oluştur**'u seçin.
 1. **Nesnelerin İnterneti** kategorisini, ardından **Time Series Insights**’ı seçin.
 
-  ![öğretici-bir][1]
+   ![öğretici-bir][1]
 
 1. Zaman serisi görüşleri ortamı sayfadaki gerekli parametrelerini doldurun ve tıklayarak **sonraki: olay kaynağı**
 
-  ![öğretici-iki][2]
+   ![öğretici-iki][2]
 
 1. Üzerinde **olay kaynağı** sayfasında gerekli parametreleri doldurun ve tıklayarak **gözden geçir + Oluştur**.
 
-  ![öğretici-üç][3]
+   ![öğretici-üç][3]
 
 1. Tüm ayrıntılarını gözden geçirin ve tıklayın **Oluştur** ortamınızı sağlamaya başlamak için.
 
-  ![öğretici-dört][4]
+   ![öğretici-dört][4]
 
 1. Dağıtım başarıyla tamamlandıktan sonra bir bildirim alırsınız.
 
-  ![öğretici-beş][5]
+   ![öğretici-beş][5]
 
 ## <a name="send-events-to-your-tsi-environment"></a>TSI ortamınıza olayları gönderme
 
@@ -71,7 +71,7 @@ Bu bölümde, TSI ortamınıza bir olay hub'ı üzerinden olayları göndermek i
 
   1. Olay hub'ına dönün. Artık hub.d tarafından alınan yeni olayların görünmesi
 
-     ![öğretici-sekiz][8]
+      ![öğretici-sekiz][8]
 
 ## <a name="analyze-data-in-your-environment"></a>Ortamınızı verileri analiz etme
 
@@ -83,37 +83,37 @@ Bu bölümde, Time Series Insights'ı kullanarak serisi Veri Gezgini güncelleş
 
   1. Explorer'ın tıklayarak **ana öğesiz örnekleri** ortamdaki tüm zaman serisi örnekleri görmek için düğümleri.
 
-     ![öğretici-on][10]
+      ![öğretici-on][10]
 
   1. Bu öğreticide, son gün içinde gönderilen verileri çözümlemek için ekleyeceğiz. Bunu yapmak için tıklayın **hızlı süreler** seçip **son 24 saat** seçeneği.
 
-     ![öğretici-on][11]
+      ![öğretici-on][11]
 
   1. Seçin **Sensor_0** ve **ortalama değeri Göster** bu zaman serisi örneğinden gönderilen verileri görselleştirmek için.
 
-     ![öğretici-on][12]
+      ![öğretici-on][12]
 
   1. Benzer şekilde, temel analiz gerçekleştirmek için diğer zaman serisi örneklerinden gelen verileri çizebilirsiniz.
 
-     ![öğretici-On üç][13]
+      ![öğretici-On üç][13]
 
-## <a name="define-a-type--hierarchy"></a>Türü & hiyerarşisini tanımlayın 
+## <a name="define-a-type-and-hierarchy"></a>Bir tür ve hiyerarşi tanımlama
 
 Bu bölümde, bir tür hiyerarşisi, yazar ve bunları, zaman serisi örnekleri ile ilişkilendirin. Daha fazla bilgi edinin [zaman serisi modelleri](./time-series-insights-update-tsm.md).
 
   1. Explorer'ın tıklayarak **modeli** uygulama çubuğunda sekme.
 
-     ![öğretici-on dört][14]
+      ![öğretici-on dört][14]
 
   1. Türleri bölümüne tıklayarak **+ Ekle**. Bu, yeni bir zaman serisi modeli türü oluşturmanızı sağlar.
 
-     ![öğretici-on beş][15]
+      ![öğretici-on beş][15]
 
   1. Türü Düzenleyicisi'nde girin bir **adı**, **açıklama**ve ardından değişkenlerinin ilgili daha fazla bilgi için **ortalama**, **Min**, ve **Max** aşağıda gösterildiği gibi değerleri. Tıklayarak **Oluştur** türünü kaydetmek için.
 
-     ![öğretici-on altı][16]
+      ![öğretici-on altı][16]
 
-     ![öğretici-on yedi][17]
+      ![öğretici-on yedi][17]
 
   1. İçinde **hiyerarşileri** bölümünde, tıklayarak **+ Ekle**. Bu, yeni bir zaman serisi modeli hiyerarşisi oluşturmanızı sağlar.
 

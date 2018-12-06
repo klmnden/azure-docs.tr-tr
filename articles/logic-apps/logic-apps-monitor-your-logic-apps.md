@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: c2e487f421d2dfc875efde82c078f557f7bd03d2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4e1a8bd60c71bfc46b3c57cff6a87c5b2477146e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405744"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956457"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Azure Logic Apps için uyarılarını Aç durumunu izleme ve tanılama günlük kaydını ayarlama
 
@@ -74,7 +74,7 @@ Hataları veya diğer olası sorunlar hakkında bildirim almak için ayarlama [u
 
 Daha zengin çalışma zamanı ayrıntılarını ve olayları ile hata ayıklama için ile günlüğe kaydetme tanılama ayarlayabilirsiniz [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics, bulut izler ve şirket içi Ortamlarınızdaki kullanılabilirliği ve performansı sürdürmek amacıyla azure'da bir hizmettir. 
 
-Başlamadan önce Log Analytics çalışma alanına sahip olmanız gerekir. Bilgi [bir Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md).
+Başlamadan önce Log Analytics çalışma alanına sahip olmanız gerekir. Bilgi [bir Log Analytics çalışma alanı oluşturma](../azure-monitor/learn/quick-create-workspace.md).
 
 1. İçinde [Azure portalında](https://portal.azure.com)bulup mantıksal uygulamanızı seçin. 
 
@@ -92,7 +92,7 @@ Başlamadan önce Log Analytics çalışma alanına sahip olmanız gerekir. Bilg
    2. Altında **Log Analytics**, seçin **yapılandırma**. 
    3. Altında **OMS çalışma alanları**, günlüğe kaydetme için kullanılacak çalışma alanını seçin.
    > [!NOTE]
-   > OMS çalışma alanları, artık Log Analytics çalışma alanları da adlandırılır.
+   > OMS çalışma alanları artık Log Analytics çalışma alanları olarak adlandırılır.
    4. Altında **günlük**seçin **WorkflowRuntime** kategorisi.
    5. Ölçüm aralığını seçin.
    6. İşiniz bittiğinde **Kaydet**’i seçin.
@@ -137,7 +137,7 @@ Bir filtre ekleyerek sorgunuzu iyileştirmek için seçin **+ Ekle**.
    Bu örnek "Durum" sözcüğü altında başarısız olayları bulmak için kullanır. **AzureDiagnostics**.
    Burada filtresi için **status_s** zaten seçildi.
 
-   ![Filtre seçin](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
+   ![Filtre seç](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
 
 7. Sol çubuğunda, seçin ve istediğiniz filtre değeri **Uygula**.
 

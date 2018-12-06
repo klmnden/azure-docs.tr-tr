@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 3c27aecf18fcb5e14347d8f02d71891b351292be
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 87ba13334b037f7eb47264a120bb91b2be5f8a79
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341846"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963922"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Azure Stack üzerinde dağıtılan sanal makinelerini koruma
 
@@ -58,7 +58,7 @@ Her uygulama için hedef belirlemek her bir uygulama için yedekleme kurtarma ve
 | **CSP veri merkezi içinde dağıtılır ve CSP tarafından işletilen azure Stack** | Kullanıcı VM'ler için CSP tarafından işletilen Azure Stack dağıtılır. Kullanıcı Vm'lerinin yedeklemeden geri veya doğrudan Azure'a yük devretti. | CSP'de Azure Stack birincil ve ikincil örneklerini, kendi veri merkezlerinde çalışır. Kullanıcı Vm'leri geri veya iki Azure Stack örnekleri arasında yük devretti. | CSP, birincil sitenin Azure Stack'te çalışır. Müşterinin veri merkezi geri yükleme ya da yük devretme hedefidir. |
 | **Müşteri veri merkezine dağıtılan ve müşteri tarafından işletilen azure Stack** | Kullanıcı VM'ler dağıtıldığı Azure Stack müşteri işletilir. Kullanıcı Vm'lerinin yedeklemeden geri veya doğrudan Azure'a yük devretti. | Müşteri, Azure Stack birincil ve ikincil örneklerini, kendi veri merkezlerinde çalışır. Kullanıcı Vm'leri geri veya iki Azure Stack örnekleri arasında yük devretti. | Müşteri, Azure Stack birincil sitede çalışır. CSP'ın datacenter geri yükleme ya da yük devretme hedefidir. |
 
-![Kaynak-hedef birleşimleri](media\azure-stack-manage-vm-backup\vm_backupdataflow_01.png)
+![Kaynak-hedef birleşimleri](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
 ## <a name="application-recovery-objectives"></a>Uygulama Kurtarma hedefleri
 
@@ -77,7 +77,7 @@ Başka bir ölçüm olan **ortalama süresi, kurtarılır** (MTTR) olan bir hata
 
 Sanal makine tabanlı uygulamalar için en yaygın koruma şeması, yedekleme yazılımı kullanmaktır. Genellikle bir VM'yi yedekleme, işletim sistemi, işletim sistemi yapılandırması, uygulama ikili dosyalarını ve uygulama verilerini içerir. Yedeklemeler, birimlerin, diskler veya tüm VM anlık görüntüsünü alarak oluşturulur. Azure Stack ile gelen konuk işletim sistemi veya Azure Stack depolama bağlam içinde yedekleme esnekliğine sahip olursunuz ve API işlem. Azure Stack, hiper yönetici düzeyinde alma yedeklemeleri desteklemez.
  
-![Yedekleme geri](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
+![Yedekleme geri](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
 
 Uygulama Kurtarma aynı buluta veya yeni bir bulut bir veya daha fazla sanal makine geri yükleme gerektirir. Veri merkezinizde veya genel bulut Bulutu hedefleyebilirsiniz. Seçtiğiniz bulut tamamen denetiminizin içinde olduğundan ve veri gizliliği ve özerkliği gereksinimlerinize göre alır.
  
@@ -107,7 +107,7 @@ Yüksek kullanılabilirliği desteklemek için alternatif bir yaklaşım, başka
 
 Bu yaklaşım uygulamanın bir buluta dağıtılması ve kendi VM diğer buluta çoğaltılır. Bir yük devretme tetikleniyorsa, ikincil VM'ler ikinci buluta açık gerekir. Bazı senaryolarda yük devretme Vm'leri ve ekler diskleri bunlara oluşturur. Bu işlem, belirli bir başlangıç dizisi gerektiren özellikle bir katmanlı uygulamayla tamamlanması uzun zaman alabilir. Uygulama istekleri hizmet vermeye başlaması hazır olmadan önce çalıştırılması gereken adımları da olabilir.
 
-![Çoğaltmayı elle yük devretme](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
+![Çoğaltmayı elle yük devretme](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
 
  - RTO: Kapalı kalma süresini dakika cinsinden ölçülür.
  - RPO: Değişken veri kaybına (bağlı olarak çoğaltma sıklığı)

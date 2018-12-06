@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 854ae54992a1389ec7c7f7892c738d070421264d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
-ms.translationtype: HT
+ms.openlocfilehash: 4b812cfa2c551e9d2f365f74bebee96626f4dd94
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283937"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968329"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Azure’da ilk Java web uygulamanızı oluşturma
 
-[Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu hızlı başlangıçta, [Java EE Geliştiricileri için Eclipse IDE](http://www.eclipse.org/) kullanarak App Service’e nasıl Java web uygulaması dağıtılacağı gösterilmektedir.
+[Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu hızlı başlangıçta, [Java EE Geliştiricileri için Eclipse IDE](https://www.eclipse.org/) kullanarak App Service’e nasıl Java web uygulaması dağıtılacağı gösterilmektedir.
 
 > [!NOTE]
 >
@@ -37,11 +37,11 @@ Bu hızlı başlangıcı tamamladığınızda, uygulamanız bir web tarayıcıs�
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için şunları yükleyin:
 
-* Ücretsiz <a href="http://www.eclipse.org/downloads/" target="_blank">Java EE Geliştiricileri için Eclipse IDE</a>. Bu hızlı başlangıçta Eclipse Neon kullanılır.
+* Ücretsiz <a href="https://www.eclipse.org/downloads/" target="_blank">Java EE Geliştiricileri için Eclipse IDE</a>. Bu hızlı başlangıçta Eclipse Neon kullanılır.
 * <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Eclipse için Azure Araç Takımı</a>.
 
 > [!NOTE]

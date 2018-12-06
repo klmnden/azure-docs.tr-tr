@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 9d831f7f08af174dfc6ce429da4d0a0daaeda0e9
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2fdd82c2f0c96b3bd20231911bb88cf54c172931
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240027"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958023"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Sorun giderme: Azure siteden siteye VPN aralıklı olarak kesiliyor
 
@@ -36,7 +36,7 @@ Azure sanal ağ geçidi türünü kontrol edin:
 1. Git [Azure portalında](https://portal.azure.com).
 2. Denetleme **genel bakış** sayfasında sanal ağ geçidi için tür bilgisi.
     
-    ![Ağ geçidi genel bakış](media\vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently\gatewayoverview.png)
+    ![Ağ geçidi genel bakış](media/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently/gatewayoverview.png)
 
 ### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>Şirket içi VPN cihazınız doğrulanan olmadığını 1 onay adım
 

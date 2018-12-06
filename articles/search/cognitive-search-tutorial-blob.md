@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 4694d7a580c9544e43cf0b56b192b55c02257531
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 3350f182e236cc0828040f1ee1eb73cf54cf18a8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730673"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957376"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Öğretici: Bilişsel arama API’lerinin nasıl çağrılacağını öğrenin (Önizleme)
 
@@ -36,7 +36,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 > [!NOTE]
 > Bilişsel Arama, genel önizleme aşamasındadır. Şu anda becerileri yürütme ve görüntü ayıklama ve normalleştirme ücretsiz olarak sunulmaktadır. İlerleyen zamanlarda bu özelliklerin fiyatları duyurulacaktır. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bilişsel aramada yeni misiniz? Öğrenmek için ["Bilişsel arama nedir?"](cognitive-search-concept-intro.md) bölümünü okuyun veya önemli kavramlara pratik bir giriş için [portal hızlı başlangıcını](cognitive-search-quickstart-blob.md) deneyin.
 
@@ -52,22 +52,25 @@ Azure Search’e REST çağrıları yapmak için PowerShell veya Telerik Fiddler
 
 1. **Kaynak oluştur**’a tıklayın, Azure Search’ü arayın ve **Oluştur**’a tıklayın. İlk kez bir arama hizmeti ayarlıyorsanız [Portalda Azure Search hizmeti oluşturma](search-create-service-portal.md) bölümüne bakın.
 
-  ![Pano portalı](./media/cognitive-search-tutorial-blob/create-service-full-portal.png "Portalda Azure Search hizmeti oluşturma")
+  ![Pano portalı](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Portalda Azure Search hizmeti oluşturma")
 
 1. Kaynak grubu için, bu öğreticide oluşturduğunuz tüm kaynakları içerecek bir kaynak grubu oluşturun. Böylece, öğreticiyi tamamladıktan sonra kaynakları temizlemeniz kolaylaşır.
 
-1. Konum için **Orta Güney ABD**’yi veya **Batı Avrupa**’yı seçin. Şu anda önizleme yalnızca bu bölgelerde kullanılabilir.
+1. Konum için aşağıdakilerden birini seçin [desteklenen bölgeler](https://docs.microsoft.com/en-us/azure/search/cognitive-search-quickstart-blob#supported-regions) Bilişsel arama için.
 
 1. Fiyatlandırma katmanı için, **Ücretsiz** bir hizmet oluşturarak öğreticileri ve hızlı başlangıçları tamamlayabilirsiniz. Kendi verilerinizi kullanarak daha ayrıntılı araştırma yapmak için **Temel** veya **Standart** gibi bir [ücretli hizmet](https://azure.microsoft.com/pricing/details/search/) oluşturun. 
 
   Ücretsiz hizmet; 3 dizin, 16 MB maksimum blob boyutu ve 2 dizinleme dakikası ile sınırlıdır ve bu da bilişsel aramanın tüm yeteneklerini uygulamak için yeterli değildir. Farklı katmanlara ilişkin sınırları gözden geçirmek için bkz. [Hizmet Sınırları](search-limits-quotas-capacity.md).
+
+  ![Portalda Hizmet tanım sayfası](./media/cognitive-search-tutorial-blob/create-search-service1.png "portalında hizmet tanımı sayfası")
+  ![portalında hizmet tanımı sayfası](./media/cognitive-search-tutorial-blob/create-search-service2.png "hizmet tanımı sayfasında portal")
 
   > [!NOTE]
   > Bilişsel arama genel önizleme aşamasındadır. Beceri kümesi yürütme şu anda ücretsiz katman da dahil olmak üzere tüm katmanlarda kullanılabilir. İlerleyen zamanlarda bu özelliğin fiyatlandırması duyurulacaktır.
 
 1. Hizmet bilgilerine hızlı erişim için hizmeti panoya sabitleyin.
 
-  ![Portaldaki hizmet tanımı sayfası](./media/cognitive-search-tutorial-blob/create-search-service.png "Portaldaki hizmet tanımı sayfası")
+  ![Portaldaki hizmet tanımı sayfası](./media/cognitive-search-tutorial-blob/create-search-service3.png "Portaldaki hizmet tanımı sayfası")
 
 1. Hizmet oluşturulduktan sonra, Genel Bakış sayfasından **URL** bilgisini ve Anahtarlar sayfasından **api-anahtarı** (birincil veya ikincil) bilgisini toplayın.
 
@@ -523,7 +526,7 @@ Yeni tanımlarla belgelerinizin yeniden dizinini oluşturmak için:
 2. Bir beceri kümesi ve dizin tanımını değiştirin.
 3. İşlem hattını çalıştırmak için hizmet üzerinde yeniden bir dizin ve dizin oluşturucu oluşturun. 
 
-Dizinleri ve dizin oluşturucuları silmek için portalı kullanabilirsiniz. Silmeye karar verirseniz beceri kümeleri yalnızca bir HTTP komutuyla silinebilir.
+Dizin, dizin oluşturucular ve becerilerini silmek için portalı kullanabilirsiniz.
 
 ```http
 DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview

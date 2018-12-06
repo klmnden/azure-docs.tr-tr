@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: chlandsi
-ms.openlocfilehash: 7d1e05e13e55b8b7bc07eda71d63f96f12c81ff9
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: 3f9b523c1efc22a94ef2a18367689c356c5be8f1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219197"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971632"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Hızlı Başlangıç: Konuşma Tanıma Hizmeti SDK’sını kullanarak iOS üzerinde Objective-C’de konuşma tanıma
 
@@ -23,10 +23,13 @@ ms.locfileid: "51219197"
 
 Bu makalede, kayıtlı konuşmayı metne dönüştürme ile bir ses dosyasının dökümünü almak için Bilişsel Hizmetler Konuşma SDK’sını kullanarak iOS içinde bir Objective-C uygulaması oluşturmayı öğreneceksiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-* Konuşma tanıma hizmeti için bir abonelik anahtarı. Bkz. [Konuşma Tanıma Hizmetini ücretsiz olarak deneyin](get-started.md).
-* iOS geliştirme ortamı olarak Xcode 9.4.1 yüklü bir Mac. Bu öğretici iOS sürüm 11.4’ü hedefler. Henüz Xcode kullanmıyorsanız, [App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12)’dan yükleyebilirsiniz.
+Başlamadan önce önkoşullarının listesi aşağıda verilmiştir:
+
+* A [abonelik anahtarı](get-started.md) konuşma hizmeti
+* Bir macOS makineyle [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) veya üzeri
+* Hedef iOS sürüm 11.4 veya sonraki sürümünü ayarlayın
 
 ## <a name="get-the-speech-sdk-for-ios"></a>iOS için Konuşma SDK’sını alın
 
@@ -37,7 +40,7 @@ Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.1.0`.
 Mac ve iOS için Bilişsel Hizmetler Konuşma SDK’sı şu anda bir Cocoa Framework olarak dağıtılmaktadır.
 https://aka.ms/csspeech/iosbinary konumundan indirilebilir. Dosyayı giriş dizininize indirin.
 
-## <a name="create-an-xcode-project"></a>Xcode Projesi oluşturma 
+## <a name="create-an-xcode-project"></a>Xcode Projesi oluşturma
 
 Xcode’u başlatın ve **Dosya** > **Yeni** > **Proje** seçeneklerine tıklayarak yeni bir proje başlatın.
 Şablon seçimi iletişim kutusunda, “iOS Tek Görünüm Uygulaması” şablonunu seçin.
@@ -103,4 +106,3 @@ Konuşma SDK’sı şu anda yalnızca 64 bit iOS platformlarını desteklemekted
 
 > [!div class="nextstepaction"]
 > [Örneklerimizi alın](speech-sdk.md#get-the-samples)
-

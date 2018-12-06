@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: mbullwin
-ms.openlocfilehash: 59052a2f0f2fbaa898502073f27b23185026e45e
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: cd8bcc9345ec73f95e8e742446522ec41c1f0f65
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724426"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956967"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights Genel Bakış Panosu
 
@@ -27,17 +27,17 @@ Application ınsights'ı her zaman hızlı ve bir bakışta değerlendirmesi uyg
 
 Yeni genel bakış panosunun artık varsayılan olarak başlatılır:
 
-![Genel Önizleme Bölmesi](.\media\app-insights-overview-dashboard\overview.png)
+![Genel Önizleme Bölmesi](./media/app-insights-overview-dashboard/overview.png)
 
 ## <a name="better-performance"></a>Daha iyi performans
 
 Zaman aralığı seçimi için basit bir tek tıklamayla arabirimi basitleştirilmiştir.
 
-![Zaman aralığı](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
+![Zaman aralığı](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-03.png)
 
 Genel performans büyük ölçüde artırıldı. Tek tıklamayla erişim gibi popüler özelliklere sahip **arama** ve **Analytics**. Dinamik olarak KPI kutucuk güncelleştirme her varsayılan karşılık gelen Application Insights özellikleri hakkında Öngörüler sağlar. Hakkında daha fazla bilgi edinmek için istekleri seçin başarısız **hataları** altında **Araştır** üst bilgi:
 
-![Başarısızlıklar](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
+![Başarısızlıklar](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>Uygulama panosu
 
@@ -45,11 +45,11 @@ Uygulama Panosu, uygulama durumunu ve performansını tamamen özelleştirilebil
 
 Varsayılan Pano seçme erişmeye _uygulama Panosu_ sol üst köşedeki.
 
-![Pano görünümü](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-05.png)
+![Pano görünümü](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-05.png)
 
 Bu panoya erişme ilk kez ise, varsayılan görünüm başlatılır:
 
-![Pano görünümü](.\media\app-insights-overview-dashboard\0001-dashboard.png)
+![Pano görünümü](./media/app-insights-overview-dashboard/0001-dashboard.png)
 
 Bu şekilde, varsayılan görünüm tutabilirsiniz. Veya, ayrıca, ekleyebilir ve panodan, takımınızın ihtiyaçlarını en iyi sığacak kadar sil.
 
@@ -58,7 +58,7 @@ Bu şekilde, varsayılan görünüm tutabilirsiniz. Veya, ayrıca, ekleyebilir v
 
 Gitmek için yalnızca bir genel bakış deneyime geri seçin:
 
-![Genel Bakış düğmesi](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
+![Genel Bakış düğmesi](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-07.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

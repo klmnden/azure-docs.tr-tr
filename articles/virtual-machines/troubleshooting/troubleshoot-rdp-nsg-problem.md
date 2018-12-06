@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: cb9058d4f68b2dc202edeeaa6cafb2eefa82470b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c32612c411f275220f549eea79276fa5a7232fd0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284736"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52954621"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Bir VM'ye RDP bağlantı noktası NSG'de etkinleştirilmediğinden uzaktan bağlanılamıyor
 
@@ -51,7 +51,7 @@ Bir NSG içinde RDP bağlantı noktasını etkinleştirmek için bu adımları i
     **Hedefleri**: tüm </br>
     **Eylem**: izin ver </br>
 
-İçinde kaynak IP adresini belirtin, bu ayar yalnızca belirli bir IP adresi veya IP adresleri, sanal Makineye bağlanmak için gelen trafiğe izin verir. RDP oturumu başlatmak için kullandığınız bilgisayara aralığında olduğundan emin olun.
+Kaynak IP adresi belirtirseniz, bu ayar yalnızca belirli bir IP adresi veya IP adresleri, sanal Makineye bağlanmak için gelen trafiğe izin verir. RDP oturumu başlatmak için kullandığınız bilgisayara aralığında olduğundan emin olun.
 
 Nsg'ler hakkında daha fazla bilgi için bkz. [ağ güvenlik grubu](../../virtual-network/security-overview.md).
 

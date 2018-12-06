@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 8c947e2effab84b17ea88623695e0a6b0d020d0f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7c92b2a060e73484b73a60f9215425cba40ea3f1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285127"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966730"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile çözüm öğrenme bir makine oluşturma
 
@@ -163,23 +163,23 @@ Bir depolama hesabı ve kapsayıcı bulunan verileri temizleme için oluşturun.
 
 10. Depolama hesabını oluşturmak için **Oluştur**’u seçin.
 
-    ![Alternatif metin](\media\azure-stack-solution-machine-learning\image1.png)
+    ![Alternatif metin](/media/azure-stack-solution-machine-learning/image1.png)
 
 11.  Son oluşturulan depolama hesabını seçin.
 
 12.  SELECT deyiminde **Blobları**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image2.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image2.png)
 
 13.  SELECT deyiminde **+ kapsayıcı** ve select deyiminde **kapsayıcı**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image3.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image3.png)
 
 14.  Kapsayıcı adını verin **uploadeddata** erişim türünü seçin **kapsayıcı**.
 
 15.  SELECT deyiminde **oluşturma**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image4.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image4.png)
 
 ## <a name="step-2-create-a-data-science-virtual-machine"></a>2. adım: bir veri bilimi sanal makinesi oluşturma
 
@@ -189,11 +189,11 @@ Azure portalında bir Ubuntu veri bilimi sanal makinesi (DSVM) oluşturun.
 
 2.  SELECT deyiminde **+ yeni** bağlantı ve "veri bilimi sanal makinesi için Linux Ubuntu CSP arayın
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image5.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image5.png)
 
 1.  Seçin **Linux (Ubuntu) için veri bilimi sanal makinesi** listesi ve izleme ekran DSVM oluşturma için yönergeler.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image6.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image6.png)
 
 > ! [Önemli]  
 > **Seçin** parola ** olarak*kimlik doğrulama türü*.
@@ -268,19 +268,19 @@ Azure Machine Learning hesapları sağlamak için Azure portalını kullanın:
 
 1.  Oturum [Azure portalında](https://portal.azure.com/) kullanılacak Azure aboneliği için kimlik bilgilerini kullanarak. Bir Azure aboneliği edinme oluşturma bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image7.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image7.png)
 
 1.  Portalın sol üst köşesinde bulunan **Kaynak oluştur** düğmesini (+) seçin.
 
-    ![Azure portalında kaynak oluşturma](media\azure-stack-solution-machine-learning\image8.png)
+    ![Azure portalında kaynak oluşturma](media/azure-stack-solution-machine-learning/image8.png)
 
 1.  Arama çubuğuna **Machine Learning** yazın. **Machine Learning Denemesi (önizleme)** adlı arama sonucunu seçin.
 
-    ![Azure Machine Learning araması](media\azure-stack-solution-machine-learning\image9.png)
+    ![Azure Machine Learning araması](media/azure-stack-solution-machine-learning/image9.png)
 
 1.  İçinde **Machine Learning denemesi** bölmesinde seçin ve altındaki kaydırma **Oluştur** deneme hesabı tanımlamaya başlayın.
 
-    ![Azure Machine Learning - deneme hesabı oluşturma](media\azure-stack-solution-machine-learning\image10.png)
+    ![Azure Machine Learning - deneme hesabı oluşturma](media/azure-stack-solution-machine-learning/image10.png)
 
 1.  İçinde **ML denemesi** bölmesinde Machine Learning denemesi hesabı yapılandırın.
 
@@ -299,15 +299,15 @@ Azure Machine Learning hesapları sağlamak için Azure portalını kullanın:
     | Model Yönetimi fiyatlandırma katmanı | **DEVTEST** | Seçin **fiyatlandırma katmanı seçilmedi** yeni Model Yönetimi hesabı fiyatlandırma katmanını belirtmek için. Abonelikte (sınırlı kullanılabilirlik) varsa maliyet tasarrufu için DEVTEST fiyatlandırma katmanını seçin. Yoksa S1 fiyatlandırma katmanını seçin. Fiyatlandırma katmanı seçimini kaydetmek için seçin'i seçin. |
     | Panoya sabitle | işaretli | Seçin **panoya Sabitle** Azure portal'ın ön Pano sayfasında Machine Learning denemesi hesabı kolayca izlenmesine izin vermek için seçeneği. |
 
-    ![Machine Learning Denemesi hesap yapılandırması](media\azure-stack-solution-machine-learning\image11.png)
+    ![Machine Learning Denemesi hesap yapılandırması](media/azure-stack-solution-machine-learning/image11.png)
 
 1.  Model Yönetim hesabıyla birlikte Deneme hesabı oluşturma işlemine başlamak için **Oluştur**'u seçin.
 
-    ![Machine Learning Denemesi hesap yapılandırması](media\azure-stack-solution-machine-learning\image12.png)
+    ![Machine Learning Denemesi hesap yapılandırması](media/azure-stack-solution-machine-learning/image12.png)
 
     Bu hesap oluşturmak için birkaç dakika sürebilir. Azure portalı araç çubuğundaki bildirim simgesine (zil) seçerek dağıtım işleminin durumunu denetleyin.
 
-    ![Azure portalı bildirimleri](media\azure-stack-solution-machine-learning\image13.png)
+    ![Azure portalı bildirimleri](media/azure-stack-solution-machine-learning/image13.png)
 
 ### <a name="install-and-log-in-to-workbench"></a>Yükleme ve workbench oturumunu açın 
 
@@ -349,7 +349,7 @@ Azure Machine Learning Workbench, Windows veya macOS için sağlanır. [Destekle
 
 1.  **PROJELER** bölmesinden artı işaretini (+) seçip **Yeni Proje**’yi seçin.
 
-    ![Yeni çalışma alanı](media\azure-stack-solution-machine-learning\image14.png)
+    ![Yeni çalışma alanı](media/azure-stack-solution-machine-learning/image14.png)
 
 1.  Form alanlarını doldurun ve **Oluştur** düğmesini seçerek Workbench’te yeni projeyi oluşturun.
 
@@ -362,11 +362,11 @@ Azure Machine Learning Workbench, Windows veya macOS için sağlanır. [Destekle
     | Seçili çalışma alanı | IrisGarden (varsa) | Azure portalında deneme hesabı için oluşturulan çalışma alanını seçin. <br>Hızlı Başlangıç adımlarını kullanarak, çalışma alanı adı Irisgarden tarafından listelenir. Aksi takdirde, çalışma alanı deneme hesabı adı veya tercih edilen hesap adı kullanın. |
     | Proje şablonu | Classifying Iris | Betikleri ve verileri ürünü keşfetmek için kullanılan şablonları içerir. Bu şablon, betikler ve bu belge sitesindeki bu hızlı başlangıçta ve diğer öğreticiler için gerekli verileri içerir. |
 
-    ![Yeni proje](media\azure-stack-solution-machine-learning\image15.png)
+    ![Yeni proje](media/azure-stack-solution-machine-learning/image15.png)
 
 1.  Yeni proje oluşturulur ve bu projeyi içeren proje panosu açılır. Proje giriş sayfası, veri kaynakları, dizüstü bilgisayarlar ve kaynak kodu dosyaları keşfedin.
 
-    ![Projeyi açma](media\azure-stack-solution-machine-learning\image16.png)
+    ![Projeyi açma](media/azure-stack-solution-machine-learning/image16.png)
 
 ### <a name="attach-a-dsvm-compute-target"></a>DSVM işlem hedefi ekleme
 
@@ -374,7 +374,7 @@ DSVM oluşturulduktan sonra Azure ML projeye ekleyin.
 
 1.  Azure ML Workbench uygulamasında Azure ML Workbench CLI'yı seçerek başlangıç **dosya**->**PowerShell'i açın**
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image17.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image17.png)
 
 1.  Aşağıdaki komut istemi açtı PowerShell'i sonra:
 
@@ -384,19 +384,19 @@ DSVM oluşturulduktan sonra Azure ML projeye ekleyin.
 
 1.  Aşağıdaki istemi alır:
 
-     ![Alternatif metin](media\azure-stack-solution-machine-learning\image18.png)
+     ![Alternatif metin](media/azure-stack-solution-machine-learning/image18.png)
 
 1.  Site isteminde ayrıntılı olarak göz atın ve sağlanan kodu girin.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image19.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image19.png)
 
 1.  İstendiğinde Devam'ı seçin, sonra Azure ML Deneysel hesabı ile ilişkili Azure hesabındaki seçin.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image20.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image20.png)
 
 1.  Azure ML Workbench CLI'yı, ardından aşağıdaki istemi gönderir:
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image21.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image21.png)
 
 1.  ML hesabı ve çalışma alanı oturum açma başarılı olarak gösterildiğinde DSVM ekleyin.
 
@@ -406,7 +406,7 @@ DSVM oluşturulduktan sonra Azure ML projeye ekleyin.
 
     Aşağıdaki uyarı görünür:
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image22.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image22.png)
 
     ```PowerShell  
         # prepare the Docker image on the DSVM 
@@ -427,15 +427,15 @@ Bu veri hazırlama paketi daha sonra bir çalışma zamanı yerel C gibi devredi
 
     Bu dosya 5 sütun ve 50 satırdan oluşan bir tablo içerir. Dört sütun, sayısal özellik sütunlarıdır. Beşinci sütun dize hedef sütunudur. Sütunların hiçbirinin üst bilgi adı yoktur.
 
-    ![iris.csv](media\azure-stack-solution-machine-learning\image23.png)
+    ![iris.csv](media/azure-stack-solution-machine-learning/image23.png)
 
 1.  Yeni bir veri kaynağı eklemek için **Veri görünümü**’nde artı işaretini (**+**) seçin. **Veri Kaynağı Ekle** sayfası açılır.
 
-    ![Azure Machine Learning Workbench’teki Veri görünümü](media\azure-stack-solution-machine-learning\image24.png)
+    ![Azure Machine Learning Workbench’teki Veri görünümü](media/azure-stack-solution-machine-learning/image24.png)
 
 1.  Seçin **metin dosyaları (\*.csv \*.json, \*.txt.,...)** .
 
-    ![Azure Machine Learning Workbench uygulamasında veri kaynağı](media\azure-stack-solution-machine-learning\image25.png)
+    ![Azure Machine Learning Workbench uygulamasında veri kaynağı](media/azure-stack-solution-machine-learning/image25.png)
 
 1.  **İleri**’yi seçin.
 
@@ -444,39 +444,39 @@ Bu veri hazırlama paketi daha sonra bir çalışma zamanı yerel C gibi devredi
     > [!Important]  
     > Seçin **iris.csv** dosyasını bu alıştırma için geçerli proje dizininden. Aksi takdirde sonraki adımlar başarısız olabilir.
 
-    ![Iris seçme](media\azure-stack-solution-machine-learning\image26.png)
+    ![Iris seçme](media/azure-stack-solution-machine-learning/image26.png)
 
 1.  Adlı yeni bir dosya `*iris-1.dsource` oluşturulur. Dosya ile benzersiz şekilde adlandırılmıştır `-1` örnek proje zaten numaralandırılmamış ile geldiğinden **iris.dsource** dosya.
 
     Dosya açılır ve veriler gösterilir. Bir dizi sütun üst öğesinden **Column1** için **sütun5**, bu veri kümesine otomatik olarak eklenir. Alt kısma kaydırın ve veri kümesinin son satırının boş olduğuna dikkat edin. CSV dosyasında fazladan bir satır sonu nedeniyle bir satır boştur.
 
-    ![Iris veri görünümü](media\azure-stack-solution-machine-learning\image27.png)
+    ![Iris veri görünümü](media/azure-stack-solution-machine-learning/image27.png)
 
 1.  **Ölçümler** düğmesini seçin. Histogramlar oluşturulur ve görüntülenir.
 
     Seçerek veri görünümüne geçiş **veri** düğmesi.
 
-    ![Iris veri görünümü](media\azure-stack-solution-machine-learning\image28.png)
+    ![Iris veri görünümü](media/azure-stack-solution-machine-learning/image28.png)
 
 1.  Histogramları gözlemleyin. Her sütun için eksiksiz bir istatistik hesaplanmıştır.
 
-    ![Iris veri görünümü](media\azure-stack-solution-machine-learning\image29.png)
+    ![Iris veri görünümü](media/azure-stack-solution-machine-learning/image29.png)
 
 1.  **Hazırla** düğmesini seçerek bir veri hazırlama paketi oluşturmaya başlayın. **Hazırla** iletişim kutusu açılır.
 
     Örnek Proje içeren bir **iris.dprep** varsayılan olarak seçili veri hazırlama dosyası.
 
-    ![Iris veri görünümü](media\azure-stack-solution-machine-learning\image30.png)
+    ![Iris veri görünümü](media/azure-stack-solution-machine-learning/image30.png)
 
 1.  Seçerek yeni bir veri hazırlama paketi oluşturma **+ yeni veri hazırlama paketi** menüsünde.
 
-    ![Iris veri görünümü](media\azure-stack-solution-machine-learning\image31.png)
+    ![Iris veri görünümü](media/azure-stack-solution-machine-learning/image31.png)
 
 1.  Paket adı için yeni bir değer girin (**iris-1**’i kullanın) ve ardından **Tamam**’ı seçin.
 
     Adlı yeni bir veri hazırlama paketi **iris-1.dprep** oluşturulup veri hazırlama düzenleyicisinde açılır.
 
-    ![Iris veri görünümü](media\azure-stack-solution-machine-learning\image32.png)
+    ![Iris veri görünümü](media/azure-stack-solution-machine-learning/image32.png)
 
     Ardından, veri hazırlama gereklidir.
 
@@ -484,7 +484,7 @@ Bu veri hazırlama paketi daha sonra bir çalışma zamanı yerel C gibi devredi
 
     Sırayla girin **Sepal uzunluğu**, **Sepal genişliği**, **Petal uzunluğu**, **Petal genişliği**, ve **türler** beş sütun için sırasıyla.
 
-    ![Sütunları yeniden adlandırma](media\azure-stack-solution-machine-learning\image33.png)
+    ![Sütunları yeniden adlandırma](media/azure-stack-solution-machine-learning/image33.png)
 
 1.  Benzersiz değerleri sayın:
 
@@ -496,23 +496,23 @@ Bu veri hazırlama paketi daha sonra bir çalışma zamanı yerel C gibi devredi
 
         Verilerin altında **Denetçiler** bölmesi açılır. Dört çubuklu bir histogram görüntülenir. Hedef sütunda dört farklı değer bulunur: **Iris-virginica**, **Iris-versicolor**,**Iris-setosa**ve **(null)** değeri.
 
-    ![Değer Sayıları seçme](media\azure-stack-solution-machine-learning\image34.png)
+    ![Değer Sayıları seçme](media/azure-stack-solution-machine-learning/image34.png)
 
-    ![Değer sayısı histogramı](media\azure-stack-solution-machine-learning\image35.png)
+    ![Değer sayısı histogramı](media/azure-stack-solution-machine-learning/image35.png)
 
 1.  Null değerleri filtreleyip dışarıda bırakmak için "(null)" çubuğunu ve sonra da eksi işaretini (**-**) seçin.
 
     Bunun üzerine, (null) satırının rengi gri olur ve filtrenin uygulandığını gösterir.
 
-    ![Null değerleri filtrenin dışında bırakma](media\azure-stack-solution-machine-learning\image36.png)
+    ![Null değerleri filtrenin dışında bırakma](media/azure-stack-solution-machine-learning/image36.png)
 
 1.  **ADIMLAR** bölmesinde ayrıntılı olarak anlatılan tek tek veri hazırlama adımlarına dikkat edin. Sütunları adlandırıp null değerli satırları filtreledikten gibi her eylem bir veri hazırlama adımı olarak kaydedilir. Ayarlarını değiştirebilir, adımları yeniden sıralayabilir ve adımları kaldırabilirsiniz her bir adımı düzenleyerek.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image37.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image37.png)
 
 1.  Veri hazırlama düzenleyicisini kapatın. Grafik simgesiyle gösterilen **iris-1** sekmesini kapatmak için sekmedeki **x** simgesini seçin. İş otomatik olarak kaydedilir **iris-1.dprep** altında gösterilen dosya **veri hazırlıkları** başlığı.
 
-    ![Kapat](media\azure-stack-solution-machine-learning\image38.png)
+    ![Kapat](media/azure-stack-solution-machine-learning/image38.png)
 
 ### <a name="generate-python-code-to-invoke-a-data-preparation-package"></a>Bir veri hazırlama paketini çağırmak için Python kodu oluşturma
 
@@ -522,7 +522,7 @@ Veri hazırlama paketinin çıkışı doğrudan Python'da veya Jupyter Notebook�
 
 2.  **iris-1.dprep** dosyasına sağ tıklayın ve bağlam menüsünden **Veri Erişim Kodu Dosyası Oluştur**’u seçin.
 
-    ![Kod oluşturma](media\azure-stack-solution-machine-learning\image39.png)
+    ![Kod oluşturma](media/azure-stack-solution-machine-learning/image39.png)
 
     Adlı yeni bir dosya **iris-1.py** veri hazırlık paketi olarak oluşturduğunuz mantığı çağırır kodu aşağıdaki satırlarla açılır:
 
@@ -552,18 +552,18 @@ Veri hazırlama paketinin çıkışı doğrudan Python'da veya Jupyter Notebook�
 
 1.  Proje Aç seçin **dosyaları** düğmesine (klasör simgesi) en sol bölmedeki proje klasöründe dosya listesini açın.
 
-    ![Azure Machine Learning Workbench projesini açma](media\azure-stack-solution-machine-learning\image40.png)
+    ![Azure Machine Learning Workbench projesini açma](media/azure-stack-solution-machine-learning/image40.png)
 
 1.  **iris_sklearn.py** Python betik dosyasını seçin.
 
-    ![Betik seçme](media\azure-stack-solution-machine-learning\image41.png)
+    ![Betik seçme](media/azure-stack-solution-machine-learning/image41.png)
 
     Kod, Workbench içinde yeni bir metin düzenleyici sekmesinde açılır.
 
     > [!Note]  
     > Bu basit proje sıklıkla güncelleştirildiğinden görüntülenen kodu tam olarak yukarıdaki kodla aynı olmayabilir.
 
-    ![Dosya açma](media\azure-stack-solution-machine-learning\image42.png)
+    ![Dosya açma](media/azure-stack-solution-machine-learning/image42.png)
 
 1.  Python betik kodunu inceleyerek kodlama stili hakkında bilgi edinin.
 
@@ -615,31 +615,31 @@ Veri hazırlama paketinin çıkışı doğrudan Python'da veya Jupyter Notebook�
 
 2.  **iris_sklearn.py** adlı sekmeyi bulun.
 
-    ![Betiği içeren sekmeyi bulun](media\azure-stack-solution-machine-learning\image43.png)
+    ![Betiği içeren sekmeyi bulun](media/azure-stack-solution-machine-learning/image43.png)
 
 1.  Bu sekmenin araç çubuğunda, seçin **yerel** andiris_sklearn.pyas çalıştırılacak betik için yürütme ortamı olarak. Bunlar zaten seçilmiş olabilir.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image44.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image44.png)
 
 1.  Sağ tarafına için araç ve enter0.01in **bağımsız değişkenleri** alan.
 
     Bu değer mantıksal regresyon modelini Kurallaştırma oranını karşılık gelir.
 
-    ![Yerel ve betik seçeneği](media\azure-stack-solution-machine-learning\image45.png)
+    ![Yerel ve betik seçeneği](media/azure-stack-solution-machine-learning/image45.png)
 
 1.  **Çalıştır** düğmesini seçin. Anında bir iş zamanlanır. İş, workbench penceresinin sağ tarafındaki **İşler** bölmesinde listelenir.
 
-    ![Yerel ve betik seçeneği](media\azure-stack-solution-machine-learning\image46.png)
+    ![Yerel ve betik seçeneği](media/azure-stack-solution-machine-learning/image46.png)
 
     Birkaç dakika sonra işin durumu değişir **gönderiliyor**, **çalıştıran**ve son olarak için **tamamlandı**.
 
 1.  **İşler** bölmesindeki iş durumu metninde **Tamamlandı** öğesini seçin.
 
-    ![sklearn çalıştırma](media\azure-stack-solution-machine-learning\image47.png)
+    ![sklearn çalıştırma](media/azure-stack-solution-machine-learning/image47.png)
 
     Bir pencere açılır ve çalıştırmanın standart çıktı (stdout) metni görüntülenir. Stdout metnini kapatmak için seçin **kapatmak** (**x**) düğmesine sağ üst kısmındaki açılır pencere.
 
-    ![Standart çıktı](media\azure-stack-solution-machine-learning\image48.png)
+    ![Standart çıktı](media/azure-stack-solution-machine-learning/image48.png)
 
 1.  Aynı iş durumunda, **işleri** bölmesinde mavi metin **iris_sklearn.py seçin \[n\] **(* n * çalıştırma numarasıdır) hemen üzerinde  **Tamamlanan** durumunun ve başlangıç zamanının. **Çalıştırma Özellikleri** penceresi açılır ve bu çalıştırma için aşağıdaki bilgileri gösterir:
 
@@ -701,13 +701,13 @@ Azure Machine Learning Workbench'te her betik yürütme bir çalıştırma geçm
 
 1.  **Çalıştırmalar** listesini açmak için sol araç çubuğundaki **Çalıştırmalar** düğmesini (saat simgesi) seçin. Ardından **iris_sklearn.py** gösterilecek **çalıştırma Panosu** ofiris_sklearn.py.
 
-    ![Çalıştırma görünümü](media\azure-stack-solution-machine-learning\image49.png)
+    ![Çalıştırma görünümü](media/azure-stack-solution-machine-learning/image49.png)
 
 1.  **Çalıştırma Panosu** sekmesi açılır.
 
     Birden fazla çalıştırma sonucunda toplanan istatistikleri gözden geçirin. Graflar sekmenin en üstünde işlenir. Her çalıştırma ardışık bir numaraya sahiptir ve çalıştırma ayrıntıları ekranın altındaki tabloda listelenir.
 
-    ![Çalıştırma panosu](media\azure-stack-solution-machine-learning\image50.png)
+    ![Çalıştırma panosu](media/azure-stack-solution-machine-learning/image50.png)
 
 1.  Tabloyu filtreleyip herhangi bir grafiğe tıklayarak her bir çalıştırmanın durumunu, süresini, kesinliğini ve kurallaştırma oranını görüntüleyebilirsiniz.
 
@@ -715,11 +715,11 @@ Azure Machine Learning Workbench'te her betik yürütme bir çalıştırma geçm
 
 3.  **Çalıştırma Panosu**’na geri dönmek için **Karşılaştırma** bölmesinin sol üst kısmındaki **Çalıştırma Listesi** geri düğmesini seçin.
 
-    ![Çalıştırma listesine dönme](media\azure-stack-solution-machine-learning\image51.png)
+    ![Çalıştırma listesine dönme](media/azure-stack-solution-machine-learning/image51.png)
 
 1.  Ayrıntılarını görmek için çalıştırmalardan birini seçin. Seçilen çalıştırmanın istatistikleri **Çalıştırma Özellikleri** bölümünde listelenir. Çıktı klasörüne yazılmış olan dosyalar listelenir **çıkışları** bölüm ve buradan dosyalarını indirir.
 
-    ![Çalıştırma ayrıntıları](media\azure-stack-solution-machine-learning\image52.png)
+    ![Çalıştırma ayrıntıları](media/azure-stack-solution-machine-learning/image52.png)
 
 Karışıklık matrisi ve çok sınıflı ROC eğrisi çizimleri **Görselleştirmeler** bölümünde oluşturulur. Tüm günlük dosyalarına **Günlükler** bölümünden de ulaşabilirsiniz.
 
@@ -840,13 +840,13 @@ Karışıklık matrisi ve çok sınıflı ROC eğrisi çizimleri **Görselleşti
 
     Proje dosyalarını listelemek için sol bölmedeki klasör simgesini seçin.  **run.py** adlı Python betiğini açın. Bu betik çeşitli düzenleme hızları üzerinde döngü için kullanışlıdır. 
 
-    ![Çalıştırma listesine dönme](media\azure-stack-solution-machine-learning\image53.png)
+    ![Çalıştırma listesine dönme](media/azure-stack-solution-machine-learning/image53.png)
 
 1.  Denemeyi bu hızlarla birden çok kez çalıştırın.
 
     Bu komut dosyasını başlatır` aniris_sklearn.pyjob` düzenleme hızı o ile `10.0` (gerçekten büyük bir sayı). Hızı en küçük olana kadar betik ardından oranı yarı aşağıdakileri çalıştırın ve benzeri için keser `0.005`. Betik aşağıdaki kodu içerir:
 
-    ![Çalıştırma listesine dönme](media\azure-stack-solution-machine-learning\image54.png)
+    ![Çalıştırma listesine dönme](media/azure-stack-solution-machine-learning/image54.png)
 
 1.  **run.py** betiğini komut satırından aşağıdaki gibi çalıştırın:
 
@@ -906,7 +906,7 @@ Bu kod parçacığı, pickle çıktı dosyasının nasıl oluşturulduğunu gös
 
     3. **Çalıştırma Özellikleri** bölmesi açılır. Bölmenin sağ üst kısmında fark **çıkışları** bölümü. d\. Pickle dosyasını indirmek için onay kutusunun yanındaki seçin **model.pkl** dosya ve ardından **indirme**. Dosyayı proje klasöründen kök dizinine kaydedin. Sonraki adımlarda bu dosya gereklidir.  
 
-    ![Pickle dosyasını indirme](media\azure-stack-solution-machine-learning\image55.png)
+    ![Pickle dosyasını indirme](media/azure-stack-solution-machine-learning/image55.png)
 
 ### <a name="get-scoring-script-and-schema-files"></a>Puanlama betiği ve şema dosyalarını alma
 
@@ -918,7 +918,7 @@ Web hizmetini model dosyasıyla birlikte dağıtmak için Puanlama betik gerekli
 
 3.  **score_iris.py** dosyasını seçin. Python betiği açılır. Bu dosya puanlama dosyası olarak kullanılır.
 
-    ![Puanlama dosyası](media\azure-stack-solution-machine-learning\image56.png)
+    ![Puanlama dosyası](media/azure-stack-solution-machine-learning/image56.png)
 
 1.  Şema dosyasını almak için betiği çalıştırın. Komut çubuğundan **yerel** ortamını ve **score_iris.py** betiğini seçip **Çalıştır** seçeneğini belirleyin.
 
@@ -1040,7 +1040,7 @@ Modeli hazır hale getirmek için aşağıdaki adımları tamamlamak üzere Dock
 
     5. adımda ortamı ayarlama önce gösterildiği gibi "Hazırlama durumu" "Başarılı" değeri olduğundan emin olun:
 
-    ![Hazırlama Durumu](media\azure-stack-solution-machine-learning\image57.png)
+    ![Hazırlama Durumu](media/azure-stack-solution-machine-learning/image57.png)
 
 1.  Ortamı ayarlayın.
 
@@ -1160,7 +1160,7 @@ Gelen Linux oturumu için Windows alt sistemi içinde aşağıdaki komutları bi
     The key fingerprint is: SHA256:lUtUUjzaqWqGeolEPKeBmsnrhcNGM9Dn2OxYatt05SE  <user>@<machine-name>
     The key's randomart image is:  
     ```
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image58.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image58.png)
 
 4. Anahtarı oluşturduktan sonra aşağıdaki komutları kullanarak anahtar bilgisini yapıştırın: 
     ```Bash
@@ -1217,11 +1217,11 @@ Kaynakları oluşturabilir, böylece aboneliği için hizmet sorumlusu erişimi 
 
 9.  Seçin **+ yeni** > **işlem** > **Kubernetes kümesi**. **Oluştur**’u seçin.
 
-    ![Çözüm Şablonu Dağıt](media\azure-stack-solution-machine-learning\image59.png)
+    ![Çözüm Şablonu Dağıt](media/azure-stack-solution-machine-learning/image59.png)
 
 10\. Seçin **Temelleri** , Kubernetes kümesi oluşturun.
 
-    ![Deploy Solution Template](media\azure-stack-solution-machine-learning\image60.png)
+    ![Deploy Solution Template](media/azure-stack-solution-machine-learning/image60.png)
 
 11. Girin **Linux VM yönetici kullanıcı adı**. Kubernetes kümesinin parçası olan bir Linux sanal makineleri ve DVM için kullanıcı adı.
 
@@ -1250,7 +1250,7 @@ Kaynakları oluşturabilir, böylece aboneliği için hizmet sorumlusu erişimi 
 
 1.  Seçin **Azure Stack damga ayarları**.
 
-    ![Çözüm Şablonu Dağıt](media\azure-stack-solution-machine-learning\image61.png)
+    ![Çözüm Şablonu Dağıt](media/azure-stack-solution-machine-learning/image61.png)
 
 2.  Girin **Kiracı Azure Resource Manager uç noktasını**. Bu, bir Kubernetes kümesi için kaynak grubu oluşturmak için bağlanmak için Azure Resource Manager uç noktadır. Uç noktasından Azure Stack operatörü için tümleşik bir sistem gereklidir. Azure Stack geliştirme Seti'ni (ASDK için), kullanın `https://management.local.azurestack.external`.
 
@@ -1356,7 +1356,7 @@ Yeni bir WSL oturumunda, yerel bir JSON dosyası alındığında kümesini yapı
 
 Kubernetes yapılandırma ayarlarını (çıktıyı aşağıya bakın) tanımlanır.
 
-![Alternatif metin](media\azure-stack-solution-machine-learning\image62.png)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image62.png)
 
 Yerel proxy hizmetini başlatın:
 
@@ -1366,19 +1366,19 @@ kubectl proxy
 
 Şu adreste kubernetes küme kullanıcı arabirimini göz atın: `https://localhost:8001`.
 
-![Alternatif metin](media\azure-stack-solution-machine-learning\image63.png)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image63.png)
 
 Artık kapsayıcı ve şirket içi görebilirsiniz bulutta yer alan bir kapsayıcı dağıtmak için bir yer var.
 
-![Alternatif metin](media\azure-stack-solution-machine-learning\image64.png)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image64.png)
 
 Özelleştirme **iris_deployment.yaml** dosyası (bulunan /*c/mnt/kullanıcı/<current user>/belgeler/Kube dizin*) şekilde **webservicename** ve kapsayıcıları  **Görüntü** ve **adı** tercih ettiğiniz herhangi bir kod Düzenleyicisi'ni kullanarak dağıtım eşleşmesi.
 
-![Alternatif metin](media\azure-stack-solution-machine-learning\image65.png)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image65.png)
 
 Kapsayıcı bağlantı noktası olarak **5001.**
 
-![Alternatif metin](media\azure-stack-solution-machine-learning\image66.png)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image66.png)
 
 Ve ardından oluşturun **imagePullSecret**:
 
@@ -1409,7 +1409,7 @@ Kaydet **iris_deployment.yaml** dosyası (bulunan /*c/mnt/kullanıcı/<current u
 kubectl.exe create -f /mnt/c/users/<current  user>/documents/Kube/iris_deployment.yaml
 ```
 
-    ![Alt text](media\azure-stack-solution-machine-learning\image67.png)
+    ![Alt text](media/azure-stack-solution-machine-learning/image67.png)
 
 Dağıtım durumunu kontrol edin:
 
@@ -1417,7 +1417,7 @@ Dağıtım durumunu kontrol edin:
 Kubectl get deployments
 ```
 
-    ![Alt text](media\azure-stack-solution-machine-learning\image68.png)
+    ![Alt text](media/azure-stack-solution-machine-learning/image68.png)
 
 Dağıtım biraz zaman alabilir.
 
@@ -1429,7 +1429,7 @@ Dağıtım biraz zaman alabilir.
 
 2.  Proje sayfasından seçin **yeni proje**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image69.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image69.png)
 
 1.  Projeyi adlandırın **HybridMLIris**.
 
@@ -1437,7 +1437,7 @@ Dağıtım biraz zaman alabilir.
 
 3.  Bir işlem seçip seçin **Oluştur**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image70.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image70.png)
 
 ### <a name="import-some-code--create-repository"></a>Bazı kod oluşturma depo içeri aktarma
 
@@ -1447,15 +1447,15 @@ Bir Git deposu için YAML kod gereklidir.
 
 1.  Varsayılan proje panodan oluşturmak Git kimlik bilgileri seçin.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image71.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image71.png)
 
 1.  Git kimlik bilgileri kaydetmek gerekli olması ve parolayı girin.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image72.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image72.png)
 
 1.  Deposu seçerek başlatın **başlatmak** düğmesi ve oluşturma bir **Benioku** dosya.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image73.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image73.png)
 
 #### <a name="clone-the-git-repository-locally-and-upload-the-code"></a>Yerel Git deposunu kopyalayın ve kodu yükleyin. 
 
@@ -1465,7 +1465,7 @@ Bir Git deposu için YAML kod gereklidir.
     sudo mkdir /mnt/c/users/<User>/source sudo mkdir /mnt/c/users/<User>/source/repos sudo mkdir /mnt/c/users/<User>/source/repos/hybridMLIris cd /mnt/c/users/<User>/source/repos/hybridMLIris sudo git clone  https://<yourvstssite>.visualstudio.com/HybridMLIris/_git/HybridMLIris
     ```
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image74.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image74.png)
 
 1.  Yeni kopyalanan depoya gidin:
 
@@ -1474,7 +1474,7 @@ Bir Git deposu için YAML kod gereklidir.
     cd ./HybridMLIris
     ```
     
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image75.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image75.png)
 
 1.  Kopyalama **iris_deployment.yaml** depoya dosya.
 
@@ -1488,7 +1488,7 @@ Bir Git deposu için YAML kod gereklidir.
     git add . git commit -m Added Deployment YAML git push
     ```
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image76.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image76.png)
 
 ### <a name="prepare-the-private-build-and-release-agent-for-vsts-integration"></a>Özel derleme ve yayın Aracısı VSTS tümleştirmesi için hazırlama
 
@@ -1514,27 +1514,27 @@ Bir hizmet sorumlusu kimlik doğrulaması için bir anahtar gerektiriyor, bir an
 
 1.  Gelen **uygulama kayıtları** uygulamayı Azure Active Directory'de'ı seçin.
 
-    ![uygulama seçme](media\azure-stack-solution-machine-learning\image77.png)
+    ![uygulama seçme](media/azure-stack-solution-machine-learning/image77.png)
 
 1.  Değerini not edin **uygulama kimliği Hizmet uç noktası VSTS'de yapılandırma değeri kullanılır.**
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image78.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image78.png)
 
 1.  Kimlik doğrulama anahtarını oluşturmak için **Ayarlar**'ı seçin.
 
-    ![ayarları seçme](media\azure-stack-solution-machine-learning\image79.png)
+    ![ayarları seçme](media/azure-stack-solution-machine-learning/image79.png)
 
 1.  **Anahtarlar**’ı seçin.
 
-    ![anahtarları seçme](media\azure-stack-solution-machine-learning\image80.png)
+    ![anahtarları seçme](media/azure-stack-solution-machine-learning/image80.png)
 
 1.  Anahtar için bir açıklama ve süre sağlayın. İşiniz bittiğinde **Kaydet**’i seçin.
 
-    ![anahtarı kaydetme](media\azure-stack-solution-machine-learning\image81.png)
+    ![anahtarı kaydetme](media/azure-stack-solution-machine-learning/image81.png)
 
 Anahtar kaydedildikten sonra, anahtarın değeri görüntülenir. Daha sonra gerektiğinde bu değeri kopyalayın. **Anahtar değerini** uygulamayla kimliği, uygulama olarak oturum açmak için gereklidir. Uygulama, alabildiği anahtar değeri Store.
 
-![Alternatif metin](media\azure-stack-solution-machine-learning\image82.png)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image82.png)
 
 #### <a name="get-tenant-id"></a>Kiracı Kimliğinizi alma
 
@@ -1542,15 +1542,15 @@ Hizmet uç noktası yapılandırmasının bir parçası olarak, VSTS gerektirir 
 
 1.  **Azure Active Directory**'yi seçin.
 
-    ![azure active directory'yi seçme](media\azure-stack-solution-machine-learning\image83.png)
+    ![azure active directory'yi seçme](media/azure-stack-solution-machine-learning/image83.png)
 
 1.  Kiracı Kimliğini almak için seçin **özellikleri** Azure AD kiracısı için.
 
-    ![Azure AD özelliklerini seçme](media\azure-stack-solution-machine-learning\image84.png)
+    ![Azure AD özelliklerini seçme](media/azure-stack-solution-machine-learning/image84.png)
 
 1.  **Dizin kimliği**'ni kopyalayın. Bu değer Kiracı kimliğidir.
 
-    ![kiracı kimliği](media\azure-stack-solution-machine-learning\image85.png)
+    ![kiracı kimliği](media/azure-stack-solution-machine-learning/image85.png)
 
 Azure Stack aboneliğine kaynakları dağıtmak için hizmet sorumlusu haklar
 
@@ -1560,27 +1560,27 @@ Abonelik, kaynak grubu veya kaynak düzeyinde kapsamı ayarlayın. Daha düşük
 
 1.  Kapsamın uygulamayı atamak istediğiniz düzeye gidin. Örneğin abonelik kapsamında bir rol atamak için seçin **abonelikleri**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image86.jpeg)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image86.jpeg)
 
 1.  Seçin **abonelik** (kaynak grubu veya kaynak) uygulama atayın.
 
-    ![Abonelik atama için seçin](media\azure-stack-solution-machine-learning\image87.png)
+    ![Abonelik atama için seçin](media/azure-stack-solution-machine-learning/image87.png)
 
 1.  Seçin **erişim denetimi (IAM)**.
 
-    ![erişim seçin](media\azure-stack-solution-machine-learning\image88.png)
+    ![erişim seçin](media/azure-stack-solution-machine-learning/image88.png)
 
 1.  **Add (Ekle)** seçeneğini belirleyin.
 
-    ![Ekle'yi seçin](media\azure-stack-solution-machine-learning\image89.png)
+    ![Ekle'yi seçin](media/azure-stack-solution-machine-learning/image89.png)
 
 1.  Uygulama atamak için rolü seçin. Aşağıdaki görüntüde **sahibi** rol.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image90.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image90.png)
 
 1.  Varsayılan olarak, Azure Active Directory uygulamaları kullanılabilir seçenekleri görüntülenmiyor. Uygulamayı bulmak için **adı sağlayın** arama alanını ve bu seçeneği belirleyin.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image91.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image91.png)
 
 1.  Seçin **Kaydet** rol atama tamamlanması. Uygulama, ilgili kapsam için bir role atanan kullanıcılar listesinde görüntülenir.
 
@@ -1598,18 +1598,18 @@ Her bir aracı tek tek yönetmek yerine aracıları düzenlenmiştir **aracı ha
 
  -  Seçin **Güvenliği Yönet** için erişim belirteci oluşturma sayfası.
 
-![Alternatif metin](media\azure-stack-solution-machine-learning\image92.png)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image92.png)
 
-![Alternatif metin](media\azure-stack-solution-machine-learning\image93.jpeg)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image93.jpeg)
 
-![Alternatif metin](media\azure-stack-solution-machine-learning\image94.jpeg)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image94.jpeg)
 
 > [!Note]  
 > Belirteç bilgileri edinin. Bunu yeniden bu ekranı bırakarak sonra gösterilmez.
 
 1.  Kopyalama **belirteci**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image95.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image95.png)
 
 #### <a name="install-the-vsts-build-agent-on-the-azure-stack-hosted-build-server"></a>Azure Stack'te VSTS derleme aracısı yükleme barındırılan derleme sunucusu
 
@@ -1660,7 +1660,7 @@ Her bir aracı tek tek yönetmek yerine aracıları düzenlenmiştir **aracı ha
 
 2.  Karşıdan yükleyip kullanarak bir hizmet olarak yapı aracısını dağıtma bir **kişisel erişim belirteci (PAT)** ve VM Yöneticisi farklı çalıştır hesabı.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image96.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image96.png)
 
     ```Bash  
         cd \home\<user>
@@ -1678,7 +1678,7 @@ Her bir aracı tek tek yönetmek yerine aracıları düzenlenmiştir **aracı ha
         ./config.sh
     ```
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image97.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image97.png)
 
 2.  Sonra **./config.sh**bittiğinde, çalışma aşağıdaki sunucu önyükleme hizmetini etkinleştirmek için kod ve hizmeti başlatın:
 
@@ -1693,23 +1693,23 @@ Aracı, artık VSTS klasöründe görülebilir.
 
 VSTO yapılar yığına Azure hizmet uygulamaları dağıtabilirsiniz böylece kullanıcılar uç noktaları oluşturabilirsiniz. Ardından, Azure Stack ile bağlanır yapı aracısı VSTS bağlanır.
 
-![Alternatif metin](media\azure-stack-solution-machine-learning\image98.png)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image98.png)
 
 1.  Üzerinde **ayarları** menüsünde **güvenlik**.
 
 2.  İçinde **VSTS grupları** listesi seçin sol taraftaki **uç noktasını oluşturanlar**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image99.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image99.png)
 
 3.  Üzerinde **üyeler sekmesinin** seçin **+ Ekle**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image100.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image100.png)
 
 1.  Tür **kullanıcıadı** ve listeden bir kullanıcı adı seçin.
 
 2.  Seçin **değişiklikleri kaydetmek**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image101.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image101.png)
 
 3.  İçinde **VSTS grupları** listesi seçin sol taraftaki **uç nokta yöneticileri**.
 
@@ -1719,13 +1719,13 @@ VSTO yapılar yığına Azure hizmet uygulamaları dağıtabilirsiniz böylece k
 
 6.  Seçin **değişiklikleri kaydedin.**
 
-    ![buchatech](media\azure-stack-solution-machine-learning\image102.jpeg)
+    ![buchatech](media/azure-stack-solution-machine-learning/image102.jpeg)
 
     Azure stack'teki yapı aracısı, sonra Azure Stack ile iletişim için uç nokta bilgileri ileten VSTS, gelen yönergeleri kazanır.
 
     Azure Stack bağlantısı için VSTS artık hazırdır.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image103.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image103.png)
 
 ### <a name="configure-build-and-release-definitions"></a>Derleme ve yayın tanımlarını yapılandırma
 
@@ -1735,61 +1735,61 @@ Bağlantı kurulur, el ile oluşturulan Azure uç noktası, AKS ve Azure Contain
 
 1.  Derleme ve yayınlama hub yapılar bölümünde seçin ve yeni bir tanımı oluşturun.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image104.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image104.png)
 
 1.  VSTS Gıt'i seçin ve daha önce oluşturduğunuz depoyu seçin.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image105.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image105.png)
 
 1.  Şablon olarak boş bir işlem hattı seçin
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image106.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image106.png)
 
 1.  Derleme adı **kopyalama Yapıt** ve Azure Stack yapı sunucu için aracı kuyruğu seçin.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image107.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image107.png)
 
 1.  İşlemde Aşama 1'i seçin ve yeniden adlandırın **kopyalama Yapıt**, ardından **görev ekleme** aşaması için:
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image108.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image108.png)
 
 1.  Seçin **derleme Yapıtları yayımlama** gelen **yardımcı programı** listesinde ve seçin **Ekle**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image109.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image109.png)
 
 1.  Seçin **yayımlama yolu** seçip **iris_deployment.yaml** dosya.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image110.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image110.png)
 
 1.  Yapıt adı **iris_deployment** olmasını yayımlama konumu seçip **Visual Studio Team Services/TFS'de**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image111.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image111.png)
 
 1.  Seçin **Kaydet ve kuyruğa**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image112.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image112.png)
 
 1.  Derleme kimliği seçerek derleme durumunu denetleyin
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image113.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image113.png)
 
 Başarı aşağıdakine benzer görünecektir:
 
-![Alternatif metin](media\azure-stack-solution-machine-learning\image114.png)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image114.png)
 
 #### <a name="create-the-release-definition-for-the-yaml-code"></a>YAML koduna için sürüm tanımı oluşturun
 
 1.  Sürümler bölümü altında derleme ve yayınlama hub yeni bir tanımı seçin
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image115.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image115.png)
 
 1.  Boş bir işlem hattı, bir şablon olarak seçin.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image106.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image106.png)
 
 1.  Ad ortamını Azure Stack.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image116.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image116.png)
 
 1.  Yeni Yapıt seçerek ekleyin **Yapıtları** ve **+ Ekle**
 
@@ -1799,25 +1799,25 @@ Başarı aşağıdakine benzer görünecektir:
 
 4.  Ardından **ekleme**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image117.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image117.png)
 
 1.  Azure Stack ortamları seçin ve ardından yeni bir görev Azure Stack'e ekleme
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image118.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image118.png)
 
 
 1.  Aracı aşaması üzerinde Azure Stack barındırılan yapı sunucuda aracı kuyruğu ayarlayın.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image119.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image119.png)
 
 1.  Yeni bir görev eklemek için bu aşama, Kubernetes dağıtma görevi için Dağıt'ı seçin ve Ekle'yi seçin.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image120.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image120.png)
 
 
 1.  Adlandırın **Kubectl uygulamak** (varsayılan adı) ve Uygula komutu seçin.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image121.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image121.png)
 
     Şimdi yeni bir Kubernetes hizmet bağlantısı oluşturun.
 
@@ -1846,7 +1846,7 @@ Başarı aşağıdakine benzer görünecektir:
 
 11. Git <https://aka.ms/devicelogin> tarayıcıda. Sorulduğunda CLI'dan tarayıcıya alınan kod girin.
 
-    ![Kubernetes hizmet uç noktası](media\azure-stack-solution-machine-learning\image122.png)
+    ![Kubernetes hizmet uç noktası](media/azure-stack-solution-machine-learning/image122.png)
 
 1.  Erişim kimlik bilgilerini almak için Kubernetes kümesi için komut isteminde aşağıdaki komutu yazın.
 
@@ -1854,20 +1854,20 @@ Başarı aşağıdakine benzer görünecektir:
 
 az aks get-credentials resource-group <yourResourceGroup> adı <yourazurecontainerservice>
 
-![Kubernetes hizmet uç noktası](media\azure-stack-solution-machine-learning\image123.png)
+![Kubernetes hizmet uç noktası](media/azure-stack-solution-machine-learning/image123.png)
 
 1.  Gidin **.kube**giriş dizini altında klasör (ör: C:\\kullanıcılar\\<user>\\belgeleri\\Kube)
 
 2.  İçeriğini kopyalayın**config**dosyası ve Kubernetes bağlantısı penceresine yapıştırın. Seçin**Tamam**düğmesi.
 
-    ![Kubernetes hizmet uç noktası](media\azure-stack-solution-machine-learning\image124.png)
+    ![Kubernetes hizmet uç noktası](media/azure-stack-solution-machine-learning/image124.png)
     
 
 3.  Kubernetes uç noktası oluşturup seçilen bir yapılandırma dosyası eklemek için kullanım yapılandırma dosyaları onay kutusunu seçin. Ardından bağlı Yapıtlar iris_deployment.yaml dosyasına göz atın.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image125.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image125.png)
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image126.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image126.png)
 
 4.  Yayın tanımını kaydedin.
 
@@ -1883,7 +1883,7 @@ kubectl get deployments
 
 Çıkış dağıtma sürecinde, şuna benzer olmalıdır.
 
-![Alternatif metin](media\azure-stack-solution-machine-learning\image127.png)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image127.png)
 
 ```Bash  
 kubectl proxy
@@ -1891,7 +1891,7 @@ kubectl proxy
 
 Kubernetes UI çalıştırıldıktan sonra dağıtımı daha göz atın [ **https://localhost:8001/** ](https://localhost:8001/) gidin **iş yükleri -> çoğaltma kümeleri**.
 
-![Alternatif metin](media\azure-stack-solution-machine-learning\image128.png)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image128.png)
 
 ### <a name="deploy-the-yaml-service"></a>YAML hizmetini dağıtma
 
@@ -1903,7 +1903,7 @@ Kubernetes UI çalıştırıldıktan sonra dağıtımı daha göz atın [ **http
     cd /mnt/c/users/<User>/source/repos/HybridMLIris/HybridMLIris/
     ```
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image75.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image75.png)
 
 1.  Kopyalama **iris_service.yaml** depoya dosya.
 
@@ -1919,21 +1919,21 @@ Kubernetes UI çalıştırıldıktan sonra dağıtımı daha göz atın [ **http
     git push
     ```
 
-![Alternatif metin](media\azure-stack-solution-machine-learning\image129.png)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image129.png)
 
 #### <a name="update-the-build-definition-for-the-yaml-code"></a>YAML koduna derleme tanımını güncelleştirin
 
 1.  Derleme ve yayınlama hub yapılar bölümünde seçin ve daha önce oluşturduğunuz tanımı seçin.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image130.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image130.png)
 
 2.  Tanımını düzenlemek için Düzenle düğmesini seçin.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image131.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image131.png)
 
 3.  **Bir görev ekleyin** aşamasına. Seçin **derleme Yapıtları yayımlama** gelen **yardımcı programı** listesinde ve seçin **Ekle**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image108.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image108.png)
 
 4.  Adlandırın **Kubectl uygulamak** (varsayılan adı) ve Uygula komutu seçin.
 
@@ -1943,26 +1943,26 @@ Kubernetes UI çalıştırıldıktan sonra dağıtımı daha göz atın [ **http
 
 1.  Derleme ve yayınlama hub theReleases bölümünde seçin ve daha önce oluşturduğunuz yayın tanımı seçin. Sonra Düzenle bağlantısını seçin.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image132.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image132.png)
 
 1.  Ortamı seçin **Azure Stack** sonra Azure Stack için yeni bir görev ekleyin.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image133.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image133.png)
 
 1.  Ekle bir **yeni görev** Bu aşama için seçin **kubernetes'e dağıtma** altında görev **Dağıt** seçip **Ekle**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image134.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image134.png)
 
 1.  Adlandırın **Kubectl uygulamak** (varsayılan adı) ve Uygula komutu seçin.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image109.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image109.png)
 
 1.  Azure Stack daha önce oluşturduğunuz bağlantı Kubernates hizmet bağlantı ayarlayın ve ardından **yapılandırma dosyalarını kullanın** bir yapılandırma dosyası eklemek için onay kutusu. Bağlı Yapıtlar iris_service.yaml dosyasına göz atın.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image135.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image135.png)
 
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image136.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image136.png)
 
 1.  Yayın tanımını kaydedin.
 
@@ -1978,7 +1978,7 @@ kubectl get deployments
 
 Çıkış dağıtma sürecinde, şuna benzer olmalıdır.
 
-![Alternatif metin](media\azure-stack-solution-machine-learning\image127.png)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image127.png)
 
 
 ```Bash  
@@ -1987,7 +1987,7 @@ kubectl proxy
 
 Kubernetes UI çalıştırıldıktan sonra dağıtımı daha göz atın [ **https://localhost:8001/** ](https://localhost:8001/) gidin **iş yükleri -> çoğaltma kümeleri**.
 
-![Alternatif metin](media\azure-stack-solution-machine-learning\image137.png)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image137.png)
 
 
 ### <a name="kubernetes-scoring-and-validation"></a>Kubernetes Puanlama ve doğrulama
@@ -2000,15 +2000,15 @@ kubectl proxy
 
 Kubernetes kullanıcı Arabirimine Gözat sonra Git **dağıtımları** -> **Iris-dağıtım** -> **yeni çoğaltma kümesi**  ->  **Iris dağıtım xxxxxxxxx** (xs olduğu dağıtım kimliği).
 
-![Alternatif metin](media\azure-stack-solution-machine-learning\image138.png)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image138.png)
 
 Ardından gidin **Hizmetleri** seçip **dış uç noktası** çalıştığını doğrulamak için hizmet.
 
-![Alternatif metin](media\azure-stack-solution-machine-learning\image139.png)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image139.png)
 
 Aşağıdakine benzer bir doğrulama iletisi görüntülenmelidir:
 
-![Alternatif metin](media\azure-stack-solution-machine-learning\image140.png)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image140.png)
 
 #### <a name="create-azure-stack-scoring-function-app-in-the-azure-stack-portal"></a>Azure Stack portalında işlev uygulaması Puanlama Azure yığını oluşturma
 
@@ -2016,37 +2016,37 @@ Her bir işlevin yürütülmesini barındıran bir işlev uygulaması gerekir. B
 
 1.  Azure Stack Kullanıcı Portalı'ndan seçin **+ yeni** düğmesi sol üst köşesinde bulunan üzerinde ardından**Web + mobil** >**işlev uygulaması**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image141.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image141.png)
 
 1.  İşlev adı **veri işlevleri** ve kalan Machine Learning ile aynı kaynak grubunda içerik yerleştirin. Tüketim için yeni bir app service planı otomatik olarak oluşturma ve uygulama depolaması için daha önce oluşturduğunuz depolama hesabını kullanırsınız araç sağlar.
 
-    ![Yeni işlev uygulaması ayarlarını tanımlama](media\azure-stack-solution-machine-learning\image142.png)
+    ![Yeni işlev uygulaması ayarlarını tanımlama](media/azure-stack-solution-machine-learning/image142.png)
 
 1.  Seçin**Oluştur**işlev uygulamasını sağlamak ve dağıtmak için.
 
 2.  Portalın sağ üst köşesindeki bildirim simgesini seçin ve izlemesi**dağıtım başarılı** ileti.
 
-    ![Yeni işlev uygulaması ayarlarını tanımlama](media\azure-stack-solution-machine-learning\image143.png)
+    ![Yeni işlev uygulaması ayarlarını tanımlama](media/azure-stack-solution-machine-learning/image143.png)
 
 1.  Seçin**kaynağa Git** yeni işlev uygulaması görüntülemek için.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image144.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image144.png)
 
 1.  Seçerek yeni bir işlev oluşturma **işlevleri**, ardından **+ yeni işlev** düğmesi.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image145.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image145.png)
 
 1.  HTTP tetikleyicisini seçin
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image146.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image146.png)
 
 1.  Seçin **C\#**  dil ve işlev adı: **temiz-puanı-data**, yetki düzeyi ayarlanmış ve **anonim**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image147.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image147.png)
 
 1.  Kopyala-yapıştır örnek içeriğini temizlemek puanı-verisi işlevdeki kod.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image148.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image148.png)
 
 #### <a name="use-postman-to-validate-functions"></a>İşlevleri doğrulamak için Postman'ı kullanma
 
@@ -2054,39 +2054,39 @@ Kbernetes ve işlevleri ayarlama emin olmak için doğru ücretsiz Postman uygul
 
 1.  Kubernetes kullanıcı Arabirimine Gözat sonra Git **dağıtımları** -> **Iris-dağıtım** -> **yeni çoğaltma kümesi**  ->  **Iris dağıtım xxxxxxxxx** (xs olduğu dağıtım kimliği)
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image138.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image138.png)
 
 1.  Ardından gidin **Hizmetleri** ve kopyalama **dış uç noktası**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image149.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image149.png)
 
 1.  Postman uygulamasını indirip [burada](https://www.getpostman.com/apps) gerekirse.
 
 2.  Postman uygulamasında oturum açın ve yeni dosya iletişim kutusunu kapatın.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image150.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image150.png)
 
 1.  Postman uygulamasında POST seçin...
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image151.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image151.png)
 
 1.  Yapıştırma **dış uç noktası** altında postman uygulamasını URL'sini **istek URL** ekleme  **\\puanı** aşağıda gösterildiği gibi URL'nin sonuna.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image152.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image152.png)
 
 1.  Seçin **gövdesi** sekmesini ve ardından veri türü olarak **ham**, ardından **JSON**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image153.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image153.png)
 
 1.  Bir web tarayıcısından gidin **dış uç noktası**. Aşağıdaki URL'ye ekleniyor **/swagger.json** Bu kurulum test etmek için kullanılan hizmetleri Swagger dosyası yol açar.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image154.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image154.png)
 
 1.  Listelenen örneği kopyalayın **Swagger.JSON** dosya.
 
 2.  Postman uygulamasında örneğe gönderinin gövdesine yapıştırın ve seçin **Gönder**. Aşağıda gösterilene benzer bir değer döndürmelidir.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image155.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image155.png)
 
 ## <a name="step-7-create-an-azure-stack-storage-account-and-storage-queue"></a>7. adım: bir Azure Stack depolama hesabını ve depolama kuyruğu oluşturma
 
@@ -2106,29 +2106,29 @@ Verileri bir Azure Stack depolama hesabını ve depolama kuyruğu oluşturun.
 
 7.  Seçin**Oluştur**depolama hesabı oluşturmak için.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image156.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image156.png)
 
 1.  Son oluşturulan depolama hesabını seçin.
 
 2.  SELECT deyiminde**kuyrukları**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image157.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image157.png)
 
 1.  SELECT deyiminde **+ kuyruk** ve seçin ve kuyruk adı **Tamam.**
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image158.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image158.png)
 
 1.  Alma **bağlantı dizesi** depolama kuyruğu için ve kopyalayın.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image159.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image159.png)
 
 1.  Azure işlev uygulaması'na gidin ve ardından **uygulama ayarları**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image160.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image160.png)
 
 1.  İşlev uygulaması, uygulama ayarları içinde uygulama ayarları aşağı kaydırın, seçerek ve **+ yeni ayar Ekle**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image161.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image161.png)
 
 1.  Depolama hesabının adını girin **adı** sonuna ekleme alan; _depolama
 
@@ -2136,11 +2136,11 @@ Bu, bir depolama hesabı uç noktası olduğunu anlamak için uygulamayı sağla
 
 1.  Bağlantı dizesi içine yapıştırın **değer** alan.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image162.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image162.png)
 
 1.  Uygulama ayarları üstüne kadar kaydırın ve **Kaydet**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image163.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image163.png)
 
 ### <a name="update-the-scoring-function-to-use-storage-queue"></a>Depolama kuyruğu kullanmak için Puanlama işlevi
 
@@ -2150,15 +2150,15 @@ Bu, bir depolama hesabı uç noktası olduğunu anlamak için uygulamayı sağla
 
 3.  Ardından **+ yeni çıkış** çıkışları öğesinden.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image164.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image164.png)
 
 1.  Ardından **Azure kuyruk depolama** ve **seçin**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image165.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image165.png)
 
 1.  Güncelleştirme **kuyruk adı** daha önce oluşturduğunuz ve ardından bir depolama kuyruğuna **depolama hesabı bağlantısı** seçin ve daha önce oluşturduğunuz depolama hesabı bağlantısı için **kaydedin.**
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image166.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image166.png)
 
 ## <a name="step-8-create-a-function-to-handle-clean-data"></a>8. adım: verileri temizleme işlemek için bir işlev oluşturma
 
@@ -2166,15 +2166,15 @@ Verileri temizleme Azure yığını, Azure'a taşımak için yeni bir Azure Stac
 
 1.  Seçerek yeni bir işlev oluşturma **işlevleri**, ardından **+ yeni işlev** düğmesi.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image167.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image167.png)
 
 1.  Seçin **Zamanlayıcı tetikleyicisi**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image168.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image168.png)
 
 1.  Seçin **C\#**  dil ve işlev adı: **karşıya yükleme azure** ve zamanlama ayarlamak **0 0 \*/1 \* \* \***  hangi CRON saatte bir gösterimidir.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image169.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image169.png)
 
 ### <a name="get-the-connection-string-to-the-azure-hosted-storage-account"></a>Barındırılan Azure depolama hesabı bağlantı dizesini alın
 
@@ -2182,17 +2182,17 @@ Verileri temizleme Azure yığını, Azure'a taşımak için yeni bir Azure Stac
 
 2.  Seçin **erişim anahtarları**, ardından kopyalama **bağlantı dizesi** depolama hesabı için.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image170.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image170.png)
 
 ### <a name="update-the-upload-to-azure-function-to-use-the-azure-hosted-storage"></a>Karşıya yükleme azure'a işlevi barındırılan Azure depolama kullanmak için güncelleştirme
 
 1.  Azure işlev uygulaması'na gidin ve ardından **uygulama ayarları**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image171.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image171.png)
 
 1.  İşlev uygulaması, uygulama ayarları içinde uygulama ayarları aşağı kaydırın, seçerek ve **+ yeni ayar Ekle**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image172.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image172.png)
 
 1.  Depolama hesabının adını girin **adı** sonuna ekleme alan; _depolama
 
@@ -2200,11 +2200,11 @@ Bu, bir depolama hesabı uç noktası olduğunu anlamak için uygulamayı sağla
 
 1.  Azure barındırılan depolama hesabı bağlantı dizesi içine yapıştırın **değer** alan.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image173.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image173.png)
 
 1.  Uygulama ayarları üstüne kadar kaydırın ve **Kaydet**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image174.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image174.png)
 
 1.  Geri gidin **karşıya yükleme azure** işlevi.
 
@@ -2212,15 +2212,15 @@ Bu, bir depolama hesabı uç noktası olduğunu anlamak için uygulamayı sağla
 
 3.  Ardından **+ yeni çıkış** çıkışları öğesinden.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image175.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image175.png)
 
 1.  Ardından **Azure Blob Depolama** ve **seçin**.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image176.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image176.png)
 
 1.  Güncelleştirme **yolu** şu biçimde daha önce oluşturduğunuz depolama kapsayıcısına: **uploadeddata / {guid rand} .txt**ve ardından **depolama hesabı bağlantısı** için Azure depolama hesabı bağlantısı seçin ve daha önce oluşturulan **kaydedin.**
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image177.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image177.png)
 
 1.  Kopyala-yapıştır örnek içeriğini kod için **karşıya yükleme azure** işleve.
 
@@ -2228,11 +2228,11 @@ Bu, bir depolama hesabı uç noktası olduğunu anlamak için uygulamayı sağla
 
 3.  Kaydet ve kodu çalıştırın.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image178.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image178.png)
 
 1.  Verileri görmek için Azure barındırılan depolama hesabına ayrıştırılmış azure'dan buluta denetleyin: başarı benzer şekilde görünür aşağıda.
 
-    ![Alternatif metin](media\azure-stack-solution-machine-learning\image179.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image179.png)
 
 Veri hassas verilerin Azure Stack barındırılan Kubernetes Machine Learning tarafından ayıklanır ve şirket içi Azure Stack, Azure Stack barındırılan işlev uygulamaları, aracılığıyla kaynaklardan Azure genel buluta yüklenen ve bir edge/bağlantısız yüklemeler için verileri hazırlamak Senaryo.
 

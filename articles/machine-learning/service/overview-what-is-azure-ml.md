@@ -1,6 +1,6 @@
 ---
 title: Azure Machine Learning hizmeti nedir?
-description: Bulutta makine öğrenimine ilişkin temel kavramları açıklar, bunu ne için kullanabileceğinizi anlatır ve makine öğrenimi terimlerini tanımlar. Uzman veri bilimcilerinin bulut ölçeğinde gelişmiş analiz uygulamaları geliştirmesini, üzerinde deneme yapmasını ve dağıtmasını sağlayan tümleşik, uçtan uca veri bilimi çözümü olan Azure Machine Learning’e genel bakış.
+description: Makine, Bulut ve ne için kullanabileceğinizi öğrenme. --Bir geliştirmek, Uzman veri bilimcilerine yönelik tümleşik, uçtan uca veri bilimi çözümü olan Azure Machine Learning hizmetine genel bakış, denemeler yapın ve bulut ölçeğinde Gelişmiş analiz uygulamaları dağıtın.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,17 +8,17 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 09/24/2018
-ms.openlocfilehash: 1dac11b8ad71a936b33742b52c95ac998176baf7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.openlocfilehash: 3a99d807bb5c3337d251044312e06806b0fe4bbc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244959"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955012"
 ---
-# <a name="what-is-azure-machine-learning-service-preview"></a>Azure Machine Learning hizmeti (önizleme) nedir?
+# <a name="what-is-azure-machine-learning-service"></a>Azure Machine Learning hizmeti nedir?
 
-Azure Machine Learning hizmeti (Önizleme), makine öğrenimi modelleri geliştirmek ve dağıtmak için kullanabileceğiniz bir bulut hizmetidir. Azure Machine Learning hizmetini kullanarak, modellerinizi bulutun sağladığı geniş ölçekte derleme, eğitme, dağıtma ve yönetme sırasında izleyebilirsiniz.
+Azure Machine Learning hizmeti eğitmek, dağıtma, otomatikleştirin ve tüm bulut sunuyor Geniş ölçekte makine öğrenimi modelleri yönetmek için kullanabileceğiniz bir bulut hizmetidir.
 
 ## <a name="what-is-machine-learning"></a>Machine learning nedir?
 
@@ -33,34 +33,35 @@ Azure Machine Learning hizmeti, makine öğrenmesi modellerini geliştirmek, eğ
 [ ![Azure Machine Learning hizmeti iş akışı](./media/overview-what-is-azure-ml/aml.png) ] (./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Azure Machine Learning hizmeti açık kaynak teknolojileri tam olarak destekler, bu nedenle TensorFlow ve scikit-learn gibi makine öğrenimi bileşenleri ile birlikte on binlerce açık kaynak Python paketi kullanabilirsiniz.
-[Jupyter not defterleri](http://jupyter.org) veya [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) gibi zengin araçlar, verileri etkileşimli olarak keşfetmeyi, dönüştürmeyi ve sonra geliştirip modelleri test etmeyi kolaylaştırır.
+İçin zengin Araçlar, gibi destekleyen [Jupyter not defterleri](http://jupyter.org) veya [Visual Studio Code için Azure Machine Learning](http://aka.ms/VSToolsforAI) uzantısı, etkileşimli olarak verileri araştırmak, dönüştürme ve ardından geliştirme ve test kolaylaştırır modeller.
 Azure Machine Learning hizmeti ayrıca kolaylık, verimlilik ve doğrulukla modeller oluşturmanıza yardımcı olan [model oluşturma ve ayarlama işlemini otomatik hale getiren](tutorial-auto-train-models.md) özellikler içerir.
 
-Azure Machine Learning hizmeti, yerel makinenizde eğitimi başlatmanıza ve sonra ölçeği buluta genişletmenize olanak tanır. [Azure Batch AI](https://azure.microsoft.com/services/batch-ai/) yerel desteği ve [gelişmiş hiper parametre ayarlama hizmetleri](how-to-tune-hyperparameters.md) ile bulutun gücünü kullanarak daha iyi modelleri daha hızlı bir şekilde derleyebilirsiniz. 
+Azure Machine Learning hizmeti, yerel makinenizde eğitimi başlatmanıza ve sonra ölçeği buluta genişletmenize olanak tanır. Kullanılabilir birçok [hedefleri işlem](how-to-set-up-training-targets.md) Azure Machine Learning işlem gibi ve [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)ile [Hizmetleri ayarlama hiper parametre Gelişmiş](how-to-tune-hyperparameters.md), oluşturabileceğinizi modelleri, bulutun gücünü kullanarak daha hızlı, daha iyi.
 
 Doğru modeli kullandığınızda, Docker gibi bir kapsayıcıya kolayca dağıtabilirsiniz. Bunun anlamı, [Azure Container Instances](how-to-deploy-to-aci.md) veya [Azure Kubernetes Service](how-to-deploy-to-aks.md)’e dağıtımın kolay olması veya kapsayıcıyı şirket içi veya bulut olmasına bakılmaksızın kendi dağıtımlarınızda kullanabilmenizdir.
 Dağıtılan modelleri yönetebilir ve en uygun çözümü bulmak için denemeler yaparken birden fazla çalıştırmayı izleyebilirsiniz.
+Modeliniz dağıtıldıktan sonra elde edilmesi de döndürebilir [gerçek zamanlı](how-to-consume-web-service.md), veya [zaman uyumsuz olarak](how-to-run-batch-predictions.md) büyük miktarlarda veri çubuğunda.
 
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
+İle Gelişmiş [makine öğrenimi işlem hatları](concept-ml-pipelines.md), veri hazırlama, model eğitiminin ve değerlendirme ve dağıtım tüm adımları üzerinde işbirliği yapabilirsiniz.
 
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile neler yapabilirim?
 
-Azure Machine Learning hizmeti sizin için bir modeli otomatik olarak oluşturup otomatik olarak ayarlayabilir.
+Azure Machine Learning hizmeti otomatik-bir modeli eğitme ve otomatik-bunu sizin için ayarlama.
 Bir örneği için bkz. [Öğretici: Azure Automated Machine Learning ile bir sınıflandırma modelini otomatik olarak eğitme](tutorial-auto-train-models.md).
 
-Veya Python için Azure Machine Learning <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>’sını açık kaynaklı Python paketleri ile birlikte kullanarak, bir Azure Machine Learning hizmeti çalışma alanında yüksek oranda doğru makine öğrenimi ve derin öğrenme modellerini kendi kendinize derleyip eğitebilirsiniz.
+Azure Machine Learning kullanarak <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> Python, açık kaynak Python paketlerini yanı sıra yapı ve yüksek oranda doğru machine learning eğitimi ve derin öğrenme modelleri kendiniz bir Azure Machine Learning hizmeti çalışma alanında.
 Açık kaynaklı Python paketlerinde mevcut olan aşağıdaki gibi çok sayıda makine öğrenimi bileşeni arasından seçim yapabilirsiniz:
 
-- <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
+- <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
 - <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
 - <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
 - <a href="http://mxnet.io" target="_blank">MXNet</a>
 
-Bir model oluşturduktan sonra, test için yerel olarak dağıtılabilen bir kapsayıcı (Docker gibi) oluşturmak için ve sonra [Azure Container Instances](how-to-deploy-to-aci.md) veya [Azure Kubernetes Service](how-to-deploy-to-aks.md) içinde bir üretim web hizmeti olarak kullanabilirsiniz.
+Bir modeli oluşturduktan sonra yerel olarak test etmek için dağıtılabilen bir kapsayıcı (örneğin, Docker) oluşturmak için kullanın. Herhangi bir üretim web hizmeti olarak test tamamlandıktan sonra modeli dağıtılabilir [Azure Container Instances](how-to-deploy-to-aci.md) veya [Azure Kubernetes hizmeti](how-to-deploy-to-aks.md).
 
-Daha sonra [Azure portal](https://portal.azure.com/) veya [Azure Machine Learning CLI uzantısını](reference-azure-machine-learning-cli.md) kullanarak dağıtılmış modellerinizi yönetebilirsiniz.
-Model ölçümlerini değerlendirebilir, modelin yeni sürümlerini yeniden eğitip yeniden dağıtabilir, tüm bunları yaparken modelin denemelerini izleyebilirsiniz.
+Kullanarak, dağıtılan modelleri ardından yönetebileceğiniz [Python için Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) veya [Azure portalında](https://portal.azure.com/).
+Modelin denemeleri tümünü havada modeli ölçümler, retrain ve yeniden dağıtma modeli yeni sürümlerini değerlendirebilirsiniz.
 
 Azure Machine Learning hizmeti ile çalışmaya başlamak için aşağıdaki [Sonraki adımlara](#next-steps) bakın.
 
@@ -76,21 +77,21 @@ Bir Python ortamında çalışıyorsanız, makine öğrenimi algoritmalarınız 
 > Azure Machine Learning Studio'da oluşturulan modeller, Azure Machine Learning hizmeti tarafından dağıtılamaz veya yönetilemez.
 
 ## <a name="free-trial"></a>Ücretsiz deneme sürümü
-Abone değilseniz, [ücretsiz olarak bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Azure hizmetlerinde harcayabileceğiniz krediler alırsınız. Krediler bittikten sonra hesabı tutabilir ve [ücretsiz Azure hizmetlerini](https://azure.microsoft.com/free/) kullanabilirsiniz. Açıkça ayarlarınızı değiştirip ücretlendirme istemediğiniz sürece kredi kartınız asla ücretlendirilmez. Alternatif olarak [MSDN abone avantajlarını etkinleştirebilirsiniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): MSDN aboneliğiniz, ücretli Azure hizmetlerinizi kullanabildiğiniz her ay size kredi verir.
+Abone değilseniz, [ücretsiz olarak bir Azure hesabı açabilirsiniz](https://aka.ms/amlfree). Azure hizmetlerinde harcayabileceğiniz krediler alırsınız. Krediler bittikten sonra hesabı tutabilir ve [ücretsiz Azure hizmetlerini](https://azure.microsoft.com/free/) kullanabilirsiniz. Açıkça ayarlarınızı değiştirip ücretlendirme istemediğiniz sürece kredi kartınız asla ücretlendirilmez. Alternatif olarak, [MSDN abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), ücretli Azure Hizmetleri, size için kullanabileceğiniz her ay kredi sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure portalı kullanarak başlama](quickstart-get-started.md) makalesinden yararlanarak bir makine öğrenimi hizmeti çalışma alanı oluşturma
- 
-- Azure Machine Learning hizmeti ile modelleri eğitme ve dağıtma hakkında bilgi almak için [Azure Machine Learning ile bir görüntü sınıflandırma modelini eğitme](tutorial-train-models-with-aml.md) adlı tam öğreticiyi izleyin
+- Machine Learning hizmeti kullanmaya başlamak için çalışma alanı oluşturma [Azure portalını kullanarak](quickstart-get-started.md) veya [python'da](quickstart-create-workspace-with-python.md).
 
-- Azure Machine Learning’in modelinizi otomatik olarak oluşturup ayarlamasına izin verme hakkında bilgi için bkz. [Öğretici: Azure Automated Machine Learning ile bir sınıflandırma modelini otomatik olarak eğitme](tutorial-auto-train-models.md)
+- Eksiksiz öğreticide izleyin [eğitme ve bir Azure Machine Learning ile görüntü sınıflandırma modeli dağıtma](tutorial-train-models-with-aml.md).
+
+- [Otomatik olarak oluşturmak için Azure Machine Learning ve Otomatik Ayarla bir model](tutorial-auto-train-models.md).
 
 - Makine öğrenmesi senaryolarınızı derlemek, iyileştirmek ve yönetmek için [makine öğrenmesi işlem hatları](/azure/machine-learning/service/concept-ml-pipelines) hakkında bilgi edinin.
 
-- Hizmete teknik ve ayrıntılı bir bakış için bkz. [Azure Machine Learning hizmeti mimarisi ve kavramları](concept-azure-machine-learning-architecture.md)
+- Ayrıntılı okuma [Azure Machine Learning hizmeti mimarisi ve kavramları](concept-azure-machine-learning-architecture.md) makalesi.
 
-- Microsoft’un diğer makine öğrenimi ürünleri hakkında daha fazla bilgi için bkz. [Microsoft’un diğer makine öğrenimi ürünleri](./overview-more-machine-learning.md)
+- Diğer Microsoft machine learning ürünleri hakkında daha fazla bilgi için bkz. [diğer makine öğrenimi ürünlerini Microsoft gelen](./overview-more-machine-learning.md).
 
 
 <!-- 

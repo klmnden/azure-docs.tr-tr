@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: d50131a9c9e7572f7696a936cbfec3a8568eda2e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3759a9845d4ad1514fc5f0183c78b5eca2e31464
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343665"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960660"
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure Stack güvenlik duvarı tümleştirmesi
 Güvenli Azure yığını için bir güvenlik duvarı cihaz kullanmanız önerilir. Güvenlik duvarları ile dağıtılmış hizmet engelleme (DDOS) saldırıları, izinsiz giriş algılama ve içerik İnceleme gibi yardımcı olsa da ayrıca bloblar, tablolar ve Kuyruklar gibi Azure depolama hizmetleri için bir aktarım hızı performans sorunu haline gelebilir.
@@ -49,7 +49,7 @@ Bir edge dağıtımı, Azure Stack doğrudan sınır yönlendiricisi veya güven
 
 Genellikle, genel olarak yönlendirilebilir IP adresleri için dış ağ genel VIP havuzundan dağıtım sırasında belirtilir. Bir edge senaryosunda, genel olarak yönlendirilebilir IP'leri herhangi bir ağ üzerindeki güvenlik amacıyla kullanmak için önerilmez. Bu senaryo Azure gibi genel bulut olduğu gibi tam Self denetimli bulut deneyimi deneyimi sağlar.  
 
-![Azure Stack kenar güvenlik duvarı örneği](.\media\azure-stack-firewall\firewallScenarios.png)
+![Azure Stack kenar güvenlik duvarı örneği](./media/azure-stack-firewall/firewallScenarios.png)
 
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Kurumsal intranet veya çevre ağ güvenlik duvarı senaryoları
 Bir Kurumsal intranet veya çevre dağıtımında, Azure Stack çoklu bölgesinin bir güvenlik duvarı veya sınır güvenlik duvarı ve dahili, kurumsal ağ güvenlik duvarı arasında dağıtılır. Trafik, ardından güvenli, çevre ağındaki (veya DMZ arasında) dağıtılır ve olarak güvenli olmayan bölgeler aşağıda açıklanan:
@@ -58,7 +58,7 @@ Bir Kurumsal intranet veya çevre dağıtımında, Azure Stack çoklu bölgesini
 - **Çevre bölge**. Çevre ağ dış veya internet'e yönelik Web sunucuları genellikle dağıtılır gibi uygulamalar olabilir. Genellikle, DDoS ve sağlarken hala belirtilen gelen trafiği internet'ten (deşifre etme) yetkisiz erişim gibi saldırıları önlemek için bir güvenlik duvarı tarafından izlenir. Yalnızca dış ağ genel VIP havuzunu Azure Stack DMZ bölgede bulunmalıdır.
 - **Güvenli olmayan bölge**. Dış ağ, internet budur. Bunu **değil** güvensiz bölgedeki Azure Stack dağıtmanız önerilir.
 
-![Azure Stack çevre ağı örneği](.\media\azure-stack-firewall\perimeter-network-scenario.png)
+![Azure Stack çevre ağı örneği](./media/azure-stack-firewall/perimeter-network-scenario.png)
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
 Daha fazla bilgi edinin [bağlantı noktaları ve Azure Stack uç noktaları tarafından kullanılan protokoller](azure-stack-integrate-endpoints.md).

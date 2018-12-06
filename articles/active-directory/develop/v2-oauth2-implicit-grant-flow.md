@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 878c2596a1d884e26a4b4a4ed4764cfd9ce6b39b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e9de2c9b7f79dd6cba3050d84ccfa0795bc2d09a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424109"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962588"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokolleri - örtük akışını kullanarak Spa'lar
 
@@ -36,7 +36,7 @@ V2.0 uç noktası ile kullanarak tek sayfalı uygulamanızla hem kişisel ve iş
 
 Bu uygulamalar için (AngularJS, Ember.js, React.js vb.), Azure Active Directory (Azure AD), OAuth 2.0 örtülü izin akışını destekler. Örtük akış açıklanan [OAuth 2.0 belirtimini](https://tools.ietf.org/html/rfc6749#section-4.2). Bunun yararı belirteçleri Azure AD'den bir arka uç sunucusuna gerçekleştirmeden kimlik bilgisi alışverişinin ve uygulamayı vermesidir. Bu, kullanıcının oturumunu, oturumu korumak ve istemcideki tüm diğer web API'leri belirteçleri JavaScript kodu alma okumasına izin verir. Örtük akış özellikle yaklaşık kullanırken dikkate almanız birkaç önemli güvenlik konuları vardır [istemci](https://tools.ietf.org/html/rfc6749#section-10.3) ve [kullanıcı kimliğe bürünme](https://tools.ietf.org/html/rfc6749#section-10.3).
 
-Örtük akış ve Azure AD kimlik doğrulaması JavaScript uygulamanıza eklemek için kullanmak istiyorsanız, açık kaynak JavaScript Kitaplığı kullanmanız önerilir [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js). 
+Örtük akış ve Azure AD kimlik doğrulaması JavaScript uygulamanıza eklemek için kullanmak istiyorsanız, açık kaynak JavaScript Kitaplığı kullanmanız önerilir [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js).
 
 Ancak, bir tek sayfalı uygulamanızı kitaplıkta kullanma ve kendinize protokol iletilerini göndermek isterseniz, aşağıdaki genel adımları izleyin.
 
@@ -71,7 +71,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > Örtük akışını kullanarak test etmek için <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank"> https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a> Oturum açtıktan sonra tarayıcınızı için yeniden yönlendirilmesi gereken `https://localhost/myapp/` ile bir `id_token` adres çubuğundaki.
-> 
+>
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |

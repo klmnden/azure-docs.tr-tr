@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 215cc45f09e15c74a39347e3a62945b45eafa130
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 632393696274eaf6f876ea717b5fccf7d4fbea3f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877675"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965402"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile coğrafi olarak dağıtılmış bir uygulama çözümü oluşturma
 
@@ -114,17 +114,17 @@ Azure ve Azure Stack Web uygulamasına dağıtmak için karma CI/CD ayarlama ve 
 
     Karma sürekli tümleştirme/sürekli teslim (CI/CD), hem uygulama kodunda hem de altyapı kodunu uygulayabilirsiniz. Kullanım [Azure Resource Manager şablonları](https://azure.microsoft.com/resources/templates/) hem özel hem de barındırılan buluta yönelik geliştirme için.
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image1.JPG)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image1.JPG)
 
 2. **Depoyu kopyalama** oluşturarak ve varsayılan bir web uygulamasını açma.
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image2.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image2.png)
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>Her iki bulut Web uygulama dağıtımı oluşturma
 
 1.  Düzen **WebApplication.csproj** dosya: seçin **Runtimeidentifier** ve ekleme **win10 x64**. (Bkz [Self-contained dağıtım](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) belgelerine.)
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image3.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image3.png)
 
 1.  **Azure depoları kodu iade** Takım Gezgini'ni kullanarak.
 
@@ -136,7 +136,7 @@ Azure ve Azure Stack Web uygulamasına dağıtmak için karma CI/CD ayarlama ve 
 
 2. Ekleme **- r win10-x64** kod. Bu.Net Core ile kendi içinde bir dağıtım tetiklemek gereklidir.
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image4.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image4.png)
 
 3. **Yapıyı çalıştırmak**. [Müstakil dağıtım derleme](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) işlem, Azure ve Azure Stack üzerinde çalışabilen yapıtları yayımlar.
 
@@ -151,87 +151,87 @@ Azure DevOps ve Azure DevOps sunucusu yüksek oranda yapılandırılabilir ve y�
 #### <a name="create-release-definition"></a>Yayın tanımı oluşturma
 
 
-![Alternatif metin](media\azure-stack-solution-geo-distributed\image5.png)
+![Alternatif metin](media/azure-stack-solution-geo-distributed/image5.png)
 
 1.  Seçin **yanı sıra** altında yeni bir yayın eklemek için Ekle düğmesine **sürümler sekmesinde** derleme ve yayın sayfasında, Visual Studio Online (VSO).
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image6.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image6.png)
 
 2. Uygulama **Azure uygulama hizmeti dağıtımının** şablonu.
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image7.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image7.png)
 
 3. Ekle yapıt aşağı açılır menüsündeki **yapıt ekleme** Azure bulut derleme uygulaması için.
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image8.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image8.png)
 
 4. İşlem hattı sekmesi altında seçin **aşama, görev** ortamının bağlamak ve Azure bulut ortamına değerlerini ayarlayın.
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image9.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image9.png)
 
 5. Ayarlama **ortam adı** Azure seçip **abonelik** Azure bulut uç noktası için.
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image10.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image10.png)
 
 6. Ortam adı altında gerekli ayarlamak **Azure uygulama hizmeti adı**.
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image11.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image11.png)
 
 7. Girin **Hosted VS2017** barındırılan Azure bulut ortamı için aracı kuyruğu altında.
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image12.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image12.png)
 
 8. Azure App Service'e dağıtma geçerli menüde **paket veya klasör** ortam için. İçin Tamam'ı seçin **klasör konumu**.
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image13.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image13.png)
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image14.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image14.png)
 
 9. Tüm değişiklikleri kaydetmek ve geri dönüp **yayın ardışık düzeni**.
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image15.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image15.png)
 
 10. Ekleme bir **yeni yapıt** Azure Stack'te uygulama için derleme seçme.
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image16.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image16.png)
 
 11. Bir daha fazla ortam uygulama ekleme **Azure uygulama hizmeti dağıtımının.**
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image17.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image17.png)
 
 12. Yeni ortam adı **Azure Stack.**
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image18.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image18.png)
 
 13. Azure Stack ortamı altında bulmak **görev** sekmesi.
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image19.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image19.png)
 
 14. Seçin **abonelik** Azure Stack uç noktası için.
 
-  ![Alternatif metin](media\azure-stack-solution-geo-distributed\image20.png)
+  ![Alternatif metin](media/azure-stack-solution-geo-distributed/image20.png)
 
 15. Azure Stack web uygulaması adı olarak ayarlamak **uygulama hizmeti adı**.
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image21.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image21.png)
 
 16. Seçin **Azure Stack aracı**.
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image22.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image22.png)
 
 17. Azure uygulama hizmeti Dağıt altında bölümü geçerli seçin **paket veya klasör** ortam için. İçin Tamam'ı seçin **klasör konumu**.
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image23.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image23.png)
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image24.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image24.png)
 
 18. Altında **değişkeni** Sekme Ekle adlı bir değişken `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`, değer olarak ayarla `true`ve kapsam için `Azure Stack`.
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image25.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image25.png)
 
 19. Seçin **sürekli** yapıtları hem de etkin dağıtım tetikleyicisi simgesi **devam eder** dağıtım tetikleyicisi.
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image26.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image26.png)
 
 20. Seçin **dağıtım öncesi** Azure Stack ortamında koşullar simgesi ve tetikleyici kümesine **sürümünden sonra.**
 
@@ -244,7 +244,7 @@ Azure DevOps ve Azure DevOps sunucusu yüksek oranda yapılandırılabilir ve y�
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. 
 
-![Alternatif metin](media\azure-stack-solution-geo-distributed\image27.png)
+![Alternatif metin](media/azure-stack-solution-geo-distributed/image27.png)
 
 > [!div class="checklist"]
 > - Mevcut bir özel DNS adını Azure Web Apps ile eşleme
@@ -296,7 +296,7 @@ DNS kayıtları sayfası görüntülenebilir **My etki alanları**. Adlı bağla
 
 DNS kayıtları sayfasının bir örneğini aşağıdaki ekran görüntüsünde görebilirsiniz:
 
-![Örnek DNS kayıtları sayfası](media\azure-stack-solution-geo-distributed\image28.png)
+![Örnek DNS kayıtları sayfası](media/azure-stack-solution-geo-distributed/image28.png)
 
 1.  Etki alanı adı kayıt şirketi içinde seçin **Ekle veya oluşturma** bir kayıt oluşturmak için. Bazı sağlayıcıların farklı kayıt türlerini eklemek için farklı bağlantıları vardır. Sağlayıcının belgelerine başvurun.
 
@@ -306,7 +306,7 @@ DNS kayıtları sayfasının bir örneğini aşağıdaki ekran görüntüsünde 
 
 CNAME ekledikten sonra DNS kayıtları sayfası aşağıdaki örnekteki gibi görünür:
 
-![Azure uygulamasına portal gezintisi](media\azure-stack-solution-geo-distributed\image29.png)
+![Azure uygulamasına portal gezintisi](media/azure-stack-solution-geo-distributed/image29.png)
 
 ### <a name="enable-the-cname-record-mapping-in-azure"></a>Azure'da CNAME kaydı eşlemesini etkinleştirme
 
@@ -348,9 +348,9 @@ CNAME ekledikten sonra DNS kayıtları sayfası aşağıdaki örnekteki gibi gö
 
   Yeni konak adları uygulamanın yansıtılması biraz zaman alabilir **özel etki alanları** sayfası. Verileri güncelleştirmek için tarayıcıyı yenilemeyi deneyin.
   
-  ![Alternatif metin](media\azure-stack-solution-geo-distributed\image31.png) 
+  ![Alternatif metin](media/azure-stack-solution-geo-distributed/image31.png) 
   
-  Bir hata olması durumunda, sayfanın en altında bir doğrulama hata bildirimine görünür. ![Doğrulama hatası](media\azure-stack-solution-geo-distributed\image32.png)
+  Bir hata olması durumunda, sayfanın en altında bir doğrulama hata bildirimine görünür. ![Doğrulama hatası](media/azure-stack-solution-geo-distributed/image32.png)
 
 > [!Note]  
 >  Yukarıdaki adımları bir joker karakter etki alanını eşlemek için yinelenebilir (\*. northwindcloud.com)... Bu, her biri için ayrı bir CNAME kaydı oluşturmak zorunda kalmadan bu app service için ek güncelleştirmemiz eklenmesini sağlar. Bu ayarı yapılandırmak için kayıt yönergeleri izleyin.
@@ -404,17 +404,17 @@ Web uygulaması için özel bir SSL sertifikası bağlamak için [App Service pl
 
 2.  Sol menüden **uygulama hizmetleri**ve ardından web uygulaması adını seçin.
 
-![Web uygulaması seçme](media\azure-stack-solution-geo-distributed\image33.png)
+![Web uygulaması seçme](media/azure-stack-solution-geo-distributed/image33.png)
 
 #### <a name="check-the-pricing-tier"></a>Fiyatlandırma katmanını denetleme
 
 1.  Web uygulaması sayfasının sol gezinti bölmesinde kaydırarak **ayarları** seçin ve bölüm **ölçeği Artır (App Service planı)**.
 
-    ![Ölçeği artır menüsü](media\azure-stack-solution-geo-distributed\image34.png)
+    ![Ölçeği artır menüsü](media/azure-stack-solution-geo-distributed/image34.png)
 
 1.  Web uygulaması içinde olmadığından emin olun **ücretsiz** veya **paylaşılan** katmanı. Web uygulamanızın geçerli katmanı Koyu mavi bir kutu vurgulanır.
 
-    ![Fiyatlandırma katmanını denetleyin](media\azure-stack-solution-geo-distributed\image35.png)
+    ![Fiyatlandırma katmanını denetleyin](media/azure-stack-solution-geo-distributed/image35.png)
 
 **Ücretsiz** veya **Paylaşılan** katmanında özel SSL desteklenmez. Ölçeklemenizi, sonraki bölümde yer alan adımları izleyin veya **fiyatlandırma katmanınızı seçin** sayfasında ve atlamak [karşıya yükleme ve SSL sertifikanızı bağlama](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl).
 
@@ -424,11 +424,11 @@ Web uygulaması için özel bir SSL sertifikası bağlamak için [App Service pl
 
 2.  Seçin **seçin**.
 
-![Fiyatlandırma katmanı seçme](media\azure-stack-solution-geo-distributed\image36.png)
+![Fiyatlandırma katmanı seçme](media/azure-stack-solution-geo-distributed/image36.png)
 
 Bildirim görüntülendiğinde ölçeklendirme işlemi tamamlanmıştır.
 
-![Ölçek artırma bildirimi](media\azure-stack-solution-geo-distributed\image37.png)
+![Ölçek artırma bildirimi](media/azure-stack-solution-geo-distributed/image37.png)
 
 #### <a name="bind-your-ssl-certificate-and-merge-intermediate-certificates"></a>SSL sertifikanızı bağlama ve Ara sertifikaları birleştirme
 
@@ -491,11 +491,11 @@ IIS veya **Certreq.exe** kullanılan sertifika isteği oluşturmak için sertifi
 
 5.  **Karşıya Yükle**’yi seçin.
 
-![Sertifikayı karşıya yükleme](media\azure-stack-solution-geo-distributed\image38.png)
+![Sertifikayı karşıya yükleme](media/azure-stack-solution-geo-distributed/image38.png)
 
 App Service sertifikanızı karşıya yüklemeyi tamamladığında, görünür **SSL ayarları** sayfası.
 
-![Alternatif metin](media\azure-stack-solution-geo-distributed\image39.png)
+![Alternatif metin](media/azure-stack-solution-geo-distributed/image39.png)
 
 #### <a name="bind-your-ssl-certificate"></a>SSL sertifikanızı bağlama
 
@@ -514,11 +514,11 @@ App Service sertifikanızı karşıya yüklemeyi tamamladığında, görünür *
 
     1.  Seçin **bağlaması Ekle**.
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image40.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image40.png)
 
 App Service sertifikanızı karşıya yüklemeyi tamamladığında, görünür **SSL bağlamaları** bölümler.
 
-![Alternatif metin](media\azure-stack-solution-geo-distributed\image41.png)
+![Alternatif metin](media/azure-stack-solution-geo-distributed/image41.png)
 
 #### <a name="remap-the-a-record-for-ip-ssl"></a>IP SSL için A kaydını yeniden eşleme
 
@@ -534,7 +534,7 @@ Web uygulaması için bir A kaydı eşlendiğinde, etki alanı kayıt defteri ay
 
 Çeşitli tarayıcılarda https://<your.custom.domain>to göz atın ap sunulan web emin olun.
 
-![Alternatif metin](media\azure-stack-solution-geo-distributed\image42.png)
+![Alternatif metin](media/azure-stack-solution-geo-distributed/image42.png)
 
 > [!Note]  
 > Sertifika doğrulama hataları oluşursa, neden otomatik olarak imzalanan bir sertifika olabilir veya Ara Sertifika PFX dosyasına dışarı aktarılırken bırakıldı devre dışı.
@@ -545,7 +545,7 @@ Varsayılan olarak, herkes HTTP kullanarak web uygulamasına erişebilir. tüm H
 
 Web uygulaması sayfasında seçin **SL ayarları**. Ardından **Yalnızca HTTPS** menüsünde **Açık**’ı seçin.
 
-![HTTPS zorlama](media\azure-stack-solution-geo-distributed\image43.png)
+![HTTPS zorlama](media/azure-stack-solution-geo-distributed/image43.png)
 
 İşlem tamamlandığında, herhangi bir uygulamaya işaret eden HTTP URL'leri gidin. Örneğin:
 
@@ -561,7 +561,7 @@ Uygulamanın verir [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) ar
 
 2.  İçinde **TLS sürümü**, en düşük TLS sürümünü seçin.
 
-![TLS 1.1 veya 1.2’yi zorlama](media\azure-stack-solution-geo-distributed\image44.png)
+![TLS 1.1 veya 1.2’yi zorlama](media/azure-stack-solution-geo-distributed/image44.png)
 
 ### <a name="create-a-traffic-manager-profile"></a>Traffic Manager profili oluşturma
 
@@ -583,7 +583,7 @@ Uygulamanın verir [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) ar
 
     7.  Traffic Manager profilinizin genel dağıtımı tamamlandıktan sonra ilgili kaynak grubunda kaynaklardan biri listelenir.
 
-    ![Alternatif metin](media\azure-stack-solution-geo-distributed\image45.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image45.png)
 
 ### <a name="add-traffic-manager-endpoints"></a>Traffic Manager uç noktalarını ekleme
 
@@ -632,7 +632,7 @@ Uygulamanın verir [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) ar
 
 1.  Her iki uç noktanın eklenmesi tamamlandığında, **Çevrimiçi** izleme durumuyla birlikte **Traffic Manager profili** bölümünde gösterilir.
 
-  ![Alternatif metin](media\azure-stack-solution-geo-distributed\image46.png)
+  ![Alternatif metin](media/azure-stack-solution-geo-distributed/image46.png)
 
 **Küresel kuruluşlar Azure coğrafi dağıtım yeteneklerini kullanır.**
 

@@ -1,6 +1,6 @@
 ---
-title: İOS mobil uygulamaları ile çevrimdışı eşitlemeyi etkinleştirme | Microsoft Docs
-description: Önbellek ve eşitleme çevrimdışı veri için Azure App Service mobile apps'de iOS uygulamalarında kullanmayı öğrenin.
+title: İOS mobil uygulamalarla çevrimdışı eşitlemeyi etkinleştirme | Microsoft Docs
+description: İOS uygulamalarında Azure App Service mobil uygulamalar, çevrimdışı veri önbelleği ve eşitleme için kullanmayı öğrenin.
 documentationcenter: ios
 author: conceptdev
 manager: crdun
@@ -14,33 +14,33 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 2f415f1886c654f3bdd880cdccaadc7aa3e69892
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bc0afcf1ac7d9e7a777d850e1b6df7b915837f3a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32156504"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956883"
 ---
-# <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Çevrimdışı iOS mobil uygulamaları ile eşitlemeyi etkinleştir
+# <a name="enable-offline-syncing-with-ios-mobile-apps"></a>İOS mobil uygulamalarla çevrimdışı eşitlemeyi etkinleştirme
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu öğretici, Azure App Service Mobile Apps özelliğini iOS için çevrimdışı eşitleme kapsar. Çevrimdışı eşitleme son kullanıcılara görüntülemek, eklemek veya bile ağ bağlantısı olduğunda verileri değiştirmek için mobil uygulama ile etkileşim kurabilirsiniz. Değişiklikler yerel bir veritabanında depolanır. Cihaz yeniden çevrimiçi olduktan sonra değişiklikler uzak arka uç ile eşitlenir.
+Bu öğretici, Azure App Service Mobile Apps özelliğini iOS için çevrimdışı eşitleme kapsar. Çevrimdışı eşitleme son kullanıcılara görüntüleme, ekleme veya bunlar hiçbir ağ bağlantısı olduğunda bile verileri değiştirmek için bir mobil uygulama ile etkileşim kurabilir. Değişiklikler, yerel bir veritabanında depolanır. Cihaz yeniden çevrimiçi olduktan sonra değişiklikleri uzak arka ucu ile eşitlenir.
 
-Mobile Apps ile ilk deneyiminizi varsa öğreticinin ilk tamamlanmalıdır [iOS uygulaması oluştur]. İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, veri erişimi uzantısı paketlerini projenize eklemeniz gerekir. Server uzantısı paketleri hakkında daha fazla bilgi için bkz: [.NET arka uç sunucusu SDK ile Azure Mobile Apps için iş](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Mobile Apps ile ilk deneyiminiz varsa, ilk öğreticiyi tamamlamanız gereken [bir iOS uygulaması oluşturma]. İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, veri erişim uzantısı paketlerini projenize eklemeniz gerekir. Server uzantısı paketleri hakkında daha fazla bilgi için bkz. [Azure Mobile Apps için .NET arka uç sunucu SDK'sı ile çalışma](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-Çevrimdışı eşitleme özelliği hakkında daha fazla bilgi için bkz: [mobil uygulamalarda çevrimdışı veri eşitlemeye].
+Çevrimdışı eşitleme özelliği hakkında daha fazla bilgi için bkz: [Mobile apps'te çevrimdışı veri eşitleme].
 
-## <a name="review-sync"></a>İstemci eşitleme kodu gözden geçirme
-İçin indirdiğiniz istemci projesi [iOS uygulaması oluştur] öğretici zaten bir yerel çekirdek veri tabanlı veritabanı çevrimdışı eşitlemeyi destekleyen kodunu içerir. Bu bölümde, eğitmen kodu zaten dahil özetlenmektedir. Özellik kavramsal bir genel bakış için bkz: [mobil uygulamalarda çevrimdışı veri eşitlemeye].
+## <a name="review-sync"></a>İstemci eşitleme kodu gözden geçirin
+İçin indirdiğiniz istemci projesi [bir iOS uygulaması oluşturma] öğretici temel veri tabanlı bir yerel veritabanı çevrimdışı eşitlemeyi destekleyen kodu zaten içeriyor. Bu bölümde, eğitmen kodu zaten dahil özetlenmektedir. Özellik kavramsal bir genel bakış için bkz: [Mobile apps'te çevrimdışı veri eşitleme].
 
-Ağ erişilemez durumda olduğunda bile Mobile Apps çevrimdışı veri eşitleme özelliğini kullanarak, son kullanıcılar ile yerel bir veritabanı etkileşimli olarak çalışabilir. Bu özellikler, uygulamanızda kullanmak için eşitleme bağlamı başlatma `MSClient` ve yerel bir depo başvuru. Tablonuz aracılığıyla başvuru sonra **MSSyncTable** arabirimi.
+Ağ erişilemez olduğunda bile Mobile Apps, çevrimdışı veri eşitleme özelliğini kullanarak yerel bir veritabanı ile son kullanıcılar etkileşim kurabilir. Uygulamanızda bu özellikleri kullanmak için eşitleme bağlamı başlatılamıyor. `MSClient` ve yerel bir depo başvuru. Tablonuzu aracılığıyla başvuru sonra **MSSyncTable** arabirimi.
 
-İçinde **QSTodoService.m** (Objective-C) veya **ToDoTableViewController.swift** (Swift), dikkat üye türü **syncTable** olan **MSSyncTable** . Çevrimdışı eşitleme kullanan bu eşitleme tablo arabirimi yerine **MSTable**. Bir eşitleme tablo kullanıldığında, tüm işlemleri yerel mağazaya gidin ve yalnızca açık anında iletme ve çekme işlemleri ile uzaktan arka uç ile eşitlenir.
+İçinde **QSTodoService.m** (Objective-C) veya **ToDoTableViewController.swift** dikkat (Swift), üye türünü **syncTable** olduğu **MSSyncTable** . Çevrimdışı eşitleme yerine bu eşitleme tablo arabirimi kullanır **MSTable**. Bir eşitleme tablo kullanıldığında, tüm işlemler yerel depoya gidin ve yalnızca açık gönderme ve çekme işlemleri ile uzak arka ucu ile eşitlenir.
 
- Bir eşitleme tablo için bir başvuru almak için **syncTableWithName** yöntemi `MSClient`. Çevrimdışı eşitleme işlevselliği kaldırmak için kullanın **tableWithName** yerine.
+ Bir eşitleme tablosuna bir başvuru almak için kullanın **syncTableWithName** metodunda `MSClient`. Çevrimdışı eşitleme işlevselliği kaldırmak için **tableWithName** yerine.
 
-Tablo işlemleri gerçekleştirilmeden önce yerel deposu başlatılması gerekir. İlgili kod aşağıdaki gibidir:
+Yerel depo, herhangi bir tablo işlem gerçekleştirilmeden önce başlatılmalıdır. İlgili kod aşağıdaki gibidir:
 
 * **Objective-C**. İçinde **QSTodoService.init** yöntemi:
 
@@ -48,7 +48,7 @@ Tablo işlemleri gerçekleştirilmeden önce yerel deposu başlatılması gereki
    MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
    self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
    ```    
-* **SWIFT**. İçinde **ToDoTableViewController.viewDidLoad** yöntemi:
+* **Swift**. İçinde **ToDoTableViewController.viewDidLoad** yöntemi:
 
    ```swift
    let client = MSClient(applicationURLString: "http:// ...") // URI of the Mobile App
@@ -56,11 +56,11 @@ Tablo işlemleri gerçekleştirilmeden önce yerel deposu başlatılması gereki
    self.store = MSCoreDataStore(managedObjectContext: managedObjectContext)
    client.syncContext = MSSyncContext(delegate: nil, dataSource: self.store, callback: nil)
    ```
-   Bu yöntemi kullanarak yerel bir depo oluşturur `MSCoreDataStore` Mobile Apps SDK'sı sağlayan arabirim. Alternatif olarak, size uygulayarak farklı bir yerel deposu sağlayabilir `MSSyncContextDataSource` protokolü. Ayrıca, ilk parametresinin **MSSyncContext** bir çakışma işleyici belirtmek için kullanılır. Biz başarılı olduğundan `nil`, biz üzerinde herhangi bir çakışmanın başarısız varsayılan çakışma işleyici alın.
+   Bu yöntemi kullanarak yerel bir depo oluşturur `MSCoreDataStore` arabirimi, Mobile Apps SDK'sı sağlar. Uygulayarak farklı bir yerel depo alternatif olarak, sağlayabilir `MSSyncContextDataSource` protokolü. Ayrıca, ilk parametresinin **MSSyncContext** çakışma işleyicisi belirtmek için kullanılır. Geçirilen olduğundan `nil`, üzerinde herhangi bir çakışma başarısız varsayılan çakışma işleyici aldığımız.
 
-Şimdi, şimdi gerçek eşitleme işlemi yapmak ve verileri uzak arka uçtan alın:
+Şimdi, şimdi gerçek eşitleme işlemi ve uzak bir arka uçtan veri alın:
 
-* **Objective-C**. `syncData` Yeni değişiklikler ilk iter ve çağırır **pullData** uzak arka uçtan veri almak için. Buna karşılık, **pullData** yöntemi bir sorguyla eşleşen yeni verileri alır:
+* **Objective-C**. `syncData` ilk yeni değişiklikleri gönderir ve sonra çağıran **pullData** uzak arka ucundan veri almak için. Buna karşılık, **pullData** yöntemi bir sorguyla eşleşen yeni verileri alır:
 
    ```objc
    -(void)syncData:(QSCompletionBlock)completion
@@ -89,7 +89,7 @@ Tablo işlemleri gerçekleştirilmeden önce yerel deposu başlatılması gereki
        }];
    }
    ```
-* **SWIFT**:
+* **Swift**:
    ```swift
    func onRefresh(sender: UIRefreshControl!) {
       UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -123,35 +123,35 @@ Tablo işlemleri gerçekleştirilmeden önce yerel deposu başlatılması gereki
    }
    ```
 
-Objective-C sürümünde içinde `syncData`, ilk diyoruz **pushWithCompletion** üzerinde eşitleme bağlamı. Bu yöntem bir üyesi olan `MSSyncContext` (ve eşitleme tablonun kendisini değil) tüm tablolar arasında değişiklikleri iter olduğundan. Yerel olarak (CUD işlemleri üzerinden) şekilde değiştirilmiş kayıt sunucusuna gönderilir. Ardından yardımcı **pullData** çağrıldığında hangi çağrıları **MSSyncTable.pullWithQuery** uzak verileri almak ve yerel veritabanında depolamak için.
+Objective-C sürüm içinde `syncData`, ilk diyoruz **pushWithCompletion** üzerinde eşitleme bağlamı. Bu yöntem bir üyesidir `MSSyncContext` (ve eşitleme tablonun kendisini değil) çünkü tüm tabloları arasında değişiklikleri gönderir. Yerel olarak (CUD işlemleri üzerinden) şekilde değiştirilmiş kayıtlar sunucuya gönderilir. Ardından yardımcı **pullData** çağrılır, çağıran **MSSyncTable.pullWithQuery** uzak verileri almak ve yerel veritabanında depolamak için.
 
-SWIFT sürümde olmadığından zorlama işlemi kesinlikle gerekli yoktur hiçbir çağrısına **pushWithCompletion**. Gönderme işlemi yapıyor tablosu için eşitleme bağlamındaki bekleyen tüm değişiklikleri varsa, çekme her zaman bir itme ilk verir. Ancak, birden fazla eşitleme tablo varsa, her şeyi ilişkili tablolar arasında tutarlı olduğundan emin olmak için anında iletme açıkça çağırmak en iyisidir.
+Swift sürüm olmadığından zorlama işlemi kesinlikle gerekli yoktur hiçbir **pushWithCompletion**. Her zaman bir anında iletme işlemi yapıyor tablo için eşitleme bağlamı bekleyen herhangi bir değişiklik varsa, ilk sorunları bir anında iletme çekin. Ancak, birden fazla eşitleme tablonuz varsa, her şeyi ilgili tabloları arasında tutarlı olmasını sağlamak için anında iletme açıkça çağırmak en iyisidir.
 
-Objective-C hem SWIFT sürümleri de, kullanabileceğiniz **pullWithQuery** yöntemi almak istediğiniz kayıtlarını filtrelemek için bir sorgu belirtin. Bu örnekte sorgu, uzak tüm kayıtları alır `TodoItem` tablo.
+Hem Objective-C ve Swift sürümlerinde kullanabileceğiniz **pullWithQuery** almak istediğiniz kayıtları filtrelemek için bir sorgu belirtmek için yöntemi. Bu örnekte sorgu, uzak tüm kayıtları alır `TodoItem` tablo.
 
-Öğesinin ikinci parametresi, **pullWithQuery** için kullanılan bir sorgu kimliği *Artımlı eşitleme*. Artımlı eşitleme alır kaydın kullanarak en son eşitlemeden sonra değiştirilen kayıtları `UpdatedAt` zaman damgası (adlı `updatedAt` Yerel Depodaki.) Sorgu kimliği, uygulamanızda mantıksal her sorgu için benzersiz tanımlayıcı bir dize olmalıdır. Artımlı eşitleme dışında kabul etmek için geçirmek `nil` sorgu kimliği olarak Her çekme işlemi tüm kayıtları aldığı için bu yaklaşım olası verimsiz olabilir.
+İkinci parametresi **pullWithQuery** için kullanılan bir sorgu kimliği *Artımlı eşitleme*. Artımlı eşitleme yalnızca kaydın kullanarak en son eşitlemeden bu yana değiştirilmiş olan kayıtları alır `UpdatedAt` zaman damgası (adlı `updatedAt` Yerel Depodaki.) Sorgu kimliği uygulamanızda mantıksal her sorgu için benzersiz açıklayıcı bir dize olmalıdır. Artımlı eşitleme dışında bırakmak geçirmek `nil` olarak sorgu kimliği Bu yaklaşım, çünkü her çekme işlemi tüm kayıtları alır potansiyel olarak verimsiz olabilir.
 
-Objective-C uygulama değiştirmek veya bir kullanıcı yenileme hareketi gerçekleştirdiğinde veri eklediğinizde ve başlatma eşitlenir.
+Objective-C uygulama, değiştirme veya kullanıcı yenileme hareket gerçekleştirdiğinde veri eklediğinizde ve başlatmada eşitler.
 
-SWIFT uygulama kullanıcı yenileme hareketi gerçekleştirdiğinde ve başlatma eşitlenir.
+Swift uygulaması, kullanıcının yenileme hareket gerçekleştirdiğinde ve başlatmada eşitler.
 
-Veri olduğunda uygulama eşitlemeler (Objective-C) değiştirdiğinden veya uygulama (Objective-C ve Swift) başlattığında, uygulama kullanıcının çevrimiçi olduğunu varsayar. Sonraki bölümde, böylece kullanıcılar çevrimdışı olsalar bile düzenleyebilirsiniz uygulamayı güncelleştirir.
+Veri olduğunda uygulama eşitlemeler (Objective-C) değiştirdiğinden ya da uygulama (Objective-C ve Swift) başlatıldığında uygulama kullanıcının çevrimiçi olduğunu varsayar. Böylece kullanıcılar çevrimdışı olduklarında bile düzenleyebilirsiniz, bir sonraki bölümde, uygulama güncelleştirilir.
 
-## <a name="review-core-data"></a>Çekirdek veri modeli gözden geçirin
-Çekirdek veri çevrimdışı deposu kullandığınızda, veri modelinizi belirli tabloları ve alanları tanımlamanız gerekir. Örnek uygulaması zaten doğru biçime sahip bir veri modeli içerir. Bu bölümde, nasıl kullanıldıkları göstermek için bu tablolar yol.
+## <a name="review-core-data"></a>Temel veri modeli gözden geçirin
+Temel veri çevrimdışı depolama kullandığınızda, belirli tablolar ve alanlar veri modelinizde tanımlamanız gerekir. Örnek uygulamayı zaten doğru biçime sahip bir veri modeli içerir. Bu bölümde, nasıl kullanıldıkları göstermek için bu tablolar inceleyeceğiz.
 
-Açık **QSDataModel.xcdatamodeld**. Dört tablonun tanımlanmış--SDK tarafından kullanılan üç ve yapılacaklar için kullanılan bir kendilerini öğeleri:
+Açık **QSDataModel.xcdatamodeld**. Dört tablo tanımlanmış--üç SDK tarafından kullanılır ve yapılacaklar için kullanılan bir kendilerini öğeleri:
   * MS_TableOperations: sunucusuyla eşitlenmesi gereken öğeleri izler.
   * MS_TableOperationErrors: Çevrimdışı eşitleme sırasında gerçekleşen hataları izler.
-  * MS_TableConfig: Parçaları tüm çekme işlemleri için son eşitleme işlemi için zaman son güncelleştirildi.
-  * Todoıtem: Yapılacaklar öğelerini depolar. Sistem sütunları **createdAt**, **updatedAt**, ve **sürüm** isteğe bağlı sistem özelliklerdir.
+  * MS_TableConfig: Parçaları zaman tüm çekme işlemleri için son eşitleme işlemi için son güncelleştirildi.
+  * Todoıtem: Yapılacaklar öğelerini depolar. Sistem sütunlarıdır **createdAt**, **updatedAt**, ve **sürüm** isteğe bağlı sistem özelliklerdir.
 
 > [!NOTE]
-> Mobile Apps SDK'sı ile başlayan sütun adları ayırır "**``**". Bu ön ek sistem sütunlar dışındaki herhangi bir şeyle kullanmayın. Aksi takdirde, uzak arka uç kullandığınızda, sütun adlarının değiştirilir.
+> Mobile Apps SDK'sı ile başlayan sütun adlarını saklar "**``**". Bu ön ek sistem sütun dışında herhangi bir şeyle kullanmayın. Aksi takdirde, uzak arka ucu kullanırken, sütun adları değiştirilmiştir.
 >
 >
 
-Çevrimdışı eşitleme özelliğini kullandığınızda, üç Sistem tabloları ve veri tablosu tanımlayın.
+Çevrimdışı eşitleme özelliği kullandığınızda, üç Sistem tabloları ve veri tablosunu tanımlayın.
 
 ### <a name="system-tables"></a>Sistem tabloları
 
@@ -187,7 +187,7 @@ Açık **QSDataModel.xcdatamodeld**. Dört tablonun tanımlanmış--SDK tarafın
 | --- | --- |
 | id |Dize |
 | anahtar |Dize |
-| keyType |Tamsayı 64 |
+| KeyType |Tamsayı 64 |
 | tablo |Dize |
 | değer |Dize |
 
@@ -197,36 +197,36 @@ Açık **QSDataModel.xcdatamodeld**. Dört tablonun tanımlanmış--SDK tarafın
 
 | Öznitelik | Tür | Not |
 | --- | --- | --- |
-| id | Dize, gerekli olarak işaretlenmiş |Uzak Depolama birincil anahtar |
+| id | Dize, gerekli olarak işaretlenmiş |Uzak depoda birincil anahtar |
 | Tamamlayın | Boole | Yapılacak iş öğesi alanı |
-| Metin |Dize |Yapılacak iş öğesi alanı |
-| CreatedAt | Tarih | (isteğe bağlı) Eşlendiği **createdAt** sistem özelliği |
+| metin |Dize |Yapılacak iş öğesi alanı |
+| createdAt | Tarih | (isteğe bağlı) Eşlendiği **createdAt** sistem özelliği |
 | updatedAt | Tarih | (isteğe bağlı) Eşlendiği **updatedAt** sistem özelliği |
-| sürüm | Dize | (isteğe bağlı) Çakışmaları, maps sürüme algılamak için kullanılan |
+| version | Dize | (isteğe bağlı) Çakışmalar, sürüm eşlenir algılamak için kullanılan |
 
 ## <a name="setup-sync"></a>Uygulama eşitleme davranışını değiştirme
-Bu bölümde, uygulama başlatma ya da zaman eklemek ve öğeleri güncelleştirme üzerinde eşitlemez şekilde uygulama değiştirin. Yalnızca Yenile hareketi düğmesini gerçekleştirildiğinde eşitlenir.
+Bu bölümde, uygulama başlangıç veya ne zaman eklemek ve öğeleri güncelleştirme eşitlemez şekilde uygulamayı değiştirin. Yalnızca hareketi Yenile düğmesini gerçekleştirildiğinde, eşitler.
 
 **Objective-C**:
 
-1. İçinde **QSTodoListViewController.m**, değiştirme **viewDidLoad** yöntemi çağrısı kaldırmak için `[self refresh]` yöntemi sonunda. Şimdi, uygulama başlatılırken sunucusuyla veri eşitlenmedi. Bunun yerine, Yerel Depodaki içeriğini eşitlenip.
-2. İçinde **QSTodoService.m**, tanımını değiştirmek `addItem` böylece öğeyi eklendikten sonra eşitleme değil. Kaldırma `self syncData` engelleme ve şununla değiştirin:
+1. İçinde **QSTodoListViewController.m**, değiştirme **viewDidLoad** yöntemi çağrısını kaldırın `[self refresh]` yönteminin sonunda. Artık uygulama başlangıç menüsünde sunucusu ile veri eşitlenmedi. Bunun yerine, yerel depo içeriğini eşitlenmiş.
+2. İçinde **QSTodoService.m**, tanımını değiştirme `addItem` böylece öğesi eklendikten sonra eşitleme değil. Kaldırma `self syncData` engelleme ve içerikleri şu kodla değiştirin:
 
    ```objc
    if (completion != nil) {
        dispatch_async(dispatch_get_main_queue(), completion);
    }
    ```
-3. Tanımını değiştirmek `completeItem` daha önce belirtildiği gibi. Bloğunu kaldırmak `self syncData` ve şununla değiştirin:
+3. Tanımını değiştirme `completeItem` daha önce belirtildiği gibi. Kaldırmak için bloğu `self syncData` aşağıdakiyle değiştirin:
    ```objc
    if (completion != nil) {
        dispatch_async(dispatch_get_main_queue(), completion);
    }
    ```
 
-**SWIFT**:
+**Swift**:
 
-İçinde `viewDidLoad`, **ToDoTableViewController.swift**, uygulama başlangıç eşitlemeyi durdurma için burada gösterilen iki satırları açıklama. Bu yazma zaman birisi ekler veya öğeyi tamamlandıktan Swift Todo uygulaması hizmet güncelleştirmez. Uygulama başlangıç hizmette yalnızca güncelleştirir.
+İçinde `viewDidLoad`, **ToDoTableViewController.swift**, uygulama başlatıldığında eşitleme durdurmak için burada gösterilen iki satırı yorum. Bu makalenin yazıldığı sırada, birisi ekler veya bir öğe tamamlanan Swift Todo uygulaması hizmet güncelleştirmez. Bu hizmet yalnızca uygulama başlangıç menüsünde güncelleştirir.
 
    ```swift
   self.refreshControl?.beginRefreshing()
@@ -234,56 +234,56 @@ Bu bölümde, uygulama başlatma ya da zaman eklemek ve öğeleri güncelleştir
 ```
 
 ## <a name="test-app"></a>Uygulamayı test etme
-Bu bölümde, çevrimdışı bir senaryo benzetimini yapmak için geçersiz bir URL bağlayın. Veri öğeleri eklediğinizde, bunlar içinde tutulan yerel çekirdek verileri depolamak, ancak bunlar mobil uygulama arka ucu ile eşitlenmedi.
+Bu bölümde, çevrimdışı bir senaryonun benzetimini yapmak için geçersiz bir URL bağlanın. Veri öğeleri eklediğinizde, bunlar içinde tutulan yerel çekirdek verileri depolamak, ancak bunlar mobil uygulama arka ucu ile eşitlenmedi.
 
-1. Mobil uygulama URL'sini değiştirmek **QSTodoService.m** bir geçersiz URL ve uygulamayı yeniden çalıştırın:
+1. Mobil uygulama URL'yi değiştirmeniz **QSTodoService.m** geçersiz URL ve uygulamayı yeniden çalıştırın:
 
    **Objective-C**. QSTodoService.m içinde:
    ```objc
    self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
    ```
-   **SWIFT**. ToDoTableViewController.swift içinde:
+   **Swift**. ToDoTableViewController.swift içinde:
    ```swift
    let client = MSClient(applicationURLString: "https://sitename.azurewebsites.net.fail")
    ```
-2. Bazı Yapılacaklar öğelerini ekleyin. Simulator çıkın (veya zorla uygulamayı kapatmak) ve yeniden başlatın. Yaptığınız değişiklikleri kalıcı olduğunu doğrulayın.
+2. Bazı Yapılacaklar öğelerini ekleyin. Simülatör Çık (veya zorla uygulamayı kapatmak) ve yeniden başlatın. Yaptığınız değişiklikleri kalıcı olduğunu doğrulayın.
 
 3. Uzak içeriğini görüntülemek **Todoıtem** tablosu:
-   * Node.js arka ucu için Git [Azure portal](https://portal.azure.com/) ve, mobil uygulama arka ucu içinde tıklatın **kolay tablolar** > **Todoıtem**.  
-   * Bir .NET geri için sonlandırmak için SQL Server Management Studio gibi bir SQL aracı veya Fiddler veya Postman gibi bir REST istemcisi kullanın.  
+   * Node.js arka ucu için Git [Azure portalında](https://portal.azure.com/) ve, mobil uygulama arka ucu içinde tıklayın **kolay tablolar** > **Todoıtem**.  
+   * Bir .NET geri için bitiş, SQL Server Management Studio gibi bir SQL aracı veya Fiddler veya Postman gibi bir REST istemcisi kullanın.  
 
 4. Yeni öğelerin bulunduğunu doğrulayın *değil* edilmiş sunucuyla eşitlenir.
 
-5. Doğru bir şekilde geri URL'sini değiştirmek **QSTodoService.m**ve uygulamayı yeniden çalıştırın.
+5. Doğru bir şekilde geri URL'yi değiştirmeniz **QSTodoService.m**, uygulamayı yeniden çalıştırın.
 
 6. Öğeleri listede aşağı çekerek yenileme hareketi gerçekleştirin.  
-Devam eden değer değiştirici görüntülenir.
+Devam eden bir değer değiştirici görüntülenir.
 
-7. Görünüm **Todoıtem** yeniden verileri. Yeni ve değiştirilen Yapılacaklar öğelerini şimdi görüntülenmesi gerekir.
+7. Görünüm **Todoıtem** tekrar veri. Yeni ve değiştirilen Yapılacaklar öğelerini artık görüntülenmesi gerekir.
 
 ## <a name="summary"></a>Özet
-Çevrimdışı eşitleme özelliğini desteklemek için kullandık `MSSyncTable` arabirim ve başlatıldı `MSClient.syncContext` yerel deposu. Bu durumda, Yerel Depodaki çekirdek veri tabanlı bir veritabanı oluştu.
+Çevrimdışı eşitleme özelliği desteklemek için kullandığımız `MSSyncTable` arabirim ve başlatılmış `MSClient.syncContext` ile yerel bir depo. Bu durumda, yerel depo temel veri tabanlı bir veritabanı oluştu.
 
-Bir çekirdek veri yerel deposu kullandığınızda, birkaç tablolarla tanımlamalısınız [düzeltmek Sistem Özellikleri](#review-core-data).
+Temel veri yerel bir depo kullandığınızda, birçok tabloları ile tanımlamalıdır [düzeltmek Sistem Özellikleri](#review-core-data).
 
-Normal oluşturma, okuma, güncelleştirme ve uygulama hala bağlı, ancak yerel depo tüm işlemleri ortaya gibi mobil uygulamaları iş için (CRUD) işlemleridir silin.
+Normal oluşturma, okuma, güncelleştirme ve uygulama hala bağlı, ancak karşı yerel depoya tüm işlemleri ortaya gibi mobil uygulamalar iş için (CRUD) işlemleri Sil.
 
-Yerel depodan sunucuyla eşitlendiğinde kullandık **MSSyncTable.pullWithQuery** yöntemi.
+Yerel depo sunucuyla eşitlediğinizde kullandık **MSSyncTable.pullWithQuery** yöntemi.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
-* [mobil uygulamalarda çevrimdışı veri eşitlemeye]
-* [Bulut kapsar: Azure Mobile Services'ın çevrimdışı eşitleme] \(video Mobile Services hakkında olmakla birlikte, benzer şekilde Mobile Apps çevrimdışı eşitleme çalışır.\)
+* [Mobile apps'te çevrimdışı veri eşitleme]
+* [Cloud Cover: Azure mobil Hizmetleri çevrimdışı eşitleme] \(mobil hizmetler hakkında video olduğunda, ancak benzer şekilde Mobile Apps çevrimdışı eşitleme çalışır.\)
 
 <!-- URLs. -->
 
 
-[iOS uygulaması oluştur]: app-service-mobile-ios-get-started.md
-[mobil uygulamalarda çevrimdışı veri eşitlemeye]: app-service-mobile-offline-data-sync.md
+[Bir iOS uygulaması oluşturma]: app-service-mobile-ios-get-started.md
+[Mobile apps'te çevrimdışı veri eşitleme]: app-service-mobile-offline-data-sync.md
 
 [defining-core-data-tableoperationerrors-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableoperationerrors-entity.png
 [defining-core-data-tableoperations-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableoperations-entity.png
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 
-[Bulut kapsar: Azure Mobile Services'ın çevrimdışı eşitleme]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Cloud Cover: Azure mobil Hizmetleri çevrimdışı eşitleme]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Azure Friday: Offline-enabled apps in Azure Mobile Services]: https://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/

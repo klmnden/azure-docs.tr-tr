@@ -12,16 +12,16 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 925537b3dff852921aad1e74d009e09fc90c394a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: 9b64cedb54ac0777c4402d39bad5a23df79e5cf7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445085"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961255"
 ---
 # <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service'te bir Ruby ve PostgreSQL web uygulaması derleme
 
-[Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu öğreticide, bir Ruby web uygulaması oluşturma ve bu uygulamayı bir PostgreSQL veritabanına bağlamayla ilgili yönergeler verilmiştir. İşiniz bittiğinde, Linux üzerinde App Service’te çalışan bir [Ruby on Rails](http://rubyonrails.org/) uygulamasına sahip olacaksınız.
+[Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu öğreticide, bir Ruby web uygulaması oluşturma ve bu uygulamayı bir PostgreSQL veritabanına bağlamayla ilgili yönergeler verilmiştir. İşiniz bittiğinde, Linux üzerinde App Service’te çalışan bir [Ruby on Rails](https://rubyonrails.org/) uygulamasına sahip olacaksınız.
 
 ![Azure App Service'te çalışan Ruby on Rails uygulaması](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
@@ -37,13 +37,13 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
 * [Git'i yükleyin](https://git-scm.com/)
 * [Ruby 2.3'ü yükleyin](https://www.ruby-lang.org/en/documentation/installation/)
-* [Ruby on Rails 5.1'i yükleyin](http://guides.rubyonrails.org/v5.1/getting_started.html)
+* [Ruby on Rails 5.1'i yükleyin](https://guides.rubyonrails.org/v5.1/getting_started.html)
 * [PostgreSQL’i yükleyin ve çalıştırın](https://www.postgresql.org/download/)
 
 ## <a name="prepare-local-postgres"></a>Yerel Postgres sunucusunu hazırlama
@@ -92,7 +92,7 @@ bundle install --path vendor/bundle
 
 ### <a name="run-the-sample-locally"></a>Örneği yerel olarak çalıştırma
 
-Uygulama için gereken tabloları oluşturmak üzere [Rails geçişlerini](http://guides.rubyonrails.org/active_record_migrations.html#running-migrations) çalıştırın. Geçişlerde hangi tabloların oluşturulduğunu görmek için, Git deposundaki _db/migrate_ dizinine bakın.
+Uygulama için gereken tabloları oluşturmak üzere [Rails geçişlerini](https://guides.rubyonrails.org/active_record_migrations.html#running-migrations) çalıştırın. Geçişlerde hangi tabloların oluşturulduğunu görmek için, Git deposundaki _db/migrate_ dizinine bakın.
 
 ```bash
 rake db:create

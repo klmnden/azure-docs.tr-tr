@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 09/18/2018
-ms.openlocfilehash: 0fc5ca73dec79942e05c7dfd410bc0a13e5ffb44
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.date: 12/04/2018
+ms.openlocfilehash: 3469b03cae88a5bdf7c9ccd51b54af92ea8d7b23
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648726"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958397"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Azure SQL veritabanı ve SQL veri ambarı için sanal ağ hizmet uç noktaları ve kuralları kullanma
 
@@ -145,7 +145,7 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 ## <a name="impact-of-removing-allow-azure-services-to-access-server"></a>'Hizmetlerinin sunucuya erişimine izin vermek için Azure' ı kaldırmanın etkisi
 
 Çok sayıda kullanıcı, kaldırmak istediğiniz **izin Azure Hizmetleri için erişim sunucusu** kendi Azure SQL Sunucuları'ndan bir VNet güvenlik duvarı kuralı ile değiştirin.
-Ancak bu kaldırma, aşağıdaki Azure SQL veritabanı özellikleri etkiler:
+Ancak bu kaldırma, aşağıdaki özellikleri etkiler:
 
 ### <a name="import-export-service"></a>İçeri aktarma, dışarı aktarma hizmeti
 
@@ -166,12 +166,64 @@ Azure SQL veritabanı, Azure IP'ler kullanarak veritabanlarınızı bağlanan ve
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Azure depolama ile sanal ağ hizmet uç noktaları kullanma etkileri
 
-Azure depolama, depolama hesabınızın bağlantısını sınırlamanıza olanak tanıyan aynı özellik uygulamıştır.
-Bir Azure SQL Server tarafından kullanılan bir depolama hesabı ile bu özelliği kullanmayı tercih ederseniz, bir sorunla karşılaşırsanız çalıştırabilirsiniz. Sonraki bir listesi ve bu tarafından etkilenen Azure SQL veritabanı özellikleri hakkında ayrıntılı bilgi olduğu.
+Azure depolama, Azure depolama hesabınızın bağlantısını sınırlamanıza olanak tanıyan aynı özellik uygulamıştır. Azure SQL Server tarafından kullanılan bir Azure depolama hesabı ile bu özelliği kullanmayı tercih ederseniz, bir sorunla karşılaşırsanız çalıştırabilirsiniz. Sonraki bir listesi ve bu tarafından etkilenen Azure SQL veritabanı ve Azure SQL veri ambarı özellikleri bir tartışma olduğu.
 
 ### <a name="azure-sql-data-warehouse-polybase"></a>Azure SQL veri ambarı PolyBase
 
-PolyBase, verileri depolama hesaplarından Azure SQL Data Warehouse'a yüklemek için yaygın olarak kullanılır. Verilerden yüklenmekte olan depolama hesabı yalnızca bir sanal ağ alt kümesine erişim getiriyorsa, PolyBase kullanılarak hesabı bağlantı çalışmamasına neden olur. Bunun için bir risk azaltma yoktur ve daha fazla bilgi için Microsoft desteğine başvurabilirsiniz.
+PolyBase, verileri Azure depolama hesaplarını Azure SQL Data Warehouse'a yüklemek için yaygın olarak kullanılır. Verilerden yüklenmekte olan Azure depolama hesabına yalnızca bir sanal ağ alt kümesine erişim getiriyorsa, PolyBase kullanılarak hesabı bağlantı çalışmamasına neden olur. Her iki PolyBase etkinleştirmek için alma ve senaryoları sanal ağa güvenli Azure Depolama'ya bağlanan Azure SQL veri ambarı ile dışarı aktarma, aşağıda belirtilen adımları izleyin:
+
+#### <a name="prerequisites"></a>Önkoşullar
+1.  Bunu kullanarak Azure PowerShell'i yükleyin [Kılavuzu](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+2.  Genel amaçlı v1 veya blob depolama hesabı varsa, genel amaçlı v2'ye yükseltmeniz gerekir bu kullanarak [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+3.  Olmalıdır **güvenilen Microsoft hizmetlerinin bu depolama hesabına erişmesine izin ver** Azure depolama hesabı altında açık **güvenlik duvarları ve sanal ağları** ayarlar menüsü. Bu [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) daha fazla bilgi için.
+ 
+#### <a name="steps"></a>Adımlar
+1.  PowerShell'de, **mantıksal SQL sunucunuza kaydetmek** ile Azure Active Directory (AAD):
+
+    ```powershell
+    Add-AzureRmAccount
+    Select-AzureRmSubscription -SubscriptionId your-subscriptionId
+    Set-AzureRmSqlServer -ResourceGroupName your-logical-server-resourceGroup -ServerName your-logical-servername -AssignIdentity
+    ```
+    
+ 1. Oluşturma bir **genel amaçlı v2 depolama hesabı** bu kullanarak [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+
+    > [!NOTE]
+    > - Genel amaçlı v1 veya blob depolama hesabı varsa, şunları yapmalısınız **v2'ye yükseltmeniz** bu kullanarak [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+    > - Azure Data Lake depolama Gen2 ile'ilgili bilinen sorunlar için lütfen şuna bakın [Kılavuzu](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
+    
+1.  Depolama hesabınız kapsamında gidin **erişim denetimi (IAM)**, tıklatıp **rol ataması Ekle**. Ata **depolama Blob verileri katkıda bulunan (Önizleme)** mantıksal SQL sunucunuza RBAC rolü.
+
+    > [!NOTE] 
+    > Bu adım yalnızca sahibi ayrıcalığa sahip üyeleri gerçekleştirebilir. Azure kaynakları için çeşitli yerleşik roller için şuna başvurun [Kılavuzu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+  
+1.  **Azure depolama hesabı bağlantı Polybase:**
+
+    1. Veritabanı oluşturma **[ana anahtarı](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql?view=sql-server-2017)** , biri daha önce oluşturmadıysanız:
+        ```SQL
+        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
+        ```
+    
+    1. Veritabanı kapsamlı kimlik bilgileri ile oluşturun **Kimliği = 'Yönetilen hizmet Kimliği'**:
+
+        ```SQL
+        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+        ```
+        > [!NOTE] 
+        > - Bu mekanizma kullandığından gizlilik ile Azure depolama erişim anahtarı belirtin. gerek [yönetilen kimliği](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) altında kapsar.
+        > - Kimlik adı olmalıdır **'Yönetilen hizmet Kimliği'** sanal ağa güvenli Azure depolama hesabı ile çalışmak PolyBase bağlantı.    
+    
+    1. Dış veri kaynağı ile abfss oluşturun: / / şeması PolyBase kullanarak, genel amaçlı v2 depolama hesabınıza bağlanmak için:
+
+        ```SQL
+        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
+        ```
+        > [!NOTE] 
+        > - Genel amaçlı v1 veya blob depolama hesabı ile ilişkili dış tablolar zaten varsa önce bu dış tabloları kaldırın ve ardından ilgili dış veri kaynağını bırakın gerekir. Dış veri kaynağı ile abfss oluşturup: / / yukarıdaki gibi genel amaçlı v2 depolama hesabına bağlanma şeması ve bu yeni bir dış veri kaynağını kullanan tüm dış tabloları yeniden oluşturun. Kullanabileceğinizi [oluşturma ve yayımlama betiklerini Sihirbazı](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard?view=sql-server-2017) kolaylaştırmak için tüm dış tablolar oluşturma-betikleri oluşturmak için.
+        > - Abfss hakkında daha fazla bilgi: / / şeması, bu [Kılavuzu](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+        > - CREATE EXTERNAL DATA SOURCE hakkında daha fazla bilgi için bu başvuru [Kılavuzu](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
+        
+    1. Sorgu kullanarak normal olarak [dış tablolar](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
 ### <a name="azure-sql-database-blob-auditing"></a>Azure SQL veritabanı Blob denetimi
 
@@ -179,11 +231,11 @@ BLOB denetimi denetim günlükleri, kendi depolama hesabınıza gönderir. Bu de
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Üzerinde sanal ağ hizmet uç noktaları açmadan sunucunuza bir VNet güvenlik duvarı kuralı ekleme
 
-Uzun zaman önce bu özelliği geliştirilmiştir önce Güvenlik Duvarı'nda canlı bir sanal ağ kuralı uygulayabileceğine önce sanal ağ hizmet uç noktaları açmaları gerekiyordu. Uç noktaları, Azure SQL veritabanı için belirli bir sanal ağ alt ilgili. Ancak artık Ocak 2018'den itibaren bu gereksinim ayarlayarak atlayabilir **IgnoreMissingServiceEndpoint** bayrağı.
+Uzun zaman önce bu özelliği geliştirilmiştir önce Güvenlik Duvarı'nda canlı bir sanal ağ kuralı uygulayabileceğine önce sanal ağ hizmet uç noktaları açmaları gerekiyordu. Uç noktaları, Azure SQL veritabanı için belirli bir sanal ağ alt ilgili. Ancak artık Ocak 2018'den itibaren bu gereksinim ayarlayarak atlayabilir **IgnoreMissingVNetServiceEndpoint** bayrağı.
 
-Yalnızca ayar bir güvenlik duvarı kuralı sunucu sağlanmasına yardımcı olmaz. Ayrıca sanal ağ hizmet uç noktaları için etkili güvenlik açmanız gerekir. Hizmet uç noktaları açtığınızda, sanal ağ alt ağınız üzerinde Kapalı öğesinden Geçiş tamamlanana kadar kapalı kalma süresi karşılaşır. Bu özellikle büyük sanal ağlar bağlamında geçerlidir. Kullanabileceğiniz **IgnoreMissingServiceEndpoint** azaltmak veya geçiş sırasında kapalı kalma süresini ortadan kaldırmak için bayrak.
+Yalnızca ayar bir güvenlik duvarı kuralı sunucu sağlanmasına yardımcı olmaz. Ayrıca sanal ağ hizmet uç noktaları için etkili güvenlik açmanız gerekir. Hizmet uç noktaları açtığınızda, sanal ağ alt ağınız üzerinde Kapalı öğesinden Geçiş tamamlanana kadar kapalı kalma süresi karşılaşır. Bu özellikle büyük sanal ağlar bağlamında geçerlidir. Kullanabileceğiniz **IgnoreMissingVNetServiceEndpoint** azaltmak veya geçiş sırasında kapalı kalma süresini ortadan kaldırmak için bayrak.
 
-Ayarlayabileceğiniz **IgnoreMissingServiceEndpoint** PowerShell kullanarak bayrağı. Ayrıntılar için bkz [Azure SQL veritabanı için bir sanal ağ hizmet uç noktası ve kuralı oluşturmak için PowerShell][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+Ayarlayabileceğiniz **IgnoreMissingVNetServiceEndpoint** PowerShell kullanarak bayrağı. Ayrıntılar için bkz [Azure SQL veritabanı için bir sanal ağ hizmet uç noktası ve kuralı oluşturmak için PowerShell][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## <a name="errors-40914-and-40615"></a>40914 ve 40615 hataları
 

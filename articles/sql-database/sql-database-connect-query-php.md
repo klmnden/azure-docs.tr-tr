@@ -11,12 +11,12 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/28/2018
-ms.openlocfilehash: be3ac9fab6c89c65ad9673811e108cefe2c80d00
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b768b50af7ad6736e5cc3c885e6ac5016976f48a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724256"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958551"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Hızlı Başlangıç: PHP kullanarak Azure SQL veritabanı sorgulama
 
@@ -32,9 +32,9 @@ Bu örnek tamamlamak için aşağıdaki önkoşulların karşılandığından em
 
 - Yüklü işletim sisteminiz için PHP ile ilgili yazılım:
 
-    - **MacOS**, Homebrew ve PHP, ODBC sürücüsünü ve SQLCMD, yükleme sonra SQL Server için PHP sürücüsü yükleyin. Bkz: [1.2, 1.3 ve 2.1 adımları](https://www.microsoft.com/sql-server/developer-get-started/php/mac/).
+    - **MacOS**, PHP, ODBC sürücüsünü yükledikten sonra SQL Server için PHP sürücüsü yükleyin. Bkz: [1, 2 ve 3. adım](/sql/connect/php/installation-tutorial-linux-mac).
 
-    - **Ubuntu**, PHP ve diğer gerekli paketleri yükleyin ve ardından SQL Server için PHP sürücüsü yükleyin. Bkz: [1.2 ve 2.1 adımları](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
+    - **Linux**, PHP, ODBC sürücüsünü yükledikten sonra SQL Server için PHP sürücüsü yükleyin. Bkz: [1, 2 ve 3. adım](/sql/connect/php/installation-tutorial-linux-mac).
 
     - **Windows**, IIS Express ve Chocolatey için PHP'yi yükleyin ve ardından ODBC sürücüsü ile SQLCMD'yi yükleyin. Bkz: [1.2 ve 1.3 adımları](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
 

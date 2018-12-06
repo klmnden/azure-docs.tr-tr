@@ -10,46 +10,50 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 83ad70e1242af1e01af06206a3a141f455072a44
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c7f12352355b12cf1a7363a2a82fa786248cdc6f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038961"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965300"
 ---
 # <a name="add-luis-results-to-application-insights"></a>LUIS sonuçları Application Insights'a Ekle
-Bu öğreticide LUIS yanıt bilgileri ekler [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri veri depolama. Bu verileri aldıktan sonra bunu Kusto dil veya çözümlemek, toplama, Power BI ile sorgulayabilirsiniz ve hedefleri ve gerçek zamanlı utterance varlıklarının rapor. Bu analiz, eklediğinizde veya amaç ve varlıkları LUIS uygulamanızı düzenlemek, belirlemenize yardımcı olur. 
+
+Bu öğreticide LUIS yanıt bilgileri ekler [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri veri depolama. Bu verileri aldıktan sonra bunu Kusto dil veya çözümlemek, toplama, Power BI ile sorgulayabilirsiniz ve hedefleri ve gerçek zamanlı utterance varlıklarının rapor. Bu analiz, eklediğinizde veya amaç ve varlıkları LUIS uygulamanızı düzenlemek, belirlemenize yardımcı olur.
 
 Bot, Bot Framework ile derlenir 3.x ve Azure Web app botu.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-* Bir web app botu için Application Insights ekleme
-* Yakalama ve LUIS sorgu sonuçları Application Insights'a gönderme
-* Üst amacı, Puanlama ve utterance için Application Insights sorgu
+> * Bir web app botu için Application Insights ekleme
+> * Yakalama ve LUIS sorgu sonuçları Application Insights'a gönderme
+> * Üst amacı, Puanlama ve utterance için Application Insights sorgu
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Öğesinden, LUIS web app botu **[önceki öğreticide](luis-csharp-tutorial-build-bot-framework-sample.md)** açık Application Insights ile. 
+* Öğesinden, LUIS web app botu **[önceki öğreticide](luis-csharp-tutorial-build-bot-framework-sample.md)** açık Application Insights ile.
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) yerel olarak bilgisayarınızda yüklü.
 
 > [!Tip]
 > Zaten bir aboneliğiniz yoksa, kaydolabilirsiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/).
 
-Bu öğreticideki kod tüm kullanılabilir [LUIS örnekleri github deposunda](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp) ve Bu öğretici ile ilişkili her bir satır ile geçersiz kılınan `//LUIS Tutorial:`. 
+Bu öğreticideki kod tüm kullanılabilir [LUIS örnekleri github deposunda](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp) ve Bu öğretici ile ilişkili her bir satır ile geçersiz kılınan `//LUIS Tutorial:`.
 
 ## <a name="review-luis-web-app-bot"></a>LUIS web app botu gözden geçirin
-Bu öğreticide kod aşağıdaki gibi görünüyor veya tamamladığınızdan emin olduğunuz varsayılır [diğer öğretici](luis-csharp-tutorial-build-bot-framework-sample.md): 
+
+Bu öğreticide kod aşağıdaki gibi görünüyor veya tamamladığınızdan emin olduğunuz varsayılır [diğer öğretici](luis-csharp-tutorial-build-bot-framework-sample.md):
 
    [!code-csharp[Web app bot with LUIS](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs "Web app bot with LUIS")]
 
 ## <a name="application-insights-in-web-app-bot"></a>Application Insights'ta web app botu
+
 Şu anda web app botu hizmeti oluşturma işleminin bir parçası olarak eklenen Application Insights hizmeti için robot genel durumu telemetri toplar. LUIS yanıt bilgi toplamaz. Analiz etmek ve LUIS geliştirmek için LUIS yanıt bilgileri gerekir.  
 
-LUIS yanıt yakalamak için web app botu gereken **[Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** yüklü ve proje için yapılandırılmış. 
+LUIS yanıt yakalamak için web app botu gereken **[Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** yüklü ve proje için yapılandırılmış.
 
 ## <a name="download-web-app-bot"></a>Web app botu indirin
+
 Kullanım [Visual Studio 2017](https://www.visualstudio.com/downloads/) eklemek ve Application Insights için web app botu yapılandırmak için. Visual Studio'da web app botu kullanmak için web app botu kodunu indirin.
 
 1. Web app botu için Azure portalında seçin **yapı**.
@@ -66,13 +70,13 @@ Kullanım [Visual Studio 2017](https://www.visualstudio.com/downloads/) eklemek 
 
 ## <a name="open-solution-in-visual-studio-2017"></a>Visual Studio 2017'de çözümü açın
 
-1. Dosyayı bir klasöre ayıklayın. 
+1. Dosyayı bir klasöre ayıklayın.
 
 2. Visual Studio 2017'yi açın ve çözüm dosyasını açın `Microsoft.Bot.Sample.LuisBot.sln`. Güvenlik uyarısını açılırsa "Tamam"'ı seçin.
 
     ![Visual Studio 2017'de çözümü açın](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-security-warning.png)
 
-3. Bağımlılıkları çözüme eklemek Visual Studio gerekir. İçinde **Çözüm Gezgini**, sağ **başvuruları**seçip **NuGet paketlerini Yönet...** . 
+3. Bağımlılıkları çözüme eklemek Visual Studio gerekir. İçinde **Çözüm Gezgini**, sağ **başvuruları**seçip **NuGet paketlerini Yönet...** .
 
     ![NuGet paketlerini yönetme](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-manage-nuget-packages.png)
 
@@ -81,7 +85,8 @@ Kullanım [Visual Studio 2017](https://www.visualstudio.com/downloads/) eklemek 
     ![NuGet paketlerini geri yükleme](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-restore-packages.png)
 
 ## <a name="add-application-insights-to-the-project"></a>Application ınsights'ı projeye ekleyin.
-Yükleyin ve Visual Studio'da Application Insights'ı yapılandırın. 
+
+Yükleyin ve Visual Studio'da Application Insights'ı yapılandırın.
 
 1. Visual Studio 2017'de üst menüden **proje**, ardından **Application Insights Telemetrisi Ekle...** .
 
@@ -89,21 +94,21 @@ Yükleyin ve Visual Studio'da Application Insights'ı yapılandırın.
 
     ![Application Insights yapılandırma Başlat](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-configure-app-insights.png)
 
-3. Uygulamanızı Application Insights'a kaydedin. Azure portal kimlik bilgilerinizi girmeniz gerekebilir. 
+3. Uygulamanızı Application Insights'a kaydedin. Azure portal kimlik bilgilerinizi girmeniz gerekebilir.
 
-4. Visual Studio Application Insights, bunu yapar gibi durumu görüntüleme projeye ekler. 
+4. Visual Studio Application Insights, bunu yapar gibi durumu görüntüleme projeye ekler.
 
     ![Application Insights durumu](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-adding-application-insights-to-project.png)
 
-    İşlem tamamlandığında **Application Insights Yapılandırması** ilerleme durumunu gösterir. 
+    İşlem tamamlandığında **Application Insights Yapılandırması** ilerleme durumunu gösterir.
 
     ![Application Insights ilerleme durumu](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-configured-application-insights-to-project.png)
 
-    **İzlemesini etkinleştir** kırmızı, yani, etkin değil. Bu öğretici, özellik kullanmaz. 
+    **İzlemesini etkinleştir** kırmızı, yani, etkin değil. Bu öğretici, özellik kullanmaz.
 
 ## <a name="build-and-resolve-errors"></a>Derleme ve hatalarını çözümleme
 
-1. Çözüm seçerek yapı **derleme** menüsünde, ardından **çözümü yeniden derle**. Derlemenin tamamlanmasını bekleyin. 
+1. Çözüm seçerek yapı **derleme** menüsünde, ardından **çözümü yeniden derle**. Derlemenin tamamlanmasını bekleyin.
 
 2. Yapı başarısız olursa `CS0104` hataları için gereksinim duyduğunuz bunları da onarabilir. İçinde `Controllers` klasörü içinde `MessagesController.cs file`, belirsiz kullanımını düzeltme `Activity` türe göre bağlayıcı türü ile etkinlik türü önek. Bunu yapmak için adı değiştirin `Activity` 22 ve 36'dan satırlarındaki `Activity` için `Connector.Activity`. Çözümü yeniden oluşturun. Daha fazla derleme hataları olması gerekir.
 
@@ -112,6 +117,7 @@ Yükleyin ve Visual Studio'da Application Insights'ı yapılandırın.
     [!code-csharp[MessagesController.cs file](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/MessagesController.cs "MessagesController.cs file")]
 
 ## <a name="publish-project-to-azure"></a>Projeyi Azure'da yayımlama
+
 **Application Insights** paket artık projededir ve kimlik bilgileriniz Azure Portalı'nda doğru yapılandırılmış. Azure'da yeniden yayımlanabilmesi değişiklikler proje için gerekir.
 
 1. İçinde **Çözüm Gezgini**, proje adına sağ tıklayın ve ardından seçin **Yayımla**.
@@ -126,12 +132,13 @@ Yükleyin ve Visual Studio'da Application Insights'ı yapılandırın.
 
     ![Proje portalında yayımlayın](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-2.png)
 
-4. İçinde **yayımlama ayarları dosyasını içeri aktar** windows gidin, proje klasörünüze gidin `PostDeployScripts` klasöründe biten dosyaları seçin `.PublishSettings`seçip `Open`. Bu proje için yayımlama yapılandırdınız. 
+4. İçinde **yayımlama ayarları dosyasını içeri aktar** windows gidin, proje klasörünüze gidin `PostDeployScripts` klasöründe biten dosyaları seçin `.PublishSettings`seçip `Open`. Bu proje için yayımlama yapılandırdınız.
 
-5. Yerel kaynak kodunuz için robot hizmeti seçerek yayımlama **Yayımla** düğmesi. **Çıkış** penceresi durumunu gösterir. Azure portalında Bu öğreticinin geri kalanını tamamlandı. Visual Studio 2017'yi kapatın. 
+5. Yerel kaynak kodunuz için robot hizmeti seçerek yayımlama **Yayımla** düğmesi. **Çıkış** penceresi durumunu gösterir. Azure portalında Bu öğreticinin geri kalanını tamamlandı. Visual Studio 2017'yi kapatın.
 
 ## <a name="open-three-browser-tabs"></a>Üç tarayıcı sekmeleri Aç
-Azure portalında web app botu bulun ve açın. Web app botu üç farklı görünümlerini aşağıdaki adımları kullanın. Tarayıcıda açmak için üç ayrı sekmeler daha kolay olabilir: 
+
+Azure portalında web app botu bulun ve açın. Web app botu üç farklı görünümlerini aşağıdaki adımları kullanın. Tarayıcıda açmak için üç ayrı sekmeler daha kolay olabilir:
   
 >  * Test Web sohbeti
 >  * Derleme/açık çevrimiçi Kod Düzenleyicisi -> App Service Düzenleyicisi
@@ -149,7 +156,7 @@ Azure portalında web app botu bulun ve açın. Web app botu üç farklı görü
 
    [!code-csharp[Add the LogToApplicationInsights function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=61-92 "Add the LogToApplicationInsights function")]
 
-    Application Insights izleme anahtarı zaten web app botu'nın uygulama adlandırılmış ayarı `BotDevInsightsKey`. 
+    Application Insights izleme anahtarı zaten web app botu'nın uygulama adlandırılmış ayarı `BotDevInsightsKey`.
 
     İşlev son satırının Application Insights'a veri ekler. İzleme'nin adı `LUIS`, herhangi bir telemetri verisi dışında benzersiz bir ad, bu web app botu tarafından toplanır. Tüm özellikleri de ön eki `LUIS_` hangi verileri görebilmeniz için bu öğreticiyi karşılaştırılan web app botu tarafından verilen bilgi ekler.
 
@@ -158,6 +165,7 @@ Azure portalında web app botu bulun ve açın. Web app botu üç farklı görü
    [!code-csharp[Use the LogToApplicationInsights function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=114-115 "Use the LogToApplicationInsights function")]
 
 ## <a name="build-web-app-bot"></a>Web app botu oluşturun
+
 1. İki yoldan biriyle web app botu oluşturun. İlk yöntem sağ olmaktır `build.cmd` içinde **App Service Düzenleyicisi**, ardından **konsolundan çalıştırın**. Konsol çıktısını görüntüler ve ile tamamlar `Finished successfully.`
 
 2. Bu başarıyla tamamlanmazsa konsolunu açın, komut dosyasına gidin ve aşağıdaki adımları kullanarak çalıştırmak gerekir. İçinde **App Service Düzenleyicisi**, üstteki mavi çubuğunda, botunuzun adını seçin ve ardından seçin **Kudu konsolu aç** aşağı açılan listesinde.
@@ -174,7 +182,7 @@ Azure portalında web app botu bulun ve açın. Web app botu üç farklı görü
 
 ## <a name="test-the-web-app-bot"></a>Web app botu test
 
-1. Web app botu test etmek için açık **Test Web sohbeti içinde** portalında özelliği. 
+1. Web app botu test etmek için açık **Test Web sohbeti içinde** portalında özelliği.
 
 2. Tümcecik girin `Coffee bar on please`.  
 
@@ -189,9 +197,10 @@ Turn on the hall light
 ```
 
 ## <a name="view-luis-entries-in-application-insights"></a>Application ınsights'ta görünümü LUIS girişleri
-LUIS girişlerini görmek için Application ınsights'ı açın. 
 
-1. Portalında **tüm kaynakları** ardından web app botu adına göre filtreleyin. Kaynak türü ile tıklayın **Application Insights**. Application ınsights bir ampul simgedir. 
+LUIS girişlerini görmek için Application ınsights'ı açın.
+
+1. Portalında **tüm kaynakları** ardından web app botu adına göre filtreleyin. Kaynak türü ile tıklayın **Application Insights**. Application ınsights bir ampul simgedir.
 
     ![App ınsights arayın](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
 
@@ -203,16 +212,16 @@ LUIS girişlerini görmek için Application ınsights'ı açın.
 
     ![İzleme öğesini gözden geçirme](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights-search-luis-trace-item.png)
 
-    İşiniz bittiğinde, en sağdaki üst seçin **X** bağımlılık öğeler listesine dönün. 
-
+    İşiniz bittiğinde, en sağdaki üst seçin **X** bağımlılık öğeler listesine dönün.
 
 > [!Tip]
 > Bağımlılık listesi kaydedin ve daha sonra döndürmek isterseniz tıklayın **... Daha fazla** tıklatıp **Kaydet sık**.
 
 ## <a name="query-application-insights-for-intent-score-and-utterance"></a>Amacını ve score utterance için Application Insights sorgu
-Application Insights ile verileri sorgulamak için power size [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) dışarı aktarma yanı dil [Powerbı](https://powerbi.microsoft.com). 
 
-1. Tıklayarak **Analytics** üst kısmında, filtre kutusuna listeleme bağımlılık. 
+Application Insights ile verileri sorgulamak için power size [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) dışarı aktarma yanı dil [Powerbı](https://powerbi.microsoft.com).
+
+1. Tıklayarak **Analytics** üst kısmında, filtre kutusuna listeleme bağımlılık.
 
     ![Analytics düğmesi](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights-search-luis-analytics-button.png)
 
@@ -232,18 +241,17 @@ Application Insights ile verileri sorgulamak için power size [Kusto](https://do
 
     ![Özel analiz raporu](./media/luis-tutorial-bot-csharp-appinsights/analytics-query-2.png)
 
-
-Daha fazla bilgi edinin [Kusto sorgu dili](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) veya [Power BI için verileri dışarı aktarma](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
-
+Daha fazla bilgi edinin [Kusto sorgu dili](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) veya [Power BI için verileri dışarı aktarma](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi).
 
 ## <a name="learn-more-about-bot-framework"></a>Bot Framework hakkında daha fazla bilgi edinin
+
 Daha fazla bilgi edinin [Bot Framework](https://dev.botframework.com/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Application ınsights veri eklemek isteyebileceğiniz diğer bilgileri içeren uygulama kimliği, sürüm kimliği, son model değişikliği tarihi, son tarih eğitmek, son yayımlama tarihi. Bu değerler ya da uç nokta URL'si (uygulama kimliği ve sürüm kimliği) veya aracılığıyla alınabilir bir [API geliştirme](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3d) çağırma daha sonra web app botu Ayarları'nda ve buradan çekilir.  
 
-Birden fazla LUIS uygulaması için aynı uç nokta aboneliği kullanıyorsanız, abonelik kimliği ve paylaşılan anahtar olduğunu belirten bir özellik içermelidir. 
+Birden fazla LUIS uygulaması için aynı uç nokta aboneliği kullanıyorsanız, abonelik kimliği ve paylaşılan anahtar olduğunu belirten bir özellik içermelidir.
 
 > [!div class="nextstepaction"]
 > [Örnek konuşma hakkında daha fazla bilgi edinin](luis-how-to-add-example-utterances.md)

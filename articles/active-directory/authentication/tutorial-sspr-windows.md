@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 0c5554ca929cbd5231c99e568e987e6e0b7cf6eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 291f895ed367ab4871d27ea02cd23eddc496434c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844847"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958687"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Öğretici: Oturum açma ekranından Azure AD parola sıfırlama
 
@@ -29,8 +29,8 @@ Bu öğreticide kullanıcıların parolalarını Windows 10 oturum açma ekranı
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Windows 10 Nisan 2018 Güncelleştirmesi veya aşağıdaki özelliklere sahip daha yeni bir istemci:
-   * [Azure AD'ye katılmış](../device-management-azure-portal.md) veya 
-   * [Hibrit Azure AD'ye katılmış](../device-management-hybrid-azuread-joined-devices-setup.md)
+   * [Azure AD'ye katılmış makine](../device-management-azure-portal.md) veya
+   * [Hibrit Azure AD'ye katıldı makine](../device-management-hybrid-azuread-joined-devices-setup.md), parola sıfırlama sonra bir sonraki oturum açma için etki alanı denetleyicisine ağ bağlantısı ile.
 * Azure AD self servis parola sıfırlama etkinleştirilmelidir.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Intune'u kullanarak Parolayı sıfırla bağlantısını yapılandırma

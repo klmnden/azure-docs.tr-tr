@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: cac1814057b5adbb75d9484b332bd3f8aaa31a18
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ec51ba28c81e2aa2dbfe2a3dc55d9940c74ff673
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446867"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959861"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak Services'i etkinleştirme
 
-
 ## <a name="task-3-configure-administrative-group"></a>3. Görev: Yönetici grubu yapılandırma
+
 Bu yapılandırma görevi Azure AD dizininizde bir yönetim grubu oluşturun. Bu özel yönetim grubu adı *AAD DC Administrators*. Bu grubun üyeleri, yönetilen etki alanına etki alanı ile birleşik olan makineler üzerinde yönetim izinleri verilir. Etki alanına katılmış makinelerde, bu grubun Yöneticiler grubuna eklenir. Ayrıca, bu grubun üyeleri, etki alanına katılan makineler için uzaktan bağlanmak için Uzak Masaüstü'nü kullanabilirsiniz.
 
 > [!NOTE]
@@ -49,14 +49,14 @@ Azure AD etki alanı hizmetleri sağlayan tüm kullanıcıların ve grupların A
 ### <a name="full-synchronization"></a>Tam eşitleme
 
 1. Tam eşitleme, uyarıya tıklayarak "Tamam" ekranının altındaki için tam zaten seçilir.
-    ![Tam eşitleme](./media\active-directory-domain-services-admin-guide\create-sync-all.PNG)
+    ![Tam eşitleme](./media/active-directory-domain-services-admin-guide/create-sync-all.PNG)
 
 ### <a name="scoped-synchronization"></a>Kapsamlı eşitleme
 
 1. Geçiş eşitleme düğmesi "Kapsamındaki" ve grupları seçin sayfasında görünür. Bu işlemi yönetilen Etki Alanınızla eşitlenmesi için hangi grupları zaten seçili görebilirsiniz.
-    ![Kapsamlı eşitleme](media\active-directory-domain-services-admin-guide\create-sync-scoped.PNG)
+    ![Kapsamlı eşitleme](media/active-directory-domain-services-admin-guide/create-sync-scoped.PNG)
 2. Tıklayın **grupları seçin** üst gezinti çubuğunda. Buradan, bir Grup Seçicisi tarafta açılır. Azure AD etki alanı Hizmetleri ile eşitlemek için istediğiniz diğer grupları seçmek için bunu kullanın. İşiniz bittiğinde tıklayın **seçin** Grup Seçicisi kapatın ve bu gruplara seçilen listeye ekleyin.
-    ![Kapsamlı eşitleme grupları seçin](media\active-directory-domain-services-admin-guide\create-sync-scoped-groupselect.PNG)
+    ![Kapsamlı eşitleme grupları seçin](media/active-directory-domain-services-admin-guide/create-sync-scoped-groupselect.PNG)
 3. Tıklayın **Tamam** Özet sayfasına gitmek için.
 
 ## <a name="deploy-your-managed-domain"></a>Yönetilen etki alanınıza dağıtma
@@ -69,8 +69,8 @@ Azure AD etki alanı hizmetleri sağlayan tüm kullanıcıların ve grupların A
 
     ![Bildirim - dağıtım devam ediyor](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
-
 ## <a name="check-the-deployment-status-of-your-managed-domain"></a>Yönetilen etki alanınıza dağıtım durumunu denetleyin
+
 Yönetilen etki alanınıza sağlama işleminin bir saate kadar sürebilir.
 
 1. Dağıtım işlemi devam ederken 'etki alanı Hizmetleri için' arama yapabilir **kaynak Ara** arama kutusu. Seçin **Azure AD Domain Services** arama sonuç. **Azure AD Domain Services** sağlanıyor yönetilen etki alanı dikey penceresinde listelenir.
@@ -96,10 +96,10 @@ Yönetilen etki alanınıza sağlama işleminin bir saate kadar sürebilir.
 
     ![Etki Alanı Hizmetleri - tamamen hazır haldeki Özellikleri sekmesi](./media/getting-started/domain-services-provisioned-properties.png)
 
-
 ## <a name="need-help"></a>Yardım mı gerekiyor?
+
 Bir veya iki sağlanması yönetilen etki alanınız için her iki etki alanı denetleyicileri için bir saat sürebilir. Dağıtım başarısız oldu veya birkaç saat değerinden daha fazla bilgi için 'Bekleniyor' durumunda takılı rahatça [Yardım için ürün ekibiyle](active-directory-ds-contact-us.md).
 
-
 ## <a name="next-step"></a>Sonraki adım
+
 [Görev 4: Azure sanal ağı için DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-dns.md)

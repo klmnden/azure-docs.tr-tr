@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2018
+ms.date: 12/05/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 9afce9c6d4ed4d6dc6fbe5bcfcfedc33bdd7cfdf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: bcb135e19796bcab8a8e06e3c1896b247188a58c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314686"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970850"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 güncelleştirme
 
@@ -57,7 +57,7 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir:
 <!-- TBD - IS ASDK --> 
 - Sanal makineler Azure Stack kullanıcı portalında oluşturulan ve DS serisi VM ekleyebilirsiniz veri diskleri yanlış sayıda portalı görüntülenen bir sorun düzeltildi. DS serisi VM'ler gibi çok sayıda veri diski Azure yapılandırması sağlayabilir.
 
-- Aşağıdaki yönetilen disk sorunları içinde 1809 sabittir ve ayrıca 1808 içinde sabit [Azure Stack düzeltme 1.1808.5.110](https://support.microsoft.com/help/4468920/): 
+- Aşağıdaki yönetilen disk sorunları içinde 1809 sabittir ve ayrıca 1808 içinde sabit [Azure Stack düzeltme 1.1808.9.117](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
    - Hangi düğmelere SSD veri diskler yönetilen disk sanal makineler (DS, DSv2, Fs, Fs_V2) bir hata ile başarısız oldu premium boyuta sorun düzeltildi: *'vmname' hata sanal makinenin diskleri güncelleştirilemedi: İstenen işlem gerçekleştirilemiyor VM boyutu için desteklenmeyen 'Premium_LRS' depolama hesabı türü ' Standard_DS/Ds_V2/FS/Fs_v2)*. 
@@ -78,14 +78,14 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir:
       1. Kiracı Portalı'nda Git **abonelikleri** ve aboneliği bulunamıyor. Tıklayın **kaynak sağlayıcıları**, ardından **Microsoft.Compute**ve ardından **yeniden kaydettirin**.
       2. Aynı abonelik altında Git **erişim denetimi (IAM)**, doğrulayın **Azure Stack – yönetilen Disk** listelenir.
    2. Bir konuk dizin ile ilişkili bir abonelik içindeki Vm'leri dağıtma, çok kiracılı bir ortam yapılandırdıysanız, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için aşağıdaki adımları izleyin:
-      1. Uygulama [1808 Azure Stack düzeltme](https://support.microsoft.com/help/4471992).
+      1. Uygulama [1808 Azure Stack düzeltme](https://support.microsoft.com/help/4481066).
       2. Bağlantısındaki [bu makalede](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) her Konuk dizinlerinizi yeniden yapılandırmak için.
 
 
 ### <a name="changes"></a>Değişiklikler
 
 <!-- 2635202 - IS, ASDK -->
-- Yedekleme hizmet altyapı taşır gelen [genel altyapı ağı](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network) için [genel VIP ağları](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network). Müşterilerin hizmet yedekleme depolama konumu genel VIP ağdan erişim sahip olmak gerekir.  
+- Yedekleme hizmet altyapı taşır gelen [genel altyapı ağı](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) için [genel VIP ağları](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Müşterilerin hizmet yedekleme depolama konumu genel VIP ağdan erişim sahip olmak gerekir.  
 
 > [!IMPORTANT]  
 > Dosya sunucusuna genel VIP ağları bağlantılara izin vermeyen bir güvenlik duvarınız varsa, bu değişiklik altyapı yedeklemeleri "ağ yolu bulunamadı hatası ile 53" başarısız olmasına neden olur Geçici çözüm yoktur makul olan bir değişiklik budur. Microsoft, müşteri geri bildirimi doğrultusunda, bu değişikliği, bir düzeltme döner. Lütfen inceleyin [güncelleştirme adımlar bölümüne gönderin](#post-update-steps) 1809 kullanılabilir düzeltmeler hakkında daha fazla bilgi için. Düzeltme kullanılabilir olduğunda, yalnızca ağ ilkelerinizi altyapı aboneliklerinin kaynaklarına erişmek genel VIP ağları izin vermiyorsa için 1809 güncelleştirdikten sonra uygulanacak emin olun. 1811 içinde tüm sistemler için bu değişiklik geçerli olacaktır. İçinde 1809 düzeltme uygulandığında, gereken başka bir işlem yoktur.  
@@ -143,7 +143,7 @@ Bu güvenlik açıkları hakkında daha fazla bilgi için yukarıdaki bağlantı
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-- En son Azure Stack düzeltmeyi 1809 uygulamadan önce 1808 için yükleyin. Daha fazla bilgi için [KB 4471992 – Azure Stack düzeltme Azure Stack düzeltme 1.1808.7.113](https://support.microsoft.com/help/4471992/).
+- En son Azure Stack düzeltmeyi 1809 uygulamadan önce 1808 için yükleyin. Daha fazla bilgi için [KB 4481066 – Azure Stack düzeltme Azure Stack düzeltme 1.1808.9.117](https://support.microsoft.com/help/4481066/).
 
   > [!TIP]  
   > Aşağıdaki abone olmak *RRS* veya *Atom* Azure Stack düzeltmelerle birlikte kalmasını sağlamak için akışları:

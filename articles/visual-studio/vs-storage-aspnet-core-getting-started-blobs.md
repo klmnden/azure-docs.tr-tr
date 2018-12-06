@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: casoper
-ms.openlocfilehash: 82c5fb0f3f3e8edad948b82f77c9c336636f3077
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: f8de7f7a263a087abb16ed48d05b2cae9834b4ad
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442750"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961119"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Azure Blob ile çalışmaya başlama depolama ve Visual Studio bağlı hizmetler (ASP.NET Core)
 
@@ -27,7 +27,7 @@ ms.locfileid: "42442750"
 > - [ASP.NET](./vs-storage-aspnet-getting-started-blobs.md)
 > - [ASP.NET Core](./vs-storage-aspnet-core-getting-started-blobs.md)
 
-Azure Blob Depolama, yapılandırılmamış verileri nesne veya BLOB olarak bulutta depolayan bir hizmettir. Blob Storage belge, medya dosyası veya uygulama yükleyici gibi her tür metin veya ikili veri depolayabilir. Blob Storage aynı zamanda nesne depolama olarak adlandırılır.
+Azure Blob Depolama, yapılandırılmamış verileri nesne veya BLOB olarak bulutta depolayan bir hizmettir. Blob Storage belge, medya dosyası veya uygulama yükleyici gibi her tür metin veya ikili veri depolayabilir. Blob Storage aynı zamanda nesne depolama olarak adlandırılır. Blob Depolama hakkında daha fazla bilgi için bkz: [Azure Blob depolamaya giriş](../storage/blobs/storage-blobs-introduction.md).
 
 Bu öğreticide, Blob Depolama kullanan bazı genel senaryolar için ASP.NET Core kodunun nasıl yazılacağını gösterir. Bir blob kapsayıcısı oluşturma ve karşıya yükleme, listeleme, indirme ve BLOB'ları silmeden senaryolar içerir.
 
@@ -36,8 +36,6 @@ Bu öğreticide, Blob Depolama kullanan bazı genel senaryolar için ASP.NET Cor
 ## <a name="prerequisites"></a>Önkoşullar
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-
-[!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
 ## <a name="set-up-the-development-environment"></a>Geliştirme ortamını ayarlama
 

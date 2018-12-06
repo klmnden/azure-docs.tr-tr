@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: benshy
-ms.openlocfilehash: 19cb1e414ba4a486139a502034e958907d027470
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: dbc6d24e42cf15f1b47a8fc6488f43cd9d2ff50e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275278"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964194"
 ---
 # <a name="tutorial-assign-access-to-cloudyn-data"></a>Öğretici: Cloudyn verilerine erişim atama
 
@@ -47,7 +47,7 @@ Siz zaten yönetici erişimine sahip olsanız da, kuruluşunuzdaki iş arkadaşl
 Kullanıcı hakkında gerekli bilgileri girin. **Oturum Açma Kimliği**, geçerli bir e-posta adresi olmalıdır. Kullanıcının başka kullanıcılar oluşturabilmesi ve diğer kullanıcıları değiştirebilmesi için Kullanıcı Yönetimi’ne izin vermek üzere izinleri seçin. Alıcı Listeleri Yönetimi, kullanıcının alıcı listelerini düzenlemesine olanak tanır. **Kullanıcıya e-posta ile bildir**’i seçtiğinizde, kullanıcıya Cloudyn’den oturum açma bilgilerini içeren bir bağlantı e-posta ile gönderilir. İlk oturum açma işleminde kullanıcı bir parola ayarlar.
 
 **Kullanıcının yönetici erişimi var** altında, kuruluşunuzun kök varlığı seçilidir. Kökü seçili durumda bırakın ve sonra kullanıcı bilgilerini kaydedin. Kök varlığın seçilmesi, kullanıcının yalnızca ağaçtaki kök varlıkta değil, aynı zamanda onun içinde bulunan tüm varlıklarda da yönetici iznine sahip olmasını sağlar.  
-  ![Yönetici erişimi olan yeni kullanıcı ekleme](.\media\tutorial-user-access\new-admin-access.png)
+  ![Yönetici erişimi olan yeni kullanıcı ekleme](./media/tutorial-user-access/new-admin-access.png)
 
 ## <a name="create-a-user-with-user-access"></a>Kullanıcı erişimi olan bir kullanıcı oluşturma
 Pano ve raporlar gibi Cloudyn verilerine erişmesi gereken tipik kullanıcılar, bunları görüntüleme erişimine sahip olmalıdır. Aşağıdaki farklılıklar dışında, yönetici erişimi ile oluşturduğunuz kullanıcıya benzer şekilde kullanıcı erişimi olan yeni bir kullanıcı oluşturun:
@@ -56,7 +56,7 @@ Pano ve raporlar gibi Cloudyn verilerine erişmesi gereken tipik kullanıcılar,
 - **Kullanıcının kullanıcı erişimi var** listesinde kullanıcının erişmesi gereken varlıkları seçin.
 - Ayrıca, gerektiğinde yöneticinin belirli varlıklara erişmesine izin verebilirsiniz.
 
-![kullanıcı erişimi olan yeni kullanıcı oluşturma](.\media\tutorial-user-access\new-user-access.png)
+![kullanıcı erişimi olan yeni kullanıcı oluşturma](./media/tutorial-user-access/new-user-access.png)
 
 Kullanıcı ekleme hakkında öğretici bir video izlemek için bkz. [Cloudyn’e Kullanıcı Ekleme](https://youtu.be/Nzn7GLahx30).
 
@@ -88,11 +88,11 @@ Azure sözleşmenizi veya hesabınızı Cloudyn’e kaydettiğinizde, abonelikle
 
 Cloudyn portalında, sağ üst kısımdaki dişli simgesine tıklayın ve **Bulut Hesapları**'nı seçin. Tek bir varlık (kök) ile başlayıp kök altında varlık ağacınızı oluşturabilirsiniz. Ağaç tamamlandıktan sonra birçok BT kuruluşunun benzeyebileceği bir varlık hiyerarşisi örneği aşağıda verilmiştir:
 
-![Varlık ağacı](.\media\tutorial-user-access\entity-tree.png)
+![Varlık ağacı](./media/tutorial-user-access/entity-tree.png)
 
 **Varlıklar**’ın yanındaki **Varlık Ekle** öğesine tıklayın. Eklemek istediğiniz kişi veya departmana ilişkin bilgileri girin. **Tam Ad** ve **E-posta** alanları, mevcut kullanıcılarla aynı olmamalıdır. Erişim düzeylerinin bir listesini görüntülemek isterseniz *Varlık ekleme* yardımını arayın.
 
-![Varlık ekleme](.\media\tutorial-user-access\add-entity.png)
+![Varlık ekleme](./media/tutorial-user-access/add-entity.png)
 
 İşiniz bittiğinde varlığı **Kaydedin**.
 

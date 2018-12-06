@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: d228fbde230f89848d895bd1c004724b88de4431
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a8d91c0410d2a59e4b22866aa48d36c026f3ee8e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883831"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956304"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Bilinen sorunları/geçiş sınırlamalarıyla birlikte Azure SQL DB'ye online geçişleri
 
@@ -30,7 +30,7 @@ Kaynak veritabanınızın bir veya daha fazla zamana bağlı tablolarda oluşuyo
 
 {"ResourceId": "/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType": "Veritabanı geçiş hatası", "errorEvents": "[" yakalama işlevleri ayarlanamadı. RetCode: SQL_ERROR hatası SqlState: 42000 NativeError: 13570 ileti: sistem sürümü tutulan zamana bağlı tabloyla [Microsoft] [SQL Server Native Client 11.0] [SQL Server] çoğaltma kullanımı desteklenmiyor ' [uygulaması. Şehir]' satır: 1 sütun: -1 "]"}
  
- ![Zamana bağlı tablo hataları örnek](media\known-issues-azure-sql-online\dms-temporal-tables-errors.png)
+ ![Zamana bağlı tablo hataları örnek](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
 **Geçici çözüm**
 
@@ -52,7 +52,7 @@ Daha fazla bilgi için bkz [zamana bağlı tablolarda](https://docs.microsoft.co
 
 "N metin"tam veri yüklemesi"işlemi sırasında hierarchyid ile uyumlu değil" önerme SQL özel durumu görebilirsiniz:
      
-![HierarchyId hataları örnek](media\known-issues-azure-sql-online\dms-hierarchyid-errors.png)
+![HierarchyId hataları örnek](media/known-issues-azure-sql-online/dms-hierarchyid-errors.png)
 
 **Geçici çözüm**
 
@@ -107,7 +107,7 @@ DMS kaynak tablosunda depolanan tam zaman damgası değeri geçirmek için gerek
 
 Veritabanı ayrıntıları durumu görünümünde Geçiş hataları karşılaştığınızda, seçme **veri geçiş hataları** bağlantı üstteki Şeritte ek ayrıntılar için geçiş hataları belirli değil sağlayabilir.
 
-![Veri Geçiş hataları ayrıntıları örnek](media\known-issues-azure-sql-online\dms-data-migration-errors-no-details.png)
+![Veri Geçiş hataları ayrıntıları örnek](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 
 **Geçici çözüm**
 
@@ -115,6 +115,6 @@ Belirli hata ayrıntıları almak için aşağıdaki adımları izleyin.
 
 1. Geçiş etkinlik ekranı görüntülemek için veritabanı ayrıntılı durum dikey penceresini kapatın.
 
-     ![geçiş etkinlik ekranı](media\known-issues-azure-sql-online\dms-migration-activity-screen.png)
+     ![geçiş etkinlik ekranı](media/known-issues-azure-sql-online/dms-migration-activity-screen.png)
 
 2. Seçin **hata ayrıntılarına** Geçiş hataları gidermek için yardımcı belirli hata iletilerini görüntülemek için.

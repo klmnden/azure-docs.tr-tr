@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: dd7f76e20e43e24c31f5afd8c8d9eb97db04255f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 68c838481120dea7635ac5ea76859a8088d732fb
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843232"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957359"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure'da hizmet eşlemesi çözümünü kullanma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Hizmet eşlemesi ile bunları düşündüğünüz gibi sunucularınızı görüntüleyebilirsiniz: kritik Hizmetleri sunmak birbirine sistemleri olarak. Bir aracı yüklemesini dışında hiçbir yapılandırma tüm TCP bağlantılı mimarisi arasında bağlantı noktaları gerekli ve hizmet eşlemesi sunucuları, işlemler, gelen ve giden bağlantı gecikmesi arasındaki bağlantıları gösterir.
@@ -38,7 +38,7 @@ Bu makalede, ekleme ve hizmet eşlemesi kullanarak ayrıntılarını açıklar. 
 2. Arama çubuğuna yazın **hizmet eşlemesi** basın **Enter**.
 3. Market arama sonuçları sayfasını seçin **hizmet eşlemesi** listeden.<br><br> ![Azure Market araması sonuçlarından hizmet eşlemesi çözümünü seçin](./media/service-map/marketplace-search-results.png)<br>
 4. Üzerinde **hizmet eşlemesi** genel bakış bölmesinde, çözüm ayrıntıları gözden geçirin ve ardından **Oluştur** Log Analytics çalışma alanınıza onboarding işlemine başlamak için.<br><br> ![Yerleşik hizmet eşlemesi çözümünü](./media/service-map/service-map-onboard.png).
-5. İçinde **çözüm yapılandırma** bölmesinde mevcut bir seçin veya yeni bir Log Analytics çalışma alanı oluşturun.  Yeni bir çalışma alanı oluşturma hakkında daha fazla bilgi için bkz: [Azure portalında Log Analytics çalışma alanı oluşturma](../../log-analytics/log-analytics-quick-create-workspace.md). Gerekli bilgileri girdikten sonra tıklayın **Oluştur**.  
+5. İçinde **çözüm yapılandırma** bölmesinde mevcut bir seçin veya yeni bir Log Analytics çalışma alanı oluşturun.  Yeni bir çalışma alanı oluşturma hakkında daha fazla bilgi için bkz: [Azure portalında Log Analytics çalışma alanı oluşturma](../../azure-monitor/learn/quick-create-workspace.md). Gerekli bilgileri girdikten sonra tıklayın **Oluştur**.  
 
 Bilgiler doğrulanır ve çözümün dağıtılır, ancak altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünde. 
 

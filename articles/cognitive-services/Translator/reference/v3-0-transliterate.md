@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 613cdd14ad196058458b090024cc6b9a4b8a80b6
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 841982a4ecbfa5241d826beaaae81921b2859596
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018630"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967342"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator metin çevirisi API'si 3.0: alfabeye
 
@@ -42,15 +42,15 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   </tr>
   <tr>
     <td>language</td>
-    <td>*Gerekli parametre*.<br/>Bir komut dosyasından diğerine dönüştürmek için metin dilini belirtir. Olası diller listelenmiştir `transliteration` kapsam alınan hizmet için sorgulama yaparak kendi [desteklenen diller](.\v3-0-languages.md).</td>
+    <td>*Gerekli parametre*.<br/>Bir komut dosyasından diğerine dönüştürmek için metin dilini belirtir. Olası diller listelenmiştir `transliteration` kapsam alınan hizmet için sorgulama yaparak kendi [desteklenen diller](./v3-0-languages.md).</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Gerekli parametre*.<br/>Giriş metni kullanılan betiği belirtir. Arama [desteklenen diller](.\v3-0-languages.md) kullanarak `transliteration` seçili dil için giriş komut dosyalarını bulmak için kapsam.</td>
+    <td>*Gerekli parametre*.<br/>Giriş metni kullanılan betiği belirtir. Arama [desteklenen diller](./v3-0-languages.md) kullanarak `transliteration` seçili dil için giriş komut dosyalarını bulmak için kapsam.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Gerekli parametre*.<br/>Çıkış betiğini belirtir. Arama [desteklenen diller](.\v3-0-languages.md) kullanarak `transliteration` çıkış kodları seçilen giriş dili bileşimi için kullanılabilir ve giriş betik bulmak için kapsam.</td>
+    <td>*Gerekli parametre*.<br/>Çıkış betiğini belirtir. Arama [desteklenen diller](./v3-0-languages.md) kullanarak `transliteration` çıkış kodları seçilen giriş dili bileşimi için kullanılabilir ve giriş betik bulmak için kapsam.</td>
   </tr>
 </table> 
 

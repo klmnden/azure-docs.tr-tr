@@ -1,21 +1,22 @@
 ---
-title: "Azure Cosmos DB: .NET Core öğreticisini kullanmaya başlamak SQL API'si"
-description: Azure Cosmos DB SQL API’si .NET Core SDK'sını kullanarak çevrimiçi bir veritabanı ve C# konsol uygulaması oluşturan öğretici.
+title: 'Öğretici: Azure Cosmos DB SQL API hesabı depolanan verileri yönetmek için bir .NET Core uygulaması derleme'
+description: Bu öğretici, çevrimiçi bir veritabanı oluşturur ve C# konsol uygulaması için Azure Cosmos DB SQL API .NET Core SDK'sını kullanarak.
 author: SnehaGunda
-ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 03/12/2018
-ms.openlocfilehash: 494e64e81655d69ae86920aeb367039de3e1c0a8
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.author: sngun
+Customer intent: As a developer, I want to build a .NET Core application to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities that Azure Cosmos DB offers.
+ms.openlocfilehash: 2dbfa4264fb9d1bd1b7f976a9a067e0ab741cbe4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863916"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969287"
 ---
-# <a name="tutorial-build-a-net-core-app-to-manage-azure-cosmos-db-sql-api-data"></a>Öğretici: Azure Cosmos DB SQL API'si verilerini yönetmek için bir .Net Core uygulaması oluşturma
+# <a name="tutorial-build-a-net-core-app-to-manage-data-stored-in-a-sql-api-account"></a>Öğretici: bir SQL API hesabı depolanan verileri yönetmek için bir .NET Core uygulaması derleme
 
 > [!div class="op_single_selector"]
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -27,21 +28,19 @@ ms.locfileid: "52863916"
 > * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
-Bu öğreticide Azure Cosmos DB SQL API'si verilerini oluşturmak ve sorgulamak için bir .Net Core uygulaması oluşturma adımları gösterilmektedir. 
+Bir geliştirici olarak, NoSQL belge verileri kullanan uygulamalar olabilir. Azure Cosmos DB SQL API hesabı, depolamak ve bu belge verilere erişmek için kullanabilirsiniz. Bu öğretici, bir .NET Core uygulaması oluşturmak için oluşturma ve Azure Cosmos DB SQL API hesabı depolanan verileri sorgulamak gösterir. 
 
 Bu öğretici aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
-> * Azure Cosmos DB hesabı oluşturma ve hesaba bağlanma
-> * Visual Studio Çözümünüzü yapılandırma
+> * Oluşturma ve bir Azure Cosmos hesabına bağlanma
+> * Visual Studio çözümünüzü yapılandırma
 > * Çevrimiçi bir veritabanı oluşturma
 > * Koleksiyon oluşturma
 > * JSON belgeleri oluşturma
 > * Öğelerde, kapsayıcıda ve veritabanında CRUD işlemleri gerçekleştirme
 
-Uygulamayı oluşturmak için zamanınız yok mu? Endişelenmeyin! Eksiksiz çözümü [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started)'da bulabilirsiniz. Hızlı yönergeler için [Tam çözümü edinme bölümüne](#GetSolution) atlayın.
-
-SQL API'sini ve .NET Core SDK’yı kullanarak bir Xamarin iOS, Android, veya Forms uygulaması mı derlemek istiyorsunuz? Bkz. [Xamarin ve Azure Cosmos DB ile mobil uygulamalar derleme](mobile-apps-with-xamarin.md).
+Uygulamayı oluşturmak için zamanınız yok mu? Eksiksiz çözümü [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started)'da bulabilirsiniz. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -49,49 +48,47 @@ SQL API'sini ve .NET Core SDK’yı kullanarak bir Xamarin iOS, Android, veya Fo
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* Henüz Visual Studio 2017’yi yüklemediyseniz, ücretsiz [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Evrensel Windows Platformu (UWP) uygulaması geliştiriyorsanız, **Visual Studio 2017 sürüm 15.4** veya üstünü kullanmalısınız. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
+* İndirin ve ücretsiz [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Evrensel Windows Platformu (UWP) uygulaması geliştiriyorsanız, **Visual Studio 2017 sürüm 15.4** veya üstünü kullanmalısınız. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
 
-    * MacOS veya Linux’ta çalışıyorsanız tercih ettiğiniz platforma yönelik [.NET Core SDK](https://www.microsoft.com/net/core#macos)’yı yükleyerek komut satırından .NET Core uygulamaları geliştirebilirsiniz. 
+    * MacOS veya Linux için yükleyerek komut satırından .NET Core uygulamaları geliştirebilirsiniz [.NET Core SDK'sı](https://www.microsoft.com/net/core#macos) tercih ettiğiniz platform için. 
 
-    * Windows’da çalışıyorsanız [.NET Core SDK](https://www.microsoft.com/net/core#windows)’yı yükleyerek komut satırından .NET Core uygulamaları geliştirebilirsiniz. 
+    * Windows için yükleyerek komut satırından .NET Core uygulamaları geliştirebilirsiniz [.NET Core SDK'sı](https://www.microsoft.com/net/core#windows). 
 
-    * Kendi düzenleyicinizi kullanabilir ya da ücretsiz olan ve Windows, Linux ve MacOS’de çalışan [Visual Studio Code](https://code.visualstudio.com/)’u indirebilirsiniz. 
+## <a name="create-an-azure-cosmos-account"></a>Bir Azure Cosmos hesabı oluşturma
 
-## <a name="step-1-create-an-azure-cosmos-db-account"></a>1. Adım: Azure Cosmos DB hesabı oluşturma
-
-Bir Azure Cosmos DB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten varsa [Visual Studio Çözümünüzü Kurma](#SetupVS)'ya atlayabilirsiniz. Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız öykünücünün kurulumunu gerçekleştirmek için [Azure Cosmos DB Öykünücüsü](local-emulator.md) konusundaki adımları izleyin ve [Visual Studio Çözümünüzü Ayarlama](#SetupVS) adımına atlayın.
+Azure Cosmos hesap oluşturmak için aşağıdaki adımları kullanın:
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupVS"></a>2. Adım: Visual Studio çözümünüzü kurma
+## <a id="SetupVS"></a>Visual Studio çözümünüzü kurma
 
 1. Bilgisayarınızda **Visual Studio 2017**'yi açın.
 
 2. **Dosya** menüsünde **Yeni**'yi seçin ve ardından **Proje**'yi seçin.
 
-3. **Yeni Proje** iletişim kutusunda **Şablonlar** / **Visual C#** / **.NET Core**/**Konsol Uygulaması (.NET Core)** seçeneğini belirleyin, projenizi **DocumentDBGettingStarted** olarak adlandırın ve **Tamam**’ı seçin.
+3. **Yeni Proje** iletişim kutusunda **Şablonlar** > **Visual C#** > **.NET Core** > **Konsol Uygulaması (.NET Core)** seçeneğini belirleyin, projenizi **DocumentDBGettingStarted** olarak adlandırın ve **Tamam**’ı seçin.
 
    ![Yeni Proje penceresinin ekran görüntüsü](./media/sql-api-dotnetcore-get-started/nosql-tutorial-new-project-2.png)
 
-4. **Çözüm Gezgini** içinde, **DocumentDBGettingStarted**’a sağ tıklayın.
+4. İçinde **Çözüm Gezgini**, sağ **DocumentDBGettingStarted**.
 
-5. Aynı menüde **NuGet Paketlerini Yönet...** öğesini seçin.
+5. Aynı menüsünde **NuGet paketlerini Yönet**.
 
-   ![Proje için Sağ Tıklama Menüsünün ekran görüntüsü](./media/sql-api-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+   ![Proje için sağ tıklama menüsünün ekran görüntüsü](./media/sql-api-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 
-6. **NuGet** sekmesinde, pencerenin üst kısmındaki **Gözat**'ı seçin ve arama kutusuna **azure documentdb** yazın.
+6. Üzerinde **NuGet** sekmesinde **Gözat** üst pencere ve türünü **azure documentdb** arama kutusuna.
 
-7. Sonuçlardan **Microsoft.Azure.DocumentDB.Core** seçeneğini bulup **Yükle**’yi seçin.
+7. Sonuçları bulmayı **Microsoft.Azure.DocumentDB.Core** seçip **yükleme**.
 
-   Kitaplığın paket kimliği: [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core). Bu .NET Core NuGet paketi tarafından desteklenmeyen bir .NET Framework sürümünü (net461 gibi) hedefliyorsanız, .NET Framework 4.5’ten itibaren tüm .NET Framework sürümlerini destekleyen [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)’yi kullanın.
+   Kitaplığın paket kimliği: [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core). Bu .NET Core NuGet paketi tarafından desteklenmeyen bir .NET Framework sürümünü (net461 gibi) hedefliyorsanız, ardından kullanmak [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB), .NET Framework 4.5 ile başlayarak tüm .NET Framework sürümlerini destekler.
 
 8. İstendiğinde NuGet paket yüklemelerini ve lisans sözleşmesini kabul edin.
 
-Harika! Artık kurulum tamamlandığına göre, biraz kod yazmaya başlayabiliriz. Bu öğreticinin tamamlanmış kod projesini [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started)'da bulabilirsiniz.
+Artık kurulum tamamlandığına göre, biraz kod yazmaya başlayabiliriz. Bu öğreticinin tamamlanmış kod projesini bulabilirsiniz [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started).
 
-## <a id="Connect"></a>3. Adım: Azure Cosmos DB hesabına bağlanma
+## <a id="Connect"></a>Bir Azure Cosmos hesabına bağlanma
 
-Aşağıdaki kodu C# uygulamanızın Program.cs dosyasının başına ekleyerek gerekli bağımlılıkları içeri aktarın:
+Gerekli bağımlılıkları içeri aktararak, bir Azure Cosmos hesabınıza bağlanın. Bağımlılıkları almak için Program.cs dosyasının başına aşağıdaki kodu ekleyin:
 
 ```csharp
 using System;
@@ -105,7 +102,7 @@ using Microsoft.Azure.Documents.Client;
 using Newtonsoft.Json;
 ```
 
-Şimdi bu iki sabiti ve *client* değişkeninizi *Program* ortak sınıfının altına ekleyin.
+Ardından, bu iki sabiti ekleyin ve *istemci* değişken ortak sınıfının altına *Program*.
 
 ```csharp
 class Program
@@ -118,15 +115,15 @@ class Program
 
 Ardından, URI ve birincil anahtarınızı almak için [Azure portala](https://portal.azure.com) gidin. Azure Cosmos DB URI'si ve birincil anahtarı, uygulamanızın nereye bağlanacağını anlaması ve Azure Cosmos DB’nin uygulamanızın bağlantısına güvenmesi için gereklidir.
 
-Azure portalda Azure Cosmos DB hesabınıza gidin ve ardından **Anahtarlar**’ı seçin.
+Azure portalında Azure Cosmos hesabınıza gidin ve ardından **anahtarları**.
 
-Portaldaki URI’yi kopyalayın ve program.cs dosyasındaki `<your endpoint URI>` içine yapıştırın. Ardından portaldan BİRİNCİL ANAHTARI kopyalayın ve `<your key>` içine yapıştırın. Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız uç nokta olarak `https://localhost:8081` değerini ve [Azure Cosmos DB Öykünücüsü’nü kullanarak geliştirme](local-emulator.md) bölümünden elde edilen iyi tanımlanmış yetkilendirme anahtarını kullanın. < ve > işaretini kaldırdığınızdan, ancak uç noktası ve anahtarın başı ile sonundaki çift tırnağı bıraktığınızdan emin olun.
+Portaldaki URI’yi kopyalayın ve program.cs dosyasındaki `<your endpoint URI>` içine yapıştırın. Ardından portaldan BİRİNCİL ANAHTARI kopyalayın ve `<your key>` içine yapıştırın. < ve > işaretini kaldırdığınızdan, ancak uç noktası ve anahtarın başı ile sonundaki çift tırnağı bıraktığınızdan emin olun.
 
 ![Azure portaldan anahtarları alma][keys]
 
 **DocumentClient**'ın yeni bir örneğini oluşturarak başlarken uygulamasına başlayacağız.
 
-**Main** yönteminin altına yeni **DocumentClient** öğenizin örneğini oluşturacak **GetStartedDemo** adlı bu zaman uyumsuz yeni görevi ekleyin.
+Aşağıda **ana** yöntemi, adında yeni bir zaman uyumsuz Görev Ekle **GetStartedDemo**, örneğini oluşturacak yeni **DocumentClient**.
 
 ```csharp
 static void Main(string[] args)
@@ -170,13 +167,9 @@ static void Main(string[] args)
 
 Uygulamayı derlemek ve çalıştırmak için **DocumentDBGettingStarted** düğmesini seçin.
 
-Tebrikler! Bir Azure Cosmos DB hesabına başarıyla bağlandınız, şimdi Azure Cosmos DB kaynaklarıyla çalışmaya bakalım.  
+## <a id="CreateDatabase"></a>Veritabanı oluşturma
 
-## <a name="step-4-create-a-database"></a>4. Adım: Veritabanı oluşturma
-
-Bir veritabanı oluşturmak için kodu eklemeden önce, konsola yazma için bir yardımcı yöntemi ekleyin.
-
-**WriteToConsoleAndPromptToContinue** yöntemini kopyalayın ve **GetStartedDemo** yönteminin altına yapıştırın.
+Bir veritabanı oluşturmak için kodu eklemeden önce, konsola yazma için bir yardımcı yöntemi ekleyin. **WriteToConsoleAndPromptToContinue** yöntemini kopyalayın ve **GetStartedDemo** yönteminin altına yapıştırın.
 
 ```csharp
 // ADD THIS PART TO YOUR CODE
@@ -188,9 +181,7 @@ private void WriteToConsoleAndPromptToContinue(string format, params object[] ar
 }
 ```
 
-Azure Cosmos DB [veritabanınız](databases-containers-items.md#azure-cosmos-databases), **DocumentClient** sınıfının [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) yöntemi kullanılarak oluşturulabilir. Veritabanı, koleksiyonlar genelinde bölümlenmiş JSON belgesi depolama alanının mantıksal bir kapsayıcısıdır.
-
-Aşağıdaki kodu kopyalayın ve istemci oluşturmanın altında **GetStartedDemo** yönteminize yapıştırın. Bu, *FamilyDB* adlı bir veritabanı oluşturur.
+Kullanarak Azure Cosmos DB veritabanınıza oluşturma `CreateDatabaseAsync` yöntemi **DocumentClient** sınıfı. Veritabanı, koleksiyonlar genelinde bölümlenmiş JSON belgesi depolama alanının mantıksal bir kapsayıcısıdır. Aşağıdaki kodu kopyalayın ve istemci oluşturmanın altında **GetStartedDemo** yönteminize yapıştırın. Bu, *FamilyDB* adlı bir veritabanı oluşturur.
 
 ```csharp
 private async Task GetStartedDemo()
@@ -203,14 +194,12 @@ private async Task GetStartedDemo()
 
 Uygulamanızı çalıştırmak için **DocumentDBGettingStarted** düğmesini seçin.
 
-Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB veritabanı oluşturdunuz.  
+## <a id="CreateColl"></a>Koleksiyon oluşturma
 
-## <a id="CreateColl"></a>5. Adım: Koleksiyon oluşturma
+Kullanarak bir koleksiyon oluşturma `CreateDocumentCollectionAsync` yöntemi **DocumentClient** sınıfı. Koleksiyon, JSON belgelerinin ve ilişkili JavaScript uygulama mantığının bir kapsayıcısıdır.
 
 > [!WARNING]
-> **CreateDocumentCollectionAsync**, ayrılmış işleme ile yeni bir koleksiyon oluşturur, bu da ücret ödenmesini gerektirebilir. Daha ayrıntılı bilgi için lütfen [fiyatlandırma sayfamızı](https://azure.microsoft.com/pricing/details/cosmos-db/) ziyaret edin.
-
-Bir koleksiyon kullanarak oluşturulabilir [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) yöntemi **DocumentClient** sınıfı. Koleksiyon, JSON belgelerinin ve ilişkili JavaScript uygulama mantığının bir kapsayıcısıdır.
+> **CreateDocumentCollectionAsync**, ayrılmış işleme ile yeni bir koleksiyon oluşturur, bu da ücret ödenmesini gerektirebilir. Daha fazla ayrıntı için [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 Aşağıdaki kodu kopyalayın ve veritabanı oluşturmanın altında **GetStartedDemo** yönteminize yapıştırın. Bu kod, *FamilyCollection_oa* adlı bir belge koleksiyonu oluşturur.
 
@@ -225,15 +214,11 @@ Aşağıdaki kodu kopyalayın ve veritabanı oluşturmanın altında **GetStarte
 
 Uygulamanızı çalıştırmak için **DocumentDBGettingStarted** düğmesini seçin.
 
-Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB belge koleksiyonu oluşturdunuz.  
+## <a id="CreateDoc"></a>JSON belgeleri oluşturma
 
-## <a id="CreateDoc"></a>6. Adım: JSON belgeleri oluşturma
+Kullanarak belge oluşturma `CreateDocumentAsync` yöntemi **DocumentClient** sınıfı. Belgeler, kullanıcı tanımlı (rastgele) JSON içerikleridir. Artık, bir veya daha fazla belge yerleştirebilirsiniz. 
 
-Bir belge kullanarak oluşturulabilir [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) yöntemi **DocumentClient** sınıfı. Belgeler, kullanıcı tanımlı (rastgele) JSON içerikleridir. Şimdi bir veya daha fazla belge ekleyebiliriz. Veritabanınızda depolamak istediğiniz veriler zaten varsa Azure Cosmos DB'nin [Veri Geçiş Aracı](import-data.md)'nı kullanabilirsiniz.
-
-İlk olarak, Azure Cosmos DB'de depolanan nesneleri temsil eden bir **Family** sınıfı oluşturmanız gerekir. Ayrıca **Family**'nin içinde kullanılan **Parent**, **Child**, **Pet**, **Address** alt sınıflarını da oluşturacaksınız. Belgelerin, JSON'da **id** olarak seri hale getirilmiş bir **Id** özelliğine sahip olması gerekir. Bu sınıfları oluşturmak için **GetStartedDemo** yönteminden sonra aşağıdaki iç alt sınıfları ekleyin.
-
-**Family**, **Parent**, **Child**, **Pet** ve **Address** sınıflarını kopyalayın ve **WriteToConsoleAndPromptToContinue** yönteminin altına yapıştırın.
+İlk olarak, oluşturduğunuz bir **ailesi** Azure Cosmos DB içinde depolanan nesneleri temsil eden sınıf. Ayrıca oluşturduğunuz **üst**, **alt**, **evcil hayvan**, ve **adresi** içinde kullanılan alt sınıfları **ailesi**. Belgelerin, JSON'da **id** olarak seri hale getirilmiş bir **Id** özelliğine sahip olması gerekir. Bu sınıfları oluşturmak için **GetStartedDemo** yönteminden sonra aşağıdaki iç alt sınıfları ekleyin. **Family**, **Parent**, **Child**, **Pet** ve **Address** sınıflarını kopyalayın ve **WriteToConsoleAndPromptToContinue** yönteminin altına yapıştırın.
 
 ```csharp
 private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
@@ -313,9 +298,7 @@ private async Task CreateFamilyDocumentIfNotExists(string databaseName, string c
 }
 ```
 
-Andersen Ailesi ve Wakefield Ailesi için birer tane olmak üzere iki belge yerleştirin.
-
-`// ADD THIS PART TO YOUR CODE` öğesinden sonraki kodu kopyalayın ve belge koleksiyonu oluşturmanın altında **GetStartedDemo** yönteminize yapıştırın.
+Andersen Ailesi ve Wakefield Ailesi için birer tane olmak üzere iki belge yerleştirin. `// ADD THIS PART TO YOUR CODE` öğesinden sonraki kodu kopyalayın ve belge koleksiyonu oluşturmanın altında **GetStartedDemo** yönteminize yapıştırın.
 
 ```csharp
 await this.CreateDatabaseIfNotExistsAsync("FamilyDB_oa");
@@ -391,13 +374,11 @@ await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa",
 
 Uygulamanızı çalıştırmak için **DocumentDBGettingStarted** düğmesini seçin.
 
-Tebrikler! Başarılı bir şekilde iki Azure Cosmos DB belgesi oluşturdunuz.  
-
 ![Hesap, çevrimiçi veritabanı ve koleksiyon arasındaki hiyerarşik ilişki](./media/sql-api-dotnetcore-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>7. Adım: Azure Cosmos DB kaynaklarını sorgulama
+## <a id="Query"></a>Azure Cosmos DB kaynaklarını sorgulama
 
-Azure Cosmos DB, her bir koleksiyonda depolanan JSON belgeleri için [zengin sorguların](how-to-sql-query.md) gerçekleştirilmesini destekler. Aşağıdaki örnek kod, önceki adımda yerleştirdiğimiz belgelerde hem Azure Cosmos DB SQL söz dizimi hem de LINQ kullanarak çalıştırabileceğimiz çeşitli sorguları gösterir.
+Azure Cosmos DB, her bir koleksiyonda depolanan JSON belgeleri için zengin sorguların gerçekleştirilmesini destekler. Aşağıdaki örnek kod, hem Azure Cosmos DB SQL söz dizimi hem de önceki adımda eklememizden belgeleri karşı çalışan LINQ - kullanarak çeşitli sorguları gösterir.
 
 **ExecuteSimpleQuery** yöntemini kopyalayın ve **CreateFamilyDocumentIfNotExists** yönteminizin altına yapıştırın.
 
@@ -448,15 +429,13 @@ this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 Uygulamanızı çalıştırmak için **DocumentDBGettingStarted** düğmesini seçin.
 
-Tebrikler! Bir Azure Cosmos DB koleksiyonunu başarıyla sorguladınız.
-
-Aşağıdaki diyagram oluşturduğunuz koleksiyonda Azure Cosmos DB SQL sorgusu söz diziminin nasıl çağrıldığını gösterir, aynı mantık LINQ sorgusu için de geçerlidir.
+Aşağıdaki diyagramda, Azure Cosmos DB SQL sorgusu söz diziminin oluşturduğunuz koleksiyonda nasıl çağrıldığı gösterilmektedir. Aynı mantık LINQ sorgusu için geçerlidir.
 
 ![Bir C# konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan sorgunun kapsamını ve anlamını gösteren diyagram](./media/sql-api-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
-Azure Cosmos DB sorguları zaten tek bir koleksiyon kapsamında olduğundan, sorgudaki [FROM](how-to-sql-query.md#FromClause) anahtar sözcüğü isteğe bağlıdır. Bu nedenle, "FROM Families f", "FROM root r" veya seçtiğiniz herhangi bir başka değişken adıyla değiştirilebilir. Azure Cosmos DB; Families, root veya seçtiğiniz değişken adının varsayılan olarak geçerli koleksiyona başvurduğu sonucuna varır.
+`FROM` Azure Cosmos DB sorguları zaten tek bir koleksiyon kapsamında olduğundan anahtar sözcüğü sorguda isteğe bağlı. Bu nedenle, "FROM Families f", "FROM root r" veya seçtiğiniz herhangi bir başka değişken adıyla değiştirilebilir. Azure Cosmos DB, geçerli koleksiyonun aileleri, root veya seçtiğiniz değişken adının varsayılan olarak başvuran çıkarır.
 
-## <a id="ReplaceDocument"></a>8. Adım: JSON belgesini değiştirme
+## <a id="ReplaceDocument"></a>JSON belgesini değiştirme
 
 Azure Cosmos DB, JSON belgelerini değiştirmeyi destekler.  
 
@@ -489,9 +468,7 @@ this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 Uygulamanızı çalıştırmak için **DocumentDBGettingStarted** düğmesini seçin.
 
-Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB belgesini değiştirdiniz.
-
-## <a id="DeleteDocument"></a>9. Adım: JSON belgesini silme
+## <a id="DeleteDocument"></a>JSON belgesini silme
 
 Azure Cosmos DB, JSON belgelerini silmeyi destekler.  
 
@@ -519,13 +496,9 @@ await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.
 
 Uygulamanızı çalıştırmak için **DocumentDBGettingStarted** düğmesini seçin.
 
-Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB belgesini sildiniz.
+## <a id="DeleteDatabase"></a>Veritabanını silme
 
-## <a id="DeleteDatabase"></a>10. Adım: Veritabanını silme
-
-Oluşturulan veritabanı silindiğinde, veritabanı ve tüm alt kaynaklar (koleksiyonlar, belgeler vb.) kaldırılır.
-
-Tüm veritabanını ve tüm alt kaynaklarını silmek için aşağıdaki kodu kopyalayın ve belge silmenin altında **GetStartedDemo** yönteminize yapıştırın.
+Oluşturulan veritabanı silindiğinde, veritabanı ve tüm alt kaynaklar (koleksiyonlar, belgeler, vb.) kaldırılır. Aşağıdaki kodu kopyalayıp, **GetStartedDemo** tüm veritabanını ve tüm alt kaynaklarını silmek için belgeyi yöntemini.
 
 ```csharp
 this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
@@ -539,15 +512,11 @@ await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"
 
 Uygulamanızı çalıştırmak için **DocumentDBGettingStarted** düğmesini seçin.
 
-Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB veritabanını sildiniz.
+## <a id="Run"></a>Çalıştırın, C# konsol uygulaması
 
-## <a id="Run"></a>11. Adım: C# konsol uygulamanızı çalıştırın
+Uygulamayı hata ayıklama modunda derlemek için, Visual Studio’da **DocumentDBGettingStarted** düğmesini seçin. Konsol penceresinde başlarken uygulamanızın çıktısını görmeniz gerekir. Çıktı, eklediğimiz sorguların sonuçlarını gösterir ve aşağıdaki örnek metinle eşleşmelidir.
 
-Uygulamayı hata ayıklama modunda derlemek için, Visual Studio’da **DocumentDBGettingStarted** düğmesini seçin.
-
-Konsol penceresinde başlarken uygulamanızın çıktısını görmeniz gerekir. Çıktı, eklediğimiz sorguların sonuçlarını gösterir ve aşağıdaki örnek metinle eşleşmelidir.
-
-```
+```bash
 Created FamilyDB_oa
 Press any key to continue ...
 Created FamilyCollection_oa
@@ -570,24 +539,18 @@ Deleted Family Andersen.1
 End of demo, press any key to exit.
 ```
 
-Tebrikler! Bu öğreticiyi tamamladınız ve çalışan bir C# konsol uygulamasına sahipsiniz!
+Artık öğreticisini tamamladınız ve çalışan bir sahip C# konsol uygulaması.
 
-## <a id="GetSolution"></a> Tam öğretici çözümünü edinin
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu makaledeki tüm örnekleri içeren GetStarted çözümünü derlemek için aşağıdakilere ihtiyacınız vardır:
-
-* Etkin bir Azure hesabı. Bir aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) için kaydolabilirsiniz.
-* Bir [Azure Cosmos DB hesabı][create-sql-api-dotnet.md#create-account].
-* GitHub'da bulunan [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started) çözümü.
-
-Başvuruları Visual Studio'daki Azure Cosmos DB için SQL API'si .NET Core SDK'ya geri yüklemek için, Çözüm Gezgini'nde **GetStarted** çözümüne sağ tıklayın ve ardından **NuGet Paketi Geri Yüklemeyi Etkinleştir**'i seçin. Ardından, Program.cs dosyasında EndpointUrl ve AuthorizationKey değerlerini [Azure Cosmos DB hesabına bağlanma](#Connect) bölümünde açıklandığı gibi güncelleştirin.
+Artık ihtiyaç duyulan, kaynak grubu, Azure Cosmos hesabı ve tüm ilgili kaynakları silin. Bunu yapmak için select sanal makinenin kaynak grubunu seçin. **Sil**ve ardından silmek için kaynak grubunun adını onaylayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide Azure Cosmos DB SQL API verilerini yönetmek için bir .Net Core uygulaması oluşturmayı öğrendiniz. Şimdi bir sonraki makaleye geçebilirsiniz:
+Bu öğreticide, Azure Cosmos DB SQL API hesabı depolanan verileri yönetmek için bir .NET Core uygulaması derleme öğrendiniz. Şimdi bir sonraki makaleye geçebilirsiniz:
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB SQL API'si hesabıyla Java konsol uygulaması oluşturma](sql-api-java-get-started.md)
+> [Azure Cosmos DB SQL API hesabı bir Java konsol uygulaması oluşturma](sql-api-java-get-started.md)
 
 [create-sql-api-dotnet.md#create-account]: create-sql-api-dotnet.md#create-account
 [keys]: media/sql-api-dotnetcore-get-started/nosql-tutorial-keys.png

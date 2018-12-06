@@ -10,16 +10,16 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 41b610f3504a8eb6619613e3ad0aa7c1c4cf9f66
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b51067b9e854566991d49aeb1ff2b1ad13999a51
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127854"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957751"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>Translator metin çevirisi API'si 3.0: Sözlük arama
 
-Bir sözcük ve az sayıda deyimler için alternatif çevirileri sağlar. Her çeviri arka çevirileri listesini ve bir-konuşma bölümü vardır. Arka-çevirileri bir kullanıcı bağlamında çeviri anlamak etkinleştirin. [Sözlük örnek](.\v3-0-dictionary-examples.md) işlemi her çeviri çifti bakın örnek kullanımları daha fazla detaya sağlar.
+Bir sözcük ve az sayıda deyimler için alternatif çevirileri sağlar. Her çeviri arka çevirileri listesini ve bir-konuşma bölümü vardır. Arka-çevirileri bir kullanıcı bağlamında çeviri anlamak etkinleştirin. [Sözlük örnek](./v3-0-dictionary-examples.md) işlemi her çeviri çifti bakın örnek kullanımları daha fazla detaya sağlar.
 
 ## <a name="request-url"></a>İstek URL'si
 
@@ -42,11 +42,11 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   </tr>
   <tr>
     <td>başlangıç</td>
-    <td>*Gerekli parametre*.<br/>Giriş metninin dilini belirtir. Kaynak dili olmalıdır [desteklenen diller](.\v3-0-languages.md) dahil `dictionary` kapsam.</td>
+    <td>*Gerekli parametre*.<br/>Giriş metninin dilini belirtir. Kaynak dili olmalıdır [desteklenen diller](./v3-0-languages.md) dahil `dictionary` kapsam.</td>
   </tr>
   <tr>
     <td>-</td>
-    <td>*Gerekli parametre*.<br/>Çıkış metnini dilini belirtir. Hedef Dil olmalıdır [desteklenen diller](.\v3-0-languages.md) dahil `dictionary` kapsam.</td>
+    <td>*Gerekli parametre*.<br/>Çıkış metnini dilini belirtir. Hedef Dil olmalıdır [desteklenen diller](./v3-0-languages.md) dahil `dictionary` kapsam.</td>
   </tr>
 </table>
 
@@ -92,13 +92,13 @@ Aşağıdaki sınırlamalar geçerlidir:
 
 Başarılı bir yanıt için Giriş dizisinin her bir dizede tek bir sonuç ile bir JSON dizisidir. Sonuç nesnesi, aşağıdaki özellikleri içerir:
 
-  * `normalizedSource`: Kaynak terim normalleştirilmiş şeklinde veren bir dize. Örneğin, istek "JOHN" ise, normalleştirilmiş form "john" olacaktır. Bu alanın içeriğini giriş olur [arama örnekler](.\v3-0-dictionary-examples.md).
+  * `normalizedSource`: Kaynak terim normalleştirilmiş şeklinde veren bir dize. Örneğin, istek "JOHN" ise, normalleştirilmiş form "john" olacaktır. Bu alanın içeriğini giriş olur [arama örnekler](./v3-0-dictionary-examples.md).
     
   * `displaySource`: Kaynak ifadesi bir formda en iyi vererek bir dizeyi son kullanıcı görüntüsü için uygundur. Örneğin, Giriş "JOHN" ise, her zamanki adının yazımını görüntüleme formu yansıtır: "John". 
 
   * `translations`: Çeviriler kaynak dönem bir listesi. Listedeki her öğe, aşağıdaki özelliklere sahip bir nesnedir:
 
-    * `normalizedTarget`: Bu terim normalleştirilmiş biçiminin hedef dilde vererek bir dize. Bu değer, giriş olarak kullanılmalıdır [arama örnekler](.\v3-0-dictionary-examples.md).
+    * `normalizedTarget`: Bu terim normalleştirilmiş biçiminin hedef dilde vererek bir dize. Bu değer, giriş olarak kullanılmalıdır [arama örnekler](./v3-0-dictionary-examples.md).
 
     * `displayTarget`: Bir dize ifadesi hedef dil ve bir formda en iyi vererek son kullanıcı görüntüsü için uygundur. Genellikle, bu yalnızca farklılık `normalizedTarget` büyük/küçük harf bakımından. Örneğin, "Juan" olacaktır gibi özel isim `normalizedTarget = "juan"` ve `displayTarget = "Juan"`.
 
@@ -125,11 +125,11 @@ Başarılı bir yanıt için Giriş dizisinin her bir dizede tek bir sonuç ile 
     
     * `backTranslations`: "Geri çevirileri" hedef bir listesi. Örneğin, hedef için çevirebilir sözcükleri kaynağı. İstenen kaynak sözcüğünü içeren liste sağlanır (örneğin, word kaynağı olan görünüyorsa "Çık" olan ve ardından içinde "Çık" olacağı garanti edilir `backTranslations` listesi). Ancak, bunu ilk konumda olmasını garanti edilmez ve genellikle olmayacaktır. Her öğeyi `backTranslations` liste, şu özellikler tarafından açıklanan bir nesnedir:
 
-        * `normalizedText`: Geri çevirme hedef kaynak terimi normalleştirilmiş şeklinde veren bir dize. Bu değer, giriş olarak kullanılmalıdır [arama örnekler](.\v3-0-dictionary-examples.md).        
+        * `normalizedText`: Geri çevirme hedef kaynak terimi normalleştirilmiş şeklinde veren bir dize. Bu değer, giriş olarak kullanılmalıdır [arama örnekler](./v3-0-dictionary-examples.md).        
 
         * `displayText`: Geri çevirme hedefinin bir formda en iyi kaynak terimi vererek bir dizeyi son kullanıcı görüntüsü için uygundur.
 
-        * `numExamples`: Bu çeviri çifti için kullanılabilir örneklerin sayısını temsil eden bir tamsayı. Gerçek örnekler alınan, ayrı bir çağrıyla [arama örnekler](.\v3-0-dictionary-examples.md). Sayı çoğunlukla bir UX görüntüde kolaylaştırmak için tasarlanmıştır Örneğin, bir kullanıcı arabirimi örnekleri sayısı sıfırdan büyük olması durumunda, geri çevirme için köprü ekleme ve örnek varsa, geri çevirme düz metin olarak göster. Bir çağrı tarafından döndürülen örnek gerçek sayısı Not [arama örnekler](.\v3-0-dictionary-examples.md) olabilir küçüktür `numExamples`, ek bir filtreleme "kötü" örnekler kaldırmak için çalışma sırasında uygulanabilir.
+        * `numExamples`: Bu çeviri çifti için kullanılabilir örneklerin sayısını temsil eden bir tamsayı. Gerçek örnekler alınan, ayrı bir çağrıyla [arama örnekler](./v3-0-dictionary-examples.md). Sayı çoğunlukla bir UX görüntüde kolaylaştırmak için tasarlanmıştır Örneğin, bir kullanıcı arabirimi örnekleri sayısı sıfırdan büyük olması durumunda, geri çevirme için köprü ekleme ve örnek varsa, geri çevirme düz metin olarak göster. Bir çağrı tarafından döndürülen örnek gerçek sayısı Not [arama örnekler](./v3-0-dictionary-examples.md) olabilir küçüktür `numExamples`, ek bir filtreleme "kötü" örnekler kaldırmak için çalışma sırasında uygulanabilir.
         
         * `frequencyCount`: Bu çeviri çifti veri sıklığını temsil eden bir tamsayı. Ana amacı, bu alan, bir kullanıcı arabirimi arka çevirileri en sık kullanılan terimler ilk olacak şekilde sıralamak için bir yol sağlamaktır.
 

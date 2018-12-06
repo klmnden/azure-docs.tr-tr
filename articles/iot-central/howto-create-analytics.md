@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c170f573a473d3fdfca5c916b4be594dc93d6b27
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f0e589689ae9a63ad90a4449c120938066309050
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156332"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961289"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Cihazınızın verileri analiz etmek için Analytics kullanma
 
@@ -23,7 +23,7 @@ ms.locfileid: "50156332"
 
 Azure IOT Central, büyük miktarda verileri anlamlı zengin analiz özellikleri sağlar. Başlamak için ziyaret **Analytics** sol gezinti menüsünde. 
 
-  ![Analytics IOT Central gitme](media\howto-create-analytics\analytics-navigation.png)
+  ![Analytics IOT Central gitme](media/howto-create-analytics/analytics-navigation.png)
 
 ## <a name="querying-your-data"></a>Verilerinizi sorgulama
 
@@ -40,7 +40,7 @@ to-do: do we need to explain how fiters work?
 * **Filtreler:** isteğe bağlı olarak, verileriniz üzerinde odaklanmanıza imkan aramanıza filtre ekleyebilirsiniz. Aynı anda en fazla 10 filtreleri ekleyebilirsiniz. Örneğin, sıcaklık çalıştırılmış olan 60 derecenin Git Oakland içindeki tüm Refrigerators içinde bulun. 
 * **Zaman aralığı:** varsayılan olarak veri son 10 dakika ile alıyoruz. Önceden tanımlanmış saat aralıklardan biri için bu değeri değiştirin veya bir özel zaman aralığı seçin. 
 
- ![Analiz sorgusu](media\howto-create-analytics\analytics-query.png)
+ ![Analiz sorgusu](media/howto-create-analytics/analytics-query.png)
 
 ## <a name="visualizing-your-data"></a>Verilerinizi Görselleştirme
 
@@ -53,8 +53,8 @@ to-do: confirm if 10 is the max number of measurements
 * **Ölçümler:** teker teker, cihazlarınız tarafından bildirilen en fazla 10 farklı telemetri öğeleri Göster/Gizle seçebilirsiniz. Ölçümler, sıcaklık ve nem gibi noktalardır. 
 * **Toplama:** varsayılan olarak şu veri, ortalama ile toplama, ancak veri toplamayı şeye kendi gereksinimlerinize uyacak şekilde değiştirmek isteyebilirsiniz. 
 
-   ![Analytics Görselleştirme](media\howto-create-analytics\analytics-visualize.png) <br/><br/>
-   ![Bölme ölçütü analytics Görselleştirme](media\howto-create-analytics\analytics-splitby.png)
+   ![Analytics Görselleştirme](media/howto-create-analytics/analytics-visualize.png) <br/><br/>
+   ![Bölme ölçütü analytics Görselleştirme](media/howto-create-analytics/analytics-splitby.png)
 
 ## <a name="interacting-with-your-data"></a>Verilerinizle etkileşim kurma
 
@@ -63,14 +63,14 @@ Sahip olduğunuz çeşitli şekillerde daha fazla sorgu sonuçlarınız görsell
 * **Kılavuzu Göster:** sonuçlarınızı belirli her veri noktasının değerini görüntülemek sağlayan bir tablo biçiminde kullanıma sunulacak. Bu görünüm, ayrıca erişilebilirlik standartlarını karşılar. 
 * **Grafiğin göster:** sonuçlarınızı bir kolayca noktaları yukarı ve aşağı doğru eğilimleri ve anormallikleri satır biçiminde görüntülenir. 
 
- ![Analiz için kılavuz görünümü gösteriliyor](media\howto-create-analytics\analytics-showgrid.png)
+ ![Analiz için kılavuz görünümü gösteriliyor](media/howto-create-analytics/analytics-showgrid.png)
 
 Yakınlaştırma, verileriniz üzerinde odaklanmanıza imkan sağlar. Odaklanmak için sonuç kümesinde istediğiniz bir zaman dönemi bulursanız, imlecinizi yakınlaştırmak ve aşağıdaki eylemlerden birini gerçekleştirmek için kullanılabilir denetimleri kullanmak istediğiniz alanı almak için kullanın:
 * **Yakınlaştırma:** bir zaman dönemi seçtikten sonra yakınlaştırma, etkin ve verileriniz için yakınlaştırın olanak sağlar.
 * **Uzaklaştır:** bu denetim, yakınlaştırma, son yakınlaştırma bir düzeyi sağlar. Örneğin, üç kez verilerinize olduğunuz ekranı yakınlaştırdığınızda, uzaklaştırma sürecek bir kerede tek bir adımda geri.
 * **Yakınlaştırma sıfırlanması:** çeşitli yakınlaştırma düzeyleri gerçekleştirdiğiniz sonra özgün Sonuç kümenizi döndürülecek yakınlaştırma sıfırlama denetimini kullanabilirsiniz. 
 
- ![Verileriniz üzerinde yakınlaştırma gerçekleştirin](media\howto-create-analytics\analytics-zoom.png)
+ ![Verileriniz üzerinde yakınlaştırma gerçekleştirin](media/howto-create-analytics/analytics-zoom.png)
 
 
 Çizgi stili gereksinimlerinizi karşılayacak şekilde değiştirebilirsiniz. Aralarından seçim yapabileceğiniz dört seçeneğiniz vardır:
@@ -79,7 +79,7 @@ Yakınlaştırma, verileriniz üzerinde odaklanmanıza imkan sağlar. Odaklanmak
 * **Adım:** grafikteki her nokta arasındaki çizgi adım grafiği oluşturur
 * **Dağılım:** bağlamayı satırları Grafikteki tüm noktaları çizilir. 
 
- ![Farklı satır türleri Analytics'te kullanılabilir](media\howto-create-analytics\analytics-linetypes.png)
+ ![Farklı satır türleri Analytics'te kullanılabilir](media/howto-create-analytics/analytics-linetypes.png)
 
 Son olarak, üç moddan birini seçerek y ekseni verilerinizi düzenleyebilirsiniz:
 
@@ -87,7 +87,7 @@ Son olarak, üç moddan birini seçerek y ekseni verilerinizi düzenleyebilirsin
 * **Yığılmamış:** bir grafik her ölçü bir y ekseni karşı çizilme ancak y değerlerinin değiştirilmesi için vurgulanan ölçüyü temel alarak. Yığılmamış grafikleri, birden çok ölçü kaplama ve aynı zaman aralığı için bu ölçümleri arasında desenleri görmek istediğinizde yararlıdır.
 * **Paylaşılan ekseni:** grafikleri aynı y ekseni paylaşın ve eksen için değerleri değiştirmeyin. Paylaşılan y ekseni grafikleri, bölünmüş tarafından verileri dilimleme sırasında tek bir ölçü aramak istediğinizde kullanışlıdır.
 
- ![Verilerinizi farklı görselleştirme modları y ekseni düzenleyin](media\howto-create-analytics\analytics-yaxis.png)
+ ![Verilerinizi farklı görselleştirme modları y ekseni düzenleyin](media/howto-create-analytics/analytics-yaxis.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

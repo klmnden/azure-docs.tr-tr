@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: e5011dbaad5e5935f3aa792bd3a3ed2b271f23bc
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 726159f7450c29385a331b29191c38085a820876
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632442"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957632"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>(Önizleme) Azure'da yönetim çözümleri oluşturmak için en iyi uygulamalar
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.locfileid: "52632442"
 Bu makale için en iyi uygulamalar sağlanır [yönetim çözüm dosyası oluşturuluyor](solutions-solution-file.md) azure'da.  Diğer en iyi yöntemleri tanımlandığı gibi bu bilgileri güncelleştirilir.
 
 ## <a name="data-sources"></a>Veri kaynakları
-- Veri kaynakları olabilir [Resource Manager şablonu ile yapılandırılmış](../../log-analytics/log-analytics-template-workspace-configuration.md), ancak bir çözüm dosyasında eklenmemelidir.  Veri kaynakları yapılandırılarak şu anda çözümünüzü kullanıcının çalışma alanında mevcut yapılandırma üzerine yazabilir, yani bir kez etkili olduğunu nedenidir.<br><br>Örneğin, çözümünüz, uyarı ve hata olayları uygulama olay günlüğüne gerektirebilir.  Bu veri kaynağı olarak çözümünüzde belirtirseniz, kullanıcı bu kendi çalışma alanında yapılandırılmış olsaydı bilgi olayları kaldırma riski oluşur.  Tüm olaylar eklediyseniz, kullanıcının çalışma aşırı bilgi olaylarını toplama.
+- Veri kaynakları olabilir [Resource Manager şablonu ile yapılandırılmış](../../azure-monitor/platform/template-workspace-configuration.md), ancak bir çözüm dosyasında eklenmemelidir.  Veri kaynakları yapılandırılarak şu anda çözümünüzü kullanıcının çalışma alanında mevcut yapılandırma üzerine yazabilir, yani bir kez etkili olduğunu nedenidir.<br><br>Örneğin, çözümünüz, uyarı ve hata olayları uygulama olay günlüğüne gerektirebilir.  Bu veri kaynağı olarak çözümünüzde belirtirseniz, kullanıcı bu kendi çalışma alanında yapılandırılmış olsaydı bilgi olayları kaldırma riski oluşur.  Tüm olaylar eklediyseniz, kullanıcının çalışma aşırı bilgi olaylarını toplama.
 
 - Ardından çözümünüzü standart veri kaynaklardan birinden veri gerektiriyorsa, bu bir önkoşul olarak tanımlamalıdır.  Belgelerde, müşteri veri kaynağı, kendi yapılandırmanız gerektiğini belirtin.  
 - Ekleme bir [veri akışı doğrulaması](../../azure-monitor/platform/view-designer-tiles.md) kullanıcıdan toplanacak gerekli verileri için yapılandırılması gereken veri kaynaklarında çözümünüzdeki tüm görünümleri iletisi.  Gerekli veri bulunamadığında görünümün kutucuğa bu ileti görüntülenir.

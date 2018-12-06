@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: c9ac1c228fd3fd4ba666fd7881e387d79929ed9a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a4be229e1c491c3062b14e631cfec5b14185bb82
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869968"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957674"
 ---
 # <a name="asdk-release-notes"></a>ASDK sürüm notları  
-Bu makalede, geliştirmeleri, düzeltmeleri ve bilinen sorunlar Azure Stack geliştirme Seti'ni (ASDK) hakkında bilgi sağlar. Hangi sürümü çalıştırdığınızdan emin değilseniz yapabilecekleriniz [denetlemek için portal'ı kullanmanızı](.\.\azure-stack-updates.md#determine-the-current-version).
+Bu makalede, geliştirmeleri, düzeltmeleri ve bilinen sorunlar Azure Stack geliştirme Seti'ni (ASDK) hakkında bilgi sağlar. Hangi sürümü çalıştırdığınızdan emin değilseniz yapabilecekleriniz [denetlemek için portal'ı kullanmanızı](../azure-stack-updates.md#determine-the-current-version).
 
 > Abone olarak ASDK yenilikler ile güncel kalın [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [akış](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
@@ -180,13 +180,13 @@ Daha fazla bilgi için [Azure Stack syslog iletmeyi](../azure-stack-integrate-se
 Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içerir.  
 
 <!-- 1658937 | ASDK, IS --> 
-- **Önceden tanımlanmış bir zamanlamaya göre yedeklemeleri başlatmak** -gereçlerden biri Azure Stack artık otomatik olarak düzenli aralıklarla insan müdahalesi ortadan kaldırmak için altyapı yedekleme tetikleyebilirsiniz. Azure Stack tanımlanan saklama süresinden daha eski yedeklemeler için dış paylaşımı da otomatik olarak temizler. Daha fazla bilgi için [PowerShell ile Azure Stack için yedeklemeyi etkinleştir](.\.\azure-stack-backup-enable-backup-powershell.md).
+- **Önceden tanımlanmış bir zamanlamaya göre yedeklemeleri başlatmak** -gereçlerden biri Azure Stack artık otomatik olarak düzenli aralıklarla insan müdahalesi ortadan kaldırmak için altyapı yedekleme tetikleyebilirsiniz. Azure Stack tanımlanan saklama süresinden daha eski yedeklemeler için dış paylaşımı da otomatik olarak temizler. Daha fazla bilgi için [PowerShell ile Azure Stack için yedeklemeyi etkinleştir](../azure-stack-backup-enable-backup-powershell.md).
 
 <!-- 2496385 | ASDK, IS -->  
-- **Eklenen veri aktarımı için toplam yedek zamanına zaman.** Daha fazla bilgi için [PowerShell ile Azure Stack için yedeklemeyi etkinleştir](.\.\azure-stack-backup-enable-backup-powershell.md).
+- **Eklenen veri aktarımı için toplam yedek zamanına zaman.** Daha fazla bilgi için [PowerShell ile Azure Stack için yedeklemeyi etkinleştir](../azure-stack-backup-enable-backup-powershell.md).
 
 <!-- 1702130 | ASDK, IS --> 
-- **Yedekleme dış kapasite artık dış paylaşım doğru kapasitesini gösterir.** (Daha önce bu kodu sabit-10 GB.) Daha fazla bilgi için [PowerShell ile Azure Stack için yedeklemeyi etkinleştir](.\.\azure-stack-backup-enable-backup-powershell.md).
+- **Yedekleme dış kapasite artık dış paylaşım doğru kapasitesini gösterir.** (Daha önce bu kodu sabit-10 GB.) Daha fazla bilgi için [PowerShell ile Azure Stack için yedeklemeyi etkinleştir](../azure-stack-backup-enable-backup-powershell.md).
  
 <!-- 2753130 |  IS, ASDK   -->  
 - **Azure Resource Manager şablonları artık destek koşulu öğesi** -artık bir kaynak bir koşulunu kullanarak bir Azure Kaynak Yöneticisi şablonu olarak dağıtabilirsiniz. Bir parametre değeri varsa, değerlendirme gibi bir koşula bağlı olarak kaynak dağıtma için şablonunuzu tasarlayabilirsiniz. Bir koşul olarak bir şablon kullanma hakkında daha fazla bilgi için bkz: [koşullu olarak kaynak dağıtma](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) ve [değişkenler bölümü Azure Resource Manager şablonlarının](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) Azure belgelerinde. 
@@ -194,7 +194,7 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
    Şablonlar için de kullanabilirsiniz [birden fazla abonelik veya kaynak grubu için kaynakları dağıtma](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
 
 <!--2753073 | IS, ASDK -->  
-- **Microsoft.Network API kaynak sürüm desteği güncelleştirildi** API Sürüm 2017-10-01 2015-06-15 arasında Azure Stack ağ kaynakları için desteği eklenecek. Bu sürümde 2017-10-01 2015-06-15 arasındaki kaynak sürümleri desteği dahil edilmez. Lütfen [Azure Stack ağ iletişimi için Değerlendirmeler](.\.\user\azure-stack-network-differences.md) işlev farklılıkları için.
+- **Microsoft.Network API kaynak sürüm desteği güncelleştirildi** API Sürüm 2017-10-01 2015-06-15 arasında Azure Stack ağ kaynakları için desteği eklenecek. Bu sürümde 2017-10-01 2015-06-15 arasındaki kaynak sürümleri desteği dahil edilmez. Lütfen [Azure Stack ağ iletişimi için Değerlendirmeler](../user/azure-stack-network-differences.md) işlev farklılıkları için.
 
 <!-- 2272116 | IS, ASDK   -->  
 - **Azure Stack, harici olarak Azure Stack altyapı uç noktalarına yönelik için ters DNS araması için destek ekledi** (değil portal, adminportal, yönetim ve adminmanagement için). Bu, bir IP adresinden çözülmesi Azure Stack dış uç nokta adları sağlar.
@@ -222,7 +222,7 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
 - **Azure Resource Manager, bölge adını içerir.** Bu sürümle birlikte, Azure Resource Manager'dan alınan nesneler artık bölge adı özniteliği içerir. Varolan bir PowerShell komut dosyasını doğrudan nesne başka bir cmdlet'e geçerse, betik hataya neden ve başarısız. Bu, Azure Resource Manager uyumlu davranıştır ve bölge öznitelik çıkarılacak çağıran istemci gerektirir. Azure Resource Manager bakın hakkında daha fazla bilgi için [Azure Resource Manager belgeleri](https://docs.microsoft.com/azure/azure-resource-manager/).
 
 <!-- TBD | IS, ASDK -->  
-- **Abonelikler, temsilci sağlayıcılar arasında taşıyın.** Aynı dizin kiracısına ait yeni veya var olan bir temsilci sağlayıcısı abonelikler arasında abonelikler artık taşıyabilirsiniz. Varsayılan sağlayıcı aboneliğine ait abonelikleri de aynı dizin kiracısında temsilci sağlayıcı aboneliği için taşınabilir. Daha fazla bilgi için [temsilci sunan Azure Stack'te](.\.\azure-stack-delegated-provider.md).
+- **Abonelikler, temsilci sağlayıcılar arasında taşıyın.** Aynı dizin kiracısına ait yeni veya var olan bir temsilci sağlayıcısı abonelikler arasında abonelikler artık taşıyabilirsiniz. Varsayılan sağlayıcı aboneliğine ait abonelikleri de aynı dizin kiracısında temsilci sağlayıcı aboneliği için taşınabilir. Daha fazla bilgi için [temsilci sunan Azure Stack'te](../azure-stack-delegated-provider.md).
  
 <!-- 2536808 IS ASDK --> 
 - **VM oluşturma zamanı geliştirilmiş** görüntüleri Azure Market'te indir ile oluşturulan sanal makineleri için.
@@ -246,7 +246,7 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
 - Dış paylaşımından el ile yedekleme sildiğinizde yedekleme listesinde artık yeniler.
 
 <!-- 2360715 |  ASDK, IS -->  
-- Bundan sonra veri merkezi tümleştirmeyi ayarladığınızda, AD FS meta veri dosyası bir paylaşımdan erişemezsiniz. Daha fazla bilgi için [Federasyon meta veri dosyası sağlayarak AD FS tümleştirmenin ayarlanması](.\.\azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
+- Bundan sonra veri merkezi tümleştirmeyi ayarladığınızda, AD FS meta veri dosyası bir paylaşımdan erişemezsiniz. Daha fazla bilgi için [Federasyon meta veri dosyası sağlayarak AD FS tümleştirmenin ayarlanması](../azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
 
 <!-- 2388980 | ASDK, IS --> 
 - Bir sorunu düzelttik döndürülmesiyle kullanıcılardan var olan bir genel IP adresi atanmış, daha önce bir ağ arabirimiyle ya da yeni bir ağ arabirimiyle ya da yük dengeleyici için yük dengeleyici için atanmış.  
@@ -269,7 +269,7 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
 <!--  TBD ASDK --> 
 - Ayrıcalıklı uç noktasını (CESARETLENDİRİCİ) barındıran sanal makine için 4 GB arttı. ASDK bu sanal makine AzS-ERCS01 olarak adlandırılır.
 
-- <!--  TBD – IS, ASDK --> *Temel A* sanal makine boyutları için devre dışı [sanal makine ölçek kümeleri oluşturma](.\.\azure-stack-compute-add-scalesets.md) (VMSS) portal üzerinden. Bu boyut ile bir VMSS oluşturmak için PowerShell ya da bir şablon kullanın. 
+- <!--  TBD – IS, ASDK --> *Temel A* sanal makine boyutları için devre dışı [sanal makine ölçek kümeleri oluşturma](../azure-stack-compute-add-scalesets.md) (VMSS) portal üzerinden. Bu boyut ile bir VMSS oluşturmak için PowerShell ya da bir şablon kullanın. 
 
 ### <a name="known-issues"></a>Bilinen sorunlar
 
@@ -283,7 +283,7 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
 - Kullanıcı aboneliği plan kaldırdığınızda bile, bir kullanıcı abonelikte eklenti planı eklendiği planları silinemiyor. Eklenti planı başvuru abonelikleri de silinene kadar plan kalır. 
 
 <!--2760466 – IS  ASDK --> 
-- Bu sürümünü çalıştıran yeni bir Azure Stack ortamına yüklediğinizde, uyarıyı gösterir *etkinleştirme gerekli* görüntülenmeyebilir. [Etkinleştirme](.\.\azure-stack-registration.md) Market dağıtım kullanabilmeniz için gereklidir. 
+- Bu sürümünü çalıştıran yeni bir Azure Stack ortamına yüklediğinizde, uyarıyı gösterir *etkinleştirme gerekli* görüntülenmeyebilir. [Etkinleştirme](../azure-stack-registration.md) Market dağıtım kullanabilmeniz için gereklidir. 
 
 <!-- TBD - IS ASDK --> 
 - 1804 sürümü ile sunulan iki Yönetim abonelik türlerini kullanılmamalıdır. Abonelik türleridir **abonelik ölçümü**, ve **tüketim abonelik**. Bu abonelik türleri **abonelik ölçümü**, ve **tüketim abonelik**. Bu abonelik türlerini 1804 sürümünden başlayarak yeni Azure Stack ortamlarında görülebilir ancak henüz kullanıma sunulmamıştır. Kullanmaya devam etmelidir **varsayılan sağlayıcı aboneliği** türü.
@@ -417,17 +417,17 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
 ### <a name="new-features"></a>Yeni Özellikler
 Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içerir.  
 
-- <!-- 1658937 | ASDK, IS --> **Önceden tanımlanmış bir zamanlamaya göre yedeklemeleri başlatmak** -gereçlerden biri Azure Stack artık otomatik olarak düzenli aralıklarla insan müdahalesi ortadan kaldırmak için altyapı yedekleme tetikleyebilirsiniz. Azure Stack tanımlanan saklama süresinden daha eski yedeklemeler için dış paylaşımı da otomatik olarak temizler. Daha fazla bilgi için [PowerShell ile Azure Stack için yedeklemeyi etkinleştir](.\.\azure-stack-backup-enable-backup-powershell.md).
+- <!-- 1658937 | ASDK, IS --> **Önceden tanımlanmış bir zamanlamaya göre yedeklemeleri başlatmak** -gereçlerden biri Azure Stack artık otomatik olarak düzenli aralıklarla insan müdahalesi ortadan kaldırmak için altyapı yedekleme tetikleyebilirsiniz. Azure Stack tanımlanan saklama süresinden daha eski yedeklemeler için dış paylaşımı da otomatik olarak temizler. Daha fazla bilgi için [PowerShell ile Azure Stack için yedeklemeyi etkinleştir](../azure-stack-backup-enable-backup-powershell.md).
 
-- <!-- 2496385 | ASDK, IS -->  **Eklenen veri aktarımı için toplam yedek zamanına zaman.** Daha fazla bilgi için [PowerShell ile Azure Stack için yedeklemeyi etkinleştir](.\.\azure-stack-backup-enable-backup-powershell.md).
+- <!-- 2496385 | ASDK, IS -->  **Eklenen veri aktarımı için toplam yedek zamanına zaman.** Daha fazla bilgi için [PowerShell ile Azure Stack için yedeklemeyi etkinleştir](../azure-stack-backup-enable-backup-powershell.md).
 
--   <!-- 1702130 | ASDK, IS -->  **Yedekleme dış kapasite artık dış paylaşım doğru kapasitesini gösterir.** (Daha önce bu kodu sabit-10 GB.) Daha fazla bilgi için [PowerShell ile Azure Stack için yedeklemeyi etkinleştir](.\.\azure-stack-backup-enable-backup-powershell.md).
+-   <!-- 1702130 | ASDK, IS -->  **Yedekleme dış kapasite artık dış paylaşım doğru kapasitesini gösterir.** (Daha önce bu kodu sabit-10 GB.) Daha fazla bilgi için [PowerShell ile Azure Stack için yedeklemeyi etkinleştir](../azure-stack-backup-enable-backup-powershell.md).
  
 - <!-- 2753130 |  IS, ASDK   -->  **Azure Resource Manager şablonları artık destek koşulu öğesi** -artık bir kaynak bir koşulunu kullanarak bir Azure Kaynak Yöneticisi şablonu olarak dağıtabilirsiniz. Bir parametre değeri varsa, değerlendirme gibi bir koşula bağlı olarak kaynak dağıtma için şablonunuzu tasarlayabilirsiniz. Bir koşul olarak bir şablon kullanma hakkında daha fazla bilgi için bkz: [koşullu olarak kaynak dağıtma](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) ve [değişkenler bölümü Azure Resource Manager şablonlarının](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) Azure belgelerinde. 
 
    Şablonlar için de kullanabilirsiniz [birden fazla abonelik veya kaynak grubu için kaynakları dağıtma](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
 
-- <!--2753073 | IS, ASDK -->  **Microsoft.Network API kaynak sürüm desteği güncelleştirildi** API Sürüm 2017-10-01 2015-06-15 arasında Azure Stack ağ kaynakları için desteği eklenecek.  2017-10-01 2015-06-15 arasındaki kaynak sürümleri desteği bu sürümde bulunmayan, ancak gelecekteki bir sürümde eklenecek.  Lütfen [Azure Stack ağ iletişimi için Değerlendirmeler](.\.\user\azure-stack-network-differences.md) işlev farklılıkları için.
+- <!--2753073 | IS, ASDK -->  **Microsoft.Network API kaynak sürüm desteği güncelleştirildi** API Sürüm 2017-10-01 2015-06-15 arasında Azure Stack ağ kaynakları için desteği eklenecek.  2017-10-01 2015-06-15 arasındaki kaynak sürümleri desteği bu sürümde bulunmayan, ancak gelecekteki bir sürümde eklenecek.  Lütfen [Azure Stack ağ iletişimi için Değerlendirmeler](../user/azure-stack-network-differences.md) işlev farklılıkları için.
 
 - <!-- 2272116 | IS, ASDK   -->  **Azure Stack, harici olarak Azure Stack altyapı uç noktalarına yönelik için ters DNS araması için destek ekledi** (değil portal, adminportal, yönetim ve adminmanagement için). Bu, bir IP adresinden çözülmesi Azure Stack dış uç nokta adları sağlar.
 
@@ -444,11 +444,11 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
 
   Bu özellik hala Önizleme aşamasında olduğundan, üzerinde üretim ortamlarına güvenmeyin.
 
-  Daha fazla bilgi için [Azure Stack syslog iletmeyi](.\.\azure-stack-integrate-security.md).
+  Daha fazla bilgi için [Azure Stack syslog iletmeyi](../azure-stack-integrate-security.md).
 
 - <!-- ####### | IS, ASDK -->  **Azure Resource Manager, bölge adını içerir.** Bu sürümle birlikte, Azure Resource Manager'dan alınan nesneler artık bölge adı özniteliği içerir. Varolan bir PowerShell komut dosyasını doğrudan nesne başka bir cmdlet'e geçerse, betik hataya neden ve başarısız. Bu, Azure Resource Manager uyumlu davranıştır ve bölge öznitelik çıkarılacak çağıran istemci gerektirir. Azure Resource Manager bakın hakkında daha fazla bilgi için [Azure Resource Manager belgeleri](https://docs.microsoft.com/azure/azure-resource-manager/).
 
-- <!-- TBD | IS, ASDK -->  **Abonelikler, temsilci sağlayıcılar arasında taşıyın.** Aynı dizin kiracısına ait yeni veya var olan bir temsilci sağlayıcısı abonelikler arasında abonelikler artık taşıyabilirsiniz. Varsayılan sağlayıcı aboneliğine ait abonelikleri de aynı dizin kiracısında temsilci sağlayıcı aboneliği için taşınabilir. Daha fazla bilgi için [temsilci sunan Azure Stack'te](.\.\azure-stack-delegated-provider.md).
+- <!-- TBD | IS, ASDK -->  **Abonelikler, temsilci sağlayıcılar arasında taşıyın.** Aynı dizin kiracısına ait yeni veya var olan bir temsilci sağlayıcısı abonelikler arasında abonelikler artık taşıyabilirsiniz. Varsayılan sağlayıcı aboneliğine ait abonelikleri de aynı dizin kiracısında temsilci sağlayıcı aboneliği için taşınabilir. Daha fazla bilgi için [temsilci sunan Azure Stack'te](../azure-stack-delegated-provider.md).
  
 - <!-- 2536808 IS ASDK --> **VM oluşturma zamanı geliştirilmiş** görüntüleri Azure Market'te indir ile oluşturulan sanal makineleri için.
 
@@ -464,7 +464,7 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
 
 - <!-- 2215948 |  ASDK, IS --> Dış paylaşımından el ile yedekleme sildiğinizde yedekleme listesinde artık yeniler.
 
-- <!-- 2360715 |  ASDK, IS -->  Bundan sonra veri merkezi tümleştirmeyi ayarladığınızda, AD FS meta veri dosyası bir paylaşımdan erişemezsiniz. Daha fazla bilgi için [Federasyon meta veri dosyası sağlayarak AD FS tümleştirmenin ayarlanması](.\.\azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
+- <!-- 2360715 |  ASDK, IS -->  Bundan sonra veri merkezi tümleştirmeyi ayarladığınızda, AD FS meta veri dosyası bir paylaşımdan erişemezsiniz. Daha fazla bilgi için [Federasyon meta veri dosyası sağlayarak AD FS tümleştirmenin ayarlanması](../azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
 
 - <!-- 2388980 | ASDK, IS --> Bir sorunu düzelttik döndürülmesiyle kullanıcılardan var olan bir genel IP adresi atanmış, daha önce bir ağ arabirimiyle ya da yeni bir ağ arabirimiyle ya da yük dengeleyici için yük dengeleyici için atanmış.  
 
@@ -511,7 +511,7 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
 - OEM uzantı paketinin bu sürümü Azure Stack ile kullanarak, sürücü güncelleştirmelerini uygulayamazsınız.  Bu sorun için geçici çözüm yoktur.
  
 <!-- TBD - IS ASDK --> 
-- Özelliği [açılan listeden yeni bir destek isteği açmak için](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) gelen içinde Yönetici portalı kullanılamıyor. Bunun yerine, aşağıdaki bağlantıyı kullanın:     
+- Özelliği [açılan listeden yeni bir destek isteği açmak için](../azure-stack-manage-portals.md#quick-access-to-help-and-support) gelen içinde Yönetici portalı kullanılamıyor. Bunun yerine, aşağıdaki bağlantıyı kullanın:     
     - Azure Stack Geliştirme Seti için kullanmak https://aka.ms/azurestackforum.    
 
 <!-- 2403291 - IS ASDK --> 
@@ -605,7 +605,7 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
 <!-- 2292271 - IS ASDK --> 
 - Bir teklif ve Kiracı abonelikle ilişkilendirilmiş planı parçası olan bir ağ kaynağı için bir kota sınırı yükseltirseniz, bu abonelik için yeni sınır uygulanmaz. Ancak, yeni sınır kota artırılır sonra oluşturulan yeni abonelikler için geçerlidir.
 
-  Bu sorunu gidermek için plan aboneliği ile ilişkili olduğunda, bir ağ Kotayı artırmak için bir eklenti planı kullanın. Daha fazla bilgi için bkz. nasıl [eklenti planı kullanılabilmesini](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
+  Bu sorunu gidermek için plan aboneliği ile ilişkili olduğunda, bir ağ Kotayı artırmak için bir eklenti planı kullanın. Daha fazla bilgi için bkz. nasıl [eklenti planı kullanılabilmesini](../azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
 
 <!-- 2304134 IS ASDK --> 
 - DNS bölgesi veya yol tablosu kaynaklar ile ilişkili olan bir abonelik silinemiyor. Abonelik başarıyla silmek için DNS bölgesi ve yol tablosu kaynakları Kiracı abonelikten silmeniz gerekir.

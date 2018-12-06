@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: d371ead3280bca5239a9ee6bf2c4275414141fb4
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 938f74a543fd7d4f7563d1af8bc7c75e76fbcade
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284379"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960416"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding hakkında SSS
 
@@ -196,9 +196,9 @@ Bir LUIS şablonu seçin ve seçin, **seçin** düğmesi Şablon bölmesinde, so
 
 ## <a name="luis-service"></a>LUIS hizmeti
 
-### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>LUIS şirket içi kullanılabilir mi ya da özel bulutta?
-Hayır.
+### <a name="is-language-understanding-luis-available-on-premises-or-in-private-cloud"></a>Language Understanding (LUIS) şirket içi kullanılabilir mi ya da özel bulutta?
 
+Evet, LUIS kullanabileceğiniz [kapsayıcı](luis-container-howto.md) kullanımını ölçmek için gerekli bağlantı varsa, bu senaryolar için. 
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Derleme 2018 konferansta ben bir dil anlama özelliği veya tanıtım heard ancak ne çağrıldı hatırlamıyorum?
 

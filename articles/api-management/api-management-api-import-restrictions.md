@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: a9f4a4ed4a8771f32a4d66aed2457a43abb92a63
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 34e6fb195ae64823336684e9ad2e9382316822b0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285880"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961085"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API içeri aktarma kısıtlamaları ve bilinen sorunlar
 ## <a name="about-this-list"></a>Bu liste hakkında
 API içeri aktarılırken arasında bazı kısıtlamalar gelen veya başarıyla içeri aktarmadan önce düzeltilmesi gereken sorunları belirlemek. Bu makalede belgeleri bunlar düzenlenmiş tarafından API içeri aktarma biçimi.
 
 ## <a name="open-api"> </a>Openapı/Swagger
-Openapı belgenizi alma hataları alıyorsanız, doğrulandı, - ya da Azure portalında (Tasarım - ön uç - Openapı belirtimi Düzenleyicisi), tasarımcıyı kullanarak sağlamak veya bir üçüncü taraf aracı gibi <a href="http://editor.swagger.io">Swagger Editor</a>.
+Openapı belgenizi alma hataları alıyorsanız, doğrulandı, - ya da Azure portalında (Tasarım - ön uç - Openapı belirtimi Düzenleyicisi), tasarımcıyı kullanarak sağlamak veya bir üçüncü taraf aracı gibi <a href="https://editor.swagger.io">Swagger Editor</a>.
 
 * Yalnızca JSON biçimi için Openapı desteklenir.
 * Gerekli parametreleri yolu hem de sorgu genelinde benzersiz adlara sahip olmalıdır. (Openapı bir parametre adı yalnızca içinde örneğin yol, sorgu, üst bilgisi bir konumu benzersiz olması gerekir.  Ancak, API Yönetimi'nde (Bu Openapı desteklemez) yolu hem de sorgu parametreleri tarafından ayrılmış işlemleri izin veriyoruz. Bu nedenle parametre adları tüm URL şablonu içinde benzersiz olması zorunlu kılarız.)

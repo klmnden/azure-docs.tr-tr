@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: spelluru
-ms.openlocfilehash: 99caf04698226de8daa9cfb8f60662e5cb0f8b49
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9634c70566aba21bdd28ee016c9fa94464ec9c1b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449830"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956339"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara, Laboratuvar veya VM silme
 Bu makalede bir laboratuvar veya VM bir laboratuar ortamında nasıl silineceği gösterilmektedir.
@@ -34,16 +34,16 @@ Bir laboratuvar silmek için aşağıdaki eylemleri gerçekleştirin:
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Seçin **tüm kaynak** sol taraftaki menüden **DevTest Labs** türünün hizmet ve Laboratuvar seçin.
 
-    ![Laboratuvarınızı seçin](media\devtest-lab-delete-lab-vm\select-lab.png)
+    ![Laboratuvarınızı seçin](media/devtest-lab-delete-lab-vm/select-lab.png)
 3. Üzerinde **DevTest Labs** sayfasında **Sil** araç. 
 
-    ![Sil düğmesi](media\devtest-lab-delete-lab-vm\delete-button.png)
+    ![Sil düğmesi](media/devtest-lab-delete-lab-vm/delete-button.png)
 4. Üzerinde **onay** want **adı** Laboratuvar ve select **Sil**. 
 
-    ![Onayla](media\devtest-lab-delete-lab-vm\confirm-delete.png)
+    ![Onayla](media/devtest-lab-delete-lab-vm/confirm-delete.png)
 5. İşlemin durumunu görmek için seçin **bildirimleri** simgesine (zil). 
 
-    ![Bildirimler](media\devtest-lab-delete-lab-vm\delete-status.png)
+    ![Bildirimler](media/devtest-lab-delete-lab-vm/delete-status.png)
 
  
 ## <a name="delete-a-vm-in-a-lab"></a>Laboratuvarda VM silme
@@ -59,16 +59,16 @@ Laboratuvarda bir VM'yi silmek için aşağıdaki eylemleri gerçekleştirin:
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Seçin **tüm kaynak** sol taraftaki menüden **DevTest Labs** türünün hizmet ve Laboratuvar seçin.
 
-    ![Laboratuvarınızı seçin](media\devtest-lab-delete-lab-vm\select-lab.png)
+    ![Laboratuvarınızı seçin](media/devtest-lab-delete-lab-vm/select-lab.png)
 3. Seçin **... (üç nokta)**  VM'ler ve seçim listesi içinde VM için **Sil**. 
 
-    ![VM menüsünde Sil](media\devtest-lab-delete-lab-vm\delete-vm-menu-in-list.png)
+    ![VM menüsünde Sil](media/devtest-lab-delete-lab-vm/delete-vm-menu-in-list.png)
 4. Üzerinde **onay** iletişim kutusunda **Tamam**. 
 5. İşlemin durumunu görmek için seçin **bildirimleri** simgesine (zil). 
 
 Bir sanal makineden silinemedi **sanal makine sayfasında**seçin **Sil** aşağıdaki görüntüde gösterildiği gibi araç çubuğundan:
 
-![VM VM sayfasından silin.](media\devtest-lab-delete-lab-vm\delete-from-vm-page.png) 
+![VM VM sayfasından silin.](media/devtest-lab-delete-lab-vm/delete-from-vm-page.png) 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

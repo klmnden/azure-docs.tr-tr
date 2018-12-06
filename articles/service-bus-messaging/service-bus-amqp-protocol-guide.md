@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 0801e3a0e9217ab0855d09df8a054926b488d759
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 04588d0af0f85a9e69f44e82d01294c2a4440abc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821557"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961153"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 protokol Kılavuzu Azure Service Bus ve Event Hubs
 
@@ -94,7 +94,7 @@ Bir bağlantı kabul etmek için ters kapsayıcı bağlantı başlatma kapsayıc
 
 Bağlantılar adlı ve düğümleri ile ilişkili. Başlangıçta belirtildiği gibi düğümler bir kapsayıcı içinde iletişim kuran varlıklardır.
 
-Hizmet veri yolu, bir düğüm doğrudan bir kuyruk, konu, bir abonelik veya bir kuyrukta veya abonelikte teslim edilemeyen iletiler sırasına eşdeğerdir. AMQP içinde kullanılan düğüm adı bu nedenle göreli Service Bus ad alanı içinde varlığın adıdır. Bir kuyruk adlandırılmışsa `myqueue`, AMQP düğüm adını da olmasıdır. Konu aboneliği "abonelikler" kaynak koleksiyonu ve bu nedenle, bir abonelik sıralı olarak HTTP API kuralı izler **alt** veya bir konu **mytopic** AMQP düğüm adına sahip  **Abonelikler/mytopic/sub**.
+Hizmet veri yolu, bir düğüm doğrudan bir kuyruk, konu, bir abonelik veya bir kuyrukta veya abonelikte teslim edilemeyen iletiler sırasına eşdeğerdir. AMQP içinde kullanılan düğüm adı bu nedenle göreli Service Bus ad alanı içinde varlığın adıdır. Bir kuyruk adlandırılmışsa `myqueue`, AMQP düğüm adını da olmasıdır. Konu aboneliği "abonelikler" kaynak koleksiyonu ve bu nedenle, bir abonelik sıralı olarak HTTP API kuralı izler **alt** bir konuya **mytopic** AMQP düğüm adına sahip  **Abonelikler/mytopic/sub**.
 
 Bağlanan istemcinin bağlantılar oluşturmak için bir yerel düğüm adı kullanmak için de gereklidir; Service Bus bu düğüm adları hakkında belirleyici değildir ve bunları yorumlamaz. AMQP 1.0 istemcisi yığınları genel bir düzeni güvence altına almak için bu kısa ömürlü düğüm adları istemci kapsamı içinde benzersiz olan kullanın.
 

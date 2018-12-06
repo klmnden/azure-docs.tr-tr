@@ -11,19 +11,19 @@ ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 1b293ee8f0f83d727cd647cdcdcc424b4db7e5d3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 20867b6bfecb981a9bc47180cb39a1c489b19d2f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240894"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959759"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure üzerinde Windows veri bilimi sanal makinesi sağlama
 Microsoft Veri bilimi sanal makinesi (DSVM), bir Windows Azure sanal makine (VM) görüntüsüdür. Bu önceden yüklenmiş ve veri analizi ve makine öğrenimi için kullanılan çeşitli araçlar ile yapılandırılmış. Aşağıdaki araçları dahil edilir:
 
-* [Azure Machine Learning](../service/index.yml) Workbench.
+* [Azure Machine Learning hizmeti](../service/index.yml) Python SDK'sı.
 * [Microsoft Machine Learning sunucusu](https://docs.microsoft.com/machine-learning-server/index) Geliştirici sürümü.
 * Anaconda Python dağıtımı.
 * R, Python ve PySpark çekirdekleri ile Jupyter not defteri.
@@ -150,7 +150,7 @@ Visual Studio'yu Masaüstü simgesine çift tıklayarak açın veya **Başlat** 
 * Azure HDInsight Hadoop ve Spark
 * Azure Data Lake 
 
-De mevcuttur bir eklenti olarak adlandırılan ```Visual Studio Tools for AI``` sorunsuz bir şekilde Azure Machine Learning ile tümleşir ve derleme yapay ZEKA uygulamaları hızlı bir şekilde yardımcı olur. 
+De mevcuttur bir eklenti olarak adlandırılan ```Azure Machine Learning for Visual Studio Code``` sorunsuz bir şekilde Azure Machine Learning ile tümleşir ve derleme yapay ZEKA uygulamaları hızlı bir şekilde yardımcı olur. 
 
 > [!NOTE]
 > Değerlendirme süreniz doldu bir ileti alabilirsiniz. Microsoft hesabı kimlik bilgilerinizi girin. Veya Visual Studio Community erişim elde etmek için yeni bir ücretsiz hesap oluşturun. 
@@ -193,13 +193,13 @@ Sunucu Yöneticisi oturum açtıktan sonra veritabanı içi analiz SQL Machine L
 > 
 > 
 
-### <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench
+### <a name="azure-machine-learning-service-python-sdk"></a>Azure Machine Learning hizmeti Python SDK'sı
 
-Azure Machine Learning Workbench masaüstü uygulaması ve komut satırı arabirimi var. Workbench, bunları alırken, veri hazırlama adımları sizin öğrenir yerleşik veri hazırlama sahiptir. Ayrıca, proje yönetimi, çalıştırma geçmişi ve not defteri tümleştirmesi üretkenliğinizi artırmak için sağlar. 
+Python için Azure Machine Learning SDK tarafından veri bilimcileri ve yapay ZEKA geliştiricilerine oluşturmak ve machine learning ile iş akışlarını çalıştırmak için kullanılan [Azure Machine Learning hizmeti](../service/overview-what-is-azure-ml.md). Jupyter not defterleri veya TensorFlow ve scikit gibi açık kaynak altyapılarını kullanarak en sevdiğiniz Python IDE, dahil olmak üzere, herhangi bir Python ortamı hizmetinde etkileşim kurabileceğiniz-öğrenin.
 
-TensorFlow, Cognitive Toolkit, Spark ML ve scikit dahil olmak üzere, açık kaynak çerçeveleri kullanabilirsiniz-, Modellerinizi geliştirmeyi öğrenin. DSVM'nin sağladığımız Azure Machine Learning Workbench bireysel kullanıcı yüklemek için bir masaüstü simgesi **% LOCALAPPDATA %** dizin. 
+Python SDK'sını kullanmaya başlamak için bkz: [Python kullanarak Azure Machine Learning'i kullanmaya başlamak için](../service/quickstart-create-workspace-with-python.md).
 
-Workbench, her bir kullanıcı, tek seferlik bir eylem gerçekleştirmeniz gerekir. Çift ```AzureML Workbench Setup``` workbench örneği yüklemek için Masaüstü simgesi. Azure Machine Learning ayrıca oluşturduğu ve kullandığı bir de ayıklanan kullanıcı Python ortamını başına **%LOCALAPPDATA%\amlworkbench\python** dizin.
+Python SDK'sı, Microsoft Veri bilimi sanal makinesi üzerinde önceden yüklenir.
 
 ## <a name="more-microsoft-development-tools"></a>Daha fazla Microsoft geliştirme araçları
 [Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx) bulmak ve diğer Microsoft geliştirme araçları'nı indirmek için kullanılır. Microsoft Veri bilimi sanal makinesi masaüstünde sağlanan aracı için bir kısayol yoktur.  
@@ -215,7 +215,6 @@ Workbench, her bir kullanıcı, tek seferlik bir eylem gerçekleştirmeniz gerek
 | Microsoft Machine Learning sunucusu (tek başına) Python | C:\Program Files\Microsoft\ML Server\PYTHON_SERVER |
 | Varsayılan R örnek, Machine Learning sunucusu (tek başına) | C:\Program Files\Microsoft\ML Server\R_SERVER |
 | SQL Machine Learning Hizmetleri veritabanında örneği dizini | C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER |
-| Azure Machine Learning Workbench kullanıcı başına | %localappdata%\amlworkbench | 
 | Çeşitli araçlar | c:\dsvm\tools |
 
 > [!NOTE]
@@ -226,7 +225,7 @@ Workbench, her bir kullanıcı, tek seferlik bir eylem gerçekleştirmeniz gerek
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Veri bilimi VM'si seçerek keşfedin **Başlat** menüsü.
-* Ürün ziyaret ederek Azure Machine Learning Hizmetleri ve Workbench hakkında bilgi [hızlı başlangıç ve öğreticilerle sayfa](../service/index.yml). 
+* Azure Machine Learning hizmeti hakkında bilgi edinmek [Azure Machine Learning hizmeti nedir?](../service/overview-what-is-azure-ml.md) ve aşımına [hızlı başlangıçlar ve öğreticiler](../service/index.yml) kullanılabilir.
 * Gidin **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** r ile veri analizi Kurumsal ölçekte destekleyen RevoScaleR kitaplığı kullanma örnekleri için.  
 * Makaleyi okuyun [veri bilimi sanal makinesi üzerinde yapabileceğiniz on işlem](https://aka.ms/dsvmtenthings).
 * Sistematik olarak kullanarak uçtan uca analitik çözümler oluşturmayı öğrenin [Team Data Science Process](../team-data-science-process/index.yml).

@@ -1,7 +1,24 @@
 ---
-Başlık: ' PowerShell - döndürme TDE koruyucusuna - Azure SQL veritabanı | Microsoft Docs açıklaması: Azure SQL sunucusu için saydam veri şifrelemesi (TDE) koruyucu döndürme hakkında bilgi edinin.
-Hizmetleri: sql database ms.service: sql database ms.subservice: güvenlik MS.özel: ms.devlang: ms.topic: kavramsal Yazar: aliceku ms.author: aliceku ms.reviewer: vanto manager: jhubbard ms.date: 08/07/2017
---- 
+title: PowerShell - döndürme TDE koruyucusuna - Azure SQL veritabanı | Microsoft Docs
+description: Bir Azure SQL sunucusu için saydam veri şifrelemesi (TDE) koruyucu döndürme hakkında bilgi edinin.
+services: sql-database
+ms.service: sql-database
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: aliceku
+ms.author: aliceku
+ms.reviewer: vanto
+manager: jhubbard
+ms.date: 08/07/2017
+ms.openlocfilehash: fe8872e0db9f596ca7c58b087b1b061ae91f7384
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957564"
+---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell kullanarak saydam veri şifrelemesi (TDE) koruyucu Döndür 
 
 Bu makalede, Azure Key vault'tan TDE koruyucusu kullanarak bir Azure SQL sunucusu için anahtar döndürme açıklanır. Bir Azure SQL server'ın TDE koruyucusu anlamına gelir, korunan sunucudaki veritabanlarını yeni bir asimetrik anahtar geçiş döndürme. Anahtar döndürme, çevrimiçi bir işlemdir ve yalnızca bu yalnızca şifresini çözer ve veritabanının veri şifreleme anahtarı, tüm veritabanını yeniden şifreler olduğundan tamamlanması birkaç saniye sürer.

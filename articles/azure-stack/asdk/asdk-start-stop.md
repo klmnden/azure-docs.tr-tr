@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 98ae7fe0fde922aee28ffc05b64d223a40085447
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0b1affb708a8d481a1378fa691b6547865b0b214
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340928"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963598"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Azure Stack geliştirme Seti'ni (ASDK) başlatıp
 Yalnızca ASDK ana bilgisayarı yeniden başlatmak için önerilmez. Bunun yerine, düzgün bir şekilde kapatılmasını ve ASDK hizmetleri yeniden başlatmak için bu makaleyi yordamlarını izlemelisiniz. 
@@ -62,7 +62,7 @@ ASDK nasıl kapatıldığı bağımsız olarak ana bilgisayar açılana sonra t�
    ```
 6. Azure Stack Hizmetleri başarıyla yeniden başlattığınızdan emin olmak için çıkışını gözden geçirin.
 
-Düzgün bir şekilde kapatılmasını ve Azure Stack hizmetlerini yeniden başlatmak için önerilen yordamları hakkında daha fazla bilgi için bkz: [başlatma ve durdurma Azure Stack](.\.\azure-stack-start-and-stop.md). 
+Düzgün bir şekilde kapatılmasını ve Azure Stack hizmetlerini yeniden başlatmak için önerilen yordamları hakkında daha fazla bilgi için bkz: [başlatma ve durdurma Azure Stack](../azure-stack-start-and-stop.md). 
 
 ## <a name="troubleshoot-startup-and-shutdown"></a>Başlatma ve kapatma sorunlarını giderme 
 Azure Stack hizmetlerini, power ASDK ana bilgisayarınızda iki saat içinde başarıyla başlatma, aşağıdaki adımları gerçekleştirin:
@@ -79,7 +79,7 @@ Azure Stack hizmetlerini, power ASDK ana bilgisayarınızda iki saat içinde ba�
    ```powershell
    Test-AzureStack
    ```
-5. Çıktıyı gözden geçirin ve hataları çözün. Daha fazla bilgi için [Azure Stack bir doğrulama sınamasını çalıştırmanızı](.\.\azure-stack-diagnostic-test.md).
+5. Çıktıyı gözden geçirin ve hataları çözün. Daha fazla bilgi için [Azure Stack bir doğrulama sınamasını çalıştırmanızı](../azure-stack-diagnostic-test.md).
 6. Azure Stack hizmetlerinden CESARETLENDİRİCİ oturumundan çalıştırarak yeniden **başlangıç AzureStack** cmdlet:
 
    ```powershell
@@ -89,4 +89,4 @@ Azure Stack hizmetlerini, power ASDK ana bilgisayarınızda iki saat içinde ba�
 Çalışıyorsa **başlangıç AzureStack** ziyaret sonuçları, hataya [Azure Stack Destek Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack) ASDK sorun giderme desteği almak için. 
 
 ## <a name="next-steps"></a>Sonraki adımlar 
-Azure Stack'te Tanılama aracı hakkında daha fazla bilgi edinin ve günlük sorun için bkz: [Azure Stack'te tanılama araçları](.\.\azure-stack-diagnostics.md).
+Azure Stack'te Tanılama aracı hakkında daha fazla bilgi edinin ve günlük sorun için bkz: [Azure Stack'te tanılama araçları](../azure-stack-diagnostics.md).

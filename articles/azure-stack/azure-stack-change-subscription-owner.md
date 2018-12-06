@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: shnatara
-ms.openlocfilehash: e5ce479940faaaae95467fe6d426e999b4c6569f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 46dd9c786fddb2f6ce9fb8a761a1b9f135a82d74
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468679"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959205"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Bir Azure Stack kullanıcı aboneliği sahibini değiştirin
 
@@ -40,8 +40,8 @@ Azure Stack operatörleri, bir kullanıcı abonelik fatura sahibini değiştirme
 
 Kullanıcı aboneliği fatura sahibini değiştirmek için aşağıdaki betiği çalıştırın. Betiği çalıştırmak için kullandığınız bilgisayar Azure Stack'e bağlanma ve Azure Stack PowerShell modülü 1.3.0 çalıştırın veya üzeri. Daha fazla bilgi için [Azure Stack PowerShell yükleme](azure-stack-powershell-install.md). 
 
-> [!Note]  
->  Yeni sahip, çok kiracısında Azure Stack, mevcut sahibi ile aynı dizinde olması gerekir. Başka bir dizinde olan bir kullanıcı için aboneliğin sahipliğini sağlamadan önce önce [bu kullanıcı konuk olarak dizininize davet](../active-directory/b2b/add-users-administrator.md). 
+> [!Note]
+>  Yeni sahip, çok kiracısında Azure Stack, mevcut sahibi ile aynı dizinde olması gerekir. Başka bir dizinde olan bir kullanıcı için aboneliğin sahipliğini sağlamadan önce önce [bu kullanıcı konuk olarak dizininize davet](../active-directory/b2b/add-users-administrator.md). 
 
 Çalıştırılmadan önce betiğin aşağıdaki değerleri değiştirin: 
  

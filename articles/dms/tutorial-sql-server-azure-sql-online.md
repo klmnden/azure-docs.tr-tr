@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: 2df899d1e9db0e2936d69636f4c9d5cd463e68c7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: aea6b9628ffff4ba5075338c48340b88c95b6174
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872231"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956866"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-online-using-dms"></a>Öğretici: DMS kullanarak SQL Server'ı çevrimiçi ortamda Azure SQL Veritabanı'na geçirme
 Azure Veritabanı Geçiş Hizmeti'ni kullanarak şirket içi SQL Server örneğindeki veritabanlarını minimum çalışmama süresi ile [Azure SQL Veritabanı](https://docs.microsoft.com/azure/sql-database/)'na geçirebilirsiniz. Bu öğreticide şirket içi SQL Server 2016 (veya üzeri) örneğine geri yüklemiş olan **Adventureworks2012** veritabanını Azure Veritabanı Geçiş Hizmeti'ni kullanarak bir Azure SQL Veritabanına geçireceksiniz.
@@ -120,7 +120,7 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 
     Değerlendirme tamamlandığında aşağıdaki grafiğe benzer sonuçlar görüntülenir:
 
-    ![Veri geçişi değerlendirmesi](media\tutorial-sql-server-to-azure-sql-online\dma-assessments.png)
+    ![Veri geçişi değerlendirmesi](media/tutorial-sql-server-to-azure-sql-online/dma-assessments.png)
 
     Azure SQL Veritabanı için yapılan değerlendirmeler, özellik eşliği sorunlarını ve geçişi engelleyici sorunları tanımlar.
 
@@ -143,52 +143,52 @@ Değerlendirmeyi istediğiniz gibi tamamladıktan ve seçilen veritabanının Az
 
     Yukarıdaki adımların gerçekleştirilmesinin ardından DMA arabiriminin aşağıda yer alan grafikteki gibi görünmesi gerekir:
     
-    ![Data Migration Yardımcısı Projesi Oluşturma](media\tutorial-sql-server-to-azure-sql-online\dma-create-project.png)
+    ![Data Migration Yardımcısı Projesi Oluşturma](media/tutorial-sql-server-to-azure-sql-online/dma-create-project.png)
 
 4.  Projeyi oluşturmak için **Oluştur**'u seçin.
 5.  DMA'da SQL Server'ınız için kaynak bağlantı ayrıntılarını belirtin, **Bağlan**'ı ve ardından **AdventureWorks2012** veritabanını seçin.
 
-    ![Data Migration Yardımcısı Kaynak Bağlantı Ayrıntıları](media\tutorial-sql-server-to-azure-sql-online\dma-source-connect.png)
+    ![Data Migration Yardımcısı Kaynak Bağlantı Ayrıntıları](media/tutorial-sql-server-to-azure-sql-online/dma-source-connect.png)
 
 6.  **Hedef sunucuya bağlan** bölümünde **Sonraki** seçeneğini belirleyin, Azure SQL veritabanı için hedef bağlantı ayrıntılarını belirtin, **Bağlan**'ı ve ardından, Azure SQL Veritabanı'nda sağlamış olduğunuz **AdventureWorksAzure** veritabanını seçin.
 
-    ![Data Migration Yardımcısı Hedef Bağlantı Ayrıntıları](media\tutorial-sql-server-to-azure-sql-online\dma-target-connect.png)
+    ![Data Migration Yardımcısı Hedef Bağlantı Ayrıntıları](media/tutorial-sql-server-to-azure-sql-online/dma-target-connect.png)
 
 7.  **İleri**'yi seçerek **Nesneleri seçin** ekranına ilerleyin ve bu ekranda Azure SQL Veritabanına dağıtılacak **AdventureWorks2012** veritabanındaki şema nesnelerini belirtin.
 
     Varsayılan olarak, tüm nesneler seçilir.
 
-    ![SQL Betiği Oluşturma](media\tutorial-sql-server-to-azure-sql-online\dma-assessment-source.png)
+    ![SQL Betiği Oluşturma](media/tutorial-sql-server-to-azure-sql-online/dma-assessment-source.png)
 
 8.  **SQL betiği oluştur**'u seçerek SQL betiklerini oluşturun ve hata olup olmadığını inceleyin.
 
-    ![Şema Betiği](media\tutorial-sql-server-to-azure-sql-online\dma-schema-script.png)
+    ![Şema Betiği](media/tutorial-sql-server-to-azure-sql-online/dma-schema-script.png)
 
 9.  **Şemayı dağıtma**'yı seçerek şemayı Azure SQL Veritabanına dağıtın. Şema dağıtıldıktan sonra hedef sunucuda anomali olup olmadığını kontrol edin.
 
-    ![Şemayı Dağıtma](media\tutorial-sql-server-to-azure-sql-online\dma-schema-deploy.png)
+    ![Şemayı Dağıtma](media/tutorial-sql-server-to-azure-sql-online/dma-schema-deploy.png)
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration kaynak sağlayıcısını kaydetme
 1. Azure portal'da oturum açın, **Tüm hizmetler** seçeneğini belirleyin ve ardından **Abonelikler**'i seçin.
  
-   ![Portal aboneliklerini gösterme](media\tutorial-sql-server-to-azure-sql-online\portal-select-subscription1.png)
+   ![Portal aboneliklerini gösterme](media/tutorial-sql-server-to-azure-sql-online/portal-select-subscription1.png)
        
 2. Azure Veritabanı Geçiş Hizmeti örneğini oluşturmak istediğiniz aboneliği seçin ve sonra **Kaynak sağlayıcıları**’nı seçin.
  
-    ![Kaynak sağlayıcılarını gösterme](media\tutorial-sql-server-to-azure-sql-online\portal-select-resource-provider.png)
+    ![Kaynak sağlayıcılarını gösterme](media/tutorial-sql-server-to-azure-sql-online/portal-select-resource-provider.png)
     
 3.  "migration" araması yapın ve **Microsoft.DataMigration** öğesinin sağ tarafındaki **Kaydet**'i seçin.
  
-    ![Kaynak sağlayıcısını kaydetme](media\tutorial-sql-server-to-azure-sql-online\portal-register-resource-provider.png)    
+    ![Kaynak sağlayıcısını kaydetme](media/tutorial-sql-server-to-azure-sql-online/portal-register-resource-provider.png)    
 
 ## <a name="create-an-instance"></a>Örnek oluşturma
 1.  Azure portalda +**Kaynak oluştur**'u seçin, Azure Veritabanı Geçiş Hizmeti araması yapın ve açılan listeden **Azure Veritabanı Geçiş Hizmeti**'ni seçin.
 
-    ![Azure Market](media\tutorial-sql-server-to-azure-sql-online\portal-marketplace.png)
+    ![Azure Market](media/tutorial-sql-server-to-azure-sql-online/portal-marketplace.png)
 
 2.  **Azure Veritabanı Geçiş Hizmeti** ekranında **Oluştur**'u seçin.
  
-    ![Azure Veritabanı Geçiş Hizmeti örneğini oluşturma](media\tutorial-sql-server-to-azure-sql-online\dms-create1.png)
+    ![Azure Veritabanı Geçiş Hizmeti örneğini oluşturma](media/tutorial-sql-server-to-azure-sql-online/dms-create1.png)
   
 3.  **Geçiş Hizmeti oluşturun** ekranında hizmet için bir ad belirtin, aboneliği ve yeni ya da var olan bir kaynak grubunu seçin.
 
@@ -206,7 +206,7 @@ Değerlendirmeyi istediğiniz gibi tamamladıktan ve seçilen veritabanının Az
 
     Doğru Azure Veritabanı Geçiş Hizmeti katmanını seçme konusunda yardıma ihtiyacınız olursa [bu gönderide](https://go.microsoft.com/fwlink/?linkid=861067) yer alan önerileri inceleyin.  
 
-     ![Azure Veritabanı Geçiş Hizmeti örneği ayarlarını yapılandırma](media\tutorial-sql-server-to-azure-sql-online\dms-settings2.png)
+     ![Azure Veritabanı Geçiş Hizmeti örneği ayarlarını yapılandırma](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
 
 7.  Hizmeti oluşturmak için **Oluştur**’u seçin.
 
@@ -215,17 +215,17 @@ Hizmet oluşturulduktan sonra Azure portaldan bulun, açın ve yeni bir geçiş 
 
 1. Azure portalda **Tüm hizmetler**'i seçin, Azure Veritabanı Geçiş Hizmeti araması yapın ve **Azure Veritabanı Geçiş Hizmeti**'ni seçin.
  
-      ![Azure Veritabanı Geçiş Hizmeti’nin tüm örneklerini bulma](media\tutorial-sql-server-to-azure-sql-online\dms-search.png)
+      ![Azure Veritabanı Geçiş Hizmeti’nin tüm örneklerini bulma](media/tutorial-sql-server-to-azure-sql-online/dms-search.png)
 
 2. **Azure Veritabanı Geçiş Hizmeti** ekranında oluşturduğunuz Azure Veritabanı Geçiş Hizmeti örneğinin adını arayın ve sonuçlardan bu örneği seçin.
  
-     ![Azure Veritabanı Geçiş Hizmeti örneğinizi bulma](media\tutorial-sql-server-to-azure-sql-online\dms-instance-search.png)
+     ![Azure Veritabanı Geçiş Hizmeti örneğinizi bulma](media/tutorial-sql-server-to-azure-sql-online/dms-instance-search.png)
  
 3. +**Yeni Geçiş Projesi**'ni seçin.
 4. **Yeni geçiş projesi** ekranında proje için bir ad belirtin, **Kaynak sunucu türü** metin kutusunda **SQL Server**, **Hedef sunucu türü** metin kutusunda ise **Azure SQL Veritabanı** seçeneğini belirleyin.
 5. **Etkinlik türünü seçin** bölümünde, **Çevrimiçi veri geçişi** seçeneğini belirleyin
 
-    ![Veritabanı Geçiş Hizmeti Projesi Oluşturma](media\tutorial-sql-server-to-azure-sql-online\dms-create-project3.png)
+    ![Veritabanı Geçiş Hizmeti Projesi Oluşturma](media/tutorial-sql-server-to-azure-sql-online/dms-create-project3.png)
 
     > [!NOTE]
     > Alternatif olarak, geçiş projesini hemen oluşturup geçişi daha sonra yürütmek için **Yalnızca proje oluşturun**'u seçebilirsiniz.
@@ -234,7 +234,7 @@ Hizmet oluşturulduktan sonra Azure portaldan bulun, açın ve yeni bir geçiş 
 
 7. Projeyi oluşturmak ve geçiş etkinliğini çalıştırmak için **Etkinlik oluştur ve çalıştır**'ı seçin.
 
-    ![Veritabanı Geçiş Hizmeti Etkinliği Oluşturma ve Çalıştırma](media\tutorial-sql-server-to-azure-sql-online\dms-create-and-run-activity.png)
+    ![Veritabanı Geçiş Hizmeti Etkinliği Oluşturma ve Çalıştırma](media/tutorial-sql-server-to-azure-sql-online/dms-create-and-run-activity.png)
  
 ## <a name="specify-source-details"></a>Kaynak ayrıntılarını belirtme
 1. **Geçiş kaynağı ayrıntıları** ekranında SQL Server örneğinin bağlantı ayrıntılarını belirtin.
@@ -248,55 +248,55 @@ Hizmet oluşturulduktan sonra Azure portaldan bulun, açın ve yeni bir geçiş 
     > [!CAUTION]
     > Otomatik olarak imzalanan sertifika kullanarak şifrelenmiş SSL bağlantıları yüksek güvenlik sağlamaz. Ortadaki adam saldırılarına maruz kalabilirler. Üretim ortamında veya internete bağlı sunucularda otomatik olarak imzalanan sertifika ile SSL kullanımına güvenmemeniz gerekir.
 
-   ![Kaynak Ayrıntıları](media\tutorial-sql-server-to-azure-sql-online\dms-source-details3.png)
+   ![Kaynak Ayrıntıları](media/tutorial-sql-server-to-azure-sql-online/dms-source-details3.png)
 
 ## <a name="specify-target-details"></a>Hedef ayrıntılarını belirtme
 1. **Kaydet**'i seçin ve **Geçiş hedef ayrıntıları** ekranında DMA kullanılarak **AdventureWorks2012** şemasının dağıtıldığı önceden sağlanmış Azure SQL Veritabanı olan hedef Azure SQL Veritabanı sunucusunun bağlantı ayrıntılarını belirtin.
 
-    ![Hedef seçme](media\tutorial-sql-server-to-azure-sql-online\dms-select-target3.png)
+    ![Hedef seçme](media/tutorial-sql-server-to-azure-sql-online/dms-select-target3.png)
 
 2. **Kaydet**'i seçin ve **Hedef veritabanlarıyla eşleyin** ekranında geçiş yapılacak kaynak ve hedef veritabanlarını eşleyin.
 
     Hedef veritabanı, kaynak veritabanıyla aynı veritabanı adına sahipse Azure Veritabanı Geçiş Hizmeti varsayılan olarak hedef veritabanını seçer.
 
-    ![Hedef veritabanlarıyla eşleyin](media\tutorial-sql-server-to-azure-sql-online\dms-map-targets-activity3.png)
+    ![Hedef veritabanlarıyla eşleyin](media/tutorial-sql-server-to-azure-sql-online/dms-map-targets-activity3.png)
 
 3. **Kaydet**'i seçin ve **Tablo seçme** ekranında tablo listesini genişletip etkilenen alan listesini inceleyin.
 
     Azure Veritabanı Geçiş Hizmeti hedef Azure SQL Veritabanı örneğinde bulunan tüm boş kaynak tablolarını seçer. Veri içeren tabloları yeniden geçirmek isterseniz bu dikey pencerede tabloları seçmeniz gerekir.
 
-    ![Tabloları seçme](media\tutorial-sql-server-to-azure-sql-online\dms-configure-setting-activity3.png)
+    ![Tabloları seçme](media/tutorial-sql-server-to-azure-sql-online/dms-configure-setting-activity3.png)
 
 4.  **Kaydet**'i seçin, **Geçiş özeti** ekranındaki **Etkinlik adı** metin kutusunda geçiş etkinliği için bir ad belirtin ve ardından, kaynak ve hedef ayrıntılarının önceden belirttiğiniz ayrıntılarla eşleştiğinden emin olmak üzere özeti gözden geçirin.
 
-    ![Geçiş Özeti](media\tutorial-sql-server-to-azure-sql-online\dms-migration-summary.png)
+    ![Geçiş Özeti](media/tutorial-sql-server-to-azure-sql-online/dms-migration-summary.png)
 
 ## <a name="run-the-migration"></a>Geçişi çalıştırma
 - **Geçişi çalıştır**'ı seçin.
 
     Geçiş etkinliği penceresi açılır ve etkinliğin **Durum** bilgisi **Başlatılıyor** olarak belirlenir.
 
-    ![Etkinlik Durumu - başlatılıyor](media\tutorial-sql-server-to-azure-sql-online\dms-activity-status2.png)
+    ![Etkinlik Durumu - başlatılıyor](media/tutorial-sql-server-to-azure-sql-online/dms-activity-status2.png)
 
 ## <a name="monitor-the-migration"></a>Geçişi izleme
 1. Geçiş etkinliği ekranında **Yenile**'yi seçerek, gösterilen verileri, geçişin **Durum** bilgisi **Çalıştırılıyor** olana kadar güncelleştirebilirsiniz.
 
 2. **Tam veri yüklemesi** ve **Artımlı veri eşitleme** işlemleri için geçiş durumunu almak üzere belirli bir veritabanına tıklayın.
 
-    ![Etkinlik Durumu - devam ediyor](media\tutorial-sql-server-to-azure-sql-online\dms-activity-in-progress.png)
+    ![Etkinlik Durumu - devam ediyor](media/tutorial-sql-server-to-azure-sql-online/dms-activity-in-progress.png)
 
 ## <a name="perform-migration-cutover"></a>Tam geçiş gerçekleştirme
 İlk Tam yük tamamlandıktan sonra, veritabanları **Geçiş için hazır** olarak işaretlenir.
 
 1. Veritabanı geçişini tamamlamaya hazır olduğunuzda **Tam Geçişi Başlat** seçeneğini belirleyin.
 
-    ![Tam geçişi başlat](media\tutorial-sql-server-to-azure-sql-online\dms-start-cutover.png)
+    ![Tam geçişi başlat](media/tutorial-sql-server-to-azure-sql-online/dms-start-cutover.png)
  
 2.  **Bekleyen değişiklikler** sayacı **0** değerini gösterene kadar bekleyerek kaynak veritabanına gelen tüm işlemleri durdurduğunuzdan emin olun.
 3.  **Onayla**'yı ve ardından, **Uygula**'yı seçin.
 4. Veritabanı geçişi durumu **Tamamlandı** olarak gösterildiğinde, uygulamalarınızı yeni hedef Azure SQL Veritabanı'na bağlayın.
  
-    ![Etkinlik Durumu - tamamlandı](media\tutorial-sql-server-to-azure-sql-online\dms-activity-completed.png)
+    ![Etkinlik Durumu - tamamlandı](media/tutorial-sql-server-to-azure-sql-online/dms-activity-completed.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - MySQL için Azure Veritabanı'na yönelik çevrimiçi geçiş gerçekleştirirken karşılaşılan bilinen sorunlar ve sınırlamalar hakkında bilgi için [Azure SQL Veritabanı çevrimiçi geçiş işlemleri ile ilgili bilinen sorunlar ve geçici çözümler](known-issues-azure-sql-online.md) başlıklı makaleye bakın.

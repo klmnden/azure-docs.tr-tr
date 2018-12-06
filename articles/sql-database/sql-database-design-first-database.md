@@ -4,24 +4,22 @@ description: SQL Server Management Studio ile ilk Azure SQL veritabanınızı ta
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
-ms.devlang: ''
 ms.topic: tutorial
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer: ''
+ms.reviewer: v-masebo
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 2eebc083c4595a9190c60a60b8375b3a46296584
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
-ms.translationtype: HT
+ms.date: 12/04/2018
+ms.openlocfilehash: 9fa36b9b87a8e9591b0c863826cd2278a29ba28e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162772"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956066"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Öğretici: SSMS kullanarak ilk Azure SQL veritabanınızı tasarlama
 
-Azure SQL Veritabanı, Microsoft Bulut’ta (Azure) ilişkisel bir hizmet olarak veritabanıdır (DBaaS). Bu öğreticide, Azure portalını ve [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)'yu (SSMS) kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz: 
+Azure SQL veritabanı, bir ilişkisel veritabanı olarak-hizmet (DBaaS), Microsoft Cloud (Azure) ' dir. Bu öğreticide, Azure portalını ve [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)'yu (SSMS) kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Azure portalında veritabanı oluşturma*
@@ -29,279 +27,254 @@ Azure SQL Veritabanı, Microsoft Bulut’ta (Azure) ilişkisel bir hizmet olarak
 > * SSMS ile veritabanına bağlanma
 > * SSMS ile tablo oluşturma
 > * BCP ile toplu veri yükleme
-> * Bu verileri SSMS ile sorgulama
+> * SSMS ile veri sorgulama
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+* Azure aboneliğiniz yoksa, [ücretsiz bir hesap oluşturma](https://azure.microsoft.com/free/) başlamadan önce.
 
-   >[!NOTE]
-   > Bu öğreticinin amaçları doğrultusunda, [DTU tabanlı satın alma modelini](sql-database-service-tiers-dtu.md) kullanıyoruz ancak [Sanal çekirdek tabanlı satın alma modelini ](sql-database-service-tiers-vcore.md) seçme olanağınız da vardır. 
+> [!NOTE]
+> Bu öğreticinin amaçları doğrultusunda, [DTU tabanlı satın alma modelini](sql-database-service-tiers-dtu.md) kullanıyoruz ancak [Sanal çekirdek tabanlı satın alma modelini ](sql-database-service-tiers-vcore.md) seçme olanağınız da vardır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticiyi tamamlamak için şunları yüklediğinizden emin olun:
-- [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)’nun (SSMS) en yeni sürümü.
-- [BCP ve SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433)’nin en yeni sürümü.
+Bu öğreticiyi tamamlamak için yüklediğiniz emin olun:
 
-## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
+- [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (en son sürüm)
+- [BCP ve SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433) (en son sürüm)
+
+## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 
 [Azure Portal](https://portal.azure.com/) oturum açın.
 
-## <a name="create-a-blank-sql-database"></a>Boş bir SQL veritabanı oluşturma
+## <a name="create-a-blank-database"></a>Boş veritabanı oluşturma
 
-Azure SQL veritabanı bir dizi [işlem ve depolama kaynağı](sql-database-service-tiers-dtu.md) ile oluşturulur. Veritabanı bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ve bir [Azure SQL Veritabanı mantıksal sunucusu](sql-database-features.md) içinde oluşturulur. 
+Azure SQL veritabanı bir dizi [işlem ve depolama kaynağı](sql-database-service-tiers-dtu.md) ile oluşturulur. Veritabanı içinde oluşturulan bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ve bir [Azure SQL veritabanı mantıksal sunucusu](sql-database-features.md).
 
-Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin. 
+Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin.
 
 1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
 
-2. **Yeni** sayfasında, Azure Market bölümünde **Veritabanları**’nı seçin ve ardından **Öne Çıkan** bölümünde **SQL Veritabanı**’na tıklayın.
+1. **Yeni** sayfasında, Azure Market bölümünde **Veritabanları**’nı seçin ve ardından **Öne Çıkan** bölümünde **SQL Veritabanı**’na tıklayın.
 
    ![create empty-database](./media/sql-database-design-first-database/create-empty-database.png)
 
-3. SQL Veritabanı formunu, önceki görüntüde gösterildiği gibi aşağıdaki bilgilerle doldurun:   
+   1. Doldurun **SQL veritabanı** önceki görüntüde gösterildiği gibi aşağıdaki bilgilerle oluşturur:
 
-   | Ayar       | Önerilen değer | Açıklama | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Veritabanı adı** | mySampleDatabase | Geçerli veritabanı adları için bkz. [Veritabanı Tanımlayıcıları](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). | 
-   | **Abonelik** | Aboneliğiniz  | Abonelikleriniz hakkında daha ayrıntılı bilgi için bkz. [Abonelikler](https://account.windowsazure.com/Subscriptions). |
-   | **Kaynak grubu** | myResourceGroup | Geçerli kaynak grubu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   | **Kaynak seçme** | Boş veritabanı | Boş bir veritabanı oluşturulması gerektiğini belirtir. |
+      | Ayar       | Önerilen değer | Açıklama |
+      | ------------ | ------------------ | ------------------------------------------------- |
+      | **Veritabanı adı** | *Veritabanınız* | Geçerli veritabanı adları için bkz [veritabanı tanımlayıcıları](/sql/relational-databases/databases/database-identifiers). |
+      | **Abonelik** | *yourSubscription*  | Abonelikleriniz hakkında daha ayrıntılı bilgi için bkz. [Abonelikler](https://account.windowsazure.com/Subscriptions). |
+      | **Kaynak grubu** | *yourResourceGroup* | Geçerli kaynak grubu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](/azure/architecture/best-practices/naming-conventions). |
+      | **Kaynak seçme** | Boş veritabanı | Boş bir veritabanı oluşturulması gerektiğini belirtir. |
 
-4. Yeni veritabanınız için yeni bir sunucu oluşturup yapılandırmak üzere **Sunucu**’ya tıklayın. **Yeni sunucu formu**’nu aşağıdaki bilgilerle doldurun: 
+   1. Tıklayın **sunucu** varolan sunucusu kullanmak veya oluşturmaya ve veritabanınız için yeni bir sunucu yapılandırın. Sunucu seçin veya tıklatın **yeni sunucu oluştur** doldurun **yeni sunucu** formunu aşağıdaki bilgilerle:
 
-   | Ayar       | Önerilen değer | Açıklama | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Sunucu adı** | Genel olarak benzersiz bir ad | Geçerli sunucu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
-   | **Sunucu yöneticisi oturum açma bilgileri** | Geçerli bir ad | Geçerli oturum açma adları için bkz. [Veritabanı Tanımlayıcıları](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
-   | **Parola** | Geçerli bir parola | Parolanızda en az 8 karakter bulunmalı ve parolanız şu üç kategoriden karakterler içermelidir: büyük harf karakterler, küçük harf karakterler, sayılar ve alfasayısal olmayan karakterler. |
-   | **Konum** | Geçerli bir konum | Bölgeler hakkında bilgi için bkz. [Azure Bölgeleri](https://azure.microsoft.com/regions/). |
+      | Ayar       | Önerilen değer | Açıklama |
+      | ------------ | ------------------ | ------------------------------------------------- |
+      | **Sunucu adı** | Genel olarak benzersiz bir ad | Geçerli sunucu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](/azure/architecture/best-practices/naming-conventions). |
+      | **Sunucu yöneticisi oturum açma bilgileri** | Geçerli bir ad | Geçerli oturum açma adları için bkz [veritabanı tanımlayıcıları](/sql/relational-databases/databases/database-identifiers). |
+      | **Parola** | Geçerli bir parola | Parolanız en az 8 karakter bulunmalı ve şu kategorilerin üçünden karakterler kullanmanız gerekir: büyük harf karakterler, küçük harf karakterler, sayılar ve alfasayısal olmayan karakter. |
+      | **Konum** | Geçerli bir konum | Bölgeler hakkında bilgi için bkz. [Azure Bölgeleri](https://azure.microsoft.com/regions/). |
 
-   ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
+      ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
 
-5. **Seç**'e tıklayın.
+      **Seç**'e tıklayın.
 
-6. Hizmet katmanını, DTU veya sanal çekirdek sayısını ve depolama alanı miktarını belirtmek için **Fiyatlandırma katmanı**’na tıklayın. Her hizmet katmanı için kullanımınıza sunulan DTU/sanal çekirdek sayısı seçeneklerini araştırın. Bu öğreticinin amaçları doğrultusunda, [DTU tabanlı satın alma modelini](sql-database-service-tiers-dtu.md) kullanıyoruz ancak [Sanal çekirdek tabanlı satın alma modelini ](sql-database-service-tiers-vcore.md) seçme olanağınız da vardır. 
+   1. Hizmet katmanını, DTU veya sanal çekirdek sayısını ve depolama alanı miktarını belirtmek için **Fiyatlandırma katmanı**’na tıklayın. Dtu/sanal çekirdek ve her hizmet katmanı için kullanılabilir olan depolama sayısı seçeneklerini araştırın. Varsayılan olarak, **standart** [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) seçilir, ancak seçme seçeneğiniz [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
 
-7. Bu öğreticide, **standart** hizmet katmanını seçip kaydırıcıyı kullanarak **100 DTU (S3)** ve **400** GB depolama alanını seçin.
+      > [!IMPORTANT]
+      > 1 TB'den fazla depolama Premium katmanında şu anda aşağıdakiler dışındaki tüm bölgelerde: UK Kuzey Batı Orta ABD, Birleşik Krallık South2, Çin Doğu, USDoDCentral, Almanya Orta, USDoDEast, ABD Devleti Southwest, ABD Devleti Güney Orta, Almanya Kuzeydoğu, Çin Kuzey, ABD Devleti Doğu. Diğer bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
 
-   ![create database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
+      Hizmet katmanını, dtu'ların sayısını ve depolama miktarını seçtikten sonra **Uygula**.
 
-8. **Ek Depolama** seçeneğini kullanmak için önizleme koşullarını kabul edin. 
+   1. Girin bir **harmanlama** boş bir veritabanı için (Bu öğretici için varsayılan değeri kullanın). Harmanlamalar hakkında daha fazla bilgi için bkz. [Harmanlamalar](/sql/t-sql/statements/collations)
 
-   > [!IMPORTANT]
-   > Premium katmanında 1 TB’tan fazla depolama alanı, şu an için şu bölgeler dışındaki tüm bölgelerde kullanılabilir: UK Kuzey, Orta Batı ABD, UK Güney 2, Çin Doğu, USDoDCentral, Almanya Orta, USDoDEast, US Gov Güneybatı, US Gov Orta Güney, Almanya Kuzeydoğu, Çin Kuzey, US Gov Doğu. Diğer bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
+1. Tamamladığınıza göre şimdi **SQL veritabanı** formunda, tıklayın **Oluştur** veritabanını sağlamak için. Bu adım birkaç dakika sürebilir.
 
-9. Sunucu katmanını, DTU'ların sayısını ve depolama alanı miktarını seçtikten sonra **Uygula**’ya tıklayın.  
+1. Araç çubuğunda **Bildirimler**’e tıklayarak dağıtım işlemini izleyin.
 
-10. Boş veritabanı için bir **harmanlama** seçin (bu öğretici için varsayılan değeri kullanın). Harmanlamalar hakkında daha fazla bilgi için bkz. [Harmanlamalar](https://docs.microsoft.com/sql/t-sql/statements/collations)
+     ![bildirim](./media/sql-database-design-first-database/notification.png)
 
-11. SQL Veritabanı formunu tamamladıktan sonra veritabanını sağlamak için **Oluştur**’a tıklayın. Sağlama birkaç dakika sürer. 
+## <a name="create-a-firewall-rule"></a>Bir güvenlik duvarı kuralı oluşturma
 
-12. Araç çubuğunda **Bildirimler**’e tıklayarak dağıtım işlemini izleyin.
-    
-     ![bildirim](./media/sql-database-get-started-portal/notification.png)
-
-## <a name="create-a-server-level-firewall-rule"></a>Sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma
-
-SQL Veritabanı hizmeti, güvenlik duvarını belirli IP adreslerine açmaya yönelik bir güvenlik duvarı kuralı oluşturulmadıkça, dış uygulama ve araçların sunucuya ya da sunucu üzerindeki herhangi bir veritabanına bağlanmasını engelleyen sunucu düzeyinde bir güvenlik duvarı kuralı oluşturur. SQL Veritabanı güvenlik duvarı üzerinden yalnızca IP adresinize yönelik dış bağlantıları etkinleştirmek üzere istemcinizin IP adresi için bir [SQL Veritabanı sunucu düzeyi güvenlik duvarı kuralı](sql-database-firewall-configure.md) oluşturmak için bu adımları izleyin. 
+SQL veritabanı hizmeti, sunucu düzeyinde bir güvenlik duvarı oluşturur. Güvenlik Duvarı, dış uygulama ve araçların sunucuya ve sunucu üzerindeki herhangi bir veritabanına bağlanmasını engeller. Veritabanınıza dış bağlantıları etkinleştirmek için güvenlik duvarı IP adresiniz için bir kural eklemelisiniz. Oluşturmak için bu adımları bir [SQL veritabanı sunucu düzeyinde güvenlik duvarı kuralı](sql-database-firewall-configure.md).
 
 > [!NOTE]
-> SQL Veritabanı 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Bir kurumsal ağ içerisinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 1433 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda BT departmanınız 1433 numaralı bağlantı noktasını açmadığı sürece Azure SQL Veritabanı sunucunuza bağlanamazsınız.
->
+> SQL veritabanı 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Bir kurumsal ağ içerisinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 1433 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda, yöneticinize 1433 numaralı bağlantı noktasını açmadığı sürece Azure SQL veritabanı sunucusuna bağlanamıyor.
 
-1. Dağıtım tamamlandıktan sonra, soldaki menüden **SQL veritabanları**'na ve ardından **SQL veritabanları** sayfasında **mySampleDatabase** öğesine tıklayın. Veritabanınıza ilişkin genel bakış sayfası açılır ve tam sunucu adı (örneğin, **mynewserver-20170824.database.windows.net**) görüntülenerek daha fazla yapılandırma seçeneği sunulur. 
+1. Dağıtım tamamlandıktan sonra tıklayın **SQL veritabanları** 'a tıklayın ve sol taraftaki menüden *veritabanınız* üzerinde **SQL veritabanları** sayfası. Veritabanınıza ilişkin genel bakış sayfası açılır ve tam gösteren **sunucu adı** (gibi *yourserver.database.windows.net*) ve daha fazla yapılandırma seçenekleri sağlar.
 
-2. Sonraki öğreticiler ve hızlı başlangıçlarda sunucunuza ve sunucunun veritabanlarına bağlanmak için bu tam sunucu adını kopyalayın. 
+1. Sunucunuzun ve veritabanları için SQL Server Management Studio'dan bağlanmak için bu tam sunucu adını kopyalayın.
 
-   ![sunucu adı](./media/sql-database-get-started-portal/server-name.png) 
+   ![sunucu adı](./media/sql-database-design-first-database/server-name.png)
 
-3. Araç çubuğunda **Sunucu güvenlik duvarını ayarla**’ya tıklayın. SQL Veritabanı sunucusu için **Güvenlik duvarı ayarları** sayfası açılır. 
+1. Araç çubuğunda **Sunucu güvenlik duvarını ayarla**’ya tıklayın. **Güvenlik Duvarı ayarları** SQL veritabanı sunucusu için sayfası açılır.
 
-   ![sunucu güvenlik duvarı kuralı](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+   ![sunucu güvenlik duvarı kuralı](./media/sql-database-design-first-database/server-firewall-rule.png)
 
-4. Geçerli IP adresinizi yeni bir güvenlik duvarı kuralına eklemek için araç çubuğunda **İstemci IP’si Ekle** öğesine tıklayın. Güvenlik duvarı kuralı, 1433 numaralı bağlantı noktasını tek bir IP adresi veya bir IP adresi aralığı için açabilir.
+   1. Geçerli IP adresinizi yeni bir güvenlik duvarı kuralına eklemek için araç çubuğunda **İstemci IP’si Ekle** öğesine tıklayın. Güvenlik duvarı kuralı, 1433 numaralı bağlantı noktasını tek bir IP adresi veya bir IP adresi aralığı için açabilir.
 
-5. **Kaydet**’e tıklayın. Geçerli IP adresiniz için mantıksal sunucuda 1433 numaralı bağlantı noktası açılarak sunucu düzeyinde güvenlik duvarı kuralı oluşturulur.
+   1. **Kaydet**’e tıklayın. Geçerli IP adresiniz için mantıksal sunucuda 1433 numaralı bağlantı noktası açılarak sunucu düzeyinde güvenlik duvarı kuralı oluşturulur.
 
-6. **Tamam**’a tıklayın ve sonra **Güvenlik duvarı ayarları** sayfasını kapatın.
+   1. **Tamam**’a tıklayın ve sonra **Güvenlik duvarı ayarları** sayfasını kapatın.
 
-Artık SQL Server Management Studio’yu veya seçtiğiniz başka bir aracı kullanarak, daha önce oluşturduğunuz sunucu yöneticisi hesabıyla bu IP adresinden SQL Veritabanı sunucusuna ve sunucuya ait veritabanlarına bağlanabilirsiniz.
+IP adresiniz, artık güvenlik duvarı üzerinden geçirebilirsiniz. Şimdi, SQL veritabanı sunucusu ve SQL Server Management Studio veya seçtiğiniz başka bir aracı kullanarak, sunucunun veritabanlarına bağlanabilirsiniz. Daha önce oluşturduğunuz sunucu yönetici hesabı kullandığınızdan emin olun.
 
 > [!IMPORTANT]
-> Varsayılan olarak, SQL Veritabanı güvenlik duvarı üzerinden erişim tüm Azure hizmetleri için etkindir. Tüm Azure hizmetleri için devre dışı bırakmak isterseniz bu sayfadaki **KAPALI** öğesine tıklayın.
+> Varsayılan olarak, SQL veritabanı güvenlik duvarı üzerinden erişim tüm Azure Hizmetleri için etkindir. Tüm Azure hizmetleri için devre dışı bırakmak isterseniz bu sayfadaki **KAPALI** öğesine tıklayın.
 
-## <a name="sql-server-connection-information"></a>SQL Server bağlantı bilgileri
+## <a name="connect-to-the-database"></a>Veritabanı'na bağlanma
 
-Azure SQL Veritabanı sunucunuzun tam sunucu adını Azure portaldan alabilirsiniz. SQL Server Management Studio kullanarak sunucunuza bağlanmak için tam sunucu adını kullanırsınız.
-
-1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
-3. Veritabanınızın Azure portal sayfasındaki **Temel Bilgiler** bölmesinde, **Sunucu adını** bulup kopyalayın.
-
-   ![bağlantı bilgileri](./media/sql-database-get-started-portal/server-name.png)
-
-## <a name="connect-to-the-database-with-ssms"></a>SSMS ile veritabanına bağlanma
-
-[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)’yu kullanarak Azure SQL Veritabanı sunucunuzla bağlantı kurun.
+Kullanım [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) Azure SQL veritabanı sunucusunda bir bağlantı kurmak için.
 
 1. SQL Server Management Studio’yu açın.
 
-2. **Sunucuya Bağlan** iletişim kutusuna şu bilgileri girin:
+1. **Sunucuya Bağlan** iletişim kutusuna şu bilgileri girin:
 
-   | Ayar       | Önerilen değer | Açıklama | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
-   | Sunucu türü | Veritabanı altyapısı | Bu değer gereklidir |
-   | Sunucu adı | Tam sunucu adı | Ad şunun gibi olmalıdır: **mynewserver20170824.database.windows.net**. |
-   | Kimlik Doğrulaması | SQL Server Kimlik Doğrulaması | Bu öğreticide yapılandırdığımız tek kimlik doğrulaması türü SQL Kimlik Doğrulamasıdır. |
-   | Oturum Aç | Sunucu yöneticisi hesabı | Bu, sunucuyu oluştururken belirttiğiniz hesaptır. |
-   | Parola | Sunucu yöneticisi hesabınızın parolası | Bu, sunucuyu oluştururken belirttiğiniz paroladır. |
+   | Ayar       | Önerilen değer | Açıklama |
+   | ------------ | ------------------ | ------------------------------------------------- |
+   | **Sunucu türü** | Veritabanı altyapısı | Bu değer gereklidir. |
+   | **Sunucu adı** | Tam sunucu adı | Örneğin, *yourserver.database.windows.net*. |
+   | **Kimlik doğrulaması** | SQL Server Kimlik Doğrulaması | SQL kimlik doğrulaması biz Bu öğreticide yapılandırdığınız yalnızca kimlik doğrulaması türüdür. |
+   | **Oturum açma** | Sunucu yöneticisi hesabı | Sunucuyu oluştururken belirttiğiniz hesap. |
+   | **Parola** | Sunucu yöneticisi hesabınızın parolası | Sunucuyu oluştururken belirttiğiniz parola. |
 
-   ![sunucuya bağlan](./media/sql-database-connect-query-ssms/connect.png)
+   ![sunucuya bağlan](./media/sql-database-design-first-database/connect.png)
 
-3. **Sunucuya bağlan** iletişim kutusunda **Seçenekler**’e tıklayın. **Veritabanına bağlan** bölümünde bu veritabanına bağlanmak için **mySampleDatabase** yazın.
+   1. **Sunucuya bağlan** iletişim kutusunda **Seçenekler**’e tıklayın. İçinde **veritabanına bağlan** bölümünde, girin *veritabanınız* bu veritabanına bağlanmak için.
 
-   ![sunucuda veritabanına bağlanma](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
+      ![sunucuda veritabanına bağlanma](./media/sql-database-design-first-database/options-connect-to-db.png)  
 
-4. **Bağlan**'a tıklayın. SSMS’te Nesne Gezgini penceresi açılır. 
+   1. **Bağlan**'a tıklayın. **Nesne Gezgini** SSMS'de penceresi açılır.
 
-5. Nesne Gezgini’nde **Veritabanları**’nı ve ardından **mySampleDatabase** öğesini genişleterek nesneleri örnek veritabanında görüntüleyin.
+1. İçinde **Nesne Gezgini**, genişletme **veritabanları** ve ardından *veritabanınız* nesneleri örnek veritabanında görüntüleyin.
 
-   ![veritabanı nesneleri](./media/sql-database-connect-query-ssms/connected.png)  
+   ![veritabanı nesneleri](./media/sql-database-design-first-database/connected.png)  
 
-## <a name="create-tables-in-the-database"></a>Veritabanında tablo oluşturma 
+## <a name="create-tables-in-the-database"></a>Veritabanında tablo oluşturma
 
-[Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference) kullanarak üniversiteler için bir öğrenci yönetim sistemi modelleyen dört tablo ile bir veritabanı şeması oluşturun:
+[Transact-SQL](/sql/t-sql/language-reference) kullanarak üniversiteler için bir öğrenci yönetim sistemi modelleyen dört tablo ile bir veritabanı şeması oluşturun:
 
 - Kişi
 - Ders
 - Öğrenci
-- Üniversiteler için öğrenci yönetim sistemi modelleyen kredi
+- Kredi
 
-Aşağıdaki diyagramda bu tabloların birbirleriyle nasıl ilişkili olduğu gösterilmektedir. Bu tablolardan bazıları başka tablolardaki sütunlara başvurur. Örneğin Öğrenci tablosu, **Kişi** tablosundaki **Kişi Kimliği** sütununa başvurur. Bu öğreticideki tabloların birbirleriyle ilişkisini anlamak için diyagram üzerinde çalışın. Etkili veritabanı tabloları oluşturmaya ilişkin ayrıntılı bir bakış için bkz. [Etkili veritabanı tabloları oluşturma](https://msdn.microsoft.com/library/cc505842.aspx). Veri türleri seçme hakkında bilgi için bkz. [Veri türleri](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql).
+Aşağıdaki diyagramda bu tabloların birbirleriyle nasıl ilişkili olduğu gösterilmektedir. Bu tablolardan bazıları başka tablolardaki sütunlara başvurur. Örneğin, *Öğrenci* tablo başvuruları *Personıd* sütununun *kişi* tablo. Bu öğreticideki tabloların birbirleriyle ilişkisini anlamak için diyagram üzerinde çalışın. Etkili veritabanı tabloları oluşturmaya ilişkin ayrıntılı bir bakış için bkz. [Etkili veritabanı tabloları oluşturma](https://msdn.microsoft.com/library/cc505842.aspx). Veri türleri seçme hakkında bilgi için bkz. [Veri türleri](/sql/t-sql/data-types/data-types-transact-sql).
 
 > [!NOTE]
-> Tablolarınızı oluşturup tasarlamak için [SQL Server Management Studio’daki tablo tasarımcısını](https://docs.microsoft.com/sql/ssms/visual-db-tools/design-database-diagrams-visual-database-tools) da kullanabilirsiniz. 
+> Tablolarınızı oluşturup tasarlamak için [SQL Server Management Studio’daki tablo tasarımcısını](/sql/ssms/visual-db-tools/design-database-diagrams-visual-database-tools) da kullanabilirsiniz.
 
 ![Tablo ilişkileri](./media/sql-database-design-first-database/tutorial-database-tables.png)
 
-1. Nesne Gezgini’nde **mySampleDatabase** öğesine sağ tıklayıp **Yeni Sorgu**’ya tıklayın. Veritabanınıza bağlı boş bir sorgu penceresi açılır.
+1. İçinde **Nesne Gezgini**, sağ *veritabanınız* seçip **yeni sorgu**. Veritabanınıza bağlı boş bir sorgu penceresi açılır.
 
-2. Sorgu penceresinde aşağıdaki sorguyu yürüterek veritabanınızda dört tablo oluşturun: 
+1. Sorgu penceresinde aşağıdaki sorguyu yürüterek veritabanınızda dört tablo oluşturun:
 
-   ```sql 
+   ```sql
    -- Create Person table
-
    CREATE TABLE Person
    (
-   PersonId   INT IDENTITY PRIMARY KEY,
-   FirstName   NVARCHAR(128) NOT NULL,
-   MiddelInitial NVARCHAR(10),
-   LastName   NVARCHAR(128) NOT NULL,
-   DateOfBirth   DATE NOT NULL
+       PersonId INT IDENTITY PRIMARY KEY,
+       FirstName NVARCHAR(128) NOT NULL,
+       MiddelInitial NVARCHAR(10),
+       LastName NVARCHAR(128) NOT NULL,
+       DateOfBirth DATE NOT NULL
    )
-   
+
    -- Create Student table
- 
    CREATE TABLE Student
    (
-   StudentId INT IDENTITY PRIMARY KEY,
-   PersonId  INT REFERENCES Person (PersonId),
-   Email   NVARCHAR(256)
+       StudentId INT IDENTITY PRIMARY KEY,
+       PersonId INT REFERENCES Person (PersonId),
+       Email NVARCHAR(256)
    )
-   
+
    -- Create Course table
- 
    CREATE TABLE Course
    (
-   CourseId  INT IDENTITY PRIMARY KEY,
-   Name   NVARCHAR(50) NOT NULL,
-   Teacher   NVARCHAR(256) NOT NULL
-   ) 
+       CourseId INT IDENTITY PRIMARY KEY,
+       Name NVARCHAR(50) NOT NULL,
+       Teacher NVARCHAR(256) NOT NULL
+   )
 
    -- Create Credit table
- 
    CREATE TABLE Credit
    (
-   StudentId   INT REFERENCES Student (StudentId),
-   CourseId   INT REFERENCES Course (CourseId),
-   Grade   DECIMAL(5,2) CHECK (Grade <= 100.00),
-   Attempt   TINYINT,
-   CONSTRAINT  [UQ_studentgrades] UNIQUE CLUSTERED
-   (
-   StudentId, CourseId, Grade, Attempt
-   )
+       StudentId INT REFERENCES Student (StudentId),
+       CourseId INT REFERENCES Course (CourseId),
+       Grade DECIMAL(5,2) CHECK (Grade <= 100.00),
+       Attempt TINYINT,
+       CONSTRAINT [UQ_studentgrades] UNIQUE CLUSTERED
+       (
+           StudentId, CourseId, Grade, Attempt
+       )
    )
    ```
 
    ![Tablo oluşturma](./media/sql-database-design-first-database/create-tables.png)
 
-3. Oluşturduğunuz tabloları görmek için SQL Server Management Studio Nesne gezginindeki 'tablolar' düğümünü genişletin.
+1. Genişletin **tabloları** düğümünde *veritabanınız* içinde **Nesne Gezgini** oluşturduğunuz tabloları görmek için.
 
    ![ssms tables-created](./media/sql-database-design-first-database/ssms-tables-created.png)
 
 ## <a name="load-data-into-the-tables"></a>Tablolara veri yükleme
 
-1. Veritabanınızın örnek verilerini depolamak için İndirilenler klasörünüzde **SampleTableData** adlı bir klasör oluşturun. 
+1. Adlı bir klasör oluşturun *sampleData* veritabanınızın örnek verilerini depolamak için indirilenler klasörünüzde.
 
-2. Aşağıdaki bağlantılara sağ tıklayın ve **SampleTableData** klasörüne kaydedin. 
+1. Aşağıdaki bağlantılara sağ tıklayın ve kaydedin *sampleData* klasör.
 
    - [SampleCourseData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCourseData)
    - [SamplePersonData](https://sqldbtutorial.blob.core.windows.net/tutorials/SamplePersonData)
    - [SampleStudentData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData)
    - [SampleCreditData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCreditData)
 
-3. Bir komut istemi penceresi açın ve SampleTableData klasörüne gidin.
+1. Bir komut istemi penceresi açın ve gidin *sampleData* klasör.
 
-4. Tablolara örnek veriler eklemek için **ServerName**, **DatabaseName**, **UserName** ve **Password** değerlerini ortamınızın değerleriyle değiştirerek aşağıdaki komutları yürütün.
+1. İçin değerleri değiştirerek tablolara örnek veriler eklemek için aşağıdaki komutları yürütün *sunucu*, *veritabanı*, *kullanıcı*, ve *parola* ortamınız için değerlerle.
   
-   ```bcp
-   bcp Course in SampleCourseData -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
-   bcp Person in SamplePersonData -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
-   bcp Student in SampleStudentData -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
-   bcp Credit in SampleCreditData -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
+   ```cmd
+   bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Person in SamplePersonData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Student in SampleStudentData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Credit in SampleCreditData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
    ```
 
 Daha önce oluşturduğunuz tablolara örnek veriler yüklediniz.
 
 ## <a name="query-data"></a>Verileri sorgulama
 
-Veritabanı tablolarından bilgi almak için aşağıdaki sorguları yürütün. SQL sorguları yazma hakkında daha fazla bilgi almak için bkz. [SQL Sorguları Yazma](https://technet.microsoft.com/library/bb264565.aspx). İlk sorgu, 'Dominick Pope'tan ders alıp sınıfın %75’inden yüksek not alan tüm öğrencileri bulmak için dört tablonun tamamını birleştirir. İkinci sorgu dört tablonun tamamını birleştirir ve 'Noe Coleman'ın herhangi bir zamanda kaydolduğu tüm dersleri bulur.
+Veritabanı tablolarından bilgi almak için aşağıdaki sorguları yürütün. Bkz: [yazma SQL sorguları](https://technet.microsoft.com/library/bb264565.aspx) SQL sorguları yazma hakkında daha fazla bilgi için. İlk sorgu, 75 %'dan daha yüksek bir düzeyde olması ' Dominick Pope' tarafından verilen öğrencileri bulmak için dört tablonun tamamını birleştirir. İkinci sorgu dört tablonun tamamını birleştirir ve 'Noe Coleman' hiç olmadığı kadar kaydetmiştir dersleri bulur.
 
 1. SQL Server Management Studio sorgu penceresinde aşağıdaki sorguyu yürütün:
 
-   ```sql 
+   ```sql
    -- Find the students taught by Dominick Pope who have a grade higher than 75%
-
-   SELECT  person.FirstName,
-   person.LastName,
-   course.Name,
-   credit.Grade
+   SELECT  person.FirstName, person.LastName, course.Name, credit.Grade
    FROM  Person AS person
-   INNER JOIN Student AS student ON person.PersonId = student.PersonId
-   INNER JOIN Credit AS credit ON student.StudentId = credit.StudentId
-   INNER JOIN Course AS course ON credit.CourseId = course.courseId
-   WHERE course.Teacher = 'Dominick Pope' 
-   AND Grade > 75
+       INNER JOIN Student AS student ON person.PersonId = student.PersonId
+       INNER JOIN Credit AS credit ON student.StudentId = credit.StudentId
+       INNER JOIN Course AS course ON credit.CourseId = course.courseId
+   WHERE course.Teacher = 'Dominick Pope'
+       AND Grade > 75
    ```
 
-2. SQL Server Management Studio sorgu penceresinde aşağıdaki sorguyu yürütün:
+1. Bir sorgu penceresine aşağıdaki sorguyu yürütün:
 
    ```sql
    -- Find all the courses in which Noe Coleman has ever enrolled
-
-   SELECT  course.Name,
-   course.Teacher,
-   credit.Grade
+   SELECT  course.Name, course.Teacher, credit.Grade
    FROM  Course AS course
-   INNER JOIN Credit AS credit ON credit.CourseId = course.CourseId
-   INNER JOIN Student AS student ON student.StudentId = credit.StudentId
-   INNER JOIN Person AS person ON person.PersonId = student.PersonId
+       INNER JOIN Credit AS credit ON credit.CourseId = course.CourseId
+       INNER JOIN Student AS student ON student.StudentId = credit.StudentId
+       INNER JOIN Person AS person ON person.PersonId = student.PersonId
    WHERE person.FirstName = 'Noe'
-   AND person.LastName = 'Coleman'
+       AND person.LastName = 'Coleman'
    ```
 
-## <a name="next-steps"></a>Sonraki adımlar 
-Bu öğreticide, veritabanı ve tablo oluşturma, veri yükleme ve sorgulama ve veritabanını önceki bir zaman noktasına geri yükleme gibi temel veritabanı görevlerini öğrendiniz. Şunları öğrendiniz:
+## <a name="next-steps"></a>Sonraki adımlar
+
+Bu öğreticide, birçok temel veritabanı görevlerini öğrendiniz. Şunları öğrendiniz:
+
 > [!div class="checklist"]
 > * Veritabanı oluşturma
 > * Güvenlik duvarı kuralı ayarlama
@@ -313,4 +286,4 @@ Bu öğreticide, veritabanı ve tablo oluşturma, veri yükleme ve sorgulama ve 
 Visual Studio ve C# kullanarak veritabanı tasarlama hakkında bilgi edinmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
->[C# ve ADO.NET ile bir Azure SQL veritabanı tasarlama ve bağlama](sql-database-design-first-database-csharp.md)
+> [C# ve ADO.NET ile bir Azure SQL veritabanı tasarlama ve bağlama](sql-database-design-first-database-csharp.md)

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 4758c29d1cdb7e09c397524574ba1ab6701efeeb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f1c433be7e8adc0779860c3ec3bfb5d7174fca5
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238039"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970731"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Market öğesi yayımlama aracını kullanarak Ekle
 
@@ -28,7 +28,7 @@ ms.locfileid: "51238039"
 
 ## <a name="prerequisites"></a>Önkoşullar
 
- - Azure Stack ana bilgisayarda Araç Seti çalıştırma veya sahip [VPN](.\asdk\asdk-connect.md#connect-with-vpn) ASDK konağa bağlantısı Aracı çalıştırdığınız makine.
+ - Azure Stack ana bilgisayarda Araç Seti çalıştırma veya sahip [VPN](./asdk/asdk-connect.md#connect-with-vpn) ASDK konağa bağlantısı Aracı çalıştırdığınız makine.
 
  - İndirme [Azure Stack hızlı başlangıç şablonları](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) ve ayıklayın.
 

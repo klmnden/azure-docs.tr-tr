@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: bc2fbf7aadf99a2f765def2d352819dfa6cd5fa4
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: dc0c6a37e11574cef857a7af773a9d90bea57357
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265904"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972074"
 ---
 # <a name="interactive-feature-verification-testing"></a>Etkileşimli özellik doğrulama testi  
 
@@ -48,7 +48,7 @@ Disk değiştirme için bir test sık karşılaşılan bir senaryodur. Bu örnek
 
 3.  Seçin **Başlat** üzerinde **Test geçiş** Döşe.
 
-    ![Alternatif metin](media\azure-stack-vaas-interactive-feature-verification\image1.png)
+    ![Alternatif metin](media/azure-stack-vaas-interactive-feature-verification/image1.png)
 
 4.  İçin bir ad girin **Test geçiş** iş akışı.
 
@@ -63,7 +63,7 @@ Disk değiştirme için bir test sık karşılaşılan bir senaryodur. Bu örnek
 > [!Note]  
 > Disk kimliği etkileşimli özellik doğrulama testi için etki alanı yönetici kullanıcı adı ve parola belirtilmelidir.
 
-![Alternatif metin](media\azure-stack-vaas-interactive-feature-verification\image2.png)
+![Alternatif metin](media/azure-stack-vaas-interactive-feature-verification/image2.png)
 
 ## <a name="select-the-test"></a>Test seçin
 
@@ -72,51 +72,51 @@ Disk değiştirme için bir test sık karşılaşılan bir senaryodur. Bu örnek
     > [!Note]  
     > Test malzemeleri geliştirmeleri yapılmış gibi test sürümünü artırır. Aksi halde Microsoft belirtmiyorsa en yüksek sürümü her zaman kullanılmalıdır.
 
-    ![Alternatif metin](media\azure-stack-vaas-interactive-feature-verification\image4.png)
+    ![Alternatif metin](media/azure-stack-vaas-interactive-feature-verification/image4.png)
 
 2.  Etki alanı yönetici kullanıcı adı ve parola girmek **Düzenle**.
 
 3.  Uygun test yürütme aracısı / test başlatmaya DVM seçin.
 
-    ![Alternatif metin](media\azure-stack-vaas-interactive-feature-verification\image5.png)
+    ![Alternatif metin](media/azure-stack-vaas-interactive-feature-verification/image5.png)
 
 4.  Seçin **Gönder** testi başlatmak için.
 
-![Alternatif metin](media\azure-stack-vaas-interactive-feature-verification\image6.png)
+![Alternatif metin](media/azure-stack-vaas-interactive-feature-verification/image6.png)
 
 ## <a name="start-the-test"></a>Testi Başlat
 
 Disk kimliği Test istemleri VaaS Aracısı'nı çalıştıran bilgisayarda gösterir. Genellikle bu DVM veya Sıçrama kutusu Azure Stack için örneğidir.
 
-![Alternatif metin](media\azure-stack-vaas-interactive-feature-verification\image8.png)
+![Alternatif metin](media/azure-stack-vaas-interactive-feature-verification/image8.png)
 
 ## <a name="choose-the-actions"></a>Eylemleri seçin
 
 1.  İzleyin **belgeleri** ve **doğrulama** bağlantıları bu senaryoyu gerçekleştirmek nasıl Microsoft gelen yönergeleri gözden geçirin.
 
-    ![Alternatif metin](media\azure-stack-vaas-interactive-feature-verification\image9.png)
+    ![Alternatif metin](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
 2.  **İleri**’yi seçin.
 
-    ![Alternatif metin](media\azure-stack-vaas-interactive-feature-verification\image10.png)
+    ![Alternatif metin](media/azure-stack-vaas-interactive-feature-verification/image10.png)
 
 3.  Precheck betiği çalıştırmak için yönergeleri izleyin.
 
-    ![Alternatif metin](media\azure-stack-vaas-interactive-feature-verification\image11.png)
+    ![Alternatif metin](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
 4.  Precheck betik başarıyla tamamlandıktan sonra el ile senaryoyu (Disk değiştirme) olarak başına yürütme **belgeleri** ve **doğrulama** gelen bağlantılar **bilgi**sekmesi.
 
-    ![Alternatif metin](media\azure-stack-vaas-interactive-feature-verification\image12.png)
+    ![Alternatif metin](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 
 5.  El ile senaryo gerçekleştirirken iletişim kutusunu kapatmayın.
 
 6.  El ile senaryo gerçekleştirme tamamladığınızda onay sonrası betiği çalıştırmak için yönergeleri izleyin.
 
-    ![Alternatif metin](media\azure-stack-vaas-interactive-feature-verification\image13.png)
+    ![Alternatif metin](media/azure-stack-vaas-interactive-feature-verification/image13.png)
 
 7.  Başarıyla tamamlandığında el ile senaryosunun (Disk değiştirme), seçin **sonraki**.
 
-    ![Alternatif metin](media\azure-stack-vaas-interactive-feature-verification\image14.png)
+    ![Alternatif metin](media/azure-stack-vaas-interactive-feature-verification/image14.png)
 
 > [!Important]  
 > Pencereyi kapatırsanız yapıldığını önce test durur.
@@ -125,7 +125,7 @@ Disk kimliği Test istemleri VaaS Aracısı'nı çalıştıran bilgisayarda gös
 
 1.  Test tamamlandığında, geri bildirim sağlamanız istenir.
 
-    ![Alternatif metin](media\azure-stack-vaas-interactive-feature-verification\image15.png)
+    ![Alternatif metin](media/azure-stack-vaas-interactive-feature-verification/image15.png)
 
 2.  Bu soruları senaryo başarı oranı ve yayın kalitesini değerlendirmek Microsoft yardımcı olur.
 
@@ -133,7 +133,7 @@ Disk kimliği Test istemleri VaaS Aracısı'nı çalıştıran bilgisayarda gös
 
 1.  Microsoft'a göndermek istediğiniz herhangi bir günlük dosyasının ekleyin.
 
-    ![Alternatif metin](media\azure-stack-vaas-interactive-feature-verification\image16.png)
+    ![Alternatif metin](media/azure-stack-vaas-interactive-feature-verification/image16.png)
 
 2.  Geri bildirim gönderimine EULA'yı kabul edin.
 

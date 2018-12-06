@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: e9d1f77a85d4b5cfb5bb7d3cb80380be3c79315d
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
-ms.translationtype: HT
+ms.openlocfilehash: e86367d5df8294a7e0f798e47bf87ff3fb8ccf72
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378287"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967581"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Bir App Service Ortamı ile iç yük dengeleyici oluşturma ve kullanma #
 
@@ -56,7 +56,7 @@ ILB ASE’yi kullanırken bazı işlemleri yapamazsınız:
 
 ILB ASE oluşturmak için:
 
-1. Azure portalda **Kaynak oluştur** > **Web** > **App Service Ortamı**’nı seçin.
+1. Azure portalında **kaynak Oluştur** > **Web** > **App Service ortamı**.
 
 1. Aboneliğinizi seçin.
 
@@ -66,7 +66,7 @@ ILB ASE oluşturmak için:
 
 1. Varolan bir sanal ağı seçerseniz, ASE’yi tutmak için bir alt ağ oluşturmanız gerekir. Alt ağ boyutunu, ASE’nizin gelecekteki her türlü büyümesine uyum sağlayacak kadar büyük ayarladığınızdan emin olun. 256 adres içeren ve en büyük boyutlu ASE’yi işleyebilen ve ölçeklendirme ihtiyaçlarını karşılayabilen `/24` dosya boyutu önerilir. 
 
-1. **Sanal Ağ/Konum** > **Sanal Ağ Yapılandırması**’nı seçin. **VIP Türü**’nü **İç** olarak ayarlayın.
+1. Seçin **sanal ağ/konum** > **sanal ağ yapılandırması**. **VIP Türü**’nü **İç** olarak ayarlayın.
 
 1. Etki alanı adı girin. Bu etki alanı, bu ASE içinde oluşturulan uygulamalar için kullanılır. Bazı kısıtlamalar vardır. Şunlar olamaz:
 
@@ -90,20 +90,20 @@ ILB ASE oluşturmak için:
 
 1. **Tamam**’ı ve ardından **Oluştur**’u seçin.
 
-    ![ASE oluşturma][1]
+    ! [ASE oluşturma] [1]
 
 **Sanal Ağ** dikey penceresinde bir **Sanal Ağ Yapılandırması** seçeneği bulunur. Bu seçeneği kullanarak Dış VIP veya İç VIP seçebilirsiniz. Varsayılan seçenek **Dış**’tır. **Dış**’ı seçerseniz ASE’niz İnternet'ten erişilebilen bir VIP kullanır. **İç**’i seçerseniz ASE’niz sanal ağınızın içindeki bir IP adresinde bulunan ILB ile yapılandırılır.
 
 **İç**’i seçtikten sonra ASE’nize daha fazla IP adresi ekleyemezsiniz. Bunun yerine, ASE’nin etki alanını sağlamanız gerekir. Dış VIP kullanılan bir ASE'de, ASE’nin adı bu ASE’de oluşturulan uygulamaların etki alanında kullanılır.
 
-**VIP Türü**’nü **İç** olarak ayarlarsanız, ASE adınız ASE etki alanında kullanılmaz. Etki alanını açıkça belirtin. Etki alanınız *contoso.corp.net* ise ve bu ASE’de *timereporting* adlı bir uygulama oluşturursanız, bu uygulamanın URL’si timereporting.contoso.corp.net şeklinde olur.
+**VIP Türü**’nü **İç** olarak ayarlarsanız, ASE adınız ASE etki alanında kullanılmaz. Etki alanını açıkça belirtin. Etki alanınız varsa *contoso.corp.net* ve ASE adlı bir uygulama oluşturduğunuzda *timereporting*, bu uygulamanın URL'si timereporting.contoso.corp.NET şeklinde olur.
 
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>ILB ASE'de uygulama oluşturma ##
 
 ILB ASE'de uygulama oluşturma işlemi, normalde bir ASE’de uygulama oluşturma işlemiyle aynıdır.
 
-1. Azure portalında **Kaynak oluştur** > **Web ve Mobil** > **Web Uygulaması** seçeneğini belirleyin.
+1. Azure portalında **kaynak Oluştur** > **Web + mobil** > **Web uygulaması**.
 
 1. Uygulamanın adını girin.
 
@@ -117,9 +117,9 @@ ILB ASE'de uygulama oluşturma işlemi, normalde bir ASE’de uygulama oluşturm
 
 1. Bir App Service planı seçin ya da oluşturun. Yeni bir App Service planı oluşturmak istiyorsanız, konum olarak ASE’nizi seçin. App Service planınızın oluşturulmasını istediğiniz çalışan havuzunu seçin. App Service planını oluştururken, ASE’nizi konum olarak seçin ve çalışan havuzunu belirleyin. Uygulamanın adını belirttiğinizde, uygulama adının altındaki etki alanı ASE’nizin etki alanı ile değiştirilir.
 
-1. **Oluştur**’u seçin. Uygulamanızın panonuzda görünmesini istiyorsanız, **Panoya Sabitle** onay kutusunu seçin.
+1. **Oluştur**’u seçin. Uygulamanızın Panonuzda görünmesini istiyorsanız belirleyin **panoya Sabitle** onay kutusu.
 
-    ![App Service planı oluşturma][2]
+    ! [App Service planı oluşturma] [2]
 
     **Uygulama Adı** altında, etki alanı adı ASE’nizin etki alanını yansıtacak şekilde güncelleştirilir.
 
@@ -127,9 +127,9 @@ ILB ASE'de uygulama oluşturma işlemi, normalde bir ASE’de uygulama oluşturm
 
 Bir ILB ASE, ILB olmayan ASE’den biraz farklıdır. Daha önce belirtildiği gibi, kendi DNS’inizi yönetmeniz gerekir. Ayrıca, HTTPS bağlantıları için kendi sertifikanızı sağlamanız gerekir.
 
-ASE’yi oluşturduktan sonra etki alanı adında belirttiğiniz etki alanı gösterilir. **Ayarlar** menüsünde **ILB Sertifikası** adlı yeni bir öğe görünür. ASE, ILB ASE etki alanını belirtmeyen bir sertifika ile oluşturulur. ASE’yi bu sertifika ile kullanırsanız, tarayıcınız sertifikanın geçersiz olduğunu söyler. Bu sertifika HTTPS’yi test etmeyi kolaylaştırır, ancak ILB ASE etki alanınıza bağlı kendi sertifikanızı karşıya yüklemeniz gerekir. Bu adım, sertifikanızın otomatik olarak imzalanmış veya bir sertifika yetkilisinden alınmış olmasına bakılmaksızın gereklidir.
+ASE’yi oluşturduktan sonra etki alanı adında belirttiğiniz etki alanı gösterilir. Yeni bir öğe görünür **ayarı** adlı menüsü **ILB sertifikası**. ASE, ILB ASE etki alanını belirtmeyen bir sertifika ile oluşturulur. ASE’yi bu sertifika ile kullanırsanız, tarayıcınız sertifikanın geçersiz olduğunu söyler. Bu sertifika HTTPS’yi test etmeyi kolaylaştırır, ancak ILB ASE etki alanınıza bağlı kendi sertifikanızı karşıya yüklemeniz gerekir. Bu adım, sertifikanızın otomatik olarak imzalanmış veya bir sertifika yetkilisinden alınmış olmasına bakılmaksızın gereklidir.
 
-![ILB ASE etki alanı adı][3]
+! [ILB ASE etki alanı adı] [3]
 
 ILB ASE’nizin geçerli bir SSL sertifikası olmalıdır. İç sertifika yetkililerini kullanın, harici bir verenden sertifika satın alın ya da otomatik olarak imzalanan bir sertifika kullanın. SSL sertifikasının kaynağından bağımsız olarak, aşağıdaki sertifika özniteliklerinin doğru şekilde yapılandırılması gerekir:
 
@@ -150,11 +150,11 @@ Otomatik olarak imzalanan bir sertifika oluşturmak isterseniz, burada PowerShel
 
 Bu PowerShell komutlarının oluşturduğu sertifika, tarayıcınızın güven zincirinde olmayan bir sertifika yetkilisi tarafından oluşturulduğu için tarayıcılar tarafından işaretlenir. Tarayıcınızın güvendiği bir sertifika almak için, sertifikayı tarayıcınızın güven zincirindeki ticari sertifika yetkilisinden edinin. 
 
-![ILB sertifikası ayarlama][4]
+! [ILB sertifikası Ayarla] [4]
 
 Kendi sertifikalarınızı yüklemek ve erişimi test etmek için:
 
-1. ASE oluşturulduktan sonra ASE kullanıcı arabirimine gidin. **ASE** > **Ayarlar** > **ILB Sertifikası**’nı seçin.
+1. ASE oluşturulduktan sonra ASE kullanıcı arabirimine gidin. **ASE** > **Ayarlar** > **ILB Sertifikası**’nı seçin.
 
 1. ILB sertifikasını ayarlamak için sertifika .pfx dosyasını seçin ve parolayı girin. Bu adımın işlenmesi biraz sürebilir. Karşıya yükleme işleminin devam ettiğini belirten bir ileti görüntülenir.
 
@@ -174,13 +174,13 @@ Kendi sertifikalarınızı yüklemek ve erişimi test etmek için:
 
     b. Web dağıtımı yayımlamayı veya gelişmiş konsola erişimi test etmek için bir _mytestapp.scm.ilbase.com_ kaydı oluşturun.
 
-1. Veya bu sanal makinedeki bir tarayıcıyı kullanıp http://mytestapp.ilbase.com sayfasına gidin. (Veya etki alanınızda web uygulamanızın adına gidin.)
+1. Bu VM'de bir tarayıcı kullanın ve Git https://mytestapp.ilbase.com. (Veya etki alanınızda web uygulamanızın adına gidin.)
 
-1. Veya bu sanal makinedeki bir tarayıcıyı kullanıp https://mytestapp.ilbase.com sayfasına gidin. Otomatik olarak imzalanan sertifika kullanıyorsanız, güvenlik eksikliğini kabul edin.
+1. Bu VM'de bir tarayıcı kullanın ve Git https://mytestapp.ilbase.com. Otomatik olarak imzalanan sertifika kullanıyorsanız, güvenlik eksikliğini kabul edin.
 
     ILB’nizin IP adresi, **IP adresleri** altında listelenir. Bu listede ayrıca dış VIP tarafından ve gelen yönetim trafiği için kullanılan IP adresleri bulunur.
 
-    ![ILB IP adresi][5]
+    ! [ILB IP adresi] [5]
 
 ## <a name="web-jobs-functions-and-the-ilb-ase"></a>Web işleri, İşlevler ve ILB ASE ##
 
@@ -222,13 +222,9 @@ ILB ASE’nizi bir WAF cihazıyla yapılandırma hakkında daha fazla bilgi içi
 ## <a name="get-started"></a>başlarken ##
 
 * ASE’leri kullanmaya başlamak için bkz. [App Service ortamlarına giriş][Intro].
- 
+ 
 <!--Image references-->
-[1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png
-[2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png
-[3]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate.png
-[4]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate2.png
-[5]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
+[1]: [2]./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png: [3]./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png:. / Media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-Certificate.PNG [4]: [5./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate2.png ]:./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
 
 <!--Links-->
 [Intro]: ./intro.md
@@ -244,10 +240,10 @@ ILB ASE’nizi bir WAF cihazıyla yapılandırma hakkında daha fazla bilgi içi
 [webapps]: ../app-service-web-overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md

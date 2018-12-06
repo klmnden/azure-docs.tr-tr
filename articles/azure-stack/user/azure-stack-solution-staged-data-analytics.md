@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b043c5ebe4c2a02bd4d40ca4b2bb7d5f488f5747
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d63faf63012360d4448166ac5d69eba6ede9d0ed
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837350"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969541"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile hazırlanmış veri analizi çözümü oluşturma 
 
@@ -103,7 +103,7 @@ Depolama hesabı ve blob kapsayıcısı, makine ve çalışan etkinlik, tesis ve
 
 4.  Seçin **depolama hesabı oluşturmak için Oluştur**.
 
-    ![Alternatif metin](media\azure-stack-solution-staged-data-analytics\image1.png)
+    ![Alternatif metin](media/azure-stack-solution-staged-data-analytics/image1.png)
 
 5.  Oluşturulduktan sonra depolama hesabı adını seçin.
 
@@ -111,7 +111,7 @@ Depolama hesabı ve blob kapsayıcısı, makine ve çalışan etkinlik, tesis ve
 
 7.  Dikey pencerenin en üstünde seçin **+ kapsayıcı.** seçip **kapsayıcı**.
 
-    ![Alternatif metin](media\azure-stack-solution-staged-data-analytics\image2.png)
+    ![Alternatif metin](media/azure-stack-solution-staged-data-analytics/image2.png)
 
 8.  Ad: **seçiminiz**
 
@@ -146,31 +146,31 @@ Verileri temizleme Azure yığını, Azure'a taşımak için yeni bir Azure Stac
 
     **Örnek:**
 
-    ![Yeni işlev uygulaması ayarlarını tanımlama](media\azure-stack-solution-staged-data-analytics\image6.png)
+    ![Yeni işlev uygulaması ayarlarını tanımlama](media/azure-stack-solution-staged-data-analytics/image6.png)
 
 5.  İşlev uygulamasını sağlamak ve dağıtmak için **Oluştur**'u seçin.
 
 6.  Portalın sağ üst köşesindeki Bildirim simgesini seçin ve **Dağıtım başarılı** iletisini bekleyin.
 
-    ![Yeni işlev uygulaması ayarlarını tanımlama](media\azure-stack-solution-staged-data-analytics\image7.png)
+    ![Yeni işlev uygulaması ayarlarını tanımlama](media/azure-stack-solution-staged-data-analytics/image7.png)
 
 7.  Seçin **kaynağa Git** yeni işlev uygulaması görüntülemek için.
 
-![İşlev uygulaması başarıyla oluşturuldu.](media\azure-stack-solution-staged-data-analytics\image8.png)
+![İşlev uygulaması başarıyla oluşturuldu.](media/azure-stack-solution-staged-data-analytics/image8.png)
 
 ### <a name="add-a-function-to-the-azure-stack-function-app"></a>Azure Stack işlev uygulamasına bir işlev Ekle
 
 1.  Üzerine tıklayarak yeni bir işlev oluşturma **işlevleri**, ardından **+ yeni işlev** düğmesi.
 
-    ![Alternatif metin](media\azure-stack-solution-staged-data-analytics\image3.png)
+    ![Alternatif metin](media/azure-stack-solution-staged-data-analytics/image3.png)
 
 2.  Seçin **Zamanlayıcı tetikleyicisi**.
 
-    ![Alternatif metin](media\azure-stack-solution-staged-data-analytics\image4.png)
+    ![Alternatif metin](media/azure-stack-solution-staged-data-analytics/image4.png)
 
 3.  Seçin **C\#**  dil ve işlev adı: `upload-to-azure` zamanlamasını ayarlamak `0 0 * * * *`, hangi CRON içinde bir kez bir saat gösterimidir.
 
-    ![Alternatif metin](media\azure-stack-solution-staged-data-analytics\image5.png)
+    ![Alternatif metin](media/azure-stack-solution-staged-data-analytics/image5.png)
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Blob depolama ile tetiklenen bir işlev oluşturma
 
@@ -178,7 +178,7 @@ Verileri temizleme Azure yığını, Azure'a taşımak için yeni bir Azure Stac
 
 2.  Arama alanına yazın `blob` için istediğiniz dili seçin **Blob tetikleyicisi** şablonu.
 
-  ![Blob depolama tetikleyici şablonunu seçin.](media\azure-stack-solution-staged-data-analytics\image10.png)
+  ![Blob depolama tetikleyici şablonunu seçin.](media/azure-stack-solution-staged-data-analytics/image10.png)
 
 3.  Aşağıdaki tabloda belirtilen ayarları kullanın:
 
@@ -190,7 +190,7 @@ Verileri temizleme Azure yığını, Azure'a taşımak için yeni bir Azure Stac
 
     **Örnek:**
 
-    ![Blob depolama ile tetiklenen bir işlev oluşturun.](media\azure-stack-solution-staged-data-analytics\image11.png)
+    ![Blob depolama ile tetiklenen bir işlev oluşturun.](media/azure-stack-solution-staged-data-analytics/image11.png)
 
 4.  Seçin **Oluştur** işlevi oluşturmak için.
 
@@ -202,7 +202,7 @@ Verileri temizleme Azure yığını, Azure'a taşımak için yeni bir Azure Stac
 
 3.  Depolama hesabını genişletin **Blob kapsayıcıları**, ve daha önce oluşturduğunuz blob. Seçin **karşıya** ardından **dosyaları karşıya yükleme**.
 
-    ![Dosyayı blob kapsayıcısına yükleyin.](media\azure-stack-solution-staged-data-analytics\image12.png)
+    ![Dosyayı blob kapsayıcısına yükleyin.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
 4.  Dosyaları karşıya yükleme iletişim kutusunda dosyaları alanı seçin. Bir görüntü dosyası gibi yerel bir bilgisayardaki bir dosyaya göz atın, onu seçin ve seçin **açık** ardından **karşıya**.
 
@@ -210,7 +210,7 @@ Verileri temizleme Azure yığını, Azure'a taşımak için yeni bir Azure Stac
 
     **Örnek:**
 
-    ![Günlüklerde iletiyi görüntüleyin.](media\azure-stack-solution-staged-data-analytics\image13.png)
+    ![Günlüklerde iletiyi görüntüleyin.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="create-an-azure-stack-storage-account"></a>Bir Azure Stack depolama hesabı oluşturma
 
@@ -232,9 +232,9 @@ Arşiv depolama olarak başka bir depolama hesabı ve blob kapsayıcısı oluşt
 
 4.  Seçin **Tamam.**
 
-    ![Alternatif metin](media\azure-stack-solution-staged-data-analytics\image14.png)
+    ![Alternatif metin](media/azure-stack-solution-staged-data-analytics/image14.png)
 
-    ![Alternatif metin](media\azure-stack-solution-staged-data-analytics\image15.png)
+    ![Alternatif metin](media/azure-stack-solution-staged-data-analytics/image15.png)
 
 ## <a name="create-a-queue-triggered-function"></a>Kuyruk ile tetiklenen bir işlev oluşturma
 
@@ -258,7 +258,7 @@ Arşiv depolama olarak başka bir depolama hesabı ve blob kapsayıcısı oluşt
 
 3.  Depolama hesabını genişletin **Blob kapsayıcıları**, ve daha önce oluşturduğunuz blob. Seçin **karşıya** ardından **dosyaları karşıya yükleme.**
 
-    ![Dosyayı blob kapsayıcısına yükleyin.](media\azure-stack-solution-staged-data-analytics\image12.png)
+    ![Dosyayı blob kapsayıcısına yükleyin.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
 4.  Dosyaları karşıya yükleme iletişim kutusunda dosyaları alanı seçin. Bir görüntü dosyası gibi yerel bir bilgisayardaki bir dosyaya göz atın, onu seçin ve seçin **açık** ardından **karşıya**.
 
@@ -266,7 +266,7 @@ Arşiv depolama olarak başka bir depolama hesabı ve blob kapsayıcısı oluşt
 
   **Örnek:**
 
-    ![Günlüklerde iletiyi görüntüleyin.](media\azure-stack-solution-staged-data-analytics\image13.png)
+    ![Günlüklerde iletiyi görüntüleyin.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>Güvenli bir şekilde depolanır ve erişilen uyumlu veri
 

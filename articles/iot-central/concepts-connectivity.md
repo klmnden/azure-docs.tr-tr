@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 7b2dd4e97d23f37c8261e51f3f65e78436493ddc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7e90fb6bcfa1bfab59177cbc6c717fefc163a67a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238751"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960107"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IOT Central, cihaz bağlantısı
 
@@ -44,12 +44,12 @@ Tek bir cihaz IOT Central için SAS kullanarak kolayca bağlayıp yalnızca birk
 1. Ekleme bir **gerçek cihaz** Device Explorer tıklayarak **+ yeni > gerçek** gerçek bir cihaz eklemek için.
     * Cihaz kimliğini girebilir **<span style="color:Red">(küçük harf olması gerekir)</span>** veya önerilen cihaz kimliğini kullanması
     * Cihaz adını girin veya önerilen adı kullanın   
-    ![Cihaz Ekleme](media\concepts-connectivity\add-device.png)
+    ![Cihaz Ekleme](media/concepts-connectivity/add-device.png)
 1. Bağlantı ayrıntıları gibi almak **kapsam kimliği, cihaz kimliği ve birincil anahtarınızı** tıklayarak eklenen bir cihazı için **Connect** cihaz sayfasında.
     * **[Kapsam kimliği](https://docs.microsoft.com/azure/iot-dps/concepts-device#id-scope)**  IOT Central uygulaması ve dağıtım noktaları, bir uygulama içinde benzersiz cihaz kimliği sağlamak için kullanılan tarafından oluşturulur.
     * **Cihaz kimliği** benzersiz cihaz kimliği uygulama, cihaz başına gereken cihaz kimliği kayıt çağrısı bir parçası olarak göndermek için.   
     * **Birincil anahtar** bir SAS belirteci ile IOT Central belirli cihaz için oluşturulan. 
-    ![Bağlantı ayrıntıları](media\concepts-connectivity\device-connect.PNG)
+    ![Bağlantı ayrıntıları](media/concepts-connectivity/device-connect.PNG)
 1. Bu bağlantı ayrıntıları **cihaz kimliği, cihaz adı ve cihaz birincil anahtarı** cihaz kodunuzdaki sağlama ve Cihazınızı bağlama aracılığıyla anında akış verileri görmeye başlayacaksınız. MxChip cihaz izleme kullanıyorsanız [adım adım yönergeleri burada](howto-connect-devkit.md#add-a-real-device), bölümünden Başlat **DevKit cihazı hazırlama**.   
 
     Kullanmak istediğiniz diğer diller için başvuruları aşağıdadır.
@@ -137,13 +137,13 @@ Cihazları IOT için bağlamak için X509 kullanarak merkezi sertifikaları, bur
 
     *   **X509 ekleme kök veya Ara sertifikayı** yaprak cihaz sertifikalarını oluşturmak için kullandığınız. Yönetim gidin > cihaz bağlantısı > sertifikalar. 
     
-        ![Bağlantı ayarları](media\concepts-connectivity\connection-settings.PNG)
+        ![Bağlantı ayarları](media/concepts-connectivity/connection-settings.PNG)
     *   **Sertifika doğrulama:** sertifika sahipliğini doğrulayarak sertifikanın uploader sertifikanın özel anahtarı elinde olmasını sağlar. Sertifikayı doğrulamak için
         *  Doğrulama kodu oluştur, doğrulama kodunu oluşturmak için bir doğrulama kodu alanın yanındaki düğmeye tıklayın. 
         *  Sertifikayı bir .cer dosyası olarak kaydetme doğrulama kodunu içeren bir X.509 doğrulama sertifikası oluşturun. 
         *  İmzalı doğrulama sertifikasını karşıya yükleyin ve tıklatın doğrulayın.
 
-        ![Bağlantı ayarları](media\concepts-connectivity\verify-cert.png)
+        ![Bağlantı ayarları](media/concepts-connectivity/verify-cert.png)
     *   **İkincil sertifika:** IOT çözümünüzü yaşam döngüsü boyunca, sertifikaları alma gerekecektir. İki sertifikaları çalışırken ana nedeni, güvenlik ihlali ve sertifika süre sonu olacaktır. Birincil sertifika güncelleştirildiği sırada sağlama girişiminde cihazlar için kapalı kalma süresini azaltmak için ikincil sertifikalar kullanılır.
 
     **YALNIZCA TEST ETME AMAÇLARI İÇİN** 
@@ -180,7 +180,7 @@ IOT Central sağlayan önemli senaryolar yığın üretim cihazlara OEM'ler içi
 
 Bu özelliği kullanarak cihazları bağlamak için akış aşağıda verilmiştir
 
-![Bağlantı ayarları](media\concepts-connectivity\device-connection-flow.PNG)
+![Bağlantı ayarları](media/concepts-connectivity/device-connection-flow.PNG)
 
 
 Cihaz kimlik doğrulaması düzeni (X509/SA) ettiğiniz alarak adımlarını izleyin
@@ -188,7 +188,7 @@ Cihaz kimlik doğrulaması düzeni (X509/SA) ettiğiniz alarak adımlarını izl
 1. **bağlantı ayarları** 
     * **X509 sertifikaları:** [Ekle ve kök/Ara sertifikayı doğrulamak](#connect-devices-using-x509-certificates) ve bir sonraki adımda cihaz sertifikaları oluşturmak için kullanın.
     * **SAS:** (Bu IOT Central uygulamasına grubu SAS anahtarı ise bu anahtar) kullanarak PRIMARY Key'i kopyalayın ve bir sonraki adımda cihaz SAS anahtarları oluşturmak için kullanın. 
-![SAS bağlantı ayarları](media\concepts-connectivity\connection-settings-sas.png)
+![SAS bağlantı ayarları](media/concepts-connectivity/connection-settings-sas.png)
 
 1. **Cihaz kimlik bilgileri oluştur** 
     *   **Sertifikaları X509:** için bu uygulamaya eklediğiniz kök/Ara sertifikayı kullanarak cihazlarınızı yaprak sertifikalar oluşturur. Kullandığınızdan emin olun **cihaz kimliği** bir cname yaprak sertifikalar olarak ve  **<span style="color:Red">(küçük harf olması gerekir)</span>**. İşte bir [komut satırı aracı](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) Test yaprak/cihaz sertifikaları oluşturulacak.
@@ -232,7 +232,7 @@ Cihazdır Registeretd olduğunda
 Aşağıdaki adımları kullanarak IOT hub cihaz bağlantı dizesini Azure IOT hub'ına alabilirsiniz. 
 1. Bağlantı ayrıntıları gibi almak **kapsam kimliği, cihaz kimliği, cihaz birincil anahtar** cihaz sayfasından (cihaz sayfasına var > Bağlan'a tıklayın) 
 
-    ![Bağlantı ayrıntıları](media\concepts-connectivity\device-connect.PNG)
+    ![Bağlantı ayrıntıları](media/concepts-connectivity/device-connect.PNG)
 
 1. Aşağıdaki komutu satırı aracını kullanarak cihaz bağlantı dizesini alın.
     Kullanım aşağıdaki cihaz bağlantı dizesini almak için yönergeleri  

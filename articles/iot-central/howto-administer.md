@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4bfb7dc2b65dc479189ac7920509e1fd8a23ce4f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a641b5bb754c265a4fa5fb7e2fe85989d4813354
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961357"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955182"
 ---
 # <a name="administer-your-iot-central-application"></a>IOT Central uygulamanızı yönetme
 
@@ -35,12 +35,12 @@ Erişimi ve kullanımı **Yönetim** bölümünde olmanız gerekir **yönetici**
 ### <a name="change-application-name-and-url"></a>Değişiklik uygulama adı ve URL
 İçinde **uygulama ayarları** sayfasını, adını ve uygulamanızın URL'sini değiştirin ve ardından seçin **Kaydet**.
 
-![Uygulama Ayarları sayfası](media\howto-administer\image0-a.png)
+![Uygulama Ayarları sayfası](media/howto-administer/image0-a.png)
 
 > [!Note]
 > URL'niz değiştirirseniz, eski URL'nizi başka bir Azure IOT Central müşteri tarafından alınabilir. Bu durumda, artık kullanmak için kullanılabilir. URL'niz değiştirdiğinizde, eski URL artık çalışır ve kullanmak için yeni URL ilgili kullanıcılarınıza bildirmeniz gerekir.
 
-### <a name="prepare-and-upload-image"></a>Hazırlama ve görüntü yükleme
+### <a name="prepare-and-upload-image"></a>Görüntüleri hazırlama ve karşıya yükleme
 Uygulama görüntüsü değiştirmek için bkz [hazırlama ve karşıya yükleme görüntüleri, Azure IOT Central uygulamasına](howto-prepare-images.md).
 
 ### <a name="copy-an-application"></a>Bir uygulamayı kopyalama
@@ -48,11 +48,11 @@ Tüm cihaz örnekleri, cihaz verileri geçmişi ve kullanıcı verileri hariç h
 
 Tıklayın **kopyalama** düğmesi. İletişim kutusunda, yeni bir Kullandıkça Öde uygulama için ayrıntıları girin. Ardından **kopyalama** düğmesini devam etmek istediğinizi onaylayın. Bu formdaki alanları hakkında daha fazla bilgi [uygulama oluşturma](quick-deploy-iot-central.md) hızlı başlangıç.
 
-![Uygulama Ayarları sayfası](media\howto-administer\appCopy2.png)
+![Uygulama Ayarları sayfası](media/howto-administer/appCopy2.png)
 
 Uygulama kopyalama işlemi başarılı olduktan sonra görünen bağlantıyı kullanarak uygulamanızı kopyalayarak oluşturulan yeni uygulama gidebilirsiniz.
 
-![Uygulama Ayarları sayfası](media\howto-administer\appCopy3.png)
+![Uygulama Ayarları sayfası](media/howto-administer/appCopy3.png)
 
 > [!Note]
 > Bir uygulamayı kopyalama, kurallar ve Eylemler tanımını kopyalar. Ancak özgün uygulamanıza erişimi olan kullanıcılar için kopyalanan uygulamayı kopyalanmaz olduğundan el ile kullanıcılar için bir önkoşul olan e-posta gibi eylemleri için kullanıcılar eklemeniz gerekir. Genel kurallar ve Eylemler içinde yeni uygulama güncel olduklarından emin olmak için kontrol etmek için bir fikirdir.
@@ -71,13 +71,13 @@ Daha fazla bilgi için [Microsoft hesabı Yardım](https://support.microsoft.com
 
 1. Bir kullanıcı bir IOT Central uygulamasına eklemek için Git **kullanıcılar** sayfasını **Yönetim** bölümü.
 
-    ![Kullanıcı listesi](media\howto-administer\image1.png)
+    ![Kullanıcı listesi](media/howto-administer/image1.png)
 
 1. Bir kullanıcı eklemek için **kullanıcılar** sayfasında **+ Ekle kullanıcı**.
 
 1. Kullanıcının bir rol seçin **rol** açılan menüsü. Roller hakkında daha fazla bilgi [rolleri yönetme](#manage-roles) bu makalenin.
 
-    ![Rolü seçimi](media\howto-administer\image3.png)
+    ![Rolü seçimi](media/howto-administer/image3.png)
 
     > [!NOTE]
     >  Kullanıcıları toplu halde eklemek için noktalı virgülle ayrılmış eklemek istediğiniz tüm kullanıcıların kimliklerini kullanıcı girin. Bir rolden seçin **rol** açılan menüsü. Daha sonra **Kaydet**’e tıklayın.
@@ -117,10 +117,10 @@ Faturanızı görmek için Git **faturalama** sayfasını **Yönetim** bölümü
 
 Deneme uygulamanız için bir Kullandıkça Öde uygulama dönüştürebilirsiniz. Bu tür uygulamaları arasındaki farklar aşağıda verilmiştir.
 
-- **Deneme** uygulamaları süresi dolmadan önce 7 gün boyunca ücretsizdir. Bunlar şey Kullandıkça Öde aboneliğine süresi dolmadan önce herhangi bir zamanda dönüştürülebilir.
-- **Kullandıkça Öde** uygulamaları ile ücretsiz ilk 5 cihazlar, cihaz başına ücretlendirilir.
+- **Deneme** uygulamaları, süresi dolmadan 7 gün ücretsiz kullanılabilir. Süresi dolmadan önce herhangi bir anda Kullandıkça Öde uygulamasına dönüştürülebilir.
+- **Kullandıkça Öde** uygulamaları, ilk 5 cihaz ücretsiz olmak üzere cihaz başına ücretlendirilir.
 
-Fiyatlandırma hakkında daha fazla bilgi [Azure IOT fiyatlandırma sayfası Merkezi](https://azure.microsoft.com/pricing/details/iot-central/).
+[Azure IoT Central fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/iot-central/), fiyatlar hakkında daha fazla bilgi edinin.
     
 Bu Self Servis işlemi tamamlamak için aşağıdaki adımları izleyin:
 

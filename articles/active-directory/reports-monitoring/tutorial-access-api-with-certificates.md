@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0ee756828a50cdf62471923614afbe88e238b9ef
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 7535aad95f7410d25ada232b4946fe52ebc4ba67
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624566"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961969"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Öğretici: Azure Active Directory'ı sertifikalarla raporlama API'sini kullanarak veri alma
 
@@ -39,9 +39,7 @@ Bu öğreticide, bir test sertifikası raporlama için MS Graph API'sine erişme
     - ADAL kullanarak kullanıcı, uygulama anahtarları ve sertifikalardan erişim belirteçleri
     - Disk belleğine alınmış Graph API işleme sonuçları
 
-4. İlk kez çalıştırma modülü ise **yükleme MSCloudIdUtilsModule**, aksi takdirde kullanarak içe aktarın **Import-Module** Powershell komutu. Oturumunuz şu ekran gibi görünmelidir:
-
-        ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+4. İlk kez çalıştırma modülü ise **yükleme MSCloudIdUtilsModule**, aksi takdirde kullanarak içe aktarın **Import-Module** Powershell komutu. Oturumunuz bu ekrana benzer olmalıdır: ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
   
 5. Kullanım **New-SelfSignedCertificate** bir test sertifikası oluşturmak için Powershell komutu.
 

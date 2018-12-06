@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 5f558ea851d63b08885293efcff3fef600f2cc17
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ac62800e81cece61e9f51c496ace2868629a49a1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726398"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960252"
 ---
 # <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Azure Blob ve kuyruk verisi ile RBAC (Önizleme) için erişim haklarını yönetme
 
@@ -40,14 +40,14 @@ Kapsayıcılar ve Kuyruklar ile kullanmak için özel roller de tanımlayabilirs
 
 ## <a name="assign-a-role-to-a-security-principal"></a>Bir güvenlik sorumlusu için rol atama
 
-Kapsayıcıları ve kuyruk depolama hesabınızda izinler vermek için Azure kimlik bir RBAC rolü atayın. Depolama hesabı veya belirli bir kapsayıcı veya kuyruğa rol ataması kapsamını belirleyebilirsiniz. Kapsam bağlı olarak, yerleşik rolleri tarafından verilen erişim hakları aşağıdaki tabloda özetlenmiştir: 
+Kapsayıcıları ve kuyruk depolama hesabınızda izinler vermek için Azure kimlik bir RBAC rolü atayın. Depolama hesabı veya belirli bir kapsayıcı veya kuyruğa rol ataması kapsamını belirleyebilirsiniz. Kapsam bağlı olarak, yerleşik rolleri tarafından verilen erişim hakları aşağıdaki tabloda özetlenmiştir:
 
-|                                 |     BLOB verileri katkıda bulunan                                                 |     BLOB veri okuyucusu                                                |     Kuyruk verileri katkıda bulunan                                  |     Kuyruk verileri okuyucu                                 |
-|---------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------|----------------------------------------------------------|
-|    Abonelik kapsamı       |    Tüm kapsayıcılar ve bloblar aboneliği için okuma/yazma erişimi       |    Tüm kapsayıcılar ve bloblar aboneliği okuma erişimi       |    Abonelikteki tüm kuyruklar için okuma/yazma erişimi       |    Abonelikteki tüm kuyrukları okuma erişimi         |
-|    Kaynak grubu kapsamında     |    Tüm kapsayıcılar ve bloblar kaynak grubundaki okuma/yazma erişimi     |    Tüm kapsayıcılar ve bloblar kaynak grubundaki okuma erişimi     |    Kaynak grubundaki tüm kuyruklar için okuma/yazma erişimi     |    Kaynak grubundaki tüm kuyrukları okuma erişimi     |
-|    Depolama hesabı için kapsamlı    |    Tüm kapsayıcıları ve blobları depolama hesabındaki okuma/yazma erişimi    |    Tüm kapsayıcıları ve blobları depolama hesabındaki okuma erişimi    |    Depolama hesabındaki tüm kuyruklar için okuma/yazma erişimi    |    Depolama hesabındaki tüm kuyrukları okuma erişimi    |
-|    Kapsayıcı/sıra kapsamı    |    Belirtilen kapsayıcıya ve bloblarına okuma/yazma erişimi              |    Belirtilen kapsayıcıya ve bloblarına okuma erişimi              |    Belirtilen sıra okuma/yazma erişimi                  |    Belirtilen sıra okuma erişimi                    |
+|Kapsam|BLOB veri sahibi|BLOB verileri katkıda bulunan|BLOB veri okuyucusu|Kuyruk verileri katkıda bulunan|Kuyruk verileri okuyucu|
+|---|---|---|---|---|---|
+|Subscrition düzeyi|Tüm kapsayıcılar ve bloblar aboneliği için okuma/yazma erişimi|Tüm kapsayıcılar ve bloblar aboneliği için okuma/yazma erişimi| Tüm kapsayıcılar ve bloblar aboneliği okuma erişimi|Abonelikteki tüm kuyruklar için okuma/yazma erişimi|Abonelikteki tüm kuyrukları okuma erişimi|
+|Kaynak grubu düzeyinde|Tüm kapsayıcılar ve bloblar kaynak grubundaki okuma/yazma erişimi|Tüm kapsayıcılar ve bloblar kaynak grubundaki okuma/yazma erişimi|Tüm kapsayıcılar ve bloblar kaynak grubundaki okuma erişimi|Kaynak grubundaki tüm kuyruklar için okuma/yazma erişimi|Kaynak grubundaki tüm kuyrukları okuma erişimi|
+|Depolama hesabı düzeyi|Tüm kapsayıcıları ve blobları depolama hesabındaki okuma/yazma erişimi|Tüm kapsayıcıları ve blobları depolama hesabındaki okuma/yazma erişimi|Tüm kapsayıcıları ve blobları depolama hesabındaki okuma erişimi|Depolama hesabındaki tüm kuyruklar için okuma/yazma erişimi|Depolama hesabındaki tüm kuyrukları okuma erişimi|
+|Kapsayıcı/kuyruk düzeyi|Belirtilen kapsayıcıya ve bloblarına okuma/yazma erişimi|Belirtilen kapsayıcıya ve bloblarına okuma/yazma erişimi|Belirtilen kapsayıcıya ve bloblarına okuma erişimi|Belirtilen sıra okuma/yazma erişimi|Belirtilen sıra okuma erişimi|
 
 > [!NOTE]
 > Bir Azure depolama hesabınızın sahibi olarak, otomatik olarak veri erişim izni atanmaz. Siz açıkça kendiniz bir RBAC rolü için Azure depolama atamanız gerekir. Aboneliğiniz, kaynak grubu, depolama hesabı veya bir kapsayıcı veya kuyruk düzeyinde atayabilirsiniz.
@@ -76,6 +76,9 @@ Tüm kapsayıcıları veya Azure portalında depolama hesabındaki sıralara eri
 
 ### <a name="assign-a-role-scoped-to-a-container-or-queue-in-the-azure-portal"></a>Bir kapsayıcı veya Azure portalında sıra kapsamı rol atama
 
+> [!IMPORTANT]
+> Henüz etkin hiyerarşik ad alanı ile bir hesabı kullanıyorsanız bu işlemi yapamazsınız.
+
 Bir kapsayıcı veya bir sıra kapsamı belirlenmiş, yerleşik bir rol atamak için adımları da buradakilere benzer. Burada gösterilen yordam, bir kapsayıcı için kapsamlı bir rolü atar, ancak bir kuyruk için kapsamlı bir rol atamak için aynı adımları izleyebilirsiniz: 
 
 1. İçinde [Azure portalında](https://portal.azure.com), depolama hesabınıza gidin ve görüntüleme **genel bakış** hesabı.
@@ -90,7 +93,7 @@ Bir kapsayıcı veya bir sıra kapsamı belirlenmiş, yerleşik bir rol atamak i
 
     ![Ekran görüntüsü gösteren bir role atanmış kullanıcıların listesi](media/storage-auth-aad-rbac/container-scoped-role.png)
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 - RBAC hakkında daha fazla bilgi için bkz: [rol tabanlı erişim denetimi (RBAC) nedir?](../../role-based-access-control/overview.md).
 - Atama ve Azure PowerShell, Azure CLI veya REST API ile RBAC rolü atamalarını yönetme konusunda bilgi almak için şu makalelere bakın:
@@ -99,4 +102,3 @@ Bir kapsayıcı veya bir sıra kapsamı belirlenmiş, yerleşik bir rol atamak i
     - [REST API ile rol tabanlı erişim denetimi (RBAC) yönetme](../../role-based-access-control/role-assignments-rest.md)
 - Kapsayıcılar ve kuyruklardaki depolama uygulamalarınızda erişim yetkisi verme konusunda bilgi almak için bkz: [Azure depolama uygulamaları ile kullanmak üzere Azure AD](storage-auth-aad-app.md).
 - Azure kapsayıcılar ve sıralar için Azure AD tümleştirmesi hakkında ek bilgi için bkz: gönderin, Azure depolama ekibi blogu [Önizleme, Azure AD kimlik doğrulaması için Azure depolama ile tanışın](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
-- 

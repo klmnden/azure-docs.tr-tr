@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: eef1a2f82dc73a1c53b89bb3c9d145f87212ffcc
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 6f93a72acdcc249720abeec3fe871b7108e2bb29
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498581"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963751"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Kiracı kullanımı için ekleyin ve Azure Stack'e faturalama
 
@@ -36,7 +36,7 @@ Aşağıdaki diyagramda bir CSP Azure Stack'i kullanın ve kullanımı için mü
 
 **Son müşteri ekleme adımları**
 
-![Kullanımı izleme ve son müşteri hesabını yönetmek için bulut hizmeti sağlayıcısını ayarlama](media\azure-stack-csp-enable-billing-usage-tracking\process-csp-enable-billing.png)
+![Kullanımı izleme ve son müşteri hesabını yönetmek için bulut hizmeti sağlayıcısını ayarlama](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
 
 ## <a name="create-a-new-customer-in-partner-center"></a>İş ortağı Merkezi'nde yeni müşteri oluşturma
 
@@ -50,7 +50,7 @@ Müşterinizin kaydının iş ortağı Merkezi'nde oluşturduktan sonra katalogd
 ## <a name="create-a-guest-user-in-the-end-customer-directory"></a>Son Müşteri dizinde Konuk kullanıcı oluşturma
 
 Son müşteri, kendi hesabı yönetecekseniz, dizinde Konuk kullanıcı oluşturmak ve bunları bilgi gönderin. Son kullanıcı daha sonra konuk ekler ve Konuk izni yükseltmesine **sahibi** Azure Stack CSP hesabı.
- 
+ 
 ## <a name="update-the-registration-with-the-end-customer-subscription"></a>Kayıt son müşteri aboneliği ile güncelleştirme
 
 Kaydınızı yeni müşteri aboneliği ile güncelleştirin. Azure iş ortağı merkezi müşteri kimliğinin kullanarak müşteri kullanımını raporlar. Bu adım, her bir müşterinin kullanım müşterinin tek CSP'ye abonelik altında bildirilir sağlar. Bu kullanıcı kullanım izleme ve faturalandırma kolaylaştırır.
@@ -86,10 +86,10 @@ Azure Stack, Azure Stack'te hizmetler kullanmak için birden çok Azure AD kirac
 
 ## <a name="create-a-local-resource-in-the-end-customer-tenant-in-azure-stack"></a>Azure stack'teki son müşteri kiracısında yerel kaynak oluştur
 
-Azure Stack'e eklediğiniz yeni müşteri ya da son müşteri kiracısında Konuk hesabınızla sahip ayrıcalıklarını etkinleştirilmiş sonra kendilerine ait kiracıda bir kaynak oluşturabilirsiniz doğrulayın. Örneğin, yapabilirler [Azure Stack portal ile bir Windows sanal makinesi oluşturma](user\azure-stack-quick-windows-portal.md).
+Azure Stack'e eklediğiniz yeni müşteri ya da son müşteri kiracısında Konuk hesabınızla sahip ayrıcalıklarını etkinleştirilmiş sonra kendilerine ait kiracıda bir kaynak oluşturabilirsiniz doğrulayın. Örneğin, yapabilirler [Azure Stack portal ile bir Windows sanal makinesi oluşturma](user/azure-stack-quick-windows-portal.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
  - Kayıt işleminizi tetiklendikten hata iletilerini gözden geçirin için bkz: [Kiracı kayıt hata iletileri](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes).
  - Azure yığını kaynak kullanım bilgilerini alma hakkında daha fazla bilgi için bkz: [kullanım ve faturalandırma Azure Stack'te](azure-stack-billing-and-chargeback.md).
- - Nasıl bir son müşteri, CSP olarak ekleyebilir gözden geçirmek için Kiracı Yöneticisi olarak Azure Stack için bkz: [Azure Stack aboneliğinizi yönetmek bir bulut hizmeti sağlayıcısı etkinleştirme](user\azure-stack-csp-enable-billing-usage-tracking.md).
+ - Nasıl bir son müşteri, CSP olarak ekleyebilir gözden geçirmek için Kiracı Yöneticisi olarak Azure Stack için bkz: [Azure Stack aboneliğinizi yönetmek bir bulut hizmeti sağlayıcısı etkinleştirme](user/azure-stack-csp-enable-billing-usage-tracking.md).

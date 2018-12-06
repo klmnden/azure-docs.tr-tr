@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: 4c58be8f501e72027e1692ceb73552a3f252f92a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 48dfa3180f040af3e8298d418cf71c537477ba5a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38603187"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956968"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Azure API Management, Event Hubs ve Runscope ile Apı'lerinizi izleme
 [API Management hizmeti](api-management-key-concepts.md) HTTP API'nize gönderilen HTTP isteklerinin işlenmesini geliştirmek için çok sayıda özellik sağlar. Ancak istek ve yanıtların varlığını geçici olabilir. İstek yapıldığında ve arka uç API'niz için API Management hizmeti aracılığıyla akar. API isteği işler ve API tüketiciye yanıt geriye doğru akar. API Management hizmeti görüntülemek için API'ler ile ilgili bazı önemli istatistikleri Azure portal panosunda ancak ötesine ayrıntılarını kaldırılmıştır, tutar.
@@ -45,7 +45,7 @@ Event Hubs olay akışı için birden fazla tüketici grupları için özelliği
 ## <a name="a-policy-to-send-applicationhttp-messages"></a>Uygulama/http ileti göndermek için bir ilke
 Bir olay hub'ı olay verilerinde basit bir dize olarak kabul eder. Bu dizenin içeriği en fazla olursunuz. Bir HTTP isteği paketini ve Event Hubs'a gönderme için biçim dizesine istek veya yanıtı bilgilerle ihtiyacımız var. Bu gibi durumlarda bir varolan biçimi ise yeniden kullanabilir ve ardından biz kendi kod ayrıştırmayı yazılacak olmayabilir. Başlangıçta miyim kullanarak kabul [HAR](http://www.softwareishard.com/blog/har-12-spec/) HTTP istekleri ve yanıtları göndermek için. Ancak, bu biçim, bir dizi HTTP isteklerini JSON tabanlı bir biçimde depolamak için optimize edilmiştir. Bu gereksiz karmaşıklık, kablo üzerinden HTTP ileti geçirme senaryosu için eklenen zorunlu öğeleri bir dizi içeriyor.  
 
-Alternatif bir seçenek kullanılmasıydır `application/http` medya türü HTTP Belirtimi'nde açıklanan [RFC 7230](http://tools.ietf.org/html/rfc7230). Bu ortam türünü gerçekten kablo üzerinden HTTP iletileri göndermek için kullanılan tam aynı biçimi kullanır, ancak tüm ileti başka bir HTTP istek gövdesinde put olabilir. Bu örnekte, yalnızca gövdesi bizim iletisi olarak Event Hubs'a göndermek için kullanılacak kullanacağız. Rahat, var olan bir ayrıştırıcı yoktur [Microsoft ASP.NET Web API 2.2 istemci](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) Bu biçim ayrıştırabilir ve yerel dönüştürmek kitaplıkları `HttpRequestMessage` ve `HttpResponseMessage` nesneleri.
+Alternatif bir seçenek kullanılmasıydır `application/http` medya türü HTTP Belirtimi'nde açıklanan [RFC 7230](https://tools.ietf.org/html/rfc7230). Bu ortam türünü gerçekten kablo üzerinden HTTP iletileri göndermek için kullanılan tam aynı biçimi kullanır, ancak tüm ileti başka bir HTTP istek gövdesinde put olabilir. Bu örnekte, yalnızca gövdesi bizim iletisi olarak Event Hubs'a göndermek için kullanılacak kullanacağız. Rahat, var olan bir ayrıştırıcı yoktur [Microsoft ASP.NET Web API 2.2 istemci](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) Bu biçim ayrıştırabilir ve yerel dönüştürmek kitaplıkları `HttpRequestMessage` ve `HttpResponseMessage` nesneleri.
 
 Bu ileti oluşturabilmek için C# temel avantajlarından yararlanmak ihtiyacımız [ilke ifadeleri](https://msdn.microsoft.com/library/azure/dn910913.aspx) Azure API Management. Azure Event Hubs için bir HTTP isteği iletisi gönderir ilkeyi, aşağıda verilmiştir.
 
@@ -159,7 +159,7 @@ HTTP yanıt iletisi göndermek için ilke isteği benzer ve bu nedenle tam bir i
 `set-variable` İlkesi tarafından erişilebilir olan bir değer oluşturur `log-to-eventhub` ilkesinde `<inbound>` bölümü ve `<outbound>` bölümü.  
 
 ## <a name="receiving-events-from-event-hubs"></a>Event Hubs'a ait alma olaylarını
-Olayları Azure Event Hub'ından alınan kullanarak [AMQP protokolünü](http://www.amqp.org/). Microsoft Service Bus ekibine istemci kitaplıklarını kullanan olaylar kolaylaştırmak kullanılabilir yapıldı. Desteklenen iki farklı yaklaşım, bir okunuyor bir *doğrudan tüketici* ve diğer kullanarak `EventProcessorHost` sınıfı. Bu iki yaklaşımı örnekler bulunabilir [Event Hubs Programlama Kılavuzu](../event-hubs/event-hubs-programming-guide.md). Kısa farklar sürümüdür, `Direct Consumer` tam denetim verir ve `EventProcessorHost` , ancak bu olayları işleminin nasıl hakkında bazı varsayımlarda bulunur tesisat işinin bir kısmını desteklemez.  
+Olayları Azure Event Hub'ından alınan kullanarak [AMQP protokolünü](https://www.amqp.org/). Microsoft Service Bus ekibine istemci kitaplıklarını kullanan olaylar kolaylaştırmak kullanılabilir yapıldı. Desteklenen iki farklı yaklaşım, bir okunuyor bir *doğrudan tüketici* ve diğer kullanarak `EventProcessorHost` sınıfı. Bu iki yaklaşımı örnekler bulunabilir [Event Hubs Programlama Kılavuzu](../event-hubs/event-hubs-programming-guide.md). Kısa farklar sürümüdür, `Direct Consumer` tam denetim verir ve `EventProcessorHost` , ancak bu olayları işleminin nasıl hakkında bazı varsayımlarda bulunur tesisat işinin bir kısmını desteklemez.  
 
 ### <a name="eventprocessorhost"></a>EventProcessorHost
 Bu örnekte, kullandığımız `EventProcessorHost` kolaylık sağlamak için ancak bunu olabilir bu belirli senaryo yok en iyi seçim. `EventProcessorHost` iş parçacığı oluşturma sorunları belirli olay işlemcisi sınıfı içinde hakkında endişelenmek zorunda olmadığınız emin olmak zor işi yapar. Ancak, senaryomuzdaki ise biz yalnızca ileti başka bir biçime dönüştürme ve zaman uyumsuz bir yöntem kullanarak başka bir hizmete boyunca iletmeden. Paylaşılan durum ve bu nedenle iş parçacığı oluşturma sorunları, risk güncelleştirme gerek yoktur. Çoğu senaryo için `EventProcessorHost` kesinlikle kolay seçenek olduğunu ve büyük olasılıkla en iyi seçenektir.     
@@ -213,7 +213,7 @@ public class HttpMessage
 `HttpMessage` Örneği uygulanmasına ardından iletilen `IHttpMessageProcessor`, oluşturduğum alma ve Azure olay Hub'ından olay yorumu ve işlenmesini onu ayrıştırmak için bir arabirim olduğundan.
 
 ## <a name="forwarding-the-http-message"></a>HTTP ileti iletme
-Bu örnek için ı olacağını için üzerinden HTTP isteği göndermek ilginç karar [Runscope](http://www.runscope.com). Runscope HTTP hata ayıklama, günlüğe kaydetme ve izleme konusunda uzmanlaşmış bir bulut tabanlı bir hizmettir. Denemek kolay bir işlemdir ve gerçek zamanlı API Yönetimi hizmetimiz giden HTTP isteklerini görmemizi sağlar, böylece bir ücretsiz katmanı ile sahiptirler.
+Bu örnek için ı olacağını için üzerinden HTTP isteği göndermek ilginç karar [Runscope](https://www.runscope.com). Runscope HTTP hata ayıklama, günlüğe kaydetme ve izleme konusunda uzmanlaşmış bir bulut tabanlı bir hizmettir. Denemek kolay bir işlemdir ve gerçek zamanlı API Yönetimi hizmetimiz giden HTTP isteklerini görmemizi sağlar, böylece bir ücretsiz katmanı ile sahiptirler.
 
 `IHttpMessageProcessor` Uygulamasını şu şekilde görünür
 
@@ -260,7 +260,7 @@ public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-Ben yararlanmak için bir [Runscope mevcut istemci kitaplığının](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha) , anında iletme kolaylaştırır `HttpRequestMessage` ve `HttpResponseMessage` kendi hizmetinde örnekler ayarlama. Runscope API'sine erişmek için bir hesap ve bir API anahtarı gerekir. Bir API anahtarı alma yönelik yönergeler bulunabilir [erişim Runscope API uygulamaları oluşturma](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) yayını.
+Ben yararlanmak için bir [Runscope mevcut istemci kitaplığının](https://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha) , anında iletme kolaylaştırır `HttpRequestMessage` ve `HttpResponseMessage` kendi hizmetinde örnekler ayarlama. Runscope API'sine erişmek için bir hesap ve bir API anahtarı gerekir. Bir API anahtarı alma yönelik yönergeler bulunabilir [erişim Runscope API uygulamaları oluşturma](https://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) yayını.
 
 ## <a name="complete-sample"></a>Tam örnek
 [Kaynak kodu](https://github.com/darrelmiller/ApimEventProcessor) ve testleri örnek için GitHub üzerinde. Gereksinim duyduğunuz bir [API Management hizmeti](get-started-create-service-instance.md), [bağlı bir olay hub'ı](api-management-howto-log-event-hubs.md)ve [depolama hesabı](../storage/common/storage-create-storage-account.md) kendiniz örneği çalıştırmak için.   

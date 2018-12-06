@@ -5,15 +5,15 @@ services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 12/05/2018
 ms.author: anshan
 manager: cshankar
-ms.openlocfilehash: 46fecf6f1b2826f0e23b7b6c4f4511ce9a662d1c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: 4f152273503d9d8026047301975cf54d2ef47d27
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365698"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961501"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Öğretici: Azure Time Series Insights ortamı oluşturma
 
@@ -26,13 +26,13 @@ Bu öğreticide, sanal cihazlardan verilerle doldurulmuş bir Time Series Insigh
 > * TSI ortamına veri akışı yapmak için cihaz benzetimi çalıştırma
 > * Sanal telemetri verilerini doğrulama
 
-## <a name="video"></a>Video: 
+## <a name="video"></a>Video
 
-### <a name="in-this-video-we-show-you-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-that-can-be-used-to-get-started-with-time-series-insightsbr"></a>Bu videoda, Time Series Insights’ı kullanmaya başlamak için kullanılabilecek veriler oluşturmak için Azure IoT Çözüm Hızlandırıcısı’nın nasıl kullanılacağı gösterilmektedir.</br>
+Bu videoda, Time Series Insights’ı kullanmaya başlamak için kullanılabilecek veriler oluşturmak için Azure IoT Çözüm Hızlandırıcısı’nın nasıl kullanılacağı gösterilmektedir.
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun. 
 

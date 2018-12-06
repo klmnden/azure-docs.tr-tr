@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.component: common
-ms.openlocfilehash: a1b183e5b0929a2149502aa340e2e69c725dba6d
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 2ab933506ea03ae72198113d70888460e5001a6d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49168274"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958431"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>AzCopy v10 ile veri aktarımı (Önizleme)
 
@@ -84,6 +84,16 @@ AzCopy v10 basit Self belgelenmiş sözdizimi geçersiz. Genel sözdizimi şu ş
 .\azcopy cp -h
 ```
 
+## <a name="create-a-file-system-azure-data-lake-storage-gen2-only"></a>Bir dosya sistemi (yalnızca Azure Data Lake depolama Gen2) oluşturun
+
+Hiyerarşik ad alanları, blob depolama hesabınızda etkinleştirdiyseniz, indirme dosyalarını yükleyebilirsiniz, böylece yeni bir dosya sistemi oluşturmak için aşağıdaki komutu kullanabilirsiniz.
+
+```azcopy
+.\azcopy make "https://account.dfs.core.windows.net/top-level-resource-name" --recursive=true
+```
+
+``account`` Bu dizenin depolama hesabınızın adıdır. ``top-level-resource-name`` Bu dizenin oluşturmak istediğiniz dosya sistemi adıdır.
+
 ## <a name="copy-data-to-azure-storage"></a>Azure depolama alanına veri kopyalama
 
 Kaynaktan hedefe veri aktarmayı Kopyala komutunu kullanın. Kaynak/hedef y: olabilir
@@ -107,10 +117,22 @@ Aşağıdaki komutu klasör C:\local\path yinelemeli olarak altındaki tüm dosy
 .\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
 ```
 
+Hiyerarşik ad alanları, blob depolama hesabınızda etkinleştirdiyseniz, dosya sisteminize dosyaları karşıya yüklemek için aşağıdaki komutu kullanabilirsiniz:
+
+```azcopy
+.\azcopy cp "C:\local\path" "https://myaccount.dfs.core.windows.net/myfolder<sastoken>" --recursive=true
+```
+
 Aşağıdaki komutu C:\local\path klasörü altındaki tüm dosyalar (alt dizinleri içinde recursing olmadan) "mycontainer1" kapsayıcıya yükler:
 
 ```azcopy
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
+```
+
+Hiyerarşik ad alanları, blob depolama hesabınızda etkinleştirdiyseniz, aşağıdaki komutu kullanabilirsiniz:
+
+```azcopy
+.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/myfolder<sastoken>"
 ```
 
 Daha fazla örnek almak için aşağıdaki komutu kullanın:
@@ -127,6 +149,8 @@ Daha fazla örnek almak için aşağıdaki komutu kullanın:
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
+
+Hiyerarşik ad alanları etkin olan blob depolama hesapları ile çalışmak için dize yerine ``blob.core.windows.net`` ile ``dfs.core.windows.net`` Bu örneklerde.
 
 > [!NOTE]
 > Komut tüm blob kapsayıcılarını listeleme ve bunları hedef hesabına kopyalayın. Şu anda yalnızca blok bloblarını iki depolama hesapları arasında kopyalama AzCopy v10 destekler. (Ekleme blobları, sayfa blobları, dosyalar, tablolar ve Kuyruklar), diğer tüm depolama hesabı nesneleri atlanacak.
@@ -154,6 +178,8 @@ Aynı şekilde, bir Blob kapsayıcısına bir yerel dosya sistemi aşağı eşit
 ```
 
 Komutu artımlı olarak üzerinde son değiştirilen zaman damgaları göre hedef kaynağı eşitleme sağlar. AzCopy v10 ekleyin ya da kaynak dosya silme, aynı hedef yapar.
+
+[!NOTE] Hiyerarşik ad alanları etkin olan blob depolama hesapları ile çalışmak için dize yerine ``blob.core.windows.net`` ile ``dfs.core.windows.net`` Bu örneklerde.
 
 ## <a name="advanced-configuration"></a>Gelişmiş yapılandırma
 

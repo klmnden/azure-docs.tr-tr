@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/28/2018
+ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c6202ff6f00412a779fb62b7a3bcc3f30ecbb25a
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 504bb56a7cb3b9582d5c8d2ab1e770d55b8ca9e5
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682338"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961629"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -120,7 +120,7 @@ System Center Operations Manager yönetim grubunuzun bir Log Analytics çalışm
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
 * MP Dağıtımını güncelleştirme
 
-Çözüm yönetim paketlerini nasıl güncelleştirileceğini hakkında daha fazla bilgi için bkz. [Log Analytics için Operations Manager'ı bağlama](../log-analytics/log-analytics-om-agents.md).
+Çözüm yönetim paketlerini nasıl güncelleştirileceğini hakkında daha fazla bilgi için bkz. [Log Analytics için Operations Manager'ı bağlama](../azure-monitor/platform/om-agents.md).
 
 > [!NOTE]
 > Operations Manager Aracısı ile sistemler için güncelleştirme yönetimi tarafından tam olarak yönetilmeye Aracısı Microsoft Monitoring Agent'olarak güncelleştirilmesi gerekir. Aracı güncelleştirme hakkında bilgi edinmek için bkz: [bir Operations Manager Aracısı yükseltme](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
@@ -158,7 +158,7 @@ Aracı bir güvenlik duvarı veya Ara sunucu üzerinden internet ile iletişim k
 
 Yeni eklenen Linux aracılarında durumunu göster **güncelleştirilmiş** bir değerlendirme yapıldıktan sonra. Bu işlem 6 saat kadar sürebilir.
 
-Bir Operations Manager yönetim grubunu Log Analytics ile iletişim kurduğunu onaylamak için bkz: [Log Analytics ile doğrulama Operations Manager tümleştirme](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-log-analytics).
+Bir Operations Manager yönetim grubunu Log Analytics ile iletişim kurduğunu onaylamak için bkz: [Log Analytics ile doğrulama Operations Manager tümleştirme](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-log-analytics).
 
 ## <a name="data-collection"></a>Veri toplama
 
@@ -583,6 +583,6 @@ Windows sanal makineleriniz için güncelleştirmeleri yönetme konusunda bilgi 
 > [Azure Windows Vm'leriniz için güncelleştirme ve yamaları yönetmenize](automation-tutorial-update-management.md)
 
 * Te günlük aramalarını kullanın [Log Analytics](../log-analytics/log-analytics-log-searches.md) ayrıntılı güncelleştirme verilerini görüntülemek için.
-* [Uyarı oluşturma](../monitoring-and-diagnostics/monitoring-overview-alerts.md) bilgisayarlardan eksik olarak kritik güncelleştirmeler algılandığında veya bir bilgisayarda Otomatik Güncelleştirmeler devre dışı olduğunda.
+* [Uyarı oluşturma](automation-tutorial-update-management.md#configure-alerts) güncelleştirme dağıtım durumu için.
 
 * Güncelleştirme yönetimi REST API aracılığıyla etkileşim öğrenmek için bkz. [yazılım güncelleştirme yapılandırmaları](/rest/api/automation/softwareupdateconfigurations)

@@ -10,32 +10,33 @@ ms.service: mariadb
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 11/10/2018
-ms.openlocfilehash: 9e8edb2aaeaa116ac71889f7007e435a1a869b7f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 1f17ab167c6487d59ce31106f1bbcffd86a29fd8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516291"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955207"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Azure CLI kullanarak MariaDB için Azure veritabanı'nda bir sunucu geri nasıl
 
 ## <a name="backup-happens-automatically"></a>Yedekleme otomatik olarak gerçekleşir
+
 Sunucuları düzenli aralıklarla geri yükleme özellikleri etkinleştirmek için yedeklenen MariaDB için Azure veritabanı. Bu özelliği kullanarak, sunucuyu ve tüm veritabanlarında için bir önceki-belirli bir noktaya, yeni bir sunucuya geri yükleyebilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 Bu nasıl yapılır kılavuzunda tamamlanması gerekir:
+
 - Bir [MariaDB sunucu ve veritabanı için Azure veritabanı](quickstart-create-mariadb-server-database-using-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
- 
 
 > [!IMPORTANT]
 > Bu nasıl yapılır kılavuzunda, Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Azure CLI komut isteminde sürümünü onaylamak için girin `az --version`. Yüklemek veya yükseltmek için bkz: [Azure CLI yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="set-backup-configuration"></a>Yedekleme kümesi yapılandırması
 
-Sunucu oluşturma sırasında yerel olarak yedekli yedeklemeler veya coğrafi olarak yedekli yedekleme için sunucunuzu yapılandırma arasında seçim yapmanızı ister. 
+Sunucu oluşturma sırasında yerel olarak yedekli yedeklemeler veya coğrafi olarak yedekli yedekleme için sunucunuzu yapılandırma arasında seçim yapmanızı ister.
 
 > [!NOTE]
 > Sahip, yedeklilik türünü bir sunucu oluşturulduktan sonra yerel olarak yedekli, coğrafi olarak yedekli vs moduna geçiş yapılamaz.
@@ -58,7 +59,8 @@ Yukarıdaki örnekte demosunucum yedekleme bekletme süresi 10 gün olarak deği
 Yedekleme bekletme süresi ne kadar geri mevcut yedekleme dayalı olduğundan zaman içinde nokta geri alınabilir zaman yönetir. Belirli bir noktaya geri yükleme, sonraki bölümde daha ayrıntılı açıklanmıştır.
 
 ## <a name="server-point-in-time-restore"></a>Sunucu zaman içinde nokta geri yükleme
-Sunucu zaman içinde önceki bir noktaya geri yükleyebilirsiniz. Yeni bir sunucuya geri yüklenen veriler kopyalanır ve sunucunun mevcut olduğu gibi bırakılır. Örneğin, bir tabloyu yanlışlıkla bugün öğlen kesilirse, zamana gösterimlerini hemen önce geri yükleyebilirsiniz. Ardından, geri yüklenen sunucu kopyasından eksik tablo ve veri alabilirsiniz. 
+
+Sunucu zaman içinde önceki bir noktaya geri yükleyebilirsiniz. Yeni bir sunucuya geri yüklenen veriler kopyalanır ve sunucunun mevcut olduğu gibi bırakılır. Örneğin, bir tabloyu yanlışlıkla bugün öğlen kesilirse, zamana gösterimlerini hemen önce geri yükleyebilirsiniz. Ardından, geri yüklenen sunucu kopyasından eksik tablo ve veri alabilirsiniz.
 
 Sunucuyu geri yüklemek için Azure CLI kullanmak [az mariadb sunucusu geri yüklemesi](/cli/azure/mariadb/server#az-mariadb-server-restore) komutu.
 
@@ -85,6 +87,7 @@ Konum ve fiyatlandırma katmanı değerleri geri yüklenen sunucu için özgün 
 Geri yükleme işlemi tamamlandıktan sonra yeni sunucuyu bulun ve verilerin beklenen şekilde geri yüklendiğini doğrulayın.
 
 ## <a name="geo-restore"></a>Coğrafi geri yükleme
+
 Coğrafi olarak yedekli yedekleme için sunucunuzu yapılandırdıysanız, bu var olan bir sunucuyu yedekten yeni bir sunucu oluşturulabilir. Bu yeni sunucu MariaDB için Azure veritabanı kullanılabilir herhangi bir bölgede oluşturulabilir.  
 
 Coğrafi olarak yedekli bir yedeklemesini kullanarak bir sunucu oluşturmak için Azure CLI kullanmak `az mariadb server georestore` komutu.
@@ -96,8 +99,9 @@ Coğrafi olarak yedekli bir yedeklemesini kullanarak bir sunucu oluşturmak içi
 Coğrafi geri yükleme sunucusundaki Azure CLI komut isteminde aşağıdaki komutu girin:
 
 ```azurecli-interactive
-az mariadb server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8 
+az mariadb server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8
 ```
+
 Bu komut, adı verilen yeni bir sunucu oluşturur. *demosunucum georestored* ait Doğu ABD *myresourcegroup*. Bu, genel amaçlı, 5. nesil server 8 sanal çekirdekli olur. Sunucu, coğrafi olarak yedekli yedeğini oluşturulan *demosunucum*, olduğu da kaynak grubunda *myresourcegroup*
 
 Mevcut bir sunucudan farklı bir kaynak grubunda yeni sunucuya, ardından oluşturmak istiyorsanız `--source-server` uygun sunucu adını aşağıdaki örnekte olduğu gibi parametre:
@@ -116,12 +120,12 @@ az mariadb server georestore --resource-group newresourcegroup --name mydemoserv
 |location | eastus | Yeni sunucu konumu. |
 |sku-name| GP_Gen5_8 | Bu parametre, fiyatlandırma katmanı, işlem oluşturma ve yeni sunucunun sanal çekirdek sayısını ayarlar. Genel amaçlı, 5. nesil server 8 sanal çekirdekli GP_Gen5_8 eşlenir.|
 
-
 >[!Important]
 >Yeni bir sunucu coğrafi geri yükleme ile oluştururken, kaynak sunucuyla aynı depolama boyutuna ve fiyatlandırma katmanını devralır. Bu değerler, oluşturma sırasında değiştirilemez. Yeni Sunucu oluşturulduktan sonra depolama boyutu en çok ölçeklendirilebilir.
 
 Geri yükleme işlemi tamamlandıktan sonra yeni sunucuyu bulun ve verilerin beklenen şekilde geri yüklendiğini doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 - Hizmet hakkında daha fazla bilgi [yedeklemeleri](concepts-backup.md).
 - Daha fazla bilgi edinin [iş sürekliliği](concepts-business-continuity.md) seçenekleri.

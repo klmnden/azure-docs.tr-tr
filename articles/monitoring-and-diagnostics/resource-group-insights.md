@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: fd54d3425e342de688c5b573a4c329ab32af0c98
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 2b9aee39942562ec7f17c08c0fcf46143a7a25d3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682002"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961816"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Kaynak grupları, Azure İzleyici (Önizleme) ile izleme
 
@@ -28,19 +28,19 @@ Modern uygulamalar genellikle karmaşık ve yüksek oranda dağıtılmış bir h
 2. Kaynak gruplarınızın keşfetmek istediğiniz birini seçin. (Varsa çok sayıda kaynak grupları aboneliğe göre filtreleme bazen yararlı olabilir.)
 3. Bir kaynak grubu için ınsights erişmek için tıklayın **Insights** herhangi bir kaynak grubu, sol taraftaki menüde.
 
-![Kaynak grubu ınsights genel bakış sayfasının ekran görüntüsü](.\media\resource-group-insights\0001-overview.png)
+![Kaynak grubu ınsights genel bakış sayfasının ekran görüntüsü](./media/resource-group-insights/0001-overview.png)
 
 ## <a name="resources-with-active-alerts-and-health-issues"></a>Kaynakları etkin uyarıları ve sistem durumu sorunları
 
 Genel bakış sayfasında kaç uyarıları harekete ve geçerli Azure kaynak durumu yanı sıra her bir kaynağın hala etkin olduğunu gösterir. Birlikte, bu bilgiler hızlı bir şekilde sorun yaşayan herhangi bir kaynağa nokta yardımcı olabilir. Uyarılar kodunuzu ve altyapınızı nasıl yapılandırdığınıza sorunları belirlemenize yardımcı olur. Azure kaynak durumu yüzeyleri sorunu Azure platformu ile birlikte, tek tek uygulamalarınıza özgü değildir.
 
-![Azure kaynak durumu ekran bölmesi](.\media\resource-group-insights\0002-overview.png)
+![Azure kaynak durumu ekran bölmesi](./media/resource-group-insights/0002-overview.png)
 
 ### <a name="azure-resource-health"></a>Azure Kaynak Durumu
 
 Azure kaynak durumu görüntülemek için kontrol **Azure kaynak durumu göster** kutusunun üstünde tablo. Bu sütun, hızlı yükleme sayfası yardımcı olmak için varsayılan olarak gizlidir.
 
-![Eklenen kaynak sistem durumu grafiği ekran görüntüsü](.\media\resource-group-insights\0003-overview.png)
+![Eklenen kaynak sistem durumu grafiği ekran görüntüsü](./media/resource-group-insights/0003-overview.png)
 
 Varsayılan olarak, kaynaklar, uygulama katmanı ve kaynak türüne göre gruplandırılır. **Uygulama katmanı** yalnızca kaynak grubu ınsights'a genel bakış sayfasının bağlamı içinde var olan basit bir kategori kaynak türlerinin olduğu. İşlem altyapısı, ağ, depolama + veritabanları, uygulama koduna ilgili kaynak türleri vardır. Yönetim Araçları edinin, kendi uygulama katmanları ve her bir kaynağın ait olarak kategorilere ayrılır **diğer** uygulama katmanı. Bu gruplandırma, hangi alt sistemler, uygulamanızın sağlıklı ve sağlıksız bir bakışta görmenize yardımcı olabilir.
 
@@ -69,33 +69,33 @@ Hataları sekme seçimine test etmek için **hataları** altında **Araştır** 
 
 Yeni seçenekler sunan seçiminizi yapıldıktan sonra sol taraftaki menüde çubuğunu değiştirir.
 
-![Başarısız ekran genel bakış bölmesi](.\media\resource-group-insights\00004-failures.png)
+![Başarısız ekran genel bakış bölmesi](./media/resource-group-insights/00004-failures.png)
 
 App Service seçildiğinde, Azure İzleyici çalışma galeri şablonları ile sunulur.
 
-![Uygulama çalışma kitabı galeri görüntüsü](.\media\resource-group-insights\0005-failure-insights-workbook.png)
+![Uygulama çalışma kitabı galeri görüntüsü](./media/resource-group-insights/0005-failure-insights-workbook.png)
 
 Hata Öngörüler için şablon seçme, çalışma kitabını açın.
 
-![Hata raporunun ekran görüntüsü](.\media\resource-group-insights\0006-failure-visual.png)
+![Hata raporunun ekran görüntüsü](./media/resource-group-insights/0006-failure-visual.png)
 
 Herhangi bir satır seçebilirsiniz. Seçimi daha sonra bir grafik Ayrıntıları görünümünde görüntülenir.
 
-![Hata ayrıntılarının ekran görüntüsü](.\media\resource-group-insights\0007-failure-details.png)
+![Hata ayrıntılarının ekran görüntüsü](./media/resource-group-insights/0007-failure-details.png)
 
 Çalışma kitapları, özel raporlar ve görselleştirmeler bir kolayca kullanılabilir biçime oluşturmanın zor işi hemen soyut. Çalışma kitapları, önceden oluşturulmuş parametrelerini ayarlamak bazı kullanıcılar yalnızca isteyebilirsiniz, ancak tamamen özelleştirilebilir.
 
 Bu çalışma kitabı dahili olarak nasıl çalıştığını bir fikir almak için seçin **Düzenle** üst çubuktaki.
 
-![Ek düzenleme seçeneğinin ekran görüntüsü](.\media\resource-group-insights\0008-failure-edit.png)
+![Ek düzenleme seçeneğinin ekran görüntüsü](./media/resource-group-insights/0008-failure-edit.png)
 
 Bir dizi **Düzenle** kutuları çalışma kitabında çeşitli öğelerin yanında görünür. Seçin **Düzenle** işlemlerinin tablonun altındaki kutusu.
 
-![Düzenleme kutularının ekran görüntüsü](.\media\resource-group-insights\0009-failure-edit-graph.png)
+![Düzenleme kutularının ekran görüntüsü](./media/resource-group-insights/0009-failure-edit-graph.png)
 
 Bu tablo görselleştirmesine yönlendiren temel alınan Log Analytics sorgusu ortaya çıkarır.
 
- ![Log analytics Sorgu penceresinin ekran görüntüsü](.\media\resource-group-insights\0010-failure-edit-query.png)
+ ![Log analytics Sorgu penceresinin ekran görüntüsü](./media/resource-group-insights/0010-failure-edit-query.png)
 
 Sorguyu doğrudan değiştirebilirsiniz. Referans olarak kullanın ve bundan kendi özel parametreli çalışma kitabı tasarlarken ödünç alın.
 
@@ -103,11 +103,11 @@ Sorguyu doğrudan değiştirebilirsiniz. Referans olarak kullanın ve bundan ken
 
 Çalışma kitaplarının kendi galeri performans sunar. App Service için önceden oluşturulmuş uygulama performansını çalışma kitabı aşağıdaki görünümü sunar:
 
- ![Performans görünümünün ekran görüntüsü](.\media\resource-group-insights\0011-performance.png)
+ ![Performans görünümünün ekran görüntüsü](./media/resource-group-insights/0011-performance.png)
 
 Bu durumda, düzen seçerseniz bu görselleştirmeler kümesini Azure İzleyici ölçümleri tarafından güçlendirilmiştir görürsünüz.
 
- ![Azure ölçümleri ile performans görünümünün ekran görüntüsü](.\media\resource-group-insights\0012-performance-metrics.png)
+ ![Azure ölçümleri ile performans görünümünün ekran görüntüsü](./media/resource-group-insights/0012-performance-metrics.png)
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

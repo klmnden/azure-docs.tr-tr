@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a543561658d593398ca74f8ae68dd6d0d27bcdaa
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: df2ab9b16201cdb408cbe028b1814de7a3dfb4c7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636469"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962901"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Öğretici: Azure Web Apps’e var olan bir özel SSL sertifikası bağlama
 
@@ -139,9 +139,9 @@ App Service, sertifikanızı karşıya yüklemeyi tamamladığında sertifikanı
 >
 >
 
-**SSL Türü** menüsünde **[Sunucu Adı Belirtme (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** veya IP tabanlı SSL seçeneklerinden hangisini kullanacağınızı belirleyin.
+**SSL Türü** menüsünde **[Sunucu Adı Belirtme (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication)** veya IP tabanlı SSL seçeneklerinden hangisini kullanacağınızı belirleyin.
 
-- **SNI tabanlı SSL** - Birden fazla SNI tabanlı SSL bağlaması eklenebilir. Bu seçenek, aynı IP adresi üzerinde birden fazla SSL sertifikası ile birden fazla etki alanının güvenliğini sağlamaya olanak tanır. Çoğu modern tarayıcı (Internet Explorer, Chrome, Firefox ve Opera dahil) SNI’yi destekler (daha kapsamlı tarayıcı desteği bilgilerini [Sunucu Adı Belirtimi](http://wikipedia.org/wiki/Server_Name_Indication) bölümünde bulabilirsiniz).
+- **SNI tabanlı SSL** - Birden fazla SNI tabanlı SSL bağlaması eklenebilir. Bu seçenek, aynı IP adresi üzerinde birden fazla SSL sertifikası ile birden fazla etki alanının güvenliğini sağlamaya olanak tanır. Çoğu modern tarayıcı (Internet Explorer, Chrome, Firefox ve Opera dahil) SNI’yi destekler (daha kapsamlı tarayıcı desteği bilgilerini [Sunucu Adı Belirtimi](https://wikipedia.org/wiki/Server_Name_Indication) bölümünde bulabilirsiniz).
 - **IP tabanlı SSL** - Yalnızca bir adet IP tabanlı SSL bağlaması eklenebilir. Bu seçenek yalnızca bir SSL sertifikası ile ayrılmış bir genel IP adresinin güvenliğini sağlamaya olanak tanır. Birden fazla etki alanının güvenliğini sağlamak için tümünün güvenliğini aynı SSL sertifikası ile sağlamanız gerekir. SSL bağlaması için geleneksel seçenek budur.
 
 **Bağlama Ekle**’ye tıklayın.

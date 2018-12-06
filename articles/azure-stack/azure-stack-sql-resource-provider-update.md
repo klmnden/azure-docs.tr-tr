@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: d897fd43cf712f217b6cd55f14854164fb7abfa6
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 8fc8be105c6c610e6b246fa0ec619fecc81b1dd9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887789"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966254"
 ---
 # <a name="update-the-sql-resource-provider"></a>SQL kaynak sağlayıcısını güncelle
 
@@ -28,11 +28,11 @@ ms.locfileid: "52887789"
 Yeni bir SQL kaynak sağlayıcısı, Azure Stack için yeni bir derleme güncelleştirildiğinde yayımlanan. Mevcut bağdaştırıcısı çalışmaya devam eder, ancak için en son sürüme mümkün olan en kısa sürede güncelleştirilmesi öneririz.
 
 > [!IMPORTANT]
-> Güncelleştirmeleri yayımlandıktan sırayla yüklemeniz gerekir. Sürümleri atlayamazsınız. Sürümleri listesinde başvurmak [kaynak sağlayıcı önkoşulları dağıtma](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
+> Güncelleştirmeleri yayımlandıktan sırayla yüklemeniz gerekir. Sürümleri atlayamazsınız. Sürümleri listesinde başvurmak [kaynak sağlayıcı önkoşulları dağıtma](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
 ## <a name="overview"></a>Genel Bakış
 
-Kaynak Sağlayıcısı'nı güncelleştirmek için *UpdateSQLProvider.ps1* betiği. Bu betik yeni SQL kaynak Sağlayıcısı'nin karşıdan yüklemesiyle dahil edilir. Güncelleştirme işlemi için kullanılan işleme benzer [kaynak sağlayıcısı dağıtma](.\azure-stack-sql-resource-provider-deploy.md). Güncelleştirme betiğini DeploySqlProvider.ps1 komut dosyası olarak aynı bağımsız değişkenleri kullanır ve sertifika bilgilerini sağlamanız gerekir.
+Kaynak Sağlayıcısı'nı güncelleştirmek için *UpdateSQLProvider.ps1* betiği. Bu betik yeni SQL kaynak Sağlayıcısı'nin karşıdan yüklemesiyle dahil edilir. Güncelleştirme işlemi için kullanılan işleme benzer [kaynak sağlayıcısı dağıtma](./azure-stack-sql-resource-provider-deploy.md). Güncelleştirme betiğini DeploySqlProvider.ps1 komut dosyası olarak aynı bağımsız değişkenleri kullanır ve sertifika bilgilerini sağlamanız gerekir.
 
 ### <a name="update-script-processes"></a>Güncelleştirme betik işlemleri
 

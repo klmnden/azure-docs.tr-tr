@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 09/18/2018
+ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 8a99a784292c4294456296c1f105e5f485689368
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d66221dea768d75395300ab663c9466718a0140d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679911"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966800"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Azure Otomasyonu'nu kullanarak Windows güncelleştirmelerini yönetme
 
@@ -82,48 +82,24 @@ Güncelleştirmenin başka bir alanına tıkladığınızda seçilen güncelleş
 
 ## <a name="configure-alerts"></a>Uyarı yapılandırma
 
-Bu adımda, başarısız olan dağıtımlar için Güncelleştirme Yönetimi'ne ilişkin ana runbook'u izleyerek veya bir Log Analytics sorgusu aracılığıyla güncelleştirmelerin başarılı bir şekilde dağıtıldığını bildirecek bir uyarı ayarlamayı öğreneceksiniz.
+Bu adımda, bir güncelleştirme dağıtım durumu bildiren bir uyarı ayarlamayı öğrenin.
 
 ### <a name="alert-conditions"></a>Uyarı koşulları
 
-Her uyarı türü için, tanımlanması gereken farklı uyarı koşulları vardır.
+Otomasyon hesabınızda altında **izleme** Git **uyarılar**ve ardından **+ yeni uyarı kuralı**.
 
-#### <a name="log-analytics-query-alert"></a>Log Analytics sorgu uyarısı
+Otomasyon hesabınızı kaynak olarak zaten seçildi. Bunu değiştirmek istiyorsanız tıklayabilirsiniz **seçin** ve **bir kaynak seçin** sayfasında **Otomasyon hesapları** içinde **kaynaktürünegörefiltrele** açılır. Otomasyon Hesabınızı ve ardından **Bitti**'yi seçin.
 
-Başarılı dağıtımlar için, Log Analytics sorgularına dayalı uyarılar oluşturabilirsiniz. Başarısız dağıtımlar için, güncelleştirme dağıtımlarını düzenleyen ana runbook başarısız olduğunda uyarı verilmesi amacıyla [Runbook uyarısı](#runbook-alert) adımlarını kullanabilirsiniz. Birçok farklı senaryoda kullanılabilecek ek uyarılar için özel bir sorgu yazabilirsiniz.
+Tıklayın **koşul Ekle** güncelleştirme dağıtımınız için uygun olan sinyal seçin. Aşağıdaki tabloda iki kullanılabilir sinyaller güncelleştirme dağıtımlarının ayrıntılarını gösterir:
 
-Azure portalında **İzleyici**'ye gidip **Uyarı Oluştur**'u seçin.
+|Sinyal adı|Boyutlar|Açıklama|
+|---|---|---|
+|**Toplam güncelleştirme dağıtım çalışmaları**|-Güncelleştirme dağıtımı adı</br>-Status|Bu sinyal kullanılan uyarı güncelleştirme dağıtımı genel durumu üzerinde.|
+|**Toplam güncelleştirme dağıtım makine çalıştırması yok**|-Güncelleştirme dağıtımı adı</br>-Status</br>-Hedef bilgisayar</br>-Güncelleştirme dağıtımı çalıştırma kimliği|Bu sinyal kullanılan uyarı verilmesi belirli makinelere hedeflenen bir güncelleştirme dağıtım durumu|
 
-**1. Uyarı koşulunu tamamlama** bölümünde **Hedef seçin**'e tıklayın. **Kaynak türüne göre filtrele** bölümünden **Log Analytics**’i seçin. Log Analytics çalışma alanınızı ve ardından **Bitti**'yi seçin.
-
-![Uyarı oluşturma](./media/automation-tutorial-update-management/create-alert.png)
-
-**Ölçüt ekle**'yi seçin.
-
-**Sinyal mantığını yapılandırma** bölümündeki tablodan **Özel günlük araması**'nı seçin. **Arama sorgusu** metin kutusuna aşağıdaki sorguyu girin:
-
-```loganalytics
-UpdateRunProgress
-| where InstallationStatus == 'Succeeded'
-| where TimeGenerated > now(-10m)
-| summarize by UpdateRunName, Computer
-```
-Bu sorgu, bilgisayarları ve belirtilen zaman çerçevesinde tamamlanan güncelleştirme çalıştırma adını döndürür.
-
-**Uyarı mantığı** bölümünde **Eşik** alanına **1** değerini girin. İşiniz bittiğinde **Bitti**'yi seçin.
+Boyut değerleri için geçerli bir değer listeden seçin. Aradığınız değer listesinde değilse **\+** oturum yanında boyut ve özel adını yazın. Ardından aramak istediğiniz değeri seçebilirsiniz. Tüm değerleri bir boyut seçin. isterseniz, **seçin \***  düğmesi. Bir boyut için bir değer seçmezseniz, değerlendirme sırasında söz konusu boyut yoksayılır.
 
 ![Sinyal mantığını yapılandırma](./media/automation-tutorial-update-management/signal-logic.png)
-
-#### <a name="runbook-alert"></a>Runbook uyarısı
-
-Başarısız olan dağıtımlar için ana runbook hata verdiğinde uyarı oluşturmanız gerekir.
-Azure portalında **İzleyici**'ye gidip **Uyarı Oluştur**'u seçin.
-
-**1. Uyarı koşulunu tamamlama** bölümünde **Hedef seçin**'e tıklayın. **Kaynak türüne göre filtrele** bölümünde **Otomasyon Hesapları**'nı seçin. Otomasyon Hesabınızı ve ardından **Bitti**'yi seçin.
-
-**Runbook Adı** için **\+** işaretine tıklayın özel bir ad olarak **Patch-MicrosoftOMSComputers** değerini girin. **Durum** için **Başarısız**'ı seçin veya **\+** işaretine tıklayıp **Başarısız** değerini girin.
-
-![Runbook'lar için sinyal mantığını yapılandırma](./media/automation-tutorial-update-management/signal-logic-runbook.png)
 
 **Uyarı mantığı** bölümünde **Eşik** alanına **1** değerini girin. İşiniz bittiğinde **Bitti**'yi seçin.
 
@@ -133,7 +109,7 @@ Azure portalında **İzleyici**'ye gidip **Uyarı Oluştur**'u seçin.
 
 ![Sinyal mantığını yapılandırma](./media/automation-tutorial-update-management/define-alert-details.png)
 
-**3. Eylem grubunu tanımlama** bölümünde **Yeni eylem grubu**'nu seçin. Eylem grubu, birden çok uyarıda kullanabileceğiniz eylemlerden oluşan bir gruptur. Eylemlere e-posta bildirimleri, runbook'lar, web kancaları ve diğer birçok şey dahildir. Eylem grupları hakkında daha fazla bilgi edinmek için bkz. [Eylem grupları oluşturma ve yönetme](../monitoring-and-diagnostics/monitoring-action-groups.md).
+Altında **Eylem grupları**seçin **Yeni Oluştur**. Eylem grubu, birden çok uyarıda kullanabileceğiniz eylemlerden oluşan bir gruptur. Eylemlere e-posta bildirimleri, runbook'lar, web kancaları ve diğer birçok şey dahildir. Eylem grupları hakkında daha fazla bilgi edinmek için bkz. [Eylem grupları oluşturma ve yönetme](../monitoring-and-diagnostics/monitoring-action-groups.md).
 
 **Eylem grubu adı** kutusuna uyarı için ad ve kısa ad. Bu eylem grubu kullanılarak bildirim gönderildiğinde tam grup adı yerine kısa ad kullanılır.
 
@@ -159,7 +135,7 @@ Yeni bir VM güncelleştirme dağıtımı zamanlamak için **Güncelleştirme y�
 
 * **İşletim sistemi**: Güncelleştirme dağıtımı için hedeflenecek işletim sistemini seçin.
 
-* **Güncelleştirilecek gruplar (önizleme)**: Dağıtımınıza dahil edilecek Azure sanal makinelerinin dinamik grubunu derlemek için bir abonelik, kaynak grupları, konumlar ve etiketler birleşimine göre bir sorgu tanımlayın. Daha fazla bilgi edinmek için bkz. [Dinamik Gruplar](automation-update-management.md#using-dynamic-groups)
+* **Güncelleştirilecek gruplar (önizleme)**: Dağıtımınıza dahil edilecek Azure sanal makinelerinin dinamik grubunu derlemek için bir abonelik, kaynak grupları, konumlar ve etiketler birleşimine göre bir sorgu tanımlayın. Daha fazla bilgi için bkz: [dinamik gruplar](automation-update-management.md#using-dynamic-groups)
 
 * **Güncelleştirilecek makineler**: Kayıtlı bir aramayı veya İçeri aktarılan grubu seçin veya açılan menüden Makine'yi seçerek belirli makineleri seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir. Log Analytics'te bilgisayar grupları oluşturmaya yönelik farklı yöntemler hakkında bilgi edinmek için bkz. [Computer groups in Log Analytics (Log Analytics'te bilgisayar grupları)](../azure-monitor/platform/computer-groups.md)
 
@@ -174,7 +150,7 @@ Yeni bir VM güncelleştirme dağıtımı zamanlamak için **Güncelleştirme y�
 
    Sınıflandırma türlerinin açıklaması için bkz. [sınıflandırmaları güncelleştirme](automation-update-management.md#update-classifications).
 
-* **Dahil edilecek/dışlanacak güncelleştirmeler** - Böylece **Dahil Et / Dışla** sayfası açılır. Dahil edilecek veya dışlanacak güncelleştirmeler ayrı sekmelerdedir. Dahil etmenin nasıl işleneceği hakkında ek bilgi için bkz. [dahil etme davranışı](automation-update-management.md#inclusion-behavior)
+* **Dahil edilecek/dışlanacak güncelleştirmeler** - Böylece **Dahil Et / Dışla** sayfası açılır. Dahil edilecek veya dışlanacak güncelleştirmeler ayrı sekmelerdedir. Ekleme nasıl ele alındığını daha fazla bilgi için bkz: [ekleme davranışı](automation-update-management.md#inclusion-behavior)
 
 * **Zamanlama ayarları**: **Zamanlama Ayarları** bölmesi açılır. Varsayılan başlangıç zamanı, geçerli zamandan 30 dakika sonradır. Başlangıç zamanını en düşük 10 dakika olmak üzere istediğiniz değere ayarlayabilirsiniz.
 
