@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: a46989ea197166065b4ca482200a0d30e1def7c9
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 943c0d4eb25fad1282b3329b945ded45581aeba3
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723100"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994548"
 ---
 # <a name="configure-advanced-networking-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) Gelişmiş ağ yapılandırma
 
@@ -162,18 +162,18 @@ Aşağıdaki makalelerde AKS de ağ oluşturmayla ilgili daha fazla bilgi edinin
 - [Dinamik genel IP ile bir giriş denetleyicisi oluşturmak ve TLS sertifikalarını otomatik olarak oluşturmak için şimdi şifreleme yapılandırma][aks-ingress-tls]
 - [Giriş denetleyicisine statik bir genel IP oluşturun ve otomatik olarak TLS sertifikalarını oluşturmak için şimdi şifreleme yapılandırma][aks-ingress-static-tls]
 
-### <a name="acs-engine"></a>ACS altyapısı
+### <a name="aks-engine"></a>AKS altyapısı
 
-[Azure Container Service altyapısı (ACS altyapısı)] [ acs-engine] azure'da Docker özellikli kümeler dağıtmak için kullanabileceğiniz Azure Resource Manager şablonları oluşturan bir açık kaynak projesidir. Kubernetes, DC/OS, Swarm modu ve Swarm düzenleyicileri ile ACS altyapısı dağıtılabilir.
+[Azure Kubernetes Service Engine (AKS altyapısı)] [ aks-engine] azure'da Docker özellikli kümeler dağıtmak için kullanabileceğiniz Azure Resource Manager şablonları oluşturan bir açık kaynak projesidir. Kubernetes, DC/OS, Swarm modu ve Swarm düzenleyicileri AKS altyapısıyla dağıtılabilir.
 
-ACS altyapısı ile oluşturulmuş Kubernetes kümeleri destekleyen hem de [kubernetes] [ kubenet] ve [Azure CNI] [ cni-networking] eklentiler. Bu nedenle, temel ve Gelişmiş Ağ senaryoları ACS altyapısı tarafından desteklenir.
+AKS altyapıyla oluşturulmuş Kubernetes kümeleri destekleyen hem de [kubernetes] [ kubenet] ve [Azure CNI] [ cni-networking] eklentiler. Bu nedenle, temel ve Gelişmiş Ağ senaryoları AKS altyapısı tarafından desteklenir.
 
 <!-- IMAGES -->
 [advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png
 [portal-01-networking-advanced]: ./media/networking-overview/portal-01-networking-advanced.png
 
 <!-- LINKS - External -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [services]: https://kubernetes.io/docs/concepts/services-networking/service/
 [portal]: https://portal.azure.com
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 3b0a2e4f39b3b523743768e96bfe9a63b1795f60
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a273d0bd4d064cb1c6ac4d3951af8a493e303f51
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975322"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015900"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake depolama Gen2 Önizleme giriş
 
@@ -41,7 +41,7 @@ Geçmişte, bulut tabanlı analiz performansı, yönetim ve güvenlik alanların
 
 -   **POSIX izinleri kümesi**: ACL ve POSIX izinlerle birlikte için Data Lake depolama Gen2'ye özel bazı ek ayrıntı Data Lake Gen2 güvenlik modelini destekler. Ayarları, Depolama Gezgini veya Hive ve Spark gibi çerçeveleri aracılığıyla yapılandırılabilir.
 
--   **Uygun maliyetli**: Data Lake depolama Gen2, düşük maliyetli depolama kapasitesi ve işlem sunar. Tam yaşam döngüsü aracılığıyla veri geçişi faturalandırma ücretleri tutma maliyetleri minimum yerleşik özellikleri aracılığıyla geçin; örneğin [Azure Blob Depolama yaşam döngüsü](../common/storage-lifecycle-management-concepts.md).
+-   **Uygun maliyetli**: Data Lake depolama Gen2, düşük maliyetli depolama kapasitesi ve işlem sunar. Tam yaşam döngüsü aracılığıyla veri geçişi faturalandırma ücretleri tutma maliyetleri minimum yerleşik özellikleri aracılığıyla geçin; örneğin [Azure Blob Depolama yaşam döngüsü](storage-lifecycle-management-concepts.md).
 
 -   **En iyi duruma getirilmiş sürücü**: abfs sürücü [özellikle en iyi duruma getirilmiş](data-lake-storage-abfs-driver.md) büyük veri analizi için. Karşılık gelen REST API'leri dfs uç noktası aracılığıyla çıkmış dfs.core.windows.net.
 

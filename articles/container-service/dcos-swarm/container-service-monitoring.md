@@ -1,6 +1,6 @@
 ---
-title: İzleyici Azure DC/OS kümesi - Datadog
-description: Azure kapsayıcı hizmeti kümesi Datadog ile izleyin. Kümenize Datadog aracıları dağıtmak için DC/OS web kullanıcı arabirimini kullanın.
+title: (KULLANIM DIŞI) Azure DC/OS kümesi - Datadog ile izleme
+description: Datadog ile bir Azure Container Service kümesini izleme. Datadog aracıları kümenize dağıtmak için DC/OS web kullanıcı arabirimini kullanın.
 services: container-service
 author: sauryadas
 manager: jeconnoc
@@ -9,39 +9,41 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 029f36e4362704fcec240f6e88da5c96e903c317
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d881a5c0f994b627b4c7c3da362672b3b887cd5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162764"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996152"
 ---
-# <a name="monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>Azure kapsayıcı hizmeti DC/OS kümesi Datadog ile izleme
+# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>(KULLANIM DIŞI) Bir Azure Container Service DC/OS kümesini Datadog ile izleme
 
-Bu makalede, Azure kapsayıcı hizmeti kümesindeki tüm Aracısı düğümleri biz Datadog aracıları dağıtır. Bu yapılandırma için Datadog sahip bir hesap gerekir. 
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
+
+Bu makalede, Azure Container Service kümenizdeki tüm aracı düğümlere Datadog aracıları dağıtacağız. Bu yapılandırma için Datadog sahip bir hesap gerekir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
-Azure Container Service tarafından yapılandırılmış bir kümeyi [dağıtın](container-service-deployment.md) ve [bağlayın](../container-service-connect.md). [Marathon Kullanıcı Arabirimi](container-service-mesos-marathon-ui.md)’ni keşfedin. Git [ http://datadoghq.com ](http://datadoghq.com) bir Datadog hesabı ayarlamak için. 
+Azure Container Service tarafından yapılandırılmış bir kümeyi [dağıtın](container-service-deployment.md) ve [bağlayın](../container-service-connect.md). [Marathon Kullanıcı Arabirimi](container-service-mesos-marathon-ui.md)’ni keşfedin. Git [ http://datadoghq.com ](http://datadoghq.com) Datadog hesabı ayarlamak için. 
 
 ## <a name="datadog"></a>Datadog
-Datadog, Azure kapsayıcı hizmeti kümesi kapsayıcılara gelen izleme verilerini toplayan izleme bir hizmettir. Datadog Docker tümleştirmesi, kapsayıcılara belirli ölçümleri görebileceğiniz bir Pano vardır. Kapsayıcılardan toplanan ölçümleri CPU, bellek, ağ ve g/ç tarafından düzenlenir. Datadog ölçümleri kapsayıcıları ve görüntüleri halinde ayırır. Kullanıcı arabirimini nasıl için CPU kullanımını göründüğünü örneği aşağıda verilmiştir.
+Datadog gelen Azure Container Service kümenizdeki kapsayıcıları izleme verilerini toplayan bir izleme hizmetidir. Datadog Docker tümleştirmesi, kapsayıcılarınızın belirli ölçümleri görebileceğiniz bir Pano vardır. Kapsayıcılardan toplanan ölçümler, CPU, bellek, ağ ve g/ç tarafından düzenlenir. Datadog ölçümleri kapsayıcılar ve görüntüleri halinde böler. Kullanıcı Arabirimi için CPU kullanımını nasıl göründüğüne ilişkin bir örnek aşağıda verilmiştir.
 
 ![Datadog kullanıcı Arabirimi](./media/container-service-monitoring/datadog4.png)
 
-## <a name="configure-a-datadog-deployment-with-marathon"></a>Marathon ile Datadog dağıtımını yapılandırma
-Bu adımları yapılandırmak ve Marathon kümenizle Datadog uygulamaları dağıtmak nasıl yapacağınızı gösterir. 
+## <a name="configure-a-datadog-deployment-with-marathon"></a>Datadog dağıtım Marathon ile yapılandırma
+Bu adımları, yapılandırma ve kümenize Marathon ile Datadog uygulamaları dağıtma gösterilmektedir. 
 
-DC/OS kullanıcı Arabirimi aracılığıyla erişim [ http://localhost:80/ ](http://localhost:80/). DC/OS kullanıcı Arabiriminde "sol alta olan Universe" kez gidin ve "Datadog" için arama yapın ve "Yükle" yi tıklatın.
+DC/OS kullanıcı arabiriminize erişin [ http://localhost:80/ ](http://localhost:80/). Bir kez ", sol altta bulunan Evreni" DC/OS Arabiriminde gidin ve ardından "Datadog" için arama yapın ve "Yükle" seçeneğine tıklayın.
 
-![Datadog paket DC/OS Universe içinde](./media/container-service-monitoring/datadog1.png)
+![DC/OS Evreni içinde Datadog paket](./media/container-service-monitoring/datadog1.png)
 
-Şimdi yapılandırmasını tamamlamak için bir Datadog hesap veya ücretsiz bir deneme hesabı gerekir. Sol Datadog Web sitesi görünüm için oturum açtınız ve tümleştirmeler gidin sonra sonra -> [API'leri](https://app.datadoghq.com/account/settings#api). 
+Şimdi yapılandırmasını tamamlamak için Datadog hesap veya ücretsiz bir deneme hesabı gerekir. Ardından sol Datadog Web sitesi görünümü için oturum açtınız ve tümleştirmeler gidin -> [API'leri](https://app.datadoghq.com/account/settings#api). 
 
 ![Datadog API anahtarı](./media/container-service-monitoring/datadog2.png)
 
-Sonraki DC/OS Universe içinde Datadog yapılandırma içine API anahtarınızı girin. 
+Ardından DC/OS Evreni içinde Datadog yapılandırma API anahtarınızı girin. 
 
-![DC/OS Universe Datadog yapılandırma](./media/container-service-monitoring/datadog3.png) 
+![DC/OS evreninde Datadog yapılandırma](./media/container-service-monitoring/datadog3.png) 
 
-Yukarıdaki yapılandırmada örnekleri 10000000 için ayarlanmış olan bunu yeni bir düğüm kümeye Datadog otomatik olarak bu düğüme bir aracı dağıtacağınız eklendiği zaman. Bu geçici bir çözümdür. Tekrar Datadog Web sitesine gidin ve bulmak paketini yükledikten sonra "[panolar](https://app.datadoghq.com/dash/list)." Buradan, özel ve tümleştirme panolar görürsünüz. [Docker Pano](https://app.datadoghq.com/screen/integration/docker) kümenizi izleme için gereksinim duyduğunuz tüm kapsayıcı ölçümleri sahip olur. 
+Yukarıdaki yapılandırmada örnekleri 10000000 için ayarlanır. Bunu yeni bir düğüm kümeye Datadog otomatik olarak bu düğüme bir aracı dağıtacağınız eklendiğinde. Bu geçici bir çözümdür. Tekrar Datadog Web sitesine gidin ve bulmak paketi yükledikten sonra "[panolar](https://app.datadoghq.com/dash/list)." Buradan, özel ve tümleştirme panoları görürsünüz. [Docker Pano](https://app.datadoghq.com/screen/integration/docker) kümenizi izlemek için ihtiyacınız olan tüm kapsayıcı ölçümleri olacaktır. 
 

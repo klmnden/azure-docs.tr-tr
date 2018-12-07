@@ -9,12 +9,13 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
-ms.openlocfilehash: 0f09e168cf3e7944db0381bc54e66e0b95d0dd8e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: 3033b049b3d4bbe49b6a30be7ec78e1c2caf49ef
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877159"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011156"
 ---
 # <a name="collect-data-for-models-in-production"></a>Üretimde modelleri için veri toplama
 
@@ -134,7 +135,7 @@ Dilediğiniz zaman veri toplamayı durdurabilirsiniz. Veri toplamayı devre dı�
 
   1. Git **dağıtımları** -> **hizmet Seç** -> **Düzenle**.
 
-    [![Hizmet Düzenle](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
+    [![Düzenle seçeneği](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. İçinde **Gelişmiş ayarlar**, seçimini **etkinleştirme Model veri koleksiyonu**. 
 

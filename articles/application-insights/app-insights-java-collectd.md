@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: 6cc817b86170ddab3152a041924ae99ff52a23ec
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 528b344063dd9f84720ee55c4b3663c20127e5fe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723933"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995044"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>toplanan: Application ınsights Linux performans ölçümleri
 
 
-İçindeki Linux sistem performans ölçümlerini keşfetmek için [Application Insights](app-insights-overview.md), yükleme [toplanan](http://collectd.org/)eklentisi, Application Insights ile birlikte. Bu açık kaynaklı çözüm çeşitli sistem ve ağ istatistiklerini toplar.
+İçindeki Linux sistem performans ölçümlerini keşfetmek için [Application Insights](app-insights-overview.md), yükleme [toplanan](https://collectd.org/)eklentisi, Application Insights ile birlikte. Bu açık kaynaklı çözüm çeşitli sistem ve ağ istatistiklerini toplar.
 
 Genellikle zaten varsa, toplanan kullanacağınız [Application Insights ile Java web hizmetinizin izleme eklenmiş][java]. Uygulamanızın performansını geliştirmek veya sorunları tanılamak için yardımcı olacak daha fazla veri sağlar. 
 
@@ -38,7 +38,7 @@ Kaynağı tanımlayan izleme anahtarını bir kopyasını alın.
 ## <a name="install-collectd-and-the-plug-in"></a>Toplanan ve eklenti yükleme
 Linux sunucusu makinelerinizde:
 
-1. Yükleme [toplanan](http://collectd.org/) sürüm 5.4.0 ya da daha sonra.
+1. Yükleme [toplanan](https://collectd.org/) sürüm 5.4.0 ya da daha sonra.
 2. İndirme [Application Insights toplanan yazan eklentisi](https://aka.ms/aijavasdk). Sürüm numarasını not edin.
 3. Eklenti JAR içine kopyalama `/usr/share/collectd/java`.
 4. Düzen `/etc/collectd/collectd.conf`:

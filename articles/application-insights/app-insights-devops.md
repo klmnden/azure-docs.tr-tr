@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 57e201403374ac72ef79bb4335294e1e937c8757
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: bf096032d0ab429a5c6c06d5ada568c4bfb56d9f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720313"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994437"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights ile ayrıntılı web uygulaması ve hizmet tanılama
 ## <a name="why-do-i-need-application-insights"></a>Application Insights neden gerekiyor?
@@ -79,7 +79,7 @@ Ana veri kategorileri şunlardır:
 * Günlük izlemelerini, hata ayıklama için kullanılır.
 
 ## <a name="case-study-real-madrid-fc"></a>Örnek olay incelemesi: Real Madrid'in F.C.
-Web hizmeti, [Real Madrid futbol kulübü](http://www.realmadrid.com/) 450 milyon dünyanın işlevi görür. Fanlar, hem web tarayıcıları ve mobil uygulamalar kulübü'nın aracılığıyla erişin. Fanlar yalnızca biletleri kitap, ancak ayrıca sonuçları, oyuncuların ve yaklaşan oyun bilgileri ve video klipleri erişim. Hedefleri sayıda puanlanmış gibi filtrelerle arama yapabilirsiniz. Sosyal medya bağlantıları vardır. Kullanıcı deneyimi, yüksek oranda kişiselleştirilmiş ve iki yönlü bir iletişim fanlar etkileşim kurmak amacıyla tasarlanmıştır.
+Web hizmeti, [Real Madrid futbol kulübü](https://www.realmadrid.com/) 450 milyon dünyanın işlevi görür. Fanlar, hem web tarayıcıları ve mobil uygulamalar kulübü'nın aracılığıyla erişin. Fanlar yalnızca biletleri kitap, ancak ayrıca sonuçları, oyuncuların ve yaklaşan oyun bilgileri ve video klipleri erişim. Hedefleri sayıda puanlanmış gibi filtrelerle arama yapabilirsiniz. Sosyal medya bağlantıları vardır. Kullanıcı deneyimi, yüksek oranda kişiselleştirilmiş ve iki yönlü bir iletişim fanlar etkileşim kurmak amacıyla tasarlanmıştır.
 
 Çözüm [hizmet ve uygulamaların Microsoft Azure üzerinde bir sistem](https://www.microsoft.com/inculture/sports/real-madrid/). Ölçeklenebilirlik temel bir gereksinimdir: trafik değişkendir ve çok yüksek miktarlarda sırasında ve eşleşme etrafında ulaşabilirsiniz.
 

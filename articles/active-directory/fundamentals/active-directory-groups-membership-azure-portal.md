@@ -12,12 +12,12 @@ ms.date: 10/19/2018
 ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
-ms.openlocfilehash: 09e023d1d562ea53d9927adf609335beac38a2d7
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2d05a31c56cfe8ea92a933696ca3c9b0fadbd4d3
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468045"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000323"
 ---
 # <a name="how-to-add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Nasıl yapılır: ekleme veya bir grup Azure Active Directory'yi kullanarak başka bir gruptan kaldırma
 Bu makalede, bir grup Azure Active Directory'yi kullanarak başka bir gruptan ekleyip yardımcı olur.
@@ -29,7 +29,7 @@ Bu makalede, bir grup Azure Active Directory'yi kullanarak başka bir gruptan ek
 Mevcut güvenlik grubuna üye grubu (alt) ve bir üst grubu oluşturma var olan başka bir güvenlik grubu (olarak da bilinen iç içe geçmiş gruplar) ekleyebilirsiniz. Grubu üyeleri, öznitelikleri ve yapılandırma zamandan tasarruf üst grubunun özelliklerini devralır.
 
 >[!Important]
->Şu anda desteklemiyoruz:<ul><li>Office 365 grupları için güvenlik grupları ekleme</li><li>Güvenlik grupları veya diğer Office 365 grupları için Office 365 grupları ekleme</li><li>İç içe geçmiş gruplara uygulama atama</li><li>İç içe geçmiş gruplara uygulama lisansları</li></ul>
+>Şu anda desteklemiyoruz:<ul><li>Grupları şirket içi Active Directory ile eşitlenen bir gruba ekleme</li><li>Office 365 grupları için güvenlik grupları ekleme</li><li>Güvenlik grupları veya diğer Office 365 grupları için Office 365 grupları ekleme</li><li>İç içe geçmiş gruplara uygulama atama</li><li>İç içe geçmiş gruplara uygulama lisansları</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>Bir grubu başka bir grubun üyesi olarak eklemek için
 

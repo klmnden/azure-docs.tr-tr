@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: c8bad3642f1e98cac3857d536f539554235e1a51
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 8e265f2bed480f7b40476e09ab8f442aedcc9dd4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578646"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999446"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT kümesini dağıtma
 
@@ -286,7 +286,7 @@ RESOURCE_GROUP=
 * Alt ağ adı
 * Örnekte izlediyseniz azure AD çalışma zamanı rol adı - [küme düğümü erişim rolünü oluşturma](#create-the-cluster-node-access-role), kullanın ``avere-cluster``. 
 * Depolama hesabı adı (yeni bir Blob kapsayıcı oluşturuyorsanız)
-* Küme adı - aynı kaynak grubunda aynı ada sahip iki vFXT küme sahip olamaz. 
+* Küme adı - aynı kaynak grubunda aynı ada sahip iki vFXT küme sahip olamaz. Her küme için en iyi yöntem benzersiz bir ad verin.
 * Yönetici parolasını - izleme ve kümeyi yönetmek için güvenli bir parola seçin. Bu parolayı kullanıcıya atanmış ``admin``. 
 * Düğüm örneği türü - bkz [vFXT düğümü boyutları](avere-vfxt-deploy-plan.md#vfxt-node-sizes) bilgi
 * Düğüm önbellek boyutu - bkz [vFXT düğümü boyutları](avere-vfxt-deploy-plan.md#vfxt-node-sizes) bilgi
@@ -306,6 +306,15 @@ Betik tamamlandığında, küme yönetim için gereken yönetim IP adresi kopyal
 
 ![Yönetim IP adresi sonlarında görüntüleme betiğin komut satırı çıkışı](media/avere-vfxt-mgmt-ip.png)
 
+> [!IMPORTANT] 
+> Yeni bir Blob kapsayıcısı oluşturduysanız, kümenin dışında kaydedilmemiş bir varsayılan anahtarla şifrelenebilir. Kapsayıcıdaki veri depolamadan önce ya da anahtar kurtarma dosyasını indirin veya kendi şifreleme anahtarınızı oluşturma ve kendi kurtarma dosyasını kalıcı bir konuma kaydetmeniz gerekir. 
+> 
+> Varsayılan anahtar kurtarma dosyayı indirmeden kullanırsanız, şifrelenmiş verilerin Blob çekirdek dosyalayıcı vFXT küme yok veya kaybolursa erişimlerini mümkündür.
+>
+> Betiğinizi gösteriliyorsa `WARNING` iletileri aşağıdaki ekran görüntüsünde daire içinde benzer yönergeleri izleyin [depolamayı yapılandırma](avere-vfxt-add-storage.md) anahtar dosyasını indirme veya Blob kapsayıcınızın yeni bir anahtar oluşturun. Küme yapılandırma aracını Avere Denetim Masası'nı kullanın.
+
+![Komut satırı çıkışı betiğin yeni bir şifreleme anahtarı oluşturma hakkında daha fazla uyarı iletilerini görüntüleme](media/avere-vfxt-key-warning.png)
+
 ## <a name="next-step"></a>Sonraki adım
 
-Kümenin çalıştığından ve yönetim IP adresini bilmeniz göre yapabilecekleriniz [Küme Yapılandırma Aracı'na bağlanma](avere-vfxt-cluster-gui.md) desteğini etkinleştir ve gerekirse depolama eklemek için.
+Kümenin çalıştığından ve yönetim IP adresini bilmeniz göre yapabilecekleriniz [Küme Yapılandırma Aracı'na bağlanma](avere-vfxt-cluster-gui.md) desteğini etkinleştirmek için depolama gerekli ya da yeni bir Blob Depolama alanınızın varsayılan şifreleme anahtarı adres ekleyin.

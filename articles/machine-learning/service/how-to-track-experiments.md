@@ -9,12 +9,13 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: 44c5cce103996f1774fb87b46760c23dc9ab575c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: ae61f6fe24486eb1d4d5deecf5fb005a4d71b5fc
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957717"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016172"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Denemeler ve Azure Machine learning'de eğitim metriklerini izleme
 
@@ -241,7 +242,7 @@ Kullanırken **ScriptRunConfig** göndermek için gereken yöntemini çalıştı
    RunDetails(run).show()
    ```
 
-  ![Ekran görüntüsü, Jupyter not defteri pencere öğesi](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
+  ![Jupyter not defteri pencere otomatik Machine Learning için](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
 
 
 Daha fazla işlem hattını bir işlem hattı tıklama ayrıntılarını görüntülemek için keşfetmek tabloda istediğiniz ve grafikleri, Azure portalından bir açılır pencere içinde işlenir.
@@ -264,7 +265,7 @@ Bir deney çalışması tamamlandığında kayıtlı denemeyi çalıştırma kay
 
 Farklı Çalıştır bağlantısını çalıştırma ayrıntıları sayfasına doğrudan Azure portalında getirir. Burada, özellikleri, izlenen ölçümler, görüntüleri ve deneme günlüğe kaydedilen grafik görebilirsiniz. Bu durumda, MSE ve alfa değerleri oturum.
 
-  ![Azure portalında çalıştırma ayrıntılarını, ekran görüntüsü](./media/how-to-track-experiments/run-details-page-web.PNG)
+  ![Azure portalında çalışma ayrıntıları](./media/how-to-track-experiments/run-details-page-web.PNG)
 
 Ayrıca, herhangi bir çıkış veya çalıştırma için günlükleri görüntüleyin veya anlık görüntüsünü ve böylelikle deneme klasörü başkalarıyla paylaşabilirsiniz gönderdiğiniz denemeyi indirin.
 
@@ -300,15 +301,15 @@ Aşağıdakiler hakkında daha fazla bilgi edinin:
 
 1. İlginizi çeken bir denemeyi seçin.
 
-  ![Deneme menüsünün ekran görüntüsü](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
+  ![Deneme listesi](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
 
 1. Tabloda, çalıştırma numarası seçin.
 
-   ![Deneme menüsünün ekran görüntüsü](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.PNG)
+   ![Denemeyi çalıştırma](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.PNG)
 
 1.  Tabloda, yineleme numarasını daha fazlasını keşfetmek istediğiniz modeli seçin.
 
-   ![Deneme menüsünün ekran görüntüsü](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
+   ![Deneme modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
 
 
 

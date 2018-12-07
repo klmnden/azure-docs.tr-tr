@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: e0a47da168ae9371979290b3febc9d767e8755d7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 164ec0898e2f7ad461ab63ce0fcaf47a87998797
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428020"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997840"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makineler’de SQL Server için Yedekleme ve Geri Yükleme
 
@@ -40,7 +40,7 @@ Aşağıdaki tabloda Azure Vm'lerinde çalışan SQL Server için çeşitli yede
 
 Aşağıdaki bölümlerde her seçeneği daha ayrıntılı açıklanmaktadır. Bu makalenin son bölümü, bir özellik matrisi biçiminde bir özetini sağlar.
 
-## <a id="autoamted"></a> Otomatik yedekleme
+## <a id="automated"></a> Otomatik yedekleme
 
 Otomatik yedekleme, azure'daki bir Windows VM'de çalışan SQL Server Standard ve Enterprise sürümleri için otomatik bir yedekleme hizmeti sağlar. Bu hizmet tarafından sağlanan [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md), otomatik olarak yüklendiği SQL Server Windows sanal makine görüntüleri Azure portalında üzerinde.
 

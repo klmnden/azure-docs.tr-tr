@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: f37bfc59e402e87afcffa469d4d2014ed6877db6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e535d1c2c581e20667a1ccf10fc97fcf988bc91a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955709"
+ms.locfileid: "53001822"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Desteklenen Kubernetes sürümlerini Azure Kubernetes Service (AKS)
 
 Kubernetes topluluğu, küçük sürümleri yaklaşık üç ayda bir yayınlamaktadır. Bu yayınlar yeni özellikler ve geliştirmeler içerir. Düzeltme eki yayınları daha sıktır (bazen haftalık) ve yalnızca bir küçük sürümdeki kritik hata düzeltmelerine yöneliktir. Bu düzeltme eki sürümler, güvenlik açıklarını veya çok sayıda müşteriler ve üretimde Kubernetes üzerinde çalışan ürünleri etkileyen önemli hatalar için düzeltmeler içerir.
 
-Alt sürümü içinde kullanılabilir yapılan yeni bir Kubernetes [acs-engine] [ acs-engine] günlük bir. AKS Hizmet Düzeyi Hedefi (SLO), yayının kararlılığına bağlı olarak 30 gün içinde AKS kümelerinin küçük sürümü yayınlamayı hedeflemektedir.
+Alt sürümü içinde kullanılabilir yapılan yeni bir Kubernetes [aks altyapısı] [ aks-engine] günlük bir. AKS Hizmet Düzeyi Hedefi (SLO), yayının kararlılığına bağlı olarak 30 gün içinde AKS kümelerinin küçük sürümü yayınlamayı hedeflemektedir.
 
 ## <a name="kubernetes-version-support-policy"></a>Kubernetes sürüm destek ilkesi
 
@@ -84,7 +84,7 @@ Ana, desteklenen en son sürüme otomatik olarak güncelleştirilir.
 Kümenizi yükseltme hakkında daha fazla bilgi için bkz: [Azure Kubernetes Service (AKS) kümesini yükseltme][aks-upgrade].
 
 <!-- LINKS - External -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [azure-update-channel]: https://azure.microsoft.com/updates/?product=kubernetes-service
 
 <!-- LINKS - Internal -->

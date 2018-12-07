@@ -1,26 +1,26 @@
 ---
-title: Azure Machine Learning ile yapay ZEKA uzantısı için Visual Studio Code araçları kullanma
-description: Yapay ZEKA ve eğitim başlatma ve makine öğrenimi ve derin öğrenme modelleri VS code'da Azure Machine Learning hizmeti ile dağıtmak için Visual Studio Code araçları hakkında bilgi edinin.
+title: Visual Studio Code için Azure Machine Learning'i kullanmaya başlayın
+description: Azure Machine Learning için Visual Studio Code yükleme ve Azure Machine Learning'de basit bir deneme oluşturma hakkında bilgi edinin.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.author: shwinne
 author: swinner95
-ms.reviewer: jmartens
-ms.date: 10/1/2018
-ms.openlocfilehash: 57fe511e5de0d73f2a372da0ecab3e9a3039b194
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: c5d7d3c10b9c8c191144e1e396d28fc53f813623
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854212"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012683"
 ---
-# <a name="vs-code-tools-for-ai-get-started-with-azure-machine-learning-from-visual-studio-code"></a>AI için VS Code araçları: Visual Studio code'dan Azure Machine Learning ile çalışmaya başlama
+# <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Visual Studio Code için Azure Machine Learning'i kullanmaya başlayın
 
-Bu makalede, Visual Studio Code (VS Code) uzantısı hakkında bilgi edineceksiniz **yapay ZEKA Araçları**ve eğitim başlatma ve makine öğrenimi ve derin öğrenme modelleri VS code'da Azure Machine Learning hizmeti ile dağıtın.
+Bu makalede, nasıl yükleneceğini öğreneceksiniz **Visual Studio Code için Azure Machine Learning** uzantısı ve Azure Machine Learning hizmeti Visual Studio code'da (VS Code) ile ilk denemenizi oluşturun.
 
-Kullanım, veri, eğitin ve test ML hazırlama için Azure Machine Learning hizmeti kullanmak için Visual Studio code'da AI uzantısı için araçları modeller üzerinde yerel ve uzak hedef işlem, bu modelleri dağıtma ve özel Ölçümler ve denemeleri izleyin.
+Azure Machine Learning uzantısı, veri, eğitin ve test makine öğrenimi modellerini yerel ve uzak işlem hedeflerde hazırlama, bu modelleri dağıtma ve özel Ölçümler ve deneyler izlemek için Azure Machine Learning hizmeti kullanmak için Visual Studio code'da kullanın.
 
 ## <a name="prerequisite"></a>Önkoşul
 
@@ -30,17 +30,17 @@ Kullanım, veri, eğitin ve test ML hazırlama için Azure Machine Learning hizm
 
 + Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
 
-## <a name="install-vs-code-tools-for-ai-extension"></a>VS Code araçları için yapay ZEKA uzantısını yükleme
+## <a name="install-the-azure-machine-learning-for-vs-code-extension"></a>Azure Machine Learning için VS Code uzantısı yükleme
 
-Yüklediğinizde **yapay ZEKA Araçları** uzantısı (internet erişimi varsa) iki daha fazla uzantı otomatik olarak yüklenir. Bunlar [Azure hesabı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) uzantısı ve [Microsoft Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) uzantısı
+Yüklediğinizde **Azure Machine Learning** uzantısı (internet erişimi varsa) iki daha fazla uzantı otomatik olarak yüklenir. Bunlar [Azure hesabı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) uzantısı ve [Microsoft Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) uzantısı
 
-Azure Machine Learning ile çalışmak için Python IDE'ye VS Code etkinleştirmek ihtiyacımız var. Çalışma [Visual Studio Code içindeki Python](https://code.visualstudio.com/docs/languages/python), araçları ile yapay ZEKA için otomatik olarak yüklenen Microsoft Python uzantı gerektirir. Uzantı, VS Code mükemmel bir IDE sağlar ve tüm işletim sistemlerinde Python yorumlayıcılarını çeşitli ile çalışır. Otomatik Tamamlama ve IntelliSense, linting, hata ayıklama ve birim testi birlikte conda ortamları ve sanal dahil olmak üzere, Python ortamları arasında kolayca geçiş olanağı sağlamak için VS Code'nın gücü tümünün yararlanır. Çalışan, düzenleme, bu kılavuzun denetleyin ve Python kodunda hata ayıklama, bkz: [Python Hello World Öğreticisi](https://code.visualstudio.com/docs/python/python-tutorial)
+Azure Machine Learning ile çalışmak için Python IDE'ye VS Code etkinleştirmek ihtiyacımız var. Çalışma [Visual Studio Code içindeki Python](https://code.visualstudio.com/docs/languages/python), Azure Machine Learning uzantısı ile otomatik olarak yüklenen Microsoft Python uzantı gerektirir. Uzantı, VS Code mükemmel bir IDE sağlar ve tüm işletim sistemlerinde Python yorumlayıcılarını çeşitli ile çalışır. Otomatik Tamamlama ve IntelliSense, linting, hata ayıklama ve birim testi birlikte conda ortamları ve sanal dahil olmak üzere, Python ortamları arasında kolayca geçiş olanağı sağlamak için VS Code'nın gücü tümünün yararlanır. Çalışan, düzenleme, bu kılavuzun denetleyin ve Python kodunda hata ayıklama, bkz: [Python Hello World Öğreticisi](https://code.visualstudio.com/docs/python/python-tutorial)
 
-**Yapay ZEKA uzantısı için araçları yüklemek için:**
+**Azure Machine Learning uzantıyı yüklemek için:**
 
 1. VS Code'u başlatın.
 
-1. Bir tarayıcıda ziyaret edin: https://aka.ms/vscodetoolsforai. 
+1. Bir tarayıcıda ziyaret edin: [Azure Machine Learning için Visual Studio Code (Önizleme)](https://aka.ms/vscodetoolsforai) uzantısı
 
 1. Bu web sayfasında tıklatın **yükleme**. 
 
@@ -52,7 +52,7 @@ Azure Machine Learning ile çalışmak için Python IDE'ye VS Code etkinleştirm
 
 1. İletişim kutusunda **oturum** ve Azure kimlik doğrulaması yapmak için ekrandaki istemi izleyin. 
    
-   VS Code araçları ile birlikte, yapay ZEKA için yüklü olduğu, Azure hesabı uzantısını Azure hesabınızla kimlik doğrulaması yardımcı olur. Komutları listesini görmek [Azure hesabı uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) sayfası.
+   VS Code uzantısı için Azure Machine Learning ile birlikte yüklenen Azure hesabı uzantısını Azure hesabınızla kimlik doğrulaması yardımcı olur. Komutları listesini görmek [Azure hesabı uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) sayfası.
 
 > [!Tip] 
 > Kullanıma [Intellicode uzantısı VS Code (Önizleme) için](https://go.microsoft.com/fwlink/?linkid=2006060). Intellicode geçerli kod bağlama göre en uygun Otomatik Tamamlama çıkarımını yapma gibi IntelliSense Python için bir dizi yapay ZEKA destekli özelliği sağlar.
@@ -64,45 +64,46 @@ Azure Machine Learning ile çalışmak için Python IDE'ye VS Code etkinleştirm
 1. VS Code'da komut paletini açın **Ctrl + Shift + P**.
 
 1. Türü 'Azure ML pip bulmak için SDK'sını Yükle' için SDK yükleme komutu. Azure Machine Learning ile çalışmak için Visual Studio Code önkoşullarına sahiptir yerel ve özel bir Python ortamı oluşturulur.
-   ![Yükleme](./media/vscode-tools-for-ai/install-sdk.png)
+
+   ![Python için Azure Machine Learning SDK'sını yükleyin](./media/vscode-tools-for-ai/install-sdk.png)
 
 1. Tümleşik terminal penceresinde, kullanılacak Python yorumlayıcısı belirtin ya da ziyaret **Enter** , varsayılan Python yorumlayıcısı kullanılacak.
 
-   ![Yükleme](./media/vscode-tools-for-ai/python.png)
+   ![Yorumlayıcı seçin](./media/vscode-tools-for-ai/python.png)
 
 ## <a name="get-started-with-azure-machine-learning"></a>Azure Machine Learning kullanmaya başlayın
 
-VS Code kullanarak ML modelleri dağıtma, oluşturmanız gerekir ve eğitim başlamadan önce bir [Azure Machine Learning hizmeti çalışma alanında](concept-azure-machine-learning-architecture.md#workspace) bulutta verilerinizin modelleriniz ve kaynakları içerir. Oluşturun ve bu çalışma alanında ilk denemenizi oluşturma hakkında bilgi edinin.
+VS Code kullanarak makine öğrenimi modelleri dağıtma, oluşturmanız gerekir ve eğitim başlamadan önce bir [Azure Machine Learning hizmeti çalışma alanında](concept-azure-machine-learning-architecture.md#workspace) bulutta verilerinizin modelleriniz ve kaynakları içerir. Oluşturun ve bu çalışma alanında ilk denemenizi oluşturma hakkında bilgi edinin.
 
-1. Visual Studio Code etkinlik çubuğundaki Azure simgesine tıklayın. Azure: Machine Learning kenar çubuğu görünür.
+1. Visual Studio Code etkinlik çubuğundaki Azure simgesine tıklayın. Azure Machine Learning Kenar çubuğunda görünür.
 
-   ![Yükleme](./media/vscode-tools-for-ai/createworkspace.gif)
+   [![Kenar Çubuğu](./media/vscode-tools-for-ai/CreateNewWorkspace.gif)](./media/vscode-tools-for-ai/CreateNewWorkspace.gif#lightbox)
 
-1. Azure aboneliğinize sağ tıklayıp **çalışma alanı oluştur**. Bir liste görüntülenir. Animasyonlu görüntüde, abonelik adı 'OpenMind Studio' ve 'MyWorkspace' çalışma alanıdır. 
+1. Azure aboneliğinize sağ tıklayıp **çalışma alanı oluştur**. Bir liste görüntülenir. Animasyonlu görüntüde, abonelik adı 'Ücretsiz deneme sürümü' ve 'TeamWorkspace' çalışma alanıdır. 
 
 1. Listeden mevcut bir kaynak grubunu seçin veya Sihirbazı içinde komut paletini kullanarak yeni bir tane oluşturun.
 
-1. Yeni bir çalışma alanınız için benzersiz ve açık bir ad alanına yazın. Ekran görüntülerinde 'MyWorkspace' çalışma alanı olarak adlandırılır.
+1. Yeni bir çalışma alanınız için benzersiz ve açık bir ad alanına yazın. Ekran görüntülerinde 'TeamWorkspace' çalışma alanı olarak adlandırılır.
 
 1. ENTER tuşuna basın ve yeni bir çalışma alanı oluşturulur. Abonelik adı altındaki ağacın görüntülenir.
 
-1. Çalışma alanı adına sağ tıklayın ve seçin **deney oluşturma** bağlam menüsünden.  Denemeleri, Azure Machine Learning kullanarak gerçekleştirdiğiniz çalıştırmaların izler.
+1. Deneme düğümüne sağ tıklayın ve seçin **deney oluşturma** bağlam menüsünden.  Denemeleri, Azure Machine Learning kullanarak gerçekleştirdiğiniz çalıştırmaların izler.
 
 1. Alanda denemenizi bir ad girin. Ekran görüntülerinde denemeyi 'MNIST' olarak adlandırılır.
  
 1. ENTER tuşuna basın ve yeni bir deneme oluşturulur. Çalışma alanı adı altındaki ağacın görüntülenir.
 
-1. Deneme adına sağ tıklayın ve seçin **bir yerel klasör ekleme**. Bu klasör, yerel Python betiklerini içermelidir. Klasörü, bulutta deneme sonra bağlandı. 
+1. Deneme adına sağ tıklayın ve seçin **deneme ekleme klasörüne**. Bu klasör, yerel Python betiklerini içermelidir. Klasörü, bulutta deneme sonra bağlandı. 
 
    Artık her denemenizi denemenizi ile önemli ölçümlerinizin tamamını deneme geçmişinde depolanacak ve eğittiğiniz modeli otomatik olarak Azure Machine Learning için karşıya yüklenen ve, deneme ölçüm ve günlükleri ile depolanan çalışır.
 
-   [![VS code'da bir klasör ekleme](./media/vscode-tools-for-ai/attachfolder.gif)](./media/vscode-tools-for-ai/attachfolder.gif#lightbox)
+   [![VS code'da bir klasör ekleme](./media/vscode-tools-for-ai/CreateNewExperimentandFolder.gif)](./media/vscode-tools-for-ai/CreateNewExperimentandFolder.gif#lightbox)
 
 ### <a name="use-keyboard-shortcuts"></a>Klavye kısayollarını kullanma
 
 VS Code çoğunu gibi Azure Machine Learning özellikleri VS code'da klavyeden erişilebilir. Bilmeniz gereken en önemli tuş bileşimi, Ctrl + Shift + komut paletini getiren P ' dir. Buradan, tüm klavye kısayolları en yaygın işlemler de dahil olmak üzere VS Code işlevselliğini erişebilirsiniz.
 
-[![AI için VS Code araçları için klavye kısayolları](./media/vscode-tools-for-ai/commands.gif)](./media/vscode-tools-for-ai/commands.gif#lightbox)
+[![VS Code için Azure Machine Learning için klavye kısayolları](./media/vscode-tools-for-ai/commands.gif)](./media/vscode-tools-for-ai/commands.gif#lightbox)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

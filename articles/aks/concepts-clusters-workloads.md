@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 1b0b3d0db2067a492905d8f828934f0b63fb8f54
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f5695e52528c3384c46c49c5c5ec2e451bd0be7c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155992"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998084"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes kavramları Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Yapı ve işlemlerini ve bu uygulama bileşenlerinin kullanılabilirliğini yön
 
 Açık bir platform Kubernetes tercih edilen bir programlama dili, işletim sistemi, kitaplıkları veya ileti veri yolu ile uygulamalarınızı oluşturmanıza olanak tanır. Mevcut bir sürekli tümleştirme ve sürekli teslim (CI/CD) araçları, zamanlama ve sürümleri dağıtmak için Kubernetes ile tümleştirebilirsiniz.
 
-Azure Kubernetes Service (AKS), yükseltme koordine dahil olmak üzere, dağıtım ve çekirdek yönetim görevleri için karmaşıklığı azaltan yönetilen bir Kubernetes hizmeti sağlar. AKS küme yöneticileri Azure platformu tarafından yönetilir ve yalnızca, uygulamalarınızı çalıştırmak AKS düğümleri için ücret ödersiniz. AKS, açık kaynak Azure Container Service altyapısı üzerine (acs-engine) oluşturulur.
+Azure Kubernetes Service (AKS), yükseltme koordine dahil olmak üzere, dağıtım ve çekirdek yönetim görevleri için karmaşıklığı azaltan yönetilen bir Kubernetes hizmeti sağlar. AKS küme yöneticileri Azure platformu tarafından yönetilir ve yalnızca, uygulamalarınızı çalıştırmak AKS düğümleri için ücret ödersiniz. AKS, açık kaynaklı Azure Kubernetes Service altyapısı üzerine (altyapısı aks) oluşturulur.
 
 ## <a name="kubernetes-cluster-architecture"></a>Kubernetes kümesi mimarisi
 
@@ -54,7 +54,7 @@ AKS sağlayan bir tek kiracılı Küme Yöneticisi, bir API ile ayrılmış sunu
 
 Bu yönetilen küme ana bileşenleri gibi yüksek oranda kullanılabilir bir yapılandırma gerekmez anlamına gelir. *etcd* deposu, ancak aynı zamanda anlamına gelir küme asıl doğrudan erişemiyor. Yükseltme için Kubernetes küme asıl ve düğümler yükseltmeleri Azure portalı ve Azure CLI düzenlenir. Olası sorunları gidermek için Azure Log Analytics aracılığıyla küme ana günlüklerini gözden geçirebilirsiniz.
 
-Küme Yöneticisi belirli bir şekilde yapılandırın veya bunlara doğrudan erişmesi gerekiyorsa kendi Kubernetes kümesi kullanarak dağıtabilirsiniz [acs-engine][acs-engine].
+Küme Yöneticisi belirli bir şekilde yapılandırın veya bunlara doğrudan erişmesi gerekiyorsa kendi Kubernetes kümesi kullanarak dağıtabilirsiniz [aks altyapısı][aks-engine].
 
 ## <a name="nodes-and-node-pools"></a>Düğüm ve düğüm havuzları
 
@@ -70,7 +70,7 @@ Azure VM boyutu, düğümleri için kaç CPU'lar, tanımlar ne kadar bellek ve b
 
 AKS kümenizde düğümleri için VM görüntüsü şu anda Ubuntu Linux üzerinde temel alır. AKS kümesi oluşturma veya düğüm sayısını, Azure platformu istenen VM sayısını oluşturur ve bunları yapılandırır. Gerçekleştirmeniz için el ile yapılandırma yoktur.
 
-İşletim sistemi, kapsayıcı çalışma zamanı, farklı bir konak kullanın veya özel paketler dahil gerekiyorsa kendi Kubernetes kümesi kullanarak dağıtabilirsiniz [acs-engine][acs-engine]. Yukarı Akış `acs-engine` özellikleri serbest bırakır ve resmi olarak AKS kümelerde desteklenen önce yapılandırma seçenekleri sağlar. Örneğin, Windows kapsayıcıları ve Docker dışındaki bir kapsayıcı çalışma zamanı kullanmak istiyorsanız, kullanabileceğiniz `acs-engine` yapılandırmak ve geçerli ihtiyaçlarınıza uygun bir Kubernetes kümesi dağıtmak için.
+İşletim sistemi, kapsayıcı çalışma zamanı, farklı bir konak kullanın veya özel paketler dahil gerekiyorsa kendi Kubernetes kümesi kullanarak dağıtabilirsiniz [aks altyapısı][aks-engine]. Yukarı Akış `aks-engine` özellikleri serbest bırakır ve resmi olarak AKS kümelerde desteklenen önce yapılandırma seçenekleri sağlar. Örneğin, Windows kapsayıcıları ve Docker dışındaki bir kapsayıcı çalışma zamanı kullanmak istiyorsanız, kullanabileceğiniz `aks-engine` yapılandırmak ve geçerli ihtiyaçlarınıza uygun bir Kubernetes kümesi dağıtmak için.
 
 ### <a name="resource-reservations"></a>Kaynak ayırmalar
 
@@ -218,7 +218,7 @@ Bu makale, bazı temel Kubernetes bileşenleri ve bunların AKS kümeye nasıl u
 - [Kubernetes / AKS ölçeklendirin][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [kubernetes-pods]: https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
 [kubernetes-pod-lifecycle]: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/
 [kubernetes-deployments]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/

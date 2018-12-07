@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: cd868996066110c8d0457b177e60523886912dd8
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: d38fe1cab27cfade3e6e4d2f6764f455896ac470
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163180"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001966"
 ---
 # <a name="configure-storage"></a>Depolama alanını yapılandırma
 
@@ -19,6 +19,12 @@ Bu adım arka uç depolama sistemi vFXT kümeniz için ayarlar.
 
 > [!TIP]
 > Kullandıysanız `create-cloudbacked-cluster` kapsayıcı zaten ayarlandığından kullanılmak ve depolama alanı eklemek ihtiyaç duymayan Avere vFXT küme birlikte yeni bir Blob kapsayıcısı oluşturmak için prototip betiği.
+>
+> Ancak, yeni Blob kapsayıcı bir varsayılan şifreleme anahtarıyla şifrelenmiş, kümeden anahtar kurtarma dosyayı indirin veya veri depolamadan önce varsayılan anahtarı yeni anahtarla değiştirin. Varsayılan anahtar yalnızca kümedeki kaydedilir ve küme kaybolur veya kullanılamaz hale gelirse alınamıyor.
+>
+> Avere Denetim Masası'na bağladıktan sonra tıklayın **ayarları** sekmesine ve ardından seçin **çekirdek dosyalayıcı** > **bulut şifreleme ayarları**. İçinde **yerel anahtarı Store** bölümünde, aşağıdaki seçeneklerden birini seçin: 
+> * Kullanım **onarma kurtarma dosya** varolan anahtar için kurtarma dosyasını almak için düğme. Kurtarma dosyasını küme yönetim parolası ile şifrelenir. Dosya güvenilir bir yere kaydettiğinizden emin olun. 
+> * Bölümündeki yönergeleri **yeni bir ana anahtar oluşturun** denetim yeni bir şifreleme anahtarı oluşturmak için sayfanın bölümü. Bu seçenek, benzersiz bir parola belirtmenizi sağlar ve bu karşıya yükleme ve parola dosyası çifti doğrulamak için kurtarma dosyayı yeniden yüklemek için gerekir.
 
 Kullandıysanız, bu yönergeleri izleyin `create-minimal-cluster` , kümeniz için prototip komut dosyası veya bir ek donanım veya bulut tabanlı depolama sistemi eklemek istiyorsanız.
 
@@ -91,7 +97,7 @@ Küme oluşturulduktan sonra BLOB Depolama eklemek için aşağıdaki adımları
    * **Kaynak grubu** - (isteğe bağlı) vFXT küme grubu olarak aynı
    * **Konum** - vFXT kümeyle aynı
    * **Performans** - standart (Premium depolama desteklenmiyor)
-   * **Hesap türü** - genel amaçlı V2 (depolama v2)
+   * **Hesap türü** -genel amaçlı V2 (depolama v2)
    * **Çoğaltma** -yerel olarak yedekli depolama (LRS)
    * **Erişim katmanı** - sık erişimli
    * **Güvenli aktarım gereklidir** -(varsayılan olmayan değer) bu seçeneği devre dışı
@@ -125,7 +131,7 @@ Küme oluşturulduktan sonra BLOB Depolama eklemek için aşağıdaki adımları
    | Hizmet türü | (Azure depolama erişim anahtarını seçin) |
    | Kiracı | Depolama hesabı adı |
    | Abonelik | Abonelik kimliği |
-   | Depolama erişim anahtarı | Azure depolama hesabı anahtarı (önceki adımda kopyaladığınız) | 
+   | Depolama Erişim Anahtarı | Azure depolama hesabı anahtarı (önceki adımda kopyaladığınız) | 
 
    Tıklayın **gönderme**.
 

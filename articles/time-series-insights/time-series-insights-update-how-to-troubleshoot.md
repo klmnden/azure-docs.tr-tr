@@ -8,27 +8,33 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.openlocfilehash: d13d373169287a0ec5931d5437b0a3bc70ecd79a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/06/2018
+ms.openlocfilehash: a9078d2f8a738700a30d265d9cfa3cd77ad72f08
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856852"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015458"
 ---
 # <a name="how-to-diagnose-and-troubleshoot"></a>Tanılama ve sorun giderme
 
 Bu makalede, Azure zaman serisi öngörüleri (TSI) ortamınızla çalışma karşılaşabileceğiniz bazı yaygın sorunlar özetlenmektedir. Makalede ayrıca olası nedenler ve çözümler için her açıklanır.
 
-## <a name="problem-no-data-is-seen-in-the-time-series-insights-preview-explorer"></a>Sorun: Veri Time Series Insights Gezgini (Önizleme) görülür.
+## <a name="problem-i-cant-find-my-environment-in-the-time-series-insights-preview-explorer"></a>Sorun: ortamımın Time Series Insights (Önizleme) Gezgini'nde bulamıyorum
 
-Neden Azure TSI Gezgini verilerinizdeki göremeyebilirsiniz birkaç genel nedeni vardır:
+TSI ortam erişim izni yoksa, bu durum oluşabilir. Kullanıcıların kendi TSI ortamı görüntülemek için "okuyucu" düzeyinde erişim rolünü gerekir. Geçerli erişim düzeyleri doğrulayın ve TSI kaynak üzerinde veri erişim ilkeler bölümünü ziyaret ederek ek erişim [Azure portalı](https://portal.azure.com/).
+
+  ![environment][1]
+
+## <a name="problem-no-data-is-seen-in-the-time-series-insights-preview-explorer"></a>Sorun: Veri yok Time Series Insights (Önizleme) Gezgini'nde görülür.
+
+Neden olmayan görebileceğiniz verilerinizi birkaç genel nedeni vardır [(Önizleme) Azure TSI Gezgini](https://insights.timeseries.azure.com/preview):
 
 1. Olay kaynağınızı veri alma değil.
 
     Olay kaynağınızı (olay hub'ı veya IOT hub'ı), etiketler veri aldığını doğrulayın / örnekler. Azure portalında kaynağınıza Genel Bakış sayfasına giderek bunu yapabilirsiniz.
 
-    ![ınsights Panosu][1]
+    ![ınsights Panosu][2]
 
 1. Olay kaynağı verilerinizi JSON biçiminde değil.
 
@@ -36,25 +42,35 @@ Neden Azure TSI Gezgini verilerinizdeki göremeyebilirsiniz birkaç genel nedeni
 
 1. Olay kaynağı anahtarınızı gerekli izni yok
 
-    ![yapılandırma][2]
-
     * IOT Hub hizmetine bağlanma iznine sahip olan anahtar belirtmeniz gerekir.
+
+    ![yapılandırma][3]
+
     * Yukarıdaki görüntüde, ilkelerin ya da gösterildiği gibi *iothubowner* ve çalışma hizmeti, çünkü her ikisi de hizmet connect izni yok.
     * Bir event hub için dinleme izni olan bir anahtar belirtmeniz gerekir.
-    * Önceki görüntüde gösterildiği gibi ilkelerin ya da okuma ve yönetme çalışır, çünkü her ikisi de dinleme izne sahip.
+  
+    ![izinler][4]
 
-    ![izinler][3]
+    * Yukarıdaki görüntüde, ilkelerin ya da gösterildiği gibi **okuma** ve **yönetme** çalışır, çünkü her ikisi de **dinleme** izni.
 
 1. Sağlanan tüketici grubunuz için TSI özel değildir.
 
-    IOT hub'ı kaydı veya bir olay hub'ı sırasında verileri okumak için kullanılması gereken tüketici grubu belirtin. Bu tüketici grubunun Paylaşılmaması gerekir. Tüketici grubu paylaşılıyorsa, temel alınan olay hub'ı otomatik olarak bir okuyucu rastgele bağlantısını keser. Okunacak TSI için bir benzersiz bir tüketici grubu sağlayın.
+    Bir IOT hub'ı veya olay hub'ı, kayıt sırasında veri okumak için kullanılması gereken tüketici grubu belirtin. Bu tüketici grubu Paylaşılmaması gerekir. Tüketici grubu paylaşılıyorsa, temel alınan olay hub'ı otomatik olarak bir okuyucu rastgele bağlantısını keser. Okunacak TSI için bir benzersiz bir tüketici grubu sağlayın.
+
+1. Zaman serisi kimliği özelliğinizi sağlama sırasında belirtilen yanlış, eksik veya null
+
+    Bu meydana gelmiş olabilir **zaman serisi kimliği** özelliği hatalı ortamı sağlama sırasında yapılandırılır. Lütfen [bir zaman serisi kimliği seçmek için en iyi yöntemler](./time-series-insights-update-how-to-id.md). Şu anda farklı bir kullanmak için bir zaman serisi görüşleri güncelleştirme ortamı güncelleştirilemiyor **zaman serisi kimliği**.
 
 ## <a name="problem-some-data-is-shown-but-some-is-missing"></a>Sorun: Bazı veriler gösterilir, ancak bazı eksik
 
-Ortamınızı kısıtladığı için bu durum oluşabilir.
+1. Zaman serisi kimliği olmadan veri gönderme
 
-> [!NOTE]
-> Şu anda Azure TSI 6 MB/sn en yüksek alma oranını destekler.
+    Zaman serisi Kimliği alanı yükü olmadan olayları gönderiyorsunuz bu hata oluşabilir. Bkz: [desteklenen JSON şekilleri](./how-to-shape-query-json.md) daha fazla bilgi için.
+
+1. Ortamınızı kısıtladığı için bu durum oluşabilir.
+
+    > [!NOTE]
+    > Şu anda Azure TSI 6 MB/sn en yüksek alma oranını destekler.
 
 ## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Sorun: Benim olay kaynağının zaman damgası özellik adı ayarı çalışmaz.
 
@@ -69,21 +85,36 @@ Zaman damgası özellik adı, yakalanan ve TSI Gezgini kullanmak için düzgün 
 * TSI, veri değeri datetime olarak okuyor gösterir Takvim simgesine
 * `#`, TSI belirtmek veri değerlerini bir tamsayı olarak okuyor
 
-## <a name="problem-my-time-series-id-property-is-incorrect-missing-or-null"></a>Sorun: My zaman serisi ID özelliği, yanlış, eksik veya null.
+Varsa **zaman damgası** özelliği açıkça belirtilmediyse, bir olayın IOT hub'ı veya olay hub'ı yararlanılacaktır **sıraya zaman** varsayılan zaman damgası olarak.
 
-Bu meydana gelmiş olabilir **zaman serisi kimliği** özelliği hatalı ortamı sağlama sırasında yapılandırılır. Bkz: [bir zaman serisi kimliği seçmek için en iyi yöntemler](./time-series-insights-update-how-to-id.md) makale seçerken bir **zaman serisi kimliği**. Şu anda farklı bir kullanmak için mevcut TSI (Önizleme) ortamında güncelleştirilemiyor **zaman serisi kimliği**.
+## <a name="problem-i-cant-edit-or-view-my-time-series-model"></a>Sorun: düzenleyemiyor veya my zaman serisi modeli görüntüleyin
 
-## <a name="problem-all-my-instances-in-time-series-insights-preview-explorer-dont-have-a-parent"></a>Sorun: Tüm Örneklerim Time Series Insights Gezgini (Önizleme) içinde bir üst öğe yok
+1. Bir zaman serisi öngörüleri S1 veya S2 ortam erişiyor olabilir
+
+   Zaman serisi modelleri yalnızca desteklenen **PAYG** ortamları. Zaman serisi öngörüleri güncelleştirme Gezgini'nden S1/S2 ortamınızı erişme hakkında daha fazla bilgi için bu makaleye bakın.
+
+   ![erişim][5]
+
+1. Görüntüleme ve modelin düzenleme iznine sahip değil
+
+   Kullanıcılar, Düzenle ve kendi zaman serisi modeli görüntülemek için "katılımcı" düzeyinde erişimi gerekir. Geçerli erişim düzeyleri doğrulayın ve Azure Portalı'nda Time Series Insights kaynağınızda veri erişim ilkeler bölümünü ziyaret ederek ek erişim.
+
+## <a name="problem-all-my-instances-in-time-series-insights-preview-explorer-dont-have-a-parent"></a>Sorun: Tüm Örneklerim Time Series Insights (Önizleme) Gezgini'nde bir üst öğe yok
 
 Ortamınızı sahip değilse bu durum ortaya çıkabilir bir **zaman serisi modeli** tanımlanan hiyerarşisi. Daha fazla bilgi için bu makaleye bakın [zaman serisi modelleri ile çalışma konusunda](./time-series-insights-update-how-to-tsm.md).
 
+  ![TSM][6]
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Okuma [zaman serisi modelleri ile çalışma konusunda](./time-series-insights-update-how-to-tsm.md).
+Okuma [zaman serisi modelleri ile çalışma konusunda](./time-series-insights-update-how-to-tsm.md).
 
-* Okuma [desteklenen JSON şekilleri](./how-to-shape-query-json.md).
+Okuma [desteklenen JSON şekilleri](./how-to-shape-query-json.md).
 
 <!-- Images -->
-[1]: media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png
-[2]: media/v2-update-diagnose-and-troubleshoot/configuration.png
-[3]: media/v2-update-diagnose-and-troubleshoot/permissions.png
+[1]: media/v2-update-diagnose-and-troubleshoot/environment.png
+[2]: media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png
+[3]: media/v2-update-diagnose-and-troubleshoot/configuration.png
+[4]: media/v2-update-diagnose-and-troubleshoot/permissions.png
+[5]: media/v2-update-diagnose-and-troubleshoot/access.png
+[6]: media/v2-update-diagnose-and-troubleshoot/tsm.png

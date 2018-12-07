@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4a30e562b04a3414a1305604a521e0d659753142
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 83dfd77c311e1b3324540d352432ec7a6b706d78
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720414"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993371"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights'tan Power BI akışı
-[Power BI](http://www.powerbi.com/) verileri analiz etmek ve öngörüleri paylaşmak yardımcı olan bir iş araçları paketidir. Her cihazda kullanılabilen zengin panolar. Analytics sorguları da dahil olmak üzere pek çok kaynaktan veri birleştirebilir [Azure Application Insights](app-insights-overview.md).
+[Power BI](https://www.powerbi.com/) verileri analiz etmek ve öngörüleri paylaşmak yardımcı olan bir iş araçları paketidir. Her cihazda kullanılabilen zengin panolar. Analytics sorguları da dahil olmak üzere pek çok kaynaktan veri birleştirebilir [Azure Application Insights](app-insights-overview.md).
 
 Application Insights verilerini Power BI'a verme üç yöntem vardır:
 
@@ -40,7 +40,7 @@ Application Insights sorgunuzu almak için Power BI'ın Masaüstü sürümünü 
 Yükleme [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Bir Analytics sorgusunu dışarı aktarma
-1. [Analytics açın ve sorgunuzu yazma](../log-analytics/query-language/get-started-analytics-portal.md).
+1. [Analytics açın ve sorgunuzu yazma](../azure-monitor/log-query/get-started-portal.md).
 2. Test ve Sonuçlardan memnun kadar sorgu daraltın. Vermeden önce sorgu Analytics'te düzgün çalıştığından emin olun.
 3. Üzerinde **dışarı** menüsünde seçin **Power BI (M)**. Metin dosyasını kaydedin.
    
@@ -152,6 +152,6 @@ Application Insights grafikleri değerlerle diğer kaynakları ve analiz sorgula
 İlk içeri aktarmadan sonra Pano ve raporlar günlük olarak güncelleştirilmeye devam. Veri kümesindeki yenileme zamanlamasını denetleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Power BI - öğrenin](http://www.powerbi.com/learning/)
-* [Analizi Öğreticisi](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Power BI - öğrenin](https://www.powerbi.com/learning/)
+* [Analizi Öğreticisi](../azure-monitor/log-query/get-started-portal.md)
 

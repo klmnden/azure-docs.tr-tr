@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 4c58984e512556b73281cca1154b4879c9db79d5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d9f632485d1ebf263efb78bfbf6de40496ebb75c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956797"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016263"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Azure SQL hizmetini ve Azure Güvenlik Merkezi'nde veri koruma
 Azure Güvenlik Merkezi, Azure kaynaklarınızın güvenlik durumunu analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde, gerekli denetimlerin yapılandırılması işlemi boyunca size rehberlik öneriler oluşturur.  Öneriler, Azure kaynak türleri için geçerlidir: sanal makineleri (VM'ler), ağ, SQL, veri ve uygulama.
@@ -54,7 +54,7 @@ Denetimi etkinleştirmek için **Denetim** seçeneğinin altında **AÇIK**'ı s
 |Kaynak türü|Güvenlik puanı|Öneri|Açıklama|
 |----|----|----|----|
 |Depolama hesabı|20|Depolama hesabı için güvenli aktarım gerektir|Güvenli aktarım depolama hesabınıza yalnızca güvenli bağlantı (HTTPS) gelen istekleri kabul edecek şekilde zorlayan bir seçenektir. HTTPS kullanımı, sunucu ve hizmet arasında kimlik doğrulaması sağlar ve ağ katmanı saldırılarına karşı ortadaki-de-gizlice ve oturum ele geçirme adam gibi Aktarımdaki verileri korur.|
-|Redis|20|Yalnızca güvenli bağlantılar Redis Cache'inizi etkinleştir|Yalnızca Redis cache'e SSL aracılığıyla bağlantıları etkinleştirin. Güvenli bağlantı kullanımı, sunucu ve hizmet arasında kimlik doğrulaması sağlar ve ağ katmanı saldırılarına karşı ortadaki-de-gizlice ve oturum ele geçirme adam gibi Aktarımdaki verileri korur.|
+|Redis|20|Yalnızca güvenli bağlantılar, Azure önbelleği için Redis etkinleştir|Azure Cache için SSL aracılığıyla yalnızca bağlantıları Redis için etkinleştirin. Güvenli bağlantı kullanımı, sunucu ve hizmet arasında kimlik doğrulaması sağlar ve ağ katmanı saldırılarına karşı ortadaki-de-gizlice ve oturum ele geçirme adam gibi Aktarımdaki verileri korur.|
 |SQL|15|SQL veritabanlarında saydam veri şifrelemesini etkinleştirme|Bekleyen verileri korumak ve uyumluluk gereksinimlerini karşılamak için saydam veri şifrelemesini etkinleştirin.|
 |SQL|15|SQL sunucularında denetimi etkinleştirme|Azure SQL sunucuları için denetimi etkinleştirin. (Yalnızca azure SQL Hizmeti. Sanal makineler üzerinde çalışan SQL dahil değildir.)|
 |SQL|15|SQL veritabanlarında denetimi etkinleştirme|Azure SQL veritabanları için denetimi etkinleştirin. (Yalnızca azure SQL Hizmeti. Sanal makineler üzerinde çalışan SQL dahil değildir.)|

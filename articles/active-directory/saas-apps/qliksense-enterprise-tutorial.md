@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/06/2018
 ms.author: jeedes
-ms.openlocfilehash: a8816451b45171e0ba8cbd7acc937201c587c481
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 24353f89f7c833a16675841f741a4a81ac34597c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627959"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015237"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Öğretici: Azure Active Directory Qlik algılama Enterprise ile tümleştirme
 
@@ -86,11 +86,11 @@ Qlik algılama kuruluşta değerini atayın **kullanıcı adı** değerini Azure
 
 Yapılandırma ve Azure AD çoklu oturum açma Qlik algılama Enterprise ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on) ** - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user) ** - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Qlik anlamda Kurumsal test kullanıcısı oluşturma](#create-a-qlik-sense-enterprise-test-user) ** - Qlik algılama kuruluşta, kullanıcının Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user) ** - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on) ** - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Qlik anlamda Kurumsal test kullanıcısı oluşturma](#create-a-qlik-sense-enterprise-test-user)**  - Qlik algılama kuruluşta, kullanıcının Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -113,6 +113,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Q
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<Qlik Sense Fully Qualifed Hostname>:4443/azure/hub`
 
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
+    
     | |
     |--|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qlikpoc.com`|
@@ -283,7 +284,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 ### <a name="create-a-qlik-sense-enterprise-test-user"></a>Qlik anlamda Kurumsal test kullanıcısı oluşturma
 
-Bu bölümde, Qlik anlamda Kurumsal Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [Qlik anlamda Kurumsal İstemci Destek ekibine](https://www.qlik.com/us/services/support) Qlik anlamda Kurumsal platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Qlik anlamda Kurumsal Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [Qlik anlamda Kurumsal İstemci Destek ekibine](https://www.qlik.com/us/services/support) Qlik anlamda Kurumsal platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

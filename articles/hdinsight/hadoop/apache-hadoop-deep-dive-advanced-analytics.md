@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 40536aae15f2ae9fa5e186cdbea1f75f7d264437
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7253a31057d8e7af5c0273ef112b1155cf15a014
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047149"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011666"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Derin Dalış - Gelişmiş analiz
 
@@ -63,7 +63,7 @@ HDInsight öğrenme seçenekleri bir Gelişmiş analiz iş akışı için birden
 
 ### <a name="machine-learning-and-spark"></a>Machine Learning ve Spark
 
-[HDInsight Spark](../spark/apache-spark-overview.md) , Azure'da barındırılan bir teklifi [Spark](http://spark.apache.org/), birleşik, açık kaynaklı, büyük veri analizi artırmak üzere bellek içi işleme kullanan bir paralel veri işleme çerçevesinden. Spark işleme altyapısı hız, kullanım kolaylığı ve Gelişmiş analiz için oluşturulmuştur. Spark'ın dağıtılmış bellek içi hesaplama özellikleri onu kullanılan makine öğrenimi ve grafik hesaplamalarında yinelemeli algoritmalar için iyi bir seçim haline getirir. 
+[HDInsight Spark](../spark/apache-spark-overview.md) , Azure'da barındırılan bir teklifi [Spark](https://spark.apache.org/), birleşik, açık kaynaklı, büyük veri analizi artırmak üzere bellek içi işleme kullanan bir paralel veri işleme çerçevesinden. Spark işleme altyapısı hız, kullanım kolaylığı ve Gelişmiş analiz için oluşturulmuştur. Spark'ın dağıtılmış bellek içi hesaplama özellikleri onu kullanılan makine öğrenimi ve grafik hesaplamalarında yinelemeli algoritmalar için iyi bir seçim haline getirir. 
 
 Bu dağıtılmış ortamı algoritmik modelleme özellikleri getirin üç ölçeklenebilir makine öğrenimi kitaplıkları vardır:
 

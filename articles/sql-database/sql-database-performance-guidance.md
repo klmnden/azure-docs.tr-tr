@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 95e09532616b4aff05dad7440dcda6872fd27484
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2fe78efc8d85da2a8cd38a217c25f89ca7aefd22
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645533"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013006"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>El ile Azure SQL veritabanında sorgu performansını ayarlama
 
@@ -258,7 +258,7 @@ Bazı uygulamalar yazma yoğunluklu olan. Bazen yazma birlikte batch nasıl dikk
 
 ### <a name="application-tier-caching"></a>Uygulama katmanı önbelleğe alma
 
-Bazı veritabanı uygulamalarının okuma yoğunluklu iş yükleri vardır. Katmanlar önbelleğe alma, veritabanı üzerindeki yükü azaltabilir ve potansiyel olarak Azure SQL veritabanı'nı kullanarak bir veritabanını desteklemek için gereken işlem boyutunu azaltabilir. İle [Azure Redis Cache](https://azure.microsoft.com/services/cache/), okuma yoğun iş yükü varsa, bir kez veri okuma (ya da belki nasıl yapılandırıldığına bağlı olarak bir kez uygulama katmanlı makine başına) ve SQL veritabanınızı dışında veri depolayın. (CPU ve okuma GÇ) veritabanı yükünü azaltmak için bir yol budur ancak önbellekten okunan verilerin eşitlenmemiş veritabanındaki verilerle olabileceğinden işlem tutarlılığı üzerinde bir etkisi olan. Birçok uygulamada tutarsızlık belirli bir düzeyde kabul edilebilir olsa da, tüm iş yükleri için geçerli değildir. Bir uygulama katmanı önbelleğe alma stratejisi uygulamadan önce herhangi bir uygulama gereksinimi tam olarak anlamanız gerekir.
+Bazı veritabanı uygulamalarının okuma yoğunluklu iş yükleri vardır. Katmanlar önbelleğe alma, veritabanı üzerindeki yükü azaltabilir ve potansiyel olarak Azure SQL veritabanı'nı kullanarak bir veritabanını desteklemek için gereken işlem boyutunu azaltabilir. İle [Azure önbelleği için Redis](https://azure.microsoft.com/services/cache/), okuma yoğun iş yükü varsa, bir kez veri okuma (ya da belki nasıl yapılandırıldığına bağlı olarak bir kez uygulama katmanlı makine başına) ve SQL veritabanınızı dışında veri depolayın. (CPU ve okuma GÇ) veritabanı yükünü azaltmak için bir yol budur ancak önbellekten okunan verilerin eşitlenmemiş veritabanındaki verilerle olabileceğinden işlem tutarlılığı üzerinde bir etkisi olan. Birçok uygulamada tutarsızlık belirli bir düzeyde kabul edilebilir olsa da, tüm iş yükleri için geçerli değildir. Bir uygulama katmanı önbelleğe alma stratejisi uygulamadan önce herhangi bir uygulama gereksinimi tam olarak anlamanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/23/2018
 ms.author: cshoe
-ms.openlocfilehash: 40cad9eec87c07a205a86f1009074cdbeaf58d15
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 74092f57b3531a037aee71d433c33dddf8c2b694
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249983"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001791"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Azure İşlevleri için SignalR Service bağlamaları
 
@@ -30,7 +30,7 @@ Bu makalede, kimliğini doğrulamak ve istemcilere bağlı gerçek zamanlı ilet
 
 ## <a name="packages---functions-2x"></a>Paketler - 2.x işlevleri
 
-SignalR hizmet bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.SignalRService](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet paketi sürüm 1.0.0-preview1-*. Paket için kaynak kodu konusu [azure işlevleri signalrservice uzantı](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub deposu.
+SignalR hizmet bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet paketi sürüm 1.0.0-preview1-*. Paket için kaynak kodu konusu [azure işlevleri signalrservice uzantı](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub deposu.
 
 > [!NOTE]
 > Azure SignalR hizmeti genel kullanıma sunulmuştur. Ancak, Azure işlevleri için SignalR hizmet bağlamaları, şu anda Önizleme aşamasındadır.

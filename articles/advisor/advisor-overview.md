@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: d1b91d62eaafa60426c837cd0e40faaf7b60600b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 747ce8dc4a4e4c8ac1e26e5b051a431176096d71
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844592"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015985"
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure Danışmanı giriş
 
@@ -63,7 +63,7 @@ Danışman önerileri olarak erişebilir *sahibi*, *katkıda bulunan*, veya *oku
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Hangi kaynakların Advisor için öneriler sağlar mı?
 
-Advisor, sanal makineler, kullanılabilirlik kümeleri, uygulama ağ geçitleri, uygulama hizmetleri, SQL Server'lar ve Redis Cache için öneriler sağlar.
+Advisor, Redis için sanal makineler, kullanılabilirlik kümeleri, uygulama ağ geçitleri, uygulama hizmetleri, SQL Server ve Azure Cache için öneriler sağlar.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Erteleme veya miyim bir öneri Kapat?
 

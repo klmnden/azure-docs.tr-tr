@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3c16d85479399d7988be18f9b852563617bb824b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 42fc92b0cee20679ab72a389cc11522c0ca4e0fd
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632666"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013763"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>HDInsight üzerinde Apache Hadoop için Java MapReduce programları geliştirme
 
@@ -25,12 +25,12 @@ Apache Maven MapReduce Java tabanlı bir uygulama oluşturun, sonra Azure HDInsi
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 veya üzeri (veya OpenJDK gibi eşdeğeri).
+* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 veya üzeri (veya OpenJDK gibi eşdeğeri).
     
     > [!NOTE]
     > HDInsight sürüm 3.4 ve eski Java 7 kullanın. HDInsight 3.5 ve üzeri Java 8 kullanır.
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 ## <a name="configure-development-environment"></a>Geliştirme ortamını yapılandırma
 
@@ -63,7 +63,7 @@ Java ve JDK yüklediğinizde aşağıdaki ortam değişkenlerini ayarlanabilir. 
 
     Bu komut, belirtilen ada sahip bir dizin oluşturur. `artifactID` parametre (**wordcountjava** Bu örnekte.) Bu dizin, aşağıdaki öğeleri içerir:
 
-   * `pom.xml` - [Proje nesne modeli (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) Projeyi derlemek için kullanılan bilgiler ve yapılandırma ayrıntılarını içerir.
+   * `pom.xml` - [Proje nesne modeli (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) Projeyi derlemek için kullanılan bilgiler ve yapılandırma ayrıntılarını içerir.
 
    * `src` -Uygulamayı içeren dizin.
 
@@ -94,7 +94,7 @@ Java ve JDK yüklediğinizde aşağıdaki ortam değişkenlerini ayarlanabilir. 
     </dependency>
    ```
 
-    Bu, gerekli kitaplıkları tanımlar (içinde listelenen &lt;Artifactıd\>) belirli bir sürümle (içinde listelenen &lt;sürüm\>). Bu bağımlılıklar, derleme zamanında varsayılan Maven deposundan yüklenir. Kullanabileceğiniz [Maven deposu arama](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) daha fazla bilgi görüntülemek için.
+    Bu, gerekli kitaplıkları tanımlar (içinde listelenen &lt;Artifactıd\>) belirli bir sürümle (içinde listelenen &lt;sürüm\>). Bu bağımlılıklar, derleme zamanında varsayılan Maven deposundan yüklenir. Kullanabileceğiniz [Maven deposu arama](https://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) daha fazla bilgi görüntülemek için.
    
     `<scope>provided</scope>` HDInsight kümesi çalışma zamanında tarafından sağlanan Bu bağımlılıklar uygulama ile birlikte paketlenmesi gereken değil, Maven söyler.
 
@@ -138,7 +138,7 @@ Java ve JDK yüklediğinizde aşağıdaki ortam değişkenlerini ayarlanabilir. 
     </build>
    ```
 
-    İlk eklentisi yapılandırır [Maven gölge eklentisi](http://maven.apache.org/plugins/maven-shade-plugin/), uygulamanın gerektirdiği bağımlılıkları içeren (bazen bir fatjar olarak adlandırılır) bir uberjar oluşturmak için kullanılır. Ayrıca, bazı sistemlerde sorunlara neden olabilir bir jar paketi içinde lisanslarının çoğaltma önler.
+    İlk eklentisi yapılandırır [Maven gölge eklentisi](https://maven.apache.org/plugins/maven-shade-plugin/), uygulamanın gerektirdiği bağımlılıkları içeren (bazen bir fatjar olarak adlandırılır) bir uberjar oluşturmak için kullanılır. Ayrıca, bazı sistemlerde sorunlara neden olabilir bir jar paketi içinde lisanslarının çoğaltma önler.
 
     İkinci eklentisi hedef Java sürümü yapılandırır.
 
@@ -291,9 +291,9 @@ Bu belgede, bir Java MapReduce işi geliştirme gerçekleştirmeyi öğrendiniz.
 
 Daha fazla bilgi için Ayrıca bkz: [Java Geliştirici Merkezi](https://azure.microsoft.com/develop/java/).
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-use-sqoop]:hdinsight-use-sqoop.md
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
@@ -303,5 +303,5 @@ Daha fazla bilgi için Ayrıca bkz: [Java Geliştirici Merkezi](https://azure.mi
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-power-query]:apache-hadoop-connect-excel-power-query.md
 
-[powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
+[powershell-PSCredential]: https://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 

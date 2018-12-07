@@ -15,19 +15,19 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c704639ce696672a87485a36d43a282d04a47a7e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5183e626ac990e265e9f4794220f24d43d865ed7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845187"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999986"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights Bağlayıcısı yönetim çözümü (Önizleme)
 
 ![Application Insights simgesi](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> Desteğiyle [kaynaklar arası sorgular](../../log-analytics/log-analytics-cross-workspace-search.md), Application Insights Bağlayıcısı yönetim çözümü, artık gerekli değildir ve kullanım dışı bırakılacaktır. Temmuz itibaren yeni bir Application Insights kaynaklarını Log Analytics çalışma alanına bağlamak mümkün olmayacaktır. Var olan bağlantıları ve panolar Kasım 2018'e kadar çalışmaya devam eder. Daha fazla bilgi için [Azure'a taşıyarak OMS portalında](../../log-analytics/log-analytics-oms-portal-transition.md).
+> Desteğiyle [kaynaklar arası sorgular](../../azure-monitor/log-query/cross-workspace-query.md), Application Insights Bağlayıcısı yönetim çözümü, artık gerekli değildir ve kullanım dışı bırakılacaktır. Temmuz itibaren yeni bir Application Insights kaynaklarını Log Analytics çalışma alanına bağlamak mümkün olmayacaktır. Var olan bağlantıları ve panolar Kasım 2018'e kadar çalışmaya devam eder. Daha fazla bilgi için [Azure'a taşıyarak OMS portalında](../../azure-monitor/platform/oms-portal-transition.md).
 
 Uygulama öngörüleri Bağlayıcısı çözümü performans sorunlarını tanılayın ve ile izlenen kullanıcıların uygulamanızla ne yaptığını anlamanıza yardımcı olur. [Application Insights](../../application-insights/app-insights-overview.md). Log Analytics'te Application Insights'ta geliştiricilerin gördüğü aynı uygulama telemetrisini görünümlerini kullanılabilir. Ancak, Application Insights uygulamalarınızı Log Analytics ile tümleştirdiğinizde, uygulamalarınızın görünürlüğünü işlemi ve uygulama verilerini tek bir yerde sağlayarak artar. Aynı görünümleri olan, uygulama geliştiricilere işbirliği yapmasına yardımcı olur. Sık kullanılan görünümler, algılamak ve hem uygulama hem de platformu sorunları çözmek için gereken süreyi azaltmaya yardımcı olabilir.
 
@@ -46,7 +46,7 @@ Uygulama öngörüleri Bağlayıcısı çözümü performans sorunlarını tanı
 | --- | --- | --- |
 | [Windows aracıları](../../azure-monitor/platform/agent-windows.md) | Hayır | Çözüm, Windows aracılarından bilgi toplamaz. |
 | [Linux aracıları](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Hayır | Çözüm, Linux aracılarından bilgi toplamaz. |
-| [SCOM yönetim grubu](../../log-analytics/log-analytics-om-agents.md) | Hayır | Bir bağlı SCOM yönetim grubundaki aracılardan çözüm herhangi bir bilgi toplamaz. |
+| [SCOM yönetim grubu](../../azure-monitor/platform/om-agents.md) | Hayır | Bir bağlı SCOM yönetim grubundaki aracılardan çözüm herhangi bir bilgi toplamaz. |
 | [Azure depolama hesabı](collect-azure-metrics-logs.md) | Hayır | Çözüm, Azure depolama biriminden bilgilerin toplanması yapar. |
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -140,7 +140,7 @@ Application Insights Bağlayıcısı dikey pencereleri seçili Application Insig
 >[!NOTE]
 >**Application ınsights'ta Aç** Azure portalında kullanılabilir değil.
 
-![Application ınsights'ta Aç](./media/app-insights-connector/open-in-app-insights.png)
+![Application Insights'ta aç](./media/app-insights-connector/open-in-app-insights.png)
 
 ### <a name="sample-corrected-data"></a>Veri örnek düzeltildi
 

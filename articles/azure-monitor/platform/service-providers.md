@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
 ms.component: ''
-ms.openlocfilehash: c1af9cc9bc558fc610cdeeb81cda92082769b8cc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: c43b2e265903b119812d16ef4ef329393c725e71
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975392"
+ms.locfileid: "52992985"
 ---
 # <a name="log-analytics-for-service-providers"></a>Hizmet sağlayıcıları için log Analytics
 Log Analytics, yönetilen hizmet sağlayıcılarına (msp), büyük kuruluşlar, bağımsız yazılım satıcılarına (ISV) ve müşterinin şirket içi veya Bulut altyapı sunucularını izleme ve yönetme barındırma hizmeti sağlayıcılarına yardımcı olabilir. 
@@ -75,12 +75,12 @@ Log Analytics'te merkezi bir konum uygulamak için iki seçenek vardır:
 
 1. Merkezi çalışma alanı: hizmet sağlayıcısı, kiracıda bir çalışma alanı oluşturun ve yararlanan bir betik kullan [sorgu API'si](https://dev.loganalytics.io/) ile [veri koleksiyonu API'sini](../../azure-monitor/platform/data-collector-api.md) için çeşitli çalışma alanlarından verileri getirmek için Merkezi bir konum. Bir betik dışındaki başka bir seçenek kullanmaktır [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
-2. Power BI olarak merkezi bir konum: çeşitli çalışma alanları için Log Analytics arasındaki tümleştirmeden kullanarak verileri dışarı aktardığınızda, Power BI merkezi konumunuz olarak hareket edebilir ve [Power BI](../../log-analytics/log-analytics-powerbi.md). 
+2. Power BI olarak merkezi bir konum: çeşitli çalışma alanları için Log Analytics arasındaki tümleştirmeden kullanarak verileri dışarı aktardığınızda, Power BI merkezi konumunuz olarak hareket edebilir ve [Power BI](../../azure-monitor/platform/powerbi.md). 
 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * Oluşturma ve kullanarak çalışma yapılandırılmasını otomatikleştirmek [Resource Manager şablonları](template-workspace-configuration.md)
 * Çalışma alanlarını kullanarak oluşturulmasını otomatikleştirin [PowerShell](../../log-analytics/log-analytics-powershell-workspace-configuration.md) 
 * Kullanım [uyarılar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) var olan sistemlerle tümleştirmek için
-* Özet raporları kullanarak oluşturmak [Power BI](../../log-analytics/log-analytics-powerbi.md)
+* Özet raporları kullanarak oluşturmak [Power BI](../../azure-monitor/platform/powerbi.md)
 * Gözden geçirme sürecini [birden çok CSP müşterileri izlemek için Log Analytics ve Power BI'ı yapılandırma](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)

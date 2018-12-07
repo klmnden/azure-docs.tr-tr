@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/20/2017
 ms.reviewer: aruna
 ms.author: mbullwin
-ms.openlocfilehash: 358d17f29960983af1834e87f502331141fcff46
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e9a8c6345ca45234ffcec1588a98bf1b8d634e06
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726126"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000693"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Geliştirici Analizi Araçları Sürüm Notları
 
@@ -180,7 +180,7 @@ Uygulamanızı çeşitli yollarla HockeyApp portalında yönetebilirsiniz. Bu ku
 
 ![HockeyApp portalı](./media/app-insights-release-notes-vsix/HockeyAppPortal.png)
 
-Bkz: [HockeyApp Bilgi Bankası](http://support.hockeyapp.net/kb/app-management-2) uygulama yönetimi hakkında daha fazla ayrıntı için.
+Bkz: [HockeyApp Bilgi Bankası](https://support.hockeyapp.net/kb/app-management-2) uygulama yönetimi hakkında daha fazla ayrıntı için.
 
 ### <a name="windows-forms-apps"></a>Windows Forms uygulamaları
 Bir Windows Form projesi düğümü için bağlam menüsü artık derleme Hockeyapp'e karşıya yüklemek için bir seçenek içerir.

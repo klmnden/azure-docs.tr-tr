@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 41376448095a5dd760fae594fdfe2d2b57e4440a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ae2697c96435ec18ae7645520d438c41837f036f
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231660"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016870"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services sürüm notları
 Bu sürüm notlarını Azure Media Services önceki sürümleri ve bilinen sorunlar değişiklikleri özetlemek için.
@@ -39,7 +39,7 @@ Bu sürüm notlarını Azure Media Services önceki sürümleri ve bilinen sorun
 | Azaltma mekanizması Media Services, hizmete aşırı isteklerde uygulamalar için kaynak kullanımını kısıtlıyor. Hizmet, "Hizmet kullanılamıyor" 503 HTTP durum kodunu döndürebilir. |Daha fazla bilgi için bkz: 503 HTTP durum kodu açıklamasını [Media Services hata kodları](media-services-encoding-error-codes.md). |
 | Varlıkları sorgulama yaptığında, sürüm 2 genel REST sorgu sonuçlarını 1.000 sonuçları sınırladığı için 1000 varlıkların bir sınır aynı anda döndürülür. |Atla ve Al (.NET) / açıklandığı (REST) üst [bu .NET örnek](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) ve [bu REST API örnek](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Bazı istemciler, kesintisiz akış bildiriminde bir yineleme etiketi sorunu arasında gelebilir. |Daha fazla bilgi için [Bu bölümde](media-services-deliver-content-overview.md#known-issues). |
-| Media Services .NET SDK'sı nesneleri seri hale getirilemiyor ve sonuç olarak Azure Redis Cache ile birlikte çalışmaz. |Azure Redis Cache'e eklemek için SDK'sı AssetCollection nesneyi serileştirmek denerseniz, bir özel durum oluşturulur. |
+| Media Services .NET SDK'sı nesneleri seri hale getirilemiyor ve ile Azure önbelleği için Redis sonucunda çalışmaz. |Azure önbelleği için Redis eklemek için SDK'sı AssetCollection nesneyi serileştirmek denerseniz, bir özel durum oluşturulur. |
 
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API Sürüm Geçmişi

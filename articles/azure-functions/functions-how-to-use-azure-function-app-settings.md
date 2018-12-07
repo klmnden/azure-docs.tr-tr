@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 5e34aae62f871cba2a27a292242cff8e90c67934
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d9fa5d70a633f423c82457759d7ed18047167e3e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228989"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999909"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure portalında işlev uygulaması yönetme 
 
 Azure işlevleri'nde bir işlev uygulaması, tek tek işlevleri için yürütme bağlamı sağlar. Belirtilen işlev uygulaması tarafından barındırılan tüm işlevler için işlev uygulama davranışları uygulayın. Bu konu başlığı altında yapılandırmak ve işlev uygulamalarınızı Azure portalında yönetmek açıklar.
 
-Başlamak için Git [Azure portalında](http://portal.azure.com) ve Azure hesabınızda oturum açın. Portalın en üstündeki arama çubuğunda, işlev uygulamanızın adını yazın ve uygulamayı listeden seçin. İşlev uygulamanızı seçtikten sonra aşağıdaki sayfaya bakın:
+Başlamak için Git [Azure portalında](https://portal.azure.com) ve Azure hesabınızda oturum açın. Portalın en üstündeki arama çubuğunda, işlev uygulamanızın adını yazın ve uygulamayı listeden seçin. İşlev uygulamanızı seçtikten sonra aşağıdaki sayfaya bakın:
 
 ![Azure portalında işlev uygulama genel bakış](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 

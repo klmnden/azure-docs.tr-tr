@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 9df44ec59e9384ac047b5c67abae334d51ff4dd3
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: b883ccc475a221c8aee135c5d14da32f7598b90c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679282"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999036"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Application Insights Analiz Sorunlarını Giderme
 Sorun [Application Insights Analytics](app-insights-analytics.md)? Buradan başlayın. Analytics, Azure Application Insights'ın güçlü bir arama aracıdır.
@@ -104,7 +104,7 @@ URL geçersiz.
 * Uygulama kaynağı açın [Application Insights portalında](https://portal.azure.com). Ardından Analytics düğmesini kullanın.
 
 ## <a name="cookies"></a>Üçüncü taraf tanımlama bilgilerini etkinleştirin
-  Bkz: [üçüncü taraf tanımlama bilgilerini devre dışı bırakma](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers), ancak ihtiyacımız için bildirim **etkinleştirme** bunları.
+  Bkz: [üçüncü taraf tanımlama bilgilerini devre dışı bırakma](https://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers), ancak ihtiyacımız için bildirim **etkinleştirme** bunları.
 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]

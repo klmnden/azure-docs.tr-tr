@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 0ae24deca1cce14a475c59046be71b3b17ca5505
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d32ea8af6ad8282872572076db4b9eef34e05166
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957687"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011867"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-using-azure-cli"></a>Azure CLI kullanarak ana bilgisayar adı, bağlantı noktaları ve erişim anahtarlarını alma
 
@@ -24,10 +24,10 @@ Ana bilgisayar adı ve bağlantı noktaları çağırabilirsiniz Azure CLI kulla
 
 # Retrieve the hostname, ports, and keys for contosoCache located in contosoGroup
 
-# Retrieve the hostname and ports for an Azure Redis Cache instance
+# Retrieve the hostname and ports for an Azure Azure Cache for Redis instance
 redis=($(az redis show --name contosoCache --resource-group contosoGroup --query [hostName,enableNonSslPort,port,sslPort] --output tsv))
 
-# Retrieve the keys for an Azure Redis Cache instance
+# Retrieve the keys for an Azure Azure Cache for Redis instance
 keys=($(az redis list-keys --name contosoCache --resource-group contosoGroup --query [primaryKey,secondaryKey] --output tsv))
 
 # Display the retrieved hostname, keys, and ports
@@ -39,4 +39,4 @@ echo "Primary Key:" ${keys[0]}
 echo "Secondary Key:" ${keys[1]}
 ```
 
-Bu betik hakkında daha fazla bilgi için bkz. [Azure Redis Cache için ana bilgisayar adı, bağlantı noktası ve anahtar alma](../articles/redis-cache/scripts/cache-keys-ports.md). Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli) ve [Azure CLI ile çalışmaya başlama](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+Bu betik hakkında daha fazla bilgi için bkz. [ana bilgisayar adı, bağlantı noktalarını ve anahtarları Azure Azure önbelleği için Redis için alma](../articles/azure-cache-for-redis/scripts/cache-keys-ports.md). Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli) ve [Azure CLI ile çalışmaya başlama](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).

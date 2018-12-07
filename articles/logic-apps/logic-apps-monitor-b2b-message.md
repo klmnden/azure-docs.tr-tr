@@ -9,19 +9,19 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: 5dccfe61eaf97f27b211aa6812145f21f2098738
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2c1bac07d5086cffb99082520b05c7e42982c6f7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961272"
+ms.locfileid: "52996619"
 ---
 # <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>Azure Log Analytics'te Azure Logic Apps ile B2B iletilerini izleme
 
 Tümleştirme hesabı ticari ortaklar arasında B2B iletişim kurduktan sonra iş ortakları birbirleriyle iletiler gönderip alabilir. Bu iletişim beklediğiniz gibi çalışır, AS2, X12, izleyebilir ve EDIFACT iletileri ve tümleştirme hesabınız için günlüğe kaydetme tanılama ayarlama denetlemek için [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Bu hizmet, Bulut ve şirket içi ortamlarını, kullanılabilirlik ve performansı korumak ve çalışma zamanı Ayrıntılar ve daha zengin hata ayıklama olaylarını toplar izler. Ayrıca [diğer hizmetleri ile bu verileri kullanın](#extend-diagnostic-data) Azure depolama ve Azure Event Hubs gibi.
 
 > [!NOTE]
-> Bu sayfa, başvurular için Microsoft Operations Management Suite (olan OMS), yine de olabilir [Ocak 2019 ' devre dışı bırakma](../log-analytics/log-analytics-oms-portal-transition.md), ancak bu adımlar, mümkün olduğunda Azure Log Analytics ile değiştirir. 
+> Bu sayfa, başvurular için Microsoft Operations Management Suite (olan OMS), yine de olabilir [Ocak 2019 ' devre dışı bırakma](../azure-monitor/platform/oms-portal-transition.md), ancak bu adımlar, mümkün olduğunda Azure Log Analytics ile değiştirir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -124,7 +124,7 @@ Azure Log Analytics ile birlikte mantıksal uygulamanızın tanılama verilerini
 * [Azure depolama alanında Azure tanılama günlüklerini arşivleme](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 * [Azure Event hubs'a Stream Azure tanılama günlükleri](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
-İzleme telemetri ve diğer hizmetlerden analytics kullanarak gerçek zamanlı Get ister sonra yapabilecekleriniz [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) ve [Power BI](../log-analytics/log-analytics-powerbi.md). Örneğin:
+İzleme telemetri ve diğer hizmetlerden analytics kullanarak gerçek zamanlı Get ister sonra yapabilecekleriniz [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) ve [Power BI](../azure-monitor/platform/powerbi.md). Örneğin:
 
 * [Event Hubs verilerini Stream Stream analytics'e](../stream-analytics/stream-analytics-define-inputs.md)
 * [Stream Analytics ile akış verilerini analiz etme ve Power BI'da gerçek zamanlı analiz Pano oluşturma](../stream-analytics/stream-analytics-power-bi-dashboard.md)

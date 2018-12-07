@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: b4bc632b4951781b85847699d38fd10df14c1a87
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 3106e523e3f8edd17cc27991181267acfab4308b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720754"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002132"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>İzlenecek yol: Microsoft Dynamics CRM Online Application Insights ile Telemetri etkinleştirme
 Bu makalede telemetri verilerinin alınacağı gösterilmektedir [Microsoft Dynamics CRM Online](https://www.dynamics.com/) kullanarak [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Veri ve veri görselleştirme yakalama uygulamanıza Application Insights betiğini ekleme tam işlemi gösterilecektir.
@@ -32,7 +32,7 @@ Bu makalede telemetri verilerinin alınacağı gösterilmektedir [Microsoft Dyna
 Uygulamanızı izlemek için bir Application Insights SDK'sını uygulamanıza ekleyin. SDK'sı telemetri gönderir [Application Insights portalında](https://portal.azure.com), bizim güçlü analiz ve tanılama araçlarını kullanın, veya reddedebileceğiniz verilerini depolamaya aktar.
 
 ### <a name="create-an-application-insights-resource-in-azure"></a>Azure'da Application Insights kaynağı oluşturma
-1. Alma [Microsoft azure'da bir hesap](http://azure.com/pricing). 
+1. Alma [Microsoft azure'da bir hesap](https://azure.com/pricing). 
 2. Oturum [Azure portalında](https://portal.azure.com) ve yeni bir Application Insights kaynağı ekleyin. Verilerin işlenmesi ve görüntülenen budur.
 
     ![Tıklama +, geliştirici Hizmetleri, Application Insights.](./media/app-insights-sample-mscrm/01.png)

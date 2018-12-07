@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5b6afe4856e7e2c643a636f070937e81a2add2dd
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 3c3ff606958503efcf2df5fd99b6e52e4687de4a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724239"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996250"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights kaynağı oluşturma
 Azure Application Insights, Microsoft Azure'da uygulamanızla ilgili verileri görüntüler *kaynak*. Yeni kaynak oluşturma, bu nedenle parçası [yeni bir uygulama izlemek için Application ınsights'ı ayarlama][start]. Çoğu durumda, bir kaynak oluşturma otomatik olarak IDE tarafından yapılabilir. Ancak bazı durumlarda, bir kaynak el ile - Örneğin, geliştirme için ayrı kaynaklar için oluşturmanız ve uygulamanızı üretim oluşturur.
@@ -25,11 +25,11 @@ Azure Application Insights, Microsoft Azure'da uygulamanızla ilgili verileri g�
 Kaynak oluşturduktan sonra izleme anahtarı edinme ve, uygulama SDK'sını yapılandırmak için kullanın. Kaynak anahtarı telemetri kaynağına bağlar.
 
 ## <a name="sign-up-to-microsoft-azure"></a>Microsoft Azure'a kaydolun
-Gücüne sahip değilseniz, bir [Microsoft hesabı, hemen edinin](http://live.com). (Outlook.com, OneDrive, Windows Phone veya XBox Live gibi hizmetleri kullanıyorsanız zaten bir Microsoft hesabınız varsa.)
+Gücüne sahip değilseniz, bir [Microsoft hesabı, hemen edinin](https://live.com). (Outlook.com, OneDrive, Windows Phone veya XBox Live gibi hizmetleri kullanıyorsanız zaten bir Microsoft hesabınız varsa.)
 
-Ayrıca bir aboneliğe ihtiyacınız [Microsoft Azure](http://azure.com). Ekibinizin ve kuruluşunuzun bir Azure aboneliği varsa, sahibi, Windows Live ID'nizi kullanarak ekleyebileceğiniz Yalnızca kullandığınız kadarı için ücret ödersiniz. Varsayılan temel plan, Deneysel kullanım ücretsiz olarak belirli bir miktarda için sağlar.
+Ayrıca bir aboneliğe ihtiyacınız [Microsoft Azure](https://azure.com). Ekibinizin ve kuruluşunuzun bir Azure aboneliği varsa, sahibi, Windows Live ID'nizi kullanarak ekleyebileceğiniz Yalnızca kullandığınız kadarı için ücret ödersiniz. Varsayılan temel plan, Deneysel kullanım ücretsiz olarak belirli bir miktarda için sağlar.
 
-Bir aboneliğe erişim süreyi bulduğunuzda, Application Insights oturum [ http://portal.azure.com ](https://portal.azure.com)ve Live ID'nizi oturum açmak için kullanabilirsiniz.
+Bir aboneliğe erişim süreyi bulduğunuzda, Application Insights oturum [ https://portal.azure.com ](https://portal.azure.com)ve Live ID'nizi oturum açmak için kullanabilirsiniz.
 
 ## <a name="create-an-application-insights-resource"></a>Application Insights kaynağı oluşturma
 İçinde [portal.azure.com](https://portal.azure.com), Application Insights kaynağı ekleyin:

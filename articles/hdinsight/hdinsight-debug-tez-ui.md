@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: c96e195d425cff640a4961e34305c1af447f6f28
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 1e529b2276d2e68c67696ba9d142760f5881a25e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499436"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012819"
 ---
 # <a name="use-the-apache-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Windows tabanlı HDInsight üzerinde Tez işlerinin hatalarını ayıklamak için Apache Tez kullanıcı Arabirimi kullanın
 [Apache TEZ](https://tez.apache.org/) UI hata ayıklama için kullanılabilir [Apache Hive](https://hive.apache.org/) yürütme altyapısı Tez kullanan işler. Bir grafik bağlı öğelerin her öğenin ayrıntısına ve istatistikleri ve günlük kaydı bilgilerini alma Tez kullanıcı Arabirimi iş görselleştirir.
@@ -136,4 +136,4 @@ Tez kullanan Hive sorgusu çalıştırmak için aşağıdaki adımları kullanı
 ## <a name="next-steps"></a>Sonraki Adımlar
 Nasıl kullanılacağını öğrendiğinize göre [Apache TEZ](https://tez.apache.org/) görüntülemek için daha fazla bilgi edinin [HDInsight üzerinde Apache Hive kullanarak](hadoop/hdinsight-use-hive.md).
 
-Daha ayrıntılı Tez üzerinde teknik bilgi için bkz. [Hortonworks Apache Tez sayfanın](http://hortonworks.com/hadoop/tez/).
+Daha ayrıntılı Tez üzerinde teknik bilgi için bkz. [Hortonworks Apache Tez sayfanın](https://hortonworks.com/hadoop/tez/).

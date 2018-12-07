@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: 8124b399b859f812ec3bf9f7ea64b6643446a1b5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 9de0d8bc389218d3102633b09073b3af323d2ceb
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249338"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012003"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Media Services olayları Azure Event Grid şemaları
 
@@ -112,9 +112,12 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
 | previousState | dize | Olay önce iş durumu. |
-| durum | dize | Bu durumda bildirilmesini işi yeni durumu. Örneğin, "kuyruğa alındı: iş kaynakları bekliyor" veya "zamanlanmış: işi başlatmak hazır".|
+| durum | dize | Bu durumda bildirilmesini işi yeni durumu. Örneğin, "zamanlanmış: işi başlatmak hazır" veya "tamamlandı: İş tamamlandı".|
 
 Nereden iş durumu aşağıdakilerden biri olabilir değerleri: *sıraya alınan*, *zamanlanmış*, *işleme*, *tamamlandı*, *hata*, *İptal*, *iptal ediliyor*
+
+> [!NOTE]
+> *Kuyruğa Alınan* yalnızca bulunması geçiyor **previousState** özelliği de **durumu** özelliği.
 
 ### <a name="jobscheduled-jobprocessing-jobcanceling"></a>JobScheduled, JobProcessing, JobCanceling
 

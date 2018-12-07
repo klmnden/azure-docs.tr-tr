@@ -1,30 +1,34 @@
 ---
-title: Machine Learning otomatik - Azure Machine Learning nedir
-description: Bu makalede, otomatik machine learning hakkında bilgi edinebilirsiniz. Azure Machine Learning hizmeti otomatik olarak sizin için bir algoritma seçin ve bir model oluşturmak. Machine learning yardımcı size zaman kazandırır, parametreleri ve modeliniz için en iyi algoritmayı seçin sağladığınız ölçütleri kullanarak otomatik.
+title: Machine Learning otomatik - Azure Machine Learning hizmeti nedir
+description: Parametreleri ve modeliniz için en iyi algoritmayı seçin sağladığınız ölçütleri kullanarak zaman nasıl Azure Machine Learning hizmeti otomatik olarak sizin için bir algoritma seçin ve bunu kaydetmek için bir model oluşturmak öğrenin.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-ms.author: krishnan
-author: krishnaanumalasetty
-ms.date: 9/24/2018
-ms.openlocfilehash: 2a9c05b68d05102fab80b2aa8fb1c1dad8a367ea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+author: nacharya1
+ms.author: nilesha
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 4b9356c7cba14cf5bd112c7d7ae1aab2842fb9d1
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960048"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010901"
 ---
 # <a name="what-is-automated-machine-learning"></a>Nedir, makine öğrenimi otomatik?
 
-Bu makalede, otomatik machine learning hakkında bilgi edinebilirsiniz. Azure Machine Learning hizmeti otomatik olarak sizin için bir algoritma seçin ve bir model oluşturmak. Machine learning yardımcı size zaman kazandırır, parametreleri ve modeliniz için en iyi algoritmayı seçin sağladığınız ölçütleri kullanarak otomatik.
+Bu makalede, otomatik machine learning hakkında bilgi edinebilirsiniz. Azure Machine Learning hizmeti otomatik olarak sizin için bir algoritma seçin ve bir model oluşturmak. Otomatik makine kaydeder öğrenme modelleri çalıştırmak deneme süresi gibi denemeniz için tanımlanan kısıtlamaları ve hedefler ayarlanmış veya kara listeye hangi modelleri oluşturarak zaman.
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
-1. Makine öğrenimi sorunu çözmeye çalışıyorsanız türünü yapılandırın. Denetimli öğrenmede iki kategoriye desteklenir:
+1. Makine öğrenimi sorunu çözmeye çalışıyorsanız türünü yapılandırın. Denetimli öğrenmede kategoriler desteklenir:
    + Sınıflandırma
    + Regresyon
+   + Tahmin etme 
+
+   Genel kullanıma sunulan otomatik makine öğrenimi ederken **tahmin özelliği hala genel Önizleme aşamasındadır.**
 
    Bkz: [modelleri](how-to-configure-auto-train.md#select-your-experiment-type) Azure Machine Learning eğitimi deneyebilirsiniz.
 

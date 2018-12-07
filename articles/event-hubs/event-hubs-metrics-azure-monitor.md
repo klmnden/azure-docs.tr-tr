@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c59cb8277bee13a83d0bf17c26deef1b8fc8d3e6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: e01262d67b6d08cd1cb05a6375344a5087fffce3
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822852"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012530"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme), Azure Event Hubs ölçümleri
 
@@ -37,13 +38,13 @@ Azure İzleyici ölçümlerine erişim birden çok yol sağlar. Ya da erişim ö
 
 Zaman içinde ölçümleri izleyebilirsiniz [Azure portalında](https://portal.azure.com). Aşağıdaki örnek, başarılı istekleri ve hesap düzeyinde gelen istekleri görüntülemek gösterilmektedir:
 
-![][1]
+![Başarılı ölçümlerini görüntüleme][1]
 
 Ad alanı aracılığıyla doğrudan ölçümleri de erişebilirsiniz. Bunu yapmak için ad alanını seçin ve ardından **ölçümleri (Peview)**. Olay hub'ı kapsamına filtrelenmiş ölçümleri görüntülemek için olay hub'ı seçin ve ardından **ölçümler (Önizleme)**.
 
 Ölçümleri boyutlarını desteklemek için aşağıdaki örnekte gösterildiği gibi istenen boyut değerine sahip filtre gerekir:
 
-![][2]
+![Boyut değeri ile Filtrele][2]
 
 ## <a name="billing"></a>Faturalandırma
 

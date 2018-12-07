@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4b565252c78bfe2194530d840651a57df2686728
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: cf7c47e14ef41f58ca1d674521da669e56e7e892
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633182"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012190"
 ---
 # <a name="run-apache-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Curl ile HDInsight Hadoop ile Apache Sqoop işleri çalıştırma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -27,8 +27,8 @@ Curl, çalıştırma, izleme ve Sqoop iş sonuçlarını almak üzere ham HTTP i
 Bu makaledeki adımları tamamlamak için aşağıdakiler gerekir:
 
 * Tam [HDInsight, Hadoop ile Sqoop kullanma](hdinsight-use-sqoop.md#create-cluster-and-sql-database) bir HDInsight kümesi ve bir Azure SQL veritabanı ile bir ortamı yapılandırmak için.
-* [Curl](http://curl.haxx.se/). Curl, bir HDInsight kümesine ya da veri aktarımı için kullanılan bir araçtır.
-* [jq](http://stedolan.github.io/jq/). Jq yardımcı programı, REST isteklerinden döndürülen JSON verilerini işlemek için kullanılır.
+* [Curl](https://curl.haxx.se/). Curl, bir HDInsight kümesine ya da veri aktarımı için kullanılan bir araçtır.
+* [jq](https://stedolan.github.io/jq/). Jq yardımcı programı, REST isteklerinden döndürülen JSON verilerini işlemek için kullanılır.
 
 ## <a name="submit-sqoop-jobs-by-using-curl"></a>Curl kullanarak Sqoop işlerini gönderme
 > [!NOTE]
@@ -36,7 +36,7 @@ Bu makaledeki adımları tamamlamak için aşağıdakiler gerekir:
 > 
 > Bu bölümdeki komutlar için **USERNAME** ifadesini küme kimliğini doğrulayacak kullanıcı ile, **PASSWORD** ifadesini ise kullanıcı hesabının parolası ile değiştirin. **CLUSTERNAME** değerini kümenizin adıyla değiştirin.
 > 
-> REST API’sinin güvenliği [temel kimlik doğrulaması](http://en.wikipedia.org/wiki/Basic_access_authentication) ile sağlanır. Kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderilmesi için istekleri her zaman Güvenli HTTP (HTTPS) kullanarak yapmanız gerekir.
+> REST API’sinin güvenliği [temel kimlik doğrulaması](https://en.wikipedia.org/wiki/Basic_access_authentication) ile sağlanır. Kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderilmesi için istekleri her zaman Güvenli HTTP (HTTPS) kullanarak yapmanız gerekir.
 > 
 > 
 

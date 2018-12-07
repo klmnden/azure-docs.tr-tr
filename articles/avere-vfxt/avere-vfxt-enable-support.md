@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 0f5eee20b0487fb5fce82047f40d137effb87ead
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: b975f84106507da6adff11dc62441526773f5cab
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164439"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998149"
 ---
 # <a name="enable-support-uploads"></a>Destek karşıya yüklemelerini etkinleştirme
 
@@ -42,6 +42,6 @@ Avere desteğini etkinleştirmek için Denetim Masası ' aşağıdaki adımları
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir şirket içi depolama sistemi kümeye eklemeniz gerekiyorsa, yönergeleri izleyin [depolamayı yapılandırma](avere-vfxt-add-storage.md). 
+Bir şirket içi depolama sistemi kümeye eklemek veya yeni oluşturulmuş bir Blob kapsayıcısında varsayılan şifreleme anahtarını güncelleştirmek gerekiyorsa, yönergeleri izleyin [depolamayı yapılandırma](avere-vfxt-add-storage.md). 
 
 İstemciler okuma kümeye ekleme başlatmaya hazırsanız [Avere vFXT küme bağlama](avere-vfxt-mount-clients.md).

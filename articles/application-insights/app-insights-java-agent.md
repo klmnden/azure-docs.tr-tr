@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: c5a98b9182e3a644a808b363df2fd44b115828f0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a62c6cbb6594aaf7c2c57d7efee1832d7b1430b7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727707"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000721"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Bağımlılıklar, yakalanan özel durumların ve yöntemi yürütme sürelerini Java web uygulamalarını izleme
 
@@ -27,7 +27,7 @@ Varsa [Java web uygulamanızı Application Insights ile izleme eklenmiş][java],
 * **Bağımlılıkları:** dahil olmak üzere diğer bileşenler için uygulamanızın yaptığı çağrılar hakkında veri:
   * **REST çağrılarını** HttpClient yapılan OkHttp ve RestTemplate (Spring) yakalanır.
   * **Redis** Jedis istemcisi aracılığıyla yapılan çağrılar yakalanır.
-  * **[JDBC çağrıları](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL, SQL Server ve Oracle DB komutları otomatik olarak yakalanır. MySQL için sorgu planı aracının rapor göndereceği çağrı 10s uzun sürerse.
+  * **[JDBC çağrıları](https://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL, SQL Server ve Oracle DB komutları otomatik olarak yakalanır. MySQL için sorgu planı aracının rapor göndereceği çağrı 10s uzun sürerse.
 * **Özel durum yakalandı:** kodunuz tarafından işlenen özel durumlar hakkında bilgi.
 * **Yöntem yürütme süresi:** süresi hakkında bilgi alması belirli bir yöntem yürütülemez için.
 

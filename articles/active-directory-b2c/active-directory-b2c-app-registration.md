@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 12/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8068c4a8f38cd33a1a0547f5db5079bc75c76ec1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: fcebada4ef10c3e0bb298e9308d66ecb37247832
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013420"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999268"
 ---
 # <a name="register-an-application-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de bir uygulamayı kaydetme
 
@@ -82,7 +82,4 @@ Uygulamanız bir web API'si Azure AD B2C ile güvenliği sağlanan çağırıyor
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure AD B2C'ye kayıtlı bir uygulamaya sahip olduğunuza göre başlamak için [hızlı başlangıç öğreticilerinden](active-directory-b2c-overview.md) birini tamamlayabilirsiniz.
-
-> [!div class="nextstepaction"]
-> [Kaydolma, oturum açma ve parola sıfırlama seçenekleriyle bir ASP.NET web uygulaması oluşturma](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+Erişim belirteçleri uygulamalar tarafından nasıl kullanıldığı hakkında daha fazla izin verme API'leri öğrenin [isteyen erişim belirteçleri](active-directory-b2c-access-tokens.md)

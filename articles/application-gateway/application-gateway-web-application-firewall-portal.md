@@ -1,6 +1,6 @@
 ---
-title: Bir web uygulaması güvenlik duvarı ile - Azure portalında bir uygulama ağ geçidi oluşturma | Microsoft Docs
-description: Azure portalı kullanarak bir web uygulaması güvenlik duvarı ile bir uygulama ağ geçidi oluşturmayı öğrenin.
+title: Bir web uygulaması güvenlik duvarıyla - Azure portalında bir uygulama ağ geçidi oluşturma | Microsoft Docs
+description: Azure portalını kullanarak bir web uygulaması güvenlik duvarı ile bir uygulama ağ geçidi oluşturmayı öğrenin.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -11,96 +11,96 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 9967813b193159b68aa0f008dae4440aa6e533dc
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 12ef6447e53ba0da3fbd3d56749d7798c49a2cfe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33207400"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993968"
 ---
-# <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Azure Portalı'nı kullanarak bir web uygulaması güvenlik duvarı ile bir uygulama ağ geçidi oluşturma
+# <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Azure portalını kullanarak bir web uygulaması güvenlik duvarı ile bir uygulama ağ geçidi oluşturma
 
-Azure Portalı'nı oluşturmak için kullanabileceğiniz bir [uygulama ağ geçidi](application-gateway-introduction.md) ile bir [web uygulaması güvenlik duvarı](application-gateway-web-application-firewall-overview.md) (WAF). WAF kullandığı [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) uygulamanızı korumak için kurallar. Bu kurallar SQL ekleme gibi saldırıları, siteler arası komut dosyası saldırıları ve oturumu ele geçirilmesini karşı koruma içerir.
+Azure portalından oluşturmak için kullanabileceğiniz bir [uygulama ağ geçidi](application-gateway-introduction.md) ile bir [web uygulaması güvenlik duvarı](application-gateway-web-application-firewall-overview.md) (WAF). WAF, uygulamanızı korumak için [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) kurallarını kullanır. Bu kurallar SQL ekleme, siteler arası betik saldırıları ve oturum ele geçirme gibi saldırılara karşı korumayı içerir.
 
 Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Etkin WAF ile bir uygulama ağ geçidi oluşturma
-> * Arka uç sunucuları olarak kullanılan sanal makine oluşturma
-> * Bir depolama hesabı oluşturmak ve tanılama Yapılandır
+> * WAF etkinken bir uygulama ağ geçidi oluşturma
+> * Arka uç sunucular olarak kullanılan sanal makine oluşturma
+> * Bir depolama hesabı oluşturma ve tanılamaları yapılandırma
 
 ![Web uygulaması güvenlik duvarı örneği](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-Azure portalında oturum açın [http://portal.azure.com](http://portal.azure.com)
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın
 
 ## <a name="create-an-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklidir. Bu örnekte, iki alt ağ oluşturulur: bir uygulama ağ geçidi ve arka uç sunucular için diğer için. Uygulama ağ geçidi oluşturma aynı anda bir sanal ağ oluşturabilirsiniz.
+Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklidir. Bu örnekte iki alt ağ oluşturulmuştur: biri uygulama ağ geçidi ve diğeri de arka uç sunucuları içindir. Uygulama ağ geçidini oluştururken aynı zamanda bir sanal makine oluşturabilirsiniz.
 
-1. Tıklatın **yeni** Azure portalında sol üst köşesinde bulundu.
-2. Seçin **ağ** ve ardından **uygulama ağ geçidi** öne çıkan listesinde.
-3. Uygulama ağ geçidi için bu değerleri girin:
+1. Tıklayın **yeni** Azure portalının sol üst köşedeki üzerinde bulunamadı.
+2. **Ağ** ve ardından Öne Çıkanlar listesinde **Application Gateway**’i seçin.
+3. Uygulama ağ geçidi için şu değerleri girin:
 
-    - *myAppGateway* - uygulama ağ geçidi adı.
-    - *myResourceGroupAG* - yeni kaynak grubu için.
-    - Seçin *WAF* uygulama ağ geçidi katmanı için.
+    - *myAppGateway* - Uygulama ağ geçidinin adı.
+    - *myResourceGroupAG* - Yeni kaynak grubu.
+    - Seçin *WAF* uygulama ağ geçidinin katmanı için.
 
     ![Yeni uygulama ağ geçidi oluşturma](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
-4. Diğer ayarlar için varsayılan değerleri kabul edin ve ardından **Tamam**.
-5. Tıklatın **sanal ağ seçin**, tıklatın **Yeni Oluştur**ve ardından sanal ağ için bu değerleri girin:
+4. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.
+5. Tıklayın **bir sanal ağ seçin**, tıklayın **Yeni Oluştur**ve ardından sanal ağ için şu değerleri girin:
 
-    - *myVNet* - sanal ağın adı.
-    - *10.0.0.0/16* - sanal ağ adres alanı.
-    - *myAGSubnet* - alt ağ adı.
-    - *10.0.0.0/24* - alt ağ adres alanı.
+    - *myVNet* - Sanal ağın adı.
+    - *10.0.0.0/16* - Sanal ağın adres alanı.
+    - *myAGSubnet* - Alt ağın adı.
+    - *10.0.0.0/24* - Alt ağın adres alanı.
 
     ![Sanal ağ oluşturma](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 
-6. Tıklatın **Tamam** sanal ağ ve alt ağ oluşturmak için.
-7. Tıklatın **genel bir IP adresi seçin**, tıklatın **Yeni Oluştur**ve ortak IP adresini girin. Bu örnekte adlı ortak IP adresi *myAGPublicIPAddress*. Diğer ayarlar için varsayılan değerleri kabul edin ve ardından **Tamam**.
+6. Sanal ağı ve alt ağı oluşturmak için **Tamam**’a tıklayın.
+7. Tıklayın **genel bir IP adresi seçin**, tıklayın **Yeni Oluştur**ve ardından genel IP adresini adını girin. Bu örnekte genel IP adresinin adı *myAGPublicIPAddress* şeklindedir. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.
 8. Dinleyici yapılandırması için varsayılan değerleri kabul edin, Web uygulaması güvenlik duvarı devre dışı bırakın ve ardından **Tamam**.
-9. Özet sayfasında ayarları gözden geçirin ve ardından **Tamam** ağ kaynaklarına ve uygulama ağ geçidi oluşturmak için. Oluşturulması, dağıtımı, sonraki bölüme geçmeden önce başarıyla tamamlanana kadar bekleyin uygulama ağ geçidi için birkaç dakika sürebilir.
+9. Özet sayfasında ayarları gözden geçirin ve ardından **Tamam** ağ kaynaklarının ve uygulama ağ geçidi oluşturmak için. Bu, uygulama ağ geçidinin oluşturulması, sonraki bölüme geçmeden önce dağıtımın başarıyla tamamlanana kadar bekleyin birkaç dakika sürebilir.
 
-### <a name="add-a-subnet"></a>Bir alt ağ Ekle
+### <a name="add-a-subnet"></a>Alt ağ ekleme
 
-1. Tıklatın **tüm kaynakları** sol taraftaki menüyü ve ardından **myVNet** kaynakları listesinden.
-2. Tıklatın **alt ağlar**ve ardından **alt**.
+1. Sol taraftaki menüde **Tüm kaynaklar**’a ve sonra kaynaklar listesinden **myVNet** öğesine tıklayın.
+2. Tıklayın **alt ağlar**ve ardından **alt**.
 
     ![Alt ağ oluşturma](./media/application-gateway-web-application-firewall-portal/application-gateway-subnet.png)
 
-3. Girin *myBackendSubnet* 'ye tıklayın ve alt ağ adı için **Tamam**.
+3. Alt ağ adı için *myBackendSubnet* girin ve sonra **Tamam**’a tıklayın.
 
 ## <a name="create-backend-servers"></a>Arka uç sunucular oluşturma
 
-Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak iki sanal makine oluşturun. Ayrıca uygulama ağ geçidi başarıyla oluşturulduğunu doğrulamak için sanal makinelerde IIS yükleyin.
+Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak iki sanal makine oluşturacaksınız. Uygulama ağ geçidinin başarıyla oluşturulduğunu doğrulamak için sanal makinelere IIS de yükleyin.
 
 ### <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 
 1. **Yeni**’ye tıklayın.
-2. Tıklatın **işlem** ve ardından **Windows Server 2016 Datacenter** öne çıkan listesinde.
-3. Sanal makine için bu değerleri girin:
+2. Tıklayın **işlem** seçip **Windows Server 2016 Datacenter** Öne çıkanlar listesinde.
+3. Sanal makine için şu değerleri girin:
 
-    - *myVM* - sanal makine adı için.
+    - *myVM* - Sanal makinenin adı.
     - Yönetici kullanıcı adı için *azureuser*.
-    - *Azure123456!* parolası.
-    - Seçin **var olanı kullan**ve ardından *myResourceGroupAG*.
+    - *Azure123456!* Parola.
+    - **Mevcut olanı kullan**’ı seçin ve *myResourceGroupAG* seçeneğini belirleyin.
 
-4. **Tamam**’a tıklayın.
+4. **Tamam** düğmesine tıklayın.
 5. Sanal makinenin boyutu için **DS1_V2** seçeneğini belirleyin ve **Seç**’e tıklayın.
-6. Olduğundan emin olun **myVNet** sanal ağ ve alt ağ için seçili olan **myBackendSubnet**. 
+6. Sanal ağ için **myVNet** öğesinin seçili olduğundan ve alt ağın **myBackendSubnet** olduğundan emin olun. 
 7. Önyükleme tanılamalarını devre dışı bırakmak için **Devre Dışı** seçeneğine tıklayın.
 8. **Tamam**’a tıklayın, özet sayfasındaki ayarları gözden geçirin ve sonra **Oluştur**’a tıklayın.
 
 ### <a name="install-iis"></a>IIS yükleme
 
-1. Etkileşimli Kabuğu'nu açın ve onu ayarlandığından emin olun **PowerShell**.
+1. Etkileşimli kabuğu açın ve **PowerShell**’e ayarlandığından emin olun.
 
-    ![Özel uzantısını yükleyin](./media/application-gateway-web-application-firewall-portal/application-gateway-extension.png)
+    ![Özel uzantıyı yükleme](./media/application-gateway-web-application-firewall-portal/application-gateway-extension.png)
 
-2. IIS sanal makineye yüklemek için aşağıdaki komutu çalıştırın: 
+2. Sanal makineye IIS yüklemek için aşağıdaki komutu çalıştırın: 
 
     ```azurepowershell-interactive
     Set-AzureRmVMExtension `
@@ -114,59 +114,59 @@ Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak
       -Location EastUS
     ```
 
-3. İkinci bir sanal makine oluşturun ve yalnızca tamamlandı adımları kullanarak IIS yükleyin. Girin *myVM2* adını ve Set-AzureRmVMExtension VMName.
+3. İkinci bir sanal makine oluşturun ve yeni tamamladığınız adımları kullanarak IIS yükleyin. Ad olarak ve VMName için Set-AzureRmVMExtension komutuna *myVM2* girin.
 
 ### <a name="add-backend-servers"></a>Arka uç sunucuları ekleme
 
-1. Tıklatın **tüm kaynakları**ve ardından **myAppGateway**.
-2. Tıklatın **arka uç havuzları**. Varsayılan bir havuzu uygulama ağ geçidi ile otomatik olarak oluşturuldu. Tıklatın **appGateayBackendPool**.
-3. Tıklatın **Ekle hedef** oluşturduğunuz her bir sanal makine arka uç havuzuna eklemek için.
+1. Tıklayın **tüm kaynakları**ve ardından **myAppGateway**.
+2. **Arka uç havuzları** öğesine tıklayın. Uygulama ağ geçidi ile varsayılan bir havuz otomatik olarak oluşturulur. Tıklayın **appGateayBackendPool**.
+3. Tıklayın **Ekle hedef** arka uç havuzu için oluşturduğunuz her sanal makineye eklenecek.
 
     ![Arka uç sunucuları ekleme](./media/application-gateway-web-application-firewall-portal/application-gateway-backend.png)
 
 4. **Kaydet**’e tıklayın.
 
-## <a name="create-a-storage-account-and-configure-diagnostics"></a>Bir depolama hesabı oluşturmak ve tanılama Yapılandır
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>Bir depolama hesabı oluşturma ve tanılamaları yapılandırma
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Bu öğreticide, uygulama ağ geçidi saptamak ve önlemek amacıyla verileri depolamak için bir depolama hesabı kullanır. Veri kaydı için günlük analizi veya olay hub'ı da kullanabilirsiniz.
+Bu öğreticide uygulama ağ geçidi, algılama ve önleme amacıyla verileri depolamak için bir depolama hesabı kullanır. Verileri kaydetmek için Log Analytics veya Event Hub hizmetini de kullanabilirsiniz.
 
-1. Tıklatın **yeni** Azure portalında sol üst köşesinde bulundu.
+1. Tıklayın **yeni** Azure portalının sol üst köşedeki üzerinde bulunamadı.
 2. **Depolama**’yı ve sonra **Depolama hesabı - blob, dosya, tablo, kuyruk** öğesini seçin.
-3. Select depolama hesabının adını girin **kullanım varolan** kaynak grubu ve ardından **myResourceGroupAG**. Bu örnekte, depolama hesabı adı olan *myagstore1*. Diğer ayarlar için varsayılan değerleri kabul edin ve ardından **oluşturma**.
+3. Select depolama hesabının adını girin **var olanı kullan** seçin ve kaynak grubu için **myResourceGroupAG**. Bu örnekte, depolama hesabının adıdır *myagstore1*. Diğer ayarlar için varsayılan değerleri kabul edin ve ardından **Oluştur**.
 
-## <a name="configure-diagnostics"></a>Tanılama Yapılandır
+## <a name="configure-diagnostics"></a>Tanılama yapılandırma
 
-Tanılama verileri kaydetmek üzere ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog ve ApplicationGatewayFirewallLog günlüklerine yapılandırın.
+Tanılamayı ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog ve ApplicationGatewayFirewallLog günlüklerine verileri kaydedecek şekilde yapılandırın.
 
-1. Sol menüde tıklatın **tüm kaynakları**ve ardından *myAppGateway*.
-2. İzleme altında tıklatın **tanılama günlükleri**.
-3. Tıklatın **tanılama ayar Ekle**.
-4. Girin *myDiagnosticsSettings* tanılama ayarları için bir isim olarak.
-5. Seçin **bir depolama hesabı arşive**ve ardından **yapılandırma** seçmek için *myagstore1* daha önce oluşturduğunuz depolama hesabı.
-6. Uygulama ağ geçidi günlüklerini toplamak ve korumak için seçin.
+1. Sol taraftaki menüde **tüm kaynakları**ve ardından *myAppGateway*.
+2. İzleme bölümünden tıklayın **tanılama günlükleri**.
+3. Tıklayın **tanılama ayarı ekleme**.
+4. Girin *myDiagnosticsSettings* tanılama ayarları için ad olarak.
+5. Seçin **bir depolama hesabında arşivle**ve ardından **yapılandırma** seçilecek *myagstore1* daha önce oluşturduğunuz depolama hesabı.
+6. Application gateway günlüklerini toplamak ve korumak için seçin.
 7. **Kaydet**’e tıklayın.
 
-    ![Tanılama Yapılandır](./media/application-gateway-web-application-firewall-portal/application-gateway-diagnostics.png)
+    ![Tanılama yapılandırma](./media/application-gateway-web-application-firewall-portal/application-gateway-diagnostics.png)
 
-## <a name="test-the-application-gateway"></a>Uygulama ağ geçidi sınama
+## <a name="test-the-application-gateway"></a>Uygulama ağ geçidini test etme
 
-1. Genel Bakış ekranında uygulama ağ geçidi için genel IP adresini bulun. Tıklatın **tüm kaynakları** ve ardından **myAGPublicIPAddress**.
+1. Genel Bakış ekranında uygulama ağ geçidi için genel IP adresini bulun. Tıklayın **tüm kaynakları** ve ardından **myAGPublicIPAddress**.
 
-    ![Uygulama ağ geçidi genel IP adresi kaydı](./media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png)
+    ![Uygulama ağ geçidi genel IP adresini kaydetme](./media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png)
 
 2. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın.
 
-    ![Test uygulama ağ geçidi](./media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png)
+    ![Uygulama ağ geçidini test etme](./media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, öğrenilen nasıl yapılır:
+Bu makalede, öğrendiğiniz nasıl yapılır:
 
 > [!div class="checklist"]
-> * Etkin WAF ile bir uygulama ağ geçidi oluşturma
-> * Arka uç sunucuları olarak kullanılan sanal makine oluşturma
-> * Bir depolama hesabı oluşturmak ve tanılama Yapılandır
+> * WAF etkinken bir uygulama ağ geçidi oluşturma
+> * Arka uç sunucular olarak kullanılan sanal makine oluşturma
+> * Bir depolama hesabı oluşturma ve tanılamaları yapılandırma
 
-Uygulama ağ geçitleri ile ilişkili kaynakları hakkında daha fazla bilgi için nasıl yapılır makaleleri devam edin.
+Uygulama ağ geçitleri ve bunların ilişkili kaynakları hakkında daha fazla bilgi edinmek için nasıl yapılır makaleleriyle devam edin.

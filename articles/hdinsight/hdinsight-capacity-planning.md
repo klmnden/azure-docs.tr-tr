@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 853bf9cfce458e6f112101b1382dd5bfd5df202d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: b8b562e1f783a9da7621b29fbf6d5bd1ff6ca5ef
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499104"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013518"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapasite için HDInsight kümeleri planlama
 
@@ -97,7 +97,7 @@ Bir kümenin ömrü boyunca ücretlendirilir. Yalnızca belirli saatler kümesi 
 
 Bazen hatalar birden çok eşleme Paralel yürütme nedeniyle oluşabilir ve çok düğümlü bir küme bileşenleri azaltın. Sorunu, eşzamanlı olarak çalışan Dağıtılmış test etmeyi denemek yardımcı olmak için tek düğümlü bir küme üzerinde birden çok iş genişletin bu yaklaşım, birden fazla işi aynı anda birden fazla düğüm içeren kümelerinde çalıştırılır. Azure'da bir tek düğümlü HDInsight kümesi oluşturmak için kullanın *Gelişmiş* seçeneği.
 
-Ayrıca, bir tek düğümlü geliştirme ortamını yerel bilgisayarınıza yükleyin ve çözümü burada test. Hortonworks, Hadoop tabanlı çözümler için kullanışlı, kavram kanıtı ilk geliştirme ve test bir tek düğümlü yerel geliştirme ortamı sağlar. Daha fazla bilgi için [Hortonworks korumalı alanı](http://hortonworks.com/products/hortonworks-sandbox/).
+Ayrıca, bir tek düğümlü geliştirme ortamını yerel bilgisayarınıza yükleyin ve çözümü burada test. Hortonworks, Hadoop tabanlı çözümler için kullanışlı, kavram kanıtı ilk geliştirme ve test bir tek düğümlü yerel geliştirme ortamı sağlar. Daha fazla bilgi için [Hortonworks korumalı alanı](https://hortonworks.com/products/hortonworks-sandbox/).
 
 Yerel bir tek düğümlü bir küme sorunu tanımlamak için başarısız olan işler yeniden çalıştırın ve giriş verileri ihtiyaçlarımızı veya daha küçük veri kümeleri kullanın. Bu işleri nasıl çalıştırdığınız platform ve uygulama türüne bağlıdır.
 

@@ -1,5 +1,5 @@
 ---
-title: Sysdig ile bir Azure Container Service kümesini izleme
+title: (KULLANIM DIŞI) Sysdig ile bir Azure Container Service kümesini izleme
 description: Sysdig ile bir Azure Container Service kümesini izleyin.
 services: container-service
 author: sauryadas
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 0c0f4fd1f3a8242061e198d7b5447656f9008e96
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3b6781a6b87f9f11b341cf3cf2bcf6668b640c2b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162145"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992190"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-sysdig"></a>Sysdig ile bir Azure Container Service kümesini izleme
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-sysdig"></a>(KULLANIM DIŞI) Sysdig ile bir Azure Container Service kümesini izleme
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Bu makalede, Azure Container Service kümenizdeki tüm aracı düğümlere Sysdig aracıları dağıtılır. Bu yapılandırma için bir Sysdig hesabınızın olması gerekir. 
 
@@ -31,7 +33,7 @@ Sysdig, kümenizdeki kapsayıcıları izlemenize olanak tanıyan bir izleme hizm
 ## <a name="configure-a-sysdig-deployment-with-marathon"></a>Marathon ile bir Sysdig dağıtımı yapılandırma
 Bu adımlarda Sysdig uygulamalarını Marathon ile yapılandırma ve kümenize dağıtma konuları açıklanmaktadır. 
 
-DC/OS kullanıcı Arabirimi aracılığıyla erişim [ http://localhost:80/ ](http://localhost:80/) "sol alta olan Universe", bir kez DC/OS kullanıcı Arabiriminde gidin ve "Sysdig" için arama yapın
+DC/OS kullanıcı arabiriminize erişin [ http://localhost:80/ ](http://localhost:80/) bir kez ", sol altta bulunan Evreni", DC/OS Arabiriminde gidin ve ardından "Sysdig" için arama yapın
 
 ![DC/OS Evreninde Sysdig](./media/container-service-monitoring-sysdig/sysdig1.png)
 

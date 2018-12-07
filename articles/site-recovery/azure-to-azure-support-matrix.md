@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: a7d498349342e34cb56f031bfe1440e01e79173b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2906f6dff84cdd6a09c05734988ee005a3d65aac
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841855"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994624"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Bir Azure bölgesinden diğerine çoğaltma için destek matrisi
 
@@ -40,7 +40,7 @@ Bu makalede, çoğaltma, yük devretme ve kurtarma Azure vm'leri bir Azure bölg
 **Bölge içinde desteklenen coğrafi kümeleri (içinde ve abonelikler arasında) arasında sanal makineleri geçirme** | Aynı Azure Active Directory kiracısı içinde desteklenir.
 **Aynı bölge içinde sanal makineleri geçirme** | Desteklenmiyor.
 
-# <a name="region-support"></a>Bölge desteği
+## <a name="region-support"></a>Bölge desteği
 
 Çoğaltma ve aynı coğrafi kümedeki herhangi iki bölgeleri arasında Vm'lere'ı kurtarın.
 
@@ -62,11 +62,10 @@ Almanya | Almanya Orta, Almanya Kuzeydoğu
 
 Çoğaltma sırasında Site Recovery tarafından kullanılan önbellek depolama hesabı için destek bu tabloda özetlenmiştir.
 
-**Ayar** | **Ayrıntılar**
---- | ---
+**Ayar** | **Destek** | **Ayrıntılar**
+--- | --- | ---
 Genel amaçlı V2 depolama hesaplarının (sık erişimli ve seyrek erişimli katman) | Desteklenmiyor. | V2 ilişkin işlem maliyetlerini V1 depolama hesaplarından daha önemli ölçüde daha yüksek olduğu için önbellek depolama için sınırlama bulunmaktadır.
-Sanal ağlar için Azure depolama güvenlik duvarları  | Hayır | Önbellek depolama hesaplarına çoğaltılan verileri depolamak için kullanılan belirli bir Azure sanal ağları erişimine desteklenmez.
-
+Sanal ağlar için Azure depolama güvenlik duvarları  | Desteklenen | Güvenlik Duvarı etkin önbellek depolama hesabı veya hedef depolama hesabı kullanıyorsanız, emin ['İzin güvenilen Microsoft Hizmetleri'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 
 ## <a name="replicated-machine-operating-systems"></a>Çoğaltılan makinelerin işletim sistemleri
@@ -145,7 +144,7 @@ SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.17 | SP1 3.12.49-11-default 3
 --- | --- | ---
 Boyut | Herhangi bir Azure VM boyutu en az 2 CPU Çekirdeği ve 1 GB RAM | Doğrulama [Azure sanal makine boyutları](../virtual-machines/windows/sizes.md).
 Kullanılabilirlik kümeleri | Desteklenen | Varsayılan seçeneklerle bir Azure sanal makine için çoğaltmayı etkinleştirmek, bir kullanılabilirlik kümesinde kaynak bölge ayarlarını göre otomatik olarak oluşturulur. Bu ayarları değiştirebilirsiniz.
-Kullanılabilirlik alanları | Desteklenmiyor | Şu anda, kullanılabilirlik alanında dağıtılan Vm'leri çoğaltamazsınız.
+Kullanılabilirlik alanları | Desteklenen |  
 Hibrit kullanım teklifi (HUB) | Desteklenen | Kaynak VM etkin bir HUB lisans yük devretme testi veya yük devretme varsa VM, ayrıca HUB lisansı kullanır.
 VM ölçek kümeleri | Desteklenmiyor |
 Microsoft Azure galeri görüntüleri - yayımlandı | Desteklenen | Sanal Makineyi desteklenen bir işletim sisteminde çalışıyorsa desteklenmiyor.
@@ -194,7 +193,7 @@ GRS | Desteklenen |
 RA-GRS | Desteklenen |
 ZRS | Desteklenmiyor |  
 Seyrek erişimli ve sık erişimli depolama | Desteklenmiyor | Seyrek erişimli ve sık erişimli depolama alanı sanal makine diskleri desteklenmez
-Sanal ağlar için Azure depolama güvenlik duvarları  | Evet | Depolama hesapları için sanal ağ erişimini kısıtlama, güvenilen Microsoft hizmetlerinin depolama hesabına erişim izni verildiğini emin olun.
+Sanal ağlar için Azure depolama güvenlik duvarları  | Desteklenen | Depolama hesapları için sanal ağ erişimini kısıtlama, emin olmanız ['İzin güvenilen Microsoft Hizmetleri'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 Genel amaçlı V2 depolama hesaplarının (hem sık erişimli ve seyrek erişimli Katmanlar) | Hayır | İşlem maliyetleri artırmak için genel amaçlı V1 depolama hesaplarında önemli ölçüde karşılaştırılır.
 
 >[!IMPORTANT]

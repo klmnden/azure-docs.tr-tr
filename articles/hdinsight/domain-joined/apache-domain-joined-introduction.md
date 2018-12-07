@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 270227204af9cf50f0244b8aa11ebf9aa8cdc3ce
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: ed735b8344c301be413dfe998ccf7f44bd686115
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632008"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011242"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Kurumsal güvenlik paketi ile Apache Hadoop güvenliğine giriş
 
@@ -22,7 +22,7 @@ Geçmişte, Azure HDInsight yalnızca tek bir kullanıcı desteklenen: yerel yö
 
 Kurumsal güvenlik paketi'ile (ESP), bir Active Directory etki alanına katılmış bir HDInsight kümesi oluşturabilirsiniz. Ardından HDInsight kümesinde oturum açmak için Azure Active Directory aracılığıyla doğrulayabilir çalışanların kurumsal bir listesini yapılandırabilirsiniz. Hiç bir kuruluş dışına oturum açın veya HDInsight küme erişim. 
 
-Kuruluş yöneticisi rol tabanlı erişim denetimi (RBAC) için güvenlik Apache Hive kullanarak yapılandırabilirsiniz [Apache Ranger](http://hortonworks.com/apache/ranger/). RBAC yapılandırma, yalnızca gerekli olanla veri erişimi kısıtlar. Son olarak yönetici çalışanlara ve erişim denetim ilkelerinde yapılan değişiklikler göre veri erişimi denetleyebilirsiniz. Yönetici daha sonra bir yüksek düzeyde kurumsal kaynakların elde edebilirsiniz.
+Kuruluş yöneticisi rol tabanlı erişim denetimi (RBAC) için güvenlik Apache Hive kullanarak yapılandırabilirsiniz [Apache Ranger](https://hortonworks.com/apache/ranger/). RBAC yapılandırma, yalnızca gerekli olanla veri erişimi kısıtlar. Son olarak yönetici çalışanlara ve erişim denetim ilkelerinde yapılan değişiklikler göre veri erişimi denetleyebilirsiniz. Yönetici daha sonra bir yüksek düzeyde kurumsal kaynakların elde edebilirsiniz.
 
 > [!NOTE]
 > Oozie ESP kümelerinde şimdi etkinleştirildi. Oozie web kullanıcı Arabirimi erişmek için kullanıcıların etkinleştirmelisiniz [tünel](../hdinsight-linux-ambari-ssh-tunnel.md).
@@ -44,14 +44,14 @@ Bu kurulum sayesinde kuruluş çalışanları küme düğümlerinde etki alanı 
 ## <a name="authorization"></a>Yetkilendirme
 Çoğu kuruluş izleyen en iyi uygulama her çalışana kuruluş kaynakları erişimi olduğundan emin olmak. Benzer şekilde, yönetici küme kaynakları için rol tabanlı erişim denetimi ilkeleri tanımlayabilirsiniz. 
 
-Örneğin yönetici [Apache Ranger](http://hortonworks.com/apache/ranger/)’ı Hive için erişim denetim ilkeleri belirleyecek şekilde yapılandırabilir. Bu işlev çalışanların yalnızca erişmesini sağlar. kendi işlerinde başarılı olmak için ihtiyaç duydukları kadar veri. Kümeye SSH erişimi de yalnızca yöneticiyle sınırlıdır.
+Örneğin yönetici [Apache Ranger](https://hortonworks.com/apache/ranger/)’ı Hive için erişim denetim ilkeleri belirleyecek şekilde yapılandırabilir. Bu işlev çalışanların yalnızca erişmesini sağlar. kendi işlerinde başarılı olmak için ihtiyaç duydukları kadar veri. Kümeye SSH erişimi de yalnızca yöneticiyle sınırlıdır.
 
 ## <a name="auditing"></a>Denetim
 Tüm küme kaynaklarını ve veri erişim denetiminin, kaynaklara yetkisiz veya istenmeyen erişimi takip etmek gereklidir. HDInsight küme kaynaklarını yetkisiz kullanıcılardan korumanın ve verilerin güvenliğini sağlama, kadar önemlidir. 
 
 Yönetici görüntüleyebilir ve tüm erişim veri ve HDInsight kümesi kaynakları için rapor. Yönetici de görüntüleyebilir ve tüm değişiklikleri Apache Ranger destekli uç noktalarda oluşturulan erişim denetimi ilkeleri rapor. 
 
-Bir HDInsight kümesi ile ESP denetim günlüklerini aramak için bilindik Apache Ranger arabirimini kullanır. Ranger arka uçta kullanan [Apache Solr](http://hortonworks.com/apache/solr/) depolamak ve günlükleri aranıyor.
+Bir HDInsight kümesi ile ESP denetim günlüklerini aramak için bilindik Apache Ranger arabirimini kullanır. Ranger arka uçta kullanan [Apache Solr](https://hortonworks.com/apache/solr/) depolamak ve günlükleri aranıyor.
 
 ## <a name="encryption"></a>Şifreleme
 Veri koruma, toplantı Kurumsal güvenlik ve uyumluluk gereksinimlerini için önemlidir. Erişim için verilerin yetkisiz çalışanların erişiminden korunmasının yanı sıra, bu şifreleme. 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: 9baf6ea70a8e9fa0dcd8ceefc9f58d7fa972767a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9cbb1f080b9a5a98984ad48854bccc4fb2044c16
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841974"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998348"
 ---
 # <a name="dependency-visualization"></a>Bağımlılık görselleştirme
 
@@ -68,7 +68,7 @@ Azure Geçişi fiyatlandırması hakkında daha fazla bilgiyi [burada](https://a
 
 ## <a name="how-do-i-manage-the-workspace"></a>Çalışma alanı nasıl yönetebilirim?
 
-Log Analytics çalışma alanını Azure geçişi dışında kullanabilirsiniz. Geçiş projesi içinde oluşturulduğu silerseniz silinmez. Çalışma alanı artık ihtiyacınız kalmadığında [silmeden](../log-analytics/log-analytics-manage-access.md) el ile.
+Log Analytics çalışma alanını Azure geçişi dışında kullanabilirsiniz. Geçiş projesi içinde oluşturulduğu silerseniz silinmez. Çalışma alanı artık ihtiyacınız kalmadığında [silmeden](../azure-monitor/platform/manage-access.md) el ile.
 
 Geçiş projesi silmediğiniz sürece, Azure geçişi tarafından oluşturulan çalışma alanını silme. Bunu yaparsanız, bağımlılık görselleştirme işlevini beklendiği gibi çalışmaz.
 

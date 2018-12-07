@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 93929df86057b48e132048a0879bc7347402652a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 2e24a138220f350e56b30406f65bb869dd523bad
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497752"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015883"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Apache Hive, HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme
 [Apache Hive](https://hive.apache.org/) çalıştırmanın sağlar [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) işleri SQL benzeri bir betik dilini aracılığıyla adlı *[HiveQL] [ hadoop-hiveql]*, hangi uygulanabilir özetleme, sorgulamaya ve analiz etmeye büyük hacimli verileri doğru.
@@ -721,9 +721,9 @@ Artık Azure Blob depolama alanına bir dosya karşıya yükleme, Azure Blob dep
 * [Apache Pig, HDInsight ile kullanma][hdinsight-use-pig]
 * [HDInsight için Java MapReduce programları geliştirme][hdinsight-develop-mapreduce]
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 [rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs

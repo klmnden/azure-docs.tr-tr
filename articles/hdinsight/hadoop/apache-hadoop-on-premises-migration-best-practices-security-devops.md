@@ -9,33 +9,33 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: fa72765e02592b72efb09320958a0aa244ae8b08
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 548992ac221b1b6f9a29082eb986aa42c6a2807e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265296"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993990"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Azure HDInsight için - güvenlik ve iyi DevOps uygulamalarından şirket içi Apache Hadoop kümelerini geçirme
 
 Bu makalede, Azure HDInsight sistemlerinde güvenlik ve DevOps için öneriler sunar. Geçirme şirket içi Apache Hadoop sistemler ile Azure HDInsight için yardımcı olması için en iyi yöntemler sağlayan bir dizi gereksinimlerimizim bir parçasıdır.
 
-## <a name="use-the-enterprise-security-package-to-secure-and-govern-the-cluster"></a>Kurumsal güvenlik paketi güvenli ve kümeyi yönetmek için kullanın
+## <a name="secure-and-govern-cluster-with-enterprise-security-package"></a>Güvenli ve kurumsal güvenlik paketi ile küme yönetme
 
-Kurumsal güvenlik paketi (ESP), Active Directory tabanlı kimlik doğrulaması, çoklu kullanıcı desteği ve rol tabanlı erişim denetimini destekler. Seçilen ESP seçeneği ile HDInsight kümesi için Active Directory etki alanına katılmış ve kuruluş yöneticisi Apache Ranger'ı kullanarak Hive güvenliği için rol tabanlı erişim denetimi (RBAC) yapılandırabilirsiniz. Yönetici ayrıca çalışanlar ve erişim denetim ilkelerinde yapılan değişiklikler göre veri erişimi denetleyebilirsiniz.
+Kurumsal güvenlik paketi (ESP), Active Directory tabanlı kimlik doğrulaması, çoklu kullanıcı desteği ve rol tabanlı erişim denetimini destekler. Seçilen ESP seçeneği ile HDInsight kümesi için Active Directory etki alanına katılmış ve kuruluş yöneticisi Apache Ranger'ı kullanarak Apache Hive güvenliği için rol tabanlı erişim denetimi (RBAC) yapılandırabilirsiniz. Yönetici ayrıca çalışanlar ve erişim denetim ilkelerinde yapılan değişiklikler göre veri erişimi denetleyebilirsiniz.
 
 ESP aşağıdaki küme türleri üzerinde kullanılabilir: Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka ve etkileşimli sorgu (LLAP Hive). 
 
 Etki alanına katılmış HDInsight kümesini dağıtmak için aşağıdaki adımları kullanın:
 
-- Etki alanı adını geçirerek Azure Active Directory (AAD) dağıtma
-- Azure Active Directory etki alanı Hizmetleri (AAD DS) dağıtma
-- Gerekli sanal ağ ve alt ağ oluşturma
-- AAD DS yönetmek için sanal ağda VM dağıtma
-- VM'nin etki alanına ekleme
-- Yükleme AD ve DNS araçları
-- AAD DS yöneticisinin bir kuruluş birimi (OU) oluşturun
-- LDAPS için AAD DS etkinleştir
+- Azure Active Directory (AAD), etki alanı adını geçirerek dağıtın.
+- Azure Active Directory etki alanı Hizmetleri (AAD DS) dağıtın.
+- Gerekli sanal ağ ve alt ağ oluşturun.
+- AAD DS yönetmek için sanal ağda VM dağıtın.
+- VM'yi etki alanına ekleyin.
+- Yükleme AD ve DNS araçları.
+- AAD DS yöneticisinin bir kuruluş birimi (OU) oluşturun sağlayın.
+- LDAPS AAD DS için etkinleştirin.
 - Alabilir ve böylece bir hizmet hesabı Azure Active Directory'de yetkilendirilmiş okuma ve yazma yönetici izni OU ile oluşturun. Bu hizmet hesabı daha sonra makinelerin etki alanına ve makine sorumluları OU içinde yerleştirin. Ayrıca, küme oluşturma sırasında belirttiğiniz OU içinde hizmet sorumluları de oluşturabilirsiniz.
 
     > [!Note]
@@ -51,33 +51,33 @@ Etki alanına katılmış HDInsight kümesini dağıtmak için aşağıdaki adı
 
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-- [Bir etki alanına katılmış HDInsight kümeleriyle Hadoop güvenliğine giriş](../domain-joined/apache-domain-joined-introduction.md)
+- [Bir etki alanına katılmış HDInsight kümeleriyle Apache Hadoop güvenliğine giriş](../domain-joined/apache-domain-joined-introduction.md)
 - [HDInsight, Azure etki alanına katılmış Hadoop kümeleri planlama](../domain-joined/apache-domain-joined-architecture.md)
 - [Azure Active Directory Domain Services'ı kullanarak bir etki alanına katılmış HDInsight kümesi yapılandırma](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 - [Azure Active Directory kullanıcılarını HDInsight kümesine eşitleme](../hdinsight-sync-aad-users-to-cluster.md)
-- [İçinde etki alanına katılmış HDInsight Hive ilkelerini yapılandırma](../domain-joined/apache-domain-joined-run-hive.md)
+- [Etki alanına katılmış HDInsight Apache Hive ilkelerini yapılandırma](../domain-joined/apache-domain-joined-run-hive.md)
 - [Apache Oozie etki alanına katılmış HDInsight Hadoop kümeleri çalıştırın.](../domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)
 
-## <a name="implement-end-to-end-enterprise-security-management"></a>Uçtan uca Kurumsal güvenlik yönetimini uygulama
+## <a name="implement-end-to-end-enterprise-security"></a>Uçtan uca Kurumsal güvenlik uygulamaları
 
 Son Kurumsal güvenlik sonuna aşağıdaki denetimleri kullanarak gerçekleştirilebilir:
 
 - **Özel ve korumalı veri işlem hattı (çevre düzeyi güvenlik)**
-    - Azure sanal ağları, ağ güvenlik grupları ve ağ geçidi hizmeti çevre düzeyi güvenliği sağlanabilir.
+    - Çevre düzeyi güvenlik, Azure sanal ağları, ağ güvenlik grupları ve ağ geçidi hizmeti gerçekleştirilebilir.
 
 - **Kimlik doğrulaması ve veri erişimi için yetkilendirme**
-    - Azure Active Directory Domain Services'ı kullanarak etki alanına katılmış HDInsight kümesi oluşturma. (Kurumsal güvenlik paketi)
-    - AD kullanıcıları için küme kaynakları için rol tabanlı erişim sağlamak için Ambari kullanın
+    - Azure Active Directory Domain Services'ı kullanarak etki alanına katılmış HDInsight kümesi oluşturma. (Kurumsal güvenlik paketi).
+    - Ambari, AD kullanıcıları için küme kaynakları için rol tabanlı erişim sağlamak için kullanın.
     - Erişim denetimi ilkeleri için Hive tablosunda ayarlamak için Apache Ranger'ı kullanma / sütun / satır düzeyi.
     - Kümeye SSH erişimi yöneticinin yalnızca sınırlı olabilir.
 
 - **Denetim**
     - Tüm veri ve HDInsight kümesi kaynakları için erişim görünümünü ve raporunu.
-    - Görüntüleme ve tüm değişiklikleri rapor için erişim denetim ilkeleri
+    - Görüntüleme ve tüm değişiklikler için erişim denetimi ilkeleri bildirin.
 
 - **Şifreleme**
     - Microsoft tarafından yönetilen anahtarlar veya müşteri tarafından yönetilen anahtarlar kullanılarak saydam sunucu tarafı şifrelemesi.
-    - İstemci tarafı şifreleme, https ve TLS aktarım sırasında şifreleme kullanma
+    - İstemci tarafı şifreleme, https ve TLS aktarım sırasında şifreleme kullanarak.
 
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 
@@ -106,13 +106,13 @@ Düzenli olarak en son özelliklerden yararlanmak için en son HDInsight sürüm
 1. Yedeklenen herhangi bir geçici veri içeri aktarın.
 1. Başlangıç işleri/yeni küme kullanarak işleme devam edin.
 
-Daha fazla bilgi için bkz: [yeni bir sürüme yükseltme HDInsight kümesi](../hdinsight-upgrade-cluster.md)
+Daha fazla bilgi için bkz: [yeni bir sürüme yükseltme HDInsight küme](../hdinsight-upgrade-cluster.md).
 
 ## <a name="patch-cluster-operating-systems"></a>Küme işletim sistemi düzeltme eki
 
 Yönetilen bir Hadoop hizmeti olan HDInsight HDInsight kümeleri tarafından kullanılan sanal makinelerin işletim sistemi düzeltme eki uygulama üstlenir.
 
-Daha fazla bilgi için bkz: [HDInsight için işletim sistemi düzeltme eki uygulama](../hdinsight-os-patching.md)
+Daha fazla bilgi için bkz: [HDInsight için işletim sistemi düzeltme eki uygulama](../hdinsight-os-patching.md).
 
 ## <a name="post-migration"></a>Geçiş sonrası
 
@@ -122,4 +122,4 @@ Daha fazla bilgi için bkz: [HDInsight için işletim sistemi düzeltme eki uygu
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla bilgi edinin [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction)
+- Daha fazla bilgi edinin [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction).

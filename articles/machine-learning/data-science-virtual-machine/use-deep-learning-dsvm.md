@@ -1,6 +1,6 @@
 ---
-title: Veri bilimi ile derin öğrenme veri bilimi sanal makinede Azure | Microsoft Docs
-description: Derin öğrenme veri bilimi VM ile birkaç genel veri bilimi görevleri gerçekleştirme.
+title: Veri bilimi ile ayrıntılı öğrenme veri bilimi sanal makinesi azure'da | Microsoft Docs
+description: Derin öğrenme veri bilimi sanal makinesi ile çeşitli genel veri bilimi görevlerini gerçekleştirme.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -14,34 +14,32 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 2053ed8cc420183d493097eeb2cd2ad93c82c70c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 91c1727907c9a134a257e8f7d7c1efb6721c1906
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167254"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993774"
 ---
-# <a name="using-the-deep-learning-virtual-machine"></a>Sanal makine öğrenme derin kullanma
+# <a name="using-the-deep-learning-virtual-machine"></a>Ayrıntılı sanal makine öğrenme kullanma
 
-Derin öğrenme sanal makine'ne (DLVM) sağladıktan sonra bilgisayar görme ve dil anlama gibi etki alanlarındaki AI uygulamaları geliştirmek için derin sinir ağı model oluşturmaya başlayabilirsiniz. 
+Ayrıntılı öğrenme sanal makinesi'ne (DLVM) sağladıktan sonra görüntü işleme ve dil anlama gibi etki alanlarındaki yapay ZEKA uygulamaları oluşturmak için derin sinir ağı modelleri oluşturmaya başlayabilirsiniz. 
 
-Derin öğrenme VM'de AI için sağlanan araçları mevcuttur. [Derin öğrenme ve AI çerçeveler sayfası](dsvm-deep-learning-ai-frameworks.md) bu araçlarının nasıl kullanılacağı hakkında ayrıntılar içerir. 
+Derin öğrenme VM üzerinde yapay ZEKA için sağlanan araçlar vardır. [Ayrıntılı öğrenme ve AI çerçeveleri sayfa](dsvm-deep-learning-ai-frameworks.md) bu araçlarının nasıl kullanılacağı hakkında ayrıntılı bilgi içerir. 
 
-## <a name="deep-learning-tutorials-and-walkthroughs"></a>Öğreticiler ve izlenecek yollar derin öğrenme
+## <a name="deep-learning-tutorials-and-walkthroughs"></a>Öğreticiler ve Kılavuzlar derin öğrenme
 
-Framework tabanlı örnekleri ek olarak, bir dizi kapsamlı izlenecek yollar üzerinde DLVM doğrulanmış de sağlanır. Bu izlenecek etki alanlarında resim ve metin/dil anlama gibi ayrıntılı learning uygulamaları geliştirme hızla başlamanıza yardımcı olur. Daha fazla uçtan uca öğretici farklı etki alanlarında ve teknoloji arasında eklenecek devam eder.   
+Framework tabanlı örneklere ek olarak bir dizi kapsamlı izlenecek yollar DLVM doğrulanmış de sağlanır. Bu izlenecek yollar, uygulamaları geliştirmeye yönelik ayrıntılı öğrenme görüntü ve metin/language understanding gibi etki alanlarındaki hemen başlayabileceğiniz yardımcı olur. Daha fazla uçtan uca öğretici farklı etki alanlarını ve teknoloji eklenmesi devam eder.   
 
 
-- [Sinir ağları arasında farklı çerçeveleri çalıştıran](https://github.com/ilkarman/DeepLearningFrameworks): kod bir çerçevesinden geçirme yöntemleri gösteren kapsamlı bir gözden geçirme. Ayrıca, modeli karşılaştırmak ve çerçeveleri arasında zaman performans çalıştırmak nasıl gösterir. 
+- [Sinir ağları arasında farklı çerçevelerini çalıştıran](https://github.com/ilkarman/DeepLearningFrameworks): kodunu bir Framework'ten taşıma gösteren kapsamlı bir kılavuz. Ayrıca, modeli karşılaştırmak ve çerçeveleri arasında zaman performans çalıştırmak nasıl gösterir. 
 
-- [Ürün Görüntüleri içinde algılamak için uçtan uca çözümü oluşturmak için nasıl yapılır kılavuz](https://github.com/Azure/cortana-intelligence-product-detection-from-images): görüntü algılamadır bulun ve görüntüleri içindeki nesneleri sınıflandırmak bir teknik. Bu teknoloji büyük ödül pek çok gerçek hayatta iş alanlarında getirmek için olasılığı vardır. Örneğin, Perakendeciler, müşterinin hangi ürün rafı çekilen belirlemek için bu tekniği kullanabilirsiniz. Bu bilgiler sırayla depoları ürün envanterini yönetmenize yardımcı olur. 
+- [Görüntüleri ürünlerde algılamak için bir uçtan uca çözümü oluşturmak için bir nasıl yapılır kılavuzunda](https://github.com/Azure/cortana-intelligence-product-detection-from-images): görüntü algılamadır bulun ve görüntüleri içindeki nesneleri sınıflandırmak bir tekniktir. Bu teknoloji çok büyük ödül çoğu gerçek yaşam iş alanlarında getirmek için olasılığına sahiptir. Örneğin, Perakendeciler, müşterinin hangi ürünü raftan teslim alındı belirlemek için bu tekniği kullanabilirsiniz. Bu bilgiler sırayla depoları ürün envanterini yönetmenize yardımcı olur. 
 
-- [Varlık ayıklama PubMed özetleri adlı](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) yapılandırılmamış metinden Uyuşturucu adları veya Hastalık adları gibi adlandırılmış varlıklar çıkarmayı Bu öğreticide gösterilmiştir. 18 milyon PubMed özetleri üzerinde bir metin gövde katıştırma özel bir word eğitir, varlık ayıklama uzun kısa vadeli bellek (LSTM) yinelenen sinir ağı modelini oluşturmak için bu modeli kullanır ve modeli katıştırma etki alanına özgü Word'ün daha iyi performans gösterir olduğunu gösteren bir Genel word için varlık ayıklama katıştırma.
+- [Derin öğrenme için ses](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) Bu öğreticide, bir ses olay algılama için ayrıntılı öğrenme modeli eğitimi gösterilir [urban sesleri dataset](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html) ve ses verilerle çalışmak nasıl bir genel bakış sağlar.
 
-- [Ses için öğrenme derin](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) Bu öğretici, üzerinde ses olay algılama derin learning modelini eğitmek gösterilmiştir [Kentsel ses dataset](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html) ve ses verilerle çalışmak nasıl bir bakış sağlar.
-
-- [Metin belgelerin sınıflandırılmasını](https://github.com/anargyri/lstm_han): Bu anlatımda nasıl oluşturulacağı ve iki farklı sinir ağı mimarileri eğitmek gösterilir: hiyerarşik dikkat ağ ve uzun kısa vadeli bellek (LSTM) ağ. Bu sinir ağları metin belgeleri sınıflandırmak için derin öğrenme için Keras API kullanın. Keras olan üç çerçeveleri öğrenme en popüler derin bir ön uç: Microsoft Bilişsel araç seti, TensorFlow ve Theano.
+- [Metin belgelerin sınıflandırılmasını](https://github.com/anargyri/lstm_han): Bu yönerge nasıl oluşturulacağı ve iki farklı sinir ağı mimarileri eğitme gösterir: hiyerarşik dikkat ağ ve uzun kısa vadeli bellek (LSTM) ağ. Bu sinir ağları metin belgeleri sınıflandırmak için derin öğrenmeye yönelik Keras API'si kullanın. Keras olduğu en popüler derin öğrenme çerçeveleri üçünün bir ön ucuna: Microsoft Bilişsel araç seti, TensorFlow ve Theano.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Örnekleri sayfa](dsvm-samples-and-walkthroughs.md) yardımcı olmak için her çerçeveleri VM üzerinde önceden yüklenmiş kod örnekleri işaretçiler hızlı başlama sağlar. 
+[Örnekleri sayfası](dsvm-samples-and-walkthroughs.md) yardımcı olmak için her çerçeveleri için VM üzerinde önceden yüklenmiş kod örnekleri işaretçileri hızla başlamanıza sağlanır. 

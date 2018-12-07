@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 12/03/2018
-ms.openlocfilehash: 8ad4c356c5826532b94721bc4d9071179e8bd93a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/06/2018
+ms.openlocfilehash: b0fd2466d72b1aae65a54b9e9813a5af51bf1672
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846705"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997524"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>Azure sanal ağlarına Azure Logic Apps'ten tümleştirme hizmeti ortamı (ISE) bağlanın.
 
@@ -65,7 +65,7 @@ Bir tümleştirme hizmeti ortamı (ISE) oluşturduğunuzda, yeri bir Azure sanal
 
    1. Altında **rol**seçin **ağ Katılımcısı**. 
    
-   1. Altında **erişim Ata**seçin **Azure AD kullanıcı, Grup veya uygulama**.
+   1. Altında **erişim Ata**seçin **Azure AD kullanıcı, Grup veya hizmet sorumlusu**.
 
    1. Altında **seçin**, girin **Azure Logic Apps**. 
 
@@ -141,14 +141,17 @@ Sonuçlar listesinden **tümleştirme hizmeti ortamı (Önizleme)** ve ardından
 
    ![Doğrulama başarılı olduktan sonra "Oluştur" öğesini seçin.](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
 
-   Azure ortamınıza dağıtmaya başlar, ancak bu işlem sürebilir *iki saate kadar* tamamlamadan önce. 
+   Azure başlar ancak bu işlem, ortamınızı dağıtma *olabilir* tamamlamadan önce iki saat sürebilir. 
    Azure, araç çubuğundaki dağıtım durumunu denetlemek için bildirimler bölmesi açılır bildirimler simgesini seçin.
 
    ![Dağıtım durumunu denetleyin](./media/connect-virtual-network-vnet-isolated-environment/environment-deployment-status.png)
 
-   Dağıtım başarıyla tamamlandığında, Azure bu bildirimi gösterilmektedir:
+   Dağıtım başarıyla tamamlanırsa Azure bu bildirimi gösterilmektedir:
 
    ![Dağıtım başarılı oldu](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
+
+   > [!NOTE]
+   > Dağıtım başarısız olursa veya, Azure, işe silerseniz *olabilir* alt ağlarınızı serbest önce bir saate kadar sürebilir. Bu nedenle, bu alt ağlardan başka bir işe yeniden kullanmadan önce beklemeniz gerekebilir.
 
 1. Ortamınızı görüntülemek için seçin **kaynağa Git** dağıtım tamamlandıktan sonra Azure ortamınıza otomatik olarak çıkmaz değil ise.  
 

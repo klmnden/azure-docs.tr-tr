@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: ceb0b1ce0d04c15a5b949519caad65d2c33b40ed
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: c91508cbd98f18c875411cc7a36f9d71d817fb31
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092467"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997867"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Azure'da barındırılan bir API'yi PowerApps ve Microsoft Flow için dışarı aktarma
 
@@ -25,7 +25,7 @@ ms.locfileid: "44092467"
 Benzer şekilde, kullanıcıların API'leri bir kuruluş içinde daha geniş kapsamda kullanıma sunmak istiyorsanız geliştiriciler kendi API kullanılabilir uygulama ve akış oluşturucuları yapabilirsiniz. Bu konu ile oluşturulmuş bir API dışa aktarmayı gösterir [Azure işlevleri](../azure-functions/functions-overview.md) veya [Azure App Service](../app-service/app-service-web-overview.md). Dışarı aktarılan API olur bir *özel bağlayıcı*, kullanılan Microsoft Flow ve PowerApps ile bir yerleşik Bağlayıcısı gibidir.
 
 ## <a name="create-and-export-an-api-definition"></a>Oluşturma ve bir API tanımını dışarı aktarma
-Bir API dışarı aktarmadan önce bir Openapı tanımı kullanarak API'yi açıklamanız gerekir (eski adıyla bir [Swagger](http://swagger.io/) dosyası). Bu tanım, bir API’de hangi işlemlerin kullanılabildiğinin yanı sıra API için istek ve yanıt verilerinin nasıl yapılandırılması gerektiğiyle ilgili bilgileri içerir. PowerApps ve Microsoft Flow özel bağlayıcılar için herhangi bir Openapı 2.0 tanımı oluşturabilirsiniz. Azure işlevleri ve Azure App Service oluşturma, barındırma ve Openapı tanımlarıyla yönetmek için yerleşik desteği vardır. Daha fazla bilgi için [Azure App Service'te CORS ile RESTful API barındırma](../app-service/app-service-web-tutorial-rest-api.md).
+Bir API dışarı aktarmadan önce bir Openapı tanımı kullanarak API'yi açıklamanız gerekir (eski adıyla bir [Swagger](https://swagger.io/) dosyası). Bu tanım, bir API’de hangi işlemlerin kullanılabildiğinin yanı sıra API için istek ve yanıt verilerinin nasıl yapılandırılması gerektiğiyle ilgili bilgileri içerir. PowerApps ve Microsoft Flow özel bağlayıcılar için herhangi bir Openapı 2.0 tanımı oluşturabilirsiniz. Azure işlevleri ve Azure App Service oluşturma, barındırma ve Openapı tanımlarıyla yönetmek için yerleşik desteği vardır. Daha fazla bilgi için [Azure App Service'te CORS ile RESTful API barındırma](../app-service/app-service-web-tutorial-rest-api.md).
 
 > [!NOTE]
 > Bir Openapı tanımı kullanmadan, PowerApps ve Microsoft Flow kullanıcı Arabirimi, özel bağlayıcılar da oluşturabilirsiniz. Daha fazla bilgi için [kaydetme ve kullanma (PowerApps) özel bir bağlayıcı](https://powerapps.microsoft.com/tutorials/register-custom-api/) ve [kaydetme ve kullanma (Microsoft Flow) özel bir bağlayıcı](https://flow.microsoft.com/documentation/register-custom-api/).
@@ -113,7 +113,7 @@ API tanımı, PowerApps ve Microsoft Flow içeri aktarmak için aşağıdaki ad�
 
 4. Üzerinde **genel** sekmesinde, Openapı tanımından gelen bilgileri gözden geçirin.
 
-5. Üzerinde **güvenlik** sekmesinde, istendiğinde, kimlik doğrulama ayrıntıları sağlamak için kimlik doğrulaması türü için uygun değerleri girin. Tıklayın **devam**.
+5. Üzerinde **güvenlik** sekmesinde, istendiğinde, kimlik doğrulama ayrıntıları sağlamak için kimlik doğrulaması türü için uygun değerleri girin. **Devam**’a tıklayın.
 
     ![Güvenlik sekmesi](media/app-service-export-api-to-powerapps-and-flow/tab-security.png)
 

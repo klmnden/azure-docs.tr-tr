@@ -1,5 +1,5 @@
 ---
-title: Olay tüketicileri ve Azure Event Hubs farklı protokoller kullanan üreticileri arasındaki değişimi | Microsoft Docs
+title: Olaylar farklı protokollere - Azure Event Hubs kullanan uygulamalar arasındaki değişimi | Microsoft Docs
 description: Bu makalede, Azure Event Hubs kullanarak olay tüketicileri ve farklı protokoller (AMQP, Apache Kafka ve HTTPS) kullanan üreticileri nasıl değiştirebilir gösterilmektedir.
 services: event-hubs
 documentationcenter: ''
@@ -8,17 +8,17 @@ manager: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.custom: mvc
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/05/2018
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 54edeafbe950cde88c2c6051f95825cfaed52ac7
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1345a5814faefd4074e7d9548d374bd79d977514
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285009"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015594"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Olay tüketicileri ve farklı protokoller kullanan üreticileri arasındaki Değişimi: AMQP, Kafka ve HTTPS
 Azure Event Hubs Tüketicileri ve üreticileri için üç protokollerini destekler: AMQP, Kafka ve HTTPS. Her biri bu protokolleri, bir ileti, bu nedenle doğal olarak aşağıdaki soruyu ortaya temsil eden kendi yolu vardır: bir uygulama bir protokol olan olay Hub'ına olayları gönderir ve bunları farklı bir protokol kullanır, çeşitli bölümlerini ve değerlerini ne yapması Olay aramak gibi tüketici ulaştığında? Bu makalede, üretici ve tüketici olaya içindeki değerleri kullanan uygulama tarafından doğru şekilde yorumlandığından emin olmak için en iyi uygulamalar açıklanmaktadır.

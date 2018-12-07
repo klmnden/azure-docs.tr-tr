@@ -12,20 +12,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: d24a268cf389dfe9dec914b2d27bbe8e466ea675
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a6272f0a6da10075db299d0f8c87f0d748a7a946
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737201"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996476"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Azure Data Lake depolama Gen1 ve Azure Blob Depolama ile karşılaştırma
+  >[!NOTE] 
+    >[Azure Data Lake depolama Gen2 önizlemesi](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) kısa süre önce duyurduk. Data Lake depolama Gen2 önizlemesi olan iki var olan depolama hizmetlerimizi, Azure Blob Depolama yeteneklerini yakınsamaya sonucunu ve [Azure Data Lake depolama Gen1] (https://docs.microsoft.com/azure/data-lake-store/index). Azure Data Lake depolama Gen1 özellikleri gibi dosya sistemi sematiğini dosya düzeyinde güvenlik ve ölçek ile düşük maliyetli, katmanlı depolama, yüksek kullanılabilirlik/olağanüstü durum kurtarma özelliklerini birleştirilir [Azure Blob Depolama](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). <br> Data Lake depolama Gen2 önizlemesi, kurumsal veri gölleri oluşturmak için temel olarak kullanmaya başlayın ve Azure Data Lake depolama Gen1 yanı sıra, Azure Blob Depolama en iyi şekilde öneririz.
+
 Bu makalede tabloda büyük veri işleme önemli bazı yönlerini boyunca Azure Data Lake depolama Gen1 ve Azure Blob Depolama alanı arasındaki farklar özetlenmektedir. Azure Blob Depolama, genel amaç, çeşitli depolama senaryoları için tasarlanan ölçeklenebilir nesne deposu. Azure Data Lake depolama Gen1 büyük veri analizi iş yükleri için en iyi duruma getirilmiş hiper ölçekli bir depodur.
+
+
+
+
 
 |  | Azure Data Lake Storage Gen1 | Azure Blob Depolama |
 | --- | --- | --- |
 | Amaç |Büyük veri analizi iş yükleri için iyileştirilmiş depolama |Genel amaçlı depolama senaryolarında, büyük veri analizi dahil olmak üzere çok çeşitli için nesne deposu |
-| Kullanım örnekleri |Toplu iş, etkileşimli, günlük dosyaları, IOT verileri, tıklama akışlarından, büyük veri kümeleri gibi analiz ve makine öğrenme veri akışı |Herhangi bir uygulama gibi bir metin veya ikili veri türü, son yedekleme verileri, akış ve genel amaçlı veriler için medya depolama yedekleyin. Buna ek olarak, destek analizi iş yükleri için tam; Toplu iş, etkileşimli, günlük dosyaları, IOT verileri, tıklama akışlarından, büyük veri kümeleri gibi analiz ve makine öğrenme veri akışı |
+| Kullanım Örnekleri |Toplu iş, etkileşimli, günlük dosyaları, IOT verileri, tıklama akışlarından, büyük veri kümeleri gibi analiz ve makine öğrenme veri akışı |Herhangi bir uygulama gibi bir metin veya ikili veri türü, son yedekleme verileri, akış ve genel amaçlı veriler için medya depolama yedekleyin. Buna ek olarak, destek analizi iş yükleri için tam; Toplu iş, etkileşimli, günlük dosyaları, IOT verileri, tıklama akışlarından, büyük veri kümeleri gibi analiz ve makine öğrenme veri akışı |
 | Önemli Kavramlar |Data Lake depolama Gen1 hesabı sırayla dosyaları olarak depolanan veriler içeren klasör içerir |Depolama hesabı kapsayıcıları, blobları biçiminde veri sırayla olan içeriyor |
 | yapısı |Hiyerarşik dosya sistemi |Düz ad alanına sahip nesne deposu |
 | API |HTTPS üzerinden REST API |HTTP/HTTPS üzerinden REST API |

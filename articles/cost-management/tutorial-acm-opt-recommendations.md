@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4d9e47d6da45eaba19cbe089de3fdf053c36046a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bb18a7338eb688ab427725933b9fc3f73b44b502
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030687"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992060"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Öğretici: önerilerden maliyetleri en iyi duruma getirme
 
@@ -29,7 +29,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Sanal makine başarıyla boyutlandırılmış emin olmak için gerekeni doğrulayın
 
 ## <a name="prerequisites"></a>Önkoşullar
-Tüm Öneriler [Kurumsal Anlaşma (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) müşteriler. Bir veya daha fazla maliyet verilerini görüntülemek için aşağıdaki kapsamları erişimi en azından okuma gerekir.
+Öneriler tüm [Kurumsal Sözleşme (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) müşterileri tarafından kullanılabilir. Maliyet verilerini görüntülemek için aşağıdaki kapsamlardan birine veya daha fazlasına en azından yazma erişiminiz olmalıdır.
 
 - Abonelik
 - Kaynak grubu

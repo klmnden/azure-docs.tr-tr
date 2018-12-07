@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 82792414da9df32524e48031089dc18d2dc521cc
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 94dec611a04819580696133c48db66da1ea9c463
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288127"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000441"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Azure HDInsight için - amacı ve yararları şirket içi Apache Hadoop kümelerini geçirme
 
@@ -32,7 +32,7 @@ Azure HDInsight, kaynaklı Hadoop bileşenlerinin bulut dağıtımıdır [Horto
 - Apache HBase
 - R
 
-## <a name="advantages-that-azure-hdinsight-offers-over-on-premises-hadoop"></a>Azure HDInsight şirket içi Hadoop sunduğu avantajları
+## <a name="azure-hdinsight-advantages-over-on-premises-hadoop"></a>Şirket içi Hadoop'u Azure HDInsight avantajları
 
 - **Düşük maliyetli** -maliyetleri tarafından indirgenebilir [isteğe bağlı kümeler oluşturma](../hdinsight-hadoop-create-linux-clusters-adf.md) ve yalnızca kullandığınız kadarı için ödeme yapma. Ayrılmış işlem ve depolama veri hacmi küme boyutu bağımsız tutarak esneklik sağlar.
 
@@ -67,7 +67,7 @@ Azure HDInsight, kaynaklı Hadoop bileşenlerinin bulut dağıtımıdır [Horto
 
 - **İşlemler ve bileşenlerini kendi kendine iyileştirme** -HDInsight sürekli izleme kendi altyapısını kullanarak altyapı ve açık kaynak bileşenlerini denetler. Ayrıca otomatik olarak, açık kaynak bileşenlerini ve düğümlerin kullanılabilir olmaması gibi kritik hataları kurtarır. Herhangi bir OSS bileşeni başarısız olursa Ambari uyarılar tetiklenir.
 
-Daha fazla bilgi için bkz [Azure HDInsight ve Hadoop teknoloji yığını nedir](../hadoop/apache-hadoop-introduction.md).
+Daha fazla bilgi için bkz [Azure HDInsight ve Apache Hadoop teknoloji yığını nedir](../hadoop/apache-hadoop-introduction.md).
 
 ## <a name="migration-planning-process"></a>Geçiş Planlama işlemi
 

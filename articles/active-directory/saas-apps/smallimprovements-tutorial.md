@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 48b1e47befa647a9d221e5cdf5bf0485c3b66028
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 588e56c9ae22578c08dbca07c7c576fe8b577b58
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423836"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012343"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Öğretici: Azure Active Directory Tümleştirme ile küçük iyileştirmeler
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile küçük iyileştirmeler yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Küçük iyileştirmeler çoklu oturum açma abonelik etkin.
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'ye küçük iyileştirmeler tümleştirmesini yapılandırmak için kü
 
 **Galeriden küçük iyileştirmeler eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -216,7 +216,7 @@ Küçük iyileştirmeler oturum açmak Azure AD kullanıcılarının etkinleşti
 
     b. Girin **Soyadı** gibi kullanıcının **Simon**.
 
-    c. Girin **e-posta** gibi kullanıcının **brittasimon@contoso.com**. 
+    c. Girin **e-posta** gibi kullanıcının <strong>brittasimon@contoso.com</strong>. 
 
     d. Ayrıca, kişisel bir ileti girin seçebilirsiniz **bildirim e-posta Gönder** kutusu. Sonra bildirim göndermesini istemiyorsanız, bu onay kutusunun işaretini kaldırın.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: a498c9251c305b4845cc911fc9a21fbdafda72fe
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2bf82c19498087e21bc66bf3c813b8f23d50d621
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832267"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996485"
 ---
 # <a name="management-solutions-in-azure"></a>Azure'da yönetim çözümleri
 Yönetim çözümleri belirli bir uygulama veya hizmet işlemi ek Öngörüler sağlar, Azure hizmetlerinde yararlanın. Bu makalede, kullanarak ve bunları yükleme yönetim çözümlerini Azure'da ve ayrıntıları kısa bir genel bakış sağlar.
@@ -77,7 +77,7 @@ Topluluk üyeleri, yönetim çözümleri Azure hızlı başlangıç şablonları
 
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics çalışma alanı ve Otomasyon hesabı
-Tüm yönetim çözümleri gerektiren bir [Log Analytics çalışma alanı](../../log-analytics/log-analytics-manage-access.md) çözüm tarafından toplanan verileri depolamak ve kendi günlük aramaları ve görünümleri barındırmak için. Ayrıca bazı çözümler gerektiren bir [Otomasyon hesabı](../../automation/automation-security-overview.md#automation-account-overview) runbook'ları ve ilgili kaynakları içerecek şekilde. Çalışma alanı ve hesabı aşağıdaki gereksinimleri karşılaması gerekir.
+Tüm yönetim çözümleri gerektiren bir [Log Analytics çalışma alanı](../../azure-monitor/platform/manage-access.md) çözüm tarafından toplanan verileri depolamak ve kendi günlük aramaları ve görünümleri barındırmak için. Ayrıca bazı çözümler gerektiren bir [Otomasyon hesabı](../../automation/automation-security-overview.md#automation-account-overview) runbook'ları ve ilgili kaynakları içerecek şekilde. Çalışma alanı ve hesabı aşağıdaki gereksinimleri karşılaması gerekir.
 
 * Her bir çözümün yüklenmesi yalnızca bir Log Analytics çalışma alanı ve bir Otomasyon hesabı kullanabilirsiniz. Çözüm birden çok çalışma alanı içinde ayrı olarak yükleyebilirsiniz.
 * Bir çözüm bir Otomasyon hesabı gerektiriyorsa, ardından Log Analytics çalışma alanını ve Otomasyon hesabı birbirine bağlı olmalıdır. Bir Log Analytics çalışma alanı yalnızca bir Otomasyon hesabına bağlı ve bir Otomasyon hesabı yalnızca bir Log Analytics çalışma alanına bağlı.

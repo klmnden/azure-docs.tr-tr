@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 194f84d2ce5360aa9ad9f3d771bf24f153ac6f5c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a75514013a1945d9ca5718be115184f6ba9950d9
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496307"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015764"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>HDInsight için ek depolama hesapları ekleme
 
@@ -95,7 +95,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 > [!NOTE]
 > Ayarlama `$PASSWORD` için küme oturum açma (Yönetici) hesabı parolası. Ayarlama `$CLUSTERNAME` HDInsight kümesinin adı. Ayarlama `$STORAGEACCOUNTNAME` depolama hesabının adı.
 >
-> Bu örnekte [curl (http://curl.haxx.se/) ](http://curl.haxx.se/) ve [jq (https://stedolan.github.io/jq/) ](https://stedolan.github.io/jq/) almak ve JSON verilerini ayrıştırılamadı.
+> Bu örnekte [curl (https://curl.haxx.se/) ](https://curl.haxx.se/) ve [jq (https://stedolan.github.io/jq/) ](https://stedolan.github.io/jq/) almak ve JSON verilerini ayrıştırılamadı.
 
 Bu komutu kullanırken değiştirin __CLUSTERNAME__ ile HDInsight kümesinin adı. Değiştirin __parola__ küme için HTTP oturum açma parolası ile. Değiştirin __STORAGEACCOUNT__ ile betik eylemi kullanarak eklenen depolama hesabı adı. Bu komuttan döndürülen bilgileri aşağıdaki metne benzer görünür:
 

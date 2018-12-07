@@ -13,12 +13,12 @@ ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: d173cd8ddcd713e39fc925a101b42bdd918e5499
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 7da0717273892893bec03c164b9b297f28e5218d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721163"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995536"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Kullanıcı davranış analizi araçları Application ınsights sorunlarını giderme
 Hakkında sorularınız [kullanıcı davranış analizi araçları Application ınsights'ta](app-insights-usage-overview.md): [kullanıcılar, oturumlar, etkinlikler](app-insights-usage-segmentation.md), [Huniler](usage-funnels.md), [kullanıcı akışları](app-insights-usage-flows.md), [Bekletme](app-insights-usage-retention.md), veya Kohortlar? Bazı soruların yanıtları aşağıdadır.
@@ -56,5 +56,5 @@ Uygulamanız çok sayıda özel olay adlarının gönderiyorsa, kodda daha az be
 * [Kullanıcı davranış analizi araçları genel bakış](app-insights-usage-overview.md)
 
 ## <a name="get-help"></a>Yardım alın
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 

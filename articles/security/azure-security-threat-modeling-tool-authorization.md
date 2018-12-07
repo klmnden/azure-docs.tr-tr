@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: eec628a5084dc663978e16e617192802d3ecfcfa
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: ddf40538fc3d6e39fe48ff49311f86314008b4ce
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307665"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994753"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Güvenlik çerçevesi: Yetkilendirme | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
@@ -220,7 +220,7 @@ Lütfen unutmayın, RLS olarak kullanıma hazır veritabanı özelliği yalnızc
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | Azure Belge Veritabanı | 
+| **Bileşen**               | Azure belge veritabanı | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
@@ -349,7 +349,7 @@ Lütfen unutmayın, RLS olarak kullanıma hazır veritabanı özelliği yalnızc
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel, NET Framework 3 |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_unauthorized_access) |
+| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Adımları** | <p>Bu hizmet, bir yetkilendirme denetimini kullanmaz. Bir istemci belirli bir WCF Hizmeti çağırdığında, WCF çağıranın sunucuda hizmet yöntemi yürütmek için izinlere sahip olduğunu doğrulayın, çeşitli Yetkilendirme düzeni sağlar. Kimliği doğrulanmış bir kullanıcı, yetkilendirme denetimleri için WCF hizmetleri etkin değilse, ayrıcalık yükseltme elde edebilirsiniz.</p>|
 
 ### <a name="example"></a>Örnek

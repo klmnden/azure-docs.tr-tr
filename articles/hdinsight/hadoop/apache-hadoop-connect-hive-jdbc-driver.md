@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: 577f36f53bfad79af968a4c34f4b6ab0b49527c7
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 225cb3d2f78f41bdb17763d13644c1d95bc62710
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633453"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014710"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Apache Hive JDBC sürücüsü, HDInsight ile sorgulama
 
@@ -31,7 +31,7 @@ Hive JDBC arabirimi hakkında daha fazla bilgi için bkz. [HiveJDBCInterface](ht
   > [!IMPORTANT]
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight 3.3 emeklilik](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL JDBC istemci uygulamasıdır.
+* [SQuirreL SQL](https://squirrel-sql.sourceforge.net/). SQuirreL JDBC istemci uygulamasıdır.
 
 * [Java Developer Kit (JDK) 7 sürümü](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) veya üzeri.
 

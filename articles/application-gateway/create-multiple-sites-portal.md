@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/28/2017
 ms.author: victorh
-ms.openlocfilehash: 8f2e2500c39f42ebd7fefb3cec941088edf126f2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: fc418f58b299dcba08fda65000c5356c51f471e6
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045028"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993307"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Oluşturma ve Azure portalını kullanarak birden çok web sitelerini barındırmak için bir uygulama ağ geçidi yapılandırma
 
@@ -37,7 +37,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-[http://portal.azure.com](http://portal.azure.com) adresinden Azure portalında oturum açın
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın
 
 ## <a name="create-an-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
@@ -89,7 +89,7 @@ Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak 
     - *Azure123456!* Parola.
     - **Mevcut olanı kullan**’ı seçin ve *myResourceGroupAG* seçeneğini belirleyin.
 
-4. **Tamam**’a tıklayın.
+4. **Tamam** düğmesine tıklayın.
 5. Sanal makinenin boyutu için **DS1_V2** seçeneğini belirleyin ve **Seç**’e tıklayın.
 6. Sanal ağ için **myVNet** öğesinin seçili olduğundan ve alt ağın **myBackendSubnet** olduğundan emin olun. 
 7. Önyükleme tanılamalarını devre dışı bırakmak için **Devre Dışı** seçeneğine tıklayın.
@@ -126,7 +126,7 @@ Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak 
 
     ![Arka uç sunucuları ekleme](./media/create-multiple-sites-portal/application-gateway-multisite-backendpool.png)
 
-4. **Tamam**’a tıklayın.
+4. **Tamam** düğmesine tıklayın.
 5. Tıklayın **arka uç havuzları** ve ardından **Ekle**.
 6. Oluşturma *fabrikamPool* ile *fabrikamVM* yalnızca tamamlanmış adımları kullanarak.
 
@@ -138,7 +138,7 @@ Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak 
     - *contosoListener* - dinleyicisinin adını.
     - *www.contoso.com* -bu konak adı örneği, etki alanı adıyla değiştirin.
 
-3. **Tamam**’a tıklayın.
+3. **Tamam** düğmesine tıklayın.
 4. Adını kullanarak ikinci bir dinleyici oluşturun *fabrikamListener* ve ikinci etki alanı adınızı kullanın. Bu örnekte, *www.fabrikam.com* kullanılır.
 
 ## <a name="create-routing-rules"></a>Yönlendirme kuralları oluşturma
@@ -154,7 +154,7 @@ Bu örnekte, iki yeni kural oluşturursunuz ve uygulama ağ geçidini oluşturur
 
     ![Yol tabanlı kural oluşturma](./media/create-multiple-sites-portal/application-gateway-multisite-rule.png)
 
-5. **Tamam**’a tıklayın.
+5. **Tamam** düğmesine tıklayın.
 6. Adlarını kullanarak ikinci bir kural oluşturun *fabrikamRule*, *fabrikamListener*, ve *fabrikamPool*.
 7. Adlı varsayılan kuralı *bağlanma1* tıklayarak ve ardından tıklatarak **Sil**.
 

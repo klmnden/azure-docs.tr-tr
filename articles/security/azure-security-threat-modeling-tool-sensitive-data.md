@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7f1bb400650a223a9f0b4249c33f7c480a1bc009
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7f90fccd062826493b7add1a90406fa9244e00b2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262378"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002045"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Güvenlik çerçevesi: Hassas verileri | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
@@ -429,7 +429,7 @@ Sertifika veya Windows clientCredentialType ayarlayın.
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel, .NET Framework 3 |
 | **Öznitelikleri**              | Güvenlik modu - taşıma, güvenlik modu - ileti |
-| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_security_not_enabled), [kod Magazine WCF güvenlik temel ilkeleri](http://www.codemag.com/article/0611051) |
+| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [kod Magazine WCF güvenlik temel ilkeleri](http://www.codemag.com/article/0611051) |
 | **Adımları** | Hiçbir taşıma veya ileti güvenlik tanımlandı. İletileri taşıma olmadan veya güvenlik bütünlüğünü veya iletilerin gizliliğini garanti edemez ileti iletme uygulamalar. WCF güvenlik bağlama None olarak ayarlandığında, hem aktarım hem de ileti güvenlik devre dışı bırakıldı. |
 
 ### <a name="example"></a>Örnek

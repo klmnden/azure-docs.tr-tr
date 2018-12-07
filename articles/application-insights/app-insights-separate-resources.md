@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: c9eaa997a4110be4cf2013413735b97929b7c4d0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 77c0baba1c30153730e87181e24137d9a20ea6b1
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726007"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012479"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Geliştirme, Test ve üretim telemetri ayırma
 
@@ -32,7 +32,7 @@ Web uygulamanız için Application Insights izleme ayarladığınızda, Applicat
 Genellikle ayrı kaynaklar ya da tek bir paylaşılan kaynak farklı senaryolarda kullanmayı seçin:
 
 * Farklı ve bağımsız uygulamalar için - her uygulama için ayrı kaynak ve ikey değerini kullanın.
-* Birden çok bileşenleri veya bir iş kolu uygulaması - rolleri bir [tek bir paylaşılan kaynak](app-insights-monitor-multi-role-apps.md) tüm bileşen uygulamaları için. Telemetri, filtre veya cloud_RoleName özelliğiyle bölümlenmiş.
+* Birden çok bileşenleri veya bir iş kolu uygulaması - rolleri bir [tek bir paylaşılan kaynak](app-insights-app-map.md) tüm bileşen uygulamaları için. Telemetri, filtre veya cloud_RoleName özelliğiyle bölümlenmiş.
 * Geliştirme, Test ve yayın - ayrı kaynak ve ikey 'damga' içinde sistem sürümleri veya üretim aşaması için kullanın.
 * A | B test - tek bir kaynak kullanın. Bir özellik çeşitler tanımlayan telemetri eklemek için bir Telemetryınitializer oluşturun.
 
@@ -113,7 +113,7 @@ Uygulama sürümü özelliğinin ayarlanması birkaç farklı yöntem vardır.
     ```XML
 
     <?xml version="1.0" encoding="utf-8"?>
-    <DeploymentEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
+    <DeploymentEvent xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
       <ProjectName>AppVersionExpt</ProjectName>
       <Build type="MSBuild">
         <MSBuild>

@@ -1,5 +1,5 @@
 ---
-title: Azure Kubernetes kümesi web kullanıcı Arabirimi ile yönetme
+title: (KULLANIM DIŞI) Azure Kubernetes kümesi web kullanıcı Arabirimi ile yönetme
 description: Azure Container Service'te Kubernetes web kullanıcı arabirimini kullanarak
 services: container-service
 author: bburns
@@ -9,16 +9,19 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: b5079ddb63f468f924577f61adda6a3056ec8c6c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3a79b2e4fab807613a54d2792f5f5b97570293b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998534"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996130"
 ---
-# <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Azure Container Service ile Kubernetes web kullanıcı arabirimini kullanarak
+# <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(KULLANIM DIŞI) Azure Container Service ile Kubernetes web kullanıcı arabirimini kullanarak
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Bu makale, güncelleştirilmiş sürümü kullanan Azure Kubernetes Service için bkz: [Kubernetes web panosuna Azure Kubernetes Service (AKS) erişme](../../aks/kubernetes-dashboard.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu izlenecek yol, sahibi olduğunuzu varsayar [Azure Container Service kullanan bir Kubernetes kümesi oluşturuldu](container-service-kubernetes-walkthrough.md).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2814ecb0ff9fc49e4763dbe604fef353394f9aac
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 613e0f51ae7bbb0b295f13d50fc95683085d7da9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965249"
+ms.locfileid: "52995819"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights ile veri toplama, tutma ve depolama
 
@@ -28,14 +28,14 @@ Yüklediğinizde [Azure Application Insights] [ start] buluta uygulamanızla ilg
 * Hassas verileri hizmete göndermek "kutu dışı" çalıştıran standart telemetri modülleri düşüktür. Telemetri, yük, performans ve kullanım ölçümleri, özel durum raporları ve diğer Tanılama verileri ile ilgilidir. Ana kullanıcı verilerini tanılama raporlarında görünür durumda URL'leri işlevleridir. Ancak, uygulamanızın düz metin biçiminde bir URL içinde hassas verileri her durumda put olmamalıdır.
 * Tanılama ve kullanım izleme yardımcı olması için ek özel telemetri gönderen kod yazabilirsiniz. (Bu genişletilebilirlik yer Application Insights harika bir özelliğidir.) Bunun yanlışlıkla, kişisel ve hassas veriler içerir, böylece bu kod yazmak için mümkün olur. Uygulamanız bu tür veriler ile çalışıyorsa, yazdığınız tüm kod kapsamlı bir gözden geçirme işlemlerini uygulamanız gerekir.
 * Geliştirme ve uygulamanızı test ederken SDK'sı tarafından gönderildiği incelemek kolaydır. Veri IDE ve tarayıcı hata ayıklama çıktı pencerelerinde görünür. 
-* Veriler tutulur [Microsoft Azure](http://azure.com) ABD veya Avrupa sunucuları. (Ancak uygulamanızı herhangi bir yere çalıştırabilirsiniz.) Azure'da [güçlü güvenlik işleyen ve çok çeşitli uyumluluk standartlarını karşıladığını](https://azure.microsoft.com/support/trust-center/). Yalnızca size ve takımınıza atanan verilerinize erişebilirsiniz. Microsoft çalışanları için yalnızca belirli sınırlı koşullarda bilginiz dahilinde sınırlı erişimi. Ancak sunuculara değil, aktarım sırasında şifrelenir.
+* Veriler tutulur [Microsoft Azure](https://azure.com) ABD veya Avrupa sunucuları. (Ancak uygulamanızı herhangi bir yere çalıştırabilirsiniz.) Azure'da [güçlü güvenlik işleyen ve çok çeşitli uyumluluk standartlarını karşıladığını](https://azure.microsoft.com/support/trust-center/). Yalnızca size ve takımınıza atanan verilerinize erişebilirsiniz. Microsoft çalışanları için yalnızca belirli sınırlı koşullarda bilginiz dahilinde sınırlı erişimi. Ancak sunuculara değil, aktarım sırasında şifrelenir.
 
 Bu makalenin geri kalanında, daha tam olarak bu yanıtları elaborates. Böylece, hemen bir ekibin parçası olmayan iş arkadaşlarınıza göstermek kendi içinde olacak şekilde tasarlanmıştır.
 
 ## <a name="what-is-application-insights"></a>Application Insights nedir?
 [Azure Application Insights] [ start] yardımcı olan Microsoft tarafından sağlanan bir hizmeti, Canlı uygulamanızın kullanılabilirliğini ve performansı geliştirmek olduğu. Uygulamanız, test sırasında hem yayımlanan veya dağıttıktan sonra çalıştığı her zaman izler. Application Insights grafikleri ve, örneğin gösteren tablolar, günün hangi saatlerinde size çoğu kullanıcının, uygulamanın nasıl yanıt veriyor ve ne kadar iyi bağımlı olan dış hizmetler tarafından sunulur oluşturur. Kilitlenmeler, hata veya performans sorunları varsa, nedenini tanılamak için ayrıntılı telemetri verilerini aracılığıyla arayabilirsiniz. Ve hizmet kullanılabilirliği ve uygulamanızın performansını herhangi bir değişiklik varsa e-posta gönderir.
 
-Bu işlev alabilmek için kendi kod parçası haline gelir, uygulamanızda bir Application Insights SDK'sını yükleyin. Uygulamanız çalışırken, SDK'sı, işlemi izler ve Application Insights hizmetine telemetri gönderir. Bu, bir bulut hizmeti tarafından barındırılan [Microsoft Azure](http://azure.com). (Ancak tüm uygulamalar, yalnızca o Azure'da barındırılan Application Insights için geçerlidir.)
+Bu işlev alabilmek için kendi kod parçası haline gelir, uygulamanızda bir Application Insights SDK'sını yükleyin. Uygulamanız çalışırken, SDK'sı, işlemi izler ve Application Insights hizmetine telemetri gönderir. Bu, bir bulut hizmeti tarafından barındırılan [Microsoft Azure](https://azure.com). (Ancak tüm uygulamalar, yalnızca o Azure'da barındırılan Application Insights için geçerlidir.)
 
 ![SDK'yi uygulamanıza Application Insights hizmetine telemetri gönderir.](./media/app-insights-data-retention-privacy/01-scheme.png)
 
@@ -204,7 +204,7 @@ Açıkça sürece yalnızca TLS 1.2 kullanmak için uygulamanızı otomatik olar
 |.NET | Desteklenen yapılandırma sürüme göre değişir. | .NET 4.7 ve önceki sürümleri için ayrıntılı yapılandırma bilgileri için bkz [bu yönergeleri](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
 |Durum İzleyicisi | Desteklenen, yapılandırma gerekiyor | Durum İzleyicisi'ni dayanır [işletim sistemi yapılandırması](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET Yapılandırması](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) TLS 1.2 desteği.
 |Node.js |  , Desteklenen v10.5.0 içinde yapılandırması gerekli olabilir. | Kullanım [resmi bir Node.js TLS/SSL belge](https://nodejs.org/api/tls.html) için herhangi bir uygulama belirli yapılandırma. |
-|Java | Desteklenir, TLS 1.2 JDK desteği eklenmiştir [JDK 6 güncelleştirmesi 121](http://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) ve [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 kullanan [varsayılan olarak TLS 1.2](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
+|Java | Desteklenir, TLS 1.2 JDK desteği eklenmiştir [JDK 6 güncelleştirmesi 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) ve [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 kullanan [varsayılan olarak TLS 1.2](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Linux dağıtımları eğilimli etmenin [OpenSSL](https://www.openssl.org) TLS 1.2 desteği.  | Denetleme [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) OpenSSL sürümünüz desteklenir onaylamak için.|
 | Windows 8.0 10 | Desteklenen ve varsayılan olarak etkindir. | Yine de kullandığınızı doğrulamak için [varsayılan ayarları](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
 | Windows Server 2012-2016 | Desteklenen ve varsayılan olarak etkindir. | Yine de kullandığınızı doğrulamak için [varsayılan ayarları](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
@@ -230,7 +230,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>Uygulama anlayışları'nda depolanan kişisel verileri
 
-Bizim [Application Insights kişisel verileri makale](../log-analytics/log-analytics-personal-data-mgmt.md) ayrıntılı bu sorunu ele alınmaktadır.
+Bizim [Application Insights kişisel verileri makale](../azure-monitor/platform/personal-data-mgmt.md) ayrıntılı bu sorunu ele alınmaktadır.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Kullanıcılarım Application ınsights'ı kapatabilir miyim?
 Doğrudan yönetilemez. Application ınsights'ı etkinleştirmek için kullanıcılarınızın çalışabilecek bir anahtar sağlıyoruz yok.
@@ -281,10 +281,10 @@ SDK'ları platformları arasında farklılık gösterir ve yüklemek için kulla
 Yapabilecekleriniz [verilerin bazıları Applicationınsights.config'i düzenleyerek geçiş][config]
 
 > [!NOTE]
-> İstemci IP, coğrafi konum çıkarsamak için kullanılır ancak IP veriler artık varsayılan olarak depolanır ve sıfır ilişkili alanın yazılan. Kişisel veri işleme hakkında daha fazla anlamak için bunu önermemizin [makale](../log-analytics/log-analytics-personal-data-mgmt.md#application-data). IP adresi depolamanız gerekiyorsa ile bunu yapabilirsiniz bir [telemetri başlatıcısını](./app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
+> İstemci IP, coğrafi konum çıkarsamak için kullanılır ancak IP veriler artık varsayılan olarak depolanır ve sıfır ilişkili alanın yazılan. Kişisel veri işleme hakkında daha fazla anlamak için bunu önermemizin [makale](../azure-monitor/platform/personal-data-mgmt.md#application-data). IP adresi depolamanız gerekiyorsa ile bunu yapabilirsiniz bir [telemetri başlatıcısını](./app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## <a name="credits"></a>Jenerik
-Bu ürünü MaxMind kullanılabilir tarafından oluşturulan GeoLite2 veri içeren [ http://www.maxmind.com ](http://www.maxmind.com).
+Bu ürünü MaxMind kullanılabilir tarafından oluşturulan GeoLite2 veri içeren [ https://www.maxmind.com ](https://www.maxmind.com).
 
 
 
@@ -297,7 +297,7 @@ Bu ürünü MaxMind kullanılabilir tarafından oluşturulan GeoLite2 veri içer
 [greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md
-[pricing]: http://azure.microsoft.com/pricing/details/application-insights/
+[pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 

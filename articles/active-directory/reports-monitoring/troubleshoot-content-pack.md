@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a76486eaf2f9df8eb47b8bb73f1577324152a80f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 65747da92a3cad770cd9d474d27645782f7306b9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623307"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998726"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Sorun giderme Azure Active Directory etkinlik günlükleri içerik paketi hataları 
 
@@ -34,7 +34,8 @@ Azure Active Directory (Azure AD) Power BI içerik paketi ile çalışırken aş
 
 - [Yenileme başarısız oldu](troubleshoot-content-pack.md#refresh-failed) 
 - [Veri kaynağı kimlik bilgileri güncelleştirilemedi](troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
-- [Veri alma çok uzun sürüyor](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long)  
+- [Veri alma çok uzun sürüyor](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long) 
+
 Bu makalede, olası nedenleri ve bu hataları düzeltme hakkında bilgi sağlar.
  
 ## <a name="refresh-failed"></a>Yenileme başarısız oldu 

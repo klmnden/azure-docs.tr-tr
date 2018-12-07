@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: f0ec2ff0b10e9554485f482bca6b160da0c4e016
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 850ff2cfb02b5a968a40e0cd43b5c65d9d4e3490
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52719904"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001735"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>.NET uygulamaları için Application Insights’ı el ile yapılandırma
 
@@ -29,7 +29,7 @@ ms.locfileid: "52719904"
 
 Gerekenler:
 
-* Bir [Microsoft Azure](http://azure.com) aboneliği. Ekibinizin ve kuruluşunuzun Azure aboneliği varsa, sahibi [Microsoft hesabınızı](http://live.com) kullanarak sizi buna ekleyebilir.
+* Bir [Microsoft Azure](https://azure.com) aboneliği. Ekibinizin ve kuruluşunuzun Azure aboneliği varsa, sahibi [Microsoft hesabınızı](https://live.com) kullanarak sizi buna ekleyebilir.
 * Visual Studio 2013 veya üstü.
 
 ## <a name="add"></a>1. Application Insights kaynağı seçme

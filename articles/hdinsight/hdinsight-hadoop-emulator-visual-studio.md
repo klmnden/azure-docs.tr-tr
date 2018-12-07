@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: e6a3fab0e6b3b092ddb55043882c4d284268abfc
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c2fd32ad15366c76c061ba42fa0a59d43a317b43
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006864"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012768"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Hortonworks korumalı alanı ile Visual Studio için Azure Data Lake Araçları'nı kullanın
 
-Azure Data Lake genel Hadoop kümeleriyle çalışmaya yönelik araçlar içerir. Bu belgede, yerel bir sanal makinede çalışan Hortonworks korumalı alanı ile Data Lake araçları kullanmak için atılması gereken adımları sağlar.
+Azure Data Lake genel Apache Hadoop kümeleriyle çalışmaya yönelik araçlar içerir. Bu belgede, yerel bir sanal makinede çalışan Hortonworks korumalı alanı ile Data Lake araçları kullanmak için atılması gereken adımları sağlar.
 
 Hortonworks korumalı alanı kullanarak Hadoop ile yerel olarak üzerinde geliştirme ortamınızı çalışmanıza olanak sağlar. Bir HDInsight kümesine, sonra çözüm geliştirmiş ve ölçekli olarak dağıtmak istediğiniz sonra taşıyabilirsiniz.
 
@@ -34,7 +34,7 @@ Hortonworks korumalı alanı kullanarak Hadoop ile yerel olarak üzerinde geliş
 
 ## <a name="configure-passwords-for-the-sandbox"></a>Korumalı alan için parolaları yapılandırın
 
-Hortonworks korumalı alanı çalıştığından emin olun. Ardından adımları [Hortonworks korumalı alanı içinde kullanmaya başlayın](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords) belge. Bu adımları, SSH için parolayı yapılandırmak `root` hesabı ve Ambari `admin` hesabı. Bu parolalar, korumalı alan Visual Studio'dan bağlandığınızda kullanılır.
+Hortonworks korumalı alanı çalıştığından emin olun. Ardından adımları [Hortonworks korumalı alanı içinde kullanmaya başlayın](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords) belge. Bu adımları, SSH için parolayı yapılandırmak `root` hesabı ve Apache Ambari `admin` hesabı. Bu parolalar, korumalı alan Visual Studio'dan bağlandığınızda kullanılır.
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>Korumalı alan araçları bağlanma
 
@@ -71,7 +71,7 @@ Hortonworks korumalı alanı çalıştığından emin olun. Ardından adımları
 
 Bu adımları uyguladıktan sonra artık sahip olduğunuz bir **HDInsight yerel küme** Sunucu Gezgini giriş altında **HDInsight** bölümü.
 
-## <a name="write-a-hive-query"></a>Bir Hive sorgusu Yaz
+## <a name="write-an-apache-hive-query"></a>Apache Hive sorgusu Yaz
 
 Hive, yapılandırılmış verilerle çalışmaya yönelik bir SQL benzeri bir sorgu dili (HiveQL) sağlar. Yerel kümede isteğe bağlı sorguları çalıştırma hakkında bilgi edinmek için aşağıdaki adımları kullanın.
 
@@ -100,7 +100,7 @@ Hive, yapılandırılmış verilerle çalışmaya yönelik bir SQL benzeri bir s
     Sonra **iş durumu** değişikliklerini **tamamlandı**, yönlendirilmiş Çevrimsiz graf (DAG) görüntülenir. Bu şema tarafından Tez Hive sorgusu işlenirken belirlendi yürütme yolunu açıklar. Tez Hive için varsayılan yürütme altyapısı yerel kümedeki ' dir.
 
     > [!NOTE]
-    > Linux tabanlı HDInsight kümeleri kullanılırken Tez ayrıca varsayılandır. Varsayılan olarak Windows tabanlı HDInsight değil. Bunu kullanmak için satırın eklemelisiniz `set hive.execution.engine = tez;` Hive sorgunuzu başlangıcına.
+    > Linux tabanlı HDInsight kümeleri kullanılırken Apache Tez ayrıca varsayılandır. Varsayılan olarak Windows tabanlı HDInsight değil. Bunu kullanmak için satırın eklemelisiniz `set hive.execution.engine = tez;` Hive sorgunuzu başlangıcına.
 
     Kullanım **iş çıktısı** çıkışı görüntülemek için bağlantı. Bu durumda, 823, sample_08 tablodaki satır sayısını gösterir. İşle ilgili tanılama bilgilerini kullanarak görüntüleyebileceğiniz **iş günlüğü** ve **YARN günlüğünü indirmek** bağlantıları.
 
@@ -127,7 +127,7 @@ Ayrıca, birden çok Hive betiklerini içeren bir proje oluşturabilirsiniz. İl
 
 **Örnek Hive** projesini içeren iki komut **WebLogAnalysis.hql** ve **SensorDataAnalysis.hql**. Bu komut dosyalarını aynı kullanarak gönderebilirsiniz **Gönder** pencerenin üstünde düğme.
 
-## <a name="create-a-pig-project"></a>Bir Pig projesi oluşturun
+## <a name="create-an-apache-pig-project"></a>Apache Pig projesi oluşturun
 
 Pig, Hive, yapılandırılmış verilerle çalışmak için SQL benzeri bir dil sağlarken, verilerinizde dönüşümler gerçekleştirerek çalışır. Pig, bir işlem hattı dönüşümlerinin geliştirmenize olanak veren bir dili (Pig Latin) sağlar. Yerel küme ile pig kullanma için bu adımları izleyin:
 
@@ -200,5 +200,5 @@ Ardından, formu kullanarak tablo oluşturabilirsiniz. Aşağıdaki ekran görü
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Hortonworks korumalı alanı işin öğrenme](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Hadoop Öğreticisi - HDP ile çalışmaya başlama](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [Hortonworks korumalı alanı işin öğrenme](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Apache Hadoop Öğreticisi - HDP ile çalışmaya başlama](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

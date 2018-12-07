@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 4711c766c2a074c25f019ce5b523e0ba8b599c17
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7e84e8e99000e9d8bd7a21d343588b1df777b56d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971326"
+ms.locfileid: "52994531"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure işlevleri C# Geliştirici Başvurusu
 
@@ -154,7 +154,7 @@ Oluşturulan *function.json* dosya içeren bir `configurationSource` çalışma 
 
 ## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
 
-*Function.json* dosya oluşturma, NuGet paketi tarafından gerçekleştirilir [Microsoft\.NET\.Sdk\.işlevleri](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
+*Function.json* dosya oluşturma, NuGet paketi tarafından gerçekleştirilir [Microsoft\.NET\.Sdk\.işlevleri](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
 Her iki sürümü için kullanılan aynı paket 1.x ve 2.x'i işlevler çalışma zamanı. Hedef Framework'ü ne 1.x proje 2.x projeden ayırır ' dir. İlgili bölümleri şunlardır *.csproj* farklı gösteren dosyalar, hedef çerçeveleri ve aynı `Sdk` paket:
 
@@ -183,7 +183,7 @@ Her iki sürümü için kullanılan aynı paket 1.x ve 2.x'i işlevler çalışm
 
 Arasında `Sdk` paket bağımlılıkları, Tetikleyicileri ve bağlamaları alınır. .NET Core 2.x Tetikleyicileri ve bağlamaları hedef sırada bu .NET Framework'ü hedefleyen çünkü 1.x Tetikleyicileri ve bağlamaları için bir 1.x proje ifade eder.
 
-`Sdk` Paket de bağlıdır [Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json)ve dolaylı olarak [WindowsAzure.Storage](http://www.nuget.org/packages/WindowsAzure.Storage). Bu bağımlılıkları projenize işlevler çalışma zamanı sürümüyle çalışan bu paketleri sürümlerini kullandığından emin olun, proje. Örneğin, `Newtonsoft.Json` sürüm 11 için .NET Framework 4.6.1 var, ancak .NET Framework 4.6.1'i hedefleyen işlevler çalışma zamanı yalnızca uyumlu `Newtonsoft.Json` 9.0.1. Bu projedeki işlev kodunuzu kullanmak de sahiptir. `Newtonsoft.Json` 9.0.1.
+`Sdk` Paket de bağlıdır [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json)ve dolaylı olarak [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). Bu bağımlılıkları projenize işlevler çalışma zamanı sürümüyle çalışan bu paketleri sürümlerini kullandığından emin olun, proje. Örneğin, `Newtonsoft.Json` sürüm 11 için .NET Framework 4.6.1 var, ancak .NET Framework 4.6.1'i hedefleyen işlevler çalışma zamanı yalnızca uyumlu `Newtonsoft.Json` 9.0.1. Bu projedeki işlev kodunuzu kullanmak de sahiptir. `Newtonsoft.Json` 9.0.1.
 
 Kaynak kodu `Microsoft.NET.Sdk.Functions` GitHub deposunda kullanılabilir [azure\-işlevleri\-vs\-derleme\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 

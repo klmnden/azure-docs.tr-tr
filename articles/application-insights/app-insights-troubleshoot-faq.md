@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 894c3e42378ddcbe9cba7b6f33d8500988695754
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 0e934a629edc41ce09cad810b0d3b9b88e36c6d6
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721026"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996541"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Sık sorulan sorular
 
@@ -140,7 +140,7 @@ IP adresini kullanarak web istemcisi (IPv4 veya IPv6) baktığımızda [GeoLite2
 * Tarayıcı telemetrisi: Gönderenin IP adresi toplarız.
 * Sunucu telemetri: Application Insights modülü için istemci IP adresi toplar. Varsa toplanmaz `X-Forwarded-For` ayarlanır.
 
-Yapılandırabileceğiniz `ClientIpHeaderTelemetryInitializer` farklı bir üst bilgisinden IP adresini almak için. Bazı sistemlerde, örneğin, bir proxy tarafından taşınması, yük dengeleyici veya CDN `X-Originating-IP`. [Daha fazla bilgi edinin](http://apmtips.com/blog/2016/07/05/client-ip-address/).
+Yapılandırabileceğiniz `ClientIpHeaderTelemetryInitializer` farklı bir üst bilgisinden IP adresini almak için. Bazı sistemlerde, örneğin, bir proxy tarafından taşınması, yük dengeleyici veya CDN `X-Originating-IP`. [Daha fazla bilgi edinin](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
 Yapabilecekleriniz [Power BI](app-insights-export-power-bi.md) isteği telemetrinizi bir haritada görüntülemek için.
 
@@ -184,7 +184,7 @@ Tek bir kaynak tüm bileşenleri veya rolleri için tek bir iş sisteminde kulla
 ## <a name="what-are-the-user-and-session-counts"></a>Kullanıcı ve oturum nelerdir sayılır?
 
 * JavaScript SDK'sı, etkinlikleri gruplandırmak için gelen kullanıcıları tanımlamak için web istemcisi, bir kullanıcı tanımlama bilgisinde ve oturum tanımlama bilgisini ayarlar.
-* İstemci tarafı komut dosyası varsa, [sunucu tanımlama bilgilerini ayarlama](http://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
+* İstemci tarafı komut dosyası varsa, [sunucu tanımlama bilgilerini ayarlama](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * Farklı tarayıcılar veya içinde InPrivate/gizli Tarama modunda sitenizdeki bir gerçek kullanıcı kullanır veya farklı makineler sonra birden çok kez sayılır olur.
 * Makineleri ve tarayıcılar arasında bir oturum açma kullanıcı tanımlamak için bir çağrı ekleyin [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
 

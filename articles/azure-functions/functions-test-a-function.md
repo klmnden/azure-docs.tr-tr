@@ -1,443 +1,362 @@
 ---
-title: Azure işlevlerini test etme | Microsoft Docs
-description: Postman, cURL ve Node.js kullanarak Azure işlevlerinizi test.
+title: Azure İşlevlerini test etme
+description: Otomatik testler için oluşturma bir C# işlevi Visual Studio ve VS code'da JavaScript işlevi
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Azure işlevleri, İşlevler, olay işleme, Web kancaları, dinamik işlem, sunucusuz mimari, test etme
-ms.assetid: c00f3082-30d2-46b3-96ea-34faf2f15f77
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 02/02/2017
-ms.author: glenga
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b2605bb30d7a1442c471c8cf1483b106ca27581
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.date: 12/10/2018
+ms.author: cshoe
+ms.openlocfilehash: c91254b3a4a7037e24b22ba226c66141707d0c10
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086770"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016581"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Kodunuzu Azure işlevleri'nde test stratejileri
 
-Bu konu, aşağıdaki genel yaklaşımları kullanarak dahil işlevlerini test etmek için çeşitli yollar gösterir:
+Bu makalede, Azure işlevleri için otomatik testler oluşturma işlemini gösterir. 
 
-+ CURL ve Postman bile Tetikleyicileri web tabanlı bir web tarayıcısı gibi HTTP tabanlı araçlar
-+ Azure depolama tabanlı Tetikleyicileri test etmek için Azure Depolama Gezgini,
-+ Azure işlevleri portalındaki test sekmesi
-+ Zamanlayıcı ile tetiklenen işlevi
-+ Uygulama veya framework test etme
+Tüm kod sınama önerilir, ancak bir işlevin logic kaydırma ve işlev dışındaki testler oluşturma en iyi sonuçlar elde edebilirsiniz. Mantıksal hemen özetleyen bir işlevin satır kod sınırlar ve işlevi diğer sınıfları veya modülleri çağırmak için sorumlu sağlar. Bu makalede, ancak otomatik testler karşı bir HTTP ve Zamanlayıcı ile tetiklenen işlev oluşturma işlemini gösterir.
 
-Bu test yöntemleri aracılığıyla bir sorgu dizesi parametresi veya istek gövdesinde giriş kabul eden bir HTTP tetikleyici işlevi kullanın. Bu işlev ilk bölümde Azure portalını kullanarak oluşturduğunuz.
+Aşağıdaki içeriği hedef farklı dilleri ve ortamları yönelik iki farklı bölümlere ayrılır. Testleri oluşturmayı öğrenebilirsiniz:
 
-## <a name="create-a-simple-function-for-testing-using-the-azure-portal"></a>Azure portalını kullanarak test etmek için basit bir işlev oluşturma
-Bu öğreticinin çoğu için bir işlev oluşturduğunuzda kullanılabilir HttpTrigger JavaScript işlev şablonu biraz değiştirilmiş bir sürümünü kullanırız. Bir işlev oluşturma yardıma ihtiyacınız varsa, bilgileri gözden geçirdikten [öğretici](functions-create-first-azure-function.md). Seçin **HttpTrigger - JavaScript** test işlevinde oluştururken şablon [Azure portal].
+- [C#xUnit ile Visual Studio](#c-in-visual-studio)
+- [VS code'da Jest ile JavaScript](#javascript-in-vs-code)
 
-Varsayılan işlevi şablonu temel geri istek gövdesi veya sorgu dizesi parametresi, adından yankılayan bir "Merhaba Dünya" işlevi olarak `name=<your name>`.  Ayrıca istek gövdesindeki JSON içeriği olarak adı ve adresi sağlamanıza izin verecek kod güncelleştireceğiz. Ardından işlev istemci kullanılabilir olduğunda bu geri görüntülemektedir.   
+Örnek depoyu kullanılabilir [GitHub](https://github.com/craigshoemaker/azure-functions-tests).
 
-İşlevi test etmek için kullanacağımız aşağıdaki kodla güncelleştirin:
+## <a name="c-in-visual-studio"></a>C#Visual Studio'da
+Aşağıdaki örnek nasıl oluşturulacağını açıklar bir C# işlev uygulamanız Visual Studio'da çalıştırma ve test [xUnit](https://xunit.github.io).
 
-```javascript
-module.exports = function (context, req) {
-    context.log("HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
-    context.log("Request Headers = " + JSON.stringify(req.headers));
-    var res;
+![İle Azure işlevlerini test etme C# Visual Studio'da](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-    if (req.query.name || (req.body && req.body.name)) {
-        if (typeof req.query.name != "undefined") {
-            context.log("Name was provided as a query string param...");
-            res = ProcessNewUserInformation(context, req.query.name);
+### <a name="setup"></a>Kurulum
+
+Ortamınızı ayarlamak için bir işlev oluşturun ve uygulamayı test etme. Aşağıdaki adımlar, uygulama ve testleri desteklemek için gereken işlevleri oluşturmanıza yardımcı:
+
+1. [Yeni bir işlev uygulaması oluşturma](./functions-create-first-azure-function.md) ve adlandırın *işlevleri*
+2. [Bir HTTP işlev şablonu oluşturma](./functions-create-first-azure-function.md) ve adlandırın *HttpTrigger*.
+3. [Şablondan Zamanlayıcı bir işlev oluşturma](./functions-create-scheduled-function.md) ve adlandırın *TimerTrigger*.
+4. [XUnit Test uygulama oluşturma](https://xunit.github.io/docs/getting-started-dotnet-core) ve adlandırın *Functions.Test*.
+5. [Başvuru *işlevleri* uygulama](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) gelen *Functions.Test* uygulama.
+
+### <a name="create-test-classes"></a>Test sınıfları oluşturma
+
+Uygulamaları oluşturulan, otomatik testleri çalıştırmak için kullanılan sınıfları oluşturabilirsiniz.
+
+Her işlev bir örneğini alır [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) ileti günlüğe kaydetmeyi işlemek için. Bazı testler olmayan iletileri günlüğe ya da günlük nasıl uygulandığını için herhangi bir sorun vardır. Bir test geçmediği belirlenemiyor oturum iletileri değerlendirmek diğer testlerin gerekir.
+
+`ListLogger` Sınıfı uygulamak için tasarlanmıştır `ILogger` arabirim ve iç değerlendirmesi sırasında bir test için ileti listesi de tutun.
+
+**Sağ** üzerinde *Functions.Test* seçin ve uygulama **Ekle > sınıfı**, adlandırın **ListLogger.cs** ve aşağıdaki kodu girin:
+
+```csharp
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions.Internal;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Functions.Tests
+{
+    public class ListLogger : ILogger
+    {
+        public IList<string> Logs;
+
+        public IDisposable BeginScope<TState>(TState state) => NullScope.Instance;
+
+        public bool IsEnabled(LogLevel logLevel) => false;
+
+        public ListLogger()
+        {
+            this.Logs = new List<string>();
         }
-        else {
-            context.log("Processing user info from request body...");
-            res = ProcessNewUserInformation(context, req.body.name, req.body.address);
+
+        public void Log<TState>(LogLevel logLevel, 
+                                EventId eventId,
+                                TState state,
+                                Exception exception,
+                                Func<TState, Exception, string> formatter)
+        {
+            string message = formatter(state, exception);
+            this.Logs.Add(message);
         }
     }
-    else {
-        res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
-    context.done(null, res);
-};
-function ProcessNewUserInformation(context, name, address) {
-    context.log("Processing user information...");
-    context.log("name = " + name);
-    var echoString = "Hello " + name;
-    var res;
-
-    if (typeof address != "undefined") {
-        echoString += "\n" + "The address you provided is " + address;
-        context.log("address = " + address);
-    }
-    res = {
-        // status: 200, /* Defaults to 200 */
-        body: echoString
-    };
-    return res;
 }
 ```
 
-## <a name="test-a-function-with-tools"></a>Test araçları ile bir işlev
-Azure portal dışında işlevlerinizi test etmek için tetiklemek için kullanabileceğiniz çeşitli araçları vardır. Bu test araçları (kullanıcı Arabirimi tabanlı hem de komut satırı), Azure depolama erişimi araçları ve basit bir web tarayıcısı HTTP içerir.
+`ListLogger` Sınıfın uyguladığı aşağıdaki üyeleri tarafından sözleşmeleri yapılır gibi `ILogger` arabirimi:
 
-### <a name="test-with-a-browser"></a>Bir tarayıcı ile test etme
-Web tarayıcısı üzerinden HTTP tetikleyicisi işlevlerini basit bir yoludur. Bir gövde yükü gerektirmeyen GET istekleri için bir tarayıcı kullanabilir ve kullanımı yalnızca sorgu parametreleri dize.
+- **BeginScope**: kapsamları, günlüğe kaydetme için bağlam ekleyin. Bu durumda, test yalnızca statik örneğine noktaları [NullScope](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.abstractions.internal.nullscope) test işlevine izin veren sınıfı.
 
-Daha önce tanımladığımız işlevi test etmek için kopyalama **işlev URL'sini** portalından. Bunu, aşağıdaki biçime sahiptir:
+- **IsEnabled**: varsayılan değerini `false` sağlanır.
 
-    https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
+- **Günlük**: Bu yöntem sağlanan kullanan `formatter` iletiyi biçimlendirmek için işlev ve ortaya çıkan metni ekler `Logs` koleksiyonu.
 
-Append `name` sorgu dizesi parametresi. İçin gerçek bir ad kullanın `<Enter a name here>` yer tutucu.
+`Logs` Koleksiyon öğesinin bir örneğiyse `List<string>` ve oluşturucuda başlatılır.
 
-    https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>&name=<Enter a name here>
+Ardından, **sağ** üzerinde *Functions.Test* seçin ve uygulama **Ekle > sınıfı**, adlandırın **LoggerTypes.cs** girin Aşağıdaki kodu:
 
-URL'yi tarayıcınıza yapıştırın ve aşağıdakine benzer bir yanıt almalısınız.
-
-![Ekran görüntüsü, Chrome tarayıcı sekmesinde test yanıt](./media/functions-test-a-function/browser-test.png)
-
-Döndürülen dize XML'de sarmalar Chrome tarayıcı örnektir. Diğer tarayıcılarda yalnızca dize değeri görüntüler.
-
-Portalda **günlükleri** penceresinde çıktısı aşağıdakine benzer bir günlüğe kaydedilir işlev yürütülürken:
-
-    2016-03-23T07:34:59  Welcome, you are now connected to log-streaming service.
-    2016-03-23T07:35:09.195 Function started (Id=61a8c5a9-5e44-4da0-909d-91d293f20445)
-    2016-03-23T07:35:10.338 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==&name=Glenn from a browser
-    2016-03-23T07:35:10.338 Request Headers = {"cache-control":"max-age=0","connection":"Keep-Alive","accept":"text/html","accept-encoding":"gzip","accept-language":"en-US"}
-    2016-03-23T07:35:10.338 Name was provided as a query string param.
-    2016-03-23T07:35:10.338 Processing User Information...
-    2016-03-23T07:35:10.369 Function completed (Success, Id=61a8c5a9-5e44-4da0-909d-91d293f20445)
-
-### <a name="test-with-postman"></a>Postman ile test
-Chrome tarayıcısı ile tümleşen Postman çoğu işlevlerinizi test etmek için önerilen araçtır. Bkz: Postman'ı yüklemek için [alma Postman](https://www.getpostman.com/). Postman, HTTP isteğinin çok daha fazla öznitelik üzerinde denetim sağlar.
-
-> [!TIP]
-> HTTP en rahat kullanabileceğiniz araç testini kullanın. Postman için bazı seçenekler şunlardır:  
->
-> * [Fiddler](http://www.telerik.com/fiddler)  
-> * [Paw](https://luckymarmot.com/paw)  
->
->
-
-Postman içinde birlikte bir istek gövdesi işlevi test etmek için:
-
-1. Gelen Postman'i başlatın **uygulamaları** Chrome tarayıcı penceresinin sol alt köşesindeki düğme.
-2. Kopyalama, **işlev URL'sini**, Postman yapıştırın. Bu erişim kodu sorgu dizesi parametresi içerir.
-3. HTTP yöntemine değiştirme **POST**.
-4. Tıklayın **gövdesi** > **ham**, aşağıdakine benzer bir JSON istek gövdesi ekleyin:
-
-    ```json
+```csharp
+namespace Functions.Tests
+{
+    public enum LoggerTypes
     {
-        "name" : "Wes testing with Postman",
-        "address" : "Seattle, WA 98101"
+        Null,
+        List
     }
-    ```
-5. Tıklayın **Gönder**.
+}
+```
+Bu numaralandırma testleri tarafından kullanılan Günlükçü türünü belirtir. 
 
-Bu öğreticide basit echo işlevi örneği sınama aşağıdaki resimde gösterilmektedir.
+Ardından, **sağ** üzerinde *Functions.Test* seçin ve uygulama **Ekle > sınıfı**, adlandırın **TestFactory.cs** girin Aşağıdaki kodu:
 
-![Ekran Postman'ı, kullanıcı arabirimi](./media/functions-test-a-function/postman-test.png)
+```csharp
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Internal;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.Extensions.Primitives;
+using System.Collections.Generic;
 
-Portalda **günlükleri** penceresinde çıktısı aşağıdakine benzer bir günlüğe kaydedilir işlev yürütülürken:
+namespace Functions.Tests
+{
+    public class TestFactory
+    {
+        public static IEnumerable<object[]> Data()
+        {
+            return new List<object[]>
+            {
+                new object[] { "name", "Bill" },
+                new object[] { "name", "Paul" },
+                new object[] { "name", "Steve" }
 
-    2016-03-23T08:04:51  Welcome, you are now connected to log-streaming service.
-    2016-03-23T08:04:57.107 Function started (Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
-    2016-03-23T08:04:57.763 HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==
-    2016-03-23T08:04:57.763 Request Headers = {"cache-control":"no-cache","connection":"Keep-Alive","accept":"*/*","accept-encoding":"gzip","accept-language":"en-US"}
-    2016-03-23T08:04:57.763 Processing user info from request body...
-    2016-03-23T08:04:57.763 Processing User Information...
-    2016-03-23T08:04:57.763 name = Wes testing with Postman
-    2016-03-23T08:04:57.763 address = Seattle, W.A. 98101
-    2016-03-23T08:04:57.795 Function completed (Success, Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
+            };
+        }
 
-### <a name="test-with-curl-from-the-command-line"></a>CURL komut satırından test
-Genellikle, yazılım test ettiğiniz, herhangi bir uygulamanızda hata ayıklamak amacıyla komut satırı daha aramak ise gerekli değildir. Bu, işlevlerini test etme ile farklı değildir. CURL Linux tabanlı sistemler üzerinde varsayılan olarak kullanılabilir olduğunu unutmayın. Windows üzerinde indirmeniz ve yüklemeniz [cURL aracını](https://curl.haxx.se/).
+        private static Dictionary<string, StringValues> CreateDictionary(string key, string value)
+        {
+            var qs = new Dictionary<string, StringValues>
+            {
+                { key, value }
+            };
+            return qs;
+        }
 
-Daha önce tanımladığımız işlevi test etmek için kopyalama **işlev URL'sini** portalından. Bunu, aşağıdaki biçime sahiptir:
+        public static DefaultHttpRequest CreateHttpRequest(string queryStringKey, string queryStringValue)
+        {
+            var request = new DefaultHttpRequest(new DefaultHttpContext())
+            {
+                Query = new QueryCollection(CreateDictionary(queryStringKey, queryStringValue))
+            };
+            return request;
+        }
 
-    https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
+        public static ILogger CreateLogger(LoggerTypes type = LoggerTypes.Null)
+        {
+            ILogger logger;
 
-Bu URL, işlevinizi tetiklemek için kullanılır. Bir GET yapmak için komut satırında cURL komutu kullanarak bu test (`-G` veya `--get`) işlev isteği:
+            if (type == LoggerTypes.List)
+            {
+                logger = new ListLogger();
+            }
+            else
+            {
+                logger = NullLoggerFactory.Instance.CreateLogger("Null Logger");
+            }
 
-    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
+            return logger;
+        }
+    }
+}
+```
+`TestFactory` Sınıfı aşağıdaki üyelere uygular:
 
-Bu belirli bir örnek veri geçirilen bir sorgu dizesi parametresi gerektirir (`-d`) cURL komutu içinde:
+- **Veri**: Bu özellik döndürür bir [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) örnek verileri koleksiyonu. Anahtar-değer çiftlerinin bir sorgu dizesinde geçirilen değerleri temsil eder.
 
-    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code> -d name=<Enter a name here>
+- **CreateDictionary**: Bu yöntem, anahtar/değer çifti bağımsız değişken olarak kabul eder ve yeni bir `Dictionary` oluşturmak için kullanılan `QueryCollection` sorgu dizesi değerlerini temsil etmek için.
 
-Komutunu çalıştırın ve komut satırında işlevin şu çıktıyı görürsünüz:
+- **CreateHttpRequest**: Bu yöntem ile belirtilen sorgu dizesi parametreleri başlatılan bir HTTP isteği oluşturur.
 
-![Komut istemi ekran görüntüsü çıkış](./media/functions-test-a-function/curl-test.png)
+- **CreateLogger**: Günlükçü türüne göre bu yöntem test etmek için kullanılan bir Günlükçü sınıf döndürür. `ListLogger` Günlüğe kaydedilen iletilere değerlendirmesi testlerinde kullanılabilecek izler.
 
-Portalda **günlükleri** penceresinde çıktısı aşağıdakine benzer bir günlüğe kaydedilir işlev yürütülürken:
+Ardından, **sağ** üzerinde *Functions.Test* seçin ve uygulama **Ekle > sınıfı**, adlandırın **FunctionsTests.cs** girin Aşağıdaki kodu:
 
-    2016-04-05T21:55:09  Welcome, you are now connected to log-streaming service.
-    2016-04-05T21:55:30.738 Function started (Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
-    2016-04-05T21:55:30.738 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/HttpTriggerNodeJS1?code=XXXXXXX&name=Azure Functions
-    2016-04-05T21:55:30.738 Function completed (Success, Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
+```csharp
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Xunit;
 
-### <a name="test-a-blob-trigger-by-using-storage-explorer"></a>Blob tetikleyicisi Depolama Gezgini'ni kullanarak test edin.
-Blob tetikleyicisi işlevi kullanarak test edebilirsiniz [Azure Depolama Gezgini](http://storageexplorer.com/).
+namespace Functions.Tests
+{
+    public class FunctionsTests
+    {
+        private readonly ILogger logger = TestFactory.CreateLogger();
 
-1. İçinde [Azure portal] işlev uygulamanız için bir C#, F # veya JavaScript blob tetikleme işlevi oluşturma. Blob kapsayıcınızın adını izlemek için yolunu ayarlayın. Örneğin:
+        [Fact]
+        public async void Http_trigger_should_return_known_string()
+        {
+            var request = TestFactory.CreateHttpRequest("name", "Bill");
+            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            Assert.Equal("Hello, Bill", response.Value);
+        }
 
-        files
-2. Tıklayın **+** düğmesini kullanmak istediğiniz depolama hesabı seçin veya oluşturun. Sonra **Oluştur**’a tıklayın.
-3. Şu metinle birlikte bir metin dosyası oluşturun ve kaydedin:
+        [Theory]
+        [MemberData(nameof(TestFactory.Data), MemberType = typeof(TestFactory))]
+        public async void Http_trigger_should_return_known_string_from_member_data(string queryStringKey, string queryStringValue)
+        {
+            var request = TestFactory.CreateHttpRequest(queryStringKey, queryStringValue);
+            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            Assert.Equal($"Hello, {queryStringValue}", response.Value);
+        }
 
-        A text file for blob trigger function testing.
-4. Çalıştırma [Azure Depolama Gezgini](http://storageexplorer.com/), izlenmekte olan depolama hesabındaki blob kapsayıcısına bağlanın.
-5. Tıklayın **karşıya** metin dosyasını karşıya yüklemek için.
+        [Fact]
+        public void Timer_should_log_message()
+        {
+            var logger = (ListLogger)TestFactory.CreateLogger(LoggerTypes.List);
+            TimerFunction.Run(null, logger);
+            var msg = logger.Logs[0];
+            Assert.Contains("C# Timer trigger function executed at", msg);
+        }
+    }
+}
+```
+Bu sınıfta uygulanır üyeleri şunlardır:
 
-    ![Depolama Gezgini ekran görüntüsü](./media/functions-test-a-function/azure-storage-explorer-test.png)
+- **Http_trigger_should_return_known_string**: Bu test bir istek sorgu dizesi değerlerini oluşturur `name=Bill` HTTP işlevi ve beklenen yanıt verilir denetimleri.
 
-Varsayılan blob tetikleyici işlev kodunu günlüklerinde blob işlenmesini raporları:
+- **Http_trigger_should_return_string_from_member_data**: HTTP işlevi örnek verilerini sağlamak için bu test xUnit öznitelikleri kullanır.
 
-    2016-03-24T11:30:10  Welcome, you are now connected to log-streaming service.
-    2016-03-24T11:30:34.472 Function started (Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
-    2016-03-24T11:30:34.472 C# Blob trigger function processed: A text file for blob trigger function testing.
-    2016-03-24T11:30:34.472 Function completed (Success, Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
+- **Timer_should_log_message**: Bu test örneği oluşturur `ListLogger` ve Zamanlayıcı işleve geçirir. İşlevi çalıştırıldığında, günlük, beklenen bir ileti mevcut olduğundan emin olmak için denetlenir.
 
-## <a name="test-a-function-within-functions"></a>İşlevler içinde bir işlevi test etme
-Zamanlayıcı ile tetiklenen işlevleri ve Azure işlevleri portalına HTTP test etmenize izin vermek için tasarlanmıştır. Test ettiğiniz diğer işlevleri tetiklemek için işlevleri de oluşturabilirsiniz.
+### <a name="run-tests"></a>Testleri çalıştırın
 
-### <a name="test-with-the-functions-portal-run-button"></a>İşlevleri portal Çalıştır düğmesini test etme
-Portal sağlar bir **çalıştırma** yapmak için kullanabileceğiniz düğme bazı sınırlı test etme. Düğmesini kullanarak, bir istek gövdesi sağlayabilirsiniz, ancak sorgu dizesi parametreleri belirtin veya istek üst bilgilerini güncelleştirin.
+Testleri çalıştırmak için gidin **Test Gezgini** tıklatıp **çalıştırması**.
 
-Oluşturduğumuz önceki aşağıdakine benzer bir JSON dizesi ekleyerek HTTP tetikleyici işlevi test **istek gövdesi** alan. Ardından **çalıştırma** düğmesi.
+![İle Azure işlevlerini test etme C# Visual Studio'da](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
+
+### <a name="debug-tests"></a>Testlerde Hata Ayıkla
+
+Testlerde hata ayıklamak için bir test üzerinde bir kesme noktası ayarlayın, gidin **Test Gezgini** tıklatıp **çalıştırın > hata ayıklama son çalıştırma**.
+
+## <a name="javascript-in-vs-code"></a>VS code'da JavaScript
+
+Aşağıdaki örnekte, VS Code'da JavaScript işlev uygulaması oluşturma ve çalıştırma açıklar ve test [Jest](https://jestjs.io). Bu yordamı kullanır [VS Code işlevleri uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) Azure işlevleri.
+
+![VS Code'da JavaScript ile Azure işlevlerini test etme](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
+
+### <a name="setup"></a>Kurulum
+
+Ortamınızı ayarlamak için yeni bir Node.js uygulaması boş bir klasör içinde çalıştırarak başlatmak `npm init`.
+
+```bash
+npm init -y
+```
+Ardından, Jest aşağıdaki komutu çalıştırarak yükleyin:
+
+```bash
+npm i jest
+```
+Şimdi Güncelleştir _package.json_ aşağıdaki komutla var olan test komutu değiştirmek için:
+
+```bash
+"scripts": {
+    "test": "jest"
+}
+```
+
+### <a name="create-test-modules"></a>Test modülleri oluşturma
+Başlatılan proje ile otomatik testleri çalıştırmak için kullanılan modüller oluşturabilirsiniz. Adlı yeni bir klasör oluşturarak başlayın *test* destek modülleri tutacak.
+
+İçinde *test* klasörüne yeni dosya ekleme, adlandırın **defaultContext.js**ve aşağıdaki kodu ekleyin:
+
+```javascript
+module.exports = {
+    log: jest.fn()
+};
+```
+Bu modül mocks *günlük* varsayılan yürütme bağlamı temsil etmek için işlevi.
+
+Ardından, yeni bir dosya ekleyin, adlandırın **defaultTimer.js**ve aşağıdaki kodu ekleyin:
+
+```javascript
+module.exports = {
+    isPastDue: false
+};
+```
+Bu modül uygular `isPastDue` öne çıkarmak için özelliği olan sahte Zamanlayıcı örneği olarak.
+
+Ardından, VS Code işlevleri uzantısı kullanın [yeni bir JavaScript HTTP işlev oluşturma](https://code.visualstudio.com/tutorials/functions-extension/getting-started) ve adlandırın *HttpTrigger*. İşlev oluşturulduktan sonra yeni bir dosya adlı klasörde eklemek **index.test.js**ve aşağıdaki kodu ekleyin:
+
+```javascript
+const httpFunction = require('./index');
+const context = require('../testing/defaultContext')
+
+test('Http trigger should return known text', async () => {
+
+    const request = {
+        query: { name: 'Bill' }
+    };
+
+    await httpFunction(context, request);
+
+    expect(context.log.mock.calls.length).toBe(1);
+    expect(context.res.body).toEqual('Hello Bill');
+});
+```
+Şablondan HTTP işlevi sorgu dizesinde sağlanan ad ile birleştirilmiş "Hello" dizesi döndürür. Bu test, istek sahte bir örneğini oluşturur ve HTTP işleve geçirir. Test denetleyen *günlük* yöntemi bir kez çağrılır ve döndürülen metin "Hello Bill" değerine eşittir.
+
+Ardından, yeni bir JavaScript Zamanlayıcı işlevi oluşturun ve adlandırın için VS Code işlevleri uzantısının kullanılması *TimerTrigger*. İşlev oluşturulduktan sonra yeni bir dosya adlı klasörde eklemek **index.test.js**ve aşağıdaki kodu ekleyin:
+
+```javascript
+const timerFunction = require('./index');
+const context = require('../testing/defaultContext');
+const timer = require('../testing/defaultTimer');
+
+test('Timer trigger should log message', () => {
+    timerFunction(context, timer);
+    expect(context.log.mock.calls.length).toBe(1);
+});
+```
+Şablondan Zamanlayıcı işlevi, işlev gövdesinin sonuna bir iletiyi günlüğe kaydeder. Bu test sağlar *günlük* işlevi bir kez çağrılır.
+
+### <a name="run-tests"></a>Testleri çalıştırın
+Testleri çalıştırmak için basın **CTRL + ~** komut penceresi açın ve çalıştırmak için `npm test`:
+
+```bash
+npm test
+```
+
+![VS Code'da JavaScript ile Azure işlevlerini test etme](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
+
+### <a name="debug-tests"></a>Testlerde Hata Ayıkla
+
+Testlerinizi hata ayıklamak için aşağıdaki yapılandırmaya ekleyin, *launch.json* dosyası:
 
 ```json
 {
-    "name" : "Wes testing Run button",
-    "address" : "USA"
+  "type": "node",
+  "request": "launch",
+  "name": "Jest Tests",
+  "program": "${workspaceRoot}\\node_modules\\jest\\bin\\jest.js",
+  "args": [
+      "-i"
+  ],
+  "internalConsoleOptions": "openOnSessionStart"
 }
 ```
 
-Portalda **günlükleri** penceresinde çıktısı aşağıdakine benzer bir günlüğe kaydedilir işlev yürütülürken:
+Ardından, test ve basın bir kesme noktası ayarlamak **F5**.
 
-    2016-03-23T08:03:12  Welcome, you are now connected to log-streaming service.
-    2016-03-23T08:03:17.357 Function started (Id=753a01b0-45a8-4125-a030-3ad543a89409)
-    2016-03-23T08:03:18.697 HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/wesmchttptriggernodejs1
-    2016-03-23T08:03:18.697 Request Headers = {"connection":"Keep-Alive","accept":"*/*","accept-encoding":"gzip","accept-language":"en-US"}
-    2016-03-23T08:03:18.697 Processing user info from request body...
-    2016-03-23T08:03:18.697 Processing User Information...
-    2016-03-23T08:03:18.697 name = Wes testing Run button
-    2016-03-23T08:03:18.697 address = USA
-    2016-03-23T08:03:18.744 Function completed (Success, Id=753a01b0-45a8-4125-a030-3ad543a89409)
+## <a name="next-steps"></a>Sonraki adımlar
 
+İşlevleriniz için otomatik testler yazmak öğrendiniz, bu kaynakları ile devam edin:
 
-### <a name="test-with-a-timer-trigger"></a>Bir zamanlayıcı tetikleyicisi ile test
-Bazı işlevler, daha önce bahsedilen araçlarıyla yeterince sınanamıyor. Örneğin, bir ileti içine bırakıldığında çalıştırılan bir kuyruğu tetikleme işlevi düşünün [Azure kuyruk depolama](../storage/queues/storage-dotnet-how-to-use-queues.md). Her zaman, kuyruğa bir ileti bırakmak için kod yazabilirsiniz ve bu örnek bir konsol projesinde bu makalenin sonraki bölümlerinde verilmiştir. Ancak, doğrudan işlevleri test kullanabileceğiniz başka bir yaklaşım yoktur.  
-
-Bir sıra ile yapılandırılmış bir zamanlayıcı tetikleyicisi kullanabileceğiniz çıktı bağlaması. Zamanlayıcı tetikleyicisi kod, sonra sınama iletileri kuyruğa yazabilirsiniz. Bu bölümde, bir örneği açıklanmaktadır.
-
-Azure işlevleri ile bağlamaları kullanma hakkında daha ayrıntılı bilgi için bkz: [Azure işlevleri Geliştirici Başvurusu](functions-reference.md).
-
-#### <a name="create-a-queue-trigger-for-testing"></a>Test etmek için bir kuyruk tetikleyicisi oluşturma
-Bu yaklaşım göstermek için biz öncelikle test adında bir kuyruk için istediğimiz bir kuyruğu tetikleme işlevi oluşturma `queue-newusers`. Bu işlev, yeni bir kullanıcı için kuyruk depolamaya bırakılan ad ve adres bilgilerini işler.
-
-> [!NOTE]
-> Farklı bir kuyruk adı kullanırsanız, emin kullandığınız ad uyan [adlandırma kuyrukları ve meta verileri](https://msdn.microsoft.com/library/dd179349.aspx) kuralları. Aksi takdirde bir hata alırsınız.
->
->
-
-1. İçinde [Azure portal] işlev uygulamanıza tıklayın **yeni işlev** > **QueueTrigger - C#**.
-2. Kuyruk işlevi tarafından izlenmesi için kuyruk adı girin:
-
-        queue-newusers
-3. Tıklayın **+** düğmesini kullanmak istediğiniz depolama hesabı seçin veya oluşturun. Sonra **Oluştur**’a tıklayın.
-4. Varsayılan sıra işlev şablonu kodu için günlük girişlerini izleyebilmek bu portal tarayıcı penceresini açık bırakın.
-
-#### <a name="create-a-timer-trigger-to-drop-a-message-in-the-queue"></a>Kuyrukta bir ileti bırakmak için bir zamanlayıcı tetikleyicisi oluşturma
-1. Açık [Azure portal] yeni bir tarayıcı penceresinde ve işlev uygulamanıza gidin.
-2. Tıklayın **yeni işlev** > **TimerTrigger - C#**. Ne sıklıkta Zamanlayıcı kod kuyruk işlevinizi test ayarlamak için bir cron ifadesi girin. Sonra **Oluştur**’a tıklayın. Testin her 30 saniyede çalışmasını istiyorsanız, aşağıdakileri kullanabilirsiniz [CRON ifadesi](https://wikipedia.org/wiki/Cron#CRON_expression):
-
-        */30 * * * * *
-3. Tıklayın **tümleştir** , yeni bir zamanlayıcı tetikleyicisi için sekmesinde.
-4. Altında **çıkış**, tıklayın **+ yeni çıkış**. Ardından **kuyruk** ve **seçin**.
-5. Kullandığınız adını Not **kuyruğa ileti nesnesi**. Bu zamanlayıcı işlev kodu kullanın.
-
-        myQueue
-6. Burada mesajın gönderilip gönderilmediği kuyruk adı girin:
-
-        queue-newusers
-7. Tıklayın **+** düğmesini kullandığınız daha önce kuyruğu tetikleyici ile depolama hesabı seçin. Daha sonra **Kaydet**'e tıklayın.
-8. Tıklayın **geliştirme** , Zamanlayıcı tetikleyicisi için sekmesinde.
-9. Daha önce gösterilen aynı kuyruk iletisi nesne adını kullandığınız sürece, C# Zamanlayıcı işlevi için aşağıdaki kodu kullanabilirsiniz. Daha sonra **Kaydet**'e tıklayın.
-
-    ```cs
-    using System;
-    using Microsoft.Extensions.Logging;
-
-    public static void Run(TimerInfo myTimer, out String myQueue, ILogger log)
-    {
-        String newUser =
-        "{\"name\":\"User testing from C# timer function\",\"address\":\"XYZ\"}";
-
-        log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}");   
-        log.Verbose($"{newUser}");   
-
-        myQueue = newUser;
-    }
-    ```
-
-Bu noktada, örnek cron ifadesi kullandıysanız C# Zamanlayıcı işlevinin her 30 saniyede yürütür. Her yürütme için Zamanlayıcı işlev günlükleri raporu:
-
-    2016-03-24T10:27:02  Welcome, you are now connected to log-streaming service.
-    2016-03-24T10:27:30.004 Function started (Id=04061790-974f-4043-b851-48bd4ac424d1)
-    2016-03-24T10:27:30.004 C# Timer trigger function executed at: 3/24/2016 10:27:30 AM
-    2016-03-24T10:27:30.004 {"name":"User testing from C# timer function","address":"XYZ"}
-    2016-03-24T10:27:30.004 Function completed (Success, Id=04061790-974f-4043-b851-48bd4ac424d1)
-
-Kuyruk işlevi için tarayıcı penceresinde işlenmekte olan her bir ileti görebilirsiniz:
-
-    2016-03-24T10:27:06  Welcome, you are now connected to log-streaming service.
-    2016-03-24T10:27:30.607 Function started (Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
-    2016-03-24T10:27:30.607 C# Queue trigger function processed: {"name":"User testing from C# timer function","address":"XYZ"}
-    2016-03-24T10:27:30.607 Function completed (Success, Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
-
-## <a name="test-a-function-with-code"></a>Bir işlev kodu ile test
-İşlevlerinizi test etmek için bir dış uygulama veya framework oluşturmanız gerekebilir.
-
-### <a name="test-an-http-trigger-function-with-code-nodejs"></a>Bir HTTP tetikleyici işlevi kodu ile test: Node.js
-İşlevinizi test etmek için bir HTTP isteği yürütmek için bir Node.js uygulaması'nı kullanabilirsiniz.
-Ayarladığınızdan emin olun:
-
-* `host` , İşlev uygulamasını barındırmak için istek seçenekleri.
-* İşlev adınızın `path`.
-* Erişim kodunuzu (`<your code>`) içinde `path`.
-
-Kod örneği:
-
-```javascript
-var http = require("http");
-
-var nameQueryString = "name=Wes%20Query%20String%20Test%20From%20Node.js";
-
-var nameBodyJSON = {
-    name : "Wes testing with Node.JS code",
-    address : "Dallas, T.X. 75201"
-};
-
-var bodyString = JSON.stringify(nameBodyJSON);
-
-var options = {
-  host: "functions841def78.azurewebsites.net",
-  //path: "/api/HttpTriggerNodeJS2?code=sc1wt62opn7k9buhrm8jpds4ikxvvj42m5ojdt0p91lz5jnhfr2c74ipoujyq26wab3wk5gkfbt9&" + nameQueryString,
-  path: "/api/HttpTriggerNodeJS2?code=sc1wt62opn7k9buhrm8jpds4ikxvvj42m5ojdt0p91lz5jnhfr2c74ipoujyq26wab3wk5gkfbt9",
-  method: "POST",
-  headers : {
-      "Content-Type":"application/json",
-      "Content-Length": Buffer.byteLength(bodyString)
-    }    
-};
-
-callback = function(response) {
-  var str = ""
-  response.on("data", function (chunk) {
-    str += chunk;
-  });
-
-  response.on("end", function () {
-    console.log(str);
-  });
-}
-
-var req = http.request(options, callback);
-console.log("*** Sending name and address in body ***");
-console.log(bodyString);
-req.end(bodyString);
-```
-
-
-Çıktı:
-
-    C:\Users\Wesley\testing\Node.js>node testHttpTriggerExample.js
-    *** Sending name and address in body ***
-    {"name" : "Wes testing with Node.JS code","address" : "Dallas, T.X. 75201"}
-    Hello Wes testing with Node.JS code
-    The address you provided is Dallas, T.X. 75201
-
-Portalda **günlükleri** penceresinde çıktısı aşağıdakine benzer bir günlüğe kaydedilir işlev yürütülürken:
-
-    2016-03-23T08:08:55  Welcome, you are now connected to log-streaming service.
-    2016-03-23T08:08:59.736 Function started (Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
-    2016-03-23T08:09:01.153 HTTP trigger function processed a request. RequestUri=http://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1/?code=XXXXXXXXXX==
-    2016-03-23T08:09:01.153 Request Headers = {"connection":"Keep-Alive","host":"functionsExample.azurewebsites.net"}
-    2016-03-23T08:09:01.153 Name not provided as query string param. Checking body...
-    2016-03-23T08:09:01.153 Request Body Type = object
-    2016-03-23T08:09:01.153 Request Body = [object Object]
-    2016-03-23T08:09:01.153 Processing User Information...
-    2016-03-23T08:09:01.215 Function completed (Success, Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
-
-
-### <a name="test-a-queue-trigger-function-with-code-c"></a>Bir kuyruğu tetikleme işlevi kodu ile test: C# #
-Kuyruk tetikleyicisi, kuyrukta bir ileti bırakmak kod kullanarak sınayabilirsiniz daha önce bahsedilen. Aşağıdaki kod örneği, C# kod içinde sunulan dayalı [Azure kuyruk depolama ile çalışmaya başlama](../storage/queues/storage-dotnet-how-to-use-queues.md) öğretici. Diğer diller için kod da bu bağlantıdan kullanılabilir.
-
-Bu kodu bir konsol uygulamasında test etmek için şunları yapmalısınız:
-
-* [App.config dosyasında depolama bağlantı dizenizi yapılandırma](../storage/queues/storage-dotnet-how-to-use-queues.md).
-* Başarılı bir `name` ve `address` uygulamasına parametre olarak. Örneğin, `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. (Bu kod adı ve adresi yeni bir kullanıcı komut satırı bağımsız değişkenleri çalışma zamanı sırasında kabul eder.)
-
-Örnek C# kodu:
-
-```cs
-static void Main(string[] args)
-{
-    string name = null;
-    string address = null;
-    string queueName = "queue-newusers";
-    string JSON = null;
-
-    if (args.Length > 0)
-    {
-        name = args[0];
-    }
-    if (args.Length > 1)
-    {
-        address = args[1];
-    }
-
-    // Retrieve storage account from connection string
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["StorageConnectionString"]);
-
-    // Create the queue client
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-
-    // Retrieve a reference to a queue
-    CloudQueue queue = queueClient.GetQueueReference(queueName);
-
-    // Create the queue if it doesn't already exist
-    queue.CreateIfNotExists();
-
-    // Create a message and add it to the queue.
-    if (name != null)
-    {
-        if (address != null)
-            JSON = String.Format("{{\"name\":\"{0}\",\"address\":\"{1}\"}}", name, address);
-        else
-            JSON = String.Format("{{\"name\":\"{0}\"}}", name);
-    }
-
-    Console.WriteLine("Adding message to " + queueName + "...");
-    Console.WriteLine(JSON);
-
-    CloudQueueMessage message = new CloudQueueMessage(JSON);
-    queue.AddMessage(message);
-}
-```
-
-Kuyruk işlevi için tarayıcı penceresinde işlenmekte olan her bir ileti görebilirsiniz:
-
-    2016-03-24T10:27:06  Welcome, you are now connected to log-streaming service.
-    2016-03-24T10:27:30.607 Function started (Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
-    2016-03-24T10:27:30.607 C# Queue trigger function processed: {"name":"Wes testing queues","address":"in a console app"}
-    2016-03-24T10:27:30.607 Function completed (Success, Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
-
-
-<!-- URLs. -->
-
-[Azure portal]: https://portal.azure.com
+- [Azure işlevleri hata işleme](./functions-bindings-error-pages.md)
+- [Azure işlevi olay Kılavuzu tetikleyicisi yerel hata ayıklama](./functions-debug-event-grid-trigger-local.md)

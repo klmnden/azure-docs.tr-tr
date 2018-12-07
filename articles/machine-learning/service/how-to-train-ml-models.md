@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning ile Estimator sınıfı kullanarak makine öğrenimi modellerini eğitin
+title: Azure Machine Learning hizmeti ile bir tahmin sınıfı kullanarak ML modelleri eğitme
 description: Tek düğümlü ve dağıtılmış eğitim, öğrenme ve derin öğrenme modellerini Azure Machine Learning Hizmetleri Estimator sınıfını kullanarak geleneksel makinenin yapmayı öğrenin
 ms.author: minxia
 author: mx-iao
@@ -8,15 +8,16 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: c47761c184d0e6c091ff49b3eca2fdf89574b49d
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 12/04/2018
+ms.custom: seodec12
+ms.openlocfilehash: 53462fc0aecbb8f5aeef0bb9208264c714ce8394
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114868"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011429"
 ---
-# <a name="how-to-train-models-with-azure-machine-learning"></a>Azure Machine Learning modeli eğitme
+# <a name="train-models-with-azure-machine-learning"></a>Azure Machine Learning ile eğitme modelleri
 
 Eğitim makine öğrenimi modellerini, özellikle derin sinir ağı, genellikle bir saat ve işlem yoğunluklu görevdir. Eğitim betiğinizi yazma ve yerel makinenizde verilerin küçük bir alt kümesi üzerinde çalışan bitirdiğinizde, büyük olasılıkla, iş yükü ölçeklemek istersiniz.
 
@@ -35,7 +36,7 @@ Bu makalede, adım 4-5 üzerinde odaklanır. Adım 1-3 başvurmak için [model �
 
 ### <a name="single-node-training"></a>Tek düğümlü eğitim
 
-Kullanım bir `Estimator` bir scikit için uzak işlem azure'da çalışan bir tek düğümlü eğitim-model öğrenin. Oluşturmuş olmanız, [hedef işlem](how-to-set-up-training-targets.md#batch) nesne `compute_target` ve [veri deposu](how-to-access-data.md) nesne `ds`.
+Kullanım bir `Estimator` bir scikit için uzak işlem azure'da çalışan bir tek düğümlü eğitim-model öğrenin. Oluşturmuş olmanız, [hedef işlem](how-to-set-up-training-targets.md#amlcompute) nesne `compute_target` ve [veri deposu](how-to-access-data.md) nesne `ds`.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -58,7 +59,7 @@ Parametre | Açıklama
 --|--
 `source_directory`| Eğitim işine yönelik gerekli kodunuzun tamamını içeren yerel dizin. Bu klasörü yerel makinenizden uzak bilgisayarda kopyalanır 
 `script_params`| Eğitim betiğinizi komut satırı bağımsız değişkenleri belirtme sözlük `entry_script`, < komut satırı bağımsız değişkeni, değer > biçiminde çiftleri
-`compute_target`| Eğitim betiğinizi, bu durumda çalışır uzak işlem bir [Batch AI](how-to-set-up-training-targets.md#batch) küme
+`compute_target`| Eğitim betiğinizi, bu örnekte, bir Azure Machine Learning işlem çalıştıracak uzak işlem hedefine ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) kümesi
 `entry_script`| FilePath (göreli `source_directory`) eğitim betiğin uzak işlem üzerinde çalıştırılacak. Bu dosya ve, bağımlı herhangi bir ek dosyaları bu klasörde bulunmalıdır
 `conda_packages`| Eğitim betiğinizi gerekli conda aracılığıyla yüklenecek Python paketleri listesi.  
 Oluşturucu adlı başka bir parametreye sahip `pip_packages` , gerekli herhangi bir pip paketleri kullanın
@@ -87,7 +88,7 @@ Sizin gerçekleştirdiğiniz ile iki ek eğitim senaryosu vardır `Estimator`:
 
 Aşağıdaki kod, dağıtılmış bir CNTK modeli eğitimi yürütmek gösterilmektedir. Ayrıca, varsayılan Azure Machine Learning görüntüleri kullanmak yerine, bu, kendi özel docker görüntüsü için eğitim kullandığınızı varsayar.
 
-Oluşturmuş olmanız, [hedef işlem](how-to-set-up-training-targets.md#batch) nesne `compute_target`. Tahmin aracı gibi oluşturun:
+Oluşturmuş olmanız, [hedef işlem](how-to-set-up-training-targets.md#amlcompute) nesne `compute_target`. Tahmin aracı gibi oluşturun:
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -117,13 +118,11 @@ run = experiment.submit(cntk_est)
 ```
 
 ## <a name="examples"></a>Örnekler
-Sklearn modeli ilişkin bir öğretici için bkz:
-* [Tutorials/01.Train-models.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)
+Sklearn modeli eğitir bir not defteri için bkz:
+* [öğreticiler/img-sınıflandırma-bölüm 1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-Özel docker kullanarak dağıtılmış CNTK hakkında bir öğretici için bkz:
-* [Eğitim/06.distributed-cntk-ile-özel-docker](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/06.distributed-cntk-with-custom-docker)
-
-Bu not defterlerini alın:
+Dağıtılmış derin öğrenme dizüstü bilgisayarlar için bkz:
+* [How-to-use-azureml/Training-With-DEEP-Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

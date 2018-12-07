@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/13/2018
 ms.author: mathoma
-ms.openlocfilehash: 44aee447c7f935cd67ca55902c53c5f6f9eb6fda
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 52036d8f5d25fc4a4f2d1b602428e9cba4762b7f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52500417"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993150"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server Azure sanal makine sürüm notları
 
@@ -28,8 +28,8 @@ Azure SQL Server'ın yerleşik görüntü ile bir sanal makine dağıtmanıza ol
 
 
 ## <a name="november-2018"></a>Kasım 2018
-- **Yeni SQL kaynak sağlayıcısı**: yeni bir kaynak sağlayıcısı için sanal makinenizin daha iyi yönetimine olanak SQL VM'ler için yoktur. VM'nizi kaydetme ile ilgili daha fazla bilgi için bkz: [eski bir SQL VM ile yeni kaynak sağlayıcısını kaydetme](virtual-machines-windows-sql-ahb.md#register-legacy-sql-vm-with-new-resource-provider).
-- **Lisanslama modeli geçiş**: artık Azure CLI veya Powershell kullanarak SQL vm'nizin kullanım başına ödeme ve Getir kendi lisans modeli arasında geçiş yapabilirsiniz. Daha fazla bilgi için [bir SQL VM için lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md)
+- **Yeni SQL kaynak sağlayıcısı**: yeni bir kaynak sağlayıcısı için sanal makinenizin daha iyi yönetimine olanak SQL VM'ler için yoktur. VM'nizi kaydetme ile ilgili daha fazla bilgi için bkz: [mevcut bir SQL VM ile yeni kaynak sağlayıcısını kaydetme](virtual-machines-windows-sql-ahb.md#register-existing-sql-vm-with-new-resource-provider).
+- **Lisanslama modeli geçiş**: artık Azure CLI veya PowerShell kullanarak SQL vm'nizin kullanım başına ödeme ve Getir kendi lisans modeli arasında geçiş yapabilirsiniz. Daha fazla bilgi için [bir SQL VM için lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md)
 
 
 

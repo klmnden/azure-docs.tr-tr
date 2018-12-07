@@ -9,19 +9,19 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: af1d00e49819f1d69e08c0fa99891690e07b489f
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 5cfab07e19e543b7a46fcce8f449a46395c144d6
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233761"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995313"
 ---
 # <a name="create-tracking-queries-for-b2b-messages-in-azure-log-analytics-for-azure-logic-apps"></a>B2B iletileri için izleme sorguları, Azure Log Analytics'te Azure Logic Apps için oluşturun.
 
 AS2 bulmak için X12 veya EDIFACT ile takip ettiğiniz iletileri [Azure Log Analytics](../log-analytics/log-analytics-overview.md), filtre eylemleri belirli ölçütlere göre sorgular oluşturabilirsiniz. Örneğin, belirli bir değişim denetimi sayısına göre iletileri bulabilirsiniz.
 
 > [!NOTE]
-> Bu sayfa, Microsoft Operations Management Suite (olan OMS ile), bu görevleri gerçekleştirmek adımlar daha önce açıklanan [Ocak 2019 ' devre dışı bırakma](../log-analytics/log-analytics-oms-portal-transition.md), bu adımlar, bunun yerine Azure Log Analytics ile değiştirir. 
+> Bu sayfa, Microsoft Operations Management Suite (olan OMS ile), bu görevleri gerçekleştirmek adımlar daha önce açıklanan [Ocak 2019 ' devre dışı bırakma](../azure-monitor/platform/oms-portal-transition.md), bu adımlar, bunun yerine Azure Log Analytics ile değiştirir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 

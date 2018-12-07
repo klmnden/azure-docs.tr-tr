@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6c1307fcb472f6c66a95b76ad3c1b1686ce4f998
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: cf037000a047b02f3874c3bccc9678f2ea18ecec
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308950"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011207"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Azure sanal ağdaki HDInsight üzerinde Apache HBase kümeleri oluşturma
 Azure HDInsight Apache HBase kümeleri oluşturmayı öğrenin bir [Azure sanal ağı][1].
@@ -247,7 +247,7 @@ Bu öğreticide, bir Apache HBase kümesi oluşturmayı öğrendiniz. Daha fazla
 * [HDInsight, Apache Hadoop ile Apache HBase kullanmaya başlama](./apache-hbase-tutorial-get-started-linux.md)
 * [Sanal Ağ’a Genel Bakış](../../virtual-network/virtual-networks-overview.md)
 
-[1]: http://azure.microsoft.com/services/virtual-network/
-[2]: http://technet.microsoft.com/library/ee176961.aspx
-[3]: http://technet.microsoft.com/library/hh847889.aspx
+[1]: https://azure.microsoft.com/services/virtual-network/
+[2]: https://technet.microsoft.com/library/ee176961.aspx
+[3]: https://technet.microsoft.com/library/hh847889.aspx
 

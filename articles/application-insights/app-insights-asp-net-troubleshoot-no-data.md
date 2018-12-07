@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: cc255d69a9a8b63ee65fb5dfcfe3879e68844a01
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 234cba3a3c58f1cff45925fcfcf23019dfa8d90e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679571"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998470"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Veri bulunmama sorunlarını giderme - .NET için Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>Telemetrimi bazıları eksik
@@ -68,7 +68,7 @@ Application Insights veya belki de bir günlük bağdaştırıcısı yüklemekte
 ## <a name="NuGetBuild"></a> "NuGet paketleri my yapı sunucusunda eksik"
 *Her şey Tamam geliştirme makineme hata ayıklama, ancak yapı sunucusunda bir NuGet hatası alıyorum oluşturur.*
 
-Lütfen [NuGet paketi geri yüklemeyi](http://docs.nuget.org/Consume/Package-Restore) ve [paket otomatik geri](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
+Lütfen [NuGet paketi geri yüklemeyi](https://docs.nuget.org/Consume/Package-Restore) ve [paket otomatik geri](https://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
 
 ## <a name="missing-menu-command-to-open-application-insights-from-visual-studio"></a>Visual Studio'da Application Insights'ı açmak için menü komutu eksik
 *Çözüm Gezgini proje sağ tıkladığımda, herhangi bir Application Insights komut göremiyorum veya açık Application ınsights'ı komut göremiyorum.*
@@ -140,7 +140,7 @@ Düzeltme:
     
     ![](./media/app-insights-asp-net-troubleshoot-no-data/ikey-check.png)
 * İçinde [Microsoft Azure giriş Panosu](https://portal.azure.com), hizmet durumu eşlemeyi bakın. Bazı uyarı göstergelerden varsa, bunlar için Tamam döndürmüş ve ardından kapatın ve, Application Insights uygulama dikey pencereyi yeniden açın kadar bekleyin.
-* Ayrıca [durumu blogumuzu](https://blogs.msdn.com/b/applicationinsights-status/).
+* Ayrıca [durumu blogumuzu](https://blogs.msdn.microsoft.com/servicemap-status/).
 * Herhangi bir kod yazdınız [sunucu tarafı SDK](app-insights-api-custom-events-metrics.md) izleme anahtarını değişebilir `TelemetryClient` örnekleri veya `TelemetryContext`? Veya, yazdınız bir [filtre veya örnekleme yapılandırma](app-insights-api-filtering-sampling.md) filtrelemesi çok fazla kullanıma?
 * Applicationınsights.config dosyasını düzenlediyseniz, dikkatli bir şekilde yapılandırmasını denetleyin [TelemetryInitializers ve TelemetryProcessors](app-insights-api-filtering-sampling.md). Veri göndermek SDK'sı bir yanlış adlandırılan türü veya parametresi neden olabilir.
 

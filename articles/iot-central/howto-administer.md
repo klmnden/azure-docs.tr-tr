@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a641b5bb754c265a4fa5fb7e2fe85989d4813354
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4dba6aff2002c1f17055cd647be94c4d8f644ad7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955182"
+ms.locfileid: "52992215"
 ---
 # <a name="administer-your-iot-central-application"></a>IOT Central uygulamanızı yönetme
 
@@ -59,7 +59,10 @@ Uygulama kopyalama işlemi başarılı olduktan sonra görünen bağlantıyı ku
 
 ### <a name="delete-an-application"></a>Bir uygulamayı Sil
 
-Kullanım **Sil** IOT Central uygulamanız kalıcı olarak silmek için düğmeyi. Bunun yapılması, bu uygulamayla ilişkili tüm verileri kalıcı olarak siler. Bir uygulamayı silmek için de kaynakları silmek için izinleri olmalıdır uygulama oluştururken seçtiğiniz Azure aboneliğinde. Daha fazla bilgi için bkz. [Azure abonelik kaynaklarınıza erişimi yönetmek için rol tabanlı erişim denetimini kullanma](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+> [!Note]
+> Bir uygulamayı silmek için de kaynakları silmek için izinleri olmalıdır uygulama oluştururken seçtiğiniz Azure aboneliğinde. Daha fazla bilgi için bkz. [Azure abonelik kaynaklarınıza erişimi yönetmek için rol tabanlı erişim denetimini kullanma](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+
+Kullanım **Sil** IOT Central uygulamanız kalıcı olarak silmek için düğmeyi. Bunun yapılması, bu uygulamayla ilişkili tüm verileri kalıcı olarak siler.
 
 ## <a name="manage-users"></a>Kullanıcıları yönetme
 

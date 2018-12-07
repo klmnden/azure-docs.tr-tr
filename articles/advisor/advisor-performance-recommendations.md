@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: ba79d2d5ed4350960af1b92ee863595e3540a1d2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 349632c751c3116244bc8ef7708708f3aa45754c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843936"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013245"
 ---
 # <a name="advisor-performance-recommendations"></a>Danışmanı performans önerileri
 
@@ -39,9 +39,9 @@ Danışman, öneriler tüm Azure kaynaklarınız için tutarlı ve birleştirilm
 
 SQL veritabanı Danışmanı hakkında daha fazla bilgi için bkz: [SQL veritabanı Danışmanı](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
 
-## <a name="improve-redis-cache-performance-and-reliability"></a>Redis Cache performans ve güvenilirliğini artırın
+## <a name="improve-azure-cache-for-redis-performance-and-reliability"></a>Azure Cache Redis performans ve güvenilirlik için geliştirin
 
-Danışman, Redis Cache örnekleri burada performansı olumsuz yönde yüksek bellek kullanımı, sunucu iş yükü, ağ bant genişliği veya çok sayıda istemci bağlantıları tarafından etkilenebilir tanımlar. Advisor, ayrıca olası sorunları önlemek için öneriler en iyi yöntemler sağlar. Redis Cache öneriler hakkında daha fazla bilgi için bkz. [Redis Cache Danışmanı](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor).
+Danışman, burada performansı olumsuz yönde yüksek bellek kullanımı, sunucu iş yükü, ağ bant genişliği veya çok sayıda istemci bağlantıları tarafından etkilenebilir Redis örneği için Azure önbellek tanımlar. Advisor, ayrıca olası sorunları önlemek için öneriler en iyi yöntemler sağlar. Redis öneriler için Azure önbelleği hakkında daha fazla bilgi için bkz. [Azure önbelleği için Redis Advisor](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor).
 
 
 ## <a name="improve-app-service-performance-and-reliability"></a>App Service performans ve güvenilirliğini artırın

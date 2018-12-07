@@ -6,32 +6,32 @@ manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-ms.assetid: d72848e2-4b65-4c84-94bc-e2a90a6e7f47
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: 1f37dcd14c1b3e85c3fae3bbf7aa67c16b8a898d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3eea59eba9fc1fc79a6f72a61860ee7e66a7df5b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249025"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994280"
 ---
 # <a name="input-metadata"></a>Giriş meta verileri
+
 Bir kodlama işi Giriş bir varlık (veya varlıklar) ile ilişkilendirilen kodlama bazı görevleri gerçekleştirmek istediğiniz üzerinde.  Bir görev tamamlandığında, çıktı varlık oluşturulur.  Çıktı varlığı video, ses, küçük resimler, bildirimi, vb. içerir. Çıktı varlığına giriş varlığı hakkındaki meta veriler içeren bir dosya da içerir. Meta veri XML dosyasının adı şu biçimdedir: &lt;asset_id&gt;_metadata.xml (örneğin, 41114ad3 eb5e - 4c 57 8d 92-5354e2b7d4a4_metadata.xml), burada &lt;asset_id&gt; AssetID değeri Giriş varlığı.  
+
+Media Services meta verileri oluşturmak için giriş varlıklar bilindiğinde taraması yapmaz. Giriş meta verileri yalnızca varlık, bir işi işlenen giriş, yapıt olarak oluşturulur. Bu nedenle bu yapıt için çıktı yazılır varlık. Giriş varlıklar için meta verileri oluşturun ve varlıkları çıkış için farklı araçlar kullanılır. Bu nedenle, giriş meta verileri, çıkış meta verilerini daha biraz farklı bir şeması vardır.
 
 Meta veri dosyası incelemek isterseniz, oluşturabileceğiniz bir **SAS** Bulucu ve dosyayı yerel bilgisayarınıza indirin. Bir SAS Bulucu oluşturmanız ve dosya indirme hakkında bir örnek bulabilirsiniz [Media Services .NET SDK uzantıları kullanarak](media-services-dotnet-get-started.md).  
 
 Bu makalede öğeleri ve XML Şeması türleri üzerinde anlatılmaktadır giriş metada (&lt;asset_id&gt;_metadata.xml) temel alır.  Çıktı varlığına hakkında meta veriler içeren bir dosya hakkında daha fazla bilgi için bkz. [çıkış meta verileri](media-services-output-metadata-schema.md).  
 
-> [!NOTE]
-> Bulabilirsiniz [şema kod](media-services-input-metadata-schema.md#code) bir [XML örneği](media-services-input-metadata-schema.md#xml) bu makalenin sonunda.  
-> 
-> 
+Bulabilirsiniz [şema kod](media-services-input-metadata-schema.md#code) bir [XML örneği](media-services-input-metadata-schema.md#xml) bu makalenin sonunda.  
+ 
 
 ## <a name="AssetFiles"></a> AssetFiles öğesi (kök öğesi)
 Bir koleksiyonunu içeren [AssetFile öğesi](media-services-input-metadata-schema.md#AssetFile)kodlama işinin s.  

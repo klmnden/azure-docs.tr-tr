@@ -8,12 +8,12 @@ ms.date: 12/04/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 9a60d8c17ba091da7c5eaf0e28160573d5faafa8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 41eb31ecabb20ec9eec3db13d5eda9f9cfbe6c69
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963139"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015475"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook'ları ile hatalarını giderme
 
@@ -123,7 +123,7 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 #### <a name="resolution"></a>Çözüm
 
-Azure Klasik dağıtım modeli cmdlet'leriyle bir sertifikayı kullanmak için başvurmak [oluşturma ve Azure hizmetlerini yönetmek için bir sertifika ekleme.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Bir hizmet sorumlusu ile Azure Resource Manager cmdlet'lerini kullanmak için başvurmak [hizmet sorumlusu Azure portalını kullanarak oluşturma](../../active-directory/develop/howto-create-service-principal-portal.md) ve [Azure Resource Manager ile hizmet sorumlusu kimlik doğrulaması.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+Azure Klasik dağıtım modeli cmdlet'leriyle bir sertifikayı kullanmak için başvurmak [oluşturma ve Azure hizmetlerini yönetmek için bir sertifika ekleme.](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Bir hizmet sorumlusu ile Azure Resource Manager cmdlet'lerini kullanmak için başvurmak [hizmet sorumlusu Azure portalını kullanarak oluşturma](../../active-directory/develop/howto-create-service-principal-portal.md) ve [Azure Resource Manager ile hizmet sorumlusu kimlik doğrulaması.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Runbook'larla çalışırken sık karşılaşılan hatalar
 
@@ -337,6 +337,24 @@ Alt runbook senaryoyu PowerShell cmdlet'leri şunlardır:
 [Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) -Bu cmdlet, bir runbook başlatın ve runbook için parametreler sağlar
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) -alt runbook'un tamamlandıktan sonra yapılması gereken işlemler varsa her alt için iş durumunu denetlemek Bu cmdlet'i sağlar.
+
+### <a name="expired webhook"></a>Senaryo: Durumu: 400 Hatalı istek bir Web kancası çağrılırken
+
+#### <a name="issue"></a>Sorun
+
+Bir Azure Otomasyonu runbook için bir Web kancası çağırma denediğinizde aşağıdaki hatayı alırsınız.
+
+```error
+400 Bad Request : This webhook has expired or is disabled
+```
+
+#### <a name="cause"></a>Nedeni
+
+Çağırmaya çalıştığınız Web kancası devre dışı bırakılmış veya süresi doldu.
+
+#### <a name="resolution"></a>Çözüm
+
+Web kancası devre dışı bırakılırsa, Azure portalı üzerinden bir Web kancası yeniden etkinleştirebilirsiniz. Web kancasının süresi dolmuşsa, Web kancası silinmesi ve yeniden oluşturulması gerekir. Yalnızca [bir Web kancasını yenileme](../automation-webhooks.md#renew-webhook) zaten dolmadı durumunda.
 
 ### <a name="429"></a>Senaryo: 429: İstek hızı anda de çok büyük. Lütfen yeniden deneyin
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: cff24991263ece54c143e5da8a3eb2a9e5b4af18
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 637ce81f2e2ef4c7271e26bd4e9dfe36da524e27
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634507"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012751"
 ---
 # <a name="run-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>REST kullanarak HDInsight, Apache Hadoop ile Hive sorguları çalıştırma
 
@@ -29,19 +29,19 @@ Azure HDInsight kümesi üzerinde Apache Hadoop ile Hive sorguları çalıştır
   > [!IMPORTANT]
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* Bir REST istemcisi. Bu belge Windows PowerShell'i kullanır ve [Curl](http://curl.haxx.se/) örnekler.
+* Bir REST istemcisi. Bu belge Windows PowerShell'i kullanır ve [Curl](https://curl.haxx.se/) örnekler.
 
     > [!NOTE]
     > Azure PowerShell, HDInsight üzerinde Hive ile çalışmak için adanmış cmdlet'leri sağlar. Daha fazla bilgi için [Azure PowerShell ile Hive kullanma](apache-hadoop-use-hive-powershell.md) belge.
 
-Bu belge de Windows PowerShell kullanır ve [Jq](http://stedolan.github.io/jq/) JSON verilerini REST isteklerinden döndürülen işlem.
+Bu belge de Windows PowerShell kullanır ve [Jq](https://stedolan.github.io/jq/) JSON verilerini REST isteklerinden döndürülen işlem.
 
 ## <a id="curl"></a>Bir Hive sorgusu çalıştırma
 
 > [!NOTE]
 > WebHCat ile cURL veya başka bir REST iletişimini kullanırken HDInsight küme yöneticisinin kullanıcı adını ve parolasını sağlayarak isteklerin kimliğini doğrulaması gerekir.
 >
-> REST API’sinin güvenliği [temel kimlik doğrulaması](http://en.wikipedia.org/wiki/Basic_access_authentication) ile sağlanır. Kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderilir emin olmak için her zaman güvenli HTTP (HTTPS) kullanarak istekleri olun.
+> REST API’sinin güvenliği [temel kimlik doğrulaması](https://en.wikipedia.org/wiki/Basic_access_authentication) ile sağlanır. Kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderilir emin olmak için her zaman güvenli HTTP (HTTPS) kullanarak istekleri olun.
 
 1. Bu belgedeki betikler tarafından kullanılan Küme oturum açma ayarlamak için aşağıdaki komutlardan birini kullanın:
 
@@ -190,15 +190,15 @@ Tez Hive'ı kullanıyorsanız, hata ayıklama bilgileri için aşağıdaki belge
 
 Bu belgede kullanılan REST API hakkında daha fazla bilgi için bkz. [WebHCat başvuru](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) belge.
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-tez]: https://tez.apache.org
+[apache-hive]: https://hive.apache.org/
+[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -211,6 +211,6 @@ Bu belgede kullanılan REST API hakkında daha fazla bilgi için bkz. [WebHCat b
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
 
 

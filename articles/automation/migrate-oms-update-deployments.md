@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d2e99abfbc89d96f1dc5ca3c59789e13dd157a10
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 5380372cc1f2928b79b0d20f4dd46e429a93dc5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678959"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992253"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>OMS güncelleştirme dağıtımlarınızı Azure'a geçirme
 
-Operations Management Suite (OMS) portalı olan [kullanım dışı](../log-analytics/log-analytics-oms-portal-transition.md). Azure portalında OMS portalında güncelleştirme yönetimi için kullanılabilir olan tüm işlevselliği kullanılabilir. Bu makalede, Azure portalına geçiş için ihtiyacınız olan bilgileri sağlar.
+Operations Management Suite (OMS) portalı olan [kullanım dışı](../azure-monitor/platform/oms-portal-transition.md). Azure portalında OMS portalında güncelleştirme yönetimi için kullanılabilir olan tüm işlevselliği kullanılabilir. Bu makalede, Azure portalına geçiş için ihtiyacınız olan bilgileri sağlar.
 
 ## <a name="key-information"></a>Anahtar bilgileri
 

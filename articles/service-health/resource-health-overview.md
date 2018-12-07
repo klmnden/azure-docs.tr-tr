@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 11/16/2018
 ms.author: stbaron
-ms.openlocfilehash: f5e059c4ce375edb50321afb772cce400cb19b92
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 918ff674e57a14f685c7f9ef2aaaca5ca064976e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309438"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012853"
 ---
 # <a name="azure-resource-health-overview"></a>Azure kaynak durumu genel bakış
  
@@ -53,7 +53,7 @@ Kaynak durumu, olay ve kurtarma işlemi hakkında ek ayrıntılar sağlar. Ayrı
 ![Platform olayı nedeniyle sanal makine için "Kullanılamıyor" durumu](./media/resource-health-overview/Unavailable.png)
 
 #### <a name="non-platform-events"></a>Platform olmayan olaylar
-Platform olmayan olaylar kullanıcıların eylemler tarafından tetiklenir. Örnekler bir sanal makineyi durdurmak veya bir Redis önbelleğine bağlantı en fazla sayıda.
+Platform olmayan olaylar kullanıcıların eylemler tarafından tetiklenir. Örnekler bir sanal makineyi durdurmak veya bir Azure önbelleği için bağlantıları Redis için en fazla sayıda.
 
 ![Bir platform olayı nedeniyle sanal makine için "Kullanılamıyor" durumu](./media/resource-health-overview/Unavailable_NonPlatform.png)
 

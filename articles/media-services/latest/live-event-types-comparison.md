@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: juliako
-ms.openlocfilehash: 7ff48962d01a83e8c9fce380d92fbc196ff96533
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2dbc2b4e316155e880d3baa900196d5cdd31be72
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585577"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011785"
 ---
 # <a name="liveevent-types-comparison"></a>Livestream türlerini karşılaştırma
 
 Azure Media Services, bir [Livestream](https://docs.microsoft.com/rest/api/media/liveevents) iki türden biri olabilir: live encoding ve doğrudan. 
 
-## <a name="types-comparison"></a>Türlerini karşılaştırma 
+## <a name="types-comparison"></a>Tür karşılaştırması 
 
 Aşağıdaki tabloda, iki Livestream tür özellikleri karşılaştırılır.
 
@@ -42,6 +42,7 @@ Aşağıdaki tabloda, iki Livestream tür özellikleri karşılaştırılır.
 | Desteklenen video bit derinliği, giriş ve çıkış|10-bit dahil olmak üzere HDR 10/HLG kadar|8-bit|
 | Desteklenen giriş ses codec bileşenleri|AAC-LC, HE-AAC v1, HE-AAC v2|AAC-LC, HE-AAC v1, HE-AAC v2|
 | Desteklenen çıkış ses codec bileşenleri|Aynı giriş|AAC-LC|
+| Çıkış video en yüksek ekran çözünürlüğü|Aynı giriş|720p (30'da kare/saniye)|
 | Giriş protokolleri|RTMP, parçalanmış-MP4 (kesintisiz akış)|RTMP, parçalanmış-MP4 (kesintisiz akış)|
 | Fiyat|Bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/media-services/) ve "Canlı Video" sekmesine tıklayın|Bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/media-services/) ve "Canlı Video" sekmesine tıklayın|
 | Maksimum Çalıştırma süresi|24 x 365 doğrusal Canlı|7/24|

@@ -9,12 +9,13 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: 9e0f07e744aaf5f1c35666b40285937dce6dd4de
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: ef26bd433d311e63e122f48871654c9fbc26216a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275063"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013177"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Azure Machine Learning Modellerinizi Application Insights ile izleme
 
@@ -24,9 +25,6 @@ Bu makalede, Azure Application ınsights'ı, Azure Machine Learning hizmeti içi
 * Özel durumlar.
 
 [Application Insights hakkında daha fazla bilgi](../../application-insights/app-insights-overview.md). 
-
->[!NOTE]
-> Bu makalede kod Azure Machine Learning SDK sürüm 0.1.74 ile test edilmiştir
 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -100,7 +98,7 @@ Etkinleştirebilir ve Azure portalında Application ınsights'ı devre dışı b
 1. İçinde [Azure portalında](https://portal.azure.com), kendi çalışma alanını açın.
 1. Seçin **dağıtımları**, hizmet seçip **Düzenle**.
 
-   [![Düzenle düğmesi](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Düzenle düğmesini kullanın](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. İçinde **Gelişmiş ayarlar**temizleyin **etkinleştirme Appınsights tanılamasını** onay kutusu. 
 
@@ -130,7 +128,7 @@ Application Insights'ı kullanma hakkında daha fazla bilgi için bkz. [Applicat
 
 ## <a name="example-notebook"></a>Örneğin not defteri
 
-[00. alma Started/13.enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/13.enable-app-insights) Not Defteri, bu makaledeki kavramları göstermektedir.  Bu not alın:
+[How-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) Not Defteri, bu makaledeki kavramları göstermektedir. 
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

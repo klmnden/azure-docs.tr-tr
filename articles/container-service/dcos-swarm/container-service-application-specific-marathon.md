@@ -1,5 +1,5 @@
 ---
-title: Uygulama veya kullanıcıya özel Marathon hizmeti
+title: (KULLANIM DIŞI) Uygulama veya kullanıcıya özel Marathon hizmeti
 description: Bir uygulama veya kullanıcıya özel Marathon hizmeti oluşturma
 services: container-service
 author: rgardler
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 4ff263fe0ca4f435199127ed64faadee1c2527f9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1ba5ca54c0aa604289eab9c4475297b12580b69a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164549"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996110"
 ---
-# <a name="create-an-application-or-user-specific-marathon-service"></a>Bir uygulama veya kullanıcıya özel Marathon hizmeti oluşturma
+# <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>(KULLANIM DIŞI) Bir uygulama veya kullanıcıya özel Marathon hizmeti oluşturma
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Azure Kapsayıcı Hizmeti, Apache Mesos ve Marathon’u önceden üzerinde yapılandırdığımız bir grup ana sunucu sağlar. Bunlar, uygulamalarınızı kümede düzenlemek için kullanılabilir, ancak en iyisi ana sunucuları bu amaç için kullanmamaktır. Örneğin, Marathon yapılandırmasına ince ayar yapma ana sunucuların kendilerinde oturum açmayı ve değişiklikler yapmayı gerektirir; bu, standart olandan biraz daha farklı olan benzersiz ana sunucuları teşvik eder ve bağımsız olarak ilgilenilmeli ve yönetilmelidir. Ayrıca, bir takım tarafından istenen yapılandırma başka bir takım için en uygun yapılandırma olmayabilir.
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 1069916efc1932b0a1a3139d015f448d4f8153a4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5df4ae93930002a00be4097e3eaa80ff77446a18
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843130"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994615"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Log analytics'te Windows ve Linux performans veri kaynakları
 Windows ve Linux performans sayaçları, performans donanım bileşenleri, işletim sistemleri ve uygulamalar hakkında bilgi sağlar.  Log Analytics uzun süreli analiz için performans verilerini toplama ve raporlama ek olarak, neredeyse gerçek zamanlı (NRT) analiz için sık sık aralıklarla performans sayaçları toplayabilirsiniz.
@@ -92,13 +92,13 @@ Bu öğe içindeki parametreler aşağıdaki tabloda açıklanmıştır.
 
 Aşağıdaki tabloda, nesneleri ve yapılandırma dosyasında belirttiğiniz sayaçları listeler.  Kullanılabilir ek sayaçları belirli uygulamalar için açıklandığı [Log analytics'te Linux uygulamaları için performans sayaçları toplamak](data-sources-linux-applications.md).
 
-| Nesne Adı | Sayaç adı |
+| Nesne Adı | Sayaç Adı |
 |:--|:--|
 | Mantıksal Disk | % Boş Inode'ları |
 | Mantıksal Disk | % Boş alan |
 | Mantıksal Disk | % Kullanılan Inode |
 | Mantıksal Disk | % Kullanılan alan |
-| Mantıksal Disk | Disk okuma bayt/sn |
+| Mantıksal Disk | Disk Okuma Bayt/sn |
 | Mantıksal Disk | Disk Okuma/sn |
 | Mantıksal Disk | Disk aktarımı/sn |
 | Mantıksal Disk | Disk Yazma Bayt/sn |
@@ -228,4 +228,4 @@ Aşağıdaki tabloda farklı performans kayıtları almak günlük aramaları ö
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Linux uygulamaları performans sayaçlarını Topla](data-sources-linux-applications.md) MySQL ve Apache HTTP Server dahil olmak üzere.
 * Hakkında bilgi edinin [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.  
-* İçin toplanan verileri dışarı aktarma [Power BI](../../log-analytics/log-analytics-powerbi.md) ek görselleştirmeler ve analiz için.
+* İçin toplanan verileri dışarı aktarma [Power BI](../../azure-monitor/platform/powerbi.md) ek görselleştirmeler ve analiz için.

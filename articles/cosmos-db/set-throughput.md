@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: a97032344b904442ed3606c6297251578c3b4ff7
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 15b7dce5af984e4eb719024368479df1b5c8320a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263902"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010969"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Azure Cosmos kapsayıcılar ve veritabanları sağlama aktarım hızı
 
@@ -19,7 +19,7 @@ Bir Azure Cosmos veritabanı, bir dizi kapsayıcıları için yönetim birimidir
 
 Azure Cosmos DB aktarım hızı iki ayrıntı düzeylerinde - yapılandırmanıza olanak tanır **Azure Cosmos kapsayıcıları** ve **Azure Cosmos veritabanı**.
 
-# <a name="setting-throughput-on-a-azure-cosmos-container"></a>Bir Azure Cosmos kapsayıcısında aktarım hızını ayarlama  
+## <a name="setting-throughput-on-a-container"></a>Bir kapsayıcısında aktarım hızını ayarlama  
 
 Bir Azure Cosmos kapsayıcı sağlanan işleme için kapsayıcı özel olarak ayrılmış. Kapsayıcı, sağlanan aktarım hızı her zaman alır. Bir kapsayıcı sağlanan aktarım hızını finansal SLA'ları tarafından desteklenmektedir. Bir kapsayıcıdaki aktarım hızı yapılandırmak için bkz [nasıl sağlanacağı bir Azure Cosmos kapsayıcısında aktarım hızını](how-to-provision-container-throughput.md).
 
@@ -31,7 +31,7 @@ Bir Azure Cosmos kapsayıcı sağlanan aktarım hızı, tüm mantıksal bölüml
 
 ![Kaynak bölümü](./media/set-throughput/resource-partition.png)
 
-# <a name="setting-throughput-on-a-azure-cosmos-database"></a>Bir Azure Cosmos veritabanı üzerinde aktarım hızı ayarlama
+## <a name="setting-throughput-on-a-database"></a>Veritabanı aktarım hızını ayarlama
 
 Bir Azure Cosmos veritabanı aktarım hızını sağladığınızda, aktarım hızı belirli kapsayıcılarında sağlanan işleme belirtilmediği sürece veritabanında tüm kapsayıcılar arasında paylaşılır. Veritabanı aktarım hızını kapsayıcılarında arasında paylaşımı makine kümesi üzerinde bir veritabanını barındırmak için benzer. Tüm kapsayıcıları bir veritabanı içinde bir makinede kullanılabilir kaynakları paylaşarak olduğundan, doğal olarak tahmin edilebilir performans üzerinde herhangi bir belirli kapsayıcısına almıyor. Aktarım hızı bir veritabanını yapılandırmak için bkz [nasıl bir Azure Cosmos veritabanı'nda sağlanan aktarım hızı yapılandırma](how-to-provision-database-throughput.md).
 
@@ -53,7 +53,7 @@ Bir veritabanı için sağlanan işleme paylaşımı birden çok mantıksal böl
 
 ![Kaynak bölümü](./media/set-throughput/resource-partition2.png)
 
-## <a name="setting-throughput-on-a-azure-cosmos-database-and-a-container"></a>Bir Azure Cosmos veritabanı ve kapsayıcı aktarım hızı ayarlama
+## <a name="setting-throughput-on-a-database-and-a-container"></a>Bir veritabanı ve kapsayıcı aktarım hızı ayarlama
 
 İki model birleştirebilir, hem veritabanı hem de kapsayıcı aktarım hızı sağlama izin verilir. Aşağıdaki örnek, bir Azure Cosmos veritabanı ve kapsayıcı aktarım hızına gösterilmektedir:
 

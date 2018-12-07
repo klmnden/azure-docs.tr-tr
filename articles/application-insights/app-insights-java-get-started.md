@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: lagayhar
-ms.openlocfilehash: 46ba2aa42f6669443354ceb7661684612e26f45f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 9f58c8c99fa48c0ffb4c76dd9752993b5e7d092e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728047"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994382"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java web projesinde Application Insights ile başlarken
 
@@ -74,7 +74,7 @@ Daha sonra, proje bağımlılıklarını ikili dosyaları indirmek için yeniley
     </dependencies>
 ```
 
-* *Derleme veya sağlama toplamı doğrulama hataları mı var?* `<version>2.0.n</version>` gibi belirli bir sürümü kullanmayı deneyin. En son sürümü [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) veya [Maven yapıtları](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights) sitesinde bulacaksınız.
+* *Derleme veya sağlama toplamı doğrulama hataları mı var?* `<version>2.0.n</version>` gibi belirli bir sürümü kullanmayı deneyin. En son sürümü [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) veya [Maven yapıtları](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights) sitesinde bulacaksınız.
 * *Yeni SDK’ye mi güncelleştirmeniz gerekiyor?* Proje bağımlılıklarınızı yenileyin.
 
 #### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Gradle kullanıyorsanız... <a name="gradle-setup" />
@@ -97,7 +97,7 @@ Daha sonra, proje bağımlılıklarını ikili dosyaları indirmek için yeniley
 #### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>Dinamik Web projesi oluşturmak için Eclipse kullanıyorsanız...
 [Java eklentisi için Application Insights SDK'sı][eclipse] kullanın. Not: Bu eklentiyi kullanarak Application Insights’ı daha hızlı kullanmaya başlayabilseniz de (Maven/Gradle kullanmadığınız varsayılarak), bu bir bağımlılık yönetim sistemi değildir. Bu nedenle, eklenti güncelleştirildiğinde, projenizdeki Application Insights kitaplıkları otomatik olarak güncelleştirilmez.
 
-* *Derleme veya sağlama toplamı doğrulama hataları mı var?* `version:'2.0.n'` gibi belirli bir sürümü kullanmayı deneyin. En son sürümü [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) veya [Maven yapıtları](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights) sitesinde bulacaksınız.
+* *Derleme veya sağlama toplamı doğrulama hataları mı var?* `version:'2.0.n'` gibi belirli bir sürümü kullanmayı deneyin. En son sürümü [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) veya [Maven yapıtları](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights) sitesinde bulacaksınız.
 * *Yeni bir SDK’ya güncelleştirmek için* Proje bağımlılıklarınızı yenileyin.
 
 #### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>Aksi takdirde, bağımlılıkları el ile yönetiyorsanız...

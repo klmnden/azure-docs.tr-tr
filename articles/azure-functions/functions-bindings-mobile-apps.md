@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: eb77046c6e673012209f0db452b20bf25046cd67
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: f61a00e3ea243dfdf777af88b5f211580f35d8a0
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250980"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001660"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure işlevleri için Mobile Apps bağlamaları 
 
@@ -31,13 +31,13 @@ Mobile Apps bağlamaları izin okumasına ve güncelleştirmesine mobil uygulama
 
 ## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
 
-Mobile Apps bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet paketi sürüm 1.x. Paket için kaynak kodu konusu [azure webjobs sdk uzantıları](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) GitHub deposu.
+Mobile Apps bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.MobileApps](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet paketi sürüm 1.x. Paket için kaynak kodu konusu [azure webjobs sdk uzantıları](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) GitHub deposu.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="input"></a>Girdi
 
-Mobile Apps giriş bağlamasına mobil tablo uç noktasından bir kaydı yükler ve, işleve geçirir. İşlev başarıyla çıktığında, C# ve F # işlevleri kayıtta yapılan tüm değişiklikler otomatik olarak tabloya geri gönderilir.
+Mobile Apps giriş bağlamasına mobil tablo uç noktasından bir kaydı yükler ve, işleve geçirir. İçinde C# ve F# İşlevler, kayıtta yapılan tüm değişiklikler otomatik olarak gönderilir tabloya işlevi başarıyla çıktığında.
 
 ## <a name="input---example"></a>Giriş - örnek
 
@@ -157,11 +157,11 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 
 ## <a name="input---usage"></a>Giriş - kullanım
 
-C# işlevleri'nde belirtilen Kimliğe sahip kaydı bulunduğunda, geçirilen adlandırılmış içine [JObject](http://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) parametresi. Kayıt bulunamadı, parametre değeri olduğu `null`. 
+C# işlevleri'nde belirtilen Kimliğe sahip kaydı bulunduğunda, geçirilen adlandırılmış içine [JObject](https://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) parametresi. Kayıt bulunamadı, parametre değeri olduğu `null`. 
 
 JavaScript işlevleri'nde kaydın içine geçirilen `context.bindings.<name>` nesne. Kayıt bulunamadı, parametre değeri olduğu `null`. 
 
-C# ve F # işlevleri, giriş değişiklik işlevi başarıyla çıktığında kayıt (giriş parametresi) tablosuna otomatik olarak gönderilen. JavaScript işlevleri bir kayıtta değiştiremezsiniz.
+İçinde C# ve F# İşlevler, giriş yaptığınız tüm değişiklikler işlevi başarıyla çıktığında kayıt (giriş parametresi) tablosuna otomatik olarak gönderilen. JavaScript işlevleri bir kayıtta değiştiremezsiniz.
 
 ## <a name="output"></a>Çıktı
 

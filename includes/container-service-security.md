@@ -4,14 +4,16 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: f4acec3db7d74b969c55e725d9ec1c5f063b552c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: cc72fb39bf62915be10493a780538121f26ca835
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628226"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002280"
 ---
-# <a name="securing-docker-containers-in-azure-container-service"></a>Azure Container Service’de Docker kapsayıcılarının güvenliğini sağlama
+# <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(KULLANIM DIŞI) Azure Container Service'teki Docker kapsayıcıları güvenli hale getirme
+
+[!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
 Bu makalede, Azure Container Service'de dağıtılan Docker kapsayıcılarının güvenliğini sağlamak için önemli bilgiler ve öneriler yer almaktadır. Bu noktaların çoğu Azure veya diğer ortamlara dağıtılmış Docker kapsayıcıları için de genel olarak geçerlidir. 
 

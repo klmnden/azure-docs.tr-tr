@@ -3,17 +3,17 @@ title: Azure haritalar için fiyatlandırma katmanı sağ seçin | Microsoft Doc
 description: Azure haritalar tarafından sağlanan katmanları fiyatlandırması hakkında bilgi edinin
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/03/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 20c59f95dcdb47ef3e457f177d7ad1a300981907
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ee277867f449afddeb89c3fd73b5b577a68a4497
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856771"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998375"
 ---
 # <a name="choosing-the-right-pricing-tier-in-azure-maps"></a>Azure haritalar fiyatlandırma katmanı sağ seçme
 
@@ -34,14 +34,16 @@ S0 ve S1 fiyatlandırma katmanları farklı miktarda veri aktarım hızını iş
 | İşleme                                  |        ✓           |     ✓    |
 | Trafik                                 |        ✓           |     ✓    |
 | Saat dilimleri                              |        ✓           |     ✓    |
-| Gözünüzde + karma resimler (Önizleme)      |                    |     ✓    |
-| Rota aralığı (Önizleme)                   |                    |     ✓    |
-| IP 2 konumu (Önizleme)                 |                    |     ✓    |
-| Çokgen arama (Önizleme)          |                    |     ✓    |
-| Batch coğrafi kodlama (Önizleme)               |                    |     ✓    |
-| Batch yönlendirme (Önizleme)                 |                    |     ✓    |
-| Matris yönlendirme (Önizleme)                |                    |     ✓    |
+| * Tanımayı + karma resimler (Önizleme)     |        ✓           |     ✓    |
+| * Rota aralığı (Önizleme)                  |        ✓           |     ✓    |
+| * IP 2 konumu (Önizleme)                |        ✓           |     ✓    |
+| * Çokgenler arama (Önizleme)         |        ✓           |     ✓    |
+| * Toplu coğrafi kodlama (Önizleme)              |        ✓           |     ✓    |
+| * Batch (Önizleme) yönlendirme                |        ✓           |     ✓    |
+| * Matris yönlendirme (Önizleme)               |        ✓           |     ✓    |
 
+> [!Note]
+> Fiyatlandırma katmanı S0 bu özelliklerden erişimi 4 Şubat 2019 sonra kullanımdan kaldırılacaktır.
 
 Bazı ek veri noktaları dikkate değer, ne tür bir kuruluş, belirtilmiş veya uygulamanın ne kadar kritik oluşturulmakta?
 

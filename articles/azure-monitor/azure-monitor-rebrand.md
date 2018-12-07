@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: bwren
-ms.openlocfilehash: b260c4eecd0a1aff31c86766e2f03208ba6b1460
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 68986b3d60566ee190a92c6ccf8cda767824350f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727270"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000147"
 ---
 # <a name="azure-monitor-branding-changes"></a>Azure İzleyici marka değişiklikleri
 Bu makalede yeni marka ve Azure Yönetim Hizmetleri için yakın zamanda yapılan ad değişiklikleri açıklar. 
@@ -46,4 +46,4 @@ Operations Management Suite (OMS), aşağıdaki Azure Yönetim Hizmetleri Lisans
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Okuma bir [Azure İzleyicisi'ne genel bakış](overview.md) farklı bileşenleri ve özelliklerini açıklar.
-- Hakkında bilgi edinin [OMS portalında geçişin](../log-analytics/log-analytics-oms-portal-transition.md).
+- Hakkında bilgi edinin [OMS portalında geçişin](../azure-monitor/platform/oms-portal-transition.md).

@@ -1,5 +1,5 @@
 ---
-title: Marathon REST API'si ile Azure DC/OS kümesini yönetme
+title: (KULLANIM DIŞI) Marathon REST API'si ile Azure DC/OS kümesini yönetme
 description: Marathon REST API'sini kullanarak bir Azure Container Service DC/OS kümesine kapsayıcıları dağıtın.
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 34fc6f946d172f1431367e84f9d4d8a6855003ed
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 157d70b628ca3583cb8134ec1cccc185c6ff4c8d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901776"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52991729"
 ---
-# <a name="dcos-container-management-through-the-marathon-rest-api"></a>Marathon REST API aracılığıyla DC/OS kapsayıcısını yönetme
+# <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(KULLANIM DIŞI) Marathon REST API aracılığıyla DC/OS kapsayıcısını yönetme
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS, temel donanımı özetlerken, kümelenmiş iş yüklerini dağıtmak ve ölçeklendirmek için ortam sağlar. DC/OS’nin en üstünde, hesaplama iş yüklerini zamanlamayı ve yürütmeyi yöneten bir çerçeve vardır. Çerçeveler çok sayıda yaygın iş yükü için kullanılabilir, ancak bu belgede, oluşturma ve Marathon REST API'i kullanarak kapsayıcı dağıtımı ölçeklendirme başlamanıza yardımcı olur. 
 

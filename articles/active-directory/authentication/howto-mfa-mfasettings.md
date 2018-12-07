@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e0c612407047a51c4e3d4101a0ee192f55458afe
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 772807fc0a1378eea662a7c4a7e3c720d7092bef
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496999"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013023"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-Factor Authentication ayarlarını yapılandırma
 
@@ -384,3 +384,7 @@ Bu özellik, normal olarak her zaman sor web apps'te, kimlik doğrulama sayısı
 ### <a name="mark-a-device-as-trusted"></a>Bir aygıt güvenilen olarak işaretleyin
 
 Parolayı anımsa çok faktörlü kimlik doğrulaması özelliği etkinleştirdikten sonra kullanıcıların ne zaman güvenilir olarak bir cihaz işaretleyebilirsiniz seçerek oturum **bir daha sorma**.
+
+# <a name="next-steps"></a>Sonraki adımlar
+
+[Azure AD oturum açma sayfasında bulunan marka değiştirme](..\fundamentals\customize-branding.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: e537795c9dec5f909810a37d4f13d5664bec05a2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 56ad4fdf781d9ed94a082ab5eb352803c70e52ef
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839985"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996238"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure İzleyici verilerini Görselleştirme
 Bu makalede, Azure İzleyici'de depolanan verileri görselleştirmek için kullanılabilen yöntemler bir özetini sağlar. Bu içerir [Azure ölçümleri depolama ölçümleri](../azure-monitor/platform/data-collection.md#metrics) ve [Log Analytics'te günlük verilerini](../azure-monitor/platform/data-collection.md#logs). 
@@ -89,7 +89,7 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 
 
 ## <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) iş odaklı panolar ve raporların yanı sıra, uzun vadeli KPI eğilimlerini çözümleme raporları oluşturmak için özellikle yararlıdır. Yapabilecekleriniz [bir Log Analytics sorgusunun sonuçları içe](../log-analytics/log-analytics-powerbi.md) Power BI kümesine böylece farklı kaynaklardan verileri birleştirme ve raporları Web'de ve mobil cihazlarda paylaşma gibi özelliklerinden yararlanabilir.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) iş odaklı panolar ve raporların yanı sıra, uzun vadeli KPI eğilimlerini çözümleme raporları oluşturmak için özellikle yararlıdır. Yapabilecekleriniz [bir Log Analytics sorgusunun sonuçları içe](../azure-monitor/platform/powerbi.md) Power BI kümesine böylece farklı kaynaklardan verileri birleştirme ve raporları Web'de ve mobil cihazlarda paylaşma gibi özelliklerinden yararlanabilir.
 
 ![Power BI](media/visualizations/power-bi.png)
 
@@ -141,5 +141,5 @@ Kendi özel Web siteleri ve uygulamalar oluşturmanıza olanak sağlayan bir RES
 - Hakkında bilgi edinin [Azure panoları](../azure-portal/azure-portal-dashboards.md).
 - Hakkında bilgi edinin [Azure İzleyici görünümlerde](../azure-monitor/platform/view-designer.md).
 - Hakkında bilgi edinin [Application Insights çalışma kitaplarında](../application-insights/app-insights-usage-workbooks.md).
-- Hakkında bilgi edinin [günlük verilerini Power BI'a aktarma](../log-analytics/log-analytics-powerbi.md).
+- Hakkında bilgi edinin [günlük verilerini Power BI'a aktarma](../azure-monitor/platform/powerbi.md).
 - Hakkında bilgi edinin [Grafana Azure İzleyicisi veri kaynağı eklentisi](../monitoring-and-diagnostics/monitor-send-to-grafana.md).

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: ebbb12a6454a093ad0ac3b3cc30eb489eeef21ec
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e9e92254db37edbd978b5799b13e63652e227f86
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687223"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014523"
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Azure HDInsight Hive sorguları en iyi duruma getirme
 
@@ -40,7 +40,7 @@ HDInsight'ı ölçeklendirme hakkında daha fazla bilgi için bkz. [ölçek HDIn
 
 ## <a name="use-tez-instead-of-map-reduce"></a>Map Reduce yerine Tez kullanma
 
-[Apache Tez](http://hortonworks.com/hadoop/tez/) MapReduce motorunun alternatif bir yürütme altyapısıdır. Linux tabanlı HDInsight kümeleri varsayılan olarak etkin Tez vardır.
+[Apache Tez](https://hortonworks.com/hadoop/tez/) MapReduce motorunun alternatif bir yürütme altyapısıdır. Linux tabanlı HDInsight kümeleri varsayılan olarak etkin Tez vardır.
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
@@ -52,7 +52,7 @@ Tez olduğundan daha hızlıdır:
 * **Kapsayıcıları yeniden**. Her olası Tez kapsayıcıları başlatılıyor nedeniyle gecikme süresi azalır emin olmak için kapsayıcıları yeniden kullanabilirsiniz.
 * **Sürekli iyileştirme teknikleri**. Geleneksel olarak iyileştirme derleme aşaması boyunca yapıldı. Girişleri hakkında daha fazla bilgi mevcuttur ancak, çalışma zamanı sırasında daha fazla iyileştirilmesi sağlar. Tez planı daha fazla çalışma zamanı aşamasına iyileştirmek izin sürekli iyileştirme teknikleri kullanır.
 
-Bu kavramlarla ilgili daha fazla bilgi için bkz. [Apache TEZ](http://hortonworks.com/hadoop/tez/).
+Bu kavramlarla ilgili daha fazla bilgi için bkz. [Apache TEZ](https://hortonworks.com/hadoop/tez/).
 
 Herhangi bir Hive sorgusu Tez sorgu kümesi aşağıdaki komutu ekleyerek etkin hale getirebilirsiniz:
 

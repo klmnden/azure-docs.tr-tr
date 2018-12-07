@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 040eea1efd3abdbbfa65c24b2950ebece9d4acbc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dfc1fe223dbff178c35a969e0273ed80fb4c8be9
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258400"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016436"
 ---
 # <a name="azure-sdk-for-net-26-release-notes"></a>.NET 2.6 için Azure SDK sürüm notları
 Bu belge, yayın .NET 2.6 için Azure SDK için sürüm notlarını içerir. 
@@ -59,7 +59,7 @@ Azure SDK 2.6 ile bulut hizmeti uygulamaları (PaaS) bulut hizmeti rolünde hede
     Şu anda sürüm 2011 08 18 Azure depolama, 1 Ağustos 2016 kaldırılacak şekilde zamanlanır. Rol içi önbellek, Azure SDK 2.5 veya aşağıda tüm geçişler için 2.6 Bu zamana kadar tamamlanmış olması gerekir. Sürüm 2011 08 18 Azure Depolama'nın devre dışı bırakma hakkında daha fazla bilgi için bkz. [Microsoft Azure depolama hizmeti sürüm kaldırma güncelleştirmesi: 2016 uzantısı](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
 > [!IMPORTANT]
-> Azure yönetilen önbellek hizmeti ve Azure rol içi önbellek 30 Kasım 2016 emeklilik duyuruyoruz. Bu kullanımdan kaldırma hazırlığı kapsamında Azure Redis Cache'e geçirme öneririz. Tarihler ve Geçiş Kılavuzu hakkında daha fazla bilgi için bkz: [hangi Azure önbellek teklifi bana uygundur?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
+> Azure yönetilen önbellek hizmeti ve Azure rol içi önbellek 30 Kasım 2016 emeklilik duyuruyoruz. Bu kullanımdan kaldırma için hazırlık için Redis önbelleğine Azure geçiş öneririz. Tarihler ve Geçiş Kılavuzu hakkında daha fazla bilgi için bkz: [hangi Azure önbellek teklifi bana uygundur?](../azure-cache-for-redis/cache-faq.md#which-azure-cache-offering-is-right-for-me)
 > 
 > 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: da35f88550bb7bd1a4543f03936dcd52ddd926d9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f5b08efda80eefad736386cd74ec1d40f05a6f3a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308368"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994832"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers-preview"></a>Azure İzleyici (Önizleme) kapsayıcı için sorun giderme
 
@@ -99,7 +99,7 @@ Kapsayıcılar için Azure İzleyicisi'ni kullanırken karşılaşabileceğiniz 
 | Hata iletileri  | Eylem |  
 | ---- | --- |  
 | Hata iletisi `No data for selected filters`  | Bu, yeni oluşturulan kümeleri için izleme veri akışı oluşturmak için biraz zaman alabilir. Lütfen en az veri kümeniz için görüntülenecek 10-15 dakika bekleyin. |   
-| Hata iletisi `Error retrieving data` | Azure Kubenetes Service küme sistem durumu ve performans izlemesi için devam ederken, küme ve Azure Log Analytics çalışma alanı arasında bir bağlantı kurulur. Bir Log Analytics çalışma alanı, kümeniz için tüm izleme verilerini depolamak için kullanılır. Log Analytics çalışma alanınızın silindi veya kayıp sahip olduğunda bu hata oluşabilir. Gözden geçirerek, çalışma alanınızı kullanılabilir olup olmadığını denetleyin [erişimini yönetme](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json#workspace-information). Çalışma alanı eksikse, re-eklemek için Azure İzleyici ile kümenizi kapsayıcılar için ihtiyacınız olacak. RE-ekleme, şunları yapmanız gerekir [devre dışı](container-insights-optout.md) küme için izleme ve [etkinleştirme](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster) yeniden kapsayıcılar için Azure İzleyici. |  
+| Hata iletisi `Error retrieving data` | Azure Kubenetes Service küme sistem durumu ve performans izlemesi için devam ederken, küme ve Azure Log Analytics çalışma alanı arasında bir bağlantı kurulur. Bir Log Analytics çalışma alanı, kümeniz için tüm izleme verilerini depolamak için kullanılır. Log Analytics çalışma alanınızın silindi veya kayıp sahip olduğunda bu hata oluşabilir. Gözden geçirerek, çalışma alanınızı kullanılabilir olup olmadığını denetleyin [erişimini yönetme](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json#workspace-information). Çalışma alanı eksikse, re-eklemek için Azure İzleyici ile kümenizi kapsayıcılar için ihtiyacınız olacak. RE-ekleme, şunları yapmanız gerekir [devre dışı](container-insights-optout.md) küme için izleme ve [etkinleştirme](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster) yeniden kapsayıcılar için Azure İzleyici. |  
 | `Error retrieving data` az aks CLI aracılığıyla kapsayıcılar için Azure İzleyici ekledikten sonra | Zaman ekleme kullanarak `az aks cli`, çok az kapsayıcılar için Azure İzleyici düzgün eklenen ayarlanmamış olabilir. Eklenen çözüm olup olmadığını denetleyin. Bunu yapmak için Log Analytics çalışma alanınıza gidin ve seçerek çözüm kullanılabilir olup olmadığını **çözümleri** sol tarafındaki bölmeden. Bu sorunu çözmek için çözüm yönergeleri izleyerek tekrar dağıtmanız gerekecektir [kapsayıcılar için Azure İzleyici dağıtma](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json) |  
 
 Sorunun tanılanmasına yardımcı olmak için kullanılabilir bir sorun giderme betik sağladık [burada](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).  

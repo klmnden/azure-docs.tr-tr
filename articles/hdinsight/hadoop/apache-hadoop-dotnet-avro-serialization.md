@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: ae728cd1cfc27a17badcce319a8cd047b54ddb1e
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 9727a990548977e0b07710d879881669161c7a4c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634014"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015271"
 ---
 # <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>Microsoft Avro library Apache Hadoop, verileri seri hale getirme
 
@@ -27,7 +27,7 @@ Bu konu nasıl kullanılacağını gösterir [Microsoft Avro Library](https://gi
 [!INCLUDE [windows-only](../../../includes/hdinsight-windows-only.md)]
 
 ## <a name="apache-avro"></a>Apache Avro
-<a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> Microsoft.NET ortam için Apache Avro verileri seri hale getirme sistem uygular. Apache Avro sıkıştırılmış ikili veri değişim biçimi serileştirme için sağlar. Kullandığı <a href="http://www.json.org" target="_blank">JSON</a> dil birlikte çalışabilirliğini sağlayan bir dilden şemasını tanımlamak için. Tek bir dilde seri hale getirilmiş verilerin başka bir programda okuyabilirsiniz. Şu anda C, C++, C#, Java, PHP, Python ve Ruby desteklenir. Biçim hakkında ayrıntılı bilgi bulunabilir <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">Apache Avro belirtimi</a>. 
+<a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> Microsoft.NET ortam için Apache Avro verileri seri hale getirme sistem uygular. Apache Avro sıkıştırılmış ikili veri değişim biçimi serileştirme için sağlar. Kullandığı <a href="http://www.json.org" target="_blank">JSON</a> dil birlikte çalışabilirliğini sağlayan bir dilden şemasını tanımlamak için. Tek bir dilde seri hale getirilmiş verilerin başka bir programda okuyabilirsiniz. Şu anda C, C++, C#, Java, PHP, Python ve Ruby desteklenir. Biçim hakkında ayrıntılı bilgi bulunabilir <a href="https://avro.apache.org/docs/current/spec.html" target="_blank">Apache Avro belirtimi</a>. 
 
 >[!NOTE]
 >Microsoft Avro Library Bu belirtim uzak yordam çağrılarını (RPC) parçası desteklemez.
@@ -58,7 +58,7 @@ Kitaplık yüklemeden önce aşağıdakiler gereklidir:
 ## <a name="compile-schemas-using-avro-library"></a>Avro kitaplığı kullanarak şemaları derleme
 Microsoft Avro Library önceden tanımlanmış JSON şemasını temel alınarak otomatik olarak C# türleri oluşturma olanak sağlayan bir kod oluşturma yardımcı içerir. Kod oluşturma yardımcı programı, ikili bir yürütülebilir dosya olarak dağıtılmaz, ancak aşağıdaki yordamı kolayca oluşturulabilir:
 
-1. HDInsight SDK kaynak kodundan en son sürümünü içeren .zip dosyasını indirdikten <a href="http://hadoopsdk.codeplex.com/SourceControl/latest#" target="_blank">için Microsoft .NET SDK'sı Hadoop</a>. (Tıklayın **indirme** simgesine değil **indirir** sekmesini.)
+1. HDInsight SDK kaynak kodundan en son sürümünü içeren .zip dosyasını indirdikten <a href="https://hadoopsdk.codeplex.com/SourceControl/latest#" target="_blank">için Microsoft .NET SDK'sı Hadoop</a>. (Tıklayın **indirme** simgesine değil **indirir** sekmesini.)
 2. HDInsight SDK makinede bir dizine yüklenir ve gerekli bağımlılık NuGet paketlerini karşıdan yüklemek için İnternet'e bağlı .NET Framework 4 ile ayıklayın. Aşağıda, kaynak kodu için C:\SDK ayıklanır varsayılır.
 3. C:\SDK\src\Microsoft.Hadoop.Avro.Tools klasöre gidin ve build.bat çalıştırın. (.NET Framework'ün 32-bit dağıtım noktasından MSBuild dosyasını çağırır. Build.bat, dosyanın yorumları takip düzenleyin. 64 bit sürümünü kullanmak istiyorsanız) Derleme başarılı olduğundan emin olun. (Bazı sistemlerde, MSBuild uyarılar oluşturabilir. Derleme hataları var olduğu sürece bu uyarıları yardımcı programı etkilemez.)
 4. Derlenmiş yardımcı programı, C:\SDK\Bin\Unsigned\Release\Microsoft.Hadoop.Avro.Tools içinde bulunur.
@@ -852,7 +852,7 @@ Ardından veriler dosyadan okunan ve nesnelerin bir koleksiyona seri durumdan. B
 ## <a name="sample-5-serialization-using-object-container-files-with-a-custom-compression-codec"></a>Örnek 5: bir özel sıkıştırma codec bileşeni ile nesne kapsayıcısı dosyaları kullanarak serileştirme
 Beşinci örnek özel sıkıştırma codec Avro nesne kapsayıcısı dosyalar için nasıl kullanılacağını gösterir. Bu örnekte indirilebileceğini için kodu içeren bir örnek [Azure Kod örnekleri](https://code.msdn.microsoft.com/Serialize-data-with-the-67159111) site.
 
-[Avro belirtimi](http://avro.apache.org/docs/current/spec.html#Required+Codecs) isteğe bağlı sıkıştırma codec kullanımına izin verir (Ayrıca **Null** ve **Deflate** Varsayılanları). Bu örnekte, Snappy gibi yeni bir codec uygulanmamasının (isteğe bağlı desteklenen codec olarak belirtilen [Avro belirtimi](http://avro.apache.org/docs/current/spec.html#snappy)). .NET Framework 4.5 uygulamasını kullanma işlemini gösterir [ **Deflate** ] [ deflate-110] göre daha iyi bir sıkıştırma algoritması sağlayan codec [zlib ](http://zlib.net/) varsayılan .NET Framework 4 sürümünden sıkıştırma kitaplığı.
+[Avro belirtimi](https://avro.apache.org/docs/current/spec.html#Required+Codecs) isteğe bağlı sıkıştırma codec kullanımına izin verir (Ayrıca **Null** ve **Deflate** Varsayılanları). Bu örnekte, Snappy gibi yeni bir codec uygulanmamasının (isteğe bağlı desteklenen codec olarak belirtilen [Avro belirtimi](https://avro.apache.org/docs/current/spec.html#snappy)). .NET Framework 4.5 uygulamasını kullanma işlemini gösterir [ **Deflate** ] [ deflate-110] göre daha iyi bir sıkıştırma algoritması sağlayan codec [zlib ](https://zlib.net/) varsayılan .NET Framework 4 sürümünden sıkıştırma kitaplığı.
 
     //
     // This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
@@ -1351,7 +1351,7 @@ Altıncı örnek Azure HDInsight hizmeti ile etkileşim için ilgili bazı progr
 Örnek, aşağıdaki görevleri gerçekleştirir:
 
 * Mevcut bir HDInsight hizmeti kümesine bağlanır.
-* Birden çok CSV dosyalarına serileştirir ve sonuçta Azure Blob depolama alanına yükler. (CSV dosyaları örnek ile birlikte dağıtılan ve ayıklama tarafından dağıtılan AMEX stok geçmiş verilerden temsil [Infochimps](http://www.infochimps.com/) 1970 2010 süre. Örnek CSV dosyası verilerine okur, kayıtları örneğine dönüştürür **hisse senedi** sınıfı ve ardından yansıma kullanarak serileştirir. Stok tür tanımı bir JSON şeması Microsoft Avro Library kod oluşturma yardımcı programı aracılığıyla oluşturulur.
+* Birden çok CSV dosyalarına serileştirir ve sonuçta Azure Blob depolama alanına yükler. (CSV dosyaları örnek ile birlikte dağıtılan ve ayıklama tarafından dağıtılan AMEX stok geçmiş verilerden temsil [Infochimps](https://www.infochimps.com/) 1970 2010 süre. Örnek CSV dosyası verilerine okur, kayıtları örneğine dönüştürür **hisse senedi** sınıfı ve ardından yansıma kullanarak serileştirir. Stok tür tanımı bir JSON şeması Microsoft Avro Library kod oluşturma yardımcı programı aracılığıyla oluşturulur.
 * Adlı yeni bir dış tablo oluşturur **Stocks** Hive ve önceki adımda verileri karşıya bağlantılar.
 * Bir sorgu üzerinde Hive'ı kullanarak yürütür **Stocks** tablo.
 
@@ -1378,5 +1378,5 @@ Kümeyi oluşturan temizlemek için aşağıdaki komutu çalıştırın:
 
     AvroHDISample clean
 
-[deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
-[deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
+[deflate-100]: https://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
+[deflate-110]: https://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx

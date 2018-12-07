@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 6a1247048907d81b3c9db644bcdb7b5e5eee5fba
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 4eb4fa201a435df5e2b5016ba9686d76707c0635
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633640"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011639"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma
 
-Nasıl kullanacağınızı öğrenin [Apache Pig](http://pig.apache.org/) HDInsight ile.
+Nasıl kullanacağınızı öğrenin [Apache Pig](https://pig.apache.org/) HDInsight ile.
 
 Apache Pig olarak bilinen bir yordam dilini kullanarak Apache Hadoop için programlar oluşturmak için bir platform olan *Pig Latin*. Pig oluşturmak için Java alternatif olan *MapReduce* çözümleri ve bu, Azure HDInsight ile birlikte. HDInsight ile Pig çeşitli şekillerde kullanılabilir bulmak için aşağıdaki tabloyu kullanın:
 
@@ -69,7 +69,7 @@ Her günlük dosyası içindeki içeren bir dizi alanlarının oluşur bir `[LOG
 Önceki örnekte, günlük düzeyi hatadır.
 
 > [!NOTE]
-> Log4j dosyasını kullanarak da oluşturabilirsiniz [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) aracı günlüğe kaydetme ve ardından blobunuza bu dosyayı karşıya yükleyin. Bkz: [HDInsight verileri karşıya yükleme](../hdinsight-upload-data.md) yönergeler için. Azure Depolama'daki blobları HDInsight ile nasıl kullanıldığı hakkında daha fazla bilgi için bkz. [HDInsight ile Azure Blob Depolama kullanma](../hdinsight-hadoop-use-blob-storage.md).
+> Log4j dosyasını kullanarak da oluşturabilirsiniz [Apache Log4j](https://en.wikipedia.org/wiki/Log4j) aracı günlüğe kaydetme ve ardından blobunuza bu dosyayı karşıya yükleyin. Bkz: [HDInsight verileri karşıya yükleme](../hdinsight-upload-data.md) yönergeler için. Azure Depolama'daki blobları HDInsight ile nasıl kullanıldığı hakkında daha fazla bilgi için bkz. [HDInsight ile Azure Blob Depolama kullanma](../hdinsight-hadoop-use-blob-storage.md).
 
 ## <a id="job"></a>Örnek Proje
 
@@ -120,12 +120,12 @@ HDInsight ile Pig kullanma gerçekleştirmeyi öğrendiniz, Azure HDInsight ile 
 * [HDInsight ile Oozie kullanma](../hdinsight-use-oozie.md)
 * [HDInsight ile MapReduce işleri kullanma][hdinsight-use-mapreduce]
 
-[apachepig-home]: http://pig.apache.org/
-[putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
-[curl]: http://curl.haxx.se/
-[pigtask]: http://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[apachepig-home]: https://pig.apache.org/
+[putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+[curl]: https://curl.haxx.se/
+[pigtask]: https://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
+[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]:../hdinsight-use-hive.md
@@ -136,7 +136,7 @@ HDInsight ile Pig kullanma gerçekleştirmeyi öğrendiniz, Azure HDInsight ile 
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 
 
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif

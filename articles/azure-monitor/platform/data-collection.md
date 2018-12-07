@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 3ea446a726634ead520b902bd00a54cd8ae32b70
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 19d448634998f01505c0e274377e1aa8cd788728
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844133"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993813"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Azure İzleyici tarafından toplanan verileri izleme
 [Azure İzleyici](../../azure-monitor/overview.md) yardımcı olan bir hizmeti izlemek, uygulamalarınızın ve bunların bağımlı kaynakları olduğundan. Telemetri ve diğer verileri izlenen kaynaklardan bu işleve merkezi depolamadır. Bu makalede, Azure İzleyici tarafından kullanılan bu veriler nasıl depolanır ve kapsamlı bir açıklama sağlar.
@@ -131,7 +131,7 @@ Günlükler, çeşitli kaynaklardan alınan verilerin birleştirilmesi için kar
 Azure İzleyici tarafından toplanan günlükler, çeşitli kaynaklardan telemetri ve diğer verileri toplayan Log analytics'te depolanır. Bu, zengin bir sorgu dili ve uygulamalarınızın ve kaynaklarınızın çalışmasını Öngörüler sunan bir analiz altyapısı sağlar. Diğer Azure Hizmetleri gibi [Azure Güvenlik Merkezi](../../security-center/security-center-intro.md) Azure Yönetimi genelinde ortak bir veri platformu sağlamak amacıyla Log Analytics'te verilerini depolar.
 
 > [!IMPORTANT]
-> Ayrı bir bölümde depolanır dışında Application Insights verileri gibi diğer günlük verileri Log Analytics'te depolanır. Bu, diğer Log Analytics verilerini aynı işlevselliği destekler, ancak kullanmalısınız [Application Insights konsol](../../application-insights/app-insights-analytics.md) veya [Application Insights API](https://dev.applicationinsights.io/) bu verilere erişmek için. Kullanabileceğiniz bir [kaynaklar arası sorgu](../../log-analytics/log-analytics-cross-workspace-search.md) diğer günlük verileriyle birlikte uygulama verilerini analiz etmek için.
+> Ayrı bir bölümde depolanır dışında Application Insights verileri gibi diğer günlük verileri Log Analytics'te depolanır. Bu, diğer Log Analytics verilerini aynı işlevselliği destekler, ancak kullanmalısınız [Application Insights konsol](../../application-insights/app-insights-analytics.md) veya [Application Insights API](https://dev.applicationinsights.io/) bu verilere erişmek için. Kullanabileceğiniz bir [kaynaklar arası sorgu](../../azure-monitor/log-query/cross-workspace-query.md) diğer günlük verileriyle birlikte uygulama verilerini analiz etmek için.
 
 
 ### <a name="sources-of-log-data"></a>Günlük verisi kaynakları
@@ -144,7 +144,7 @@ Log Analytics, çeşitli kaynaklardan hem Azure içindeki ve şirket içi kaynak
 - Tarafından toplanan güvenlik verileri [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/).
 - [Ölçümleri](#metrics) Azure kaynaklarından. Bu, ölçümleri 93 günden daha uzun süre saklamak için ve diğer günlük verilerinizi çözümlemenizi sağlar.
 - Yazılan telemetri [Azure depolama](../../azure-monitor/platform/azure-storage-iis-table.md).
-- Özel verileri kullanarak herhangi bir REST API istemcisi [HTTP veri toplayıcı API'sini](../../log-analytics/log-analytics-data-collector-api.md) istemci veya bir [Azure Logic App](https://docs.microsoft.com/azure/logic-apps/) iş akışı.
+- Özel verileri kullanarak herhangi bir REST API istemcisi [HTTP veri toplayıcı API'sini](../../azure-monitor/platform/data-collector-api.md) istemci veya bir [Azure Logic App](https://docs.microsoft.com/azure/logic-apps/) iş akışı.
 
 ![Log Analytics bileşenleri](media/data-collection/logs-overview.png)
 
@@ -154,14 +154,14 @@ Log Analytics, çeşitli kaynaklardan hem Azure içindeki ve şirket içi kaynak
 ### <a name="what-can-you-do-with-logs"></a>Günlükleri ile neler?
 Günlükleri ile gerçekleştirebileceğiniz görevler aşağıdakileri içerir:
 
-- Kullanım [Log Analytics sayfa](../../log-analytics/query-language/get-started-analytics-portal.md) Azure portalında günlük verilerini analiz sorguları yazma.  Sabitleme, tablolar veya grafikler için çizilir sonuçları bir [Azure panosuna](../../azure-portal/azure-portal-dashboards.md).
+- Kullanım [Log Analytics sayfa](../../azure-monitor/log-query/get-started-portal.md) Azure portalında günlük verilerini analiz sorguları yazma.  Sabitleme, tablolar veya grafikler için çizilir sonuçları bir [Azure panosuna](../../azure-portal/azure-portal-dashboards.md).
 - Yapılandırma bir [günlük uyarı kuralı](../../monitoring-and-diagnostics/alert-log.md) bildirim gönderen veya alan [eylemi otomatik](../../monitoring-and-diagnostics/monitoring-action-groups.md) zaman sorgunun sonuçlarını eşleşen belirli bir sonuç.
 - Log Analytics kullanarak verileri temel alan bir iş akışı derleme [Logic Apps](~/articles/logic-apps/index.yml).
-- Sorgu sonuçlarını dışarı aktarma [Power BI](../../log-analytics/log-analytics-powerbi.md) farklı görselleştirme kullanın ve Azure dışındaki kullanıcılarla paylaşmak için.
+- Sorgu sonuçlarını dışarı aktarma [Power BI](../../azure-monitor/platform/powerbi.md) farklı görselleştirme kullanın ve Azure dışındaki kullanıcılarla paylaşmak için.
 - Bir komut satırı veya özel bir uygulama kullanarak ölçüm değerleri erişim [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) veya [REST API](https://dev.loganalytics.io/).
 
 ### <a name="viewing-log-data"></a>Günlük verilerini görüntüleme
-Tüm verileri Log Analytics kullanarak alınır bir [günlük sorgusu](../../azure-monitor/log-query/log-query-overview.md) belirli bir veri kümesini belirtir. Sorguları kullanarak yazılır [Log Analytics sorgu diline](../../log-analytics/query-language/get-started-queries.md) hızlı bir şekilde almak, birleştirmek ve toplanan verileri çözümlemek için zengin bir sorgu dili olan. Kullanım [Log Analytics sayfa](../../log-analytics/log-analytics-log-search-portals.md) doğrudan analiz etmek için Azure portalında, ölçüm verileri depolamak ve zaman içinde birden çok ölçüm değerleri grafik. Etkileşimli olarak grafikleri görüntülemek veya bunları diğer görselleştirmeler ile bunları görüntülemek için panoya sabitleyin. Ölçümleri kullanarak da alabilirsiniz [Azure REST API izleme](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Tüm verileri Log Analytics kullanarak alınır bir [günlük sorgusu](../../azure-monitor/log-query/log-query-overview.md) belirli bir veri kümesini belirtir. Sorguları kullanarak yazılır [Log Analytics sorgu diline](../../azure-monitor/log-query/get-started-queries.md) hızlı bir şekilde almak, birleştirmek ve toplanan verileri çözümlemek için zengin bir sorgu dili olan. Kullanım [Log Analytics sayfa](../../azure-monitor/log-query/portals.md) doğrudan analiz etmek için Azure portalında, ölçüm verileri depolamak ve zaman içinde birden çok ölçüm değerleri grafik. Etkileşimli olarak grafikleri görüntülemek veya bunları diğer görselleştirmeler ile bunları görüntülemek için panoya sabitleyin. Ölçümleri kullanarak da alabilirsiniz [Azure REST API izleme](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 ![Günlükler](media/data-collection/logs.png)
 

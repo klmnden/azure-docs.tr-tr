@@ -11,12 +11,12 @@ ms.topic: article
 ms.technology: azds-kubernetes
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kapsayıcılar
-ms.openlocfilehash: 49e9a974dc01548c250f0b0a8b9b5afac5f286ff
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e155b4151a3b974e9ccc56a88028a89c35896522
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705506"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014010"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Bir Azure geliştirme boşluk ile çalışırken, gizli anahtarları yönetme
 
@@ -112,5 +112,5 @@ Azure geliştirme alanları, iki önerilen gizli dizileri depolamak için seçen
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu yöntemlerle artık güvenli bir şekilde bir veritabanı, Redis cache'e veya Azure hizmetlerine güvenli erişim bağlanabilirsiniz.
+Bu yöntemlerle artık güvenli bir şekilde bir Azure önbelleği için Redis, bir veritabanına bağlanın veya güvenli Azure hizmetlerine erişebilirsiniz.
  

@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 885482d8baa305695e2b5a6d4247783c5a89b278
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d18ea661dda0caa33ca5aff34505ce308f7eaec7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680880"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997093"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config veya .xml ile Application Insights SDK yapılandırma
-Application Insights .NET SDK'sı NuGet paketlerini birtakım oluşur. [Çekirdek paket](http://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights'a telemetri göndermek için API sağlar. [Ek paketleri](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) telemetri sağlamak *modülleri* ve *başlatıcılar* telemetri uygulamanız ve onun içeriği otomatik olarak izlemek için. Yapılandırma dosyası ayarlayarak, etkinleştirmek veya telemetri modülleri ve başlatıcılar devre dışı bırakın ve bunlardan bazıları için parametreleri ayarlayın.
+Application Insights .NET SDK'sı NuGet paketlerini birtakım oluşur. [Çekirdek paket](https://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights'a telemetri göndermek için API sağlar. [Ek paketleri](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) telemetri sağlamak *modülleri* ve *başlatıcılar* telemetri uygulamanız ve onun içeriği otomatik olarak izlemek için. Yapılandırma dosyası ayarlayarak, etkinleştirmek veya telemetri modülleri ve başlatıcılar devre dışı bırakın ve bunlardan bazıları için parametreleri ayarlayın.
 
 Yapılandırma dosyası adlı `ApplicationInsights.config` veya `ApplicationInsights.xml`, uygulamanın türüne bağlı olarak. Otomatik olarak projenize eklenir, siz [SDK'ın çoğu sürümünü birden yüklemek][start]. Ayrıca bir web uygulaması tarafından eklenir [Durum İzleyicisi bir IIS sunucusunda][redfield], veya Application ınsights'ı seçtiğinizde, [için bir Azure Web sitesinde veya sanal makine uzantısı](app-insights-azure-web-apps.md).
 
@@ -43,58 +43,58 @@ Yapılandırma dosyasında her bir modül için bir düğüm yok. Bir modül dev
 İzleme kodu kullanarak kendi bağımlılık da yazabilirsiniz [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
 
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
-* [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet paketi.
+* [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet paketi.
 
 ### <a name="performance-collector"></a>Performans Toplayıcı
 [Sistem performans sayaçlarını toplar](app-insights-performance-counters.md) gibi CPU, bellek ve ağ IIS yüklemelerinden yükleyin. Performans sayaçları, tuttuğumuz dahil olmak üzere, hangi sayaçları toplamak için belirtebilirsiniz.
 
 * `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule`
-* [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet paketi.
+* [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet paketi.
 
 ### <a name="application-insights-diagnostics-telemetry"></a>Application Insights tanılama Telemetrisi
 `DiagnosticsTelemetryModule` Application Insights izleme kodu kendisini hataları bildirir. Örneğin, kodun performans sayaçları erişemiyorsanız veya bir `ITelemetryInitializer` bir özel durum oluşturur. Bu modülü tarafından izlenen izleme telemetrisi görünür [tanılama araması][diagnostic]. Tanılama verileri için dc.services.vsallin.net gönderir.
 
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
-* [Microsoft.applicationınsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet paketi. Yalnızca bu paketi yüklerseniz, Applicationınsights.config dosyası otomatik olarak oluşturulmaz.
+* [Microsoft.applicationınsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet paketi. Yalnızca bu paketi yüklerseniz, Applicationınsights.config dosyası otomatik olarak oluşturulmaz.
 
 ### <a name="developer-mode"></a>Geliştirici modu
 `DeveloperModeWithDebuggerAttachedTelemetryModule` Application Insights zorlar `TelemetryChannel` veri hemen bir hata ayıklayıcı uygulama işlemi için bağlı olduğunda, bir kerede bir telemetri öğesinin göndermek. Uygulamanızın telemetri izler ve Application Insights portalında görüntülendiğinde bu şu arasındaki süre miktarını azaltır. CPU ve ağ bant genişliğini önemli ölçüde neden olur.
 
 * `Microsoft.ApplicationInsights.WindowsServer.DeveloperModeWithDebuggerAttachedTelemetryModule`
-* [Application Insights Windows Server](http://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet paketi
+* [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet paketi
 
 ### <a name="web-request-tracking"></a>Web istek izleme
 Raporları [yanıt süresi ve sonuç kodu](app-insights-asp-net.md) HTTP isteği.
 
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
-* [Microsoft.applicationınsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet paketi
+* [Microsoft.applicationınsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet paketi
 
 ### <a name="exception-tracking"></a>Özel durum izleme
 `ExceptionTrackingTelemetryModule` parçaları işlenmeyen özel durumlar, web uygulamanızın. Bkz: [hataları ve özel durumlar][exceptions].
 
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
-* [Microsoft.applicationınsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet paketi
+* [Microsoft.applicationınsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet paketi
 * `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` -parçaları [görev özel durumlarını gözlemlenmeyen](https://blogs.msdn.com/b/pfxteam/archive/2011/09/28/task-exception-handling-in-net-4-5.aspx).
 * `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` -çalışan rolleri, windows Hizmetleri ve konsol uygulamaları için işlenmeyen özel durumları izler.
-* [Application Insights Windows Server](http://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet paketi.
+* [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet paketi.
 
 ### <a name="eventsource-tracking"></a>EventSource izleme
 `EventSourceTelemetryModule` EventSource olaylarını Application Insights izlemelerini olarak gönderilmesini yapılandırmanızı sağlar. EventSource olaylarını izleme hakkında daha fazla bilgi için bkz: [EventSource olaylarını kullanarak](app-insights-asp-net-trace-logs.md#using-eventsource-events).
 
 * `Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule`
-* [Microsoft.ApplicationInsights.EventSourceListener](http://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener) 
+* [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener) 
 
 ### <a name="etw-event-tracking"></a>ETW olay izleme
 `EtwCollectorTelemetryModule` olayları ETW sağlayıcısından izlemeleri olarak Application ınsights'a gönderilmek üzere yapılandırmanıza olanak sağlar. ETW olayları izleme hakkında daha fazla bilgi için bkz: [kullanarak ETW olaylarını](app-insights-asp-net-trace-logs.md#using-etw-events).
 
 * `Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule`
-* [Microsoft.ApplicationInsights.EtwCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
+* [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
 
 ### <a name="microsoftapplicationinsights"></a>Microsoft.ApplicationInsights
 Microsoft.applicationınsights paket sağlar [API çekirdek](https://msdn.microsoft.com/library/mt420197.aspx) SDK. Bunu diğer telemetri modüller kullanın ve ayrıca [kendi telemetrinizi tanımlamak için kullanmak](app-insights-api-custom-events-metrics.md).
 
 * Applicationınsights.config girdisi yok.
-* [Microsoft.applicationınsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet paketi. Bu NuGet yüklerseniz, hiçbir .config dosyası oluşturulur.
+* [Microsoft.applicationınsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet paketi. Bu NuGet yüklerseniz, hiçbir .config dosyası oluşturulur.
 
 ## <a name="telemetry-channel"></a>Telemetri kanal
 Telemetri kanal arabelleğe alma ve Application Insights hizmetine telemetri iletimini yönetir.

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: cd999a5bfd9f5691c1e624f7a8226eefee5709eb
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 08b8d980b46ccbbce47c4f165a621daa14a95fa2
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015818"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012921"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>Ambari REST API'yi kullanarak HDInsight kümelerini yönetme
 
@@ -39,7 +39,7 @@ Bu belgedeki örneklerde (bash) Uluç shell ve PowerShell için sağlanır. Bash
 
 Kullanıyorsanız __Uluç Kabuk__ (Bash) aşağıdakilerin yüklü olması gerekir:
 
-* [cURL](http://curl.haxx.se/): cURL komut satırından REST API'leri ile çalışmak için kullanılan bir yardımcı programdır. Bu belgede, Ambari REST API ile iletişim kurmak için kullanılır.
+* [cURL](https://curl.haxx.se/): cURL komut satırından REST API'leri ile çalışmak için kullanılan bir yardımcı programdır. Bu belgede, Ambari REST API ile iletişim kurmak için kullanılır.
 
 Bash veya PowerShell kullanarak olmadığını sahip olmalısınız [jq](https://stedolan.github.io/jq/) yüklü. Jq JSON belgeleri ile çalışmak için bir yardımcı programdır. İçinde kullanılan **tüm** Bash örnekleri ve **bir** PowerShell örnekler.
 

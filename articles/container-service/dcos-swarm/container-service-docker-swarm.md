@@ -1,6 +1,6 @@
 ---
-title: Azure Swarm kümesi Docker API ile yönetme
-description: Azure kapsayıcı Hizmeti'nde bir Docker Swarm kümesine kapsayıcıları dağıtın
+title: (KULLANIM DIŞI) Azure Swarm kümesi Docker API'si ile yönetme
+description: Kapsayıcıları Azure Container Service'teki Docker Swarm kümesi dağıtma
 services: container-service
 author: rgardler
 manager: madhana
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 3f8d18bc053bc303ab124ba38c8621d4ee2e8cb8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 04cc9048271d653bd77fd7f2707c8f510ea8c29f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26331554"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997959"
 ---
-# <a name="container-management-with-docker-swarm"></a>Docker Swarm ile kapsayıcı yönetimi
+# <a name="deprecated-container-management-with-docker-swarm"></a>(KULLANIM DIŞI) Docker Swarm ile kapsayıcı Yönetimi
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Docker Swarm, havuza alınmış Docker ana bilgisayarları grubuna kapsayıcılı iş yükleri dağıtmak için bir ortam sağlar. Docker Swarm yerel Docker API’sini kullanır. Docker Swarm kapsayıcılarında iş akışının yönetilmesi tek kapsayıcılı ana bilgisayardakiyle neredeyse aynıdır. Bu belge Docker Swarm’ın Azure Kapsayıcı Hizmeti örneğine kapsayıcılı iş yüklerini dağıtmaya ilişkin basit örnekler sağlar. Docker Swarm hakkında daha fazla ayrıntılı belgeler için bkz. [Docker.com’da Docker Swarm ](https://docs.docker.com/swarm/).
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: e73c295c214728bf07b65ae4402c3b5abe21932f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9f237d9eed5b8500f0f80b8b73d638f374bf5ca9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165297"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999522"
 ---
 # <a name="working-with-azure-cosmos-account"></a>Azure Cosmos hesabıyla çalışma
 
@@ -38,7 +38,7 @@ Azure Cosmos DB kapsayıcısı ölçeklenebilirlik temel birimidir. Bir kapsayı
 * [Genel dağıtım](distribute-data-globally.md)
 * [Tutarlılık düzeyleri](consistency-levels.md)
 * [Azure Cosmos kapsayıcıları ve öğeleri ile çalışma](databases-containers-items.md)
-* [Sanal ağ hizmet uç noktası Azure Cosmos hesabınız için](firewall-support.md)
-* [Azure Cosmos hesabınız için IP Güvenlik Duvarı](vnet-service-endpoint.md)
+* [Sanal ağ hizmet uç noktası Azure Cosmos hesabınız için](vnet-service-endpoint.md)
+* [Azure Cosmos hesabınız için IP Güvenlik Duvarı](firewall-support.md)
 * [Nasıl yapılır, Azure Cosmos hesabınıza Azure bölgeleri ekleyip](how-to-manage-database-account.md)
 * [Azure Cosmos DB SLA'lar](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

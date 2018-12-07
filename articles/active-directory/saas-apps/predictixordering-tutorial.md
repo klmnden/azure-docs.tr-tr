@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 83a7f50120b5f34c4e4d74d8233fc51be9c0e579
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f805fde861413fe84f1ad15ade1ce2923a9531ce
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448389"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011741"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Öğretici: Azure Active Directory Predictix sıralama ile tümleştirme
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi Predictix sıralama ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Predictix sıralama çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de Predictix sipariş tümleştirmesini yapılandırmak için Predictix
 
 **Galeriden Predictix sıralama eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -113,6 +113,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve P
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname-pricing>.ordering.predictix.com/sso/request`
 
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: 
+    
     | |
     |--|
     | `https://<companyname-pricing>.dev.ordering.predictix.com` |

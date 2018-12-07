@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: zhiweiw
-ms.openlocfilehash: c077e8592157b5c09dd1bc99934afd9f687b1da1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8841a4d216160af4ed731570b40754307ffbb5a4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282535"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996057"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Tanılama ve yinelenen öznitelik eşitleme hatalarını Düzelt
 
@@ -28,7 +28,7 @@ Tanılama özelliği bu avantajlara sahiptir:
 - Bu, yinelenen öznitelik Eşitleme hataları daraltır tanılama bir yordam sağlar. Ve düzeltmeler sağlar.
 - Tek bir adımda hatayı gidermek için Azure AD'den bir düzeltme adanmış senaryoları için geçerlidir.
 - Yükseltme ya da yapılandırma, bu özelliği etkinleştirmek için gereklidir.
-Azure AD hakkında daha fazla bilgi için bkz. [kimlik eşitleme ve yinelenen öznitelik dayanıklılığı](https://aka.ms/dupattributeresdocs).
+Azure AD hakkında daha fazla bilgi için bkz. [kimlik eşitleme ve yinelenen öznitelik dayanıklılığı](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
 ## <a name="problems"></a>Sorunları
 ### <a name="a-common-scenario"></a>Yaygın bir senaryo

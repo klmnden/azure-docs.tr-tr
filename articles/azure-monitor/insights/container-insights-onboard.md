@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 4747c06ddb56a86c2efc7340043efdd019b86049
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 03fea6cf1276172893f18f1b09c8e3fdeec4ac4f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962918"
+ms.locfileid: "53001145"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers-preview"></a>Kapsayıcılar (Önizleme) için yerleşik Azure izleme 
 Bu makalede Kubernetes ortamlara dağıtılmış ve barındırılan iş yüklerinin performansını izlemek için Azure İzleyici'kapsayıcıları için kurma [Azure Kubernetes hizmeti](https://docs.microsoft.com/azure/aks/).
@@ -35,7 +35,7 @@ Bir izleme de etkinleştirebilirsiniz veya daha fazla mevcut AKS Azure portalın
 Başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
 
 - Log Analytics çalışma alanı. Yeni AKS kümesini izlemeyi etkinleştirin veya AKS kümesi aboneliğin varsayılan kaynak grubunda bir varsayılan çalışma alanı oluşturma ekleme deneyimi sağlar, oluşturabilirsiniz. Kendiniz oluşturmayı seçerseniz, üzerinden oluşturabilirsiniz [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)temellidir [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), veya [Azure portalında](../../azure-monitor/learn/quick-create-workspace.md).
-- Kapsayıcı izlemeyi etkinleştirmek için Log Analytics katkıda bulunan rolünün bir üyesi olursunuz. Log Analytics çalışma alanına erişimi denetleme hakkında daha fazla bilgi için bkz. [çalışma alanlarını yönetme](../../log-analytics/log-analytics-manage-access.md).
+- Kapsayıcı izlemeyi etkinleştirmek için Log Analytics katkıda bulunan rolünün bir üyesi olursunuz. Log Analytics çalışma alanına erişimi denetleme hakkında daha fazla bilgi için bkz. [çalışma alanlarını yönetme](../../azure-monitor/platform/manage-access.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 

@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2306c03480956a63859355428cbffe0706f43cbc
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 16fc7f1bb69efe94ce87f213627b78a4afa0fcc2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312483"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999226"
 ---
-# <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Sonrası yapılandırma görevleri için hibrit Azure AD'ye katılma
+# <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Hibrit Azure AD’ye katılmada yapılandırma sonrası görevler
 
 Kuruluşunuz için hibrit Azure AD'ye katılma yapılandırmak için Azure AD Connect çalıştırdıktan sonra kurulumu tamamlamak için tamamlamanız gereken bazı ek adımlar vardır.  Cihazlarınız için uygulanacak adımları uygulayın.
 
@@ -77,7 +77,7 @@ Windows alt düzey cihazları kaydetmek için Azure AD İlkesi cihazları kayded
 
 Azure AD cihaz kimlik doğrulama uç noktası cihazları doğrulanırken sertifika istemleri önlemek için Windows alt düzey cihazlarınızda yerel Intranet bölgeleri ekleyin: https://device.login.microsoftonline.com 
 
-Kullanıyorsanız [sorunsuz çoklu oturum açma](https://aka.ms/hybrid/sso), ayrıca bu bölgeye etkinleştir "durum çubuğu komut güncelleştirmelerine izin ver" ve aşağıdaki uç noktayı ekleyin: https://autologon.microsoftazuread-sso.com 
+Kullanıyorsanız [sorunsuz çoklu oturum açma](how-to-connect-sso.md), ayrıca bu bölgeye etkinleştir "durum çubuğu komut güncelleştirmelerine izin ver" ve aşağıdaki uç noktayı ekleyin: https://autologon.microsoftazuread-sso.com 
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Microsoft Workplace Join Windows alt düzey cihazlarda yükleyin
 

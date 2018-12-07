@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: afa9b57d9c0e2acf81b5307273ac038e92073655
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 75f615f63b0741899995c2728f93231d8e46734a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632303"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016189"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>REST kullanarak HDInsight üzerinde Apache Hadoop MapReduce işlerle çalışma
 
@@ -27,14 +27,14 @@ HDInsight kümesi üzerinde bir Apache Hadoop MapReduce işlerini çalıştırma
 ## <a id="prereq"></a>Önkoşullar
 
 * HDInsight kümesi üzerinde bir Hadoop
-* Windows PowerShell veya [Curl](http://curl.haxx.se/) ve [jq](http://stedolan.github.io/jq/)
+* Windows PowerShell veya [Curl](https://curl.haxx.se/) ve [jq](https://stedolan.github.io/jq/)
 
 ## <a id="curl"></a>Bir MapReduce işi çalıştırın
 
 > [!NOTE]
 > WebHCat ile Curl veya başka bir REST iletişimini kullanırken HDInsight küme yöneticisinin kullanıcı adı ve parolasını sağlayarak isteklerin kimliğini doğrulaması gerekir. Sunucuya istek göndermek için kullanılan URI'ın bir parçası olarak küme adını kullanmanız gerekir.
 >
-> REST API kullanılarak korunmaktadır [temel erişimi kimlik doğrulaması](http://en.wikipedia.org/wiki/Basic_access_authentication). Ayrıca, kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderildiğinden emin olmak için HTTPS kullanarak istekleri her zaman yapmanız gerekir.
+> REST API kullanılarak korunmaktadır [temel erişimi kimlik doğrulaması](https://en.wikipedia.org/wiki/Basic_access_authentication). Ayrıca, kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderildiğinden emin olmak için HTTPS kullanarak istekleri her zaman yapmanız gerekir.
 
 1. Bu belgedeki betikler tarafından kullanılan Küme oturum açma ayarlamak için followig komutlardan birini kullanın:
 

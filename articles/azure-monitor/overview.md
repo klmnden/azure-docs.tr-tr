@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: a3e0125a66c4b8bbda6e0b7087fe5e0e387d43e4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ccdee1963d3d37966f6784e7a7421c500d6a8a51
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847397"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994208"
 ---
 # <a name="azure-monitor-overview"></a>Azure İzleyiciye Genel Bakış
 
@@ -39,9 +39,9 @@ Birçok Azure kaynağı için kendi genel bakış sayfasında Azure portalında 
 
 ![Ölçümler](media/overview/metrics.png)
 
-Azure İzleyici tarafından toplanan günlük verilerini içeren Log Analytics'e depolanan bir [zengin sorgu dili](../azure-monitor/log-query/log-query-overview.md) hızlı bir şekilde almak, birleştirmek ve toplanan verileri çözümlemek için.  Oluşturma ve test sorguları kullanarak [Log Analytics sayfa](../log-analytics/log-analytics-log-search-portals.md) ile kullanılmak üzere sorguları kaydedebilir ya da doğrudan Azure portalını sonra da bu araçları kullanarak verileri analiz ederek [görselleştirmeler](visualizations.md) veya [ Uyarı kuralları](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+Azure İzleyici tarafından toplanan günlük verilerini içeren Log Analytics'e depolanan bir [zengin sorgu dili](../azure-monitor/log-query/log-query-overview.md) hızlı bir şekilde almak, birleştirmek ve toplanan verileri çözümlemek için.  Oluşturma ve test sorguları kullanarak [Log Analytics sayfa](../azure-monitor/log-query/portals.md) ile kullanılmak üzere sorguları kaydedebilir ya da doğrudan Azure portalını sonra da bu araçları kullanarak verileri analiz ederek [görselleştirmeler](visualizations.md) veya [ Uyarı kuralları](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
 
-Log Analytics sorgu dili basit günlük sorguları için uygundur, ancak ayrıca toplamalar, birleştirmeler ve akıllı analiz gibi gelişmiş işlevleri içerir. Sorgu dilini kullanarak hızla edinebilirsiniz [birden çok dersleri](../log-analytics/query-language/get-started-queries.md) kullanılabilir.  [SQL](../log-analytics/query-language/sql-cheatsheet.md) ve [Splunk](../log-analytics/query-language/splunk-cheatsheet.md)’u önceden bilen kullanıcılara belirli yönergeler sağlanır.
+Log Analytics sorgu dili basit günlük sorguları için uygundur, ancak ayrıca toplamalar, birleştirmeler ve akıllı analiz gibi gelişmiş işlevleri içerir. Sorgu dilini kullanarak hızla edinebilirsiniz [birden çok dersleri](../azure-monitor/log-query/get-started-queries.md) kullanılabilir.  [SQL](../azure-monitor/log-query/sql-cheatsheet.md) ve [Splunk](../azure-monitor/log-query/splunk-cheatsheet.md)’u önceden bilen kullanıcılara belirli yönergeler sağlanır.
 
 ![Günlükler](media/overview/logs.png)
 
@@ -61,7 +61,7 @@ Gerçek işlem kaynakları tarafından içine toplama verileri genişletmek [tan
 [Bir izleme paketi uygulamanıza eklemek](../application-insights/app-insights-azure-web-apps.md), sayfa görüntülemeleri, uygulama isteklerini ve özel durumlar dahil olmak üzere, uygulamanız hakkında ayrıntılı bilgi toplamak Application ınsights'ı etkinleştirmek için. Daha fazla yapılandırarak uygulamanızın kullanılabilirliğini doğrulayın bir [kullanılabilirlik testi](../application-insights/app-insights-monitor-web-app-availability.md) kullanıcı trafiğinin benzetimini yapmak için.
 
 ### <a name="custom-sources"></a>Özel kaynaklar
-Azure İzleyicisi'ni kullanarak herhangi bir REST istemcisinden günlük verilerini toplayabilir [veri toplayıcı API'sini](../log-analytics/log-analytics-data-collector-api.md). Bu, özel izleme senaryoları oluşturmanıza ve diğer kaynakları aracılığıyla telemetri sunmayın kaynaklara izleme genişletmek sağlar.
+Azure İzleyicisi'ni kullanarak herhangi bir REST istemcisinden günlük verilerini toplayabilir [veri toplayıcı API'sini](../azure-monitor/platform/data-collector-api.md). Bu, özel izleme senaryoları oluşturmanıza ve diğer kaynakları aracılığıyla telemetri sunmayın kaynaklara izleme genişletmek sağlar.
 
 
 
@@ -82,7 +82,7 @@ Kapsayıcılar için Azure İzleyici, yönetilen Azure Kubernetes Service (AKS) 
 Azure İzleyici VM içgörüler izler, Azure sanal makineleri (VM) uygun ölçekte Windows ve Linux Vm'leri, farklı işlemler ve diğer kaynakları ve dış işlemlere birbirine bağımlılıkları da dahil olmak üzere, sistem durumu ve performansı çözümleyerek. Uygulama bağımlılıkları VM'ler için şirket içi veya başka bir bulut sağlayıcısı barındırılan ve çözüm, performans izleme için destek içerir.  
 
 
-![VM öngörüleri](media/overview/vm-insights.png)
+![VM Insights](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>İzleme çözümleri
 [İzleme çözümleri](../azure-monitor/insights/solutions.md) Azure İzleyici'de belirli bir uygulama veya hizmet için Öngörüler sağlayan paketlenmiş mantık kümeleridir. Bunlar verileri Log Analytics'e kullanarak diğer izleme verilerinin yanı sıra toplama [sorguları](../azure-monitor/log-query/log-query-overview.md) analiz ve [görünümleri](../azure-monitor/platform/view-designer.md) görselleştirme için. İzleme çözümleri [Microsoft'tan kullanılabilir](../azure-monitor/insights/solutions-inventory.md) ve iş ortakları, çeşitli Azure Hizmetleri ve diğer uygulamalar için izleme sağlamak için.
@@ -119,7 +119,7 @@ Otomatik ölçeklendirme, uygulamanızın üzerindeki yükü işlemek için çal
 ![Log Analytics Görünümü](media/overview/view.png)
 
 ### <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com) çok çeşitli veri kaynakları üzerinde etkileşimli görselleştirmeler sağlayan bir İş analizi hizmetidir ve veri başkalarına kullanılabilir içinde ve kuruluşunuz dışındaki hale getirme etkili bir yoludur. Power BI için yapılandırabileceğiniz [günlük verilerini Azure İzleyici'den otomatik olarak içeri](../log-analytics/log-analytics-powerbi.md) bu ek görselleştirmeler yararlanmak için.
+[Power BI](https://powerbi.microsoft.com) çok çeşitli veri kaynakları üzerinde etkileşimli görselleştirmeler sağlayan bir İş analizi hizmetidir ve veri başkalarına kullanılabilir içinde ve kuruluşunuz dışındaki hale getirme etkili bir yoludur. Power BI için yapılandırabileceğiniz [günlük verilerini Azure İzleyici'den otomatik olarak içeri](../azure-monitor/platform/powerbi.md) bu ek görselleştirmeler yararlanmak için.
 
 
 ![Power BI](media/overview/power-bi.png)

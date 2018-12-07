@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 536ae926ad8f401f952a41e17074536cc2b3c5f1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0bae06d46c2c96ba9dd058e9c2d380379523811c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832046"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993939"
 ---
 # <a name="manage-analysis-services"></a>Analysis Services'ı yönetme
 Azure'da bir Analysis Services sunucusuna oluşturduktan sonra hemen veya süre yol gerçekleştirmeniz gereken bazı yönetim görevleri olabilir. Örneğin, kimlerin sunucunuzdaki modelleri erişmek veya sunucunuzun sistem durumunu izleyin, yenileme veri işleme çalıştırın. Bazı yönetim görevlerini yalnızca diğer SQL Server Management Studio (SSMS), Azure portalında gerçekleştirilebilir ve bazı görevler de gerçekleştirilebilir.
@@ -35,7 +35,7 @@ Azure Analysis Services sunucunuza bağlanma sırasında tüm yeni özelliklere 
 
 
 ### <a name="to-connect-with-ssms"></a>SSMS ile bağlanma
- SSMS, sunucunuza ilk kez bağlanmadan önce kullanırken, kullanıcı adınızı Analysis Services yöneticileri grubunda bulunduğundan emin olun. Daha fazla bilgi için bkz. [sunucu yöneticileri](#server-administrators) bu makalenin ilerleyen bölümlerinde.
+ SSMS, sunucunuza ilk kez bağlanmadan önce kullanırken, kullanıcı adınızı Analysis Services yöneticileri grubunda bulunduğundan emin olun. Daha fazla bilgi için bkz. [sunucu yöneticileri ve veritabanı kullanıcıları](#server-administrators-and-database-users) bu makalenin ilerleyen bölümlerinde.
 
 1. Bağlanmadan önce sunucu adını almanız gerekir. **Azure portalı** > sunucu > **Genel Bakış** > **Sunucu adı** menüsünde sunucu adını kopyalayın.
    

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: e502004db62713585d68cdda6f80b4e4024dde28
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1170266ed0b59c53adce4e44fe3e7a0bc62f394e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971224"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014871"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Güvenlik çerçevesi: Kimlik doğrulaması | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
@@ -245,7 +245,7 @@ ms.locfileid: "52971224"
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [Kimlik sunucusu dağıtımı - önbelleğe alma](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
-| **Adımları** | <p>Basit, yerleşik bir bellek içi önbelleği IdentityServer sahiptir. Bu küçük ölçekli yerel uygulamalar için iyi olsa da, aşağıdaki nedenlerden dolayı orta katman ve arka uç uygulamaları için ölçeklenmez:</p><ul><li>Bu uygulamalar, aynı anda birden çok kullanıcı tarafından erişilir. Aynı depodaki tüm erişim belirteçlerini kaydetme yalıtım sorunları oluşturur ve uygun ölçekte çalışırken zorluklar teşkil etmektedir: her uygulamanın kendi adınıza eriştiği kaynaklar gibi çok belirteç içeren fazla kullanıcı, çok büyük sayılar ve çok pahalı arama işlemleri gelebilir.</li><li>Bu uygulamalar genellikle birden çok düğümün aynı önbelleğe erişimi burada olmalıdır, dağıtılmış topolojileri dağıtılmaktadır</li><li>Önbelleğe alınan belirteçleri, işlem geri dönüştürülmeden ve deactivations varlığını sürdürmesini gerekir</li><li>Tüm yukarıdaki nedeniyle, web uygulamaları, uygulama çalışırken, varsayılan kimlik sunucunun belirteç önbelleğini Azure Redis önbelleği gibi ölçeklenebilir bir alternatif ile geçersiz kılmak için önerilir</li></ul>|
+| **Adımları** | <p>Basit, yerleşik bir bellek içi önbelleği IdentityServer sahiptir. Bu küçük ölçekli yerel uygulamalar için iyi olsa da, aşağıdaki nedenlerden dolayı orta katman ve arka uç uygulamaları için ölçeklenmez:</p><ul><li>Bu uygulamalar, aynı anda birden çok kullanıcı tarafından erişilir. Aynı depodaki tüm erişim belirteçlerini kaydetme yalıtım sorunları oluşturur ve uygun ölçekte çalışırken zorluklar teşkil etmektedir: her uygulamanın kendi adınıza eriştiği kaynaklar gibi çok belirteç içeren fazla kullanıcı, çok büyük sayılar ve çok pahalı arama işlemleri gelebilir.</li><li>Bu uygulamalar genellikle birden çok düğümün aynı önbelleğe erişimi burada olmalıdır, dağıtılmış topolojileri dağıtılmaktadır</li><li>Önbelleğe alınan belirteçleri, işlem geri dönüştürülmeden ve deactivations varlığını sürdürmesini gerekir</li><li>Tüm yukarıdaki nedeniyle, web uygulamaları, uygulama çalışırken, Redis için varsayılan kimlik sunucunun belirteç önbelleği gibi Azure Cache ölçeklenebilir bir alternatif ile geçersiz kılmak için önerilir</li></ul>|
 
 ## <a id="binaries-signed"></a>Dağıtılan uygulamanın ikili dosyaları dijital olarak imzalandığından emin olun
 
@@ -361,7 +361,7 @@ MSMQ her zaman Windows etki alanı veya sertifika kimlik doğrulaması için gel
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [Web uygulamaları için Azure Active Directory ile modern kimlik doğrulaması](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/), [ADAL belirteç önbelleği olarak Redis kullanma](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
-| **Adımları** | <p>ADAL (Active Directory Authentication Library) kullanan mevcut işlem genelinde bir statik depolama kullanan bir bellek içi önbellek varsayılan önbellek. Bu yerel uygulamalar için çalışırken, aşağıdaki nedenlerden dolayı orta katman ve arka uç uygulamaları için ölçeklenmez:</p><ul><li>Bu uygulamalar, aynı anda birden çok kullanıcı tarafından erişilir. Aynı depodaki tüm erişim belirteçlerini kaydetme yalıtım sorunları oluşturur ve uygun ölçekte çalışırken zorluklar teşkil etmektedir: her uygulamanın kendi adınıza eriştiği kaynaklar gibi çok belirteç içeren fazla kullanıcı, çok büyük sayılar ve çok pahalı arama işlemleri gelebilir.</li><li>Bu uygulamalar genellikle birden çok düğümün aynı önbelleğe erişimi burada olmalıdır, dağıtılmış topolojileri dağıtılmaktadır</li><li>Önbelleğe alınan belirteçleri, işlem geri dönüştürülmeden ve deactivations varlığını sürdürmesini gerekir</li></ul><p>Tüm yukarıdaki nedeniyle, web uygulamaları, uygulama çalışırken, varsayılan ADAL belirteç önbelleğini Azure Redis önbelleği gibi ölçeklenebilir bir alternatif ile geçersiz kılmak için önerilir.</p>|
+| **Adımları** | <p>ADAL (Active Directory Authentication Library) kullanan mevcut işlem genelinde bir statik depolama kullanan bir bellek içi önbellek varsayılan önbellek. Bu yerel uygulamalar için çalışırken, aşağıdaki nedenlerden dolayı orta katman ve arka uç uygulamaları için ölçeklenmez:</p><ul><li>Bu uygulamalar, aynı anda birden çok kullanıcı tarafından erişilir. Aynı depodaki tüm erişim belirteçlerini kaydetme yalıtım sorunları oluşturur ve uygun ölçekte çalışırken zorluklar teşkil etmektedir: her uygulamanın kendi adınıza eriştiği kaynaklar gibi çok belirteç içeren fazla kullanıcı, çok büyük sayılar ve çok pahalı arama işlemleri gelebilir.</li><li>Bu uygulamalar genellikle birden çok düğümün aynı önbelleğe erişimi burada olmalıdır, dağıtılmış topolojileri dağıtılmaktadır</li><li>Önbelleğe alınan belirteçleri, işlem geri dönüştürülmeden ve deactivations varlığını sürdürmesini gerekir</li></ul><p>Tüm yukarıdaki nedeniyle, web uygulamaları, uygulama çalışırken, Redis için varsayılan ADAL belirteç önbelleğini Azure önbellek gibi ölçeklenebilir bir alternatif ile geçersiz kılmak için önerilir.</p>|
 
 ## <a id="tokenreplaycache-adal"></a>TokenReplayCache yeniden yürütme ADAL kimlik doğrulaması belirteçlerinin önlemek için kullanıldığından emin olun
 

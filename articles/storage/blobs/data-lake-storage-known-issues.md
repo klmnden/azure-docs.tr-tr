@@ -6,14 +6,14 @@ author: normesta
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 12/05/2018
 ms.author: normesta
-ms.openlocfilehash: 83e9dfbe18dd79e8547e6b48daef39a5aed2cced
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 29fe100821e5ad2d9d5d340a1178c19c60c6d821
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975287"
+ms.locfileid: "52995441"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2 ile'ilgili bilinen sorunlar
 
@@ -35,7 +35,9 @@ Yönetilmeyen sanal makine (VM) disk üzerinde bu API'leri bağlıdır, hiyerar�
 
 ## <a name="azure-storage-explorer"></a>Azure Depolama Gezgini
 
-Depolama Gezgini'nde bazı özellikler henüz Azure Data Lake depolama Gen2'ye dosya sistemleri ile çalışmaz. Bu kısıtlamalar için her ikisinin de geçerli [tek başına sürüm](https://azure.microsoft.com/features/storage-explorer/) Azure Depolama Gezgini ek olarak, Azure portalında görünen sürüm.
+Azure Depolama Gezgini'ni kullanarak Data Lake depolama Gen2 hesapları yönetmek veya görüntülemek için en az olmalıdır sürüm `1.6.0` olarak kullanılabilir olan Aracı'nın bir [ücretsiz](https://azure.microsoft.com/features/storage-explorer/).
+
+Depolama Gezgini, Azure Portalı'na katıştırılmış sürümü şu anda mu Not görüntüleme veya etkin hiyerarşik ad alanları ile Data Lake depolama Gen2 hesaplarını yönetme desteği.
 
 ## <a name="blob-viewing-tool"></a>BLOB görüntüleme aracı
 
@@ -57,21 +59,9 @@ Bunun yerine, en güncel AzCopy önizleme sürümünü kullanın ( [AzCopy v10](
 
 Azure Databricks, HDInsight ve Azure Data Factory gibi hizmetleri, henüz Azure Active Directory (Azure AD) OAuth taşıyıcı belirteci kimlik doğrulaması ile tümleştirme yoktur.
 
-## <a name="access-control-lists-acl"></a>Erişim denetim listeleri (ACL)
-
-Dizin ve dosya düzeyinde erişim denetim listeleri (ACL) yönetmek zordur. Almak ve bu erişim denetim listeleri ayarlamak için kullanabileceğiniz UI tabanlı aracı yoktur.
-
 ## <a name="azure-event-grid"></a>Azure Event Grid
 
 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) hesaplar bunları henüz üretme çünkü olayları Azure Data Lake Gen2 hesaplarından almaz.  
-
-## <a name="role-based-access-control"></a>Rol tabanlı erişim denetimi
-
-Rol tabanlı erişim denetimi, bir Azure Data Lake depolama Gen2 hesaptaki dosya sistemi nesnelere uygulayamazsınız.
-
-## <a name="sql-data-warehouse-polybase"></a>SQL veri ambarı PolyBase
-
-Bir Azure depolama hesabı, SQL veri ambarı depolama güvenlik duvarlarını etkinleştirildiğinde [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017) hesaplar erişemez.
 
 ## <a name="soft-delete-and-snapshots"></a>Geçici silme ve anlık görüntüleri
 

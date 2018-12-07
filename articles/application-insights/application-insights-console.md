@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 08/28/2018
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: c8f2677e91eb1c3d2ac670a51793f319e82d61fe
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f2f237d250a6b6e2a0f6ed2e62540968d9fcc7eb
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52719938"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997963"
 ---
 # <a name="application-insights-for-net-console-applications"></a>.NET için Application Insights konsol uygulamaları
 [Application Insights](app-insights-overview.md) web uygulamanızın kullanılabilirliğini, performansını ve kullanımını izlemenize olanak tanır.
 
-Bir aboneliğe ihtiyacınız [Microsoft Azure](http://azure.com). Windows, Xbox Live veya diğer Microsoft bulut Hizmetleri için olabilir bir Microsoft hesabıyla oturum açın. Takımınızın kurumsal bir Azure aboneliğine sahip olabilir: sahibinden Microsoft hesabınızı kullanarak eklemeli isteyin.
+Bir aboneliğe ihtiyacınız [Microsoft Azure](https://azure.com). Windows, Xbox Live veya diğer Microsoft bulut Hizmetleri için olabilir bir Microsoft hesabıyla oturum açın. Takımınızın kurumsal bir Azure aboneliğine sahip olabilir: sahibinden Microsoft hesabınızı kullanarak eklemeli isteyin.
 
 ## <a name="getting-started"></a>Başlarken
 
@@ -124,7 +124,7 @@ TelemetryConfiguration.Active.TelemetryInitializers.Add(new OperationCorrelation
 TelemetryConfiguration.Active.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-* .NET Framework Windows uygulaması için de yükleyebilir ve performans sayacı Toplayıcı modülü açıklandığı Başlat [burada](http://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+* .NET Framework Windows uygulaması için de yükleyebilir ve performans sayacı Toplayıcı modülü açıklandığı Başlat [burada](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
 
 #### <a name="full-example"></a>Tam örnek
 

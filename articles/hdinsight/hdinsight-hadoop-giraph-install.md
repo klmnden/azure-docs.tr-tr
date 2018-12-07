@@ -9,27 +9,27 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6138cc337c35924405fa3f6489e7e40bfc5779c9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 89d1859b521fff8ca8d3e8c7342bcb5a4b8d59fe
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007017"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012989"
 ---
-# <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>Yükleme ve Windows tabanlı HDInsight kümelerinde Giraph kullanma
+# <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>Yükleme ve Windows tabanlı HDInsight kümeleri üzerinde Apache giraph'ı kullanma
 
-Betik eylemi kullanarak Giraph ile Windows tabanlı HDInsight kümesi özelleştirme ve büyük ölçekli grafikleri işlemek için giraph'ı kullanmayı öğrenin. Linux tabanlı küme ile Giraph'ı kullanma hakkında daha fazla bilgi için bkz. [(Linux) HDInsight Hadoop kümelerinde Giraph yükleme](hdinsight-hadoop-giraph-install-linux.md).
+Windows tabanlı HDInsight kümesi Apache Giraph ile betik eylemi kullanarak özelleştirme ve büyük ölçekli grafikleri işlemek için giraph'ı kullanmayı öğrenin. Linux tabanlı küme ile Giraph'ı kullanma hakkında daha fazla bilgi için bkz. [(Linux) HDInsight Hadoop kümeleri üzerinde Apache Giraph'ı yükleme](hdinsight-hadoop-giraph-install-linux.md).
 
 > [!IMPORTANT]
-> Bu belgede yer alan adımlar, yalnızca Windows tabanlı HDInsight kümeleri ile çalışır. HDInsight yalnızca Windows üzerinde HDInsight 3.4 ' düşük sürümleri için kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Bir Linux tabanlı HDInsight kümesi üzerinde Giraph yükleme hakkında daha fazla bilgi için bkz: [(Linux) HDInsight Hadoop kümelerinde Giraph yükleme](hdinsight-hadoop-giraph-install-linux.md).
+> Bu belgede yer alan adımlar, yalnızca Windows tabanlı HDInsight kümeleri ile çalışır. HDInsight yalnızca Windows üzerinde HDInsight 3.4 ' düşük sürümleri için kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Bir Linux tabanlı HDInsight kümesi üzerinde Giraph yükleme hakkında daha fazla bilgi için bkz: [(Linux) HDInsight Hadoop kümeleri üzerinde Apache Giraph'ı yükleme](hdinsight-hadoop-giraph-install-linux.md).
 
 
 Kullanarak Azure HDInsight (Hadoop, Storm, HBase, Spark) kümesinde herhangi bir türde üzerinde Giraph yükleyebilirsiniz *betik eylemi*. Bir HDInsight kümesi üzerinde Giraph'ı yüklemek için örnek betik salt okunur bir Azure depolama blob'nden kullanılabilir [ https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). Örnek betik yalnızca HDInsight kümesi sürüm ile 3.1 çalışır. HDInsight küme sürümleri hakkında daha fazla bilgi için bkz. [HDInsight küme sürümleri](hdinsight-component-versioning.md).
 
 **İlgili makaleler**
 
-* [(Linux) HDInsight Hadoop kümelerinde Giraph yükleme](hdinsight-hadoop-giraph-install-linux.md)
-* [HDInsight Hadoop kümeleri oluşturma](hdinsight-provision-clusters.md): HDInsight kümeleri oluşturma hakkında genel bilgi.
+* [(Linux) HDInsight Hadoop kümeleri üzerinde Apache giraph'ı yükleme](hdinsight-hadoop-giraph-install-linux.md)
+* [HDInsight Apache Hadoop kümeleri oluşturma](hdinsight-provision-clusters.md): HDInsight kümeleri oluşturma hakkında genel bilgi.
 * [Betik eylemi kullanarak HDInsight kümesi özelleştirme][hdinsight-cluster-customize]: HDInsight kümelerini betik eylemi kullanarak özelleştirme hakkında genel bilgiler.
 * [HDInsight için betik eylemi betikleri geliştirme](hdinsight-hadoop-script-actions.md).
 
@@ -71,7 +71,7 @@ Temel göstermek için SimpleShortestPathsComputation örnek kullanıyoruz <a hr
         [3,0,[[0,3],[1,1],[4,4]]]
         [4,0,[[3,4],[2,4]]]
 
-    Birincil depolama, HDInsight kümeniz tiny_graph.txt dosyasını yükleyin. Karşıya veri yükleme konusunda yönergeler için bkz. [HDInsight Hadoop işleri için verileri karşıya yükleme](hdinsight-upload-data.md).
+    Birincil depolama, HDInsight kümeniz tiny_graph.txt dosyasını yükleyin. Karşıya veri yükleme konusunda yönergeler için bkz. [HDInsight Apache Hadoop işleri için verileri karşıya yükleme](hdinsight-upload-data.md).
 
     Bu veri biçimi kullanarak bir yönlü graf nesneler arasındaki ilişkiyi tanımlayan [kaynak\_kimliği, kaynak\_değeri, [[dest\_kimliği], [edge\_değeri],...]]. Her satırı arasında bir ilişki temsil eden bir **kaynak\_kimliği** nesnesi ve bir veya daha fazla **dest\_kimliği** nesneleri. **Edge\_değer** (veya ağırlığı), güçlü veya arasındaki bağlantının uzaklık olarak düşünülebilir **source_id** ve **dest\_kimliği**.
 
@@ -154,21 +154,21 @@ Temel göstermek için SimpleShortestPathsComputation örnek kullanıyoruz <a hr
     ![Nesneler arasında çizilmiş kısa yolları daireler olarak çizme](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
 ## <a name="install-giraph-using-aure-powershell"></a>Azure PowerShell kullanarak Giraph yükleme
-Bkz: [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Örnek Azure PowerShell kullanarak Spark'ı yüklemek nasıl gösterir. Kullanılacak betiği dosyasını özelleştirmeniz gerektiğini [ https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
+Bkz: [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Örnek Azure PowerShell kullanarak Apache Spark'ı yüklemek nasıl gösterir. Kullanılacak betiği dosyasını özelleştirmeniz gerektiğini [ https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
 ## <a name="install-giraph-using-net-sdk"></a>.NET SDK kullanarak Giraph yükleme
 Bkz: [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Örnek .NET SDK kullanarak Spark'ı yüklemek nasıl gösterir. Kullanılacak betiği dosyasını özelleştirmeniz gerektiğini [ https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [(Linux) HDInsight Hadoop kümelerinde Giraph yükleme](hdinsight-hadoop-giraph-install-linux.md)
-* [HDInsight Hadoop kümeleri oluşturma](hdinsight-provision-clusters.md): HDInsight kümeleri oluşturma hakkında genel bilgi.
+* [(Linux) HDInsight Hadoop kümeleri üzerinde Apache giraph'ı yükleme](hdinsight-hadoop-giraph-install-linux.md)
+* [HDInsight Apache Hadoop kümeleri oluşturma](hdinsight-provision-clusters.md): HDInsight kümeleri oluşturma hakkında genel bilgi.
 * [Betik eylemi kullanarak HDInsight kümesi özelleştirme][hdinsight-cluster-customize]: HDInsight kümelerini betik eylemi kullanarak özelleştirme hakkında genel bilgiler.
 * [HDInsight için betik eylemi betikleri geliştirme](hdinsight-hadoop-script-actions.md).
-* [Yükleme ve HDInsight kümelerine Spark kullanma][hdinsight-install-spark]: Spark'ı yükleme hakkında daha fazla örnek betik eylemi.
-* [HDInsight kümelerinde Solr yükleme](hdinsight-hadoop-solr-install.md): Solr yükleme hakkında daha fazla örnek betik eylemi.
+* [Yükleme ve Apache Spark HDInsight kümelerinde kullanma][hdinsight-install-spark]: Spark'ı yükleme hakkında daha fazla örnek betik eylemi.
+* [HDInsight kümeleri üzerinde Apache Solr yükleme](hdinsight-hadoop-solr-install.md): Solr yükleme hakkında daha fazla örnek betik eylemi.
 
 [tools]: https://github.com/Blackmist/hdinsight-tools
-[aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[aps]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md

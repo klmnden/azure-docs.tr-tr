@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: f9a77c1f3fbce295a40db366619d7485d44efc4f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 4cd88490118343a9a00dbd919d7820f0334df92e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162725"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016155"
 ---
 # <a name="manage-your-security-info-preview"></a>Güvenlik bilgilerinizi (Önizleme) yönetme
 
@@ -67,7 +67,7 @@ Cihazınızı kaybeder veya Cihazınızı güvenliği tehlikeye girdiğinde, tü
 
 3. İçinde **hesabını yönetme** alanında **unutursanız MFA hatırlanan cihazlarda**.
     
-    Oturum açtıktan sonra multi-Factor Authentication işleminde yeniden gitmek zorunda kalırsınız bu seçeneğin belirlenmesiyle.
+    Oturum açtıktan sonra multi-Factor Authentication (MFA) işlemini yeniden başlatmak zorunda kalırsınız bu seçeneğin belirlenmesiyle.
 
     ![Profil ekranı Unut bağlantısının vurgulandığı ile](media/security-info/security-info-forget.png)
 
@@ -77,7 +77,7 @@ Bu makalede, iki aşamalı doğrulama ile ilgili sorunlar da dahil olmak üzere 
 
 |Sorun|Çözüm|
 |-------|--------|
-|Ben telefonumu benimle yok|Oturum açmak için iş veya Okul hesabına onun olası yoksa, telefonunuzun yanınızda her zaman, ancak siz devam istersiniz. Bu sorunu gidermek için e-posta adresinizi veya iş telefonu numaranızı gibi telefonunuzu gerektirmeyen farklı kimlik doğrulama yöntemi kullanarak oturum açabilirsiniz. Güvenlik bilgilerinize ek yöntemleri eklemek için adımları izleyebilirsiniz [bilgilerinizi değiştirmek](#change-your-info) bölümü.|
+|Ben telefonumu benimle yok|Oturum açmak için iş veya Okul hesabına onun olası yoksa, telefonunuzun yanınızda her zaman, ancak siz devam istersiniz. Bu sorunu gidermek için office telefon numaranız gibi telefonunuzu gerektirmeyen farklı kimlik doğrulama yöntemi kullanarak oturum açabilirsiniz. Güvenlik bilgilerinize ek yöntemleri eklemek için adımları izleyebilirsiniz [bilgilerinizi değiştirmek](#change-your-info) bölümü.|
 |Ben telefonumu kaybolur veya çalınırsa|Ne yazık ki, telefonunuzu veya çalınmasını kaybı oluşabilir. Bu durumda, kuruluşunuzun BT ekibiniz, uygulama parolalarını sıfırlayabilir ve tüm güvenilen cihazları listenizden cihazları temizleyin anımsanacak bilmek istiyorum önemle tavsiye edilir. İçindeki adımları izleyerek kendi güvenilen cihazları unutur [kayıp veya riskli olabilecek bir cihaz için güvenlik bilgilerinizi yönetmek](#manage-your-security-info-for-a-lost-or-potentially-compromised-device) bölümü.|
 |Yeni bir telefon numarası aldım|Bu sorunu çözmek için iki yolu vardır. Telefon numarası, e-posta gibi gerektirmeyen bir alternatif kimlik doğrulama yöntemi kullanarak oturum açın veya bu bir seçenek değilse, kuruluşunuzun başvurabilirsiniz BT personeli kullanıcının ve bunları ayarlarınızı temizleyin. Güvenlik bilgilerinize ek yöntemleri eklemek için adımları izleyebilirsiniz [bilgilerinizi değiştirmek](#change-your-info) bölümü.|
 |Varsayılan yöntemimi yanlış|Varsayılan yönteminizi güvenlik seçeneklerinizi güncelleştirebilirsiniz. Belirli Ayrıntılar için giderek [bilgilerinizi değiştirmek](#change-your-info) bölümü.|

@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 492087f7eeca8628ac6ac9a9e42f355a9356f1ce
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 54741bd2d76a7ba414613a40e07c47be703aa033
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584715"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994398"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Azure HDInsight - veri geçişi en iyi uygulamaları şirket içi Apache Hadoop kümelerini geçirme
 
 Bu makalede, Azure HDInsight için veri geçiş için öneriler sunar. Geçirme şirket içi Apache Hadoop sistemler ile Azure HDInsight için yardımcı olması için en iyi yöntemler sağlayan bir dizi gereksinimlerimizim bir parçasıdır.
 
-## <a name="migrate-data-from-on-premises-to-azure"></a>Verileri şirket içinden Azure'a geçirme
+## <a name="migrate-on-premises-data-to-azure"></a>Şirket içi verileri Azure'a geçirme
 
 Verileri şirket içinden Azure ortamına geçirmek için iki ana seçeneğiniz vardır:
 
@@ -49,7 +49,7 @@ Aşağıdaki tabloda veri birimi ve ağ bant genişliğine göre yaklaşık veri
 
 Araçlar azure'a DistCp ve Azure Data Factory AzureCp, gibi yerel ağ üzerinden veri aktarmak için kullanılabilir. Üçüncü taraf aracı WANDisco, aynı amaçla da kullanılabilir. Kafka Mirrormaker ve Sqoop için Azure depolama sistemleri şirket içi devam eden veri aktarımı için kullanılabilir.
 
-## <a name="performance-considerations-when-using-apache-distcp"></a>Apache DistCp kullanırken performans konuları
+## <a name="performance-considerations-with-apache-distcp"></a>Apache DistCp ile performans konuları
 
 DistCp bir harita MapReduce işi veri aktarımı, hataları işleme ve bu hatalardan kurtarmak için kullandığı bir Apache projesidir. Kaynak dosyaların listesini her eşleme göreve atar. Harita görev sonra tüm atanan dosyaları hedefe kopyalar. Var olan çeşitli teknikler DistCp performansını geliştirebilir.
 
@@ -92,14 +92,14 @@ Hive meta veri deposu, komut dosyalarını kullanarak veya veritabanı çoğaltm
 
 #### <a name="hive-metastore-migration-using-scripts"></a>Hive meta veri deposu geçiş betiklerini kullanma
 
-1. Hive DDLs şirket içi Hive meta veri deposu oluşturur. Bu adım yapılabilir [sarmalayıcı bash betiğini] kullanarak. (https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)
-1. HDFS url ADLS/WASB/ABFS URL'leri ile değiştirme için oluşturulan DDL Düzenle
-1. Güncelleştirilmiş DDL meta veri deposu HDInsight kümesinden çalıştırın.
-1. Hive meta veri deposu sürümü şirket içi ile bulut arasında uyumlu olduğundan emin olun
+1. Hive DDLs şirket içi Hive meta veri deposu oluşturur. Bu adım yapılabilir kullanarak bir [sarmalayıcı bash betiğini](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
+1. HDFS url ADLS/WASB/ABFS URL'leri ile değiştirme için oluşturulan DDL düzenleyin.
+1. Güncelleştirilmiş DDL HDInsight küme meta veri deposu üzerinde çalıştırın.
+1. Hive meta veri deposu sürümü şirket içi ile bulut arasında uyumlu olduğundan emin olun.
 
 #### <a name="hive-metastore-migration-using-db-replication"></a>Hive meta veri deposu geçiş DB çoğaltma kullanma
 
-- Şirket içi Hive meta veri deposu DB ve HDInsight DB meta veri deposu arasında veritabanı çoğaltma işlemini ayarlama
+- Veritabanı çoğaltma, şirket içi Hive meta veri deposu DB ve HDInsight DB meta veri deposu arasında ayarlayın.
 - "Hive MetaTool" HDFS URL'si, örneğin ADLS/WASB/ABFS URL'ler ile değiştirmek için kullanın:
 
 ```bash

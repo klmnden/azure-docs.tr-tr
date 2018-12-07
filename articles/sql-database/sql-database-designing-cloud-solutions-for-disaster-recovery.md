@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 07/26/2018
-ms.openlocfilehash: 8522fea10a4ec8f85d20e5a9ec04712c77bb6b94
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 3c5c4d24d68fffc86a654e0dee5e2d3f36f15aea
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064280"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000473"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Azure SQL veritabanı ile küresel olarak kullanılabilir hizmetler tasarlama
 
@@ -34,7 +34,7 @@ Bu senaryoda, uygulamalar, aşağıdaki özelliklere sahiptir:
 *   Web Katmanı ve veri katmanı gecikme süresi ve trafiği maliyetini azaltmak için birlikte bulunan gerekir 
 *   Temelde, kapalı kalma süresi daha yüksek iş uygulamalar için daha veri kaybı risktir
 
-Bu durumda, uygulama dağıtım topolojisi, tüm uygulama bileşenleri için yük devretme birlikte gerektiğinde bölgesel felaketler işlemek için optimize edilmiştir. Aşağıdaki diyagramda, bu topoloji gösterilmektedir. A ve b bölgesine dağıtılan coğrafi yedeklilik için uygulama kaynakları Ancak, bölge bir çalışana kadar bölge B kaynakları kullanılmaz. Bir yük devretme grubu, veritabanı bağlantısı, çoğaltma ve yük devretme yönetmek için iki bölgeleri arasında yapılandırılır. Her iki bölgede de web hizmeti veritabanı okuma / yazma dinleyici aracılığıyla erişmek için yapılandırılmış  **&lt;yük devretme grubu adı&gt;. database.windows.net** (1). Traffic manager kullanmak üzere ayarlandı [öncelikli yönlendirme yöntemini](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
+Bu durumda, uygulama dağıtım topolojisi, tüm uygulama bileşenleri için yük devretme birlikte gerektiğinde bölgesel felaketler işlemek için optimize edilmiştir. Aşağıdaki diyagramda, bu topoloji gösterilmektedir. A ve b bölgesine dağıtılan coğrafi yedeklilik için uygulama kaynakları Ancak, bölge bir çalışana kadar bölge B kaynakları kullanılmaz. Bir yük devretme grubu, veritabanı bağlantısı, çoğaltma ve yük devretme yönetmek için iki bölgeleri arasında yapılandırılır. Her iki bölgede de web hizmeti veritabanı okuma / yazma dinleyici aracılığıyla erişmek için yapılandırılmış  **&lt;yük devretme grubu adı&gt;. database.windows.net** (1). Traffic manager kullanmak üzere ayarlandı [öncelikli yönlendirme yöntemini](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
 
 > [!NOTE]
 > [Azure traffic manager](../traffic-manager/traffic-manager-overview.md) Bu makale boyunca yalnızca gösterim amacıyla kullanılır. Öncelikli yönlendirme yöntemini destekleyen hiçbir yük dengeleme çözümü kullanabilirsiniz.    
@@ -47,7 +47,7 @@ Bu yapılandırma kesinti önce aşağıdaki diyagramda gösterilmiştir:
 Birincil bölgede kesinti sonrasında, SQL veritabanı hizmeti, birincil veritabanı erişilebilir değil ve otomatik yük devretme İlkesi (1) parametreleri temel alarak ikincil bölgeye yük devretmeyi tetikler algılar. Uygulama SLA bağlı olarak, kesinti algılama ve yük devretme kendisini arasındaki süreyi denetleyen bir yetkisiz kullanım süresi yapılandırabilirsiniz. Yük devretme grubuna veritabanının yük devretmeyi tetiklemeden önce traffic manager uç nokta yük devretme başlatır mümkündür. Bu durumda web uygulaması için veritabanını hemen yeniden bağlanamaz. Ancak veritabanı yük devretme tamamlandıktan hemen sonra tutarsızlıklara otomatik olarak başarılı olur. Başarısız bölge, geri yüklenen ve tekrar çevrimiçi olduğunda, eski birincil yeni bir ikincil otomatik olarak yeniden bağlanır. Aşağıdaki diyagramda, yük devretme işleminden sonra yapılandırmayı gösterir.
  
 > [!NOTE]
-> Yük devretme işleminden sonra kaydedilen tüm işlem yeniden bağlanma sırasında kaybolur. Yük devretme tamamlandıktan sonra B bölgede yeniden ve kullanıcı isteklerini işleme yeniden uygulamasıdır. Hem web uygulaması hem de birincil veritabanı artık B bölgenizdedir ve birlikte bulunan kalır. n >
+> Yük devretme işleminden sonra kaydedilen tüm işlem yeniden bağlanma sırasında kaybolur. Yük devretme tamamlandıktan sonra B bölgede yeniden ve kullanıcı isteklerini işleme yeniden uygulamasıdır. Hem web uygulaması hem de birincil veritabanı artık B bölgenizdedir ve birlikte bulunan kalır. 
 
 ![Senaryo 1. Yük devretmeden sonra yapılandırma](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
 
@@ -135,7 +135,7 @@ Kuzey Avrupa'da bir kesinti olur, örneğin, otomatik veritabanı yük devretme 
 ![Senaryo 3. Kuzey Avrupa bölgesinde kesinti.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
 
 > [!NOTE]
-> Avrupa son kullanıcı deneyimi uzun gecikme süresinden ne zaman düşürülmüş süreyi kısaltabilirsiniz. Bunu yapmak için proaktif olarak uygulama kopyalama dağıtma ve Kuzey Avrupa'da çevrimdışı Uygulama örneğinin yerine başka bir yerel bölgede (Batı Avrupa) ikincil veritabanları oluşturun. İkinci tekrar çevrimiçi olduğunda, Batı Avrupa kullanmaya devam etmek için veya uygulamayı kopyasını kaldırın ve Kuzey Avrupa kullanmaya geçmek karar verebilir,
+> Avrupa son kullanıcı deneyimi uzun gecikme süresinden ne zaman düşürülmüş süreyi kısaltabilirsiniz. Bunu yapmak için proaktif olarak uygulama kopyalama dağıtma ve Kuzey Avrupa'da çevrimdışı Uygulama örneğinin yerine başka bir yerel bölgede (Batı Avrupa) ikincil veritabanları oluşturun. İkinci tekrar çevrimiçi olduğunda, Batı Avrupa kullanmaya devam etmek için veya uygulamayı kopyasını kaldırın ve Kuzey Avrupa kullanmaya geçmek karar verebilirsiniz.
 >
 
 Anahtar **avantajları** bu tasarımı şunlardır:

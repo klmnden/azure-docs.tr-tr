@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service ve Swarm ile CI/CD
+title: (KULLANIM DIŞI) Azure Container Service ve Swarm ile CI/CD
 description: Azure Container Service Docker Swarm, bir Azure Container Registry ve Azure DevOps ile sürekli .NET Core çok kapsayıcılı bir uygulama sunmak için kullanın
 services: container-service
 author: jcorioland
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 3b91c269104e740add1d3a5b8ecaee93ca269188
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: db0a16fa44dd23cbc32159889fe8b8ec28c77a5f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302835"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992555"
 ---
-# <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>Azure DevOps Hizmetleri'ni kullanarak Docker Swarm ile Azure Container Service üzerinde çok kapsayıcılı bir uygulama dağıtmak için tam CI/CD işlem hattı
+# <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(KULLANIM DIŞI) Azure DevOps Hizmetleri'ni kullanarak Docker Swarm ile Azure Container Service üzerinde çok kapsayıcılı bir uygulama dağıtmak için tam CI/CD işlem hattı
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Modern bulut uygulamaları geliştirirken en büyük zorluklardan biri bu uygulamaları sürekli teslim çağrılabilmesidir. Bu makalede, bir tam bir sürekli tümleştirme ve dağıtım (CI/CD) işlem hattı Azure Container Service ile Docker Swarm, Azure Container Registry ve Azure işlem hatları yönetimini kullanarak uygulama öğrenin.
 

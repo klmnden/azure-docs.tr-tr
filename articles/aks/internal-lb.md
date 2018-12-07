@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 042d2ee0f615ce5216fc11152f0f65518ff9bd5c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 5fe1739fa341a5e3bd2f4d26ef1e94d725b74a61
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376388"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001231"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) ile iç yük dengeleyici kullanın
 
 Azure Kubernetes Service (AKS) ve uygulamalarınıza erişimi kısıtlamak için oluşturabilir ve iç yük dengeleyici kullanın. İç yük dengeleyici, bir Kubernetes hizmeti yalnızca Kubernetes kümesi aynı sanal ağda çalışan uygulamalar için erişilebilir hale getirir. Bu makalede oluşturma ve Azure Kubernetes Service (AKS) ile iç yük dengeleyici kullanma gösterilmektedir.
 
 > [!NOTE]
-> Azure Load Balancer iki SKU ile - kullanılabilir *temel* ve *standart*. Daha fazla bilgi için [Azure yük dengeleyici SKU karşılaştırma][azure-lb-comparison]. AKS tarafından desteklenen *temel* SKU. Kullanmak istiyorsanız *standart* SKU, kullanabileceğiniz Yukarı Akış [acs-engine][acs-engine].
+> Azure Load Balancer iki SKU ile - kullanılabilir *temel* ve *standart*. Daha fazla bilgi için [Azure yük dengeleyici SKU karşılaştırma][azure-lb-comparison]. AKS tarafından desteklenen *temel* SKU. Kullanmak istiyorsanız *standart* SKU, kullanabileceğiniz Yukarı Akış [aks altyapısı][aks-engine].
 
 ## <a name="create-an-internal-load-balancer"></a>İç yük dengeleyici oluşturma
 
@@ -128,7 +128,7 @@ Kubernetes hizmetleri hakkında daha fazla bilgi [Kubernetes Hizmetleri belgeler
 
 <!-- LINKS - External -->
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-advanced-networking.md

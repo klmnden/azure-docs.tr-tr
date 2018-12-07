@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-ms.openlocfilehash: 36516030741678ec66b4211f49ede35cfdb98605
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 531b431a0753e34592e88211d8a58328fe8a4e45
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706458"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014557"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -236,7 +236,7 @@ Genellikle, kümenizin aracı düğümleri yeniden başlatılıyor, bu sorunu ç
 ### <a name="reason"></a>Neden
 AKS kümenizde bir ad alanı üzerinde geliştirme alanları etkinleştirdiğinizde, ek bir kapsayıcı olarak adlandırılan _mindaro proxy_ her biri, ad alanı içinde çalışan pod'ların yüklenir. Bu kapsayıcı geliştirme alanları takım geliştirme özellikleri için tam sayı olan pod Hizmetleri'nde çağrılarını karşılar.
 
-Ne yazık ki bu pod'ların çalışan belirli hizmetleri ile engelleyebilir. Özellikle, Redis Önbelleği'ni çalıştıran, yönetici/bağımlı iletişim bağlantısı hataları neden pod'ları ile uğratır.
+Ne yazık ki bu pod'ların çalışan belirli hizmetleri ile engelleyebilir. Özellikle, Azure önbelleği için Redis çalıştırma, yönetici/bağımlı iletişim bağlantısı hataları neden pod'ları ile uğratır.
 
 ### <a name="try"></a>Deneyin:
 Etkilenen pod(s) yapan küme içinde bir ad alanına taşıyabilirsiniz _değil_ geliştirme rest geliştirme alanları özellikli bir ad alanı içinde uygulamanızın çalışmaya devam ederken, etkin boşluk. Geliştirme alanları yüklemez _mindaro proxy_ kapsayıcı geliştirme olmayan alanları içinde etkin ad alanları.

@@ -1,6 +1,6 @@
 ---
-title: Web hizmeti dağıtımları - Azure Machine Learning kullanma
-description: Bir Azure Machine Learning modelini dağıtma tarafından oluşturulan bir web hizmetinin nasıl kullanılacağı hakkında bilgi edinin. Bir Azure Machine Learning modelini dağıtma, bir REST API'sini kullanıma sunan bir web hizmeti oluşturur. İstemciler için tercih ettiğiniz programlama dilini kullanarak bu API oluşturabilirsiniz. Bu belgede, Python kullanarak API erişmeyi öğrenin ve C#.
+title: Web hizmeti dağıtımları - Azure Machine Learning hizmetini kullanma
+description: Bir modeli Azure Machine Learning modeli ile dağıttığınızda, oluşturulan bir web hizmetinin nasıl kullanılacağı hakkında bilgi edinin. REST API, web hizmetidir. İstemciler için tercih ettiğiniz programlama dilini kullanarak bu API oluşturun.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,13 +8,14 @@ ms.topic: conceptual
 ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
-ms.date: 10/30/2018
-ms.openlocfilehash: 58c1b53a4b97aad7b916e593fd4d6b52b51b7a52
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 12/03/2018
+ms.custom: seodec18
+ms.openlocfilehash: d964eef08557ddd95ff86bc9e7de806cd4a8ca18
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262916"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016649"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Bir web hizmeti olarak bir Azure Machine Learning modeli kullanma
 
@@ -100,7 +101,7 @@ REST API isteği aşağıdaki yapıya sahip bir JSON belge gövdesinin bekliyor:
 > [!IMPORTANT]
 > Verilerin yapısı, hangi Puanlama betiği ve hizmet expect modelinde ile eşleşmesi gerekiyor. Puanlama betiği modele iletmeden önce verileri değiştirebilir.
 
-Örneğin, modelde [Not Defteri içinde Train](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) örnek 10 sayıdan oluşan bir diziyi bekliyor. Bu örnek için Puanlama betiğine istekten Numpy dizisi oluşturur ve modele geçirir. Aşağıdaki örnek, bu hizmet bekliyor veri gösterir:
+Örneğin, modelde [Not Defteri içinde Train](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) örnek 10 sayıdan oluşan bir diziyi bekliyor. Bu örnek için Puanlama betiğine istekten Numpy dizisi oluşturur ve modele geçirir. Aşağıdaki örnek, bu hizmet bekliyor veri gösterir:
 
 ```json
 {
@@ -126,7 +127,7 @@ Web hizmeti, birden çok bir istekteki veri kümelerini kabul edebilir. Yanıt b
 
 ## <a name="call-the-service-c"></a>Hizmet çağrısı (C#)
 
-Bu örnek nasıl kullanılacağını gösterir C# oluşturulan web hizmeti çağırmak amacıyla [eğitme Not Defteri içinde](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) örneği:
+Bu örnek nasıl kullanılacağını gösterir C# oluşturulan web hizmeti çağırmak amacıyla [eğitme Not Defteri içinde](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) örneği:
 
 ```csharp
 using System;
@@ -215,7 +216,7 @@ Döndürülen sonuçlar için aşağıdaki JSON belgesini benzerdir:
 
 ## <a name="call-the-service-go"></a>Arama Hizmeti (Git)
 
-Bu örnekte oluşturulan web hizmeti çağırmak için Git kullanmayı gösteren [Not Defteri içinde Train](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) örnek:
+Bu örnekte oluşturulan web hizmeti çağırmak için Git kullanmayı gösteren [Not Defteri içinde Train](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) örnek:
 
 ```go
 package main
@@ -307,7 +308,7 @@ Döndürülen sonuçlar için aşağıdaki JSON belgesini benzerdir:
 
 ## <a name="call-the-service-java"></a>Arama Hizmeti (Java)
 
-Bu örnek, Java oluşturulan web hizmetini çağırmak için nasıl kullanılacağını gösterir. [Not Defteri içinde Train](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) örneği:
+Bu örnek, Java oluşturulan web hizmetini çağırmak için nasıl kullanılacağını gösterir. [Not Defteri içinde Train](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) örneği:
 
 ```java
 import java.io.IOException;
@@ -387,7 +388,7 @@ Döndürülen sonuçlar için aşağıdaki JSON belgesini benzerdir:
 
 ## <a name="call-the-service-python"></a>Arama Hizmeti (Python)
 
-Bu örnek Python oluşturulan web hizmetini çağırmak için nasıl kullanılacağını gösterir [Not Defteri içinde Train](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) örneği:
+Bu örnek Python oluşturulan web hizmetini çağırmak için nasıl kullanılacağını gösterir [Not Defteri içinde Train](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) örneği:
 
 ```python
 import requests

@@ -10,20 +10,20 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 93e6b8c606c0a6d7abebeb515b938a45001757c1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 763e1d20f707a1db1f559661089b55093f93a632
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950378"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999933"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Openapı 2.0 (Önizleme) Azure işlevleri'nde meta veri desteği
 Openapı 2.0 (eski adıyla Swagger) meta verileri desteği Azure işlevleri bir Openapı 2.0 tanımı bir işlev uygulaması içinde yazmak için kullanabileceğiniz bir önizleme özelliği değil. Ardından, işlev uygulamasını kullanarak bu dosyayı barındırabilirsiniz.
 
 > [!IMPORTANT]
-> Openapı önizleme özelliği yalnızca 1.x çalışma zamanı'nda bugün kullanılabilir. 1.x işlev uygulaması oluşturma hakkında bilgi [burada bulunabilir](./functions-versions.md#creating-1x-apps).
+> OpenAPI önizleme özelliği şu anda yalnızca 1.x çalışma zamanında kullanılabilir. 1.x işlev uygulaması oluşturma hakkında bilgi [burada bulunabilir](./functions-versions.md#creating-1x-apps).
 
-[Openapı meta verileri](http://swagger.io/) çok çeşitli diğer yazılımlar tarafından kullanılması için bir REST API'sini barındıran bir işlev verir. Bu yazılım PowerApps gibi Microsoft teklifleriyle içerir ve [Azure App Service API Apps özelliklerinden](../app-service/app-service-web-overview.md), gibi üçüncü taraf geliştirici araçları [Postman](https://www.getpostman.com/docs/importing_swagger), ve [diğer birçok paket](http://swagger.io/tools/).
+[Openapı meta verileri](https://swagger.io/) çok çeşitli diğer yazılımlar tarafından kullanılması için bir REST API'sini barındıran bir işlev verir. Bu yazılım PowerApps gibi Microsoft teklifleriyle içerir ve [Azure App Service API Apps özelliklerinden](../app-service/app-service-web-overview.md), gibi üçüncü taraf geliştirici araçları [Postman](https://www.getpostman.com/docs/importing_swagger), ve [diğer birçok paket](https://swagger.io/tools/).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -39,7 +39,7 @@ Tüm Openapı ayarları yapılandırabileceğiniz **API tanımı** işlev uygula
 Barındırılan bir Openapı tanımı ve bir hızlı başlangıç tanımı oluşturmayı etkinleştirmek için **API tanımı kaynağı** için **işlevi (Önizleme)**. **Dış URL** başka bir yerde barındırılan bir Openapı tanımı kullanmak, işlevinizi sağlar.
 
 ## <a name="generate-definition"></a>İşlevinizin meta verilerini Swagger skeleton oluştur
-Bir şablon ilk Openapı tanımınızı yazmaya yardımcı olabilir. Tanım şablonu özelliğini tüm meta verilerin function.json dosyasında her, HTTP tetikleyicisi işlevlerini kullanarak seyrek bir Openapı tanımı oluşturur. API'niz hakkında daha fazla bilgi doldurmanız gerekir [Openapı belirtimi](http://swagger.io/specification/), istek ve yanıt şablonlar gibi.
+Bir şablon ilk Openapı tanımınızı yazmaya yardımcı olabilir. Tanım şablonu özelliğini tüm meta verilerin function.json dosyasında her, HTTP tetikleyicisi işlevlerini kullanarak seyrek bir Openapı tanımı oluşturur. API'niz hakkında daha fazla bilgi doldurmanız gerekir [Openapı belirtimi](https://swagger.io/specification/), istek ve yanıt şablonlar gibi.
 
 Adım adım yönergeler için bkz: [çalışmaya başlama Öğreticisi](./functions-api-definition-getting-started.md).
 
@@ -55,10 +55,10 @@ Oluşturulan bir Swagger çatı eşleştirildiğinden aşağıdaki tabloda Azure
 
 |Swagger.json|Portal kullanıcı Arabirimi|Function.JSON|
 |:----|:-----|:-----|
-|[Ana Bilgisayar](http://swagger.io/specification/#fixed-fields-15)|**İşlev uygulaması ayarları** > **App Service ayarlarını** > **genel bakış** > **URL'si**|*Mevcut değil*
-|[Yolları](http://swagger.io/specification/#paths-object-29)|**Tümleştirme** > **seçili HTTP metotları**|Bağlamaları: yol
-|[Yol öğesi](http://swagger.io/specification/#path-item-object-32)|**Tümleştirme** > **rota şablonu**|Bağlamaları: yöntemler
-|[Güvenlik](http://swagger.io/specification/#security-scheme-object-112)|**anahtarları**|*Mevcut değil*|
+|[Ana Bilgisayar](https://swagger.io/specification/#fixed-fields-15)|**İşlev uygulaması ayarları** > **App Service ayarlarını** > **genel bakış** > **URL'si**|*Mevcut değil*
+|[Yolları](https://swagger.io/specification/#paths-object-29)|**Tümleştirme** > **seçili HTTP metotları**|Bağlamaları: yol
+|[Yol öğesi](https://swagger.io/specification/#path-item-object-32)|**Tümleştirme** > **rota şablonu**|Bağlamaları: yöntemler
+|[Güvenlik](https://swagger.io/specification/#security-scheme-object-112)|**anahtarları**|*Mevcut değil*|
 |Operationıd *|**Rota + izin verilen fiiller**|Rota + izin verilen fiiller|
 
 \*İşlem kimliği, yalnızca PowerApps ve Flow ile tümleştirmek için gereklidir.

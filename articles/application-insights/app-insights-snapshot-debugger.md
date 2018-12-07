@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: 2c5e99c16ed6ae0df9af4783fb6431edcbb6f100
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 11e9099ba9008ead6583eaf30292cdec63475f02
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725412"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994265"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET uygulamalarında özel durumlarda anlık görüntü hata ayıklama
 
-Bir özel durum oluştuğunda, hata ayıklama anlık görüntüsünü canlı web uygulamanızı otomatik olarak toplayabilirsiniz. Anlık görüntü, özel durumun oluştuğu şu anda kaynak kodu ve değişkenleri durumunu gösterir. Snapshot Debugger (Önizleme) içinde [Azure Application Insights](app-insights-overview.md) web uygulamanızdan özel telemetri izler. Böylece, üretim sorunlarını tanılamak ihtiyacınız olan bilgileri sahip anlık görüntüleri, üst özel durum atma özel durumları toplar. Dahil [Snapshot collector NuGet paketini](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanızda ve isteğe bağlı olarak koleksiyon parametrelerinde yapılandırma [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md). Anlık görüntüler görüntülenerek [özel durumları](app-insights-asp-net-exceptions.md) Application Insights portalında.
+Bir özel durum oluştuğunda, hata ayıklama anlık görüntüsünü canlı web uygulamanızı otomatik olarak toplayabilirsiniz. Anlık görüntü, özel durumun oluştuğu şu anda kaynak kodu ve değişkenleri durumunu gösterir. Snapshot Debugger (Önizleme) içinde [Azure Application Insights](app-insights-overview.md) web uygulamanızdan özel telemetri izler. Böylece, üretim sorunlarını tanılamak ihtiyacınız olan bilgileri sahip anlık görüntüleri, üst özel durum atma özel durumları toplar. Dahil [Snapshot collector NuGet paketini](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanızda ve isteğe bağlı olarak koleksiyon parametrelerinde yapılandırma [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md). Anlık görüntüler görüntülenerek [özel durumları](app-insights-asp-net-exceptions.md) Application Insights portalında.
 
 Hata ayıklama anlık görüntülerini portalda görüntüleyerek çağrı yığınını görebilir ve her bir çağrı yığını çerçevesinde değişkenleri inceleyebilirsiniz. Kaynak koduyla birlikte daha güçlü bir hata ayıklama deneyimi elde etmek için Visual Studio 2017 Enterprise ile anlık görüntüleri açmak. Visual Studio'da ayrıca [etkileşimli anlık görüntülerini almak için anlık görüntü noktaları ayarlamak](https://aka.ms/snappoint) olmadan için bir özel durum bekleniyor.
 
@@ -45,7 +45,7 @@ Anlık görüntü koleksiyonu için kullanılabilir:
 
 1. [Web uygulamanızda Application Insights'ı etkinleştirmek](app-insights-asp-net.md), henüz yapmadınız.
 
-2. Dahil [Microsoft.applicationınsights.snapshotcollectya da](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanıza NuGet paketi.
+2. Dahil [Microsoft.applicationınsights.snapshotcollectya da](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanıza NuGet paketi.
 
 3. Pakete eklenen varsayılan seçenekleri gözden [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
@@ -91,7 +91,7 @@ Anlık görüntü koleksiyonu için kullanılabilir:
     > [!NOTE]
     > Uygulamanızı sürüm 2.1.1 başvuran emin veya Microsoft.ApplicationInsights.AspNetCore paketin daha yeni olması.
 
-2. Dahil [Microsoft.applicationınsights.snapshotcollectya da](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanıza NuGet paketi.
+2. Dahil [Microsoft.applicationınsights.snapshotcollectya da](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanıza NuGet paketi.
 
 3. Uygulamanızın değiştirme `Startup` eklemek ve anlık görüntü toplayıcının telemetri işlemci yapılandırmak için sınıf.
 
@@ -168,7 +168,7 @@ Anlık görüntü koleksiyonu için kullanılabilir:
 
 1. Uygulamanızı Application Insights ile izlenen olması değil, başlayın [Application Insights'ı etkinleştirme ve izleme anahtarı ayarını](app-insights-windows-desktop.md).
 
-2. Ekleme [Microsoft.applicationınsights.snapshotcollectya da](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanıza NuGet paketi.
+2. Ekleme [Microsoft.applicationınsights.snapshotcollectya da](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanıza NuGet paketi.
 
 3. Application ınsights'ı raporlanan özel durumların anlık görüntülerini toplanır. Bunları rapor için kodunuzu değiştirmeniz gerekebilir. Özel durum işleme kodunu uygulamanızın yapısına bağlıdır, ancak bir örnek aşağıda verilmiştir:
     ```csharp
@@ -225,7 +225,7 @@ Anlık görüntüler, hassas bilgiler içerebilir ve görüntülenebilir olmayan
 ## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Visual Studio 2017 Enterprise ile anlık görüntü hata ayıklama
 1. Tıklayın **anlık görüntüyü indir** indirmek için düğmeye bir `.diagsession` dosyasını Visual Studio 2017 Enterprise tarafından açılabilir.
 
-2. Açmak için `.diagsession` dosya anlık görüntü hata ayıklayıcısı VS bileşeninin yüklü olması gerekir. Anlık görüntü hata ayıklayıcı bileşeni ASP.net iş yükünü VS gerekli bir bileşenidir ve VS yükleyici tek tek bileşenler listesinden seçilebilir. Visual Studio sürümü 15.5 önce kullanıyorsanız uzantısını yüklemeniz gerekir [VS Market'te](http://aka.ms/snapshotdebugger).
+2. Açmak için `.diagsession` dosya anlık görüntü hata ayıklayıcısı VS bileşeninin yüklü olması gerekir. Anlık görüntü hata ayıklayıcı bileşeni ASP.net iş yükünü VS gerekli bir bileşenidir ve VS yükleyici tek tek bileşenler listesinden seçilebilir. Visual Studio sürümü 15.5 önce kullanıyorsanız uzantısını yüklemeniz gerekir [VS Market'te](https://aka.ms/snapshotdebugger).
 
 3. Anlık görüntü dosyası açtıktan sonra Visual Studio'da mini döküm hata ayıklama sayfası görüntülenir. Tıklayın **hata ayıklama yönetilen kodu** anlık görüntü hata ayıklama başlatılamıyor. Anlık görüntü geçerli işlemin durumunu ayıklayabilirsiniz, burada özel durumun oluştuğu kod satırına açılır.
 

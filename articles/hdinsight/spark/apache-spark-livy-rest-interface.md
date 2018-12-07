@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6a0a2dec6beeecca3779f4b047d3b5fe6295a1e6
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 999b5ca1f229677b9e11068f4beaa6e2704afd3d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495309"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012581"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark uzak bir HDInsight Spark kümesine göndermek için REST API kullanma
 
@@ -26,7 +26,7 @@ Etkileşimli Spark Kabukları çalıştırmak veya Spark üzerinde çalıştır�
 
 * HDInsight üzerinde bir Apache Spark kümesi. Yönergeler için bkz. [Azure HDInsight'ta Apache Spark kümeleri oluşturma](apache-spark-jupyter-spark-sql.md).
 
-* [cURL](http://curl.haxx.se/). Bu makalede, bir HDInsight Spark kümesine göre REST API çağrılarının nasıl yapılacağını göstermek üzere cURL kullanılmıştır.
+* [cURL](https://curl.haxx.se/). Bu makalede, bir HDInsight Spark kümesine göre REST API çağrılarının nasıl yapılacağını göstermek üzere cURL kullanılmıştır.
 
 ## <a name="submit-an-apache-livy-spark-batch-job"></a>Bir Apache Livy Spark batch işi gönderme
 Batch işi göndermeden önce uygulama jar kümeyle ilişkili küme depolama alanına yüklemeniz gerekir. Bunu yapmak için, bir komut satırı yardımcı programı olan [**AzCopy**](../../storage/common/storage-use-azcopy.md)’yi kullanabilirsiniz. Verileri yüklemek için kullanabileceğiniz çeşitli istemciler vardır. Onları hakkında daha fazla bulabilirsiniz [HDInsight Apache Hadoop işleri için verileri karşıya yükleme](../hdinsight-upload-data.md).

@@ -12,27 +12,26 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: e92bcd412071d1a991a0bd3ec7b28df9f509c54c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 35b728793b81c41f0a81c5c7621b9e17edf1f22a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250895"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994669"
 ---
 # <a name="output-metadata"></a>Çıkış meta verileri
 ## <a name="overview"></a>Genel Bakış
 Bir kodlama işi Giriş bir varlık (veya varlıklar) ile ilişkilendirilen kodlama bazı görevleri gerçekleştirmek istediğiniz üzerinde. Örneğin, bit hızı Uyarlamalı kümeleri H.264 MP4 bir MP4 dosyasına kodlayın; bir küçük resim oluşturma paylaşımı oluşturun. Bir görev tamamlandığında, çıktı varlık oluşturulur.  Çıktı varlığı video, ses, küçük resimler, vb. içerir. Çıktı varlığına bir dosyayla çıktı varlığına ilişkin meta verileri de içerir. Meta veri XML dosyasının adı şu biçimdedir: &lt;source_file_name&gt;_manifest.xml (örneğin, BigBuckBunny_manifest.xml).  
 
+Media Services meta verileri oluşturmak için giriş varlıklar bilindiğinde taraması yapmaz. Giriş meta verileri yalnızca varlık, bir işi işlenen giriş, yapıt olarak oluşturulur. Bu nedenle bu yapıt için çıktı yazılır varlık. Giriş varlıklar için meta verileri oluşturun ve varlıkları çıkış için farklı araçlar kullanılır. Bu nedenle, giriş meta verileri, çıkış meta verilerini daha biraz farklı bir şeması vardır.
+
 Meta veri dosyası incelemek isterseniz, oluşturabileceğiniz bir **SAS** Bulucu ve dosyayı yerel bilgisayarınıza indirin.  
 
 Bu makalede öğeleri ve XML Şeması türleri üzerinde anlatılmaktadır çıkış metada (&lt;source_file_name&gt;_manifest.xml) temel alır. Giriş varlığı hakkında meta veriler içeren bir dosya hakkında daha fazla bilgi için bkz. [giriş meta verileri](media-services-input-metadata-schema.md).  
 
-> [!NOTE]
-> Tam şeması kod ve bu makalenin sonunda XML örneği bulabilirsiniz.  
->
->
+Tam şeması kod ve bu makalenin sonunda XML örneği bulabilirsiniz.  
 
 ## <a name="AssetFiles "></a> AssetFiles kök öğe
 Kodlama işinin AssetFile girişleri koleksiyonu.  

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3be368f128e4436cd58812937aaaf82a909b2645
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 0618a580c6bdcef8f28a439cd79e67d863e58b9e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720776"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995242"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Application Insights ile çalışma zamanında web uygulamalarını izleme
 
-Kodunuzu değiştirmeye veya yeniden dağıtmaya gerek olmadan canlı bir web uygulamasını Azure Application Insights ile izleyebilirsiniz. Uygulamalarınız şirket içi IIS sunucusu tarafından barındırılıyorsa, Durum İzleyicisi’ni yükleyin. Uygulamalarınız Azure web uygulamaları ise veya bir Azure VM ortamında çalışıyorsa, Azure denetim masasından Application Insights izlemeyi etkinleştirebilirsiniz. ([Canlı J2EE web uygulamaları](app-insights-java-live.md) ve [Azure Cloud Services](app-insights-cloudservices.md) izleme hakkında ayrı makaleler de vardır.) [Microsoft Azure](http://azure.com) aboneliğiniz olması gerekir.
+Kodunuzu değiştirmeye veya yeniden dağıtmaya gerek olmadan canlı bir web uygulamasını Azure Application Insights ile izleyebilirsiniz. Uygulamalarınız şirket içi IIS sunucusu tarafından barındırılıyorsa, Durum İzleyicisi’ni yükleyin. Uygulamalarınız Azure web uygulamaları ise veya bir Azure VM ortamında çalışıyorsa, Azure denetim masasından Application Insights izlemeyi etkinleştirebilirsiniz. ([Canlı J2EE web uygulamaları](app-insights-java-live.md) ve [Azure Cloud Services](app-insights-cloudservices.md) izleme hakkında ayrı makaleler de vardır.) [Microsoft Azure](https://azure.com) aboneliğiniz olması gerekir.
 
 ![Başarısız istekler, sunucu yanıt süresi ve sunucu istekleri hakkında bilgi içeren App Insights ekran genel bakış grafikleri](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
@@ -242,7 +242,7 @@ Derleme zamanında zaten izlenmekte olan uygulamalar için:
  * Bağımlılık çağrıları (.NET 4.5); bağımlılık çağrılarındaki dönüş değerleri (.NET 4.6).
  * Özel durum yığın izleme değerleri.
 
-[Daha fazla bilgi](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[Daha fazla bilgi](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>Video
 

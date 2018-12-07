@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 9ccf7d85b52759a3f2cd64facc6ee8d7255f0fac
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0b47172df2ab3bd286db0faa21eb5197fd061bfd
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253185"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012904"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makineler'de SQL Server için Uygulama Desenleri ve Geliştirme Stratejileri
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -192,7 +192,7 @@ Diyagramda görüldüğü gibi Azure Load Balancer, birden çok sanal makine ara
 
 ![Cloud Services ile uygulama düzenleri](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728013.png)
 
-Bu uygulama deseni uygulamak için başka bir yaklaşım, sunu katmanı hem de aşağıdaki diyagramda gösterildiği gibi iş katmanı bileşenlerini içeren bir birleştirilmiş web rolü kullanmaktır. Bu uygulama düzeni, durum bilgisi olan tasarım gerektiren uygulamalar için yararlıdır. Azure, web ve çalışan rollerinde durum bilgisi olmayan bir işlem düğümleri sağlar. bu yana, aşağıdaki teknolojileri kullanarak oturum durumunu depolamak için bir mantıksal uygulamadan öneririz: [Azure önbelleği](https://azure.microsoft.com/documentation/services/redis-cache/), [Azure tablo depolama](../../../cosmos-db/table-storage-how-to-use-dotnet.md) veya [Azure SQL veritabanı](../../../sql-database/sql-database-technical-overview.md).
+Bu uygulama deseni uygulamak için başka bir yaklaşım, sunu katmanı hem de aşağıdaki diyagramda gösterildiği gibi iş katmanı bileşenlerini içeren bir birleştirilmiş web rolü kullanmaktır. Bu uygulama düzeni, durum bilgisi olan tasarım gerektiren uygulamalar için yararlıdır. Azure, web ve çalışan rollerinde durum bilgisi olmayan bir işlem düğümleri sağlar. bu yana, aşağıdaki teknolojileri kullanarak oturum durumunu depolamak için bir mantıksal uygulamadan öneririz: [Azure önbelleği](https://azure.microsoft.com/documentation/services/azure-cache-for-redis/), [Azure tablo depolama](../../../cosmos-db/table-storage-how-to-use-dotnet.md) veya [Azure SQL veritabanı](../../../sql-database/sql-database-technical-overview.md).
 
 ![Cloud Services ile uygulama düzenleri](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728014.png)
 

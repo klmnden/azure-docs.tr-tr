@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0d2f55538517881ce6cc237885f3bcadfa084520
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 312b476f8809d1d6375cc20035901d8d11c32173
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494965"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012360"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>HDInsight üzerinde Apache Tez işlerinin hatalarını ayıklamak için Apache Ambari görünümlerini kullanma
 
@@ -103,6 +103,6 @@ Tez kullanan Hive sorgusu çalıştırmak için aşağıdaki adımları kullanı
 
 Apache Tez görünümü kullanmak öğrendiniz, daha fazla bilgi edinin [HDInsight üzerinde Apache Hive kullanarak](hadoop/hdinsight-use-hive.md).
 
-Daha ayrıntılı Apache Tez üzerinde teknik bilgi için bkz. [Hortonworks Apache Tez sayfanın](http://hortonworks.com/hadoop/tez/).
+Daha ayrıntılı Apache Tez üzerinde teknik bilgi için bkz. [Hortonworks Apache Tez sayfanın](https://hortonworks.com/hadoop/tez/).
 
 Apache Ambari kullanarak HDInsight ile ilgili daha fazla bilgi için bkz: [yönetme HDInsight kümeleri Apache Ambari Web kullanıcı arabirimini kullanarak](hdinsight-hadoop-manage-ambari.md)

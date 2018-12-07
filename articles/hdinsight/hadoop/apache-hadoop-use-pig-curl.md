@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: cb96933569c18b8c70d8991c9ba19f9f3e1243e6
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 65d94c4df3111e1ffe5a5340bba1db454681bb5e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633708"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016019"
 ---
 # <a name="run-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Pig işleri, REST kullanarak HDInsight üzerinde Apache Hadoop ile çalıştırın
 
@@ -32,14 +32,14 @@ Bir Azure HDInsight kümesi için REST istekleri yaparak Apache Pig Latin işler
   > [!IMPORTANT]
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* [Curl](http://curl.haxx.se/)
+* [Curl](https://curl.haxx.se/)
 
-* [jq](http://stedolan.github.io/jq/)
+* [jq](https://stedolan.github.io/jq/)
 
 ## <a id="curl"></a>Pig işleri Curl kullanarak çalıştırma
 
 > [!NOTE]
-> REST API aracılığıyla güvenli [temel erişimi kimlik doğrulaması](http://en.wikipedia.org/wiki/Basic_access_authentication). Her zaman güvenli HTTP (HTTPS) kullanarak kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderildiğinden emin olmak için istekleri olun.
+> REST API aracılığıyla güvenli [temel erişimi kimlik doğrulaması](https://en.wikipedia.org/wiki/Basic_access_authentication). Her zaman güvenli HTTP (HTTPS) kullanarak kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderildiğinden emin olmak için istekleri olun.
 >
 > Bu bölümdeki komutları kullanılırken, değiştirin `USERNAME` kümesinin kimliğini doğrulama ve değiştirme için kullanıcıyla `PASSWORD` kullanıcı hesabının parolası ile. `CLUSTERNAME` değerini kümenizin adıyla değiştirin.
 >

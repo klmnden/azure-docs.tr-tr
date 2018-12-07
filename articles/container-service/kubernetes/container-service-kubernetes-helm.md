@@ -1,5 +1,5 @@
 ---
-title: Azure kubernetes Helm ile kapsayıcıları dağıtın
+title: (KULLANIM DIŞI) Azure kubernetes Helm ile kapsayıcıları dağıtın
 description: Azure Container Service'te bir Kubernetes kümesinde kapsayıcıları dağıtmak için Helm paketleme Aracı'nı kullanın
 services: container-service
 author: sauryadas
@@ -9,16 +9,19 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 882e785968f94473e80c7a14e5a68498add37735
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 05edbf40e8cd5f8edbdc8b74b540962b1a25c8de
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634162"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997881"
 ---
-# <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Bir Kubernetes kümesinde kapsayıcıları dağıtmak için Helm kullanın
+# <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(KULLANIM DIŞI) Bir Kubernetes kümesinde kapsayıcıları dağıtmak için Helm kullanın
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Bu makale, güncelleştirilmiş sürümü kullanan Azure Kubernetes Service için bkz: [Azure Kubernetes Service (AKS) Helm ile uygulamaları yükleme](../../aks/kubernetes-helm.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 [Helm](https://github.com/kubernetes/helm/) yükleyin ve Kubernetes uygulamaların yaşam döngüsünü yönetmenize yardımcı olan bir açık kaynak paketleme aracıdır. Benzer şekilde Apt-get ve Yum gibi Linux paket yöneticileri, Helm Kubernetes grafikleri, önceden yapılandırılmış Kubernetes kaynak paketleri yönetmek için kullanılır. Bu makalede, dağıtılan Azure Container Service'te bir Kubernetes kümesi üzerinde Helm ile çalışacak şekilde nasıl gösterir.
 

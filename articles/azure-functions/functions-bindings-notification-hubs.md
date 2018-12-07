@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: e51a74783f7d7f080d1caa237bb7aabab0100e72
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 72c0db44e1f56cab190f343a87c6b453625a7f70
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248595"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996028"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Notification hubs'ı çıkışı bağlama için Azure işlevleri
 
@@ -28,7 +28,7 @@ Azure Notification hubs'ı, Platform bildirim sistemi (kullanmak istediğiniz PN
 
 ## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
 
-Notification Hubs bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet paketi sürüm 1.x. Paket için kaynak kodu konusu [azure webjobs sdk uzantıları](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub deposu.
+Notification Hubs bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet paketi sürüm 1.x. Paket için kaynak kodu konusu [azure webjobs sdk uzantıları](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub deposu.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -136,7 +136,7 @@ private static TemplateNotification GetTemplateNotification(string message)
 }
 ```
 
-### <a name="f-template-example"></a>F # şablon örneği
+### <a name="f-template-example"></a>F#Şablon örneği
 
 Bu örnek, bir bildirim gönderir bir [şablon kayıt](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) içeren `location` ve `message`.
 

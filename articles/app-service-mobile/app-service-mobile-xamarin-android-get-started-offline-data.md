@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 33b95f117908fc0d7028a85defd148fdd821c391
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ca0eaf9e47b88bc0df8e7f050d8558c23d884f78
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963615"
+ms.locfileid: "52999296"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>Xamarin.Android mobil uygulamanız için çevrimdışı eşitlemeyi etkinleştirme
 
@@ -93,7 +93,7 @@ Bu bölümde, mobil uygulama arka ucu için uygulamayı yeniden bağlanın. Uygu
 
             // Uses the default conflict handler, which fails on conflict
             // To use a different conflict handler, pass a parameter to InitializeAsync.
-            // For more details, see http://go.microsoft.com/fwlink/?LinkId=521416.
+            // For more details, see https://go.microsoft.com/fwlink/?LinkId=521416.
             await client.SyncContext.InitializeAsync(store);
         }
 * `toDoTable` Üyesi `ToDoActivity` değil `IMobileServiceSyncTable` türü yerine `IMobileServiceTable`. Tüm oluşturma, okuma, güncelleştirme ve silme (CRUD) tablo işlemleri yerel depolama alanı veritabanına IMobileServiceSyncTable yönlendirir.

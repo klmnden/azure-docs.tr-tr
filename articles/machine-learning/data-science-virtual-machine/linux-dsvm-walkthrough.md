@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 49956234c00129508254b96d7d63a4b30af3ad55
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 5c590b8df2eeb8859a6b78f4d719661c8b542ebe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037592"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000274"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>İle bir Linux veri bilimi sanal makinesi Azure üzerinde veri bilimi
 Bu izlenecek yol, Linux veri bilimi sanal makinesi ile çeşitli genel veri bilimi görevlerini gerçekleştirmek nasıl gösterir. Linux veri bilimi sanal makinesi (DSVM) veri analizi ve makine öğrenimi için yaygın olarak kullanılan araçları koleksiyonu ile önceden yüklenmiş olan Azure üzerinde kullanılabilir bir sanal makine görüntüsüdür. Anahtar yazılım bileşenleri içinde listelenen [Linux veri bilimi sanal makinesi sağlama](linux-dsvm-intro.md) konu. VM görüntüsü, yüklemek ve araçların her biri ayrı ayrı yapılandırmak zorunda kalmadan, dakikalar içinde veri bilimi yapmaya başlayın kolaylaştırır. Kolayca VM'yi, gerekirse ölçeği ve kullanımda olmadığında durdurun. Bu nedenle bu kaynak, esnek ve maliyet açısından verimli içindir.
@@ -357,7 +357,7 @@ Yükleyin ve aşağıdaki komutlarla Çıngırağı başlatın:
 >
 >
 
-Çıngırağı için sekmesinde tabanlı bir arabirim kullanır. Sekmeler çoğu karşılık adımlarda [Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/), veri yükleme veya araştırma gibi. Veri bilimi işlemi soldan sağa sekmeler arasında akar. Ancak son sekmeyi R komutlar Çıngırağı tarafından çalıştırılır ve günlüğü içeriyor.
+Çıngırağı için sekmesinde tabanlı bir arabirim kullanır. Sekmeler çoğu karşılık adımlarda [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), veri yükleme veya araştırma gibi. Veri bilimi işlemi soldan sağa sekmeler arasında akar. Ancak son sekmeyi R komutlar Çıngırağı tarafından çalıştırılır ve günlüğü içeriyor.
 
 Yük ve veri kümesini yapılandırmak için:
 

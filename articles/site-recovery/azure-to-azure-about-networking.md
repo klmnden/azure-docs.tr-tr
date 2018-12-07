@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 76b3d23a042fae452b25b0a707e3c7ff9bbda613
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f48283222f5c5d3b18d3dba17c2856801856fb94
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838201"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992126"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Azure'dan Azure'a çoğaltma ağı hakkında
 
@@ -114,7 +114,10 @@ Bu örnek, sanal Makineyi çoğaltmak için NSG kurallarını nasıl yapılandı
 
       ![Depolama-tag](./media/azure-to-azure-about-networking/storage-tag.png)
 
-2. Office 365'e karşılık gelen tüm IP adres aralıkları için giden HTTPS (443) kuralları oluşturma [kimlik doğrulaması ve kimlik IP V4 uç noktaları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+2. Aşağıdaki ekran görüntüsünde gösterildiği gibi NSG "AzureActiveDirectory" için bir giden HTTPS (443) güvenlik kuralı oluşturun.
+
+      ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
+
 3. Hedef konuma karşılık gelen Site kurtarma IP'ler için giden HTTPS (443) kurallarını oluşturun:
 
    **Konum** | **Site Recovery IP adresi** |  **Site Recovery izleme IP adresi**
@@ -127,7 +130,7 @@ Bu kurallar, çoğaltma hedefi bölgeden kaynak bölgeye yük devretme sonrası 
 
 1. NSG "Storage.CentralUS" için bir giden HTTPS (443) güvenlik kuralı oluşturun.
 
-2. Office 365'e karşılık gelen tüm IP adres aralıkları için giden HTTPS (443) kuralları oluşturma [kimlik doğrulaması ve kimlik IP V4 uç noktaları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+2. NSG "AzureActiveDirectory" için bir giden HTTPS (443) güvenlik kuralı oluşturun.
 
 3. Kaynak konuma karşılık gelen Site kurtarma IP'ler için giden HTTPS (443) kurallarını oluşturun:
 

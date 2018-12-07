@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Event Hubs kotaları ve sınırlamaları | Microsoft Docs
+title: Azure Event Hubs kotaları ve sınırlamaları | Microsoft Docs
 description: Limitler ve kotalar için Azure Event Hubs
 services: event-hubs
 documentationcenter: na
@@ -8,20 +8,21 @@ manager: timlt
 editor: ''
 ms.assetid: b9855dd5-f007-4dd2-89d1-aa6f9b241dc0
 ms.service: event-hubs
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 1d52d4d2fae5e666b02564c2adad649bdc01849e
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: fb75d961b0b7434cdfc51020aa8c6a24d73e5fab
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056089"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015662"
 ---
-# <a name="event-hubs-quotas"></a>Event Hubs kotaları
+# <a name="azure-event-hubs-quotas-and-limits"></a>Azure Event Hubs kotaları ve sınırlamaları
 
 Bu bölümde, temel kotalar ve sınırlar Azure olay hub'larındaki listelenir.
 

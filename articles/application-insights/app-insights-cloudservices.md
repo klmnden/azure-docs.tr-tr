@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: c39cb01f1477e51623b02941bae03a51a389e197
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: b52604fa19a5598e8aff5b8a1ea25e7361add553
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682898"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997026"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services için Application Insights
 [Microsoft Azure Cloud hizmeti uygulamaları](https://azure.microsoft.com/services/cloud-services/), Application Insights SDK'larındaki verilerle Bulut Hizmetlerinizdeki [Azure Tanılama](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) verileri birleştirilerek kullanılabilirlik, performans, hata ve kullanım açısından [Application Insights][start] tarafından izlenebilir. Uygulamanızın gerçek hayattaki performansı ve etkinliğine ilişkin aldığınız geri bildirimlerden yararlanarak her geliştirme yaşam döngüsünde tasarımın yönü konusunda bilinçli kararlar alabilirsiniz.
@@ -28,7 +28,7 @@ ms.locfileid: "52682898"
 ## <a name="before-you-start"></a>Başlamadan önce
 Gerekenler:
 
-* [Microsoft Azure](http://azure.com) içeren bir abonelik. Windows, XBox Live veya diğer Microsoft bulut hizmetlerinde kullanıyor olabileceğiniz bir Microsoft hesabıyla oturum açın. 
+* [Microsoft Azure](https://azure.com) içeren bir abonelik. Windows, XBox Live veya diğer Microsoft bulut hizmetlerinde kullanıyor olabileceğiniz bir Microsoft hesabıyla oturum açın. 
 * Microsoft Azure araçları 2.9 veya üzeri
 * Developer Analytics Tools 7.10 veya üzeri
 
@@ -150,7 +150,7 @@ Performans sayaçlarını ve olay sayısını görmek için [Ölçüm Gezgini](a
 
 ![Azure tanılama verileri](./media/app-insights-cloudservices/23-wad.png)
 
-Azure Tanılama tarafından gönderilen çeşitli izleme günlüklerinde arama yapmak için [Ara](app-insights-diagnostic-search.md) seçeneğini veya bir [Analiz sorgusunu](../log-analytics/query-language/get-started-analytics-portal.md) kullanın. Örneğin, bir Rolün kilitlenmesine ve geri dönüştürülmesine neden olan bir işlenmeyen özel durumunuz olduğunu varsayalım. Bu bilgi, Windows Olay Günlüğü’nün Uygulama kanalında görünür. Ara’yı kullanarak Windows Olay Günlüğü hatasına bakabilir ve özel duruma ilişkin tam yığın izlemesini edinebilirsiniz. Bu, sorunun kök nedenini bulmanıza yardımcı olur.
+Azure Tanılama tarafından gönderilen çeşitli izleme günlüklerinde arama yapmak için [Ara](app-insights-diagnostic-search.md) seçeneğini veya bir [Analiz sorgusunu](../azure-monitor/log-query/get-started-portal.md) kullanın. Örneğin, bir Rolün kilitlenmesine ve geri dönüştürülmesine neden olan bir işlenmeyen özel durumunuz olduğunu varsayalım. Bu bilgi, Windows Olay Günlüğü’nün Uygulama kanalında görünür. Ara’yı kullanarak Windows Olay Günlüğü hatasına bakabilir ve özel duruma ilişkin tam yığın izlemesini edinebilirsiniz. Bu, sorunun kök nedenini bulmanıza yardımcı olur.
 
 ![Azure tanılama araması](./media/app-insights-cloudservices/25-wad.png)
 
@@ -241,7 +241,7 @@ Sisteminiz tarafından Stream Analytics gibi diğer Azure hizmetleri kullanılı
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[portal]: http://portal.azure.com/
+[portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md 

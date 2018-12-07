@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: dd876462559ac10fc0463c64413bf11eabbc88a1
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: d0af6c098f68c23bf9ef6161bd307afec518ead7
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443534"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011710"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management'ı kullanma
 Azure sanal ağları (Vnet) herhangi birini kullanarak Azure kaynaklarınızı erişimini denetleyen bir ağdaki internet olmayan routeable yerleştirmenize olanak sağlar. Bu ağlar ardından teknolojiler VPN kullanarak şirket içi ağa bağlanabilir. Buradaki bilgileri ile Başlat Azure sanal ağları hakkında daha fazla bilgi edinmek için: [Azure sanal ağa genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -120,7 +120,7 @@ API Management hizmet örneği, sanal ağ içinde barındırıldığında, aşa�
 | * / 25                       | Giden           | TCP                | VIRTUAL_NETWORK / INTERNET            | E-postalar göndermek için SMTP geçişi bağlanma                    | Dış ve iç  |
 | * / 587                      | Giden           | TCP                | VIRTUAL_NETWORK / INTERNET            | E-postalar göndermek için SMTP geçişi bağlanma                    | Dış ve iç  |
 | * / 25028                    | Giden           | TCP                | VIRTUAL_NETWORK / INTERNET            | E-postalar göndermek için SMTP geçişi bağlanma                    | Dış ve iç  |
-| * / 6381 - 6383              | Gelen ve giden | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Roleınstances arasında erişim Redis önbelleği örnekleri          | Dış ve iç  |
+| * / 6381 - 6383              | Gelen ve giden | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Azure önbelleği için Redis örneği arasında Roleınstances erişim          | Dış ve iç  |
 | * / *                        | Gelen            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure altyapı yük Dengeleyicisini                          | Dış ve iç  |
 
 >[!IMPORTANT]

@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs IP filtreleri | Microsoft Docs
+title: Azure Event Hubs'a IP filtreleri kullanarak erişimi kısıtlama | Microsoft Docs
 description: IP bloğu bağlantıları, Azure Event hubs'a belirli IP adreslerinden filtreleme kullanın.
 services: event-hubs
 documentationcenter: ''
@@ -7,18 +7,18 @@ author: spelluru
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
+ms.custom: seodec18
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: d0114821b5239146f64dde0b01652dc320994585
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 5ed952421186210e55d6065cee51f4d54b4c0d46
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408158"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014404"
 ---
-# <a name="use-ip-filters"></a>IP filtreleri kullanma
-
+# <a name="restrict-access-to-azure-event-hubs-using-ip-filters"></a>Azure Event Hubs'a IP filtreleri kullanarak erişimi kısıtlama
 Hangi Azure Event Hubs erişilebilir olması gerekir yalnızca bilinen belirli sitelerden senaryoları için *IP Filtresi* özelliği özel IPv4 adreslerinden gelen trafiği kabul etmesini ya da reddetme kurallarını yapılandırmanıza olanak sağlar. Örneğin, bu adresler kurumsal bir NAT ağ geçidinin bu olabilir.
 
 ## <a name="when-to-use"></a>Kullanılması gereken durumlar

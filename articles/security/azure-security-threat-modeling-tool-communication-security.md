@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bc724f57a25e2ca12d334192d2171899345e72de
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be0dd7147e3864befa90434ade86b4032cd45cc3
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247390"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013194"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Güvenlik çerçeve: İletişim güvenliği | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
@@ -34,7 +34,7 @@ ms.locfileid: "51247390"
 | **Mobil istemci** | <ul><li>[Uygulama sertifikası sabitleme](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[Taşıma kanalının güvenliğini sağlayın - HTTPS'yi etkinleştirme](#https-transport)</li><li>[WCF: Kümesi ileti güvenliği EncryptAndSign için koruma düzeyi](#message-protection)</li><li>[WCF:, WCF hizmeti çalıştırmak için en az ayrıcalıklı bir hesap kullanın.](#least-account-wcf)</li></ul> |
 | **Web API** | <ul><li>[Tüm trafik HTTPS bağlantısı üzerinden Web API'leri için zorla](#webapi-https)</li></ul> |
-| **Azure Redis Önbelleği** | <ul><li>[Azure Redis cache'e iletişim SSL üzerinden olduğundan emin olun](#redis-ssl)</li></ul> |
+| **Azure önbelleği için Redis** | <ul><li>[SSL üzerinden Azure önbelleği için Redis iletişimi olduğundan emin olun](#redis-ssl)</li></ul> |
 | **IOT alan ağ geçidi** | <ul><li>[Alan ağ geçidi ile iletişim cihaz güvenliğini sağlama](#device-field)</li></ul> |
 | **IOT bulut ağ geçidi** | <ul><li>[Cihaz bulut ağ geçidi iletişim SSL/TLS kullanarak güvenli hale getirme](#device-cloud)</li></ul> |
 
@@ -372,16 +372,16 @@ public class ValuesController : ApiController
 }
 ```
  
-## <a id="redis-ssl"></a>Azure Redis cache'e iletişim SSL üzerinden olduğundan emin olun
+## <a id="redis-ssl"></a>SSL üzerinden Azure önbelleği için Redis iletişimi olduğundan emin olun
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | Azure Redis Cache | 
+| **Bileşen**               | Redis için Azure Cache | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [Azure Redis SSL desteği](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
-| **Adımları** | Redis sunucu SSL kullanıma hazır desteklemez, ancak Azure Redis Cache yapar. Azure Redis Cache'e bağlantı kuruyorsanız ve SSL gibi StackExchange.Redis istemci destekler, SSL kullanmanız gerekir. Varsayılan olarak SSL olmayan bağlantı noktası yeni Azure Redis Cache örnekleri için devre dışıdır. Redis istemcileri için SSL desteği üzerinde bir bağımlılık olmadıkça güvenli varsayılan değiştirilmediğinden emin olun. |
+| **Adımları** | Redis sunucu SSL kullanıma hazır desteklemez, ancak Azure önbelleği için Redis yapar. Azure önbelleği için Redis için bağlama ve SSL, StackExchange.Redis gibi istemcinizi destekliyorsa SSL kullanmanız gerekir. Varsayılan olarak SSL olmayan bağlantı noktası yeni Azure önbelleği için Redis örneği için devre dışıdır. Redis istemcileri için SSL desteği üzerinde bir bağımlılık olmadıkça güvenli varsayılan değiştirilmediğinden emin olun. |
 
 Redis güvenilir ortamlar içinde güvenilir istemcileri tarafından erişilecek tasarlanmıştır unutmayın. Bu genellikle, Redis örneği doğrudan Internet'e ya da genel olarak, güvenilmeyen istemciler doğrudan Redis TCP bağlantı noktası veya UNIX yuva erişebileceğiniz bir ortama kullanıma sunmak için iyi bir fikir olmadığını anlamına gelir. 
 

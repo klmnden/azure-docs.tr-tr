@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 34161251ac52323bc3eff66cfe30f3de34bdf60c
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 998c3f1fcfbf53f6f0dfb5ddf34d420f2b31a0b2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715744"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001890"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Azure'da (Önizleme) bir yönetim çözümü dosyası oluşturma
 > [!NOTE]
@@ -169,7 +169,7 @@ Bu durumda, söz dizimi ile çözüm aracılığıyla değişken değerleri baş
 **DependsOn** öğeyi belirten bir [bağımlılık](../../azure-resource-manager/resource-group-define-dependencies.md) başka bir kaynak üzerinde.  Çözüm yüklendikten sonra bir kaynak tüm bağımlılıklarını oluşturulmuş kadar oluşturulmaz.  Örneğin, çözümünüz olabilir [runbook başlatma](solutions-resources-automation.md#runbooks) kullanarak yüklendiğinde bir [proje kaynak](solutions-resources-automation.md#automation-jobs).  Proje kaynak proje oluşturulmadan önce runbook oluşturulduğundan emin olmak için runbook kaynağına bağlı olacaktır.
 
 ### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics çalışma alanı ve Otomasyon hesabı
-Yönetim çözümleri gerektiren bir [Log Analytics çalışma alanı](../../log-analytics/log-analytics-manage-access.md) görünümler içermesi ve [Otomasyon hesabı](../../automation/automation-security-overview.md#automation-account-overview) runbook'ları ve ilgili kaynakları içerecek şekilde.  Çözüm kaynakları oluşturulur ve çözümde tanımlanmamalıdır önce bunlar kullanılabilir olmalıdır.  Kullanıcının [bir çalışma alanı ve hesabı belirtin](solutions.md#log-analytics-workspace-and-automation-account) zaman çözümünüzü dağıttıkları ancak yazar olarak aşağıdaki noktaları dikkate almanız gerekir.
+Yönetim çözümleri gerektiren bir [Log Analytics çalışma alanı](../../azure-monitor/platform/manage-access.md) görünümler içermesi ve [Otomasyon hesabı](../../automation/automation-security-overview.md#automation-account-overview) runbook'ları ve ilgili kaynakları içerecek şekilde.  Çözüm kaynakları oluşturulur ve çözümde tanımlanmamalıdır önce bunlar kullanılabilir olmalıdır.  Kullanıcının [bir çalışma alanı ve hesabı belirtin](solutions.md#log-analytics-workspace-and-automation-account) zaman çözümünüzü dağıttıkları ancak yazar olarak aşağıdaki noktaları dikkate almanız gerekir.
 
 
 ## <a name="solution-resource"></a>Çözüm kaynak

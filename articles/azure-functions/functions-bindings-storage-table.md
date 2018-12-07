@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 56616ff01ff70230a591285014ed291a2fdc7b34
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3fc31306af1c85a67a1afca8a34be82a711f2527
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250997"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999533"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure tablo depolama bağlamaları
 
@@ -26,7 +26,7 @@ Bu makalede, Azure işlevleri'nde Azure tablo depolama bağlamaları ile nasıl 
 
 ## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
 
-Tablo depolama bağlamaları sağlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet paketi sürüm 2.x. Paket için kaynak kodu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub deposu.
+Tablo depolama bağlamaları sağlanan [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet paketi sürüm 2.x. Paket için kaynak kodu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub deposu.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -325,9 +325,9 @@ CloudTable kullanma hakkında daha fazla bilgi için bkz. [Azure tablo depolama 
 
 Bağlanılacak çalışırsanız `CloudTable` ve bir hata iletisi alırsanız, bir başvuru olduğundan emin olun [doğru depolama SDK'sı sürüm](#azure-storage-sdk-version-in-functions-1x).
 
-### <a name="input---f-example"></a>Giriş - F # örneği
+### <a name="input---f-example"></a>Giriş - F# örneği
 
-Aşağıdaki örnek, bir tablo giriş bağlama gösterir. bir *function.json* dosya ve [F # betik](functions-reference-fsharp.md) bağlama kullanan kod. İşlevi, tek bir tablo satırı okumak için bir kuyruk tetikleyicisi kullanır. 
+Aşağıdaki örnek, bir tablo giriş bağlama gösterir. bir *function.json* dosya ve [ F# betik](functions-reference-fsharp.md) bağlama kullanan kod. İşlevi, tek bir tablo satırı okumak için bir kuyruk tetikleyicisi kullanır. 
 
 *Function.json* dosyasını belirtir bir `partitionKey` ve `rowKey`. `rowKey` Değeri "{queueTrigger}" satır anahtarı, kuyruk iletisi dizeden geldiğini gösterir.
 
@@ -357,7 +357,7 @@ Aşağıdaki örnek, bir tablo giriş bağlama gösterir. bir *function.json* do
 
 [Yapılandırma](#input---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
-F # kodu şu şekildedir:
+İşte F# kod:
 
 ```fsharp
 [<CLIMutable>]
@@ -627,9 +627,9 @@ public class Person
 
 ```
 
-### <a name="output---f-example"></a>Çıkış - F # örneği
+### <a name="output---f-example"></a>Çıkış - F# örneği
 
-Aşağıdaki örnek, bir tablo çıkışına bağlama gösterir. bir *function.json* dosya ve [F # betik](functions-reference-fsharp.md) bağlama kullanan kod. İşlevi, birden çok tablo varlıkları yazar.
+Aşağıdaki örnek, bir tablo çıkışına bağlama gösterir. bir *function.json* dosya ve [ F# betik](functions-reference-fsharp.md) bağlama kullanan kod. İşlevi, birden çok tablo varlıkları yazar.
 
 İşte *function.json* dosyası:
 
@@ -655,7 +655,7 @@ Aşağıdaki örnek, bir tablo çıkışına bağlama gösterir. bir *function.j
 
 [Yapılandırma](#output---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
-F # kodu şu şekildedir:
+İşte F# kod:
 
 ```fsharp
 [<CLIMutable>]

@@ -9,14 +9,14 @@ keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem, sunucusuz m
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 09/03/2018
+ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 4f8135dd26b58b5b285798af5c420aa09b03074b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b386cf72525c6ef6234d99255ca0eed5ade32066
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850133"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000494"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -29,11 +29,11 @@ Bu makalede, Azure işlevleri'nde Azure Blob Depolama bağlamaları ile nasıl �
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Olay Kılavuzu tetikleyicisi için yalnızca blob depolama hesapları için büyük ölçekli veya soğuk başlangıç gecikmeleri önlemek için Blob Depolama tetikleyici yerine kullanın. Daha fazla bilgi için [tetikleyici](#trigger) bölümü.
+> Olay Kılavuzu tetikleyicisi yalnızca blob depolama hesapları için büyük ölçekli veya gecikme süresini azaltmak için Blob Depolama tetikleyici yerine kullanın. Daha fazla bilgi için [tetikleyici](#trigger) bölümü.
 
 ## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
 
-Blob Depolama bağlamaları sağlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet paketi sürüm 2.x. Paket için kaynak kodu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub deposu.
+Blob Depolama bağlamaları sağlanan [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet paketi sürüm 2.x. Paket için kaynak kodu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub deposu.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -55,7 +55,7 @@ Event Grid, Blob Depolama tetikleyici yerine aşağıdaki senaryolar için kulla
 
 * Blob Storage hesapları
 * Yüksek ölçek
-* Soğuk başlangıç gecikmesi en aza indirme
+* Gecikme süresini en aza indirme
 
 ### <a name="blob-storage-accounts"></a>Blob Storage hesapları
 
@@ -65,9 +65,9 @@ Event Grid, Blob Depolama tetikleyici yerine aşağıdaki senaryolar için kulla
 
 Büyük ölçekli gevşek tanımlanabilir 100. 000'den fazla BLOB'ları içeren kapsayıcı olarak veya depolama hesaplarının saniye başına 100'den fazla blob güncelleştirmelerine sahip olması.
 
-### <a name="cold-start-delay"></a>Soğuk Başlangıç Gecikmesi
+### <a name="latency-issues"></a>Gecikme sorunlarını
 
-İşlev uygulamanızın bir tüketim planında ise, olabilir bir 10 dakikaya kadar bir işlev uygulaması boşta geçti, yeni BLOB'lar işleme. Bu soğuk başlangıç gecikmeyi önlemek için Always On özellikli bir App Service planına geçiş veya farklı bir tetikleyici türü kullanın.
+İşlev uygulamanızın bir tüketim planında ise, olabilir bir 10 dakikaya kadar bir işlev uygulaması boşta geçti, yeni BLOB'lar işleme. Bu gecikmeyi önlemek için Always On özellikli bir App Service planına geçiş yapabilirsiniz. Ayrıca bir [Event Grid tetikleyicisinin](functions-bindings-event-grid.md) Blob Depolama hesabınız ile. Bir örnek için bkz. [Event Grid öğretici](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json). 
 
 ### <a name="queue-storage-trigger"></a>Kuyruk depolama tetikleyicisi
 

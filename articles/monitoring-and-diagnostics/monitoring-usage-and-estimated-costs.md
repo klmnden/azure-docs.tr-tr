@@ -9,18 +9,18 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: 35e7d36043defd236252f86facf4b9e2ed945d67
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 3a21b2521cc16b97519f2f84b40a3f51536757e2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42057043"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999668"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Kullanım ve Tahmini maliyetler izleme
 
 > [!NOTE]
 > Bu makalede, kullanım ve Tahmini maliyetler arasında farklı fiyatlandırma modelleri için birden çok Azure İzleme özelliklerini görüntülemek açıklar.  İlgili bilgiler için aşağıdaki makalelere göz atın.
-> - [Veri hacmi ve saklama Log analytics'te kontrol ederek maliyet yönetme](../log-analytics/log-analytics-manage-cost-storage.md) veri saklama döneminizin değiştirerek maliyetlerinizi denetlemek nasıl açıklar.
+> - [Veri hacmi ve saklama Log analytics'te kontrol ederek maliyet yönetme](../azure-monitor/platform/manage-cost-storage.md) veri saklama döneminizin değiştirerek maliyetlerinizi denetlemek nasıl açıklar.
 > - [Log analytics'te veri kullanımını çözümleme](../log-analytics/log-analytics-usage.md) analiz ve veri kullanımınızı uyarı açıklar.
 > - [Application ınsights fiyatlandırma ve veri hacmini yönetme](../application-insights/app-insights-pricing.md) Application ınsights'ta veri kullanımını çözümleme açıklar.
 

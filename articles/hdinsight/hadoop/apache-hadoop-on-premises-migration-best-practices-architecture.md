@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 62e15b5845ed9faa605f978f0d2fd427c9c3ee9b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 7558a853657e3e3764cd8e3faf6dd466e9ead35e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008190"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994139"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Azure HDInsight - mimari en iyi uygulamaları şirket içi Apache Hadoop kümelerini geçirme
 
@@ -49,7 +49,7 @@ Aşağıdaki tablo, bir HDInsight kümesi oluşturmak için kullanılan farklı 
 |[Java SDK](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
 |[Azure Resource Manager şablonları](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
 
-Daha fazla bilgi için bkz [küme HDInsight türleri](../hadoop/apache-hadoop-introduction.md)
+Daha fazla bilgi için bkz [küme HDInsight türlerinde](../hadoop/apache-hadoop-introduction.md).
 
 ## <a name="use-transient-on-demand-clusters"></a>Geçici isteğe bağlı kümeler kullanma
 
@@ -57,7 +57,7 @@ HDInsight kümeleri uzun süreler için kullanılmayan gidebilir. Kaydetme kayna
 
 Küme silme, harici meta veri ve ilişkili depolama hesabı kaldırılmaz. Kümeyi daha sonra meta depolar ve aynı depolama hesapları kullanılarak yeniden oluşturulabilir.
 
-Azure Data Factory, isteğe bağlı HDInsight kümeleri oluşturma zamanlamak için kullanılabilir. Daha fazla bilgi için bkz [isteğe bağlı Hadoop kümeleri Azure Data Factory kullanarak HDInsight oluşturma](../hdinsight-hadoop-create-linux-clusters-adf.md).
+Azure Data Factory, isteğe bağlı HDInsight kümeleri oluşturma zamanlamak için kullanılabilir. Daha fazla bilgi için bkz [isteğe bağlı Apache Hadoop kümeleri Azure Data Factory kullanarak HDInsight oluşturma](../hdinsight-hadoop-create-linux-clusters-adf.md).
 
 ## <a name="decouple-storage-from-compute"></a>Depolamayı işlemden ayırın
 
@@ -65,33 +65,33 @@ Tipik şirket içi Hadoop dağıtımlar, veri depolama ve veri işleme için ayn
 
 HDInsight kümelerinde depolama ile işlem birlikte bulunması gerekmez ve Azure depolama, Azure Data Lake Store veya her ikisi de olabilir. Depolamayı işlemden ayırma aşağıdaki faydaları vardır:
 
-- Veri kümeleri arasında paylaşma
-- Veri kümesine bağımlı değilse bu yana geçici kümelerinin kullanın
-- Depolama maliyeti azalır
-- Ayrı olarak işlem ve depolama ölçeklendirme
-- Bölgeler arası veri çoğaltma
+- Veri kümelerinde paylaşımı.
+- Veri kümesine bağımlı değilse bu yana geçici kümelerini kullanın.
+- Depolama maliyeti azalır.
+- Ayrı olarak işlem ve depolama ölçeklendirme.
+- Bölgeler arası veri çoğaltma.
 
 İşlem ve depolama ayırma performans maliyeti azaltmak için bir Azure bölgesindeki depolama hesabı kaynaklarına yakın oluşturulmasıyla işlem. Yüksek hızlı ağlar, işlem düğümlerinin Azure depolama içindeki verilere erişimini verimli hale getirir.
 
 ## <a name="use-external-metadata-stores"></a>Dış meta veri depolarını kullanma
 
-HDInsight kümeleri ile çalışma iki ana meta depolar vardır: Hive ve Oozie. Hive meta veri deposu Hadoop, Spark, LLAP, Presto dahil olmak üzere veri işleme altyapıları ve Pig tarafından kullanılabilecek merkezi şema depodur. Oozie meta veri deposu, devam eden ve tamamlanan Hadoop işlerini zamanlama hakkında ayrıntıları ve durumunu depolar.
+HDInsight kümeleri ile çalışma iki ana meta depolar vardır: [Apache Hive](https://hive.apache.org/) ve [Apache Oozie](https://oozie.apache.org/). Hive meta veri deposu Hadoop, Spark, LLAP, Presto dahil olmak üzere veri işleme altyapıları ve Apache Pig tarafından kullanılabilecek merkezi şema depodur. Oozie meta veri deposu, devam eden ve tamamlanan Hadoop işlerini zamanlama hakkında ayrıntıları ve durumunu depolar.
 
 Azure SQL veritabanı, HDInsight Hive ve Oozie meta depolar için kullanır. HDInsight kümelerinde meta veri deposu ayarlamak için iki yolu vardır:
 
 1. Varsayılan meta veri deposu
 
-    - Hiçbir ek ücret
-    - Meta veri deposu, küme silindiğinde silinir
-    - Meta veri deposu, farklı sunucular arasında paylaşılamaz
+    - Ek ücret ödemeden.
+    - Meta veri deposu, küme silindiğinde silinir.
+    - Meta veri deposu, farklı sunucular arasında paylaşılamaz.
     - Beş DTU sınırı olan temel Azure SQL DB, kullanır.
 
 1. Özel dış meta depo
 
     - Dış Azure SQL veritabanı meta veri deposu olarak belirtin.
     - Kümeleri oluşturulabilir ve Hive şema Oozie iş ayrıntılarını içeren bir meta veri kaybetmeden silindi.
-    - Tek bir meta veri deposu db kümeleri farklı türde paylaşılabilir
-    - Meta veri deposu gerektiği şekilde ölçeklendirilebilir
+    - Tek bir meta veri deposu db kümeleri farklı türde paylaşılabilir.
+    - Meta veri deposu, gerektiği şekilde ölçeklendirilebilir.
     - Daha fazla bilgi için [Azure HDInsight, harici meta veri depolarını kullanma](../hdinsight-use-external-metadata-stores.md).
 
 ## <a name="best-practices-for-hive-metastore"></a>Hive meta veri deposu için en iyi uygulamalar
@@ -106,7 +106,7 @@ HDInsight Hive meta veri deposu en iyi yöntemlerden bazıları aşağıda veril
 - Performans ve kullanılabilirlik gibi Azure portal veya Azure Log Analytics, Azure SQL veritabanı izleme araçları kullanarak meta veri deposu izleyin.
 - Yürütme **ANALİZ tablo** tablolar ve sütunlar için istatistik oluşturmak için gerekli olarak komutu. Örneğin, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
-## <a name="best-practices-for-different-types-of-workloads"></a>Farklı türde iş yükleri için en iyi uygulamalar
+## <a name="best-practices-for-different-workloads"></a>Farklı iş yükleri için en iyi uygulamalar
 
 - Geliştirilmiş yanıt süresi ile etkileşimli Hive sorguları için LLAP kümesine kullanmayı göz önünde bulundurun [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) Hive sorguları bellek içi caching izin veren 2.0 yeni bir özelliktir. LLAP yapar kadar daha hızlı Hive sorguları [26 x bazı durumlarda 1.x Hive çok daha kısa](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
 - Spark işlerinde Hive işleri yerine kullanmayı düşünün.

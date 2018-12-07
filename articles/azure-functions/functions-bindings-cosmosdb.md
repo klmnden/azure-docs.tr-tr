@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: b7ae066bd8dc2de3227f441fd05b6c7a412b6074
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 43020784e57f1555de1ddedab8fe7a657ecf09f3
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965368"
+ms.locfileid: "53001701"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure işlevleri için Azure Cosmos DB bağlamaları 1.x
 
@@ -38,7 +38,7 @@ Bu makalede ile nasıl çalışılacağı açıklanmaktadır [Azure Cosmos DB](.
 
 ## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
 
-Azure Cosmos DB bağlamaları için İşlevler sürümünü 1.x altında sağlanmıştır [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet paketi sürüm 1.x. Bağlamaları için kaynak kodu konusu [azure webjobs sdk uzantıları](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB) GitHub deposu.
+Azure Cosmos DB bağlamaları için İşlevler sürümünü 1.x altında sağlanmıştır [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet paketi sürüm 1.x. Bağlamaları için kaynak kodu konusu [azure webjobs sdk uzantıları](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB) GitHub deposu.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 

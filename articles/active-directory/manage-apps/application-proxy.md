@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 212628c0ec97524e91ab8eaeb766c3e405023aaf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: aabbcb45edf087b4a7d6268dcca90b21afa16f7c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846173"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998105"
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Şirket içi uygulamalara güvenli uzaktan erişim sağlama
 
@@ -59,16 +59,16 @@ Azure AD uygulama proxy'si ile iç uygulamaları farklı türde erişebilirsiniz
 * Active Directory Authentication Library (ADAL) ile tümleşik olan zengin istemci uygulamaları
 
 ## <a name="how-does-application-proxy-work"></a>Uygulama proxy'si nasıl çalışır?
-Uygulama proxy'si çalışır hale getirmek için yapılandırmanız gereken iki bileşeni vardır: bir bağlayıcı ve dış uç noktası. 
+Uygulama proxy'si çalışır hale getirmek için yapılandırmanız gereken iki bileşeni vardır: bir bağlayıcı ve uç nokta. 
 
 Bağlayıcı ağınızdaki bir Windows Server üzerinde yer alan bir basit aracısıdır. Uygulama proxy'si hizmeti bulutta trafik akışını, uygulama şirket içi bağlayıcı kolaylaştırır. Gelen bağlantı noktalarının açık veya her şeyi bir DMZ'ye yerleştirmeniz zorunda kalmamak için yalnızca giden bağlantılar kullanır. Bağlayıcılar, durum bilgisiz olduğundan ve gerektiği şekilde buluttan bilgi isteme. Nasıl gibi bağlayıcılar hakkında daha fazla bilgi için Yük Dengeleme ve kimlik doğrulaması için bkz [anlamak Azure AD uygulama ara sunucusu bağlayıcıları](application-proxy-connectors.md). 
 
-Nasıl sırada ağınızın dışında uygulamalarınızı kullanıcılarınıza ulaşmak dış uç noktadır. Belirlediğiniz doğrudan bir dış URL ya da gidebilir veya MyApps Portalı aracılığıyla uygulamaya erişebilir. Kullanıcılar bu uç noktaları birine gittiğinizde, Azure AD'de kimlik doğrulaması yapmak ve şirket içi uygulama Bağlayıcısı üzerinden yönlendirilir.
+Uç nokta bir URL olabilir veya bir [son kullanıcı portalı](end-user-experiences.md). Kullanıcılar, uygulamalar, Ağ üzerindeyken dışında bir dış URL erişerek ulaşabilirsiniz. Ağınızdaki kullanıcılar, bir URL veya bir son kullanıcı portalı uygulamaya erişebilir. Kullanıcılar bu uç noktaları birine gittiğinizde, Azure AD'de kimlik doğrulaması yapmak ve şirket içi uygulama Bağlayıcısı üzerinden yönlendirilir.
 
  ![AzureAD uygulama proxy'si diyagramı](./media/application-proxy/azureappproxxy.png)
 
-1. Kullanıcı, uygulamayı uygulama proxy'si hizmeti aracılığıyla erişen ve kimlik doğrulamak için Azure AD oturum açma sayfasına yönlendirilir.
-2. Bir başarılı oturum açma işleminden sonra bir belirteç oluşturulur ve istemci cihaza gönderilir.
+1. Kullanıcı, bir uç noktası aracılığıyla uygulama eriştiğini sonra kullanıcının Azure AD oturum açma sayfasına yönlendirilir. 
+2. Bir başarılı oturum açma işleminden sonra bir belirteç oluşturulur ve kullanıcının istemci cihaza gönderilir.
 3. İstemci belirteci belirteçten güvenlik asıl adı (SPN) ve kullanıcı asıl adı (UPN) alır, sonra uygulama Proxy Bağlayıcısı isteği yönlendirir uygulama ara Sunucusu hizmetine gönderir.
 4. Çoklu oturum açma yapılandırdıysanız, bağlayıcı kullanıcı adına gerekli tüm ek kimlik doğrulaması gerçekleştirir.
 5. Bağlayıcıyı şirket içi uygulamaya isteği gönderir.  

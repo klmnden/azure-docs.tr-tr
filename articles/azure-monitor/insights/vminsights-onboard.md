@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: d38c93f1e6e390117ff5d9e8772119ed1c26fd10
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4e374528a0fa757458e7e4881714370937b56f9c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965539"
+ms.locfileid: "52998288"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Nasıl için yerleşik Azure izleme VM'ler için (Önizleme)
 Bu makalede, Azure bulma gibi ve uygulama bağımlılıklarını eşleyerek İzleyicisi sanal makinelerin Azure sanal makineler ve sanal makine ölçek kümeleri ve sanal makineler, ortamınızda işletim sistem durumunu izlemek ayarlama işlemi açıklanmaktadır bunlar üzerinde barındırılabilir.  
@@ -169,7 +169,7 @@ Aşağıdaki erişim ve VM'ler için Azure İzleyici özelliklerinde erişim etk
 
 - Performans sistem durumu, görüntüleme ve harita verileri için eklenen izleme okuyucu rolünün bir üyesi Azure VM ve VM'ler için Azure İzleyici ile yapılandırılmış Log Analytics çalışma alanı için gerekir.   
 
-Log Analytics çalışma alanına erişimi denetleme hakkında daha fazla bilgi için bkz. [çalışma alanlarını yönetme](../../log-analytics/log-analytics-manage-access.md).
+Log Analytics çalışma alanına erişimi denetleme hakkında daha fazla bilgi için bkz. [çalışma alanlarını yönetme](../../azure-monitor/platform/manage-access.md).
 
 ## <a name="enable-from-the-azure-portal"></a>Azure portalından etkinleştirme
 Azure portalında Azure sanal makinenizin izlemeyi etkinleştirmek için aşağıdakileri yapın:
@@ -197,7 +197,7 @@ Bu bölümde yönergelerinde gerçekleştirmek için Azure İzleyici ya da Azure
 
 Özetlenen, sanal makinelerinizi ekleme ile devam etmeden önce Log Analytics çalışma alanınızın önceden yapılandırmak için gerçekleştirmeniz gereken adımlar yer almaktadır.
 
-1. Yeni bir tane zaten, mevcut değilse çalışma alanı, VM'ler için Azure İzleyici desteklemek için kullanılabilir. Gözden geçirme [çalışma alanlarını yönetme](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) devam etmeden önce maliyeti, yönetim ve uyumluluk konuları anlamak için yeni bir çalışma alanı oluşturmadan önce.       
+1. Yeni bir tane zaten, mevcut değilse çalışma alanı, VM'ler için Azure İzleyici desteklemek için kullanılabilir. Gözden geçirme [çalışma alanlarını yönetme](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json) devam etmeden önce maliyeti, yönetim ve uyumluluk konuları anlamak için yeni bir çalışma alanı oluşturmadan önce.       
 2. Çalışma alanı koleksiyonu Linux ve Windows Vm'leri için performans sayaçları sağlar.
 3. Yükleme ve etkinleştirme **ServiceMap** ve **InfrastructureInsights** çalışma alanınızda çözümün.  
 

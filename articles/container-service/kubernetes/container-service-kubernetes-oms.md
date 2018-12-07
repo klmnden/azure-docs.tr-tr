@@ -1,5 +1,5 @@
 ---
-title: Azure Kubernetes kümesi - Management işlemleri izleme
+title: (KULLANIM DIŞI) Azure Kubernetes kümesi - Management işlemleri izleme
 description: Log Analytics kullanarak Azure Container Service Kubernetes kümesini izleme
 services: container-service
 author: bburns
@@ -9,16 +9,19 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: a353fe3803b2d93c151559076960df06eb260bfe
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 8010d7cbf960c3e2f6528687be97a47d31270696
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426422"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997210"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Log Analytics ile bir Azure Container Service kümesini izleme
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(KULLANIM DIŞI) Log Analytics ile bir Azure Container Service kümesini izleme
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Bu makale, güncelleştirilmiş sürümü kullanan Azure Kubernetes Service için bkz: [kapsayıcılar için Azure İzleyici](../../azure-monitor/insights/container-insights-overview.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu izlenecek yol, sahibi olduğunuzu varsayar [Azure Container Service kullanan bir Kubernetes kümesi oluşturuldu](container-service-kubernetes-walkthrough.md).
@@ -59,11 +62,11 @@ az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUST
 
 ## <a name="monitoring-containers-with-log-analytics"></a>Log Analytics ile kapsayıcıları izleme
 
-Log Analytics, yönetmek ve şirket içi koruma hem de bulut altyapısında yardımcı olan Microsoft'un bulut tabanlı BT yönetimi çözümüdür. Kapsayıcı çözümü, tek bir konumda kapsayıcı envanteri, performans ve günlükleri görüntülemenize yardımcı olur. Log analytics'te bir çözümdür. Denetim, kapsayıcıları merkezi konumda günlüklerini görüntüleyerek sorun giderme ve gürültülü fazla kapsayıcı bir konakta tüketen bulun.
+Log Analytics, yönetmek ve şirket içi koruma hem de bulut altyapısında yardımcı olan Microsoft'un bulut tabanlı BT yönetimi çözümüdür. Kapsayıcı çözümü, tek bir konumda kapsayıcı envanteri, performans ve günlükleri görüntülemenize yardımcı olur. Log analytics'te bir çözümdür. Denetim, kapsayıcıları merkezi konumda günlüklerini görüntüleyerek sorun giderme ve gürültülü fazla kapsayıcı bir konakta tüketen bulun.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
-Kapsayıcı çözümü hakkında daha fazla bilgi için bkz [kapsayıcı çözümü Log Analytics](../../log-analytics/log-analytics-containers.md).
+Kapsayıcı çözümü hakkında daha fazla bilgi için bkz [kapsayıcı çözümü Log Analytics](../../azure-monitor/insights/containers.md).
 
 ## <a name="installing-log-analytics-on-kubernetes"></a>Log Analytics, Kubernetes üzerinde yükleme
 

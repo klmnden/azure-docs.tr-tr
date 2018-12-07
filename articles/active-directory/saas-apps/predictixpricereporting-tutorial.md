@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: c8708de847e1aeb6e460000c1517078512ec439b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a7b6122638636193b363d0ac57aae22a9c7da57a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838353"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014761"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Öğretici: Azure Active Directory fiyat Predictix Raporlama ile tümleştirme
 
@@ -113,6 +113,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve f
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname-pricing>.predictix.com/sso/request`
 
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
+    
     | |
     |--|
     | `https://<companyname-pricing>.predictix.com` |

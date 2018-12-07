@@ -10,16 +10,17 @@ ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 19525086b1bd41afcc730fb3860d7a01875e4832
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 1bbbbbada07dc898a4c1424a315d472cf910926f
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987010"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010833"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Azure Event Hubs işleme birimleri otomatik olarak ölçeklendirme
 
@@ -49,13 +50,13 @@ Etkinleştirebilir veya otomatik şişme bir Event Hubs ad alanı üzerinde aşa
 
 Otomatik şişme özelliği, bir Event Hubs ad alanını oluştururken etkinleştirebilirsiniz:
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
+![Otomatik etkinleştirme zaman olay hub'ı oluşturma sırasında Şişir](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
 Bu seçenek etkinleştirildiğinde, işleme birimleri ile küçükten başlayabilir ve kullanım artışı gereksinimleriniz değiştikçe ölçeği artırma. Üst sınırını Enflasyon hemen fiyatlandırması, saat başına kullanılan aktarım hızı birimi sayısı bağımlı olduğu etkilemez.
 
 Otomatik şişme kullanarak etkinleştirebilirsiniz **ölçek** portalında ayarlar bölmesini seçeneği:
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+![Otomatik etkinleştirme ölçek seçeneğini kullanarak Şişir](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
 
 
 > [!NOTE]

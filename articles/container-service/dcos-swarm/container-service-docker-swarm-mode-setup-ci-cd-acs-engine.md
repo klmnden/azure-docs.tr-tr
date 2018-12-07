@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service altyapısı ve Swarm modu ile CI/CD
+title: (KULLANIM DIŞI) Azure Container Service altyapısı ve Swarm modu ile CI/CD
 description: Azure Container Service altyapısı sürekli .NET Core çok kapsayıcılı bir uygulama sunmak için Docker Swarm modu, bir Azure Container Registry ve Azure DevOps kullanın
 services: container-service
 author: diegomrtnzg
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 296c097ee3302eaa39210274b16c6352866eac8a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 52d20004f43b5c553a17c44f3f35d30fd5693286
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299585"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995064"
 ---
-# <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>ACS altyapısı ve Azure DevOps kullanarak Docker Swarm modu ile Azure Container Service üzerinde çok kapsayıcılı bir uygulama dağıtmak için tam CI/CD işlem hattı
+# <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(KULLANIM DIŞI) ACS altyapısı ve Azure DevOps kullanarak Docker Swarm modu ile Azure Container Service üzerinde çok kapsayıcılı bir uygulama dağıtmak için tam CI/CD işlem hattı
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 *Bu makalede dayanır [tam CI/CD işlem hattı, Azure DevOps kullanarak Docker Swarm ile Azure Container Service üzerinde çok kapsayıcılı bir uygulama dağıtmak için](container-service-docker-swarm-setup-ci-cd.md) belgeleri*
 

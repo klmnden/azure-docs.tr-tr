@@ -11,12 +11,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 12/05/2018
-ms.openlocfilehash: 6523828b522379dd1cd70f1c548caf7af15b5d90
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ea7b4def23f766e6cda1e1e8e1d4e8dc7be302fe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964774"
+ms.locfileid: "52997601"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Azure SQL veritabanı için Gelişmiş tehdit koruması
 
@@ -28,7 +28,7 @@ SQL Gelişmiş tehdit Koruması (ATP), veri bulma & Sınıflandırma, güvenlik 
 
 - [Veri Bulma ve Sınıflandırma](sql-database-data-discovery-and-classification.md) (önizleme sürümündedir), veritabanlarınızdaki hassas verileri keşfetmek, sınıflandırmak, etiketlemek ve korumak için yerleşik Azure SQL Veritabanı özellikleri sunar. Veri sınıflandırma durumunuz için görünürlük sağlamanın yanı sıra veritabanı içindeki ve dışındaki hassas verilere erişimin izlenmesi için kullanılabilir.
 - [Güvenlik Açığı Değerlendirmesi](sql-vulnerability-assessment.md) olası veritabanı güvenlik açıklarını keşfetmenizi ve izlemenizi sağlamanın yanı sıra bunları gidermeye yardımcı olan yapılandırması kolay bir hizmettir. Güvenlik durumunuz hakkında görünürlük sağlamasının yanı sıra güvenlik sorunlarınızı çözmek ve veritabanı güçlendirmelerinizi geliştirmek için eyleme dönüştürülebilir adımlar sunar.
-- [Tehdit Algılama](sql-database-threat-detection.md), veritabanlarına erişme veya bunları kullanma konusunda olağandışı ve potansiyel olarak zararlı girişimleri gösteren anormal etkinlikleri tespit eder. Veritabanınızı şüpheli etkinliklere karşı sürekli izler ve olası güvenlik açıkları, SQL ekleme saldırıları ve anormal veritabanı erişim modelleri hakkında anında güvenlik uyarıları sunar. Tehdit Algılama uyarıları, şüpheli etkinliğin ayrıntılarının yanı sıra tehdidi araştırmak ve ortadan kaldırmak için önerilen eylemleri içerir.
+- [Tehdit Algılama](sql-database-threat-detection-overview.md), veritabanlarına erişme veya bunları kullanma konusunda olağandışı ve potansiyel olarak zararlı girişimleri gösteren anormal etkinlikleri tespit eder. Veritabanınızı şüpheli etkinliklere karşı sürekli izler ve olası güvenlik açıkları, SQL ekleme saldırıları ve anormal veritabanı erişim modelleri hakkında anında güvenlik uyarıları sunar. Tehdit Algılama uyarıları, şüpheli etkinliğin ayrıntılarının yanı sıra tehdidi araştırmak ve ortadan kaldırmak için önerilen eylemleri içerir.
 
 Bunların tümü etkinleştirmek için özellikler dahil sonra SQL ATP etkinleştirin. ATP’yi tüm veritabanı sunucunuzda tek tıkla etkinleştirebilir ve sunucuda bulunan tüm veritabanlarına uygulayabilirsiniz. 
 

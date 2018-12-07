@@ -1,5 +1,5 @@
 ---
-title: Azure DC/OS kümesi - Management işlemleri izleme
+title: (KULLANIM DIŞI) Azure DC/OS kümesi - Management işlemleri izleme
 description: Log Analytics ile bir Azure Container Service DC/OS kümesini izleme.
 services: container-service
 author: keikhara
@@ -9,20 +9,22 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: 4576d9decc6ba1e01ef39abdb8a3ef89461196e8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b5c1596066b02d5ad4f59ed553408d263acc825c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407801"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993562"
 ---
-# <a name="monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>Log Analytics ile bir Azure Container Service DC/OS kümesini izleme
+# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(KULLANIM DIŞI) Log Analytics ile bir Azure Container Service DC/OS kümesini izleme
 
-Log Analytics, yönetmek ve şirket içi koruma hem de bulut altyapısında yardımcı olan Microsoft'un bulut tabanlı BT yönetimi çözümüdür. Kapsayıcı çözümü, tek bir konumda kapsayıcı envanteri, performans ve günlükleri görüntülemenize yardımcı olur. Log analytics'te bir çözümdür. Denetim, kapsayıcıları merkezi konumda günlüklerini görüntüleyerek sorun giderme ve gürültülü fazla kapsayıcı bir konakta tüketen bulun.
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
+
+Log Analytics, yönetmek ve şirket içi koruma hem de bulut altyapısında yardımcı olan Microsoft'un bulut tabanlı BT yönetimi çözümüdür. Kapsayıcı çözümü, tek bir konumda kapsayıcı envanteri, performans ve günlükleri görüntülemenize yardımcı olur. Log analytics'te bir çözümdür. Denetim, kapsayıcıları merkezi konumda günlüklerini görüntüleyerek sorun giderme ve gürültülü fazla kapsayıcı bir konakta tüketen bulun.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
-Kapsayıcı çözümü hakkında daha fazla bilgi için bkz: [kapsayıcı çözümü Log Analytics](../../log-analytics/log-analytics-containers.md).
+Kapsayıcı çözümü hakkında daha fazla bilgi için bkz: [kapsayıcı çözümü Log Analytics](../../azure-monitor/insights/containers.md).
 
 ## <a name="setting-up-log-analytics-from-the-dcos-universe"></a>DC/OS evreni Log Analytics'ten ayarlama
 
@@ -74,7 +76,7 @@ Adresinden Azure portalında oturum açın <https://portal.microsoft.com/>. Git 
 
 ![](media/container-service-monitoring-oms/image11.png)
 
-Log Analytics kapsayıcı çözümü hakkında daha fazla bilgi için bkz [kapsayıcı çözümü Log Analytics](../../log-analytics/log-analytics-containers.md).
+Log Analytics kapsayıcı çözümü hakkında daha fazla bilgi için bkz [kapsayıcı çözümü Log Analytics](../../azure-monitor/insights/containers.md).
 
 ### <a name="how-to-scale-log-analytics-agent-with-acs-dcos"></a>Log Analytics aracısını ACS DC/OS ile ölçeklendirme 
 
@@ -99,4 +101,4 @@ Neyin işe yaradığını? Eksik olan nedir? Bu sizin için yararlı olacak baş
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
- Log Analytics'i ayarlama, kapsayıcılarınızı izleyecek şekilde ayarladığınız göre[kapsayıcı panonuzu görmek](../../log-analytics/log-analytics-containers.md).
+ Log Analytics'i ayarlama, kapsayıcılarınızı izleyecek şekilde ayarladığınız göre[kapsayıcı panonuzu görmek](../../azure-monitor/insights/containers.md).

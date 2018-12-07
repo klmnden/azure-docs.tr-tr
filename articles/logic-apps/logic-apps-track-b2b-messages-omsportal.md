@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: aacdaf4ec55b1223ce993a7246ed9f0405a5054e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ad58257313c60b4757c83793886ce32a2997332b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957190"
+ms.locfileid: "52996529"
 ---
 # <a name="track-b2b-messages-with-azure-log-analytics"></a>Azure Log Analytics ile B2B iletilerini izleme
 
@@ -27,7 +27,7 @@ Tümleştirme hesabı ticari ortaklar arasında B2B iletişim kurduktan sonra i�
 * Arama özellikleri
 
 > [!NOTE]
-> Bu sayfa, Microsoft Operations Management Suite (olan OMS ile), bu görevleri gerçekleştirmek adımlar daha önce açıklanan [Ocak 2019 ' devre dışı bırakma](../log-analytics/log-analytics-oms-portal-transition.md), bu adımlar, bunun yerine Azure Log Analytics ile değiştirir. 
+> Bu sayfa, Microsoft Operations Management Suite (olan OMS ile), bu görevleri gerçekleştirmek adımlar daha önce açıklanan [Ocak 2019 ' devre dışı bırakma](../azure-monitor/platform/oms-portal-transition.md), bu adımlar, bunun yerine Azure Log Analytics ile değiştirir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 

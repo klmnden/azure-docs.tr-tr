@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 08238732c9e2d4e09e1f956c18768a15c95828c2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6a1641a76d43cdbac6253e00ea35f70325870853
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958193"
+ms.locfileid: "52993374"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Azure HDInsight - altyapı en iyi uygulamaları şirket içi Apache Hadoop kümelerini geçirme
 
 Bu makalede, Azure HDInsight kümelerinin altyapının yönetilmesi için öneriler sunar. Geçirme şirket içi Apache Hadoop sistemler ile Azure HDInsight için yardımcı olması için en iyi yöntemler sağlayan bir dizi gereksinimlerimizim bir parçasıdır.
 
-## <a name="plan-well-for-the-capacity-needed-for-hdinsight-clusters"></a>Da HDInsight kümeleri için gereken kapasite planlama
+## <a name="plan-for-hdinsight-cluster-capacity"></a>HDInsight küme kapasitesi planlama
 
 HDInsight küme kapasitesi planlama yapmak için temel seçenekler şunlardır:
 
@@ -29,13 +29,13 @@ HDInsight küme kapasitesi planlama yapmak için temel seçenekler şunlardır:
 - **Türü (G serisi şimdi destekler) ve VM boyutu seçin** - düğüm türleri kümesi her küme türü vardır ve her düğüm türü, VM boyutunu ve türünü belirli seçenekler içerir. VM boyutunu ve türünü CPU işleme güç, RAM boyutu ve ağ gecikmesi tarafından belirlenir. Sanal bir iş yükü, en iyi VM boyutu ve her düğüm türü için türü belirlemek için kullanılabilir.
 - **Çalışan düğümlerinin sayısını seçin** -sanal iş yükleri kullanarak ilk çalışan düğümü sayısı belirlenebilir. Küme, yoğun yük taleplerini karşılamak üzere daha fazla alt düğüm ekleyerek daha sonra ölçeklendirilebilir. Küme, daha sonra geri ek çalışan düğümleri gerekli olmadığında ölçeklendirilebilir.
 
-Daha fazla bilgi için bkz [HDInsight kümeleri için kapasite planlaması](../hdinsight-capacity-planning.md)
+Daha fazla bilgi için bkz [HDInsight kümeleri için kapasite planlaması](../hdinsight-capacity-planning.md).
 
-## <a name="use-the-recommended-virtual-machine-types-for-cluster-nodes"></a>Küme düğümleri için önerilen sanal makine türleri kullanın
+## <a name="use-recommended-virtual-machine-type-for-cluster"></a>Küme için önerilen sanal makine türünü kullanın
 
 Bkz: [varsayılan küme düğümü yapılandırması ve sanal makine boyutları](../hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) için önerilen sanal makine türleri için HDInsight kümesi her türü.
 
-## <a name="check-the-availability-of-hadoop-components-in-hdinsight"></a>HDInsight, Hadoop bileşenlerinin kullanılabilirliğini denetleyin
+## <a name="check-hadoop-components-availability-in-hdinsight"></a>HDInsight Hadoop bileşenlerinin kullanılabilirliğini denetleyin
 
 Her bir HDInsight sürüm sürümünün Hortonworks Data Platform (HDP) bir bulut dağıtımıdır ve Hadoop ekonomik sistemi bileşenlerinin kümesinden oluşur. Bkz: [HDInsight bileşen sürümü oluşturma](../hdinsight-component-versioning.md) tüm HDInsight bileşenleri ve bunların geçerli sürümleri hakkında ayrıntılı bilgi için.
 
@@ -97,7 +97,7 @@ Betik eylemleri, bir HDInsight uygulaması olarak Azure Marketi'nde ayrıca yay�
 
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-- [HDInsight üzerinde üçüncü taraf Hadoop uygulamaları yükleme](../hdinsight-apps-install-applications.md)
+- [HDInsight üzerinde üçüncü taraf Apache Hadoop uygulamaları yükleme](../hdinsight-apps-install-applications.md)
 - [Komut dosyası Eylemleri'ni kullanarak HDInsight kümelerini özelleştirin](../hdinsight-hadoop-customize-cluster-linux.md)
 - [Bir HDInsight uygulaması Azure Market'te yayımlama](../hdinsight-apps-publish-applications.md)
 
@@ -128,9 +128,9 @@ New—AzureRmHDInsightCluster `
     —Config $config
 ```
 
-Daha fazla bilgi için bkz [özelleştirme HDInsight Bootstrap ile kümeleri](../hdinsight-hadoop-customize-cluster-bootstrap.md)
+Daha fazla bilgi için bkz [özelleştirme HDInsight kümeleri Bootstrap ile](../hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-## <a name="use-edge-nodes-on-hadoop-clusters-in-hdinsight-to-access-the-client-tools"></a>İstemci araçlarına erişmek için HDInsight Hadoop kümelerinde kenar düğümlerini kullanma
+## <a name="access-client-tools-from-hdinsight-hadoop-cluster-edge-nodes"></a>Erişim istemci araçlarından HDInsight Hadoop küme kenar düğümleri
 
 Bir Linux sanal makinesi ile aynı istemci araçları yüklenir ve baş düğümleri olarak yapılandırılır, ancak hiçbir Hadoop Hizmetleri çalıştıran bir boş kenar düğümüdür. Kenar düğümüne aşağıdaki amaçlarla kullanılabilir:
 
@@ -140,9 +140,9 @@ Bir Linux sanal makinesi ile aynı istemci araçları yüklenir ve baş düğüm
 
 Kenar düğümleri oluşturulabilir ve Azure portalı üzerinden silinmesi sırasında kullanılabilir ve sonra oluşturma küme. Kenar düğümüne oluşturulduktan sonra kenar düğümüne SSH kullanarak bağlanma ve HDInsight Hadoop kümesinde erişmek için İstemci Araçları'nı çalıştırın. Kenar düğümünün ssh uç noktası olan `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22`.
 
-Daha fazla bilgi için bkz [HDInsight Hadoop kümelerinde boş kenar düğümlerini kullanma](../hdinsight-apps-use-edge-node.md)
+Daha fazla bilgi için bkz [HDInsight, Apache Hadoop kümelerinde boş kenar düğümlerini kullanma](../hdinsight-apps-use-edge-node.md).
 
-## <a name="use-the-scale-up-and-scale-down-feature-of-clusters"></a>Küme ölçek büyütme ve ölçek azaltma özelliğini kullanın
+## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>Küme ölçek büyütme ve ölçek azaltma özelliğini kullanın
 
 HDInsight, ölçeğini ve, kümede çalışan düğümleri sayısını ölçeğini seçeneği vererek esneklik sağlar. Bu özellik, bir küme saat sonra veya hafta sonu Daralt ve en yüksek iş gereksinimlerini sırasında genişletmek verir.
 
@@ -174,7 +174,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 Güvenli mod bırakarak sonra el ile geçici dosyaları kaldırabilir, veya Hive sonunda otomatik olarak temizlenmesi için bekleyin.
 
-Daha fazla bilgi için bkz [ölçek HDInsight kümeleri](../hdinsight-scaling-best-practices.md)
+Daha fazla bilgi için bkz [ölçek HDInsight kümeleri](../hdinsight-scaling-best-practices.md).
 
 ## <a name="use-hdinsight-with-azure-virtual-network"></a>HDInsight ile Azure sanal ağı kullanma
 
@@ -196,7 +196,7 @@ Daha fazla bilgi için aşağıdaki makalelere bakın:
 - [Azure sanal-ağ-genel bakış](../../virtual-network/virtual-networks-overview.md)
 - [Bir Azure sanal ağı kullanarak Azure Hdınsight genişletme](../hdinsight-extend-hadoop-virtual-network.md)
 
-## <a name="use-azure-virtual-network-service-endpoints-to-securely-connect-to-other-azure-services"></a>Diğer Azure hizmetlerine güvenli bir şekilde bağlanmak için Azure sanal ağ hizmet uç noktaları kullanma
+## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Azure Hizmetleri Azure sanal ağ hizmet uç noktaları ile güvenli bir şekilde bağlanma
 
 HDInsight'ı destekleyen [sanal ağ hizmet uç noktaları](../../virtual-network/virtual-network-service-endpoints-overview.md) güvenli bir şekilde Azure Blob Depolama, Azure Data Lake depolama Gen2, Cosmos DB ve SQL veritabanlarına bağlanmak sağlar. Trafik, Azure HDInsight için bir hizmet uç noktası etkinleştirildiğinde, Azure veri merkezinde bir güvenli rotadaki aracılığıyla akar. Bu gelişmiş düzeyde güvenlik ağ katmanında ile büyük veri depolama hesapları, belirtilen sanal ağlar (Vnet'ler) kilitleme ve yine de HDInsight kümeleri sorunsuz bir şekilde erişmek ve bu verileri işlemek için kullanın.
 

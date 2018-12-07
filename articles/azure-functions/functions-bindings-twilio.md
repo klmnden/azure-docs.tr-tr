@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9832281b586bf4377096ff28362b4fc180480aea
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: cc6ca29af1866c5d26d3b73b26121451440c4dac
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246153"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993059"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Azure işlevleri için Twilio bağlama
 
@@ -27,13 +27,13 @@ Bu makalede kullanarak kısa mesaj göndermek açıklanmaktadır [Twilio](https:
 
 ## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
 
-Twilio bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet paketi sürüm 1.x. Paket için kaynak kodu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.Twilio/) GitHub deposu.
+Twilio bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet paketi sürüm 1.x. Paket için kaynak kodu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.Twilio/) GitHub deposu.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="packages---functions-2x"></a>Paketler - 2.x işlevleri
 
-Twilio bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet paketi sürüm 3.x. Paket için kaynak kodu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) GitHub deposu.
+Twilio bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet paketi sürüm 3.x. Paket için kaynak kodu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) GitHub deposu.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -404,8 +404,8 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**type**|**type**| Ayarlanmalıdır `twilioSms`.|
 |**direction**|**direction**| Ayarlanmalıdır `out`.|
 |**Adı**|**Adı**| İşlev kodu için Twilio SMS mesajı kullanılan değişken adı. |
-|**accountSid**|**accountSidSetting**| **AccountSidSetting**| Bu değer, örneğin, Twilio hesap SID'si tutan bir uygulama ayarı adı için TwilioAccountSid ayarlanmalıdır. Ayarlanmazsa, varsayılan uygulama ayarı adı "AzureWebJobsTwilioAccountSid" dir. |
-|**authToken**|**authTokenSetting**|**AuthTokenSetting**| Bu değer, örneğin Twilio kimlik doğrulama belirtecinizi içeren uygulama ayarı adı için TwilioAccountAuthToken ayarlanmalıdır. Ayarlanmazsa, varsayılan uygulama ayarı adı "AzureWebJobsTwilioAuthToken" dir. |
+|**accountSid**|**accountSidSetting**| **accountSidSetting**| Bu değer, örneğin, Twilio hesap SID'si tutan bir uygulama ayarı adı için TwilioAccountSid ayarlanmalıdır. Ayarlanmazsa, varsayılan uygulama ayarı adı "AzureWebJobsTwilioAccountSid" dir. |
+|**authToken**|**authTokenSetting**|**authTokenSetting**| Bu değer, örneğin Twilio kimlik doğrulama belirtecinizi içeren uygulama ayarı adı için TwilioAccountAuthToken ayarlanmalıdır. Ayarlanmazsa, varsayılan uygulama ayarı adı "AzureWebJobsTwilioAuthToken" dir. |
 |**Hedef**| Yok - kodda belirtme | **Alıcı**| Bu değer, telefon numarasına gönderilen SMS metni ayarlanır.|
 |**Kaynak**|**Kaynak** | **Kaynak**| SMS metni gönderildiği telefon numarası için bu değeri ayarlayın.|
 |**Gövde**|**Gövde** | **Gövde**| Bu değer, işleviniz için kodda dinamik olarak ayarlamak gerekmiyorsa, SMS mesajı sabit kod için kullanılabilir. |  

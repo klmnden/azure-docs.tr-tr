@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5aeefe82255d40938eff09d7920e2fd5aca94c95
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 9cfd3f32f6293d5760c4a4ddcf40428a2b9b70f8
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313645"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999096"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Karma kimlik benimseme stratejinizi tanımlayın
 Bu görevde, karma kimlik çözümü içinde bahsedilen iş gereksinimlerini karşılamak için karma kimlik benimseme stratejinizi tanımlayın:
@@ -92,7 +92,7 @@ Ayrıca hangi özelliklerin kullanılabilir olmayacak nın farkında olmanız ge
 * Saf SAML 2.0 Idp'yi desteklemesi geçiş Office pasif kimlik doğrulama sağlar, ancak desteğini istemci tarafından istemci olarak olmaya devam edecektir
 
 > [!NOTE]
-> En güncel listesini makaleyi okuyun için https://aka.ms/ssoproviders.
+> En güncel listesini makaleyi okuyun için [Azure AD Federasyonu uyumluluk listesi](how-to-connect-fed-compatibility.md).
 > 
 > 
 
@@ -192,9 +192,9 @@ Stratejiniz için bir çözüm üzerinde kapatılmış, ancak yine de, kullanıc
 | Kullanıcı konumu | Tercih edilen tasarım seçeneği |
 | --- | --- |
 | Azure Active Directory |Multi-FactorAuthentication bulutta |
-| AD FS ile federasyon kullanana Azure AD ve şirket içi AD |Her İkisi |
-| Azure AD ve şirket içi Azure AD kullanarak AD Connect parola eşitleme yok |Her İkisi |
-| Azure AD ve parola eşitleme ile Azure AD Connect kullanarak şirket içi |Her İkisi |
+| AD FS ile federasyon kullanana Azure AD ve şirket içi AD |Her ikisi de |
+| Azure AD ve şirket içi Azure AD kullanarak AD Connect parola eşitleme yok |Her ikisi de |
+| Azure AD ve parola eşitleme ile Azure AD Connect kullanarak şirket içi |Her ikisi de |
 | Şirket içi AD |Multi-Factor Authentication Sunucusu |
 
 > [!NOTE]

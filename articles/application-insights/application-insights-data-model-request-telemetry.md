@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: d3a2fe9b51e0e6e9de653abb1bfa56a2529218cb
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 2092816946dae20f5b3ae5b0a09179197dda00eb
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722476"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992821"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetri isteği: Application Insights veri modeli
 
@@ -29,7 +29,7 @@ Bir istek telemetri öğesinin (içinde [Application Insights](app-insights-over
 
 İstek adının isteği işlemek için geçen kod yolu temsil eder. Daha iyi isteklerinin gruplandırma izin vermek için düşük kardinalite değeri. HTTP istekleri için HTTP yöntemi ve gibi URL yolu şablonunu temsil eden `GET /values/{id}` gerçek olmadan `id` değeri.
 
-Application Insights web SDK "olduğu gibi" istek adı harf bakımından gönderir. Kullanıcı arabiriminde gruplandırma küçük harfe duyarlı şekilde `GET /Home/Index` alanından ayrı olarak sayılır `GET /home/INDEX` genellikle bunlar aynı denetleyici ve eylem yürütülmesine neden olsa bile. Bu URL'leri genel olduğunu sebebi [büyük/küçük harfe](http://www.w3.org/TR/WD-html40-970708/htmlweb.html). Tüm görmek isteyebilirsiniz `404` harfle yazılmış URL'ler için oldu. ASP.Net Web SDK'sı tarafından üzerinde daha fazla istek adı koleksiyonunu edinebilirsiniz [blog gönderisi](http://apmtips.com/blog/2015/02/23/request-name-and-url/).
+Application Insights web SDK "olduğu gibi" istek adı harf bakımından gönderir. Kullanıcı arabiriminde gruplandırma küçük harfe duyarlı şekilde `GET /Home/Index` alanından ayrı olarak sayılır `GET /home/INDEX` genellikle bunlar aynı denetleyici ve eylem yürütülmesine neden olsa bile. Bu URL'leri genel olduğunu sebebi [büyük/küçük harfe](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Tüm görmek isteyebilirsiniz `404` harfle yazılmış URL'ler için oldu. ASP.Net Web SDK'sı tarafından üzerinde daha fazla istek adı koleksiyonunu edinebilirsiniz [blog gönderisi](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
 
 En fazla uzunluk: 1024 karakter
 
@@ -69,7 +69,7 @@ Web uygulamaları için Application Insights istek yanıt kodu daha az olduğund
 
 İçerik'kısmen kabul `206` genel bir istek bir hata gösterebilir. Örneğin, Application Insights uç nokta telemetri öğelerini toplu tek bir istek alır. Döndürür `206` olduğunda toplu işlem kümesindeki bazı öğeler değil başarıyla işlendi. Artan oranını `206` araştırılması gereken bir sorun olduğunu gösterir. Benzer bir mantık uygular `207` başarı ayrı yanıt kodları en kötü olabilir burada birden fazla durum.
 
-Daha fazla üzerinde istek sonucu okuyabilirsiniz kodu ve durum kodunu [blog gönderisi](http://apmtips.com/blog/2016/12/03/request-success-and-response-code/).
+Daha fazla üzerinde istek sonucu okuyabilirsiniz kodu ve durum kodunu [blog gönderisi](https://apmtips.com/blog/2016/12/03/request-success-and-response-code/).
 
 ## <a name="custom-properties"></a>Özel Özellikler
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2d378c537d4e20698863c789101e4ad3167b7f10
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: f36d0ec4446ee6591798c0d8926f41a4e177d81d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680829"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997048"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Application Insights ile web uygulamalarınızda özel durumları tanılama
 Canlı web uygulamanızdaki özel durumları tarafından bildirilen [Application Insights](app-insights-overview.md). Böylece hızla nedenlerini tanılayabilirsiniz başarısız istekler, özel durumlar ve diğer olaylarla hem istemci hem de sunucu ilişkilendirebilirsiniz.
@@ -168,7 +168,7 @@ En basit yolu, bir özel durum işleyicisinde bir çağrı işlevine yapılan ç
 ## <a name="browser-exceptions"></a>Tarayıcı özel durumları
 Çoğu tarayıcı özel durumları raporlanır.
 
-Web sayfanızın içerik teslim ağları veya diğer etki alanlarından gelen komut dosyalarını içeriyorsa, komut dosyası etiketi öznitelik sahip olduğundan emin olun ```crossorigin="anonymous"```, ve sunucunun gönderdiği [CORS üstbilgilerini](http://enable-cors.org/). Bu, bu kaynaklardan gelen işlenmemiş JavaScript özel durumlarının bir yığın izlemesi ve ayrıntı almak olanak tanır.
+Web sayfanızın içerik teslim ağları veya diğer etki alanlarından gelen komut dosyalarını içeriyorsa, komut dosyası etiketi öznitelik sahip olduğundan emin olun ```crossorigin="anonymous"```, ve sunucunun gönderdiği [CORS üstbilgilerini](https://enable-cors.org/). Bu, bu kaynaklardan gelen işlenmemiş JavaScript özel durumlarının bir yığın izlemesi ve ayrıntı almak olanak tanır.
 
 ## <a name="web-forms"></a>Web formları
 Web formları için HTTP modülü CustomErrors ile yapılandırılmış hiçbir yeniden yönlendirmeleri olduğunda özel durumlar toplamanız mümkün olacaktır.

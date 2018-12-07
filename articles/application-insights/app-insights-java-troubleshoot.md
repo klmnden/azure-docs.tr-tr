@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: e39fb82796c8e6b09f624b2030ff6266bd4189f1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 95eb5475f5584830eac5bd9c690be4a6a85de5c8
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720431"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016738"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Java için Application Insights Sorun Giderme, Soru ve Yanıt
 Sorular veya sorunlar [Azure Application Insights Java][java]? Burada, bazı ipuçları verilmektedir.
@@ -56,7 +56,7 @@ Sorular veya sorunlar [Azure Application Insights Java][java]? Burada, bazı ipu
 ### <a name="java-agent-cannot-capture-dependency-data"></a>Java aracı bağımlılık verileri yakalayamazsınız
 * Java aracı izleyerek yapılandırdığınız [Java aracı yapılandırma](app-insights-java-agent.md) ?
 * Java aracı jar dosyasını hem de yapay ZEKA Agent.xml dosya aynı klasörde yerleştirildiğinden emin olun.
-* Otomatik toplamak için çalıştığınız bağımlılık otomatik koleksiyonu için desteklendiğinden emin olun. Şu anda yalnızca MySQL, MsSQL, Oracle DB ve Redis Cache bağımlılık toplama destekliyoruz.
+* Otomatik toplamak için çalıştığınız bağımlılık otomatik koleksiyonu için desteklendiğinden emin olun. Şu anda yalnızca MySQL, MsSQL, Oracle DB ve Azure önbelleği için Redis bağımlılık toplama destekliyoruz.
 * JDK 1.7 veya 1.8 kullanıyorsunuz? Şu anda bağımlılık koleksiyonunu JDK 9'da desteklemiyoruz.
 
 ## <a name="no-usage-data"></a>Kullanım verisi yok
@@ -156,7 +156,7 @@ Application Insights'ı kullanan `org.apache.http`. Bu içinde Application Insig
 * [Tanılama günlükleri tutmak][javalogs]
 
 ## <a name="get-help"></a>Yardım alın
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * [Github'da sorun kaydedebilir](https://github.com/Microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->
