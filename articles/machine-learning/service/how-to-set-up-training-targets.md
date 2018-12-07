@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: 45a5e4c895a0c7a8f76bb34aa5aaf22fa31f4333
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 07ea61ffe3ffc17cd255b826e3506ffe2b1ce9cd
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864868"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017731"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Seçme ve modelinizi eğitmek için işlem hedefi kullanma
 
@@ -36,7 +36,7 @@ Azure Machine Learning destekleyen işlem hedefleri üç kategoriden vardır:
 
 Azure Machine Learning hizmeti çeşitli işlem hedef arasında değişen desteğe sahiptir. Az miktarda veriniz üzerinde dev/deneme ile tipik model geliştirme yaşam döngüsü başlatır. Bu aşamada, yerel bir ortamı kullanmanızı öneririz. Örneğin, yerel bilgisayarınıza veya bulut tabanlı bir VM. Büyük veri kümeleri üzerinde eğitim ölçeğini veya dağıtılmış eğitimi yapmak gibi bir Farklı Çalıştır gönderdiğiniz her zaman bu daralttığında tek veya çok node küme oluşturmak için Azure Machine Learning işlem kullanmanızı öneririz. Çeşitli senaryolarda olarak değişiklik gösterebilir destek aşağıda ayrıntılarıyla olsa da, kendi işlem kaynağı ekleyebilirsiniz:
 
-|Hedef işlem| GPU hızlandırma | Otomatik hiper parametre ayarı | Otomatik makine öğrenmesi | Kolay bir işlem hattı|
+|Hedef işlem| GPU hızlandırma | Otomatik hiper parametre ayarı | Otomatik makine öğrenimi | Kolay bir işlem hattı|
 |----|:----:|:----:|:----:|:----:|
 |[Yerel bilgisayar](#local)| Belki de | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning işlem](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
@@ -139,7 +139,8 @@ Azure Machine Learning işlem isteğe bağlı bir çalıştırma zamanladığın
 
 Çalışma zamanında işlem hedefi olarak Azure Machine Learning işlem oluşturabilirsiniz. Bu durumda, işlem çalıştırmanız, çalıştırma, yapılandırmada belirttiğiniz max_nodes kadar ölçekler için otomatik olarak oluşturulur ve sonra __otomatik olarak silinmesini__ çalıştırma tamamlandıktan sonra.
 
-Bu işlevsellik şu anda Önizleme aşamasındadır ve hiper parametre ayarı veya Machine Learning otomatik işleri ile çalışmaz.
+> [!IMPORTANT]
+> Azure Machine Learning işlem çalışma tabanlı oluşturulması şu anda Önizleme aşamasındadır. Hiper parametre ayarı veya Machine Learning otomatik kullanıyorsanız çalışma tabanlı olarak oluşturulmasını kullanmayın. Hiper parametre ayarı veya Machine Learning otomatik kullanmanız gerekiyorsa, Azure Machine Learning işlem çalıştırma göndermeden önce oluşturun.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute

@@ -7,14 +7,15 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 08/26/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: dce7c4067ba6d96bf14f4e3300d951b594afe930
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4768fbb845eb09e8aa3469dc2c4c29c4a323d662
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240641"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017314"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Java kullanarak Azure Event Hubs'tan gelen olayları alma
 
@@ -44,11 +45,11 @@ Eventprocessorhost'u kullanmak için olmalıdır bir [Azure depolama hesabı][Az
 1. Oturum [Azure portalında][Azure portal], tıklatıp **+ kaynak Oluştur** ekranın sol taraftaki.
 2. **Depolama** ve ardından **Depolama hesabı**’na tıklayın. İçinde **depolama hesabı oluşturma** penceresinde, depolama hesabı için bir ad yazın. Alanları geri kalanını tamamlamak için istediğiniz bölgeyi seçin ve ardından **Oluştur**.
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+    ![Depolama hesabı oluştur](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
 3. Yeni oluşturulan depolama hesabına tıklayın ve ardından **erişim anahtarlarını**:
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
+    ![Erişim anahtarı alma](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
     Key1 değeri geçici bir konuma kopyalayın. Daha sonra bu öğreticide kullanacaksınız.
 
@@ -277,7 +278,7 @@ Arabirimi com.microsoft.azure.eventprocessorhost.ICheckpointManager uygulayan bi
 
 Uygulamanıza özel kontrol noktası Yöneticisi'ni (com.microsoft.azure.eventprocessorhost.ICheckpointManager) kullanın
 
-Uygulamanız içinde varsayılan denetim noktası oluşturma mekanizması geçersiz kılmak ve kendi veri deposu temelinde (SQL Server, CosmosDB, Redis önbelleği vb.) kendi kontrol noktaları uygulayın. Kontrol noktası Yöneticisi uygulamanızı yedeklemek için kullanılan depolama tüketici grubu için olayları işlemekte olduğu tüm EPH örnekleri erişilebilir olduğunu öneririz.
+Uygulamanız içinde varsayılan denetim noktası oluşturma mekanizması geçersiz kılmak ve kendi veri deposu (SQL Server, CosmosDB, Azure önbelleği için Redis vb.) göre kendi kontrol noktaları uygulayın. Kontrol noktası Yöneticisi uygulamanızı yedeklemek için kullanılan depolama tüketici grubu için olayları işlemekte olduğu tüm EPH örnekleri erişilebilir olduğunu öneririz.
 
 Ortamınızda herhangi bir veri deposu olarak kullanabilirsiniz.
 

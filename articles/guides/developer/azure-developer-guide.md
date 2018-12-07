@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 55d4f53a23c92bb96934e84c0400bc182bc3d87e
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 80a32335b8b9b89bdc5bf53cbed994d78a6ca81e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976817"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017612"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure geliştiricileri için kullanmaya başlama kılavuzu
 
@@ -245,7 +245,7 @@ Gibi hizmetleri [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager 
     
-Azure üzerinde büyük olasılıkla, uygulamanızı çalıştıran her biri aynı yaşam döngüsünü izleyin ve, mantıksal bir birim olarak düşünülebilir birden çok Azure Hizmetleri ile çalışmayı içerir. Örneğin, bir web uygulaması, Web uygulamaları, SQL veritabanı, depolama, Azure Redis Cache ve Azure Content Delivery Network hizmetlerinden kullanabilirsiniz. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) bir grup olarak, uygulamanızdaki kaynaklarla çalışma sağlar. Dağıtma, güncelleştirme veya tek ve eşgüdümlü bir işlemle tüm kaynakları silin.
+Azure üzerinde büyük olasılıkla, uygulamanızı çalıştıran her biri aynı yaşam döngüsünü izleyin ve, mantıksal bir birim olarak düşünülebilir birden çok Azure Hizmetleri ile çalışmayı içerir. Örneğin, bir web uygulaması Web uygulamaları, SQL veritabanı, depolama, Azure önbelleği için Redis, kullanabilir ve Azure Content Delivery Network hizmetlerinden. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) bir grup olarak, uygulamanızdaki kaynaklarla çalışma sağlar. Dağıtma, güncelleştirme veya tek ve eşgüdümlü bir işlemle tüm kaynakları silin.
 
 Mantıksal olarak gruplandırarak ve ilgili kaynakları yönetme yanı sıra Azure Resource Manager dağıtımını ve yapılandırmasını, ilgili kaynak özelleştirmenize olanak tanıyan dağıtım özellikleri içerir. Örneğin, Kaynak Yöneticisi'ni kullanarak dağıtma ve birden çok sanal makine, yük dengeleyici ve tek bir birim olarak Azure SQL veritabanı içeren bir uygulamayı yapılandırın.
 

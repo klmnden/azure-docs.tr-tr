@@ -10,16 +10,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2f09bd7055b987a8647a24d4ebb6ea5a27888a53
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 56747179c69e6495e9a764f81e0827e29cb077e6
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015596"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017415"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Hortonworks korumalı alanı ile Intellij için HDInsight araçları kullanma
 
-Apache Scala uygulamaları geliştirin ve uygulamalar üzerinde test etmek için Intellij için HDInsight Araçları'nı kullanmayı öğrenin [Hortonworks korumalı alanı](http://hortonworks.com/products/sandbox/) bilgisayarınızda çalışan. 
+Apache Scala uygulamaları geliştirin ve uygulamalar üzerinde test etmek için Intellij için HDInsight Araçları'nı kullanmayı öğrenin [Hortonworks korumalı alanı](https://hortonworks.com/products/sandbox/) bilgisayarınızda çalışan. 
 
 [Intellij Idea](https://www.jetbrains.com/idea/) bilgisayar yazılımı geliştirmek için Java tümleşik geliştirme ortamı (IDE) olan. Geliştirme ve test uygulamalarınızı Hortonworks korumalı alanı sonra uygulamaları taşıyabilirsiniz [Azure HDInsight](apache-hadoop-introduction.md).
 
@@ -29,7 +29,7 @@ Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 
 - Hortonworks Data Platform (HDP) 2.4 yerel bilgisayarınızda çalışan Hortonworks korumalı. HDP ayarlamak için bkz [Hadoop ekosistemi ile bir sanal makinede bir Hadoop korumalı alanı içinde kullanmaya başlayın](apache-hadoop-emulator-get-started.md). 
     > [!NOTE]
-    > Intellij için HDInsight araçları yalnızca HDP 2.4 ile test edilmiştir. HDP 2.4 almak için genişletin **Hortonworks Sandbox arşiv** üzerinde [Hortonworks korumalı alanı site yüklemeleri](http://hortonworks.com/downloads/#sandbox).
+    > Intellij için HDInsight araçları yalnızca HDP 2.4 ile test edilmiştir. HDP 2.4 almak için genişletin **Hortonworks Sandbox arşiv** üzerinde [Hortonworks korumalı alanı site yüklemeleri](https://hortonworks.com/downloads/#sandbox).
 
 - [Java Developer Kit (JDK) 1.8 veya sonraki bir sürümü](https://aka.ms/azure-jdks). Intellij için Azure araç seti, JDK gerektirir.
 

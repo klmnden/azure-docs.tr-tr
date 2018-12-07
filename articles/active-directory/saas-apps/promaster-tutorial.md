@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 13bb128836590fb43e0c6a2f7131f83a99a23eaf
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 871abffc07ee29df388205395110e89a85dd7344
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506685"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017663"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Öğretici: Azure Active Directory ProMaster (tarafından Inlogik) ile tümleştirme
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi ProMaster (tarafından Inlogik) ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik ProMaster (tarafından Inlogik) çoklu oturum açma etkin
 
 > [!NOTE]
@@ -62,7 +62,7 @@ Azure AD'de ProMaster (tarafından Inlogik) tümleştirmesini yapılandırmak i�
 
 **Galeriden ProMaster (tarafından Inlogik) eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi][1]
 
@@ -111,6 +111,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     ![Çoklu oturum açma bilgileri proMaster (tarafından Inlogik) etki alanı ve URL'leri](./media/promaster-tutorial/tutorial_promaster_url1.png)
 
     a. İçinde **tanımlayıcı** metin kutusuna aşağıdaki URL deseni birini kullanın:
+
     | |
     | - |-|
     |  `https://secure.inlogik.com/<COMPANYNAME>`|
@@ -118,6 +119,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | |
 
     b. İçinde **yanıt URL'si** metin kutusuna aşağıdaki URL deseni birini kullanın:
+
     | |
     | - |-|
     | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs`|
@@ -129,6 +131,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     ![Çoklu oturum açma bilgileri proMaster (tarafından Inlogik) etki alanı ve URL'leri](./media/promaster-tutorial/tutorial_promaster_url2.png)
 
     İçinde **oturum açma URL'si** metin kutusuna aşağıdaki URL deseni birini kullanın:
+
     | |
     | - |-|
     | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs `|
@@ -182,7 +185,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 ### <a name="create-a-promaster-by-inlogik-test-user"></a>(Tarafından Inlogik) ProMaster test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon ProMaster içinde (tarafından Inlogik) adlı bir kullanıcı oluşturun. Çalışmak [ProMaster (tarafından Inlogik) destek ekibi](mailto:michael.boldiston@inlogik.com) ProMaster (tarafından Inlogik) platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon ProMaster içinde (tarafından Inlogik) adlı bir kullanıcı oluşturun. Çalışmak [ProMaster (tarafından Inlogik) destek ekibi](mailto:michael.boldiston@inlogik.com) ProMaster (tarafından Inlogik) platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

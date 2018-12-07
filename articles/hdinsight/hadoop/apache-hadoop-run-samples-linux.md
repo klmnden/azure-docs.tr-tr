@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 283171fa00837a8a7b4e0a13d7bca5645cf63a83
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: bf1fa41abe1c1f9b0d07ee7d77fe1c819e88ddc1
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633074"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017629"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Dahil HDInsight MapReduce örneklerini çalıştırma
 
@@ -167,7 +167,7 @@ Bu komut tarafından döndürülen değer benzer **3.14159155000000000000**. Ba�
 
 GraySort Kıyaslama sıralama ' dir. Ölçüm, büyük miktarlarda veri, genellikle en az bir 100 TB sıralama sırasında elde sıralama (TB/dakika) hızıdır.
 
-Bu örnek, oldukça hızlı bir şekilde çalıştırılabilir böylece büyüklükteki bir 10 GB veri kullanmaktadır. Arun Murthy Owen O'Malley ile geliştirilen MapReduce uygulamalar kullanır. Bu uygulamaların yıllık genel amaçlı ("daytona") terabayt sıralama Kıyaslama 0.578 TB/dak (100 TB 173 dakika cinsinden) fiyatı, 2009 kazandı. Bu ve diğer sıralama değerlendirmeleri hakkında daha fazla bilgi için bkz. [Sortbenchmark](http://sortbenchmark.org/) site.
+Bu örnek, oldukça hızlı bir şekilde çalıştırılabilir böylece büyüklükteki bir 10 GB veri kullanmaktadır. Arun Murthy Owen O'Malley ile geliştirilen MapReduce uygulamalar kullanır. Bu uygulamaların yıllık genel amaçlı ("daytona") terabayt sıralama Kıyaslama 0.578 TB/dak (100 TB 173 dakika cinsinden) fiyatı, 2009 kazandı. Bu ve diğer sıralama değerlendirmeleri hakkında daha fazla bilgi için bkz. [Sortbenchmark](https://sortbenchmark.org/) site.
 
 Bu örnek, üç adet MapReduce programlarını kullanır:
 

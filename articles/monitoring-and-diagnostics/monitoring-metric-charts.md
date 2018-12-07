@@ -5,25 +5,25 @@ author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/17/2017
+ms.date: 12/05/2018
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: d1cfaadd06d20a0f57d75cd43d00040c9e44c429
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ff487fef9400803de0dba78352a1d29c5a71e6d2
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966033"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017928"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure İzleyici ölçüm Gezgini
 
 Azure İzleyici ölçüm Gezgini'ni grafikler çizme, görsel olarak eğilimleri ilişkilendirme ve ani araştırma sağlar ve düşüşler ölçümleri değerleri Microsoft Azure portalının bir bileşenidir. Ölçüm Gezgini çeşitli performans ve Azure'da barındırılan veya Azure izleme hizmetleri tarafından izlenen altyapı ve uygulamalar ile kullanılabilirlik sorunları araştırma için bir temel başlangıç noktasıdır. 
 
-## <a name="what-are-metrics-in-azure"></a>Azure'da ölçümler nelerdir?
+## <a name="metrics-in-azure"></a>Azure ölçümleri
 
 Microsoft azure'da ölçümleri ölçülen değerleri ve toplanan ve zaman içinde depolanmış olan sayıları oluşur. Standart (veya "platformu") ölçüm ve özel ölçüm vardır. Standart ölçümler, Azure platformu tarafından kendisi sağlanır. Standart ölçümler, Azure kaynaklarınızın durumunu ve kullanım istatistikleri yansıtır. Özel ölçüm kullanarak uygulamalarınızı tarafından Azure'a gönderilir ancak [özel olaylar için Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Özel ölçümler Application Insights kaynakları diğer uygulama belirli ölçümleri birlikte depolanır.
 
-## <a name="how-do-i-create-a-new-chart"></a>Yeni bir grafik nasıl oluşturulur?
+## <a name="create-a-new-chart"></a>Yeni bir grafik oluşturun
 
 1. Azure portalını açın
 2. Yeni Git **İzleyici** sekmesine tıklayın ve ardından **ölçümleri**.
@@ -54,11 +54,11 @@ Microsoft azure'da ölçümleri ölçülen değerleri ve toplanan ve zaman için
    > [!NOTE]
    > Genellikle, bir grafikte ölçümleri farklı ölçü (yani "milisaniye" ve "kilobayt") veya önemli ölçüde farklı ölçeklendirme ile sahip istemezsiniz. Bunun yerine, birden çok grafik kullanmayı düşünün. Ölçüm Gezgini'nde birden çok grafik oluşturmak için Hesap Ekle düğmesine tıklayın.
 
-## <a name="how-do-i-apply-filters-to-the-charts"></a>Filtreler grafikleri nasıl uygulayabilirim?
+## <a name="apply-filters-to-charts"></a>Grafikler için filtre uygulayın
 
 Boyutlarla ölçümleri gösteren grafikler için filtre uygulayabilirsiniz. "İşlem sayısı" ölçüm boyut varsa, "işlem yanıtı başarılı veya daha sonra bu boyutu üzerinde filtreleme başarısız olduğunu gösteren yanıt türü", bir grafik çizgisi için örneğin, çizim yalnızca başarılı (veya yalnızca başarısız) işlemleri. 
 
-### <a name="to-add-a-filter"></a>Filtre eklemek için:
+### <a name="to-add-a-filter"></a>Filtre eklemek için
 
 1. Filtre Ekle simgesine tıklayın ![filtre simgesi](./media/monitoring-metric-charts/icon002.png) grafiğin üstünde
 
@@ -76,11 +76,11 @@ Boyutlarla ölçümleri gösteren grafikler için filtre uygulayabilirsiniz. "İ
 
 5. Aynı grafikleri birden fazla filtre uygulamak için 1-4 arası adımları tekrarlayabilirsiniz.
 
-## <a name="how-do-i-segment-a-chart"></a>Bir grafiğin nasıl segmentlere?
+## <a name="segment-a-chart"></a>Bir grafik segmentlere ayırın.
 
 Bir ölçüm bölme ölçütü: ölçüm karşılaştırma birbirleriyle nasıl farklı parçalarını görselleştirmek için boyut ve boyutun harici segmentleriyle. 
 
-### <a name="to-segment-a-chart"></a>Bir grafik segmentlere ayırmak için:
+### <a name="to-segment-a-chart"></a>Bir grafik segmentlere ayırmak için
 
 1. Gruplama ekleme simgesine tıklayın  ![Ölçüm görüntüsü](./media/monitoring-metric-charts/icon003.png) grafiğin üstünde.
  
@@ -100,7 +100,7 @@ Bir ölçüm bölme ölçütü: ölçüm karşılaştırma birbirleriyle nasıl 
    > [!NOTE]
    > Filtreleme ve gruplandırma aynı boyutta hem senaryonuz için ilgisi olmayan ve grafikleri okunmalarını kolaylaştırmak segmentleri gizlemek için kullanın.
 
-## <a name="how-do-i-lock-lower-and-upper-boundaries-of-the-chart-y-axis"></a>Grafik y ekseni alt ve üst sınırları nasıl kilitleme?
+## <a name="lock-boundaries-of-chart-y-axis"></a>Grafik y ekseni sınırlarını kilidi
 
 Grafiğin büyük değerler daha küçük dalgalanmaları gösterdiğinde y ekseni aralığını kilitleme önemli hale gelir. 
 
@@ -110,12 +110,12 @@ Başka bir kullanılabilir bellek bir dalgalanma burada değeri teknik olarak hi
 
 Y ekseni aralığını denetlemek için kullanma "..." Grafik menü ve seçin **grafiği Düzenle** grafiği ayarları Gelişmiş erişim için. Y ekseni aralığını bölümündeki değerleri değiştirin veya kullanın **otomatik** varsayılanlara geri düğmesi.
 
-![Ölçüm görüntüsü](./media/monitoring-metric-charts/0013.png)
+![Ölçüm görüntüsü](./media/monitoring-metric-charts/0014-manually-set-granularity.png)
 
 > [!WARNING]
 > Çeşitli izlemek grafiklerin y ekseni sınırlarını kilitleme sayar veya toplayan bir dönem boyunca zaman (ve dolayısıyla kullanım sayısı, toplam, minimum veya maksimum toplamalar) genellikle otomatik varsayılanlara güvenmek yerine bir sabit zaman ayrıntı düzeyi belirterek gerektirir. Bu gereklidir çünkü zaman ayrıntı düzeyi tarayıcı penceresini yeniden boyutlandırma veya başka bir ekran çözünürlüğünü giden kullanıcı tarafından otomatik olarak değiştirildiğinde grafiklerde değerlerini değiştirin. Elde edilen grafiğin y ekseni aralığını oluşan geçerli seçimi geçersiz kılmalarını görünümünü zaman ayrıntı düzeyi efektleri değiştirin.
 
-## <a name="how-do-i-pin-charts-to-dashboards"></a>Nasıl grafikleri panolara sabitleyebilirsiniz?
+## <a name="pin-charts-to-dashboards"></a>Panolar için PIN grafikleri
 
 Grafikleri yapılandırdıktan sonra yeniden, büyük olasılıkla diğer izleme telemetri bağlamında görüntülemek veya takımınızla paylaşmak için Pano eklemek isteyebilirsiniz. 
 

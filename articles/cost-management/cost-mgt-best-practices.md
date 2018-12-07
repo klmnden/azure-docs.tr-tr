@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/09/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: 0adc821f7a3d5b059d549509b7ed18cda95b86bc
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 99e42f404fe103f406c4b3835f8c455bc2b91e07
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273808"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017697"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Azure maliyet yönetimi ile bulut yatırımınızdan en iyi duruma getirme
 
@@ -140,7 +140,7 @@ Daha fazla bilgi için [maliyet analizi](quick-acm-cost-analysis.md).
 
 ### <a name="export-billing-data-on-a-schedule"></a>Bir zamanlamaya göre faturalandırma verileri dışarı aktarma
 
-Bir Pano veya mali sistem gibi bir dış sistemle fatura verilerinizi içeri aktarmak gerekiyor mu? Her ay el ile yüklenmesini önlemek için günlük dosyalarını otomatik raporları zamanlayabilirsiniz. Azure depolama hesabınız için faturalama verileri dışarı aktarabilir ve kullanarak bildirim alın ve [Eylem grupları](../monitoring-and-diagnostics/monitoring-action-groups.md). Ardından, kendi sistemlerinizdeki kullanabileceğiniz özel verilerle birleştirmek için Azure verilerinizi kullanabilirsiniz.
+Bir Pano veya mali sistem gibi bir dış sistemle fatura verilerinizi içeri aktarmak gerekiyor mu? Dosyaları her ay el ile yüklenmesini önlemek ve Azure Depolama'ya otomatik dışarı aktarma ayarlayın. Daha sonra kolayca diğer sistemlerle otomatik tümleştirmeler fatura verilerinizi eşitlemek için ayarlayabilirsiniz.
 
 Faturalama verileri dışarı aktarma hakkında daha fazla bilgi için bkz. [oluşturma ve dışarı aktarılan verileri yönetme](tutorial-export-acm-data.md).
 

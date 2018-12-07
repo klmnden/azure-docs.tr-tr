@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b4a4c76ec47d09c43edc74181e0cbddf95e5fa3d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: b09f64e2183453b3656efa340d53682a241dd00e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879188"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017962"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager kaynak sağlayıcısı işlemleri
 
@@ -695,31 +695,31 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > [!div class="mx-tdCol2BreakAll"]
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
-> | Eylem | Microsoft.Cache/checknameavailability/action | Bir adın yeni bir Redis Cache için kullanılabilir olup olmadığını denetler |
+> | Eylem | Microsoft.Cache/checknameavailability/action | Bir ad kullanmak için yeni bir Azure önbelleği için Redis ile kullanılabilir olup olmadığını denetler |
 > | Eylem | Microsoft.Cache/locations/operationresults/read | 'Konum' üst bilgisi önceden istemciye döndürülen uzun süredir çalışan işlemin sonucunu alır |
 > | Eylem | Microsoft.Cache/operations/read | 'Microsoft.Cache' sağlayıcısının desteklediği işlemleri listeler. |
-> | Eylem | Microsoft.Cache/redis/delete | Redis Cache'nin tamamını sil |
+> | Eylem | Microsoft.Cache/redis/delete | Azure önbelleği için Redis Sil |
 > | Eylem | Microsoft.Cache/redis/export/action | Redis verilerini belirtilen biçimde ön ekli depolama blob'larına aktar |
-> | Eylem | Microsoft.Cache/redis/firewallRules/delete | Bir Redis Cache'in IP güvenlik duvarı kurallarını siler |
-> | Eylem | Microsoft.Cache/redis/firewallRules/read | Bir Redis Cache'in IP güvenlik duvarı kurallarını alır |
-> | Eylem | Microsoft.Cache/redis/firewallRules/write | Bir Redis Cache'in IP güvenlik duvarı kurallarını düzenler |
+> | Eylem | Microsoft.Cache/redis/firewallRules/delete | IP güvenlik duvarı kurallarını Azure önbelleği için Redis Sil |
+> | Eylem | Microsoft.Cache/redis/firewallRules/read | IP güvenlik duvarı kurallarını Azure önbelleği için Redis Al |
+> | Eylem | Microsoft.Cache/redis/firewallRules/write | IP güvenlik duvarı kurallarını Azure önbelleği için Redis Düzenle |
 > | Eylem | Microsoft.Cache/redis/forceReboot/action | Veri kaybı olasılığı olan bir önbellek örneği yeniden başlatmayı zorlayın. |
 > | Eylem | Microsoft.Cache/redis/import/action | Birden çok blob'dan belirli bir biçimdeki verileri Redis'e aktar |
-> | Eylem | Microsoft.Cache/redis/linkedservers/delete | Redis Cache'ten Bağlı Sunucuyu Sil |
-> | Eylem | Microsoft.Cache/redis/linkedservers/read | Bir Redis Cache ile ilişkili Bağlı Sunucuları alın. |
-> | Eylem | Microsoft.Cache/redis/linkedservers/write | Redis Cache'e Bağlı Sunucu Ekle |
-> | Eylem | Microsoft.Cache/redis/listKeys/action | Redis Cache erişim anahtarlarının değerini yönetim portalında görüntüleyin |
+> | Eylem | Microsoft.Cache/redis/linkedservers/delete | Redis için bir Azure Önbelleği'ndeki bağlı sunucusunu Sil |
+> | Eylem | Microsoft.Cache/redis/linkedservers/read | İle bir Azure önbelleği için Redis ilişkili bağlı sunucuları alın. |
+> | Eylem | Microsoft.Cache/redis/linkedservers/write | Bağlantılı bir sunucu için bir Azure önbelleği için Redis ekleyin. |
+> | Eylem | Microsoft.Cache/redis/listKeys/action | Yönetim Portalı'nda değerini Azure Cache Redis erişim anahtarlarını görüntüleme |
 > | Eylem | Microsoft.Cache/redis/listUpgradeNotifications/read | Önbellek kiracısı için en son Yükseltme Bildirimlerini listeleyin. |
-> | Eylem | Microsoft.Cache/redis/metricDefinitions/read | Bir Redis Cache için kullanılabilir ölçümleri alır |
-> | Eylem | Microsoft.Cache/redis/patchSchedules/delete | Bir Redis Cache'in düzeltme eki zamanlamasını siler |
-> | Eylem | Microsoft.Cache/redis/patchSchedules/read | Redis Cache'in düzeltme eki uygulama zamanlamasını alır |
-> | Eylem | Microsoft.Cache/redis/patchSchedules/write | Redis Cache'in düzeltme eki uygulama zamanlamasını değiştirir |
-> | Eylem | Microsoft.Cache/redis/read | Redis Cache'nin ayarlarını ve yapılandırmasını yönetim portalında görüntüleyin |
-> | Eylem | Microsoft.Cache/redis/recommendations/read | Azure Redis Cache Önerilerini Okuyun |
-> | Eylem | Microsoft.Cache/redis/regenerateKey/action | Redis Cache erişim anahtarlarının değerini yönetim portalında değiştirin |
+> | Eylem | Microsoft.Cache/redis/metricDefinitions/read | Redis için bir Azure önbelleği için kullanılabilir ölçümleri alır |
+> | Eylem | Microsoft.Cache/redis/patchSchedules/delete | Bir Azure önbelleği için Redis düzeltme eki zamanlamasını Sil |
+> | Eylem | Microsoft.Cache/redis/patchSchedules/read | Bir Azure önbelleği için Redis düzeltme eki uygulama zamanlamasını alır |
+> | Eylem | Microsoft.Cache/redis/patchSchedules/write | Bir Azure önbelleği için Redis düzeltme eki uygulama zamanlamasını Değiştir |
+> | Eylem | Microsoft.Cache/redis/read | Azure önbelleği için Redis'ın ayarlarını ve yapılandırmasını yönetim portalında görüntüleyin |
+> | Eylem | Microsoft.Cache/redis/recommendations/read | Azure önbelleği için Redis önerileri okuyun |
+> | Eylem | Microsoft.Cache/redis/regenerateKey/action | Azure Cache Redis erişim anahtarlarını Yönetim Portalı'nda için değiştirin |
 > | Eylem | Microsoft.Cache/redis/start/action | Bir önbellek örneği başlatın. |
 > | Eylem | Microsoft.Cache/redis/stop/action | Bir önbellek örneğini durdurun. |
-> | Eylem | Microsoft.Cache/redis/write | Redis Cache'in ayarlarını ve yapılandırmasını yönetim portalında değiştirin |
+> | Eylem | Microsoft.Cache/redis/write | Azure önbelleği için Redis'ın ayarlarını ve yapılandırmasını yönetim portalında değiştirin |
 > | Eylem | Microsoft.Cache/register/action | 'Microsoft.Cache' kaynak sağlayıcısını bir aboneliğe kaydeder |
 > | Eylem | Microsoft.Cache/unregister/action | 'Microsoft.Cache' kaynak sağlayıcısının kaydını bir abonelikten kaldırır |
 
@@ -1714,31 +1714,31 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > [!div class="mx-tdCol2BreakAll"]
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
-> | Eylem | Microsoft.DataMigration/locations/operationResults/read | Bir 202 kabul edildi yanıtı ile ilgili bir uzun süre çalışan işlemin durumunu alın |
-> | Eylem | Microsoft.DataMigration/locations/operationStatuses/read | Bir 202 kabul edildi yanıtı ile ilgili bir uzun süre çalışan işlemin durumunu alın |
-> | Eylem | Microsoft.DataMigration/register/action | Aboneliği için Azure veritabanı geçiş hizmet sağlayıcısına kaydeder |
+> | Eylem | Microsoft.DataMigration/locations/operationResults/read | 202 Kabul Edildi yanıtı ile ilgili uzun süreli bir işlemin durumunu alın |
+> | Eylem | Microsoft.DataMigration/locations/operationStatuses/read | 202 Kabul Edildi yanıtı ile ilgili uzun süreli bir işlemin durumunu alın |
+> | Eylem | Microsoft.DataMigration/register/action | Aboneliği Azure Veritabanı Geçiş Hizmet sağlayıcısına kaydeder |
 > | Eylem | Microsoft.DataMigration/services/checkStatus/action | Hizmetin dağıtılmış ve çalışır durumda olup olmadığını denetleyin |
 > | Eylem | Microsoft.DataMigration/services/delete | Bir kaynağı ve tüm alt öğelerini siler |
-> | Eylem | Microsoft.DataMigration/services/projects/accessArtifacts/action | GET veya PUT proje yapıtları için kullanılabilecek bir URL oluşturun |
+> | Eylem | Microsoft.DataMigration/services/projects/accessArtifacts/action | GET veya PUT proje yapıtları için kullanılabilen bir URL oluşturun |
 > | Eylem | Microsoft.DataMigration/services/projects/delete | Bir kaynağı ve tüm alt öğelerini siler |
 > | Eylem | Microsoft.DataMigration/services/projects/files/delete | Bir kaynağı ve tüm alt öğelerini siler |
-> | Eylem | Microsoft.DataMigration/services/projects/files/read | Kaynaklar hakkında bilgi edinin |
-> | Eylem | Microsoft.DataMigration/services/projects/files/read/action | Dosyanın içeriğini okumak için kullanılabilecek bir URL elde |
-> | Eylem | Microsoft.DataMigration/services/projects/files/readWrite/action | Okumak veya dosyanın içeriğini yazmak için kullanılabilecek bir URL elde |
-> | Eylem | Microsoft.DataMigration/services/projects/files/write | Kaynakları ve bunların özelliklerini oluştur veya güncelleştir |
-> | Eylem | Microsoft.DataMigration/services/projects/read | Kaynaklar hakkında bilgi edinin |
-> | Eylem | Microsoft.DataMigration/services/projects/tasks/cancel/action | Şu anda çalışıyorsa görevi iptal etme |
+> | Eylem | Microsoft.DataMigration/services/projects/files/read | Kaynaklar hakkındaki bilgileri okuyun |
+> | Eylem | Microsoft.DataMigration/services/projects/files/read/action | Dosya içeriğini okumak için kullanılabilecek bir URL alın |
+> | Eylem | Microsoft.DataMigration/services/projects/files/readWrite/action | Dosya içeriğini okumak veya yazmak için kullanılabilecek bir URL alın |
+> | Eylem | Microsoft.DataMigration/services/projects/files/write | Kaynakları ve özelliklerini oluşturun ya da güncelleştirin |
+> | Eylem | Microsoft.DataMigration/services/projects/read | Kaynaklar hakkındaki bilgileri okuyun |
+> | Eylem | Microsoft.DataMigration/services/projects/tasks/cancel/action | O anda çalışıyorsa görevi iptal edin |
 > | Eylem | Microsoft.DataMigration/services/projects/tasks/delete | Bir kaynağı ve tüm alt öğelerini siler |
-> | Eylem | Microsoft.DataMigration/services/projects/tasks/read | Kaynaklar hakkında bilgi edinin |
-> | Eylem | Microsoft.DataMigration/services/projects/tasks/write | Azure veritabanı geçiş hizmeti görevleri görevleri çalıştırma |
-> | Eylem | Microsoft.DataMigration/services/projects/write | Azure veritabanı geçiş hizmeti görevleri görevleri çalıştırma |
-> | Eylem | Microsoft.DataMigration/services/read | Kaynaklar hakkında bilgi edinin |
+> | Eylem | Microsoft.DataMigration/services/projects/tasks/read | Kaynaklar hakkındaki bilgileri okuyun |
+> | Eylem | Microsoft.DataMigration/services/projects/tasks/write | Azure Veritabanı Geçiş Hizmeti görevlerini çalıştır |
+> | Eylem | Microsoft.DataMigration/services/projects/write | Azure Veritabanı Geçiş Hizmeti görevlerini çalıştır |
+> | Eylem | Microsoft.DataMigration/services/read | Kaynaklar hakkındaki bilgileri okuyun |
 > | Eylem | Microsoft.DataMigration/services/slots/delete | Bir kaynağı ve tüm alt öğelerini siler |
-> | Eylem | Microsoft.DataMigration/services/slots/read | Kaynaklar hakkında bilgi edinin |
-> | Eylem | Microsoft.DataMigration/services/slots/write | Kaynakları ve bunların özelliklerini oluştur veya güncelleştir |
+> | Eylem | Microsoft.DataMigration/services/slots/read | Kaynaklar hakkındaki bilgileri okuyun |
+> | Eylem | Microsoft.DataMigration/services/slots/write | Kaynakları ve özelliklerini oluşturun ya da güncelleştirin |
 > | Eylem | Microsoft.DataMigration/services/start/action | Geçişleri yeniden işlemesine izin vermek için DMS hizmetini başlatın |
 > | Eylem | Microsoft.DataMigration/services/stop/action | Maliyetlerini en aza indirmek için DMS hizmetini durdurun |
-> | Eylem | Microsoft.DataMigration/services/write | Kaynakları ve bunların özelliklerini oluştur veya güncelleştir |
+> | Eylem | Microsoft.DataMigration/services/write | Kaynakları ve özelliklerini oluşturun ya da güncelleştirin |
 > | Eylem | Microsoft.DataMigration/skus/read | DMS kaynakları tarafından desteklenen SKU'ların bir listesini alın. |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB

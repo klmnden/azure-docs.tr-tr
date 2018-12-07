@@ -8,22 +8,23 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: 27d4ad03e4a7f911fe3c9981618337a2fff51317
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: dcd7b58e2c1f4d6e556515ad7db778f2989588b9
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114626"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017432"
 ---
-# <a name="how-to-train-pytorch-models"></a>PyTorch modelleri eğitme
+# <a name="pytorch-models-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile PyTorch modelleri
 
 PyTorch kullanarak derin sinir ağı (DNN) eğitim için özel bir Azure Machine Learning sağlar `PyTorch` sınıfının `Estimator`. Azure SDK'ın `PyTorch` estimator kolayca Azure işlem hem tek düğümlü hem de dağıtılmış çalıştırmalar için PyTorch eğitim işleri göndermenizi sağlar.
 
 ## <a name="single-node-training"></a>Tek düğümlü eğitim
 İle eğitim `PyTorch` estimator kullanmaya benzer [temel `Estimator` ](how-to-train-ml-models.md), bu nedenle öncelikle yapılır makaleyi okuyun ve orada tanıtılan kavramları anladığınızdan emin olun.
   
-PyTorch işi çalıştırmak için örneği bir `PyTorch` nesne. Oluşturmuş olmanız, [hedef işlem](how-to-set-up-training-targets.md#batch) nesne `compute_target` ve [veri deposu](how-to-access-data.md) nesne `ds`.
+PyTorch işi çalıştırmak için örneği bir `PyTorch` nesne. Oluşturmuş olmanız, [hedef işlem](how-to-set-up-training-targets.md#amlcompute) nesne `compute_target` ve [veri deposu](how-to-access-data.md) nesne `ds`.
 
 ```Python
 from azureml.train.dnn import PyTorch
@@ -44,7 +45,7 @@ Parametre | Açıklama
 --|--
 `source_directory` |  Eğitim işine yönelik gerekli kodunuzun tamamını içeren yerel dizin. Bu klasörü yerel makinenizden uzak bilgisayarda kopyalanır
 `script_params` |  Eğitim betiğinizi komut satırı bağımsız değişkenleri belirtme sözlük `entry_script`, < komut satırı bağımsız değişkeni, değer > biçiminde çiftleri
-`compute_target` |  Eğitim betiğinizi, bu durumda çalışır uzak işlem bir [Batch AI](how-to-set-up-training-targets.md#batch) küme
+`compute_target` |  Eğitim betiğinizi, bu örnekte, bir Azure Machine Learning işlem çalıştıracak uzak işlem hedefine ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) kümesi
 `entry_script` |  FilePath (göreli `source_directory`) eğitim betiğin uzak işlem üzerinde çalıştırılacak. Bu dosya ve, bağımlı herhangi bir ek dosyaları bu klasörde bulunmalıdır
 `conda_packages` |  Eğitim betiğinizi gerekli conda aracılığıyla yüklenecek Python paketleri listesi. Oluşturucu adlı başka bir parametreye sahip `pip_packages` gereken herhangi bir pip paketleri için kullanabileceğiniz
 `use_gpu` |  Bu bayrağı ayarlanmış `True` eğitim GPU yararlanmak için. Varsayılan olarak `False`
@@ -100,13 +101,9 @@ run = exp.submit(pt_est)
 ```
 
 ## <a name="examples"></a>Örnekler
-Tek düğümlü PyTorch eğitim hakkında bir öğretici için bkz:
-* [Training/01.Train-hyperparameter-Tune-Deploy-With-pytorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/training/01.train-hyperparameter-tune-deploy-with-pytorch)
 
-Dağıtılmış PyTorch Horovod ile temel bir öğretici için bkz:
-* [Eğitim/02.distributed-pytorch-ile-horovod](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/02.distributed-pytorch-with-horovod)
-
-Bu not defterlerini alın:
+Dağıtılmış derin öğrenme dizüstü bilgisayarlar için bkz:
+* [How-to-use-azureml/Training-With-DEEP-Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

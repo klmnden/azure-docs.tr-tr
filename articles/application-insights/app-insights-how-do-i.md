@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 35c401ed59f859e741c62aa801f6a0c75a8d9194
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 1c76e25c29d79213fbdf36d563b4bd316b832b06
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720499"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017040"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights’ta nasıl ... yapabilirim?
 ## <a name="get-an-email-when-"></a>E-posta...
@@ -82,7 +82,7 @@ Dikkat edilmesi gereken bazı noktalar:
 
 ## <a name="separate-telemetry-from-different-versions"></a>Farklı sürümlerine ait ayrı telemetri
 
-* Bir uygulamada birden çok rol: tek bir Application Insights kaynağı kullanın ve filtre cloud_Rolename üzerinde. [Daha fazla bilgi](app-insights-monitor-multi-role-apps.md)
+* Bir uygulamada birden çok rol: tek bir Application Insights kaynağı kullanın ve filtre [cloud_Rolename](app-insights-app-map.md).
 * Geliştirme, test ve yayın sürümleri ayırma: farklı Application Insgihts kaynakları kullanın. İzleme anahtarları web.config yerden devam edebiliyorduk. [Daha fazla bilgi](app-insights-separate-resources.md)
 * Raporlama derleme sürümleri: bir telemetri Başlatıcısı kullanarak özellik ekleyin. [Daha fazla bilgi](app-insights-separate-resources.md)
 

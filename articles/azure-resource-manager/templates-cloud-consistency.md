@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2018
 ms.author: mavane
-ms.openlocfilehash: f1ff151c0b8d89910949d961b732c10901f19293
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fc1ca468545dc3a715fb11dbec459e14e60ade5b
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38590537"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017782"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Azure Resource Manager şablon bulut tutarlılık için geliştirme
 
@@ -434,7 +434,7 @@ Kaynaklar diğer hizmetlere yönelik başvuruları platformunda olabilir. Örne�
 Aşağıdaki iki örnek, bir kaynak oluşturulurken açıkça belirtilmesi gereken ortak bir uç nokta ad alanları şunlardır:
 
 * Depolama hesapları (blob, kuyruk, tablo ve dosya)
-* Veritabanları ve Redis Cache için bağlantı dizeleri
+* Veritabanları ve Azure önbelleği için Redis için bağlantı dizeleri
 
 Dağıtım tamamlandığında uç nokta ad alanları da şablon çıktısında bilgiler kullanıcı için kullanılabilir. Genel örnekleri aşağıda verilmiştir:
 

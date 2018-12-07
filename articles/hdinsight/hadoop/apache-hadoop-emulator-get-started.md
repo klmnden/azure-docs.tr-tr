@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: fc5f27ee17ba750e47c5609d9deb94d7f7c9dd8a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 074e2dd932cada5ae46ee0423dbc29fc8bc7495d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51631566"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016785"
 ---
 # <a name="get-started-with-a-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Bir Apache Hadoop korumalı alanı, bir sanal makinede bir öykünücü ile çalışmaya başlama
 
@@ -27,7 +27,7 @@ Apache Hadoop korumalı alanı Hortonworks Hadoop ekosistemi hakkında bilgi edi
 
 
 ## <a name="download-and-install-the-virtual-machine"></a>Sanal makineye yükleyip
-1. Gözat [Hortonworks indirir](http://hortonworks.com/downloads/#sandbox).
+1. Gözat [Hortonworks indirir](https://hortonworks.com/downloads/#sandbox).
 
 2. Tıklayın **İNDİRMEK için VIRTUALBOX** en son Hortonworks korumalı alanı bir VM'de indirilemedi. Hortonworks ile yükleme başlamadan önce kaydetmeniz istenir. Ağ hızınıza bağlı olarak indirmek için bir ila iki saat sürer.
    
@@ -78,6 +78,6 @@ Eski bir HDP sürüm korumalı alan indirmek için arşiv genişletin:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Hortonworks korumalı alanı ile Visual Studio kullanmayı öğrenin](../hdinsight-hadoop-emulator-visual-studio.md)
-* [Hortonworks korumalı alanı işin öğrenme](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Hadoop Öğreticisi - HDP ile çalışmaya başlama](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [Hortonworks korumalı alanı işin öğrenme](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Hadoop Öğreticisi - HDP ile çalışmaya başlama](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
 

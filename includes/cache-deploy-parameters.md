@@ -4,15 +4,15 @@ ms.service: redis-cache
 ms.topic: include
 ms.date: 11/21/2018
 ms.author: wesmc
-ms.openlocfilehash: 1ddb81de479317a098f9de8aa5756cbaae59cb72
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3252a6454bf3f70250d2d792ca1f36a819ab22bf
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331575"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53020186"
 ---
 ### <a name="cacheskuname"></a>cacheSKUName
-Yeni Azure Redis Cache fiyatlandırma katmanı.
+Yeni Azure Azure önbelleği için Redis fiyatlandırma katmanı.
 
     "cacheSKUName": {
       "type": "string",
@@ -22,7 +22,7 @@ Yeni Azure Redis Cache fiyatlandırma katmanı.
       ],
       "defaultValue": "Basic",
       "metadata": {
-        "description": "The pricing tier of the new Azure Redis Cache."
+        "description": "The pricing tier of the new Azure Azure Cache for Redis."
       }
     },
 
@@ -45,7 +45,7 @@ SKU ailesi.
 
 
 ### <a name="cacheskucapacity"></a>cacheSKUCapacity
-Yeni Azure Redis Cache örneği boyutu. 
+Redis örneği için yeni Azure Azure önbellek boyutu. 
 
     "cacheSKUCapacity": {
       "type": "int",
@@ -60,7 +60,7 @@ Yeni Azure Redis Cache örneği boyutu.
       ],
       "defaultValue": 0,
       "metadata": {
-        "description": "The size of the new Azure Redis Cache instance. "
+        "description": "The size of the new Azure Azure Cache for Redis instance. "
       }
     }
 

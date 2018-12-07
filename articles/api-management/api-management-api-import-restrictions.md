@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: 34e6fb195ae64823336684e9ad2e9382316822b0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: c55a80749506b0a03af2f8c5f0179b67c8a78d15
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961085"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016751"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API içeri aktarma kısıtlamaları ve bilinen sorunlar
 ## <a name="about-this-list"></a>Bu liste hakkında
@@ -34,6 +34,7 @@ Openapı belgenizi alma hataları alıyorsanız, doğrulandı, - ya da Azure por
 * **$ref** işaretçileri, harici dosyalara başvuruda bulunamaz.
 * **x-ms-yolları** ve **x sunucuları** uzantıları yalnızca desteklenir.
 * Özel uzantılar içeri aktarma işlemi sırasında yok sayılır ve kaydedilmez veya dışarı aktarma için korunur.
+* **Özyineleme** -olan tanımlara yinelemeli olarak tanımlanan (kendilerini gibi bakın) APIM tarafından desteklenmez.
 
 > [!IMPORTANT]
 > OpenAPI içeri aktarma ile ilgili önemli bilgiler ve ipuçları için bu [belgeye](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) bakın.

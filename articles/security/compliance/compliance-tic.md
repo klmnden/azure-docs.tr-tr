@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: d52785dd7569560f4b6986080b14723762537ec8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b1a406c15377cb6931f92594f5ce1526a2f2ab99
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388332"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017108"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Güvenilir bir Internet bağlantıları Kılavuzu
 
@@ -157,7 +157,7 @@ Ayrılmış örneğe ayrılmış bir sanal ağa dağıtımını ya da hizmet uç
 |Azure Active Directory                | GA               |
 |Azure Batch                           | GA               |
 |App Service Ortamı               | GA               |
-|Azure Redis Cache                     | GA               |
+|Redis için Azure Cache                     | GA               |
 |Azure HDInsight                       | GA               |
 |Sanal makine ölçek kümesi             | GA               |
 |Azure Cloud Services                  | GA               |
@@ -263,7 +263,7 @@ Microsoft Azure, Office 365 ve Dynamics 365 olarak yazılmış ve tanımlanmış
 | Database | PostgreSQL için Azure Veritabanı | | | Evet |
 | Database | Azure SQL Veri Ambarı | | | Evet |
 | Database | Azure Cosmos DB | | | Evet |
-| Database | Azure Redis Cache | | Evet | |
+| Database | Redis için Azure Cache | | Evet | |
 | Depolama | Azure Blob depolama | Evet | | |
 | Depolama | Azure Dosyaları | Evet | | |
 | Depolama | Azure kuyruk depolama | Evet | | |
