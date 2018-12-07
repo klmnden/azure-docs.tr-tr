@@ -1,5 +1,5 @@
 ---
-title: CoScale ile bir Azure Kubernetes kümesini izleme
+title: (KULLANIM DIŞI) CoScale ile bir Azure Kubernetes kümesini izleme
 description: CoScale kullanarak Azure Container Service içindeki bir Kubernetes kümesini izleme
 services: container-service
 author: fryckbos
@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: e9896a34e835646e17328482c07d8031c624e858
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 895346447e33926dcaa5ca09302f35c9d6636ed9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544039"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000198"
 ---
-# <a name="monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>CoScale ile bir Azure Container Service Kubernetes kümesini izleme
+# <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>(KULLANIM DIŞI) CoScale ile bir Azure Container Service Kubernetes kümesini izleme
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-Bu makalede, nasıl dağıtılacağı gösteriyoruz [CoScale](https://www.coscale.com/) tüm düğümleri ve Azure Container Service'te Kubernetes kümenizde kapsayıcıları İzleme Aracısı. Bu yapılandırma için bir hesabıyla CoScale ihtiyacınız var. 
+Bu makalede, nasıl dağıtılacağı gösteriyoruz [CoScale](https://web.archive.org/web/20180317071550/ https://www.coscale.com/) tüm düğümleri ve Azure Container Service'te Kubernetes kümenizde kapsayıcıları İzleme Aracısı. Bu yapılandırma için bir hesabıyla CoScale ihtiyacınız var. 
 
 
 ## <a name="about-coscale"></a>CoScale hakkında 
@@ -34,7 +34,7 @@ Bu makalede gösterilen şekilde bir SaaS çözümü olarak CoScale çalıştır
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Öncelikle [CoScale hesabı oluşturma](https://www.coscale.com/free-trial).
+Öncelikle [CoScale hesabı oluşturma](https://web.archive.org/web/20170507123133/ https://www.coscale.com/free-trial).
 
 Bu izlenecek yol, sahibi olduğunuzu varsayar [Azure Container Service kullanan bir Kubernetes kümesi oluşturuldu](container-service-kubernetes-walkthrough.md).
 
@@ -81,5 +81,5 @@ CoScale Aracısı kümedeki yeni makinelere otomatik olarak dağıtılır. Otoma
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bkz: [CoScale belgeleri](http://docs.coscale.com/) ve [blog](https://www.coscale.com/blog) CoScale izleme çözümleri hakkında daha fazla bilgi. 
+Bkz: [CoScale belgeleri](https://web.archive.org/web/20180415164304/ http://docs.coscale.com:80/) ve [blog](https://web.archive.org/web/20170501021344/ http://www.coscale.com:80/blog) CoScale izleme çözümleri hakkında daha fazla bilgi. 
 

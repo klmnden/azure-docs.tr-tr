@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 5bec7be5f7ad744960d2602aaf24fec51d869267
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 108045c691d711dfdd12df39fe72e536f842f68f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056258"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993205"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Azure portalını kullanarak yol tabanlı yönlendirme kurallarıyla bir uygulama ağ geçidi oluşturma
 
@@ -36,7 +36,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-[http://portal.azure.com](http://portal.azure.com) adresinden Azure portalında oturum açın
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın
 
 ## <a name="create-an-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
@@ -88,7 +88,7 @@ Bu örnekte, application gateway için arka uç sunucular olarak kullanılacak �
     - *Azure123456!* Parola.
     - **Mevcut olanı kullan**’ı seçin ve *myResourceGroupAG* seçeneğini belirleyin.
 
-4. **Tamam**’a tıklayın.
+4. **Tamam** düğmesine tıklayın.
 5. Sanal makinenin boyutu için **DS1_V2** seçeneğini belirleyin ve **Seç**’e tıklayın.
 6. Sanal ağ için **myVNet** öğesinin seçili olduğundan ve alt ağın **myBackendSubnet** olduğundan emin olun. 
 7. Önyükleme tanılamalarını devre dışı bırakmak için **Devre Dışı** seçeneğine tıklayın.
@@ -128,14 +128,14 @@ Bu örnekte, application gateway için arka uç sunucular olarak kullanılacak �
 4. **Kaydet**’e tıklayın.
 5. Tıklayın **arka uç havuzları** ve ardından **Ekle**.
 6. Bir ad girin *imagesBackendPool* ve ekleme *myVM2* kullanarak **Ekle hedef**.
-7. **Tamam**’a tıklayın.
+7. **Tamam** düğmesine tıklayın.
 8. Tıklayın **Ekle** başka bir arka uç havuzu adı ile tekrar eklemeyi *videoBackendPool* ve ekleme *myVM3* ona.
 
 ## <a name="create-a-backend-listener"></a>Bir arka uç dinleyici oluşturun
 
 1. Tıklayın **dinleyicileri** tıklayarak **temel**.
 2. Girin *myBackendListener* adı için *myFrontendPort* ön uç bağlantı noktası adını ve ardından *8080* dinleyicisinin bağlantı noktası.
-3. **Tamam**’a tıklayın.
+3. **Tamam** düğmesine tıklayın.
 
 ## <a name="create-a-path-based-routing-rule"></a>Yola dayalı kural oluşturma
 
@@ -146,7 +146,7 @@ Bu örnekte, application gateway için arka uç sunucular olarak kullanılacak �
 
     ![Yol tabanlı kural oluşturma](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
 
-5. **Tamam**’a tıklayın.
+5. **Tamam** düğmesine tıklayın.
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidini test etme
 
@@ -154,7 +154,7 @@ Bu örnekte, application gateway için arka uç sunucular olarak kullanılacak �
 
     ![Uygulama ağ geçidi genel IP adresini kaydetme](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın. Örneğin http://http://40.121.222.19.
+2. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın. Örneğin http:// http://40.121.222.19.
 
     ![Temel URL’yi uygulama ağ geçidinde test etme](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 

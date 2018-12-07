@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 6c62e2e559749ae8dc29e86d9c2414c28b487995
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 97c02726c7e359195c6bf4ea793404562f2acccf
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965628"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001956"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Azure ön kapısı hizmetiyle önbelleğe alma
 Belgesinde, ön kapısı önbelleğe almanın etkin yönlendirme kurallarıyla davranışını belirtir.
@@ -26,7 +26,7 @@ Dosya boyutu büyük dosyaları bir sınır olmaksızın Azure ön kapısı hizm
 
 </br>Öbek ön kapısı ortam ulaştıktan sonra önbelleğe alınmış ve hemen kullanıcıya sunulan. Ön kapısı ardından paralel sonraki öbek önceden getirir. Bu önceden getirme içeriği gecikmesini azaltır kullanıcı önceden bir öbek kalmasını sağlar. Bu işlem tüm kadar devam eder (istenirse) dosyasını indirdiğiniz, tüm bayt aralıkları (istenirse) kullanılabilir, veya istemci bağlantıyı sonlandırır.
 
-</br>Bayt aralığı istek üzerine daha fazla bilgi için okuma [RFC 7233](http://www.rfc-base.org/rfc-7233.html).
+</br>Bayt aralığı istek üzerine daha fazla bilgi için okuma [RFC 7233](https://web.archive.org/web/20171009165003/ http://www.rfc-base.org/rfc-7233.html).
 Ön kapısı alındığında ve dosyanın tamamı ön kapısı önbellekte önbelleğe alınması gerekmez tüm öbekleri önbelleğe alır. Dosya veya bayt aralıkları için sonraki istekleri önbellekten sunulur. Aksi takdirde tüm öbekleri önbelleğe alınır, öbekleri arka ucundan istemek için önceden getirme kullanılır. Bu iyileştirme, bayt aralığı isteklerini desteklemek için arka uç yeteneklerini üzerinde kullanır; Bu iyileştirme, arka bayt aralığı isteklerini desteklemiyorsa, etkili değildir.
 
 ## <a name="file-compression"></a>Dosya sıkıştırma
@@ -116,5 +116,5 @@ Yanıt Cache-Control gibi önbelleğe alınabilir olmaz gösteren bir cache-Cont
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bilgi edinmek için nasıl [ön kapı oluşturmak](quickstart-create-front-door.md).
-- Bilgi [ön kapısı işleyişi](front-door-routing-architecture.md).
+- [Front Door oluşturmayı](quickstart-create-front-door.md) öğrenin.
+- [Front Door’un nasıl çalıştığını](front-door-routing-architecture.md) öğrenin.

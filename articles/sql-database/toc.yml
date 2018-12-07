@@ -125,8 +125,6 @@ items:
         href: sql-database-connectivity-architecture.md
       - name: T-SQL farklılıkları
         href: sql-database-transact-sql-information.md
-      - name: İşlem çoğaltması - tek veritabanları ve elastik havuzlar
-        href: replication-to-sql-database.md
     - name: Esnek havuzlar
       items:
       - name: Esnek havuzlar
@@ -171,8 +169,6 @@ items:
         href: sql-database-managed-instance-connect-app.md
     - name: T-SQL farklılıkları
       href: sql-database-managed-instance-transact-sql-information.md
-    - name: İşlem çoğaltması
-      href: replication-with-sql-database-managed-instance.md
   - name: Hizmet olarak Platform
     items:
     - name: Hizmet olarak Platform
@@ -231,10 +227,8 @@ items:
         href: sql-database-data-discovery-and-classification.md
       - name: Güvenlik açığı değerlendirmesi
         href: sql-vulnerability-assessment.md
-      - name: Tehdit algılama - SQL Veritabanı
-        href: sql-database-threat-detection.md
-      - name: Tehdit algılama - Yönetilen Örnek
-        href: sql-database-managed-instance-threat-detection.md
+      - name: Tehdit algılama
+        href: sql-database-threat-detection-overview.md
     - name: Güvenlik duvarı kuralları
       items:
       - name: Oluşturma ve yönetme
@@ -473,16 +467,30 @@ items:
       href: sql-database-in-memory-oltp-migration.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: SQL Veritabanına geçiş
+  - name: Tek Veritabanı
     items:
     - name: SQL Veritabanına geçiş
       href: sql-database-cloud-migrate.md
+    - name: Geçişten sonra SQL Veritabanını yönetme
+      href: sql-database-manage-after-migration.md
+    - name: İşlem çoğaltmasını yapılandırma
+      href: replication-to-sql-database.md
+    - name: Tehdit algılamayı yapılandırma
+      href: sql-database-threat-detection.md
+    - name: Dosya alanını yönetme
+      href: sql-database-file-space-management.md
+    - name: Bağlantı sorunları için Kaynak Durumu kullanma
+      href: sql-database-resource-health.md
+  - name: Yönetilen Örnek
+    items:
     - name: Yönetilen Örneğe geçiş
       href: sql-database-managed-instance-migrate.md
     - name: TDE sertifikasını Yönetilen Örneğe geçirme
       href: sql-database-managed-instance-migrate-tde-certificate.md
-    - name: Geçişten sonra SQL Veritabanını yönetme
-      href: sql-database-manage-after-migration.md
+    - name: İşlem çoğaltması
+      href: replication-with-sql-database-managed-instance.md
+    - name: Tehdit algılamayı yapılandırma
+      href: sql-database-managed-instance-threat-detection.md
   - name: Verileri yükleme ve taşıma
     items:
     - name: Azure içinde bir veritabanı kopyalama
@@ -509,10 +517,6 @@ items:
       href: sql-database-load-from-csv-with-bcp.md
     - name: ADF ile veri yükleme
       href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
-  - name: Dosya alanını yönetme
-    href: sql-database-file-space-management.md
-  - name: Bağlantı sorunları için Kaynak Durumu kullanma
-    href: sql-database-resource-health.md
   - name: Uygulama geliştirme
     items:
     - name: Bağlantı
@@ -662,9 +666,9 @@ items:
     href: /azure/architecture/
   - name: Müşteri hikayeleri
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 8c32468bf7b21cd2545f85226758879cc5b657e8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6ae879edcd2b835cb52e20f070d6d8c0998ba610
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961986"
+ms.locfileid: "52994566"

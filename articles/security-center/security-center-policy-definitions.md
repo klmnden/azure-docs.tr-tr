@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: a4f9fc31f411d36e63775a3665b6dfe27eec7710
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e76464e294a3378bf3a275ec4fe7ccbd87c09475
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319382"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011649"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Azure Güvenlik Merkezi tarafından izlenen azure güvenlik ilkeleri
 Bu makalede Güvenlik Merkezi'ndeki izlenebilir Azure ilke tanımlarının bir listesi sağlanmaktadır.
@@ -43,7 +43,7 @@ Güvenlik Merkezi tarafından izlenen yerleşik ilkeleri anlamak için aşağıd
 |Service Fabric'te ClusterProtectionLevel özelliğinin EncryptAndSign olarak ayarlanmasını denetleyin|Service Fabric, düğümden düğüme iletişim için bir birincil küme sertifikası kullanarak koruma (None, oturum ve EncryptAndSign) üç düzeyleri sağlar. Tüm düğümler için iletileri şifrelenir ve dijital olarak imzalanmış emin olmak için koruma düzeyini ayarlayın.| 
 |Service Fabric'te istemci kimlik doğrulaması için Azure Active Directory kullanımını denetleyin|Service Fabric'te yalnızca Azure Active Directory yoluyla istemci kimlik doğrulaması kullanımını denetleyin| 
 |Arama hizmeti için tanılama günlüklerinin etkinleştirilmesini denetleyin|Denetim günlüklerini etkinleştirme ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar.| 
-|Redis Cache önbelleğinizde yalnızca güvenli bağlantıların etkinleştirilmesini denetleyin|Yalnızca Redis cache'e SSL aracılığıyla bağlantıları etkinleştirme denetim. Güvenli bağlantı kullanımı hizmeti sunucusu arasındaki kimlik doğrulaması sağlar ve ağ katmanı saldırılarına karşı ortadaki-de-gizlice ve oturum ele geçirme adam gibi Aktarımdaki verileri korur.| 
+|Yalnızca güvenli bağlantılar, Azure önbelleği için Redis etkinleştirme denetleme|Azure Cache için SSL aracılığıyla yalnızca bağlantıları için Redis etkinleştirme denetim. Güvenli bağlantı kullanımı hizmeti sunucusu arasındaki kimlik doğrulaması sağlar ve ağ katmanı saldırılarına karşı ortadaki-de-gizlice ve oturum ele geçirme adam gibi Aktarımdaki verileri korur.| 
 |Logic Apps'te tanılama günlüklerinin etkinleştirilmesini denetleyin|Denetim günlüklerini etkinleştirme ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar.| 
 |Key Vault'ta tanılama günlüklerinin etkinleştirilmesini denetleyin|Denetim günlüklerini etkinleştirme ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar.|
 |Olay Hub'ında tanılama günlüklerinin etkinleştirilmesini denetleyin|Denetim günlüklerini etkinleştirme ve bunları bir yıla kadar korur. Bu bir güvenlik olayı ortaya veya ağınızın tehlikeye araştırma amacıyla etkinlik kayıtlarını mpgo.exe'nin sağlar.| 

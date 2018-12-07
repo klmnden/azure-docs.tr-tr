@@ -19,7 +19,7 @@
 # İlgili
 ## [Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/)
 ## [SQL Veritabanı Danışmanı](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)
-## [Redis Önbelleği](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)
+## [Redis için Azure Önbelleği](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)
 ## [App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
 
 # Kaynaklar

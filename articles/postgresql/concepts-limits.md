@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/30/2018
-ms.openlocfilehash: f24f15134bf189097f20f75ff0b23b72a3e48363
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 12/03/2018
+ms.openlocfilehash: 2f4f5bf19815469f76c1ee18ff42177f77faec28
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299615"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871124"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı'nda sınırlamaları
 Aşağıdaki bölümlerde, kapasite ve veritabanı hizmetinde işlev sınırlamaları açıklanmaktadır.
@@ -31,10 +31,12 @@ Fiyatlandırma katmanı ve sanal çekirdek başına bağlantıları sayısı aş
 |Genel Amaçlı| 8| 480|
 |Genel Amaçlı| 16| 950|
 |Genel Amaçlı| 32| 1500|
+|Genel Amaçlı| 64| 1900|
 |Bellek için İyileştirilmiş| 2| 300|
 |Bellek için İyileştirilmiş| 4| 500|
 |Bellek için İyileştirilmiş| 8| 960|
 |Bellek için İyileştirilmiş| 16| 1900|
+|Bellek için İyileştirilmiş| 32| 3000|
 
 Bağlantı sınırı aştıklarında aşağıdaki hata iletisini alabilirsiniz:
 > Önemli: ne yazık ki zaten çok fazla sayıda istemci
