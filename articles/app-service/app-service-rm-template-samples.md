@@ -13,12 +13,12 @@ ms.workload: app-service
 ms.date: 10/15/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 627480fab7a28794a215642fda8e57280f19f19b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.openlocfilehash: a7d97546d6691c5aa25010c680d37be18eb561d1
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345076"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015016"
 ---
 # <a name="azure-resource-manager-templates-for-web-apps"></a>Web Apps için Azure Resource Manager şablonları
 
@@ -45,7 +45,7 @@ Aşağıdaki tabloda, Azure App Service’in Web Apps özelliği için Azure Res
 | [PostgreSQL içeren web uygulaması](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-postgresql)| Windows üzerinde PostgreSQL için Azure Veritabanı içeren bir Azure web uygulaması dağıtır. |
 | [SQL veritabanı içeren web uygulaması](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Temel hizmet düzeyinde bir Azure web uygulaması ve SQL veritabanı dağıtır. |
 | [Blob depolama bağlantılı web uygulaması](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-blob-connection)| Azure Blob depolama bağlantı dizesi içeren bir Azure web uygulaması dağıtır. Daha sonra web uygulamasından Blob depolamayı kullanabilirsiniz. |
-| [Redis önbelleği içeren web uygulaması](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Redis önbelleği içeren bir Azure web uygulaması dağıtır. |
+| [Web uygulaması ile bir Azure önbelleği için Redis](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Bir Azure web uygulaması ile bir Azure önbelleği için Redis dağıtır. |
 |**PowerApps için App Service Ortamı**||
 | [App Service ortamı v2 oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-create) | Sanal ağınızda bir App Service ortamı v2 oluşturur. |
 | [ILB adresli bir App Service ortamı v2 oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-ilb-create/) | Sanal ağınızda özel bir iç yük dengeleyici adresine sahip App Service ortamı v2 oluşturur. |

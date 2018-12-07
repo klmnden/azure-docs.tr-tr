@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
 ms.date: 11/26/2018
-ms.openlocfilehash: 9a8486a5022a58dd9d4b94ddbe71f3a4e66f18cf
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d4f69533a68e11b3e171963429b141cf0736472d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969507"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014642"
 ---
 # <a name="azure-time-series-insights-preview-tutorial"></a>Azure Time Series Insights (Önizleme) öğreticisi
 
@@ -36,11 +36,11 @@ Bu bölümde bir Azure TSI (Önizleme) kullanarak ortam oluşturmayı açıklar 
 
    ![öğretici-bir][1]
 
-1. Zaman serisi görüşleri ortamı sayfadaki gerekli parametrelerini doldurun ve tıklayarak **sonraki: olay kaynağı**
+1. Zaman serisi görüşleri ortamı sayfadaki gerekli parametrelerini doldurun ve tıklayarak **sonraki: olay kaynağı**. Bu öğretici için kümesine **zaman serisi kimliği** olarak `Id`. Hakkında daha fazla bilgi edinmek için **zaman serisi kimlikleri**okuyun [zaman serisi kimlikleri](./time-series-insights-update-how-to-id.md).
 
    ![öğretici-iki][2]
 
-1. Üzerinde **olay kaynağı** sayfasında gerekli parametreleri doldurun ve tıklayarak **gözden geçir + Oluştur**.
+1. Üzerinde **olay kaynağı** sayfasında gerekli parametreleri doldurun ve tıklayarak **gözden geçir + Oluştur**. Bu öğretici için kümesine **zaman damgası** özellik alanı olarak `Timestamp`.
 
    ![öğretici-üç][3]
 
@@ -69,7 +69,7 @@ Bu bölümde, TSI ortamınıza bir olay hub'ı üzerinden olayları göndermek i
 
   1. Tıklayarak **için Başlat'ı tıklatın** olayları olay Hub'ına gönderme. Bu aşamada, adlı bir dosya `instances.json` makinenize indirilir. Biz bunu daha sonra ihtiyacınız olacak şekilde bu dosyayı kaydedin.
 
-  1. Olay hub'ına dönün. Artık hub.d tarafından alınan yeni olayların görünmesi
+  1. Olay Hub'ına dönün. Artık hub.d tarafından alınan yeni olayların görünmesi
 
       ![öğretici-sekiz][8]
 

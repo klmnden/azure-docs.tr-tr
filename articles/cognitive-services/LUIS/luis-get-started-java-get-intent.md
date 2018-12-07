@@ -1,28 +1,31 @@
 ---
-title: Java Hızlı Başlangıç - amacı tahmin etme - LUIS
-titleSuffix: Azure Cognitive Services
+title: 'Hızlı Başlangıç: amaca dönüştürme-Java al'
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Bu hızlı başlangıçta, kullanılabilir genel bir LUIS uygulamasını kullanarak konuşma metninden bir kullanıcının amacını belirleyin. Java kullanarak kullanıcının amacını genel uygulamanın HTTP tahmin uç noktasına metin olarak gönderin. Uç noktada, LUIS genel uygulamanın modelini uygulayarak anlam oluşturmak için doğal dil metnini analiz eder, böylece genel amacı belirler ve uygulamanın konu etki alanıyla ilgili verileri ayıklar.
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c492a0d0a9d90a79b0e05d4e7de6f5ef0796184a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 417b1138d581a54a3a0a992cebf18ea20fa8dbee
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417543"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013603"
 ---
 # <a name="quickstart-get-intent-using-java"></a>Hızlı Başlangıç: Java kullanarak amacı alma
+
+Bu hızlı başlangıçta, amaç ve varlıkları döndürmek için bir LUIS uç noktasına konuşma iletin.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 <a name="create-luis-subscription-key"></a>
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [JDK SE](https://aka.ms/azure-jdks)  (Java Geliştirme Seti, Standart Sürüm)
 * [Visual Studio Code](https://code.visualstudio.com/)

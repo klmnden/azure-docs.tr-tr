@@ -3,7 +3,7 @@ title: Azure CLI Betik Örneği - ACS Linux Kubernetes Kümesi Oluşturma | Micr
 description: Azure CLI Betik Örneği - ACS Linux Kubernetes Kümesi Oluşturma
 services: container-service
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 tags: acs, azure-container-service
@@ -15,15 +15,17 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: nepeters
-ms.openlocfilehash: 938990e0c39e96d909c07bef05d2630a01e3076a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.author: iainfou
+ms.openlocfilehash: 11549e730e38c72e09ed2e94a72113c6e7e5bbb9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423768"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996265"
 ---
-# <a name="create-an-azure-container-service-kubernetes-linux-cluster"></a>Azure Container Service Kubernetes Linux Kümesi oluşturma
+# <a name="deprecated-create-an-azure-container-service-kubernetes-linux-cluster"></a>(KULLANIM DIŞI) Azure Container Service Kubernetes Linux kümesi oluşturma
+
+[!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 
 Bu örnek, Linux tabanlı kapsayıcılar için Kubernetes çalıştıran bir Azure Container Service kümesi oluşturur.
 

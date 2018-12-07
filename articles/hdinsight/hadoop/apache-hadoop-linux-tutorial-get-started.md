@@ -10,16 +10,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.openlocfilehash: cc726156273591215e5a311065ae2fe6dd87402c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 7068dd62b8c445950fdfd18197e3f01e730506a3
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634456"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014812"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>Hızlı Başlangıç: Apache Hadoop ve Apache Hive, Azure Resource Manager şablonu kullanarak HDInsight ile çalışmaya başlama
 
-Bu makalede, nasıl oluşturulacağını öğreneceksiniz [Apache Hadoop](http://hadoop.apache.org/) Resource Manager şablonu kullanarak ve ardından HDInsight Hive işleri çalıştırmayı HDInsight kümeleri. Hadoop işlerinin çoğu toplu işlemdir. Bir küme oluşturur, bazı işleri çalıştırır ve kümeyi silersiniz. Bu makalede, üç görevi de gerçekleştirirsiniz.
+Bu makalede, nasıl oluşturulacağını öğreneceksiniz [Apache Hadoop](https://hadoop.apache.org/) Resource Manager şablonu kullanarak ve ardından HDInsight Hive işleri çalıştırmayı HDInsight kümeleri. Hadoop işlerinin çoğu toplu işlemdir. Bir küme oluşturur, bazı işleri çalıştırır ve kümeyi silersiniz. Bu makalede, üç görevi de gerçekleştirirsiniz.
 
 Bu hızlı başlangıçta, HDInsight Hadoop kümesi oluşturmak için Kaynak Yöneticisi şablonu kullanırsınız. [Azure Portal](apache-hadoop-linux-create-cluster-get-started-portal.md)’ı kullanarak da küme oluşturabilirsiniz.
 

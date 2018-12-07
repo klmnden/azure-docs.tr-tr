@@ -1,5 +1,5 @@
 ---
-title: Azure DC/OS kümesi için dosya paylaşımı
+title: (KULLANIM DIŞI) Dosya Paylaşımı için Azure DC/OS kümesi
 description: Azure Container Service’te dosya oluşturma ve bu dosyayı DC/OS kümesine bağlama
 services: container-service
 author: julienstroheker
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 4e03a0b450c9806edfb81a867fba97052659ec44
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 728f8ddbda35f27c0f89e1d72e98fd2d7669320e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973516"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999855"
 ---
-# <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>Dosya oluşturma ve bu dosyayı DC/OS kümesine bağlama
+# <a name="deprecated-create-and-mount-a-file-share-to-a-dcos-cluster"></a>(KULLANIM DIŞI) Oluşturma ve bir DC/OS kümesi için bir dosya paylaşımını bağlama
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Bu öğreticide, Azure'da dosya paylaşımı oluşturma ve bunu DC/OS kümesinin her aracısına ve ana düğümüne bağlama işlemi ayrıntılarıyla açıklanır. Dosya paylaşımı ayarlamak, yapılandırma, erişim ve günlükler gibi daha birçok dosyanın kümeniz genelinde paylaşılmasını kolaylaştırır. Bu öğreticide aşağıdaki görevler tamamlanır:
 

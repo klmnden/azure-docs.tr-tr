@@ -1,6 +1,6 @@
 ---
-title: "Hızlı başlangıç: Machine Learning hizmeti çalışma alanı oluşturmak için Python SDK'sını kullanma - Azure Machine Learning"
-description: Azure Machine Learning hizmetini kullanmaya başlayın. Python SDK'sını yükleyin ve çalışma alanı oluşturmak için kullanın. Bu çalışma alanı Azure Machine Learning ile bulutta makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için kullanabileceğiniz temel bileşenlerden biridir.
+title: 'Hızlı Başlangıç: Python Azure Machine Learning hizmeti ile çalışmaya başlama'
+description: Python için Azure Machine Learning hizmetinde kullanmaya başlayın. Deneme, eğitmek ve makine öğrenimi modelleri dağıtmak için kullandığınız bulut ıaas'yi bloğunda bir çalışma alanı oluşturmak için Python SDK'sını kullanın.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +9,15 @@ ms.reviewer: sgilley
 author: hning86
 ms.author: haining
 ms.date: 12/04/2018
-ms.openlocfilehash: 55a62888023c330aef8706bdf9e53187355721ac
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec12
+ms.openlocfilehash: 1a6bb648de251d8764eec52491a918e7cb1de653
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955862"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015390"
 ---
-# <a name="quickstart-use-python-to-get-started-with-azure-machine-learning"></a>Hızlı başlangıç: Machine Learning hizmetini kullanmaya başlamak için Python'ı kullanma
+# <a name="quickstart-use-python-sdk-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak kullanım Python SDK'sı
 
 Bu hızlı başlangıçta Python için Azure Machine Learning SDK'sını kullanarak bir Machine Learning hizmeti [çalışma alanı](concept-azure-machine-learning-architecture.md) oluşturup kullanacaksınız. Bu çalışma alanı Machine Learning ile bulutta makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için kullanabileceğiniz temel bileşenlerden biridir. Bu hızlı başlangıçta ilk olarak kendi Python ortamınızı ve Jupyter notebook sunucunuzu yapılandıracaksınız. Uygulamaları yükleme yapmadan çalıştırmak için bkz. [Hızlı başlangıç: Azure portalı kullanarak Azure Machine Learning'i kullanmaya başlama](quickstart-get-started.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service öğreticisi - DC/OS Yönetme
+title: (KULLANIM DIŞI) Azure Container Service Öğreticisi - DC/OS yönetme
 description: Azure Container Service öğreticisi - DC/OS Yönetme
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8f4b1c1c66243c06d46ef3fddec8ea495163fa07
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: fe943ae5ac7894cdd8d8e104615cea670513b7eb
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999622"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000415"
 ---
-# <a name="azure-container-service-tutorial---manage-dcos"></a>Azure Container Service öğreticisi - DC/OS Yönetme
+# <a name="deprecated-azure-container-service-tutorial---manage-dcos"></a>(KULLANIM DIŞI) Azure Container Service Öğreticisi - DC/OS yönetme
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS, modern ve kapsayıcılı uygulamalar çalıştırmak için dağıtılmış bir platform sunar. Azure Container Service ile üretime hazır bir DC/OS kümesinin dağıtımı basit ve hızlıdır. Bu hızlı başlangıçta, DC/OS kümesi dağıtmak ve temel iş yükü çalıştırmak için gerekli temel adımlar ayrıntılı olarak açıklanır.
 

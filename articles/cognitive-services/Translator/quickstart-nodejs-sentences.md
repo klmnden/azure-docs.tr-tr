@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 08c01f8c73f8d25b824a97d31f1681d9a7eb302e
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
-ms.translationtype: HT
+ms.openlocfilehash: 09d0c855aada753b0a3e594055ec188c2698e677
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249118"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999004"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-with-nodejs"></a>Hızlı Başlangıç: Node.js ve Translator Metin Çevirisi API'si ile cümle uzunluğunu belirleme
 
@@ -23,7 +23,7 @@ Bu hızlı başlangıçta Node.js ve Translator Metin Çevirisi API'sini kullana
 
 Bu hızlı başlangıç, Translator Metin Çevirisi kaynağına sahip bir [Azure Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) gerektirir. Bir hesabınız yoksa, abonelik anahtarı almak için [ücretsiz deneme sürümünü](https://azure.microsoft.com/try/cognitive-services/) kullanabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıç şunları gerektirir:
 
@@ -68,7 +68,7 @@ if (!subscriptionKey) {
 İstek modülü aracılığıyla kullanıma sunulan `request()` yöntemi HTTP yöntemi, URL, istek parametreleri, üst bilgileri ve JSON gövdesi bileşenlerini `options` nesnesi olarak geçirmemizi sağlar. Bu kod parçacığında isteği yapılandıracağız:
 
 >[!NOTE]
-> Uç noktalar, rotalar ve istek parametreleri hakkında daha fazla bilgi için bkz. [Translator Metin Çevirisi API’si 3.0: Cümle Bölme](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Uç noktaları, yollar ve istek parametreleri hakkında daha fazla bilgi için bkz: [Translator Text API 3.0: sonu cümle](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```javascript
 let options = {

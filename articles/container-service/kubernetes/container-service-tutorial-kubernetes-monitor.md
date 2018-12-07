@@ -1,24 +1,27 @@
 ---
-title: Azure Container Service öğreticisi - Kubernetes’i İzleme
+title: (KULLANIM DIŞI) Azure Container Service Öğreticisi - Kubernetes'i izleme
 description: Azure Container Service öğreticisi - Log Analytics ile Kubernetes’i İzleme
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 04/05/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b2243851d62cc17dc52407dce051cc2e0f4bcb12
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 6f95aa701228730682c0122dc1fd46d8a2537ce1
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889217"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001606"
 ---
-# <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Log Analytics ile Kubernetes kümesini izleme
+# <a name="deprecated-monitor-a-kubernetes-cluster-with-log-analytics"></a>(KULLANIM DIŞI) Log Analytics ile bir Kubernetes kümesini izleme
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Azure Kubernetes hizmeti kullanan Bu öğretici için güncelleştirilmiş sürümü görmek [kapsayıcılar (Önizleme) genel bakış için Azure İzleyici](../../azure-monitor/insights/container-insights-overview.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Kubernetes kümenizin ve kapsayıcılarınızın izlenmesi, özellikle de büyük ölçekli olarak birden fazla uygulamayı ve bir üretim kümesini yönetiyorsanız kritik önem taşır.
 

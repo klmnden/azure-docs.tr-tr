@@ -1,23 +1,24 @@
 ---
-title: Yükleme ve kapsayıcıları çalıştırma
+title: Kapsayıcıları yükleme ve çalıştırma
 titleSuffix: Text Analytics - Cognitive Services - Azure
 description: İndirme, yükleme ve bu izlenecek yol öğreticide metin analizi için kapsayıcıları çalıştırmak nasıl.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 99bdb42d9a0d86d0d2acc4a6272e0c802042e6b5
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: dc5e34f1a9a63b5b3ce30cdd547b900a32eba42c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635048"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017228"
 ---
-# <a name="install-and-run-containers"></a>Yükleme ve kapsayıcıları çalıştırma
+# <a name="install-and-run-containers"></a>Kapsayıcıları yükleme ve çalıştırma
 
 Kapsayıcı, bir uygulama veya hizmet bir kapsayıcı görüntüsüne paketlenmiştir yazılım dağıtım için kullanılan bir yaklaşımdır. Yapılandırma ve bağımlılıklarla uygulama veya hizmet için kapsayıcı görüntüsüne eklenir. Kapsayıcı görüntüsü, bir kapsayıcı konağında çok az kayıpla veya hiç değişiklik ile sonra dağıtılabilir. Birbirine ve bir sanal makine değerinden daha küçük bir kaplama alanı ile temel işletim sistemi, yalıtılmış kapsayıcılardır. Kapsayıcılar için kısa vadeli görevleri kapsayıcı görüntülerinden oluşturulan ve artık gerekli olmadığında kaldırıldı.
 
@@ -27,7 +28,7 @@ Metin analizi, her biri işlevlerinin bir alt kümesini içeren Docker kapsayıc
 |----------|-------------|
 |Anahtar İfade Ayıklama | Ana noktaları belirleyin, anahtar ifadeleri ayıklar. Örneğin, "The food was delicious and there were wonderful staff" (Yemekler lezzetliydi ve personel harikaydı) giriş metni olduğunda API, "food" (yemek) ve "wonderful staff" (personel harikaydı) ana konuşma noktalarını döndürür. |
 |Dil Algılama | En fazla 120 dil için algılar ve raporları giriş metni hangi dilde yazılır. Kapsayıcı, istekte bulunan her belge için bir tek dil kodu bildirir. Dil kodu, puanın ağırlığını belirten bir puanla eşleştirilir. |
-|Duygu Analizi | Ham metin pozitif veya negatif yaklaşım hakkında ipuçları için analiz eder. API, her belge için 0 ile 1 arasında bir yaklaşım puanı döndürür ve 1 en pozitif değerdir. Analiz modelleri metin ve doğal dil Microsoft teknolojilerinin kapsamlı bir gövdesi kullanarak önceden eğitilir. API, [seçili dillerde](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages.md) sağladığınız ham metni analiz edip puanlayabilir ve sonuçları doğrudan çağrıyı yapan uygulamaya döndürebilir. |
+|Duygu Analizi | Ham metin pozitif veya negatif yaklaşım hakkında ipuçları için analiz eder. API, her belge için 0 ile 1 arasında bir yaklaşım puanı döndürür ve 1 en pozitif değerdir. Analiz modelleri metin ve doğal dil Microsoft teknolojilerinin kapsamlı bir gövdesi kullanarak önceden eğitilir. API, [seçili dillerde](../language-support.md) sağladığınız ham metni analiz edip puanlayabilir ve sonuçları doğrudan çağrıyı yapan uygulamaya döndürebilir. |
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -43,7 +44,7 @@ Docker, kapsayıcılar ile bağlanma ve faturalama verileri Azure'a göndermek i
 
 Docker ve kapsayıcı temelleri hakkında bilgi için bkz: [Docker'a genel bakış](https://docs.docker.com/engine/docker-overview/).
 
-### <a name="server-requirements-and-recommendations"></a>Sunucu gereksinimleri ve önerileri
+### <a name="container-requirements-and-recommendations"></a>Kapsayıcı gereksinimleri ve önerileri
 
 Aşağıdaki tabloda açıklanmıştır en düşük ve önerilen CPU çekirdekleri, en az 2.6 gigahertz (GHz) veya daha hızlı ve her bir metin analizi kapsayıcısı için ayrılacak gigabayt (GB) bellek.
 
@@ -51,7 +52,7 @@ Aşağıdaki tabloda açıklanmıştır en düşük ve önerilen CPU çekirdekle
 |-----------|---------|-------------|
 |Anahtar İfade Ayıklama | 1 çekirdek, 2 GB bellek | 1 çekirdek, 4 GB bellek |
 |Dil Algılama | 1 çekirdek, 2 GB bellek | 1 çekirdek, 4 GB bellek |
-|Duygu Analizi | 1 çekirdek, 8 GB bellek | 1 çekirdek, 8 GB bellek |
+|Duygu Analizi | 1 çekirdek, 2 GB bellek | 1 çekirdek, 4 GB bellek |
 
 ## <a name="download-container-images-from-microsoft-container-registry"></a>Microsoft kapsayıcı kayıt defterinden kapsayıcı görüntülerini yükle
 
@@ -149,11 +150,13 @@ Bu seçenekler hakkında daha fazla bilgi için bkz. [kapsayıcıları yapıland
 Bu makalede, kavramlar ve indirme, yükleme ve metin analizi kapsayıcıları çalıştırmak için iş akışı öğrendiniz. Özet:
 
 * Metin analizi, anahtar ifade ayıklama, dil algılama ve yaklaşım analizi Kapsüllenen üç Linux kapsayıcıları için Docker, sağlar.
-* Azure'da bir özel kapsayıcı kayıt defterinden kapsayıcı görüntülerini indirilir.
+* Kapsayıcı görüntülerini azure'da Microsoft kapsayıcı kayıt defteri (MCR) alanından indirilir.
 * Docker kapsayıcı görüntüleri çalıştırın.
 * Metin analizi-kapsayıcılarında işlemleri ana kapsayıcısının URI belirterek çağırmak için REST API veya SDK'sını kullanabilirsiniz.
 * Bir kapsayıcı örneği oluşturulurken, fatura bilgilerini belirtmeniz gerekir.
-* ** Bilişsel Hizmetleri kapsayıcılar, kullanım ölçümü için Azure'a bağlanmadan çalıştırmak için lisanslanmaz. Müşteriler, her zaman faturalandırma bilgileri ölçüm hizmeti ile iletişim kurmak kapsayıcıları etkinleştirmeniz gerekiyor. Bilişsel hizmetler kapsayıcılar, Microsoft müşteri verilerini (örneğin, görüntü veya metin analiz edilen) göndermeyin.  
+
+> [!IMPORTANT]
+> Bilişsel hizmetler kapsayıcıları, kullanım ölçümü için Azure'a bağlanmadan çalıştırmak için lisanslanmaz. Müşteriler, her zaman faturalandırma bilgileri ölçüm hizmeti ile iletişim kurmak kapsayıcıları etkinleştirmeniz gerekiyor. Bilişsel hizmetler kapsayıcılar, Microsoft müşteri verilerini (örneğin, görüntü veya metin analiz edilen) göndermeyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

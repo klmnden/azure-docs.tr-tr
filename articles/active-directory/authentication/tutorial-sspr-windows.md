@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 291f895ed367ab4871d27ea02cd23eddc496434c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6b3299bc93910d1211b0188bdb6639b19302be3c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958687"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014464"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Öğretici: Oturum açma ekranından Azure AD parola sıfırlama
 
@@ -30,7 +30,7 @@ Bu öğreticide kullanıcıların parolalarını Windows 10 oturum açma ekranı
 
 * Windows 10 Nisan 2018 Güncelleştirmesi veya aşağıdaki özelliklere sahip daha yeni bir istemci:
    * [Azure AD'ye katılmış makine](../device-management-azure-portal.md) veya
-   * [Hibrit Azure AD'ye katıldı makine](../device-management-hybrid-azuread-joined-devices-setup.md), parola sıfırlama sonra bir sonraki oturum açma için etki alanı denetleyicisine ağ bağlantısı ile.
+   * [Hibrit Azure AD'ye katıldı makine](../device-management-hybrid-azuread-joined-devices-setup.md), bir etki alanı denetleyicisine ağ bağlantısı ile.
 * Azure AD self servis parola sıfırlama etkinleştirilmelidir.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Intune'u kullanarak Parolayı sıfırla bağlantısını yapılandırma
@@ -126,6 +126,8 @@ Aşağıdaki ilke ayarlarını parolalarını sıfırlama olanağı müdahale bi
    * Explorer.exe özel bir kabuk ile değiştirilir
 
 Windows 10 makinelerinizi bir ara sunucu veya güvenlik duvarı arkasında ise, passwordreset.microsoftonline.com ve ajax.aspnetcdn.com adreslerine yönelik HTTPS trafiğine (443) izin verilmelidir.
+
+SSPR iş akışı bir Active Directory etki alanı denetleyicisi gerek kalmadan nerede tamamlayacak bir senaryo karma etki alanına katılmış senaryoları için var. Bir etki alanı denetleyicisi ile bağlantı, yeni parola ilk kez kullanmak için gereklidir.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

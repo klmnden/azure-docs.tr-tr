@@ -1,25 +1,26 @@
 ---
-title: LUIS bot ile C# - Web app Botu - Bot Framework SDK 3.0
-titleSuffix: Azure Cognitive Services
-description: C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet Robotu oluşturun. Bu sohbet Robotu, hızlı bir şekilde bir bot çözümü uygulamak için önceden oluşturulmuş HomeAutomation etki alanını kullanır.
+title: Bot ileC#
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu oluşturun. Bu sohbet Robotu, hızlı bir şekilde bir bot çözümü uygulamak için önceden oluşturulmuş HomeAutomation etki alanını kullanır.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 0ad95d5683ea10803c2f3986be97617051f191cf
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 59d98b46827a5e60dcdcbd109dc484891cef9ba8
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032283"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011802"
 ---
 # <a name="luis-bot-in-c"></a>LUIS bot C#
 
-C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet Robotu oluşturun. Bu sohbet Robotu, hızlı bir şekilde bir bot çözümü uygulamak için önceden oluşturulmuş HomeAutomation etki alanını kullanır. Bot, Bot Framework ile derlenir 3.x ve Azure Web app botu.
+C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu oluşturun. Bu sohbet Robotu, hızlı bir şekilde bir bot çözümü uygulamak için önceden oluşturulmuş HomeAutomation etki alanını kullanır. Bot, Bot Framework ile derlenir 3.x ve Azure Web app botu.
 
 ## <a name="prerequisite"></a>Önkoşul
 
@@ -27,7 +28,7 @@ C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet Robotu oluşturun. Bu
 
 ## <a name="luis-homeautomation-intents"></a>LUIS HomeAutomation hedefleri
 
-| Amaç | Örnek utterance | Bot işlevi |
+| Amaç | Örnek konuşma | Bot işlevi |
 |:----:|:----------:|---|
 | HomeAutomation.TurnOn | Işıkları aç'ı açın. | Zaman LUIS amaç `HomeAutomation.TurnOn` algılandığında, robot çağırır `OnIntent` iletişim işleyici. Bu iletişim kutusu, burada cihaz kapalıyken üzerinde kullanıcı bir cihazı açın ve bir IOT hizmeti çağrısı ' dir. |
 | HomeAutomation.TurnOff | Yatak odası Işıkları aç. | Zaman LUIS amaç `HomeAutomation.TurnOff` algılandığında, robot çağırır `OffIntent` iletişim işleyici. Bu iletişim kutusu, burada cihaz kapatılmış, kullanıcı cihazı kapatıp ve bir IOT hizmeti çağırmak ' dir. |

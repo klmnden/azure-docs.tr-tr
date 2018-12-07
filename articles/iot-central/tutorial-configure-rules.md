@@ -1,7 +1,7 @@
 ---
 title: Azure IoT Central’da kural ve eylem yapılandırma | Microsoft Docs
 description: Bu öğreticide, bir oluşturucu olarak Azure IoT Central uygulamanızda telemetri tabanlı kural ve eylemleri nasıl yapılandıracağınız gösterilir.
-author: ankitgupta
+author: ankitscribbles
 ms.author: ankitgup
 ms.date: 10/12/2018
 ms.topic: tutorial
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: fbe9e1fbd0891f2f39b05fa7ba53653188ef8e03
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 7bdfa1659a0c34b3456ed3e52c72cafafc8be034
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158083"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993640"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Öğretici: Azure IoT Central’da cihazınız için kurallar ve eylemler yapılandırma
 
@@ -28,7 +28,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Telemetri tabanlı kural oluşturma
 > * Eylem ekleme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce, [Uygulamanızda yeni bir cihaz türü tanımlama](tutorial-define-device-type.md) öğreticisini tamamlayarak birlikte çalışacağınız **Bağlı Klima** cihaz şablonunu oluşturmanız gerekir.
 
@@ -56,7 +56,7 @@ Başlamadan önce, [Uygulamanızda yeni bir cihaz türü tanımlama](tutorial-de
 
     | Ayar                                      | Değer                             |
     | -------------------------------------------- | ------------------------------    |
-    | Adı                                         | Klima sıcaklığı uyarısı |
+    | Ad                                         | Klima sıcaklığı uyarısı |
     | Bu şablonun tüm cihazları için kuralı etkinleştir | Açık                                |
     | Bu cihazda kuralı etkinleştir                   | Açık                                |
     | Koşul                                    | Sıcaklık 90’dan fazla    |

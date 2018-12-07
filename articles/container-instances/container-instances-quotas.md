@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 02/27/2018
+ms.date: 12/05/2018
 ms.author: danlep
-ms.openlocfilehash: 2694e8cdc4f1918aab36794804ff48f5a70b44be
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: e0ced96d032467dea4a9e32a48e5288df3cfd254
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739694"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996438"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Azure Container Instances için kotalar ve bölge kullanılabilirliği
 
@@ -30,9 +30,9 @@ Azure Container Instances aşağıdaki bölgelerde belirtilen CPU ve bellek sın
 | -------- | -- | :---: | :-----------: |
 | Doğu ABD, Kuzey Avrupa, Batı Avrupa, Batı ABD, Batı ABD 2 | Linux | 4 | 14 |
 | Avustralya Doğu, Doğu ABD 2, Güneydoğu Asya | Linux | 2 | 7 |
-| Kanada Orta, Hindistan Orta, ABD Orta Güney | Linux | 2 | 3,5 |
+| Kanada Orta, Orta Hindistan, Doğu Asya, Kuzey Orta ABD, Güney Orta ABD | Linux | 2 | 3,5 |
 | Doğu ABD, Batı Avrupa, Batı ABD | Windows | 4 | 14 |
-| Avustralya Doğu, Kanada Orta, Hindistan Orta, ABD Doğu 2, Kuzey Avrupa, ABD Orta Güney, Güneydoğu Asya, ABD Batı 2 | Windows | 2 | 3,5 |
+| Avustralya Doğu, Kanada Orta, Orta Hindistan, Doğu Asya, Doğu ABD 2, Kuzey Orta ABD, Kuzey Avrupa, Güney Orta ABD, Güneydoğu Asya, Batı ABD 2 | Windows | 2 | 3,5 |
 
 Bu kaynak sınırları dahilinde oluşturulan kapsayıcı örnekleri, dağıtım bölgesinde kullanılabilirliğe tabidir. Bir bölge ağı yük altında olduğunda, örnek dağıtırken hatayla karşılaşabilirsiniz. Bu tür dağıtım hatalarını azaltmak için, daha düşük CPU ve bellek ayarları ile örnekleri dağıtmayı deneyin veya dağıtımınızı daha sonra gerçekleştirmeyi deneyin.
 

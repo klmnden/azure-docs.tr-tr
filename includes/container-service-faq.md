@@ -4,14 +4,16 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: c5200e7e4d5550f26343fab1561c214ee19d6741
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.openlocfilehash: b385c3e3e5f39e812545143df4a3adcc08ebfce5
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572866"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002201"
 ---
-# <a name="container-service-frequently-asked-questions"></a>Kapsayıcı Hizmeti sık sorulan sorular
+# <a name="deprecated-container-service-frequently-asked-questions"></a>(KULLANIM DIŞI) Kapsayıcı hizmeti sık sorulan sorular
+
+[!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
 ## <a name="orchestrators"></a>Düzenleyiciler
 
@@ -97,7 +99,7 @@ Bağlantı dizesini Azure portalında veya Azure komut satırı araçlarını ku
 
 4. **Özet** sayfasındaki **Çıktılar** altında çeşitli küme bağlantıları sağlanır. **SSHMaster0**, kapsayıcı hizmeti kümenizdeki birinci ana sunucuya bir SSH bağlantı dizesi sağlar. 
 
-Daha önce belirtildiği gibi, ana sunucunun FQDN'sini bulmak için Azure araçlarını da kullanabilirsiniz. Ana sunucunun FQDN’sini ve kümeyi oluştururken belirttiğiniz kullanıcı adını kullanarak ana sunucuyla SSH bağlantısı oluşturun. Örnek:
+Daha önce belirtildiği gibi, ana sunucunun FQDN'sini bulmak için Azure araçlarını da kullanabilirsiniz. Ana sunucunun FQDN’sini ve kümeyi oluştururken belirttiğiniz kullanıcı adını kullanarak ana sunucuyla SSH bağlantısı oluşturun. Örneğin:
 
 ```bash
 ssh userName@masterFQDN –A –p 22 

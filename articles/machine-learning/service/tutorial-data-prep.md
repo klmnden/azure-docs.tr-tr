@@ -1,5 +1,5 @@
 ---
-title: '#1 öğretici: Azure Machine Learning hizmeti ile model için verileri hazırlama'
+title: Regresyon modeli Öğreticisi - Azure Machine Learning hizmeti ile verileri hazırlama
 description: Bu öğreticinin ilk bölümünde Azure ML SDK'sını kullanarak regresyon modelleme python'da verileri hazırlama öğreneceksiniz.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +9,15 @@ author: cforbe
 ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
-ms.openlocfilehash: 700dfa9fded30fd09eab69a15abf54fb420c5c06
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec12
+ms.openlocfilehash: 94e004c40177298f805336509d649065fc7dfdb7
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884198"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012377"
 ---
-# <a name="tutorial-1-prepare-data-for-regression-modeling"></a>Öğretici #1: gerileme model için verileri hazırlama
+# <a name="tutorial-part-1-prepare-data-for-regression-modeling"></a>Öğretici (Kısım 1): gerileme model için verileri hazırlama
 
 Bu öğreticide, Azure Machine Learning veri hazırlığı SDK'sını kullanarak regresyon modelleme için veri hazırlama konusunda bilgi edinin. Filtre ve iki farklı NYC taksi veri kümeleri birleştirmek için çeşitli dönüştürmeleri gerçekleştirebilirsiniz. Toplama saat dahil olmak üzere veri özellikleri bir model eğitip geleceği taksi seyahat maliyetini tahmin etmek için Bu öğretici kümesi son hedefi olduğu gün, hafta sayısı Yolcuların ve koordinatları. Bu öğreticide iki kısımlı öğretici serisinin bir parçasıdır.
 
@@ -73,7 +74,7 @@ Artık tüm veri akışı için geçerli bir kısayol dönüşümler bazı deği
 all_columns = dprep.ColumnSelector(term=".*", use_regex=True)
 drop_if_all_null = [all_columns, dprep.ColumnRelationship(dprep.ColumnRelationship.ALL)]
 useful_columns = [
-    "cost", "distance""distance", "dropoff_datetime", "dropoff_latitude", "dropoff_longitude",
+    "cost", "distance", "dropoff_datetime", "dropoff_latitude", "dropoff_longitude",
     "passengers", "pickup_datetime", "pickup_latitude", "pickup_longitude", "store_forward", "vendor"
 ]
 ```
@@ -104,9 +105,6 @@ tmp_df = (green_df
 tmp_df.head(5)
 ```
 
-
-
-
 <div>
 <style scoped> .dataframe tbody tr th: yalnızca-of-type {Dikey Hizala: Orta;}
 
@@ -131,6 +129,7 @@ tmp_df.head(5)
       <th>dropoff_longitude</th>
       <th>dropoff_latitude</th>
       <th>Yolcuların</th>
+      <th>uzaklık</th>
       <th>maliyet</th>
     </tr>
   </thead>
@@ -146,6 +145,7 @@ tmp_df.head(5)
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>.00</td>
       <td>21,25</td>
     </tr>
     <tr>
@@ -159,6 +159,7 @@ tmp_df.head(5)
       <td>0</td>
       <td>0</td>
       <td>2</td>
+      <td>.00</td>
       <td>74.5</td>
     </tr>
     <tr>
@@ -172,6 +173,7 @@ tmp_df.head(5)
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>.00</td>
       <td>1</td>
     </tr>
     <tr>
@@ -185,6 +187,7 @@ tmp_df.head(5)
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>.00</td>
       <td>3.25</td>
     </tr>
     <tr>
@@ -198,16 +201,14 @@ tmp_df.head(5)
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>.00</td>
       <td>8.5</td>
     </tr>
   </tbody>
 </table>
 </div>
 
-
-
 Üzerine `green_df` gerçekleştirilen dönüşümler ile değişken `tmp_df` önceki adımda.
-
 
 ```python
 green_df = tmp_df
@@ -632,6 +633,14 @@ Veri profili çıktısından `store_forward`, verilerin tutarlı değil ve yok/n
 combined_df = combined_df.replace(columns="store_forward", find="0", replace_with="N").fill_nulls("store_forward", "N")
 ```
 
+Başka bir yürütme `replace` , bu kez işlevini `distance` alan. Bu yanlış olarak etiketlenmiş uzaklık değerleri yeniden biçimlendirir `.00`, herhangi bir null değerlere sıfır ile doldurur. Dönüştürme `distance` sayısal biçimi alanı.
+
+
+```python
+combined_df = combined_df.replace(columns="distance", find=".00", replace_with=0).fill_nulls("distance", 0)
+combined_df = combined_df.to_number(["distance"])
+```
+
 Çekme bölmek ve tarih/saat ilgili tarih ve saat sütunları devre dışı bırakın. Kullanım `split_column_by_example()` bölme işlemini gerçekleştirmek için. Bu durumda, isteğe bağlı `example` parametresinin `split_column_by_example()` atlanır. Bu nedenle işlevi veriler temel alınarak bölmek nereye otomatik olarak belirler.
 
 
@@ -641,9 +650,6 @@ tmp_df = (combined_df
     .split_column_by_example(source_column="dropoff_datetime"))
 tmp_df.head(5)
 ```
-
-
-
 
 <div>
 <style scoped> .dataframe tbody tr th: yalnızca-of-type {Dikey Hizala: Orta;}
@@ -673,6 +679,7 @@ tmp_df.head(5)
       <th>dropoff_longitude</th>
       <th>dropoff_latitude</th>
       <th>Yolcuların</th>
+      <th>uzaklık</th>
       <th>maliyet</th>
     </tr>
   </thead>
@@ -692,6 +699,7 @@ tmp_df.head(5)
       <td>-73.937767</td>
       <td>40.758480</td>
       <td>1</td>
+      <td>0.0</td>
       <td>2.5</td>
     </tr>
     <tr>
@@ -709,6 +717,7 @@ tmp_df.head(5)
       <td>-73.937927</td>
       <td>40.757843</td>
       <td>1</td>
+      <td>0.0</td>
       <td>2.5</td>
     </tr>
     <tr>
@@ -726,6 +735,7 @@ tmp_df.head(5)
       <td>-73.937721</td>
       <td>40.758369</td>
       <td>1</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
     <tr>
@@ -743,6 +753,7 @@ tmp_df.head(5)
       <td>-73.937790</td>
       <td>40.758358</td>
       <td>1</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
     <tr>
@@ -760,12 +771,12 @@ tmp_df.head(5)
       <td>-73.937775</td>
       <td>40.758450</td>
       <td>1</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
   </tbody>
 </table>
 </div>
-
 
 
 Tarafından oluşturulan sütunları yeniden adlandırma `split_column_by_example()` içine anlamlı adlar.
@@ -836,9 +847,6 @@ tmp_df = (combined_df
 tmp_df.head(5)
 ```
 
-
-
-
 <div>
 <style scoped> .dataframe tbody tr th: yalnızca-of-type {Dikey Hizala: Orta;}
 
@@ -871,6 +879,7 @@ tmp_df.head(5)
       <th>dropoff_longitude</th>
       <th>dropoff_latitude</th>
       <th>Yolcuların</th>
+      <th>uzaklık</th>
       <th>maliyet</th>
     </tr>
   </thead>
@@ -894,6 +903,7 @@ tmp_df.head(5)
       <td>-73.937767</td>
       <td>40.758480</td>
       <td>1</td>
+      <td>0.0</td>
       <td>2.5</td>
     </tr>
     <tr>
@@ -915,6 +925,7 @@ tmp_df.head(5)
       <td>-73.937927</td>
       <td>40.757843</td>
       <td>1</td>
+      <td>0.0</td>
       <td>2.5</td>
     </tr>
     <tr>
@@ -936,6 +947,7 @@ tmp_df.head(5)
       <td>-73.937721</td>
       <td>40.758369</td>
       <td>1</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
     <tr>
@@ -957,6 +969,7 @@ tmp_df.head(5)
       <td>-73.937790</td>
       <td>40.758358</td>
       <td>1</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
     <tr>
@@ -978,13 +991,12 @@ tmp_df.head(5)
       <td>-73.937775</td>
       <td>40.758450</td>
       <td>1</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
   </tbody>
 </table>
 </div>
-
-
 
 Yukarıdaki verilerden türetilen dönüştürmeleri üretilen alma ve teslim tarih ve saat bileşenlerini doğru olduğunu görürsünüz. DROP `pickup_datetime` ve `dropoff_datetime` sütunlar artık oldukları gibi gerekli.
 
@@ -1002,27 +1014,24 @@ type_infer.learn()
 type_infer
 ```
 
-
-
-
-    {'pickup_weekday': [FieldType.STRING],
-     'pickup_hour': [FieldType.DECIMAL],
-     'pickup_second': [FieldType.DECIMAL],
-     'dropoff_hour': [FieldType.DECIMAL],
-     'dropoff_minute': [FieldType.DECIMAL],
-     'dropoff_second': [FieldType.DECIMAL],
-     'store_forward': [FieldType.STRING],
-     'pickup_minute': [FieldType.DECIMAL],
-     'dropoff_weekday': [FieldType.STRING],
-     'vendor': [FieldType.STRING],
-     'pickup_longitude': [FieldType.DECIMAL],
-     'pickup_latitude': [FieldType.DECIMAL],
-     'dropoff_longitude': [FieldType.DECIMAL],
-     'dropoff_latitude': [FieldType.DECIMAL],
-     'passengers': [FieldType.DECIMAL],
-     'cost': [FieldType.DECIMAL]}
-
-
+    Column types conversion candidates:
+    'pickup_weekday': [FieldType.STRING],
+    'pickup_hour': [FieldType.DECIMAL],
+    'pickup_minute': [FieldType.DECIMAL],
+    'pickup_second': [FieldType.DECIMAL],
+    'dropoff_hour': [FieldType.DECIMAL],
+    'dropoff_minute': [FieldType.DECIMAL],
+    'dropoff_second': [FieldType.DECIMAL],
+    'store_forward': [FieldType.STRING],
+    'pickup_longitude': [FieldType.DECIMAL],
+    'dropoff_longitude': [FieldType.DECIMAL],
+    'passengers': [FieldType.DECIMAL],
+    'distance': [FieldType.DECIMAL],
+    'vendor': [FieldType.STRING],
+    'dropoff_weekday': [FieldType.STRING],
+    'pickup_latitude': [FieldType.DECIMAL],
+    'dropoff_latitude': [FieldType.DECIMAL],
+    'cost': [FieldType.DECIMAL]
 
 Çıkarım sonuçları doğru konum verilerine dayalı veri akışı için tür dönüştürmeleri şimdi başvurun.
 
@@ -1032,18 +1041,27 @@ tmp_df = type_infer.to_dataflow()
 tmp_df.get_profile()
 ```
 
-Bu noktada, machine learning modeli ile kullanmak için tamamen dönüştürülmüş ve hazırlanmış veri akışı nesnesi vardır. SDK'sı şu şekilde kullanılır nesne seri hale getirme işlevselliğini içerir.
-
+Veri akışı paketlemeden önce veri kümesinde son iki filtre uygulayın. Hatalı veri noktalarını ortadan kaldırmak için veri akışı kayıtlar filtre nerede hem `cost` ve `distance` sıfırdan büyükse.
 
 ```python
+tmp_df = tmp_df.filter(dprep.col("distance") > 0)
+tmp_df = tmp_df.filter(dprep.col("cost") > 0)
+```
+
+Bu noktada, machine learning modeli ile kullanmak için tamamen dönüştürülmüş ve hazırlanmış veri akışı nesnesi vardır. SDK'sı şu şekilde kullanılır nesne seri hale getirme işlevselliğini içerir.
+
+```python
+import os
+file_path = os.path.join(os.getcwd(), "dflows.dprep")
+
 dflow_prepared = tmp_df
 package = dprep.Package([dflow_prepared])
-package.save(".\dflow")
+package.save(file_path)
 ```
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Dosya Sil `dflow` (yerel olarak veya Azure not defterleri çalıştırdığınız olup olmadığını) ile devam etmek istemiyorsanız, geçerli dizinde öğreticinin iki bölüm. İki kısımdan devam ederseniz, ihtiyacınız olacak `dflow` geçerli dizin dosyası.
+Dosya Sil `dflows.dprep` (yerel olarak veya Azure not defterleri çalıştırdığınız olup olmadığını) ile devam etmek istemiyorsanız, geçerli dizinde öğreticinin iki bölüm. İki kısımdan devam ederseniz, ihtiyacınız olacak `dflows.dprep` geçerli dizin dosyası.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

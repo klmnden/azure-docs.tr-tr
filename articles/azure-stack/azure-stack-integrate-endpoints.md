@@ -10,12 +10,12 @@ ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: e6f7d255fbfbcd740d9f3a7c2743f57cecea1abf
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: MT
+ms.openlocfilehash: a2c08c541c3726579d57d99141a147d98bf45849
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298764"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996705"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack veri merkezi tümleştirmesi - uç noktalarını yayımlama
 
@@ -79,10 +79,14 @@ Azure Stack, yalnızca saydam proxy sunucuları destekler. Bir dağıtımda sayd
 |NTP|(IP, NTP sunucusu dağıtımı için sağlanan)|UDP|123|
 |DNS|(IP, DNS sunucusu dağıtımı için sağlanan)|TCP<br>UDP|53|
 |CRL|(URL, sertifikadaki CRL dağıtım noktaları altında)|HTTP|80|
+|Altyapı yedekleme|(IP veya FQDN dış hedef dosya sunucusu)|SMB|445|
 |     |     |     |     |
 
 > [!Note]  
 > Giden URL'leri, coğrafi konuma göre en iyi olası bağlantı sağlamak için Azure traffic manager'ı kullanarak Yük Dengelemesi yapılıyor. Yük dengeli URL'leri, Microsoft update ve arka uç, uç müşterileri etkilemeden değiştirme. Yük dengeli Küme URL'leri için Microsoft IP adreslerinin listesi paylaşmaz. URL yerine IP göre filtreleme destekleyen bir cihaz kullanmanız gerekir.
+
+> [!Note]  
+> 1809 içinde altyapısını yedekleme hizmeti dış dosya sunucusuna genel VIP ağ üzerinden iletişim kurar. 1809 önce hizmet ortak altyapı ağı üzerinden iletişim kurar. Ortamlarınızda izin vermez, erişim için altyapı kaynaklarını genel VIP ağdan Azure Stack için en son 1809 düzeltmeyi uygulayın. Bu düzeltme altyapısını yedekleme hizmeti ortak altyapı ağına geri taşınır. 1809 düzeltme uygulandığında 1811 altyapı yedekleme hizmeti ortak altyapı ağı üzerinde kalır. Güncelleştirme düzeltmesini uygulamak, hizmet genel altyapı ağına geri taşınır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

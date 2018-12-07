@@ -1,22 +1,23 @@
 ---
-title: 'Öğretici: Azure Machine Learning hizmetiyle Azure Container Instance’daki (ACI) görüntü sınıflandırma modelini dağıtma'
+title: 'Görüntü sınıflandırma Öğreticisi: Azure Machine Learning hizmeti ile modelleri dağıtma'
 description: Bu öğretici, Azure Machine Learning hizmetini kullanarak Python Jupyter not defterinde scikit-learn ile bir görüntü sınıflandırma modelinin nasıl dağıtıldığını gösterir.  Bu öğretici iki bölümden oluşan bir serinin ikinci bölümüdür.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: tutorial
+ms.custom: seodec12
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 0fd3bebc1e2dba3ab7d1204e779a8c80b97c990b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6e56fe88eec70af313d0b0dd8cf0aaf27b054121
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864069"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011547"
 ---
-# <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Öğretici 2: Azure Container Instance’da (ACI) bir görüntü sınıflandırma modelini dağıtma
+# <a name="tutorial-part-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Öğretici (Bölüm 2): bir görüntü sınıflandırma modeli Azure Container örneği (ACI) dağıtma
 
 Bu öğretici, **iki bölümden oluşan bir öğretici serisinin ikinci bölümüdür**. [Önceki öğreticide](tutorial-train-models-with-aml.md) makine öğrenmesi modellerini eğittiniz ve buluttaki çalışma alanınıza modeli kaydettiniz.  
 

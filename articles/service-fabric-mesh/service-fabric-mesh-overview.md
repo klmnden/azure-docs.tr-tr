@@ -9,12 +9,12 @@ ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: f753d7273c685a7ec3e4e0877e171df04e69e5b4
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: da5370e274aa1904f803227d8c85912a7d26c533
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978324"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000654"
 ---
 # <a name="what-is-service-fabric-mesh"></a>Service Fabric Mesh nedir?
 
@@ -50,6 +50,7 @@ Service Fabric Mesh ile şunları yapabilirsiniz:
 - Kaynakları [Azure portal](https://portal.azure.com), Resource Manager şablonları veya Azure CLI/PowerShell kitaplıklarını kullanarak dağıtabilir ve yönetebilirsiniz.
 - [Application Insights](/azure/application-insights/)'ı (veya istediğiniz bir aracı) kullanarak işlem izleme ve uyarı ayarlarını yapabilir, platformdan işlem ve tanılama izlemelerini alabilirsiniz.
 - [Application Insights](/azure/application-insights/)'ı veya istediğiniz bir aracı kullanarak uygulama modelinden gelen uygulama tanılama bilgilerine erişebilirsiniz.
+- Hizmetler için otomatik ölçeklendirme kurallarını uygulama tanımında belirterek kaynak kullanımı iyileştirin.
 
 ## <a name="mission-critical-platform-capabilities"></a>Görev açısından kritik platform özellikleri
 

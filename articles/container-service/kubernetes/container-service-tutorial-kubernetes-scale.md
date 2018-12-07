@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service öğreticisi - Uygulamayı Ölçeklendirme
+title: (KULLANIM DIŞI) Azure Container Service Öğreticisi - uygulamayı ölçeklendirme
 description: Azure Container Service öğreticisi - Uygulamayı Ölçeklendirme
 services: container-service
 author: dlepow
@@ -9,16 +9,19 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 792d9b1409b9571474f47da4940724df7a764d82
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: b16682535e7311648e832286e1e876ee0e694712
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429891"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993070"
 ---
-# <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Kubernetes pod’larını ve altyapısını ölçeklendirme
+# <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(KULLANIM DIŞI) Kubernetes pod'larını ve altyapısını ölçeklendirme
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Azure Kubernetes hizmeti kullanan Bu öğretici için güncelleştirilmiş sürümü görmek [öğretici: Azure Kubernetes Service (AKS) uygulama ölçeklendirme](../../aks/tutorial-kubernetes-scale.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Öğreticileri takip ediyorsanız, Azure Container Service’te çalışan bir Kubernetes kümesine sahipsinizdir ve Azure Voting uygulamasını dağıtmışsınızdır. 
 

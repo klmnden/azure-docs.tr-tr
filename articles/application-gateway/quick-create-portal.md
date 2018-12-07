@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6ad839b9cf1179e282b9163df5a38e13417408e2
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 7e11affece7e7eb133aa22e159ec07d4f15e96f7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706237"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999610"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Hızlı Başlangıç: Azure Application Gateway ile web trafiğini yönlendirme - Azure portalı
 
@@ -25,7 +25,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[http://portal.azure.com](http://portal.azure.com) adresinden Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="create-an-application-gateway"></a>Uygulama ağ geçidi oluşturma
 

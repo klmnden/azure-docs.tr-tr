@@ -1,21 +1,22 @@
 ---
-title: LUIS uygulamalarında konuşma
-titleSuffix: Azure Cognitive Services
+title: İyi bir örnek konuşma
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Konuşma yorumlamak için uygulamanız gereken kullanıcıdan giriş. Kullanıcıların girer düşündüğünüz tümcecikleri toplayın. Aynı anlama gelir, ancak oluşturulan konuşma farklı sözcük uzunluğu ve sözcük yerleştirme dahil.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: diberry
-ms.openlocfilehash: 1f86631d75ceec5fc013c21f74f03b9157c78b4a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4f6bb367e706771707b65445c91619d439257207
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836466"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014846"
 ---
 # <a name="utterances-in-luis"></a>LUIS, konuşma
 

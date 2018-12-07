@@ -10,16 +10,17 @@ ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/16/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 5cb3fee975e99af3d86affcbc18d89277dde2dc1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.openlocfilehash: 01c7d9c848465177d5ff1ed7264743437e57d663
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409127"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014727"
 ---
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Azure portalını kullanarak Event Hubs Yakalama özelliğini etkinleştirme
 
@@ -35,7 +36,7 @@ Bir olay hub’ı oluşturduğunuzda **Olay Hub'ı oluştur** portal ekranında 
 
 Zaman penceresi varsayılan olarak 5 dakikadır. En düşük değer 1, en yüksek değer ise 15'tir. **Boyut** penceresi 10-500 MB aralığındadır.
 
-![][1]
+![Zaman penceresi için yakalama][1]
 
 ## <a name="capture-data-to-an-azure-data-lake-store-account"></a>Azure Data Lake Store hesabına veri alma
 
@@ -52,7 +53,7 @@ Azure Data Lake Store'a veri almak için bir Data Lake Store hesabı ve bir olay
 2. **Event Hub'ı oluştur** portal sayfasında, **Yakalama Sağlayıcısı** kutusundan **Azure Data Lake Store**’u seçin.
 3. **Data Lake Store’u seçin** kısmında, daha önce oluşturduğunuz Data Lake Store hesabını belirtin ve **Data Lake Yolu** alanına, oluşturduğunuz veri klasörünün yolunu girin.
 
-    ![][3]
+    ![Data Lake Storage hesabını seçin][3]
 
 ## <a name="add-or-configure-capture-on-an-existing-event-hub"></a>Mevcut bir olay hub'ında Yakalama özelliğini yapılandırma
 
@@ -60,11 +61,11 @@ Event Hubs ad alanlarında mevcut olan olay hub'ları üzerinde Yakalama özelli
 
 ### <a name="azure-blob-storage"></a>Azure Blob Depolama
 
-![][2]
+![Azure Blob depolamayı yapılandırma][2]
 
 ### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 
-![][4]
+![Azure Data Lake depolama yapılandırma][4]
 
 [1]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture1.png
 [2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png

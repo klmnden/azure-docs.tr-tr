@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8ce9606c6b59175e03da5382f76fb320080db86e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.openlocfilehash: 3971311bff90d0b005acd516336e13766028cccf
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427035"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001551"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Hızlı başlangıç: Sunucu oluşturma - PowerShell
 
 Bu hızlı başlangıç, Azure aboneliğinizde bir Azure Analysis Services sunucusu oluşturmak için komut satırından PowerShell kullanmayı anlatmaktadır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - **Azure aboneliği**: Hesap oluşturmak için [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/offers/ms-azr-0044p/)’nü ziyaret edin.
 - **Azure Active Directory**: Aboneliğinizin bir Azure Active Directory Kiracısı ile ilişkilendirilmiş olması ve ilgili dizinde bir hesabınızın olması gerekir. Daha fazla bilgi edinmek için bkz. [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md).
@@ -33,9 +33,9 @@ Aboneliğinizde bir sunucu oluşturmak için [AzureRM.AnalysisServices](https://
 Import-Module AzureRM.AnalysisServices
 ```
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) komutunu kullanarak Azure aboneliğinizde oturum açın. Ekrandaki yönergeleri izleyin.
+Azure aboneliğinizi kullanarak oturum açın [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) komutu. Ekrandaki yönergeleri izleyin.
 
 ```powershell
 Connect-AzureRmAccount

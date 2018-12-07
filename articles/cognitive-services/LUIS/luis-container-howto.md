@@ -1,21 +1,22 @@
 ---
-title: Yükleme ve docker kapsayıcılarını - Language Understanding (LUIS) çalıştırın
-titleSuffix: Azure Cognitive Services
+title: Docker kapsayıcıları
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS kapsayıcı eğitilen veya yayımlanmış uygulamanızı bir docker kapsayıcısına yükler ve kapsayıcının API uç noktalardan gelen sorgu tahminler elde etmek için erişim sağlar.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 085273bbf16ba7cb3557763dd392a7a7207d30db
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a6170d51e1a8756020b4f2caa733c388b2ce4060
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965590"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013825"
 ---
 # <a name="install-and-run-containers"></a>Kapsayıcıları yükleme ve çalıştırma
  

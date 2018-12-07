@@ -10,17 +10,17 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: ae5601cf35540b6f506521a851b4d90dfaf0a20a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: d9b4777067ed1ee9f253714bc82c2a20aaa0d127
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156468"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997038"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti için C# cihaz SDK'sını kullanarak sanal bir X.509 cihazı oluşturma ve sağlama
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-Bu adımlar, Windows işletim sistemi çalıştıran geliştirme makinenizde [Azure IoT Hub C# SDK'sı](https://github.com/Azure/azure-iot-sdk-csharp) sanal X.509 cihazı örneğini derlemeyi ve sanal cihazı Cihaz Sağlama Hizmeti ve IoT hub'ınızla bağlamayı gösterir.
+Bu adımlar nasıl kullanılacağını göstermektedir [için Azure IOT örnekleri C# ](https://github.com/Azure-Samples/azure-iot-samples-csharp) üzerinde Windows işletim sistemi çalıştıran geliştirme makinenizde X.509 cihazının simülasyonunu için. Örnek, bir IOT Hub cihazı sağlama Hizmeti'ni kullanarak sanal cihazı da bağlanır.
 
 Otomatik sağlama işlemini bilmiyorsanız, [Otomatik sağlama kavramlarını](concepts-auto-provisioning.md) gözden geçirdiğinizden emin olun. Ayrıca devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarlama](./quick-setup-auto-provision.md) bölümünde bulunan adımları tamamladığınızdan emin olun. 
 
@@ -35,14 +35,14 @@ Bu makalede bireysel kayıtlar gösterilmektedir.
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>Geliştirme ortamını hazırlama 
 
-1. Makinenizde [.NET core SDK'sının](https://www.microsoft.com/net/download/windows) yüklü olduğundan emin olun. 
+1. Olduğundan emin olun [.Net Core SDK'sını 2.1 veya üzeri](https://www.microsoft.com/net/download/windows) makinenizde yüklü. 
 
 1. `git` uygulamasının makinenizde yüklü olduğundan ve komut penceresinden erişilebilir ortam değişkenlerine eklendiğinden emin olun. Yüklenecek `git` araçlarının son sürümleri için [Software Freedom Conservancy’nin Git istemci araçlarına](https://git-scm.com/download/) bakın. Bunlara yerel Git deponuzla etkileşim kurmak için kullanabileceğiniz bir komut satırı uygulaması olan **Git Bash** dahildir. 
 
-4. Bir komut istemi veya Git Bash’i açın. [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp) GitHub deposunu kopyalayın:
+1. Bir komut istemi veya Git Bash’i açın. Azure IOT örnekleri kopyalama C# GitHub deposu:
     
     ```cmd
-    git clone --recursive https://github.com/Azure/azure-iot-sdk-csharp.git
+    git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Otomatik olarak imzalanan X.509 cihazı sertifikası ve bireysel kayıt girişi oluşturma
@@ -52,13 +52,13 @@ Bu bölümde, otomatik olarak imzalanan X.509 sertifikası kullanacaksınız. A�
 * Otomatik olarak imzalanan sertifikalar yalnızca test amaçlıdır ve üretimde kullanılmamalıdır.
 * Otomatik olarak imzalanan sertifikanın varsayılan sona erme tarihi bir yıldır.
 
-Simülasyon cihazının tek kayıt girdisiyle kullanılacak sertifikayı oluşturmak için [.NET için Azure IoT SDK'sından](https://github.com/Azure/azure-iot-sdk-csharp.git) örnek kodu kullanacaksınız.
+' Nden örnek kodu kullanacağınız [sağlama cihaz istemci örnek - X.509 kanıtlama](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample) sanal cihazı için bireysel kayıt girişi ile kullanılacak bir sertifika oluşturmak için.
 
 
 1. Komut isteminde dizini X.509 cihaz sağlama örneğinin proje dizini olacak şekilde değiştirin.
 
     ```cmd
-    cd .\azure-iot-sdk-csharp\provisioning\device\samples\ProvisioningDeviceClientX509
+    cd .\azure-iot-samples-csharp\provisioning\Samples\device\X509Sample
     ```
 
 2. Örnek kod parola korumalı PKCS12 biçimindeki bir dosya (certificate.pfx) içinde depolanan X.509 sertifikalarını kullanacak şekilde ayarlanmıştır. Ayrıca bu Hızlı Başlangıcın ilerleyen bölümünde bireysel kayıt oluşturmak için bir ortak anahtar sertifikasına (certificate.cer) ihtiyacınız vardır. Otomatik olarak imzalanan sertifika ile ona bağlı .cer ve .pfx dosyalarını oluşturmak için aşağıdaki komutu çalıştırın:

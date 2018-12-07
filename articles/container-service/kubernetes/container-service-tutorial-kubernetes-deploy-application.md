@@ -1,24 +1,27 @@
 ---
-title: Azure Container Service öğreticisi - Uygulama Dağıtma
+title: (KULLANIM DIŞI) Azure Container Service Öğreticisi - uygulamayı dağıtma
 description: Azure Container Service öğreticisi - Uygulama Dağıtma
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e7f9c0c3ad11cb6988f528503d614ab26dcc0968
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
-ms.translationtype: HT
+ms.openlocfilehash: dafbb8d1221d5e9c6194611ad338b3714a089cea
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41919229"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998793"
 ---
-# <a name="run-applications-in-kubernetes"></a>Kubernetes'te uygulamaları çalıştırma
+# <a name="deprecated-run-applications-in-kubernetes"></a>(KULLANIM DIŞI) Kubernetes'te uygulamaları çalıştırma
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Azure Kubernetes hizmeti kullanan Bu öğretici için güncelleştirilmiş sürümü görmek [öğretici: Azure Kubernetes Service (AKS) uygulamaları çalıştırma](../../aks/tutorial-kubernetes-deploy-application.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Yedi bölümün dördüncüsü olan bu öğreticide Kubernetes kümesine örnek bir uygulama dağıtılır. Tamamlanan adımlar:
 

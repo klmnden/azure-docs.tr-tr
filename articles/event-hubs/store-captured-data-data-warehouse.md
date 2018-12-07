@@ -5,17 +5,18 @@ services: event-hubs
 author: ShubhaVijayasarathy
 manager: ''
 ms.author: shvija
-ms.date: 08/27/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 9673a7bff8e2d22764be28abef807434c53cc552
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
-ms.translationtype: HT
+ms.openlocfilehash: 56701f039ae2de6d136a2a06fbeb9e99359a0029
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43145229"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017074"
 ---
-# <a name="process-and-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Yakalanan Event Hubs verilerini Event Grid ve Azure İşlevleri'ni kullanarak işleme ve bir SQL Veri Ambarı'nda yakalama
+# <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Event Grid ve Azure işlevleri'ni kullanarak bir SQL veri ambarı yakalanan Event Hubs verilerini geçirme
 
 Event Hubs [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) özelliği, Event Hubs'da akışı yapılan verileri bir Azure Blob depolama alanına veya Azure Data Lake Store'a otomatik olarak iletmenin en kolay yoludur. Ardından, verileri işleyebilir ve SQL Veri Ambarı veya Cosmos DB gibi istediğiniz bir diğer depolama hedefine aktarabilirsiniz. Bu öğreticide, olay hub'ınızdaki verilerin [olay kılavuzu](https://docs.microsoft.com/azure/event-grid/overview) tarafından tetiklenen bir Azure işlevi kullanılarak SQL veri ambarında nasıl yakalandığını öğreneceksiniz.
 
@@ -34,7 +35,7 @@ Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
 > * Event Hub'a örnek veri akışı yapma. 
 > * Yakalanan verileri SQL Veri Ambarı'nda doğrulama
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - [Visual Studio 2017 15.3.2 veya sonraki bir sürümü](https://www.visualstudio.com/vs/). Yükleme işlemi sırasında şu iş yüklerini de yüklediğinizden emin olun: .NET masaüstü geliştirme, Azure geliştirme, ASP.NET ve web geliştirme, Node.js geliştirme ve Python geliştirme
 - [Git örneğini](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) indirin. Örnek çözümde şu bileşenler yer almaktadır:

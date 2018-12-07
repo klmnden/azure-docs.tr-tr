@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 08/01/2018
 ms.author: iainfou
-ms.openlocfilehash: 266e2c1f986ba78c9aac40887bc9a7dee1cbff82
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: 62c58e44fa62c7c244da556a89682fe697d0ba24
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420369"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000138"
 ---
 # <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Hizmeti’nin (AKS) kotaları ve bölge kullanılabilirliği
 
@@ -40,7 +40,9 @@ Azure Kubernetes Hizmeti (AKS), aşağıdaki bölgelerde kullanıma sunulmuştur
 - Japonya Doğu
 - Kuzey Avrupa
 - Güneydoğu Asya
+- Güney Hindistan
 - Birleşik Krallık Güney
+- Birleşik Krallık Batı
 - Batı Avrupa
 - Batı ABD
 - Batı ABD 2

@@ -15,17 +15,17 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: a1cfd42f5b1c31b911005b2539047630c6d320dd
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.openlocfilehash: 862d587442b4d3b752092810c33a197ba15a6b51
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771198"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994085"
 ---
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>PowerShell ile bir uygulama ağ geçidi oluşturma, başlatma veya silme 
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-gateway-portal.md)
+> * [Azure portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure Klasik PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager şablonu](application-gateway-create-gateway-arm-template.md)
@@ -116,7 +116,7 @@ Aşağıdaki metni Notepad’a kopyalayın.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+<ApplicationGatewayConfiguration xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendPorts>
         <FrontendPort>
             <Name>(name-of-your-frontend-port)</Name>
@@ -168,7 +168,7 @@ Aşağıdaki örnekte uygulama ağ geçidi ayarlamak için yapılandırma dosyas
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+<ApplicationGatewayConfiguration xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendPorts>
         <FrontendPort>
             <Name>FrontendPort1</Name>

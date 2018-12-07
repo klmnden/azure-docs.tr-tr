@@ -12,12 +12,12 @@ ms.author: jovanpop-msft
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: e2075f8a8e54a091dbb82f9ed6d1c8ddaa9da4d0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 3c91323e0fcf03b5ae05702ea473536739d37e26
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869855"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998791"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-an-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği oluşturmak için Azure Resource Manager şablonu ile PowerShell kullanma
 
@@ -36,6 +36,15 @@ Azure PowerShell komutları, önceden tanımlanmış Azure Resource Manager şab
 - Sunucu düzeyinde harmanlama örneği (Önizleme).
 
 Örnek adı, SQL yönetici kullanıcı adı, VNet/alt ağ ve harmanlama daha sonra değiştirilemez. Diğer örnek özellikleri değiştirilebilir.
+
+## <a name="prerequisites"></a>Önkoşullar
+
+Bu örnek, sahibi olduğunuzu varsayar [geçerli ağ ortamını oluşturan](../sql-database-managed-instance-vnet-configuration.md#create-a-new-virtual-network-for-a-managed-instance) yönetilen Örneğiniz için. Örnek commandlet'ler kullanır [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) ve [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork) bu nedenle, aşağıdaki PowerShell modüllerine yüklendiğinden emin olun:
+
+```
+Install-Module AzureRM.Network
+Install-Module AzureRM.Resources
+```
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager şablonu
 

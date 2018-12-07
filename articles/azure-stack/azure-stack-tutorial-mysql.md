@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 84aaa5534c629554074544b4bb56ae8da8825397
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: bee684409b2ef3fffeb9f175c2b469d3736b6484
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986467"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993832"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Öğretici: yüksek oranda kullanılabilir olan MySQL veritabanları sunar.
 
@@ -46,7 +46,7 @@ Bu öğreticide adımları uygulamaya başlamadan önce emin olun [MySQL Server 
 > Aşağıdakilerin tümü, MySQL kümesi oluşturmak için gereklidir.
 
 - [MySQL ile çoğaltma](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster). MySQL Küme dağıtımı için kullanılacak Bitnami çözüm şablonu budur.
-- [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian8backports?tab=Overview). Debian 8 için Microsoft Azure ile backports çekirdek "Jessie" credativ tarafından sağlanır. Debian GNU/Linux en popüler Linux dağıtımları biridir.
+- [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian). Debian 8 için Microsoft Azure ile backports çekirdek "Jessie" credativ tarafından sağlanır. Debian GNU/Linux en popüler Linux dağıtımları biridir.
 - [Linux 2.0 için özel betik](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.custom-script-linux?tab=Overview). Özel betik uzantısı, VM özelleştirme görevlerini post VM sağlama yürütmek için kullanılan bir araçtır. Bu uzantı için bir sanal makine eklendiğinde, bu betikleri Azure depolamadan indirilebilmesi ve bunları sanal makinede çalıştırın. Özel betik uzantısı görevleri Azure PowerShell cmdlet'leri ve Azure platformlar arası komut satırı arabirimi (xPlat CLI) kullanarak otomatik olarak da yapılabilir.
 - Linux uzantısı 1.4.7 için VM erişimi. VM erişimi uzantısı parola, SSH anahtarı ya da SSH yapılandırmaları, sanal Makinenize erişim kazanabilirsiniz şekilde sıfırlamanıza olanak sağlar. Ayrıca, parola veya SSH anahtarı ile yeni bir kullanıcı eklemek veya bu uzantıyı kullanan bir kullanıcının silebilirsiniz. Bu uzantı, sanal makineleri hedefler.
 

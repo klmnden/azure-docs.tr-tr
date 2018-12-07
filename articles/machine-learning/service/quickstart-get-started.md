@@ -1,20 +1,21 @@
 ---
-title: 'Hızlı başlangıç: Azure portalda Machine Learning hizmeti çalışma alanı oluşturma - Azure Machine Learning'
-description: Azure Machine Learning çalışma alanı oluşturmak için Azure portalını kullanın. Bu çalışma alanı Azure Machine Learning ile bulutta makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için kullanabileceğiniz temel bileşenlerden biridir.
+title: 'Hızlı Başlangıç: Kullanan Azure portal ile başlaması Azure Machine Learning hizmeti'
+description: Azure Machine Learning hizmeti ile çalışmaya başlama. Deneme, eğitmek ve makine öğrenimi modelleri dağıtmak için kullandığınız bulut ıaas'yi bloğunda bir çalışma alanı oluşturmak için Azure portalını kullanın.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: quickstart
 ms.reviewer: sgilley
-author: rastala
-ms.author: roastala
-ms.date: 09/24/2018
-ms.openlocfilehash: 7ed45b5e8a8c3cab26c0998260055ffd7a0f0c5d
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+author: hning86
+ms.author: haining
+ms.date: 12/04/2018
+ms.custom: seodec12
+ms.openlocfilehash: 3b874abc3896b9e6520500370d09e685d49ff82c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710265"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015714"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Hızlı başlangıç: Azure portalı kullanarak Azure Machine Learning'i kullanmaya başlama
 
@@ -35,7 +36,7 @@ Aşağıdaki Azure kaynakları, bölgesel kullanıma sunulduğunda çalışma al
   - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
   - [Azure Anahtar Kasası.](https://azure.microsoft.com/services/key-vault/)
 
-Oluşturduğunuz kaynaklar, diğer Machine Learning hizmeti öğreticileri ve nasıl yapılır makalelerinde önkoşul olarak kullanılabilir. Diğer Azure hizmetlerinde de olduğu gibi, Machine Learning hizmetiyle ilişkilendirilmiş bazı kaynakların sınırları vardır. Örnek olarak Azure Batch AI kümesi boyutu verilebilir. Varsayılan sınırlar ve kotanızı artırma hakkında bilgi için [bu makaleyi](how-to-manage-quotas.md) inceleyin.
+Oluşturduğunuz kaynaklar, diğer Machine Learning hizmeti öğreticileri ve nasıl yapılır makalelerinde önkoşul olarak kullanılabilir. Diğer Azure hizmetleriyle şekilde küme boyutu gibi Machine Learning ile ilişkili belirli kaynaklar barındırabileceğiniz işlem. Daha fazla bilgi edinin [varsayılan limitler ve kotanızı artırmak nasıl](how-to-manage-quotas.md).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
 
@@ -69,7 +70,7 @@ Azure Notebooks, Machine Learning'i çalıştırmak için gereken her şeyle ön
 
 Oturum açabilmeniz için kuruluşunuzda [yönetici onayı](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) gerekli olabilir.
 
-Siz oturum açtıktan sonra, yeni bir sekme açılır ve `Clone Library` istemi görüntülenir. `Clone` seçeneğini belirleyin
+Siz oturum açtıktan sonra, yeni bir sekme açılır ve `Clone Library` istemi görüntülenir. `Clone` öğesini seçin.
 
 
 ### <a name="run-the-notebook"></a>Not defterini çalıştırma

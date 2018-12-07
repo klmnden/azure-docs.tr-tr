@@ -1,24 +1,27 @@
 ---
-title: Azure Container Service öğreticisi - Uygulamayı güncelleştirme
+title: (KULLANIM DIŞI) Azure Container Service Öğreticisi - uygulamayı güncelleştirme
 description: Azure Container Service öğreticisi - Uygulamayı güncelleştirme
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9cb5769d7f54a1036bf14199c87961c95ed2e7ce
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: 99e282b720bb29ed5fb94ad2c9779ae56a019836
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432415"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993507"
 ---
-# <a name="update-an-application-in-kubernetes"></a>Kubernetes'te uygulama güncelleştirme
+# <a name="deprecated-update-an-application-in-kubernetes"></a>(KULLANIM DIŞI) Kubernetes'te uygulama güncelleştirme
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Azure Kubernetes hizmeti kullanan Bu öğretici için güncelleştirilmiş sürümü görmek [öğretici: Azure Kubernetes Service (AKS) uygulama güncelleştirme](../../aks/tutorial-kubernetes-app-update.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Bir uygulama Kubernetes’te dağıtıldıktan sonra, yeni bir kapsayıcı görüntüsü veya görüntü sürümü belirtilerek güncelleştirilebilir. Bu yapıldığında, güncelleştirme, dağıtımın yalnızca bir kısmı eşzamanlı olarak güncelleştirilecek şekilde hazırlanılır. Hazırlanan bu güncelleştirme, uygulamanın güncelleştirme sırasında çalışmaya devam etmesini sağlar. Ayrıca bir dağıtım hatası oluşursa, bir geri alma mekanizması sağlar. 
 

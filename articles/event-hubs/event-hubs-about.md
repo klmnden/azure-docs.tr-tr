@@ -7,17 +7,17 @@ author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: overview
-ms.custom: mvc
-ms.date: 08/01/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 01b999498b9131cc5304ac3ff4c374b85c46ec94
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d7f2bd5487a5eab248f08b408341470dcaf04a93
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969865"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017296"
 ---
-# <a name="what-is-azure-event-hubs"></a>Azure Event Hubs nedir?
+# <a name="azure-event-hubs---a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs - büyük bir veri akışı platformu ve olay alma hizmetidir
 
 Azure Event Hubs saniyede milyonlarca olay alıp işleme kapasitesine sahip olan bir Büyük Veri akış platformu ve olay alma hizmetidir. Event Hubs dağıtılan yazılımlar ve cihazlar tarafından oluşturulan olayları, verileri ve telemetrileri işleyebilir ve depolayabilir. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir. 
 

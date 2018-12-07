@@ -2,17 +2,18 @@
 title: Öğretici - Power BI Desktop ile Azure Analysis Services'e bağlanma | Microsoft Docs
 author: minewiskan
 manager: kfile
+description: Azure Analysis Services Power BI Desktop ile bağlanma hakkında bilgi edinin.
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: ad97fd7569690d0d199b0ce1a82f31f8dfa64c26
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.openlocfilehash: 0025655b3df8ddfb91857bbd56c04507ac6bca5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426142"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993973"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>Öğretici: Power BI Desktop ile bağlanma
 
@@ -23,14 +24,14 @@ Bu öğreticide, Power BI Desktop'u kullanarak sunucunuzdaki örnek adventurewor
 > * Power BI Desktop kullanarak bağlanma
 > * Temel bir rapor oluşturma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Sunucunuza [örnek adventureworks model veritabanını ekleyin](../analysis-services-create-sample-model.md).
 - Örnek adventureworks model veritabanı üzerinde [*okuma*](../analysis-services-server-admins.md) izinlerine sahip olun.
 - [En yeni Power BI Desktop'u yükleyin](https://powerbi.microsoft.com/desktop).
 
-## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
-Bu öğreticide, yalnızca sunucu adını almak için portalda oturum açarsınız. Normalde, kullanıcılar sunucu adını sunucu yöneticisinden alabilir.
+## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
+Bu öğreticide, içinde yalnızca sunucu adını almanız için portalda oturum. Normalde, kullanıcılar sunucu adını sunucu yöneticisinden alabilir.
 
 [Portalda](https://portal.azure.com/) oturum açın.
 
@@ -51,7 +52,7 @@ Power BI Desktop'tan sunucunuza bağlanmak için önce sunucu adını bilmelisin
 
    ![Sunucu adını ve model veritabanını belirtme](./media/analysis-services-tutorial-pbid/aas-pbid-connect-aas-servername.png)
 
-3. İstendiğinde oturum kimlik bilgilerinizi girin. Girdiğiniz hesabın örnek adventureworks model veritabanı üzerinde en azından okuma izinleri olmalıdır.
+3. İstendiğinde kimlik bilgilerinizi girin. Girdiğiniz hesabın örnek adventureworks model veritabanı üzerinde en azından okuma izinleri olmalıdır.
 
     Adventureworks modeli Power BI Desktop'ta Rapor görünümünde boş bir raporla açılır. **Alanlar** listesinde gizli olmayan tüm model nesneleri görüntülenir. Bağlantı durumu sağ alt köşede gösterilir.
 

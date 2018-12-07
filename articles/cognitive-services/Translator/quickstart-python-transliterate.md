@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 24887e39b98c41cbafbe962cb81391571d8b86b9
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
-ms.translationtype: HT
+ms.openlocfilehash: 4f6418602fcf1de6ea98c45635029f71aa6fdf06
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247887"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999281"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Hızlı Başlangıç: Python ve Translator Metin Çevirisi REST API’sini kullanarak metni başka alfabeye çevirme
 
@@ -23,7 +23,7 @@ Bu hızlı başlangıçta Python ve Translator Metin Çevirisi API'sini kullanar
 
 Bu hızlı başlangıç, Translator Metin Çevirisi kaynağına sahip bir [Azure Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) gerektirir. Bir hesabınız yoksa, abonelik anahtarı almak için [ücretsiz deneme sürümünü](https://azure.microsoft.com/try/cognitive-services/) kullanabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıç şunları gerektirir:
 
@@ -151,7 +151,7 @@ Abonelik anahtarınızı programınıza sabit kodladıysanız, bu hızlı başla
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-Translator Metin Çevirisi API'sini metni başka alfabeye çevirmenin yanı sıra aşağıdakileri yapmak için kullanabilirsiniz:
+Translator metin çevirisi API'si için kullanmayı öğrenin:
 
 * [Metin çevirme](quickstart-python-translate.md)
 * [Girişe göre dili belirleyin](quickstart-python-detect.md)

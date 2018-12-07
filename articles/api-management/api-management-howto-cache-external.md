@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: f57b6b35ffff85aad4d970cf9aa908d2a80eadf1
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 06052bd0cba6d119d07e86ed6aed833dec9f1f92
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52621667"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014574"
 ---
-# <a name="use-an-external-redis-cache-in-azure-api-management"></a>Azure API Management'te bir dış Redis önbelleğini kullanma
+# <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Azure API Management'ta Redis için bir dış Azure önbellek kullanma
 
-Yerleşik önbelleği kullanan ek olarak, Azure API Management Ayrıca dış bir Redis önbelleğinde yanıtları önbelleğe alma işlemi için sağlar.
+Yerleşik önbelleği kullanan ek olarak, Azure API Management ayrıca yanıtlarını dış bir Azure önbelleği için Redis önbelleğe almak için sağlar.
 
 Dış bir önbellek kullanmak, bazı sınırlamalar yerleşik bir önbellek üstesinden gelmek için sağlar. İsteyip istemediğini özellikle yararlıdır:
 
@@ -53,15 +53,15 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 + [Azure API Management örneği oluşturma](get-started-create-service-instance.md)
 + Anlamak [Azure API Yönetimi'nde önbelleğe alma](api-management-howto-cache.md)
 
-## <a name="create-cache"> </a> Azure Redis Cache oluşturma
+## <a name="create-cache"> </a> Azure önbelleği için Redis oluşturma
 
-Bu bölümde, Azure Redis cache oluşturma açıklanmaktadır. Redis önbelleği, içinde veya dışında Azure, zaten varsa <a href="#add-external-cache">atla</a> sonraki bölüme.
+Bu bölümde, Azure Redis için bir Azure önbelleği oluşturma açıklanmaktadır. Azure Cache, Redis içinde zaten veya Azure dışında <a href="#add-external-cache">atla</a> sonraki bölüme.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 ## <a name="add-external-cache"> </a>Bir dış önbellek Ekle
 
-Azure API Yönetimi'nde bir dış Redis önbelleğine eklemek için aşağıdaki adımları izleyin.
+Dış bir Azure önbelleği için Redis Azure API Management'ta eklemek için aşağıdaki adımları izleyin.
 
 ![APIM için kendi önbelleğinizi Getir](media/api-management-howto-cache-external/add-external-cache.png)
 
@@ -70,7 +70,7 @@ Azure API Yönetimi'nde bir dış Redis önbelleğine eklemek için aşağıdaki
 >
 > Örneğin, API Management, Doğu ABD, Güneydoğu Asya ve Batı Avrupa bölgelerinde barındırılır ve varsa iki önbellekler yapılandırılmış, biri **varsayılan** , diğeri **Güneydoğu Asya**, API Yönetimi'nde  **Güneydoğu Asya** diğer iki bölgeleri kullanırken, kendi önbellek kullanacağı **varsayılan** önbellek girişi.
 
-### <a name="add-an-azure-redis-cache-from-the-same-subscription"></a>Azure Redis Cache aynı abonelikten Ekle
+### <a name="add-an-azure-cache-for-redis-from-the-same-subscription"></a>Bir Azure önbelleği için Redis aynı abonelikten ekleyin.
 
 1. API Management örneğinizin Azure portalındaki göz atın.
 2. Seçin **dış önbellek** sol taraftaki menüden sekmesi.
@@ -79,14 +79,14 @@ Azure API Yönetimi'nde bir dış Redis önbelleğine eklemek için aşağıdaki
 5. Seçin **varsayılan** veya istenen bölgede belirtin **kullanıldığında** alan açılır.
 6. **Kaydet**’e tıklayın.
 
-### <a name="add-a-redis-cache-hosted-outside-of-the-current-azure-subscription-or-azure-in-general"></a>Genel olarak geçerli bir Azure aboneliği veya Azure dışında barındırılan bir Redis önbelleği ekleme
+### <a name="add-an-azure-cache-for-redis-hosted-outside-of-the-current-azure-subscription-or-azure-in-general"></a>Bir Azure önbelleği için Redis genel olarak geçerli bir Azure aboneliği veya Azure dışında barındırılan Ekle
 
 1. API Management örneğinizin Azure portalındaki göz atın.
 2. Seçin **dış önbellek** sol taraftaki menüden sekmesi.
 3. Tıklayın **+ Ekle** düğmesi.
 4. Seçin **özel** içinde **önbellek örneği** alan açılır.
 5. Seçin **varsayılan** veya istenen bölgede belirtin **kullanıldığında** alan açılır.
-6. Redis cache bağlantı dizenizi girin **bağlantı dizesi** alan.
+6. Azure Cache, Redis bağlantı dizesi olarak sağlamak **bağlantı dizesi** alan.
 7. **Kaydet**’e tıklayın.
 
 ## <a name="use-the-external-cache"></a>Dış önbellek kullanma

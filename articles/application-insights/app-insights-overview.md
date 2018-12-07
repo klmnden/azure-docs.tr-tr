@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 13894bc6601b6e371d4d907651c00de6aecfe825
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 5614832863fa801f931fc5cf08ca7ebf7c317488
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724774"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997660"
 ---
 # <a name="what-is-application-insights"></a>Application Insights nedir?
 Application Insights, farklı platformlardaki web geliştiricilerine yönelik kapsamlı bir Uygulama Performans Yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Performans anormalliklerini otomatik olarak algılar. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir.  Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır. .NET, Node.js ve J2EE gibi çok çeşitli platformlarda, şirket içi veya bulutta barındırılan uygulamalar için yararlıdır. DevOps işleminizle tümleştirilir ve çeşitli geliştirme araçlarıyla bağlantı noktaları vardır. Visual Studio App Center ile tümleştirerek mobil uygulamalardan telemetriyi izleyebilir ve çözümleyebilir.
@@ -100,7 +100,7 @@ Dağıttığınız her yeni özelliğin [ne kadar etkili olduğunu ölçün](app
 * Bir sonraki geliştirme döngüsünü telemetrinizden edindiğiniz somut kanıtlara dayandırın.
 
 ## <a name="get-started"></a>başlarken
-Application Insights, Microsoft Azure’da barındırılan birçok hizmetten biridir ve telemetri verileri analiz edilip sunulmak üzere buraya gönderilir. Bu nedenle, başka bir işlem yapmadan önce bir [Microsoft Azure](http://azure.com) aboneliğinizin olması gerekir. Kaydolmak ücretsizdir ve Application Insights’ın temel [fiyatlandırma planını](https://azure.microsoft.com/pricing/details/application-insights/) seçerseniz, uygulamanız önemli bir kullanım oranına ulaşana kadar ücret ödemezsiniz. Kuruluşunuzun zaten aboneliği varsa, Microsoft hesabınızı bu aboneliğe eklettirebilirsiniz.
+Application Insights, Microsoft Azure’da barındırılan birçok hizmetten biridir ve telemetri verileri analiz edilip sunulmak üzere buraya gönderilir. Bu nedenle, başka bir işlem yapmadan önce bir [Microsoft Azure](https://azure.com) aboneliğinizin olması gerekir. Kaydolmak ücretsizdir ve Application Insights’ın temel [fiyatlandırma planını](https://azure.microsoft.com/pricing/details/application-insights/) seçerseniz, uygulamanız önemli bir kullanım oranına ulaşana kadar ücret ödemezsiniz. Kuruluşunuzun zaten aboneliği varsa, Microsoft hesabınızı bu aboneliğe eklettirebilirsiniz.
 
 Hizmeti kullanmaya başlamanın birkaç yolu vardır. Sizin için en uygun yöntemi kullanarak başlayın. Diğerlerini daha sonra ekleyebilirsiniz.
 
@@ -134,7 +134,7 @@ Geliştirme zamanında şunlarla kullanmaya başlayın:
 * Sorular ve Sorunlar:
   * [Sorun giderme][qna]
   * [MSDN Forumu](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
-  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+  * [StackOverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * Önerileriniz:
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)
 * Blog:
@@ -158,6 +158,6 @@ Geliştirme zamanında şunlarla kullanmaya başlayın:
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: app-insights-platforms.md
-[portal]: http://portal.azure.com/
+[portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md

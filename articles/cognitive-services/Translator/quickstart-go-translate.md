@@ -1,113 +1,170 @@
 ---
 title: 'Hızlı Başlangıç: Metin çevirme, Go - Translator Metin Çevirisi API’si'
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, Go ile Translator Metin Çevirisi API’sini kullanarak metni bir dilden diğerine çevireceksiniz.
+description: Bu hızlı başlangıçta, metin bir dilden diğerine Translator metin çevirisi API'si, 10 dakikadan az Go kullanarak çevir.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/29/2018
+ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 53ca6c830d4e4fb80a47d498e4b033cee0f6f7a7
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: 21794d0a728e7baed7ec392fa448c98eb519576c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648318"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000402"
 ---
-# <a name="quickstart-translate-text-with-the-translator-text-rest-api-go"></a>Hızlı Başlangıç: Translator Metin Çevirisi REST API’si (Go) ile metin çevirme
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-go"></a>Hızlı Başlangıç: Go kullanarak bir dize çevirmek için Translator Text API kullanın.
 
-Bu hızlı başlangıçta, Translator Metin Çevirisi API'sini kullanarak metni bir dilden diğerine çevireceksiniz.
+Bu hızlı başlangıçta, İtalyanca ve Almanca Go ve Translator Text REST API kullanarak bir metin dizesi İngilizce'den Çevir öğreneceksiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+Bu hızlı başlangıç, Translator Metin Çevirisi kaynağına sahip bir [Azure Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) gerektirir. Bir hesabınız yoksa, abonelik anahtarı almak için [ücretsiz deneme sürümünü](https://azure.microsoft.com/try/cognitive-services/) kullanabilirsiniz.
 
-Bu kodu çalıştırmak için [Go dağıtımını](https://golang.org/doc/install) yüklemeniz gerekir. Örnek kod yalnızca **çekirdek** kitaplıklarını kullandığından, dış bağımlılıkları yoktur.
+## <a name="prerequisites"></a>Önkoşullar
 
-Translator Metin Çevirisi API'sini kullanmak için, ayrıca abonelik anahtarınızın olması gerekir; bkz. [Translator Metin Çevirisi API'sine kaydolma](translator-text-how-to-signup.md).
+Bu hızlı başlangıç şunları gerektirir:
 
-## <a name="translate-request"></a>Çeviri isteği
+* [Go](https://golang.org/doc/install)
+* Translator Metin Çevirisi için Azure abonelik anahtarı
 
-Aşağıdaki kod, [Çeviri](./reference/v3-0-translate.md) yöntemini kullanarak kaynak metni bir dilden diğerine çevirir.
+## <a name="create-a-project-and-import-required-modules"></a>Bir proje oluşturun ve gerekli modülleri içeri aktarın
 
-1. Sık kullandığınız kod düzenleyicisinde yeni bir Go projesi oluşturun.
-2. Aşağıda sağlanan kodu ekleyin.
-3. `subscriptionKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
-4. Dosyayı '.go' uzantısıyla kaydedin.
-5. Go yüklü bir bilgisayarda bir komut istemi açın.
-6. Dosyayı oluşturun, örneğin: 'go build quickstart-translate.go'.
-7. Dosyayı çalıştırın, örneğin: 'quickstart-translate'.
+Sık kullandığınız IDE veya düzenleyiciyi kullanarak yeni bir Git projesi oluşturun. Ardından bu kod parçacığını projenizde `translate-text.go` adlı bir dosyaya kopyalayın.
 
-```golang
-package translate
+```go
+package main
 
 import (
+    "bytes"
     "encoding/json"
     "fmt"
-    "io/ioutil"
+    "log"
     "net/http"
-    "strconv"
-    "strings"
-    "time"
+    "net/url"
+    "os"
 )
+```
 
+## <a name="create-the-main-function"></a>Main işlevi oluşturma
+
+Bu örnek, `TRANSLATOR_TEXT_KEY` ortam değişkeninden Translator Metin Çevirisi abonelik anahtarınızı okumaya çalışır. Ortam değişkenlerini bilmiyorsanız, `subscriptionKey` öğesini dize olarak ayarlayabilir ve koşul deyimini açıklama satırı yapabilirsiniz.
+
+Bu kodu projenize kopyalayın:
+
+```go
 func main() {
-    // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
-
-    const uriBase = "https://api.cognitive.microsofttranslator.com"
-    const uriPath = "/translate?api-version=3.0"
-
-    // Translate to German and Italian
-    const params = "&to=de&to=it"
-
-    const uri = uriBase + uriPath + params
-
-    const text = "Hello, world!"
-
-    r := strings.NewReader("[{\"Text\" : \"" + text + "\"}]")
-
-    client := &http.Client{
-        Timeout: time.Second * 2,
+    /*
+     * Read your subscription key from an env variable.
+     * Please note: You can replace this code block with
+     * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
+     * want to use env variables.
+     */
+    subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
+    if subscriptionKey == "" {
+       log.Fatal("Environment variable TRANSLATOR_TEXT_KEY is not set.")
     }
-
-    req, err := http.NewRequest("POST", uri, r)
-    if err != nil {
-        fmt.Printf("Error creating request: %v\n", err)
-        return
-    }
-
-    req.Header.Add("Content-Type", "application/json")
-    req.Header.Add("Content-Length", strconv.FormatInt(req.ContentLength, 10))
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-
-    resp, err := client.Do(req)
-    if err != nil {
-        fmt.Printf("Error on request: %v\n", err)
-        return
-    }
-    defer resp.Body.Close()
-
-    body, err := ioutil.ReadAll(resp.Body)
-    if err != nil {
-        fmt.Printf("Error reading response body: %v\n", err)
-        return
-    }
-
-    var f interface{}
-    json.Unmarshal(body, &f)
-
-    jsonFormatted, err := json.MarshalIndent(f, "", "  ")
-    if err != nil {
-        fmt.Printf("Error producing JSON: %v\n", err)
-        return
-    }
-    fmt.Println(string(jsonFormatted))
+    /*
+     * This calls our translate function, which we'll
+     * create in the next section. It takes a single argument,
+     * the subscription key.
+     */
+    translate(subscriptionKey)
 }
 ```
 
-## <a name="translate-response"></a>Çeviri yanıtı
+## <a name="create-a-function-to-translate-text"></a>Metni çevirmek için bir işlev oluşturma
+
+Metni çevirmek için bir işlev oluşturalım. Bu işlev, tek bir bağımsız değişken, Translator metin çevirisi abonelik anahtarınızı olacaktır.
+
+```go
+func translate(subscriptionKey string) {
+    /*  
+     * In the next few sections, we'll add code to this
+     * function to make a request and handle the response.
+     */
+}
+```
+
+Ardından, şimdi URL'sini oluşturun. URL kullanılarak oluşturulan `Parse()` ve `Query()` yöntemleri. Parametreler ile eklenen fark edeceksiniz `Add()` yöntemi. Bu örnekte, İngilizce ' Almanca ve İtalyanca çevirme: `de` ve `it`.
+
+Bu kodu kopyalayın `translate` işlevi.
+
+```go
+// Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+u, _ := url.Parse("https://api.cognitive.microsofttranslator.com/translate?api-version=3.0")
+q := u.Query()
+q.Add("to", "de")
+q.Add("to", "it")
+u.RawQuery = q.Encode()
+```
+
+>[!NOTE]
+> Uç noktalar, rotalar ve istek parametreleri hakkında daha fazla bilgi için bkz. [Translator Metin Çevirisi API’si 3.0: Çeviri](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
+
+## <a name="create-a-struct-for-your-request-body"></a>Bir yapı, istek gövdesi için oluşturma
+
+Ardından, istek gövdesi için anonim bir yapı oluşturmak ve JSON olarak kodlama `json.Marshal()`. Bu kodu ekleyin `translate` işlevi.
+
+```go
+// Create an anonymous struct for your request body and encode it to JSON
+body := []struct {
+    Text string
+}{
+    {Text: "Hello, world!"},
+}
+b, _ := json.Marshal(body)
+```
+
+## <a name="build-the-request"></a>Derleme isteği
+
+İstek gövdesi JSON olarak kodlanmış, derleme, bir POST isteği ve Translator Text API çağrısı.
+
+```go
+// Build the HTTP POST request
+req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
+if err != nil {
+    log.Fatal(err)
+}
+// Add required headers to the request
+req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+req.Header.Add("Content-Type", "application/json")
+
+// Call the Translator Text API
+res, err := http.DefaultClient.Do(req)
+if err != nil {
+    log.Fatal(err)
+}
+```
+
+## <a name="handle-and-print-the-response"></a>İşlemek ve yanıt yazdırma
+
+Bu kodu ekleyin `translate` işlevi JSON yanıt kodunu çözme ve sonra biçimlendirmek ve sonucu yazdırır.
+
+```go
+// Decode the JSON response
+var result interface{}
+if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+    log.Fatal(err)
+}
+// Format and print the response to terminal
+prettyJSON, _ := json.MarshalIndent(result, "", "  ")
+fmt.Printf("%s\n", prettyJSON)
+```
+
+## <a name="put-it-all-together"></a>Hepsini bir araya getirin
+
+İşte bu kadar! Translator Metin Çevirisi API'sini çağıran ve bir JSON yanıtı döndüren basit bir program oluşturdunuz. Artık programınızı çalıştırmak zamanı geldi:
+
+```console
+go run translate-text.go
+```
+
+Kodunuzu bizimkiyle karşılaştırmak isterseniz, tam örnek kodu [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go)’da bulabilirsiniz.
+
+## <a name="sample-response"></a>Örnek yanıt
 
 Başarılı bir yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür:
 
@@ -138,3 +195,13 @@ Bilişsel Hizmetler API'leri için GitHub’da [Go için Azure SDK](https://gith
 
 > [!div class="nextstepaction"]
 > [GitHub’da Go paketlerini keşfedin](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+
+## <a name="see-also"></a>Ayrıca bkz.
+
+Translator metin çevirisi API'si için kullanmayı öğrenin:
+
+* [Metni başka dilde yazma](quickstart-go-transliterate.md)
+* [Girişe göre dili belirleyin](quickstart-go-detect.md)
+* [Alternatif çeviriler edinme](quickstart-go-dictionary.md)
+* [Desteklenen dillerin listesini alma](quickstart-go-languages.md)
+* [Girişten tümce uzunluklarını belirleme](quickstart-go-sentences.md)

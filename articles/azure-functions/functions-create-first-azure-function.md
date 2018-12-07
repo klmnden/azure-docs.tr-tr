@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: a1a593dc037901f6661bc8c7268d835bc5a48c94
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
-ms.translationtype: HT
+ms.openlocfilehash: 1b7efd4f36d5587667010d25f30a3e7945faee4f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900633"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997808"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure portalında ilk işlevinizi oluşturma
 
@@ -32,7 +32,7 @@ Azure İşlevleri, öncelikle bir VM oluşturmak veya bir web uygulaması yayım
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-Azure hesabınızla Azure portalında <http://portal.azure.com> sayfasında oturum açın.
+Azure hesabınızla Azure portalında <https://portal.azure.com> sayfasında oturum açın.
 
 ## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
 

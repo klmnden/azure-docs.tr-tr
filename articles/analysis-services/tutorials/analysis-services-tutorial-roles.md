@@ -1,18 +1,19 @@
 ---
-title: Öğretici - Azure Analysis Services sunucu yöneticisi ve kullanıcı rollerini yapılandırma öğretici dersi | Microsoft Belgeler
+title: Öğretici - Azure Analysis Services Yönetici ve kullanıcı rolleri yapılandırmak | Microsoft Docs
+description: Azure Analysis Services rolleri yapılandırmayı öğrenin.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 07/09/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 1c1dd5316eead5e91dd77d3e6b21a7a14d39afeb
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
-ms.translationtype: HT
+ms.openlocfilehash: a1e6e04c4019086d56cc0eb25176a507e514c477
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929238"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000641"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Öğretici: Sunucu yöneticisi ve kullanıcı rollerini yapılandırma
 
@@ -27,7 +28,7 @@ ms.locfileid: "37929238"
 
 Azure Analysis Services'de kullanıcı güvenliği hakkında daha fazla bilgi edinmek için bkz: [Kimlik doğrulaması ve kullanıcı izinleri](../analysis-services-manage-users.md). 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Aboneliğinizde bir Azure Active Directory.
 - Aboneliğinizde bir [Azure Analysis Services sunucusu](../analysis-services-create-server.md) oluşturmuş olmanız.
@@ -35,7 +36,7 @@ Azure Analysis Services'de kullanıcı güvenliği hakkında daha fazla bilgi ed
 - Sunucunuza [adventureworks örnek modelini ekleyin](../analysis-services-create-sample-model.md).
 - [En son SQL Server Management Studio (SSMS) sürümünü yükleyin](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
+## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 
 [Portalda](https://portal.azure.com/) oturum açın.
 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
 ms.topic: overview
 ms.date: 05/07/2018
-ms.openlocfilehash: 190d6203c4a00ed3f448bdbb7366db5bc22c45f8
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 259cef465f39f027c6db81d5d7de137b6a089581
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634524"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017714"
 ---
 # <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>Azure HDInsight ve Apache Hadoop teknoloji yığını nedir
 
@@ -24,7 +24,7 @@ Bu makalede, Azure HDInsight üzerinde Apache Hadoop için bir tanıtım sunulma
 
 ## <a name="what-is-hdinsight-and-the-hadoop-technology-stack"></a>HDInsight ve Hadoop teknoloji yığını nedir?
 
-Kümelerde büyük veri kümelerinin dağıtılmış işlenmesi ve analizine yönelik ilk açık kaynak çerçeve [Apache Hadoop](http://hadoop.apache.org/)’tu. Hadoop teknoloji yığını; Apache Hive, HBase, Spark, Kafka ve diğer birçok bileşen dahil olmak üzere ilgili yazılım ve yardımcı programları içerir.
+Kümelerde büyük veri kümelerinin dağıtılmış işlenmesi ve analizine yönelik ilk açık kaynak çerçeve [Apache Hadoop](https://hadoop.apache.org/)’tu. Hadoop teknoloji yığını; Apache Hive, HBase, Spark, Kafka ve diğer birçok bileşen dahil olmak üzere ilgili yazılım ve yardımcı programları içerir.
 
 Azure HDInsight, [Hortonworks Data Platform (HDP)](https://hortonworks.com/products/data-center/hdp/) tarafından sağlanan Hadoop bileşenlerinin bulut dağıtımıdır. Azure HDInsight, devasa miktarlardaki verileri işlemeyi kolay, hızlı ve uygun maliyetli hale getirir. Hadoop, Spark, Hive, LLAP, Kafka, Storm ve R gibi en popüler açık kaynak çerçeveleri kullanabilirsiniz. Bu çerçeveler sayesinde ayıklama, dönüştürme ve yükleme (ETL), veri ambarı, makine öğrenimi ve IoT gibi diğer birçok senaryoyu mümkün kılabilirsiniz.
 
@@ -86,9 +86,9 @@ HDInsight belirli küme türlerinin yanı sıra bileşen, yardımcı program ve 
 
 * **[Apache Hadoop](https://wiki.apache.org/hadoop)**: Toplu verileri paralel işlemek ve analiz etmek için HDFS, YARN kaynak yönetimini ve basit bir MapReduce programlama modelini kullanan bir çerçeve.
 
-* **[Apache Spark](http://spark.apache.org/)**: Büyük veri analizi uygulamalarının performansını artırmak için bellek içi işlemeyi destekleyen açık kaynaklı bir paralel işleme altyapısıdır. Bkz. [HDInsight’ta Apache Spark nedir?](../spark/apache-spark-overview.md)
+* **[Apache Spark](https://spark.apache.org/)**: Büyük veri analizi uygulamalarının performansını artırmak için bellek içi işlemeyi destekleyen açık kaynaklı bir paralel işleme altyapısıdır. Bkz. [HDInsight’ta Apache Spark nedir?](../spark/apache-spark-overview.md)
 
-* **[Apache HBase](http://hbase.apache.org/)**: Büyük miktarlarda yapılandırmamış ve yarı yapılandırılmış veriler (potansiyel olarak milyarlarca satır çarpı milyonlarca sütun) için rastgele erişim ve güçlü tutarlılık özellikleri sağlayan Hadoop'u temel alan bir NoSQL veritabanı. Bkz. [HDInsight'ta HBase nedir?](../hbase/apache-hbase-overview.md)
+* **[Apache HBase](https://hbase.apache.org/)**: Büyük miktarlarda yapılandırmamış ve yarı yapılandırılmış veriler (potansiyel olarak milyarlarca satır çarpı milyonlarca sütun) için rastgele erişim ve güçlü tutarlılık özellikleri sağlayan Hadoop'u temel alan bir NoSQL veritabanı. Bkz. [HDInsight'ta HBase nedir?](../hbase/apache-hbase-overview.md)
 
 * **[ML Services](https://msdn.microsoft.com/microsoft-r/rserver)**: Paralel ve dağıtılmış R işlemlerini barındırmak ve yönetmek için bir sunucu. Veri uzmanlarının, istatistikçilerin ve R programcılarının HDInsight üzerindeki ölçeklenebilir ve dağıtılmış analitik yöntemlerine istedikleri an erişmesini sağlar. Bkz. [HDInsight'ta ML Services'a genel bakış](../r-server/r-server-overview.md).
 
@@ -100,7 +100,7 @@ HDInsight belirli küme türlerinin yanı sıra bileşen, yardımcı program ve 
 
 ## <a name="open-source-components-in-hdinsight"></a>HDInsight’ta açık kaynak bileşenler
 
-Azure HDInsight Hadoop,  Spark,  Hive,  LLAP,  Kafka,  Storm,  HBase ve  R gibi açık kaynak çerçeveler ile kümeler oluşturmanıza olanak sağlar. Bu kümeler, varsayılan olarak, kümeye dahil edilen [Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md), [Avro](http://avro.apache.org/docs/current/spec.html), [Hive](http://hive.apache.org), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog/), [Mahout](https://mahout.apache.org/), [MapReduce](http://wiki.apache.org/hadoop/MapReduce), [YARN](http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Phoenix](http://phoenix.apache.org/), [Pig](http://pig.apache.org/), [Sqoop](http://sqoop.apache.org/), [Tez](http://tez.apache.org/), [Oozie](http://oozie.apache.org/), [ZooKeeper](http://zookeeper.apache.org/) gibi diğer açık kaynak bileşenler ile birlikte gelir.  
+Azure HDInsight Hadoop,  Spark,  Hive,  LLAP,  Kafka,  Storm,  HBase ve  R gibi açık kaynak çerçeveler ile kümeler oluşturmanıza olanak sağlar. Bu kümeler, varsayılan olarak, kümeye dahil edilen [Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md), [Avro](https://avro.apache.org/docs/current/spec.html), [Hive](https://hive.apache.org), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog/), [Mahout](https://mahout.apache.org/), [MapReduce](https://wiki.apache.org/hadoop/MapReduce), [YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Phoenix](https://phoenix.apache.org/), [Pig](https://pig.apache.org/), [Sqoop](https://sqoop.apache.org/), [Tez](https://tez.apache.org/), [Oozie](https://oozie.apache.org/), [ZooKeeper](https://zookeeper.apache.org/) gibi diğer açık kaynak bileşenler ile birlikte gelir.  
 
 
 ## <a name="programming-languages-in-hdinsight"></a>HDInsight’taki programlama dilleri
@@ -152,4 +152,4 @@ Bu makalede, Azure HDInsight’ın ne olduğunu ve Hadoop’u ve Azure’daki di
 
 
 [component-versioning]: ../hdinsight-component-versioning.md
-[zookeeper]: http://zookeeper.apache.org/
+[zookeeper]: https://zookeeper.apache.org/

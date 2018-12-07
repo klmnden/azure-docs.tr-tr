@@ -1,21 +1,22 @@
 ---
-title: İlk LUIS uygulamanıza 10 dakika var
-titleSuffix: Azure Cognitive Services
+title: 'Hızlı Başlangıç: uygulama oluşturma'
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Işıkları ve cihazları açıp kapatmak için önceden oluşturulmuş `HomeAutomation` etki alanını kullanan bir LUIS uygulaması oluşturun. Önceden oluşturulmuş olan bu etki alanı amaçlara, varlıklara ve örnek konuşmalara sahiptir. İşlemi tamamladığınızda bulut üzerinde çalışan bir LUIS uç noktasına sahip olacaksınız.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 657f5b6879f7782cbd94588657dc0082eff1f9c5
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 38dfa61a90605fb6dfa43e34df99400d67b27118
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423339"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012156"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Hızlı başlangıç: Önceden oluşturulmuş ev otomasyonu uygulamasını kullanma
 

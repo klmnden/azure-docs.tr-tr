@@ -8,25 +8,25 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 96141ddeeb73c7483935d5da49b9341436c10c18
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.openlocfilehash: 0351ab3213ac75559cc025f2ef71e2f098a7504c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429733"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993193"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Hızlı başlangıç: Sunucu güvenlik duvarını yapılandırma - Portal
 
 Bu hızlı başlangıç Azure Analysis Services sunucunuz için güvenlik duvarını yapılandırmanıza yardımcı olur. Güvenlik duvarını etkinleştirmek ve yalnızca sunucunuza erişen bilgisayarlar için IP adresi aralıkları yapılandırmak, sunucunuzu ve verilerinizi güvenlik altına almanın önemli bir parçasıdır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Aboneliğinizde bir Analysis Services sunucusu. Daha fazla bilgi edinmek için bkz. [Hızlı başlangıç: Sunucu oluşturma - Portal](analysis-services-create-server.md) veya [Hızlı başlangıç: Sunucu oluşturma - PowerShell](analysis-services-create-powershell.md)
 - İstemci bilgisayarlar için bir veya birden çok IP adresi aralığı (gerekiyorsa).
 
-## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma 
+## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın 
 
-[Portalda oturum açma](https://portal.azure.com)
+[Portalda oturum açın](https://portal.azure.com)
 
 ## <a name="configure-a-firewall"></a>Güvenlik duvarını yapılandırma
 

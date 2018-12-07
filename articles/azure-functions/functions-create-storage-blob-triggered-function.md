@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: f71db50678ad0f1b37e30a4120b90d47d9090942
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
-ms.translationtype: HT
+ms.openlocfilehash: fcc5052d73d921a8181ad068453111e5ead4361a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113861"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999883"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Azure Blob depolama ile tetiklenen bir işlev oluşturma
 
@@ -25,9 +25,9 @@ Azure Blob depolamada dosyalar karşıya yüklendiğinde veya güncelleştirildi
 
 ![Günlüklerde iletiyi görüntüleyin.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-+ [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/)'ni indirip yükleme.
++ [Microsoft Azure Depolama Gezgini](https://storageexplorer.com/)'ni indirip yükleme.
 + Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="create-an-azure-function-app"></a>Azure İşlev uygulaması oluşturma
@@ -76,7 +76,7 @@ Ardından Azure Depolama hesabınıza bağlanıp **samples-workitems** kapsayıc
 
     ![Depolama hesabı bağlantısı için kimlik bilgilerini alın.](./media/functions-create-storage-blob-triggered-function/functions-storage-account-connection.png)
 
-1. [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/) aracını çalıştırın, sol taraftaki bağlan simgesine tıklayın, **Depolama hesabı adı ve anahtarı kullan**'ı seçin ve **İleri**'ye tıklayın.
+1. [Microsoft Azure Depolama Gezgini](https://storageexplorer.com/) aracını çalıştırın, sol taraftaki bağlan simgesine tıklayın, **Depolama hesabı adı ve anahtarı kullan**'ı seçin ve **İleri**'ye tıklayın.
 
     ![Depolama Hesabı Gezgini aracını çalıştırın.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-1.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Machine Learning hizmeti ile görüntü sınıflandırma modelini eğitme'
+title: 'Görüntü sınıflandırma Öğreticisi: Azure Machine Learning hizmeti ile modelleri eğitme'
 description: Bu öğretici, Azure Machine Learning hizmetini kullanarak Python Jupyter not defterinde scikit-learn ile bir görüntü sınıflandırma modelinin nasıl eğitildiğini gösterir. Bu öğretici, iki bölümden oluşan bir serinin birinci bölümüdür.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +9,15 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.openlocfilehash: 8d3dd87adaad168d193b53507dbbb40efab57810
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec12
+ms.openlocfilehash: 14ecc492ba7ce4b97af147e79c0a4e3f9a7aaba0
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879494"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017680"
 ---
-# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Öğretici 1: Azure Machine Learning hizmeti ile görüntü sınıflandırma modelini eğitme
+# <a name="tutorial-part-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>(Kısım 1) öğreticisi: Azure Machine Learning hizmeti ile bir görüntü sınıflandırma modeli eğitme
 
 Bu öğreticide, makine öğrenmesi modelini hem yerel olarak hem de uzak işlem kaynaklarında eğitiyorsunuz. Azure Machine Learning hizmetinde bir Python Jupyter not defteri için eğitim ve dağıtım iş akışı'nı kullanacaksınız.  Ardından not defterini şablon olarak kullanıp kendi verilerinizle kendi makine öğrenmesi modelinizi eğitebilirsiniz. Bu öğretici, **iki bölümden oluşan bir öğretici serisinin birinci bölümüdür**.  
 

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 09/13/2018
 ms.author: zhshang
-ms.openlocfilehash: af100c015845d095f39ee4245f71689a4d2a43c0
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 1492b2145187f7334d1e7d9df91adc109ca826ee
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385016"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016938"
 ---
 # <a name="scale-aspnet-core-signalr-applications-with-azure-signalr-service"></a>Azure SignalR Hizmeti ile ASP.NET Core SignalR uygulamalarını ölçeklendirme
 
@@ -44,7 +44,7 @@ Geçerli olabilecek başka bir neden ise gerçekten bir web uygulaması barınd�
 
 ## <a name="how-does-it-scale"></a>Nasıl ölçeklendirilir?
 
-SignalR’yi SQL Server, Azure Service Bus veya Redis Cache ile ölçeklendirmek yaygın bir yöntemdir. Azure SignalR Hizmeti, ölçeklendirme yaklaşımını sizin yerinize ele alır. Performans ve maliyet, bu yaklaşımlarla benzerdir ve diğer hizmetlerdeki gibi karmaşık değildir. Tüm yapmanız gereken, hizmetiniz için birim sayısını güncelleştirmektir. Her birim en fazla 1000 istemci bağlantısını destekler.
+SignalR ile SQL Server, Azure Service Bus veya Azure önbelleği için Redis ölçeklendirmek için yaygındır. Azure SignalR Hizmeti, ölçeklendirme yaklaşımını sizin yerinize ele alır. Performans ve maliyet, bu yaklaşımlarla benzerdir ve diğer hizmetlerdeki gibi karmaşık değildir. Tüm yapmanız gereken, hizmetiniz için birim sayısını güncelleştirmektir. Her birim en fazla 1000 istemci bağlantısını destekler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Hızlı Başlangıç: Azure SignalR ile sohbet odası oluşturma](signalr-quickstart-dotnet-core.md)  

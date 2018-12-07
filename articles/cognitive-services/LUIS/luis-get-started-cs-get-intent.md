@@ -1,21 +1,22 @@
 ---
-title: C# Hızlı Başlangıç - amacı tahmin etme - LUIS
-titleSuffix: Azure Cognitive Services
+title: 'Hızlı Başlangıç: hedefi yararlanın-C#'
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Bu hızlı başlangıçta, kullanılabilir genel bir LUIS uygulamasını kullanarak konuşma metninden bir kullanıcının amacını belirleyin. C# kullanarak kullanıcının amacını genel uygulamanın HTTP tahmin uç noktasına metin olarak gönderin. Uç noktada, LUIS genel uygulamanın modelini uygulayarak anlam oluşturmak için doğal dil metnini analiz eder, böylece genel amacı belirler ve uygulamanın konu etki alanıyla ilgili verileri ayıklar.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 51c23029cc771db5351575ce329944a9f06dd286
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: c498554bea0722f81d5dd52d77c0bc88d16e2332
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035853"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015074"
 ---
 # <a name="quickstart-get-intent-using-c"></a>Hızlı Başlangıç: C# kullanarak amacı alma
 
@@ -23,7 +24,7 @@ ms.locfileid: "47035853"
 
 <a name="create-luis-subscription-key"></a>
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Visual Studio Community 2017 sürümü](https://visualstudio.microsoft.com/vs/community/)
 * C# programlama dili (VS Community 2017 sürümünde bulunur)

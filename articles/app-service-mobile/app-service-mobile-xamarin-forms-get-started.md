@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: ef371447e851fece207d77fe656283abe3dc4164
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: HT
+ms.openlocfilehash: 68ae5628d8b6aeeec6c1549e3d29d48bc8906a2d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063872"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994194"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Azure ile Xamarin.Forms uygulaması oluşturma
 
@@ -28,7 +28,7 @@ Bu öğreticide, bir Xamarin.Forms mobil uygulamasına bulut tabanlı bir arka u
 
 Bu öğreticiyi tamamlamak Xamarin.Forms uygulamalarına ilişkin tüm Mobile Apps öğreticileri için ön koşuldur.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
@@ -58,7 +58,7 @@ Sunucu projesini Node.js veya .NET arka ucunu kullanacak şekilde yapılandırma
 
 ### <a name="visual-studio"></a>Visual Studio
 
-1. [Azure portalındaki] gidin.
+1. [Azure Portal] gidin.
 
 2. Mobil Uygulamanızın ayarlar dikey penceresinde **Hızlı Başlangıç** (Dağıtım altında) > **Xamarin.Forms**'a tıklayın. 3. Adım altında, henüz seçili değilse, **Yeni uygulama oluştur**’u seçin.  Sonra **İndir** düğmesine tıklayın.
 
@@ -72,7 +72,7 @@ Sunucu projesini Node.js veya .NET arka ucunu kullanacak şekilde yapılandırma
 
 ### <a name="visual-studio-for-mac"></a>Mac için Visual Studio
 
-1. [Azure portalındaki] gidin.
+1. [Azure Portal] gidin.
 
 2. Mobil Uygulamanızın ayarlar dikey penceresinde **Hızlı Başlangıç** (Dağıtım altında) > **Xamarin.Forms**'a tıklayın. 3. Adım altında, henüz seçili değilse, **Yeni uygulama oluştur**’u seçin.  Sonra **İndir** düğmesine tıklayın.
 
@@ -212,5 +212,5 @@ Android projenizde başvurulan tüm destek paketlerinin aynı sürüme sahip olm
 
 <!-- URLs. -->
 [Install Xamarin]: https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/
-[Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Azure portalındaki]: https://portal.azure.com/
+[Mobile app SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
+[Azure portal]: https://portal.azure.com/

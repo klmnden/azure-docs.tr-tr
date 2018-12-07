@@ -8,25 +8,25 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b5aa300d51deef408b8dd2b410db319449360329
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.openlocfilehash: ef4099130878813378fb277c45b5d352cbe822a7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428836"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000161"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Hızlı başlangıç: Sunucu oluşturma - Portal
 
 Bu hızlı başlangıçta, portalı kullanarak Azure aboneliğinizde bir Analysis Services sunucusu kaynağı oluşturma adımları açıklanmaktadır.
 
-## <a name="prerequisites"></a>Ön koşullar 
+## <a name="prerequisites"></a>Önkoşullar 
 
 * **Azure aboneliği**: Hesap oluşturmak için [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/offers/ms-azr-0044p/)’nü ziyaret edin.
 * **Azure Active Directory**: Aboneliğinizin bir Azure Active Directory Kiracısı ile ilişkilendirilmiş olması gerekir. Ayrıca bu Azure Active Directory içindeki bir hesapla Azure'da oturum açmış olmanız gerekir. Daha fazla bilgi edinmek için bkz. [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md).
 
-## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma 
+## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın 
 
-[Portalda oturum açma](https://portal.azure.com)
+[Portalda oturum açın](https://portal.azure.com)
 
 
 ## <a name="create-a-server"></a>Sunucu oluşturma

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: 12b3cee9e1aeeda1017d7fa2baebf5769039c185
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 8780e145845d820ef0c6ff2c43891287c1902e2c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956240"
+ms.locfileid: "53000905"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Öğretici: DMS kullanarak PostgreSQL’i çevrimiçi ortamda PostgreSQL için Azure Veritabanına geçirme
 Şirket içi bir PostgreSQL örneğindeki veritabanlarını minimum çalışmama süresi ile [PostgreSQL için Azure Veritabanı](https://docs.microsoft.com/azure/postgresql/)'na geçirmek için Azure Veritabanı Geçiş Hizmeti'ni kullanabilirsiniz. Diğer bir deyişle, geçiş işlemi, uygulamada minimum çalışmama süresi ile gerçekleştirilebilir. Bu öğreticide, Azure Veritabanı Geçiş Hizmeti'nde çevrimiçi bir geçiş etkinliğini kullanarak şirket içi bir PostgreSQL 9.6 örneğindeki **DVD Rental** örnek veritabanını PostgreSQL için Azure Veritabanı'na geçireceksiniz.
@@ -38,7 +38,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 
-- [PostgreSQL community edition](https://www.postgresql.org/download/) 9.5, 9.6 veya 10.3’ü indirme ve yükleme. Kaynak PostgreSQL Server sürümü 9.5.11, 9.6.7, 10.3 veya üzeri olmalıdır. Daha fazla bilgi için [Desteklenen PostgreSQL Veritabanı Sürümleri](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) makalesine bakın.
+- İndirme ve yükleme [PostgreSQL community sürümünü](https://www.postgresql.org/download/) 9.5, 9.6 veya 10. Kaynak PostgreSQL Server sürümü olmalıdır 9.5.11 9.6.7, 10 veya üzeri. Daha fazla bilgi için [Desteklenen PostgreSQL Veritabanı Sürümleri](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) makalesine bakın.
 
     Ayrıca, şirket içi PostgreSQL sürümünün, PostgreSQL için Azure Veritabanı sürümü ile eşleşmesi gerekir. Örneğin, PostgreSQL 9.5.11.5 yalnızca PostgreSQL için Azure Veritabanı 9.5.11 sürümüne geçirilebilir ve 9.6.7 sürümüne geçirilemez.
 

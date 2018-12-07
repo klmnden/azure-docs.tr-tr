@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9b6ae9030069f48e1805a657f938595b081271ba
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 4cdb19de75a96df386c76ef49e7bab50e80f9097
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632960"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012870"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>Hızlı Başlangıç: Apache Hadoop ve Apache Hive, Azure portalını kullanarak Azure HDInsight ile çalışmaya başlama
 
-Bu makalede, nasıl oluşturulacağını öğreneceksiniz [Apache Hadoop](http://hadoop.apache.org/) Azure portalını kullanarak ve ardından HDInsight Apache Hive işlerini çalıştırın HDInsight kümeleri. Hadoop işlerinin çoğu toplu işlemdir. Bir küme oluşturur, bazı işleri çalıştırır ve kümeyi silersiniz. Bu makalede, üç görevi de gerçekleştirirsiniz.
+Bu makalede, nasıl oluşturulacağını öğreneceksiniz [Apache Hadoop](https://hadoop.apache.org/) Azure portalını kullanarak ve ardından HDInsight Apache Hive işlerini çalıştırın HDInsight kümeleri. Hadoop işlerinin çoğu toplu işlemdir. Bir küme oluşturur, bazı işleri çalıştırır ve kümeyi silersiniz. Bu makalede, üç görevi de gerçekleştirirsiniz.
 
 Bu hızlı başlangıçta, HDInsight Hadoop kümesi oluşturmak için Azure portalını kullanırsınız. [Azure Resource Manager şablonunu](apache-hadoop-linux-tutorial-get-started.md) kullanarak da küme oluşturabilirsiniz.
 

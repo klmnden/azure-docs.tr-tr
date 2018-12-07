@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: fd2d19119c5be91942d9587a073be30d59c8fd6c
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
-ms.translationtype: HT
+ms.openlocfilehash: 33f7367d9cdc510cf04f349f44b6e85215d46038
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113776"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995589"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Azure Kuyruk Depolama tarafından tetiklenen bir işlev oluşturma
 
@@ -25,9 +25,9 @@ Bir Azure Depolama kuyruğuna ileti gönderildiğinde tetiklenen bir işlev olu�
 
 ![Günlüklerde iletiyi görüntüleyin.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-- [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/)'ni indirip yükleme.
+- [Microsoft Azure Depolama Gezgini](https://storageexplorer.com/)'ni indirip yükleme.
 
 - Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -77,7 +77,7 @@ Ardından Azure Depolama hesabınıza bağlanıp **myqueue-items** depolama kuyr
 
     ![Depolama hesabı bağlantısı için kimlik bilgilerini alın.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)
 
-1. [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/) aracını çalıştırın, sol taraftaki bağlan simgesine tıklayın, **Depolama hesabı adı ve anahtarı kullan**'ı seçin ve **İleri**'ye tıklayın.
+1. [Microsoft Azure Depolama Gezgini](https://storageexplorer.com/) aracını çalıştırın, sol taraftaki bağlan simgesine tıklayın, **Depolama hesabı adı ve anahtarı kullan**'ı seçin ve **İleri**'ye tıklayın.
 
     ![Depolama Hesabı Gezgini aracını çalıştırın.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-1.png)
 

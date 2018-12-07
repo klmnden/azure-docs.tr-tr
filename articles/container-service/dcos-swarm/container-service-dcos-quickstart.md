@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service Hızlı Başlangıç - DC/OS Kümesi Dağıtma
+title: (KULLANIM DIŞI) Azure Container Service hızlı başlangıç - DC/OS kümesi dağıtma
 description: Azure Container Service Hızlı Başlangıç - DC/OS Kümesi Dağıtma
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4cd7f2284f3449fe8abdf1a6f8e85b9b0b712d7a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: efaf82c3f378f572c289b587dbe5df1923a58c62
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998568"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000527"
 ---
-# <a name="deploy-a-dcos-cluster"></a>DC/OS kümesi dağıtma
+# <a name="deprecated-deploy-a-dcos-cluster"></a>(KULLANIM DIŞI) DC/OS kümesi dağıtma
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS, modern ve kapsayıcılı uygulamalar çalıştırmak için dağıtılmış bir platform sunar. Azure Container Service ile üretime hazır bir DC/OS kümesinin dağıtımı basit ve hızlıdır. Bu hızlı başlangıçta, DC/OS kümesi dağıtmak ve temel iş yükü çalıştırmak için gerekli temel adımlar ayrıntılı olarak açıklanır.
 

@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 4ed5363cc927c3e36e6efa7554511d78e1e96d24
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 45d1275ac3b78836cbb77c4e1508d0689c215d69
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970935"
+ms.locfileid: "52998600"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Java Web Uygulamanızı İzlemeye Başlama
 
@@ -29,7 +29,7 @@ Bu hızlı başlangıç, Application Insights SDK'sını var olan bir Java Dynam
 Bu hızlı başlangıcı tamamlamak için:
 
 - JRE 1.7 veya 1.8 yükleme
-- [Ücretsiz Java EE Geliştiricileri için Eclipse IDE](http://www.eclipse.org/downloads/) yükleyin. Bu hızlı başlangıçta Eclipse Oxygen (4.7) kullanılır.
+- [Ücretsiz Java EE Geliştiricileri için Eclipse IDE](https://www.eclipse.org/downloads/) yükleyin. Bu hızlı başlangıçta Eclipse Oxygen (4.7) kullanılır.
 - Bir Azure Aboneliği ve var olan bir Java Dynamic Web Projesi gerekir
  
 Bir Java Dynamic Web Projeniz yoksa [Java web uygulaması oluşturma hızlı başlangıcı](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java) ile bir tane oluşturabilirsiniz.
@@ -67,7 +67,7 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
 
    ![Yeni App Insights kaynağı formu](./media/app-insights-java-quick-start/000-j.png)
 
-2. "Birlikte Çalış" alanına ```http://dl.microsoft.com/eclipse``` değerini kopyalayın > **Java için Azure Araç Seti**’ni işaretleyin > **Java için Application Insights Eklentisi**’ni seçin >  "Gerekli yazılımı bulmak için yükleme sırasında tüm güncelleştirme siteleriyle iletişime geçin" seçeneğinin işaretini kaldırın.
+2. "Birlikte Çalış" alanına ```https://dl.microsoft.com/eclipse``` değerini kopyalayın > **Java için Azure Araç Seti**’ni işaretleyin > **Java için Application Insights Eklentisi**’ni seçin >  "Gerekli yazılımı bulmak için yükleme sırasında tüm güncelleştirme siteleriyle iletişime geçin" seçeneğinin işaretini kaldırın.
 
 3. Yükleme tamamlandıktan sonra **Eclipse’i Yeniden Başlatmanız** istenir.
 

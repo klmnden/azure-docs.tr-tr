@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 7c92b2a060e73484b73a60f9215425cba40ea3f1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e503a394eed7d5c4bdd4c93037dc86442097f72e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966730"
+ms.locfileid: "53002165"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile çözüm öğrenme bir makine oluşturma
 
@@ -81,9 +81,8 @@ Azure ve Azure Stack biri gereklidir. Devam etmeden önce daha fazla bilgi için
 
  -  Dağıtımı [Azure kapsayıcı Hizmetleri (ACS) azure'da Kubernetes](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
 
- -  Azure Machine Learning hizmeti (Önizleme) dağıtımı [4 bölümde Öğreticisi](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1)
+ -  Azure Machine Learning hizmetinin dağıtımı [2 bölümlü öğretici](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
 
- -  Azure Machine Learning denemesi [hesabı](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/experimentation-service-template)
 
 **Azure Stack**
 
@@ -358,7 +357,7 @@ Azure Machine Learning Workbench, Windows veya macOS için sağlanır. [Destekle
     | Proje adı | myIris | Hesabını tanımlayan benzersiz bir ad girin. Departman kullanın veya denemeyi en iyi proje adını tanımlar. Adı 2-32 karakter arasında olmalıdır. Yalnızca alfasayısal karakterler ve kısa çizgi (-) karakteri kullanılabilir. |
     | Proje dizini | c:\Temp\ | Projenin oluşturulduğu dizini belirtin. |
     | Proje açıklaması | Boş bırakın | Projeleri açıklamak için kullanışlı bir isteğe bağlı alan. |
-    | Visualstudio.com GIT Deposu URL’si | Boş bırakın | İsteğe bağlı alan. Bir proje kaynak denetimi ve işbirliği için Visual Studio Team Services üzerinde bir Git deposu ile ilişkilendirin. [Depo ayarlama hakkında bilgi edinin](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project). |
+    | Visualstudio.com GIT Deposu URL’si | Boş bırakın | İsteğe bağlı alan. Bir proje kaynak denetimi ve işbirliği için Visual Studio Team Services üzerinde bir Git deposu ile ilişkilendirin. |
     | Seçili çalışma alanı | IrisGarden (varsa) | Azure portalında deneme hesabı için oluşturulan çalışma alanını seçin. <br>Hızlı Başlangıç adımlarını kullanarak, çalışma alanı adı Irisgarden tarafından listelenir. Aksi takdirde, çalışma alanı deneme hesabı adı veya tercih edilen hesap adı kullanın. |
     | Proje şablonu | Classifying Iris | Betikleri ve verileri ürünü keşfetmek için kullanılan şablonları içerir. Bu şablon, betikler ve bu belge sitesindeki bu hızlı başlangıçta ve diğer öğreticiler için gerekli verileri içerir. |
 

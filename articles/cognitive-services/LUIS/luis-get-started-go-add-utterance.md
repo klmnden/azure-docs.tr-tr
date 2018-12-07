@@ -1,26 +1,29 @@
 ---
 title: Go dili Hızlı Başlangıç - modeli değiştirme ve LUIS uygulamasını eğitme
 description: Bu Go dili hızlı başlangıcında, bir Ev Otomasyonu uygulamasına örnek konuşmalar ekleyip uygulamayı eğitin. Örnek konuşmalar, bir amaçla eşleşmiş kullanıcı konuşma metinleridir. Amaçlar için örnek konuşmalar sağlayarak, LUIS’e kullanıcı tarafından sağlanan hangi tür metinlerin hangi amaca ait olduğunu öğretirsiniz.
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Language Understanding - Azure Cognitive Services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 2cd8c1aa2deb2af97d4f720efa0e40146b15b888
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 092771ed4ce2ebbe134ea5c39e23294555124c19
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031875"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013671"
 ---
 # <a name="quickstart-change-model-using-go"></a>Hızlı Başlangıç: Go kullanarak model değiştirme
 
+Bu hızlı başlangıçta, amaç ve varlıkları döndürmek için bir LUIS uç noktasına konuşma iletin.
+
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * [Go](https://golang.org/) programlama dilini yükleyin.

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: 0fe9dbed302fd2d61305167a3bda25b1b403b761
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8371e99224b511a87b2061708f00822a70c024b0
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139983"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999077"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Ortak veri türleri tanımak için önceden oluşturulmuş varlıklar
 
@@ -54,6 +54,12 @@ Test uç noktasında yeni hedefi için bir değer olarak eklenen **q** parametre
 |randevuyu Mart 3 iptal et|LUIS döndürülen en son Mart 3 Geçmiş (2018-03-03) ve Mart gelecekte 3 (2019-03-03) utterance bir yıl belirttiğinden alamadık.|
 |10'da bir toplantısı zamanlayın|10:00:00|
 
+## <a name="marking-entities-containing-a-prebuilt-entity-token"></a>Önceden oluşturulmuş varlık belirteci içeren varlıklar işaretleme
+ Metin gibi varsa `HH-1234`, özel bir varlık olarak işaretlemek istediğiniz _ve_ sahip olduğunuz [önceden oluşturulmuş numarası](luis-reference-prebuilt-number.md) modele eklenir, siz LUIS Portalı'nda özel varlık işaretlemek mümkün olmayacaktır. API ile işaretleyebilirsiniz. 
+
+ Bu tür bir belirteç, burada bir bölümü, önceden oluşturulmuş bir varlık ile zaten işaretlenmiş, işaretlemek için önceden oluşturulmuş varlık LUIS uygulamadan kaldırabilir. Uygulamayı eğitme gerek yoktur. Ardından kendi özel varlık belirteciyle işaretleyin. Ardından önceden oluşturulmuş varlık LUIS uygulamaya geri ekleyin.
+
+ Başka bir örnek için sınıf tercihleri listesi olarak utterance göz önünde bulundurun: `I want first year spanish, second year calculus, and fourth year english lit.` LUIS uygulaması eklendi, Prebuild sıra varsa `first`, `second`, ve `fourth` sıra sayıları ile işaretlenir. Sıralı ve sınıf yakalamak istiyorsanız, bileşik bir varlık oluşturun ve önceden oluşturulmuş sıralı ve sınıf adı için özel varlık etrafına sarın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]

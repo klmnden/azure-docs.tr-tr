@@ -1,27 +1,30 @@
 ---
-title: Go dili Hızlı Başlangıç - amacı tahmin etme - LUIS
-titleSuffix: Azure Cognitive Services
+title: 'Hızlı Başlangıç: get amaca dönüştürme-Git'
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Bu hızlı başlangıçta, kullanılabilir genel bir LUIS uygulamasını kullanarak konuşma metninden bir kullanıcının amacını belirleyin. GO kullanarak kullanıcının amacını genel uygulamanın HTTP tahmin uç noktasına metin olarak gönderin. Uç noktada, LUIS genel uygulamanın modelini uygulayarak anlam oluşturmak için doğal dil metnini analiz eder, böylece genel amacı belirler ve uygulamanın konu etki alanıyla ilgili verileri ayıklar.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f19c46fcc7dcff2e02786bb3a03082f831e880a2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 7edaf384e7255708845a0112b0bd5ab27b9c3ed4
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032742"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013842"
 ---
 # <a name="quickstart-get-intent-using-go"></a>Hızlı Başlangıç: Go kullanarak amacı alma
 
+Bu hızlı başlangıçta, amaç ve varlıkları döndürmek için bir LUIS uç noktasına konuşma iletin.
+
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Go](https://golang.org/) programlama dili  
 * [Visual Studio Code](https://code.visualstudio.com/)

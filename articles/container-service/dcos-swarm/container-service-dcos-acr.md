@@ -1,5 +1,5 @@
 ---
-title: ACR’yi bir Azure DC/OS kümesi ile kullanma
+title: (KULLANIM DIŞI) ACR bir Azure DC/OS kümesi ile kullanma
 description: Azure Container Service’te DC/OS kümesi ile Azure Container Registry kullanma
 services: container-service
 author: julienstroheker
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 81b5bd18ea367b68adfc41ee97768b3b28967a42
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: a27f6c017d9d648414637f900e0cf7c4be147bfe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986651"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996341"
 ---
-# <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Uygulamanızı dağıtmak için ACR’yi DC/OS kümesi ile kullanma
+# <a name="deprecated-use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>(KULLANIM DIŞI) ACR, uygulamanızı dağıtmak için bir DC/OS kümesi ile kullanma
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Bu makalede, Azure Container Registry’yi bir DC/OS kümesi ile kullanma işlemi araştırılmaktadır. ACR kullanarak, kapsayıcı görüntülerinizi özel olarak depolayıp yönetebilirsiniz. Bu öğretici aşağıdaki görevleri kapsar:
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 0a187bbc476738294e2f7f31de4e11ea92e604f9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: b4f234099cb39e524beb2d2e5a5d138355d5cb80
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978012"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013722"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Stream Analytics işlerinden Azure İşlevleri’ni çalıştırma 
 
@@ -35,34 +35,34 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>İşlev çalıştırmak için bir Stream Analytics işi yapılandırma 
 
-Bu bölümde, Azure Redis Cache’e veri yazan bir işlev çalıştırmak üzere Stream Analytics işini yapılandırma işlemi gösterilmektedir. Stream Analytics işi Azure Event Hubs’dan olayları okur ve işlevi çağıran bir sorgu çalıştırır. Bu işlev, Stream Analytics işinden verileri okur ve Azure Redis Cache’e yazar.
+Bu bölümde, Azure önbelleği için Redis veri yazan bir işlev çalıştırmak için bir Stream Analytics işini yapılandırma işlemi gösterilmektedir. Stream Analytics işi Azure Event Hubs’dan olayları okur ve işlevi çağıran bir sorgu çalıştırır. Bu işlev Stream Analytics işinden verileri okur ve Azure önbelleği için Redis yazar.
 
 ![Azure hizmetleri arasındaki ilişkileri gösteren diyagram](./media/stream-analytics-with-azure-functions/image1.png)
 
 Bu görevi gerçekleştirmek için aşağıdaki adımlar gereklidir:
 * [Girdi olarak Event Hubs ile bir Stream Analytics işi oluşturma](#create-a-stream-analytics-job-with-event-hubs-as-input)  
-* [Bir Azure Redis Cache örneği oluşturma](#create-an-azure-redis-cache-instance)  
-* [Azure İşlevleri’nde Azure Redis Cache’e veri yazabilen bir işlev oluşturma](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
+* [Redis örneği için bir Azure önbelleği oluşturma](#create-an-azure-redis-cache-instance)  
+* [Azure işlevleri, verileri Azure önbelleği için Redis için yazabilen bir işlev oluşturun](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
 * [Çıktı olarak işlevle Stream Analytics işini güncelleştirme](#update-the-stream-analytics-job-with-the-function-as-output)  
-* [Sonuçlar için Azure Redis Cache’i kontrol etme](#check-azure-redis-cache-for-results)  
+* [Azure önbelleği için Redis için sonuçları denetleyin.](#check-azure-redis-cache-for-results)  
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Girdi olarak Event Hubs ile bir Stream Analytics işi oluşturma
 
 Bir olay hub’ı oluşturmak, olay oluşturucu uygulamasını başlamak ve bir Stream Analytics işi oluşturmak için [Gerçek zamanlı sahtekarlık algılama](stream-analytics-real-time-fraud-detection.md) öğreticisini takip edin. (Sorgu ve çıktı oluşturma adımlarını atlayın. Bunun yerine, İşlevler çıkışını ayarlamak için aşağıdaki bölümlere bakın.)
 
-## <a name="create-an-azure-redis-cache-instance"></a>Bir Azure Redis Cache örneği oluşturma
+## <a name="create-an-azure-cache-for-redis-instance"></a>Redis örneği için bir Azure önbelleği oluşturma
 
-1. [Önbellek oluşturma](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache) bölümünde açıklanan adımları kullanarak Azure Redis Cache’te bir önbellek oluşturun.  
+1. Önbellek açıklanan adımları kullanarak Azure Cache Redis için oluşturmak [bir önbellek oluşturma](../azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
 
 2. Önbelleği oluşturduktan sonra **Ayarlar** altında **Erişim Anahtarları**’nı seçin. **Birincil bağlantı dizesi**’ni not edin.
 
-   ![Azure Redis Cache bağlantı dizesinin ekran görüntüsü](./media/stream-analytics-with-azure-functions/image2.png)
+   ![Redis bağlantı dizesi için Azure önbellek ekran görüntüsü](./media/stream-analytics-with-azure-functions/image2.png)
 
-## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache"></a>Azure İşlevleri’nde Azure Redis Cache’e veri yazabilen bir işlev oluşturma
+## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-cache-for-redis"></a>Azure işlevleri, verileri Azure önbelleği için Redis yazabilen bir işlev oluşturma
 
 1. İşlevler belgesinin [İşlev uygulaması oluşturma](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) bölümüne bakın. Bu bölümde CSharp dili kullanılarak bir işlev uygulaması ve [Azure İşlevleri’nde HTTP ile tetiklenen işlev](../azure-functions/functions-create-first-azure-function.md#create-function) oluşturma adımları gösterilir.  
 
-2. **run.csx** işlevine göz atın. Aşağıdaki kodla güncelleştirin. (“\<redis cache bağlantı dizeniz buraya gelecek\>” ifadesini, önceki bölümde aldığınız Azure Redis Cache birincil bağlantı dizesi ile değiştirdiğinizden emin olun.)  
+2. **run.csx** işlevine göz atın. Aşağıdaki kodla güncelleştirin. (Değiştirdiğinizden emin olun "\<, Azure önbelleği için Redis bağlantı dizesi buraya\>" Azure Cache önceki bölümde aldığınız Redis birincil bağlantı dizesi ile.)  
 
    ```csharp
    using System;
@@ -85,7 +85,7 @@ Bir olay hub’ı oluşturmak, olay oluşturucu uygulamasını başlamak ve bir 
       {        
          return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
       }
-      var connection = ConnectionMultiplexer.Connect("<your redis cache connection string goes here>");
+      var connection = ConnectionMultiplexer.Connect("<your Azure Cache for Redis connection string goes here>");
       log.Info($"Connection string.. {connection}");
     
       // Connection refers to a property that returns a ConnectionMultiplexer
@@ -185,17 +185,17 @@ Bir olay hub’ı oluşturmak, olay oluşturucu uygulamasını başlamak ve bir 
     
 6.  Stream Analytics işini başlatın.
 
-## <a name="check-azure-redis-cache-for-results"></a>Sonuçlar için Azure Redis Cache’i kontrol etme
+## <a name="check-azure-cache-for-redis-for-results"></a>Azure önbelleği için Redis için sonuçları denetleyin.
 
-1. Azure portalına gidin ve Azure Cache’i bulun. **Konsol**’u seçin.  
+1. Azure portalına gidin ve, Azure önbelleği için Redis bulun. **Konsol**’u seçin.  
 
-2. Verilerinizin Redis önbelleğinde olduğunu doğrulamak için [Redis önbelleği komutları](https://redis.io/commands)’nı kullanın. (Komut Get {key} biçimini alır.) Örnek:
+2. Kullanım [Azure önbelleği için Redis komutları](https://redis.io/commands) verilerinizi Azure önbelleği için Redis olduğunu doğrulayın. (Komut Get {key} biçimini alır.) Örneğin:
 
    **Get "19.12.2017 21:32:24 - 123414732"**
 
    Bu komut, belirtilen anahtarın değerini yazdırmalıdır:
 
-   ![Azure Redis Cache çıktısının ekran görüntüsü](./media/stream-analytics-with-azure-functions/image5.png)
+   ![Redis çıkış için Azure önbellek ekran görüntüsü](./media/stream-analytics-with-azure-functions/image5.png)
    
 ## <a name="error-handling-and-retries"></a>Hata işleme ve yeniden deneme
 Azure İşlevleri'ne olay gönderme sırasında hatayla karşılaşılması halinde Stream Analytics işlemi başarıyla tamamlamayı dener. Ancak aşağıda belirtilen hatalarda yeniden deneme girişiminde bulunulmaz:

@@ -1,5 +1,5 @@
 ---
-title: Azure DC/OS kümesinde yük dengeleme kapsayıcıları
+title: (KULLANIM DIŞI) Azure DC/OS kümesindeki Yük Dengeleme kapsayıcıları
 description: Azure Container Service DC/OS kümesindeki birden çok kapsayıcıda yükü dengeleyin.
 services: container-service
 author: rgardler
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 8e8ad913c6e5b8e947b17ed8920285de3fcfd8ae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 5a1883412a5285c4916c43a5c6ad81168096dd7f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964369"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993545"
 ---
-# <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Azure Container Service DC/OS kümesindeki yük dengeleme kapsayıcıları
+# <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(KULLANIM DIŞI) Bir Azure Container Service DC/OS kümesindeki Yük Dengeleme kapsayıcıları
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Bu makalede, DC/OS tarafından yönetilen bir Azure Container Service içinde bir iç yük dengeleyicinin Marathon-LB kullanılarak nasıl oluşturulacağını inceliyoruz. Bu yapılandırma, uygulamalarınızı yatay olarak ölçeklemenize olanak sağlar. Ayrıca yük dengeleyicilerinizi genel kümeye, uygulama kapsayıcılarınızı ise özel kümeye ekleyerek genel ve özel aracı kümelerinden yararlanmanıza da olanak tanır. Bu öğreticide şunları yaptınız:
 

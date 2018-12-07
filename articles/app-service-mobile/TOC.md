@@ -173,7 +173,7 @@
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/app-service/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=mobile-services)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-mobile-services)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
 ## Örnekler
 ### [Saha mühendisi](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)

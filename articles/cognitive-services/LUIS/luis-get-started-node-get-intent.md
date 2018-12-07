@@ -1,29 +1,32 @@
 ---
-title: Node.js Hızlı Başlangıç - amacı tahmin etme - LUIS
-titleSuffix: Azure Cognitive Services
+title: 'Hızlı Başlangıç: amaca dönüştürme-Node.js Al'
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Bu hızlı başlangıçta, kullanılabilir genel bir LUIS uygulamasını kullanarak konuşma metninden bir kullanıcının amacını belirleyin. Node.js kullanarak kullanıcının amacını genel uygulamanın HTTP tahmin uç noktasına metin olarak gönderin. Uç noktada, LUIS genel uygulamanın modelini uygulayarak anlam oluşturmak için doğal dil metnini analiz eder, böylece genel amacı belirler ve uygulamanın konu etki alanıyla ilgili verileri ayıklar.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 37a94b217e2b9c0d417ad0bdd7678b13e333305d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 8a355b59a7674e21eddddbc311d90a9798931f89
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038927"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012717"
 ---
 # <a name="quickstart-get-intent-using-nodejs"></a>Hızlı Başlangıç: Node.js kullanarak amacı alma
+
+Bu hızlı başlangıçta, amaç ve varlıkları döndürmek için bir LUIS uç noktasına konuşma iletin.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 <a name="create-luis-subscription-key"></a>
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Node.js](https://nodejs.org/) programlama dili 
 * [Visual Studio Code](https://code.visualstudio.com/)

@@ -12,16 +12,16 @@ ms.date: 11/26/2018
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 2d50e4c2352444d29bdb090bc9a2a7947ecc6a50
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 6daa29b4e8f09a4f8a40c3b92d2e2e86a5dea6aa
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496042"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993175"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Bir işlev için OpenAPI tanımı oluşturma
 
-REST API’ler genellikle bir OpenAPI tanımı (eski adıyla [Swagger](http://swagger.io/) dosyası) kullanılarak açıklanır. Bu tanım, bir API’de hangi işlemlerin kullanılabildiğinin yanı sıra API için istek ve yanıt verilerinin nasıl yapılandırılması gerektiğiyle ilgili bilgileri içerir.
+REST API’ler genellikle bir OpenAPI tanımı (eski adıyla [Swagger](https://swagger.io/) dosyası) kullanılarak açıklanır. Bu tanım, bir API’de hangi işlemlerin kullanılabildiğinin yanı sıra API için istek ve yanıt verilerinin nasıl yapılandırılması gerektiğiyle ilgili bilgileri içerir.
 
 Bu öğreticide, bir rüzgar türbini için acil onarımın uygun maliyetli olup olmadığını belirleyen bir işlev oluşturursunuz. Daha sonra, işleve diğer uygulama ve hizmetlerden çağrı yapılabilmesi için işlev uygulamasına yönelik bir OpenAPI tanımı oluşturursunuz.
 
@@ -123,7 +123,7 @@ Acil onarımların maliyet açısından uygunluğunu belirleyen bir işleviniz o
 
 ## <a name="generate-the-openapi-definition"></a>OpenAPI tanımını oluşturma
 
-Artık OpenAPI tanımını oluşturmaya hazırsınız. Bu tanımı API Uygulamaları, [PowerApps](functions-powerapps-scenario.md) ve [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md) gibi diğer Microsoft teknolojilerinin yanı sıra [Postman](https://www.getpostman.com/docs/importing_swagger) ve [diğer birçok paket](http://swagger.io/tools/) gibi üçüncü taraf geliştirici araçları kullanabilir.
+Artık OpenAPI tanımını oluşturmaya hazırsınız. Bu tanımı API Uygulamaları, [PowerApps](functions-powerapps-scenario.md) ve [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md) gibi diğer Microsoft teknolojilerinin yanı sıra [Postman](https://www.getpostman.com/docs/importing_swagger) ve [diğer birçok paket](https://swagger.io/tools/) gibi üçüncü taraf geliştirici araçları kullanabilir.
 
 1. Yalnızca API'nizin desteklediği *fiilleri* (bu durumda POST) seçin. Bu, oluşturulan API tanımının daha temiz olmasını sağlar.
 
@@ -141,7 +141,7 @@ Artık OpenAPI tanımını oluşturmaya hazırsınız. Bu tanımı API Uygulamal
 
     ![API tanımı kaynağı](media/functions-openapi-definition/api-definition-source.png)
 
-    Bu adım, işlev uygulamanız için işlev uygulamanızın etki alanından bir OpenAPI dosyasının barındırılmasına yönelik uç nokta, [OpenAPI Düzenleyicisi](http://editor.swagger.io)’nin satır içi bir kopyası ve bir API tanım şablonu oluşturucu dahil olmak üzere bir dizi OpenAPI seçeneğini etkinleştirir.
+    Bu adım, işlev uygulamanız için işlev uygulamanızın etki alanından bir OpenAPI dosyasının barındırılmasına yönelik uç nokta, [OpenAPI Düzenleyicisi](https://editor.swagger.io)’nin satır içi bir kopyası ve bir API tanım şablonu oluşturucu dahil olmak üzere bir dizi OpenAPI seçeneğini etkinleştirir.
 
 1. **API tanımı şablonu oluşturun** > **Kaydet**’e tıklayın.
 
@@ -168,7 +168,7 @@ Artık OpenAPI tanımını oluşturmaya hazırsınız. Bu tanımı API Uygulamal
         parameters: []
         description: >-
             Replace with Operation Object
-            #http://swagger.io/specification/#operationObject
+            #https://swagger.io/specification/#operationObject
         responses:
             '200':
             description: Success operation

@@ -5,16 +5,17 @@ description: Docker kapsayıcıları yakın Bilişsel hizmetler verilerinize nas
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: c71d7de2ac036fe47253be08bb0b1e01e9e76701
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 681120db66b1e8e79d3c16fe654939450b509a01
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957223"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011615"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Bilişsel hizmetler kapsayıcı desteği
 
@@ -47,7 +48,7 @@ Azure Bilişsel hizmetler kapsayıcılar, Docker kapsayıcıları, aşağıdaki 
 |[LUIS](LUIS/luis-container-howto.md) |**LUIS** ([görüntü](https://go.microsoft.com/fwlink/?linkid=2043204))|Bir eğitilen veya yayımlanmış dil anlama modeli olarak da bilinen bir LUIS uygulaması bir docker kapsayıcısına yükler ve kapsayıcının API uç noktalardan gelen sorgu tahminler elde etmek için erişim sağlar. Kapsayıcıdan sorgu günlüklerini toplamak ve bu geri yükleme [LUIS portalı](https://www.luis.ai) uygulamanın tahmin doğruluğunu artırmak için.|
 |[Metin Analizi](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |**Anahtar ifade ayıklama** ([görüntü](https://go.microsoft.com/fwlink/?linkid=2018757)) |Ana noktaları belirleyin, anahtar ifadeleri ayıklar. Örneğin, "The food was delicious and there were wonderful staff" (Yemekler lezzetliydi ve personel harikaydı) giriş metni olduğunda API, "food" (yemek) ve "wonderful staff" (personel harikaydı) ana konuşma noktalarını döndürür. |
 |[Metin Analizi](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|**Dil algılama** ([görüntü](https://go.microsoft.com/fwlink/?linkid=2018759)) |En fazla 120 dil için hangi dil giriş metni yazılır ve rapor istekte gönderilen her belge için bir tek dil kodu algılar. Dil kodu, puanın ağırlığını belirten bir puanla eşleştirilir. |
-|[Metin Analizi](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|**Yaklaşım analizi** ([görüntü](https://go.microsoft.com/fwlink/?linkid=2018654)) |Ham metin pozitif veya negatif yaklaşım hakkında ipuçları için analiz eder. API, her belge için 0 ile 1 arasında bir yaklaşım puanı döndürür ve 1 en pozitif değerdir. Analiz modelleri metin ve doğal dil Microsoft teknolojilerinin kapsamlı bir gövdesi kullanarak önceden eğitilir. API, [seçili dillerde](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages.md) sağladığınız ham metni analiz edip puanlayabilir ve sonuçları doğrudan çağrıyı yapan uygulamaya döndürebilir. |
+|[Metin Analizi](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|**Yaklaşım analizi** ([görüntü](https://go.microsoft.com/fwlink/?linkid=2018654)) |Ham metin pozitif veya negatif yaklaşım hakkında ipuçları için analiz eder. API, her belge için 0 ile 1 arasında bir yaklaşım puanı döndürür ve 1 en pozitif değerdir. Analiz modelleri metin ve doğal dil Microsoft teknolojilerinin kapsamlı bir gövdesi kullanarak önceden eğitilir. API, [seçili dillerde](./text-analytics/language-support.md) sağladığınız ham metni analiz edip puanlayabilir ve sonuçları doğrudan çağrıyı yapan uygulamaya döndürebilir. |
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Azure Bilişsel hizmetler kapsayıcı kullanılabilirlik
 
