@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: f7092a08e501ae61ef93be383290db575b5ad1f1
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: secdec18
+ms.openlocfilehash: 25a8057a1c547e29b209d87d9124a3e019957dd8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995574"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100863"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Cloudyn depolama hesaplarını yapılandırma
 
@@ -35,18 +35,18 @@ AWS yoksa basit depolama hizmeti (S3 için) demetine bir oluşturmanız gerekir.
 
 Yapılandırdığınız Cloudyn tarafından kullanılmak üzere Azure depolama oldukça basittir. Depolama hesabı ayrıntılarını toplayın ve bunları Cloudyn portalında kopyalayın.
 
-1. http://portal.azure.com adresinden Azure portalında oturum açın.
+1. https://portal.azure.com adresinden Azure portalında oturum açın.
 2. Tıklayın **tüm hizmetleri**seçin **depolama hesapları**, ardından hesabını seçin ve istediğiniz depolama hesabına gidin.
 3. Depolama hesabı sayfanıza altında **ayarları**, tıklayın **erişim anahtarlarını**.
 4. Kopyalama, **depolama hesabı adı** ve **bağlantı dizesi** key1 altında.  
-![Azure depolama erişim anahtarlarını](./media/storage-accounts/azure-storage-access-keys.png)  
+![Depolama hesabı adı ve bağlantı dizesini kopyalayın](./media/storage-accounts/azure-storage-access-keys.png)  
 5. Cloudyn portalını Azure portalından açın veya https://azure.cloudyn.com sayfasına gidip oturum açın.
 6. Dişli simgesine tıklayın ve ardından **raporları Depolama Yönetimi**.
 7. Tıklayın **yeni Ekle +** ve Microsoft Azure'nın seçili olduğundan emin olun. Azure depolama hesabı adınızı yapıştırın **adı** alan. Yapıştırma, **bağlantı dizesi** karşılık gelen alandaki. Bir kapsayıcı adı girin ve ardından **Kaydet**.  
-![Azure için yapılandırılan Cloudyn depolama](./media/storage-accounts/azure-cloudyn-storage.png)
+![Azure depolama hesabı adı ve bağlantı yeni bir rapor depolama Kutusu Ekle dize yapıştırın](./media/storage-accounts/azure-cloudyn-storage.png)
 
   Yeni Azure rapor depolama giriş depolama hesabı listesinde görüntülenir.  
-    ![Listedeki yeni Azure rapor depolama](./media/storage-accounts/azure-storage-entry.png)
+    ![Yeni Azure rapor depolama giriş listesi](./media/storage-accounts/azure-storage-entry.png)
 
 
 Raporları, artık Azure depolama alanına kaydedebilirsiniz. Herhangi bir raporda tıklayın **eylemleri** seçip **rapor zamanla**. Rapor adı ve ardından kendi URL ekleyebilir veya otomatik olarak oluşturulan URL'yi kullanın. Seçin **depolamaya kaydetme** ve ardından depolama hesabını seçin. Raporu dosya adına eklenmiş bir ön eki girin. CSV veya JSON dosya biçimi seçin ve ardından raporu kaydedin.
@@ -67,7 +67,7 @@ Yeni bir ilke oluşturduğunuzda, bir rapor için bir S3 demetini kaydetmek içi
 4. Tıklayın **JSON** sekmesi.
 5. Aşağıdaki ilke bir rapor için bir S3 demetini kaydetmenize olanak tanır. Aşağıdaki ilke örneği kopyalayıp **JSON** sekmesi. Değiştirin &lt;bucketname&gt; demet adını.
 
-  ```
+  ```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -86,7 +86,7 @@ Yeni bir ilke oluşturduğunuzda, bir rapor için bir S3 demetini kaydetmek içi
 ```
 
 6. Tıklayın **incelemesi İlkesi**.  
-    ![İlkeyi gözden geçirme](./media/storage-accounts/aws-policy.png)  
+    ![AWS JSON İlkesi örnek bilgiler gösteriliyor](./media/storage-accounts/aws-policy.png)  
 7. İnceleme İlkesi sayfasında, ilke için bir ad yazın. Örneğin, _CloudynSaveReport2S3_.
 8. Tıklayın **ilkesi oluşturma**.
 
@@ -102,7 +102,7 @@ Yeni ilke eklemek için AWS konsolunu açın ve Cloudyn rolü ya da kullanıcı 
   1. Cloudyn rol adınızı tıklatın.
   2. Üzerinde **izinleri** sekmesinde **ekleme İlkesi**.
   3. Arama için oluşturduğunuz ilke ve onu seçin ve ardından tıklayın **ekleme İlkesi**.
-    ![AWS - bir rol için ilke ekleme](./media/storage-accounts/aws-attach-policy-role.png)
+    ![Cloudyn rolünüze bağlı örnek ilke](./media/storage-accounts/aws-attach-policy-role.png)
 
 **Kullanıcılar için:**
 
@@ -111,7 +111,7 @@ Yeni ilke eklemek için AWS konsolunu açın ve Cloudyn rolü ya da kullanıcı 
 3. İçinde **izni** bölümünden **mevcut ilkeleri doğrudan Ekle**.
 4. Arama için oluşturduğunuz ilke ve onu seçin ve ardından tıklayın **sonraki: gözden geçirme**.
 5. Rol adı sayfasına Ekle izinlerini tıklayın **izinleri eklemek**.  
-    ![AWS - bir kullanıcı için ilke ekleme](./media/storage-accounts/aws-attach-policy-user.png)
+    ![Cloudyn kullanıcı için bağlı örnek ilke](./media/storage-accounts/aws-attach-policy-user.png)
 
 
 ### <a name="optional-set-permission-with-bucket-policy"></a>İsteğe bağlı: demetine ilkesiyle izni ayarlayın
@@ -152,11 +152,11 @@ Bir demet İlkesi'ni kullanarak, S3 demetini üzerinde raporlar oluşturma izni 
 2. Dişli simgesine tıklayın ve ardından **raporları Depolama Yönetimi**.
 3. Tıklayın **yeni Ekle +** ve AWS seçili olduğundan emin olun.
 4. Bir hesabı ve depolama aralığı seçin. AWS depolama demet adını otomatik olarak doldurulmuş bileşenidir.  
-    ![AWS demet için rapor depolama ekleme](./media/storage-accounts/aws-cloudyn-storage.png)  
+    ![Örnek bilgiler, yeni bir rapor depolama Kutusu Ekle](./media/storage-accounts/aws-cloudyn-storage.png)  
 5. Tıklayın **Kaydet** ve ardından **Tamam**.
 
     Yeni AWS rapor depolama giriş depolama hesabı listesinde görüntülenir.  
-    ![Listedeki yeni AWS rapor depolama](./media/storage-accounts/aws-storage-entry.png)
+    ![Depolama giriş show depolama hesabı listesinde yeni AWS rapor](./media/storage-accounts/aws-storage-entry.png)
 
 
 Raporları, artık Azure depolama alanına kaydedebilirsiniz. Herhangi bir raporda tıklayın **eylemleri** seçip **rapor zamanla**. Rapor adı ve ardından kendi URL ekleyebilir veya otomatik olarak oluşturulan URL'yi kullanın. Seçin **depolamaya kaydetme** ve ardından depolama hesabını seçin. Raporu dosya adına eklenmiş bir ön eki girin. CSV veya JSON dosya biçimi seçin ve ardından raporu kaydedin.

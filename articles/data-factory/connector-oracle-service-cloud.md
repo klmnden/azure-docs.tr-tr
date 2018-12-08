@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a576b94881e114a97e58bf93515e372221da3346
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: b97b8e145e2a770a00c77eefc9ce6d323fd6222e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44096364"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101861"
 ---
 # <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-preview"></a>Oracle hizmet Azure Data Factory (Önizleme) kullanarak buluttaki veri kopyalama
 
@@ -80,7 +80,12 @@ Oracle hizmet bağlantılı bulut hizmeti için aşağıdaki özellikleri destek
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Oracle hizmet Bulutu veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Oracle hizmet Buluttan veri kopyalamak için dataset öğesinin type özelliği ayarlamak **OracleServiceCloudObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Oracle hizmet Buluttan veri kopyalamak için dataset öğesinin type özelliği ayarlamak **OracleServiceCloudObject**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **OracleServiceCloudObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -92,7 +97,8 @@ Oracle hizmet Buluttan veri kopyalamak için dataset öğesinin type özelliği 
         "linkedServiceName": {
             "referenceName": "<OracleServiceCloud linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 
@@ -109,7 +115,7 @@ Oracle hizmet Buluttan veri kopyalamak için kopyalama etkinliği için kaynak t
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **OracleServiceCloudSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: f63dcc73532426b07f792f631f934587fca08605
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 80389be735d337f72426f0745fee5717b96fa78a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129007"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100880"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak kareden veri kopyalama
 
@@ -78,7 +78,12 @@ Kare bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, kare veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Kareden veri kopyalamak için dataset öğesinin type özelliği ayarlamak **SquareObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Kareden veri kopyalamak için dataset öğesinin type özelliği ayarlamak **SquareObject**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **SquareObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -90,7 +95,8 @@ Kareden veri kopyalamak için dataset öğesinin type özelliği ayarlamak **Squ
         "linkedServiceName": {
             "referenceName": "<Square linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -99,14 +105,14 @@ Kareden veri kopyalamak için dataset öğesinin type özelliği ayarlamak **Squ
 
 Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, kare kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
-### <a name="squaresource-as-source"></a>Kaynak olarak SquareSource
+### <a name="square-as-source"></a>Kaynak olarak kare
 
 Kareden veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **SquareSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **SquareSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Business"`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Business"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

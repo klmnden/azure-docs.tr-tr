@@ -1,19 +1,19 @@
 ---
-title: 'Bir arada var olabilen ExpressRoute ve siteden siteye VPN bağlantıları yapılandırma: PowerShell: Azure | Microsoft Docs'
-description: Bu makalede, ExpressRoute ve PowerShell kullanarak Resource Manager modelinde bir arada var olabilen siteden siteye VPN bağlantısını nasıl yapılandıracağınız anlatılmaktadır.
+title: 'ExpressRoute ve siteden siteye VPN bağlantıları yapılandırma - bir arada: PowerShell: Azure | Microsoft Docs'
+description: ExpressRoute ve PowerShell kullanarak Resource Manager modelinde bir arada var olabilen siteden siteye VPN bağlantısı yapılandırın.
 services: expressroute
 author: charwen
-manager: rossort
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: charwen
-ms.openlocfilehash: 96e2eb85bc96075e0673359910522f8e35bf5a5c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 1aeb5ca447a3058962483b640f742e4a7ec4a414
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243820"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104042"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>PowerShell kullanarak ExpressRoute ve siteden siteye arada var olabilen bağlantılar yapılandırma
 > [!div class="op_single_selector"]
@@ -21,6 +21,9 @@ ms.locfileid: "51243820"
 > * [PowerShell - Klasik](expressroute-howto-coexist-classic.md)
 > 
 > 
+
+
+Bu makalede bir arada ExpressRoute ve siteden siteye VPN bağlantıları yapılandırmanıza yardımcı olur. Siteden Siteye VPN ve ExpressRoute yapılandırma yeteneğine sahip olmanın çeşitli avantajları vardır. ExpressRoute için güvenli bir yük devretme yolu olarak siteden siteye VPN yapılandırabilir veya ExpressRoute aracılığıyla bağlanmayan sitelere bağlanmak için siteden siteye VPN'ler kullanabilirsiniz. Bu makalede iki senaryo için de yapılandırma adımları verilmektedir. Bu tablo Resource Manager dağıtım modelleri için geçerlidir.
 
 Siteden Siteye VPN ve ExpressRoute eşzamanlı bağlantılarını yapılandırmanın çeşitli avantajları vardır:
 

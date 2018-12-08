@@ -1,26 +1,19 @@
 ---
-title: 'Azure ExpressRoute Microsoft eşdüzey hizmet sağlama için rota filtreleri yapılandırma: Portal | Microsoft Docs'
-description: Bu makalede Azure portalını kullanarak Microsoft Peering için rota filtreleri yapılandırma
-documentationcenter: na
+title: 'Microsoft eşlemesi için rota filtreleri yapılandırma: Azure ExpressRoute - Portal | Microsoft Docs'
+description: Bu makalede, Azure portalını kullanarak Microsoft eşlemesi için rota filtreleri yapılandırma açıklanır.
 services: expressroute
 author: ganesr
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 09/26/2018
 ms.author: ganesr
-ms.openlocfilehash: 1b9a0698125de165e003aaed727e7b4aed6d866a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 0515b5e85c3bcf56f1f238620d6036d1be0bec7e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955590"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104214"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Microsoft eşlemesi için rota filtreleri yapılandırma: Azure portalı
 > [!div class="op_single_selector"]

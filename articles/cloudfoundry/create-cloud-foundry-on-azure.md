@@ -1,6 +1,6 @@
 ---
-title: Azure’da Cloud Foundry oluşturma
-description: Azure'da Cloud Foundry PCF kümesi sağlamak için gerekli parametreleri ayarlamayı öğrenin
+title: Azure'da Pivotal Cloud Foundry küme oluşturma
+description: Azure'da Pivotal Cloud Foundry (PCF) küme sağlama için gereken parametreleri ayarlama hakkında bilgi edinin
 services: Cloud Foundry
 documentationcenter: CloudFoundry
 author: ruyakubu
@@ -14,76 +14,77 @@ ms.service: Cloud Foundry
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: a0a3379a8a2579080d9b686917395feec9cf8f3d
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: HT
+ms.openlocfilehash: 9514118e1f29faab937ed01899b5947789ca9735
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250673"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101407"
 ---
-# <a name="create-cloud-foundry-on-azure"></a>Azure’da Cloud Foundry oluşturma
+# <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Azure'da Pivotal Cloud Foundry küme oluşturma
 
-Bu öğreticide Azure'da Pivotal Cloud Foundry PCF kümesi sağlamak için gerekli parametreleri oluşturma adımları gösterilmektedir.  Pivotal Cloud Foundry çözümünü Azure [Market](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry) araması yaparak bulabilirsiniz.
+Bu öğretici, oluşturmak ve azure'da Pivotal Cloud Foundry (PCF) kümesi sağlamak için gereken parametreler oluşturmak için hızlı adımlar sağlar. Pivotal Cloud Foundry çözüm bulmak için Azure'da bir arama yapmasına [Market](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
 
-![Alternatif resim metni](media/deploy/pcf-marketplace.png "Azure'da Pivotal Cloud Foundry arama")
+![Azure'da Pivotal Cloud Foundry arama](media/deploy/pcf-marketplace.png)
 
 
 ## <a name="generate-an-ssh-public-key"></a>SSH ortak anahtarı oluşturma
 
-Windows, Mac veya Linux kullanarak ortak SSH anahtarı oluşturmanın birden fazla yöntemi vardır.
+Windows, Mac veya Linux'ı kullanarak bir genel güvenli Kabuk (SSH) anahtar oluşturmak için birkaç yolu vardır.
 
 ```Bash
 ssh-keygen -t rsa -b 2048
 ```
-- Ortamınıza özgü [yönergeler]( https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) için buraya tıklayın.
 
-## <a name="create-a-service-principal"></a>Hizmet Sorumlusu oluşturma
+Daha fazla bilgi için [azure'da Windows ile SSH anahtarlarını kullanma](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
+
+## <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma
 
 > [!NOTE]
 >
-> Hizmet sorumlusu oluşturmak için Sahip izinlerine sahip olmanız gerekir.  Ayrıca bir betik yazarak da Hizmet Sorumlusu oluşturma işlemlerini otomatikleştirebilirsiniz. Örneğin bunun için Azure CLI [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) cmdlet'ini kullanabilirsiniz.
+> Hizmet sorumlusu oluşturmak için sahip hesabı izni gerekir. Ayrıca, hizmet sorumlusu oluşturma otomatikleştirmek için bir betik yazabilirsiniz. Örneğin, Azure CLI'yı kullanabilirsiniz [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest).
 
 1. Azure hesabınızda oturum açın.
 
     `az login`
 
-    ![Alternatif resim metni](media/deploy/az-login-output.png "Azure CLI oturumu açma")
+    ![Azure CLI oturumu açma](media/deploy/az-login-output.png )
  
-    “id” değerini daha sonra kullanmak üzere **subscription ID** ve **tenantId** değeri olarak kopyalayın.
+    "ID" değeri olarak kopyalayın, **abonelik kimliği**ve daha sonra kullanmak üzere "Tenantıd" değerini kopyalayın.
 
 2. Bu yapılandırma için varsayılan aboneliğinizi ayarlayın.
 
     `az account set -s {id}`
 
-3. PCF örneğiniz için bir AAD uygulaması oluşturun ve benzersiz bir alfasayısal parola belirtin.  Parolayı daha sonra kullanmak üzere **clientSecret** olarak kaydedin.
+3. Bir Azure Active Directory uygulaması için PCF oluşturun. Benzersiz bir alfasayısal parola belirtin. Parola olarak Store, **clientSecret** daha sonra kullanmak üzere.
 
-    `az ad app create --display-name "Svc Prinicipal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
+    `az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
 
-    Çıktıdaki “appId” değerini daha sonra kullanmak üzere **ClientID** olarak kopyalayın.
+    Çıktı "AppID" değeri kopyalayın, **ClientID** daha sonra kullanmak üzere.
 
     > [!NOTE]
     >
-    > Uygulamanızın giriş sayfasını ve tanımlayıcı URI'sini seçin.  Örneğin: http://www.contoso.com.
+    > Örneğin, kendi uygulama giriş sayfası ve tanımlayıcı bir URI seçin http://www.contoso.com.
 
-4. Yeni “appId” değerinizle bir hizmet sorumlusu oluşturun.
+4. Yeni uygulama kimliğiniz ile hizmet sorumlusu oluşturma
 
     `az ad sp create --id {appId}`
 
-5. Hizmet sorumlunuzun izin rolünü **Katkıda bulunan** olarak belirleyin.
+5. Hizmet sorumlunuzu izni rolünü katkıda bulunan olarak ayarlayın.
 
     `az role assignment create --assignee “{enter-your-homepage}” --role “Contributor” `
 
-    İsterseniz şunu da kullanabilirsiniz…
+    Ya da kullanabilirsiniz
 
     `az role assignment create --assignee {service-princ-name} --role “Contributor” `
 
-    ![Alternatif resim metni](media/deploy/svc-princ.png "Hizmet Sorumlusu rol ataması")
+    ![Hizmet sorumlusu rol ataması](media/deploy/svc-princ.png )
 
-6. appId, password ve tenantId değerleriyle Hizmet Sorumlunuzda başarıyla oturum açabildiğinizi doğrulayın.
+6. Başarılı bir şekilde, hizmet sorumlusu uygulama kimliği, parola ve Kiracı kimliği kullanarak oturum açabildiğinizi doğrulayın
 
-    `az login --service-principal -u {appId} -p {your-passward}  --tenant {tenantId}`
+    `az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}`
 
-7. Yukarıda kopyaladığınız **subscription ID**, **tenantId**, **clientID** ve **clientSecret** değerlerini kullanarak aşağıdaki biçimde bir .json dosyası oluşturun.  Dosyayı kaydedin.
+7. Şu biçimde bir .json dosyası oluşturun. Kullanım **abonelik kimliği**, **Tenantıd**, **ClientID**, ve **clientSecret** daha önce kopyaladığınız değerleri. Dosyayı kaydedin.
 
     ```json
     {
@@ -94,37 +95,37 @@ ssh-keygen -t rsa -b 2048
     }
     ```
 
-## <a name="get-the-pivotal-network-token"></a>Pivotal Network Belirtecini alma
+## <a name="get-the-pivotal-network-token"></a>Pivotal ağ belirteci alma
 
-1. [Pivotal Network](https://network.pivotal.io) hesabı oluşturun veya oturum açın.
-2. Sayfanın sağ üst köşesinde profil adınıza tıklayın ve "Edit Profile" (Profili Düzenle) öğesini seçin.
-3. Sayfanın altına doğru inin ve **LEGACY API TOKEN** değerini kopyalayın.  Bu, daha sonra kullanacağınız **Pivotal Network Belirteci** değerinizdir.
+1. Kaydolun veya oturum açın, [Pivotal ağ](https://network.pivotal.io) hesabı.
+2. Sayfanın sağ üst köşesinde profil adınızı seçin. Seçin **profili Düzenle**.
+3. Ekranı en alta sayfasının ve kopyalama için **eski API BELİRTECİ** değeri. Bu değer, **Pivotal ağ belirteci** daha sonra kullandığınız değer.
 
-## <a name="provision-your-cloud-foundry-on-azure"></a>Azure'da Cloud Foundry ortamınızı sağlama
+## <a name="provision-your-cloud-foundry-cluster-on-azure"></a>Azure'da Cloud Foundry kümenizi sağlama
 
-1. Artık [Azure'da Pivotal Cloud Foundry](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry) kümenizi sağlamak için gerekli tüm parametrelere sahipsiniz.
-2. Parametreleri girin ve PCF kümenizi oluşturun.
+Sağlama için ihtiyacınız olan tüm parametreleri artık, [azure'da Pivotal Cloud Foundry kümesi](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
+Parametreler girin ve PCF kümenizi oluşturun.
 
-## <a name="verify-the-deployment-and-log-into-the-pivotal-ops-manager"></a>Dağıtımı doğrulama ve Pivotal Ops Manager oturumu açma
+## <a name="verify-the-deployment-and-sign-in-to-the-pivotal-ops-manager"></a>Dağıtımı doğrulama ve Pivotal Ops Manager için oturum açın
 
-1. PCF kümenizin dağıtım durumu gösterilmelidir.
+1. PCF kümenizi dağıtım durumunu gösterir.
 
-    ![Alternatif resim metni](media/deploy/deployment.png "Azure dağıtım durumu")
+    ![Azure dağıtım durumu](media/deploy/deployment.png )
 
-2. Sol taraftaki **Deployments** (Dağıtımlar) bağlantısına tıklayarak PCF Ops Manager kimlik bilgilerinizi alın ve bir sonraki sayfada **Deployment Name** (Dağıtım Adı) öğesine tıklayın.
-3. Soldaki gezinti bölmesinde **Outputs** (Çıktılar) bağlantısına tıklayarak PCF Ops Manager URL, Kullanıcı adı ve Parola değerlerini görüntüleyin.  “OPSMAN-FQDN” değeri URL'yi gösterir.
+2. Seçin **dağıtımları** , PCF Ops Manager için kimlik bilgilerini almak için sol taraftaki gezinti bağlantısı. Seçin **dağıtım adı** sonraki sayfada.
+3. Sol taraftaki gezinti bölmesinde **çıkışları** bağlantı URL'si, kullanıcı adı ve parola PCF Ops Manager görüntülenecek. URL "FQDN OPSMAN" değeridir.
  
-    ![Alternatif resim metni](media/deploy/deploy-outputs.png "Cloud Foundry dağıtımı çıktısı")
+    ![Cloud Foundry dağıtım çıkış](media/deploy/deploy-outputs.png )
  
-4. URL'yi bir web tarayıcısında başlatın ve bir önceki adımda aldığınız kimlik bilgilerini girerek oturum açın.
+4. URL, bir web tarayıcısında başlatın. Önceki adımdan oturum açmak için kimlik bilgilerini girin.
 
-    ![Alternatif resim metni](media/deploy/pivotal-login.png "Pivotal oturum açma sayfası")
+    ![Pivotal oturum açma sayfası](media/deploy/pivotal-login.png )
          
     > [!NOTE]
     >
-    > Internet Explorer sitenin güvenli olmadığı konusunda bir uyarı görüntülerse “Daha fazla bilgi”ye ve “Web sitesine ilerle"ye tıklayın.  Firefox'da Gelişmiş'e tıklayın ve devam etmek için sertifikayı ekleyin.
+    > Internet Explorer tarayıcı "Sitesi, güvenli olmayan" uyarı iletisi nedeniyle başarısız olursa seçin **daha fazla bilgi** ve Web sayfasına gidin. Firefox için seçin **öncelikli** ve devam etmek için bir sertifika ekleyin.
 
-5. PCF Ops Manager sayfasında dağıtılan Azure örnekleri görüntülenmelidir. Artık uygulamalarınızı burada dağıtıp yönetmeye başlayabilirsiniz!
+5. PCF Ops yöneticinize dağıtılan Azure örneklerinden görüntüler. Şimdi dağıtın ve buradan yönetin.
                
-    ![Alternatif resim metni](media/deploy/ops-mgr.png "Pivotal'a dağıtılan Azure örneği")
+    ![Dağıtılan Azure örneğidir, Pivotal](media/deploy/ops-mgr.png )
  

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8c8376fcdcc33996ecc9340647c92a3abcf262c7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6a2bbc75c3802d6eea86e6d552330adde4bdc5f4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129701"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101781"
 ---
 # <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Oracle Responsys Azure Data Factory (Önizleme) kullanarak verileri kopyalama
 
@@ -80,7 +80,12 @@ Oracle Responsys bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Oracle Responsys veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Oracle Responsys verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **ResponsysObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Oracle Responsys verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **ResponsysObject**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **ResponsysObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -92,7 +97,8 @@ Oracle Responsys verileri kopyalamak için dataset öğesinin type özelliği ay
         "linkedServiceName": {
             "referenceName": "<Oracle Responsys linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 
@@ -109,7 +115,7 @@ Oracle Responsys verileri kopyalamak için kopyalama etkinliği için kaynak tü
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **ResponsysSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

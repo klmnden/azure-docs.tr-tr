@@ -1,21 +1,22 @@
 ---
-title: LUIS önceden oluşturulmuş varlıklarla yaş başvuru - Azure | Microsoft Docs
+title: Önceden oluşturulmuş varlık geçerlilik süresi
 titleSuffix: Azure
 description: Bu makalede yaş içeren önceden oluşturulmuş varlık bilgilerini Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 63ff00c29548af2f26a2b7b5e5ac68b5397671ec
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 2965f9fcedba55536ef25469975679bffe27b4e9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441834"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102665"
 ---
 # <a name="age-entity"></a>Yaş varlığı
 Önceden oluşturulmuş yaş varlık, hem sayısal ve gün, hafta, ay ve yıl açısından yaş değeri yakalar. Bu varlık zaten eğitildi çünkü uygulama hedefleri için yaş içeren örnek Konuşma ekleme gerekmez. Yaş varlık içerisinde desteklendiği [çok kültür](luis-reference-prebuilt-entities.md). 
@@ -26,7 +27,7 @@ Yaş yönetilen [tanıyıcıları metin](https://github.com/Microsoft/Recognizer
 ## <a name="resolution-for-prebuilt-age-entity"></a>Önceden oluşturulmuş yaş varlık için çözümleme
 Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.age** varlık.
 
-```JSON
+```json
 {
   "query": "A 90 day old utilities bill is quite late.",
   "topScoringIntent": {

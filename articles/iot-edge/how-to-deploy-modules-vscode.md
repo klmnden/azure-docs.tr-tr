@@ -1,5 +1,5 @@
 ---
-title: Azure IOT Edge modüllerini (VS Code) dağıtma | Microsoft Docs
+title: Visual Studio Code - Azure IOT Edge modüllerini dağıtmak | Microsoft Docs
 description: Modüller IOT Edge cihazına dağıtmak için Visual Studio Code'u kullanma
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a7f0fc0c3169aadac78609830dda55ae1ec7ea46
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 212f103a356dc3663795a5e5453869c99da3fff9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567852"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100829"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Visual Studio code'dan Azure IOT Edge modüllerini dağıtmak
 
@@ -109,7 +110,7 @@ Visual Studio Code için Azure IOT uzantıları, IOT hub'ınıza işlemleri ger�
 
 2. Explorer alt kısmında, Genişlet **Azure IOT Hub cihazları** bölümü. 
 
-   ![Azure IOT Hub cihazları genişletin](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
+   ![Azure IOT Hub cihazları bölümü genişletin](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
 3. Tıklayarak **...**  içinde **Azure IOT Hub cihazları** bölüm başlığı. Üç nokta simgesini görmüyorsanız, üst bilgisinin üzerinde gezdirin. 
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory'de bir kullanıcının parolasını sıfırlama | Microsoft Docs
-description: Azure Active Directory'yi kullanarak bir kullanıcının parolasını sıfırlama konusunda bilgi edinin.
+title: Bir kullanıcının parola - Azure Active Directory sıfırlama | Microsoft Docs
+description: Azure Active Directory'yi kullanarak bir kullanıcının parolasını sıfırlama konusunda yönergeler.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,19 +12,22 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: 3803808ab589c3d880111421f650141f0d829f0b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: c8dd387104d52075425d881363dbcbaac700461a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736110"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103379"
 ---
-# <a name="how-to-reset-a-users-password-using-azure-active-directory"></a>Nasıl yapılır: Azure Active Directory'yi kullanarak bir kullanıcının parolasını sıfırlama
-Parola unutulursa kullanıcı dışında bir cihaz kilitli ya da kullanıcı hiç parola almadıysanız, bir kullanıcının parolasını sıfırlayabilirsiniz.
+# <a name="reset-a-users-password-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak bir kullanıcının parolasını sıfırlama
+Yönetici olarak, kullanıcı bir cihaz dışında kilitli, parolasını unutursa, ya da kullanıcı hiç parola almadıysanız, bir kullanıcının parolasını sıfırlayabilirsiniz.
 
 >[!Note]
 >Azure AD kiracınıza kullanıcı için giriş dizini olmadıkça mümkün olmayacaktır kullanarak parolalarını sıfırlayabilir. Bu, başka bir kuruluşa, bir Microsoft hesabı ya da bir Google hesabı bir hesap kullanarak kuruluşunuz için kullanıcı oturum açarsa, kullanıcının parolasını sıfırlamasını belirleyemeyeceğinizi anlamına gelir.<br><br>Kullanıcı bir Windows Server Active Directory olarak yetki kaynağı varsa, yalnızca üzerinde parola geri yazma özelliğini etkinleştirdiyseniz parolayı sıfırlamak mümkün olacaktır.<br><br>Bir kaynak olarak dış Azure AD yetkilisi kullanıcınız varsa parolayı sıfırlamak mümkün olmayacaktır. Yalnızca kullanıcı veya bir Yönetici Kılavuzu dış Azure AD'de, parolayı sıfırlayabilirsiniz.
+
+>[!Note]
+>Bir yönetici değilseniz ve bunun yerine kendi iş veya Okul parolanızı sıfırlamaya ilişkin yönergeler arıyorsanız bkz [iş veya Okul parolanızı sıfırlama](../user-help/active-directory-passwords-update-your-own-password.md).
 
 ## <a name="to-reset-a-password"></a>Parola sıfırlama
 
@@ -50,7 +53,7 @@ Kullanıcı parola sıfırlama sonra aşağıdaki temel işlemleri gerçekleşti
 
 - [Ekleme veya kullanıcıları Sil](add-users-azure-active-directory.md)
 
-- [Kullanıcılara roller atama](active-directory-users-assign-role-azure-portal.md)
+- [Kullanıcılara rol atama](active-directory-users-assign-role-azure-portal.md)
 
 - [Profil bilgileri ekleme veya değiştirme](active-directory-users-profile-azure-portal.md)
 

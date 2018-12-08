@@ -2,19 +2,19 @@
 title: Azure Stream Analytics kullanan IoT gerçek zamanlı veri akışları
 description: Akış analizi ve gerçek zamanlı veri işleme ile birlikte IoT algılayıcı etiketleri ve veri akışları
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 56243be40a4d47f315ff6599ff2d50c83e44afbc
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: b008fe128aa760197c34d8c14c4d3b92cbed2bd2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849556"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103175"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>IoT cihazlarından veri işlemek için Azure Stream Analytics'i kullanmaya başlama
 Bu öğreticide, Nesnelerin İnterneti (IoT) cihazlarından veri toplamak üzere akış işleme mantığı oluşturmayı öğreneceksiniz. Çözümünüzü hızlı ve ekonomik bir şekilde nasıl oluşturacağınızı göstermek için gerçek hayattaki bir Nesnelerin İnterneti (IoT) kullanım örneğinden yararlanacağız.
@@ -56,35 +56,35 @@ Kullanım kolaylığı için, bu başlangıç kılavuzunda gerçek algılayıcı
    > 
 4. Kutuyu işaretleyerek işinizi panonuza yerleştirin ve ardından **OLUŞTUR**’a tıklayın.
    
-    ![iş oluşturma sürüyor](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
+    ![Stream analytics işi oluşturma sürüyor](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
 5. Tarayıcı pencerenizin sağ üst köşesinde 'Dağıtım başladı...' yazısını görürsünüz. Bu pencere, kısa bir süre sonra aşağıda gösterildiği gibi tamamlandı penceresi olarak değişecektir.
    
-    ![iş oluşturma sürüyor](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
+    ![Stream analytics dağıtım başarılı](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
 ## <a name="create-an-azure-stream-analytics-query"></a>Azure Akış Analizi sorgusu oluşturma
 İşiniz oluşturulduktan sonra, işinizi açıp sorgu oluşturabilirsiniz. İlgili kutucuğa tıklayarak işinize kolayca erişebilirsiniz.
 
-![İş kutucuğu](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
+![Azure portalında Stream Analytics işi kutucuğu](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
 
 **İş Topolojisi** bölmesinde **SORGU** kutusuna tıklayarak Sorgu Düzenleyicisi'ne gidin. **SORGU** düzenleyicisi, gelen olay verilerinde dönüştürme işlemini gerçekleştiren bir T-SQL sorgusu girmenizi sağlar.
 
-![Sorgu kutusu](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
+![Stream Analytics Panosu sorgu kutucuğu](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
 ### <a name="query-archive-your-raw-data"></a>Sorgu: Ham verilerinizi arşivleme
 En basit sorgu biçimi, tüm giriş verilerini belirlenmiş çıkışlarına arşivleyen bir doğrudan sorgudur. Örnek veri dosyasını [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)'dan bilgisayarınızdaki bir konuma indirin. 
 
 1. PassThrough.txt dosyasından sorguyu yapıştırın. 
    
-    ![Giriş akışını test etme](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
+    ![Sorgu Stream Analytics sorgu düzenleyiciye yapıştırın.](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
 2. Girişinizin yanındaki üç noktaya tıklayın ve **Örnek verileri dosyadan karşıya yükle** kutusunu seçin.
    
-    ![Giriş akışını test etme](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06a.png)
+    ![Örnek verileri karşıya yükleme dosyası seçin](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06a.png)
 3. Sağda bir bölme açılır. Bu bölmede, indirdiğiniz konumdan HelloWorldASA InputStream.json veri dosyasını seçin ve bölmenin en altındaki **Tamam**’a tıklayın.
    
-    ![Giriş akışını test etme](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06b.png)
+    ![JSON örnek veri dosyasını karşıya yükle](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06b.png)
 4. Ardından pencerenin sol üst bölümündeki **Test** dişlisine tıklayın ve test sorgunuzu örnek veri kümesine göre işleyin. İşlem tamamlandığında sorgunuzun altında bir sonuç penceresi açılır.
    
-    ![Test sonuçları](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
+    ![Stream Analytics sorgu için test sonuçları](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
 ### <a name="query-filter-the-data-based-on-a-condition"></a>Sorgu: Verileri bir koşula göre filtreleme
 Sonuçları bir koşula göre filtrelemeyi deneyelim. Yalnızca "sensorA" gelen olaylar için sonuçları göstermek istiyoruz Sorgu, Filtering.txt dosyasında yer alır.

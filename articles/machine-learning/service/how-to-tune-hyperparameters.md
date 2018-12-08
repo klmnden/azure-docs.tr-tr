@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning kullanarak modeliniz için ayarlama hiperparametreleri
+title: İçin model ayarlama hiperparametreleri
+titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning hizmetini kullanarak derin öğrenme / makine öğrenimi modeliniz için hiperparametreleri verimli bir şekilde ayarlayın. Parametre arama alanı tanımlayın, iyileştirin ve hatalı çalıştırmalar gerçekleştirme erken sonlandırma için birincil bir ölçüm belirtin öğreneceksiniz.
 ms.author: swatig
 author: swatig007
@@ -9,14 +10,15 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: b722af6fd5dd29a5b7cef8581d27d421825fb323
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: da809aaaa1dd46c1232d0b032136833caaf0d2d0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868166"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100744"
 ---
-# <a name="tune-hyperparameters-for-your-model"></a>İçin model ayarlama hiperparametreleri
+# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modeliniz için ayarlama hiperparametreleri
 
 Azure Machine Learning hizmetini kullanarak modeliniz için hiperparametreleri verimli bir şekilde ayarlayın.  Hiper parametre ayarı, aşağıdaki adımları içerir:
 

@@ -1,23 +1,24 @@
 ---
-title: Azure ExpressRoute devresi yapılandırmak için iş akışları | Microsoft Docs
-description: Bu sayfada, ExpressRoute bağlantı hattı ve eşlemeleri yapılandırmak için iş akışlarını size
+title: 'Yapılandırma iş akışlarını - ExpressRoute bağlantı hattına: Azure | Microsoft Docs'
+description: Bu sayfada, ExpressRoute bağlantı hattı ve eşlemeleri yapılandırmak için iş akışlarını gösterilir.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 12/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 765050c9c21c7ba752535fc391cc9bb7d8ac4083
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.custom: seodec18
+ms.openlocfilehash: 3ffcc5ac2193e607573ceb93717258f5349d1f15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301047"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101696"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Devre sağlama ve devre durumları için ExpressRoute iş akışları
 Bu sayfa sağlama ve yüksek düzeyde yapılandırma iş akışlarını yönlendirme hizmeti size kılavuzluk eder.
 
-![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
+![bağlantı hattı iş akışı](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
 Aşağıdaki şekil ve ilgili adımlarda, sağlanan bir ExpressRoute devresi için izlemeniz gereken görevleri uçtan uca gösterilmektedir. 
 
@@ -35,7 +36,7 @@ Aşağıdaki şekil ve ilgili adımlarda, sağlanan bir ExpressRoute devresi iç
      > 
      > 
      
-     ![](./media/expressroute-workflows/routing-workflow.png)
+     ![Yönlendirme iş akışları](./media/expressroute-workflows/routing-workflow.png)
 5. Sanal ağları bağlama ExpressRoute devresine - sanal ağları ExpressRoute bağlantı hattına bağlayabilirsiniz. Yönergeleri izleyerek [sanal ağları bağlamak için](expressroute-howto-linkvnet-arm.md) bağlantı hattınız için. Bu sanal ağlar aynı abonelikte Azure ExpressRoute bağlantı hattı olabilir veya farklı bir abonelikte olabilir.
 
 ## <a name="expressroute-circuit-provisioning-states"></a>ExpressRoute bağlantı hattı sağlama durumları

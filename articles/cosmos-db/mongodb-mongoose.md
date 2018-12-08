@@ -1,25 +1,24 @@
 ---
-title: Azure Cosmos DB ile Mongoose çerçevesini kullanma | Microsoft Docs
+title: Azure Cosmos DB ile Mongoose çerçevesini kullanma
 description: Node.js Mongoose uygulamasını Azure Cosmos DB’ye bağlama hakkında bilgi edinin
 services: cosmos-db
 author: slyons
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: sclyon
-ms.openlocfilehash: 8cfa53a1792d8e01c05aad8e4a1a0b5239a092c1
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 6f84dfac7b556e59ec3ad76ff7d2c6e5f5105293
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857420"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101441"
 ---
 # <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB: Azure Cosmos DB ile Mongoose çerçevesini kullanma
 
-Bu öğreticide, veriler Azure Cosmos DB'de depolanırken [Mongoose Çerçevesi](http://mongoosejs.com/)'nin nasıl kullanılacağı gösterilir. Bu kılavuzda Azure Cosmos DB için MongoDB API'sini kullanıyoruz. Henüz tanımayanlar için, Mongoose MongoDB için Node.js'de bir nesne modelleme çerçevesidir ve uygulama verilerinizi modellemeniz için rahat, şema tabanlı bir çözüm sağlar.
+Bu öğreticide, veriler Azure Cosmos DB'de depolanırken [Mongoose Çerçevesi](https://mongoosejs.com/)'nin nasıl kullanılacağı gösterilir. Bu kılavuzda Azure Cosmos DB için MongoDB API'sini kullanıyoruz. Henüz tanımayanlar için, Mongoose MongoDB için Node.js'de bir nesne modelleme çerçevesidir ve uygulama verilerinizi modellemeniz için rahat, şema tabanlı bir çözüm sağlar.
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz.
 
@@ -96,7 +95,7 @@ Oluşturduğunuz her model için, Mongoose aslında arka planda yeni bir MongoDB
 
 Bu yönergeler her iki modeli de kapsar. Önce koleksiyon başına tek veri türünü depolama yönergelerini vereceğiz. Mongoose'un genel davranışı budur.
 
-Mongoose'da ayrıca [Ayırıcı](http://mongoosejs.com/docs/discriminators.html) (Discriminator) adlı bir kavram vardır. Ayırıcılar bir şema devralma mekanizmasıdır. Bunlar aynı temel MongoDB koleksiyonu üzerinde örtüşen şemalar içeren birden çok modelinizin olmasına olanak tanır.
+Mongoose'da ayrıca [Ayırıcı](https://mongoosejs.com/docs/discriminators.html) (Discriminator) adlı bir kavram vardır. Ayırıcılar bir şema devralma mekanizmasıdır. Bunlar aynı temel MongoDB koleksiyonu üzerinde örtüşen şemalar içeren birden çok modelinizin olmasına olanak tanır.
 
 Çeşitli veri modellerini aynı koleksiyonda depolayabilir ve ardından sorgu zamanında bir filtre yan tümcesi kullanarak yalnızca gerekli verileri aşağı çekebilirsiniz.
 
@@ -196,7 +195,7 @@ Varsayılan Mongoose davranışı, her Nesne modeli oluşturduğunuzda bir Mongo
 
 ### <a name="using-mongoose-discriminators-to-store-data-in-a-single-collection"></a>Mongoose ayırıcılarını kullanarak verileri tek koleksiyonda depolama
 
-Bu yöntemde, her Azure Cosmos DB koleksiyonunun maliyetini iyileştirmemize yardımcı olması için [Mongoose Ayırıcıları](http://mongoosejs.com/docs/discriminators.html) kullanırız. Ayırıcılar, farklı nesne modellerinde depolama, ayırt etme ve filtreleme işlemleri yapmanıza olanak tanıyan ayırt edici bir 'Key' (Anahtar) tanımlamanızı sağlar.
+Bu yöntemde, her Azure Cosmos DB koleksiyonunun maliyetini iyileştirmemize yardımcı olması için [Mongoose Ayırıcıları](https://mongoosejs.com/docs/discriminators.html) kullanırız. Ayırıcılar, farklı nesne modellerinde depolama, ayırt etme ve filtreleme işlemleri yapmanıza olanak tanıyan ayırt edici bir 'Key' (Anahtar) tanımlamanızı sağlar.
 
 Burada temel bir nesne modeli oluşturuyor, ayırt edici anahtar tanımlıyor ve temel modele 'Family' ile 'VacationDestinations' nesneleri uzantı olarak ekliyoruz.
 

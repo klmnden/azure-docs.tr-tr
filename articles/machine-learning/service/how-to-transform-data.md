@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning veri hazırlığı SDK - Python ile verileri dönüştürün
+title: Dönüştürme ve veri hazırlığı Python SDK'sı ile veri hazırlama
+titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning veri hazırlığı SDK'sı ile verileri temizleme ve dönüştürme hakkında bilgi edinin. Sütun ekleme, istenmeyen satırları veya sütunları filtrelemek ve eksik değerleri impute dönüştürme yöntemleri kullanın.
 services: machine-learning
 ms.service: machine-learning
@@ -9,13 +10,14 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 09/24/2018
-ms.openlocfilehash: 988301f24f710a3e29fad1254d405501166e8a4e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: c734605cd67fcd2490aef0ddc6732dad112424b7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309802"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101798"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning veri hazırlığı SDK'sı ile verileri dönüştürün
 
@@ -216,16 +218,16 @@ builder.preview(skip=30)
 
 ||DATE|date_timerange|
 |-----|-----|-----|
-|30|11/1/2015 22:54|1 Ocak 2015 10 PM - 12: 00|
-|31|11/1/2015 23:54|1 Ocak 2015 10 PM - 12: 00|
-|32|11/1/2015 23:59|1 Ocak 2015 10 PM - 12: 00|
-|33|11/2/2015 0:54|1 Şubat 2015 12: 00 - 02: 00|
-|34|2/11/2015 1:00|1 Şubat 2015 12: 00 - 02: 00|
-|35|2/11/2015 1:54|1 Şubat 2015 12: 00 - 02: 00|
-|36|2/11/2015 2:54|1 Şubat 2015 02: 00 - 04: 00|
-|37|2/11/2015 3:54|1 Şubat 2015 02: 00 - 04: 00|
-|38|2/11/2015 4:00|1 Şubat 2015'te 4-6'da|
-|39|2/11/2015 4:54|1 Şubat 2015'te 4-6'da|
+|30|1/1/2015 22:54|1 Ocak 2015 10 PM - 12: 00|
+|31|1/1/2015 23:54|1 Ocak 2015 10 PM - 12: 00|
+|32|1/1/2015 23:59|1 Ocak 2015 10 PM - 12: 00|
+|33|1/2/2015 0:54|1 Şubat 2015 12: 00 - 02: 00|
+|34|1/2/2015 1:00|1 Şubat 2015 12: 00 - 02: 00|
+|35|1/2/2015 1:54|1 Şubat 2015 12: 00 - 02: 00|
+|36|1/2/2015 2:54|1 Şubat 2015 02: 00 - 04: 00|
+|37|1/2/2015 3:54|1 Şubat 2015 02: 00 - 04: 00|
+|38|1/2/2015 4:00|1 Şubat 2015'te 4-6'da|
+|39|1/2/2015 4:54|1 Şubat 2015'te 4-6'da|
 
 Burada oluşturulan program ile ilgili bir sorun görürsünüz. Yalnızca yukarıda sağlanan bir örneğe bağlı olarak, bu durumda istediklerinizi değil olduğu "Gün/ay/yıl" olarak bir tarihi ayrıştırmak türet program seçtiniz. Bu sorunu gidermek için başka bir örnek kullanarak sağlamak `add_example()` işlevini `builder` değişkeni.
 
@@ -349,7 +351,7 @@ dataflow.head(5)
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Store_and_fwd_flag|RateCodeID|Pickup_longitude|Pickup_latitude|Dropoff_longitude|Dropoff_latitude|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-|0|None|None|None|None|None|None|None|None|None|None|None|None|None|
+|0|None|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|None|
 |1|2013-08-01 08:14:37|2013-08-01 09:09:06|N|1|0|0|0|0|1|.00|0|0|21,25|
 |2|2013-08-01 09:13:00|2013-08-01 11:38:00|N|1|0|0|0|0|2|.00|0|0|75|
 |3|2013-08-01 09:48:00|2013-08-01 09:49:00|N|5|0|0|0|0|1|.00|0|1|2.1|
@@ -370,7 +372,7 @@ dataflow.head(5)
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Pickup_longitude|Pickup_latitude|Dropoff_longitude|Dropoff_latitude|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-|0|None|None|None|None|None|None|None|None|None|None|None|
+|0|None|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|None|
 |1|2013-08-01 08:14:37|2013-08-01 09:09:06|0|0|0|0|1|.00|0|0|21,25|
 |2|2013-08-01 09:13:00|2013-08-01 11:38:00|0|0|0|0|2|.00|0|0|75|
 |3|2013-08-01 09:48:00|2013-08-01 09:49:00|0|0|0|0|1|.00|0|1|2.1|
@@ -387,7 +389,7 @@ dataflow.head(5)
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|
-|0|None|None|None|None|None|None|None|
+|0|None|Yok.|Yok.|Yok.|Yok.|Yok.|None|
 |1|2013-08-01 08:14:37|2013-08-01 09:09:06|1|.00|0|0|21,25|
 |2|2013-08-01 09:13:00|2013-08-01 11:38:00|2|.00|0|0|75|
 |3|2013-08-01 09:48:00|2013-08-01 09:49:00|1|.00|0|1|2.1|

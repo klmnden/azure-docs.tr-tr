@@ -1,6 +1,6 @@
 ---
-title: Python kullanarak Azure Event Hubs için olayları gönderme | Microsoft Docs
-description: Python kullanarak Event Hubs'a olay göndermeye başlama
+title: Python - Azure Event Hubs kullanarak olayları gönderme | Microsoft Docs
+description: Bu makale, Azure Event Hubs'a olayları gönderen bir Node.js uygulaması oluşturmak için bir kılavuz sağlar.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: shvija
-ms.openlocfilehash: 41d0c8daedeb73ceffc9f4890d1e805e199bc2a3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b7adf3976f5f7e028ffa9ffeb13db22d3d4bba8e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956900"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102988"
 ---
 # <a name="send-events-to-event-hubs-using-python"></a>Python kullanarak Event Hubs için olayları gönderme
 

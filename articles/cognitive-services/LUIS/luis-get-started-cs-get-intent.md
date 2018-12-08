@@ -1,7 +1,7 @@
 ---
-title: 'Hızlı Başlangıç: hedefi yararlanın-C#'
+title: Hedefi Al,C#
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Bu hızlı başlangıçta, kullanılabilir genel bir LUIS uygulamasını kullanarak konuşma metninden bir kullanıcının amacını belirleyin. C# kullanarak kullanıcının amacını genel uygulamanın HTTP tahmin uç noktasına metin olarak gönderin. Uç noktada, LUIS genel uygulamanın modelini uygulayarak anlam oluşturmak için doğal dil metnini analiz eder, böylece genel amacı belirler ve uygulamanın konu etki alanıyla ilgili verileri ayıklar.
+description: Bu C# hızlı başlangıç, bir kullanıcının engellemekse damıtarak konuşma bağlamında kullanılabilen metinden belirlemek için kullanılabilir bir genel LUIS uygulaması kullanın.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c498554bea0722f81d5dd52d77c0bc88d16e2332
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 22b2faa91be9b4a2504bff542deb559d33b9fa4f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015074"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101050"
 ---
 # <a name="quickstart-get-intent-using-c"></a>Hızlı Başlangıç: C# kullanarak amacı alma
 

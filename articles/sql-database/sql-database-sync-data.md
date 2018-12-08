@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: 78984cf9f73fd0cdd6e28e20e1d54d5b1198b7be
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 6963bb44e6377bcfbb2cb647f1508f075b4268be
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687495"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101864"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL Data Sync ile birden fazla Bulut ve şirket içi veritabanı arasında veri eşitleme
 
@@ -69,7 +69,7 @@ Veri eşitleme, aşağıdaki senaryolar için tercih edilen bir çözüm değil:
 
 ## <a name="how-does-data-sync-work"></a>Veri Eşitleme nasıl çalışır? 
 
--   **Veri değişikliklerini izleme:** tetikleyicilerini Sil Data Sync INSERT kullanarak değişiklikleri izler ve güncelleştirin. Bir kullanıcı veritabanındaki bir yan tablodaki değişiklikler kaydedilir.
+-   **Veri değişikliklerini izleme:** tetikleyicilerini Sil Data Sync INSERT kullanarak değişiklikleri izler ve güncelleştirin. Bir kullanıcı veritabanındaki bir yan tablodaki değişiklikler kaydedilir. TOPLU ekleme Tetikleyicileri varsayılan olarak başlatılmıyor olduğunu unutmayın. Fıre_trıggers belirtilmezse hiçbir INSERT tetikleyicisi yürütün. Böylece Data Sync'i Bu eklemeleri izleyebilirsiniz fıre_trıggers seçeneğini ekleyin. 
 
 -   **Veri eşitleme:** veri eşitleme, bir Hub ve bağlı bileşen modeli tasarlanmıştır. Hub'ı ayrı ayrı her bir üyeyi eşitler. Üye değişiklikleri Hub'ından indirilir ve hub'a üye değişikliklerden sonra yüklenir.
 

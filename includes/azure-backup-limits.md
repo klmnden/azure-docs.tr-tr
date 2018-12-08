@@ -2,30 +2,29 @@
 title: include dosyası
 description: include dosyası
 services: backup
-author: markgalioto
+author: rayne-wiselman
 ms.service: backup
 ms.topic: include
-ms.date: 9/10/2018
-ms.author: trinadhk;sogup
+ms.date: 12/07/2018
+ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 64101ea5a3bbaac4a6b2e349a04d06ea84a87081
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 63922eb623576379058c9a8a367d6e52249115f2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381109"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53109102"
 ---
 Azure Backup için aşağıdaki sınırlar geçerlidir.
 
-| Sınır tanımlayıcı | Varsayılan Sınır |
+| **Sınırı** | **Varsayılan** |
 | --- | --- |
-| Her kasaya yönelik olarak kaydedilebilen sunucu/makine sayısı |Windows Server/istemci/SCDPM için 50 <br/> Iaas Vm'leri için 1000 |
-| Kasa Azure Depolama'da depolanan veriler için bir veri kaynağı boyutu |54400 GB maksimum<sup>1</sup> |
-| Her bir Azure aboneliği için oluşturulan yedekleme kasalarının sayısı |Bölge başına 500 kurtarma Hizmetleri kasası |
-| Günlük yedekleme zamanlanabilir sayısı |Windows Server/istemcisi için günde 3 <br/> SCDPM için günde 2 <br/> Iaas VM'ler için günde bir kez |
-| Bir Azure sanal makinesine bağlı veri diskleri |16 |
-| Bir Azure sanal makinesine bağlı tek tek veri disk boyutu| 4095 GB|
+| Bir kasaya kayıtlı sunucu/makine | Windows Server/Windows istemci/System Center DPM: 50 <br/><br/> Iaas Vm'leri: 1000  |
+| Kasa depolama alanındaki bir veri kaynağı boyutu |Maksimum 54400 GB. Iaas VM yedekleme için sınır uygulanmaz |
+| Bir Azure aboneliğinde yedekleme kasaları |Bölge başına 500 kasa |
+| Günlük yedekleme zamanlama |Windows Server/Client: 3 gün<br/> System Center DPM: 2 gün <br/> Iaas Vm'leri: Günde bir kez  |
+| Bir Azure VM yedeklemesi için bağlı veri diskleri | 32 |
+| Azure yedekleme için VM'ye tek bir veri diski| 4095 GB|
 
-* <sup>1</sup>54400 GB sınırına Iaas VM yedekleme için geçerli değildir.
- 
+
 

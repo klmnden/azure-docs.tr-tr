@@ -1,23 +1,24 @@
 ---
-title: Application Insights verilerini C# kullanarak luıs'den
+title: Application ınsights'ı kullanmaC#
 titleSuffix: Azure Cognitive Services
 description: LUIS uygulama ve C# kullanarak Application Insights ile tümleşik bir bot oluşturun.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: c7f12352355b12cf1a7363a2a82fa786248cdc6f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: fb7ce154985db97dba2a36b4b0d834cada1605d9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965300"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101067"
 ---
-# <a name="add-luis-results-to-application-insights"></a>LUIS sonuçları Application Insights'a Ekle
+# <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>Application Insights içinde bir Bot ile LUIS sonuçları ekleyinC#
 
 Bu öğreticide LUIS yanıt bilgileri ekler [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri veri depolama. Bu verileri aldıktan sonra bunu Kusto dil veya çözümlemek, toplama, Power BI ile sorgulayabilirsiniz ve hedefleri ve gerçek zamanlı utterance varlıklarının rapor. Bu analiz, eklediğinizde veya amaç ve varlıkları LUIS uygulamanızı düzenlemek, belirlemenize yardımcı olur.
 
@@ -174,7 +175,7 @@ Azure portalında web app botu bulun ve açın. Web app botu üç farklı görü
 
 3. Konsol penceresinde aşağıdaki komutu girin:
 
-    ```
+    ```console
     cd site\wwwroot && build.cmd
     ```
 
@@ -190,11 +191,12 @@ Azure portalında web app botu bulun ve açın. Web app botu üç farklı görü
 
 3. Fark sohbet botu yanıt görmeniz gerekir. Değişikliği veri Application Insights için robot değil yanıtları gönderiyor. Application Insights'ta biraz daha fazla veri için birkaç daha fazla konuşma girin:
 
-```
-Please deliver a pizza
-Turn off all the lights
-Turn on the hall light
-```
+|Konuşmalar|
+|--|
+|Lütfen bir pizza sunun|
+|Tüm ışıkları Aç|
+|Hall ışığını Aç|
+
 
 ## <a name="view-luis-entries-in-application-insights"></a>Application ınsights'ta görünümü LUIS girişleri
 
@@ -231,7 +233,7 @@ Application Insights ile verileri sorgulamak için power size [Kusto](https://do
 
 3. Üst amacı, Puanlama ve utterance çıkarmak için sorgu penceresinde aşağıdaki son satırının hemen üstüne ekleyin:
 
-    ```SQL
+    ```kusto
     | extend topIntent = tostring(customDimensions.LUIS_topScoringIntent)
     | extend score = todouble(customDimensions.LUIS_topScoringIntentScore)
     | extend utterance = tostring(customDimensions.LUIS_query)

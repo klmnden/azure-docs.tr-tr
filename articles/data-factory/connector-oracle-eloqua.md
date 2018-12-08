@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 56160b8db3bad5ebd04fc30442833d36f1633ed1
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a8bb5e7ca71a24f36b102938668d57bdccd0b0b8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123530"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101815"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Oracle Eloqua, Azure Data Factory (Önizleme) kullanarak verileri kopyalama
 
@@ -76,7 +76,12 @@ Aşağıdaki özellikler, Oracle Eloqua bağlı hizmeti için desteklenir:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Oracle Eloqua veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Oracle Eloqua verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **EloquaObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Oracle Eloqua verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **EloquaObject**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **EloquaObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -88,7 +93,8 @@ Oracle Eloqua verileri kopyalamak için dataset öğesinin type özelliği ayarl
         "linkedServiceName": {
             "referenceName": "<Eloqua linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -97,14 +103,14 @@ Oracle Eloqua verileri kopyalamak için dataset öğesinin type özelliği ayarl
 
 Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, Oracle Eloqua kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
-### <a name="eloquasource-as-source"></a>Kaynak olarak EloquaSource
+### <a name="eloqua-as-source"></a>Kaynak olarak Eloqua
 
 Oracle Eloqua verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **EloquaSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **EloquaSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Accounts"`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Accounts"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

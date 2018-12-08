@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs kimlik doğrulama ve güvenlik modeline genel bakış | Microsoft Docs
-description: Event Hubs kimlik doğrulama ve güvenlik modeline genel bakış.
+title: Kimlik doğrulama ve güvenlik modeli - Azure Event Hubs | Microsoft Docs
+description: Bu makalede, Azure Event Hubs'ın kimlik doğrulama ve güvenlik modeli açıklanır.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 0e8dcf9eede744d52e38b742946a59944988f199
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 6f4abd9f826864914abee0b5d513d5b1c530d416
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42058304"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104161"
 ---
-# <a name="event-hubs-authentication-and-security-model-overview"></a>Event Hubs kimlik doğrulama ve güvenlik modeline genel bakış
+# <a name="azure-event-hubs---authentication-and-security-model"></a>Azure Event Hubs - kimlik doğrulaması ve güvenlik modeli
 
 Azure Event Hubs güvenlik modeli, aşağıdaki gereksinimleri karşılar:
 

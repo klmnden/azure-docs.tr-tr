@@ -1,21 +1,22 @@
 ---
-title: 'Eğitmen 2: Toplu test kümesiyle 1000 konuşma '
+title: Toplu test
 titleSuffix: Azure Cognitive Services
 description: Bu öğreticide, batch test utterance tahmin sorunları uygulamanızı bulun ve bunları düzeltmek için nasıl kullanılacağı gösterilmektedir.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: e5155caa26669cd98b679eec611334ee5c048fca
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 06981972dbdb95b8597bab5028c2d86e0594caf3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162550"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106048"
 ---
 # <a name="tutorial-2-batch-test-data-sets"></a>Eğitmen 2: Toplu test veri kümesi
 
@@ -31,7 +32,7 @@ Toplu test etmek için gereksinimler:
 
 Bu öğreticinin dışında bir uygulama kullanırken, yapmak *değil* zaten bir amaç için eklenen örnek konuşma kullanın. 
 
-**Bu öğreticide, şunların nasıl yapılır:**
+**Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -44,19 +45,19 @@ Bu öğreticinin dışında bir uygulama kullanırken, yapmak *değil* zaten bir
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Var olan bir uygulama kullanma
+## <a name="use-existing-app"></a>Mevcut uygulamayı kullanma
 
-Adlı son öğreticisinde oluşturulan uygulama devam **İnsanKaynakları**. 
+Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
 
-Önceki öğreticide İnsanKaynakları uygulamadan yoksa aşağıdaki adımları kullanın:
+Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
 
-1.  İndirip kaydedin [uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
+1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json) indirip kaydedin.
 
-2. JSON, yeni bir uygulamaya aktarma.
+2. JSON'ı yeni bir uygulamaya içeri aktarın.
 
-3. Gelen **Yönet** üzerinde bölümünde **sürümleri** sekmesinde sürüm kopyalayın ve adlandırın `batchtest`. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rota bir parçası olarak kullanıldığından, adın bir URL geçerli olmayan karakterler içeremez. 
+3. **Yönet** bölümünde **Sürümler** sekmesinde sürümü kopyalayın ve `batchtest` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan herhangi bir karakter içeremez. 
 
-4. Uygulama eğitin.
+4. Uygulamayı eğitin.
 
 ## <a name="batch-file"></a>Toplu iş dosyası
 

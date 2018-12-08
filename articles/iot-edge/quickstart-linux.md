@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge için Hızlı Başlangıç + Linux | Microsoft Docs
-description: Bu hızlı başlangıçta, önceden derlenmiş kodu uzaktan bir IoT Edge cihazına dağıtmayı öğrenin.
+title: Hızlı Başlangıç, Linux üzerinde Azure IOT Edge cihazı oluşturma | Microsoft Docs
+description: Bu hızlı başlangıçta bir IOT Edge cihazı oluşturma ve ardından önceden oluşturulmuş kod Azure Portalı'ndan uzaktan dağıtma öğrenin.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,13 +8,13 @@ ms.date: 10/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 4e53d0d492213373794821e14d4c08ec9db2ad5c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 84db7284f96dda6e2b9ebd698f9da2c822c2539a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495451"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100914"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Hızlı Başlangıç: Bir Linux x64 cihazına ilk IoT Edge modülünüzü dağıtma
 
@@ -27,7 +27,7 @@ Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
 3. IoT Edge çalışma zamanını cihazınıza yükleme ve başlatma.
 4. Bir IoT Edge cihazına uzaktan modül dağıtma.
 
-![Hızlı başlangıç mimarisi](./media/quickstart-linux/install-edge-full.png)
+![Diyagram - cihaz ve buluta yönelik hızlı başlangıç mimarisi](./media/quickstart-linux/install-edge-full.png)
 
 Bu hızlı başlangıç, Linux bilgisayarınızı veya sanal makinenizi bir IoT Edge cihazına dönüştürür. Bu işlemin ardından Azure portalından cihazınıza bir modül dağıtabilirsiniz. Bu hızlı başlangıçta oluşturduğunuz modül; sıcaklık, nem ve basınç verileri üreten bir sensör simülasyonudur. Diğer Azure IoT Edge öğreticileri, burada iş içgörüsü için simülasyon verilerini analiz eden modüller dağıtarak yaptığınız çalışmayı temel alır.
 
@@ -67,7 +67,7 @@ IoT Edge cihazı:
 
 Hızlı başlangıç adımlarına başlamak için Azure CLI ile IoT hub'ınızı oluşturun.
 
-![IoT Hub oluşturun](./media/quickstart-linux/create-iot-hub.png)
+![Diyagram - bulutta IOT hub'ı oluşturma](./media/quickstart-linux/create-iot-hub.png)
 
 IoT Hub’ın ücretsiz düzeyi bu hızlı başlangıç için kullanılabilir. IoT Hub'ı daha önce kullandıysanız ve oluşturulmuş ücretsiz hub'ınız varsa bu IoT hub'ını kullanabilirsiniz. Her aboneliğin yalnızca bir ücretsiz IoT hub’ı olabilir. 
 
@@ -82,7 +82,7 @@ Aşağıdaki kod, **IoTEdgeResources** kaynak grubunda ücretsiz bir **F1** hub�
 ## <a name="register-an-iot-edge-device"></a>IoT Edge cihazı kaydetme
 
 Yeni oluşturulan IoT hub'ına bir IoT Edge cihazı kaydedin.
-![Cihaz kaydetme](./media/quickstart-linux/register-device.png)
+![Diyagram: bir IOT hub'ı kimlik ile bir cihaz kaydı](./media/quickstart-linux/register-device.png)
 
 IoT hub'ınızla iletişim kurabilmesi amacıyla simülasyon cihazınız için bir cihaz kimliği oluşturun. Cihaz kimliği bulutta kalır ve fiziksel cihazla cihaz kimliği arasında bağlantı kurmak için benzersiz bir bağlantı dizesi kullanılır. 
 
@@ -107,7 +107,7 @@ IOT Edge cihazları sınıflardır ve tipik bir IOT cihazlarında farklı yönet
 ## <a name="install-and-start-the-iot-edge-runtime"></a>IoT Edge çalışma zamanını yükleme ve başlatma
 
 Azure IoT Edge çalışma zamanını IoT Edge cihazınıza yükleyin ve başlatın. 
-![Cihaz kaydetme](./media/quickstart-linux/start-runtime.png)
+![Diyagram - cihazda çalışma zamanını başlatma](./media/quickstart-linux/start-runtime.png)
 
 IoT Edge çalışma zamanı tüm IoT Edge cihazlarına dağıtılır. Üç bileşeni vardır. **IoT Edge güvenlik daemon'u** bir Edge cihazı her başladığında çalışır ve IoT Edge aracısını çalıştırarak cihazı önyükler. **IoT Edge aracısı**, IoT Edge hub'ı dahil olmak üzere IoT Edge cihazındaki modüllerin dağıtımını ve izlenmesini kolaylaştırır. **IoT Edge hub'ı** IoT Edge cihazındaki modüller ve cihaz ile IoT Hub'ı arasındaki iletişimi yönetir. 
 
@@ -228,7 +228,7 @@ IoT Edge cihazınız yapılandırıldı. Bulutta dağıtılan modülleri çalı�
 ## <a name="deploy-a-module"></a>Modül dağıtma
 
 Azure IoT Edge cihazınızı, IoT Hub'ına telemetri verileri gönderecek bir modül dağıtmak için buluttan yönetin.
-![Cihaz kaydetme](./media/quickstart-linux/deploy-module.png)
+![Diyagram - modülü buluttan cihaza dağıtın](./media/quickstart-linux/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 

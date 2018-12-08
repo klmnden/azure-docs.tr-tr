@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: 50a46b37be3115b92a3f8bc7cf426c8c7df78ce9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 10a8d434df376749b76e2cf90212d872f705b209
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994125"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103430"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Maliyet Yönetimi raporlarını anlama Cloudyn
 
@@ -25,7 +25,7 @@ Bu makalede, Cloudyn maliyet yönetim raporları temel yapısını ve işlevleri
 
 Zaman içinde Maliyet raporu örneği göz aşağıda verilmiştir. Çoğu Cloudyn raporlarında benzer bir düzeni vardır.
 
-![Örnek rapor](./media/understanding-cost-reports/sample-report.png)
+![Zaman içinde Maliyet raporu açıklamaları için karşılık gelen numaralı alanları örneği](./media/understanding-cost-reports/sample-report.png)
 
 Bir önceki resimde her numaralı alan aşağıdaki bilgileri ayrıntılı açıklanmıştır:
 
@@ -47,11 +47,11 @@ Bir önceki resimde her numaralı alan aşağıdaki bilgileri ayrıntılı açı
 
     Grup etiketlerini alana etiketi kategorilere göre kullanın. Menüde listelenen etiketler Azure kullanımında bölümünüzün veya maliyet merkezi etiketleri veya Cloudyn'ın maliyet varlığı ve abonelik etiketler. Sonuçları filtrelemek için etiketler seçin. Sonuçları filtrelemek için bir etiket adı (anahtar) de yazabilirsiniz.
 
-    ![seçenekleri belirleyin](./media/understanding-cost-reports/select-options.png)
+    ![Sonuçları filtrelemek için Etiketler listesi örneği](./media/understanding-cost-reports/select-options.png)
 
     Tıklayın **Ekle** yeni bir filtre ekleyin.
 
-    ![Filtre Ekle](./media/understanding-cost-reports/add-filter.png)
+    ![Seçenekler ve koşullara göre filtrelemek için gösteren filtre Kutusu Ekle](./media/understanding-cost-reports/add-filter.png)
 
     Gruplandırma ve süzme etiket, Azure kaynaklarını veya kaynak grubu etiketleri ilişkili değil.
 
@@ -61,9 +61,9 @@ Bir önceki resimde her numaralı alan aşağıdaki bilgileri ayrıntılı açı
 
     Grupları kullanma maliyet analizi raporları, standart, gösterilecek dökümü raporunuzdaki faturalama öğesinden kategoriler.  Bununla birlikte, maliyet ayırma raporları show gruplarında etiket tabanlı kategorilerini görüntüleyin. Etiket tabanlı kategoriler, maliyet dağıtma modeli ve faturalama verileri standart dökümü kategorilerden tanımlanır.
 
-    ![grupları etiketleri](./media/understanding-cost-reports/groups-tags01.png)
+    ![Etiketlere göre gruplandırabilirsiniz ilk örnek listesi](./media/understanding-cost-reports/groups-tags01.png)
 
-    ![grupları etiketleri](./media/understanding-cost-reports/groups-tags02.png)
+    ![Etiketlere göre gruplandırabilirsiniz ikinci örnek listesi](./media/understanding-cost-reports/groups-tags02.png)
 
     Maliyet ayırma raporlarında etiketi tabanlı Grup kategorilerde grupları şunlar olabilir:
       - Etiketler
@@ -166,7 +166,7 @@ Bir önceki resimde her numaralı alan aşağıdaki bilgileri ayrıntılı açı
 
     Görüntü biçimlerini çeşitli graph'i ya da tablo görünümleri seçmek için kullanın.
 
-    ![Görüntü biçimleri](./media/understanding-cost-reports/display-formats.png)
+    ![Görüntü biçimlerinin seçebileceğiniz semboller](./media/understanding-cost-reports/display-formats.png)
 
 13. **Çok renkli**
 

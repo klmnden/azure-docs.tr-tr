@@ -1,6 +1,6 @@
 ---
-title: Ekleme veya bir grup Azure Active Directory'de başka bir gruptan Kaldır | Microsoft Docs
-description: Gruba eklemek veya bir Azure Active Directory'yi kullanarak başka bir gruptan kaldırmak öğrenin.
+title: Bir grubu başka bir gruptan - Azure Active Directory ekleyip | Microsoft Docs
+description: Ekleme veya bir grup Azure Active Directory'yi kullanarak başka bir gruptan kaldırma hakkında yönergeler.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,16 +10,16 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 2d05a31c56cfe8ea92a933696ca3c9b0fadbd4d3
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 12f557e9453db0d8bff2ab91fe8453e026e0320c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000323"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104280"
 ---
-# <a name="how-to-add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Nasıl yapılır: ekleme veya bir grup Azure Active Directory'yi kullanarak başka bir gruptan kaldırma
+# <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Ekleme veya bir grup Azure Active Directory'yi kullanarak başka bir gruptan kaldırma
 Bu makalede, bir grup Azure Active Directory'yi kullanarak başka bir gruptan ekleyip yardımcı olur.
 
 >[!Note]

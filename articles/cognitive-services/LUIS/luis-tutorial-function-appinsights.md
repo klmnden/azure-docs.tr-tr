@@ -1,23 +1,24 @@
 ---
-title: Application Insights verilerini Node.js kullanarak luıs'den
+title: Application Insights Node.js
 titleSuffix: Azure Cognitive Services
 description: LUIS uygulama ve Node.js kullanarak Application Insights ile tümleşik bir bot oluşturun.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 6199e4a681f7f58ea0cf57b575afb2a63d160eee
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 4461ac71ba5f9ab5901c5d7b72c15c0c165621e3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321963"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103974"
 ---
-# <a name="add-luis-results-to-application-insights"></a>LUIS sonuçları Application Insights'a Ekle
+# <a name="add-luis-results-to-application-insights-and-azure-functions"></a>LUIS sonuçlarını Application Insights ve Azure işlevleri ekleme
 Bu öğreticide LUIS istek ve yanıt bilgileri ekler [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri veri depolama. Bu verileri aldıktan sonra bunu Kusto dil veya çözümlemek, toplama, Power BI ile sorgulayabilirsiniz ve hedefleri ve gerçek zamanlı utterance varlıklarının rapor. Bu analiz, eklediğinizde veya amaç ve varlıkları LUIS uygulamanızı düzenlemek, belirlemenize yardımcı olur.
 
 Bot, Bot Framework ile derlenir 3.x ve Azure Web app botu.
@@ -58,7 +59,7 @@ LUIS istek ve yanıt yakalamak için web app botu gereken **[Application Insight
 
 3. Konsolda, Application Insights ve alt çizgi paketleri yüklemek için aşağıdaki komutu girin:
 
-    ```
+    ```console
     cd site\wwwroot && npm install applicationinsights && npm install underscore
     ```
 
@@ -66,7 +67,7 @@ LUIS istek ve yanıt yakalamak için web app botu gereken **[Application Insight
 
     Bekleme yüklenecek paketler için:
 
-    ```
+    ```console
     luisbot@1.0.0 D:\home\site\wwwroot
     `-- applicationinsights@1.0.1 
       +-- diagnostic-channel@0.2.0 
@@ -142,7 +143,7 @@ Application Insights ile verileri sorgulamak için power size [Kusto](https://do
 
 3. Üst amacı, Puanlama ve utterance çıkarmak için sorgu penceresinde aşağıdaki son satırının hemen üstüne ekleyin:
 
-    ```SQL
+    ```kusto
     | extend topIntent = tostring(customDimensions.LUIS_intent_intent)
     | extend score = todouble(customDimensions.LUIS_intent_score)
     | extend utterance = tostring(customDimensions.LUIS_text)

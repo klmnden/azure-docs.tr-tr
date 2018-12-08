@@ -1,21 +1,22 @@
 ---
-title: Node.js kullanarak program aracılığıyla LUIS uygulaması oluşturma | Microsoft Docs
+title: Node.js kullanarak konuşma alma
 titleSuffix: Azure
 description: Önceden var olan verileri CSV biçiminde yazma LUIS API'si kullanarak program aracılığıyla bir LUIS uygulaması oluşturmayı öğrenin.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 729e19deb5efc91fb874214299f34fbb46d9bbdc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: da638064b2ead1cd860f3b4f96ffa88026aab4ff
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034051"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101207"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Node.js kullanarak program aracılığıyla LUIS uygulaması oluşturma
 
@@ -34,7 +35,7 @@ Haritalar farklı şeyler kullanıcılara yapmak istediğiniz metin veri içeriy
 
 `IoT.csv` dosyasını açın. Bu, kullanıcı sorgularının bir kuramsal ev Otomasyonu hizmetinde, bunları dışında çekilen yararlı bilgilerle nasıl kategorilere ayrılan, hangi kullanıcı etti ve bazı sütunlar gibi günlük içerir. 
 
-![CSV dosyası](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
+![Önceden mevcut olan verileri CSV dosyası](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
 
 Gördüğünüz **RequestType** sütun amacı, olabilir ve **istek** sütun örnek utterance gösterir. Utterance içinde oluşursa diğer alanları varlıkları olabilir. Amacı, varlıkları ve örnek konuşma olduğundan, basit bir örnek uygulama için gereksinimleri vardır.
 
@@ -106,9 +107,9 @@ LUIS uygulama varlıkları ve hedefleri tanımlanmış sonra konuşma ekleyebili
 ### <a name="install-nodejs-dependencies"></a>Node.js bağımlılıklarını yükleyin
 Node.js bağımlılıkları NPM'den terminal/komut satırında yükleyin.
 
-````
+```console
 > npm install
-````
+```
 
 ### <a name="change-configuration-settings"></a>Yapılandırma ayarlarını değiştirme
 Bu uygulamayı kullanmak için kendi uç noktası anahtarı için değerler index.js dosyasını değiştirin ve istediğiniz uygulamanın adını sağlayın gerekir. Ayrıca, uygulamanın kültüre ayarlayın veya sürüm numarasını değiştirin.
@@ -116,28 +117,31 @@ Bu uygulamayı kullanmak için kendi uç noktası anahtarı için değerler inde
 İndex.js dosyasını açın ve dosyanın üst bu değerleri değiştirin.
 
 
-````JavaScript
+```nodejs
 // Change these values
 const LUIS_programmaticKey = "YOUR_PROGRAMMATIC_KEY";
 const LUIS_appName = "Sample App";
 const LUIS_appCulture = "en-us"; 
 const LUIS_versionId = "0.1";
-````
+```
+
 ### <a name="run-the-script"></a>Betiği çalıştırın
 Node.js ile bir terminal/komut satırından betiği çalıştırın.
 
-````
+```console
 > node index.js
-````
+```
+
 or
-````
+
+```console
 > npm start
-````
+```
 
 ### <a name="application-progress"></a>Uygulama ilerleme durumu
 Komut satırı, uygulama çalışırken ilerleme durumunu gösterir. Komut satırı çıkışı, luıs'den yanıtları biçimini içerir.
 
-````
+```console
 > node index.js
 intents: ["TurnOn","TurnOff","Dim","Other"]
 entities: ["Operation","Device","Room"]
@@ -157,7 +161,7 @@ retrying add examples...
 
 Results of add utterances = [{"response":[{"value":{"UtteranceText":"turn on the lights","ExampleId":-67649},"hasError":false},{"value":{"UtteranceText":"turn the heat on","ExampleId":-69067},"hasError":false},{"value":{"UtteranceText":"switch on the kitchen fan","ExampleId":-3395901},"hasError":false},{"value":{"UtteranceText":"turn off bedroom lights","ExampleId":-85402},"hasError":false},{"value":{"UtteranceText":"turn off air conditioning","ExampleId":-8991572},"hasError":false},{"value":{"UtteranceText":"kill the lights","ExampleId":-70124},"hasError":false},{"value":{"UtteranceText":"dim the lights","ExampleId":-174358},"hasError":false},{"value":{"UtteranceText":"hi how are you","ExampleId":-143722},"hasError":false},{"value":{"UtteranceText":"answer the phone","ExampleId":-69939},"hasError":false},{"value":{"UtteranceText":"are you there","ExampleId":-149588},"hasError":false},{"value":{"UtteranceText":"help","ExampleId":-81949},"hasError":false},{"value":{"UtteranceText":"testing the circuit","ExampleId":-11548708},"hasError":false}]}]
 upload done
-````
+```
 
 
 

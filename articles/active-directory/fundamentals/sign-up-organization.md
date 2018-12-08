@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory kuruluş olarak kaydolma | Microsoft Docs
-description: Kuruluşunuz oturum Azure ve Azure Active Directory hakkında bilgi edinin.
+title: Kuruluşunuz Azure Active Directory'yi kullanmak için oturum açın | Microsoft Docs
+description: Kuruluşunuz Azure ve Azure Active Directory kullanmak için imzalama hakkında yönergeler.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: ccff64b88787291832b9d2ed84eb81919152d887
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 53536604ed2f371d1ae7e63b286b17501b260c8c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364780"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100727"
 ---
-# <a name="how-to-sign-up-for-azure-active-directory-as-an-organization"></a>Nasıl yapılır: Azure Active Directory kuruluş olarak kaydolma
+# <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Kuruluşunuz Azure Active Directory'yi kullanmak için oturum açın
 Azure Active Directory (Azure AD) kullanarak yeni bir Microsoft Azure aboneliğine kaydolun:
 
 - **Microsoft hesabı.** Azure'a erişimi ve tüm tüketici yönelimli Microsoft ürünlerinde ve bulut Hizmetleri, Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE veya Office 365 gibi kişisel Microsoft hesabınızı kullanın. Bir Outlook.com posta kutusu için otomatik olarak kaydolmaya bir Microsoft hesabı oluşturur. Daha fazla bilgi için [Microsoft hesabı'na genel bakış](https://account.microsoft.com/account).

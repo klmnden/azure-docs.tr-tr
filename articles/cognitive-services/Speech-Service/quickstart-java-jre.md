@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Java’da (Windows veya Linux) konuşma tanıma'
+title: 'Hızlı Başlangıç: Java - konuşma Hizmetleri konuşma tanıma'
 titleSuffix: Azure Cognitive Services
 description: Java’da (Windows veya Linux) konuşma tanıma işlemini öğrenin
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: 2b39084443690b99391268acb6352763657e2a3c
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: 7d1f26a43866025c3b542fc10a3f316ad0d1dc37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218585"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103131"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Hızlı Başlangıç: Konuşma Tanıma Hizmeti SDK’sını kullanarak Windows veya Linux üzerinde Java’da konuşma tanıma
 
@@ -26,7 +26,7 @@ Bu makalede, [Konuşma Tanıma Hizmeti SDK'sı](speech-sdk.md) kullanarak bir Ja
 > [!NOTE]
 > Konuşma Cihazları SDK’sı ve Roobo cihazı için bkz. [Konuşma Cihazları SDK’sı](speech-devices-sdk.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtarınız olması gerekir. Anahtarı ücretsiz alabilirsiniz. Ayrıntılar için bkz. [Konuşma Tanıma Hizmeti’ni ücretsiz olarak deneme](get-started.md).
 

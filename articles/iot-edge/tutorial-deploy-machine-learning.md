@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge ile Azure Machine Learning dağıtma | Microsoft Belgeleri
+title: Öğretici - Azure IOT Edge cihaza Azure Machine Learning dağıtma | Microsoft Docs
 description: Bu öğreticide Azure Machine Learning'i modül olarak bir Edge cihazına dağıtacaksınız.
 author: kgremban
 manager: philmea
@@ -8,13 +8,13 @@ ms.date: 11/15/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: c98dc9019421133b83ab9aec29f725852315f6ba
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: mvc, seodec18
+ms.openlocfilehash: e301e7da36e7ca549609da942f6e6d6dd3a3e791
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977225"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103360"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Öğretici: Azure Machine Learning'i bir IoT Edge modülü olarak dağıtma (önizleme)
 
@@ -115,7 +115,7 @@ Kapsayıcınızın görüntüsünün başarıyla oluşturulduğundan ve makine �
 
 1. **Kayıt Defteri Ayarları** bölümünde Azure kapsayıcı kayıt defterinden kopyaladığınız kimlik bilgilerini ekleyin. 
 
-   ![Kayıt defteri kimlik bilgilerini ekleme](./media/tutorial-deploy-machine-learning/registry-settings.png)
+   ![Bildirim için kayıt defteri kimlik bilgilerini ekleyin](./media/tutorial-deploy-machine-learning/registry-settings.png)
 
 1. tempSensor modülünü daha önce IoT Edge cihazına dağıttıysanız, otomatik olarak dolabilir. Modül listenizde değilse ekleyin.
 
@@ -182,7 +182,7 @@ Aşağıdaki adımlar, IoT hub'ınıza ulaşan cihazdan buluta iletileri izlemek
 
 2. Menüden **...** öğesini, sonra **IoT Hub Bağlantı Dizesini Ayarla**'yı seçin.
 
-   ![IoT Hub Cihazları diğer menüsü](./media/tutorial-deploy-machine-learning/set-connection.png)
+   ![IOT Hub bağlantı dizesine ayarlayın](./media/tutorial-deploy-machine-learning/set-connection.png)
 
 3. Sayfanın üstünde açılan metin kutusuna IoT Hub'ınız için iothubowner bağlantı dizesini girin. IoT Edge cihazınız IoT Hub Cihazları listesinde görünmelidir.
 

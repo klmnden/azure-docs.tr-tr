@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 3fa90b14428babf40b740b439f4ed0117fca2bd8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7fa22e6e3eacd3647a426938aa0c3c7862dd0111
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959912"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102903"
 ---
 # <a name="virtual-network-service-endpoints"></a>Sanal Ağ Hizmeti Uç Noktaları
 
@@ -137,6 +137,9 @@ Bir Azure hizmet kaynağında (Azure Depolama hesabı gibi), hizmetler kaynağı
 
 Sanal ağ hizmet uç noktası ilkelerini yalnızca belirli bir Azure hizmet kaynakları, hizmet uç noktaları izin vererek, Azure Hizmetleri için sanal ağ trafiğini filtrelemenize olanak tanır. Hizmet uç noktası ilkeleri, Azure Hizmetleri için sanal ağ trafiği için ayrıntılı erişim denetimi sağlar. Daha fazla bilgi: [sanal ağ hizmet uç noktası İlkesi](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
+## <a name="faqs"></a>SSS
+
+Sık sorulan sorular için bakmak [sanal ağ hizmet uç noktası SSS](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

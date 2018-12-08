@@ -4,25 +4,25 @@ description: Bu yöntem Azure İlkesi'nde ilkelerine uyumlu olmayan kaynakları 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/25/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 5b503c1a96d0c0a5ce3d14e98622040116873045
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 62b59fa5a7955d9cab41591606c595adae41ba9f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724664"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103855"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure İlkesi ile uyumlu olmayan kaynakları Düzelt
 
-İçin uyumlu olmayan kaynakları bir **Deployıfnotexists** İlkesi koyabilir ile uyumlu bir duruma **düzeltme**. Düzeltme çalıştırmak için ilke yönlendirerek gerçekleştirilir **Deployıfnotexists** atanan ilke mevcut kaynaklarınız üzerindeki etkisi. Bu nasıl yapılır bunun yerine getirmek için gereken adımlarda size yol gösterir.
+İçin uyumlu olmayan kaynakları bir **Deployıfnotexists** İlkesi koyabilir ile uyumlu bir duruma **düzeltme**. Düzeltme çalıştırmak için ilke yönlendirerek gerçekleştirilir **Deployıfnotexists** atanan ilke mevcut kaynaklarınız üzerindeki etkisi. Bu makalede, anlama ve düzeltme İlkesi ile gerçekleştirmek için gerekli olan adımları gösterilmektedir.
 
 ## <a name="how-remediation-security-works"></a>Düzeltme güvenliği nasıl çalışır
 
 İlke çalıştığında şablonu **Deployıfnotexists** ilke tanımı, mevcut bunu kullanarak bir [yönetilen kimliği](../../../active-directory/managed-identities-azure-resources/overview.md).
-İlke, her bir atama için yönetilen bir kimlik oluşturur, ancak yönetilen kimlik vermek üzere hangi rolleri hakkındaki ayrıntıları sağlanmalıdır. Yönetilen kimlik rolleri bulunmuyorsa, bu ilkeyi veya ilkeyi içeren bir girişim ataması sırasında görüntülenir. Atama başlatıldıktan sonra portalı kullanırken, ilke otomatik olarak yönetilen kimlik listelenen rollere izin vermiş olursunuz.
+İlke, her atama için yönetilen bir kimlik oluşturur, ancak yönetilen kimlik vermek üzere hangi rolleri hakkında ayrıntılar olmalıdır. Yönetilen kimlik rolleri eksikse, ilke veya girişim ataması sırasında bu hata görüntülenir. Atama başlatıldıktan sonra portalı kullanırken, ilke otomatik olarak yönetilen kimlik listelenen rollere izin vermiş olursunuz.
 
 ![Yönetilen kimlik - eksik rol](../media/remediate-resources/missing-role.png)
 
@@ -31,8 +31,7 @@ ms.locfileid: "52724664"
 
 ## <a name="configure-policy-definition"></a>İlke tanımı'nı yapılandırma
 
-Rol tanımlamak için ilk adımıdır, **Deployıfnotexists** , dahil şablon içeriği başarıyla dağıtmak için ilke tanımında gerekir. Altında **ayrıntıları** özelliği eklemek bir **roleDefinitionIds** özelliği. Bu, ortamınızdaki eşleşen dizeler dizisidir.
-Tam bir örnek için bkz: [Deployıfnotexists örnek](../concepts/effects.md#deployifnotexists-example).
+Rol tanımlamak için ilk adımıdır, **Deployıfnotexists** , dahil şablon içeriği başarıyla dağıtmak için ilke tanımında gerekir. Altında **ayrıntıları** özelliği eklemek bir **roleDefinitionIds** özelliği. Bu özellik, ortamınızdaki eşleşen dizeler dizisidir. Tam bir örnek için bkz: [Deployıfnotexists örnek](../concepts/effects.md#deployifnotexists-example).
 
 ```json
 "details": {
@@ -56,7 +55,7 @@ Get-AzureRmRoleDefinition -Name 'Contributor'
 
 ## <a name="manually-configure-the-managed-identity"></a>Yönetilen kimlik el ile yapılandırma
 
-Portalı kullanarak bir atama oluştururken, ilkeyi hem yönetilen kimlik oluşturur ve tanımlanan rolleri verir **roleDefinitionIds**. Aşağıdaki durumlarda, yönetilen bir kimlik oluşturmak ve izinleri atamak için adımların el ile gerçekleştirilmesi gerekir:
+Portalı kullanarak bir atama oluştururken, ilkeyi hem yönetilen kimlik oluşturur ve tanımlanan rolleri verir **roleDefinitionIds**. Aşağıdaki durumlarda, yönetilen bir kimlik oluşturmak ve izinleri atamak için adımları el ile yapılması gerekir:
 
 - (Örneğin, Azure PowerShell) SDK'sı kullanırken
 - Atama kapsamı dışında bir kaynağa şablon tarafından değiştirildiğinde
@@ -129,7 +128,7 @@ Rol atama için yönetilen kimlik eklemek için aşağıdaki adımları izleyin:
 
 ## <a name="create-a-remediation-task"></a>Düzeltme görev oluşturma
 
-Değerlendirme, ilke atamasıyla sırasında **Deployıfnotexists** etkisi, uyumlu olmayan kaynakları olup olmadığını belirler. Uyumlu olmayan kaynakları bulunduğunda ayrıntıları sağlanır **düzeltme** sayfası. Uyumlu olmayan kaynakları olan ilkeleri listesinde birlikte tetiklemeye yönelik seçeneği olan bir **düzeltme görev**. Bu bir dağıtımın ne oluşturur, **Deployıfnotexists** şablonu.
+Değerlendirme, ilke atamasıyla sırasında **Deployıfnotexists** etkisi, uyumlu olmayan kaynakları olup olmadığını belirler. Uyumlu olmayan kaynakları bulunduğunda ayrıntıları sağlanır **düzeltme** sayfası. Uyumlu olmayan kaynakları olan ilkeleri listesinde birlikte tetiklemeye yönelik seçeneği olan bir **düzeltme görev**. Bir dağıtımın ne oluşturur, bu seçenek, **Deployıfnotexists** şablonu.
 
 Oluşturmak için bir **düzeltme görev**, şu adımları izleyin:
 
@@ -146,21 +145,21 @@ Oluşturmak için bir **düzeltme görev**, şu adımları izleyin:
    > [!NOTE]
    > Açmak için alternatif bir yolu **düzeltme görev** sayfasıdır bulup ilkeden tıklayarak **Uyumluluk** sayfasında'a tıklayın **düzeltme Görevi Oluştur** düğmesi.
 
-1. Üzerinde **yeni bir düzeltme görev** sayfasında, kaynakları kullanarak düzeltmek için filtre **kapsam** alt kaynakları burada İlke atandı seçmek için üç nokta simgesini (aşağı ayrı kaynak dahil nesneler). Ayrıca, **konumları** daha da fazla filtrelemek için kaynakları açılır. Yalnızca kaynak tabloda listelenen düzeltilebilir.
+1. Üzerinde **yeni bir düzeltme görev** sayfasında, kaynakları kullanarak düzeltmek için filtre **kapsam** alt kaynakları burada ilkenin atandığı seçmek için üç nokta simgesini (aşağı ayrı kaynak dahil nesneler). Ayrıca, **konumları** daha da fazla filtrelemek için kaynakları açılır. Yalnızca kaynak tabloda listelenen düzeltilebilir.
 
    ![Düzelt - kaynakları seçin](../media/remediate-resources/select-resources.png)
 
-1. Düzeltme görevini kaynakları tıklayarak filtrelendi sonra başlatmak **düzelt**. İlke uyumluluk sayfası açılacak **düzeltme görevleri** görevleri ilerleme durumunu göstermek için sekmesinde.
+1. Kaynakları tıklayarak filtrelendi sonra düzeltme görevi Başlat **düzelt**. İlke uyumluluk sayfası açılacak **düzeltme görevleri** görevleri ilerleme durumunu göstermek için sekmesinde.
 
    ![Düzelt - görev ilerleme durumu](../media/remediate-resources/task-progress.png)
 
-1. Tıklayarak **düzeltme görev** İlkesi uyumluluk sayfasından ilerleme durumu hakkında ayrıntılı bilgi edinmek için. Görev için kullanılan filtreleme gösterilen düzeltilen kaynakların listesini yanı sıra.
+1. Tıklayarak **düzeltme görev** İlkesi uyumluluk sayfasından ilerleme durumu hakkında ayrıntılı bilgi edinmek için. Görev için kullanılan filtreleme düzeltilen kaynakların listesini birlikte gösterilir.
 
-1. Gelen **remedation görev** sayfasında, ya da düzeltme görevin dağıtım görüntülemek için bir kaynak veya kaynak üzerinde sağ tıklayın. Satırın sonunda tıklayarak **ilgili olaylar** gibi bir hata iletisi ayrıntılarını görmek için.
+1. Gelen **düzeltme görev** sayfasında, ya da düzeltme görevin dağıtım görüntülemek için bir kaynak veya kaynak üzerinde sağ tıklayın. Satırın sonunda tıklayarak **ilgili olaylar** gibi bir hata iletisi ayrıntılarını görmek için.
 
    ![Düzeltme - kaynak görev bağlam menüsü](../media/remediate-resources/resource-task-context-menu.png)
 
-Dağıtılan kaynakları aracılığıyla bir **düzeltme görev** eklenir **dağıtılan kaynakların** uyumluluk İlkesi sayfasında kısa bir gecikmeden sonra sekmesi.
+Dağıtılan kaynakları aracılığıyla bir **düzeltme görev** eklenir **dağıtılan kaynakların** uyumluluk İlkesi sayfasının bir sekmesinde.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: d9ee9a73f4e88786ca51fe9fac50ce51e25b4dde
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 02bd85e8502af5e479d052f08276b08bb734d855
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123377"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103584"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) ile Xero veri kopyalama
 
@@ -92,7 +92,12 @@ Xero bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Xero veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Xero verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **XeroObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Xero verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **XeroObject**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **XeroObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -104,7 +109,8 @@ Xero verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **Xe
         "linkedServiceName": {
             "referenceName": "<Xero linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -120,7 +126,7 @@ Xero verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarl
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **XeroSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Contacts"`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Contacts"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

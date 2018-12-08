@@ -1,6 +1,7 @@
 ---
-title: Azure Machine Learning hizmeti için Application Insights'ı etkinleştir
-description: Azure Machine Learning hizmeti aracılığıyla dağıtılan hizmetler için Application Insights'ı ayarlamayı öğrenin
+title: Application Insights ile izleme modelleri
+titleSuffix: Azure Machine Learning service
+description: Azure Machine Learning hizmeti aracılığıyla dağıtılan web hizmetleri izlemek için Application Insights'ı kullanın
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
 ms.custom: seodec18
-ms.openlocfilehash: ef26bd433d311e63e122f48871654c9fbc26216a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 2b97ee8853ba49a3b12d98aeb2b494aa890c8e8f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013177"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102292"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Azure Machine Learning Modellerinizi Application Insights ile izleme
 
@@ -49,7 +50,7 @@ Bu makalede, Azure Application ınsights'ı, Azure Machine Learning hizmeti içi
     ```
 
 ### <a name="log-custom-traces-in-your-service"></a>Özel günlük izlemelerini hizmetinizde
-Günlük izlemeleri özel istiyorsanız için standart dağıtım işlemini izleyin [AKS](how-to-deploy-to-aks.md) veya [ACI](how-to-deploy-to-aci.md) . Daha sonra:
+Günlük izlemeleri özel istiyorsanız, AKS veya ACI için standart dağıtım işlemini izleyin [nasıl dağıtılacağı ve nerede](how-to-deploy-and-where.md) belge. Ardından aşağıdaki adımları kullanın:
 
 1. Puanlama dosyası, yazdırma ifadeleri ekleyerek güncelleştirin.
     

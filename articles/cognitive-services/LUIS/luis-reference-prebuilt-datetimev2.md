@@ -1,21 +1,22 @@
 ---
-title: LUIS önceden oluşturulmuş varlıklar datetimeV2 başvuru - Azure | Microsoft Docs
+title: DatetimeV2 önceden oluşturulmuş varlıklar
 titleSuffix: Azure
 description: Bu makalede datetimeV2 sahip önceden oluşturulmuş varlık bilgilerini Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: bd28981ae0c5b4d6ccff3168f92f0f99be768b10
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: f59c429906d6cee2b9f4aff6e16ba23e8d28c97b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335785"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105861"
 ---
 # <a name="datetimev2-entity"></a>DatetimeV2 varlığı
 
@@ -27,7 +28,7 @@ DatetimeV2 yönetilen [tanıyıcıları metin](https://github.com/Microsoft/Reco
 ## <a name="example-json"></a>Örnek JSON 
 Aşağıdaki örnek JSON yanıtı sahip bir `datetimeV2` bir alt varlık `datetime`. Diğer datetimeV2 varlık türlerini örnekleri için bkz: [datetimeV2 öbeklerinin](#subtypes-of-datetimev2)</a>.
 
-```JSON
+```json
 "entities": [
   {
     "entity": "8am on may 2nd 2017",
@@ -103,7 +104,7 @@ LUIS, tarihi geçmiş veya gelecekteki olabilir, her iki değer sağlar. Ay ve y
 Aşağıdaki örnek, "2 Mayıs" varlık çözümleme gösterir. Bu çözüm, bugünün tarihini 2 Mayıs 2017 ve 1 Mayıs 2018'e genel bakış arasında bir tarih olduğunu varsayar.
 İçeren alanlar `X` içinde `timex` alan olan utterance içinde açıkça belirtilmeyen tarih kısımlarını.
 
-```JSON
+```json
   "entities": [
     {
       "entity": "may 2nd",
@@ -132,7 +133,7 @@ Aşağıdaki örnek, "2 Mayıs" varlık çözümleme gösterir. Bu çözüm, bug
 
 `datetimeV2` Varlık tarih ve saat aralığı ayıklar. `start` Ve `end` alanları, başlangıç ve bitiş aralığı belirtin. LUIS "2 Mayıs Mayıs 5 için" utterance sağlar **daterange** hem geçerli yıl hem de sonraki yıl için değerler. İçinde `timex` alan `XXXX` belirsizlik yılın değerleri gösterir. `P3D` üç gün uzun zamandır gösterir.
 
-```JSON
+```json
 "entities": [
     {
       "entity": "may 2nd to may 5th",
@@ -163,7 +164,7 @@ Aşağıdaki örnek, "2 Mayıs" varlık çözümleme gösterir. Bu çözüm, bug
 
 Aşağıdaki örnek, LUIS nasıl kullandığını gösterir. **datetimeV2** "Perşembe için Salı" utterance çözümlenecek. Bu örnekte, geçerli 19 Haziran tarihtir. LUIS içerir **daterange** değerleri hem tarih aralıklarını koyun ve geçerli tarih izleyin.
 
-```JSON
+```json
   "entities": [
     {
       "entity": "tuesday to thursday",
@@ -196,7 +197,7 @@ Saat veya zaman aralığı belirsiz ise iki saat öğe değerleri dizisi vardır
 
 Aşağıdaki örnek, LUIS nasıl kullandığını gösterir. **datetimeV2** bir zaman aralığı olan utterance çözümlenecek.
 
-```
+```json
   "entities": [
     {
       "entity": "6pm to 7pm",

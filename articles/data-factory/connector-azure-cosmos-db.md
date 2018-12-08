@@ -1,5 +1,5 @@
 ---
-title: Data Factory kullanarak Azure Cosmos DB'den ya da veri kopyalama | Microsoft Docs
+title: Data Factory kullanarak Azure Cosmos DB'den (SQL API'si) ya da veri kopyalama | Microsoft Docs
 description: Desteklenen kaynak veri depolarından ya da Azure Cosmos DB'den desteklenen havuz mağazalarının Data Factory kullanarak verileri kopyalama öğrenin.
 services: data-factory, cosmosdb
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
-ms.openlocfilehash: c10a933f371bfc84b863413134f2fdf5ff9c0e34
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 16c02f1f47f556f550519feec78e7dd26b302e18
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161846"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103804"
 ---
-# <a name="copy-data-to-or-from-azure-cosmos-db-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure Cosmos DB'den verileri kopyalayın
+# <a name="copy-data-to-or-from-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Cosmos DB'den (SQL API'si) ya da veri kopyalama
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-azure-documentdb-connector.md)
@@ -39,6 +39,9 @@ Azure Cosmos DB Bağlayıcısı kullanabilirsiniz:
 - İçeri aktarma ve JSON belgeleri olarak dışarı aktarma- ya da ya da tablolu bir veri kümesine veri kopyalayın. SQL veritabanı ve bir CSV dosyası verilebilir. Kopyalamak için belgeler olarak-için veya JSON dosyaları veya için veya başka bir Azure Cosmos DB koleksiyonu, bkz: [JSON belgelerini içeri veya dışarı aktarmayı](#importexport-json-documents).
 
 Veri Fabrikası ile tümleştirilir [Azure Cosmos DB toplu Yürütücü Kitaplığı](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) Azure Cosmos DB'ye yazdığınızda, en iyi performansı sağlamak için.
+
+>[!NOTE]
+>Bu bağlayıcı yalnızca destek veri gönderip buralardan veri Cosmos DB SQL API kopyalayın.
 
 > [!TIP]
 > [Veri geçişi video](https://youtu.be/5-SRNiC_qOU) Azure Cosmos DB için Azure Blob depolamadan veri kopyalama adımlarında size rehberlik yapacaktır. Video ayrıca genel olarak Azure Cosmos DB'ye veri almak için performans ayarlama konuları açıklanır.

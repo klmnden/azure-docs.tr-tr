@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: cshoe
-ms.openlocfilehash: c91254b3a4a7037e24b22ba226c66141707d0c10
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 44d2960d9cf5828af588f9392667553c18dedb0f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016581"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103464"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Kodunuzu Azure işlevleri'nde test stratejileri
 
@@ -29,7 +29,7 @@ Aşağıdaki içeriği hedef farklı dilleri ve ortamları yönelik iki farklı 
 - [C#xUnit ile Visual Studio](#c-in-visual-studio)
 - [VS code'da Jest ile JavaScript](#javascript-in-vs-code)
 
-Örnek depoyu kullanılabilir [GitHub](https://github.com/craigshoemaker/azure-functions-tests).
+Örnek depoyu kullanılabilir [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
 
 ## <a name="c-in-visual-studio"></a>C#Visual Studio'da
 Aşağıdaki örnek nasıl oluşturulacağını açıklar bir C# işlev uygulamanız Visual Studio'da çalıştırma ve test [xUnit](https://xunit.github.io).
@@ -235,7 +235,7 @@ Bu sınıfta uygulanır üyeleri şunlardır:
 
 - **Timer_should_log_message**: Bu test örneği oluşturur `ListLogger` ve Zamanlayıcı işleve geçirir. İşlevi çalıştırıldığında, günlük, beklenen bir ileti mevcut olduğundan emin olmak için denetlenir.
 
-### <a name="run-tests"></a>Testleri çalıştırın
+### <a name="run-tests"></a>Testleri çalıştırma
 
 Testleri çalıştırmak için gidin **Test Gezgini** tıklatıp **çalıştırması**.
 
@@ -326,7 +326,7 @@ test('Timer trigger should log message', () => {
 ```
 Şablondan Zamanlayıcı işlevi, işlev gövdesinin sonuna bir iletiyi günlüğe kaydeder. Bu test sağlar *günlük* işlevi bir kez çağrılır.
 
-### <a name="run-tests"></a>Testleri çalıştırın
+### <a name="run-tests"></a>Testleri çalıştırma
 Testleri çalıştırmak için basın **CTRL + ~** komut penceresi açın ve çalıştırmak için `npm test`:
 
 ```bash

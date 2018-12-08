@@ -1,6 +1,6 @@
 ---
-title: Azure Python kullanarak Event Hubs'dan olay alma | Microsoft Docs
-description: Python kullanarak Event Hubs'dan olayları almaya başlama
+title: Python - Azure Event Hubs kullanarak olay alma | Microsoft Docs
+description: Bu makalede, Azure Event Hubs'tan gelen olayları alır bir Python uygulaması oluşturmak için bir kılavuz sağlar.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: 8009a2ef3f89a359bc645485dd75b80cc5d0b868
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: bc1cf07c5a74bc4d7182eea5281e75525fd04247
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722845"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103193"
 ---
 # <a name="receive-events-from-event-hubs-using-python"></a>Python kullanarak Event Hubs'dan olayları alma
 

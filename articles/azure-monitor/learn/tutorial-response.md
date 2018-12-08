@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 996696587f53b1ecd861dc71925a730f8a6efd9b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6521688e595230951e0753fd67c2bf9b02e0a6ec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975812"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102155"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Azure İzleyici Uyarıları ile olaylara yanıt verme
 Azure İzleyici'deki uyarılar, Log Analytics deponuzdaki önemli bilgileri belirleyebilir. Bunlar düzenli aralıklarla otomatik olarak günlük aramaları çalıştıran uyarı kuralları tarafından oluşturulur. Günlük aramasının sonuçları belirli ölçütlerle eşleşirse bir uyarı kaydı oluşturulur ve kayıt otomatik bir yanıt gerçekleştirmek için yapılandırılabilir.  Bu öğretici, [Log Analytics verilerinin panolarını oluşturma ve paylaşma](tutorial-logs-dashboards.md) öğreticisinin devamı niteliğindedir.   
@@ -30,7 +30,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Uyarı kuralı oluşturma
 > * E-posta bildirimi göndermek için Eylem Grubu yapılandırma
 
-Bu öğreticideki örneği tamamlamak için [Log Analytics çalışma alanına bağlı](../../log-analytics/log-analytics-quick-collect-azurevm.md) mevcut bir sanal makinenizin olması gerekir.  
+Bu öğreticideki örneği tamamlamak için [Log Analytics çalışma alanına bağlı](../../azure-monitor/learn/quick-collect-azurevm.md) mevcut bir sanal makinenizin olması gerekir.  
 
 ## <a name="sign-in-to-azure-portal"></a>Azure portalda oturum açın
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın. 
@@ -76,4 +76,4 @@ Bu öğreticide, uyarı kurallarının zamanlanan aralıklarda günlük aramalar
 Önceden oluşturulmuş Log Analytics betik örneklerini görmek için bu bağlantıyı izleyin.  
 
 > [!div class="nextstepaction"]
-> [Log Analytics betik örnekleri](../../log-analytics/powershell-samples.md)
+> [Log Analytics betik örnekleri](../../azure-monitor/platform/powershell-samples.md)

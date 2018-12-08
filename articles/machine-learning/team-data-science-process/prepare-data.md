@@ -1,6 +1,6 @@
 ---
 title: Temiz ve Azure Machine Learning için verileri hazırlama | Microsoft Docs
-description: Önceden işleme ve machine learning için hazırlamak için verileri temizledik.
+description: Önceden işleme ve machine learning için etkili bir şekilde kullanılmasını hazırlamak için verileri temizledik.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 52457e19cede5d8d2b74d9c3d81ebf35e3ad06c4
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.openlocfilehash: b8903e021028ce51e042bd0aea87a91d564de25d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446569"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101271"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Gelişmiş machine learning için verileri hazırlama görevleri
 Ön işleme ve verileri temizleme veri kümesi machine learning için etkili bir şekilde kullanılabilmesi için önce genellikle gerçekleştirilmesi gereken önemli görevlerdir. Ham veriler genellikle gürültülü ve güvenilmeyen ve değerleri eksik olabilir. Modelleme için bu verileri kullanarak, yanıltıcı sonuçlara neden olabilir. Bu görevler Team Data Science işlem (TDSP) bir parçasıdır ve genellikle ilk İnceleme bulmak ve gerekli ön işleme planlamak için kullanılan bir veri kümesinin izleyin. Özetlenen adımları daha ayrıntılı TDSP işlemi hakkında yönergeler için bkz: [Team Data Science Process](overview.md).

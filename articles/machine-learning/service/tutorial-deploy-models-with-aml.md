@@ -1,21 +1,22 @@
 ---
-title: 'Görüntü sınıflandırma Öğreticisi: Azure Machine Learning hizmeti ile modelleri dağıtma'
+title: 'Görüntü sınıflandırma Öğreticisi: modelleri dağıtma'
+titleSuffix: Azure Machine Learning service
 description: Bu öğretici, Azure Machine Learning hizmetini kullanarak Python Jupyter not defterinde scikit-learn ile bir görüntü sınıflandırma modelinin nasıl dağıtıldığını gösterir.  Bu öğretici iki bölümden oluşan bir serinin ikinci bölümüdür.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: tutorial
-ms.custom: seodec12
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 6e56fe88eec70af313d0b0dd8cf0aaf27b054121
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.custom: seodec18
+ms.openlocfilehash: fe8fed71711e10af94ff41d1bb4ca4b0c1952374
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011547"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101190"
 ---
 # <a name="tutorial-part-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Öğretici (Bölüm 2): bir görüntü sınıflandırma modeli Azure Container örneği (ACI) dağıtma
 
@@ -32,7 +33,7 @@ Bu öğretici, **iki bölümden oluşan bir öğretici serisinin ikinci bölüm�
 > * Modeli ACI’ya dağıtma
 > * Dağıtılan modeli test etme
 
-ACI üretim dağıtımları için ideal olmasa da, iş akışını test etmek ve anlamak için çok uygundur. Ölçeklenebilir üretim dağıtımları için [Azure Kubernetes Service](how-to-deploy-to-aks.md)’i kullanmayı göz önünde bulundurabilirsiniz.
+ACI üretim dağıtımları için ideal olmasa da, iş akışını test etmek ve anlamak için çok uygundur. Ölçeklenebilir üretim dağıtımları için Azure Kubernetes hizmeti kullanmayı düşünün. Daha fazla bilgi için [nasıl dağıtılacağı ve nerede](how-to-deploy-and-where.md) belge.
 
 ## <a name="get-the-notebook"></a>Not defterini alma
 

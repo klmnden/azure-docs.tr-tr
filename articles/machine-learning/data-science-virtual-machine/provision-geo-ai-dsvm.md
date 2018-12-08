@@ -1,11 +1,12 @@
 ---
 title: -Azure'da bir coğrafi yapay zeka sanal makinesi sağlama Azure | Microsoft Docs
-description: Coğrafi AI sanal makine azure'da sağlamasını yapma.
+description: Coğrafi AI veri bilimi sanal makinesi yapılandırma ve oluşturma hakkında bilgi edinin. Coğrafi AI veri bilimi sanal makinesi, coğrafi veri kullanarak yapay ZEKA ve ML çözümler oluşturmak için araçlar sağlar.
 keywords: derin öğrenme yapay ZEKA, veri bilimi araçları, veri bilimi sanal makinesi, Jeo-uzamsal analiz
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: bdcf2662f2a81b145868cff92ecb7a2cb4d53046
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 395604da3465e66214f89b4f74ddf9d6bcdc48f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239806"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103957"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Azure'da bir coğrafi yapay zeka sanal makinesi sağlama 
 

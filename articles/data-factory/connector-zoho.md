@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e052b656f12a9059a5ee9d3ea21d0fa20fc00c6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 75594bf77f9bde7549b14e3a154f18ba67ebac3d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123071"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103396"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Zoho verileri kopyalama
 
@@ -74,7 +74,12 @@ Aşağıdaki özellikler, Zoho bağlı hizmeti için desteklenir:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Zoho veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Zoho veri kopyalamak için dataset öğesinin type özelliği ayarlamak **ZohoObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Zoho veri kopyalamak için dataset öğesinin type özelliği ayarlamak **ZohoObject**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **ZohoObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -86,7 +91,8 @@ Zoho veri kopyalamak için dataset öğesinin type özelliği ayarlamak **ZohoOb
         "linkedServiceName": {
             "referenceName": "<Zoho linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -95,14 +101,14 @@ Zoho veri kopyalamak için dataset öğesinin type özelliği ayarlamak **ZohoOb
 
 Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, Zoho kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
-### <a name="zohosource-as-source"></a>Kaynak olarak ZohoSource
+### <a name="zoho-as-source"></a>Kaynak olarak Zoho
 
 Zoho veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **ZohoSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **ZohoSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Accounts"`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Accounts"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

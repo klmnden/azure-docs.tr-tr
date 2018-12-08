@@ -1,6 +1,6 @@
 ---
-title: Azure IOT Edge üzerinde Windows ile Windows kapsayıcıları yükleme | Microsoft Docs
-description: Azure IOT Edge yükleme yönergeleri Windows ile Windows kapsayıcıları
+title: Azure IOT Edge üzerinde Windows ile Windows kapsayıcıları yükleyin. | Microsoft Docs
+description: Windows cihazlarda Windows kapsayıcıları için yapılandırılmış Azure IOT Edge yükleme yönergeleri
 author: kgremban
 manager: philmea
 ms.reviewer: veyalla
@@ -9,12 +9,13 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: e6edc9d6e98c03b1a5847dc08bbaa3ad029aa673
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 9d7f9c68220f02a19f4e3f8f553cc06e9ace5424
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565046"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103821"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Windows kapsayıcıları ile kullanmak için Windows Azure IOT Edge çalışma zamanını yükleyin
 

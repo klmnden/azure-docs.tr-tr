@@ -1,5 +1,6 @@
 ---
-title: Denemeler ve eğitim ölçümleri - Azure Machine Learning izleyin | Microsoft Docs
+title: İzleme denemeleri ve eğitim ölçümleri
+titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning hizmeti ile denemelerinizi izleyebilir ve modeli oluşturma işlemi geliştirmek için ölçümleri izleyin. Eğitim betiğinizi günlük ekleme, denemeyi göndermek nasıl, çalışan işin ilerleme durumunu denetlemek nasıl ve çalıştırmanın sonuçlarını görüntüleme öğrenin.
 services: machine-learning
 author: heatherbshapiro
@@ -10,12 +11,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: ae61f6fe24486eb1d4d5deecf5fb005a4d71b5fc
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7137d43805065a8f29aa8fcf5307dd5b8947b345
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016172"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101356"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Denemeler ve Azure Machine learning'de eğitim metriklerini izleme
 
@@ -291,7 +292,7 @@ Aşağıdakiler hakkında daha fazla bilgi edinin:
 + [Modeli açıklayan özelliği](#model-explain-ability-and-feature-importance)
 
 
-### <a name="how-to-see-run-charts"></a>Çalıştırma grafikleri görmek nasıl:
+### <a name="view-the-run-charts"></a>Çalıştırma grafikleri görüntüleme
 
 1. Çalışma alanınıza gidin. 
 

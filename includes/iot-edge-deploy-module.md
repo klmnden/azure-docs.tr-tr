@@ -5,15 +5,15 @@ services: iot-edge
 author: kgremban
 ms.service: iot-edge
 ms.topic: include
-ms.date: 10/14/2018
+ms.date: 12/7/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 92fb568bb1044df5be8c80372973743e2c0e3dcd
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 1a750a97cdc940c0f0a3d7e33d6be0d33f811425
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901005"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53108031"
 ---
 Azure IoT Edge'in önemli özelliklerinden biri buluttan IoT Edge cihazlarınıza modüller dağıtabilmektir. IoT Edge modülü, kapsayıcı olarak uygulanan yürütülebilir bir pakettir. Bu bölümde, biz önceden derlenmiş bir modülden dağıtma [Azure Marketi bölümünde IOT Edge modülleri](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Bu modül, sanal cihazınız için telemetri oluşturur.
 
@@ -34,8 +34,7 @@ Azure IoT Edge'in önemli özelliklerinden biri buluttan IoT Edge cihazlarınız
    ```json
     {
     "routes": {
-        "route": "FROM /messages/* INTO $upstream",
-        "upstream": "FROM /messages/* INTO $upstream"
+        "route": "FROM /messages/* INTO $upstream"
         }
     }
    ```
