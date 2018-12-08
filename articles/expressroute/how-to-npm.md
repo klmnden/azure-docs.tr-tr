@@ -1,29 +1,23 @@
 ---
-title: Azure ExpressRoute bağlantı hatları için Ağ Performansı İzleyicisi'ni yapılandırma | Microsoft Docs
+title: Azure ExpressRoute devreleri için - Ağ Performansı İzleyicisi'ni yapılandırma | Microsoft Docs
 description: Bulut tabanlı ağ (NPM) Azure ExpressRoute bağlantı hatları için izlemeyi yapılandırın. Bu, ExpressRoute özel eşlemesini ve Microsoft eşlemesi izleme kapsar.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 93bafb739c35b81796186dc845f7933a82e1675b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: e72c2ceaedd23f4e3ee2006930302321498eb736
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968127"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104739"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute için Ağ Performansı İzleyicisi’ni Yapılandırma
 
-Ağ Performansı İzleyicisi'ni (NPM) izleme çözümü, Azure bulut dağıtımları ve (şube ofisleri, vb.) ile şirket içi konumlar arasında bağlantı izleyen bir bulut tabanlı bir ağdır. NPM Log analytics'in bir parçasıdır. NPM özel eşleme veya Microsoft eşlemesi kullanmak üzere yapılandırılmış ExpressRoute devrelerine ağ performansını izlemenize olanak tanıyan ExpressRoute için bir uzantı sunar. ExpressRoute için NPM yapılandırma belirlemek ve gidermek için ağ sorunlarını algılayabilir. Bu hizmet, Azure kamu bulutu için de kullanılabilir.
+Bu makalede bir ağ performansı İzleyicisi uzantısı, ExpressRoute izlemek için yapılandırmanıza yardımcı olur. Ağ Performansı İzleyicisi'ni (NPM) izleme çözümü, Azure bulut dağıtımları ve (şube ofisleri, vb.) ile şirket içi konumlar arasında bağlantı izleyen bir bulut tabanlı bir ağdır. NPM Log analytics'in bir parçasıdır. NPM özel eşleme veya Microsoft eşlemesi kullanmak üzere yapılandırılmış ExpressRoute devrelerine ağ performansını izlemenize olanak tanıyan ExpressRoute için bir uzantı sunar. ExpressRoute için NPM yapılandırma belirlemek ve gidermek için ağ sorunlarını algılayabilir. Bu hizmet, Azure kamu bulutu için de kullanılabilir.
 
 Şunları yapabilirsiniz:
 

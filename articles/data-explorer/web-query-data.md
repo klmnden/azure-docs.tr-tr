@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 7b9bc52e07bccf931593cd2dbddd68e973d1b26c
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
-ms.translationtype: HT
+ms.openlocfilehash: 7ce66d3f6117a5e395920dc2232efb0e43f4cd18
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394366"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106456"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer"></a>Hızlı başlangıç: Azure Veri Gezgini'ndeki verileri sorgulama
 
@@ -21,7 +21,7 @@ Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oran
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için Azure aboneliğine ek olarak [bir test kümesine ve veritabanına](create-cluster-database-portal.md) ihtiyacınız vardır.
 
@@ -134,7 +134,7 @@ Temel sorguların nasıl çalıştığını gördünüz. Şimdi sonuçları öze
 
 1. Aşağıdaki sorguyu çalıştırın.
 
-    ```Kutso
+    ```Kusto
     StormEvents
     | sort by StartTime desc
     | where DamageProperty > 5000

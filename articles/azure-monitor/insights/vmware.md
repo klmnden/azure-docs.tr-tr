@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 383b73d335c8993aa99109c7430d2292a3bfea4a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c451482f0aa9c2e6c0a15ab048885920889a2708
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836449"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106405"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log analytics'te VMware izleme (Önizleme) çözümü
 
@@ -42,7 +42,7 @@ Log analytics'te VMware izleme çözümü, Merkezi günlük kaydı ve büyük VM
 vSphere ESXi konağına 5.5, 6.0 ve 6.5
 
 #### <a name="prepare-a-linux-server"></a>Bir Linux sunucusu hazırlama
-Bir Linux işletim sistemi ESXi konağından tüm syslog verileri almak için bir VM oluşturun. [Log Analytics Linux Aracısı](../../log-analytics/log-analytics-quick-collect-linux-computer.md) tüm ESXi konağı syslog veriler için koleksiyon noktasıdır. Birden çok ESXi konakları, günlükleri aşağıdaki örnekteki gibi tek bir Linux sunucusuna iletmek için kullanabilirsiniz.
+Bir Linux işletim sistemi ESXi konağından tüm syslog verileri almak için bir VM oluşturun. [Log Analytics Linux Aracısı](../../azure-monitor/learn/quick-collect-linux-computer.md) tüm ESXi konağı syslog veriler için koleksiyon noktasıdır. Birden çok ESXi konakları, günlükleri aşağıdaki örnekteki gibi tek bir Linux sunucusuna iletmek için kullanabilirsiniz.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 

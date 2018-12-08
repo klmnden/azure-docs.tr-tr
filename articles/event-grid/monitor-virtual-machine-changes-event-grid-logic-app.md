@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.openlocfilehash: a6adf97a11821ff58c01d2450f06d07e7327fdfb
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 06fa9b9191104db3b141b6268a90a7c8f206280e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957938"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106082"
 ---
-# <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Azure Event Grid ve Logic Apps ile sanal makine değişikliklerini izleme
+# <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Öğretici: Azure Event Grid ve Logic Apps ile sanal makine değişikliklerini izleme
 
 Azure kaynaklarında veya üçüncü taraf kaynaklarda belirli olaylar olduğunda otomatik bir [mantıksal uygulama iş akışı](../logic-apps/logic-apps-overview.md) başlatabilirsiniz. Bu kaynaklar bu olayları bir [Azure olay kılavuzuna](../event-grid/overview.md) yayımlayabilir. Olay kılavuzu da bu olayları uç nokta olarak kuyruk, web kancası veya [olay hub’ları](../event-hubs/event-hubs-what-is-event-hubs.md) olan abonelere gönderir. Bir abone olarak, mantıksal uygulamanız sizin herhangi bir kod yazmanıza gerek kalmadan görevleri gerçekleştirmek üzere otomatik iş akışlarını çalıştırmak için olay kılavuzundan bu olayları bekleyebilir.
 
@@ -38,7 +38,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Özellikle sanal makine değişikliklerini izleyen bir koşul ekleyin.
 > * Sanal makineniz değiştiğinde e-posta gönderin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Bildirim göndermek için [Azure Logic Apps tarafından desteklenen](../connectors/apis-list.md) Office 365 Outlook, Outlook.com veya Gmail gibi bir e-posta sağlayıcıdan alınmış e-posta hesabı. Bu öğreticide Office 365 Outlook kullanılmaktadır.
 
@@ -159,7 +159,7 @@ Mantıksal uygulama iş akışınızı yalnızca belirli bir olay gerçekleşti�
 
    ![Koşul true olduğunda kullanılacak eylemi ekleyin](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-2.png)
 
-2. Arama kutusuna filtreniz olarak "e-posta" yazın. E-posta sağlayıcınıza uygun bağlayıcıyı bulun ve seçin. Ardından bağlayıcı için "e-posta gönder" eylemini seçin. Örnek: 
+2. Arama kutusuna filtreniz olarak "e-posta" yazın. E-posta sağlayıcınıza uygun bağlayıcıyı bulun ve seçin. Ardından bağlayıcı için "e-posta gönder" eylemini seçin. Örneğin: 
 
    * Azure iş veya okul hesabı için Office 365 Outlook bağlayıcısını seçin. 
    * Kişisel Microsoft hesapları için Outlook.com bağlayıcısını seçin. 
@@ -210,7 +210,7 @@ Mantıksal uygulama iş akışınızı yalnızca belirli bir olay gerçekleşti�
 
    Örneğin, Azure portalında sanal makinenizi yeniden boyutlandırabilir veya [VM’nizi Azure PowerShell ile yeniden boyutlandırabilirsiniz](../virtual-machines/windows/resize-vm.md). 
 
-   Birkaç dakika sonra bir e-posta almanız gerekir. Örnek:
+   Birkaç dakika sonra bir e-posta almanız gerekir. Örneğin:
 
    ![Sanal makine güncelleştirmesi hakkında e-posta](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
 

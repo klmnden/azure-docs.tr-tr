@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge C# öğreticisi | Microsoft Docs
+title: Öğretici özel oluşturma C# modülü - Azure IOT Edge | Microsoft Docs
 description: Bu öğreticide C# koduyla IoT Edge modülü oluşturma ve bir Edge cihazına dağıtma adımları gösterilir.
 services: iot-edge
 author: kgremban
@@ -8,13 +8,13 @@ ms.author: kgremban
 ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 135de641458a1c3b193069b3d9bc94e88080eb55
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: mvc, seodec18
+ms.openlocfilehash: cc2888ba3315df13e7be5246b07d6f9fe52be56d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310295"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106422"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Öğretici: C# IoT Edge modülü geliştirme ve simülasyon cihazınıza dağıtma
 

@@ -1,41 +1,36 @@
 ---
-title: ExpressRoute müşteri yönlendirici yapılandırma örnekleri | Microsoft Docs
-description: Bu sayfa için Cisco ve Juniper yönlendirici yönlendirici yapılandırma örnekleri sağlar.
-documentationcenter: na
+title: Yönlendirici yapılandırma örnekleri - NAT - Azure ExpressRoute | Microsoft Docs
+description: Bu sayfa, Cisco ve Juniper yönlendirici için yönlendirici yapılandırma örnekleri sağlar.
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
-ms.assetid: d6ea716f-d5ee-4a61-92b0-640d6e7d6974
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 83a7da2db537a3c900e90432455d59e8ac56d917
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 9764a03b0f3a3f70e59097359d5a714da821d3b1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23850689"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105997"
 ---
-# <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>NAT ayarlamanıza için yönlendirici yapılandırması örnekleri
-Bu sayfa için Cisco ASA ve Juniper SRX series yönlendirici NAT yapılandırma örnekleri sağlar. Bu yönergeler yalnızca için örnek olacak şekilde tasarlanmıştır ve olarak kullanılmamalıdır. Ağınız için uygun yapılandırmalarla gündeme için satıcınıza çalışabilir. 
+# <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Ayarlama ve yönetme NAT için yönlendirici yapılandırma örnekleri
+
+Bu sayfa ExpressRoute ile çalışırken, Cisco ASA ve Juniper SRX serisi yönlendiriciler için NAT yapılandırma örnekleri sağlar. Bu kılavuzu yalnızca örnekleri olacak şekilde tasarlanmıştır ve olarak kullanılmamalıdır. Ağınızın uygun yapılandırmalarla gündeme için satıcınıza çalışabilirsiniz.
 
 > [!IMPORTANT]
-> Bu sayfayı örneklerinde zamanıyla ilgili yönergeler için olacak şekilde tasarlanmıştır. Satıcınızın satış / teknik ekip ve ağ ekibinizin gereksinimlerinizi karşılamak için uygun yapılandırmaları gündeme birlikte çalışmalısınız. Microsoft bu sayfada listelenen yapılandırmaları ile ilgili sorunlar desteklemez. Destek sorunları için aygıt satıcınıza başvurmanız gerekir.
+> Bu sayfada örnekleri, tamamen kılavuzunu olacak şekilde tasarlanmıştır. Satıcınızın satış veya teknik ekip ve ağ takımınızın ihtiyaçlarınıza uygun yapılandırmalarla gündeme ile çalışması gerekir. Microsoft bu sayfada listelenen yapılandırmaları ile ilgili sorunlar desteklemez. Destek sorunları için cihaz satıcınıza başvurmanız gerekir.
 > 
 > 
 
-* Yönlendirici yapılandırma örnekleri aşağıdaki Azure genel ve Microsoft eşlemeleri için geçerlidir. NAT Azure özel eşleme için yapılandırmamalısınız. Gözden geçirme [ExpressRoute eşlemeler](expressroute-circuit-peerings.md) ve [ExpressRoute NAT gereksinimleri](expressroute-nat.md) daha fazla ayrıntı için.
+* Yönlendirici yapılandırma örnekleri, Azure genel ve Microsoft eşlemeleri için geçerlidir. NAT Azure özel eşleme için yapılandırmamalısınız. Gözden geçirme [ExpressRoute eşlemeleri](expressroute-circuit-peerings.md) ve [ExpressRoute NAT gereksinimleri](expressroute-nat.md) daha fazla ayrıntı için.
 
-* İnternet'e ve ExpressRoute bağlantı için ayrı NAT IP havuzu kullanmanız gerekir. ExpressRoute ve Internet aynı NAT IP havuzu kullanarak asimetrik Yönlendirme ve bağlantı kaybı neden olur.
+* İnternet ve ExpressRoute bağlantı için ayrı bir NAT IP havuzu kullanmanız gerekir. ExpressRoute ve internet aynı NAT IP havuzu kullanarak, asimetrik Yönlendirme ve bağlantı kaybına neden olur.
 
 
 ## <a name="cisco-asa-firewalls"></a>Cisco ASA güvenlik duvarları
-### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>Microsoft Müşteri ağ trafiği için PAT yapılandırma
+### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>Microsoft Müşteri ağı giden trafik için PAT yapılandırma
     object network MSFT-PAT
       range <SNAT-START-IP> <SNAT-END-IP>
 
@@ -55,7 +50,7 @@ Bu sayfa için Cisco ASA ve Juniper SRX series yönlendirici NAT yapılandırma 
 
     nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
 
-### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>Microsoft Müşteri ağ trafiği için PAT yapılandırma
+### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>Müşteri ağ Microsoft gelen trafik için PAT yapılandırma
 
 **Arabirimleri ve yönü:**
 
@@ -87,8 +82,8 @@ NAT komutlar:
     nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
 
 
-## <a name="juniper-srx-series-routers"></a>Juniper SRX series yönlendirici
-### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Yedek Ethernet arabirimleri için küme oluşturma
+## <a name="juniper-srx-series-routers"></a>Juniper SRX serisi yönlendiriciler
+### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Küme için yedekli Ethernet arabirimleri oluşturun
     interfaces {
         reth0 {
             description "To Internal Network";
@@ -121,11 +116,11 @@ NAT komutlar:
 
 
 ### <a name="2-create-two-security-zones"></a>2. İki güvenlik bölgeleri oluşturma
-* Güven iç ağ için hem de Untrust bölgesine sınır yönlendiricileri karşılıklı dış ağ için
-* Bölgelere uygun arabirimleri atayın
-* Arabirimler Services'de izin ver
+* İç ağ için güven bölgesi ve dış ağ uç yönlendiricileri karşılıklı Güvenilmeyenler bölgesi
+* Bölgeleri için uygun arabirimleri atayın
+* Arabirimler Services'ta izin ver
 
-    güvenlik {bölgeleri {güvenlik bölgesi güven {konak gelen-trafik {Sistem Hizmetleri {ping;                   } protokolleri {bgp;                   {reth0.100;}} arabirimleri               }} güvenlik bölgesi Untrust {konak gelen-trafik {Sistem Hizmetleri {ping;                   } protokolleri {bgp;                   {reth1.100;}} arabirimleri               }           }       }   }
+    güvenlik {bölgeleri {güvenlik bölgesi güven {konak gelen-trafiği {sistemi hizmetleri {ping;                   } {bgp; protokolleri                   {reth0.100;}} arabirimleri               }} {konak gelen-trafiği {sistemi hizmetleri {ping; güvenlik bölgesi Güvenilmeyenler                   } {bgp; protokolleri                   {reth1.100;}} arabirimleri               }           }       }   }
 
 
 ### <a name="3-create-security-policies-between-zones"></a>3. Bölgeler arasında güvenlik ilkeleri oluşturma
@@ -160,8 +155,8 @@ NAT komutlar:
 
 
 ### <a name="4-configure-nat-policies"></a>4. NAT ilkelerini yapılandırma
-* İki NAT havuzları oluşturun. Bir NAT trafiği giden Microsoft ve diğer Microsoft müşteri için kullanılır.
-* Karşılık gelen trafiği NAT kuralları oluşturma
+* İki NAT havuzları oluşturun. Bir NAT trafiği Microsoft'a giden ve Microsoft'tan müşteriye kullanılır.
+* İlgili trafik için NAT kuralları oluşturma
   
        security {
            nat {
@@ -218,10 +213,10 @@ NAT komutlar:
            }
        }
 
-### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Her yönde seçmeli öneklerini BGP yapılandırın
+### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Her yönde seçmeli öneklerini BGP yapılandırma
 Örnekleri başvurmak [yönlendirme yapılandırma örnekleri ](expressroute-config-samples-routing.md) sayfası.
 
-### <a name="6-create-policies"></a>6. İlke oluşturma
+### <a name="6-create-policies"></a>6. İlkeleri oluşturma
     routing-options {
                   autonomous-system <Customer-ASN>;
     }

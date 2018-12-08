@@ -1,5 +1,5 @@
 ---
-title: Oluşturma ve Azure üzerinde Jupyter Notebook kopyalama | Microsoft Docs
+title: Oluşturma ve Azure üzerinde Jupyter Notebook kopyalayın
 description: Azure not defterleri projeler not defterlerini ve yeni oluştur veya başka bir kaynaktan kopyalama ilişkili dosyaları koleksiyonu yönetin.
 services: app-service
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 36de7ce0cbbc1c3a2c12682b6882dc4d5491eb10
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c4325f0c9de0d945d1612a3ab4171a2bfe1be25b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856732"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106524"
 ---
-# <a name="create-and-clone-projects"></a>Oluşturma ve projeleri kopyalama
+# <a name="create-and-clone-projects"></a>Projeleri oluşturma ve kopyalama
 
 Azure not defterleri ilgili dosyaları ve Jupyter Notebook olarak adlandırılan mantıksal gruplar halinde düzenler *projeleri*. Bir kapsayıcı olarak ilk proje oluşturma sonra oluşturduğunuzda veya diğer proje dosyalarının yanı sıra bir klasördeki bir veya daha fazla not defterlerini kopyalayın. (Bu işlem gösterilmiştir [öğretici](tutorial-create-run-jupyter-notebook.md).)
 
@@ -49,7 +49,7 @@ Panoda yapabilecekleriniz kullanıcı kimliği sahip bir hesapla oturum mi oturu
 
 Kullanırken **paylaşımı** seçin ve komut **ekleme** sekmesi, HTML kod veya "dizüstü başlatma" rozet oluşturan Markdown kopyalayabilir:
 
-    ![Launch notebook badge ](https://notebooks.azure.com/launch.png)
+![Not Defteri rozet başlatın ](https://notebooks.azure.com/launch.png)
 
 Bir Azure not defterleri projesi yoksa, uygun kullanıcı adı ve depo adları değiştirerek aşağıdaki şablonlarını kullanarak doğrudan Github'dan klonlar bir bağlantı oluşturabilirsiniz:
 

@@ -1,5 +1,5 @@
 ---
-title: Öğretici - oluşturma ve Azure üzerinde Jupyter not defteri çalıştırmak | Microsoft Docs
+title: Öğretici - oluşturma ve Azure üzerinde Jupyter not defteri çalıştırma
 description: Bir çalışma, Azure veri bilimi doğrusal regresyon işlemini gösteren not defterlerinde Jupyter not defteri oluşturma
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: a73a3e89c2f1c2b852193ae916d73675b5b0fbcd
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 123365f1aa149c0df158eedcc156280a3fe771d2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856844"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106691"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Öğretici: oluşturma ve Python ile Jupyter not defteri çalıştırma
 
@@ -54,7 +54,12 @@ Adlı projenize bir dosyadan veri Not Defteri oluşturduğunuz doğrusal regresy
 ### <a name="upload-the-data-file"></a>Veri dosyasını karşıya yükle
 
 1. Azure not defterlerinde, proje Panoda seçin **karşıya** > **URL'den**
-1. Açılan pencerede URL'sini `https://raw.githubusercontent.com/Microsoft/AzureNotebooks/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps/cricket_chirps.csv` içinde **dosya URL'si** ve *cricket_chirps.csv* içinde **dosya adı**, ardından **Bitti**.
+1. Açılan pencerede aşağıdaki URL'yi girin **dosya URL'si** ve *cricket_chirps.csv* içinde **dosya adı**, ardından **Bitti**.
+
+    ```url
+    https://raw.githubusercontent.com/Microsoft/AzureNotebooks/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps/cricket_chirps.csv
+    ```
+
 1. *Cricket_chirps.csv* dosya artık projenizin dosya listesinde görünmelidir:
 
     ![Yeni proje dosya listesinde gösteren CSV dosyası oluşturuldu](media/tutorial/csv-file-in-project.png)
@@ -87,7 +92,7 @@ Adlı projenize bir dosyadan veri Not Defteri oluşturduğunuz doğrusal regresy
 
 1. Seçin **dosyayı Kaydet** proje Panosu'na geri dönün ve dosyayı kaydedin.
 
-## <a name="install-python-packages-at-the-project-level"></a>Proje düzeyinde Python paketlerini yükleyin
+## <a name="install-project-level-packages"></a>Proje düzeyi paketleri yükleme
 
 Bir not defteri komutları gibi her zaman kullanabilirsiniz `!pip install` gerekli paketleri yüklemek için bir kod hücresi içinde. Ancak, not defterinin kod hücreleri çalıştırın ve önemli ölçüde uzun sürebilir her zaman bu tür komutlar çalıştırılır. Bu nedenle, bunun yerine kullanarak proje düzeyinde paketleri yükleyebileceğiniz bir `requirements.txt` dosya.
 
@@ -113,7 +118,7 @@ Bir not defteri komutları gibi her zaman kullanabilirsiniz `!pip install` gerek
 
 Bu kurulum adımı ile yerinde projedeki çalıştırılmaya herhangi bir dizüstü bilgisayar, bir ortamda bu paketleri yüklendiği çalıştırın.
 
-## <a name="create-the-notebook-file-and-start-jupyter"></a>Not Defteri dosyası oluşturun ve Jupyter Başlat
+## <a name="create-and-run-a-notebook"></a>Not defteri oluşturma ve çalıştırma
 
 Hazır veri dosyası ve proje ortam kümesi ile artık oluşturabilir ve not defterini açın.
 
@@ -125,7 +130,7 @@ Hazır veri dosyası ve proje ortam kümesi ile artık oluşturabilir ve not def
 
     [![](media/tutorial/tutorial-new-notebook.png "İlk Azure not defterleri yeni bir not defteri görünümü")](media/tutorial/tutorial-new-notebook.png#lightbox)
 
-## <a name="a-brief-tour-of-the-notebook-interface"></a>Kısa bir not defteri arabirimi turu
+## <a name="tour-the-notebook-interface"></a>Not Defteri arabirimi turuna katılın
 
 Çalışan not defteri ile kod ve Markdown hücreleri hücrelere çalıştırın ve not defteri yönetebilirsiniz ekleyebilirsiniz. İlk olarak, ancak bu arabirimi tanımak için birkaç dakikanızı ayırıp değer olur. Tüm belgeler için seçin **yardımcı** > **not defteri yardımcı** menü komutu.
 
@@ -154,7 +159,7 @@ Menü komutları gruplarını aşağıdaki gibidir:
 | Hücre | Çeşitli **çalıştırma** komutları bir veya daha fazla hücre farklı bileşimlerde çalıştırın. **Hücresi türü** komutları bir hücre arasında tür değiştirme **kod**, **Markdown**, ve **ham NBConvert** (düz metin). **Geçerli çıkışları** ve **tüm çıkışları** komutlarını denetlemek nasıl çalışma kodu çıktısı görüntülenir ve tüm çıkış temizlemek için bir komut içerir. |
 | Çekirdek | Nasıl kod Çekirdeği'nde ile birlikte çalıştırıldığı yönetecek komutlar **değişiklik çekirdek** dil veya not defteri çalıştırmak için kullanılan Python sürümünü değiştirmek için. |
 | Veriler | Karşıya yüklemek ve proje veya oturumu dosyaları indirmek için komutlar içerir. Bkz: [proje veri dosyalarıyla çalışma](work-with-project-data-files.md) |
-| pencere öğeleri | Yönetecek komutlar [Jupyter pencere öğeleri](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html), eşleme ve çizim görselleştirme için ek özellikler sağlar.|
+| Pencere Öğeleri | Yönetecek komutlar [Jupyter pencere öğeleri](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html), eşleme ve çizim görselleştirme için ek özellikler sağlar.|
 | Yardım | Yardım ve belgeler için Jupyter arabirimi sağlayan komutlar içerir. |
 
 Araç çubuğundaki komutların çoğu eşdeğer menü komutları vardır. Bir özel durum **Enter/Düzenle YÜKSELMEYE slayt gösterisi**, üzerinde ele [paylaşımı ve mevcut not defterleri](present-jupyter-notebooks-slideshow.md).
@@ -404,7 +409,7 @@ De kullanabilirsiniz **dosya** > **kopyalanmasına** projenizde yeni bir dosyaya
 
 Bir not defteri ile işiniz bittiğinde kullanın **dosya** > **Kapat ve durdurmak** not defterini kapatır ve onu çalıştıran çekirdek kapatan komutu. Azure not defterleri kapanır tarayıcı sekmesinde otomatik olarak.
 
-## <a name="debugging-code-in-a-notebook-using-visual-studio-code"></a>Visual Studio Code'u kullanarak bir not defteri kodda hata ayıklama
+## <a name="debug-notebooks-using-visual-studio-code"></a>Not defterlerini kullanarak Visual Studio Code hata ayıklama
 
 Kod hücreleri defterinizdeki beklediğiniz şekilde davranır yoksa, kod hataları veya diğer hatalar olabilir. Ancak, dışında kullanarak `print` deyimlerini Jupyter not defteri değil herhangi bir hata ayıklama özellikleri sunan, değişkenlerin değerini gösterir.
 

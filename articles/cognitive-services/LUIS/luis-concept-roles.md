@@ -1,21 +1,22 @@
 ---
-title: Rolleri desen tabanlı varlıklarda nasıl kullanıldığını anlama
+title: Varlıklar için roller
 titleSuffix: Azure Cognitive Services
-description: Adlandırılmış ve bağlamsal subtypes yalnızca desenlerinde kullanılan bir varlığın rolleridir. Örneğin, utterance satın alma New York'tan bilet Londra, New York hem Londra şehirler olan ancak tümcedeki her farklı bir anlama sahiptir. New York kaynak Şehir ve Londra hedef şehir.
+description: Adlandırılmış ve bağlamsal subtypes yalnızca desenlerinde kullanılan bir varlığın rolleridir. Örneğin utterance içinde `buy a ticket from New York to London`, New York hem London olan şehirleri ancak her bir tümce içinde farklı bir anlama sahiptir. New York kaynak Şehir ve Londra hedef şehir.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f5f790d4cdba8b6ebc1ed2694cb4552cb565f676
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: dd11c2c7062d09c522c46770e8dba6d6eb0ac1e9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427225"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105573"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Varlık desenleri bağlamsal subtypes rolleridir
 Adlandırılmış ve bağlamsal subtypes yalnızca kullanılan bir varlığın rolleridir [desenleri](luis-concept-patterns.md).

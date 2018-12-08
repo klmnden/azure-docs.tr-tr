@@ -1,21 +1,22 @@
 ---
-title: 'Hızlı başlangıç: Bilgi bankası yayımlama - REST, Python - Soru-Cevap Oluşturma'
-titleSuffix: Azure Cognitive Services
-description: Bu REST tabanlı hızlı, test edilmiş Bilgi Bankası en son sürümünü temsil eden yayımlanan Bilgi Bankası adanmış bir Azure Search dizinine iter, Bilgi Bankası yayımlama aracılığıyla açıklanmaktadır. Ayrıca uygulamanızda veya sohbet botunuzda çağrılabilecek bir uç nokta da oluşturulur.
+title: Bilgi Bankası, REST, Python yayımlama
+titleSuffix: QnA Maker - Azure Cognitive Services
+description: Python (REST) tabanlı bu hızlı başlangıçta, yayımlanan Bilgi Bankası temsil eden adanmış bir Azure Search dizini için test edilmiş Bilgi Bankası en son sürümünü iter, Bilgi Bankası yayımlama aracılığıyla açıklanmaktadır. Ayrıca uygulamanızda veya sohbet botunuzda çağrılabilecek bir uç nokta da oluşturulur.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: c942045f01e08161394304f5ec15ff44ba84fc4b
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: dc72febaca765756dfb909cbcdcc43b8d6cab0f1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164464"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105266"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Hızlı başlangıç: Python kullanarak Soru-Cevap Oluşturma’da bilgi bankası yayımlama
 

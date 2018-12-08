@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning hizmetine geçiş
+title: Workbench uygulamasını geçirme
+titleSuffix: Azure Machine Learning service
 description: Yükseltme veya önceki bir sürümden en geç Azure Machine Learning hizmeti sürümüne geçirme konusunda bilgi edinin.
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +10,16 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: e2b3545c020f41f25f19843eab158cfb1b419164
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cc60fd6a9d5f154d26fc9c495f190296453a0db0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253457"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106660"
 ---
-# <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Azure Machine Learning hizmetinin en son sürüme geçirme 
+# <a name="migrate-from-workbench-to-the-latest-version-of-azure-machine-learning-service"></a>Azure Machine Learning hizmetinin en son sürüme Workbench'ten geçirme 
 
-**Workbench (Önizleme) uygulamasının yüklü olması ve/veya deneme ve model Yönetimi Önizleme hesapları, en son sürüme geçirmek için bu makaleyi kullanın.**  Önizleme Workbench yüklenmiş veya bir deneme ve/veya model Yönetimi hesabı yoksa, herhangi bir şey geçirme gerekmez.
+**Workbench uygulamasının yüklü olması ve/veya deneme ve model Yönetimi Önizleme hesapları, en son sürüme geçirmek için bu makaleyi kullanın.**  Önizleme Workbench yüklenmiş veya bir deneme ve/veya model Yönetimi hesabı yoksa, herhangi bir şey geçirme gerekmez.
 
 ## <a name="what-can-i-migrate"></a>Hangi geçirebilirim?
 Azure Machine Learning hizmeti ilk önizleme sürümünde oluşturulan çoğu yapının kendi yerel depolanır veya Bulut depolama. Bu yapılar görünmez olur olmaz. Yapıtları geçirmek için yeniden güncelleştirilmiş Azure Machine Learning hizmeti ile kaydedin. 
@@ -75,11 +76,10 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 Web hizmetlerini geçirmek için yeni dağıtım hedefleri yeni CLI veya SDK'sını kullanarak Modellerinizi yeniden dağıtın. Özgün Puanlama dosyası, model dosyası bağımlılıkları dosyaları, ortam dosyası ve şema dosyalarını değiştirmenize gerek yoktur. 
 
-En son sürümde modelleri web Hizmetleri olarak dağıtılan [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) veya [Azure Kubernetes hizmeti](how-to-deploy-to-aks.md) (AKS) kümeleri. 
+En son sürümde modelleri web hizmetleri için Azure Container Instances'a (ACI) veya Azure Kubernetes Service (AKS) kümesi olarak dağıtılır. 
 
 Bu makalelerde daha fazla bilgi edinin:
-+ [ACI'ya dağıtma](how-to-deploy-to-aci.md)
-+ [AKS'ye dağıtma](how-to-deploy-to-aks.md)
++ [Nasıl dağıtılacağı ve nerede](how-to-deploy-and-where.md)
 + [Öğretici: Azure Machine Learning hizmeti ile modelleri dağıtma](tutorial-deploy-models-with-aml.md)
 
 Zaman [önceki CLI uçlar için destek](overview-what-happened-to-workbench.md#timeline), Model Yönetimi hesabınız ile ilk olarak dağıtılan web hizmetleri yönetmek mümkün olmayacaktır. Ancak, bu web hizmetleri için Azure Container Service (ACS) hala destekleniyor sürece çalışmaya devam eder.

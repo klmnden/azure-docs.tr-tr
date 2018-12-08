@@ -1,20 +1,22 @@
 ---
-title: Azure Disk şifrelemesi önkoşulları | Microsoft Docs
+title: Önkoşullar - Iaas Vm'leri için Azure Disk şifrelemesi | Microsoft Docs
 description: Bu makale, Iaas sanal makineleri için Microsoft Azure Disk şifrelemesi kullanılarak önkoşulları sağlar.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/14/2018
-ms.openlocfilehash: ad8bf0217dcd07a7272a220f2d91ed6bc40523bc
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 55226204d148239b7c32d1abc6f61fddcfc5b913
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498598"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104994"
 ---
-# <a name="azure-disk-encryption-prerequisites"></a>Azure Disk şifrelemesi önkoşulları 
+# <a name="azure-disk-encryption-prerequisites"></a>Azure Disk şifrelemesi önkoşulları
+
  Bu makalede, Azure Disk şifrelemesi önkoşulları, Azure Disk şifrelemesi kullanabilmeniz için önce karşılanması gereken öğeleri açıklar. Azure Disk şifrelemesi ile tümleşiktir [Azure anahtar kasası](https://docs.microsoft.com/azure/key-vault/) şifreleme anahtarlarını yönetmeye yardımcı olmak için. Kullanabileceğiniz [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/), veya [Azure portalında](https://portal.azure.com) Azure Disk şifrelemesini yapılandırmak için.
 
 Ele alınan desteklenen senaryolar için Azure Iaas sanal makinelerinde Azure Disk Şifrelemesi'ı etkinleştirmeden önce [Azure Disk Şifrelemesi'ne genel bakış](azure-security-disk-encryption-overview.md) makalesi, önkoşulların sağlandığından emin olun. 

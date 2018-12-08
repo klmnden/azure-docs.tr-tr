@@ -1,6 +1,6 @@
 ---
-title: Ekleme veya Azure Active Directory'de kullanıcıları silmek | Microsoft Docs
-description: Yeni kullanıcı ekleme ya da Azure Active Directory kullanarak mevcut kullanıcıları silmek öğrenin.
+title: Ekleme veya silme kullanıcılar - Azure Active Directory | Microsoft Docs
+description: Yeni kullanıcıların eklenmesini veya Azure Active Directory kullanarak mevcut kullanıcı silme hakkında yönergeler.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: 782363144a6b1dd87aff515c38588b6ce70b61bd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: dd4a9132d5f04870239be3127f723afb60b3ecef
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295113"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104688"
 ---
-# <a name="how-to-add-or-delete-users-using-azure-active-directory"></a>Nasıl yapılır: ekleme veya Azure Active Directory kullanarak kullanıcı silme
-Yeni kullanıcı ekleme veya var olan kullanıcılar, Azure AD kullanarak, Azure Active Directory (Azure AD) kiracısı silin.
+# <a name="add-or-delete-users-using-azure-active-directory"></a>Ekleme veya Azure Active Directory kullanarak kullanıcı silme
+Yeni kullanıcılar ekleyebilir veya var olan kullanıcılar Azure Active Directory (Azure AD) kiracınız silinemiyor.
 
 ## <a name="add-a-new-user"></a>Yeni kullanıcı ekleme
-Azure Active Directory'yi kullanarak yeni bir kullanıcı oluşturabilir.
+Azure Active Directory portalı kullanarak yeni bir kullanıcı oluşturabilir.
 
 ### <a name="to-add-a-new-user"></a>Yeni bir kullanıcı eklemek için
 1. Oturum [Azure portalında](https://portal.azure.com/) bir genel yönetici veya kullanıcı dizinin Yöneticisi olarak.
@@ -58,10 +58,10 @@ Azure Active Directory'yi kullanarak yeni bir kullanıcı oluşturabilir.
 Azure Active Directory (bulut) hem de Windows Server Active Directory (şirket) ile bir ortamınız varsa, var olan kullanıcı hesabı verileri eşitleyerek yeni kullanıcıları ekleyebilirsiniz. Karma ortamlar ve kullanıcılar hakkında daha fazla bilgi için bkz. [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](../hybrid/whatis-hybrid-identity.md).
 
 ## <a name="delete-a-user"></a>Kullanıcı silme
-Mevcut bir kullanıcının Azure Active Directory'yi kullanarak silebilirsiniz.
+Mevcut bir kullanıcının Azure Active Directory portalında kullanarak silebilirsiniz.
 
 ### <a name="to-delete-a-user"></a>Kullanıcı silme
-1. Oturum [Azure portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
+1. Dizin için bir Genel yönetici hesabı kullanarak [Azure portalda](https://portal.azure.com/) oturum açın.
 
 2. Seçin **Azure Active Directory**seçin **kullanıcılar**, arayın ve Azure AD kiracınızdan silmek istediğiniz kullanıcıyı seçin. Örneğin, _Mary Parker_.
 
@@ -79,7 +79,7 @@ Kullanıcılarınızın ekledikten sonra aşağıdaki temel işlemleri gerçekle
 
 - [Profil bilgileri ekleme veya değiştirme](active-directory-users-profile-azure-portal.md)
 
-- [Kullanıcılara roller atama](active-directory-users-assign-role-azure-portal.md)
+- [Kullanıcılara rol atama](active-directory-users-assign-role-azure-portal.md)
 
 - [Temel bir grup oluşturma ve üye ekleme](active-directory-groups-create-azure-portal.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Betik Örneği - Farklı bölgedeki bir depolama hesabına VHD olarak anlık görüntü gönderme/kopyalama | Microsoft Docs
-description: Azure CLI Betik Örneği - Aynı veya farklı bölgedeki bir depolama hesabına VHD olarak anlık görüntü gönderme/kopyalama
+title: Azure CLI örneği - anlık görüntü için bir depolama hesabı başka bir bölgede kopyalama | Microsoft Docs
+description: Azure CLI betik örneği - aynı veya farklı bölgedeki bir depolama hesabına VHD olarak anlık görüntü dışarı aktarma/kopyalama.
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
-ms.custom: mvc
-ms.openlocfilehash: cd555cfea6a84a0bdf0d0c4c9b9b68ae079fbc7b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
-ms.translationtype: HT
+ms.custom: mvc,seodec18
+ms.openlocfilehash: bdc9da206e938c0c7fd3d027ee02b11d01a1b4d0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852639"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106728"
 ---
-# <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-cli"></a>CLI ile farklı bölgedeki bir depolama hesabına VHD olarak yönetilen anlık görüntüler gönderme/kopyalama
+# <a name="exportcopy-a-snapshot-to-a-storage-account-in-different-region-with-cli"></a>CLI ile farklı bölgedeki bir depolama hesabına bir anlık görüntü dışarı aktarma/kopyalama
 
 Bu betik farklı bölgedeki bir depolama hesabına yönetilen bir anlık görüntü gönderir. İlk olarak anlık görüntünün SAS URI'sini oluşturur ve sonra onu farklı bölgede bulunan bir depolama hesabına kopyalamak için kullanır. Olağanüstü durum kurtarma amacıyla farklı bölgede bulunan yönetilen disklerinizin yedeğini tutmak için bu betiği kullanın. 
 

@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-ms.openlocfilehash: 531b431a0753e34592e88211d8a58328fe8a4e45
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d3fbc8e5b6595b52fe5ab9e766a108d271f2f448
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014557"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104603"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -75,6 +75,7 @@ Visual Studio'da:
 
     ![Ekran Araçlar, Seçenekler iletişim kutusu](media/common/VerbositySetting.PNG)
     
+### <a name="multi-stage-dockerfiles"></a>Çok aşamalı dockerfile'ları:
 Çok aşamalı Dockerfile'ı kullanmaya çalışırken bu hatayı görebilirsiniz. Ayrıntılı çıkış şöyle görünür:
 
 ```cmd
@@ -91,6 +92,21 @@ Service cannot be started.
 ```
 
 Çok aşamalı desteklemeyen Docker'ın eski bir sürümü AKS düğümleri yapılar olmasıdır. Dockerfile çok aşamalı yapılar önlemek için yeniden gerekecektir.
+
+### <a name="re-running-a-service-after-controller-re-creation"></a>Hizmet Denetleyicisi yeniden oluşturma işleminden sonra yeniden çalıştırma
+Kaldırıldı ve ardından bu kümeyle ilişkili Azure geliştirme alanları denetleyicisi yeniden sonra hizmet yeniden çalıştırmak çalışırken bu hatayı görebilirsiniz. Ayrıntılı çıkış şöyle görünür:
+
+```cmd
+Installing Helm chart...
+Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
+Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
+Helm install failed with exit code '1': Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
+Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
+```
+
+Geliştirme alanları denetleyicisini kaldırma, denetleyici tarafından önceden yüklenmiş hizmetleri kaldırmaz olmasıdır. Eski Hizmetleri yerinde olduğundan denetleyicisi yeniden oluşturma ve ardından yeni denetleyicisi kullanarak hizmetlerini çalıştırma denemesi başarısız olur.
+
+Bunu ele almak için `kubectl delete` el ile eski Hizmetleri kümenizden kaldırın ve sonra geliştirme yeni hizmetlerin yüklenmesini için boşluk yeniden çalıştırmak için komutu.
 
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Geliştirme alanları hizmeti ile ilişkilendirilen genel bir URL için DNS adı çözümlemesi başarısız olur
 
@@ -195,6 +211,15 @@ Azure geliştirme geliştirme makinenizde yüklü alanları için VS Code uzant�
 
 ### <a name="try"></a>Deneyin:
 Yükleme [Azure geliştirme alanları için VS Code uzantısı](get-started-netcore.md).
+
+## <a name="debugging-error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>Hata ayıklama "geçersiz 'cwd' değeri ' / src'. Sistem belirtilen dosyayı bulamıyor." veya "Başlat: '/ src / [Proje ikili dosya yolu]' programı yok"
+VS Code hata ayıklayıcısı çalıştırma, hata raporları `Invalid 'cwd' value '/src'. The system cannot find the file specified.` ve/veya `launch: program '/src/[path to project executable]' does not exist`
+
+### <a name="reason"></a>Neden
+Varsayılan olarak, VS Code uzantısı kullanan `src` kapsayıcı üzerindeki proje için çalışma dizini olarak. Güncelleştirdiyseniz, `Dockerfile` farklı bir çalışma dizini belirtmek için bu hatayı görebilirsiniz.
+
+### <a name="try"></a>Deneyin:
+Güncelleştirme `launch.json` altında dosya `.vscode` proje klasörünüze alt dizinidir. Değişiklik `configurations->cwd` yönergesi ile aynı dizine işaret edecek şekilde `WORKDIR` projenizin tanımlı `Dockerfile`. Güncelleştirmeniz gerekebilir `configurations->program` de yönergesi.
 
 ## <a name="the-type-or-namespace-name-mylibrary-could-not-be-found"></a>'Kitaplığım' tür veya ad alanı bulunamadı
 

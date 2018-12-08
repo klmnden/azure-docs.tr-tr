@@ -1,21 +1,22 @@
 ---
-title: Önceden oluşturulmuş etki alanı başvuru - Azure | Microsoft Docs
+title: Önceden derlenmiş etki alanı başvurusu
 titleSuffix: Azure
 description: Önceden oluşturulmuş koleksiyonları hedefleri ve varlıkların gelen Language Understanding Intelligent Services (LUIS) önceden oluşturulmuş etki alanları için başvuru.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 287a0986d921798bc7735e5a75d279f010712b16
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: a47fb82b1e6d42bdebff8cc4f3cb4c3c87025831
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335632"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106252"
 ---
 # <a name="prebuilt-domain-reference"></a>Önceden derlenmiş etki alanı başvurusu
 Bu başvuru, hakkında bilgi sağlar. [önceden oluşturulmuş etki alanları](luis-how-to-use-prebuilt-domains.md), önceden oluşturulmuş koleksiyon hedefleri ve LUIS sunan varlıkların olduğu.
@@ -266,11 +267,12 @@ When is Captain Omar showing?
 Hedefleri ve bir müzik çalar müziği için ilgili varlıkları müzik etki alanı sağlar.
 
 ### <a name="examples"></a>Örnekler
-```
-play Beethoven
-Increase track volume
-Skip to the next song
-```
+
+|Örnekler|
+|--|
+|Beethoven Yürüt|
+|İzleme birim artırın|
+|Sonraki şarkıya atla|
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
@@ -297,11 +299,12 @@ Skip to the next song
 Amaç ve varlıkları oluşturma, düzenleme ve notları bulma ile ilgili not etki alanı sağlar.
 
 ### <a name="examples"></a>Örnekler
-```
-Add to my groceries note lettuce tomato bread coffee
-Check off bananas from my grocery list
-Remove all items from my vacation list
-```
+
+|Örnekler|
+|--|
+|My Market Not lettuce merak ekmek kahve Ekle|
+|My Market listeden bananas kapalı denetleyin|
+|Tatil listemdeki tüm öğeleri Kaldır|
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
@@ -330,11 +333,13 @@ Remove all items from my vacation list
 Hedefleri ve cihaz denetlemek için ilgili varlıkları OnDevice etki alanı sağlar.
 
 ### <a name="examples"></a>Örnekler
-```
-Close video player
-Cancel playback
-Can you make the screen brighter?
-```
+
+|Örnekler|
+|--|
+|video oynatıcı kapatın|
+|Kayıttan yürütme iptal et|
+|Ekran rengin daha açık hale getirebilirsiniz?|
+
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
@@ -381,11 +386,13 @@ Can you make the screen brighter?
 Basamak etki alanı, işletmelerin, kurum, Restoran, ortak alanları ve adresleri gibi yerlerde ilgili sorguları işlemek için hedefleri sağlar.
 
 ### <a name="examples"></a>Örnekler
-```
-Save this location to my favorites
-How far away is Holiday Inn?
-At what time does Safeway close?
-```
+
+|Örnekler|
+|--|
+|Bu konumda sık kullanılanlara Kaydet|
+|Tatil Inn nasıl uzakta mi?|
+|Ne zaman Safeway kapatmak?|
+
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
@@ -450,11 +457,13 @@ restart|
 Anımsatıcı etki alanı amaç ve varlıkları oluşturma, düzenleme ve bulma anımsatıcılar sağlar.
 
 ### <a name="examples"></a>Örnekler
-```
-Change my interview to 9 am tomorrow
-Remind me to buy milk on my way back home
-Can you check if I have a reminder about Christine's birthday?
-```
+
+|Örnekler|
+|--|
+|My röportajı yarın 09: 00 için değiştirin|
+|Yol giriş geri üzerinde sütlü satın hatırlat|
+|Anımsatıcıyı Christine'nın Doğum günü hakkında sorularım varsa kontrol edebilirim?|
+
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
@@ -473,11 +482,12 @@ Can you check if I have a reminder about Christine's birthday?
 Hedefleri ve Restoran ayırmaları yönetmeyle ilgili varlıkları RestaurantReservation etki alanı sağlar.
 
 ### <a name="examples"></a>Örnekler
-```
-Reserve at Zucca for two for tonight
-Book a table at BJ's for tomorrow
-Table for 3 in Palo Alto at 7
-```
+
+|Örnekler|
+|--|
+|İki tonight için Zucca ayırın|
+|Kitap yarın için BJ'ın, bir tablo|
+|Tablo 7, 3 Palo Alto'için|
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
@@ -502,11 +512,12 @@ Table for 3 in Palo Alto at 7
 Amaç ve varlıkları oluşturma ve yönetme taksi rezervasyonlarının taksi etki alanı sağlar.
 
 ### <a name="examples"></a>Örnekler
-```
-Get me a cab at 3 pm
-How much longer do I have to wait for my taxi?
-Cancel my Uber
-```
+
+|Örnekler|
+|--|
+|Bana bir cab 3 saat Al|
+|Ne kadar uzun my taksi için beklemek zorunda?|
+|My Uber iptal et|
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
@@ -531,11 +542,13 @@ Cancel my Uber
 Hedefleri ve metni bir hedef dile çevirmek için ilgili varlıkları Çevir etki alanı sağlar.
 
 ### <a name="examples"></a>Örnekler
-```
-Translate to French
-Translate hello to German
-Translate this sentence to English
-```
+
+|Örnekler|
+|--|
+|Fransızca Çevir|
+|Almanca Hello Çevir|
+|İngilizce için bu cümleyi Çevir|
+
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
@@ -554,11 +567,12 @@ Translate this sentence to English
 TV etki alanı, TV denetlemek için amaç ve varlıkları sağlar.
 
 ### <a name="examples"></a>Örnekler
-```
-Switch channel to BBC
-Show TV guide
-Watch National Geographic
-```
+
+|Örnekler|
+|--|
+|BBC geçiş kanalı|
+|TV Kılavuzu Göster|
+|Ulusal coğrafi izleyin|
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
@@ -576,11 +590,13 @@ Watch National Geographic
 Yardımcı programları etki alanı hedefleri greetings, iptal, onay, Yardım, yineleme ve gezintisi, başlatma ve durdurma gibi birçok görev için ortak olan görevleri sağlar.
 
 ### <a name="examples"></a>Örnekler
-```
-Go back to Twitter
-Please help
-Repeat last question please
-```
+
+|Örnekler|
+|--|
+|Twitter'da geri dönün|
+|Lütfen yardımcı olun|
+|Lütfen son soru tekrarlayın|
+
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
@@ -600,11 +616,13 @@ Repeat last question please
 Hava durumu etki alanı, hava durumu raporları ve öngörüleri almak için amaç ve varlıkları sağlar.
 
 ### <a name="examples"></a>Örnekler
-```
-weather in London in september
-What?s the 10 day forecast?
-What's the average temperature in India in september?
-```
+
+|Örnekler|
+|--|
+|hava durumu, Eylül ayının Londra|
+|Ne? s 10 gün tahmini?|
+|Eylül'de bulunan ortalama sıcaklık nedir?|
+
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
@@ -621,11 +639,12 @@ What's the average temperature in India in september?
 Web etki alanı bir hedefi için bir Web sitesine gezinme sağlar.
 
 ### <a name="examples"></a>Örnekler
-```
-Navigate to facebook.com
-Go to www.twitter.com
-Navigate to www.bing.com
-```
+
+|Örnekler|
+|--|
+|İçin facebook.com gidin|
+|Www.twitter.com için Git|
+|İçin www.Bing.com gidin|
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |

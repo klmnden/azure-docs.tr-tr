@@ -1,11 +1,12 @@
 ---
 title: Derin öğrenme ve AI çerçeveleri - Azure | Microsoft Docs
-description: Derin Öğrenme ve AI çerçeveleri
+description: Derin öğrenme çerçeveleri ve veri bilimi sanal makinesi üzerinde desteklenen araçlar hakkında bilgi edinin.
 keywords: veri bilimi araçları, veri bilimi sanal makinesi, veri bilimi için araçlar, linux veri bilimi
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: fbe3aeac3918142388edfa8cd053badd362d7fd7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b5bf9a0e9cbbcf2a4144255ac0bfbd4bd48e956c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241931"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104479"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Derin Öğrenme ve AI çerçeveleri
 [Veri bilimi sanal makinesi](https://aka.ms/dsvm) (DSVM) ve [derin öğrenme VM](https://aka.ms/dsvm/deeplearning) Tahmine dayalı analiz ile yapay zeka (AI) uygulamaları oluşturmanıza yardımcı olmak için ayrıntılı öğrenme çerçevelerini destekler ve bilişsel yetenekleri, görüntü ve dil anlama gibi. 

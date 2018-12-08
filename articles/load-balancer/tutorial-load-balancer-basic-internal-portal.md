@@ -4,11 +4,7 @@ description: Bu öğretici, Azure portalını kullanarak iç temel yük dengeley
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internal traffic to virtual machines within a specific zone in a region.
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -17,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 9ccbbb107dfd8fde237cdfdd4b0c3fcc080fd70e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 404b667de32e16dc43fa1359a297078ac07b5cfe
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839254"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106388"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Öğretici: Bakiye iç trafik yükü ile Azure portalında bir temel yük dengeleyici
 
@@ -62,9 +58,6 @@ Bu öğretici adımları yapmak için oturum açın Azure Portal'daki [ https://
    - **Örnek ayrıntıları** > **kullanılabilirlik seçeneklerini**: 
      1. Açılır listesine tıklayıp **kullanılabilirlik kümesi**. 
      2. Seçin **Yeni Oluştur**, türü *MyAvailabilitySet*seçip **Tamam**.
-   - **Yönetici hesabı** > **kullanıcıadı**: türü *azureuser*.
-   - **Yönetici hesabı** > **parola**: türü *Azure1234567*. 
-     Parolayı yeniden yazın **parolayı onayla** alan.
    
 1. Seçin **ağ** sekmesinde veya seçin **sonraki: diskleri**, ardından **sonraki: ağ**. 
    
@@ -212,7 +205,7 @@ Portalında, üzerinde **genel bakış** sayfasındaki **MyLoadBalancer**, IP ad
    
 1. Windows Güvenlik ekranında seçin **daha fazla seçenek** ardından **farklı bir hesap kullan**. 
    
-   Kullanıcı adı girin *azureuser* ve parola *Azure1234567*seçip **Tamam**.
+   Kullanıcı adı ve parola girin ve ardından **Tamam**.
    
 1. Yanıt **Evet** herhangi bir sertifika istemi. 
    

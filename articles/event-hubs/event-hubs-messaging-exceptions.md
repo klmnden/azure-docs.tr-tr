@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs Mesajlaşma özel durumları | Microsoft Docs
-description: Azure Event Hubs özel durumları ve önerilen eylemler ileti listesi.
+title: Mesajlaşma özel durumları - Azure Event Hubs | Microsoft Docs
+description: Bu makalede, Azure Event Hubs Mesajlaşma özel durumları ve Önerilen Eylemler listesini sağlar.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/03/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 4576aad82b8c581cbe1630b56a07fc469207ef5f
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 013386d86d29b75591a938b2805bde25ecf176d3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42061467"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104484"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Event Hubs mesajlaşma özel durumları
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d1e7046ed1fc87a85a08b21a48accaaf3b5087b9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 53a6ae828009db24b56a11b1fdcbea19842191f4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316659"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106626"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Makineleri ve Azure Güvenlik Merkezi'nde uygulamalarınızı koruma
 Azure Güvenlik Merkezi, Azure kaynaklarınızın güvenlik durumunu analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde, gerekli denetimlerin yapılandırılması işlemi boyunca size rehberlik öneriler oluşturur. Öneriler, Azure kaynak türleri için geçerlidir: sanal makineleri (VM'ler) ve bilgisayarlar, uygulamalar, ağ, SQL ve kimlik ve erişim.
@@ -59,7 +59,7 @@ Bu bölümde, VM'ler ve bilgisayarların otomatik sağlama ve bunların geçerli
 ### İzlenmeyen VM'ler ve bilgisayarlar <a name="unmonitored-vms-and-computers"></a>
 Microsoft Monitoring Agent uzantısını makine çalışmıyorsa bir VM'yi veya bilgisayarı Güvenlik Merkezi tarafından izlenmez. Bir yerel aracı zaten yüklü bir makineye sahip olabilir, örneğin OMS aracısı veya SCOM Aracısı doğrudan. Bu aracıları makinelerle olarak tanımlandığında bu aracılar Güvenlik Merkezi'nde tam olarak desteklenmediğinden izlenmeyen. Güvenlik Merkezi’nin tüm özelliklerinden tam olarak faydalanmak için, Microsoft Monitoring Agent uzantısı gereklidir.
 
-İzlenmeyen VM'de veya bilgisayarda zaten yüklü olan yerel aracıya ek olarak, uzantı yükleyebilirsiniz. İki aracıyı da aynı çalışma alanına bağlayarak aynı şekilde yapılandırın. Bu, Güvenlik Merkezi’nin Microsoft Monitoring Agent uzantısıyla etkileşim kurup veri toplamasını sağlar. Microsoft Monitoring Agent uzantısını nasıl yükleyeceğiniz hakkında yönergeler için bkz. [VM uzantısını etkinleştir](../log-analytics/log-analytics-quick-collect-azurevm.md).
+İzlenmeyen VM'de veya bilgisayarda zaten yüklü olan yerel aracıya ek olarak, uzantı yükleyebilirsiniz. İki aracıyı da aynı çalışma alanına bağlayarak aynı şekilde yapılandırın. Bu, Güvenlik Merkezi’nin Microsoft Monitoring Agent uzantısıyla etkileşim kurup veri toplamasını sağlar. Microsoft Monitoring Agent uzantısını nasıl yükleyeceğiniz hakkında yönergeler için bkz. [VM uzantısını etkinleştir](../azure-monitor/learn/quick-collect-azurevm.md).
 
 Güvenlik Merkezi’nin otomatik hazırlama için başlatılan VM’leri ve bilgisayarları başarılı bir şekilde izleyememe nedenleri hakkında daha fazla bilgi edinmek için bkz. [Aracı durumu sorunlarını izleme](security-center-troubleshooting-guide.md#mon-agent).
 

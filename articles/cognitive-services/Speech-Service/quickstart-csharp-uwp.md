@@ -1,21 +1,22 @@
 ---
-title: "Hızlı Başlangıç: Konuşma Tanıma Hizmeti SDK'sını kullanarak UWP uygulamasında C# dilinde konuşma tanıma"
+title: 'Hızlı Başlangıç: konuşma tanıma C# (UWP) - konuşma Hizmetleri'
 titleSuffix: Azure Cognitive Services
-description: Konuşma Tanıma Hizmeti SDK'sını kullanarak UWP uygulamasında konuşma tanımayı öğrenin
+description: Bu makalede, oluşturduğunuz bir C# Bilişsel hizmetler konuşma SDK'sı kullanarak evrensel Windows Platformu (UWP) uygulama. Cihazınızın mikrofonundan gerçek zamanda konuşmayı metne dönüştüreceksiniz. Uygulama, konuşma SDK'sı NuGet paketi ve Microsoft Visual Studio 2017 ile oluşturulmuştur.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 7b132ea9fea7591d32b693ef9c95acf7626c8fff
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 55988ef65e223c76a485c3cbec13626abf68d3b9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218908"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104638"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Konuşma SDK'sını kullanarak UWP uygulamasında konuşma tanıma
 
@@ -26,7 +27,7 @@ Bu makalede Bilişsel Hizmetler[Konuşma SDK'sı](speech-sdk.md)'nı kullanarak 
 > [!NOTE]
 > Evrensel Windows Platformu; PC, Xbox, Surface Hub ve diğer cihazlar dahil olmak üzere Windows 10 destekleyen tüm cihazlarda çalışan uygulamalar geliştirmenize olanak tanır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtarınız olması gerekir. Anahtarı ücretsiz alabilirsiniz. Ayrıntılar için bkz. [Konuşma hizmetini ücretsiz olarak deneme](get-started.md).
 
@@ -34,7 +35,7 @@ Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtar�
 
 1. Visual Studio 2017'yi başlatın.
 
-1. **Evrensel Windows Platformu geliştirmesi** iş yükünün bulunduğundan emin olun. Visual Studio yükleyicisini açmak için Visual Studio menü çubuğundan **Araçlar** > **Araçları ve Özellikleri Al**'ı seçin. Bu iş yükü zaten etkinse iletişim kutusunu kapatın. 
+1. **Evrensel Windows Platformu geliştirmesi** iş yükünün bulunduğundan emin olun. Visual Studio yükleyicisini açmak için Visual Studio menü çubuğundan **Araçlar** > **Araçları ve Özellikleri Al**'ı seçin. Bu iş yükü zaten etkinse iletişim kutusunu kapatın.
 
     ![Visual Studio yükleyicisinin İş yükleri sekmesi vurgulanmış olarak ekran görüntüsü](media/sdk/vs-enable-uwp-workload.png)
 

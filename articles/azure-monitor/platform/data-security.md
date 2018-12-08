@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: cdd01953e4053eec6e8b0cb57c7a68bb2ae01673
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d2e76bde90c0bf2d411697998fe140eb1b706b9b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957496"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106473"
 ---
 # <a name="log-analytics-data-security"></a>Oturum Analytics veri güvenliği
 Bu belge özelliği hakkında bilgiler tamamlamak için Azure İzleyici, Log Analytics, özel bilgiler sağlamak için tasarlanmıştır [Azure Güven Merkezi](../../security/security-microsoft-trust-center.md).  
@@ -181,7 +181,7 @@ Seçilen fiyatlandırma planı hakkında toplanan verileri veritabanında depola
 Log Analytics çalışma alanınızın erişmek için bir kuruluş hesabı ya da daha önce ayarlamış bir Microsoft hesabı kullanarak Azure portalında oturum açın. Log Analytics hizmeti ve portalı arasındaki tüm trafiğe güvenli bir HTTPS kanalı üzerinden gönderilir. Portal kullanırken bir oturum kimliği kullanıcı istemci (tarayıcı) oluşturulur ve veriler, oturum sonlandırılana kadar yerel önbellekte depolanır. Sona erdi, önbellek silinir. Kişisel bilgi içermeyen, istemci tarafı tanımlama bilgilerini otomatik olarak kaldırılmaz. Oturum tanımlama bilgileri HTTPOnly işaretlenir ve güvenli hale getirilir. Önceden belirlenmiş bir boşta kalma süresinden sonra Azure portalı oturum sonlandırıldı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Uygulamanızın Azure sanal makinelerini aşağıdaki için Log Analytics verilerini nasıl toplayacağınızı öğrenin [Azure VM Hızlı Başlangıç](../../log-analytics/log-analytics-quick-collect-azurevm.md).  
+* Uygulamanızın Azure sanal makinelerini aşağıdaki için Log Analytics verilerini nasıl toplayacağınızı öğrenin [Azure VM Hızlı Başlangıç](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
-*  Fiziksel veya sanal Windows veya Linux bilgisayarlardaki ortamınızdaki verileri toplamak için arıyorsanız bkz [Linux bilgisayarlar için Hızlı Başlangıç](../../log-analytics/log-analytics-quick-collect-linux-computer.md) veya [Hızlı Başlangıç için Windows bilgisayarları](../../azure-monitor/learn/quick-collect-windows-computer.md)
+*  Fiziksel veya sanal Windows veya Linux bilgisayarlardaki ortamınızdaki verileri toplamak için arıyorsanız bkz [Linux bilgisayarlar için Hızlı Başlangıç](../../azure-monitor/learn/quick-collect-linux-computer.md) veya [Hızlı Başlangıç için Windows bilgisayarları](../../azure-monitor/learn/quick-collect-windows-computer.md)
 

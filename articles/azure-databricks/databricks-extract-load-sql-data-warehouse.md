@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 11/19/2018
-ms.openlocfilehash: 5a6d3265fde3b7633036ddc4cae0a5ea7d246957
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 748eefd78f8235a906d0e87874b29432b4b869c7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265279"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106796"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Öğretici: Azure Databricks kullanarak verileri ayıklama, dönüştürme ve yükleme
 
@@ -376,7 +376,7 @@ Ham örnek veriler (**small_radio_json.json**) radyo istasyonunun hedef kitlesin
 
 Bu bölümde, dönüştürülen verileri Azure SQL Veri Ambarı'na yüklersiniz. Azure Databricks için Azure SQL Veri Ambarı bağlayıcısını kullanıp veri çerçevesini bir tablo olarak doğrudan SQL veri ambarına yükleyebilirsiniz.
 
-Daha önce de belirtildiği gibi, SQL veri ambarı bağlayıcısı verileri Azure Databricks ile Azure SQL Veri Ambarı arasında aktarmak üzere karşıya yüklemek için geçici depolama alanı konumu olarak Azure Blob Depolama'yı kullanır. Bu nedenle, depolama hesabına bağlanmak için kullanılacak yapılandırmayı sağlayarak başlarsınız. Bu makalenin önkoşullarından biri olarak hesabı önceden oluşturmuş olmalısınız.
+Daha önce bahsedildiği gibi SQL veri ambarı Bağlayıcısı verileri Azure Databricks ve Azure SQL veri ambarı arasında yüklemek için geçici depolama konumu olarak Azure Blob Depolama kullanır. Bu nedenle, depolama hesabına bağlanmak için kullanılacak yapılandırmayı sağlayarak başlarsınız. Bu makalenin önkoşullarından biri olarak hesabı önceden oluşturmuş olmalısınız.
 
 1. Azure Databricks'ten Azure Depolama hesabına erişmek için yapılandırmayı sağlayın. URL için blob depolama alanınızın portalından kopyalarsanız kaldırdığınızdan emin olun *https://* baştan. 
 

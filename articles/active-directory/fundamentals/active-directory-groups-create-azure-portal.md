@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory kullanarak temel bir grup oluşturma ve üyeler ekleme | Microsoft Docs
-description: Azure Active Directory kullanarak nasıl bir temel grup oluşturulacağını öğrenin.
+title: Temel bir grup oluşturma ve üye - Azure Active Directory'ye ekleme | Microsoft Docs
+description: Azure Active Directory'yi kullanarak temel bir grup oluşturma hakkında yönergeler.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,16 +11,15 @@ ms.topic: quickstart
 ms.date: 08/22/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: 36bd0ca06859c1952a75b1aa8397fba88dc22d40
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: HT
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: be3271a1105e8222ae04e17140c6e925a1c612f9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574921"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105469"
 ---
-# <a name="how-to-create-a-basic-group-and-add-members-using-azure-active-directory"></a>Nasıl yapılır: Azure Active Directory kullanarak temel bir grup oluşturma ve üyeler ekleme
-
+# <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Temel bir grup oluşturma ve Azure Active Directory'yi kullanarak üye ekleme
 Azure Active Directory (Azure AD) portalını kullanarak temel bir grup oluşturabilirsiniz. Bu makalenin amaçları doğrultusunda, kaynak sahibi (yönetici) tarafından tek bir kaynağa temel bir grup eklenir ve bu grup, o kaynağa erişmesi gereken belirli üyeleri (çalışanlar) içerir. Dinamik üyelikler ve kural oluşturma da dahil olmak üzere daha karmaşık senaryolar için bkz. [Azure Active Directory kullanıcı yönetimi belgeleri](../users-groups-roles/index.yml).
 
 ## <a name="create-a-basic-group-and-add-members"></a>Temel bir grup oluşturma ve üye ekleme

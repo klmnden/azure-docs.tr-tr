@@ -1,6 +1,7 @@
 ---
-title: Azure Machine Learning'deki yenilikler
-description: Bu belge Azure Machine Learning güncelleştirmeleri ayrıntıları.
+title: Yenilikler
+titleSuffix: Azure Machine Learning service
+description: Azure Machine Learning hizmeti için en son güncelleştirmeleri hakkında bilgi edinin.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,17 +9,84 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 10/24/2018
-ms.openlocfilehash: 6007a7e32e168ada529feb6aa24b8d572671d835
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: ea9f8e07b627b7f3554e390063d61ef984f30dad
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291349"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105147"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
 Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin. 
+
+## <a name="2018-12-04-general-availability"></a>2018-12-04: Genel kullanılabilirlik
+
+Azure Machine Learning hizmeti genel kullanıma sunulmuştur.
+
+### <a name="azure-machine-learning-compute"></a>Azure Machine Learning işlem
+Bu sürümle birlikte, yeni bir yönetilen bilgi işlem deneyimi aracılığıyla duyuruyoruz [Azure Machine Learning işlem](how-to-set-up-training-targets.md#amlcompute). Bu işlem için eğitim ve Batch çıkarım kullanılabilir, tek - için çok - node işlem ve küme yönetimi vermez ve iş zamanlama için bir kullanıcı. Bunu daralttığında varsayılan olarak, hem CPU hem de GPU kaynakları için destek içerir ve ayrıca düşük öncelikli VM'ler için daha az maliyet kullanarak sağlar. Azure Machine Learning için Batch AI işlem değiştirir.
+  
+Azure Machine Learning işlem, Azure portal veya CLI kullanarak Python'da oluşturulabilir. Çalışma alanınızın bölgesinde oluşturulmalıdır ve herhangi bir çalışma alanına bağlı olamaz. Bu işlem bir Docker kapsayıcısında çalıştırmak için kullanır ve aynı ortamdaki tüm düğümleri arasında çoğaltılmasını bağımlılıklarınızı paketleri.
+
+> [!Warning]
+> Azure Machine Learning işlem kullanmak için yeni bir çalışma alanı oluşturmanızı öneririz. Kullanıcılar Azure Machine Learning işlem mevcut bir çalışma alanından oluşturulmaya çalışılırken bir hata görebilirsiniz uzak bir fırsat yoktur. Mevcut işlem çalışma alanınızdaki etkilenmeyen çalışmaya devam etmesi gerekir.
+
+### <a name="azure-machine-learning-sdk-for-python-v102"></a>Azure Machine SDK için Python v1.0.2 Learning
+
++ **Bozucu değişiklikler**
+  + Bu sürümle birlikte, Azure Machine Learning ile VM oluşturmaya yönelik destek kaldırıyoruz. Veya uzak bir şirket içi sunucusu hala var olan bir buluta VM ekleyebilirsiniz. 
+  + Ayrıca, tüm Azure Machine Learning işlem artık desteklenmelidir BatchAI, desteği kaldırıyoruz.
+
++ **Yeni**
+  + Machine learning işlem hatları için:
+    + [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimator_step.estimatorstep?view=azure-ml-py)
+    + [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyper_drive_step.hyperdrivestep?view=azure-ml-py)
+    + [MpiStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.mpi_step.mpistep?view=azure-ml-py)
+
+
++ **Güncelleştirildi**
+  + Machine learning işlem hatları için:
+    + [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py) artık runconfig kabul eder
+    + [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) için ve SQL veri kaynağı artık kopyalar
+    + Zamanlama oluşturma ve güncelleştirme zamanlamaları yayımlanan işlem hatları çalıştırmak için SDK'sındaki işlevleri
+
+<!--+ **Bugs fixed**-->
+
+### <a name="azure-machine-learning-data-prep-sdk-v052"></a>Azure Machine Learning veri hazırlama SDK v0.5.2
+
++ **Bozucu değişiklikler** 
+  * `SummaryFunction.N` yeniden adlandırıldı `SummaryFunction.Count`.
+  
++ **Hata düzeltmeleri**
+  * En son AML çalıştırma okuma ve veri depoları için uzaktan çalıştırmalar yazarken belirteci kullanın. Python'da AML çalıştırma belirteci güncelleştirilir, daha önce veri hazırlığı çalışma zamanı güncelleştirilmiş AML çalıştırma belirteci ile güncelleştirilmez.
+  * NET ek hata iletileri
+  * Spark Kryo serileştirme kullandığında to_spark_dataframe() artık kilitlenir
+  * Inspector değer sayısı 1000'den fazla benzersiz değerler artık gösterebilirsiniz
+  * Özgün veri akışı bir adı yoksa rastgele bir bölünmüş artık başarısız  
+
+### <a name="docs-and-notebooks"></a>Belgeleri ve Not Defterleri
++ ML işlem hatları
+  + İşlem hatları, batch kapsamlar ve stil ile çalışmaya başlama için yeni ve güncelleştirilmiş not defterlerini örnekler aktarın: https://aka.ms/aml-pipeline-notebooks
+  + Bilgi edinmek için nasıl [ilk işlem hattınızı oluşturun](how-to-create-your-first-pipeline.md)
+  + Bilgi edinmek için nasıl [komut zincirlerini kullanarak batch Öngörüler çalıştırın](how-to-run-batch-predictions.md)
++ Azure Machine Learning işlem
+  + [Örnek not defterleri] (https://aka.ms/aml-notebooks) artık bu yeni yönetilen bir işlem kullanacak şekilde güncelleştirildi.
+  + [Bu işlem hakkında bilgi edinin](how-to-set-up-training-targets.md#amlcompute)
+
+### <a name="azure-portal-new-features"></a>Azure portalı: yeni özellikler
++ Oluşturma ve yönetme [Azure Machine Learning işlem](how-to-set-up-training-targets.md#amlcompute) portalında türleri.
++ Kota kullanımını izlemek ve [isteği kota](how-to-manage-quotas.md) Azure Machine Learning işlemi için.
++ Azure Machine Learning işlem küme durumunu gerçek zamanlı olarak görüntüleyin.
++ Azure Machine Learning işlem ve Azure Kubernetes hizmeti oluşturmak için sanal ağ desteği eklendi.
++ Yayımlanan hatlarınızı mevcut parametrelerle yeniden çalıştırın.
++ Yeni [machine learning grafikleri otomatik](how-to-track-experiments.md#auto) sınıflandırma modellerini (lift, Kazanç, ayarlama, özellik önem modeli explainability grafikle) ve regresyon modellerini (Kalanlar ve modeli ile özellik önem grafiği explainability). 
++ İşlem hatları Azure portalında görüntülenebilir
+
+
+
 
 ## <a name="2018-11-20"></a>2018-11-20
 
@@ -253,7 +321,7 @@ Her bileşen bölümünde Azure Machine Learning'de bu sprint ayrıntılı günc
 #### <a name="ui"></a>KULLANICI ARABİRİMİ
 - Genel iyileştirmeler ve hata düzeltmeleri
 
-#### <a name="notebooks"></a>Not Defterleri
+#### <a name="notebooks"></a>Notebooks
 - Genel iyileştirmeler ve hata düzeltmeleri
 
 #### <a name="data-preparation"></a>Veri hazırlama 

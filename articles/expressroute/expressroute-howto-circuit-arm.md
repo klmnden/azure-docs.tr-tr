@@ -1,18 +1,19 @@
 ---
-title: 'ExpressRoute devre oluşturma ve değiştirme: PowerShell: Azure Resource Manager | Microsoft Docs'
-description: Bu makalede, oluşturma, sağlama, doğrulayın, güncelleştirme, silme ve bir ExpressRoute bağlantı hattının sağlamasını Kaldır açıklar.
+title: 'ExpressRoute devre - PowerShell oluşturma ve değiştirme: Azure | Microsoft Docs'
+description: Oluşturma, sağlama, doğrulayın, güncelleştirme, silme ve bir ExpressRoute bağlantı hattının sağlamasını Kaldır.
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: f95bdfe9a61a271825ff9bbe5ca7f84330c98df5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: ff86c87690f5dd4a919929f0deef4af739cbe4d3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257461"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105011"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Oluşturma ve PowerShell kullanarak ExpressRoute devresi değiştirme
 > [!div class="op_single_selector"]
@@ -23,7 +24,7 @@ ms.locfileid: "51257461"
 > * [PowerShell (klasik)](expressroute-howto-circuit-classic.md)
 >
 
-Bu makalede PowerShell cmdlet'leri ve Azure Resource Manager dağıtım modelini kullanarak bir Azure ExpressRoute bağlantı hattı oluşturmayı açıklar. Bu makalede ayrıca bağlantı hattının durumunu denetleyin, güncelleştirme veya silme ve onu sağlamasını kaldırma işlemini gösterir.
+Bu makalede, PowerShell cmdlet'leri ve Azure Resource Manager dağıtım modeli kullanarak ExpressRoute devresi oluşturmanıza yardımcı olur. Ayrıca durumu denetleme, güncelleştirme silin veya bir bağlantı hattının sağlamasını Kaldır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 292def9303cf74142a55e1101fe6371476f9f09d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c5fe310e4ba491180b9905ee7e4c80cf814eb9ef
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845221"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106303"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Syslog Log analytics'te veri kaynakları
 Syslog Linux için ortak olan olay günlüğü protokolüdür.  Uygulamaları, yerel makinede depolanan veya bir Syslog Toplayıcıya teslim olabilir iletileri gönderir.  Linux için OMS aracısı yüklü olduğunda, aracıya ileti iletmek için yerel Syslog daemon'u yapılandırır.  Aracı bu durumda OMS deposunda karşılık gelen bir kaydın oluşturulduğu Log Analytics ileti gönderir.  
@@ -45,7 +45,7 @@ Yeni bir özellik adını yazarak ve tıklayarak ekleyebilirsiniz **+**.  Her ö
 Varsayılan olarak, tüm yapılandırma değişiklikleri tüm aracılara otomatik olarak gönderilir.  Syslog her Linux aracısını el ile yapılandırmak istiyorsanız, kutunun işaretini kaldırın *aşağıdaki yapılandırmayı Linux makinelerime Uygula*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Syslog Linux Aracısı'nı yapılandırma
-Zaman [OMS aracısı yüklü bir Linux istemcide](../../log-analytics/log-analytics-quick-collect-linux-computer.md), tesis ve önem derecesi toplanan tüm iletileri tanımlayan bir varsayılan syslog yapılandırma dosyası yükler.  Yapılandırmasını değiştirmek için bu dosyayı değiştirebilirsiniz.  Yapılandırma dosyası, istemcinin yüklediği Syslog daemon'u bağlı olarak farklılık gösterir.
+Zaman [OMS aracısı yüklü bir Linux istemcide](../../azure-monitor/learn/quick-collect-linux-computer.md), tesis ve önem derecesi toplanan tüm iletileri tanımlayan bir varsayılan syslog yapılandırma dosyası yükler.  Yapılandırmasını değiştirmek için bu dosyayı değiştirebilirsiniz.  Yapılandırma dosyası, istemcinin yüklediği Syslog daemon'u bağlı olarak farklılık gösterir.
 
 > [!NOTE]
 > Syslog yapılandırmasını düzenlerseniz, değişikliklerin etkili olması syslog daemon'u başlatmak gerekir.
@@ -208,5 +208,5 @@ Aşağıdaki tabloda, Syslog kayıtları almak günlük sorguları farklı örne
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.
-* Kullanım [özel alanlar](../../log-analytics/log-analytics-custom-fields.md) syslog kayıtları verilerinden ayrı ayrı alanlara ayrıştırılamıyor.
-* [Linux aracıları yapılandırma](../../log-analytics/log-analytics-quick-collect-linux-computer.md) diğer veri türlerini, toplanacak.
+* Kullanım [özel alanlar](../../azure-monitor/platform/custom-fields.md) syslog kayıtları verilerinden ayrı ayrı alanlara ayrıştırılamıyor.
+* [Linux aracıları yapılandırma](../../azure-monitor/learn/quick-collect-linux-computer.md) diğer veri türlerini, toplanacak.

@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: eamono
-ms.openlocfilehash: a4356f38df017901ab219318463538003d3a979e
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
-ms.translationtype: HT
+ms.openlocfilehash: 9da40508c6f8fec1122ab116786ed726b576a639
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41918022"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106711"
 ---
-# <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Azure Otomasyonu’nu Event Grid ve Microsoft Teams ile tümleştirme
+# <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Öğretici: Azure Otomasyonu, Event Grid ve Microsoft Teams ile tümleştirme.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -30,7 +30,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için, bir [Azure Otomasyonu hesabının](../automation/automation-offering-get-started.md) Azure Event Grid aboneliğinden tetiklenen runbook'u barındırması gerekir.
 

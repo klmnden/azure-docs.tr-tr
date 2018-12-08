@@ -1,20 +1,22 @@
 ---
-title: Windows ve Linux Iaas sanal makineleri için Azure Disk şifrelemesi | Microsoft Docs
+title: Ek - Iaas Vm'leri için Azure Disk şifrelemesi | Microsoft Docs
 description: Bu makale için Microsoft Azure Disk şifrelemesi Windows ve Linux Iaas Vm'leri için ek niteliğindedir.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 11/12/2018
-ms.openlocfilehash: e5c7d51428c66bf9e6c245f28fb13b8d4a316d18
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: d6e186f25cc69791d939d93d24a37cadb1113353
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614687"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105051"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Ek Azure Disk şifrelemesi 
+
 Bu makale bir ek niteliğindedir [Iaas Vm'leri için Azure Disk şifrelemesi](azure-security-disk-encryption-overview.md). Iaas Vm'leri makaleleri ilk bağlamı anlamak için Azure Disk şifrelemesi okuduğunuzdan emin olun. Bu makalede önceden şifrelenmiş VHD'ler ve diğer görevleri hazırlamayı öğrenin.
 
 ## <a name="connect-to-your-subscription"></a>Aboneliğinize bağlanma
@@ -57,7 +59,7 @@ Başlamadan önce gözden [önkoşulları](azure-security-disk-encryption-prereq
 
 ### <a name="bkmk_ConnectCLI"></a> Azure CLI ile aboneliğinize bağlanma
 
-1. Azure ile oturum [az login](/cli/azure/authenticate-azure-cli#interactive-log-in). 
+1. Azure ile oturum [az login](/cli/azure/authenticate-azure-cli#sign-in-interactively). 
      
      ```azurecli
      az login
@@ -189,7 +191,7 @@ Windows Server 2008 R2 için aşağıdaki komutu kullanın:
 
     ServerManagerCmd -install BitLockers
 ### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>İşletim sistemi birimi için BitLocker'ı kullanarak hazırlama `bdehdcfg`
-İşletim sistemi bölümü sıkıştırma ve makine BitLocker için hazırlama için yürütme [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment#using-bitlocker-to-encrypt-volumescommand) gerekirse:
+İşletim sistemi bölümü sıkıştırma ve makine BitLocker için hazırlama için yürütme [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) gerekirse:
 
     bdehdcfg -target c: shrink -quiet 
 
@@ -295,23 +297,23 @@ Yeniden önce kaydetmeniz önerilir [önyükleme tanılaması](https://azure.mic
 
 1. Seçin **yapılandırma şifrelenmiş birimleri** bölümleme zaman diskleri.
 
- ![Ubuntu 16.04 Kurulumu](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
+ ![Ubuntu 16.04 Kurulumu - şifrelenmiş hacimlerini yapılandırma](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
 
 2. Şifrelenmemiş olması bir ayrı önyükleme sürücüsü oluşturun. Kök drive'ınızdaki şifreleyin.
 
- ![Ubuntu 16.04 Kurulumu](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
+ ![Ubuntu 16.04 Kurulumu - şifrelemek için cihazları seçin](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
 
 3. Bir parola girin. Anahtar kasasına yüklenmiş parolayı budur.
 
- ![Ubuntu 16.04 Kurulumu](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
+ ![Ubuntu 16.04 Kurulumu - parola girin](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
 
 4. Bölümleme tamamlayın.
 
- ![Ubuntu 16.04 Kurulumu](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
+ ![Ubuntu 16.04 Kurulumu - son bölümleme](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
 
 5. VM'yi önyüklemek için bir parola istendiğinde, 3. adımda belirttiğiniz parolayı kullanın.
 
- ![Ubuntu 16.04 Kurulumu](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
+ ![Ubuntu 16.04 Kurulumu - önyüklemede parolayı girin](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
 6. VM, Azure kullanarak yüklemek için hazırlama [bu yönergeleri](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). (VM sağlamayı kaldırma) işleminin son adımında çalıştırma henüz.
 
@@ -377,7 +379,7 @@ Yeniden önce kaydetmeniz önerilir [önyükleme tanılaması](https://azure.mic
 
 7. Artık VM yetkisini kaldırabilirsiniz.
 
- ![Ubuntu 16.04 Kurulumu](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
+ ![Ubuntu 16.04 kurulumu - güncelleştirme initramfs](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
 
 8. Sonraki adıma devam edin ve VHD'nizi Azure'a yükleyin.
 
@@ -385,11 +387,11 @@ Yeniden önce kaydetmeniz önerilir [önyükleme tanılaması](https://azure.mic
 Dağıtım yüklenmesi sırasında şifreleme yapılandırmak için aşağıdaki adımları uygulayın:
 1. Diskleri bölümlemek bittiğinde **şifrelemek birim grubu**ve ardından bir parola girin. Bu anahtar kasanız için karşıya yükleyelim paroladır.
 
- ![openSUSE 13.2 Kurulumu](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
+ ![openSUSE 13.2 Kurulumu - şifreleme birim grubu](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
 
 2. Parolanızı kullanarak VM'yi önyükleyin.
 
- ![openSUSE 13.2 Kurulumu](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
+ ![openSUSE 13.2 Kurulumu - önyüklemede parolayı girin](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
 3. VM içindeki yönergeleri izleyerek Azure'a yüklemek için hazırlama [Azure için SLES veya openSUSE sanal makine hazırlama](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). (VM sağlamayı kaldırma) işleminin son adımında çalıştırma henüz.
 
@@ -453,19 +455,19 @@ yerine şunu yazın:
 Dağıtım yüklenmesi sırasında şifreleme yapılandırmak için aşağıdaki adımları uygulayın:
 1. Seçin **verilerimi şifrelemek** bölümleme zaman diskleri.
 
- ![CentOS 7 Kurulumu](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
+ ![CentOS 7 Kurulumu - yükleme hedefi](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
 
 2. Emin **şifrele** kök bölümü için seçilir.
 
- ![CentOS 7 Kurulumu](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
+ ![CentOS 7 Kurulumu - şifrelemek için kök bölümü seçin](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
 
 3. Bir parola girin. Anahtar kasanız için karşıya yükleyelim parolayı budur.
 
- ![CentOS 7 Kurulumu](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
+ ![CentOS 7 Kurulumu - parola girin](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
 
 4. VM'yi önyüklemek için bir parola istendiğinde, 3. adımda belirttiğiniz parolayı kullanın.
 
- ![CentOS 7 Kurulumu](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
+ ![CentOS 7 Kurulumu - önyükleme parola girin](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
 5. VM içindeki "CentOS 7.0 +" yönergeleri kullanarak Azure'a yüklemek için hazırlama [Azure'da CentOS tabanlı bir sanal makine hazırlama](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). (VM sağlamayı kaldırma) işleminin son adımında çalıştırma henüz.
 
@@ -526,7 +528,7 @@ Ve tüm oluşumlarını değiştirin:
     ```    
 5. Çalıştır "/ usr/sbin/dracut - f - v" initrd güncelleştirilecek.
 
-![CentOS 7 Kurulumu](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
+![CentOS 7 Kurulumu - /usr/sbin/dracut -f - v çalıştıran](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
 
 ## <a name="bkmk_UploadVHD"></a> Azure depolama hesabınız için şifrelenmiş VHD yükleme
 BitLocker şifrelemesi veya DM-Crypt şifrelemesi etkinleştirildikten sonra depolama hesabınıza yüklenmek üzere yerel şifrelenmiş VHD gerekir.

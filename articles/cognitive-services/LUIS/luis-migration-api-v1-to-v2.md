@@ -1,21 +1,22 @@
 ---
-title: V1'den v2 API'si Geçiş Kılavuzu
+title: v1-v2 API'si geçişi
 titleSuffix: Azure Cognitive Services
-description: Bilgi geçiş son API'sine nasıl ayarlayın.
+description: En son API kümesine geçirmeyi öğrenin.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 57742d72c8be0dcd999bc8b73f6d598263429c12
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 7514390593b4afca4793923089516f3393db0428
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646584"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105844"
 ---
 # <a name="api-v2-migration-guide"></a>API v2 Geçiş Kılavuzu
 Sürüm 1 [uç nokta](https://aka.ms/v1-endpoint-api-docs) ve [yazma](https://aka.ms/v1-authoring-api-docs) API'leri kullanımdan kaldırılacaktır. 2. sürüme geçirme anlamak için bu kılavuzu kullanın [uç nokta](https://aka.ms/luis-endpoint-apis) ve [yazma](https://aka.ms/luis-authoring-apis) API'leri. 
@@ -43,7 +44,7 @@ API uç noktası, farklı bir yanıt yanı sıra yeni querystring parametreleri 
 
 
 V1 uç noktası başarılı yanıt:
-```JSON
+```json
 {
   "odata.metadata":"https://dialogice.cloudapp.net/odata/$metadata#domain","value":[
     {
@@ -54,7 +55,7 @@ V1 uç noktası başarılı yanıt:
 ```
 
 v2 uç noktası başarılı yanıt:
-```JSON
+```json
 {
   "query": "forward to frank 30 dollars through HSBC",
   "topScoringIntent": {

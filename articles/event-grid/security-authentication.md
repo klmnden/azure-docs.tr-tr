@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: 427eb8abdede8c821d214d9f6a64fc6a122699de
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: f2bbcf0218291f91d3ee5b25e89a5f580e0c1c86
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002018"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105742"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid güvenliğini ve kimlik doğrulaması 
 
@@ -95,7 +95,7 @@ Olay aboneliği oluşturma gibi bir hata iletisini görüyorsanız sırasında "
 
 ### <a name="event-delivery-security"></a>Olay teslimi güvenliği
 
-Bir olay aboneliği oluştururken, Web kancası URL'si sorgu parametreleri ekleyerek, Web kancası uç noktası güvenli hale getirebilirsiniz. Ayarlanmış bir gizli dizi gibi olması için bu sorgu parametreleri bir [erişim belirteci](https://en.wikipedia.org/wiki/Access_token). Web kancası olay geçerli izinleriyle Event Grid'den gelen tanımak için kullanabilirsiniz. Olay Kılavuzu her Web kancası olay teslimi bu sorgu parametreleri içerir.
+Bir olay aboneliği oluştururken, Web kancası URL'si sorgu parametreleri ekleyerek, Web kancası uç noktası güvenli hale getirebilirsiniz. Ayarlanmış bir gizli dizi gibi olması için bu sorgu parametreleri bir [erişim belirteci](https://en.wikipedia.org/wiki/Access_token). Web kancası olay geçerli izinleriyle Event Grid'den gelen tanımak için gizli anahtarı kullanabilirsiniz. Olay Kılavuzu her Web kancası olay teslimi bu sorgu parametreleri içerir.
 
 Olay aboneliği düzenlerken, sorgu parametreleri görüntülenmiyor veya sürece döndürülen [--dahil tam-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parametresi Azure'da kullanılan [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 

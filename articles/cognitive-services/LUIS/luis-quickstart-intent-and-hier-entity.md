@@ -1,21 +1,22 @@
 ---
-title: 'Öğretici 5: Üst Öğe/Alt Öğe ilişkileri - Bağlamsal olarak öğrenilen veriler için LUIS Hiyerarşik varlığı'
+title: Hiyerarşik varlık
 titleSuffix: Azure Cognitive Services
 description: Bağlama göre ilgili veri parçaları bulabilirsiniz. Örneğin, bir bina ya da ofisten başka bir bina ya da ofise fiziksel olarak taşınmada çıkış ve varış konumları.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: 36751f533b59e0ff140f5ad03e7f1fc0fa9cad41
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a79c0091220e2980101471abaaa0aaf4c0a898ca
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000575"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104416"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Öğretici 5: Bağlamsal olarak ilişkili verileri ayıklama
 Bu öğreticide bağlama göre ilgili veri parçalarını bulacaksınız. Örneğin, bir bina ya da ofisten başka bir bina ya da ofise fiziksel olarak taşınmada çıkış ve varış konumları. Bir çalışma sırası oluşturmak için her iki veri parçasının da mevcut ve birbirleriyle ilişkili olması gerekir.  
@@ -32,7 +33,6 @@ Bu uygulama bir çalışanın hangi kaynak konumdan (bina ve ofis) hangi hedef k
 
 **Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * Mevcut öğretici uygulamasını kullanma
 > * Amaç ekleme 
@@ -90,7 +90,7 @@ LUIS uygulamasının konuşmalardaki kaynak ve hedef konumları etiketleyerek ko
 
 Aşağıdaki konuşmaya bir göz atın:
 
-```JSON
+```json
 mv Jill Jones from a-2349 to b-1298
 ```
 
@@ -100,19 +100,19 @@ Hiyerarşik varlığın alt öğelerinden yalnızca bir tanesi (çıkış veya v
 
 1. `Displace 425-555-0000 away from g-2323 toward hh-2345` konuşmasının içinde `g-2323` sözcüğünü seçin. En üstte bir metin kutusu bulunan açılan menü görüntülenir. `Locations` metin kutusuna varlık adını girip açılan menüden **Create new entity** (Yeni varlık oluştur) öğesini seçin. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Amaç sayfasında yeni varlık oluşturma ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
+    [![Hedefi sayfasında yeni varlık oluşturma işleminin ekran görüntüsü](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "hedefi sayfasında yeni varlık oluşturma işleminin ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
 
 2. Açılır pencerede **Hierarchical** (Hiyerarşik) varlık türünü ve `Origin` ile `Destination` alt varlıkları seçin. **Done** (Bitti) öğesini seçin.
 
-    ![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Yeni Location (Konum) varlığı için varlık oluşturma açılır iletişim kutusunun ekran görüntüsü")
+    ![Varlık için yeni konum varlık oluşturma açılır iletişim kutusunun ekran görüntüsü](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "varlık için yeni konum varlık oluşturma açılır iletişim kutusunun ekran görüntüsü")
 
 3. LUIS, terimin çıkış mı, varış mı yoksa ikisi dışında bir değer mi olduğunu bilmediğinden `g-2323` etiketi `Locations` olarak işaretlenir. `g-2323` öğesini ve ardından **Locations** (Konumlar) girişini seçip sağ taraftaki menüden `Origin` öğesini seçin.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Konum varlığı alt öğesini değiştirmek için varlık etiketleme açılır iletişim kutusunun ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
+    [![Konumları varlık alt değiştirmek için ekran açılır iletişim kutusu etiketleme varlığın](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "açılır iletişim kutusu etiketleme varlık konumları varlık alt değiştirmek için ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
 
 5. Konuşmadaki binayı ve ofisi seçtikten sonra Locations (Konumlar) öğesini ve ardından sağdaki menüden `Origin` veya `Destination` öğesini seçerek diğer konuşmalardaki konumları etiketleyin. Tüm konumlar etiketlendikten sonra **Tokens View** (Belirteç Görünümü) desen gibi görünmeye başlar. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Konuşmalarda etiketlenmiş olan Locations (Konumlar) varlığının ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
+    [![Konuşma etiketlenmiş ekran görüntüsü, konumları varlık](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "konuşma etiketlenmiş ekran görüntüsü, konumları varlık")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
 
 ## <a name="add-prebuilt-number-entity-to-app"></a>Uygulamaya önceden oluşturulmuş sayı varlığı ekleme
 Önceden oluşturulmuş sayı varlığını uygulamaya tekrar ekleyin.
@@ -140,7 +140,7 @@ Hiyerarşik varlığın alt öğelerinden yalnızca bir tanesi (çıkış veya v
 
 2. Adres çubuğundaki URL'nin sonuna gidip `Please relocation jill-jones@mycompany.com from x-2345 to g-23456` yazın. Son sorgu dizesi parametresi ifade **s**orgusu olan `q` öğesidir. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `MoveEmployee` amacını hiyerarşik varlık ayıklanmış şekilde döndürmelidir.
 
-    ```JSON
+    ```json
     {
       "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
       "topScoringIntent": {

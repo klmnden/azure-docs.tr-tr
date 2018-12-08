@@ -1,19 +1,19 @@
 ---
-title: ExpressRoute genel ulaşma hakkında | Microsoft Docs
-description: Bu makale, ExpressRoute Global erişim ne olduğunu açıklar.
-documentationcenter: na
+title: Global erişim - Azure ExpressRoute kullanarak Microsoft Cloud için şirket içi ağlara bağlanın | Microsoft Docs
+description: Bu makalede, ExpressRoute Global erişim açıklanmaktadır.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 23f3d2c4a53e05d962fdc7da72b336cc66f21306
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 8ee57bf101b432049d895b65a1dc7641653c7f21
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683075"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105470"
 ---
 # <a name="expressroute-global-reach-preview"></a>ExpressRoute küresel erişim (Önizleme)
 ExpressRoute, Microsoft Cloud, şirket içi ağlara bağlanmak için özel ve esnek bir yoludur. Özel veri Merkezinize veya şirket ağınızda Azure, Office 365 ve Dynamics 365 gibi pek çok Microsoft bulut hizmetlerine erişebilir. Örneğin, bir ExpressRoute bağlantı hattı Silikon ve ile ExpressRoute bağlantı hattına aynı şehirdeki başka bir şube ofisindeki, Londra, San Francisco bir şube ofisi olabilir. Her iki şube ofisleri, ABD Batı ve UK Güney Azure kaynaklarını yüksek hızlı bağlantıyı olabilir. Ancak, şube ofislerinde doğrudan birbirleri ile veri değişimi olamaz. Diğer bir deyişle, 10.0.1.0/24 10.0.3.0/24 ve 10.0.4.0/24, ancak 10.0.2.0/24 veriler gönderebilir.

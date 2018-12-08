@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: e5db47cabddb2898667ff9d6cdac41cf3b953099
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 058cadec0776e05daf9fddbf715020953478ff58
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843589"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105164"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory'de öznitelik eşlemeleri için ifadeler yazma
 Bir SaaS uygulaması için sağlama yapılandırdığınızda, belirtebilmeniz için öznitelik eşlemelerini türdeki bir ifade eşleme biridir. Bu, kullanıcılarınızın verileri fazla SaaS uygulaması için kabul edilebilir biçimlere dönüştürme olanak tanıyan bir betik gibi ifade yazmanız gerekir.
@@ -79,7 +79,7 @@ Kaynak değerlerden biri çok değer özniteliği, her değer ise bu özniteliğ
 | Ad | Gerekli / yinelenen | Tür | Notlar |
 | --- | --- | --- | --- |
 | **Ayırıcı** |Gerekli |Dize |Kaynak değerler bir dizeye birleştirilmiş, ayırmak için kullanılan dize. Olabilir "" ayırıcı gerekiyorsa. |
-| ** kaynak1... kaynakN ** |Değişken-sayısı gerekli |Dize |Değerleri birlikte birleştirilecek dize. |
+| **... kaynak1 kaynakN** |Değişken-sayısı gerekli |Dize |Değerleri birlikte birleştirilecek dize. |
 
 - - -
 ### <a name="mid"></a>Orta
@@ -141,6 +141,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametreler bağlı olara
   * Varsa **kaynak** bir değere sahip, kullandığı **regexPattern** ve **regexGroupName** özelliğiyle değiştirme değeri ayıklamak için **replacementPropertyName** . Sonuç olarak değiştirme değeri döndürülür
 
 **Parametreler:**<br> 
+
 | Ad | Gerekli / yinelenen | Tür | Notlar |
 | --- | --- | --- | --- |
 | **Kaynak** |Gerekli |Dize |Genellikle kaynak nesneden özniteliğin adı. |
@@ -166,7 +167,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametreler bağlı olara
 
 | Ad | Gerekli / yinelenen | Tür | Notlar |
 | --- | --- | --- | --- |
-| ** uniqueValueRule1... uniqueValueRuleN ** |En az 2 gerekli, en üst sınır. |Dize | Değerlendirmek için benzersiz bir değer oluşturma kuralları listesi |
+| **... uniqueValueRule1 uniqueValueRuleN** |En az 2 gerekli, en üst sınır. |Dize | Değerlendirmek için benzersiz bir değer oluşturma kuralları listesi |
 
 
 - - -

@@ -4,17 +4,16 @@ description: Bu makalede, Azure Stream Analytics'te makine dili kullanıcı tan�
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 024d7094a9baa90eebd57b4c76db367f81bd0400
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 12/07/2018
+ms.openlocfilehash: cea810a5e57f4b10c170038108226c4e0f1320bc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700876"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104956"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Machine Learning tümleştirme Stream analytics'te
 Stream Analytics, Azure Machine Learning Uç noktalara çağıran kullanıcı tanımlı işlevleri destekler. Bu özelliği için REST API desteği ayrıntılı olarak [Stream Analytics REST API Kitaplığı](https://msdn.microsoft.com/library/azure/dn835031.aspx). Bu makalede, Stream Analytics bu özelliği başarılı uygulaması için gerekli ek bilgileri sağlar. Bir öğretici de forumumuza gönderildi ve kullanılabilir [burada](stream-analytics-machine-learning-integration-tutorial.md).
@@ -51,7 +50,7 @@ REST API'lerini kullanarak işinizi Azure makine dil işlevleri çağırmak içi
 
 Örnek istek gövdesi:  
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -67,7 +66,7 @@ REST API'lerini kullanarak işinizi Azure makine dil işlevleri çağırmak içi
             }
         }
     }
-````
+```
 
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Varsayılan UDF için RetrieveDefaultDefinition uç noktası çağrısı
 UDF eksiksiz tanımını çatıyı UDF oluşturulduktan sonra gereklidir. RetreiveDefaultDefinition uç nokta bir Azure Machine Learning uç noktasına bağlı bir skaler işlevi için varsayılan tanımını almanıza yardımcı olur. Aşağıdaki yükü, bir Azure Machine Learning uç noktasına bağlı bir skaler işlevi için varsayılan UDF tanımı gerektirir. PUT isteği sırasında zaten sağlandıysa gibi gerçek bir uç noktasını belirtmiyor. Stream Analytics, açıkça sağlanırsa, istekte sağlanan uç nokta çağırır. Aksi takdirde ilk olarak başvurulan bir kullanır. Burada tek bir dize parametresi (bir cümlede) ve döndürür tek bir çıkış türü UDF alır, cümle için "yaklaşım" etiketinin belirten dize.
@@ -78,7 +77,7 @@ POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/
 
 Örnek istek gövdesi:  
 
-````
+```json
     {
         "bindingType": "Microsoft.MachineLearning/WebService",
         "bindingRetrievalProperties": {
@@ -86,11 +85,11 @@ POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/
             "udfType": "Scalar"
         }
     }
-````
+```
 
 Bu arama bir şey aşağıda istediğiniz bir örnek çıktı.  
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -126,7 +125,7 @@ Bu arama bir şey aşağıda istediğiniz bir örnek çıktı.
             }
         }
     }
-````
+```
 
 ## <a name="patch-udf-with-the-response"></a>Düzeltme eki UDF yanıt
 Artık UDF ile önceki yanıt, aşağıda gösterildiği gibi Yama gerekir.
@@ -137,7 +136,7 @@ PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers
 
 İstek gövdesi (RetrieveDefaultDefinition çıktısını):
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -173,12 +172,12 @@ PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers
             }
         }
     }
-````
+```
 
 ## <a name="implement-stream-analytics-transformation-to-call-the-udf"></a>UDF çağırmak için Stream Analytics Dönüşüm Uygulama
 Artık her giriş olayı için (burada scoreTweet adlı) UDF sorgulayabilir ve bu olay için bir yanıt yazmak için bir çıktı.  
 
-````
+```json
     {
         "name": "transformation",
         "properties": {
@@ -186,7 +185,7 @@ Artık her giriş olayı için (burada scoreTweet adlı) UDF sorgulayabilir ve b
             "query": "select *,scoreTweet(Tweet) TweetSentiment into blobOutput from blobInput"
         }
     }
-````
+```
 
 
 ## <a name="get-help"></a>Yardım alın

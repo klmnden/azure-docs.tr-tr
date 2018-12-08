@@ -1,23 +1,24 @@
 ---
-title: Uç nokta konuşma Language Understanding (LUIS) için gözden geçirin
-titleSuffix: Azure Cognitive Services
+title: Kullanıcı konuşma gözden geçirin
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS, çığır açan etkin öğrenim kavramının özelliğidir. LUIS, uç nokta sorguları olduğunda, etkin olarak öğrenmeye emin seçer konuşma tarafından sonuçların kalitesini artırır. Bu konuşma etiket, eğitin ve yayımlayın sonra LUIS konuşma daha doğru bir şekilde tanımlar.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: a5e0dabe251d14389923df3efe41f6ba80f41bdd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7175463001eac118d2939d3479e61a01b80ba86b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030804"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106558"
 ---
-# <a name="review-endpoint-utterances"></a>Uç nokta ifadelerini gözden geçirme
+# <a name="how-to-review-endpoint-utterances-in-luis-portal"></a>LUIS portalında konuşma uç noktası İnceleme
 
 LUIS, çığır açan özelliğidir [kavramı](luis-concept-review-endpoint-utterances.md) etkin öğrenme. LUIS, uç nokta sorguları sonra LUIS etkin öğrenme sonuçların kalitesini geliştirmek için kullanır. Etkin öğrenme sürecinde LUIS tüm uç nokta sesleri inceler ve emin olan konuşma seçer. Bu konuşma etiket, eğitin ve yayımlayın sonra LUIS konuşma daha doğru bir şekilde tanımlar. 
 

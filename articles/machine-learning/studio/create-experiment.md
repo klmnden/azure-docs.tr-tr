@@ -1,11 +1,11 @@
 ---
-title: Machine Learning Studio'da basit bir deneme | Microsoft Belgeleri
+title: Basit deneme - Azure Machine Learning Studio | Microsoft Docs
 description: Bu makine öğrenimi öğreticisi kolay bir veri bilimi deneyinde size kılavuzluk etmektedir. Regresyon algoritması kullanarak bir arabanın fiyatını tahmin edeceğiz.
 keywords: deneme,doğrusal regresyon,makine öğrenimi algoritmaları,makine öğrenimi öğreticisi,tahmine dayalı modelleme teknikleri,veri bilimi deneyi
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -17,14 +17,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2017
-ms.openlocfilehash: 7ee1df8c38ac2dbfc6618febd223d5c4bbf32be6
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9564ddcff3dfd910877f40482bc3f5acb2d03d35
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425719"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105402"
 ---
-# <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Makine öğrenimi öğreticisi: Azure Machine Learning Studio'da ilk veri bilimi denemenizi oluşturma
+# <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Öğretici: Azure Machine Learning Studio'da ilk veri bilimi denemenizi oluşturma
 
 Daha önce **Azure Machine Learning Studio** kullanmadıysanız, bu öğretici sizin için hazırlanmıştır.
 

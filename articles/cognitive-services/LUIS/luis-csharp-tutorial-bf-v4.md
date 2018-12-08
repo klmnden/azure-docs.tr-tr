@@ -1,7 +1,7 @@
 ---
 title: Bot ileC#
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu oluşturun. Bu sohbet robotu, bir robot çözümünü kısa sürede gerçekleştirmek için İnsan Kaynakları uygulamasını kullanır. Robot, Bot Framework sürümü 4 ve Azure Web uygulaması robotu ile geliştirilmiştir.
+description: C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu oluşturun. Bu sohbet robotu, bir robot çözümünü kısa sürede gerçekleştirmek için İnsan Kaynakları uygulamasını kullanır. Robot, Bot Framework 4 sürümü ve Azure Web uygulaması robotu ile geliştirilmiştir.
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/25/2018
 ms.author: diberry
-ms.openlocfilehash: 993e5c7c1975af0c8fe3e55fd59a2f90b39ff642
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 740dae77bd60a0d38370b0678d57d3479eafceb1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011717"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106269"
 ---
-# <a name="tutorial-luis-bot-in-c"></a>Öğretici: C# dilinde LUIS robotu
+# <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Öğretici: LUIS bot içinde C# ile Bot Framework 4.x ve Azure Web app botu
 C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu geliştirebilirsiniz. Bu robot, bir robot çözümünü gerçekleştirmek için HomeAutomation uygulamasını kullanır. Robot, [Bot Framework sürümü](https://github.com/Microsoft/botbuilder-js) v4 ile Azure [Web uygulaması robotu](https://docs.microsoft.com/azure/bot-service/) kullanılarak geliştirilmiştir.
 
 **Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:**

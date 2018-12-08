@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: e11ae90655e1d4ce7a2475f0eacefb25491416da
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: ab1e879a7c145699779f6af3a97cef0ee6b5d219
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582403"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105521"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Hızlı Başlangıç: Azure dijital İkizlerini kullanarak kullanılabilir odaları bulun.
 
@@ -71,7 +71,7 @@ Bu adım, dijital İkizlerini uzamsal grafik ile sağlar:
 - Özel bir işlev. 
 - Bir rol ataması.
  
-Uzamsal graph kullanılarak sağlanan [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) dosya.
+Uzamsal graph kullanılarak sağlanan [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) dosya. 
 
 1. `dotnet run ProvisionSample` öğesini çalıştırın.
     >[!NOTE]
@@ -88,6 +88,9 @@ Uzamsal graph kullanılarak sağlanan [provisionSample.yaml](https://github.com/
 1. Yürütme sonunda kopyalama `ConnectionString` cihazın kullanılmak üzere cihaz simülatörü örnek. Yalnızca bu görüntüde ana hatlarıyla belirtilen dizeyi kopyalayın.
 
     ![Sağlama örneği][1]
+
+    >[!TIP]
+    > Görüntüleyebilir ve uzamsal graph aracılığıyla değiştirmek [Azure dijital İkizlerini graf Görüntüleyicisi](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
 ## <a name="send-sensor-data"></a>Sensör verilerini gönderme
 

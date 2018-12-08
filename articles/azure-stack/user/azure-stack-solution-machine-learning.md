@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: e503a394eed7d5c4bdd4c93037dc86442097f72e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 057df4260da267254cb764e58fdac749bee3b842
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002165"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106762"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile çözüm öğrenme bir makine oluşturma
 
@@ -357,7 +357,7 @@ Azure Machine Learning Workbench, Windows veya macOS için sağlanır. [Destekle
     | Proje adı | myIris | Hesabını tanımlayan benzersiz bir ad girin. Departman kullanın veya denemeyi en iyi proje adını tanımlar. Adı 2-32 karakter arasında olmalıdır. Yalnızca alfasayısal karakterler ve kısa çizgi (-) karakteri kullanılabilir. |
     | Proje dizini | c:\Temp\ | Projenin oluşturulduğu dizini belirtin. |
     | Proje açıklaması | Boş bırakın | Projeleri açıklamak için kullanışlı bir isteğe bağlı alan. |
-    | Visualstudio.com GIT Deposu URL’si | Boş bırakın | İsteğe bağlı alan. Bir proje kaynak denetimi ve işbirliği için Visual Studio Team Services üzerinde bir Git deposu ile ilişkilendirin. |
+    | Visualstudio.com GIT Deposu URL’si | Boş bırakın | İsteğe bağlı alan. Bir proje kaynak denetimi ve işbirliği için depoları Azure üzerinde bir Git deposu ile ilişkilendirin. |
     | Seçili çalışma alanı | IrisGarden (varsa) | Azure portalında deneme hesabı için oluşturulan çalışma alanını seçin. <br>Hızlı Başlangıç adımlarını kullanarak, çalışma alanı adı Irisgarden tarafından listelenir. Aksi takdirde, çalışma alanı deneme hesabı adı veya tercih edilen hesap adı kullanın. |
     | Proje şablonu | Classifying Iris | Betikleri ve verileri ürünü keşfetmek için kullanılan şablonları içerir. Bu şablon, betikler ve bu belge sitesindeki bu hızlı başlangıçta ve diğer öğreticiler için gerekli verileri içerir. |
 
@@ -1420,7 +1420,7 @@ Kubectl get deployments
 
 Dağıtım biraz zaman alabilir.
 
-### <a name="configure-visual-studio-team-services-to-deploy-automatically"></a>Visual Studio Team Services aygıtını otomatik olarak Dağıt'ı yapılandırma
+### <a name="configure-azure-devops-to-deploy-automatically"></a>Azure DevOps, otomatik olarak dağıtmak için yapılandırma
 
 #### <a name="create-a-team-project"></a>Bir takım projesi oluşturma
 
@@ -1760,7 +1760,7 @@ Bağlantı kurulur, el ile oluşturulan Azure uç noktası, AKS ve Azure Contain
 
     ![Alternatif metin](media/azure-stack-solution-machine-learning/image110.png)
 
-1.  Yapıt adı **iris_deployment** olmasını yayımlama konumu seçip **Visual Studio Team Services/TFS'de**.
+1.  Yapıt adı **iris_deployment** olmasını yayımlama konumu seçip **Azure işlem hatları**.
 
     ![Alternatif metin](media/azure-stack-solution-machine-learning/image111.png)
 

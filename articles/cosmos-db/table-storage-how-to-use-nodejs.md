@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: e6ebf6c3fc46929666dce8d7722af9dd75d2edd3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: b00c7168891c848f4b153acb1bf09728b7a78908
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879102"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106490"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Node.js uygulamasından Azure Tablo depolama veya Azure Cosmos DB Tablo API’sini kullanma
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -162,7 +162,7 @@ tableSvc.insertEntity('mytable',task, function (error, result, response) {
 });
 ```
 
-İşlem başarılı olursa `result`, eklenen kaydın [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) öğesini içerir ve `response`, işlemle ilgili bilgileri içerir.
+İşlem başarılı olursa `result`, eklenen kaydın [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) öğesini içerir ve `response`, işlemle ilgili bilgileri içerir.
 
 Örnek yanıt:
 

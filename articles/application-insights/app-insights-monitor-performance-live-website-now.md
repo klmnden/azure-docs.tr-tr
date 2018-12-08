@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0618a580c6bdcef8f28a439cd79e67d863e58b9e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: abc3d5832cd85cb3297077f2d661ec8fe32fde9e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995242"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105300"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Application Insights ile çalışma zamanında web uygulamalarını izleme
 
@@ -119,6 +119,7 @@ Koda Application Insights eklemeden yeniden yayımlamak istiyorsanız, dağıtı
   * IIS Yöneticisi'nde, uygulama havuzunuzu seçin, **Gelişmiş Ayarlar**’ı açın ve **işlem modeli** altında kimliğini not edin.
   * Bilgisayar yönetimi denetim masasında, bu kimliği Performans İzleyicisi Kullanıcıları grubuna ekleyin.
 * Sunucunuza yüklenmiş MMA/SCOM (System Center Operations Manager) varsa bazı sürümler çakışabilir. Hem SCOM’u, hem de Durum İzleyicisi’ni kaldırın ve en son sürümleri yeniden yükleyin.
+* Durum İzleyicisi günlükleri bulunabilir bu konumda varsayılan: "C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log"
 * Bkz. [Sorun giderme][qna].
 
 ## <a name="system-requirements"></a>Sistem Gereksinimleri
@@ -217,9 +218,12 @@ Telemetriyi tek başına toplamaz. Yalnızca web uygulamalarını yapılandırı
 
 Durum İzleyicisi’nin izlemesi için bir web uygulaması seçtiğinizde:
 
-* Application Insights derlemelerini ve .config dosyasını indirip web uygulamasının ikili dosyalar klasörüne yerleştirir.
-* Application Insights HTTP izleme modülünü eklemek üzere `web.config` üzerinde değişiklik yapar.
+* İndirir ve Application Insights derlemelerini ve Applicationınsights.config dosyasını web uygulamasının ikili dosyalar klasörüne yerleştirir.
 * Bağımlılık çağrılarını toplamak için CLR profil oluşturma özelliğini etkinleştirir.
+
+### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>Application Insights SDK'sı sürümünü, Durum İzleyicisi yükleme?
+
+Şu anda, Durum İzleyicisi, yalnızca Application Insights SDK'sı sürüm 2.3 veya 2.4 yükleyebilirsiniz.
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>Uygulamayı her güncelleştirdiğimde Durum İzleyicisi’ni çalıştırmam gerekiyor mu?
 

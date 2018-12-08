@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights (Önizleme) öğreticisi | Microsoft Docs
-description: Azure Time Series Insights (Önizleme) hakkında bilgi edinin
+title: Bir Azure zaman serisi öngörüleri Önizleme ortamı öğreticiyi ayarlama | Microsoft Docs
+description: Azure zaman serisi öngörüleri önizlemesinde ortamınızı ayarlama konusunda bilgi edinin.
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -9,161 +9,164 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
 ms.date: 11/26/2018
-ms.openlocfilehash: d4f69533a68e11b3e171963429b141cf0736472d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 20cec1305f84bd1ff7e01f2e1d38f374aa17bc6f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014642"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106694"
 ---
-# <a name="azure-time-series-insights-preview-tutorial"></a>Azure Time Series Insights (Önizleme) öğreticisi
+# <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Öğretici: bir Azure zaman serisi öngörüleri Önizleme ortamı ayarlama
 
-Bu öğreticide, sanal cihazlar verilerle doldurulmuş bir Azure zaman serisi öngörüleri (TSI) önizleme ortamı oluşturma işlemi boyunca size yol gösterir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide sanal cihazlardan veri ile doldurulan bir Azure zaman serisi öngörüleri Önizleme ortamı oluşturma işleminde size rehberlik eder. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
-* TSI (Önizleme) ortamı oluşturun.
-* Olay Hub'ına TSI (Önizleme) ortama bağlanın.
-* Rüzgar grubu benzetimi için veri akışı TSI Önizleme ortamına çalıştırın.
+* Bir zaman serisi öngörüleri Önizleme ortamı oluşturun.
+* Zaman serisi öngörüleri Önizleme ortamı, Azure Event Hubs bir olay hub'ına bağlanın.
+* Rüzgar grubu benzetimi için veri akışı zaman serisi öngörüleri Önizleme ortamına çalıştırın.
 * Temel analiz verileri gerçekleştirin.
 * Zaman serisi modeli türü ve hiyerarşi tanımlamak ve örneklerinizin ile ilişkilendirin.
 
-## <a name="create-a-time-series-insights-preview-environment"></a>Time Series Insights (Önizleme) ortamı oluşturma
+## <a name="create-a-time-series-insights-preview-environment"></a>Bir zaman serisi öngörüleri Önizleme ortamı oluşturma
 
-Bu bölümde bir Azure TSI (Önizleme) kullanarak ortam oluşturmayı açıklar [Azure portalı](https://portal.azure.com/).
+Bu bölümde bir zaman serisi öngörüleri Önizleme ortamı kullanarak oluşturmayı açıklar [Azure portalında](https://portal.azure.com/).
 
-1. Azure portalında abonelik hesabınızı kullanarak oturum
-1. Üstteki menüden **+ Kaynak oluştur**'u seçin.
-1. **Nesnelerin İnterneti** kategorisini, ardından **Time Series Insights**’ı seçin.
+1. Azure portalında abonelik hesabınızı kullanarak oturum açın.
 
-   ![öğretici-bir][1]
+1. Seçin **kaynak Oluştur**.
 
-1. Zaman serisi görüşleri ortamı sayfadaki gerekli parametrelerini doldurun ve tıklayarak **sonraki: olay kaynağı**. Bu öğretici için kümesine **zaman serisi kimliği** olarak `Id`. Hakkında daha fazla bilgi edinmek için **zaman serisi kimlikleri**okuyun [zaman serisi kimlikleri](./time-series-insights-update-how-to-id.md).
+1. Seçin **nesnelerin interneti** kategori tıklayın ve ardından **Time Series Insights**.
 
-   ![öğretici-iki][2]
+  ![Oluşturma bir kaynak seçin ardından nesnelerin interneti'ni seçin ve Time Series Insights'ı seçin][1]
 
-1. Üzerinde **olay kaynağı** sayfasında gerekli parametreleri doldurun ve tıklayarak **gözden geçir + Oluştur**. Bu öğretici için kümesine **zaman damgası** özellik alanı olarak `Timestamp`.
+1. Üzerinde **Temelleri** sekmesinde gerekli parametreler girin ve ardından **sonraki: olay kaynağı**
 
-   ![öğretici-üç][3]
+  ![Zaman serisi görüşleri ortamı temelleri sekmesi ve sonraki: olay kaynağı düğmesi][2]
 
-1. Tüm ayrıntılarını gözden geçirin ve tıklayın **Oluştur** ortamınızı sağlamaya başlamak için.
+1. Üzerinde **olay kaynağı** sekmesinde gerekli parametreler girin ve ardından **gözden geçir + Oluştur**.
 
-   ![öğretici-dört][4]
+  ![Olay kaynağı sekmesi ve gözden geçir + oluştur düğmesi][3]
 
-1. Dağıtım başarıyla tamamlandıktan sonra bir bildirim alırsınız.
+1. Üzerinde **özeti** sekmesinde tüm ayrıntılarını gözden geçirin ve ardından **Oluştur** ortamınızı sağlamaya başlamak için.
 
-   ![öğretici-beş][5]
+  ![Özet sekmesi ve Oluştur düğmesi][4]
 
-## <a name="send-events-to-your-tsi-environment"></a>TSI ortamınıza olayları gönderme
+1. Dağıtım başarılı olduğunda bir bildirim görüntülenir.
 
-Bu bölümde, TSI ortamınıza bir olay hub'ı üzerinden olayları göndermek için Yeldeğirmeni cihaz simülatörü kullanır.
+  ![Dağıtım başarılı bildirimi][5]
 
-  1. Azure portalında, olay hub'ı kaynağınıza gidin ve TSI ortamınıza bağlanın. Bilgi [kaynağınızın mevcut bir olay Hub'ına bağlanma](./time-series-insights-how-to-add-an-event-source-eventhub.md).
+## <a name="send-events-to-your-time-series-insights-environment"></a>Olayları zaman serisi görüşleri ortamınıza gönderme
 
-  1. Olay hub'ı kaynak sayfasında Git **paylaşılan erişim ilkeleri** ardından **RootManageSharedAccessKey**. Kopyalama **bağlantı dizesi-birincil anahtar** burada görüntülenir.
+Bu bölümde, olayları zaman serisi görüşleri ortamınıza bir olay hub'ı aracılığıyla göndermek için Yeldeğirmeni cihaz simülatörü kullanın.
 
-      ![öğretici-altı][6]
+  1. Azure portalında, olay hub'ı kaynağınıza gidin ve zaman serisi görüşleri ortamınıza bağlanın. Bilgi edinmek için bkz [kaynağınızın mevcut bir olay hub'ına bağlanma](./time-series-insights-how-to-add-an-event-source-eventhub.md).
 
-  1. [https://tsiclientsample.azurewebsites.net/windFarmGen.html]( https://tsiclientsample.azurewebsites.net/windFarmGen.html) kısmına gidin. Bu web uygulaması Yeldeğirmeni cihazların benzetimini yapar.
-  1. Bağlantı dizesi kopyalamıştır içinde 3. adımdaki Yapıştır **olay hub'ı bağlantı dizesi**
+  1. Olay hub'ı kaynak sayfasında Git **paylaşılan erişim ilkeleri** > **RootManageSharedAccessKey**. Değeri kopyalamak **bağlantı dizesi-birincil anahtar**.
 
-      ![öğretici-yedi][7]
+      ![Birincil anahtar bağlantı dizesi değerini kopyalayın][6]
 
-  1. Tıklayarak **için Başlat'ı tıklatın** olayları olay Hub'ına gönderme. Bu aşamada, adlı bir dosya `instances.json` makinenize indirilir. Biz bunu daha sonra ihtiyacınız olacak şekilde bu dosyayı kaydedin.
+  1. [https://tsiclientsample.azurewebsites.net/windFarmGen.html]( https://tsiclientsample.azurewebsites.net/windFarmGen.html) kısmına gidin. Bu web uygulamasının URL'sinde Yeldeğirmeni cihazların benzetimini yapar.
 
-  1. Olay Hub'ına dönün. Artık hub.d tarafından alınan yeni olayların görünmesi
+  1. İçinde **olay hub'ı bağlantı dizesi** kutusunda Web sayfasında, önceki adımda kopyaladığınız bağlantı dizesini yapıştırın.
 
-      ![öğretici-sekiz][8]
+      ![Olay hub'ı bağlantı dizesi kutusunda birincil anahtar bağlantı dizesini yapıştırın][7]
+
+  1. Seçin **başlatmak için tıklatın** olay hub'ınıza olayları göndermek için. Adlı bir dosya *instances.json* bilgisayarınıza indirilir. Bu dosyayı daha sonra kullanmak üzere kaydedin.
+
+  1. Azure portalında event hub'ınıza geri dönün. Olay hub'ında **genel bakış** sayfa, olay hub'ı tarafından alınan yeni olaylar gösterilir.
+
+     ![Ölçümleri olay hub'ı gösteren bir olay hub'ı genel bakış sayfası][8]
 
 ## <a name="analyze-data-in-your-environment"></a>Ortamınızı verileri analiz etme
 
-Bu bölümde, Time Series Insights'ı kullanarak serisi Veri Gezgini güncelleştirme sürenizi temel analiz gerçekleştirir.
+Bu bölümde, zaman serisi öngörüleri'ni kullanarak veri serisi explorer güncelleştirme sürenizi temel analiz gerçekleştirin.
 
-  1. Time Series Insights güncelleştirme gezgininizde URL'sini Azure Portal'da kaynak sayfasından tıklayarak gezinin.
+  1. Azure portalında kaynak sayfasından URL tıklayarak Time Series Insights güncelleştirme gezgininizde gidin.
 
-      ![öğretici-dokuz][9]
+      ![Time Series Insights Gezgini URL'si][9]
 
-  1. Explorer'ın tıklayarak **ana öğesiz örnekleri** ortamdaki tüm zaman serisi örnekleri görmek için düğümleri.
+  1. Gezginde, altında **fiziksel hiyerarşi**seçin **ana öğesiz örnekleri** ortamdaki tüm zaman serisi örnekleri görmek için düğümleri.
 
-      ![öğretici-on][10]
+     ![Fiziksel hiyerarşi bölmesinde ana öğesiz örneklerinin listesi][10]
 
-  1. Bu öğreticide, son gün içinde gönderilen verileri çözümlemek için ekleyeceğiz. Bunu yapmak için tıklayın **hızlı süreler** seçip **son 24 saat** seçeneği.
+  1. Bu öğreticide, geçtiğimiz gün içinde gönderilen verileri analiz ediyoruz. Seçin **hızlı süreler**ve ardından **son 24 saat**.
 
-      ![öğretici-on][11]
+     ![Hızlı süreler açılan kutusunda, son 24 saat seçin][11]
 
-  1. Seçin **Sensor_0** ve **ortalama değeri Göster** bu zaman serisi örneğinden gönderilen verileri görselleştirmek için.
+  1. Seçin **Sensor_0**ve ardından **ortalama değeri Göster** bu zaman serisi görüşleri örneğinden gönderilen verileri görselleştirmek için.
 
-      ![öğretici-on][12]
+     ![Sensor_0 show ortalama değer seçin][12]
 
-  1. Benzer şekilde, temel analiz gerçekleştirmek için diğer zaman serisi örneklerinden gelen verileri çizebilirsiniz.
+  1. Benzer şekilde, temel analiz gerçekleştirmek için diğer zaman serisi görüşleri örneklerinden gelen verilerle çizebilirsiniz.
 
-      ![öğretici-On üç][13]
+     ![Time Series Insights veri çizimi][13]
 
-## <a name="define-a-type-and-hierarchy"></a>Bir tür ve hiyerarşi tanımlama
+## <a name="define-a-type-and-hierarchy"></a>Bir tür ve hiyerarşi tanımlama 
 
-Bu bölümde, bir tür hiyerarşisi, yazar ve bunları, zaman serisi örnekleri ile ilişkilendirin. Daha fazla bilgi edinin [zaman serisi modelleri](./time-series-insights-update-tsm.md).
+Bu bölümde, tür ve hiyerarşi yazar ve türü ve hiyerarşi'i Time Series Insights örneklerinizin ile ilişkilendirebilirsiniz. Daha fazla bilgi edinebilirsiniz [zaman serisi modelleri](./time-series-insights-update-tsm.md).
 
-  1. Explorer'ın tıklayarak **modeli** uygulama çubuğunda sekme.
+  1. Gezgini'nde seçin **modeli** sekmesi.
 
-      ![öğretici-on dört][14]
+     ![Explorer menüsünde modeli sekmesi][14]
 
-  1. Türleri bölümüne tıklayarak **+ Ekle**. Bu, yeni bir zaman serisi modeli türü oluşturmanızı sağlar.
+  1. İçinde **türleri** bölümünden **Ekle** yeni bir zaman serisi modeli türü oluşturun.
 
-      ![öğretici-on beş][15]
+     ![Türleri sayfasındaki Ekle düğmesi][15]
 
-  1. Türü Düzenleyicisi'nde girin bir **adı**, **açıklama**ve ardından değişkenlerinin ilgili daha fazla bilgi için **ortalama**, **Min**, ve **Max** aşağıda gösterildiği gibi değerleri. Tıklayarak **Oluştur** türünü kaydetmek için.
+  1. Türü Düzenleyicisi'nde için değerleri girin **adı** ve **açıklama**. Değişkenleri oluşturma **ortalama**, **Min**, ve **Max** aşağıdaki şekilde gösterildiği gibi değerleri. Seçin **Oluştur** türünü kaydetmek için.
 
-      ![öğretici-on altı][16]
+     ![Bir tür Ekle bölmesi ve Oluştur düğmesi][16]
 
-      ![öğretici-on yedi][17]
+     ![Yeldeğirmeni örnek türleri][17]
 
-  1. İçinde **hiyerarşileri** bölümünde, tıklayarak **+ Ekle**. Bu, yeni bir zaman serisi modeli hiyerarşisi oluşturmanızı sağlar.
+  1. İçinde **hiyerarşileri** bölümünden **Ekle** yeni bir zaman serisi modeli hiyerarşi oluşturmak için.
 
-     ![öğretici-On sekiz][18]
+     ![Hiyerarşiler sayfasında Ekle düğmesi][18]
 
-  1. Hiyerarşi düzenleyiciye bir **adı** ve hiyerarşi düzeyleri aşağıda gösterildiği gibi ekleyin. Tıklayarak **Oluştur** hiyerarşisine kaydetmek için.
+  1. Hiyerarşi Düzenleyici'de bir değer girin **adı** ve hiyerarşi düzeyleri ekleyin. Seçin **Oluştur** hiyerarşisine kaydetmek için.
 
-     ![öğretici-on dokuz][19]
+     ![Bir hiyerarşiye Ekle bölmesi ve Oluştur düğmesi][19]
 
-     ![öğretici-yirmi][20]
+     ![Fiziksel hiyerarşi kutusu][20]
 
-  1. İçinde **örnekleri** bölümünde bir örneğini seçin ve tıklayın **Düzenle**. Bu, bir tür ve hiyerarşi Bu örnekle ilişkili olanak tanır.
+  1. İçinde **örnekleri** bölümünde bir örneğini seçin ve ardından **Düzenle** türü ve hiyerarşi Bu örnekle ilişkilendirilecek.
 
-     ![öğretici-yirmi-bir][21]
+     ![Liste Örnekleri][21]
 
-  1. Örneği Düzenleyici'de gösterildiği gibi adım 3, 5 yukarıda tanımlanan hiyerarşi ve türünü seçin.
+  1. Örnek Düzenleyicisi'nde, 3. ve 5. adımda tanımladığınız hiyerarşi ve türünü seçin.
 
-     ![öğretici yirmi iki][22]
+     ![Bir örneği bölmesinde Düzenle][22]
 
-  1. Alternatif olarak, tüm örnekleri için aynı anda bunun için düzenleyebileceğiniz `instances.json` daha önce indirilen dosya. Bu dosyada, tüm değiştirmek **TypeID** ve **HierarchyId** Kimliğine sahip alanlar elde adımları 3, yukarıdaki 5.
+  1. Alternatif olarak, tek seferde tüm örnekleri için hiyerarşi ve türünü seçmek için düzenleyebileceğiniz *instances.json* daha önce indirilen dosya. Bu dosyada, tüm değiştirmek **TypeID** ve **HierarchyId** alanları kimliği ile 3. ve 5. adımda elde edilen.
 
-  1. İçinde **örnekleri** bölümünde, tıklayın **karşıya JSON** ve düzenlenmiş karşıya `instances.json` dosya aşağıda gösterildiği gibi.
+  1. İçinde **örnekleri** bölümünden **karşıya JSON** ve düzenlenmiş karşıya *instances.json* dosya.
 
-     ![öğretici yirmi üç][23]
+     ![JSON Karşıya Yükle düğmesi][23]
 
-  1. Gidin **Analytics** sekmesini ve tarayıcınızı yenileyin. Artık, tür ve yukarıda tanımlanan hiyerarşi ile ilişkilendirilmiş tüm örnekler görmeniz gerekir.
+  1. Seçin **Analytics** sekmesini ve tarayıcınızı yenileyin. Tanımladığınız hiyerarşi ve türü ile ilişkilendirilmiş tüm örnekler görüntülenmesi gerekir.
 
-     ![öğretici yirmi dört][24]
+     ![Time Series Insights veri çizimi][24]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:  
 
-* TSI (Önizleme) ortamı oluşturun.
-* Olay Hub'ına TSI (Önizleme) ortama bağlanın.
-* Bir Rüzgar grubu simülasyonu için veri akışı (Önizleme) TSI ortamına çalıştırın.
-* Temel analiz verileri gerçekleştirin.
-* Hiyerarşi, zaman serisi modeli tür tanımlama ve örneklerinizin ile ilişkilendirin.
+* Bir zaman serisi öngörüleri Önizleme ortamı oluşturun.
+* Zaman serisi öngörüleri Önizleme ortamı, olay hub'ına bağlanın.
+* Zaman serisi öngörüleri Önizleme ortamı için veri akışı bir Rüzgar grubu simülasyonu çalıştırın.
+* Verilerin temel bir analiz gerçekleştirin.
+* Zaman serisi modeli türü ve hiyerarşi tanımlayın ve bunları örneklerinizin ile ilişkilendirin.
 
-TSI güncelleştirme ortamınızı oluşturma işlemini öğrendiğinize göre TSI temel kavramlar hakkında daha fazla bilgi edinebilirsiniz.
+Kendi Time Series Insights güncelleştirme ortamınızı oluşturma işlemini öğrendiğinize göre zaman serisi görüşleri temel kavramlar hakkında daha fazla bilgi edinebilirsiniz.
 
-TSI depolama yapılandırması hakkında okuyun:
+Zaman serisi görüşleri depolama yapılandırması hakkında okuyun:
 
 > [!div class="nextstepaction"]
-> [Azure TSI (Önizleme) depolama ve giriş](./time-series-insights-update-storage-ingress.md)
+> [Azure zaman serisi öngörüleri Önizleme depolama ve giriş](./time-series-insights-update-storage-ingress.md)
 
 Zaman serisi modelleri hakkında daha fazla bilgi edinin:
 
 > [!div class="nextstepaction"]
-> [Azure TSI (Önizleme) verileri modelleme](./time-series-insights-update-tsm.md)
+> [Azure zaman serisi öngörüleri Önizleme veri modelleme](./time-series-insights-update-tsm.md)
 
 <!-- Images -->
 [1]: media/v2-update-provision/tutorial-one.png

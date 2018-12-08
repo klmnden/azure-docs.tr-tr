@@ -1,6 +1,6 @@
 ---
-title: Görevler - Azure veri bilimi işlemi ekibine Liderlikte takım | Microsoft Docs
-description: Görev bir veri bilimi takım projesi üzerinde Ekip Lideri için ana hat.
+title: Takım veri bilimi işlemi takımda - Azure müşteri adayı takımı görevleri
+description: Bir ekip lideri bir veri bilimi takım projesi üzerinde görevleri bir özetini için veri bilimi ekip tamamlanması bekleniyor.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 2004396266d4bde9f3be540408524b668bbb863d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.openlocfilehash: 68fd0abf314eb4fde5ff335acc161d82ad78cd0c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443858"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106643"
 ---
-# <a name="team-lead-tasks"></a>Ekip Lideri görevleri
+# <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Takım için görevleri takım veri bilimi işlemi takıma sağlama
 
 Bu konuda anahatları ekip lideri olan görevleri için veri bilimi ekip tamamlanması bekleniyor. Hedefi üzerinde standartlaştırır ekip işbirliği ortamı oluşturmaktır [Team Data Science Process](overview.md) (TDSP). TDSP Tahmine dayalı analiz çözümlerini ve akıllı uygulamaları etkili bir şekilde sunmak için bir Çevik, yinelemeli bir veri bilimi metodolojisidir ' dir. İşbirliği ve takım öğrenme geliştirmeye yardımcı olmak için tasarlanmıştır. Yapıları yönelik geliştirdikleri başarılı şirketler tamamen yardımcı olmak için veri bilimi girişimlerini gerekli sektörün yanı sıra hem Microsoft'un kendi analiz programlarının avantajlarından ve en iyi bir distillation işlemidir. Bu işlemi, standart personel rolleri ve veri bilimi ekibi tarafından işlenen ilişkilendirilen görevlerinin bir özetini görmek [Team Data Science Process rolleri ve görevleri](roles-tasks.md).
 
