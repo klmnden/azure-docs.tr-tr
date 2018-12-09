@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: a91a7493ee1353eda076c6831ed114df4c57d429
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 50264dfba401f623c4ad14a6310303f2787fc85f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019279"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111683"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-by-using-the-azure-portal"></a>Azure portalı kullanarak ana bilgisayar adı, bağlantı noktaları ve erişim anahtarlarını alma
 
-Bir Azure Azure Cache, Redis örneği için bağlanırken, önbellek istemcileri önbelleği için ana bilgisayar adı, bağlantı noktaları ve bir anahtar gerekir. Bazı istemciler bu öğelere biraz daha farklı adlarla başvurabilir. Bu bilgileri Azure portalında bulabilirsiniz.
+Bir Azure önbelleği için Redis örneği bağlanırken, önbellek istemcileri için önbellek ana bilgisayar adı, bağlantı noktaları ve bir anahtar gerekir. Bazı istemciler bu öğelere biraz daha farklı adlarla başvurabilir. Bu bilgileri Azure portalında bulabilirsiniz.
 
 #### <a name="to-retrieve-the-access-keys-and-host-name"></a>Erişim tuşlarını ve ana bilgisayar adını alma
 
 1. [Azure portalı](https://portal.azure.com) kullanarak erişim anahtarlarını almak için önbelleğinize göz atın ve **Erişim anahtarları** seçeneğini belirleyin. 
 
-    ![Azure Azure önbelleği için Redis anahtarları](media/redis-cache-access-keys/redis-cache-keys.png)
+    ![Azure önbelleği için Redis anahtarları](media/redis-cache-access-keys/redis-cache-keys.png)
 
 2. Ana bilgisayar adını ve bağlantı noktalarını almak için **Özellikler** seçeneğini belirleyin.
 
-    ![Azure Azure önbelleği için Redis özellikleri](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
+    ![Azure önbelleği için Redis özellikleri](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
 
