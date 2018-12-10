@@ -1,18 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 452032e21a649fe4d34616225bd168d441ac0267
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 6fa6a0f5a46d8e9a47a0750a66e9ca007864d40a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218653"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092640"
 documentType: LandingData
-title: Konuşma Tanıma Hizmeti Belgeleri
+title: Konuşma Tanıma Hizmetleri Belgeleri
 metadata:
-  title: Konuşma Tanıma Hizmeti belgeleri - Öğreticiler, hızlı başlangıçlar, API başvurusu - Bilişsel Hizmetler | Microsoft Docs
-  meta.description: >
-    The Speech service gives developers an easy way to add powerful speech-enabled features to their applications.
-
-    Examples include voice command control and dialogue, natural speech conversation, speech transcription and dictation, and speech translation.
+  title: Konuşma Tanıma Hizmetleri belgeleri - Öğreticiler, hızlı başlangıçlar, API başvurusu
+  titleSuffix: Azure Cognitive Services
+  description: Konuşma Tanıma Hizmetleri geliştiricilere uygulamalarına güçlü konuşma özellikleri eklemek için kolay bir yol getirir. Örneğin sesli komut denetimi ve iletişim penceresi, doğal konuşma, konuşma transkripsiyonu, dikte ve konuşma çevirisi özellikleri ekleyebilirler.
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -22,10 +20,11 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
-  ms.author: nitinme
+  ms.date: 12/06/2018
+  ms.author: erhopf
+  ms.custom: seodec18
 abstract:
-  description: Konuşma Tanıma Hizmetini ve Konuşma Tanıma SDK'sını kullanarak uygulamalarınıza konuşma özellikleri eklemeyi öğrenin. Konuşma Tanıma SDK'sını kullanarak uygulamalarınıza <i>konuşmayı metne dönüştürme</i> (konuşma tanıma/SR), <i>amaç</i>, <i>çeviri</i> ve <i>metni konuşmaya dönüştürme</i> (TTS) özellikleri katabilirsiniz. Ayrıca Konuşma Tanıma Hizmeti, HTTP isteği oluşturabilen tüm programlama dilleriyle çalışan bir REST API'ye sahiptir.
+  description: Konuşma Tanıma Hizmetlerini ve Konuşma Tanıma SDK'sını kullanarak uygulamalarınıza konuşma özellikleri eklemeyi öğrenin. Konuşma Tanıma SDK'sını kullanarak uygulamalarınıza <i>konuşmayı metne dönüştürme</i> (konuşma tanıma/SR), <i>amaç</i>, <i>çeviri</i> ve <i>metni konuşmaya dönüştürme</i> (TTS) özellikleri katabilirsiniz. Ayrıca Konuşma Tanıma Hizmeti, HTTP isteği oluşturabilen tüm programlama dilleriyle çalışan bir REST API'ye sahiptir.
 sections:
 - items:
   - type: list
@@ -34,15 +33,15 @@ sections:
     columns: 3
     items:
     - href: /azure/cognitive-services/speech-service/overview
-      html: <p>Azure Konuşma Tanıma Hizmeti hakkında bilgi edinin.</p>
+      html: <p>Azure Konuşma Tanıma Hizmetleri hakkında bilgi edinin.</p>
       image:
         src: ../media/index/i_overview.svg
       title: Konuşma Tanıma Hizmeti nedir?
     - href: /azure/cognitive-services/speech-service/get-started
-      html: <p>Konuşma tanıma hizmetine ücretsiz kaydolmayı öğrenin.</p>
+      html: <p>Ücretsiz kaydolun.</p>
       image:
         src: ../media/index/i_get-started.svg
-      title: Konuşma Tanıma Hizmetine Kaydolun
+      title: Konuşma Tanıma Hizmetlerine kaydolun
     - href: /azure/cognitive-services/speech-service/speech-devices-sdk
       html: <p>Konuşma tanıma özelliğine sahip donanım başvurusu hakkında bilgi edinin.</p>
       image:

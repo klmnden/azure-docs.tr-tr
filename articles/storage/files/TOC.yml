@@ -3,6 +3,8 @@ items:
   items:
   - name: Azure Dosyaları nedir?
     href: storage-files-introduction.md
+  - name: Blobları, Dosyaları veya Diskleri seçme
+    href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: Hızlı Başlangıçlar
   items:
   - name: Dosya paylaşımları oluşturma - Portal
@@ -20,20 +22,17 @@ items:
     href: storage-sync-files-extend-servers.md
 - name: Kavramlar
   items:
-  - name: Planlama
-    items:
-    - name: Azure Dosyaları
-      href: storage-files-planning.md
-    - name: Azure Dosya Eşitleme
-      href: storage-sync-files-planning.md
-    - name: Bulut katmanlamasını anlama
-      href: storage-sync-cloud-tiering.md
-  - name: Depolama hesaplarını anlama
+  - name: Azure Dosyaları hakkında
+    href: storage-files-planning.md
+  - name: Azure Dosya Eşitleme hakkında
+    href: storage-sync-files-planning.md
+  - name: Bulut katmanlamasını anlama
+    href: storage-sync-cloud-tiering.md
+  - name: Depolama hesapları hakkında
     href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Veri yedekliği
+  - name: Azure depolama çoğaltması
+    href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     items:
-    - name: Yedekliliğe genel bakış
-      href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Yerel olarak yedekli depolama
       href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: >
@@ -41,45 +40,82 @@ items:
       href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Coğrafi olarak yedekli depolama
       href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Azure dosya paylaşımı anlık görüntüleri
+    href: storage-snapshots-files.md
   - name: Ölçeklenebilirlik ve performans hedefleri
     href: storage-files-scale-targets.md
-  - name: Olağanüstü durum kurtarma kılavuzu
+  - name: Güvenlik
+    items:
+    - name: Azure Depolama güvenliği
+      href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Bekleyen verilerin şifrelenmesi
+      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: SMB üzerinden Azure AD kimlik doğrulaması
+      href: storage-files-active-directory-overview.md
+    - name: Uyumluluk teklifleri
+      href: ../common/storage-compliance-offerings.md
+  - name: Geliştirme
+    items:
+    - name: Eşzamanlılığı yönetme
+      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Paylaşılan anahtar kimlik doğrulaması
+      href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
+    - name: Paylaşılan erişim imzaları (SAS)
+      href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Ölçümler
+    items:
+    - name: Tanılama
+      href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Depolama Analizi
+      href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Azure İzleyicisi'nde ölçümler
+      href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Olağanüstü durum kurtarma
     href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Sınırlar
   - name: SSS
     href: storage-files-faq.md
-- name: Nasıl yapılır
+- name: Nasıl yapılır kılavuzları
   items:
+  - name: Oluştur
+    items:
+    - name: Dosya paylaşımı oluşturma
+      href: storage-how-to-create-file-share.md
   - name: Dağıtma
     items:
     - name: Azure Dosyaları’nı dağıtma
       href: storage-files-deployment-guide.md
     - name: Azure Dosya Eşitleme’yi dağıtma
       href: storage-sync-files-deployment-guide.md
-    - name: Dosya Eşitleme proxy’si ve güvenlik duvarı ayarları
+    - name: Dosya Eşitleme ara sunucu ve güvenli duvarı ayarlarını yapılandırma
       href: storage-sync-files-firewall-and-proxy.md
-    - name: Azure Dosya Eşitleme yayın notları
-      href: storage-files-release-notes.md
-  - name: Yönetme
+  - name: Bağlama
     items:
-    - name: Dosya paylaşımı oluşturma
-      href: storage-how-to-create-file-share.md
     - name: Azure Dosyaları'nı Windows ile kullanma
       href: storage-how-to-use-files-windows.md
     - name: Azure Dosyaları'nı Linux ile kullanma
       href: storage-how-to-use-files-linux.md
     - name: Azure Dosyaları'nı macOS ile kullanma
       href: storage-how-to-use-files-mac.md
+  - name: Yönetme
+    items:
     - name: Azure Dosya Eşitleme ile bir sunucuyu kaydetme
       href: storage-sync-files-server-registration.md
-    - name: Dosya paylaşımı anlık görüntülerini anlama
-      href: storage-snapshots-files.md
     - name: Azure Dosya Eşitleme Sunucusu uç noktası ekleme
       href: storage-sync-files-server-endpoint.md
-    - name: Çin, Kamu ve Almanya bulutları için PowerShell
+    - name: Azure bağımsız bulutlarında depolamayı yönetme
       href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Veri Aktarma
+  - name: İzleme
     items:
-    - name: Verileri Depolamaya ve Depolamadan aktarma
+    - name: Ölçümler ve günlüğe kaydetme
+      items:
+      - name: Yeni ölçümlere geçme
+        href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Ölçümleri etkinleştirme ve görüntüleme (klasik)
+        href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Geçiş
+    items:
+    - name: Azure Depolamadan/Depolamaya veri taşıma
       href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Windows üzerinde AzCopy
       href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -87,8 +123,6 @@ items:
       href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Geliştirme
     items:
-    - name: Eşzamanlılığı yönetme
-      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Bağlantı dizelerini yapılandırma
       href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: .NET
@@ -101,29 +135,15 @@ items:
       href: storage-python-how-to-use-file-storage.md
   - name: Güvenlik
     items:
-    - name: Güvenlik kılavuzu
-      href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Güvenlik duvarlarını ve sanal ağları yapılandırma
       href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Bekleyen verilerin şifrelenmesi
-      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Güvenli aktarım gerektir
       href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: SMB üzerinden Azure AD kimlik doğrulaması
-      items:
-      - name: SMB üzerinden Azure AD kimlik doğrulamasına genel bakış
-        href: storage-files-active-directory-overview.md
-      - name: SMB üzerinden Azure AD kimlik doğrulamasını etkinleştirme
-        href: storage-files-active-directory-enable.md
-    - name: Paylaşılan anahtar kimlik doğrulaması
-      href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
-    - name: Paylaşılan erişim imzaları (SAS)
-      href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: SMB üzerinden Azure AD kimlik doğrulamasını etkinleştirme
+      href: storage-files-active-directory-enable.md
     - name: Azure Depolama istemcisi için güvenli TLS'yi etkinleştirme
       href: ../common/storage-security-tls.md
-    - name: Uyumluluk teklifleri
-      href: ../common/storage-compliance-offerings.md
-  - name: İzleme ve sorun giderme
+  - name: Sorun giderme
     items:
     - name: Windows’ta Azure Dosyaları Sorunlarını Giderme
       href: storage-troubleshoot-windows-file-connection-problems.md
@@ -131,18 +151,6 @@ items:
       href: storage-troubleshoot-linux-file-connection-problems.md
     - name: Azure Dosya Eşitleme ile ilgili sorunları giderme
       href: storage-sync-files-troubleshoot.md
-    - name: İzleme, tanılama ve sorun giderme
-      href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Ölçümler ve günlüğe kaydetme
-      items:
-      - name: Azure İzleyicisi'nde ölçümler
-        href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Yeni ölçümlere geçme
-        href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Depolama Analizi
-        href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Ölçümleri etkinleştirme ve görüntüleme (klasik)
-        href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Başvuru
   items:
   - name: PowerShell
@@ -187,8 +195,10 @@ items:
     href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
 - name: Kaynaklar
   items:
-  - name: Azure yol haritası
-    href: https://azure.microsoft.com/roadmap/?product=storage
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/?category=storage
+  - name: Azure Dosya Eşitleme yayın notları
+    href: storage-files-release-notes.md
   - name: Azure Depolama istemci araçları
     href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Stack Overflow
@@ -235,9 +245,9 @@ items:
       href: https://github.com/Azure/azure-storage-cpp
     - name: Python
       href: https://github.com/Azure/azure-storage-python
-ms.openlocfilehash: bcfce193fdd41cf9c45e2967d565dc56ebbc2979
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 462729efaaad743a45f431fb0ac06c40188679b2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970612"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101730"

@@ -83,13 +83,12 @@ items:
       href: how-to-set-up-training-targets.md
     - name: Eğitim verilerine erişim
       href: how-to-access-data.md
-    - name: Tahmin araçları oluşturma
+    - name: Eğitimde tahmin araçları oluşturma
       href: how-to-train-ml-models.md
-      items:
-      - name: PyTorch
-        href: how-to-train-pytorch.md
-      - name: TensorFlow
-        href: how-to-train-tensorflow.md
+    - name: PyTorch'u kullanma
+      href: how-to-train-pytorch.md
+    - name: TensorFlow'u kullanma
+      href: how-to-train-tensorflow.md
     - name: Hiperparametreleri ayarlama
       displayName: parameter
       href: how-to-tune-hyperparameters.md
@@ -110,18 +109,10 @@ items:
   - name: Modelleri dağıtma
     items:
     - name: Modellerin dağıtılacağı yerler
-      displayName: publish
+      displayName: publish, azure kubernetes, azure container instances
       href: how-to-deploy-and-where.md
-    - name: ACI'ye dağıtma
-      displayName: Azure Container Instances
-      href: how-to-deploy-to-aci.md
-    - name: AKS’ye dağıtma
-      displayName: Azure Kubernetes
-      href: how-to-deploy-to-aks.md
     - name: FPGA'lara dağıtma
       href: how-to-deploy-fpga-web-service.md
-    - name: IoT Edge'e dağıtma
-      href: how-to-deploy-to-iot.md
     - name: Sorun giderme
       href: how-to-troubleshoot-deployment.md
     - name: SSL ile güvenli
@@ -175,7 +166,7 @@ items:
     href: how-to-export-delete-data.md
   - name: Kullanım dışı belgeler
     items:
-    - name: Geçiş yapma
+    - name: Workbench'ten geçiş yapma
       displayName: Workbench, upgrade, update, transfer
       href: how-to-migrate.md
     - name: Hesap verilerini dışarı aktarma veya silme (kullanım dışı)
@@ -374,9 +365,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Eski Sorunlar
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 087d101a655d87bdb4c8f7de2b39a5358c21e00e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a5c26bd2ef020ca737907c8a66776a3769bfeefd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962554"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101254"
