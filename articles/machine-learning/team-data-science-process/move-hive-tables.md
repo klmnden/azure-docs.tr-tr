@@ -1,6 +1,6 @@
 ---
 title: Hive tabloları oluşturma ve Azure Blob depolamadan veri yükleme | Microsoft Docs
-description: Hive tabloları oluşturma ve tabloları hive blob'daki veri yükleme
+description: Hive tabloları oluşturma ve Azure blob depolamadan veri yükleme için Hive sorguları kullanın. Hive tablolarını bölümlemek ve en iyi duruma getirilmiş satır sütunlu (sorgu performansını artırmak için biçimlendirme ORC) kullanın.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 42911c347cd055f37f7fe8f31b6d22cc18a78662
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.openlocfilehash: 0f652efcad90354dea438dcd684759c41224c384
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442889"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084116"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive tabloları oluşturma ve Azure Blob depolamadan veri yükleme
 
@@ -65,14 +65,14 @@ Size, Hadoop komut satırı Hive sorguları göndermek için üç yolunuz vardı
 #### <a name="submit-hive-queries-directly-in-hadoop-command-line"></a>Hive sorguları doğrudan, Hadoop komut satırı gönderin.
 Komutu gibi çalıştırabilirsiniz `hive -e "<your hive query>;` doğrudan, Hadoop komut satırı basit Hive sorguları göndermek için. Burada kırmızı kutu Hive sorgusu gönderen komut özetlemekte ve Hive sorgusu çıkışı yeşil kutuyu özetler bir örnek aşağıda verilmiştir.
 
-![Çalışma alanı oluşturma](./media/move-hive-tables/run-hive-queries-1.png)
+![Hive sorgusu çıkışı ile Hive sorgu göndermek için komutu](./media/move-hive-tables/run-hive-queries-1.png)
 
 #### <a name="submit-hive-queries-in-hql-files"></a>.Hql dosyalarında Hive sorguları göndermek
 Komut satırı ya da Hive komut konsolunda sorguları düzenleme, Hive sorgusu daha karmaşıktır ve birden fazla satır olduğunda pratik değildir. Hive sorguları baş düğümün, yerel bir dizinde .hql dosyasına kaydetmek için Hadoop kümesi baş düğümünde bir metin Düzenleyicisi kullanmak için bir alternatiftir. Hive sorgusu .hql dosyasındaki kullanarak gönderilebilir sonra `-f` bağımsız değişkeni aşağıdaki gibi:
 
     hive -f "<path to the .hql file>"
 
-![Çalışma alanı oluşturma](./media/move-hive-tables/run-hive-queries-3.png)
+![Hive sorgusu .hql dosyasında](./media/move-hive-tables/run-hive-queries-3.png)
 
 **Hive sorguları ilerleme durumu ekranı Yazdır Gizle**
 
@@ -84,7 +84,7 @@ Hive sorgusu, Hadoop komut satırında gönderildikten sonra varsayılan olarak,
 #### <a name="submit-hive-queries-in-hive-command-console"></a>Hive komut konsolunda Hive sorguları göndermek.
 Komutunu çalıştırarak, Hive komut konsolunda da ilk girebilirsiniz `hive` Hadoop komut satırı ve ardından Hive komut konsolunda Hive sorguları göndermek. Bir örnek aşağıda verilmiştir. Bu örnekte, iki kırmızı kutuları, Hive komut konsoluna girmek için kullanılan komutlar ve Hive komut konsolunda sırasıyla gönderilen Hive sorgusu vurgulayın. Yeşil kutuyu Hive sorgusu çıkışı vurgular.
 
-![Çalışma alanı oluşturma](./media/move-hive-tables/run-hive-queries-2.png)
+![Hive komut konsolunu açın ve komutu girin, Hive sorgusu çıkışı görüntülemek](./media/move-hive-tables/run-hive-queries-2.png)
 
 Önceki örneklerde, ekranda Hive sorgu sonuçları doğrudan çıkış. Yerel bir dosyaya baş düğüme veya bir Azure blob çıktı yazabilirsiniz. Ardından, Hive sorguları çıkışı daha fazla analiz için diğer araçları kullanabilirsiniz.
 
@@ -95,7 +95,7 @@ Hive sorgu sonuçlarını baş düğümü üzerindeki yerel bir dizine çıkarma
 
 Aşağıdaki örnekte, Hive sorgusu çıkışı bir dosyaya yazılır `hivequeryoutput.txt` dizinde `C:\apps\temp`.
 
-![Çalışma alanı oluşturma](./media/move-hive-tables/output-hive-results-1.png)
+![Hive sorgusu çıkışı](./media/move-hive-tables/output-hive-results-1.png)
 
 **Hive sorgu sonuçları için bir Azure blob çıktı**
 
@@ -105,11 +105,11 @@ Ayrıca, Hadoop kümesi varsayılan kapsayıcı içinde bir Azure blob'a Hive so
 
 Aşağıdaki örnekte, Hive sorgusu çıkışı bir blob dizinine yazılır `queryoutputdir` Hadoop kümesi varsayılan kapsayıcı içinde. Burada, yalnızca blob adı olmayan bir dizin adı sağlamanız gerekir. Dizin hem blob adları gibi sağlarsanız, bir hata oluşturulur `wasb:///queryoutputdir/queryoutput.txt`.
 
-![Çalışma alanı oluşturma](./media/move-hive-tables/output-hive-results-2.png)
+![Hive sorgusu çıkışı](./media/move-hive-tables/output-hive-results-2.png)
 
 Azure Depolama Gezgini'ni kullanarak Hadoop kümesi varsayılan kapsayıcı açarsanız, aşağıdaki resimde gösterildiği gibi Hive sorgusu çıkışı görebilirsiniz. Yalnızca blob adları belirtilen harflerle almak için (kırmızı kutu ile vurgulanan) filtre uygulayabilirsiniz.
 
-![Çalışma alanı oluşturma](./media/move-hive-tables/output-hive-results-3.png)
+![Hive sorgusu çıkışı gösteren Azure Depolama Gezgini](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Hive Düzenleyicisi ile Hive sorguları göndermek
 Sorgu Konsolu (Hive Düzenleyicisi) biçiminde bir URL girerek kullanabilirsiniz *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* içine bir web tarayıcısı. Siz bu konsolun bakın oturum ve Hadoop kümesi kimlik bilgilerinizi buraya nedenle gerekir.

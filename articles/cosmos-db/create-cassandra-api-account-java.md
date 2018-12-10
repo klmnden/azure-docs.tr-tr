@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 1220bcc8445f13a4573f1a6d3181c172799638fb
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: 57b255fc3875adfd411ee8508f238f0e10af85f6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741801"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089845"
 ---
-# <a name="tutorial-create-an-azure-cosmos-db-cassandra-api-account-database-and-a-table-by-using-a-java-application"></a>Java uygulaması kullanarak Azure Cosmos DB Cassandra API'si hesabı, veritabanı ve tablo oluşturma
+# <a name="tutorial-create-an-azure-cosmos-db-cassandra-api-account-database-and-a-table-by-using-a-java-application"></a>Öğretici: Java uygulaması kullanarak Azure Cosmos DB Cassandra API hesabı, veritabanı ve tablo oluşturma
 
 Bu öğreticide Azure Cosmos DB'de Cassandra API'si hesabı oluşturmak, bir veritabanı (keyspace olarak da adlandırılır) ve tablo eklemek için Java uygulamasının nasıl kullanıldığı açıklanır. Java uygulaması kullanıcı kimliği, kullanıcı adı ve kullanıcı şehri gibi ayrıntıları içeren bir kullanıcı veritabanı oluşturmak için [Java sürücüsünü](https://github.com/datastax/java-driver) kullanır.  
 
@@ -29,22 +29,22 @@ Bu öğretici aşağıdaki görevleri kapsar:
 > * Veritabanı ve tablo ekleme
 > * Uygulamayı çalıştırma
 
-## <a name="prerequisites"></a>Ön koşullar 
+## <a name="prerequisites"></a>Önkoşullar 
 
 * Azure aboneliğiniz yoksa başlamadan önce  [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)  oluşturun. Alternatif olarak, Azure aboneliği olmadan ve herhangi bir taahhütte bulunmadan  [Azure Cosmos DB’yi ücretsiz olarak deneyebilirsiniz](https://azure.microsoft.com/try/cosmosdb/) . 
 
 * [Java Geliştirme Seti'nin (JDK)](https://aka.ms/azure-jdks) en son sürümünü alın 
 
-* [Maven](http://maven.apache.org/) ikili arşivini [indirin](http://maven.apache.org/download.cgi) ve [yükleyin](http://maven.apache.org/install.html) 
+* [Maven](https://maven.apache.org/) ikili arşivini [indirin](https://maven.apache.org/download.cgi) ve [yükleyin](https://maven.apache.org/install.html) 
   - Ubuntu’da Maven’i yüklemek için  `apt-get install maven`  komutunu çalıştırabilirsiniz. 
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma 
 
 1.  [Azure portalda](https://portal.azure.com/) oturum açın. 
 
-2.  **Kaynak oluştur** > **Veritabanları** > **Azure Cosmos DB**'yi seçin. 
+2.   **Kaynak oluştur**  >  **Veritabanları**  >  **Azure Cosmos DB** 'yi seçin.  
 
-3.  **Yeni hesap** bölmesinde, yeni Azure Cosmos DB hesabının ayarlarını girin. 
+3.   **Yeni hesap**  bölmesinde, yeni Azure Cosmos DB hesabının ayarlarını girin. 
 
    |Ayar   |Önerilen değer  |Açıklama  |
    |---------|---------|---------|
@@ -62,7 +62,7 @@ Bu öğretici aşağıdaki görevleri kapsar:
 
 Azure portaldan bağlantı dizesi bilgisini alın ve bunu Java yapılandırma dosyasına kopyalayın. Bağlantı dizesi, uygulamanızın barındırılan veritabanıyla iletişim kurmasına olanak tanır. 
 
-1.  [Azure portalda](http://portal.azure.com/) Cosmos DB hesabınıza gidin. 
+1.  [Azure portalda](https://portal.azure.com/) Cosmos DB hesabınıza gidin. 
 
 2.  **Bağlantı Dizesi ** bölmesini açın.  
 

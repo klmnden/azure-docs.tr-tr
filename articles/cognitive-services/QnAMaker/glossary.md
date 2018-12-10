@@ -1,7 +1,7 @@
 ---
 title: Sözlük - soru-cevap Oluşturucu
 titleSuffix: Azure Cognitive Services
-description: Sözlük
+description: Soru-cevap Oluşturucu hizmetini, makine öğreniminin birçok yeni hüküm ve doğal dil işleme yanı sıra hizmete özgü şartları vardır. Bu liste, bu terimleri anlamanıza yardımcı olur.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: b22ec27b2999d322945e37c5a38d2b1d1532e7e3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.custom: seodec18
+ms.openlocfilehash: 832bf85087b706451a6ee58c538d7a163ef18203
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166053"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079951"
 ---
-# <a name="glossary"></a>Sözlük
+# <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>Soru-cevap Oluşturucu Bilgi Bankası ve hizmet için terimler sözlüğü
 
 ## <a name="qna-maker-service"></a>Soru-cevap Oluşturucu hizmeti
 Soru-cevap Oluşturucu hizmetini soru-cevap Oluşturucu'ı kullanmaya başlamak için bir önkoşuldur. Soru-cevap Oluşturucu katman satın alma oluşturmak ve bilgi bankanızı yönetmek için Azure aboneliğinizdeki kaynaklar ayarlar. Soru-cevap Oluşturucu her kullanıcı hesabı, Azure aboneliğinde birden çok soru-cevap Oluşturucu hizmeti oluşturabilirsiniz.
