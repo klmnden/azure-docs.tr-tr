@@ -1,5 +1,5 @@
 ---
-title: AzCopy kullanarak Azure Blob Depolama gelen ve giden veri taşıma | Microsoft Docs
+title: AzCopy - Team Data Science Process ile BLOB Depolama veri taşıma
 description: AzCopy kullanarak Azure Blob Depolamadan/Depolamaya Veri Taşıma
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 9e8b852b9f13e8f41daff27e305bc9c0cda78cb7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 6a204c68a05cec827fa8e432889cc60296132d4e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443007"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140589"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>AzCopy kullanarak Azure Blob Depolama gelen ve giden veri taşıma
 AzCopy, karşıya yükleme, indirme ve veri kopyalamak için ve Microsoft Azure blob, dosya ve tablo depolama için tasarlanan bir komut satırı yardımcı programıdır.

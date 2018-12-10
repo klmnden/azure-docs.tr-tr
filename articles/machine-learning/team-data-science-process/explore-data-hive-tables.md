@@ -1,6 +1,6 @@
 ---
-title: Hive sorguları ile Hive tablosundaki verileri keşfedin | Microsoft Docs
-description: Hive sorgularını kullanarak Hive tablosundaki verileri keşfedin.
+title: Hive sorguları - Team Data Science Process ile Hive tablosundaki verileri keşfedin
+description: Bir HDInsight Hadoop kümesindeki Hive tablolarındaki verileri araştırmak için kullanılan örnek Hive betiklerini kullanın.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: c50c6de28c60bbe6a6c0d510e62f35cd037d6e95
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: c4d731ad2b94ca662e23e7e48442e396900d68ec
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443321"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132303"
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Hive sorguları ile Hive tablosundaki verileri keşfedin
 

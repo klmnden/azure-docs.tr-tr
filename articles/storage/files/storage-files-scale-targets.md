@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 57929b23e437e17ceb90196e3cfa59c16d518f5a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: af738b655b4070da1cfe7555daff82c0e40ff91c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527446"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138594"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure dosyaları ölçeklenebilirlik ve performans hedefleri
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı SMB protokolünü erişilebilen bulutta sunar. Bu makalede, Azure dosyaları ve Azure dosya eşitleme için ölçeklenebilirlik ve performans hedefleri ele alır.
@@ -46,6 +46,7 @@ Azure dosya eşitleme için performans iki aşamada önemlidir:
 2. **Devam eden eşitleme**: veri başlangıçta Azure dosya paylaşımlarını sağlanmış sonra Azure dosya eşitleme birden fazla uç noktası eşitlenmiş tutar.
 
 Her aşamalar için dağıtım planlamanıza yardımcı olması için aşağıdaki sonuçları iç bir sistemde bir yapılandırma ile test sırasında gözetilir
+
 | Sistem yapılandırması |  |
 |-|-|
 | CPU | 64 MiB L3 önbellek ile 64 sanal çekirdekler |

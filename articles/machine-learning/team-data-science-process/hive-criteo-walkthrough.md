@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process'in çalışması - 1 TB veri kümesinde bir Azure HDInsight Hadoop kümesi kullanarak | Microsoft Docs
+title: Team Data Science Process 1 TB veri kümesinde - Azure HDInsight Hadoop kümesi kullanın
 description: Bir HDInsight Hadoop kümesi oluşturun ve büyük bir (1 TB) genel kullanıma açık veri kümesini kullanarak bir model dağıtma kullanan bir uçtan uca senaryo için Team Data Science Process kullanma
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 3aef1b85a462eea74fbe977e9a48054f11acf47a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 777d976133f5b9bb1c97ea678e058f2dc398922d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447053"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135823"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team Data Science Process'in çalışması - 1 TB veri kümesinde bir Azure HDInsight Hadoop kümesi kullanarak
 
@@ -478,7 +478,7 @@ Büyük veri kümelerinin kategorik bazı özellikler için benzersiz değerler 
 ##### <a name="building-counting-transforms"></a>Sayım oluşturma dönüşümleri
 Sayısı özellikler oluşturmak için kullanın **derleme sayım dönüştürme** Azure Machine Learning'de kullanılabilen modülü. Modül şöyle görünür:
 
-![Dönüştürme sayma Modülü](./media/hive-criteo-walkthrough/e0eqKtZ.png)
+![Derleme dönüştürme sayma modülü özellikleri](./media/hive-criteo-walkthrough/e0eqKtZ.png)
 ![sayım dönüştürme derleme Modülü](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
 > [!IMPORTANT] 

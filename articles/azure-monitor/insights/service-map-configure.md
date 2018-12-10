@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2018
+ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: cead67bf18dcd0ea7b5c1479588083884dab475f
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 68ca8593dea93faf076ffb5d99ec7bcad210a810
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632968"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141841"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure'da hizmet eşlemesi yapılandırma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--kritik Hizmetleri sunmak birbirine sistemleri düşündüğünüz sunucularınızın görüntülemek için kullanabilirsiniz. Hizmet eşlemesi, tüm TCP bağlantılı mimarisi, gerekli bir aracı yüklemesini dışında hiçbir yapılandırma boyunca sunucuları, işlemler ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -125,8 +125,8 @@ Aşağıdaki bölümde, Red Hat Enterprise Linux, CentOS Linux ve Oracle Linux (
 
 | Dosya | İşletim Sistemi | Sürüm | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 ## <a name="connected-sources"></a>Bağlı kaynaklar
 Hizmet eşlemesi kendi verilerini Microsoft Dependency Aracıdan alır. Log Analytics aracısını Log analytics'e bağlantıları için bağımlılık Aracısı'nı kullanır. Başka bir deyişle, bir sunucuya yüklenmiş ve yapılandırılmış bağımlılık aracısını Log Analytics aracısını olması gerekir.  Aşağıdaki tabloda, hizmet eşlemesi çözümünü destekleyen bağlı kaynaklar açıklanmaktadır.
@@ -135,7 +135,7 @@ Hizmet eşlemesi kendi verilerini Microsoft Dependency Aracıdan alır. Log Anal
 |:--|:--|:--|
 | Windows aracıları | Evet | Hizmet eşlemesi, analiz eder ve Windows bilgisayarlardan verileri toplar. <br><br>Ek olarak [Windows için Log Analytics aracısını](../../azure-monitor/platform/log-analytics-agent.md), Windows aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
 | Linux aracıları | Evet | Hizmet eşlemesi, analiz eder ve Linux bilgisayarlardan verileri toplar. <br><br>Ek olarak [Linux için Log Analytics aracısını](../../azure-monitor/platform/log-analytics-agent.md), Linux aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
-| System Center Operations Manager yönetim grubu | Evet | Hizmet eşlemesi analiz eder ve Windows ve Linux aracılarını bir bağlı olarak veri toplar [System Center Operations Manager yönetim grubu](../../log-analytics/log-analytics-om-agents.md). <br><br>System Center Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekir. |
+| System Center Operations Manager yönetim grubu | Evet | Hizmet eşlemesi analiz eder ve Windows ve Linux aracılarını bir bağlı olarak veri toplar [System Center Operations Manager yönetim grubu](../../azure-monitor/platform/om-agents.md). <br><br>System Center Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekir. |
 | Azure depolama hesabı | Hayır | Azure Depolama'dan toplamak için hiçbir veri bu nedenle hizmet eşlemesi Aracısı bilgisayarlardan verileri toplar. |
 
 Windows üzerinde Microsoft Monitoring Agent (MMA) hem System Center Operations Manager hem de Log Analytics tarafından toplayın ve göndermek için kullanılan izleme verileri. (Bu aracı System Center Operations Manager Aracısı, Log Analytics aracısını, MMA veya doğrudan aracı bağlama bağlı olarak adlandırılır.) System Center Operations Manager ve Log Analytics MMA'yı farklı çıkış-hazır sürümleri sağlar. Bu sürümlerin her biri System Center Operations Manager'a, Log Analytics'e veya her ikisine birden raporlayabilir.  
@@ -156,7 +156,7 @@ Log Analytics'e bağlı bir yönetim grubuna sahip bir System Center Operations 
 Windows veya Linux bilgisayarlarınızın doğrudan hizmetine bağlanamazsa, ağ geçidini kullanarak Log Analytics çalışma alanına bağlamak için Log Analytics aracısını yapılandırmanız gerekir. Log Analytics ağ geçidi yapılandırmak ve dağıtmak hakkında daha fazla bilgi için bkz. [Log Analytics ağ geçidini kullanarak Internet erişimi bilgisayarları bağlama](../../azure-monitor/platform/gateway.md).  
 
 ### <a name="management-packs"></a>Yönetim paketleri
-Log Analytics çalışma alanında hizmet eşlemesi etkinleştirildiğinde, 300 KB Yönetim Paketi bu çalışma alanındaki tüm Windows sunucuları iletilir. System Center Operations Manager aracıları kullanıyorsanız bir [bağlı yönetim grubu](../../log-analytics/log-analytics-om-agents.md), hizmet eşlemesi Yönetim Paketi, System Center Operations Manager üzerinden dağıtılır. 
+Log Analytics çalışma alanında hizmet eşlemesi etkinleştirildiğinde, 300 KB Yönetim Paketi bu çalışma alanındaki tüm Windows sunucuları iletilir. System Center Operations Manager aracıları kullanıyorsanız bir [bağlı yönetim grubu](../../azure-monitor/platform/om-agents.md), hizmet eşlemesi Yönetim Paketi, System Center Operations Manager üzerinden dağıtılır. 
 
 Yönetim paketinin adı Microsoft.IntelligencePacks.ApplicationDependencyMonitor'dır. Bu, %Programfiles%\Microsoft izleme Agent\Agent\Health hizmet State\Management Packs\ yazılır. Yönetim Paketi kullanan veri kaynağı % Program files%\Microsoft izleme Agent\Agent\Health hizmet State\Resources,\<AutoGeneratedID > \ Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 

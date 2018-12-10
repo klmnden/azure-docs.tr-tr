@@ -1,6 +1,6 @@
 ---
-title: Ölçeklendirme medya ayrılmış birimleri - Azure | Microsoft Docs
-description: Bu konuda, ölçeklendirme medya işleme Azure Media Services ile bir genel bakıştır.
+title: Azure Media Services ile filtre oluşturma için CLI kullanma | Microsoft Docs
+description: Bu konuda, Media Services ile filtre oluşturma için CLI kullanma gösterilmektedir.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
-ms.openlocfilehash: 9099429097efb17629e88318430f004f0f763cc5
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: a16024ad5d8b9d2355b579b9b508ef0de91f2ccd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52337049"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133868"
 ---
 # <a name="creating-filters-with-cli"></a>CLI ile filtre oluşturma 
 

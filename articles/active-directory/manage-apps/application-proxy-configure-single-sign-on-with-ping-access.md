@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 200c87bdf2f0d686cd2e768d3b6b9a7fe3a5691b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c5a69e0c15d6d75bb4f182c1d8f62863aae7c760
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282524"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140855"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Üst bilgi tabanlı kimlik doğrulaması için uygulama proxy'si ile PingAccess ile çoklu oturum açma
 
@@ -51,7 +51,7 @@ Bu makalede, bu senaryo ile bir uygulama ilk kez yayımlıyorsunuz kişilere yö
 
 Zaten uygulama Proxy etkin olması ve yüklü bir bağlayıcı varsa, bu bölümü atlayın ve geçin [uygulamanıza Azure ad uygulama ara sunucusu ile ekler](#add-your-app-to-azure-ad-with-application-proxy).
 
-Uygulama Ara sunucusu Bağlayıcısı'nı, yayımlanmış uygulamaları uzak çalışanlarınız gelen trafiği yönlendiren bir Windows Server hizmetidir. Daha ayrıntılı yükleme yönergeleri için bkz. [Azure portalında uygulama ara sunucusunu etkinleştirme](application-proxy-enable.md).
+Uygulama Ara sunucusu Bağlayıcısı'nı, yayımlanmış uygulamaları uzak çalışanlarınız gelen trafiği yönlendiren bir Windows Server hizmetidir. Daha ayrıntılı yükleme yönergeleri için bkz. [Azure portalında uygulama ara sunucusunu etkinleştirme](application-proxy-add-on-premises-application.md).
 
 1. [Azure portalında](https://portal.azure.com) genel yönetici olarak oturum açın.
 2. Seçin **Azure Active Directory** > **uygulama proxy'si**.
@@ -66,7 +66,7 @@ Uygulama Ara sunucusu Bağlayıcısı'nı, yayımlanmış uygulamaları uzak ça
 
 Azure portalında atmanız gereken iki eylemler vardır. İlk olarak, uygulama ara sunucusu ile uygulamanızı yayımlamak gerekir. Ardından, PingAccess adımları sırasında kullanabileceğiniz bu uygulama hakkında bazı bilgiler toplamak gerekir.
 
-Uygulamanızı yayımlamak için aşağıdaki adımları izleyin. 1-8, bkz: adımlarının daha ayrıntılı için [Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-publish-azure-portal.md).
+Uygulamanızı yayımlamak için aşağıdaki adımları izleyin. 1-8, bkz: adımlarının daha ayrıntılı için [Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-add-on-premises-application.md).
 
 1. Son bölümde Aksi takdirde oturum [Azure portalında](https://portal.azure.com) genel Yöneticisi olarak.
 2. Seçin **Azure Active Directory** > **kurumsal uygulamalar**.

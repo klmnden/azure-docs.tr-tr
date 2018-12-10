@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/07/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 3a42f09967ec42b47947823025f2f0dcd081d1b1
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 7f610e7697d0d1317b9fe276cf1c251ca8f749b4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "49352246"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133851"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure içeri/dışarı aktarma sistem gereksinimleri
 
@@ -41,7 +41,7 @@ Sabit sürücüleri aşağıdaki WAImportExport aracını kullanarak hazırlaman
 
 Azure içeri/dışarı aktarma hizmeti, aşağıdaki türlerde depolama hesapları destekler:
 
-- Genel amaçlı v1 depolama hesaplarında (hem Klasik hem de Azure Resource Manager dağıtımları)
+- Genel amaçlı v1 depolama hesaplarında (hem Klasik hem de Azure Resource Manager dağıtımları) genel amaçlı v2 depolama hesapları
 - Blob Depolama Hesapları
 
 Depolama hesapları hakkında daha fazla bilgi için bkz. [Azure depolama hesabı genel bakış](storage-account-overview.md).

@@ -1,21 +1,20 @@
 ---
-title: Azure Cosmos DB tanılama günlüğüne kaydetme
-description: Azure Cosmos DB'yi kullanmaya başlamanıza yardımcı olmak için bu öğreticiyi kullanın günlüğe kaydetme.
-services: cosmos-db
+title: Azure Cosmos DB'de tanılama günlüğüne kaydetme
+description: Azure Cosmos DB'de depolanan verileri günlüğe kaydetme ve izleme için farklı yollar hakkında bilgi edinin.
 author: SnehaGunda
-tags: azure-resource-manager
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/07/2018
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: e8548497666e7dc49a8ada6bdf686647e427d0d0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: c8d40587ec6feee9b1ae16e383341fc0f2d1ffb6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850474"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137903"
 ---
-# <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB tanılama günlüğüne kaydetme
+# <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB'de tanılama günlüğüne kaydetme 
 
 Bir veya daha fazla Azure Cosmos DB veritabanı kullanmaya başladıktan sonra izlemek isteyebilirsiniz nasıl ve ne zaman veritabanlarınızı erişilir. Bu makalede Azure platformunda kullanılabilir günlükleri genel bir bakış sağlar. İzleme günlüklerini göndermek amacıyla tanılama günlüğü etkinleştirme hakkında bilgi edinin [Azure depolama](https://azure.microsoft.com/services/storage/), akış günlüklerine nasıl [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)ve günlükleri dışarı aktarma [Azure Log Analytics ](https://azure.microsoft.com/services/log-analytics/).
 
@@ -80,7 +79,7 @@ Azure portalında tanılama günlük kaydını etkinleştirmek için aşağıdak
 
     * **Bir depolama hesabında arşivle**: Bu seçeneği kullanmak için bağlanmak için mevcut bir depolama hesabı gerekir. Portalda yeni bir depolama hesabı oluşturmak için bkz [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md) ve Azure Resource Manager, genel amaçlı hesap oluşturmak için yönergeleri izleyin. Bu sayfaya portalındaki depolama hesabınızı seçin, ardından döndürür. Bu, yeni oluşturulan depolama hesapları, aşağı açılan menüsünün görünmesi birkaç dakika sürebilir.
     * **Olay hub'ına Stream**: Bu seçeneği kullanmak için bağlanmak için mevcut bir Event Hubs ad alanı ve olay hub'gerekir. Bir Event Hubs ad alanı oluşturmak için bkz [Azure portalını kullanarak bir Event Hubs ad alanı ve olay hub'ı oluşturma](../event-hubs/event-hubs-create.md). Ardından, portaldaki Event Hubs ad alanı ve ilke adı seçmek için bu sayfaya dönün.
-    * **Log Analytics'e gönderme**: Bu seçeneği kullanmak için mevcut bir çalışma kullanabilir veya yeni bir Log Analytics çalışma alanı için adımları izleyerek oluşturabilirsiniz [yeni bir çalışma alanı oluşturma](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) portalında. Log Analytics'te, günlükleri görüntüleme hakkında daha fazla bilgi için bkz. [görünümü Log Analytics'te oturum](#view-in-loganalytics).
+    * **Log Analytics'e gönderme**: Bu seçeneği kullanmak için mevcut bir çalışma kullanabilir veya yeni bir Log Analytics çalışma alanı için adımları izleyerek oluşturabilirsiniz [yeni bir çalışma alanı oluşturma](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) portalında. Log Analytics'te, günlükleri görüntüleme hakkında daha fazla bilgi için bkz. [görünümü Log Analytics'te oturum](#view-in-loganalytics).
     * **Oturum DataPlaneRequests**: temel alınan Azure Cosmos DB dağıtılmış platformu SQL, grafik, MongoDB, Cassandra ve tablo API'si hesapları için arka uç isteklerini günlüğe kaydetmek için bu seçeneği belirleyin. Bir depolama hesabına arşivleme tanılama günlükleri için saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlükleri otomatik olarak silinir.
     * **Oturum MongoRequests**: Azure Cosmos DB ön uç hizmet MongoDB API hesabı için kullanıcı tarafından başlatılan istek oturumu için bu seçeneği belirleyin. Bir depolama hesabına arşivleme tanılama günlükleri için saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlükleri otomatik olarak silinir.
     * **Ölçüm istekleri**: ayrıntılı verileri depolamak için bu seçeneği [Azure ölçümleri](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Bir depolama hesabına arşivleme tanılama günlükleri için saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlükleri otomatik olarak silinir.

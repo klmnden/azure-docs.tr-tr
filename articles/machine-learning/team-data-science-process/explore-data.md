@@ -1,6 +1,6 @@
 ---
-title: Team Data Science Process verileri keşfedin | Microsoft Docs
-description: Çeşitli depolama ortamlarda verileri araştırmak nasıl.
+title: Team Data Science Process verilerini keşfedin
+description: Team Data Science Process'in genellikle kullanılan farklı depolama ortamları verileri araştırın.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 261cb608aa5404b836ec3f5b1eecfa7ba4036978
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 77ff4e524295d7a8c20ee975751116cbe7d52641
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441273"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133426"
 ---
 # <a name="explore-data-in-the-team-data-science-process"></a>Team Data Science Process verilerini keşfedin
 

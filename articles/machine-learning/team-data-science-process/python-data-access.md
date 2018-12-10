@@ -1,5 +1,5 @@
 ---
-title: Machine Learning Python istemci kitaplığı ile veri kümelerine erişim | Microsoft Docs
+title: Python istemci kitaplığı - Team Data Science Process ile veri kümelerine erişim
 description: Yükleme ve Python istemci kitaplığı erişebilir ve Azure Machine Learning verileri bir yerel Python ortamından güvenli bir şekilde yönetmek için kullanın.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: e81efb0a7977bbd50c63834f676b7cc75201dc68
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 630961954a235efd5f0cef92dd6a2525ae316838
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680694"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140039"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Azure Machine Learning Python istemci kitaplığını kullanarak Python ile veri kümelerine erişim
 Microsoft Azure Machine Learning Python istemci kitaplığı önizlemesi, Azure Machine Learning veri kümeleriniz için yerel bir Python ortamından güvenli erişimi etkinleştirebilir ve oluşturulmasını ve yönetimini bir çalışma alanındaki veri kümesi sağlar.
@@ -92,10 +92,10 @@ Yetkilendirme belirteçleri üzerinde yönetilen **YETKİLENDİRME BELİRTEÇLER
     ![Veri kümeleri][datasets]
 4. Görünen ve panonuza kopyalayın penceresinden kod parçacığını seçin.
    
-    ![Erişim kodu][dataset-access-code]
+    ![Veri erişim kodu düğme oluşturma][dataset-access-code]
 5. Kodu yerel Python uygulamanızı not defteri yapıştırın.
    
-    ![Not Defteri][ipython-dataset]
+    ![Not defterinize kodu yapıştırın][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>Machine Learning denemelerini Ara kümelerinden erişim
 Bir denemeyi Machine Learning Studio'da çalıştırıldıktan sonra Ara veri kümeleri modüllerinin çıkış düğümleri erişmek mümkündür. Ara veri kümelerinde oluşturulan ve bir modeli aracı çalıştırdığınızda Ara adımları için kullanılan verilerdir.
@@ -133,10 +133,10 @@ Aşağıdaki adımlarda, bir denemeyi oluşturur, çalıştığı ve Ara dataset
     ![Bağlam Menüsü][experiment]
 8. Kod parçacığını seçin ve açılır penceresinden panonuza kopyalayın.
    
-    ![Erişim kodu][intermediate-dataset-access-code]
+    ![Bağlam menüsünden erişim kodu oluştur][intermediate-dataset-access-code]
 9. Kodu defterinizdeki yapıştırın.
    
-    ![Not Defteri][ipython-intermediate-dataset]
+    ![Not defterinize kodu yapıştırın][ipython-intermediate-dataset]
 10. Matplotlib kullanarak verileri görselleştirebilirsiniz. Bu yaş sütunu için bir çubuk grafik görüntüler:
     
     ![Çubuk grafik][ipython-histogram]

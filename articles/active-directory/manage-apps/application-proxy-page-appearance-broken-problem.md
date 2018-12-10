@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2ebcf225fb0959b5c72c3cea50f2f1386beb1457
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 6354b4b0224effb1eef063779dba736cb6263286
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357454"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141637"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Uygulama sayfası için bir uygulama proxy'si uygulaması düzgün görüntülenmiyor
 
@@ -39,4 +39,4 @@ Aynı uygulama içindeki tüm kaynaklar yayımlamak mümkün değildir, birden �
 Bunu yapmak için kullanmanızı öneririz [özel etki alanları](application-proxy-configure-custom-domain.md) çözüm. Ancak, bu çözüm, etki alanınız için sertifika kendi ve uygulamalarınızı tam etki alanı adlarını (FQDN) kullanmak gerektirir. Diğer seçenekler için bkz. [bağlantıların belgeleri sorun giderme](application-proxy-page-links-broken-problem.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-publish-azure-portal.md)
+[Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-add-on-premises-application.md)

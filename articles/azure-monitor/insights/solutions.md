@@ -1,6 +1,6 @@
 ---
-title: Azure yönetim çözümlerine | Microsoft Docs
-description: Azure yönetim çözümlerine bir belirli sorun alanına odaklanan ölçümler sağlayan mantık, Görselleştirme ve veri alımı kurallarından oluşan bir koleksiyondur.  Bu makalede, yükleme ve yönetim çözümleri kullanma hakkında bilgi sağlar.
+title: Azure İzleyici'de yönetim çözümleri | Microsoft Docs
+description: Azure İzleyici'de yönetim çözümleri belirli sorun alanı çerçevesinde özetlenmiş ölçümler sağlayan mantık, Görselleştirme ve veri alımı kurallarından oluşan bir koleksiyondur.  Bu makalede, yükleme ve yönetim çözümleri kullanma hakkında bilgi sağlar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,55 +12,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: 2bf82c19498087e21bc66bf3c813b8f23d50d621
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 1eac238c2379abf0b46d0975889a71ac7aa6a9ab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996485"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141569"
 ---
-# <a name="management-solutions-in-azure"></a>Azure'da yönetim çözümleri
+# <a name="management-solutions-in-azure-monitor"></a>Azure İzleyici'de yönetim çözümleri
 Yönetim çözümleri belirli bir uygulama veya hizmet işlemi ek Öngörüler sağlar, Azure hizmetlerinde yararlanın. Bu makalede, kullanarak ve bunları yükleme yönetim çözümlerini Azure'da ve ayrıntıları kısa bir genel bakış sağlar.
 
-Yönetim çözümleri genellikle bilgiler Log Analytics'e toplama ve günlük aramaları ve toplanan verileri çözümlemek için görünümler sağlar. Ayrıca uygulama veya hizmetin ilgili eylemleri gerçekleştirmek için Azure Otomasyonu gibi diğer hizmetlerin yararlanarak.
+Yönetim çözümleri genellikle günlük verilerini toplamak ve sorguları ve toplanan verileri çözümlemek için görünümler sağlar. Ayrıca uygulama veya hizmetin ilgili eylemleri gerçekleştirmek için Azure Otomasyonu gibi diğer hizmetlerin yararlanarak.
 
-Yönetim çözümleri, tüm uygulama ve Hizmetleri Azure aboneliğinize ekleyebilirsiniz. Bunlar genellikle, kullanım ücretleri çağırabilirsiniz maliyet ancak toplama veri yok kullanılabilir. Microsoft tarafından sağlanan çözümleri yanı sıra, iş ortaklarımız ve müşterilerimiz için [yönetim çözümleri oluşturma](solutions-creating.md) kendi ortamında kullanılabilir veya topluluk aracılığıyla kullanıma sunulan için.
+Azure İzleyici, tüm uygulamaları ve Hizmetleri için yönetim çözümleri ekleyebilirsiniz. Bunlar genellikle, kullanım ücretleri çağırabilirsiniz maliyet ancak toplama veri yok kullanılabilir. Microsoft tarafından sağlanan çözümleri yanı sıra, iş ortaklarımız ve müşterilerimiz için [yönetim çözümleri oluşturma](solutions-creating.md) kendi ortamında kullanılabilir veya topluluk aracılığıyla kullanıma sunulan için.
 
-## <a name="using-management-solutions"></a>Yönetim çözümlerini kullanma
-**Genel bakış** sayfası her bir Log Analytics çalışma alanı çalışma alanınızda yüklü her çözüm için bir kutucuk görüntüler. Toplanan verileri çözüm daha ayrıntılı analiz içeren onun görünümünü açmak için kutucuğa tıklayın.
+## <a name="use-management-solutions"></a>Yönetim çözümleri kullanın
+Açık **genel bakış** Log Analytics çalışma alanınız için sayfayı görüntülemek çalışma alanında yüklü her çözüm için bir kutucuk. 
+
+1. Azure portalında oturum açın.
+1. Açık **tüm hizmetleri** bulun **İzleyici**.
+1. Altında **Insights** menüsünde **daha fazla**.
+1. Açılır liste kutusu ekranın en üstünde çalışma alanı ya da kutucuklar için kullanılan zaman aralığını değiştirmek için kullanın.
+1. Toplanan verileri bir çözümün daha ayrıntılı analiz içeren onun görünümünü açmak kutucuğa tıklayın.
 
 ![Genel Bakış](media/solutions/overview.png)
 
-Yönetim çözümleri birden çok Azure kaynakları içerebilir ve bir çözüme gibi herhangi bir kaynağa dahil tüm kaynakları görüntüleyebilir. Örneğin, Çözümdeki tüm günlük aramaları birlikte **kayıtlı aramalar** çalışma. Geçici analiz, Log Analytics'te gerçekleştirirken aramaları kullanabilirsiniz.
+Yönetim çözümleri birden çok Azure kaynakları içerebilir ve bir çözüme gibi herhangi bir kaynağa dahil tüm kaynakları görüntüleyebilir. Örneğin, Çözümdeki tüm günlük sorguları altında listelenen **çözüm sorguları** içinde [sorgu Gezgini](../log-query/get-started-portal.md#load-queries) Log Analytics ile geçici analiz gerçekleştirilirken bu sorguları kullanabilirsiniz.
 
 ## <a name="list-installed-management-solutions"></a>Yüklü yönetim çözümleri listesi 
 Aboneliğinizde yüklü yönetim çözümleri listelemek için aşağıdaki yordamı kullanın.
 
 1. Azure portalında oturum açın.
-2. Sol bölmede seçin **tüm hizmetleri**.
-3. Aşağı kaydırarak ya da **çözümleri** veya türü *çözümleri* içine **filtre** iletişim.
+1. Açık **tüm hizmetleri** bulun **çözümleri**.
 4. Tüm çalışma alanlarında yüklü çözümleri listelenmiştir. Çözüm adını yüklenir Log Analytics çalışma alanının adını takip eder.
 1. Açılır liste kutusu ekranın en üstünde, abonelik veya kaynak grubuna göre filtrele için kullanın.
 
 
 ![Tüm çözümler listesi](media/solutions/list-solutions-all.png)
 
-Kendi Özet sayfasını açmak için bir çözümün adına tıklayın. Bu sayfa, çözümdeki herhangi bir Log Analytics görünümleri görüntüler ve kendisi ve çalışma alanı çözümü farklı seçenekler sunar. Listesi çözümlere yordamlardan birini kullanarak bir çözüm için Özet sayfasında görüntüleyin ve ardından çözümün adına tıklayın.
+Kendi Özet sayfasını açmak için bir çözümün adına tıklayın. Bu sayfa, Çözümdeki tüm görünümleri görüntüler ve kendisi ve çalışma alanı çözümü farklı seçenekler sunar. Listesi çözümlere yordamlardan birini kullanarak bir çözüm için Özet sayfasında görüntüleyin ve ardından çözümün adına tıklayın.
 
 ![Çözüm özellikleri](media/solutions/solution-properties.png)
 
 
 
 ## <a name="install-a-management-solution"></a>Bir yönetim çözümü yükleme
-Microsoft ve ortaklarından yönetim çözümleri web'da [Azure Marketi](https://azuremarketplace.microsoft.com). Kullanılabilir çözümler arayabilir ve bunları aşağıdaki yordamı kullanarak yükleyin.
+Microsoft ve ortaklarından yönetim çözümleri web'da [Azure Marketi](https://azuremarketplace.microsoft.com). Kullanılabilir çözümler arayabilir ve bunları aşağıdaki yordamı kullanarak yükleyin. Bir çözüm yüklediğinizde seçmelisiniz bir [Log Analytics çalışma alanı](../platform/manage-access.md) çözüm yükleneceği ve verilerinin nerede toplanacağını.
 
-1. Gelen [aboneliğiniz için çözümlerin listesini](#list-installed-management-solutions), tıklayın **Ekle**. 
+1. Gelen [aboneliğiniz için çözümlerin listesini](#list-installed-monitoring-solutions), tıklayın **Ekle**. 
 1. Sağındaki **yönetim çözümleri**, tıklayın **daha fazla**. 
 1. Açıklamasını okuma ve istediğiniz yönetim çözümü bulun.
 1. Tıklayın **Oluştur** yükleme işlemini başlatmak için.
-1. Yükleme işlemi başladığında, göre farklılık gösteren gerekli yapılandırma her çözüm için sağlamanız istenir. Tüm bunları bir Log Analytics çalışma alanı seçmenizi çözüm yükleneceği ve verilerinin nerede toplanacağını gerektirir. 
+1. Yükleme işlemi başladığında, göre farklılık gösteren gerekli yapılandırma her çözüm için sağlamanız istenir.
 
 ![Çözüm yükleme](media/solutions/install-solution.png)
 
@@ -77,19 +82,19 @@ Topluluk üyeleri, yönetim çözümleri Azure hızlı başlangıç şablonları
 
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics çalışma alanı ve Otomasyon hesabı
-Tüm yönetim çözümleri gerektiren bir [Log Analytics çalışma alanı](../../azure-monitor/platform/manage-access.md) çözüm tarafından toplanan verileri depolamak ve kendi günlük aramaları ve görünümleri barındırmak için. Ayrıca bazı çözümler gerektiren bir [Otomasyon hesabı](../../automation/automation-security-overview.md#automation-account-overview) runbook'ları ve ilgili kaynakları içerecek şekilde. Çalışma alanı ve hesabı aşağıdaki gereksinimleri karşılaması gerekir.
+Tüm yönetim çözümleri gerektiren bir [Log Analytics çalışma alanı](../platform/manage-access.md) çözüm tarafından toplanan verileri depolamak ve kendi günlük aramaları ve görünümleri barındırmak için. Ayrıca bazı çözümler gerektiren bir [Otomasyon hesabı](../../automation/automation-security-overview.md#automation-account-overview) runbook'ları ve ilgili kaynakları içerecek şekilde. Çalışma alanı ve hesabı aşağıdaki gereksinimleri karşılaması gerekir.
 
 * Her bir çözümün yüklenmesi yalnızca bir Log Analytics çalışma alanı ve bir Otomasyon hesabı kullanabilirsiniz. Çözüm birden çok çalışma alanı içinde ayrı olarak yükleyebilirsiniz.
 * Bir çözüm bir Otomasyon hesabı gerektiriyorsa, ardından Log Analytics çalışma alanını ve Otomasyon hesabı birbirine bağlı olmalıdır. Bir Log Analytics çalışma alanı yalnızca bir Otomasyon hesabına bağlı ve bir Otomasyon hesabı yalnızca bir Log Analytics çalışma alanına bağlı.
 * Bağlanacak, Log Analytics çalışma alanını ve Otomasyon hesabı aynı kaynak grubunda ve bölgede olması gerekir. Özel durum, Doğu ABD bölgesinde bir çalışma alanı ve Otomasyon hesabı Doğu ABD 2 ' dir.
 
-### <a name="creating-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Log Analytics çalışma alanını ve Otomasyon hesabı arasında bir bağlantı oluşturuluyor
+### <a name="create-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Log Analytics çalışma alanını ve Otomasyon hesabı arasında bir bağlantı oluşturun
 Log Analytics çalışma alanını ve Otomasyon hesabının nasıl belirttiğiniz çözümünüz için yükleme yöntemine bağlıdır.
 
 * Azure Marketi aracılığıyla bir çözüm yükleme sırasında bir çalışma alanı ve Otomasyon hesabı için istenir. Zaten bağlı değilseniz, bunlar arasında bir bağlantı oluşturulur.
 * Azure Marketi dışında çözümler için çözüm yüklenmeden önce Log Analytics çalışma alanını ve Otomasyon hesabı bağlamalısınız. Azure Market'te herhangi bir çözüm ve Log Analytics çalışma alanını ve Otomasyon hesabı seçerek bunu yapabilirsiniz. Log Analytics çalışma alanını ve Otomasyon hesabı seçili hemen sonra bağlantıyı oluşturulduğundan çözüm gerçekten yüklemeniz gerekmez. Ardından bağlantıyı oluşturulduktan sonra herhangi bir çözümü, Log Analytics çalışma alanını ve Otomasyon hesabı kullanabilirsiniz.
 
-### <a name="verifying-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Log Analytics çalışma alanını ve Otomasyon hesabı arasındaki bağlantıyı doğrulama
+### <a name="verify-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Log Analytics çalışma alanını ve Otomasyon hesabı arasındaki bağlantıyı doğrulayın
 Aşağıdaki yordamı kullanarak bir Otomasyon hesabı ile Log Analytics çalışma alanı arasındaki bağlantı doğrulayabilirsiniz.
 
 1. Azure portalında Otomasyon hesabı seçin.
@@ -97,7 +102,7 @@ Aşağıdaki yordamı kullanarak bir Otomasyon hesabı ile Log Analytics çalı�
 1. Varsa **çalışma** ayarı etkinse, sonra bu hesabı bir Log Analytics çalışma alanına bağlı. Tıklayabilirsiniz **çalışma** çalışma alanının ayrıntılarını görüntülemek için.
 
 ## <a name="remove-a-management-solution"></a>Bir yönetim çözümünü Kaldır
-Yüklü çözümünü kaldırmak için bulmak [yüklü çözümlerinin listesini](#list-installed-management-solutions). Kendi Özet sayfasını açın ve ardından çözümün adına tıklayarak **Sil**.
+Yüklü çözümünü kaldırmak için bulmak [yüklü çözümlerinin listesini](#list-installed-monitoring-solutions). Kendi Özet sayfasını açın ve ardından çözümün adına tıklayarak **Sil**.
 
 
 

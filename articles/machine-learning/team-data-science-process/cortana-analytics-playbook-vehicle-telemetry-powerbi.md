@@ -1,6 +1,6 @@
 ---
-title: Power BI panosu için araç durumu ve sürüş alışkanlıkları - Azure | Microsoft Docs
-description: Araç durumu ve sürüş üzerinde gerçek zamanlı ve Tahmine dayalı Öngörüler elde etmek için Cortana Intelligence'nın özelliklerini kullanmaya alışkanlıkları.
+title: Power BI panosu için araç durumu ve sürüş alışkanlıkları - Team Data Science Process
+description: Power BI panolarına gerçek zamanlı ve Tahmine dayalı elde edin ve araç durumu hakkında öngörüleri toplu geliştirin ve sürüş alışkanlıkları.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b4d36b7d68bad658200024a2fe31a876d411536c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a964820979f24af1fee2be65461302be73b9e77b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444658"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135126"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Araç Telemetri analizi çözüm şablonu Power BI Panosu kurulum yönergeleri
 
@@ -26,8 +26,8 @@ Bu çözüm özeti açıklamasını gözden geçirmek için bkz. [araç Telemetr
 Bu çözüm bile daha ayrıntılı incelemek için bkz [araç Telemetri analizi çözüm kitabı: çözümün içine yakından](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Dağıtma [araç Telemetri analizi](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) çözüm. 
-* [Power BI Desktop uygulamasını](https://www.microsoft.com/download/details.aspx?id=45331).
+* Dağıtma [araç Telemetri analizi](https://gallery.cortanaintelligence.com/Solutions/5bdb23f3abb448268b7402ab8907cc90) çözüm. 
+* [Power BI Desktop uygulamasını](https://aka.ms/pbidesktopstore).
 * Elde bir [Azure aboneliği](https://azure.microsoft.com/pricing/free-trial/). Azure aboneliğiniz yoksa, ücretsiz Azure aboneliği ile başlayın.
 * Power BI hesabınızı açın.
 
@@ -345,7 +345,7 @@ Gerçek zamanlı Pano oluşturuldu. CarEventGenerator.exe ve RealtimeDashboardAp
 
 ### <a name="configure-power-bi-reports"></a>Power BI raporlarını yapılandırma
 
-1. Tasarımcı dosyası açın **ConnectedCarsPbiReport.pbix** Power BI Desktop'ı kullanarak. Zaten sahip değilseniz, Power BI Desktop'tan yükleme [Power BI Desktop yükleme](https://www.microsoft.com/download/details.aspx?id=45331) Web sitesi.
+1. Tasarımcı dosyası açın **ConnectedCarsPbiReport.pbix** Power BI Desktop'ı kullanarak. Zaten sahip değilseniz, Power BI Desktop'tan yükleme [Power BI Desktop yükleme](https://aka.ms/pbidesktopstore) Web sitesi.
 
 1. Seçin **sorguları Düzenle**.
 

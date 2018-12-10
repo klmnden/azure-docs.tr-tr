@@ -1,19 +1,18 @@
 ---
-title: Azure Cosmos DB anahtar değeri deposu – maliyeti genel bakış
-description: Düşük maliyetli bir anahtar değeri deposu olarak Azure Cosmos DB kullanma hakkında bilgi edinin.
-keywords: anahtar değer deposu
-services: cosmos-db
+title: Anahtar değeri deposu olarak Azure Cosmos DB için istek birimi ücreti
+description: Bir anahtar/değer deposu olarak kullanıldığında, okuma işlemleri ve basit yazma için istek birimi ücreti, Azure Cosmos DB hakkında bilgi edinin.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2017
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 7331db23757ab4eaae054c7fe640952fe22a7917
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: 3ab066cc3d2b06dc12c2399d718aeec6aac03b25
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840886"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134191"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB anahtar değeri deposu – maliyeti genel bakış
 
@@ -36,9 +35,9 @@ Aşağıdaki tabloda, okuma ve yazma işlemleri, 1 KB ve 100 KB belge boyutuna g
 
 ## <a name="cost-of-reads-and-writes"></a>Okuma ve yazma işlemleri maliyeti
 
-1.000 sağlarsanız RU/sn, bu miktarları edecek ve 3.6 milyon RU/saat ile $0.08 saat (ABD ve Avrupa içinde) maliyeti. 1 KB'lık boyut belge bu 3.6-m okuma kullanabilir veya 0,72-m Yazar anlamına gelir (3.6 milyon RU / 5) kullanarak, sağlanan aktarım hızı. Milyon okuma ve yazma işlemleri için normalleştirilmiş, maliyeti $0.022 /m okuma olur ($0.08 / 3.6) ve $0.111/ dk yazar ($0.08 / 0,72). Başına maliyet milyon aşağıdaki tabloda gösterildiği gibi en az olur.
+1.000 sağlarsanız RU/sn, bu miktarları 3.6 milyon RU/saat ve $0.08 saat (ABD ve Avrupa içinde) maliyeti. 1 KB'lık boyut belge bu 3.6-m okuma kullanabilir veya 0,72-m Yazar anlamına gelir (3.6 milyon RU / 5) kullanarak, sağlanan aktarım hızı. Milyon okuma ve yazma işlemleri için normalleştirilmiş, maliyeti $0.022 /m okuma olur ($0.08 / 3.6) ve $0.111/ dk yazar ($0.08 / 0,72). Başına maliyet milyon aşağıdaki tabloda gösterildiği gibi en az olur.
 
-|Öğe boyutu|1-m okuma|1-m yazma|
+|Öğe boyutu|1-m okuma|1 milyon yazma|
 |-------------|-------|--------|
 |1 KB|$0.022|$0.111|
 |100 KB|$0.222|$1.111|

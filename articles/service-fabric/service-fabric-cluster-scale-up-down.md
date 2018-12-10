@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: aljo
-ms.openlocfilehash: 0d809f9a1b3abbb284c3f7e0c27eb9c236692a3f
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 85a1e874ad80d0a3251c93c9c1199f56ab045527
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386474"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140583"
 ---
 # <a name="read-before-you-scale"></a>Ölçeği önce okuyun
 Uygulama iş yükünüz kasıtlı planlama gerektirir, neredeyse her zaman bir üretim ortamında tamamlamak için bir saatten daha uzun sürer ve iş yükü ve iş bağlamını anlamak ihtiyacınız kaynağına işlem kaynaklarını ölçeklendirme; Bu etkinlik önce hiçbir zaman yaptıysanız, aslında, okuma ve anlama başlattığınız önerilir [Service Fabric kümesi kapasite planlaması konuları](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity), bu belgenin geri kalanında devam etmeden önce. Bu istenmeyen LiveSite sorunlarını önlemek için önerilir ve ayrıca bir üretim dışı ortamda karşı gerçekleştirmeye karar işlemleri başarıyla test önerilir. Herhangi bir zamanda yapabilecekleriniz [üretim sorunlarını bildirmek veya Azure için Ücretli destek isteği](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-production-issues-or-request-paid-support-for-azure). Mühendislerin yeterli bağlama sahip bu işlemleri gerçekleştirmek için ayrılan, bu makalede ölçeklendirme işlemleri açıklanmaktadır, ancak karar verin ve işlemleri, kullanım örneği için uygun olduğunu anlamak; hangi kaynakları ölçeklendirme (CPU, depolama, bellek) gibi hangi yönü (yatay veya dikey olarak) ölçeklendirmek için ve hangi işlemleri (kaynak şablonu dağıtımı, Portal, PowerShell/CLI) gerçekleştirin.
@@ -103,10 +103,10 @@ Service Fabric Explorer'da listelenen bir yansıma Service Fabric sistem hizmetl
 
 Bir düğüm, bir VM kaldırıldığında kaldırıldığını emin olmak için iki seçeneğiniz vardır:
 
-1) Altyapı tümleştirmesinde size, kümedeki düğüm türleri için Silver veya Gold bir dayanıklılık düzeyi seçin. Ölçeği aşağı olduğunda, ardından otomatik olarak düğümleri bizim Sistem Hizmetleri (FM) durumundan kaldırır.
+1. Altyapı tümleştirmesinde size, kümedeki düğüm türleri için Silver veya Gold bir dayanıklılık düzeyi seçin. Ölçeği aşağı olduğunda, ardından otomatik olarak düğümleri bizim Sistem Hizmetleri (FM) durumundan kaldırır.
 Başvurmak [dayanıklılık düzeyleri ayrıntıları](service-fabric-cluster-capacity.md)
 
-2) Sanal makine örneği ölçeği bir kez çağırmanız gerekir [Remove-ServiceFabricNodeState cmdlet'i](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate).
+2. Sanal makine örneği ölçeği bir kez çağırmanız gerekir [Remove-ServiceFabricNodeState cmdlet'i](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate).
 
 > [!NOTE]
 > Service Fabric kümeleri yedekleme kullanılabilirliği sürdürmek ve durumu "çekirdek koruma olarak." başvurulan - korumak için her zaman olması için düğümleri belirli sayıda gerektirir Bu nedenle, kümedeki tüm makinelerin ilk yapmadığınız sürece kapatmak için genellikle güvenli olmayan bir [durumunuzu tam yedekleme](service-fabric-reliable-services-backup-restore.md).

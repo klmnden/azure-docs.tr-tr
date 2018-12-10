@@ -1,5 +1,6 @@
 ---
-title: Azure'da yüksek kullanılabilirlik bağlantı noktaları genel | Microsoft Docs
+title: Azure yüksek kullanılabilirlik bağlantı noktaları genel bakış
+titlesuffix: Azure Load Balancer
 description: İç yük dengeleyici üzerinde yüksek kullanılabilirlik bağlantı noktaları yük dengelemeyi hakkında bilgi edinin.
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/07/2018
 ms.author: kumud
-ms.openlocfilehash: 744cd933e901b930aa0394b36e9770bab6de38df
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: e37b127b112768cd09989e1a4b5edf99ca101983
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740340"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141875"
 ---
 # <a name="high-availability-ports-overview"></a>Yüksek kullanılabilirlik bağlantı noktaları genel bakış
 

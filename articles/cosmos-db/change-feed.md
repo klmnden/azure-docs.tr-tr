@@ -2,16 +2,17 @@
 title: Azure Cosmos DB'de destek akış değişiklik ile çalışma
 description: Azure Cosmos DB değişiklik akışı desteği, belgelerdeki değişiklikleri izlemek ve Tetikleyicileri gibi olay tabanlı işleme ve önbelleğe alır ve analiz sistemlerinin güncel tutarak gerçekleştirmek için kullanın.
 author: rafats
+ms.author: rafats
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.author: rafats
-ms.openlocfilehash: dfb0048b29c5d63a2eee4c239e17ef222aad331e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: 0519bb78b01cd7cab6abaf453efd7a4595101ef4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837469"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133766"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Azure Cosmos DB'de akış değiştirme
 
@@ -82,7 +83,7 @@ Yüksek hacimli yazma ile büyük veri kümeleri işlem verimli etkinleştirir d
 
 Değişiklik akışı ile kolayca uygulayabilirsiniz senaryolardan bazıları şunlardır:
 
-* İçinde [sunucusuz](http://azure.com/serverless) web veya mobil uygulamaları, müşterinizin profili, tercihlerine veya konumlarını olayları gibi tüm değişiklikleri izlemek ve belirli eylemler, örneğin, cihazlarına anında iletme bildirimleri gönderme tetikleyin kullanarak [Azure işlevleri](#azure-functions). 
+* İçinde [sunucusuz](https://azure.microsoft.com/en-us/solutions/serverless/) web veya mobil uygulamaları, müşterinizin profili, tercihlerine veya konumlarını olayları gibi tüm değişiklikleri izlemek ve belirli eylemler, örneğin, cihazlarına anında iletme bildirimleri gönderme tetikleyin kullanarak [Azure işlevleri](change-feed-functions.md).
 
 * Bir oyun oluşturmak için Azure Cosmos DB kullanıyorsanız, şunları yapabilirsiniz, örneğin, kullanım değişiklik akışı tamamlanmış oyunlardan puanları göre gerçek zamanlı puan tabloları uygulamak için.
 

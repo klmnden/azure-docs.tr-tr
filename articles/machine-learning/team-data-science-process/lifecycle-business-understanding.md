@@ -1,6 +1,6 @@
 ---
-title: 'Team Data Science Process yaşam döngüsü: Azure iş anlama aşamasına | Microsoft Docs'
-description: Hedefleri, görevleri ve veri bilimi projelerinizi iş anlama aşamasına ait sonuçlara
+title: Team Data Science Process içinde iş anlama
+description: Hedefleri, görevleri ve iş anlama aşamasına veri bilimi projelerinizi Team Data Science Process için teslim edilebilirler.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 3d2a6bf5a7e4766ca6205c413dd27fa9a69c16b7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: f45d8a83c323689272313314d0f9ac9b79edecd7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446730"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141671"
 ---
-# <a name="business-understanding"></a>Kurumsal yaklaşım
+# <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process yaşam döngüsü aşaması iş anlama
 
 Bu makalede, hedeflerinizi, görevleri ve teslim edilebilirler ile Team Data Science işlem (TDSP) iş anlama aşama ilişkili özetlenmektedir. Bu işlem, veri bilimi projelerinizi yapısı için kullanabileceğiniz önerilen bir yaşam döngüsü sağlar. Yaşam döngüsü projeleri genellikle genellikle yinelemeli olarak yürütme, önemli aşamalar açıklanmaktadır:
 
@@ -92,5 +92,3 @@ TDSP yaşam döngüsü içinde her adım için bağlantılar şunlardır:
    5. [Müşteri kabulü](lifecycle-acceptance.md)
 
 İşlemin belirli senaryolar için tüm adımları gösteren uçtan uca tam talimatlara sunuyoruz. [Örnek izlenecek yollar](walkthroughs.md) makale bağlantıları ve küçük resim açıklamaları senaryolarıyla bir listesini sağlar. İzlenecek bir iş akışı veya işlem hattı akıllı bir uygulama oluşturmak için bulut, şirket içi araçları ve Hizmetleri birleştirme işlemini göstermektedir. 
-
-Adımlar Azure Machine Learning Studio'nun TDSPs yürütmek nasıl bir örnekleri için bkz: [Azure Machine Learning ile TDSP kullanma](https://aka.ms/datascienceprocess).

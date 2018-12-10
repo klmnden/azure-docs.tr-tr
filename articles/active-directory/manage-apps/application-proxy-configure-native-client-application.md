@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: b4476579665b0e6b574827d1bec06233560038a8
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a73e652c74f9d88f1e066de190834fc033c13cf0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621097"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135535"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Yerel istemci uygulama proxy uygulamaları ile etkileşim kurmak etkinleştirme
 
@@ -35,7 +35,7 @@ Yerel uygulamalar yayımlamak için Azure AD kimlik doğrulaması kimlik doğrul
 Bu makalede uygulama ara sunucusu ve Azure AD kimlik doğrulama kitaplığı ile yerel bir uygulamayı yayımlamak için dört adımlarında size kılavuzluk eder. 
 
 ## <a name="step-1-publish-your-application"></a>1. adım: uygulamanızı yayımlama
-Diğer uygulamalarda olduğu gibi ara sunucu uygulamasını yayımlayın ve uygulamanıza erişmek için kullanıcı atama. Daha fazla bilgi için [uygulama ara sunucusu ile uygulama yayımlama](application-proxy-publish-azure-portal.md).
+Diğer uygulamalarda olduğu gibi ara sunucu uygulamasını yayımlayın ve uygulamanıza erişmek için kullanıcı atama. Daha fazla bilgi için [uygulama ara sunucusu ile uygulama yayımlama](application-proxy-add-on-premises-application.md).
 
 ## <a name="step-2-configure-your-application"></a>2. adım: uygulamanızı yapılandırma
 Yerel uygulamanız aşağıdaki gibi yapılandırın:
@@ -55,8 +55,8 @@ Yeni bir uygulama kaydı oluşturma hakkında daha ayrıntılı bilgi için bkz:
 Yerel uygulamanın diğer uygulamalara dizininizdeki açığa etkinleştir:
 
 1. Hala **uygulama kayıtları**, az önce oluşturduğunuz yeni yerel uygulamayı seçin.
-2. Seçin **gerekli izinler**.
-3. **Add (Ekle)** seçeneğini belirleyin.
+2. Seçin **API izinleri**.
+3. Seçin **bir izin eklemek**.
 4. İlk adım, açık **bir API seçin**.
 5. Birinci bölümde yayımlanan uygulama proxy'si uygulamasını bulmak için arama çubuğunu kullanın. Bu uygulamayı seçin, ardından tıklatın **seçin**. 
 

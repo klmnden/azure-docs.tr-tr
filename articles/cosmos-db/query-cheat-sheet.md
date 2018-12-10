@@ -1,21 +1,19 @@
 ---
-title: Azure Cosmos DB PDF sorgu kurallar sayfası | Microsoft Docs
+title: Azure Cosmos DB PDF sorgu kurallar sayfası
 description: Yazdırılabilir PDF kural, verileri sorgulamak için Azure Cosmos DB SQL, MongoDB, graf ve tablo API'leri kullanmanıza yardımcı olan listeleri
 keywords: SQL kağıdı, sql hızlı başvuru sayfası pdf, sql sorgu kopya kağıdı
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: c79a1c0e6449e1ae87c2ed09acdc1ecd380cfaaf
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 21b2ee99fa8f9b22b4dfccadfaadf1d4a10980cf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160979"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138152"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB sorgu kurallar sayfası
 
@@ -36,7 +34,7 @@ Bir harf boyutlu veya A3 boyutlu indirilerek seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Sorgu yazma daha fazla yardım için aşağıdaki makalelere bakın:
-* SQL API'si sorguları için bkz: [SQL API'sini kullanarak sorgulama](tutorial-query-sql-api.md), [Azure Cosmos DB SQL sorgularında](how-to-sql-query.md), ve [SQL söz dizimi başvurusu](sql-api-sql-query-reference.md)
+* SQL API'si sorguları için bkz: [SQL API'sini kullanarak sorgulama](tutorial-query-sql-api.md), [Azure Cosmos DB SQL sorgularında](how-to-sql-query.md), ve [SQL söz dizimi başvurusu](sql-api-query-reference.md)
 * MongoDB sorgular için bkz: [MongoDB API'sini kullanarak sorgulama](tutorial-query-mongodb.md) ve [MongoDB özellikleri ve söz dizimi için MongoDB API'si desteği](mongodb-feature-support.md)
 * Gremlin API sorgular için bkz: [Gremlin API kullanımı sorgu](tutorial-query-graph.md) ve [Azure Cosmos DB Gremlin graf desteği](gremlin-support.md)
 * Tablo API'si sorguları için bkz: [tablo API'sini kullanarak sorgulama](tutorial-query-table.md)

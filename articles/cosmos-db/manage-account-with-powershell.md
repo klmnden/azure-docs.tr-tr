@@ -1,24 +1,20 @@
 ---
-title: Azure Cosmos DB Otomasyonu - Powershell ile yönetim | Microsoft Docs
+title: PowerShell kullanarak Azure Cosmos DB kaynaklarını oluşturmak ve yönetmek
 description: Azure Powershell kullanarak Azure Cosmos DB hesaplarınızı yönetin.
-services: cosmos-db
 author: SnehaGunda
-manager: kfile
-editor: ''
-tags: azure-resource-manager
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/21/2017
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: b115058353d14a3bd7c774197e06de088030ffff
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.custom: seodec18
+ms.openlocfilehash: 6dcb5e445c9c294b81de0363f5462b8d21621616
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741360"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135297"
 ---
-# <a name="create-an-azure-cosmos-db-account-using-powershell"></a>PowerShell kullanarak Azure Cosmos DB hesabı oluşturma
+# <a name="create-and-manage-azure-cosmos-db-resources-by-using-powershell"></a>Oluşturma ve PowerShell kullanarak Azure Cosmos DB kaynaklarını yönetme
 
 Aşağıdaki kılavuzda, Azure Powershell kullanarak Azure Cosmos DB veritabanı hesaplarınızı yönetimini otomatikleştirmek için komutları açıklanır. Ayrıca bir hesap anahtarları ve yük devretme önceliklerini olarak yönetmek için komutlar içerir [çoklu bölge veritabanı hesapları][distribute-data-globally]. Veritabanı hesabınız güncelleştiriliyor, tutarlılık ilkeleri değiştirebilirsiniz ve bölge Ekle/Kaldır olanak tanır. Azure Cosmos DB hesabınızın platformlar arası yönetimi için ya da kullanabilirsiniz [Azure CLI](cli-samples.md), [kaynak sağlayıcısı REST API'si][rp-rest-api], veya [Azure portalı ](create-sql-api-dotnet.md#create-account).
 

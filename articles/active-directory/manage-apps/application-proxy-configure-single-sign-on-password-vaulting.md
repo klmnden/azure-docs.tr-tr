@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 8cdb5b89bf43d3265f3f9c73d29708f11e17b21c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6ae7cff42a9b744409fa454199155796c8c06713
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624038"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138975"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Uygulama proxy'si ile çoklu oturum açma için vaulting parola
 
@@ -26,7 +26,7 @@ Azure Active Directory Uygulama proxy'si uzak çalışanlar güvenli bir şekild
 
 Uygulama proxy'si birkaç destekler [çoklu oturum açma modları](what-is-single-sign-on.md#choosing-a-single-sign-on-method). Parola tabanlı oturum açma kimlik doğrulaması için bir kullanıcı adı/parola birleşimini kullanan uygulamalar için tasarlanmıştır. Uygulamanız için parola tabanlı oturum açmayı yapılandırırken şirket içi uygulamaya bir kez oturum açmak, kullanıcılarınızın sahip. Bundan sonra Azure Active Directory oturum açma bilgilerini depolar ve kullanıcılarınızın, uzaktan erişim otomatik olarak uygulamaya sağlar. 
 
-Zaten varsa yayımlanan ve uygulamanızı uygulama ara sunucusu ile test. Aksi takdirde, adımları [Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-publish-azure-portal.md) tekrar buraya gelin. 
+Zaten varsa yayımlanan ve uygulamanızı uygulama ara sunucusu ile test. Aksi takdirde, adımları [Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-add-on-premises-application.md) tekrar buraya gelin. 
 
 ## <a name="set-up-password-vaulting-for-your-application"></a>Uygulamanız için vaulting parola ayarlama
 

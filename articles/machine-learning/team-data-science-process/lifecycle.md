@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process yaşam döngüsü - Azure | Microsoft Docs
+title: Team Data Science Process yaşam döngüsü
 description: Veri bilimi projelerinizi yürütmek için gerekli olan adımları
 services: machine-learning
 author: marktab
@@ -10,19 +10,21 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 24807d00170ed46a95d2726e1172b15775e0376d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a2a4a8c895bddb03271014c50f57b666faa0c2cc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443403"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135959"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>Team Data Science Process yaşam döngüsü
 
 Team Data Science işlem (TDSP), veri bilimi projelerinizi yapısı için kullanabileceğiniz önerilen bir yaşam döngüsü sağlar. Yaşam döngüsü, başlangıçtan bitişe kadar bunlar yürütüldüğünde projeleri genellikle izlemeniz adımlarını özetler. Çapraz sektör standart işlem için veri madenciliği gibi başka bir veri bilimi yaşam kullanırsanız [(NET-DM)](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), bilgi bulma veritabanlarındaki [(KDD)](https://wikipedia.org/wiki/Data_mining#Process), veya kuruluşun kendi özel işleminizi , görev tabanlı TDSP kullanmaya devam edebilirsiniz. 
 
 Bu yaşam döngüsünü, akıllı uygulamalar bir parçası olarak göndermeye yönelik veri bilimi projeleri için tasarlanmıştır. Bu uygulamalar, Tahmine dayalı analiz için makine öğrenme veya yapay zeka modelleri dağıtın. Keşif veri bilimi projeleri ve geçici analiz projeleri Ayrıca bu işlem kullanımından yararlanabilir. Ancak bu projeleri için burada açıklanan adımlardan bazıları gerekli. 
+
+## <a name="five-lifecycle-stages"></a>Beş yaşam döngüsünün aşamaları
 
 TDSP yaşam döngüsü, yinelemeli olarak yürütülen beş temel aşamadan oluşur. Bu aşamalar şunları içerir:
 

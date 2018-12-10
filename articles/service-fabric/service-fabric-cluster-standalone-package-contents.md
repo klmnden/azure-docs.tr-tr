@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: afb6c8345cd71e7d39b7f3a0b2307c99cf31b449
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1a34ad340463faf0cdccdb7fa8b87283de60b4cc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253351"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141620"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Windows Server için Service Fabric tek başına paketin içeriği
 İçinde [indirilen](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric tek başına paketinin aşağıdaki dosyaları göreceksiniz:
@@ -40,6 +40,7 @@ ms.locfileid: "51253351"
 | Tools\ServiceFabricUpdateService.zip |Otomatik kod yükseltmeyi internet erişimi yoksa kümeleri için etkinleştirmek için kullanılan araç. Daha fazla ayrıntı bulunabilir [burada](service-fabric-cluster-upgrade-windows-server.md)|
 
 **Şablonlar** 
+
 | **Dosya adı** | **Kısa açıklama** |
 | --- | --- |
 | ClusterConfig.Unsecure.DevCluster.json |Kümedeki her düğüm için bilgileri dahil olmak üzere güvenli olmayan, üç düğümlü tek makineli (veya sanal makine) geliştirme kümesi için ayarları içeren bir küme yapılandırması örnek dosyası. |

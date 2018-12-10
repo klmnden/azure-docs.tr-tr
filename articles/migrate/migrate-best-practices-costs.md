@@ -5,18 +5,20 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: f4e067bc1d9a6d738a1289216acc0571661959ea
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 03a60940b4889671149c49becb0f823da89781ff
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110219"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135568"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Maliyet ve boyutlandırma iş yükleri için en iyi uygulamaları için Azure geçişi
 
-Düşünüyorsanız ve geçiş için tasarım maliyetlerinden odaklanarak Azure geçişinizin uzun süreli başarının sağlar. Geçiş projesi sırasında tüm takımlar kritik (Finans, yönetimi, uygulama ekiplerinin vb.) ilişkili maliyetleri anlama. Geçiş işleminden önce geçişinizi tahmin harcaması, bir taban için aylık, üç aylık, ve yıllık bütçe hedefleri başarısı için çok önemli. Geçişten sonra maliyetleri uygun duruma getirmek, iş yüklerinin sürekli olarak izlemeniz ve gelecekteki kullanım modellerini planlayın. Geçirilen kaynakların tek bir iş yükü türü olarak başlar ancak başka bir türe kullanımı, maliyetleri ve kaydırma iş gereksinimlerine göre zamanla evrim olabilir.
+Düşünüyorsanız ve geçiş için tasarım maliyetlerinden odaklanarak Azure geçişinizin uzun süreli başarının sağlar. Geçiş projesi sırasında tüm takımlar kritik (Finans, yönetimi, uygulama ekiplerinin vb.) ilişkili maliyetleri anlama.
+- Geçiş işleminden önce geçişinizi tahmin harcaması, bir taban için aylık, üç aylık, ve yıllık bütçe hedefleri başarısı için çok önemli.
+- Geçişten sonra maliyetleri uygun duruma getirmek, iş yüklerinin sürekli olarak izlemeniz ve gelecekteki kullanım modellerini planlayın. Geçirilen kaynakların tek bir iş yükü türü olarak başlar ancak başka bir türe kullanımı, maliyetleri ve kaydırma iş gereksinimlerine göre zamanla evrim olabilir.
 
 Bu makalede, önce ve boyutlandırma ve maliyet geçişten sonra en iyi uygulamaları açıklar.  
 

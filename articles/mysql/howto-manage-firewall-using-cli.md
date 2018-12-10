@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 45df284d29ea2d5eb799697b22deeab03cb66622
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6ece07d2be605f51e08274649f3ea15e3bbba472
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956687"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134905"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Oluşturma ve Azure veritabanı Azure CLI kullanarak MySQL için güvenlik duvarı kurallarını yönetme
 Sunucu düzeyinde güvenlik duvarı kuralları, erişim belirli bir IP adresi veya bir IP adresi aralığı MySQL Server için Azure veritabanı'na yönetme olanağı sağlar. Uygun Azure CLI'si komutlarını kullanarak, oluşturabilir, güncelleştirin, silin, listeleyin ve sunucunuzu yönetmek için güvenlik duvarı kurallarını gösterir. Bir Azure veritabanı için MySQL güvenlik duvarları için bkz: genel bakış [MySQL sunucusu güvenlik duvarı kuralları için Azure veritabanı](./concepts-firewall-rules.md)
@@ -38,9 +38,9 @@ Komutlar:
 Azure CLI kullanarak güvenli bir şekilde Azure hesabınızla bağlanmanız **az login** komutu.
 
 1. Komut satırından aşağıdaki komutu çalıştırın:
-```azurecli
-az login
-```
+    ```azurecli
+    az login
+    ```
 Bu komut, sonraki adımda kullanmak üzere bir kod çıkarır.
 
 2. Bir web tarayıcısı kullanarak [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin)ve ardından kodu girin.
@@ -48,21 +48,21 @@ Bu komut, sonraki adımda kullanmak üzere bir kod çıkarır.
 3. İstendiğinde, Azure kimlik bilgilerinizi kullanarak oturum açın.
 
 4. Oturum açma bilgilerinizi yetkilendirildikten sonra konsolda Aboneliklerin listesini yazdırılır. Geçerli bir abonelik kullanmak için ayarlanacak istediğiniz abonelik Kimliğini kopyalayın. Kullanım [az hesabı kümesi](/cli/azure/account#az-account-set) komutu.
-   ```azurecli-interactive
-   az account set --subscription <your subscription id>
-   ```
+    ```azurecli-interactive
+    az account set --subscription <your subscription id>
+    ```
 
 5. Abonelik ve kaynak grubunuz için MySQL Server için Azure veritabanlarının adlarını değilseniz listeleyin. Kullanım [az mysql server listesi](/cli/azure/mysql/server#az-mysql-server-list) komutu.
 
-   ```azurecli-interactive
-   az mysql server list --resource-group myresourcegroup
-   ```
+    ```azurecli-interactive
+    az mysql server list --resource-group myresourcegroup
+    ```
 
    MySQL sunucusu üzerinde çalışmak için belirtmeniz gereken listenin adı özniteliği unutmayın. Gerekirse, bu sunucu için ayrıntıları onaylayın ve doğru olduğundan emin olmak için ad özniteliğini kullanarak. Kullanım [az mysql server show](/cli/azure/mysql/server#az-mysql-server-show) komutu.
 
-   ```azurecli-interactive
-   az mysql server show --resource-group myresourcegroup --name mydemoserver
-   ```
+    ```azurecli-interactive
+    az mysql server show --resource-group myresourcegroup --name mydemoserver
+    ```
 
 ## <a name="list-firewall-rules-on-azure-database-for-mysql-server"></a>MySQL sunucusu için Azure veritabanı güvenlik duvarı kurallarını Listele 
 Sunucu adı ve kaynak grubu adını kullanarak, sunucudaki var olan sunucu güvenlik duvarı kuralları listesi. Kullanım [az mysql sunucusu güvenlik duvarı listesi](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-list) komutu.  Belirtilen sunucu adı özniteliği bildirimi **--sunucu** geçiş değildir **--adı** geçin. 

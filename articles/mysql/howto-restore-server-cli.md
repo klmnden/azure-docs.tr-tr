@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: f48bab5cec1e8c3836ab5044fbff1a843ede249b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3f4e7a911e98ea09376b4b6ac56e9441fe98e426
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978395"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135201"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Azure CLI kullanarak MySQL için Azure veritabanı'nda bir sunucu geri nasıl
 
@@ -71,9 +71,10 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 ```
 
 `az mysql server restore` Komut takip eden parametreleri gerektiriyor:
-| Ayar | Önerilen değer | Açıklama  |
+
+| Ayar | Önerilen değer | Açıklama  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Kaynak sunucunun bulunduğu kaynak grubu.  |
+| resource-group |  myresourcegroup |  Kaynak sunucunun bulunduğu kaynak grubu.  |
 | ad | mydemoserver-restored | Geri yükleme komutu tarafından oluşturulan yeni sunucunun adı. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Bir noktaya geri yüklemek için saat seçin. Bu tarih ve saat, kaynak sunucunun yedekleme saklama dönemi içinde olmalıdır. ISO8601 tarih ve saat biçimini kullanın. Örneğin, kendi yerel saat dilimi gibi kullanabileceğiniz `2018-03-13T05:59:00-08:00`. Örneğin, şeklindeki UTC Zulu biçimini kullanabilirsiniz `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | Geri yükleme kaynağı olarak kullanılacak sunucunun adı veya kimliği. |
@@ -108,13 +109,14 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 ```
 
 `az mysql server georestore` Komutu requies aşağıdaki parametreleri:
-| Ayar | Önerilen değer | Açıklama  |
+
+| Ayar | Önerilen değer | Açıklama  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Kaynak grubunun adı için yeni sunucuya ait.|
 |ad | mydemoserver-georestored | Yeni sunucunun adı. |
 |source-server | mydemoserver | Coğrafi olarak yedekli yedekleri kullanılan mevcut sunucu adı. |
 |location | eastus | Yeni sunucu konumu. |
-|SKU adı| GP_Gen4_8 | Bu parametre, fiyatlandırma katmanı, işlem oluşturma ve yeni sunucunun sanal çekirdek sayısını ayarlar. Genel amaçlı, 8 sanal çekirdekli 4. nesil sunucu GP_Gen4_8 eşlenir.|
+|sku-name| GP_Gen4_8 | Bu parametre, fiyatlandırma katmanı, işlem oluşturma ve yeni sunucunun sanal çekirdek sayısını ayarlar. Genel amaçlı, 8 sanal çekirdekli 4. nesil sunucu GP_Gen4_8 eşlenir.|
 
 
 >[!Important]

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: ac25fa1bcca9a49054f37d8799511fbc7d95645b
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 247c12fb15fe8aa82c3a29c4c2d1e704db40e424
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584107"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141518"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IOT Hub fiyatlandırma bilgileri
 
@@ -35,6 +35,7 @@ ms.locfileid: "47584107"
 | Cihaz ve modül ikizi sorguları | Sorguları iletileri 512 baytlık öbekler halinde sonucu boyutuna bağlı olarak ücretlendirilir. |
 | İş işlemleri <br/> (oluşturma, güncelleştirme, listeleme, silme) | Ücretsizdir. |
 | İşleri cihaz başına işlem | İş işlemleri (örneğin, ikizi güncelleştirmeleri ve yöntemleri) normal olarak ücretlendirilir. Örneğin, 1 KB'lık isteklerini ve yanıtlarını gövdesi boş ile 1000 yöntem çağrılarını sonuçta bir işi 1000 iletileri üzerinden ücretlendirilir. |
+| Etkin tutma iletileri | AMQP veya MQTT protokolleri kullanırken bağlantı kurmak için alınıp verilen iletileri ve anlaşmasında alınıp verilen iletileri ücretlendirilmez. |
 
 > [!NOTE]
 > Tüm boyutları (Protokol çerçeveleme göz ardı edilir) bayt yükü boyutu dikkate hesaplanır. Özellikler ve gövdesi olan iletiler için bir protokol belirsiz şekilde boyutu hesaplanır. Daha fazla bilgi için [IOT Hub ileti biçimi](iot-hub-devguide-messages-construct.md).

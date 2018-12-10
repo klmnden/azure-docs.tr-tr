@@ -1,23 +1,22 @@
 ---
-title: Azure Cosmos DB hakkında sık sorulan sorular
+title: Azure Cosmos DB'de farklı API'ler ile ilgili sık sorulan sorular
 description: Azure Cosmos DB, küresel olarak dağıtılmış çok modelli veritabanı hizmeti hakkında sık sorulan soruların yanıtlarını alın. Kapasite, performans düzeyleri ve ölçeklendirme hakkında bilgi edinin.
 keywords: Sık sorulan sorular, documentdb, azure, Microsoft azure, veritabanı soruları
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: e4ed9ee34260dfffc0034fb7524a037e957fab3f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: fc5b397f64bead38e630cb994d1d325a85b11cda
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851188"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139665"
 ---
-# <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB ile ilgili SSS
-
-## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB ile ilgili temel bilgiler
+# <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB'de farklı API'ler ile ilgili sık sorulan sorular
 
 ### <a name="what-happened-to-the-documentdb-api"></a>DocumentDB API'si için ne oldu?
 
@@ -78,7 +77,7 @@ Ayrıca [Azure Cosmos DB öykünücüsü'nü](local-emulator.md) geliştirmek ve
 Teknik soru sormak için bu iki soru birine ve forumları yanıtlayın:
 
 * [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
-* [Yığın Taşması](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Yığın taşması soru programlama için idealdir. Sorunuzu olduğundan emin olun [konuyla](https://stackoverflow.com/help/on-topic) ve [soru işaretini kaldırın ve yanıt verilemeyen yapmak mümkün olduğunca çok ayrıntı sağlamak](https://stackoverflow.com/help/how-to-ask).
+* [Yığın Taşması](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Yığın taşması soru programlama için idealdir. Sorunuzu olduğundan emin olun [konuyla](https://stackoverflow.com/help/on-topic) ve [soru işaretini kaldırın ve yanıt verilemeyen yapmak mümkün olduğunca çok ayrıntı sağlamak](https://stackoverflow.com/help/how-to-ask).
 
 Yeni özellikleri istemek için yeni bir istek oluşturmak [uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
@@ -125,10 +124,6 @@ Bir bölge kümesi, Azure Cosmos DB bağımsız ve kamu bulutlarında uyar unutm
 ### <a name="is-it-possible-to-switch-from-container-level-throughput-provisioning-to-database-level-throughput-provisioning-or-vice-versa"></a>Kapsayıcı düzeyi akışından geçmek mümkün veritabanı düzeyi aktarım hızı sağlama için sağlanıyor? Ya da tam tersi
 
 Kapsayıcı ve veritabanı düzeyi aktarım hızı sağlama ayrı teklifleri ve ya da bunların arasında geçiş gerektiren geçirme kaynaktan hedef veri. Yeni bir veritabanı veya yeni bir koleksiyon oluşturun ve ardından verileri kullanarak geçirmek için anlamına gelir [toplu Yürütücü Kitaplığı](bulk-executor-overview.md) veya [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
-
-### <a name="how-do-i-create-fixed-collection-with-partition-key"></a>Bölüm anahtarıyla sabit koleksiyon nasıl oluşturabilirim
-
-Bir bölüm anahtarı aktarım hızı ile kullanarak koleksiyon şu anda oluşturabilirsiniz [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) yöntemi kullanarak veya .net SDK'sı [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). Azure portalını kullanarak bir sabit koleksiyon oluşturma şu anda desteklenmemektedir.
 
 ### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure CosmosDB, zaman serisi analizini destekliyor mu?
 
@@ -304,7 +299,7 @@ Geri bildiriminiz aşağıdaki yollardan biriyle paylaşabilirsiniz:
 
 * [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
-* [Yığın Taşması](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Yığın taşması soru programlama için idealdir. Sorunuzu olduğundan emin olun [konuyla](https://stackoverflow.com/help/on-topic) ve [soru işaretini kaldırın ve yanıt verilemeyen yapmak mümkün olduğunca çok ayrıntı sağlamak](https://stackoverflow.com/help/how-to-ask).
+* [Yığın Taşması](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Yığın taşması soru programlama için idealdir. Sorunuzu olduğundan emin olun [konuyla](https://stackoverflow.com/help/on-topic) ve [soru işaretini kaldırın ve yanıt verilemeyen yapmak mümkün olduğunca çok ayrıntı sağlamak](https://stackoverflow.com/help/how-to-ask).
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>Bağlantı dizesini tablo API'sine bağlanmak için kullanılacak ihtiyacım nedir?
 
@@ -525,7 +520,7 @@ Azure Cosmos DB, gecikme süresi, aktarım hızı, kullanılabilirlik ve tutarl�
 
 ### <a name="for-cnet-development-should-i-use-the-microsoftazuregraphs-package-or-gremlinnet"></a>C# / .NET geliştirme kullanmalıyım Microsoft.Azure.Graphs paket ya da Gremlin.NET?
 
-Azure Cosmos DB Gremlin API'si hizmeti için ana Bağlayıcılarla açık kaynaklı sürücüleri yararlanır. Önerilen seçenek kullanmak için bu nedenle [Apache Tinkerpop tarafından desteklenen sürücüler](http://tinkerpop.apache.org/).
+Azure Cosmos DB Gremlin API'si hizmeti için ana Bağlayıcılarla açık kaynaklı sürücüleri yararlanır. Önerilen seçenek kullanmak için bu nedenle [Apache Tinkerpop tarafından desteklenen sürücüler](https://tinkerpop.apache.org/).
 
 ### <a name="how-are-rus-charged-when-running-queries-on-a-graph-database"></a>Bir grafik veritabanı üzerinde sorgu çalıştırırken RU/sn nasıl ücretlendirilir?
 
@@ -539,7 +534,7 @@ Azure Cosmos DB kullanır [yatay bölümleme](partition-data.md) otomatik olarak
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Gremlin sürücüleri kullanarak ekleme saldırılarına karşı nasıl koruyabilirim?
 
-En yerel Tinkerpop Gremlin sürücüleri, sorgu yürütme için parametre sözlüğü sağlama seçeneği sağlar. Bu, bunun nasıl yapılacağı örneğidir [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) ve [Gremlin Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+En yerel Tinkerpop Gremlin sürücüleri, sorgu yürütme için parametre sözlüğü sağlama seçeneği sağlar. Bu, bunun nasıl yapılacağı örneğidir [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) ve [Gremlin Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Neden iletisi alıyorum "Gremlin sorgu derleme hatası: herhangi bir yöntem bulunamadı" hatası?
 

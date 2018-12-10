@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning için Gelişmiş analiz senaryolarını tanımlama | Microsoft Docs
+title: Azure Machine Learning - Team Data Science Process için senaryoları tanımlama
 description: Team Data Science Process ile Tahmine dayalı analiz Gelişmiş yapmak için uygun senaryoları seçin.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 16d8457e5605ce0e3c10ed95296b5a883a4c602c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 88c3be12647bd73296c214390d3d2fb1fe79ccb4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444843"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138900"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Azure Machine Learning’de gelişmiş analiz senaryoları
 Bu makalede örnek veri kaynakları ve tarafından işlenebilen hedef senaryoları özetlenmektedir [Team Data Science işlem (TDSP)](overview.md). TDSP ekiplerin akıllı uygulamalar oluşturmaya birlikte çalışması sistematik bir yaklaşım sağlar. Burada sunulan senaryoları veri özelliklerine, kaynak konumları ve hedef Azure depolarında bağlıdır veri işleme iş akışı içinde kullanılabilir seçenekler gösterilmektedir.

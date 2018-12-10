@@ -1,5 +1,5 @@
 ---
-title: Veri edinme ve anlama aşamasına Team Data Science Process yaşam döngüsü - Azure | Microsoft Docs
+title: Veri edinme ve anlama Team Data Science Process
 description: Hedefleri, görevleri ve teslim edilebilirleri veri alımı ve veri bilimi projelerinizi anlama aşaması
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 13cbcead381257c87f17dc8ed6666a1b8964d81a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 77c67c491b3157103b267864417678c83326814c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441592"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141161"
 ---
-# <a name="data-acquisition-and-understanding"></a>Veri edinme ve anlama
+# <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Veri edinme ve anlama aşamasına Team Data Science Process
 
 Bu makalede, hedeflerinizi, görevleri ve teslim edilebilirleri veri edinme ve anlama aşama Team Data Science işlem (TDSP) ile ilişkili özetlenmektedir. Bu işlem, veri bilimi projelerinizi yapısı için kullanabileceğiniz önerilen bir yaşam döngüsü sağlar. Yaşam döngüsü projeleri genellikle genellikle yinelemeli olarak yürütme, önemli aşamalar açıklanmaktadır:
 

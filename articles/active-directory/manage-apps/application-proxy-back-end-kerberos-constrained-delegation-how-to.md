@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 52157797bb01fc73c551ca9654b2360d161b653d
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2a55e39414cd691c48b015b3aae73f93cbb95aab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357586"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134667"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Uygulama Ara sunucusu için kısıtlı Kerberos temsilcisi yapılandırmalarıyla ilgili sorunları giderme
 
@@ -32,7 +32,7 @@ Bu makalede tek bir sorun giderme ve en yaygın sorunlardan bazılarını kendi 
 
 Bu makalede aşağıdaki varsayımların yapar:
 
--   Azure AD uygulama proxy'si dağıtımını [uygulaması Ara sunucusu ile çalışmaya başlama](application-proxy-enable.md) ve genel olmayan KCD uygulamalara erişim beklendiği gibi çalışmayabilir.
+-   Azure AD uygulama proxy'si dağıtımını [uygulaması Ara sunucusu ile çalışmaya başlama](application-proxy-add-on-premises-application.md) ve genel olmayan KCD uygulamalara erişim beklendiği gibi çalışmayabilir.
 
 -   Yayımlanan hedef uygulama Internet Information Services (IIS) ve Kerberos Microsoft uyarlamasını dayanır.
 

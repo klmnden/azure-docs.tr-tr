@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: cf3e367dad528017a98e103962c57cb758da55cb
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: a7a5c097f0400d89398cef66eeb7bd0ce8d5e97b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357417"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132440"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Uygulama proxy'si uygulaması yapılandırma
 
@@ -28,15 +28,15 @@ Bu makalede, şirket içi uygulamaları bulutta kullanıma sunmak için bir uygu
 
 ## <a name="recommended-documents"></a>Önerilen belgeler 
 
-İlk Yapılandırma ve Yönetim Portalı üzerinden bir uygulama proxy'si uygulaması oluşturma hakkında bilgi edinmek için izleyin [Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-publish-azure-portal.md).
+İlk Yapılandırma ve Yönetim Portalı üzerinden bir uygulama proxy'si uygulaması oluşturma hakkında bilgi edinmek için izleyin [Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-add-on-premises-application.md).
 
-Bağlayıcı yapılandırma hakkında daha fazla bilgi için bkz [Azure portalında uygulama ara sunucusunu etkinleştirme](application-proxy-enable.md).
+Bağlayıcı yapılandırma hakkında daha fazla bilgi için bkz [Azure portalında uygulama ara sunucusunu etkinleştirme](application-proxy-add-on-premises-application.md).
 
 Sertifikaları karşıya yükleme ve özel etki alanlarını kullanma hakkında daha fazla bilgi için bkz: [Azure AD uygulama proxy'sinde özel etki alanları ile çalışma](application-proxy-configure-custom-domain.md).
 
 ## <a name="create-the-applicationsetting-the-urls"></a>Uygulama/ayarı URL'ler oluşturma
 
-Adımları takip ediyorsanız [Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-publish-azure-portal.md) belgeleri ve bu bilgi için hata ayrıntılarına ve düzeltmeye ilişkin öneriler görürsünüz alınırken bir hata uygulaması oluşturma uygulama. Çoğu hata iletileri, önerilen düzeltmeyi içerir. Sık karşılaşılan hataları önlemek için aşağıdakileri doğrulayın:
+Adımları takip ediyorsanız [Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-add-on-premises-application.md) belgeleri ve bu bilgi için hata ayrıntılarına ve düzeltmeye ilişkin öneriler görürsünüz alınırken bir hata uygulaması oluşturma uygulama. Çoğu hata iletileri, önerilen düzeltmeyi içerir. Sık karşılaşılan hataları önlemek için aşağıdakileri doğrulayın:
 
 -   Uygulama proxy'si uygulaması oluşturmak için izne sahip bir yöneticisiniz
 
@@ -75,4 +75,4 @@ Sertifikayı karşıya yüklemek çalışırken sağ üst köşede hata iletisin
    ![Uyarı istemi](./media/application-proxy-config-how-to/error-message2.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-publish-azure-portal.md)
+[Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-add-on-premises-application.md)

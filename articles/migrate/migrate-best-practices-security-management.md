@@ -5,33 +5,33 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 201f6f463736674cee3f94cc0d0177a8ddb181a1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6238d3d7a64816df01be69458d784114368d9e17
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110248"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141348"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Güvenliğini sağlama ve iş yüklerini yönetmek için en iyi uygulamaları için Azure geçişi
 
-Plan ve tasarım geçiş kendisi hakkında düşünmeye ek olarak, geçiş için geçişten sonra Azure güvenliği ve yönetimi, modelinizde planlamanız gerekir. Bu makalede, dağıtımınızı çalıştıran herhangi bir en iyi düzeyde tutmak devam eden görevlerin yanı sıra, geçişinden sonra Azure dağıtımınızın güvenliğini sağlamak için planlama ve en iyi yöntemleri açıklar. 
+Plan ve tasarım geçiş kendisi hakkında düşünmeye ek olarak, geçiş için geçiş sonrasında Azure güvenliği ve yönetimi, modelinizde dikkate almanız gerekir. Bu makalede, dağıtımınızı çalıştıran en üst düzeyde tutmaya devam eden görevlerin yanı sıra, geçişinden sonra Azure dağıtımınızın güvenliğini sağlamak için planlama ve en iyi yöntemleri açıklar. 
 
 > [!IMPORTANT]
-> En iyi yöntemler ve bu makalede açıklanan fikirlerini Azure platformu üzerinde temel alır ve hizmet özellikleri makalenin yazıldığı sırada kullanılabilir. Özellikler ve yetenekler zamanla değişir.
+> En iyi yöntemler ve bu makalede açıklanan fikirlerini Azure platformunda dayalıdır ve Özellikler makalenin yazıldığı sırada hizmet. Özellikler ve yetenekler zamanla değişir.
 
 ## <a name="secure-migrated-workloads"></a>Geçişi yapılan iş yüklerinin güvenliğini sağlama
 
-Geçişten sonra en kritik görev iç ve dış tehditlere karşı geçişi yapılan iş yüklerinin güvenliğini sağlamak için uygundur. En iyi uygulamalar şunlardır:
+Geçişten sonra en kritik görev iç ve dış tehditlere karşı geçişi yapılan iş yüklerinin güvenliğini sağlamak için uygundur. Bu en iyi uygulamaları, bunu yapmak için Yardım:
 
-- Azure Güvenlik Merkezi ile çalışma: izleme, değerlendirmeler ve Azure Güvenlik Merkezi tarafından sağlanan öneriler ile çalışma hakkında bilgi edinin
-- **Verilerinizi şifrelemek**: verilerinizi azure'da şifrelemek için en iyi alın.
-- **Kötü amaçlı yazılımdan koruma ' ayarlamak**: Vm'lerinizi kötü amaçlı yazılım ve kötü amaçlı saldırılara karşı koruyun.
-- **Güvenli web uygulamaları**: Keep hassas bilgilerin güvenliğini geçişi web uygulamaları.
-- **Gözden geçirin, abonelikleri**: Azure aboneliklerinize ve kaynaklarınıza geçişten sonra erişebilecek kişileri doğrulayın.
-- **İş günlükleri ile**: Azure denetimi gözden geçirin ve güvenlik düzenli olarak günlüğe kaydeder.
-- **Gelişmiş güvenlik özellikleri**: anlamak ve Azure'un sunduğu diğer güvenlik özellikleri değerlendirin.
+- [Azure Güvenlik Merkezi ile iş](#best-practice-follow-azure-security-center-recommendations): izleme, değerlendirmeler ve Azure Güvenlik Merkezi tarafından sağlanan öneriler ile çalışma hakkında bilgi edinin
+- [Verilerinizi şifrelemek](#best-practice-encrypt-data): verilerinizi azure'da şifrelemek için en iyi alın.
+- [Kötü amaçlı yazılımdan koruma ' ayarlamak](#best-practice-protect-vms-with-antimalware): Vm'lerinizi kötü amaçlı yazılım ve kötü amaçlı saldırılara karşı koruyun.
+- [Güvenli web uygulamaları](#best-practice-secure-web-apps): Keep hassas bilgilerin güvenliğini geçişi web uygulamaları.
+- [Gözden geçirin, abonelikleri](#best-practice-review-subscriptions-and-resource-permissions): Azure aboneliklerinize ve kaynaklarınıza geçişten sonra erişebilecek kişileri doğrulayın.
+- [İş günlükleri ile](#best-practice-review-audit-and-security-logs): Azure denetimi gözden geçirin ve güvenlik düzenli olarak günlüğe kaydeder.
+- [Diğer güvenlik özellikleri gözden](#best-practice-evaluate-other-security-features): anlamak ve Azure'un sunduğu Gelişmiş güvenlik özellikleri değerlendirin.
 
 ## <a name="best-practice-follow-azure-security-center-recommendations"></a>En iyi yöntem: Azure Güvenlik Merkezi önerilerini izleyin
 
@@ -47,15 +47,14 @@ Değerlendirmesi ve öneriler ek olarak, Güvenlik Merkezi birkaç belirli kayna
 - **Yalnızca zamanında (JIT) erişim**: ağ saldırı yüzeyinizi ile zaman, denetimli erişimi'nde yalnızca yönetim bağlantı noktalarına Azure vm'lerde azaltın.
     - VM RDP bağlantı noktası 3389 Internet'e açık olan VM'ler için sürekli kötü bir aktör etkinlik kullanıma sunar. Azure IP adresleri iyi bilinen ve bilgisayar korsanlarının sürekli olarak bunları için 3389 bağlantı noktalarını açma saldırıları araştırma. 
     - Yalnızca zaman kullanan ağ güvenlik grupları (Nsg'ler) ve gelen kuralları bu sınırı belirli bir bağlantı noktası açık olduğu süre miktarı.
-    - İle tam zamanında etkin. Güvenlik Merkezi, bir kullanıcı bir VM için rol tabanlı erişim denetimi (RBAC) yazma erişim izinleri olup olmadığını denetler. Ayrıca, kullanıcıların sanal makinelerine nasıl bağlayabileceğini kurallarını belirtin. Tamam izinleri olan bir erişim isteği Onaylandı ve süre Seçili bağlantı noktalarına gelen trafiğe izin veren Nsg Güvenlik Merkezi'ni yapılandırır, belirtin. Süre dolduğunda Nsg'ler önceki durumuna geri dönüş.
-- **Uyarlamalı uygulama denetimleri**: tutmak yazılım ve kötü amaçlı yazılım VM'ler uygulamalar üzerinde çalışan denetim tarafından.
-    - dinamik uygulama beyaz listeye ekleme ile.
+    - İle tam zamanında etkinleştirildiğinde Güvenlik Merkezi bir kullanıcının bir VM için rol tabanlı erişim denetimi (RBAC) yazma erişim izinleri olduğunu denetler. Ayrıca, kullanıcıların sanal makinelerine nasıl bağlayabileceğini kurallarını belirtin. Tamam izinleri olan bir erişim isteği Onaylandı ve süre Seçili bağlantı noktalarına gelen trafiğe izin veren Nsg Güvenlik Merkezi'ni yapılandırır, belirtin. Süre dolduğunda Nsg'ler önceki durumuna geri dönüş.
+- **Uyarlamalı uygulama denetimleri**: yazılım ve hangi uygulamaların çalıştırılmasına denetleme tarafından kötü amaçlı yazılım VM'ler kapalı dinamik uygulama beyaz listeye ekleme kullanmaya devam edin.
     - Uyarlamalı uygulama denetimleri için beyaz liste uygulamalara izin ver ve sahte kullanıcıların ve yöneticilerin Vm'lerinizde onaylanmamış veya güvenlik incelemesi yazılım uygulamalarını yüklenmesini önlemek.
     - Engelleyebilir veya kötü amaçlı uygulamalar çalıştırmak, istenmeyen veya kötü amaçlı uygulamalar önlemek ve kuruluşunuzun uygulama güvenlik ilkesi ile uyum sağlamak uyarı çalışır.
 - **Dosya bütünlüğünü izleme**: Vm'lerde çalışan dosyalarının bütünlüğünü emin olun.
     - VM sorunlara neden yazılımı yüklemeniz gerekmez.  Bir sistem dosyasını değiştirerek VM hata veya performans düşüşüne neden olabilir.  İzleme sistem dosyaları ve değişiklikler için kayıt defteri ayarları inceler ve güncelleştirilmiş şey olduğunda size bildirir bütünlüğü dosyası.
     - Güvenlik Merkezi önerir, bir dosyaları izlemeniz gerekir.
-En iyi uygulama hakkında daha fazla bilgi: • Yönet kullanarak sanal makine erişimini yalnızca zaman • Uyarlamalı uygulama denetimleri Azure Güvenlik Merkezi • dosya bütünlüğünü izleme Azure Güvenlik Merkezi'nde
+
 
 **Daha fazla bilgi edinin:**
 
@@ -173,7 +172,7 @@ Azure çözümleri birkaç sağlar:
 
 Azure Active Directory (AD), Azure İzleyici'de görüntülenen etkinlik günlükleri sağlar. Günlükler Azure kiralama, bunlar ortaya çıktığında ve bunları gerçekleştiren gerçekleştirilen işlemleri yakalar. 
 
-- Denetim günlüklerini kiracıda görevleri geçmişini gösterir. Oturum açma etkinliği gerçekleştirilen görevleri show kaydeder. 
+- Denetim günlüklerini kiracıda görevleri geçmişini gösterir. Oturum açma etkinliği gerçekleştirilen görevleri show günlüğe kaydeder. 
 - Erişim için güvenlik raporları, Azure AD lisansınıza bağlıdır. Ücretsiz ve temel riskli kullanıcılar ve oturum açma işlemlerinin listesini alın. Premium 1 ve Premium 2 sürümlerinde olay bilgilerini temel alın.
 - Etkinlik günlükleri için bir uzun süreli saklama ve veri öngörüleri için uç nokta sayısı yönlendirebilirsiniz.
 - Yaygın bir uygulama günlüklerini gözden geçirin veya otomatik olarak prosesler gözden geçirmek için güvenlik bilgileri ve Olay yönetimi (SIEM) araçlarınızı tümleştirin kolaylaştırır.  Premium 1 veya 2'yi kullanmıyorsanız, analiz çok fazla kendiniz veya SIEM sisteminizi kullanarak gerçekleştirmeniz gerekir.  Riskli oturum açma işlemleri ve olayları ve diğer kullanıcı saldırı desenlerini arayan analizi içerir.
@@ -202,15 +201,15 @@ Azure, birçok gelişmiş güvenlik seçenekleri diğer güvenlik özellikleri s
 
 Bu bölümde Azure yönetimi için bazı en iyi uygulamaları öneririz dahil olmak üzere:
 
-- **Kaynakları yönetmek**: Azure kaynak grupları ve kaynaklar da dahil olmak üzere, en iyi yöntemleri akıllı adlandırma, yanlışlıkla silinmesini önleyen, kaynak izinleri ve etkin kaynak etiketleme yönetme.
-- **Blueprint kullanın**: şemaları oluşturmak ve Dağıtım Ortamınızı yönetmek için kullanma hakkında hızlı bir genel bakış elde edin.
-- **Gözden mimarileri**: geçiş sonrası dağıtımlarınızı oluşturdukça uzmanlardan için Azure mimarileri gözden geçirme örneği.
-- **Yönetim gruplarını ayarlama**: birden fazla aboneliğiniz varsa, bunları yönetim gruplar halinde toplayın ve bu gruplara idare ayarlarını uygulayın.
-- **Erişim ilkeleri ayarlama**: uyumluluk ilkeleri, Azure kaynaklarınıza uygulanır.
-- **BCDR stratejinize uygulamak**: kesintiler meydana geldiğinde verileri güvenli tutmak için bir iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejisine, dayanıklı, ortam ve kaynakları ve çalışan bir araya.
-- **Vm'leri yönetme**: kullanılabilirlik grupları, dayanıklılık ve yüksek kullanılabilirlik grubu Vm'leri. Yönetilen diskler, sanal makine disk ve depolama yönetim kolaylığı için kullanın.
-- **Kaynak kullanımını izlemek**: Azure kaynakları için tanılama günlüğünü etkinleştirme, uyarılar ve proaktif sorun giderme için playbook'ları oluşturma ve Azure panosuna dağıtım durumu ve durumu birleşik bir görünümünü kullanın.
-- **Destek ve güncelleştirmeleri yönetme**: anlamak ve uygulamak, Vm'leri güncel tutmak için en iyi almak Azure destek planınızı ve Yönetim için put işlemleri değiştirin.
+- [Kaynakları yönetmek](#best-practice-name-resource-groups): Azure kaynak grupları ve kaynaklar da dahil olmak üzere, en iyi yöntemleri akıllı adlandırma, yanlışlıkla silinmesini önleyen, kaynak izinleri ve etkin kaynak etiketleme yönetme.
+- [Blueprint kullanın](#best-practice-implement-blueprints): şemaları oluşturmak ve Dağıtım Ortamınızı yönetmek için kullanma hakkında hızlı bir genel bakış elde edin.
+- [Gözden mimarileri](#best-practice-review-azure-reference-architectures): geçiş sonrası dağıtımlarınızı oluşturdukça uzmanlardan için Azure mimarileri gözden geçirme örneği.
+- [Yönetim gruplarını ayarlama](#best-practice-manage-resources-with-management-groups): birden fazla aboneliğiniz varsa, bunları yönetim gruplar halinde toplayın ve bu gruplara idare ayarlarını uygulayın.
+- [Erişim ilkeleri ayarlama](#best-practice-deploy-azure-policy): uyumluluk ilkeleri, Azure kaynaklarınıza uygulanır.
+- [BCDR stratejinize uygulamak](#best-practice-implement-a-bcdr-strategy): kesintiler meydana geldiğinde verileri güvenli tutmak için bir iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejisine, dayanıklı, ortam ve kaynakları ve çalışan bir araya.
+- [Vm'leri yönetme](#best-practice-use-managed-disks-and-availability-sets): kullanılabilirlik grupları, dayanıklılık ve yüksek kullanılabilirlik grubu Vm'leri. Yönetilen diskler, sanal makine disk ve depolama yönetim kolaylığı için kullanın.
+- [Kaynak kullanımını izlemek](#best-practice-monitor-resource-usage-and-performance): Azure kaynakları için tanılama günlüğünü etkinleştirme, uyarılar ve proaktif sorun giderme için playbook'ları oluşturma ve Azure panosuna dağıtım durumu ve durumu birleşik bir görünümünü kullanın.
+- [Destek ve güncelleştirmeleri yönetme](#best-practice-manage-updates): anlamak ve uygulamak, Vm'leri güncel tutmak için en iyi almak Azure destek planınızı ve Yönetim için put işlemleri değiştirin.
 
 
 ## <a name="best-practice-name-resource-groups"></a>En iyi yöntem: kaynak grubu adı
@@ -225,7 +224,7 @@ Kaynak gruplarınızın anlamlı adlar, yöneticilerin sahip ve destek ekibi üy
 
 **Daha fazla bilgi edinin:**
 
-[Hakkında bilgi edinin](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) adlandırma kuralları
+- [Hakkında bilgi edinin](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) adlandırma kuralları
 
 ## <a name="best-practice-implement-delete-locks-for-resource-groups"></a>En iyi yöntem: uygulama kaynak grupları kilitlerini Sil
 
@@ -283,16 +282,16 @@ Yalnızca şema mühendisleri ve mimarlara projenin tasarım parametreleri tasla
 - [Okuma](https://docs.microsoft.com/azure/governance/blueprints/overview) şemaları hakkında.
 - [Gözden geçirme](https://azure.microsoft.com/blog/customizing-azure-blueprints-to-accelerate-ai-in-healthcare/) sağlık hizmetleri yapay ZEKA hızlandırmak için kullanılan bir şema örnek.
 
-## <a name="best-practice---review-azure-reference-architectures"></a>En iyi - gözden geçirme Azure başvuru mimarileri
+## <a name="best-practice-review-azure-reference-architectures"></a>En iyi yöntem: gözden geçirme Azure başvuru mimarileri
 
 Güvenli, ölçeklenebilir ve yönetilebilir iş yüklerini azure'da göz korkutucu olabilir.  Sürekli değişiklikler sayesinde, ideal bir ortam için farklı özelliklere sahip açık kalmasını sağlamak zor olabilir. Uzmanlardan başvuru sahip tasarlarken ve iş yüklerinizin geçişini yararlı olabilir.  Azure ve Azure iş ortakları, çeşitli ortamlar yönelik birkaç örnek başvuru mimarileri yerleşik sahiptir. Bu örnekler, öğrenin ve yapı fikirler sağlamak üzere tasarlanmıştır. 
 
 Başvuru mimarileri, senaryoya göre düzenlenmiştir. Önerilen uygulamalar ve yönetimi, kullanılabilirlik, ölçeklenebilirlik ve güvenlik önerisi içerirler.
-
+Azure App Service ortamı, App Service uygulamaları, Windows ve Linux web uygulamaları, Docker kapsayıcıları, mobil uygulamalar ve işlevleri çalıştırmak için tam yalıtılmış ve ayrılmış bir ortam sağlar. App Service Azure'un gücünü uygulamanıza güvenlik, Yük Dengeleme, otomatik ölçeklendirme ve otomatik yönetim ekler. Ayrıca sürekli dağıtımı Azure DevOps ve GitHub, paket Yönetimi'ni Hazırlama ortamları, özel etki alanı ve SSL sertifikaları gibi DevOps özelliklerinden yararlanabilirsiniz. App Service, yalıtım ve güvenli ağ erişimi ve yüksek miktarda bellek ve diğer kaynakları ölçeklendirmeniz mi gerekiyor kullananlar ihtiyaç duyan uygulamalar için yararlıdır.
 **Daha fazla bilgi edinin:**
 
-[Hakkında bilgi edinin](https://docs.microsoft.com/azure/architecture/reference-architectures/) Azure başvuru mimarileri.
-[Gözden geçirme](https://docs.microsoft.com/azure/architecture/example-scenario/) Azure örnek senaryolar.
+- [Hakkında bilgi edinin](https://docs.microsoft.com/azure/architecture/reference-architectures/) Azure başvuru mimarileri.
+- [Gözden geçirme](https://docs.microsoft.com/azure/architecture/example-scenario/) Azure örnek senaryolar.
 
 ## <a name="best-practice-manage-resources-with-management-groups"></a>En iyi yöntem: Yönetim gruplarıyla kaynakları yönetme
 
@@ -332,62 +331,50 @@ Azure İlkesi, ilkelerinizi oluşturmak, atamak ve yönetmek için kullandığı
 
 ## <a name="best-practice-implement-a-bcdr-strategy"></a>En iyi yöntem: bir BCDR stratejisine uygulayın
 
-İş sürekliliği ve olağanüstü durum kurtarma (BCDR) için planlama, Azure'a geçiş için planlama sırasında tamamlanması gereken önemli bir uygulamadır. Yasal koşullarını sözleşmeniz kasırgalar veya deprem gibi büyük bir zorla yükümlülüklerin mazur görün bir mücbir sebepli olaylar yan tümcesi içerir. Ancak, ayrıca yükümlülükler etrafında Hizmetleri çalıştırın ve olağanüstü durum strike zaman gerektiğinde, Kurtarma devam edeceğinden emin olmak için bir özelliği vardır. Bunu yapmak için yeteneğinizi değişiklik yapabilir veya şirketinizin geleceği Kes.
+İş sürekliliği ve olağanüstü durum kurtarma (BCDR) için planlama, Azure'a geçiş için planlama sırasında tamamlaması kritik bir uygulamadır. Yasal koşullarını sözleşmeniz kasırgalar veya deprem gibi büyük bir zorla yükümlülüklerin mazur görün bir mücbir sebepli olaylar yan tümcesi içerir. Ancak, ayrıca yükümlülükler etrafında Hizmetleri çalıştırın ve olağanüstü durum strike zaman gerektiğinde, Kurtarma devam edeceğinden emin olmak için bir özelliği vardır. Bunu yapmak için yeteneğinizi değişiklik yapabilir veya şirketinizin geleceği Kes.
 
+Genel anlamıyla BCDR stratejinize dikkate almanız gerekir:
+- **Veri yedekleme**: nasıl kesintiler meydana gelirse, kolayca kurtarabilirsiniz böylece verilerinizi güvende tutun.
+- **Olağanüstü durum kurtarma**: uygulamalarınızı, dayanıklı ve kesintiler durumunda kullanılabilir durumda tutmak nasıl. 
 
-Azure platformu birçok dayanıklılık özellik sağlar:
+### <a name="azure-resiliency-features"></a>Azure dayanıklılık özellikleri
+Azure platformu birçok dayanıklılık özelliği sağlar.
 
 - **Bölge eşleştirme**: Azure veri yerleşimi sınırları içinde Bölgesel koruma sağlamak için bölge çiftleri. Azure bölge çiftleri arasındaki fiziksel yalıtımı sağlar, tek bir bölge çiftindeki geniş kapsamlı bir kesinti durumunda kurtarma önceliklendirir, her bölgede ayrı olarak sistem güncelleştirmelerini dağıtır ve arasında çoğaltmak için Azure coğrafi olarak yedekli depolama gibi özellikler sağlar Bölgesel çiftler.
 - **Kullanılabilirlik alanları**: kullanılabilirlik alanları, bir Azure bölgesi ile ayrı fiziksel bölgeler oluşturarak, tüm Azure veri merkezi arızasına karşı koruyun. Her bölge, bir ayırt edici bir güç kaynağına, ağ altyapısı ve soğutma mekanizması vardır.
 - **Kullanılabilirlik kümeleri**: kullanılabilirlik kümelerini korumak için bir veri merkezi arızalarına karşı. Yüksek oranda kullanılabilir kalmasını sağlamak için kullanılabilirlik kümelerinde Vm'leri gruplar. Her kullanılabilirlik kümesi içinde Azure birden çok hata etki alanları ortak bir güç kaynağı ve ağ anahtarı ve bakımdan geçirilebilen ya da yeniden başlatılması, temel alınan donanım gruplamak güncelleştirme etki alanları ile donanımı temel birlikte bu gruba uygular, aynı anda. Bir örnek olarak, bir iş yükü Azure sanal makinelerde dağıldığında her uygulama katmanı için iki veya daha fazla sanal makine bir küme içine koyabilirsiniz. Örneğin, bir küme ve veri katmanı Vm'lerini başka bir ön uç sanal makineleri yerleştirebilirsiniz. Yalnızca bir güncelleme etki alanı olduğundan her kümesi zamanında yeniden ve Azure kümesindeki VM'lerin hata etki alanlarına yayılır, küme içindeki tüm VM'ler aynı anda başarısız olmak sağlar.
 
+### <a name="set-up-bcdr"></a>BCDR ayarlayın
 
-Azure'a geçiş sırasında Azure platformu bu yerleşik özelliklerinden ve diğer BCDR Hizmetleri sağlasa da, Azure esnekliği, yüksek kullanılabilirlik, olağanüstü durum yararlanmak için Azure dağıtım tasarımınız gerektiğini anlamak önemlidir Kurtarma ve yedekleme hizmetlerini ve özellikleri.
-- BCDR çözümlerinizi şirket hedeflerinize bağlı olacaktır ve Azure dağıtımınızı etkiler. Bir hizmet (Iaas) platformu olarak bir altyapı olarak hizmet (PaaS) dağıtımlar için BCDR farklı zorlukları sunar.
+Azure'a geçiş sırasında Azure platformu bu yerleşik dayanıklılık özellikler sağlasa da, Azure özellikleri ve yüksek kullanılabilirlik sağlayan hizmetlerinden yararlanmak için Azure dağıtım tasarımınız gerektiğini anlamak önemlidir, Olağanüstü durum kurtarma ve yedekleme.
+
+- BCDR çözümünüzü şirket hedeflerinize bağlı olacaktır ve Azure dağıtım stratejinizi etkiler. Bir hizmet (Iaas) platformu olarak bir altyapı olarak hizmet (PaaS) dağıtımlar için BCDR farklı zorlukları sunar.
 - Bir kez yerine, BCDR çözümlerinizi düzenli olarak stratejinizi kurtarılabilir kalmasını denetlemek için test edilmelidir.
 
 
-## <a name="best-practice-back-up-your-deployment"></a>En iyi yöntem: dağıtımınızı yedekleme
+## <a name="best-practice-back-up-your-data"></a>En iyi uygulaması: verilerinizi yedekleyin
 
-Çoğu durumda, geçişten sonra bir şirket içi iş yükü kullanımdan kaldırıldığında ve verilerinizi yedeklemek için şirket içi stratejinizi genişletilmiş veya değiştirilmesi gerekir. Tüm veri merkezinizi Azure'a geçirme, tasarım ve Azure teknolojilerini kullanan bir tam yedekleme çözümü gerekir veya üçüncü taraf çözümleri tümleşik. Seçili yedekleme çözümünüzü Azure dağıtımınızı bağlı olarak farklı olacaktır. 
+Çoğu durumda, geçişten sonra bir şirket içi iş yükü kullanımdan kaldırıldığında ve verilerinizi yedeklemek için şirket içi stratejinizi genişletilmiş veya değiştirilmesi gerekir. Tüm veri merkezinizi Azure'a geçirme, tasarım ve Azure teknolojilerini kullanan bir tam yedekleme çözümü gerekir veya üçüncü taraf çözümleri tümleşik. 
 
 
 ### <a name="back-up-an-iaas-deployment"></a>Bir Iaas dağıtımı geri
 
-
-İş yükleri için Azure Iaas Vm'lerinde çalışan, aşağıdaki yedekleme çözümleri kullanmayı düşünmelisiniz:
+Azure Iaas Vm'lerinde çalışan iş yükleri için bu yedekleme çözümleri göz önünde bulundurun:
 
 - **Azure yedekleme**: Azure Windows ve Linux VM'ler için uygulamayla tutarlı yedeklemeler yapılmasını sağlar.
 - **Depolama anlık görüntüleri**: blob depolama anlık görüntüleri alın.
 
 #### <a name="azure-backup"></a>Azure Backup
 
-
 Azure Backup yedekler, Azure Depolama'da depolanan veriler kurtarma noktaları oluşturur. Azure Backup, Azure sanal makine disklerini ve Azure dosyaları (Önizleme) yedekleyebilirsiniz. Azure dosyaları SMB erişilebilir bulut dosya paylaşımları sağlar.
    
 Çeşitli şekillerde Vm'lerini yedeklemek için Azure Backup'ı kullanabilirsiniz.
 
-- **VM ayarlarını doğrudan yedekten**:
-    - Azure Backup, Azure portalındaki VM seçeneklerini içine tümleştirilmiştir.
-    - VM'yi günde bir kez yedekleme ve sanal makine diskini geri yükleme. 
-    - Azure yedekleme, uygulama durumunu algılayan veri anlık görüntüler (VSS) yararlanır.
-    - Aracı, VM'de yüklüdür.
-- **Bir kurtarma Hizmetleri Kasası'nda doğrudan yedekleme**:
-    - Azure yedekleme kurtarma Hizmetleri kasasını dağıtın ve sanal makineleri yedekleme için seçin.
-    - Bu yöntem, izleme, yedekleme ve ek yedekleme yönetilmesi ve geri yükleme seçenekleri için tek bir konum sağlar. 
-    - Azure yedekleme, sanal makinede Microsoft Azure kurtarma Hizmetleri (MARS) aracısı yükler.
-    - En fazla günde üç kez yedeklemedir.
-    - Yedekleme, dosya veya klasör düzeyinde ve uygulama farkında değildir. Linux desteği sunulmaz.
-- **Azure Backup sunucusu: Azure Backup sunucusu için VM koruma**:
-   - Azure Backup sunucusu Azure yedekleme ile ücretsiz olarak sağlanır.
-   - VM, yerel Azure yedekleme depolama alanı için desteklenir.
-   - Ardından Azure Backup sunucusu kurtarma Hizmetleri kasasında Azure'a yedekleyebilirsiniz.
-   - Uygulama durumunu algılayan, sık sık yedekleme ve bekletme üzerinde tam ayrıntı düzeyi ile yedekleme
-   - Uygulama düzeyinde yedekleyebilirsiniz. Örneğin SQL Server veya SharePoint tarafından yedekleme.
+- **VM ayarlarını doğrudan yedekten**: Vm'leri Azure Backup ile doğrudan Azure portalındaki VM seçeneklerden yedekleyebilirsiniz. VM bir kez ve günlük yedekleme ve VM disk gerektiği gibi geri yükleyebilirsiniz. Azure yedekleme, uygulama durumunu algılayan veri anlık görüntüler (VSS) alır, aracı, VM'de yüklüdür.
+- **Bir kurtarma Hizmetleri Kasası'nda doğrudan yedekleme**: Azure yedekleme kurtarma Hizmetleri kasasını dağıtarak, Iaas sanal makinelerini yedekleyebilirsiniz. Bu yedeklemeler yönetmek ve izlemek için tek bir konum sağlar ve ayrıntılı bir yedekleme ve geri yükleme seçenekleri sağlar. Yedekleme günde üç kez kadar dosya/klasör düzeyinde bulunur. Uygulama durumunu algılayan değildir ve Linux desteklenmiyor. Microsoft Azure kurtarma Hizmetleri (MARS) aracısını yedeklemek istediğiniz her bir VM üzerinde yükleme oturumu için ihtiyacınız.
+- **Azure Backup sunucusu: Azure Backup sunucusu için VM koruma**: Azure Backup sunucusu ücretsiz Azure Backup ile sağlanır. VM yerel Azure Backup Sunucusu'na depolama alanına yedeklenir. Ardından Azure Backup sunucusu Kasası'nda Azure'a yedekleyebilirsiniz. Uygulama durumunu algılayan, sık sık yedekleme ve bekletme üzerinde tam ayrıntı düzeyi ile yedeklemedir. Uygulama düzeyinde yedekleyebilirsiniz. Örneğin SQL Server veya SharePoint tarafından yedekleme.
 
-Azure yedekleme, otomatik olarak ayırır ve Kullandıkça Öde modeli kullandığınız depolama alanı için kullanarak depolama yönetir.
-- LRS veya GRS depolama atanabilir.
-- Azure Backup, verileri uçuşan şifreler AES 256 kullanılarak ve HTTPS üzerinden Azure'a gönderir. Yedeklenen verilerin bekleyen azure'da kullanılarak şifrelenir [depolama hizmeti şifrelemesi (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)ve veri iletilmesini ve depolanmasını.
+Güvenlik için Azure Backup uçuşan verileri şifreler. AES 256 kullanılarak ve HTTPS üzerinden Azure'a gönderir. Yedeklenen verilerin bekleyen azure'da kullanılarak şifrelenir [depolama hizmeti şifrelemesi (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)ve veri iletilmesini ve depolanmasını.
 
 
 ![Azure yedekleme](./media/migrate-best-practices-security-management/iaas-backup.png)
@@ -409,9 +396,9 @@ Azure Vm'leri, Azure Depolama'daki sayfa blobları olarak depolanır.
 
 **Daha fazla bilgi edinin:**
 
-- [Hakkında bilgi edinin] (https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction Azure blob depolama.
+- [Hakkında bilgi edinin](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) Azure blob depolama.
 - [Bilgi edinmek için nasıl](https://docs.microsoft.com/azure/storage/blobs/storage-blob-snapshots) blob anlık görüntüsü oluşturma.
-- Örnek senaryo inceleyin] (https://azure.microsoft.com/blog/microsoft-azure-block-blob-storage-backup/) blob depolama yedekleme.
+- [Örnek senaryo gözden](https://azure.microsoft.com/blog/microsoft-azure-block-blob-storage-backup) blob depolama yedekleme.
 - [Hakkında bilgi edinin](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) geçici silme.
 - [Gözden geçirme](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) bir Azure depolama kesinti oluşursa yapmanız gerekenler?
 
@@ -453,7 +440,7 @@ Azure işlevleri fazla veya az kod olarak yaptığından, onları kaynak denetim
 
 - [Veri koruma](https://docs.microsoft.com/azure/devops/articles/team-services-security-whitepaper?view=vsts) Azure DevOps için.
 
-## <a name="best-practice-set-up-a-disaster-recovery-strategy"></a>En iyi yöntem: olağanüstü durum kurtarma stratejinize ayarlayın
+## <a name="best-practice-set-up-disaster-recovery"></a>En iyi yöntem: olağanüstü durum kurtarmayı ayarlama 
 
 Verileri korumaya ek olarak, BCDR planlama uygulamaları ve iş yüklerini olağanüstü bir durum yaşandığında kullanılabilir durumda tutmak nasıl dikkate almanız gerekir. 
 
@@ -553,7 +540,7 @@ Azure bilgi işlem altyapısı başarısız olursa, bir Azure işlev uygulaması
 - [Hakkında bilgi edinin](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution) olağanüstü durum kurtarma ve coğrafi dağıtım, kalıcı Azure işlevleri için.
 
 
-### <a name="best-practice-use-managed-disks-and-availability-sets"></a>En iyi yöntem: yönetilen diskler ve kullanılabilirlik kümeleri kullanın
+## <a name="best-practice-use-managed-disks-and-availability-sets"></a>En iyi yöntem: yönetilen diskler ve kullanılabilirlik kümeleri kullanın
 
 Azure kullanılabilirlik kümeleri, mantıksal olarak Vm'leri gruplandırabilir ve diğer kaynaklardan kümesindeki Vm'leri ayrı tutmak için kullanır. Bir kullanılabilirlik kümesindeki VM'ler, yerel hatalarına karşı korumak için ayrı alt sistemler ile birden çok hata etki alanına yayılır ve böylece aynı anda bir kümedeki tüm Vm'leri yeniden başlatma da birden çok güncelleştirme etki alanlarına dağıtılır.
 
@@ -662,7 +649,7 @@ Belirli bir noktada, destek personeli veya Microsoft destek personeli ile işbir
 - [Genel bakışın](https://azure.microsoft.com/support/options/) Azure destek planları.
 - [Hakkında bilgi edinin](https://azure.microsoft.com/support/legal/sla/) hizmet düzeyi sözleşmeleri (SLA'lar).
 
-## <a name="best-practice---manage-updates"></a>En iyi yöntem - güncelleştirmeleri yönetme
+## <a name="best-practice-manage-updates"></a>En iyi yöntem: güncelleştirmelerini yönetme
 
 Azure Vm'leri tutma güncelleştirildi en son işletim sistemi ve yazılım güncelleştirmeleri olan çok büyük bir işi. Güncelleştirmeleri son derece değerli ihtiyaç duydukları hangi güncelleştirmeleri ve anında iletme otomatik olarak bulmak için tüm sanal makineler ortaya çıkarma yeteneğinin.
 

@@ -13,24 +13,24 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 7d0d4a34a31f15c23638eba1f14794838780f2b0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dd75d5a3186bbb6ba82e2deb83a7e8429e32a3f2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307169"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134532"
 ---
-#  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Uzak Masaüstü aracılığıyla Azure VM'ye bağlanmaya çalışırken bir iç hata oluşur. 
+#  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Uzak Masaüstü aracılığıyla Azure VM'ye bağlanmaya çalışırken bir iç hata oluşur.
 
 Bu makalede, Microsoft azure'da bir sanal makineye (VM) bağlanmaya çalışırken karşılaşabileceğiniz hata açıklanır.
-> [!NOTE] 
-> Azure, kaynak oluşturmak ve bu kaynaklarla çalışmak için iki dağıtım modeli kullanır: [Resource Manager ve klasik](../../azure-resource-manager/resource-manager-deployment-model.md). Bu makale, Klasik dağıtım modeli yerine yeni dağıtımlar için kullanmanızı öneririz Resource Manager dağıtım modelini kullanarak kapsar. 
+> [!NOTE]
+> Azure, kaynak oluşturmak ve bu kaynaklarla çalışmak için iki dağıtım modeli kullanır: [Resource Manager ve klasik](../../azure-resource-manager/resource-manager-deployment-model.md). Bu makale, Klasik dağıtım modeli yerine yeni dağıtımlar için kullanmanızı öneririz Resource Manager dağıtım modelini kullanarak kapsar.
 
-## <a name="symptoms"></a>Belirtiler 
+## <a name="symptoms"></a>Belirtiler
 
 Uzak Masaüstü Protokolü (RDP) kullanarak bir Azure VM'sine bağlanılamıyor. Connection "Uzak yapılandırma" bölümüne takılı ve aşağıdaki hata iletisini alıyorsunuz:
 
-- RDP iç hata 
+- RDP iç hata
 - Bir iç hata oluştu
 - Bu bilgisayar, uzak bilgisayara bağlı olamaz. Yeniden bağlanmayı deneyin. Sorun devam ederse, uzak bilgisayarda veya ağ yöneticiniz sahibine başvurun.
 
@@ -43,7 +43,7 @@ Bu sorun, aşağıdaki nedenlerle ortaya çıkabilir:
 - TLS protokolünü devre dışı bırakıldı.
 - Sertifika bozuk veya süresi doldu.
 
-## <a name="solution"></a>Çözüm 
+## <a name="solution"></a>Çözüm
 
 Bu adımları gerçekleştirmeden önce etkilenen makinenin işletim sistemi diskinin anlık yedekleyin. Daha fazla bilgi için [bir diskin anlık görüntüsünü alma](../windows/snapshot-copy-managed-disk.md).
 
@@ -52,7 +52,7 @@ Bu sorunu gidermek için seri konsolu veya [çevrimdışı VM'yi onarın](#repai
 
 ### <a name="use-serial-control"></a>Seri denetimini kullanma
 
-Bağlanma [seri konsol ve PowerShell örneği](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+Bağlanma [seri konsol ve PowerShell örneği](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Seri konsol sanal makinenizde etkin değilse, Git [çevrimdışı VM'yi onarın](#repair-the-vm-offline) bölümü.
 
 #### <a name="step-1-check-the-rdp-port"></a>Adım: 1 RDP bağlantı noktası kontrol edin.
@@ -63,35 +63,35 @@ Bağlanma [seri konsol ve PowerShell örneği](./serial-console-windows.md#open-
         Netstat -anob |more
 2. TermService.exe 8080 bağlantı noktası kullanıyorsa, 2. adıma gidin. Başka bir hizmet veya uygulama Termservice.exe dışında 8080 bağlantı noktası kullanıyorsa, aşağıdaki adımları izleyin:
 
-    A. 3389 hizmetini kullanan uygulama için hizmeti durdurun: 
+    1. 3389 hizmetini kullanan uygulama için hizmeti durdurun:
 
-        Stop-Service -Name <ServiceName>
+        Stop-Service - adı <ServiceName>
 
-    B. Terminal hizmetini başlatın: 
+    2. Terminal hizmetini başlatın:
 
-        Start-Service -Name Termservice
+        Start-Service - Termservice adı
 
 2. Uygulama durdurulamaz ya da bu yöntem için geçerli değilse, bağlantı noktası için RDP değiştirin:
 
-    A. Bağlantı noktasını değiştirin:
+    1. Bağlantı noktasını değiştirin:
 
-        Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
+        Set-Itemproperty-yolu 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP Tcp'-PortNumber ad-değer <Hexportnumber>
 
-        Stop-Service -Name Termservice Start-Service -Name Termservice
- 
-    B. Yeni bağlantı noktası için Güvenlik Duvarı'nı ayarlayın:
+        Stop-Service - ad Termservice Başlat-hizmeti-adı Termservice
 
-        Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
+    2. Yeni bağlantı noktası için Güvenlik Duvarı'nı ayarlayın:
 
-    C. [Yeni bağlantı noktası için ağ güvenlik grubu güncelleştirme](../../virtual-network/security-overview.md) Azure portal RDP bağlantı noktası.
+        Set-NetFirewallRule-"adı RemoteDesktop-kullanıcı modu-de-TCP" - LocalPort < yeni bağlantı noktası (ondalık) >
+
+    3. [Yeni bağlantı noktası için ağ güvenlik grubu güncelleştirme](../../virtual-network/security-overview.md) Azure portal RDP bağlantı noktası.
 
 #### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>2. adım: doğru izinleri RDP otomatik olarak imzalanan sertifikayı ayarlayın.
 
 1.  Bir PowerShell örneği, RDP otomatik olarak imzalanan sertifikayı yenilemek için aşağıdaki komutları tek tek çalıştırın:
 
-        Import-Module PKI Set-Location Cert:\LocalMachine $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) Remove-Item -Path $RdpCertThumbprint 
+        Import-Module PKI Set-Location Cert:\LocalMachine $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) Remove-Item -Path $RdpCertThumbprint
 
-        Stop-Service -Name "SessionEnv" 
+        Stop-Service -Name "SessionEnv"
 
         Start-Service -Name "SessionEnv"
 
@@ -101,24 +101,24 @@ Bağlanma [seri konsol ve PowerShell örneği](./serial-console-windows.md#open-
     2. Üzerinde **dosya** menüsünde **Ekle/Kaldır ek bileşenini**seçin **sertifikaları**ve ardından **Ekle**.
     3. Seçin **bilgisayar hesapları**seçin **başka bir bilgisayara**ve ardından sorun VM IP adresini ekleyin.
     4. Git **uzak Desktop\Certificates** klasör olan sertifikayı sağ tıklatın seçin ve sonra **Sil**.
-    5. Bir PowerShell örneği seri konsolundan uzak masaüstü yapılandırması hizmetini yeniden başlatın: 
+    5. Bir PowerShell örneği seri konsolundan uzak masaüstü yapılandırması hizmetini yeniden başlatın:
 
-            Stop-Service -Name "SessionEnv" 
+            Stop-Service -Name "SessionEnv"
 
             Start-Service -Name "SessionEnv"
 3. MachineKeys klasörü için izin sıfırlayın.
-    
-        remove-module psreadline icacls 
+
+        remove-module psreadline icacls
 
         md c:\temp
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r 
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)" 
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\NETWORK SERVICE:(R)" 
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\NETWORK SERVICE:(R)"
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)" 
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)"
 
         icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt Restart-Service TermService -Force
 
@@ -129,9 +129,9 @@ Bağlanma [seri konsol ve PowerShell örneği](./serial-console-windows.md#open-
 RDP istemcisi varsayılan protokol TLS 1.0 kullanır. Ancak, bu yeni bir standart haline gelmiştir TLS 1.1 olarak değiştirilebilir. VM'de TLS 1.1 devre dışı bırakılırsa, bağlantı başarısız olur.
 1.  CMD örneğinde, TLS protokolü etkinleştirin:
 
-        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f 
+        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
 
-        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f 
+        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
 
         reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
 2.  AD İlkesi değişikliklerin üzerine yazmasını engellemek için Grup İlkesi güncelleştirme geçici olarak durdurun:
@@ -201,23 +201,23 @@ Döküm günlük ve seri konsol etkinleştirmek için aşağıdaki betiği çal�
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt
 
-#### <a name="enable-all-supported-tls-versions"></a>Desteklenen tüm TLS sürümlerini etkinleştir 
+#### <a name="enable-all-supported-tls-versions"></a>Desteklenen tüm TLS sürümlerini etkinleştir
 
 1.  Yükseltilmiş bir komut istemi oturumu açın (**yönetici olarak çalıştır**) ve aşağıdaki komutları. Aşağıdaki betiği ekli işletim sistemi diskinin sürücü harfi atandığından emin varsayar F. Değiştir VM'niz için uygun değer ile bu sürücü harfi olduğu.
 2.  TLS etkin denetimi:
 
         reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f 
-        
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f 
-        
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f 
-        
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f 
-        
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f 
-        
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
+
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWO
 
 3.  Anahtar yok veya değeri **0**, aşağıdaki betik çalıştırarak protokolünü etkinleştirin:
@@ -238,22 +238,22 @@ Döküm günlük ve seri konsol etkinleştirmek için aşağıdaki betiği çal�
 
 4.  NLA etkinleştir:
 
-        REM Enable NLA 
+        REM Enable NLA
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f 
-    
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f 
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f 
-        
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f 
-        
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f 
-        
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f
+
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f reg unload HKLM\BROKENSYSTEM
 5.  [İşletim sistemi diskini ve VM yeniden](../windows/troubleshoot-recovery-disks-portal.md)ve sorunun çözülüp çözülmediğini denetleyin.
 
 
 
-    
- 
+
+

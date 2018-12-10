@@ -1,25 +1,19 @@
 ---
-title: ExpressRoute bağlantı hatlarını klasikten Resource Manager’a taşıma | Microsoft Belgeleri
-description: Bu sayfa, klasik ve Resource Manager dağıtım modelleri arasında köprü oluşturma hakkında bilmeniz gerekenlere genel bir bakış sağlar.
-documentationcenter: na
+title: "Bağlantı hatlarını Klasikten Resource Manager'a - ExpressRoute taşıma: Azure | Microsoft Docs"
+description: Klasik ve Resource Manager dağıtım modellerinde köprüleme genel bakış.
 services: expressroute
 author: ganesr
-manager: carmonm
-editor: ''
-ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/02/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: ganesr
-ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: dfa2bbc735a79555da0421f64ca644adbd7a1701
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22710074"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135925"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>ExpressRoute bağlantı hatlarını klasikten Resource Manager dağıtım modeline taşıma
 Bu makale, bir Azure ExpressRoute bağlantı hattını klasikten Azure Resource Manager dağıtım modeline taşmanın ne anlama geldiği hakkında genel bir bakış sağlar.
@@ -64,7 +58,7 @@ ExpressRoute bağlantı hattının **allowClassicOperations** parametresini ayar
 * Klasik sanal ağlara sanal ağ bağlantıları oluşturma/güncelleştirme/alma/silme
 * çapraz abonelik bağlantısı için sanal ağ bağlantı yetkilerini oluşturma/güncelleştirme/alma/silme
 
-**allowClassicOperations** parametresi TRUE olarak ayarlandığında şu klasik işlemleri gerçekleştiremezsiniz:
+Ancak, **allowClassicOperations** olan TRUE olarak ayarlanırsa, şu Klasik işlemleri gerçekleştiremezsiniz:
 
 * Azure özel, Azure genel ve Microsoft eşlemeleri için Sınır Ağ Geçidi Protokolü (BGP) eşlemeleri oluşturma/güncelleştirme/alma/silme
 * ExpressRoute bağlantı hatlarını silme

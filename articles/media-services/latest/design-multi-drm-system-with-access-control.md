@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services kullanarak cccess denetimi ile birden çok DRM bir içerik koruma sistemin tasarımını | Microsoft Docs
-description: Microsoft kesintisiz akış istemci taşıma Kiti lisans hakkında bilgi edinin.
+title: Uygulama erişimini denetimi - Azure Media Services ile birden çok DRM bir içerik koruma sistemin tasarımını | Microsoft Docs
+description: Microsoft kesintisiz akış istemci taşıma Kiti lisanslama hakkında bilgi edinin.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: willzhan
-ms.openlocfilehash: d65007ed2a0ce5a827eadca31dd9df8704e2c905
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.custom: seodec18
+ms.openlocfilehash: ec354cc91b22905c399d7bb19107db1b94e9925f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958202"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136282"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Erişim denetimi ile birden çok DRM içerik koruma sisteminin tasarımı 
 
@@ -401,15 +402,15 @@ Aşağıdaki ekran görüntüleri, farklı bir etki alanı hesapları tarafında
 
 **Özel Azure AD kiracısı etki alanı hesabı**: özelleştirilmiş oturum açma sayfasına özel Azure ad Kiracı etki alanı.
 
-![Özel Azure AD Kiracı etki alanı hesabı](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
+![Özel Azure AD Kiracı etki alanı hesabı bir](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
 
 **Akıllı kart Microsoft etki alanı hesabıyla**: Microsoft Kurumsal özelleştirilmiş oturum açma sayfasına iki öğeli kimlik doğrulaması ile BT.
 
-![Özel Azure AD Kiracı etki alanı hesabı](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
+![Özel Azure AD Kiracı etki alanı hesabı iki](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
 
 **Microsoft hesabı**: Tüketiciler için Microsoft hesabı'nın oturum açma sayfası.
 
-![Özel Azure AD Kiracı etki alanı hesabı](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
+![Özel Azure AD Kiracı etki alanı hesabı üç](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
 
 ### <a name="use-encrypted-media-extensions-for-playready"></a>İçin PlayReady şifreli medya uzantıları kullanma
 PlayReady desteği, Windows 8.1 veya sonraki sürümlerde Internet Explorer 11 ve Windows 10, Microsoft Edge tarayıcısı gibi modern tarayıcı şifreli medya Uzantıları (EME) ile PlayReady EME için temel alınan DRM açıktır.

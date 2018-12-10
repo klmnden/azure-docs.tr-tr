@@ -1,22 +1,22 @@
 ---
-title: Azure Cosmos DB ile Mongoose çerçevesini kullanma
-description: Node.js Mongoose uygulamasını Azure Cosmos DB’ye bağlama hakkında bilgi edinin
-services: cosmos-db
-author: slyons
+title: Bir Node.js Mongoose uygulamasını Azure Cosmos DB'ye bağlanma
+description: Azure Cosmos DB'de veri depolamak ve yönetmek için Mongoose çerçevesini kullanmayı öğrenin.
+author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 01/08/2018
-ms.author: sclyon
-ms.openlocfilehash: 6f84dfac7b556e59ec3ad76ff7d2c6e5f5105293
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.date: 12/06/2018
+ms.author: sngun
+ms.custom: seodec18
+ms.openlocfilehash: ec47c265c3d6f826bc1b7e7d8038e284c6981b7a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101441"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134939"
 ---
-# <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB: Azure Cosmos DB ile Mongoose çerçevesini kullanma
+# <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Bir Node.js Mongoose uygulamasını Azure Cosmos DB'ye bağlanma
 
 Bu öğreticide, veriler Azure Cosmos DB'de depolanırken [Mongoose Çerçevesi](https://mongoosejs.com/)'nin nasıl kullanılacağı gösterilir. Bu kılavuzda Azure Cosmos DB için MongoDB API'sini kullanıyoruz. Henüz tanımayanlar için, Mongoose MongoDB için Node.js'de bir nesne modelleme çerçevesidir ve uygulama verilerinizi modellemeniz için rahat, şema tabanlı bir çözüm sağlar.
 

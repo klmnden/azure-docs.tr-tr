@@ -1,5 +1,5 @@
 ---
-title: Bir şirket içi SQL Server'dan SQL Azure, Azure Data Factory ile veri Taşı | Microsoft Docs
+title: Azure Data Factory - Team Data Science Process ile SQL Server verileri için SQL Azure
 description: Bulutta ve şirket veritabanları arasında verileri günlük olarak birlikte taşımak iki veri taşıma etkinlikleri ölçeklemesini ADF işlem hattı ayarlayın.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: bddb54d9a00c5ec88fcebe498d7f959c0f8e3dbf
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 87aa1c30bb567c6820e2d9ecacfc3f8cd2338339
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447045"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137778"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure Data Factory ile SQL Azure için bir şirket içi SQL Server'dan veri taşıma
 
@@ -43,7 +43,7 @@ Zamanlama ve düzenli aralıklarla veri taşıma işlemlerini yönetmek basit JS
 * verileri Azure Blob Depolama hesabından bir Azure SQL veritabanı'na kopyalayın.
 
 > [!NOTE]
-> Burada olduğunu ADF ekibi tarafından sağlanan daha ayrıntılı öğreticiden uyarlanmış gösterilen adımlar: [şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma](../../data-factory/tutorial-hybrid-copy-portal.md) bu konusunun ilgili bölümlerine başvuruları uygun olduğunda sağlanır.
+> Burada olduğunu ADF ekibi tarafından sağlanan daha ayrıntılı öğreticiden uyarlanmış gösterilen adımlar: [veri kopyalama bir şirket içi SQL Server veritabanından Azure Blob depolama alanına](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal/) başvuruları, konusunun ilgili bölümlerine ne zaman sağlanır uygun.
 >
 >
 
@@ -68,15 +68,10 @@ Burada kendi veri kümesi için sağlanan yordamı uyarlamak veya NYC taksi veri
 ## <a name="create-adf"></a> Bir Azure veri fabrikası oluşturma
 Yeni bir Azure Data Factory ve bir kaynak grubu oluşturmak için yönergeleri [Azure portalında](https://portal.azure.com/) sağlanan [bir Azure veri fabrikası oluşturma](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Yeni ADF örnek adı *adfdsp* ve oluşturduğunuz kaynak grubunu adlandırın *adfdsprg*.
 
-## <a name="install-and-configure-up-the-data-management-gateway"></a>Yükleme ve veri yönetimi ağ geçidi yapılandırma
-Şirket içi SQL Server ile çalışmak için bir Azure data factory'de işlem hatlarınızı etkinleştirmek için bu veri fabrikasına bağlı hizmet olarak eklemeniz gerekir. Bir şirket içi SQL Server için bağlı hizmet oluşturmak için şunları yapmalısınız:
+## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Yükleme ve Azure Data Factory Integration Runtime'ı yapılandırma 
+Integration Runtime, Azure Data Factory tarafından farklı ağ ortamları veri tümleştirme özellikleri sağlamak için kullanılan bir müşteri yönetilen veri tümleştirme altyapısıdır. Bu çalışma zamanı, eski adıyla "Veri yönetimi ağ geçidi" olarak adlandırılıyordu. 
 
-* indirin ve Microsoft Veri Yönetimi ağ geçidi şirket içi bilgisayara yükleyin.
-* bağlı hizmet ağ geçidi kullanmak şirket içi veri kaynağı için yapılandırın.
-
-Veri Yönetimi ağ geçidi serileştirir ve burada barındırılan bilgisayar üzerinde kaynak ve havuz verilerini seri durumdan çıkarır.
-
-Kurulum yönergeleri ve veri yönetimi ağ geçidi hakkında ayrıntılı bilgi için bkz: [şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma](../../data-factory/tutorial-hybrid-copy-portal.md)
+Ayarlamak için [instrutions bir işlem hattı oluşturmak için izleyin](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
 ## <a name="adflinkedservices"></a>Veri kaynaklarına bağlanmak için bağlı hizmetler oluşturma
 Bağlı hizmet için bir veri kaynağına bağlanmak Azure Data Factory'ye gereken bilgileri tanımlar. Bağlı hizmetler için gerekli olan bu senaryoda üç kaynak sunuyoruz:

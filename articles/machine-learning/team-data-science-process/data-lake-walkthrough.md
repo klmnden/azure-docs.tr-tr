@@ -1,5 +1,5 @@
 ---
-title: 'Azure Data Lake ile ölçeklenebilir veri bilimi: uçtan uca kılavuz | Microsoft Docs'
+title: Azure Data Lake - Team Data Science Process'i ile ölçeklenebilir veri bilimi
 description: Bir veri kümesi üzerinde veri keşfi ve ikili sınıflandırma görevleri yapmak için Azure Data Lake kullanma
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 52518f8c9295f00b93dee0ea356513605450aed7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 8549a35eed0c1f61c087b9056e4564577170f5f6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443568"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141824"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake ile ölçeklenebilir veri bilimi: uçtan uca kılavuz
 Bu yönerge, Azure Data Lake veri keşfi ve NYC taksi seyahat örneği ikili sınıflandırma görevleri ve masrafları ipucu tarafından bir taksi Ücretli olup olmadığını tahmin etmek için veri kümesi için nasıl kullanılacağını gösterir. Bu adımlarında size kılavuzluk eder [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), uçtan uca, eğitim modeli için veri alma ve sonra model yayımlayan bir web hizmeti dağıtımı için.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 91bbbf6cced8dc3ade4906961d68a99f810d9fd9
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c27649bc92b9874c6a669911d2b86273cf7adf0f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956995"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136342"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Uygulama proxy'si uygulaması için çoklu oturum açma yapılandırma
 
@@ -29,7 +29,7 @@ ms.locfileid: "49956995"
 ## <a name="how-to-configure-single-sign-on"></a>Çoklu oturum yapılandırma
 SSO yapılandırmak için ilk uygulamanızı Azure Active Directory üzerinden ön kimlik doğrulaması için yapılandırılmış olduğundan emin olun. Bu yapılandırmayı gerçekleştirmek için Git **Azure Active Directory**  - &gt; **kurumsal uygulamalar**  - &gt; **tüm uygulamalar**   - &gt; Uygulamanızı  **- &gt; uygulama proxy'si**. Bu sayfada, "Ön kimlik doğrulaması" alanına bakın ve "Azure Active Directory için ayarlanmış olduğundan emin olun 
 
-Ön kimlik doğrulama yöntemleri hakkında daha fazla bilgi için bkz. 4. adımı [uygulama yayımlama belge](application-proxy-publish-azure-portal.md).
+Ön kimlik doğrulama yöntemleri hakkında daha fazla bilgi için bkz. 4. adımı [uygulama yayımlama belge](application-proxy-add-on-premises-application.md).
 
    ![Azure portalında ön kimlik doğrulama yöntemi](./media/application-proxy-config-sso-how-to/app-proxy.png)
 

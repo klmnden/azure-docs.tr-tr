@@ -13,12 +13,12 @@ ms.date: 09/06/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 55e262e1855eb6ab50c2d32e7e8cd4bb9175a593
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d382a71de34e6c1527d810b0576e518b9101cf7d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962563"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132763"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Uygulama Ara sunucusu ve Qlik Sense 
 Azure Active Directory Uygulama Ara sunucusu ve Qlik Sense kolayca Qlik Sense dağıtımınız için uzaktan erişim sağlamak için uygulama ara sunucusu kullanmanız mümkün olduğundan emin olmak için birlikte kurdu.  
@@ -27,13 +27,13 @@ Azure Active Directory Uygulama Ara sunucusu ve Qlik Sense kolayca Qlik Sense da
 Bu senaryonun kalanı aşağıdaki işlemleri olduğunu varsayar:
  
 - Yapılandırılmış [Qlik Sense](https://community.qlik.com/docs/DOC-19822). 
-- [Yüklü uygulama Proxy Bağlayıcısı](application-proxy-enable.md#install-and-register-a-connector) 
+- [Yüklü uygulama Proxy Bağlayıcısı](application-proxy-add-on-premises-application.md#install-and-register-a-connector) 
  
 ## <a name="publish-your-applications-in-azure"></a>Uygulamalarınızı Azure'da yayımlayın 
 QlikSense yayımlamak için Azure'da iki uygulama yayımlamak gerekir.  
 
 ### <a name="application-1"></a>Uygulama #1: 
-Uygulamanızı yayımlamak için aşağıdaki adımları izleyin. 1-8, bkz: adımlarının daha ayrıntılı için [Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-publish-azure-portal.md). 
+Uygulamanızı yayımlamak için aşağıdaki adımları izleyin. 1-8, bkz: adımlarının daha ayrıntılı için [Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-add-on-premises-application.md). 
 
 
 1. Azure portalına genel yönetici olarak oturum açın. 
@@ -63,6 +63,6 @@ Uygulama Ara sunucusu ile uygulama yayımlama Qlik Sense hakkında daha fazla bi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Uygulama Ara sunucusu ile uygulama yayımlama](application-proxy-publish-azure-portal.md)
+- [Uygulama Ara sunucusu ile uygulama yayımlama](application-proxy-add-on-premises-application.md)
 - [Uygulama Proxy bağlayıcıları ile çalışma](application-proxy-connector-groups.md)
 

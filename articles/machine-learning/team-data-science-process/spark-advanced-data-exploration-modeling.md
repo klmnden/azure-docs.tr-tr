@@ -1,5 +1,5 @@
 ---
-title: Gelişmiş Veri keşfi ve modelleme Spark ile | Microsoft Docs
+title: Spark - Team Data Science Process ile gelişmiş veri keşfi ve modelleme
 description: Veri araştırma yapın ve çapraz doğrulama ve hiper parametre iyileştirme kullanarak ikili sınıflandırma ve regresyon modellerini eğitmek için HDInsight Spark'ı kullanın.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: fe7d3fb9a88b97eddf0708b7a5b2eefd09111542
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 4aa7e8b45f3791212280226b396ed9eb0f86538c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843436"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135483"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Spark ile gelişmiş veri keşfi ve modelleme
 

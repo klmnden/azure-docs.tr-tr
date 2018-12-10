@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process görevler - Azure gibi tek bir katılımcı için | Microsoft Docs
+title: Team Data Science Process içinde tek bir katkıda bulunan görevleri
 description: Görev bir veri bilimi takım projesindeki tek bir katkıda bulunan bir ana hat.
 author: marktab
 manager: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: d8e51dcf8434508664801f53391592aab34d7e4a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 6684cc9a0166df9c6d230f6b2a8c05acec5f91b3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447070"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136770"
 ---
-# <a name="individual-contributor-tasks"></a>Bireysel katılımcı görevleri
+# <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Team Data Science Process içinde tek bir katkıda bulunan görevleri
 
 Bu konuda anahatları tek bir katkıda görevleri için veri bilimi ekip tamamlanması bekleniyor. Hedefi üzerinde standartlaştırır ekip işbirliği ortamı oluşturmaktır [Team Data Science Process](overview.md) (TDSP). Bu işlemi, standart personel rolleri ve veri bilimi ekibi tarafından işlenen ilişkilendirilen görevlerinin bir özetini görmek [Team Data Science Process rolleri ve görevleri](roles-tasks.md).
 

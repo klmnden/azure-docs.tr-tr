@@ -2,21 +2,20 @@
 title: İşlevleri için Azure Cosmos DB bağlamaları 1.x
 description: Azure Cosmos DB Tetikleyicileri ve bağlamaları Azure işlevleri'nde nasıl kullanılacağını anlayın.
 services: functions
-documentationcenter: na
 author: craigshoemaker
+ms.author: cshoe
 manager: jeconnoc
 keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem, sunucusuz mimari
 ms.service: azure-functions; cosmos-db
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
-ms.author: cshoe
-ms.openlocfilehash: 43020784e57f1555de1ddedab8fe7a657ecf09f3
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 2a501129720447462d1e6e961597b51fa683dc1e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001701"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136214"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure işlevleri için Azure Cosmos DB bağlamaları 1.x
 
@@ -895,7 +894,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 Bu bölüm aşağıdaki örnekleri içerir:
 
-* [Kuyruk tetikleyicisi, JSON Kimliğinden Ara](#queue-trigger-look-up-id-from-string-javascript)
+* [Kuyruk tetikleyicisi, JSON Kimliğinden Ara](#queue-trigger-look-up-id-from-json-javascript)
 * [HTTP tetikleyicisi, Sorgu dizesinden Kimliği Ara](#http-trigger-look-up-id-from-query-string-javascript)
 * [HTTP tetikleyicisi, rota verilerinden Kimliği Ara](#http-trigger-look-up-id-from-route-data-javascript)
 * [Tetikleyici kuyruk, SqlQuery kullanarak birden çok belgeleri edinin](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
@@ -1166,7 +1165,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**Adı**     || İşlevinde belgeyi temsil eden bağlama parametresinin adı.  |
 |**databaseName** |**databaseName** |Belge içeren veritabanı.        |
 |**collectionName** |**collectionName** | Belgeyi içeren koleksiyon adı. |
-|**Kimliği**    | **Kimlik** | Alınacak belgenin kimliği. Bu özelliği destekleyen [ifadeleri bağlama](functions-triggers-bindings.md#binding-expressions-and-patterns). Her ikisi de ayarlamamanız **kimliği** ve **sqlQuery** özellikleri. Tek ayarlamazsanız, tüm koleksiyon alınır. |
+|**id**    | **Kimlik** | Alınacak belgenin kimliği. Bu özelliği destekleyen [ifadeleri bağlama](functions-triggers-bindings.md#binding-expressions-and-patterns). Her ikisi de ayarlamamanız **kimliği** ve **sqlQuery** özellikleri. Tek ayarlamazsanız, tüm koleksiyon alınır. |
 |**sqlQuery**  |**SqlQuery**  | Birden çok belge almak için kullanılan bir Azure Cosmos DB SQL sorgusu. Bu örnekte olduğu gibi çalışma zamanı bağlamaları özelliği destekler: `SELECT * FROM c where c.departmentId = {departmentId}`. Her ikisi de ayarlamamanız **kimliği** ve **sqlQuery** özellikleri. Tek ayarlamazsanız, tüm koleksiyon alınır.|
 |**bağlantı**     |**connectionStringSetting**|Azure Cosmos DB bağlantı dizenizi içeren uygulama ayarının adı.        |
 |**partitionKey**|**partitionKey**|Arama için bölüm anahtarı değeri belirtir. Bağlama parametrelerinde içerebilir.|
@@ -1177,7 +1176,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 
 İçinde C# ve F# İşlevler, işlev giriş belgesi adlandırılmış giriş aracılığıyla yapılan tüm değişiklikler başarıyla çıktığında parametreleri otomatik olarak kalıcı olur. 
 
-JavaScript işlevleri'nde güncelleştirmeleri otomatik olarak işlevi çıkıştan sonra duruma getirilmez. Bunun yerine, `context.bindings.<documentName>In` ve `context.bindings.<documentName>Out` güncelleştirmeleri yapmak. Bkz: [JavaScript örnek](#input---javascript-example).
+JavaScript işlevleri'nde güncelleştirmeleri otomatik olarak işlevi çıkıştan sonra duruma getirilmez. Bunun yerine, `context.bindings.<documentName>In` ve `context.bindings.<documentName>Out` güncelleştirmeleri yapmak. Bkz: [JavaScript örnek](#input---javascript-examples).
 
 ## <a name="output"></a>Çıktı
 
@@ -1571,7 +1570,7 @@ Eklemek için bir `project.json` bkz [ F# paket Yönetimi](functions-reference-f
     }
 ```
 
-Tam bir örnek için bkz. [çıkış - C# örneği](#output---c-example).
+Tam bir örnek için bkz. [çıkış - C# örneği](#output---c-examples).
 
 ## <a name="output---configuration"></a>Çıkış - yapılandırma
 

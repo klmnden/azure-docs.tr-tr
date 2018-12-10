@@ -1,6 +1,6 @@
 ---
-title: Bulut tutarlılık için Azure Resource Manager şablonları | Microsoft Docs
-description: Bulut tutarlılık için Azure Resource Manager şablonları geliştirin. Yeni veya var olan şablonları Azure Stack için güncelleştirilemiyor.
+title: Farklı bulutlara - Azure Resource Manager şablonları yeniden
+description: Azure Resource Manager şablonları, farklı bulut ortamları için tutarlı çalışmasını geliştirin. Yeni veya var olan şablonları Azure Stack için güncelleştirilemiyor.
 services: azure-resource-manager
 documentationcenter: na
 author: marcvaneijk
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2018
+ms.date: 12/09/2018
 ms.author: mavane
-ms.openlocfilehash: fc1ca468545dc3a715fb11dbec459e14e60ade5b
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.custom: seodec18
+ms.openlocfilehash: 28542bb66fe1e523201967a9dd67fd7e41fed7a0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017782"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135636"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Azure Resource Manager şablon bulut tutarlılık için geliştirme
 

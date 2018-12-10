@@ -1,5 +1,5 @@
 ---
-title: Özellik Seçimi Team Data Science Process | Microsoft Docs
+title: Team Data Science Process içinde özellik seçimi
 description: Özellik Seçimi amacını açıklar ve makine öğrenimi veri geliştirme sürecinin içindeki rollerine örnekler sağlar.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b439f7245dd09a2f8a7ffe5f3b3c5396786220af
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: de8070906f7b2470378fb631f2e94a96b4a2960d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442390"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138662"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Team Data Science Process’te (TDSP) özellik seçimi
 Bu makalede, özellik seçimi amaçları açıklanır ve machine Learning veri geliştirme sürecinde rolü örnekleri sağlar. Bu örnekler, Azure Machine Learning Studio'dan çizilir. 
@@ -42,21 +42,21 @@ Diğerleriyle birlikte, denetlenen bir bağlamda özellik seçimi yöntemleri ya
 
 Azure Machine Learning Studio modülleri için özellik seçimi sağlanan vardır. Aşağıdaki resimde gösterildiği gibi bu modülleri dahil edildi [özellik seçimi süzgeç tabanlı] [ filter-based-feature-selection] ve [Fisher doğrusal Discriminant analiz] [ fisher-linear-discriminant-analysis].
 
-![Özellik Seçimi örneği](./media/select-features/feature-Selection.png)
+![Özellik Seçimi modülleri](./media/select-features/feature-Selection.png)
 
 Örneğin, kullanımını düşünün [özellik seçimi süzgeç tabanlı] [ filter-based-feature-selection] modülü. Kolaylık olması için metin madenciliği örneği kullanarak devam edin. 256 özellikler kümesi aracılığıyla oluşturulan sonra bir regresyon modeli derler istediğini varsayın [özellik karma] [ feature-hashing] modülü ve yanıt değişkeni "kitap gözden geçirme derecelendirme içeren Col1" olduğunu 1 ile 5 arasında olabilir. "Puanlama yöntemi özelliği" ayarlayarak "Pearson bağıntı", "hedef sütun" olacak "Col1" ve "sayısı istenen özellikleri" 50 olarak. Modül [özellik seçimi süzgeç tabanlı] [ filter-based-feature-selection] target özniteliği "Col1" ile birlikte 50 özellikleri içeren bir veri kümesi üretir. Aşağıdaki şekil bu deneme ve giriş parametrelerini akışı gösterilmektedir:
 
-![Özellik Seçimi örneği](./media/select-features/feature-Selection1.png)
+![Özellik seçimi temel modül özellikleri Filtrele](./media/select-features/feature-Selection1.png)
 
 Aşağıdaki şekil, oluşturulan veri kümelerini gösterir:
 
-![Özellik Seçimi örneği](./media/select-features/feature-Selection2.png)
+![Sonuç veri kümesini filtre temel özellik seçimi Modülü](./media/select-features/feature-Selection2.png)
 
 Her bir özellik kendisi ve hedef öznitelik "Col1" arasında Pearson bağıntı göre puanlanır. Üst puanları özelliklerle tutulur.
 
 Seçili özellikleri karşılık gelen puanları, aşağıdaki şekilde gösterilmiştir:
 
-![Özellik Seçimi örneği](./media/select-features/feature-Selection3.png)
+![Filtre temel özellik seçimi modülü için puanları](./media/select-features/feature-Selection3.png)
 
 Bu uygulama tarafından [özellik seçimi süzgeç tabanlı] [ filter-based-feature-selection] modülü, 50 tanesi özellikleri "Col1" hedef değişkeni en bağıntılı özelliklerle sahip oldukları seçili 256 dayalı Puanlama yöntemi "Pearson bağıntı".
 

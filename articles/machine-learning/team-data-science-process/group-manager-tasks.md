@@ -1,5 +1,5 @@
 ---
-title: Takım veri bilimi işlem grubu yöneticisi görevleri - Azure | Microsoft Docs
+title: Team Data Science Process grup yöneticisi görevleri
 description: Görev bir veri bilimi takım projesindeki bir grup yöneticisi için ana hat.
 author: marktab
 manager: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: ee10f17f76f7c3745cb32223c58b0d2d12f7d6b6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: d44b13bb087f171c3f0474cde73167481221274f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446356"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136591"
 ---
-# <a name="group-manager-tasks"></a>Grup yöneticisi görevleri
+# <a name="tasks-for-a-group-manager-on-a-data-science-team-project"></a>Görevler için veri bilimi takım projesi üzerinde Grup Yöneticisi
 
 Bu konuda anahatları grup yöneticisi beklenen görevleri tamamlamak için hist / veri bilimi organizasyonunda. Hedefi üzerinde standartlaştırır işbirliğine dayalı Grup ortamı oluşturmaktır [Team Data Science Process](overview.md) (TDSP). Bu işlemi, standart personel rolleri ve veri bilimi ekibi tarafından işlenen ilişkilendirilen görevlerinin bir özetini görmek [Team Data Science Process rolleri ve görevleri](roles-tasks.md).
 

@@ -1,5 +1,6 @@
 ---
-title: Otomatik makine öğrenimi deneme - Azure Machine Learning yapılandırın
+title: Otomatik makine öğrenimi denemelerini yapılandırın
+titleSuffix: Azure Machine Learning service
 description: Otomatik machine learning, sizin için bir algoritma seçer ve dağıtım için hazır bir model oluşturur. Otomatik makine öğrenimi denemelerini yapılandırmak için kullanabileceğiniz seçenekleri öğrenin.
 author: nacharya1
 ms.author: nilesha
@@ -9,14 +10,15 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: b2be09d69013cc8361f92cb0b6e3aa5fef3bcc02
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: e1dd0cf995d7d9c263e49735decc5573107b1add
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000316"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140175"
 ---
-# <a name="configure-your-automated-machine-learning-experiment"></a>Otomatik makine öğrenimi deneme yapılandırma
+# <a name="configure-automated-machine-learning-experiments"></a>Otomatik makine öğrenimi denemelerini yapılandırın
 
 Otomatik machine learning bir algoritmaya ve hiperparametreleri sizin için seçer ve dağıtım için hazır bir model oluşturur. Otomatik makine öğrenimi denemelerini yapılandırmak için kullanabileceğiniz birkaç seçenek vardır. Bu kılavuzda, çeşitli yapılandırma ayarlarını tanımlamayı öğrenin.
 
@@ -214,7 +216,7 @@ Bu tabloda parametre ayarlarını denemenizi ve varsayılan değerleri için kul
 `iterations` |En yüksek yineleme sayısı. Her yineleme, bir işlem hattı, sonuçları bir eğitim işini eşittir. İşlem hattı, verileri ön işleme ve modeli ' dir. 250 veya daha yüksek kaliteli modeli almak için kullanın    | 100
 `max_concurrent_iterations`|    En fazla paralel olarak çalıştırmak için yineleme sayısı. Bu ayar, yalnızca uzak işlem için çalışır.|   1
 `max_cores_per_iteration`   | Kaç tane çekirdeğim işlem hedef tek bir işlem hattını eğitmek için kullanılan gösterir. Birden çok çekirdek algoritması yararlanabilir, bu çok çekirdekli makine performansını artırır. Tüm çekirdekler üzerinde bir makineyi kullanmak için-1 ayarlayabilirsiniz.|  1
-`Iteration_timeout_minutes` |   Belirli bir yinelemeye geçen süreyi (dakika) miktarını sınırlar. Bir yineleme belirtilen miktarı aşarsa, bu yineleme iptal. Aksi durumda ayarlama, yineleme işlemi tamamlanana kadar çalışmaya devam edecektir. |   None
+`iteration_timeout_minutes` |   Belirli bir yinelemeye geçen süreyi (dakika) miktarını sınırlar. Bir yineleme belirtilen miktarı aşarsa, bu yineleme iptal. Aksi durumda ayarlama, yineleme işlemi tamamlanana kadar çalışmaya devam edecektir. |   None
 `n_cross_validations`   |Çapraz doğrulama bölmelerinin sayısı| None
 `validation_size`   |Tüm eğitim örnek bir yüzdesi olarak ayarlanmış doğrulama boyutu.|  None
 `preprocess` | True/False <br/>Giriş ön işleme gerçekleştirmek için doğru etkinleştirir deneyin. Aşağıdaki ön işleme'nın bir alt kümesidir<li>Veriler eksik: eksik veri sayısal ortalama, çoğu geçişi ile birlikte metin ile Imputes </li><li>Kategorik değerlere: veri türü sayısal ve benzersiz değerleri ise daha az yüzde 5'inden, sık erişimli bir kodlama içinde dönüştürür </li><li>Tam liste denetimi vb. [GitHub deposu](https://aka.ms/aml-notebooks)</li><br/>Not: veri seyrek ise kullanamazsınız önişle = true |  False | 

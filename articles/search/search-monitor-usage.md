@@ -1,6 +1,6 @@
 ---
-title: Kullanım ve Azure Search Hizmeti istatistiklerine izleme | Microsoft Docs
-description: Azure arama, Microsoft Azure üzerinde barındırılan bulut arama hizmeti için kaynak kullanım ve dizin boyutu izler.
+title: Kullanımı ve istatistikleri Azure Search Hizmeti izleme | Microsoft Docs
+description: Microsoft Azure üzerinde barındırılan bulut arama hizmeti olan Azure arama için kaynak tüketimi ve dizin boyutu izleyin.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
@@ -10,142 +10,144 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 286569eef8e17909ecab017b67b0ffc044a4bfe4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 274513c7e8ad1ca9ed0452f6237eec4ebb38e9cd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795118"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134871"
 ---
 # <a name="monitoring-an-azure-search-service"></a>Azure Search Hizmeti izleme
 
-Azure arama, kullanım ve arama hizmetleri performansını izleme için çeşitli kaynaklar sunar. Bu ölçümleri, günlükleri, dizin istatistikleri ve Power BI üzerinde genişletilmiş izleme yeteneklerini erişmenizi sağlar. Bu makalede, farklı izleme stratejileri etkinleştirme ve sonuç verileri yorumlama açıklanmaktadır.
+Azure arama, kullanım ve arama hizmetleri performansını izleme için çeşitli kaynaklar sunar. Ölçümler, günlükler, dizin istatistikleri ve Power bı'da genişletilmiş izleme özellikleri erişmenizi sağlar. Bu makalede, farklı izleme stratejileri etkinleştirme ve sonuçta elde edilen verileri nasıl yorumlayacağınız açıklanmaktadır.
 
-## <a name="azure-search-metrics"></a>Azure arama ölçütleri
-Ölçümleri arama hizmetinizi gerçek zamanlı görünürlük yakın verin ve hiçbir ek ayar ile her hizmet için kullanılabilir. Bunlar 30 güne kadar hizmetinizin performansını izlemenize olanak tanır.
+## <a name="azure-search-metrics"></a>Azure arama ölçümleri
+Ölçümler, neredeyse gerçek zamanlı görünürlük, arama hizmetinize vermek ve ek kurulum ile her hizmet için kullanılabilir. Bunlar en çok 30 gün için hizmetinizin performansını izlemenize olanak tanır.
 
-Azure arama için üç farklı ölçüm verilerini toplar:
+Azure Search'ü üç farklı ölçüm için veri toplar:
 
-* Arama gecikme süresi: dakika başına toplanan arama sorguları işlemek için gereken arama hizmeti saat.
-* Arama sorguları (QPS) saniyede: arama sayısını saniye başına alınan sorguları dakikada bir araya getirilir.
-* Daraltılmış arama sorguları yüzdesi: kısıtlanan arama sorguları yüzdesi dakikada bir araya getirilir.
+* Arama gecikme süresi: arama hizmeti arama sorguları, dakika başına toplanan işlemek için gereken süre.
+* Arama sorguları / saniye (QPS): arama sayısı, saniyede alınan sorguları dakika başına toplanır.
+* Kısıtlanmış arama sorguları yüzdesi: kısıtlanan arama sorguları yüzdesi dakika başına toplanır.
 
 ![Ekran görüntüsü, QPS etkinliği][1]
 
-### <a name="set-up-alerts"></a>Uyarıları ayarlayın
-Ölçüm ayrıntı sayfasından bir ölçüm tanımladığınız bir eşik kestiği zaman bir e-posta bildirimi veya otomatik bir eylemi tetikleyen üzere uyarılar yapılandırabilirsiniz.
+### <a name="set-up-alerts"></a>Uyarılar ayarlayın
+Ölçüm ayrıntıları sayfasından, bir ölçüm tanımladığınız eşiği aştığında da bir e-posta bildirimi veya otomatik bir eylemi tetiklemesine uyarıları yapılandırabilirsiniz.
 
-Ölçümler hakkında daha fazla bilgi için Azure monitörde tam belgelerine bakın.  
+Ölçümler hakkında daha fazla bilgi için Azure İzleyici üzerinde tam belgelere bakın.  
 
-## <a name="how-to-track-resource-usage"></a>Kaynak kullanımını izlemek nasıl
-Dizinler ve belge boyutu büyümesini izleme proaktif olarak hizmetiniz için belirlediğinize göre üst sınırı basarsa önce kapasite ayarlamanıza yardımcı olabilir. Portalı veya programlı olarak REST API kullanarak bunu yapabilirsiniz.
+## <a name="how-to-track-resource-usage"></a>Kaynak kullanımını izleme
+Dizin ve belge boyut büyümesi izleme proaktif olarak kapasite üst sınırı hizmetiniz için belirlediğiniz ulaşmaktan önce ayarlamanıza yardımcı olabilir. Portalı veya REST API'sini kullanarak program aracılığıyla bunu yapabilirsiniz.
 
 ### <a name="using-the-portal"></a>Portalı kullanma
 
-Kaynak kullanımını izlemek için sayıları ve hizmetinizi istatistiklerini görüntülemek [portal](https://portal.azure.com).
+Kaynak kullanımını izlemek için hizmetinizde için istatistikleri ve sayıları görüntülemek [portalı](https://portal.azure.com).
 
-1. Oturum [portal](https://portal.azure.com).
-2. Azure Search hizmetinizin hizmet panosunu açın. Hizmet için kutucukları giriş sayfasında bulunabilir veya Gözat harf Çubuğu'ndan hizmete göz atabilirsiniz.
+1. [Portalda](https://portal.azure.com) oturum açın.
+2. Azure Search hizmetinizin hizmet panosunu açın. Hizmet için kutucuklar giriş sayfasında bulunabilir veya atlama Gözat gelen hizmete göz atabilirsiniz.
 
-Hangi kullanılabilir kaynakları bölümündedir şu anda kullanımda söyleyen bir ölçer kullanım bölüm içerir. Dizinleri, belgeler ve depolama için başına hizmet sınırları hakkında daha fazla bilgi için bkz: [hizmet sınırları](search-limits-quotas-capacity.md).
+Kullanım bölümüne kullanılabilir kaynakları hangi kısmını şu anda kullanımda söyleyen bir ölçüm içerir. Dizin, belgeler ve depolama için hizmet başına sınırları hakkında daha fazla bilgi için bkz: [hizmet sınırları](search-limits-quotas-capacity.md).
 
-  ![Kullanımı kutucuğu][2]
+  ![Kullanım kutucuğu][2]
 
 > [!NOTE]
-> Yukarıdaki ekran görüntüsü, bir çoğaltma maksimum vardır ve her bölüm ve yalnızca konak 3 dizinleri, 10.000 belgeler veya veri 50 MB boş hizmeti için hangisi önce gelirse. Bir temel veya standart katmanını oluşturulan hizmetlerine çok daha büyük hizmet sınırları vardır. Bir katmanı seçme özelliği hakkında daha fazla bilgi için bkz: [bir katmanı SKU seçin veya](search-sku-tier.md).
+> Yalnızca konak 3 dizin, 10.000 belge veya veri 50 MB en fazla bir çoğaltma sahiptir ve her bölüm ücretsiz hizmet için yukarıdaki ekran görüntüsü olduğundan, hangisinin önce geldiğine bağlı. Bir temel veya standart katmanda oluşturulan Hizmetleri çok büyük hizmet sınırlara sahiptir. Bir katmanı seçme hakkında daha fazla bilgi için bkz. [katmanı veya SKU seçme](search-sku-tier.md).
 >
 >
 
-### <a name="using-the-rest-api"></a>REST API kullanarak
-Azure Search REST API'sini ve .NET SDK hizmeti ölçümleri programlı erişim sağlar.  Kullanıyorsanız [dizin oluşturucular](https://msdn.microsoft.com/library/azure/dn946891.aspx) Azure SQL veritabanı ya da Azure Cosmos DB dizin yüklemek için ek bir API ihtiyaç duyduğunuz numaraları almak kullanılabilir.
+### <a name="using-the-rest-api"></a>REST API’sini kullanma
+Azure Search REST API ve .NET SDK'sı hem hizmet ölçümlerini programlı erişim sağlar.  Kullanıyorsanız [dizin oluşturucular](https://msdn.microsoft.com/library/azure/dn946891.aspx) Azure SQL veritabanı veya Azure Cosmos DB dizin yüklemek için ek bir API gerektiren sayıları almak kullanılabilir.
 
-* [Dizin istatistikleri Al](/rest/api/searchservice/get-index-statistics)
-* [Count belgeleri](/rest/api/searchservice/count-documents)
+* [Dizin istatistiklerini alma](/rest/api/searchservice/get-index-statistics)
+* [Belge sayısı](/rest/api/searchservice/count-documents)
 * [Dizin Oluşturucu durumunu Al](/rest/api/searchservice/get-indexer-status)
 
 ## <a name="how-to-export-logs-and-metrics"></a>Günlükleri ve ölçümleri dışarı aktarma
 
-İşlem günlükleri hizmetiniz ve önceki bölümde açıklanan ölçümleri ham verileri dışarı aktarabilirsiniz. İşlemi, verileri bir depolama hesabına kopyalandığında hizmetinin nasıl kullanıldığını ve tüketilebilir Power BI'dan bildiğiniz let günlüğe kaydeder. Azure arama bu amaç için bir izleme Power BI içerik paketi sağlar.
+Hizmetiniz ve ham veri önceki bölümde açıklanan ölçümler için işlem günlükleri dışarı aktarabilirsiniz. İşlemi, verileri bir depolama hesabına kopyalanır hizmetinin nasıl kullanıldığını ve tüketilebilir Power BI'dan haberdar let günlüğe kaydeder. Azure arama, bu amaç için izleme ve Power BI içerik paketi sağlar.
 
 
 ### <a name="enabling-monitoring"></a>İzlemeyi etkinleştirme
-Azure Search Hizmeti [Azure portal](http://portal.azure.com) izlemesini etkinleştir seçeneği altında.
+Azure Search Hizmeti [Azure portalında](http://portal.azure.com) izlemeyi etkinleştir seçeneğinin altında.
 
-Dışarı aktarmak istediğiniz verileri seçin: günlükleri, ölçümleri veya her ikisi de. Bir depolama hesabına kopyalamak, olay hub'ına göndermek veya günlük analizi verebilirsiniz.
+Dışa aktarmak istediğiniz verileri seçin: günlükler, Ölçümler ve her ikisi de. Bir depolama hesabına kopyalayın, bir olay hub'ına gönderme veya Log Analytics'e giriş.
 
-![Portalda izlemeyi etkinleştirme][3]
+![Portalda izleme olanağı tanıma][3]
 
 PowerShell veya Azure CLI kullanarak etkinleştirmek için belgelere bakın [burada](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
 
 ### <a name="logs-and-metrics-schemas"></a>Günlükleri ve ölçümleri şemaları
-Bir depolama hesabına veriler kopyalandığında, verileri JSON ve onun yerine iki kapsayıcı olarak biçimlendirilir:
+Verileri bir depolama hesabına kopyalanır, verileri JSON ya da onun yerinde iki kapsayıcı olarak biçimlendirilir:
 
-* Öngörüler günlükleri operationlogs: arama trafiği günlükleri
-* Öngörüler ölçümleri pt1m: ölçümler için
+* ınsights günlükleri operationlogs: arama trafiği günlükleri
+* ınsights ölçümleri pt1m: ölçümler için
 
-Kapsayıcı başına saat başına bir blob yok.
+Kapsayıcı başına saatlik bir blob yok.
 
-Örnek yolu: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
+Örnek yol: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
 
 #### <a name="log-schema"></a>Günlüğü şeması
-Günlükleri BLOB'ları arama hizmeti trafik günlüklerinizi içerir.
-Her bir blob olarak adlandırılan bir kök nesnesi vardır **kayıtları** günlük nesnelerinin bir dizisi içerir.
-Her bir blob kayıtları aynı saat boyunca gerçekleşen tüm işlemi üzerinde sahiptir.
+Günlükleri BLOB'ları, arama hizmeti trafik günlüklerinizin içerir.
+Her blob olarak adlandırılan bir kök nesnesinin sahip **kayıtları** günlük nesnelerinin bir dizisi içeren.
+Her blob kayıtlar üzerinde aynı saat boyunca gerçekleşen tüm işlem vardır.
 
 | Ad | Tür | Örnek | Notlar |
 | --- | --- | --- | --- |
 | time |datetime |"2015-12-07T00:00:43.6872559Z" |İşlemin zaman damgası |
-| resourceId |string |"/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>VARSAYILAN/RESOURCEGROUPS/SAĞLAYICILARI /<br/> MICROSOFT. ARAMA/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
-| operationName |string |"Query.Search" |İşlem adı |
-| operationVersion |string |"2015-02-28" |Kullanılan API sürümü |
-| category |string |"OperationLogs" |sabiti |
-| resultType |string |"Başarılı" |Olası değerler: başarı veya başarısızlık |
-| resultSignature |Int |200 |HTTP Sonuç kodu |
-| durationMS |Int |50 |Milisaniye cinsinden işlem süresi |
-| properties |object |aşağıdaki tabloya bakın |İşlemi özgü verileri içeren nesnesi |
+| resourceId |dize |"/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>VARSAYILAN/RESOURCEGROUPS/SAĞLAYICILARI /<br/> MICROSOFT. ARAMA/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
+| operationName |dize |"Query.Search" |İşlem adı |
+| operationVersion |dize |"2015-02-28" |Kullanılan api-version |
+| category |dize |"OperationLogs" |Sabit |
+| resultType |dize |"Başarılı" |Olası değerler: başarı veya başarısızlık |
+| resultSignature |int |200 |HTTP Sonuç kodu |
+| süre (MS) |int |50 |Milisaniye cinsinden işlem süresi |
+| properties |object |aşağıdaki tabloya bakın |İşlem özgü verileri içeren nesne. |
 
 **Özellik şeması**
+
 | Ad | Tür | Örnek | Notlar |
 | --- | --- | --- | --- |
-| Açıklama |string |"/İndexes('content')/docs Al" |İşlem uç noktası |
-| Sorgu |string |"? arama = AzureSearch & $count = true & api-version = 2015-02-28" |Sorgu parametreleri |
-| Belgeler |Int |42 |İşlenen belge sayısı |
-| indexName |string |"testindex" |İşlemle ilişkili dizinin adı |
+| Açıklama |dize |"/İndexes('content')/docs Al" |İşlemin bitiş noktası |
+| Sorgu |dize |"? arama = Azure Search & $count = true & API-version = 2015-02-28" |Sorgu parametreleri |
+| Belgeler |int |42 |İşlenen belge sayısı |
+| indexName |dize |"testindex" |İşlemle ilişkili dizinin adı |
 
-#### <a name="metrics-schema"></a>Ölçümleri şeması
+#### <a name="metrics-schema"></a>Ölçüm şeması
+
 | Ad | Tür | Örnek | Notlar |
 | --- | --- | --- | --- |
-| resourceId |string |"/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>VARSAYILAN/RESOURCEGROUPS/SAĞLAYICILARI /<br/>MICROSOFT. ARAMA/SEARCHSERVICES/SEARCHSERVICE" |Kaynak Kimliği |
-| metricName |string |"Gecikme" |Ölçüm adı |
-| time |datetime |"2015-12-07T00:00:43.6872559Z" |işlem zaman damgası |
-| ortalama |Int |64 |Ortalama değer ölçüm zaman aralığında ham örnekleri |
-| en az |Int |37 |En düşük değer ölçüm zaman aralığında ham örnekleri |
-| en fazla |Int |78 |En büyük değer ölçüm zaman aralığında ham örnekleri |
-| toplam |Int |258 |Toplam değer ölçüm zaman aralığında ham örnekleri |
-| sayı |Int |4 |Ölçüm oluşturmak için kullanılan ham örnek sayısı |
-| timegrain |string |"PT1M" |ISO 8601 ölçümün zaman birimi |
+| resourceId |dize |"/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>VARSAYILAN/RESOURCEGROUPS/SAĞLAYICILARI /<br/>MICROSOFT. ARAMA/SEARCHSERVICES/SEARCHSERVICE" |Kaynak Kimliği |
+| MetricName |dize |"Gecikme süresi" |Ölçüm adı |
+| time |datetime |"2015-12-07T00:00:43.6872559Z" |işlemin zaman damgası |
+| ortalama |int |64 |Ham örnekleri ölçüm zaman aralığındaki ortalama değeri |
+| en az |int |37 |En düşük değer ölçüm zaman aralığında ham örnekleri |
+| en fazla |int |78 |Ölçüm zaman aralığında ham örnekleri en yüksek değeri |
+| toplam |int |258 |Toplam değer ölçüm zaman aralığında ham örnekleri |
+| count |int |4 |Ölçü oluşturmak için kullanılan ham örnek sayısı |
+| timegrain |dize |"PT1M" |ISO 8601 ölçümü, zaman dilimi |
 
-Tüm ölçümlerini bir dakikalık aralıklarla raporlanır. Her ölçüm dakikada en az, en fazla ve ortalama değerleri gösterir.
+Tüm ölçümler, bir dakikalık aralıklar olarak raporlanır. Her ölçüm, dakika başına en düşük, en yüksek ve ortalama değerleri gösterir.
 
-SearchQueriesPerSecond için en az bu dakikada kaydedildiği saniye başına arama sorguları için en düşük değer ölçümüdür. Aynı en büyük değeri için de geçerlidir. Toplama tüm üzerinde ortalama, dakikadır.
-Bir dakika sırasında bu senaryoyu düşünün: yüksek bir saniye yüklenemedi diğer bir deyişle maksimum 58 saniyelik ortalama yük tarafından izlenen SearchQueriesPerSecond için ve son olarak yalnızca bir sorgu ile bir saniye olan en düşük gereksinimdir.
+SearchQueriesPerSecond ölçüm için en az bu dakikasındaki kaydedildiği saniye başına arama sorguları için en düşük değeridir. Aynı en yüksek değeri için geçerlidir. Toplama tamamı ortalama, dakikadır.
+Bir dakika boyunca bu senaryoyu düşünün: yüksek bir saniye yüklemek diğer bir deyişle en fazla SearchQueriesPerSecond 58 saniyelik ortalama yük tarafından izlenen için ve son olarak yalnızca bir sorgu ile bir saniye olan en düşük gereksinimdir.
 
-ThrottledSearchQueriesPercentage için minimum, maksimum, ortalama ve toplam, tümü aynı değere sahip:, arama sorguları bir dakikada toplam sayısı kısıtlanan arama sorguları yüzdesi.
+ThrottledSearchQueriesPercentage için minimum, maksimum, ortalama ve toplam, tümü aynı değere sahip:, arama sorguları bir dakika boyunca toplam sayısı azaltıldı arama sorguları yüzdesi.
 
 ## <a name="analyzing-your-data-with-power-bi"></a>Power BI ile verilerinizi analiz etme
 
-Kullanmanızı öneririz [Power BI](https://powerbi.microsoft.com) keşfetmek ve verilerinizi görselleştirmek için. Kolayca Azure depolama hesabınıza bağlanın ve hızlı bir şekilde verilerinizi çözümlemeye başlayın.
+Kullanmanızı öneririz [Power BI](https://powerbi.microsoft.com) verilerinizi görselleştirin ve keşfedin. Bu kolayca Azure depolama hesabınıza bağlayın ve hızlı bir şekilde verilerinizi analiz etmeye başlayabilirsiniz.
 
-Azure arama sağlayan bir [Power BI içerik paketi](https://app.powerbi.com/getdata/services/azure-search) izlemek ve önceden tanımlanmış grafikler ve tablolar ile arama trafiğinizi anlamanıza olanak sağlar. Otomatik olarak verilerinize bağlanın ve arama hizmetinizi hakkında visual bilgiler Power BI raporları kümesi içerir. Daha fazla bilgi için bkz: [içerik paketi Yardım sayfası](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/).
+Azure arama sağlayan bir [Power BI içerik paketi](https://app.powerbi.com/getdata/services/azure-search) izlemek ve önceden tanımlanmış grafikleri ve tabloları ile arama trafiğiniz anlamanıza olanak tanır. Bu, otomatik olarak verilerinize bağlanmak ve arama hizmetiniz ilgili görsel Öngörüler sağlayın Power BI rapor kümesini içerir. Daha fazla bilgi için [içerik paketi yardım sayfasına](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/).
 
-![Azure arama için Power BI Panosu][4]
+![Azure Search için Power BI Panosu][4]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Gözden geçirme [ölçeklendirme çoğaltmaları ve bölümleri](search-limits-quotas-capacity.md) bölümler ve çoğaltmalar var olan bir hizmet için dengelemeye yönelik yönergeler için.
+Gözden geçirme [ölçeklendirme çoğaltmalar ve bölümler](search-limits-quotas-capacity.md) bölümleri ve çoğaltmalarını mevcut bir hizmet ayrılması dengelemeye yönelik yönergeler için.
 
-Ziyaret [Microsoft azure'da Search hizmetinizi yönetme](search-manage.md) Hizmeti Yönetimi hakkında daha fazla bilgi için veya [performans ve en iyi duruma getirme](search-performance-optimization.md) Kılavuzu ayarlama.
+Ziyaret [Microsoft azure'da arama hizmetinizi yönetin](search-manage.md) hizmet yönetimi hakkında daha fazla bilgi veya [performans ve iyileştirme](search-performance-optimization.md) ayarlama kılavuzu için.
 
-Harika raporları oluşturma hakkında daha fazla bilgi edinin. Bkz: [Power BI Desktop ile çalışmaya başlama](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/) Ayrıntılar için
+Muhteşem raporlar oluşturma hakkında daha fazla bilgi edinin. Bkz: [Power BI Desktop ile çalışmaya başlama](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/) için Ayrıntılar
 
 <!--Image references-->
 [1]: ./media/search-monitor-usage/AzSearch-Monitor-BarChart.PNG

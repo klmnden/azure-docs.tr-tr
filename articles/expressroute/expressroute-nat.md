@@ -1,25 +1,18 @@
 ---
-title: ExpressRoute devreleri için NAT gereksinimleri | Microsoft Azure
+title: 'Devreleri - ExpressRoute için NAT gereksinimleri: Azure | Microsoft Docs'
 description: Bu sayfada, ExpressRoute bağlantı hatları için NAT’yi yapılandırma ve yönetmeye yönelik ayrıntılı gereksinimler sağlanmıştır.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
-ms.assetid: 867bf936-c851-485f-84c8-d8d6e33fee9f
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/12/2017
+ms.topic: conceptual
+ms.date: 12/08/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2a9903b0e3c04a7098f7a8e529801483b10af142
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
-ms.translationtype: HT
+ms.openlocfilehash: 4febd1538e16b840bcd89116ac63531105222cce
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23409274"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134157"
 ---
 # <a name="expressroute-nat-requirements"></a>ExpressRoute NAT gereksinimleri
 ExpressRoute kullanarak Microsoft bulut hizmetlerine bağlanmak için, NAT’leri ayarlamanız ve yönetmeniz gerekir. Bazı bağlantı sağlayıcıları NAT ayarlama ve yönetimini yönetilen bir hizmet olarak sunar. Bu tür bir hizmet sunulup sunulmadığını öğrenmek için bağlantı sağlayıcınıza başvurun. Aksi durumda, aşağıda açıklanan gereksinimlere uymalısınız. 

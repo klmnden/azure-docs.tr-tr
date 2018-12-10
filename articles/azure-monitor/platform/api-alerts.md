@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 63346068529591d4d396b0590db96a73782181e9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0176cc5688f7210d5e444b094b360bb1e7df1e7c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838863"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136435"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Oluşturma ve REST API ile Log analytics'teki uyarı kurallarını yönet
 Log Analytics uyarı REST API oluşturma ve Log analytics'teki uyarılar yönetmenize olanak sağlar.  Bu makalede, farklı işlemler gerçekleştirmek için API ve birkaç örnek ayrıntılarını sağlar.
@@ -140,7 +140,7 @@ Bir ve yalnızca bir uyarı eylemi bir zamanlamaya sahip olmalıdır.  Uyarı ey
 | Severity |Uyarı tetiklendiğinde sınıflandırmak için kullanılan etiketi belirtin.| Her uyarı için önce veya sonra Azure'a genişletilmiş olan gereklidir. |
 | Gizle |Uyarı bildirimleri durdurmak için seçenek. | Her uyarı için isteğe bağlı önce veya sonra Azure'a genişletildi. |
 | Eylem Grupları |Azure burada gerekli Eylemler belirtilmiştir, e-postalar, SMSs, sesli aramalar, Web kancaları, Otomasyon runbook'ları, ITSM bağlayıcılar, vb. gibi - ActionGroup kimlikleri.| Uyarılar Azure'a genişletilmiş olan sonra gerekli|
-| Eylemleri özelleştirin|ActionGroup select eylemler için standart çıktı değiştirme| Her uyarı için isteğe bağlı kullanılabilir sonra uyarılar Azure'a genişletilir. |
+| Eylemleri Özelleştirin|ActionGroup select eylemler için standart çıktı değiştirme| Her uyarı için isteğe bağlı kullanılabilir sonra uyarılar Azure'a genişletilir. |
 | EmailNotification |Birden çok alıcıya e-posta gönderin. | Uyarılar Azure'a uzatıldıysa, gerekli değildir|
 | Düzeltme |Tanımlanan sorunu düzeltme girişiminde bulunmak üzere Azure Otomasyonu'ndaki bir runbook'u başlatın. |Uyarılar Azure'a uzatıldıysa, gerekli değildir|
 | Web kancası eylemleri | JSON olarak istenen hizmetine gelen uyarılar, veri gönderme |Uyarılar Azure'a uzatıldıysa, gerekli değildir|
@@ -148,7 +148,7 @@ Bir ve yalnızca bir uyarı eylemi bir zamanlamaya sahip olmalıdır.  Uyarı ey
 > [!NOTE]
 > 14 Mayıs 2018 tarihinden itibaren bir Log Analytics çalışma alanının Azure genel bulutunda örnekteki tüm uyarıları otomatik olarak Azure'a genişletilir. Bir kullanıcı, gönüllü olarak azure'a genişletme uyarılar 14 Mayıs 2018'den önce başlatabilirsiniz. Daha fazla bilgi için [Log analytics'ten azure'a genişletme uyarılar](../../monitoring-and-diagnostics/monitoring-alerts-extend.md).
 
-#### <a name="thresholds"></a>Eşikleri
+#### <a name="thresholds"></a>Eşikler
 Bir uyarı eylemi, yalnızca tek bir eşik değeri olması gerekir.  Kayıtlı arama sonuçlarını bu arama ile ilişkili bir eylem Eşikte eşleştiğinde, ardından bu eylemi diğer tüm işlemler çalıştırılır.  Böylece eşikleri içermeyen diğer tür Eylemler ile kullanılabilmesi için bir eylem yalnızca bir eşiği de içerebilir.
 
 Eşikleri aşağıdaki tabloda özelliklere sahiptir.
@@ -188,9 +188,9 @@ Log Analytics, daha kolay yönetim ve Önceliklendirme izin vermek için kategor
 
 |Log Analytics önem düzeyi  |Azure Uyarıları önem düzeyi  |
 |---------|---------|
-|Kritik |Önem derecesi 0|
-|uyarı |Önem derecesi 1|
-|Bilgilendirme | Önem derecesi 2|
+|kritik |Önem Derecesi 0|
+|uyarı |Önem Derecesi 1|
+|Bilgilendirme | Önem Derecesi 2|
 
 Örnek yanıt yalnızca eşiğini ve önem derecesine sahip bir eylem için aşağıda verilmiştir. 
 
@@ -281,7 +281,7 @@ Put yöntemi ile var olan bir eylem kimliği için bir zamanlama ilişkili bir e
     $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']} }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
-#### <a name="customize-actions"></a>Eylemleri özelleştirin
+#### <a name="customize-actions"></a>Eylemleri Özelleştirin
 Varsayılan eylemler tarafından standart şablon ve bildirimler için biçim izleyin. Ancak Eylem grupları tarafından kontrol edilir olsa bile, kullanıcı bazı eylemler özelleştirebilirsiniz. Şu anda, e-posta konusu ve Web kancası yükü özelleştirme mümkündür.
 
 ##### <a name="customize-e-mail-subject-for-action-group"></a>Eylem grubu için e-posta konusu özelleştirme
@@ -447,11 +447,12 @@ Yeni bir e-posta Uyarı oluşturmak için tam bir örnek aşağıda verilmiştir
     $scheduleId     = "MySchedule"
     $thresholdId    = "MyThreshold"
     $actionId       = "MyEmailAction"
-
+    
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
     armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/?api-version=2015-03-20 $scheduleJson
-
-    $emailJson = "{'Özellikler': {'Name': 'MyEmailAction', 'Sürüm': '1', 'önem': 'Type 'Uyarı',': 'Uyarı', 'Eşik': {'Operator': 'gt', 'Value': 10}, 'EmailNotification': {'Alıcılar': ['recipient1@contoso.com','recipient2@contoso.com'], 'Konu':' Bu konu, ', 'Eki': 'None'}} "armclient /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/ yerleştirin Eylemler / $ActionId /? api sürümü 2015-03-20 $emailJson =
+    
+    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
+    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
 
 #### <a name="webhook-actions"></a>Web kancası eylemleri
 Web kancası eylemleri, bir URL çağırma ve isteğe bağlı olarak gönderilmesi için bir yük sağlayarak bir işlem başlar.  Azure Otomasyonu runbook'ları dışındaki işlemler çağırabilir Web kancaları için yöneliktir dışında düzeltme eylemlerinde benzerdir.  İçin uzak işlem teslim edilecek bir yükü sağlama ek seçeneği de sağlanır.

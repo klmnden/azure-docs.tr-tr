@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs için programlama kılavuzu | Microsoft Belgeleri
-description: Azure .NET SDK kullanarak Azure Event Hubs için kod yazın.
+title: Programlama Kılavuzu - Azure Event Hubs | Microsoft Docs
+description: Bu makalede kod yazmak için nasıl Azure Event Hubs için Azure .NET SDK'sı kullanarak bilgi sağlanır.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: cd97aed36e9fd82df0d37913d5ea9e57c875a673
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 3aa5a1c640cc46d677a66f5179f9f07a81e62b15
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011462"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138084"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Azure Event hubs Programlama Kılavuzu
 Bu makalede, Azure Event Hubs'ı kullanarak kod yazma bazı yaygın senaryolar açıklanmaktadır. Burada Event Hubs’ın önceden bilindiği varsayılır. Event Hubs’a kavramsal genel bakış için bkz. [Event Hubs’a genel bakış](event-hubs-what-is-event-hubs.md).
@@ -76,7 +76,7 @@ Olay verileri gönderilirken bir bölüm ataması oluşturmak üzere karma hale 
 
 ### <a name="availability-considerations"></a>Kullanılabilirlik konusunda dikkat edilmesi gerekenler
 
-İsteğe bağlı bir bölüm anahtarının kullanılması ve dikkatli bir şekilde bir kullanılıp kullanılmayacağı düşünmelisiniz. Olay sıralama önemlidir, çoğu durumda, bir bölüm anahtarının kullanılması iyi bir seçimdir. Bir bölüm anahtarı kullandığınızda, tek bir düğümde kullanılabilirlik bu bölümler gerektirir ve zaman içinde kesintiler; Örneğin, düğümlerin yeniden başlatılması ve düzeltme zaman işlem. Bu nedenle, bölüm kimliği ayarlayın ve bu bölümü herhangi bir nedenle kullanılamıyorsa, bu bölümdeki veriler erişme denemesi başarısız olur. Yüksek kullanılabilirlik en önemli ise, bir bölüm anahtarı belirtmeyin; Bu durumda olayları daha önce açıklanan hepsini bir kez deneme model kullanılarak bölümlere gönderilir. Bu senaryoda, kullanılabilirlik (bölüm kimliği) ve tutarlılık (bölüm kimliği olayları sabitleme) arasında açık bir seçim hale getiriyoruz.
+İsteğe bağlı bir bölüm anahtarının kullanılması ve dikkatli bir şekilde bir kullanılıp kullanılmayacağı düşünmelisiniz. Bir olayı yayımlarken bölüm anahtarı belirtmezseniz hepsini bir kez deneme ataması kullanılır. Olay sıralama önemlidir, çoğu durumda, bir bölüm anahtarının kullanılması iyi bir seçimdir. Bir bölüm anahtarı kullandığınızda, tek bir düğümde kullanılabilirlik bu bölümler gerektirir ve zaman içinde kesintiler; Örneğin, düğümlerin yeniden başlatılması ve düzeltme zaman işlem. Bu nedenle, bölüm kimliği ayarlayın ve bu bölümü herhangi bir nedenle kullanılamıyorsa, bu bölümdeki veriler erişme denemesi başarısız olur. Yüksek kullanılabilirlik en önemli ise, bir bölüm anahtarı belirtmeyin; Bu durumda olayları daha önce açıklanan hepsini bir kez deneme model kullanılarak bölümlere gönderilir. Bu senaryoda, kullanılabilirlik (bölüm kimliği) ve tutarlılık (bölüm kimliği olayları sabitleme) arasında açık bir seçim hale getiriyoruz.
 
 Diğer bir durum olayları işlenmesinde gecikmelere işleyen. Bazı durumlarda, veri ve potansiyel olarak daha da aşağı akış işleme gecikmelere neden olabilir işlemeyle tutmaya çalışın daha yeniden deneme daha iyi olabilir. Örneğin, bir bandı tam değilse, tüm güncel verilere, ancak canlı sohbet ya da verileri hızlı bir şekilde yerine gerekir VoIP senaryo bekleyin daha iyi olur.
 

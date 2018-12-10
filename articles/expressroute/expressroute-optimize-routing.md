@@ -1,25 +1,19 @@
 ---
-title: 'ExpressRoute yönlendirmesini en iyi duruma getirme: Azure | Microsoft Docs'
+title: 'Yönlendirme - en iyi duruma getirme ExpressRoute bağlantı hatları: Azure | Microsoft Docs'
 description: Bu sayfa, Microsoft ve şirket ağınız arasında bağlanan birden fazla ExpressRoute devresine sahip olduğunda yönlendirmenin nasıl iyileştirileceği hakkında ayrıntılı bilgi sağlar.
-documentationcenter: na
 services: expressroute
 author: charwen
-manager: carmonm
-editor: ''
-ms.assetid: fca53249-d9c3-4cff-8916-f8749386a4dd
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/06/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: charwen
-ms.openlocfilehash: c3a85b9445d69330c3f6c7d298169efddb6ecca0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 65c23b05cfcb623f8e2870df813f5516b3039d5c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22710006"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140940"
 ---
 # <a name="optimize-expressroute-routing"></a>ExpressRoute Yönlendirmeyi En iyi Duruma Getirme
 Birden çok ExpressRoute bağlantı hattına sahip olduğunuzda, Microsoft'a bağlanmak için birden fazla yolunuz vardır. Sonuç olarak, yetersiz yönlendirme olabilir, diğer bir deyişle, trafiğinizin Microsoft’a ulaşması ve Microsoft’un ağınıza ulaşması daha uzun bir yol alabilir. Ne kadar uzun ağ yolu, o kadar yüksek gecikme. Gecikmenin uygulama performansı ve kullanıcı deneyimi üzerinde doğrudan etkisi vardır. Bu makale, bu sorunu gösterir ve standart yönlendirme teknolojilerini kullanarak yönlendirmenin nasıl iyileştirileceğini açıklar.

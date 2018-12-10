@@ -1,6 +1,6 @@
 ---
-title: Görevler - Azure veri bilimi proje işlem neden takım | Microsoft Docs
-description: Veri bilimi takım projesi üzerinde bir proje lideri için görevleri bir özetini.
+title: Team Data Science Process içinde proje için görevleri sağlama
+description: Anahat bir proje sağlama görevlerin bir veri bilimi takım projesi üzerinde tamamlanması bekleniyor.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 0b5129c4642a0c4381591f751bc4d5a51990b256
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 39e8c5b8dab33ba95b34c4edb9d0a994bc8ec6dc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442906"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135173"
 ---
-# <a name="project-lead-tasks"></a>Proje lideri görevleri
+# <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Team Data Science Process içinde proje için görevleri sağlama
 
 Bu öğretici anahatlarını proje lideri olan görevleri onun proje ekibi için tamamlanması bekleniyor. Hedefi üzerinde standartlaştırır ekip işbirliği ortamı oluşturmaktır [Team Data Science Process](overview.md) (TDSP). TDSP, etkinlikleri, bulut tabanlı ve Tahmine dayalı analiz çözümleri verimli bir şekilde yürütmek için yapılandırılmış bir dizi sağlayan Microsoft tarafından geliştirilen bir çerçevedir. Bu işlemi, standart personel rolleri ve veri bilimi ekibi tarafından işlenen ilişkilendirilen görevlerinin bir özetini görmek [Team Data Science Process rolleri ve görevleri](roles-tasks.md).
 
@@ -27,7 +27,8 @@ A **proje sağlama** belirli veri bilimi proje üzerinde tek tek veri bilimciler
 
 Bu konu, şu anda proje liderleri için bu iş akışı görevleri 1,2 ve 6 kapsar.
 
->[AZURE.NOTE] Azure DevOps aşağıdaki yönergeleri kullanarak bir proje için TDSP takım ortamını ayarlamak için gerekli olan adımları genel çizgileriyle belirtin. Biz, biz Microsoft'ta TDSP nasıl uygulama olduğundan, Azure DevOps ile bu görevleri gerçekleştirmek üzere nasıl belirtin. Grubunuz için başka bir kod barındırma platformu kullanılıyorsa, ekip lideri tarafından genellikle tamamlanması gereken görevler değiştirmeyin. Ancak bu görevleri tamamlamak için yol farklı zordur.
+> [!NOTE]
+> Azure DevOps aşağıdaki yönergeleri kullanarak bir proje için TDSP takım ortamını ayarlamak için gerekli olan adımları genel çizgileriyle belirtin. Biz, biz Microsoft'ta TDSP nasıl uygulama olduğundan, Azure DevOps ile bu görevleri gerçekleştirmek üzere nasıl belirtin. Grubunuz için başka bir kod barındırma platformu kullanılıyorsa, ekip lideri tarafından genellikle tamamlanması gereken görevler değiştirmeyin. Ancak bu görevleri tamamlamak için yol farklı zordur.
 
 
 ## <a name="repositories-and-directories"></a>Depoları ve dizinler
@@ -195,7 +196,8 @@ Projenize bazı belirli dizinleri veya belgeler gerekiyorsa (önceki adımda D5 
     
 - Anında iletme ve değişikliği işleyin. 
 
->[AZURE.NOTE] Bu bir Git deposuna işleme ilk kez kullanıyorsanız, genel parametrelerini yapılandırmanıza gerek *user.name* ve *user.email* çalıştırmadan önce `git commit` komutu. Aşağıdaki iki komutu çalıştırın:
+> [!NOTE]
+> Bu bir Git deposuna işleme ilk kez kullanıyorsanız, genel parametrelerini yapılandırmanıza gerek *user.name* ve *user.email* çalıştırmadan önce `git commit` komutu. Aşağıdaki iki komutu çalıştırın:
         
     git config --global user.name <your name>
     git config --global user.email <your email address>

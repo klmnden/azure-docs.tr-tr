@@ -1,6 +1,6 @@
 ---
 title: Azure kaynak sağlayıcısı kayıt hataları | Microsoft Docs
-description: Azure kaynak sağlayıcısı kayıt hatalarını çözümlemeyi açıklar.
+description: Azure kaynak Sağlayıcısı kaydı hataları gidermek nasıl açıklar.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -11,22 +11,22 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/09/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: b90009c1cd08a1004e58c4b9f25cd6350712fbcd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 787d6549eb8413c9dcfc0c906167cc36d4cff6b0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358617"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135721"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Kaynak Sağlayıcısı kaydı için hataları çözümleyin
 
-Bu makalede, aboneliğinizde daha önce kullanmadığınız bir kaynak sağlayıcısı kullanırken karşılaşabileceğiniz hatalar açıklanır.
+Bu makalede aboneliğinizde daha önce kullanmadığınız bir kaynak sağlayıcısı kullanırken karşılaşabileceğiniz hatalar açıklanır.
 
 ## <a name="symptom"></a>Belirti
 
-Kaynak dağıtırken şu hata kodu ve ileti alabilirsiniz:
+Kaynak dağıtım yaparken, aşağıdaki hata kodu ve şu iletiyle alabilirsiniz:
 
 ```
 Code: NoRegisteredProviderFound
@@ -41,37 +41,37 @@ Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
-Hata iletisi desteklenen konumlar ve API sürümleri için öneriler vermesi gerekir. Şablonunuzu önerilen değerlerden birine değiştirebilirsiniz. Azure portal ya da kullandığınız komut satırı arabirimi tarafından otomatik olarak kayıtlı ancak tüm çoğu sağlayıcıları. Belirli kaynak sağlayıcısı önce kullanmadıysanız, bu sağlayıcıyı kaydetmeniz gerekebilir.
+Hata iletisi desteklenen konumları ve API sürümleri için öneriler vermeniz gerekir. Önerilen değerler birine şablonunuzu değiştirebilirsiniz. Azure portalı veya komut satırı arabirimi, kullanmakta olduğunuz tarafından otomatik olarak kayıtlı ancak tüm çoğu sağlayıcıları. Bir kaynak sağlayıcısı önce kullanmadıysanız, bu sağlayıcıyı kaydetmek gerekebilir.
 
 ## <a name="cause"></a>Nedeni
 
-Üç nedenden biri için bu hataları alırsınız:
+Üç nedenlerden biri dolayısıyla bu hataları alırsınız:
 
-1. Kaynak sağlayıcısı, aboneliğiniz için kayıtlı değil
-1. API sürümü kaynak türü için desteklenmiyor
-1. Kaynak türü için desteklenmeyen konumu
+1. Aboneliğinizin kaynak sağlayıcısına kayıtlı olmayan
+1. Kaynak türü için desteklenmeyen API sürümü
+1. Konum kaynak türü için desteklenmiyor
 
 ## <a name="solution-1---powershell"></a>Çözüm 1 - PowerShell
 
-İçin PowerShell kullanın **Get-AzureRmResourceProvider** , kayıt durumunu görmek için.
+PowerShell için şunu kullanın **Get-AzureRmResourceProvider** , kayıt durumunu görmek için.
 
 ```powershell
 Get-AzureRmResourceProvider -ListAvailable
 ```
 
-Bir sağlayıcı kaydetmek için kullanın **Register-AzureRmResourceProvider** ve kaydetmek istediğiniz kaynak sağlayıcısının adını sağlayın.
+Bir sağlayıcıyı kaydetmek için kullanın **Register-AzureRmResourceProvider** ve kaydetmek istediğiniz kaynak sağlayıcısının adını sağlayın.
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
 ```
 
-Belirli bir kaynak türü için desteklenen konumlardan almak için kullanın:
+Belirli bir kaynak türü için desteklenen konumlar almak için kullanın:
 
 ```powershell
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
-Belirli bir kaynak türü için desteklenen API sürümleri almak için kullanın:
+Belirli bir kaynak türü için desteklenen API sürümlerini almak için kullanın:
 
 ```powershell
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
@@ -85,13 +85,13 @@ Sağlayıcı kayıtlı olup olmadığını görmek için `az provider list` komu
 az provider list
 ```
 
-Bir kaynak sağlayıcısı kaydetmek için kullanın `az provider register` komut ve belirtin *ad alanı* kaydetmek için.
+Bir kaynak sağlayıcısını kaydetmek için kullanın `az provider register` komutunu ve belirtin *ad alanı* kaydedilecek.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Cdn
 ```
 
-Desteklenen konumlar ve bir kaynak türü için API sürümlerini görmek için kullanın:
+Desteklenen konumlar ve bir kaynak türü için API sürümlerini görmek için bu seçeneği kullanın:
 
 ```azurecli-interactive
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
@@ -99,12 +99,24 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 ## <a name="solution-3---azure-portal"></a>Çözüm 3 - Azure portalı
 
-Kayıt durumunu görmek ve bir kaynak sağlayıcısı ad alanı Portalı aracılığıyla kaydedin.
+Kayıt durumunu görmek ve bir kaynak sağlayıcısı ad alanı Portalı aracılığıyla kaydolun.
+
+1. Portaldan seçin **tüm hizmetleri**.
+
+   ![Tüm hizmetleri seçin](./media/resource-manager-register-provider-errors/select-all-services.png)
+
+1. **Abonelikler**'i seçin.
+
+   ![Abonelikleri seçin](./media/resource-manager-register-provider-errors/select-subscriptions.png)
+
+1. Abonelikler listesinden, kaynak sağlayıcısını kaydetmek için kullanmak istediğiniz aboneliği seçin.
+
+   ![Kaynak sağlayıcısını kaydetmek için bir abonelik seçin](./media/resource-manager-register-provider-errors/select-subscription-to-register.png)
 
 1. Aboneliğiniz için seçin **kaynak sağlayıcıları**.
 
-   ![kaynak sağlayıcıları seç](./media/resource-manager-register-provider-errors/select-resource-provider.png)
+   ![Kaynak sağlayıcılarını seçin](./media/resource-manager-register-provider-errors/select-resource-provider.png)
 
-1. Kaynak sağlayıcıları listesi bakın ve gerekiyorsa, seçin **kaydetmek** kayıt kaynak sağlayıcısı dağıtmaya çalıştığınız türü için bağlantı.
+1. Kaynak sağlayıcıları listesini arayın ve gerekirse seçin **kaydetme** dağıtmaya çalıştığınız türü kaynak sağlayıcısını kaydetmek için bağlantı.
 
-   ![kaynak sağlayıcıları Listele](./media/resource-manager-register-provider-errors/list-resource-providers.png)
+   ![Kaynak sağlayıcıları listesi](./media/resource-manager-register-provider-errors/list-resource-providers.png)

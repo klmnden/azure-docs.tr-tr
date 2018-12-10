@@ -1,6 +1,6 @@
 ---
-title: "Team Data Science Process'in çalışması: SQL veri ambarı'nı kullanarak | Microsoft Docs"
-description: Gelişmiş analitik işlemi ve teknoloji iş başında
+title: Derleme ve SQL veri ambarı - Team Data Science Process kullanarak bir model dağıtma
+description: Oluşturun ve makine öğrenme modeli SQL veri ambarı ile genel kullanıma açık bir veri kümesini kullanarak dağıtın.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 87c3b0b597a401041b8bf1b6f3997431d8816e92
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: ed3731db88d7f829634a03c55e5ec033c03e4b0f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445725"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139139"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process'in çalışması: SQL veri ambarı kullanma
 Bu öğreticide, derlemeye ve dağıtmaya SQL veri ambarı'nı (SQL DW) kullanarak makine öğrenme modeli aracılığıyla genel kullanıma açık bir veri kümesi için--inceleyeceğiz [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Oluşturulan ikili sınıflandırma modelinde, bir ipucu bir seyahat için ödeme yapılır ve çok sınıflı sınıflandırma ve regresyon modellerini ayrıca dağıtım Ücretli ipucu tutarlarının tahmin açıklanan olup olmadığını tahmin eder.
@@ -117,7 +117,7 @@ Bir Windows PowerShell komutu konsolunu açın. Aşağıdaki PowerShell komutunu
 
 Geçerli çalışma dizininize değişikliklerini başarılı yürütme sonrasında *- DestDir*. Ekran görebilmek için aşağıdaki gibi:
 
-![][19]
+![Geçerli çalışma dizini değişiklikleri][19]
 
 İçinde *- DestDir*, aşağıdaki PowerShell betiğini Yönetici modunda çalıştırın:
 
@@ -321,7 +321,7 @@ Yinelenen kaynak ve hedef dosya varsa, hangi karar vermeniz gerekir.
 > 
 > 
 
-![#21 Çiz][21]
+![AzCopy çıktısı][21]
 
 Kendi verilerinizi kullanabilirsiniz. Verilerinizi şirket içi makinenizde, gerçek hayatta uygulamanızda varsa, yine de şirket içi verileri, özel bir Azure blob depolama alanına yüklemek için AzCopy kullanabilirsiniz. Yalnızca değiştirmek gereken **kaynak** konumu `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, verilerinizi içeren yerel bir dizin için PowerShell betik dosyasının AzCopy komutunda.
 
@@ -334,7 +334,7 @@ Bu üç dosyayı anında sonra çalıştığınız hazır olacak şekilde bu Pow
 
 Başarılı yürütme sonrasında bir ekran görürsünüz. aşağıdaki gibi:
 
-![][20]
+![Başarılı betik yürütme çıktısı][20]
 
 ## <a name="dbexplore"></a>Veri keşfi ve özellik Mühendisliği, Azure SQL veri ambarı
 Bu bölümde, veri keşfi ve özellik oluşturma kullanarak doğrudan Azure SQL DW karşı SQL sorgu çalıştırarak gerçekleştiririz **Visual Studio veri Araçları**. Bu bölümde kullanılan tüm SQL sorguları adlı örnek betikte bulunabilir *SQLDW_Explorations.sql*. Bu dosya yerel dizininize PowerShell betiği tarafından zaten yüklendi. Buradan ayrıca alabilirsiniz [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Ancak GitHub dosyasında prize takılı Azure SQL DW bilgilerine sahip değil.
@@ -571,16 +571,16 @@ AzureML bir çalışma alanı zaten ayarladıysanız, doğrudan örnek Ipython N
 
 1. AzureML çalışma alanınıza oturum açın, üst kısmında "Studio" tıklayın ve web sayfasının sol tarafındaki "dizüstü bilgisayarlar" tıklayın.
    
-    ![#22 Çiz][22]
+    ![Studio Not DEFTERLERİNİ tıklatın][22]
 2. "Yeni" web sayfasının sol alt köşedeki tıklayın ve "Python 2". Ardından, not defteri için bir ad sağlayın ve yeni boş Ipython not defteri oluşturmak için onay işaretine tıklayın.
    
-    ![#23 Çiz][23]
+    ![YENİ'ye tıklayın, sonra Python 2'yi seçin][23]
 3. Yeni Ipython not defteri sol üst köşesindeki "Jupyter" simgesine tıklayın.
    
-    ![#24 Çiz][24]
+    ![Jupyter simgesine tıklayın][24]
 4. Sürükle ve bırak örnek Ipython Notebook için **ağaç** sayfasında AzureML Ipython Notebook hizmeti ve tıklatın **karşıya**. Ardından, Ipython Notebook örnek AzureML Ipython Notebook hizmete yüklenir.
    
-    ![#25 Çiz][25]
+    ![Yükle'yi tıklatın][25]
 
 Örneği çalıştırmak için Ipython Notebook veya Python, paketleri gereken aşağıdaki Python betik dosyası. AzureML Ipython Notebook hizmeti kullanıyorsanız, bu paketlerin önceden yüklü olmuştur.
 
@@ -684,7 +684,7 @@ Sonraki Kutu Çizimi quantiles görselleştirmek seyahat uzaklığı için ataca
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
-![#1 Çiz][1]
+![Kutusu çizim çıkış][1]
 
 ### <a name="visualization-distribution-plot-example"></a>Görselleştirme: Dağıtım Diagram örneği
 Dağıtım ve örneklenen seyahat uzaklıkları histogramını görselleştirin çizimleri.
@@ -695,7 +695,7 @@ Dağıtım ve örneklenen seyahat uzaklıkları histogramını görselleştirin 
     df1['trip_distance'].plot(ax=ax1,kind='kde', style='b-')
     df1['trip_distance'].hist(ax=ax2, bins=100, color='k')
 
-![#2 Çiz][2]
+![Dağıtım çizim çıkış][2]
 
 ### <a name="visualization-bar-and-line-plots"></a>Görselleştirme: Çubuk ve çizgi çizer
 Bu örnekte, beş depo seyahat uzaklığı bin ve Gruplama sonuçları görselleştirebilirsiniz.
@@ -709,26 +709,26 @@ Yukarıdaki çubuk bin dağıtım çizim veya çizim ile satır:
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
-![#3 Çiz][3]
+![Çubuk grafik çıkış][3]
 
 ve
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
-![#4 Çiz][4]
+![Satırı çizim çıkışı][4]
 
 ### <a name="visualization-scatterplot-examples"></a>Görselleştirme: Dağılım grafiği örnekleri
 Dağılım grafiğinde noktalara arasında göstereceğiz **seyahat\_zaman\_içinde\_saniye** ve **seyahat\_uzaklık** herhangi bir ilişki olup olmadığını görmek için
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
-![#6 Çiz][6]
+![Dağılım Grafiği çıkış saati uzaklığı arasındaki ilişki][6]
 
 Benzer şekilde biz arasındaki ilişkiyi kontrol edebilirsiniz **oranı\_kod** ve **seyahat\_uzaklık**.
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
-![#8 Çiz][8]
+![Dağılım Grafiği çıktısını kod ve uzaklık arasındaki ilişki][8]
 
 ### <a name="data-exploration-on-sampled-data-using-sql-queries-in-ipython-notebook"></a>Veri keşfi Ipython notebook SQL sorgularını kullanarak örneklenen verileri
 Bu bölümde, yukarıda oluşturduğumuz yeni tablodaki kalıcı örnek verileri kullanarak veri dağıtımları inceleyeceğiz. Not benzer araştırmaları özgün tabloda kullanılarak gerçekleştirilebilir.

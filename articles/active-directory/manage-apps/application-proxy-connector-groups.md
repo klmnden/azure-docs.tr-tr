@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: aebb042c065652bef568f6bc1be2ee8bfde43988
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e2e78eae924cf079ccc03d3f907cd64194b98921
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622642"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139034"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Ayrı ağlarda ve konumları bağlayıcı grupları kullanarak uygulama yayımlama
 
@@ -32,7 +32,7 @@ Tüm uygulamalar için bir bağlayıcı grubu olarak atanır. Ardından gruplar�
 >Büyük bir uygulama ara sunucusu dağıtım varsa, tüm uygulamaları varsayılan bağlayıcı grubuna atamayın. Bu şekilde, bir etkin bağlayıcı grubuna atama kadar yeni bağlayıcılar herhangi bir canlı trafik almaz. Bu yapılandırma, bakım kullanıcılarınız etkilemeden gerçekleştirebilmeleri için bağlayıcılar bir boşta modunda geri varsayılan grubuna taşıyarak yerleştirilmesine olanak sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bağlayıcılarınızı grubuna emin olmak sahip [yüklü birden fazla bağlayıcıyı](application-proxy-enable.md). Yeni bir bağlayıcı yükleme sırasında otomatik olarak katılır **varsayılan** bağlayıcı grubu.
+Bağlayıcılarınızı grubuna emin olmak sahip [yüklü birden fazla bağlayıcıyı](application-proxy-add-on-premises-application.md). Yeni bir bağlayıcı yükleme sırasında otomatik olarak katılır **varsayılan** bağlayıcı grubu.
 
 ## <a name="create-connector-groups"></a>Bağlayıcı grupları oluşturma
 İstediğiniz sayıda bağlayıcı grubu oluşturmak için aşağıdaki adımları kullanın. 

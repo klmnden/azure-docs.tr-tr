@@ -1,5 +1,5 @@
 ---
-title: Derleme ve bir Azure sanal makinesinde SQL Server'ı kullanarak makine öğrenme modeli dağıtma | Microsoft Docs
+title: Derleme ve bir SQL Server VM - Team Data Science Process model dağıtma
 description: Oluşturun ve makine öğrenme modeli herkese bir veri kümesi ile Azure VM'de SQL Server'ı kullanarak dağıtın.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
-ms.openlocfilehash: 8717ccc472c00bcbd6ef1edbda4aad04b9703c57
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 97ef7b02690110f571e87960add34b45f683b615
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077333"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141416"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process'in çalışması: SQL Server'ı kullanma
 Bu öğreticide, oluşturma ve SQL Server ve genel kullanıma açık bir veri kümesini kullanarak makine öğrenme modeli dağıtma sürecinde size yol-- [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Standart veri bilimi iş akışı yordamdan sonraki: alma ve verileri, mühendislik işlevlerini, öğrenme süreçlerini kolaylaştırmasına sonra yapı ve model dağıtma keşfedin.

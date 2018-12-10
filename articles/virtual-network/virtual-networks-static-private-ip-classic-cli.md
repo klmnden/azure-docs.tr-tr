@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f340b9843ed5763a20d2035e3add86123a1298e8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: abc551f796cb2d8921b6b1f67fb6a6714655ffde
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971153"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134684"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Klasik Azure CLI kullanarak sanal makine (Klasik) için özel IP adreslerini yapılandırın
 
@@ -75,7 +75,7 @@ Adlı yeni bir VM oluşturmak için *DNS01* adlı yeni bir bulut hizmetinde *Tes
    * **TestService**. VM'nin oluşturulacağı bulut hizmeti adı.
    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**. VM oluşturmak için kullanılan görüntü.
    * **AdminUser**. Windows VM için Yönetici'yi tıklatın.
-   * **AdminP@ssw0rd**. Windows VM yerel yönetici parolası.
+   * <strong>AdminP@ssw0rd</strong>. Windows VM yerel yönetici parolası.
 
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Bir sanal makine için statik özel IP adresi bilgilerini alma
 Komut dosyası yukarıdaki oluşturulan VM için statik özel IP adresi bilgilerini görüntülemek için aşağıdaki Azure CLI komutunu çalıştırın ve değeri gözlemleyin *ağ StaticIP*:

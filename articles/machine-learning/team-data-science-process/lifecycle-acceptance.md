@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process yaşam döngüsü - Azure müşteri kabulü aşaması | Microsoft Docs
+title: Müşteri kabulü Team Data Science Process yaşam döngüsü aşaması
 description: Hedefleri, görevleri ve teslim edilebilirler için veri bilimi projelerinizi müşteri kabulü aşaması
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: a60594123346b599270f2a7763e98fc863f85067
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 7a00f18a8ae51d5118275e904e2ca76fc167d987
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441494"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132627"
 ---
-# <a name="customer-acceptance"></a>Müşteri kabulü
+# <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Müşteri kabulü Team Data Science Process yaşam döngüsü aşaması
 
 Bu makalede, hedeflerinizi, görevleri ve teslim edilebilirler ile Team Data Science işlem (TDSP) müşteri kabulü aşama ilişkili özetlenmektedir. Bu işlem, veri bilimi projelerinizi yapısı için kullanabileceğiniz önerilen bir yaşam döngüsü sağlar. Yaşam döngüsü projeleri genellikle genellikle yinelemeli olarak yürütme, önemli aşamalar açıklanmaktadır:
 

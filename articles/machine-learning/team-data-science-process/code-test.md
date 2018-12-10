@@ -1,6 +1,6 @@
 ---
-title: Veri bilimi kodu Azure'da UCI yetişkinlere yönelik gelir tahmin kümesiyle - Team Data Science Process ve Azure DevOps Hizmetleri test etme
-description: Veri bilimi kodu UCI yetişkinlere yönelik gelir tahmin verileriyle test etme
+title: Azure DevOps Hizmetleri - Team Data Science Process ile veri bilimi kodu test edin
+description: Veri bilimi kod ile Team Data Science Process UCI yetişkinlere yönelik gelir tahmin veri kümesi ile Azure ve Azure DevOps hizmetleriyle test etme
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: tdsp
-ms.custom: (previous author=weig, ms.author=weig)
-ms.openlocfilehash: d04f50bc3de34c28c10be7ba429f85a99096de47
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
+ms.openlocfilehash: d8c3bafaa42e68eb7f6b5212c055793a1f2b1137
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443959"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134548"
 ---
-# <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Veri bilimi kodu UCI yetişkinlere yönelik gelir tahmin veri kümesi ile test etme
+# <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Team Data Science Process ile Azure ve Azure DevOps hizmetleriyle sınama veri bilimi kodu
 Bu makalede, kodu test etmek için bir veri bilimi iş akışında başlangıç yönergeleri sağlar. Veri bilimcileri, bu tür bir testi beklenen sonuç kodlarını ve kalite kontrol etmek için sistematik ve etkili bir yol sağlar. Team Data Science işlem (TDSP) kullanıyoruz [UCI yetişkinlere yönelik gelir veri kümesini kullanan proje](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) biz nasıl kodu test yapılabilir göstermek için daha önce yayımlanmış. 
 
 ## <a name="introduction-on-code-testing"></a>Sınama kodu giriş

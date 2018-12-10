@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight üzerinde Spark'ı kullanarak veri bilimi genel bakış | Microsoft Docs
+title: Azure HDInsight - Team Data Science Process Spark kullanan veri bilimi
 description: Önemli makine öğrenimi modelleme özellikleri dağıtılmış HDInsight ortamına Spark MLlib Araç Seti sunar.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: c8bd44ddc6f4996982a32385b36d24c0531dc0aa
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: b61c66dbb152914fcacb9020deab0cc4b76a6bc0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446322"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139427"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Azure HDInsight üzerinde Spark kullanan veri bilimi genel bakış
 

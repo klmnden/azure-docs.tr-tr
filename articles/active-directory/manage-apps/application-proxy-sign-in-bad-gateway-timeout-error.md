@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2af5ed294c4a53e38690991f1f65b3f7d2f46c73
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c26f9c319a8260f4c19933d640310923b9c36db7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357462"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134837"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Uygulama proxy'si uygulaması kullanılırken "Şirket bu uygulamaya erişemezsiniz" hatası
 
@@ -62,7 +62,7 @@ Hatalı ağ geçidi hatasına bağlayıcı arka uç uygulaması ulaşamadık old
 
 Yasak hatası görürseniz, kullanıcının uygulamaya atanmadı. Azure Active Directory'de veya arka uç uygulaması, bu hata olabilir.
 
-Azure'daki uygulama için kullanıcı atama hakkında bilgi edinmek için [yapılandırma belgelerine](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal#add-a-test-user).
+Azure'daki uygulama için kullanıcı atama hakkında bilgi edinmek için [yapılandırma belgelerine](https://docs.microsoft.com/azure/active-directory/application-proxy-add-on-premises-application#add-a-test-user).
 
 Azure'daki uygulama için kullanıcının atandığı onaylayın, arka uç uygulaması, kullanıcı yapılandırmasını denetleyin. Kerberos Kısıtlı temsilci/tümleşik Windows kimlik doğrulaması kullanıyorsanız, KCD sorun giderme sayfası yönergeleri için bkz.
 

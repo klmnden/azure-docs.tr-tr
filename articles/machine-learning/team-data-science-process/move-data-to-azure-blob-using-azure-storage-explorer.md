@@ -1,5 +1,5 @@
 ---
-title: Ve Azure Depolama Gezgini ile Blob depolama alanından verileri taşıma | Microsoft Docs
+title: Azure Depolama Gezgini - Team Data Science Process ile BLOB Depolama veri taşıma
 description: Azure Depolama Gezgini’ni kullanarak Azure Blob Depolamadan/Depolamaya Veri Taşıma
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 7d4fc17c466f9f7187ca28c847631254d6600ead
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 99c9a86d130989e8c62a948e440b35c928b42299
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447011"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134107"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Ve Azure Depolama Gezgini'ni kullanarak Azure Blob depolama alanından verileri taşıma
 Azure Depolama Gezgini, Microsoft'un Windows, macOS ve Linux'ta Azure depolama verileriyle çalışmanıza olanak sağlayan ücretsiz bir araçtır. Bu konuda, yüklemek ve Azure blob depolama alanından verileri indirmek için nasıl kullanılacağını açıklar. Aracı indirilebileceğini [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/).
@@ -45,8 +45,8 @@ Aşağıdaki adımlar, nasıl Azure Depolama Gezgini'ni kullanarak verileri kar�
 
 1. Microsoft Azure Depolama Gezgini'ni başlatın.
 2. Ortaya çıkarmak için **hesabınızda oturum açın...**  seçin **Azure hesap ayarları** simgesine ve ardından **Hesap Ekle** ve kimlik bilgilerini girin. ![Bir Azure depolama hesabı ekleme](./media/move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
-3. Ortaya çıkarmak için **Azure Storage'a Bağlan** seçin **Azure Storage'a Bağlan** simgesi. ![Azure depolamaya Bağlan](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
-4. Azure depolama hesabınızın erişim anahtarını girin **Azure Storage'a Bağlan** Sihirbazı'nı ve ardından **sonraki**. ![Azure depolamaya Bağlan](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
+3. Ortaya çıkarmak için **Azure Storage'a Bağlan** seçin **Azure Storage'a Bağlan** simgesi. !["Azure Depolama'ya Bağlan" düğmesine tıklayın](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
+4. Azure depolama hesabınızın erişim anahtarını girin **Azure Storage'a Bağlan** Sihirbazı'nı ve ardından **sonraki**. ![Azure depolama hesabı erişim anahtarını girin](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
 5. Depolama hesabı adını girin **hesap adı** kutusuna ve ardından **sonraki**. ![Dış depolama Ekle](./media/move-data-to-azure-blob-using-azure-storage-explorer/attach-external-storage.png)
 6. Eklediğiniz depolama hesabını listelenmiş olmalıdır. Bir depolama hesabında blob kapsayıcısı oluşturmak için **Blob kapsayıcıları** seçin, hesap düğümünde **Blob kapsayıcısı Oluştur**ve bir ad girin.
 7. Verileri bir kapsayıcıya yüklemek için hedef kapsayıcıyı seçin ve **karşıya** düğmesi.![ Depolama hesapları](./media/move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)

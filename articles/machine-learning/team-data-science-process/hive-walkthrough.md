@@ -1,5 +1,5 @@
 ---
-title: Bir Hadoop kümesi verileri araştırın ve Azure Machine Learning'de model oluşturma | Microsoft Docs
+title: Bir Hadoop kümesinde - Team Data Science Process verilerini keşfedin
 description: Team Data Science Process, yapı ve model dağıtma için bir HDInsight Hadoop kümesi kullanan bir uçtan uca senaryo için kullanma.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 1b494f78998a03d39b18d4f9bba80642c04c483e
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: e6adbe5a0e5ce88db12637889e201b5a15a0556f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444214"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139631"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process'in çalışması: kullanımı Azure HDInsight Hadoop kümeleri
 Bu kılavuzda kullandığımız [Team Data Science işlem (TDSP)](overview.md) uçtan uca bir senaryoda. Kullandığımız bir [Azure HDInsight Hadoop kümesi](https://azure.microsoft.com/services/hdinsight/) depolamak için keşfetmek, özellik mühendisi verileri genel olarak kullanılabilir ve [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) dataset ve aşağı örnek veriler için. İkili ve çok sınıflı sınıflandırma ve regresyon Tahmine dayalı görevler işlemek üzere Azure Machine Learning ile veri modelleri ekleriz. 
@@ -416,7 +416,7 @@ Hive directory isteminden aşağıdaki komutu çalıştırın:
 > 
 > 
 
-Bir veri kümesini Keşfetmenin, sık değerlerinin gruplarının ortak oluşum sayısını incelemek üzere istiyoruz. Bu bölümde, cab ve sürücüleri için bunun nasıl yapılacağını gösteren bir örnek sağlar.
+Bir veri kümesini Keşfetmenin, sık değerlerinin gruplarının ortak oluşumları incelemek istiyoruz. Bu bölümde, cab ve sürücüleri için bunun nasıl yapılacağını gösteren bir örnek sağlar.
 
 **Örnek\_hive\_seyahat\_sayısı\_tarafından\_medallion\_license.hql** dosya gruplarını taksi dataset **medallion** ve **hack_license**ve her birleşim sayısını döndürür. İçeriği şunlardır:
 
@@ -765,7 +765,7 @@ Veri kümesi, makine öğrenimi modelleri oluşturmak için başlangıç noktas�
 
   Bizim deneme ipucu için belirli bir seyahat Ücretli olup olmadığını tahmin etmek için aşağıdaki diyagramda gösterilmiştir:
 
-  ![Deneme diyagramı](./media/hive-walkthrough/QGxRz5A.png)
+  ![İpucu ödenmiş tahmin etmek için deneme diyagramı](./media/hive-walkthrough/QGxRz5A.png)
 
   b. Bu deneme için bizim hedef etiket dağıtımların yaklaşık 1:1 yoktu.
 
@@ -785,7 +785,7 @@ Veri kümesi, makine öğrenimi modelleri oluşturmak için başlangıç noktas�
 
   Aşağıdaki diyagramda, hangi Kutusu'na bir ipucu kalan olasılığı tahmin etmek için deneme gösterilmektedir. Depo olan: sınıf 0: ipucu 0 ABD Doları, sınıf 1 =: ipucu > $0 ve ipucu < 5 ABD Doları, sınıf 2 =: ipucu > $5 ve ipucu < 10 ABD Doları, sınıf 3 =: ipucu > $10 ve ipucu < = 20 ve sınıf 4: > $20 ipucu.
 
-  ![Deneme diyagramı](./media/hive-walkthrough/5ztv0n0.png)
+  ![İpucu için depo tahmin etmek için deneme diyagramı](./media/hive-walkthrough/5ztv0n0.png)
 
   Şimdi gerçek test sınıfı dağıtımını nasıl göründüğünü gösterir. Sınıf 0 ve sınıf 1 sık karşılaşılan ve diğer sınıflar işlemleri nadiren gerçekleşir.
 
@@ -805,7 +805,7 @@ Veri kümesi, makine öğrenimi modelleri oluşturmak için başlangıç noktas�
 
   Verilen bahşiş miktarını tahmin etmek için deneme Aşağıdaki diyagramda gösterilmiştir:
 
-  ![Deneme diyagramı](./media/hive-walkthrough/11TZWgV.png)
+  ![İpucu miktarı tahmin etmek için deneme diyagramı](./media/hive-walkthrough/11TZWgV.png)
 
   b. Regresyon karşılaştığınız sorunları, tahminler ve katsayısı karesi alınmış hata bakarak biz öngörme doğruluk ölçü:
 

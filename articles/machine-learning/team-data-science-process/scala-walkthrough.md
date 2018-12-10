@@ -1,5 +1,5 @@
 ---
-title: Azure üzerinde Scala ve Spark kullanan veri bilimi | Microsoft Docs
+title: Azure - Team Data Science Process Scala ve Spark kullanan veri bilimi
 description: Scala Spark ölçeklenebilir MLlib ve Spark ML paketleri ile bir Azure HDInsight Spark kümesi üzerinde denetimli makine öğrenimi görevlerini kullanmak nasıl.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: ad97543ee6bc40bdee5b0ffc7ec92f061b16dae4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: bf4e65b95211fc03ea4a319fd4e503396b893522
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839543"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135156"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Azure üzerinde Scala ve Spark kullanan Veri Bilimi
 Bu makalede, Scala Spark ölçeklenebilir MLlib ve Spark ML paketleri ile bir Azure HDInsight Spark kümesi üzerinde denetimli makine öğrenimi görevlerini kullanmak nasıl gösterir. Oluşturan görevlerinde size yol gösterir [veri bilimi işlemi](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): veri alımı ve keşfi, görselleştirme, özellik Mühendisliği, modelleme ve model tüketim. Makaleyi modellerinde Lojistik ve doğrusal regresyon, rastgele ormanları ve gradyan boosted ağaçları (GBTs) ek olarak iki ortak denetimli makine öğrenimi görevlerini içerir:

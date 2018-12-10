@@ -15,12 +15,12 @@ ms.date: 10/19/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 89852e90daa548dc82455cb6317d367b7423ba65
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0f1b46176ba440a11d1584846019859c63d2f263
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425217"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135789"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile SharePoint uzaktan erişimi etkinleştirme
 
@@ -163,7 +163,7 @@ KCD yapılandırmak için her bir bağlayıcı makine için aşağıdaki adımla
 
 Kerberos ve yapılandırılmış KCD için SharePoint etkinleştirdikten sonra SharePoint grubu Azure AD uygulama proxy'si aracılığıyla uzaktan erişim için yayımlamaya hazır.
 
-1. Aşağıdaki ayarlar ile SharePoint sitenizi yayımlayın. Adım adım yönergeler için bkz: [Azure AD uygulama proxy'si kullanarak uygulamaları yayımlama](application-proxy-publish-azure-portal.md). 
+1. Aşağıdaki ayarlar ile SharePoint sitenizi yayımlayın. Adım adım yönergeler için bkz: [Azure AD uygulama proxy'si kullanarak uygulamaları yayımlama](application-proxy-add-on-premises-application.md). 
    - **İç URL**: SharePoint sitesinin URL'sini dahili olarak gibi **https://SharePoint/**. Bu örnekte, kullandığınızdan emin olun **https**
    - **Ön kimlik doğrulama yöntemi**: Azure Active Directory
    - **Bilgilerde URL'yi çevir**: Hayır

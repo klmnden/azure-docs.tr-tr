@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 6cc4c0b01511309766e48c3d671ee897e5d6f326
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e0e41714f6979a9cd699df70498b9c89a44d5ee1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669122"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138965"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Wirecast Kodlayıcı tek bit hızlı canlı akış göndermektir.
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Bu öğreticide, Azure Media Services Gezgini (AMSE) aracı ile Azure Media Serv
 ## <a name="create-a-channel"></a>Kanal oluşturma
 1. AMSE Aracı'nda gidin **canlı** sekmesini tıklatıp içinde kanal alana sağ tıklayın. Seçin **kanal oluştur...** belirleyin.
 
-    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
+    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
 2. Bir kanal adı belirtirseniz açıklama alanı isteğe bağlıdır. Kanal ayarları altında **standart** Live Encoding seçeneğini ayarlamak giriş protokolü için **RTMP**. Olduğu gibi tüm diğer ayarlar bırakabilirsiniz.
 
@@ -55,7 +55,7 @@ Bu öğreticide, Azure Media Services Gezgini (AMSE) aracı ile Azure Media Serv
 
 3. Tıklayın **kanal oluşturma**.
 
-   ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
+   ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
 
 > [!NOTE]
 > Kanalı başlatmak için 20 dakika sürebilir.
@@ -69,7 +69,7 @@ Kanal başlatılırken yapabilecekleriniz [kodlayıcıyı Yapılandır](media-se
 >
 >
 
-## <a name="a-idconfigurewirecastrtmp-aconfigure-the-telestream-wirecast-encoder"></a>< bir kimliği = "configure_wirecast_rtmp" /a > Telestream Wirecast Kodlayıcı yapılandırın
+## <a name="a-idconfigurewirecastrtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Yapılandırma Telestream Wirecast kodlayıcı
 Bu öğreticide, aşağıdaki çıkış ayarları kullanılır. Bu bölümün geri kalanında daha ayrıntılı yapılandırma adımlarını açıklar.
 
 **Video**:
@@ -96,7 +96,7 @@ Bu öğreticide, aşağıdaki çıkış ayarları kullanılır. Bu bölümün ge
 
     Kodlama profili için önceden seçilmiş **Azure H.264 720 p 16:9 (1280 x 720)**. Bu ayarları özelleştirmek için açılan sağındaki dişli simgesini seçin ve ardından **yeni önceden**.
 
-    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
+    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
 5. Encoder hazır ayarlarını yapılandırın.
 
     Ön ayarın adını ve önerilen ayarları için şunları denetleyin:
@@ -114,7 +114,7 @@ Bu öğreticide, aşağıdaki çıkış ayarları kullanılır. Bu bölümün ge
    * Hedef bit hızı: 192 kbit/sn
    * Örnek Hızı: 44.100 kHz
 
-     ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
+     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
 6. **Kaydet**’e basın.
 
     Yeni oluşturulan profil seçilebilir Encoding alanı artık var.
@@ -126,15 +126,15 @@ Bu öğreticide, aşağıdaki çıkış ayarları kullanılır. Bu bölümün ge
 
     Kanal çalıştırırken, kanal adına sağ tıklayın, üzerine gelindiğinde aşağı gidin **Panoya kopyalama giriş URL** seçip **birincil giriş URL**.  
 
-    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast6.png)
+    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast6.png)
 8. Wirecast içinde **çıkış ayarları** penceresinde, bu bilgileri yapıştırın **adresi** çıkış bölümüne ve ata Akış adı alanı.
 
-    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
+    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
 
 1. **Tamam**’ı seçin.
 2. Ana **Wirecast** hazır olduğunuzda, video ve ses giriş kaynağı onaylayın ve ardından isabet **Stream** sol üst köşedeki.
 
-   ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
+   ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
 > [!IMPORTANT]
 > Tıklamadan önce **Stream**, size **gerekir** kanal hazır olduğundan emin olun.
@@ -155,7 +155,7 @@ Bir hata aldıysanız, kanal sıfırlanması gerekir ve Kodlayıcı ayarları ay
 ## <a name="create-a-program"></a>Bir program oluşturma
 1. Kanal kayıttan yürütme onaylandıktan sonra bir program oluşturun. Altında **canlı** sekmesinde AMSE aracı içinde program alanı sağ tıklatın ve seçin **yeni bir Program oluşturma**.  
 
-    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)
+    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)
 2. Program adı ve gerekirse ayarlamak **arşiv penceresi uzunluğu** (bunun varsayılan dört saate kadar). Ayrıca, bir depolama konumu belirtin veya varsayılan olarak bırakın.  
 3. Denetleme **programı'nı şimdi başlatmak** kutusu.
 4. Tıklayın **Program oluşturma**.  

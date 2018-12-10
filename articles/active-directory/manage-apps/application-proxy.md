@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: aabbcb45edf087b4a7d6268dcca90b21afa16f7c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: ec5c75b5de912988efeb5167107f6d0dfe07da2e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998105"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139971"
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Şirket içi uygulamalara güvenli uzaktan erişim sağlama
 
@@ -88,8 +88,8 @@ Uygulama proxy'si yapılandırmadan önce desteklenen bir olduğundan emin olun 
 
 Uygulama Ara sunucusu ile iki adımda kullanmaya başlayın:
 
-1. [Uygulama Ara sunucusunu etkinleştirme ve bağlayıcısını](application-proxy-enable.md).    
-2. [Uygulamaları yayımlama](application-proxy-publish-azure-portal.md) -yayımlanmış ve erişilebilen şirket içi uygulamalarınızı uzaktan almak için hızlı ve kolay Sihirbazı'nı kullanın.
+1. [Uygulama Ara sunucusunu etkinleştirme ve bağlayıcısını](application-proxy-add-on-premises-application.md).    
+2. [Uygulamaları yayımlama](application-proxy-add-on-premises-application.md) -yayımlanmış ve erişilebilen şirket içi uygulamalarınızı uzaktan almak için hızlı ve kolay Sihirbazı'nı kullanın.
 
 ## <a name="whats-next"></a>Sırada ne var?
 İlk uygulamanızı yayımladıktan sonra çok uygulama ara sunucusu ile yapabileceğiniz daha fazlası vardır:

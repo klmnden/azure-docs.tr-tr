@@ -1,5 +1,5 @@
 ---
-title: Azure yapay ZEKA kılavuzu için Tahmine dayalı bakım çözümleri | Microsoft Docs
+title: Tahmine dayalı bakım çözümleri - Team Data Science Process için Azure yapay ZEKA Kılavuzu
 description: Veri bilimi, Tahmine dayalı bakım çözümleri birden çok dikey sektörler çalışmasını sağlayan kapsamlı bir açıklaması.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
-ms.custom: (previous author=fboylu, ms.author=fboylu)
-ms.openlocfilehash: 1538357a744e4a2c885b6552ca94efc6642d2880
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
+ms.openlocfilehash: 8d2a16047a741daf484d6ccdc48453d49355d443
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444928"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135702"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Tahmine dayalı bakım çözümleri için Azure yapay ZEKA Kılavuzu
 
@@ -289,11 +289,11 @@ Regresyon için etiketleme başvuru içeren bir hata noktası gerçekleştirilir
 #### <a name="label-construction-for-multi-class-classification"></a>Çok sınıflı sınıflandırma için etiket oluşturma
 Burada Soru: "bir varlık sonraki başarısız olduğunu belirten olasılığı nedir _nZ_ zaman birimlerinin burada _n_ nokta sayısı?" Bu soruyu cevaplamak için demet süre (3Z 2Z, Z) kullanarak bir varlığın arıza öncesinde nZ kayıtları etiketleyin. Etiket diğer tüm kayıtları "normal" (etiket = 0). Bu yöntemde, hedef değişken tutar _kategorik_ değerleri. (Bkz. Şekil 5).
 
-![Şekil 5. Hata zaman tahmini için çok sınıflı sınıflandırma etiketleme](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) Şekil 5 '. Hata zaman tahmini için çok sınıflı sınıflandırma etiketleme
+![Şekil 5. Hata zamanı tahmin çok sınıflı sınıflandırma etiketleri](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) Şekil 5 '. Hata zaman tahmini için çok sınıflı sınıflandırma etiketleme
 
 Burada Soru: "varlığı sonraki başarısız olduğunu belirten olasılığı nedir kök nedeni/sorunu nedeniyle zaman birimlerinin X _P<sub>miyim</sub>_?" Burada _miyim_ olası nedenlerini sayısıdır. Bu soru, bir varlığın arıza öncesinde etiketini X kayıtları yanıtlamak için "kök nedenden dolayı başarısız üzere _P<sub>miyim</sub>_" (etiket = _P<sub>miyim</sub>_). "Normal" olarak tüm kayıtları etiket (etiket = 0). Bu yöntemde, etiketleri kategorik (bkz. Şekil 6) ayrıca.
 
-![Şekil 6. Kök nedeni tahmin için çok sınıflı sınıflandırma etiketleme](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) Şekil 6. Kök nedeni tahmin için çok sınıflı sınıflandırma etiketleme
+![Şekil 6. Kök neden çok sınıflı sınıflandırma etiketleri tahmin](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) Şekil 6. Kök nedeni tahmin için çok sınıflı sınıflandırma etiketleme
 
 Bir hata olasılığı nedeniyle her model atar _P<sub>miyim</sub>_  olasılık hiç hatasının yanı sıra. Bu olasılıklar gelecekte ortaya en olası sorunları tahmin izin vermek için büyüklük sıralanabilir.
 

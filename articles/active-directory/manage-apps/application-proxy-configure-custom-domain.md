@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 090df19861e00a99f0bb63bf20eb2f26dc6761fd
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b0ad4aa63dbeefce6b55e099fd51d3608ae3abb8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369040"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133358"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD uygulama proxy'sinde özel etki alanları ile çalışma
 
@@ -40,7 +40,7 @@ Mümkün olduğunda, uygulamalarınız için özel etki alanları ayarlamanızı
 Özel bir etki alanını yapılandırmadan önce hazırlanmış aşağıdaki gereksinimlere sahip olduğunuzdan emin olun: 
 - A [doğrulanmamış etki alanını Azure Active Directory'ye eklenen](../fundamentals/add-custom-domain.md).
 - Bir PFX dosyası biçiminde etki alanı için özel bir sertifika. 
-- Şirket içi uygulama [uygulama proxy'si aracılığıyla yayımlandığından](application-proxy-publish-azure-portal.md).
+- Şirket içi uygulama [uygulama proxy'si aracılığıyla yayımlandığından](application-proxy-add-on-premises-application.md).
 
 ### <a name="configure-your-custom-domain"></a>Özel etki alanınızı yapılandırın
 

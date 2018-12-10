@@ -1,5 +1,5 @@
 ---
-title: İçin ve Azure Blob depolamadan/depolamaya veri taşıma | Microsoft Docs
+title: Verileri Azure Blob depolamadan - Team Data Science Process taşıma
 description: İçin ve Azure Blob depolamadan/depolamaya veri taşıma
 services: machine-learning
 author: marktab
@@ -10,17 +10,20 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: fa3fd5dfdd0fbdb8200b0c5c8df512caedbe735c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a37c19ac0d3c053644b2f1f970ef9f84eac2f1df
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441851"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139866"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>İçin ve Azure Blob depolamadan/depolamaya veri taşıma
 
 Team Data Science Process veri veya alınan farklı depolama ortamları işlenen ya da işlemin her aşamasında en uygun şekilde analiz için çeşitli yüklenmiş olmasını gerektirir.
+
+## <a name="different-technologies-for-moving-data"></a>Verileri taşımak için farklı teknolojiler
+
 Aşağıdaki makaleleri ve farklı teknolojileri kullanarak Azure Blob depolama alanından veri taşıma konusunda açıklanmaktadır.
 
 * [Azure Depolama Gezgini](move-data-to-azure-blob-using-azure-storage-explorer.md)
@@ -35,6 +38,8 @@ Hangi sizin için en iyi bir yöntemdir, senaryoya bağlıdır. [Azure Machine l
 > 
 > 
 
+## <a name="using-azure-data-factory"></a>Azure Data Factory'yi kullanma
+
 Alternatif olarak, kullandığınız [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) için: 
 
 * oluşturun ve Azure blob depolamadan veri yükleyen işlem hattı zamanlama 
@@ -45,7 +50,7 @@ Alternatif olarak, kullandığınız [Azure Data Factory](https://azure.microsof
 Daha fazla bilgi için [Azure Data Factory ve Azure Machine Learning kullanarak öngörülebilir komut zincirleri oluşturma](../../data-factory/transform-data-using-machine-learning.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu belge, bir Azure aboneliği, bir depolama hesabı ve karşılık gelen depolama anahtarını ilgili hesabın sahibi olduğunuzu varsayar. Karşıya yükleme/veri indirmeden önce Azure depolama hesabı adını ve hesap anahtarınızı bilmeniz gerekir.
+Bu makalede, bir Azure aboneliği, bir depolama hesabı ve karşılık gelen depolama anahtarını ilgili hesabın sahibi olduğunuzu varsayar. Karşıya yükleme/veri indirmeden önce Azure depolama hesabı adını ve hesap anahtarınızı bilmeniz gerekir.
 
 * Bir Azure aboneliğini ayarlama hakkında bilgi için bkz: [ücretsiz bir aylık deneme](https://azure.microsoft.com/pricing/free-trial/).
 * Bir depolama hesabı oluşturma hakkında yönergeler için ve hesap ve anahtar bilgilerini almak için bkz: [Azure depolama hesapları hakkında](../../storage/common/storage-create-storage-account.md).

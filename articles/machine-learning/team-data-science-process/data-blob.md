@@ -1,6 +1,6 @@
 ---
-title: Azure blob verilerini Gelişmiş analiz ile işleme | Microsoft Docs
-description: İşlem verileri Azure Blob Depolama alanında.
+title: Gelişmiş analiz - Team Data Science Process ile Azure blob verilerini işleme
+description: Verileri araştırmak ve Gelişmiş analiz kullanarak Azure Blob depolamada depolanan verilerden özellikler oluşturun.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: ef5a3decec3ddd87bb73d513981bdfe081fadf74
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 36e3512caa8922f8bc1a65f13ea41d6873b51e5e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442395"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140559"
 ---
 # <a name="heading"></a>Azure blob verilerini Gelişmiş analiz ile işleme
 Bu belge, veri keşfetmek ve Azure Blob Depolama alanında depolanan verilerden oluşturma özellikleri kapsar. 

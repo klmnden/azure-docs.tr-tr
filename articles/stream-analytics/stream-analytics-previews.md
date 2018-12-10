@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/05/2018
-ms.openlocfilehash: 77c761ce72449f91cf91c66219ebc815d1620e94
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 12/04/2018
+ms.openlocfilehash: 637afab45e04c68777f8d1b42817c912cdc09941
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343683"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133756"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics Önizleme özellikleri
 
@@ -22,10 +22,6 @@ Bu makalede, Azure Stream Analytics için şu anda önizlemede tüm özellikler 
 ## <a name="public-previews"></a>Genel Önizleme
 
 Aşağıdaki özellikler, genel Önizleme aşamasındadır. Bu özelliklerin bugün yararlanabilirsiniz, ancak bunları üretim ortamında kullanmayın.
-
-### <a name="azure-stream-analytics-on-iot-edge"></a>IoT Edge üzerinde Azure Stream Analytics
-
-IOT Edge üzerinde Azure Stream Analytics, geliştiricilerin neredeyse gerçek zamanlı analizler IOT Edge cihazlarında dağıtma olanak tanır. Daha fazla bilgi için [IOT Edge üzerinde Azure Stream Analytics](stream-analytics-edge.md) belgeleri.
 
 ### <a name="integration-with-azure-machine-learning"></a>Azure Machine Learning ile tümleştirme
 

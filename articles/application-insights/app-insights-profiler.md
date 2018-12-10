@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2f726c9c70e6e46ad2e82e9d6f15dae2c9d3d008
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4d957c26bd4e4ae278c0909c9df1476b02954b86
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724698"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138016"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Application Insights ile canlı Azure web apps profili
 
-Profiler şu anda Web Apps üzerinde çalışan ASP.NET ve ASP.NET Core web uygulamaları için çalışır. Temel Hizmet katmanını veya üzeri Profiler'ı kullanmak için gerekli değildir.
+Profiler şu anda Web Apps üzerinde çalışan ASP.NET ve ASP.NET Core web uygulamaları için çalışır. Temel Hizmet katmanını veya üzeri Profiler'ı kullanmak için gerekli değildir. Linux üzerinde Profiler'ı etkinleştirmek şu anda yalnızca aracılığıyla olası [bu yöntem](app-insights-profiler-aspnetcore-linux.md).
 
 ## <a id="installation"></a> Web uygulamalarınız için Profiler'ı etkinleştir
 Web uygulaması için Profiler'ı etkinleştirmek için aşağıdaki yönergeleri izleyin. Farklı türde bir Azure hizmeti çalıştırıyorsanız, desteklenen platformlarda Profiler'ı etkinleştirmek için yönergeler şunlardır:
@@ -29,11 +29,10 @@ Web uygulaması için Profiler'ı etkinleştirmek için aşağıdaki yönergeler
 * [Service Fabric uygulamaları](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Sanal Makineler](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-
 Application Insights Profiler uygulama hizmetleri çalışma zamanı bir parçası olarak önceden yüklenmiş, ancak Azure Web Apps için get profilleri açın duruma getirmeniz gerekir. Kaynak kodunda App Insights SDK'sı dahil olsa bile bir Web uygulamasını dağıttıktan sonra Profil Oluşturucu etkinleştirmek için aşağıdaki adımları izleyin.
 
 1. Git **uygulama hizmetleri** bölmesinde Azure portalında.
-1. Gidin **Ayarları > İzleme** bölmesi.
+1. Gidin **Ayarları > Application Insights** bölmesi.
 
    ![Uygulama Hizmetleri portalında App ınsights'ı etkinleştirme](./media/app-insights-profiler/AppInsights-AppServices.png)
 

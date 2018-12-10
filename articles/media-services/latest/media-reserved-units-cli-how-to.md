@@ -1,6 +1,6 @@
 ---
-title: Ölçeklendirme medya ayrılmış birimleri - Azure | Microsoft Docs
-description: Bu konuda, ölçeklendirme medya işleme Azure Media Services ile bir genel bakıştır.
+title: Azure medya ayrılmış birimi - ölçeklendirmek için CLI kullanma | Microsoft Docs
+description: Bu konuda, ölçeklendirme medya Azure Media Services ile işleme için CLI kullanma gösterilmektedir.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: dd587e5fc2082d1e496fbc05d5b25cf6692413bc
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec18
+ms.openlocfilehash: 2b10de83e00b3668f70461f76634c560bcbea1a4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713070"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133800"
 ---
 # <a name="scaling-media-processing"></a>Medya işlemeyi ölçeklendirme
 

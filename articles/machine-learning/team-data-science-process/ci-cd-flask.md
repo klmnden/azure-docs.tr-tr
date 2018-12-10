@@ -1,5 +1,5 @@
 ---
-title: Sürekli Tümleştirme machine learning için Azure işlem hattı oluşturma
+title: Team Data Science Process için sürekli tümleştirme - Azure işlem hattı oluşturma
 description: "Yapay zeka (AI) uygulamalar için DevOps: Azure'da Docker ve Kubernetes kullanarak sürekli tümleştirme işlem hattı oluşturma"
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=jainr, ms.author=jainr)"
-ms.openlocfilehash: 84d0c42b132016bbb350636cc00651a13bf93616
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
+ms.openlocfilehash: a3c570d3d22742afcbba86f35a9dd1f6a85c0b8f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102309"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134293"
 ---
 # <a name="creating-continous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>Docker, Kubernetes ve Python Flask uygulaması kullanarak Azure üzerinde sürekli tümleştirme işlem hattı oluşturma
 Yapay ZEKA uygulaması için iş, veri Bilimcileri makine öğrenimi modelleri ve bir uygulama oluşturmak ve kullanmak için son kullanıcılara gösterme uygulama geliştiriciler genellikle iki akışlarını vardır. Bu makalede, biz nasıl sürekli tümleştirme (CI) uygulanacağını gösteren / sürekli teslim (CD) işlem hattı için yapay ZEKA uygulama. Yapay ZEKA uygulaması, uygulama kodu kullanan machine learning (ML) bir modelle katıştırılmış birleşimidir. Bu makalede, biz pretrained modeli özel Azure blob depolama hesabından getiriliyor, AWS S3 hesabı da olabilir. Makale için bir basit bir python flask web uygulaması kullanacağız.

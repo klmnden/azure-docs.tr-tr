@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager istek sınırları | Microsoft Docs
+title: İstek sınırları ve azaltma - Azure Resource Manager
 description: Abonelik sınırlarına ulaşıldı, Azure Resource Manager istekleri azaltma kullanmayı açıklar.
 services: azure-resource-manager
 documentationcenter: na
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/17/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: fdc98c6d88b18f770d1869acbea5998ad4571287
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 0ba4a1a4119db515e10c0b704b0a10501fe79682
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981822"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136898"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager istekleri azaltma
 Her Azure aboneliği ve Kiracı için Resource Manager kadar saat başına istek 12.000 okuma ve yazma istekleri saatte 1.200 sağlar. Bu limitler istekleri yapabilen sorumlu kimliği ve abonelik kimliği için kapsamlı veya Kiracı kimliği. İsteklerinizi birden fazla asıl kimliği geliyorsa, abonelik veya Kiracı genelinde sınırınızı 12.000 ve saatte 1.200 büyüktür.

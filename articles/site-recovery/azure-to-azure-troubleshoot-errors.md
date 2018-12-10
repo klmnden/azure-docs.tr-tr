@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: dc89eadfc0038d74ced431693c321944a7ee3a12
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a524c773b0f4f6d3dc14830d4c3200512f8b287c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834375"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140923"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure'dan Azure'a VM çoğaltmayla sorunları giderme
 
@@ -184,15 +184,15 @@ Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP 
 
 
  - **Çözümleme**
-  1.    Mobility hizmeti aracısı için proxy ayarlarını Windows üzerinde IE ve Linux'ta /etc/environment algılar.
-  2.  Ardından yalnızca ASR Mobility hizmeti için proxy ayarlamak isterseniz, konumundaki ProxyInfo.conf proxy ayrıntıları sağlayabilirsiniz:</br>
-      - ``/usr/local/InMage/config/`` üzerinde ***Linux***
-      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` üzerinde ***Windows***
-  3.    ProxyInfo.conf proxy ayarlarını aşağıdaki INI biçiminde olmalıdır. </br>
+   1.   Mobility hizmeti aracısı için proxy ayarlarını Windows üzerinde IE ve Linux'ta /etc/environment algılar.
+   2.  Ardından yalnızca ASR Mobility hizmeti için proxy ayarlamak isterseniz, konumundaki ProxyInfo.conf proxy ayrıntıları sağlayabilirsiniz:</br>
+       - ``/usr/local/InMage/config/`` üzerinde ***Linux***
+       - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` üzerinde ***Windows***
+   3.   ProxyInfo.conf proxy ayarlarını aşağıdaki INI biçiminde olmalıdır. </br>
                    *[proxy]*</br>
                    *Adres =http://1.2.3.4*</br>
                    *Bağlantı noktası 567 =*</br>
-  4. ASR Mobility Hizmeti Aracısı destekler yalnızca ***kimliği doğrulanmamış proxy***.
+   4. ASR Mobility Hizmeti Aracısı destekler yalnızca ***kimliği doğrulanmamış proxy***.
 
 ### <a name="fix-the-problem"></a>Sorunu
 Güvenilir listeye eklenecek [gerekli URL'leri](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) veya [gerekli IP aralıkları](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), adımları [ağ rehberi belgesi](site-recovery-azure-to-azure-networking-guidance.md).

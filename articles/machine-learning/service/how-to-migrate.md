@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: cc60fd6a9d5f154d26fc9c495f190296453a0db0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 22e7e513c7ec015b070ae37c1dbdd168404ee768
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106660"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140761"
 ---
 # <a name="migrate-from-workbench-to-the-latest-version-of-azure-machine-learning-service"></a>Azure Machine Learning hizmetinin en son sürüme Workbench'ten geçirme 
 
@@ -108,7 +108,7 @@ az ml history download
 <a name="dataprep"></a>
 
 ## <a name="data-preparation-files"></a>Veri hazırlama dosyası
-Veri hazırlama dosyası Workbench taşınabilir değildir. Ancak yine de yeni Azure Machine Learning veri hazırlığı SDK'sını kullanarak modellemek için herhangi bir boyut veri kümesi hazırlama veya büyük veri kümeleri için Azure Databricks kullanabilirsiniz.  [Veri hazırlığı SDK almayı öğrenme](how-to-data-prep.md). 
+Veri hazırlama dosyası Workbench taşınabilir değildir. Ancak yine de yeni Azure Machine Learning veri hazırlığı SDK'sını kullanarak modellemek için herhangi bir boyut veri kümesi hazırlama veya büyük veri kümeleri için Azure Databricks kullanabilirsiniz. [Veri hazırlığı SDK almayı öğrenme](https://aka.ms/data-prep-sdk).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,6 +1,6 @@
 ---
-title: Veri bilimi projeleri - Azure Machine Learning yürütülmesini | Microsoft Docs
-description: Nasıl bir veri Bilimcisi bir veri bilimi projenizin ilerlemesini izleyebilirsiniz.
+title: Veri bilimi projeleri - Team Data Science Process ilerlemesini izleme
+description: Nasıl veri bilimi grup yöneticileri, ekip kiralama ve müşteri adayları proje bir veri bilimi projenizin ilerlemesini izleyebilirsiniz.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 202ac89b8a281012dbcf5f4c4df11e97ba2c8c65
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a9616a4f80a3105118b82ce3f4106a65fdd9ddfe
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441477"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134314"
 ---
-# <a name="track-progress-of-data-science-projects"></a>Veri bilimi projeleri ilerlemesini
+# <a name="tracking-the-progress-of-data-science-projects"></a>Veri bilimi projeleri ilerlemesini izleme
 
 Veri bilimi grup yöneticileri, takım Liderleri ve proje liderleri gerek projelerini ilerlemesini izlemek için hangi iş bunları ve kim tarafından yapılan ve yapılacaklar listelerinde kalır. 
 

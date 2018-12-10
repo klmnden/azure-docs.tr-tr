@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager kaynak grubunu sil
-description: Bir kaynak grubunun silinmesi, Azure Resource Manager kaynakların silinmesini nasıl sıralar açıklar.
+title: Kaynak grubu ve Azure Resource Manager kaynaklarını - sil
+description: Bir kaynak grubunun silinmesi, Azure Resource Manager kaynakların silinmesini nasıl sıralar açıklar. Bu, yanıt kodları ve Resource Manager silme başarılı olup olmadığını belirlemek için bunları nasıl işlediğini açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8b0711cab07584aa84ab437a2a4efb5aab92f3d1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: b8c4fdc942af291e912a4c1e74d1292279cf9f8c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319361"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132338"
 ---
 # <a name="azure-resource-manager-resource-group-deletion"></a>Azure Resource Manager kaynak grubunu silme
 
@@ -68,4 +69,4 @@ Diğer hata kodları için Resource Manager kaynak silme işlemi başarısız ol
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Resource Manager kavramları anlamak için bkz. [Azure Resource Manager'a genel bakış](resource-group-overview.md).
-* Bir kaynak sağlayıcısı işlemleri görüntülemek için bkz: [Azure REST API'si](/rest/api/).
+* Silme komutlar için bkz [PowerShell](/powershell/module/azurerm.resources/Remove-AzureRmResourceGroup), [Azure CLI](/cli/azure/group?view=azure-cli-latest#az-group-delete), ve [REST API](/rest/api/resources/resourcegroups/delete).

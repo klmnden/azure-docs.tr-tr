@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: c505feb20321d785a86cad0422470aa5c9a4311b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9918c4b022fc2aca4bfc1ddba5649d7f0efe1256
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259097"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138798"
 ---
 <a id="preparemachines"></a>
 
@@ -83,6 +83,7 @@ Tek başına küme oluşturma için küme belirtimi açıklayan bir tek başına
 Bu dosyadaki bölümleri hakkında daha fazla bilgi için bkz: [tek başına Windows Küme için yapılandırma ayarlarını](service-fabric-cluster-manifest.md).
 
 İndirdiğiniz paketinden ClusterConfig.json dosyalarından birini açın ve aşağıdaki ayarları değiştirin:
+
 | **Yapılandırma ayarı** | **Açıklama** |
 | --- | --- |
 | **NodeType** |Düğüm türleri, Küme düğümlerinizi çeşitli gruplar halinde ayırmanıza olanak sağlar. Bir küme en az bir NodeType olması gerekir. Bir gruptaki tüm düğümleri aşağıdaki ortak özelliklere sahiptir: <br> **Ad** -düğüm türü adı budur. <br>**Uç nokta bağlantı noktası** - bu çeşitli uç bu düğüm türü ile ilişkili olan noktaları (bağlantı noktaları) olarak adlandırılır. Bu bildirimde başka bir şey ile çakışmadığından sürece istediğiniz ve zaten olmayan makine/VM'de çalışan herhangi bir uygulama tarafından kullanılmakta olan bağlantı noktası numarasını kullanabilirsiniz. <br> **Yerleştirme özelliklerini** -bunlar sistem hizmetleri veya hizmetleriniz için yerleştirme kısıtlamaları kullanan bu düğüm türü için özellikleri açıklar. Bu özellikler belirli bir düğümde ek meta veriler sağlayan kullanıcı tanımlı anahtar/değer çiftleridir. Düğüm özellikleri örnekleri, bir sabit sürücü veya grafik kartı, sabit sürücüsünü, çekirdek ve diğer fiziksel özellikler iğnelerinin sayısı düğüm olup olacaktır. <br> **Kapasiteleri** -düğüm kapasiteleri, belirli bir kaynak miktarını ve adını tanımlayın belirli bir düğüm tüketim için kullanılabilir olduğunu. Örneğin, bir düğüm "MemoryInMb" adlı bir ölçüm için kapasiteye sahip olduğundan ve varsayılan olarak 2048 MB kullanılabilir olduğunu tanımlayabilir. Bu kapasite, çalışma zamanında belirli miktarda kaynağı gerektiren hizmetler kaynaklarla gerekli tutarları kullanılabilir olan düğümleri yerleştirildiğinden emin olmak için kullanılır.<br>**Isprimary** - yalnızca bir değerle için birincil ayarlandığından emin olun birden fazla NodeType tanımlı varsa *true*, burada Çalıştır Sistem Hizmetleri olduğu. Diğer tüm düğüm türleri değerine ayarlanmalıdır *false* |
@@ -97,20 +98,20 @@ Küme yapılandırmasını ortama yapılandırılan tüm ayarları aldıktan son
 Bir Küme Yöneticisi, Service Fabric tek başına küme yapılandırdığında, ortamın aşağıdaki ölçütleri ile ayarlanmış olması gerekir: <br>
 1. Kümeyi oluşturan kullanıcının küme yapılandırma dosyasında düğümleri olarak listelenen tüm makineler için yönetici düzeyinde güvenlik ayrıcalıkları olmalıdır.
 2. Her küme düğümünde makine yanı sıra küme oluşturulduğu makine gerekir:
-* Service Fabric SDK'sı kaldırmış
-* Service Fabric çalışma zamanı kaldırıldı 
-* Windows Güvenlik Duvarı (mpssvc) hizmet etkinleştirdiniz mi
-* Uzak Kayıt Defteri hizmeti (uzak kayıt defteri) etkinleştirdiniz mi
-* Dosya Paylaşımı (SMB) etkin
-* Gerekli bağlantı noktaları açıldı, küme yapılandırması bağlantı noktalarına bağlı olan
-* Gerekli bağlantı noktalarını Windows SMB ve uzak kayıt defteri hizmeti için açılmış olması: 135 ve 137, 138, 139'dur ve 445
-* Başka bir ağ bağlantısına sahip
+   * Service Fabric SDK'sı kaldırmış
+   * Service Fabric çalışma zamanı kaldırıldı 
+   * Windows Güvenlik Duvarı (mpssvc) hizmet etkinleştirdiniz mi
+   * Uzak Kayıt Defteri hizmeti (uzak kayıt defteri) etkinleştirdiniz mi
+   * Dosya Paylaşımı (SMB) etkin
+   * Gerekli bağlantı noktaları açıldı, küme yapılandırması bağlantı noktalarına bağlı olan
+   * Gerekli bağlantı noktalarını Windows SMB ve uzak kayıt defteri hizmeti için açılmış olması: 135 ve 137, 138, 139'dur ve 445
+   * Başka bir ağ bağlantısına sahip
 3. Küme düğümü makinelerin hiçbirinin bir etki alanı denetleyicisi olmalıdır.
 4. Kümenin dağıtılması için güvenli bir küme ise, Önkoşullar içinde yerleştirin ve yapılandırmanın karşı doğru yapılandırıldığından gerekli güvenlik doğrulayın.
 5. Küme makinelerin İnternet'ten erişilebilen emin değilseniz, aşağıdaki küme yapılandırmasında ayarlayın:
-* Telemetri devre dışı bırak: altında *özellikleri* ayarlamak *"enableTelemetry": false*
-* Otomatik yapı sürümü indirme & Geçerli Küme sürümü, destek sonuna yaklaşıyor bildirimleri devre dışı bırak: altında *özellikleri* ayarlamak *"fabricClusterAutoupgradeEnabled": false*
-* Alternatif olarak, ağ internet erişimi beyaz listelenen etki alanları için sınırlı ise, aşağıdaki etki alanlarına otomatik yükseltme için gereken: go.microsoft.com download.microsoft.com
+   * Telemetri devre dışı bırak: altında *özellikleri* ayarlamak *"enableTelemetry": false*
+   * Otomatik yapı sürümü indirme & Geçerli Küme sürümü, destek sonuna yaklaşıyor bildirimleri devre dışı bırak: altında *özellikleri* ayarlamak *"fabricClusterAutoupgradeEnabled": false*
+   * Alternatif olarak, ağ internet erişimi beyaz listelenen etki alanları için sınırlı ise, aşağıdaki etki alanlarına otomatik yükseltme için gereken: go.microsoft.com download.microsoft.com
 
 6. Service Fabric uygun virüsten koruma dışlamaları ayarlayın:
 

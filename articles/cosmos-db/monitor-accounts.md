@@ -1,22 +1,22 @@
 ---
-title: Azure Cosmos DB istekleri ve depolama izleme | Microsoft Docs
+title: Azure Cosmos DB performans ve depolama ölçümlerini izleyin
 description: Azure Cosmos DB hesabınız için istekleri ve sunucu hataları gibi performans ölçümlerini ve depolama alanı tüketimi gibi kullanım ölçümleri izlemeyi öğrenin.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2017
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 1f4bf4ba660e83be9879c56d04b27c932d563e17
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.custom: seodec18
+ms.openlocfilehash: fe527e6e9933d25d7f1a16561ce4822d7b9a33ab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354079"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135891"
 ---
-# <a name="monitor-azure-cosmos-db"></a>Azure Cosmos DB izleyin
+# <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB performans ve depolama ölçümlerini izleyin
+
 Azure Cosmos DB hesaplarınızda izleyebilirsiniz [Azure portalında](https://portal.azure.com/). Her Azure Cosmos DB hesabı için aktarım hızı, depolama, kullanılabilirlik, gecikme süresi ve tutarlılık izlemek eksiksiz ölçümleri kullanılabilir.
 
 Hesap sayfasında, yeni ölçümler sayfası veya Azure İzleyici ölçümleri gözden geçirilebilir.

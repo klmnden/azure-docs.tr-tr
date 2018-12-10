@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning Anomali algılama API'si | Microsoft Docs
+title: Azure Machine Learning Anomali algılama API'si - Team Data Science Process'i
 description: Anomali algılama API'si, zaman serisi verilerinde zaman eşit aralıklı sayısal değerlerle anomalileri algılar Microsoft Azure Machine Learning ile oluşturulmuş bir örnek verilmiştir.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
-ms.custom: (previous author=alokkirpal, ms.author=alok)
-ms.openlocfilehash: 485cf6af9f019bc43ee862627db8549240690247
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
+ms.openlocfilehash: de625e7cc394d1b292f9876a1b4cdd3fb0daeaa8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443942"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134803"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning Anomali algılama API'si
 ## <a name="overview"></a>Genel Bakış
@@ -37,9 +37,9 @@ Anomali algılama teklifi, başlamanıza yardımcı olmak için kullanışlı Ar
 > [!NOTE]
 > Deneyin **BT Anomali öngörüleri çözüm** tarafından desteklenen [bu API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
 > 
-> Azure aboneliğinize dağıtılan bu uçtan uca çözüm için <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank"> **buradan başlayın >**</a>
-> 
->
+<!-- This Solution is no longer available
+> To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
+--> 
 
 ## <a name="api-deployment"></a>API dağıtımı
 API'yi kullanmak için Azure aboneliğinizde bir Azure Machine Learning web hizmeti olarak nerede barındırılacağını dağıtmanız gerekir.  Bu işlemi yapabileceğiniz [Azure AI Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Bu iki AzureML Web hizmetlerini (ve bunlarla ilişkili kaynakları) Azure aboneliğinize - mevsimsellik algılama ile anomali algılama için diğeri mevsimsellik algılama olmadan dağıtır.  Dağıtım tamamlandıktan sonra Apı'lerinizi gelen yönetmek mümkün olmayacak [AzureML web hizmetlerini](https://services.azureml.net/webservices/) sayfası.  Bu sayfada, API'yi çağırmak için uç noktalarına, API anahtarları, hem de örnek kodu bulmak mümkün olacaktır.  Daha ayrıntılı yönergeleri [burada](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).

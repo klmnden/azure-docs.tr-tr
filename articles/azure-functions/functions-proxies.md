@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 2aa8036149f4056f2d197f0712b86104f5cf2215
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 18398326e21ac6f3d64e43a577cf7d57cfb23438
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095054"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139529"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure işlev proxy'leri ile çalışma
 
@@ -149,7 +149,7 @@ Her bir proxy gibi bir kolay ad sahip *proxy1* önceki örnekte. Karşılık gel
 > [!NOTE] 
 > *Rota* Azure işlev proxy'lerini bir özellik değil dikkate *routeprefix öğesi* işlevi uygulama konağı Yapılandırma özelliği. Bir önek gibi dahil etmek istiyorsanız `/api`, içinde eklenmelidir *rota* özelliği.
 
-### <a name="disableProxies"></a>Bireysel proxy'leri devre dışı bırak
+### <a name="disableProxies"></a> Bireysel proxy'leri devre dışı bırak
 
 Ekleyerek bireysel proxy'leri devre dışı bırakabilirsiniz `"disabled": true` proxy'sine `proxies.json` dosya. Bu, 404 döndüren matchCondidtion toplantı tüm istekleri neden olur.
 ```json
@@ -166,6 +166,22 @@ Ekleyerek bireysel proxy'leri devre dışı bırakabilirsiniz `"disabled": true`
     }
 }
 ```
+
+### <a name="applicationSettings"></a> Uygulama ayarları
+
+Birçok uygulama ayarları tarafından proxy davranışı denetlenebilir. Bunların tümü özetlenen [işlevler uygulama ayarları başvurusu](./functions-app-settings.md)
+
+* [AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL](./functions-app-settings.md#azurefunctionproxydisablelocalcall)
+* [AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES](./functions-app-settings.md#azurefunctionproxybackendurldecodeslashes)
+
+### <a name="reservedChars"></a> Ayrılmış karakterleri (biçimlendirme dizesi)
+
+Tüm dizeleri yorumu hariç, küme ayracı ve eğik çizgi olmadan proxy'leri oku
+
+|Karakter|Kaçan karakter|Örnek|
+|-|-|-|
+|{veya}|{{veya}}|`{{ example }}` --> `{ example }`
+|/|///| `example.com///text.html` --> `example.com/text.html`
 
 ### <a name="requestOverrides"></a>RequestOverrides nesnesi tanımlayın
 

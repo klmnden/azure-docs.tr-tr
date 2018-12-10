@@ -1,5 +1,5 @@
 ---
-title: Azure ExpressRoute için yönlendirme gereksinimleri | Microsoft Belgeleri
+title: 'Yönlendirme gereksinimleri - ExpressRoute: Azure | Microsoft Docs'
 description: Bu sayfada, ExpressRoute devreleri için yönlendirmeyi yapılandırma ve yönetmeye yönelik ayrıntılı gereksinimler verilmektedir.
 services: expressroute
 author: ganesr
@@ -7,12 +7,13 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: ganesr
-ms.openlocfilehash: cb48a9470a39cbe152f821333050e3dd5a28e1ca
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 52ef636424a67c5f0d0bc77cec7667f6436f8276
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230963"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135806"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute yönlendirme gereksinimleri
 Microsoft bulut hizmetlerine ExpressRoute kullanarak bağlanmak için yönlendirmeyi ayarlamanız ve yönetmeniz gerekir. Bazı bağlantı sağlayıcıları yönlendirme ayarlama ve yönetimini yönetilen bir hizmet olarak sunar. Bu hizmetin sunulup sunulmadığını öğrenmek için bağlantı sağlayıcınıza başvurun. Bu hizmet sağlanmıyorsa aşağıdaki gereksinimlere uymalısınız:
@@ -191,7 +192,7 @@ Bir jeopolitik bölge için birden fazla ExpressRoute devresi satın alabilirsin
 | Hindistan Güney | 12076:51019 |
 | Hindistan Batı | 12076:51018 |
 | Hindistan Orta | 12076:51017 |
-| **Kore** | |
+| **Güney Kore** | |
 | Kore Güney | 12076:51028 |
 | Kore Orta | 12076:51029 |
 

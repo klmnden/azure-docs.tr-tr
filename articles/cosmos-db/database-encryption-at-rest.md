@@ -1,18 +1,18 @@
 ---
-title: 'Veritabanı bekleme sırasında şifreleme: Azure Cosmos DB'
-description: Azure Cosmos DB varsayılan şifreleme tüm verilerin nasıl sağladığını öğrenin.
-services: cosmos-db
+title: Azure Cosmos DB'de bekleme sırasında şifreleme
+description: Azure Cosmos DB, bekleyen verilerin şifrelenmesi nasıl sağladığını ve nasıl uygulandığını öğrenin.
 author: rafats
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2017
-ms.author: rafats
-ms.openlocfilehash: c58d294707d347ce979af80f63e1edb7be1c1a40
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/06/2018
+ms.author: sngun
+ms.custom: seodec18
+ms.openlocfilehash: 8138a7dcae427d5f5f622170a7825306a7bf8dae
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835522"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140328"
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Azure Cosmos DB veritabanı bekleme sırasında şifreleme
 

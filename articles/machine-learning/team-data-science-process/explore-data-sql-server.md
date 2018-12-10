@@ -1,6 +1,6 @@
 ---
-title: Azure'da SQL Server sanal makinesi verilerini keşfedin | Microsoft Docs
-description: Bir SQL Server VM'si, azure'da depolanan verileri araştırmak nasıl.
+title: SQL Server sanal makinesinde - Team Data Science Process verilerini keşfedin
+description: Bir SQL Server VM'si SQL veya Python gibi programlama dilini kullanarak azure'da depolanan verileri araştırmak nasıl.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: da01a1a386e1ffc590f4cbbb85d9d50a180d4973
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 45b842f7ff136f2d53b7724c11141f6b9104ebd7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442939"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140124"
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Azure üzerindeki SQL Server Sanal Makinesi verilerini keşfetme
 

@@ -1,5 +1,6 @@
 ---
-title: PowerShell ile bölgesel olarak yedekli genel IP adresi ön uç ile bir genel Load Balancer Standard oluşturma | Microsoft Docs
+title: Azure PowerShell ile bölgesel olarak yedekli ön uç ile standart yük dengeleyici oluşturma
+titlesuffix: Azure Load Balancer
 description: PowerShell kullanarak bir bölgesel olarak yedekli genel IP adresi ön ile genel Load Balancer Standard oluşturma konusunda bilgi edinin
 services: load-balancer
 documentationcenter: na
@@ -7,18 +8,19 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: kumud
-ms.openlocfilehash: 9dfd477678148f3e4bb80bafe61e4867dab54c8e
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: b6730b624cc0416354fecfdbe747f643540f9e89
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739541"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138755"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-powershell"></a>PowerShell ile bölgesel olarak yedekli genel IP adresi ön uç ile bir genel Load Balancer Standard oluşturma
+#  <a name="create-a-standard-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>Azure PowerShell ile bölgesel olarak yedekli ön uç ile standart dengeleyici oluşturma
 
 Bu makalede adımları genel oluşturma işleminde [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) genel IP standart bir adres kullanarak bölgesel olarak yedekli bir ön uç ile.
 

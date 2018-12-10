@@ -1,5 +1,5 @@
 ---
-title: Hive tabloları oluşturma ve Azure Blob depolamadan veri yükleme | Microsoft Docs
+title: Hive tabloları oluşturma ve Blob depolama alanından - Team Data Science Process veri yükleme
 description: Hive tabloları oluşturma ve Azure blob depolamadan veri yükleme için Hive sorguları kullanın. Hive tablolarını bölümlemek ve en iyi duruma getirilmiş satır sütunlu (sorgu performansını artırmak için biçimlendirme ORC) kullanın.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
-ms.openlocfilehash: 0f652efcad90354dea438dcd684759c41224c384
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5d88974fd1fb3d8784416ad3895fe139a3275e01
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084116"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134956"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive tabloları oluşturma ve Azure Blob depolamadan veri yükleme
 

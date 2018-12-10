@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: ad659cfcf1bfdad440968da5568b993724a5f351
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: cd45220326221490b461c5706620df2aab55a5d6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319550"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137846"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Azure VM konuk işletim sistemi güvenlik duvarı yanlış yapılandırılmış
 
@@ -33,7 +33,7 @@ Bu makalede, yanlış yapılandırılmış konuk işletim sistemi güvenlik duva
 
 ## <a name="cause"></a>Nedeni
 
-Konuk sistemi Güvenlik Duvarı'nın hatalı yapılandırılması bazı veya tüm VM ağ trafiği türlerinin engelleyebilirsiniz. 
+Konuk sistemi Güvenlik Duvarı'nın hatalı yapılandırılması bazı veya tüm VM ağ trafiği türlerinin engelleyebilirsiniz.
 
 ## <a name="solution"></a>Çözüm
 
@@ -43,11 +43,11 @@ Bu sorunu gidermek için seri konsolu veya [çevrimdışı VM'yi onarın](troubl
 
 ## <a name="online-mitigations"></a>Çevrimiçi bir risk azaltma işlemleri
 
-Bağlanma [seri konsolu ve bir PowerShell örneği açın](serial-console-windows.md#open-cmd-or-powershell-in-serial-console). Seri konsol VM üzerinde etkin değilse, "Onarım VM çevrimdışı" bölümüne aşağıdaki Azure makalesini gidin:
+Bağlanma [seri konsolu ve bir PowerShell örneği açın](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Seri konsol VM üzerinde etkin değilse, "Onarım VM çevrimdışı" bölümüne aşağıdaki Azure makalesini gidin:
 
  [Uzak Masaüstü aracılığıyla Azure VM'ye bağlanmaya çalışırken bir iç hata oluşur.](troubleshoot-rdp-internal-error.md#repair-the-vm-offline)
 
-Aşağıdaki kuralları ya da VM (RDP) üzerinden erişim sağlamak veya sorun giderme daha kolay bir deneyim sağlamak üzere düzenlenebilir: 
+Aşağıdaki kuralları ya da VM (RDP) üzerinden erişim sağlamak veya sorun giderme daha kolay bir deneyim sağlamak üzere düzenlenebilir:
 
 *   Uzak Masaüstü (TCP-Gelen): Bu birincil erişim sağlayan VM Azure'da RDP vererek standart kuralıdır.
 
@@ -55,7 +55,7 @@ Aşağıdaki kuralları ya da VM (RDP) üzerinden erişim sağlamak veya sorun g
 
 *   Dosya ve Yazıcı Paylaşımı (SMB-gelen): Bu kural, sorun giderme seçeneği olarak ağ paylaşımı erişimi sağlar.
 
-*   Dosya ve Yazıcı Paylaşımı (yankı isteği - Icmpv4 gelen): Bu kural, VM ping olanak sağlar. 
+*   Dosya ve Yazıcı Paylaşımı (yankı isteği - Icmpv4 gelen): Bu kural, VM ping olanak sağlar.
 
 Seri konsol erişimi örnekte, güvenlik duvarı kuralı geçerli durumunu sorgulayabilirsiniz.
 
@@ -83,7 +83,7 @@ Seri konsol erişimi örnekte, güvenlik duvarı kuralı geçerli durumunu sorgu
     netsh advfirewall firewall set rule name="<RULE NAME>" new enable=yes
     ```
 
-*   Sorun giderme için güvenlik duvarı profili kapatabilirsiniz: 
+*   Sorun giderme için güvenlik duvarı profili kapatabilirsiniz:
 
     ```cmd
     netsh advfirewall set allprofiles state off

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: e346aed2efaab6afcd24e622f577708221b47cb1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e8d880534a39651024b60ef10a9fbadb9e109a4e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965863"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138254"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure işlevleri için uygulama ayarları başvurusu
 
@@ -172,6 +172,48 @@ Takılı paket dosyasından çalıştırılacak işlev uygulamanızı sağlar.
 |WEB SİTESİ\_ÇALIŞTIRMA\_FROM\_PAKET|1|
 
 Geçerli değerler için bir dağıtım paket dosyası konumunu çözümleyen ya da bir URL veya `1`. Ayarlandığında `1`, paket olmalıdır `d:\home\data\SitePackages` klasör. Zip dağıtımı Bu ayar ile kullanıldığında, paketi bu konuma otomatik olarak yüklenir. Önizleme'de, bu ayar adlandırılmış `WEBSITE_RUN_FROM_ZIP`. Daha fazla bilgi için [paket dosyasından işlevlerinizin çalıştığı](run-functions-from-deployment-package.md).
+
+## <a name="azurefunctionproxydisablelocalcall"></a>AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
+
+Varsayılan olarak, yeni bir HTTP isteği oluşturmak yerine, işlev uygulamasının işlevleri için doğrudan proxy'leri API çağrıları göndermek için bir kısayol işlev proxy'lerini yararlanacaktır. Bu ayar, bu davranışı devre dışı bırakmanızı sağlar.
+
+|Anahtar|Değer|Açıklama|
+|-|-|-|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Yerel işlev içindeki bir işleve işaret eden bir arka uç URL'si ile çağrıları artık doğrudan işleve gönderilecek ve bunun yerine işlev uygulaması için geri HTTP ön ucu yönlendirilirsiniz|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Varsayılan değer budur. Yerel bir işleve işaret eden bir arka uç URL'si ile çağrıları işlev uygulaması bu işleve iletilir.|
+
+
+## <a name="azurefunctionproxybackendurldecodeslashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
+
+Bu ayar, arka uç URL'si yerleştirildiğinde % 2F rota parametrelerine eğik çizgi olarak olduğu için kodu olup olmadığını denetler. 
+
+|Anahtar|Değer|Açıklama|
+|-|-|-|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Rota parametrelerine kodlanmış eğik çizgi ile bunları çözülmüş olacaktır. `example.com/api%2ftest` olur `example.com/api/test`|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Bu varsayılan davranıştır. Tüm yol boyunca parametreleri geçirilecek değişmedi|
+
+### <a name="example"></a>Örnek
+
+URL myfunction.com bir işlev uygulaması ile bir örnek proxies.json İşte
+
+```JSON
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "root": {
+            "matchCondition": {
+                "route": "/{*all}"
+            },
+            "backendUri": "example.com/{all}"
+        }
+    }
+}
+```
+|URL kod çözme|Girdi|Çıktı|
+|-|-|-|
+|true|myFunction.com/test%2fapi|example.com/test/api
+|false|myFunction.com/test%2fapi|example.com/test%2fapi|
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

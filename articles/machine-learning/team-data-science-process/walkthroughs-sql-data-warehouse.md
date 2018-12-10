@@ -1,5 +1,5 @@
 ---
-title: Azure üzerinde T-SQL ve Python kullanarak SQL veri ambarı veri bilimi kılavuzları | Microsoft Docs
+title: SQL veri ambarı ile T-SQL, Python - Analizine Team Data Science Process'i
 description: SQL veri ambarı genelindeki Tahmine dayalı analiz gerçekleştirmede size yol gösteren örnekler.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 425b28a3bfff46de3cb37562be8c6f868117a421
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 7d5b4d5d797b56407712494ca3702586a33c9fca
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444997"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138033"
 ---
 # <a name="sql-data-warehouse-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>Azure üzerinde T-SQL ve Python kullanarak SQL veri ambarı veri bilimi kılavuzları
 

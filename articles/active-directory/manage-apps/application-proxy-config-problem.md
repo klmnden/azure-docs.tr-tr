@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2344d35827cf541f0230f74917be3ae0ea39e074
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: e75b04b3220347bdaa90dbc2f21d92475df3aa47
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357413"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136265"
 ---
 # <a name="problem-creating-an-application-proxy-application"></a>Uygulama proxy'si uygulaması oluşturulurken hata 
 
@@ -28,7 +28,7 @@ Yaygın sorunlardan bazılarını insanların yüz yeni bir uygulama proxy'si uy
 
 ## <a name="recommended-documents"></a>Önerilen belgeler 
 
-Yönetici portalı üzerinden bir uygulama proxy'si uygulaması oluşturma hakkında daha fazla bilgi edinmek için [Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-publish-azure-portal.md).
+Yönetici portalı üzerinden bir uygulama proxy'si uygulaması oluşturma hakkında daha fazla bilgi edinmek için [Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-add-on-premises-application.md).
 
 Bu belgedeki adımlarda aşağıdaki ve uygulama oluşturulurken bir hata alıyorsanız, bilgi için hata ayrıntılarına ve önerileri uygulama düzeltme öğrenmek için bkz. Çoğu hata iletileri, önerilen düzeltmeyi içerir. 
 
@@ -51,4 +51,4 @@ Uygulamayı oluştururken sağ üst köşede hata iletisi görüntülenmelidir. 
    ![Uyarı istemi](./media/application-proxy-config-problem/error-message.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure portalında uygulama ara sunucusunu etkinleştirme](application-proxy-enable.md)
+[Azure portalında uygulama ara sunucusunu etkinleştirme](application-proxy-add-on-premises-application.md)

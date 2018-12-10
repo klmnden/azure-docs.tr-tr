@@ -1,5 +1,5 @@
 ---
-title: Analiz için Azure depolama ortamlarına veri yükleme | Microsoft Docs
+title: Azure depolama ortamlarına - Team Data Science Process veri yükleme
 description: Azure Blob Depolamadan/Depolamaya Veri Taşıma
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: f73488947b85c97d00257faf8907055227570cb6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: b53ece6cd2e61fa6f6340b7bda3021ee7d9d767c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441733"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139716"
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>Analiz için depolama ortamlarına veri yükleme
 

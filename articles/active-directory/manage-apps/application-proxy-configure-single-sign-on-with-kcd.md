@@ -15,12 +15,12 @@ ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: dbb7fca08e8d5c59842f7ddfb02b463a42efadb7
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 565e7379ad12222e459bd61ed50fa38f9f9b12fc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422296"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136256"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos kısıtlanmış temsil için çoklu oturum açma uygulamalarınıza uygulama ara sunucusu ile
 
@@ -75,7 +75,7 @@ Active Directory yapılandırması, uygulama ara sunucusu bağlayıcısını ve 
 Sharepointserviceaccount SPS makine hesabının veya SPS uygulama havuzu altında çalıştığı hizmet hesabı olabilir.
 
 ## <a name="configure-single-sign-on"></a>Çoklu oturum açmayı yapılandırma 
-1. Açıklanan yönergelere göre uygulamanızı yayımlayın [uygulama ara sunucusu ile uygulama yayımlama](application-proxy-publish-azure-portal.md). Seçtiğinizden emin olun **Azure Active Directory** olarak **ön kimlik doğrulama yöntemi**.
+1. Açıklanan yönergelere göre uygulamanızı yayımlayın [uygulama ara sunucusu ile uygulama yayımlama](application-proxy-add-on-premises-application.md). Seçtiğinizden emin olun **Azure Active Directory** olarak **ön kimlik doğrulama yöntemi**.
 2. Uygulamanızı kurumsal uygulamalar listesinde göründükten sonra seçin ve **çoklu oturum açma**.
 3. Çoklu oturum açma modu ayarlamak **tümleşik Windows kimlik doğrulaması**.  
 4. Girin **iç uygulama SPN'si** uygulama sunucusunun. Bu örnekte, http/www.contoso.com yayımlanan uygulamamız için SPN'dir. Bu SPN, istediğiniz bağlayıcıyı temsilci seçilen kimlik bilgilerini sunacağı Hizmetler listesinde olması gerekiyor. 

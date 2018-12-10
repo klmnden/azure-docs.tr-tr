@@ -1,20 +1,21 @@
 ---
-title: Azure ExpressRoute eşlemeleri sıfırlama | Microsoft Docs
-description: Devre dışı bırakma ve etkinleştirme eşlemeleri ExpressRoute bağlantı hattının.
+title: 'Bağlantı hattı eşlemesi - sıfırlama ExpressRoute: Azure | Microsoft Docs'
+description: Nasıl devre dışı bırakın ve ExpressRoute devre eşlemeleri etkinleştirin.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
-ms.openlocfilehash: 1bb2bb61ccd06d5774b811203e86d609a01250a4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: ad050e11c98139af00ad752f8960d55a58ca2f34
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415823"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132601"
 ---
-# <a name="reset-expressroute-peerings"></a>ExpressRoute eşlemeleri Sıfırla
+# <a name="reset-expressroute-circuit-peerings"></a>ExpressRoute devre eşlemeleri Sıfırla
 
 Bu makalede devre dışı bırakma ve PowerShell kullanarak ExpressRoute bağlantı hattının eşlemeler etkinleştirin. Bir eşleme devre dışı bıraktığınızda, birincil bağlantı ve, ExpressRoute devresinin ikincil bağlantısı BGP oturumu kapatılır. Microsoft eşlemesi üzerinden bağlantınız kesilir. Bir eşleme etkinleştirdiğinizde, birincil bağlantı ve, ExpressRoute devresinin ikincil bağlantısı BGP oturumu getirdiği. Microsoft eşlemesi üzerinden bağlantı yeniden elde. Etkinleştirme ve Microsoft Peering ve Azure özel eşleme ExpressRoute devresi bağımsız olarak devre dışı bırakabilirsiniz. Eşlemeler, ExpressRoute devreniz eşlikleri ilk kez yapılandırırken, varsayılan olarak etkindir.
 

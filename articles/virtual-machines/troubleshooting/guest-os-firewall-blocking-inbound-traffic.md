@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 3ddd2f122de832654be295c5978a88bec702558c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 19ba7013b461917c4aea8ae96f689d7e39859652
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319438"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134446"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM konuk işletim sistemi güvenlik duvarı gelen trafiği engelliyor
 
@@ -31,17 +31,17 @@ RDP bağlantısı, bir Azure sanal makinesine (VM) bağlamak için kullanamazsı
 
 ## <a name="cause"></a>Nedeni
 
-### <a name="cause-1"></a>Neden 1 
+### <a name="cause-1"></a>Neden 1
 
 RDP kuralının RDP trafiğine izin verecek şekilde ayarlanır değil.
 
-### <a name="cause-2"></a>Neden 2 
+### <a name="cause-2"></a>Neden 2
 
 Konuk sistemi Güvenlik Duvarı profilleri, RDP trafiği de dahil olmak üzere tüm gelen bağlantıları engelleyecek şekilde ayarlanmıştır.
 
 ![Güvenlik Duvarı ayarı](./media/guest-os-firewall-blocking-inbound-traffic/firewall-advanced-setting.png)
 
-## <a name="solution"></a>Çözüm 
+## <a name="solution"></a>Çözüm
 
 Bu adımları gerçekleştirmeden önce sistem diski etkilenen sanal makinenin anlık görüntüsünü yedekleyin. Daha fazla bilgi için [bir diskin anlık görüntüsünü alma](../windows/snapshot-copy-managed-disk.md).
 
@@ -49,7 +49,7 @@ Bu sorunu düzeltmek için metotlarından birini kullanın: [Azure VM sorunları
 
 ### <a name="online-troubleshooting"></a>Çevrimiçi sorun giderme
 
-Bağlanma [seri konsolu ve bir PowerShell örneği açın](serial-console-windows.md#open-cmd-or-powershell-in-serial-console). Seri konsol VM üzerinde etkin değilse, Git "[VM çevrimdışı onarım](troubleshoot-rdp-internal-error.md#repair-the-vm-offline).
+Bağlanma [seri konsolu ve bir PowerShell örneği açın](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Seri konsol VM üzerinde etkin değilse, Git "[VM çevrimdışı onarım](troubleshoot-rdp-internal-error.md#repair-the-vm-offline).
 
 #### <a name="mitigation-1"></a>1 risk azaltma
 
@@ -80,7 +80,7 @@ Bağlanma [seri konsolu ve bir PowerShell örneği açın](serial-console-window
     ```cmd
     netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
     ```
-    
+
     Aksi takdirde, Uzak Masaüstü (TCP-Gelen) kuralı açmak için aşağıdaki komutu çalıştırın:
 
     ```cmd
@@ -94,7 +94,7 @@ Bağlanma [seri konsolu ve bir PowerShell örneği açın](serial-console-window
     ```
 
     Sorun giderme ve güvenlik duvarı doğru şekilde ayarlanması tamamladıktan sonra Güvenlik Duvarı'nı yeniden etkinleştirin.
-    
+
     > [!Note]
     > Bu değişiklikleri uygulamak için VM'yi yeniden başlatma gerekmez.
 
@@ -128,11 +128,11 @@ Bağlanma [seri konsolu ve bir PowerShell örneği açın](serial-console-window
     ```
 
     > [!Note]
-    > Değişiklikleri uygulamak için VM'yi yeniden başlatma gerekmez. 
+    > Değişiklikleri uygulamak için VM'yi yeniden başlatma gerekmez.
 
 4.  Sanal makinenize RDP erişmek bir kez daha deneyin.
 
-### <a name="offline-mitigations"></a>Çevrimdışı bir risk azaltma işlemleri 
+### <a name="offline-mitigations"></a>Çevrimdışı bir risk azaltma işlemleri
 
 1.  [Bir kurtarma VM'si sistem diski](troubleshoot-recovery-disks-portal-windows.md).
 
@@ -159,7 +159,7 @@ Bkz: [nasıl bir konuk işletim sistemi belge etkinleştirme-devre dışı bır
     robocopy f:\windows\system32\config f:\windows\system32\config.BACK /MT
 
     REM Mount the hive
-    reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM 
+    reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM
 
     REM Delete the keys to block all inbound connection scenario
     REG DELETE "HKLM\BROKENSYSTEM\ControlSet001\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile" /v DoNotAllowExceptions

@@ -1,25 +1,25 @@
 ---
-title: Azure cloud services için İnternet’e yönelik yük dengeleyicisi oluşturma | Microsoft Docs
+title: Bir Azure bulut Hizmetleri için Internet'e yönelik Yük Dengeleyici oluşturma
+titlesuffix: Azure Load Balancer
 description: Klasik dağıtımda bulut hizmetleri için İnternet’e yönelik yük dengeleyici oluşturmayı öğrenin
 services: load-balancer
 documentationcenter: na
 author: genlin
 manager: cshepard
 tags: azure-service-management
-ms.assetid: 0bb16f96-56a6-429f-88f5-0de2d0136756
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
-ms.openlocfilehash: b292739f5f4b7184a24ac9b14d40ed98d4921bde
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: HT
+ms.openlocfilehash: 66c978a7eb151ce9df939a11e2e3c0016c8e7c9e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067495"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138101"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>Bulut hizmetleri için İnternet’e yönelik yük dengeleyici oluşturmaya başlama
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: a469fe0d6057d865ec006d9eb14ad95f2d4b7005
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2299dd6c723aa3059c293170c655918e5236ca0e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308455"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138169"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>DHCP İstemci hizmetini devre dışı olduğundan, Azure sanal makinelerinde RDP olamaz
 
@@ -26,7 +26,7 @@ Bu makalede bir sorun sanal DHCP İstemci hizmetini devre dışı bırakıldıkt
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="symptoms"></a>Belirtiler 
+## <a name="symptoms"></a>Belirtiler
 
 VM'yi DHCP İstemci hizmetini devre dışı olduğundan, Azure'da bir VM ile RDP bağlantısı yapamazsınız. Ne zaman iade ekran [önyükleme tanılaması](../troubleshooting/boot-diagnostics.md) Azure Portal'da, VM normal önyüklenir ve kimlik bilgileri oturum açma ekranında bekleyeceği görürsünüz. Uzaktan olay günlüklerini VM ile Olay Görüntüleyicisi'ni kullanarak görüntüleyin. DHCP istemci hizmeti kullanmaya değil veya başlatılamıyor görürsünüz. Aşağıdaki örnek bir oturum:
 
@@ -36,7 +36,7 @@ VM'yi DHCP İstemci hizmetini devre dışı olduğundan, Azure'da bir VM ile RDP
 **Olay Kimliği**: 7022 </br>
 **Görev kategorisi**: yok </br>
 **Düzey**: hata </br>
-**Anahtar sözcükler**: Klasik</br> 
+**Anahtar sözcükler**: Klasik</br>
 **Kullanıcı**: yok </br>
 **Bilgisayar**: myvm.cosotos.com</br>
 **Açıklama**: DHCP istemci hizmeti başlatılırken askıya alındı.</br>
@@ -49,12 +49,12 @@ Klasik VM'ler için çevrimdışı modda çalışır ve el ile günlükleri topl
 
 ## <a name="cause"></a>Nedeni
 
-DHCP istemci hizmeti VM üzerinde çalışmıyor. 
+DHCP istemci hizmeti VM üzerinde çalışmıyor.
 
 > [!NOTE]
-> Bu makale, yalnızca DHCP İstemci hizmetini ve DHCP sunucusu için geçerlidir. 
+> Bu makale, yalnızca DHCP İstemci hizmetini ve DHCP sunucusu için geçerlidir.
 
-## <a name="solution"></a>Çözüm 
+## <a name="solution"></a>Çözüm
 
 Bu adımları gerçekleştirmeden önce etkilenen makinenin işletim sistemi diskinin anlık yedekleyin. Daha fazla bilgi için [bir diskin anlık görüntüsünü alma](../windows/snapshot-copy-managed-disk.md).
 
@@ -62,7 +62,7 @@ Bu sorunu çözmek için DHCP etkinleştirmek için seri denetimi kullanın veya
 
 ### <a name="use-serial-control"></a>Seri denetimini kullanma
 
-1. Bağlanma [seri konsol ve örnek CMD Aç](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+1. Bağlanma [seri konsol ve örnek CMD Aç](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Seri konsol sanal makinenizde etkinleştirilmemiş olmadığını [sıfırlama ağ arabirimi](reset-network-interface.md).
 2. DHCP ağ arabiriminde devre dışı bırakılıp bırakılmadığını kontrol edin:
 
@@ -70,7 +70,7 @@ Bu sorunu çözmek için DHCP etkinleştirmek için seri denetimi kullanın veya
 3. DHCP durdurulmuşsa hizmeti başlatmayı deneyin
 
         sc start DHCP
-        
+
 4. Hizmet yeniden hizmeti başarıyla başlatıldığını emin olmak için sorgu.
 
         sc query DHCP
@@ -89,9 +89,9 @@ Bu sorunu çözmek için DHCP etkinleştirmek için seri denetimi kullanın veya
     |1069 - ERROR_SERVICE_LOGON_FAILED   |  Bkz: [DHCP istemci hizmeti oturum açma hatası nedeniyle başarısız oluyor](#dhcp-client-service-fails-because-of-logon-failure) |
     | 1070 - ERROR_SERVICE_START_HANG  | Bkz: [DHCP istemci hizmeti kilitlenmesine veya yanıt vermemeye başlıyor](#dhcp-client-service-crashes-or-hangs).  |
     | 1077 - ERROR_SERVICE_NEVER_STARTED  | Bkz: [DHCP istemci hizmeti devre dışı](#dhcp-client-service-is-disabled).  |
-    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   | [Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi alınamıyor.  | 
+    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   | [Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi alınamıyor.  |
     |1053 | [Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi alınamıyor.  |
-    
+
 
 #### <a name="dhcp-client-service-is-stopped-because-of-an-access-denied-error"></a>DHCP istemci hizmeti erişim reddedildi hatası nedeniyle durduruldu
 
@@ -99,18 +99,18 @@ Bu sorunu çözmek için DHCP etkinleştirmek için seri denetimi kullanın veya
 2. İşlem izleme aracı, aşağıdaki komutu çalıştırarak yükleyin:
 
    ```
-   remove-module psreadline  
-   $source = "https://download.sysinternals.com/files/ProcessMonitor.zip" 
-   $destination = "c:\temp\ProcessMonitor.zip" 
-   $wc = New-Object System.Net.WebClient 
-   $wc.DownloadFile($source,$destination) 
+   remove-module psreadline
+   $source = "https://download.sysinternals.com/files/ProcessMonitor.zip"
+   $destination = "c:\temp\ProcessMonitor.zip"
+   $wc = New-Object System.Net.WebClient
+   $wc.DownloadFile($source,$destination)
    ```
 3. Şimdi bir **procmon** izleme:
 
    ```
-   procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
+   procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML
    ```
-4. Oluşturan hizmet başlatarak problemi **erişim reddedildi** ileti: 
+4. Oluşturan hizmet başlatarak problemi **erişim reddedildi** ileti:
 
    ```
    sc start DHCP
@@ -118,8 +118,8 @@ Bu sorunu çözmek için DHCP etkinleştirmek için seri denetimi kullanın veya
 
    Başarısız olduğunda, işlem İzleyici Sonlandır:
 
-   ```   
-   procmon /Terminate 
+   ```
+   procmon /Terminate
    ```
 5. Toplama **c:\temp\ProcMonTrace.PML** dosyası:
 
@@ -132,7 +132,7 @@ Bu sorunu çözmek için DHCP etkinleştirmek için seri denetimi kullanın veya
 
     ![İşlem İzleyicisi sonuca göre filtreleme](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
-7. Kayıt defteri anahtarlarını, klasörlere veya çıktı dosyaları düzeltin. Genellikle, hizmette kullanılan oturum açma hesabı ACL bu nesnelere erişme izni olmadığından, bu soruna neden olur. Oturum açma hesabı için doğru ACL izni belirlemek için iyi bir VM'de kontrol edebilirsiniz. 
+7. Kayıt defteri anahtarlarını, klasörlere veya çıktı dosyaları düzeltin. Genellikle, hizmette kullanılan oturum açma hesabı ACL bu nesnelere erişme izni olmadığından, bu soruna neden olur. Oturum açma hesabı için doğru ACL izni belirlemek için iyi bir VM'de kontrol edebilirsiniz.
 
 #### <a name="dhcp-client-service-is-disabled"></a>DHCP istemci hizmeti devre dışı bırakıldı
 
@@ -158,7 +158,7 @@ Bu sorunu çözmek için DHCP etkinleştirmek için seri denetimi kullanın veya
 
 #### <a name="dhcp-client-service-fails-because-of-logon-failure"></a>DHCP istemci hizmeti oturum açma hatası nedeniyle başarısız olur.
 
-1. Bu hizmet başlangıç hesabını değiştirdiyseniz, bu sorun oluştuğu için hesabın varsayılan durumuna geri döndürme: 
+1. Bu hizmet başlangıç hesabını değiştirdiyseniz, bu sorun oluştuğu için hesabın varsayılan durumuna geri döndürme:
 
         sc config DHCP obj= 'NT Authority\Localservice'
 2. Hizmetini başlatın:
@@ -167,7 +167,7 @@ Bu sorunu çözmek için DHCP etkinleştirmek için seri denetimi kullanın veya
 3. Uzak Masaüstü kullanarak sanal Makineye bağlanmayı deneyin.
 
 #### <a name="dhcp-client-service-crashes-or-hangs"></a>DHCP istemci hizmeti kilitlenmesine veya yanıt vermemeye başlıyor
-1. Hizmet durumunu takılıyorsa **başlangıç** veya **durdurma** durum, hizmeti durdurmak deneyin: 
+1. Hizmet durumunu takılıyorsa **başlangıç** veya **durdurma** durum, hizmeti durdurmak deneyin:
 
         sc stop DHCP
 2. Kendi 'svchost' kapsayıcı hizmeti ayırma:
@@ -184,12 +184,12 @@ Bu sorunu çözmek için DHCP etkinleştirmek için seri denetimi kullanın veya
 
 1. [İşletim sistemi diskini bir kurtarma VM'si ekleme](../windows/troubleshoot-recovery-disks-portal.md).
 2. Kurtarma VM'sini bir Uzak Masaüstü Bağlantısı'nı başlatın. Bağlı disk olarak işaretlenmiş olduğundan emin olun **çevrimiçi** Disk Yönetimi Konsolu'nda. Ekli işletim sistemi diski için atanan sürücü harfini unutmayın.
-3.  Yükseltilmiş bir komut istemi örneği açın (**yönetici olarak çalıştır**). Ardından aşağıdaki betiği çalıştırın. Bu betik, ekli işletim sistemi diski için atanan sürücü harfini olduğunu varsayar **F**. Vm'nizde değer harf uygun şekilde değiştirin. 
+3.  Yükseltilmiş bir komut istemi örneği açın (**yönetici olarak çalıştır**). Ardından aşağıdaki betiği çalıştırın. Bu betik, ekli işletim sistemi diski için atanan sürücü harfini olduğunu varsayar **F**. Vm'nizde değer harf uygun şekilde değiştirin.
 
     ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM
 
-    REM Set default values back on the broken service 
+    REM Set default values back on the broken service
     reg add "HKLM\BROKENSYSTEM\ControlSet001\services\DHCP" /v start /t REG_DWORD /d 2 /f
     reg add "HKLM\BROKENSYSTEM\ControlSet001\services\DHCP" /v ObjectName /t REG_SZ /d "NT Authority\LocalService" /f
     reg add "HKLM\BROKENSYSTEM\ControlSet001\services\DHCP" /v type /t REG_DWORD /d 16 /f

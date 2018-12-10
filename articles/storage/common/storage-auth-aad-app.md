@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 03dd056363cd99f5354dc10ed5ae328eb39c3ec2
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: b817723120f07de9159e47c1259a68eb95b9c2e3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291071"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140787"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>BLOB'lar ve Kuyruklar (Önizleme) için erişim için bir uygulamadan Azure Active Directory kimlik doğrulaması
 
@@ -79,11 +79,11 @@ Ardından, Azure depolama API'leri çağırmak için uygulama izinleri vermeniz 
 
 Bir güvenlik sorumlusu Azure AD ile kimlik doğrulamak için kodunuzda iyi bilinen bazı değerler eklemeniz gerekir.
 
-#### <a name="azure-ad-oauth-endpoint"></a>Azure AD OAuth uç noktası
+#### <a name="azure-ad-authority"></a>Azure AD yetkilisi
 
-Temel Azure AD yetkilisi uç noktası için OAuth 2.0 olduğu gibi burada *Kiracı-kimliği* Active Directory Kiracı kimliği (veya dizin kimliği):
+Microsoft Genel bulut, temel Azure AD yetkilisi olduğu gibi burada *Kiracı-kimliği* Active Directory Kiracı kimliği (veya dizin kimliği):
 
-`https://login.microsoftonline.com/<tenant-id>/oauth2/token`
+`https://login.microsoftonline.com/<tenant-id>/`
 
 Kiracı kimliği, kimlik doğrulaması için kullanılacak Azure AD kiracısı tanımlar. Kiracı Kimliğini almak için özetlenen adımları izleyin. **için Azure Active Directory Kiracı Kimliğinizi öğrenmenin**.
 
@@ -138,11 +138,11 @@ Ardından, Azure AD'den bir belirteç istediği bir yöntem ekleyin. Belirteç i
 static string GetUserOAuthToken()
 {
     const string ResourceId = "https://storage.azure.com/";
-    const string AuthEndpoint = "https://login.microsoftonline.com/{0}/oauth2/token";
+    const string AuthInstance = "https://login.microsoftonline.com/{0}/";
     const string TenantId = "<tenant-id>"; // Tenant or directory ID
 
     // Construct the authority string from the Azure AD OAuth endpoint and the tenant ID. 
-    string authority = string.Format(CultureInfo.InvariantCulture, AuthEndpoint, TenantId);
+    string authority = string.Format(CultureInfo.InvariantCulture, AuthInstance, TenantId);
     AuthenticationContext authContext = new AuthenticationContext(authority);
 
     // Acquire an access token from Azure AD. 

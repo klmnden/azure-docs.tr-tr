@@ -1,6 +1,6 @@
 ---
-title: VM'ler (Önizleme) için yerleşik Azure İzleyici | Microsoft Docs
-description: Bu makalede nasıl eklemenize ve dağıtılmış uygulamanızı nasıl performans gösterdiğini ve sistem durumu sorunları belirlenen anlamak başlatabilmeniz VM'ler için Azure İzleyicisi'ni yapılandırabilirsiniz.
+title: Vm'leri Önizleme için Azure İzleyici dağıtma | Microsoft Docs
+description: Bu makalede nasıl dağıtıp dağıtılmış uygulamanızı nasıl performans gösterdiğini anlamak başlatabilmeniz, VM'ler için Azure İzleyici yapılandırın ve hangi durumu sorunları belirlenmiştir açıklar.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -12,54 +12,62 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2018
+ms.date: 12/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 4e374528a0fa757458e7e4881714370937b56f9c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b78332933c7c406cd938091b578786467a73248f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998288"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141790"
 ---
-# <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Nasıl için yerleşik Azure izleme VM'ler için (Önizleme)
-Bu makalede, Azure bulma gibi ve uygulama bağımlılıklarını eşleyerek İzleyicisi sanal makinelerin Azure sanal makineler ve sanal makine ölçek kümeleri ve sanal makineler, ortamınızda işletim sistem durumunu izlemek ayarlama işlemi açıklanmaktadır bunlar üzerinde barındırılabilir.  
+# <a name="deploy-azure-monitor-for-vms-preview"></a>Azure İzleyici Vm'leri Önizleme için dağıtma
+Bu makalede, Azure İzleyici ' VM'ler için ayarlanacak açıklar. Hizmet, Azure sanal makinelerinizi (VM) ve sanal makine ölçek kümeleri ve sanal makineleri ortamınızda işletim sistemi durumunu izler. Bu izleme, bulma ve bunlar üzerinde barındırılabilir uygulama bağımlılıkları eşleme içerir. 
 
-VM'ler için Azure İzleyicisi'ni etkinleştirmek aşağıdaki yöntemlerden birini kullanarak elde edilir ve her yöntemle ilgili ayrıntılar, makalenin sonraki bölümlerinde sağlanır.  
+VM'ler için Azure İzleyici aşağıdaki yöntemlerden birini kullanarak etkinleştirin:  
 
-* Tek bir Azure sanal seçerek makine **Insights (Önizleme)** doğrudan VM'den.
-* Birden çok varolan sağlamanın Azure İlkesi'ni kullanarak Azure Vm'leri ve hesaplanan yeni VM'ler yüklü gerekli bağımlılıkları sahiptir ve düzgün şekilde yapılandırılır.  Uyumlu olmayan Vm'leri, göre iyileştirmek istediğiniz nasıl uyumlu olmadığını üzerinde karar verebilmek için raporlanır.  
-* Belirtilen abonelik veya PowerShell kullanarak bir kaynak grubu arasında birden fazla Azure sanal makineleri veya sanal makine ölçek ayarlar.
+* Tek bir Azure sanal makine seçerek etkinleştirin **Insights (Önizleme)** doğrudan VM'den.
+* İki veya daha fazla Azure sanal makine, Azure İlkesi'ni kullanarak etkinleştirin. Bu yöntem kullanılarak, mevcut ve yeni VM'lerin gerekli bağımlılıkları yüklü ve düzgün yapılandırılmış. Bunları etkinleştirmek ve düzeltmek istiyorsanız nasıl karar verebilmek için uyumlu olmayan Vm'leri raporlanır. 
+* İki etkinleştirmek veya PowerShell kullanarak belirtilen abonelik veya kaynak grubu üzerinde daha fazla Azure sanal makineleri veya sanal makine ölçek kümeleri.
+
+Her yöntem hakkında ek bilgi makalenin sonraki bölümlerinde sağlanır.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Başlamadan önce aşağıdaki alt bölümlerde açıklandığı gibi anladığınızdan emin olun.
+Başlamadan önce aşağıdaki bölümlerde yer alan bilgiler anladığınızdan emin olun.
 
 ### <a name="log-analytics"></a>Log Analytics 
 
-Bir Log Analytics çalışma alanında aşağıdaki bölgeler şu anda desteklenir:
+Bir Log Analytics çalışma alanı şu anda şu bölgelerde desteklenir:
 
   - Batı Orta ABD  
   - Doğu ABD  
   - Batı Avrupa  
   - Güneydoğu Asya<sup>1</sup>  
 
-<sup>1</sup> bu bölgede Azure İzleyici'nin sistem durumu özelliği şu anda VM'ler için desteklemiyor   
+<sup>1</sup> VM'ler için bu bölgede şu anda Azure İzleyici'nın sistem durumu özelliğini desteklemiyor.   
 
 >[!NOTE]
->Azure sanal makineleri, herhangi bir bölgeden dahil edilmiş olabilir ve Log Analytics çalışma alanı için desteklenen bölgelerin sınırlı değildir.
+>Azure sanal makineleri, herhangi bir bölgeden dağıtılabilir ve Log Analytics çalışma alanı için desteklenen bölgelerin sınırlı değildir.
 >
 
-Bir çalışma alanı yoksa, üzerinden oluşturabilirsiniz [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)temellidir [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md), [Azure portalında](../../azure-monitor/learn/quick-create-workspace.md), veya [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md).  Azure portalında tek bir Azure VM için izleme etkinleştirirseniz, bu işlem sırasında bir çalışma alanı oluşturma seçeneğiniz vardır.  
+Bir çalışma alanınız yoksa, aşağıdaki yöntemlerden biriyle oluşturabilirsiniz:
+* [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
+* [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
+* [Azure portalı](../../azure-monitor/learn/quick-create-workspace.md)
+* [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md) 
 
-Çözümü etkinleştirme ölçekte senaryo ilk Log Analytics çalışma alanınızda aşağıdaki yapılandırma gerektirir:
+Azure portalında tek bir Azure VM için izlemeyi etkinleştirme, bu işlem sırasında bir çalışma alanı oluşturabilirsiniz. 
 
-* Yükleme **ServiceMap** ve **InfrastructureInsights** çözümler. Bu, bu makalede sağlanan bir Azure Resource Manager şablonu kullanarak yalnızca gerçekleştirilebilir.   
+Ölçekli senaryosu için çözümü etkinleştirmek için Log Analytics çalışma alanınızda önce aşağıdakileri yapılandırın:
+
+* ServiceMap ve InfrastructureInsights çözümlerini yükleyin. Bu yükleme, yalnızca bu makalede sağlanan bir Azure Resource Manager şablonu kullanarak tamamlayabilirsiniz.  
 * Performans sayaçları toplamak için Log Analytics çalışma alanı yapılandırın.
 
-Çalışma alanınız için yapılandırmak için ölçek senaryo ' bkz [Kurulum Log Analytics çalışma alanı için ölçek dağıtım sırasında](#setup-log-analytics-workspace).
+Çalışma alanınız ölçekli senaryo için yapılandırmak üzere bkz [ölçekli dağıtımı için Log Analytics çalışma alanını ayarlama](#setup-log-analytics-workspace).
 
 ### <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 
-Aşağıdaki tabloda, VM'ler için Azure İzleyici ile desteklenen Windows ve Linux işletim sistemleri listelenmiştir.  Büyük ve küçük Linux işletim sistemi sürüm gerçekleşen bir tam listesi ve çekirdek sürümleri desteklenir, bu bölümde ileride verilmiştir.
+Aşağıdaki tabloda, VM'ler için Azure İzleyici ile desteklenen Windows ve Linux işletim sistemleri listelenmiştir. Büyük ve küçük Linux işletim sistemi sürüm ayrıntıları ve çekirdek sürümleriyle desteklenen tam listesi daha sonra bu bölümde sağlanır.
 
 |İşletim sistemi sürümü |Performans |Haritalar |Durum |  
 |-----------|------------|-----|-------|  
@@ -68,22 +76,22 @@ Aşağıdaki tabloda, VM'ler için Azure İzleyici ile desteklenen Windows ve Li
 |Windows Server 2012 R2 | X | X | |  
 |Windows Server 2012 | X | X | |  
 |Windows Server 2008 R2 | X | X| |  
-|RHEL 7, 6| X | X| X |  
+|Red Hat Enterprise Linux (RHEL) 7, 6| X | X| X |  
 |Ubuntu 18.04, 16.04, 14.04 | X | X | X |  
-|Sent OS Linux 7, 6 | X | X | X |  
-|SLES 12 | X | X | X |  
+|CentOS Linux 7, 6 | X | X | X |  
+|SUSE Linux Enterprise Server (SLES) 12 | X | X | X |  
 |Oracle Linux 7 | X<sup>1</sup> | | X |  
 |Oracle Linux 6 | X | X | X |  
 |Debian 9.4 sürümünden, 8 | X<sup>1</sup> | | X | 
 
-<sup>1</sup> Azure VM'nin sol bölmesinden doğrudan erişim kullanılabilir değilse, VM'ler için Azure İzleyici performans özelliği, yalnızca Azure İzleyicisi'nden kullanılabilir.  
+<sup>1</sup> VM'ler için Azure İzleyici performans özelliği yalnızca Azure İzleyici'deki kullanılabilir. Doğrudan Azure VM'nin sol bölmeden eriştiğinizde kullanılamaz. 
 
 >[!NOTE]
 >Aşağıdaki bilgiler, Linux işletim sistemini desteklemek için geçerlidir:  
-> - Yalnızca varsayılan ve SMP Linux çekirdek sürümleri desteklenir.  
-> - PAE ve Xen gibi standart dışı çekirdek sürümleri hiçbir Linux dağıtımında desteklenmez. Örneğin, "2.6.16.21-0.8-xen" sürüm dizesi sistemiyle desteklenmiyor.  
-> - Standart çekirdeklerin yeniden derlemeleri de dahil olmak üzere özel çekirdekler desteklenmez.  
-> - CentOSPlus çekirdeği desteklenmez.  
+> - Yalnızca varsayılan ve SMP Linux çekirdek sürümleri desteklenir. 
+> - Fiziksel Adres Uzantısı (PAE) ve Xen, desteklenmeyen bir Linux dağıtımı için gibi standart olmayan çekirdek serbest bırakır. Örneğin, bir sürüm dizesi sistemiyle *2.6.16.21-0.8-xen* desteklenmiyor. 
+> - Standart çekirdekleri yeniden derlemelerinin dahil olmak üzere özel çekirdekleri desteklenmez. 
+> - CentOSPlus çekirdek desteklenmez. 
 
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
@@ -144,73 +152,85 @@ Aşağıdaki tabloda, VM'ler için Azure İzleyici ile desteklenen Windows ve Li
 |12 SP2 | 4.4. * |
 |12 SP3 | 4.4. * |
 
-### <a name="microsoft-dependency-agent"></a>Microsoft Dependency aracı
-Azure İzleyici Vm'leri harita verilerini Microsoft Dependency Aracıdan alır. Log Analytics bağlantısı Log Analytics ve bu nedenle, bir sistem için bir aracı yüklenmiş ve yapılandırılmış bağımlılık aracısını Log Analytics aracısını olmalıdır bağımlılık Aracısı'nı kullanır. Etkinleştirdiğinizde Azure İzleyici VM'ler için tek bir Azure VM için veya yöntemlerini kullanırken ölçek dağıtım sırasında bu ekleme deneyimi bir parçası olarak aracıyı yüklemek için Azure VM bağımlılık aracı uzantısı kullanılır. Karma bir ortamınız ile bağımlılık aracısını indirilir ve el ile yüklenir veya bu sanal makineler için bir otomatik dağıtım yöntemi kullanarak Azure dışında barındırılabilir.  
+### <a name="the-microsoft-dependency-agent"></a>Microsoft Dependency aracı
+Vm'leri Haritası özelliği için Azure İzleyici verilerini Microsoft Dependency Aracıdan alır. Log Analytics aracısını Log Analytics bağlantısını için bağımlılık Aracısı'nı kullanır. Bu nedenle, sisteminizde yüklü ve yapılandırılmış bağımlılık aracısını Log Analytics aracısını olması gerekir. 
+
+Azure İzleyici, VM'ler için tek bir Azure VM için etkinleştirmek ister ölçekli dağıtım yöntemini kullanmak, deneyiminin bir parçası aracıyı yüklemek için Azure VM bağımlılık Aracısı uzantısı kullanmanız gerekir. 
+
+Karma bir ortamda, indirin ve iki yoldan biriyle bağımlılık Aracısı'nı yükleyin: el ile veya sanal makine Azure dışından barındırılan için bir otomatik dağıtım yöntemi kullanarak. 
 
 Aşağıdaki tabloda, karma bir ortamda, eşleme özelliğini destekleyen bağlı kaynaklar açıklanmaktadır.
 
 | Bağlı kaynak | Desteklenen | Açıklama |
 |:--|:--|:--|
-| Windows aracıları | Evet | Ek olarak [Windows için Log Analytics aracısını](../../azure-monitor/platform/log-analytics-agent.md), Windows aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
-| Linux aracıları | Evet | Ek olarak [Linux için Log Analytics aracısını](../../azure-monitor/platform/log-analytics-agent.md), Linux aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
+| Windows aracıları | Evet | Ek olarak [Windows için Log Analytics aracısını](../../azure-monitor/platform/log-analytics-agent.md), Windows aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemlerinin tam listesi için bkz. [desteklenen işletim sistemleri](#supported-operating-systems). |
+| Linux aracıları | Evet | Ek olarak [Linux için Log Analytics aracısını](../../azure-monitor/platform/log-analytics-agent.md), Linux aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemlerinin tam listesi için bkz. [desteklenen işletim sistemleri](#supported-operating-systems). |
 | System Center Operations Manager yönetim grubu | Hayır | |  
 
-Bağımlılık Aracısı'nı şu konumdan indirilebilir.
+Bağımlılık Aracısı'nı aşağıdaki konumlardan indirebilirsiniz:
 
 | Dosya | İşletim Sistemi | Sürüm | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 ## <a name="role-based-access-control"></a>Rol tabanlı erişim denetimi
-Aşağıdaki erişim ve VM'ler için Azure İzleyici özelliklerinde erişim etkinleştirmek için kullanıcılarınıza verilmesi gerekir.  
+Etkinleştirmek ve VM'ler için Azure İzleyici'nın özelliklerine erişmek için aşağıdaki erişim rolleri atanmış olması gerekir: 
   
-- Çözümü etkinleştirmek için Log Analytics katkıda bulunan rolü üyesi olarak eklenmesi gerekir.  
+- Çözümü etkinleştirmek için olmalıdır *Log Analytics katkıda bulunan* rol. 
 
-- Performans sistem durumu, görüntüleme ve harita verileri için eklenen izleme okuyucu rolünün bir üyesi Azure VM ve VM'ler için Azure İzleyici ile yapılandırılmış Log Analytics çalışma alanı için gerekir.   
+- Performans, sistem durumu, görüntüleme ve harita verileri için olmalıdır *izleme okuyucusu* Azure VM rolü. Log Analytics çalışma alanı için Azure İzleyici VM'ler için yapılandırılmış olması gerekir.  
 
 Log Analytics çalışma alanına erişimi denetleme hakkında daha fazla bilgi için bkz. [çalışma alanlarını yönetme](../../azure-monitor/platform/manage-access.md).
 
-## <a name="enable-from-the-azure-portal"></a>Azure portalından etkinleştirme
+## <a name="enable-monitoring-in-the-azure-portal"></a>Azure portalında izlemeyi etkinleştir
 Azure portalında Azure sanal makinenizin izlemeyi etkinleştirmek için aşağıdakileri yapın:
 
-1. [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın. 
-2. Azure portalında **sanal makineler**. 
-3. Listeden bir VM seçin. 
-4. VM sayfasında içinde **izleme** bölümünden **Insights (Önizleme)**.
-5. Üzerinde **Insights (Önizleme)** sayfasında **şimdi deneyin**.
+1. [Azure Portal](https://portal.azure.com) oturum açın. 
+1. Seçin **sanal makineler**. 
+1. Listeden bir VM seçin. 
+1. VM sayfasında içinde **izleme** bölümünden **Insights (Önizleme)**.
+1. Üzerinde **Insights (Önizleme)** sayfasında **şimdi deneyin**.
 
     ![Bir VM için sanal makineler için Azure İzleyici etkinleştir](./media/vminsights-onboard/enable-vminsights-vm-portal-01.png)
 
-5. Üzerinde **Azure İzleyici İçgörüler ekleme** sayfasında mevcut bir Log Analytics varsa, aynı abonelikte çalışma alanı, aşağı açılan listeden seçin.  Listenin varsayılan çalışma alanı ve sanal makine abonelikte dağıtılmış konumunu belirler. 
+1. Üzerinde **Azure İzleyici İçgörüler ekleme** sayfasında mevcut bir Log Analytics varsa, aynı abonelikte çalışma alanı, aşağı açılan listeden seçin.  
+    Listenin varsayılan çalışma alanı ve sanal makine abonelikte dağıtılmış konumunu belirler. 
 
     >[!NOTE]
-    >VM izleme verilerini depolamak için yeni bir Log Analytics çalışma alanı oluşturmak istiyorsanız,'ndaki yönergeleri izleyin [Log Analytics çalışma alanı oluşturma](../../azure-monitor/learn/quick-create-workspace.md) daha önce desteklenen bölgelerden birinde listelenir.   
+    >VM izleme verilerini depolamak için yeni bir Log Analytics çalışma alanı oluşturmak istiyorsanız,'ndaki yönergeleri izleyin [Log Analytics çalışma alanı oluşturma](../../azure-monitor/learn/quick-create-workspace.md) daha önce desteklenen bölgelerden birinde listelenir.  
 
 İzleme etkinleştirdikten sonra sanal makine için sistem durumu ölçümleri görmeden önce yaklaşık 10 dakika sürebilir. 
 
 ![Dağıtım işlemi izlemeyi VM'ler için Azure İzleyicisi'ni etkinleştirme](./media/vminsights-onboard/onboard-vminsights-vm-portal-status.png)
 
 
-## <a name="on-boarding-at-scale"></a>Kolaylaşmasına uygun ölçekte
-Bu bölümde yönergelerinde gerçekleştirmek için Azure İzleyici ya da Azure İlkesi kullanarak bir VM için veya Azure PowerShell ile ölçek dağıtım sırasında.  
+## <a name="deploy-at-scale"></a>Uygun ölçekte dağıtın
+Bu bölümde, Azure İzleyici VM'ler için uygun ölçekte Azure İlkesi veya Azure PowerShell kullanarak dağıtırsınız. 
 
-Özetlenen, sanal makinelerinizi ekleme ile devam etmeden önce Log Analytics çalışma alanınızın önceden yapılandırmak için gerçekleştirmeniz gereken adımlar yer almaktadır.
+Sanal makinelerinizi dağıtmadan önce aşağıdakileri yaparak Log Analytics çalışma alanınızın önceden yapılandırın:
+
+1. Bir çalışma alanı yoksa sanal makineler için Azure İzleyicisi'ni destekleyen bir tane oluşturun.  
+    Devam etmeden önce bkz [çalışma alanlarını yönetme](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) maliyeti, yönetim ve uyumluluk için yapılacak değerlendirmeleri anlamaktır.      
 
 1. Yeni bir tane zaten, mevcut değilse çalışma alanı, VM'ler için Azure İzleyici desteklemek için kullanılabilir. Gözden geçirme [çalışma alanlarını yönetme](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json) devam etmeden önce maliyeti, yönetim ve uyumluluk konuları anlamak için yeni bir çalışma alanı oluşturmadan önce.       
-2. Çalışma alanı koleksiyonu Linux ve Windows Vm'leri için performans sayaçları sağlar.
-3. Yükleme ve etkinleştirme **ServiceMap** ve **InfrastructureInsights** çalışma alanınızda çözümün.  
 
-### <a name="setup-log-analytics-workspace"></a>Log Analytics çalışma alanı Kurulumu
-Bir Log Analytics çalışma alanı yoksa, altında önerilen yöntemi inceleyin [önkoşulları](#log-analytics) bölümü oluşturun.  
+1. Çalışma alanı koleksiyonu Linux ve Windows Vm'leri için performans sayaçları sağlar.
+
+1. Yükleme ve çalışma alanınızdaki ServiceMap ve InfrastructureInsights çözümü etkinleştirin. 
+
+### <a name="set-up-a-log-analytics-workspace"></a>Bir Log Analytics çalışma alanını ayarlama
+Bir Log Analytics çalışma alanınız yoksa, oluşturun, önerilen yöntemleri inceleyerek ["Önkoşullar"](#log-analytics) bölümü. 
 
 #### <a name="enable-performance-counters"></a>Performans sayaçları sağlar
-Çözüm tarafından başvurulan Log Analytics çalışma alanı zaten çözüm için gerekli performans sayaçları toplamak için yapılandırılmamışsa, etkinleştirilmesi gerekir. Bu açıklandığı şekilde el ile gerçekleştirilebilir [burada](../../azure-monitor/platform/data-sources-performance-counters.md), veya tarafından yükleme ve kullanılabilir bir PowerShell Betiği çalıştırma [Azure Powershell Galerisi](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
+Çözüm tarafından başvurulan Log Analytics çalışma alanı zaten çözüm için gerekli performans sayaçları toplamak için yapılandırılmamışsa, bunları etkinleştirmeniz gerekir. Bunu iki yoldan biriyle yapabilirsiniz:
+* İçinde açıklandığı şekilde el ile [Log analytics'te Windows ve Linux performans veri kaynakları](../../azure-monitor/platform/data-sources-performance-counters.md)
+* İndiriliyor ve kullanılabilir bir PowerShell betiğini çalıştırarak [Azure PowerShell Galerisi](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
  
 #### <a name="install-the-servicemap-and-infrastructureinsights-solutions"></a>ServiceMap ve InfrastructureInsights çözümleri yüklemesi
-Bu yöntem, Log Analytics çalışma alanınıza çözüm bileşenlerini yapılandırmasını belirten bir JSON şablonu içerir.  
+Bu yöntem, Log Analytics çalışma alanınızda çözüm bileşenlerini etkinleştirmek için yapılandırmasını belirten bir JSON şablonu içerir. 
 
-Bir şablon kullanarak kaynakları dağıtma kavramıyla alışkın değilseniz, bkz:
+Bir şablon kullanarak kaynakları dağıtma ile bilmiyorsanız, bkz:
 * [Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma](../../azure-resource-manager/resource-group-template-deploy-cli.md) 
 
@@ -280,9 +300,9 @@ Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanm
     ]
     ```
 
-2. Bu dosyayı farklı Kaydet **installsolutionsforvminsights.json** yerel bir klasöre.
-3. Değerlerini düzenleyin **WorkspaceName**, **ResourceGroupName**, ve **WorkspaceLocation**.  Değeri **WorkspaceName** çalışma alanı adı ve değeri içeren Log Analytics çalışma alanınızın tam kaynak kimliği **WorkspaceLocation** çalışma alanı içinde tanımlanan bölgedir.
-4. Aşağıdaki PowerShell komutunu kullanarak bu şablonu dağıtmaya hazırsınız:
+1. Bu dosyayı farklı Kaydet *installsolutionsforvminsights.json* yerel bir klasöre.
+1. Değerlerini düzenleyin *WorkspaceName*, *ResourceGroupName*, ve *WorkspaceLocation*. Değeri *WorkspaceName* çalışma alanı adı içerir, Log Analytics çalışma alanının tam kaynak kimliği. Değeri *WorkspaceLocation* çalışma alanı içinde tanımlanan bölgedir.
+1. Aşağıdaki PowerShell komutunu kullanarak bu şablonu dağıtmaya hazırsınız:
 
     ```powershell
     New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
@@ -294,96 +314,99 @@ Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanm
     provisioningState       : Succeeded
     ```
 
-### <a name="enable-using-azure-policy"></a>Azure İlkesi'ni kullanarak etkinleştirme
-Tutarlı uyumluluk ve sağlanan, yeni sanal makineler için Otomatik etkinleştirme sağlar ölçekte VM'ler için Azure İzleyicisi'ni etkinleştirmek için [Azure İlkesi](../../azure-policy/azure-policy-introduction.md) önerilir. Bu ilkeler:
+### <a name="enable-by-using-azure-policy"></a>Azure İlkesi'ni kullanarak etkinleştirme
+Uygun ölçekte yardımcı tutarlı uyumluluk ve yeni sağlanan sanal makinelerin Otomatik etkinleştirme emin bir şekilde VM'ler için Azure İzleyicisi'ni etkinleştirmek için önerilir [Azure İlkesi](../../azure-policy/azure-policy-introduction.md). Bu ilkeler:
 
-* Log Analytics aracısını ve bağımlılık aracısını dağıtma 
-* Uyumluluk sonuçları raporu 
-* Uyumlu olmayan VM'ler için düzeltme
+* Log Analytics aracısını ve bağımlılık aracısını dağıtın. 
+* Uyumluluk sonuçları hakkında rapor oluşturun. 
+* Uyumlu olmayan VM'ler için düzeltin.
 
-Kiracınız İlkesi aracılığıyla sanal makineler için Azure İzleyici etkinleştirme gerektirir: 
+Azure İzleyici VM'ler için kiracınızda Azure İlkesi kullanarak etkinleştirmek için: 
 
-- Kapsama – yönetim grubu, abonelik veya kaynak grubu girişim Ata 
-- Gözden geçirme ve uyumluluk sonuçlarının düzeltme  
+- Girişimin bir kapsama atayın: Yönetim grubu, abonelik veya kaynak grubu 
+- Gözden geçirin ve uyumluluk sonuçlarını Düzelt  
 
-Azure İlkesi ataması hakkında daha fazla bilgi için bkz. [Azure ilkesine genel bakış](../../governance/policy/overview.md#policy-assignment) ve gözden geçirme [yönetim gruplarına genel bakış](../../governance/management-groups/index.md) devam etmeden önce.  
+Azure ilkesi atama hakkında daha fazla bilgi için bkz. [Azure ilkesine genel bakış](../../governance/policy/overview.md#policy-assignment) ve gözden geçirme [yönetim gruplarına genel bakış](../../governance/management-groups/index.md) devam etmeden önce. 
 
-Aşağıdaki tabloda sağlanan ilke tanımlarını listeler.  
-
-|Ad |Açıklama |Tür |  
-|-----|------------|-----|  
-|[Önizleme]: VM'ler için Azure İzleyici'yi etkinleştir |Azure İzleyici, belirtilen kapsam (Yönetim grubu, abonelik veya kaynak grubu) sanal makineler (VM) için etkinleştirin. Log Analytics çalışma alanı, parametre olarak alır. |Girişim |  
-|[Önizleme]: denetim bağımlılık Aracısı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı |VM Görüntüsü (işletim sistemi) tanımlı listede değilse ve aracı yüklenmemişse VM'yi uyumsuz olarak bildirir. |İlke |  
-|[Önizleme]: denetim günlüğü analiz aracı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı |VM Görüntüsü (işletim sistemi) tanımlı listede değilse ve aracı yüklenmemişse VM'yi uyumsuz olarak bildirir. |İlke |  
-|[Önizleme]: Linux sanal makineleri için bağımlılık Aracısı dağıtma |VM Görüntüsü (İşletim Sistemi) tanımlı listedeyse ve aracı yüklenmemişse Linux VM'ler için Bağımlılık Aracısı dağıtın. |İlke |  
-|[Önizleme]: Windows sanal makineleri için bağımlılık Aracısı dağıtma |VM Görüntüsü (İşletim Sistemi) tanımlı listedeyse ve aracı yüklenmemişse Windows VM'leri için Bağımlılık Aracısı dağıtın. |İlke |  
-|[Önizleme]: Linux sanal makineleri için Log Analytics aracısını dağıtmayı |VM Görüntüsü (İşletim Sistemi) tanımlı listedeyse ve aracı yüklenmemişse Linux VM'leri için Log Analytics Aracısı dağıtın. |İlke |  
-|[Önizleme]: Windows Vm'leri için Log Analytics aracısını dağıtmayı |VM Görüntüsü (İşletim Sistemi) tanımlı listedeyse ve aracı yüklenmemişse Windows VM'leri için Log Analytics Aracısı dağıtın. |İlke |  
-
-Tek başına ilke (girişimle dahil değil) 
+İlke tanımları aşağıdaki tabloda listelenmiştir: 
 
 |Ad |Açıklama |Tür |  
 |-----|------------|-----|  
-|[Önizleme]: Audit Log Analytics çalışma alanı için VM - uyumsuzluğu bildir |Bunlar ilke/girişim atamasını belirtilen LA çalışma alanı için günlük olarak uyumlu olmayan Vm'leri bildirin. |İlke |
+|[Önizleme]: VM'ler için Azure İzleyici'yi etkinleştir |Azure İzleyici, belirtilen kapsam (Yönetim grubu, abonelik veya kaynak grubu) sanal makineler (VM) için etkinleştirin. Log Analytics çalışma alanı, bir parametre olarak alır. |Girişim |  
+|[Önizleme]: denetim bağımlılık Aracısı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı |Vm'leri uyumsuz olarak VM görüntüsü (OS) listesinde tanımlı değil ve aracı yüklü değil bildirir. |İlke |  
+|[Önizleme]: denetim günlüğü analiz aracı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı |Vm'leri uyumsuz olarak VM görüntüsü (OS) listesinde tanımlı değil ve aracı yüklü değil bildirir. |İlke |  
+|[Önizleme]: Linux sanal makineleri için bağımlılık Aracısı dağıtma |Bağımlılık aracısını Linux Vm'leri için VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil dağıtın. |İlke |  
+|[Önizleme]: Windows sanal makineleri için bağımlılık Aracısı dağıtma |Windows Vm'leri için bağımlılık Aracısı, aracı yüklü değil ve (OS) VM görüntü listesinde tanımlanan dağıtın. |İlke |  
+|[Önizleme]: Linux sanal makineleri için Log Analytics aracısını dağıtmayı |Log Analytics aracısını Linux Vm'leri için VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil dağıtın. |İlke |  
+|[Önizleme]: Windows Vm'leri için Log Analytics aracısını dağıtmayı |VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil Windows Vm'leri için log Analytics aracısını dağıtın. |İlke |  
 
-#### <a name="assign-azure-monitor-initiative"></a>Azure İzleyici girişim Ata
-Bu ilk sürümde, yalnızca Azure portalından ilke ataması oluşturabilirsiniz. Bu adımları tamamlamak nasıl anlamak için bkz: [Azure portalından bir ilke ataması oluşturma](../../governance/policy/assign-policy-portal.md). 
+Tek başına ilke (girişimle yer almaz) aşağıda açıklanmıştır: 
 
-1. Azure portalında **Tüm hizmetler**’e tıkladıktan sonra **İlke**'yi arayıp seçerek Azure İlkesi hizmetini başlatın. 
-2. Azure İlkesi sayfasının sol tarafından **Atamalar**'ı seçin. Atama, belirli bir kapsamda gerçekleşmesi için atanmış olan bir ilkedir.
-3. Seçin **girişim atamak** üstünden **ilke - atamalar** sayfası.
-4. Üzerinde **girişim atamak** sayfasında **kapsam** göre üç noktaya tıklayarak ve ya da bir yönetim grubu veya abonelik ve isteğe bağlı olarak bir kaynak grubunu seçin. Bir kapsam bir gruplandırma bizim durumumuzda ilke ataması için zorlama sanal makinelerin sınırlar. Tıklayın **seçin** kısmındaki **kapsam** yaptığınız değişiklikleri kaydetmek için sayfa.
-5. **Dışlamalar** , isteğe bağlı olarak kapsam bir veya daha fazla kaynaklardan atlamak sağlar. 
-6. Seçin **girişim tanımı** kullanılabilir tanımlar listesini açmak ve seçmek için üç nokta  **[Önizleme] VM'ler için Azure İzleyici'ı etkinleştirme** listesini ve ardından **Seçin**.
-7. **Atama adı** otomatik olarak doldurulmuş seçtiğiniz girişim adıyla, ancak bunu değiştirebilirsiniz. İsteğe bağlı bir **Açıklama** da ekleyebilirsiniz. **Tarafından atanan** göre otomatik olarak doldurulur kimin oturum açmışken ve bu alan isteğe bağlıdır.
-8. Seçin bir **Log Analytics çalışma alanı** aşağı açılan listeden desteklenen bir bölgede kullanılabilir.
+|Ad |Açıklama |Tür |  
+|-----|------------|-----|  
+|[Önizleme]: Audit Log Analytics çalışma alanı için VM - uyumsuzluğu bildir |Vm'lere ilke/girişim atamasını belirtilen Log Analytics çalışma alanına oturum olmayan uyumsuz olarak bildirin. |İlke |
+
+#### <a name="assign-the-azure-monitor-initiative"></a>Azure İzleyici girişim Ata
+Bu ilk sürümde, yalnızca Azure Portalı'nda ilke ataması oluşturabilirsiniz. Bu adımları tamamlamak nasıl anlamak için bkz: [Azure portalından bir ilke ataması oluşturma](../../governance/policy/assign-policy-portal.md). 
+
+1. Azure portalında Azure İlkesi hizmetini başlatmak için **tüm hizmetleri**, arayın ve seçin **ilke**. 
+1. Azure İlkesi sayfasının sol bölmesinde seçin **atamaları**.  
+    Atama, belirli bir kapsamda gerçekleşmesi için atanmış olan bir ilkedir.
+1. Üst kısmındaki **ilke - atamalar** sayfasında **girişim atamak**.
+1. Üzerinde **girişim atamak** sayfasında **kapsam** göre üç nokta (…) tıklatarak ve bir yönetim grubu veya abonelik seçin.  
+    Bizim örneğimizde, bir kapsam bir gruplandırma için ilke ataması için zorlama sanal makinelerin sınırlar.
+1. Sayfanın alt kısmında **kapsam** seçerek değişikliklerinizi kaydedin sayfasının **seçin**.
+1. (İsteğe bağlı) Kapsamdan bir veya daha fazla kaynakları kaldırmak için işaretleyin **dışlamaları**. 
+1. Seçin **girişim tanımı** kullanılabilir tanımlar listesini görüntülemek için üç nokta (...) seçin  **[Önizleme] VM'ler için Azure İzleyici'ı etkinleştirme**ve ardından seçin **Seçin**.  
+    **Atama adı** kutusu seçtiğiniz girişim adıyla otomatik olarak doldurulur, ancak bunu değiştirebilirsiniz. İsteğe bağlı bir açıklama da ekleyebilirsiniz. **Atayan** kutusu, açan göre otomatik olarak doldurulur ve bu değer isteğe bağlıdır.
+1. İçinde **Log Analytics çalışma alanı** bir çalışma alanı açılır listesinde desteklenen bir bölge için seçin.
 
     >[!NOTE]
-    >Çalışma alanı atama kapsamı dışında olup olmadığını sağlamanız gerekir **Log Analytics katkıda bulunan** izinleri ilke atama sorumlusu kimliği Bunu yapmazsanız, bir dağıtım hatası gibi görebilirsiniz: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... ` gözden geçirme [el ile yönetilen kimlik yapılandırma](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity) erişim vermek için.
-    >
-
-9. Bildirim **yönetilen kimliği** seçeneği denetlenir. Atanan girişim Deployıfnotexists etkisi olan bir ilke varsa bu denetlenir. Gelen **yönetme kimlik konumu** açılan listesinde, uygun bölgeyi seçin.  
-10. **Ata**'ya tıklayın.
+    >Çalışma alanı atama kapsamı dışındadır, verme *Log Analytics katkıda bulunan* izinleri ilke atama sorumlusu kimliği Bunu yapmazsanız, bir dağıtım hatası gibi görebilirsiniz: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... ` erişimi vermek için gözden [el ile yönetilen kimlik yapılandırma](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
+    >  
+    **Yönetilen kimliği** onay kutusu seçiliyse, atanan girişim bir ilkeyle içerdiğinden *Deployıfnotexists* efekt. 
+1. İçinde **yönetme kimlik konumu** aşağı açılan listesinde, uygun bölgeyi seçin. 
+1. **Ata**'yı seçin.
 
 #### <a name="review-and-remediate-the-compliance-results"></a>Gözden geçirin ve uyumluluk sonuçlarını Düzelt 
 
-Okuyarak uyumluluk sonuçlarını gözden geçirmek öğrenebilirsiniz [uyumsuzluk sonuçları tanımlamak](../../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). Seçin **Uyumluluk** sayfanın sol tarafındaki bulun  **[Önizleme] VM'ler için Azure İzleyici'ı etkinleştirme** oluşturduğunuz atamayı uyumlu olmayan bir girişim.
+Okuyarak uyumluluk sonuçlarını gözden geçirmek öğrenebilirsiniz [uyumsuzluk sonuçları tanımlamak](../../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). Sol bölmede seçin **Uyumluluk**ve bulun  **[Önizleme] VM'ler için Azure İzleyici'ı etkinleştirme** girişim ataması göre uyumlu olmayan VM'ler için oluşturduğunuz.
 
 ![Azure Vm'leri için Uyumluluk İlkesi](./media/vminsights-onboard/policy-view-compliance-01.png)
 
 Girişimle dahil ilke sonuçları temelinde, uyumlu değil olarak aşağıdaki senaryolarda Vm'leri bildirilir:  
   
-1. Log Analytics veya bağımlılık aracısını dağıtılmaz.  
-   Bu, var olan Vm'leri bir kapsamla tipik bir durumdur. Bunu azaltmak için [düzeltme görevler oluşturma](../../governance/policy/how-to/remediate-resources.md) gerekli aracılarını dağıtmak için uyumlu olmayan bir ilkesi üzerinde yapılamaz.    
+* Log Analytics veya bağımlılık aracısını dağıtılabilir değil. 
+   Bu senaryo, var olan Vm'leri bir kapsamla tipik bir durumdur. Bunu azaltmak için gereken aracıları tarafından dağıtma [düzeltme görevler oluşturma](../../governance/policy/how-to/remediate-resources.md) uyumlu olmayan bir ilkesi üzerinde yapılamaz.   
  
     - [Önizleme]: Deploy Dependency Agent for Linux VMs   
     - [Önizleme]: Deploy Dependency Agent for Windows VMs  
     - [Önizleme]: Deploy Log Analytics Agent for Linux VMs  
     - [Önizleme]: Deploy Log Analytics Agent for Windows VMs  
 
-2. VM görüntüsü (OS), ilke tanımında tanımlanan listesinde değil.  
-   Dağıtım ilkesi ölçütlerini yalnızca iyi bilinen bir Azure VM görüntülerinden dağıtılan Vm'leri içerir. VM işletim sistemi veya destekleniyorsa belgelerine bakın. Yüklü değilse, dağıtım ilkesi yinelenen ve görüntü uyumlu hale getirmek için güncelleştirme/değiştirmek gerekir. 
+* VM görüntüsü (OS) ilke tanımında tanımlanan değildir. 
+   Dağıtım ilkesi ölçütlerini iyi bilinen bir Azure VM görüntülerinden dağıtılan Vm'leri içerir. VM işletim sistemi desteklenip desteklenmediğini görmek için belgelere bakın. Desteklenmiyorsa, güncelleştirme ve dağıtım ilkesi yinelenen veya görüntü uyumlu hale getirmek için değiştirebilirsiniz. 
   
     - [Önizleme]: denetim bağımlılık Aracısı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı  
     - [Önizleme]: denetim günlüğü analiz aracı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı
 
-3. Belirtilen LA çalışma alanına Vm'leri günlüğe kaydetmeme.  
-Girişim kapsamında bazı VM'ler LA çalışma bir kez farklı oturum mümkündür ilke atamasında belirtilen. Bu ilke, VM'ler, uyumlu olmayan bir çalışma alanına raporlama yapmayan tanımlamak için kullanılan bir araçtır.  
+* Sanal makineleri belirtilen Log Analytics çalışma alanına oturum değildir.  
+    Bazı VM'ler girişim kapsamda bir ilke atamasında belirtilen başka bir Log Analytics çalışma açtığı, mümkündür. Bu ilke, VM'ler, uyumlu olmayan bir çalışma alanına raporlama yapmayan tanımlamak için kullanılan bir araçtır. 
  
     - [Önizleme]: Audit Log Analytics Workspace for VM - Report Mismatch  
 
 ### <a name="enable-with-powershell"></a>PowerShell ile etkinleştirme
-Azure İzleyici VM'ler için birden çok sanal makineleri veya sanal makine ölçek kümeleri için etkinleştirmek için sağlanan bir PowerShell Betiği - kullanabilirsiniz [yükleme VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0) bu görevi tamamlamak için Azure PowerShell Galerisi kullanılabilir.  Bu betik, aboneliğinizdeki tarafından belirtilen kapsamı belirlenmiş bir kaynak grubundaki her sanal makine ve sanal makine ölçek kümesi yinelemek *ResourceGroup*, veya tarafındanbelirtilentekbirsanalmakineveyasanalmakineölçek*Adı*.  Her sanal makine veya sanal makine ölçek kümesi için betik VM uzantısı zaten yüklü değilse ve yeniden yüklemek için değil denemesi olursa doğrular.  Aksi takdirde, Log Analytics ve bağımlılık Aracısı VM uzantıları yüklemeye devam eder.   
+Azure İzleyici VM'ler için birden çok sanal makineleri veya sanal makine ölçek kümeleri için etkinleştirmek için PowerShell betiğini kullanabilirsiniz [yükleme VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0), Azure PowerShell Galerisi kullanılabilir. Bu betik, aboneliğinizdeki tarafından belirtilen kapsamı belirlenmiş bir kaynak grubundaki her sanal makine ve sanal makine ölçek kümesi gezinir *ResourceGroup*, ya da tarafından belirtilen tek bir sanal makine veya sanal makine ölçek kümesi *Adı*. Her sanal makine veya sanal makine ölçek kümesi için betik VM uzantısı zaten yüklü olup olmadığını doğrular. VM uzantısı yüklü değilse, yeniden yüklemek betik çalışır. VM uzantısı yüklü değilse, betik Log Analytics ve bağımlılık Aracısı VM uzantılarını yükler.  
 
-Bu betik, Azure PowerShell modülü sürüm 5.7.0 gerektirir veya üzeri. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+Bu betik, Azure PowerShell modülü sürüm 5.7.0 gerektirir veya üzeri. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `Connect-AzureRmAccount` Azure ile bir bağlantı oluşturmak için.
 
-Komut dosyası hakkında Yardım almak için çalıştırabileceğiniz `Get-Help` bağımsız değişken ayrıntıları ve örnek kullanım listesini almak için.   
+Betik bağımsız değişkeni ayrıntıları ve örnek kullanım listesini almak için çalıştırın `Get-Help`.  
 
 ```powershell
 Get-Help .\Install-VMInsights.ps1 -Detailed
 
 SYNOPSIS
-    This script installs VM extensions for Log Analytics and Dependency Agent as needed for VM Insights.
+    This script installs VM extensions for Log Analytics and the Dependency agent as needed for VM Insights.
 
 
 SYNTAX
@@ -393,7 +416,7 @@ SYNTAX
 
 
 DESCRIPTION
-    This script installs or re-configures following on VM's and VM Scale Sets:
+    This script installs or re-configures following on VMs and VM Scale Sets:
     - Log Analytics VM Extension configured to supplied Log Analytics Workspace
     - Dependency Agent VM Extension
 
@@ -403,7 +426,7 @@ DESCRIPTION
     - Specific VM/VM Scale Set
     - Compliance results of a policy for a VM or VM Extension
 
-    Script will show you list of VM's/VM Scale Sets that will apply to and let you confirm to continue.
+    Script will show you list of VMs/VM Scale Sets that will apply to and let you confirm to continue.
     Use -Approve switch to run without prompting, if all required parameters are provided.
 
     If the extensions are already installed will not install again.
@@ -421,16 +444,16 @@ PARAMETERS
 
     -SubscriptionId <String>
         SubscriptionId for the VMs/VM Scale Sets
-        If using PolicyAssignmentName parameter, subscription that VM's are in
+        If using PolicyAssignmentName parameter, subscription that VMs are in
 
     -ResourceGroup <String>
-        <Optional> Resource Group to which the VMs or VM Scale Sets belong to
+        <Optional> Resource Group to which the VMs or VM Scale Sets belong
 
     -Name <String>
         <Optional> To install to a single VM/VM Scale Set
 
     -PolicyAssignmentName <String>
-        <Optional> Take the input VM's to operate on as the Compliance results from this Assignment
+        <Optional> Take the input VMs to operate on as the Compliance results from this Assignment
         If specified will only take from this source.
 
     -ReInstall [<SwitchParameter>]
@@ -440,11 +463,11 @@ PARAMETERS
         <Optional> Set this flag to trigger update of VM instances in a scale set whose upgrade policy is set to Manual
 
     -Approve [<SwitchParameter>]
-        <Optional> Gives the approval for the installation to start with no confirmation prompt for the listed VM's/VM Scale Sets
+        <Optional> Gives the approval for the installation to start with no confirmation prompt for the listed VMs/VM Scale Sets
 
     -WorkspaceRegion <String>
         Region the Log Analytics Workspace is in
-        Suported values: "East US","eastus","Southeast Asia","southeastasia","West Central US","westcentralus","West Europe","westeurope"
+        Supported values: "East US","eastus","Southeast Asia","southeastasia","West Central US","westcentralus","West Europe","westeurope"
         For Health supported is: "East US","eastus","West Central US","westcentralus"
 
     -WhatIf [<SwitchParameter>]
@@ -464,19 +487,19 @@ PARAMETERS
     .\Install-VMInsights.ps1 -WorkspaceRegion eastus -WorkspaceId <WorkspaceId>-WorkspaceKey <WorkspaceKey> -SubscriptionId <SubscriptionId>
     -ResourceGroup <ResourceGroup>
 
-    Install for all VM's in a Resource Group in a subscription
+    Install for all VMs in a Resource Group in a subscription
 
     -------------------------- EXAMPLE 2 --------------------------
     .\Install-VMInsights.ps1 -WorkspaceRegion eastus -WorkspaceId <WorkspaceId>-WorkspaceKey <WorkspaceKey> -SubscriptionId <SubscriptionId>
     -ResourceGroup <ResourceGroup> -ReInstall
 
-    Specify to ReInstall extensions even if already installed, for example to update to a different workspace
+    Specify to reinstall extensions even if already installed, for example to update to a different workspace
 
     -------------------------- EXAMPLE 3 --------------------------
     .\Install-VMInsights.ps1 -WorkspaceRegion eastus -WorkspaceId <WorkspaceId>-WorkspaceKey <WorkspaceKey> -SubscriptionId <SubscriptionId>
     -PolicyAssignmentName a4f79f8ce891455198c08736 -ReInstall
 
-    Specify to use a PolicyAssignmentName for source, and to ReInstall (move to a new workspace)
+    Specify to use a PolicyAssignmentName for source, and to reinstall (move to a new workspace)
 ```
 
 Aşağıdaki örnek, VM'ler için Azure İzleyici etkinleştirmek ve beklenen çıktıyı anlamak için klasörde PowerShell komutlarını kullanarak göstermektedir:
@@ -487,16 +510,16 @@ $WorkspaceKey = "<Key>"
 $SubscriptionId = "<GUID>"
 .\Install-VMInsights.ps1 -WorkspaceId $WorkspaceId -WorkspaceKey $WorkspaceKey -SubscriptionId $SubscriptionId -WorkspaceRegion eastus
 
-Getting list of VM's or VM ScaleSets matching criteria specified
+Getting list of VMs or VM ScaleSets matching criteria specified
 
-VM's or VM ScaleSets matching criteria:
+VMs or VM ScaleSets matching criteria:
 
 db-ws-1 VM running
 db-ws2012 VM running
 
-This operation will install the Log Analytics and Dependency Agent extensions on above 2 VM's or VM Scale Sets.
-VM's in a non-running state will be skipped.
-Extension will not be re-installed if already installed. Use -ReInstall if desired, for example to update workspace
+This operation will install the Log Analytics and Dependency agent extensions on above 2 VMs or VM Scale Sets.
+VMs in a non-running state will be skipped.
+Extension will not be reinstalled if already installed. Use -ReInstall if desired, for example to update workspace
 
 Confirm
 Continue?
@@ -528,41 +551,41 @@ Not running - start VM to configure: (0)
 Failed: (0)
 ```
 
-## <a name="enable-for-hybrid-environment"></a>Hibrit ortamı için etkinleştir
-Bu bölümde, nasıl sanal makine veya fiziksel bilgisayarlar veri merkezinizi veya VM'ler için Azure İzleyici ile izleme için başka bir bulut ortamında barındırılan açıklanmaktadır.  
+## <a name="enable-for-a-hybrid-environment"></a>Karma bir ortamınız için etkinleştir
+Bu bölümde, sanal makine veya veri merkezinizde veya diğer bulut ortamları, izleme, VM'ler için Azure İzleyici tarafından barındırılan fiziksel bilgisayarları dağıtmak açıklanmaktadır. 
 
-Azure İzleyici Vm'leri harita bağımlılık aracısı için tüm veriler aktarmaz ve güvenlik duvarları ya da bağlantı noktalarını herhangi bir değişiklik gerektirmez. Harita verileri her zaman doğrudan Azure İzleyici'hizmetine veya üzerinden Log Analytics aracısını tarafından aktarılan [OMS ağ geçidi](../../azure-monitor/platform/gateway.md) BT güvenlik ilkeleriniz bilgisayarların Internet'e bağlanmak için ağ üzerinde izin vermiyorsa.
+Azure İzleyici Vm'leri harita bağımlılık aracısı için hiçbir veri aktarır değil ve güvenlik duvarları veya bağlantı noktaları için herhangi bir değişiklik yapılması gerekmez. Harita verileri her zaman doğrudan Azure İzleyici'hizmetine veya üzerinden Log Analytics aracısını tarafından aktarılan [OMS ağ geçidi](../../azure-monitor/platform/gateway.md) BT güvenlik ilkeleriniz bilgisayarların internet'e bağlanmak için ağ üzerinde izin verme durumunda.
 
-Dağıtım yöntemleri ve gereksinimleri gözden [Log Analytics Linux ve Windows Aracısı](../../azure-monitor/platform/log-analytics-agent.md).  
+Dağıtım yöntemleri ve gereksinimleri gözden [Log Analytics Linux ve Windows Aracısı](../../log-analytics/log-analytics-agent-overview.md). 
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-Özetlenen adımları:
+Adımları aşağıda özetlenmiştir:
 
-1. Windows veya Linux için log Analytics aracısını yükleme
-2. Azure İzleyici için Vm'leri harita bağımlılık aracısını yükleyebilir ve indirme [Windows](https://aka.ms/dependencyagentwindows) veya [Linux](https://aka.ms/dependencyagentlinux).
-3. Performans sayaçlarını toplamayı etkinleştir
-4. Sanal makineler için yerleşik Azure izleme
+1. Windows veya Linux için log Analytics aracısını yükleyin.
+1. Vm'leri harita bağımlılık aracısı için Azure İzleyicisi'ni yükleyip [Windows](https://aka.ms/dependencyagentwindows) veya [Linux](https://aka.ms/dependencyagentlinux).
+1. Performans sayaçlarını toplamayı etkinleştirin.
+1. VM'ler için Azure İzleyici dağıtın.
 
 ### <a name="install-the-dependency-agent-on-windows"></a>Windows üzerinde bağımlılık aracısını yükleme 
-Bağımlılık aracısını el ile Windows bilgisayarlarda çalıştırarak yüklenebilir `InstallDependencyAgent-Windows.exe`. Bu yürütülebilir dosya hiçbir seçenek olmadan çalıştırırsanız, etkileşimli bir şekilde yüklemek için izlemeniz gereken bir Kurulum Sihirbazı başlar.  
+Bağımlılık aracısını el ile Windows bilgisayarlarda çalıştırarak yükleyebilirsiniz `InstallDependencyAgent-Windows.exe`. Bu yürütülebilir dosya hiçbir seçenek olmadan çalıştırırsanız, aracıyı etkileşimli olarak yüklemek için izlemeniz gereken bir Kurulum Sihirbazı başlar. 
 
 >[!NOTE]
->Aracıyı yüklemek veya kaldırmak için yönetici ayrıcalıkları gereklidir.
+>*Yönetici* ayrıcalıkları yükleyin veya aracıyı kaldırmak için gereklidir.
 
-Aşağıdaki tabloda kurulum tarafından desteklenen komut satırı aracı için belirli parametreleri vurgular.  
+Aşağıdaki tabloda kurulum tarafından desteklenen komut satırı aracı için parametreleri vurgular. 
 
 | Parametre | Açıklama |
 |:--|:--|
 | /? | Komut satırı seçeneklerinin listesini döndürür. |
-| /S | Kullanıcı etkileşimi olmadan Sessiz bir yükleme gerçekleştirin. |
+| /S | Kullanıcı etkileşimi olmadan Sessiz bir yükleme gerçekleştirir. |
 
-Örneğin, ile yükleme programını çalıştırmak için `/?` parametresi, türü `InstallDependencyAgent-Windows.exe /?`
+Örneğin, ile yükleme programını çalıştırmak için `/?` parametresi, türü **InstallDependencyAgent Windows.exe /?**.
 
-Windows bağımlılık aracısını için dosyalar yüklenir `C:\Program Files\Microsoft Dependency Agent` varsayılan olarak.  Kurulum tamamlandıktan sonra başlatmak bağımlılık Aracısı'nı başarısız olursa, ayrıntılı hata bilgileri için günlükleri denetleyin. Günlük dizini `%Programfiles%\Microsoft Dependency Agent\logs`. 
+Windows bağımlılık aracısını için dosyalar yüklenir *C:\Program Files\Microsoft bağımlılık aracısını* varsayılan olarak. Kurulum tamamlandıktan sonra başlatmak bağımlılık Aracısı'nı başarısız olursa, ayrıntılı hata bilgileri için günlükleri denetleyin. Günlük dizini *%Programfiles%\Microsoft bağımlılık Agent\logs*. 
 
 ### <a name="install-the-dependency-agent-on-linux"></a>Linux üzerinde bağımlılık aracısını yükleme
-Bağımlılık Aracısı'nı Linux sunuculardan yüklü `InstallDependencyAgent-Linux64.bin`, kendi kendine ayıklanan bir ikili içeren bir kabuk betiği. Kullanarak dosyayı çalıştırabilirsiniz `sh` veya yürütme izinleri dosya için.
+Bağımlılık Aracısı'nı Linux sunuculardan yüklü *InstallDependencyAgent Linux64.bin*, kendi kendine ayıklanan bir ikili içeren bir kabuk betiği. Kullanarak dosyayı çalıştırabilirsiniz `sh` veya yürütme izinleri dosya için.
 
 >[!NOTE]
 > Aracıyı yüklemek veya yapılandırmak için kök erişimi gerekir.
@@ -572,13 +595,13 @@ Bağımlılık Aracısı'nı Linux sunuculardan yüklü `InstallDependencyAgent-
 |:--|:--|
 | -Yardım | Komut satırı seçeneklerinin listesini alır. |
 | -s | Kullanıcıdan bilgi istenmeden sessiz yükleme gerçekleştirir. |
-| --denetleyin | İzinleri ve işletim sistemini denetleyin ama aracıyı yüklemeyin. |
+| --denetleyin | İzinler ve işletim sistemini denetleyin, ancak aracıyı yüklemeyin. |
 
-Örneğin, ile yükleme programını çalıştırmak için `-help` parametresi, türü `InstallDependencyAgent-Linux64.bin -help`.
+Örneğin, ile yükleme programını çalıştırmak için `-help` parametresi, türü **InstallDependencyAgent Linux64.bin-yardımcı**.
 
-Linux bağımlılık aracısını aşağıdaki komutu çalıştırarak kök olarak yükleme `sh InstallDependencyAgent-Linux64.bin`
+Aşağıdaki komutu çalıştırarak kök olarak Linux bağımlılık aracısını yükleme `sh InstallDependencyAgent-Linux64.bin`.
     
-Bağımlılık Aracısı'nı başlatmak başarısız olursa, ayrıntılı hata bilgileri için günlükleri denetleyin. Linux aracıları, günlük dizindir `/var/opt/microsoft/dependency-agent/log`.
+Bağımlılık Aracısı'nı başlatmak başarısız olursa, ayrıntılı hata bilgileri için günlükleri denetleyin. Linux aracıları, günlük dizindir */var/opt/microsoft/dependency-agent/log*.
 
 Bağımlılık Aracısı'nı dosyaları aşağıdaki dizinlerde yerleştirilir:
 
@@ -591,12 +614,14 @@ Bağımlılık Aracısı'nı dosyaları aşağıdaki dizinlerde yerleştirilir:
 | İkili depolama dosyaları | /var/opt/microsoft/dependency-agent/storage |
 
 ### <a name="enable-performance-counters"></a>Performans sayaçları sağlar
-Çözüm tarafından başvurulan Log Analytics çalışma alanı zaten çözüm için gerekli performans sayaçları toplamak için yapılandırılmamışsa, etkinleştirilmesi gerekir. Bu açıklandığı şekilde el ile gerçekleştirilebilir [burada](../../azure-monitor/platform/data-sources-performance-counters.md), veya tarafından yükleme ve kullanılabilir bir PowerShell Betiği çalıştırma [Azure Powershell Galerisi](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
+Çözüm tarafından başvurulan Log Analytics çalışma alanı zaten çözüm için gerekli performans sayaçları toplamak için yapılandırılmamışsa, bunları etkinleştirmeniz gerekir. Bunu iki yoldan biriyle yapabilirsiniz: 
+* İçinde açıklandığı şekilde el ile [Log analytics'te Windows ve Linux performans veri kaynakları](../../azure-monitor/platform/data-sources-performance-counters.md)
+* İndiriliyor ve kullanılabilir bir PowerShell betiğini çalıştırarak [Azure PowerShell Galerisi](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
  
-### <a name="onboard-azure-monitor-for-vms"></a>Sanal makineler için yerleşik Azure izleme
-Bu yöntem, Log Analytics çalışma alanınıza çözüm bileşenlerini yapılandırmasını belirten bir JSON şablonu içerir.  
+### <a name="deploy-azure-monitor-for-vms"></a>VM'ler için Azure İzleyici dağıtma
+Bu yöntem, Log Analytics çalışma alanınızda çözüm bileşenlerini etkinleştirmek için yapılandırmasını belirten bir JSON şablonu içerir. 
 
-Bir şablon kullanarak kaynakları dağıtma kavramıyla alışkın değilseniz, bkz:
+Bir şablon kullanarak kaynakları dağıtma ile bilmiyorsanız, bkz:
 * [Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma](../../azure-resource-manager/resource-group-template-deploy-cli.md) 
 
@@ -668,9 +693,9 @@ Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanm
     ]
     ```
 
-2. Bu dosyayı farklı Kaydet **installsolutionsforvminsights.json** yerel bir klasöre.
-3. Değerlerini düzenleyin **WorkspaceName**, **ResourceGroupName**, ve **WorkspaceLocation**.  Değeri **WorkspaceName** çalışma alanı adı ve değeri içeren Log Analytics çalışma alanınızın tam kaynak kimliği **WorkspaceLocation** çalışma alanı içinde tanımlanan bölgedir.
-4. Aşağıdaki PowerShell komutunu kullanarak bu şablonu dağıtmaya hazırsınız:
+1. Bu dosyayı farklı Kaydet *installsolutionsforvminsights.json* yerel bir klasöre.
+1. Değerlerini düzenleyin *WorkspaceName*, *ResourceGroupName*, ve *WorkspaceLocation*. Değeri *WorkspaceName* çalışma alanı adı içerir, Log Analytics çalışma alanının tam kaynak kimliği. Değeri *WorkspaceLocation* çalışma alanı içinde tanımlanan bölgedir.
+1. Aşağıdaki PowerShell komutunu kullanarak bu şablonu dağıtmaya hazırsınız:
 
     ```powershell
     New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
@@ -684,7 +709,7 @@ Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanm
 İzleme etkinleştirdikten sonra sistem durumunu ve karma bilgisayar için ölçümleri görmeden önce yaklaşık 10 dakika sürebilir. 
 
 ## <a name="performance-counters-enabled"></a>Performans sayaçları etkinleştirildi
-VM'ler için Azure İzleyici, bir çözüm tarafından kullanılan performans sayaçları toplamak için Log Analytics çalışma alanı yapılandırır.  Aşağıdaki tabloda, 60 saniyede toplanan çözüm tarafından yapılandırılan sayaçlarını ve nesneleri listeler.
+VM'ler için Azure İzleyici, çözüm tarafından kullanılan performans sayaçları toplamak için bir Log Analytics çalışma alanı yapılandırır. Aşağıdaki tabloda, 60 saniyede toplanan çözüm tarafından yapılandırılan sayaçlarını ve nesneleri listeler.
 
 ### <a name="windows-performance-counters"></a>Windows performans sayaçları
 
@@ -731,4 +756,4 @@ Veri toplama ve kullanım hakkında daha fazla bilgi için bkz: [Microsoft Onlin
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sanal makineniz için etkin izleme ile bu bilgileri analiz için sanal makineler için Azure İzleyici ile kullanılabilir.  Sistem durumu özelliği kullanmayı öğrenmek için bkz [görünümü VM sistem durumu için Azure İzleyici](vminsights-health.md), veya bulunan Uygulama bağımlılıklarını görüntülemek için bkz. [Vm'leri harita görünümü Azure İzleyici](vminsights-maps.md).  
+İzleme sanal makineniz için etkinleştirilir, bu bilgileri analiz için sanal makineler için Azure İzleyici ile kullanılabilir. Sistem durumu özelliği kullanmayı öğrenmek için bkz: [görünümü VM sistem durumu için Azure İzleyici](vminsights-health.md). Bulunan Uygulama bağımlılıklarını görüntülemek için bkz: [Vm'leri harita görünümü Azure İzleyici](vminsights-maps.md). 

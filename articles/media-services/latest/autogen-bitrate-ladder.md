@@ -1,6 +1,6 @@
 ---
-title: Standart Kodlayıcı Azure Media Services kullanarak bir otomatik olarak oluşturulan bit hızı Merdiveni video kodlamak için kullanın. | Microsoft Docs
-description: Bu konuda, video giriş çözünürlük ve bit hızı dayalı bir otomatik olarak oluşturulan hızı Merdivenini otomatik ile standart Kodlayıcı giriş kodlama için Media Services kullanma gösterilmektedir. Giriş çözünürlük ve bit hızı hiçbir zaman aşacak. Örneğin, giriş ise 3 MB/sn, çıkış, 720p 720 p en iyi şekilde kalır ve 3 MB/sn düşük fiyatları başlar.
+title: Standart Kodlayıcı, Media Services - Azure ile videoları kodlayın | Microsoft Docs
+description: Bu konuda, video giriş çözünürlük ve bit hızı dayalı bir otomatik olarak oluşturulan hızı Merdivenini otomatik ile standart Kodlayıcı giriş kodlama için Media Services kullanma gösterilmektedir.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: ec1b4b88e5b9639c3ee9debbd8ac7d48544344dc
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.custom: seodec18
+ms.openlocfilehash: 976e1ea013c6a30615bdc742ed79e76ec35258a1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378967"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132815"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Bir otomatik olarak oluşturulan bit hızı Merdiveni ile kodlayın
 

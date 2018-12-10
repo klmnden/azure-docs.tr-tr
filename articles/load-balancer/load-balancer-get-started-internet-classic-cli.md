@@ -1,24 +1,26 @@
 ---
-title: İnternet’e yönelik yük dengeleyicisi oluşturma - Azure klasik CLI | Microsoft Docs
+title: Internet'e yönelik Yük Dengeleyici - Azure Klasik CLI oluşturma
+titlesuffix: Azure Load Balancer
 description: Klasik Azure CLI kullanarak klasik dağıtımda İnternet’e yönelik yük dengeleyici oluşturmayı öğrenin
 services: load-balancer
 documentationcenter: na
 author: genlin
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a0640e3d0b7ccc11ee5603a9b1f21daf53318266
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: fa89117e85bc3d3c9664e6aa037fac923b7432ce
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740510"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135755"
 ---
-# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-cli"></a>Klasik Azure CLI’de İnternet’e yönelik yük dengeleyici (klasik) oluşturmaya başlama
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-cli"></a>Klasik Azure CLI'de Internet'e yönelik Yük Dengeleyici (Klasik) oluşturmaya başlama
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)

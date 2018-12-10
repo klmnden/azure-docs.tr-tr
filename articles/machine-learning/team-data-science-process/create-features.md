@@ -1,5 +1,5 @@
 ---
-title: Özellik Mühendisliği veri bilimi | Microsoft Docs
+title: Veri bilimi - Team Data Science Process içinde özellik Mühendisliği
 description: Özellik Mühendisliği amaçları açıklanır ve machine Learning veri geliştirme sürecinde rolü örnekleri sağlar.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 80e925fddf1aebd9f699ee8e22b96cc496faeba6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5767399189e4ed5168fbcc083ef9b4830cac1421
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446684"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138985"
 ---
 # <a name="feature-engineering-in-data-science"></a>Veri bilimi, özellik Mühendisliği
 Bu makalede, özellik Mühendisliği amaçları açıklanır ve machine Learning veri geliştirme sürecinde rolü örnekleri sağlar. Bu işlemi canlandırmak adına kullanılan örnekleri, Azure Machine Learning Studio'dan çizilir. 

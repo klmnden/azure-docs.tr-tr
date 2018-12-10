@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 776a0e79a1098f46a04c846a8814d48c9fead5e3
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5f2f086dbe5056ee3d83be2d8725f49fd502d1b2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999622"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139238"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için kaynak işlevleri
 
@@ -290,9 +290,9 @@ Her kaynak türü için başvuru işlevi farklı özellikleri döndürür. İşl
 
 ### <a name="remarks"></a>Açıklamalar
 
-Başvuru işlevi, daha önceden dağıtılan bir kaynak ya da geçerli şablon dağıtılan bir kaynak çalışma zamanı durumunu alabilir. Bu makalede her iki senaryo için örnekler gösterilmektedir. Geçerli şablon kaynağında başvuran bir parametre olarak yalnızca kaynak adı belirtin. Daha önceden dağıtılan bir kaynağa başvuran, kaynak Kimliğine ve bir API sürümü için kaynak sağlar. Kaynağınızda için geçerli API sürümlerini belirlemek [şablon başvurusu](/azure/templates/).
+Başvuru işlevi, daha önceden dağıtılan bir kaynak ya da geçerli şablon dağıtılan bir kaynak çalışma zamanı durumunu alır. Bu makalede her iki senaryo için örnekler gösterilmektedir. Geçerli şablon kaynağında başvuran bir parametre olarak yalnızca kaynak adı belirtin. Daha önceden dağıtılan bir kaynağa başvuran, kaynak Kimliğine ve bir API sürümü için kaynak sağlar. Kaynağınızda için geçerli API sürümlerini belirlemek [şablon başvurusu](/azure/templates/).
 
-Başvuru işlev çalışma zamanı durumu değerinden türetilir ve değişkenler bölümünde kullanılamaz. Şablon çıktıları bölümünde kullanılabilir veya [bağlı şablon](resource-group-linked-templates.md#link-or-nest-a-template). Çıkış bölümünde kullanılamaz bir [iç içe geçmiş şablon](resource-group-linked-templates.md#link-or-nest-a-template). Dönüş değerleri dağıtılan kaynağın içinde iç içe geçmiş bir şablon için iç içe geçmiş şablon bağlantılı şablona dönüştürebilirsiniz. 
+Başvuru işlevi yalnızca bir kaynak tanımı özelliklerini ve bir şablonu veya dağıtım çıktılar bölümünü kullanılabilir.
 
 Başvuru işlevini kullanarak, aynı şablonu içinde başvurulan kaynak sağlandıktan ve kaynağa adıyla (kaynak kimliği değil) başvurun bir kaynak başka bir kaynaktaki bağlıdır örtük olarak bildirdiğiniz. Ayrıca dependsOn özelliği kullanmanız gerekmez. Başvurulan kaynak dağıtımı tamamlanana kadar işlevi değerlendirilmez.
 

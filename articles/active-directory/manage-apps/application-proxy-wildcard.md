@@ -15,12 +15,12 @@ ms.date: 09/06/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 638ae4c779af3bebb68622ccee6932618d42e4f0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 8c876f220cde99bbeb3b5d9f8f8878acb5584802
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057283"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140056"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory Uygulama proxy'si joker karakteri uygulamalarında 
 
@@ -49,7 +49,7 @@ Hem, iç ve dış URL'leri şu biçimde olması durumunda joker karakterler içe
 
 Farklı yapılandırma ayarları ile ek uygulamalarınız varsa, bu özel durumlar için joker karakter belirlenen Varsayılanların üzerine yazmak için ayrı uygulamalar olarak yayımlamanız gerekir. Joker karakter olmayan uygulamalar joker uygulamalar her zaman önceliklidir. Yapılandırma açısından bakıldığında, bunlar "Yeni" Normal uygulamalardır.
 
-Bir joker uygulama oluşturma temel aynı [uygulama yayımlama akışını](application-proxy-publish-azure-portal.md) olan diğer tüm uygulamalar için kullanılabilir. Tek fark, URL'leri ve potansiyel olarak SSO yapılandırmasını bir joker karakter dahil edilir.
+Bir joker uygulama oluşturma temel aynı [uygulama yayımlama akışını](application-proxy-add-on-premises-application.md) olan diğer tüm uygulamalar için kullanılabilir. Tek fark, URL'leri ve potansiyel olarak SSO yapılandırmasını bir joker karakter dahil edilir.
 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -137,7 +137,7 @@ Bu senaryoda, yayımlamak istediğiniz üç farklı uygulamaları vardır:
 - Aynı özelliklere sahiptir
 
 
-Özetlenen adımları kullanarak joker uygulama yayımlayabilirsiniz [Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-publish-azure-portal.md). Bu senaryo varsayar:
+Özetlenen adımları kullanarak joker uygulama yayımlayabilirsiniz [Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-add-on-premises-application.md). Bu senaryo varsayar:
 
 - Şu Kimliğe sahip bir kiracı: `000aa000-11b1-2ccc-d333-4444eee4444e` 
 
@@ -145,7 +145,7 @@ Bu senaryoda, yayımlamak istediğiniz üç farklı uygulamaları vardır:
 
 - A **CNAME** işaret giriş `*.adventure-works.com` için `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net` oluşturuldu.
 
-Aşağıdaki [belgelenen adımları](application-proxy-publish-azure-portal.md), kiracınızda yeni bir uygulama proxy'si uygulaması oluşturun. Bu örnekte, aşağıdaki alanlarda joker karakterdir:
+Aşağıdaki [belgelenen adımları](application-proxy-add-on-premises-application.md), kiracınızda yeni bir uygulama proxy'si uygulaması oluşturun. Bu örnekte, aşağıdaki alanlarda joker karakterdir:
 
 - İç URL:
 
@@ -184,7 +184,7 @@ Bu senaryoda, ayrıca üç genel için başka bir uygulama, uygulamanız `financ
 
 CNAME kayıtları, işaret ettiği olmadığından emin olmak gereken `finance.adventure-works.com` uygulama için uygulama proxy'si sayfasında belirtilen uygulama belirli uç. Bu senaryo için `finance.adventure-works.com` işaret `https://finance-awcycles.msappproxy.net/`. 
 
-Aşağıdaki [belgelenen adımları](application-proxy-publish-azure-portal.md), bu senaryo aşağıdaki ayarları gerektirir:
+Aşağıdaki [belgelenen adımları](application-proxy-add-on-premises-application.md), bu senaryo aşağıdaki ayarları gerektirir:
 
 
 - İçinde **İç URL**, ayarladığınız **Finans** yerine bir joker karakter. 
@@ -215,6 +215,6 @@ Hakkında daha fazla bilgi için:
 
 - **Özel etki alanları**, bkz: [Azure AD uygulama proxy'sinde özel etki alanları ile çalışma](application-proxy-configure-custom-domain.md).
 
-- **Uygulamaları yayımlama**, bkz: [Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-publish-azure-portal.md)
+- **Uygulamaları yayımlama**, bkz: [Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-add-on-premises-application.md)
 
 

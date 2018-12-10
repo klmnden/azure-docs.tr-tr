@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: fe564e9809a3621ca04e4dad75488fb255f7dc0e
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 5e18a4690eacaaeaa4422379fc8a4e3d2a02e717
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682954"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134174"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Toplama ve Azure kaynaklarınızdan günlük verilerini kullanma
 
@@ -40,7 +40,7 @@ Tanılama günlükleri ile yapabileceklerinizden bazıları şunlardır:
 
 * Kaydetmek için bir [ **depolama hesabı** ](monitoring-archive-diagnostic-logs.md) denetim veya el ile İnceleme. Bekletme süresi (gün cinsinden) kullanarak belirtebilirsiniz **kaynak tanılama ayarlarını**.
 * [Bunları Stream **Event Hubs** ](monitoring-stream-diagnostic-logs-to-event-hubs.md) alımı üçüncü taraf hizmeti veya Power BI gibi özel bir analiz çözümü için.
-* Bunları analiz [Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md)
+* Bunları analiz [Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md), verileri hemen Log Analytics'e ilk veri depolama alanına yazma gerek yazıldığı.  
 
 Günlükleri yayan biri ile aynı abonelikte değil Event Hubs ad alanı veya bir depolama hesabını kullanabilirsiniz. Ayarı yapılandıran kullanıcının her iki aboneliğin uygun RBAC erişiminiz olması gerekir.
 
@@ -63,7 +63,7 @@ Kaynak tanılama günlükleri, kaynak tanılama ayarlarını kullanarak yapılan
     - Bekletme ilkeleri ayarlayın, ancak yalnızca (örneğin, Event Hubs veya Log Analytics seçeneği seçili) günlükleri bir depolama hesabında depolama devre dışı, bekletme ilkeleri bir etkisi yoktur.
     - Bekletme ilkeleri uygulanan günlük, olduğundan, bir günün (UTC), şu anda sonra saklama günü günlüklerinden sonunda İlkesi silindi. Örneğin, bir günlük bir bekletme ilkesi olsaydı, bugün günün başında dünden önceki gün kayıtları silinir. Gece yarısı UTC, ancak bu günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir not silme işlemi başlar.
 
-Bu ayarlar, kolayca Portalı'ndaki tanılama ayarları, Azure PowerShell ve CLI komutları aracılığıyla veya yoluyla yapılandırılır [Azure İzleyici REST API](https://docs.microsoft.com/rest/api/monitor/).
+Bu ayarlar portal, Azure PowerShell ve CLI komutlarıyla veya kullanarak tanılama ayarlarını kolayca yapılandırılır [Azure İzleyici REST API](https://docs.microsoft.com/rest/api/monitor/).
 
 > [!NOTE]
 > Çok boyutlu ölçümlerin tanılama ayarları aracılığıyla gönderilmesi şu anda desteklenmemektedir. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.

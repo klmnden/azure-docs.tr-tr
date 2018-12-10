@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 647ff43d0b1e0dc52ccecd2dad709af969c61c15
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7657ac2e2d5a169607c73b8934328ce41ecea78e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840682"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141943"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Uygulamalar AD FS'den Azure AD'ye taşıma 
 
@@ -82,7 +82,7 @@ Federasyon uygulamaları, şu kategorilere giren uygulamaları içerir:
 
 ### <a name="non-federated-apps"></a>Federasyon olmayan uygulamalar
 Federasyon olmayan uygulamaları, Azure AD Uygulama Ara Sunucusu ve bununla ilgili özellikleri kullanılarak Azure AD ile tümleştirebilirsiniz. Federasyon olmayan uygulamalar şunlardır:
-- Doğrudan Active Directory'yle Windows Tümleşik Kimlik Doğrulaması kullanan uygulamalar. Bu uygulamaları, [Azure AD Uygulama Ara Sunucusu](application-proxy-publish-azure-portal.md) üzerinden Azure AD'yle tümleştirebilirsiniz.
+- Doğrudan Active Directory'yle Windows Tümleşik Kimlik Doğrulaması kullanan uygulamalar. Bu uygulamaları, [Azure AD Uygulama Ara Sunucusu](application-proxy-add-on-premises-application.md) üzerinden Azure AD'yle tümleştirebilirsiniz.
 - Bir aracı yoluyla çoklu oturum açma sağlayıcınızla tümleştirilen ve yetkilendirme için üst bilgi kullanan uygulamalar. Oturum açma işlemi için yüklü bir aracıyı kullanan ve üst bilgiye dayalı yetkilendirme yapan şirket içi uygulamaları, [Azure AD için Ping Access](https://blogs.technet.microsoft.com/enterprisemobility/2017/06/15/ping-access-for-azure-ad-is-now-generally-available-ga/) ile Azure AD Uygulama Ara Sunucusu üzerinden Azure AD tabanlı oturum açma için yapılandırılabilir.
 
 ## <a name="translating-on-premises-federated-apps-to-azure-ad"></a>Şirket içi federasyon uygulamalarını Azure AD'ye çevirme 

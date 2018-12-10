@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 12/08/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: 11e9099ba9008ead6583eaf30292cdec63475f02
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a92b54a80de645dda8ea0cc0259bd07f72330204
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994265"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136724"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET uygulamalarında özel durumlarda anlık görüntü hata ayıklama
 
@@ -68,7 +68,7 @@ Anlık görüntü koleksiyonu için kullanılabilir:
         <!-- How often to reset problem counters. -->
         <ProblemCounterResetInterval>1.00:00:00</ProblemCounterResetInterval>
         <!-- The maximum number of snapshots allowed in ten minutes.The default value is 1. -->
-        <SnapshotsPerTenMinutesLimit>1</SnapshotsPerTenMinutesLimit>
+        <SnapshotsPerTenMinutesLimit>3</SnapshotsPerTenMinutesLimit>
         <!-- The maximum number of snapshots allowed per day. -->
         <SnapshotsPerDayLimit>30</SnapshotsPerDayLimit>
         <!-- Whether or not to collect snapshot in low IO priority thread. The default value is true. -->
@@ -455,7 +455,7 @@ Veya, bir .NET Core uygulaması ile appsettings.json kullanıyorsanız:
 Anlık görüntü oluşturulduğunda, özel durum oluşturmaya bir anlık görüntü kimliği ile etiketlenir. Özel durum telemetrisi Application Insights'a bildirildiğinde bu anlık görüntü kimliği bir özel özellik olarak dahil edilir. Kullanarak **arama** Application Insights ile tüm telemetri bulabilirsiniz `ai.snapshot.id` özel özellik.
 
 1. Azure portalında Application Insights kaynağınıza göz atın.
-2. Tıklayın **arama**.
+2. **Ara**'ya tıklayın.
 3. Tür `ai.snapshot.id` arama metin kutusu ve Enter tuşuna basın.
 
 ![Portalda bir anlık görüntü kimliği ile telemetri arayın](./media/app-insights-snapshot-debugger/search-snapshot-portal.png)

@@ -1,26 +1,21 @@
 ---
-title: Azure Depolama Gezgini’nde Azure Cosmos DB’yi Yönetme
-description: Azure Depolama Gezgini’nde Azure Cosmos DB’yi yönetmeyi öğrenin.
-Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
-services: cosmos-db
+title: Azure Depolama Gezgini'ni kullanarak Azure Cosmos DB kaynaklarını yönetme
+description: Azure Cosmos DB'ye bağlanmak ve Azure Depolama Gezgini'ni kullanarak kaynaklarını yönetme hakkında bilgi edinin.
 author: Jejiang
-manager: kfile
-editor: ''
 tags: Azure Cosmos DB
 ms.service: cosmos-db
-ms.custom: Azure Cosmos DB active
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 12/07/2018
 ms.author: jejiang
-ms.openlocfilehash: 1e18db960b9e07ae412d0c41c4544ef6bb35977c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 1ce483a88c1f57912dfe30efa98f46335e97c01c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261169"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138135"
 ---
-# <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Azure Depolama Gezgini’nde Azure Cosmos DB’yi Yönetme
+# <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Azure Depolama Gezgini'ni kullanarak Azure Cosmos DB kaynaklarını yönetme
 
 Azure Depolama Gezgini’nde Azure Cosmos DB kullanılması, kullanıcıların Azure Cosmos DB varlıklarını yönetmesine, verileri düzenlemesine, saklı yordamların ve tetikleyicilerin yanı sıra Depolama blob’ları ve kuyrukları gibi diğer Azure varlıklarını güncelleştirmesine imkan tanır. Artık farklı Azure varlıklarını aynı aracı kullanarak tek bir yerde yönetebilirsiniz. Azure Depolama Gezgini şu anda SQL, MongoDB, Graf ve Tablo hesaplarını desteklemektedir.
 
@@ -152,7 +147,7 @@ Gezgin bölmesindeki bir aboneliğe sağ tıklayarak birçok hızlı eylem göre
 - Seçili belgeyi silmek için **Sil** düğmesine tıklayın.
 
 #### <a name="query-for-documents"></a>Belgeler için sorgu
-- Bir [SQL sorgusu](sql-api-sql-query.md) girip **Uygula**’ya tıklayarak belge filtresini düzenleyin.
+- Bir [SQL sorgusu](how-to-sql-query.md) girip **Uygula**’ya tıklayarak belge filtresini düzenleyin.
 
     ![Belge Filtresi](./media/storage-explorer/document-filter.png)
 
@@ -242,8 +237,8 @@ Yukarıdaki adımları kullanarak otomatik olarak imzalanan bir sertifika bulama
 
 Başarıyla oturum açtıktan sonra aboneliklerinizi alamıyorsanız:
 
-- [Azure Portal](http://portal.azure.com/)’da oturum açarak, hesabınızın aboneliklerinize erişiminin olduğunu doğrulayın
-- Doğru ortamı kullanarak oturum açtığınızdan emin olun ([Azure](http://portal.azure.com/), [Azure Çin](https://portal.azure.cn/), [Azure Almanya](https://portal.microsoftazure.de/), [Azure ABD Kamu](http://portal.azure.us/) veya Özel Ortam/Azure Stack)
+- [Azure Portal](https://portal.azure.com/)’da oturum açarak, hesabınızın aboneliklerinize erişiminin olduğunu doğrulayın
+- Doğru ortamı kullanarak oturum açtığınızdan emin olun ([Azure](https://portal.azure.com/), [Azure Çin](https://portal.azure.cn/), [Azure Almanya](https://portal.microsoftazure.de/), [Azure ABD Kamu](https://portal.azure.us/) veya Özel Ortam/Azure Stack)
 - Bir ara sunucunun ardından değilseniz, Depolama Gezgini ara sunucusunu düzgün şekilde yapılandırdığınızdan emin olun
 - Hesabı kaldırıp yeniden eklemeyi deneyin
 - Aşağıdaki dosyaları giriş dizininizden (örn: C:\Users\ContosoUser) silmeyi ve sonra hesabı yeniden eklemeyi deneyin:

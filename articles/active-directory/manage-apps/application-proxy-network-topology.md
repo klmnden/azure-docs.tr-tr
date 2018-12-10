@@ -15,12 +15,12 @@ ms.date: 07/28/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 2321ccf115e3b517bdc593c0c428c61d5dd90968
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 976118514dbcb4cee9675ae357d857e7b90e8c0c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367098"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140488"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Azure Active Directory Uygulama proxy'si kullanılırken ağ topolojisi hakkında önemli noktalar
 
@@ -40,7 +40,7 @@ Azure AD uygulama proxy'si aracılığıyla uygulama yayınlandıktan sonra uygu
 
 Azure AD kiracısı için kaydolduğunuzda, kiracınızın bölge belirttiğiniz ülkeye göre belirlenir. Uygulama Ara sunucusunu etkinleştirme, kiracınız için uygulama proxy'si hizmeti örnekleri seçilen veya Azure AD kiracınızla aynı bölgede ya da kendisine en yakın bölgede oluşturulur.
 
-Örneğin, Avrupa Birliği (AB) Azure AD kiracınızın bölge ise tüm uygulama ara sunucusu bağlayıcıları AB Azure veri merkezlerinde hizmet örneklerini kullanın. Kullanıcılar erişiminizi yayımlanan uygulamaları, uygulama proxy'si hizmeti örnekleri bu konumda trafiklerini geçer.
+Örneğin, Birleşik Krallık, Azure AD kiracınızın ülke veya bölge ise, tüm uygulama ara sunucusu bağlayıcıları AB veri merkezlerinde hizmet örneklerini kullanın. Kullanıcılar erişiminizi yayımlanan uygulamaları, uygulama proxy'si hizmeti örnekleri bu konumda trafiklerini geçer.
 
 ## <a name="considerations-for-reducing-latency"></a>Gecikme süresini azaltmak için dikkat edilmesi gerekenler
 
@@ -85,9 +85,9 @@ Müşteri ağ yakın hedef uygulama Bağlayıcısı'nı koyun. Bu yapılandırma
 
 Bağlayıcınızı görebilmesi için etki alanı denetleyicisi gerekiyorsa, bu düzen avantajlıdır. Çoğu senaryo için iyi çalıştığı için müşterilerimizin çoğu bu düzeni kullanın. Bu düzen Ayrıca hizmet Bağlayıcısı'nı arasındaki trafiğin iyileştirilmesi 2 deseni ile birleştirilebilir.
 
-### <a name="pattern-2-take-advantage-of-expressroute-with-public-peering"></a>2. Desen: Genel eşdüzey hizmet sağlama ile ExpressRoute yararlanın
+### <a name="pattern-2-take-advantage-of-expressroute-with-microsoft-peering"></a>2. Desen: Microsoft eşlemesi ile ExpressRoute yararlanın
 
-ExpressRoute genel eşlemesi ile ayarlanan varsa, uygulama ara sunucusu Bağlayıcısı'nı arasındaki trafik için daha hızlı ExpressRoute Bağlantısı'nı kullanabilirsiniz. Bağlayıcı, uygulamanın yakın ağınıza açık durumdadır.
+Microsoft eşlemesi ile ayarlanan ExpressRoute varsa, uygulama ara sunucusu Bağlayıcısı'nı arasındaki trafik için daha hızlı ExpressRoute bağlantısı kullanabilirsiniz. Bağlayıcı, uygulamanın yakın ağınıza açık durumdadır.
 
 ### <a name="pattern-3-take-advantage-of-expressroute-with-private-peering"></a>3. Desen: özel eşdüzey hizmet sağlama ile ExpressRoute yararlanın
 
@@ -137,13 +137,13 @@ Yeniden yaygın atlama 3, en iyi duruma getirme Bağlayıcısı'nı uygulama yak
 
 ### <a name="use-case-3"></a>Kullanım örneği 3
 
-**Senaryo:** ABD'deki bir kuruluşun ağındaki uygulamasıdır. Azure ve şirket ağı arasında genel eşdüzey hizmet sağlama ile ExpressRoute bulunmaktadır.
+**Senaryo:** ABD'deki bir kuruluşun ağındaki uygulamasıdır. Microsoft eşlemesi ile ExpressRoute, Azure ve şirket ağı arasında yok.
 
 **Öneri:** desenleri 1 ve 2 ' nin önceki bölümde açıklanan izleyin.
 
 İlk olarak, bağlayıcı olabildiğince uygulamaya mümkün olduğunca yakın yerleştirin. Ardından, sistem otomatik olarak 2 atlama için Expressroute'u kullanır. 
 
-Ortak eşleme ExpressRoute bağlantı kullanıyorsa, proxy ve bağlayıcı arasındaki trafiği o bağlantı üzerinden akar. Atlama 2, gecikme süresi en iyi hale getirdi.
+Microsoft eşleme ExpressRoute bağlantı kullanıyorsanız, proxy ve bağlayıcı arasındaki trafik, bağlantı üzerinden akar. Atlama 2, gecikme süresi en iyi hale getirdi.
 
 ![ExpressRoute proxy ve bağlayıcı arasında gösteren diyagram](./media/application-proxy-network-topology/application-proxy-pattern3.png)
 
@@ -173,7 +173,7 @@ Ayrıca, bu durumda bir değişken kullanarak göz önünde bulundurun. Sonra b�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Uygulama Ara sunucusunu etkinleştirme](application-proxy-enable.md)
+- [Uygulama Ara sunucusunu etkinleştirme](application-proxy-add-on-premises-application.md)
 - [Çoklu oturum açmayı etkinleştirme](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Koşullu erişimi etkinleştirme](application-proxy-integrate-with-sharepoint-server.md)
 - [Uygulama Ara sunucusu ile ilgili sorunları giderme](application-proxy-troubleshoot.md)

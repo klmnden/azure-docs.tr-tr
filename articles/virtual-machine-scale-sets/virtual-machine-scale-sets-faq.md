@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 40af55e48e0097f1ad6cb52a76b78fab40c2074c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 1bba25d0b7fd6bbe4efeb9c2164fc663b22bed11
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447189"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139376"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure sanal makine ölçek kümeleri hakkında SSS
 
@@ -31,7 +31,7 @@ Azure'da sanal makine ölçek kümeleri hakkında sık sorulan soruların yanıt
 
 **S.** Bir ölçek kümesinde kaç tane sanal makinem olabilir?
 
-**C.** Ölçek kümeleri, platform görüntülerini temel alan 0 ila 1.000 VM’ye veya özel görüntüleri temel alan 0 ila 300 VM’ye sahip olabilir.
+**C.** Bir ölçek kümesi, platform görüntülerini temel alan 0 ila 1.000 VM'ye veya özel görüntüleri temel alan 0-600 VM'ye sahip olabilir.
 
 **S.** Ölçek kümelerinde veri diskleri destekleniyor mu?
 

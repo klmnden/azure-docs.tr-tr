@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d098d38c39788dee7f4a3852d07a762b36fd9a4f
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 9ee7f0b975dd2990281833726b4013c9726a2935
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333760"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134327"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si kullanarak yayımlanmış uygulamalar için özel bir ana sayfa ayarlayın
 
@@ -142,4 +142,4 @@ Giriş sayfası URL'si oluşturun ve bu değeri ile uygulamanızı güncelleşti
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure AD uygulama ara sunucusu ile SharePoint uzaktan erişimi etkinleştirme](application-proxy-integrate-with-sharepoint-server.md)
-- [Azure portalında uygulama ara sunucusunu etkinleştirme](application-proxy-enable.md)
+- [Azure portalında uygulama ara sunucusunu etkinleştirme](application-proxy-add-on-premises-application.md)

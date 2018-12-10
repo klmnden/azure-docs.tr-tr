@@ -1,23 +1,22 @@
 ---
-title: Azure depolama tablo Tasarım Kılavuzu | Microsoft Docs
-description: Tasarım ölçeklenebilir ve performansa yönelik tablolar Azure tablo depolama
-services: cosmos-db
+title: Azure Cosmos DB tablo ölçekleme ve performans desteklemek için Tasarım
+description: "Azure depolama tablo Tasarım Kılavuzu: Tasarlama ölçeklenebilir ve performansa yönelik tablolar Azure Cosmos DB'de ve Azure depolama tablosu"
 author: SnehaGunda
-manager: kfile
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-table
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/03/2017
-ms.author: sngun
-ms.openlocfilehash: 6ac0895ac31a815f00ca6c5fa1dfd325be2e3963
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 656a8acc06a0d02959dda42c980db65c011f0bb3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245826"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140957"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure depolama Tablo Tasarımı Kılavuzu: Tasarlama ölçeklenebilir ve performansa yönelik tablolar
+
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 Tasarım ölçeklenebilir ve performansa yönelik tablolar performans, ölçeklenebilirlik ve maliyet gibi bir dizi etkene dikkate almanız gerekir. Şemaları ilişkisel veritabanları için daha önce tasarladık, bu konuları size tanıdık gelecektir ancak ilişkisel modelleri ve Azure tablo hizmeti depolama modelini arasındaki bazı benzerlikler olsa da, aynı zamanda birçok önemli farklar vardır. Bu farklılıklar, counter-intuitive ya da yanlış ilişkisel veritabanları ile tanıdık bir kişiye görünebilir, ancak Azure tablo hizmeti gibi bir NoSQL anahtar/değer deposu için tasarlıyorsanız, iyi oluşturamayacağınızdan anlamlı farklı tasarım genellikle neden. Tablo hizmeti (ilişkisel veritabanı terminolojisinde satır), yüksek işlem desteklemelidir veri kümeleri için veri ve varlıkların milyarlarca içerebilir bulut ölçekli uygulamaları desteklemek için tasarlanmıştır olgu, tasarım farkları birçoğu yansıtır birimler: Bu nedenle, farklı şekilde, verilerinizi nasıl depolamanın hakkında düşünün ve tablo hizmetinin nasıl çalıştığını anlamanız gerekir. İyi tasarlanmış bir NoSQL veri deposu çok daha (ve daha düşük bir maliyetle) ölçeklendirmek, çözümünüzün etkinleştirebilirsiniz, ilişkisel veritabanını kullanan bir çözüme göre. Bu kılavuz, şu konularda yardımcı olur.  
@@ -320,7 +319,7 @@ Bu örnek ayrıca departmanı varlık ve ilgili çalışan varlıkları aynı b�
 
 Verileri normalleştirilmişlikten çıkarmak ve yalnızca aşağıdaki örnekte gösterildiği gibi normalleştirilmişlikten çıkarılmış departman verilerine sahip çalışan varlıklar depolamak için alternatif bir yoludur. Bunu yapmak için her çalışanın departmanındaki güncelleştirmeye gerek duyduğunuz olduğundan Bölüm Yöneticisi'nin ayrıntılar değişiklik yapabilmek için bir gereksinimi varsa bu belirli bir senaryoda en iyi normalleştirilmişlikten çıkarılmış bu yaklaşım olmayabilir.  
 
-![][2]
+![Çalışan varlık][2]
 
 Daha fazla bilgi için [normalleştirilmişlikten çıkarma deseni](#denormalization-pattern) bu kılavuzun sonraki.  
 
@@ -397,18 +396,18 @@ Tablo hizmetinde ilişkileri modellemek için yol olsa da, tablo hizmeti kullana
 ### <a name="inheritance-relationships"></a>Kalıtım ilişkileri
 İstemci uygulamanız bir dizi iş varlığı temsil eden bir devralma ilişkisi parçasını sınıfı kullanıyorsa, bu varlıkların tablo hizmetindeki kolayca kalıcı hale getirebilirsiniz. Örneğin, aşağıdaki istemci uygulamanızda tanımlanan sınıflar kümesini olabilir. burada **kişi** bir Özet sınıf.
 
-![][3]
+![ER kalıtım ilişkileri diyagramı][3]
 
 Bu görünüm bu gibi varlıkları kullanarak tek bir kişi tablosunu kullanarak tablo hizmetindeki iki somut sınıfların örneklerini kalıcı hale getirebilirsiniz:  
 
-![][4]
+![Müşteri varlığı ve çalışan varlık diyagramı][4]
 
 İstemci kodu aynı tabloda birden fazla varlık türleri ile çalışma hakkında daha fazla bilgi için bkz [heterojen varlık türleri ile çalışmaktan](#working-with-heterogeneous-entity-types) bu kılavuzun sonraki. Bu varlık türünde istemci kodu anlamayı örnekleri sağlar.  
 
 ## <a name="table-design-patterns"></a>Tablo Tasarım desenleri
 Önceki bölümlerde bazı tartışmalar tablo tasarımınızı ekleme, güncelleştirme ve varlık verilerini silme ve sorguları kullanarak her iki varlık verileri için en iyi duruma getirme hakkında ayrıntılı gördünüz. Bu bölümde, tablo hizmeti çözümleri ile kullanım için uygun olan bazı desenleri açıklar. Ayrıca, nasıl, pratikte bazı sorunlar ve dezavantajlarına bu kılavuzda daha önce oluşturulan ele görürsünüz. Aşağıdaki diyagramda, farklı düzenlerinin arasındaki ilişkileri özetlenmektedir:  
 
-![][5]
+![Tablo Tasarım desenleri görüntüsü][5]
 
 Yukarıdaki desen eşleme desenleri (mavi) ve bu kılavuzda belirtilmiştir ters desenler (turuncu) bazı ilişkiler vurgular. Elbette, dikkate değer olan diğer birçok desen vardır. Örneğin, tablo hizmeti için ana senaryoları biri kullanmaktır [gerçekleştirilmiş görünüm düzeni](https://msdn.microsoft.com/library/azure/dn589782.aspx) gelen [komut sorgu sorumluluğu ayrımı (CQRS)](https://msdn.microsoft.com/library/azure/jj554200.aspx) deseni.  
 
@@ -425,7 +424,7 @@ Ayrıca e-posta adresi gibi başka bir özelliğin değerini temel alan bir çal
 #### <a name="solution"></a>Çözüm
 İkincil dizinler eksikliği geçici olarak çözmek için farklı bir kullanarak her kopya her varlığın birden çok kopyasını depolayabilirsiniz **RowKey** değeri. Aşağıda gösterilen yapıları ile varlıkta depolarsanız, verimli bir şekilde e-posta adresi veya çalışan kimliği temel alarak çalışan varlıkları alabilirsiniz. Ön ek değerleri **RowKey**, "empid_" ve "email_" tek bir çalışan veya çalışan bir dizi için bir dizi e-posta adresleri veya çalışan kimlikleri kullanarak sorgulamak etkinleştirin.  
 
-![][7]
+![Çalışan varlık ile RowKey değer Çeşitleme uygulanıyor][7]
 
 (Bir çalışan kimliği ve e-posta adresine göre bir arayan tarafından bakan) aşağıdaki iki filtre ölçütleri, her ikisi de nokta sorgu belirtin:  
 
@@ -449,7 +448,7 @@ Bu düzenin nasıl uygulanacağına karar verirken aşağıdaki noktaları göz 
 * Sayısal değerler doldurma **RowKey** göre üst ve alt sınırları filtreleme ve sıralama sağlar (örneğin, çalışan kimliği 000223), düzeltin.  
 * Mutlaka varlığınızın tüm özelliklerini yinelenen gerekmez. Örneğin, e-posta kullanarak varlıkları bir şekilde sorguları içinde adresi **RowKey** hiçbir zaman çalışanın yaş'ı gerekir, bu varlıkları aşağıdaki yapıya sahip olabilir:
 
-![][8]
+![Çalışan varlık][8]
 
 * Yinelenen verileri depolamak ve bir varlık ile diğer gerekli verileri aramak için bulmak için bir sorgu kullanımı çok tek bir sorgu ile ihtiyacınız olan tüm verileri alabilirsiniz emin olmak genellikle iyidir.  
 
@@ -470,7 +469,7 @@ Her varlık kullanan birden çok kopyalarını farklı Store **RowKey** değerle
 #### <a name="context-and-problem"></a>Bağlam ve sorun
 Tablo hizmetini kullanarak varlıkları otomatik olarak dizinleyen **PartitionKey** ve **RowKey** değerleri. Bu, verimli bir şekilde bu değerleri kullanarak bir varlığı almak bir istemci uygulaması sağlar. Örneğin, aşağıda gösterilen tablo yapısı kullanarak bir istemci uygulaması noktası sorgu bölüm adını ve çalışan kimliği kullanarak tek çalışan varlık almak için kullanabilirsiniz ( **PartitionKey** ve **RowKey**  değerler). Bir istemci, varlıkların her departman içinde çalışan kimlik ölçütü de alabilirsiniz.  
 
-![][9]
+![Çalışan varlık][9]
 
 Ayrıca e-posta adresi gibi başka bir özelliğin değerini temel alan bir çalışan varlık bulamaz istiyorsanız bir eşleşme bulmak için daha az verimli bir bölüm tarama kullanmanız gerekir. Tablo hizmeti, ikincil dizinler sağlamaz olmasıdır. Ayrıca, çalışanların farklı bir düzende sıralanmış bir listesini istemek için bir seçenek yoktur **RowKey** sırası.  
 
@@ -479,7 +478,7 @@ Yüksek hacimli işlemler bu varlıkları öngörerek ve istemcinizi sınırlama
 #### <a name="solution"></a>Çözüm
 İkincil dizinler eksikliği geçici olarak çözmek için her kopya kullanarak her varlık, birden çok kopyasının farklı depolayabilirsiniz **PartitionKey** ve **RowKey** değerleri. Aşağıda gösterilen yapıları ile varlıkta depolarsanız, verimli bir şekilde e-posta adresi veya çalışan kimliği temel alarak çalışan varlıkları alabilirsiniz. Ön ek değerleri **PartitionKey**, "empid_" ve "email_" bir sorgu için kullanmak istediğiniz hangi dizini belirlemek etkinleştirin.  
 
-![][10]
+![Birincil dizin ve ikincil dizin ile çalışan entity çalışan varlık][10]
 
 (Bir çalışan kimliği ve e-posta adresine göre bir arayan tarafından bakan) aşağıdaki iki filtre ölçütleri, her ikisi de nokta sorgu belirtin:  
 
@@ -502,7 +501,7 @@ Bu düzenin nasıl uygulanacağına karar verirken aşağıdaki noktaları göz 
 * Sayısal değerler doldurma **RowKey** göre üst ve alt sınırları filtreleme ve sıralama sağlar (örneğin, çalışan kimliği 000223), düzeltin.  
 * Mutlaka varlığınızın tüm özelliklerini yinelenen gerekmez. Örneğin, sorgular, arama, e-posta kullanarak varlıkları adres **RowKey** hiçbir zaman çalışanın yaş'ı gerekir, bu varlıkları aşağıdaki yapıya sahip olabilir:
   
-  ![][11]
+  ![İkincil dizin ile çalışan entity][11]
 * Yinelenen verileri depolamak ve ikincil dizin ve başka bir arama gerekli verileri birincil dizin kullanarak bir varlık bulmak için bir sorgu kullanımı çok tek bir sorgu ile ihtiyacınız olan tüm verileri alabilirsiniz emin olmak genellikle iyidir.  
 
 #### <a name="when-to-use-this-pattern"></a>Bu düzenin kullanılacağı durumlar
@@ -532,7 +531,7 @@ EGTs atomik işlemler aynı bölüm anahtarı paylaşan birden fazla varlıkta e
 Azure kuyrukları kullanılarak, son tutarlılık bölümler veya depolama sistemleri arasında iki veya daha fazla sunan bir çözüm uygulayabilirsiniz.
 Bu yaklaşım göstermek için eski çalışan varlıkları arşivlemek için gereksinim varsayılır. Eski çalışan varlıkları nadiren sorgulanan ve geçerli çalışanlar ile ilgili herhangi bir etkinlik dışında tutulacak. Bu gereksinimin uygulanması için etkin depolamak **geçerli** tablo ve eski çalışanları **arşiv** tablo. Bir çalışan arşivleme, gerektirir varlıktan silmenize **geçerli** tablo ve varlığa ekleme **arşiv** tablosu, ancak bir EGT iki bu işlemleri gerçekleştirmek için kullanamazsınız. Bir hata görünür bir varlık veya hiçbir tablolarında neden riskini önlemek için arşiv işlemi sonunda tutarlı olması gerekir. Aşağıdaki sıralama diyagramı, bu işlem adımları açıklanmaktadır. Metin aşağıdaki özel durum yolları için daha fazla ayrıntı sağlanır.  
 
-![][12]
+![Son tutarlılık için çözüm diyagramı][12]
 
 Bir istemci üzerinde çalışan #456 arşivlemek için bu örnekte bir Azure kuyruğuna bir ileti yerleştirerek Arşiv işlemi başlatır. Bir çalışan rolü, kuyruğu yeni iletiler için yoklama; bir bulduğunda, iletiyi okur ve gizli bir kopyasını kuyrukta bırakır. Çalışan rolü sonraki varlıktan bir kopyasını getirir **geçerli** tablo, bir kopya ekler **arşiv** tablosuna sağ tıklayıp ardından özgün siler **geçerli** tablo. Son olarak, önceki adımlarda hata varsa, çalışan rolü gizli iletiyi kuyruktan siler.  
 
@@ -572,7 +571,7 @@ Varlıkların listesini döndüren verimli aramalar etkinleştirmek için dizin 
 #### <a name="context-and-problem"></a>Bağlam ve sorun
 Tablo hizmetini kullanarak varlıkları otomatik olarak dizinleyen **PartitionKey** ve **RowKey** değerleri. Bu, verimli bir şekilde noktası sorgusu kullanarak bir varlığı almak bir istemci uygulaması sağlar. Örneğin, aşağıda gösterilen tablo yapısını kullanarak, bir istemci uygulaması verimli bir şekilde ayrı ayrı çalışan varlığın bölüm adını ve çalışan kimliği kullanarak alabilirsiniz ( **PartitionKey** ve **RowKey**).  
 
-![][13]
+![Çalışan varlık][13]
 
 Ayrıca, son kullanıcıların adı gibi başka bir benzersiz olmayan özelliği değere göre çalışan varlıkların listesini almak istiyorsanız doğrudan aramak için bir dizini kullanmak yerine eşleşme bulmak için daha az verimli bir bölüm tarama kullanmanız gerekir. Tablo hizmeti, ikincil dizinler sağlamaz olmasıdır.  
 
@@ -591,7 +590,7 @@ Birinci seçenek için bir listesini her benzersiz son adı ve her blob deposuna
 
 İkinci seçenek için aşağıdaki verilerini depolayan dizin varlıkları kullanın:  
 
-![][14]
+![Çalışan kimliklerini son aynı ada sahip bir listesini içeren dize ile çalışan entity][14]
 
 **EmployeeIDs** özelliği depolanan Soyadı ile çalışanlar için çalışan kimlikleri listesini içeren **RowKey**.  
 
@@ -613,7 +612,7 @@ Aşağıdaki adımlar, bir departmandaki belirli bir soyadı ile tüm çalışan
 
 Aşağıdaki veri depolayan dizin varlıklar için üçüncü bir seçenek olarak kullanın:  
 
-![][15]
+![Çalışan kimliklerini son aynı ada sahip bir listesini içeren dize ile çalışan entity][15]
 
 **EmployeeIDs** özelliği depolanan Soyadı ile çalışanlar için çalışan kimlikleri listesini içeren **RowKey**.  
 
@@ -645,12 +644,12 @@ Bu düzeni uygularken aşağıdaki düzenler ve yönergeler de yararlı olabilir
 #### <a name="context-and-problem"></a>Bağlam ve sorun
 İlişkisel bir veritabanında genellikle birden çok tablodan veri alan sorgular bunun sonucunda çoğaltmayı kaldırmak için veri Normalleştir. Verilerinizi Azure tabloları Normalleştir gerekirse, birden çok gidiş dönüş ilgili verilerinizi almak için sunucuya istemciden yapmanız gerekir. Örneğin, tablo yapısı, gösterilen bir departman ayrıntılarını almak için iki gidiş dönüş gerekir: bir yöneticisinin kimliği ve çalışan varlıktaki manager'ın ayrıntılarını getirmek için başka bir istek içeren bölüm varlık getirilemedi.  
 
-![][16]
+![Departman varlığı ile çalışan varlığı][16]
 
 #### <a name="solution"></a>Çözüm
 İki ayrı varlık içinde veri depolama, yerine verileri normalleştirilmişlikten çıkarmak ve departman varlıkta manager'ın ayrıntılarını bir kopyasını tutun. Örneğin:  
 
-![][17]
+![Departman varlık normalleştirilmişlikten çıkarılmış ve birleştirilmiş][17]
 
 Bu özelliklerle depolanan departmanı varlıklarla noktası sorgusu kullanarak bir departman hakkında tüm ayrıntıları alabilirsiniz.  
 
@@ -678,18 +677,18 @@ Kullanım bileşik **RowKey** tek nokta sorgu ile ilgili verileri aramak bir ist
 
 Çalışan varlıkları şu yapıyı kullanarak tablo hizmetinde depolanması varsayın:  
 
-![][18]
+![Çalışan varlık][18]
 
 Ayrıca incelemeler ve çalışan yapmış her yıl kuruluşunuz için performans ile ilgili geçmiş verileri depolamak gerekir ve bu bilgileri yıla göre erişebilmesi gerekir. Aşağıdaki yapıya sahip varlıklar depolayan başka bir tablo oluşturma tek seçenektir:  
 
-![][19]
+![Çalışan gözden geçirme varlığı][19]
 
 Bu yaklaşımda, bazı bilgiler (örneğin, ad ve Soyadı) oluşturmaya karar verebilir, verilerinizi tek bir istekle almak sağlamak için yeni bir varlık içinde dikkat edin. Ancak, iki varlık atomik olarak güncelleştirmek için bir EGT kullanamadığından güçlü tutarlılık korunamaz.  
 
 #### <a name="solution"></a>Çözüm
 Varlıklar ile şu yapıyı kullanarak özgün tablosunda yeni bir varlık türü Store:  
 
-![][20]
+![Bileşik anahtar ile çalışan entity][20]
 
 Bildirim nasıl **RowKey** , artık çalışan kimliği ve yıllık çalışanın performans almak ve verileri tek bir varlığın tek bir istekle gözden sağlayan gözden geçirme veri oluşan bir bileşik anahtarı.  
 
@@ -758,7 +757,7 @@ Birçok uygulama, artık bir istemci uygulaması için kullanılabilir olması g
 
 Olası bir tasarım olduğu tarihi ve saati oturum açma isteğinde kullanılacak **RowKey**:  
 
-![][21]
+![Oturum açma denemesi varlık][21]
 
 Uygulama ekleme ve oturum açma ayrı bir bölüme her kullanıcı için varlıklar silmek için bu yaklaşım bölüm sıcak önler. Ancak, bu yaklaşım, pahalı ve zaman alıcı ilk silmek tüm varlıkları tanımlamak için bir tablo taraması gerçekleştirmeniz gerekir ve ardından eski her varlık silmeniz gerekir çünkü çok sayıda varlık varsa olabilir. EGTs birden fazla delete isteğinin toplu işleme eski varlıkları silmek için gerekli sunucuya gidiş dönüş sayısını azaltabilir.  
 
@@ -788,14 +787,14 @@ Tam veri serisinde yaptığınız istek sayısını en aza indirmek için tek bi
 #### <a name="context-and-problem"></a>Bağlam ve sorun
 Bir dizi genellikle aynı anda almak için gereken verileri depolamak bir uygulama için bir yaygın senaryodur. Örneğin, uygulamanız her çalışan her saat gönderir anlık ileti sayısını kaydedin ve ardından bu bilgileri ileti sayısını çizmek için önceki 24 saat içinde gönderilen her bir kullanıcı kullanın. Her bir çalışanın 24 varlıkları depolamak için bir tasarım olabilir:  
 
-![][22]
+![İleti istatistikleri varlık][22]
 
 Bu tasarım ile kolayca bulun ve uygulamanın ileti sayısı değerini güncelleştirmek gerektiğinde her bir çalışan için güncelleştirilecek varlık güncelleştirin. Ancak, önceki 24 saat için bir etkinlik grafiğini çizmek için bilgi almak için 24 varlıkları almanız gerekir.  
 
 #### <a name="solution"></a>Çözüm
 Aşağıdaki tasarım, her saat için ileti sayısı depolamak için ayrı bir özellik kullanın:  
 
-![][23]
+![Ayrılmış özelliklere sahip ileti istatistikleri varlık][23]
 
 Bu tasarımla, bir çalışanın ileti sayısı için belirli bir saat güncelleştirmek için bir birleştirme işlemi kullanabilirsiniz. Artık, tek bir varlık için bir istek kullanarak grafiği çizmek gereken tüm bilgileri alabilirsiniz.  
 
@@ -824,7 +823,7 @@ Tek bir varlık (zorunlu sistem özellikleri hariç) en çok 252 özellik olabil
 #### <a name="solution"></a>Çözüm
 Tablo hizmeti kullanarak, birden çok 252 özellik tek bir büyük iş nesnesiyle temsil etmek için birden çok varlık depolayabilirsiniz. Örneğin, son 365 gün için her bir çalışan tarafından gönderilen anlık ileti sayısını depolamak istiyorsanız, aşağıdaki iki varlık farklı şemalarla kullanan aşağıdaki tasarım kullanabilirsiniz:  
 
-![][24]
+![İleti istatistikleri varlıkla Rowkey 01 ve ileti durumu varlığı ile Rowkey 02][24]
 
 Bunları birbirleri ile eşitlenmiş tutmak için iki varlıkları güncelleştirme gerektiren bir değişiklik yapmanız gerekirse, bir EGT kullanabilirsiniz. Aksi takdirde, ileti sayısı için belirli bir günde güncelleştirileceği tek birleştirme işlemi kullanabilirsiniz. Tek bir çalışan için tüm verileri almak için her ikisi de kullanan iki verimli istekleri yapabileceğiniz iki varlıkları almak bir **PartitionKey** ve **RowKey** değeri.  
 
@@ -851,7 +850,7 @@ Tek bir varlık toplam 1 MB'tan fazla veri depolanamıyor. Bir veya birkaç öze
 #### <a name="solution"></a>Çözüm
 Bir veya daha fazla özellik büyük miktarda veri içerdiğinden varlık 1 MB boyutunda aşarsa, Blob hizmetinde verileri depolamak ve ardından varlık özelliğinde blob adresini depolar. Örneğin, bir çalışanın fotoğraf blob storage'da depolamak ve fotoğrafın bağlantısını depolamak **fotoğraf** çalışan varlık özelliği:  
 
-![][25]
+![Blob depolama alanına işaret eden fotoğraf dizesiyle çalışan varlık][25]
 
 #### <a name="issues-and-considerations"></a>Sorunlar ve dikkat edilmesi gerekenler
 Bu düzenin nasıl uygulanacağına karar verirken aşağıdaki noktaları göz önünde bulundurun:  
@@ -876,12 +875,12 @@ Birden çok bölümde ekler yayarak ekler yüksek hacimli olduğunda ölçeklene
 #### <a name="context-and-problem"></a>Bağlam ve sorun
 Bölümler bir dizi ilk veya son bölümü için yeni varlıklar ekleme uygulama eklenmesini ya da saklı varlıklarınızı varlıklar ekleme, genellikle sonuçlanır. Bu durumda, tüm eklemeleri verilen herhangi bir zamanda gerçekleşen birden fazla düğüme ve büyük olasılıkla uygulamanız için ölçeklenebilirlik hedefleri isabet neden aynı bölümde ekler Tablo hizmeti Yük Dengeleme dan engelleyen bir etkin nokta oluşturma bölüm. Günlükleri ağ ve kaynak çalışanlar tarafından erişen bir uygulamanız varsa, örneğin, ardından aşağıda gösterildiği gibi bir varlık yapısı bir etkin nokta işlemlerinin ölçeklenebilirlik hedefi ulaşırsa olma geçerli saat bölüm neden olabilir bir tek tek bölüm:  
 
-![][26]
+![Çalışan varlık][26]
 
 #### <a name="solution"></a>Çözüm
 Aşağıdaki alternatif varlık yapısı herhangi bir bölümü etkin nokta uygulama günlükleri olayları ortadan kaldırır:  
 
-![][27]
+![Yıl, ay, gün, saat ve olay kimliği birleşmesi, kullanılması RowKey ile çalışan entity][27]
 
 Bu örnek nasıl hem bildirim **PartitionKey** ve **RowKey** bileşik anahtarlar. **PartitionKey** günlüğe birden çok bölümler arasında dağıtmak için hem Bölüm hem de çalışana kimliğini kullanır.  
 
@@ -907,13 +906,13 @@ Genellikle, Blob hizmeti yerine tablo hizmeti günlük verilerini depolamak içi
 #### <a name="context-and-problem"></a>Bağlam ve sorun
 Belirli bir tarih/zaman aralığı için günlük girişlerini seçimi almak için günlük verileri için ortak bir kullanım örneği: Örneğin, tüm hataları ve kritik iletileri 15:04 15:06 belirli bir tarihte arasındaki uygulamanızı günlüğe bulmak istediğiniz. Günlük varlıklara kaydettiğiniz bölüm belirlemek için tarih ve saat günlük ileti kullanmak istiyor musunuz: herhangi bir zamanda tüm günlük varlıkları aynı paylaşacak için sık erişimli bir bölümünde sonuçlarının **PartitionKey** değeri (bkz: bölüm [Prepend ve ekleme koruma düzeni](#prepend-append-anti-pattern)). Örneğin, geçerli tarih ve saat için tüm günlük iletilerini uygulama bölümüne Yazar nedeniyle aşağıdaki varlık şemasında bir günlük iletisi için sık erişimli bir bölümü oluşur:  
 
-![][28]
+![Günlük ileti varlık][28]
 
 Bu örnekte, **RowKey** tarih ve saat günlük iletinin tarih sırasına koyulmuş günlük iletilerini depolandığından emin olun içerir ve aynı tarih ve saat birden çok günlük iletilerini paylaşma durumunda bir ileti kimliği içerir.  
 
 Başka bir yaklaşım kullanmaktır bir **PartitionKey** sağlar bir uygulama bir aralığını bölümler arasında ileti yazar. Örneğin, günlük iletisi kaynağını iletilerini birçok bölümler arasında dağıtmak için bir yol sağlar, aşağıdaki varlık şemasında kullanabilirsiniz:  
 
-![][29]
+![Günlük ileti varlık][29]
 
 Belirli bir süre için tüm günlük iletilerini almak için her bölüm tablosunda arama gerekir, ancak bu şema ile ilgili bir sorun olabilir.
 
@@ -973,7 +972,7 @@ var employees = query.Execute();
 
 Sorgu her ikisi de nasıl belirtiyor fark bir **RowKey** ve **PartitionKey** daha iyi performans sağlamak için.  
 
-Aşağıdaki kod örneği fluent API'sini kullanarak eşdeğer bir işlevselliği gösterir (genel olarak, fluent API'ler hakkında daha fazla bilgi için bkz [Fluent bir API tasarlamaya ilişkin en iyi yöntemler](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
+Aşağıdaki kod örneği fluent API'sini kullanarak eşdeğer bir işlevselliği gösterir (genel olarak, fluent API'ler hakkında daha fazla bilgi için bkz [Fluent bir API tasarlamaya ilişkin en iyi yöntemler](https://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(

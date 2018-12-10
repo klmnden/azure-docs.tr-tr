@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 69802c6c4246b91f62a0e49ec0c34bdd3a1bec8b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c94c88aa088745a2ed421bff43c8d87382564a43
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958437"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141484"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Azure Media Services kullanarak erişim denetimini içeren bir içerik koruma sistemi tasarımı
 
@@ -372,7 +372,7 @@ Güvenlik anahtarları iki tür vardır:
 
 > [!NOTE]
 > .NET Framework kullanırsanız / C# geliştirme platformu olarak X509 bir asimetrik güvenlik anahtarı için kullanılan sertifika bir anahtar uzunluğu en az 2048 olması gerekir. Bu sınıf .NET Framework System.IdentityModel.Tokens.X509AsymmetricSecurityKey gereksinimdir. Aksi takdirde, şu özel durum oluşturulur:
-
+> 
 > IDX10630: 'imzalama System.IdentityModel.Tokens.X509AsymmetricSecurityKey', '2048' bitten küçük olamaz.
 
 ## <a name="the-completed-system-and-test"></a>Tamamlanmış Sistem ve test

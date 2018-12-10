@@ -1,6 +1,6 @@
 ---
-title: SQL ve Python kullanarak SQL Server'daki verilerin özelliklerini oluşturma | Microsoft Docs
-description: SQL Azure işlem verileri
+title: SQL ve Python - Team Data Science Process kullanarak SQL Server özelliklerini oluşturma
+description: SQL ve Python - Team Data Science Process parçası kullanarak azure'da bir SQL Server VM'si depolanan verilerin özelliklerini oluşturur.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 7178f368f7ede8918f316caa46234f63db6414ee
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: bf6f27b7720cf4a30aa08ca02f9150aebe564244
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445455"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135949"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>SQL ve Python kullanarak SQL Server’daki verilerin özelliklerini oluşturma
 Bu belge, daha verimli bir şekilde verilerden bilgi algoritmaları yardımcı olan bir SQL Server VM'si, azure'da depolanan verilerin özelliklerini oluşturma adımları anlatılmaktadır. Bu görevi gerçekleştirmek için SQL veya Python gibi bir programlama dili kullanabilirsiniz. Her iki yaklaşım burada gösterilmiştir.

@@ -1,5 +1,5 @@
 ---
-title: Hive sorgularını kullanarak bir Hadoop kümesindeki verilerin özelliklerini oluşturma | Microsoft Docs
+title: Bir Hadoop kümesi - Team Data Science Process verilerin özelliklerini oluşturma
 description: Bir Azure HDInsight Hadoop kümesinde depolanan verilerin özelliklerini oluşturma Hive sorgularının örnekleri.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: f63e1aeaca6e19eacb10ed7dc68d311234a31666
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 0ade4ac054f345084cf0bc0a6dc7885329eb8b9c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444555"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141892"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Bir Hadoop kümesinde Hive sorgularını kullanarak verilerin özelliklerini oluşturma
 Bu belge, Hive sorgularını kullanarak bir Azure HDInsight Hadoop kümesinde depolanan verilerin özelliklerini oluşturma işlemi gösterilmektedir. Bu Hive sorguları katıştırılmış Hive User-Defined betikleri, sağlanan işlevler (UDF'ler) kullanın.
