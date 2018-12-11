@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/12/2018
+ms.date: 12/4/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 33fce88e7108ee45236e20b1f20dde56bb7446b5
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 5f2f262d5ec4b9e8884e47c6c064927da2af4790
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616393"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876158"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench'i dağıtma
 
@@ -43,6 +43,9 @@ Oluşturulan örnek bir dağıtım verilmiştir **myblockchain** kaynak grubu.
 ![Örnek dağıtım](media/deploy/example-deployment.png)
 
 Blockchain Workbench'i temel alınan Azure hizmetlerinin maliyetinin toplama maliyetidir. Azure Hizmetleri kullanılarak hesaplanabilir için fiyatlandırma bilgilerine [fiyatlandırma hesaplayıcısını](https://azure.microsoft.com/pricing/calculator/).
+
+> [!IMPORTANT]
+> Bir Azure ücretsiz katman abonelik gibi düşük hizmet sınırları ile bir abonelik kullanıyorsanız, dağıtım yeterli VM çekirdek kotası nedeniyle başarısız olabilir. Dağıtımdan önce kılavuzdan kullanarak kotanızı denetleyin [sanal makine vCPU kotaları](../../virtual-machines/windows/quotas.md) makalesi. Varsayılan VM seçim 6 VM çekirdek gerektiriyor. Daha küçük bir boyut VM gibi değiştirme *standart DS1 v2* 4 çekirdek sayısını azaltır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -99,7 +102,7 @@ Azure Blockchain Workbench, Azure AD, yapılandırma ve uygulama kayıtlarını 
     |---------|--------------|
     | İzleme | Azure blockchain ağınızı izlemek izleyicisini etkinleştirmek isteyip istemediğinizi seçin |
     | Azure Active Directory ayarları | Seçin **ekleyebilirsiniz**.</br>Not:, seçerseniz [önceden Azure AD'yi yapılandırma](#azure-ad-configuration) veya tercih yeniden dağıtmaya gerek, *artık ekleme*. |
-    | Sanal makine seçimi | Blok zinciri ağınız için tercih edilen VM boyutunu seçin. |
+    | Sanal makine seçimi | Blok zinciri ağınız için tercih edilen VM boyutunu seçin. Gibi daha küçük bir VM boyutu seçin *standart DS1 v2* Azure ücretsiz katmanı gibi düşük hizmet sınırları olan bir abonelik kullanıyorsanız. |
 
     İçin **var olanı kullan**:
 

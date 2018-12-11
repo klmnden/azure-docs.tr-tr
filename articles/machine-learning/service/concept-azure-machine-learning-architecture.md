@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning hizmeti nasıl çalışır?
+title: Nasıl çalışır?
+titleSuffix: Azure Machine Learning service
 description: Mimari, terminolojisi ve Azure Machine Learning hizmeti oluşturan kavramları hakkında bilgi edinin. Ayrıca genel iş akışı hizmeti ve Azure Machine Learning hizmeti tarafından kullanılan Azure hizmetlerini kullanma hakkında bilgi.
 services: machine-learning
 ms.service: machine-learning
@@ -8,13 +9,14 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 10/24/2018
-ms.openlocfilehash: 0acf41cc0a2673ba665d1815b493df928fa4507d
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: MT
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 4e006c3ac9684cc9e51e8b3505659864123758d7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706815"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098007"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning hizmetinin nasıl çalıştığı: Mimari ve kavramları
 
@@ -33,8 +35,6 @@ Bu belgede, Azure Machine Learning hizmeti kavramları ve mimarisi açıklanmakt
 1. __Görüntü oluşturma__ ve içinde kaydetmek __görüntü kayıt__. 
 1. __Görüntüyü dağıtmak__ olarak bir __web hizmetini__ azure'da.
 
-
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
 > [!NOTE]
 > Bu belgenin koşullarını ve Azure Machine Learning tarafından kullanılan kavramları tanımlar, ancak terimleri ve kavramları Azure platformu tanımlamıyor. Azure platformu terminolojisi hakkında daha fazla bilgi için bkz. [Microsoft Azure sözlüğünü](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
@@ -65,7 +65,7 @@ Yeni bir çalışma alanı oluşturduğunuzda, çalışma alanı tarafından kul
 
 Aşağıdaki diyagramda, çalışma alanının bir taksonomi şöyledir:
 
-[![Çalışma alanı sınıflandırma](./media/concept-azure-machine-learning-architecture/taxonomy.png)](./media/concept-azure-machine-learning-architecture/taxonomy.png#lightbox)
+[![Çalışma alanı sınıflandırma](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="model"></a>Model
 
@@ -169,19 +169,23 @@ Bir işlem hedefine eğitim betiğinizi çalıştırmak veya hizmet dağıtımı
 | Hedef işlem | Eğitim | Dağıtım |
 | ---- |:----:|:----:|
 | Yerel bilgisayarınıza | ✓ | &nbsp; |
+| Azure Machine Learning işlem | ✓ | &nbsp; |
 | Azure'da bir Linux sanal makinesi</br>(veri bilimi sanal makinesi gibi) | ✓ | &nbsp; |
-| Azure Batch AI kümesi | ✓ | &nbsp; |
 | Azure Databricks | ✓ | &nbsp; | &nbsp; |
 | Azure Data Lake Analytics | ✓ | &nbsp; |
 | HDInsight için Apache Spark | ✓ | &nbsp; |
-| Azure Container Örneği | ✓ | ✓ |
+| Azure Container Örneği | &nbsp; | ✓ |
 | Azure Kubernetes Service | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
 | Project Brainwave</br>(Alanda programlanabilen geçit dizileri) | &nbsp; | ✓ |
 
 İşlem hedefleri, bir çalışma alanına eklenir. İşlem yerel makine dışındaki hedefleri çalışma alanının kullanıcılar tarafından paylaşılır.
 
-Çoğu bilgi işlem hedefleri Azure portalı, Azure Machine Learning SDK veya Azure CLI kullanarak doğrudan çalışma oluşturulabilir. Başka bir işlem tarafından (örneğin, Azure portal veya Azure CLI) oluşturulan işlem hedefleri varsa ekleyebilirsiniz (Ekle) çalışma alanınıza bunları. Bazı hedefler çalışma alanı dışında oluşturulmalı ve ardından bağlı işlem.
+### <a name="managed-and-unmanaged-compute-targets"></a>Yönetilen ve yönetilmeyen işlem hedefleri
+
+**Yönetilen** işlem hedefleri oluşturulan ve Azure Machine Learning hizmeti tarafından yönetilir. Bu işlem, hedefleri ML iş yükleri için iyileştirilmiştir. __Azure Machine Learning işlem__ tek (4 Aralık 2018) şu anda hedef yönetilen bilgi işlem. Ek yönetilen bir işlem hedefleri gelecekte eklenebilir. ML bilgi işlem örnekleri, Azure portalı, Azure Machine Learning SDK veya Azure CLI kullanarak doğrudan çalışma oluşturulabilir. Diğer tüm işlem hedefleri çalışma alanı dışında oluşturulmalı ve ardından bağlı.
+
+**Yönetilmeyen** hedefleri olmayan işlem yönetilen Azure Machine Learning hizmeti. Bunları Azure Machine Learning dışında oluşturup kullanmadan önce çalışma alanınıza eklemek gerekebilir. Bu işlem, hedefleri korumak için ek adımlar gerektirmez veya ML iş yükleri için performansı geliştirin.
 
 Eğitim için işlem hedef seçme hakkında daha fazla bilgi için bkz: [seçin ve modelinizi eğitmek için bir işlem hedefine](how-to-set-up-training-targets.md) belge.
 
