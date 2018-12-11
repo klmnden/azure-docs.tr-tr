@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning için bir geliştirme ortamı yapılandırma | Microsoft Docs
+title: Geliştirme ortamını yapılandırma
+titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning hizmeti ile çalışırken, bir geliştirme ortamı yapılandırmayı öğrenin. Bu belgede, Conda ortamları kullanma, yapılandırma dosyalarını oluşturma ve Jupyter not defterleri, Azure not defterleri, IDE, Kod Düzenleyicisi ve veri bilimi sanal makinesi yapılandırma hakkında bilgi edinin.
 services: machine-learning
 author: rastala
@@ -9,13 +10,14 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 11/6/2018
-ms.openlocfilehash: fa70e0dfa1f131e38e43faa3d80497d50a52e135
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: MT
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 6e2222d56ea37983b1efafedaac8e01058cb44fa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275223"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098058"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
 
@@ -24,9 +26,10 @@ Bu belgede, bir geliştirme ortamı, Azure Machine Learning hizmeti ile çalış
 Bu belge aşağıdaki belirli ortamlara ve araçları odaklanır:
 
 * [Azure not defterleri](#aznotebooks): Azure bulutunda barındırılan A Jupyter Notebook hizmeti. Bu __kolay__ başlama, Azure Machine Learning SDK'sı zaten yüklü olduğu yolu.
-* [Veri bilimi sanal makinesi](#dsvm): bir sanal makine, Azure bulutunda __veri bilimi iş için tasarlanmış__. Python 3, Conda, Jupyter not defterleri ve Azure Machine Learning SDK'sı zaten yüklü. VM, popüler ML çerçeveleri, Araçlar ve ML çözümleri geliştirme için düzenleyicileri ile birlikte gelir. Büyük olasılıkla olan __en eksiksiz__ ML için Azure platformunda geliştirme ortamı.
+* [Veri bilimi sanal makinesi](#dsvm): A __önceden yapılandırılmış geliştirme/deneme ortamı__ Azure bulut __veri bilimi iş için tasarlanmış__ ve ya da dağıtılabilir Yalnızca sanal makine örnekleri CPU veya GPU örnekleri temel. Python 3, Conda, Jupyter not defterleri ve Azure Machine Learning SDK'sı zaten yüklü. VM popüler ML ile gelir / ML çözümleri geliştirme çerçeveleri, Araçlar ve düzenleyicileri derin öğrenme. Büyük olasılıkla olan __en eksiksiz__ ML için Azure platformunda geliştirme ortamı.
 * [Jupyter not defterleri](#jupyter): Jupyter not defterleri zaten kullanıyorsanız, SDK'yı yüklemeniz bazı ek özellikler vardır.
 * [Visual Studio Code](#vscode): Visual Studio Code kullanırsanız, yüklemek için kullanabileceğiniz bazı kullanışlı uzantılar vardır.
+* [Azure Databricks](#aml-databricks): Apache Spark tabanlı bir popüler veri analiz platformudur. Modelleri ucunuzun kümenizi üzerine Azure Machine Learning SDK'sı almayı öğrenin.
 
 Python 3 ortam zaten var veya yalnızca SDK'yı yüklemek için temel adımlar istiyorsanız bkz [yerel bilgisayar](#local) bölümü.
 
@@ -57,20 +60,49 @@ Azure not defterleri ile geliştirmeye başlamak için izleyin [Azure Machine Le
 
 ## <a id="dsvm"></a>Veri bilimi sanal makinesi
 
-Veri bilimi sanal makinesi (DSVM) bir özelleştirilmiş sanal makine (VM) görüntüsüdür **veri bilimi iş için tasarlanmış**. Aşağıdakileri içerir:
+Veri bilimi sanal makinesi (DSVM) bir özelleştirilmiş sanal makine (VM) görüntüsüdür **veri bilimi iş için tasarlanmış** önceden yapılandırılmış olmasıdır:
 
-  - Popüler veri bilimi araçları
-  - PyCharm ve RStudio gibi tümleşik geliştirme ortamlarından (IDE'ler)
-  - Jupyter Not defterlerinden ve Tensorflow gibi paketleri
+  - Paketleri gibi Tensorflow, Pytorch, scikit-learn ve Xgboost ve Azure ML SDK'sı
+  - Spark tek başına, detaylandırma gibi popüler veri bilimi araçları
+  - CLI, Azcopy ve Depolama Gezgini gibi Azure Araçları
+  - Visual Studio Code, PyCharm ve RStudio gibi tümleşik geliştirme ortamlarından (IDE'ler)
+  - Jupyter Notebook sunucusu 
 
-Azure Machine Learning SDK'sı, Windows veya Ubuntu DSVM sürümünde çalışır. DSVM bir geliştirme ortamı olarak kullanmak için aşağıdaki adımları izleyin:
+Azure Machine Learning SDK'sı, Windows veya Ubuntu DSVM sürümünde çalışır. Veri bilimi sanal makinesi bir geliştirme ortamı olarak kullanmak için aşağıdaki adımları kullanın:
 
-1. Bir veri bilimi sanal makinesi oluşturmak için aşağıdaki belgelere birindeki adımları izleyin:
+1. Bir veri bilimi sanal makinesi oluşturmak için aşağıdaki yöntemlerden birini kullanın:
 
-    * [Bir Ubuntu veri bilimi sanal makinesi oluşturma](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
-    * [Windows veri bilimi sanal makinesi oluşturma](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
+    * Azure portalını kullanarak:
 
-1. Azure Machine Learning SDK'sı **yüklü** DSVM üzerinde. SDK'sını içeren Conda ortama kullanmak için aşağıdaki komutlardan birini kullanın:
+        * [Oluşturma bir __Ubuntu__ veri bilimi sanal makinesi](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
+
+        * [Oluşturma bir __Windows__ veri bilimi sanal makinesi](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
+
+    * Azure CLI kullanarak:
+
+        > [!IMPORTANT]
+        > Azure CLI kullanarak, ilk Azure aboneliğinizi kullanarak oturum açmalısınız `az login` komutu.
+        >
+        > Bu adımda komutlarını kullanarak, bir kaynak grubu adı, VM, bir kullanıcı adı ve parola için bir ad sağlamanız gerekir.
+
+        * Oluşturmak için bir __Ubuntu__ veri bilimi sanal makinesi, aşağıdaki komutu kullanın:
+
+            ```azurecli
+            # create a Ubuntu DSVM in your resource group
+            # note you need to be at least a contributor to the resource group in order to execute this command successfully
+            # If you need to create a new resource group use: "az group create --name YOUR-RESOURCE-GROUP-NAME --location YOUR-REGION (For example: westus2)"
+            az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:linux-data-science-vm-ubuntu:linuxdsvmubuntu:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --generate-ssh-keys --authentication-type password
+            ```
+
+        * Oluşturmak için bir __Windows__ veri bilimi sanal makinesi, aşağıdaki komutu kullanın:
+
+            ```azurecli
+            # create a Windows Server 2016 DSVM in your resource group
+            # note you need to be at least a contributor to the resource group in order to execute this command successfully
+            az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:dsvm-windows:server-2016:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --authentication-type password
+            ```    
+
+2. Azure Machine Learning SDK'sı **yüklü** DSVM üzerinde. SDK'sını içeren Conda ortama kullanmak için aşağıdaki komutlardan birini kullanın:
 
     * Üzerinde __Ubuntu__ DSVM, bu komutu kullanın:
 
@@ -150,17 +182,11 @@ Adımları [yerel bilgisayar](#local) bölümde, Jupyter not defterleri için is
 
 1. Bir komut istemi veya kabuk açın.
 
-1. Conda algılayan bir Jupyter not defteri sunucusu yüklemek ve deneme pencere öğeleri etkinleştirmek için aşağıdaki komutları kullanın:
+1. Aşağıdaki komutu kullanarak conda kullanan bir Jupyter not defteri sunucusu yüklemek için:
 
     ```shell
     # install Jupyter
     conda install nb_conda
-
-    # install experiment widget
-    jupyter nbextension install --py --user azureml.widgets
-
-    # enable experiment widget
-    jupyter nbextension enable --py --user azureml.widgets
     ```
 
 1. Jupyter not defterine aşağıdaki komutla açın:
@@ -195,9 +221,35 @@ Geliştirme için Visual Studio Code'u kullanmak için aşağıdaki adımları k
     azureml.core.VERSION
     ```
 
-1. Yapay ZEKA uzantısı için Visual Studio code araçları yüklemek için bkz [yapay ZEKA Araçları](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) sayfası.
+1. Visual Studio Code için Azure Machine Learning uzantıyı yüklemek için bkz: [yapay ZEKA Araçları](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) sayfası.
 
-    Daha fazla bilgi için [AI ile Azure Machine Learning için kullanım VS Code Araçları](how-to-vscode-tools.md) belge.
+    Daha fazla bilgi için [Visual Studio Code için Azure Machine Learning kullanarak](how-to-vscode-tools.md).
+
+<a name="aml-databricks"></a>
+
+## <a name="azure-databricks"></a>Azure Databricks
+
+Azure Databricks için uçtan uca özel machine learning için Azure Machine Learning SDK'sı, özel bir sürümünü kullanabilirsiniz. Veya, Databricks ve kullanım modelinizi eğitmek [Visual Studio Code](how-to-vscode-train-deploy.md#deploy-your-service-from-vs-code) model dağıtma
+
+Databricks kümenizi hazırlamak ve örnek not defterleri edinmek için:
+
+1. Oluşturma bir [Databricks kümesine](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) 4.x (yüksek eşzamanlılık tercih edilir) bir Databricks çalışma zamanı sürümü ile birlikte **Python 3**. 
+
+1. Kitaplığa oluşturma [yükleme ve ekleme](https://docs.databricks.com/user-guide/libraries.html#create-a-library) Python için Azure Machine Learning SDK'sı `azureml-sdk[databricks]` kümenize Pypı paket. İşiniz bittiğinde bu görüntüde gösterildiği gibi bağlı kitaplığı bakın. Bu unutmayın [Databricks sorunların ortak](resource-known-issues.md#databricks).
+
+   ![Databricks üzerinde yüklü SDK'sı ](./media/how-to-azure-machine-learning-on-databricks/sdk-installed-on-databricks.jpg)
+
+   Bu adım başarısız olursa, kümenizi yeniden başlatın:
+   1. Seçin `Clusters`sol bölmesinde. Küme adınızı tabloda seçin. 
+   1. Üzerinde `Libraries` sekmesinde `Restart`.
+
+1. İndirme [Azure Databricks / Azure Machine Learning SDK'sı not defteri dosyası arşiv](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/Databricks_AMLSDK_github.dbc).
+
+   >[!Warning]
+   > Birçok örnek not defterleri, Azure Machine Learning hizmeti ile kullanmak için kullanılabilir. Yalnızca bu örnek not defterleri ile Azure Databricks çalışma: https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks
+
+1.  [Bu arşiv dosyasını içeri aktarma](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) , Databricks cluster ve olarak keşfetmeye başlayın [burada açıklanan](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks).
+
 
 ## <a id="workspace"></a>Çalışma alanı yapılandırma dosyası oluşturma
 

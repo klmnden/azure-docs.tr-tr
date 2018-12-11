@@ -1,5 +1,6 @@
 ---
-title: ONNX ve Azure Machine Learning | Oluşturma ve modelleri dağıtma
+title: Oluşturma ve birlikte çalışabilen ONNX modelleri dağıtma
+titleSuffix: Azure Machine Learning service
 description: ONNX ve Azure Machine Learning ONNX modelleri oluşturup kullanma hakkında bilgi edinin
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e5c0e479d5564a48048b9fa9c67ad8870122601
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 5fc0e00d9c4404a1c6a757c354a9c7116dfeffa7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706067"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094024"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX ve Azure Machine Learning: oluşturma ve birlikte çalışabilen yapay ZEKA modelleri dağıtma
 
@@ -63,13 +65,13 @@ Desteklenen çerçeveler ve dönüştürücüler en son listesini bulabilirsiniz
 
 ## <a name="deploy-onnx-models-in-azure"></a>Azure'da ONNX modelleri dağıtma
 
-Azure Machine Learning hizmeti ile dağıtma, yönetme ve ONNX modellerinizle izleyin. Standart [dağıtımı iş akışı](concept-model-management-and-deployment.md) ONNX çalışma zamanı, bulutta barındırılan bir REST uç noktası oluşturabilirsiniz. Kendiniz denemek için bu makalenin sonunda tam bir örnek Jupyter not defteri bakın. 
+Azure Machine Learning hizmeti ile dağıtma, yönetme ve ONNX modellerinizle izleyin. Standart [dağıtımı iş akışı](concept-model-management-and-deployment.md) ve ONNX çalışma zamanı, bulutta barındırılan bir REST uç noktası oluşturabilirsiniz. Kendiniz denemek için bu makalenin sonunda tam bir örnek Jupyter not defteri bakın. 
 
-### <a name="install-and-configure-the-onnx-runtime"></a>Yükleme ve yapılandırma ONNX çalışma zamanı
+### <a name="install-and-configure-onnx-runtime"></a>Yükleme ve yapılandırma ONNX çalışma zamanı
 
-ONNX çalışma zamanı ONNX modelleri için yüksek performanslı çıkarımı altyapısıdır. Python API'si ile birlikte gelir ve CPU ve GPU üzerinde donanım hızlandırmasını sağlar. Şu anda ONNX 1.2 modellerini destekler ve Ubuntu 16.04 Linux üzerinde çalışır. Her ikisi de [CPU](https://pypi.org/project/onnxruntime) ve [GPU](https://pypi.org/project/onnxruntime-gpu) paketlerin kullanılabilir [PyPi.org](https://pypi.org).
+Bir açık kaynak yüksek performanslı çıkarımı altyapısının ONNX modelleri için ONNX çalışma zamanıdır. Hem CPU hem de Python için kullanılabilen API'ler ile bir GPU donanım hızlandırmasını sağlar C#, ve C. ONNX çalışma zamanını destekleyen ONNX 1.2 + modeller ve Linux, Windows ve Mac üzerinde çalışır Python paketlerini kullanılabilir [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)), ve [ C# paket](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/) açıktır [Nuget.org](https://www.nuget.org). Proje hakkında daha fazla bakın [Github](https://github.com/Microsoft/onnxruntime). 
 
-ONNX çalışma zamanı yüklemek için kullanın:
+Python için ONNX çalışma zamanı yüklemek için kullanın:
 ```python
 pip install onnxruntime
 ```
@@ -94,7 +96,7 @@ results = session.run(["output1", "output2"], {"input1": indata1, "input2": inda
 results = session.run([], {"input1": indata1, "input2": indata2})
 ```
 
-Tam API Başvurusu için bkz. [ONNX çalışma zamanı başvuru belgeleri](https://aka.ms/onnxruntime-python).
+Tam Python API Başvurusu için bkz. [ONNX çalışma zamanı başvuru belgeleri](https://aka.ms/onnxruntime-python).
 
 ### <a name="example-deployment-steps"></a>Örnek dağıtım adımları
 
@@ -183,24 +185,12 @@ ONNX model dağıtmak için bir örnek aşağıda verilmiştir:
     f.write(myenv.serialize_to_string())
    ```
 
-4. ONNX modeliniz için Azure Machine Learning ile dağıtın:
-   + Azure Container Instances (ACI): [öğrenin nasıl...](how-to-deploy-to-aci.md)
-
-   + Azure Kubernetes Service'i (AKS): [öğrenin nasıl...](how-to-deploy-to-aks.md)
+4. Modelinizi dağıtmak için bkz. [nasıl dağıtılacağı ve nerede](how-to-deploy-and-where.md) belge.
 
 
 ## <a name="examples"></a>Örnekler
  
-Aşağıdaki not defterlerini ONNX modelleri oluşturup bunları Azure Machine Learning ile dağıtmak nasıl ekleyebileceğiniz gösterilmektedir: 
-+ [onnx/onnx-modelzoo-aml-dağıtma-resnet50.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb)
-+ [onnx/onnx-dönüştürme-aml-dağıtma-tinyyolo.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb)
-+ [onnx/onnx-Train-pytorch-AML-Deploy-mnist.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb)
-
-Aşağıdaki not defterleri, Azure Machine Learning ile var olan ONNX modelleri dağıtma gösterilmektedir: 
-+ [onnx/onnx-çıkarımı-mnıst-deploy.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-mnist-deploy.ipynb) 
-+ [onnx/onnx-inference-facial-Expression-Recognition-Deploy.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-facial-expression-recognition-deploy.ipynb)
- 
-Bu not defterlerini alın:
+Bkz: [Yardım-How-to-kullanın-azureml/dağıtım/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx) örneğin ONNX modelleri oluşturup Not.
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
@@ -210,3 +200,8 @@ ONNX hakkında daha fazla bilgi edinin veya projeye katkıda:
 + [ONNX proje Web sitesi](https://onnx.ai)
 
 + [Github'da ONNX kod](https://github.com/onnx/onnx)
+
+ONNX çalışma zamanı hakkında daha fazla bilgi edinin veya projeye katkıda:
++ [ONNX çalışma zamanı Github deposu](https://github.com/Microsoft/onnxruntime)
+
+
