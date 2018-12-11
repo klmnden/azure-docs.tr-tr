@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 8302a444f28e4fb330a1eedbac9a5da762979d6c
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 5c952370908919deb6531e0b175063dc2657ae98
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681968"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870412"
 ---
 # <a name="translator-text-api-v30"></a>Translator metin çevirisi API'si v3.0
 
@@ -51,11 +51,21 @@ Belirli bir veri merkezi tarafından işlenmek üzere istek zorlamak için isten
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
 
-Translator metin çevirisi API'si Microsoft Bilişsel hizmetler abone olma ve kimlik doğrulaması için abonelik anahtarınızı (Azure portalında kullanılabilir) kullanın. 
+Translator metin çevirisi API'si için abone veya [Bilişsel hizmetler hepsi bir arada özellikli](https://azure.microsoft.com/pricing/details/cognitive-services/) Microsoft Bilişsel hizmetler ve aboneliğinizi anahtar (Azure portalında kullanılabilir) kimliğini doğrulamak için kullanın. 
 
-En basit yolu Translator hizmetine istek üst bilgisini kullanarak Azure gizli anahtarınızı geçirmektir `Ocp-Apim-Subscription-Key`.
+Aboneliğinizi kimliğini doğrulamak için kullanabileceğiniz üç üstbilgileri vardır. Bu tabloda sağlayan her nasıl kullanıldığını açıklar:
 
-Belirteci Hizmeti'nden bir yetkilendirme belirteci almak için gizli anahtarınızı kullanmaya alternatiftir. Ardından, Translator kullanarak hizmet yetkilendirme belirtecini geçirin `Authorization` isteği üstbilgisi. Bir yetkilendirme belirteci almak için olun bir `POST` isteği şu URL'ye:
+|Üst bilgiler|Açıklama|
+|:----|:----|
+|Ocp-Apim-Subscription-Key|*Gizli anahtarınızı geçirilirse Bilişsel hizmetler abonelikle kullanın*.<br/>Aboneliğinize Translator metin çevirisi API'si için Azure gizli anahtar değeridir.|
+|Yetkilendirme|*Bir kimlik doğrulama belirteci geçirilirse, Bilişsel hizmetler abonelikle kullanın.*<br/>Taşıyıcı belirteç değerdir: `Bearer <token>`.|
+|Ocp-Apim-abonelik-bölge|*Hepsi bir arada gizli anahtar geçirilirse, Bilişsel hizmetler hepsi bir arada abonelikle kullanın.*<br/>Değer, hepsi bir arada aboneliğin bölgedir. Hepsi bir arada aboneliğinin kullanılmadığında, bu değer isteğe bağlıdır.|
+
+###  <a name="secret-key"></a>Gizli anahtar
+İlk seçenek kullanarak kimlik doğrulaması yapmaktır `Ocp-Apim-Subscription-Key` başlığı. Eklemeniz yeterlidir `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` isteğinize başlığı.
+
+### <a name="authorization-token"></a>Yetkilendirme belirteci
+Alternatif olarak, bir erişim belirteci gizli anahtarınızı değiştirebilir. Bu belirteç her isteği olarak birlikte `Authorization` başlığı. Bir yetkilendirme belirteci almak için olun bir `POST` isteği şu URL'ye:
 
 | Ortam     | Kimlik doğrulama hizmeti URL'si                                |
 |-----------------|-----------------------------------------------------------|
@@ -66,6 +76,7 @@ Gizli anahtar verilen bir belirteç elde etmek için örnek isteklerini şunlard
 ```
 // Pass secret key using header
 curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
+
 // Pass secret key using query string parameter
 curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscription-Key=<your-key>'
 ```
@@ -78,20 +89,21 @@ Authorization: Bearer <Base64-access_token>
 
 Bir kimlik doğrulama belirteci 10 dakika için geçerlidir. Translator API'ları için birden çok çağrı yapılırken belirtecin yeniden kullanılan olmalıdır. Programınızı uzun bir süre Translator API için istek yaparsa, ancak ardından, programınızın yeni bir erişim belirteci düzenli aralıklarla (örneğin 8 dakikada bir) istemeniz gerekir.
 
-Özetlemek gerekirse, bir istemci isteği Translator API'si aşağıdaki tablodan alınan bir yetkilendirme üst bilgisi içerir:
+### <a name="all-in-one-subscription"></a>Hepsi bir arada abonelik
 
-<table width="100%">
-  <th width="30%">Üst bilgiler</th>
-  <th>Açıklama</th>
-  <tr>
-    <td>Ocp-Apim-Subscription-Key</td>
-    <td>*Gizli anahtarınızı geçirilirse Bilişsel hizmetler abonelikle kullanın*.<br/>Aboneliğinize Translator metin çevirisi API'si için Azure gizli anahtar değeridir.</td>
-  </tr>
-  <tr>
-    <td>Yetkilendirme</td>
-    <td>*Bir kimlik doğrulama belirteci geçirilirse, Bilişsel hizmetler abonelikle kullanın.*<br/>Taşıyıcı belirteç değerdir: ' taşıyıcı <token>'.</td>
-  </tr>
-</table> 
+Son kimlik doğrulama seçeneği bir Bilişsel hizmet hepsi bir arada abonelik kullanmaktır. Bu, birden çok hizmeti isteklerinde kimlik doğrulaması için tek bir gizli anahtar kullanmanıza olanak sağlar. 
+
+Hepsi bir arada gizli anahtar kullandığınızda, isteğinize iki kimlik doğrulama üst bilgileri içermelidir. Gizli anahtar ilk geçirir, ikinci aboneliğinizle ilişkilendirilmiş bir bölgeye belirtir. 
+* `Ocp-Api-Subscription-Key`
+* `Ocp-Apim-Subscription-Region`
+
+Gizli anahtar parametresi ile sorgu dizesinde geçirdiğiniz `Subscription-Key`, sorgu parametresi bölgeyi belirtin ve `Subscription-Region`.
+
+Taşıyıcı belirteç kullanırsanız, bölge uç noktasından belirteç almanız gerekir: `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+
+Kullanılabilen bölgeler `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, ve `westus2`.
+
+Bölge için hepsi bir arada Text API aboneliği gereklidir.
 
 ## <a name="errors"></a>Hatalar
 
