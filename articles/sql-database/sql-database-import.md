@@ -11,59 +11,57 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 913e374e51b968650b14d3f6563f64c217b76ad0
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/05/2018
+ms.openlocfilehash: 6753666f1747c95ad3486444ed41e3cad0b8e905
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913821"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084185"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-new-azure-sql-database"></a>Hızlı Başlangıç: yeni bir Azure SQL veritabanına BACPAC dosyasını içeri aktarma
 
-Ne zaman bir veritabanı arşivden almanız veya başka bir platformdan diğerine geçirirken, veritabanı şemasını ve verileri içeri aktarabilirsiniz bir [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) dosya. Bir BACPAC dosyasına BACPAC SQL Server veritabanındaki verileri ve meta verileri içeren bir uzantıya sahip bir ZIP dosyasıdır. Bir BACPAC dosyası (yalnızca standart depolama) Azure blob depolama alanından içeri aktarılabilir veya yerel depoda bir şirket içi konum. Alma hızını en üst düzeye çıkarmak için daha yüksek bir hizmet katmanına belirtin ve boyutu, bir P6 gibi işlem ve sonra içeri aktarma başarılı olduktan sonra uygun şekilde aşağı ölçeklendirin öneririz. Ayrıca, içeri aktarma işleminden veritabanı uyumluluk düzeyi, kaynak veritabanının uyumluluk düzeyini temel alır.
+Bir SQL Server veritabanını kullanarak bir Azure SQL veritabanına geçirebilirsiniz bir [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) dosyası (zip dosyasıyla bir `.bacpac` bir veritabanının meta verileri ve veri içeren uzantısı). Azure blob depolama alanından (yalnızca standart depolama) bir BACPAC dosyasını içeri aktarabilirsiniz veya yerel depoda bir şirket içi konum. Alma hızını en üst düzeye çıkarmak için daha yüksek bir hizmet katmanına belirtin ve boyutu (P6 gibi) işlem ve ardından içeri aktarma başarılı olduktan sonra ölçeği öneririz. İçeri aktarılan veritabanının uyumluluk düzeyi, kaynak veritabanının uyumluluk düzeyi üzerinde temel alır.
 
 > [!IMPORTANT]
-> Veritabanınızı Azure SQL veritabanı'na geçirdikten sonra veritabanını, geçerli uyumluluk düzeyinde (düzey 100 AdventureWorks2008R2 veritabanı için) veya daha yüksek bir düzeyde çalışılacak seçebilirsiniz. Veritabanını belirli bir uyumluluk düzeyinde çalıştırmanın etkileri ve buna yönelik seçenekler hakkında daha fazla bilgi için, bkz. [Veritabanı Uyumluluk Düzeyini Değiştirme](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Uyumluluk düzeyleriyle ilgili ek veritabanı düzeyi ayarları hakkında bilgi için, ayrıca bkz. [VERİTABANI KAPSAMLI YAPILANDIRMAYI DEĞİŞTİRME](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql).
+> Veritabanınızı içeri aktardıktan sonra veritabanını, geçerli uyumluluk düzeyinde (düzey 100 AdventureWorks2008R2 veritabanı için) veya daha yüksek bir düzeyde çalışılacak seçebilirsiniz. Veritabanını belirli bir uyumluluk düzeyinde çalıştırmanın etkileri ve buna yönelik seçenekler hakkında daha fazla bilgi için, bkz. [Veritabanı Uyumluluk Düzeyini Değiştirme](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Uyumluluk düzeyleriyle ilgili ek veritabanı düzeyi ayarları hakkında bilgi için, ayrıca bkz. [VERİTABANI KAPSAMLI YAPILANDIRMAYI DEĞİŞTİRME](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql).
 
-## <a name="import-from-a-bacpac-file-using-azure-portal"></a>Azure portalını kullanarak BACPAC dosyasından alma
+## <a name="import-from-a-bacpac-file-in-the-azure-portal"></a>Azure portalında bir BACPAC dosyasından alma
 
-Bu makalede, Azure blob depolama kullanarak depolanan bir BACPAC dosyasından Azure SQL veritabanı oluşturma için yönergeler sağlanır. [Azure portalında](https://portal.azure.com). İçeri aktarma yalnızca Azure portalını kullanarak BACPAC dosyasını Azure blob depolama alanından alma destekler.
+Bu bölümde gösterilmiştir nasıl, [Azure portalında](https://portal.azure.com), Azure blob depolamada depolanan bir BACPAC dosyasından Azure SQL veritabanı oluşturmak için. Portal *yalnızca* blob depolama Azure'dan bir BACPAC dosyasını içeri destekler.
 
-Azure portalını kullanarak bir veritabanını içeri aktarmak için veritabanı ilişkilendirin ve ardından sunucunun (sayfada değil veritabanı için) sayfasını açın **alma** araç. Depolama hesabı ve kapsayıcı belirtin ve içeri aktarmak istediğiniz BACPAC dosyasını seçin. Yeni veritabanı (genellikle kaynak aynı) boyutunu seçin ve hedef SQL Server kimlik bilgilerini sağlayın.  
+> [!NOTE]
+> [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md) bu makaledeki diğer yöntemleri kullanarak BACPAC dosyasından alma destekler, ancak şu anda Azure portalında geçişini desteklemez.
+
+Azure portalında bir veritabanını içeri aktarmak için içeri aktarma barındırmak ve, araç çubuğunda mantıksal sunucu için sayfayı açın **veritabanını içeri aktar**.  
 
    ![Veritabanı içeri aktarma](./media/sql-database-import/import.png)
 
-İçeri aktarma işleminin ilerleme durumunu izlemek için içeri aktarılan veritabanını içeren bir mantıksal sunucu için sayfayı açın. Ekranı aşağı kaydırarak **işlemleri** ve ardından **içeri/dışarı aktarma** geçmişi.
+Depolama hesabı, kapsayıcı ve BACPAC dosyasını içeri aktarmak istediğiniz seçin. Yeni veritabanı boyutu (genellikle kaynak aynı) belirtin ve hedef SQL Server kimlik bilgilerini sağlayın. 
 
-> [!NOTE]
-> [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md) bir BACPAC içeri aktarma desteklenen şu anda bu makalede ancak yoksa diğer yöntemleri kullanarak dosya desteği Azure portalını kullanarak geçiş.
+### <a name="monitor-imports-progress"></a>Alma işleminin ilerleme durumunu izleyin
 
-### <a name="monitor-the-progress-of-an-import-operation"></a>Bir içeri aktarma işleminin ilerleme durumunu izleyin
+Bir içeri aktarmanın ilerleme durumunu izlemek için içeri aktarılan veritabanı mantıksal sunucusu sayfasını açın, aşağı kaydırarak **ayarları** seçip **içeri/dışarı aktarma geçmişi**. Başarılı olduğunda, içeri aktarma sahip bir **tamamlandı** durumu.
 
-İçeri aktarma işleminin ilerleme durumunu izlemek için veritabanı alınmakta mantıksal sunucu için sayfayı açın. Ekranı aşağı kaydırarak **işlemleri** ve ardından **içeri/dışarı aktarma** geçmişi.
+Veritabanı sunucusunda Canlı doğrulamak için **SQL veritabanları** ve yeni veritabanı doğrulayın **çevrimiçi**.
 
-   ![içeri aktarma](./media/sql-database-import/import-history.png) ![içeri aktarma durumu](./media/sql-database-import/import-status.png)
+## <a name="import-from-a-bacpac-file-using-sqlpackage"></a>SqlPackage kullanarak BACPAC dosyasından alma
 
-Veritabanı sunucusunda Canlı doğrulamak için tıklayın **SQL veritabanları** ve yeni veritabanı doğrulayın **çevrimiçi**.
+Bir SQL veritabanını kullanarak içeri aktarmak için [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) komut satırı yardımcı programını bkz [parametreleri ve özellikleri Al](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties). SqlPackage en son sürümleri ile birlikte gelen [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) ve [Visual Studio için SQL Server veri Araçları](https://msdn.microsoft.com/library/mt204009.aspx). En son da indirebilirsiniz [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) Microsoft İndirme Merkezi'nden.
 
-## <a name="import-from-a-bacpac-file-using-sqlpackage"></a>SQLPackage kullanarak BACPAC dosyasından alma
+Ölçek ve performans için çoğu üretim ortamlarında SqlPackage kullanmanızı öneririz. BACPAC dosyalarını kullanarak geçiş hakkında bir SQL Server Müşteri Danışmanlık Ekibi blogu için bkz. [BACPAC Dosyalarını kullanarak SQL Server’dan Azure SQL Veritabanına Geçiş](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 
-Bir SQL veritabanını kullanarak içeri aktarmak için [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) komut satırı yardımcı programını bkz [parametreleri ve özellikleri Al](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties). SQLPackage yardımcı programı en son sürümleri ile birlikte gelen [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) ve [Visual Studio için SQL Server veri Araçları](https://msdn.microsoft.com/library/mt204009.aspx), veya en son sürümünü indirebilirsiniz [SqlPackage ](https://www.microsoft.com/download/details.aspx?id=53876) doğrudan Microsoft İndirme Merkezi'nden.
-
-SQLPackage yardımcı programının kullanımı ölçek ve performans çoğu üretim ortamlarında öneririz. BACPAC dosyalarını kullanarak geçiş hakkında bir SQL Server Müşteri Danışmanlık Ekibi blogu için bkz. [BACPAC Dosyalarını kullanarak SQL Server’dan Azure SQL Veritabanına Geçiş](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
-
-Aşağıdaki içeri aktarma SQLPackage komutu bir komut dosyası örneği için bkz. **AdventureWorks2008R2** yerel depolama veritabanından adlı bir Azure SQL veritabanı mantıksal sunucusuna **mynewserver20170403** Bu örnekte. Bu betik adlı yeni bir veritabanı oluşturulmasını gösterir **myMigratedDatabase**, hizmet katmanı ile **Premium**ve bir hizmet hedefi, **P6**. Bu değerleri ortamınız için uygun şekilde değiştirin.
+Aşağıdaki komut SqlPackage alır **AdventureWorks2008R2** yerel depolama veritabanından adlı bir Azure SQL veritabanı mantıksal sunucusuna **mynewserver20170403**. Adlı yeni bir veritabanı oluşturur **myMigratedDatabase** ile bir **Premium** hizmet katmanı ve bir **P6** hizmet hedefi. Bu değerleri ortamınız için uygun şekilde değiştirin.
 
 ```cmd
-SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=ServerAdmin;Password=<change_to_your_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
+SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=<your_server_admin_account_user_id>;Password=<your_server_admin_account_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
 
 > [!IMPORTANT]
-> Azure SQL Veritabanı mantıksal sunucusu 1433 numaralı bağlantı noktasında dinler. Azure SQL Veritabanı mantıksal sunucusuna bir şirket ağından bağlanmaya çalışıyorsanız, bu bağlantı noktası başarıyla bağlanmanız için şirket güvenlik ağında açık olmalıdır.
+> Azure SQL Veritabanı mantıksal sunucusu 1433 numaralı bağlantı noktasında dinler. Kurumsal bir güvenlik duvarının korumasında mantıksal sunucusuna bağlanmak için güvenlik duvarının Bu bağlantı noktası açık olması gerekir.
 >
 
-Bu örnek, bir veritabanını SqlPackage.exe Active Directory Evrensel kimlik doğrulaması kullanarak içeri aktarma gösterir:
+Bu örnek, bir veritabanını Active Directory Evrensel kimlik doğrulaması ile SqlPackage kullanarak içeri aktarma gösterir.
 
 ```cmd
 SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.database.windows.net /ua:True /tid:"apptest.onmicrosoft.com"
@@ -71,24 +69,25 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 
 ## <a name="import-from-a-bacpac-file-using-powershell"></a>PowerShell kullanarak BACPAC dosyasından alma
 
-Kullanım [New-Azurermsqldatabaseımport](/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) cmdlet'i bir Azure SQL veritabanı hizmetini alma veritabanı isteğini göndermek için. Veritabanınızın boyutuna bağlı olarak, içeri aktarma işleminin tamamlanması biraz zaman alabilir.
+Kullanım [New-Azurermsqldatabaseımport](/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) cmdlet'i bir Azure SQL veritabanı hizmetini alma veritabanı isteğini göndermek için. Veritabanı boyutuna bağlı olarak içeri aktarma tamamlanması biraz zaman alabilir.
 
  ```powershell
- $importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName "myResourceGroup" `
-    -ServerName $servername `
+ $importRequest = New-AzureRmSqlDatabaseImport 
+    -ResourceGroupName "myResourceGroup" `
+    -ServerName "myLogicalServer" `
     -DatabaseName "MyImportSample" `
     -DatabaseMaxSizeBytes "262144000" `
     -StorageKeyType "StorageAccessKey" `
-    -StorageKey $(Get-AzureRmStorageAccountKey -ResourceGroupName "myResourceGroup" -StorageAccountName $storageaccountname).Value[0] `
-    -StorageUri "http://$storageaccountname.blob.core.windows.net/importsample/sample.bacpac" `
+    -StorageKey $(Get-AzureRmStorageAccountKey -ResourceGroupName "myResourceGroup" -StorageAccountName "myStorageAccount").Value[0] `
+    -StorageUri "https://myStorageAccount.blob.core.windows.net/importsample/sample.bacpac" `
     -Edition "Standard" `
     -ServiceObjectiveName "P6" `
-    -AdministratorLogin "ServerAdmin" `
-    -AdministratorLoginPassword $(ConvertTo-SecureString -String "ASecureP@assw0rd" -AsPlainText -Force)
+    -AdministratorLogin "<your_server_admin_account_user_id>" `
+    -AdministratorLoginPassword $(ConvertTo-SecureString -String "<your_server_admin_account_password>" -AsPlainText -Force)
 
  ```
 
-İçeri aktarma isteği durumunu denetlemek için kullanmak [Get-Azurermsqldatabaseımportexportstatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet'i. Bu istekten sonra hemen döndürür genellikle çalıştıran **durumu: Inprogress**. Gördüğünüzde **durumu: başarılı** alma işlemi tamamlandı.
+ Kullanabileceğiniz [Get-Azurermsqldatabaseımportexportstatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) alma işleminin ilerleme durumunu denetlemek için cmdlet'i. Cmdlet hemen sonra istek genellikle döndürür çalıştıran **durumu: Inprogress**. Gördüğünüzde, içeri aktarma tamamlandıktan **durumu: başarılı**.
 
 ```powershell
 $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
@@ -108,18 +107,18 @@ Başka bir komut dosyası örneği için bkz. [veritabanını BACPAC dosyasında
 
 ## <a name="limitations"></a>Sınırlamalar
 
-- Elastik havuzdaki bir veritabanı için içeri aktarma desteklenmiyor. Verileri tek bir veritabanına içeri aktarabilir ve sonra veritabanını havuza taşıma.
+Elastik havuzdaki bir veritabanı için içeri aktarma desteklenmiyor. Verileri tek bir veritabanına içeri aktarabilir ve sonra veritabanını havuza taşıma.
 
-## <a name="import-using-other-methods"></a>Diğer yöntemleri kullanarak içeri aktarma
+## <a name="import-using-wizards"></a>İçeri aktarma sihirbazları
 
-Bu sihirbazlar de kullanabilirsiniz:
+Bu sihirbazlar de kullanabilirsiniz.
 
 - [SQL Server Management Studio'daki veri katmanı Uygulama Sihirbazı Alma](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database#using-the-import-data-tier-application-wizard).
 - [SQL Server içeri ve Dışarı Aktarma Sihirbazı'nı](https://docs.microsoft.com/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bağlanmak ve içeri aktarılan bir SQL veritabanını sorgulama hakkında bilgi edinmek için [SQL Server Management Studio ile SQL Database'e bağlanma ve örnek T-SQL sorgusu gerçekleştirme](sql-database-connect-query-ssms.md).
+- Bağlanmak ve içeri aktarılan bir SQL veritabanını sorgulama hakkında bilgi edinmek için [hızlı başlangıç: Azure SQL veritabanı: bağlanmak ve veri sorgulamak için kullanım SQL Server Management Studio](sql-database-connect-query-ssms.md).
 - BACPAC dosyalarını kullanarak geçiş hakkında bir SQL Server Müşteri Danışmanlık Ekibi blogu için bkz. [BACPAC Dosyalarını kullanarak SQL Server’dan Azure SQL Veritabanına Geçiş](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
-- Performans önerileri de dahil olmak üzere tüm SQL Server veritabanı geçiş işlemi, hakkında ayrıntılı bilgi için bkz. [bir SQL Server veritabanını Azure SQL veritabanı'na geçirme](sql-database-cloud-migrate.md).
+- Performans önerileri de dahil olmak üzere tüm SQL Server veritabanı geçiş işlemi, hakkında ayrıntılı bilgi için bkz. [Azure SQL veritabanı için SQL Server veritabanı geçişi](sql-database-cloud-migrate.md).
 - Depolama anahtarları ve paylaşılan erişim imzaları güvenli bir şekilde, bkz: yönetmek ve paylaşmak hakkında bilgi edinmek için [Azure depolama Güvenlik Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-security-guide).
