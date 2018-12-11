@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 12/4/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 45f77c3065feeb011a10bc345c22082b6a89529c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 4f4d30b483d0740261d85921d5dc66e053b5bcf0
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582828"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890968"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure dosya eşitleme Aracısı sürüm notları
 Azure Dosya Eşitleme aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Windows Server yüklemeleriniz, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürülür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilirsiniz. Dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -25,7 +25,8 @@ Azure Dosya Eşitleme aracısı aşağıdaki sürümleri destekler:
 
 | Kilometre Taşı | Aracı sürüm numarası | Sürüm tarihi | Durum |
 |----|----------------------|--------------|------------------|
-| V4 sürüm | 4.0.1.0 | 13 Kasım 2018 | Desteklenen (önerilen sürüm) |
+| Güncelleştirme paketi - aralık [KB4459988](https://support.microsoft.com/help/4459988)| 4.1.0.0 | 4 Aralık 2018'e | Desteklenen (önerilen sürüm) |
+| V4 sürüm | 4.0.1.0 | 13 Kasım 2018 | Desteklenen |
 | Eylül güncelleştirme paketi | 3.3.0.0 | 24 Eylül 2018 | Desteklenen |
 | Ağustos güncelleştirme paketi | 3.2.0.0 | 15 Ağustos 2018 | Desteklenen |
 | Genel kullanılabilirlik | 3.1.0.0 | 19 Temmuz 2018 | Desteklenen |
@@ -42,6 +43,16 @@ Azure Dosya Eşitleme aracısı aşağıdaki sürümleri destekler:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure Dosya Eşitleme aracısı güncelleştirme ilkesi
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-4100"></a>Aracı sürümü 4.1.0.0
+Aşağıdaki sürüm notları, yayın tarihi: 4 Aralık 2018 Azure dosya eşitleme aracısının sürümü için 4.1.0.0 geçerlidir. Bu Notlar 4.0.1.0 sürümü için listelenen sürüm notlarına ek olarak var.
+
+Bu sürümde giderilen sorunlar listesi:  
+- Bir VSS anlık görüntü oluşturulduğunda, Durma hatası 0x3B veya durdurma Hatası 0x1E ortaya çıkabilir.  
+- Sunucu nedeniyle bulut katmanlandırma bellek sızıntısı yanıt vermeyi durdurabilir.  
+- Aracı yüklemesi şu hata ile başarısız: hata 1921. 'Depolama eşitleme Aracısı' (FileSyncSvc) hizmeti durdurulamadı.  Sistem hizmetlerini durdurmak için yeterli ayrıcalığınız olduğundan emin olun.  
+- Depolama Eşitleme Aracı (FileSyncSvc) hizmeti, bellek kullanımı yüksek olduğunda kilitlenebilir.  
+- Çeşitli güvenilirlik geliştirmeleri için eşitleme katmanlama ve bulut.
 
 ## <a name="agent-version-4010"></a>Aracı sürümü 4.0.1.0
 Aşağıdaki sürüm notları (13 Kasım 2018 yayımlanan) Azure dosya eşitleme aracısının sürümü için 4.0.1.0 ' dir.
@@ -107,7 +118,7 @@ Aşağıdaki öğeler eşitlenmez ancak sistem normal şekilde çalışmaya deva
 ## <a name="agent-version-3300"></a>Aracı sürümü 3.3.0.0
 Aşağıdaki sürüm notları, 24 Eylül 2018'de yayınlanan Azure dosya eşitleme aracısının sürümü için 3.3.0.0 geçerlidir. Bu Notlar 3.1.0.0 sürümü için listelenen sürüm notlarına ek olarak var.
 
-Bu sürüm aşağıdaki düzeltmeyi içerir:
+Bu sürümde giderilen sorunlar listesi:
 - Kayıtlı sunucu durum, "Azure dosya eşitleme Aracısı sürüm 3.1 veya 3.2 yükseltildikten sonra çevrimdışı görünüyor" şeklindedir.
 - Depolama eşitleme Aracısı (FileSyncSvc) hizmeti nedeniyle uzun yollar dosyaları kilitleniyor.
 - Sunucu kaydı hatası ile başarısız: dosya veya derleme Kailani.Afs.StorageSyncProtocol.V3 yüklenemedi.
