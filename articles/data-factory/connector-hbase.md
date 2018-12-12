@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 10867974c6f1c3fae6965b1888db3c4448b26a38
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: f5fb62a04f1829726796b674a8e6e72951e6bb35
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364127"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083385"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>HBase Azure Data Factory kullanarak verileri kopyalama 
 
@@ -119,7 +119,12 @@ HBase bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde HBase veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-HBase verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **HBaseObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+HBase verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **HBaseObject**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **HBaseObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -131,7 +136,8 @@ HBase verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **H
         "linkedServiceName": {
             "referenceName": "<HBase linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -147,7 +153,7 @@ HBase verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayar
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **HBaseSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

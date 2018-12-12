@@ -4,17 +4,17 @@ description: Konuk yapılandırma Azure İlkesi içinde bir Azure sanal makine a
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/24/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: ca96aea8f359f1df7da48f84a3317a2d8c7b52e4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 19bc8a58c1ad2115afdfd1d7e59b714ba19cadec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168016"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078897"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure İlkesi'nin Konuk yapılandırma anlama
 
@@ -29,7 +29,7 @@ Bir sanal makine içinde ayarlarını denetlemek için bir [sanal makine uzantı
 
 ### <a name="register-guest-configuration-resource-provider"></a>Konuk yapılandırma kaynak sağlayıcısını kaydetme
 
-Konuk yapılandırma kullanabilmeniz için kaynak sağlayıcısını kaydetmeniz gerekir. Portal veya PowerShell üzerinden bunu yapabilirsiniz.
+Konuk yapılandırma kullanabilmeniz için kaynak sağlayıcısını kaydetmeniz gerekir. Portal veya PowerShell aracılığıyla kaydedebilirsiniz.
 
 #### <a name="registration---portal"></a>Kayıt - Portal
 
@@ -54,7 +54,7 @@ Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguratio
 
 ### <a name="validation-tools"></a>Doğrulama Araçları
 
-Sanal makinenin içinde Konuk yapılandırma istemci denetimi gerçekleştirmek için yerel araçları kullanır.
+Sanal makinenin içinde denetim çalıştırmak için yerel Araçlar Konuk yapılandırma istemcisi kullanır.
 
 Aşağıdaki tabloda, desteklenen her işletim sisteminde kullanılan yerel Araçlar listesi gösterilmektedir:
 
@@ -90,23 +90,23 @@ Aşağıdaki tabloda, desteklenmeyen bir işletim sistemleri listelenmektedir:
 
 ## <a name="guest-configuration-definition-requirements"></a>Konuk yapılandırma tanımı gereksinimleri
 
-İki ilke tanımları, Konuk yapılandırması tarafından gerçekleştirilen her denetim gerektiren bir **Deployıfnotexists** ve **AuditIfNotExists**. **Deployıfnotexists** sanal makine yapılandırma Konuk aracısı ve diğer bileşenleri ile destekleyecek şekilde hazırlamak için kullanılan [Doğrulama Araçları](#validation-tools).
+İki ilke tanımları, Konuk yapılandırma Çalıştır her denetim gerektiren bir **Deployıfnotexists** ve **AuditIfNotExists**. **Deployıfnotexists** sanal makine yapılandırma Konuk aracısı ve diğer bileşenleri ile destekleyecek şekilde hazırlamak için kullanılan [Doğrulama Araçları](#validation-tools).
 
-**Deployıfnotexists** ilke tanımı doğrular ve aşağıdaki düzeltir:
+**Deployıfnotexists** ilke tanımı doğrular ve düzeltir aşağıdaki öğeleri:
 
-- Sanal makine değerlendirilecek bir yapılandırmayı atanmış emin olun. Hiçbir atama şu anda mevcutsa ataması Al ve sanal makine tarafından hazırlayın:
+- Doğrulama sanal makine değerlendirilecek bir yapılandırmayı atanmıştır. Hiçbir atama şu anda mevcutsa ataması Al ve sanal makine tarafından hazırlayın:
   - Sanal makineyi kullanarak kimlik doğrulaması bir [yönetilen kimlik](../../../active-directory/managed-identities-azure-resources/overview.md)
   - En son sürümünü yükleme **Microsoft.GuestConfiguration** uzantısı
   - Yükleme [Doğrulama Araçları](#validation-tools) ve gerekirse bağımlılıkları
 
-Bir kez **Deployıfnotexists** , uyumlu olan **AuditIfNotExists** ilke tanımı, atanan yapılandırma atamasını uyumlu olup olmadığını belirlemek için yerel doğrulama araçlarını kullanır veya Uyumlu olmayan. Doğrulama Aracı Konuk yapılandırma kaynak sağlayıcısı aracılığıyla kullanılabilir hale getirmek için konuk uzantısına iletir Konuk yapılandırma istemci sonuçlar sağlar.
+Bir kez **Deployıfnotexists** , uyumlu olan **AuditIfNotExists** ilke tanımı, atanan yapılandırma atamasını uyumlu olup olmadığını belirlemek için yerel doğrulama araçlarını kullanır veya Uyumlu olmayan. Doğrulama Aracı sonuçları Konuk yapılandırma istemciye sağlar. İstemci, Konuk yapılandırma kaynak sağlayıcısı kullanılabilir hale getirir Konuk uzantısına sonuçları iletir.
 
 Azure İlkesi kullanan Konuk yapılandırma kaynak sağlayıcıları **complianceStatus** rapor uyumluluk özelliğini **Uyumluluk** düğümü. Daha fazla bilgi için [uyumluluk verilerini alma](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
 > Her Konuk yapılandırma tanımı için hem **Deployıfnotexists** ve **AuditIfNotExists** ilke tanımları bulunmalıdır.
 
-Tüm yerleşik ilkeleri Konuk yapılandırması için girişim atamaları tanımlarında kullanın grubuna dahil edilmiştir. Adlı yerleşik girişim *[Önizleme]: denetim parola güvenlik ayarları Linux ve Windows sanal makineleri içinde* 18 ilkelerini içerir. Altı **Deployıfnotexists** ve **AuditIfNotExists** Windows ve Linux için üç çift çifti. Her durumda, yalnızca hedef işletim sistemine göre değerlendirilir tanımındaki mantığı sağlar. [ilke kuralı](definition-structure.md#policy-rule) tanımı.
+Tüm yerleşik ilkeleri Konuk yapılandırması için girişim atamaları tanımlarında kullanın grubuna dahil edilmiştir. Adlı yerleşik girişim *[Önizleme]: denetim parola güvenlik ayarları Linux ve Windows sanal makineleri içinde* 18 ilkelerini içerir. Altı **Deployıfnotexists** ve **AuditIfNotExists** Windows ve Linux için üç çift çifti. Her durumda, yalnızca hedef mantıksal tanımındaki doğrular işletim sistemine göre değerlendirilir [ilke kuralı](definition-structure.md#policy-rule) tanımı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -115,5 +115,5 @@ Tüm yerleşik ilkeleri Konuk yapılandırması için girişim atamaları tanım
 - Gözden geçirme [ilke etkilerini anlama](effects.md)
 - Anlamak için nasıl [programlı olarak ilkeler oluşturma](../how-to/programmatically-create.md)
 - Bilgi edinmek için nasıl [uyumluluk verilerini al](../how-to/getting-compliance-data.md)
-- Bulma nasıl [uyumlu olmayan kaynakları Düzelt](../how-to/remediate-resources.md)
+- Bilgi edinmek için nasıl [uyumlu olmayan kaynakları Düzelt](../how-to/remediate-resources.md)
 - [Kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../../management-groups/index.md) bölümünde yönetim gruplarını gözden geçirebilirsiniz

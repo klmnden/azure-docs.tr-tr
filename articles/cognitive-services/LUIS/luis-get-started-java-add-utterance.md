@@ -1,27 +1,28 @@
 ---
-title: Java Hızlı Başlangıç - modeli değiştirme ve LUIS uygulamasını eğitme
-titleSuffix: Azure Cognitive Services
-description: Bu Java hızlı başlangıcında, bir Ev Otomasyonu uygulamasına örnek konuşmalar ekleyip uygulamayı eğitin. Örnek konuşmalar, bir amaçla eşleşmiş kullanıcı konuşma metinleridir. Amaçlar için örnek konuşmalar sağlayarak, LUIS’e kullanıcı tarafından sağlanan hangi tür metinlerin hangi amaca ait olduğunu öğretirsiniz.
+title: Değiştirmek için uygulama, Java eğitin
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Bu Java hızlı başlangıcında, bir Ev Otomasyonu uygulamasına örnek konuşmalar ekleyip uygulamayı eğitin.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bfe4aae25a34799370e52c8677871a62935ab5c2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 206b345fedb033a6b98e350fec8c66a3496f5236
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419750"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080835"
 ---
 # <a name="quickstart-change-model-using-java"></a>Hızlı Başlangıç: Java kullanarak model değiştirme 
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [Quickstart prerequisites for endpoint](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * [JDK SE](https://aka.ms/azure-jdks)  (Java Geliştirme Seti, Standart Sürüm)
@@ -71,14 +72,14 @@ ms.locfileid: "50419750"
 
 AddUtterance öğesini bağımlılıklarla derleme
 
-```CMD
+```console
 > javac -classpath gson-2.8.2.jar AddUtterances.java
 ```
 
 ## <a name="run-code"></a>Kodu çalıştırma
 Bağımsız değişken olmadan `AddUtterance` çağrısını yaptığınızda uygulamaya LUIS konuşmaları eklenir ancak eğitim gerçekleştirilmez.
 
-```CMD
+```console
 > java -classpath .;gson-2.8.2.jar AddUtterances
 ```
 

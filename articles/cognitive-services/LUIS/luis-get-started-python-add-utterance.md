@@ -1,27 +1,28 @@
 ---
-title: Python Hızlı Başlangıç - modeli değiştirme ve LUIS uygulamasını eğitme
-titleSuffix: Azure Cognitive Services
-description: Bu Python hızlı başlangıcında, bir Ev Otomasyonu uygulamasına örnek konuşmalar ekleyip uygulamayı eğitin. Örnek konuşmalar, bir amaçla eşleşmiş kullanıcı konuşma metinleridir. Amaçlar için örnek konuşmalar sağlayarak, LUIS’e kullanıcı tarafından sağlanan hangi tür metinlerin hangi amaca ait olduğunu öğretirsiniz.
+title: Değiştirmek için uygulama, Python eğitin
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Bu Python hızlı başlangıcında, bir Ev Otomasyonu uygulamasına örnek konuşmalar ekleyip uygulamayı eğitin.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ff076954d51605935bb41488ec6a757c2f7806a1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e8ed2a44a72cbe6fd30d39856b436728623dce66
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040185"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087959"
 ---
 # <a name="quickstart-change-model-using-python"></a>Hızlı Başlangıç: Python kullanarak model değiştirme
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * [Python 3.6](https://www.python.org/downloads/) veya üzeri.
@@ -46,7 +47,7 @@ Uygulamayı Python 3.6 ile komut satırından çalıştırın.
 
 Bağımsız değişken olmadan add-utterance çağrısını yaptığınızda uygulamaya konuşma eklenir ancak eğitim gerçekleştirilmez.
 
-```CMD
+```console
 > python add-utterances-3-6.py
 ```
 
@@ -83,7 +84,7 @@ Aşağıda başarılı bir eğitim isteğinin sonucu gösterilmiştir:
 }
 ```
 
-```JSON
+```json
 Requested training status.
 [
    {

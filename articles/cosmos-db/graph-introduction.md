@@ -8,29 +8,29 @@ ms.component: cosmosdb-graph
 ms.topic: overview
 ms.date: 09/05/2018
 ms.author: lbosq
-ms.openlocfilehash: f2ca118e137104c6dddd2945b7b88b2f535621eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e9e0d2f452a21f2da29568b953238318cb4477df
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849244"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077460"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB: Gremlin API'sine giriş
 
 [Azure Cosmos DB](introduction.md), Microsoft'un görev açısından kritik uygulamalar için sunduğu, genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Çok modelli bir veritabanı olan bu hizmet belge, anahtar-değer, grafik ve sütunlu veri modellerini destekler. Grafik verilerini depolamak ve üzerinde çalışmak için Azure Cosmos DB Gremlin API’si kullanılır. Gremlin API, Grafik verilerini modellemeyi destekler ve grafik verilerinde dolaşmak için API’ler sağlar.
 
-Bu makale, Azure Cosmos DB Gremlin API'ye genel bir bakış sağlar ve milyarlarca köşesi ve kenarı olan yoğun grafikleri depolamak için bunu nasıl kullanabileceğinizi açıklar. Grafikleri milisaniyelik gecikme süresi ile sorgulayabilir, grafik yapısını ve şemasını kolayca geliştirebilirsiniz. Azure Cosmos DB'yi sorgulamak için [Apache TinkerPop](http://tinkerpop.apache.org) grafik içinde dolaşma dilini veya [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)'i kullanabilirsiniz.
+Bu makale, Azure Cosmos DB Gremlin API'ye genel bir bakış sağlar ve milyarlarca köşesi ve kenarı olan yoğun grafikleri depolamak için bunu nasıl kullanabileceğinizi açıklar. Grafikleri milisaniyelik gecikme süresi ile sorgulayabilir, grafik yapısını ve şemasını kolayca geliştirebilirsiniz. Azure Cosmos DB'yi sorgulamak için [Apache TinkerPop](https://tinkerpop.apache.org) grafik içinde dolaşma dilini veya [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)'i kullanabilirsiniz.
 
 ## <a name="what-is-a-graph-database"></a>Grafik veritabanı nedir
 Gerçek dünyada görünen veriler doğal olarak bağlıdır. Geleneksel veri modelleme, varlıklara odaklanır. Birçok uygulamada aynı zamanda modelleme veya hem varlıkları hem de ilişkileri doğal olarak modelleme gereksinimi söz konusudur.
 
-[Grafikler](http://mathworld.wolfram.com/Graph.html), [köşelerden](http://mathworld.wolfram.com/GraphVertex.html) ve [kenarlardan](http://mathworld.wolfram.com/GraphEdge.html) oluşan yapılardır. Köşelerin ve kenarların rastgele bir sayıda özellikleri olabilir. 
+[Grafikler](https://mathworld.wolfram.com/Graph.html), [köşelerden](http://mathworld.wolfram.com/GraphVertex.html) ve [kenarlardan](http://mathworld.wolfram.com/GraphEdge.html) oluşan yapılardır. Köşelerin ve kenarların rastgele bir sayıda özellikleri olabilir. 
 
 * **Köşeler** - Köşeler bir kişi, yer veya etkinlik gibi kesin nesneleri gösterir. 
 
 * **Kenarlar** - Kenarlar, köşeler arasındaki ilişkileri gösterir. Bir kişinin başka bir kişiyi tanıması, bir etkinliğe katılması veya kısa süre önce bir konumda bulunması bağlantılar buna örnek gösterilebilir. 
 
-* **Özellikler** - Özellikler, köşeler ve kenarlar hakkında bilgi ifade eder. Örnek özellikler, adı ve geçerlilik süresi olan bir köşe içerir. Zaman damgası ve/veya ağırlığı olan bir kenar. Bu modele [özellik grafiği](http://tinkerpop.apache.org/docs/current/reference/#intro) de denir. Azure Cosmos DB, özellik grafiği modelini destekler.
+* **Özellikler** - Özellikler, köşeler ve kenarlar hakkında bilgi ifade eder. Örnek özellikler, adı ve geçerlilik süresi olan bir köşe içerir. Zaman damgası ve/veya ağırlığı olan bir kenar. Bu modele [özellik grafiği](https://tinkerpop.apache.org/docs/current/reference/#intro) de denir. Azure Cosmos DB, özellik grafiği modelini destekler.
 
 Aşağıdaki örnek grafik kişiler, mobil cihazlar, ilgi alanları ve işletim sistemleri arasındaki ilişkileri gösterir:
 
@@ -80,18 +80,18 @@ Azure Cosmos DB, aynı kapsayıcıların/veritabanlarının içinde belge ve gra
 
 ## <a name="get-started"></a>başlarken
 
-Azure Cosmos DB Gremlin API hesapları oluşturmak ve bunlara erişim sağlamak için Azure komut satırı arabirimini (CLI), Azure PowerShell’i veya Azure portalı kullanabilirsiniz. Hesap oluşturduktan sonra Gremlin için bir WebSocket ön ucu sunan Gremlin API hizmet uç noktası `https://<youraccount>.gremlin.cosmosdb.azure.com` kullanarak hesapta bulunan grafik veritabanlarına erişebilirsiniz. Uç noktasına bağlanmak ve Java, Node.js veya herhangi bir Gremlin istemci sürücüsünde uygulama oluşturmak için [Gremlin Konsolu](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) gibi TinkerPop ile uyumlu araçlarınızı yapılandırabilirsiniz.
+Azure Cosmos DB Gremlin API hesapları oluşturmak ve bunlara erişim sağlamak için Azure komut satırı arabirimini (CLI), Azure PowerShell’i veya Azure portalı kullanabilirsiniz. Hesap oluşturduktan sonra Gremlin için bir WebSocket ön ucu sunan Gremlin API hizmet uç noktası `https://<youraccount>.gremlin.cosmosdb.azure.com` kullanarak hesapta bulunan grafik veritabanlarına erişebilirsiniz. Uç noktasına bağlanmak ve Java, Node.js veya herhangi bir Gremlin istemci sürücüsünde uygulama oluşturmak için [Gremlin Konsolu](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) gibi TinkerPop ile uyumlu araçlarınızı yapılandırabilirsiniz.
 
 Aşağıdaki tabloda Azure Cosmos DB’ye karşı kullanabileceğiniz popüler Gremlin sürücüleri gösterilir:
 
 | İndirme | Belgeler | Başlarken | Desteklenen bağlayıcı sürümü |
 | --- | --- | --- | --- |
-| [.NET](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [GitHub’da Gremlin.NET](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [.NET kullanarak Grafik oluşturma](create-graph-dotnet.md) | 3.4.0-RC2 |
-| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](http://tinkerpop.apache.org/javadocs/current/full/) | [Java kullanarak Grafik oluşturma](create-graph-java.md) | 3.2.0+ |
+| [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [GitHub’da Gremlin.NET](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [.NET kullanarak Grafik oluşturma](create-graph-dotnet.md) | 3.4.0-RC2 |
+| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Java kullanarak Grafik oluşturma](create-graph-java.md) | 3.2.0+ |
 | [Node.js](https://www.npmjs.com/package/gremlin) | [GitHub’da Gremlin-JavaScript](https://github.com/jbmusso/gremlin-javascript) | [Node.js kullanarak Grafik oluşturma](create-graph-nodejs.md) | 2.6.0|
-| [Python](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Python kullanarak Grafik oluşturma](create-graph-python.md) | 3.2.7 |
+| [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Python kullanarak Grafik oluşturma](create-graph-python.md) | 3.2.7 |
 | [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Github'da Gremlin-PHP](https://github.com/PommeVerte/gremlin-php) | [PHP kullanarak Grafik oluşturma](create-graph-php.md) | 3.1.0 |
-| [Gremlin konsolu](https://tinkerpop.apache.org/downloads.html) | [TinkerPop belgeleri](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Gremlin konsolunu kullanarak Grafik oluşturma](create-graph-gremlin-console.md) | 3.2.0 + |
+| [Gremlin konsolu](https://tinkerpop.apache.org/downloads.html) | [TinkerPop belgeleri](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Gremlin konsolunu kullanarak Grafik oluşturma](create-graph-gremlin-console.md) | 3.2.0 + |
 
 ## <a name="graph-database-design-considerations"></a>Grafik veritabanı tasarımında dikkat edilmesi gerekenler
 

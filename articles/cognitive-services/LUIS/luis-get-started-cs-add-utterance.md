@@ -1,21 +1,22 @@
 ---
-title: C# Hızlı Başlangıç - modeli değiştirme ve LUIS uygulamasını eğitme
-titleSuffix: Azure Cognitive Services
-description: Bu C# hızlı başlangıcında, bir Ev Otomasyonu uygulamasına örnek konuşmalar ekleyip uygulamayı eğitin. Örnek konuşmalar, bir amaçla eşleşmiş kullanıcı konuşma metinleridir. Amaçlar için örnek konuşmalar sağlayarak, LUIS’e kullanıcı tarafından sağlanan hangi tür metinlerin hangi amaca ait olduğunu öğretirsiniz.
+title: Değiştirmek için uygulama eğitmek,C#
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Bu C# hızlı başlangıcında, bir Ev Otomasyonu uygulamasına örnek konuşmalar ekleyip uygulamayı eğitin.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 82cc5d940a48cfca33a4ad9e160905df34f86454
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: 807e90216d8fff8453f7fa8596926483102fd258
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960473"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087822"
 ---
 # <a name="quickstart-change-model-using-c"></a>Hızlı Başlangıç: C# kullanarak model değiştirme
 
@@ -56,7 +57,7 @@ Visual Studio projesi için **JsonFormatterPlus** ve **CommandLineParser** gerek
 ### <a name="write-the-c-code"></a>C# kodunu yazma
 **Program.cs** dosyasının şu şekilde olması gerekir:
 
-```CSharp
+```C#
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -126,7 +127,7 @@ Kodu Visual Studio’da derleyin.
 
 Projenin /bin/Debug dizininde uygulamayı komut satırından çalıştırın. 
 
-```CMD
+```console
 ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
 ```
 

@@ -2,19 +2,19 @@
 title: Azure Stream Analytics işlerinde oturum açma kimlik bilgilerini döndürme
 description: Bu makalede, giriş kimlik bilgilerini güncelleştirmek açıklanır ve çıkış işlerini Azure Stream Analytics'te havuzlarını.
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.openlocfilehash: 362fdca3b9a54ea0a8785ae37b32b88cbe0f67ba
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 14e24c1e9a61eb7ea73a949e17ffbf8c5b768f05
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978783"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099078"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Giriş ve çıkışları bir Stream Analytics işi yönelik oturum açma kimlik bilgilerini döndürme
 
@@ -27,20 +27,20 @@ Bu bölümde, biz size yeniden kimlik bilgileri Blob Depolama, Event Hubs, SQL v
 ### <a name="blob-storagetable-storage"></a>BLOB Depolama/tablo depolama
 1. Azure portalında oturum açın > Stream Analytics işi için giriş/çıkış kullanılan depolama hesabını bulun.    
 2. Ayarları bölümünden açın **erişim anahtarları**. İki varsayılan anahtarlar (key1, key2), arasındaki işinizi tarafından kullanılmayan bir çekme ve onu yeniden oluştur:  
-   ![Depolama hesabı için anahtarları yeniden oluştur](media/stream-analytics-login-credentials-inputs-outputs/image1.png)
+   ![Depolama hesabı için anahtarları yeniden oluştur](media/stream-analytics-login-credentials-inputs-outputs/regenerate-storage-keys.png)
 3. Yeni oluşturulan anahtarı kopyalayın.    
 4. Stream Analytics işinizi Azure portalından Gözat > seçin **Durdur** ve durdurmak işin tamamlanmasını bekleyin.    
 5. Blob/tablo bulun depolama giriş/çıkış kimlik bilgilerini güncelleştirmek istiyorsanız.    
 6. Bulma **depolama hesabı anahtarı** alan ve yeni oluşturulan anahtarınızı yapıştırın > tıklatın **Kaydet**.    
 7. Bağlantı testi değişikliklerinizi kaydettiğinizde, otomatik olarak başlatılır, bildirimleri sekmesinden görüntüleyebilirsiniz. İki bildirimler-bir güncelleştirme kaydetmek için karşılık gelen vardır ve bağlantıyı test etmek için diğer karşılık gelir:  
-   ![Anahtar düzenleme sonra bildirimler](media/stream-analytics-login-credentials-inputs-outputs/image4.png)
+   ![Anahtar düzenleme sonra bildirimler](media/stream-analytics-login-credentials-inputs-outputs/edited-key-notifications.png)
 8. Devam [son durdurulma süresi, iş başlangıç](#start-your-job-from-the-last-stopped-time) bölümü.
 
 ### <a name="event-hubs"></a>Event Hubs
 
 1. Azure portalında oturum açın > Stream Analytics işi için giriş/çıkış kullanılan olay hub'ı bulun.    
 2. Ayarları bölümünden açın **paylaşılan erişim ilkeleri** ve gerekli erişim ilkesini seçin. Arasında **birincil anahtar** ve **ikincil anahtar**, işinizi tarafından kullanılmayan bir tane seçin ve bunu yeniden oluştur:  
-   ![Olay hub'ı için anahtarları yeniden oluştur](media/stream-analytics-login-credentials-inputs-outputs/image2.png)
+   ![Event Hubs için anahtarları yeniden oluştur](media/stream-analytics-login-credentials-inputs-outputs/regenerate-event-hub-keys.png)
 3. Yeni oluşturulan anahtarı kopyalayın.    
 4. Stream Analytics işinizi Azure portalından Gözat > seçin **Durdur** ve durdurmak işin tamamlanmasını bekleyin.    
 5. Hub'ları giriş/çıkış kimlik bilgilerini güncelleştirmek istediğiniz olayı bulun.    
@@ -54,7 +54,7 @@ Mevcut bir kullanıcının oturum açma kimlik bilgilerini güncelleştirmek iç
 
 1. Azure portalında oturum açın > için Stream Analytics işi çıktı olarak kullanılan SQL veritabanı göz atın.    
 2. Gelen **Veri Gezgini**, oturum açma/bağlanma veritabanınıza > Yetkilendirme türü olarak seçin **SQL server kimlik doğrulaması** > yazın, **oturum açma** ve  **Parola** ayrıntıları > seçin **Tamam**.  
-   ![SQL veritabanı için kimlik bilgilerini yeniden oluşturun](media/stream-analytics-login-credentials-inputs-outputs/image3.png)
+   ![SQL veritabanı için kimlik bilgilerini yeniden oluşturun](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
 
 3. Sorgu sekmesinde aşağıdaki sorguyu çalıştırarak, kullanıcının parolasını değiştirmek (değiştirdiğinizden emin olun `<user_name>` adınızı içeren ve `<new_password>` yeni parolanızla):  
 
@@ -79,7 +79,7 @@ Mevcut bir kullanıcının oturum açma kimlik bilgilerini güncelleştirmek iç
 
 1. İşin gidin **genel bakış** bölmesinde > seçin **Başlat** işi başlatmak için.    
 2. Seçin **son durdurulduğunda** > tıklatın **Başlat**. Daha önce işlemi çalıştırıldı ve bazı çıkış vardı "son durdurulduğunda" seçeneği yalnızca göründüğüne dikkat edin oluşturulur. İş son çıktı değerinin saat başlatılır.
-   ![İşi Başlat](media/stream-analytics-login-credentials-inputs-outputs/image5.png)
+   ![Stream Analytics işini başlatın](media/stream-analytics-login-credentials-inputs-outputs/start-stream-analytics-job.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Stream analytics'e giriş](stream-analytics-introduction.md)

@@ -1,10 +1,10 @@
 ---
-title: Metin analiz modelleri Azure Machine Learning Studio'da oluşturun. | Microsoft Docs
+title: Metin analiz modelleri - Azure Machine Learning Studio'da oluşturma | Microsoft Docs
 description: Azure Machine Learning Studio'da metin ön işleme, N-gram veya özellik karma modüllerini kullanma, metin analiz modelleri oluşturma
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=roastala, author=rastala)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: cgronlun
 editor: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.openlocfilehash: 10b4f8a494a9effc04db731f05eeb010f4fb0b6a
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: MT
+ms.openlocfilehash: ebb5fed079d674a0a8a590f7a955a2fe878807fd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262491"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090474"
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio’da metin analiz modelleri oluşturma
 Azure Machine Learning, oluşturun ve metin analiz modelleri oluşturup kullanıma hazır hale getirmek için kullanabilirsiniz. Bu modeller, örneğin, belge sınıflandırma veya yaklaşım analizi sorunlarını çözmenize yardımcı olabilir.

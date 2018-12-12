@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 12/08/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: bcb135e19796bcab8a8e06e3c1896b247188a58c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5a0d7a0e96a788c3136adba70fb27a2c98674e7a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970850"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088060"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 güncelleştirme
 
@@ -70,17 +70,6 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir:
 - <!-- 2702741 -  IS, ASDK --> Dinamik Ayırma kullanılarak dağıtılan hangi genel IP'ler, yöntemi değildi neden olan sorun düzeltildi durdurun-serbest verildiği sonra korunması garanti. Bunlar artık korunur.
 
 - <!-- 3078022 - IS, ASDK --> Bir VM 1808 önce durdu-serbest olduysa, 1808 güncelleştirmeden sonra yeniden tahsis bulunamadı.  Bu sorun 1809 içinde düzeltilmiştir. Bu düzeltmeyle 1809 içinde başlatılamadı ve bu durumda örnek başlatılabilir. Düzeltme aynı zamanda bu sorunu yeniden oluşmasını engeller.
-
-<!-- 3090289 – IS, ASDK --> 
-- Burada 1808 güncelleştirmeyi uyguladıktan sonra aşağıdaki sorunlar yönetilen disklere sahip VM'ler dağıtırken karşılaşabileceğiniz neden olan sorun düzeltildi:
-
-   1. Aboneliği, yönetilen diskler ile VM dağıtma 1808 güncelleştirmeden önce oluşturulduysa, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için her abonelik için şu adımları izleyin:
-      1. Kiracı Portalı'nda Git **abonelikleri** ve aboneliği bulunamıyor. Tıklayın **kaynak sağlayıcıları**, ardından **Microsoft.Compute**ve ardından **yeniden kaydettirin**.
-      2. Aynı abonelik altında Git **erişim denetimi (IAM)**, doğrulayın **Azure Stack – yönetilen Disk** listelenir.
-   2. Bir konuk dizin ile ilişkili bir abonelik içindeki Vm'leri dağıtma, çok kiracılı bir ortam yapılandırdıysanız, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için aşağıdaki adımları izleyin:
-      1. Uygulama [1808 Azure Stack düzeltme](https://support.microsoft.com/help/4481066).
-      2. Bağlantısındaki [bu makalede](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) her Konuk dizinlerinizi yeniden yapılandırmak için.
-
 
 ### <a name="changes"></a>Değişiklikler
 
@@ -173,7 +162,7 @@ Bu güvenlik açıkları hakkında daha fazla bilgi için yukarıdaki bağlantı
 > Azure Stack dağıtımınıza, sonraki güncelleştirme paketi tarafından etkinleştirilen uzantısı konağı için hazırlanın. Aşağıdaki yönergeleri kullanarak sisteminizi hazırlama [hazırlamak için Azure Stack için uzantısı konağı](azure-stack-extension-host-prepare.md).
 
 Bu güncelleştirme yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek hem de bizim [hizmet İlkesi](azure-stack-servicing-policy.md).  
-- [KB 4477849 – Azure Stack düzeltme Azure Stack düzeltme 1.1809.6.102](https://support.microsoft.com/help/4477849/)  
+- [KB 4481548 – Azure Stack düzeltme Azure Stack düzeltme 1.1809.12.114](https://support.microsoft.com/help/4481548/)  
 
 ## <a name="known-issues-post-installation"></a>Bilinen sorunlar (yükleme sonrası)
 
@@ -226,7 +215,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
    
   Çalıştırma [Test AzureStack](azure-stack-diagnostic-test.md) altyapı rol örneklerinin durumunu doğrulamak ve birim düğümlerini ölçeklendirme cmdlet'i. Hiçbir sorun tarafından algılanan [Test AzureStack](azure-stack-diagnostic-test.md), bu uyarılar yoksayabilirsiniz. Bir sorun algılandığında, altyapı rol örneği veya Yönetim Portalı veya PowerShell kullanarak bir düğümü başlatma girişiminde bulunabilir.
 
-  En son bu sorun düzeltilene [1809 düzeltme yayın](https://support.microsoft.com/help/4477849/), bu nedenle sorun yaşıyorsanız bu düzeltmenin yüklenebilmesi emin olun. 
+  En son bu sorun düzeltilene [1809 düzeltme yayın](https://support.microsoft.com/help/4481548/), bu nedenle sorun yaşıyorsanız bu düzeltmenin yüklenebilmesi emin olun. 
 
 <!-- 1264761 - IS ASDK -->  
 - Uyarıları görebilirsiniz **sistem durumu denetleyicisi** aşağıdaki ayrıntıları olan bir bileşeni:  
@@ -292,7 +281,18 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
    Sanal makine için CPU yüzdesi grafik gibi ölçüm verileri bulmak için ölçümleri penceresine gidin ve tüm desteklenen Windows VM Konuk ölçümleri göster.
 
+<!-- 3507629 - IS, ASDK --> 
+- Yönetilen diskler oluşturur iki yeni [kota türleri işlem](azure-stack-quota-types.md#compute-quota-types) sağlanabilir yönetilen diskler hizmetin maksimum kapasitesi sınırlamak için. Varsayılan olarak, 2048 GiB her yönetilen diskler kota türü için ayrılır. Ancak, aşağıdaki sorunlarla karşılaşabilirsiniz:
 
+   - 2048 GiB ayrılır ancak 1808 güncelleştirmeden önce oluşturulan kotalarını 0 değerleri yönetilen diskler kotası yönetici Portalı'nda gösterir. Gerçek gereksinimlerinize ve yeni belirlenen göre değerini azaltın veya artırabilirsiniz kota değeri, 2048 GiB varsayılan'ı geçersiz kılar.
+   - Kota değeri 0'a güncelleştirin, 2048 GiB varsayılan değerini eşdeğer olacaktır. Geçici çözüm olarak, kota değeri 1 olarak ayarlayın.
+
+<!-- TBD - IS ASDK --> Güncelleştirme 1809 uyguladıktan sonra yönetilen disklere sahip VM'ler dağıtırken aşağıdaki sorunlarla karşılaşabilirsiniz:
+
+   - Yönetilen disklerle bir VM dağıtma 1808 güncelleştirmeden önce Abonelik oluşturulurken bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için her abonelik için şu adımları izleyin:
+      1. Kiracı Portalı'nda Git **abonelikleri** ve aboneliği bulunamıyor. Tıklayın **kaynak sağlayıcıları**, ardından **Microsoft.Compute**ve ardından **yeniden kaydettirin**.
+      2. Aynı abonelik altında Git **erişim denetimi (IAM)**, doğrulayın **Azure Stack – yönetilen Disk** listelenir.
+   2. Bir konuk dizin ile ilişkili bir abonelik içindeki Vm'leri dağıtma, çok kiracılı bir ortam yapılandırdıysanız, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için aşağıdaki adımları izleyin. [bu makalede](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) her Konuk dizinlerinizi yeniden yapılandırmak için.
 
 ### <a name="networking"></a>Ağ  
 

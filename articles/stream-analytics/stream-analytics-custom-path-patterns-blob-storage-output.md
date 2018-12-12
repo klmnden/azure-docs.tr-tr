@@ -1,19 +1,20 @@
 ---
-title: Azure Stream Analytics için özel bir tarih/saat yol desenleri blob depolama çıkışı (Önizleme)
-description: ''
+title: Azure Stream Analytics için yol desenleri DateTime blob çıkış (Önizleme)
+description: Bu makalede, blob depolama çıktısını Azure Stream Analytics işleri için özel DateTime yolu desenleri özelliğini açıklar.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: da29c6bd8ddc1e2f62a78fb683df5e1784141722
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: ba386539c3f3c6740b843575bbccd4b028b8a5a7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452573"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090800"
 ---
 # <a name="custom-datetime-path-patterns-for-azure-stream-analytics-blob-storage-output-preview"></a>Azure Stream Analytics için özel bir tarih/saat yol desenleri blob depolama çıkışı (Önizleme)
 
@@ -61,7 +62,7 @@ Blob depolama için özel yol desenleri ile Etiketlenecek klasörleri bekliyor H
 
 Özel çıkış tabloları değiştirme ve bölümler Azure Stream Analytics Hive arasında bağlantı noktası verileri el ile ekleyerek ortadan ortadan kaldırır. Bunun yerine, birçok klasörleri kullanılarak otomatik olarak eklenebilir:
 
-```
+```SQL
 MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 ```
 
@@ -75,9 +76,9 @@ Aşağıdaki yapılandırmaya sahip bir blob çıkış havuzu oluşturun:
 
 Tam yol deseni aşağıdaki gibidir:
 
-```
-year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}
-```
+
+`year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}`
+
 
 Yol deseni temel alınarak bir klasör yapısı, işi başlattığınızda, blob kapsayıcısında oluşturulur. Günlük düzeyi kadar detaya gidebilirsiniz.
 

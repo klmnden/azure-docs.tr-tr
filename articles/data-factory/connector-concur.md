@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 00dd74ccd317799ca3afcbe0ed1ca85e19bb3cbe
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: cee04bd3901db7136a877643979832ed8a70cbd8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123893"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076177"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Concur Azure Data Factory (Önizleme) kullanarak verileri kopyalama
 
@@ -79,7 +79,13 @@ Concur bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Concur veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Concur verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **ConcurObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Concur verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **ConcurObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **ConcurObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
+
 
 **Örnek**
 
@@ -91,7 +97,8 @@ Concur verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **
         "linkedServiceName": {
             "referenceName": "<Concur linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -107,7 +114,7 @@ Concur verileri kopyalamak için kopyalama etkinliği için kaynak türünü aya
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **ConcurSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Opportunities where Id = xxx "`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Opportunities where Id = xxx "`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

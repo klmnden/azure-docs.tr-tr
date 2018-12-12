@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory dağıtım planları | Microsoft Docs
-description: Azure Active Directory özelliklerini dağıtma konusunda ayrıntılı bir rehber sunar
+title: Dağıtım planı - Azure Active Directory | Microsoft Docs
+description: Birçok Azure Active Directory özellikleri dağıtmak nasıl uçtan uca yönergeler.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,12 +10,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: lizross
-ms.openlocfilehash: f5a148cba172b4e1e4490b52afb3b500da3a593c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: f471f1183a7d0d695b5817003fe70a018787731d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434169"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094791"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory dağıtım planları
 Azure Active Directory (AD) özelliklerini dağıtma konusunda ayrıntılı bir rehbere mi ihtiyacınız var? Aşağıdaki dağıtım planları yaygın Azure AD özelliklerinin başarıyla kullanıma alınması için gerekli olan iş değeri, planlama noktaları, tasarım ve operasyon yordamlarını anlatmaktadır. 

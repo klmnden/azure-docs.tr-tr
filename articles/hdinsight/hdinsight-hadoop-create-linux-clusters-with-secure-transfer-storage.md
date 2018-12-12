@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: 7ae8a79ac04e1d5263e084d6be4b27f303bd5848
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: MT
+ms.openlocfilehash: 07d6b07a583b8a8ce8b490333a87ff659f495e45
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006796"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867000"
 ---
-# <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Azure HDInsight’ta güvenli aktarım depolama hesapları ile Hadoop kümesi oluşturma
+# <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Apache Hadoop kümesi ile güvenli aktarım depolama hesapları Azure HDInsight oluşturma
 
 [Güvenli aktarım gereklidir](../storage/common/storage-require-secure-transfer.md) özelliği, güvenli bir bağlantı üzerinden tüm istekleri hesabınıza uygulayarak Azure Depolama hesabınızın güvenliğini artırır. Bu özellik ve wasbs şeması yalnızca HDInsight kümesi 3.6 veya sonraki sürümlerde desteklenir. 
 
@@ -66,10 +66,10 @@ Bu öğreticide bir HDInsight kümesi oluşturmayı ve depolama hesaplarına gü
 
 HDInsight ile veri çözümleme hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* Visual Studio'da Hive sorguları gerçekleştirme dahil, HDInsight ile Hive kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile Hive kullanma][hdinsight-use-hive].
-* Verileri dönüştürmek için kullanılan bir dil olan Pig hakkında bilgi için bkz. [HDInsight ile Pig kullanma][hdinsight-use-pig].
-* Hadoop’ta verileri işleyen programları yazmanın bir yöntemi olan MapReduce hakkında bilgi edinmek için bkz. [HDInsight ile MapReduce kullanma][hdinsight-use-mapreduce].
-* HDInsight’taki verileri çözümlemek amacıyla Visual Studio için HDInsight Araçları kullanma hakkında bilgi edinmek için bkz. [HDInsight için Visual Studio Hadoop araçlarını kullanmaya başlama](hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+* Kullanma hakkında daha fazla bilgi edinmek için [Apache Hive](https://hive.apache.org/) Visual Studio'dan Hive sorguları gerçekleştirme dahil, HDInsight ile bkz [HDInsight ile Hive kullanma Apache][hdinsight-use-hive].
+* Hakkında bilgi edinmek için [Apache Pig](https://pig.apache.org/), verileri dönüştürmek için kullanılan bir dil bakın [HDInsight ile Apache Pig kullanma][hdinsight-use-pig].
+* Hakkında bilgi edinmek için [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html), hadoop'ta verileri işleyen programları yazmanın bir yöntemi bkz [HDInsight ile Apache Hadoop MapReduce kullanma][hdinsight-use-mapreduce].
+* HDInsight üzerinde verileri çözümlemek için Visual Studio için HDInsight araçları kullanma hakkında bilgi edinmek için [HDInsight için Visual Studio Apache Hadoop araçlarını kullanmaya başlama](hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 HDInsight’ın verileri nasıl depoladığı veya HDInsight’a verilerin nasıl alındığı hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
@@ -80,11 +80,11 @@ HDInsight kümesi oluşturma ve yönetme hakkında daha fazla bilgi için aşağ
 
 * Linux tabanlı HDInsight kümenizi yönetme hakkında bilgi edinmek için bkz. [Ambari kullanarak HDInsight kümelerini yönetme](hdinsight-hadoop-manage-ambari.md).
 * HDInsight kümesi oluştururken tercih edebileceğiniz seçenekler hakkında daha fazla bilgi için bkz. [Özel seçenekleri kullanarak Linux’ta HDInsight oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
-* Linux ve Hadoop hakkında bilgi sahibiyseniz, ancak HDInsight’ta Hadoop’a ilişkin teknik özellikleri öğrenmek istiyorsanız, bkz: [Linux’ta HDInsight ile çalışma](hdinsight-hadoop-linux-information.md). Bu makale aşağıdaki gibi bilgiler sağlar:
+* Linux ve Apache Hadoop ile ilgili bilgi sahibi olduğunuz, ancak Hadoop'a HDInsight ilişkin teknik özellikleri öğrenmek istiyorsanız, bkz. [Linux'ta HDInsight ile çalışma](hdinsight-hadoop-linux-information.md). Bu makale aşağıdaki gibi bilgiler sağlar:
   
-  * Ambari ve WebHCat gibi küme üzerinde barındırılan hizmetlerin URL'leri
-  * Yerel dosya sisteminde Hadoop dosyalarının ve örneklerin konumu
-  * Varsayılan veri depolama olarak HDFS yerine Azure Storage (WASB) kullanımı
+  * Gibi kümede barındırılan hizmetler için URL'leri [Apache Ambari](https://ambari.apache.org/) ve [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat)
+  * Konumunu [Apache Hadoop](https://hadoop.apache.org/) dosyalarının ve örneklerin yerel dosya sisteminde
+  * ' % S'kullanmak, Azure Storage (WASB) yerine [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) varsayılan veri depolama
 
 [1]: ../HDInsight/hadoop/apache-hadoop-visual-studio-tools-get-started.md
 

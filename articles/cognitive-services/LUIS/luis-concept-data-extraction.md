@@ -1,23 +1,24 @@
 ---
-title: LUIS - Language Understanding veri ayıklama kavramları
-titleSuffix: Azure Cognitive Services
+title: Veri ayıklama
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Language Understanding (LUIS) ne tür veriler ayıklanabileceği öğrenin
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 284cc8ec6c2325df069d06039a6a22169c3107e7
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: d8d12662552eaf2d566eebd773c69dfb9817d874
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638350"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098660"
 ---
-# <a name="data-extraction"></a>Veri ayıklama
+# <a name="data-extraction-from-intents-and-entities"></a>Amaç ve varlıkları veri ayıklama
 LUIS, bir kullanıcının doğal dil konuşma bilgi almak için sağlar. Bilgiler bir program, uygulama veya sohbet Robotu eyleme kullanılabilmesi için bir şekilde ayıklanır. Aşağıdaki bölümlerde, hangi verilerin hedefleri ve JSON örneklerini varlıklarla döndürülür öğrenin.
 
 Tam metin eşleşmesi olmadığından uygulamalarınızdaki verileri ayıklamak için makine öğrenilen verilerdir. Makine öğrendiniz, veri ayıklama [varlıkları](luis-concept-entity-types.md) parçası olması gerekiyor [döngüsü yazma](luis-concept-app-iteration.md) beklediğiniz verileri aldığınız emin olana kadar.

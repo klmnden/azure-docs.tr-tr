@@ -3,7 +3,7 @@ title: Elastik veritabanı istemci Kitaplığı'nda kimlik bilgilerinin yönetim
 description: Doğru düzeylerine salt okunur, elastik veritabanı uygulamaları için yönetici kimlik bilgileri, ayarlama
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 116afab3a4481511ed6e1e8420b4bfa783add3d7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 8f5de47e9d9c8cc50f77ddadfe9d781ef4c3bc96
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161242"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863831"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Elastik veritabanı istemci kitaplığı erişmek için kullanılan kimlik bilgileri
 [Elastik veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md) üç farklı türde kimlik bilgilerine erişmek için kullandığı [parça eşleme Yöneticisi](sql-database-elastic-scale-shard-map-management.md). İhtiyacınıza göre erişim olası en düşük düzeyi ile kimlik bilgileri kullanın.

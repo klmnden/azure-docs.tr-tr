@@ -8,12 +8,12 @@ author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: e2366a9fb127d134d2b15acb345f424d2f84b666
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b6831e9c6b679d2fd4fa585331213290d67068c2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842110"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084031"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Azure platformunda lambda mimarisi uygulama 
 
@@ -34,7 +34,7 @@ Lambda mimarisi genel, ölçeklenebilir ve hataya dayanıklı veri işleme mimar
 
 Kaynak: http://lambda-architecture.net/
 
-Bir lambda mimarisinin temel ilkeleri olarak başına önceki şemada açıklanan [ https://lambda-architecture.net ](http://lambda-architecture.net/).
+Bir lambda mimarisinin temel ilkeleri olarak başına önceki şemada açıklanan [ http://lambda-architecture.net ](http://lambda-architecture.net/).
 
  1. Tüm **veri** halinde gönderilir *hem* *toplu iş katmanı* ve *hız katmanının*.
  2. **Toplu iş katmanı** ana veri kümesinde (sabit, salt ham veri kümesi) ve toplu görünümler önceden hesaplar.
@@ -278,4 +278,4 @@ Henüz yapmadıysanız, Spark Azure Cosmos DB Bağlayıcısı'ndan indirin [azur
 * [Değişiklik akışı tanıtımları](https://github.com/Azure/azure-cosmosdb-spark/wiki/Change-Feed-demos)
 * [Azure Cosmos DB değişiklik akışı ile Apache Spark'ı kullanarak değişiklikleri işlemeye Stream](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark)
 
-İncelemek isteyebilirsiniz [Apache Spark SQL ve DataFrames veri kümeleri Kılavuzu](http://spark.apache.org/docs/latest/sql-programming-guide.html) ve [Azure HDInsight üzerinde Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) makalesi.
+İncelemek isteyebilirsiniz [Apache Spark SQL ve DataFrames veri kümeleri Kılavuzu](https://spark.apache.org/docs/latest/sql-programming-guide.html) ve [Azure HDInsight üzerinde Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) makalesi.

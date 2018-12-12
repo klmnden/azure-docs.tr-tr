@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/30/2018
-ms.openlocfilehash: d73c0cc6416145fa3764d2ef938d6de7a4195c1b
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.date: 12/6/2018
+ms.openlocfilehash: 89451122ff8cae33f1710fc1458fcd4277964e1f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982887"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091001"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda sınırlamaları
 Aşağıdaki bölümlerde, kapasitesi, depolama altyapısı desteği, destek ayrıcalığına, veri işleme ifadesi desteği ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır. Ayrıca bkz: [genel kısıtlamalar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) MySQL veritabanı altyapısı için geçerlidir.
@@ -31,10 +31,12 @@ Fiyatlandırma katmanı ve sanal çekirdek başına bağlantıları sayısı aş
 |Genel Amaçlı| 8| 1250|
 |Genel Amaçlı| 16| 2500|
 |Genel Amaçlı| 32| 5000|
+|Genel Amaçlı| 64| 10000|
 |Bellek için İyileştirilmiş| 2| 600|
 |Bellek için İyileştirilmiş| 4| 1250|
 |Bellek için İyileştirilmiş| 8| 2500|
 |Bellek için İyileştirilmiş| 16| 5000|
+|Bellek için İyileştirilmiş| 32| 10000|
 
 Bağlantı sınırı aştıklarında aşağıdaki hata iletisini alabilirsiniz:
 > 1040 (08004). hata: Çok fazla sayıda bağlantı

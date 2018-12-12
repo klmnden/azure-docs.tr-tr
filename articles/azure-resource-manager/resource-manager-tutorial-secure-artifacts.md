@@ -10,19 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 4123f66c12898f8f8828494d59590992ac109e27
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: c17d4d51327862872d240e07cb69d4ddf1f8672b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997643"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082153"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Öğretici: Azure Resource Manager şablon dağıtımları yapıları güvenliğini sağlama
 
 Paylaşılan erişim imzaları (SAS) ile Azure depolama hesabı kullanarak, Azure Resource Manager şablonlarında kullanılan yapıtların güvenli hale getirmeyi öğrenin. Dağıtım yapıtları dağıtımı tamamlamak için gereken tüm ana şablon dosyası yanı sıra dosyalarıdır. Örneğin, [öğretici: Azure Resource Manager şablonları ile içeri aktarma SQL BACPAC dosyalarını](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md), Azure SQL veritabanı'ana şablon oluşturur; ayrıca tablo oluşturup veri eklemek için bir BACPAC dosyasını çağırır. BACPAC dosyasını bir yapıdır. Yapıt ortak erişim ile bir Azure depolama hesabında depolanır. Bu öğreticide, SAS kendi Azure depolama hesabında BACPAC dosyasına sınırlı erişim vermek için kullanın. SAS hakkında daha fazla bilgi için bkz: [paylaşılan erişim imzaları (SAS) kullanma](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+
+Bağlı şablon güvenliğini sağlamayı öğrenmek için bkz: [Öğreticisi: bağlı bir Azure Resource Manager şablonları oluşturma](./resource-manager-tutorial-create-linked-templates.md).
 
 Bu öğretici aşağıdaki görevleri kapsar:
 
@@ -57,6 +59,8 @@ Bu bölümde, Resource Manager şablonu dağıtırken dosyayı güvenli bir şek
 * Bir depolama hesabı Blob kapsayıcı oluşturun.
 * BACPAC dosyasını kapsayıcıya yükleyin.
 * BACPAC dosyası SAS belirtecini alır.
+
+Bir PowerShell Betiği kullanarak aşağıdaki adımları otomatikleştirmek için komut dosyasından bkz [bağlı şablonu karşıya](./resource-manager-tutorial-create-linked-templates.md#upload-the-linked-template).
 
 ### <a name="download-the-bacpac-file"></a>BACPAC dosyasını indirin
 

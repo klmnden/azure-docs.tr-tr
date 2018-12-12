@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory'ye özel etki alanınızı ekleme | Microsoft Docs
-description: Azure Active Directory portalı kullanarak özel bir etki alanı eklemeyi öğrenin.
+title: Özel etki alanınızı - Azure Active Directory'ye ekleme | Microsoft Docs
+description: Azure Active Directory'yi kullanarak özel bir etki alanı ekleme hakkında yönergeler.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
-ms.custom: it-pro
-ms.openlocfilehash: 77c2247281fde4aa2b67388464b386b276fe6437
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 14035fe9061af98b10b822c3b7b9213cdda3fbbd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233346"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098317"
 ---
-# <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Nasıl yapılır: Azure Active Directory portalı kullanarak özel etki alanı adınızı ekleme
+# <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Azure Active Directory portalı kullanarak özel etki alanı adınızı ekleme
 Her yeni Azure AD kiracısı bir ilk etki alanı adı ile gelir *domainname*. onmicrosoft.com. Değiştirme veya silme ilk etki alanı adı, ancak kuruluşunuzun adları listesine ekleyebilirsiniz. Özel etki alanı adları ekleme yardımcı olur, kullanıcılarınızın tanıdığı gibi kullanıcı adları oluşturmak için *alain@contoso.com*.
 
 ## <a name="before-you-begin"></a>Başlamadan önce

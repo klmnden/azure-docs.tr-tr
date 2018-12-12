@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5183e626ac990e265e9f4794220f24d43d865ed7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: 38f2fb4fd2056758997471a4d7a5008d7db9dfa1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999986"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087499"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights Bağlayıcısı yönetim çözümü (Önizleme)
 
@@ -45,7 +45,7 @@ Uygulama öngörüleri Bağlayıcısı çözümü performans sorunlarını tanı
 | Bağlı Kaynak | Desteklenen | Açıklama |
 | --- | --- | --- |
 | [Windows aracıları](../../azure-monitor/platform/agent-windows.md) | Hayır | Çözüm, Windows aracılarından bilgi toplamaz. |
-| [Linux aracıları](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Hayır | Çözüm, Linux aracılarından bilgi toplamaz. |
+| [Linux aracıları](../../azure-monitor/learn/quick-collect-linux-computer.md) | Hayır | Çözüm, Linux aracılarından bilgi toplamaz. |
 | [SCOM yönetim grubu](../../azure-monitor/platform/om-agents.md) | Hayır | Bir bağlı SCOM yönetim grubundaki aracılardan çözüm herhangi bir bilgi toplamaz. |
 | [Azure depolama hesabı](collect-azure-metrics-logs.md) | Hayır | Çözüm, Azure depolama biriminden bilgilerin toplanması yapar. |
 

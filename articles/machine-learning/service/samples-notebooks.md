@@ -1,5 +1,6 @@
 ---
-title: Jupyter not defterlerinde Azure Machine Learning hizmeti öğreticileri
+title: Örnek Jupyter Not Defterleri
+titleSuffix: Azure Machine Learning service
 description: Bulup Python Azure Machine Learning hizmetinde keşfetmek için örnek Jupyter not defterleri kullanın.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.openlocfilehash: 5ec010d6e0539e9ba316b48dc02110dc19e4b13e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: f7affc60e3504b9b43d7663a4b7799c52fef79e7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884164"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082790"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Azure Machine Learning hizmeti keşfetmek için Jupyter not defterleri kullanma
 

@@ -1,5 +1,5 @@
 ---
-title: Azure olay hub'larından iletileri alıp göndermek için Python kullanma | Microsoft Docs
+title: İleti - Azure Event Hubs'a göndermek ve almak için Python kullanma | Microsoft Docs
 description: Olayları almak ve Python kullanarak Event Hubs ile akış olaylarını yakalamak için olayları gönderirsiniz öğrenin.
 keywords: ''
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: 9c9c1bd909222ebb3fed57fb31c4f19404382cd4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4a0e2cd7e0c768512e1aafc042fe55338fdc206e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52730368"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084983"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>Bir Python uygulamasından Azure Event Hubs'ı kullanma
 Azure Event Hubs saniyede milyonlarca olay alıp işleme kapasitesine sahip olan bir Büyük Veri akış platformu ve olay alma hizmetidir. Event Hubs dağıtılan yazılımlar ve cihazlar tarafından oluşturulan olayları, verileri ve telemetrileri işleyebilir ve depolayabilir. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir. Daha fazla bilgi için [Event hubs'a giriş](event-hubs-what-is-event-hubs.md). 

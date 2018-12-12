@@ -1,5 +1,5 @@
 ---
-title: Aşağı Akış cihazları Azure IOT Edge ile yapılandırma | Microsoft Docs
+title: Aşağı Akış cihazları - Azure IOT Edge bağlayın | Microsoft Docs
 description: Aşağı yönde yapılandırma veya yaprak cihazların Azure IOT Edge ağ geçidi cihazları aracılığıyla bağlanın.
 author: kgremban
 manager: philmea
@@ -8,12 +8,13 @@ ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bd9d8c4a75df0d9070476fb72d2b60f5cb182a87
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 0797952641efb9fe876d72f2dce0418ff5771d40
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566236"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083343"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Bir Azure IOT Edge ağ geçidi için bir aşağı akış cihazı bağlayın
 

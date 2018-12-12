@@ -1,7 +1,7 @@
 ---
 title: Güvenilirlik puanı - Microsoft Bilişsel hizmetler | Microsoft Docs
 titleSuffix: Azure
-description: Güvenilirlik puanı açıklayan
+description: Güvenilirlik puanı güvenle yanıt verilen kullanıcı sorgusu için doğru eşleşme olduğunu gösterir.
 services: cognitive-services
 author: tulasim88
 manager: pchoudh
@@ -10,14 +10,15 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
-ms.openlocfilehash: b1126b2cdb7a5cd7451a916558bc928653bc0027
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.custom: seodec18
+ms.openlocfilehash: 8fe4ecfe241422c03a2de8d0634ef1e1395aa050
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577932"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081328"
 ---
-# <a name="confidence-score"></a>Güvenilirlik puanı
+# <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Soru-cevap Oluşturucu Bilgi Bankası güvenilirlik puanı
 Kullanıcı sorgusu karşı Bilgi Bankası eşleştiğinde, soru-cevap Oluşturucu bir güven puanı yanı sıra ilgili yanıt verir. Bu puanı güvenle yanıt verilen kullanıcı sorgusu için doğru eşleşme olduğunu gösterir. 
 
 Güvenilirlik puanı, 0 ile 100 arasında bir sayıdır. Bir puan 100 olasılıkla eşleşen hiç yanıt bulunamadı 0 anlamına gelir, bir puan sırasında tam bir eşleşme var. Yüksek puan - yanıtında kendilerinden daha emin. Belirli bir sorgu için birden çok yanıt döndürdü olabilir. Bu durumda, yanıtları güvenilirlik puanı azalan sırayla döndürülür.
@@ -78,15 +79,15 @@ Derecelendiricisini tarafından iyi bir eşleşme bulunduğunda 0.0 ya da "None"
 
 2. Açmak için tıklayın **App Service**.
 
-    ![Uygulama hizmetine erişim](../media/qnamaker-concepts-confidencescore/set-default-response.png)
+    ![Azure portalında App service için soru-cevap Oluşturucu erişim](../media/qnamaker-concepts-confidencescore/set-default-response.png)
 
 3. Tıklayarak **uygulama ayarları** ve düzenleme **DefaultAnswer** istenen varsayılan yanıt alanı. **Kaydet**’e tıklayın.
 
-    ![Varsayılan yanıt değiştirme](../media/qnamaker-concepts-confidencescore/change-response.png)
+    ![Uygulama ayarlarını seçin ve ardından DefaultAnswer için soru-cevap Oluşturucu düzenleyin](../media/qnamaker-concepts-confidencescore/change-response.png)
 
 4. App service'ı yeniden başlatın
 
-    ![Soru-cevap Oluşturucu appservice yeniden başlatma](../media/qnamaker-faq/qnamaker-appservice-restart.png)
+    ![Soru-cevap Oluşturucu appservice DefaultAnswer değiştirdikten sonra yeniden başlatın](../media/qnamaker-faq/qnamaker-appservice-restart.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

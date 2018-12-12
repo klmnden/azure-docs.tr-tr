@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: metin okuma, .NET Core - konuşma tanıma hizmeti Dönüştür'
+title: 'Hızlı Başlangıç: metin okuma, .NET Core - konuşma Hizmetleri Dönüştür'
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, metin okuma metin okuma REST API'si ile nasıl dönüştürme yapılacağını öğreneceksiniz. Bu kılavuzda yer örnek metni konuşma sentezi işaretleme dili (SSML'yi) olarak yapılandırılmıştır. Bu, ses ve konuşma yanıtın dili seçmenize olanak sağlar.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: erhopf
-ms.openlocfilehash: 4f424e73fbe1f05155e7f051d90dd72d57405adf
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 3a0304a69cdff15cddf325be8abe336a42ea4fc1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52641589"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089879"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>Hızlı Başlangıç: Dönüştürme metin okuma .NET Core kullanma
 
@@ -193,7 +193,6 @@ using (var client = new HttpClient())
         // Update your resource name
         request.Headers.Add("User-Agent", "YOUR_RESOURCE_NAME");
         request.Headers.Add("X-Microsoft-OutputFormat", "riff-24khz-16bit-mono-pcm");
-        request.Headers.Add("Connection", "Keep-Alive");
         // Create a request
         Console.WriteLine("Calling the TTS service. Please wait... \n");
         using (var response = await client.SendAsync(request).ConfigureAwait(false))
@@ -237,4 +236,5 @@ Abonelik anahtarınızı programınıza sabit kodladıysanız, bu hızlı başla
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Öğretici: Tanı konuşma amacı](how-to-recognize-intents-from-speech-csharp.md)
+* [Özel ses tipi olarak oluşturma](how-to-customize-voice-font.md)
+* [Özel ses oluşturma kayıt ses örnekleri](record-custom-voice-samples.md)

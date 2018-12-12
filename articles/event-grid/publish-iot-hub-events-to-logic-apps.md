@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: c91dad17016cd9619d2d42a3fcee04a7d14b5eab
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9683d2a7ebcf093f2fd56ea302c3de77b3bb1a86
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242528"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086496"
 ---
-# <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Logic Apps kullanarak Azure IoT Hub olayları hakkında e-posta bildirimleri gönderme
+# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Öğretici: Mantıksal uygulamalar'ı kullanarak Azure IOT Hub olayları hakkında e-posta bildirimleri gönderme
 
 Azure Event Grid, aşağı akış iş uygulamalarınızda eylemler tetikleyerek IoT Hub'daki olaylara karşılık vermenize olanak tanır.
 
 Bu makale IoT Hub ve Event Grid kullanan örnek bir yapılandırmada size yol gösterir. Sonuna geldiğinizde, IoT hub'ınıza her cihaz eklendiğinde bildirim e-postası gönderecek şekilde ayarlanmış bir Azure mantıksal uygulamanız olacaktır. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Azure Logic Apps tarafından desteklenen Office 365 Outlook, Outlook.com veya Gmail gibi bir e-posta sağlayıcısından alınmış e-posta hesabı. Bu e-posta hesabı olay bildirimlerini göndermek için kullanılır. Desteklenen Logic App bağlayıcılarının tam listesi için bkz. [Bağlayıcılara genel bakış](https://docs.microsoft.com/connectors/)
 * Etkin bir Azure hesabı. Hesabınız yoksa [ücretsiz bir hesap oluşturabilirsiniz](https://azure.microsoft.com/pricing/free-trial/).

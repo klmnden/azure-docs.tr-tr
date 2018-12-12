@@ -8,17 +8,17 @@ ms.component: cosmosdb-graph
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: 1c54eff207de61a02a1ef752da66bb3b4f6d1580
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 53ca762232db5e79acdacbb3d52ce05f88dc108b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850355"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080410"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin grafik desteği
-Azure Cosmos DB, [Apache Tinkerpop’un](http://tinkerpop.apache.org) grafik varlıkları oluşturmak ve grafik sorgu işlemlerini gerçekleştirmeye yönelik Gremlin API’si ve aynı zamanda bir grafik geçiş dili olan [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)’i destekler. Grafik varlıkları (köşeler ve kenarlar) oluşturmak, bu varlıkların içindeki özellikleri değiştirmek, sorgu ve geçiş işlemleri gerçekleştirmek ve varlıkları silmek için Gremlin dilini kullanabilirsiniz. 
+Azure Cosmos DB, [Apache Tinkerpop’un](https://tinkerpop.apache.org) grafik varlıkları oluşturmak ve grafik sorgu işlemlerini gerçekleştirmeye yönelik Gremlin API’si ve aynı zamanda bir grafik geçiş dili olan [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)’i destekler. Grafik varlıkları (köşeler ve kenarlar) oluşturmak, bu varlıkların içindeki özellikleri değiştirmek, sorgu ve geçiş işlemleri gerçekleştirmek ve varlıkları silmek için Gremlin dilini kullanabilirsiniz. 
 
-Azure Cosmos DB, kurumsal kullanıma hazır özellikleri grafik veritabanlarına getirir. Buna genel dağıtım, depolama ve aktarım hızının bağımsız ölçeklendirmesi, öngörülebilir tek basamaklı milisaniyelik gecikmeler, otomatik dizinleme, iki veya daha fazla Azure bölgesine yayılan veritabanı hesaplarının kullanılabilirliğini okuma dahildir. Azure Cosmos DB TinkerPop/Gremlin’i desteklediğinden başka bir grafik veritabanı kullanılarak yazılmış uygulamaları kod değişikliği yapmanıza gerek kalmadan kolayca geçirebilirsiniz. Azure Cosmos DB, Gremlin desteği sayesinde [Apache Spark GraphX](http://spark.apache.org/graphx/) gibi TinkerPop etkin analitik çerçevelerle de sorunsuz bir şekilde tümleşir. 
+Azure Cosmos DB, kurumsal kullanıma hazır özellikleri grafik veritabanlarına getirir. Buna genel dağıtım, depolama ve aktarım hızının bağımsız ölçeklendirmesi, öngörülebilir tek basamaklı milisaniyelik gecikmeler, otomatik dizinleme, iki veya daha fazla Azure bölgesine yayılan veritabanı hesaplarının kullanılabilirliğini okuma dahildir. Azure Cosmos DB TinkerPop/Gremlin’i desteklediğinden başka bir grafik veritabanı kullanılarak yazılmış uygulamaları kod değişikliği yapmanıza gerek kalmadan kolayca geçirebilirsiniz. Azure Cosmos DB, Gremlin desteği sayesinde [Apache Spark GraphX](https://spark.apache.org/graphx/) gibi TinkerPop etkin analitik çerçevelerle de sorunsuz bir şekilde tümleşir. 
 
 Bu makalede Gremlin’e ilişkin hızlı bir adım adım kılavuz sağlıyoruz ve Gremlin API’si tarafından desteklenen Gremlin özelliklerinin ve adımlarının listesini oluşturuyoruz.
 
@@ -41,7 +41,7 @@ Aşağıdaki kenar türleri/etiketleri üzerinden bu varlıklar arasındaki ili�
 - İşletim Sistemi Çalıştırma: Dizüstü bilgisayar, Windows işletim sistemini çalıştırır
 - Kullanma: Kişinin kullandığı cihazı temsil eder. Örneğin Robin, seri numarası 77 olan bir Motorola telefon kullanır
 
-Şimdi [Gremlin Console](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console)’u kullanarak bu grafiğe yönelik birkaç işlem yapalım. Dilerseniz bu işlemleri, tercih ettiğiniz platformdaki (Java, Node.js, Python veya .NET) Gremlin sürücülerini kullanarak da gerçekleştirebilirsiniz.  Azure Cosmos DB’de nelerin desteklendiğine bakmadan önce söz dizimine hakkında bilgi edinmek için birkaç örneğe bakalım.
+Şimdi [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console)’u kullanarak bu grafiğe yönelik birkaç işlem yapalım. Dilerseniz bu işlemleri, tercih ettiğiniz platformdaki (Java, Node.js, Python veya .NET) Gremlin sürücülerini kullanarak da gerçekleştirebilirsiniz.  Azure Cosmos DB’de nelerin desteklendiğine bakmadan önce söz dizimine hakkında bilgi edinmek için birkaç örneğe bakalım.
 
 İlk olarak CRUD’a bakalım. Aşağıdaki Gremlin deyimi “Thomas” köşesini grafiğe ekler:
 
@@ -151,46 +151,46 @@ Her bir özellik, bir dizi içinde birden çok değer depolayabilir.
 | değer | Özelliğin değeri
 
 ## <a name="gremlin-steps"></a>Gremlin adımları
-Şimdi de Azure Cosmos DB tarafından desteklenen Gremlin adımlarına bakalım. Gremlin hakkında eksiksiz bir başvuru için bkz. [TinkerPop başvurusu](http://tinkerpop.apache.org/docs/current/reference).
+Şimdi de Azure Cosmos DB tarafından desteklenen Gremlin adımlarına bakalım. Gremlin hakkında eksiksiz bir başvuru için bkz. [TinkerPop başvurusu](https://tinkerpop.apache.org/docs/current/reference).
 
 | adım | Açıklama | TinkerPop 3.2 Belgeleri |
 | --- | --- | --- |
-| `addE` | İki köşe arasına kenar ekler | [addE step](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
-| `addV` | Grafiğe bir köşe ekler | [addV step](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
-| `and` | Tüm geçişlerin bir değer döndürmesini sağlar | [and step](http://tinkerpop.apache.org/docs/current/reference/#and-step) |
-| `as` | Bir adımın çıktısına değişken atanmasını sağlayan adım modülatörü | [as step](http://tinkerpop.apache.org/docs/current/reference/#as-step) |
-| `by` | `group` ve `order` ile kullanılan bir adım modülatörü | [by step](http://tinkerpop.apache.org/docs/current/reference/#by-step) |
-| `coalesce` | Sonuç döndüren ilk geçişi döndürür | [coalesce step](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
-| `constant` | Sabit bir değer döndürür. `coalesce` ile kullanılır| [constant step](http://tinkerpop.apache.org/docs/current/reference/#constant-step) |
-| `count` | Geçiş sayımını döndürür | [count step](http://tinkerpop.apache.org/docs/current/reference/#count-step) |
-| `dedup` | Yinelenenlerin kaldırıldığı değerleri döndürür | [dedup step](http://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
-| `drop` | Değerleri (köşe/kenar) bırakır | [drop step](http://tinkerpop.apache.org/docs/current/reference/#drop-step) |
-| `fold` | Sonuçların toplamını hesaplayan bir engel gibi davranır| [fold step](http://tinkerpop.apache.org/docs/current/reference/#fold-step) |
-| `group` | Belirtilen etiketleri temel alarak değerleri gruplandırır| [group step](http://tinkerpop.apache.org/docs/current/reference/#group-step) |
-| `has` | Özellikleri, köşeleri ve kenarları filtrelemek için kullanılır. `hasLabel`, `hasId`, `hasNot` ve `has` değişkenlerini destekler. | [has step](http://tinkerpop.apache.org/docs/current/reference/#has-step) |
-| `inject` | Değerleri bir akışa ekler| [inject step](http://tinkerpop.apache.org/docs/current/reference/#inject-step) |
-| `is` | Boole ifadesi kullanarak bir filtre uygulamak için kullanılır | [is step](http://tinkerpop.apache.org/docs/current/reference/#is-step) |
-| `limit` | Geçişteki öğelerin sayısını sınırlamak için kullanılır| [limit step](http://tinkerpop.apache.org/docs/current/reference/#limit-step) |
-| `local` | Alt sorgu gibi, geçişin bir bölümünü yerel olarak sarmalar | [local step](http://tinkerpop.apache.org/docs/current/reference/#local-step) |
-| `not` | Filtre olumsuzlamayı üretmek için kullanılır | [not step](http://tinkerpop.apache.org/docs/current/reference/#not-step) |
-| `optional` | Bir sonuç elde ettiği takdirde, belirtilen geçişin sonucunu döndürür; aksi takdirde çağıran öğeyi döndürür | [optional step](http://tinkerpop.apache.org/docs/current/reference/#optional-step) |
-| `or` | En azından bir geçişin değer döndürmesini sağlar | [or step](http://tinkerpop.apache.org/docs/current/reference/#or-step) |
-| `order` | Sonuçları, belirtilen sıralama düzeninde döndürür | [order step](http://tinkerpop.apache.org/docs/current/reference/#order-step) |
-| `path` | Geçişin tam yolunu döndürür | [path step](http://tinkerpop.apache.org/docs/current/reference/#path-step) |
-| `project` | Özellikleri bir Harita gibi projelendirir | [project step](http://tinkerpop.apache.org/docs/current/reference/#project-step) |
-| `properties` | Belirtilen etiketlerin özelliklerini döndürür | [properties step](http://tinkerpop.apache.org/docs/current/reference/#properties-step) |
-| `range` | Belirtilen değer aralığını filtreler| [range step](http://tinkerpop.apache.org/docs/current/reference/#range-step) |
-| `repeat` | Adımı belirtilen sayıda tekrarlar. Döngü için kullanılır | [repeat step](http://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
-| `sample` | Sonuçları geçişten örneklendirmek için kullanılır | [sample step](http://tinkerpop.apache.org/docs/current/reference/#sample-step) |
-| `select` | Sonuçları geçişten projelendirmek için kullanılır |  [select step](http://tinkerpop.apache.org/docs/current/reference/#select-step) | |
-| `store` | Geçişteki engelleyici olmayan toplamalar için kullanılır | [store step](http://tinkerpop.apache.org/docs/current/reference/#store-step) |
-| `tree` | Bir köşeden ağaca yolları toplar | [tree step](http://tinkerpop.apache.org/docs/current/reference/#tree-step) |
-| `unfold` | Adım olarak bir yineleyici açar| [unfold step](http://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
-| `union` | Birden çok geçişin sonuçlarını birleştirir| [union step](http://tinkerpop.apache.org/docs/current/reference/#union-step) |
-| `V` | Köşe ve kenarlar arasında geçiş için gerekli olan adımları içerir: `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV` ve `otherV`  | [vertex steps](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
-| `where` | Geçişten alınan sonuçları filtrelemek için kullanılır. `eq`, `neq`, `lt`, `lte`, `gt`, `gte` ve `between` işleçlerini destekler  | [where step](http://tinkerpop.apache.org/docs/current/reference/#where-step) |
+| `addE` | İki köşe arasına kenar ekler | [addE step](https://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
+| `addV` | Grafiğe bir köşe ekler | [addV step](https://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
+| `and` | Tüm geçişlerin bir değer döndürmesini sağlar | [and step](https://tinkerpop.apache.org/docs/current/reference/#and-step) |
+| `as` | Bir adımın çıktısına değişken atanmasını sağlayan adım modülatörü | [as step](https://tinkerpop.apache.org/docs/current/reference/#as-step) |
+| `by` | `group` ve `order` ile kullanılan bir adım modülatörü | [by step](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
+| `coalesce` | Sonuç döndüren ilk geçişi döndürür | [coalesce step](https://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
+| `constant` | Sabit bir değer döndürür. `coalesce` ile kullanılır| [constant step](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
+| `count` | Geçiş sayımını döndürür | [count step](https://tinkerpop.apache.org/docs/current/reference/#count-step) |
+| `dedup` | Yinelenenlerin kaldırıldığı değerleri döndürür | [dedup step](https://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
+| `drop` | Değerleri (köşe/kenar) bırakır | [drop step](https://tinkerpop.apache.org/docs/current/reference/#drop-step) |
+| `fold` | Sonuçların toplamını hesaplayan bir engel gibi davranır| [fold step](https://tinkerpop.apache.org/docs/current/reference/#fold-step) |
+| `group` | Belirtilen etiketleri temel alarak değerleri gruplandırır| [group step](https://tinkerpop.apache.org/docs/current/reference/#group-step) |
+| `has` | Özellikleri, köşeleri ve kenarları filtrelemek için kullanılır. `hasLabel`, `hasId`, `hasNot` ve `has` değişkenlerini destekler. | [has step](https://tinkerpop.apache.org/docs/current/reference/#has-step) |
+| `inject` | Değerleri bir akışa ekler| [inject step](https://tinkerpop.apache.org/docs/current/reference/#inject-step) |
+| `is` | Boole ifadesi kullanarak bir filtre uygulamak için kullanılır | [is step](https://tinkerpop.apache.org/docs/current/reference/#is-step) |
+| `limit` | Geçişteki öğelerin sayısını sınırlamak için kullanılır| [limit step](https://tinkerpop.apache.org/docs/current/reference/#limit-step) |
+| `local` | Alt sorgu gibi, geçişin bir bölümünü yerel olarak sarmalar | [local step](https://tinkerpop.apache.org/docs/current/reference/#local-step) |
+| `not` | Filtre olumsuzlamayı üretmek için kullanılır | [not step](https://tinkerpop.apache.org/docs/current/reference/#not-step) |
+| `optional` | Bir sonuç elde ettiği takdirde, belirtilen geçişin sonucunu döndürür; aksi takdirde çağıran öğeyi döndürür | [optional step](https://tinkerpop.apache.org/docs/current/reference/#optional-step) |
+| `or` | En azından bir geçişin değer döndürmesini sağlar | [or step](https://tinkerpop.apache.org/docs/current/reference/#or-step) |
+| `order` | Sonuçları, belirtilen sıralama düzeninde döndürür | [order step](https://tinkerpop.apache.org/docs/current/reference/#order-step) |
+| `path` | Geçişin tam yolunu döndürür | [path step](https://tinkerpop.apache.org/docs/current/reference/#path-step) |
+| `project` | Özellikleri bir Harita gibi projelendirir | [project step](https://tinkerpop.apache.org/docs/current/reference/#project-step) |
+| `properties` | Belirtilen etiketlerin özelliklerini döndürür | [properties step](https://tinkerpop.apache.org/docs/current/reference/#properties-step) |
+| `range` | Belirtilen değer aralığını filtreler| [range step](https://tinkerpop.apache.org/docs/current/reference/#range-step) |
+| `repeat` | Adımı belirtilen sayıda tekrarlar. Döngü için kullanılır | [repeat step](https://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
+| `sample` | Sonuçları geçişten örneklendirmek için kullanılır | [sample step](https://tinkerpop.apache.org/docs/current/reference/#sample-step) |
+| `select` | Sonuçları geçişten projelendirmek için kullanılır |  [select step](https://tinkerpop.apache.org/docs/current/reference/#select-step) | |
+| `store` | Geçişteki engelleyici olmayan toplamalar için kullanılır | [store step](https://tinkerpop.apache.org/docs/current/reference/#store-step) |
+| `tree` | Bir köşeden ağaca yolları toplar | [tree step](https://tinkerpop.apache.org/docs/current/reference/#tree-step) |
+| `unfold` | Adım olarak bir yineleyici açar| [unfold step](https://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
+| `union` | Birden çok geçişin sonuçlarını birleştirir| [union step](https://tinkerpop.apache.org/docs/current/reference/#union-step) |
+| `V` | Köşe ve kenarlar arasında geçiş için gerekli olan adımları içerir: `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV` ve `otherV`  | [vertex steps](https://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
+| `where` | Geçişten alınan sonuçları filtrelemek için kullanılır. `eq`, `neq`, `lt`, `lte`, `gt`, `gte` ve `between` işleçlerini destekler  | [where step](https://tinkerpop.apache.org/docs/current/reference/#where-step) |
 
-Azure Cosmos DB tarafından sağlanan, yazma için iyileştirilmiş altyapı, köşe ve kenarlar içindeki tüm özelliklerin dizinlerinin otomatik olarak oluşturulmasını varsayılan olarak destekler. Bu nedenle herhangi bir özellik üzerindeki sorgulu filtreler, aralık sorguları, sıralama veya toplamalar dizinden işlenir ve etkin bir biçimde sunulur. Azure Cosmos DB’de dizin oluşturmanın işleyişi hakkında daha fazla bilgi için [schema-agnostic dizin oluşturma](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) makalemizi okuyun.
+Azure Cosmos DB tarafından sağlanan, yazma için iyileştirilmiş altyapı, köşe ve kenarlar içindeki tüm özelliklerin dizinlerinin otomatik olarak oluşturulmasını varsayılan olarak destekler. Bu nedenle herhangi bir özellik üzerindeki sorgulu filtreler, aralık sorguları, sıralama veya toplamalar dizinden işlenir ve etkin bir biçimde sunulur. Azure Cosmos DB’de dizin oluşturmanın işleyişi hakkında daha fazla bilgi için [schema-agnostic dizin oluşturma](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) makalemizi okuyun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [SDK’larımızı kullanarak](create-graph-dotnet.md) bir grafik uygulaması oluşturmaya başlayın 

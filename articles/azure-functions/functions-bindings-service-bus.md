@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: bacb2cfffe567808f95e42e5ee6e2070815eace6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 80091ce94e9798af46348e8ceb658c8db9c30e0e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996738"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087569"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure işlevleri için Azure Service Bus bağlamaları
 
@@ -625,7 +625,7 @@ Bu bölümde sürümünde bu bağlama için kullanılabilen genel yapılandırma
 
 |Özellik  |Varsayılan | Açıklama |
 |---------|---------|---------| 
-|autoRenewTimeout|00:05:00|En uzun süre içinde otomatik olarak ileti kilidi yenilenir.| 
+|maxAutoRenewDuration|00:05:00|En uzun süre içinde otomatik olarak ileti kilidi yenilenir.| 
 |Otomatik Tamamlama|false|Tetikleyici hemen tam (Otomatik Tamamlama) işaretlemek olup tam çağrı işlemenin tamamlanmasını bekleyin.| 
 |maxConcurrentCalls|16|İleti pompası başlatmalıdır geri çağırma eş zamanlı çağrı sayısı. Varsayılan olarak, İşlevler çalışma zamanı aynı anda birden çok ileti işler. Bir kerede yalnızca tek bir kuyruk veya konuda ileti işleme için çalışma zamanının ayarlayın `maxConcurrentCalls` 1. | 
 |prefetchCount|yok|Varsayılan temel alınan MessageReceiver tarafından kullanılacak PrefetchCount.| 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 70a7f17ed0ecb78337d13f68a260fc9f860e3a4a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 0ba551f09fff9996327d8eb1e49922bfc4c74b3b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837027"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100276"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Hızlı Başlangıç: Python ve Azure Cosmos DB ile Tablo API’si uygulaması oluşturma
 
@@ -84,7 +84,7 @@ Buna ek olarak:
 
 Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin. Bu, uygulamanızın barındırılan veritabanıyla iletişim kurmasına olanak tanır. 
 
-1. [Azure portalında](http://portal.azure.com/) **Bağlantı Dizesi**’ne tıklayın. 
+1. [Azure portalında](https://portal.azure.com/) **Bağlantı Dizesi**’ne tıklayın. 
 
     ![Bağlantı Dizesi bölmesindeki CONNECTION STRING’i kopyalama ve görüntüleme](./media/create-table-python/connection-string.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning Hizmetleri Azure not defterleri kullanma | Microsoft Docs
+title: Azure Machine Learning Hizmetleri Azure not defterleri kullanma
 description: Örnek Not Defterleri Azure not defterleri ile kullanabileceğiniz bir Azure Machine Learning Hizmetleri için genel bakış.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: fabd89f7591abafd68b318921fb7723f3eb7373d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 1508ccc151aaafd7e0c0b46345c4dcb1a5b7b03c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856931"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083674"
 ---
 # <a name="use-azure-machine-learning-services-in-a-notebook"></a>Azure Machine Learning Hizmetleri bir not defteri kullanma
 
@@ -47,9 +47,9 @@ Azure not defterleri ile çalışmak için gerekli ortam ile önceden yapıland�
 
 Azure Machine Learning Hizmetleri belgeleri çeşitli içinde not defterleri ile Machine Learning hizmeti çalışmada size kılavuzluk diğer kaynaklara içerir:
 
-- [Hızlı Başlangıç: Kullanımı Azure Machine Learning'i kullanmaya başlamak Python](/azure/machine-learning/service/quickstart-create-workspace-with-python.md)
-- [#1 öğretici: Azure Machine Learning hizmeti ile bir görüntü sınıflandırma modeli eğitme](/azure/machine-learning/service/tutorial-train-models-with-aml.md)
-- [Öğretici #2: bir görüntü sınıflandırma modeli Azure Container örneği (ACI) dağıtma](/azure/machine-learning/service/tutorial-deploy-models-with-aml.md)
-- [Öğretici: Azure Machine Learning hizmetindeki otomatik machine learning ile bir sınıflandırma modeli eğitme](/azure/machine-learning/service/tutorial-auto-train-models.md)
+- [Hızlı Başlangıç: Kullanımı Azure Machine Learning'i kullanmaya başlamak Python](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
+- [#1 öğretici: Azure Machine Learning hizmeti ile bir görüntü sınıflandırma modeli eğitme](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
+- [Öğretici #2: bir görüntü sınıflandırma modeli Azure Container örneği (ACI) dağıtma](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
+- [Öğretici: Azure Machine Learning hizmetindeki otomatik machine learning ile bir sınıflandırma modeli eğitme](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
 
-Ayrıca belgelerine bakın [Python için Azure Machine Learning SDK](/python/api/overview/azure/ml/intro.md?view=azure-ml-py).
+Ayrıca belgelerine bakın [Python için Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

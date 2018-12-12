@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: lbosq
-ms.openlocfilehash: e11ac1c7d813dce069523104955b885b7b857937
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ed9bcfc52d4403213583b65a18f5066d6a2c4f75
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841991"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090225"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java ve Azure portalını kullanarak bir grafik veritabanı oluşturma
 
@@ -30,7 +30,7 @@ ms.locfileid: "52841991"
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Azure Cosmos DB’yi kullanarak hızlıca yönetilen belgeler, tablolar ve grafik veritabanları oluşturabilir ve bunları sorgulayabilirsiniz. 
 
-Bu hızlı başlangıç Azure Cosmos DB için Azure portal araçlarını kullanarak basit bir grafik veritabanı oluşturur. Bu hızlı başlangıçta ayrıca bir Java konsol uygulamasını OSS [Apache TinkerPop](http://tinkerpop.apache.org/) sürücüsü kullanan bir [Gremlin API](graph-introduction.md)’si kullanarak nasıl hızlı bir şekilde oluşturabileceğiniz gösterilmektedir. Bu hızlı başlangıçtaki yönergeler Java çalıştırabilen tüm işletim sistemlerinde izlenebilir. Bu hızlı başlangıcı tamamladığınızda tercihinize bağlı olarak Kullanıcı Arabiriminde veya programlama arabiriminde grafik oluşturma ve değiştirme hakkında bilgi sahibi olacaksınız. 
+Bu hızlı başlangıç Azure Cosmos DB için Azure portal araçlarını kullanarak basit bir grafik veritabanı oluşturur. Bu hızlı başlangıçta ayrıca bir Java konsol uygulamasını OSS [Apache TinkerPop](https://tinkerpop.apache.org/) sürücüsü kullanan bir [Gremlin API](graph-introduction.md)’si kullanarak nasıl hızlı bir şekilde oluşturabileceğiniz gösterilmektedir. Bu hızlı başlangıçtaki yönergeler Java çalıştırabilen tüm işletim sistemlerinde izlenebilir. Bu hızlı başlangıcı tamamladığınızda tercihinize bağlı olarak Kullanıcı Arabiriminde veya programlama arabiriminde grafik oluşturma ve değiştirme hakkında bilgi sahibi olacaksınız. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -40,7 +40,7 @@ Buna ek olarak:
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
     * Ubuntu’da JDK’yi yüklemek için `apt-get install default-jdk` komutunu çalıştırın.
     * JAVA_HOME ortam değişkenini JDK’nin yüklü olduğu klasöre işaret edecek şekilde ayarladığınızdan emin olun.
-* Bir [Maven](http://maven.apache.org/) ikili arşivi [indirin](http://maven.apache.org/download.cgi) ve [yükleyin](http://maven.apache.org/install.html)
+* Bir [Maven](https://maven.apache.org/) ikili arşivi [indirin](https://maven.apache.org/download.cgi) ve [yükleyin](https://maven.apache.org/install.html)
     * Ubuntu’da Maven’i yüklemek için `apt-get install maven` komutunu çalıştırabilirsiniz.
 * [Git](https://www.git-scm.com/)
     * Ubuntu’da Git’i yüklemek için `sudo apt-get install git` komutunu çalıştırabilirsiniz.
@@ -108,7 +108,7 @@ Aşağıdaki kod parçacıklarının tümü C:\git-samples\azure-cosmos-db-graph
 
 Şimdi, Azure portalına dönerek bağlantı bilgilerinizi kopyalayıp uygulamaya ekleyin. Bu ayarlar, uygulamanızın barındırılan veritabanıyla iletişim kurmasına olanak tanır.
 
-1. [Azure portalında](http://portal.azure.com/), **Anahtarlar**’a tıklayın. 
+1. [Azure portalında](https://portal.azure.com/), **Anahtarlar**’a tıklayın. 
 
     URI değerinin ilk parçasını kopyalayın.
 

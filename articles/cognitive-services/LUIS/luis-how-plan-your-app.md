@@ -1,21 +1,22 @@
 ---
-title: Language Understanding (LUIS) uygulamalarınızı planlayın
-titleSuffix: Azure Cognitive Services
+title: Uygulamanızı planlama
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: İlgili uygulamayı amaç ve varlıkları anahat ve uygulama planlarınızı Language Understanding Intelligent Services (LUIS içinde) oluşturun.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: diberry
-ms.openlocfilehash: e8e6c32eca932803acfe0e7854de885e7ab129fc
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: e14b9f2930ed9c170f31bd654829efe3b5a99446
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267673"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091316"
 ---
 # <a name="plan-your-luis-app"></a>LUIS uygulamanızı planlama
 
@@ -77,10 +78,10 @@ Açıkça belirtilen bir liste değerlerinin bir listesini varlıktır. Her değ
 
 Bkz: [veri ayıklama](luis-concept-data-extraction.md#list-entity-data) JSON sorgu yanıtı uç noktasından listesi varlık ayıklama hakkında daha fazla bilgi edinmek için. Bu deneyin [hızlı](luis-quickstart-intent-and-list-entity.md) liste varlığı kullanma hakkında daha fazla bilgi için.
 
-### <a name="regular-expression-entity"></a>Normal ifade varlık
+### <a name="regular-expression-entity"></a>Normal ifade varlığı
 Bir normal ifade varlık, bir normal ifadeye göre bir utterance iyi biçimlendirilmiş verileri ayıklamak LUIS sağlar.
 
-![Normal ifade varlık](./media/luis-plan-your-app/regex-entity.png)
+![Normal ifade varlığı](./media/luis-plan-your-app/regex-entity.png)
 
 Bkz: [veri ayıklama](luis-concept-data-extraction.md#regular-expression-entity-data) normal ifade varlıkları JSON sorgu yanıtı uç noktasından ayıklama hakkında daha fazla bilgi edinmek için. Deneyin [hızlı](luis-quickstart-intents-regex-entity.md) bir normal ifade varlık kullanma hakkında daha fazla bilgi için.
 

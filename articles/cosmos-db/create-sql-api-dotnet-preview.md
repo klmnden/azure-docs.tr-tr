@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
 clicktale: true
-ms.openlocfilehash: 7686baf2476942748a67ae7c73b02596b6588607
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4422e656759418d715fb0bd26643581a0ca99a4f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853164"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089131"
 ---
 # <a name="quickstart-build-an-aspnet-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Hızlı Başlangıç: SQL API'sini ve Azure portalını kullanarak Azure Cosmos DB ile ASP.NET web uygulaması oluşturma
 
@@ -117,7 +117,7 @@ Aşağıdaki kod parçacıklarının tümü ToDoItemService.cs dosyasından alı
 
 Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin.
 
-1. [Azure portalda](http://portal.azure.com/), Azure Cosmos DB hesabınızın sol taraftaki gezinti menüsünden **Anahtarlar**'ı ve ardından **Okuma/Yazma Anahtarları**'nı seçin. Ekranın sağ tarafındaki kopyalama düğmelerini kullanarak URI ve Birincil Anahtar değerlerini kopyalayarak sonraki adımda web.config dosyasına yapıştırın.
+1. [Azure portalda](https://portal.azure.com/), Azure Cosmos DB hesabınızın sol taraftaki gezinti menüsünden **Anahtarlar**'ı ve ardından **Okuma/Yazma Anahtarları**'nı seçin. Ekranın sağ tarafındaki kopyalama düğmelerini kullanarak URI ve Birincil Anahtar değerlerini kopyalayarak sonraki adımda web.config dosyasına yapıştırın.
 
     ![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar dikey penceresi](./media/create-sql-api-dotnet/keys.png)
 

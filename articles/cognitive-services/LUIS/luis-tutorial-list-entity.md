@@ -1,5 +1,5 @@
 ---
-title: Etiket otomatik olarak Nodejs kullanarak bir liste varlığı ile varlıkları | Microsoft Docs
+title: Extact metin eşleşen varlıkları
 description: LUIS etiket çeşitleri bir sözcük veya tümcecik yardımcı olmak için bir liste varlığı eklemeyi öğrenin.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 42fde2b24f851129e24257bbfe6d65a96e235485
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.openlocfilehash: cb8f2ef4afa83b8e4d258a4227795593242e84bd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036788"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082263"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Varlık algılama artırmak için bir liste varlığı kullanın 
 Bu öğretici, kullanımını gösterir. bir [varlık listesinde](luis-concept-entity-types.md) varlık algılama artırmak için. Liste varlıkları, koşulları'nın tam bir eşleşme olarak Etiketlenecek gerekmez.  
@@ -31,7 +31,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * En son [Node.js](https://nodejs.org)
-> * [HomeAutomation LUIS uygulaması](luis-get-started-create-app.md). Oluşturulan giriş Otomasyon uygulama yoksa yeni bir uygulama oluşturma ve önceden oluşturulmuş etki alanı ekleme **HomeAutomation**. Eğitim ve uygulama yayımlama. 
+> * [HomeAutomation LUIS uygulaması](luis-get-started-create-app.md). Oluşturulan giriş Otomasyon uygulama yoksa yeni bir uygulama oluşturma ve önceden oluşturulmuş etki alanı ekleme **HomeAutomation**. Uygulamayı eğitin ve yayımlayın. 
 > * [AuthoringKey](luis-concept-keys.md#authoring-key), [EndpointKey](luis-concept-keys.md#endpoint-key) (birden çok kez sorgulama değilse), uygulama kimliği, sürüm kimliği ve [bölge](luis-reference-regions.md) LUIS uygulaması için.
 
 > [!Tip]
@@ -81,15 +81,16 @@ Bir Node.js dosyası oluşturun ve içine aşağıdaki kodu kopyalayın. Authori
 
 NPM bağımlılıkları yükler ve liste varlığı oluşturmak için kodu çalıştırmak için aşağıdaki komutu kullanın:
 
-```Javascript
+```console
 npm install && node add-entity-list.js
 ```
 
 Çıktı çalıştırma listesi varlık kimliği.
 
-```Javascript
+```console
 026e92b3-4834-484f-8608-6114a83b03a6
 ```
+
 ## <a name="train-the-model"></a>Modeli eğitme
 Sorgu sonuçlarını etkileyecek şekilde yeni liste için sırayla LUIS eğitin. Eğitim, eğitim, eğitim işlem durumu kontrol ediliyor iki parçalı işlemidir. Çok sayıda model ile bir uygulama geliştirmek için birkaç dakika sürebilir. Aşağıdaki kod, uygulamanın eğitir ardından eğitim başarılı olana kadar bekler. Kod, 429 önlemek için bekleyin ve yeniden deneme stratejisi kullanır. "çok fazla istek var" hatası. 
 
@@ -99,13 +100,13 @@ Bir Node.js dosyası oluşturun ve içine aşağıdaki kodu kopyalayın. Authori
 
 Uygulama geliştirmek için kodu çalıştırmak için aşağıdaki komutu kullanın:
 
-```Javascript
+```console
 node train.js
 ```
 
 Çalıştırma çıktısı her bir yinelemesini LUIS modellerin eğitimi durumudur. Aşağıdaki yürütme eğitimlerini yalnızca bir onay gerekli:
 
-```Javascript
+```console
 1 trained = true
 [ { modelId: '2c549f95-867a-4189-9c35-44b95c78b70f',
     details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
@@ -130,13 +131,13 @@ Bir Node.js dosyası oluşturun ve içine aşağıdaki kodu kopyalayın. Endpoin
 
 Uygulama sorgulamak için kodu çalıştırmak için aşağıdaki komutu kullanın:
 
-```Javascript
+```console
 node publish.js
 ```
 
 Aşağıdaki çıktı, sorgular için uç nokta URL'sini içerir. Gerçek JSON sonuçları gerçek AppID verilebilir. 
 
-```JSON
+```json
 { 
   versionId: null,
   isStaging: false,
@@ -157,13 +158,13 @@ Bir Node.js dosyası oluşturun ve içine aşağıdaki kodu kopyalayın. Endpoin
 
 Kodu çalıştırmak ve uygulamayı sorgulamak için aşağıdaki komutu kullanın:
 
-```Javascript
+```console
 node train.js
 ```
 
 Sorgu sonuçları çıkış alınır. Kodunu eklenmiş olduğunuzdan **ayrıntılı** tüm hedefleri ve puanlarını sorgu dizesi, çıkış adı/değer çifti içerir:
 
-```JSON
+```json
 {
   "query": "turn up the heat",
   "topScoringIntent": {

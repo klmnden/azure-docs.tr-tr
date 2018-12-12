@@ -1,6 +1,6 @@
 ---
-title: Azure portalıyla Azure Event Grid için Blob depolama olayları | Microsoft Docs
-description: Blob depolama hesaplarını oluşturmak ve olaylarına abone olmak için Azure Event Grid'i ve Azure portalını kullanın.
+title: Web uç noktasına - BLOB Depolama olayları gönderme portal | Microsoft Docs
+description: Blob depolama hesaplarını oluşturmak ve olaylarına abone olmak için Azure Event Grid'i ve Azure portalını kullanın. Olayları, Web kancası'na gönderin.
 services: event-grid
 keywords: ''
 author: tfitzmac
@@ -8,14 +8,15 @@ ms.author: tomfitz
 ms.date: 10/17/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 44e258069515ad6c409c193312f3a714a5096541
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 6fd48ecd6def6a4fcd56751b6a137f75b16896ef
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404231"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086972"
 ---
-# <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Azure portalı ve Event Grid ile Blob depolama olayları oluşturma ve yönlendirme
+# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Hızlı Başlangıç: Azure portalı ile web uç noktasına rota Blob Depolama olaylarına
 
 Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede Azure portalını kullanarak bir Blob depolama hesabı oluşturur, bu blob depolama hesabının olaylarına abone olur ve sonucu görmek için bir olayı tetiklersiniz. Normalde olayları, olay verilerini işleyen ve eylemler gerçekleştiren bir uç noktaya gönderirsiniz. Bununla birlikte, bu makaleyi basitleştirmek için olayları iletilerin toplandığı ve görüntülendiği bir web uygulamasına gönderirsiniz.
 

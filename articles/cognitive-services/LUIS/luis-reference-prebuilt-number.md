@@ -1,21 +1,22 @@
 ---
-title: LUIS önceden oluşturulmuş varlıklarla sayı başvuru - Azure | Microsoft Docs
+title: Sayı önceden oluşturulmuş varlık
 titleSuffix: Azure
 description: Bu makale numarası önceden oluşturulmuş varlık bilgilerini Language Understanding (LUIS) içerir.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: b3ac42f5ecd1dc14055b0767e057a1da093042f9
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: MT
+ms.openlocfilehash: ead544400f97f9a49296cc43552bea3a6f3def98
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334576"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095332"
 ---
 # <a name="number-entity"></a>Sayı varlığı
 Hangi sayısal değerleri ölçme, express ve bilgi parçalarını tanımlamak için kullanılan birçok yolu vardır. Bu makalede yalnızca bazı olası örnekler yer almaktadır. LUIS, kullanıcı konuşma farklılığı yorumlar ve tutarlı bir sayısal değerleri döndürür. Bu varlık zaten eğitildi çünkü uygulama hedefleri için numarası içeren örnek Konuşma ekleme gerekmez. 
@@ -42,7 +43,7 @@ LUIS, tanınan bir değer içeren bir **`builtin.number`** varlıkta `resolution
 ## <a name="resolution-for-prebuilt-number"></a>Önceden oluşturulmuş numaralı çözümleme
 Aşağıdaki örnek, çözüm için "iki düzine" utterance 24, değeri içeren bir JSON yanıtı, luıs'den gösterir.
 
-```JSON
+```json
 {
   "query": "order two dozen eggs",
   "topScoringIntent": {

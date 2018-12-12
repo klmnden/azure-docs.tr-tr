@@ -14,47 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/07/2018
 ms.author: magoedte
-ms.openlocfilehash: d37ca7d46f1231a8e1b0b258c10089fe6ba81fba
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: MT
+ms.openlocfilehash: c7d2004da52d83ceda62dc31583797d9a218ef48
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715871"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085460"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Azure İzleyici VM'ler (Önizleme) nedir?
 
-Azure sanal makinelerinizi (VM) sanal makineler için Azure İzleyici izler ve Windows ve Linux Vm'leri, farklı işlemler ve diğer birbirine bağımlılıkları da dahil olmak üzere, sistem durumu ve performansı çözümleyerek ortadan kaldırarak, uygun ölçekte Azure sanal makine ölçek kümeleri Kaynaklar ve dış işlemler. Uygulama bağımlılıkları VM'ler için şirket içi veya başka bir bulut sağlayıcısı barındırılan ve çözüm, performans izleme için destek içerir. Daha ayrıntılı bu öngörüleri sunmak için üç önemli özellikleri içerir:
+Azure sanal makinelerinizi (VM) sanal makineler için Azure İzleyici izler ve uygun ölçekte sanal makine ölçek kümeleri. Hizmet, Windows ve Linux Vm'leri, işlemlerini ve diğer kaynakları ve işlemleri dış bağımlılıkları izleme durumunu ve performansını analiz eder. 
 
-* Değerlendirilen koşul karşılandığında mantıksal bileşenler Azure sanal makinelerinin Windows ve Linux işletim sistemi çalıştıran bir dizi önceden yapılandırılmış durumu ölçütlerini ve uyarılar üzerinde göre ölçülür.  
-* İşlemci, bellek, disk ve ağ bağdaştırıcısının Konuk VM işletim sisteminin çekirdek performans ölçümleri toplanır ve popüler önceden tanımlı performans grafiklerde sunulur.
-* Bağımlılık Haritası bulunan birbirine bağlı bileşenleri bu VM ile birden çok kaynak grupları ve abonelikler gösteriliyor.  
+VM'ler için Azure İzleyici, bir çözüm olarak, başka bir bulut sağlayıcısında veya şirket içi VM'ler için performans ve uygulama bağımlılıklarını izlemek için destek içerir. Üç anahtar özellik kapsamlı Öngörüler sunun:
 
-Bu özellikler, üç Perspektifler düzenlenmiştir:
+* **Windows ve Linux çalıştıran Azure VM'lerin mantıksal bileşenler**: önceden yapılandırılmış bir sistem durumu ölçütlerine göre ölçülür ve değerlendirilen koşul karşılandığında, sizi uyarır.  
+
+* **Performans grafiklerini popüler önceden tanımlanmış**: Konuk VM işletim sisteminden temel performans ölçümlerini görüntüleyin.
+
+* **Bağımlılık Haritası**: çeşitli kaynak gruplarında ve Aboneliklerde VM'den birbirine bağlı bileşenlerle görüntüler.  
+
+Özellikler, üç Perspektifler düzenlenmiştir:
 
 * Durum
 * Performans
 * Eşleme
 
 >[!NOTE]
->Şu anda, sistem durumu özelliği yalnızca Azure sanal makineler ve sanal makine ölçek kümeleri sunulur. Performans ve harita hem Azure Vm'leri hem de ortamınızda veya diğer bulut sağlayıcıları içinde barındırılan sanal makineleri destekler.
->
+>Şu anda, sistem durumu özelliği yalnızca Azure sanal makineler ve sanal makine ölçek kümeleri sunulur. Performans ve harita özellikleri, ortamınızda veya diğer bulut sağlayıcısı Azure Vm'leri hem de barındırılan sanal makinelerin destekler.
 
-Log Analytics ile tümleştirme, güçlü bir toplama, filtreleme ve zaman içinde eğilim analizi veri gerçekleştirme becerisi sunar. Kapsamlı izleme iş yüklerinizi tek başına Azure İzleyici, hizmet eşlemesi veya Log Analytics ile elde edemiyor.  
+Log Analytics ile tümleştirme, güçlü toplama ve filtreleme sunar ve zaman içinde veri eğilimlerini çözümleyebilirsiniz. Kapsamlı iş yükü izleme gibi Azure İzleyici, hizmet eşlemesi ya da yalnızca Log Analytics ile elde edilemeyecek.  
 
-Bu veriler tek bir VM sanal makineden bağlamında doğrudan görüntüleyebileceğiniz veya isteğe bağlı olarak Azure İzleyici ile aşağıdaki açısından her bir özellik göre sanal makinelerinizin toplu bir görünümünü sunar:
+Bu veriler tek bir sanal makinede sanal makineden doğrudan görüntüleyebileceğiniz veya sanal makinelerinizin toplu bir görünümünü sunmak için Azure İzleyicisi'ni kullanabilirsiniz. Bu görünüm, her özelliğin perspektif dayanır:
 
-* Durumu - bir kaynak grubu için ilgili sanal makineleri
-* Harita ve performans - Vm'leri belirli bir Log Analytics çalışma alanına raporlama yapacak yapılandırılmış
+* **Sistem durumu**: VM'ler, bir kaynak grubuna ilişkilidir.
+* **Harita** ve **performans**: Vm'leri belirli bir Log Analytics çalışma alanına rapor şekilde yapılandırılır.
 
-![Sanal makine ınsights portalı açısından](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
+![Azure portalında sanal makine ınsights perspektifi](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
 
-DevOps etkili bir şekilde tahmin edilebilir performans ve önemli uygulamalarınızın kullanılabilirliğini, kritik işletim sistemi olayları ve performans sorunlarını, ağ sorunları tanımlayarak teslim eder ve bir sorun için diğer bağımlılıkları ilişkili olup olmadığını anlamak.  
+Azure DevOps, tahmin edilebilir performans ve kullanılabilirliği önemli uygulamalara teslim edebilirsiniz. Bu kritik işletim sistemi olayları, performans sorunlarını ve ağ sorunları tanımlar. Azure DevOps bir sorun için diğer bağımlılıkları ilişkili olup olmadığını anlamanıza da yardımcı olabilir.  
 
 ## <a name="data-usage"></a>Veri kullanımı 
 
-Kısa sürede, sanal makineler, sanal makineleriniz tarafından toplanan veriler için yerleşik Azure İzleyici alınır ve Azure İzleyici'de depolanan. VM'ler için Azure İzleyici, veri alınan ve korunur, ölçüm zaman serisi izlenen, uyarı kuralları oluşturduğunuz, bildirimler, başına fiyatlandırma yayımlanan Azure izleme üzerinde gönderilen durumu ölçütü sayısı faturalandırılır [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/monitor/)
+VM'ler için Azure İzleyici'yi dağıttığınızda, sanal makineleriniz tarafından toplanan verileri alınır ve Azure İzleyici'de depolanan. Yayımlanan fiyatlandırmaya göre [Azure fiyatlandırma sayfasını İzleyici](https://azure.microsoft.com/pricing/details/monitor/), VM'ler için Azure İzleyici için faturalandırılır:
+* Alınan ve depolanan veriler.
+* Zaman serisi, izlenen sistem durumu ölçütlerini ölçüm sayısı.
+* Oluşturulan uyarı kuralları.
+* Gönderilen bildirimleri. 
 
-Günlük boyutu üzerinde sayaçları dize uzunluğu göre değişir ve mantıksal diskler ve ağ bağdaştırıcılarının sayısını artırabilirsiniz. Zaten bir çalışma alanı varsa ve bu sayaçlar toplama uygulanan yinelenen ücretlerine olmayacak. Hizmet eşlemesi zaten kullanıyorsanız, gördüğünüz tek değişiklik, Azure İzleyici gönderilen ek bağlantı verilerdir.
+Sayaçları dize uzunluğu günlük boyutunu değişir ve mantıksal diskler ve ağ bağdaştırıcıları sayısıyla artırabilirsiniz. Zaten bir çalışma alanı varsa ve bu sayaçları toplamak, yinelenen herhangi bir ücret uygulanır. Hizmet eşlemesi zaten kullanıyorsanız, gördüğünüz tek değişiklik, Azure İzleyici gönderilen ek bağlantı verilerdir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Gözden geçirme [sanal makineler için yerleşik Azure İzleyici](vminsights-onboard.md) gereksinimleri ve yöntemler, sanal makinelerin izlemeyi etkinleştirmek için anlamak için.
+Sanal makinelerinizi izlemenize yardımcı yöntemler ve gereksinimleri hakkında bilgilere [VM'ler için Azure İzleyici'ı Dağıtma](vminsights-onboard.md).

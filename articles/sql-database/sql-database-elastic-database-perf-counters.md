@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/31/2018
-ms.openlocfilehash: d4ecfe700c90beb94455e3607cee4ea30227bd0e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f98c09a7e51fa729ef4a940e5f3c03de55d8dfd2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166259"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875289"
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>Parça eşleme yöneticisi için performans sayaçları
 Performansını yakalayabilirsiniz bir [parça eşleme Yöneticisi](sql-database-elastic-scale-shard-map-management.md), özellikle kullanılırken [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md). Sayaçları Microsoft.Azure.SqlDatabase.ElasticScale.Client sınıfı yöntemleri ile oluşturulur.  
@@ -31,7 +31,7 @@ Sayaçları performansını izlemek için kullanılan [verilere bağımlı yönl
 * Bir performans sayacı örneği oluşturmak ve sayaçları güncelleştirmek için kullanıcının ya da bir üyesi olmanız gerekir **Yöneticiler** veya **Performance Monitor Users** grubu. 
 
 ## <a name="create-performance-category-and-counters"></a>Performans kategorisi ve sayaçları oluşturma
-Sayaçlarınızı oluşturma işlemleri CreatePeformanceCategoryAndCounters yöntemini çağırabilirsiniz. [ShardMapManagmentFactory sınıfı](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Yalnızca yönetici yöntem yürütebilirsiniz: 
+Sayaçlarınızı oluşturma işlemleri CreatePeformanceCategoryAndCounters yöntemini çağırabilirsiniz. [ShardMapManagementFactory sınıfı](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Yalnızca yönetici yöntem yürütebilirsiniz: 
 
     ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 

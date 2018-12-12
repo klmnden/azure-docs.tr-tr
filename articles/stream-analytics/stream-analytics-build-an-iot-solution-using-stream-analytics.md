@@ -2,19 +2,19 @@
 title: Azure Stream Analytics'i kullanarak IOT çözümü oluşturma
 description: Stream Analytics IOT çözümünün gişe senaryosu için başlangıç Öğreticisi
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
-ms.reviewer: jasonh, sngun
+ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/21/2018
-ms.openlocfilehash: e70a1210d44e5bfec914006afaf18eff772cac47
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 230318dc8e352a3adc970b13f20fa992954e3b15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978800"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091103"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics kullanarak bir IOT çözümü oluşturma
 
@@ -36,7 +36,7 @@ Bu çözüm tamamlamak için aşağıdaki önkoşulları ihtiyacınız vardır:
 ## <a name="scenario-introduction-hello-toll"></a>Senaryo giriş: "Hello, ücretli"
 Ücretli istasyonu ortak olguya ' dir. Bunların çoğu expressways, köprüler ve tüneller dünya genelindeki karşılaştığınız. Her bir Ücretli istasyonu birden fazla Ücretli booths sahiptir. El ile booths Ücretli bir Katılımcısı için ödeme durdurun. Otomatik booths Ücretli standına geçirirken, araç, ön için yapıştırılmış bir RFID kartını her standına üzerinde algılayıcı tarar. Bu Ücretli istasyonları aracılığıyla taşıtlardan geçişini üzerinden ilgi çekici işlemleri gerçekleştirilebilir bir olay akışı görselleştirmek kolay bir işlemdir.
 
-![Ücretli booths adresindeki otomobiller resmi](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
+! [Resim Ücretli booths adresindeki arabaların birçoğu] (media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth .jpg)
 
 ## <a name="incoming-data"></a>Gelen veri
 Bu çözüm, iki veri akışları ile çalışır. Giriş ve çıkış Ücretli istasyonları yüklü sensörlerden ilk akışı üretir. İkinci akış vehicle kayıt veriler içeren bir statik arama veri kümesidir.
@@ -44,7 +44,7 @@ Bu çözüm, iki veri akışları ile çalışır. Giriş ve çıkış Ücretli 
 ### <a name="entry-data-stream"></a>Giriş veri akışı
 Ücretli istasyonları girmeleri gibi giriş veri akışını otomobiller hakkında bilgi içerir. Çıkış veri örnek uygulamasındaki bir Web uygulamasından bir Event Hub kuyruğuna akış Canlı olaylardır.
 
-| TollID | EntryTime | LicensePlate | Durum | Olun | Model | VehicleType | VehicleWeight | Ücretli | Etiket |
+| TollID | EntryTime | LicensePlate | Durum | Yapın | Model | VehicleType | VehicleWeight | Ücretli | Etiket |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |7001 JNB |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
@@ -61,7 +61,7 @@ Aşağıda, sütunları kısa bir açıklaması verilmiştir:
 | EntryTime |Tarihi ve saati UTC Ücretli standına için araç girişi |
 | LicensePlate |Araç lisans blondan sayısı |
 | Durum |Amerika Birleşik Devletleri bir durumda |
-| Olun |Otomobil üreticisi |
+| Yapın |Otomobil üreticisi |
 | Model |Otomobil model numarası |
 | VehicleType |Yolcular araçları veya ticari araçlar için 2 ya da 1 |
 | WeightType |Araç ağırlık ton; yolcular araçları için 0 |
@@ -310,7 +310,7 @@ Akış işi daha fazla akış birimi için ölçeklendirmek için:
 ## <a name="monitor-the-job"></a>İş izleme
 **İZLEYİCİ** çalışan işle ilgili istatistikleri alanı içerir. Depolama hesabının aynı bölgede (Bu belgenin geri kalan gibi Ücretli adı) kullanmak için ilk kez bir yapılandırma gerekmez.   
 
-![İzleyici, ekran görüntüsü](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
+![Azure Stream Analytics işi izleme](media/stream-analytics-build-an-iot-solution-using-stream-analytics/stream-analytics-job-monitoring.png)
 
 Erişebildiğiniz **etkinlik günlüklerini** işi panodan **ayarları** de alan.
 

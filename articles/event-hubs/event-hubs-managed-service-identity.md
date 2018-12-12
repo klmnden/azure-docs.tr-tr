@@ -1,6 +1,6 @@
 ---
-title: Kimlikler Azure Event Hubs Önizleme ile Azure kaynakları için yönetilen | Microsoft Docs
-description: Azure Event Hubs ile Azure kaynakları için yönetilen kimlikleri kullanmak
+title: Yönetilen Azure kaynakları - Azure Event Hubs için kimlik | Microsoft Docs
+description: Bu makale, Azure Event Hubs ile Azure kaynakları için yönetilen kimliklerini kullanma hakkında bilgi sağlar.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d7ed4f0276e6220e6df528075e83cb9fabc6cc84
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 784d8c9280aeff7224f90ecee0b16c9c30381aeb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011479"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087737"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Event Hubs ile Azure kaynakları için yönetilen kimlikleri
 

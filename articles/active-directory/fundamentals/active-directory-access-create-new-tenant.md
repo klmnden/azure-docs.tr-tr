@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory’ye erişmek ve yeni bir kiracı oluşturmak için hızlı başlangıç | Microsoft Docs
-description: Azure Active Directory’yi bulma ve kuruluşunuz için yeni bir kiracı oluşturma adımlarını içeren hızlı başlangıç.
+title: Erişim ve Azure Active Directory - yeni bir kiracı oluşturmak için hızlı başlangıç | Microsoft Docs
+description: Azure Active Directory bulma ve kuruluşunuz için yeni bir kiracı oluşturma hakkında yönergeler.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
-custom: it-pro
-ms.openlocfilehash: eacb2e7c52adae9de0b74c3dade59446cc8459ed
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: cd179d371ec75a2e6ca258a1efbc2361e50a5438
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023566"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083294"
 ---
-# <a name="quickstart-access-azure-active-directory-to-create-a-new-tenant"></a>Hızlı Başlangıç: Yeni bir kiracı oluşturmak için Azure Active Directory’ye erişme
+# <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory'de yeni bir kiracı oluşturma
 Kuruluşunuz için yeni bir kiracı oluşturulması da dahil olmak üzere, Azure Active Directory (Azure AD) portalı kullanarak tüm yönetim görevlerinizi gerçekleştirebilirsiniz. 
 
 Bu hızlı başlangıçta, Azure portala ve Azure Active Directory’ye nasıl erişeceğinizi ve kuruluşunuz için temel bir kiracının nasıl oluşturulacağını öğreneceksiniz.

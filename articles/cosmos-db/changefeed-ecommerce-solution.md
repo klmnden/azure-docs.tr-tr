@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 918ffaf42e7216313a385c866f73bd57a529784a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e663a7b8f68c43ebf4c562dd67630db5d113e979
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838897"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090763"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Kullanım Azure Cosmos DB değişiklik akışı, gerçek zamanlı veri analizi görselleştirmek için
 
@@ -94,13 +94,12 @@ Azure kaynakları - Azure Cosmos DB, depolama hesabı, olay hub'ı Stream Analyt
 
 Şimdi e-ticaret sitesi olayları tutmak için bir koleksiyon oluşturacaksınız. Bir kullanıcı bir öğeyi görüntüler, kendi karta bir öğe ekler veya öğeyi satın koleksiyonu eylemi ("görüntülenenler", "eklenmesi" veya "satın alınan") içeren bir kaydı alır, öğenin adını dahil, katılan öğe ve kullanıcı sepet i kimlik numarasını fiyatı nvolved.
 
-1. Git [Azure portalı](http://portal.azure.com/) ve bulma **Azure Cosmos DB hesabı** şablon dağıtımı tarafından oluşturulur.  
+1. Git [Azure portalı](https://portal.azure.com/) ve bulma **Azure Cosmos DB hesabı** şablon dağıtımı tarafından oluşturulur.  
 
 2. Gelen **Veri Gezgini** bölmesinde **yeni koleksiyon** ve aşağıdaki ayrıntılarla formu doldurun:  
 
    * İçin **veritabanı kimliği** alanın, Seç **Yeni Oluştur**, enter **changefeedlabdatabase**. Bırakın **sağlama veritabanı aktarım hızını** kutusunu işaretlenmemiş.  
    * İçin **koleksiyon** kimliği girin **changefeedlabcollection**.  
-   * İçin **depolama kapasitesi**seçin **sınırsız**.  
    * İçin **bölüm anahtarı** alanına **/Item**. Emin doğru girmeniz için büyük/küçük harfe, budur.  
    * İçin **aktarım hızı** alanına **10000**.  
    * **Tamam** düğmesini seçin.  
@@ -119,7 +118,7 @@ Azure kaynakları - Azure Cosmos DB, depolama hesabı, olay hub'ı Stream Analyt
 
 ### <a name="get-the-azure-cosmos-db-connection-string"></a>Azure Cosmos DB bağlantı dizesini alın
 
-1. Git [Azure portalı](http://portal.azure.com/) ve bulma **Azure Cosmos DB hesabı** şablon dağıtımı tarafından oluşturulur.  
+1. Git [Azure portalı](https://portal.azure.com/) ve bulma **Azure Cosmos DB hesabı** şablon dağıtımı tarafından oluşturulur.  
 
 2. Gidin **anahtarları** bölmesinde PRIMARY CONNECTION STRING'i kopyalayın ve not defterine veya başka bir belgeye erişimi Laboratuvar boyunca olacağını kopyalayın. Etiket **Cosmos DB bağlantı dizesi**. Dize kodunuza daha sonra kopyalayın, bu nedenle bir yere not alın ve burada depoladığını unutmayın gerekecektir.
 
@@ -179,7 +178,7 @@ Görmek için nasıl değişiklik akışı bir e-ticaret sitesinde yeni eylemler
  
 6. Programı çalıştırmak için bekleyin. Yıldız veri geldiğinden emin anlamına gelir! Çalışan bir program koruyun - büyük miktarda veri toplanır önemlidir.  
 
-7. İçin giderseniz, [Azure portalı](http://portal.azure.com/) , ardından Cosmos DB için hesap, kaynak grubu içinde ardından için **Veri Gezgini**, uygulamasında alınan rastgele verileri görebilir,  **changefeedlabcollection** .
+7. İçin giderseniz, [Azure portalı](https://portal.azure.com/) , ardından Cosmos DB için hesap, kaynak grubu içinde ardından için **Veri Gezgini**, uygulamasında alınan rastgele verileri görebilir,  **changefeedlabcollection** .
  
    ![Portalda oluşturulan verileri](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -187,7 +186,7 @@ Görmek için nasıl değişiklik akışı bir e-ticaret sitesinde yeni eylemler
 
 Azure Stream Analytics, akış verilerini gerçek zamanlı işleme için bir tam olarak yönetilen bir bulut hizmetidir. Bu laboratuvarda, akış analizi, görselleştirme için Power BI'a şirketlerde (yani öğenin görüntülenebilir, bir karta eklendiğinde veya satın olduğunda), olay hub'ı yeni olayları işlemeye ve olaylar gerçek zamanlı veri analizi dahil edilip derecelendirilir için kullanır.
 
-1. Gelen [Azure portalı](http://portal.azure.com/), kaynak grubuna gidin **streamjob1** (prelab içinde oluşturduğunuz stream analytics işi).  
+1. Gelen [Azure portalı](https://portal.azure.com/), kaynak grubuna gidin **streamjob1** (prelab içinde oluşturduğunuz stream analytics işi).  
 
 2. Seçin **girişleri** aşağıda gösterildiği gibi.  
 
@@ -322,11 +321,11 @@ Power BI, verileri analiz edip öngörü paylaşmaya yönelik İş analizi araç
 
 Artık, bir gerçek e-ticaret sitesi ile bağlanmak için yeni veri analizi aracı nasıl kullanabileceğinizi gözlemleyeceksiniz. E-ticaret sitesi oluşturmak için ürün kategorileri (Kadınlar, erkek, her iki cins için) listesi, ürün kataloğunu ve en popüler öğelerin listesini depolamak için bir Azure Cosmos DB veritabanı kullanın.
 
-1. Geri gidin [Azure portalı](http://portal.azure.com/), ardından, **Cosmos DB hesabı**, ardından **Veri Gezgini**.  
+1. Geri gidin [Azure portalı](https://portal.azure.com/), ardından, **Cosmos DB hesabı**, ardından **Veri Gezgini**.  
 
    Altında iki koleksiyon Ekle **changefeedlabdatabase** - **ürünleri** ve **kategorileri** sahip sabit depolama kapasitesi.
 
-   Başka bir koleksiyon Ekle **changefeedlabdatabase** adlı **topItems** ile **sınırsız** depolama kapasitesi. Yazma **/Item** bölüm anahtarı olarak.
+   Başka bir koleksiyon Ekle **changefeedlabdatabase** adlı **topItems** ve **/Item** bölüm anahtarı olarak.
 
 2. Seçin **topItems** koleksiyonu ve altında **ölçek ve ayarlar** ayarlamak **yaşam süresi** olmasını **30 saniye** bu topItems güncelleştirmeleri için Her 30 saniyede.
 
@@ -392,7 +391,7 @@ Artık, bir gerçek e-ticaret sitesi ile bağlanmak için yeni veri analizi arac
 
 ## <a name="delete-the-resources"></a>Kaynakları Sil
 
-Bu Laboratuvar sırasında oluşturduğunuz kaynakları silmek için kaynak grubuna gidin [Azure portalı](http://portal.azure.com/), ardından **kaynak grubunu Sil** sayfanın üst kısmındaki menüden ve yönergeleri izleyin sağlanan.
+Bu Laboratuvar sırasında oluşturduğunuz kaynakları silmek için kaynak grubuna gidin [Azure portalı](https://portal.azure.com/), ardından **kaynak grubunu Sil** sayfanın üst kısmındaki menüden ve yönergeleri izleyin sağlanan.
 
 ## <a name="next-steps"></a>Sonraki adımlar 
   

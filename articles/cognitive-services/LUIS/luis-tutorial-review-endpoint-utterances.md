@@ -1,21 +1,22 @@
 ---
-title: 'Öğretici 1: Uç nokta konuşmalarını etkin öğrenme ile inceleme'
+title: Konuşma uç noktası gözden geçirme
 titleSuffix: Azure Cognitive Services
 description: LUIS HTTP uç noktası üzerinden alınan ifadeleri doğrulayarak veya düzelterek LUIS'in emin olmadığı uygulama tahminlerini geliştirin. Bazı konuşmaların amacının, diğerlerinin ise varlığının doğrulanması gerekebilir. Zamanlanmış LUIS bakımınızın normal bir parçası olarak uç noktası konuşmalarını gözden geçirmeniz gerekir.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 8fbe856826770eb38cd4a6d921c1b0f4eacf9c2a
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: bc641732d74dac4f566420ada6338362932df4d7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426970"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080461"
 ---
 # <a name="tutorial-1-fix-unsure-predictions"></a>Öğretici 1: Emin olunmayan tahminleri düzeltme
 Bu öğreticide, LUIS HTTP uç noktası üzerinden alınan ifadeleri doğrulayarak veya düzelterek LUIS'in emin olmadığı uygulama tahminlerini geliştireceksiniz. Bazı konuşmaların amaç, diğerlerinin ise varlık için doğrulanması gerekebilir. Zamanlanmış LUIS bakımınızın normal bir parçası olarak uç noktası konuşmalarını gözden geçirmeniz gerekir. 
@@ -132,7 +133,7 @@ Düzeltilmiş ifadeye yakın bir ifade deneyin.
 
 2. Adres çubuğundaki URL'nin sonuna gidip `Are there any natural language processing jobs in my department right now?` yazın. Son sorgu dizesi parametresi ifade **s**orgusu olan `q` öğesidir. 
 
-  ```JSON
+  ```json
   {
     "query": "are there any natural language processing jobs in my department right now?",
     "topScoringIntent": {

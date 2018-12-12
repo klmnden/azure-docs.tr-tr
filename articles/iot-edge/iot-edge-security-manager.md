@@ -1,5 +1,5 @@
 ---
-title: Azure IOT Edge Güvenlik Yöneticisi | Microsoft Docs
+title: Güvenlik Yöneticisi yazılım - Azure IOT Edge cihazları nasıl koruduğunu öğrenin | Microsoft Docs
 description: IOT Edge cihaz güvenlik tutum sergilemek ve güvenlik hizmetleri bütünlüğünü yönetir.
 services: iot-edge
 keywords: Güvenlik, güvenli öğesi, kuşatma, TEE, IOT Edge
@@ -9,12 +9,13 @@ ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6231f50134f7dcfd29e8754841847beb69570204
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: eda572c0f4abedd59c912dcf1de2cf3c6e226b5c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567698"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091933"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IOT Edge Güvenlik Yöneticisi
 
@@ -33,7 +34,7 @@ IOT Edge Güvenlik Yöneticisi'ni IOT Edge cihazı ve tüm yazılım devralınan
 * Ağ geçidi cihaz donanım kök güven notary Hizmetleri aracılığıyla.
 * IOT Edge çalışma zamanı operace bütünlüğünü izler.
 
-IOT Edge Güvenlik Yöneticisi başlıca üç bileşenden oluşur:
+IOT Edge Güvenlik Yöneticisi üç bileşenleri içerir:
 
 * IOT Edge güvenlik arka plan programı.
 * Donanım güvenlik modülü platform Soyutlama Katmanı (HSM PAL).

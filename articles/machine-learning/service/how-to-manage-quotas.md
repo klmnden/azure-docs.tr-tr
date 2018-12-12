@@ -1,5 +1,6 @@
 ---
-title: Yönetme ve Azure Machine Learning hizmeti için kotalar isteği
+title: Yönetme ve kaynak kotaları isteyin
+titleSuffix: Azure Machine Learning service
 description: Bu nasıl yapılır kılavuzunda, Azure Machine Learning ve görüntüleme ve daha fazla kota isteği için kaynaklar üzerinde çeşitli kotalar açıklar.
 services: machine-learning
 ms.service: machine-learning
@@ -8,25 +9,26 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 9/24/2018
-ms.openlocfilehash: 0ee0a29be6a313e09cd77051dc29bc0131b57a40
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: b868e20ebb1054864116957fd671a17e2d980c0a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997820"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083861"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Yönetme ve Azure kaynakları için kota isteği
 
-Olarak diğer Azure hizmetleriyle sınırı yoktur Azure Machine Learning hizmetiyle ilişkili belirli kaynaklar. Bu sınırları alır gerçek temel alınan işlem sınırları için oluşturabileceğiniz bir çalışma alanı sayısı için üst sınır arasındadır modellerinizde eğitim veya çıkarım için kullanılır. Bu makalede, aboneliğiniz için çeşitli Azure kaynakları üzerinde önceden yapılandırılmış sınırları hakkında daha fazla ayrıntı sağlar ve ayrıca her kaynak türü için istek kota geliştirmeleri için kullanışlı bağlantılar içerir.
+Olarak diğer Azure hizmetleriyle sınırı yoktur Azure Machine Learning hizmetiyle ilişkili belirli kaynaklar. Bu sınırları alır gerçek temel alınan işlem sınırları için oluşturabileceğiniz bir çalışma alanı sayısı için üst sınır arasındadır modellerinizde eğitim veya çıkarım için kullanılır. Bu makalede, aboneliğiniz için çeşitli Azure kaynakları üzerinde önceden yapılandırılmış sınırları hakkında daha fazla ayrıntı sağlar ve ayrıca her kaynak türü için istek kota geliştirmeleri için kullanışlı bağlantılar içerir. Bu sınırlar, bütçe taşmaları nedeniyle sahtekarlığı önlemek ve Azure kapasitesi kısıtlamaları uymanız yerinde yerleştirilir.
 
-Bu kotalar, tasarım ve Azure ML kaynaklarınızı ölçeklendirme aklınızda bulundurun. Kümenizi, belirtilen düğümlerin hedef sayısını ulaşmaz, örneğin, daha sonra bir Batch AI çekirdek, aboneliğiniz için sınırına ulaştınız. Batch AI üretim iş yükleri çalıştırmayı planlıyorsanız, bir veya daha üstüne varsayılan kotaları artırmak gerekebilir. Sınırı veya kota varsayılan sınırı artırmak istiyorsanız, ücretsiz bir çevrimiçi müşteri destek isteği açın. Aşağıdaki tablolarda gösterilen üst sınırı değerini yukarıda sınırları yükseltilemez. Üst sınır sütun yok ise, kaynak sınırları ayarlanabilir sahip değil. 
+Bu kotalar, tasarım ve Azure ML kaynaklarınızı üretim iş yükleri için ölçek aklınızda bulundurun. Kümenizi, belirtilen düğümlerin hedef sayısını ulaşmaz, örneğin, daha sonra bir Azure Machine Learning işlem çekirdek, aboneliğiniz için sınırına ulaştınız. Sınırı veya kota varsayılan sınırı artırmak istiyorsanız, ücretsiz bir çevrimiçi müşteri destek isteği açın. Azure kapasitesi kısıtlamaları nedeniyle aşağıdaki tablolarda gösterilen üst sınırı değerini yukarıda sınırları yükseltilemez. Üst sınır sütun yok ise, kaynak sınırları ayarlanabilir sahip değil. 
 
 ## <a name="special-considerations"></a>Özel durumlar
 
 + Kota kapasitesini garanti bir kredi sınırına ' dir. Büyük ölçekli kapasite gereksinimleriniz varsa, Azure desteğine başvurun.
 
-+ Kota tüm hizmetlerde, Batch AI dışında bunlardan biri olan Azure Machine Learning, aboneliğinizdeki paylaşılır. Kota kullanımını tüm hizmetler arasında kapasite gereksinimlerinizi değerlendirirken hesaplamak emin olun.
++ Kota, aboneliklerinizde Azure Machine Learning hizmeti de dahil tüm hizmetler arasında paylaşılır. Yalnızca ayrı bir çekirdek işlem kotası kotadan olan Azure Machine Learning işlem istisnadır. Kota kullanımını tüm hizmetler arasında kapasite gereksinimlerinizi değerlendirirken hesaplamak emin olun.
 
 + Varsayılan sınırları, F, G, teklif, ücretsiz deneme, Kullandıkça Öde ve gibi Dv2 serisi gibi kategori türüne göre değişir ve benzeri.
 
@@ -46,17 +48,28 @@ Bölgesel bir toplam limiti ve ayrı ayrı uygulanır; boyutu seri (Dv2, F vb.) 
 
 Kota sınırları daha ayrıntılı ve güncel listesi için Azure genelinde kota makale onay [burada](https://docs.microsoft.com/azure/azure-subscription-service-limits#subscription-limits-1).
 
-### <a name="batch-ai-clusters"></a>Batch AI kümeleri
-Batch AI çekirdek sayısı ve bir abonelikte bölge başına izin verilen küme sayısı varsayılan bir kota sınırı yoktur. Batch AI kota VM çekirdek kotası yukarıdaki ayrıdır ve çekirdek sınırları arasında iki kaynak türleri şu anda paylaşılmaz.
+### <a name="azure-machine-learning-compute"></a>Azure Machine Learning işlem
+Azure Machine Learning işlemi için çekirdek sayısı ve bir abonelikte bölge başına izin verilen benzersiz işlem kaynaklarının sayısını varsayılan bir kota sınırı yoktur. Bu kota yukarıdaki VM çekirdek kotası ayrıdır ve çekirdek sınırları arasında iki kaynak türleri şu anda paylaşılmaz.
 
 Kullanılabilir kaynaklar:
-+ Bölge başına adanmış çekirdekler 10-24'ın varsayılan bir sınırı vardır.  Batch AI abonelik başına adanmış çekirdekler sayısı artırılabilir. Artırma seçeneklerini görüşmek için Azure desteğine başvurun.
++ Bölge başına adanmış çekirdekler 10-24'ın varsayılan bir sınırı vardır.  Abonelik başına adanmış çekirdekler sayısı artırılabilir. Artırma seçeneklerini görüşmek için Azure desteğine başvurun.
 
-+ Bölge başına düşük öncelikli çekirdekler 10-24'ın varsayılan bir sınırı vardır.  Batch AI abonelik başına düşük öncelikli çekirdek sayısı artırılabilir. Artırma seçeneklerini görüşmek için Azure desteğine başvurun.
++ Bölge başına düşük öncelikli çekirdekler 10-24'ın varsayılan bir sınırı vardır.  Abonelik başına düşük öncelikli çekirdek sayısı artırılabilir. Artırma seçeneklerini görüşmek için Azure desteğine başvurun.
 
-+ Bölge başına kümeler, varsayılan bir sınırı 20 ve 200 üst sınırına sahip. Bu sınırı aşan bir artırım talebinde bulunmak isterseniz Azure desteğine başvurun.
++ Bölge başına 100 varsayılan bir sınırı ve 200 üst sınırına sahip. Bu sınırı aşan bir artırım talebinde bulunmak isterseniz Azure desteğine başvurun.
 
-Kota sınırları daha ayrıntılı ve güncel listesi için Azure genelinde kota makale onay [burada](https://docs.microsoft.com/azure/azure-subscription-service-limits#batch-ai-limits).
++ Vardır **katı diğer sınırlamaları** hangi kullanılamaz aşıldı bir kez basın.
+
+| **Kaynak** | **Üst sınırı** |
+| --- | --- |
+| Kaynak grubu başına en fazla çalışma alanları | 800 |
+| Azure Machine Learning işlem (AmlCompute) tek bir kaynak en fazla düğüm | 100 düğüm |
+| Düğüm başına en fazla GPU MPI işler | 1-4 |
+| Düğüm başına en fazla GPU çalışanları | 1-4 |
+| En fazla iş yaşam süresi | 7 gün<sup>1</sup> |
+| Düğüm başına en fazla parametre sunucuları | 1 |
+
+<sup>1</sup> maksimum ömrü çalıştırma başlatılması ve bittiğinde saati gösterir. Tamamlanan çalıştırmalar süresiz olarak kalır; Veri maksimum yaşam süresi içinde tamamlanmamış çalıştırmalar için erişilebilir değil.
 
 ### <a name="container-instances"></a>Kapsayıcı örnekleri
 
@@ -67,32 +80,33 @@ Kota sınırları daha ayrıntılı ve güncel listesi için Azure genelinde kot
 Kota sınırları daha ayrıntılı ve güncel listesi için Azure genelinde kota makale onay [burada](https://docs.microsoft.com/azure/azure-subscription-service-limits#container-instances-limits).
 
 ### <a name="storage"></a>Depolama
-Depolama hesabı da belirli bir abonelikte bölge başına sayısına bir sınır yoktur. Varsayılan sınır 200'dür ve standart ve Premium depolama hesapları içerir. Belirli bir bölgede 200'den fazla depolama hesabı gerekiyorsa, bir istekte aracılığıyla [Azure Destek](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Azure depolama ekibi, işinizin durumunu inceler ve 250 depolama hesapları için belirli bir bölgeye kadar onaylayabilir.
+Depolama hesabı da belirli bir abonelikte bölge başına sayısına bir sınır yoktur. Varsayılan sınır 200'dür ve standart ve Premium depolama hesapları içerir. Belirli bir bölgede 200'den fazla depolama hesabı gerekiyorsa, bir istekte aracılığıyla [Azure Destek](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Azure depolama ekibi, işinizin durumunu inceler ve 250 depolama hesapları için belirli bir bölgeye kadar onaylayabilir.
 
 
 ## <a name="find-your-quotas"></a>Kotanızı Bul
 
 Sanal makineler, depolama, ağ, gibi çeşitli kaynaklar için kota görüntüleme Azure portalı üzerinden kolay bir işlemdir.
 
-1. Sol bölmeden **tüm hizmetleri** seçip **abonelikleri** genel kategori altında.
+1. Sol bölmeden **tüm hizmetleri** seçip **abonelikleri** genel kategori altında.
 
 1. Abonelikler listesinden kota aradığınız aboneliği seçin.
 
-   **Bir uyarı yok**, Batch AI kota görüntülemek için özel olarak. Yukarıda belirtildiği gibi kota aboneliğinizde işlem kotası ayrıdır. 
-   Batch AI seçtikten sonra için **tüm hizmetleri**ve aramak için Batch AI hizmeti açın.
+   **Bir uyarı yok**, özellikle Azure Machine Learning işlem kotası görüntülemek için. Yukarıda belirtildiği gibi kota aboneliğinizde işlem kotası ayrıdır. 
+   
+1. Sol bölmeden **Machine Learning hizmeti** ve ardından gösterilen listeden herhangi bir çalışma alanı seçin
 
-1. Altında **ayarları**seçin **kullanım ve kotalar** geçerli kotası ve kullanımı görüntülemek için.
+1. Sonraki dikey penceresinde, altında **destek + sorun giderme bölümüne** seçin **kullanım ve kotalar** geçerli kotası ve kullanımı görüntülemek için.
 
-1. Kota sınırları görüntülemek için aboneliğinizi seçin. Hizmet ve bölge ilgilendiğiniz filtrelemek unutmayın.
+1. Kota sınırları görüntülemek için bir abonelik seçin. İlgilendiğiniz bölgeye filtre unutmayın.
 
 
 ## <a name="request-quota-increases"></a>Kota artırımlarına iste
 
-Yukarıda belirtilen varsayılan sınırı, kotası ve sınırı artırmak istiyorsanız [bir çevrimiçi müşteri destek isteği açın](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) ücret olmadan. 
+Yukarıda belirtilen varsayılan sınırı, kotası ve sınırı artırmak istiyorsanız [bir çevrimiçi müşteri destek isteği açın](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) ücret olmadan.
 
 Sınırları, yukarıdaki tabloda gösterilen üst sınırı değeri yükseltilemez. Maksimum sınır varsa, kaynak sınırları ayarlanabilir sahip değil. [Bu](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors) makalede kota artışı işlem daha ayrıntılı ele alınmıştır.
 
-Kota artışı isteğinde bulunurken, AzureML kota, Batch AI kota ya da depolama kotası gibi hizmetleri olabilir, kotaya Yükselt isteyen hizmet seçmeniz gerekir. 
+Kota artışı isteğinde bulunurken, Machine Learning hizmeti kotası, Container Instances veya depolama kotası gibi hizmetleri olabilir, kotaya Yükselt isteyen hizmet seçmeniz gerekir. Ayrıca Azure Machine Learning işlemi için basitçe tıklayabilirsiniz **kota isteği** aşağıdaki adımları izleyerek kota görüntülerken düğmesi.
 
 > [!NOTE]
 > [Ücretsiz deneme abonelikleri](https://azure.microsoft.com/offers/ms-azr-0044p) sınırı veya kota artırma işlemleri için uygun değildir. Varsa bir [ücretsiz deneme aboneliği](https://azure.microsoft.com/offers/ms-azr-0044p), Yükseltme yapabileceğiniz bir [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) abonelik. Daha fazla bilgi için [yükseltme Azure ücretsiz denemesini Kullandıkça Öde aboneliğine](../../billing/billing-upgrade-azure-subscription.md) ve [ücretsiz deneme aboneliği SSS](https://azure.microsoft.com/free/free-account-faq).

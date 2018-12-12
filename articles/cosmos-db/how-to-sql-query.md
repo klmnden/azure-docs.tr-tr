@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5d149f26ce953efef316e68fe75bc07d1e240ae2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: 86ad385488d9661abd52a2bd1a2d561956f0cbb3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970408"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082569"
 ---
-# <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Azure Cosmos DB'den verileri sorgulamak için SQl sorgu örnekleri
+# <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Azure Cosmos DB'den verileri sorgulamak için SQL sorgu örnekleri
 
 Azure Cosmos DB SQL API hesabı bir JSON sorgu dili olarak SQL (yapılandırılmış sorgu dili) kullanarak sorgulama öğeleri destekler. Azure Cosmos DB için sorgu dili tasarlarken aşağıdaki iki hedefleri olarak kabul edilir:
 
@@ -2253,14 +2253,14 @@ Aşağıdaki örnek queryDocuments JavaScript Sunucusu API sorgularından yapmak
 ## <a id="References"></a>Başvuruları
 
 1. [Azure Cosmos DB'ye giriş][introduction]
-2. [Azure Cosmos DB SQL belirtimi](http://go.microsoft.com/fwlink/p/?LinkID=510612)
+2. [Azure Cosmos DB SQL belirtimi](https://go.microsoft.com/fwlink/p/?LinkID=510612)
 3. [Azure Cosmos DB .NET örnekleri](https://github.com/Azure/azure-cosmosdb-dotnet)
 4. [Azure Cosmos DB tutarlılık düzeyleri][consistency-levels]
-5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-6. JSON [http://json.org/](http://json.org/)
-7. JavaScript belirtimi [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9. Değerlendirme tekniklerini büyük veritabanları için sorgu [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+5. ANSI SQL 2011 [https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+6. JSON [https://json.org/](https://json.org/)
+7. JavaScript belirtimi [https://www.ecma-international.org/publications/standards/Ecma-262.htm](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+8. LINQ [https://msdn.microsoft.com/library/bb308959.aspx](https://msdn.microsoft.com/library/bb308959.aspx) 
+9. Değerlendirme tekniklerini büyük veritabanları için sorgu [https://dl.acm.org/citation.cfm?id=152611](https://dl.acm.org/citation.cfm?id=152611)
 10. Sorgu 1994 paralel ilişkisel veritabanı sistemleri, IEEE bilgisayarda topluluğu Press, işleme
 11. Lu, Ooi, Bronz, sorgu 1994 paralel ilişkisel veritabanı sistemleri, IEEE bilgisayarda topluluğu Press, işleme.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: olmayan şekilde yabancı dil için veri işleme, SIGMOD 2008.

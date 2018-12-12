@@ -1,21 +1,22 @@
 ---
-title: 'Öğretici: Soru-Cevap Oluşturma portalında bilgi bankası oluşturma, yayımlama ve soru cevaplama'
+title: Oluşturun, yayımlayın, soru-cevap oluşturucu içinde yanıt
 titleSuffix: Azure Cognitive Services
 description: Bu portal tabanlı öğretici, program aracılığıyla bilgi bankası oluşturup yayımlama ve bunu kullanarak soruları cevaplama adımlarını göstermektedir.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 10/29/2018
 ms.author: diberry
-ms.openlocfilehash: 08f708f740b90f27af5443b46c5d03bef688bd45
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 71745ee73c71aba9c6c5cd5aea3972055fbec01d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221684"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087550"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Öğretici: Soru-Cevap Oluşturma portalı aracılığıyla bilgi bankası oluşturup soruları cevaplama
 
@@ -32,7 +33,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!NOTE] 
 > Bu öğreticinin programlı sürümü, [**Azure-Samples/cognitive-services-qnamaker-csharp** Github deposunda](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base) bulunan eksiksiz çözümde mevcuttur.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğretici için var olan bir [Soru-Cevap Oluşturma hizmetini](../How-To/set-up-qnamaker-service-azure.md) kullanmanız gerekir. 
 
@@ -96,7 +97,7 @@ Bu öğretici için var olan bir [Soru-Cevap Oluşturma hizmetini](../How-To/set
 
 Bilgi bankası yayımlandıktan sonra uç nokta görüntülenir
 
-![Yayımlama](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
+![Yayımlama Sayfası uç noktası ayarları](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
 ## <a name="use-curl-to-query-for-an-faq-answer"></a>Curl kullanarak SSS cevabı sorgulama
 

@@ -7,20 +7,20 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.openlocfilehash: 49196df580aec4975a74849e8f2b36c03f6750ad
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 48879eb3ae4fc3a54d50a4e896b4a1eb94acabf9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956117"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073814"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Azure cosmos DB'de tarihlerle çalışma
-Azure Cosmos DB, şema esnekliği ve zengin dizin oluşturma yerel teslim [JSON](http://www.json.org) veri modeli. Veritabanları, kapsayıcılar, belgeler ve saklı yordamlar da dahil olmak üzere tüm Azure Cosmos DB kaynaklarını modellenir ve JSON belgeleri olarak depolanır. Şu taşınabilir için bir gereklilik olarak JSON (ve Azure Cosmos DB) temel türleri yalnızca küçük bir kümesini destekler: dize, sayı, Boole, dizi, nesne ve Null. Ancak, JSON esnektir ve geliştiriciler ve çerçeveleri kullanarak bu temelleri ve nesne veya dizi oluşturmayı daha karmaşık türleri temsil etmek izin verin. 
+Azure Cosmos DB, şema esnekliği ve zengin dizin oluşturma yerel teslim [JSON](https://www.json.org) veri modeli. Veritabanları, kapsayıcılar, belgeler ve saklı yordamlar da dahil olmak üzere tüm Azure Cosmos DB kaynaklarını modellenir ve JSON belgeleri olarak depolanır. Şu taşınabilir için bir gereklilik olarak JSON (ve Azure Cosmos DB) temel türleri yalnızca küçük bir kümesini destekler: dize, sayı, Boole, dizi, nesne ve Null. Ancak, JSON esnektir ve geliştiriciler ve çerçeveleri kullanarak bu temelleri ve nesne veya dizi oluşturmayı daha karmaşık türleri temsil etmek izin verin. 
 
 Birçok uygulama temel türlerine ek olarak, gereken [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) tarih ve zaman damgaları temsil eden tür. Bu makalede nasıl geliştiriciler depolamak, alabilir ve .NET SDK kullanarak Azure Cosmos DB tarihleri sorgu açıklanır.
 
 ## <a name="storing-datetimes"></a>Tarih/saat depolama
-Varsayılan olarak, [Azure Cosmos DB SDK'sı](sql-api-sdk-dotnet.md) DateTime değerleri olarak serileştiren [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) dizeleri. Çoğu uygulama, aşağıdaki nedenlerden dolayı DateTime için varsayılan dize gösterimi kullanabilirsiniz:
+Varsayılan olarak, [Azure Cosmos DB SDK'sı](sql-api-sdk-dotnet.md) DateTime değerleri olarak serileştiren [ISO 8601](https://www.iso.org/iso/catalogue_detail?csnumber=40874) dizeleri. Çoğu uygulama, aşağıdaki nedenlerden dolayı DateTime için varsayılan dize gösterimi kullanabilirsiniz:
 
 * Dizeleri karşılaştırma ve dizelere dönüştürülür, DateTime değerlerini göreli sıralamasını korunur. 
 * Bu yaklaşım, herhangi bir özel kod veya öznitelikleri için JSON dönüştürme gerektirmez.

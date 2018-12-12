@@ -1,27 +1,28 @@
 ---
-title: Node.js Hızlı Başlangıç - modeli değiştirme ve LUIS uygulamasını eğitme
+title: Değiştirmek için uygulama, Node.js eğitin
 titleSuffix: Azure Cognitive Services
-description: Bu Node.js hızlı başlangıcında, bir Ev Otomasyonu uygulamasına örnek konuşmalar ekleyip uygulamayı eğitin. Örnek konuşmalar, bir amaçla eşleşmiş kullanıcı konuşma metinleridir. Amaçlar için örnek konuşmalar sağlayarak, LUIS’e kullanıcı tarafından sağlanan hangi tür metinlerin hangi amaca ait olduğunu öğretirsiniz.
+description: Bu Node.js hızlı başlangıcında, bir Ev Otomasyonu uygulamasına örnek konuşmalar ekleyip uygulamayı eğitin.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a487f44e164830928367d9f6ea737e793e38c0a8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 048579aa6d22144b9de8129042ab9fd2a36d4d00
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036159"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092698"
 ---
 # <a name="quickstart-change-model-using-nodejs"></a>Hızlı Başlangıç: Node.js kullanarak model değiştirme
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * En son [**Node.js**](https://nodejs.org/en/download/) ve NPM.
@@ -78,7 +79,7 @@ Uygulamayı Node.js ile komut satırından çalıştırın.
 
 `npm start` komutunu çağırmak konuşmaları ekler, eğitir ve eğitim durumunu alır.
 
-```CMD
+```console
 > npm start 
 ```
 

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: juliako
-ms.openlocfilehash: 6b0ef646ba9ea535038f181ebfff5bf7639afdf8
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5cc670a94958b123ac71b49cbf25661d567e4629
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633631"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083420"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Media Services REST API'si ile filtre oluşturma
 
@@ -32,7 +32,7 @@ Bu konu başlığı altında açıklanan adımları tamamlamak için için gerek
 
 - Gözden geçirme [filtreleri ve dinamik bildirimlere](filters-dynamic-manifest-overview.md).
 - [Bir Media Services hesabı oluşturma](create-account-cli-how-to.md). Kaynak grubu adı ve Media Services hesap adını hatırlamak emin olun. 
-- [Azure Media Services REST API çağrıları için Postman'ı yapılandırma](media-rest-apis-with-postman.md)/
+- [Azure Media Services REST API çağrıları için Postman yapılandırma](media-rest-apis-with-postman.md).
 
 ## <a name="define-a-filter"></a>Bir filtre tanımlar  
 

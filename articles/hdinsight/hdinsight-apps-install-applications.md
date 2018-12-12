@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e1a6b453bb92ca57a1c9be9bff958ac0780ea12e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 47a634ca1c4e904cc1054db3a834483489ade0ec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498034"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093565"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight üzerinde üçüncü taraf Apache Hadoop uygulamaları yükleme
 
@@ -29,7 +29,7 @@ Aşağıdaki liste, yayımlanan uygulamalara gösterir:
 * **HDInsight üzerinde DATAIKU DDS** için prototip oluşturma, veri uzmanları oluşturmanızı ve ham verileri etkili iş tahminlerine dönüştüren yüksek oranda ayrıntılı hizmetler dağıtmanızı sağlar.
 * **Datameer** hazırlama, bir Self Servis ölçeklenebilir platformu keşfetme, ve analiz için verilerinizi düzenleyen hızlandırır karmaşık çok kaynaklı veri değerli çalışma ortamına hazır bilgi, daha hızlı ve daha akıllı içgörüler sunan, oturum açma bir Kurumsal ölçekte.
 * **HDInsight (Beta) için yapay zeka H2O** H2O Sparkling Water aşağıdaki dağıtılmış algoritmaları destekler: GLM, Naïve Bayes, dağıtılmış rasgele orman, gradyan geliştirme makinesi, derin sinir ağları, derin öğrenme, K-ortalamaları PCA, Genelleştirilmiş düşük derecelendirme modelleri, Anomali algılama ve Autoencoders.
-* **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) Apache Kylin ve Apache Hadoop tarafından desteklenen bir kurumsal kullanıma hazır veri ambarı; subsecond sağlar gecikme süresi çok büyük ölçekli veri kümesinde sorgu ve veri analizi için basitleştirir İş kullanıcıları ve analistleri. 
+* **Kyligence Kurumsal**, Apache Kylin tarafından desteklenen, anlık Öngörüler, iş kullanıcıları ve veri analistleri için çok büyük veri kümelerinde getirir. Modern makine öğrenimi teknolojisi ve akıllı veri işlevselliği modelleme, büyük veri analizi verimliliğini önemli ölçüde artırır. 
 * **Paxata Self Servis veri hazırlama**
 * **Spark iş sunucusu KNIME Spark Yürütücü için** KNIME Spark Yürütücü için Spark iş sunucusu KNIME analiz platformu HDInsight kümelerine bağlanmak için kullanılır.
 * **Yıldız Yağmuru Presto** Presto bir hızlı ve ölçeklenebilir dağıtılmış SQL sorgu alt yapısıdır. Depolama ve işlem ayrımı için tasarlanmış, Presto Azure Data Lake Storage, Azure Blob Depolama, SQL ve NoSQL veritabanları ve diğer veri kaynaklarından veri sorgulamak için idealdir.

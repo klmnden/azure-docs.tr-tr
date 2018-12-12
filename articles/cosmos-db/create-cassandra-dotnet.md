@@ -10,12 +10,12 @@ ms.custom: quick start connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 3708027b766ff9070831dd3677e821565e0dd4fa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 50c2362e961d882afc109a0554303d364d52384b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994964"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089441"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>Hızlı Başlangıç: .NET ve Azure Cosmos DB ile Cassandra uygulaması derleme
 
@@ -30,7 +30,7 @@ Bu hızlı başlangıçta GitHub’dan bir örneği kopyalayarak bir profil uygu
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, tablo, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatif olarak, [Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)’yi ücretsiz olarak, Azure aboneliği olmadan ve herhangi bir taahhütte bulunmadan deneyebilirsiniz.
 
@@ -96,7 +96,7 @@ Bu adım isteğe bağlıdır. Kodun veritabanı kaynaklarını nasıl oluşturdu
 * Uprofile anahtar alanına bağlanan yeni bir oturum ile IMapper nesnesini kullanarak kullanıcı varlıkları ekleyin.
 
     ```csharp
-    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
+    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
     ```
     
 * Tüm kullanıcıların bilgilerini almak için sorgulayın.
@@ -118,7 +118,7 @@ Bu adım isteğe bağlıdır. Kodun veritabanı kaynaklarını nasıl oluşturdu
 
 Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin. Bağlantı dizesi bilgileri, uygulamanızın barındırılan veritabanıyla iletişim kurmasına olanak tanır.
 
-1. [Azure portalında](http://portal.azure.com/) **Bağlantı Dizesi**’ni seçin.
+1. [Azure portalında](https://portal.azure.com/) **Bağlantı Dizesi**’ni seçin.
 
     En üstteki USERNAME değerini kopyalamak için ekranın sağ tarafındaki ![Kopyala düğmesini](./media/create-cassandra-dotnet/copy.png) kullanın.
 

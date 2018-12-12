@@ -1,6 +1,6 @@
 ---
-title: Kullanıcı profili ve Azure not defterleri ile kullanmak için kodu | Microsoft Docs
-description: Oluşturma ve profili ve kullanıcı Kimliğinizi Azure not defterleri ile yönetme
+title: Kullanıcı profili ve Azure not defterleri ile kullanmak için kimliği
+description: Kullanıcı profili ve Azure not defterleri ile kullanıcı Kimliğini oluşturmak ve yönetmek nasıl.
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: e41b75eb361d8b693895ea9889ee8fc90a39d4bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b1010b5376a26a4d33c026be27ce363959954ca2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52857068"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078880"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Azure not defterleri için profil ve kullanıcı kimliği
 
@@ -26,15 +26,13 @@ Azure not defterleri, güçlü, işbirliğine dayalı alanı içinde kullanıcı
 
 [![](media/accounts/profile-page.png "Bir Azure not defterleri profil sayfası")](media/accounts/profile-page.png#lightbox)
 
-Kullanıcı Kimliğinizi, projeleri ve Not Defterleri paylaşmak için kullandığınız URL'leri bir parçasıdır:
+Kullanıcı Kimliğinizi, projeleri ve Not Defterleri paylaşmak için kullandığınız URL'leri bir parçasıdır. Aşağıdaki listede, farklı bir URL desenleri açıklar:
 
-| URL'si | Bağlantı hedefi |
-| --- | --- |
-| `https://notebooks.azure.com/<user_id>` | Profil sayfanızı. |
-| `https://notebooks.azure.com/<user_id>/projects` | Projelerinizi. Tüm projeler görürsünüz; diğer kullanıcılar yalnızca ortak projelerinizi bakın. |
-| `https://notebooks.azure.com/<user_id>/projects/<project_id>` | Proje dosyaları. |
-| `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones` | Belirli bir proje kopyalar. |
-| `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb` | Belirli bir not defteri veya dosya HTML önizlemesi. |
+- `https://notebooks.azure.com/<user_id>`: Profil sayfanızı.
+- `https://notebooks.azure.com/<user_id>/projects`: Uygulamanızın proje. Tüm projeler görürsünüz; diğer kullanıcılar yalnızca ortak projelerinizi bakın.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>`: Proje dosyaları.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: Belirli proje kopyalar.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: Belirli bir not defteri veya dosya HTML önizlemesi.
 
 ## <a name="your-user-id"></a>Kullanıcı Kimliğiniz
 

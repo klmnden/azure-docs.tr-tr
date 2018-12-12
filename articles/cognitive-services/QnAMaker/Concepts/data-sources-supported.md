@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: ee88c8dca1521f4cdc2e3ea141d5c1d497061bb4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 71b0739bacd8df586267b61a9135f448aa76479d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422363"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082246"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Veri kaynakları için soru-cevap Oluşturucu içeriği
 
@@ -44,7 +44,7 @@ Bu SSS sayfası, yanıtları aynı sayfada sorular hemen izleyin, en yaygın tü
 
 Düz bir SSS sayfasının bir örneği aşağıda verilmiştir:
 
-![Düz SSS sayfası](../media/qnamaker-concepts-datasources/plain-faq.png) 
+![Bilgi Bankası için düz SSS sayfası örneği](../media/qnamaker-concepts-datasources/plain-faq.png) 
 
  
 ### <a name="faq-pages-with-links"></a>Bağlantılar hakkında SSS sayfaları 
@@ -53,7 +53,7 @@ Bu tür bir SSS sayfasını, sorular birlikte toplanır ve aynı sayfa farklı b
 
 SSS sayfası aynı sayfada bölümlerde bağlantılarla birlikte bir örnek aşağıda verilmiştir:
 
- ![Bölüm bağlantı SSS sayfasını](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
+ ![Bilgi Bankası için bölüm bağlantı SSS sayfası örneği](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
 
 
 ### <a name="faq-pages-with-a-topics-homepage"></a>SSS sayfaları konuları giriş sayfası
@@ -62,7 +62,7 @@ Bu tür bir SSS, her konunun farklı sayfasında, ilgili Bankalarıyla bağlant�
 
 Aşağıdaki konular giriş sayfası bağlantıları için farklı sayfalara SSS bölümlerinde sahip olduğu bir SSS sayfasında örneğidir. 
 
- ![Ayrıntılı bağlantı SSS sayfası](../media/qnamaker-concepts-datasources/topics-faq.png) 
+ ![Bilgi Bankası için ayrıntılı bağlantı SSS sayfası örneği](../media/qnamaker-concepts-datasources/topics-faq.png) 
 
 
 ## <a name="pdf-doc-files"></a>PDF / DOC dosyaları
@@ -77,7 +77,7 @@ El ile genellikle bir ürünle birlikte verilen yönergeleri malzeme oluşur. Bu
 
 El ile bir dizin sayfası ve hiyerarşik içerik ilişkin bir örnek aşağıda verilmiştir
 
- ![Ürün el ile örnek](../media/qnamaker-concepts-datasources/product-manual.png) 
+ ![Ürün el ile Bilgi Bankası Örneğin](../media/qnamaker-concepts-datasources/product-manual.png) 
 
 > [!NOTE]
 > Ayıklama içeriğini ve/veya dizin sayfası ve açık bir yapı hiyerarşik başlıklara sahip bir tablosu kılavuzları en iyi şekilde çalışır.
@@ -106,7 +106,7 @@ Answer2
 
 Yapılandırılmış bir soru-cevap word belgesinin bir örnek aşağıda verilmiştir:
 
- ![Yapılandırılmış soru-cevap belge](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
+ ![Bilgi Bankası için yapılandırılmış soru-cevap belge örneği](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
 
 ## <a name="structured-txt-tsv-and-xls-files"></a>Yapılandırılmış *TXT*, *TSV* ve *XLS* dosyaları
 
@@ -121,7 +121,7 @@ Kaynak dosyadaki ek sütunlar göz ardı edilir.
 
 Yapılandırılmış bir soru-cevap örneği aşağıdadır *.xls* dosyasıyla HTML içeriği:
 
- ![Yapılandırılmış bir soru-cevap excel](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+ ![Yapılandırılmış bir soru-cevap, örnek bir Bilgi Bankası için excel](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
 ## <a name="structured-data-format-through-import"></a>İçeri aktarma ile yapılandırılmış veri biçimi
 

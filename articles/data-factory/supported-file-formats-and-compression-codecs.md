@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 6cab6559cb38b7d6d1dc2105b694acbcac85108c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: 217af96f23ad048ff4bb8a0bbb4902b3af16f21a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262055"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868336"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Desteklenen dosya biçimleri ve Azure Data factory'de sıkıştırma codec bileşenleri
 
@@ -210,7 +210,7 @@ Bu örnekte, bir kök JSON nesnesinin tablosal sonuçtaki tek bir kayıtla eşle
                     "TargetResourceType": "Microsoft.Compute/virtualMachines"
                 },
                 {
-                    "ResourceManagmentProcessRunId": "827f8aaa-ab72-437c-ba48-d8917a7336a3"
+                    "ResourceManagementProcessRunId": "827f8aaa-ab72-437c-ba48-d8917a7336a3"
                 },
                 {
                     "OccurrenceTime": "1/13/2017 11:24:37 AM"
@@ -223,7 +223,7 @@ Bu örnekte, bir kök JSON nesnesinin tablosal sonuçtaki tek bir kayıtla eşle
 
 ve hem nesne hem de diziden veri ayıklayarak bir Azure SQL tablosuna aşağıdaki biçimde kopyalamak istersiniz:
 
-| Kimlik | deviceType | targetResourceType | resourceManagmentProcessRunId | occurrenceTime |
+| Kimlik | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
@@ -248,7 +248,7 @@ ve hem nesne hem de diziden veri ayıklayarak bir Azure SQL tablosuna aşağıda
             "type": "String"
         },
         {
-            "name": "resourceManagmentProcessRunId",
+            "name": "resourceManagementProcessRunId",
             "type": "String"
         },
         {
@@ -261,7 +261,7 @@ ve hem nesne hem de diziden veri ayıklayarak bir Azure SQL tablosuna aşağıda
         "format": {
             "type": "JsonFormat",
             "filePattern": "setOfObjects",
-            "jsonPathDefinition": {"id": "$.id", "deviceType": "$.context.device.type", "targetResourceType": "$.context.custom.dimensions[0].TargetResourceType", "resourceManagmentProcessRunId": "$.context.custom.dimensions[1].ResourceManagmentProcessRunId", "occurrenceTime": " $.context.custom.dimensions[2].OccurrenceTime"}
+            "jsonPathDefinition": {"id": "$.id", "deviceType": "$.context.device.type", "targetResourceType": "$.context.custom.dimensions[0].TargetResourceType", "resourceManagementProcessRunId": "$.context.custom.dimensions[1].ResourceManagementProcessRunId", "occurrenceTime": " $.context.custom.dimensions[2].OccurrenceTime"}
         }
     }
 }

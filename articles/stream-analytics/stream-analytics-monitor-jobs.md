@@ -1,6 +1,6 @@
 ---
-title: İzleme ve Azure akış analizi işi programlı olarak yönetme
-description: Bu makalede, program aracılığıyla REST API'leri, Azure SDK'sı veya PowerShell oluşturulan akış analizi işleri izlemek açıklar.
+title: İzleme ve Azure Stream Analytics işleri programlama yoluyla yönetme
+description: Bu makalede, Stream Analytics işleri REST API'leri, Azure SDK veya PowerShell oluşturulan program aracılığıyla izlemek açıklar.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -9,38 +9,38 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 2688f148185b1c1523178d190a7a2a76e6ceabef
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fac56117c4c70e2735580abb52d05e008d660003
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30908794"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089429"
 ---
-# <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Program aracılığıyla bir akış analizi işi İzleyicisi oluşturma
+# <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Program aracılığıyla bir Stream Analytics işi İzleyicisi oluşturma
 
-Bu makalede, Stream Analytics işi için izlemeyi etkinleştirmek gösterilmiştir. REST API'leri, Azure SDK'sı veya PowerShell oluşturulan stream Analytics işlerini izleme varsayılan olarak etkin gerekmez. El ile Azure portalında iş İzleyici sayfasına giderek ve etkinleştir düğmesine tıkladığınızda etkinleştirebilirsiniz veya bu makaledeki adımları izleyerek bu işlemi otomatikleştirebilirsiniz. İzleme verilerini Stream Analytics işiniz için Azure portal, ölçümleri alanında görünecektir.
+Bu makalede, bir Stream Analytics işi için izlemeyi etkinleştirmek gösterilmektedir. REST API'leri, Azure SDK veya PowerShell oluşturulan bir Stream Analytics işlerini izleme varsayılan olarak etkin yok. El ile Azure portalında iş izleme sayfasına giderek ve etkinleştir düğmesine tıklayarak etkinleştirebilmeniz için veya bu makaledeki adımları izleyerek bu işlemi otomatikleştirebilirsiniz. İzleme verilerini, Azure portalını kullanarak Stream Analytics işine ilişkin ölçümleri alanında gösterilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu işlem başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 * Visual Studio 2017 veya 2015
-* [Azure .NET SDK'sı](https://azure.microsoft.com/downloads/) indirilir ve yüklenir
-* İzleme etkin olması gerekiyorsa var olan bir akış analizi işi
+* [Azure .NET SDK'sı](https://azure.microsoft.com/downloads/) indirilmesi ve yüklenmesi
+* İzleme etkin olmasını gerektiren var olan bir Stream Analytics işi
 
 ## <a name="create-a-project"></a>Proje oluşturma
 
 1. Visual Studio C# .NET konsol uygulaması oluşturun.
-2. Paket Yöneticisi Konsolu'nda NuGet paketlerini yüklemek için aşağıdaki komutları çalıştırın. İlk Azure Stream Analytics yönetimi .NET SDK ' dir. İzlemeyi etkinleştirmek için kullanılan Azure İzleyici SDK'sı ikinci adrestir. Bir kimlik doğrulaması için kullanılacak Azure Active Directory istemcidir.
+2. Paket Yöneticisi Konsolu'nda NuGet paketlerini yüklemek için aşağıdaki komutları çalıştırın. Azure Stream Analytics yönetim .NET SDK'sı ilk hesaptır. İkinci izlemeyi etkinleştirmek için kullanılan Azure İzleyici SDK'sı olur. Son kimlik doğrulaması için kullanılacak Azure Active Directory istemcisidir.
    
-   ```
+   ```powershell
    Install-Package Microsoft.Azure.Management.StreamAnalytics
    Install-Package Microsoft.Azure.Insights -Pre
    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
    ```
-3. Aşağıdaki appSettings bölümünü App.config dosyasına ekleyin.
+3. App.config dosyasına aşağıdaki appSettings bölümünü ekleyin.
    
-   ```
+   ```csharp
    <appSettings>
      <!--CSM Prod related values-->
      <add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
@@ -55,14 +55,14 @@ Bu işlem başlamadan önce aşağıdakilere sahip olmanız gerekir:
      <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
    </appSettings>
    ```
-   İçin değerleri *Subscriptionıd* ve *ActiveDirectoryTenantId* Azure aboneliği ve Kiracı kimlikleri. Aşağıdaki PowerShell cmdlet'ini çalıştırarak bu değerleri alabilirsiniz:
+   Değerleri Değiştir *Subscriptionıd* ve *ActiveDirectoryTenantId* Azure abonelik ve Kiracı kimliklerine sahip. Aşağıdaki PowerShell cmdlet'ini çalıştırarak bu değerleri alabilirsiniz:
    
-   ```
+   ```powershell
    Get-AzureAccount
    ```
-4. Aşağıdaki using deyimlerini projenin kaynak dosyasında (Program.cs).
+4. Aşağıdaki using deyimlerini projedeki kaynak dosyasına (Program.cs).
    
-   ```
+   ```csharp
      using System;
      using System.Configuration;
      using System.Threading;
@@ -73,9 +73,10 @@ Bu işlem başlamadan önce aşağıdakilere sahip olmanız gerekir:
      using Microsoft.Azure.Management.StreamAnalytics.Models;
      using Microsoft.IdentityModel.Clients.ActiveDirectory;
    ```
-5. Bir kimlik doğrulama yardımcı yöntemi ekleyin.
-   
-     ortak statik dizesi GetAuthorizationHeader()
+5. Bir kimlik doğrulama Yardımcısını yöntemi ekleyin.
+
+```csharp   
+     public static string GetAuthorizationHeader()
    
          {
              AuthenticationResult result = null;
@@ -111,11 +112,13 @@ Bu işlem başlamadan önce aşağıdakilere sahip olmanız gerekir:
    
              throw new InvalidOperationException("Failed to acquire token");
      }
+```
 
 ## <a name="create-management-clients"></a>Yönetim istemcileri oluşturma
 
-Aşağıdaki kod, gerekli değişkenleri ve yönetim istemcilerin ayarlarsınız.
+Aşağıdaki kod gereken değişkenleri ve yönetim istemcilerin ayarlar.
 
+```csharp
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
     string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
 
@@ -133,22 +136,23 @@ Aşağıdaki kod, gerekli değişkenleri ve yönetim istemcilerin ayarlarsınız
     StreamAnalyticsManagementClient(aadTokenCredentials, resourceManagerUri);
     InsightsManagementClient insightsClient = new
     InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
+```
 
-## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Var olan bir akış analizi işi için izlemeyi etkinleştir
+## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Var olan bir Stream Analytics işi için izlemeyi etkinleştir
 
-Aşağıdaki kod için izlemeyi etkinleştirir bir **varolan** Stream Analytics işi. İlk kod parçası, belirli Stream Analytics işi hakkında bilgi almak için GET isteğini Stream Analytics Hizmeti'ne karşı gerçekleştirir. Kullandığı *kimliği* Put yöntemi PUT gönderir kod yarısı isteği Öngörüler hizmeti Stream Analytics işi için izlemeyi etkinleştirmek için ikinci bir parametre olarak özellik (GET isteği alındı).
+Aşağıdaki kod etkinleştirir için izleme bir **mevcut** Stream Analytics işi. Kodun ilk bölümünü belirli bir Stream Analytics işi hakkında bilgi almak için Stream Analytics hizmetinde bir GET isteği yapar. Kullandığı *kimliği* (GET istekten alınan) özelliği için Put yöntemini PUT gönderir kod yarısını istek Insights hizmeti için Stream Analytics işi için izlemeyi etkinleştirmek için ikinci bir parametre olarak.
 
 >[!WARNING]
->Daha önce farklı Stream Analytics işi, Azure Portalı aracılığıyla ya da program aracılığıyla yoluyla için izleme etkinleştirdiyseniz, kod, aşağıda **olduğunda kullanılabilir depolama hesabı adı sağlamanızı öneririz, daha önce izleme etkin.**
+>Daha önce farklı Stream Analytics işi, Azure portalından veya programlama aracılığıyla için izleme etkinleştirdiyseniz, kod, aşağıda **olduğunda kullanılan aynı depolama hesabı adını sağlamanızı öneririz, daha önce izleme etkin.**
 > 
-> Depolama hesabı bölgesine Stream Analytics işiniz oluşturduğunuz, iş için özel olarak bağlanır.
+> Depolama hesabı bölgeye, Stream Analytics işinizi oluşturduğunuz, iş için özel olarak bağlanır.
 > 
-> Tüm Stream Analytics işleri (ve tüm diğer Azure kaynakları) aynı bölgede paylaşmak izleme verilerini depolamak için bu depolama hesabı. Farklı bir depolama hesabı belirtirseniz, bu, bir akış analizi işleri veya diğer Azure kaynaklarına izlemede istenmeyen yan etkileri neden olabilir.
+> Tüm Stream Analytics işleri (ve diğer Azure kaynakları) aynı bölgede paylaşmak izleme verilerini depolamak için bu depolama hesabı. Farklı bir depolama hesabı sağlarsanız, bu, bir Stream Analytics işleri veya diğer Azure kaynakları izlemesini istenmeyen yan etkilere neden olabilir.
 > 
-> Değiştirmek için kullandığınız depolama hesabı adı `<YOUR STORAGE ACCOUNT NAME>` aşağıdaki kodda için izlemeyi etkinleştirme Stream Analytics işi ile aynı abonelikte olduğundan bir depolama hesabı olmalıdır.
+> Depolama hesabı adını değiştirmek için kullandığınız `<YOUR STORAGE ACCOUNT NAME>` aşağıdaki kodda için izlemeyi etkinleştirme Stream Analytics işiyle aynı Abonelikteki bir depolama hesabı olmalıdır.
 > 
 > 
-
+```csharp
     // Get an existing Stream Analytics job
     JobGetParameters jobGetParameters = new JobGetParameters()
     {
@@ -165,7 +169,7 @@ Aşağıdaki kod için izlemeyi etkinleştirir bir **varolan** Stream Analytics 
             }
     };
     insightsClient.ServiceDiagnosticSettingsOperations.Put(jobGetResponse.Job.Id, insightPutParameters);
-
+```
 
 
 ## <a name="get-support"></a>Destek alın
@@ -174,7 +178,7 @@ Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)
+* [Azure Stream analytics'e giriş](stream-analytics-introduction.md)
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
 * [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
 * [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)

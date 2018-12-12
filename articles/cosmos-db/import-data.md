@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: e3968155c2619b5d6b09b68a59ff01607c45fa2b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 57c70716ac0e3156440d4a602704cb0ac2e30130
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843555"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091178"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Verilerinizi Azure Cosmos DB'ye geçirmek için Veri geçişi aracını kullanma
 
@@ -198,7 +198,7 @@ SQL kaynağına benzer şekilde, içeri aktarma sırasında hiyerarşik ilişkil
 
 DomainInfo.Domain_Name ve RedirectInfo.Redirecting gibi diğer adlara dikkat edin. İç içe geçirme ayırıcısı olarak '.' öğesi belirtildiğinde içeri aktarma aracı içeri aktarma sırasında DomainInfo ve RedirectInfo alt belgelerini oluşturur. Aşağıda, Azure Cosmos DB’de elde edilen bir belge örneği verilmiştir:
 
-*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "https://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
 İçeri aktarma Aracı (tırnak içine alınmış değerler her zaman dize olarak kabul edilir), tırnak işareti olmayan değerleri CSV dosyaları için tür bilgilerini çıkarmasına dener.  Türler şu sırayla tanımlanır: sayı, tarih saat, boole.  
 

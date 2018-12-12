@@ -1,7 +1,8 @@
 ---
-title: 'Öğretici 4: Bağlamla ilgili veriler için desen rolleri'
+title: Desen rolleri
 titleSuffix: Azure Cognitive Services
 description: İyi biçimlendirilmiş konuşma şablonundan veri ayıklamak için desen kullanın. Konuşma şablonu basit bir varlığın yanı sıra kaynak konum ve hedef konum gibi ilgili verileri ayıklamak için roller kullanır.
+ms.custom: seodec18
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d13d77fdb741f7f7cf16e3d25c755f4363e56f93
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b6d800705509edc31b410d1e9cd30f8b53702010
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427497"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094415"
 ---
 # <a name="tutorial-4-extract-contextually-related-patterns"></a>Öğretici 4: Bağlamsal olarak ilişkili desenleri ayıklama
 
@@ -128,7 +129,7 @@ Bu bölümdeki adımlara başlamadan önceden oluşturulmuş keyPhrase varlığ�
 
 2. Adres çubuğundaki URL'nin sonuna gidip `Move Wayne Berry from Miami to Mount Vernon` yazın. Son sorgu dizesi parametresi ifade **s**orgusu olan `q` öğesidir. 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Newark to Columbus",
       "topScoringIntent": {
@@ -258,7 +259,7 @@ Kişi adları gibi şehir adları da farklı sözcükler ve noktalama işaretler
 
 2. Adres çubuğundaki URL'nin sonuna gidip `Move wayne berry from miami to mount vernon` yazın. Son sorgu dizesi parametresi ifade **s**orgusu olan `q` öğesidir. 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Miami to Mount Vernon",
       "topScoringIntent": {

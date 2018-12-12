@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: c556571e62f6689834f6849dd9b8af0b90ee7539
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5587d86cb4b3a213961ce46e77c75e947de2d29e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843300"
+ms.locfileid: "52866381"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Kurtarma planlarına Azure Otomasyonu runbook'ları ekleme
 Bu makalede, Azure Site Recovery kurtarma planlarınızı genişletmek amacıyla Azure Otomasyonu ile nasıl tümleştirildiğini açıklar. Kurtarma planları, Site Recovery ile korunan Vm'leri kurtarma düzenleyebilirsiniz. Kurtarma planları, çoğaltma için ikincil bir Bulutu hem Azure'a çoğaltma için çalışır. Kurtarma planları da yardımcı olun kurtarma **tutarlı bir şekilde doğru**, **tekrarlanabilir**, ve **otomatik**. Azure Otomasyonu ile tümleştirme, sanal makinelerinizin azure'a yük devretme durumunda kurtarma planlarınızı genişletir. Güçlü otomasyon görevleri sunan runbook'ları çalıştırmak için kullanabilirsiniz.
@@ -213,7 +213,7 @@ Aşağıdaki örnekte, size yeni bir teknik kullanın ve oluşturma bir [karmaş
 4. Runbook'unuza bu değişkeni kullanın. Belirtilen VM GUID'sine kurtarma planı bağlamda bulunursa, NSG VM üzerinde geçerlidir:
 
     ```
-    $VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
+    $VMDetailsObj = (Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName).ToObject([hashtable])
     ```
 
 4. Runbook'unuzda, kurtarma planı bağlamı VM'ler arasında döngü. Sanal Makinenin var olup olmadığını denetleyin **$VMDetailsObj**. Varsa, erişim NSG'yi uygulamak için değişkenin özellikleri:
@@ -223,13 +223,13 @@ Aşağıdaki örnekte, size yeni bir teknik kullanın ve oluşturma bir [karmaş
         $vmMap = $RecoveryPlanContext.VmMap
 
         foreach($VMID in $VMinfo) {
-            Write-output $VMDetailsObj.value.$VMID
-
-            if ($VMDetailsObj.value.$VMID -ne $Null) { #If the VM exists in the context, this will not b Null
+            $VMDetails = $VMDetailsObj[$VMID].ToObject([hashtable]);
+            Write-output $VMDetails
+            if ($VMDetails -ne $Null) { #If the VM exists in the context, this will not be Null
                 $VM = $vmMap.$VMID
                 # Access the properties of the variable
-                $NSGname = $VMDetailsObj.value.$VMID.'NSGName'
-                $NSGRGname = $VMDetailsObj.value.$VMID.'NSGResourceGroupName'
+                $NSGname = $VMDetails.NSGName
+                $NSGRGname = $VMDetails.NSGResourceGroupName
 
                 # Add code to apply the NSG properties to the VM
             }

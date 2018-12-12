@@ -1,10 +1,8 @@
 ---
-title: 'Azure Cosmos DB: SQL Java API, SDK ve kaynakları | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL Java API, SDK ve kaynakları'
 description: Tüm SQL Java API ve yayın tarihleri, sona erme tarihlerini ve her bir Azure Cosmos DB SQL Java SDK'sı sürümü arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin.
 services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
@@ -12,12 +10,12 @@ ms.topic: reference
 ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4a1be3b948ca5571972179e08ba8b85657b0bb8d
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a2a701f86b922924a7568cc1d906d7a3c6b1fdc9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725174"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096868"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API'si için Azure Cosmos DB Java SDK: yayın notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -38,7 +36,7 @@ SQL API Java SDK'sı, zaman uyumlu işlemler destekler. Zaman uyumsuz desteği k
 
 <table>
 
-<tr><td>**SDK'sını indirme**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
+<tr><td>**SDK'sını indirme**</td><td>[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
 
 <tr><td>**API belgeleri**</td><td>[Java API başvuru belgeleri](/java/api/com.microsoft.azure.documentdb)</td></tr>
 

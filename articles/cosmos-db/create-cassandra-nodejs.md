@@ -10,12 +10,12 @@ ms.custom: quick start connect, mvc
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: e7b4bc51ab71fa1043afdab019d27fd089d0356c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a0223547f7ccac9a1fd43776440319b436193d3a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980092"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088689"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Hızlı Başlangıç: Node.js ve Azure Cosmos DB ile Cassandra uygulaması oluşturma
 
@@ -30,13 +30,13 @@ Bu hızlı başlangıçta GitHub’dan bir örneği kopyalayarak bir profil uygu
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, tablo, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatif olarak, [Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)’yi ücretsiz olarak, Azure aboneliği olmadan ve herhangi bir taahhütte bulunmadan deneyebilirsiniz.
 
 Ayrıca, şunlar gerekir:
 * [Node.js](https://nodejs.org/en/) sürüm v0.10.29 veya üzeri
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
@@ -158,7 +158,7 @@ Bu adım isteğe bağlıdır. Kodun veritabanı kaynaklarını nasıl oluşturdu
 
 Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin. Bağlantı dizesi, uygulamanızın barındırılan veritabanıyla iletişim kurmasına olanak tanır.
 
-1. [Azure portalında](http://portal.azure.com/) **Bağlantı Dizesi**’ni seçin. 
+1. [Azure portalında](https://portal.azure.com/) **Bağlantı Dizesi**’ni seçin. 
 
     En üstteki USERNAME değerini kopyalamak için ekranın sağ tarafındaki ![Kopyala düğmesini](./media/create-cassandra-nodejs/copy.png) düğmesini kullanın.
 

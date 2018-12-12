@@ -1,5 +1,5 @@
 ---
-title: Bir Azure not defterleri projesi ile özel bir ortam oluşturun | Microsoft Docs
+title: Bir Azure not defterleri projesi ile özel bir ortam oluşturun
 description: Yüklü paketleri başlatma komut dosyaları ve belirli bir kümesi ile yapılandırılmış bir Azure not defterlerinde yeni bir proje oluşturun.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 48579f797d0ff94a86fdbb25fa1fc814f63d7788
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9e5f4d6f2086048e428f313bc49cc6f599ee1bec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52857031"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085340"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>Hızlı Başlangıç: özel bir ortamla bir proje oluşturma
 

@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge Node.js öğreticisi | Microsoft Docs
+title: Öğretici, Azure IOT Edge özel Node.js modülünü - oluşturma | Microsoft Docs
 description: Bu öğreticide Node.js koduyla IoT Edge modülü oluşturma ve bir Edge cihazına dağıtma adımları gösterilmektedir
 services: iot-edge
 author: shizn
@@ -8,13 +8,13 @@ ms.author: xshi
 ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 12ba0ba4addd882d82007df34b79d5f13f6b1ec6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: mvc, seodec18
+ms.openlocfilehash: f471079d68c1dc8d58ebddb5321a4bbdf4e741d0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309581"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094976"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Öğretici: Node.js IoT Edge modülü geliştirme ve sanal cihazınıza dağıtma
 

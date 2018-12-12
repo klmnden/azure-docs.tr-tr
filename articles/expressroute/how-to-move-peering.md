@@ -1,33 +1,23 @@
 ---
-title: Microsoft eşlemesi için eşleme, genel bir Azure ExpressRoute Taşı | Microsoft Docs
+title: Ortak eşleme Microsoft'a taşıma eşleme - Azure ExpressRoute | Microsoft Docs
 description: Bu makalede ExpressRoute eşlemesi, genel eşleme Microsoft'a taşıma adımları gösterilmektedir.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 579f8874459004ef6bfa0d0794ab09333e053acb
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 6b2bce6b488698db0a72c9a17f67c2555c6afa5b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966134"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100030"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Microsoft eşlemesi için genel eşleme Taşı
 
-ExpressRoute, Azure depolama ve Azure SQL Veritabanı gibi Azure PaaS hizmetleri için rota filtreleriyle Microsoft eşlemesinin kullanılmasını sağlar. Artık Microsoft PaaS ve SaaS hizmetlerine erişmek için tek bir yönlendirme etki alanına ihtiyacınız vardır. Kullanmak istediğiniz Azure bölgeleri için PaaS hizmeti ön eklerini tanıtmak için rota filtreleri kullanabilirsiniz.
-
-Bu makalede Microsoft kesinti yaşamadan eşleme için bir ortak eşleme yapılandırmasını taşımanıza yardımcı olur. Yönlendirme etki alanları ve eşlemeleri hakkında daha fazla bilgi için bkz. [ExpressRoute devreleri ve Yönlendirme etki alanları](expressroute-circuit-peerings.md).
-
+Bu makalede Microsoft kesinti yaşamadan eşleme için bir ortak eşleme yapılandırmasını taşımanıza yardımcı olur. ExpressRoute, Azure depolama ve Azure SQL Veritabanı gibi Azure PaaS hizmetleri için rota filtreleriyle Microsoft eşlemesinin kullanılmasını sağlar. Artık Microsoft PaaS ve SaaS hizmetlerine erişmek için tek bir yönlendirme etki alanına ihtiyacınız vardır. Kullanmak istediğiniz Azure bölgeleri için PaaS hizmeti ön eklerini tanıtmak için rota filtreleri kullanabilirsiniz. Yönlendirme etki alanları ve eşlemeleri hakkında daha fazla bilgi için bkz. [ExpressRoute devreleri ve Yönlendirme etki alanları](expressroute-circuit-peerings.md).
 
 ## <a name="before"></a>Başlamadan önce
 

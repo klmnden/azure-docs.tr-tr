@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8d2550d6a1f99adaec7423997365412eb61ffbdf
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e9271081b36681c4011d96b329de5058aeaf8472
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124704"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090627"
 ---
 # <a name="copy-data-from-shopify-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Shopify verileri kopyalama
 
@@ -74,7 +74,12 @@ Aşağıdaki özellikler, Shopify bağlı hizmeti için desteklenir:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Shopify veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Shopify veri kopyalamak için dataset öğesinin type özelliği ayarlamak **ShopifyObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Shopify veri kopyalamak için dataset öğesinin type özelliği ayarlamak **ShopifyObject**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **ShopifyObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -86,7 +91,8 @@ Shopify veri kopyalamak için dataset öğesinin type özelliği ayarlamak **Sho
         "linkedServiceName": {
             "referenceName": "<Shopify linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -95,14 +101,14 @@ Shopify veri kopyalamak için dataset öğesinin type özelliği ayarlamak **Sho
 
 Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, Shopify kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
-### <a name="shopifysource-as-source"></a>Kaynak olarak ShopifySource
+### <a name="shopify-as-source"></a>Kaynak olarak shopify
 
 Shopify veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **ShopifySource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **ShopifySource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

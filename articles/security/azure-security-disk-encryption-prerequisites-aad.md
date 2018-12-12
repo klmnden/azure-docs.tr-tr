@@ -1,18 +1,19 @@
 ---
-title: Azure AD uygulama önkoşulları (önceki sürüm) ile Azure Disk şifrelemesi | Microsoft Docs
+title: Azure AD uygulama önkoşulları (önceki sürüm) ile Azure Disk şifrelemesi
 description: Bu makale, Iaas sanal makineleri için Microsoft Azure Disk şifrelemesi kullanılarak önkoşulları sağlar.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 10/12/2018
-ms.openlocfilehash: d81925589eefa0ea5851180c83db5bc3540aabda
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: ff9f06f3ff062889c9e77163f66527af97bb527d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262695"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094501"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure Disk şifrelemesi önkoşulları (önceki sürüm)
 
@@ -259,7 +260,7 @@ Belirtilen bir anahtar Kasası'na şifreleme gizli anahtarları yazmak için Azu
 > Azure Disk şifrelemesi aşağıdaki erişim ilkeleri, Azure AD İstemci uygulamanıza yapılandırmanızı gerektirir: _WrapKey_ ve _ayarlamak_ izinleri.
 
 ### <a name="bkmk_KVAPPSH"></a> Azure PowerShell ile Azure AD uygulaması için anahtar kasası erişim ilkesini ayarlama
-Azure AD uygulamanızın ihtiyaç duyduğu kasadaki gizli dizileri ve anahtarları erişim hakları. Kullanım [kümesi AzureKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) (uygulama kaydedildiği zaman oluşturuldu) istemci kimliği olarak kullanarak, uygulamaya izinleri vermek için cmdlet _– ServicePrincipalName_ parametre değeri. Daha fazla bilgi için blog gönderisine bakın [Azure Key Vault - adım adım](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx). 
+Azure AD uygulamanızın ihtiyaç duyduğu kasadaki gizli dizileri ve anahtarları erişim hakları. Kullanım [kümesi AzureKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) (uygulama kaydedildiği zaman oluşturuldu) istemci kimliği olarak kullanarak, uygulamaya izinleri vermek için cmdlet _– ServicePrincipalName_ parametre değeri. Daha fazla bilgi için blog gönderisine bakın [Azure Key Vault - adım adım](https://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx). 
 
 1. Gerekirse, [Azure aboneliğinize bağlanma](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH).
 2. PowerShell ile AD uygulaması için anahtar kasası erişim ilkesi ayarlayın.

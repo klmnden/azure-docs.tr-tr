@@ -8,19 +8,19 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.openlocfilehash: 926d1a35cb10d50ddeacbed5476e2dcf14d0999d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.date: 12/03/2018
+ms.openlocfilehash: dc6244b6e263d3fb963d40b2f0c626cdfa9ecff8
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52857051"
+ms.locfileid: "52873470"
 ---
 # <a name="data-modeling-in-azure-time-series-insights"></a>Azure zaman serisi Öngörülerinde modelleme verileri
 
 Bu belgede ile nasıl çalışılacağı açıklanmaktadır **zaman serisi modelleri** aşağıdaki Azure Time Series Insights (Önizleme). Bu, birkaç ortak veri senaryoları ayrıntıları.
 
-Okuma [Azure TSI Gezgini (Önizleme)](./time-series-insights-update-explorer.md) özel Önizleme gezinme hakkında daha fazla bilgi için makalede.
+Okuma [(Önizleme) Azure TSI Gezgini](./time-series-insights-update-explorer.md) güncelleştirme gezinme hakkında daha fazla bilgi için makalede.
 
 ## <a name="types"></a>Türler
 
@@ -130,9 +130,11 @@ Okuma [Azure TSI Gezgini (Önizleme)](./time-series-insights-update-explorer.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Okuma [zaman serisi modelleri](./time-series-insights-update-tsm.md) hakkında daha fazla bilgi için **zaman serisi modelleri**.
+Hakkında bilgi edinin [veri modelleme](./time-series-insights-update-tsm.md) hakkında daha fazla bilgi için **zaman serisi modelleri**.
 
-Azure TSI Gezgini (Önizleme) görüntüleme [makale](./time-series-insights-update-explorer.md) önizlemesi hakkında daha fazla bilgi için.
+(Önizleme) Azure TSI Gezgini görünümü [makale](./time-series-insights-update-explorer.md) önizlemesi hakkında daha fazla bilgi için.
+
+Desteklenen JSON şekilleri hakkında bilgi edinmek [desteklenen JSON şekilleri](./time-series-insights-send-events.md#json).
 
 <!-- Images -->
 [1]: media/v2-update-how-to-tsm/portal_one.png

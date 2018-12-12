@@ -1,6 +1,6 @@
 ---
-title: Azure İzleyici için Vm'leri (Önizleme) bilinen sorunlar | Microsoft Docs
-description: VM'ler için Azure İzleyici sistem durumunu ve uygulama bileşenleri ve diğer kaynaklarla ilgili bağımlılıkları otomatik olarak keşfetme yanı sıra Azure VM'nin işletim sistemi izleme performansını birleştirir ve arasındaki iletişimi eşleyen bir Azure çözümüdür bunları. Bu makalede, bilinen sorunlar ele alınmıştır.
+title: VM'ler (Önizleme) bilinen sorunlar için Azure İzleyici | Microsoft Docs
+description: Bu makalede, bir çözümde bir sistem durumu ve performans izlemesi Azure VM'nin işletim sistemini bir araya getiren Azure VM'ler için Azure İzleyici ile ilgili bilinen sorunlar ele alınmıştır. VM'ler için Azure İzleyici, ayrıca otomatik olarak uygulama bileşenleri ve bağımlılıkları diğer kaynaklarla bulur ve bunların arasındaki iletişimi eşler.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -14,51 +14,53 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 99f84e9784c448091c0257218855c3bf32c2f8f4
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: MT
+ms.openlocfilehash: d720a7401b9ed1188a01d3cc2cc9ec7b66b640ce
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715835"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091560"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>VM'ler (Önizleme) için Azure İzleyici ile ilgili bilinen sorunlar
 
-Aşağıda Azure İzleyici sistem durumu özelliği olan VM'ler için bilinen sorunlar verilmiştir:
+Bu makalede, bir çözümde bir sistem durumu ve performans izlemesi Azure VM'nin işletim sistemini bir araya getiren Azure VM'ler için Azure İzleyici ile ilgili bilinen sorunlar ele alınmıştır. 
 
-- Sistem durumu özelliği bile, başlatılan ve tek bir VM'den tamamlandı, Log Analytics çalışma alanınıza bağlı tüm sanal makineler için etkinleştirilir.
-- Onboarding yeniden denendiğinde desteklenen yöntemleri kullanarak bir VM için izlemeyi devre dışı bırakma durumunda sonra aynı çalışma alanına yapılmalıdır.  Bu VM için sistem durumunu görüntülerken, yeni bir çalışma alanı kullanılıyorsa, anormal davranış gösterebilir.
-- Kaldırıldı veya silindiği için bir Azure VM artık mevcut değilse, üç ila yedi gün boyunca VM liste görünümünde gösterilir. Ayrıca, kaldırıldı veya silinen sanal makinenin durumunu tıklanması **sistem tanılama** için daha sonra bir yükleme döngüye giriyor görünümü. Silinen bir sanal Makinenin adını seçerek bir dikey pencere, VM silinip silinmediğini belirten bir iletiyle başlatır.
+Aşağıdaki sistem durumu özelliği ile bilinen sorunlar verilmiştir:
+
+- Log Analytics çalışma alanınıza bağlı tüm sanal makineler için sistem durumu özelliği etkin. Bu nedenle bile eylemi ne zaman başlar ve tek bir VM'de sona erer budur.
+- Sonra desteklenen yöntemleri kullanarak bir VM için izlemeyi devre dışı bırakın ve yeniden dağıtmayı deneyin, aynı çalışma alanında dağıtmanız gerekir. Bu VM için sistem durumunu görüntülemek için yeni çalışma alanı ve deneyin kullanırsanız, anormal davranış görüntülenebilir.
+- Bir Azure VM kaldırılması veya silinmesi durumunda üç ila yedi gün boyunca VM liste görünümünde görüntülenir. Ayrıca, kaldırıldı veya silinmiş bir VM'nin durumunu'ı tıklatarak açılır **sistem tanılama** görüntüleyin ve sonra bir yükleme döngüsü başlatır. Silinen sanal Makinenin adını seçerek, bir VM silinip silinmediğini belirten ileti ile bir bölme açılır.
 - Bu sürümle birlikte, zaman aralığı ve sıklığı durumu ölçütlerini değiştirilemez. 
 - Sistem durumu ölçütlerini devre dışı bırakılamaz. 
-- Ekledikten sonra Azure İzleyici'de gösterilen veri önce zaman alabilir -> sanal makineler -> sistem durumu veya VM kaynak dikey penceresinden Insights ->
-- Görünümler arasında geçiş yaparken bilgi gecikmeler karşılaşabileceğiniz için sistem durumu tanılama güncelleştirmeleri diğer herhangi bir görünüm, daha hızlı deneyimi  
-- Azure İzleyici ile sanal makine için dahil edilen Özet yalnızca izlenen Azure Vm'leriyle algılanan sistem durumu sorunları için tetiklenen uyarılar için uyarılar.
-- **Uyarılar listesinde** görünümü tek bir VM ve Azure İzleyici gösterir sayfasındaki uyarıları izleme koşulu "30 gün için tetiklenme" olarak ayarlanır.  Bunlar, yapılandırılabilir değildir. Özet, bir kez tıkladıktan sonra ancak **uyarı listesi** görünüm sayfası başlatıldığında, filtre değeri izleme koşulu ve zaman aralığını değiştirebilirsiniz.
-- Üzerinde **Uyarılar listesinde** görünüm sayfası öneririz yoksa değiştirme **kaynak türü**, **kaynak**, ve **İzleyicisi hizmeti** olarak filtreleri (Bu liste görünümü bazı ek alanlar için Azure İzleyici karşılaştırıldığında gibi -> Uyarılar liste görünümü gösterir) çözümü belirli yapılandırıldı.    
-- Linux vm'lerinde **sistem tanılama** görünümü kullanıcı tanımlı VM adı yerine bir VM'nin tüm etki alanı adı vardır.
-- Vm'lerini kapatılıyor sistem durumu ölçütlerini bazıları kritik durum ve diğer kritik bir durumdaki sanal makinenin ağ durumu sağlıklı bir duruma güncelleştirir.
-- Sistem durumu uyarı önem derecesi değiştirilemez, bunlar yalnızca devre dışı bırakabilir veya etkinleştirilebilir.  Ayrıca, bazı önem dereceleri güncelleştirme durumu ölçütlerini durumuna bağlı.
-- Herhangi bir ayar durumu ölçütü örneğinin değiştirme aynı ayar değişikliği tüm sistem durumu ölçütlerini örneklerinde aynı türde VM'de önünü açacak. Örneğin, eşiği disk alanı durumu ölçütü örneği ücretsiz, karşılık gelen mantıksal diske C: değiştirilir ve ardından bu eşik bulunan ve aynı sanal makine için izlenen tüm diğer mantıksal diskleri uygulanır.   
-- Sistem durumlarını zaten ayarlandığı bir Windows VM hedefleyen aşağıdaki durumu ölçütlerini eşikleri değiştirilebilir, olmayan **çalıştıran** veya **kullanılabilir**. Gelen sorgulandığında [iş yükü İzleyicisi API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager), sistem durumu gösterir *comparisonOperator* değerini **LessThan** veya **GreaterThan**ile bir *eşiği* değerini **4** hizmet veya varlık varsa:
-   - DNS istemcisi hizmet durumu-hizmet çalışmıyor 
-   - DHCP istemci hizmeti sistem durumu-hizmet çalışmıyor 
-   - RPC hizmet durumu-hizmet çalışmıyor 
-   - Windows Güvenlik Duvarı Hizmet durumu-hizmet çalışmıyor
-   - Windows olay günlüğü hizmeti sistem durumu – hizmeti çalışmıyor 
-   - Sunucu hizmet durumu-hizmet çalışmıyor 
-   - Windows Uzaktan Yönetimi hizmetinin sistem durumu – hizmet çalışmıyor 
-   - Dosya sistemi hatası veya bozulma – Mantıksal Disk kullanılamıyor
+- Dağıtımdan sonra veri görüntülemeden önce zaman alabilir **Azure İzleyici** > **sanal makineler** > **sistem durumu** bölmesinde veya  **VM kaynak** > **Insights** bölmesi.
+- Sistem durumu tanılama güncelleştirmeleri daha hızlı herhangi bir görünüm deneyimi. Görünümler arasında geçiş yaptığınızda bilgileri gecikebilir. 
+- Azure İzleyici ile sanal makine için dahil edilen uyarılar özeti ile algılanan sistem durumu sorunları sonuçtan Azure Vm'leri izlenen uyarıları görüntüler.
+- **Uyarılar listesinde** tek VM ve Azure İzleyici bölmesinde izleme koşulu ayarlandığında uyarılar görüntülenir *harekete* son 30 gün içinde. Uyarıları yapılandırılabilir değildir. Ancak, sonra **uyarı listesi** bölmesi açıldığında, izleme koşulu ve zaman aralığını filtre değerini değiştirmek için Özet'i tıklatın.
+- İçinde **Uyarılar listesinde** bölmesinde öneririz değiştirirken **kaynak türü**, **kaynak**, ve **İzleyicisi hizmeti** filtreler. Bunlar belirli çözüm için yapılandırılmış. Daha fazla alan bu liste görünümü görüntüler **Azure İzleyici** > **uyarılar** liste görünümü yok.   
+- Linux vm'lerinde **sistem tanılama** görünümü kullanıcı tanımlı VM adı yerine bir VM'nin tüm etki alanı adını görüntüler.
+- Vm'lerini kapatılıyor, güncelleştirmeleri durumu ölçütlerini bazıları *kritik* ve başkalarına *sağlıklı*. Net VM durumu olarak görüntülenen *kritik*.
+- Sistem durumu uyarı önem derecesi değiştirilemez. Bunu yalnızca devre dışı bırakabilir veya etkinleştirilebilir. Ayrıca, bazı önem dereceleri durumu ölçütlerini durumuna göre güncelleştirilir.
+- Bir sistem durumu ölçütü örneğinin herhangi bir ayarı değiştirirseniz, VM üzerinde aynı türdeki tüm sistem durumu ölçütlerini örnekleri değiştirilir. Örneğin, mantıksal disk C: karşılık gelen disk boş alan sistem durumu ölçütü örneğinin eşiği değiştirilirse Bu eşik bulunan ve aynı sanal makine için izlenen tüm diğer mantıksal diskleri geçerlidir.  
+- Sistem durumlarına ayarlanır çünkü hedef bir Windows VM durumu ölçütlerini eşikleri değiştirilebilir, olmayan *çalıştıran* veya *kullanılabilir*. Sistem sağlığı durumunu sorgulanırken [iş yükü İzleyicisi API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager), görüntülediği *comparisonOperator* değerini **LessThan** veya **GreaterThan** ile bir *eşiği* değerini **4** hizmet veya varlık varsa:
+   - DNS istemcisi hizmet durumu-hizmet çalışmıyor. 
+   - DHCP istemci hizmeti sistem durumu-hizmet çalışmıyor. 
+   - RPC hizmet durumu-hizmet çalışmıyor. 
+   - Windows Güvenlik Duvarı Hizmet durumu-hizmet çalışmıyor.
+   - Windows olay günlüğü hizmet durumu-hizmet çalışmıyor. 
+   - Sunucu hizmet durumu-hizmet çalışmıyor. 
+   - Windows Uzaktan Yönetimi hizmetinin sistem durumu – hizmet çalışmıyor. 
+   - Mantıksal Disk, dosya sistemi hatası veya bozulma – kullanılamıyor.
 
-- Eşikleri aşağıdaki Linux durumu ölçütlerini değiştirilebilir, olmayan için sistem durumu beri zaten ayarlanmış **true**.  Sistem durumu gösterir *comparisonOperator* bir değerle **LessThan** ve *eşiği* değerini **1** iş yükünden sorgulandığında Varlık bağlama bağlı olarak için API izleme:
+- Sistem durumu zaten ayarlandığından aşağıdaki Linux durumu ölçütlerini eşikleri değiştirilebilir, olmayan *true*. Sistem durumunu görüntüler *comparisonOperator* bir değerle **LessThan** ve *eşiği* değerini **1** gelen sorgulandığında İş yükü izleme API bağlama bağlı olarak varlığı için:
    - Mantıksal Disk durumu – mantıksal disk değil çevrimiçi / kullanılabilir
    - Disk durumu – Disk değil çevrimiçi / kullanılabilir
    - Ağ bağdaştırıcısı durumu - ağ bağdaştırıcısı devre dışı bırakıldı  
 
-- **Toplam CPU kullanımı** Windows sistem durumu ölçütü gösteren bir eşik **4 eşit** portalından ve iş yükü izleme API'den CPU kullanımı % 95'den büyük olduğunda ve sistem sırası uzunluğu sorgulandığında 15'ten daha büyük. Bu sürümde bu sistem durumu ölçütü değiştirilemez.  
-- Bir eşiği güncelleştirme gibi yapılandırma değişiklikleri, portalı veya iş yükü İzleyicisi API'yi hemen güncelleştirebilir olsa da etkili olması için en fazla 30 dakika sürer.  
-- Tek tek işlemci ve mantıksal işlemci düzeyi durumu ölçütlerini kullanılabilir değil Windows, yalnızca **toplam CPU kullanımı** Windows Vm'leri için kullanılabilir.  
-- Her sistem durumu ölçütü için tanımlanan uyarı kuralları, Azure portalında kullanıma sunulmaz. Yalnızca gelen yapılandırılabilir [iş yükü İzleyicisi API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager) etkinleştirme veya bir sistem durumu uyarı kuralı devre dışı.  
-- Atama bir [Azure İzleyici'eylem grubu](../../monitoring-and-diagnostics/monitoring-action-groups.md) için sistem durumu uyarıları Azure portalından mümkün değildir. Bildirim ayarı API yalnızca her bir sistem durumu uyarısı tetiklendiğinde tetiklenmesi için bir eylem grubu yapılandırmak için de kullanabilirsiniz. Şu anda, bir VM'ye karşı eylem gruplarına atanabilir gibi tüm *sistem durumu uyarılarını* aynı Eylem grupları karşı VM tetikleyici tetiklendi. Ayrı bir eylem grubu için geleneksel Azure uyarıları gibi her durumu uyarı kuralının kavramı yoktur. Ayrıca, sistem durumu uyarılarını tetiklendiğinde bir e-posta veya SMS göndererek bildirmek için yapılandırılmış olan yalnızca eylem grubu desteklenir. 
+- *Toplam CPU kullanımı* Windows sistem durumu ölçütü görüntüler eşiğinin **4 eşit** portalı hem de iş yükü izleme API. Ne zaman Eşiğe ulaşıldığında *toplam CPU kullanımı* yüzde 95 ve sistemi büyük kuyruk uzunluğu, 15'ten büyüktür. Bu sürümde bu sistem durumu ölçütü değiştirilemez. 
+- Portalı veya iş yükü İzleyicisi API bunları hemen güncelleştirebilir olsa bile bir eşiği güncelleştirme gibi yapılandırma değişiklikleri, 30 dakika kadar yararlanın. 
+- Tek tek işlemci ve mantıksal işlemci düzeyi durumu ölçütlerini Windows içinde kullanılamaz. Toplam CPU kullanımı yalnızca, Windows VM'ler için kullanılabilir. 
+- Her sistem durumu ölçütü için tanımlanan uyarı kuralları, Azure portalında görüntülenmez. Etkinleştirebilir veya sistem durumu uyarısı devre dışı yalnızca kural [iş yükü İzleyicisi API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager). 
+- Atama yapılamaz bir [Azure İzleyici'eylem grubu](../../monitoring-and-diagnostics/monitoring-action-groups.md) Azure portalındaki sistem durumu uyarıları için. Her sistem durumu uyarısı tetiklendiğinde tetiklenmesi için bir eylem grubu yapılandırmak için yalnızca bildirim ayarı API'yi kullanabilirsiniz. Şu anda, bir VM'ye karşı Eylem grupları atayabilirsiniz böylece tüm *sistem durumu uyarılarını* aynı Eylem grupları karşı VM tetikleyici tetiklendi. Geleneksel Azure uyarıları ayrı bir eylem grubu her sistem durumu uyarı kuralının kavramı yoktur. Ayrıca, sistem durumu uyarı tetiklendiğinde e-posta veya SMS bildirimleri sağlamak için yapılandırılmış olan eylem grupları desteklenir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Gözden geçirme [sanal makineler için yerleşik Azure İzleyici](vminsights-onboard.md) gereksinimleri ve yöntemler, sanal makinelerin izlemeyi etkinleştirmek için anlamak için.
+Sanal makinelerinizi izlemeyi etkinleştirme yöntemlerini ve gereksinimleri hakkında bilgilere [VM'ler için Azure İzleyici'ı Dağıtma](vminsights-onboard.md).

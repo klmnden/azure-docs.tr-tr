@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 06/12/2018
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 1a1281be1c1b58b21406dad5826e240ccac6c898
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 08a6134d61c4f93f891488ef24a7b81e81645897
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567773"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089811"
 ---
 # <a name="what-is-azure-iot-edge"></a>Azure IoT Edge nedir?
 
@@ -71,7 +71,7 @@ Azure IoT Edge, Azure IoT çözüm hızlandırıcıları ile rahatça tümleşti
 * İş yükünü bir dizi cihaza gönderebilir.
 * Sahadaki cihazlarda çalıştırılan iş yüklerini izleyebilir.
 
-![Telemetri, öngörüler ve cihaz eylemleri bulutla eşgüdümlüdür](./media/about-iot-edge/cloud-interface.png)
+![Cihaz telemetrisi ve eylemleri bulutla eşgüdümlüdür](./media/about-iot-edge/cloud-interface.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

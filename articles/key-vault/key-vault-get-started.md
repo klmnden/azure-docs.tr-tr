@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: barclayn
-ms.openlocfilehash: a28bf1dc23d678c710d7bd6b13f067427e76ef41
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bb4ef826ed29187209b28c349445ca0eb5ffe9bb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238408"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864917"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure Anahtar Kasası kullanmaya başlama 
 Bu makale PowerShell kullanarak Azure Key Vault kullanmaya başlamanıza yardımcı olur ve aşağıdaki etkinliklerde size kılavuzluk eder:
@@ -222,14 +222,14 @@ Bir uygulamayı Azure Active Directory'ye kaydetmek için:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Sol taraftaki **Uygulama kayıtları**’na tıklayın. Uygulama kayıtlarını görmezseniz tıklayarak **diğer hizmetler**.  
->[!NOTE]
-Anahtar kasanızı oluşturduğunuz Azure aboneliğini içeren dizini seçmeniz gerekir. 
+    > [!NOTE]
+    > Anahtar kasanızı oluşturduğunuz Azure aboneliğini içeren dizini seçmeniz gerekir. 
 3. **Yeni uygulama kaydı**’na tıklayın.
 4. **Oluştur** dikey penceresinde uygulamanız için bir ad belirtin ve sonra **WEB UYGULAMASI VE/VEYA WEB API'Sİ** (varsayılan) seçeneğini belirleyip web uygulamanız için **OTURUM AÇMA URL’Sİ** değerini belirtin. Bu bilgilere şu anda sahip değilseniz, bu adım için rastgele değerler kullanabilirsiniz (örneğin, http://test1.contoso.com adresini belirtebilirsiniz). Bu sitelerin mevcut olup olmaması önemli değildir. 
 
     ![Yeni uygulama kaydı](./media/key-vault-get-started/new-application-registration.png)
-    >[!WARNING]
-    **WEB UYGULAMASI VE/VEYA WEB API’Sİ** seçeneğini belirlediğinizden emin olun; aksi takdirde ayarlar altında **anahtarlar** seçeneğini görmezsiniz.
+    > [!WARNING]
+    > **WEB UYGULAMASI VE/VEYA WEB API’Sİ** seçeneğini belirlediğinizden emin olun; aksi takdirde ayarlar altında **anahtarlar** seçeneğini görmezsiniz.
 
 5. **Oluştur** düğmesine tıklayın.
 6. Uygulama kaydı tamamlandığında kayıtlı uygulamaların listesini görürsünüz. Kayıtlı ve üzerine tıklayarak uygulamayı bulun.

@@ -1,5 +1,5 @@
 ---
-title: Konuşma cihaz SDK'sı Lisans Sözleşmesi
+title: Konuşma cihaz SDK'sı lisans sözleşmesi - konuşma Hizmetleri
 titleSuffix: Azure Cognitive Services
 description: Konuşma cihaz SDK'sı Lisans Sözleşmesi'ı seçin.
 services: cognitive-services
@@ -8,18 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: dea27d7363210580d5f040de7ea1db770701d9c9
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: b1605337a810c635bfa40cd05e2f9b15d2e5a7e1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466129"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078523"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Konuşma cihaz SDK'sı Lisans Sözleşmesi
 
-## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>MICROSOFT YAZILIMI LİSANS KOŞULLARI<br>KONUŞMA CİHAZLARA YAZILIM GELİŞTİRME SETİ (SDK) 
+## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>MICROSOFT YAZILIMI LİSANS KOŞULLARI<br>KONUŞMA CİHAZLARA YAZILIM GELİŞTİRME SETİ (SDK)
 
 > CANLI (VEYA ASIL YERİNİZİ İŞLETMENİN İLE BİR İŞLETME OLDUĞUMUZDAN VARSA) AMERİKA BİRLEŞİK DEVLETLERİ, LÜTFEN AŞAĞIDAKİ "BAĞLAMA TAHKİM VE FERAGAT BİLDİRİMİ" BÖLÜMÜNÜ OKUYUN. BUNU NASIL ANLAŞMALARIN.
 
@@ -57,7 +58,7 @@ f), yazılımı yalnızca Microsoft Azure Bilişsel hizmetler, konuşma tanıma 
 
 **5\. GERİ BİLDİRİM.** Microsoft yazılım hakkında geri bildirimde bulunursanız, Microsoft'a, kullanma, paylaşma ve başkalarına verilebilen herhangi bir yolla ve herhangi bir amaçla ücretsiz hakkı, ücretsiz verin. Microsoft geri bildirim bunları içerdiğinden yazılımını veya belgelerini lisanslamasını Microsoft'un bir lisans tabi geri bildirim veremezsiniz. Bu haklar bu sözleşmenin önceliklidir.
 
-**6\. SÜRESİ.** İşbu sözleşme ettiğinizi etkilidir ve siz veya Microsoft tarafından herhangi bir zamanda sonlandırılabilir. 
+**6\. SÜRESİ.** İşbu sözleşme ettiğinizi etkilidir ve siz veya Microsoft tarafından herhangi bir zamanda sonlandırılabilir.
 
 **7\. SONLANDIRMA.** Herhangi bir hakka halel, birini kendi hüküm ve koşullar ile uyum sağlamak başarısız olursa Microsoft işbu sözleşmeyi feshedebilir. Böyle bir durumda, tüm bileşen parçalarından ve bir yazılım tüm kopyalarını imha etmeniz gerekir.
 

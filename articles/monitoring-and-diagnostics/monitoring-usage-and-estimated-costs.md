@@ -9,19 +9,19 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: 3a21b2521cc16b97519f2f84b40a3f51536757e2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: af7515c7888bf7710c9bd087af61b29ed0be0768
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999668"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085244"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Kullanım ve Tahmini maliyetler izleme
 
 > [!NOTE]
 > Bu makalede, kullanım ve Tahmini maliyetler arasında farklı fiyatlandırma modelleri için birden çok Azure İzleme özelliklerini görüntülemek açıklar.  İlgili bilgiler için aşağıdaki makalelere göz atın.
 > - [Veri hacmi ve saklama Log analytics'te kontrol ederek maliyet yönetme](../azure-monitor/platform/manage-cost-storage.md) veri saklama döneminizin değiştirerek maliyetlerinizi denetlemek nasıl açıklar.
-> - [Log analytics'te veri kullanımını çözümleme](../log-analytics/log-analytics-usage.md) analiz ve veri kullanımınızı uyarı açıklar.
+> - [Log analytics'te veri kullanımını çözümleme](../azure-monitor/platform/data-usage.md) analiz ve veri kullanımınızı uyarı açıklar.
 > - [Application ınsights fiyatlandırma ve veri hacmini yönetme](../application-insights/app-insights-pricing.md) Application ınsights'ta veri kullanımını çözümleme açıklar.
 
 Azure portal'ın İzleyici hub'ında **kullanım ve Tahmini maliyetler** sayfası izleme özellikleri gibi Çekirdek kullanımını açıklar [bildirimleri ölçümleri, uyarılar](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics ](https://azure.microsoft.com/pricing/details/log-analytics/), ve [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Nisan 2018 tarihinden önce kullanılabilir fiyatlandırma planları müşteriler, bu öngörüleri satın alınan Log Analytics kullanımı da içerir ve analizi sunar.

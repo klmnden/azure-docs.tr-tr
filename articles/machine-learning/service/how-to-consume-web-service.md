@@ -1,5 +1,6 @@
 ---
-title: Web hizmeti dağıtımları - Azure Machine Learning hizmetini kullanma
+title: Dağıtılan web hizmetlerini kullanma
+titleSuffix: Azure Machine Learning service
 description: Bir modeli Azure Machine Learning modeli ile dağıttığınızda, oluşturulan bir web hizmetinin nasıl kullanılacağı hakkında bilgi edinin. REST API, web hizmetidir. İstemciler için tercih ettiğiniz programlama dilini kullanarak bu API oluşturun.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +11,12 @@ author: raymondlaghaeian
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: d964eef08557ddd95ff86bc9e7de806cd4a8ca18
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: 0cf585ec3eb95b71080436791fd47d96239dfa9f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016649"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100481"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Bir web hizmeti olarak bir Azure Machine Learning modeli kullanma
 
@@ -124,6 +125,43 @@ REST API isteği aşağıdaki yapıya sahip bir JSON belge gövdesinin bekliyor:
 ``` 
 
 Web hizmeti, birden çok bir istekteki veri kümelerini kabul edebilir. Yanıt bir dizi içeren bir JSON belgesini döndürür.
+
+### <a name="binary-data"></a>İkili veriler
+
+Bir görüntü gibi ikili veri modelinizi kabul ediyorsa değiştirmelisiniz `score.py` dağıtımınız için ham HTTP isteklerini kabul etmek için kullanılan dosya. İşte bir örnek bir `score.py` ikili verileri kabul eder ve POST istekleri için ters bayt döndürür. GET istekleri için yanıt gövdesinde tam URL'yi döndürür:
+
+```python 
+from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        respBody = bytearray(reqBody)
+        respBody.reverse()
+        respBody = bytes(respBody)
+        return AMLResponse(respBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> Şeyler `azureml.contrib` ad alanını değiştirme sık olarak hizmeti geliştirmek için çalışıyoruz. Bu nedenle, bu ad alanındaki herhangi bir şey önizleme olarak kabul ve tamamen Microsoft tarafından desteklenmiyor.
+>
+> Bu, yerel geliştirme ortamınıza test gerekiyorsa, aşağıdaki komutu kullanarak contrib ad alanında bileşenleri yükleyebilirsiniz:
+> 
+> ```shell
+> pip install azureml-contrib-services
+> ```
 
 ## <a name="call-the-service-c"></a>Hizmet çağrısı (C#)
 
@@ -447,7 +485,3 @@ Döndürülen sonuçlar için aşağıdaki JSON belgesini benzerdir:
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
-
-## <a name="next-steps"></a>Sonraki adımlar
-
-Bir istemci için Dağıtılmış bir modelinin nasıl oluşturulacağını öğrendiniz, bilgi nasıl [model IOT Edge cihazına dağıtma](how-to-deploy-to-iot.md).

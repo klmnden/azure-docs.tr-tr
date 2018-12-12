@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 2f642a91bd656cb74cdce2a98c44372a64f23cb9
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: MT
+ms.openlocfilehash: ef9f1e0c043370bdfacf654cffb524b716a34446
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50237886"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872348"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Veri bilimi sanal makinesi üzerinde geliştirme araçları
 
@@ -32,7 +32,7 @@ Veri bilimi sanal makinesi (DSVM), çeşitli popüler Araçlar ve IDE paketleme 
 | Nedir?   | Genel amaçlı IDE      |
 | Desteklenen DSVM sürümleri      | Windows      |
 | Tipik kullanımları      | Yazılım geliştirme    |
-| Nasıl, yapılandırılmış / DSVM üzerinde yüklü?      | Veri bilimi iş yükü (Python ve R araçları), Azure iş yükü (Hadoop, Data Lake), Node.js, SQL Server araçlarını, [yapay ZEKA için Visual Studio Araçları](https://github.com/Microsoft/vs-tools-for-ai)    |
+| Nasıl, yapılandırılmış / DSVM üzerinde yüklü?      | Veri bilimi iş yükü (Python ve R araçları), Azure iş yükü (Hadoop, Data Lake), Node.js, SQL Server araçlarını, [Visual Studio Code için Azure Machine Learning](https://github.com/Microsoft/vs-tools-for-ai)    |
 | Kullanma / çalıştırın nasıl?      | Masaüstü kısayolu (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
 | DSVM ilgili araçları      |     Visual Studio kodu, RStudio, Juno  |
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs coğrafi olağanüstü durum kurtarma | Microsoft Docs
+title: Coğrafi olağanüstü durum kurtarma - Azure Event Hubs | Microsoft Docs
 description: Yük devretme için coğrafi bölgeler kullanın ve Azure Event hubs'ı olağanüstü durum kurtarma gerçekleştirmek nasıl
 services: event-hubs
 documentationcenter: ''
@@ -11,18 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 89ecfd93c22fe72fee3befd8d4a722eb41d816af
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 59eebc8389238af7180b94cb094f9528a21d26d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42747180"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091355"
 ---
-# <a name="azure-event-hubs-geo-disaster-recovery"></a>Azure Event Hubs coğrafi olağanüstü durum kurtarma
+# <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - coğrafi olağanüstü durum kurtarma 
 
-Tüm durumlarda Azure bölgeleri veya veri merkezleri (hiçbir [kullanılabilirlik alanları](../availability-zones/az-overview.md) kullanılır), kesinti yaşamak veri işleme, farklı bir bölge veya veri merkezi içinde çalışmaya devam etmek önemlidir. Bu nedenle, *coğrafi olağanüstü durum kurtarma* ve *coğrafi çoğaltma* tüm kuruluş için önemli özelliklerdir. Azure Event Hubs, hem coğrafi olağanüstü durum kurtarma ve coğrafi çoğaltma, ad alanı düzeyinde destekler. 
+Tüm durumlarda Azure bölgeleri veya veri merkezleri (hiçbir [kullanılabilirlik alanları](../availability-zones/az-overview.md) kullanılır), kesinti yaşamak veri işleme, farklı bir bölge veya veri merkezi içinde çalışmaya devam etmek önemlidir. Bu nedenle, *coğrafi olağanüstü durum kurtarma* ve *coğrafi çoğaltma* tüm kuruluş için önemli özelliklerdir. Azure Event Hubs, hem coğrafi olağanüstü durum kurtarma ve coğrafi çoğaltma, ad alanı düzeyinde destekler. 
 
 Coğrafi olağanüstü durum kurtarma özelliği, Event Hubs standart SKU için genel olarak kullanılabilir.
 

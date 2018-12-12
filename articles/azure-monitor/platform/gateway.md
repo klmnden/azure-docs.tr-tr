@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5e19c7c1ed15183fdb796a6fa4e537da946b40b9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
-ms.translationtype: MT
+ms.openlocfilehash: 5294d5919b6d4d80c61e183866409123a9edbb60
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642539"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082672"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Bilgisayarları Log Analytics ağ geçidini kullanarak Internet erişimi olmadan bağlayın
 Bu belge, Azure Otomasyonu ile iletişim yapılandırılacağını açıklar ve bağlı olduğunda doğrudan Log Analytics ağ geçidi kullanarak Log Analytics'e veya Operations Manager'ın izlenen bilgisayarların Internet erişimi yoktur.  HTTP HTTP CONNECT komutunu kullanarak tüneli destekleyen bir HTTP iletim proxy'si olan Log Analytics ağ geçidi, veri toplamak ve Log Analytics ve Azure Otomasyonu ile kendi adınıza gönderin.  
@@ -65,7 +65,7 @@ Log Analytics ağ geçidini çalıştırmak için bir bilgisayar belirlerken, bu
 Log Analytics ağ geçidi, aşağıdaki dillerde kullanılabilir:
 
 - Çince (Basitleştirilmiş)
-- Çince (Geleneksel)
+- seçenekleri yerine
 - Çekçe
 - Felemenkçe
 - Türkçe
@@ -82,7 +82,7 @@ Log Analytics ağ geçidi, aşağıdaki dillerde kullanılabilir:
 - İspanyolca (uluslararası)
 
 ### <a name="supported-encryption-protocols"></a>Desteklenen şifreleme protokolleri
-Log Analytics ağ geçidi, yalnızca Aktarım Katmanı Güvenliği (TLS) 1.0, 1.1 ve 1.2 destekler.  Güvenli Yuva Katmanı (SSL) desteklemiyor.  Log analytics'e Aktarımdaki verilerin güvenliğini sağlamak üzere en az ağ geçidini yapılandırmak için önemle öneririz Aktarım Katmanı Güvenliği (TLS) 1.2. TLS/Güvenli Yuva Katmanı (SSL) daha eski sürümleri, savunmasız bulundu ve bunlar yine de şu anda geriye dönük uyumluluk izin vermek için çalışırken, bunlar **önerilmez**.  Ek bilgi için gözden [TLS 1.2 kullanarak güvenli bir şekilde veri gönderen](../../log-analytics/log-analytics-data-security.md#sending-data-securely-using-tls-12). 
+Log Analytics ağ geçidi, yalnızca Aktarım Katmanı Güvenliği (TLS) 1.0, 1.1 ve 1.2 destekler.  Güvenli Yuva Katmanı (SSL) desteklemiyor.  Log analytics'e Aktarımdaki verilerin güvenliğini sağlamak üzere en az ağ geçidini yapılandırmak için önemle öneririz Aktarım Katmanı Güvenliği (TLS) 1.2. TLS/Güvenli Yuva Katmanı (SSL) daha eski sürümleri, savunmasız bulundu ve bunlar yine de şu anda geriye dönük uyumluluk izin vermek için çalışırken, bunlar **önerilmez**.  Ek bilgi için gözden [TLS 1.2 kullanarak güvenli bir şekilde veri gönderen](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Desteklenen aracı bağlantı sayısı
 Aşağıdaki tabloda, desteklenen bir ağ geçidi sunucusu ile iletişim kuran aracıları sayısını vurgulanmaktadır.  Bu destek, 6 saniyede yaklaşık 200 KB veri karşıya aracılarda temel alır. Test aracı başına veri hacmi hakkında 2.7 günde GB'dir.
@@ -122,7 +122,7 @@ Bir ağ geçidi yüklemek için aşağıdaki adımları gerçekleştirin.  Önce
    1. Ağ geçidi için kullanılan TCP bağlantı noktası numarasını yazın. Kurulum, Windows Güvenlik duvarında bu bağlantı noktası numarası ile bir gelen kuralı yapılandırır.  Varsayılan değer 8080'dir.
       Bağlantı noktası numarası geçerli aralık 1-65535 arasındadır. Giriş bu aralığı içinde kalmıyorsa, bir hata iletisi görüntülenir.
    1. İsteğe bağlı olarak, ağ geçidinin yüklü olduğu sunucunun bir proxy üzerinden iletişim kurması gerekiyorsa, ağ geçidine bağlanmak için gereken yere proxy adresi yazın. Örneğin, `http://myorgname.corp.contoso.com:80`.  Boş bırakılırsa, ağ geçidi doğrudan Internet'e bağlanmaya çalışacaktır.  Ara sunucunuz kimlik doğrulaması gerektiriyorsa, kullanıcı adı ve parola girin.<br><br> ![Ağ geçidi Sihirbazı proxy yapılandırması](./media/gateway/gateway-wizard02.png)<br>   
-   1. **İleri**’ye tıklayın.
+   1. **İleri**'ye tıklayın.
 1. Microsoft Update etkin değilse, bunu etkinleştirmek seçebileceğiniz Microsoft Update sayfasında görünür. Bir seçim yapın ve ardından **sonraki**. Aksi halde, sonraki adıma devam edin.
 1. Üzerinde **hedef klasör** sayfasında varsayılan klasörü C:\Program Files\OMS ağ geçidi bırakın ya da ağ geçidi yüklemeniz ve ardından istediğiniz konumu yazın **sonraki**.
 1. Üzerinde **yüklenmeye hazır** sayfasında **yükleme**. Kullanıcı hesabı denetimi yükleme izni isteyen görünebilir. Öyleyse **Evet**.
@@ -142,7 +142,7 @@ Tasarım ve bir Windows Server 2016 Ağ Yükü Dengeleme kümesi dağıtma hakk�
 Aşağıdaki bölümde, Azure Otomasyonu ya da günlük ile iletişim kurmak için Log Analytics ağ geçidi ile doğrudan bağlı Log Analytics aracılarını, bir Operations Manager yönetim grubu veya Azure Otomasyon karma Runbook çalışanlarını yapılandırma adımları içerir Analytics.  
 
 ### <a name="configure-standalone-log-analytics-agent"></a>Tek başına Log Analytics aracısını yapılandırma
-Gereksinimler ve Windows bilgisayarları doğrudan Log Analytics'e bağlanması Log Analytics aracısını yüklemek adımları anlamak için bkz [bağlanmak Windows bilgisayarlarını Log Analytics'e](agent-windows.md) veya Linux bilgisayarlar için bkz. [ Linux bilgisayarlarını Log Analytics'e bağlama](../../log-analytics/log-analytics-quick-collect-linux-computer.md). Aracısı yapılandırılırken bir ara sunucu belirtmek yerine, bu değer, bağlantı noktası numarası ile Log Analytics ağ geçidi sunucusu ve IP adresi ile değiştirin.  Bir ağ yük dengeleyicinin arkasına birden çok ağ geçidi sunucusu dağıttıysanız, Log Analytics Aracısı Ara sunucu yapılandırmasını NLB sanal IP adresi ' dir.  
+Gereksinimler ve Windows bilgisayarları doğrudan Log Analytics'e bağlanması Log Analytics aracısını yüklemek adımları anlamak için bkz [bağlanmak Windows bilgisayarlarını Log Analytics'e](agent-windows.md) veya Linux bilgisayarlar için bkz. [ Linux bilgisayarlarını Log Analytics'e bağlama](../../azure-monitor/learn/quick-collect-linux-computer.md). Aracısı yapılandırılırken bir ara sunucu belirtmek yerine, bu değer, bağlantı noktası numarası ile Log Analytics ağ geçidi sunucusu ve IP adresi ile değiştirin.  Bir ağ yük dengeleyicinin arkasına birden çok ağ geçidi sunucusu dağıttıysanız, Log Analytics Aracısı Ara sunucu yapılandırmasını NLB sanal IP adresi ' dir.  
 
 Otomasyon karma Runbook çalışanı için ilgili daha fazla bilgi için bkz: [karma Runbook çalışanı dağıtma](../../automation/automation-hybrid-runbook-worker.md).
 

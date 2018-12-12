@@ -1,11 +1,11 @@
 ---
-title: Basit bir regresyon modeli - Azure Machine Learning Studio ile yanıtı tahmin etme | Microsoft Docs
+title: Regresyon modellerini - Azure Machine Learning Studio ile yanıtlarını tahmin edin | Microsoft Docs
 description: Nasıl bir veri bilimi video 4 yeni başlayanlar için fiyatı tahmin etmek için bir basit bir regresyon modeli oluşturun. Bir doğrusal regresyon hedef verilerle içerir.
 keywords: bir model, basit bir model, fiyat tahmini, basit bir regresyon modeli oluşturun
 services: machine-learning
 documentationcenter: na
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
@@ -17,12 +17,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 2862310623b2725cbeeaa4f5972a89ffcef44ff6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 155b853ef46c54fbb6e230573b860189bacc0d64
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309785"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092943"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Basit model ile yanıtı tahmin etme
 ## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Seri yeni başlayanlar için veri bilimi

@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 38dfa61a90605fb6dfa43e34df99400d67b27118
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 71f3084be697dd84f3f262d2a79cd04a0ba76d8e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012156"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086819"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Hızlı başlangıç: Önceden oluşturulmuş ev otomasyonu uygulamasını kullanma
 
@@ -33,11 +33,11 @@ Bu makale için [https://www.luis.ai](https://www.luis.ai) adresindeki LUIS port
 
 2. **Yeni uygulama oluştur**'u seçin.
 
-    [![](media/luis-quickstart-new-app/app-list.png "Uygulama listesinin ekran görüntüsü")](media/luis-quickstart-new-app/app-list.png)
+    [![Uygulama listesinin ekran görüntüsü](media/luis-quickstart-new-app/app-list.png "uygulama listesinin ekran görüntüsü")](media/luis-quickstart-new-app/app-list.png)
 
 3. İletişim kutusunda uygulamanıza "Home Automation" adını verin.
 
-    [![](media/luis-quickstart-new-app/create-new-app-dialog.png "Create new app (Yeni uygulama oluştur) açılan iletişim kutusunun ekran görüntüsü")](media/luis-quickstart-new-app/create-new-app-dialog.png)
+    [![Yeni uygulama açılır iletişim Oluştur ekran görüntüsü](media/luis-quickstart-new-app/create-new-app-dialog.png "yeni uygulama açılır iletişim Oluştur ekran görüntüsü")](media/luis-quickstart-new-app/create-new-app-dialog.png)
 
 4. Uygulamanızın kültürünü seçin. Bu Home Automation uygulaması için İngilizce seçeneğini belirleyin. Ardından **Bitti**'yi seçin. LUIS, Home Automation uygulamasını oluşturur. 
 
@@ -48,11 +48,11 @@ Bu makale için [https://www.luis.ai](https://www.luis.ai) adresindeki LUIS port
 
 Sol taraftaki gezinti bölmesinden **Önceden oluşturulmuş etki alanları**'nı seçin. Ardından "Home" araması yapın. **Etki alanı ekle**'yi seçin.
 
-[![](media/luis-quickstart-new-app/home-automation.png "Önceden oluşturulmuş etki alanı menüsünden çağrılan Home Automation etki alanının ekran görüntüsü")](media/luis-quickstart-new-app/home-automation.png)
+[![Ekran görüntüsü, giriş Otomasyon etki alanı çekilerek önceden oluşturulmuş etki alanı menüde](media/luis-quickstart-new-app/home-automation.png "ekran görüntüsü, giriş Otomasyon etki alanı çekilerek önceden oluşturulmuş etki alanı menüsü")](media/luis-quickstart-new-app/home-automation.png)
 
 Etki alanı başarıyla eklendiğinde önceden oluşturulmuş etki alanı kutusunda **Etki alanını kaldır** düğmesi görüntülenir.
 
-[![](media/luis-quickstart-new-app/remove-domain.png "Etki alanını kaldır düğmesinin göründüğü Home Automation etki alanının ekran görüntüsü")](media/luis-quickstart-new-app/remove-domain.png)
+[![Kaldır düğmesinin Ekran görüntüsü, giriş Otomasyon etki](media/luis-quickstart-new-app/remove-domain.png "Kaldır düğmesinin Ekran görüntüsü, giriş Otomasyon etki alanı")](media/luis-quickstart-new-app/remove-domain.png)
 
 ## <a name="intents-and-entities"></a>Amaçlar ve varlıklar
 
@@ -63,7 +63,7 @@ HomeAutomation etki alanının amaçlarını incelemek için sol taraftaki gezin
 
 **HomeAutomation.TurnOff** amacını seçin. Amaçta varlıklarla etiketlenmiş olan konuşmaların bir listesini görebilirsiniz.
 
-[![](media/luis-quickstart-new-app/home-automation-turnon.png "HomeAutomation.TurnOff amacının ekran görüntüsü")](media/luis-quickstart-new-app/home-automation-turnon.png)
+[![Ekran görüntüsü, HomeAutomation.TurnOff hedefi](media/luis-quickstart-new-app/home-automation-turnon.png "ekran görüntüsü, HomeAutomation.TurnOff hedefi")](media/luis-quickstart-new-app/home-automation-turnon.png)
 
 ## <a name="train-the-luis-app"></a>LUIS uygulamasını eğitme
 
@@ -80,7 +80,7 @@ En yüksek puana sahip olan amacın test konuşması için beklediğiniz amaca k
 
 Bu örnekte "Turn off the lights" (Işıkları kapat), olması gereken şekilde "HomeAutomation.TurnOff" için en yüksek puana sahip amaç olarak tanımlanır.
 
-[![](media/luis-quickstart-new-app/test.png "Konuşmanın vurgulandığı Test paneli ekran görüntüsü")](media/luis-quickstart-new-app/test.png)
+[![Utterance vurgulandığı ekran görüntüsü, Test paneliyle](media/luis-quickstart-new-app/test.png "utterance vurgulandığı ekran görüntüsü, Test paneli")](media/luis-quickstart-new-app/test.png)
 
 
 Test bölmesini daraltmak için yeniden **Test**'i seçin. 
@@ -97,7 +97,7 @@ Test bölmesini daraltmak için yeniden **Test**'i seçin.
 
 2. Adresteki URL'nin sonuna gidin ve `turn off the living room light` tümcesini girip Enter tuşuna basın. Tarayıcıda HTTP uç noktanızın JSON yanıtı görüntülenir.
 
-    [![](media/luis-quickstart-new-app/turn-off-living-room.png "TurnOff amacını belirleyen JSON sonucunun gösterildiği tarayıcı ekran görüntüsü")](media/luis-quickstart-new-app/turn-off-living-room.png)
+    [![Tarayıcı ile JSON sonuç görüntüsü algılar hedefi kapatma](media/luis-quickstart-new-app/turn-off-living-room.png "tarayıcı ile JSON sonuç görüntüsü algılar hedefi kapatma")](media/luis-quickstart-new-app/turn-off-living-room.png)
     
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: d12de42be9cf5d1a48288aabf21b25546e5b4bbc
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 17d663873639cc36e9727881d990a3f32697c798
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833086"
+ms.locfileid: "52872161"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Azure İzleyici günlüklerinden VM'ler (Önizleme) için sorgulama
 VM'ler için Azure İzleyici, performansı ve bağlantı ölçümler, bilgisayar ve envanter verileri işlemek ve sistem durumu bilgilerini toplar ve Azure İzleyici'de Log Analytics veri deposuna iletir.  Bu veriler için kullanılabilir [arama](../../azure-monitor/log-query/log-query-overview.md) Log analytics'te. Geçiş planlaması kapasite analizi, bulma ve isteğe bağlı performans sorunlarını giderme senaryoları için bu verileri uygulayabilirsiniz.
@@ -238,5 +238,5 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Log Analytics'te sorgu yazmaya yeni başladıysanız, gözden [Log Analytics sayfanın nasıl kullanılacağı](../../log-analytics/query-language/get-started-analytics-portal.md) Azure portalında Log Analytics sorguları yazma.
-* Hakkında bilgi edinin [arama sorguları yazma](../../log-analytics/query-language/search-queries.md).
+* Log Analytics'te sorgu yazmaya yeni başladıysanız, gözden [Log Analytics sayfanın nasıl kullanılacağı](../../azure-monitor/log-query/get-started-portal.md) Azure portalında Log Analytics sorguları yazma.
+* Hakkında bilgi edinin [arama sorguları yazma](../../azure-monitor/log-query/search-queries.md).

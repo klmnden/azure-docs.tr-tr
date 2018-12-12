@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 48e338a08330e0674cc4410adf135ec546a5e1c3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 9c36920d2d1d201a874abaeeaac9eb965e0e641b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230606"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084026"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Azure Application Insights ile çalışma zamanı özel durumlarını bulma ve tanılama
 
@@ -30,7 +30,7 @@ Azure Application Insights, uygulamanızdan çalışma zamanı özel durumların
 > * Hatalı kodu düzeltmek için yeni iş öğesi oluşturma
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -75,20 +75,20 @@ Application Insights, uygulamanızdaki tüm hataları toplar ve bunların farkl�
     ![Özel durum ayrıntıları](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>Başarısız olan kodu belirleme
-Snapshot Debugger, uygulamanızda en sık karşılaşılan özel durumların anlık görüntülerini toplayarak üretimde sorunun kök nedenini tanılamanıza yardımcı olur.  Hata ayıklama anlık görüntülerini portalda görüntüleyerek çağrı yığınını görebilir ve her bir çağrı yığını çerçevesinde değişkenleri inceleyebilirsiniz. Daha sonra anlık görüntüyü indirip Visual Studio 2017’de açarak kaynak kodundaki hataları ayıklayabilirsiniz.
+Snapshot Debugger, uygulamanızda en sık karşılaşılan özel durumların anlık görüntülerini toplayarak üretimde sorunun kök nedenini tanılamanıza yardımcı olur.  Hata ayıklama anlık görüntülerini portalda görüntüleyerek çağrı yığınını görebilir ve her bir çağrı yığını çerçevesinde değişkenleri inceleyebilirsiniz. Ardından, kaynak kodu hata ayıklama anlık görüntüyü indirip Visual Studio 2017 Enterprise açma seçeneğine sahip.
 
 1. Özel durumun özelliklerinden **Hata ayıklama anlık görüntüsünü aç**’a tıklayın.
 2. İsteğe yönelik çağrı yığınıyla birlikte **Hata Ayıklama Anlık Görüntüsü** paneli açılır.  Tüm yerel değişkenlerin istek sırasında sahip olduğu değerleri görüntülemek için herhangi bir metoda tıklayın.  Başta bu örnekte en çok kullanılan metot olmak üzere değeri olmayan yerel değişkenleri görebiliriz.
 
     ![Hata ayıklama anlık görüntüsü](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-01.png)
 
-4. Geçerli değerlere sahip olan ilk çağrı **ValidZipCode** çağrısıdır ve posta kodunun bir tamsayıya çevrilemeyen harflerle sağlandığını görebiliriz.  Kodda düzeltilmesi gereken hata bu gibi görünüyor.
+3. Geçerli değerlere sahip olan ilk çağrı **ValidZipCode** çağrısıdır ve posta kodunun bir tamsayıya çevrilemeyen harflerle sağlandığını görebiliriz.  Kodda düzeltilmesi gereken hata bu gibi görünüyor.
 
     ![Hata ayıklama anlık görüntüsü](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-02.png)
 
-5. Bu anlık görüntüyü düzeltilmesi gereken kodun kendisini bulabileceğimiz Visual Studio’ya indirmek için **Anlık Görüntüyü İndir**’e tıklayın.
-6. Anlık görüntü Visual Studio'ya yüklenir.
-7. Artık Visual Studio’da özel duruma yol açan kod satırının hızlıca belirlendiği bir hata ayıklama oturumu çalıştırabilirsiniz.
+4. Ardından, bu anlık görüntüyü düzeltilmesi gereken kodun kendisini bulabileceğimiz biz burada bulabilirsiniz Visual Studio'ya indirmek için seçeneğiniz de vardır. Bunu yapmak için tıklatın **anlık görüntüyü indir**.
+5. Anlık görüntü Visual Studio'ya yüklenir.
+6. Artık, özel duruma neden olan kod satırına hızlıca tanımlayan Visual Studio Enterprise hata ayıklama oturumu çalıştırabilirsiniz.
 
     ![Kodda özel durum](media/app-insights-tutorial-runtime-exceptions/exception-code.png)
 

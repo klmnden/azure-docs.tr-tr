@@ -1,7 +1,7 @@
 ---
-title: Konuşmayı metne dönüştürme
+title: Konuşmayı metne dönüştürme - konuşma Hizmetleri
 titleSuffix: Azure Cognitive Services
-description: Konuşmayı metne dönüştürme API'si özelliklerine genel bakış.
+description: Konuşma metin API'si ses akışları uygulamanızı görüntüleyebilir veya bir giriş olarak üzerinde işlem metne dönüştürür. Hizmet SDK'sı ve bir RESTful uç noktası kullanılabilir.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: erhopf
-ms.openlocfilehash: 041ec1c095ec604fed7906368ff266c1586df570
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 050d395614fa4a08e6d0d0967200029e8fc36010
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471348"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094721"
 ---
 # <a name="about-the-speech-to-text-api"></a>Konuşmayı metne dönüştürme API'si
 

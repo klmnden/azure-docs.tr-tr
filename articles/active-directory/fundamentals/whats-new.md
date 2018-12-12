@@ -1,6 +1,6 @@
 ---
-title: Yenilikler Azure AD için sürüm notları | Microsoft Docs
-description: Bilinen sorunlar, hata düzeltmeleri, kullanım dışı bırakılan işlevsellik ve yaklaşan değişiklikleri en son sürüm notları gibi Azure Active Directory (Azure AD) ile yenilikleri öğrenin.
+title: Yenilikler Sürüm Notları - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory'ye yeni gibi bilinen sorunları, hata düzeltmeleri, en son sürüm notları, işlevler de kullanım dışı ve gelecek öğrenin değişiklikler.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -14,12 +14,13 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: dc4e421808ab0f79070224edea4b75f527affaf0
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: MT
+ms.custom: it-pro
+ms.openlocfilehash: 8ed51a5f61ca48434fd837449ecc2b6b8c3d74dc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426246"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083526"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'deki yenilikler nelerdir?
 

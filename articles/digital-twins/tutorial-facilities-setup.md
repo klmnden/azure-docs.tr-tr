@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 4491ec4661c93570893e5fafd5524715e0773d8c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 61b81602342b910a50c0cc6318746ec85a659a92
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582341"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080598"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Öğretici: Azure Digital Twins'i dağıtma ve uzamsal graf yapılandırma
 
@@ -163,6 +163,9 @@ Uzamsal graflar ve nesne modelleri hakkında daha fazla bilgi için okuma [dijit
     > Emin `dataType` ve `hardwareId` anahtarları hizalama deyimleriyle yukarıdaki Bu kod parçacığı. Ayrıca düzenleyicinizin boşlukları sekmelerle değiştirmediğinden de emin olun. 
 
 ProvisionSample.yaml dosyasını kaydedip kapatın. Sonraki öğreticide, daha fazla bilgi bu dosyaya ekleyin ve ardından, Azure dijital İkizlerini örnek yapı sağlamak.
+
+> [!TIP]
+> Görüntüleyebilir ve uzamsal graph aracılığıyla değiştirmek [Azure dijital İkizlerini graf Görüntüleyicisi](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme

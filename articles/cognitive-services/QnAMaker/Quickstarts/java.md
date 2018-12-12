@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 70fa8c5af4f00500c39ce3832e182a5532721799
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 1f28bf71805fbdc86fd0733757c7f2587fc15b12
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419717"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087720"
 ---
-# <a name="qna-maker-rest-api-with-java"></a>Java ile soru-cevap Oluşturucu REST API 
+# <a name="how-to-use-the-qna-maker-rest-api-with-java"></a>Java ile soru-cevap Oluşturucu REST API'si kullanma 
 <a name="HOLTop"></a>
 
 Bu makalede nasıl kullanılacağını gösterir [Microsoft soru-cevap Oluşturucu API'si](../Overview/overview.md) aşağıdakileri yapmak için Java ile.

@@ -4,7 +4,7 @@ description: Program aracılığıyla bir modeli yeniden eğitme ve Azure Machin
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 59d12ae91f8c75ab0fdd2058057cc8de158897e7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: d8deb3d9d2d425567094d44e638f1989a5e2d881
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314193"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097004"
 ---
-# <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-studio-management-powershell-cmdlets"></a>Machine Learning Studio yönetim PowerShell cmdlet'lerini kullanarak yeni bir Resource Manager tabanlı web hizmetini yeniden eğitme
+# <a name="retrain-a-new-resource-manager-based-web-service-using-powershell"></a>PowerShell kullanarak yeni bir Resource Manager tabanlı web hizmetini yeniden eğitme
 Yeni bir web hizmetini yeniden eğitme, Tahmine dayalı web hizmeti tanımının yeni eğitim modeli başvuru güncelleştirin.
 
 ## <a name="prerequisites"></a>Önkoşullar

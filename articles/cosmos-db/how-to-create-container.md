@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: d22103a049d62f48e8b9b9d3f71138842fbfaa89
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5558409c3a3b0aef3757ebb73b2046a7018e4150
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262497"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088196"
 ---
 # <a name="create-a-container-in-azure-cosmos-db"></a>Azure Cosmos DB'de kapsayıcı oluşturma
 
@@ -20,7 +20,7 @@ Bu makalede kapsayıcı oluşturmanın farklı yolları (koleksiyon, tablo, graf
 
 ## <a name="create-a-container-using-azure-portal"></a>Azure portalını kullanarak kapsayıcı oluşturma
 
-### <a id="portal-sql"></a>SQL (Core) API'si
+### <a id="portal-sql"></a>SQL (Core) API
 
 1. [Azure portalda](https://portal.azure.com/) oturum açın.
 
@@ -30,14 +30,13 @@ Bu makalede kapsayıcı oluşturmanın farklı yolları (koleksiyon, tablo, graf
 
    * Yeni bir veritabanı oluşturun veya var olanlardan birini kullanın.
    * Koleksiyon Kimliğini girin.
-   * **Sınırsız** depolama kapasitesi seçin.
    * Bölüm anahtarını girin.
    * Bir aktarım hızı (örneğin 1000 RU) girin.
    * **Tamam**’ı seçin.
 
 ![SQL API'si bir koleksiyon oluşturur](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
-### <a id="portal-mongodb"></a>MongoDB API'si
+### <a id="portal-mongodb"></a>MongoDB API’si
 
 1. [Azure portalda](https://portal.azure.com/) oturum açın.
 
@@ -54,7 +53,7 @@ Bu makalede kapsayıcı oluşturmanın farklı yolları (koleksiyon, tablo, graf
 
 ![MongoDB API'si bir koleksiyon oluşturur](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
-### <a id="portal-cassandra"></a>Cassandra API’si
+### <a id="portal-cassandra"></a>Cassandra API
 
 1. [Azure portalda](https://portal.azure.com/) oturum açın.
 
@@ -202,7 +201,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 > [!Note]
 > MongoDB'de istek birimleri kavramı yoktur. Aktarım hızıyla yeni bir koleksiyon oluşturmak için, önceki örneklerde gösterildiği gibi Azure Portalını veya SQL API'sini kullanın.
 
-### <a id="dotnet-cassandra"></a>Cassandra API’si
+### <a id="dotnet-cassandra"></a>Cassandra API
 
 ```csharp
 // Create a Cassandra table with a partition/primary key and provision 1000 RU/s throughput.

@@ -1,21 +1,21 @@
 ---
-title: Apache Kafka Connect'i Azure Event Hubs ile tümleştirme | Microsoft Docs
-description: Kafka için Azure Event Hubs ile Apache Spark'ı kullanın.
+title: Apache Kafka bağlama-Azure Event Hubs ile tümleştirme | Microsoft Docs
+description: Bu makalede, Apache Spark, Kafka için Azure Event Hubs ile kullanma hakkında bilgi sağlar.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: tutorial
-ms.custom: ''
-ms.date: 11/07/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 9a9972806c9691136bea380f9efd4e0d032deaf2
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: f405fe1c93ad17476ac47bc23951c65a5ea5db73
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285093"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091372"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Azure Event Hubs'a Apache Kafka Connect desteğiyle tümleştirme (Önizleme)
 İş gereksinimleri için alma işlemleri arttıkça, çeşitli dış kaynaklar ve havuzlar için alma gereksinimi de artıyor. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect), Kafka kümesi aracılığıyla MySQL, HDFS ve dosya sistemi gibi herhangi bir dış sistemden/sisteme bağlanmak ve verileri içeri/dışarı aktarmak için böyle bir çerçeve sağlar. Bu öğretici Kafka özellikli Event Hubs ile Kafka Connect çerçevesini kullanırken size yol gösterir.
@@ -34,10 +34,10 @@ Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 > * Kafka Connect'i çalıştırma
 > * Bağlayıcıları oluşturma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu yol gösterici adımları tamamlamak için aşağıdaki önkoşulların karşılandığından emin olun:
 
-- Azure aboneliği. Hesabınız yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
+- Azure aboneliği. Aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 - [Git](https://www.git-scm.com/downloads)
 - Linux/MacOS
 - Kafka sürümü (sürüm 1.1.1, Scala sürüm 2.11), [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1)'da sağlanır

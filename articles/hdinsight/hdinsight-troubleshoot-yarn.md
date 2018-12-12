@@ -6,20 +6,19 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
-ms.date: 11/2/2017
-ms.openlocfilehash: c3904286fc998769b9a72522bd31d3a9797c55c2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 12/06/2018
+ms.openlocfilehash: 34db8900d285baa7e9c4f97874023bbb52d5e864
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008054"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087907"
 ---
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Azure HDInsight'ı kullanarak YARN sorunlarını giderme
 
 Apache Ambari, Apache Hadoop YARN yükü ile çalışırken sık karşılaşılan sorunlar ve çözümleri hakkında bilgi edinin.
 
 ## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>Bir kümede yeni YARN kuyruk nasıl oluşturabilirim?
-
 
 ### <a name="resolution-steps"></a>Çözüm adımları 
 
@@ -138,10 +137,3 @@ Bu değişiklikler hemen YARN Zamanlayıcı UI görülebilir.
 
 ### <a name="see-also"></a>Ayrıca Bkz.
 [Azure HDInsight'ı kullanarak sorun giderme](hdinsight-troubleshoot-guide.md)
-
-
-
-
-
-
-

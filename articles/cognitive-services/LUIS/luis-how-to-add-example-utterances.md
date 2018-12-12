@@ -1,21 +1,22 @@
 ---
-title: LUIS uygulamalarında örnek Konuşma ekleme
-titleSuffix: Azure Cognitive Services
+title: Örnek konuşmalar ekleme
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Language Understanding (LUIS) uygulamalarında konuşma eklemeyi öğrenin.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: diberry
-ms.openlocfilehash: caf8628569481149ee41e8253f4759e15e49150f
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: MT
+ms.openlocfilehash: ada1d7e922bdd47cfc9fe8139ad83adfa45ed073
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139132"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085527"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Bir varlık için örnek Konuşma ekleme 
 

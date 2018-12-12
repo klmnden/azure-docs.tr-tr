@@ -1,7 +1,7 @@
 ---
 title: Sınırları ve sınır - soru-cevap Oluşturucu
 titleSuffix: Azure Cognitive Services
-description: Soru-cevap Oluşturucu arasında sınırları kapsamlı bir listesi.
+description: Soru-cevap Oluşturucu, bölümlerini Bilgi Bankası ve hizmet için meta-sınırlara sahiptir. Sınama ve yayımlama için bu sınırları içinde bilgi bankanızı tutmak önemlidir.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 53fadc0e3ea21b94ca656774baf077192c0394b4
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.custom: seodec18
+ms.openlocfilehash: 772153040ac76f4b7bbee55c48527a841fc69037
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50137302"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084797"
 ---
-# <a name="qna-maker-limits"></a>Soru-cevap Oluşturucu sınırlar
+# <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Soru-cevap Oluşturucu Bilgi Bankası sınırları ve sınır
 Soru-cevap Oluşturucu arasında sınırları kapsamlı bir listesi.
 
 ## <a name="knowledge-bases"></a>Bilgi bankaları

@@ -1,7 +1,7 @@
 ---
 title: Bir soru-cevap Oluşturucu Bilgi Bankası'na chit sohbet ekleme
 titleSuffix: Azure Cognitive Services
-description: Bir KB oluşturduğunuzda botunuz için kişisel chit sohbet ekleyerek daha damıtarak konuşma bağlamında kullanılabilen ve ilgi çekici kolaylaştırır. Soru-cevap Oluşturucu üst chit-sohbet, önceden doldurulmuş bir dizi, KB kolayca eklemenize olanak sağlar. Bu, botun chit-sohbet için bir başlangıç noktası olabilir ve bunları sıfırdan yazmak maliyeti ve zaman Kaydet.
+description: Bir KB oluşturduğunuzda botunuz için kişisel chit sohbet ekleyerek daha damıtarak konuşma bağlamında kullanılabilen ve ilgi çekici kolaylaştırır. Soru-cevap Oluşturucu üst chit-sohbet, önceden doldurulmuş bir dizi, KB kolayca eklemenize olanak sağlar.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: tulasim
-ms.openlocfilehash: ddd78cbfff2b1ee450a26306dce528cd89fea788
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.custom: seodec18
+ms.openlocfilehash: 7c54628faba4a3d7a89c1944e2f434a83035707b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50228933"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081771"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Bilgi Bankası'na Chit sohbet Ekle
 

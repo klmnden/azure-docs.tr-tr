@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 99e108da5fc9c13d0a9ec65a485055d1b990f8b7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 83216091c950593b16f158ea3d8df5a194ecee02
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838236"
+ms.locfileid: "52869832"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -74,7 +74,7 @@ Herhangi bir uygulamayı veya ile uyumlu bir VMware VM'de çalışan iş yükler
 Site kurtarma verileri, şirket içinden genel bir uç nokta veya ExpressRoute genel eşlemesi kullanarak Azure depolama alanına çoğaltır. Siteden siteye VPN ağ üzerinden çoğaltma desteklenmez.
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>ExpressRoute kullanarak azure'a çoğaltabilir miyim?
-Evet, ExpressRoute Vm'lerini Azure'a çoğaltma için kullanılabilir. Site Recovery genel bir uç nokta bir Azure depolama hesabına veri çoğaltır ve kurmanız gerekecektir [genel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) Site Recovery çoğaltması için. Bir Azure sanal ağı için sanal makineleri yük devretme sonra erişebilirsiniz kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Evet, ExpressRoute Vm'lerini Azure'a çoğaltma için kullanılabilir. Site Recovery genel bir uç nokta bir Azure depolama hesabına veri çoğaltır ve kurmanız gerekecektir [genel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#publicpeering) Site Recovery çoğaltması için. Bir Azure sanal ağı için sanal makineleri yük devretme sonra erişebilirsiniz kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>VPN üzerinden neden çoğaltma yapamaz?

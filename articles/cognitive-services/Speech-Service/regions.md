@@ -1,5 +1,5 @@
 ---
-title: Konuşma hizmet bölgeleri
+title: Bölge - konuşma Hizmetleri
 titlesuffix: Azure Cognitive Services
 description: Konuşma hizmeti bölgeleri için başvuru.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/06/2018
 ms.author: mahilleb
-ms.openlocfilehash: 8d36036332e939075ffac8763bec9c23d8e4a3f7
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec18
+ms.openlocfilehash: d41213d72d40555d8dc5aeab76040fc556dae774
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712900"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091654"
 ---
 # <a name="speech-service-supported-regions"></a>Konuşma hizmeti desteklenen bölgeler
 
@@ -45,7 +46,7 @@ Bu bölgeler için Speech SDK'sı kullanılabilir **konuşma tanıma** ve **çev
 
 ### <a name="intent-recognition"></a>Amaç tanıma
 
-**Amaç tanıma** Speech SDK'sı paylaşımları için LUIS bölgeleri destekler. Kullanılabilir bölgelerin tam listesi için bkz: [bölgeler ve uç noktaları - LUIS yayımlama](https://docs.microsoft.comazure/cognitive-services/luis/luis-reference-regions)
+**Amaç tanıma** Speech SDK'sı paylaşımları için LUIS bölgeleri destekler. Kullanılabilir bölgelerin tam listesi için bkz: [bölgeler ve uç noktaları - LUIS yayımlama](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions)
 
 Kullanılabilir bölgeler için **niyeti tanıma** Speech SDK'sı listelenir [Language Understanding hizmeti bölge sayfası](/azure/cognitive-services/luis/luis-reference-regions).
 
@@ -61,7 +62,7 @@ Konuşmayı metne referans belgeleri için bkz. [REST API'leri](https://docs.mic
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
-### <a name="text-to-speech"></a>Metin Okuma
+### <a name="text-to-speech"></a>Metin okuma
 
 Metin okuma referans belgeleri için bkz. [REST API'leri](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#speech-to-text).
 

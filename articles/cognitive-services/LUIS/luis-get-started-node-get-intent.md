@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: amaca dönüştürme-Node.js Al'
+title: Amaç, Node.js Al
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: Bu hızlı başlangıçta, kullanılabilir genel bir LUIS uygulamasını kullanarak konuşma metninden bir kullanıcının amacını belirleyin. Node.js kullanarak kullanıcının amacını genel uygulamanın HTTP tahmin uç noktasına metin olarak gönderin. Uç noktada, LUIS genel uygulamanın modelini uygulayarak anlam oluşturmak için doğal dil metnini analiz eder, böylece genel amacı belirler ve uygulamanın konu etki alanıyla ilgili verileri ayıklar.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 8a355b59a7674e21eddddbc311d90a9798931f89
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: e173e8af525c1d4239720adc504f8e5bbf14c062
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012717"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090567"
 ---
 # <a name="quickstart-get-intent-using-nodejs"></a>Hızlı Başlangıç: Node.js kullanarak amacı alma
 

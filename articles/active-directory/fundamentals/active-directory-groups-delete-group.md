@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory kullanarak bir grubu silme işlemini | Microsoft Docs
-description: Azure Active Directory kullanarak bir grup silmeyi öğrenin.
+title: -Azure Active Directory grup silme | Microsoft Docs
+description: Azure Active Directory'yi kullanarak grup silme hakkında yönergeler.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: 014fe487d23a6c75e94ca2708ed15044bd6cf53b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 6c08022b47fb1a118e95a54eedf9b5239496ebf7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574343"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092239"
 ---
-# <a name="how-to-delete-a-group-using-azure-active-directory"></a>Nasıl yapılır: Azure Active Directory'yi kullanarak bir grubu silme
-Birkaç nedenden için bir grubu silebilirsiniz ancak genellikle çünkü olur:
+# <a name="delete-a-group-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak bir grubu silme
+Bir Azure Active Directory (Azure AD) grubu için birkaç nedenden silebilirsiniz ancak genellikle çünkü olur:
 
 - Hatalı **grup türü** yanlış seçeneği
 
@@ -29,7 +29,7 @@ Birkaç nedenden için bir grubu silebilirsiniz ancak genellikle çünkü olur:
 - Artık gerek Grup
 
 ## <a name="to-delete-a-group"></a>Bir grubu silmek için
-1. Oturum [Azure portalında](https://portal.azure.com) dizinde genel yönetici hesabını kullanarak.
+1. Dizin için bir Genel yönetici hesabı kullanarak [Azure portalda](https://portal.azure.com) oturum açın.
 
 2. Seçin **Azure Active Directory**ve ardından **grupları**.
 

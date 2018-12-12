@@ -1,21 +1,21 @@
 ---
 title: Azure'da Cloudyn panoları ile ana ölçümleri görüntüleme | Microsoft Docs
-description: Bu makalede nasıl Cloudyn'de panolarla ana ölçümleri görüntüleyin.
+description: Bu makalede, panolar sayesinde önemli ölçümleri Cloudyn'de nasıl görüntüleyebileceğiniz açıklanır.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: a058757c3b4ae5087d89cdbdc1ede5fe780606ea
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: f232ee89993998eb25ecce73e9c2ac8e08f3198b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997078"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094126"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Ölçümleri panolarla maliyet anahtarını görüntüle
 
@@ -43,7 +43,7 @@ Pano kullanılabilirlik panolar görüntülenirken kullanılan bulut hizmet sağ
 Özel bir Pano oluşturmak için:
 
 1. Giriş sayfasında tıklayın **yeni Ekle +**. Panom'u sayfası görüntülenir.  
-    ![Panom](./media/dashboards/my-dashboard.png)
+    ![Yeni raporlar eklediğiniz my Pano sayfası](./media/dashboards/my-dashboard.png)
 2. Tıklayın **yeni bir rapor eklemek**. Rapor Ekle kutusu görüntülenir.
 3. Pano pencere öğesine eklemek istediğiniz raporu seçin. Pencere öğesinin panoya eklendi.
 4. Pano tamamlanana kadar yukarıdaki adımları yineleyin.
@@ -63,7 +63,7 @@ Pano kullanılabilirlik panolar görüntülenirken kullanılan bulut hizmet sağ
 Kamu için özel bir panoyu paylaşmak için:
 
 1. Bir Panoda tıklayın **Pano ayarları**. Pano ayarları kutusu görüntülenir.  
-    ![Pano Seçenekleri](./media/dashboards/dashboard-options.png)
+    ![özel bir Pano için Pano ayarları](./media/dashboards/dashboard-options.png)
 2. Pano Ayarları iletişim kutusunda, ok simgesine tıklayın ve ardından **genel**. Genel Pano onay iletişim kutusunda görüntülenir.
 3. Tıklayın **Evet**. Panoyu başkalarının kullanıma sunuldu.
 
@@ -116,13 +116,13 @@ Varsayılan olarak, herhangi bir panoyu ayarlayabilirsiniz. İçin varsayılan a
 -Veya-
 
 1. Tıklayın **Pano ayarları** kullanılabilir durumdaki panoların listesini görmek ve varsayılan olarak ayarlamak istediğiniz panoyu seçin.  
-    ![Pano Seçenekleri](./media/dashboards/dashboard-options.png)
+    ![Varsayılan bir Pano için Pano Seçenekleri](./media/dashboards/dashboard-options.png)
 2. Tıklayın **varsayılan** satırında Pano. Varsayılan Pano onay kutusu görüntülenir.
 3. **Evet**'e tıklayın. Pano, varsayılan olarak ayarlanır.
 
 ## <a name="management-dashboard"></a>Yönetim panosu
 Yönetim (veya MSP Pano MSP kullanıcılar için) Pano Ana rapor türleri en önemli özellikleri içerir.  
-![Yönetim panosu](./media/dashboards/management-dash.png)
+![Çeşitli raporlar gösteren Yönetim Panosu](./media/dashboards/management-dash.png)
 
 ### <a name="cost-entity-summary-enterprise-only"></a>Maliyet varlığı örneği (yalnızca Kurumsal)
 Bu pencere öğesi varlıkların sayısı ve hesap sayısı dahil olmak üzere yönetilen maliyet varlıkları özetler.
@@ -158,7 +158,7 @@ Bu pencere öğesi departmanları tarafından kullanılan depolama hizmetleri g�
 
 ## <a name="cost-controller-dashboard"></a>Maliyet denetleyicisi Panosu
 Maliyet denetleyicisi Panosu, önceden ayarlanmış maliyet ayırma öne çıkan özellikleri gösterir.  
-![Maliyet denetleyicisi Panosu](./media/dashboards/cost-controller-dashboard.png)
+![Çeşitli raporlar gösteren maliyet denetleyici Panosu](./media/dashboards/cost-controller-dashboard.png)
 
 ### <a name="cost-over-time"></a>Zaman temelinde maliyet
 Bu pencere öğesi maliyet eğilimleri yardımcı olur. Son günün maliyeti eğilimini ve hataların son 30 gün üzerinde temel vurgular.
@@ -198,7 +198,7 @@ Bu pencere öğesini vurgular son altı ay içinde harcama.
 ## <a name="asset-controller-dashboard"></a>Varlık denetleyici Panosu
 
 Bu pano, örnekler, kullanılabilir ve kullanımdaki diskleri, örnek türleri ve Depolama bilgileri dağıtım çalışan sayısını görüntüler.  
-![Varlık denetleyici Panosu](./media/dashboards/asset-controller-dashboard.png)
+![Çeşitli raporlar gösteren varlık denetleyici Panosu](./media/dashboards/asset-controller-dashboard.png)
 
 ### <a name="compute-instances"></a>İşlem örnekleri
 Bu pencere öğesi son 30 gün içindeki kullanım eğilim üzerindeki göre örnek çalışan sayısını görüntüler.
@@ -227,7 +227,7 @@ Bu pencere öğesi, Amazon RDS örneği son 30 gün eğilimini üzerinde çalı�
 
 ## <a name="optimizer-dashboard"></a>İyileştirici Panosu
 Bu Pano downsizing öneriler, kullanılmamış kaynakları ve olası tasarruf görüntüler.  
-![İyileştirici Panosu](./media/dashboards/optimizer-dashboard.png)
+![Çeşitli raporlar gösteren iyileştirici Panosu](./media/dashboards/optimizer-dashboard.png)
 
 ### <a name="ri-calculator"></a>RI hesaplayıcı
 Bu pencere öğesi, RI satın alma önerileri sayısını görüntüler ve olası yıllık tasarrufları vurgular.
@@ -257,7 +257,7 @@ Geçen ay izlenen kullanım ve performans verilerini iyileştirme önerileri tem
 
 ## <a name="s3-tracker-dashboard"></a>S3 İzleyici Panosu
 S3 İzleyicisi panoyu geçerli depolama kullanım ve eğilimleri görüntülemek, çözümlemek ve yardımcı olur.  
-![S3 İzleyici Panosu](./media/dashboards/s3-tracker-dashboard.png)
+![Çeşitli raporlar gösteren S3 İzleyici Panosu](./media/dashboards/s3-tracker-dashboard.png)
 
 ### <a name="all-buckets"></a>Tüm demetleri
 Bu pencere öğesi, tüm, demet GB ve toplam sayısı, demet nesnelerin toplam boyutu vurgular.
@@ -281,7 +281,7 @@ Bu pencere öğesi gerçek sayısı ve yüzdesi, demet başına nesne sayısın�
 
 ## <a name="cloud-comparison-dashboard"></a>Bulut karşılaştırma Panosu
 Bulut karşılaştırma Pano maliyetleri fiyatlandırması, CPU türü ve RAM boyutu olmak üzere göre farklı bulut sağlayıcılardan karşılaştırmanıza yardımcı olur.  
-![Bulut karşılaştırma Panosu](./media/dashboards/cloud-comparison-dashboard.png)
+![Çeşitli raporlar gösteren bulut karşılaştırma Panosu](./media/dashboards/cloud-comparison-dashboard.png)
 
 ### <a name="ec2-cost-in-azure-by-instance-type"></a>EC2 Azure örnek türü maliyeti
 Bu pencere öğesi, isteğe bağlı oranları kullanımı son 30 Günün vurgular. Bu, Azure'da olası maliyet geçerli Amazon EC2 maliyet ve maliyetle karşılaştırır.

@@ -1,6 +1,6 @@
 ---
 title: Hızlı Başlangıç - Azure PowerShell ile bir Windows IaaS VM'ini Şifreleme | Microsoft Docs
-description: Bu hızlı başlangıçta, Azure PowerShell'i kullanarak bir Windows sanal makinesini nasıl şifreleyeceğinizi öğreneceksiniz.
+description: Bu hızlı başlangıçta, azure'da Windows Iaas VM şifrelemek için Azure PowerShell kullanmayı öğrenin.
 services: security
 documentationcenter: na
 author: mestew
@@ -13,20 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: mstewart
-ms.openlocfilehash: 531da9af871595e6f8bf5d22832367bbfb301dab
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: ee2a4be97b2b56f9c659639a34e821e37c188828
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245880"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087873"
 ---
 # <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell ile bir Windows IaaS VM'ini Şifreleme
 
-Azure Disk Şifrelemesi, Windows ve Linux IaaS sanal makine disklerini şifrelemenize yardımcı olur. Çözüm ayrıca Azure Key Vault ile birlikte çalışarak disk şifreleme anahtarlarını ve gizli dizilerini denetlemenize ve yönetmenize yardımcı olur. Azure Disk Şifrelemesi'ni kullanarak, VM'lerinizin bekleme sırasında endüstri standardı şifreleme teknolojisi kullanılarak güvende tutulmasını sağlayabilirsiniz. Bu hızlı başlangıçta, Windows Server 2016 VM oluşturacak ve İşletim sistemi diskini şifreleyeceksiniz. 
+Azure Disk Şifrelemesi, Windows ve Linux IaaS sanal makine disklerini şifrelemenize yardımcı olur. Çözüm ayrıca Azure Key Vault ile birlikte çalışarak disk şifreleme anahtarlarını ve gizli dizilerini denetlemenize ve yönetmenize yardımcı olur. Azure Disk Şifrelemesi'ni kullanarak, VM'lerinizin bekleme sırasında endüstri standardı şifreleme teknolojisi kullanılarak güvende tutulmasını sağlayabilirsiniz. Bu hızlı başlangıçta, Windows Server 2016 VM oluşturacak ve İşletim sistemi diskini şifreleyeceksiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Windows PowerShell ISE
 - [Azure PowerShell'in en son sürümünü](/powershell/azure/install-azurerm-ps) yükleme veya bu sürüme güncelleştirme yapma

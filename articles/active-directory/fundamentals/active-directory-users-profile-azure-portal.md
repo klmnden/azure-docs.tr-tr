@@ -1,6 +1,6 @@
 ---
-title: Ekleme veya Azure Active Directory'de kullanıcı profili bilgilerini güncelleştir | Microsoft Docs
-description: Bir kullanıcının profilini, Azure Active Directory'de bir profil resminizi, işe özgü bilgileri ve bazı ayarlar dahil olmak üzere bilgi eklemeyi öğrenin.
+title: Ekleme veya güncelleştirme kullanıcı profili bilgileri - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory'de bir resim ve iş ayrıntılar dahil olmak üzere, bir kullanıcının profilini bilgi ekleme hakkında yönergeler.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: d4e2ebd88430cab1fe0734e342b1c9ba4a29af1b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 0e03d882df61755faf283aa67427beeec17c8c05
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45728955"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094738"
 ---
-# <a name="how-to-add-or-update-a-users-profile-information-using-azure-active-directory"></a>Nasıl yapılır: ekleme veya Azure Active Directory'yi kullanarak kullanıcının profil bilgilerini güncelleştirme
+# <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Ekleme veya Azure Active Directory'yi kullanarak kullanıcının profil bilgilerini güncelleştirme
 Kullanıcı profili bilgilerini, profil resminizi dahil olmak üzere, işe özgü bilgileri ve Azure Active Directory (Azure AD) kullanarak bazı ayarları ekleyin. Yeni kullanıcı ekleme hakkında daha fazla bilgi için bkz. [ekleyin veya Azure Active Directory'de kullanıcı silme](add-users-azure-active-directory.md).
 
 ## <a name="add-or-change-profile-information"></a>Profil bilgileri ekleme veya değiştirme
@@ -61,7 +61,7 @@ Kullanıcılarınızın profilleri güncelleştirdikten sonra aşağıdaki temel
 
 - [Ekleme veya kullanıcıları Sil](add-users-azure-active-directory.md)
 
-- [Kullanıcılara roller atama](active-directory-users-assign-role-azure-portal.md)
+- [Kullanıcılara rol atama](active-directory-users-assign-role-azure-portal.md)
 
 - [Temel bir grup oluşturma ve üye ekleme](active-directory-groups-create-azure-portal.md)
 

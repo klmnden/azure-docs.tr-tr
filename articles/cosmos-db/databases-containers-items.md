@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d834b7f43d961400e2d5080a46cf921d719f3393
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 9f2ed9c9059fa76a55ebd26fa3175605e89a4cdd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684867"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090285"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Azure Cosmos veritabanı, kapsayıcıları ve öğeleri ile çalışma
 
@@ -53,7 +53,7 @@ Bir Azure Cosmos kapsayıcı oluştururken, aktarım hızı şu modlardan birini
 
 * **Paylaşılan sağlanan aktarım hızı** modu: sağlanan aktarım hızı bu kapsayıcıların diğer kapsayıcıları (adanmış sağlanan aktarım hızı ile yapılandırılmış kapsayıcıların dışında) aynı veritabanında paylaşın. Diğer bir deyişle, veritabanı sağlanan aktarım hızını "paylaşılan" tüm kapsayıcılar arasında paylaşılır. Daha fazla bilgi için bkz. [nasıl bir Azure Cosmos veritabanı'nda sağlanan aktarım hızı yapılandırma](how-to-provision-database-throughput.md).
 
-Bir Azure container "paylaşılan" ya da ile kapsayıcıları oluşturma olup esnek, ölçeklendirilebilir Cosmos veya "ayrılmış" aktarım hızı modları sağlanan, diğer bir deyişle, olabilir sınırsız depolama ve sağlanan aktarım hızı.  
+Bir Azure Cosmos kapsayıcı ölçeklendirebilir, aktarım hızı modları, kapsayıcılar ile ya da "paylaşılan" veya "ayrılmış" oluşturduğunuz sağlanan.
 
 Bir Azure Cosmos kapsayıcı öğeleri şemadan kapsayıcıdır. Bir kapsayıcı içindeki öğeleri rastgele şemalar bulunabilir. Örneğin, bir kişiyi temsil eden bir öğe, bir otomobilin temsil eden bir öğe aynı kapsayıcıda yerleştirilebilir. Varsayılan olarak, herhangi bir açık dizin veya şema yönetimi gerektirmeden bir kapsayıcıya eklediğiniz tüm öğeleri bir otomatik olarak dizine. Bir kapsayıcı dizin oluşturma ilkesini yapılandırarak, dizin oluşturma davranışını özelleştirebilirsiniz. 
 

@@ -1,21 +1,21 @@
 ---
-title: Apache Flink Azure Event Hubs ile Apache Kafka için kullanın. | Microsoft Docs
-description: Olay hub'ı bir kafka'ya bağlanma Apache Flink etkin
+title: Apache Flink için Apache Kafka - Azure Event hubs'ı kullanın. | Microsoft Docs
+description: Bu makalede, Azure olay hub'ı bir Apache Kafka için Apache Flink bağlanma hakkında bilgi etkin sağlanır.
 services: event-hubs
 documentationcenter: ''
 author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.custom: mvc
-ms.date: 08/06/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 28ebcd0fe10492b730d73e19f9206545084b4030
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: cb964451d25bb381ee9cca84628852a61e4be9b6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277350"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090916"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Apache Flink Azure Event Hubs ile Apache Kafka için kullanın.
 Bu öğreticide Protokolü istemcilerinize değiştirme veya kendi kümeleri çalıştıran Apache Flink Kafka özellikli event hubs'a bağlanma gösterilmektedir. Azure Event hubs'ı destekleyen [Apache Kafka sürüm 1.0.](https://kafka.apache.org/10/documentation.html).
@@ -25,7 +25,7 @@ Apache Kafka kullanmanın önemli avantajları için bağlanabilir çerçeveleri
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
 > * Event Hubs ad alanı oluşturma
-> * Örnek projesini kopyalama
+> * Örnek projeyi kopyalama
 > * Flink üretici çalıştırın 
 > * Flink tüketici çalıştırın
 
@@ -50,7 +50,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki önkoşulların karşılandığın
 
 Tüm Event Hubs hizmetinden gönderileceği ve alınacağı bir Event Hubs ad alanı gereklidir. Bkz: [Event Hubs etkin Kafka oluşturma](event-hubs-create-kafka-enabled.md) bir olay hub'ları Kafka uç nokta alma hakkında bilgi için. Daha sonra kullanmak için Event Hubs bağlantı dizesi kopyaladığınızdan emin olun.
 
-## <a name="clone-the-example-project"></a>Örnek projesini kopyalama
+## <a name="clone-the-example-project"></a>Örnek projeyi kopyalama
 
 Event Hubs, Kafka özellikli bir bağlantı dizesi olduğuna göre Azure Event Hubs Kafka deposu için kopyalama ve gidin `flink` alt klasörü:
 
@@ -128,18 +128,18 @@ Bu öğreticide, öğrenilmiş Protokolü istemcilerinize değiştirme veya kend
 
 > [!div class="checklist"]
 > * Event Hubs ad alanı oluşturma
-> * Örnek projesini kopyalama
+> * Örnek projeyi kopyalama
 > * Flink üretici çalıştırın 
 > * Flink tüketici çalıştırın
 
-Kafka için Event Hubs ile Event Hubs hakkında daha fazla bilgi edinmek için şu konuya bakın:  
+Event Hubs ve Kafka için Event Hubs hakkında daha fazla bilgi edinmek için aşağıdaki konuya bakın:  
 
 - [Event Hubs hakkında bilgi edinin](event-hubs-what-is-event-hubs.md)
-- [Event Hubs için Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [Event Hubs Kafka oluşturma etkin](event-hubs-create-kafka-enabled.md)
-- [Kafka uygulamalarınızdan Event hubs'ta Stream](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-- [Kafka özellikli bir olay hub'ında bir Kafka Aracısı yansıtma](event-hubs-kafka-mirror-maker-tutorial.md)
-- [Apache Spark, Kafka etkin olay hub'ına bağlanma](event-hubs-kafka-spark-tutorial.md)
-- [Kafka bağlanmak bir Kafka özellikli bir olay hub'ı ile tümleştirin](event-hubs-kafka-connect-tutorial.md)
-- [Akka akışları bir Kafka özellikli olay hub'ına bağlama](event-hubs-kafka-akka-streams-tutorial.md)
-- [GitHub üzerinde örneklerini keşfedin](https://github.com/Azure/azure-event-hubs-for-kafka)
+- [Apache Kafka için Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)
+- [Kafka özellikli Event Hubs oluşturma](event-hubs-create-kafka-enabled.md)
+- [Kafka uygulamalarınızdan Event Hubs'a akış yapma](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [Kafka özellikli bir olay hub'ında Kafka aracısını yansıtma](event-hubs-kafka-mirror-maker-tutorial.md)
+- [Apache Spark'ı Kafka özellikli bir olay hub'ına bağlama](event-hubs-kafka-spark-tutorial.md)
+- [Kafka Connect'i Kafka özellikli olay hub'ıyla tümleştirme](event-hubs-kafka-connect-tutorial.md)
+- [Akka Streams’i Kafka özellikli olay hub'ına bağlama](event-hubs-kafka-akka-streams-tutorial.md)
+- [GitHub'ımızdaki örnekleri inceleme](https://github.com/Azure/azure-event-hubs-for-kafka)

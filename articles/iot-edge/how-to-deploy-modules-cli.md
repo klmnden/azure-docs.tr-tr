@@ -1,5 +1,5 @@
 ---
-title: Azure IOT Edge modüllerini (CLI) dağıtma | Microsoft Docs
+title: Komut satırından - Azure IOT Edge modüllerini dağıtmak | Microsoft Docs
 description: Modüller IOT Edge cihazına dağıtmak için Azure CLI için IOT uzantısı kullanma
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a8f39befbe1a329091da19eeba14a8dcc749fa93
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: f9aa3fff8750dc20053072c939a6db9362a2b0d7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564995"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093582"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Azure CLI ile Azure IOT Edge modüllerini dağıtmak
 
@@ -117,7 +118,7 @@ IOT Edge cihazına yapılandırmayı uygulamak için aşağıdaki komutu kullan�
 
 Cihaz kimliği parametresi büyük/küçük harf duyarlıdır. İçerik parametresi dağıtım noktalarına bildirim kaydettiğiniz dosyası. 
 
-   ![Modülleri ayarlama](./media/how-to-deploy-cli/set-modules.png)
+   ![az IOT edge modülleri kümesini çıktı](./media/how-to-deploy-cli/set-modules.png)
 
 ## <a name="view-modules-on-your-device"></a>Cihazınızda modülleri görüntüleme
 
@@ -131,7 +132,7 @@ IoT Edge cihazınızda modülleri görüntüleme:
 
 Cihaz kimliği parametresi büyük/küçük harf duyarlıdır.
 
-   ![Modülleri listeleme](./media/how-to-deploy-cli/list-modules.png)
+   ![az IOT hub kimlik modülü liste çıkışı](./media/how-to-deploy-cli/list-modules.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,5 +1,6 @@
 ---
-title: 'Görüntü sınıflandırma Öğreticisi: Azure Machine Learning hizmeti ile modelleri eğitme'
+title: 'Görüntü sınıflandırma Öğreticisi: eğitme modelleri'
+titleSuffix: Azure Machine Learning service
 description: Bu öğretici, Azure Machine Learning hizmetini kullanarak Python Jupyter not defterinde scikit-learn ile bir görüntü sınıflandırma modelinin nasıl eğitildiğini gösterir. Bu öğretici, iki bölümden oluşan bir serinin birinci bölümüdür.
 services: machine-learning
 ms.service: machine-learning
@@ -9,13 +10,13 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.custom: seodec12
-ms.openlocfilehash: 14ecc492ba7ce4b97af147e79c0a4e3f9a7aaba0
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: fc61465615e35c071466c7a1350c8e9794a7f78e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017680"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099119"
 ---
 # <a name="tutorial-part-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>(Kısım 1) öğreticisi: Azure Machine Learning hizmeti ile bir görüntü sınıflandırma modeli eğitme
 

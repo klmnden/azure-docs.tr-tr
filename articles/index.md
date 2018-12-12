@@ -6,12 +6,12 @@ description: Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: c7babd4a6f5a62bb3d284bc37086e908613eb429
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 78f9fa6c3d15d43c1505b5a84a2e269992290afa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017809"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082229"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -580,12 +580,6 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                             <a href="/azure/event-grid/">
                                                 <img src="media/index/azure_event_grid.svg" alt="" />
                                                 <p>Event Grid</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/biztalk-services/">
-                                                <img src="media/index/BizTalkServices.svg" alt="" />
-                                                <p>BizTalk Services</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -4388,25 +4382,6 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                                 <div class="cardText">
                                                     <h3>Event Grid</h3>
                                                     <p>Çok büyük ölçekte, güvenilir olay teslimi olanağı elde edin</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/biztalk-services/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/BizTalkServices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>BizTalk Services</h3>
-                                                    <p>Kurumları ve bulutu sorunsuz bir şekilde tümleştirin</p>
                                                 </div>
                                             </div>
                                         </div>

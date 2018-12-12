@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: 591b79d4d9d44c55c2438d872b61a90abbe6ecad
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5cc6bdfa9c16a6dfbdd0f6c87873a90b2a203169
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841124"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089233"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Logic Apps ve Azure Cosmos DB'yi kullanarak HL7 FHIR sağlık kaydı değişikliklerinin hastalara bildirme
 
@@ -23,7 +23,7 @@ Bu makale, Azure Cosmos DB, Logic Apps ve Service Bus'ı kullanarak sağlık bu 
 
 ## <a name="project-requirements"></a>Proje gereksinimleri
 - XML biçiminde HL7 birleştirilmiş Klinik belge mimarisi (C-CDA) belgeleri sağlayıcıları gönderin. C CDA belgeleri kapsayabilir ve neredeyse her türde aile geçmişleri ve de yönetici olarak immunization kayıtlar gibi Klinik belgeleri, iş akışı ve Finans belgeleri de dahil olmak üzere Klinik belge. 
-- C CDA belgeleri dönüştürülür [HL7 FHIR kaynakları](http://hl7.org/fhir/2017Jan/resourcelist.html) JSON biçiminde.
+- C CDA belgeleri dönüştürülür [HL7 FHIR kaynakları](https://hl7.org/fhir/2017Jan/resourcelist.html) JSON biçiminde.
 - Değiştirilen FHIR kaynak belgeleri, JSON biçimindeki e-postayla gönderilir.
 
 ## <a name="solution-workflow"></a>Çözümü iş akışı 

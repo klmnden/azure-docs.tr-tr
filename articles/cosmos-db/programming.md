@@ -1,25 +1,23 @@
 ---
-title: Azure Cosmos DB için sunucu tarafı JavaScript programlama | Microsoft Docs
+title: Azure Cosmos DB için sunucu tarafı JavaScript programlama
 description: Azure Cosmos DB içinde JavaScript saklı yordamları, veritabanı Tetikleyicileri ve kullanıcı tanımlı işlevlerle (UDF) yazmak için kullanmayı öğrenin. Veritabanı ölçeklenebilirliğinden ipuçları ve daha fazla bilgi edinin.
 keywords: Veritabanı tetikleyicileri, saklı yordam, saklı yordamı, veritabanı programı, sproc, azure, Microsoft azure
 services: cosmos-db
 author: aliuy
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 8452f84c1358c410cd0431416a5b65a88a8b903e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 9f36d6761e61f0de610cb3f612cd069092cdc242
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817118"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083708"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB sunucu tarafı programlama: saklı yordamlar, veritabanı tetikleyiciler ve UDF'ler
 
-Azure Cosmos DB'nin dil ile tümleşik, işlem yürütme JavaScript Yazma geliştiricilerin nasıl sağladığını öğrenin **saklı yordamlar**, **Tetikleyicileri**, ve **kullanıcı tanımlı işlevler (UDF'ler)**  içinde yerel olarak bir [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. JavaScript tümleştirme sevk edilen ve doğrudan veritabanı depolama bölümleri içinde yürütülen program mantığını yazmanızı sağlar. 
+Azure Cosmos DB'nin dil ile tümleşik, işlem yürütme JavaScript Yazma geliştiricilerin nasıl sağladığını öğrenin **saklı yordamlar**, **Tetikleyicileri**, ve **kullanıcı tanımlı işlevler (UDF'ler)**  içinde yerel olarak bir [ECMAScript 2015](https://www.ecma-international.org/ecma-262/6.0/) JavaScript. JavaScript tümleştirme sevk edilen ve doğrudan veritabanı depolama bölümleri içinde yürütülen program mantığını yazmanızı sağlar. 
 
 Bu makalede aşağıdaki soruların yanıtlarını öğreneceksiniz:  
 
@@ -46,7 +44,7 @@ Bu yaklaşım *"JavaScript T-SQL modern gün olarak"* karmaşıklığını tür 
 
 Aracılığıyla oluşturma ve yürütme veritabanı tetikleyicileri, saklı yordamlar ve özel sorgu işleçleri desteklenir [Azure portalında](https://portal.azure.com), [REST API](/rest/api/cosmos-db/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), ve [istemci SDK'ları](sql-api-sdk-dotnet.md) .NET, Node.js ve JavaScript gibi birçok platformda.
 
-Bu öğreticide [Node.js SDK'sı ile soru gösterir](http://azure.github.io/azure-documentdb-node-q/) söz dizimi ve saklı yordamlar, tetikleyiciler ve UDF'ler kullanımını göstermek için.   
+Bu öğreticide [Node.js SDK'sı ile soru gösterir](https://azure.github.io/azure-documentdb-node-q/) söz dizimi ve saklı yordamlar, tetikleyiciler ve UDF'ler kullanımını göstermek için.   
 
 ## <a name="stored-procedures"></a>Saklı yordamlar
 ### <a name="example-write-a-stored-procedure"></a>Örnek: bir saklı yordam yazma
@@ -668,7 +666,7 @@ Yukarıdaki tabloda her bir sorguda aşağıdaki açıklamaları açıklanmaktad
 
 
 ## <a name="runtime-support"></a>Çalışma zamanı desteği
-Azure Cosmos DB [JavaScript sunucu tarafı API'si](https://azure.github.io/azure-cosmosdb-js-server/) en temel JavaScript dil özellikleri tarafından standart olarak iyi destek sağlayan [ECMA 262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+Azure Cosmos DB [JavaScript sunucu tarafı API'si](https://azure.github.io/azure-cosmosdb-js-server/) en temel JavaScript dil özellikleri tarafından standart olarak iyi destek sağlayan [ECMA 262](https://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### <a name="security"></a>Güvenlik
 JavaScript saklı yordamları ve Tetikleyicileri korumalı, böylece bir betik etkilerini diğer veritabanı düzeyinde snapshot işlem yalıtım olmadan sızıntı değil. Çalışma zamanı ortamlarını havuza ancak her sonrasında çalıştırma bağlamında temizlendi. Bu nedenle bunlar birbirinden istenmeyen yan etkileri güvenli olmasını garanti edilir.
@@ -733,7 +731,7 @@ Document createdItem = await client.CreateDocumentAsync(UriFactory.CreateDocumen
     });
 ```
 
-Ve aşağıdaki örnek, bir kullanıcı tanımlı işlev (UDF) oluşturmak ve bunu kullanmak gösterilmiştir bir [SQL sorgusu](sql-api-sql-query.md).
+Ve aşağıdaki örnek, bir kullanıcı tanımlı işlev (UDF) oluşturmak ve bunu kullanmak gösterilmiştir bir [SQL sorgusu](how-to-sql-query.md).
 
 ```javascript
 UserDefinedFunction function = new UserDefinedFunction()
@@ -833,7 +831,7 @@ Ayrıca aşağıdaki başvurular ve kaynaklar yolunuzu Azure Cosmos dB sunucu ta
 
 * [Azure Cosmos DB JavaScript sunucu tarafı API Başvurusu](https://azure.github.io/azure-cosmosdb-js-server/)
 * [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
-* [JavaScript ECMA 262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
-* [Güvenli ve taşınabilir veritabanı genişletilebilirliği](http://dl.acm.org/citation.cfm?id=276339) 
-* [Hizmet yönelimli veritabanı mimarisi](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
-* [Microsoft SQL Server'da .NET çalışma zamanı barındırma](http://dl.acm.org/citation.cfm?id=1007669)
+* [JavaScript ECMA 262](https://www.ecma-international.org/publications/standards/Ecma-262.htm)
+* [Güvenli ve taşınabilir veritabanı genişletilebilirliği](https://dl.acm.org/citation.cfm?id=276339) 
+* [Hizmet yönelimli veritabanı mimarisi](https://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+* [Microsoft SQL Server'da .NET çalışma zamanı barındırma](https://dl.acm.org/citation.cfm?id=1007669)

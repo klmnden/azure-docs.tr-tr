@@ -1,5 +1,5 @@
 ---
-title: "Hızlı Başlangıç: Konuşma Tanıma Hizmeti SDK'sını kullanarak Windows üzerinde .NET Core altında C# dilinde konuşma tanıma"
+title: 'Hızlı Başlangıç: .NET Core (Windows) - konuşma Hizmetleri konuşma tanıma'
 titleSuffix: Azure Cognitive Services
 description: Konuşma Tanıma Hizmeti SDK'sını kullanarak Windows üzerinde .NET Core altında C# dilinde konuşma tanımayı öğrenin
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 891de4700470931d8eaec3e2a3bb7ca2110e48dd
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: e82e39eb3fc6c7ebaf4798ad10038bfd2fa9a41b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469152"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085493"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Konuşma SDK'sını kullanarak Windows'da .NET Core altında C# ile konuşma tanıma
 

@@ -1,10 +1,8 @@
 ---
-title: 'Azure Cosmos DB: SQL .NET Core API, SDK ve kaynakları | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL .NET Core API, SDK ve kaynakları'
 description: Tüm SQL .NET Core API ve yayın tarihleri, sona erme tarihlerini ve her bir Azure Cosmos DB .NET Core SDK'sı sürümü arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin.
 services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
@@ -12,12 +10,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a0fb429c36005edca579cbdb7b379e6b04be60b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: bcd8fe040cb4d36bc98700816d6a7ebe711f13f5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840852"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093460"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK SQL API'si için: yayın notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -213,7 +211,7 @@ Azure Cosmos DB .NET Core Önizleme SDK'sı özellik eşliği ile en son sürüm
 * [Bölümlenmiş koleksiyonları](partition-data.md). 
 * [Çoklu bölge veritabanı hesapları ve coğrafi çoğaltma](distribute-data-globally.md).
 
-Bu SDK ilgili sorularınız varsa postalayabilir [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb), veya bir sorunu bildirin [github deposu](https://github.com/Azure/azure-documentdb-dotnet/issues). 
+Bu SDK ilgili sorularınız varsa postalayabilir [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb), veya bir sorunu bildirin [github deposu](https://github.com/Azure/azure-documentdb-dotnet/issues). 
 
 ## <a name="release--retirement-dates"></a>Yayın ve sona erme tarihlerini
 

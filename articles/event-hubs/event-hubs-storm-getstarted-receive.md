@@ -1,6 +1,6 @@
 ---
-title: Apache Storm kullanan Azure Event Hubs'tan gelen olayları alma | Microsoft Docs
-description: Apache Storm kullanarak Event Hubs'dan almaya başlama
+title: Apache Storm - Azure Event Hubs kullanarak olay alma | Microsoft Docs
+description: Bu makalede Apache Storm kullanarak olayları Azure Event Hubs'dan olay alma konusunda bilgi sağlanır.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c70096796bb038c27d18bb3467d7c425dafd5c5b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 3c50916f648a2bce634f7aeb109147a873de1de6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42057047"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094619"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Apache Storm kullanarak Event Hubs'dan olayları alma
 
@@ -40,7 +41,7 @@ Bu öğreticide bir [HDInsight Storm] [ HDInsight Storm] zaten kullanılabilir E
     ```
 4. Eclipse'te, yeni bir Maven projesi oluşturun (tıklayın **dosya**, ardından **yeni**, ardından **proje**).
    
-    ![][12]
+    ![Dosya -> Yeni Proje ->][12]
 5. Seçin **varsayılan çalışma alanı konumu kullanın**, ardından **İleri**
 6. Seçin **maven archetype hızlı** archetype, ardından **İleri**
 7. INSERT bir **GroupID** ve **Artifactıd**, ardından **son**

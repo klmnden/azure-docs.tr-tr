@@ -1,5 +1,5 @@
 ---
-title: Azure IOT Edge cihazları ağ proxy'leri için yapılandırma | Microsoft Docs
+title: Ağ Ara sunucuları - Azure IOT Edge cihazları yapılandırma | Microsoft Docs
 description: Azure IOT Edge çalışma zamanı ve bir proxy sunucu üzerinden iletişim kurmak için herhangi bir internet'e yönelik IOT Edge modüllerini nasıl yapılandırılacağı.
 author: kgremban
 manager: ''
@@ -8,12 +8,13 @@ ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 72855058c5e8294eece55f8dbcdc501025c9aabf
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.custom: seodec18
+ms.openlocfilehash: a7d32c98b77568e02fa14b70e969eeb254989062
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913232"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100490"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Bir proxy sunucu üzerinden iletişim kurmak için IOT Edge cihazı yapılandırma
 
@@ -173,7 +174,7 @@ Edge aracısı ve Edge hub'ı modülleri yapılandırmak için seçin **Gelişmi
 
 Ekleme **erişmek** ortam değişkeni Edge aracısı ve Edge hub'ı modül tanımları. Dahil ettiyseniz **UpstreamProtocol** IOT Edge Cihazınızda config.yaml dosyasında ortam değişkeni ekleyin, Edge Aracısı modülü tanımına çok. 
 
-![Ortam değişkenlerini belirleme](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
+![Erişmek ortam değişken Ayarla](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
 
 Bir dağıtım bildirimine eklediğiniz tüm diğer modülleri aynı düzeni uygular. Modül adı ve görüntü ayarlandığı sayfasında, bir ortam değişkenleri bölümü yoktur.
 

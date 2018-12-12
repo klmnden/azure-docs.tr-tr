@@ -1,10 +1,12 @@
 ---
-title: Azure üzerinde Windows veri bilimi sanal makinesi sağlama | Microsoft Docs
+title: Windows veri bilimi sanal makinesi oluşturma
+titleSuffix: Azure
 description: Yapılandırma ve analiz için Azure'da bir veri bilimi sanal makinesi oluşturma ve makine öğrenimi.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -13,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 20867b6bfecb981a9bc47180cb39a1c489b19d2f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5dacbbcba44879b28e311f08b089d10d0ad8d95b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959759"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079645"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure üzerinde Windows veri bilimi sanal makinesi sağlama
 Microsoft Veri bilimi sanal makinesi (DSVM), bir Windows Azure sanal makine (VM) görüntüsüdür. Bu önceden yüklenmiş ve veri analizi ve makine öğrenimi için kullanılan çeşitli araçlar ile yapılandırılmış. Aşağıdaki araçları dahil edilir:

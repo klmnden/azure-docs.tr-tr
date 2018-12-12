@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: 734020f2e70d09b125867faafebf1e7f7332fec4
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 4614a1417213ed8b4d57c3b7ab21ac7424d75949
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995563"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087942"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Öğretici: Dışarı aktarılan verileri oluşturma ve yönetme
 
@@ -48,13 +48,13 @@ Azure Depolama hesapları için:
 
 Maliyet Yönetimi + Faturalama &gt; Maliyet Yönetimi &gt; bir abonelik veya bir abonelikteki kaynak grubunu &gt; seçin &gt; Dışarı Aktar **Ekle**.
 
-Dışarı aktarma için bir ad yazın ve "Günlük ay başından bu yana maliyetlerini ver" seçeneğini belirleyin. **İleri**’ye tıklayın.
+Dışarı aktarma için bir ad yazın ve "Günlük ay başından bu yana maliyetlerini ver" seçeneğini belirleyin. **İleri**'ye tıklayın.
 
-![Yeni dışarı aktarma: türünü dışarı aktarın](./media/tutorial-export-acm-data/basics_exports.png)
+![Yeni dışarı aktarma örnek dışarı aktarma türü gösteriliyor](./media/tutorial-export-acm-data/basics_exports.png)
 
-Azure depolama hesabınız için bir abonelik belirtin, ardından depolama hesabınızı seçin.  Depolama kapsayıcısı ve dışarı aktarma dosyası gitmek istediğiniz dizin yolunu belirtin.  **İleri**’ye tıklayın.
+Azure depolama hesabınız için bir abonelik belirtin, ardından depolama hesabınızı seçin.  Depolama kapsayıcısı ve dışarı aktarma dosyası gitmek istediğiniz dizin yolunu belirtin.  **İleri**'ye tıklayın.
 
-![Yeni dışarı aktarma: depolama](./media/tutorial-export-acm-data/storage_exports.png)
+![Depolama hesabı ayrıntılarını gösteren yeni dışarı aktarma örneği](./media/tutorial-export-acm-data/storage_exports.png)
 
 Dışarı aktarma ayrıntılarını gözden geçirin ve tıklayın **Oluştur**.
 
@@ -68,15 +68,15 @@ Maliyet Yönetimi verilerinizin toplandığını kolaylıkla doğrulayabilir ve 
 
 Dışarı aktarma listesinde depolama hesabı adına tıklayın. Depolama hesabı sayfasında Gezgin'de Aç seçeneğine tıklayın. Bir onay kutusu görürseniz, dosyayı Azure Depolama Gezgini’nde açmak için **Evet**’e tıklayın.
 
-![Depolama hesabı sayfası](./media/tutorial-export-acm-data/storage-account-page.png)
+![Depolama hesabı sayfasında örnek bilgileri ve bağlantı Gezgini'nde Aç](./media/tutorial-export-acm-data/storage-account-page.png)
 
 Depolama Gezgini'nde, açmak istediğiniz kapsayıcıya gidin ve bulunduğunuz aya karşılık gelen klasörü seçin. CSV dosyaları listesi gösterilir. Birini seçin ve **Aç**’a tıklayın.
 
-![Depolama Gezgini](./media/tutorial-export-acm-data/storage-explorer.png)
+![Depolama Gezgini'nde gösterilen örnek bilgileri](./media/tutorial-export-acm-data/storage-explorer.png)
 
 Dosya, CSV dosyası uzantılarını açmak üzere ayarlanmış program veya uygulama ile açılır. Bir örneği Excel’de verilmiştir.
 
-![Örnek dışarı aktarma verileri](./media/tutorial-export-acm-data/example-export-data.png)
+![CSV Verileri Excel'de gösterilen örnek dışarı](./media/tutorial-export-acm-data/example-export-data.png)
 
 ## <a name="access-exported-data-from-other-systems"></a>Dışarı aktarılan verilere diğer sistemlerden erişme
 

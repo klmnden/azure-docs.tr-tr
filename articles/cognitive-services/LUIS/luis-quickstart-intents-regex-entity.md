@@ -1,21 +1,22 @@
 ---
-title: 'Öğretici 3: Normal ifade ile eşleşen veri - düzgün biçimlendirilmiş veri ayıklama'
+title: Normal ifade varlık
 titleSuffix: Azure Cognitive Services
 description: Normal İfade varlığını kullanarak bir konuşmadaki tutarlı olarak biçimlendirilmiş verileri ayıklayın.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 5e8345deb629d293d9673819893181e652d5dbb9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: MT
+ms.openlocfilehash: 9cc88523ee31d80292c7d0d2bf9321dbbfc2ab6b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423427"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093336"
 ---
 # <a name="tutorial-3-extract-well-formatted-data"></a>Öğretici 3: Düzgün biçimlendirilmiş verileri ayıklama
 Bu öğreticide, **Normal İfade** varlığını kullanarak bir konuşmadan tutarlı olarak biçimlendirilmiş veriler ayıklamak için İnsan Kaynakları uygulamasını değiştirme anlatılmaktadır.
@@ -129,7 +130,7 @@ Aşağıdaki adımları izleyerek LUIS uygulamasına HRF-numara biçimini bildir
 
 2. Adres çubuğundaki URL'nin sonuna gidip `When were HRF-123456 and hrf-234567 published in the last year?` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `FindForm` amacını `HRF-123456` ile `hrf-234567` olmak üzere iki form numarasını döndürmelidir.
 
-    ```JSON
+    ```json
     {
       "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {

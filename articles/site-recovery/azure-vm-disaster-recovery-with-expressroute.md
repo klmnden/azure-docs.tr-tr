@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 84c6477a1c9bc61b339e66d91cb7c1fbc8e90ea0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5a16b81abb9cc95f46bd61f6c0232a28f3cda0ff
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837010"
+ms.locfileid: "52875408"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure ExpressRoute, Azure Vm'leri için olağanüstü durum kurtarma ile tümleştirin
 
@@ -37,7 +37,7 @@ ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştırılan özel bağl
 Başlamadan önce aşağıdaki kavramları anladığınızdan emin olun:
 
 - ExpressRoute [devreler](../expressroute/expressroute-circuit-peerings.md)
-- ExpressRoute [Yönlendirme etki alanları](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains)
+- ExpressRoute [Yönlendirme etki alanları](../expressroute/expressroute-circuit-peerings.md#routingdomains)
 - ExpressRoute [konumları](../expressroute/expressroute-locations.md).
 - Azure VM [çoğaltma mimarisi](azure-to-azure-architecture.md)
 - Nasıl yapılır [çoğaltmayı ayarlama](azure-to-azure-tutorial-enable-replication.md) Azure Vm'leri için.
@@ -136,7 +136,7 @@ Bizim örneğimizde kaynak ağdaki Azure Vm'leri için çoğaltmayı etkinleşti
 
 ## <a name="fail-over-azure-vms-when-using-expressroute"></a>ExpressRoute kullanarak Azure Vm'leri üzerinde başarısız
 
-Azure sanal makinelerini Site Recovery kullanarak Azure bölgesini hedef için yük devretme sonra erişebilirsiniz ExpressRoute kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Azure sanal makinelerini Site Recovery kullanarak Azure bölgesini hedef için yük devretme sonra erişebilirsiniz ExpressRoute kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 - Yeni bir bağlantıyla hedefi vNet için ExpressRoute bağlanmanız gerekmez. Mevcut bir ExpressRoute bağlantısı otomatik olarak aktarılmaz.
 - Hedef vNet için ExpressRoute bağlantınızı kurmak ayarlama şekliyle ExpressRoute topolojinize bağlıdır.

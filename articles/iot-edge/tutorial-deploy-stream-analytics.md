@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: ASA işlerini Azure IoT Edge cihazlarına dağıtma | Microsoft Docs'
+title: Öğretici - Azure IOT Edge cihaza Azure Stream Analytics işi dağıtma | Microsoft Docs
 description: Bu öğreticide Azure Stream Analytics’i bir IoT Edge cihazına modül olarak dağıtacaksınız.
 author: kgremban
 manager: philmea
@@ -7,14 +7,13 @@ ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
-services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 2188e21cfd29ac8ac2d44878819ee62a3e2d555e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: MT
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 926609e261c318f22e5c5d2091ea8fbf8f7315d7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566950"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081345"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Öğretici: Azure Stream Analytics’i bir IoT Edge modülüne dağıtma (önizleme)
 
@@ -34,7 +33,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Azure Stream Analytics işini Azure portalından bir IoT Edge cihazına dağıtma.
 
 <center>
-![Öğretici mimarisi diyagramı](./media/tutorial-deploy-stream-analytics/ASATutorialDiagram.png)
+![Diyagram - öğretici mimarisi, aşama ve ASA işi dağıtma](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
 >[!NOTE]
@@ -100,7 +99,7 @@ Bu bölümde giriş, çıkış ve sorgu öğelerini kullanarak IoT Edge cihazın
 
 1. **İş Topolojisi** bölümünde **Girişler**'i ve **Akış girişi ekle**'yi seçin.
 
-   ![Azure Stream Analytics girişi](./media/tutorial-deploy-stream-analytics/asa_input.png)
+   ![Azure Stream Analytics Girişi Ekle](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
 1. Açılan listeden **Edge Hub**'ını seçin.
 
@@ -110,7 +109,7 @@ Bu bölümde giriş, çıkış ve sorgu öğelerini kullanarak IoT Edge cihazın
 
 1. **İş Topolojisi**'nin altında **Çıkışlar**'ı açın ve **Ekle**'yi seçin.
 
-   ![Azure Stream Analytics çıkışı](./media/tutorial-deploy-stream-analytics/asa_output.png)
+   ![Azure Stream Analytics çıkış Ekle](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
 1. Açılan listeden **Edge Hub**'ını seçin.
 
@@ -207,7 +206,7 @@ Bu öğreticide iki modül dağıtacaksınız. Birinci, sıcaklık ve nem sensö
 
     Yeni Stream Analytics modülü ve IoT Edge aracı modülü ile birlikte çalışan yeni IoT Edge hub'ını görürsünüz.
 
-    ![Modül çıkışı](./media/tutorial-deploy-stream-analytics/module_output2.png)
+    ![tempSensor ve cihaz tarafından bildirilen ASA Modülü](./media/tutorial-deploy-stream-analytics/module_output2.png)
 
 ## <a name="view-data"></a>Verileri görüntüleme
 
@@ -229,7 +228,7 @@ Artık IoT Edge cihazınıza giderek Azure Stream Analytics modülüyle tempSens
 
 Makine sıcaklığını kademeli olarak 30 saniye boyunca 70 dereceye ulaşana kadar izleyebiliyor olmanız gerekir. Bu noktada Stream Analytics modülü bir sıfırlama işlemini tetikler ve makine sıcaklığı 21'e düşer. 
 
-   ![Docker günlüğü](./media/tutorial-deploy-stream-analytics/docker_log.png)
+   ![Komut çıktısı modülü oturum açtığı Sıfırla](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme 
 

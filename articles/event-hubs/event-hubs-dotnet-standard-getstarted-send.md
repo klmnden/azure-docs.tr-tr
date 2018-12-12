@@ -1,6 +1,6 @@
 ---
-title: .NET Core kullanarak Azure Event Hubs için olayları gönderme | Microsoft Docs
-description: .NET core'da Event hubs'a olay göndermeye başlama
+title: .NET Core - Azure Event Hubs'ı kullanarak olayları gönderme | Microsoft Docs
+description: Bu makalede, Azure Event Hubs'a olayları gönderen bir .NET Core uygulaması oluşturmak için bir kılavuz sağlar.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 9d8edaa89bf1e80f9e3d97409385161abedffae3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b645b444d62ae0f1834006a41190c417cee35963
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969252"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081702"
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-core"></a>.NET Core, Azure Event hubs'a ileti göndermeye başlama
 Event Hubs bağlı cihaz ve uygulamalardan büyük miktarlarda olay verileri (telemetri) işleyen bir hizmettir. Verileri Event Hubs’a topladıktan sonra bir depolama kümesi kullanarak depolayabilir veya gerçek zamanlı bir analiz sağlayıcısı kullanarak dönüştürebilirsiniz. Bu büyük ölçekli olay toplama ve işleme özelliği, Nesnelerin İnterneti (IoT) gibi modern uygulama mimarilerinin temel bir bileşenidir. Olay Hub’larının ayrıntılı genel bakışı için bkz. [Olay Hub’larına genel bakış](event-hubs-about.md) ve [Olay Hub’ları özellikleri](event-hubs-features.md).

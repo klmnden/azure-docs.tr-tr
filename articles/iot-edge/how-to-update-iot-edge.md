@@ -1,5 +1,5 @@
 ---
-title: Cihazları Azure IOT Edge en son sürüme güncelleştirin. | Microsoft Docs
+title: Güncelleştirme IOT Edge cihazları - Azure IOT Edge sürümünde | Microsoft Docs
 description: IOT Edge cihazları, güvenlik daemon'ı ve IOT Edge çalışma zamanı en son sürümünü çalıştırma güncelleştirme
 keywords: ''
 author: kgremban
@@ -9,14 +9,15 @@ ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1522d9c9bc4fda178d8571fb57cb9c94ed1044ae
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 8b8638d8fa428b1b867e3f126ac8b5cc992cc273
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567800"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095163"
 ---
-# <a name="update-the-iot-edge-runtime"></a>IOT Edge çalışma zamanını güncelleştirme
+# <a name="update-the-iot-edge-security-daemon-and-runtime"></a>IOT Edge güvenlik arka plan programı ve çalışma zamanını güncelleştirme
 
 IOT Edge hizmetinin sürümleri yeni sürümleri gibi güvenlik geliştirmeleri ve en son özellikleri sağlamak için IOT Edge cihazlarınıza güncelleştirmek isteyebilirsiniz. Bu makalede yeni bir sürümü kullanılabilir olduğunda, IOT Edge cihazlarınıza güncelleştirme hakkında bilgi sağlar. 
 
@@ -63,7 +64,7 @@ Edge aracısı ve Edge hub'ı kapsayıcıları güncelleştirme yolu, dağıtım
 
 IOT Edge aracısı ve Edge hub'ı modülleri şu anda komutlarını kullanarak Cihazınızda sürümünü denetleme `iotedge logs edgeAgent` veya `iotedge logs edgeHub`. 
 
-  ![Kapsayıcı sürümü görüntüle](./media/how-to-update-iot-edge/container-version.png)
+  ![Günlüklerde kapsayıcı sürümü Bul](./media/how-to-update-iot-edge/container-version.png)
 
 ### <a name="understand-iot-edge-tags"></a>IOT Edge etiketleri anlama
 

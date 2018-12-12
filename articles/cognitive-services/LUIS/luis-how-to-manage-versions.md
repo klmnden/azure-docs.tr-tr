@@ -1,21 +1,22 @@
 ---
-title: LUIS uygulamalarında sürümlerini yönetme
-titleSuffix: Azure Cognitive Services
+title: Sürümleri yönetme
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Sürümleri, farklı modelleri yayımladığınız olanak tanır. Modele bir değişiklik yapmadan önce uygulamanın farklı bir sürümünü geçerli etkin modele kopyalama iyi bir uygulamadır.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: db461191b70aabc322e570ecc814a076c21206f2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.openlocfilehash: 454f45b692a87dbd47ca1ca70880323912693839
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033796"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082705"
 ---
 # <a name="manage-versions"></a>Sürümleri yönetme
 
@@ -25,7 +26,7 @@ Sürümlerle çalışma için uygulamanızın adını seçerek açın **uygulama
 
 Sürümlerinin listesi göster burada yayımlanmalarından ve hangi sürümü şu anda etkin olan hangi sürümleri yayımlanır. 
 
-[![](./media/luis-how-to-manage-versions/versions-import.png "Bölümünde, sürümler sayfasını yönetme")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
+[![Yönet bölümünün, sürümler sayfasını](./media/luis-how-to-manage-versions/versions-import.png "Yönet bölümünün, sürümler sayfasını")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
 ## <a name="clone-a-version"></a>Sürümü Kopyala
 
@@ -44,7 +45,7 @@ Sürümlerinin listesi göster burada yayımlanmalarından ve hangi sürümü ş
 
 Listeden bir sürüm seçin ve ardından **olun etkin** araç çubuğundan. 
 
-[![](./media/luis-how-to-manage-versions/versions-other.png "Bölümünde, sürümler sayfasını yönetme")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
+[![Yönet bölümünün, sürümler sayfasını](./media/luis-how-to-manage-versions/versions-other.png "Yönet bölümünün, sürümler sayfasını")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## <a name="import-version"></a>Alma sürümü
 

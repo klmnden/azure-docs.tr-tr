@@ -15,12 +15,12 @@ ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 986ee4f6081b71c0222118806427a9c6479f9028
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: 0d6855982bb395813433974f72222a809c04e7dc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975824"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088254"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Log Analytics verilerinin panolarını oluşturma ve paylaşma
 
@@ -32,7 +32,7 @@ Log Analytics panoları tüm kayıtlı günlük aramalarınızı görselleştire
 > * Paylaşılan bir panoya günlük araması ekleme 
 > * Paylaşılan bir panodaki kutucuğu özelleştirme
 
-Bu öğreticideki örneği tamamlamak için [Log Analytics çalışma alanına bağlı](../../log-analytics/log-analytics-quick-collect-azurevm.md) mevcut bir sanal makinenizin olması gerekir.  
+Bu öğreticideki örneği tamamlamak için [Log Analytics çalışma alanına bağlı](../../azure-monitor/learn/quick-collect-azurevm.md) mevcut bir sanal makinenizin olması gerekir.  
  
 ## <a name="log-in-to-azure-portal"></a>Azure portalında oturum açın
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın. 

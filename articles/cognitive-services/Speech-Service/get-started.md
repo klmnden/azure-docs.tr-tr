@@ -1,7 +1,7 @@
 ---
-title: Konuşma hizmeti ücretsiz olarak deneyin
+title: Konuşma Hizmetleri ücretsiz olarak deneyin
 titleSuffix: Azure Cognitive Services
-description: Konuşma hizmeti ücretsiz deneyebilir miyim nasıl keşfedin.
+description: Konuşma hizmeti ile çalışmaya başlama, kolay ve hesaplı. 30 günlük ücretsiz deneme, olanak tanır. hangi hizmet yapmak ve uygulamanızın ihtiyaçları için doğru olup olmadığını karar verebilirsiniz keşfedin.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 4e29f2e77ad2b4e993fbe6a39b90325a0738f538
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 69e2c094e1fca57d0dddc662cc1dae6453897c38
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471399"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079118"
 ---
 # <a name="try-the-speech-service-for-free"></a>Konuşma tanıma hizmetini ücretsiz olarak deneyin
 
@@ -36,7 +37,7 @@ Son olarak, konuşma hizmeti uygulamaları geliştirmek için uygun olan ücrets
 1. Seçin **konuşma API'leri** sekmesi.
 
    ![Konuşma Hizmetleri sekmesi](media/index/try-speech-api-free-trial1.png)
-   
+
 1. Altında **konuşma Hizmetleri**seçin **API anahtarı alma** düğmesi.
 
    ![API anahtarı](media/index/try-speech-api-free-trial2.png)

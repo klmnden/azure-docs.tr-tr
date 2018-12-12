@@ -1,24 +1,24 @@
 ---
-title: Azure ayrılmış HSM ile ilgili SSS | Microsoft Docs
-description: Azure ayrılmış HSM anahtar depolama kapasitesini FIPS karşılayan Azure 140-2 Düzey 3 sertifika sağlar.
+title: Sık sorulan sorular - Azure ayrılmış HSM | Microsoft Docs
+description: Sık sorulan sorular Azure ayrılmış HSM üzerinde farklı konuları kapsayan
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
+ms.custom: mvc
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: concepts
-ms.custom: mvc
-ms.date: 11/19/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 3179fd3cf7a595b4491aec77e221aca3960c8ecb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 949281b1415e2098fb7bf0d3e9e9fbe0a5f5c835
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319452"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081005"
 ---
 # <a name="frequently-asked-questions-faq"></a>Sık sorulan sorular (SSS)
 
@@ -28,7 +28,7 @@ Microsoft Azure ayrılmış HSM hakkında sık sorulan sorulara yanıtlar bulun.
 
 ### <a name="q-what-is-a-hardware-security-module-hsm"></a>S: bir donanım güvenlik modülü (HSM) nedir?
 
-Bir donanım güvenlik modülü (HSM) korunmasına ve şifreleme anahtarlarını yönetmek için kullanılan fiziksel bir bilgi işlem cihazıdır. Hsm'lerde depolanan anahtarları şifreleme işlemleri için kullanılabilir. Anahtar malzemesi kurcalamaya karşı korumalı, değiştirmeye donanım modülleri güvenli bir şekilde kalır. HSM yalnızca izin kimliği doğrulanmış ve yetkili anahtar kullanma için uygulamaları. Anahtar malzemesi HSM koruma sınırından hiçbir zaman ayrılmaz.
+Bir donanım güvenlik modülü (HSM) korunmasına ve şifreleme anahtarlarını yönetmek için kullanılan fiziksel bir bilgi işlem cihazıdır. Hsm'lerde depolanan anahtarları şifreleme işlemleri için kullanılabilir. Anahtar malzemesi kurcalamaya karşı korumalı, değiştirmeye donanım modülleri güvenli bir şekilde kalır. HSM yalnızca izin kimliği doğrulanmış ve yetkili anahtar kullanma için uygulamaları. Anahtar malzemeleri asla HSM koruma sınırlarından ayrılmaz.
 
 ### <a name="q-what-is-azure-dedicated-hsm-offering"></a>S: hangi Azure ayrılmış HSM sunar?
 
@@ -40,7 +40,7 @@ Microsoft Azure ayrılmış HSM hizmeti sağlamak amacıyla Gemalto ile iş orta
 
 ### <a name="q-what-is-an-hsm-used-for"></a>S: ne için HSM kullanılır?
 
-HSM'ler, PKI (ortak anahtar altyapısı), DRM (dijital hak yönetimi), verileri şifrelemek ve belge imzalama şifreleme işlevleri için SSL (Güvenli Yuva Katmanı) gibi kullanılan depolama şifreleme anahtarları için kullanılır.
+HSM’ler SSL (güvenli yuva katmanı) gibi şifreleme işlevleri, verileri şifreleme, PKI (ortak anahtar altyapısı), DRM (dijital hak yönetimi) ve belgeleri imzalama amacıyla kullanılır.
 
 ### <a name="q-how-does-dedicated-hsm-work"></a>S: ayrılmış HSM nasıl çalışır?
 

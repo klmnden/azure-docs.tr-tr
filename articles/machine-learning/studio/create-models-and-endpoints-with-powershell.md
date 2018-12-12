@@ -4,7 +4,7 @@ description: Birden çok makine öğrenimi modelleri ve web hizmeti uç noktalar
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: e1a6eb4f61869c3c6299011c46a5953f93cc7305
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: b6e54fb7fe852ca4e12dc9a9e0f63eac2382c5c8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316574"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093036"
 ---
-# <a name="azure-machine-learning-studio-use-powershell-to-create-many-models-and-web-service-endpoints-from-one-experiment"></a>Azure Machine Learning Studio: birçok modelleri ve web hizmeti uç noktaları tek bir deneyden oluşturmak için PowerShell kullanma
+# <a name="use-powershell-to-create-models-and-web-service-endpoints-from-one-experiment"></a>Modelleri ve web hizmeti uç noktaları tek bir deneyden oluşturmak için PowerShell kullanma
 
 Bir ortak makine öğrenimi sorunu şu şekildedir: aynı eğitim iş akışı, sahip ve aynı algoritmayı kullanan çok sayıda model oluşturmak istiyorsunuz. Ancak giriş olarak farklı bir eğitim veri kümesi olmasını istersiniz. Bu makalede tek bir denemede kullanarak uygun ölçekte Azure Machine Learning Studio'da bunun nasıl yapılacağını gösterir.
 

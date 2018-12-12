@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: 1a0b7932d8dced086370027e1f8eecaf81841ab3
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 55f388ed15167c5bc7262e194e09e4a92ba50af4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300788"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866075"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric kapsayıcı ağ modları
 
@@ -78,7 +78,7 @@ Bir kapsayıcı hizmeti yeniden başlatılıyor veya kümedeki başka bir düğ�
             ],
     ```
 
-2. Ağ profili bölümünü, kümedeki her düğümde yapılandırılması birden çok IP adresi izin verecek şekilde ayarlayın. Aşağıdaki örnek bir Windows/Linux Service Fabric kümesi için düğüm başına beş adet IP adresi ayarlar. Her düğümde bağlantı noktasını dinleyen beş hizmet örnekleri olabilir.
+2. Ağ profili bölümünü, kümedeki her düğümde yapılandırılması birden çok IP adresi izin verecek şekilde ayarlayın. Aşağıdaki örnek bir Windows/Linux Service Fabric kümesi için düğüm başına beş adet IP adresi ayarlar. Her düğümde bağlantı noktasını dinleyen beş hizmet örnekleri olabilir. Beş Azure yük Dengeleyiciden erişilebilir IP sağlamak için aşağıda gösterildiği gibi beş IP'ler Azure yük dengeleyici arka uç adres havuzunu kaydedin.
 
     ```json
     "variables": {
@@ -126,6 +126,11 @@ Bir kapsayıcı hizmeti yeniden başlatılıyor veya kümedeki başka bir düğ�
                           "name": "[concat(parameters('nicName'),'-', 1)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -135,6 +140,11 @@ Bir kapsayıcı hizmeti yeniden başlatılıyor veya kümedeki başka bir düğ�
                           "name": "[concat(parameters('nicName'),'-', 2)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -144,6 +154,11 @@ Bir kapsayıcı hizmeti yeniden başlatılıyor veya kümedeki başka bir düğ�
                           "name": "[concat(parameters('nicName'),'-', 3)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -153,6 +168,11 @@ Bir kapsayıcı hizmeti yeniden başlatılıyor veya kümedeki başka bir düğ�
                           "name": "[concat(parameters('nicName'),'-', 4)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -162,6 +182,11 @@ Bir kapsayıcı hizmeti yeniden başlatılıyor veya kümedeki başka bir düğ�
                           "name": "[concat(parameters('nicName'),'-', 5)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }

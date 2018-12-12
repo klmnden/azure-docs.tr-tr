@@ -3,7 +3,7 @@ title: Azure SQL veritabanını ölçeklendirme | Microsoft Docs
 description: ShardMapManager, elastik veritabanı istemci kitaplığı kullanma
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/16/2018
-ms.openlocfilehash: 71496a11deff5236161931d572e75d4a84b75c5f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 28387c1487c506173cba2eaaf3364dab36c7f70f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162075"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865861"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Veritabanları parça eşleme Yöneticisi ile ölçeklendirme
 SQL Azure veritabanlarında kolayca ölçeğini genişletmek için bir parça eşleme yöneticisini kullanın. Parça eşleme Yöneticisi bir parça kümesindeki tüm parçalar (veritabanları) hakkında genel eşleme bilgilerini tutan özel bir veritabanıdır. Meta veri değeri alınarak doğru veritabanına bağlanmak bir uygulama sağlar **parçalama anahtarı**. Ayrıca, yerel parça verileri izlemek haritalar kümesindeki her parça içeren (olarak bilinen **parçacıklara**). 
@@ -52,8 +52,8 @@ Esnek ölçek, parçalama anahtarı olarak aşağıdaki türlerini destekler:
 | .NET | Java |
 | --- | --- |
 | integer |integer |
-| boylam |boylam |
-| GUID |UUID |
+| uzun |uzun |
+| GUID |uuid |
 | bayt]  |bayt] |
 | datetime | timestamp |
 | Zaman aralığı | süre|

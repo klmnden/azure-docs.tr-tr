@@ -1,21 +1,19 @@
 ---
-title: 'Azure Cosmos DB tasarım deseni: sosyal medya uygulamaları | Microsoft Docs'
+title: 'Azure Cosmos DB tasarım deseni: sosyal medya uygulamaları'
 description: Sosyal ağlar için Azure Cosmos DB ve diğer Azure hizmetleriyle depolama esnekliğinden yararlanarak bir tasarım modeli hakkında bilgi edinin.
 keywords: Sosyal medya uygulamaları
 services: cosmos-db
 author: ealsur
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: maquaran
-ms.openlocfilehash: a65ec0a92b8fc245c77ce67c80c1202f73a3ec66
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 669cfdc59fc0b2f509db704afa4867d8f55d86f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711880"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083980"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB ile iletişim
 
@@ -49,14 +47,14 @@ Bu makalede, Azure'nın NoSQL veritabanı ile sosyal platformun veri modelleme i
         "date":"2016-01-01",
         "body":"this is an awesome post stored on NoSQL",
         "createdBy":User,
-        "images":["http://myfirstimage.png","http://mysecondimage.png"],
+        "images":["https://myfirstimage.png","https://mysecondimage.png"],
         "videos":[
-            {"url":"http://myfirstvideo.mp4", "title":"The first video"},
-            {"url":"http://mysecondvideo.mp4", "title":"The second video"}
+            {"url":"https://myfirstvideo.mp4", "title":"The first video"},
+            {"url":"https://mysecondvideo.mp4", "title":"The second video"}
         ],
         "audios":[
-            {"url":"http://myfirstaudio.mp3", "title":"The first audio"},
-            {"url":"http://mysecondaudio.mp3", "title":"The second audio"}
+            {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
+            {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
         ]
     }
 
@@ -100,7 +98,7 @@ Akışlar oluşturma verilen ilgi sipariş kimlikleri gönderiyle listesini içe
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Oluşturma tarihine göre sıralanmış gönderiler ile "son" bir akışa sahip olabilir. Veya bu son 24 saat içindeki daha beğenilerin gönderilerinize "sıcak" bir akışa sahip olabilirsiniz. Özel bir akış izleyicilerinizle ve ilgi alanları gibi mantıksal göre her bir kullanıcı için bile uygulayabilirsiniz. Gönderi listesini olmaya. Sağlasa da, bu listeleri oluşturmak nasıl olduğu halde okuma performansını unhindered kalır. Bu listelerden birine edindiğiniz sonra Cosmos DB kullanarak tek bir sorgu alınmamış [İŞLECİNDE](sql-api-sql-query.md#WhereClause) teker teker gönderilerin sayfaları almak için.
+Oluşturma tarihine göre sıralanmış gönderiler ile "son" bir akışa sahip olabilir. Veya bu son 24 saat içindeki daha beğenilerin gönderilerinize "sıcak" bir akışa sahip olabilirsiniz. Özel bir akış izleyicilerinizle ve ilgi alanları gibi mantıksal göre her bir kullanıcı için bile uygulayabilirsiniz. Gönderi listesini olmaya. Sağlasa da, bu listeleri oluşturmak nasıl olduğu halde okuma performansını unhindered kalır. Bu listelerden birine edindiğiniz sonra Cosmos DB kullanarak tek bir sorgu alınmamış [İŞLECİNDE](how-to-sql-query.md#WhereClause) teker teker gönderilerin sayfaları almak için.
 
 Akış akışları kullanılarak oluşturulabilir. [Azure uygulama hizmetleri](https://azure.microsoft.com/services/app-service/) arka plan işlemleri: [Webjobs](../app-service/web-sites-create-web-jobs.md). Bir gönderi oluşturulduğunda, arka plan işlemesi kullanarak tetiklenebilir [Azure depolama](https://azure.microsoft.com/services/storage/) [kuyrukları](../storage/queues/storage-dotnet-how-to-use-queues.md) ve kullanarak Tetiklenmiş Web işleri [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), uygulama kendi özel mantığı temelinde akışlar içinde yayma gönderin.
 

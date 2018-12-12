@@ -1,30 +1,31 @@
 ---
 title: Azure Stream Analytics işi izlemeyi anlama
-description: Bu makalede, Azure Stream Analytics işlerinde izleneceği açıklanır
+description: Bu makalede, Azure portalında Azure Stream Analytics işlerini izleme açıklar.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2018
-ms.openlocfilehash: 81c5eabcfcca6818293ff9dbbfb1515d5729dd79
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 656f749fd2a930c51bfd7d1a99642fae87694846
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963293"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096636"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Stream Analytics işi izleme ve sorguları izleme anlama
 
 ## <a name="introduction-the-monitor-page"></a>Giriş: İzleme sayfası
 Azure portal her ikisi de izleme ve sorgu ve iş performansınızı sorun giderme için kullanılan temel performans ölçümlerini yüzey. Bu ölçümler görmek için Gözat görmeniz için ölçümleri ilgilendiğiniz ve görüntülemek Stream Analytics işi **izleme** bölümüne genel bakış sayfasında.  
 
-![Bağlantı izleme](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
+![Stream Analytics işini bağlantı izleme](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
 
 Penceresinde gösterildiği gibi görünür:
 
-![İzleme işi Panosu](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
+![Stream Analytics işi izleme Panosu](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
 ## <a name="metrics-available-for-stream-analytics"></a>Stream Analytics için mevcut olan ölçümler
 | Ölçüm                 | Tanım                               |
@@ -49,7 +50,7 @@ Penceresinde gösterildiği gibi görünür:
 ## <a name="customizing-monitoring-in-the-azure-portal"></a>Azure portalında izleme özelleştirme
 Grafikte gösterilen ölçümleri türünü ayarlamak ve zaman aralığı grafiği Düzenle ayarlarında. Ayrıntılar için bkz [özelleştirme izleme nasıl](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
-  ![Sorgu izleme saati grafiği](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
+  ![Stream Analytics, izleme zaman grafiği sorgulama](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
 
 ## <a name="latest-output"></a>Son çıkış

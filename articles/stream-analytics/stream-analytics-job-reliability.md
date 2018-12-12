@@ -1,31 +1,39 @@
 ---
-title: Azure akış analizi işleri, hizmet kesintilerine uğramaması
-description: Bu makalede, yükseltme, akış analizi işleri dayanıklı hale kılavuzu anlatılmaktadır.
+title: Azure Stream Analytics işlerinde hizmet kesintilerini önleme
+description: Bu makalede, yükseltme, Stream Analytics işleri dayanıklı hale yönergeler açıklanmaktadır.
 services: stream-analytics
 author: jseb225
-manager: kfile
 ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 47ccfe99d2ee6576dbb70324eb383f52d2a1b2e7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 7375fb2763ad83e049b1ef30a623f164e059a792
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30902729"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090814"
 ---
-# <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Akış analizi işi güvenilirlik hizmet güncelleştirmeleri sırasında garanti
+# <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Stream Analytics işi güvenilirlik garanti sırasında hizmet güncelleştirmeleri
 
-Tam olarak yönetilen bir hizmet olma yeteneği yeni hizmet işlevselliği ve hızlı bir hızda geliştirmeleri tanıtır bir parçasıdır. Sonuç olarak, Stream Analytics haftalık (veya daha sık) temelinde dağıtmak bir hizmet güncelleştirmesi olabilir. Ne kadar test bitti olsun hala, var olan, çalışan bir iş bir hata giriş nedeniyle kesilebilir bir riski yoktur. Kritik akış işleme işleri çalıştırma müşteriler için bu riskleri kaçınılması gerekir. Müşteriler bu riskini azaltmak için kullanabileceğiniz bir Azure'nın mekanizmadır **[eşleştirilmiş bölge](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** modeli. 
+Tam olarak yönetilen bir hizmet olan yeni hizmet işlevlerini ve geliştirmeleri hızlı bir hızda özelliği parçasıdır. Sonuç olarak, Stream Analytics, bir hizmet güncelleştirmesinden tek haftalık (veya daha sık) temelinde dağıtma olabilir. Ne kadarlık testi bitti ne olursa olsun yine de, var olan, çalışan bir iş sunulmasıyla bir hata nedeniyle kesilebilir sokması mümkündür. Kritik akış işleme işlerinizi müşteriler için bu riskleri kaçınılması gerekir. Müşteriler, bu riski azaltmak için kullanabileceğiniz bir Azure'nın mekanizmasıdır **[eşleştirilmiş bölge](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** modeli. 
 
-## <a name="how-do-azure-paired-regions-address-this-concern"></a>Azure eşleştirilmiş bölgeleri bu sorunu nasıl ele?
+## <a name="how-do-azure-paired-regions-address-this-concern"></a>Azure eşleştirilmiş bölgeleri başlıklarla bu nasıl karşılayabileceği?
 
-Akış analizi işleri eşleştirilmiş bölgelerde ayrı toplu olarak güncelleştirilir güvence altına alır. Sonuç olarak olası sonu hataları belirlemek ve düzeltmek için güncelleştirmeleri arasında yeterli zaman aralığı yok.
+Stream Analytics, eşleştirilmiş bölgelerin işlerinde ayrı toplu işler üzerinde güncelleştirilir garanti eder. Sonuç olarak olası kesme hataları belirlemek ve düzeltmek için güncelleştirmeleri arasında yeterli bir zaman aralığı yok.
 
-_Orta Hindistan dışında_ (eşleştirilmiş, bölge, Güney Hindistan ve akış analizi varlığı yok), Stream Analytics için bir güncelleştirme dağıtımının eşleştirilmiş bölgeler kümesinde aynı zamanda oluşacak değil. Birden çok bölgeye dağıtımlarda **aynı gruptaki** oluşabilir **aynı anda**.
+_Orta Hindistan dışında_ (eşleştirilmiş olan bölge, Güney Hindistan, Stream Analytics durum yok), Stream Analytics için bir güncelleştirme dağıtımı, eşleştirilmiş bölgelerin kümesinde aynı anda oluşmaz. Birden çok bölgede dağıtımları **aynı gruptaki** oluşabilir **aynı anda**.
 
-Makale **[kullanılabilirlik ve eşleştirilmiş bölgeleri](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** üzerinde bölgeler eşleştirilmiş en güncel bilgileri içeriyor.
+Makale **[kullanılabilirlik ve eşleştirilmiş bölgelerin](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** bölgeleri halindedir en güncel bilgilere sahip.
 
-Müşteriler, aynı işleri hem eşleştirilmiş bölgelere dağıtmak için önerilir. İzleme kapasiteleri iç Stream Analytics yanı sıra müşterileri de işleri izlemek için önerilir gibi **her ikisi de** üretim işler. Stream Analytics Hizmet güncelleştirmesi sonucu olarak bir sonu tanımladıysanız, uygun şekilde İlerlet ve herhangi bir aşağı akış tüketiciye sağlıklı iş çıktısı için yük. Yükseltme desteklemek için yeni dağıtım tarafından etkilenen eşleştirilmiş bölge önlemek ve eşleştirilmiş işleri bütünlüğünü.
+Müşteriler, her iki bölge çiftlerine özdeş işleri dağıtmak için önerilir. İzleme özelliklerini iç Stream Analytics yanı sıra müşterilerin de işleri izlemek için önerilir gibi **hem** üretim işleri. Bir kesme kullanılarak bir Stream Analytics Hizmet güncelleştirmesi sonucu belirlenirse, uygun şekilde İlerlet ve herhangi bir aşağı akış tüketiciye sağlıklı iş çıktısı için yük devretme. Yükseltme desteklemek için eşleştirilmiş bölge yeni bir dağıtım tarafından etkilenmesini önlemek ve eşleştirilmiş işleri bütünlüğünü.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* [Stream analytics'e giriş](stream-analytics-introduction.md)
+* [Stream Analytics ile çalışmaya başlama](stream-analytics-real-time-fraud-detection.md)
+* [Stream Analytics işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
+* [Stream Analytics sorgu dili başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Stream Analytics Yönetimi REST API Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)

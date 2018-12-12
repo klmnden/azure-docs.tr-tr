@@ -1,26 +1,18 @@
 ---
-title: 'Azure ExpressRoute Microsoft eşdüzey hizmet sağlama için rota filtreleri yapılandırma: CLI | Microsoft Docs'
+title: 'Microsoft eşlemesi için-rota filtreleri yapılandırma ExpressRoute: Azure CLI | Microsoft Docs'
 description: Bu makalede Azure CLI kullanarak Microsoft Peering için rota filtreleri yapılandırma
-documentationcenter: na
 services: expressroute
 author: anzaman
-manager: ganesr
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: anzaman
-ms.openlocfilehash: 29cbe1686888a87fca6ddde957a1cbd35ba3df26
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 94bdd4819d750f4c26c93a88cc6982a60583171c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968705"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079305"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Microsoft eşlemesi için rota filtreleri yapılandırma: Azure CLI
 
@@ -30,7 +22,7 @@ ms.locfileid: "46968705"
 > * [Azure CLI](how-to-routefilter-cli.md)
 > 
 
-Rota filtreleri, Microsoft eşlemesi üzerinden desteklenen hizmetlerin bir alt kümesini kullanmak için bir yoludur. Bu makaledeki adımları yapılandırmak ve ExpressRoute devreleri için rota filtreleri yönetmenize yardımcı olur.
+Rota filtreleri, desteklenen servislerin bir alt kümesini Microsoft eşlemesi aracılığıyla kullanmanın bir yoludur. Bu makaledeki adımları yapılandırmak ve ExpressRoute devreleri için rota filtreleri yönetmenize yardımcı olur.
 
 Dynamics 365 Hizmetleri ve iş için Office 365 Hizmetleri Exchange Online, SharePoint Online ve Skype gibi Microsoft eşlemesi üzerinden erişilebilir. Microsoft eşlemesi ExpressRoute devresi yapılandırıldığında, bu hizmetleri ile ilgili tüm ön eklerin oluşturulmuş BGP oturumları bildirilir. Ön ek aracılığıyla sunulan hizmeti tanımlamak için her ön eke BGP topluluk değeri eklenir. BGP topluluk değerlerini ve eşlemek için Hizmetler listesi için bkz: [BGP toplulukları](expressroute-routing.md#bgp).
 
@@ -70,7 +62,7 @@ Başarılı bir şekilde Microsoft eşlemesi üzerinden hizmetlere bağlanabilme
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Başlamadan önce, CLI komutlarının en son sürümünü (2.0 veya üzeri) yükleyin. CLI komutlarını yükleme hakkında daha fazla bilgi için bkz: [Azure CLI'yı yükleme](/cli/azure/install-azure-cli) ve [Azure CLI ile çalışmaya başlama](/cli/azure/get-started-with-azure-cli).
+Başlamadan önce, CLI komutlarının en son sürümünü (2.0 veya üzeri) yükleyin. CLI komutlarını yükleme hakkında bilgi için bkz. [Azure CLI’yi yükleme](/cli/azure/install-azure-cli) ve [Azure CLI’yi Kullanmaya Başlama](/cli/azure/get-started-with-azure-cli).
 
 * Gözden geçirme [önkoşulları](expressroute-prerequisites.md) ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.
 
@@ -80,7 +72,7 @@ Başlamadan önce, CLI komutlarının en son sürümünü (2.0 veya üzeri) yük
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Azure hesabınızda oturum açın ve aboneliğinizi seçin
 
-Yapılandırmanızı başlamak için Azure hesabınızda oturum açın. Bağlanmanıza yardımcı olması için aşağıdaki örnekleri kullanın:
+Yapılandırmanızı başlamak için Azure hesabınızda oturum açın. "Try IT" kullanıyorsanız, otomatik olarak oturum açtınız ve oturum açma adımı atlayabilirsiniz. Bağlanmanıza yardımcı olması için aşağıdaki örnekleri kullanın:
 
 ```azurecli
 az login
@@ -88,13 +80,13 @@ az login
 
 Hesapla ilişkili abonelikleri kontrol edin.
 
-```azurecli
+```azurecli-interactive
 az account list
 ```
 
 Bir ExpressRoute bağlantı hattı oluşturmak istediğiniz aboneliği seçin.
 
-```azurecli
+```azurecli-interactive
 az account set --subscription "<subscription ID>"
 ```
 
@@ -104,7 +96,7 @@ az account set --subscription "<subscription ID>"
 
 Microsoft eşlemesi erişilebilen hizmetler ile ilişkili BGP topluluk değerlerini listesi ve ilişkili önekleri listesini almak için aşağıdaki cmdlet'i kullanın:
 
-```azurecli
+```azurecli-interactive
 az network route-filter rule list-service-communities
 ```
 ### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Kullanmak istediğiniz değerleri listesi olun
@@ -119,7 +111,7 @@ Bir rota filtresinde yalnızca bir kuralınız olabilir ve kural 'İzin ver' tü
 
 İlk olarak rota filtresini oluşturun. ' % S'komutu 'az network route-filter oluşturma' yalnızca bir yol filtresi kaynağı oluşturur. Kaynak oluşturduktan sonra ardından bir kural oluşturmak ve rota filtresi nesnesine ekleme gerekir. Rota filtresi kaynak oluşturmak için aşağıdaki komutu çalıştırın:
 
-```azurecli
+```azurecli-interactive
 az network route-filter create -n MyRouteFilter -g MyResourceGroup
 ```
 
@@ -127,7 +119,7 @@ az network route-filter create -n MyRouteFilter -g MyResourceGroup
 
 Yeni bir kural oluşturmak için aşağıdaki komutu çalıştırın:
  
-```azurecli
+```azurecli-interactive
 az network route-filter rule create --filter-name MyRouteFilter -n CRM --communities 12076:5040 --access Allow -g MyResourceGroup
 ```
 
@@ -135,7 +127,7 @@ az network route-filter rule create --filter-name MyRouteFilter -n CRM --communi
 
 ExpressRoute bağlantı hattı için rota filtresine eklemek için aşağıdaki komutu çalıştırın:
 
-```azurecli
+```azurecli-interactive
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --route-filter MyRouteFilter
 ```
 
@@ -145,7 +137,7 @@ az network express-route peering update --circuit-name MyCircuit -g ExpressRoute
 
 Bir rota filtresinde özelliklerini almak için aşağıdaki komutu kullanın:
 
-```azurecli
+```azurecli-interactive
 az network route-filter show -g ExpressRouteResourceGroupName --name MyRouteFilter 
 ```
 
@@ -153,7 +145,7 @@ az network route-filter show -g ExpressRouteResourceGroupName --name MyRouteFilt
 
 Rota filtresi zaten bir bağlantı hattına bağlıysa, BGP topluluk listesine güncelleştirmeleri otomatik olarak belirlenen BGP oturumları aracılığıyla uygun önekle tanıtım değişiklikleri yaymak. Aşağıdaki komutu kullanarak, rota filtresi BGP topluluk listesini güncelleştirebilirsiniz:
 
-```azurecli
+```azurecli-interactive
 az network route-filter rule update --filter-name MyRouteFilter -n CRM -g ExpressRouteResourceGroupName --add communities '12076:5040' --add communities '12076:5010'
 ```
 
@@ -161,7 +153,7 @@ az network route-filter rule update --filter-name MyRouteFilter -n CRM -g Expres
 
 Bir rota filtresinde ExpressRoute bağlantı ayrılmış sonra hiçbir ön ekleri BGP oturumu aracılığıyla bildirilir. Bunu yapmak için aşağıdaki komutu kullanarak ExpressRoute devresi yol filtresinden ayırabilirsiniz:
 
-```azurecli
+```azurecli-interactive
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --remove routeFilter
 ```
 
@@ -169,7 +161,7 @@ az network express-route peering update --circuit-name MyCircuit -g ExpressRoute
 
 Tüm işlem hattına bağlı olmayan bir rota filtresinde yalnızca silebilirsiniz. Rota filtresi için herhangi bir bağlantı hattı silmeye çalışmadan önce bağlı olmadığından emin olun. Aşağıdaki komutu kullanarak bir rota filtresinde silebilirsiniz:
 
-```azurecli
+```azurecli-interactive
 az network route-filter delete -n MyRouteFilter -g MyResourceGroup
 ```
 

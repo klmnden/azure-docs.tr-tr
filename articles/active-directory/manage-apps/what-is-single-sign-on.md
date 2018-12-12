@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: c21d78d1e0660b97c44130539ab3b5c71b8d6f6b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b2eff49f94dfcd67cb9741055520d990429051cd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843045"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098568"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için çoklu oturum açma
 Uygulamaları Azure Active Directory (Azure AD) yapılandırırken en uygun çoklu oturum açma yöntemi seçin öğrenin. 
@@ -61,7 +61,6 @@ SAML tabanlı çoklu oturum açma şu protokolden herhangi birini kullanan uygul
 
 - SAML 2.0
 - WS-Federation
-- Openıd connect
 
 Bir uygulama SAML tabanlı çoklu oturum açma için yapılandırmak üzere bkz [yapılandırma SAML tabanlı çoklu oturum açma](configure-single-sign-on-portal.md). Birçok uygulama de [uygulamaya özgü öğreticiler](../saas-apps/tutorial-list.md) Bu adım, SAML tabanlı çoklu oturum açma belirli uygulamalar için yapılandırma. 
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e8b8dac6d877ab8ab4a0abcdd64ceae1aa48d3ad
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 33ceece70c920bcb8bfd49fcfc8ff544af592b6b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848553"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088213"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Azure Hizmet Günlükleri ve Log Analytics kullanım ölçümlerini Topla
 
@@ -43,7 +43,7 @@ Toplama günlükleri ve ölçümleri Azure Hizmetleri için dört farklı yolu v
 | Data Lake analytics     | Microsoft.DataLakeAnalytics/accounts    | Tanılama |             | |
 | Data Lake store         | Microsoft.DataLakeStore/accounts        | Tanılama |             | |
 | Olay hub'ı ad alanı     | Microsoft.EventHub/namespaces           | Tanılama | Tanılama | |
-| IOT hub'ları                | Microsoft.Devices/ıothubs               |             | Tanılama | |
+| IoT Hub                | Microsoft.Devices/ıothubs               |             | Tanılama | |
 | Key Vault               | Microsoft.KeyVault/vaults               | Tanılama |             | [Anahtar kasası analizi](../../azure-monitor/insights/azure-key-vault.md) |
 | Yük Dengeleyiciler          | Microsoft.Network/loadBalancers         | Tanılama |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Tanılama | Tanılama | |
@@ -52,7 +52,7 @@ Toplama günlükleri ve ölçümleri Azure Hizmetleri için dört farklı yolu v
 | Hizmet ara         | Microsoft.Search/searchServices         | Tanılama | Tanılama | |
 | Service Bus ad alanı   | Microsoft.ServiceBus/namespaces         | Tanılama | Tanılama | [Service Bus analizi (Önizleme)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 | Service Fabric          |                                         | Depolama     |             | [Service Fabric analizi (Önizleme)](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |
-| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Tanılama | [Azure SQL Analytics (Önizleme)](../../log-analytics/log-analytics-azure-sql.md) |
+| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Tanılama | [Azure SQL Analytics (Önizleme)](../../azure-monitor/insights/azure-sql.md) |
 | Depolama                 |                                         |             | Betik      | [Azure depolama analizi (Önizleme)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Virtual Machines        | Microsoft.Compute/virtualMachines       | Dahili numara   | Dahili numara <br> Tanılama  | |
 | Sanal makine ölçek kümeleri | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Tanılama | |
@@ -61,7 +61,7 @@ Toplama günlükleri ve ölçümleri Azure Hizmetleri için dört farklı yolu v
 
 
 > [!NOTE]
-> Azure sanal makineleri (Linux ve Windows) izlemek için yüklemenizi öneririz [Log Analytics VM uzantısı](../../log-analytics/log-analytics-quick-collect-azurevm.md). Aracı, sanal makinelerinizin içinde toplanan Öngörüler sağlar. Uzantı sanal makine ölçek kümeleri için de kullanabilirsiniz.
+> Azure sanal makineleri (Linux ve Windows) izlemek için yüklemenizi öneririz [Log Analytics VM uzantısı](../../azure-monitor/learn/quick-collect-azurevm.md). Aracı, sanal makinelerinizin içinde toplanan Öngörüler sağlar. Uzantı sanal makine ölçek kümeleri için de kullanabilirsiniz.
 >
 >
 
@@ -151,7 +151,7 @@ Daha fazla bilgi edinin [Application Insights Bağlayıcısı](https://blogs.tec
 
 ## <a name="scripts-to-collect-and-post-data-to-log-analytics"></a>Komut toplamak ve Log Analytics'e gönderme verisi
 
-Günlükleri ve ölçümleri Log Analytics'e göndermek için doğrudan bir yol sağlamaz Azure Hizmetleri için günlük ve ölçümleri toplamak için bir Azure Otomasyonu betiği kullanabilirsiniz. Betik daha sonra verileri Log Analytics kullanarak gönderebilirsiniz [veri toplayıcı API'si](../../log-analytics/log-analytics-data-collector-api.md)
+Günlükleri ve ölçümleri Log Analytics'e göndermek için doğrudan bir yol sağlamaz Azure Hizmetleri için günlük ve ölçümleri toplamak için bir Azure Otomasyonu betiği kullanabilirsiniz. Betik daha sonra verileri Log Analytics kullanarak gönderebilirsiniz [veri toplayıcı API'si](../../azure-monitor/platform/data-collector-api.md)
 
 Azure şablonu galeri sahip [Azure Otomasyonu kullanma örnekleri](https://azure.microsoft.com/resources/templates/?term=OMS) Hizmetleri ve Log Analytics'e gönderme verileri toplamak için.
 

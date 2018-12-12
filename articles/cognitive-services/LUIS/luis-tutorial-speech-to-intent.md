@@ -1,21 +1,22 @@
 ---
-title: LUIS ile Konuşma C# SDK'sını kullanma
+title: Konuşarak C# SDK'sı
 titleSuffix: Azure Cognitive Services
 description: Konuşma hizmeti tek bir istek kullanarak ses almanızı ve JSON nesneleriyle LUIS tahmini döndürmenizi sağlar. Bu makalede bir C# projesi indirip Visual Studio'da kullanarak mikrofona konuşacak ve LUIS tahmin bilgilerini alacaksınız. Bu projede Konuşma NuGet paketi kullanılmaktadır ve bu paket başvuru olarak projeye eklenmiştir.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c2581abc782558ca114cc3a5d4f6224d132bce5d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 92db504ebfd0f8ad0bef9282bafd62fa9780d5e2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139115"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099316"
 ---
 # <a name="integrate-speech-service"></a>Konuşma hizmetini tümleştirme
 [Konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) tek bir istek kullanarak ses almanızı ve JSON nesneleriyle LUIS tahmini döndürmenizi sağlar. Bu makalede bir C# projesi indirip Visual Studio'da kullanarak mikrofona konuşacak ve LUIS tahmin bilgilerini alacaksınız. Bu projede Konuşma [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) paketi kullanılmaktadır ve bu paket başvuru olarak projeye eklenmiştir. 
@@ -65,7 +66,7 @@ Bu makalede bilgisayarınızdaki ses cihazı kullanılmaktadır. Bu mikrofonlu k
 
 Konuşma SDK'sı başvuru olarak eklenmiştir. 
 
-[![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Microsoft.CognitiveServices.Speech NuGet paketini gösteren Visual Studio 2017 ekran görüntüsü")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![Visual Studio 2017 ekran görüntüleme Microsoft.CognitiveServices.Speech NuGet paketini](./media/luis-tutorial-speech-to-intent/nuget-package.png "görüntüleme Microsoft.CognitiveServices.Speech NuGet paketini Visual Studio 2017 ekran görüntüsü")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>C# kodunu değiştirme
 `Program.cs` dosyasını açın ve aşağıdaki değişkenleri değiştirin:

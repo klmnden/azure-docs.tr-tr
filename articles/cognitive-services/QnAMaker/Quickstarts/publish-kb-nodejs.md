@@ -1,21 +1,22 @@
 ---
-title: 'Hızlı başlangıç: Bilgi bankası yayımlama - REST, Node.js - Soru-Cevap Oluşturma'
-titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta bilgi bankanızı (KB) program aracılığıyla yayımlama adımları gösterilmektedir. Yayımlama, bilgi bankanızın son sürümünü adanmış bir Azure Search dizinine gönderir ve uygulamanızda ya da sohbet botunuzda çağrılabilecek bir uç nokta oluşturur.
+title: Bilgi Bankası, REST, Node.js yayımlama
+titleSuffix: QnA Maker - Azure Cognitive Services
+description: Bu Node.js hızlı başlangıç, Bilgi Bankası (KB) program aracılığıyla yayımlama aracılığıyla size yol gösterir. Yayımlama, bilgi bankanızın son sürümünü adanmış bir Azure Search dizinine gönderir ve uygulamanızda ya da sohbet botunuzda çağrılabilecek bir uç nokta oluşturur.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 3d96beee881df560fc616cd975502f062275e9eb
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
-ms.translationtype: MT
+ms.openlocfilehash: 4b6f3e6913801de9259c106469bf8ca986f5b7b6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162033"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083810"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-nodejs"></a>Hızlı başlangıç: Node.js kullanarak Soru-Cevap Oluşturma’da bilgi bankası yayımlama
 

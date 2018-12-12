@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 07c58ea964d6af1ffe1a447d8b52879753f1951c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a9916a412341d0b345bfc7a0e0f28d8e0add1846
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123360"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081467"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-preview"></a>Salesforce pazarlama Azure Data Factory (Önizleme) kullanarak buluttaki verileri kopyalama
 
@@ -78,7 +78,12 @@ Salesforce pazarlama bağlantılı bulut hizmeti için aşağıdaki özellikleri
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Salesforce Marketing Cloud veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Salesforce pazarlama Buluttan veri kopyalamak için dataset öğesinin type özelliği ayarlamak **SalesforceMarketingCloudObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Salesforce pazarlama Buluttan veri kopyalamak için dataset öğesinin type özelliği ayarlamak **SalesforceMarketingCloudObject**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **SalesforceMarketingCloudObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -90,7 +95,8 @@ Salesforce pazarlama Buluttan veri kopyalamak için dataset öğesinin type öze
         "linkedServiceName": {
             "referenceName": "<SalesforceMarketingCloud linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -106,7 +112,7 @@ Salesforce pazarlama Buluttan veri kopyalamak için kopyalama etkinliği için k
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **SalesforceMarketingCloudSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

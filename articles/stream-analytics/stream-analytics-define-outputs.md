@@ -7,13 +7,14 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2018
-ms.openlocfilehash: 869941781643d3486506b5a3caed4006019fb3b7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 555a2bdfe3997114c1aaa202a89d650287f27c0e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310057"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091637"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışları anlama
 Bu makalede, Azure Stream Analytics işi için çıktıların farklı türde açıklanır. Çıkış, depolamak ve Stream Analytics işi sonuçlarını kaydetmek olanak tanır. Yapabileceğiniz çıktı verilerini kullanarak, İş analizi ve veri depolama verilerinizi daha fazla. 
@@ -34,13 +35,13 @@ Stream analytics'ten Azure Data Lake Store çıkışı şu anda Azure Çin (21Vi
 
 1. Data Lake Storage, Azure Portalı'ndaki bir çıkış olarak seçildiğinde, mevcut bir Data Lake Store bağlantısı yetkilendirme istenir.  
 
-   ![Data Lake Store yetkilendirme](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
+   ![Data Lake Store için Bağlantı Yetkilendirme](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
 2. Data Lake Store için zaten erişimi varsa seçin **şimdi Yetkilendir** ve yukarı belirten bir sayfa açılır **yetkilendirme için yeniden yönlendirme**. Yetkilendirme başarılı olduktan sonra Data Lake Store çıkış yapılandırmanıza olanak tanır sayfası ile sunulur.
 
 3. Kimliği doğrulanmış Data Lake Store hesabı oluşturduktan sonra Data Lake Store çıkışınızı özelliklerini yapılandırabilirsiniz. Aşağıdaki tabloda, özellik adları ve Data Lake Store çıkışınızı yapılandırmak için bunların açıklaması listesidir.
 
-   ![Data Lake Store yetkilendirme](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
+   ![Stream Analytics çıktı olarak Data Lake Store tanımlayın](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 | Özellik adı | Açıklama | 
 | --- | --- |
@@ -59,7 +60,7 @@ Stream analytics'ten Azure Data Lake Store çıkışı şu anda Azure Çin (21Vi
 
 Yetkilendirme, yenilemek için **Durdur** işinizi > Data Lake Store çıkışınızı gidin > tıklatın **yetkilendirmeyi yenilemek** bağlamak ve bir sayfa kısa bir süreliğine pop belirten yukarı **yönlendiriyor Yetkilendirme...** . Sayfa otomatik olarak kapanır ve başarılı olursa, gösteren **yetkilendirme başarıyla yenilendi**. Ardından'ye tıklamanız **Kaydet** sayfanın alt kısmındaki ve iş öğesinden yeniden başlatarak geçebilirsiniz **son durduruldu zamanı** veri kaybını önlemek için.
 
-![Data Lake Store yetkilendirme](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
+![Çıkış, Data Lake Store yetkilendirmeyi Yenile](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>SQL Veritabanı
 [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) çıkış olarak kendiliğinden ilişkisel veriler veya ilişkisel bir veritabanında barındırılan içeriğe bağlı uygulamalar için kullanılabilir. Stream Analytics işleri, mevcut bir Azure SQL veritabanı tablosuna yazın.  Tablo şemasını, alanları ve işinizin çıktısı olan türlerini tam olarak eşleşmelidir. Bir [Azure SQL veri ambarı](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) aracılığıyla SQL veritabanı output seçeneği de çıktı olarak belirtilebilir. Yazma aktarım hızını iyileştirmek için yollar hakkında bilgi edinmek için bkz [çıktı olarak Azure SQL DB ile bir Stream Analytics](stream-analytics-sql-output-perf.md) makalesi. Özellik adları ve açıklamaları, SQL veritabanı çıktı oluşturmak için aşağıdaki tabloda listelenmiştir.
@@ -133,11 +134,11 @@ Stream Analytics'ten alınan Power BI çıkışı şu anda Azure Çin (21Vianet)
 ### <a name="authorize-a-power-bi-account"></a>Power BI hesabı yetki
 1. Power BI, Azure Portalı'ndaki bir çıkış olarak seçildiğinde, varolan bir Power BI kullanıcı yetkilendirmek için veya yeni bir Power BI hesabı oluşturmanız istenir.  
    
-   ![Power BI kullanıcı yetkilendirmek](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
+   ![Power BI kullanıcı Çıkış'ı yapılandırmak için yetkilendirin](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 
 2. Yoksa henüz yoksa ve şimdi Yetkilendir'ı tıklatın, yeni bir hesap oluşturun.  Şu sayfaya gösterilmektedir:
    
-   ![Azure hesabı Power BI](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
+   ![Azure hesabınızdan Power BI'da kimlik doğrulaması](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
 
 3. Bu adımda, Power BI çıkışına yetkisi vermek için iş veya Okul hesabı sağlayın. Zaten Power BI için kaydolduktan değil, oturum artık seçin. Power BI için kullandığınız iş veya Okul hesabı ile oturum açmış olduğunuz Azure aboneliği hesabından farklı olabilir.
 
@@ -169,7 +170,7 @@ Stream Analytics'ten | Power BI
 -----|-----|------------
 bigint | Int64
 nvarchar(max) | Dize
-datetime | Tarih Saat
+datetime | Tarih saat
 float | çift
 Kayıt dizisi | Dize türü, sabit değer "IRecord" veya "IArray"
 
@@ -179,22 +180,22 @@ Stream Analytics, olay çıktıdaki ilk kümesini göre veri modeli şemayı alg
 `SELECT *` Satırlarda dinamik şema güncelleştirmesi önlemek için sorgu kaçınılmalıdır. Olası performans etkilerinin yanı sıra sonuçları için geçen süre belirsizliğini ise ayrıca sonuçlanabilir. Power BI panosunda gösterilen gereken alanları tam seçilmesi gerekir. Ayrıca, veri değerleri, seçilen veri türüyle uyumlu olmalıdır.
 
 
-Önceki/geçerli | Int64 | Dize | Tarih Saat | çift
+Önceki/geçerli | Int64 | Dize | Tarih saat | çift
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | Dize | Dize | çift
 çift | çift | Dize | Dize | çift
 Dize | Dize | Dize | Dize |  | Dize | 
-Tarih Saat | Dize | Dize |  Tarih Saat | Dize
+Tarih saat | Dize | Dize |  Tarih saat | Dize
 
 
 ### <a name="renew-power-bi-authorization"></a>Power BI yetkilendirmeyi Yenile
 Stream Analytics işinizi oluşturulduğu veya en son kimlik doğrulaması sonra Power BI hesabınızın parolasını değiştirirse, Stream Analytics yeniden kimlik doğrulamaya zorlayabilir gerekir. Multi-Factor Authentication (MFA), Azure Active Directory (AAD) kiracınız yapılandırılmışsa, ayrıca Power BI yetkilendirme iki haftada yenilemeniz gerekir. Bu sorunun belirtisi, hiçbir iş çıktısının ve bir "kimliği doğrula kullanıcı hatası" işlem günlüklerinde verilmiştir:
 
-  ![Power BI yenileme belirteci hata](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
+  ![Power BI kimlik doğrulaması, kullanıcı hatası](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
 
 Bu sorunu çözmek için çalışan işini durdurma ve Power BI çıkışınızı gidin.  Seçin **yetkilendirmeyi yenilemek** bağlantı ve iş öğesinden yeniden **son durduruldu zamanı** veri kaybını önlemek için.
 
-  ![Power BI'ı yetkilendirme yeniler](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
+  ![Çıkış için Power BI yetkilendirmeyi Yenile](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
 ## <a name="table-storage"></a>Tablo Depolama
 [Azure tablo depolama](../storage/common/storage-introduction.md) yüksek oranda kullanılabilir ve ölçeklenebilir depolama sunar, böylece uygulamanın kullanıcı talebi karşılamak üzere otomatik olarak ölçeklendirebilirsiniz. Tablo depolama, Microsoft'un NoSQL anahtar/öznitelik deposu, hangisinin, yapılandırılmış veriler için daha az şema kısıtlamaları olan yararlanabilir. Azure tablo depolama, Kalıcılık ve verimli alma verilerini depolamak için kullanılabilir.

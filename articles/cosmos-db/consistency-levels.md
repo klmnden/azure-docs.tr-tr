@@ -9,16 +9,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 075f79707dda4683c288163ec7bfdbf9807e153f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b509c7eceb3c2e2fb2e53f20791976b0322ad744
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834885"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089743"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB'deki tutarlılık düzeyleri
 
-Yüksek kullanılabilirlik, düşük gecikme süresi veya her ikisi de çoğaltma kullanan dağıtılmış veritabanları kullanılabilirlik, gecikme süresi ve aktarım hızı ve okuma tutarlılığı temel etmekten olun. Çoğu ticari olarak satışta dağıtılmış veritabanları iki aşırı tutarlılık modeller arasında seçim geliştiricilerin isteyin: güçlü tutarlılık ve nihai tutarlılık.  [Doğrusallaştırılabilirlik](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) veya güçlü tutarlılık modeli veri programlama, altın standardıdır. Ancak daha yüksek gecikme süresine (durağan) seyretmez fiyatı ekler ve kullanılabilirlik (hatalarda) azaltıldı. Öte yandan, nihai tutarlılık, daha yüksek kullanılabilirlik ve daha iyi performans sunar, ancak program uygulamaları zordur. 
+Yüksek kullanılabilirlik, düşük gecikme süresi veya her ikisi de çoğaltma kullanan dağıtılmış veritabanları kullanılabilirlik, gecikme süresi ve aktarım hızı ve okuma tutarlılığı temel etmekten olun. Çoğu ticari olarak satışta dağıtılmış veritabanları iki aşırı tutarlılık modeller arasında seçim geliştiricilerin isteyin: güçlü tutarlılık ve nihai tutarlılık.  [Doğrusallaştırılabilirlik](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) veya güçlü tutarlılık modeli veri programlama, altın standardıdır. Ancak daha yüksek gecikme süresine (durağan) seyretmez fiyatı ekler ve kullanılabilirlik (hatalarda) azaltıldı. Öte yandan, nihai tutarlılık, daha yüksek kullanılabilirlik ve daha iyi performans sunar, ancak program uygulamaları zordur. 
 
 Azure Cosmos DB olarak içeren iki uç nokta yerine seçimleri, veri tutarlılığını yaklaşıyor. Güçlü tutarlılık ve nihai tutarlılık sonunda, ancak spektrumun boyunca birçok tutarlılık seçeneği vardır. Geliştiriciler, kesin seçenekleri ve yüksek kullanılabilirlik veya performans ile ilgili ayrıntılı ödünler yapmak için bu seçenekleri kullanabilirsiniz. 
 
@@ -38,7 +38,7 @@ Bölüm anahtar aralığı veya bir mantıksal bölüm içinde kapsamlı bir tek
 
 ## <a name="guarantees-associated-with-consistency-levels"></a>Tutarlılık düzeyleri ile ilişkili garanti eder
 
-Yüzde 100 okuma isteklerinin seçtiğiniz herhangi bir tutarlılık düzeyi için tutarlılık garantisini karşılayan Azure Cosmos DB garantisi tarafından sağlanan kapsamlı SLA'lar. Tutarlılık düzeyi ile ilişkili tüm tutarlılık garantileri sağlanırsa Okuma isteği tutarlılık SLA karşılar. Kullanarak Azure Cosmos DB'de beş tutarlılık düzeyi kesin tanımlarını [TLA + belirtim dili](http://lamport.azurewebsites.net/tla/tla.html) sağlanan [azure cosmos tla](https://github.com/Azure/azure-cosmos-tla) GitHub deposu. 
+Yüzde 100 okuma isteklerinin seçtiğiniz herhangi bir tutarlılık düzeyi için tutarlılık garantisini karşılayan Azure Cosmos DB garantisi tarafından sağlanan kapsamlı SLA'lar. Tutarlılık düzeyi ile ilişkili tüm tutarlılık garantileri sağlanırsa Okuma isteği tutarlılık SLA karşılar. Kullanarak Azure Cosmos DB'de beş tutarlılık düzeyi kesin tanımlarını [TLA + belirtim dili](https://lamport.azurewebsites.net/tla/tla.html) sağlanan [azure cosmos tla](https://github.com/Azure/azure-cosmos-tla) GitHub deposu. 
 
 Beş tutarlılık düzeyi semantiği aşağıda açıklanmıştır:
 
@@ -63,8 +63,8 @@ Beyzbol oyun senaryoya örnek olarak alalım. Beyzbol oyunu baştan puanı temsi
 
 | | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **Çalıştırmalar** |
 | - | - | - | - | - | - | - | - | - | - | - |
-| **Ziyaretçiler** | 0 | 0 | 1 | 0 | 1 | 0 | 0 |  |  | 2 |
-| **Giriş** | 1 | 0 | 1 | 1 | 0 | 2 |  |  |  | 5 |
+| **Ziyaretçiler** | 0 | 0 | 1. | 0 | 1. | 0 | 0 |  |  | 2 |
+| **Giriş** | 1 | 0 | 1. | 1 | 0 | 2 |  |  |  | 5 |
 
 Bir Azure Cosmos DB kapsayıcısı ziyaretçilerinizin ve toplamları çalıştırma giriş takım tutar. Garanti farklı puanları okuma istemcilerle sonuçlanabilir oyun devam ederken, farklı okuyun. Aşağıdaki tabloda her beş tutarlılık garantileri giriş puanları ve ziyaretçilerinizin okuyarak döndürülebilir puanları tam kümesini listeler. Ziyaretçilerinizin puanı önce listelenir. Farklı olası dönüş değerleri virgülle ayrılır.
 
@@ -85,7 +85,7 @@ Tutarlılık kavramları hakkında daha fazla bilgi edinmek için bu makaleleri 
 - [Çoğaltılan verilerin tutarlılık açıklandığı aracılığıyla Beyzbol (Teknik İnceleme) Doug Terry tarafından](https://www.microsoft.com/en-us/research/publication/replicated-data-consistency-explained-through-baseball/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F157411%2Fconsistencyandbaseballreport.pdf)
 - [Oturum, tutarlı zayıf çoğaltılan veriler için garanti eder](https://dl.acm.org/citation.cfm?id=383631)
 - [Modern dağıtılmış veritabanı sistemleri tasarım tutarlılık seçenekleri: UÇ hikayeyi yalnızca bir parçası değildir](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
-- [Olasılığa dayalı sınırlanmış eskime durumu (PBS) için pratik kısmi çekirdekleri](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+- [Olasılığa dayalı sınırlanmış eskime durumu (PBS) için pratik kısmi çekirdekleri](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 - [Sonunda tutarlı - Revisited](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 
 ## <a name="next-steps"></a>Sonraki adımlar

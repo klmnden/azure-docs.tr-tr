@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 6a096d95ee883556c03bbaef026c1d0fc8430797
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 424b54e2dfe73951839031a1cc35ecdd82d526bb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844040"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086113"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Azure Log Analytics aracısını log verileri toplama
 
@@ -36,7 +36,7 @@ Bu makalede, aracı, sistem ve ağ gereksinimleri ve farklı dağıtım yönteml
 
 Linux ve Windows için aracı Log Analytics hizmetine giden TCP bağlantı noktası 443 üzerinden iletişim kurar ve makinenin Internet üzerinden iletişim kurmak için bir güvenlik duvarı veya Ara sunucu üzerinden bağlanıyorsa ağ yapılandırmasını öğrenmek için aşağıdaki gereksinimleri gözden geçirin. Gerekli. BT güvenlik ilkeleriniz bilgisayarların Internet'e bağlanmak için ağ üzerinde izin vermiyorsa, ayarlayabileceğiniz bir [Log Analytics gateway](gateway.md) ve aracının Log analytics'e ağ geçidi üzerinden bağlanmak için yapılandırın. Aracı yapılandırma bilgilerini almak ve veri toplama kuralları bağlı olarak hangi verilerin toplanan ve etkinleştirdiğiniz izleme çözümleri gönderin. 
 
-Bilgisayarın System Center Operations Manager 2012 R2 veya üzeri izliyorsanız, veri toplamak ve hizmete iletmek ve tarafından izlenmesi için Log Analytics hizmeti ile birden çok girişli olabilir [Operations Manager](../../log-analytics/log-analytics-om-agents.md). Log Analytics ile tümleşik bir Operations Manager yönetim grubu tarafından izlenen Linux bilgisayarlar için veri kaynakları ve İleri toplanan verileri yönetim grubu yapılandırması almazsınız. Linux Aracısı, yalnızca tek bir çalışma alanına raporlama desteklese de Windows aracı en fazla dört Log Analytics çalışma alanlarını, rapor edebilirsiniz.  
+Bilgisayarın System Center Operations Manager 2012 R2 veya üzeri izliyorsanız, veri toplamak ve hizmete iletmek ve tarafından izlenmesi için Log Analytics hizmeti ile birden çok girişli olabilir [Operations Manager](../../azure-monitor/platform/om-agents.md). Log Analytics ile tümleşik bir Operations Manager yönetim grubu tarafından izlenen Linux bilgisayarlar için veri kaynakları ve İleri toplanan verileri yönetim grubu yapılandırması almazsınız. Linux Aracısı, yalnızca tek bir çalışma alanına raporlama desteklese de Windows aracı en fazla dört Log Analytics çalışma alanlarını, rapor edebilirsiniz.  
 
 Log Analytics'e bağlanmak için yalnızca Linux ve Windows için aracı değil, aynı zamanda karma Runbook çalışanı rolü ve diğer hizmetler gibi barındırmak için Azure Otomasyonu destekler [değişiklik izleme](../../automation/automation-change-tracking.md) ve [güncelleştirmeyönetimi](../../automation/automation-update-management.md). Karma Runbook çalışanı rolü hakkında daha fazla bilgi için bkz. [Azure Otomasyon karma Runbook çalışanı](../../automation/automation-hybrid-runbook-worker.md).  
 
@@ -73,7 +73,7 @@ Bir distro veya destek modelimizi hizalama değil ve şu anda desteklenmeyen bir
 >
 
 ## <a name="tls-12-protocol"></a>TLS 1.2 Protokolü
-Log analytics'e Aktarımdaki verilerin güvenliğini sağlamak üzere en az kullanmak üzere yapılandırmak için önemle öneririz Aktarım Katmanı Güvenliği (TLS) 1.2. TLS/Güvenli Yuva Katmanı (SSL) daha eski sürümleri, savunmasız bulundu ve bunlar yine de şu anda geriye dönük uyumluluk izin vermek için çalışırken, bunlar **önerilmez**.  Ek bilgi için gözden [TLS 1.2 kullanarak güvenli bir şekilde veri gönderen](../../log-analytics/log-analytics-data-security.md#sending-data-securely-using-tls-12). 
+Log analytics'e Aktarımdaki verilerin güvenliğini sağlamak üzere en az kullanmak üzere yapılandırmak için önemle öneririz Aktarım Katmanı Güvenliği (TLS) 1.2. TLS/Güvenli Yuva Katmanı (SSL) daha eski sürümleri, savunmasız bulundu ve bunlar yine de şu anda geriye dönük uyumluluk izin vermek için çalışırken, bunlar **önerilmez**.  Ek bilgi için gözden [TLS 1.2 kullanarak güvenli bir şekilde veri gönderen](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ## <a name="network-firewall-requirements"></a>Ağ güvenlik duvarı gereksinimleri
 Linux ve Windows Aracısı Log Analytics ile iletişim kurmak gerekli proxy ve güvenlik duvarı yapılandırma bilgileri listesi aşağıdaki bilgileri.  
@@ -115,10 +115,10 @@ Azure aboneliğiniz veya karma ortamda makinelerin doğrudan Azure Log Analytics
 
 |Kaynak | Yöntem | Açıklama|
 |-------|-------------|-------------|
-|Azure VM| -Log Analytics VM uzantısı için [Windows](../../virtual-machines/extensions/oms-windows.md) veya [Linux](../../virtual-machines/extensions/oms-linux.md) Azure CLI kullanarak veya Azure Resource Manager şablonu ile<br>- [Azure portalından el ile](../../log-analytics/log-analytics-quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json). | Uzantı, Azure sanal makinelerinde Log Analytics aracısını yükler ve bunları mevcut bir Azure İzleyici çalışma alanına kaydeder.|
+|Azure VM| -Log Analytics VM uzantısı için [Windows](../../virtual-machines/extensions/oms-windows.md) veya [Linux](../../virtual-machines/extensions/oms-linux.md) Azure CLI kullanarak veya Azure Resource Manager şablonu ile<br>- [Azure portalından el ile](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json). | Uzantı, Azure sanal makinelerinde Log Analytics aracısını yükler ve bunları mevcut bir Azure İzleyici çalışma alanına kaydeder.|
 | Hibrit Windows bilgisayarı|- [El ile yükleme](agent-windows.md)<br>- [Azure Otomasyonu DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Azure Stack ile Resource Manager şablonu](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Komut satırını veya Azure Automation DSC gibi otomatikleştirilmiş bir yöntem kullanarak Microsoft Monitoring agent yükleme [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), ya da Microsoft dağıttıysanız, Azure Resource Manager şablonu ile Azure Stack, veri merkezinizdeki.| 
-| Hibrit Linux bilgisayarı| [El ile yükleme](../../log-analytics/log-analytics-quick-collect-linux-computer.md)|Github'da barındırılan bir sarmalayıcı betik çağırma Linux için aracıyı yükleyin. | 
-| System Center Operations Manager|[Operations Manager'ı Log Analytics ile tümleştirme](../../log-analytics/log-analytics-om-agents.md) | Operations Manager ve Log Analytics iletmek arasında bütünleşmeyi yapılandırmadan bir yönetim grubuna raporlama Linux ve Windows bilgisayarlardan toplanan verileri.|  
+| Hibrit Linux bilgisayarı| [El ile yükleme](../../azure-monitor/learn/quick-collect-linux-computer.md)|Github'da barındırılan bir sarmalayıcı betik çağırma Linux için aracıyı yükleyin. | 
+| System Center Operations Manager|[Operations Manager'ı Log Analytics ile tümleştirme](../../azure-monitor/platform/om-agents.md) | Operations Manager ve Log Analytics iletmek arasında bütünleşmeyi yapılandırmadan bir yönetim grubuna raporlama Linux ve Windows bilgisayarlardan toplanan verileri.|  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

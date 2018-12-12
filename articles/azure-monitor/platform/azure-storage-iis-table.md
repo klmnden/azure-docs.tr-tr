@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: df5c52de14368896f77e48ebfd4ba7e4b4f38b67
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: bf02fb315162ffa183ed4137734ff8041ef75fe5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837688"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096641"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Log Analytics ile olayları için IIS ve Azure tablo depolama için Azure blob depolama kullanma
 
@@ -53,7 +53,7 @@ Log Analytics'ın bu Azure tanılama günlükleri toplamak günlükleri şu konu
 >
 >
 
-Sanal makineler için yükleme seçeneğiniz [Log Analytics aracısını](../../log-analytics/log-analytics-quick-collect-azurevm.md) ek Öngörüler etkinleştirmek için sanal makine. IIS günlükleri ve olay günlüklerini analiz etme olanağına olmasının yanı sıra yapılandırma değişiklik izleme SQL değerlendirmesi ve güncelleştirme değerlendirmesi de dahil olmak üzere ek analiz gerçekleştirebilirsiniz.
+Sanal makineler için yükleme seçeneğiniz [Log Analytics aracısını](../../azure-monitor/learn/quick-collect-azurevm.md) ek Öngörüler etkinleştirmek için sanal makine. IIS günlükleri ve olay günlüklerini analiz etme olanağına olmasının yanı sıra yapılandırma değişiklik izleme SQL değerlendirmesi ve güncelleştirme değerlendirmesi de dahil olmak üzere ek analiz gerçekleştirebilirsiniz.
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>Azure Tanılama'da bir sanal makine etkinleştirme koleksiyon olay günlüğü ve IIS günlüğü için
 Azure Tanılama'da bir sanal makine için Microsoft Azure portalını kullanarak olay günlüğü ve IIS günlük koleksiyonu etkinleştirmek için aşağıdaki yordamı kullanın.
@@ -148,7 +148,7 @@ Yaklaşık 30 dakika içerisinde Log analytics'te depolama hesabına ait veriler
 >
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection-using-powershell"></a>Azure Tanılama'da bir sanal makine etkinleştirme PowerShell kullanarak koleksiyon olay günlüğü ve IIS günlüğü için
-İçindeki adımları kullanın [Azure tanılama dizin için Log Analytics'i yapılandırma](../../log-analytics/log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) tablo Depolama'ya yazılan Azure tanılama verilerini okumak üzere PowerShell kullanma.
+İçindeki adımları kullanın [Azure tanılama dizin için Log Analytics'i yapılandırma](../../azure-monitor/platform/powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) tablo Depolama'ya yazılan Azure tanılama verilerini okumak üzere PowerShell kullanma.
 
 Azure PowerShell kullanarak Azure Depolama'ya yazılan olayları daha kesin olarak belirtebilirsiniz.
 Daha fazla bilgi için [Azure sanal Makineler'de tanılamayı etkinleştirme](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).

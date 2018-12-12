@@ -1,11 +1,12 @@
 ---
 title: Makine öğrenimi ve veri bilimi araçları - Azure | Microsoft Docs
-description: Makine öğrenimi ve veri bilimi araçları
+description: Makine öğrenimi araçları ve çerçeveleri veri bilimi sanal makinesi üzerinde önceden yüklenmiş hakkında bilgi edinin.
 keywords: veri bilimi araçları, veri bilimi sanal makinesi, veri bilimi için araçlar, linux veri bilimi
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 9308c51c0ff5fc7278eab632f9d23f23cf016a2a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: d8c607b5f1d338ca3a2bd3844b26ef51d801c720
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901677"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086079"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Makine öğrenimi ve veri bilimi araçları
 Azure veri bilimi sanal makineleri zengin bir araç olan ve kitaplıklar için machine learning (ML), Python, R ve Julia'nın gibi popüler dilde kullanılabilir. 

@@ -1,6 +1,6 @@
 ---
-title: Azure IOT Edge platformu desteği | Microsoft Docs
-description: Azure IOT Edge tarafından desteklenen platformlar
+title: Desteklenen işletim sistemleri, kapsayıcı altyapıları - Azure IOT Edge | Microsoft Docs
+description: Azure IOT Edge arka plan programı ve çalışma zamanı ve üretim cihazlarınız için desteklenen kapsayıcı altyapıları hangi işletim sistemini çalıştırabileceğiniz öğrenin
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,14 +8,16 @@ ms.date: 11/07/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 45c5c7245a2af3b0d0e328bfcc43112eaee406ee
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 3c75f50e40f83a4dc6765ae422fbb2458f40d770
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565012"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100199"
 ---
-# <a name="azure-iot-edge-support"></a>Azure IOT Edge desteği
+# <a name="azure-iot-edge-supported-systems"></a>Azure IOT Edge desteklenen sistemleri
+
 Bir Azure IOT Edge ürün desteği arama için çeşitli yollar vardır.
 
 **Hata Raporlama** – Azure IOT Edge ürün şeklinde ulaştığı geliştirme çoğunu IOT Edge açık kaynaklı proje gerçekleşir. Hatalar rapor üzerinde [sorunlar sayfasında](https://github.com/azure/iotedge/issues) proje. Düzeltmeleri projesi ile aşamalarından geçerek ürün güncelleştirmelerini hızlı bir şekilde yapın.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8923dcb4c35bbf90a6f68bd296bb9a862c5ff07d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: aeb0dec07ef9c8fb124089c785929f4e5ce69ffe
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230810"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871444"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Windows tabanlı HDInsight kümelerini betik eylemi kullanarak özelleştirme
 **Betik eylemi** çağırmak için kullanılan [özel betikler](hdinsight-hadoop-script-actions.md) bir kümede ek yazılım yüklemek için küme oluşturma işlemi sırasında.
@@ -24,7 +24,7 @@ Bu makaledeki bilgiler, Windows tabanlı HDInsight kümelerine özeldir. Linux t
 > [!IMPORTANT]
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-HDInsight kümeleri başka yöntemlerle de çeşitli özelleştirilebilir, ek Azure depolama hesapları dahil olmak üzere gibi Hadoop değiştirme yapılandırma dosyaları (core-site.xml, hive-site.xml vb.) veya paylaşılan kitaplıklar (örneğin, Hive, Oozie) uygulamasına ekleme Ortak konumu kümedeki. Bu özelleştirmeler, Azure PowerShell, Azure HDInsight .NET SDK veya Azure portalı yapılabilir. Daha fazla bilgi için [Hadoop kümeleri oluşturma HDInsight][hdinsight-provision-cluster].
+HDInsight kümeleri özelleştirilebilir bir çeşitli diğer yöntemlerle de dahil olmak üzere ek Azure depolama hesapları, değiştirme gibi [Apache Hadoop](https://hadoop.apache.org/) yapılandırma dosyaları (core-site.xml, hive-site.xml vb.) veya paylaşılan ekleme kitaplıkları (örneğin, [Apache Hive](https://hive.apache.org/), [Apache Oozie](https://oozie.apache.org/)) kümedeki ortak konumlara. Bu özelleştirmeler, Azure PowerShell, Azure HDInsight .NET SDK veya Azure portalı yapılabilir. Daha fazla bilgi için [Apache Hadoop kümeleri oluşturma HDInsight][hdinsight-provision-cluster].
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
 
@@ -48,16 +48,16 @@ HDInsight, HDInsight kümelerinde aşağıdaki bileşenleri yüklemek için birk
 
 | Ad | Betik |
 | --- | --- |
-| **Spark'ı yükleme** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Bkz: [yükleme ve kullanma, HDInsight üzerinde Spark kümeleri][hdinsight-install-spark]. |
+| **Apache Spark'ı yükleme** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Bkz: [yükleme ve kullanma, HDInsight üzerinde Apache Spark kümeleri][hdinsight-install-spark]. |
 | **R yükleme** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. Bkz: [yükleme ve HDInsight kümelerinde R kullanma](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster). |
-| **Solr yükleme** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. Bkz: [HDInsight üzerinde Solr yükleme ve kullanma kümeleri](hdinsight-hadoop-solr-install.md). |
-| **Giraph yükleme** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. Bkz: [HDInsight üzerinde Giraph yükleme ve kullanma kümeleri](hdinsight-hadoop-giraph-install.md). |
-| **Hive kitaplıklarını önceden yükleme** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. Bkz: [HDInsight kümelerinde ekleme Hive kitaplıkları](hdinsight-hadoop-add-hive-libraries.md) |
+| **Apache Solr yükleme** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. Bkz: [HDInsight üzerinde Apache Solr yükleme ve kullanma kümeleri](hdinsight-hadoop-solr-install.md). |
+| **Apache giraph'ı yükleme** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. Bkz: [HDInsight üzerinde Apache giraph'ı yükleme ve kullanma kümeleri](hdinsight-hadoop-giraph-install.md). |
+| **Apache Hive kitaplıklarını önceden yükleme** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. Bkz: [HDInsight kümelerinde kitaplıkları Apache Hive Ekle](hdinsight-hadoop-add-hive-libraries.md) |
 
 ## <a name="call-scripts-using-the-azure-portal"></a>Azure portalını kullanarak komut dosyalarını çağırma
 **Azure portalından**
 
-1. Anlatıldığı gibi bir küme oluşturmaya başlayın [Hadoop kümeleri oluşturma HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+1. Anlatıldığı gibi bir küme oluşturmaya başlayın [Apache Hadoop kümeleri oluşturma HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 2. İsteğe bağlı yapılandırma altında için **betik eylemleri** dikey penceresinde tıklayın **betik eylemi ekleme** aşağıda gösterildiği gibi bir betik eylemi ayrıntılarını sağlamak için:
 
     ![Bir küme özelleştirmek için betik eylemi kullanmanız](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "küme özelleştirmek için betik eylemini kullanın")
@@ -165,7 +165,7 @@ Diğer yazılım yüklemek için betik komut dosyasında değiştirilecek gereki
 İstendiğinde, küme için kimlik bilgilerini girin. Uygulamanın, küme oluşturulmadan önce birkaç dakika sürebilir.
 
 ## <a name="call-scripts-using-net-sdk"></a>.NET SDK kullanarak komut dosyalarını çağırma
-Aşağıdaki örnek, Windows tabanlı HDInsight kümesi üzerinde Spark'ı yüklemek gösterilmektedir. Diğer yazılım yüklemek için kod içindeki betik dosyasının yerini gerekecektir.
+Aşağıdaki örnek, Windows tabanlı HDInsight kümesi üzerinde Apache Spark'ı yüklemek gösterilmektedir. Diğer yazılım yüklemek için kod içindeki betik dosyasının yerini gerekecektir.
 
 **Spark ile bir HDInsight kümesi oluşturma**
 
@@ -283,7 +283,7 @@ Microsoft Azure HDInsight, Hadoop geçici olarak oluşturulmuş açık kaynak te
 
 HDInsight hizmetinde kullanılabilir açık kaynak bileşenleri iki tür vardır:
 
-* **Yerleşik bileşenlerini** -bu bileşenler HDInsight kümelerinde önceden yüklü olan ve kümeyi temel işlevlerini sağlar. Örneğin, YARN ResourceManager, Hive sorgu dili (HiveQL) ve Mahout kitaplığı, bu kategoriye aittir. Tam küme bileşenleri listesini kullanılabilir [HDInsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler nelerdir?](hdinsight-component-versioning.md) </a>.
+* **Yerleşik bileşenlerini** -bu bileşenler HDInsight kümelerinde önceden yüklü olan ve kümeyi temel işlevlerini sağlar. Örneğin, Apache Hadoop YARN ResourceManager, Hive sorgu dili (HiveQL) ve Apache Mahout kitaplığı, bu kategoriye aittir. Tam küme bileşenleri listesini kullanılabilir [HDInsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler nelerdir?](hdinsight-component-versioning.md) </a>.
 * **Özel bileşenler** -, kümenin bir kullanıcı olarak yükleyebilir veya herhangi bir bileşeni Topluluğu'nda kullanılabilir veya sizin tarafınızdan oluşturulan iş yükünüzü kullanın.
 
 Yerleşik bileşenleri tam olarak desteklenir ve Microsoft Support yalıtmak ve bu bileşenler için ilgili sorunları gidermek için yardımcı olur.
@@ -305,11 +305,11 @@ HDInsight hizmeti, özel bileşenler kullanmak için birkaç yol sağlar. Nasıl
 Bkz: [HDInsight için betik eylemi geliştirme betikleri][hdinsight-write-script].
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [HDInsight Hadoop kümeleri oluşturma] [ hdinsight-provision-cluster] diğer özel seçenekleri kullanarak bir HDInsight kümesi oluşturma hakkında yönergeler açıklanmaktadır.
+* [HDInsight Apache Hadoop kümeleri oluşturma] [ hdinsight-provision-cluster] diğer özel seçenekleri kullanarak bir HDInsight kümesi oluşturma hakkında yönergeler açıklanmaktadır.
 * [HDInsight için betik eylemi betikleri geliştirme][hdinsight-write-script]
-* [Yükleme ve HDInsight kümelerine Spark kullanma][hdinsight-install-spark]
-* [Yükleme ve HDInsight kümelerinde Solr kullanma](hdinsight-hadoop-solr-install.md).
-* [Yükleme ve HDInsight kümelerinde Giraph kullanma](hdinsight-hadoop-giraph-install.md).
+* [Yükleme ve Apache Spark HDInsight kümeleri kullanma][hdinsight-install-spark]
+* [Yükleme ve HDInsight kümeleri üzerinde Apache Solr kullanma](hdinsight-hadoop-solr-install.md).
+* [Yükleme ve HDInsight kümeleri üzerinde Apache giraph'ı kullanma](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md

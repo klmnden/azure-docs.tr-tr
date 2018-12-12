@@ -1,10 +1,10 @@
 ---
-title: Şirket içi Azure Machine Learning Studio ile SQL Server | Microsoft Docs
+title: Şirket içi SQL Server - Azure Machine Learning Studio | Microsoft Docs
 description: Bir şirket içi SQL Server veritabanındaki verileri Azure Machine Learning Studio ile Gelişmiş analiz gerçekleştirmek için kullanın.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: d28c39ef909cffdc1ed907e05b60e61f02353710
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 059dd3d902409abfa80be2b7aac579a54de1868f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310965"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090679"
 ---
-# <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Şirket içi SQL Server veritabanındaki verileri kullanarak Azure Machine Learning ile gelişmiş analiz gerçekleştirme
+# <a name="perform-analytics-with-azure-machine-learning-using-an-on-premises-sql-server-database"></a>Azure Machine Learning kullanarak bir şirket içi SQL Server veritabanı analizler gerçekleştirin
 
 Genellikle şirket içi verilerle çalışacak kuruluşların avantajı ölçek ve makine öğrenimi iş yükleri için bulutun çevikliğinden yapmak istiyorsunuz. Ancak, geçerli iş süreçleri ve iş akışları, şirket içi verileri buluta taşıyarak kesintiye istemiyorsanız. Azure Machine Learning artık bir şirket içi SQL Server veritabanından veri okumak ve ardından eğitim ve bu verilerle bir model Puanlama destekler. Artık bu el ile kopyalayın ve Bulut ve şirket içi sunucunuz arasında veri eşitlemeyi gerekmez. Bunun yerine, **verileri içeri aktarma** , eğitim ve puanlama işleri için modülü Azure Machine Learning Studio'da doğrudan, şirket içi SQL Server veritabanından artık bkz.
 

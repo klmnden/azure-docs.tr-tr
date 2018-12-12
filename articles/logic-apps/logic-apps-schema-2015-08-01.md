@@ -4,18 +4,18 @@ description: Güncelleştirilmiş şema sürümü 2015-08-01-Önizleme için Azu
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: stepsic-microsoft-com
-ms.author: stepsic
-ms.reviewer: klam, estfan, LADocs
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
 ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.topic: article
 ms.date: 05/31/2016
-ms.openlocfilehash: dd05543c2a727f010432ecb54c2dc3e77a245de4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ec6f98ca0f0260a0d7bed16538f557931cd2e33e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122786"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080019"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Azure Logic Apps - 1 Ağustos 2015 önizlemesi için şema güncelleştirmeleri
 
@@ -72,12 +72,16 @@ Bu tanımında, bu eylemleri adlandırılır `APIConnection`. Office 365'e-posta
 }
 ```
 
-`host` Nesnedir, API bağlantıları için benzersizdir ve bölümleri içeren bir parçası girişleri: `api` ve `connection`. `api` Nesne çalışma zamanı URL'si, API yönetildiği barındırıldığını belirtir. Tüm kullanılabilir yönetilen API'ler çağırarak gördüğünüz `GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
+`host` Nesnedir, API bağlantıları için benzersizdir ve bölümleri içeren bir parçası girişleri: `api` ve `connection`. `api` Nesne çalışma zamanı URL'si, API yönetildiği barındırıldığını belirtir. Bu yöntemi çağırarak tüm kullanılabilir yönetilen API'ler görebilirsiniz:
+
+```text
+GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<location>/managedApis?api-version=2015-08-01-preview
+```
 
 Bir API'yi kullandığınızda, bu API olabilir veya tüm tanımlamış olabileceği değil *bağlantı parametrelerini*. Bu nedenle, bu parametreleri API tanımlamıyorsa, bağlantı gereklidir. API bu parametreleri tanımlarsanız, belirtilen bir ada sahip bir bağlantı oluşturmanız gerekir.  
 Ardından bu ada başvuru `connection` içine `host` nesne. Bir kaynak grubunda bir bağlantı oluşturmak için bu yöntemi çağırın:
 
-```
+```text
 PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/connections/<name>?api-version=2015-08-01-preview
 ```
 
@@ -99,8 +103,8 @@ Aşağıdaki gövdesi:
 
 ### <a name="deploy-managed-apis-in-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonunda yönetilen API'ler dağıtın
 
-Etkileşimli oturum açma gerekli olmadığı sürece, bir Azure Resource Manager şablonunun tam bir uygulama oluşturabilirsiniz.
-Oturum açma gerekiyorsa, Azure Resource Manager şablonu ile her şey ayarlayabilirsiniz ancak bağlantılarını yetkilendirmek için Azure portalını ziyaret etmek çözümlenmedi. 
+Etkileşimli oturum açma gerekli olmadığı durumlarda, Resource Manager şablonu kullanarak tam bir uygulama oluşturabilirsiniz.
+Oturum açma gereklidir, Resource Manager şablonu kullanmaya devam edebilirsiniz, ancak Azure portalı üzerinden bağlantılarını yetkilendirmek zorunda. 
 
 ``` json
 "resources": [ {
@@ -194,7 +198,7 @@ Bu örnekte, bağlantılar, kaynak grubunuzda Canlı yalnızca kaynakların oldu
 
 ### <a name="your-custom-web-apis"></a>Özel Web API'leri
 
-Yerleşik olanları değil Microsoft tarafından yönetilen, kendi Apı'lerinize kullanırsanız kullanın **HTTP** bunları çağrılacak eylem. İçin ideal bir deneyim, API'niz için bir Swagger uç nokta sunmalıdır. Bu uç noktası girişleri oluşturmak mantıksal Uygulama Tasarımcısı sağlar ve API'niz için çıkarır. Swagger tasarımcıya yalnızca girişler ve çıkışlar donuk bir JSON nesnesi gösterebilirsiniz.
+Yerleşik olanları Microsoft tarafından yönetilen yerine kendi Apı'lerinize kullanırsanız kullanın **HTTP** Apı'lerinizi çağrılacak eylem. İdeal olarak, API'niz için bir Swagger uç noktası sağlamanız gerekir. Bu uç nokta, Logic Apps Tasarımcısı'nın, API'NİZİN giriş ve çıkışlarını görüntülemek yardımcı olur. Swagger uç nokta tasarımcıya yalnızca girişler ve çıkışlar donuk bir JSON nesnesi gösterebilirsiniz.
 
 İşte yeni gösteren bir örnek `metadata.apiDefinitionUrl` özelliği:
 
@@ -259,7 +263,7 @@ API uygulaması, daha önce dağıttıysanız, bu uygulamayla çağırabilirsini
 }
 ```
 
-Şimdi, değişiklik yapmadan mantıksal uygulama tanımını için parametreler bölümü aşağıdaki örnekte olduğu gibi eşdeğer HTTP eylemi artık oluşturabilirsiniz:
+Şimdi, artık derleme benzer bir HTTP eylemi ve mantıksal uygulama tanımının bırakın `parameters` bölüm değiştirmeden, örneğin:
 
 ``` json
 "actions": {
@@ -292,8 +296,8 @@ Bu özellikler tek tek yürüyen:
 | `metadata.apiDefinitionUrl` | Mantıksal Uygulama Tasarımcısı'nda bu eylemi kullanabilmek için nesnesinden oluşturulan meta veri uç noktası şunlardır: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
 | `inputs.uri` | Oluşturulan: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
 | `inputs.method` | Her zaman `POST` |
-| `inputs.body` | API uygulaması parametreleri özdeş |
-| `inputs.authentication` | Aynı API uygulaması kimlik doğrulaması |
+| `inputs.body` | API uygulaması parametreleri aynı |
+| `inputs.authentication` | API uygulaması kimlik doğrulaması ile aynı |
 
 Bu yaklaşım, tüm API uygulaması eylemleri için çalışır. Ancak, bu önceki API Apps artık desteklenmeyen unutmayın. Bu nedenle, iki farklı önceki seçenek, yönetilen bir API veya özel Web API'niz barındırma birine taşımanız gerekir.
 
@@ -407,15 +411,15 @@ Artık bu sürümü yerine kullanabilirsiniz:
 
 ## <a name="native-http-listener"></a>Yerel HTTP dinleyicisi
 
-HTTP dinleyicisi özellikleri artık yerleşik olarak bulunmaktadır. Bu nedenle, artık bir HTTP dinleyicisi API uygulamasına dağıtmanız gerekir. Bkz: [mantıksal uygulama uç noktanızı burada aranabilir hale getirme tam ayrıntılarını](../logic-apps/logic-apps-http-endpoint.md). 
+HTTP dinleyicisi özellikleri, artık bir HTTP dinleyicisi API uygulamasına dağıtmak zorunda kalmamak için yerleşiktir. Daha fazla bilgi için bilgi nasıl [mantıksal uygulama uç noktanızı çağrılabilir olun](../logic-apps/logic-apps-http-endpoint.md). 
 
-Bu değişikliklerle kaldırdık `@accessKeys()` biz yerine işlevin `@listCallbackURL()` gerektiğinde uç noktası almak için işlev. Ayrıca, mantıksal uygulamanız artık en az bir tetikleyici tanımlamanız gerekir. İsterseniz `/run` iş akışını tetikler biri olmalıdır: `manual`, `apiConnectionWebhook`, veya `httpWebhook`.
+Logic Apps bu değişikliklerle değiştirir `@accessKeys()` işleviyle `@listCallbackURL()` işlevin gerektiğinde uç noktasını alır. Ayrıca, mantıksal uygulamanız artık en az bir tetikleyici tanımlamanız gerekir. İsterseniz `/run` iş akışı tetikleyicisi bunlardan birini kullanmak zorunda: `Manual`, `ApiConnectionWebhook`, veya `HttpWebhook`
 
 <a name="child-workflows"></a>
 
 ## <a name="call-child-workflows"></a>Alt iş akışlarını çağırma
 
-Daha önce alt iş akışlarını çağırarak iş akışına gidip erişim belirteci alma ve o alt iş akışını çağırmak istediğiniz mantıksal uygulama tanımında belirteç yapıştırma gereklidir. Herhangi bir gizli anahtar tanımında yapıştırmak zorunda kalmamak için yeni şema ile Logic Apps altyapısı bir SAS alt iş akışı için çalışma zamanında otomatik olarak oluşturur. Örnek aşağıda verilmiştir:
+Daha önce alt iş akışlarını çağırarak iş akışına gidip erişim belirteci alma ve o alt iş akışını çağırmak istediğiniz mantıksal uygulama tanımında belirteç yapıştırma gereklidir. Herhangi bir gizli anahtar tanımında yapıştırmak zorunda kalmamak için bu şema ile Logic Apps altyapısı bir SAS alt iş akışı için çalışma zamanında otomatik olarak oluşturur. Örnek aşağıda verilmiştir:
 
 ``` json
 "myNestedWorkflow": {
@@ -441,9 +445,9 @@ Daha önce alt iş akışlarını çağırarak iş akışına gidip erişim beli
 }
 ```
 
-Biz alt iş akışları gelen istek için tam erişim veren ikinci bir geliştirme olur. Parametreleri geçirebilirsiniz anlamına *sorguları* bölümü ve *üstbilgileri* nesne ve tüm gövdesinin tam olarak tanımlayabilirsiniz.
+Ayrıca, alt iş akışları, gelen istek tam erişim elde edin. Bu nedenle, parametrelere geçirebilirsiniz `queries` bölümü ve `headers` nesne. Tüm da tam olarak tanımlayabilirsiniz `body` bölümü.
 
-Son olarak, alt iş akışı için gerekli bir değişiklik yoktur. Artık daha önce alt iş akışı doğrudan çağırabilir, ancak çağırmak üst iş akışında tetikleyici uç noktasını tanımlamanız gerekir. Genel olarak, sahip bir tetikleyici ekleme `manual` yazın ve ardından üst tanımında tetikleyicisi. Not `host` özellikle özelliğine sahip bir `triggerName` tetikleyicinin her zaman belirtmeniz gerekir çünkü çağırma.
+Son olarak, alt iş akışları şu gerekli değişiklikler var. Daha önce verebilir ve doğrudan bir alt iş akışı arama çağırmak üst iş akışı şimdi bir tetikleyici uç noktası tanımlamanız gerekir. Genel olarak, sahip bir tetikleyici ekleme `Manual` yazın ve ardından üst tanımında tetikleyicisi. `host` Özellikle özelliğine sahip bir `triggerName` tetikleyici her zaman belirtmeniz gerekir çünkü arıyoruz.
 
 ## <a name="other-changes"></a>Diğer değişiklikler
 
@@ -453,8 +457,8 @@ Tüm eylem türleri artık adlı yeni bir giriş Destek `queries`. Bu giriş, ya
 
 ### <a name="renamed-parse-function-to-json"></a>'Json()' olarak yeniden adlandırıldı 'parse()' işlevi
 
-Biz yeniden adlandırıldı. Bu nedenle daha fazla içerik türleri yakında ekliyoruz `parse()` işlevi `json()`.
+`parse()` İşlevi artık yeniden adlandırılan `json()` gelecekteki içerik türleri için işlevi.
 
-## <a name="coming-soon-enterprise-integration-apis"></a>Çok yakında: Kurumsal tümleştirme API'leri
+## <a name="enterprise-integration-apis"></a>Kurumsal tümleştirme API'leri
 
-Biz yönetilen sürümlerini henüz gibi AS2 Kurumsal tümleştirme API'leri yok. Bu arada, HTTP eylemi aracılığıyla dağıtılan mevcut BizTalk API'leri kullanabilirsiniz. Ayrıntılar için bkz: "içinde zaten dağıtılmış API uygulamalarınızı kullanma" [tümleştirme Haritası](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 
+Bu şema gibi AS2 Kurumsal tümleştirme API'ler için yönetilen sürümler henüz desteklemiyor. Ancak, HTTP eylemi aracılığıyla dağıtılan mevcut BizTalk Apı'lerinize kullanabilirsiniz. Daha fazla bilgi için bkz: "içinde zaten dağıtılmış API uygulamalarınızı kullanma" [tümleştirme Haritası](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 

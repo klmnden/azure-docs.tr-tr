@@ -1,21 +1,22 @@
 ---
-title: "Öğretici 9: LUIS'de pozitif, negatif ve nötr dahil yaklaşım analizi"
+title: Yaklaşım analizi
 titleSuffix: Azure Cognitive Services
 description: Bu öğreticide konuşmalardaki pozitif, negatif ve nötr yaklaşımları ayıklamayı gösteren bir uygulama oluşturacaksınız. Yaklaşım konuşmanın tamamından belirlenir.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 60c4b280033e110f6b8b2a3ce720934e118c8479
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d93c7619bb670a81372ab83359836a78b8956b09
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424859"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098954"
 ---
 # <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Öğretici 9: Genel konuşmanın yaklaşımını ayıklama
 Bu öğreticide konuşmalardaki pozitif, negatif ve nötr yaklaşımları ayıklamayı gösteren bir uygulama oluşturacaksınız. Yaklaşım konuşmanın tamamından belirlenir.
@@ -94,7 +95,7 @@ Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin.
 
 2. Bu ayar için iki durumlu **Yaklaşım Analizi**'ni etkinleştirin. 
 
-    ![](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
+    ![Yayımlama ayarı olarak üzerinde yaklaşım analizi Aç](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
 ## <a name="publish"></a>Yayımlama
 
@@ -106,7 +107,7 @@ Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin.
 
 2. Adres çubuğundaki URL'nin sonuna gidip `Jill Jones work with the media team on the public portal was amazing` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `EmployeeFeedback` amacını yaklaşım analizi ayıklanmış şekilde döndürmelidir.
     
-    ```JSON
+    ```json
     {
       "query": "Jill Jones work with the media team on the public portal was amazing",
       "topScoringIntent": {

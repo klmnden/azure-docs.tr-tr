@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.date: 04/01/2018
 ms.workload: data-services
 ms.author: rodrigoa
-ms.openlocfilehash: 56ac08593d29a9003f5509f2be52f50fa250bd75
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: HT
+ms.openlocfilehash: e33b90d6f70bb1b765f5170ac37880d31e87f3a5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431604"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088886"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Öğretici: Azure Stream Analytics JavaScript kullanıcı tanımlı işlevleri
  
@@ -58,7 +58,7 @@ Var olan bir Stream Analytics işi altında basit bir JavaScript kullanıcı tan
 4.  **Yeni İşlev** dikey penceresinde **İşlev Türü** olarak **JavaScript**’i seçin. Düzenleyicide varsayılan bir işlev şablonu görüntülenir.
 5.  **UDF diğer adı** için **hex2Int** girin ve işlev uygulamasını aşağıdaki gibi değiştirin:
 
-    ```
+    ```javascript
     // Convert Hex value to integer.
     function hex2Int(hexValue) {
         return parseInt(hexValue, 16);
@@ -73,7 +73,7 @@ Var olan bir Stream Analytics işi altında basit bir JavaScript kullanıcı tan
 1. Sorgu düzenleyicisindeki **İŞ TOPOLOJİSİ** altında **Sorgu**’yu seçin.
 2.  Sorgunuzu düzenleyin ve sonra aşağıdaki gibi kullanıcı tanımlı işlevi çağırın:
 
-    ```
+    ```SQL
     SELECT
         time,
         UDF.hex2Int(offset) AS IntOffset
@@ -129,14 +129,14 @@ Girdi olarak bir Stream Analytics iş çıktısını kullanan bir takip işleme 
 
 **JavaScript kullanıcı tanımlı işlev tanımı:**
 
-```
+```javascript
 function main(x) {
 return JSON.stringify(x);
 }
 ```
 
 **Örnek sorgu:**
-```
+```SQL
 SELECT
     DataString,
     DataValue,

@@ -1,21 +1,22 @@
 ---
-title: 'Öğretici: Bilgi bankası oluşturma, yayımlama ve soru cevaplama - REST, C# - Soru-Cevap Oluşturma'
-titleSuffix: Azure Cognitive Services
+title: Oluşturun, yayımlayın, yanıt
+titleSuffix: QnA Maker - Azure Cognitive Services
 description: Bu REST tabanlı öğretici, program aracılığıyla bilgi bankası oluşturup yayımlama ve bunu kullanarak soruları cevaplama adımlarını göstermektedir.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 10/29/2018
 ms.author: diberry
-ms.openlocfilehash: 013b74165afe6eafee337bd00ca88b1034ad5662
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: MT
+ms.openlocfilehash: 5ed5564692e65a36ed5178e21a2e7b56a718ffcc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299573"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092001"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Öğretici: C# kullanarak bilgi bankası oluşturma ve soruları cevaplama
 

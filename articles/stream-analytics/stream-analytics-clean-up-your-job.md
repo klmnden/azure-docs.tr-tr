@@ -1,20 +1,20 @@
 ---
 title: Azure Stream Analytics işinizi Temizle
-description: Bu makalede, Azure Stream Analytics işleri silme için bir kılavuzdur.
+description: Bu makalede, Azure Stream Analytics işlerini silmek için farklı yöntemler gösterilmektedir.
 services: stream-analytics
 author: mamccrea
-manager: kfile
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/22/2018
-ms.openlocfilehash: 580d05909ff3c94c982be5353b3b5e86a78fc43f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 85db38fef5e69c4de855f8cb6d54151496faebbe
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969349"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090253"
 ---
 # <a name="clean-up-your-azure-stream-analytics-job"></a>Azure Stream Analytics işinizi Temizle
 
@@ -31,7 +31,7 @@ Azure Stream Analytics işleri, Azure portalı, Azure PowerShell, .net veya REST
 
 3. Stream Analytics işi sayfasında **Durdur** işi durdurulamadı. 
 
-   ![İşi Durdur](./media/stream-analytics-clean-up-your-job/stop-job.png)
+   ![Azure Stream Analytics işini durdurma](./media/stream-analytics-clean-up-your-job/stop-stream-analytics-job.png)
 
 
 ## <a name="delete-a-job-in-azure-portal"></a>Azure portalında iş Sil
@@ -42,7 +42,7 @@ Azure Stream Analytics işleri, Azure portalı, Azure PowerShell, .net veya REST
 
 3. Stream Analytics işi sayfasında **Sil** işi silmek için. 
 
-   ![İşi Sil](./media/stream-analytics-clean-up-your-job/delete-job.png)
+   ![Azure Stream Analytics işini sil](./media/stream-analytics-clean-up-your-job/delete-stream-analytics-job.png)
 
 
 ## <a name="stop-or-delete-a-job-using-powershell"></a>Durdurma veya PowerShell kullanarak iş Sil

@@ -9,12 +9,12 @@ ms.devlang: cpp
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: dff665a26efb00ed74ddfab4259c5c35ca1abb38
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9bfc6ed2c781ddc54815665c492e7f2413033ca0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880140"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087125"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Azure Tablo Depolama ve Azure Cosmos DB Tablo API’sini C++ ile kullanma
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "52880140"
 Bu kılavuzda Azure Tablo depolama hizmeti ve Azure Cosmos DB Tablo API’si kullanılarak genel senaryoların nasıl uygulanacağı gösterilir. Örnekler C++ dilinde yazılmıştır ve [C++ için Azure Depolama İstemci Kitaplığı](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)’nı kullanır. **Tablo oluşturma ve silme** ile **tablo varlıkları ile çalışma** senaryoları ele alınmaktadır.
 
 > [!NOTE]
-> Bu kılavuz C++ için Azure Depolama İstemci Kitaplığı sürüm 1.0.0 ve üzerini hedefler. Önerilen sürüm, [NuGet](http://www.nuget.org/packages/wastorage) ya da [GitHub](https://github.com/Azure/azure-storage-cpp/) üzerinden ulaşılabilen Depolama İstemci Kitaplığı 2.2.0’dır.
+> Bu kılavuz C++ için Azure Depolama İstemci Kitaplığı sürüm 1.0.0 ve üzerini hedefler. Önerilen sürüm, [NuGet](https://www.nuget.org/packages/wastorage) ya da [GitHub](https://github.com/Azure/azure-storage-cpp/) üzerinden ulaşılabilen Depolama İstemci Kitaplığı 2.2.0’dır.
 > 
 
 ## <a name="create-an-azure-service-account"></a>Azure hizmet hesabı oluşturma
@@ -42,7 +42,7 @@ Bu kılavuzda bir C++ uygulamasında çalıştırılabilen depolama özellikleri
 C++ için Azure Depolama İstemci Kitaplığı’nı aşağıdaki yöntemleri kullanarak yükleyebilirsiniz:
 
 * **Linux:** [C++ için Azure Depolama İstemci Kitaplığı BENİOKU](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) sayfasında verilen yönergeleri izleyin.  
-* **Windows:** Visual Studio'da **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**’na tıklayın. Aşağıdaki komutu [NuGet Paket Yöneticisi konsoluna](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) yazıp Enter’a basın.  
+* **Windows:** Visual Studio'da **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**’na tıklayın. Aşağıdaki komutu [NuGet Paket Yöneticisi konsoluna](/nuget/tools/package-manager-console) yazıp Enter’a basın.  
   
      Install-Package wastorage
 
@@ -478,5 +478,5 @@ Azure Depolama ve Azure Cosmos DB Tablo API’si hakkında daha fazla bilgi alma
 * [Tablo API’sine giriş](table-introduction.md)
 * [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md), Microsoft’un Windows, macOS ve Linux üzerinde Azure Depolama verileriyle görsel olarak çalışmanızı sağlayan ücretsiz ve tek başına uygulamasıdır.
 * [Azure Depolama Kaynaklarını C++ dilinde listeleme](../storage/common/storage-c-plus-plus-enumeration.md)
-* [C++ başvurusu için Depolama İstemci Kitaplığı](http://azure.github.io/azure-storage-cpp)
+* [C++ başvurusu için Depolama İstemci Kitaplığı](https://azure.github.io/azure-storage-cpp)
 * [Azure Depolama belgeleri](https://azure.microsoft.com/documentation/services/storage/)

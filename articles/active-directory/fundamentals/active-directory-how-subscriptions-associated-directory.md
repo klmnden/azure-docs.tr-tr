@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory kiracınız için mevcut bir Azure aboneliği ekleme | Microsoft Docs
-description: Azure Active Directory kiracınız için mevcut bir Azure aboneliğine eklemeyi öğrenin.
+title: Mevcut bir Azure aboneliği, kiracınıza - Azure Active Directory Ekle | Microsoft Docs
+description: Azure Active Directory kiracınız için mevcut bir Azure aboneliği ekleme hakkında yönergeler.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: dd62b22eca40a214c5b08a9bc48815e40fe90e47
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 4e4d4d9f34c8220ba70c64f073557f0293881c3e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984095"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083878"
 ---
-# <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Nasıl yapılır: ilişkilendirmek veya Azure Active Directory'ye bir Azure aboneliği ekleme
+# <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory kiracınız için Azure aboneliği ekleme veya ilişkilendirme
 Azure aboneliğinin Azure Active Directory'ye abonelik kullanıcılar, hizmet ve cihaz kimliğini doğrulamak için Azure AD güvendiği anlamına gelir (Azure AD), bir güven ilişkisi vardır. Birden çok abonelik Azure AD ile aynı dizine güvenebilir ancak her abonelik yalnızca tek bir dizine güvenebilir.
 
 Aboneliğinizin süresi dolarsa abonelikle ilişkili diğer kaynaklara erişimlerini kaybeder. Ancak, Azure AD dizini ilişkilendirmek ve farklı bir Azure aboneliğini kullanarak dizin yönetmenize izin vererek, Azure içinde kalır.

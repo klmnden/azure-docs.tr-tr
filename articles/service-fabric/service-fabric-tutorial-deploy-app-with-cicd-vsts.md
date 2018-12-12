@@ -1,6 +1,6 @@
 ---
-title: Azure’da sürekli tümleştirme (Azure DevOps Services) ile bir Service Fabric uygulaması dağıtma | Microsoft Docs
-description: Bu öğreticide Azure DevOps Services kullanarak bir Service Fabric uygulaması için nasıl sürekli tümleştirme ve dağıtım ayarlayacağınız gösterilir.
+title: Sürekli tümleştirme ve azure'da Azure işlem hatları ile bir Service Fabric uygulaması dağıtma | Microsoft Docs
+description: Bu öğreticide, Azure işlem hatları kullanarak bir Service Fabric uygulaması için sürekli tümleştirme ve dağıtım ayarlama konusunda bilgi edinin.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,26 +12,26 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/15/2018
+ms.date: 12/02/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5d53250ebdc14b7b6631e2f419b5b24ac98f3038
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 766c0c780807ff7627ae9fb96aca4a896918f9c6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853754"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094966"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Öğretici: Service Fabric kümesine CI/CD ile uygulama dağıtma
 
-Bu öğretici bir serinin dördüncü bölümüdür ve Azure DevOps Services kullanarak bir Azure Service Fabric uygulamasına nasıl sürekli tümleştirme ve dağıtım ayarlayacağınızı açıklar.  Mevcut bir Service Fabric uygulaması gereklidir; örnek olarak [.NET uygulaması oluşturma](service-fabric-tutorial-create-dotnet-app.md) bölümünde oluşturulan uygulama kullanılır.
+Bu öğretici bir serinin dördüncü bölümüdür ve sürekli tümleştirme ve Azure işlem hatları kullanarak bir Azure Service Fabric uygulaması için dağıtım ayarlayacağınızı açıklar.  Mevcut bir Service Fabric uygulaması gereklidir; örnek olarak [.NET uygulaması oluşturma](service-fabric-tutorial-create-dotnet-app.md) bölümünde oluşturulan uygulama kullanılır.
 
 Serinin üçüncü bölümünde şunları öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Projenize kaynak denetimi ekleme
-> * Azure DevOps’da derleme işlem hattı oluşturma
-> * Azure DevOps’da yayın işlem hattı oluşturma
+> * Azure Pipelines’da derleme işlem hattı oluşturma
+> * Azure Pipelines’da yayın işlem hattı oluşturma
 > * Uygulamayı otomatik olarak dağıtma ve yükseltme
 
 Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
@@ -50,7 +50,7 @@ Bu öğreticiye başlamadan önce:
 * **Azure geliştirme** ve **ASP.NET ve web geliştirme** iş yükleriyle [Visual Studio 2017’yi yükleyin](https://www.visualstudio.com/).
 * [Service Fabric SDK'yı yükleyin](service-fabric-get-started.md)
 * Azure’da Windows Service Fabric kümesi oluşturun; örneğin, [bu öğreticiyi izleyin](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* [Azure DevOps kuruluşu](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) oluşturun.
+* [Azure DevOps kuruluşu](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) oluşturun. Bu, Azure DevOps içinde bir proje oluşturun ve Azure işlem hatları kullanmanıza olanak sağlar.
 
 ## <a name="download-the-voting-sample-application"></a>Voting örnek uygulamasını indirme
 
@@ -62,7 +62,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="prepare-a-publish-profile"></a>Yayımlama profili hazırlama
 
-[Uygulamayı oluşturduğunuza](service-fabric-tutorial-create-dotnet-app.md) ve [uygulamayı Azure’a dağıttığınıza](service-fabric-tutorial-deploy-app-to-party-cluster.md) göre, artık sürekli tümleştirme ayarlamaya hazırsınız.  İlk olarak, uygulamanızda Azure DevOps içinde yürütülen dağıtım işleminin kullanacağı yayımlama profilini hazırlayın.  Yayımlama profili, daha önce oluşturduğunuz kümeyi hedefleyecek şekilde yapılandırılmalıdır.  Visual Studio’yu başlatın ve mevcut Service Fabric uygulaması projesini açın.  **Çözüm Gezgini**'nde uygulamaya sağ tıklayın ve **Yayımla...** öğesini seçin.
+[Uygulamayı oluşturduğunuza](service-fabric-tutorial-create-dotnet-app.md) ve [uygulamayı Azure’a dağıttığınıza](service-fabric-tutorial-deploy-app-to-party-cluster.md) göre, artık sürekli tümleştirme ayarlamaya hazırsınız.  İlk olarak, Azure işlem hatları içinde yürütülen dağıtım süreci tarafından uygulamanızı kullanmak için bir yayımlama profilini hazırlayın.  Yayımlama profili, daha önce oluşturduğunuz kümeyi hedefleyecek şekilde yapılandırılmalıdır.  Visual Studio’yu başlatın ve mevcut Service Fabric uygulaması projesini açın.  **Çözüm Gezgini**'nde uygulamaya sağ tıklayın ve **Yayımla...** öğesini seçin.
 
 Sürekli tümleştirme iş akışınızda kullanmak üzere uygulama projenizin içinde bir hedef profil seçin (örneğin Bulut).  Küme bağlantısı uç noktasını belirtin.  Azure DevOps’daki her dağıtımda uygulamanızın yükseltilmesi için **Uygulamayı Yükselt** onay kutusunu işaretleyin.  Ayarları yayımlama profiline kaydetmek için **Kaydet** bağlantısına tıklayın ve ardından **İptal**’e tıklayarak iletişim kutusunu kapatın.
 
@@ -84,11 +84,11 @@ E-postanızı doğrulayın ve **Azure DevOps Etki Alanı** açılır listesinde 
 
 Depoyu yayımlamak, hesabınızda yerel depoyla aynı ada sahip yeni bir proje oluşturur. Mevcut projede depoyu oluşturmak için, **Depo adının** yanındaki **Gelişmiş**’e tıklayın ve bir proje seçin. **Web üzerinde görüntüleyin**’i seçerek kodunuzu web’de görüntüleyebilirsiniz.
 
-## <a name="configure-continuous-delivery-with-azure-devops"></a>Azure DevOps İle Sürekli Teslimi Yapılandırma
+## <a name="configure-continuous-delivery-with-azure-pipelines"></a>Azure işlem hatlarında sürekli teslimi Yapılandır
 
-Azure DevOps derleme işlem hattı, sırayla yürütülen bir dizi derleme adımından oluşturulmuş bir iş akışını açıklar. Service Fabric kümenize dağıtmak üzere Service Fabric uygulama paketini ve diğer yapıtları üreten bir derleme işlem hattı oluşturun. [Azure DevOps derleme işlem hatları](https://www.visualstudio.com/docs/build/define/create) hakkında daha fazla bilgi edinin. 
+Bir Azure işlem hatları derleme işlem hattı, sırayla yürütülen derleme adımları kümesinden oluşan bir iş akışını açıklar. Service Fabric kümenize dağıtmak üzere Service Fabric uygulama paketini ve diğer yapıtları üreten bir derleme işlem hattı oluşturun. [Azure Pipelines derleme işlem hatları](https://www.visualstudio.com/docs/build/define/create) hakkında daha fazla bilgi edinin. 
 
-Azure DevOps yayın işlem hattı, kümeye uygulama paketi dağıtan bir iş akışını açıklar. Derleme işlem hattı ve yayın işlem hattı ile birlikte kullanıldığında kaynak dosyalardan başlayıp kümenizde çalışan bir uygulamada biten iş akışının tamamını yürütür. Azure DevOps [yayın işlem hatları](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition) hakkında daha fazla bilgi edinin.
+Bir Azure işlem hatları yayın işlem hattı bir kümeye bir uygulama paketi dağıtan bir iş akışını açıklar. Derleme işlem hattı ve yayın işlem hattı ile birlikte kullanıldığında kaynak dosyalardan başlayıp kümenizde çalışan bir uygulamada biten iş akışının tamamını yürütür. Daha fazla bilgi edinin [yayın işlem hatları Azure işlem hatları](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
 ### <a name="create-a-build-pipeline"></a>Derleme işlem hattı oluşturma
 
@@ -156,11 +156,11 @@ Takım Gezgini'ndeki **Değişiklikler** görünümünde, güncelleştirmenizi a
 
 ![Tümünü işleme][changes]
 
-Yayımlanmamış değişiklikler durum çubuğu simgesini (![Yayımlanmamış değişiklikler][unpublished-changes]) veya Takım Gezgini'nde Eşitleme görünümünü seçin. Azure DevOps Services/TFS'de kodunu güncelleştirmek için **Gönder**'i seçin.
+Yayımlanmamış değişiklikler durum çubuğu simgesini (![Yayımlanmamış değişiklikler][unpublished-changes]) veya Takım Gezgini'nde Eşitleme görünümünü seçin. Seçin **anında iletme** Azure işlem hatları kodunuzda güncelleştirilecek.
 
 ![Değişiklikleri gönderme][push]
 
-Değişikliklerin Azure DevOps'a gönderilmesi otomatik olarak derlemeyi tetikler.  Derleme işlem hattı başarıyla tamamlandığında, otomatik olarak bir yayın oluşturulur ve kümede uygulamayı yükseltme işlemini başlatır.
+Azure işlem hatlarına değişiklikleri gönderilmesi otomatik olarak derlemeyi tetikler.  Derleme işlem hattı başarıyla tamamlandığında, otomatik olarak bir yayın oluşturulur ve kümede uygulamayı yükseltme işlemini başlatır.
 
 Derlemenizin ilerleme durumunu denetlemek için, Visual Studio'nun **Takım Gezgini**'nde **Derlemeler** sekmesine geçin.  Derlemenin başarıyla yürütüldüğünü doğruladıktan sonra, uygulamanızı kümeye dağıtan bir yayın işlem hattı belirleyin.
 

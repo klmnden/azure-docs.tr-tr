@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: cced9a313664eaeaed4dd1298488670960b76413
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 0d57e251b241297c461b117edec8fee6316b337b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195779"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098041"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Sanal ağ eşlemesi için VPN ağ geçidi aktarımını yapılandırma
 
@@ -79,7 +79,7 @@ Ağ geçidi aktarımını etkinleştirmek üzere sanal ağ eşlemeleri oluşturm
     - "**Uzak ağ geçitleri kullan**" seçeneğini ayarlayın
     - "Tamam"’a tıklayın
 
-    ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
+      ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
 
 2. Eşleme zaten oluşturulduysa eşleme kaynağına gidin, ardından adım (1)’de gösterilen ekran görüntüsüne benzer şekilde "**Uzak ağ geçitleri kullan**" seçeneğini etkinleştirin
 
@@ -90,7 +90,7 @@ Ağ geçidi aktarımını etkinleştirmek üzere sanal ağ eşlemeleri oluşturm
     - "**Ağ geçidi aktarımına izin ver**" seçeneğini ayarlayın
     - "Tamam"’a tıklayın
 
-    ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
+      ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
 
 4. Eşleme zaten oluşturulduysa eşleme kaynağına gidin, ardından adım (3)’te gösterilen ekran görüntüsüne benzer şekilde "**Ağ geçidi aktarımına izin ver**" seçeneğini etkinleştirin
 

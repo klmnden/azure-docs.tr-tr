@@ -1,21 +1,22 @@
 ---
-title: Azure mesajlaşma hizmetleri karşılaştırması
-description: Azure Event Grid, Event Hubs ve Service Bus hizmetlerini karşılaştırır. Farklı senaryolar için kullanılacak hizmeti önerir.
+title: Azure karşılaştırması - Event Grid, Event Hubs, Service Bus Mesajlaşma
+description: Üç Azure Mesajlaşma Hizmetleri - Azure Event Grid, Event Hubs ve Service Bus açıklar. Farklı senaryolar için kullanılacak hizmeti önerir.
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 07/05/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 28f80dc71afd7d4865763561682ce54de1b118ab
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 7e78dd77d5bd3d9e5aee55aaeffa933a21c3b477
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852206"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084966"
 ---
-# <a name="choose-between-azure-services-that-deliver-messages"></a>İletileri teslim eden Azure hizmetleri arasında seçim yapın
+# <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Azure Mesajlaşma hizmetleri arasında - Event Grid, Event Hubs ve Service Bus'ı seçin
 
 Azure bir çözüm genelinde olay iletilerini teslim etmeye yardımcı olan üç hizmet sunar. Bu hizmetler şunlardır:
 

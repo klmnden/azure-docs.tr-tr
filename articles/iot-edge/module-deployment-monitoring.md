@@ -1,6 +1,6 @@
 ---
-title: İçin Azure IOT Edge modüllerini dağıtmak | Microsoft Docs
-description: Modülleri nasıl uç cihazlarına dağıtıldığı hakkında bilgi edinin
+title: Cihaz grupları - Azure IOT Edge için otomatik dağıtım | Microsoft Docs
+description: Otomatik dağıtımlar, paylaşılan etiketlere göre cihaz grupları yönetmek için Azure IOT Edge'de kullanın.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cd077c1a552a14582fce48bbe60f56ef08e5a4d7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 18cd27ae8bf0a395fa351cf283bc1d40f94dac53
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584851"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100115"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>IOT Edge otomatik dağıtımlar tek tek cihazlarda veya uygun ölçekte anlama
 

@@ -1,6 +1,6 @@
 ---
-title: Oturum açma, Azure Active Directory sayfanıza markası ekleme | Microsoft Docs
-description: Kuruluşunuz için Azure Active Directory oturum açma sayfası markasını eklemeyi öğrenin.
+title: Kuruluşunuzun oturum açma sayfasına - Azure Active Directory markalama Ekle | Microsoft Docs
+description: Azure Active Directory oturum açma sayfasına kuruluşunuzun markası ekleme hakkında yönergeler.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
-custom: it-pro
-ms.openlocfilehash: cdf1c8bfb8e623956d50975f36faafe10b534d06
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 0ce0d42e37bcc5c936798947bacf0232891c24ab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367569"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090321"
 ---
-# <a name="how-to-add-branding-to-your-azure-active-directory-sign-in-page"></a>Nasıl yapılır: Azure Active Directory oturum açma sayfanızdaki için marka Ekle
+# <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Oturum açma, kuruluşunuzun Azure Active Directory sayfasına markalama Ekle
 Kuruluşunuzun logosu ve özel renk düzenleriyle bir tutarlı görünüm ve hisse oturum açma, Azure Active Directory (Azure AD) sayfalarında sağlamak için kullanın. Oturum açma sayfaları kuruluşunuzun web tabanlı uygulamalara, Azure AD kimlik sağlayıcınız olarak kullanan Office 365 gibi kullanıcılar oturum açtığında görünür.
 
 >[!Note]
->Özel marka öğelerini eklemek için Azure Active Directory Premium 1, 2 Premium veya Basic sürümleri kullanın ya da bir Office 365 lisansına sahip olması gerekir. Lisanslama ve sürümleri hakkında daha fazla bilgi için bkz: [Azure AD Premium'a kaydolun](active-directory-get-started-premium.md).<br><br>Azure AD Premium ve Temel sürümleri, Azure Active Directory'nin dünya çapındaki örneğini kullanan Çin'deki müşterilerin kullanımına sunulmuştur. Azure AD Premium ve Basic sürümleri şu anda Çin'de 21Vianet tarafından işletilen Azure hizmeti desteklenmez. Daha fazla bilgi için kullanarak bizimle iletişime geçin [Azure Active Directory Forumu](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>Özel marka öğelerini eklemek için Azure Active Directory Premium 1, 2 Premium veya Basic sürümleri kullanın ya da bir Office 365 lisansına sahip olması gerekir. Lisanslama ve sürümleri hakkında daha fazla bilgi için bkz: [Azure AD Premium'a kaydolun](active-directory-get-started-premium.md).<br><br>Azure AD Premium ve Temel sürümleri, Azure Active Directory'nin dünya çapındaki örneğini kullanan Çin'deki müşterilerin kullanımına sunulmuştur. Azure AD Premium ve Temel sürümleri, şu anda Çin’de 21Vianet tarafından işletilen Azure hizmeti kapsamında desteklenmemektedir. Daha fazla bilgi için [Azure Active Directory Forumu](https://feedback.azure.com/forums/169401-azure-active-directory/)’nu kullanarak bizimle görüşün.
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Azure AD oturum açma sayfanızı özelleştirme
 Kullanıcılar, kuruluşunuzun kiracıya özel uygulamalar için aşağıdaki gibi oturum açtığında görüntülenir, Azure AD oturum açma sayfaları özelleştirebilirsiniz [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), veya gibibiretkialanıdeğişkeninigeçirme[ *https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
@@ -34,7 +34,7 @@ Kullanıcılarınızın www.office.com gibi sitelere olduğunuzda özel marka he
 > Tüm marka öğeleri isteğe bağlıdır. Örneğin, hiçbir arka plan görüntüsü ile bir başlık logosu belirtirseniz oturum açma sayfası varsayılan arka plan görüntüsü (örneğin, Office 365) hedef siteden Logonuzla gösterir.<br><br>Ayrıca, oturum açma sayfasında bulunan marka kişisel Microsoft hesapları için aktarılmaz. Kullanıcılarınıza veya şirket konuklarınız kişisel bir Microsoft hesabı kullanarak oturum açın, oturum açma sayfasında, kuruluşunuzun markasını yansıtmaz.
 
 ### <a name="to-customize-your-branding"></a>Markanızın özelleştirmek için
-1. Oturum [Azure portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
+1. Dizin için bir Genel yönetici hesabı kullanarak [Azure portalda](https://portal.azure.com/) oturum açın.
 
 2. Seçin **Azure Active Directory**ve ardından **şirket markası ekleme**ve ardından **yapılandırma**.
 
@@ -92,7 +92,7 @@ Kullanıcılarınızın www.office.com gibi sitelere olduğunuzda özel marka he
 Özel marka oluşturduktan sonra geri dönün ve istediğiniz değişikliği.
 
 ### <a name="to-edit-your-custom-branding"></a>Özel bir marka bilgilerinizi düzenlemek için
-1. Oturum [Azure portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
+1. Dizin için bir Genel yönetici hesabı kullanarak [Azure portalda](https://portal.azure.com/) oturum açın.
 
 2. Seçin **Azure Active Directory**ve ardından **şirket markası ekleme**ve ardından **yapılandırma**.
 
@@ -109,7 +109,7 @@ Varsayılan dilinizi özgün yapılandırmasının dili değiştiremezsiniz. Anc
 
 ### <a name="to-add-a-language-specific-branding-configuration"></a>Dile özgü marka yapılandırması eklemek için
 
-1. Oturum [Azure portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
+1. Dizin için bir Genel yönetici hesabı kullanarak [Azure portalda](https://portal.azure.com/) oturum açın.
 
 2. Seçin **Azure Active Directory**ve ardından **şirket markası ekleme**ve ardından **yeni dil**.
 

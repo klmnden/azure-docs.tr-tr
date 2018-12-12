@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d9a28ea43e732c53afb75e96f20cb13b9bbb27a6
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9ddad471236877977fec620565d8f110e265ff72
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632625"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867907"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Rol tabanlı erişim denetimi (RBAC) nedir?
 
@@ -57,7 +57,7 @@ A *güvenlik sorumlusu* bir kullanıcı, Grup, hizmet sorumlusu veya Azure kayna
 - Kullanıcı: Azure Active Directory'de bir profile sahip olan kişidir. Diğer kiracılardaki kullanıcılara da rol atayabilirsiniz. Diğer kuruluşlardaki kullanıcılar hakkında bilgi almak için bkz. [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
 - Grup: Azure Active Directory'de oluşturulan kullanıcı kümesidir. Bir gruba rol atadığınızda ilgili gruptaki tüm kullanıcılar o role sahip olur. 
 - Hizmet sorumlusu: Uygulamalar veya hizmetler tarafından belirli Azure kaynaklarına erişmek için kullanılan güvenlik kimliğidir. Bunu bir uygulamanın *kullanıcı kimliği* (kullanıcı adı ve parola veya sertifika) olarak düşünebilirsiniz.
-- Yönetilen kimlik - bir kimliği Azure Active Directory'de, otomatik olarak Azure tarafından yönetilir. Tipik olarak kullandığınız [yönetilen kimlikleri](../active-directory/managed-identities-azure-resources/overview.md) Azure Hizmetleri için kimlik doğrulaması için kimlik bilgilerini yönetmek için bulut uygulamaları geliştirirken.
+- Yönetilen kimlik - Azure Active Directory'de otomatik olarak Azure tarafından yönetilen bir kimlik. Tipik olarak kullandığınız [yönetilen kimlikleri](../active-directory/managed-identities-azure-resources/overview.md) Azure Hizmetleri için kimlik doğrulaması için kimlik bilgilerini yönetmek için bulut uygulamaları geliştirirken.
 
 ### <a name="role-definition"></a>Rol tanımı
 

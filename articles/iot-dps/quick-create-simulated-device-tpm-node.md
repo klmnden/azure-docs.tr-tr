@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8b2d49d9df2cc8db98004ad9c186511d8d5e2b87
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: f6ae69c04d83e1ce1540267fb7932b80cca1013c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156655"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087226"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti için Node.js cihaz SDK'sını kullanarak sanal bir TPM cihazı oluşturma ve sağlama
 
@@ -44,7 +44,7 @@ Bu makalede bireysel kayıtlar gösterilmektedir.
 1. Bir komut istemi veya Git Bash’i açın. `azure-utpm-c` GitHub deposunu kopyalayın:
     
     ```cmd/sh
-    git clone https://github.com/Azure/azure-utpm-c.git
+    git clone https://github.com/Azure/azure-utpm-c.git --recursive
     ```
 
 1. GitHub kök klasörüne gidin ve [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simülatörünü çalıştırın. 2321 ve 2322 bağlantı noktalarında bulunan bir yuva üzerinden dinler. Bu komut penceresini kapatmayın; Hızlı Başlangıç kılavuzu sonuna kadar simülatörü çalışır durumda tutmanız gerekir: 

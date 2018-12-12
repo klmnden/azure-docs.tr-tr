@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 2cda1d0f216678f1dd8c074136ae35683c52d910
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 51482aa460826d4b364ba6b034129be9b7211ff3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52719683"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872451"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Azure Application Insights verilerle özel raporları otomatikleştirme
 
@@ -159,7 +159,7 @@ Bu adımlar, yalnızca yapılandırılmış SendGrid hesabı yoksa, geçerlidir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Oluşturma hakkında daha fazla bilgi edinin [analiz sorguları](../log-analytics/query-language/get-started-queries.md).
+* Oluşturma hakkında daha fazla bilgi edinin [analiz sorguları](../azure-monitor/log-query/get-started-queries.md).
 * Daha fazla bilgi edinin [programlı olarak Application Insights verilerini sorgulama](https://dev.applicationinsights.io/)
 * [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps) hakkında daha fazla bilgi edinin.
 * Daha fazla bilgi edinin [Microsoft Flow](https://ms.flow.microsoft.com).

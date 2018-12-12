@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge için Hızlı Başlangıç + Windows | Microsoft Docs
-description: Bir sanal edge cihazında analiz çalıştırarak Azure IoT Edge’i deneme
+title: Hızlı Başlangıç, Windows üzerinde Azure IOT Edge cihazı oluşturma | Microsoft Docs
+description: Bu hızlı başlangıçta bir IOT Edge cihazı oluşturma ve ardından önceden oluşturulmuş kod Azure Portalı'ndan uzaktan dağıtma öğrenin.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,13 +8,13 @@ ms.date: 10/02/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 78cb00c568942e6b8c0f5da035381c82f5789a08
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: mvc, seodec18
+ms.openlocfilehash: cd9123fcd3f8f37397bfefc1e3ee9200a93a72af
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977021"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082466"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Hızlı Başlangıç: İlk IoT Edge modülünüzü Azure portalından bir Windows cihaza dağıtma - önizleme
 
@@ -27,7 +27,7 @@ Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
 3. IoT Edge çalışma zamanını cihazınıza yükleme ve başlatma.
 4. IoT Edge cihazına uzaktan modül dağıtma ve IoT Hub'a telemetri verileri gönderme.
 
-![Hızlı başlangıç mimarisi](./media/quickstart/install-edge-full.png)
+![Diyagram - cihaz ve buluta yönelik hızlı başlangıç mimarisi](./media/quickstart/install-edge-full.png)
 
 Bu hızlı başlangıçta oluşturduğunuz modül; sıcaklık, nem ve basınç verileri üreten bir sensör simülasyonudur. Diğer Azure IoT Edge öğreticileri, burada iş içgörüsü için simülasyon verilerini analiz eden modüller dağıtarak yaptığınız çalışmayı temel alır.
 
@@ -72,7 +72,7 @@ IoT Edge cihazı:
 
 Hızlı başlangıç adımlarına başlamak için Azure CLI ile IoT hub'ınızı oluşturun.
 
-![IoT Hub oluşturun](./media/quickstart/create-iot-hub.png)
+![Diyagram - bulutta IOT hub'ı oluşturma](./media/quickstart/create-iot-hub.png)
 
 IoT Hub’ın ücretsiz düzeyi bu hızlı başlangıç için kullanılabilir. IoT Hub'ı daha önce kullandıysanız ve oluşturulmuş ücretsiz hub'ınız varsa bu IoT hub'ını kullanabilirsiniz. Her aboneliğin yalnızca bir ücretsiz IoT hub’ı olabilir.
 
@@ -87,7 +87,7 @@ Aşağıdaki kod, **IoTEdgeResources** kaynak grubunda ücretsiz bir **F1** hub�
 ## <a name="register-an-iot-edge-device"></a>IoT Edge cihazı kaydetme
 
 Yeni oluşturulan IoT Hub'ına bir IoT Edge cihazı kaydedin.
-![Cihaz kaydetme](./media/quickstart/register-device.png)
+![Diyagram: bir IOT hub'ı kimlik ile bir cihaz kaydı](./media/quickstart/register-device.png)
 
 IoT hub'ınızla iletişim kurabilmesi amacıyla simülasyon cihazınız için bir cihaz kimliği oluşturun. Cihaz kimliği bulutta kalır ve fiziksel cihazla cihaz kimliği arasında bağlantı kurmak için benzersiz bir bağlantı dizesi kullanılır.
 
@@ -112,7 +112,7 @@ IOT Edge cihazları sınıflardır ve tipik bir IOT cihazlarında farklı yönet
 ## <a name="install-and-start-the-iot-edge-runtime"></a>IoT Edge çalışma zamanını yükleme ve başlatma
 
 Azure IoT Edge çalışma zamanını IoT Edge cihazınıza yükleyin ve cihaz bağlantı dizesiyle yapılandırın.
-![Cihaz kaydetme](./media/quickstart/start-runtime.png)
+![Diyagram - cihazda çalışma zamanını başlatma](./media/quickstart/start-runtime.png)
 
 IoT Edge çalışma zamanı tüm IoT Edge cihazlarına dağıtılır. Üç bileşeni vardır. **IoT Edge güvenlik daemon'u** bir Edge cihazı her başladığında çalışır ve IoT Edge aracısını çalıştırarak cihazı önyükler. **IoT Edge aracısı**, IoT Edge hub'ı dahil olmak üzere IoT Edge cihazındaki modüllerin dağıtımını ve izlenmesini kolaylaştırır. **IoT Edge hub'ı** IoT Edge cihazındaki modüller ve cihaz ile IoT Hub'ı arasındaki iletişimi yönetir.
 
@@ -175,7 +175,7 @@ IoT Edge cihazınız yapılandırıldı. Bulutta dağıtılan modülleri çalı�
 ## <a name="deploy-a-module"></a>Modül dağıtma
 
 Azure IoT Edge cihazınızı, IoT Hub'ına telemetri verileri gönderecek bir modül dağıtmak için buluttan yönetin.
-![Cihaz kaydetme](./media/quickstart/deploy-module.png)
+![Diyagram - modülü buluttan cihaza dağıtın](./media/quickstart/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 

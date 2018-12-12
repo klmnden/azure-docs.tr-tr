@@ -1,10 +1,12 @@
 ---
-title: Azure'da bir Linux CentOS veri bilimi sanal makinesi sağlama | Microsoft Docs
+title: CentOS Linux veri bilimi sanal makinesi oluşturma
+titleSuffix: Azure
 description: Yapılandırın ve analiz ve makine öğrenimi için Azure'da bir Linux veri bilimi sanal makinesi oluşturun.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -14,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: ca3a0e9a8c63ddc9a5c2ca34faffc683d0324321
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 253934d450619ca67e429fbf396a5fed5b71a267
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262562"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081872"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Azure'da bir Linux CentOS veri bilimi sanal makinesi sağlama
 

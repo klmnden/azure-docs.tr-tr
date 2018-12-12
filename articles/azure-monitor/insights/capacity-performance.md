@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: aa940e238601f06a53247c0da4d1a92f16b6f56c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 6c5554c664c4f0f47b2f8341b8e7c428732b0af7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840614"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086235"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Kapasite ve performans çözümü (Önizleme) ile Hyper-V sanal makine kapasite planlama
 
@@ -51,8 +51,8 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 | Bağlı Kaynak | Destek | Açıklama |
 |---|---|---|
 | [Windows aracıları](../../azure-monitor/platform/agent-windows.md) | Evet | Çözüm, Windows aracılarından kapasite ve performans verileri bilgilerini toplar. |
-| [Linux aracıları](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Hayır    | Çözüm, doğrudan Linux aracılarından kapasite ve performans verileri bilgi toplamaz.|
-| [SCOM yönetim grubu](../../log-analytics/log-analytics-om-agents.md) | Evet |Çözüm, bağlı SCOM yönetim grubundaki aracılardan kapasite ve performans verilerini toplar. Log Analytics SCOM Aracısı'ndan doğrudan bir bağlantı gerekli değildir.|
+| [Linux aracıları](../../azure-monitor/learn/quick-collect-linux-computer.md) | Hayır    | Çözüm, doğrudan Linux aracılarından kapasite ve performans verileri bilgi toplamaz.|
+| [SCOM yönetim grubu](../../azure-monitor/platform/om-agents.md) | Evet |Çözüm, bağlı SCOM yönetim grubundaki aracılardan kapasite ve performans verilerini toplar. Log Analytics SCOM Aracısı'ndan doğrudan bir bağlantı gerekli değildir.|
 | [Azure depolama hesabı](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Hayır | Azure depolama kapasite ve performans verilerini dahil etmez.|
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -81,7 +81,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 Kapasite ve performans çözümü güncelleştirildiğinde, sürüm numarasını değiştirir.
 
-Çözüm yönetim paketlerini güncelleştirme hakkında daha fazla bilgi için bkz. [Operations Manager'ı Log Analytics’e Bağlama](../../log-analytics/log-analytics-om-agents.md).
+Çözüm yönetim paketlerini güncelleştirme hakkında daha fazla bilgi için bkz. [Operations Manager'ı Log Analytics’e Bağlama](../../azure-monitor/platform/om-agents.md).
 
 ## <a name="using-the-solution"></a>Çözümü kullanma
 

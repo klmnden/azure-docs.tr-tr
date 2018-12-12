@@ -1,5 +1,5 @@
 ---
-title: Abonelik bulunamadı hatası olduğunda Azure portalında veya Azure hesap merkezi oturum açmayı deneyin | Microsoft Docs
+title: Abonelik, Azure portalı oturum açma hatası - bulunamadı | Microsoft Docs
 description: Hayır abonelikleri bulunduğu hata oluşursa bir sorun için çözüm sağlar, Azure portalında veya Azure hesap merkezi oturum.
 services: ''
 documentationcenter: ''
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 584342b3dd223c45495db36ad49d83dece858137
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: cef34d4e22732c2d718daf7ce10c23b25ff4649d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581791"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081312"
 ---
-# <a name="no-subscriptions-found-error-in-azure-portal-or-azure-account-center"></a>Azure portalında veya Azure hesap merkezi portalında abonelik hata bulunamadı
+# <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Abonelik Azure portalında veya Azure hesap merkezi için hata oturum bulunamadı
 
 Oturum açmaya çalıştığınızda "abonelik bulunamadı" hata iletisini alabilirsiniz [Azure portalında](https://portal.azure.com/) veya [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions). Bu makalede, bu sorun için bir çözüm sağlar.
 

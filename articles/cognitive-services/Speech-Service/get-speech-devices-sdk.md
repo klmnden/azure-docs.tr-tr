@@ -1,21 +1,22 @@
 ---
 title: Konuşma Cihazları SDK’sını edinme
 titleSuffix: Azure Cognitive Services
-description: Konuşma cihaz SDK'sı erişin öğrenin.
+description: Konuşma hizmeti, çok çeşitli cihazları ve ses kaynakları ile çalışır. Şimdi, konuşma uygulamalarınızın eşleşen donanım ve yazılım ile bir sonraki düzeye alabilir. Bu makalede konuşma cihaz SDK'sı erişin ve geliştirmeye başlayın öğreneceksiniz.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 822c4bdc6bb47d51bcd264c9093e7d07308d2b11
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: bc9497ff8d48cd1c5fd045f12908234462a7a2f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468781"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095069"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Bilişsel hizmetler konuşma cihaz SDK'sı Al
 
@@ -29,14 +30,14 @@ Konuşma cihaz SDK'sı erişim elde etmek için:
 1. Okuma [lisans sözleşmesini](speech-devices-sdk-license.md).
 1. Lisans sözleşmesinin koşullarını kabul ediyorsanız **kabul ediyorum**.
 1. Formda soruları yanıtlayın.
-1. Form gönderilemiyor. 
+1. Form gönderilemiyor.
 1. E-posta adresiniz zaten Azure Active Directory (Azure AD) bir parçası değilse, erişim için onaylandıklarında, aşağıdaki örnekte olduğu gibi bir davet e-posta alırsınız. E-posta adresiniz zaten Azure AD'de ise, bir e-posta iletisi Microsoft konuşma takımdan erişim onayından ve, atlayabilirsiniz aldığınız [konuşma cihaz SDK'sını indirin](#download-the-speech-devices-sdk).
 
 ## <a name="approval-e-mail"></a>Onay e-postası
 
 ```
-From: Microsoft Speech Team from Microsoft (via Microsoft) <invites@microsoft.com> 
-Subject: You're invited to the Microsoft organization 
+From: Microsoft Speech Team from Microsoft (via Microsoft) <invites@microsoft.com>
+Subject: You're invited to the Microsoft organization
 ```
 
 ![e-posta iletisi](media/speech-devices-sdk/get-sdk-1.png)
@@ -53,21 +54,21 @@ Kayıt sırasında sağladığınız e-posta adresiyle Azure AD'ye katılmak iç
 
 3. Zaten yoksa, bir Microsoft hesabı oluşturun. Davet e-posta aldığınız aynı e-posta adresi girin.
 
-    ![Bir Microsoft hesabı oluşturun](media/speech-devices-sdk/get-sdk-3.png)
+    ![Microsoft hesabı oluşturun](media/speech-devices-sdk/get-sdk-3.png)
 
 4. Seçin **sonraki** bir parola oluşturmak için.
 
 5. E-postanızı doğrulamak için istendiğinde, aldığınız davet e-postadan doğrulama kodunu alın.
- 
+
 7. Yapıştırın veya e-posta iletisi güvenlik kodunu iletişim kutusuna yazın. Bu örnekte, güvenlik koddur **8406**. **İleri**’yi seçin.
 
-    ![e-posta doğrulama](media/speech-devices-sdk/get-sdk-6.png)
- 
+    ![E-postayı doğrula](media/speech-devices-sdk/get-sdk-6.png)
+
 8. Erişim paneli uygulama tarayıcıda gördüğünüzde, e-posta adresinizi Azure AD parçası olduğunu doğruladı. Artık konuşma cihaz SDK'sını indirme sitesine erişebilirsiniz.
 
 ## <a name="download-the-speech-devices-sdk"></a>Konuşma cihaz SDK'sını indirin
 
-Git [konuşma cihazları SDK indirme sitesi](https://shares.datatransfer.microsoft.com/). Daha önce oluşturduğunuz Microsoft hesabıyla oturum açın. 
+Git [konuşma cihazları SDK indirme sitesi](https://shares.datatransfer.microsoft.com/). Daha önce oluşturduğunuz Microsoft hesabıyla oturum açın.
 
 ![SDK indirme sitesi](media/speech-devices-sdk/get-sdk-7.png)
 
@@ -76,20 +77,20 @@ Konuşma indirmek için ilişkili cihaz SDK'sı, örnek kod ve başvuru kaynakla
 1. Tarayıcıda istendiğinde Aspera Connect aracını yükleyip yeniden açın.
 
     ![Aspera Connect indirin](media/speech-devices-sdk/get-sdk-8.png)
- 
+
 1. Seçin **Evet** Aspera bağlanmak için uygulamaları geçiş yapmak için.
 
     ![Aspera bağlanmak için geçiş](media/speech-devices-sdk/get-sdk-9.png)
- 
+
 1. Seçin **izin** Aspera Bağlan'ı kullanarak dosyaları indirme onaylamak için.
 
     ![Aspera Bağlan'ı kullanarak indirin](media/speech-devices-sdk/get-sdk-10.png)
- 
+
 1. Dosyaları İndirildikten sonra Aspera bağlanma aktarımları penceresini kapatın.
 
     ![Aspera aktarımları Bağlan penceresi](media/speech-devices-sdk/get-sdk-11.png)
- 
-Dosyalar varsayılan olarak, karşıdan yüklenir, **indirir** klasör. Bu site dışında artık oturum açabilir. 
+
+Dosyalar varsayılan olarak, karşıdan yüklenir, **indirir** klasör. Bu site dışında artık oturum açabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

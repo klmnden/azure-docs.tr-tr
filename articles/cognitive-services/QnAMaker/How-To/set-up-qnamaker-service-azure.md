@@ -10,12 +10,13 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: c4175a22cc503113f3b3ef64f03f0ae0913bd20e
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 6898b007287e4f4c87010649c6f0b66c03f7cf8d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364906"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086275"
 ---
 # <a name="create-a-qna-maker-service"></a>Soru-cevap Oluşturucu hizmeti oluşturma
 
@@ -27,7 +28,7 @@ Bu kurulum, birkaç Azure kaynaklarını dağıtır. Birlikte, bu kaynaklar, Bil
 
 2.  Tıklayarak **yeni kaynağı ekleyin**, arama "soru-cevap Oluşturucu" yazın ve soru-cevap Oluşturucu kaynağı seçin
 
-    ![Yeni bir soru-cevap Oluşturucu hizmeti oluşturma](../media/qnamaker-how-to-setup-service/create-new-resource.png)
+    ![Yeni bir soru-cevap Oluşturucu hizmeti oluşturma - yeni kaynak ekleme](../media/qnamaker-how-to-setup-service/create-new-resource.png)
 
 3.  Tıklayarak **Oluştur** hüküm ve koşulları okuma sonra.
 
@@ -35,7 +36,7 @@ Bu kurulum, birkaç Azure kaynaklarını dağıtır. Birlikte, bu kaynaklar, Bil
 
 4. İçinde **soru-cevap Oluşturucu**, uygun katmanları ve bölgeleri seçin.
 
-    ![Yeni bir soru-cevap Oluşturucu hizmeti oluşturma](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
+    ![Yeni bir soru-cevap Oluşturucu hizmeti - fiyatlandırma katmanı ve bölgeleri oluşturma](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
 
     * Dolgu **adı** Bu soru-cevap Oluşturucu hizmetini tanımlamak için benzersiz bir ada sahip. Bu ad Ayrıca, bilgi bankalarından ilişkili edileceği soru-cevap Oluşturucu uç nokta tanımlar.
     * Seçin **abonelik** soru-cevap Oluşturucu kaynağın dağıtılacağı.
@@ -44,7 +45,7 @@ Bu kurulum, birkaç Azure kaynaklarını dağıtır. Birlikte, bu kaynaklar, Bil
     * Seçin **arama fiyatlandırma katmanı** Azure Search hizmeti. Gri ücretsiz katmanı seçeneğini görürseniz, aboneliğinizde bir ücretsiz Azure arama katmanı zaten sahip olduğunuz anlamına gelir. Bu durumda Azure arama temel katman ile başlatmanız gerekir. Azure arama fiyatlandırma ayrıntılarına [burada](https://azure.microsoft.com/pricing/details/search/).
     * Seçin **arama konumu** dağıtılacak Azure Search veri istediğiniz. Müşteri verilerinin nerede depolanacağını gerekir, kısıtlamaları, Azure arama için seçtiğiniz konumu bilgilendirecektir.
     * App service içinde bir ad verin **uygulama adı**.
-    * Varsayılan olarak App service için standart (S1) katman varsayılan olarak. Plan oluşturulduktan sonra değiştirebilirsiniz. App service fiyatlandırması hakkında daha fazla ayrıntı görmek [burada](https://azure.microsoft.com/en-in/pricing/details/app-service/).
+    * Varsayılan olarak App service için standart (S1) katman varsayılan olarak. Plan oluşturulduktan sonra değiştirebilirsiniz. App service fiyatlandırması hakkında daha fazla ayrıntı görmek [burada](https://azure.microsoft.com/pricing/details/app-service/).
     * Seçin **Web sitesi konumu** App Service dağıtılacağı.
 
         > [!NOTE]
@@ -57,7 +58,7 @@ Bu kurulum, birkaç Azure kaynaklarını dağıtır. Birlikte, bu kaynaklar, Bil
 
 6.  Dağıtım tamamlandığında, aboneliğinizde oluşturduğunuz aşağıdaki kaynakları görürsünüz.
 
-    ![Yeni bir soru-cevap Oluşturucu hizmeti oluşturma](../media/qnamaker-how-to-setup-service/resources-created.png)
+    ![Yeni bir soru-cevap Oluşturucu hizmeti kaynağı oluşturuldu](../media/qnamaker-how-to-setup-service/resources-created.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory kullanarak Spark'tan veri kopyalama | Microsoft Docs
-description: Veri kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak Spark'tan desteklenen havuz veri depolarına kopyalama öğrenin.
+description: Desteklenen bir havuz veri depolarına Spark'tan bir Azure Data Factory işlem hattında kopyalama etkinliği'ni kullanarak veri kopyalama hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,52 +11,52 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a9b4de73c04d7c7c753f007c02c775366b882e81
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 39b5a7a99f56c33aee0b0db9211f4f45a058f418
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047318"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094348"
 ---
-# <a name="copy-data-from-spark-using-azure-data-factory"></a>Azure Data Factory kullanarak Spark'tan veri kopyalama 
+# <a name="copy-data-from-spark-using-azure-data-factory"></a>Azure Data Factory kullanarak spark'tan veri kopyalama 
 
-Bu makalede kopya etkinliği Azure Data Factory'de Spark'tan veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
+Bu makalede, kopyalama etkinliği Azure Data Factory'de Spark'tan veri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Tüm desteklenen havuz veri deposuna Spark'tan veri kopyalayabilirsiniz. Kaynakları/havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+Tüm desteklenen havuz veri deposuna Spark'tan veri kopyalayabilirsiniz. Kaynakları/havuz kopyalama etkinliği tarafından desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
-Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürücü sağlar, bu nedenle bu bağlayıcıyı kullanarak sürücüyü el ile yüklemeniz gerekmez.
+Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürücü sağlar, bu nedenle bu bağlayıcıyı kullanarak herhangi bir sürücü el ile yüklemeniz gerekmez.
 
 ## <a name="getting-started"></a>Başlarken
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Aşağıdaki bölümler, belirli Data Factory varlıklarını Spark bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
+Aşağıdaki bölümler belirli Data Factory varlıkları için Spark Bağlayıcısı tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
-## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
+## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
 
-Aşağıdaki özellikleri, bağlantılı Spark hizmeti için desteklenir:
+Bağlı bir Spark hizmeti için aşağıdaki özellikleri destekler:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Spark** | Evet |
 | konak | Spark sunucusunun IP adresi veya ana bilgisayar adı  | Evet |
-| port | İstemci bağlantılarını dinlemek için Spark sunucusunun kullandığı TCP bağlantı noktası. Azure Hdınsights bağlanıyorsanız, bağlantı noktası 443'tür belirtin. | Evet |
-| Sunucu türü | Spark sunucu türü. <br/>İzin verilen değerler: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Hayır |
-| thriftTransportProtocol | Thrift katmanda kullanılacak Aktarım Protokolü. <br/>İzin verilen değerler: **ikili**, **SASL**, **HTTP** | Hayır |
+| port | Spark sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. Azure Hdınsights bağlarsanız, bağlantı noktası 443 belirtin. | Evet |
+| Sunucu türü | Spark sunucusu türü. <br/>İzin verilen değerler: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Hayır |
+| thriftTransportProtocol | Thrift katmanda kullanılacak taşıma protokol. <br/>İzin verilen değerler: **ikili**, **SASL**, **HTTP** | Hayır |
 | authenticationType | Spark sunucuya erişmek için kullanılan kimlik doğrulama yöntemi. <br/>İzin verilen değerler: **anonim**, **kullanıcıadı**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Evet |
 | kullanıcı adı | Spark sunucusuna erişmek için kullandığınız kullanıcı adı.  | Hayır |
-| password | Kullanıcıya karşılık gelen parola. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Hayır |
-| httpPath | Spark sunucuya karşılık gelen kısmi URL'si.  | Hayır |
-| enableSsl | Sunucusuna bağlantılarda SSL kullanılarak şifrelenir olup olmadığını belirtir. Varsayılan değer false.  | Hayır |
-| trustedCertPath | Sunucu SSL üzerinden bağlanırken doğrulamak için güvenilen CA sertifikaları içeren .pem dosyasının tam yolu. Bu özellik yalnızca SSL üzerinde kendini barındıran IR kullanırken ayarlanabilir Varsayılan değer ile IR yüklü cacerts.pem dosyasıdır  | Hayır |
-| useSystemTrustStore | Bir CA sertifikası sistem güven deposundan veya belirtilen PEM dosyası kullanılıp kullanılmayacağını belirtir. Varsayılan değer false.  | Hayır |
-| allowHostNameCNMismatch | SSL üzerinden bağlanırken sunucusunun ana bilgisayar adı ile eşleşmesi için CA tarafından verilen SSL sertifika adı istenip istenmeyeceğini belirtir. Varsayılan değer false.  | Hayır |
-| allowSelfSignedServerCert | Otomatik olarak imzalanan sertifikalar sunucudan izin verilip verilmeyeceğini belirtir. Varsayılan değer false.  | Hayır |
-| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu genel olarak erişilebilir ise) Self-hosted tümleştirmesi çalışma zamanı veya Azure tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
+| password | Kullanıcıya karşılık gelen parola. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
+| httpPath | Spark sunucuya karşılık gelen kısmi URL.  | Hayır |
+| enableSsl | Sunucusuna bağlantılarda SSL kullanarak şifrelenip şifrelenmeyeceğini belirtir. Varsayılan değer false'tur.  | Hayır |
+| trustedCertPath | SSL üzerinden bağlanırken sunucu doğrulamak için güvenilen CA sertifikalarını içeren .pem dosyasının tam yolu. Bu özellik yalnızca şirket içinde barındırılan IR üzerinde SSL kullanılarak, ayarlanabilir Varsayılan değer IR ile yüklü cacerts.pem dosyasıdır  | Hayır |
+| useSystemTrustStore | Bir CA sertifikası sistem güven deposu veya belirtilen bir PEM dosyası kullanılıp kullanılmayacağını belirtir. Varsayılan değer false'tur.  | Hayır |
+| allowHostNameCNMismatch | SSL üzerinden bağlanırken sunucu ana bilgisayar adını eşleştirmek için bir CA tarafından verilen SSL sertifika adı gerekip gerekmediğini belirtir. Varsayılan değer false'tur.  | Hayır |
+| allowSelfSignedServerCert | Otomatik olarak imzalanan sertifikalar sunucudan izin verilip verilmeyeceğini belirtir. Varsayılan değer false'tur.  | Hayır |
+| connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz genel olarak erişilebilir değilse), şirket içinde barındırılan tümleştirme çalışma zamanı veya Azure Integration Runtime kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
 **Örnek:**
 
@@ -81,9 +81,14 @@ Aşağıdaki özellikleri, bağlantılı Spark hizmeti için desteklenir:
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
-Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Spark veri kümesi tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Spark veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Spark'tan veri kopyalamak için veri kümesi için tür özelliği ayarlamak **SparkObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Spark'tan veri kopyalamak için dataset öğesinin type özelliği ayarlamak **SparkObject**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **SparkObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -95,23 +100,24 @@ Spark'tan veri kopyalamak için veri kümesi için tür özelliği ayarlamak **S
         "linkedServiceName": {
             "referenceName": "<Spark linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
-Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde, Spark kaynak tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, Spark kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
-### <a name="sparksource-as-source"></a>Kaynak olarak SparkSource
+### <a name="spark-as-source"></a>Kaynak olarak spark
 
-Spark'tan veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **SparkSource**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **kaynak** bölümü:
+Spark'tan veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **SparkSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **SparkSource** | Evet |
-| sorgu | Verileri okumak için özel SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Evet |
+| type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **SparkSource** | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 
@@ -146,4 +152,4 @@ Spark'tan veri kopyalamak için kopyalama etkinliği için kaynak türünü ayar
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kaynakları ve havuzlarını Azure Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).
+Azure Data Factory kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).

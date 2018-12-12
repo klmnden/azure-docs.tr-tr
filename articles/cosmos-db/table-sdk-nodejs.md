@@ -1,10 +1,8 @@
 ---
-title: Node.js için Azure Cosmos DB tablo API'si | Microsoft Docs
+title: Node.js için Azure Cosmos DB tablo API'si
 description: Tüm yayın tarihleri, sona erme tarihlerini ve her bir sürümü arasında yapılan değişiklikler dahil olmak üzere Azure Cosmos DB tablo API'si hakkında bilgi edinin.
 services: cosmos-db
 author: yarong
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: nodejs
@@ -12,12 +10,12 @@ ms.topic: reference
 ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: ''
-ms.openlocfilehash: 4bdcb7c587ef05ced3c163136c52c81433a98cf4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 04e4337581337a467fc49927f0f353d42c7b801a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468713"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089676"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Node.js için Azure Cosmos DB tablo API'si: yayın notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -31,7 +29,7 @@ ms.locfileid: "49468713"
 |   |   |
 |---|---|
 |**SDK'sını indirme**|[NPM](https://www.npmjs.com/package/azure-storage)|
-|**API belgeleri**|[Node.js API başvuru belgeleri](http://azure.github.io/azure-storage-node/)|
+|**API belgeleri**|[Node.js API başvuru belgeleri](https://azure.github.io/azure-storage-node/)|
 |**SDK'sı için katkıda bulunan**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
 
 > [!IMPORTANT]

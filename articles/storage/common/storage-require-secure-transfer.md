@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 201bf1e5d3580902934f139b70ca5363e7cc5930
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 72e0937e91a7287d240bbdb25996865f934d432d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523024"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876511"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Azure Depolama'daki güvenli aktarım gerektir
 
 "Güvenli aktarım gereklidir" seçeneği, yalnızca istekleri hesabınıza güvenli bağlantılar elde vererek depolama hesabınızın güvenliğini artırır. Örneğin, depolama hesabınıza erişmek için REST API çağırdığınızda, HTTPS kullanarak bağlanmanız gerekir. "Güvenli aktarım gereklidir", HTTP kullanan istekleri reddeder.
 
-Azure dosyaları hizmeti kullandığınızda, "güvenli aktarım gereklidir" etkinleştirildiğinde şifreleme olmadan herhangi bir bağlantı başarısız olur. Bu, SMB 2.1, şifrelemesiz SMB 3.0 ve Linux SMB istemcisinin bazı sürümleri kullanan senaryolar içerir. 
+Azure dosyaları hizmeti kullandığınızda, "güvenli aktarım gereklidir" etkinleştirildiğinde şifreleme olmadan herhangi bir bağlantı başarısız olur. Bu, SMB 2.1, şifrelemesiz SMB 3.0 ve Linux SMB istemcisinin bazı sürümleri kullanan senaryolar içerir. 
 
-Varsayılan olarak, "güvenli aktarım gereklidir" seçeneği devre dışıdır.
+SDK'sı ile bir depolama hesabı oluşturduğunuzda varsayılan olarak "güvenli aktarım gereklidir" seçeneği devre dışıdır. Ve Azure Portalı'nda bir depolama hesabı oluşturduğunuzda varsayılan olarak etkindir.
 
 > [!NOTE]
 > Azure depolama özel etki alanı adları için HTTPS'yi desteklemediğinden özel etki alanı kullanırken bu seçenek uygulanmaz. Ve klasik depolama hesapları desteklenmez.

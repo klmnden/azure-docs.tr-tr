@@ -1,21 +1,22 @@
 ---
-title: Bir özel Uyandırma sözcük oluşturma
+title: Bir özel Uyandırma word - konuşma hizmetleri oluşturma
 titleSuffix: Azure Cognitive Services
-description: Bir özel Uyandırma sözcük için konuşma cihaz SDK'sı oluşturmayı öğrenin.
+description: Cihazınız, her zaman bir Uyanma sözcük (veya tümceciği) dinliyor. Uyandırma word kullanıcı diyor, kullanıcının dikte durdurur kadar cihaz buluta tüm sonraki ses gönderir. Uyandırma Word'ün özelleştirme, Cihazınızı ayırt ve marka bilgilerinizi güçlendirmek için etkili bir yoludur.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 5f138aee9dfa91e285591e5d50c14465ad32b77d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: a9a316eccc0b5e237d5a48c833f53ea3d80aae1e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469087"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082943"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Konuşma hizmeti kullanarak bir özel Uyandırma sözcük oluşturma
 
@@ -50,18 +51,18 @@ Cihazınızda bir özel Uyandırma sözcük kullanabilmeniz için önce Microsof
 
 1. Git [özel konuşma hizmeti portalı](https://cris.ai/).
 
-1. Azure Active Directory Davetiyesi aldığınız e-posta adresi ile yeni bir hesap oluşturun. 
+1. Azure Active Directory Davetiyesi aldığınız e-posta adresi ile yeni bir hesap oluşturun.
 
     ![Yeni hesap oluşturun](media/speech-devices-sdk/wake-word-1.png)
- 
+
 1. **Özel Uyandırma Word** kullanılamaz, ortak var. alan doğrudan bağlantı olduğundan. Özel konuşma tanıma özelliği bir Azure aboneliği gerektirir, ancak özel Uyandırma Word özelliği değil. Aldığınız varsa **Hayır abonelik bulunamadı.** hata sayfası, yalnızca Değiştir **"abonelikleri? errorMessage = yok % 20Subscriptions % 20found"** ile "**customkws**" URL'si ve isabet girin. URL, bunlardan biri olmalıdır: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws veya https://northeurope.cris.ai/customkwsbölgenizde nerede bağlı olarak.
 
     ![Özel sözcük Uyandırma sayfa](media/speech-devices-sdk/wake-word-4.png)
- 
+
 1. Tercih ettiğiniz Uyandırma sözcüğü yazın ve ardından **sözcüğü gönderme**.
 
     ![Uyandırma sözcük girin](media/speech-devices-sdk/wake-word-5.png)
- 
+
 1. Bu dosyaların oluşturulması birkaç dakika sürebilir. Tarayıcı pencerenizde dönen bir daire görmeniz gerekir. Kısa bir süre sonra bir bilgi çubuğu, .zip dosyasını indirmek isteyen görüntülenir.
 
     ![.Zip dosyasını alma](media/speech-devices-sdk/wake-word-6.png)
@@ -76,4 +77,3 @@ Başlamak için alma bir [ücretsiz Azure hesabı](https://azure.microsoft.com/f
 
 > [!div class="nextstepaction"]
 > [Konuşma cihaz SDK'sı için kaydolun](get-speech-devices-sdk.md)
-

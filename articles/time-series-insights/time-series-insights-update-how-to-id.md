@@ -1,6 +1,6 @@
 ---
-title: En iyi uygulamalar bir zaman serisi kimliği Azure zaman serisi Öngörülerinde seçerken | Microsoft Docs
-description: Zaman serisi kimliği Azure zaman serisi Öngörülerinde seçerken en iyi yöntemleri anlama
+title: Azure zaman serisi öngörüleri önizlemesinde bir zaman serisi kimliği seçmek için en iyi yöntemler | Microsoft Docs
+description: Azure zaman serisi öngörüleri önizlemesinde bir zaman serisi kimliği seçtiğinizde en iyi yöntemleri anlama
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -9,53 +9,51 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 86a23e96a0f9b92b4b0551e41c44cf3249b0f7e3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: MT
+ms.openlocfilehash: 5103788afb9bd19978fcdea51f87953e4d7110ac
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873402"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095253"
 ---
-# <a name="best-practices-when-choosing-a-time-series-id"></a>Zaman serisi kimliği seçerken en iyi uygulamalar
+# <a name="best-practices-for-choosing-a-time-series-id"></a>Zaman serisi kimliği seçmeye yönelik en iyi uygulamalar
 
-Bu belgede Azure Time Series Insights (Önizleme) bölüm anahtarı kapsar **zaman serisi kimliği**ve en iyi yöntemleri seçin.
+Bu makale, Azure zaman serisi öngörüleri önizlemesi bölüm anahtarı, zaman serisi kimliği ve bir seçmeye yönelik en iyi uygulamaları kapsar.
 
 ## <a name="choose-a-time-series-id"></a>Zaman Serisi Kimliği
 
-Seçimi **zaman serisi kimliği** bir veritabanı için bir bölüm anahtarı seçilmesinin gibi. Bu nedenle, tasarım zamanında yapılan önemli bir karardır. Farklı bir kullanmak için mevcut TSI (Önizleme) ortamında güncelleştirilemiyor **zaman serisi kimliği**. Diğer bir deyişle, bir ortam ile oluşturulduktan sonra bir **zaman serisi kimliği**, ilke, sabit bir özellik olduğundan değiştirilemez.
+Zaman serisi kimliği seçerek bir veritabanı için bir bölüm anahtarı seçme gibi olur. Tasarım zamanında yapılması gereken önemli bir karardır. Farklı bir zaman serisi kimliği kullanmak için bir zaman serisi öngörüleri Önizleme ortamı güncelleştirilemiyor Zaman serisi Kimliğine sahip bir ortam oluşturulduğunda, diğer bir deyişle, ilke değiştirilemeyen bir değişmez özelliğidir.
 
 > [!IMPORTANT]
-> **Zaman serisi kimliği** büyük/küçük harfe ve sabit (kez ayarlandıktan sonra değiştirilemez).
+> Zaman serisi kimliği büyük/küçük harfe ve sabit (ayarlandıktan sonra değiştirilemez).
 
-Aklınızda uygun seçerek **zaman serisi kimliği** kritik öneme sahiptir. Aşağıdaki özellikler seçerken göz önünde bulundurun bir **zaman serisi kimliği**:
+Uygun zaman serisi kimliği seçerek, aklınızda kritik öneme sahiptir. Zaman serisi kimliği seçtiğinizde, bu en iyi uygulamaları göz önünde bulundurun:
+* Çok çeşitli değerleri ve hatta erişim desenleri sahip bir özellik adı seçin. Bir bölüm anahtarı (örneğin, yüzlerce veya binlerce) birçok farklı değerlere sahip en iyi bir uygulamadır. Birçok müşteri için bu sorun, json'da SensorID veya DeviceID gibi olacaktır.
+* Zaman serisi kimliği yaprak düğümü düzeyinde benzersiz olmalıdır, [zaman serisi modeli](./time-series-insights-update-tsm.md).
+* Zaman serisi kimlik özelliği adı karakter dizesi en fazla 128 karakter olabilir ve zaman serisi kimliği özelliği değerleri en fazla 1024 karakter olabilir.
+* Bazı benzersiz zaman serisi kimliği özellik değerlerini eksikse, benzersizlik kısıtlaması katılmak null değerler olarak kabul edilir.
 
-> [!div class="checklist"]
-> * Çok çeşitli değerleri ve hatta erişim desenleri sahip bir özellik adı seçin. Bir bölüm anahtarı (örneğin, yüzlerce veya binlerce) birçok farklı değerlere sahip en iyi bir uygulamadır. Birçok müşteri için bu gibi bir şey olacaktır **DeviceID**, **SensorID**, JSON vb.
-> * Yaprak düğümü düzeyinde benzersiz olmalıdır, [zaman serisi modeli](./time-series-insights-update-tsm.md).
-> * A **zaman serisi kimliği** özellik adı karakter dizesi, en çok 128 karakter olabilir ve **zaman serisi kimliği** özellik değerleri, en fazla 1024 karakter olabilir.
-> * Bazı benzersiz **zaman serisi kimliği** özellik değerleri eksik, benzersizlik kısıtlaması katılmak null değerler olarak kabul edilir.
-
-Ayrıca, en fazla seçebileceğiniz **üç** (3) anahtar özellik olarak, **zaman serisi kimliği**.
+Ayrıca, en fazla seçebileceğiniz *üç* zaman serisi kimliğinizi olarak (3) anahtar özellikleri
 
   > [!NOTE]
-  > **Üç** (3) anahtar özellikleri, dize olması gerekir.
+  > *Üç* (3) anahtar özellikleri, dize olması gerekir.
 
-Birden fazla anahtar özellik olarak seçerek, aşağıdaki senaryoları açıklar, **zaman serisi kimliği**:  
+Aşağıdaki senaryolarda, birden fazla anahtar özellik, zaman serisi Kimliğiniz seçerek açıklanmaktadır:  
 
-* Senaryo 1:
+### <a name="scenario-1"></a>Senaryo 1
 
-  * Her benzersiz anahtarlara sahip varlıklar eski filolarına var. 
-  * Örneğin, bir fleet özelliği tarafından benzersiz şekilde tanımlanır **DeviceID** ve başka bir benzersiz özelliği olduğu **objectID**.  Her iki filolarına diğer filonun benzersiz özelliği mevcut değil. Bu örnekte, iki anahtar seçersiniz **DeviceID**, ve **objectID** benzersiz anahtarlar olarak. 
-  * Biz null değerleri kabul edin ve olay yükü bir özelliğin bulunması eksikliği olarak sayılır bir `null` değeri.  Bu ayrıca veri gönderimi burada her olay kaynağındaki verileriyle farklı bir, iki farklı olay kaynakları için uygun şekilde olacaktır benzersiz **zaman serisi kimliği**.
+* Varlıklar, her bir benzersiz anahtarla eski filolarına var. 
+* Örneğin, bir fleet özelliği tarafından benzersiz şekilde tanımlanır *DeviceID* ve başka bir benzersiz özelliği olduğu *objectID*. Hiçbiri fleet diğer filonun benzersiz özellik içerir. Bu örnekte, iki anahtar, cihaz kimliği ve objectID, benzersiz anahtarlar olarak seçersiniz. 
+* Biz null değerleri kabul edin ve olay yükü bir özelliğin bulunması eksikliği sayar olarak bir `null` değeri. Ayrıca her bir olay kaynağı verilerdeki benzersiz bir zaman serisi kimliği sahip olduğu iki farklı olay kaynakları için gönderme verileri işlemek için en uygun yolu budur
 
-* Senaryo 2:
+### <a name="scenario-2"></a>Senaryo 2
 
-  * Benzersizlik varlıklar aynı filosundan göstermek için birden çok özellik gerektirir. Örneğin, bir akıllı yapı üreticisi olan ve her bir odada sensörlerden dağıtma varsayalım. Her bir odada genellikle aynı olduğundan **sensorId**de dahil olmak üzere **sensor1**, **sensor2**, **sensor3**ve benzeri.
-  * Ayrıca, katı ve odası numaraları özelliğinde, siteler arasında çakışan sahip **flrRm** gibi değerler içeren `1a`, `2b`, `3a`ve benzeri.
-  * Son olarak, bir özelliğe sahip **konumu** gibi değerler içeren `Redmond`, `Barcelona`, `Tokyo`ve benzeri. Benzersizlik oluşturmak için bu özellikleri olarak üç belirlemeniz, **zaman serisi kimliği** anahtarları – **sensorId**, **flrRm**, ve **konumu**.
+* Birden çok özellik varlıklar aynı filosundan içinde benzersiz olması gerekir. 
+* Örneğin, bir akıllı yapı üretici olduğunuz ve her bir odada sensörlerden dağıtma varsayalım. Her bir odada genellikle aynı olduğundan *sensorId*, gibi *sensor1*, *sensor2*, ve *sensor3*.
+* Ayrıca, yapı kat ve odası numaraları özelliğinde, siteler arasında çakışan sahip *flrRm*, sahip olduğu değerleri gibi *1a*, *2b*, *3a* ve benzeri.
+* Son olarak, bir özelliğe sahip *konumu*, gibi değerler içeren *Redmond*, *Barselona*, ve *Tokyo*. Benzersizlik oluşturmak için şu üç özellik, zaman serisi kimliği anahtarlar olarak belirlemeniz: *sensorId*, *flrRm*, ve *konumu*.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla bilgi edinin [veri modelleme](./time-series-insights-update-tsm.md).
-
-Plan, [Azure Time Series Insights (Önizleme) ortamı](./time-series-insights-update-plan.md).
+* Daha fazla bilgi edinin [veri modelleme](./time-series-insights-update-tsm.md).
+* Plan, [Azure Time Series Insights (Önizleme) ortamı](./time-series-insights-update-plan.md).

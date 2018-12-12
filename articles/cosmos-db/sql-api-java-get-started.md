@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 1c50b1bc362a66b17097575336bcb2c9bd4856ca
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0bab289fedbbceb2d5cb763bd0f55e455bb60a29
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866092"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093038"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL öğreticisi: SQL API Java konsol uygulaması derleme
 
@@ -56,7 +56,7 @@ Aşağıdakilere sahip olduğunuzdan emin olun:
 
 * [Git](https://git-scm.com/downloads).
 * [Java Geliştirme Seti (JDK) 7 +](https://aka.ms/azure-jdks).
-* [Maven](http://maven.apache.org/download.cgi).
+* [Maven](https://maven.apache.org/download.cgi).
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>1. Adım: Azure Cosmos DB hesabı oluşturma
 Bir Azure Cosmos DB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten varsa [GitHub projesini kopyalama](#GitClone) adımına atlayabilirsiniz. Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız öykünücünün kurulumunu gerçekleştirmek için [Azure Cosmos DB Öykünücüsü](local-emulator.md) konusundaki adımları izleyin ve [GitHub projesini kopyalama](#GitClone) adımına atlayın.

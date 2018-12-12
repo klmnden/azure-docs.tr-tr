@@ -10,23 +10,24 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 6ce3fc774d23914ab150e1dc1371391fc9fc548b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.custom: seodec18
+ms.openlocfilehash: 5b0dfe1753686015c88bdc1214273354dd00c958
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034394"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086326"
 ---
-# <a name="test-your-knowledge-base"></a>Bilgi bankanızı test
+# <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Bilgi bankanızı etkileşimli soru-cevap Oluşturucu test edin
 
 Soru-cevap Oluşturucu bankanızı test etme, verilen yanıtları doğruluğunu artırmak için bir süreçtir önemli bir parçasıdır. Bilgi Bankası düzenlemeler yapmak da sağlayan gelişmiş sohbet arabiriminden test edebilirsiniz.
 
 ## <a name="test-answer-matching"></a>Test yanıt eşleştirme
 
-1.  Adını seçerek bilgi bankanızı erişim **My bilgi bankalarından** sayfası.
-2.  Test slayt genişletme paneline erişmek için seçin **Test** uygulamanızın üst panelinde.
+1.  Adını seçerek bilgi bankanızı erişim **My bilgi bankalarından** sayfası.
+2.  Test slayt genişletme paneline erişmek için seçin **Test** uygulamanızın üst panelinde.
 
-    ![Erişim sınaması](../media/qnamaker-how-to-test-kb/access-test.png)
+    ![Erişim Test paneli](../media/qnamaker-how-to-test-kb/access-test.png)
 
 3.  Metin kutusuna bir sorgu girin ve Enter tuşuna basın.
 
@@ -34,17 +35,17 @@ Soru-cevap Oluşturucu bankanızı test etme, verilen yanıtları doğruluğunu 
 
 ## <a name="clear-test-panel"></a>Açık test paneli
 
-Tüm girilen test sorgular ve sonuçları test konsolundan temizlemek için seçin **baştan** Test panelinin sol üst köşesinde.
+Tüm girilen test sorgular ve sonuçları test konsolundan temizlemek için seçin **baştan** Test panelinin sol üst köşesinde.
 
 ## <a name="close-test-panel"></a>Kapat test paneli
 
-Test paneli kapatmak için seçin **Test** düğmesini tekrar. Bilgi Bankası içerikleri, Test panel açıkken düzenleyemezsiniz.
+Test paneli kapatmak için seçin **Test** düğmesini tekrar. Bilgi Bankası içerikleri, Test panel açıkken düzenleyemezsiniz.
 
 ## <a name="inspect-score"></a>Puan inceleyin
 
 İnceleyin panelinde test sonucunun ayrıntılarını inceleyin.
 
-1.  Test slayt çıkış panelini Aç seçin **inceleyin** bu yanıtı hakkında daha fazla bilgi.
+1.  Test slayt çıkış panelini Aç seçin **inceleyin** bu yanıtı hakkında daha fazla bilgi.
 
     ![Yanıtları](../media/qnamaker-how-to-test-kb/inspect.png)
 
@@ -54,13 +55,13 @@ Test paneli kapatmak için seçin **Test** düğmesini tekrar. Bilgi Bankası i�
 
 Yanıt Puanlama üst yanlışsa, doğru yanıtı listesi ve select seçin **kaydedin ve eğitme**.
 
-![Erişim sınaması](../media/qnamaker-how-to-test-kb/choose-answer.png)
+![Yanıt Puanlama üst düzeltin](../media/qnamaker-how-to-test-kb/choose-answer.png)
 
 ## <a name="add-alternate-questions"></a>Diğer sorular ekleyin
 
 Belirli bir yanıt soru diğer formlara ekleyebilirsiniz. Diğer tıklayın ve metin kutusu içinde yanıt türü bunları eklemek için enter. Seçin **kaydedin ve eğitme** güncelleştirmeleri depolamak için.
 
-![Erişim sınaması](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
+![Diğer sorular ekleyin](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
 
 ## <a name="add-a-new-answer"></a>Yeni bir yanıt Ekle
 
@@ -68,7 +69,7 @@ Yanıt Bilgi Bankası (KB iyi eşleşme bulundu) mevcut değil veya eşleştiril
 
 Seçin **kaydedin ve eğitme** bu yanıt kalıcı hale getirmek için. Yeni bir soru-cevap çifti şimdi Bilgi Bankası'na eklendi.
 
-![Erişim sınaması](../media/qnamaker-how-to-test-kb/add-answer.png)
+![Yeni bir soru ve yanıt çifti Ekle](../media/qnamaker-how-to-test-kb/add-answer.png)
 
 > [!NOTE]
 > Tuşuna bastığınızda tüm düzenlemeleri bilgi bankanızı yalnızca kaydedileceği **kaydedin ve eğitme** düğmesi.

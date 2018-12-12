@@ -15,15 +15,15 @@ ms.date: 11/13/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 64f9ea9f2e4da9c059cf080bc651e9e3f1ca93ea
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: 011cfc181438d1a816afd9046f58f4d5c25b4504
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975980"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090169"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Log Analytics aracısını hibrit ortamlardaki Windows bilgisayarlar için yapılandırma
-[Azure Log Analytics](../../azure-monitor/platform/agent-windows.md), doğrudan veri merkezinizdeki veya diğer bulut ortamlarındaki fiziksel veya sanal Windows bilgisayarlarınızda bulunan verileri ayrıntılı analiz ve bağıntı için tek bir depoda toplayabilir.  Bu hızlı başlangıçta birkaç kolay adımda Windows bilgisayarınızı nasıl yapılandırabileceğiniz ve veri toplayabileceğiniz gösterilmektedir.  Azure Windows VM’leri için [Azure Sanal Makineler hakkında veri toplama](../../log-analytics/log-analytics-quick-collect-azurevm.md) konusuna bakın.  
+[Azure Log Analytics](../../azure-monitor/platform/agent-windows.md), doğrudan veri merkezinizdeki veya diğer bulut ortamlarındaki fiziksel veya sanal Windows bilgisayarlarınızda bulunan verileri ayrıntılı analiz ve bağıntı için tek bir depoda toplayabilir.  Bu hızlı başlangıçta birkaç kolay adımda Windows bilgisayarınızı nasıl yapılandırabileceğiniz ve veri toplayabileceğiniz gösterilmektedir.  Azure Windows VM’leri için [Azure Sanal Makineler hakkında veri toplama](../../azure-monitor/learn/quick-collect-azurevm.md) konusuna bakın.  
 
 Desteklenen yapılandırmayı anlamak için [desteklenen Windows işletim sistemlerini](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) ve [ağ güvenlik duvarı yapılandırmasını](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements) inceleyin.
  

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7dc60c18e105c9be190b5bfede786f61a65feec3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7602524675edbf0e3ca96c74a2aba2eac48c417b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416945"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084082"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Etkinlik performansı ve ayarlama Kılavuzu kopyalayın
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -195,6 +195,9 @@ Yapılandırma **enableStaging** verileri Blob Depolama alanında çoğaltılmad
 | **linkedServiceName** |Adını bir [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) bağlı hizmeti, geçici bir hazırlama deposu kullanan depolama örneğine başvurur. <br/><br/> PolyBase aracılığıyla SQL veri ambarı'na veri yüklemek için depolama ile paylaşılan erişim imzası kullanamazsınız. Diğer tüm senaryolarda kullanabilirsiniz. |Yok |Evet, **enableStaging** TRUE olarak ayarlayın |
 | **Yolu** |Hazırlanmış verinin içermesini istediğiniz Blob Depolama yolu belirtin. Hizmet, bir yol belirtmezseniz, geçici verileri depolamak için bir kapsayıcı oluşturur. <br/><br/> Yalnızca depolama ile paylaşılan erişim imzası kullanın veya geçici veri belirli bir konumda olmasını gerektiren bir yol belirtin. |Yok |Hayır |
 | **enableCompression** |Hedefe kopyalamadan önce verilerin sıkıştırılmasının gerekli olup olmadığını belirtir. Bu ayar, aktarılan veri hacmini azaltır. |False |Hayır |
+
+>[!NOTE]
+> Hizmet, bağlantılı blob hazırlama için sıkıştırma etkin, hizmet sorumlusu veya MSI kimlik doğrulaması hazırlanmış kopya kullanıyorsanız desteklenmiyor.
 
 Kopyalama etkinliği önceki tabloda açıklanan özellikler ile bir örnek tanımı aşağıda verilmiştir:
 

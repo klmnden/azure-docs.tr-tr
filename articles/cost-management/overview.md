@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: 4979304cd13aa6f61c22d68d8df5ee4cf545a3c0
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 5c99d638845cf0cd00ddbacf1ed0dcf3da889dd6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995381"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082552"
 ---
-# <a name="what-is-cloudyn"></a>Cloudyn nedir?
+# <a name="what-is-the-cloudyn-service"></a>Cloudyn hizmeti nedir?
 
 Microsoft’un bir bağlı şirketi olan Cloudyn, Azure kaynaklarınızın yanı sıra AWS ve Google dahil diğer bulut sağlayıcıları için bulut kullanımınızı ve harcamalarınızı izlemenize imkan tanır. Anlaşılması kolay pano raporları, maliyet ayırma ve ücret hesaplama/yansıtma konusunda yardımcı olur. Cloudyn, yönetip ayarlamak isteyeceğiniz az kullanılan kaynakları belirleyerek bulut harcamalarınızı en iyi duruma getirmenize yardımcı olur.
 

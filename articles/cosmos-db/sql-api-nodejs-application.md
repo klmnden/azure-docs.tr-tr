@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: 04f634406eacd05e772d2b672cdfb2af6fb42054
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f2e18f07748801e50db644588146e7867ba84095
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874490"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081515"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Öğretici: Azure Cosmos DB SQL API verilerini yönetmek için JavaScript SDK’sını kullanarak bir Node.js web uygulaması derleme
 
@@ -49,7 +49,7 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdaki kaynaklara sahip olduğu
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Node.js][Node.js] sürüm 6.10 veya üzeri.
-* [Express oluşturucu](http://www.expressjs.com/starter/generator.html) (Express'i `npm install express-generator -g` aracılığıyla yükleyebilirsiniz)
+* [Express oluşturucu](https://www.expressjs.com/starter/generator.html) (Express'i `npm install express-generator -g` aracılığıyla yükleyebilirsiniz)
 * [Git][Git]'i yerel iş istasyonunuza yükleyin.
 
 ## <a name="_Toc395637761"></a>1. Adım: Azure Cosmos DB hesabı oluşturma
@@ -60,7 +60,7 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdaki kaynaklara sahip olduğu
 [!INCLUDE [cosmos-db-keys](../../includes/cosmos-db-keys.md)]
 
 ## <a name="_Toc395783178"></a>2. Adım: Yeni bir Node.js uygulaması oluşturma
-Şimdi [Express](http://expressjs.com/) altyapısını kullanarak temel bir Hello World Node.js projesi oluşturmayı öğrenelim.
+Şimdi [Express](https://expressjs.com/) altyapısını kullanarak temel bir Hello World Node.js projesi oluşturmayı öğrenelim.
 
 1. Node.js komut istemi gibi istediğiniz bir terminal uygulamasını açın.
 
@@ -483,7 +483,7 @@ Bu öğreticide Azure Cosmos DB SQL API verilerini yönetmek için JavaScript SD
 > [Xamarin ve Azure Cosmos DB ile mobil uygulamalar derleme](mobile-apps-with-xamarin.md)
 
 
-[Node.js]: http://nodejs.org/
-[Git]: http://git-scm.com/
+[Node.js]: https://nodejs.org/
+[Git]: https://git-scm.com/
 [GitHub]: https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-todo-app
 

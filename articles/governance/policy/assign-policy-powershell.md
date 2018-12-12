@@ -4,32 +4,32 @@ description: Bu hızlı başlangıçta, uyumlu olmayan kaynakları belirlemek ü
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 3a71815e3a400b4366a2f60637cb0daab77b1cd6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 79e192bae8a1d9ac3e27f35dc2f64befc5a75a84
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946179"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078829"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>Hızlı başlangıç: Azure RM PowerShell modülünü kullanarak Azure ortamınızda uyumlu olmayan kaynakları belirlemeye yönelik bir ilke ataması oluşturma
 
-Azure’da uyumluluğu anlamanın ilk adımı, kaynaklarınızın durumunu belirlemektir. Bu hızlı başlangıçta, yönetilen diskleri kullanmayan sanal makineleri belirlemek için ilke ataması oluşturacaksınız. Tamamlandığında, ilke atamasıyla *uyumlu olmayan* sanal makineleri belirleyeceksiniz.
+Azure’da uyumluluğu anlamanın ilk adımı, kaynaklarınızın durumunu belirlemektir. Bu hızlı başlangıçta, yönetilen disk kullanmayan sanal makineleri belirlemek üzere bir ilke ataması oluşturun. Tamamlandığında, ilke atamasıyla *uyumlu olmayan* sanal makineleri belirleyeceksiniz.
 
 AzureRM PowerShell modülü, komut satırından veya betiklerdeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Bu kılavuzda, ilke ataması oluşturmak için AzureRM’nin nasıl kullanılacağı açıklanmaktadır. İlke, Azure ortamınızdaki uyumlu olmayan kaynakları belirler.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Henüz yapmadıysanız [ARMClient](https://github.com/projectkudu/ARMClient)’ı yükleyin. Bu, HTTP isteklerini Azure Resource Manager tabanlı API’lere gönderen bir araçtır.
 - Başlamadan önce en yeni PowerShell sürümünün yüklü olduğundan emin olun. Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
 - AzureRM PowerShell modülünüzü en son sürüme güncelleştirin. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps).
-- Azure PowerShell kullanarak İlke Görüşleri kaynak sağlayıcısını kaydedin. Kaynak sağlayıcısı kaydedildiğinde, aboneliğinizin bununla çalıştığından emin olunur. Bir kaynak sağlayıcısını kaydetmek için, kaynak sağlayıcısı kaydetme işlemini gerçekleştirme iznine sahip olmanız gerekir. Bu işlem, Katkıda Bulunan ve Sahip rolleriyle birlikte sunulur. Aşağıdaki komutu çalıştırarak kaynak sağlayıcısını kaydedin:
+- Azure PowerShell kullanarak İlke Görüşleri kaynak sağlayıcısını kaydedin. Kaynak sağlayıcısı kaydedildiğinde, aboneliğinizin bununla çalıştığından emin olunur. Bir kaynak sağlayıcısını kaydetmek için kayıt kaynak sağlayıcısı işlemi izni olmalıdır. Bu işlem, Katkıda Bulunan ve Sahip rolleriyle birlikte sunulur. Aşağıdaki komutu çalıştırarak kaynak sağlayıcısını kaydedin:
 
   ```azurepowershell-interactive
   Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
@@ -39,21 +39,21 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 ## <a name="create-a-policy-assignment"></a>İlke ataması oluşturma
 
-Bu hızlı başlangıçta, bir ilke ataması oluşturup *Yönetilen Diskleri Olmayan Sanal Makineleri Denetle* tanımını atayacaksınız. Bu ilke tanımı, ilke tanımında ayarlanan koşullarla uyumlu olmayan kaynakları belirler.
+Bu hızlı başlangıçta, bir ilke ataması oluşturma ve atama *denetim Vm'leri yönetilen disklere sahip olmayan* tanımı. Bu ilke tanımı ilke tanımında ayarlanan koşullar ile uyumlu olmayan kaynakları belirler.
 
 Yeni ilke ataması oluşturmak için aşağıdaki komutları çalıştırın:
 
 ```azurepowershell-interactive
 $rg = Get-AzureRmResourceGroup -Name '<resourceGroupName>'
 $definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }
-New-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit Virtual Machines without Managed Disks Assignment' -Scope $rg.ResourceId -PolicyDefinition $definition
+New-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs without managed disks Assignment' -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 Yukarıdaki komutlarda aşağıdaki bilgiler kullanılmaktadır:
 
 - **Ad** - Atamanın gerçek adı.  Bu örnekte *audit-vm-manageddisks* kullanıldı.
-- **Görünen Ad** - Bu ilke atamasının görünen adı. Bu durumda, *Yönetilen Disk Ataması Olmayan Sanal Makineleri Denetle* seçeneğini kullanıyorsunuz.
-- **Tanım** - Bu, atamayı oluşturmak için kullandığınız ilke tanımıdır. Bu durumda, *Yönetilen diskleri kullanmayan sanal makineleri denetle* ilke tanımının kimliğidir.
+- **Görünen Ad** - Bu ilke atamasının görünen adı. Bu durumda, kullanmakta olduğunuz *yönetilen disk ataması olmayan denetim VM'ler*.
+- **Tanım** - Bu, atamayı oluşturmak için kullandığınız ilke tanımıdır. Bu durumda, ilke tanımı kimliğidir *denetim yönetilen diskleri kullanmayan Vm'leri*.
 - **Kapsam** - Kapsam, ilke atamasının hangi kaynaklarda veya kaynak gruplarında uygulanacağını belirler. Bir abonelikten kaynak gruplarına kadar değişiklik gösterebilir. &lt;Kapsam&gt; yerine kaynak grubunuzun adını yazdığınızdan emin olun.
 
 Artık ortamınızın uyumluluk durumunu anlamak için uyumlu olmayan kaynakları belirlemeye hazırsınız.
@@ -63,7 +63,7 @@ Artık ortamınızın uyumluluk durumunu anlamak için uyumlu olmayan kaynaklar�
 Oluşturduğunuz ilke atamasıyla uyumlu olmayan kaynakları belirlemek için aşağıdaki bilgileri kullanın. Aşağıdaki komutları çalıştırın:
 
 ```azurepowershell-interactive
-$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks Assignment' }
+$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
 $policyAssignment.PolicyAssignmentId
 ```
 
@@ -105,7 +105,7 @@ Sonuçlar, Azure portalı görünümünde **Uyumlu olmayan kaynaklar** bölümü
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu koleksiyonda yer alan sonraki kılavuzlar, bu hızlı başlangıcı temel alır. Diğer kılavuzlarla çalışmaya devam etmeyi planlıyorsanız bu hızlı başlangıçta oluşturulan kaynakları temizlemeyin. Devam etmeyi planlamıyorsanız, bu komutu çalıştırarak oluşturduğunuz atamayı silebilirsiniz:
+Oluşturduğunuz atamayı kaldırmak için aşağıdaki komutu kullanın:
 
 ```azurepowershell-interactive
 Remove-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>'
@@ -115,7 +115,7 @@ Remove-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscripti
 
 Bu hızlı başlangıçta, Azure ortamınızda uyumlu olmayan kaynakları belirlemek üzere bir ilke tanımı atadınız.
 
-İlkeleri atama hakkında daha fazla bilgi edinmek ve **gelecekte** oluşturulacak kaynakların uyumlu olduğundan emin olmak için şu öğreticiyle devam edin:
+Yeni kaynakların uyumlu olduğunu doğrulamak için ilkeleri atama hakkında daha fazla bilgi için öğreticisiyle devam edin:
 
 > [!div class="nextstepaction"]
 > [İlke oluşturma ve yönetme](./tutorials/create-and-manage.md)

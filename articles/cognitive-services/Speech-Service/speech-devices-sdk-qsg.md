@@ -1,5 +1,5 @@
 ---
-title: Konuşma cihaz SDK'sı ile çalışmaya başlama
+title: Konuşma cihaz SDK'sı ile - Konuşma hizmetleri kullanmaya başlayın
 titleSuffix: Azure Cognitive Services
 description: Önkoşullar ve konuşma cihaz SDK'sını kullanmaya başlamak için yönergeler.
 services: cognitive-services
@@ -8,18 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/18/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: e035e1bdedefc8e327b0179006b45f3bad4c41ee
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 46f7762a815a7fa4aa4663d9ac6e7c6001ea345c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470209"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097191"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Konuşma cihaz SDK'sı ile çalışmaya başlama
 
-Bu makalede, geliştirme PC ve konuşma cihaz geliştirme seti konuşma cihaz SDK'sını kullanarak konuşma özellikli cihazlar geliştirmek için nasıl yapılandırılacağı açıklanır. Ardından, oluşturun ve bir örnek uygulamanın cihaza dağıtın. 
+Bu makalede, geliştirme PC ve konuşma cihaz geliştirme seti konuşma cihaz SDK'sını kullanarak konuşma özellikli cihazlar geliştirmek için nasıl yapılandırılacağı açıklanır. Ardından, oluşturun ve bir örnek uygulamanın cihaza dağıtın.
 
 Örnek uygulama için kaynak kodu konuşma cihaz SDK'sı ile dahil edilir. Ayrıca [github'da](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -40,7 +41,7 @@ Konuşma cihaz SDK'sı ile geliştirmeye başlamadan önce ihtiyacınız olan ya
 
 * Alma bir [konuşma hizmeti abonelik anahtarı](get-started.md). Bir anahtarı, Azure panosundan alma ya da 30 günlük ücretsiz deneme sürümü edinin.
 
-* Amaç tanıma konuşma hizmetin kullanmak istiyorsanız, abone [Language Understanding hizmeti](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) ve [bir abonelik anahtarı edinirler](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). 
+* Amaç tanıma konuşma hizmetin kullanmak istiyorsanız, abone [Language Understanding hizmeti](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) ve [bir abonelik anahtarı edinirler](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription).
 
     Yapabilecekleriniz [basit LUIS modeline oluşturma](https://docs.microsoft.com/azure/cognitive-services/luis/) veya LUIS modeline LUIS example.json örneği kullanın. LUIS modeline kullanılabilir örnek [konuşma cihazları SDK indirme sitesi](https://shares.datatransfer.microsoft.com/). Modelinizin JSON dosyasını karşıya yüklemek için [LUIS portalı](https://www.luis.ai/home)seçin **alma yeni uygulama**ve ardından JSON dosyasını seçin.
 
@@ -54,7 +55,7 @@ Konuşma cihaz SDK'sı ile geliştirmeye başlamadan önce ihtiyacınız olan ya
 
 1. Uygulamanızı Geliştirme Seti için döngüsel ya da doğrusal yapılandırma yönlendirmek.
 
-    |Geliştirme Seti yapılandırma|Yönlendirme|
+    |Geliştirme Seti yapılandırma|Hizalama|
     |-----------------------------|------------|
     |Döngüsel|Şekilde, tavan mikrofonlar ile yan yana|
     |Doğrusal|(Aşağıdaki görüntüde gösterilmiştir) alt tarafında, mikrofon ile karşılaşmış|
@@ -64,9 +65,9 @@ Konuşma cihaz SDK'sı ile geliştirmeye başlamadan önce ihtiyacınız olan ya
 1. Sertifikaları ve Uyandırma sözcüğünü (anahtar) tablo dosyası yükleyin ve ses cihazı izinlerini ayarlayın. Bir komut istemi penceresinde aşağıdaki komutları yazın:
 
    ```
-   adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/ 
+   adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/
    adb shell
-   cd /data/ 
+   cd /data/
    chmod 777 roobo_setup.sh
    ./roobo_setup.sh
    exit
@@ -77,34 +78,34 @@ Konuşma cihaz SDK'sı ile geliştirmeye başlamadan önce ihtiyacınız olan ya
 
     > [!TIP]
     > Bilgisayarınızın mikrofon ve Geliştirme Seti'nın mikrofonlar ile çalıştığından emin olmak Konuşmacı sessiz. Böylece, yanlışlıkla ses bilgisayardan cihazla tetiklemez.
-    
+
 1.  Bilgisayarınızda Vysor başlatın.
 
     ![Vysor](media/speech-devices-sdk/qsg-3.png)
 
-1.  Cihazınızı altında listelenmelidir **bir cihaz seçin**. Seçin **görünümü** cihazın yanındaki düğmesi. 
- 
+1.  Cihazınızı altında listelenmelidir **bir cihaz seçin**. Seçin **görünümü** cihazın yanındaki düğmesi.
+
 1.  Klasör simgesini seçerek kablosuz ağınıza bağlayın ve ardından **ayarları** > **WLAN**.
 
     ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
- 
+
     > [!NOTE]
-    > Şirketiniz kendi Wi-Fi sisteme cihazlar bağlama hakkında ilkeler varsa, MAC adresini alın ve şirketinizin Wi-Fi'a bağlayın konusunda BT departmanınıza başvurun gerekir. 
+    > Şirketiniz kendi Wi-Fi sisteme cihazlar bağlama hakkında ilkeler varsa, MAC adresini alın ve şirketinizin Wi-Fi'a bağlayın konusunda BT departmanınıza başvurun gerekir.
     >
     > Dev Seti MAC adresini bulmak için dev Seti masaüstünde dosya klasör simgesini seçin.
     >
     >  ![Vysor dosya klasörü](media/speech-devices-sdk/qsg-10.png)
     >
-    > Seçin **ayarları**. "İçin mac adresi" için arama yapın ve ardından **Mac adresi** > **Gelişmiş WLAN**. İletişim kutusunun altına görünen MAC adresi yazın. 
+    > Seçin **ayarları**. "İçin mac adresi" için arama yapın ve ardından **Mac adresi** > **Gelişmiş WLAN**. İletişim kutusunun altına görünen MAC adresi yazın.
     >
     > ![Vysor MAC adresi](media/speech-devices-sdk/qsg-11.png)
     >
     > Bazı şirketler, cihazın ne kadar kalabileceği üzerinde bir zaman sınırı olabilir, Wi-Fi sisteme bağlı. Wi-Fi sisteminizle dev Seti'nın kayıt belirli bir gün sayısından sonra genişletmek gerekebilir.
-    > 
+    >
     > Konuşmacı geliştirme setine eklemek istiyorsanız, ses satırına bağlanabilirsiniz. Kaliteli, 3.5 mm Konuşmacı seçmeniz gerekir.
     >
     > ![Vysor ses](media/speech-devices-sdk/qsg-14.png)
- 
+
 ## <a name="run-a-sample-application"></a>Örnek uygulamayı çalıştırma
 
 ROOBO testleri çalıştırmak ve Geliştirme Seti kurulumunuzu doğrulama, derleme ve örnek uygulamayı yüklemek için:
@@ -114,10 +115,10 @@ ROOBO testleri çalıştırmak ve Geliştirme Seti kurulumunuzu doğrulama, derl
 1.  **Var olan Android Studio projesini aç**'ı seçin.
 
     ![Android Studio - mevcut bir projeyi Aç](media/speech-devices-sdk/qsg-5.png)
- 
+
 1.  İçin C:\SDSDK\Android-Sample-Release\example gidin. Seçin **Tamam** örnek projesini açın.
- 
-1.  Konuşma abonelik anahtarınız için kaynak kodu ekleyin. Amaç tanıma denemek istiyorsanız, ayrıca ekleyin, [Language Understanding hizmeti](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) abonelik anahtarı ve uygulama kimliği 
+
+1.  Konuşma abonelik anahtarınız için kaynak kodu ekleyin. Amaç tanıma denemek istiyorsanız, ayrıca ekleyin, [Language Understanding hizmeti](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) abonelik anahtarı ve uygulama kimliği
 
     Uygulama bilgilerini ve anahtarları MainActivity.java kaynak dosyası aşağıdaki satırları gidin:
 
@@ -135,7 +136,7 @@ ROOBO testleri çalıştırmak ve Geliştirme Seti kurulumunuzu doğrulama, derl
     Ayrıca [özel Uyandırma word oluşturmak](speech-devices-sdk-create-kws.md).
 
     Kullanmak istediğiniz Uyandırma word yüklemek için:
- 
+
     * Cihazda veri klasöründeki bir komut istemi penceresinde aşağıdaki komutları çalıştırarak bir anahtar sözcüğü klasör oluşturun:
 
         ```
@@ -152,9 +153,9 @@ ROOBO testleri çalıştırmak ve Geliştirme Seti kurulumunuzu doğrulama, derl
         adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\kws_k.fst /data/keyword
         adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\words_kw.txt /data/keyword
         ```
-    
+
     * Bu örnek uygulama dosyalarında başvuru. Aşağıdaki satırları MainActivity.java içinde bulun. Belirtilen anahtar sözcüğü bir kullanmakta olduğunuz olduğunu ve yolunu işaret eden emin `kws.table` cihaza gönderilen dosya.
-        
+
         ```java
         private static final String Keyword = "Computer";
         private static final String KeywordModel = "/data/keyword/kws.table";
@@ -175,7 +176,7 @@ ROOBO testleri çalıştırmak ve Geliştirme Seti kurulumunuzu doğrulama, derl
     private static final String SelectedGeometry = "Circular6+1";
     ```
     Aşağıdaki tabloda kullanılabilir değerleri açıklanmaktadır:
-    
+
     |Değişken|Anlamı|Kullanılabilir değerler|
     |--------|-------|----------------|
     |`DeviceGeometry`|Fiziksel MIC yapılandırma|Döngüsel Geliştirme Seti için: `Circular6+1` |
@@ -186,12 +187,12 @@ ROOBO testleri çalıştırmak ve Geliştirme Seti kurulumunuzu doğrulama, derl
     |||İki mikrofonlardan kullanan bir doğrusal Geliştirme Seti için: `Linear2`|
 
 
-1.  Uygulamayı derlemek için **çalıştırma** menüsünde **'uygulamayı' Çalıştır**. **Dağıtım hedefini seçin** iletişim kutusu görüntülenir. 
+1.  Uygulamayı derlemek için **çalıştırma** menüsünde **'uygulamayı' Çalıştır**. **Dağıtım hedefini seçin** iletişim kutusu görüntülenir.
 
 1. Cihazınızı seçin ve ardından **Tamam** cihaza uygulamayı dağıtmak için.
 
     ![Dağıtım hedefi iletişim kutusunu seçin](media/speech-devices-sdk/qsg-7.png)
- 
+
 1.  Konuşma cihaz SDK'sı örnek bir uygulama başlar ve şu seçeneklerini gösterir:
 
     ![Örnek konuşma cihaz SDK'sı örnek uygulama ve seçenekleri](media/speech-devices-sdk/qsg-8.png)
@@ -208,12 +209,12 @@ Konuşma hizmeti kullandığınızda, sertifika hataları alırsanız, cihazın�
 
     ![Tarih ve saat ayarları altında seçin](media/speech-devices-sdk/qsg-12.png)
 
-1. Tutun **otomatik tarih ve saat** seçeneği belirlenmiş. Altında **Select saat dilimi**, geçerli saat diliminizde seçin. 
+1. Tutun **otomatik tarih ve saat** seçeneği belirlenmiş. Altında **Select saat dilimi**, geçerli saat diliminizde seçin.
 
     ![Tarih ve saat dilimi seçenekleri belirleyin](media/speech-devices-sdk/qsg-13.png)
 
-    Dev Seti'nın zaman zaman bilgisayarınızda eşleştiğini gördüğünüzde, dev Seti internet'e bağlı. 
-    
+    Dev Seti'nın zaman zaman bilgisayarınızda eşleştiğini gördüğünüzde, dev Seti internet'e bağlı.
+
     Daha fazla geliştirme için bilgi [ROOBO geliştirme Kılavuzu](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
 
 ### <a name="audio"></a>Ses

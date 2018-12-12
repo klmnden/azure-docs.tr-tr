@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: 01b1a770959b29969fbfd0b4575a45b9c53318b6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bdfe390314f2d2174a26e9b321022a3589a06467
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867979"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086548"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Azure Cosmos DB ve SQL API’sini kullanarak bir Java web uygulaması oluşturma
 
@@ -49,10 +49,10 @@ Bu uygulama geliştirme öğreticisine başlamadan önce aşağıdakilere sahip 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Java Geliştirme Seti (JDK) 7 +](https://aka.ms/azure-jdks).
-* [Java EE Geliştiricileri için Eclipse IDE.](http://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
+* [Java EE Geliştiricileri için Eclipse IDE.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Java çalışma zamanı ortamı (ör. Tomcat veya Jetty) etkin bir Azure Web Sitesi.](../app-service/app-service-web-get-started-java.md)
 
-Bu araçları ilk kez yüklüyorsanız coreservlets.com adresindeki [Öğretici: TomCat7'yi yükleme ve Eclipse ile kullanma](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) makalesinin Hızlı Başlangıç bölümünde yükleme işlem için bir adım adım kılavuz mevcuttur.
+Bu araçları ilk kez yüklüyorsanız coreservlets.com adresindeki [Öğretici: TomCat7'yi yükleme ve Eclipse ile kullanma](https://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) makalesinin Hızlı Başlangıç bölümünde yükleme işlem için bir adım adım kılavuz mevcuttur.
 
 ## <a id="CreateDB"></a>1. Adım: Azure Cosmos DB hesabı oluşturma
 İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten bir hesabınız varsa veya bu öğretici için Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız [2. Adım: Java JSP uygulaması oluşturma](#CreateJSP) adımına atlayabilirsiniz.
@@ -84,7 +84,7 @@ JSP uygulaması oluşturmak için:
     ![Hello World - Java Uygulaması Öğreticisi](./media/sql-api-java-application/image12.png)
 
 ## <a id="InstallSDK"></a>3. Adım: SQL Java SDK’sını yükleme
-[Apache Maven](http://maven.apache.org/), SQL Java SDK'sını ve bağımlılıklarını çekmenin en kolay yolunu sağlar.
+[Apache Maven](https://maven.apache.org/), SQL Java SDK'sını ve bağımlılıklarını çekmenin en kolay yolunu sağlar.
 
 Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven projesine dönüştürmeniz gerekir:
 
@@ -118,7 +118,7 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
             private String name;
         }
    
-    Bu projede oluşturucuyu, alıcıları, ayarlayıcıları ve bir derleyici oluşturmak için [Project Lombok](http://projectlombok.org/)'u kullanırsınız. Alternatif olarak, bu kodu el ile yazabilir veya IDE'nin oluşturmasını sağlayabilirsiniz.
+    Bu projede oluşturucuyu, alıcıları, ayarlayıcıları ve bir derleyici oluşturmak için [Project Lombok](https://projectlombok.org/)'u kullanırsınız. Alternatif olarak, bu kodu el ile yazabilir veya IDE'nin oluşturmasını sağlayabilirsiniz.
 2. Azure Cosmos DB hizmetini çağırmak için yeni bir **DocumentClient** örneği oluşturmanız gerekir. Genel olarak, sonraki her istek için yeni bir istemci oluşturmak yerine **DocumentClient**'ı tekrar kullanmak en iyisidir. İstemciyi bir **DocumentClientFactory**'ye sarmalayarak tekrar kullanabiliriz. DocumentClientFactory.java içinde, [1. adımda](#CreateDB) panonuza kopyaladığınız URI ve BİRİNCİL ANAHTAR değerini yapıştırmanız gerekir. [YOUR\_ENDPOINT\_HERE] yerine URI'nizi ve [YOUR\_KEY\_HERE] yerine BİRİNCİL ANAHTARINIZI girin.
    
         private static final String HOST = "[YOUR_ENDPOINT_HERE]";
@@ -729,7 +729,7 @@ Azure Web Siteleri Java uygulamalarını dağıtmayı, uygulamanızı bir WAR do
 ## <a id="GetProject"></a>Projeyi GitHub'dan alma
 Bu öğreticideki tüm örnekler GitHub'daki [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) projesinde bulunur. todo projesini Eclipse'e aktarmak için [Önkoşullar](#Prerequisites) bölümünde listelenen yazılım ve kaynaklara sahip olduğunuzdan emin olun ve ardından aşağıdakileri yapın:
 
-1. [Proje Lombok](http://projectlombok.org/)'u yükleyin. Lombok projede oluşturucular, alıcılar ve ayarlayıcılar oluşturmak için kullanılır. Lombok.jar dosyasını indirdikten sonra, yüklemek için buna çift tıklayın veya komut satırından yükleyin.
+1. [Proje Lombok](https://projectlombok.org/)'u yükleyin. Lombok projede oluşturucular, alıcılar ve ayarlayıcılar oluşturmak için kullanılır. Lombok.jar dosyasını indirdikten sonra, yüklemek için buna çift tıklayın veya komut satırından yükleyin.
 2. Eclipse açıksa kapatın ve Lombok'u yüklemek için yeniden başlatın.
 3. Eclipse'te **Dosya** menüsünde **İçeri Aktar**'a tıklayın.
 4. **İçeri Aktar** penceresinde **Git**'e tıklayın, **Git Projeleri**'ne tıklayın ve ardından **İleri**'ye tıklayın.

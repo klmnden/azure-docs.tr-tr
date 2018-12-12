@@ -1,21 +1,22 @@
 ---
-title: PowerShell ile Azure Event Grid için özel olaylar | Microsoft Docs
-description: Azure Event Grid'i ve PowerShell'i kullanarak bir konu yayımlayın ve o olaya abone olun.
+title: Web uç noktası - Event Grid, PowerShell için özel olaylar gönderin
+description: Azure Event grid'i ve PowerShell'i kullanarak özel bir konu yayımlayın ve bu konu için olaylara abone olmak için kullanın. Olaylar, bir web uygulaması tarafından işlenir.
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 08/23/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 13620fbd6393c747285574cf16b519b9b6a1f324
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 46278d0663cd748f88fcfa13d0688ec89a17bd89
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745193"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096680"
 ---
-# <a name="create-and-route-custom-events-with-azure-powershell-and-event-grid"></a>PowerShell ve Event Grid ile özel olaylar oluşturma ve yönlendirme
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Hızlı Başlangıç: Rota web uç noktasına PowerShell ve Event Grid ile özel olaylar
 
 Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede, Azure PowerShell kullanarak özel bir konu oluşturur, konuya abone olur ve sonucu görüntülemek için olayı tetiklersiniz. Normalde olayları, olay verilerini işleyen ve eylemler gerçekleştiren bir uç noktaya gönderirsiniz. Bununla birlikte, bu makaleyi basitleştirmek için olayları iletilerin toplandığı ve görüntülendiği bir web uygulamasına gönderirsiniz.
 
@@ -43,7 +44,7 @@ New-AzureRmResourceGroup -Name gridResourceGroup -Location westus2
 
 ## <a name="create-a-custom-topic"></a>Özel konu oluşturma
 
-Event grid konusu, olaylarınızı göndereceğiniz kullanıcı tanımlı bir uç nokta sağlar. Aşağıdaki örnekte özel konu, kaynak grubunuzda oluşturulur. `<your-topic-name>` değerini konunuz için benzersiz bir adla değiştirin. Konu adı bir DNS girdisinin parçası olduğundan benzersiz olmalıdır.
+Event grid konusu, olaylarınızı göndereceğiniz kullanıcı tanımlı bir uç nokta sağlar. Aşağıdaki örnekte özel konu, kaynak grubunuzda oluşturulur. `<your-topic-name>` değerini konunuz için benzersiz bir adla değiştirin. Konu adı bir DNS girdisinin parçası olduğundan benzersiz olmalıdır. Ayrıca, 3-50 karakter arasında olmalı ve gerekir içeren yalnızca a-z, A-Z, 0-9, değerleri ve "-"
 
 ```powershell-interactive
 $topicname="<your-topic-name>"

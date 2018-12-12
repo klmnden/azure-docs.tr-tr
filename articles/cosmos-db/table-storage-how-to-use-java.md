@@ -9,12 +9,12 @@ ms.devlang: Java
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: d7be0ed8d59063f75b3d4fadbf69237bdb2d0d13
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e6bae31f0e3558f274ee638c380e69c15b7c3889
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863695"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079322"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Java’dan Azure Tablo depolama veya Azure Cosmos DB Tablo API'sini kullanma
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -455,7 +455,7 @@ catch (Exception e)
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>Giriş özellikleri alt kümesi sorgulama
-Tabloya gönderilen bir sorgu, bir varlıktan yalnızca birkaç özellik alabilir. Projeksiyon olarak adlandırılan bu yöntem bant genişliğini azaltır ve özellikle büyük varlıklar için sorgu performansını iyileştirebilir. Aşağıdaki kodda yer alan sorgu, **select** yöntemini kullanarak yalnızca tablodaki varlıkların e-posta adreslerini döndürür. Sonuçlar bir **EntityResolver** yardımıyla bir **String** koleksiyonuna hedeflenir ve sunucudan döndürülen varlıkların tür dönüşümünü yapar. [Azure Tablolar: Upsert ve Sorgu Projeksiyon Tanıtımı][Azure Tables: Introducing Upsert and Query Projection] içinde projeksiyon hakkında daha fazla bilgi edinebilirsiniz. Projeksiyon yerel depolama öykünücüsünde desteklenmez, bu nedenle bu kod yalnızca tablo hizmetinde bir hesap kullanırken çalıştırılır.
+Tabloya gönderilen bir sorgu, bir varlıktan yalnızca birkaç özellik alabilir. Projeksiyon olarak adlandırılan bu yöntem bant genişliğini azaltır ve özellikle büyük varlıklar için sorgu performansını iyileştirebilir. Aşağıdaki kodda yer alan sorgu, **select** yöntemini kullanarak yalnızca tablodaki varlıkların e-posta adreslerini döndürür. Sonuçlar bir **EntityResolver** yardımıyla bir **String** koleksiyonuna hedeflenir ve sunucudan döndürülen varlıkların tür dönüşümünü yapar. Projeksiyon hakkında daha fazla bilgi edinin [Azure tabloları: Upsert ve sorgu projeksiyon] [Azure tabloları: Upsert ve sorgu projeksiyon]. Projeksiyon yerel depolama öykünücüsünde desteklenmez, bu nedenle bu kod yalnızca tablo hizmetinde bir hesap kullanırken çalıştırılır.
 
 ```java
 try
@@ -497,7 +497,7 @@ catch (Exception e)
 ```
 
 ## <a name="insert-or-replace-an-entity"></a>Varlık Ekleme veya Değiştirme
-Genellikle tabloda zaten mevcut olup olmadığını bilmeden tabloya varlık eklemek istersiniz. insert-or-replace işlemi, mevcut değilse varlığı ekleyecek veya mevcutsa var olanı değiştirecek tek bir istekte bulunmanızı sağlar. Önceki örneklere ek olarak, aşağıdaki kod "Walter Harp" varlığını ekler veya değiştirir. Yeni bir varlık oluşturulduktan sonra bu kod **TableOperation.insertOrReplace** yöntemini çağırır. Bu kod daha sonra **CloudTable** nesnesi üzerinde tablo ile birlikte **execute** işlemini ve parametre olarak insert ya da replace tablo işlemini çağırır. Bir varlığın yalnızca bir kısmını güncelleştirmek için, bunun yerine **TableOperation.insertOrMerge** yöntemi kullanılabilir. Insert-or-replace işlemi yerel depolama öykünücüsünde desteklenmez, bu nedenle bu kod yalnızca tablo hizmetinde bir hesap kullanırken çalıştırılır. Insert-or-replace ve insert-or-merge işlemi hakkında daha fazla bilgiyi bu [Azure Tablolar: Upsert ve Sorgu Projeksiyon Tanıtımı][Azure Tables: Introducing Upsert and Query Projection] makalesinde bulabilirsiniz.
+Genellikle tabloda zaten mevcut olup olmadığını bilmeden tabloya varlık eklemek istersiniz. insert-or-replace işlemi, mevcut değilse varlığı ekleyecek veya mevcutsa var olanı değiştirecek tek bir istekte bulunmanızı sağlar. Önceki örneklere ek olarak, aşağıdaki kod "Walter Harp" varlığını ekler veya değiştirir. Yeni bir varlık oluşturulduktan sonra bu kod **TableOperation.insertOrReplace** yöntemini çağırır. Bu kod daha sonra **CloudTable** nesnesi üzerinde tablo ile birlikte **execute** işlemini ve parametre olarak insert ya da replace tablo işlemini çağırır. Bir varlığın yalnızca bir kısmını güncelleştirmek için, bunun yerine **TableOperation.insertOrMerge** yöntemi kullanılabilir. Insert-or-replace işlemi yerel depolama öykünücüsünde desteklenmez, bu nedenle bu kod yalnızca tablo hizmetinde bir hesap kullanırken çalıştırılır. Ekleme veya değiştirme ve Ekle-veya-merge bu hakkında daha fazla bilgi edinin [Azure tabloları: Upsert ve sorgu projeksiyon] [Azure tabloları: Upsert ve sorgu projeksiyon].
 
 ```java
 try
@@ -598,14 +598,12 @@ catch (Exception e)
 * [Java için Azure Depolama SDK'sı][Azure Storage SDK for Java]
 * [Azure Depolama İstemcisi SDK Başvurusu][Azure Depolama İstemcisi SDK Başvurusu]
 * [Azure Depolama REST API][Azure Storage REST API]
-* [Azure Depolama Ekibi Blogu][Azure Storage Team Blog]
+* [Azure depolama ekibi blogu] [Azure depolama ekibi blogu]
 
 Daha fazla bilgi için bkz. [Java geliştiricileri için Azure](/java/azure).
 
-[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+[Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[Azure Depolama İstemcisi SDK Başvurusu]: http://azure.github.io/azure-storage-java/
+[Azure Depolama İstemcisi SDK Başvurusu]: https://azure.github.io/azure-storage-java/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx

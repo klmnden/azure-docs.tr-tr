@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics araçları Visual Studio (Önizleme) kullanarak yerel olarak test canlı verileri
+title: Visual Studio için Azure Stream Analytics ile canlı verileri test etme
 description: Azure Stream Analytics işinizi canlı akış verileri kullanarak yerel olarak test etme hakkında bilgi edinin.
 services: stream-analytics
 author: mamccrea
@@ -7,13 +7,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: f0a8978a9c2e0538a2e7bc4eab202604913e700b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: ea55d2f96a87503d43a69d288ce85dcff32a39ce
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984169"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090338"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Azure Stream Analytics araçları Visual Studio (Önizleme) kullanarak yerel olarak test canlı verileri
 
@@ -33,28 +34,28 @@ Aşağıdaki yerel test seçenekleri desteklenir:
 
 1. Oluşturduktan sonra bir [Azure Stream Analytics bulut projesini Visual Studio'da](stream-analytics-quick-create-vs.md)açın **script.asaql**. Yerel test yerel giriş ve çıkış yerel varsayılan olarak kullanır.
 
-   ![Azure Stream Analytics Visual Studio yerel yerel giriş ve çıkış yerel ile test etme](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-local-input-output.png)
+   ![Azure Stream Analytics Visual Studio yerel giriş ve çıkış yerel](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-local-input-output.png)
 
 2. Canlı verileri test etmek için seçin **kullanım bulut giriş** açılan kutusundan.
 
-   ![Azure Stream Analytics Visual Studio yerel Canlı bulut giriş test ediliyor](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input.png)
+   ![Azure Stream Analytics Visual Studio Canlı bulut giriş](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input.png)
 
 
 3. Ayarlama **başlattığınızda** giriş verilerini işlemeye işin ne zaman başlar tanımlamak için. İş giriş verileri doğru sonuçlar emin olmak için önceden okuması gerekebileceğini. Varsayılan süre 30 dakika geçerli vaktinden ayarlanır.
 
-   ![Azure Stream Analytics Visual Studio ile canlı verileri başlangıç saati yerel](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-start-time.png)
+   ![Azure Stream Analytics Visual Studio canlı verileri başlangıç saati](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-start-time.png)
 
 4. Tıklayın **yerel olarak çalıştırma**. Bir konsol penceresi, çalışan ilerleme ve iş Ölçümleriyle görünür. İşlemi durdurmak istiyorsanız, bunu el ile yapabilirsiniz. 
 
-   ![Azure Stream Analytics Visual Studio yerel canlı veri işlem penceresi ile test](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-process-window.png)
+   ![Azure Stream Analytics Visual Studio canlı verileri işlem penceresi](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-process-window.png)
 
    Çıktı sonuçları yerel çalıştırma sonucu penceresinde ilk 500 çıkış sütunları içeren üç saniyede bir yenilenir ve çıkış dosyalarının proje yolunuzda yerleştirilir **ASALocalRun** klasör. Tıklayarak Çıkış dosyalarını açabilirsiniz **sonuçlar klasörünü Aç** yerel çalıştırma sonucu penceresinde düğmesine.
 
-   ![Azure Stream Analytics Visual yerel Canlı verilerle test Studio'nun klasörü sonuçları](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-open-results-folder.png)
+   ![Azure Stream Analytics Visual Studio canlı veri sonuçlar klasörünü açın](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-open-results-folder.png)
 
 5. Çıktı, bulut çıktı havuzlarından sonuçları istiyorsanız belirleyin **buluta çıkış** ikinci açılan kutusundan. Power BI ve Azure Data Lake Storage desteklenen çıktı havuzlarından değildir.
 
-   ![Azure Stream Analytics Visual Studio çıkış bulut için Canlı verilerle yerel](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-output.png)
+   ![Azure Stream Analytics Visual Studio canlı verileri buluta çıkış](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-output.png)
  
 ## <a name="limitations"></a>Sınırlamalar
 

@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: a547e52fffb981747c2a752778cbf187d37549d9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 1b6a947914b086bc0300c9ff9d7390a7bc80c2a8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841310"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079611"
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Hızlı Başlangıç: Node.js ve Azure Cosmos DB ile Tablo API’si uygulaması oluşturma
 
@@ -38,7 +38,7 @@ Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritaba
 Buna ek olarak:
 
 * [Node.js](https://nodejs.org/en/) sürüm v0.10.29 veya üzeri
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
@@ -82,7 +82,7 @@ Buna ek olarak:
 
 Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin. Bu, uygulamanızın barındırılan veritabanıyla iletişim kurmasına olanak tanır. 
 
-1. [Azure portalda](http://portal.azure.com/) **Bağlantı Dizesi**’ne tıklayın. 
+1. [Azure portalda](https://portal.azure.com/) **Bağlantı Dizesi**’ne tıklayın. 
 
     ![Bağlantı Dizesi bölmesinde gerekli bağlantı dizesi bilgilerini görüntüleme ve kopyalama](./media/create-table-nodejs/connection-string.png)
 

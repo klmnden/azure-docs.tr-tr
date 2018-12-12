@@ -1,21 +1,22 @@
 ---
-title: Yükleme ve kapsayıcıları çalıştırın
-titlesuffix: Face - Cognitive Services - Azure
+title: Yükleme, kapsayıcıları çalıştırın
+titlesuffix: Face - Azure Cognitive Services
 description: İndirme, yükleme ve bu izlenecek yol öğreticide yüz için kapsayıcıları çalıştırmak nasıl.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 1d13e2ccbbc1d5c1bc80dffc260a3759fe378d7d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 556cf755890f49e540afe64de6e485d9ebde2147
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634549"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086445"
 ---
 # <a name="install-and-run-containers"></a>Kapsayıcıları yükleme ve çalıştırma
 
@@ -37,7 +38,7 @@ Docker, kapsayıcılar ile bağlanma ve faturalama verileri Azure'a göndermek i
 
 Docker ve kapsayıcı temelleri hakkında bilgi için bkz: [Docker'a genel bakış](https://docs.docker.com/engine/docker-overview/).
 
-### <a name="server-requirements-and-recommendations"></a>Sunucu gereksinimleri ve önerileri
+### <a name="container-requirements-and-recommendations"></a>Kapsayıcı gereksinimleri ve önerileri
 
 Yüz tanıma kapsayıcı en az 1 CPU çekirdeği, en az 2.6 gigahertz (GHz) gerektirir ya da daha hızlı ve 4 gigabayt (GB) bellek ayrılmış, ancak en az 2 CPU çekirdek ve 6 GB ayrılmış bellek öneririz.
 
@@ -167,7 +168,9 @@ Bu makalede, kavramlar ve indirme, yükleme ve yüz kapsayıcıları çalıştı
 * Docker kapsayıcı görüntüleri çalıştırın.
 * Yüz tanıma-kapsayıcılarında işlemleri ana kapsayıcısının URI belirterek çağırmak için REST API veya SDK'sını kullanabilirsiniz.
 * Bir kapsayıcı örneği oluşturulurken, fatura bilgilerini belirtmeniz gerekir.
-* ** Bilişsel Hizmetleri kapsayıcılar, kullanım ölçümü için Azure'a bağlanmadan çalıştırmak için lisanslanmaz. Müşteriler, her zaman faturalandırma bilgileri ölçüm hizmeti ile iletişim kurmak kapsayıcıları etkinleştirmeniz gerekiyor. Bilişsel hizmetler kapsayıcılar, Microsoft müşteri verilerini (örneğin, görüntü veya metin analiz edilen) göndermeyin.  
+
+> [!IMPORTANT]
+> Bilişsel hizmetler kapsayıcıları, kullanım ölçümü için Azure'a bağlanmadan çalıştırmak için lisanslanmaz. Müşteriler, her zaman faturalandırma bilgileri ölçüm hizmeti ile iletişim kurmak kapsayıcıları etkinleştirmeniz gerekiyor. Bilişsel hizmetler kapsayıcılar, Microsoft müşteri verilerini (örneğin, görüntü veya metin analiz edilen) göndermeyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

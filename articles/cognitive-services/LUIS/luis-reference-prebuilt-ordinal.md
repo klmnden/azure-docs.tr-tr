@@ -1,21 +1,22 @@
 ---
-title: LUIS önceden oluşturulmuş varlıklar sıralı başvuru - Azure | Microsoft Docs
+title: Önceden oluşturulmuş sıralı varlık
 titleSuffix: Azure
 description: Bu makale, Language Understanding (LUIS) önceden oluşturulmuş sıralı varlık bilgileri içerir.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: e80b9dc63accec43532116b81e6eb0b9bd52ee22
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: MT
+ms.openlocfilehash: 060314bd56d477bad3dcb3333ba02c5f4786b476
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335262"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082773"
 ---
 # <a name="ordinal-entity"></a>Sıralı varlık
 Sıra numarası olduğu bir nesne kümesi içinde sayısal bir gösterimi: `first`, `second`, `third`. Bu varlık zaten eğitildi çünkü uygulama hedefleri için sıralı içeren örnek Konuşma ekleme gerekmez. Sıralı varlık içerisinde desteklendiği [çok kültür](luis-reference-prebuilt-entities.md). 
@@ -26,7 +27,7 @@ Sıra yönetilen [tanıyıcıları metin](https://github.com/Microsoft/Recognize
 ## <a name="resolution-for-prebuilt-ordinal-entity"></a>Önceden oluşturulmuş sıralı varlık için çözümleme
 Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.ordinal** varlık.
 
-```JSON
+```json
 {
   "query": "Order the second option",
   "topScoringIntent": {

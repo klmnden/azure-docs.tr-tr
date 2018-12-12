@@ -8,12 +8,12 @@ ms.component: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 7f23ddc5b8f58403e5d2e69f11bd39b859f8d548
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b3077920f08688d2cc84997ef8712183e8d7a09a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844472"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098075"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Gremlin konsolunda oluşturma, sorgulama ve çapraz geçiş yapma
 
@@ -28,11 +28,11 @@ ms.locfileid: "52844472"
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-Bu hızlı başlangıçta Azure portalını kullanarak bir Azure Cosmos DB [Gremlin API](graph-introduction.md) hesabı, veritabanı ve grafiği (kapsayıcı) oluşturma işlemi ve [Apache TinkerPop](http://tinkerpop.apache.org) tarafından kullanıma sunulan [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console)'u kullanarak Gremlin API'si verileri ile çalışma işlemi anlatılmaktadır. Bu öğreticide köşe ve kenarlar oluşturup sorgular, bir köşe özelliğini güncelleştirir, köşeleri sorgular, grafiğin çapraz geçişini yapar ve bir köşeyi bırakırsınız.
+Bu hızlı başlangıçta Azure portalını kullanarak bir Azure Cosmos DB [Gremlin API](graph-introduction.md) hesabı, veritabanı ve grafiği (kapsayıcı) oluşturma işlemi ve [Apache TinkerPop](https://tinkerpop.apache.org) tarafından kullanıma sunulan [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console)'u kullanarak Gremlin API'si verileri ile çalışma işlemi anlatılmaktadır. Bu öğreticide köşe ve kenarlar oluşturup sorgular, bir köşe özelliğini güncelleştirir, köşeleri sorgular, grafiğin çapraz geçişini yapar ve bir köşeyi bırakırsınız.
 
 ![Apache Gremlin konsolunda Azure Cosmos DB](./media/create-graph-gremlin-console/gremlin-console.png)
 
-Gremlin konsolu, Groovy/Java tabanlıdır ve Linux, Mac ve Windows üzerinde çalışır. Konsolu [Apache TinkerPop sitesinden](http://tinkerpop.apache.org/downloads.html) indirebilirsiniz.
+Gremlin konsolu, Groovy/Java tabanlıdır ve Linux, Mac ve Windows üzerinde çalışır. Konsolu [Apache TinkerPop sitesinden](https://tinkerpop.apache.org/downloads.html) indirebilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -40,7 +40,7 @@ Bu hızlı başlangıca yönelik bir Azure Cosmos DB hesabı oluşturmak için A
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Ayrıca [Gremlin konsolunu](http://tinkerpop.apache.org/) yüklemeniz gerekir. 3.2.5 veya daha yüksek bir sürüm kullanın. (Windows üzerinde Gremlin konsolunu kullanmak için yüklemek gereken [Java Çalışma zamanı](https://www.oracle.com/technetwork/java/javase/overview/index.html).)
+Ayrıca [Gremlin konsolunu](https://tinkerpop.apache.org/) yüklemeniz gerekir. 3.2.5 veya daha yüksek bir sürüm kullanın. (Windows üzerinde Gremlin konsolunu kullanmak için yüklemek gereken [Java Çalışma zamanı](https://www.oracle.com/technetwork/java/javase/overview/index.html).)
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
@@ -80,7 +80,7 @@ connectionPool: {
 serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
 ```
 
-3. Terminalinizde [Gremlin Konsolunu](http://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/) başlatmak için `bin/gremlin.bat` veya `bin/gremlin.sh` çalıştırın.
+3. Terminalinizde [Gremlin Konsolunu](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/) başlatmak için `bin/gremlin.bat` veya `bin/gremlin.sh` çalıştırın.
 4. Terminalinizde uygulama hizmetinize bağlanmak için `:remote connect tinkerpop.server conf/remote-secure.yaml` çalıştırın.
 
     > [!TIP]

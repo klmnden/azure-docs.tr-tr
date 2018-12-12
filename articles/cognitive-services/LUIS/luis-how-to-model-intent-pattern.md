@@ -1,21 +1,22 @@
 ---
-title: LUIS uygulamalarda daha fazla konuşma yerine desen şablonları ekleme
-titleSuffix: Azure Cognitive Services
+title: Doğruluk düzenleri ekleyin
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Language Understanding (LUIS) uygulamalarında tahmin doğruluğunu artırmak için desen şablonları eklemeyi öğrenin.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6c15fc256a330c7de154c551c1ef4c78913f470a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: MT
+ms.openlocfilehash: 20a486a048fe6287544a9fec35a95c88f6194a66
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885895"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093191"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Nasıl tahmin doğruluğunu artırmak için düzenleri ekleyin
 Bir LUIS uygulaması konuşma uç noktası aldıktan sonra kullanmak [kavramı](luis-concept-patterns.md) sözcük sırasını ve sözcük seçim içindeki bir desenle açığa konuşma için tahmin doğruluğunu artırmak için desenleri. Kullanım desenlerini [varlıkları](luis-concept-entity-types.md) ve belirli bir desene söz dizimini kullanarak verileri ayıklamak için kullanıcı rolleri. 
@@ -125,7 +126,7 @@ Her iki mevcut bir utterance desen oluşturabilirsiniz **hedefi** veya **varlık
 
 1. Utterance seçilen satırdaki üç noktayı seçin (***...*** ) düğmesini utterance sağında ve **deseni olarak Ekle**.
 
-    [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Konuşma Tablo Ekle düzendeki Seçenekler menüsünde vurgulanmış ekran görüntüsü")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
+    [![Ekran görüntüsü Ekle deseni Seçenekler menüsünde vurgulanmış konuşma tabloyla](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "konuşma Tablo Ekle düzendeki Seçenekler menüsünde vurgulanmış ekran görüntüsü")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 
 2. Şunlara göre desenini değiştirir [sözdizimi kurallarına](luis-concept-patterns.md#pattern-syntax). Seçtiğiniz utterance varlıklarla sahipse, bu zaten doğru sözdizimi desende varlıklardır.
 

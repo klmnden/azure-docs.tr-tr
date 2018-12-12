@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: eceb0554d35935f1aee77c4c054cb7e65b327845
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.custom: seodec18
+ms.openlocfilehash: 9c3d1009742f9ca0df6dc2f2d1a2d1904397275a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033428"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087857"
 ---
-# <a name="publish-a-knowledge-base"></a>Bilgi bankası yayımlama
+# <a name="publish-a-knowledge-base-in-qna-maker"></a>Soru-cevap Oluşturucu Bilgi Bankası yayımlama
 
 Bilgi Bankası yayımlama bilgi bankanızı bir soruyu yanıtlarken uç noktası olarak kullanılabilir hale getirme son adımdır. 
 
@@ -29,11 +30,11 @@ Bilgi Bankası yayımladığınızda, soru-cevap bilgi bankanızı içeriğini t
 
 1. KB değişiklikleri yaptıktan sonra Seç **Yayımla** üst gezinti çubuğunda. Azure arama için bilgi bankalarından ayrılan sayıda en fazla yayımlayabilirsiniz. 
 
-    ![Bilgi Bankası yayımlama](../media/qnamaker-how-to-publish-kb/publish.png)
+    ![Bilgi bankası yayımlama](../media/qnamaker-how-to-publish-kb/publish.png)
 
 2. Seçin **Yayımla** yeniden uygulama veya bot kodunuzda kullanılabilen uç noktası ayrıntıları görmek için.
 
-    ![Bilgi Bankası yayımlama](../media/qnamaker-how-to-publish-kb/publish-success.png)
+    ![Bilgi Bankası başarıyla yayımlandı](../media/qnamaker-how-to-publish-kb/publish-success.png)
     
 ## <a name="next-steps"></a>Sonraki adımlar
 

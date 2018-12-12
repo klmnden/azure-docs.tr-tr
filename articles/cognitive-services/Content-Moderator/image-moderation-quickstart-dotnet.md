@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: sajagtap
-ms.openlocfilehash: 8f407a42ab2e1538193206dec1955257a5f9940a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 7a8341d4189b90a67525fd0fba25aa0f321b21b1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005504"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084762"
 ---
 # <a name="quickstart-analyze-image-content-for-objectionable-material-in-c"></a>Hızlı Başlangıç: C# dilinde uygunsuz malzemeler için görüntü içeriğini analiz etme
 
@@ -23,7 +23,7 @@ Bu makalede, [.NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServ
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Content Moderator abonelik anahtarı. Content Moderator'a abone olmak ve anahtarınızı almak için [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) yönergelerini izleyin.
 - [Visual Studio 2015 veya 2017](https://www.visualstudio.com/downloads/)'nin herhangi bir sürümü
@@ -49,61 +49,23 @@ Ardından, temel bir içerik moderasyonu senaryosu uygulamak için kodu bu kıla
 
 Aşağıdaki `using` deyimlerini *Program.cs* dosyanızın en üstüne ekleyin.
 
-```csharp
-using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading;
-```
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=1-8)]
 
 ### <a name="create-the-content-moderator-client"></a>Content Moderator istemcisini oluşturma
 
 Aboneliğinize bir Content Moderator istemci sağlayıcısı oluşturmak için aşağıdaki kodu *Program.cs* dosyanıza ekleyin. Aynı ad alanına **Program** sınıfıyla birlikte kodu ekleyin. **AzureRegion** ve **CMSubscriptionKey** alanlarını bölge tanımlayıcınızın ve abonelik anahtarınızın değerleriyle güncelleştirmeniz gerekecektir.
 
-```csharp
-// Wraps the creation and configuration of a Content Moderator client.
-public static class Clients
-{
-    // The region/location for your Content Moderator account, 
-    // for example, westus.
-    private static readonly string AzureRegion = "YOUR API REGION";
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=84-107)]
 
-    // The base URL fragment for Content Moderator calls.
-    private static readonly string AzureBaseURL =
-        $"https://{AzureRegion}.api.cognitive.microsoft.com";
-
-    // Your Content Moderator subscription key.
-    private static readonly string CMSubscriptionKey = "YOUR API KEY";
-
-    // Returns a new Content Moderator client for your subscription.
-    public static ContentModeratorClient NewClient()
-    {
-        // Create and initialize an instance of the Content Moderator API wrapper.
-        ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
-
-        client.Endpoint = AzureBaseURL;
-        return client;
-    }
-}
-```
 
 ### <a name="set-up-input-and-output-targets"></a>Giriş ve çıkış hedeflerini ayarlama
 
 Aşağıdaki statik alanları _Program.cs_ dosyasındaki **Program** sınıfına ekleyin. Bunlar, giriş görüntü içeriğiyle çıkış JSON içeriğinin dosyalarını belirtir.
 
-```csharp
-//The name of the file that contains the image URLs to evaluate.
-private static string ImageUrlFile = "ImageFiles.txt";
-
-///The name of the file to contain the output from the evaluation.
-private static string OutputFile = "ModerationOutput.json";
-```
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=49-53)]
 
 *_ImageFiles.txt* giriş dosyasını oluşturmanız ve yolunu uygun şekilde güncelleştirmeniz gerekir (göreli yollar, yürütme dizinine göre belirlenir). _ImageFiles.txt_ dosyasını açın ve denetlenecek görüntülerin URL'lerini ekleyin. Bu hızlı başlangıçta örnek giriş olarak aşağıdaki URL'ler kullanılır.
+
 ```
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
@@ -113,95 +75,20 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 Aynı ad alanında *Program* sınıfıyla birlikte **Program.cs** dosyasına aşağıdaki kodu ekleyin. Gözden geçirilen görüntülerin her birinin denetim sonuçlarını kaydetmek için bu sınıfın bir örneğini kullanacaksınız.
 
-```csharp
-// Contains the image moderation results for an image, 
-// including text and face detection results.
-public class EvaluationData
-{
-    // The URL of the evaluated image.
-    public string ImageUrl;
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=109-124)]
 
-    // The image moderation results.
-    public Evaluate ImageModeration;
-
-    // The text detection results.
-    public OCR TextDetection;
-
-    // The face detection results;
-    public FoundFaces FaceDetection;
-}
-```
 
 ### <a name="define-the-image-evaluation-method"></a>Görüntü değerlendirme yöntemini tanımlama
 
 **Program** sınıfına aşağıdaki yöntemi ekleyin. Bu yöntem, tek bir görüntüyü üç farklı yoldan değerlendirir ve değerlendirme sonuçlarını döndürür. Bu tek tek işlemlerin ne yaptığı hakkında daha fazla bilgi edinmek istiyorsanız, [Sonraki adımlar](#next-steps) bölümündeki bağlantıyı izleyin.
 
-```csharp
-// Evaluates an image using the Image Moderation APIs.
-private static EvaluationData EvaluateImage(
-  ContentModeratorClient client, string imageUrl)
-{
-    var url = new BodyModel("URL", imageUrl.Trim());
-
-    var imageData = new EvaluationData();
-
-    imageData.ImageUrl = url.Value;
-
-    // Evaluate for adult and racy content.
-    imageData.ImageModeration =
-        client.ImageModeration.EvaluateUrlInput("application/json", url, true);
-    Thread.Sleep(1000);
-
-    // Detect and extract text.
-    imageData.TextDetection =
-        client.ImageModeration.OCRUrlInput("eng", "application/json", url, true);
-    Thread.Sleep(1000);
-
-    // Detect faces.
-    imageData.FaceDetection =
-        client.ImageModeration.FindFacesUrlInput("application/json", url, true);
-    Thread.Sleep(1000);
-
-    return imageData;
-}
-```
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=55-81)]
 
 ### <a name="load-the-input-images"></a>Giriş görüntülerini yükleme
 
 Aşağıdaki kodu **Program** sınıfındaki **Main** yöntemine ekleyin. Bu, giriş dosyasındaki her görüntü URL'sinin değerlendirme verilerini alacak şekilde programı ayarlar. Ardından bu verileri tek bir çıkış dosyasına yazar.
 
-```csharp
-// Create an object to store the image moderation results.
-List<EvaluationData> evaluationData = new List<EvaluationData>();
-
-// Create an instance of the Content Moderator API wrapper.
-using (var client = Clients.NewClient())
-{
-    // Read image URLs from the input file and evaluate each one.
-    using (StreamReader inputReader = new StreamReader(ImageUrlFile))
-    {
-        while (!inputReader.EndOfStream)
-        {
-            string line = inputReader.ReadLine().Trim();
-            if (line != String.Empty)
-            {
-                EvaluationData imageData = EvaluateImage(client, line);
-                evaluationData.Add(imageData);
-            }
-        }
-    }
-}
-
-// Save the moderation results to a file.
-using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
-{
-    outputWriter.WriteLine(JsonConvert.SerializeObject(
-        evaluationData, Formatting.Indented));
-
-    outputWriter.Flush();
-    outputWriter.Close();
-}
-```
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=17-46)]
 
 ## <a name="run-the-program"></a>Programı çalıştırma
 

@@ -1,22 +1,23 @@
 ---
-title: Ayrılmış HSM ağ | Microsoft Docs
-description: Azure ayrılmış HSM anahtar depolama kapasitesini FIPS karşılayan Azure 140-2 Düzey 3 sertifika sağlar.
+title: İlgili ağ konuları - Azure ayrılmış HSM | Microsoft Docs
+description: Ağ konuları Azure ayrılmış HSM dağıtımlar için geçerli genel bakış
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/06/2018
 ms.author: barclayn
-ms.openlocfilehash: a711fbfe262ea3f9e12e0a4b4f5bf73243a6c726
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 46a4cc5e48a9fe239a3c62bd72cf6a99e9bf76d8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678977"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092900"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure ayrılmış HSM ağ
 
@@ -57,7 +58,7 @@ Bağlantı seçenekleri hakkında daha fazla bilgi için bkz. [VPN Gateway planl
 
 Noktadan siteye sanal özel ağ tek bir uç nokta güvenli bağlantı en basit biçimidir şirket içi. Bu, yalnızca tek bir yönetim iş istasyonu için ayrılmış Hsm'lerin Azure tabanlı olmasını istiyorsanız uygun olabilir.
 
-### <a name="site-to-site-vpn"></a>Konumdan Konuma VPN
+### <a name="site-to-site-vpn"></a>Siteden siteye VPN
 
 Ayrılmış HSM'ler Azure tabanlı ve şirket içi arasında güvenli iletişim için bir siteden siteye sanal özel ağ sağlayan BT. Bunu yapmak için bir neden, HSM'ın şirket içi ve yedekleme çalıştırmak için iki arasında bir bağlantı gerektiren yedekleme olanağını yaşıyor.
 

@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure ExpressRoute için eşleme üzerinden bir siteden siteye VPN yapılandırma | Microsoft Docs
+title: Microsoft Azure - ExpressRoute - eşdüzey hizmet sağlama bir siteden siteye VPN yapılandırma | Microsoft Docs
 description: IPSec/IKE siteden siteye VPN ağ geçidi kullanarak bir ExpressRoute Microsoft eşleme bağlantı hattı üzerinden azure'a bağlantısı yapılandırın.
 services: expressroute
 author: cherylmc
@@ -7,25 +7,25 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5fb4a4034a744b8b2b769a1cfd2d9df12ea90dde
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.custom: seodec18
+ms.openlocfilehash: 3ba9d7ab9e05c3c5480e1832cc5ddd0ce91a3ae1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240924"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094211"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>ExpressRoute Microsoft eşlemesi üzerinde siteden siteye VPN yapılandırma
 
-Bu makalede, bir ExpressRoute özel bağlantı üzerinden şirket içi ağınız ile Azure, sanal ağlar (Vnet'ler) arasında güvenli şifreli bağlantı yapılandırmanıza yardımcı olur. ExpressRoute üzerinden güvenli bir tünel yapılandırma, gizlilik, yürütmeyi, kimlik doğrulaması ve bütünlük ile veri değişimi için sağlar.
+Bu makalede, bir ExpressRoute özel bağlantı üzerinden şirket içi ağınız ile Azure, sanal ağlar (Vnet'ler) arasında güvenli şifreli bağlantı yapılandırmanıza yardımcı olur. Microsoft eşlemesini seçilen şirket içi ağlarınız ve Azure sanal ağları arasında siteden siteye IPSec/IKE VPN tüneli oluşturmak için kullanabilirsiniz. ExpressRoute üzerinden güvenli bir tünel yapılandırma, gizlilik, yürütmeyi, kimlik doğrulaması ve bütünlük ile veri değişimi için sağlar.
 
-## <a name="architecture"></a>Mimarisi
-
-Microsoft eşlemesini seçilen şirket içi ağlarınız ve Azure sanal ağları arasında siteden siteye IPSec/IKE VPN tüneli oluşturmak için kullanabilir.
-
-  >[!NOTE]
+>[!NOTE]
 >Siteden siteye VPN ayarlamaya, eşleme Microsoft ayarladığınızda VPN ağ geçidi ve VPN çıkışı için ücretlendirilir. Daha fazla bilgi için [VPN Gateway fiyatlandırması](https://azure.microsoft.com/pricing/details/vpn-gateway).
 >
 >
+
+## <a name="architecture"></a>Mimarisi
+
 
   ![bağlantıya genel bakış](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory kullanarak kovanından veri kopyalama | Microsoft Docs
-description: Veri kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak kovanından desteklenen havuz veri depolarına kopyalama öğrenin.
+description: Desteklenen bir havuz veri depolarına kovanından bir Azure Data Factory işlem hattında kopyalama etkinliği'ni kullanarak veri kopyalama hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,24 +11,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 379cc5412d317680afa9b03f0eea60c7f1a3b60d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9402be4045b9b3113623cfe3e441c944f62296cc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051102"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079391"
 ---
-# <a name="copy-data-from-hive-using-azure-data-factory"></a>Azure Data Factory kullanarak kovanından veri kopyalama 
+# <a name="copy-data-from-hive-using-azure-data-factory"></a>Hive Azure Data Factory kullanarak verileri kopyalama 
 
-Bu makalede kopya etkinliği Azure Data Factory'de kovanından verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
+Bu makalede, kopyalama etkinliği Azure Data Factory'de kovanından veri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Tüm desteklenen havuz veri deposuna kovanından veri kopyalayabilirsiniz. Kaynakları/havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+Tüm desteklenen havuz veri deposuna kovanından veri kopyalayabilirsiniz. Kaynakları/havuz kopyalama etkinliği tarafından desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
-Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürücü sağlar, bu nedenle bu bağlayıcıyı kullanarak sürücüyü el ile yüklemeniz gerekmez.
+Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürücü sağlar, bu nedenle bu bağlayıcıyı kullanarak herhangi bir sürücü el ile yüklemeniz gerekmez.
 
 ## <a name="getting-started"></a>Başlarken
 
@@ -36,30 +36,30 @@ Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürüc�
 
 Aşağıdaki bölümler, Data Factory varlıklarını belirli Hive bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
-## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
+## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
 
-Aşağıdaki özellikler Hive bağlantılı hizmeti için desteklenir:
+Hive bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Type özelliği ayarlanmalıdır: **yığını** | Evet |
-| konak | IP adresi veya ana bilgisayar adı (yalnızca serviceDiscoveryMode etkin olduğunda) birden çok ana bilgisayar için ';' ile ayrılmış Hive sunucu.  | Evet |
-| port | Hive sunucusunun istemci bağlantılarını dinlemek için kullandığı TCP bağlantı noktası. Azure Hdınsights bağlanıyorsanız, bağlantı noktası 443'tür belirtin. | Evet |
-| Sunucu türü | Hive sunucu türü. <br/>İzin verilen değerler: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Hayır |
-| thriftTransportProtocol | Thrift katmanda kullanılacak Aktarım Protokolü. <br/>İzin verilen değerler: **ikili**, **SASL**, **HTTP** | Hayır |
+| type | Type özelliği ayarlanmalıdır: **Hive** | Evet |
+| konak | IP adresi veya ana bilgisayar adı (yalnızca serviceDiscoveryMode etkin olduğunda) birden çok konak için ';' ile ayrılmış Hive sunucusu.  | Evet |
+| port | Hive sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. Azure Hdınsights bağlarsanız, bağlantı noktası 443 belirtin. | Evet |
+| Sunucu türü | Hive sunucusu tür. <br/>İzin verilen değerler: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Hayır |
+| thriftTransportProtocol | Thrift katmanda kullanılacak taşıma protokol. <br/>İzin verilen değerler: **ikili**, **SASL**, **HTTP** | Hayır |
 | authenticationType | Hive sunucuya erişmek için kullanılan kimlik doğrulama yöntemi. <br/>İzin verilen değerler: **anonim**, **kullanıcıadı**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Evet |
-| serviceDiscoveryMode | ZooKeeper hizmet yanlış kullanmayan belirtmek için true.  | Hayır |
-| zooKeeperNameSpace | Hangi altında Hive Server 2 düğümler eklenir, ZooKeeper ad.  | Hayır |
-| useNativeQuery | Sürücünün yerel HiveQL sorgularını kullanır veya bunları HiveQL eşdeğer bir formda dönüştürür olup olmadığını belirtir.  | Hayır |
+| serviceDiscoveryMode | ZooKeeper hizmeti yanlış kullanmayan belirtmek için true.  | Hayır |
+| zooKeeperNameSpace | Ad alanı üzerinde ZooKeeper düğümleri altında hangi Hive Server 2 eklenir.  | Hayır |
+| useNativeQuery | Sürücü yerel HiveQL sorgularını kullanır veya eşdeğer bir HiveQL formunda dönüştürür olup olmadığını belirtir.  | Hayır |
 | kullanıcı adı | Hive sunucusuna erişmek için kullandığınız kullanıcı adı.  | Hayır |
-| password | Kullanıcıya karşılık gelen parola. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Hayır |
-| httpPath | Hive sunucuya karşılık gelen kısmi URL'si.  | Hayır |
-| enableSsl | Sunucusuna bağlantılarda SSL kullanılarak şifrelenir olup olmadığını belirtir. Varsayılan değer false.  | Hayır |
-| trustedCertPath | Sunucu SSL üzerinden bağlanırken doğrulamak için güvenilen CA sertifikaları içeren .pem dosyasının tam yolu. Bu özellik yalnızca SSL üzerinde kendini barındıran IR kullanırken ayarlanabilir Varsayılan değer ile IR yüklü cacerts.pem dosyasıdır  | Hayır |
-| useSystemTrustStore | Bir CA sertifikası sistem güven deposundan veya belirtilen PEM dosyası kullanılıp kullanılmayacağını belirtir. Varsayılan değer false.  | Hayır |
-| allowHostNameCNMismatch | SSL üzerinden bağlanırken sunucusunun ana bilgisayar adı ile eşleşmesi için CA tarafından verilen SSL sertifika adı istenip istenmeyeceğini belirtir. Varsayılan değer false.  | Hayır |
-| allowSelfSignedServerCert | Otomatik olarak imzalanan sertifikalar sunucudan izin verilip verilmeyeceğini belirtir. Varsayılan değer false.  | Hayır |
-| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu genel olarak erişilebilir ise) Self-hosted tümleştirmesi çalışma zamanı veya Azure tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
+| password | Kullanıcıya karşılık gelen parola. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
+| httpPath | Hive sunucuya karşılık gelen kısmi URL.  | Hayır |
+| enableSsl | Sunucusuna bağlantılarda SSL kullanarak şifrelenip şifrelenmeyeceğini belirtir. Varsayılan değer false'tur.  | Hayır |
+| trustedCertPath | SSL üzerinden bağlanırken sunucu doğrulamak için güvenilen CA sertifikalarını içeren .pem dosyasının tam yolu. Bu özellik yalnızca şirket içinde barındırılan IR üzerinde SSL kullanılarak, ayarlanabilir Varsayılan değer IR ile yüklü cacerts.pem dosyasıdır  | Hayır |
+| useSystemTrustStore | Bir CA sertifikası sistem güven deposu veya belirtilen bir PEM dosyası kullanılıp kullanılmayacağını belirtir. Varsayılan değer false'tur.  | Hayır |
+| allowHostNameCNMismatch | SSL üzerinden bağlanırken sunucu ana bilgisayar adını eşleştirmek için bir CA tarafından verilen SSL sertifika adı gerekip gerekmediğini belirtir. Varsayılan değer false'tur.  | Hayır |
+| allowSelfSignedServerCert | Otomatik olarak imzalanan sertifikalar sunucudan izin verilip verilmeyeceğini belirtir. Varsayılan değer false'tur.  | Hayır |
+| connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz genel olarak erişilebilir değilse), şirket içinde barındırılan tümleştirme çalışma zamanı veya Azure Integration Runtime kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
 **Örnek:**
 
@@ -84,9 +84,14 @@ Aşağıdaki özellikler Hive bağlantılı hizmeti için desteklenir:
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
-Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Hive veri kümesi tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Hive veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Kovanından verileri kopyalamak için kümesine tür özelliği ayarlamak **HiveObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Kovanından veri kopyalamak için dataset öğesinin type özelliği ayarlamak **HiveObject**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **HiveObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -98,23 +103,24 @@ Kovanından verileri kopyalamak için kümesine tür özelliği ayarlamak **Hive
         "linkedServiceName": {
             "referenceName": "<Hive linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
-Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde, Hive kaynak tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, Hive kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
 ### <a name="hivesource-as-source"></a>Kaynak olarak HiveSource
 
-Kovanından verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **HiveSource**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **kaynak** bölümü:
+Kovanından veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **HiveSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **HiveSource** | Evet |
-| sorgu | Verileri okumak için özel SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Evet |
+| type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **HiveSource** | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 
@@ -149,4 +155,4 @@ Kovanından verileri kopyalamak için kopyalama etkinliği için kaynak türün�
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kaynakları ve havuzlarını Azure Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).
+Azure Data Factory kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).

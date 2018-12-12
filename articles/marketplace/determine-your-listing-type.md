@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6d05323eb08a69ef4b76dbbf35217d80b9b2dc3c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0ad4fef9dd67ed0bf2bc9a3c66e26fc111526b90
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261080"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081549"
 ---
 # <a name="determine-your-publishing-option"></a>Yayımlama seçeneğinizi belirleyin
 Teklifiniz için seçtiğiniz yayımlama seçeneği doğrudan hem uygunluk gereksinimleri ve Market Avantajlarımız ilişkilendirir. Daha da önemlisi, kullanıcılar, Market teklifi ile nasıl etkileşime gireceğini seçeneğini ve Teklif türü bulut iş ortağı Portalı'nda yayımlama seçimi tanımlar.
 
 Teklif türü seçerek ve ardından bir Market teklifi bulut iş ortağı Portalı'nda oluşturma Yayımlama Seçenekleri'ni etkinleştirebilirsiniz. Bunu yapmak için aşağıdaki anahtar Market kavramları anlamanız gerekir: çağrıları nasıl ve nerede teklifinizi Market vitrininin birleşiminden içinde sunulur yöneten eylem türleri ve yapılandırmanız yayımlama seçeneklerini sunar.
 
-![](https://github.com/ellacroi/azure-docs-pr/blob/options-table/articles/marketplace/media/marketplace-publishers-guide/storefronts_options_table.png?raw=true)
+![](./media/marketplace-publishers-guide/storefronts_options_table.png)
 
 >[!Note]
 >Yukarıdaki tabloda, mağaza yayımlama seçeneği ve teklifiniz Market'te sunmak için kullanılan Teklif türü için çözüm ya da hizmet nasıl eşlendiğini açıklar.

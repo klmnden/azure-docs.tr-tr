@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Konuşma Tanıma Hizmeti SDK’sını kullanarak tarayıcıda JavaScript’te konuşma tanıma'
+title: 'Hızlı Başlangıç: Javascript (tarayıcı) - konuşma Hizmetleri konuşma tanıma'
 titleSuffix: Azure Cognitive Services
 description: Konuşma Tanıma Hizmeti SDK’sını kullanarak tarayıcıda JavaScript’te konuşma tanımayı öğrenme
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: 1e844f83c715dd8ac78a3340628988625e95a4ba
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: f8b6f4d39ce4dc65d691ec6a0e3d0734abb19734
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218449"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087924"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Hızlı Başlangıç: Konuşma Tanıma Hizmeti SDK’sını kullanarak tarayıcıda JavaScript’te konuşma tanıma
 
@@ -24,7 +24,7 @@ ms.locfileid: "51218449"
 Bu makalede, konuşmayı metne dönüştürmek için Bilişsel Hizmetler Konuşma SDK’sının JavaScript bağlamasını kullanarak bir web sitesi oluşturmayı öğreneceksiniz.
 Uygulama Microsoft Bilişsel Hizmetler Konuşma SDK'sını temel alır ([Sürüm 1.1.0’ı indirin](https://aka.ms/csspeech/jsbrowserpackage)).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Konuşma tanıma hizmeti için bir abonelik anahtarı. Bkz. [Konuşma Tanıma Hizmetini ücretsiz olarak deneyin](get-started.md).
 * Çalışan bir mikrofon ile bir PC veya Mac.

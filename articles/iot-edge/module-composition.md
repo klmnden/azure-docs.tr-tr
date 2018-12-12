@@ -1,5 +1,5 @@
 ---
-title: Azure IOT Edge modülü oluşturma | Microsoft Docs
+title: Modüller ve rotalar dağıtım bildirimleri - Azure IOT Edge ile bildirmek | Microsoft Docs
 description: Bir dağıtım bildirimi dağıtmak için hangi modülü nasıl bildirir, nasıl dağıtacağınızı ve bunlar arasında ileti yollarını nasıl oluşturulacağını öğrenin.
 author: kgremban
 manager: philmea
@@ -8,12 +8,13 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 106ad5d4649b2845327eadd99972d56f1503b3e4
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 0b221274923a6270e980d027aadc58154c7054b9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584817"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099979"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>IOT Edge'de yollar oluşturmak ve modülleri dağıtma hakkında bilgi edinin
 

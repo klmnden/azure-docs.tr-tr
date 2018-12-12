@@ -1,20 +1,20 @@
 ---
-title: Azure IoT Edge ile Azure işlevlerini dağıtma | Microsoft Docs
-description: Bu öğreticide Azure işlevini bir modül olarak Edge cihazına dağıtacaksınız.
+title: Öğretici bir Azure işlevi bir cihaza - Azure IOT Edge dağıtma | Microsoft Docs
+description: Bu öğreticide, geliştirdiğiniz bir Azure IOT Edge modülü işlev ve edge cihazına dağıtma.
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/21/2018
+ms.date: 10/19/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 27aac9431c3f4cd801d090ddf11114c98edab405
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 1488f6aff202f8b307b883d8a795d7df20066661
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567324"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081889"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Öğretici: Azure'da dağıtma işlevleri IOT Edge modülleri
 
@@ -27,7 +27,7 @@ ms.locfileid: "51567324"
 > * Filtrelenmiş verileri görüntüleme.
 
 <center>
-![Öğretici mimarisi diyagramı](./media/tutorial-deploy-function/FunctionsTutDiagram.png)
+![Diyagram - öğretici mimarisi, aşama ve işlev modülü dağıtma](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
 
 >[!NOTE]
@@ -41,7 +41,7 @@ Bu öğreticide oluşturacağınız Azure işlevi, cihazınız tarafından oluş
 
 Bir Azure IoT Edge cihazı:
 
-* [Linux](quickstart-linux.md) veya [Windows cihazları](quickstart.md) için hızlı başlangıç adımlarını izleyerek dağıtım makinenizi veya sanal makinenizi bir Edge cihazı olarak kullanabilirsiniz.
+* Hızlı Başlangıç adımları izleyerek bir Edge cihazının geliştirme makinenizde veya bir sanal makine ayarlayabilirsiniz [Linux](quickstart-linux.md) veya [Windows cihazları](quickstart.md).
 
 Bulut kaynakları:
 
@@ -51,19 +51,19 @@ Geliştirme kaynakları:
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Visual Studio Code için C# (OmniSharp tarafından desteklenen) uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
-* Visual Studio Code için [Azure IoT Edge uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
+* [Visual Studio Code için Azure IoT Edge uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
 * [.NET Core 2.1 SDK'sı](https://www.microsoft.com/net/download).
 * [Docker CE](https://docs.docker.com/install/). 
 
 ## <a name="create-a-container-registry"></a>Kapsayıcı kayıt defteri oluşturma
 
-Bu öğreticide modül hazırlamak ve dosyalardan bir **kapsayıcı görüntüsü** oluşturmak için VS Code için Azure IoT Edge uzantısını kullanırsınız. Ardından bu görüntüyü, görüntülerinizin depolandığı ve yönetildiği **kayıt defterine** gönderirsiniz. Son olarak, görüntünüzü IoT Edge cihazınızda çalıştırmak üzere kayıt defterinizden dağıtırsınız.  
+Bu öğreticide, bir modül olarak derlemek ve oluşturmak için Visual Studio Code için Azure IOT Edge uzantısını kullanırsınız bir **kapsayıcı görüntüsü** dosyalarından. Ardından bu görüntüyü, görüntülerinizin depolandığı ve yönetildiği **kayıt defterine** gönderirsiniz. Son olarak, görüntünüzü IoT Edge cihazınızda çalıştırmak üzere kayıt defterinizden dağıtırsınız.  
 
-Bu öğretici için Docker ile uyumlu herhangi bir kayıt defteri kullanabilirsiniz. Bulutta sağlanan iki popüler Docker kayıt defteri hizmeti [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) ve [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)'dır. Bu öğreticide Azure Container Registry kullanılır. 
+Herhangi bir Docker ile uyumlu kayıt defteri, kapsayıcı görüntülerinizi tutmak için kullanabilirsiniz. İki popüler Docker kayıt defteri Hizmetleri [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) ve [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Bu öğreticide Azure Container Registry kullanılır. 
 
 1. [Azure portalında](https://portal.azure.com), **Kaynak oluştur** > **Kapsayıcılar** > **Container Registry**'yi seçin.
 
-    ![Kapsayıcı kayıt defteri oluşturma](./media/tutorial-deploy-function/create-container-registry.png)
+    ![Azure portalını kullanarak kapsayıcı kayıt defteri oluşturma](./media/tutorial-deploy-function/create-container-registry.png)
 
 2. Kapsayıcı kayıt defterinizi oluşturmak için aşağıdaki değerleri girin:
 
@@ -80,7 +80,7 @@ Bu öğretici için Docker ile uyumlu herhangi bir kayıt defteri kullanabilirsi
 
 6. Kapsayıcı kayıt defteriniz oluşturulduktan sonra, bu kayıt defterine gidin ve **Erişim anahtarları**'nı seçin. 
 
-7. **Oturum açma sunucusu**, **Kullanıcı adı** ve **Parola** değerlerini kopyalayın. Öğreticinin sonraki bölümlerinde bu değerleri kullanırsınız. 
+7. **Oturum açma sunucusu**, **Kullanıcı adı** ve **Parola** değerlerini kopyalayın. Kapsayıcı kayıt defterine erişim sağlamak için öğreticinin ilerleyen bölümlerinde bu değerleri kullanırsınız. 
 
 ## <a name="create-a-function-project"></a>İşlev projesi oluşturma
 
@@ -90,90 +90,89 @@ Bu öğretici için Docker ile uyumlu herhangi bir kayıt defteri kullanabilirsi
 
 2. **View (Görünüm)** > **Command Palette (Komut Paleti)** öğesini seçerek VS Code komut paletini açın.
 
-3. Komut paletinde **Azure: Sign in** komutunu girin ve çalıştırın. Azure hesabınızda oturum açmak için yönergeleri izleyin.
+3. Komut paletinde **Azure IoT Edge: New IoT Edge solution** komutunu girin ve çalıştırın. Çözümünüzü oluşturmak için komut paletindeki yönergeleri izleyin.
 
-4. Komut paletinde **Azure IoT Edge: New IoT Edge solution** komutunu girin ve çalıştırın. Çözümünüzü oluşturmak için komut paletindeki yönergeleri izleyin.
-
-   1. Çözümü oluşturmak istediğiniz klasörü seçin. 
-   2. Çözümünüz için bir ad girin veya varsayılan **EdgeSolution** adını kabul edin.
-   3. Modül şablonu olarak **Azure İşlevleri - C#** seçin. 
-   4. Modülünüze **CSharpFunction** adını verin. 
-   5. İlk modülünüz için görüntü deposu olarak önceki bölümde oluşturduğunuz Azure Container Registry bileşenini belirtin. **localhost:5000** yerine kopyaladığınız oturum açma sunucusu değerini yazın. Modül adının (örneğin, /csharpfunction) dizenin bir parçası olarak değiştirilmeden bırakıldığından emin olun. Dizenin son hali \<kayıt defteri adı\>.azurecr.io/csharpfunction ifadesine benzer olmalıdır.
+   | Alan | Değer |
+   | ----- | ----- |
+   | Klasör seçin | Geliştirme makinenizde VS Code'un çözüm dosyalarını oluşturmak için kullanacağı konumu seçin. |
+   | Çözüm adı sağlayın | Gibi çözümünüz için açıklayıcı bir ad girin **FunctionSolution**, veya varsayılan değeri kabul edin. |
+   | Modül şablonunu seçin | Seçin **Azure işlevleri - C#** . |
+   | Modül adı sağlayın | Modülünüze **CSharpFunction** adını verin. |
+   | Modül için Docker görüntü deposunu sağlama | Görüntü deposu, kapsayıcı kayıt defterinizin adını ve kapsayıcı görüntünüzün adını içerir. Kapsayıcı görüntünüz bir önceki adımdaki değerle önceden doldurulur. **localhost:5000** yerine Azure kapsayıcı kayıt defterinizden alacağınız oturum açma sunucusu değerini yazın. Oturum açma sunucusunu Azure portalda kapsayıcı kayıt defterinizin Genel bakış sayfasından alabilirsiniz. Son dize şuna benzer \<kayıt defteri adı\>.azurecr.io/CSharpFunction. |
 
    ![Docker görüntü deposunu sağlama](./media/tutorial-deploy-function/repository.png)
 
 4. VS Code penceresi IoT Edge çözümü çalışma alanınızı yükler: \.vscode klasörü, modül klasörü, dağıtım bildirimi şablon dosyası. ve \.env dosyası. VS Code gezgininde, **modules** > **CSharpFunction** > **CSharpFunction.cs** dosyasını açın.
 
-5. **CSharpFunction.cs** dosyasının içeriğini aşağıdaki kodla değiştirin:
+5. Öğesinin içeriğini değiştirin **CSharpFunction.cs** dosyasındaki kodu aşağıdaki kodla. Bu kod, ortam hakkında telemetri ve makine sıcaklık alır ve makine sıcaklık tanımlı bir eşiğin üzerindeyse yalnızca IOT hub'ı açın ileti iletir.
 
    ```csharp
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Microsoft.Azure.Devices.Client;
-    using Microsoft.Azure.WebJobs;
-    using Microsoft.Azure.WebJobs.Extensions.EdgeHub;
-    using Microsoft.Azure.WebJobs.Host;
-    using Microsoft.Extensions.Logging;
-    using Newtonsoft.Json;
+   using System;
+   using System.Collections.Generic;
+   using System.IO;
+   using System.Text;
+   using System.Threading.Tasks;
+   using Microsoft.Azure.Devices.Client;
+   using Microsoft.Azure.WebJobs;
+   using Microsoft.Azure.WebJobs.Extensions.EdgeHub;
+   using Microsoft.Azure.WebJobs.Host;
+   using Microsoft.Extensions.Logging;
+   using Newtonsoft.Json;
 
-    namespace Functions.Samples
-    {
-        public static class CSharpFunction
-        {
-            [FunctionName("CSharpFunction")]
-            public static async Task FilterMessageAndSendMessage(
-                        [EdgeHubTrigger("input1")] Message messageReceived,
-                        [EdgeHub(OutputName = "output1")] IAsyncCollector<Message> output,
-                        ILogger logger)
-            {
-                const int temperatureThreshold = 20;
-                byte[] messageBytes = messageReceived.GetBytes();
-                var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
+   namespace Functions.Samples
+   {
+       public static class CSharpFunction
+       {
+           [FunctionName("CSharpFunction")]
+           public static async Task FilterMessageAndSendMessage(
+               [EdgeHubTrigger("input1")] Message messageReceived,
+               [EdgeHub(OutputName = "output1")] IAsyncCollector<Message> output,
+               ILogger logger)
+           {
+               const int temperatureThreshold = 20;
+               byte[] messageBytes = messageReceived.GetBytes();
+               var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
 
-                if (!string.IsNullOrEmpty(messageString))
-                {
-                    logger.LogInformation("Info: Received one non-empty message");
-                    // Get the body of the message and deserialize it.
-                    var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
+               if (!string.IsNullOrEmpty(messageString))
+               {
+                   logger.LogInformation("Info: Received one non-empty message");
+                   // Get the body of the message and deserialize it.
+                   var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
 
-                    if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
-                    {
-                        // Send the message to the output as the temperature value is greater than the threashold.
-                        var filteredMessage = new Message(messageBytes);
-                        // Copy the properties of the original message into the new Message object.
-                        foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
-                        {
-                            filteredMessage.Properties.Add(prop.Key, prop.Value);                }
-                        // Add a new property to the message to indicate it is an alert.
-                        filteredMessage.Properties.Add("MessageType", "Alert");
-                        // Send the message.       
-                        await output.AddAsync(filteredMessage);
-                        logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
-                    }
-                }
-            }
-        }
-        //Define the expected schema for the body of incoming messages.
-        class MessageBody
-        {
-            public Machine machine {get; set;}
-            public Ambient ambient {get; set;}
-            public string timeCreated {get; set;}
-        }
-        class Machine
-        {
-            public double temperature {get; set;}
-            public double pressure {get; set;}         
-        }
-        class Ambient
-        {
-            public double temperature {get; set;}
-            public int humidity {get; set;}         
-        }
-    }
+                   if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
+                   {
+                       // Send the message to the output as the temperature value is greater than the threashold.
+                       var filteredMessage = new Message(messageBytes);
+                       // Copy the properties of the original message into the new Message object.
+                       foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+                       {filteredMessage.Properties.Add(prop.Key, prop.Value);}
+                       // Add a new property to the message to indicate it is an alert.
+                       filteredMessage.Properties.Add("MessageType", "Alert");
+                       // Send the message.       
+                       await output.AddAsync(filteredMessage);
+                       logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
+                   }
+               }
+           }
+       }
+       //Define the expected schema for the body of incoming messages.
+       class MessageBody
+       {
+           public Machine machine {get; set;}
+           public Ambient ambient {get; set;}
+           public string timeCreated {get; set;}
+       }
+       class Machine
+       {
+           public double temperature {get; set;}
+           public double pressure {get; set;}         
+       }
+       class Ambient
+       {
+           public double temperature {get; set;}
+           public int humidity {get; set;}         
+       }
+   }
    ```
 
 6. Dosyayı kaydedin.
@@ -186,12 +185,13 @@ Bu bölümde kapsayıcı kayıt defterinizin kimlik bilgilerini iki kez belirtec
 
 1. **Görünüm** > **Terminal**'i seçerek VS Code tümleşik terminalini açın. 
 
-1. Tümleşik terminale aşağıdaki komutu girerek kapsayıcı kayıt defterinizde oturum açın. Ardından, modül görüntünüzü Azure kapsayıcı kayıt defterinize gönderin: 
+2. Tümleşik terminale aşağıdaki komutu girerek kapsayıcı kayıt defterinizde oturum açın. Önceki adımlarda Azure kapsayıcı kayıt defterinden kopyaladığınız kullanıcı adını ve oturum açma sunucusunu kullanın.
      
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
     ```
-    Önceki adımlarda Azure kapsayıcı kayıt defterinden kopyaladığınız kullanıcı adını ve oturum açma sunucusunu kullanın. Parola sorulduğunda kapsayıcı kayıt defterinizin parolasını yapıştırın ve **Enter** tuşuna basın.
+
+    Parola sorulduğunda kapsayıcı kayıt defterinizin parolasını yapıştırın ve **Enter** tuşuna basın.
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>
@@ -235,9 +235,9 @@ Hızlı başlangıçlarda yaptığınız gibi işlev modülünüzü IoT Edge cih
 
 6. IoT Edge cihazınızın adına sağ tıklayıp **Create Deployment for Single Device**'ı (Tek bir cihaz için dağıtım oluştur) seçin. 
 
-7. **CSharpFunction** modülünü içeren çözüm klasörüne göz atın. Config klasörünü açın, deployment.json dosyasını seçin ve ardından **Select Edge Deployment Manifest** (Edge Dağıtım Bildirimini Seç) öğesini seçin.
+7. **CSharpFunction** modülünü içeren çözüm klasörüne göz atın. Config klasörünü açın, **deployment.json** dosya ve ardından **Edge dağıtım bildirimi seçin**.
 
-8. **Azure IoT Hub Devices** (Azure IoT Hub Cihazları) bölümünü yenileyin. Yeni **CSharpFunction** ile **TempSensor** modülü ve **$edgeAgent** ile **$edgeHub** bileşenlerinin çalıştığını görmeniz gerekir. 
+8. **Azure IoT Hub Devices** (Azure IoT Hub Cihazları) bölümünü yenileyin. Yeni **CSharpFunction** ile **TempSensor** modülü ve **$edgeAgent** ile **$edgeHub** bileşenlerinin çalıştığını görmeniz gerekir. Bu, gösterilecek yeni modüller için birkaç dakika sürebilir. IOT Edge Cihazınızı IOT Hub'ından yeni dağıtım bilgilerini almak için yeni kapsayıcılar başlatın ve ardından durum IOT Hub'ına rapor gerekir. 
 
    ![Dağıtılan modülleri VS Code'da görüntüleme](./media/tutorial-deploy-function/view-modules.png)
 

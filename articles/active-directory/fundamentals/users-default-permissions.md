@@ -1,5 +1,5 @@
 ---
-title: Varsayılan kullanıcı izinleri Azure Active Directory nelerdir? | Microsoft Docs
+title: Varsayılan kullanıcı izinleri - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory'de bulunan farklı kullanıcı izinleri hakkında bilgi edinin.
 services: active-directory
 author: eross-msft
@@ -11,16 +11,15 @@ ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
-custom: it-pro
-ms.openlocfilehash: 9a9bd33dce4b2be9e15df2745dd25338cdb42702
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 496f751c263d17d3c5d8e10321bef8330c2f1a24
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730488"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096612"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Varsayılan kullanıcı izinleri Azure Active Directory nelerdir?
-
 Azure Active Directory'de (Azure AD) tüm kullanıcılara varsayılan olarak belirli izinler verilir. Bir kullanıcının erişim bilgileri kullanıcı türünü, [rol üyeliklerini](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) ve bağımsız nesne sahiplik verilerini kapsar. Bu makalede bu varsayılan izinler ve açıklanmakta ve üye ile konuk varsayılan değerleri karşılaştırılmaktadır.
 
 ## <a name="member-and-guest-users"></a>Üyeler ve konuk kullanıcılar

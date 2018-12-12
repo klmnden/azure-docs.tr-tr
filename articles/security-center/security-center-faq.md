@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 4db786723793ca309b8c0abe7c6ede848649576b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 956ffb298301aef914221a8d2e623b19191909c0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834613"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095372"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, artırılmış görünürlük ve Microsoft Azure kaynaklarınızın güvenliğini denetim ile tehditleri önleyin, algılayın ve yardımcı olan bir hizmet hakkında sorular yanıtlanmaktadır.
@@ -201,7 +201,7 @@ Veri toplamayı devre dışı bırakmak için [Azure portalında oturum açın](
 Azure aboneliğinizi güvenlik ilkesinde veri toplamayı etkinleştirebilirsiniz. Veri toplamayı etkinleştirmek için. [Azure portalında oturum açın](https://portal.azure.com)seçin **Gözat**seçin **Güvenlik Merkezi**seçip **Güvenlik İlkesi**. Otomatik sağlamayı etkinleştirmek istediğiniz aboneliği seçin. Bir aboneliği seçtiğinizde **güvenlik ilkesi - veri toplama** açılır. Altında **otomatik sağlama**seçin **üzerinde**.
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>Veri toplama etkinleştirilirse ne olur?
-Otomatik sağlama etkinleştirildiğinde Güvenlik Merkezi Microsoft Monitoring Agent'ı tüm Azure Vm'lere ve oluşturulan tüm yeni vm'lere desteklenen hazırlar. Otomatik sağlama önemle tavsiye edilir ancak el ile aracı yüklemelerini da kullanılabilir. [Microsoft Monitoring Agent uzantısını nasıl yükleyeceğiniz öğrenin](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
+Otomatik sağlama etkinleştirildiğinde Güvenlik Merkezi Microsoft Monitoring Agent'ı tüm Azure Vm'lere ve oluşturulan tüm yeni vm'lere desteklenen hazırlar. Otomatik sağlama önemle tavsiye edilir ancak el ile aracı yüklemelerini da kullanılabilir. [Microsoft Monitoring Agent uzantısını nasıl yükleyeceğiniz öğrenin](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
 
 İşlem oluşturma olayı 4688 Aracısı etkinleştirir ve *CommandLine* olay 4688 içindeki alan. VM üzerinde oluşturulan yeni süreçler olay günlüğü tarafından kaydedilir ve Güvenlik Merkezi'nin algılama hizmetleri tarafından izlenen. Her yeni bir işlem için kayıtlı ayrıntıları hakkında bilgi için bkz. [4688 açıklama alanlarına](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). Aracı ayrıca VM üzerinde oluşturulan 4688 olayları toplar ve bunları Search'te depolar.
 

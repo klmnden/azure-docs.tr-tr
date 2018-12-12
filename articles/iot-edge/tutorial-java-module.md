@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge Java öğreticisi | Microsoft Docs
+title: Öğretici, Azure IOT Edge - özel Java modülü oluşturma | Microsoft Docs
 description: Bu öğreticide Java koduyla IoT Edge modülü oluşturma ve bir Edge cihazına dağıtma adımları gösterilir.
 services: iot-edge
 author: kgremban
@@ -8,13 +8,13 @@ ms.author: kgremban
 ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: e64acff180d0faf3dfcfe02abb2d659db62ed788
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: mvc, seodec18
+ms.openlocfilehash: e5593eedd98dadce4eb42bbe172b692287acc8f1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312325"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080939"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Öğretici: Java IoT Edge modülü geliştirme ve simülasyon cihazınıza dağıtma
 

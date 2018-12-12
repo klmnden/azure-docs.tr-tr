@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: fee9deb43b4619f26cb9e4c0044b25bd34af93d2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a4c683f6f3a1b321b786569999edac67cfb41892
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126845"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083504"
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>Couchbase, Azure Data Factory (Önizleme) kullanarak verileri kopyalama
 
@@ -74,7 +74,13 @@ Couchbase bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Couchbase veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Couchbase verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **CouchbaseTable**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Couchbase verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **CouchbaseTable**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **CouchbaseTable** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
+
 
 **Örnek**
 
@@ -86,7 +92,8 @@ Couchbase verileri kopyalamak için dataset öğesinin type özelliği ayarlamak
         "linkedServiceName": {
             "referenceName": "<Couchbase linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -102,7 +109,7 @@ Couchbase verileri kopyalamak için kopyalama etkinliği için kaynak türünü 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **CouchbaseSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

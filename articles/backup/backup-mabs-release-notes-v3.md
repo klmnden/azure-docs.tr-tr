@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/22/2018
 ms.author: v-jysur
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 1d077fc8a853f145d271fa69d453ea2ea70ab696
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9ff66b386a6293c11ad67ec90e165b927ad6669b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319480"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870563"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Microsoft Azure Backup sunucusu için sürüm notları
 Bu makalede, Microsoft Azure Backup sunucusu (MABS) V3 için bilinen sorunlar ve geçici çözümler sağlar.
@@ -77,4 +77,4 @@ Bu makalede, Microsoft Azure Backup sunucusu (MABS) V3 için bilinen sorunlar ve
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[MABS v3 sürümünde yenilikler nelerdir?](backup-mabs-whats-new-mabs.md)
+[MABS V3 sürümünde yenilikler nelerdir?](backup-mabs-whats-new-mabs.md)

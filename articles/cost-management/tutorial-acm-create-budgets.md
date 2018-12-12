@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: f64a82cc3096c3c4d2a47568f4d6d516c685ee04
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: fc38c6278590e213674a2522169f988eaeea9cc4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52991745"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081362"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Öğretici: Oluşturma ve Azure bütçelerini yönetin
 
@@ -45,7 +45,7 @@ Maliyet Yönetimi verilerine izin atama hakkında daha fazla bilgi için bkz. [m
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-- http://portal.azure.com adresinden Azure portalında oturum açın.
+- https://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Azure portalında bir bütçe oluşturun
 
@@ -57,23 +57,23 @@ Bütçe oluşturduktan sonra bunlar geçerli bunlara karşı harcamalarınızı 
 
 **Ekle**'ye tıklayın.
 
-![Maliyet Yönetimi bütçelerini](./media/tutorial-acm-create-budgets/budgets01.png)
+![Azure portalında gösterilen yönetim bütçelerini maliyeti](./media/tutorial-acm-create-budgets/budgets01.png)
 
 İçinde **Oluştur bütçe** penceresinde bir bütçe adı ve bütçe miktarı girin. Ardından, bir aylık, üç aylık, veya yıllık süresi seçin. Ardından, bir bitiş tarihi seçin. Bütçe en az bir maliyet eşiği (% bütçe) ve karşılık gelen e-posta adresi gerektirir. İsteğe bağlı olarak, en fazla beş eşikleri ve tek bir bütçe içinde beş e-posta adresi ekleyebilirsiniz. Bütçe eşiği karşılandığında, e-posta bildirimleri normal olarak sekiz saatten kısa bir süre içinde alınır.
 
 4.500 için aylık bir bütçe oluşturma örneği aşağıda verilmiştir. %90 bütçenin ulaşıldığında bir e-posta uyarısı oluşturulan.
 
-![Aylık bütçe örneği](./media/tutorial-acm-create-budgets/monthly-budget01.png)
+![Oluştur bütçe kutusunda gösterilen örnek bilgileri](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
 Üç aylık bir bütçe oluşturduğunuzda, bir aylık bütçe aynı şekilde çalışır. Üç aylık dönem arasında üç aylık üç aylık dönem için bütçe miktarını şekilde eşit bölünür farktır. Bekleyebileceğiniz gibi yıllık bir bütçe tutarı tüm 12 ay takvim yılı boyunca şekilde eşit bölünür.
 
 Maliyet Yönetimi güncelleştirilmiş fatura veri aldığında, geçerli harcama bütçenize göre güncelleştirilir. Genellikle, her gün.
 
-![Geçerli harcama bütçenize göre](./media/tutorial-acm-create-budgets/budgets-current-spending.png)
+![Geçerli harcama bütçenize göre gösteren örnek bilgiler](./media/tutorial-acm-create-budgets/budgets-current-spending.png)
 
 Bütçe oluşturduktan sonra maliyet analizi gösterilmektedir. Bütçenize göre harcama eğilimi görüntüleme olduğunda ilk adımlarından biri için başlangıç [maliyetlerinizi analiz edin ve harcama](quick-acm-cost-analysis.md).
 
-![Maliyet analizi gösterilen bütçe](./media/tutorial-acm-create-budgets/cost-analysis.png)
+![Örnek bütçe ve maliyet analizi gösterilen harcama](./media/tutorial-acm-create-budgets/cost-analysis.png)
 
 Önceki örnekte, bir abonelik için bir bütçe oluşturuldu. Ancak, bir kaynak grubu için bütçe oluşturabilirsiniz. Bir kaynak grubu için bütçe oluşturmak istiyorsanız, gitmek **maliyet Yönetimi + faturalandırma** &gt; **abonelikleri** &gt; bir aboneliği seçin > **kaynak grupları** > bir kaynak grubu seçin > **bütçelerini** > ardından **Ekle** bütçe.
 
@@ -81,7 +81,7 @@ Bütçe oluşturduktan sonra maliyet analizi gösterilmektedir. Bütçenize gör
 
 Sahip olduğunuz erişim düzeyine bağlı olarak, bir bütçe özelliklerini değiştirmek için düzenleyebilirsiniz. Kullanıcı yalnızca abonelik için katkıda bulunan izni olduğundan aşağıdaki örnekte, bazı özellikleri salt okunurdur. Şu anda **sona erme tarihi** devre dışı bırakılır ve bir kez ayarlandıktan sonra değiştirilemez.
 
-![Bütçe – katkıda bulunan izni Düzenle](./media/tutorial-acm-create-budgets/edit-budget.png)
+![Örneği, çeşitli özelliklerini değiştirmek için bir bütçe düzenleme](./media/tutorial-acm-create-budgets/edit-budget.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

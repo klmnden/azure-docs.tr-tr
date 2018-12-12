@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs olay işlemcisi konağı nedir ve neden kullanılır | Microsoft Docs
-description: Genel bakış ve Azure Event Hubs olay işlemcisi konağı giriş
+title: Olay işlemcisi konağı - Azure Event Hubs kullanarak olay alma | Microsoft Docs
+description: Bu makalede, Azure Event denetim noktası yönetimini basitleştiren, kiralama ve olayları eçimi paralel okumaya hubs'da, olay işlemcisi konağı açıklanır.
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 236103861ce8a296c77f708dbb4a7cc7e03f10f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a28ae46a449d4aacf046636793585a84adc5ba83
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258961"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089642"
 ---
-# <a name="azure-event-hubs-event-processor-host-overview"></a>Azure Event Hubs olay işlemcisi konağı genel bakış
+# <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>Olay işlemcisi konağı kullanarak Azure Event Hubs'tan gelen olayları alma
 
 Azure Event Hubs, milyonlarca olayı düşük bir maliyet karşılığında kullanılabilir güçlü telemetri alma hizmetidir. Bu makalede kullanarak içe alınan etkinlikleri kullanma *Event Processor Host* (EPH); akıllı bir tüketici aracıyı denetim noktası oluşturma, kiralama ve paralel olay okuyucuları yönetimini basitleştirir.  
 

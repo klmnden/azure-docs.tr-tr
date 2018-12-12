@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: df1fbcb09310985b7ca9d9fd2e7a987fc6e2b2dc
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 1958d694ab87d635624884b43486761269e37c37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457108"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082655"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure veri fabrikasında kopyalama etkinliği
 
@@ -173,6 +173,7 @@ Kopyalama etkinliğinin yürütme ayrıntıları ve performans özelliklerini de
 | DataRead | Kaynaktan okunan veri boyutu | Int64 değeri **bayt** |
 | DataWritten | Havuz için yazılan veri boyutu | Int64 değeri **bayt** |
 | filesRead | Dosya depolama'yı veri kopyalama işlemi sırasında kopyalanan dosyaların sayısıdır. | Int64 değeri (birim) |
+| fileScanned | Kaynak dosya depolama'yı taranan dosya sayısı. | Int64 değeri (birim) |
 | filesWritten | Dosya depolama alanına veri kopyalama işlemi sırasında kopyalanan dosyaların sayısıdır. | Int64 değeri (birim) |
 | rowsCopied | (İkili kopya için geçerli değildir) Kopyalanan satırların sayısı. | Int64 değeri (birim) |
 | rowsSkipped | İki tanesinden uyumsuz satırların sayısı. True olarak Ayarla "Enableskipıncompatiblerow" tarafından özelliğini kapatabilirsiniz. | Int64 değeri (birim) |

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: b207af3bed40f6287f60b25638f3091fa187aa6f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 58a354950e303eda8158ca072870bfecbf33a89f
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405081"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890220"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Ayarlama ve çok kiracılı bir SQL veritabanı SaaS uygulamasıyla Log Analytics'i kullanma
 
@@ -42,7 +42,7 @@ Bkz: [performans izleme ve yönetim öğreticisini](saas-dbpertenant-performance
 
 Yüksek hacimli senaryolar için Log Analytics, izleme ve uyarı amacıyla kullanabilirsiniz. Log Analytics, tanılama günlükleri ve potansiyel olarak birçok hizmetten bir çalışma alanında toplanan telemetri üzerinden analizler sağlayan ayrı bir Azure hizmetidir. Log Analytics, yerleşik bir sorgu işlem verilerinin analiz izin dili ve veri görselleştirme araçları sağlar. SQL analizleri çözümü, birkaç önceden tanımlanmış bir elastik havuz ve veritabanı izleme ve uyarı görünümleri ve sorguları sağlar. Log Analytics, özel bir Görünüm Tasarımcısı da sağlar.
 
-OMS çalışma alanları, artık Log Analytics çalışma alanları da adlandırılır. Log Analytics çalışma alanları ve analiz çözümleri, Azure portalında açın. Azure portalında yeni erişim noktasıdır, ancak bazı alanlar Operations Management Suite portalında arkasında nedir olabilir.
+OMS çalışma alanları artık Log Analytics çalışma alanları olarak adlandırılır. Log Analytics çalışma alanları ve analiz çözümleri, Azure portalında açın. Azure portalında yeni erişim noktasıdır, ancak bazı alanlar Operations Management Suite portalında arkasında nedir olabilir.
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Kiracılarınız bir iş yüküne benzetimini yaparak performansı tanılama veri oluşturma 
 
@@ -151,4 +151,4 @@ Deneyin [Kiracı analizi Öğreticisi](saas-dbpertenant-log-analytics.md).
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [İlk Wingtip bilet SaaS Kiracı başına veritabanı uygulama dağıtımı geliştirecek ek öğreticilerden](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
+* [Azure Log Analytics](../azure-monitor/insights/azure-sql.md)

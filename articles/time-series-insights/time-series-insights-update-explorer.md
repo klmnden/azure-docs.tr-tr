@@ -1,6 +1,6 @@
 ---
-title: Gezgini güncelleştirme verilerini Görselleştirme | Microsoft Docs
-description: Azure Time Series Insights Gezgini güncelleştir
+title: Azure zaman serisi öngörüleri önizlemesi gezginde verileri Görselleştirme | Microsoft Docs
+description: Bu makalede, özellikleri ve Azure zaman serisi öngörüleri önizlemesi explorer web App'te kullanılabilir seçenekleri açıklar.
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -8,74 +8,74 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/28/2018
-ms.openlocfilehash: bf091eec271e3fb27f6ab312ff5d0096efa7f90c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.date: 12/03/2018
+ms.openlocfilehash: 3a2958d838f0646ac030421b3785fc11a1466dd6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856887"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086734"
 ---
-# <a name="visualize-data-in-the-explorer-update"></a>Explorer güncelleştirme verileri görselleştirin
+# <a name="visualize-data-in-the-explorer-preview"></a>Önizleme gezginde verileri Görselleştirme
 
-Bu makalede, özellikleri ve Azure Time Series Insights içinde (Önizleme) Explorer web uygulamasının kullanılabilir seçenekleri açıklar.
+Bu makalede özellikleri ve seçenekleri Azure zaman serisi öngörüleri Önizleme aşamasında kullanıma [explorer web uygulaması](https://insights.timeseries.azure.com/preview/samples).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure Time Series Insights Gezgini (Önizleme) kullanmadan önce şunları yapmalısınız:
+Azure zaman serisi öngörüleri önizlemesi Gezgini kullanmadan önce şunları yapmalısınız:
 
-* Sağlanan bir zaman serisi görüşleri ortamına sahip. Bir zaman serisi görüşleri ortamına sağlama hakkında daha fazla bilgi edinin.
-* Hesabı oluşturduğunuz zaman serisi görüşleri ortamına veri erişimi sağlar. Diğerlerinin yanı sıra kendiniz erişim sağlanabilir.
+* Ayarlanmış bir zaman serisi görüşleri ortamına sahip. Daha fazla bilgi için [öğretici: Azure zaman serisi öngörüleri önizlemesi](./time-series-insights-update-create-environment.md).
+* Hesap, oluşturduğunuz zaman serisi görüşleri ortamına veri erişimi sağlar. Diğerleri de kendiniz için farklı erişim sağlayabilir.
 * Olay kaynağı, zaman serisi görüşleri ortamına veri göndermek için bir ortam ekleyin.
 
-## <a name="learn-about-the-azure-time-series-insights-preview-explorer"></a>Azure Time Series Insights Gezgini (Önizleme) hakkında bilgi edinin
+## <a name="learn-about-the-azure-time-series-insights-preview-explorer"></a>Azure zaman serisi öngörüleri önizlemesi gezginini öğrenin
 
   ![bir arada Gezgini][1]
 
-Azure Time Series Insights Gezgini (Önizleme), aşağıdaki yedi öğeyi ayrılır:
+Azure zaman serisi öngörüleri önizlemesi Gezgini aşağıdaki öğelerden oluşur:
 
-1. TSI (Önizleme) gezinti çubuğunda, analiz ve model sayfalar arasında geçiş yapmasını sağlar.
-1. TSI (Önizleme) hiyerarşi ağacı grafiği için belirli veri öğelerini seçin.
-1. TSI (Önizleme) zaman serisi, tüm seçili olan veri öğeleri de gösterir.
-1. Geçerli çalışma grafiğinizi TSI (Önizleme) grafik panelini görüntüler.
-1. TSI (Önizleme) zaman çizelgesi çalışma süre değiştirebilmenizi sağlar.
-1. TSI (Önizleme) uygulama çubuğunu (örneğin, geçerli Kiracı), kullanıcı yönetim seçeneklerini içerir ve tema ve dil ayarlarını değiştirmenizi sağlar.
+* **Gezinti çubuğu**: Analiz ve model sayfalar arasında geçiş sağlar.
+* **Hiyerarşi ağacı**: belirli veri öğelerini Grafiği oluşturulacak sağlar.
+* **Serisi iyi zaman**:, seçili olan veri öğeleri görüntüler.
+* **Grafik paneli**: geçerli çalışma haritanız görüntüler.
+* **Zaman Çizelgesi**: çalışma süre değiştirmenize olanak tanır.
+* **Uygulama çubuğunu**: geçerli Kiracı'gibi kullanıcı yönetim seçeneklerini içerir ve tema ve dil ayarlarını değiştirmenize olanak sağlar.
 
-## <a name="tsi-preview-environment-panel"></a>Ortam paneline TSI (Önizleme)
+## <a name="time-series-insights-preview-environment-panel"></a>Zaman serisi öngörüleri Önizleme ortamı paneli
 
-Ortam paneline erişiminiz olan tüm TSI ortamları görüntüler. Bu, S1/S2 ortamları (GA) yanı sıra Kullandıkça Öde ortamları (Önizleme) bir listesini içerir. Kullanmak istediğiniz TSI ortam tıklamanız yeterlidir.
+Ortam paneline erişiminiz olan tüm zaman serisi görüşleri ortamları görüntüler. Bu liste, Kullandıkça Öde ortamları Önizleme ve S1/S2 ortamları (GA) içerir. Kullanmak istediğiniz zaman serisi görüşleri ortamına tıklamanız yeterlidir.
 
   ![iki Gezgini][2]
 
-## <a name="time-series-insights-preview-navigation-menu"></a>Time Series Insights (Önizleme) Gezinti Menüsü
+## <a name="time-series-insights-preview-navigation-menu"></a>Zaman serisi öngörüleri Önizleme Gezinti Menüsü
 
   ![üç Gezgini][3]
 
-Gezinti Menüsü TSI uygulamalar arasında geçiş yapmanızı sağlar:
+Gezinti Menüsü ile zaman serisi görüşleri uygulamalar arasında geçiş yapabilirsiniz:
 
-* – Analiz edin, grafik ve zengin analizler Modellenen veya modellenmemiş zaman serisi verileriniz üzerinde gerçekleştirmek sağlar.
+* **Analiz**: Modellenen veya modellenmemiş zaman serisi verilerinizi zengin analizler gerçekleştirin ve grafik sağlar.
 
-* Model - TSI modelinize yeni TSI güncelleştirme türlerini, hiyerarşileri ve örnekleri göndermenize izin verir.
+* **Model**: zaman serisi görüşleri modelinize yeni zaman serisi öngörüleri Önizleme türleri, hiyerarşileri ve örnekleri anında olanak tanır.
 
-## <a name="time-series-insights-update-model-authoring"></a>Model yazma Time Series Insights'ı güncelleştirme
+## <a name="time-series-insights-preview-model-authoring"></a>Zaman serisi öngörüleri Önizleme model yazma
 
-Bu uygulama, zaman serisi modeli CRUD işlemleri gerçekleştirme olanağı sağlar.  
+Bu uygulama sayesinde, zaman serisi modeli oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemleri gerçekleştirebilirsiniz.  
 
-* TSM türü - TSI türlerini tanımlayan değişkenleri veya hesaplamalar yapan formüller etkinleştirmek, belirli bir TSI örneğiyle ilişkilendirilmiş. Bir türü veya daha fazla değişken olabilir.
-* Verilerinizin sistematik kuruluşlar TSM hiyerarşi - hiyerarşi var. Hiyerarşiler TSI verilerinizde farklı varlıklar arasındaki ilişkileri kullanılırlar.
-* Zaman serisi TSM örneği - örnekleri var. Çoğu durumda, bu olacaktır **DeviceID** veya **AssetID**, olduğu varlık ortamda benzersiz tanımlayıcısı.
+* **Zaman serisi modeli türü**: zaman serisi görüşleri türlerini tanımlayan değişkenleri veya hesaplamalar yapan formüller etkinleştirin. Belirli bir zaman serisi görüşleri örneğiyle ilişkili oldukları. Bir türü veya daha fazla değişken olabilir.
+* **Zaman serisi modeli hiyerarşisi**: hiyerarşileri verilerinizin sistematik kuruluşlar şunlardır. Time Series Insights veri farklı varlıklar arasındaki ilişkileri hiyerarşileri kullanılırlar.
+* **Zaman serisi modeli örneği**: zaman serisi örneklerdir. Çoğu durumda, cihaz kimliği veya varlık ortamda benzersiz tanımlayıcısı olan AssetID değildirler.
 
-TSM hakkında daha fazla bilgi edinmek için [kez serisi modelleri](./time-series-insights-update-tsm.md).
+Zaman serisi modeli hakkında daha fazla bilgi için bkz: [kez serisi modelleri](./time-series-insights-update-tsm.md).
 
-## <a name="time-series-insights-preview-model-search-panel"></a>Time Series Insights (Önizleme) modeli arama paneli
+## <a name="time-series-insights-preview-model-search-panel"></a>Zaman serisi öngörüleri Önizleme modeli arama paneli
 
-Model arama panelini kolayca arama yapın ve grafiğinizde görüntülemek istediğiniz belirli bir zaman serisi örnekleri bulmak için TSM hiyerarşisinde gezinme sağlar. Örneklerinizin seçtiğinizde, yalnızca geçerli grafik için eklenmez ancak aynı zamanda verileri de eklenir.
+Model arama paneli kolayca arama yapın ve grafiğinizde görüntülemek istediğiniz belirli bir zaman serisi örnekleri bulmak için zaman serisi modeli hiyerarşisinde gezinme sağlar. Örneklerinizin seçtiğinizde, geçerli grafik ve veriler için de eklenir.
 
   ![dört Gezgini][4]
 
-## <a name="time-series-insights-preview-well"></a>Time Series Insights (iyi önizleme)
+## <a name="time-series-insights-preview-well"></a>Zaman serisi öngörüleri Önizleme iyi
 
-Örnek alanları ve seçilen zaman serisi örnekleri ile ilişkili diğer meta verileri de görüntüler. Sağ taraftaki onay kutularını, geçerli hesap belirli örnekleri görüntülemek veya gizlemek izin verin. Ayrıca, belirli veri öğelerini de kırmızı x denetim öğesi sağındaki tıklayarak geçerli verilerinizden kaldırabilirsiniz.
+Örnek alanları ve seçilen zaman serisi örnekleri ile ilişkili diğer meta verileri de görüntüler. Sağ tarafındaki onay kutularını, gizleme veya görüntüleme geçerli grafikten belirli örnekler sağlar. Ayrıca, belirli veri öğelerini de kırmızı x denetim öğesi sağındaki tıklayarak geçerli verilerinizden kaldırabilirsiniz.
 
   ![beş Gezgini][5]
 
@@ -83,67 +83,68 @@ Model arama panelini kolayca arama yapın ve grafiğinizde görüntülemek isted
 
   ![altı Gezgini][6]
 
-Not: aşağıdaki simgesi görürseniz, örnek veriler seçili zaman aralığı sırasında yok.  Düzeltmek için seçili zaman aralığı artırmak ve/veya örnek veri gönderme olduğunu onaylayın.
+> [!NOTE]
+> Örneği aşağıdaki iletiyi görürseniz, seçili zaman aralığı sırasında herhangi bir veri yok. Sorunu çözmek için zaman aralığını artırın veya örnek veri gönderme olduğunu onaylayın.
+>
+> ![yedi Gezgini][7]
 
-  ![yedi Gezgini][7]
+## <a name="time-series-insights-preview-chart"></a>Zaman serisi öngörüleri Önizleme grafiği
 
-## <a name="time-series-insights-preview-chart"></a>Time Series Insights (Önizleme) grafiği
-
-Grafik, zaman serisi örnekleri satırları görüntülemek sağlar. Grafik büyütmek için web denetimleri tıklayarak ortam paneli, veri modeli ve zaman aralığı Denetim Masası daraltabilirsiniz.
+Grafik ile zaman serisi örnekleri çizgilerle görüntüleyebilirsiniz. Grafik büyütmek için web denetimleri tıklayarak ortam paneli, veri modeli ve zaman aralığı Denetim Masası daraltabilirsiniz.
 
   ![sekiz Gezgini][8]
 
-1. Seçili tarih aralığı – grafik paneli, hangi veri öğelerini görselleştirme için kullanılabilir olacak bu denetimleri için şu anda seçili tarih aralığı.
+1. **Seçili tarih aralığı**: denetimler için görselleştirme hangi veri öğeleri kullanılabilir.
 
-1. İç tarih aralığı kaydırıcı aracını - tıklatarak ve sürükleyerek istediğiniz zaman içinde kullanımı iki uç nokta denetimleri kapsar.
+1. **İç tarih aralığı kaydırıcı aracını**: İstenen zaman aralığı sürükleyerek iki uç nokta denetimleri kullanın.
 
-1. Zaman aralığı Daralt denetimi - bu denetim daraltır ve zaman aralığı paneli Düzenleyicisi genişletir.
+1. **Zaman aralığı Daralt denetim**: daraltır ve zaman aralığı paneli Düzenleyicisi genişletir.
 
-1. Y ekseni biçim denetimi: denetim kullanılabilir y ekseni görüntüleme seçeneklerini geçiş yapmak için tıklatın. Y ekseni görünümü seçenekler sağlanır:
+1. **Y ekseni biçim denetimi**: kullanılabilir y ekseni görüntüleme seçenekleri arasında geçiş yapar:
 
-    * Varsayılan - her satırda tek bir y ekseni bulunmaktadır.
-    * Yığılmış – Bu, birden çok satırda aynı y ekseni, y ekseni seçilen satırdaki göre değişen verilerle yığın sağlar
-    * Paylaşılan – birlikte görüntülenen tüm y ekseni veri
+    * `Default`: Her satırın tek bir y ekseni sahiptir.
+    * `Stacked`: Y ekseni seçilen satırdaki göre değişen verilerle aynı y ekseni birden çok satırda yığın sağlar.
+    * `Shared`: Tüm y ekseni veri birlikte görüntülenir.
 
-1. Geçerli veri öğesi – şu anda seçili veri öğesi ve onun ilişkili ayrıntılar.
+1. **Geçerli bir veri öğesi**: şu anda seçili veri öğesi ve onun ilişkili ayrıntılar.
 
-Bir özel veri dilimi fare basılı tutarak ve ardından seçilen alan dilediğiniz bitiş noktasına sürükleyerek bir veri noktasına geçerli grafik sol tarafından tıklatma daha fazla ayrıntıya gidebilirsiniz. Renkte, seçilen alana sağ tıklayın ve yakınlaştırma aşağıda gösterildiği gibi tıklayın. Aşağıdakileri de yapabilirsiniz:
+Daha fazla geçerli grafik veri noktasında Sol tıklatma ve sonra seçilen alan dilediğiniz bitiş noktasına sürükleyerek bir özel veri dilimi detaya gidebilirsiniz. Renkte, seçilen alana sağ tıklayın ve yakınlaştırma bu aşağıdaki görüntüde gösterildiği gibi tıklayın:
 
   ![dokuz Gezgini][9]
 
-Yakınlaştırma eylemi gerçekleştirdikten sonra seçili veri kümeniz şimdi göreceksiniz. Y ekseni biçimi Denetim, üç farklı y ekseni temsillerini TSI verilerinizi arasında geçiş yapmak için tıklayın.
+Yakınlaştırma eylemi gerçekleştirdikten sonra seçilen veri kümesi görürsünüz. Y ekseni biçim denetimi, zaman serisi öngörüleri verilerini üç y ekseni temsilleri arasında geçiş yapmak için tıklatın.
 
   ![on Gezgini][10]
 
-Burada, paylaşılan bir y eksenleri örneği görebilirsiniz.
+Burada, paylaşılan y eksenleri örneğini görebilirsiniz:
 
   ![on Gezgini][11]
 
-## <a name="time-series-insights-preview-time-editor-panel"></a>Time Series Insights (Önizleme) zamanı düzenleyicisinin paneli
+## <a name="time-series-insights-preview-time-editor-panel"></a>Zaman serisi öngörüleri Önizleme zaman Düzenleyicisi paneli
 
-TSI ile çalışırken, bir süre önce seçersiniz. Seçili zaman aralığı TSI güncelleştirme pencere öğeleri ile işleme için kullanılabilir veri kümesi denetler. Aşağıdaki web denetimleri, çalışma zaman aralığını seçmek için TSI güncelleştirme kullanılabilir.
+Zaman serisi öngörüleri Önizleme ile çalışırken, ilk olarak bir zaman aralığı seçin. Seçilen zaman aralığını, zaman serisi öngörüleri Önizleme pencere öğeleri ile işleme için kullanılabilir veri kümesi denetler. Aşağıdaki web denetimleri, çalışma zaman aralığını seçmek için zaman serisi öngörüleri önizlemede kullanılabilir.
 
   ![on Gezgini][12]
 
-1. **İç tarih aralığı kaydırıcı aracını** - tıklayarak iki uç nokta denetimleri kullanın ve istediğiniz zaman içinde sürükleyerek span. Bu "İç" tarihe, aşağıdaki başvurulan "Dış tarihi" aralık kaydırıcı denetimi tarafından kısıtlı.
+1. **İç tarih aralığı kaydırıcı aracını**: İstenen zaman aralığı sürükleyerek iki uç nokta denetimleri kullanın. Bu iç tarih aralığı dış tarih aralığı kaydırıcı denetimi tarafından sınırlanır.
 
-1. Artırma ve azaltma tarih aralığı düğmeleri ** - artış veya istediğiniz aralığını ya da düğmesine tıklayarak, zaman aralığını azaltın.
+1. **Artırın ve azaltın tarih aralığı düğmeleri**: artışa veya sürenizi span istediğiniz aralığı için herhangi bir düğmeyi seçerek.
 
-1. **Zaman aralığı Daralt denetim** -iç tarih aralığı kaydırıcı aracını hariç tüm denetimlerini gizlemek bu web denetimi sağlar.
+1. **Zaman aralığı Daralt denetim**: iç tarih aralığı kaydırıcı aracını hariç tüm denetimleri gizler. Bu web denetimi sağlar.
 
-1. **Dış-tarih aralığı kaydırıcı denetimi** -endpoint denetimleri kullanarak, "İç tarih" aralık denetimi için kullanılabilecek dış tarih aralığını seçin.
+1. **Dış-tarih aralığı kaydırıcı denetimi**: iç tarih aralığı denetiminiz için kullanılabilir olacak dış tarih aralığı seçmek için uç nokta denetimleri kullanın.
 
-1. **Hızlı süreler tarih aralığı açılan** -son 30 dakika, son 12 saat, özel bir aralık, vb. gibi belirlenen zaman aralığı seçimleri arasında hızlıca geçiş olanağı sağlar. Bu değeri değiştirmeniz aralık boyutu kaydırıcı aracını aşağıda açıklanmıştır kullanılabilir aralığı aralıkları değiştirir.
+1. **Hızlı süreler tarih aralığı açılan**: hızla geçiş son 30 dakika, son 12 saat ya da özel bir aralık gibi belirlenen zaman aralığı seçimleri arasında sağlar. Bu değeri değiştirmeniz aralık boyutu kaydırıcı aracını tartışılan kullanılabilir aralığı aralıkları değiştirir.
 
-1. **Aralık boyutu kaydırıcı aracını** -aralık boyutu kaydırıcı aracını aynı zaman aralığı içine ve dışına aralıkları yakınlaştırma sağlar. Bu, zaman dilimleri aşağı kesintisiz eğilimlerini ayrıntılı, yüksek çözünürlüklü keser verilerinizi görmenize olanak sağlayan milisaniyelik kadar küçük Göster büyük dilimleri arasında taşıma daha kesin bir denetim sağlar. Kaydırıcının varsayılan başlangıç noktası seçiminizden verilerinin en iyi görünümü ayarlanır; Dengeleme çözümü, sorgu hızı ve ayrıntı düzeyi.
+1. **Aralık boyutu kaydırıcı aracını**: sağlar, yakınlaştırma içine ve dışına aralıklar aynı zaman aralığı. Bu eylem büyük saat dilimleri arasında hareket daha kesin bir denetim sağlar. Ayrıntılı, yüksek çözünürlüklü keser verilerinizi görmenize olanak sağlayan bir milisaniye küçük dilimlerin aşağı kesintisiz eğilimleri gösterir. Kaydırıcının varsayılan başlangıç noktası çözümleme, sorgu hızı ve ayrıntı düzeyi dengeleyen seçimden, verilerin en iyi görünüm olarak ayarlanır.
 
-1. **Tarih aralığı için ve web denetiminden** - bu web denetimi kolayca tıklayın ve istenen tarih ve saat aralığı seçin. Ayrıca, farklı saat dilimleri arasında geçiş yapmak için denetimi de kullanabilirsiniz. Geçerli çalışma alanınıza uygulamak istediğiniz değişiklikleri yaptıktan sonra Kaydet'e tıklayın düğmesi.
+1. **Tarih aralığı için ve web denetiminden**: Bu web denetimi ile kolayca tıklayın ve istenen tarih ve saat aralığı seçin. Ayrıca, farklı saat dilimleri arasında geçiş yapmak için denetimi de kullanabilirsiniz. Geçerli çalışma alanınıza, uygulanacak değişiklikler yaptıktan sonra seçin **Kaydet**.
 
   ![Explorer On üç][13]
 
-## <a name="time-series-insights-preview-navigation-panel"></a>Zaman serisi görüşleri (Önizleme) Gezinti paneli
+## <a name="time-series-insights-preview-navigation-panel"></a>Zaman serisi öngörüleri Önizleme Gezinti Bölmesi
 
-TSI güncelleştirme Gezinti bölmesine, aşağıdaki işlevleri sağlar:
+Zaman serisi öngörüleri Önizleme Gezinti bölmesine, aşağıdaki işlevleri sağlar:
 
   ![on dört Gezgini][14]
 
@@ -151,7 +152,7 @@ TSI güncelleştirme Gezinti bölmesine, aşağıdaki işlevleri sağlar:
 
   ![beş Gezgini][15]
 
-Daire içinde bağlantı web denetimi kaydetmek veya içeren geçerli Time Series Insights çalışma oturumunuz paylaşmak için bir URL oluşturmak için tıklayın:
+İçeren kaydetmeyi ya da, geçerli Azure Time Series Insights çalışma oturumu paylaşan bir URL'yi oluşturmak için (vurgulu) bağlantı web denetimi seçin:
 
 * Seçili zaman aralığı
 * Şu anda seçili aralık boyutu
@@ -161,15 +162,15 @@ Daire içinde bağlantı web denetimi kaydetmek veya içeren geçerli Time Serie
 
   ![Explorer on altı][16]
 
-* Geçerli TSI oturum açma hesap bilgilerini görüntüler
-* Kullanılabilir TSI temalar arasında geçiş sağlar.
+* Geçerli zaman serisi görüşleri oturum açma hesap bilgilerini görüntüler.
+* Kullanılabilir Time Series Insights temalar arasında geçiş sağlar.
 
 ### <a name="theme-selection"></a>Tema seçimi
 
-(Önizleme) Azure TSI iki tema destekler:
+Azure zaman serisi öngörüleri Önizleme iki tema destekler:
 
-* **Açık tema**: Bu belgede gösterilen varsayılan tema budur.
-* **Koyu tema**: Bu seçenek Gezgini koyu tema aşağıda gösterildiği gibi işler:
+* **Açık tema**: Bu belgede gösterilen varsayılan tema.
+* **Koyu tema**: Gezgini burada gösterildiği gibi işler:
 
   ![Explorer on yedi][17]
 
@@ -177,44 +178,47 @@ Burada arasında desteklenen dilleri değiştirebilirsiniz.
 
 ## <a name="s1s2-environment-controls"></a>S1/S2 ortam denetimleri
 
-### <a name="time-series-insights-preview-terms-panel"></a>Time Series Insights (Önizleme) terimler paneli
+### <a name="time-series-insights-preview-terms-panel"></a>Zaman serisi öngörüleri Önizleme terimler paneli
 
-Bu bölüm yalnızca güncelleştirilmiş kullanıcı Arabiriminde Gezgin kullanılmaya çalışılıyor mevcut S1/S2 ortamlar için de geçerlidir. GA ürün kullanın ve başka bir birlikte (Önizleme) güncelleştirmek için bunu yapmak isteyebilirsiniz. Biz, bazı işlevler, varolan kullanıcı Arabiriminden güncelleştirilmiş Gezgini'ne ekledik ancak, her zaman tam UI deneyimi için mevcut TSI Gezgini S1/S2 ortamında elde edebileceğinizi biliyor.  
+Bu bölüm yalnızca güncelleştirilmiş kullanıcı Arabiriminde Gezgin kullanma girişimi mevcut S1/S2 ortamlar için geçerlidir. GA ürün ve önizleme birlikte kullanmak isteyebilirsiniz. Bazı işlevler mevcut kullanıcı Arabiriminden güncelleştirilmiş Gezgini'ne ekledik ancak mevcut zaman serisi görüşleri Gezgin ortamında S1/S2 için tam kullanıcı Arabirimi deneyimi elde edebilirsiniz.  
 
-Hiyerarşinin yerine TSI terimler paneli görürsünüz. Sorgular, ortamınızda tanımladığınız budur. Verilerinizi kullanarak bir koşula göre filtreleme özelliği sağlar.
+Hiyerarşinin yerine, sorguları ortamınızda tanımladığınız zaman serisi görüşleri terimler paneli görürsünüz. Verilerinizi bir koşulu üzerinde filtre olanak tanır.
 
   ![Explorer On sekiz][18]
 
-TSI (Önizleme) Koşulları Düzenleyicisi paneli aşağıdaki parametreleri alır.
+Zaman serisi öngörüleri Önizleme Koşulları Düzenleyicisi paneli aşağıdaki parametreleri alır:
 
-**Burada**: where yan tümcesi olaylarınızı aşağıda listelenen işlenen kümesini kullanarak hızlı bir şekilde filtrelemenize olanak sağlar. Seçme/tıklayarak arama yapma, koşul güncelleştirme otomatik olarak bu arama temel. Desteklenen işlenen türleri şunlardır:
+**Burada**: where yan tümcesi sayesinde hızlı bir şekilde işlenen kümesini kullanarak olaylarınızı aşağıdaki tabloda listelenen filtre. Bir işlenen seçerek bir arama yapın, o aramaya bağlı koşul otomatik olarak güncelleştirilir. Desteklenen işlenen türleri şunlardır:
 
 | İşlem | Desteklenen türler   | Notlar |
 | --- | --- | --- |
-| `<`, `>`, `<=`, `>=` |    Çift, DateTime, zaman aralığı  | |
-| `=`, `!=`, `<>`   | Dize, Bool, Double, DateTime, zaman aralığı, NULL    |
-| `IN` |    Dize, Bool, Double, DateTime, zaman aralığı, NULL |    Tüm işlenenler aynı türde veya NULL sabiti olması. |
-| `HAS` |   Dize |    Yalnızca sabit dize değişmez değerleri, sağ tarafında izin verilir. Boş dize ve NULL yapılamaz. |
+| `<`, `>`, `<=`, `>=` | Çift, DateTime, zaman aralığı | |
+| `=`, `!=`, `<>` | Dize, Bool, Double, DateTime, zaman aralığı, NULL |
+| `IN` | Dize, Bool, Double, DateTime, zaman aralığı, NULL | Tüm işlenenler aynı türde veya NULL sabiti olması. |
+| `HAS` | Dize | Yalnızca sabit dize değişmez değerleri, sağ tarafında izin verilir. Boş dize ve NULL yapılamaz. |
+
+Desteklenen sorgu işlemleri ve veri türleri hakkında daha fazla bilgi edinmek [zaman serisi ifade (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx).
 
 ### <a name="examples-of-where-clauses"></a>Örnekleri Where yan tümceleri
 
   ![on dokuz Gezgini][19]
 
-**Ölçü**: tüm sayısal sütunları bu açılan gösterir (**double**), geçerli grafiğiniz için öğeleri olarak kullanabilirsiniz.
+**Ölçü**: tüm sayısal sütunları bu açılır menü görüntüler (**double**), geçerli grafiğiniz için öğeleri olarak kullanabilirsiniz.
 
-**Bölme ölçütü**: Bu açılan tüm kategorik sütunlar (dize), kullanılabilir modelinizde verilerinizi göre gruplandırmak için kullanabileceğiniz gösterir. Aynı x eksenine görüntülemek için en fazla beş koşullarını ekleyebilirsiniz. İstenen parametrelerinizi girin ve ardından **Ekle** düğmesini yeni bir terim ekleyin.
+**Bölme ölçütü**: modelinizdeki verilerinizi göre gruplandırabilirsiniz, tüm kullanılabilir kategorik sütunlar (dize) Bu açılır menü görüntüler. Aynı x eksenine görüntülemek için en fazla beş koşullarını ekleyebilirsiniz. İstenen parametrelerinizi girin ve ardından **Ekle** yeni bir terim eklemek için.
 
   ![yirmi Gezgini][20]
 
-Gizleyebilir ve aşağıda gösterildiği gibi görünür simgeye tıklayarak grafik panel öğeleri göster. Kırmızı tıklayarak sorguları tamamen kaldırabilirsiniz `X` aşağıda gösterilmektedir.
+Gösterebilir ve aşağıdaki görüntüde gösterildiği gibi görünür simgesini seçerek grafiği panel öğeleri gizleyebilirsiniz. Kırmızı tıklayarak sorguları tamamen kaldırabilirsiniz **x**.
 
   ![Explorer yirmi bir][21]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Okuma [Azure TSI (Önizleme) depolama ve giriş](./time-series-insights-update-storage-ingress.md).
-
-Yeni hakkında okuyun [zaman serisi modelleri](./time-series-insights-update-tsm.md).
+Aşağıdaki makalelere bakın:
+* [Azure zaman serisi öngörüleri Önizleme depolama ve giriş](./time-series-insights-update-storage-ingress.md)
+* [Veri modelleme](./time-series-insights-update-tsm.md)
+* [Tanılama ve sorun giderme](./time-series-insights-update-how-to-troubleshoot.md)
 
 <!-- Images -->
 [1]: media/v2-update-explorer/explorer-one.png

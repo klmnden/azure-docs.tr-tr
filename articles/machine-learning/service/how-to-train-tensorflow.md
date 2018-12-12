@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning ile TensorFlow modellerini eğitin
+title: TensorFlow ile eğitme modelleri
+titleSuffix: Azure Machine Learning service
 description: Tek düğümlü ve dağıtılmış eğitimi TensorFlow modelleri ile TensorFlow estimator çalıştırmayı öğrenin
 services: machine-learning
 ms.service: machine-learning
@@ -8,22 +9,23 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: c761d0ac5d2c52241eadd18b2d8b65e00ccb34ba
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: d15d3ed115009ad1395a85d36e833d85197d4d19
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115001"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094125"
 ---
-# <a name="how-to-train-tensorflow-models"></a>TensorFlow modelleri eğitme
+# <a name="train-tensorflow-models-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile TensorFlow modellerini eğitin
 
 TensorFlow kullanarak derin sinir ağı (DNN) eğitim için özel bir Azure Machine Learning sağlar `TensorFlow` sınıfının `Estimator`. Azure SDK'ın `TensorFlow` estimator (ile conflated değil için [ `tf.estimator.Estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) sınıfı) kolayca Azure işlem çalışır hem tek düğümlü hem de dağıtılmış TensorFlow eğitim işleri göndermenizi sağlar.
 
 ## <a name="single-node-training"></a>Tek düğümlü eğitim
 İle eğitim `TensorFlow` estimator kullanmaya benzer [temel `Estimator` ](how-to-train-ml-models.md), bu nedenle öncelikle yapılır makaleyi okuyun ve orada tanıtılan kavramları anladığınızdan emin olun.
   
-TensorFlow işi çalıştırmak için örneği bir `TensorFlow` nesne. Oluşturmuş olmanız, [hedef işlem](how-to-set-up-training-targets.md#batch) nesne `compute_target`.
+TensorFlow işi çalıştırmak için örneği bir `TensorFlow` nesne. Oluşturmuş olmanız, [hedef işlem](how-to-set-up-training-targets.md#amlcompute) nesne `compute_target`.
 
 ```Python
 from azureml.train.dnn import TensorFlow
@@ -47,7 +49,7 @@ Parametre | Açıklama
 --|--
 `source_directory` | Eğitim işine yönelik gerekli kodunuzun tamamını içeren yerel dizin. Bu klasörü yerel makinenizden uzak bilgisayarda kopyalanır
 `script_params` | Eğitim betiğinizi komut satırı bağımsız değişkenleri belirtme sözlük `entry_script`, < komut satırı bağımsız değişkeni, değer > biçiminde çiftleri
-`compute_target` | Eğitim betiğinizi, bu durumda çalışır uzak işlem bir [Batch AI](how-to-set-up-training-targets.md#batch) küme
+`compute_target` | Eğitim betiğinizi, bu örnekte, bir Azure Machine Learning işlem çalıştıracak uzak işlem hedefine ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) kümesi
 `entry_script` | FilePath (göreli `source_directory`) eğitim betiğin uzak işlem üzerinde çalıştırılacak. Bu dosya ve, bağımlı herhangi bir ek dosyaları bu klasörde bulunmalıdır
 `conda_packages` | Eğitim betiğinizi gerekli conda aracılığıyla yüklenecek Python paketleri listesi. Bu durumda eğitim betiği kullanır `sklearn` verileri yüklemek için bu nedenle yüklenmesi için bu paketi belirtin.  Oluşturucu adlı başka bir parametreye sahip `pip_packages` gereken herhangi bir pip paketleri için kullanabileceğiniz
 `use_gpu` | Bu bayrağı ayarlanmış `True` eğitim GPU yararlanmak için. Varsayılan olarak `False`.
@@ -170,16 +172,9 @@ run = exp.submit(tf_est)
 ```
 
 ## <a name="examples"></a>Örnekler
-Tek düğümlü TensorFlow eğitimi hakkında bir öğretici için bkz:
-* [Training/03.Train-hyperparameter-Tune-Deploy-With-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb)
 
-Dağıtılmış TensorFlow Horovod ile temel bir öğretici için bkz:
-* [Eğitim/04.distributed-tensorflow-ile-horovod](https://github.com/Azure/MachineLearningNotebooks/tree/master/training/04.distributed-tensorflow-with-horovod)
-
-Yerel dağıtılmış TensorFlow hakkında bir öğretici için bkz:
-* [Eğitim/05.distributed-tensorflow-ile-parametre-sunucu](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/05.distributed-tensorflow-with-parameter-server)
-
-Bu not defterlerini alın:
+Dağıtılmış derin öğrenme dizüstü bilgisayarlar için bkz:
+* [How-to-use-azureml/Training-With-DEEP-Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

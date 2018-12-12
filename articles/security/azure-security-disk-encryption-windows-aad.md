@@ -1,20 +1,21 @@
 ---
-title: Windows Iaas VM'ler (önceki sürüm) için Azure AD uygulaması ile Azure Disk şifrelemesini etkinleştirme | Microsoft Docs
+title: Azure AD uygulaması Windows Iaas Vm'leri (önceki sürüm) ile Azure Disk şifrelemesi
 description: Bu makalede, Microsoft Azure Disk şifrelemesi için Windows Iaas Vm'leri etkinleştirme hakkında yönergeler sağlar.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 10/04/2018
-ms.openlocfilehash: 407ea9adaaae4df15054dc4da3391b870dd8dcc7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 347fe1de15661d63ac96444f704e2da919fc54bd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622151"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083963"
 ---
-#  <a name="enable-azure-disk-encryption-for-windows-iaas-vms-previous-release"></a>Azure Disk şifrelemesi için Windows Iaas Vm'leri (önceki sürüm) etkinleştir
+# <a name="enable-azure-disk-encryption-for-windows-iaas-vms-previous-release"></a>Azure Disk şifrelemesi için Windows Iaas Vm'leri (önceki sürüm) etkinleştir
 
 **Azure Disk Şifrelemesi'nın yeni sürümüne VM disk şifrelemeyi etkinleştirmek için bir Azure AD uygulama parametresi sağlama gereksinimini ortadan kaldırır. Yeni sürümle birlikte, etkinleştirme şifreleme adımı sırasında Azure AD kimlik bilgilerini sağlamak için artık gerekli değildir. Tüm yeni Vm'lere yeni sürümünü kullanarak Azure AD uygulama parametresiz şifrelenmelidir. Yeni sürümünü kullanarak VM disk şifrelemeyi etkinleştirmek için yönergeleri görüntülemek için bkz: [Windows VM'ler için Azure Disk şifrelemesi](azure-security-disk-encryption-windows.md). Zaten Azure AD uygulama parametreleri ile şifrelenmiş VM'ler hala desteklenmektedir ve AAD sözdizimiyle korunmasını devam etmelidir.**
 

@@ -4,20 +4,21 @@ description: Kaynak ilke tanımı hangi etkili olması için zaman ilkelerin hi�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/30/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: b5c7d0c6d54272518b19ffec0d8f02ebbcfe55d9
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 456ac392d74db0dc596c24a47d176e19d267bc85
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283300"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079526"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
-Azure İlkesi tarafından kullanılan kaynak ilke tanımı hangi etkili olması için zaman ilkelerin hiçbiri uygulanmaz ve açıklayarak, kuruluşunuzdaki kaynaklar için kuralları kurmanızı sağlar. Kuralları tanımlayarak daha kolayca kaynaklarınızı yönetmek ve maliyetleri denetleyebilirsiniz. Örneğin, yalnızca belirli türlerdeki sanal makinelere izin verildiğini belirtebilirsiniz. Veya tüm kaynakların belirli bir etikete sahip gerektirebilir. İlkeleri, tüm alt kaynaklar tarafından devralınır. Bu nedenle, bir kaynak grubu için bir ilke uygulanırsa, bu kaynak grubundaki tüm kaynaklar için geçerlidir.
+Kaynak ilke tanımları, Azure İlkesi, kaynaklar için kuralları oluşturmak için kullanılır. Her tanımı kaynak uyumluluğu ve uyumlu olmayan bir kaynak olduğunda gerçekleştirilecek ne efekt açıklar.
+Kuralları tanımlayarak daha kolayca kaynaklarınızı yönetmek ve maliyetleri denetleyebilirsiniz. Örneğin, yalnızca belirli türlerdeki sanal makinelere izin verildiğini belirtebilirsiniz. Veya tüm kaynakların belirli bir etikete sahip gerektirebilir. İlkeleri, tüm alt kaynaklar tarafından devralınır. Bir kaynak grubu için bir ilke uygulanırsa, bu kaynak grubundaki tüm kaynaklar için geçerlidir.
 
 Azure İlkesi tarafından kullanılan şema burada bulunabilir: [https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
 
@@ -73,9 +74,9 @@ Tüm Azure ilkesi örnekleri altındadır [ilkesi örnekleri](../samples/index.m
 - `all`: kaynak grupları ve tüm kaynak türleri değerlendirin
 - `indexed`: etiketlerini ve konumunu destekleyen kaynak türleri yalnızca değerlendirme
 
-Ayarlamanızı öneririz **modu** için `all` çoğu durumda. Portalı kullanarak oluşturulan tüm ilke tanımlarını `all` modu. PowerShell veya Azure CLI kullanıyorsanız, belirtebilmeniz için **modu** parametresi el ile. İlke tanımı içermiyorsa bir **modu** varsayılan değer `all` Azure PowerShell ve çok `null` Azure CLI'da olduğu eşdeğer `indexed`, için geriye dönük uyumluluk.
+Ayarlamanızı öneririz **modu** için `all` çoğu durumda. Portalı kullanarak oluşturulan tüm ilke tanımlarını `all` modu. PowerShell veya Azure CLI kullanıyorsanız, belirtebilmeniz için **modu** parametresi el ile. İlke tanımı içermiyorsa bir **modu** değeri, varsayılan olarak için `all` Azure PowerShell ve çok `null` Azure clı'daki. A `null` modu kullanarak aynı olup `indexed` geriye dönük uyumluluğunu desteklemek için.
 
-`indexed` ilkeleri oluşturma etiketleri veya konumları zorlar olduğunda kullanılmalıdır. Bu gerekli değildir, ancak etiketleri ve konumları olarak uyumluluk sonuçları uyumlu olmayan gösteren gelen desteklemeyen kaynakları engeller. Bir özel durum **kaynak grupları**. Konum veya bir kaynak grubu etiketleri uygulamak çalıştığınız ilkeleri ayarlamalıdır **modu** için `all` ve özellikle hedef `Microsoft.Resources/subscriptions/resourceGroup` türü. Bir örnek için bkz. [kaynak grubu etiketleri zorunlu](../samples/enforce-tag-rg.md).
+`indexed` etiketleri veya konumları zorunlu ilkeleri oluştururken kullanılmalıdır. Not gerekirken, etiketler ve konumları olarak uyumluluk sonuçları uyumlu olmayan gösteren gelen desteklemeyen kaynakları engeller. Özel durum **kaynak grupları**. Konum veya bir kaynak grubu etiketleri takım politikaları ayarlamalıdır **modu** için `all` ve özellikle hedef `Microsoft.Resources/subscriptions/resourceGroup` türü. Bir örnek için bkz. [kaynak grubu etiketleri zorunlu](../samples/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>Parametreler
 
@@ -86,7 +87,8 @@ Parametreler, ilkeleri oluştururken aynı şekilde çalışır. İlke tanımın
 > Yalnızca parametre tanımı için bir ilke veya girişim tanımı ilke veya girişim ilk oluşturma sırasında yapılandırılabilir. Parametre tanımı daha sonra değiştirilemez.
 > Bu, ilke veya girişim mevcut atamaları dolaylı olarak geçersiz yapılmasını önler.
 
-Örneğin, kaynakların dağıtıldığı konumları sınırlamak bir kaynak özelliği için bir ilke tanımlayabilirsiniz. Bu durumda, ilkenizi oluşturduğunuzda aşağıdaki parametreleri bildirmek:
+Örneğin, kaynakların dağıtıldığı konumları sınırlamak için bir ilke tanımlayabilirsiniz.
+İlkenizi oluşturduğunuzda aşağıdaki parametreleri bildirmeniz:
 
 ```json
 "parameters": {
@@ -123,16 +125,16 @@ Aşağıdaki parametrelerle ilke kuralında başvuru `parameters` dağıtım de�
 
 ## <a name="definition-location"></a>Tanım konumu
 
-Oluşturulurken bir girişim veya tanımını konumu belirtmek gereklidir. Tanım konumu, bir yönetim grubu veya abonelik olmalıdır ve, girişim veya atanabilir kapsamı belirler. Kaynaklar doğrudan üyesi veya tanım konumunu hiyerarşi içinde alt atamanın hedef olmalıdır.
+Oluşturulurken bir girişim veya tanımını konumu belirtmek gereklidir. Tanım konumu, bir yönetim grubu veya abonelik olmalıdır. Bu konum için girişim veya atanabilir kapsamı belirler. Kaynaklar doğrudan üyesi veya tanım konumunu hiyerarşi içinde alt atamanın hedef olmalıdır.
 
 Tanım konumu c: ise
 
 - **Abonelik** - yalnızca bu Abonelikteki kaynakların ilke atanabilir.
-- **Yönetim grubu** - yalnızca alt Yönetim grupları ve alt abonelik içindeki kaynaklara ilke atanabilir. Konum, ilke tanımı için birden çok abonelik uygulamayı planlıyorsanız, bu Aboneliklerdeki içeren yönetim grubu olması gerekir.
+- **Yönetim grubu** - yalnızca alt Yönetim grupları ve alt abonelik içindeki kaynaklara ilke atanabilir. Konum, ilke tanımı birden fazla aboneliğe uygulayın planlıyorsanız, bu Aboneliklerdeki içeren yönetim grubu olması gerekir.
 
 ## <a name="display-name-and-description"></a>Görünen ad ve açıklama
 
-Kullanabileceğiniz **displayName** ve **açıklama** ilke tanımını ve kullanıldığında için bağlam sağlar.
+Kullandığınız **displayName** ve **açıklama** ilke tanımını ve kullanıldığında için bağlam sağlar.
 
 ## <a name="policy-rule"></a>İlke kuralı
 
@@ -197,14 +199,14 @@ Bir koşulu değerlendirir olup olmadığını bir **alan** belirli kriterlere u
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-Kullanırken **gibi** ve **notLike** koşullar, joker karakter sağlayabilir `*` değerindeki değişikliği belirtir.
-Değer, birden fazla joker karakter içermemelidir `*`.
+Kullanırken **gibi** ve **notLike** koşullar, sağladığınız bir joker karakter `*` değerindeki değişikliği belirtir.
+Birden fazla joker karakter değeri olmamalıdır `*`.
 
-Kullanırken **eşleşen** ve **notMatch** koşulları sağlayan `#` bir basamak gösterecek `?` bir harfi için `.` tüm karakterleri ve diğer herhangi bir karakterle eşleştirmek için Bu gerçek bir karakteri temsil eder. Örnekler için bkz [birden çok adı desenlerinin izin](../samples/allow-multiple-name-patterns.md).
+Kullanırken **eşleşen** ve **notMatch** koşulları sağlayan `#` bir rakam, eşleştirilecek `?` bir harfi için `.` tüm karakterleri ve aynı diğer herhangi bir karakterle eşleştirmek için Bu gerçek bir karakter. Örnekler için bkz [birkaç adı desenlerinin izin](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Alanlar
 
-Koşullara alanları kullanılarak oluşturulur. Bir alan kaynak durumunu tanımlamak için kullanılan kaynak isteği yükü özelliklerinde temsil eder.
+Koşullara alanları kullanılarak oluşturulur. Bir alan, kaynak isteği yükü özelliklerinde eşleştirir ve kaynak durumunu açıklar.
 
 Aşağıdaki alanları desteklenir:
 
@@ -219,7 +221,7 @@ Aşağıdaki alanları desteklenir:
   - Burada **\<tagName\>** doğrulamak için bir koşul için etiket adıdır.
   - Örnek: `tags.CostCenter` burada **CostCenter** etiketin adı.
 - `tags[<tagName>]`
-  - Tane nokta içeren etiket adları bu parantez sözdizimini destekler.
+  - Bir süresine sahip etiket adları bu parantez sözdizimini destekler.
   - Burada **\<tagName\>** doğrulamak için bir koşul için etiket adıdır.
   - Örnek: `tags[Acct.CostCenter]` burada **Acct.CostCenter** etiketin adı.
 - özellik diğer adları - bir listesi için bkz [diğer adlar](#aliases).
@@ -229,11 +231,11 @@ Aşağıdaki alanları desteklenir:
 İlke etkisi aşağıdaki türlerini destekler:
 
 - **Reddetme**: istek başarısız olur ve etkinlik günlüğüne bir olay oluşturur
-- **Denetim**: etkinlik günlüğünde uyarı olayı oluşturur, ancak istek başarısız olmaz
+- **Denetim**: etkinlik günlüğünde uyarı olayı oluşturur, ancak istek başarısız değil
 - **Append**: dizi alanları isteği ekler
 - **AuditIfNotExists**: bir kaynak mevcut değilse denetim sağlar
-- **Deployıfnotexists**: zaten yoksa, bir kaynak dağıtır.
-- **Devre dışı bırakılmış**: kaynaklar için Uyumluluk İlkesi kuralı için değerlendirilmiyor
+- **Deployıfnotexists**: zaten mevcut değilse bir kaynak dağıtır.
+- **Devre dışı bırakılmış**: uyumluluk İlkesi kuralı için kaynakları değerlendirmez
 
 İçin **ekleme**, aşağıdaki ayrıntıları sağlamanız gerekir:
 
@@ -247,7 +249,7 @@ Aşağıdaki alanları desteklenir:
 
 Değer bir dize veya bir JSON biçimi nesnesi olabilir.
 
-İle **AuditIfNotExists** ve **Deployıfnotexists** ilişkili bir kaynak varlığı değerlendirin ve bu kaynak mevcut değil, bir kural ve karşılık gelen bir efekt uygulayın. Örneğin, tüm sanal ağları için Ağ İzleyicisi dağıtıldığını gerektirebilir. Sanal makine uzantısı olmayan dağıtıldığında denetim örneği için bkz: [uzantı mevcut değilse denetim](../samples/audit-ext-not-exist.md).
+**AuditIfNotExists** ve **Deployıfnotexists** ilgili kaynağın var olup olmadığını değerlendirmek ve bir kural uygulayın. Kaynak kural eşleşmiyorsa etkisi uygulanır. Örneğin, tüm sanal ağları için Ağ İzleyicisi dağıtıldığını gerektirebilir. Daha fazla bilgi için [uzantı mevcut değilse denetim](../samples/audit-ext-not-exist.md) örnek.
 
 **Deployıfnotexists** etkisi gerektirir **Roledefinitionıd** özelliğinde **ayrıntıları** ilke kuralı kısmı. Daha fazla bilgi için [düzeltme - ilke tanımı yapılandırma](../how-to/remediate-resources.md#configure-policy-definition).
 
@@ -265,14 +267,14 @@ Değerlendirme, özellikler ve örnekler de sırasını her etkisi hakkında tü
 
 ### <a name="policy-functions"></a>İlke işlevleri
 
-Bir alt kümesini [Resource Manager şablonu işlevleri](../../../azure-resource-manager/resource-group-template-functions.md) bir ilke kuralı içinde kullanılabilir. Şu anda desteklenen işlevler şunlardır:
+Birkaç [Resource Manager şablonu işlevleri](../../../azure-resource-manager/resource-group-template-functions.md) bir ilke kuralı içinde kullanılabilir. Şu anda desteklenen işlevler şunlardır:
 
 - [parametreler](../../../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
 - [concat](../../../azure-resource-manager/resource-group-template-functions-array.md#concat)
 - [resourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
 - [aboneliği](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
 
-Ayrıca, `field` işlevi ilke kuralları için kullanılabilir. İle kullanmak için öncelikle bu işlev, **AuditIfNotExists** ve **Deployıfnotexists** değerlendirilen kaynağı başvurusu alanları. Buna örnek olarak görülebilir [Deployıfnotexists örnek](effects.md#deployifnotexists-example).
+Ayrıca, `field` işlevi ilke kuralları için kullanılabilir. `field` ile kullanılır **AuditIfNotExists** ve **Deployıfnotexists** değerlendirilmekte kaynak başvurusu alanlarında. Bu kullanım örneği görülebilir [Deployıfnotexists örnek](effects.md#deployifnotexists-example).
 
 #### <a name="policy-function-examples"></a>İlke işlevi örnekleri
 
@@ -355,7 +357,7 @@ Birkaç kullanılabilir diğer adlarına sahip bir 'normal' bir ad ve başka gö
 
 İlk örnek tüm dizinin değerlendirmek için kullanılan burada **[\*]** diğer dizinin her öğesi değerlendirir.
 
-Örneğin bir ilke kuralı bakalım. Bu ilke olacak **Reddet** ipRules yapılandırılmış olan bir depolama hesabı ve **hiçbiri** ipRules "127.0.0.1" değerine sahip.
+Örneğin bir ilke kuralı bakalım. Bu ilke olacak **Reddet** ipRules yapılandırılmış olan bir depolama hesabı ve **hiçbiri** ipRules "127.0.0.1" değerine sahiptir.
 
 ```json
 "policyRule": {
@@ -416,11 +418,11 @@ Bu örnek nasıl işleneceğini aşağıda verilmiştir:
     - "127.0.0.1"! = "192.168.1.1", true değerlendirilir.
     - En az bir _değer_ özelliğinde **ipRules** dizi değerlendirme sona erecek yanlış değerlendirilir.
 
-Koşul false olarak değerlendirildi **Reddet** etkisi olmayan tetiklenir.
+Koşul false olarak değerlendirildi **Reddet** etkisi olmayan tetiklendi.
 
 ## <a name="initiatives"></a>Girişimler
 
-Girişim atamaları ve yönetim grubu tek bir öğe olarak çalışmak için basitleştirmek için çeşitli ilgili ilke tanımlarını olanak sağlar. Örneğin, tek bir girişim etiketleme ilgili tüm ilke tanımlarını gruplandırabilirsiniz. Tek tek her ilke atamak yerine, girişim uygulayın.
+Girişim atamaları ve yönetim grubu tek bir öğe olarak çalışmak için basitleştirmek için çeşitli ilgili ilke tanımlarını olanak sağlar. Örneğin, tek bir girişim etiketleme ilgili ilke tanımlarını gruplandırabilirsiniz. Tek tek her ilke atamak yerine, girişim uygulayın.
 
 Aşağıdaki örnek iki etiketi işlemeye yönelik bir girişim oluşturma işlemini gösterir: `costCenter` ve `productName`. Varsayılan etiket değeri uygulamak için iki yerleşik ilkeleri kullanır.
 
@@ -502,5 +504,5 @@ Aşağıdaki örnek iki etiketi işlemeye yönelik bir girişim oluşturma işle
 - Gözden geçirme [ilke etkilerini anlama](effects.md)
 - Anlamak için nasıl [programlı olarak ilkeler oluşturma](../how-to/programmatically-create.md)
 - Bilgi edinmek için nasıl [uyumluluk verilerini al](../how-to/getting-compliance-data.md)
-- Bulma nasıl [uyumlu olmayan kaynakları Düzelt](../how-to/remediate-resources.md)
+- Bilgi edinmek için nasıl [uyumlu olmayan kaynakları Düzelt](../how-to/remediate-resources.md)
 - [Kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../../management-groups/overview.md) bölümünde yönetim gruplarını gözden geçirebilirsiniz

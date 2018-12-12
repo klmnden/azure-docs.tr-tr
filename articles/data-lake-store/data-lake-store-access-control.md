@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 08991829c9c3d628b5028e04dbd4836647d94826
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: eaabb29a492ec6a0ef4c85afe839a9df5f588958
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567494"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087176"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 erişim denetimi
 
@@ -71,15 +71,15 @@ Data Lake depolama Gen1 tarafından kullanılan POSIX stili modelinde bir öğen
 
 Bir Data Lake depolama Gen1 hesabı üzerinde belirli işlemlerin gerçekleştirilmesi için gereken izinleri anlamanıza yardımcı olacak bazı yaygın senaryolar aşağıda verilmiştir.
 
-|    İşlem             |    /    | Seattle / | Portland / | Data.txt     |
-|--------------------------|---------|----------|-----------|--------------|
-| Data.txt okuyun            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Data.txt için ekleme       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Data.txt Sil          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Data.txt oluşturma          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Liste /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| Liste /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| Liste /Seattle/Portland /  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| İşlem | Nesne              |    /      | Seattle /   | Portland /   | Data.txt       |
+|-----------|---------------------|-----------|------------|-------------|----------------|
+| Okuma      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Ekleyin | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Sil    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Oluştur    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Liste      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| Liste      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| Liste      | /Seattle/Portland /  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]

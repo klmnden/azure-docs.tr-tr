@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 1642a9398ed9d2f0e74c03cd77990339b0a0ac03
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 02ff1822bab0abb4850541135a6ea51ea0e7119f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997696"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083572"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Öğretici: Cloudyn kullanarak maliyetleri yönetme
 
@@ -53,13 +53,11 @@ Maliyet dağıtımına başladığınızda, ilk olarak bir maliyet modeli kullan
 
 Özel bir maliyet dağıtma modeli oluşturmak için, raporun menüsünde **Maliyetler** &gt; **Maliyet Yönetimi** &gt; **360° Maliyet Dağıtma**'yı seçin.
 
-![360 Maliyet Dağıtma seçimi](./media/tutorial-manage-costs/cost-allocation-360.png)
+![360 maliyet seçtiğiniz bir panoya gösteren örnek](./media/tutorial-manage-costs/cost-allocation-360.png)
 
 **360 Maliyet Dağıtma** sayfasında **Ekle**'yi seçin ve ardından maliyet modeliniz için bir ad ve açıklama girin. Tüm hesapları veya tek tek hesapları seçin. Tek tek hesapları kullanmak istiyorsanız, birden çok bulut hizmeti sağlayıcısından birden çok hesap seçebilirsiniz. Sonra, bulunan ve verilerinizi kategorilere ayıracak etiketleri seçmek için **Kategorilere Ayırma**'ya tıklayın. Modelinize eklemek istediğiniz etiketleri (kategorileri) seçin. Aşağıdaki örnekte **Unit** (Birim) etiketi seçilmiştir.
 
-![Maliyet modeli kategorilere ayırma örneği](./media/tutorial-manage-costs/cost-model01.png)
-
-
+![Örnek gösteren maliyet modeli kategorilere ayırma](./media/tutorial-manage-costs/cost-model01.png)
 
 Örnekte, 19.680 ABD dolarının kategorilere ayrılmadığı (etiket içermediği) gösteriliyor.
 
@@ -97,7 +95,7 @@ Yeni kural oluşturmak için, **Kurallar** alanında yeni kuralı oluşturun. Ö
 
 Aşağıdaki resimde, **Work-Load** adlı yeni kategori için oluşturulan örnek kurallar gösterilir:
 
-![Örnek kategori](./media/tutorial-manage-costs/category01.png)
+![Yeni iş yükü kategori gösteren örnek](./media/tutorial-manage-costs/category01.png)
 
 ### <a name="tag-sources-and-reports"></a>Etiket kaynakları ve raporlar
 
@@ -124,7 +122,7 @@ Kuruluşların ücret hesaplama ve ücret yansıtma işlemlerini yapmak için ku
 
 Maliyet dağıtma sonuçlarını görüntülemek için, Maliyet Analizi raporunu açın ve oluşturduğunuz maliyet modelini seçin. Ardından, maliyet modelinde seçilen bir veya birden çok etiketle bir gruplandırma ekleyin.
 
-![Maliyet Analizi raporu](./media/tutorial-manage-costs/cost-analysis.png)
+![Maliyet gösteren bir örnek veri yeni maliyet analizi raporu](./media/tutorial-manage-costs/cost-analysis.png)
 
 Kolaylıkla belirli gruplar tarafından tüketilen belirli hizmetlere odaklanmış raporlar oluşturabilir ve kaydedebilirsiniz. Örneğin, Azure sanal makinelerini yaygın olarak kullanan bir bölümünüz olabilir. Tüketimi ve maliyetleri göstermek için Azure sanal makinelerine göre filtrelenmiş bir rapor oluşturabilirsiniz.
 

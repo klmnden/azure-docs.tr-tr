@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure ayrılmış HSM dağıtma Hsm'lere CLI kullanarak mevcut bir sanal ağ | Microsoft Docs"
-description: CLI kullanarak bir ayrılmış HSM dağıtmayı gösteren öğretici.
+title: Öğretici - Azure ayrılmış HSM Azure CLI kullanarak mevcut bir sanal ağa dağıtma | Microsoft Docs
+description: CLI kullanarak mevcut bir sanal ağa ayrılmış bir HSM dağıtmayı gösteren öğretici.
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
@@ -8,19 +8,19 @@ manager: mbaldwin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: ca30dc9d86db8faabfdd3791b74b9f86c9480ea5
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d8171a3c506ed53c986db6cddd959411f0a146aa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679656"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080325"
 ---
-# <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Öğretici: CLI kullanarak mevcut sanal ağına HSM'ler dağıtma
+# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Öğretici: CLI kullanarak mevcut bir sanal ağa HSM'ler dağıtma
 
 Azure ayrılmış HSM fiziksel bir cihaz için tam yönetim denetimi ve tam yönetim sorumluluk ile tek bir müşterinin kullanım sağlar. Fiziksel cihazlar kullanımını kapasite etkili bir şekilde yönetildiğinden emin olmak için cihaz ayırma denetlemek Microsoft gereksinimini oluşturur. Sonuç olarak, bir Azure aboneliğinde, ayrılmış HSM hizmetini normalde kaynak sağlama için görünür olmaz. Ayrılmış HSM hizmetine erişim gerektiren herhangi bir Azure müşterisi ilk başvurmalısınız, Microsoft hesap yöneticinize istek kayıt için ayrılmış HSM hizmeti. Yalnızca bu işlemi başarıyla tamamlandıktan sonra sağlama mümkün olacaktır. 
 
@@ -130,7 +130,7 @@ Parametre değerlerini ayarladıktan sonra dosyaları kullanmak için Azure port
 
 Komut kabuğu araç çubuğundaki karşıya yükleme/indirme seçeneği vardır ve bu şablonu ve parametre dosyalarını karşıya dosya paylaşımınızı seçmeniz gerekir:
 
-![Abonelik durumu](media/tutorial-deploy-hsm-cli/file-share.png)
+![Dosya Paylaşımı](media/tutorial-deploy-hsm-cli/file-share.png)
 
 Dosyalar yüklendiğinde bu kaynakları oluşturmaya hazır olursunuz. Yeni HSM oluşturmadan önce emin olmanız gerekir bazı önkoşul kaynak yerinde kaynaklardır. İşlem, HSM'ler ve ağ geçidi alt ağı aralıklarına sahip bir sanal ağ olması gerekir. Aşağıdaki komutları ne tür bir sanal ağda oluşturacak bir örnek olarak görev yapar.
 
@@ -191,7 +191,7 @@ az resource show \
    --ids /subscriptions/$subid/resourceGroups/myRG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSM2
 ```
 
-![sağlama durumu](media/tutorial-deploy-hsm-cli/progress-status2.png)
+![sağlama çıkışı](media/tutorial-deploy-hsm-cli/progress-status2.png)
 
 Ayrıca artık kullanarak kaynakları görmeye olacak [Azure kaynak Gezgini](https://resources.azure.com/).   Bir kez Gezgini'nde soldaki "abonelikler" genişletin, belirli ayrılmış HSM aboneliğinizin genişletin, "kaynak grupları" genişletin, kullandığınız kaynak grubunu genişletin ve son olarak "Kaynaklar" maddesi'ı seçin.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs Apache Kafka uygulamalardan kullanmak | Microsoft Docs
-description: Azure Event Hubs'a genel bakış ve Kafka'ya giriş etkin
+title: Kullanım olay hub'ından Apache Kafka uygulama - Azure Event Hubs | Microsoft Docs
+description: Bu makalede, Azure Event Hubs ile Apache Kafka desteği hakkında bilgi sağlar.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 4f1cb4e3e8572ee5edbadfb7d2a1771ae9a80341
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 1c484b6418fd5a453713bc464fff690ef444f109
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014693"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091195"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Apache Kafka uygulamalarından Azure Event Hubs'ı kullanın
 Event Hubs, kullanılabilir bir Kafka uç noktası sağlar, varolan Kafka kendi Kafka kümesi çalıştıran alternatif olarak tabanlı uygulamalar. Event hubs'ı destekleyen [Apache Kafka protokolü 1.0 ve üzeri](https://kafka.apache.org/documentation/)ve MirrorMaker dahil olmak üzere, mevcut Kafka uygulamaları ile çalışır.  

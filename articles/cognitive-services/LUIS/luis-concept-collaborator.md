@@ -1,23 +1,24 @@
 ---
-title: LUIS uygulama işbirliği - dil anlama
-titleSuffix: Azure Cognitive Services
-description: LUIS uygulamaları tek bir sahibi ve isteğe bağlı ortak çalışanlar gerektirir.
+title: İş Birliği
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: LUIS uygulamaları tek bir sahip ve tek bir uygulama yazmak birden çok kişinin sağlayan isteğe bağlı çalışanlar gerektirir.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 9acc0b04cbfa074f888d785930f357eaf94f310b
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 8a3f0cb99dc714a6a0430d0a2ffb7c18583183e9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637332"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084558"
 ---
-# <a name="collaborating"></a>İşbirliği yapma
+# <a name="collaborating-with-other-authors"></a>Diğer yazarların ile işbirliği yapma
 
 LUIS uygulama yazmak için bir grup izin vermek için işbirliği sağlar.
 

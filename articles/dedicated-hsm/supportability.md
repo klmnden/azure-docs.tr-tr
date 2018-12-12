@@ -1,6 +1,6 @@
 ---
-title: Azure ayrılmış HSM desteklenebilirliği | Microsoft Docs
-description: Azure ayrılmış HSM anahtar depolama kapasitesini FIPS karşılayan Azure 140-2 Düzey 3 sertifika sağlar.
+title: Desteklenebilirlik - Azure ayrılmış HSM | Microsoft Docs
+description: Destek seçenekleri ve farklı senaryolarda Azure ayrılmış HSM'ye sorumluluk alanları
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
@@ -9,14 +9,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.custom: seodec18
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 7c7cc38cb3332b153cd2a315d48c69b48a1dc357
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2ed6a79b8736a1d3b472e31ce643c0d1ee085bbb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319508"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085918"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Azure ayrılmış HSM Desteklenebilirliği
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 623e4392ff8ff75d09da92c54b9e4dc620146432
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 47f3e8ab14ecd50e958c57ba4c8f9f098fd5bb7b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251140"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868370"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>İdare maliyet ve sahipliğinin - Azure DevTest Labs altyapısını yönetme
 Geliştirme sürecinizi oluşturmayı düşünün ve test ortamları maliyet ve sahiplik birincil edilir. Bu bölümde, maliyetini en iyi duruma getirmek ve ortamınız genelinde sahipliği hizalama yardımcı olan bilgiler bulabilirsiniz.
@@ -40,7 +40,7 @@ Bu yaklaşım ile çok sayıda avantaj sağlar:
  
 Yalnızca etkin Visual Studio aboneleri (standart abonelikler, yıllık bulut aboneliklerine ve aylık bulut abonelikleri) bir kurumsal geliştirme ve Test aboneliği içinde çalışan Azure kaynakları kullanabilirsiniz. Bununla birlikte, son kullanıcılar geri bildirim sağlamak veya onay testleri gerçekleştirmek için uygulamayı erişebilir. Bu abonelikteki kaynakların kullanımı geliştirme ve test uygulamalarıyla kısıtlanmıştır ve çalışma zamanı garantisi sunulmaz.
 
-Geliştirme ve test teklifi kullanmaya karar verirseniz, bu avantaj yalnızca geliştirme ve test uygulamalarınız için olduğunu unutmayın. Aboneliği dahilinde kullanım, Visual Studio Team Services ve HockeyApp kullanımı dışında finansal destekli bir SLA içermez.
+Geliştirme ve test teklifi kullanmaya karar verirseniz, bu avantaj yalnızca geliştirme ve test uygulamalarınız için olduğunu unutmayın. Aboneliği dahilinde kullanım, Azure DevOps ve HockeyApp kullanımı dışında finansal destekli bir SLA içermez.
 
 ## <a name="define-a-role-based-access-across-your-organization"></a>Kuruluşunuzda bir rol tabanlı erişim tanımlayın
 ### <a name="question"></a>Soru
@@ -57,7 +57,7 @@ DevTest Labs kaynak proje/uygulama ekibine yakın çeken sahipler tarafından sa
 
 Proje/uygulama takım üyeleri DevTest Labs kullanıcı rolüne eklenmesi gerekir. Bu kullanıcılar, sanal makineler (satır içi Laboratuvar ve abonelik düzeyinde ilkeleri) oluşturabilir. Bunlar, kendi sanal makinelerini de yönetebilirsiniz. Bunlar, diğer kullanıcılara ait sanal makineleri yönetemez.
 
-Daha fazla bilgi için [Azure Kurumsal iskelesi: öngörücü abonelik İdaresi](/architecture/cloud-adoption/appendix/azure-scaffold) belgeleri.
+Daha fazla bilgi için [Azure Kurumsal iskelesi: öngörücü abonelik İdaresi](/azure/architecture/cloud-adoption/appendix/azure-scaffold) belgeleri.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

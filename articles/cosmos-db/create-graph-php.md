@@ -10,12 +10,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: e5a7d40007076d09695d166148d84684c1cccee5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f6ff46f391ce03f67619ef685f841dcf95a1fd92
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839628"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089475"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: PHP ve Azure portalını kullanarak bir grafik veritabanı oluşturma
 
@@ -37,7 +37,7 @@ Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritaba
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatif olarak, [Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)’yi ücretsiz olarak, Azure aboneliği olmadan ve herhangi bir taahhütte bulunmadan deneyebilirsiniz.
 
 Buna ek olarak:
-* [PHP](http://php.net/) 5.6 veya daha yeni
+* [PHP](https://php.net/) 5.6 veya daha yeni
 * [Oluşturucu](https://getcomposer.org/download/)
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
@@ -104,7 +104,7 @@ Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturu
 
 Şimdi, Azure portalına dönerek bağlantı bilgilerinizi kopyalayıp uygulamaya ekleyin. Bu ayarlar, uygulamanızın barındırılan veritabanıyla iletişim kurmasına olanak tanır.
 
-1. [Azure portalında](http://portal.azure.com/), **Anahtarlar**’a tıklayın. 
+1. [Azure portalında](https://portal.azure.com/), **Anahtarlar**’a tıklayın. 
 
     URI değerinin ilk parçasını kopyalayın.
 

@@ -1,5 +1,5 @@
 ---
-title: "Hızlı Başlangıç: Konuşma Tanıma Hizmeti SDK'sını kullanarak Linux üzerinde C++ dilinde konuşma tanıma"
+title: 'Hızlı Başlangıç: C++ (Linux) - konuşma Hizmetleri konuşma tanıma'
 titleSuffix: Azure Cognitive Services
 description: Konuşma Tanıma Hizmeti SDK'sını kullanarak Linux üzerinde C++ dilinde konuşma tanımayı öğrenin
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: bfb71c000eea56e705b33fb97827aead23de8cbb
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: e26190b46a79d581e5996e51bfd104f1d4beb6f6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219282"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094041"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Konuşma SDK'sını kullanarak Linux üzerinde C++ dilinde konuşma tanıma
 
@@ -23,7 +23,7 @@ ms.locfileid: "51219282"
 
 Bu makalede Ubuntu Linux 16.04 için bir C++ konsol uygulaması oluşturacaksınız. Bilgisayarınızın mikrofonundan gerçek zamanda konuşmayı metne dönüştürmek için Bilişsel Hizmetler [Konuşma SDK'sı](speech-sdk.md)'nı kullanırsınız. Uygulama [Linux için Konuşma SDK'sı](https://aka.ms/csspeech/linuxbinary) ve Linux dağıtımınızın C++ derleyicisi (örneğin `g++`) ile oluşturulur.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtarınız olması gerekir. Anahtarı ücretsiz alabilirsiniz. Ayrıntılar için bkz: [Konuşma hizmetini ücretsiz olarak deneme](get-started.md).
 

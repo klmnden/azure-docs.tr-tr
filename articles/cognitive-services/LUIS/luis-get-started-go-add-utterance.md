@@ -1,7 +1,7 @@
 ---
-title: Go dili Hızlı Başlangıç - modeli değiştirme ve LUIS uygulamasını eğitme
-description: Bu Go dili hızlı başlangıcında, bir Ev Otomasyonu uygulamasına örnek konuşmalar ekleyip uygulamayı eğitin. Örnek konuşmalar, bir amaçla eşleşmiş kullanıcı konuşma metinleridir. Amaçlar için örnek konuşmalar sağlayarak, LUIS’e kullanıcı tarafından sağlanan hangi tür metinlerin hangi amaca ait olduğunu öğretirsiniz.
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Değişiklik, train uygulama, Git
+description: Bu Go dili hızlı başlangıcında, bir Ev Otomasyonu uygulamasına örnek konuşmalar ekleyip uygulamayı eğitin.
+titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
 manager: cgronlun
 ms.custom: seodec18
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 092771ed4ce2ebbe134ea5c39e23294555124c19
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e3fb6b2532f2dc99a48cc3c2eac9029367c52185
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013671"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100302"
 ---
 # <a name="quickstart-change-model-using-go"></a>Hızlı Başlangıç: Go kullanarak model değiştirme
 
@@ -69,7 +69,7 @@ Bu hızlı başlangıçta, amaç ve varlıkları döndürmek için bir LUIS uç 
 
 2. Aşağıdaki metni komut istemine girerek komut satırından Go uygulamasını çalıştırın: 
 
-    ```CMD
+    ```console
     add-utterances -appID <your-app-id> -authoringKey <add-your-authoring-key> -version <your-version-id> -region westus -utteranceFile utterances.json
 
     ```
@@ -78,7 +78,7 @@ Bu hızlı başlangıçta, amaç ve varlıkları döndürmek için bir LUIS uç 
 
     Bu komut sonuçları şu görüntüler:
 
-    ```CMD
+    ```console
     add example utterances requested
     [
         {

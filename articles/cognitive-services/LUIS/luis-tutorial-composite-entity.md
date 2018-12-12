@@ -1,21 +1,22 @@
 ---
-title: 'Öğreticinin 6: LUIS bileşik varlıkla bileşik veri ayıklamak'
+title: Bileşik varlık"
 titleSuffix: Azure Cognitive Services
 description: Çeşitli türlerde ayıklanan verileri içeren tek bir varlığa paket için bileşik bir varlık ekleyin. İstemci uygulama, verileri paketleme tarafından farklı veri türlerinde ilgili verileri kolayca ayıklayabilirsiniz.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 8f7edecf1abd1f01a2f40f1420a6a85224271239
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b5923d5cd4a704dda76e33ee6a2b76cfd903219d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423510"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079220"
 ---
 # <a name="tutorial-6-group-and-extract-related-data"></a>Öğreticinin 6: Grup ve ilgili verileri ayıklayın
 Bu öğreticide, bileşik bir varlık içeren tek bir varlığa çeşitli türlerde ayıklanan veri paketi ekleyin. İstemci uygulama, verileri paketleme tarafından farklı veri türlerinde ilgili verileri kolayca ayıklayabilirsiniz.
@@ -70,7 +71,7 @@ Taşıma isteği, (herhangi bir eş anlamlı kullanarak) çalışan ve son bina 
 
 Ayıklanan uç noktasına ait verilerin ve bu bilgileri içeren içinde döndürün `RequestEmployeeMove` Bileşik varlık:
 
-```JSON
+```json
 "compositeEntities": [
   {
     "parentType": "RequestEmployeeMove",
@@ -103,22 +104,22 @@ Ayıklanan uç noktasına ait verilerin ve bu bilgileri içeren içinde döndür
 
 3. Araç çubuğundaki konuşma listeyi filtrelemek için büyüteç simgesini seçin. 
 
-    [![](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Büyüteç düğmesi vurgulanan 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
+    [![LUIS ekran Büyüteç düğmesi vurgulanan 'MoveEmployee' hedefi üzerinde](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Büyüteç düğmesi vurgulanan 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
 
 4. Girin `tomorrow` utterance bulmak için filtre metin kutusuna `shift x12345 to h-1234 tomorrow`.
 
-    [![](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Vurgulanan 'yarının' filtresi 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
+    [![LUIS ekran Filtresi 'yarının' ile 'MoveEmployee' hedefi üzerinde vurgulanmış](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "vurgulanmış 'yarının' filtresi 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
 
     Varlık seçerek datetimeV2 göre filtre uygulamak için başka bir yöntemdir **varlık filtreleri** seçip **datetimeV2** listeden. 
 
 5. İlk varlığı seçin `Employee`, ardından **kaydırma bileşik varlıkta** açılır menüsü listesinde. 
 
-    [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "İlk varlık içinde bileşik vurgulanmış seçerek 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
+    [![İlk varlık içinde bileşik vurgulanmış seçerek 'MoveEmployee' hedefi üzerinde LUIS ekran](media/luis-tutorial-composite-entity/hr-create-entity-1.png "vurgulanmış bileşik içinde ilk varlık seçildikten 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
 
 6. Son varlık hemen ardından `datetimeV2` utterance içinde. Bileşik bir varlığı gösteren sözcüklerin altında yeşil bir çubuk çizilir. Açılır menüde, bileşik adını `RequestEmployeeMove` seçin ENTER. 
 
-    [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Vurgulanan son varlık bileşik ve oluşturma varlıkta seçerek 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
+    [![Son varlık içinde bileşik seçerek ve vurgulanmış bir varlık oluştururken 'MoveEmployee' hedefi üzerinde LUIS ekran](media/luis-tutorial-composite-entity/hr-create-entity-2.png "son varlık içinde bileşik seçerek ve vurgulanmış bir varlık oluştururken 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
 7. İçinde **ne tür bir varlık oluşturmak istiyorsunuz?**, gerekli neredeyse tüm alanlar listesinde bağlıdır. Yalnızca kaynak konumunda eksik. Seçin **alt varlık ekleme**seçin **Locations::Origin** var olan varlıkları listesinden seçip **Bitti**. 
 
@@ -135,15 +136,15 @@ Ayıklanan uç noktasına ait verilerin ve bu bilgileri içeren içinde döndür
 
 1. Her örnek utterance içinde bileşik içinde olması gereken en soldaki varlığı seçin. Ardından **kaydırma bileşik varlıkta**.
 
-    [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "İlk varlık içinde bileşik vurgulanmış seçerek 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
+    [![İlk varlık içinde bileşik vurgulanmış seçerek 'MoveEmployee' hedefi üzerinde LUIS ekran](media/luis-tutorial-composite-entity/hr-label-entity-1.png "vurgulanmış bileşik içinde ilk varlık seçildikten 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
 
 2. Bileşik varlıkta son sözcüğü eşleyebilir ve ardından seçin **RequestEmployeeMove** açılır menüden. 
 
-    [![](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Son varlık seçme içinde bileşik vurgulanmış 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
+    [![Son varlık seçme içinde bileşik vurgulanmış 'MoveEmployee' hedefi üzerinde LUIS ekran](media/luis-tutorial-composite-entity/hr-label-entity-2.png "son varlık seçme içinde bileşik vurgulanmış 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
 
 3. Tüm konuşma amacı, bileşik bir varlık ile etiketlenmiş doğrulayın. 
 
-    [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Etiketli tüm konuşma ile 'MoveEmployee' üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
+    [![LUIS ekran üzerinde 'MoveEmployee' olarak etiketlenen tüm konuşma ile](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "'MoveEmployee' olarak etiketlenen tüm konuşma ile şirket LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## <a name="train"></a>Eğitim
 
@@ -161,7 +162,7 @@ Ayıklanan uç noktasına ait verilerin ve bu bilgileri içeren içinde döndür
 
     Bileşik doğru bir şekilde ayıklandıktan doğrulamak için bu test olduğundan, bir test ya da mevcut bir örnek utterance veya yeni bir utterance içerebilir. Bileşik varlıktaki tüm alt varlıklar eklemek iyi bir testtir.
 
-    ```JSON
+    ```json
     {
       "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
       "topScoringIntent": {

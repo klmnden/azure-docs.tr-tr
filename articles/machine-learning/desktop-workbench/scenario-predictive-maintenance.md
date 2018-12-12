@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c154b0124acb5bee93211adb611356555526d2c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9c638ed9132612db7b82168d3a57057aba9b2d60
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996222"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870343"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Gerçek dünya senaryoları için Tahmine dayalı bakım
 
@@ -98,13 +98,13 @@ az ml notebook start
 
 ## <a name="data-description"></a>Veri açıklaması
 
-[Simülasyonu veri](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) beş virgülle ayrılmış değerler (.csv) dosyaları içerir. Veri kümeleri hakkında ayrıntılı açıklamaları almak için aşağıdaki bağlantıları kullanın.
+[Simülasyonu veri](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide) şunlardan oluşur [beş virgülle ayrılmış değerler (.csv) dosyalarından](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data):
 
-* [Makineleri](https://pdmmodelingguide.blob.core.windows.net/pdmdata/machines.csv): yaş ve model gibi her bir makine ayırt özellikleri.
-* [Hata](https://pdmmodelingguide.blob.core.windows.net/pdmdata/errors.csv): hata günlüğünü makine hala çalışır durumdayken oluşan hataya neden olmayan hatalar içeriyor. Gelecekteki bir hata olayı Tahmine dayalı olabilir ancak bu hataları hataları dikkate alınmaz. Saatlik ücretle toplanan telemetri verilerini bu yana hataları tarih ve saat değerlerini en yakın saate yuvarlanır.
-* [Bakım](https://pdmmodelingguide.blob.core.windows.net/pdmdata/maint.csv): Bakım günlüğü hem zamanlanmış hem de zamanlanmamış bakım kayıtları içerir. Zamanlanan bakım bileşenlerinin normal İnceleme ile karşılık gelir. Zamanlanmamış bakım mekanik hata veya diğer performans düşüşü ortaya çıkabilir. Tarih ve saat değerleri için bakım, saatlik ücretle toplanan telemetri verilerini bu yana en yakın saate yuvarlanır.
-* [Telemetri](https://pdmmodelingguide.blob.core.windows.net/pdmdata/telemetry.csv): zaman serisi ölçümleri her makine içinde birden çok sensörlerden alınan telemetri verilerini oluşur. Veriler, her bir saatlik zaman aralığında algılayıcı değerlerinin ortalamasını alarak günlüğe kaydedilir.
-* [Hataları](https://pdmmodelingguide.blob.core.windows.net/pdmdata/failures.csv): Bakım günlüğü içinde bileşeni değişiklik hataları karşılık gelir. Her kayıt, makine kimliği, bileşen türü ve değiştirme tarihi ve saati içerir. Bu kayıtlar, makine öğrenimi modeli tahmin etmek için çalışıyor etiketleri oluşturmak için kullanılır.
+* [Makineleri](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/machines.csv): yaş ve model gibi her bir makine ayırt özellikleri.
+* [Hataları](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/errors.csv): hata günlüğünü makine hala çalışır durumdayken oluşan hataya neden olmayan hatalar içeriyor. Gelecekteki bir hata olayı Tahmine dayalı olabilir ancak bu hataları hataları dikkate alınmaz. Saatlik ücretle toplanan telemetri verilerini bu yana hataları tarih ve saat değerlerini en yakın saate yuvarlanır.
+* [Bakım](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/maint.csv): Bakım günlüğü hem zamanlanmış hem de zamanlanmamış bakım kayıtları içerir. Zamanlanan bakım bileşenlerinin normal İnceleme ile karşılık gelir. Zamanlanmamış bakım mekanik hata veya diğer performans düşüşü ortaya çıkabilir. Tarih ve saat değerleri için bakım, saatlik ücretle toplanan telemetri verilerini bu yana en yakın saate yuvarlanır.
+* [Telemetri](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/telemetry.csv): zaman serisi ölçümleri her makine içinde birden çok sensörlerden alınan telemetri verilerini oluşur. Veriler, her bir saatlik zaman aralığında algılayıcı değerlerinin ortalamasını alarak günlüğe kaydedilir.
+* [Hataları](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/failures.csv): Bakım günlüğü içinde bileşeni değişiklik hataları karşılık gelir. Her kayıt, makine kimliği, bileşen türü ve değiştirme tarihi ve saati içerir. Bu kayıtlar, makine öğrenimi modeli tahmin etmek için çalışıyor etiketleri oluşturmak için kullanılır.
 
 Ham veri kümeleri GitHub deposundan indirin ve bu analiz için PySpark veri kümeleri oluşturmak için bkz: [veri alımı](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb) Jupyter not defteri senaryoda kod klasörü.
 

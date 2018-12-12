@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: SEO uzmanınıza danışmadan anahtar sözcük eklemeyin veya anahtar sözcükleri düzenlemeyin.
 author: rwike77
 ms.author: ryanwi
-ms.date: 08/24/2018
+ms.date: 11/27/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: d50ebeef686de7e467e2a71b6bb33f207414bcc8
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
-ms.translationtype: HT
+ms.openlocfilehash: 4be24b00c3ac4ffadf7eafdc7397f59113ec03b2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541475"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088372"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Hızlı başlangıç: Merhaba Dünya uygulamasını Service Fabric Mesh’e dağıtma
 
@@ -48,14 +48,32 @@ az group create --name myResourceGroup --location eastus
 `az mesh deployment create` komutunu kullanarak kaynak grubunda uygulamanızı oluşturun.  Aşağıdakileri çalıştırın:
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{'location': {'value': 'eastus'}}" 
+az mesh deployment create --resource-group myResourceGroup --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.linux.json --parameters "{'location': {'value': 'eastus'}}" 
 ```
 
-Önceki komut, [mesh_rp.linux.json şablonunu](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json) kullanarak bir Linux uygulamasını dağıtır. Windows uygulaması dağıtmak istiyorsanız [mesh_rp.windows.json şablonunu](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json) kullanın. Windows kapsayıcı görüntüleri Linux kapsayıcı görüntülerinden büyüktür ve dağıtılması daha uzun sürebilir.
+Önceki komutu kullanarak bir Linux uygulama dağıtır [linux.json şablon](https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.linux.json). Bir Windows uygulamasını dağıtmak istiyorsanız, kullanın [windows.json şablon](https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.windows.json). Windows kapsayıcı görüntüleri Linux kapsayıcı görüntülerinden büyüktür ve dağıtılması daha uzun sürebilir.
 
-Birkaç dakika içinde komut şunu döndürür:
+Bu komut, aşağıda gösterilen bir JSON parçacığı oluşturur. Altında ```outputs``` JSON çıkışını kopyalama bölümünü ```publicIPAddress``` özelliği.
 
-`helloWorldApp has been deployed successfully on helloWorldNetwork with public ip address <IP Address>` 
+```json
+"outputs": {
+    "publicIPAddress": {
+    "type": "String",
+    "value": "40.83.78.216"
+    }
+}
+```
+
+Bu bilgiler geldiği ```outputs``` ARM şablonu bölümünde. Bu bölümde, aşağıda gösterildiği gibi ağ geçidi kaynağının genel IP adresini Getir başvuruyor. 
+
+```json
+  "outputs": {
+    "publicIPAddress": {
+      "value": "[reference('helloWorldGateway').ipAddress]",
+      "type": "string"
+    }
+  }
+```
 
 ## <a name="open-the-application"></a>Uygulamayı açma
 Uygulama başarıyla dağıtıldıktan sonra, CLI çıkışından hizmet uç noktası için genel IP adresini kopyalayın. Web tarayıcısında IP adresini açın. Azure Service Fabric Mesh logosunun yer aldığı bir web sayfası görüntülenir.

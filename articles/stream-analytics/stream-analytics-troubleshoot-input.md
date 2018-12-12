@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/11/2018
-ms.openlocfilehash: 2b2dc3ba78cfa682c4a326754bdddfa9bc81f836
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: MT
+ms.openlocfilehash: 0098d532f09ca2fa7ef4434add90729a15809ac5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346902"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087465"
 ---
 # <a name="troubleshoot-input-connections"></a>Giriş bağlantı sorunlarını giderme
 
@@ -35,7 +35,7 @@ Stream Analytics işinizin Giriş akışı yanlış biçimlendirilmiş iletiler 
  
 Bir Stream Analytics işi girdi hatalı bir ileti aldığında, iletiyi bırakır ve bir uyarı ile bildirir. Bir uyarı sembolü gösterilir **girişleri** Stream Analytics işinizin kutucuk. İşi çalışır durumda olduğu sürece, bu uyarı işareti vardır:
 
-![Azure Stream Analytics girişler kutucuğunda](media/stream-analytics-malformed-events/inputs_tile.png)
+![Azure Stream Analytics girişler kutucuğunda](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
 Uyarı ayrıntılarını görüntülemek tanılama günlüklerini etkinleştirin. Giriş yanlış biçimlendirilmiş olaylar için yürütme günlüklerini şuna benzer bir ileti ile bir giriş içerir: 
 <code>Could not deserialize the input event(s) from resource <blob URI> as json.</code>
@@ -47,8 +47,8 @@ Giriş olayları seri durumdan çıkarma hataya açık anlamak için ayrıntıl�
 
 2. Giriş Ayrıntıları kutucuğu, her bir sorunun ayrıntılarını içeren uyarıların bir listesini görüntüler. Aşağıdaki örnek uyarı iletisi bölümü, uzaklığı ve seri numaraları içeren JSON verileri hatalı biçimlendirilmiş olduğu. 
 
-   ![Uzaklığı olan uyarı iletisi](media/stream-analytics-malformed-events/warning_message_with_offset.png)
-
+   ![Uzaklığı olan uyarı iletisi](media/stream-analytics-malformed-events/warning-message-with-offset.png)
+   
 3. Hatalı biçimdeki JSON verilerini bulmak için kullanılabilir CheckMalformedEvents.cs kod çalıştırma [GitHub örnekleri depomuzdan](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Bu kod okuma bölüm kimliği, uzaklığı ve bu uzaklık içinde bulunan veri yazdırır. 
 
 4. Verileri okuduktan sonra, serileştirme biçimini analiz edebilir ve düzeltebilirsiniz.

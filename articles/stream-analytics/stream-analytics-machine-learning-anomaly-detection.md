@@ -4,17 +4,17 @@ description: Bu makalede, Azure Stream Analytics ve Azure Machine Learning birli
 services: stream-analytics
 author: dubansal
 ms.author: dubansal
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/09/2018
-ms.openlocfilehash: 3f6d6f700ccf232dacb512f22dd1f9fb5d870740
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: df1010be8c9f41684af806885db7587bfcf1c540
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567052"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091229"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure Stream analytics'te anomali algılama
 
@@ -95,7 +95,7 @@ Zaman ilerledikçe, modelleri, farklı verilerle eğitilir. Puanları anlamlı i
 
 Diagrammatically, adımları şu şekilde görünür: 
 
-![Eğitim modelleri](media/stream-analytics-machine-learning-anomaly-detection/training_model.png)
+![Makine öğrenimi modellerini eğitim](media/stream-analytics-machine-learning-anomaly-detection/machine-learning-training-model.png)
 
 |**Model** | **Eğitim başlangıç zamanı** | **Kendi puanı kullanmaya başlama zamanı** |
 |---------|---------|---------|
@@ -145,15 +145,15 @@ Aşağıdaki noktaları bu algılayıcısı kullanarak göz önünde bulundurulm
 
    Bu Şekil 1 ve 2 (aynı mantığı alt sınırı değişiklik uygulanır) bir üst sınır değişikliği kullanarak aşağıda gösterilmektedir. Her iki şekilde, dalga biçimleri anormal bir düzey değişikliği var. Turuncu dikey çizgileri atlama sınırlar belirtmek ve atlama boyutu Anomalydetectıon işleci belirtilen algılama penceresi ile aynıdır. Yeşil satırlar eğitim penceresinin boyutunu gösterir. Şekil 1'de atlama boyutu hangi anomali bağlanabilmelerini süresi ile aynıdır. Şekil 2'de, anomali sürer yarım saat atlama boyutudur. Modeli Puanlama için kullanılan normal veriler üzerine geliştirilen çünkü her durumda, Yukarı herhangi bir değişiklik algılandı. Ancak, çift yönlü düzeyi değişiklik algılayıcısı nasıl çalıştığını bağlı olarak, bu normal değerler normal dönüş puanlar modeli için kullanılan eğitim penceresinden hariç tutmanız gerekir. Normal dön algılanamıyor bu nedenle Şekil 1'de, bazı normal olaylar Puanlama modeli eğitimi içerir. Ancak Şekil 2'de eğitim yalnızca normal dönüş algılandığını sağlar anormal bölümünü içerir. Daha büyük bir şey biraz normal olaylar da dahil olmak üzere yedekleme sona erecek ise yarısından küçük herhangi bir de aynı nedenden dolayı çalışır. 
 
-   ![Pencere boyutuna eşit anomali uzunluğunda bir AD](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_anomaly_length.png)
+   ![Pencere boyutuna eşit anomali uzunluğunda bir AD](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-anomaly-length.png)
 
-   ![Pencere boyutu AD'ye anomali uzunluğunun yarısı eşittir](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_half_anomaly_length.png)
+   ![Pencere boyutu AD'ye anomali uzunluğunun yarısı eşittir](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-half-anomaly-length.png)
 
 2. Anomali uzunluğunu tahmin edilemez olduğu durumlarda, bu algılayıcısı en iyi çaba çalışır. Ancak, daha dar bir zaman penceresi sınırlar eğitim verileri seçme, hangi dönüş normal algılama olasılığı artacaktır. 
 
 3. Aşağıdaki senaryoda, eğitim pencere zaten aynı yüksek değerin bir anomali içeren olarak uzun anomali algılanan değil. 
 
-   ![Aynı boyutta olan anomalileri](media/stream-analytics-machine-learning-anomaly-detection/anomalies_with_same_length.png)
+   ![Algılanan anomaliler aynı boyutu](media/stream-analytics-machine-learning-anomaly-detection/anomalies-with-same-length.png)
 
 ## <a name="example-query-to-detect-anomalies"></a>Örnek sorgu anomalileri algılamak için 
 

@@ -3,23 +3,22 @@ title: 'Öğretici: Azure Databricks kullanarak akış verileri ile ilgili yakla
 description: Gerçek zamanlıya yakın şekilde akış verileri ile ilgili yaklaşım analizi çalıştırmak için Event Hubs ve Bilişsel Hizmetler API’si ile Azure Databricks’i kullanmayı öğrenin.
 services: azure-databricks
 author: lenadroid
+ms.author: alehall
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.workload: Active
-ms.date: 10/23/2018
-ms.author: alehall
-ms.openlocfilehash: cf396dea6ee467267ea73379ea04026fc8cc53b2
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.date: 12/07/2018
+ms.openlocfilehash: 449d721683bd59646506db57d78b9535aa7d614d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636593"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100200"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Öğretici: Azure Databricks kullanarak akış verileri ile ilgili yaklaşım analizi
 
-Bu öğreticide, Azure Databricks kullanarak gerçek zamanlıya yakın şekilde veri akışı ile ilgili yaklaşım analizinin nasıl çalıştırılacağını öğreneceksiniz. Azure Event Hubs’ı kullanarak veri alımı sistemini ayarlarsınız. Spark Event Hubs bağlayıcısını kullanarak Event Hubs’tan Azure Databricks’e iletileri kullanırsınız. Son olarak, akışa alınan verilerle ilgili yaklaşım analizi çalıştırmak için Microsoft Bilişsel Hizmet API’lerini kullanırsınız.
+Bu öğreticide, Azure Databricks kullanarak neredeyse gerçek zamanlı veri akışı ile ilgili yaklaşım analizi çalıştırmak öğrenin. Azure Event Hubs’ı kullanarak veri alımı sistemini ayarlarsınız. Spark Event Hubs bağlayıcısını kullanarak Event Hubs’tan Azure Databricks’e iletileri kullanırsınız. Son olarak, akışa alınan verilerle ilgili yaklaşım analizi çalıştırmak için Microsoft Bilişsel Hizmet API’lerini kullanırsınız.
 
 Bu öğreticinin sonunda, Twitter’daki "Azure" terimini içeren tweet’leri alır ve bu tweet’ler ile ilgili yaklaşım analizi çalıştırmış olursunuz.
 
@@ -151,7 +150,7 @@ Bu öğreticide, Event Hubs’a tweet’ler göndermek için Twitter API’lerin
 
 ## <a name="get-a-cognitive-services-access-key"></a>Bilişsel Hizmetler erişim anahtarını alma
 
-Bu öğreticide, gerçek zamanlıya yakın şekilde tweet akışı ile ilgili yaklaşım analizi çalıştırmak için [Microsoft Bilişsel Hizmetler Metin Analizi API](../cognitive-services/text-analytics/overview.md)’lerini kullanırsınız. API’leri kullanmadan önce, Azure’da bir Microsoft Bilişsel Hizmetler hesabı oluşturmanız ve Metin Analizi API’lerini kullanmak için bir erişim anahtarı almanız gerekir.
+Bu öğreticide kullandığınız [Microsoft Bilişsel hizmetler metin analizi API](../cognitive-services/text-analytics/overview.md) neredeyse gerçek zamanlı tweet akışı ile ilgili yaklaşım analizi çalıştırmak için. API'leri kullanmadan önce Azure'da bir Microsoft Bilişsel Hizmetler hesabı oluşturma ve metin analizi API'lerini kullanmak için bir erişim anahtarı almanız gerekir.
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
@@ -169,11 +168,11 @@ Bu öğreticide, gerçek zamanlıya yakın şekilde tweet akışı ile ilgili ya
     - Hesabın oluşturulacağı Azure aboneliğini seçin.
     - Bir Azure konumu seçin.
     - Hizmet için bir fiyatlandırma katmanı seçin. Bilişsel Hizmetler fiyatlandırması hakkında daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    - Yeni bir kaynak grubu oluşturmayı veya mevcut bir kaynak grubunu seçmeyi tercih edin.
+    - Yeni bir kaynak grubu oluşturun veya mevcut bir isteyip istemediğinizi belirtin.
 
     **Oluştur**’u seçin.
 
-5. Hesap oluşturulduktan sonra **Genel Bakış** sekmesinden **Erişim anahtarlarını göster**’i seçin.
+5. Hesap oluşturulduktan sonra gelen **genel bakış** sekmesinde **erişim anahtarlarını gösterme**.
 
     ![Erişim anahtarlarını gösterme](./media/databricks-sentiment-analysis-cognitive-services/cognitive-services-get-access-keys.png "Erişim anahtarlarını gösterme")
 
@@ -206,7 +205,7 @@ Bu bölümde, Databricks çalışma alanında aşağıdaki adlarla iki not defte
 
 ## <a name="send-tweets-to-event-hubs"></a>Event Hubs’a tweet’ler gönderme
 
-**SendTweetsToEventHub** not defterine aşağıdaki kodu yapıştırın ve yer tutucuyu, daha önce oluşturduğunuz Twitter uygulamasının ve Event Hubs ad alanınızın değerleriyle değiştirin. Bu not defteri, gerçek zamanlı olarak "Azure" anahtar sözcüğünü içeren tweet’leri Event Hubs’ta akışa alır.
+İçinde **SendTweetsToEventHub** not defterine aşağıdaki kodu yapıştırın ve yer tutucuyu, daha önce oluşturduğunuz Twitter uygulamasının ve Event Hubs ad alanı için değerlerle değiştirin. Bu not defteri, gerçek zamanlı olarak "Azure" anahtar sözcüğünü içeren tweet’leri Event Hubs’ta akışa alır.
 
 ```scala
 import java.util._
@@ -313,7 +312,7 @@ val customEventhubParameters =
   EventHubsConf(connectionString)
   .setMaxEventsPerTrigger(5)
 
-val incomingStream = spark.readStream.format("eventhubs").option(customEventhubParameters.toMap).load()
+val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
 
 incomingStream.printSchema
 
@@ -396,7 +395,7 @@ messages.writeStream.outputMode("append").format("console").option("truncate", f
     ...
     ...
 
-Apache Spark için Event Hubs bağlayıcısını kullanarak Azure Event Hubs’tan Azure Databricks’e neredeyse gerçek zamanlı veri akışı sağladınız. Spark için Event Hubs bağlayıcısını kullanma hakkında daha fazla bilgi için [bağlayıcı belgesi](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs)ne başvurun.
+Artık, neredeyse gerçek zamanlı olarak Apache Spark için Event Hubs bağlayıcısını kullanarak Azure Databricks'e Azure Event Hubs verilerini yaptınız. Spark için Event Hubs bağlayıcısını kullanma hakkında daha fazla bilgi için [bağlayıcı belgesi](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs)ne başvurun.
 
 ## <a name="run-sentiment-analysis-on-tweets"></a>Tweet’lerle ilgili yaklaşım analizi çalıştırma
 
@@ -509,7 +508,7 @@ object SentimentDetector extends Serializable {
 }
 ```
 
-Yaklaşım belirleyen bir Spark UDF’si (Kullanıcı Tanımlı İşlev) tanımlamak için başka bir hücre ekleyin.
+Bir Spark yaklaşım belirleyen UDF (kullanıcı tanımlı işlev) tanımlamak için başka bir hücreye ekleyin.
 
 ```scala
 // User Defined Function for processing content of messages to return their sentiment.
@@ -571,7 +570,7 @@ Aşağıdaki kod parçacığı gibi bir çıktı görmeniz gerekir:
 
 **Yaklaşım** sütununda bir değerin **1** değerine yakın olması, Azure deneyiminin mükemmel olduğunu ifade eder. Bir değerin **0** değerine yakın olması, kullanıcının Microsoft Azure ile çalışırken sorunlarla karşılaştığını ifade eder.
 
-İşte bu kadar! Azure Databricks’i kullanarak, verileri başarıyla Azure Event Hubs’ta akışa aldınız, Event Hubs bağlayıcısını kullanarak akış verilerini kullandınız ve sonra gerçek zamanlıya yakın şekilde akış verileriyle ilgili yaklaşım analizi çalıştırdınız.
+İşte bu kadar! Azure Databricks kullanarak verileri başarıyla yaptınız Azure Event Hubs'a, Event Hubs bağlayıcısını kullanarak akış verilerini kullandınız ve sonra verileri neredeyse gerçek zamanlı akış yaklaşım analizi çalıştırdınız.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

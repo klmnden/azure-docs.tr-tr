@@ -4,11 +4,7 @@ description: Bu hızlı başlangıçta, Azure portalını kullanarak genel bir T
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: hero-article
@@ -17,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 2e4e4e7cb1ae49a856bbfed0716936b7b5b13d19
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
-ms.translationtype: MT
+ms.openlocfilehash: 9cf1fcda8651cccb82b2de58487becf25541a6e2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635110"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098687"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak genel bir Temel yük dengeleyici oluşturma
 
@@ -80,10 +76,7 @@ Ardından, bir sanal ağ ve temel yük dengeleyicinizin arka uç havuzu için ik
    - **Örnek ayrıntıları** > **kullanılabilirlik seçeneklerini**: 
      1. Açılır listesine tıklayıp **kullanılabilirlik kümesi**. 
      2. Seçin **Yeni Oluştur**, türü *MyAvailabilitySet*seçip **Tamam**.
-   - **Yönetici hesabı** > **kullanıcıadı**: türü *azureuser*.
-   - **Yönetici hesabı** > **parola**: türü *Azure1234567*. 
-     Parolayı yeniden yazın **parolayı onayla** alan.
-   
+  
 1. Seçin **ağ** sekmesinde veya seçin **sonraki: diskleri**, ardından **sonraki: ağ**. 
    
    Aşağıdaki seçili olduğundan emin olun:
@@ -136,7 +129,7 @@ Bu bölümde, ağ güvenlik grubu (NSG) kuralları için gelen İnternet'e (HTTP
 
 Bu bölümde, bir arka uç adres havuzu, bir durum araştırması ve yük dengeleyici kuralı için yük dengeleyici ayarlarını yapılandırın.
 
-### <a name="create-a-back-end-address-pool"></a>Arka uç adres havuzu oluşturma
+### <a name="create-a-backend-address-pool"></a>Arka uç adres havuzu oluşturma
 
 Trafiği Vm'lere dağıtmak için yük dengeleyici arka uç adres havuzu kullanır. Arka uç adres havuzundaki IP adreslerini yük dengeleyiciye bağlı sanal ağ arabirimlerini (NIC'ler) içerir. 
 
@@ -232,7 +225,7 @@ Internet Information Services (IIS), yük dengeleyicinin test edilmesi için san
    
 1. Windows Güvenlik ekranında seçin **daha fazla seçenek** ardından **farklı bir hesap kullan**. 
    
-   Kullanıcı adı girin *azureuser* ve parola *Azure1234567*seçip **Tamam**.
+   Kullanıcı adı ve parola girin ve seçin **Tamam**.
    
 1. Yanıt **Evet** herhangi bir sertifika istemi. 
    
@@ -258,9 +251,7 @@ Internet Information Services (IIS), yük dengeleyicinin test edilmesi için san
 
 ### <a name="test-the-load-balancer"></a>Yük dengeleyiciyi test etme
 
-Her VM'de bir tarayıcı açın ve yanıt **Tamam** herhangi bir yapılandırma ister. 
-
-Yük dengeleyicinin genel IP adresi tarayıcının adres çubuğuna yapıştırın. IIS web sunucusunun varsayılan sayfası, tarayıcıda görüntülenmesi gerekir.
+Bir tarayıcı açın ve yük dengeleyicinin genel IP adresi tarayıcının adres çubuğuna yapıştırın. IIS web sunucusunun varsayılan sayfası, tarayıcıda görüntülenmesi gerekir.
 
 ![IIS web sunucusu](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 0d96844d9e156c702a5a6273b5181db04e5a79c5
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: a27513f9ae3d2b4cfff77f4fd410fdc77e060feb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994725"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081685"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics SSS
 Bu Microsoft FAQ, Microsoft azure'da Log Analytics hakkında sık sorulan soruların listesini içerir. Log Analytics hakkında ek sorularınız varsa, Git [tartışma forumuna](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
@@ -218,7 +218,7 @@ A: 'etag' API'si veya Azure Resource Manager şablonu özellikleri gövdesinde e
 ### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>S. Ne kadar veri Log Analytics'e Aracısı üzerinden gönderebilirim? En fazla bir müşteri başına veri miktarını var mı?
 A. Günlük üst sınır 500 MB'lık, ücretsiz planı çalışma alanı ayarlar. Standart ve premium planlar, karşıya yüklenen veri miktarı sınırı var. Tanıtıcı birimi kadar otomatik olarak ölçeklendirmek için tasarlanmış bir bulut hizmeti olan Log Analytics günlük terabayt olsa bile bir müşteriden – yakında.
 
-Log Analytics aracısını, küçük ayak izine sahip olmak için tasarlanmıştır. Veri hacmi sağlayan çözümlere göre değişir. Veri hacmi hakkındaki ayrıntılı bilgileri bulmak ve çözümde tarafından dökümünü görmek [kullanım](../../log-analytics/log-analytics-usage.md) sayfası.
+Log Analytics aracısını, küçük ayak izine sahip olmak için tasarlanmıştır. Veri hacmi sağlayan çözümlere göre değişir. Veri hacmi hakkındaki ayrıntılı bilgileri bulmak ve çözümde tarafından dökümünü görmek [kullanım](../../azure-monitor/platform/data-usage.md) sayfası.
 
 Daha fazla bilgi için okuyabilirsiniz bir [müşteri blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) OMS Aracısı'nın kaynak kullanımı (boyut) değerlendirdikten sonra bunların sonuçlar gösteriliyor.
 
@@ -234,7 +234,7 @@ A. Her aracı gönderilen veri miktarını bağlıdır:
 * Toplanmakta olan günlükleri ve performans sayaçları
 * Günlüklerde veri hacmi
 
-Ücretsiz fiyatlandırma katmanı sunucuları ve ölçer tipik veri hacmi birkaç yerleşik iyi bir yoludur. Genel kullanım gösterilir [kullanım](../../log-analytics/log-analytics-usage.md) sayfası.
+Ücretsiz fiyatlandırma katmanı sunucuları ve ölçer tipik veri hacmi birkaç yerleşik iyi bir yoludur. Genel kullanım gösterilir [kullanım](../../azure-monitor/platform/data-usage.md) sayfası.
 
 İletilen veriler aracı çalışacak şekilde bilgisayarlar için ne kadar veri gönderildiğini görmek için aşağıdaki sorguyu kullanın:
 

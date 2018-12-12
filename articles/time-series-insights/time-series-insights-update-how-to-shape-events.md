@@ -8,22 +8,19 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.openlocfilehash: edc1dac05a8ab4281eee3ee0eb4c5e6b7571b404
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.date: 12/03/2018
+ms.openlocfilehash: 17528b148c04f48fa8222f64900bdf5c3b95ee25
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856919"
+ms.locfileid: "52873657"
 ---
 # <a name="shaping-events-with-azure-time-series-insights-preview"></a>Azure Time Series Insights (Önizleme) ile olayları şekillendirme
 
-Bu makalede JSON şekillendirme yönergeleri sağlanır, verimliliğini en üst düzeye çıkarmak için Azure Time Series Insights (Önizleme) sorguları demektir.
+Bu makalede, Azure zaman serisi öngörüleri (TSI) önizleme sorgularınızı verimliliğini en üst düzeye çıkarmak için JSON, şekillendirme yönergeleri sağlanır.
 
 ## <a name="best-practices"></a>En iyi uygulamalar
-
-> [!NOTE]
-> S1/S2 600 800 özelliği sınırları Azure TSI (Önizleme) için geçerli değildir.
 
 Nasıl olayları Azure TSI gönderdiğiniz hakkında düşünmeniz önemlidir. Yani, her zaman bir şunları yapmalısınız:
 
@@ -108,7 +105,7 @@ Zaman serisi örnek (Not: **zaman serisi kimliği** olduğu *DeviceID*):
   },
 ```
 
-TSI, sorgu süre boyunca (sonra düzleştirme) tablo katıldı. Tablonun türü gibi ek sütunlar dahil edilir. Bu örnek, telemetri verilerinizi nasıl şekillendirebileceğinize göstermektedir:
+TSI, sorgu süre boyunca (sonra düzleştirme) tablo katıldı. Tablonun türü gibi ek sütunlar dahil edilir. Bu örnek nasıl gösterir [şekli](./time-series-insights-send-events.md#json) telemetri verilerinizi:
 
 | deviceId  | Tür | L1 | L2 | timestamp | dizi. Akış hızı ft3/sn | dizi. Petrol baskısı PSI altyapısı |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -130,3 +127,5 @@ TSI, sorgu süre boyunca (sonra düzleştirme) tablo katıldı. Tablonun türü 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu yönergeleri uygulamaya koymak için bkz: [Azure TSI sorgu söz dizimi](./time-series-insights-query-data-csharp.md) TSI veri erişimi REST API'si için sorgu söz dizimi hakkında daha fazla bilgi edinmek için.
+
+Desteklenen JSON şekilleri hakkında bilgi edinmek [desteklenen JSON şekilleri](./time-series-insights-send-events.md#json).

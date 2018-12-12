@@ -1,21 +1,21 @@
 ---
-title: Apache Spark uygulamanızı Kafka özellikli Azure Event Hubs'a bağlama | Microsoft Docs
-description: Kafka için Azure Event Hubs ile Apache Spark'ı kullanın.
+title: Bağlanma, Apache Spark uygulaması - Azure Event Hubs'a | Microsoft Docs
+description: Bu makalede, Apache Spark, Kafka için Azure Event Hubs ile kullanma hakkında bilgi sağlar.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: tutorial
-ms.custom: ''
-ms.date: 10/30/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: a2ab9a77728509b794c2f5b810fb939f6d1a16e3
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 93fdd85d1fd1b91e01d8f38b4890e1b588a5c704
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286784"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091246"
 ---
 # <a name="connect-your-apache-spark-application-with-kafka-enabled-azure-event-hubs"></a>Apache Spark uygulamanızı Kafka özellikli Azure Event Hubs'a bağlama
 Bu öğreticide, gerçek zamanlı akış için Spark uygulamanızı Kafka özellikli Event Hubs'a bağlama işleminde size yol gösterilir. Bu tümleştirme, protokol istemcilerinizi değiştirmek ya da kendi Kafka veya Zookeeper kümelerinizi çalıştırmak zorunda kalmadan akış yapmanıza olanak tanır. Bu öğretici için Apache Spark v2.4+ ve Apache Kafka v2.0+ gerekir.

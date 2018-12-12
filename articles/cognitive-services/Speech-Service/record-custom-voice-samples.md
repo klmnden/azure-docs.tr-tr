@@ -1,5 +1,5 @@
 ---
-title: Özel ses oluşturma için kayıt ses örnekleri
+title: Özel ses örnekleri - konuşma Hizmetleri kaydedin
 titleSuffix: Azure Cognitive Services
 description: Üretim kalitesindeki özel sesli, sağlam bir komut dosyası hazırlanıyor, iyi sesli beceri işe ve profesyonel kaydını yapın.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 07/5/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: b1b189db56eb3f70f23940a8612d310d2ba8566f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 6aaa638504dd441240879050531952b269d02d15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471195"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081090"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Özel ses oluşturma kayıt ses örnekleri
 
@@ -50,7 +51,7 @@ Ses yetenek, doğal ses seçin ister. Benzersiz "character" sesleri oluşturmak 
 > [!TIP]
 > Genellikle, özel sesli oluşturmak için tanınan kişilerden daha fazlasını kullanarak önlemek — Elbette ünlü ses üretmek için amacınız olmadığı sürece. Daha az bilinen sesleri kullanıcılara genellikle daha az dikkat dağıtıcı.
 
-Ses beceri seçme tek en önemli faktör tutarlılık ' dir. Aynı odada aynı günde yapılan gibi kayıtlarınızı tüm ses. Bu ideal iyi kayıt yöntemleri ve mühendislik yaklaşımı. 
+Ses beceri seçme tek en önemli faktör tutarlılık ' dir. Aynı odada aynı günde yapılan gibi kayıtlarınızı tüm ses. Bu ideal iyi kayıt yöntemleri ve mühendislik yaklaşımı.
 
 Eşitlik diğer yarısı, sesli yeteneğiniz olur. İzinli tutarlı oranı, ses düzeyi, aralık ve sesi konuşabilirsiniz olmalıdır. NET diction zorunluluktur. Yetenek, ayrıca kendi sıklık değişimi, duygusal etkiler ve konuşma veren davranışların kesin denetim sahibi olması gerekir.
 
@@ -71,7 +72,7 @@ Betiğinizde konuşma yerden gelebilir: kurgu kurgu olmayan, konuşmalarını, h
 
 Konuşma, aynı kaynağa veya kaynak aynı türden olması gerekmez. Birbiriyle yapmak için herhangi bir şey olması bile gerekmez. Ancak, eğer kullanım ayarlamak ifadeleri (örneğin, ", başarılı oturum açma"), konuşma uygulamanızda betiğinizde eklediğinizden emin olun. Bu, özel sesli bu tümcecikleri iyi pronouncing, daha iyi bir fırsat sunar. Ve Sentezlenen konuşma yerine bir kaydı kullanmaya karar verirseniz zaten aynı ses sahip.
 
-Tutarlılık ses beceri seçme içinde anahtar olsa da, çeşitli iyi bir betiğin günlerinden ' dir. Betiğinizi birçok farklı sözcükleri ve tümceleri cümle uzunlukları, yapılar ve ruh çeşitli içermelidir. Her ses dilde gösterilen birden çok kez ve çeşitli bağlamlarda olmalıdır (adlı *fonetik kapsamı*). 
+Tutarlılık ses beceri seçme içinde anahtar olsa da, çeşitli iyi bir betiğin günlerinden ' dir. Betiğinizi birçok farklı sözcükleri ve tümceleri cümle uzunlukları, yapılar ve ruh çeşitli içermelidir. Her ses dilde gösterilen birden çok kez ve çeşitli bağlamlarda olmalıdır (adlı *fonetik kapsamı*).
 
 Ayrıca, metnin belirli bir ses yazılı olarak temsil edilir ve her ses cümleleri çeşitli yerlerde yerleştirin tüm yolları eklemeniz gerekir. Bildirim temelli cümleler hem sorular bulunan ve uygun tonlama ile okuyun.
 
@@ -166,7 +167,7 @@ Kendi ses beceri bir utterance ("operative sözcüğü") vurgulanmış istediği
 
 Sözcükleri sonuçlanmaz telaffuz edilir beceri yönlendirir. Her sözcüğün betik yazıldığı gibi telaffuz. Ses atlanırsa veya birlikte, rastgele okuma özelliği, yaygın olarak bulunur slurred *bunlar böylece kodda yazılmış sürece*.
 
-|Yazılan metin|İstenmeyen sıradan söylenişi|
+|Yazılı metin|İstenmeyen sıradan söylenişi|
 |-|-|
 |hiçbir zaman size gidip|hiçbir zaman size gidip|
 |dört ışıklar vardır.|dört ışıkları üzeresiniz|
@@ -188,9 +189,9 @@ Bir iyi beş "odası ton." yakalamak için saniye önce ilk kaydı sessizlik kay
 > [!TIP]
 > Gerçekten yakalamak için ihtiyacınız olan ses talent, kendi satırların monophonic (kanal tek) kaydı anlamanızı sağlayacak. Ancak stereo olarak kaydederseniz, ikinci kanalı chatter belirli satırlar tartışılması yakalamak için Denetim odasında kaydetmek için kullanabilirsiniz veya alır. Bu izleme, özel sesli portalına karşıya yüklenen sürümü kaldırın.
 
-Yakın ses beceri'nın performans yerdeyseniz dinleyin. İyi ancak doğal diction, doğru telaffuz ve istenmeyen sesleri eksikliği bakıyorsunuz. Bu standartlar sağlamayan bir utterance yeniden kaydetmek için beceri isteyin çekinmeyin. 
+Yakın ses beceri'nın performans yerdeyseniz dinleyin. İyi ancak doğal diction, doğru telaffuz ve istenmeyen sesleri eksikliği bakıyorsunuz. Bu standartlar sağlamayan bir utterance yeniden kaydetmek için beceri isteyin çekinmeyin.
 
-> [!TIP] 
+> [!TIP]
 > Çok sayıda konuşma kullanıyorsanız, tek bir utterance sonuç özel sesli üzerinde fark edilebilir bir etkiye sahip olmayabilir. Daha fazla expedient sorunları herhangi bir konuşma bulundurmak, veri kümesinden dışlamak ve nasıl özel sesinizi ettik bkz olabilir. Her zaman Studio'ya geri dönün ve daha sonra kaçırılan örnekleri kaydedin.
 
 Sınav zamanı numarasını not edin veya betiğinizi kodu için her utterance zaman. Kayıt ait meta verileri veya işaret sayfası her utterance işaretlemek için mühendislik isteyin.

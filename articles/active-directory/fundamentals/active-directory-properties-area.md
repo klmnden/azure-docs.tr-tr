@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory'de, kuruluşunuzun gizlilik bilgileri ekleyin | Microsoft Docs
-description: Kuruluşunuzun gizlilik bilgileri Azure Active Directory (Azure AD) özelliklerini alanına ekleme.
+title: Kuruluşunuzun gizlilik bilgisi - Azure Active Directory'ye ekleme | Microsoft Docs
+description: Kuruluşunuzun gizlilik bilgileri için Azure Active Directory özellikleri alan ekleme hakkında yönergeler.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: lizross
 ms.reviewer: bpham
-ms.custom: it-pro
-ms.openlocfilehash: f32eeee8f02cee32eb05e14aa98387a20cb2e626
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 50fcafbdef4fc09532d03ae145183dd45c381c73
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904385"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083844"
 ---
-# <a name="how-to-add-your-privacy-info-using-azure-active-directory"></a>Nasıl yapılır: Azure Active Directory'yi kullanarak gizlilik bilgilerinizi ekleme
+# <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak, kuruluşunuzun gizlilik bilgilerini ekleyin
 Bu makalede, bir kiracı Yöneticisi Azure portalı üzerinden bir kuruluşun Azure Active Directory (Azure AD) kiracısına gizlilikle ilgili bilgileri nasıl ekleyebileceğinizi açıklar.
 
 İç çalışanlarınızın ve dış Konukları ilkelerinizi gözden geçirebilmeniz için genel gizlilik ilgili kişisi hem kuruluşunuzun gizlilik bildirimini ekleyin kesinlikle öneririz. Gizlilik bildirimlerini benzersiz olarak oluşturulur ve her işletme için hazırlanmış olduğundan bir avukat Yardım almak için sizinle kesinlikle öneririz.
