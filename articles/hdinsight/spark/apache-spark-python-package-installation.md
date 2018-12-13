@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5b90519120e64a905073eec6b73e4ced64fe4f64
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: bfb2df377030f14893b3e124e6112ef6c2994afd
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496058"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321195"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>HDInsight üzerinde Apache Spark kümeleri Jupyter not defterleri için dış Python paketlerini yüklemek üzere betik eylemi kullanın
 > [!div class="op_single_selector"]
@@ -64,12 +64,10 @@ HDInsight hizmetinde kullanılabilir açık kaynak bileşenleri iki tür vardır
 
 1. [Azure Portal](https://portal.azure.com/)’daki başlangıç panosunda Spark kümenizin kutucuğuna tıklayın (başlangıç panosuna sabitlediyseniz). Ayrıca **Browse All (Tümüne Gözat)** > **HDInsight Clusters (HDInsight Kümeleri)** altından kümenize gidebilirsiniz.   
 
-2. Spark kümesi dikey penceresinden tıklayın **betik eylemleri** sol bölmeden. Betik türünü "Özel" kullanın ve betik eylemi için bir kolay ad girin. Betiği çalıştırın **baş ve çalışan düğümleri** ve parametreleri alanı boş bırakın. Bash betiği başvurulabilir: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh belgeleri ziyaret [özel betik eylemlerini kullanmak nasıl](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+2. Spark kümesi dikey penceresinden tıklayın **betik eylemleri** sol bölmeden. Betik türünü "Özel" kullanın ve betik eylemi için bir kolay ad girin. Betiği çalıştırın **baş ve çalışan düğümleri** ve parametreleri alanı boş bırakın. Bash betiği başvurulabilir: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh Belgeleri ziyaret [özel betik eylemlerini kullanmak nasıl](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
    > [!NOTE]
-   > Kümedeki yüklemeler iki python var. Spark Anaconda python yükleme konumunda bulunan kullanacağı `/usr/bin/anaconda/bin`. Bu yükleme, özel eylemleri başvuru `/usr/bin/anaconda/bin/pip` ve `/usr/bin/anaconda/bin/conda`.
-   > 
-   > 
+   > Kümedeki yüklemeler iki python var. Spark Anaconda python yükleme konumunda bulunan kullanacağı `/usr/bin/anaconda/bin` ve Python 2.7 ortam varsayılan ayarlanır. PySpark3 çekirdek Python 3.x ve yükleme paketlerini kullanmak için yolu kullanmak `conda` bu ortam ve kullanmak için yürütülebilir `-n` ortamını belirtmek için parametre. Örneğin, komut `/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35`, yükler `ggplot` Python 3.5 ortamı kullanarak paket `conda-forge` kanal.
 
 3. Bir PySpark Jupyter not defterini açın
 
@@ -93,12 +91,12 @@ HDInsight hizmetinde kullanılabilir açık kaynak bileşenleri iki tür vardır
     ![TensorFlow kod yürütme](./media/apache-spark-python-package-installation/execution.png "yürütme TensorFlow kod")
 
 ## <a name="seealso"></a>Ayrıca bkz.
-* [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md)
+* [Genel Bakış: Azure HDInsight üzerinde Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Senaryolar
-* [BI ile Apache Spark: BI araçlarıyla HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
-* [Machine Learning ile Apache Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark ile BI: BI araçları ile HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
+* [Apache Spark Machine Learning ile: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark Machine Learning ile: Gıda denetimi sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma

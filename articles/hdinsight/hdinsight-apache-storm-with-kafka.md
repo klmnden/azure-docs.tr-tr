@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: HDInsight üzerinde Apache Storm ile Apache Kafka - Azure '
+title: 'Öğretici: Apache Storm, Apache Kafka - Azure HDInsight ile veri okuma ve yazma için kullanın'
 description: HDInsight üzerinde Apache Storm ve Apache Kafka kullanarak akış işlem hattı oluşturmayı öğrenin. Bu öğreticide, Kafka'dan veri akışı yapmak için KafkaBolt ve KafkaSpout bileşenlerini kullanırsınız.
 services: hdinsight
 author: hrasheed-msft
@@ -8,15 +8,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 05/21/2018
-ms.openlocfilehash: 74cdaed91624e9d0602ce6a85ccc5cd341b9519e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/06/2018
+ms.openlocfilehash: 1c2a61ba936fa86bb3acb560909b29cda762693c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496620"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166583"
 ---
-# <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Öğretici: HDInsight üzerinde Apache Kafka ile Apache Storm kullanma
+# <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Öğretici: Apache Storm'u HDInsight üzerinde Apache Kafka ile kullanma
 
 Bu öğreticide nasıl kullanılacağını gösterir. bir [Apache Storm](https://storm.apache.org/) ile veri okuma ve yazma için topoloji [Apache Kafka](https://kafka.apache.org/) HDInsight üzerinde. Bu öğretici Ayrıca verileri kalıcı hale getirmek nasıl gösterir [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) Storm kümesinde uyumlu depolama.
 
@@ -65,19 +65,19 @@ Dağıtım iş istasyonunuza Java ve JDK yüklerken aşağıdaki ortam değişke
 
 Apache Storm, Apache Kafka ile çalışmak için çeşitli bileşenleri sağlar. Bu öğreticide aşağıdaki bileşenler kullanılır:
 
-* `org.apache.storm.kafka.KafkaSpout`: Bu bileşen Kafka'dan verileri okur. Bu bileşen, aşağıdaki bileşenlere dayanır:
+* `org.apache.storm.kafka.KafkaSpout`: Bu bileşen, Kafka'dan veri okur. Bu bileşen, aşağıdaki bileşenlere dayanır:
 
     * `org.apache.storm.kafka.SpoutConfig`: Spout bileşeni için yapılandırma sağlar.
 
-    * `org.apache.storm.spout.SchemeAsMultiScheme` ve `org.apache.storm.kafka.StringScheme`: Kafka'dan alınan verilerin Storm tanımlama grubuna nasıl dönüştürüldüğü.
+    * `org.apache.storm.spout.SchemeAsMultiScheme` ve `org.apache.storm.kafka.StringScheme`: Nasıl kafka'dan veri Storm tanımlama grubu dönüştürülür.
 
-* `org.apache.storm.kafka.bolt.KafkaBolt`: Bu bileşen Kafka'ya verileri yazar. Bu bileşen, aşağıdaki bileşenlere dayanır:
+* `org.apache.storm.kafka.bolt.KafkaBolt`: Bu bileşen, Kafka için verileri yazar. Bu bileşen, aşağıdaki bileşenlere dayanır:
 
-    * `org.apache.storm.kafka.bolt.selector.DefaultTopicSelector`: Yazılan konuyu açıklar.
+    * `org.apache.storm.kafka.bolt.selector.DefaultTopicSelector`: Yazılan konu açıklar.
 
-    * `org.apache.kafka.common.serialization.StringSerializer`: Verileri bir dize değeri olarak seri hale getirmek için bolt yapılandırır.
+    * `org.apache.kafka.common.serialization.StringSerializer`: Bolt verileri bir dize değeri olarak seri hale getirme için yapılandırır.
 
-    * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: Storm topolojisi içinde kullanılan tanımlama grubu veri yapısını Kafka'da depolanan alanlarla eşler.
+    * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: Storm topolojisini Kafka'da depolanmış alanlara içinde kullanılan tanımlama grubu veri yapısı haritaları.
 
 Bu bileşenler `org.apache.storm : storm-kafka` paketinde sağlanır. Storm sürümüyle eşleşen paket sürümünü kullanın. HDInsight 3.6 için, Storm sürümü 1.1.0'dır.
 Ayrıca, ek Kafka bileşenlerini içeren `org.apache.kafka : kafka_2.10` paketi de gereklidir. Kafka sürümüyle eşleşen paket sürümünü kullanın. HDInsight 3.6 için, Kafka sürümü 0.10.0.0'dır.
@@ -120,9 +120,9 @@ Bu belgede kullanılan kod [https://github.com/Azure-Samples/hdinsight-storm-jav
 
 Bu öğreticide iki topoloji sağlanmaktadır:
 
-* Kafka-yazıcı: Rastgele tümceler oluşturur ve bunları Kafka'da depolar.
+* Kafka-yazıcı: Rastgele cümleler oluşturur ve bunları Kafka'ya depolar.
 
-* Kafka-okuyucu: Kafka'dan verileri okur ve bunları Storm kümesi için HDFS uyumlu bir dosya deposunda depolar.
+* Kafka okuyucusu: Kafka'dan verileri okur ve Storm kümesi için HDFS uyumlu bir dosya deposunda depolanır.
 
     > [!WARNING] 
     > Storm'un HDInsight tarafından kullanılan HDFS uyumlu depolamada çalışmasını sağlamak için, bir betik eylemi gerekir. Betik, Storm için çeşitli jar dosyalarını `extlib` yoluna yükler. Bu öğreticideki şablon, küme oluşturma sırasında betiği otomatik olarak kullanır.
@@ -135,15 +135,15 @@ Topolojiler [Flux](https://storm.apache.org/releases/1.1.2/flux.html) kullanıla
 
 Aşağıdaki parametreler, bu topolojiler için çalışma zamanında ayarlanır:
 
-* `${kafka.topic}`: Topolojilerin okuduğu/yazdığı Kafka konusunu adı.
+* `${kafka.topic}`: Topolojileri okuma/yazma için Kafka konu adı.
 
-* `${kafka.broker.hosts}`: Kafka aracılarının üzerinde çalıştırıldığı konaklar. Aracı bilgisi, KafkaBolt tarafından Kafka'ya yazarken kullanılır.
+* `${kafka.broker.hosts}`: Kafka aracıları konaklar çalıştırın. Aracı bilgisi, KafkaBolt tarafından Kafka'ya yazarken kullanılır.
 
-* `${kafka.zookeeper.hosts}`: Kafka kümesinde Zookeeper'ın üzerinde çalıştırıldığı konaklar.
+* `${kafka.zookeeper.hosts}`: Zookeeper Kafka kümesinin üzerinde çalıştığı konakların.
 
-* `${hdfs.url}`: HDFSBolt bileşeni için dosya sistemi URL'si. Verilerin Azure Depolama hesabına mı yoksa Azure Data Lake Store'a mı yazıldığını gösterir.
+* `${hdfs.url}`: Dosya sistemi HDFSBolt bileşeni için URL. Verilerin Azure Depolama hesabına mı yoksa Azure Data Lake Store'a mı yazıldığını gösterir.
 
-* `${hdfs.write.dir}`: Verilerin yazıldığı dizin.
+* `${hdfs.write.dir}`: Veri yazılan dizin.
 
 Flux topolojileriyle ilgili daha fazla bilgi için bkz. [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 
@@ -565,13 +565,13 @@ Kafka, verileri bir _konu_ içinde depolar. Storm topolojilerini başlatmadan ö
 
     Bu komutla kullanılan parametreler şunlardır:
 
-    * `org.apache.storm.flux.Flux`: Bu topolojiyi yapılandırmak ve çalıştırmak için Flux kullanın.
+    * `org.apache.storm.flux.Flux`: Flux yapılandırın ve bu topoloji çalıştırmak için kullanın.
 
-    * `--remote`: Topolojiyi Nimbus'a gönderin. Topoloji, kümedeki çalışan düğümlerine dağıtılır.
+    * `--remote`: Nimbus topolojiye gönderin. Topoloji, kümedeki çalışan düğümlerine dağıtılır.
 
-    * `-R /writer.yaml`: Topolojiyi yapılandırmak için `writer.yaml` dosyasını kullanın. `-R`, bu kaynağın jar dosyası içinde yer aldığını gösterir. Bu, jar dosyasının kökünde yer aldığından yolu `/writer.yaml` şeklindedir.
+    * `-R /writer.yaml`: Kullanım `writer.yaml` topolojisini yapılandırmak için dosya. `-R`, bu kaynağın jar dosyası içinde yer aldığını gösterir. Bu, jar dosyasının kökünde yer aldığından yolu `/writer.yaml` şeklindedir.
 
-    * `--filter`: `dev.properties` dosyasındaki değerleri kullanarak `writer.yaml` topolojisindeki girdileri doldurun. Örneğin, dosyadaki `kafka.topic` girdisinin değeri topoloji tanımındaki `${kafka.topic}` girdisi yerine kullanılır.
+    * `--filter`: Girdileri doldurmak `writer.yaml` değerleri kullanarak topoloji `dev.properties` dosya. Örneğin, dosyadaki `kafka.topic` girdisinin değeri topoloji tanımındaki `${kafka.topic}` girdisi yerine kullanılır.
 
 ## <a name="start-the-reader"></a>Okuyucuyu başlatma
 

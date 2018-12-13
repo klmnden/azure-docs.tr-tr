@@ -1,5 +1,5 @@
 ---
-title: Kullanıcı konuşma gözden geçirin
+title: Kullanıcı utterance gözden geçirin
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: Etkin öğrenme, doğru amacı ve varlık için gözden geçirme uç nokta Konuşma ile. LUIS, uç nokta konuşma emin seçer.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/07/2018
 ms.author: diberry
-ms.openlocfilehash: ca8a6b05722ac2edc91d7459c64c2bdb312a7016
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0eaf411afdcd66345f64c2b6dd93e4799183de78
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080971"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141042"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Etkin öğrenme konuşma uç noktası inceleyerek etkinleştirmek için kavramları
 Etkin öğrenme tahmin doğruluğunu ve kolay uygulama geliştirmek için üç strateji biridir. Etkin öğrenme, doğru amacı ve varlık için gözden geçirme uç nokta Konuşma ile. LUIS, uç nokta konuşma emin seçer.

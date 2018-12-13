@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 110357a7a84aa8cc6bd7dcb5bbef9ca02879a9cb
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c0687ec94af60d3683d3f129eff2bad8fb97d786
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494277"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165818"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Apache Spark akışını (DStream) HDInsight üzerinde Apache Kafka örneğiyle
 
@@ -55,19 +55,19 @@ Bir Azure sanal ağı, Kafka, oluşturabileceğiniz ve el ile Spark kümeleri, a
    
     ![HDInsight özel dağıtım](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
-    * **Kaynak grubu**: bir grup oluşturun veya varolan bir tanesini seçin. Bu grup, HDInsight kümesi içerir.
+    * **Kaynak grubu**: Bir grup oluşturun veya var olanı seçin. Bu grup, HDInsight kümesi içerir.
 
-    * **Konum**: coğrafi olarak yakın bir konum seçin.
+    * **Konum**: Coğrafi olarak yakın bir konum seçin.
 
-    * **Temel küme adı**: Bu değer, Spark temel adı olarak kullanılır ve Kafka kümeleri. Örneğin, girme **hdistreaming** adlı bir Spark kümesi oluşturulur __spark hdistreaming__ ve adlı bir Kafka kümesi **kafka hdistreaming**.
+    * **Temel küme adı**: Bu değer, Spark ve Kafka kümeleri için temel adı olarak kullanılır. Örneğin, girme **hdistreaming** adlı bir Spark kümesi oluşturulur __spark hdistreaming__ ve adlı bir Kafka kümesi **kafka hdistreaming**.
 
     * **Küme oturum açma kullanıcı adı**: Spark ve Kafka kümeleri için yönetici kullanıcı adı.
 
     * **Küme oturum açma parolası**: Spark ve Kafka kümeleri için yönetici kullanıcı parolası.
 
-    * **SSH kullanıcı adı**: Spark ve Kafka kümelerini oluşturmak için kullanılan SSH kullanıcısı.
+    * **SSH kullanıcı adı**: Spark ve Kafka kümeler için oluşturulacak SSH kullanıcısı.
 
-    * **SSH parolası**: Spark ve Kafka kümeleri için SSH kullanıcısının parolası.
+    * **SSH parolası**: Spark ve Kafka kümeleri için SSH kullanıcı parolası.
 
 3. **Hüküm ve Koşullar**’ı okuyun ve ardından **Yukarıda belirtilen hüküm ve koşulları kabul ediyorum**’u seçin.
 

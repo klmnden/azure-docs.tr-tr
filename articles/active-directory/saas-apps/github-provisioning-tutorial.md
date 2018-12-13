@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı hazırlama için GitHub yapılandırma | Microsoft Docs'
+title: "Öğretici: Azure Active Directory ile otomatik kullanıcı hazırlama için GitHub'ı yapılandırma | Microsoft Docs"
 description: Otomatik olarak sağlama ve sağlamasını GitHub kullanıcı hesaplarını Azure Active Directory yapılandırmayı öğrenin.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: bc82f0b71c6963c4f5a356180a1eabbca1b166c4
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: cf66a257ef176ab6f8d58ab558d2582a811609a4
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156961"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166566"
 ---
-# <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Öğretici: GitHub için otomatik kullanıcı hazırlama yapılandırın
+# <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için GitHub'ı yapılandırma
 
 
 Bu öğreticinin amacı, GitHub ve Azure AD sağlama ve sağlamasını GitHub Azure AD'den kullanıcı hesaplarına otomatik olarak gerçekleştirmek için gereken adımları Göster sağlamaktır. 
@@ -36,7 +36,7 @@ Bu öğreticide özetlenen senaryo, aşağıdaki öğeleri zaten sahip olduğunu
 *   GitHub yönetici izinlerine sahip bir kullanıcı hesabı 
 
 > [!NOTE]
-> Azure AD tümleştirmesi sağlama kullanır [GitHub SCIM API](https://developer.github.com/v3/scim/), daha iyi veya Github takımlar iş plan için kullanılabilir.
+> Azure AD tümleştirmesi sağlama kullanır [GitHub SCIM API](https://developer.github.com/v3/scim/), daha iyi veya GitHub takımlar iş plan için kullanılabilir.
 
 ## <a name="assigning-users-to-github"></a>GitHub için kullanıcı atama
 
@@ -80,7 +80,7 @@ Bu bölümde, Azure AD sağlama API'si GitHub'ın kullanıcı hesabına bağlanm
 
     ![Yetkilendirme iletişim](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. Azure portalında giriş **Kiracı URL'si** tıklatıp **Test Bağlantısı** Azure emin olmak için AD, GitHub uygulamanıza bağlanabilirsiniz. Bağlantı başarısız olursa, GitHub hesabınızı yönetici izinlerine sahip olduğundan emin olun ve **Kiracı URL'si** doğru girilen ve "Yetkilendir" adımı yeniden deneyin (, oluşturabilecek **Kiracı URL'si** kuralı tarafından: `https://api.github.com/scim/v2/organizations/<Organization_name>` Kuruluşunuzun GitHub hesabınızın altında bulabilirsiniz: **ayarları** > **kuruluşlar**).
+7. Azure portalında giriş **Kiracı URL'si** tıklatıp **Test Bağlantısı** Azure emin olmak için AD, GitHub uygulamanıza bağlanabilirsiniz. Bağlantı başarısız olursa, GitHub hesabınızı yönetici izinlerine sahip olduğundan emin olun ve **Kiracı URL'si** doğru girilen ve "Yetkilendir" adımı yeniden deneyin (, oluşturabilecek **Kiracı URL'si** kuralı tarafından: `https://api.github.com/scim/v2/organizations/<Organization_name>` , kuruluşunuzun GitHub hesabınızın altında bulabilirsiniz: **Ayarları** > **kuruluşlar**).
 
     ![Yetkilendirme iletişim](./media/github-provisioning-tutorial/GitHub3.png)
 

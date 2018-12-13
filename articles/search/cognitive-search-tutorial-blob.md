@@ -1,5 +1,5 @@
 ---
-title: Azure Search’te bilişsel arama API’lerini çağırma öğreticisi | Microsoft Docs
+title: Bilişsel arama API - Azure Search arama Öğreticisi
 description: Bu öğreticide, Azure Search veri ayıklama için dizin oluşturma ve dönüştürme işlemindeki veri ayıklama, doğal dil ve görüntü AI işleme örneği adımlarını izleyin.
 manager: pablocas
 author: luiscabrer
@@ -9,14 +9,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 3350f182e236cc0828040f1ee1eb73cf54cf18a8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec2018
+ms.openlocfilehash: 4f5b0661f67dd63177309905079ee68716e9e721
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957376"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315749"
 ---
-# <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Öğretici: Bilişsel arama API’lerinin nasıl çağrılacağını öğrenin (Önizleme)
+# <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Öğretici: Bilişsel arama öğrenin arama API'lerini (Önizleme)
 
 Bu öğreticide, *bilişsel becerileri* kullanarak Azure Search’te programlama veri zenginleştirmesi mekanizmasını öğrenirsiniz. Bilişsel beceriler, bir görüntünün metin gösterimlerini ve metni ayıklayan, dili, varlıkları, anahtar tümcecikleri ve daha fazlasını algılayan doğal dil işleme (NLP) ve görüntü analizi işlemleridir. Sonuçta, bilişsel arama dizin oluşturma işlem hattı tarafından oluşturulan, Azure Search dizinindeki zengin ek içerik elde edilir. 
 
@@ -34,7 +35,9 @@ Bu öğreticide, aşağıdaki görevleri gerçekleştirmek için REST API çağr
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 > [!NOTE]
-> Bilişsel Arama, genel önizleme aşamasındadır. Şu anda becerileri yürütme ve görüntü ayıklama ve normalleştirme ücretsiz olarak sunulmaktadır. İlerleyen zamanlarda bu özelliklerin fiyatları duyurulacaktır. 
+> 21 aralık 2018 tarihinden itibaren Bilişsel hizmetler kaynağı bir Azure Search beceri kümesi ile ilişkilendirmek mümkün olmayacak. Bu beceri yürütmesi için ücretlendirme başlatmak için bize izin verir. Bu tarihte, biz de belge çözme aşamasının bir parçası olarak görüntü ayıklama için başlayacağız. Belgelerden metin ayıklama işlemi ek masraf olmadan sağlanmaya devam edecektir.
+>
+> Var olan konumunda yerleşik yetenek yürütülmesini ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/) . Görüntü ayıklama fiyatlandırma Önizleme fiyatıyla ücretlendirilirsiniz ve üzerinde açıklanmıştır [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400). Bilgi [daha fazla](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -65,14 +68,12 @@ Azure Search’e REST çağrıları yapmak için PowerShell veya Telerik Fiddler
   ![Portalda Hizmet tanım sayfası](./media/cognitive-search-tutorial-blob/create-search-service1.png "portalında hizmet tanımı sayfası")
   ![portalında hizmet tanımı sayfası](./media/cognitive-search-tutorial-blob/create-search-service2.png "hizmet tanımı sayfasında portal")
 
-  > [!NOTE]
-  > Bilişsel arama genel önizleme aşamasındadır. Beceri kümesi yürütme şu anda ücretsiz katman da dahil olmak üzere tüm katmanlarda kullanılabilir. İlerleyen zamanlarda bu özelliğin fiyatlandırması duyurulacaktır.
-
+ 
 1. Hizmet bilgilerine hızlı erişim için hizmeti panoya sabitleyin.
 
   ![Portaldaki hizmet tanımı sayfası](./media/cognitive-search-tutorial-blob/create-search-service3.png "Portaldaki hizmet tanımı sayfası")
 
-1. Hizmet oluşturulduktan sonra, Genel Bakış sayfasından **URL** bilgisini ve Anahtarlar sayfasından **api-anahtarı** (birincil veya ikincil) bilgisini toplayın.
+1. Hizmet oluşturulduktan sonra aşağıdaki bilgileri toplayın: **URL** genel bakış sayfasından ve **api anahtarını** (birincil veya ikincil) anahtarlar sayfasındaki.
 
   ![Portaldaki uç nokta ve anahtar bilgileri](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "Portaldaki uç nokta ve anahtar bilgileri")
 
@@ -130,7 +131,7 @@ Bu ilk isteğiniz olduğundan, veri kaynağının Azure Search’te oluşturuldu
 Bir 403 veya 404 hatası aldıysanız, istek yapısını denetleyin: `api-version=2017-11-11-Preview`, uç nokta üzerinde olmalıdır, `api-key`, Üst bilgide `Content-Type` öğesinden sonra gelmelidir ve değeri bir arama hizmeti için geçerli olmalıdır. Bu öğreticide kalan adımlar için üst bilgiyi kullanabilirsiniz.
 
 > [!TIP]
-> Artık çok fazla iş yapmadan önce, arama hizmetinin önizleme özelliği sağlayan desteklenen konumlardan (Orta Güney ABD veya Batı Avrupa) birinde çalıştığını doğrulamak faydalı olacaktır.
+> Artık, birçok iş uygulamadan önce arama hizmeti desteklenen konumlardan birinde çalıştığını doğrulamak için iyi bir zaman önizleme özelliğini sağlamaktadır: Güney Orta ABD veya Batı Avrupa.
 
 ## <a name="create-a-skillset"></a>Beceri kümesi oluşturma
 

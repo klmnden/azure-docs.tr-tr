@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 5f74ee390ac327a9e697d3dc67da4ea604b64d69
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e4d96fa558e1122ef9e0fe0b265166757c45e678
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686901"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321059"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Java işlevleri Geliştirici Kılavuzu
 
@@ -105,7 +105,9 @@ public class Function {
 
 ## <a name="jdk-runtime-availability-and-support"></a>JDK çalışma zamanı kullanılabilirliği ve Destek 
 
-Karşıdan yükleme ve kullanma [Azure Azul Zulu](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDK gelen [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) Java işlev uygulamaları, yerel geliştirme için. JDK, Windows, Linux ve macOS için kullanılabilir. [Azure Destek](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) kullanıma hazır bir [tam destek planı](https://azure.microsoft.com/support/plans/).
+Karşıdan yükleme ve kullanma [Azul Zulu Enterprise Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDK'den [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) Java işlev uygulamaları, yerel geliştirme için. Azure işlevleri, işlev uygulamalarınızı buluta dağıtırken Azul Java 8 JDK çalışma zamanı kullanır.
+
+[Azure Destek](https://azure.microsoft.com/en-us/support/) JDK ve işlev ile ilgili sorunlar için uygulamalar, kullanılabilir bir [tam destek planı](https://azure.microsoft.com/support/plans/).
 
 ## <a name="third-party-libraries"></a>Üçüncü taraf kitaplıklar 
 
@@ -361,11 +363,11 @@ Bu komutu çalıştırmadan önce Azure Portal veya Azure CLI günlüğü dosya 
 
 ## <a name="environment-variables"></a>Ortam değişkenleri
 
-İşlevlerde, [uygulama ayarları](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings), gibi hizmet bağlantısı dizeleri sunulur ortam değişkenleri olarak yürütme sırasında. Bu ayarları kullanarak erişebileceğiniz, `System.getenv("AzureWebJobsStorage")`
+İşlevlerde, [uygulama ayarları](https://docs.microsoft.com/azure/azure-functions/functions-app-settings), gibi hizmet bağlantısı dizeleri sunulur ortam değişkenleri olarak yürütme sırasında. Bu ayarları kullanarak erişebileceğiniz, `System.getenv("AzureWebJobsStorage")`
 
 Örnek:
 
-Ekleme [AppSetting](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings) adı testAppSetting ve değer testAppSettingValue ile
+Ekleme [AppSetting](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) adı testAppSetting ve değer testAppSettingValue ile
 
 ```java
 

@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 12/11/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 2857f95eff0b2d039a1a3c7bbe566a8ed3ca4fea
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 3368133dec82d946318a755dc98b068a048b9e83
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243138"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275117"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Azure Active Directory (Önizleme) içinde Office 365 grupları için bir adlandırma ilkesini zorlama
 
@@ -58,6 +58,7 @@ Kuruluşunuzdaki tüm kullanıcılar için doldurulmuş değerler ve uzun değer
 Tümce grubu adları ve diğer adları engellediği için virgülle ayrılmış bir liste engellenen sözcük listesidir. Hiçbir alt dize arama gerçekleştirilir. Grup adı ve bir veya daha fazla özel engellenen bir kelimelerin arasında bir tam eşleşme başarısız tetiklemek için gereklidir. Engellenen bir sözcük 'sınıf' olsa bile kullanıcılar 'Class' gibi ortak kelimeler kullanabilirsiniz, böylece alt dize araması yapılamaz.
 
 Engellenen sözcük listesi kuralları:
+
 - Engellenen bir sözcük büyük/küçük harfe duyarlı değildir.
 - Bir kullanıcı grubu adı bir parçası olarak engellenen bir sözcük girdiğinde, engellenen sözcük içeren bir hata iletisi görürler.
 - Engellenen bir sözcük hiçbir karakter kısıtlamaları vardır.
@@ -120,7 +121,7 @@ Güvenilmeyen depoya erişmek isteyip istemediğiniz sorulursa **Y** tuşuna bas
   
 ### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Özel engellenen sözcükler ve adlandırma ilkesi ayarlama
 
-1. Azure AD PowerShell'de grup adı ön ve son eklerini ayarlayın.
+1. Azure AD PowerShell'de grup adı ön ve son eklerini ayarlayın. Düzgün bir şekilde çalışması için özelliği için [GroupName] ayarı eklenmesi gerekir.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
@@ -166,6 +167,27 @@ $Settings["CustomBlockedWordsList"] = $BadWords
 $Settings["EnableMSStandardBlockedWords"] = $True
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
 ````
+
+## <a name="remove-the-naming-policy"></a>Adlandırma ilkesini Kaldır
+
+1. Grup adı önek ve sonek Azure AD PowerShell'de boş.
+  
+  ````
+  $Setting["PrefixSuffixNamingRequirement"] =""
+  ````
+  
+2. Özel engellenen sözcük boş. 
+  
+  ````
+  $Setting["CustomBlockedWordsList"]=""
+  ````
+  
+3. Ayarları kaydedin.
+  
+  ````
+  Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+  ````
+
 
 ## <a name="naming-policy-experiences-across-office-365-apps"></a>Office 365 uygulamalarında adlandırma ilkesi deneyimleri
 

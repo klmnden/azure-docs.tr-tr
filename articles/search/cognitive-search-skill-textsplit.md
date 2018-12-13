@@ -1,5 +1,5 @@
 ---
-title: Metni Böl bilişsel arama beceri (Azure Search) | Microsoft Docs
+title: Bilişsel arama beceri - Azure Search metni Böl
 description: Metin öbekleri veya metin tabanlı bir Azure Search zenginleştirme ardışık düzeninde bir uzunluk sayfaları Kes.
 services: search
 manager: pablocas
@@ -10,19 +10,17 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 583d2ac5a8ac4c236612cdfe78595da1812c56fa
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 376a5a2214c5f1d77439923d6a11aaad5e011e73
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730775"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313862"
 ---
 #   <a name="text-split-cognitive-skill"></a>Bilişsel beceri metni Böl
 
 **Metin bölme** beceri metin metin öbeklere böler. Metin cümleler veya sayfaları belirli bir süre sonu isteyip istemediğinizi belirtebilirsiniz. Bu yetenek, diğer aşağı yönde becerileri uzunluğu gereksinimleri en büyük metin varsa özellikle yararlıdır. 
-
-> [!NOTE]
-> Bilişsel Arama, genel önizleme aşamasındadır. Görüntü ayıklama ve normalleştirme ve beceri yürütmesi şu anda ücretsiz sunulmaktadır. Daha sonraki bir zamanda, bu özelliklerin fiyatlandırması duyurulacaktır. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SplitSkill 
@@ -34,7 +32,7 @@ Parametreler büyük/küçük harfe duyarlıdır.
 | Parametre adı     | Açıklama |
 |--------------------|-------------|
 | textSplitMode      | "Sayfalar" veya "cümleler" | 
-| maximumPageLength | TextSplitMode "sayfalarına" olarak ayarlanırsa bu ölçülen en fazla sayfa uzunluğu başvuruyor `String.Length`. En düşük değer 100'dür. | 
+| maximumPageLength | TextSplitMode "sayfalarına" olarak ayarlanırsa bu ölçülen en fazla sayfa uzunluğu başvuruyor `String.Length`. En düşük değer 100'dür.  TextSplitMode "sayfalarına" olarak ayarlanırsa, algoritma metni en fazla boyutu "maximumPageLenth" olan parçalara bölmek dener. Bu durumda, algoritma öbek boyutu "maximumPageLength" biraz daha az olabilir bir cümle sınırında cümlenin ayırmak için en iyi şekilde yapar. | 
 | defaultLanguageCode   | (isteğe bağlı) Aşağıdaki dil kodları: `da, de, en, es, fi, fr, it, ko, pt`. İngilizce (TR) varsayılandır. Dikkate alınması gereken bazı noktalar:<ul><li>Bir languagecode countrycode biçimi geçirirseniz, yalnızca biçim languagecode bölümü kullanılır.</li><li>Dilin önceki listede değilse, bölünmüş beceri karakter sınırlarında metni keser.</li><li>Dil kodu sağlayarak, yarıya Çince, Japonca ve Korece gibi dilleri boşluk olmayan bir sözcük kesme önlemek açısından kullanışlıdır.</li></ul>  |
 
 

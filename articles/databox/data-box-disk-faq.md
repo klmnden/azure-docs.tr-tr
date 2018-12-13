@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 10/30/2018
+ms.date: 12/11/2018
 ms.author: alkohli
-ms.openlocfilehash: 5e4461a910f13c5047c4a2aadd7326c4e12c533f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: f437f1fd61cfdaa4d2ff908f6e294fa0c679b9a5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238140"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273069"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Azure Data Box Disk nedir? (Önizleme)
 
@@ -59,7 +59,7 @@ A.  Data Box Disk'leri önizleme aşamasında ABD, Kanada, Avustralya ve tüm Av
 A. Data Box Disk, önizleme aşamasında ABD, Kanada, Avustralya, Batı Avrupa ve Kuzey Avrupa'daki tüm bölgelerde desteklenir. Yalnızca Azure genel bulut bölgeleri desteklenir. Azure Kamu veya diğer bağımsız bulutlar desteklenmez.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>S. Data Box Diskleriyle ilgili sorun yaşamam halinde kiminle iletişim kurmam gerekir?
-A. Data Box Diskleriyle ilgili sorun yaşamanız halinde lütfen [Data Box Disk Desteği](mailto:expresspodsupport@microsoft.com) ile iletişime geçin.
+A. Veri kutusu disk herhangi bir sorun yaşarsanız lütfen [Microsoft Support başvurun](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
 
 ## <a name="configure-and-connect"></a>Yapılandırma ve bağlanma
  
@@ -108,7 +108,7 @@ A.  Robocopy, Diskboss veya Windows Dosya Gezgini gibi bir SMB kopyalama aracı 
 ### <a name="q-are-there-any-tips-to-speed-up-the-data-copy"></a>S. Veri kopyalama işlemini hızlandırmaya yönelik ipuçları var mı?
 A.  Kopyalama işlemini hızlandırmak için:
 
-- Birden fazla veri kopyalama akışı kullanın. Örneğin Robocopy'de çok iş parçacıklı seçeneği kullanın. Kullanılan komut hakkında daha fazla bilgi için [Öğretici: Azure Data Box Diskine veri kopyalama ve doğrulama](data-box-disk-deploy-copy-data.md#copy-data-to-disks) sayfasına gidin.
+- Birden fazla veri kopyalama akışı kullanın. Örneğin Robocopy'de çok iş parçacıklı seçeneği kullanın. Kullanılan tam komutu hakkında daha fazla bilgi için Git [Öğreticisi: Veri için Azure Data Box Disk kopyalama ve doğrulama](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
 - Birden fazla oturum kullanın.
 - Ağ paylaşımı üzerinden kopyalama yapmak yerine (ağ hızları kısıtlayıcı olabilir) verilerin, disklerin bağlı olduğu bilgisayarın yerel depolama alanında bulunduğundan emin olun.
 - Kopyalama işlemi boyunca USB 3.0 veya üzeri bağlantı kullandığınızdan emin olun. Bilgisayara bağlı USB denetleyicilerini ve USB cihazlarını tanımlamak için [USBView aracını](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview) indirin ve kullanın.

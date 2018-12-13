@@ -7,19 +7,18 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d2f1035427815facf501c1349619a73e0f134eff
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e060a18f1117a9392f867f0bf42ddfa80f68048d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995590"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277497"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Log Analytics ekleme aramaları ve Uyarıları kaydedilen yönetim çözümü (Önizleme)
 
@@ -87,16 +86,16 @@ Kayıtlı bir aramayı her bir özellik aşağıdaki tabloda açıklanmıştır.
 > JSON olarak yorumlanabilecek karakterler içeriyorsa, kaçış karakterleri sorguda kullanmanız gerekebilir.  Örneğin, sorgunuz varsa **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"**, çözüm dosyasındaki yazılmalıdır **AzureActivity | OperationName: /\"Microsoft.Compute/virtualMachines/write\"**.
 
 ## <a name="alerts"></a>Uyarılar
-[Azure günlük uyarılarını](../../monitoring-and-diagnostics/monitor-alerts-unified-log.md) düzenli aralıklarla belirtilen günlük sorguları çalıştıran Azure uyarı kuralları tarafından oluşturulur.  Sorgu sonuçlarını belirtilen ölçütlerle eşleşen, bir uyarı kaydı oluşturulur ve bir veya daha fazla eylem kullanarak çalıştırılır [Eylem grupları](../../monitoring-and-diagnostics/monitoring-action-groups.md).  
+[Azure günlük uyarılarını](../../azure-monitor/platform/alerts-unified-log.md) düzenli aralıklarla belirtilen günlük sorguları çalıştıran Azure uyarı kuralları tarafından oluşturulur.  Sorgu sonuçlarını belirtilen ölçütlerle eşleşen, bir uyarı kaydı oluşturulur ve bir veya daha fazla eylem kullanarak çalıştırılır [Eylem grupları](../../azure-monitor/platform/action-groups.md).  
 
 > [!NOTE]
-> 14 Mayıs 2018 tarihinden itibaren Azure'a genişletmek tüm Azure genel bulutunda örneğini Log Analytics çalışma alanı Uyarılardaki başladı. Daha fazla bilgi için [genişletmek uyarılar azure'a](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarıları Azure'a genişletme kullanıcılar için Eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu - Azure Resource Manager şablonu](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> 14 Mayıs 2018 tarihinden itibaren Azure'a genişletmek tüm Azure genel bulutunda örneğini Log Analytics çalışma alanı Uyarılardaki başladı. Daha fazla bilgi için [genişletmek uyarılar azure'a](../../azure-monitor/platform/alerts-extend.md). Uyarıları Azure'a genişletme kullanıcılar için Eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu - Azure Resource Manager şablonu](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 Bir yönetim çözümüne uyarı kuralları aşağıdaki üç farklı kaynaklardan oluşur.
 
 - **Kayıtlı arama.**  Çalıştırılan günlük araması tanımlar.  Birden çok uyarı kuralları tek kayıtlı bir aramayı paylaşabilirsiniz.
 - **Zamanlama.**  Günlük araması ne sıklıkta çalıştırılacağını tanımlar.  Her uyarı kuralı bir ve yalnızca bir zamanlama var.
-- **Uyarı eylemi.**  Her uyarı kuralı bir eylem grubu kaynağı veya eylem kaynağı (eski) türüne sahip olan **uyarı** ne zaman bir uyarı kaydı oluşturulur ve uyarının önem derecesi ölçütlerini gibi uyarı ayrıntılarını tanımlar. [Eylem grubu](../../monitoring-and-diagnostics/monitoring-action-groups.md) kaynak, bir uyarı tetiklendiğinde - SMS, sesli arama gibi yapılandırılmış eylemler listesi olabilir e-posta, Web kancası, ITSM aracına, Otomasyon runbook'u, mantıksal uygulama, vs.
+- **Uyarı eylemi.**  Her uyarı kuralı bir eylem grubu kaynağı veya eylem kaynağı (eski) türüne sahip olan **uyarı** ne zaman bir uyarı kaydı oluşturulur ve uyarının önem derecesi ölçütlerini gibi uyarı ayrıntılarını tanımlar. [Eylem grubu](../../azure-monitor/platform/action-groups.md) kaynak, bir uyarı tetiklendiğinde - SMS, sesli arama gibi yapılandırılmış eylemler listesi olabilir e-posta, Web kancası, ITSM aracına, Otomasyon runbook'u, mantıksal uygulama, vs.
  
 Eylem kaynağı (eski) isteğe bağlı olarak bir e-posta ve runbook yanıt tanımlarsınız.
 - **Web kancası eylemi (eski).**  Uyarı kuralını bir Web kancası çağırırsa sonra bir başka bir işlem kaynağı türünde gerektirir **Web kancası**.    
@@ -146,7 +145,7 @@ Bir zamanlama birden fazla eylem olabilir. Posta gönderme veya bir runbook baş
 Eylemler [eylem grubu] kaynak veya kaynak eylemi kullanılarak tanımlanabilir.
 
 > [!NOTE]
-> 14 Mayıs 2018 tarihinden itibaren otomatik olarak Azure'a genişletmek tüm Azure genel bulutunda örneğini Log Analytics çalışma alanı Uyarılardaki başladı. Daha fazla bilgi için [genişletmek uyarılar azure'a](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarıları Azure'a genişletme kullanıcılar için Eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu - Azure Resource Manager şablonu](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> 14 Mayıs 2018 tarihinden itibaren otomatik olarak Azure'a genişletmek tüm Azure genel bulutunda örneğini Log Analytics çalışma alanı Uyarılardaki başladı. Daha fazla bilgi için [genişletmek uyarılar azure'a](../../azure-monitor/platform/alerts-extend.md). Uyarıları Azure'a genişletme kullanıcılar için Eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu - Azure Resource Manager şablonu](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 
 Eylem kaynağı tarafından belirtilen iki tür vardır **türü** özelliği.  Bir zamanlama gerektiren **uyarı** uyarı kuralı ve bir uyarı oluşturulduğunda ne Eylemler gerçekleştirildikçe ayrıntılarını tanımlayan eylem. Eylem kaynaklara sahip bir tür `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
@@ -228,7 +227,7 @@ Bu bölüm isteğe bağlıdır.  Bazı uyarı oluşturulduktan sonra zaman mikta
 #### <a name="azure-action-group"></a>Azure eylem grubu
 Azure'daki tüm uyarılar eylemlerini işleyen varsayılan bir mekanizma olarak eylem grubu kullanın. Eylem grubu ile bir kez eylemleri belirtin ve birden çok uyarı - eylem grubuna Azure genelinde ilişkilendirin. Tekrar tekrar aynı eylemleri tekrar tekrar bildirme gerek kalmadan. Eylem grupları, birden fazla eylem - e-posta, SMS, sesli arama, ITSM bağlantısı, Otomasyon Runbook'u, Web kancası URI ve benzeri destekler. 
 
-Kimin uyarılarını - Azure'a genişletilmiş kullanıcının için bir zamanlama artık bir uyarı oluşturabilmek için eşik yanı sıra, geçirilen eylem grubu ayrıntıları olması gerekir. E-posta ayrıntıları, Web kancası URL'leri, Runbook Otomasyon ayrıntıları ve diğer eylemler olması gereken bir eylem grubu ilk önce bir uyarı; oluşturma tarafta tanımlanan bir izin oluşturabilir [Azure İzleyici'eylem grubundan](../../monitoring-and-diagnostics/monitoring-action-groups.md) portalı veya [eylem grubu - kaynak şablonu](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+Kimin uyarılarını - Azure'a genişletilmiş kullanıcının için bir zamanlama artık bir uyarı oluşturabilmek için eşik yanı sıra, geçirilen eylem grubu ayrıntıları olması gerekir. E-posta ayrıntıları, Web kancası URL'leri, Runbook Otomasyon ayrıntıları ve diğer eylemler olması gereken bir eylem grubu ilk önce bir uyarı; oluşturma tarafta tanımlanan bir izin oluşturabilir [Azure İzleyici'eylem grubundan](../../azure-monitor/platform/action-groups.md) portalı veya [eylem grubu - kaynak şablonu](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 | Öğe adı | Gerekli | Açıklama |
 |:--|:--|:--|
@@ -242,7 +241,7 @@ Kimin uyarılarını - Azure'a genişletilmiş kullanıcının için bir zamanla
 Her zamanlama varsa **uyarı** eylem.  Bu, uyarı ve isteğe bağlı olarak bildirim ve düzeltme eylemlerinin ayrıntılarını tanımlar.  Bir bildirim, bir veya daha fazla adreslere bir e-posta gönderir.  Bir düzeltme algılanan sorunu düzeltme girişiminde Azure Automation'da bir runbook başlatır.
 
 > [!NOTE]
-> 14 Mayıs 2018 tarihinden itibaren otomatik olarak Azure'a genişletmek tüm Azure genel bulutunda örneğini Log Analytics çalışma alanı Uyarılardaki başladı. Daha fazla bilgi için [genişletmek uyarılar azure'a](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarıları Azure'a genişletme kullanıcılar için Eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu - Azure Resource Manager şablonu](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> 14 Mayıs 2018 tarihinden itibaren otomatik olarak Azure'a genişletmek tüm Azure genel bulutunda örneğini Log Analytics çalışma alanı Uyarılardaki başladı. Daha fazla bilgi için [genişletmek uyarılar azure'a](../../azure-monitor/platform/alerts-extend.md). Uyarıları Azure'a genişletme kullanıcılar için Eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu - Azure Resource Manager şablonu](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 ##### <a name="emailnotification"></a>EmailNotification
  Bu bölümde, isteğe bağlı bir veya daha fazla alıcıya e-posta göndermek için uyarı istiyorsanız bunu ekleyin.

@@ -1,6 +1,6 @@
 ---
-title: Azure Search’te C# eş anlamlıları öğreticisi | Microsoft Docs
-description: Bu öğreticide, eş anlamlılar özelliğini Azure Search'teki bir dizine eklersiniz.
+title: Eş Anlamlılar C# Öğreticisi - Azure Search
+description: Bu C# Öğreticisi, Azure Search'te bir dizine eş anlamlılar özelliğini ekleme hakkında bilgi edinin. Eş Anlamlılar eşdeğer terimleri listesini haritasıdır. Eş anlamlı sözcük desteği alanlarla sorguları kullanıcı tarafından sağlanan terimi içerecek şekilde genişletin ve tüm eş anlamlılar ilgili.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 8340c4dc2a855911073905a3aea93e19fc7b520d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: b239fdc176951066699c557eaae5f7fe08a6c26f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990570"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309238"
 ---
-# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>Öğretici: Azure Search’de C# kodunda eş anlamlıları ekleme
+# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>Öğretici: Azure Search için eş anlamlı sözcükler eklemeC#
 
 Eş anlamlılar, giriş terimine anlam bakımından eşdeğer olan terimlerle eşleşerek bir sorguyu genişletir. Örneğin, "araba" aramasının "otomobil" veya "araç" terimlerini içeren belgelerle eşleşmesini isteyebilirsiniz. 
 
@@ -30,7 +31,7 @@ Birden çok eş anlamlı eşlemi oluşturabilir, bunları bir dizin için kullan
 > [!NOTE]
 > Eş anlamlılar en son API ve SDK sürümlerinde (api-version=2017-11-11, SDK sürümü 5.0.0) desteklenir. Şu anda Azure portalı desteği yoktur. Eş anlamlılar için Azure portalı desteği sizin için kullanışlı olacaksa, lütfen [UserVoice](https://feedback.azure.com/forums/263029-azure-search)’te geri bildiriminizi sağlayın
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Öğretici gereksinimleri şunları içerir:
 

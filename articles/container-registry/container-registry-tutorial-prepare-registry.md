@@ -1,5 +1,5 @@
 ---
-title: Azure Container Registry öğreticisi - Coğrafi çoğaltmalı Azure Container Registry’yi hazırlama
+title: Öğretici - Azure'da coğrafi olarak çoğaltılmış Docker kayıt defteri oluşturma
 description: Bir Azure Container Registry oluşturun, coğrafi çoğaltma yapılandırın, bir Docker görüntüsü hazırlayın ve bunu kayıt defterine dağıtın. Üç bölümden oluşan bir serinin birinci bölümü.
 services: container-registry
 author: dlepow
@@ -7,13 +7,13 @@ ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 9d1371dc02f37889b15b3448d82c62d76472f847
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.custom: seodec18, mvc
+ms.openlocfilehash: db00672c7cbb39002c4a40eb7397af76e4c8189a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854312"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261322"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Öğretici: Coğrafi çoğaltmalı Azure Container Registry’yi hazırlama
 
@@ -49,8 +49,8 @@ Azure Cloud Shell, bu öğreticideki her adımı tamamlamak için gerekli olan D
 
 Aşağıdaki ayarlarla yeni kayıt defterinizi yapılandırın:
 
-* **Kayıt defteri adı**: Azure’da genel olarak benzersiz olan ve 5-50 alfasayısal karakterden oluşan bir kayıt defteri adı oluşturun
-* **Kaynak Grubu**: **Yeni oluştur** > `myResourceGroup`
+* **Kayıt defteri adı**: Azure'da genel olarak benzersiz olan ve 5-50 alfasayısal karakterden oluşan bir kayıt defteri adı oluşturun
+* **Kaynak grubu**: **Yeni Oluştur** > `myResourceGroup`
 * **Konum**: `West US`
 * **Yönetici kullanıcı**: `Enable` (Kapsayıcılar için Web App’in görüntüleri çekmesi için gereklidir)
 * **SKU**: `Premium` (coğrafi çoğaltma için gereklidir)
@@ -152,7 +152,7 @@ ENTRYPOINT ["dotnet", "AcrHelloworld.dll"]
 az acr show --name <acrName> --query "{acrLoginServer:loginServer}" --output table
 ```
 
-Çıktı:
+Çıkış:
 
 ```bash
 AcrLoginServer

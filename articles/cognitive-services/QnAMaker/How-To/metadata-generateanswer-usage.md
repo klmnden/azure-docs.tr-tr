@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim88
-ms.openlocfilehash: eef26cf1f5a11d7dcd1fdc41747aac675e0bc528
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 97fb59a9a483753c6c2b5a4ae027bb358f7050e1
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031093"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166600"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Meta veri ve GenerateAnswer API'sini kullanarak
 
@@ -54,15 +54,15 @@ Bir HTTP POST isteği ile GenerateAnswer çağırırsınız. Nasıl GenerateAnsw
 - **İstek URL'si**: https://{QnA Oluşturucu uç nokta} /knowledgebases/ {Bilgi Bankası kimliği} / generateAnswer
 
 - **İstek parametreleri**: 
-    - **Bilgi Bankası kimliği** (dize): bilgi bankanızı için GUID.
+    - **Bilgi Bankası kimliği** (dize): Bilgi bankanızı GUİD'i.
     - **QnAMaker uç nokta** (dize): Azure aboneliğinizde dağıtılmış uç nokta konak adı.
 - **İstek üst bilgileri**
     - **İçerik türü** (dize): API'ye gönderilen gövdenin medya türü.
-    - **Yetkilendirme** (dize): uç nokta anahtarınızı (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
+    - **Yetkilendirme** (dize): Uç nokta anahtarınızı (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
 - **İstek gövdesi**
-    - **Soru** (dize): bilgi bankanızı karşı Sorgulanacak kullanıcının soru.
-    - **üst** (isteğe bağlı tamsayı): çıktıda dereceli sonuç sayısı. Varsayılan değer 1'dir.
-    - **UserId** (isteğe bağlı, dize): bir kullanıcıyı tanımlamak için benzersiz bir kimliği. Bu kimliği, sohbet günlüklerine kaydedilir.
+    - **Soru** (dize): Bilgi bankanızı karşı Sorgulanacak kullanıcının soru.
+    - **üst** (isteğe bağlı tamsayı): Çıktıda dereceli sonuç sayısı. Varsayılan değer 1’dir.
+    - **UserId** (isteğe bağlı, dize): Kullanıcıyı tanımlamak için benzersiz bir kimliği. Bu kimliği, sohbet günlüklerine kaydedilir.
     - **strictFilters** (isteğe bağlı, dize): Bu seçenek belirtilmişse, yalnızca belirtilen meta verilerine de sahip yanıtlarını döndürmek için soru-cevap Oluşturucu bildirir. Daha fazla bilgi için aşağıya bakın.
     ```json
     {
@@ -82,13 +82,13 @@ Bir HTTP POST isteği ile GenerateAnswer çağırırsınız. Nasıl GenerateAnsw
 - **200 yanıt** -başarılı bir çağrı soru sonucunu döndürür. Yanıt aşağıdaki alanları içerir:
     - **yanıtlar** -puanı sıralama, azalan düzende sıralanmış kullanıcı sorgunun yanıtlarını listesi.
         - **puan**: 0 ile 100 arasında bir derecelendirme puanı.
-        - **sorular**: kullanıcı tarafından sağlanan soru.
-        - **yanıt**: sorusuna verilen yanıt.
-        - **Kaynak**: içinden yanıt ayıklanır veya Bilgi Bankası'ndaki kaydedilen kaynağının adı.
-        - **meta veri**: Yanıtla ilişkili meta verileri.
-            - Ad: meta veri adı. (string, maksimum uzunluk: 100, gerekli)
-            - değer: meta veri değeri. (string, maksimum uzunluk: 100, gerekli)
-        - **Kimliği**: yanıt atanmış bir benzersiz kimliği.
+        - **sorular**: Kullanıcı tarafından sağlanan soru.
+        - **Yanıt**: Sorusuna verilen yanıt.
+        - **Kaynak**: İçinden yanıt ayıklanır veya Bilgi Bankası'ndaki kaydedilen kaynağının adı.
+        - **meta veri**: Yanıtla ilişkili meta veriler.
+            - Adı: Meta veri adı. (string, maksimum uzunluk: gerekli 100)
+            - Değer: Meta veri değeri. (string, maksimum uzunluk: gerekli 100)
+        - **Kimliği**: Yanıt atanmış bir benzersiz kimliği.
     ```json
     {
         "answers": [
@@ -167,6 +167,8 @@ Yanıta GenerateAnswer gibi eşleşen soru/yanıt kümesinin karşılık gelen m
 Bu bilgiler sonraki konuşmalardaki kullanmak için önceki konuşma bağlamında kaydetmek için kullanılabilir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
+Yayımla Sayfası ile yanıtı oluşturmak için bilgi de sağlar. [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) ve [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
 
 > [!div class="nextstepaction"]
 > [Bilgi bankası oluşturma](./create-knowledge-base.md)

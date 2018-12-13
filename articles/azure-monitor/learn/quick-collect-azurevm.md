@@ -14,13 +14,12 @@ ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.component: ''
-ms.openlocfilehash: 2774a2dcb79e38a3168cd389a73f0c3ca59d2a11
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2c756e9e2944895cc493aa56d1dd20254e5d8ea0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109580"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188528"
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Azure Sanal Makineleri hakkında veri toplama
 [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md), doğrudan Azure sanal makinelerinizden ve ortamınızdaki diğer kaynaklardan verileri ayrıntılı analiz ve bağıntı için tek bir depoda toplayabilir.  Bu hızlı başlangıçta birkaç kolay adımda Azure Linux veya Windows VM’lerinizi nasıl yapılandırabileceğiniz ve veri toplayabileceğiniz gösterilmektedir.  

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: fe1557a6f9e5fd4e463af254fa1dd52726e73024
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: e71ac4666c86c72828e9937c353eda8ba5a0668e
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713053"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322269"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream Log analytics'e Azure tanılama günlükleri
 
@@ -37,7 +37,7 @@ Log Analytics çalışma ayarı yapılandıran kullanıcının her iki abonelik 
 > [!NOTE]
 > Çok boyutlu ölçümlerin tanılama ayarları aracılığıyla gönderilmesi şu anda desteklenmemektedir. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
 >
-> *Örneğin*: Bir Olay Hub'ındaki 'Gelen İletiler' ölçümü, kuyruk düzeyi temelinde araştırılıp grafiği oluşturulabilir. Ancak, tanılama ayarları aracılığıyla dışarı aktarılan ölçüm, Olay Hub’ındaki tüm kuyruklarda tüm gelen iletiler halinde ifade edilir.
+> *Örneğin*: Bir olay Hub'ındaki 'Gelen iletiler' ölçümü temelinde araştırılıp bir kuyruk düzeyi. Ancak, tanılama ayarları aracılığıyla dışarı aktarılan ölçüm, Olay Hub’ındaki tüm kuyruklarda tüm gelen iletiler halinde ifade edilir.
 >
 >
 
@@ -75,7 +75,7 @@ Tam Azure kaynak kimliği değil çalışma alanı kimliği/anahtarı Log Analyt
 
 ### <a name="via-azure-cli"></a>Azure CLI
 
-Aracılığıyla akışını etkinleştirmek için [Azure CLI](insights-cli-samples.md), kullanabileceğiniz [az İzleyici diagnostic-settings oluşturma](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) komutu.
+Aracılığıyla akışını etkinleştirmek için [Azure CLI](../azure-monitor/platform/cli-samples.md), kullanabileceğiniz [az İzleyici diagnostic-settings oluşturma](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) komutu.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

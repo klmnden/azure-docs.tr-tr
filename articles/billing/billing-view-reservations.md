@@ -1,5 +1,5 @@
 ---
-title: Azure ayırmaları görüntüleme | Microsoft Docs
+title: Azure kaynakları için ayırmaları görüntüleme | Microsoft Docs
 description: Azure portalında Azure rezervasyonların öğrenin.
 services: billing
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2018
 ms.author: cwatson
-ms.openlocfilehash: 4506d65d173ea483558a772d89fe7cbc8cd84944
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: c7522076987aacacc6fde6a0c9d2fa867a3f14aa
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584596"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314049"
 ---
-# <a name="view-azure-reservations-in-the-azure-portal"></a>Azure portalında Azure ayırmalar görünümü
+# <a name="view-reservations-for-azure-in-the-azure-portal"></a>Azure portalında Azure için Görünüm ayırmaları
 
-Abonelik türü ve izinlerine bağlı olarak çeşitli şekillerde Azure rezervasyonların vardır.
+Abonelik türü ve izinlerine bağlı olarak çeşitli şekillerde Azure kaynakları için ayırmaları görüntülemek için vardır.
 
 ## <a name="view-reservations-as-owner-or-reader"></a>Rezervasyonları sahibi veya okuyucu olarak görüntüleme
 
@@ -30,7 +30,7 @@ Varsayılan olarak, bir ayırma satın aldığınızda ve Hesap Yöneticisi ayı
  
 Bir sahibi veya okuyucu olarak görüntülemek için
 
-1. [Azure Portal]( http://portal.azure.com) oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 1. Arama **ayırmaları**.
 
     ![Azure portalı arama gösteren ekran görüntüsü](./media/billing-view-reservation/portal-reservation-search.png)
@@ -45,7 +45,7 @@ Rezervasyon kapsamı değiştirmeniz gerekiyorsa, bölünmüş bir ayırma veya 
 
 Azure portalında ayırma işlemleri görüntülemek için
 
-1. [Azure Portal]( http://portal.azure.com) oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 1. Arama **maliyet Yönetimi + faturalandırma**.
 
     ![Azure portalı arama gösteren ekran görüntüsü](./media/billing-view-reservation/portal-cm-billing-search.png)
@@ -66,7 +66,7 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 - [Cosmos DB ayrılmış kapasite için ön ödeme](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Azure SQL Veritabanı ayrılmış kapasitesi ile SQL Veritabanı işlem kaynakları için ön ödeme yapma](../sql-database/sql-database-reserved-capacity.md)
 - [Azure Ayrılmış VM Örnekleri ile Sanal Makinelere ön ödeme yapma](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure Ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
+- [Azure ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 - [CSP abonelikleri için ayırma kullanımını anlama](https://docs.microsoft.com/partner-center/azure-reservations)

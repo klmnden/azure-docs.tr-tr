@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/4/2018
 ms.author: shtabriz
-ms.openlocfilehash: ac1b9dbbb5739dd015c0bda5f1ea82fe26bb0c70
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dcc978c8e169cca2e2cd91a63ef1814a8c3bd87c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625955"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184109"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource Manager şablonlarını kullanarak kaynak sistem durumu uyarılarını yapılandırma
 
@@ -32,7 +32,7 @@ Azure kaynaklarınızın geçerli ve geçmiş sistem durumu hakkında bilgilendi
 Bu sayfadaki yönergeleri izleyerek için birkaç önceden ayarlamalar yapmanız gerekir:
 
 1. Yüklemeniz gereken [Azure PowerShell Modülü](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (`AzureRm`)
-2. Şunları yapmanız [oluşturmak veya bir eylem grubu yeniden](../monitoring-and-diagnostics/monitoring-action-groups.md) size bildirecek şekilde yapılandırılmış
+2. Şunları yapmanız [oluşturmak veya bir eylem grubu yeniden](../azure-monitor/platform/action-groups.md) size bildirecek şekilde yapılandırılmış
 
 ## <a name="instructions"></a>Yönergeler
 1. PowerShell kullanarak Azure'da hesabınızı kullanarak oturum açın ve etkileşim kurmak istediğiniz aboneliği seçin
@@ -233,7 +233,7 @@ Sistem durumu olaylarını dört tüm aşamalarında için bildirim almak isteye
 
 ### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>"Bilinmeyen" olayları önlemek için kaynak durumu uyarıları ayarlama
 
-Azure kaynak durumu raporlama yapabilir, en son kaynaklarınızın sistem durumunu sürekli olarak bunları izleyerek test çalıştırıcılar kullanma. İlgili bildirilen durum durumlar şunlardır: "Kullanılabilir", "Kullanılamıyor" ve "Degraded". Ancak, Çalıştırıcısı ve Azure kaynak iletişim kurmada başarısız olduğu durumlarda, kaynak için bir "Bilinmeyen" durumu bildirilir ve bir "Etkin" sistem durumu olayı kabul edilir.
+Azure kaynak durumu raporlama yapabilir, en son kaynaklarınızın sistem durumunu sürekli olarak bunları izleyerek test çalıştırıcılar kullanma. İlgili bildirilen durum durumlar şunlardır: "Kullanılabilir olma", "Kullanılamıyor" ve "Düşürülmüş". Ancak, Çalıştırıcısı ve Azure kaynak iletişim kurmada başarısız olduğu durumlarda, kaynak için bir "Bilinmeyen" durumu bildirilir ve bir "Etkin" sistem durumu olayı kabul edilir.
 
 Bir kaynak, "Bilinmeyen" bildirdiğinde, ancak sistem durumunun son doğru rapor bu yana değişmemiştir olasıdır. "Bilinmeyen" olayları ile ilgili uyarılar ortadan kaldırmak istiyorsanız, bu mantığı şablonda belirtebilirsiniz:
 
@@ -435,4 +435,4 @@ Kaynak durumu hakkında daha fazla bilgi edinin:
 -  [Azure Kaynak Durumu aracılığıyla kullanılabilen kaynak türleri ve durum denetimleri](resource-health-checks-resource-types.md)
 
 Hizmet durumu uyarıları oluşturun:
--  [Hizmet durumu için uyarıları yapılandırma](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) 
+-  [Hizmet durumu için uyarıları yapılandırma](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

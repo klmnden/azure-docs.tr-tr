@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 7061776ba5325a333033d0f272de3b2663b44351
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 292247ae2881bd60616728ad857fab58c8ed7fd5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887806"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309552"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Öğretici: Yönetilen etki alanları için hibrit Azure Active Directory'ye katılımı yapılandırma
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Öğretici: Yönetilen etki alanları için hibrit Azure Active Directory katılımını Yapılandır
 
 Kullanıcıya benzer şekilde bir cihaz, korumak istediğiniz ve her yerde ve zamanda kaynaklarınızı korumak için kullandığınız başka bir kimlik alır. Aşağıdaki yöntemlerden biri ile cihazlarınızın kimliklerini Azure AD'ye getirerek bu hedefi gerçekleştirebilirsiniz:
 
@@ -153,7 +153,7 @@ Windows alt düzey cihazlarını kaydetmek için, cihaz ayarlarının kullanıc�
 
 
     
-Aşağıdaki ilke **Tümü** olarak ayarlanmalıdır: **Kullanıcılar cihazlarını Azure AD ile kaydedebilir**
+Aşağıdaki ilke ayarlanmalıdır **tüm**: **Kullanıcıların cihazlarını Azure AD'ye kaydedebilir**
 
 ![Cihaz kaydetme](media/hybrid-azuread-join-managed-domains/23.png)
 
@@ -172,7 +172,7 @@ Ayrıca, kullanıcının yerel intranet bölgesinde **Betik yoluyla durum çubu�
 
 ### <a name="configure-seamless-sso"></a>Sorunsuz çoklu oturum açmayı yapılandırın
 
-Ayrıca gerekir, sizin Windows başarıyla tamamlanması hibrit Azure AD'ye katılmak için kimlik doğrulama yöntemi Azure AD geçişli kimlik doğrulaması (PTA) ya da parola karması eşitleme (PHS) kullanan bir yönetilen etki alanındaki alt düzey cihazları bulut [yapılandırın Sorunsuz çoklu oturum açma](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
+Ayrıca gerekir, sizin Windows başarıyla tamamlanması hibrit Azure AD'ye katılmak için kimlik doğrulama yöntemi Azure AD geçişli kimlik doğrulaması (PTA) ya da parola karması eşitleme (PHS) kullanan bir yönetilen etki alanındaki alt düzey cihazları bulut [yapılandırın Sorunsuz çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
 
 
 ### <a name="control-windows-down-level-devices"></a>Windows alt düzey cihazlarını denetleme 

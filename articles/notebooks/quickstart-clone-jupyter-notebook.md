@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: e30057f773afe6ec625b811c6ca1447c519ceda7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c13650d53098c891b168cb88516dbee53f3da5cc
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106337"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260268"
 ---
-# <a name="quickstart-clone-a-notebook"></a>Hızlı Başlangıç: Kopya bir not defteri
+# <a name="quickstart-clone-a-notebook"></a>Hızlı Başlangıç: Not defterini kopyalama
 
 Birçok veri bilimcilerine ve geliştiricilere, not defterlerinde depolamak [GitHub depoları](https://github.com), ücretsiz depolama ve sürüm denetimi için birçok farklı proje türleri sağlayan hizmet. GitHub, genellikle yerel olarak çalıştırılan Jupyter notebooks işbirliği olarak kullanılır. Böyle durumlarda, her bir ortak çalışanı depoyu yerel bir kopyasını tutar ve Not Defterleri bu kopyasından çalışır.
 
@@ -34,11 +34,11 @@ Kopyalama kopyasını bir GitHub Not Defteri, bunun yerine Azure not defterleri 
 
     ![Projeleri bağlantımı tarayıcı penceresinin üst kısmındaki](media/quickstarts/my-projects-link.png)
 
-1. Üzerinde **Projelerim** sayfasında, yukarı ok düğmesini seçin (klavye kısayolu: U; düğme olarak görünen **karşıya Github deposunu** tarayıcı penceresini olduğunda yeterince geniş):
+1. Üzerinde **Projelerim** sayfasında, yukarı ok düğmesini seçin (klavye kısayolu: U; düğme olarak görünen **karşıya GitHub deposunu** tarayıcı penceresini olduğunda yeterince geniş):
 
-    ![Github deposunu komut Projelerim sayfasında karşıya yükleme](media/quickstarts/upload-github-repo-command.png)
+    ![GitHub deposunu komut Projelerim sayfasında karşıya yükleme](media/quickstarts/upload-github-repo-command.png)
 
-1. İçinde **karşıya Github deposu** görüntülenir, girin veya aşağıdaki bilgileri ayarlayın ve ardından seçin **alma**:
+1. İçinde **karşıya GitHub deposu** görüntülenir, girin veya aşağıdaki bilgileri ayarlayın ve ardından seçin **alma**:
 
     - **Github deposu**: Microsoft/bilişsel-services-not defterlerini (Bu ad, Azure Bilişsel hizmetler için Jupyter not defterlerini klonlar [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks)).
     - **Yinelemeli olarak kopyalama**: (Seçili)
@@ -46,7 +46,7 @@ Kopyalama kopyasını bir GitHub Not Defteri, bunun yerine Azure not defterleri 
     - **Proje kimliği**: bilişsel-services-kopya
     - **Genel**: (Seçili)
 
-    ![Depo bilgilerini toplamak için Github deposunu açılan karşıya yükleme](media/quickstarts/upload-github-repo-popup.png)
+    ![Depo bilgilerini toplamak için GitHub deposunu açılan karşıya yükleme](media/quickstarts/upload-github-repo-popup.png)
 
 1. İşlem tamamlanırken arkanıza endişelenmeyin; bir depo kopyalama, birkaç dakika sürebilir.
 

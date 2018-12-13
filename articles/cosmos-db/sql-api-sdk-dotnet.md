@@ -9,14 +9,14 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5af80a387a8b07992a82dac39c23082069419b60
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: c7f3b2fc0e5cc75bccbaf075dc2e2a2be8c7801d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865922"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255967"
 ---
-# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SQL API'si için Azure Cosmos DB .NET SDK: indirme ve sürüm notları
+# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB SQL API'si için .NET SDK: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET değişiklik akışı](sql-api-sdk-dotnet-changefeed.md)
@@ -54,6 +54,16 @@ ms.locfileid: "52865922"
 * Yeni nesne modeli, üst düzey CosmosClient ve yöntemleri ile ilgili CosmosDatabases ve CosmosContainers CosmosItems sınıflar arasında bölün. 
 * Akışları için destek. 
 * Durum kodu döndürür ve yanıt döndürüldüğünde yalnızca durum sunucudan CosmosResponseMessage güncelleştirildi. 
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+
+* Doğrudan/TCP taşıma tanılama için TransportException, SDK'sının bir iç özel durum türü eklediniz. Bu tür, mevcut olduğunda özel durum iletileri, istemci bağlantısı sorunlarını gidermek için ek bilgi yazdırır.
+
+* HttpClient istekleri (örn., HttpClientHandler) göndermek için kullanılacak HTTP işleyici yığını bir HttpMessageHandler alan eklenen yeni oluşturucu aşırı yükleme.
+
+* Burada üstbilgisi null değerlerle düzgün bir şekilde işlenmemiş olan hata düzeltildi.
+
+* Koleksiyon önbellek doğrulama geliştirildi.
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
@@ -106,7 +116,7 @@ ms.locfileid: "52865922"
 
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
-* Aralıklı olarak sonuçlanan belirli yarış koşulları altında isabet hata düzeltildi "Microsoft.Azure.Documents.NotFoundException: okuma oturumu giriş Oturum belirteci için kullanılamıyor" oturum tutarlılık düzeyini kullanırken hataları.
+* Aralıklı olarak sonuçlanan belirli yarış koşulları altında isabet hata düzeltildi "Microsoft.Azure.Documents.NotFoundException: Oturum tutarlılık düzeyi kullanılırken okuma oturumu için giriş Oturum belirteci kullanılabilir değil"hata.
 
 ### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
 
@@ -177,7 +187,7 @@ ms.locfileid: "52865922"
 * Belirli koşullar altında otomatik yük devretme karşı daha dayanıklı SDK yapmak için düzeltmeleri.
 
 ### <a name="a-name11221122"></a><a name="1.12.2"/>1.12.2
-* Bazen bir WebException neden olan sorunu için düzeltme: uzak ad çözümlenemedi.
+* Bazen bir WebException neden olan bir sorunu için düzeltme: Uzak ad çözümlenemedi.
 * Doğrudan ReadDocumentAsync API'sine yeni aşırı yüklemeler ekleyerek türü belirtilmiş bir belgeyi okumak için destek eklendi.
 
 ### <a name="a-name11211121"></a><a name="1.12.1"/>1.12.1
@@ -210,7 +220,7 @@ ms.locfileid: "52865922"
 * Yeni sınıflar ve işlemek için yöntemler için destek [değişiklik akışını](change-feed.md) , bir koleksiyonu içindeki belgeler.
 * Bölümler arası sorgu devamlılık ve bölümler arası sorgular için bazı performans geliştirmeleri için destek.
 * Ayrıca Createdatabaseasync ve Createdocumentcollectionıfnotexistsasync yöntemleri.
-* LINQ sistem işlevleri için destek: IsDefined, IsNull ve IsPrimitive.
+* Sistem işlevleri için LINQ desteği: IsDefined, IsNull ve IsPrimitive.
 * Project.json araç projeleri ile Nuget paketini kullanarak uygulamanın bin klasörüne Microsoft.Azure.Documents.ServiceInterop.dll ve DocumentDB.Spatial.Sql.dll derlemelerin otomatik binplacing düzeltildi.
 * Hata ayıklama senaryoları yararlı olabilecek istemci tarafı ETW izlemeleri yayma desteği.
 
@@ -222,7 +232,7 @@ ms.locfileid: "52865922"
 * SDK çeşitli hata düzeltmeleri.
 
 ### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
-* Aşağıdaki NotFoundException kaynaklanan bir sorun düzeltildi: okuma oturumu giriş Oturum belirteci için kullanılamıyor. Bazı durumlarda coğrafi olarak dağıtılmış bir hesabı okuma-bölgesi için sorgulama bu özel durum oluştu.
+* Aşağıdaki NotFoundException kaynaklanan bir sorun düzeltildi: Okuma oturum giriş Oturum belirteci için kullanılabilir değil. Bazı durumlarda coğrafi olarak dağıtılmış bir hesabı okuma-bölgesi için sorgulama bu özel durum oluştu.
 * Doğrudan erişim için temel alınan akışa bir yanıt sağlar sınıfını ResourceResponse ResponseStream özelliğinde ortaya çıkar.
 
 ### <a name="a-name194194"></a><a name="1.9.4"/>1.9.4
@@ -230,7 +240,7 @@ ms.locfileid: "52865922"
 * Hatalı biçimlendirilmiş bölüm anahtarı üstbilgi verilerin serileştirilmesi için özel bir JsonSerializerSettings nesne kullanırken neden olan bir sorun düzeltildi.
 
 ### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
-* Uzun süren sorgular başarısız olmasına neden olan hata ile bir sorun düzeltildi: Yetkilendirme belirteci geçerli olmayan şu anda.
+* Uzun süren sorgular başarısız olmasına neden olan hata ile bir sorun düzeltildi: Şu anda yetkilendirme belirteci geçerli değil.
 * Çapraz bölüm üst/sırası-by sorguları gelen özgün SqlParameterCollection kaldırılan bir sorun düzeltildi.
 
 ### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
@@ -265,7 +275,7 @@ ms.locfileid: "52865922"
 * Uygulanan [bölümlenmiş koleksiyonları](partition-data.md) ve [kullanıcı tanımlı performans düzeyleri](performance-levels.md). 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[Düzeltildi]**  Sorgulama Azure Cosmos DB uç noktası oluşturur: ' System.Net.Http.HttpRequestException: içeriği bir akışa kopyalanırken hata oluştu '.
+* **[Düzeltildi]**  Sorgulama Azure Cosmos DB uç noktası oluşturur: ' System.Net.Http.HttpRequestException: Bir akışa içeriği kopyalanırken hata oluştu '.
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * Genişletilmiş LINQ, disk belleği, koşullu ifade yeni işleçleri dahil olmak üzere destek ve karşılaştırma aralığı.
@@ -340,6 +350,7 @@ Devre dışı bırakılan bir SDK'sı kullanarak Azure Cosmos DB yapılan tüm i
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.2.0](#2.2.0) |07 aralık 2018'e |--- |
 | [2.1.3](#2.1.3) |15 Ekim 2018 |--- |
 | [2.1.2'yi](#2.1.2) |04 Ekim 2018 |--- |
 | [2.1.1](#2.1.1) |27 Eylül 2018'den |--- |

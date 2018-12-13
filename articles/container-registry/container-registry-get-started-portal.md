@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Azure portalıyla Azure’da özel bir Docker kayıt defteri oluşturun'
+title: Hızlı Başlangıç - Azure - Azure portalı özel bir Docker kayıt defteri oluşturma
 description: Azure portalıyla hızlıca özel bir Docker kapsayıcısı kayıt defteri oluşturmayı öğrenin.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 1e039c465bf37e0ee5ca1db5837798680e27463d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 865c53fdda60f6a0384157ec68042b4b8b243a7a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278676"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255372"
 ---
-# <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>Hızlı başlangıç: Azure portalını kullanarak kapsayıcı kayıt defteri oluşturma
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak bir özel kapsayıcı kayıt defteri oluşturma
 
 Azure kapsayıcı kayıt defteri, Azure’da özel Docker kapsayıcısı görüntülerinizi depolayıp yönetebileceğiniz özel bir Docker kayıt defteridir. Bu hızlı başlangıçta Azure portalını kullanarak bir kapsayıcı kayıt defteri oluşturacak, kayıt defterine bir kapsayıcı görüntüsü gönderecek ve son olarak kapsayıcıyı kayıt defterinizden Azure Container Instances’a (ACI) dağıtacaksınız.
 

@@ -8,17 +8,17 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 10/10/2018
-ms.openlocfilehash: 0e316bf06cc6e2915adca5e7961083e6668bbfc1
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.date: 12/11/2018
+ms.openlocfilehash: 644a3a2fe6bce6ccc99b0c1c99ea07b129676653
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889132"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320855"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Fiyatlandırma katmanları MySQL için Azure veritabanı
 
-Üç farklı fiyatlandırma katmanlarından birini MySQL için Azure veritabanı oluşturabilirsiniz: temel, genel amaçlı ve bellek için iyileştirilmiş. Fiyatlandırma katmanları tarafından sağlanabilen sanal çekirdek ve bellek sanal çekirdek başına verileri depolamak için kullanılan depolama teknolojisi olarak işlem miktarını ayrılır. MySQL sunucu düzeyinde tüm kaynaklar sağlanır. Bir sunucu, bir veya birden çok veritabanına sahip olabilir.
+MySQL sunucusu için Azure veritabanı üç farklı fiyatlandırma katmanında oluşturabilirsiniz: Temel, genel amaçlı ve bellek için iyileştirilmiş. Fiyatlandırma katmanları tarafından sağlanabilen sanal çekirdek ve bellek sanal çekirdek başına verileri depolamak için kullanılan depolama teknolojisi olarak işlem miktarını ayrılır. MySQL sunucu düzeyinde tüm kaynaklar sağlanır. Bir sunucu, bir veya birden çok veritabanına sahip olabilir.
 
 |    | **Temel** | **Genel amaçlı** | **Bellek için iyileştirilmiş** |
 |:---|:----------|:--------------------|:---------------------|
@@ -42,6 +42,9 @@ Bir sunucu oluşturduktan sonra sanal çekirdek, donanım oluşturma ve fiyatlan
 ## <a name="compute-generations-and-vcores"></a>İşlem Nesilleri ve sanal çekirdekler
 
 İşlem kaynakları, temel alınan donanım mantıksal CPU'yu temsil eden sanal çekirdekler sağlanır. Şu anda iki işlem Nesilleri, Gen 4 ve 5. nesil seçebilirsiniz. Gen 4 mantıksal CPU'lar Intel E5-2673 v3 dayalı (Haswell) 2,4 GHz işlemcileri. 5 mantıksal CPU'lar Intel E5-2673 v4 nesil (Broadwell) 2.3 GHz işlemcileri. Gen 4 ve 5. nesil ("X" kullanılabilir gösterir) aşağıdaki bölgelerde kullanılabilir.
+
+> [!IMPORTANT]
+> 12 Aralık 2018 tarihinden itibaren yeni müşteri Brezilya Güney, Kanada Orta, Kanada, Doğu Kanada, Doğu Asya, Doğu ABD 2, Orta Hindistan, Batı Hindistan, Japonya Batı, Orta Kuzey ABD, Batı ABD işlem 4. nesil sunucuları sağlamak mümkün olmayacaktır. İşlem oluşturma 4 sunucu şu bölgelerde 1 Şubat 2019 başlangıç 5. nesil işlem geçirilecek önceden oluşturulmuş.
 
 | **Azure bölgesi** | **4. nesil** | **5. nesil** |
 |:---|:----------:|:--------------------:|

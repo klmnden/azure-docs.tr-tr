@@ -1,47 +1,36 @@
 ---
-title: Azure SignalR Hizmeti Sunucusuz Hızlı Başlangıç - C# | Microsoft Belgeleri
+title: Azure SignalR hizmeti sunucusuz hızlı başlangıç-C#
 description: Azure SignalR Hizmetini ve Azure İşlevlerini kullanarak bir sohbet odası oluşturmaya yönelik hızlı başlangıç.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: Azure Functions
-ms.workload: tbd
 ms.date: 09/23/2018
 ms.author: zhshang
-ms.openlocfilehash: 7c28385c9b29f98968bcdf758f4a9a5b08da3f9f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: db54282563acc6afac4dada7a45f6dff0716879a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993122"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255066"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Hızlı Başlangıç: Azure İşlevleri ve SignalR Hizmetini kullanarak C# ile sohbet odası oluşturma
+# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Hızlı Başlangıç: SignalR C kullanarak Service ve Azure işlevleri ile sohbet odası oluşturamadı.\#
 
 Azure SignalR hizmeti uygulamanıza kolayca gerçek zamanlı işlevsellik eklemenizi sağlar. Azure İşlevleri, herhangi bir altyapı yönetimine gerek kalmadan kodunuzu çalıştırmanıza olanak tanıyan sunucusuz bir platformdur. Bu hızlı başlangıçta, SignalR Hizmeti ve İşlevlerini sunucusuz ve gerçek zamanlı bir sohbet uygulaması oluşturmak için kullanmayı öğrenin.
 
-
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
 Azure hesabınızla Azure portalında <https://portal.azure.com/> sayfasında oturum açın.
 
-
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
-
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Azure İşlev Uygulamasını yapılandırıp çalıştırma
 
@@ -57,7 +46,7 @@ Azure hesabınızla Azure portalında <https://portal.azure.com/> sayfasında ot
 
 1. Visual Studio’ya dönerek Çözüm Gezgininde *local.settings.sample.json* dosyasının adını *local.settings.json* olarak değiştirin.
 
-1. **local.settings.json** dosyasının içinde bağlantı dizesini **AzureSignalRConnectionString** ayarının değerine yapıştırın. Dosyayı kaydedin.
+1. **local.settings.json** dosyasının içinde, bağlantı dizesini **AzureSignalRConnectionString** ayarının değerine yapıştırın. Dosyayı kaydedin.
 
 1. **Functions.cs**’yi açın. Bu işlev uygulamasında iki adet HTTP ile tetiklenen işlev vardır:
 
@@ -68,9 +57,7 @@ Azure hesabınızla Azure portalında <https://portal.azure.com/> sayfasında ot
 
     ![Uygulamada hata ayıklama](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-debug-vs.png)
 
-
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
-
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 

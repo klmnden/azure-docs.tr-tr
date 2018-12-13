@@ -4,9 +4,8 @@ description: Tanımlamak ve bir Azure Machine Learning Studio web hizmeti için 
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 1105b81d0f8ba80bd76bcdf140fe79b9e8a7102d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0f12627e169af00f575347796d1f2e79fe1f6fa2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307211"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252788"
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Yeniden eğitme bir Azure Machine Learning Studio Klasik web hizmeti sorunlarını giderme
 ## <a name="retraining-overview"></a>Yeniden eğitme genel bakış
@@ -41,16 +40,16 @@ Web hizmetini yeniden eğitme gerektiğinde, bazı ek parçaları eklemeniz gere
 
 Tüm parçaları ile yerinde, modeli yeniden eğitme için gerçekleştirmeniz gereken önemli adımlar aşağıdaki gibidir:
 
-1. Eğitim Web hizmeti çağırmak: Toplu yürütme hizmeti (BES için), değil istek yanıt hizmeti (RRS) çağrıdır. Örnek kullanabileceğiniz C# kod arama yapmak için API Yardım sayfasında. 
-2. Değerlerini bulma *BaseLocation*, *RelativeLocation*, ve *SasBlobToken*: Bu değerler, çağrıdan eğitim Web hizmeti çıktısında döndürülür. 
+1. Eğitim Web hizmetini çağırın:  Toplu yürütme hizmeti (BES için), değil istek yanıt hizmeti (RRS) çağrısıdır. Örnek kullanabileceğiniz C# kod arama yapmak için API Yardım sayfasında. 
+2. Değerlerini bulma *BaseLocation*, *RelativeLocation*, ve *SasBlobToken*: Bu değerler, eğitim Web hizmetine çağrı çıkışında döndürülen. 
    ![yeniden eğitme örnek ve BaseLocation RelativeLocation ve SasBlobToken değerlerin çıkışını gösteriliyor.][image6]
-3. Yeni eğitim modeli ile eklenen uç noktasından Puanlama web hizmeti güncelleştirin: Machine Learning yeniden eğitme modelleri programlı olarak sağlanan örnek kodu kullanarak güncelleştirme Puanlama modeli ile yeni eğitilmiş modelden için eklenen yeni uç nokta Eğitim Web hizmeti.
+3. Yeni eğitim modeli ile eklenen uç noktasından Puanlama web hizmeti güncelleştirin: Machine Learning yeniden eğitme modelleri programlı olarak sağlanan örnek kodu kullanarak, yeni eğitim modeli Puanlama modeli için eğitim Web hizmetinden eklediğiniz yeni uç nokta güncelleştirin.
 
 ## <a name="common-obstacles"></a>Sık karşılaşılan engelleri
 ### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Düzeltme eki URL'nin doğru olup olmadığını denetleyin
 Düzeltme eki kullandığınız URL bir Puanlama web hizmeti için eklenen yeni Puanlama uç noktası ile ilişkili olması gerekir. Düzeltme URL'si almak için çeşitli yollarla vardır:
 
-**Seçenek 1: programlı şekilde**
+**1. seçenek: Programlı şekilde**
 
 Düzeltme eki URL'sini doğru almak için:
 
@@ -71,7 +70,7 @@ Düzeltme eki URL'sini doğru almak için:
 7. Altında **düzeltme eki** URL'yi tıklatın **API Yardım** düzeltme eki uygulama Yardım sayfasını açın.
 
 > [!NOTE]
-> Tahmine dayalı Web hizmeti yerine eğitim Web hizmeti için uç nokta eklediyseniz tıkladığınızda aşağıdaki hatayı alırsınız **kaynak güncelleştirme** bağlantı: "Üzgünüz ancak bu özelliği değil veya kullanılabilir ve desteklenir Bu bağlamı. Bu Web hizmetini güncelleştirilebilir hiçbir kaynak vardır. Biz Verdiğimiz rahatsızlık için özür dileriz ve bu iş akışı geliştirme konusunda durmaksızın çalışıyoruz."
+> Tahmine dayalı Web hizmeti yerine eğitim Web hizmeti için uç nokta eklediyseniz tıkladığınızda aşağıdaki hatayı alırsınız **kaynak güncelleştirme** bağlantı: "Üzgünüz, ancak bu özellik desteklenmez ve bu bağlamda kullanılamaz. Bu Web hizmetini güncelleştirilebilir hiçbir kaynak vardır. Biz Verdiğimiz rahatsızlık için özür dileriz ve bu iş akışı geliştirme konusunda durmaksızın çalışıyoruz."
 > 
 > 
 
@@ -80,8 +79,8 @@ Düzeltme eki yardım sayfasına düzeltme eki kullanmalısınız URL içerir ve
 ![Düzeltme URL'si.][image5]
 
 ### <a name="check-to-see-that-you-are-updating-the-correct-scoring-endpoint"></a>Doğru Puanlama uç noktası güncelleştiriliyor denetleyin
-* Eğitim web hizmeti düzeltme eki değil: Puanlama web hizmeti düzeltme eki işlemi gerçekleştirilmesi gerekir.
-* Varsayılan uç nokta web Service'i düzeltme eki değil: eklemiş olduğunuz yeni Puanlama web hizmeti uç noktası üzerinde düzeltme eki işlemi gerçekleştirilmesi gerekir.
+* Eğitim web hizmeti eki değil: Puanlama web hizmeti düzeltme eki işlemi gerçekleştirilmesi gerekir.
+* Varsayılan uç nokta web Service'i düzeltme değil: Eklediğiniz yeni Puanlama web hizmeti uç noktası üzerinde düzeltme eki işlemi gerçekleştirilmesi gerekir.
 
 Hangi web hizmeti Web Hizmetleri portalını ziyaret ederek uç nokta açıktır doğrulayabilirsiniz. 
 

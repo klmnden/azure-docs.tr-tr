@@ -1,5 +1,5 @@
 ---
-title: Azure App Service tanılama genel bakış | Microsoft Docs
+title: Tanılama genel bakış - Azure App Service | Microsoft Docs
 description: Web uygulamanızı App Service tanılamasını ile sorunları nasıl giderebileceğinizi öğrenin.
 keywords: App service, azure app service, tanılama, destek, web uygulaması, sorun giderme, kendi kendine yardım
 services: app-service
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: 7ad205c75a02b496abe2cb910c7eb459cdb16c97
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.custom: seodec18
+ms.openlocfilehash: a8b256f43d8e4103404ab4276431ceb06d9ed36a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969247"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255151"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure App Service tanılama genel bakış 
 
@@ -66,5 +67,5 @@ Birçok uygulama sorunları için uygulama kodunuzdaki sorunları birbiriyle ili
 
 Application Insights özel durumları ve bağımlılıklarını görüntülemek için seçin **Web uygulaması kapalı** veya **Web uygulaması yavaş** kutucuğuna kısayolları. 
 
-![Application Insights](./media/app-service-diagnostics/AppInsights6.png)
+![Application ınsights](./media/app-service-diagnostics/AppInsights6.png)
 

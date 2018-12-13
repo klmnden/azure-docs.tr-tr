@@ -12,17 +12,17 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: b6e3c769307f037c9f31dbb3f1a86675145ec1f6
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: cb48cff488c4f0bcd3c4a742f5d9922ec59a36b6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495416"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269864"
 ---
 # <a name="sfctl"></a>sfctl
-Service Fabric kümeleri ve varlıklarını yönetmeye yönelik komutlar içerir. Bu sürüm, Service Fabric 6.3 çalışma zamanı ile uyumludur.
+Service Fabric kümeleri ve varlıklarını yönetmeye yönelik komutlar içerir. Bu sürüm, Service Fabric 6.4 çalışma zamanı ile uyumludur.
 
 Komutları isim-fiil desenini izler. Alt gruplar daha fazla bilgi için bkz.
 
@@ -33,8 +33,9 @@ Komutları isim-fiil desenini izler. Alt gruplar daha fazla bilgi için bkz.
 | [kaos](service-fabric-sfctl-chaos.md) | Başlatma, durdurma ve kaos raporda test hizmeti. |
 | [Küme](service-fabric-sfctl-cluster.md) | Seçin, yönetmek ve Service Fabric kümeleri çalışır. |
 | [Oluşturan](service-fabric-sfctl-compose.md) | Oluşturma, silme ve Docker Compose uygulamaları yönetin. |
-| [Kapsayıcı](service-fabric-sfctl-container.md) | Kapsayıcı ile ilgili komutları bir küme düğümünde çalıştırın. |
+| [Kapsayıcı](service-fabric-sfctl-container.md) | Kapsayıcı çalıştırma komutları bir küme düğümünde ilgili. |
 | [olduğu](service-fabric-sfctl-is.md) | Sorgulamak ve hizmet için altyapı komutlar gönderebilirsiniz. |
+| [mesh](service-fabric-sfctl-mesh.md) | Silme ve Service Fabric Mesh uygulamaları yönetin. |
 | [Düğüm](service-fabric-sfctl-node.md) | Küme düğümleri yönetin. |
 | [Bölüm](service-fabric-sfctl-partition.md) | Sorgulamak ve tüm bölümlerini yönetin. |
 | [Özelliği](service-fabric-sfctl-property.md) | Service Fabric adları altında Store ve sorgu özellikleri. |
@@ -42,6 +43,7 @@ Komutları isim-fiil desenini izler. Alt gruplar daha fazla bilgi için bkz.
 | [rpm](service-fabric-sfctl-rpm.md) | Sorgulamak ve onarım Yöneticisi hizmetine komutlar gönderebilirsiniz. |
 | [SA-küme](service-fabric-sfctl-sa-cluster.md) | Tek başına Service Fabric kümeleri yönetin. |
 | [Hizmet](service-fabric-sfctl-service.md) | Oluşturma, silme ve hizmet, hizmet türlerini ve hizmet paketleri yönetin. |
+| [Ayarlar](service-fabric-sfctl-settings.md) | Sfctl Bu örneği için yerel ayarları yapılandırın. |
 | [Store](service-fabric-sfctl-store.md) | Temel dosya düzeyi kümenin görüntü deposuna işlemleri. |
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -1,5 +1,5 @@
 ---
-title: Oluşturma, yönetme ve Azure arama için güvenli yönetici ve sorgu api anahtarlarından | Microsoft Docs
+title: Yönetici ve sorgu api anahtarlarından - Azure Search güvenli oluşturma ve yönetme
 description: API anahtarları hizmet uç noktası erişimi denetler. Yönetici anahtarları, yazma erişimi verin. Sorgu anahtarları, salt okunur erişim için oluşturulabilir.
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: heidist
-ms.openlocfilehash: 0a8975fad21645535a6e7407bcd2d59f537a9fff
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.custom: seodec2018
+ms.openlocfilehash: 6ba63fa776e92dd2f8035cfbbdb8cea2860d106f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727982"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316943"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>API anahtarları için Azure Search hizmeti oluşturma ve yönetme
 
@@ -67,7 +68,7 @@ Temel güvenlik, portalı veya Resource Manager arabirimleri (PowerShell veya ko
 
 + Hizmet panosunda, tıklayın **erişim denetimi (IAM)** ardından **rol atamaları** hizmetiniz için rol atamalarını görüntülemek için sekmesinde.
 
-Aşağıdaki rollerinin üyeleri görüntüleyebilir ve anahtarları yeniden oluştur: sahibi, katkıda bulunan, [arama hizmeti Katkıda Bulunanlar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
+Aşağıdaki rollerinin üyeleri görüntüleyebilir ve anahtarları yeniden oluştur: Sahip, katkıda bulunan, [arama hizmeti Katkıda Bulunanlar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
 
 > [!Note]
 > Kimlik tabanlı arama sonuçları üzerinden erişim için istek sahibine erişim olmamalıdır belgelerin kaldırılması kimlik tarafından sonuçları kırpmak için güvenlik filtreler oluşturabilirsiniz. Daha fazla bilgi için [güvenlik filtreleri](search-security-trimming-for-azure-search.md) ve [Active Directory ile güvenli](search-security-trimming-for-azure-search-with-aad.md).

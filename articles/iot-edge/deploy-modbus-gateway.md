@@ -9,37 +9,37 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 51c1a9a6fe997249f543348c95c0c02dfa47ceaf
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e929ddec084c4abbdb572943f11f135cddd49045
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101628"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254852"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Bir IOT Edge ağ geçidi cihazı aracılığıyla Modbus TCP cihazlarını bağlama
 
-Modbus TCP veya RTU protokollerini kullanan IoT cihazlarını bir Azure IoT hub’ına bağlamak istiyorsanız ağ geçidi olarak bir IoT Edge cihazı kullanın. Ağ geçidi cihazı Modbus cihazlarınızdan verileri okur, sonra desteklenen bir protokolü kullanarak bu verileri buluta iletir. 
+Modbus TCP veya RTU protokollerini kullanan IoT cihazlarını bir Azure IoT hub’ına bağlamak istiyorsanız ağ geçidi olarak bir IoT Edge cihazı kullanın. Ağ geçidi cihazı Modbus cihazlarınızdan verileri okur, sonra desteklenen bir protokolü kullanarak bu verileri buluta iletir.
 
 ![Modbus cihazları IoT Hub’a Edge ağ geçidi üzerinden bağlanır](./media/deploy-modbus-gateway/diagram.png)
 
-Bu makalede, bir Modbus modülü için kendi kapsayıcı görüntünüzü oluşturma (dilerseniz önceden oluşturulmuş bir örneği de kullanabilirsiniz) ve bu görüntüyü ağ geçidi olarak kullanacağınız IoT Edge cihazına dağıtma işlemleri açıklanmaktadır. 
+Bu makalede, bir Modbus modülü için kendi kapsayıcı görüntünüzü oluşturma (dilerseniz önceden oluşturulmuş bir örneği de kullanabilirsiniz) ve bu görüntüyü ağ geçidi olarak kullanacağınız IoT Edge cihazına dağıtma işlemleri açıklanmaktadır.
 
-Bu makalede Modbus TCP protokolünü kullandığınız varsayılır. Modülün Modbus RTU'yu destekleyecek şekilde yapılandırma hakkında daha fazla bilgi için bkz. [Azure IOT Edge Modbus Modülü](https://github.com/Azure/iot-edge-modbus) github'daki proje. 
+Bu makalede Modbus TCP protokolünü kullandığınız varsayılır. Modülün Modbus RTU'yu destekleyecek şekilde yapılandırma hakkında daha fazla bilgi için bkz. [Azure IOT Edge Modbus Modülü](https://github.com/Azure/iot-edge-modbus) github'daki proje.
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Bir Azure IoT Edge cihazı. Edge cihazı ayarlama konusunda adım adım bir kılavuz için bkz. [Linux](quickstart-linux.md) veya [Windows’da bir sanal cihaza Azure IoT Edge dağıtma](quickstart.md). 
+* Bir Azure IoT Edge cihazı. Edge cihazı ayarlama konusunda adım adım bir kılavuz için bkz. [Linux](quickstart-linux.md) veya [Windows’da bir sanal cihaza Azure IoT Edge dağıtma](quickstart.md).
 * IoT Edge cihazı için birincil anahtar bağlantı dizesi.
 * Modbus TCP’yi destekleyen fiziksel veya sanal bir cihaz.
 
 ## <a name="prepare-a-modbus-container"></a>Modbus kapsayıcısı hazırlama
 
-Modbus ağ geçidinin işlevselliğini test etmek istiyorsanız Microsoft tarafından sağlanan örnek modülü kullanabilirsiniz. Örnek modülü kullanmak için [Çözümü çalıştırın](#run-the-solution) bölümüne gidip aşağıdaki Resim URI’sini girin: 
+Modbus ağ geçidinin işlevselliğini test etmek istiyorsanız Microsoft tarafından sağlanan örnek modülü kullanabilirsiniz. Örnek modülü kullanmak için [Çözümü çalıştırın](#run-the-solution) bölümüne gidip aşağıdaki Resim URI’sini girin:
 
 ```URL
 mcr.microsoft.com/azureiotedge/modbus:1.0
 ```
 
-Kendi modülünüzü oluşturmak ve ortamınız için özelleştirmek istiyorsanız, açık kaynaklı yoktur [Azure IOT Edge Modbus Modülü](https://github.com/Azure/iot-edge-modbus) github'daki proje. Kendi kapsayıcı görüntünüzü oluşturmak için bu projedeki yönergeleri izleyin. Kendi kapsayıcı görüntünüzü oluşturursanız, kapsayıcı görüntülerini bir kayıt defterinde yayımlama ve cihazınıza özel modül dağıtma işlemleriyle ilgili yönergeler için bkz. [C# IoT Edge modülü geliştirme ve dağıtma](tutorial-csharp-module.md). 
+Kendi modülünüzü oluşturmak ve ortamınız için özelleştirmek istiyorsanız, açık kaynaklı yoktur [Azure IOT Edge Modbus Modülü](https://github.com/Azure/iot-edge-modbus) github'daki proje. Kendi kapsayıcı görüntünüzü oluşturmak için bu projedeki yönergeleri izleyin. Kendi kapsayıcı görüntünüzü oluşturursanız, kapsayıcı görüntülerini bir kayıt defterinde yayımlama ve cihazınıza özel modül dağıtma işlemleriyle ilgili yönergeler için bkz. [C# IoT Edge modülü geliştirme ve dağıtma](tutorial-csharp-module.md).
 
 
 ## <a name="run-the-solution"></a>Çözümü çalıştırın
@@ -54,14 +54,14 @@ Kendi modülünüzü oluşturmak ve ortamınız için özelleştirmek istiyorsan
    5. Aşağıdaki JSON’u metin kutusuna kopyalayın. **SlaveConnection** değerini Modbus cihazınızın IPv4 adresi olarak değiştirin.
 
       ```JSON
-      {  
+      {
         "properties.desired":{
           "PublishInterval":"2000",
           "SlaveConfigs":{
             "Slave01":{
               "SlaveConnection":"<IPV4 address>","HwId":"PowerMeter-0a:01:01:01:01:01",
               "Operations":{
-                "Op01":{  
+                "Op01":{
                   "PollingInterval": "1000",
                   "UnitId":"1",
                   "StartAddress":"400001",
@@ -77,7 +77,7 @@ Kendi modülünüzü oluşturmak ve ortamınız için özelleştirmek istiyorsan
 
    6. **Kaydet**’i seçin.
 5. **Modül Ekle** adımına dönüp **İleri**’yi seçin.
-7. **Yolları Belirtin** adımında, aşağıdaki JSON’u metin kutusuna kopyalayın. Bu yol, Modbus modülü tarafından toplanan tüm iletileri IoT Hub’a gönderir. Bu yoldaki ''modbusOutput'', Modbus modülünün veri çıktısı gerçekleştirmek için kullandığı uç noktadır ve ''upstream'', Edge Hub’a iletileri IoT Hub’a göndermesini söyleyen özel bir hedeftir. 
+7. **Yolları Belirtin** adımında, aşağıdaki JSON’u metin kutusuna kopyalayın. Bu yol, Modbus modülü tarafından toplanan tüm iletileri IoT Hub’a gönderir. Bu yoldaki ''modbusOutput'', Modbus modülünün veri çıktısı gerçekleştirmek için kullandığı uç noktadır ve ''upstream'', Edge Hub’a iletileri IoT Hub’a göndermesini söyleyen özel bir hedeftir.
    ```JSON
    {
     "routes": {
@@ -86,8 +86,8 @@ Kendi modülünüzü oluşturmak ve ortamınız için özelleştirmek istiyorsan
    }
    ```
 
-8. **İleri**’yi seçin. 
-9. **Dağıtımı Gözden Geçirin** adımında **Gönder**'i seçin. 
+8. **İleri**’yi seçin.
+9. **Dağıtımı Gözden Geçirin** adımında **Gönder**'i seçin.
 10. Cihaz ayrıntıları sayfasına dönüp **Yenile**’yi seçin. Yeni görmelisiniz **modbus** IOT Edge çalışma zamanıyla birlikte çalıştığını modülü.
 
 ## <a name="view-data"></a>Verileri görüntüleme
@@ -96,7 +96,7 @@ Modbus modülü üzerinden gelen verileri görüntüleyin:
 docker logs -f modbus
 ```
 
-[Visual Studio Code için Azure IoT Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) kullanarak cihazın gönderdiği telemetri verilerini de görüntüleyebilirsiniz. 
+[Visual Studio Code için Azure IoT Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) kullanarak cihazın gönderdiği telemetri verilerini de görüntüleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

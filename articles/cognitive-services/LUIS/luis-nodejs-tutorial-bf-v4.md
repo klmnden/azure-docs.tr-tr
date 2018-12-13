@@ -1,5 +1,5 @@
 ---
-title: LUIS Bot ile Node.js
+title: Bot - Node.js - v4
 titleSuffix: Azure Cognitive Services
 description: Node.js'yi kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu oluşturun. Bu sohbet robotu, bir robot çözümünü kısa sürede gerçekleştirmek için İnsan Kaynakları uygulamasını kullanır. Robot, Bot Framework 4 sürümü ve Azure Web uygulaması robotu ile geliştirilmiştir.
 services: cognitive-services
@@ -9,16 +9,16 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: d9645c1d1c5ee153a4d24ae18f253f33c6557bd1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 20d2ed28291c8d8adfed4779b48f93c657438e0d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099095"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134990"
 ---
-# <a name="tutorial-luis-bot-in-nodejs-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Öğretici: LUIS bot node.js'de ile Bot Framework 4.x ve Azure Web app botu
+# <a name="tutorial-luis-bot-in-nodejs-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Öğretici: Node.js'de LUIS bot ile Bot Framework 4.x ve Azure Web app botu
 Node.js'yi kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu oluşturabilirsiniz. Bu robot, bir robot çözümü gerçekleştirmek için HomeAutomation uygulamasını kullanır. Robot, [Bot Framework sürümü](https://github.com/Microsoft/botbuilder-js) v4 ile Azure [Web uygulaması robotu](https://docs.microsoft.com/azure/bot-service/) kullanılarak geliştirilmiştir.
 
 **Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:**
@@ -198,7 +198,7 @@ Herhangi bir kodu veya ayarı değiştirmeden önce robotun çalıştığından 
 3. Robot kodunun aradığı ortam değişkenlerini barındıracak bir dosya oluşturun. Dosyayı `.env` olarak adlandırın. Aşağıdaki ortam değişkenlerini ekleyin:
 
     <!--there is no code language that represents an .env file correctly-->
-    ```
+    ```env
     botFilePath=
     botFileSecret=
     ```

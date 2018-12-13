@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 905970c3ab449f139710cf974111618f16da141a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 39a6ead041b1783a3effcb9659c59ea788cd2bf6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086649"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139512"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Kullanım deyimi word listesinin boost sinyale listeler
 
@@ -38,11 +38,11 @@ Bir ifade listesi uygulama etki alanının sözlüğü LUIS için ikinci bir sin
 
 4. LUIS, tümcecik listenize eklemek için ilgili değerleri önerebilirsiniz. Tıklayın **önerilir** bir grup için added value(s) anlamsal olarak ilişkili önerilen değerleri almak için. Önerilen değerlerden herhangi birini tıklatın veya tıklatın **Ekle** bunları eklemek için tüm.
 
-    ![Önerilen değerler ifade listesi](./media/luis-add-features/related-values.png)
+    ![Önerilen değerler listesini tümcecik - Tümünü Ekle](./media/luis-add-features/related-values.png)
 
 5. Tıklayın **birbirinin yerine bu değerleri** birbirlerinin yerine kullanılabilir seçenekleri eklendi ifade listesi değerler.
 
-    ![Önerilen değerler ifade listesi](./media/luis-add-features/interchangeable.png)
+    ![Önerilen değerler listesini tümcecik - birbirinin yerine kutusunu seçin ](./media/luis-add-features/interchangeable.png)
 
 6. **Kaydet**’e tıklayın. "Şehir" tümceciği listeye eklenen **tümcecik listeleri** sayfası.
 

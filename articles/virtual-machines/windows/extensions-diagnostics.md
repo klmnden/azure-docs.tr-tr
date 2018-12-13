@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: db4208c8fef27d2e2085e63ba3a986456d0544bf
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: fe24307f7ed01c64217bcb1f9f7645a30bce7f44
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429125"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322832"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Windows sanal makineler için Azure tanılama uzantısı
 
@@ -37,7 +37,7 @@ Azure tanılama uzantısı, hedef sanal makineyi internet'e bağlı olduğundan 
 
 ## <a name="extension-schema"></a>Uzantı şeması
 
-[Bu belgede Azure tanılama uzantı şeması ve özellik değerleri açıklanmaktadır.](../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md)
+[Bu belgede Azure tanılama uzantı şeması ve özellik değerleri açıklanmaktadır.](../../azure-monitor/platform/diagnostics-extension-schema-1dot3.md)
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
 
@@ -80,12 +80,12 @@ Uzantı dağıtım durumuyla ilgili veriler, Azure portalından ve Azure CLI kul
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-[Bu makaleye bakın](../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md) Azure tanılama uzantısı için daha kapsamlı sorun giderme kılavuzu.
+[Bu makaleye bakın](../../azure-monitor/platform/diagnostics-extension-troubleshooting.md) Azure tanılama uzantısı için daha kapsamlı sorun giderme kılavuzu.
 
 ### <a name="support"></a>Destek
 
 Bu makalede herhangi bir noktada daha fazla yardıma ihtiyacınız olursa, üzerinde Azure uzmanlarıyla iletişime geçebilirsiniz [Azure MSDN ve Stack Overflow forumları](https://azure.microsoft.com/support/forums/). Alternatif olarak, bir Azure destek olayına dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) ve Destek Al'ı seçin. Azure desteği hakkında daha fazla bilgi için okuma [Microsoft Azure desteği SSS](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* [Azure tanılama uzantısı hakkında daha fazla bilgi edinin](../../monitoring-and-diagnostics/azure-diagnostics.md)
-* [Uzantı Şeması ve sürümlerini gözden geçirin](../../monitoring-and-diagnostics/azure-diagnostics-schema.md)
+* [Azure tanılama uzantısı hakkında daha fazla bilgi edinin](../../azure-monitor/platform/diagnostics-extension-overview.md)
+* [Uzantı Şeması ve sürümlerini gözden geçirin](../../azure-monitor/platform/diagnostics-extension-schema.md)

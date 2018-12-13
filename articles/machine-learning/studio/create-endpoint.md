@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: ac4eb79d3b1505472113189a9e2b234212755244
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 58418357d6e96204485887cca5d7724c42183db7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077112"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275899"
 ---
-# <a name="creating-endpoints-for-deployed-web-services"></a>Dağıtılan web hizmetleri için uç nokta oluşturma
+# <a name="creating-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Dağıtılan Azure Machine Learning Studio web hizmetleri için uç nokta oluşturma
 > [!NOTE]
 >  Bu konu, uygulanabilir teknikleri açıklar bir **Klasik** Machine Learning Web hizmeti.
 > 
@@ -33,7 +32,7 @@ Müşterilerinize İleri Satış Web Hizmetleri oluşturduğunuzda, Web hizmeti 
 
 Bunu gerçekleştirmek için Azure Machine Learning Studio, dağıtılan bir Web hizmeti için birden fazla uç nokta oluşturmanıza olanak sağlar. Her Web Hizmeti uç noktasını ayrı ayrı ele, kısıtlanan yönetilen ve. Her uç benzersiz URL'yi ve müşterilerinize dağıtabilirsiniz yetkilendirme anahtar noktasıdır.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="adding-endpoints-to-a-web-service"></a>Web hizmeti için uç noktaları ekleme
 Bir Web hizmeti için uç nokta ekleme iki yolu vardır.

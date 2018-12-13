@@ -8,16 +8,18 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 61a4e3700e88efba1ea9cea876b19e2f7ed4168b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: b76bea6207cd6ac5d2ed570cf54dde7c52d5ff97
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50137079"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309629"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Tahmine Dayalı Bakım çözüm hızlandırıcısına genel bakış
 
 Tahmine Dayalı Bakım çözümü, arızanın oluşma ihtimali olan anı tahmin eden iş senaryosu için uçtan uca bir çözümdür. Bu çözüm hızlandırıcısını, bakım iyileştirmesi gibi etkinlikler için proaktif olarak kullanabilirsiniz. Çözüm önemli Azure IOT Çözüm Hızlandırıcıları hizmetlerin, IOT Hub gibi bir araya getirir ve [Azure Machine Learning] [ lnk-machine-learning] çalışma. Bu çalışma alanı, bir uçak motorunun Kalan Kullanım Ömrü’nü (RUL) öngörmek için genel bir örnek veri kümesini temel alan bir model içerir. Bu çözüm, kendinize özel iş gereksinimlerinizi karşılayacak bir çözümü planlamanız ve uygulamanız amacıyla sizin için bir başlangıç noktası olarak IoT iş senaryosunu tam olarak uygular.
+
+Tahmine dayalı bakım Çözüm Hızlandırıcısı [kodu Github'da kullanılabilir](https://github.com/Azure/azure-iot-predictive-maintenance).
 
 ## <a name="logical-architecture"></a>Mantıksal mimari
 
@@ -43,7 +45,7 @@ Azure portalda sağlanan kaynaklarınızı görüntülemek için seçtiğiniz ç
 
 ## <a name="simulated-devices"></a>Sanal cihazlar
 
-Çözüm içinde bir sanal cihaz uçak motorunun hızlandırıcısıdır. Çözüm, tek bir uçakla eşlenen 2 motorla sağlanır. Her motor dört tür telemetri yayar: Algılayıcı 9, Algılayıcı 11, Algılayıcı 14 ve Algılayıcı 15, Machine Learning modelinin bu motorun RUL değerini hesaplaması için gereken verileri sağlar. Her sanal cihaz IoT Hub'ına şu telemetri iletilerini gönderir:
+Çözüm içinde bir sanal cihaz uçak motorunun hızlandırıcısıdır. Çözüm, tek bir uçakla eşlenen 2 motorla sağlanır. Her motor dört tür telemetri yayar: Algılayıcı 9, algılayıcı 11, algılayıcı 14 ve algılayıcı 15, Machine Learning modelinin bu motorun rul değerini hesaplaması için gereken verileri sağlar. Her sanal cihaz IoT Hub'ına şu telemetri iletilerini gönderir:
 
 *Döngü sayısı*. Bir döngü, iki ile on saat arasındaki bir süreyle tamamlanmış uçuşu olur. Uçuş sırasında telemetri verileri yarım saatte bir yakalanır.
 
@@ -60,7 +62,7 @@ IoT hub'ı cihaz komut bildirim sağlar.
 
 ## <a name="azure-stream-analytics-job"></a>Azure Stream Analytics işi
 
-**İş: Telemetri**, gelen cihaz telemetrisi akışını iki durumu kullanarak çalıştırır:
+**İş: Telemetri** iki durumu kullanarak gelen cihaz telemetrisi akışını çalıştırır:
 
 * İlki, cihazlardan tüm telemetriyi seçer ve bu verileri blob depolamaya gönderir. Buradan, bu web uygulamasında görselleştirilir.
 * İkinciyse iki dakikalık kayan pencere üzerinde ortalama algılayıcı değerlerini ölçer ve bu verileri Olay hub'ı aracılığıyla **olay işlemcisi**’ne gönderir.

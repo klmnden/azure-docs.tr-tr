@@ -1,10 +1,10 @@
 ---
-title: Azure CLI betik örneği - bir web uygulamasını bir yüksek kullanılabilirlik mimarisi ile dünya çapında ölçeklendirme | Microsoft Docs
+title: Azure CLI betik örneği - Traffic Manager ile dünya çapında ölçeklenebilen | Microsoft Docs
 description: Azure CLI betik örneği - yüksek kullanılabilirlik mimarisi ile dünya çapında web uygulamasını ölçeklendirme
 services: appservice
 documentationcenter: appservice
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: e4033a50-0e05-4505-8ce8-c876204b2acc
@@ -14,16 +14,16 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/11/2017
-ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 4403e0081df3120c889b93d642670895252ac47e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: 61e47128369bbf7b76f0626241ba024afc0e65ab
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567976"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314627"
 ---
-# <a name="scale-a-web-app-worldwide-with-a-high-availability-architecture"></a>Yüksek kullanılabilirlik mimarisi ile web uygulamasını dünya çapında ölçeklendirme
+# <a name="scale-a-web-app-worldwide-with-a-high-availability-architecture-using-azure-cli"></a>Azure CLI kullanarak bir yüksek kullanılabilirlik mimarisi ile web uygulamasını dünya çapında ölçeklendirme
 
 Bu örnek betik bir kaynak grubu, iki app service planı, iki web uygulaması, bir traffic manager profili ve iki traffic manager uç noktası oluşturur. Alıştırma tamamlandıktan sonra, en düşük ağ gecikme süresine göre web uygulamanızın genel kullanılabilirliğini sağlayan bir yüksek kullanılabilirlik mimarisine sahip olursunuz.
 

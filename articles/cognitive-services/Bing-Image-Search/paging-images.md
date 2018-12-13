@@ -1,7 +1,7 @@
 ---
-title: Nasıl yapılır sayfası aracılığıyla kullanılabilir görüntüleri - Bing resim arama API'si
+title: Bing resim arama API'si tarafından döndürülen görüntüleri aracılığıyla sayfası
 titleSuffix: Azure Cognitive Services
-description: Tüm Bing döndürebilir görüntüleri sayfa öğrenin.
+description: Bing resim arama API'si tarafından döndürülen görüntülerin farklı sayfalar arasında taşıyın.
 services: cognitive-services
 author: swhite-msft
 manager: cgonlun
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 0db8c62bbb4da1a6fa1230b439c5074325bbe9c3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.custom: seodec2018
+ms.openlocfilehash: 69829066e543e5ab3badc4d1d3f77ff3c1d16ffd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739375"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259758"
 ---
-# <a name="paging-results"></a>Disk belleği sonuçları
+# <a name="page-through-the-images-results"></a>Seçmenin yanı sıra görüntüleri sonuçları
 
 Bing, resim arama API'si çağırdığınızda, sonuçların listesini döndürür. Bu liste sorguyla ilgili tüm sonuçların alt kümesidir. Kullanılabilir sonuçları tahmin edilen toplam sayısını almak için yanıt nesnenin erişim [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#totalestimatedmatches) alan.  
 

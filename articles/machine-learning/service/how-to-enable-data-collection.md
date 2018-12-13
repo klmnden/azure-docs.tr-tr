@@ -1,5 +1,5 @@
 ---
-title: Üretimde modelleri için veri toplamayı etkinleştirin
+title: Üretim Modellerinizi verileri toplama
 titleSuffix: Azure Machine Learning service
 description: Azure Blob depolama alanındaki Azure Machine Learning modeli giriş verilerini nasıl toplayacağınızı öğrenin.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
 ms.custom: seodec18
-ms.openlocfilehash: e6b6a8e1dd1b3746977062341013b92acff132c4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2a4f0f1100064010405c3d0bc599e7add1041074
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100554"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271581"
 ---
 # <a name="collect-data-for-models-in-production"></a>Üretimde modelleri için veri toplama
 
@@ -50,7 +50,7 @@ Aşağıdaki veriler toplanabilir:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
+- Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
 
 - Bir Azure Machine Learning hizmeti çalışma alanında, yüklü Python için betikleri ve Azure Machine Learning SDK'sını içeren yerel bir dizin. Kullanarak şu önkoşul olarak gerekenleri edinin öğrenin [bir geliştirme ortamı yapılandırma](how-to-configure-environment.md) belge.
 
@@ -81,7 +81,7 @@ Bunu etkinleştirmek için şunları yapmanız:
     prediction_dc = ModelDataCollector("best_model", identifier="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
-    *Correlationıd* isteğe bağlı bir parametre modelinizi gerektirmiyorsa ayarlamanız gerekmez. Yerinde bir bağıntı kimliği olan diğer verilerle daha kolay eşlemesi için yardımcı olur. (Örnekler: LoanNumber, CustomerID, vs.)
+    *Correlationıd* isteğe bağlı bir parametre modelinizi gerektirmiyorsa ayarlamanız gerekmez. Yerinde bir bağıntı kimliği olan diğer verilerle daha kolay eşlemesi için yardımcı olur. (Örnekler: LoanNumber CustomerID, vs.)
     
     *Tanımlayıcı* daha sonra BLOB klasör yapısını oluşturmak için kullanılan, onu "işlenen" yerine "ham" verileri bölme için kullanılabilir.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure'da uygulamanın ölçeğini | Microsoft Docs
+title: Özellikleri ve yetenekleriyle - Azure App Service ' ölçeklendirme | Microsoft Docs
 description: Kapasite ve özellikler eklemek için Azure App Service'te bir uygulama ölçeğini öğrenin.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: e612fc6ce737fba1552c4eacbab133783c9994dd
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 2fb1f5ad0c3b46623550cbcc1204761b57f6093b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971241"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251070"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Azure'da uygulamanın ölçeğini
 
@@ -29,8 +30,8 @@ ms.locfileid: "52971241"
 
 Bu makalede, uygulamanızı Azure App Service'te ölçeklendirme işlemini göstermektedir. Yukarı iki iş akışları için ölçeklendirme, Ölçek vardır ve ölçek genişletme ve bu makalede, iş akışı ölçeği açıklar.
 
-* [Ölçeği artırma](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): daha fazla CPU, bellek, disk alanı ve adanmış sanal makinelerde (VM), özel etki alanları ve sertifikalar, hazırlama yuvaları, otomatik ölçeklendirme ve daha fazla özellikten alın. Uygulamanızın ait olduğu App Service planının fiyatlandırma katmanını değiştirerek ölçeği artırmanıza.
-* [Ölçeği genişletme](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): uygulamanızı çalıştıran VM örneği sayısını artırın.
+* [Ölçeği artırma](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Daha fazla CPU, bellek, disk alanı ve adanmış sanal makinelerde (VM), özel etki alanları ve sertifikalar, hazırlama yuvaları, otomatik ölçeklendirme ve daha fazla özellikten alın. Uygulamanızın ait olduğu App Service planının fiyatlandırma katmanını değiştirerek ölçeği artırmanıza.
+* [Ölçeği genişletme](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Uygulamanızı çalıştıran VM örneği sayısını artırır.
   En çok 20 örneklerine fiyatlandırma katmanınıza bağlı ölçeği genişletebilirsiniz. [App Service ortamları](environment/intro.md) içinde **yalıtılmış** daha fazla katmanı ölçek genişletme sayınız 100 örneğe kadar artırır. Ölçek genişletme hakkında daha fazla bilgi için bkz. [örnek sayısını elle veya otomatik olarak ölçeklendirme](../monitoring-and-diagnostics/insights-how-to-scale.md). Burada, örnek sayısını otomatik olarak önceden tanımlanmış kurallar ve zamanlamaları göre ölçeklendirme olan otomatik ölçeklendirme, kullanmayı öğrenin.
 
 Ölçek ayarları uygulamak ve tüm uygulamaları etkiler. yalnızca saniye Süren, [App Service planı](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
@@ -98,7 +99,7 @@ Hizmet sınırları, kotalar ve kısıtlamalar ve desteklenen özellikler her ka
   
     [Sanal makine ve bulut hizmeti boyutları için Microsoft Azure][vmsizes]
   
-* Azure App Service hakkında daha fazla bilgi için en iyi uygulamalar, ölçeklenebilir ve dayanıklı bir mimari oluşturmak gibi bkz [en iyi uygulamalar: Azure App Service Web Apps](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/).
+* Azure App Service hakkında daha fazla bilgi için en iyi uygulamalar, ölçeklenebilir ve dayanıklı bir mimari oluşturmak gibi bkz [en iyi uygulamalar: Azure App Service Web Apps'e](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/).
 * App Service uygulamalarını ölçeklendirme hakkında daha fazla video için aşağıdaki kaynaklara bakın:
   
   * [Ne zaman Azure Web siteleri - Stefan Schackow ile ölçeklendirme](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)

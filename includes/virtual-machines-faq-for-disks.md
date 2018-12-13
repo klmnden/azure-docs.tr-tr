@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 56a36e61bb9938ceb7e3cdaf2676c24c037b1d16
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a5f1e728f7a13f763367abc3f380fb9fbdb67b5c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585865"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53326525"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure Iaas VM diskleri ve yönetilen ve yönetilmeyen premium diskleri hakkında sık sorulan sorular
 
@@ -85,9 +85,9 @@ Bir özel depolama hesabı için VM tanılamayı ayarlayın.
 
 Diskleri destekleyen üç anahtar varsayılan rol yönetilen:
 
-* Sahibi: erişim dahil her şeyi yönetebilir
-* Katkıda bulunan: erişim dışında her şeyi yönetebilir
-* Okuyucu: her şeyi görüntüleyebilir ancak değişiklik yapamaz
+* Sahibi: Erişim dahil her şeyi yönetebilir
+* Katkıda bulunan: Erişim dışında her şeyi yönetebilir
+* Okuyucu: Her şeyi görüntüleyebilir ancak değişiklik yapamaz
 
 **Ben kopyalayabilir veya yönetilen disk bir özel depolama hesabına aktarın, bir yolu var mı?**
 
@@ -137,9 +137,9 @@ Hayır, yeni disk oluşturulurken o anda o blobu tam tek başına bir kopyası o
 
 Yönetilen diskler için bunları yeniden adlandıramazsınız. Ancak, şu anda bir VHD veya VM'ye bağlı değil sürece yönetilmeyen disk yeniden adlandırabilirsiniz.
 
-**Bir Azure diskte GBT bölümleme kullanabilir miyim?**
+**Bir Azure diskte GPT bölümleme kullanabilir miyim?**
 
-GBT bölümleme, yalnızca veri disklerinde, işletim sistemi diskleri kullanılabilir. İşletim sistemi diskleri MBR bölümleme stilini kullanmalıdır.
+Yalnızca veri disklerinde, işletim sistemi diski GPT bölümleme kullanılabilir. İşletim sistemi diskleri MBR bölümleme stilini kullanmalıdır.
 
 ## <a name="standard-ssd-disks"></a>Standart SSD disk
 
@@ -188,6 +188,10 @@ Standart SSD disk Hayır, yalnızca yönetilen diskler olarak kullanılabilir.
 Hayır, standart SSD'ler Tek Örnekli sanal makine SLA'sı yoktur. Premium SSD diskleri tek örnek sanal makine SLA'sını kullanın.
 
 ## <a name="migrate-to-managed-disks"></a>Yönetilen Disklere geçme
+
+** Tüm yönetilen diskler performansı geçişinin etkisi var mı?
+
+Geçişi, bir depolama konumundan diske taşımayı içerir. Bu, arka plan kopyasını disklerde veri miktarına bağlı olarak 24 saat değerinden, genellikle tamamlanması birkaç saat sürebilir verileri aracılığıyla yönetilir. Bu sırada bazı okuma konumuna yönlendirildi ve tamamlanması uzun sürebilir, uygulamanızın normal okuma gecikme süresi daha yüksek oluşabilir. Bu süre boyunca yazma gecikmesi üzerinde hiçbir etkisi yoktur.  
 
 **Hangi değişiklikleri bir önceden var olan Azure Backup hizmeti yapılandırma önceki/sonraki yönetilen Diskler'e geçiş gerekli midir?**
 
@@ -262,7 +266,7 @@ Evet
 
 Hayır. Ancak bir VHD için şifrelenmiş depolama hesabında bir şifrelenmiş dışarı, disk veya anlık görüntü yönetilen ardından şifrelenir. 
 
-## <a name="premium-disks-managed-and-unmanaged"></a>Premium diskler: yönetilen ve yönetilmeyen
+## <a name="premium-disks-managed-and-unmanaged"></a>Premium diskler: Yönetilen ve yönetilmeyen
 
 **Bir VM boyutu serisi bir DSv2 gibi Premium SSD diskleri destekler kullanıyorsa miyim hem premium hem de standart veri diski ekleyebilir miyim?** 
 
@@ -292,7 +296,7 @@ Yerel SSD ile yönetilen diskler VM içerdiği geçici depolamadır. Herhangi bi
 
 TRIM Azure disklerde, premium veya standart diskler kullanımı için herhangi bir dezavantajı vardır.
 
-## <a name="new-disk-sizes-managed-and-unmanaged"></a>Yeni disk boyutları: yönetilen ve yönetilmeyen
+## <a name="new-disk-sizes-managed-and-unmanaged"></a>Yeni disk boyutu: Yönetilen ve yönetilmeyen
 
 **İşletim sistemi ve veri diskleri için desteklenen en büyük yönetilen disk boyutu nedir?**
 
@@ -339,7 +343,7 @@ Azure Backup ve Azure Site Recovery hizmeti tarafından desteklenen en büyük d
 
 **Nelerdir önerilen VM boyutları için büyük disk boyutları (> 4TiB) IOPS ve bant genişliği elde etmek için standart bir SSD ve HDD standart diskler en iyi duruma getirilmiş için disk?**
 
-Standart SSD ve HDD standart büyük disk boyutlarını disk aktarım hızı elde etmek için (> 4TB) 500 IOPS ve 60 MiB/sn dışında aşağıdaki VM boyutlarından birini, performansı iyileştirmek için kullanmanız gerekir: B serisi, DSv2 serisi, Dsv3 serisi, ESv3 serisi, Fs serisi Fsv2 serisi, M serisi, GS serisi, NCv2 serisi, NCv3 serisi veya Ls serisi VM'ler.
+Standart SSD ve HDD standart büyük disk boyutlarını disk aktarım hızı elde etmek için (> 4TB) 500 IOPS ve 60 MiB/sn dışında aşağıdaki VM boyutlarından birini, performansı iyileştirmek için kullanmanız gerekir: B serisi, DSv2 serisi, Dsv3 serisi, ESv3 serisi, Fs serisi, Fsv2 serisi, M serisi, GS serisi NCv2 serisi, NCv3 serisi veya Ls serisi VM'ler.
 
 **Hangi bölgeler 4 TiB desteklenenden daha büyük bir yönetilen disk boyutları misiniz?**
 

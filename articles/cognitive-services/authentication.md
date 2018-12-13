@@ -1,0 +1,163 @@
+---
+title: Kimlik Doğrulaması
+titleSuffix: Cognitive Services - Azure
+description: 'Bir Azure Bilişsel hizmetler kaynağı için bir istek kimliğini doğrulamak için üç yolu vardır: bir abonelik anahtarı, bir taşıyıcı belirteç veya birden çok hizmet bir abonelik. Bu makalede, her yöntemi ve istek yapma hakkında bilgi edineceksiniz.'
+services: cognitive-services
+author: erhopf
+manager: cgronlun
+ms.service: cognitive-services
+ms.topic: conceptual
+ms.date: 12/06/2018
+ms.author: erhopf
+ms.openlocfilehash: 8adff94a4cb536c3d8dbf7382b8acb69184030b5
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53325852"
+---
+# <a name="authenticate-requests-to-azure-cognitive-services"></a>Azure Bilişsel hizmetler isteklerine kimlik doğrulaması
+
+Her bir Azure Bilişsel hizmet isteğine bir kimlik doğrulama üst bilgisi içermesi gerekir. Bir abonelik anahtarı veya erişim bu başlığı geçirir, aboneliğiniz için bir hizmet veya Hizmetleri grubunun doğrulamak için kullanılan belirteç. Bu makalede, bir istek ve her gereksinimlerini kimlik doğrulaması yapmak için yaklaşık üç yol öğreneceksiniz.
+
+* [Bir tek hizmet abonelik anahtarı ile kimlik doğrulaması](#authenticate-with-a-single-service-subscription-key)
+* [Bir hizmet birden çok abonelik anahtarı ile kimlik doğrulaması](#authenticate-with-a-multi-service-subscription-key)
+* [Bir belirteç ile kimlik doğrulaması](#authenticate-with-an-authentication-token)
+
+## <a name="authentication-headers"></a>Kimlik doğrulama üst bilgileri
+
+Hızlı bir şekilde Azure Bilişsel hizmetler ile kullanmak için kullanılabilir kimlik doğrulama üst bilgileri gözden geçirelim.
+
+| Üst bilgi | Açıklama |
+|--------|-------------|
+| Ocp-Apim-Subscription-Key | Belirli bir hizmet için bir abonelik anahtarı veya bir hizmet birden çok abonelik anahtarı ile kimlik doğrulaması için bu üstbilgiyi kullanır. Olarak bir hizmet birden çok abonelik anahtarı kullanıyorsanız, aboneliğiniz için bölge belirtilmelidir `Ocp-Apim-Subscription-Region` başlığı. |
+| Ocp-Apim-abonelik-bölge | Bu üst bilgi amaçlıdır bir hizmet birden çok abonelik anahtarı ile kullanırken gerekli [Translator Text API](./Translator/reference/v3-0-reference.md). Abonelik bölgeyi belirtmek için bu üstbilgiyi kullanır. |
+| Yetkilendirme | Bir kimlik doğrulama belirteci kullanıyorsanız bu üstbilgiyi kullanır. Bir belirteç değişimi gerçekleştirmek için adımlar aşağıdaki bölümlerde ayrıntılı olarak açıklanmaktadır. Sağlanan değer şu biçimdedir: `Bearer <TOKEN>`. |
+
+## <a name="authenticate-with-a-single-service-subscription-key"></a>Bir tek hizmet abonelik anahtarı ile kimlik doğrulaması
+
+Translator metin tanıma gibi belirli bir hizmet için bir abonelik anahtarı ile istek kimliğini doğrulamak için ilk seçenek gelir. Anahtarları, Azure portalında oluşturduğunuz her bir kaynak için kullanılabilir. Bir isteğin kimliğini doğrulamak için bir abonelik anahtarı kullanmak için bunu boyunca olarak geçirilmelidir `Ocp-Apim-Subscription-Key` başlığı.
+
+Bu örnek istekler nasıl kullanılacağını gösteren `Ocp-Apim-Subscription-Key` başlığı. Bu örnek bir geçerli abonelik anahtarı eklemek için ihtiyacınız olacak kullanırken unutmayın.
+
+Bu, Bing Web araması API'si için örnek bir çağrıdır:
+```cURL
+curl -X GET 'https://api.cognitive.microsoft.com/bing/v7.0/search?q=Welsch%20Pembroke%20Corgis' \
+-H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' | json_pp
+```
+
+Bu örnek Translator Text API çağrısı.
+```cURL
+curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
+-H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' \
+-H 'Content-Type: application/json' \
+--data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
+```
+
+## <a name="authenticate-with-a-multi-service-subscription-key"></a>Bir hizmet birden çok abonelik anahtarı ile kimlik doğrulaması
+
+>[!WARNING]
+> Şu anda bu hizmetler **yoksa** çok hizmet anahtarlarını destekler: Soru-cevap Oluşturucu, konuşma Hizmetleri ve özel görüntü işleme.
+
+Bu seçenek ayrıca isteklerinin kimliğini doğrulamak için bir abonelik anahtarı kullanır. İkisi arasındaki temel fark, bir abonelik anahtarı belirli bir hizmete bağlı değildir, bunun yerine, tek bir anahtar için birden çok Bilişsel hizmetler isteklerinin kimliğini doğrulamak için kullanılabilir olan. Bkz: [Bilişsel hizmetler fiyatlandırması](https://azure.microsoft.com/pricing/details/cognitive-services/) bölgesel kullanılabilirliği hakkında daha fazla bilgi için desteklenen özellikler ve fiyatlandırma.
+
+Abonelik anahtarı her istekte sağlanan `Ocp-Apim-Subscription-Key` başlığı.
+
+### <a name="supported-regions"></a>Desteklenen bölgeler
+
+İsteğin yapılacağı hizmetli abonelik anahtarını kullanırken `api.cognitive.microsoft.com`, URL'de bölge içermelidir. Örneğin: `westus.api.cognitive.microsoft.com`.
+
+Birden çok hizmet bir abonelik anahtarı ile Translator Text API kullanırken, abonelik bölgeyle belirtmelisiniz `Ocp-Apim-Subscription-Region` başlığı.
+
+Birden çok hizmet kimlik doğrulaması bu bölgelerde desteklenir:
+
+| | | |
+|-|-|-|
+| `australiaeast` | `brazilsouth` | `canadacentral` |
+| `centralindia` | `eastasia` | `eastus` |
+| `japaneast` | `northeurope` | `southcentralus` |
+| `southeastasia` | `uksouth` | `westcentralus` |
+| `westeurope` | `westus` | `westus2` |
+
+
+### <a name="sample-requests"></a>Örnek istekler
+
+Bu, Bing Web araması API'si için örnek bir çağrıdır:
+
+```cURL
+curl -X GET 'https://YOUR-REGION.api.cognitive.microsoft.com/bing/v7.0/search?q=Welsch%20Pembroke%20Corgis' \
+-H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' | json_pp
+```
+
+Bu örnek Translator Text API çağrısı.
+
+```cURL
+curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
+-H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' \
+-H 'Ocp-Apim-Subscription-Region: YOUR_SUBSCRIPTION_REGION' \
+-H 'Content-Type: application/json' \
+--data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
+```
+
+## <a name="authenticate-with-an-authentication-token"></a>Bir kimlik doğrulama belirteciyle kimlik doğrulaması
+
+Bazı Azure Bilişsel hizmetler kabul edin ve gerektiren bazı durumlarda, bir kimlik doğrulama belirteci. Şu anda kimlik doğrulama belirteçleri bu hizmetleri destekler:
+
+* Metin çevirisi API'si
+* Konuşma Hizmetleri: Konuşmayı metne REST API
+* Konuşma Hizmetleri: Metin okuma REST API
+
+>[!NOTE]
+> Soru-cevap Oluşturucu de yetkilendirme üst bilgisi kullanır, ancak bir uç noktası anahtarı gerektirir. Daha fazla bilgi için [soru-cevap Oluşturucu: Bilgi Bankası cevaplanması](./qnamaker/quickstarts/get-answer-from-kb-using-curl.md).
+
+>[!WARNING]
+> Kimlik doğrulama belirteçleri destekleyen hizmetleri zaman içinde lütfen bir hizmet için denetimi API'si başvurusu bu kimlik doğrulama yöntemini kullanmadan önce değişebilir.
+
+Hem de hizmet tek ve çoklu hizmet Abonelik anahtarları için kimlik doğrulama belirteçlerinizi değiştirilebilir. Kimlik doğrulama belirteçlerinizi 10 dakika için geçerlidir.
+
+Kimlik doğrulama belirteçlerinizi istek olarak dahil edilecek `Authorization` başlığı. Tarafından sağlanan belirteç değeri gelmelidir `Bearer`, örneğin: `Bearer YOUR_AUTH_TOKEN`.
+
+### <a name="sample-requests"></a>Örnek istekler
+
+Bir kimlik doğrulama belirteci için bir tek hizmet aboneliği anahtar değişimi için bu URL'yi kullanın: `https://api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+
+```cURL
+curl -v -X POST \
+"https://api.cognitive.microsoft.com/sts/v1.0/issueToken" \
+-H "Content-type: application/x-www-form-urlencoded" \
+-H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
+```
+
+Bir hizmet birden çok abonelik anahtarı kullanılırken, belirteç değişimi için bölge ile belirli bir uç nokta kullanmanız gerekir. Bir kimlik doğrulama belirteci için bir hizmet birden çok abonelik anahtar değişimi için bu URL'yi kullanın: `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+
+Bu çok hizmet bölgeleri belirteç değişimi destekler:
+
+| | | |
+|-|-|-|
+| `australiaeast` | `brazilsouth` | `canadacentral` |
+| `centralindia` | `eastasia` | `eastus` |
+| `japaneast` | `northeurope` | `southcentralus` |
+| `southeastasia` | `uksouth` | `westcentralus` |
+| `westeurope` | `westus` | `westus2` |
+
+```cURL
+curl -v -X POST \
+"https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
+-H "Content-type: application/x-www-form-urlencoded" \
+-H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
+```
+
+Bir kimlik doğrulama belirteci aldıktan sonra her isteği geçmesi gerekir `Authorization` başlığı. Bu örnek Translator Text API çağrısı.
+
+```cURL
+curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
+-H 'Authorization: Bearer YOUR_AUTH_TOKEN' \
+-H 'Content-Type: application/json' \
+--data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
+```
+
+## <a name="see-also"></a>Ayrıca bkz.
+
+* [Bilişsel Hizmetler nedir?](welcome.md)
+* [Bilişsel hizmetler fiyatlandırması](https://azure.microsoft.com/pricing/details/cognitive-services/)
+* [Hesap oluşturma](cognitive-services-apis-create-account.md)

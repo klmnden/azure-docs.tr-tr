@@ -1,5 +1,5 @@
 ---
-title: Arabirim tanımı için özel yetenek bilişsel arama işlem hattında (Azure Search) | Microsoft Docs
+title: Özel becerileri bilişsel arama ardışık - Azure Search için arabirim tanımı
 description: Azure Search'te bilişsel arama işlem hattında özel yetenek web API'si için özel veri ayıklama arabirimi.
 manager: pablocas
 author: luiscabrer
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: luisca
-ms.openlocfilehash: 2218a96702a02a32df18da9640ea9946d05acdb1
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.custom: seodec2018
+ms.openlocfilehash: 1df2a565b1c9e8bd2bea75ce78abc84608c89eea
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055201"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314661"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Bilişsel arama işlem hattı için özel bir yetenek ekleme
 
@@ -148,7 +149,7 @@ Bir Web API'sini enricher oluşturduğunuzda, isteğin bir parçası HTTP üst b
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-+ [Örnek: özel bir yetenek Çevir metin API'si oluşturma](cognitive-search-create-custom-skill-example.md)
++ [Örnek: Özel bir yetenek Çevir metin API'si oluşturma](cognitive-search-create-custom-skill-example.md)
 + [Bir beceri kümesi tanımlama](cognitive-search-defining-skillset.md)
 + [Beceri kümesi (REST) oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Zenginleştirilmiş alanlarını eşleme](cognitive-search-output-field-mapping.md)

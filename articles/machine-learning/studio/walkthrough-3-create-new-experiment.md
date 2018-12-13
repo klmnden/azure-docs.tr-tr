@@ -1,12 +1,11 @@
 ---
-title: '3. adım: yeni bir Machine Learning Studio denemesine - Azure oluşturun. | Microsoft Docs'
+title: '3. adım: Yeni bir Machine Learning Studio denemesine - Azure oluşturun | Microsoft Docs'
 description: "Adım 3 / geliştirme Tahmine dayalı çözüm Kılavuzu: Azure Machine Learning Studio'da yeni bir eğitim denemesini oluşturun."
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cgronlun
 ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: a6f12c536cfc18ed0be55ec1755c7fe5179006ba
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5f3f73e2c2cb281887e795d974403a17cffd5978
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317537"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260795"
 ---
-# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>Kılavuz adımı 3: yeni bir Azure Machine Learning Studio'da deneme oluşturma
+# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>Kılavuz adımı 3: Yeni bir Azure Machine Learning Studio'da deneme oluşturma
 Bu kılavuz, üçüncü adımıdır [bir Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirin](walkthrough-develop-predictive-solution.md)
 
 1. [Bir Machine Learning çalışma alanı oluşturma](walkthrough-1-create-ml-workspace.md)
@@ -56,7 +55,7 @@ Bu izlenecek yolda bir sonraki adım, bir denemeyi Machine Learning Studio'da do
     ![Deneme için veri kümesi Ekle][7]
 
 ## <a name="prepare-the-data"></a>Verileri hazırlama
-İlk 100 veri satırlarını ve tüm veri kümesi için bazı istatistiksel bilgileri görüntüleyebilirsiniz: (küçük daire altındaki) veri kümesinin çıkış bağlantı noktasına tıklayıp **Görselleştir**.  
+İlk 100 veri satırlarını ve tüm veri kümesi için bazı istatistiksel bilgileri görüntüleyebilirsiniz: (Küçük daire altındaki) veri kümesinin çıkış bağlantı noktasına tıklayıp **Görselleştir**.  
 
 Veri dosyasındaki sütun başlıkları ile gelmemiştir olduğundan, genel başlıkları Studio sağlanan (Sütun1, Sütun2, *vb.*). İyi başlıkları bir model oluşturmak için gerekli değildir, ancak bunlar denemede verilerle çalışmayı kolaylaştırır. Ayrıca, biz sonunda bu modeli bir web hizmetinde yayımladığınızda, başlıkları hizmetinin kullanıcı sütunlara tanımlamaya yardımcı.  
 
@@ -164,7 +163,7 @@ Bizim deneme şimdi aşağıdakine benzer:
 
 Denemelerinizi içinde R betikleri kullanma hakkında daha fazla bilgi için bkz. [R ile denemenizi genişletme](extend-your-experiment-with-r.md).
 
-**Sonraki: [eğitme modelleri ve değerlendirme](walkthrough-4-train-and-evaluate-models.md)**
+**Sonraki: [Eğitme ve değerlendirme modelleri](walkthrough-4-train-and-evaluate-models.md)**
 
 [0]: ./media/walkthrough-3-create-new-experiment/create-new-experiment.png
 [5]: ./media/walkthrough-3-create-new-experiment/rename-experiment.png

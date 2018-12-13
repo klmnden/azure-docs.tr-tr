@@ -1,5 +1,5 @@
 ---
-title: Anahtar tümcecik ayıklama bilişsel arama beceri (Azure Search) | Microsoft Docs
+title: Anahtar ifade ayıklama bilişsel arama beceri - Azure Search
 description: Yapılandırılmamış metinleri değerlendirir ve her bir kayıt için bir Azure Search zenginleştirme işlem hattı, anahtar ifadeleri listesini döndürür.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 694271115626c652523be34160ad6a07053f6387
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 570aa0c9946910f70fe80ed2f7ebc064431d9643
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735807"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314644"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Anahtar ifade ayıklama bilişsel beceri
 
@@ -24,7 +25,9 @@ ms.locfileid: "45735807"
 Hızla kaydındaki ana konuşma noktalarını tanımlamak gerekirse bu özellik yararlıdır. "Yemek tat ve harika personeli vardı." hizmet "yemek" ve "harika personel" döndürür. Örneğin, belirli bir giriş metni.
 
 > [!NOTE]
-> Bilişsel Arama, genel önizleme aşamasındadır. Görüntü ayıklama ve normalleştirme ve beceri yürütmesi şu anda ücretsiz sunulmaktadır. Daha sonraki bir zamanda, bu özelliklerin fiyatlandırması duyurulacaktır. 
+> 21 aralık 2018 tarihinden itibaren Bilişsel hizmetler kaynağı bir Azure Search beceri kümesi ile ilişkilendirmek mümkün olmayacak. Bu beceri yürütmesi için ücretlendirme başlatmak için bize izin verir. Bu tarihte, biz de belge çözme aşamasının bir parçası olarak görüntü ayıklama için başlayacağız. Belgelerden metin ayıklama işlemi ek masraf olmadan sağlanmaya devam edecektir.
+>
+> Var olan konumunda yerleşik yetenek yürütülmesini ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/) . Görüntü ayıklama fiyatlandırma Önizleme fiyatıyla ücretlendirilirsiniz ve üzerinde açıklanmıştır [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400). Bilgi [daha fazla](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 

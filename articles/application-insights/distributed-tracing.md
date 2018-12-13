@@ -10,16 +10,16 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9594ccd0449cf68a63c770cfdee03f255aa2beae
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: aa163d215f4b9c396585dbba63883a3d1beff457
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638384"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164271"
 ---
 # <a name="what-is-distributed-tracing"></a>Dağıtılmış izleme nedir?
 
-Modern Bulut ve mikro hizmet mimarileri gelişinden, kullanılabilirlik ve aktarım hızı artırırken maliyetleri azaltmaya yardımcı basit, bağımsız bir şekilde dağıtılabilen hizmetlerine ortaya çıkmasına neden sağlamıştır. Ancak bu hareketleri tek tek Hizmetleri bir bütün olarak anlamak daha da kolaylaştırdık, ancak bunlar genel sistemleri hakkında neden ve hatalarını ayıklamak daha zor yaptık.
+Modern bulut gelişinden ve [mikro Hizmetler](http://azure.com/microservices) mimarileri verilen artış basit, bağımsız bir şekilde dağıtılabilen hizmetlerine kullanılabilirlik ve aktarım hızı artırırken maliyetleri azaltmaya yardımcı olabilir. Ancak bu hareketleri tek tek Hizmetleri bir bütün olarak anlamak daha da kolaylaştırdık, ancak bunlar genel sistemleri hakkında neden ve hatalarını ayıklamak daha zor yaptık.
 
 Tek parça mimarilerde çağrı yığınları ile hata ayıklama için kullandığımız değil. Çağrı yığınlarını olan (çağrılan yöntem C yöntemi adlı bir yöntemi B) akışını göstermek için parlak araçları, ayrıntıları ve parametreleri her çağrılara hakkında yanı sıra. Bu hamleye olanak veya tek bir işlem üzerinde çalışan hizmetler için mükemmel olmakla birlikte nasıl hata ayıklama ne zaman bir başvuru değil yalnızca yerel yığın üzerinde bir işlem sınırı arasında çağrıdır? 
 

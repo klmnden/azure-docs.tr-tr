@@ -1,5 +1,5 @@
 ---
-title: Bir App Service ortamından arka uç kaynaklarına güvenli bağlanma
+title: Güvenli bir şekilde yeniden bağlanma end - App Service ortamından Azure kaynakları
 description: Bir App Service ortamından arka uç kaynaklarına güvenli bir şekilde bağlanma hakkında bilgi edinin.
 services: app-service
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
-ms.openlocfilehash: 4fccfbb4cbc1b0db0c032d95ad66b497520aa619
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: aea51234d26e5dbaef836419c2a13a12f8083e6f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960949"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315868"
 ---
-# <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Bir App Service ortamından arka uç kaynaklarına güvenli bağlanma
+# <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Güvenli bir şekilde yeniden bağlanma son kaynaklardan bir App Service ortamı
 ## <a name="overview"></a>Genel Bakış
 App Service ortamı, her zaman oluşturulduğundan **ya da** bir Azure Resource Manager sanal ağı **veya** Klasik dağıtım modeli [sanal ağ] [ virtualnetwork], App Service ortamı giden bağlantılar diğer arka uç kaynaklarına yalnızca sanal ağ üzerinden flow.  Haziran 2016'da yapılan son değişikliği ile ase genel adres aralıkları ya da RFC1918 adres alanları (yani özel adresler) kullanan sanal ağlara dağıtılabilir.  
 

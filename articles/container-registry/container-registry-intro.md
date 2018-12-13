@@ -1,5 +1,5 @@
 ---
-title: Azure'da özel Docker kapsayıcısı kayıt defterleri
+title: Özel Docker kapsayıcısı kayıt defterleri Azure - genel bakış
 description: Bulut tabanlı, yönetilen, özel Docker kayıt defterleri sağlayan Azure Container Kayıt Defteri hizmetine giriş.
 services: container-registry
 author: stevelas
@@ -7,13 +7,13 @@ ms.service: container-registry
 ms.topic: overview
 ms.date: 09/25/2018
 ms.author: stevelas
-ms.custom: mvc
-ms.openlocfilehash: 3cc44b58d3e715a1e3c264be03b887f27c0c753c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.custom: seodec18, mvc
+ms.openlocfilehash: b2ea63ec13e1e0b79a87b7bfa5bae4a6cf409331
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633504"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253247"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure'da özel Docker kapsayıcısı kayıt defterlerine giriş
 
@@ -36,7 +36,7 @@ Uygulama görüntülerini, temel görüntüleri güncelleştirildiğinde otomati
 
 ## <a name="key-concepts"></a>Önemli kavramlar
 
-* **Kayıt Defteri** - Azure aboneliğinizde bir veya daha fazla kapsayıcı kayıt defteri oluşturun. Kayıt defterleri üç SKU'da kullanılabilir: [Temel, Standart ve Premium](container-registry-skus.md). Tümü de web kancası tümleştirmesi, Azure Active Directory ile kayıt defteri kimlik doğrulaması ve silme işlevi desteğine sahiptir. Kapsayıcı görüntülerinizin yerel, kapalı bir ağda depolanmasının avantajlarından yararlanmak için dağıtımlarınızla aynı Azure konumunda bir kayıt defteri oluşturun. Gelişmiş çoğaltma ve kapsayıcı görüntüsü dağıtma senaryoları için Premium kayıt defterlerinin [coğrafi çoğaltma](container-registry-geo-replication.md) özelliğini kullanın. Tam kayıt defteri adı `myregistry.azurecr.io` biçimindedir.
+* **Kayıt Defteri** - Azure aboneliğinizde bir veya daha fazla kapsayıcı kayıt defteri oluşturun. Kayıt defterleri üç Sku'da kullanılabilir: [Temel, standart ve Premium](container-registry-skus.md), her Web kancası tümleştirmesi, Azure Active Directory ile kayıt defteri kimlik doğrulamasını desteklemek ve silme işlevi. Kapsayıcı görüntülerinizin yerel, kapalı bir ağda depolanmasının avantajlarından yararlanmak için dağıtımlarınızla aynı Azure konumunda bir kayıt defteri oluşturun. Gelişmiş çoğaltma ve kapsayıcı görüntüsü dağıtma senaryoları için Premium kayıt defterlerinin [coğrafi çoğaltma](container-registry-geo-replication.md) özelliğini kullanın. Tam kayıt defteri adı `myregistry.azurecr.io` biçimindedir.
 
   Azure Active Directory destekli bir [hizmet sorumlusunu](../active-directory/develop/app-objects-and-service-principals.md) veya sağlanan bir yönetici hesabını kullanarak kapsayıcı kayıt defterine [erişimi denetlersiniz](container-registry-authentication.md). Bir kayıt defteriyle kimlik doğrulamak için standart `docker login` komutunu çalıştırın.
 

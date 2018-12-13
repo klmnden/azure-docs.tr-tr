@@ -1,12 +1,11 @@
 ---
-title: '5. adım: web hizmeti - Azure Machine Learning Studio dağıtma | Microsoft Docs'
-description: "5. adımı geliştirme Tahmine dayalı çözüm Kılavuzu: Tahmine dayalı bir denemeyi Machine Learning Studio'da bir web hizmeti olarak dağıtın."
+title: "5. adım: Web hizmeti - Azure Machine Learning Studio'da dağıtma | Microsoft Docs"
+description: "Adım 5 geliştirme Tahmine dayalı çözüm Kılavuzu: Tahmine dayalı bir denemeyi Machine Learning Studio'da bir web hizmeti olarak dağıtalım."
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.author: garye
 editor: cgronlun
 ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: b0da85625ab938ea050ec6ae7bb1d66b095370b6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ab23636aa0480532606268efedcc76ea1ddd339a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077146"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253740"
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-studio-web-service"></a>Kılavuz adımı 5: Azure Machine Learning Studio web hizmeti dağıtma
 Bu kılavuz, beşinci adımdır [bir Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirin](walkthrough-develop-predictive-solution.md)
@@ -205,7 +204,7 @@ Web hizmetinizin performansını izlemek için:
 4. Tıklayın **Panosu**
 
 - - -
-**Sonraki: [web hizmetine erişme](walkthrough-6-access-web-service.md)**
+**Sonraki: [Web hizmetine erişme](walkthrough-6-access-web-service.md)**
 
 [3]: ./media/walkthrough-5-publish-web-service/publish3.png
 [3a]: ./media/walkthrough-5-publish-web-service/publish3a.png

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 12/10/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 44a5b32b68b0365e957d97a516f0d767e6501c0f
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: dbced5cfa2a47dc2fdcf630d62104bb7ba8e7bc0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630333"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186659"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Yakınsanmış kaydı için Self Servis parola sıfırlama ve Azure multi-Factor Authentication (genel Önizleme)
 
@@ -74,6 +74,8 @@ Bu sayfada, önceden kaydedilmiş kimlik doğrulama yöntemleri ve kimlik doğru
 Bu yeni deneyim için Denetim günlükleri, Denetim günlüğü kimlik doğrulama yöntemleri kategorisinde yok.  
 
 ## <a name="known-issues"></a>Bilinen sorunlar
+
+Burada yakınsanmış kaydı için etkin B2B Konuk kullanıcılar için mfa'yı kaydetmek mümkün değildir yakınsanmış kaydı ile bir hata belirledik. Ne zaman bunlar sayfa hataları kayıt sayfasına yönlendirilir. Geliştiricilerimiz bu sorunun farkındayız ve bir çözüm sağlamak için çalışıyoruz. Şimdilik, bir grup oluşturun ve tüm B2B kullanıcıları o gruptan hariç tutmak için kullanılması önerilir.
 
 **Kullanıcı kısa mesaj kullanarak telefon kaydederken telefon araması set varsayılan MFA yöntemi**
 

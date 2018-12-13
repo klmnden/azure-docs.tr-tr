@@ -1,5 +1,6 @@
 ---
-title: Azure'da birden fazla IP yapılandırması dengelemeyi | Microsoft Docs
+title: Yük Dengeleme azure'da birden çok IP yapılandırmaları
+titlesuffix: Azure Load Balancer
 description: Birincil ve ikincil IP yapılandırmaları arasında yük dengelemeyi.
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: anavinahar
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: annahar
-ms.openlocfilehash: 8abbab59bc2df739774001f53419968337090c90
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: cdfb374bf9245d055c86974debc9a6eb8f0fefd6
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218704"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164220"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>PowerShell kullanarak birden çok IP yapılandırmalarında Yük Dengelemesi
 

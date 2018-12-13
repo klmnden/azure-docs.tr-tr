@@ -1,5 +1,5 @@
 ---
-title: Azure'da uyumlu olmayan kaynakları belirlemek üzere bir ilke ataması oluşturma
+title: Uyumlu olmayan kaynakları belirlemek üzere bir ilke oluşturun
 description: Bu makalede, uyumlu olmayan kaynakları belirlemek üzere bir ilke tanımı oluşturma adımlarında size yol gösterilir.
 services: azure-policy
 author: DCtheGeek
@@ -7,16 +7,16 @@ ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
-ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a48a3b8df88a434b59ff200ec6d36fb32ee7122b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: ddf30f6a7bc00be9ac24952adf0ba41e6151bd10
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079271"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311176"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Azure ortamınızda uyumlu olmayan kaynakları belirlemek için bir ilke ataması oluşturma
+# <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>Uyumlu olmayan kaynakları belirlemek üzere bir ilke ataması oluşturma
 
 Azure’da uyumluluğu anlamanın ilk adımı, kaynaklarınızın durumunu belirlemektir.
 Bu hızlı başlangıç, yönetilen disk kullanmayan sanal makineleri belirlemek üzere ilke ataması oluşturma işleminde size yol gösterir.

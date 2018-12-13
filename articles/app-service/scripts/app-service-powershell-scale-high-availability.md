@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Betik Örneği - Yüksek kullanılabilirlik mimarisi ile web uygulamasını dünya çapında ölçeklendirme | Microsoft Docs
+title: Azure PowerShell betik örneği - Traffic Manager ile dünya çapında ölçeklenebilen | Microsoft Docs
 description: Azure PowerShell Betik Örneği - Yüksek kullanılabilirlik mimarisi ile web uygulamasını dünya çapında ölçeklendirme
 services: app-service\web
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 92f830786f19190fc61479db42117c831bba007c
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
-ms.translationtype: HT
+ms.openlocfilehash: f71b52d3e3eb7264fa3cf2d8a82c46ad6498c8a0
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39323886"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308235"
 ---
 # <a name="scale-a-web-app-worldwide-with-a-high-availability-architecture"></a>Yüksek kullanılabilirlik mimarisi ile web uygulamasını dünya çapında ölçeklendirme
 

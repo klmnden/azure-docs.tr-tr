@@ -1,5 +1,5 @@
 ---
-title: 'ExpressRoute’a Genel Bakış: Şirket içi ağınızı bir özel bağlantı üzerinden Azure’a genişletme | Microsoft Docs'
+title: "Şirket içi ağınıza, Expressroute'a genel bakış - özel bir bağlantı üzerinden Azure'a genişletme: Azure | Microsoft Docs"
 description: ExpressRoute’a Teknik Genel Bakış bölümünde, şirket içi ağınızı bir özel bağlantı üzerinden Azure’a genişletmek üzere ExpressRoute bağlantısının nasıl çalıştığı açıklanmaktadır.
 services: expressroute
 author: mialdrid
@@ -7,19 +7,20 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 10/18/2018
 ms.author: mialdrid
-ms.openlocfilehash: fb3e7ac449934fe9fa36b1683bda20ff3e07f0f4
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 56baabb95a7873b48a27943a58b8e26c56efb6b7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429414"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139563"
 ---
 # <a name="expressroute-overview"></a>ExpressRoute'a genel bakış
-Microsoft Azure ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştırılan özel bağlantı üzerinden şirket içi ağlarınızı Microsoft bulutuna genişletmenizi sağlar. ExpressRoute'u kullanarak Microsoft Azure, Office 365 ve Dynamics 365 gibi Microsoft bulut hizmetleriyle bağlantı kurabilirsiniz.
+ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştırılan özel bağlantı üzerinden şirket içi ağlarınızı Microsoft bulutuna genişletmenizi sağlar. ExpressRoute'u kullanarak Microsoft Azure, Office 365 ve Dynamics 365 gibi Microsoft bulut hizmetleriyle bağlantı kurabilirsiniz.
 
 Ortak yerleşim tesisinde bağlantı sağlayıcısı üzerinden herhangi bir ağdan herhangi bir ağa (IP VP), noktadan noktaya Ethernet ağı veya sanal çapraz bağlantısından bağlantı olabilir.  ExpressRoute bağlantıları ortak İnternet üzerinden geçmemektedir. Bu, ExpressRoute bağlantılarına İnternet üzerindeki sıradan bağlantılara göre daha fazla güvenilirlik, yüksek hız, düşük gecikme ve normal bağlantılardan daha yüksek güvenlik sağlar. ExpressRoute kullanarak ağınızı Microsoft’a bağlama hakkında bilgi için bkz. [ExpressRoute bağlantı modelleri](expressroute-connectivity-models.md).
 
-![](./media/expressroute-introduction/expressroute-connection-overview.png)
+![ExpressRoute bağlantısına genel bakış](./media/expressroute-introduction/expressroute-connection-overview.png)
 
 ## <a name="key-benefits"></a>Önemli avantajlar
 
@@ -77,7 +78,7 @@ ExpressRoute Direct, müşterilere Microsoft'un dünya çapında stratejik nokta
 ExpressRoute Direct'in başlıca özellikleri arasında diğerlerinin yanı sıra şunlar bulunur:
 
 * Depolama ve Cosmos DB gibi hizmetler için Büyük Veri Alımı özelliği
-* Bankacılık, kamu ve perakendecilik gibi denetime tâbi, adanmış ve yalıtılmış bağlantı gerektiren sektörler için fiziksel yalıtım
+* Fiziksel yalıtım düzenlenen ve gerektiren sektörler için adanmış ve bağlantı gibi yalıtılmış: Banka, devlet ve perakende
 * Bağlantı hattı dağıtımının iş birimine dayalı detaylı denetimi
 
 Daha fazla bilgi için bkz. [ExpressRoute Direct Hakkında](https://go.microsoft.com/fwlink/?linkid=2022973).

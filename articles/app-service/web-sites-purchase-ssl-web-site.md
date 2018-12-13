@@ -1,5 +1,5 @@
 ---
-title: Satın alma ve Azure App Service için SSL sertifikası yapılandırma | Microsoft Docs
+title: Satın alma ve Azure - App Service SSL sertifikası yapılandırma | Microsoft Docs
 description: Bir App Service sertifikası satın alma ve App Service uygulamanızı bağlama hakkında bilgi edinin
 services: app-service
 documentationcenter: .net
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 67d27587e8a5f85eb339efb83e661c061b621ed1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: ff2fd2c9b66cc9c80087ab5009ee65c0ba73714b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959844"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268725"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Satın alma ve Azure App Service için SSL sertifikası yapılandırma
 
@@ -80,7 +81,7 @@ Kasayı seçtikten sonra kapatmak **Key Vault deposu** sayfası. **Store** seçe
 
 ## <a name="verify-domain-ownership"></a>Etki alanı sahipliğini doğrulama
 
-Aynı **sertifika Yapılandırması** sayfasında son adımda kullanılan **2. adım: doğrulama**.
+Aynı **sertifika Yapılandırması** sayfasında son adımda kullanılan **2. adım: Doğrulama**.
 
 ![](./media/app-service-web-purchase-ssl-web-site/verify-domain.png)
 

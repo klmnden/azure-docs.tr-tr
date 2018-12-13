@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 236a9dac64fa98b9db68a610de097c1deba3e7ee
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 54b614e49bc7c03325ebeada60232fca861874e0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970441"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193085"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sorunsuz çoklu oturum açma: ayrıntılı Teknik İnceleme
+# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sorunsuz çoklu oturum açma: Ayrıntılı Teknik İnceleme
 
 Bu makalede, Azure Active Directory sorunsuz çoklu oturum açma (sorunsuz SSO) özelliğinin nasıl çalıştığı ile teknik ayrıntılar sunar.
 
@@ -58,8 +58,8 @@ Bir web tarayıcısında oturum açma akışı şu şekildedir:
 2. Kullanıcı zaten oturum açmamış, kullanıcının Azure AD oturum açma sayfasına yönlendirilir.
 3. Kullanıcı türleri kendi Azure AD oturum açma sayfasında kullanıcı adı.
 
-  >[!NOTE]
-  >İçin [belirli uygulamaları](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), adım 2 ve 3 atlanır.
+   >[!NOTE]
+   >İçin [belirli uygulamaları](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), adım 2 ve 3 atlanır.
 
 4. JavaScript arka planda kullanarak, Azure AD aracılığıyla bir Kerberos anahtarı sağlamak için 401 Yetkisiz yanıt, tarayıcının sınar.
 5. Tarayıcı için Active Directory'den bir bilet sırayla ister `AZUREADSSOACC` (Azure AD temsil eden) bilgisayar hesabı.

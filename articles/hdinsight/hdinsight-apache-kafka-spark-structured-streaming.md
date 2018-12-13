@@ -1,22 +1,22 @@
 ---
-title: 'Öğretici: Apache Kafka ile Apache Spark Yapılandırılmış Akışı - Azure HDInsight '
+title: 'Öğretici: Yapılandırılmış akış ile Apache Kafka - Azure HDInsight, Apache Spark'
 description: Apache Spark akışını kullanarak Apache Kafka içine veya dışına veri almayı öğrenin. Bu öğreticide, HDInsight üzerinde Spark’tan bir Jupyter not defterini kullanarak verilerinizi akışla aktaracaksınız.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5f59f14f93b5bfc79c07b096a07ac109be0bedb6
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4ac341d780a3c348f9ba9f8fd0241c351bd5fdc5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499090"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162446"
 ---
-# <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Öğretici: HDInsight üzerinde Apache Spark Yapılandırılmış Akışını Apache Kafka ile kullanma
+# <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Öğretici: Apache Spark yapılandırılmış akışını HDInsight üzerinde Apache Kafka ile kullanma
 
 Bu öğreticide nasıl kullanılacağını gösterir [Apache Spark yapılandırılmış akış](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) ile veri okuma ve yazma için [Apache Kafka](https://kafka.apache.org/) Azure HDInsight üzerinde.
 

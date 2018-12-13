@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: cc86a18b0db67bf968006c42f5791e1ad7a093f0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0a78405dc6293a7debd599e0e44754dc59d8af7e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016710"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164658"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Sık sorulan sorular Service Fabric
 
@@ -39,7 +39,7 @@ Evet.
 
 Service Fabric küme teknolojisini temel ağ bağlantısı birbirine sahip oldukları sürece dünyanın her yerde çalışan makineler birleştirmek için kullanılabilir. Ancak, derleme ve böyle bir kümeyi çalıştıran karmaşık olabilir.
 
-Bu senaryoda ilgileniyorsanız, kişi ya da almak için öneriyoruz aracılığıyla [Service Fabric Github sorunlar listesinde](https://github.com/azure/service-fabric-issues) veya ek yönergeler almak için destek temsilciniz aracılığıyla. Service Fabric ekibi açıklığa, yönergeler ve öneriler bu senaryo için çalışmaktadır. 
+Bu senaryoda ilgileniyorsanız, kişi ya da almak için öneriyoruz aracılığıyla [Service Fabric GitHub sorunlar listesinde](https://github.com/azure/service-fabric-issues) veya ek yönergeler almak için destek temsilciniz aracılığıyla. Service Fabric ekibi açıklığa, yönergeler ve öneriler bu senaryo için çalışmaktadır. 
 
 Dikkate alınması gereken bazı noktalar şunlardır: 
 

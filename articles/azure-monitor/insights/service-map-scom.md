@@ -8,22 +8,21 @@ manager: jwhit
 editor: tysonn
 ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: b590a6ce6d92c78f2020d5ef7cffe6d7f277433c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: bf0e672ea6f1d62442233993bd778c82a8a16037
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828715"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187220"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>System Center Operations Manager ile hizmet eşlemesi tümleştirme
   > [!NOTE]
-  > Bu özellik genel Önizleme aşamasındadır.
+  > Bu özellik genel önizleme aşamasındadır.
   > 
   
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Hizmet eşlemesi, kritik hizmetleri sunan birbirine sistemleri düşünme yolu sunucularınızın görüntülemenize olanak sağlar. Hizmet eşlemesi, tüm TCP bağlantılı mimarisi yanı sıra bir aracının yüklenmesi gereken herhangi bir yapılandırma arasında sunucuları, işlemler ve bağlantı noktaları arasındaki bağlantıları gösterir. Daha fazla bilgi için [hizmet eşleme belgeleri]( service-map.md).
@@ -77,7 +76,7 @@ Hizmet eşlemesi tümleştirmesini yapılandırmak için aşağıdakileri yapın
 
     ![Operations Manager Yapılandırma grubu](media/service-map-scom/scom-config-group.png)
 
-6. İsteğe bağlı: Log Analytics ile iletişim kurmak için yönetim sunucusu kaynak havuzu seçin ve ardından **çalışma alanı Ekle**.
+6. İsteğe bağlı: Log Analytics ile iletişim kurmak ve ardından yönetim sunucusu kaynak havuzu seçin **çalışma alanı Ekle**.
 
     ![Operations Manager yapılandırma kaynak havuzu](media/service-map-scom/scom-config-pool.png)
 
@@ -92,17 +91,17 @@ Log Analytics çalışma alanı bağlandıktan sonra hizmet eşlemesi, yeni bir 
 ![Operations Manager izleme bölmesinde](media/service-map-scom/scom-monitoring.png)
 
 Hizmet eşlemesi klasörü dört düğümünüz vardır:
-* **Etkin uyarılar**: tüm etkin uyarıları Operations Manager ve hizmet eşlemesi arasındaki iletişimle ilgili listeler.  Bu uyarıları Not, Log Analytics için Operations Manager eşitlendiğinden uyarır. 
+* **Etkin uyarılar**: Operations Manager ve hizmet eşlemesi arasındaki iletişimi tüm etkin uyarıları listeler.  Bu uyarıları Not, Log Analytics için Operations Manager eşitlendiğinden uyarır. 
 
-* **Sunucuları**: yapılandırılmış izlenen sunuculara listeler için hizmet eşlemesi eşitleme.
+* **Sunucuları**: Yapılandırılan izlenen sunucular listeler için hizmet eşlemesi eşitleme.
 
     ![Operations Manager izleme sunucuları bölmesi](media/service-map-scom/scom-monitoring-servers.png)
 
-* **Makine grubu bağımlılık görünümleri**: hizmet eşlemesinden eşitlenen tüm makine grupları listeler. Dağıtılmış uygulama diyagramını görüntülemek için herhangi bir grubu tıklayabilirsiniz.
+* **Makine grubu bağımlılık görünümleri**: Hizmet eşlemesinden eşitlenen tüm makine grupları listeler. Dağıtılmış uygulama diyagramını görüntülemek için herhangi bir grubu tıklayabilirsiniz.
 
     ![Operations Manager dağıtılmış uygulama diyagramını](media/service-map-scom/scom-group-dad.png)
 
-* **Server bağımlılık görünümleri**: hizmet eşlemesinden eşitlenen tüm sunucuları listeler. Dağıtılmış uygulama diyagramını görüntülemek için herhangi bir sunucu tıklayabilirsiniz.
+* **Server bağımlılık görünümleri**: Hizmet eşlemesinden eşitlenen tüm sunucuları listeler. Dağıtılmış uygulama diyagramını görüntülemek için herhangi bir sunucu tıklayabilirsiniz.
 
     ![Operations Manager dağıtılmış uygulama diyagramını](media/service-map-scom/scom-dad.png)
 
@@ -121,10 +120,10 @@ Bir kural _Microsoft.SystemCenter.ServiceMapImport.Rule_, düzenli aralıklarla 
 
 ![Operations Manager geçersiz kılan özellikler penceresi](media/service-map-scom/scom-overrides.png)
 
-* **Etkin**: etkinleştirmek veya Otomatik Güncelleştirmeler devre dışı bırakın. 
-* **IntervalMinutes**: güncelleştirmeler arasındaki süre sıfırlayın. Varsayılan aralığı bir saattir. Sunucu haritalar daha sık eşitleme istiyorsanız, değeri değiştirebilirsiniz.
+* **Etkin**: Etkinleştirmek veya Otomatik Güncelleştirmeler devre dışı bırakın. 
+* **IntervalMinutes**: Güncelleştirmeler arasındaki süre sıfırlayın. Varsayılan aralığı bir saattir. Sunucu haritalar daha sık eşitleme istiyorsanız, değeri değiştirebilirsiniz.
 * **TimeoutSeconds**: İstek zaman aşımına uğramadan önce sürenin uzunluğunu sıfırlayın. 
-* **TimeWindowMinutes**: veri sorgulamak için zaman penceresi sıfırlayın. Varsayılan 60 dakikalık bir penceredir. Hizmet eşlemesi tarafından izin verilen en yüksek değer 60 dakikadır.
+* **TimeWindowMinutes**: Zaman penceresi için veri sorgulama sıfırlandı. Varsayılan 60 dakikalık bir penceredir. Hizmet eşlemesi tarafından izin verilen en yüksek değer 60 dakikadır.
 
 ## <a name="known-issues-and-limitations"></a>Bilinen sorunlar ve sınırlamalar
 

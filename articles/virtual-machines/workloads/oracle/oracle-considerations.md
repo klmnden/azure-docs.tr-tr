@@ -14,12 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 6435c866f6cdf5abea3862a718579f3a6e4d7378
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.custom: seodec18
+ms.openlocfilehash: 50e5dfa21cf7a8f7203e7d96640e3cf5215130a6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493073"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191470"
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Oracle çözümleri ve dağıtım üzerinde Microsoft Azure
 Bu makalede, Microsoft Azure üzerinde çeşitli Oracle çözümlerini başarıyla dağıtmak için gerekli bilgiler ele alınmaktadır. Bu çözümler Azure marketi, Oracle tarafından yayımlanan sanal makine görüntüleri dayanır. Şu anda kullanılabilir görüntülerin listesini almak için aşağıdaki komutu çalıştırın:
@@ -57,7 +58,7 @@ Oracle, Oracle Linux tabanlı sanal makine görüntülerinde, Azure'da çalışt
 Kullanıma açılan diskler Azure Blob Depolama hizmetinin avantajlarından yararlanın. Her standart disk, yaklaşık 500 giriş/çıkış işlemi (IOPS) saniyede teorik üst sınırı yeteneğine sahiptir. Premium disk teklifimize yüksek performanslı veritabanı iş yükleri için tercih edilir ve disk başına en fazla 5000 IOPS değerlerine ulaşabilir. Performans gereksinimlerinizi karşılayan tek bir diske kullanabilirsiniz - birden çok kullanıma açılan diskler kullanıyorsanız maliyetli IOPS performansı iyileştirebilir ancak veritabanı verileri bunların arasında yaymaktır ve Oracle otomatik Depolama Yönetimi (ASM) kullanın. Bkz: [Oracle otomatik depolama genel bakış](http://www.oracle.com/technetwork/database/index-100339.html) daha fazla Oracle ASM belirli bilgi. Yükleme ve bir Linux Azure sanal makinesinde - Oracle ASM yapılandırma örneği için deneyebileceğiniz [yükleme ve Oracle otomatik Depolama Yönetimi yapılandırma](configure-oracle-asm.md) öğretici.
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle gerçek uygulama kümesi (Oracle RAC)
-Oracle RAC, bir şirket içi çok düğümlü küme yapılandırmasında tek bir düğümün hatalarını azaltmak için tasarlanmıştır. Hiper ölçekli genel bulut ortamları için yerel olmayan iki şirket içi teknolojisi kullanır: ağ çok noktaya yayın ve paylaşılan disk. Veritabanı çözümünüze azure'da Oracle RAC gerektiriyorsa, bu teknolojiler etkinleştirmek için 3 taraf yazılım gerekir.  A **Microsoft Azure sertifikası** adlı teklifi [Oracle RAC FlashGrid düğümünü](https://azuremarketplace.microsoft.com/marketplace/apps/flashgrid-inc.flashgrid-racnode?tab=Overview) FlashGrid Inc. tarafından yayımlanan Azure Marketi'nde kullanımınıza sunuluyor Bu çözümün ve Azure'da nasıl çalıştığı hakkında daha fazla bilgi için lütfen bkz [FlashGrid çözüm sayfasında](https://www.flashgrid.io/oracle-rac-in-azure/).
+Oracle RAC, bir şirket içi çok düğümlü küme yapılandırmasında tek bir düğümün hatalarını azaltmak için tasarlanmıştır. Hiper ölçekli genel bulut ortamları için yerel olmayan iki şirket içi teknolojisi kullanır: ağ çok noktaya yayın ve paylaşılan disk. Veritabanı çözümünüze azure'da Oracle RAC gerektiriyorsa, bu teknolojiler etkinleştirmek için 3 taraf yazılım gerekir. Oracle RAC hakkında daha fazla bilgi için lütfen bkz [FlashGrid çözüm sayfasında](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Yüksek kullanılabilirlik ve olağanüstü durum kurtarma değerlendirmeleri
 Oracle veritabanlarının Azure'da kullanırken herhangi kapalı kalma süresini önlemek için bir yüksek kullanılabilirlik ve olağanüstü durum kurtarma çözümü uygulamak için sorumlu olursunuz. 

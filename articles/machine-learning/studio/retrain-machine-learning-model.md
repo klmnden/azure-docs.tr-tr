@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 57e3a444c9de951fdd974d98679908eb5a744ad1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 614a342dd28b711e3030c19f347fa432e3994a86
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099826"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257599"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Bir Azure Machine Learning Studio modeli yeniden eğitme
 Azure Machine Learning, machine learning modellerini, operasyonel hale getirme sürecinin bir parçası olarak, modelinizi eğitilmiş ve kaydedilir. Ardından, bir Tahmine dayalı Web hizmeti oluşturmak için kullanabilirsiniz. Web hizmeti web siteleri, panolar ve mobil uygulamalarda tüketilebilir. 
@@ -43,7 +42,7 @@ Bu senaryolarda, programlı bir API, veya tüketici apı'lerinizi tek seferlik v
 > 
 
 ## <a name="end-to-end-workflow"></a>Uçtan uca iş akışı
-İşlem aşağıdaki bileşenleri içerir: bir eğitim denemesini ve öngörücü bir denemeye bir Web hizmeti olarak yayımlandı. Eğitilen bir modeli yeniden eğitme etkinleştirmek için eğitim denemesini eğitilen bir modelin çıktısı ile bir Web hizmeti olarak yayımlanması gerekir. Bu API yeniden eğitme için modele erişim sağlar. 
+İşlemi aşağıdaki bileşenleri içerir: Eğitim denemesini ve öngörücü bir denemeye bir Web hizmeti olarak yayımlandı. Eğitilen bir modeli yeniden eğitme etkinleştirmek için eğitim denemesini eğitilen bir modelin çıktısı ile bir Web hizmeti olarak yayımlanması gerekir. Bu API yeniden eğitme için modele erişim sağlar. 
 
 Hem yeni hem de klasik Web Hizmetleri için aşağıdaki adımları uygulayın:
 

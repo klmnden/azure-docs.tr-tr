@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 0bd61c3f1a4f660076be4e87bb5443302e5dc013
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: 285590435a7e3c31d45d5d154d4e430ed3252838
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364003"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256239"
 ---
 # <a name="tutorial-ecommerce-catalog-moderation-with-machine-learning"></a>Öğretici: Makine öğrenmesi ile eTicaret katalog denetimi
 
@@ -249,4 +249,4 @@ Bu istemci kitaplığı ve örnek de dahil olmak üzere Bilişsel Hizmetler'i ku
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Github'daki [proje kaynak dosyalarını](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) kullanarak öğreticiyi derleyin ve genişletin.
+Derleme ve öğreticiyi kullanarak genişletme [proje kaynak dosyaları](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) GitHub üzerinde.

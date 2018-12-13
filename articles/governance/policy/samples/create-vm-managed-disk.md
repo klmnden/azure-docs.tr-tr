@@ -1,5 +1,5 @@
 ---
-title: Azure İlkesi örneği - Yönetilen disk kullanmayan VM’yi denetleme
+title: Örneği - denetim yönetilen disk kullanmayan sanal makine
 description: Bu JSON örneği, yönetilen diskler kullanmayan bir sanal makine oluşturulduğunda denetler.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 98e0b2cc79d7e2ca8d5308127a63c55c15a4c5bd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 1f704ed363dfd34bbe3acf134bbf1392f3101f9c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995423"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310877"
 ---
 # <a name="audit-when-vm-does-not-use-managed-disk"></a>VM yönetilen disk kullanmadığında denetle
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
-ms.openlocfilehash: d579a9b628ac515877c1977f700940547e96f0c0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 378516066e3b4a3436a2952616ea877d9a49d5d4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726619"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255321"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Azure Application Insights Java SDK ile Micrometer kullanma
 Micrometer uygulama izleme ölçüler ölçümleri JVM tabanlı bir uygulama için kod ve izleme sistemlerinden sevdiğiniz veri dışa aktarmanızı sağlar. Bu makalede Spring Boot ve Spring Boot uygulamaları için Application Insights ile Micrometer kullanmayı öğretir.
@@ -228,7 +228,7 @@ Adımlar:
 
 Ölçümler hakkında daha fazla bilgi için bkz [Micrometer belgeleri](https://micrometer.io/docs/).
 
-Diğer örnek kod ölçümleri farklı türleri oluşturma konusunda bulunabilir[resmi Micrometer Github deposunu](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
+Diğer örnek kod ölçümleri farklı türleri oluşturma konusunda bulunabilir[resmi Micrometer GitHub deposunu](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
 
 ## <a name="how-to-bind-additional-metrics-collection"></a>Ek ölçümler toplama bağlama
 
@@ -242,7 +242,7 @@ Bir çekirdeği ilgili ölçüm kategorisi oluşturun. Örneğin, Guava ihtiyac�
         Return new GuavaCacheMetrics();
     }
 ```
-Varsayılan olarak etkin değildir, ancak yukarıdaki biçimde bağlanabilir birkaç ölçüm vardır. Tam bir listesi için başvurmak [resmi Micrometer Github deposunu](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder ).
+Varsayılan olarak etkin değildir, ancak yukarıdaki biçimde bağlanabilir birkaç ölçüm vardır. Tam bir listesi için başvurmak [resmi Micrometer GitHub deposunu](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder ).
 
 ### <a name="non-spring-apps"></a>Spring olmayan uygulamalar
 Aşağıdaki bağlama kodunu yapılandırma dosyasına ekleyin:

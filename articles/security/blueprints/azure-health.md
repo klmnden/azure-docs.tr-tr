@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: ca844c89b657bc3286f3472af3acbf937ef1e20f
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: b7232a72a2090465dfd75ef6a4277930e45bf9ed
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891070"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315783"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure güvenlik ve uyumluluk planı - HIPAA/HITRUST sağlık verileri ve yapay ZEKA
 
@@ -61,7 +61,7 @@ Temel mimari aşağıdaki bileşenlerden oluşur:
 
 -   **[Sistem durumu gözden geçirin.](https://aka.ms/healthreviewpaper)** Çözüm Coalfire systems, Inc. tarafından gözden geçirildi Sistem durumu uyumluluk (HIPAA ve HITRUST) gözden geçirin ve uygulama yönergeleri sağlayan bir denetçi\'çözüm ve üretime hazır bir dağıtım için şema dönüştürme değerlendirmeleri s gözden geçirin.
 
-# <a name="architectural-diagram"></a>Mimari diyagramı
+## <a name="architectural-diagram"></a>Mimari diyagramı
 
 
 ![](images/ra2.png)
@@ -76,9 +76,9 @@ Blueprint iki rolü yönetim kullanıcılarının (işleçler) ve kullanıcılar
 
 Müşterinin Azure aboneliği için site yöneticisi sorumludur. Genel dağıtım denetlemek, ancak hasta kayıtlarına erişiminiz yok.
 
--   Varsayılan rol atamaları: [sahibi](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
+-   Varsayılan rol atamaları: [Sahip](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
--   Özel rol atamaları: yok
+-   Özel rol atamaları: Yok
 
 -   Kapsam: Abonelik
 
@@ -89,7 +89,7 @@ Hasta kayıtları erişim sahiptirler.
 
 -   Yerleşik rol atamaları: [SQL DB Katılımcısı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [SQL Server Katılımcısı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
--   Özel rol atamaları: yok
+-   Özel rol atamaları: Yok
 
 -   Kapsam: ResourceGroup
 
@@ -98,9 +98,9 @@ Hasta kayıtları erişim sahiptirler.
 
 Veri uzmanı, Azure Machine Learning Studio çalışır. Bunlar içeri aktarabilir, verme ve verileri yönetmek ve raporları çalıştırma. Veri uzmanı hasta veri erişimi olan ancak yönetici ayrıcalıklarına sahip değil.
 
--   Yerleşik rol atamaları: [depolama hesabı Katılımcısı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
+-   Yerleşik rol atamaları: [Depolama Hesabı Katılımcısı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
--   Özel rol atamaları: yok
+-   Özel rol atamaları: Yok
 
 -   Kapsam: ResourceGroup
 
@@ -109,7 +109,7 @@ Veri uzmanı, Azure Machine Learning Studio çalışır. Bunlar içeri aktarabil
 
 CMIO bilişim/teknoloji ve sağlık hizmeti kuruluşunda sağlık uzmanları arasındaki ayrımı idare etmeye. Kaynakları uygun şekilde kuruluş içinde ayrılıp ayrılmadığını belirlemek için analiz kullanarak görevleri genellikle içerir.
 
--   Yerleşik rol atamaları: yok
+-   Yerleşik rol atamaları: None
 
 ### <a name="care-line-manager"></a>Bakım satır Yöneticisi
 
@@ -117,9 +117,9 @@ CMIO bilişim/teknoloji ve sağlık hizmeti kuruluşunda sağlık uzmanları ara
 Bakım satır Yöneticisi doğrudan olan hastalara dikkatli söz konusu.
 Bu rol, hastaların durumlarının izlenmesini ve personelin hastalarının belirli bakım ihtiyaçlarını karşıladığından emin olmayı gerektirir. Ekleme ve hasta kayıtlarını güncelleştirmek için dikkatli satır Yöneticisi sorumludur.
 
--   Yerleşik rol atamaları: yok
+-   Yerleşik rol atamaları: None
 
--   Özel rol atamaları: her iki hasta giriş yapmak için HealthcareDemo.ps1 çalıştırılacak ayrıcalığına sahip ve Taburcu.
+-   Özel rol atamaları: Her iki hasta giriş yapmak için HealthcareDemo.ps1 çalıştırılacak ayrıcalığına sahip ve Taburcu.
 
 -   Kapsam: ResourceGroup
 
@@ -128,9 +128,9 @@ Bu rol, hastaların durumlarının izlenmesini ve personelin hastalarının beli
 
 Denetçi çözüm uyumluluk için değerlendirilir. Hiçbir ağa doğrudan erişim sahiptirler.
 
--   Yerleşik rol atamaları: [okuyucusu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
+-   Yerleşik rol atamaları: [Okuyucu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
--   Özel rol atamaları: yok
+-   Özel rol atamaları: Yok
 
 -   Kapsam: Abonelik
 
@@ -184,7 +184,7 @@ Bireysel olarak doğrudan hasta kabul edildikten ve geri Contosoclinic, adresind
 Han deneyimi ISO, SOC ve Hıtrust denetim olan sertifikalı bir denetçi ' dir. Han Contosoclinc'ın ağ gözden geçirmek için işe alındım. Han müşteri sorumluluk çözümle birlikte sağlanan depolayan, işleyen ve hassas kişisel verileri görüntülemek için şema ve LOS çözüm kullanılabilir emin olmak için matris gözden geçirebilirsiniz.
 
 
-# <a name="design-configuration"></a>Tasarım yapılandırma
+## <a name="design-configuration"></a>Tasarım yapılandırma
 
 
 Bu bölümde, için ana hatlarıyla belirtilen şema yerleşik güvenlik önlemleri ve varsayılan yapılandırmaları açıklanmaktadır:
@@ -267,8 +267,8 @@ Ayrıca azure işlevi, okumak ve aşağıdaki etiketleri kullanarak örnek veri 
 
 **2. Yeni hastaların giriş**
 
-Tanıtım betiğini kullanırken. . \\İle HealthcareDemo.ps1 **BulkPatientadmission** açıklandığı şekilde geçiş **dağıtma ve tanıtım çalıştıran** aşağıdaki işleme ardışık düzeninde yürütür: ![](images/securetransact.png) 
- **1. Azure işlevi** tetiklenir ve işlev istekleri için bir [taşıyıcı belirteç](/rest/api/) Azure Active Directory'den.
+Tanıtım betiğini kullanırken. . \\İle HealthcareDemo.ps1 **BulkPatientadmission** açıklandığı şekilde geçiş **dağıtma ve tanıtım çalıştıran** aşağıdaki işleme ardışık düzeninde yürütür: ![](images/securetransact.png)
+**1. Azure işlevi** tetiklenir ve işlev istekleri için bir [taşıyıcı belirteç](/rest/api/) Azure Active Directory'den.
 
 **2. Key Vault** istenen belirteci ilişkili gizli dizi için istenen.
 

@@ -1,5 +1,5 @@
 ---
-title: Yönetilen kimlik kullanarak App Service’tan Azure SQL Veritabanı bağlantısını güvenli hale getirme | Microsoft Docs
+title: Yönetilen kimlik - Azure App Service ile SQL veritabanı bağlantısını güvenli hale getirme | Microsoft Docs
 description: Yönetilen kimlik kullanarak veritabanı bağlantısını daha güvenli hale getirme ve ayrıca bunu diğer Azure hizmetlerine uygulama hakkında bilgi edinin.
 services: app-service\web
 documentationcenter: dotnet
@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ec68b75d77e345f430d29f9af10a90372592fbc0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b7d8a9b0ef48f7daed74fb15263e516d820a6a38
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963939"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259078"
 ---
-# <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Öğretici: Yönetilen kimlik kullanarak App Service’tan Azure SQL Veritabanı bağlantısını güvenli hale getirme
+# <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Öğretici: Yönetilen kimlik kullanarak App Service'ten Azure SQL veritabanı bağlantısını güvenli hale getirme
 
-[App Service](app-service-web-overview.md), Azure’da yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Ayrıca, uygulamanız için [Azure SQL Veritabanı](/azure/sql-database/)’na ve diğer Azure hizmetlerine erişimi güvenli hale getirmeye yönelik anahtar teslim bir çözüm olan [yönetilen kimliği](app-service-managed-service-identity.md) sağlar. App Service içindeki yönetilen kimlikler, bağlantı dizelerindeki kimlik bilgileri gibi uygulamanızdaki gizli dizileri ortadan kaldırarak uygulamanızı daha güvenli hale getirir. Bu öğreticide, [Öğretici: Azure’da SQL Veritabanı ile ASP.NET uygulaması derleme](app-service-web-tutorial-dotnet-sqldatabase.md) bölümünde derlediğiniz örnek ASP.NET web uygulamasına yönetilen kimlik ekleyeceksiniz. İşiniz bittiğinde, örnek uygulamanız kullanıcı adı ve parolaya gerek kalmadan SQL Veritabanıa güvenli bir şekilde bağlanacaktır.
+[App Service](app-service-web-overview.md), Azure’da yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Ayrıca, uygulamanız için [Azure SQL Veritabanı](/azure/sql-database/)’na ve diğer Azure hizmetlerine erişimi güvenli hale getirmeye yönelik anahtar teslim bir çözüm olan [yönetilen kimliği](app-service-managed-service-identity.md) sağlar. App Service içindeki yönetilen kimlikler, bağlantı dizelerindeki kimlik bilgileri gibi uygulamanızdaki gizli dizileri ortadan kaldırarak uygulamanızı daha güvenli hale getirir. Bu öğreticide, bölümünde derlediğiniz örnek ASP.NET web uygulamasına yönetilen kimlik ekleyeceksiniz [Öğreticisi: Azure'da SQL veritabanı ile ASP.NET uygulaması derleme](app-service-web-tutorial-dotnet-sqldatabase.md). İşiniz bittiğinde, örnek uygulamanız kullanıcı adı ve parolaya gerek kalmadan SQL Veritabanıa güvenli bir şekilde bağlanacaktır.
 
 > [!NOTE]
 > Bu senaryo şu an için .NET Framework 4.6 ve üzeri tarafından desteklenmektedir ancak [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows) ile kullanılamaz. [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) senaryoyu destekler ancak henüz App Service varsayılan görüntülerine dahil edilmemiştir. 
@@ -44,7 +44,7 @@ Aşağıdakileri nasıl yapacağınızı öğreneceksiniz:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu makale, [Öğretici: Azure’da SQL Veritabanı ile ASP.NET uygulaması derleme](app-service-web-tutorial-dotnet-sqldatabase.md) bölümünde bıraktığınız yerden devam eder. Henüz yapmadıysanız önce o öğreticiyi takip edin. Alternatif olarak, adımları SQL Veritabanı ile kendi ASP.NET uygulamanıza uyarlayabilirsiniz.
+Bu makalede, kaldığınız yerden devam [Öğreticisi: Azure'da SQL veritabanı ile ASP.NET uygulaması derleme](app-service-web-tutorial-dotnet-sqldatabase.md). Henüz yapmadıysanız önce o öğreticiyi takip edin. Alternatif olarak, adımları SQL Veritabanı ile kendi ASP.NET uygulamanıza uyarlayabilirsiniz.
 
 <!-- ![app running in App Service](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png) -->
 

@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: e071c24b27a7f2240d10719ba61684146da81074
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5a43e14401861ee33789054a8dcd48289dbbcc88
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002731"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187186"
 ---
 # <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Azure portalı ile bir Azure Log Analytics çalışma alanını silme
 Bu makalede artık gerektirebilecek bir Log Analytics çalışma alanını silmek için Azure portalını kullanmayı gösterir. 

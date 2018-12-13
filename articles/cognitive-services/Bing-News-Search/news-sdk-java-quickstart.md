@@ -1,7 +1,7 @@
 ---
-title: "Hızlı başlangıç: Bing Haber Arama SDK'sı, Java"
+title: 'Hızlı Başlangıç: Java için Bing haber arama SDK - haber arama yapın'
 titleSuffix: Azure Cognitive Services
-description: Bing Haber Arama SDK'sı konsol uygulamasını kurma konusunda bilgi edinin.
+description: Bu hızlı başlangıçta, Java için Bing haber arama SDK'sını kullanarak haber aramak için kullanın ve işlem yanıt.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: f01f31c5cfc30ac31ea41db2a8504454e1f05799
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 056d75a1039e805786b14aa19c896bda78d04150
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316880"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251598"
 ---
-# <a name="quickstart-bing-news-search-sdk-with-java"></a>Hızlı başlangıç: Java ile Bing Haber Arama SDK'sı
+# <a name="quickstart-bing-news-search-sdk-with-java"></a>Hızlı Başlangıç: Bing haber arama ile Java SDK'sı
 
 Bing Haber Arama SDK'sı, haber sorguları ve sonuçları ayrıştırma için REST API işlevselliğini sunar.  **Arama** altından bir [Bilişsel Hizmetler erişim anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın.  Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
 

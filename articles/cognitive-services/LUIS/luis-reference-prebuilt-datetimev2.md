@@ -11,19 +11,19 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: f59c429906d6cee2b9f4aff6e16ba23e8d28c97b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0e2353107d6554a8ecbbd2e4d9850f8d8b5fda5c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105861"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165189"
 ---
-# <a name="datetimev2-entity"></a>DatetimeV2 varlığı
+# <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>DatetimeV2 LUIS uygulaması için önceden oluşturulmuş varlık
 
 **DatetimeV2** önceden oluşturulmuş varlık tarih ve saat değerlerini ayıklar. Bu değerler kullanılacağı istemci programları için standartlaştırılmış bir biçimde çözümleyin. Bir tarih veya saat tam olmayan bir utterance sahip olduğunda LUIS içerir _hem geçmiş hem de gelecekte değerlerini_ uç nokta yanıt. Bu varlık zaten eğitildi çünkü uygulama hedefleri için datetimeV2 içeren örnek Konuşma ekleme gerekmez. 
 
 ## <a name="types-of-datetimev2"></a>DatetimeV2 türleri
-DatetimeV2 yönetilen [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) Github deposu
+DatetimeV2 yönetilen [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) GitHub deposu
 
 ## <a name="example-json"></a>Örnek JSON 
 Aşağıdaki örnek JSON yanıtı sahip bir `datetimeV2` bir alt varlık `datetime`. Diğer datetimeV2 varlık türlerini örnekleri için bkz: [datetimeV2 öbeklerinin](#subtypes-of-datetimev2)</a>.

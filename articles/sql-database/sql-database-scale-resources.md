@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: ede96607e14a43e85c3605e2d710c15ef0495c1f
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 5e3c282c198b6a1290e724549a4af30119f9cb04
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868198"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251224"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dinamik olarak ölçek en düşük kapalı kalma süresi ile veritabanı kaynakları
 
@@ -35,8 +35,8 @@ Donanım satın alma ve altyapının değiştirme hakkında endişelenmeniz gere
 
 Azure SQL veritabanı sunar [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
 
-- [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) işlem, bellek ve hafif ve ağır veritabanı iş yüklerini desteklemek için üç hizmet katmanı g/ç kaynakları karışımını sunar: temel, standart ve Premium. Her katman içindeki performans düzeyleri, bu kaynakların farklı bir karışımını sağlar ve bunlara ek depolama kaynakları da eklenebilir.
-- [Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) sanal çekirdek miktarı veya bellek ve miktarını sayısını ve depolama hızını seçmenize olanak sağlar. Bu satın alma modeli, üç hizmet katmanı sunar: genel amaçlı, iş açısından kritik ve hiper ölçekli (Önizleme).
+- [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) işlem, bellek ve hafif ve ağır veritabanı iş yüklerini desteklemek için üç hizmet katmanı g/ç kaynakları karışımını sunar: Temel, standart ve Premium. Her katman içindeki performans düzeyleri, bu kaynakların farklı bir karışımını sağlar ve bunlara ek depolama kaynakları da eklenebilir.
+- [Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) sanal çekirdek miktarı veya bellek ve miktarını sayısını ve depolama hızını seçmenize olanak sağlar. Bu satın alma modeli, üç hizmet katmanı sunmaktadır: Genel amaçlı, iş açısından kritik ve hiper ölçekli (Önizleme).
 
 Düşük bir maliyetle temel, standart veya genel amaçlı bir hizmet katmanındaki aylık küçük, tek bir veritabanı üzerinde ilk uygulamanızı oluşturun ve ardından Hizmet katmanını elle veya programlama yoluyla herhangi bir zamanda ne karşılamak için Premium veya iş açısından kritik hizmet katmanına değiştirebilirsiniz çözümünüzün EDS. Performansı uygulamanız veya müşterileriniz kesinti yaşamadan ayarlayabilirsiniz. Dinamik ölçeklenebilirlik, veritabanınızın hızla değişen kaynak gereksinimlerine hızlı şekilde yanıt vermesini ve yalnızca ihtiyaç duyduğunuz kaynaklara ve ihtiyaç duyduğunuz süre boyunca ödeme yapmanızı sağlar.
 
@@ -50,7 +50,7 @@ Ancak, tek bir Azure SQL veritabanı için ölçeklenebilirlik otomatikleştiril
 
 Değiştirebileceğiniz [DTU hizmet katmanları](sql-database-service-tiers-dtu.md) veya [sanal çekirdek özelliklere](sql-database-vcore-resource-limits-single-databases.md) (genellikle ortalama dört saniyenin altında) uygulamanızda çok az kesinti ile dilediğiniz zaman. Veritabanı oluşturabilmek ve veritabanı performansını isteğe göre yükseltip düşürebilmek, özellikle kullanım biçimlerinin nispeten tahmin edilebilir olduğu durumlarda birçok işletme ve uygulama için yeterlidir. Ancak tahmin edilemeyen kullanım biçimlerine sahipseniz bu durum maliyetlerin ve iş modelinizin yönetimini zorlaştırabilir. Bu senaryoda, belirli bir sayıda Edtu havuzunda birden fazla veritabanı arasında paylaşılan ile elastik havuz kullanın.
 
-![SQL Veritabanı'na Giriş: Katmana ve düzeye göre tek veritabanı DTU’ları](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+![SQL Database'e giriş: Katmana ve düzeye göre tek veritabanı dtu'ları](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 Azure SQL veritabanı üç türdeki tüm veritabanlarınızın dinamik olarak ölçeklendirmeniz mi bazı olanaklar sunar:
 
@@ -62,7 +62,7 @@ Azure SQL veritabanı üç türdeki tüm veritabanlarınızın dinamik olarak ö
 
 Kaynakları ölçeklendirme, kolay ve veritabanı veya uygulama kodunu değiştirmeden veritabanınızın performansını geliştirmek için en etkili yolu değildir. Bazı durumlarda bile en yüksek hizmet katmanları, bilgi işlem boyutlarına ve performans iyileştirmeleriyle iş yükünüze dayalı başarılı ve uygun maliyetli bir şekilde işlememesi. Bu durumda, veritabanınızı ölçeklendirmek için bu ek seçeneğiniz vardır:
 
-- [Okuma ölçeği genişletme](sql-database-read-scale-out.md) bir özellik, burada bir salt okunur çoğaltma, verilerinizin nerede salt okunur sorguların raporlar gibi zorlu yürütebilir aldığınıza kullanılabilir. Kırmızı-yalnızca çoğaltma salt okunur iş yükü kaynak kullanımını, birincil veritabanında etkilemeden işler.
+- [Okuma ölçeği genişletme](sql-database-read-scale-out.md) bir özellik, burada bir salt okunur çoğaltma, verilerinizin nerede salt okunur sorguların raporlar gibi zorlu yürütebilir aldığınıza kullanılabilir. Salt okunur çoğaltma, birincil veritabanınızın üzerindeki kaynak kullanımının etkilemeden salt okunur iş yükünüz işleyecektir.
 - [Veritabanı parçalama](sql-database-elastic-scale-introduction.md) verilerinizi birkaç veritabanlarına bölme ve bağımsız olarak ölçeklendirme sağlayan teknikleri kümesidir.
 
 ## <a name="next-steps"></a>Sonraki adımlar

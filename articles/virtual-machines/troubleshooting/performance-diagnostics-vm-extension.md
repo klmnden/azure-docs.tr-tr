@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a76b22feee84820f3acc963af70ec24669a216d7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7037c0b4c1021ac7b91134fa429a774f600a774f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251977"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194173"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows için Azure performans tanılama VM uzantısı
 
 Azure performans tanılama VM uzantısı, Windows sanal makinelerinden performans tanılama verilerini toplama yardımcı olur. Uzantı analiz gerçekleştirir ve bulguları ve öneriler belirlemek ve sanal makine üzerindeki performans sorunlarını çözmek için bir rapor sağlar. Bir sorun giderme aracı olarak adlandırılan bu uzantıyı yükler [Perfınsights](https://aka.ms/perfinsights).
 
 > [!NOTE]
-    > Tanılama sanal makinenizde Azure portalında Klasik olmayan VM'ler için çalıştırmak istiyorsanız, yeni deneyimi kullanmak için önerilir. Daha fazla bilgi için [Azure sanal makineler için performans tanılama](performance-diagnostics.md) 
+> Tanılama sanal makinenizde Azure portalında Klasik olmayan VM'ler için çalıştırmak istiyorsanız, yeni deneyimi kullanmak için önerilir. Daha fazla bilgi için [Azure sanal makineler için performans tanılama](performance-diagnostics.md) 
 
 ## <a name="prerequisites"></a>Önkoşullar
 

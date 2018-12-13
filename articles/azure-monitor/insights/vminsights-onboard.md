@@ -8,18 +8,17 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: magoedte
-ms.openlocfilehash: b78332933c7c406cd938091b578786467a73248f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 741288bd1a927b12705b3b31c5a1c60d6b94db5b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141790"
+ms.locfileid: "53194258"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Azure İzleyici Vm'leri Önizleme için dağıtma
 Bu makalede, Azure İzleyici ' VM'ler için ayarlanacak açıklar. Hizmet, Azure sanal makinelerinizi (VM) ve sanal makine ölçek kümeleri ve sanal makineleri ortamınızda işletim sistemi durumunu izler. Bu izleme, bulma ve bunlar üzerinde barındırılabilir uygulama bağımlılıkları eşleme içerir. 
@@ -157,7 +156,7 @@ Vm'leri Haritası özelliği için Azure İzleyici verilerini Microsoft Dependen
 
 Azure İzleyici, VM'ler için tek bir Azure VM için etkinleştirmek ister ölçekli dağıtım yöntemini kullanmak, deneyiminin bir parçası aracıyı yüklemek için Azure VM bağımlılık Aracısı uzantısı kullanmanız gerekir. 
 
-Karma bir ortamda, indirin ve iki yoldan biriyle bağımlılık Aracısı'nı yükleyin: el ile veya sanal makine Azure dışından barındırılan için bir otomatik dağıtım yöntemi kullanarak. 
+Karma bir ortamda, indirin ve iki yoldan biriyle bağımlılık aracısını yükleme: El ile veya sanal makineler için bir otomatik dağıtım yöntemi kullanarak, Azure'un dışında barındırılır. 
 
 Aşağıdaki tabloda, karma bir ortamda, eşleme özelliğini destekleyen bağlı kaynaklar açıklanmaktadır.
 
@@ -332,19 +331,19 @@ Azure ilkesi atama hakkında daha fazla bilgi için bkz. [Azure ilkesine genel b
 
 |Ad |Açıklama |Tür |  
 |-----|------------|-----|  
-|[Önizleme]: VM'ler için Azure İzleyici'yi etkinleştir |Azure İzleyici, belirtilen kapsam (Yönetim grubu, abonelik veya kaynak grubu) sanal makineler (VM) için etkinleştirin. Log Analytics çalışma alanı, bir parametre olarak alır. |Girişim |  
-|[Önizleme]: denetim bağımlılık Aracısı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı |Vm'leri uyumsuz olarak VM görüntüsü (OS) listesinde tanımlı değil ve aracı yüklü değil bildirir. |İlke |  
-|[Önizleme]: denetim günlüğü analiz aracı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı |Vm'leri uyumsuz olarak VM görüntüsü (OS) listesinde tanımlı değil ve aracı yüklü değil bildirir. |İlke |  
+|[Önizleme]: Sanal makineler için Azure İzleyicisi'ni etkinleştirme |Azure İzleyici, belirtilen kapsam (Yönetim grubu, abonelik veya kaynak grubu) sanal makineler (VM) için etkinleştirin. Log Analytics çalışma alanı, bir parametre olarak alır. |Girişim |  
+|[Önizleme]: Denetim bağımlılık Aracısı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı |Vm'leri uyumsuz olarak VM görüntüsü (OS) listesinde tanımlı değil ve aracı yüklü değil bildirir. |İlke |  
+|[Önizleme]: Denetim günlüğü analiz aracı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı |Vm'leri uyumsuz olarak VM görüntüsü (OS) listesinde tanımlı değil ve aracı yüklü değil bildirir. |İlke |  
 |[Önizleme]: Linux sanal makineleri için bağımlılık Aracısı dağıtma |Bağımlılık aracısını Linux Vm'leri için VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil dağıtın. |İlke |  
 |[Önizleme]: Windows sanal makineleri için bağımlılık Aracısı dağıtma |Windows Vm'leri için bağımlılık Aracısı, aracı yüklü değil ve (OS) VM görüntü listesinde tanımlanan dağıtın. |İlke |  
-|[Önizleme]: Linux sanal makineleri için Log Analytics aracısını dağıtmayı |Log Analytics aracısını Linux Vm'leri için VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil dağıtın. |İlke |  
-|[Önizleme]: Windows Vm'leri için Log Analytics aracısını dağıtmayı |VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil Windows Vm'leri için log Analytics aracısını dağıtın. |İlke |  
+|[Önizleme]: Linux Vm'leri için log Analytics aracısını dağıtmayı |Log Analytics aracısını Linux Vm'leri için VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil dağıtın. |İlke |  
+|[Önizleme]: Windows Vm'leri için log Analytics aracısını dağıtmayı |VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil Windows Vm'leri için log Analytics aracısını dağıtın. |İlke |  
 
 Tek başına ilke (girişimle yer almaz) aşağıda açıklanmıştır: 
 
 |Ad |Açıklama |Tür |  
 |-----|------------|-----|  
-|[Önizleme]: Audit Log Analytics çalışma alanı için VM - uyumsuzluğu bildir |Vm'lere ilke/girişim atamasını belirtilen Log Analytics çalışma alanına oturum olmayan uyumsuz olarak bildirin. |İlke |
+|[Önizleme]: VM - rapor uyuşmazlığı denetim Log Analytics çalışma alanı |Vm'lere ilke/girişim atamasını belirtilen Log Analytics çalışma alanına oturum olmayan uyumsuz olarak bildirin. |İlke |
 
 #### <a name="assign-the-azure-monitor-initiative"></a>Azure İzleyici girişim Ata
 Bu ilk sürümde, yalnızca Azure Portalı'nda ilke ataması oluşturabilirsiniz. Bu adımları tamamlamak nasıl anlamak için bkz: [Azure portalından bir ilke ataması oluşturma](../../governance/policy/assign-policy-portal.md). 
@@ -362,7 +361,7 @@ Bu ilk sürümde, yalnızca Azure Portalı'nda ilke ataması oluşturabilirsiniz
 1. İçinde **Log Analytics çalışma alanı** bir çalışma alanı açılır listesinde desteklenen bir bölge için seçin.
 
     >[!NOTE]
-    >Çalışma alanı atama kapsamı dışındadır, verme *Log Analytics katkıda bulunan* izinleri ilke atama sorumlusu kimliği Bunu yapmazsanız, bir dağıtım hatası gibi görebilirsiniz: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... ` erişimi vermek için gözden [el ile yönetilen kimlik yapılandırma](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
+    >Çalışma alanı atama kapsamı dışındadır, verme *Log Analytics katkıda bulunan* izinleri ilke atama sorumlusu kimliği Bunu yapmazsanız, aşağıdaki gibi bir dağıtım hatası görebilirsiniz: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... ` Erişim vermek için gözden [el ile yönetilen kimlik yapılandırma](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
     >  
     **Yönetilen kimliği** onay kutusu seçiliyse, atanan girişim bir ilkeyle içerdiğinden *Deployıfnotexists* efekt. 
 1. İçinde **yönetme kimlik konumu** aşağı açılan listesinde, uygun bölgeyi seçin. 
@@ -387,8 +386,8 @@ Girişimle dahil ilke sonuçları temelinde, uyumlu değil olarak aşağıdaki s
 * VM görüntüsü (OS) ilke tanımında tanımlanan değildir. 
    Dağıtım ilkesi ölçütlerini iyi bilinen bir Azure VM görüntülerinden dağıtılan Vm'leri içerir. VM işletim sistemi desteklenip desteklenmediğini görmek için belgelere bakın. Desteklenmiyorsa, güncelleştirme ve dağıtım ilkesi yinelenen veya görüntü uyumlu hale getirmek için değiştirebilirsiniz. 
   
-    - [Önizleme]: denetim bağımlılık Aracısı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı  
-    - [Önizleme]: denetim günlüğü analiz aracı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı
+    - [Önizleme]: Denetim bağımlılık Aracısı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı  
+    - [Önizleme]: Denetim günlüğü analiz aracı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı
 
 * Sanal makineleri belirtilen Log Analytics çalışma alanına oturum değildir.  
     Bazı VM'ler girişim kapsamda bir ilke atamasında belirtilen başka bir Log Analytics çalışma açtığı, mümkündür. Bu ilke, VM'ler, uyumlu olmayan bir çalışma alanına raporlama yapmayan tanımlamak için kullanılan bir araçtır. 

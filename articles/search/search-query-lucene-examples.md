@@ -1,5 +1,5 @@
 ---
-title: Lucene sorgu örnekleri için Azure Search | Microsoft Docs
+title: Lucene sorgu örnekleri - Azure Search
 description: Lucene sorgu söz dizimi belirsiz arama, yakınlık araması, terimle, normal ifade araması ve joker karakter için bir Azure Search hizmetinizde arama yapar.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: b5a3e2eac218ba2aa6958ffc56bd59f5b513cf48
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.custom: seodec2018
+ms.openlocfilehash: 0ce230bc6a926229ed383c828f83aafd60117471
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42061491"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317170"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Lucene sözdizimi sorgu örnekleri, Azure Search'te Gelişmiş sorgular oluşturmak için
 Azure arama için sorgular oluşturma sırasında varsayılan değiştirebilirsiniz [Basit Sorgu ayrıştırıcı](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) ile kapsamlı [Azure Search'te Lucene sorgu ayrıştırıcısına](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) özelleştirilmiş ve Gelişmiş sorguyu formüle etmek için tanımları. 
@@ -145,7 +146,7 @@ Sözcükler "üst düzey analist" terimi arasında kaldırmayı yeniden deneyin.
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:%22senior%20analyst%22~0
 ```
 
-## <a name="example-5-term-boosting"></a>Örnek 5: Terimle
+## <a name="example-5-term-boosting"></a>Örnek 5: Terim artırma
 Terimle terim içermeyen belgeleri göre artırmalı terimi içeriyorsa, daha yüksek bir belge sıralaması için ifade eder. Giriş işaretini bir terim artırma kullanılacağı "^", sembol arama terimi sonunda bir boost faktörle (sayı). 
 
 Bu konuda "önce" sorgu ifadesi olan işler için arama *bilgisayar analist* ve her iki sözcükleri içeren sonuç olduğuna dikkat edin *bilgisayar* ve *analist*, henüz  *bilgisayar* işleri, sonuçları üstünde.
@@ -171,7 +172,7 @@ Belirli bir alanda gibi eşleşen artırıyor bir Puanlama profili göz önünde
 Faktörü düzeyi ayarlarken terimi yüksek boost faktör, daha fazla ilgili diğer arama terimlerini göreli olacaktır. Varsayılan olarak, boost faktörü 1'dir. Boost çarpanı sıfırdan büyük olmalı ancak (örneğin, 0.2) 1'den küçük olabilir.
 
 
-## <a name="example-6-regex"></a>Örnek 6: normal ifade
+## <a name="example-6-regex"></a>Örnek 6: Normal ifade
 
 Bir normal ifade araması eğik arasında "/", belgelenmiş içinde olarak içeriğine göre bir eşleşme bulur [RegExp sınıfı](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
 
@@ -187,7 +188,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 > Regex sorguları olmayan [analiz](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). Sorgu eksik koşullarınızda gerçekleştirilen yalnızca dönüşümü harfe.
 >
 
-## <a name="example-7-wildcard-search"></a>Örnek 7: Joker karakter araması
+## <a name="example-7-wildcard-search"></a>Örnek 7: joker karakter araması
 Birden çok genel olarak kabul edilen sözdizimini kullanabilirsiniz (\*) veya tek bir karakter joker karakter aramalarını (?). Lucene sorgu ayrıştırıcısına Not tek bir terim ve bir ifade ile bu sembolleri kullanımını destekler.
 
 Bu sorguda önek 'iş başlıkları programlama terimleri ve programcı da dahil prog' içeren işleri arayın. Kullanamazsınız bir * veya? Sembol arama ilk karakteri olarak.

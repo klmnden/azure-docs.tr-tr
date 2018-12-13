@@ -14,13 +14,12 @@ ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.component: ''
-ms.openlocfilehash: 011cfc181438d1a816afd9046f58f4d5c25b4504
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 39261f18c4335f0f27b68a2df2246ec4180d11e7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090169"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193714"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Log Analytics aracısını hibrit ortamlardaki Windows bilgisayarlar için yapılandırma
 [Azure Log Analytics](../../azure-monitor/platform/agent-windows.md), doğrudan veri merkezinizdeki veya diğer bulut ortamlarındaki fiziksel veya sanal Windows bilgisayarlarınızda bulunan verileri ayrıntılı analiz ve bağıntı için tek bir depoda toplayabilir.  Bu hızlı başlangıçta birkaç kolay adımda Windows bilgisayarınızı nasıl yapılandırabileceğiniz ve veri toplayabileceğiniz gösterilmektedir.  Azure Windows VM’leri için [Azure Sanal Makineler hakkında veri toplama](../../azure-monitor/learn/quick-collect-azurevm.md) konusuna bakın.  
@@ -73,7 +72,7 @@ Aşağıdaki adımlar, bilgisayarınızda Microsoft Monitoring Agent'ın kurulum
 8. **Yüklemeye Hazır** sayfasında seçimlerinizi gözden geçirin ve ardından **Yükle**'ye tıklayın.
 9. **Yapılandırma başarıyla tamamlandı** sayfasında **Son**'a tıklayın.
 
-Tamamlandığında, **Denetim Masası**'nda **Microsoft Monitoring Agent** gösterilir. Yapılandırmanızı gözden geçirebilir ve aracının Log Analytics'e bağlandığını doğrulayabilirsiniz. Bağlandığında, **Azure Log Analytics** sekmesinde aracı şöyle bir ileti görüntüler: **Microsoft Monitoring Agent Microsoft Log Analytics hizmetine başarıyla bağlandı**.<br><br> ![MMA'nın Log Analytics'e bağlantı durumu](media/quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+Tamamlandığında, **Denetim Masası**'nda **Microsoft Monitoring Agent** gösterilir. Yapılandırmanızı gözden geçirebilir ve aracının Log Analytics'e bağlandığını doğrulayabilirsiniz. Bağlandığında **Azure Log Analytics** sekmesinde aracı bir ileti görüntüler: **Microsoft Monitoring Agent Microsoft Log Analytics hizmetine başarıyla bağlandı.**<br><br> ![MMA'nın Log Analytics'e bağlantı durumu](media/quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 
 ## <a name="collect-event-and-performance-data"></a>Olay ve performans verilerini toplama
 Log Analytics uzun süreli analiz ve raporlama için belirttiğiniz Windows olay günlüğü ve performans sayaçlarından olayları toplayarak belirli bir koşul algılandığında işlem yapabilir.  Windows olay günlüğünden olayları toplamayı yapılandırmak ve birkaç ortak performans sayacı ile başlamak için bu adımları izleyin.  

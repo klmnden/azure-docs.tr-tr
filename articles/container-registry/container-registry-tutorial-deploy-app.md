@@ -1,21 +1,21 @@
 ---
-title: Azure Container Registry öğreticisi - Azure Container Registry’den web uygulamasını dağıtma
-description: Coğrafi olarak çoğaltılmış Azure kapsayıcı kayıt defterinden bir kapsayıcı görüntüsü kullanarak Linux tabanlı bir web uygulamasını dağıtın. Üç bölümden oluşan bir serinin ikinci bölümü.
+title: "Öğretici: azure'da Docker kayıt defteri coğrafi olarak çoğaltılmış uygulaması dağıtma"
+description: İki farklı Azure bölgelerine coğrafi olarak çoğaltılmış Azure kapsayıcı kayıt defterinden bir kapsayıcı görüntüsü kullanarak Linux tabanlı bir web uygulaması dağıtın. Üç bölümden oluşan bir serinin ikinci bölümü.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: d1924d730f2c2a64063496d4be759194cef99175
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.custom: seodec18, mvc
+ms.openlocfilehash: e5a38e2b6550d763f30c2462944b154f76bbe92c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853870"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253842"
 ---
-# <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Öğretici: Azure Container Registry’den web uygulaması dağıtma
+# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Öğretici: Coğrafi çoğaltmalı Azure container registry'den web uygulaması dağıtma
 
 Bu, üç bölümden oluşan bir öğretici serisinin ikinci bölümüdür. [Birinci bölümde](container-registry-tutorial-prepare-registry.md), özel bir coğrafi olarak çoğaltılmış kapsayıcı kayıt defteri oluşturuldu, kaynaktan bir kapsayıcı görüntüsü derlendi ve kayıt defterine gönderildi. Bu makalede, kapsayıcıyı farklı Azure bölgelerinde bulunan iki Web App örneğine dağıtarak coğrafi olarak çoğaltılmış kayıt defterinin ağa yakın özelliğinden yararlanacaksınız. Ardından her bir örnek, kapsayıcı görüntüsünü en yakın kayıt defterinden çeker.
 

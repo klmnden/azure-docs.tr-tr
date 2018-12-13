@@ -1,5 +1,5 @@
 ---
-title: Azure zaman serisi görüşleri ortamınıza başvuru veri kümesi ekleme
+title: Azure zaman serisi görüşleri başvuru verileri - nasıl Azure zaman serisi görüşleri ortamınıza başvuru veri kümesi eklemek için | Microsoft Docs
 description: Bu makalede, Azure zaman serisi görüşleri ortamınıza veri genişletmek için bir başvuru veri kümesi eklemeyi açıklar.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: 45520a556d109158987dd47e33a1efb52a1cd356
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: de5f4735e7dde7a3e631d14c83d42ccb9fd5c9db
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364746"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273847"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Azure portalını kullanarak zaman serisi görüşleri ortamınıza başvuru veri kümesi oluşturma
 
@@ -59,9 +60,9 @@ Başvuru verileri geriye dönük olarak birleştirilmedi. Bu, yalnızca mevcut v
    - Verileri bir metin düzenleyiciye yapıştırın. Ardından, **ayrıştırma başvuru verilerini** düğmesi.
    - Seçin **Dosya Seç** düğmesini bir yerel metin dosyasından veri ekleyin. 
 
-   Örneğin, CSV veri yapıştırın: ![yapıştırılan CSV verileri](media/add-reference-data-set/csv_data_pasted.png)
+   Örneğin, CSV veri yapıştırın: ![Yapıştırılan CSV verileri](media/add-reference-data-set/csv_data_pasted.png)
 
-   Örneğin, JSON dizisi veri yapıştırın: ![yapıştırın JSON verileri](media/add-reference-data-set/json_data_pasted.png)
+   Örneğin, JSON dizisi veri yapıştırın: ![JSON verilerini yapıştırın](media/add-reference-data-set/json_data_pasted.png)
 
    Veri değerleri ayrıştırılırken bir hata varsa, hata sayfanın alt kısmındaki kırmızı gibi görünür `CSV parsing error, no rows extracted`.
 

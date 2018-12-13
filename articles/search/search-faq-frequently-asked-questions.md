@@ -1,6 +1,6 @@
 ---
-title: Azure Search hakkında sık sorulan sorular (SSS) | Microsoft Docs
-description: Microsoft Azure Search hizmeti hakkında sık sorulan sorulara yanıtlar alın
+title: Sık sorulan sorular (SSS) - Azure Search
+description: Microsoft Azure arama hizmeti, Microsoft Azure üzerinde barındırılan bulut arama hizmeti hakkında sık sorulan soruların yanıtlarını alın.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
-ms.openlocfilehash: 1491fdb0f208100619e569f9a74d5e697a0065a6
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.custom: seodec2018
+ms.openlocfilehash: 9ea4e4ec78e5613758bd9e5ff7a4fbd3273208c6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841686"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312825"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure arama - sık sorulan sorular (SSS)
 
@@ -95,6 +96,6 @@ Eksik bir özellik veya işlev hakkında sorunuz var mı? Bu özellik için iste
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
- [StackOverflow: Azure Search'ü](https://stackoverflow.com/questions/tagged/azure-search)   
+ [StackOverflow: Azure arama](https://stackoverflow.com/questions/tagged/azure-search)   
  [Metin arama Azure Search'te tam nasıl çalışır](search-lucene-query-architecture.md)  
  [Azure Search nedir?](search-what-is-azure-search.md)

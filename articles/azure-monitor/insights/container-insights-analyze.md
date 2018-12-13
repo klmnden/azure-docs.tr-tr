@@ -8,18 +8,17 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 588dcabb35660c860f3d96dd03c82ed95a1d4d5b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 47d597188c761921817bf7e2155548157e0d2eb3
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087227"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185435"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici ile AKS kümesi performansını anlama 
 Kapsayıcılar için Azure İzleyici ile sistem durumu ve performans grafiklerini doğrudan bir AKS kümesi veya Azure aboneliğindeki tüm AKS kümeleri, iki perspektiften, Azure Kubernetes Service (AKS) kümesinin ve iş yükünü izlemek için kullanabilirsiniz İzleyici. Belirli bir AKS kümesi izlerken Azure Container Instances'a (ACI) görüntüleme olanağı da sağlar.
@@ -94,10 +93,10 @@ Varsayılan sayfayı tıkladığınızda açılan **Insights** olduğu **küme**
 
 Performans grafiği dört performans ölçümlerini görüntüler:
 
-- **Düğüm CPU kullanımını&nbsp;%**: toplu bir perspektif, tüm küme için CPU kullanımı. Zaman aralığı için sonuç seçerek filtreleyebilirsiniz **ortalama**, **Min**, **Max**, **50**, **90'ıncı**, ve **95** yüzdebirliklerini Seçici grafiğin içinde ya da tek tek veya birlikte. 
-- **Düğüm bellek kullanımını&nbsp;%**: toplu bir perspektif, tüm küme için bellek kullanımı. Zaman aralığı için sonuç seçerek filtreleyebilirsiniz **ortalama**, **Min**, **Max**, **50**, **90'ıncı**, ve **95** yüzdebirliklerini Seçici grafiğin içinde ya da tek tek veya birlikte. 
-- **Düğüm sayısı**: düğüm sayısı ve Kubernetes durumu. Durumlar temsil küme düğümlerinin *tüm*, *hazır*, ve *hazır değil* ve ayrı olarak filtrelenen veya grafiğin üstünde Seçici içinde birleştirilmiş. 
-- **Etkinlik pod sayısının**: bir pod sayısı ve Kubernetes durumu. Temsil edilen pod'ları, durumlar *tüm*, *bekleyen*, *çalıştıran*, ve *bilinmeyen* ve ayrı olarak filtrelenen veya içinde birleşik grafiğin üstünde Seçici. 
+- **Düğüm CPU kullanımını&nbsp;%**: Toplu bir perspektif, tüm küme için CPU kullanımı. Zaman aralığı için sonuç seçerek filtreleyebilirsiniz **ortalama**, **Min**, **Max**, **50**, **90'ıncı**, ve **95** yüzdebirliklerini Seçici grafiğin içinde ya da tek tek veya birlikte. 
+- **Düğüm bellek kullanımını&nbsp;%**: Toplu bir perspektif, tüm küme için bellek kullanımı. Zaman aralığı için sonuç seçerek filtreleyebilirsiniz **ortalama**, **Min**, **Max**, **50**, **90'ıncı**, ve **95** yüzdebirliklerini Seçici grafiğin içinde ya da tek tek veya birlikte. 
+- **Düğüm sayısı**: Bir düğüm sayısı ve Kubernetes durumu. Durumlar temsil küme düğümlerinin *tüm*, *hazır*, ve *hazır değil* ve ayrı olarak filtrelenen veya grafiğin üstünde Seçici içinde birleştirilmiş. 
+- **Etkinlik pod sayısının**: Pod sayısı ve Kubernetes durumu. Temsil edilen pod'ları, durumlar *tüm*, *bekleyen*, *çalıştıran*, ve *bilinmeyen* ve ayrı olarak filtrelenen veya içinde birleşik grafiğin üstünde Seçici. 
 
 İçin değiştirdiğinizde **düğümleri**, **denetleyicileri**, ve **kapsayıcıları** sekmesinde, otomatik olarak sağ tarafında sayfasının görüntülenmesini olan özellik bölmesi.  Bu, Kubernetes nesneleri düzenlemek için tanımladığınız etiketleri dahil olmak üzere seçili öğenin özelliklerini gösterir. Tıklayarak **>>** bölmesinde bölmesinde view\hide için bağlantı.  
 
@@ -275,4 +274,4 @@ Genellikle, bir örnek veya iki ile başlayıp ardından bunları gereksinimleri
 | **Çizgi grafik görüntüleme seçeneğini**:<br> Perf<br> &#124;Burada ObjectName "K8SContainer" ve CounterName == "memoryRssBytes" == &#124; AvgUsedRssMemoryBytes özetlemek avg(CounterValue) tarafından bin (TimeGenerated, 30 dakika), InstanceName = | Kapsayıcı belleği |
 
 ## <a name="alerting"></a>Uyarı
-Kapsayıcılar için Azure İzleyici, önceden tanımlanmış birtakım kopyalayın ve Destek süreçleri ve yordamları göre değiştirmek uyarıları içermez. Bu arada, kullanıma [Azure İzleyici ile günlüğü uyarıları oluşturma](../../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json) ve Uyarıları kendi kümesi oluşturmayı öğrenin.  
+Kapsayıcılar için Azure İzleyici, önceden tanımlanmış birtakım kopyalayın ve Destek süreçleri ve yordamları göre değiştirmek uyarıları içermez. Bu arada, kullanıma [Azure İzleyici ile günlüğü uyarıları oluşturma](../../azure-monitor/platform/alerts-log.md?toc=/azure/azure-monitor/toc.json) ve Uyarıları kendi kümesi oluşturmayı öğrenin.  

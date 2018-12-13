@@ -1,6 +1,6 @@
 ---
-title: Yaklaşım bilişsel arama beceri (Azure Search) | Microsoft Docs
-description: Bir Azure Search zenginleştirme ardışık metinden yaklaşım ayıklayın.
+title: Yaklaşım bilişsel arama beceri - Azure Search
+description: Bir Azure Search zenginleştirme ardışık metinden pozitif ve negatif yaklaşım puanını ayıklayın.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,19 +11,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 1e4028c3a810de41efe217e6dd4347fc3bc6bf16
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 4b8913d64a3df8799ba1d73972121ef331aaac81
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730893"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314083"
 ---
 #   <a name="sentiment-cognitive-skill"></a>Yaklaşım bilişsel beceri
 
 **Yaklaşım** beceri yapılandırılmamış metinleri pozitif ve negatif sürekliliği ve her kayıt için değerlendirir, 0 ile 1 arasında bir sayısal puan döndürür. Puanın 1’e yakın olması yaklaşımın olumlu olduğunu, 0’a yakın olması ise olumsuz olduğunu gösterir.
 
 > [!NOTE]
-> Bilişsel Arama, genel önizleme aşamasındadır. Görüntü ayıklama ve normalleştirme ve beceri yürütmesi şu anda ücretsiz sunulmaktadır. Daha sonraki bir zamanda, bu özelliklerin fiyatlandırması duyurulacaktır. 
+> 21 aralık 2018 tarihinden itibaren Bilişsel hizmetler kaynağı bir Azure Search beceri kümesi ile ilişkilendirmek mümkün olmayacak. Bu beceri yürütmesi için ücretlendirme başlatmak için bize izin verir. Bu tarihte, biz de belge çözme aşamasının bir parçası olarak görüntü ayıklama için başlayacağız. Belgelerden metin ayıklama işlemi ek masraf olmadan sağlanmaya devam edecektir.
+>
+> Var olan konumunda yerleşik yetenek yürütülmesini ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/) . Görüntü ayıklama fiyatlandırma Önizleme fiyatıyla ücretlendirilirsiniz ve üzerinde açıklanmıştır [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400). Bilgi [daha fazla](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SentimentSkill

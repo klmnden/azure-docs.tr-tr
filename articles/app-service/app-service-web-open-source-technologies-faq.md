@@ -1,5 +1,5 @@
 ---
-title: Açık kaynak teknolojileri ile ilgili SSS için Azure web uygulamaları | Microsoft Docs
+title: Açık kaynak teknolojileri hakkında SSS - Azure App Service | Microsoft Docs
 description: Azure App Service'in Web Apps özelliği, açık kaynak teknolojileri hakkında sık sorulan soruların yanıtlarını alın.
 services: app-service\web
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 19168f965f2a98a1dc3f94ae0b029449865a9582
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: ac80cd5ee1c530736666338e8bc3763b110c688c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971363"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255542"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Açık kaynak teknolojilerini azure'daki Web uygulamaları için SSS
 
@@ -189,7 +190,7 @@ Azure'da kısa süre önce yaptıysanız, WordPress için eski etki alanı URL's
 
 WordPress arkadaş + yeniden yönlendirme URL'sini doğrudan veritabanında güncelleştirmek için kullanabileceğiniz bir Azure Site uzantısı'dır. WordPress arkadaş + kullanma hakkında daha fazla bilgi için bkz. [WordPress araçları ve geçiş MySQL ile WordPress arkadaş +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/).
 
-Alternatif olarak, el ile yeniden yönlendirmeyi güncelleştirmek tercih ettiğiniz SQL sorguları veya PHPMyAdmin, kullanarak URL'sini görmek [WordPress: yanlış URL'ye yeniden yönlendirerek](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
+Alternatif olarak, el ile yeniden yönlendirmeyi güncelleştirmek tercih ettiğiniz SQL sorguları veya PHPMyAdmin, kullanarak URL'sini görmek [WordPress: Yanlış URL'ye yeniden yönlendirerek](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>Oturum açma WordPress parolamı nasıl değiştirebilirim?
 
@@ -203,8 +204,8 @@ Kendinize yakın zamanda bir eklenti yükledikten sonra WordPress dışında kil
 
 WordPress sitenize bağlı MySQL veritabanını geçirme için birçok seçeneğiniz vardır:
 
-* : Geliştiricilerin [komut istemi veya PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
-* Geliştirici olmayan: Kullanın [WordPress arkadaş +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)
+* Geliştiriciler: Kullanım [komut istemi veya PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
+* Non-geliştiricileri: Kullanım [WordPress arkadaş +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>WordPress daha güvenli hale getirmenize nasıl yardımcı?
 

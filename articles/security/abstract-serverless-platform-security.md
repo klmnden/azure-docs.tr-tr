@@ -1,31 +1,31 @@
 ---
-title: Özet Azure işlevleri ve sunucusuz Platform güvenliği
-description: Azure işlevleri ve sunucusuz Platform güvenliği incelemeyi Özet.
+title: Özet-Azure işlevleri ve sunucusuz Platform güvenliği
+description: Azure işlevleri ve sunucusuz Platform güvenliği teknik incelemesi için Özet.
 author: TomShinder
 ms.author: TomSh
 ms.date: 06/21/2018
 ms.topic: article
 ms.service: security
-ms.openlocfilehash: 8f5f600b0680b85d760e72b8e177ae247e41ac6b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 87010b3256fb8eef6871d76f80db2999760386b4
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133126"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320753"
 ---
 # <a name="azure-functions-and-serverless-platform-security"></a>Azure işlevleri ve sunucusuz platform güvenliği
 ## <a name="abstract"></a>Özet
-Çoğu kuruluş kaynakları ve maliyet ekler sunucuları yönetmek için zaman önemli miktarda gerekir. Kuruluşlar, daha az kaynak sunucuları yönetmek için kullanabileceğiniz, mükemmel uygulamaları oluşturmaya odaklanabilirsiniz.  
+Çoğu kuruluş için önemli miktarda kaynak ve maliyeti sunucuları yönetmek için zaman gerekir. Kuruluşlar, daha az kaynak sunucuları yönetmek için kullanabileceğiniz, harika uygulamalar oluşturmaya odaklanabilirsiniz.  
 
-Sizin için çalıştırmak ve uygulamalarınızı ölçeklendirmek için gereken altyapı yönetildiğinden sunucusuz bilgi işlem, bunu yardımcı olur. Sunucusuz bilgi işlem, sunucuların, altyapının ve işletim sistemlerinin soyutlaştırılmasıdır. Sunucusuz güdümlü tepki olaylara ve tetikleyiciler olarak bilgi işlem, tüm olduğu yakın gerçek zamanlı olarak gerçekleşmesini — bulutta. 
+Çalıştırın ve uygulamalarınızı ölçeklendirmek için gereken altyapı sizin adınıza yönetilir çünkü sunucusuz bilgi işlem bunu, yapmanıza yardımcı olur. Sunucusuz bilgi işlem, sunucuların, altyapının ve işletim sistemlerinin soyutlaştırılmasıdır. Sunucusuz tepkilerin olayları ve Tetikleyiciler için bilgi işlem, tüm olduğu neredeyse gerçek zamanlı olarak gerçekleşen — bulut. 
 
-Tam olarak yönetilen bir hizmet olarak sunucu yönetimi ve kapasite planlaması geliştiriciye görünmez. Sunucusuz framework geliştirmek ve Azure işlevlerini kullanarak sunucusuz uygulamaları dağıtmanıza yardımcı olur. Bir komut satırı yapısı ve işlevleri ve olaylardan oluşan Gelişmiş olay denetimli, sunucusuz mimarileri oluşturmanıza yardımcı olmak için Otomasyon sunan arabirimi (CLI) değil. Bir Azure işlevi bir bağımsız bir mikro hizmet gibi dağıtım birimidir. Yalnızca tek bir işi gerçekleştirmek için en sık yazılan bulutta dağıtılan kodu:
+Tam olarak yönetilen bir hizmet olarak, sunucu yönetimi ve kapasite planlaması geliştiriciye görünmez. Sunucusuz framework geliştirmenize ve Azure işlevleri'ni kullanarak sunucusuz uygulamalar dağıtın yardımcı olur. Bir komut satırı yapısı ve Otomasyon işlevleri ve olayları oluşan karmaşık, olay odaklı, sunucusuz mimarileri oluşturmanıza yardımcı olmak için sunduğu arabirimi (CLI) var. Bir Azure işlevi gibi bir mikro Hizmet dağıtımının bağımsız bir birimdir. Bu, yalnızca tek bir işi gerçekleştirmek için genellikle yazılan bulutta dağıtılan kod olur.
 
-Rağmen sunucusuz güvenlik uğraşmanız kendi risk faktörleri avantajlıdır. Sunucusuz bir yaklaşım yeni güvenlik sorunlarının tanıtmak değil, ancak varolan güvenlik sorunlarının bir yaklaşım olması gerektirir. Bu teknik incelemede bu güvenlik önemlidir odaklanır: 
-* Sunucusuz bir platform yararları
+Avantaj rağmen uğraşmanız kendi risk faktörleri sunucusuz güvenlik sunar. Sunucusuz bir yaklaşım yeni güvenlik konuları tanıtır değil, ancak mevcut güvenlik konuları için bir yaklaşım olması gerekir. Bu teknik incelemede, bu güvenlik önemli olan konuya odaklanır: 
+* Sunucusuz bir platformla avantajları
 * Sunucusuz bilgi işlem güvenlik sorunları
-* Kritik güvenlik sorunlarını ve bunları azaltmanın yollarını bağlamında Azure
-* Microsoft sunucusuz platform güvenliğini sağlama
+* Kritik güvenlik sorunlarını ve Azure azaltmaları bağlamı
+* Microsoft sunucusuz platformu güvenliğini sağlama
 
-[Teknik incelemesini indirin](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)
+[Teknik incelemeyi indirin](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-functions-serverless-platform-security/Microsoft%20Serverless%20Platform.pdf)
 

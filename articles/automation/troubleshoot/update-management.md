@@ -4,16 +4,16 @@ description: Güncelleştirme yönetimi ile ilgili sorunları giderme hakkında 
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f52767058ef69d29465f1274109b6d3ffe58296c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 7339592833db148acb38ce378fe4cf261977dd72
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092636"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275661"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Güncelleştirme yönetimi ile ilgili sorunları giderme
 
@@ -44,6 +44,35 @@ Bu hata, aşağıdaki nedenlerden kaynaklanabilir:
 
 1. Ziyaret [ağ planlaması](../automation-hybrid-runbook-worker.md#network-planning) hakkında adresler ve bağlantı noktaları çalışacak şekilde güncelleştirme yönetimi için izin verilmesi gereken öğrenin.
 2. Kopyalanan bir görüntü sysprep görüntüsü kullanarak ve olaydan sonra MMA aracısını yükleme durumunda.
+
+### <a name="multi-tenant"></a>Senaryo: Makineler için Güncelleştirme dağıtımı başka bir Azure kiracısı oluştururken, bağlı abonelik hata alırsınız.
+
+#### <a name="issue"></a>Sorun
+
+Makineler için Güncelleştirme dağıtımı başka bir Azure kiracısı oluşturmaya çalışırken aşağıdaki hatayı alırsınız:
+
+```
+The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
+```
+
+#### <a name="cause"></a>Nedeni
+
+Bir güncelleştirme dağıtımına dahil başka bir kiracıdaki Azure sanal makineleri olan bir güncelleştirme dağıtımı oluştururken bu hata oluşur.
+
+#### <a name="resolution"></a>Çözüm
+
+Zamanlanmış getirmek için aşağıdaki geçici çözümü kullanmanız gerekir. Kullanabilirsiniz [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) anahtarıyla cmdlet'i `-ForUpdate` bir zamanlama oluşturmak ve kullanmak için [yeni AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+) cmdlet'i ve geçirin diğer kiracıdaki makineler `-NonAzureComputer` parametresi. Aşağıdaki örnek bunu nasıl bir örnek gösterir:
+
+```azurepowershell-interactive
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
+
+New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
 
 ## <a name="windows"></a>Windows
 
@@ -113,7 +142,7 @@ Karma Runbook çalışanı otomatik olarak imzalanan bir sertifika oluşturmak m
 
 Sistem hesabı, klasöre okuma erişimi olduğunu doğrulayın **C:\ProgramData\Microsoft\Crypto\RSA** ve yeniden deneyin.
 
-### <a name="nologs"></a>Senaryo: Güncelleştirme yönetimi veri Log Analytics'te bir makine için gösterilmiyor
+### <a name="nologs"></a>Senaryo: Güncelleştirme yönetimi verilerini log Analytics'te bir makine için gösterilmiyor
 
 #### <a name="issue"></a>Sorun
 
@@ -127,7 +156,7 @@ Karma Runbook çalışanı yeniden kayıtlı ve yeniden gerekebilir.
 
 Bölümündeki adımları [Windows karma Runbook çalışanı dağıtma](../automation-windows-hrw-install.md) karma çalışanı yeniden yüklemek için.
 
-### <a name="hresult"></a>Senaryo: Makine, değerlendirilmeyen ve bir HResult özel durum gösterir şekilde gösterir.
+### <a name="hresult"></a>Senaryo: Makine değerlendirilmeyen ve bir HResult özel durum gösterir gösterir.
 
 #### <a name="issue"></a>Sorun
 
@@ -151,7 +180,7 @@ Tüm özel durum iletisi görmek için kırmızı renkte gösterilen özel durum
 
 ## <a name="linux"></a>Linux
 
-### <a name="scenario-update-run-fails-to-start"></a>Senaryo: başlatmak güncelleştirme çalışması başarısız.
+### <a name="scenario-update-run-fails-to-start"></a>Senaryo: Başlamak güncelleştirme çalışması başarısız
 
 #### <a name="issue"></a>Sorun
 
@@ -169,7 +198,7 @@ Aşağıdaki günlük dosyası bir kopyasını alın ve sorun giderme amacıyla 
 /var/opt/microsoft/omsagent/run/automationworker/worker.log
 ```
 
-### <a name="scenario-update-run-starts-but-encounters-errors"></a>Senaryo: güncelleştirme çalışması başlar ancak hatalarla karşılaştığında
+### <a name="scenario-update-run-starts-but-encounters-errors"></a>Senaryo: Güncelleştirme çalışması başlatır, ancak hatalarla karşılaştığında
 
 #### <a name="issue"></a>Sorun
 

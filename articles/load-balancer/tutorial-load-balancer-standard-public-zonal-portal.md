@@ -1,14 +1,11 @@
 ---
-title: 'Öğretici: Bir bölge içindeki Yük Dengeleyici sanal makineleri - Azure portalı | Microsoft Docs'
+title: "Öğretici: Bir bölge içinde--Azure portalında dengeleyici VM'ler yük"
+titlesuffix: Azure Load Balancer
 description: Bu öğretici, Azure portalı kullanarak bir kullanılabilirlik alanı içindeki sanal makinelerin yükünü dengelemek üzere bölge ön ucu ile Standard Load Balancer oluşturma işlemini gösterir
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 580015b7f8b1f894c69ddec0f26daeb524932e4b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: dd4600d77373894cdc9d6225ae008a8bd677fb59
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637302"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262104"
 ---
-# <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Öğretici: Azure portalı kullanarak Standard Load Balancer ile bir kullanılabilirlik alanındaki sanal makinelerde yük dengeleme
+# <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak bir Standard Load Balancer ile kullanılabilirlik alanı içinde Yük Dengeleme sanal makineleri
 
 Bu öğreticide Azure portal kullanılarak genel IP standart adresine sahip bir bölge ön ucu ile genel bir [Azure Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) oluşturulur. Bu senaryoda, veri yolunuzu ve kaynaklarınızı belirli bir bölge ile hizalamak amacıyla ön uç ve arka uç örnekleriniz için belirli bir bölge belirtirsiniz. Aşağıdaki işlevleri gerçekleştirmeyi öğrenirsiniz:
 
@@ -53,7 +50,7 @@ Standard Load Balancer yalnızca standart genel IP adresini destekler. Yük deng
 2. **Yük dengeleyici oluştur** sayfasında, yük dengeleyici için şu değerleri girin:
     - Yük dengeleyicinin adı için **myLoadBalancer**.
     - Yük dengeleyicinin türü olarak **Public**.
-     - Oluşturduğunuz yeni genel IP adresi olarak **myPublicIPZonal**. **Genel bir IP adresi seçin**’i seçin. Ardından **Yeni oluştur**’u seçin. Ad olarak **myPublicIP** değerini girin. SKU varsayılan olarak standarttır. **Kullanılabilirlik bölgesi** olarak **Bölge 1**’i seçin.
+      - Oluşturduğunuz yeni genel IP adresi olarak **myPublicIPZonal**. **Genel bir IP adresi seçin**’i seçin. Ardından **Yeni oluştur**’u seçin. Ad olarak **myPublicIP** değerini girin. SKU varsayılan olarak standarttır. **Kullanılabilirlik bölgesi** olarak **Bölge 1**’i seçin.
     - Oluşturduğunuz yeni kaynak grubunun adı olarak **myResourceGroupZLB** değerini kullanın.
     - Konum için **westeurope** değerini kullanın.
 3. Yük dengeleyiciyi oluşturmak için **Oluştur**’u seçin.
@@ -81,7 +78,7 @@ Bu bölümde, bir sanal ağ oluşturursunuz. Ayrıca, yük dengeleyicinizin arka
     - Ağ güvenlik grubunun adı olarak **myNetworkSecurityGroup**.
     - Mevcut kaynak grubunun adı olarak **myResourceGroupLBAZ**.
    
-    ![Ağ güvenlik grubu oluşturma](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
+     ![Ağ güvenlik grubu oluşturma](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
 
 ### <a name="create-nsg-rules"></a>NSG kuralları oluşturma
 
@@ -100,7 +97,7 @@ Bu bölümde, Azure portalı ile HTTP ve Microsoft Uzak Masaüstü Protokolü (R
     - **Açıklama** için **HTTP’ye İzin Ver**.
 4. **Tamam**’ı seçin.
  
- ![NSG kuralları oluşturma](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![NSG kuralları oluşturma](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 
 5. **myRDPRule** adlı başka bir kural oluşturmak için 2 ile 4 arasındaki adımları yineleyin. Bu kural, aşağıdaki değerlerle, 3389 numaralı bağlantı noktasını kullanan bir gelen RDP bağlantına izin verir:
     - **Kaynak** için **Hizmet Etiketi**.
@@ -112,7 +109,7 @@ Bu bölümde, Azure portalı ile HTTP ve Microsoft Uzak Masaüstü Protokolü (R
     - **Ad** için **myRDPRule**.
     - **Açıklama** için **RDP’ye İzin Ver**.
 
-    ![RDP kuralı oluşturma](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
+      ![RDP kuralı oluşturma](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
 
 ### <a name="create-virtual-machines"></a>Sanal makineler oluşturma
 
@@ -175,7 +172,7 @@ Trafiği sanal makinelere dağıtmak için bir arka uç adres havuzu, yük denge
 
 ### <a name="create-a-health-probe"></a>Durum araştırması oluşturma
 
-Yük dengeleyicinin uygulamanızın durumunu izlemesine izin vermek için sistem durumu araştırması kullanın. Durum araştırması, durum denetimlerine verdikleri yanıtlara göre VM’leri dinamik olarak yük dengeleyici rotasyonuna ekler ve kaldırır. Sanal makinelerin durumunu izlemek için **myHealthProbe** durum araştırması oluşturun.
+Yük dengeleyicinin uygulamanızın durumunu izlemesine izin vermek için sistem durumu araştırması kullanın. Durum yoklaması, durum denetimlerine verdikleri yanıtlara göre VM’leri dinamik olarak yük dengeleyici rotasyonuna ekler ve kaldırır. Sanal makinelerin durumunu izlemek için **myHealthProbe** durum araştırması oluşturun.
 
 1. Sol taraftaki menüden **Tüm kaynaklar**’ı seçin. Ardından kaynaklar listesinden **myLoadBalancer**’ı seçin.
 2. **Ayarlar** bölümünde **Sistem durumu araştırmaları**’nı seçin. Ardından **Ekle**'yi seçin.

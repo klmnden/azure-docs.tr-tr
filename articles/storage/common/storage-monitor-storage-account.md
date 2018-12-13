@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: bc03a5f43ef65ec8feaccb82fc3d31debbc6e7b9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f7b73fa4d1f596e0221c2cec3c6c7417ceb767a4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523385"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275703"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Azure portalında depolama hesabı izleme
 
@@ -98,7 +98,7 @@ Depolama kaynak ölçümleri için eşikler üst sınırına ulaştınız, bilgi
 3. Girin bir **adı** ve **açıklama** , yeni bir uyarı kuralı.
 4. Seçin **ölçüm** , uyarı, bir uyarı eklemek istediğiniz için **koşul**ve **eşiği**. Eşik birim türü seçtiğiniz ölçüm bağlı olarak değiştirir. Örneğin, ölçü türü için "count" olan *ContainerCount*, while birimini *Percentnetworkerror'da* ölçüm yüzdesidir.
 5. Seçin **süresi**. Ulaşın veya dönem içinde eşiğini aşan ölçümleri uyarı tetikler.
-6. (İsteğe bağlı) Yapılandırma **e-posta** ve **Web kancası** bildirimleri. Web kancaları hakkında daha fazla bilgi için bkz. [Azure bir ölçüm uyarısında Web kancası yapılandırma](../../monitoring-and-diagnostics/insights-webhooks-alerts.md). E-posta veya Web kancası bildirimleri yapılandırmazsanız, uyarıları yalnızca Azure portalında görüntülenir.
+6. (İsteğe bağlı) Yapılandırma **e-posta** ve **Web kancası** bildirimleri. Web kancaları hakkında daha fazla bilgi için bkz. [Azure bir ölçüm uyarısında Web kancası yapılandırma](../../azure-monitor/platform/alerts-webhooks.md). E-posta veya Web kancası bildirimleri yapılandırmazsanız, uyarıları yalnızca Azure portalında görüntülenir.
 
 ![Azure portalında "bir uyarı kuralı Ekle" dikey](./media/storage-monitor-storage-account/add-alert-rule.png)
 

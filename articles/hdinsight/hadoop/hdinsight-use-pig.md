@@ -1,5 +1,5 @@
 ---
-title: HDInsight Apache Pig kullanma
+title: Apache Pig - Azure HDInsight kullanma
 description: HDInsight üzerinde Apache Hadoop ile pig kullanma konusunda bilgi edinin.
 services: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 4eb4fa201a435df5e2b5016ba9686d76707c0635
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 25a91c6217aac1b2278957c1ff0ed8b7a9b1f6ac
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011639"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166175"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma
 
@@ -40,11 +40,11 @@ Pig işleme istenen çıkış oluşturmak için aracılığıyla veri akışlar�
 
 Pig Latin'i dil ham girişini, istenen çıkış oluşturmak için bir veya daha fazla dönüştürmeleri, veri akışından açıklamak sağlar. Pig Latin'i programlar bu genel bir desene uyar:
 
-* **Yük**: dosya sisteminden yönetilebilmesini veri okuma
+* **Yük**: Dosya sisteminden yönetilebilmesini veri okuma
 
-* **Dönüştürme**: verileri düzenleme
+* **Dönüştürme**: Veri işleme
 
-* **Döküm veya mağaza**: çıktı verilerini ekranına veya işleme için mağaza
+* **Döküm veya mağaza**: Çıktı verilerini ekranına veya işleme için mağaza
 
 ### <a name="user-defined-functions"></a>Kullanıcı tanımlı işlevler
 

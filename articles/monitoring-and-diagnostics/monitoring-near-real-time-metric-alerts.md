@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 02412f2ac4ff6ce0394ad46e03ae4c89f924624f
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: b552918f6b415bcd55c7c27c80ff721df77ca99f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016410"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276086"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure İzleyici ölçüm uyarılarını kaynakları desteklenir
 
-Azure İzleyicisi'ni destekler bir [yeni ölçüm uyarı türü](monitoring-overview-alerts.md) olduğu önemli avantajlar eski [Klasik ölçüm uyarıları](monitoring-overview-alerts-classic.md). Ölçümler kullanılabilir [Azure hizmetlerinin büyük listesi](monitoring-supported-metrics.md). Yeni uyarılarda kaynak türlerini (artan) kümesini destekler. Bu makalede, bu alt listeler.
+Azure İzleyicisi'ni destekler bir [yeni ölçüm uyarı türü](monitoring-overview-alerts.md) olduğu önemli avantajlar eski [Klasik ölçüm uyarıları](../azure-monitor/platform/alerts-classic.overview.md). Ölçümler kullanılabilir [Azure hizmetlerinin büyük listesi](monitoring-supported-metrics.md). Yeni uyarılarda kaynak türlerini (artan) kümesini destekler. Bu makalede, bu alt listeler.
 
 
 Yeni ölçüm uyarılarının, ölçümler olarak ayıklanan popüler Log Analytics günlükleri üzerinde de uygulayabilirsiniz. Daha fazla bilgi için görüntüleme [günlükleri için ölçüm uyarıları](monitoring-metric-alerts-logs.md).
@@ -35,7 +35,7 @@ Yeni uyarıları ile desteklenen Azure İzleyici ölçüm kaynağı tam listesi 
 |Microsoft.ApiManagement/service     | Evet        | [API Management](monitoring-supported-metrics.md#microsoftapimanagementservice)|
 |Microsoft.Automation/automationAccounts     |     Evet   | [Otomasyon hesapları](monitoring-supported-metrics.md#microsoftautomationautomationaccounts)|
 |Microsoft.Batch/batchAccounts | Yok| [Batch hesapları](monitoring-supported-metrics.md#microsoftbatchbatchaccounts)|
-|Microsoft.Cache/Redis     |    Yok     |[Azure önbelleği için Redis](monitoring-supported-metrics.md#microsoftcacheredis)|
+|Microsoft.Cache/Redis     |    Yok     |[Redis için Azure Önbelleği](monitoring-supported-metrics.md#microsoftcacheredis)|
 |Microsoft.CognitiveServices/accounts     |    Yok     | [Bilişsel Hizmetler](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
 |Microsoft.Compute/virtualMachines     |    Yok     | [Sanal Makineler](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
 |Microsoft.Compute/virtualMachineScaleSets     |   Yok      |[Sanal makine ölçek kümeleri](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
@@ -48,7 +48,7 @@ Yeni uyarıları ile desteklenen Azure İzleyici ölçüm kaynağı tam listesi 
 |Microsoft.EventHub/namespaces     |  Evet      |[Event Hubs](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
 |Microsoft.KeyVault/vaults| Hayır | [kasaları](monitoring-supported-metrics.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows     |     Yok    |[Logic Apps](monitoring-supported-metrics.md#microsoftlogicworkflows) |
-|Microsoft.Network/applicationGateways     |    Yok     | [Uygulama ağ geçitleri](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
+|Microsoft.Network/applicationGateways     |    Yok     | [Uygulama Ağ Geçitleri](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
 |Microsoft.Network/expressRouteCircuits | Yok |  [Express route bağlantı hatları](monitoring-supported-metrics.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft.Network/dnsZones | Yok| [DNS bölgeleri](monitoring-supported-metrics.md#microsoftnetworkdnszones) |
 |Microsoft.Network/loadBalancers (yalnızca standart SKU'lar için)| Evet| [Yük Dengeleyiciler](monitoring-supported-metrics.md#microsoftnetworkloadbalancers) |
@@ -69,7 +69,7 @@ Yeni uyarıları ile desteklenen Azure İzleyici ölçüm kaynağı tam listesi 
 
 ## <a name="payload-schema"></a>Yükü şeması
 
-Yeni ölçüm uyarılarının uygun şekilde yapılandırılmış, neredeyse tüm aşağıdaki JSON yükü ve şema gönderme işlemini içeren [eylem grubu](monitoring-action-groups.md) kullanılır:
+Yeni ölçüm uyarılarının uygun şekilde yapılandırılmış, neredeyse tüm aşağıdaki JSON yükü ve şema gönderme işlemini içeren [eylem grubu](../azure-monitor/platform/action-groups.md) kullanılır:
 
 ```json
 {"schemaId":"AzureMonitorMetricAlert","data":
@@ -122,5 +122,5 @@ Yeni ölçüm uyarılarının uygun şekilde yapılandırılmış, neredeyse tü
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Yeni hakkında daha fazla bilgi [uyarı deneyimi](monitoring-overview-alerts.md).
-* Hakkında bilgi edinin [günlük uyarıları Azure'da](monitor-alerts-unified-log.md).
+* Hakkında bilgi edinin [günlük uyarıları Azure'da](../azure-monitor/platform/alerts-unified-log.md).
 * Hakkında bilgi edinin [azure'daki uyarıları](monitoring-overview-alerts.md).

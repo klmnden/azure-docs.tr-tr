@@ -1,7 +1,7 @@
 ---
-title: 'Hızlı Başlangıç: Python ile arama gerçekleştirme - Bing Web Araması API’si'
+title: "Hızlı Başlangıç: Python - Bing Web araması API'si ile bir arama yapın"
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, Python kullanarak ilk Bing Web Araması API'si çağrınızı yapmayı ve bir JSON yanıtı almayı öğreneceksiniz.
+description: Bu hızlı başlangıçta Python kullanarak Bing Web araması REST API'si için istekleri göndermek için kullanın ve bir JSON yanıtı alırsınız.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: 0f6f3991e01e4eb6919d958002ef6230a2570dbe
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 4c42461c31e821128c8aa583b5620c1274a9e955
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309466"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260064"
 ---
-# <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Hızlı Başlangıç: Bing Web Araması API’sini çağırmak için Python kullanma  
+# <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Hızlı Başlangıç: Bing Web araması API'si çağırmak için Python kullanma  
 **Arama** altından bir [Bilişsel Hizmetler erişim anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın.  Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 10 dakikadan daha kısa bir sürede ilk Bing Web Araması API'si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın.  
@@ -80,7 +81,7 @@ rows = "\n".join(["""<tr>
 HTML("<table>{0}</table>".format(rows))
 ```
 
-## <a name="sample-code-on-github"></a>GitHub'da örnek kod
+## <a name="sample-code-on-github"></a>GitHub üzerinde örnek kod
 
 Bu kodu yerel ortamda çalıştırmak isterseniz [GitHub'da örneğin tamamına ulaşabilirsiniz](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingWebSearchv7.js).
 

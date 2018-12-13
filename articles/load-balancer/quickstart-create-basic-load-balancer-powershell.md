@@ -1,11 +1,11 @@
 ---
-title: 'Hızlı Başlangıç: Temel Yük Dengeleyici oluşturma - Azure PowerShell | Microsoft Docs'
+title: 'Hızlı Başlangıç: Temel yük dengeleyici - Azure PowerShell oluşturma'
+titlesuffix: Azure Load Balancer
 description: Bu hızlı başlangıçta, PowerShell kullanarak bir Temel Yük Dengeleyicinin nasıl oluşturulacağı gösterilmektedir
 services: load-balancer
 documentationcenter: na
 author: KumudD
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
-ms:custom: mvc
-ms.openlocfilehash: c21d5618b3e3223297ddd97dc5c98e5eb8c18c0b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms:custom: seodec18
+ms.openlocfilehash: 5d76a1ac58606df82fc7e25dc8071d91da8298f5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974827"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261033"
 ---
-# <a name="get-started"></a>Hızlı Başlangıç: Azure PowerShell kullanarak genel yük dengeleyici oluşturma
+# <a name="get-started"></a>Hızlı Başlangıç: Azure PowerShell kullanarak bir genel yük dengeleyici oluşturma
 Bu hızlı başlangıçta, Azure PowerShell kullanarak Temel Yük Dengeleyici oluşturma işlemi gösterilmektedir. Yük dengeleyiciyi test etmek için, Windows sunucusu çalıştıran iki sanal makine (VM) dağıtın ve sanal makineler arasında bir web uygulamasının yük dengelemesini yapın.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]

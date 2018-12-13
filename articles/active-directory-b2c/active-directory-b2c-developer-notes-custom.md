@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 31ca79976ec2ecf2755b975749e9c9150c4a49e8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ea884f6fecc1e8a0de1f6a0f8a4daafcdf612e9f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441082"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272720"
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Azure Active Directory B2C özel ilke genel önizlemesi için sürüm notları
 Özel ilke özellik kümesi değerlendirme altındaki tüm Azure Active Directory B2C genel Önizleme için kullanıma sunulmuştur (Azure AD B2C) müşteriler. Bu özellik kümesi, Gelişmiş kimlik geliştiricileri en karmaşık kimlik çözümleri oluşturmaya yöneliktir.  
@@ -25,16 +25,15 @@ Günümüzde, bu özellik kümesi yapılandırma XML dosyasını düzenleyerek a
 ## <a name="features-included-in-this-public-preview"></a>Bu genel Önizleme aşamasında bulunan özellikleri
 Genel önizlemede kullanıma sunulan yeni özelliklerle geliştiriciler aşağıdaki görevleri gerçekleştirebilirsiniz:<br>
 
-* Özel ilkeler kullanarak yazar ve karşıya yükleme özel kimlik doğrulama kullanıcı yolculuklarından. 
+* Yazar ve özel kimlik doğrulama kullanıcı yolculuklarından özel ilkeler kullanarak yükleyin. 
    * Kullanıcı yolculuklarından değişimleri adım adım talep sağlayıcıları arasında açıklanmaktadır. 
-   * Koşullu dallanmayı içinde kullanıcı yolculuklarından tanımlayın. 
-* Kendi özel kimlik doğrulama kullanıcı yolculuklarından Hizmetleri REST API özellikli tümleştirin.  
+   * Koşullu dallanmayı içinde kullanıcı yolculuklarından tanımlayın. * Kendi özel kimlik doğrulama kullanıcı yolculuklarından Hizmetleri REST API özellikli tümleştirin.  
 * Standart Openıdconnect ile uyumlu olan kimlik sağlayıcıları ile Federasyon ekleyin. <br>
 * Federasyon için SAML 2.0 protokolünü kullanan kimlik sağlayıcıları ile ekleyin. 
 
 ## <a name="terms-of-the-public-preview"></a>Genel Önizleme koşulları
 
-* Yalnızca değerlendirme amacıyla yeni özelliklerin kullanmanızı öneririz.<br>
+* Yalnızca değerlendirme amacıyla yeni özellikleri kullanmak öneririz.<br>
 * Yeni özellikler, bir üretim ortamında kullanılması amaçlanmamıştır.<br>
 * Hizmet düzeyi sözleşmeleri (SLA'lar) yeni özellikleri için geçerli değildir. <br>
 * Destek istekleri normal destek kanalları Dosyalanan. <br>
@@ -42,7 +41,7 @@ Genel önizlemede kullanıma sunulan yeni özelliklerle geliştiriciler aşağı
 * Takdirimize ve herhangi bir nedenle, Microsoft bayrak ve reddedecek veya senaryoları ve Azure AD B2C ürün verdiğimiz bir müşteri kimliği ve erişim yönetimi (CIAM) platformu olarak görev yapacak kapsamını aşan kullanıcı yolculuklarından kısıtlama.
 
 ## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>Özel ilke özellik kümesini geliştiricilerin sorumlulukları
-El ile ilke yapılandırması, temel alınan platformu Azure AD B2C'in alt düzey erişim verir ve benzersiz, tamamen özelleştirilebilir güven framework'ün oluşturulmasında sonuçlanır. Özel kimlik sağlayıcıları, güven ilişkilerini olası permütasyon ile dış hizmetler ve adım adım iş akışı tümleştirmeleri büyük taleplerini bunları kullanan gelişmiş geliştiriciler yerleştirin.
+El ile ilke yapılandırması, temel alınan platformu Azure AD B2C'in alt düzey erişim verir ve benzersiz, tamamen özelleştirilebilir güven framework'ün oluşturulmasında sonuçlanır. Özel kimlik sağlayıcıları, güven ilişkilerini olası permütasyon ile dış hizmetler ve adım adım iş akışı tümleştirmeleri büyük taleplerini bunları kullanan gelişmiş geliştiriciler yerleştirin.
 
 Genel Önizleme tam olarak yararlanmak için özel ilke özellik kümesi kullanan geliştiriciler'ın aşağıdaki yönergelere uyunuz öneririz:
 * Kimlik deneyimi çerçevesi ve anahtar/gizli yönetimi yapılandırma dili ile Windows'un öğrenin.
@@ -52,7 +51,7 @@ Genel Önizleme tam olarak yararlanmak için özel ilke özellik kümesi kullana
 * Kimlik sağlayıcıları ve Hizmetleri ile tümleştirme yeni gelişmeler hakkında bilgi sahibi olmak. Örneğin, gizli dizileri ve zamanlanmış hem de zamanlanmamış değişikliklerin hizmetine değişiklikleri takip edin.
 * Etkin izleme işlevini ayarlama ve üretim ortamlarında yanıt verme hızını izleyin.
 * İlgili kişi e-posta adreslerini Azure aboneliğinde güncel kalmasını sağlayın ve Microsoft Canlı site takım e-postaları yanıt vermeye devam edebilir.
-* Microsoft Canlı site ekibi tarafından Bunu yapmak için önerilir, zamanında gerekeni yapın. 
+* Microsoft Canlı site ekibi tarafından Bunu yapmak için önerilir, zamanında gerekeni yapın. 
 
 ## <a name="features-by-stage-and-known-issues"></a>Aşama ve bilinen sorunlar göre Özellikler
 Özel ilke/kimlik deneyimi çerçevesi yetenekler, sabit ve hızlı geliştirilme aşamasındadır.  Bu tablo, Özellikler/bileşen kullanılabilirliği dizinidir.
@@ -100,7 +99,7 @@ Dış bileşenler ve uygulamalar ile arabirimi
 |   Yerel hesap oturum açma api.localaccountsignin |  | x |  |  |
 |   Yerel hesap kaydolma, api.localaccountsignup |  | x |  |  |
 |   MFA sayfası, api.phonefactor |  | x |  |  |
-|   Kendi kendine onaylanan-örneğin sosyal hesap sig büyütme api.selfasserted |  | x |  |  |
+|   Kendi kendine onaylanan-örneğin sosyal hesap kaydolma, api.selfasserted |  | x |  |  |
 |   Profil güncelleştirmesi, kendi kendine onaylanan api.selfasserted.profileupdate |  | x |  |  |
 |   Birleşik kaydolma veya oturum açma sayfası, api.signuporsignin |  | x |  |  |
 

@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: cd9b0a117439f603e4820cb2dec2984aa2d68e73
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a711b80471da0677c5e2d0dd0ee5e371e5a16f75
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074342"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268658"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile büyük veri kümelerinde toplu Öngörüler çalıştırma
 
@@ -31,7 +31,7 @@ Aşağıdaki adımlarda, oluşturacağınız bir [makine öğrenimi işlem hatt�
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Bir Azure aboneliğine sahip olmanız gerekir. Azure aboneliğiniz yoksa başlamadan önce  [ücretsiz bir hesap](https://aka.ms/AMLfree)  oluşturun.
+- Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
 
 - Azure Machine Learning SDK'sını yüklemek için geliştirme ortamınızı yapılandırın. Daha fazla bilgi için [bir geliştirme ortamı yapılandırmak için Azure Machine Learning](how-to-configure-environment.md).
 

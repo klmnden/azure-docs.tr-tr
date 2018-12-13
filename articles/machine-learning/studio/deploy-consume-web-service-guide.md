@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a596fe572e31a330fa976470d31dc7d0de5b0398
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ed57f80a210cdb9c7ff8e77da2269d8494892fcc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073746"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268436"
 ---
-# <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Azure Machine Learning Web Hizmetleri: Dağıtım ve kullanım
+# <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio Web Hizmetleri: Dağıtım ve kullanım
 Machine learning iş akışları ve Modellerinizi web Hizmetleri olarak dağıtmak için Azure Machine Learning'ı kullanabilirsiniz. Bu web Hizmetleri, ardından, makine öğrenme modellerini uygulamalardan gerçek zamanlı olarak veya toplu iş modunda tahminleri yapmak için Internet üzerinden çağırmak için de kullanılabilir. RESTful web hizmetleri olduğu için bunları çeşitli programlama dilleri ve platformları, .NET ve Java gibi ve Excel gibi uygulamaları çağırabilirsiniz.
 
 Sonraki bölümlerde, kılavuzlar, kod ve başlamanıza yardımcı olan belgeler için bağlantılar sağlar.
@@ -37,7 +36,7 @@ Aşağıdaki bağlantılar, yeni bir web hizmeti dağıtma hakkında genel bilgi
 
 * Azure Resource Manager'a bağlı yeni bir web hizmeti dağıtma hakkında genel bir bakış için bkz. [yeni bir web hizmetini dağıtma](publish-a-machine-learning-web-service.md).
 * Bir web hizmeti dağıtma hakkında kılavuz için bkz. [bir Azure Machine Learning web hizmetini dağıtma](publish-a-machine-learning-web-service.md).
-* Bir web hizmeti oluşturma ve dağıtma konusunda tam bir kılavuz için bkz: [1. adım izlenecek yol: bir Machine Learning çalışma alanı oluşturma](walkthrough-1-create-ml-workspace.md).
+* Bir web hizmeti oluşturma ve dağıtma konusunda tam bir kılavuz için bkz: [1. adım izlenecek yol: Machine Learning çalışma alanı oluşturma](walkthrough-1-create-ml-workspace.md).
 * Bir web hizmetini dağıtma belirli örnekler için bkz:
 
   * [Kılavuz adımı 5: Azure Machine Learning web hizmetini dağıtma](walkthrough-5-publish-web-service.md)

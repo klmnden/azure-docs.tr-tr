@@ -1,6 +1,6 @@
 ---
-title: Azure Container Instances’a genel bakış
-description: Azure Container Instances’ı Anlama
+title: Azure Container Instances nedir?
+description: Azure Container Instances hizmetinin sanal makineleri yönetmenize gerek kalmadan ve daha üst düzey bir orchestrator benimsemek zorunda kalmadan Azure'da yalıtılmış kapsayıcıları çalıştırmak en hızlı ve en kolay yoludur.
 services: container-instances
 author: seanmck
 manager: jeconnoc
@@ -8,15 +8,15 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 11/30/2018
 ms.author: seanmck
-ms.custom: mvc
-ms.openlocfilehash: b5f97dac202edd5405c51b75581275166042ac38
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18, mvc
+ms.openlocfilehash: ba454965ff2bb78ebe526e71d9280200b1f4b08b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841464"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187203"
 ---
-# <a name="azure-container-instances"></a>Azure Container Instances
+# <a name="what-is-azure-container-instances"></a>Azure Container Instances nedir?
 
 Bulut uygulamalarını paketlemek, dağıtmak ve yönetmek için kapsayıcılar her geçen gün daha fazla tercih edilmektedir. Azure Container Instances, herhangi bir sanal makineyi yönetmek ve daha yüksek düzeyde bir hizmeti benimsemek zorunda kalmadan Azure içinde kapsayıcı çalıştırmanızın en hızlı ve en kolay yoludur.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: de29c24556522abeaff8d942edc027c7444c3ed3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bbdacd6947c897d3b137b427c3e4c316869fa401
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965048"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193204"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS ölçümleri ve Uyarıları
 Azure DNS, Microsoft Azure altyapısı kullanılarak ad çözümlemesi sağlayan bir barındırma DNS etki alanları için hizmetidir. Bu makalede, Ölçümler ve Uyarılar için Azure DNS hizmeti açıklanır.
@@ -62,7 +62,7 @@ Bu ölçümler için boyut parçalı düzeyde DNS bölgesidir.
 *Şekil: Azure DNS kayıt kümesi kapasite kullanım ölçümleri*
 
 ## <a name="alerts-in-azure-dns"></a>Azure DNS içindeki uyarılar
-Azure İzleyici uyarı kullanılabilir ölçüm değerleri karşı yeteneği sağlar. DNS ölçümleri yeni uyarı yapılandırma deneyiminde kullanılabilir. Ayrıntılı olarak açıklandığı gibi [Azure İzleyici uyarılarına belgeleri](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md), DNS bölgesi kaynağı seçin, ölçüm sinyal türü seçin ve uyarı mantığının ve diğer parametreleri gibi yapılandırma **süresi**ve **sıklığı**. Daha fazla tanımlayabilirsiniz bir [eylem grubu](../monitoring-and-diagnostics/monitoring-action-groups.md) uyarı seçtiğiniz eylemleri teslim edilecek gerçekleştirilmesine için ne zaman Uyarı koşulu, karşılanır. Azure İzleyici ölçümleri için uyarı yapılandırma hakkında daha fazla bilgi için bkz. [oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Uyarıları yönetme](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
+Azure İzleyici uyarı kullanılabilir ölçüm değerleri karşı yeteneği sağlar. DNS ölçümleri yeni uyarı yapılandırma deneyiminde kullanılabilir. Ayrıntılı olarak açıklandığı gibi [Azure İzleyici uyarılarına belgeleri](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md), DNS bölgesi kaynağı seçin, ölçüm sinyal türü seçin ve uyarı mantığının ve diğer parametreleri gibi yapılandırma **süresi**ve **sıklığı**. Daha fazla tanımlayabilirsiniz bir [eylem grubu](../azure-monitor/platform/action-groups.md) uyarı seçtiğiniz eylemleri teslim edilecek gerçekleştirilmesine için ne zaman Uyarı koşulu, karşılanır. Azure İzleyici ölçümleri için uyarı yapılandırma hakkında daha fazla bilgi için bkz. [oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Uyarıları yönetme](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Daha fazla bilgi edinin [Azure DNS](dns-overview.md).

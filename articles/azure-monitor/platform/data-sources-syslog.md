@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: c5fe310e4ba491180b9905ee7e4c80cf814eb9ef
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c47f96a91d312eea1748b00e4272a7c9a11d5c1e
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106303"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186642"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Syslog Log analytics'te veri kaynakları
 Syslog Linux için ortak olan olay günlüğü protokolüdür.  Uygulamaları, yerel makinede depolanan veya bir Syslog Toplayıcıya teslim olabilir iletileri gönderir.  Linux için OMS aracısı yüklü olduğunda, aracıya ileti iletmek için yerel Syslog daemon'u yapılandırır.  Aracı bu durumda OMS deposunda karşılık gelen bir kaydın oluşturulduğu Log Analytics ileti gönderir.  

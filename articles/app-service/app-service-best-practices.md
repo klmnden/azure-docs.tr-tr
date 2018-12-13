@@ -1,5 +1,5 @@
 ---
-title: Azure Uygulama Hizmeti için En İyi Uygulamalar
+title: En iyi uygulamalar - Azure uygulama hizmeti
 description: En iyi yöntemler ve sorun giderme için Azure App Service'ı öğrenin.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: ff79680c00a394790ba56db9ab4b237f06c677e5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 0a3570e8907369d5cefc1197eef60d682659d0ed
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240639"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261832"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Azure Uygulama Hizmeti için En İyi Uygulamalar
 Bu makalede kullanmak için en iyi uygulamalar özetlenmektedir [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -38,7 +39,7 @@ Belirtilen izleme veya hizmet önerileri, bir uygulama olarak beklenenden daha f
 ## <a name="CPUresources"></a>Ne zaman beklenenden daha fazla CPU uygulamalarını kullanma
 Fark, uygulama beklenenden daha fazla CPU kullanan veya artırma veya azaltma App Service planı kullanıma deneyimleri yinelenen CPU'daki ani değişikliklerin izleme veya hizmet önerileri belirtildiği gibi düşünün. Uygulamanızı durum bilgisi olan, uygulamanız varsa durum bilgisi olmayan, ölçeklendirme çıkış size daha fazla esneklik ve daha yüksek ölçek olası getirirken büyütme tek seçenek ise. 
 
-"Durum bilgisi olan" vs "durum bilgisi olmayan" uygulamalar hakkında daha fazla bilgi için bu videoyu izleyebilirsiniz: [ölçeklenebilir uçtan uca çok katmanlı bir uygulama, Microsoft Azure Web uygulaması üzerinde planlama](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). App Service, ölçeklendirme ve otomatik ölçeklendirme seçenekleri hakkında daha fazla bilgi için bkz. [Web uygulamasını Azure App Service'te ölçeklendirme](web-sites-scale.md).  
+"Durum bilgisi olan" vs "durum bilgisi olmayan" uygulamalar hakkında daha fazla bilgi için bu videoyu izleyebilirsiniz: [Microsoft Azure Web App üzerinde ölçeklenebilir uçtan uca çok katmanlı uygulaması planlama](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). App Service, ölçeklendirme ve otomatik ölçeklendirme seçenekleri hakkında daha fazla bilgi için bkz. [Web uygulamasını Azure App Service'te ölçeklendirme](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Ne zaman yuva kaynakları tükendi
 Tükettiğini giden TCP bağlantılarına yaygın bir nedeni, istemci kitaplıklarının hangi TCP bağlantılarını yeniden uygulanmadı veya HTTP - tutma gibi daha üst düzey bir protokol değil kullanıldığında kullanılır. App Service yapılandırılmış veya verimli kullanılmasını giden bağlantılar için kodunuza erişir emin olmak için planınızı uygulamalar tarafından başvurulan kitaplıkların her birinde belgelerini gözden geçirin. Ayrıca uygun oluşturma ve yayın veya bağlantıları sızdırılmasını önlemek için temizleme kitaplığı belgeleri yönergeleri izleyin. Bu istemci kitaplıklarını araştırmalar devam ederken, etkisi birden fazla örneğe ölçek genişletilerek azaltılması.

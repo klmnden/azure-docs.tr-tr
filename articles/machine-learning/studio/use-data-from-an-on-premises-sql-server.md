@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 08e4610d-02b6-4071-aad7-a2340ad8e2ea
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: 059dd3d902409abfa80be2b7aac579a54de1868f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: dccea7c5d7967af2e81ab4728704a5a104a007b5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090679"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269300"
 ---
-# <a name="perform-analytics-with-azure-machine-learning-using-an-on-premises-sql-server-database"></a>Azure Machine Learning kullanarak bir şirket içi SQL Server veritabanı analizler gerçekleştirin
+# <a name="perform-analytics-with-azure-machine-learning-studio-using-an-on-premises-sql-server-database"></a>Azure Machine Learning kullanarak bir şirket içi SQL Server veritabanı Studio ile analizler gerçekleştirin
 
 Genellikle şirket içi verilerle çalışacak kuruluşların avantajı ölçek ve makine öğrenimi iş yükleri için bulutun çevikliğinden yapmak istiyorsunuz. Ancak, geçerli iş süreçleri ve iş akışları, şirket içi verileri buluta taşıyarak kesintiye istemiyorsanız. Azure Machine Learning artık bir şirket içi SQL Server veritabanından veri okumak ve ardından eğitim ve bu verilerle bir model Puanlama destekler. Artık bu el ile kopyalayın ve Bulut ve şirket içi sunucunuz arasında veri eşitlemeyi gerekmez. Bunun yerine, **verileri içeri aktarma** , eğitim ve puanlama işleri için modülü Azure Machine Learning Studio'da doğrudan, şirket içi SQL Server veritabanından artık bkz.
 
@@ -36,7 +35,7 @@ Bu makalede nasıl giriş yapılır genel bir bakış SQL server verilerini Azur
 
 <!-- -->
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="install-the-data-factory-self-hosted-integration-runtime"></a>Data Factory şirket içinde barındırılan Integration Runtime'ı yükleme
 Azure Machine learning'de bir şirket içi SQL Server veritabanına erişmek için Data Factory şirket içinde barındırılan Integration önceki adıyla veri yönetimi ağ geçidi Runtime, karşıdan yüklenip kurulacak gerekir. Machine Learning Studio'da bağlantıyı yapılandırın, indirin ve Integration Runtime (IR) kullanarak yüklemek için fırsatına sahip **yükleme ve kayıt veri ağ geçidi** aşağıda açıklanan iletişim.
@@ -79,7 +78,7 @@ Bu kılavuzda, bir Azure Machine Learning çalışma alanında bir Azure Data Fa
 > [!NOTE]
 > Azure Data Factory şirket içinde barındırılan Integration Runtime, daha önce veri yönetimi ağ geçidi biliniyordu. Adım adım öğretici için bir ağ geçidi olarak başvurmaya devam edecek.  
 
-### <a name="step-1-create-a-gateway"></a>1. adım: bir ağ geçidi oluşturma
+### <a name="step-1-create-a-gateway"></a>1. Adım: Bir ağ geçidi oluşturma
 İlk adım, oluşturmak ve şirket içi SQL veritabanınıza erişmek için ağ geçidi ayarlama sağlamaktır.
 
 1. Oturum [Azure Machine Learning Studio](https://studio.azureml.net/Home/) ve çalışmak istediğiniz çalışma alanını seçin.
@@ -126,7 +125,7 @@ Artık, şirket içi verileri kullanmaya hazırsınız.
 
 Oluşturun ve her çalışma alanı için birden çok ağ geçidi Studio'da ayarlayın. Örneğin, geliştirme sırasında test veri kaynaklarınıza bağlanmak istediğiniz bir ağ geçidi farklı bir ağ geçidi olarak da, üretim veri kaynakları için sahip olabilir. Azure Machine Learning, birden çok ağ geçidi üzerinde Şirket ortamınıza bağlı olarak ayarlamak için esneklik sağlar. Şu anda çalışma alanları arasında bir ağ geçidi paylaşamaz ve yalnızca bir ağ geçidi tek bir bilgisayara yüklenebilir. Daha fazla bilgi için [şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma](../../data-factory/tutorial-hybrid-copy-portal.md).
 
-### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>2. adım: ağ geçidini bir şirket içi veri kaynağından verileri okumak için kullanın.
+### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>2. Adım: Bir şirket içi veri kaynağından verileri okumak için ağ geçidi kullanma
 Ağ geçidini ayarlamadan ayarladıktan sonra ekleyebileceğiniz bir **verileri içeri aktarma** şirket içi SQL Server veritabanındaki verileri girdi bir denemeyi modülü.
 
 1. Machine Learning Studio'da seçin **DENEMELERİ** sekmesinde **+ yeni** seçin ve sol alt köşesinde **boş deneme** (veya birden çok örnek birini seçin denemeleri kullanılabilir).

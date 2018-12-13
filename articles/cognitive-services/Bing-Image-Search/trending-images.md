@@ -1,7 +1,7 @@
 ---
-title: Popüler resimler - Bing resim arama API'si için Web'de arama
+title: Bing resim arama API'si ile popüler resimlerden Al
 titleSuffix: Azure Cognitive Services
-description: Bing resim arama API'si, Web'de popüler resimler için arama yapmak için kullanmayı öğrenin.
+description: Günümüzde Bing resim arama API'si ile web yanından popüler resimler için arama yapın.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 00d992da1d061ddbbee59e93898a92b6701f1ffb
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: seodec2018
+ms.openlocfilehash: 8d58c188275dc6b546d418b51835514c99f25d28
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296320"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258977"
 ---
-# <a name="get-trending-images-from-the-bing-image-search-api"></a>Bing resim arama API'si popüler resimlerden Al
+# <a name="get-trending-images-from-the-web"></a>Popüler resimler Web'den Al
 
 Günümüzün popüler resimlerden almak için aşağıdaki GET isteği gönder:  
 

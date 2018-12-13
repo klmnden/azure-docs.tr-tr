@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 938472edf0c82da6f3e1fdaf4e6b052ac178bd8a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: d784941c43da13a2c1bd120599aa02fe14e5a5b4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722982"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258211"
 ---
 <a name="logic-app-test-drive"></a>Mantıksal uygulamayı Test Sürüşü
 ====================
@@ -29,7 +29,7 @@ Bu makalede, Appsource'ta teklifini sahip ve Dynamics AX/CRM örneğinde veya ya
 <a name="how-to-build-a-logic-app-test-drive"></a>Mantıksal uygulamayı Test Sürüşü oluşturma
 -----------------------------------
 
-Mantıksal uygulamayı Test Sürüşleri şu an için github üzerindeki hala için sürücü belgeleri test [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) ve [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app)gidin daha fazla bilgi için vardır.
+Mantıksal uygulamayı Test Sürüşleri şu an için GitHub üzerindeki hala için sürücü belgeleri test [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) ve [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app)gidin daha fazla bilgi için vardır.
 
 <a name="how-to-publish-a-test-drive"></a>Bir Test sürüşüne yayımlama
 ---------------------------
@@ -40,7 +40,7 @@ Oluşturulan Test Sürüşünüz olduğuna göre bu bölümde, başarılı bir �
 
 İlk ve en önemli alan Test formun tüm gerekli alanları doldurun, sunulur isteyip istemediğinizi geçiş yapmak için kullanılır. Seçtiğinizde, **Hayır** form devre dışı kalır ve devre dışı Test Sürüşü ile yeniden yayımlarsanız, Test Sürüşünüz üretimden kaldırılır.
 
-*Not*: etkin bir şekilde kullanıcı tarafından kullanılan tüm Test Sürüşleri varsa, bu Test Sürüşleri oturumun süresi dolana kadar çalışmaya devam eder.
+*Not*: Etkin kullanıcılar tarafından kullanılan tüm Test Sürüşlerine yoktur, bu Test Sürüşleri oturumun süresi dolana kadar çalışmaya devam eder.
 
 ### <a name="details"></a>Ayrıntılar
 
@@ -70,11 +70,11 @@ Burada Test sürücü mantıksal Uygulamanızı yapılandırmak ve nasıl özell
 
 - **Bölge** - *[Field gerekli]* seçtiğiniz Burada, sürücü mantıksal uygulamayı test etme kaynaklarınızın dağıtıldığı çekme bölgedir.
 
-    *Not:* mantıksal uygulamanızın bir bölgede depolanır tüm özel kaynaklar varsa, bu bölgeye burada seçildiğinden emin olun. Bunu yapmak için en iyi yolu **tamamen mantıksal uygulamanızı yerel olarak Şirket portalı, Azure aboneliğinize dağıtmak ve çalışır durumda olduğunu doğrulayın** burada yazmadan önce.
+    *Not:* Mantıksal uygulamanızı bir bölgede depolanır tüm özel kaynaklar varsa, bu bölgeye burada seçili olduğundan emin olun. Bunu yapmak için en iyi yolu **tamamen mantıksal uygulamanızı yerel olarak Şirket portalı, Azure aboneliğinize dağıtmak ve çalışır durumda olduğunu doğrulayın** burada yazmadan önce.
 
 - **En fazla eş zamanlı Test Sürüşleri** - *[Field gerekli]* dağıtılan ve bekleniyor zaten olan sayı, Test Sürüşü yapmasını örneklere erişmek seçili bölge başına. Müşteriler, bir dağıtım için beklemek zorunda yerine bu Test Sürüşleri anında erişebilirsiniz.
 
-    *Not:* tüm, N Öğrenci sayısını içeren bir Test sürüşü için istediğiniz bir Web Semineri/class çalıştırıyorsanız, yayımlama önerilir N sık erişimli örnekleri ve sonra bir kez ile sınıfı üzerinde yeniden yayımlamanız için sık erişimli örnekleri normal sayısı geri sayısıdır.
+    *Not:* Tüm, N Öğrenci sayısını içeren bir Test sürüşü için istediğiniz bir Web Semineri/class çalıştırıyorsanız, yayımlama önerilir N sık erişimli örnekleri ve sonra bir kez ile sınıfı üzerinde yeniden yayımlamanız için sık erişimli örnekleri normal sayısı geri sayısıdır.
 
 - **Test sürücü süresi (saat) -** *[Field gerekli]* ne kadar Test Sürüşü içinde etkin kalacak süre \# saat. Bu süre sona erdikten sonra Test Sürüşü otomatik olarak sona erer.
 

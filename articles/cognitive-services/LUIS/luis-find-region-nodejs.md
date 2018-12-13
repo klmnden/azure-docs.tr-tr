@@ -1,7 +1,7 @@
 ---
 title: Uç nokta bölgesi, Node.js
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Bulma uç noktası anahtarı ve uygulama ile bölgeye yayımlama program aracılığıyla LUIS kimliği.
+description: Node.js ile Bul yayımlama uç noktası anahtarı ve uygulama ile bölgeye LUIS kimliği.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 3785608da690da4cd1c10fb9305df7f7a79dd4dd
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 6bcea43fb21cae6f000f3522b498dfc6c0f6d9a7
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017500"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166226"
 ---
 # <a name="find-endpoint-region-with-nodejs"></a>Node.js ile uç nokta bölgesi bulma
 LUIS uygulama kimliği ve LUIS abonelik kimliği varsa, hangi bölge için uç nokta sorgular bulabilirsiniz.
 
 > [!NOTE] 
-> Node.js çözümünün tamamı [**LUIS-Samples** Github deposunda](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/nodejs/) mevcuttur.
+> Eksiksiz Node.js çözümünü kullanılabilir [ **LUIS-Samples** GitHub deposu](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/nodejs/).
 
 ## <a name="luis-endpoint-query-strategy"></a>LUIS uç nokta sorgu stratejisi
 Her LUIS uç nokta sorgu gerektirir:

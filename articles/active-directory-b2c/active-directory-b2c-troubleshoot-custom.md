@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e4b33552c4b070164b55a84f1d8586422aced2f8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c733c148994b06e6d7cd13ee98e1a8157f26010a
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446682"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163186"
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Günlükleri toplama
 
@@ -29,7 +29,7 @@ Bu makalede, böylece özel ilkeleriniz ile sorunları tanılamak günlükleri A
 
 Azure AD B2C'yi, Application Insights'a veri göndermek için bir özelliği destekler.  Application Insights özel durumları tanılama ve uygulama performası sorunlarını görselleştirmek için bir yol sağlar.
 
-### <a name="setup-application-insights"></a>Application Insights'ı kurma
+### <a name="setup-application-insights"></a>Application Insights Kurulumu
 
 1. [Azure Portal](https://portal.azure.com) gidin. Kiracıda (Azure AD B2C kiracınızı değil) Azure aboneliğinizle olduğundan emin olun.
 1. Tıklayın **+ yeni** sol taraftaki gezinti menüsünde.
@@ -108,7 +108,7 @@ Uygulama anlayışları'ndan olayları okur Görüntüleyicisi sürümünü bulu
 >[!NOTE]
 >Burada açıklanan ayrıntılı etkinlik günlükleri şu anda tasarlanmıştır **yalnızca** özel ilkeler geliştirmede yardımcı olacak. Geliştirme modunda, üretim ortamında kullanmayın.  Geliştirme sırasında gönderilen ve kimlik sağlayıcılardan gelen tüm talepler günlükleri toplayın.  Üretim ortamında kullandıysanız, PII (özel olarak tanımlanabilir bilgiler) sahip oldukları App Insights günlüğünde toplanan sorumluluğunu Geliştirici varsayar.  Şirket ilkesi yerleştirildiğinde bu ayrıntılı günlükleri yalnızca toplanır **geliştirme modu**.
 
-[Desteklenmeyen özel ilkesi örnekleri ve ilgili araçlar için Github deposu](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
+[Desteklenmeyen özel ilkesi örnekleri ve ilgili araçlar için GitHub deposu](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
 
 
 

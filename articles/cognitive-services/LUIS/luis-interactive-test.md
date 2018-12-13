@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 91df6add3a3c0a94984804b3d3bae769cc262a39
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 836449dad621cf6a0efe6c8534edc9f3982869b3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105963"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141586"
 ---
-# <a name="test-your-luis-app"></a>LUIS uygulamanızı test edin
+# <a name="test-your-luis-app-in-the-luis-portal"></a>LUIS uygulamanızı LUIS portalında test etme
 <a name="train-your-app"></a>
 [Test](luis-concept-test.md) uygulama yinelemeli bir işlemdir. LUIS uygulamanızı eğitim sonra bu amaç ve varlıkları doğru tanınır olmadığını görmek için örnek Konuşma ile test edin. Değilseniz, güncelleştirmeleri LUIS uygulaması, eğitin ve test için yeniden yapın. 
 

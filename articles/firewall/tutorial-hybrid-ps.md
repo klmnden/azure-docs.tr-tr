@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/27/2018
 ms.author: victorh
-ms.openlocfilehash: d69bd055c95592961216f5da1efaedc4a642fd63
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 467e8242ffeec435976f3f8fa5740908ea93d262
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316408"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260914"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Öğretici: Azure PowerShell kullanarak hibrit bir ağda Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -24,7 +24,7 @@ Bu öğreticide, üç sanal ağlar oluşturun:
 
 - **VNet-Hub** -bu sanal ağda güvenlik duvarıdır.
 - **VNet-uç** -uç sanal ağ, Azure üzerinde bulunan iş yükünü temsil eder.
-- **VNet-Onprem** -şirket içi sanal ağı şirket içi ağı temsil eder. Gerçek bir dağıtımda, VPN veya Express Route bağlantısıyla bağlanabilir. Kolaylık olması için Bu öğretici, bir VPN gateway bağlantısı kullanır ve Azure bulunan bir sanal ağ ile şirket içi ağ temsil etmek için kullanılır.
+- **VNet-Onprem** -şirket içi sanal ağı şirket içi ağı temsil eder. Gerçek bir dağıtımda bulunan bir VPN ya da Rota bağlantısı yoluyla bağlanabilir. Kolaylık olması için Bu öğretici, bir VPN gateway bağlantısı kullanır ve Azure bulunan bir sanal ağ ile şirket içi ağ temsil etmek için kullanılır.
 
 ![Hibrit ağda güvenlik duvarı](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -310,6 +310,9 @@ Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -Re
 - Güvenlik duvarı IP adresi üzerinden hub ağ geçidi alt ağından uç alt ağına giden bir yol
 - Güvenlik duvarı IP adresi üzerinden uç alt ağından gelen varsayılan yol
 
+>[!NOTE]
+>Azure güvenlik duvarı, doğrudan internet bağlantısı olması gerekir. Şirket içi ExpressRoute veya uygulama ağ geçidi aracılığıyla zorlamalı tünel etkinleştirdiyseniz, UDR 0.0.0.0/0 ile yapılandırmanız gerekiyor **NextHopType** değer kümesini olarak **Internet**, için atayın **AzureFirewallSubnet**.
+
 ```azurepowershell
 #Create a route table
 $routeTableHubSpoke = New-AzureRmRouteTable `
@@ -482,4 +485,4 @@ Güvenlik duvarı kaynaklarını bir sonraki öğretici için tutabilirsiniz vey
 Şimdi Azure Güvenlik Duvarı günlüklerini izleyebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Öğretici: Azure Güvenlik Duvarı günlüklerini izleme](./tutorial-diagnostics.md)
+> [Öğretici: Azure güvenlik duvarı günlüklerini izleyin](./tutorial-diagnostics.md)

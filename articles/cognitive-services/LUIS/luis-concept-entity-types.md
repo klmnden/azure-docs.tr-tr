@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 761b2101ed7b55de27628882778c51bc86c70ef4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f0e543263c7a9890abc485d0f0cd6bec88f16dd4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075667"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135211"
 ---
-# <a name="entities-in-luis"></a>LUIS varlıkları
+# <a name="entity-types-and-their-purposes-in-luis"></a>Varlık türleri ve bunların amacıyla LUIS
 
 Sözcükleri veya tümcecikleri anahtar verileri, uygulamanızın etki alanındaki konuşma varlıklardır.
 

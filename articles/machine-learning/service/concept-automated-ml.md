@@ -1,7 +1,7 @@
 ---
-title: Otomatik Machine Learning nedir
+title: Otomatik ML algoritması seçme ve ayarlama
 titleSuffix: Azure Machine Learning service
-description: Parametreleri ve modeliniz için en iyi algoritmayı seçin sağladığınız ölçütleri kullanarak zaman nasıl Azure Machine Learning hizmeti otomatik olarak sizin için bir algoritma seçin ve bunu kaydetmek için bir model oluşturmak öğrenin.
+description: Nasıl Azure Machine Learning hizmeti otomatik olarak sizin için bir algoritma seçme ve ondan size zaman sağlamak için ölçütleri ve parametreleri kullanarak kaydetmek için bir model oluşturmak öğrenin modeliniz için en iyi algoritmayı seçin.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8c1641c975ff235b581f784f0965caf203a9562f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 09d4ef0b6a3455728ddab0484db4c701c6764214
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53142537"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270935"
 ---
 # <a name="what-is-automated-machine-learning"></a>Nedir, makine öğrenimi otomatik?
 

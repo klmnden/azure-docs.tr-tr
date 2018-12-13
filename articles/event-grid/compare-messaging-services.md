@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 12/07/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 7e78dd77d5bd3d9e5aee55aaeffa933a21c3b477
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0eeded4e6bfe9041b360441d1e7b2a5c7dd4a099
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084966"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166532"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Azure Mesajlaşma hizmetleri arasında - Event Grid, Event Hubs ve Service Bus'ı seçin
 
@@ -34,7 +34,7 @@ Bir olayı teslim eden hizmetler ile bir iletiyi teslim eden hizmetler arasında
 
 Olay, bir koşulun veya durum değişikliğinin basit bir bildirimidir. Olayın yayımcısı, olayın nasıl işleneceğiyle ilgili bir beklentiye sahip değildir. Bildirimle ne yapılacağına, olayın tüketicisi karar verir. Olaylar, ayrık birimler veya bir dizinin parçası olabilir.
 
-Ayrık olaylar, durum değişikliğini bildirir ve eyleme dönüştürülebilir. Sonraki adımı uygulamak için tüketicinin yalnızca bir şeyler olduğunu bilmesi gerekir. Olay verileri, ne olduğuyla ilgili bilgiler içerir ancak olayı tetikleyen verileri içermez. Örneğin, bir olay, tüketicilere bir dosyanın oluşturulduğunu bildirir. Dosya hakkında genel bilgiler içerebilir ancak dosyanın kendisini içermez. Ayrık olaylar, ölçeklendirilmesi gereken sunucusuz çözümler için idealdir.
+Ayrık olaylar, durum değişikliğini bildirir ve eyleme dönüştürülebilir. Sonraki adımı uygulamak için tüketicinin yalnızca bir şeyler olduğunu bilmesi gerekir. Olay verileri, ne olduğuyla ilgili bilgiler içerir ancak olayı tetikleyen verileri içermez. Örneğin, bir olay, tüketicilere bir dosyanın oluşturulduğunu bildirir. Dosya hakkında genel bilgiler içerebilir ancak dosyanın kendisini içermez. Ayrık olayları için ideal [sunucusuz](http://azure.com/serverless) ölçeklendirmek için gereken çözümleri.
 
 Seri olaylar bir koşulu bildirir ve çözümlenebilir. Olaylar zamana göre sıralanır ve birbiriyle ilişkilidir. Tüketicinin ne olduğunu çözümlemesi için sıralanmış olay serisi gerekir.
 

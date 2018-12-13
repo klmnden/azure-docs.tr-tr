@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 36cdd944dd33f9aa9ae1c805011df23fc864c345
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: de084b2139bcc3ddef09b4438f8774df177b6f3c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705999"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315947"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>İstemci tarafına reklam ekleme
 Bu makalede, çeşitli türlerdeki istemci tarafına reklam ekleme hakkında bilgi içerir.
@@ -32,13 +32,13 @@ Canlı akış video Kapalı Açıklamalı Altyazı ve ad desteği hakkında daha
 > 
 
 ## <a id="insert_ads_into_media"></a>Medyanızı reklam ekleme
-Azure Media Services, Windows Media platformu aracılığıyla reklam ekleme için destek sağlar: oynatıcı çerçeveleri. Ad desteğiyle oynatıcı çerçeveleri, Windows 8, Silverlight, Windows Phone 8 ve iOS cihazlar için kullanılabilir. Her player çerçevesi player uygulamasının nasıl uygulanacağını gösteren örnek kodunu içerir. Reklam medya: listenize eklemek üç farklı tür vardır.
+Azure Media Services, Windows Media platformu aracılığıyla reklam ekleme için destek sağlar: Oynatıcı çerçeveleri. Ad desteğiyle oynatıcı çerçeveleri, Windows 8, Silverlight, Windows Phone 8 ve iOS cihazlar için kullanılabilir. Her player çerçevesi player uygulamasının nasıl uygulanacağını gösteren örnek kodunu içerir. Reklam medya: listenize eklemek üç farklı tür vardır.
 
 * **Doğrusal** – ana videoyu Duraklat çerçeve reklam dolu.
 * **Doğrusal** – ana videoyu oynatmaya olarak görüntülenen katmana reklam genellikle bir logo veya diğer statik resim yerleştirilen player içinde.
 * **Yardımcısı** – dışında player görüntülenen reklamlar.
 
-Reklam ana video zaman çizelgesi içinde herhangi bir noktada yerleştirilebilir. Ad yürütmek ne zaman ve hangi reklam yürütmek için player söylemeniz gerekir. Bu işlemi standart XML tabanlı dosyalar kümesi kullanılarak: Video Ad hizmet şablonu (VAST), Dijital Video birden çok Ad çalma listesi (VMAP), medya soyut sıralaması şablonu (a) ve Dijital Video Oynatıcı Ad arabirim tanımı (VPAID). BÜYÜK dosyaları görüntülemek için hangi reklam belirtin. VMAP dosyaları çeşitli reklam yürütmek ve geniş XML içeren ne zaman belirtin. A dosyaları, ayrıca geniş bir XML içerebilir sıra reklam için başka bir yoludur. VPAID dosyaları, video oynatıcı ad veya ad sunucusu arasında bir arabirim tanımlar.
+Reklam ana video zaman çizelgesi içinde herhangi bir noktada yerleştirilebilir. Ad yürütmek ne zaman ve hangi reklam yürütmek için player söylemeniz gerekir. Bu işlemi standart XML tabanlı dosyalar kümesi kullanarak: Video Ad hizmet şablonu (VAST), Dijital Video birden çok Ad çalma listesi (VMAP), medya sıralama şablonu (a) ve Dijital Video Oynatıcı Ad arabirim tanımı (VPAID) soyut. BÜYÜK dosyaları görüntülemek için hangi reklam belirtin. VMAP dosyaları çeşitli reklam yürütmek ve geniş XML içeren ne zaman belirtin. A dosyaları, ayrıca geniş bir XML içerebilir sıra reklam için başka bir yoludur. VPAID dosyaları, video oynatıcı ad veya ad sunucusu arasında bir arabirim tanımlar.
 
 Her player çerçevesi farklı şekilde çalışır ve her biri kendi makalesinde ele alınacak. Bu makalede, reklam ekleme için kullanılan temel mekanizmalarını açıklar. Video oynatıcı uygulamaları reklamları bir ad sunucusundan istek. Ad sunucusu, çeşitli yollarla yanıt verebilir:
 
@@ -94,7 +94,7 @@ Hangi ad veya görüntülenecek reklamlar çok sayıda dosya belirtir. Aşağıd
     </VAST>
 ```
 
-Doğrusal ad tarafından açıklanan <**doğrusal**> öğesi. Ad süreyi belirten, olayları izleme, izleme'ye tıklayın ve bir dizi aracılığıyla, tıklayın **MediaFile** öğeleri. İzleme olayları içinde belirtilen <**TrackingEvents**> öğesi ve ad görüntülerken gerçekleşen çeşitli olayları izlemek bir ad sunucusu sağlar. Bu durumda başlangıç, Orta, tam ve genişletin olayları izlenir. Ad görüntülendiğinde başlangıç olayı oluşur. Orta olayı en azından ad zaman çizelgesi yüzdesi 50 görüntülenen oluşur. Ad sonuna çalıştırdığınızda tamamlama olayı oluşur. Kullanıcı için tam ekran video oynatıcı genişletirken genişletme olayı oluşur. Clickthroughs ile belirtilen bir <**geçişli tıklatma**> öğesinde bir <**VideoClicks**> öğesi ve kullanıcı ad tıkladığında görüntülenecek bir kaynak için bir URI belirtir. ClickTracking belirtilen bir <**ClickTracking**> öğesini de içinde <**VideoClicks**> öğesi ve kullanıcı ad tıkladığında istemek oyuncu için bir izleme kaynağı belirtir . <**MediaFile**> öğeleri belirli bir ad kodlama hakkında bilgi belirtin. Birden fazla bir tane <**MediaFile**> öğesi, video oynatıcı seçebilir platform için en iyi kodlama. 
+Doğrusal ad tarafından açıklanan <**doğrusal**> öğesi. Ad süreyi belirten, olayları izleme, izleme'ye tıklayın ve bir dizi aracılığıyla, tıklayın **MediaFile** öğeleri. İzleme olayları içinde belirtilen <**TrackingEvents**> öğesi ve ad görüntülerken gerçekleşen çeşitli olayları izlemek bir ad sunucusu sağlar. Bu durumda başlangıç, Orta, tam ve genişletin olayları izlenir. Ad görüntülendiğinde başlangıç olayı oluşur. Orta olayı en azından ad zaman çizelgesi yüzdesi 50 görüntülenen oluşur. Ad sonuna çalıştırdığınızda tamamlama olayı oluşur. Kullanıcı için tam ekran video oynatıcı genişletirken genişletme olayı oluşur. Clickthroughs ile belirtilen bir <**geçişli tıklatma**> öğesinde bir <**VideoClicks**> öğesi ve kullanıcı ad tıkladığında görüntülenecek bir kaynak için bir URI belirtir. ClickTracking belirtilen bir <**ClickTracking**> öğesini de içinde <**VideoClicks**> öğesi ve kullanıcı ad tıkladığında istemek oyuncu için bir izleme kaynağı belirtir . <**MediaFile**> öğeleri belirli bir ad kodlama hakkında bilgi belirtin. Birden fazla bir tane <**MediaFile**> öğesi, video oynatıcı seçebilir platform için en iyi kodlama.
 
 Belirli bir sırada doğrusal reklam görüntülenebilir. Bunu yapmak için ek Ekle <Ad> VAST öğelerine dosya ve dizisi özniteliği kullanılarak sırasını belirtin. Aşağıdaki örnek bunu göstermektedir:
 
@@ -325,16 +325,16 @@ Bir a dosyasını tanımlayan bir ad görüntülendiğinde Tetikleyicileri belir
 ```
 
 
-A dosya ile başlayan bir **a** içeren bir öğe **Tetikleyicileri** öğesi. <triggers> Öğesi içeren bir veya daha fazla **tetikleyici** ne zaman bir ad yürütülme tanımlayan öğeler. 
+A dosya ile başlayan bir **a** içeren bir öğe **Tetikleyicileri** öğesi. <triggers> Öğesi içeren bir veya daha fazla **tetikleyici** ne zaman bir ad yürütülme tanımlayan öğeler.
 
-**Tetikleyici** öğesi içeren bir **startConditions** yürütmek bir ad ne zaman başlaması gerektiğini belirten öğe. **StartConditions** öğesi içeren bir veya daha fazla <condition> öğeleri. Yaparken her <condition> tetikleyici başlatılır veya olup olmamasına iptal true olarak değerlendirilen <condition> içinde yer alan bir **startConditions** veya **endConditions** öğesi sırasıyla. Zaman birden çok <condition> öğeleri, bir örtük veya olarak kabul edilir, herhangi bir koşul true olarak değerlendirilmesi başlatmak tetikleyici neden olur. <condition> öğeleri içe olabilir. Olduğunda alt <condition> öğeleri önceden bir örtük ve kabul edilir, tüm koşullar tetikleyicinin başlatmak true olarak değerlendirilmelidir. <condition> Öğesi içeren bir koşul tanımlayarak aşağıdaki öznitelikleri: 
+**Tetikleyici** öğesi içeren bir **startConditions** yürütmek bir ad ne zaman başlaması gerektiğini belirten öğe. **StartConditions** öğesi içeren bir veya daha fazla <condition> öğeleri. Yaparken her <condition> tetikleyici başlatılır veya olup olmamasına iptal true olarak değerlendirilen <condition> içinde yer alan bir **startConditions** veya **endConditions** öğesi sırasıyla. Zaman birden çok <condition> öğeleri, bir örtük veya olarak kabul edilir, herhangi bir koşul true olarak değerlendirilmesi başlatmak tetikleyici neden olur. <condition> öğeleri içe olabilir. Olduğunda alt <condition> öğeleri önceden bir örtük ve kabul edilir, tüm koşullar tetikleyicinin başlatmak true olarak değerlendirilmelidir. <condition> Öğesi içeren bir koşul tanımlayarak aşağıdaki öznitelikleri:
 
 1. **tür** – koşulu, olay veya özellik türünü belirtir
 2. **adı** – özelliği veya değerlendirme sırasında kullanılacak olay adı
 3. **değer** – bir özelliğe karşı hesaplanacak olan değer
 4. **İşleç** – değerlendirme sırasında kullanılacak işlemi: EQ (eşittir), NEQ (eşit değildir), GTR (büyük), GEQ (büyük veya buna eşit), LT (küçüktür), LEQ (küçüktür veya eşittir), MOD (mod)
 
-**endConditions** de içeren <condition> öğeleri. Bir koşul true tetikleyici değerlendirirken sıfırlanır. <trigger> Öğeyi de içeren bir <sources> birini veya daha fazlasını içeren <source> öğeleri. <source> Ad yanıt ve ad yanıtının türünü tanımlayan URI öğesi. Bu örnekte, geniş bir yanıt olarak bir URI verildi. 
+**endConditions** de içeren <condition> öğeleri. Bir koşul true tetikleyici değerlendirirken sıfırlanır. <trigger> Öğeyi de içeren bir <sources> birini veya daha fazlasını içeren <source> öğeleri. <source> Ad yanıt ve ad yanıtının türünü tanımlayan URI öğesi. Bu örnekte, geniş bir yanıt olarak bir URI verildi.
 
 ```xml
     <trigger id="postroll" description="postroll"  >
@@ -352,7 +352,7 @@ A dosya ile başlayan bir **a** içeren bir öğe **Tetikleyicileri** öğesi. <
 ### <a name="using-video-player-ad-interface-definition-vpaid"></a>Video oynatıcı Ad arabirim tanımı (VPAID) kullanma
 VPAID, bir video oynatıcı ile iletişim kurmak yürütülebilir ad birimleri etkinleştirmek için bir API'dir. Bu, yüksek oranda etkileşimli ad deneyimler sağlar. Kullanıcının ad ile etkileşim kurabilir ve ad Görüntüleyici tarafından gerçekleştirilen eylemler vermesini sağlayabilirsiniz. Örneğin, bir ad, ad daha uzun bir sürümünü veya daha fazla bilgi görüntülemek kullanıcının olanak tanıyan düğmeleri görüntüleyebilir. Video oynatıcı VPAID API desteklemesi gerekir ve yürütülebilir ad API uygulamanız gerekir. Ne zaman bir oynatıcı VPAID ad içeren geniş bir yanıt bir ad sunucusu ad sunucusundan yanıt ister.
 
-Bir yürütülebilir ad Adobe Flash™ veya yürütülebilir bir web tarayıcısında JavaScript gibi bir çalışma zamanı ortamında yürütülmelidir kod oluşturulur. Bir ad sunucusu VPAID ad içeren geniş bir yanıt döndürüldüğünde apiFramework değeri öznitelik içinde <MediaFile> öğe "VPAID" olmalıdır. Bu öznitelik içinde ad VPAID yürütülebilir ad olduğunu belirtir. Type özniteliği "application/x-shockwave-flash" veya "application/x-javascript" gibi yürütülebilir dosya, MIME türüne ayarlanması gerekir. Aşağıdaki XML parçacığını gösterildiği <MediaFile> VPAID yürütülebilir ad içeren geniş bir yanıt öğesinden. 
+Bir yürütülebilir ad Adobe Flash™ veya yürütülebilir bir web tarayıcısında JavaScript gibi bir çalışma zamanı ortamında yürütülmelidir kod oluşturulur. Bir ad sunucusu VPAID ad içeren geniş bir yanıt döndürüldüğünde apiFramework değeri öznitelik içinde <MediaFile> öğe "VPAID" olmalıdır. Bu öznitelik içinde ad VPAID yürütülebilir ad olduğunu belirtir. Type özniteliği "application/x-shockwave-flash" veya "application/x-javascript" gibi yürütülebilir dosya, MIME türüne ayarlanması gerekir. Aşağıdaki XML parçacığını gösterildiği <MediaFile> VPAID yürütülebilir ad içeren geniş bir yanıt öğesinden.
 
 ```xml
     <MediaFiles>
@@ -586,7 +586,7 @@ Bu örnek VmapSchedulerPlugin VMAP dosyasını kullanarak reklamları zamanlamak
 ```
 
 ## <a name="implementing-an-ios-video-player-with-ad-support"></a>Bir iOS Video Oynatıcı Ad desteğiyle uygulama
-Microsoft Media platformu: İOS için Player Framework framework kullanarak bir video oynatıcı uygulamanın nasıl uygulanacağını gösteren örnek uygulamalar koleksiyonunu içerir. Player çerçevesi ve örneklerinden indirebilirsiniz [Azure Media Player çerçevesi](https://github.com/Azure/azure-media-player-framework). Player çerçevesi hakkında daha fazla bilgi içeren bir Wiki bağlantısını ve oynatıcı örnek giriş github sayfası vardır: [Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
+Microsoft Media platformu: İOS için Player Framework framework kullanarak bir video oynatıcı uygulamanın nasıl uygulanacağını gösteren örnek uygulamalar koleksiyonunu içerir. Player çerçevesi ve örneklerinden indirebilirsiniz [Azure Media Player çerçevesi](https://github.com/Azure/azure-media-player-framework). GitHub sayfasında player çerçevesi hakkında daha fazla bilgi içeren bir Wiki bağlantısını ve oynatıcı örnek giriş vardır: [Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
 
 ### <a name="scheduling-ads-with-vmap"></a>Reklam VMAP ile zamanlama
 Aşağıdaki örnek, reklam VMAP dosyasını kullanarak zamanlama gösterilmektedir.
@@ -605,7 +605,7 @@ Aşağıdaki örnek, reklam VMAP dosyasını kullanarak zamanlama gösterilmekte
                 if (![framework scheduleVMAPWithManifest:manifest])
                 {
                     [self logFrameworkError];
-                }          
+                }
             }
 ```
 

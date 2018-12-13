@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7c8833f2c6d9a4ae8fdd9eba8ca6bb4f850b5ca7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d0c9d2084e3dd6b0b6b4bd85a60ad998b54f45a7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100795"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317500"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Linux Iaas sanal makineleri için Azure Disk şifrelemesini etkinleştirme 
 
@@ -59,13 +59,13 @@ Kullanım [az vm şifrelemeyi etkinleştirme](/cli/azure/vm/encryption#az-vm-enc
     > Disk şifreleme keyvault parametresinin değeri söz diziminin tam tanımlayıcı bir dizedir: / subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> </br>
 Anahtar şifreleme anahtarı parametresinin değeri sözdizimi KEK olarak tam URI şudur: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **Diskleri şifrelenmiş doğrulayın:** Iaas VM şifreleme durumunu denetlemek için kullanmak [az vm şifreleme show](/cli/azure/vm/encryption#az-vm-encryption-show) komutu. 
+- **Diskler şifrelenir doğrulayın:** Iaas VM şifreleme durumunu denetlemek için kullanmak [az vm şifreleme show](/cli/azure/vm/encryption#az-vm-encryption-show) komutu. 
 
      ```azurecli-interactive
      az vm encryption show --name "MySecureVM" --resource-group "MySecureRg"
      ```
 
-- **Şifreleme devre dışı bırak:** şifreleme devre dışı bırakmak için [az vm şifreleme devre dışı](/cli/azure/vm/encryption#az-vm-encryption-disable) komutu. Şifreleme devre dışı bırakıldığında yalnızca veri birimlerinde Linux VM'ler için izin verilir.
+- **Şifreleme devre dışı bırakın:** Şifreleme devre dışı bırakmak için [az vm şifreleme devre dışı](/cli/azure/vm/encryption#az-vm-encryption-disable) komutu. Şifreleme devre dışı bırakıldığında yalnızca veri birimlerinde Linux VM'ler için izin verilir.
 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type DATA
@@ -74,7 +74,7 @@ Anahtar şifreleme anahtarı parametresinin değeri sözdizimi KEK olarak tam UR
 ### <a name="bkmk_RunningLinuxPSH"> </a> Bir var olan veya çalışan PowerShell kullanarak Linux VM üzerinde şifrelemeyi etkinleştir
 Kullanım [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) azure'da çalıştırılan Iaas sanal makine şifrelemesini etkinleştirmek için cmdlet'i. 
 
--  **Çalışan VM şifreleme:** aşağıdaki betiği değişkenlerinizi başlatır ve Set-AzureRmVMDiskEncryptionExtension cmdlet'ini çalıştırır. Kaynak grubunu, VM'yi ve anahtar kasası zaten önkoşul olarak oluşturulmuş olmalıdır. MySecureRg MySecureVM ve MySecureVault değerleriniz ile değiştirin. Veri diskleri ve işletim sistemi disk şifreleme, - VolumeType parametresi eklemeniz gerekebilir. 
+-  **Çalışan bir VM şifrele:** Aşağıdaki komut dosyası değişkenleri başlatır ve Set-AzureRmVMDiskEncryptionExtension cmdlet'ini çalıştırır. Kaynak grubunu, VM'yi ve anahtar kasası zaten önkoşul olarak oluşturulmuş olmalıdır. MySecureRg MySecureVM ve MySecureVault değerleriniz ile değiştirin. Veri diskleri ve işletim sistemi disk şifreleme, - VolumeType parametresi eklemeniz gerekebilir. 
 
      ```azurepowershell-interactive
       $rgName = 'MySecureRg';
@@ -86,7 +86,7 @@ Kullanım [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.comp
 
       Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
     ```
-- **KEK kullanarak çalışan bir VM şifreleme:** veri diskleri ve işletim sistemi disk şifreleme, - VolumeType parametresi eklemeniz gerekebilir. 
+- **KEK kullanarak çalışan bir VM şifrele:** Veri diskleri ve işletim sistemi disk şifreleme, - VolumeType parametresi eklemeniz gerekebilir. 
 
      ```azurepowershell-interactive
      $rgName = 'MySecureRg';
@@ -105,13 +105,13 @@ Kullanım [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.comp
     >[!NOTE]
     > Disk şifreleme keyvault parametresinin değeri söz diziminin tam tanımlayıcı bir dizedir: / subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> Anahtar şifreleme anahtarı parametresinin değeri sözdizimi KEK olarak tam URI şudur: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
     
-- **Diskleri şifrelenmiş doğrulayın:** Iaas VM şifreleme durumunu denetlemek için kullanmak [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) cmdlet'i. 
+- **Diskler şifrelenir doğrulayın:** Iaas VM şifreleme durumunu denetlemek için kullanmak [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) cmdlet'i. 
     
      ```azurepowershell-interactive 
      Get-AzureRmVmDiskEncryptionStatus -ResourceGroupName MySecureRg -VMName MySecureVM
      ```
     
-- **Disk şifreleme devre dışı bırak:** şifreleme devre dışı bırakmak için [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet'i. Şifreleme devre dışı bırakıldığında yalnızca veri birimlerinde Linux VM'ler için izin verilir.
+- **Disk şifreleme devre dışı bırakın:** Şifreleme devre dışı bırakmak için [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet'i. Şifreleme devre dışı bırakıldığında yalnızca veri birimlerinde Linux VM'ler için izin verilir.
      
      ```azurepowershell-interactive 
      Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM'
@@ -173,13 +173,13 @@ Kullanım [az vmss şifrelemeyi etkinleştirme](/cli/azure/vmss/encryption#az-vm
      az vmss encryption enable --resource-group "MySecureRG" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault" 
 
      ```
-- **Bir sanal makine ölçek kümesi için şifreleme durumunu al:** kullanım [az vmss şifreleme Göster](/cli/azure/vmss/encryption#az-vmss-encryption-show)
+- **Bir sanal makine ölçek kümesi için şifreleme durumunu alın:** Kullanım [az vmss şifreleme Göster](/cli/azure/vmss/encryption#az-vmss-encryption-show)
 
     ```azurecli-interactive
      az vmss encryption show --resource-group "MySecureRG" --name "MySecureVmss"
     ```
 
-- **Bir sanal makine ölçek kümesi üzerinde şifrelemeyi devre dışı**: kullanım [az vmss şifrelemeyi devre dışı bırakma](/cli/azure/vmss/encryption#az-vmss-encryption-disable)
+- **Bir sanal makine ölçek kümesi üzerinde şifrelemeyi devre dışı**: Kullanım [az vmss şifrelemeyi devre dışı bırakma](/cli/azure/vmss/encryption#az-vmss-encryption-disable)
     ```azurecli-interactive
      az vmss encryption disable --resource-group "MySecureRG" --name "MySecureVmss"
     ```
@@ -199,7 +199,8 @@ Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-###  <a name="encrypt-virtual-machine-scale-sets-with-azure-powershell"></a>Azure PowerShell ile sanal makine ölçek kümeleri şifrele
+### <a name="encrypt-virtual-machine-scale-sets-with-azure-powershell"></a>Azure PowerShell ile sanal makine ölçek kümeleri şifrele
+
 Kullanım [Set-AzureRmVmssDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension) cmdlet'ini bir Windows sanal makine ölçek kümesi şifrelemeyi etkinleştirin. Kaynak grubunu, VM'yi ve anahtar kasası zaten önkoşul olarak oluşturulmuş olmalıdır.
 
 -  **Çalışan bir sanal makine ölçek kümesi şifrelemek**:
@@ -225,19 +226,29 @@ Kullanım [Set-AzureRmVmssDiskEncryptionExtension](/powershell/module/azurerm.co
      Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
     ```
 
-- **Bir sanal makine ölçek kümesi için şifreleme durumunu al:** kullanım [Get-AzureRmVmssVMDiskEncryption](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption) cmdlet'i.
+- **Bir sanal makine ölçek kümesi için şifreleme durumunu alın:** Kullanım [Get-AzureRmVmssVMDiskEncryption](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption) cmdlet'i.
     
     ```powershell
     get-AzureRmVmssVMDiskEncryption -ResourceGroupName "MySecureRG" -VMScaleSetName "MySecureVmss"
     ```
 
-- **Bir sanal makine ölçek kümesi üzerinde şifrelemeyi devre dışı**: kullanım [Disable-AzureRmVmssDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption) cmdlet'i. 
+- **Bir sanal makine ölçek kümesi üzerinde şifrelemeyi devre dışı**: Kullanım [Disable-AzureRmVmssDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption) cmdlet'i. 
 
     ```powershell
     Disable-AzureRmVmssDiskEncryption -ResourceGroupName "MySecureRG" -VMScaleSetName "MySecureVmss"
     ```
 
+### <a name="azure-resource-manager-templates-for-linux-virtual-machine-scale-sets"></a>Linux sanal makine ölçek kümesi için Azure Resource Manager şablonları ayarlar
 
+Şifrelemek veya Linux sanal makine ölçek şifresini çözmek için ayarlar, Azure Resource Manager şablonları ve aşağıdaki yönergeleri kullanın:
+
+- [Bir Linux sanal makine ölçek kümesi şifrelemeyi etkinleştirin](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
+- [Linux sanal makineleri bir Sıçrama kutusu ile bir VM ölçek kümesini dağıtmak ve Linux VM ölçek kümesi şifrelemeyi etkinleştirin](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+- [Bir Linux VM ölçek kümesinde şifrelemeyi devre dışı bırak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+
+     1. **Azure’a dağıt**’a tıklayın.
+     2. Gerekli alanları doldurun, sonra hüküm ve koşulları kabul etmiş olursunuz.
+     3. Tıklayın **satın alma** kullanarak şablonu dağıtabilirsiniz.
 
 ## <a name="bkmk_EFA"> </a>Linux Iaas sanal makinesi, veri diskleri için EncryptFormatAll özelliğini kullanın
 **EncryptFormatAll** parametresi şifrelenmesini Linux veri diskleri için zaman azaltır. Belirli bir ölçüte uyan bölümleri (kendi geçerli dosya sistemi ile) biçimlendirilir. Ardından bunlar geri bu komutu yürütmeden önce olduğu için yeniden bağlanması. Ölçütleri karşılayan bir veri diski dışlamak istiyorsanız, komutu çalıştırmadan önce çıkarma.
@@ -271,7 +282,7 @@ Kullanım [az vm şifrelemeyi etkinleştirme](/cli/azure/vm/encryption#az-vm-enc
 ### <a name="bkmk_EFAPSH"> </a> Bir PowerShell cmdlet'i ile EncryptFormatAll parametresini kullanın
 Kullanım [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) cmdlet'iyle [EncryptFormatAll parametre](https://www.powershellgallery.com/packages/AzureRM/5.0.0). 
 
-**EncryptFormatAll kullanarak çalışan bir VM şifreleme:** örnek olarak, aşağıdaki komut dosyası değişkenleri başlatır ve Set-AzureRmVMDiskEncryptionExtension cmdlet'i EncryptFormatAll parametreyle çalıştırır. Kaynak grubunu, VM'yi ve anahtar kasası zaten önkoşul olarak oluşturulmuş olmalıdır. MySecureRg MySecureVM ve MySecureVault değerleriniz ile değiştirin.
+**EncryptFormatAll kullanarak çalışan bir VM şifrele:** Örneğin, aşağıdaki betiği değişkenlerinizi başlatır ve Set-AzureRmVMDiskEncryptionExtension cmdlet'i EncryptFormatAll parametresi ile çalıştırır. Kaynak grubunu, VM'yi ve anahtar kasası zaten önkoşul olarak oluşturulmuş olmalıdır. MySecureRg MySecureVM ve MySecureVault değerleriniz ile değiştirin.
   
    ```azurepowershell-interactive
      $rgName = 'MySecureRg';
@@ -360,7 +371,7 @@ PowerShell sözdizimi aksine, şifreleme etkinleştirilirken benzersiz dizisi s�
  Linux için yeni bir disk şifrelemek için PowerShell kullanırken, yeni bir sıra sürüm belirtilmesi gerekiyor. Dizisi sürümü benzersiz olması gerekir. Aşağıdaki komut dizisi sürümü için bir GUID oluşturur. 
  
 
--  **Çalışan bir VM'ye veri birimlerini şifrele:** aşağıdaki betiği değişkenlerinizi başlatır ve Set-AzureRmVMDiskEncryptionExtension cmdlet'ini çalıştırır. Kaynak grubunu, VM'yi ve anahtar kasası zaten önkoşul olarak oluşturulmuş olmalıdır. MySecureRg MySecureVM ve MySecureVault değerleriniz ile değiştirin. -VolumeType parametresi için kabul edilebilir değerler, işletim sistemi ve veri tümü. VM, "OS" veya "All" birim türü ile önceden şifrelenmişse, böylece hem işletim sistemi hem de yeni bir veri diski eklenecek ardından - VolumeType parametresi tüm değiştirilmelidir.
+-  **Çalışan bir VM'ye veri birimlerini şifrele:** Aşağıdaki komut dosyası değişkenleri başlatır ve Set-AzureRmVMDiskEncryptionExtension cmdlet'ini çalıştırır. Kaynak grubunu, VM'yi ve anahtar kasası zaten önkoşul olarak oluşturulmuş olmalıdır. MySecureRg MySecureVM ve MySecureVault değerleriniz ile değiştirin. -VolumeType parametresi için kabul edilebilir değerler, işletim sistemi ve veri tümü. VM, "OS" veya "All" birim türü ile önceden şifrelenmişse, böylece hem işletim sistemi hem de yeni bir veri diski eklenecek ardından - VolumeType parametresi tüm değiştirilmelidir.
 
      ```azurepowershell-interactive
       $sequenceVersion = [Guid]::NewGuid();
@@ -373,7 +384,7 @@ PowerShell sözdizimi aksine, şifreleme etkinleştirilirken benzersiz dizisi s�
 
       Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data' –SequenceVersion $sequenceVersion;
     ```
-- **Veri birimleri KEK kullanarak çalışan bir VM'nin şifreleme:** - VolumeType parametresi için kabul edilebilir değerler: All, işletim sistemi ve veri. VM, "OS" veya "All" birim türü ile önceden şifrelenmişse, böylece hem işletim sistemi hem de yeni bir veri diski eklenecek ardından - VolumeType parametresi tüm değiştirilmelidir.
+- **Veri birimleri KEK kullanarak çalışan bir sanal makinenin şifrele:** -VolumeType parametresi için kabul edilebilir değerler, işletim sistemi ve veri tümü. VM, "OS" veya "All" birim türü ile önceden şifrelenmişse, böylece hem işletim sistemi hem de yeni bir veri diski eklenecek ardından - VolumeType parametresi tüm değiştirilmelidir.
 
      ```azurepowershell-interactive
      $rgName = 'MySecureRg';
@@ -399,16 +410,16 @@ Azure PowerShell, Azure CLI kullanarak şifreleme devre dışı bırakabilir vey
 >[!IMPORTANT]
 >Linux vm'lerinde Azure Disk şifreleme ile şifreleme devre dışı bırakıldığında, yalnızca veri birimleri için desteklenir. İşletim sistemi birimi şifreli değilse veri veya işletim sistemi birimleri üzerinde desteklenmiyor.  
 
-- **Azure PowerShell ile disk şifrelemesini devre dışı bırak:** şifreleme devre dışı bırakmak için [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet'i. 
+- **Azure PowerShell ile disk şifrelemesini devre dışı bırakın:** Şifreleme devre dışı bırakmak için [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet'i. 
      ```azurepowershell-interactive
      Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM' [--volume-type {ALL, DATA, OS}]
      ```
 
-- **Azure CLI ile şifreleme devre dışı bırak:** şifreleme devre dışı bırakmak için [az vm şifreleme devre dışı](/cli/azure/vm/encryption#az-vm-encryption-disable) komutu. 
+- **Azure CLI ile şifreleme devre dışı bırakın:** Şifreleme devre dışı bırakmak için [az vm şifreleme devre dışı](/cli/azure/vm/encryption#az-vm-encryption-disable) komutu. 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type [ALL, DATA, OS]
      ```
-- **Resource Manager şablonu ile şifrelemeyi devre dışı bırakma:** kullanım [çalışan bir Linux VM üzerinde şifrelemeyi devre dışı bırak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) şifreleme devre dışı bırakmak için şablon.
+- **Resource Manager şablonu ile şifreleme devre dışı bırakın:** Kullanım [çalışan bir Linux VM üzerinde şifrelemeyi devre dışı bırak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) şifreleme devre dışı bırakmak için şablon.
      1. **Azure’a dağıt**’a tıklayın.
      2. Abonelik, kaynak grubu, konum, VM, yasal koşulları ve Sözleşmesi'ni seçin.
      3.  Tıklayın **satın alma** çalışan bir Windows VM'de disk şifreleme devre dışı bırakmak için. 

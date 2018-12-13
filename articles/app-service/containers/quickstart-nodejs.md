@@ -1,5 +1,5 @@
 ---
-title: Linux’ta Azure App Service’te Node.js oluşturma | Microsoft Docs
+title: Linux üzerinde - Azure App Service'te node.js web uygulaması oluşturma | Microsoft Docs
 description: Linux’ta Azure App Service’te ilk Node.js Merhaba Dünya uygulamanızı birkaç dakika içinde dağıtın.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/07/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: 44c3f8ce05854e993ad551a025eec447d882c326
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 22a022b12e931fd4edf139038eb7506e69422f8e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969553"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253600"
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Linux’ta Azure App Service’te bir Node.js web uygulaması oluşturma
 

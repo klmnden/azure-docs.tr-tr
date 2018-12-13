@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: 01ba8b6d9ebef5d79b660638d60d5b745c624786
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: dda4e26de74dbd5579f2dd45ea47f42c904f028f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725395"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271734"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Application Insights uyarıları ayarlamak için PowerShell kullanma
 Yapılandırılmasını otomatikleştirebilirsiniz [uyarılar](app-insights-alerts.md) içinde [Application Insights](app-insights-overview.md).
 
-Ayrıca, aşağıdakileri yapabilirsiniz [ayarlanmış bir uyarı yanıtları otomatik hale getirmek için Web kancaları](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+Ayrıca, aşağıdakileri yapabilirsiniz [ayarlanmış bir uyarı yanıtları otomatik hale getirmek için Web kancaları](../azure-monitor/platform/alerts-webhooks.md).
 
 > [!NOTE]
 > Kaynaklar ve uyarılar aynı anda oluşturmak isterseniz, göz önünde bulundurun [bir Azure Resource Manager şablonu kullanarak](app-insights-powershell.md).
@@ -132,10 +132,10 @@ Aynı kural kullanılarak bildirilen ölçüm için kullanılabilir [ölçüm pa
 | İstek,<br/>requestFailed |[Sunucu isteği](app-insights-configuration-with-applicationinsights-config.md) |
 
 ## <a name="webhooks"></a>Web Kancaları
-Yapabilecekleriniz [yanıtınızı bir uyarıya](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Bir uyarı oluşturulduğunda azure, tercih ettiğiniz bir web adresini çağırır.
+Yapabilecekleriniz [yanıtınızı bir uyarıya](../azure-monitor/platform/alerts-webhooks.md). Bir uyarı oluşturulduğunda azure, tercih ettiğiniz bir web adresini çağırır.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Application Insights'ı yapılandırmak için komut dosyası](app-insights-powershell-script-create-resource.md)
 * [Application ınsights'ı ve web testi kaynakları şablonlardan oluşturma](app-insights-powershell.md)
 * [Application ınsights'ı Microsoft Azure tanılama eşlenmesiyle otomatikleştirin](app-insights-powershell-azure-diagnostics.md)
-* [Bir uyarıya yanıt otomatikleştirin](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+* [Bir uyarıya yanıt otomatikleştirin](../azure-monitor/platform/alerts-webhooks.md)

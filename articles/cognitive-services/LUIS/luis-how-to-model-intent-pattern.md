@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 20a486a048fe6287544a9fec35a95c88f6194a66
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ae0fdb17680f415a1dacce1738fa53fcda943788
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093191"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135007"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Nasıl tahmin doğruluğunu artırmak için düzenleri ekleyin
 Bir LUIS uygulaması konuşma uç noktası aldıktan sonra kullanmak [kavramı](luis-concept-patterns.md) sözcük sırasını ve sözcük seçim içindeki bir desenle açığa konuşma için tahmin doğruluğunu artırmak için desenleri. Kullanım desenlerini [varlıkları](luis-concept-entity-types.md) ve belirli bir desene söz dizimini kullanarak verileri ayıklamak için kullanıcı rolleri. 
@@ -96,7 +96,7 @@ Farklı bir hedefi için çeşitli desenlerden yeniden atamak için her desen so
 
 2. **Sil desenleri** onay iletişim kutusu görüntülenir. Seçin **Tamam** silme işlemini tamamlamak için.
 
-    ![Çeşitli desenlerden silme işleminin ekran görüntüsü](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
+    ![Birkaç desenleri onay kutusunda silme işleminin ekran görüntüsü](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
 
 ## <a name="filter-pattern-list-by-entity"></a>Varlık tarafından filtre deseni listesi
 
@@ -117,7 +117,7 @@ Filtre uygulandıktan sonra hedefi adı araç çubuğunun altında görünür.
 ## <a name="remove-entity-or-intent-filter"></a>Varlık veya hedefi Filtreyi Kaldır
 Desen listesinin filtre uygulandığında varlık veya hedefi adı araç çubuğu altında görünür. Filtreyi kaldırmak için bir ad seçin.
 
-![Varlık tarafından filtrelenen desenlerinin ekran görüntüsü](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
+![Varlık filtresinden kaldırılıyor ekran görüntüsü](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
 
 Filtre kaldırılır ve tüm desenleri görüntüler. 
 

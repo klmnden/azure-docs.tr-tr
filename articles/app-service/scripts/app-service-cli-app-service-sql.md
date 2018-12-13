@@ -3,8 +3,8 @@ title: Azure CLI Betik Örneği - Bir web uygulamasını SQL veritabanına bağl
 description: Azure CLI Betik Örneği - Bir web uygulamasını SQL veritabanına bağlama
 services: appservice
 documentationcenter: appservice
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: 7c2efdd0-f553-4038-a77a-e953021b3f77
@@ -14,16 +14,16 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/11/2017
-ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 406163fe05133ed4695a7023798a98fb377843c9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: d6f3f83f6792eee6d179c86e311b154b064e799b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946672"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186472"
 ---
-# <a name="connect-a-web-app-to-a-sql-database"></a>Bir web uygulamasını SQL veritabanına bağlama
+# <a name="connect-a-web-app-to-a-sql-database-using-cli"></a>Bir web uygulamasını CLI kullanarak bir SQL veritabanına bağlama
 
 Bu örnek betik bir Azure SQL veritabanı ile bir Azure web uygulaması oluşturur. Daha sonra uygulama ayarlarını kullanarak SQL veritabanını web uygulamasına bağlar.
 

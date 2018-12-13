@@ -1,5 +1,5 @@
 ---
-title: Linux üzerinde Azure App Service’te kullanıcıların kimliğini doğrulama ve kullanıcıları uçtan uca yetkilendirme | Microsoft Docs
+title: Kimlik doğrulama ve yetkilendirme kullanıcılar için uçtan uca Linux'ta - Azure App Service | Microsoft Docs
 description: Uzak API’lere erişim de dahil olmak üzere App Service uygulamalarınızın güvenliğini sağlamak için App Service kimlik doğrulama ve yetkilendirmesini nasıl kullanacağınızı öğrenin.
 keywords: app service, azure app service, authN, authZ, güvenli, güvenlik, çok katmanlı, azure active directory, azure ad
 services: app-service\web
@@ -14,14 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
-ms.openlocfilehash: a468c5d0f73cc182927f26ea9b7a85e2c5afb7c8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: aa57e6198050b7e250c42f4bb019009e59ca4ba7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766368"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254097"
 ---
-# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Öğretici: Linux üzerinde Azure App Service’te kullanıcıların kimliğini doğrulama ve kullanıcıları uçtan uca yetkilendirme
+# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Öğretici: Kimlik doğrulama ve kullanıcıları uçtan uca Linux üzerinde Azure App Service'te yetkilendirme
 
 [Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Ayrıca, App Service [kullanıcı kimlik doğrulaması ve yetkilendirmesi](../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) için yerleşik destek sunar. Bu öğreticide, App Service kimlik doğrulaması ve yetkilendirmesi ile uygulamalarınızın nasıl güvenli hale getirileceği gösterilmektedir. Yalnızca bir örnek olarak, Angular.js ön ucu ile birlikte bir ASP.NET Core uygulaması kullanılmaktadır. App Service kimlik doğrulaması ve yetkilendirmesi tüm dil çalışma zamanlarını destekler ve öğreticiyi takip ederek tercih ettiğiniz dilde nasıl uygulanacağını öğrenebilirsiniz.
 
@@ -50,7 +51,7 @@ Bu öğreticideki adımları MacOS, Linux ve Windows üzerinde izleyebilirsiniz.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -241,7 +242,7 @@ Azure Active Directory’yi kimlik sağlayıcısı olarak kullanacaksınız. Dah
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Arka uç uygulaması için kimlik doğrulama ve yetkilendirmeyi etkinleştirme
 
-[Azure portalında](https://portal.azure.com) soldaki menüden tıklayarak arka uç uygulamanızın yönetim sayfasını açın: **Kaynak grupları** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_.
+İçinde [Azure portalında](https://portal.azure.com), soldaki menüden tıklayarak arka uç uygulamanızın Yönetim sayfasını açın: **Kaynak grupları** > **myAuthResourceGroup** > _\<geri\_son\_uygulama\_adı >_.
 
 ![Azure App Service'te çalışan ASP.NET Core API'si](./media/tutorial-auth-aad/portal-navigate-back-end.png)
 

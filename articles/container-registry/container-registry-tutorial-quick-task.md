@@ -1,5 +1,5 @@
 ---
-title: Öğretici - Azure Container Registry Görevleri ile bulutta kapsayıcı görüntüleri derleme
+title: Öğretici - bulutta kapsayıcı görüntüleri oluşturma - Azure Container kayıt defteri görevleri
 description: Bu öğreticide, Azure’da Azure Container Registry Görevleri (ACR Görevleri) ile bir Docker kapsayıcı görüntüsü derleme, ardından bu görüntüyü Azure Container Instances’a dağıtma hakkında bilgi edineceksiniz.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 7ac4fb62c6832920634de96c3e5befb15ce3b3a4
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.custom: seodec18, mvc
+ms.openlocfilehash: eafd6a75b4297056bcf4c5415f77179cefde6541
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854737"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256698"
 ---
-# <a name="tutorial-build-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Öğretici: Azure Container Registry Görevleri ile bulutta kapsayıcı görüntüleri derleme
+# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Öğretici: Oluşturun ve kapsayıcı görüntülerini Azure Container kayıt defteri görevler ile bulutta dağıtın
 
 **ACR Görevleri**, Azure’da kolaylaştırılmış ve verimli Docker kapsayıcı görüntüsü derlemeleri sağlayan bir Azure Container Registry özellik paketidir. Bu makalede, ACR Görevlerinin *hızlı görev* özelliğini kullanmayı öğreneceksiniz.
 
@@ -36,7 +36,7 @@ Sonraki öğreticilerde, ACR Görevlerini kod işleme ve temel görüntü günce
 
 Azure CLI’yı yerel olarak kullanmak istiyorsanız [az login][az-login] ile Azure CLI **2.0.46** veya sonraki bir sürüm yüklü olmalıdır. Sürümü bulmak için `az --version` komutunu çalıştırın. CLI’yı yüklemeniz veya yükseltmeniz gerekiyorsa bkz. [Azure CLI’yı yükleme][azure-cli].
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="github-account"></a>GitHub hesabı
 
@@ -220,8 +220,8 @@ az keyvault secret set \
 
 Bir Azure Anahtar Kasası oluşturdunuz ve içinde iki gizli dizi depoladınız:
 
-* `$ACR_NAME-pull-usr`: Kapsayıcı kayıt defterinin **kullanıcı adı** olarak kullanılacak hizmet sorumlusu kimliği.
-* `$ACR_NAME-pull-pwd`: Kapsayıcı kayıt defterinin **parolası** olarak kullanılacak hizmet sorumlusu parolası.
+* `$ACR_NAME-pull-usr`: Kapsayıcı kayıt defteri olarak kullanılmak üzere hizmet sorumlusu kimliği **username**.
+* `$ACR_NAME-pull-pwd`: Kapsayıcı kayıt defteri olarak kullanılmak üzere hizmet sorumlusu parolası **parola**.
 
 Artık siz veya uygulamalarınız ve hizmetleriniz kayıt defterinden görüntüleri çektiğinde bu gizli dizilere ada göre başvurabilirsiniz.
 

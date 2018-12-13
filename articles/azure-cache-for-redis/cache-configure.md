@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: d938b8a7551f77f00b7c18421f07972a508f21ef
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c95c40404bb52f739c407eca3c0d48be5e0a86e6
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020234"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262444"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure önbelleği için Redis yapılandırma
 Bu konuda, Azure önbelleği için Redis örneği için yapılandırmaları açıklanmaktadır. Bu konuda, Azure Cache Redis örneği için varsayılan Redis sunucu yapılandırması da kapsar.
@@ -46,7 +46,7 @@ Görüntüleyebilir ve kullanarak aşağıdaki ayarları yapılandırın **kayna
 * [Ayarlar](#settings)
     * [Erişim anahtarları](#access-keys)
     * [Gelişmiş ayarlar](#advanced-settings)
-    * [Azure önbelleği için Redis Danışmanı](#redis-cache-advisor)
+    * [Azure önbelleği için Redis Danışmanı](#azure-cache-for-redis-advisor)
     * [Ölçeklendirme](#scale)
     * [Redis küme boyutu](#cluster-size)
     * [Redis veri kalıcılığı](#redis-data-persistence)
@@ -98,7 +98,7 @@ Tıklayın **Tanıla ve problemleri çözmenize** çözümlemek için genel soru
 
 * [Erişim anahtarları](#access-keys)
 * [Gelişmiş ayarlar](#advanced-settings)
-* [Azure önbelleği için Redis Danışmanı](#redis-cache-advisor)
+* [Azure önbelleği için Redis Danışmanı](#azure-cache-for-redis-advisor)
 * [Ölçeklendirme](#scale)
 * [Redis küme boyutu](#cluster-size)
 * [Redis veri kalıcılığı](#redis-data-persistence)
@@ -480,7 +480,7 @@ Komutları kullanarak Redis örneği için Azure önbelleği için güvenli bir 
 
 > [!IMPORTANT]
 > - Redis konsolu ile çalışmıyor [VNET](cache-how-to-premium-vnet.md). Önbelleğinizi bir sanal ağın parçası olduğunda, yalnızca sanal ağ istemcilerinde önbelleğe erişebilir. Redis Konsolu sanal ağ dışında olan yerel tarayıcınızda çalıştığından önbelleğinize bağlantı kurulamıyor.
-> - Redis komutları tüm Azure Cache Redis için desteklenir. Azure önbelleği için Redis için devre dışı bırakılmış Redis komutları listesi için bkz. önceki [Redis komutları Azure önbelleği için Redis desteklenmeyen](#redis-commands-not-supported-in-azure-redis-cache) bölümü. Redis komutları hakkında daha fazla bilgi için bkz. [ http://redis.io/commands ](http://redis.io/commands).
+> - Redis komutları tüm Azure Cache Redis için desteklenir. Azure önbelleği için Redis için devre dışı bırakılmış Redis komutları listesi için bkz. önceki [Redis komutları Azure önbelleği için Redis desteklenmeyen](#redis-commands-not-supported-in-azure-cache-for-redis) bölümü. Redis komutları hakkında daha fazla bilgi için bkz. [ http://redis.io/commands ](http://redis.io/commands).
 > 
 > 
 

@@ -1,5 +1,5 @@
 ---
-title: Şablonları kullanarak Azure web uygulaması Dağıtma Kılavuzu | Microsoft Docs
+title: Şablonlar - Azure App Service ile Uygulamaları Dağıtma Kılavuzu | Microsoft Docs
 description: Web uygulamalarını dağıtmak için Azure Resource Manager şablonları oluşturmaya yönelik öneriler.
 services: app-service
 documentationcenter: app-service
@@ -11,12 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: c2f600d86965e1115d4be1370da8f7c8e1b67f05
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.custom: seodec18
+ms.openlocfilehash: 523574f49673ee961665136d90f04183e7c1a679
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927681"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277769"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarını kullanarak web uygulaması Dağıtma Kılavuzu
 
@@ -87,7 +88,7 @@ Aşağıdaki örnek, bir şablonun parçası gösterir. Bağlantı dizesi yapıl
 }
 ```
 
-Yukarıdaki kod çalıştırılmaya hazır örnek için bkz [şablon: basit bir Umbraco Web uygulaması derleme](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
+Yukarıdaki kod çalıştırılmaya hazır örnek için bkz [şablonu: Basit bir Umbraco Web uygulaması derleme](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
 
 ## <a name="find-information-about-msdeploy-errors"></a>MSDeploy hatalar hakkında bilgi
 
@@ -128,7 +129,7 @@ Azure devlet kurumları, App Service hizmet sorumlusu kimliği olan **6a02c803-d
 
 Anahtar kasanızı seçin **sertifikaları** ve **Oluştur/içeri aktarma** sertifikayı karşıya yüklemek için.
 
-![Sertifika İçeri Aktar](media/web-sites-rm-template-guidance/import-certificate.png)
+![Sertifikayı içeri aktar](media/web-sites-rm-template-guidance/import-certificate.png)
 
 Şablonunuzda, sertifikanın adını sağlayın `keyVaultSecretName`.
 

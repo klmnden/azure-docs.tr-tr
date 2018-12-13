@@ -10,25 +10,23 @@ ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 2aa2f4e55d375f6ed7960af8bbe327d45b5ea025
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: ec56e21a989fb0e8db7b8bafb1357c6ed64eae75
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871770"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192274"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Log Analytics'te Görünüm Tasarımcısı kullanarak özel görünümlerini oluşturma
 Görünüm Tasarımcısı'nda kullanarak [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md), Azure portalında Log Analytics çalışma alanınızdaki veri görselleştirmenize yardımcı olabilecek çeşitli özel görünümler oluşturabilirsiniz. Bu makalede, Görünüm Tasarımcısı ve yordamlar oluşturmak ve özel görünümler düzenlemek için genel bir bakış sunar.
 
 Görünüm Tasarımcısı hakkında daha fazla bilgi için bkz:
 
-* [Kutucuk başvurusu](view-designer-tiles.md): bir başvuru kılavuzu için kendi özel görünümlerinizi de kullanılabilir kutucukların her biri için ayarları sağlar.
-* [Görselleştirme bölümü başvurusu](view-designer-parts.md): bir başvuru kılavuzu için özel görünümlerinizi kullanılabilir görselleştirme bölümleri ayarlarına sağlar.
+* [Kutucuk başvurusu](view-designer-tiles.md): Kendi özel görünümlerinizi de kullanılabilir kutucukların her biri için ayarları için bir başvuru kılavuzu sağlar.
+* [Görselleştirme bölümü başvurusu](view-designer-parts.md): Bir başvuru kılavuzu için özel görünümlerinizi kullanılabilir görselleştirme bölümleri ayarlarına sağlar.
 
 
 ## <a name="concepts"></a>Kavramlar
@@ -72,9 +70,9 @@ Görünüm Tasarımcısı'nda seçerek yeni bir görünüm oluşturabilirsiniz *
 Görünüm Tasarımcısı yeni görünümler oluşturmak veya varolanları düzenlemek için kullanın. 
 
 Görünüm Tasarımcısı üç bölme vardır: 
-* **Tasarım**: oluşturma veya düzenleme kullandığınız özel görünümü içerir. 
-* **Denetimleri**: kutucukları ve eklediğiniz bölümleri içeren **tasarım** bölmesi. 
-* **Özellikler**: kutucukları veya seçilen parçaları özelliklerini görüntüler.
+* **Tasarım**: Oluşturma veya düzenleme kullandığınız özel görünümü içerir. 
+* **Denetimleri**: Kutucukları ve eklediğiniz bölümleri içeren **tasarım** bölmesi. 
+* **Özellikler**: Seçilen parçaları ve kutucuklar özelliklerini görüntüler.
 
 ![Görünüm Tasarımcısı](media/view-designer/view-designer-screenshot.png)
 

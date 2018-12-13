@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 4b0491d59e4ac495750a338ad743aab69ff47a4e
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: cf283803dfa45c362330ccf73fc5eea198d3a5e2
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494252"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278653"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Seçin, yönetmek ve Service Fabric kümeleri çalışır.
@@ -30,7 +30,7 @@ Seçin, yönetmek ve Service Fabric kümeleri çalışır.
 | --- | --- |
 | kod-versions | Bir Service Fabric kümesinde sağlanan kod sürümlerini fabric listesini alır. |
 | config-versions | Bir Service Fabric kümesinde sağlanan yapılandırma sürümlerini fabric listesini alır. |
-| sistem durumu | Service Fabric kümesi durumunu alır. |
+| sağlık | Service Fabric kümesi durumunu alır. |
 | Bildirimi | Service Fabric küme bildirimi alın. |
 | işlemi iptal etme | Bir kullanıcı nedenli hata işlemi iptal eder. |
 | işlem listesi | Hata kullanıcı nedenli işlemleri tarafından sağlanan girişin filtrelenmiş bir listesini alır. |
@@ -53,14 +53,14 @@ Kümeye sağlanan kod sürümlerini doku hakkında bilgi listesini alır. ' % S'
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --kod sürümü | Service Fabric ürün sürümü. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -75,14 +75,14 @@ Kümeye sağlanan yapılandırma sürümlerini doku hakkında bilgi listesini al
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --config-version | Service Fabric config sürümü. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -97,7 +97,7 @@ Sistem durumu olaylarını sistem durumuna bağlıdır küme üzerinde bildirile
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --uygulamaları Sistem Durumu Filtresi | Kendi sistem durumuna bağlıdır küme sistem durumu sorgu sonucu döndürdü uygulama sistem durumu nesnelerinin filtrelemeye izin verir. Bu parametre için olası değerler üyeleri veya HealthStateFilter numaralandırma üyeleri üzerinde bit düzeyinde işlemler elde edilen tamsayı değeri içerir. Filtreyle eşleşen uygulamaları döndürülür. Tüm uygulamalar, toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri numaralandırma bayrağı tabanlı olduğundan, değer Bitsel 'Veya' işlecini kullanarak elde ettiğiniz bu değerlerin bir birleşimi olabilir. Örneğin, sağlanan değer 6 ise ardından uygulamaları sistem durumunu Tamam (2) ve (4) uyarı HealthState değeriyle döndürülür.  <br> -Default - varsayılan değer. Tüm HealthState eşleşir. Değer sıfırdır.  <br> -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Belirli bir koleksiyon durumlarının sonuç döndürmek için kullanılır. Değer 1'dir.  <br> -Tamam - eşleşme HealthState değeriyle Tamam giriş filtreleyin. Değeri 2'dir.  <br> -Uyarı - filtre HealthState girişle eşleşir uyarı değeri. Değer 4'tür.  <br> -Hata - giriş hatası HealthState değeri ile eşleşen filtre. Değer 8'dir.  <br> -All - giriş herhangi bir HealthState değeri ile eşleşen filtreleyin. Değer 65535'tir. |
 | --Olay Sistem Durumu Filtresi | Döndürülen sistem durumu olayı nesnelerinin koleksiyonunu sistem durumuna göre filtrelemeye olanak tanır. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Yalnızca filtreyle eşleşen olaylar döndürülür. Tüm olaylar, toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri numaralandırma bayrağı tabanlı olduğundan, değer Bitsel 'Veya' işlecini kullanarak elde ettiğiniz bu değerlerin bir birleşimi olabilir. 6 sağlanan değer, örneğin, ardından tüm olayları Tamam (2) ve (4) uyarı HealthState değeriyle döndürülür.  <br> -Default - varsayılan değer. Tüm HealthState eşleşir. Değer sıfırdır.  <br> -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Belirli bir koleksiyon durumlarının sonuç döndürmek için kullanılır. Değer 1'dir.  <br> -Tamam - eşleşme HealthState değeriyle Tamam giriş filtreleyin. Değeri 2'dir.  <br> -Uyarı - filtre HealthState girişle eşleşir uyarı değeri. Değer 4'tür.  <br> -Hata - giriş hatası HealthState değeri ile eşleşen filtre. Değer 8'dir.  <br> -All - giriş herhangi bir HealthState değeri ile eşleşen filtreleyin. Değer 65535'tir. |
@@ -108,7 +108,7 @@ Sistem durumu olaylarını sistem durumuna bağlıdır küme üzerinde bildirile
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -123,13 +123,13 @@ Service Fabric küme bildirimi alın. Küme bildiriminde farklı bir düğüme t
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -140,16 +140,16 @@ Service Fabric küme bildirimi alın. Küme bildiriminde farklı bir düğüme t
 ## <a name="sfctl-cluster-operation-cancel"></a>sfctl küme işlemi iptal etme
 Bir kullanıcı nedenli hata işlemi iptal eder.
 
-Aşağıdaki API'leri CancelOperation kullanarak iptal edilebileceğini hata işlemleri başlatın: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Zorla false ise, ardından belirtilen kullanıcı nedenli işlemi düzgün biçimde durdurulacak ve temizlenir.  Zorla true ise, komutu iptal edilecek ve bazı iç durumu bırakılmış olabilir.  Zorla true belirten dikkatli kullanılmalıdır. Zorla true olarak ayarlanmış bu API'yi çağıran bu API zaten false öncelikle zorla kümesiyle aynı test komutunda çağrılana kadar veya test komutu, bir OperationState OperationState.RollingBack olmadıkça izin verilmez. 
+Aşağıdaki API'leri CancelOperation kullanarak iptal edilebileceğini hata operations Başlat\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Zorla false ise, ardından belirtilen kullanıcı nedenli işlemi düzgün biçimde durdurulacak ve temizlenir.  Zorla true ise, komutu iptal edilecek ve bazı iç durumu bırakılmış olabilir.  Zorla true belirten dikkatli kullanılmalıdır. Zorla true olarak ayarlanmış bu API'yi çağıran bu API zaten false öncelikle zorla kümesiyle aynı test komutunda çağrılana kadar veya test komutu, bir OperationState OperationState.RollingBack olmadıkça izin verilmez. 
 
- Açıklama\: sistem olacaktır/iç sisteminizi temizleme OperationState.RollingBack anlamına gelir durumuna neden komutu yürüterek. Test komutu veri kaybına neden olursa, verileri geri yüklemez.  StartDataLoss çağırın, sonra bu API çağrısı, örneğin, sistem yalnızca dahili durumdan çalıştırarak temizleyin. Komutu, veri kaybına neden için yeteri kadar progressed, hedef bölümün veri geri yüklemez. 
+Açıklama\: sistem olacaktır/iç sisteminizi temizleme OperationState.RollingBack anlamına gelir durumuna neden komutu yürüterek.  Test komutu veri kaybına neden olursa, verileri geri yüklemez.  StartDataLoss çağırın, sonra bu API çağrısı, örneğin, sistem yalnızca dahili durumdan çalıştırarak temizleyin. Komutu, veri kaybına neden için yeteri kadar progressed, hedef bölümün veri geri yüklemez. 
 
 > [!NOTE]
 > Bu API ile zorla çağrılırsa == true, iç durumu geride.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --işlem kimliği [gerekli] | Bu API çağrısının tanımlayan bir GUID.  Bu, ilgili GetProgress API geçirilir. |
 | --force | Düzgün bir şekilde geri alma ve kullanıcı nedenli işlemi yürüterek değiştirilmiş iç sistem durumu temizlemek görüntülenip görüntülenmeyeceğini gösterir. |
@@ -157,7 +157,7 @@ Aşağıdaki API'leri CancelOperation kullanarak iptal edilebileceğini hata iş
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -172,7 +172,7 @@ Tarafından sağlanan girişin filtrelenmiş hata kullanıcı nedenli işlemleri
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Durumu Filtresi | Kullanıcı nedenli işlemlerinde OperationState üzerinde ait filtrelemek için kullanılır. <br> 65535 - Tümünü Seç <br> 1 - çalışan seçin <br> 2 - RollingBack seçin <br>8 - tamamlandı seçin <br>16 - hatalı seçin <br>32 - iptal edildi seçin <br>64 - ForceCancelled seçin.  <br>Varsayılan\: 65535. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
@@ -180,7 +180,7 @@ Tarafından sağlanan girişin filtrelenmiş hata kullanıcı nedenli işlemleri
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -195,7 +195,7 @@ Bir Service Fabric kümesinin kod veya yapılandırma paketleri sağlayın ve do
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Küme bildirimi dosyasının yolu | Küme bildirimi dosyasının yolu. |
 | --kod dosya yolu | Küme kod paket dosyası yolu. |
@@ -203,7 +203,7 @@ Bir Service Fabric kümesinin kod veya yapılandırma paketleri sağlayın ve do
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -218,13 +218,13 @@ Service Fabric kümesine çekirdek kaybına şu anda takılı kalıyor Sistem Hi
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -239,21 +239,21 @@ Rapor üzerinde bildirilen özellik ve sistem durumu raporu kaynağı hakkındak
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --[gerekli] sistem durumu özelliği | Sistem durumu bilgileri özelliği. <br><br> Bir varlık sistem durumu raporlarının farklı özellikler için sahip olabilir. , Bir dize ve rapor tetikleyen durumu koşulu kategorilere ayırmak muhabir esnekliğini tanımak için olmayan bir sabit numaralandırma özelliğidir. Örneğin, "AvailableDisk" özelliği, düğüm üzerinde rapor için bir Raporlayıcı SourceId "LocalWatchdog" ile bir düğümde, kullanılabilir disk durumunu izleyebilirsiniz. Bu özellik "Bağlantı" aynı düğümde raporlamak için aynı muhabir düğüm bağlantısı izleyebilirsiniz. Health store içinde bu raporları belirtilen düğüm için ayrı bir sistem durumu olayları olarak kabul edilir. SourceId birlikte özelliği sistem durumu bilgileri benzersiz olarak tanımlar. |
 | --[gerekli] sistem durumu | Olası değerler şunlardır\: 'Geçersiz', 'Tamam', 'Warning', 'Error', 'Bilinmeyen'. |
-| --Kaynak Kimliği [gerekli] | Sistem durumu bilgileri oluşturulan izleme/istemci/sistem bileşeni tanımlayan kaynak adı. |
+| --Kaynak Kimliği [gerekli] | Kaynak adı, sistem durumu bilgileri oluşturulan izleme/istemci/sistem bileşeni belirtir. |
 | --açıklaması | Sistem durumu bilgileri açıklaması. <br><br> Bu, insan tarafından okunabilir rapor bilgilerini eklemek için kullanılan serbest metin temsil eder. Açıklama maksimum dize uzunluğu 4096 karakter olabilir. Sağlanan dize uzun olduğunda otomatik olarak kesilir. Kesirli kısmı, bir işaretçi "[kesildi]" açıklama son karakterleri içeren ve toplam dize boyutu 4096 karakter. İşaretleyici varlığı kullanıcılara bu kesme gösterir oluştu. Kesirli kısmı, açıklama orijinal dizeden küçüktür 4096 karakter olduğuna dikkat edin. |
 | --hemen | Raporun hemen gönderilmesi gerekip gerekmediğini gösteren bir bayrak. <br><br> Sistem Durumu raporu, Service Fabric için sistem durumu deposu ileten uygulama ağ geçidi için gönderilir. Hemen ayarlanmışsa true, raporun hemen sistem durumu deposu, HTTP ağ geçidi uygulaması kullanarak doku istemci ayarlarına bakılmaksızın HTTP ağ geçidi'ndeki gönderilir. Bu, olabildiğince çabuk gönderilmesi gereken kritik raporlar için kullanışlıdır. Zamanlama ve diğer koşullara bağlı olarak, rapor gönderme yine de, örneğin HTTP ağ geçidini kapalı veya ağ geçidi ileti ulaşmaz başarısız olabilir. Hemen false olarak ayarlarsanız, raporun durumu istemci ayarlarının HTTP ağ geçidi'nden göre gönderilir. Bu nedenle, bunu HealthReportSendInterval yapılandırmasına göre toplu olarak. Sistem Durumu raporu işleme yanı sıra health store iletilere raporlama sistem durumu iyileştirmek sistem durumu istemci izin verdiğinden Önerilen ayar budur. Varsayılan olarak, raporları hemen gönderilmez. |
 | --remove-zaman süresi | Belirtecin süresi dolduğunda, health Store'dan rapor kaldırılmış olup olmadığını gösteren değer. <br><br> Süresi dolduktan sonra health Store'dan true olarak rapor kaldırılırsa. Rapor false olarak ayarlanırsa süresi dolduğunda hata kabul edilir Bu özellik varsayılan olarak false değeridir. İstemciler düzenli aralıklarla bildirdiğinde RemoveWhenExpired false (varsayılan) ayarlamanız gerekir. Bu şekilde muhabir sorunları (örneğin, kilitlenme) ve rapor veremez, varlık sistem durumu raporu süresi dolduğunda hatası değerlendirilir ' dir. Bu varlık sistem durumu hatası olarak işaretler. |
 | --sıra numarası | Bu sistem durumu raporu sayısal dize olarak için sıra numarası. <br><br> Rapor sıra numarası, eski raporlar algılamak için sistem durumu deposu tarafından kullanılır. Bir rapora eklendiğinde belirtilmezse, bir sıra numarası otomatik olarak sistem istemci tarafından üretilir. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
-| --ttl | Bu sistem durumu raporu geçerli olduğu süre. Bu alan, süresi belirtmek için ISO8601 biçimini kullanıyor. <br><br> İstemciler düzenli aralıklarla rapor, yaşam süresi daha yüksek sıklıkta raporları göndermelisiniz. İstemcileri geçişi bildirirse, bunlar sonsuz için yaşam süresi ayarlayabilirsiniz. Yaşam süresi dolduğunda, sistem durumu bilgilerini içeren sistem durumu olayı RemoveWhenExpired ise health Store'dan kaldırıldı ya da doğru veya hata sırasında değerlendirilen ise RemoveWhenExpired false. Aksi durumda sonsuz değer varsayılan olarak belirtilen, süresi. |
+| --ttl | Bu sistem durumu raporu geçerli olduğu süre. Bu alan, süresi belirtmek için ISO8601 biçimini kullanır. <br><br> İstemciler düzenli aralıklarla rapor, yaşam süresi daha yüksek sıklıkta raporları göndermelisiniz. İstemcileri geçişi bildirirse, bunlar sonsuz için yaşam süresi ayarlayabilirsiniz. Yaşam süresi dolduğunda, sistem durumu bilgilerini içeren sistem durumu olayı RemoveWhenExpired ise health Store'dan kaldırıldı ya da doğru veya hata sırasında değerlendirilen ise RemoveWhenExpired false. Aksi durumda sonsuz değer varsayılan olarak belirtilen, süresi. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -264,11 +264,11 @@ Rapor üzerinde bildirilen özellik ve sistem durumu raporu kaynağı hakkındak
 ## <a name="sfctl-cluster-select"></a>sfctl kümesi seçin
 Bir Service Fabric küme uç noktasına bağlanır.
 
-Güvenli kümeye bağlanma, her iki (.pem) bir sertifika (.crt) ve anahtar dosyası (.key) veya tek bir dosya için mutlak bir yol belirtin. Her ikisini birden belirtmeyin. İsteğe bağlı olarak, güvenli bir kümeye bağlanma, ayrıca bir CA paket dosyası ya da güvenilir CA sertifikaları dizinin mutlak bir yol belirtin.
+Güvenli kümeye bağlanma, her iki (.pem) bir sertifika (.crt) ve anahtar dosyası (.key) veya tek bir dosya için mutlak bir yol belirtin. Her ikisini birden belirtmeyin. İsteğe bağlı olarak, güvenli bir kümeye bağlanma, ayrıca bir CA paket dosyası ya da güvenilir CA sertifikaları dizinin mutlak bir yol belirtin. CA sertifikaları dizini kullanıyorsanız `c_rehash <directory>` tarafından sağlanan OpenSSL çalıştırılmalıdır ilk sertifika karma değerleri hesaplamak ve uygun symbolics bağlantıları oluşturmak için.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --uç noktası [gerekli] | Uç nokta URL'si bağlantı noktası ve HTTP veya HTTPS ön ekini de dahil olmak üzere, küme. |
 | --aad | Azure Active Directory kimlik doğrulaması için kullanın. |
@@ -280,7 +280,7 @@ Güvenli kümeye bağlanma, her iki (.pem) bir sertifika (.crt) ve anahtar dosya
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -293,7 +293,7 @@ Bu sfctl örneği bağlı hangi Service Fabric kümesi gösterir.
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -308,7 +308,7 @@ Kod ve yapılandırma ayrı olarak sağlama desteklenir.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --kod sürümü | Küme kod Paket sürümü. |
 | --config-version | Küme bildirimi sürümü. |
@@ -316,7 +316,7 @@ Kod ve yapılandırma ayrı olarak sağlama desteklenir.
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -331,7 +331,7 @@ Sağlanan yükseltme parametreleri doğrulayın ve parametrelerin geçerli oldu�
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Uygulama sistem durumu eşleme | Uygulama adı ve en yüksek yüzdesi hatası tetiklenmeden önce sağlıksız çiftleri kodlamalı JSON sözlüğü. |
 | --app-türü-sistem durumu-map | Uygulama türü adı ve en yüksek yüzdesi hatası tetiklenmeden önce sağlıksız çiftleri kodlamalı JSON sözlüğü. |
@@ -340,23 +340,23 @@ Sağlanan yükseltme parametreleri doğrulayın ve parametrelerin geçerli oldu�
 | --delta sistem durumu değerlendirmesi | Her bir yükseltme etki alanı tamamlandıktan sonra mutlak sistem durumu değerlendirme yerine delta sistem durumu değerlendirmesi sağlar. |
 | --delta iyi durumda olmayan-düğümler | Küme yükseltme sırasında izin verilen sistem durumu performans düşüşü izin verilen maksimum düğüm yüzdesi.  Varsayılan\: 10. <br><br> Delta düğümlerinin başına yükseltme durumunu ve sistem durumu değerlendirme sırasındaki düğümlerinin durumunu arasında ölçülür. Onay, kümenin genel durumunu toleranslı sınırlarda olduğundan emin olmak için her yükseltme etki alanı yükseltme tamamlandıktan sonra gerçekleştirilir. |
 | --hatası eylemi | Olası değerler şunlardır\: 'Geçersiz', 'Geri', 'Manual'. |
-| --force-yeniden başlatma | Yeniden başlatmaya zorla. |
-| --Sistem durumu denetimi deneme | Sistem durumu denetimi yeniden deneme zaman aşımı, milisaniye cinsinden ölçülür. |
-| --Sistem durumu denetimi kararlı | Sistem durumu denetimi kararlılık süresi milisaniye olarak ölçülür. |
-| --Sistem durumu denetimi bekleme | Sistem durumu denetimi bekleme süresi, milisaniye cinsinden ölçülür. |
-| --çoğaltma-kümesi-onay-zaman aşımı | Yükseltme çoğaltma onay zaman aşımı saniye cinsinden ölçülen ayarlayın. |
+| --force-yeniden başlatma | Hatta kod sürümü değiştirilmedi işlemleri zorla yükseltme sırasında yeniden başlatılır. <br><br> Yükseltme, yapılandırma veya veri yalnızca değiştirir. |
+| --Sistem durumu denetimi deneme | Uygulama veya kümenin iyi durumda değilse, sistem durumu denetimleri gerçekleştirmek için girişimleri arasındaki süre uzunluğu. |
+| --Sistem durumu denetimi kararlı | Süreyi sonraki yükseltme etki alanına yükseltmeye devam etmeden önce uygulama veya kümenin sağlıklı kalmasını gerekir. <br><br> Bu, önce bir ISO 8601 süre temsil eden bir dize olarak yorumlanır. Bu başarısız olursa, milisaniye cinsinden toplam sayısını temsil eden bir sayı olarak yorumlanır. |
+| --Sistem durumu denetimi bekleme | Sistem başlatmadan önce bir yükseltme etki alanını tamamladıktan sonra beklenecek süreyi işlemi denetler. |
+| --çoğaltma-kümesi-onay-zaman aşımı | En uzun süreyi bir yükseltme etki alanını işlenmesini engellemek ve beklenmeyen sorunları kullanılabilirlik kaybını önlemek için. <br><br> Bu zaman aşımı süresi dolduğunda işlem yükseltme etki alanının kullanılabilirlik kaybı sorunları bağımsız olarak devam eder. Zaman aşımı, her bir yükseltme etki alanı başlangıcında sıfırlanır. Geçerli değerler 0 ile kapsamlı 42949672925 arasındadır. |
 | --sıralı yükseltme-modu | Olası değerler şunlardır\: 'Geçersiz', 'UnmonitoredAuto', 'UnmonitoredManual', 'İzlenen'.  Varsayılan\: UnmonitoredAuto. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 | --iyi durumda olmayan uygulamalar | İyi durumda olmayan uygulamalar yüzdesi hata raporlamadan önce izin verilen en fazla. <br><br> Örneğin, %10 sağlıksız uygulamalarının izin vermek için bu değer 10 olacaktır. Yüzde küme hata olarak kabul edilmeden önce iyi durumda olmayan uygulamalar maksimum toleranslı yüzdesini temsil eder. Yüzde uyulduğundan, ancak en az bir iyi durumda olmayan uygulama sistem durumu uyarı olarak değerlendirilir. Bu, iyi durumda olmayan uygulamalar uygulama örnekleri ApplicationTypeHealthPolicyMap içinde bulunan uygulama türleri uygulamaları hariç kümedeki toplam sayısı üzerinden bölünmesiyle hesaplanır. Az sayıda uygulamalar üzerinde bir hatasını tolere için hesaplama yukarı yuvarlar. |
 | --iyi durumda olmayan düğümler | İyi durumda olmayan düğümler yüzdesi hata raporlamadan önce izin verilen en fazla. <br><br> Örneğin, %10 sağlıksız düğümleri izin vermek için bu değer 10 olacaktır. Yüzde küme hata olarak kabul edilmeden önce iyi durumda olmayan düğümlerin en yüksek toleranslı yüzdesini temsil eder. Yüzde uyulduğundan, ancak en az bir iyi durumda olmayan düğüm, sistem durumu uyarı olarak değerlendirilir. Yüzde, kümedeki düğümlerin toplam sayısı üzerinden iyi durumda olmayan düğüm sayısına bölünmesiyle hesaplanır. Az sayıda düğüm üzerinde bir hatasını tolere için hesaplama yukarı yuvarlar. Bu yüzdesi, tolerans yapılandırılması için büyük kümelerde bazı düğümleri her zaman aşağı veya çıkış onarımı için olur. |
 | --Yükseltme etki alanı-delta-sağlıksız-düğümler | Küme yükseltme sırasında izin verilen sistem durumu performans düşüşü izin verilen en fazla yükseltme etki düğümler yüzdesi.  Varsayılan\: 15. <br><br> Delta yükseltme başına yükseltme etki düğümler durumunu ve sistem durumu değerlendirme sırasındaki yükseltme etki düğümler durumu arasında ölçülür. Yükseltme etki alanlarında durumunu toleranslı sınırlarda olduğundan emin olmak için yükseltme etki alanlarının her bir yükseltme etki alanı yükseltme tamamlama tüm tamamlandıktan sonra denetimi gerçekleştirilir. |
-| --Yükseltme-etki-zaman aşımı | Yükseltme etki alanı zaman aşımı, milisaniye cinsinden ölçülür. |
-| --Yükseltme zaman aşımı | Yükseltme zaman aşımının milisaniye olarak ölçülür. |
-| --hata olarak uyarı | Uyarıları ile aynı önem hata olarak kabul edilir. |
+| --Yükseltme-etki-zaman aşımı | Süreyi FailureAction yürütülmeden önce tamamlamak her bir yükseltme etki alanı vardır. <br><br> Bu, önce bir ISO 8601 süre temsil eden bir dize olarak yorumlanır. Bu başarısız olursa, milisaniye cinsinden toplam sayısını temsil eden bir sayı olarak yorumlanır. |
+| --Yükseltme zaman aşımı | Süreyi genel yükseltme FailureAction yürütülmeden önce tamamlanması gerekir. <br><br> Bu, önce bir ISO 8601 süre temsil eden bir dize olarak yorumlanır. Bu başarısız olursa, milisaniye cinsinden toplam sayısını temsil eden bir sayı olarak yorumlanır. |
+| --hata olarak uyarı | Uyarıları hata olarak aynı önem derecesi kabul edilip edilmeyeceğini belirtir. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -371,14 +371,14 @@ Küme kod veya yapılandırma yükseltme üzerinde bir sonraki yükseltme etki a
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Yükseltme etki [gerekli] | Bir sonraki yükseltme etki alanı bu küme yükseltmesi için. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -389,17 +389,17 @@ Küme kod veya yapılandırma yükseltme üzerinde bir sonraki yükseltme etki a
 ## <a name="sfctl-cluster-upgrade-rollback"></a>sfctl Küme yükseltme-geri alma
 Bir Service Fabric kümesini yükseltme işlemi geri alın.
 
-Bir Service Fabric kümesinin kod veya yapılandırma yükseltmeyi geri alma.
+Bir Service Fabric kümesinin kod veya yapılandırma yükseltmeyi geri.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -414,13 +414,13 @@ Devam eden Küme yükseltme geçerli durumunu alır. Şu anda yükseltme devam e
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -433,37 +433,38 @@ Bir Service Fabric kümesini yükseltme yükseltme parametrelerini güncelleşti
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Uygulama sistem durumu eşleme | Uygulama adı ve en yüksek yüzdesi hatası tetiklenmeden önce sağlıksız çiftleri kodlamalı JSON sözlüğü. |
 | --app-türü-sistem durumu-map | Uygulama türü adı ve en yüksek yüzdesi hatası tetiklenmeden önce sağlıksız çiftleri kodlamalı JSON sözlüğü. |
 | --delta sistem durumu değerlendirmesi | Her bir yükseltme etki alanı tamamlandıktan sonra mutlak sistem durumu değerlendirme yerine delta sistem durumu değerlendirmesi sağlar. |
 | --delta iyi durumda olmayan-düğümler | Küme yükseltme sırasında izin verilen sistem durumu performans düşüşü izin verilen maksimum düğüm yüzdesi.  Varsayılan\: 10. <br><br> Delta düğümlerinin başına yükseltme durumunu ve sistem durumu değerlendirme sırasındaki düğümlerinin durumunu arasında ölçülür. Onay, kümenin genel durumunu toleranslı sınırlarda olduğundan emin olmak için her yükseltme etki alanı yükseltme tamamlandıktan sonra gerçekleştirilir. |
 | --hatası eylemi | Olası değerler şunlardır\: 'Geçersiz', 'Geri', 'Manual'. |
-| --force-yeniden başlatma | Yeniden başlatmaya zorla. |
-| --Sistem durumu denetimi deneme | Sistem durumu denetimi yeniden deneme zaman aşımı, milisaniye cinsinden ölçülür. |
-| --Sistem durumu denetimi kararlı | Sistem durumu denetimi kararlılık süresi milisaniye olarak ölçülür. |
-| --Sistem durumu denetimi bekleme | Sistem durumu denetimi bekleme süresi, milisaniye cinsinden ölçülür. |
-| --çoğaltma-kümesi-onay-zaman aşımı | Yükseltme çoğaltma onay zaman aşımı saniye cinsinden ölçülen ayarlayın. |
+| --force-yeniden başlatma | Hatta kod sürümü değiştirilmedi işlemleri zorla yükseltme sırasında yeniden başlatılır. <br><br> Yükseltme, yapılandırma veya veri yalnızca değiştirir. |
+| --Sistem durumu denetimi deneme | Uygulama veya kümenin iyi durumda değilse, sistem durumu denetimleri gerçekleştirmek için girişimleri arasındaki süre uzunluğu. |
+| --Sistem durumu denetimi kararlı | Süreyi sonraki yükseltme etki alanına yükseltmeye devam etmeden önce uygulama veya kümenin sağlıklı kalmasını gerekir. <br><br> Bu, önce bir ISO 8601 süre temsil eden bir dize olarak yorumlanır. Bu başarısız olursa, milisaniye cinsinden toplam sayısını temsil eden bir sayı olarak yorumlanır. |
+| --Sistem durumu denetimi bekleme | Sistem başlatmadan önce bir yükseltme etki alanını tamamladıktan sonra beklenecek süreyi işlemi denetler. |
+| --çoğaltma-kümesi-onay-zaman aşımı | En uzun süreyi bir yükseltme etki alanını işlenmesini engellemek ve beklenmeyen sorunları kullanılabilirlik kaybını önlemek için. <br><br> Bu zaman aşımı süresi dolduğunda işlem yükseltme etki alanının kullanılabilirlik kaybı sorunları bağımsız olarak devam eder. Zaman aşımı, her bir yükseltme etki alanı başlangıcında sıfırlanır. Geçerli değerler 0 ile kapsamlı 42949672925 arasındadır. |
 | --sıralı yükseltme-modu | Olası değerler şunlardır\: 'Geçersiz', 'UnmonitoredAuto', 'UnmonitoredManual', 'İzlenen'.  Varsayılan\: UnmonitoredAuto. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 | --iyi durumda olmayan uygulamalar | İyi durumda olmayan uygulamalar yüzdesi hata raporlamadan önce izin verilen en fazla. <br><br> Örneğin, %10 sağlıksız uygulamalarının izin vermek için bu değer 10 olacaktır. Yüzde küme hata olarak kabul edilmeden önce iyi durumda olmayan uygulamalar maksimum toleranslı yüzdesini temsil eder. Yüzde uyulduğundan, ancak en az bir iyi durumda olmayan uygulama sistem durumu uyarı olarak değerlendirilir. Bu, iyi durumda olmayan uygulamalar uygulama örnekleri ApplicationTypeHealthPolicyMap içinde bulunan uygulama türleri uygulamaları hariç kümedeki toplam sayısı üzerinden bölünmesiyle hesaplanır. Az sayıda uygulamalar üzerinde bir hatasını tolere için hesaplama yukarı yuvarlar. |
 | --iyi durumda olmayan düğümler | İyi durumda olmayan düğümler yüzdesi hata raporlamadan önce izin verilen en fazla. <br><br> Örneğin, %10 sağlıksız düğümleri izin vermek için bu değer 10 olacaktır. Yüzde küme hata olarak kabul edilmeden önce iyi durumda olmayan düğümlerin en yüksek toleranslı yüzdesini temsil eder. Yüzde uyulduğundan, ancak en az bir iyi durumda olmayan düğüm, sistem durumu uyarı olarak değerlendirilir. Yüzde, kümedeki düğümlerin toplam sayısı üzerinden iyi durumda olmayan düğüm sayısına bölünmesiyle hesaplanır. Az sayıda düğüm üzerinde bir hatasını tolere için hesaplama yukarı yuvarlar. Bu yüzdesi, tolerans yapılandırılması için büyük kümelerde bazı düğümleri her zaman aşağı veya çıkış onarımı için olur. |
 | --Yükseltme etki alanı-delta-sağlıksız-düğümler | Küme yükseltme sırasında izin verilen sistem durumu performans düşüşü izin verilen en fazla yükseltme etki düğümler yüzdesi.  Varsayılan\: 15. <br><br> Delta yükseltme başına yükseltme etki düğümler durumunu ve sistem durumu değerlendirme sırasındaki yükseltme etki düğümler durumu arasında ölçülür. Yükseltme etki alanlarında durumunu toleranslı sınırlarda olduğundan emin olmak için yükseltme etki alanlarının her bir yükseltme etki alanı yükseltme tamamlama tüm tamamlandıktan sonra denetimi gerçekleştirilir. |
-| --Yükseltme-etki-zaman aşımı | Yükseltme etki alanı zaman aşımı, milisaniye cinsinden ölçülür. |
+| --Yükseltme-etki-zaman aşımı | Süreyi FailureAction yürütülmeden önce tamamlamak her bir yükseltme etki alanı vardır. <br><br> Bu, önce bir ISO 8601 süre temsil eden bir dize olarak yorumlanır. Bu başarısız olursa, milisaniye cinsinden toplam sayısını temsil eden bir sayı olarak yorumlanır. |
 | --yükseltme türü | Olası değerler şunlardır\: 'Geçersiz', 'Çalışırken', 'Rolling_ForceRestart'.  Varsayılan\: alınıyor. |
-| --Yükseltme zaman aşımı | Yükseltme zaman aşımının milisaniye olarak ölçülür. |
-| --hata olarak uyarı | Uyarıları ile aynı önem hata olarak kabul edilir. |
+| --Yükseltme zaman aşımı | Süreyi genel yükseltme FailureAction yürütülmeden önce tamamlanması gerekir. <br><br> Bu, önce bir ISO 8601 süre temsil eden bir dize olarak yorumlanır. Bu başarısız olursa, milisaniye cinsinden toplam sayısını temsil eden bir sayı olarak yorumlanır. |
+| --hata olarak uyarı | Uyarıları hata olarak aynı önem derecesi kabul edilip edilmeyeceğini belirtir. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
 | --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
 | --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Kurulum](service-fabric-cli.md) Service Fabric CLI.

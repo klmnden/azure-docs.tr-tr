@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı başlangıç: Bilgi bankası oluşturma - REST, Node.js - Soru-Cevap Oluşturma'
+title: 'Hızlı Başlangıç: Bilgi Bankası - REST, Node.js - soru-cevap Oluşturucu Oluşturma'
 description: Bu REST tabanlı hızlı başlangıçta Bilişsel Hizmetler API hesabınızdaki Azure Panonuzda görünecek olan örnek bir Soru-Cevap Oluşturma bilgi bankasını programlamayla oluşturma adımları gösterilmektedir.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: a9a6470e8dc7b9f82ae8db586fcbd6629d8ed757
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 8d9f1bf746c98d16539fdd3332977611f072bfff
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235573"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259707"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-nodejs"></a>Hızlı başlangıç: Node.js kullanarak Soru-Cevap Oluşturma’da bilgi bankası oluşturma
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-nodejs"></a>Hızlı Başlangıç: Node.js kullanarak soru-cevap Oluşturucu Bilgi Bankası oluşturma
 
 Bu hızlı başlangıçta program aracılığıyla örnek bir Soru-Cevap Oluşturma bilgi bankası (KB) oluşturma ve yayımlama adımlarında yol gösterilir. Soru-Cevap Oluşturma, [veri kaynaklarından](../Concepts/data-sources-supported.md) ve SSS gibi yarı yapılandırılmış içerikten soru ve cevapları otomatik olarak ayıklar. JSON ile tanımlanan bilgi bankası modeli API isteğinin gövdesinde gönderilir. 
 
@@ -24,12 +24,12 @@ Bu hızlı başlangıç şu Soru-Cevap Oluşturma API'lerini çağırır:
 * [KB Oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 * [İşlem Ayrıntılarını Alma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Node.js 6+](https://nodejs.org/en/download/)
 * [Soru-Cevap Oluşturma hizmetine](../How-To/set-up-qnamaker-service-azure.md) sahip olmanız gerekir. Anahtarınızı almak için, panonuzda **Kaynak Yönetimi** altında **Anahtarlar** öğesini seçin. 
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 ## <a name="create-a-knowledge-base-nodejs-file"></a>Bilgi bankası Node.js dosyası oluşturma
 

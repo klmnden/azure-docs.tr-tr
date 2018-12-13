@@ -4,10 +4,9 @@ description: Nasıl bir veri bilimi video 4 yeni başlayanlar için fiyatı tahm
 keywords: bir model, basit bir model, fiyat tahmini, basit bir regresyon modeli oluşturun
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.author: garye
 editor: cjgronlund
 ms.assetid: a28f1fab-e2d8-4663-aa7d-ca3530c8b525
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 155b853ef46c54fbb6e230573b860189bacc0d64
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: e2c49b9da215c038cfa47689f11da22b2dffc2dc
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092943"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253604"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Basit model ile yanıtı tahmin etme
 ## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Seri yeni başlayanlar için veri bilimi
@@ -38,13 +37,13 @@ En yetersiz serisi almak için tüm bunları izleyin. [Videoları listesine Git]
 ## <a name="other-videos-in-this-series"></a>Bu serideki diğer videolar
 *Yeni başlayanlar için veri bilimi* beş kısa videoyu veri bilimine hızlı bir giriş niteliğindedir.
 
-* Video 1: [ilgili 5 veri biliminin yanıtladığı](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 en az 14 sn)*
-* Video 2: [verileriniz veri bilimi için hazır mı?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 dk 56 sn)*
-* Video 3: [verilerle yanıt soru](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 dk 17 sn)*
-* Video 4: basit bir model ile yanıtı tahmin etme
-* Video 5: [veri bilimi için başkalarının çalışmalarını kopyalama](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 dk 18 sn)*
+* Video 1: [5 veri biliminin yanıtladığı sorular](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 en az 14 sn)*
+* Video 2: [Verileriniz veri bilimi için hazır mı?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 dk 56 sn)*
+* Video 3: [Yanıt verileri ile soru](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 dk 17 sn)*
+* Video 4: Basit model ile yanıtı tahmin etme
+* Video 5: [Veri bilimi için başkalarının çalışmalarını kopyalama](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 dk 18 sn)*
 
-## <a name="transcript-predict-an-answer-with-a-simple-model"></a>Transkript: basit bir model ile yanıtı tahmin etme
+## <a name="transcript-predict-an-answer-with-a-simple-model"></a>Transkript: Basit model ile yanıtı tahmin etme
 "Veri bilimi için yeni başlayanlar" içinde dördüncü video serisine Hoş Geldiniz. Bunu, biz basit bir model oluşturun ve tahminde bulunmak.
 
 A *modeli* verilerimizi hakkında basitleştirilmiş bir hikaye. Ben ne demek istediğimi anlıyor göstereceğiz.
@@ -66,7 +65,7 @@ Küçük gerçekten oluşturduk veri kümesi burada - bir tablo. Bizim kalite ö
 * Ve anlatıldığı gibi sahip **yeterli** bizim cevap
 
 ## <a name="ask-a-sharp-question"></a>NET bir soru sorun
-Şimdi biz bizim soru NET bir şekilde konusunda sizi uyarmayı: "ücreti ne kadardır 1,35 ayar elmas satın alınır?"
+Şimdi biz bizim soru NET bir şekilde konusunda sizi uyarmayı: "Ne kadar bu 1,35 ayar elmas satın alma maliyeti ne olacak?"
 
 Verilerimizi geri kalanını sorusuna bir cevap almak için kullanılacak gerekir böylece listemize 1,35 ayar elmas içinde yok.
 
@@ -97,18 +96,18 @@ Tüm noktaların tam olarak bir çizgi üzerinden gerçekleştirilmeyen olgu kur
 Soruyu yanıtlamak deniyoruz çünkü *ne kadar?* bu adlı bir *regresyon*. Ve düz bir çizgi kullandığımızdan olduğu bir *doğrusal regresyon*.
 
 ## <a name="use-the-model-to-find-the-answer"></a>Model yanıt bulmak için kullanın
-Şimdi bir model sunuyoruz ve biz bizim soru sorun: ne kadar 1,35 ayar elmas maliyeti?
+Şimdi bir model sunuyoruz ve bizim soru isteriz: 1,35 ayar elmas maliyeti ne kadar?
 
-Bizim soruyu yanıtlamak için biz 1,35 carats göz Küresi ve bir dikey çizgi çizin. Burada model satır kesme noktası biz dolar ekseni yatay çizgi eyeball. Bunu, sağ taraftaki 10.000 denk gelir. Müzik! Yanıt olmasıdır: 1,35 ayar elmas yaklaşık 10.000 ABD Doları değerindedir.
+Bizim soruyu yanıtlamak için biz 1,35 carats göz Küresi ve bir dikey çizgi çizin. Burada model satır kesme noktası biz dolar ekseni yatay çizgi eyeball. Bunu, sağ taraftaki 10.000 denk gelir. Müzik! Yanıt olmasıdır: 10.000 ABD Doları hakkında 1,35 ayar elmas maliyet.
 
 ![Model üzerinde yanıt bulun](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>Olasılık aralığı oluşturma
-Bu tahmin nasıl kesin mi merak ediyorsunuz doğaldır. 1,35 ayar elmas çok yakın 10.000 $ olup olmayacağını bilmek yararlı veya çok daha yüksek veya düşük olduğu. Bu şekil, şimdi Zarf nokta çoğunu içeren regresyon satırına yakın bir yerde çizin. Bu Zarf adlı bizim *olasılık aralığı*: çünkü fiyatlar bu Zarf içinde kalan oldukça emin olmamıza son çoğu, sahip. Üst ve alt kısmındaki bu zarfın 1,35 simgeyi seçtiğinizde satırın nereye aştığında size iki yatay olarak daha fazla satır çizebilirsiniz.
+Bu tahmin nasıl kesin mi merak ediyorsunuz doğaldır. 1,35 ayar elmas çok yakın 10.000 $ olup olmayacağını bilmek yararlı veya çok daha yüksek veya düşük olduğu. Bu şekil, şimdi Zarf nokta çoğunu içeren regresyon satırına yakın bir yerde çizin. Bu Zarf adlı bizim *olasılık aralığı*: Çünkü fiyatlar bu Zarf içinde kalan oldukça emin olmamıza son çoğu, sahip. Üst ve alt kısmındaki bu zarfın 1,35 simgeyi seçtiğinizde satırın nereye aştığında size iki yatay olarak daha fazla satır çizebilirsiniz.
 
 ![Olasılık aralığı](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
-Şimdi biz bir şeyler bizim olasılık aralığı hakkında söyleyin: güvenle 1,35 ayar elmas fiyatı hakkında $ 10. 000 - olan ancak 8000 kadar düşük olabilir ve 12.000 kadar yüksek olabilir dediğimiz.
+Artık bir şey hakkında bizim olasılık aralığı dediğimiz:  Biz güvenle 1,35 ayar elmas fiyatı hakkında $ 10. 000 - olan ancak 8000 kadar düşük olabilir ve 12.000 kadar yüksek olabilir söyleyebilirsiniz.
 
 ## <a name="were-done-with-no-math-or-computers"></a>Hiçbir matematik veya bilgisayarlar ile tamamlandı
 Hangi veri bilimcileri yapmak için ödeme yaptığımız ve onu yalnızca çizerek yaptık:

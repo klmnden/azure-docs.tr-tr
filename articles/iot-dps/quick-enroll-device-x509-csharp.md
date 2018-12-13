@@ -10,14 +10,14 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 4c466c8289d7ebde484ea627eecfcbba6a5bc4aa
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 34c303ef45c32d5b210b48a6de36589bcac5dacc
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157420"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189140"
 ---
-# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Hızlı başlangıç: C# kullanarak X.509 cihazlarını Cihaz Sağlama Hizmeti'ne kaydetme
+# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Hızlı Başlangıç: Cihaz sağlama Hizmeti'ni kullanarak X.509 cihazlarını kaydetmeC#
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
@@ -31,7 +31,7 @@ Bu makaledeki adımlar hem Windows hem de Linux makineler için geçerli olsa da
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Visual Studio 2017](https://www.visualstudio.com/vs/)'yi yükleyin.
 * [.Net Core SDK](https://www.microsoft.com/net/download/windows)'yı yükleyin.
@@ -49,13 +49,13 @@ Bu test araçlarını kullanarak sertifika üretmek için aşağıdaki adımlar�
  
 1. Komut istemi veya Git Bash kabuğu açın ve makinenizdeki çalışma klasörüne geçin. Aşağıdaki komutu yürüterek [Azure IoT C SDK'sı](https://github.com/Azure/azure-iot-sdk-c) GitHub deposunu kopyalayın:
     
-  ```cmd/sh
-  git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
-  ```
+   ```cmd/sh
+   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+   ```
 
-  Bu deponun boyutu şu anda 220 MB kadardır. Bu işlemin tamamlanması için birkaç dakika beklemeniz gerekebilir.
+   Bu deponun boyutu şu anda 220 MB kadardır. Bu işlemin tamamlanması için birkaç dakika beklemeniz gerekebilir.
 
-  Test araçları kopyaladığınız deponun *azure-iot-sdk-c/tools/CACertificates* dizininde bulunur.    
+   Test araçları kopyaladığınız deponun *azure-iot-sdk-c/tools/CACertificates* dizininde bulunur.    
 
 2. [Örnekler ve öğreticiler için test amaçlı CA sertifikalarını yönetme](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) adımlarını izleyin. 
 

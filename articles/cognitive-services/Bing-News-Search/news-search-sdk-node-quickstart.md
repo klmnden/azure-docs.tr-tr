@@ -1,7 +1,7 @@
 ---
-title: "Hızlı başlangıç: Bing Haber Arama SDK'sı, Node"
+title: "Hızlı Başlangıç: Haber arama - Bing haber arama SDK'sı için Node.js gerçekleştirin"
 titleSuffix: Azure Cognitive Services
-description: Bing Haber Arama SDK'sı konsol uygulaması kurulumu
+description: Yanıta işlemek ve bu hızlı başlangıçta Node.js için Bing haber arama SDK'sını kullanarak haber arama için kullanın.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 075ce771b6fa92663f172734aabf57b089b294a9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 0fa78474d6400f890626859c32915c8657f92d4e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316948"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249354"
 ---
-# <a name="quickstart-bing-news-search-sdk-with-node"></a>Hızlı başlangıç: Node ile Bing Haber Arama SDK'sı
+# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>Hızlı Başlangıç: Node.js için Bing haber arama SDK'sı ile haber araması
 
 Bing Haber Arama SDK'sı, haber sorguları ve sonuçları ayrıştırmak için REST API işlevselliğini içerir. 
 
@@ -51,10 +52,10 @@ client.newsOperations.search('Winter Olympics').then((result) => {
 
 ```
 Kod konsola `result.value` öğelerini yazdırır ve metin ayrıştırması gerçekleştirmez. Varsa sonuçlar kategorilere ayrılmış şekilde şunları içerir:
-- _type: 'NewsArticle'
-- _type: 'WebPage'
-- _type: 'VideoObject'
-- _type: 'ImageObject'
+- _türü: 'NewsArticle'
+- _türü: 'Web'
+- _türü: 'VideoObject'
+- _türü: 'ImageObject'
 
 <!-- Remove until we can replace with santized version
 ![News results](media/node-sdk-quickstart-results.png)

@@ -1,5 +1,5 @@
 ---
-title: Azure İlkesi örneği - VM ağ arabirimleri için onaylı alt ağ kullanma
+title: Örnek - sanal makine ağ arabirimleri için alt ağ kullanın Onaylandı
 description: Bu örnek ilkesi, ağ arabirimlerinin onaylı bir alt ağ kullanmasını gerektirir.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 60a79c73765a201f4ed3c9ad6f45900e13753c1c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: ed09740e7929dc2505a98b00e020eb7149dc4eab
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995882"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308541"
 ---
 # <a name="use-approved-subnet-for-vm-network-interfaces"></a>VM ağ arabirimlerinde onaylanan alt ağı kullan
 

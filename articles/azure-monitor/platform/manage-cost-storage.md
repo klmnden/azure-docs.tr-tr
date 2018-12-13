@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 744a0f683f58aed98cea7bdef0b2a36af68ad2f1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 1ea99c045d5f1bfaacaefab04322b2d4f1123c84
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097582"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183515"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Veri hacmi ve saklama Log analytics'te kontrol ederek maliyet yönetme
 
@@ -77,19 +76,19 @@ Log Analytics günlük içe alma veri hacmi yönetmek için bir sınır yapılan
 5. Günlük üst sınır olan **OFF** varsayılan olarak – tıklayın **ON** etkinleştirin ve ardından veri birimi sınırı GB/gün.<br><br> ![Log Analytics'e veri sınırını yapılandırın](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-limit-reached"></a>Sınırına olduğunda uyar
-Veri sınırı eşiğine karşılandığında size görsel bir ipucu Azure portalında mevcut olsa da bu davranış mutlaka Acil dikkat gerektiren işletimsel sorunları nasıl yönettiğiniz için hizalayın değil.  Bir uyarı bildirimine almak, Azure İzleyici'de yeni bir uyarı kuralı oluşturabilirsiniz.  Daha fazla bilgi için bkz. [oluşturun, görüntüleyin ve Uyarıları yönetmek nasıl](../../monitoring-and-diagnostics/alert-metric.md).      
+Veri sınırı eşiğine karşılandığında size görsel bir ipucu Azure portalında mevcut olsa da bu davranış mutlaka Acil dikkat gerektiren işletimsel sorunları nasıl yönettiğiniz için hizalayın değil.  Bir uyarı bildirimine almak, Azure İzleyici'de yeni bir uyarı kuralı oluşturabilirsiniz.  Daha fazla bilgi için bkz. [oluşturun, görüntüleyin ve Uyarıları yönetmek nasıl](../../azure-monitor/platform/alerts-metric.md).      
 
 Başlamanıza yardımcı olmak için uyarı için önerilen ayarları şunlardır:
 
-* Hedef: Log Analytics kaynağınızı seçin.
+* Hedef: Log Analytics kaynağınızı seçin
 * Ölçütleri: 
-   * Sinyal adı: özel günlük araması
-   * Arama sorgusu: işlemi | Ayrıntı 'Altındaysa' sahip olduğu
-   * Temel: sonuç sayısı
+   * Sinyal adı: Özel günlük araması
+   * Arama sorgusu: İşlemi | Ayrıntı 'Altındaysa' sahip olduğu
+   * Temel: Sonuç sayısı
    * Koşul: Büyüktür
    * Eşik: 0
    * Dönem: 5 (dakika)
-   * Sıklık: 5 (dakika)
+   * Sıklığı: 5 (dakika)
 * Uyarı kuralı adı: Günlük veri sınırına ulaşıldı
 * Önem derecesi: Uyarı (önem derecesi 1)
 
@@ -103,10 +102,10 @@ Aşağıdaki adımları ne kadar günlük verileri çalışma alanınızda taraf
 5. Bölmede artırın veya gün sayısını azaltın, ardından kaydırıcıyı **Tamam**.  Kullanıyorsanız *ücretsiz* katmanı, veri bekletme süresini değiştirmek mümkün olmayacaktır ve bu ayarı denetlemek için ücretli katmana yükseltmeniz gerekir.<br><br> ![Çalışma alanı veri saklama ayarını değiştirme](media/manage-cost-storage/manage-cost-change-retention-01.png)
 
 ## <a name="troubleshooting"></a>Sorun giderme
-**Soru**: sorunlarını nasıl giderebilirim, Log Analytics, artık veri topluyor? 
-**Yanıt**: üzerinde ücretsiz fiyatlandırma katmanı ve bir günde 500 MB veri göndermiş, günün geri kalanı için veri toplamayı durdurur. Günlük sınıra ulaşılması Log Analytics Veri toplamayı durdurur ya da veri eksik gibi görünüyor yaygın bir nedenidir.  
+**Soru**: Log Analytics, artık veri topluyor, sorunlarını nasıl giderebilirim? 
+**Yanıt**:  Üzerinde ücretsiz fiyatlandırma katmanında ve bir günde 500 MB veri göndermiş, günün geri kalanı için veri toplamayı durdurur. Günlük sınıra ulaşılması Log Analytics Veri toplamayı durdurur ya da veri eksik gibi görünüyor yaygın bir nedenidir.  
 Log Analytics'e veri toplamayı başlatır ve durdurur ' % s'olay türü işlemi oluşturur.  
-Aramada, günlük sınırınıza ulaşmanız ve eksik veriler olmadığını denetlemek için aşağıdaki sorguyu çalıştırın: işlemi | Burada OperationCategory 'Veri toplama durumu' ==   
+Aramada, günlük sınırınıza ulaşmanız ve verileri eksik olursa denetlemek için aşağıdaki sorguyu çalıştırın: İşlemi | Burada OperationCategory 'Veri toplama durumu' ==   
 Ne zaman OperationStatus uyarı bir veri toplamayı durdurur. Veri toplama başladığında OperationStatus başarılı oldu.  
 Aşağıdaki tabloda veri toplamayı durdurur nedenleri açıklanır ve veri koleksiyonu devam bir önerilen eylem:  
 
@@ -120,8 +119,8 @@ Aşağıdaki tabloda veri toplamayı durdurur nedenleri açıklanır ve veri kol
 
 Log Analytics'e UTC saatini kullanır. Sıfırlama zaman, veri alma aynı anda tüm tavan çalışma başlangıç önlemek için çalışma alanları arasında değişir. Çalışma alanı günlük sınırına ulaşırsa, sıfırlama zaman içinde tanımlanan sonra işleme sürdürür **günlük sınır ayarlanacak**.<br><br> ![UTC saat dilimine log Analytics'e sınırla](media/manage-cost-storage/data-volume-mgmt-limit-utc.png)
 
-**Soru**: nasıl bildirim veri toplama durduğunda? 
-**Yanıt**: açıklanan adımları kullanın *oluşturma günlük veri üst sınırında* ekleme Uyarı kurallarına Eylemler yapılandırmanız bir e-posta, Web kancasını veya runbook veri toplamayı durdurur bildirilmesini sağlamak için uyarı ve izleme adımları bölümünde açıklanan adımları kullanın Uyarı kuralı için eylem. 
+**Soru**: Veri toplama durduğunda nasıl uyarılabilirim? 
+**Yanıt**: İçinde açıklanan adımları kullanın *oluşturma günlük veri üst sınırında* veri toplamayı durdurur bildirilmesini sağlamak için uyarı ve adımları kullanma bölümünde açıklanan adımları izleyin ekleme Uyarı kurallarına eylemler için uyarı kuralı bir e-posta, Web kancasını veya runbook eylemini yapılandırma . 
 
 ## <a name="next-steps"></a>Sonraki adımlar  
 

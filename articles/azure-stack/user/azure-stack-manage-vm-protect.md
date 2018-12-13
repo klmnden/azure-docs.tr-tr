@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 87ba13334b037f7eb47264a120bb91b2be5f8a79
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ab55ed73c7364b48f3159672ebee5d934365c92c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963922"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191538"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Azure Stack üzerinde dağıtılan sanal makinelerini koruma
 
@@ -55,8 +55,8 @@ Her uygulama için hedef belirlemek her bir uygulama için yedekleme kurtarma ve
 
 |  | Genel Azure | CSP veri merkezi içinde dağıtılır ve CSP tarafından işletilen azure Stack | Müşteri veri merkezine dağıtılan ve müşteri tarafından işletilen azure Stack |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| **CSP veri merkezi içinde dağıtılır ve CSP tarafından işletilen azure Stack** | Kullanıcı VM'ler için CSP tarafından işletilen Azure Stack dağıtılır. Kullanıcı Vm'lerinin yedeklemeden geri veya doğrudan Azure'a yük devretti. | CSP'de Azure Stack birincil ve ikincil örneklerini, kendi veri merkezlerinde çalışır. Kullanıcı Vm'leri geri veya iki Azure Stack örnekleri arasında yük devretti. | CSP, birincil sitenin Azure Stack'te çalışır. Müşterinin veri merkezi geri yükleme ya da yük devretme hedefidir. |
-| **Müşteri veri merkezine dağıtılan ve müşteri tarafından işletilen azure Stack** | Kullanıcı VM'ler dağıtıldığı Azure Stack müşteri işletilir. Kullanıcı Vm'lerinin yedeklemeden geri veya doğrudan Azure'a yük devretti. | Müşteri, Azure Stack birincil ve ikincil örneklerini, kendi veri merkezlerinde çalışır. Kullanıcı Vm'leri geri veya iki Azure Stack örnekleri arasında yük devretti. | Müşteri, Azure Stack birincil sitede çalışır. CSP'ın datacenter geri yükleme ya da yük devretme hedefidir. |
+| **CSP veri merkezi içinde dağıtılır ve CSP tarafından işletilen azure Stack** | Kullanıcı VM'ler için CSP tarafından işletilen Azure Stack dağıtılır.<br><br>Kullanıcı Vm'lerinin yedeklemeden geri veya doğrudan Azure'a yük devretti. | CSP'de Azure Stack birincil ve ikincil örneklerini, kendi veri merkezlerinde çalışır.<br><br>Kullanıcı Vm'leri geri veya iki Azure Stack örnekleri arasında yük devretti. | CSP, birincil sitenin Azure Stack'te çalışır.<br><br>Müşterinin veri merkezi geri yükleme ya da yük devretme hedefidir. |
+| **Müşteri veri merkezine dağıtılan ve müşteri tarafından işletilen azure Stack** | Kullanıcı VM'ler dağıtıldığı Azure Stack müşteri işletilir.<br><br>Kullanıcı Vm'lerinin yedeklemeden geri veya doğrudan Azure'a yük devretti. | Müşteri, Azure Stack birincil sitede çalışır.<br><br>CSP'ın datacenter geri yükleme ya da yük devretme hedefidir. | Müşteri, Azure Stack birincil ve ikincil örneklerini, kendi veri merkezlerinde çalışır.<br><br>Kullanıcı Vm'leri geri veya iki Azure Stack örnekleri arasında yük devretti. |
 
 ![Kaynak-hedef birleşimleri](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
@@ -81,8 +81,8 @@ Sanal makine tabanlı uygulamalar için en yaygın koruma şeması, yedekleme ya
 
 Uygulama Kurtarma aynı buluta veya yeni bir bulut bir veya daha fazla sanal makine geri yükleme gerektirir. Veri merkezinizde veya genel bulut Bulutu hedefleyebilirsiniz. Seçtiğiniz bulut tamamen denetiminizin içinde olduğundan ve veri gizliliği ve özerkliği gereksinimlerinize göre alır.
  
- - RTO: Kapalı kalma süresini saat cinsinden.
- - RPO: Değişken veri kaybına (bağlı olarak yedekleme sıklığı)
+ - RTO: Saat cinsinden kapalı kalma süresi
+ - RPO: Değişken veri kaybıyla sonuçlanan (bağlı olarak yedekleme sıklığı)
  - Dağıtım topolojisi: Aktif/Pasif
 
 #### <a name="planning-your-backup-strategy"></a>Yedekleme stratejisini planlama
@@ -109,8 +109,8 @@ Bu yaklaşım uygulamanın bir buluta dağıtılması ve kendi VM diğer buluta 
 
 ![Çoğaltmayı elle yük devretme](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
 
- - RTO: Kapalı kalma süresini dakika cinsinden ölçülür.
- - RPO: Değişken veri kaybına (bağlı olarak çoğaltma sıklığı)
+ - RTO: Dakika cinsinden ölçülen bir kapalı kalma süresi
+ - RPO: Değişken veri kaybıyla sonuçlanan (bağlı olarak çoğaltma sıklığı)
  - Dağıtım topolojisi: Aktif/Pasif beklemede
  
 ### <a name="high-availabilityautomatic-failover"></a>Yüksek kullanılabilirlik/otomatik yük devretme
@@ -121,9 +121,9 @@ Birkaç saniye veya dakika kapalı kalma süresini minimum düzeyde veri kaybı 
 
 Bu yaklaşımı kullanarak, uygulama yalnızca tek bir bulut etkindir, ancak yazılım için birden çok bulut dağıtılır. Diğer Bulutlar gelebilmek modda yük devretme tetiklendiğinde uygulamayı başlatmak hazır olur.
 
- - RTO: Kapalı kalma süresini saniye cinsinden ölçülür.
+ - RTO: Saniye cinsinden ölçülen bir kapalı kalma süresi
  - RPO: En düşük düzeyde veri kaybı
- - Dağıtım topolojisi: etkin/etkin bekleme
+ - Dağıtım topolojisi: Etkin/etkin bekleme
 
 ### <a name="fault-tolerance"></a>Hataya dayanıklılık
 
@@ -135,14 +135,14 @@ Bulut her zaman etkin bir altyapı açısından değerlendirilir, böylece her A
 
  - RTO: Kapalı kalma süresi
  - RPO: Veri kaybı olmadan
- - Dağıtım topolojisi: etkin/etkin
+ - Dağıtım topolojisi: Etkin/etkin
 
 ### <a name="no-recovery"></a>Hiçbir kurtarma
 
 Bazı uygulamalar, ortamınızdaki planlanmamış kesinti veya veri kaybına karşı koruma gerekmeyebilir. Örneğin, VM'ler, geliştirme için kullanılan ve test genellikle gerekmez kurtarılması. Bu, bir uygulama ya da belirli bir sanal makine için koruma olmadan yapmak için kararınız olur. Azure Stack yedekleme veya çoğaltma sanal makinelerinin temel altyapısından sunmaz. Benzer şekilde, Azure, her bir aboneliğinizde her VM için koruma katılımı yapmanız gerekir.
 
- - RTO: kurtarılamaz
- - RPO: Tam veri kaybının
+ - RTO: Kurtarılamaz
+ - RPO: Eksiksiz bir veri kaybı
 
 ## <a name="recommended-topologies"></a>Önerilen topolojileri
 

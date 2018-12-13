@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c1db8c99b1bd3f9bbb768572ca1f5f7a4e1e0de4
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 5ccfef8a6ad367e8fac100217713cd323341a535
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639962"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183480"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Azure'da barındırılan VM yapılandırma
 
@@ -28,14 +28,14 @@ Bu makalede, boyut, güncelleştirme ve bir Azure üzerinde barındırılan sana
 
 ## <a name="sizing-the-vhds"></a>VHD'ler boyutlandırma
 
-<!--TD: Check if the following assertion is true. I didn't understand the original content. --> Bir işletim sistemi (ve isteğe bağlı olarak ek hizmetler) ile önceden yapılandırılmış sanal makinelerin seçtiniz sonra standart bir Azure VM boyutu açıklandığı zaten seçtiniz [sanal makine SKU'ları sekmesini](./cpp-skus-tab.md).  Bu, önerilen yaklaşımdır.  Bir işletim sistemi elle yüklüyorsanız, ancak daha sonra birincil VHD'nizi VM görüntünüzdeki boyut gerekir:
+<!--TD: Check if the following assertion is true. I didn't understand the original content. --> Bir işletim sistemi (ve isteğe bağlı olarak ek hizmetler) ile önceden yapılandırılmış sanal makinelerin seçtiniz sonra standart bir Azure VM boyutu açıklandığı zaten seçtiniz [sanal makine SKU'ları sekmesini](./cpp-skus-tab.md).  Çözümünüzü önceden yapılandırılmış bir işletim sistemi ile başlayarak önerilen bir yaklaşımdır.  Bir işletim sistemi elle yüklüyorsanız, ancak daha sonra birincil VHD'nizi VM görüntünüzdeki boyut gerekir:
 
 - Windows için işletim sistemi VHD'si 127-128 GB olarak oluşturulması gereken sabit biçimli VHD. 
 - 30-50 GB olarak Linux için bu VHD oluşturulması gereken sabit biçimli VHD.
 
 Fiziksel boyut 128 127 GB'den az ise, VHD seyrek olmalıdır. Sağlanan temel Windows ve SQL Server görüntüleri, zaten bu gereksinimleri karşılayan, bu nedenle biçimi veya alınan VHD'nin boyutunu değiştirmeyin. 
 
-Veri diskleri en fazla 1 TB büyüklüğünde olabilir. Disk boyutuna karar verirken, müşteriler dağıtım sırasında bir görüntü içindeki VHD'leri boyutlandıramayacağını unutmayın. Veri diski VHD'leri sabit biçimli VHD olarak oluşturulmalıdır. Bunlar aynı zamanda seyrek olmalıdır. Veri diskleri, başlangıçta boş olabilir veya veri içerebilir.
+Veri diskleri en fazla 1 TB büyüklüğünde olabilir. Kendi boyutuna karar verirken, müşteriler dağıtım sırasında bir görüntü içindeki VHD'leri boyutlandıramayacağını unutmayın. Veri diski VHD'leri sabit biçimli VHD olarak oluşturulmalıdır. Bunlar aynı zamanda seyrek olmalıdır. Veri diskleri, başlangıçta boş olabilir veya veri içerebilir.
 
 
 ## <a name="install-the-most-current-updates"></a>En son güncelleştirmeleri yükleyin
@@ -95,7 +95,7 @@ Windows işletim sistemi diskleri ile genelleştirilmiş [sysprep aracını](htt
 
 VM kopyaları oluşturmak genellikle bir çözüm farklı yapılandırmaları sunar ve benzeri için yedekleme, test, özelleştirilmiş yük devretme veya Yük Dengeleme için yararlıdır. Yinelenen ve yönetilmeyen bir kopya yapmak için birincil bir VHD indirme hakkında bilgi için bkz:
 
-- Linux VM: [Azure'dan Linux VHD indirme](../../../virtual-machines/linux/download-vhd.md)
+- Linux VM: [Azure'da Linux VHD'si indirin](../../../virtual-machines/linux/download-vhd.md)
 - Windows VM: [Azure'dan bir Windows VHD indirme](../../../virtual-machines/windows/download-vhd.md)
 
 

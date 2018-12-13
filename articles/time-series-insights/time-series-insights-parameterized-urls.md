@@ -1,5 +1,5 @@
 ---
-title: Parametreli URL'lerle Azure Time Series Insights özel görünümlerini paylaşma | Microsoft Docs
+title: Azure zaman serisi öngörüleri URL'leri - paylaşım Azure Time Series Insights özel görünümlerini parametreli URL'lerle | Microsoft Docs
 description: Bu makalede, özelleştirilmiş görünümün kolayca paylaşılabilmesi için Azure Time Series Insights'ta parametreli URL'lerin nasıl geliştirileceği açıklanır.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: dbd717d79230c5dc2fc823484376267e7b7b8ab1
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 5b43ba4c3f88c678b160e8aec442fa92b4822a3d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628809"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274369"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Parametreli URL'yi kullanarak özel görünümü paylaşma
 
@@ -70,7 +71,7 @@ Kabul edilen değerler, Time Series Insights gezgininin **kısa süre** menüsü
   - *Ölçü* sütununun adı.
 - "predicate":"<string>"
   - Sunucu tarafı filtrelemesi için *where* yan tümcesi.
--  "useSum":"true"
+- "useSum":"true"
   - Bu, ölçümünüz için toplam kullanmayı belirten isteğe bağlı bir parametredir.  Ölçümde “Olaylar” seçiliyse, sayımın varsayılan olarak seçileceğini unutmayın.  “Olaylar” seçili değilse, ortalama varsayılan olarak seçilir.  
 
 'multiChartStack=<true/false>' parametresi grafikte yığın oluşturmayı sağlar, 'multiChartSameScale=<true/false>' parametresi ise isteğe bağlı bir parametre içindeki terimler arasında aynı Y ekseni ölçeğini sağlar.  

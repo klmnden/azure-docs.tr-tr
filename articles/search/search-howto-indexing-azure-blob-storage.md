@@ -1,6 +1,6 @@
 ---
-title: Azure arama ile Azure Blob Depolama dizini oluşturma
-description: Azure Blob Depolama dizin ve Azure Search belgelerden metni Ayıkla hakkında bilgi edinin
+title: Azure Blob Depolama içeriği için tam metin arama - Azure Search dizini
+description: Azure Blob Depolama dizin ve Azure Search belgelerden metni Ayıkla hakkında bilgi edinin.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: d2706d4b10303cb62066f0381f9a69b553c05cb4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: c73a802cd67c9ecb94482cfcd6aac51fc8bbc19e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406981"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317483"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure arama ile Azure Blob Depolama'da belgelerin dizin oluşturma
 Bu makalede, belgelerin dizinini oluşturmak için Azure Search kullanma gösterilmektedir (PDF gibi Microsoft Office belge ve diğer birçok ortak biçimleri) Azure Blob Depolama alanında depolanır. İlk olarak ayarlama ve blob dizin oluşturucu yapılandırma temellerini açıklar. Ardından, davranışların bir daha ayrıntılı keşfi sunar ve karşılaşabileceğiniz olası senaryolar.
@@ -70,7 +71,7 @@ Aşağıdaki yöntemlerden biriyle blob kapsayıcısında için kimlik bilgileri
 
 - **Tam erişim depolama hesabı bağlantı dizesi**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Depolama hesabı dikey penceresine giderek bağlantı dizesini Azure portalından alabilirsiniz > Ayarlar > tuşları (Klasik depolama hesapları) ya da ayarlar > erişim anahtarları (için Azure Resource Manager depolama hesaplarında).
 - **Depolama hesabı paylaşılan erişim imzası** (SAS) bağlantı dizesi: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS listesine sahip ve Okuma izinlerine kapsayıcılar ve nesneler (Bu durumda blobları).
--  **Kapsayıcı paylaşılan erişim imzası**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS listesine sahip ve kapsayıcı izinlerini okuyun.
+-  **Kapsayıcı paylaşılan erişim imzası**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS listesine sahip ve okuma kapsayıcı üzerindeki izinleri gerekir.
 
 Paylaşılan depolama hakkında daha fazla bilgi için erişim imzaları, bkz: [paylaşılan erişim imzaları kullanma](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -96,7 +97,7 @@ Aranabilir bir dizin oluşturmak nasıl işte `content` bloblarından ayıklanan
 
 Dizin oluşturma hakkında daha fazla bilgi için bkz. [dizin oluştur](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
-### <a name="step-3-create-an-indexer"></a>3. adım: bir dizin oluşturucu oluşturma
+### <a name="step-3-create-an-indexer"></a>3. adım: Dizin oluşturucu oluşturma
 Bir dizin oluşturucu, bir veri kaynağı ile bir hedef arama dizinine bağlar ve veri yenilemeyi otomatikleştirmek için bir zamanlama sağlar.
 
 Dizinin ve veri kaynağının oluşturulan dizin oluşturucu oluşturmaya hazırsınız:
@@ -128,7 +129,7 @@ Yapılandırmanıza bağlı olarak [dizin oluşturucu yapılandırmasını](#Par
 * Belge metin içeriği adlı bir dize alanı ayıklanan `content`.
 
 > [!NOTE]
-> Azure Search'ü sınırlar ne kadar metin fiyatlandırma katmanına bağlı olarak ayıklar: 32.000 karakter ücretsiz katmanı, 64.000 temel ve standart, standart S2 ve standart S3 katmanları için 4 milyon. Bir uyarı kesilmiş belgeler için dizin oluşturucu durumu yanıtına dahil edilir.  
+> Azure arama, fiyatlandırma katmanına bağlı olarak ayıklar ne kadar metin sınırları: 32.000 karakter ücretsiz katmanı, 64.000 temel ve standart, standart S2 ve standart S3 katmanları için 4 milyon. Bir uyarı kesilmiş belgeler için dizin oluşturucu durumu yanıtına dahil edilir.  
 
 * Kullanıcı tanımlı meta veri özelliklerini blob üzerinde mevcut varsa, aynen ayıklanır.
 * Standart blob meta veri özelliklerini şu alanlara ayıklanır:
@@ -333,7 +334,7 @@ Bloblarını dizine ekleme, zaman alıcı bir işlem olabilir. BLOB'ları dizin 
 
 "Belgeleri dizininize birden çok kaynaktan bir araya getirmek" isteyebilirsiniz. Örneğin, Cosmos DB'de depolanan diğer meta veriler BLOB metin birleştirmek isteyebilirsiniz. Birden fazla bölümü arama belgeleri oluşturulacak API dizin birlikte çeşitli oluşturucular anında iletme bile kullanabilirsiniz. 
 
-Bunun işe yaraması için tüm dizin oluşturucuların ve diğer bileşenleri belge anahtarı kabul etmeniz gerekir. Dış makalede ayrıntılı bir Rehber için bkz: [belgeleri Azure Search'te diğer verilerle birleştirmek ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Bunun işe yaraması için tüm dizin oluşturucuların ve diğer bileşenleri belge anahtarı kabul etmeniz gerekir. Ayrıntılı bir Rehber için bu dış makaleye bakın: [Azure Search'te diğer verilerle belgeleri birleştirmeniz ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Dizin oluşturma düz metin 
@@ -374,7 +375,7 @@ Aşağıdaki tabloda her belge biçimi için yapılan işleme özetler ve Azure 
 | MSG (uygulama/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Ekleri dahil olmak üzere, metni Ayıkla |
 | ZIP (uygulama/zip'i) |`metadata_content_type` |Arşivdeki tüm belgelerden metni Ayıkla |
 | XML (application/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |XML işaretlemesini kaldırın ve metni Ayıkla |
-| JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Metin ayıklama<br/>Not: JSON blobu birden çok belge alanlarını ayıklamak ihtiyacınız varsa bkz. [dizin JSON blobları](search-howto-index-json-blobs.md) için Ayrıntılar |
+| JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Metin ayıklama<br/>NOT: JSON blobu birden çok belge alanlarını ayıklamak ihtiyacınız varsa bkz [dizin JSON blobları](search-howto-index-json-blobs.md) Ayrıntılar için |
 | EML (ileti/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Ekleri dahil olmak üzere, metni Ayıkla |
 | RTF (uygulama/rtf) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | Metin ayıklama|
 | Düz metin (metin/düz) |`metadata_content_type`</br>`metadata_content_encoding`</br> | Metin ayıklama|

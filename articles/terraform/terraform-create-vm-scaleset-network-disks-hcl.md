@@ -9,36 +9,36 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2018
-ms.openlocfilehash: 5bf3e6d8839c3ec08bae03772d9a7ab011c67857
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 4784672364e2bdf44f0415ab4e1e386a5a80076b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228411"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313063"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Terraform kullanarak bir Azure sanal makine ölçek kümesi oluşturma
 
-[Azure sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets), bire bir aynı ve yük dengeleme özellikli bir sanal makine grubu oluşturmanızı ve yönetmenizi sağlar. Bu gruptaki sanal makine örneklerinin sayısı talep üzerine veya bir plan doğrultusunda otomatik olarak artırılabilir veya azaltılabilir. 
+[Azure sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets), bire bir aynı ve yük dengeleme özellikli bir sanal makine grubu oluşturmanızı ve yönetmenizi sağlar. Bu gruptaki sanal makine örneklerinin sayısı talep üzerine veya bir plan doğrultusunda otomatik olarak artırılabilir veya azaltılabilir.
 
 Bu öğreticide, [Azure Cloud Shell](/azure/cloud-shell/overview)'i kullanarak aşağıdaki görevleri nasıl gerçekleştireceğinizi öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Terraform dağıtımı ayarlama
-> * Terraform dağıtımı için değişkenleri ve çıkışları kullanma 
+> * Terraform dağıtımı için değişkenleri ve çıkışları kullanma
 > * Ağ altyapısı oluşturma ve dağıtma
 > * Sanal makine ölçek kümesi oluşturma, dağıtma ve ağa ekleme
 > * VM'lere SSH aracılığıyla bağlanmak için bir sıçrama kutusu oluşturma ve dağıtma
 
 > [!NOTE]
-> Bu makalede kullanılan Terraform yapılandırma dosyalarının en son sürümünü [Github'daki Awesome Terraform deposunda bulabilirsiniz](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
+> Bu makalede kullanılan yapılandırma dosyalar, Terraform en son sürümünü [GitHub deposunu harika Terraform](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - **Azure aboneliği**: Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 
-- **Terraform'u yükleme**: [Terraform'u yükleme ve Azure erişimini yapılandırma](/azure/virtual-machines/linux/terraform-install-configure) makalesindeki yönergeleri izleyin
+- **Terraform'u yükleme**: Makaledeki yönergeleri izleyerek [Terraform ve Azure erişimi yapılandırma](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **SSH anahtar çifti oluşturma**: SSH anahtar çiftiniz yoksa [Azure’da Linux VM’ler için SSH ortak ve özel anahtar çifti oluşturma](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) makalesindeki yönergeleri izleyin.
+- **SSH anahtar çifti oluşturma**: Bir SSH anahtar çifti, makaledeki yönergeleri yoksa [oluşturmak ve azure'da Linux VM'ler için SSH ortak ve özel anahtar çifti kullanmak nasıl](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 ## <a name="create-the-directory-structure"></a>Dizin yapısını oluşturma
 
@@ -122,7 +122,8 @@ Azure Cloud Shell'de aşağıdaki adımları gerçekleştirin:
 
 1. I tuşunu seçerek ekleme moduna geçin.
 
-1. Aşağıdaki kodu düzenleyiciye yapıştırarak tam etki alanı adını (FQDN) sanal makinelerin kullanımına açın. :
+1. Aşağıdaki kodu düzenleyiciye yapıştırarak tam etki alanı adını (FQDN) sanal makinelerin kullanımına açın.
+:
 
   ```JSON
     output "vmss_public_ip" {
@@ -139,9 +140,9 @@ Azure Cloud Shell'de aşağıdaki adımları gerçekleştirin:
     ```
 
 ## <a name="define-the-network-infrastructure-in-a-template"></a>Şablonda ağ altyapısını tanımlama
-Bu bölümde yeni bir Azure kaynak grubunda aşağıdaki ağ altyapısını oluşturacaksınız: 
+Bu bölümde yeni bir Azure kaynak grubunda aşağıdaki ağ altyapısını oluşturacaksınız:
 
-  - 10.0.0.0/16 adres alanına sahip bir sanal ağ 
+  - 10.0.0.0/16 adres alanına sahip bir sanal ağ
   - 10.0.2.0/24 adres alanına sahip bir alt ağ
   - İki genel IP adresi. Biri sanal makine ölçek kümesi yük dengeleyici tarafından, diğeri ise SSH sıçrama kutusuna bağlanmak için kullanılır.
 
@@ -155,7 +156,7 @@ Azure Cloud Shell'de aşağıdaki adımları gerçekleştirin:
 
 1. I tuşunu seçerek ekleme moduna geçin.
 
-1. Aşağıdaki kodu dosyanın sonuna yapıştırarak tam etki alanı adını (FQDN) sanal makinelerin kullanımına açın. 
+1. Aşağıdaki kodu dosyanın sonuna yapıştırarak tam etki alanı adını (FQDN) sanal makinelerin kullanımına açın.
 
   ```JSON
   resource "azurerm_resource_group" "vmss" {
@@ -210,7 +211,7 @@ Azure Cloud Shell'i yapılandırma dosyalarını (.tf) oluşturduğunuz dizinde 
 1. Terraform'u başlatın.
 
   ```bash
-  terraform init 
+  terraform init
   ```
 
 1. Tanımlanan altyapıyı Azure'a dağıtmak için aşağıdaki komutu çalıştırın.
@@ -235,8 +236,8 @@ Azure Cloud Shell'i yapılandırma dosyalarını (.tf) oluşturduğunuz dizinde 
 Bu bölümde şablona aşağıdaki kaynakları eklemeyi öğreneceksiniz:
 
 - Uygulamayı sunmak ve bu makalenin önceki bölümlerinde yapılandırılan genel IP adresine eklemek için bir Azure yük dengeleyici ve kurallar
-- Yük dengeleyiciye atanacak Azure arka uç adres havuzu 
-- Uygulama tarafından kullanılan ve yük dengeleyici üzerinde yapılandırılan sistem durumu yoklama bağlantı noktası 
+- Yük dengeleyiciye atanacak Azure arka uç adres havuzu
+- Uygulama tarafından kullanılan ve yük dengeleyici üzerinde yapılandırılan sistem durumu yoklama bağlantı noktası
 - Bu makalenin önceki bölümlerinde dağıtılan sanal ağ üzerinde çalışan ve yük dengeleyicinin arkasında bulunan bir sanal makine ölçek kümesi
 - [cloud-init](http://cloudinit.readthedocs.io/en/latest/) kullanılarak yüklenen ve sanal makine ölçek kümesi düğümlerinde bulunan [Nginx](http://nginx.org/).
 
@@ -359,7 +360,7 @@ Cloud Shell'de aşağıdaki adımları gerçekleştirin:
     :wq
     ```
 
-1. Ölçek kümesine dahil olan sanal makineler için cloud-init yapılandırması görevi görecek `web.conf` adlı bir dosya oluşturun. 
+1. Ölçek kümesine dahil olan sanal makineler için cloud-init yapılandırması görevi görecek `web.conf` adlı bir dosya oluşturun.
 
     ```bash
     vi web.conf
@@ -407,7 +408,7 @@ Cloud Shell'de aşağıdaki adımları gerçekleştirin:
   variable "admin_password" {
       description = "Default password for admin account"
   }
-  ``` 
+  ```
 
 1. Esc tuşuna basarak ekleme modundan çıkın.
 
@@ -430,14 +431,14 @@ Cloud Shell'de aşağıdaki adımları gerçekleştirin:
 1. Yeni kaynakları Azure'a dağıtın.
 
   ```bash
-  terraform apply 
+  terraform apply
   ```
 
   Komut çıktısı aşağıdaki ekran görüntüsüne benzer olmalıdır:
 
   ![Terraform sanal makine ölçek kümesi kaynak grubu](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents.png)
 
-1. Bir tarayıcı penceresi açın ve komutun döndürdüğü FQDN değerine bağlanın. 
+1. Bir tarayıcı penceresi açın ve komutun döndürdüğü FQDN değerine bağlanın.
 
   ![FQDN değerine göz atma sonuçları](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
 
@@ -545,7 +546,7 @@ SSH *sıçrama kutusu*, ağdaki diğer sunuculara erişmek için üzerine "sıç
 1. Sıçrama kutusu dağıtın.
 
   ```bash
-  terraform apply 
+  terraform apply
   ```
 
 Dağıtım tamamlandıktan sonra kaynak grubunun içeriği şu ekran görüntüsünde gösterilene benzer olacaktır:
@@ -555,7 +556,7 @@ Dağıtım tamamlandıktan sonra kaynak grubunun içeriği şu ekran görüntüs
 > [!NOTE]
 > Dağıttığınız sıçrama kutusunda ve sanal makine ölçek kümesinde devre dışı bırakılmış olan bir parolayla oturum açma imkanı. Sanal makinelere erişmek için SSH ile oturum açın.
 
-## <a name="environment-cleanup"></a>Ortamı temizleme 
+## <a name="environment-cleanup"></a>Ortamı temizleme
 
 Bu öğreticide oluşturulan Terraform kaynaklarını silmek için Cloud Shell'e şu komutu girin:
 
@@ -566,9 +567,9 @@ terraform destroy
 Yok etme işleminin tamamlanması birkaç dakika sürebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide Terraform kullanarak Azure sanal makine ölçek kümesi oluşturmayı öğrendiniz. Aşağıdaki kaynaklardan Azure'da Terraform kullanımı hakkında daha fazla bilgi edinebilirsiniz: 
+Bu öğreticide Terraform kullanarak Azure sanal makine ölçek kümesi oluşturmayı öğrendiniz. Aşağıdaki kaynaklardan Azure'da Terraform kullanımı hakkında daha fazla bilgi edinebilirsiniz:
 
- [Microsoft.com Terraform Hub'ı](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure sağlayıcı belgeleri](https://aka.ms/terraform)  
- [Terraform Azure sağlayıcı kaynağı](https://aka.ms/tfgit)  
+[Microsoft.com Terraform Hub](https://docs.microsoft.com/azure/terraform/)
+[Terraform'u Azure sağlayıcısı belgelerine](https://aka.ms/terraform)
+[Terraform'u Azure sağlayıcısı kaynak](https://aka.ms/tfgit) 
  [Terraform Azure modülleri](https://aka.ms/tfmodules)

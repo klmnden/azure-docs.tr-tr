@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0787d023676c707a987b4b69cb5601394db4bd3b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 6ee16a0483b13471f12654f82ef6972b41ace634
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728387"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316961"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -38,9 +38,9 @@ StorageSyncAgent.msi /l*v AFSInstaller.log
 Yükleme hatanın nedenini belirlemek için installer.log gözden geçirin.
 
 <a id="agent-installation-on-DC"></a>**Active Directory etki alanı denetleyicisi üzerinde aracı yüklemesi başarısız olur**  
-Eşitleme Aracısı PDC rol sahibi bir Windows Server 2008R2 veya işletim sistemi sürümden düşük olduğu bir Active Directory etki alanı denetleyicisi üzerinde yüklemeye çalışırsanız, burada eşitleme aracısı yüklemek için başarısız olur bir sorunla karşılaşabilirsiniz.
+Eşitleme Aracısı PDC rol sahibi bir Windows Server 2008 R2 veya işletim sistemi sürümden düşük olduğu bir Active Directory etki alanı denetleyicisi üzerinde yüklemeye çalışırsanız, burada eşitleme aracısı yüklemek için başarısız olur bir sorunla karşılaşabilirsiniz.
 
-Çözmek için başka bir etki alanı denetleyicisi çalışan Windows Server 2012 R2 veya daha yeni PDC rolünü aktarma ve eşitleme yükleyin.
+Gidermek için Windows Server 2012 R2 çalıştıran başka bir etki alanı denetleyicisine PDC rolü aktarmak ya da daha yeni eşitleme kurun.
 
 <a id="server-registration-missing"></a>**Azure portalında kayıtlı sunucuları altında sunucu listede**  
 Bir sunucu altında listede yoksa **kayıtlı sunucuları** depolama eşitleme hizmeti için:
@@ -68,7 +68,7 @@ Reset-StorageSyncServer
 Bu sorun oluşur, **Gelişmiş Internet Explorer güvenlik** ilke, sunucu kaydı sırasında etkinleştirilir. Doğru bir şekilde devre dışı bırakma hakkında daha fazla bilgi için **Gelişmiş Internet Explorer güvenlik** İlkesi bkz [Azure dosya eşitleme ile kullanmak için Windows Server hazırlama](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) ve [Azure dosya dağıtma Eşitleme](storage-sync-files-deployment-guide.md).
 
 ## <a name="sync-group-management"></a>Eşitleme Grup Yönetimi
-<a id="cloud-endpoint-using-share"></a>**Bulut uç noktası oluşturma başarısız olursa şu hatayla: "Belirtilen Azure dosya paylaşımı zaten farklı bir CloudEndpoint tarafından kullanılıyor"**  
+<a id="cloud-endpoint-using-share"></a>**Bulut uç noktası oluşturma, şu hatayla başarısız olur: "Belirtilen Azure dosya paylaşımı zaten farklı bir CloudEndpoint tarafından kullanılıyor"**  
 Azure dosya paylaşımının zaten başka bir bulut uç noktası tarafından kullanılmakta olması durumunda bu sorun oluşur. 
 
 Bu iletiyi görürseniz ve Azure dosya paylaşımı şu anda bir bulut uç noktası tarafından kullanılmadığından, Azure dosya paylaşımında Azure dosya eşitleme meta verileri temizlemek için aşağıdaki adımları tamamlayın:
@@ -80,14 +80,14 @@ Bu iletiyi görürseniz ve Azure dosya paylaşımı şu anda bir bulut uç nokta
 2. Azure dosya paylaşımına sağ tıklayın ve ardından **meta verileri Düzenle**.
 3. Sağ **SyncService**ve ardından **Sil**.
 
-<a id="cloud-endpoint-authfailed"></a>**Bulut uç noktası oluşturma başarısız olursa şu hatayla: "AuthorizationFailed"**  
+<a id="cloud-endpoint-authfailed"></a>**Bulut uç noktası oluşturma, şu hatayla başarısız olur: "AuthorizationFailed"**  
 Kullanıcı hesabınıza bir bulut uç noktası oluşturmak için yeterli haklara sahip değilse bu sorun oluşur. 
 
 Bulut uç noktası oluşturmak için kullanıcı hesabınızın aşağıdaki Microsoft Authorization izinleri olmalıdır:  
-* Okuma: rol tanımı Al
-* Yazma: Özel rol tanımını güncelle
-* Okuma: rol ataması Al
-* Yazma: rol ataması oluştur
+* Okuma: Rol tanımı al
+* Yazma: Özel rol tanımı oluştur veya güncelleştir
+* Okuma: Rol ataması al
+* Yazma: Rol ataması oluştur
 
 Aşağıdaki yerleşik rolleri gerekli Microsoft Authorization izinlere sahip:  
 * Sahip
@@ -102,10 +102,10 @@ Kullanıcı hesabı rolü gerekli izinlere sahip olup olmadığını belirlemek 
     * **Rol ataması** olmalıdır **okuma** ve **yazma** izinleri.
     * **Rol tanımı** olmalıdır **okuma** ve **yazma** izinleri.
 
-<a id="server-endpoint-createjobfailed"></a>**Sunucu uç noktası oluşturma başarısız olursa şu hatayla: "MgmtServerJobFailed" (hata kodu:-2134375898)**  
+<a id="server-endpoint-createjobfailed"></a>**Sunucu uç noktası oluşturma, şu hatayla başarısız olur: "MgmtServerJobFailed" (hata kodu:-2134375898)**  
 Sunucu uç noktası yolu sistem birimi ve bulut üzerinde ise bu sorun oluşur katmanlama etkinleştirilir. Bulut katmanlaması sistem birimi üzerinde desteklenmiyor. Sunucu uç noktası sistem biriminde oluşturmak için sunucu uç noktası oluşturulurken katmanlama Bulut devre dışı bırakın.
 
-<a id="server-endpoint-deletejobexpired"></a>**Sunucu uç noktasını silme işlemi başarısız olursa şu hatayla: "MgmtServerJobExpired"**                
+<a id="server-endpoint-deletejobexpired"></a>**Sunucu uç noktasını silme işlemi, şu hatayla başarısız olur: "MgmtServerJobExpired"**                
 Sunucu çevrimdışı veya ağ bağlantısı yok, bu sorun oluşur. Sunucu artık kullanılabilir değilse, sunucu uç noktalarını siler portalında sunucunun kaydını silin. Sunucu uç noktalarını silmek için açıklanan adımları [Azure dosya eşitleme ile bir sunucu kaydını](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 <a id="server-endpoint-provisioningfailed"></a>**Sunucu uç noktası özellikler sayfasını açın veya Bulut katmanlama İlkesi güncelleştirilemedi**  
@@ -132,7 +132,7 @@ Depolama eşitleme İzleyicisi işlemi çalışmıyor veya sunucunun bir proxy v
 
 Bu sorunu çözmek için aşağıdaki adımları gerçekleştirin:
 
-1. Sunucuda Görev Yöneticisi'ni açın ve depolama eşitleme İzleyicisi (AzureStorageSyncMonitor.exe) işleminin çalıştığını doğrulayın. İşlem çalışmıyorsa önce sunucuyu yeniden başlatmayı deneyin. Sunucunun yeniden başlatılması sorunu çözmezse, Azure dosya eşitleme Aracısı sürüm yükseltme [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018) henüz yüklü değilse.
+1. Sunucuda Görev Yöneticisi'ni açın ve depolama eşitleme İzleyicisi (AzureStorageSyncMonitor.exe) işleminin çalıştığını doğrulayın. İşlem çalışmıyorsa önce sunucuyu yeniden başlatmayı deneyin. En son Azure dosya eşitleme için sunucunun yeniden başlatılması sorunu çözmezse, yükseltme [aracı sürümü](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes).
 2. Güvenlik Duvarı ve Proxy ayarlarının doğru yapılandırıldığından doğrulayın:
     - Sunucu bir güvenlik duvarının arkasındaysa, 443 giden bağlantı noktası izin verilen doğrulayın. Güvenlik Duvarı trafiği belirli etki alanlarına erişimi kısıtlıyorsa, Güvenlik Duvarı'nda listelenen etki alanları onaylayın [belgeleri](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) erişilebilir.
     - Sunucu bir proxy'nin arkasındaysa, Proxy adımları izleyerek makineye veya uygulamaya özel proxy ayarlarını yapılandırın [belgeleri](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
@@ -472,7 +472,7 @@ Bu hata genellikle sunucu saatinin yanlış veya kimlik doğrulaması için kull
 
 1. Sertifikalar MMC ek bileşenini açın, bilgisayar hesabını seçin ve sonra da için sertifikalar (yerel bilgisayar) \Personal\Certificates gidin.
 2. İstemci kimlik doğrulama sertifikası süresinin dolması silin ve sertifikalar MMC ek bileşenini kapatın.
-3. Regedit açın ve kayıt defteri ServerSetting anahtarı silin: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync\ServerSetting
+3. Regedit'i açın ve kayıt defteri ServerSetting anahtarı silin: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync\ServerSetting
 4. Azure portalında depolama eşitleme hizmeti kayıtlı sunucuların bölümüne gidin. Süresi dolan sertifikanın sunucuya sağ tıklayın ve "Unregister sunucuya" tıklayın
 5. Sunucuda aşağıdaki PowerShell komutlarını çalıştırın:
 

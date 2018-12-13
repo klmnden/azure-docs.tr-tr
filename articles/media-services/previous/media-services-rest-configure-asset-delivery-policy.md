@@ -1,6 +1,6 @@
 ---
-title: Media Services REST API kullanarak varlık teslim ilkeleri yapılandırma | Microsoft Docs
-description: Bu konu, Media Services REST API kullanarak farklı varlık teslim ilkelerinin nasıl yapılandırılacağını gösterir.
+title: Media Services REST API'si kullanarak varlık teslim ilkelerini yapılandırma | Microsoft Docs
+description: Bu konuda, Media Services REST API'si kullanarak farklı varlık teslim ilkeleri nasıl yapılandırılacağı gösterilmektedir.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: d6f18363cceaf279d92ada77f52d39b7f1d12f65
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dea12d7188b716b4a832a33bb173201e68dbe20f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790450"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189753"
 ---
-# <a name="configuring-asset-delivery-policies"></a>Varlık teslim ilkeleri yapılandırma
+# <a name="configuring-asset-delivery-policies"></a>Varlık teslim ilkelerini yapılandırma
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
 
-Dinamik olarak şifrelenmiş varlıklar iletmeyi planlıyorsanız, Media Services içerik teslim iş akışı'ndaki adımları birini varlıklar için teslim ilkeleri yapılandırıyor. Media Services, varlık teslim edilmesini istediğiniz varlık teslim ilkesini bildirir: hangi Akış Protokolü varlığınız dinamik olarak paketlenir (örneğin, MPEG DASH, HLS, kesintisiz akış veya tümü için), dinamik olarak Varlığınızı şifrelemek isteyip istemediğinizi ve nasıl içine (Zarf veya ortak şifreleme).
+Dinamik olarak şifrelenmiş varlıklar teslim etmeyi planlıyorsanız, medya Hizmetleri içerik teslim iş akışındaki adımlar birini varlıklar teslim ilkelerini yapılandırıyor. Varlık teslim ilkesini, varlık teslim edilmesini istediğiniz Media Services bildirir: dinamik olarak şifrelemek isteyip istemediğinizi hangi akış protokolüne varlığınız dinamik olarak (örneğin, MPEG DASH, HLS, kesintisiz akış veya tümü için), paketlenmesi gereken varlığınız ve nasıl (Zarf veya ortak şifreleme).
 
-Bu konuda ele alınmıştır neden ve nasıl oluşturulacağı ve varlık teslim ilkeleri yapılandırın.
+Bu konuda ele alınmıştır neden ve nasıl oluşturulup varlık teslim ilkelerini yapılandırma.
 
->[!NOTE]
->AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
+> [!NOTE]
+> AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
 >
->Ayrıca, dinamik paketleme ve dinamik şifreleme kullanabilmek için varlığınız Uyarlamalı bit hızlı MP4s ya da Uyarlamalı bit hızlı kesintisiz akış dosyaları içermelidir.
+> Ayrıca, dinamik paketleme ve dinamik şifreleme kullanabilmek için varlığınız bir dizi hızı Uyarlamalı MP4 veya uyarlamalı bit hızlı kesintisiz akış dosyaları içermelidir.
 
 Aynı varlık için farklı ilkeler uygulayabilirsiniz. Örneğin, MPEG DASH ve HLS için AES zarfı kesintisiz akış ve şifreleme için PlayReady şifreleme uygulayabilirsiniz. Herhangi bir teslim ilkesinde tanımlanmayan tüm protokollerin (örneğin, protokol olarak yalnızca HLS‘yi belirten tek bir ilke ekliyorsunuz) akışla aktarılması engellenir. Bunun tek istisnası, hiçbir varlık teslim ilkesinin tanımlanmadığı durumdur. Bu halde tüm protokollere açık bir şekilde izin verilir.
 
-Bir depolama şifrelenmiş varlık teslim etmek istiyorsanız, varlığın teslim ilkesini yapılandırmanız gerekir. Varlığınızı akışı önce akış sunucusu depolama şifreleme kaldırır ve belirtilen teslim ilkesini kullanarak içeriğinizi akışlarını. Örneğin, Gelişmiş Şifreleme Standardı (AES) Zarf şifreleme anahtarıyla şifrelenir, varlık teslim etmek için ilke türünü ayarlamak **DynamicEnvelopeEncryption**. Depolama şifrelemesi kaldırmak ve varlık temiz akışını ilke türünü ayarlayın **NoDynamicEncryption**. Bu ilke türünü yapılandırmanız nasıl gösteren örnekler izleyin.
+Bir depolama şifrelenmiş varlık iletmek istiyorsanız, varlık teslim ilkesini yapılandırmanız gerekir. Varlığınızı akışla önce akış sunucusu depolama şifrelemesi kaldırır ve belirtilen teslim ilkesini kullanarak içeriğinizi akışları. Örneğin, Gelişmiş Şifreleme Standardı (AES) Zarf şifreleme anahtarıyla şifrelenmiş varlığınız sunmak için ilke türünü ayarlayın **DynamicEnvelopeEncryption**. Depolama şifrelemesi kaldırmak ve açık bir varlıkta akış için ilke türünü ayarlayın **NoDynamicEncryption**. Aşağıdaki ilke türlerinden yapılandırma gösteren örnekler izleyin.
 
-Varlık teslim ilkesini nasıl yapılandırdığınıza bağlı olarak, dinamik olarak paketini, dinamik olarak şifrelemek ve aşağıdaki akış protokolleri akışını gerçekleştirebilir: kesintisiz akış, HLS, MPEG DASH akışları.
+Varlık teslim ilkesini nasıl yapılandırdığınıza bağlı olarak dinamik olarak paketleme, dinamik olarak şifreleme ve aşağıdaki akış protokollerine akış mümkün olacaktır: Akış, HLS, MPEG DASH akışlarında kesintisiz.
 
 Aşağıdaki liste, akışa kesintisiz, HLS, DASH kullandığınız biçimleri gösterir.
 
@@ -47,36 +47,36 @@ Kesintisiz akış:
 
 HLS:
 
-{uç nokta adı media services hesabı name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl) akış
+{Akış uç noktası adı-media services hesabı name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
 MPEG DASH
 
-{uç nokta adı media services hesabı name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) akış
+{Akış uç noktası adı-media services hesabı name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
 
 Varlık yayımlama ve akış URL'si oluşturma yönergeleri için bkz. [Akış URL'si oluşturma](media-services-deliver-streaming-content.md).
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
-* Bu varlık için bir (akış) OnDemand Bulucu bulunmakla birlikte bir varlıkla ilişkilendirilen AssetDeliveryPolicy silemezsiniz. İlke silmeden önce varlığından ilkesini kaldırmak için önerilir.
-* Hiçbir varlık teslim ilkesini ayarlandığında akış Bulucusu bir depolama şifrelenmiş varlık oluşturulamıyor.  Varlık şifrelenmiş depolama yoksa, sistem, bir Bulucu oluşturmanız ve varlık bir varlık teslim ilkesini olmadan temiz akışını olanak tanır.
-* Tek bir varlık ile ilişkili birden çok varlık teslim ilkeleri olabilir, ancak yalnızca belirli bir AssetDeliveryProtocol işlemek için bir yol belirtebilirsiniz.  Sistem hangisinin, bir istemci bir kesintisiz akış bir istekte bulunduğunda uygulanacak bilmediğinden, bir hatayla sonuçlanır AssetDeliveryProtocol.SmoothStreaming protokolü belirtmek iki teslim ilkeleri bağlamaya çalışır anlamına gelir.
-* Bir varlığı ile var olan bir akış Bulucu varsa, yeni bir ilke varlık için bağlantı olamaz, mevcut bir varlık ilkesinden bağlantısını veya varlık ile ilişkili bir teslim ilkesini güncelleştirin.  İlk bu akış Bulucusu kaldırmak, ilkeleri ayarlamak ve akış Bulucusu yeniden oluşturmanız gerekmez.  Akış Bulucusu yeniden oluşturur ancak içerik kaynağı veya bir aşağı akış CDN tarafından önbelleğe beri sorunları istemciler için neden olmaz emin olmalısınız aynı locatorId kullanabilirsiniz.
+* Bu varlık için bir OnDemand (akış) Bulucu bulunduğu sürece bir varlıkla ilişkili bir AssetDeliveryPolicy nelze odstranit. İlkeyi silmeden önce ilkeyi varlığından kaldırmak için önerilir.
+* Akış Bulucusu, hiçbir varlık teslim ilkesinin ayarlandığında bir depolama şifrelenmiş varlığında oluşturulamıyor.  Varlık şifrelenmiş depolama yoksa, sistem, bir Bulucu oluşturmanız ve açık bir varlık teslim İlkesi olmadan varlıkta akışını olanak tanır.
+* Tek bir varlık ile ilişkili birden çok varlık teslim ilkesi olabilir, ancak yalnızca belirli bir AssetDeliveryProtocol işlemek için bir yol belirtebilirsiniz.  Sistem hangisinin, bir istemci bir kesintisiz akış bir istekte bulunduğunda uygulanacak bilmediğinden, bir hatayla sonuçlanır AssetDeliveryProtocol.SmoothStreaming Protokolü iki teslim ilkelerini bağlantı denerseniz anlamına gelir.
+* Bir varlık ile var olan bir akış Bulucu varsa, yeni bir ilke için bir varlık bağlama, varlık var olan bir ilkeden bağlantısını veya varlıkla ilişkili bir teslim ilkesini olamaz.  Akış Bulucusu kaldırın ilkeleri ayarlayın ve ardından akış Bulucusu yeniden oluşturmak öncelikle olması.  Akış Bulucusu yeniden ancak içerik kaynağı veya bir aşağı akış CDN tarafından önbelleğe gerektiğinden sorunları istemciler için neden olmaz emin olun, aynı locatorId kullanabilirsiniz.
 
->[!NOTE]
-
->Varlıklar Media Services erişirken, HTTP istekleri özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için bkz: [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
+> [!NOTE]
+> 
+> Varlıklar Media Services erişirken, HTTP isteklerini özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
 
 ## <a name="connect-to-media-services"></a>Media Services’e bağlanmak
 
-AMS API'sine bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulaması ile Azure Media Services API erişim](media-services-use-aad-auth-to-access-ams-api.md). 
+AMS API'ye bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulamasıyla Azure Media Services API'sine erişim](media-services-use-aad-auth-to-access-ams-api.md). 
 
-## <a name="clear-asset-delivery-policy"></a>Clear varlık teslim ilkesini
+## <a name="clear-asset-delivery-policy"></a>NET varlık teslim İlkesi
 ### <a id="create_asset_delivery_policy"></a>Varlık teslim ilkesini oluşturma
-Aşağıdaki HTTP isteğini belirtir dinamik şifreleme uygulamamayı ve aşağıdaki protokollerden birini akışta teslim etmek için bir varlık teslim ilkesini oluşturur: MPEG DASH, HLS ve kesintisiz akış protokollerini. 
+Aşağıdaki HTTP isteği, dinamik şifreleme uygulamak ve şu protokolden herhangi birini stream'de sunmak için belirten varlık teslim ilkesi oluşturur:  MPEG DASH, HLS ve kesintisiz akış protokoller. 
 
-Bir AssetDeliveryPolicy oluştururken belirtebilirsiniz değerleri hakkında bilgi için bkz: [AssetDeliveryPolicy tanımlarken kullanılan türleri](#types) bölümü.   
+Bir AssetDeliveryPolicy oluştururken belirtebilirsiniz değerleri hakkında bilgi için bkz [AssetDeliveryPolicy tanımlarken kullanılan türler](#types) bölümü.   
 
-İsteği:
+İstek:
 
     POST https://media.windows.net/api/AssetDeliveryPolicies HTTP/1.1
     Content-Type: application/json
@@ -94,7 +94,7 @@ Bir AssetDeliveryPolicy oluştururken belirtebilirsiniz değerleri hakkında bil
     "AssetDeliveryPolicyType":2,
     "AssetDeliveryConfiguration":null}
 
-Yanıtı:
+Yanıt:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -123,7 +123,7 @@ Yanıtı:
 ### <a id="link_asset_with_asset_delivery_policy"></a>Varlık teslim ilkesini bağlantı varlığı
 Aşağıdaki HTTP isteği belirtilen varlık için varlık teslim ilkesini bağlar.
 
-İsteği:
+İstek:
 
     POST https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3A86933344-9539-4d0c-be7d-f842458693e0')/$links/DeliveryPolicies HTTP/1.1
     DataServiceVersion: 1.0;NetFx
@@ -138,21 +138,21 @@ Aşağıdaki HTTP isteği belirtilen varlık için varlık teslim ilkesini bağl
 
     {"uri":"https://media.windows.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')"}
 
-Yanıtı:
+Yanıt:
 
     HTTP/1.1 204 No Content
 
 
-## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>DynamicEnvelopeEncryption varlık teslim ilkesini
-### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>EnvelopeEncryption tür içerik anahtarı oluşturup varlık için Bağla
-DynamicEnvelopeEncryption teslim İlkesi belirtirken, varlık EnvelopeEncryption türü için bir içerik anahtarı bağlamak emin olmanız gerekir. Daha fazla bilgi için bkz: [bir içerik anahtarı oluşturma](media-services-rest-create-contentkey.md)).
+## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>Varlık teslim ilkesini DynamicEnvelopeEncryption
+### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>EnvelopeEncryption türünün içerik anahtarı oluşturun ve varlığına bağlayın
+DynamicEnvelopeEncryption teslim İlkesi belirtirken EnvelopeEncryption türü için bir içerik anahtarı, varlık bağlama emin olmanız gerekir. Daha fazla bilgi için bkz. [Bir içerik anahtarı oluşturma](media-services-rest-create-contentkey.md)).
 
 ### <a id="get_delivery_url"></a>Teslim URL'sini alma
-Önceki adımda oluşturduğunuz içerik anahtarı belirtilen teslim yöntemini teslim URL'sini alma. Bir PlayReady korumalı içeriği kayıttan yürütme sırada lisans ya da bir istemci bir AES anahtarı istemek için döndürülen URL kullanır.
+Önceki adımda oluşturulan içerik anahtarının belirtilen teslim yöntemini teslim URL'sini alma. Bir istemci, bir AES anahtarı istemek için döndürülen URL'yi kullanır. veya bir PlayReady korumalı içeriği kayıttan yürütme için sırayla lisansı.
 
-HTTP istek gövdesinde almak için URL'yi türünü belirtin. Bir Media Services PlayReady lisans edinme URL'si isteği içeriğinizi PlayReady ile koruyorsanız 1 için keyDeliveryType kullanılarak: {"keyDeliveryType": 1}. İçeriğinizi Zarf şifrelemeli koruyorsanız, bir anahtar alım keyDeliveryType için 2 belirterek istek URL'si: {"keyDeliveryType": 2}.
+HTTP istek gövdesinde almak için URL türünü belirtin. PlayReady, içeriğinizi Media Services PlayReady lisans edinme URL'si isteği koruyorsanız 1 için keyDeliveryType kullanıyor: {"keyDeliveryType": 1}. İçeriğinizi Zarf şifreleme ile koruyorsanız, bir anahtar edinme keyDeliveryType 2 belirterek istek URL'si: {"keyDeliveryType": 2}.
 
-İsteği:
+İstek:
 
     POST https://media.windows.net/api/ContentKeys('nb:kid:UUID:dc88f996-2859-4cf7-a279-c52a9d6b2f04')/GetKeyDeliveryUrl HTTP/1.1
     Content-Type: application/json
@@ -167,7 +167,7 @@ HTTP istek gövdesinde almak için URL'yi türünü belirtin. Bir Media Services
 
     {"keyDeliveryType":2}
 
-Yanıtı:
+Yanıt:
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -186,11 +186,11 @@ Yanıtı:
 
 
 ### <a name="create-asset-delivery-policy"></a>Varlık teslim ilkesini oluşturma
-Aşağıdaki HTTP isteği oluşturur **AssetDeliveryPolicy** dinamik Zarf şifreleme uygulamak için yapılandırılmış (**DynamicEnvelopeEncryption**) için **HLS** Protokolü (Bu örnekte, diğer protokolleri akışla aktarılması engellenir). 
+Aşağıdaki HTTP isteği oluşturur **AssetDeliveryPolicy** dinamik Zarf şifreleme uygulamak üzere yapılandırılmış (**DynamicEnvelopeEncryption**) için **HLS** protokol (Bu örnekte, diğer protokolleri akış verilerinden engellenir). 
 
-Bir AssetDeliveryPolicy oluştururken belirtebilirsiniz değerleri hakkında bilgi için bkz: [AssetDeliveryPolicy tanımlarken kullanılan türleri](#types) bölümü.   
+Bir AssetDeliveryPolicy oluştururken belirtebilirsiniz değerleri hakkında bilgi için bkz [AssetDeliveryPolicy tanımlarken kullanılan türler](#types) bölümü.   
 
-İsteği:
+İstek:
 
     POST https://media.windows.net/api/AssetDeliveryPolicies HTTP/1.1
     Content-Type: application/json
@@ -207,7 +207,7 @@ Bir AssetDeliveryPolicy oluştururken belirtebilirsiniz değerleri hakkında bil
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/\"}]"}
 
 
-Yanıtı:
+Yanıt:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -229,19 +229,19 @@ Yanıtı:
 ### <a name="link-asset-with-asset-delivery-policy"></a>Varlık teslim ilkesini bağlantı varlığı
 Bkz: [varlık teslim ilkesini bağlantı varlığı](#link_asset_with_asset_delivery_policy)
 
-## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption varlık teslim ilkesini
-### <a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>CommonEncryption tür içerik anahtarı oluşturup varlık için Bağla
-DynamicCommonEncryption teslim İlkesi belirtirken, varlık CommonEncryption türü için bir içerik anahtarı bağlamak emin olmanız gerekir. Daha fazla bilgi için bkz: [bir içerik anahtarı oluşturma](media-services-rest-create-contentkey.md)).
+## <a name="dynamiccommonencryption-asset-delivery-policy"></a>Varlık teslim ilkesini DynamicCommonEncryption
+### <a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>CommonEncryption türünün içerik anahtarı oluşturun ve varlığına bağlayın
+DynamicCommonEncryption teslim İlkesi belirtirken CommonEncryption türü için bir içerik anahtarı, varlık bağlama emin olmanız gerekir. Daha fazla bilgi için bkz. [Bir içerik anahtarı oluşturma](media-services-rest-create-contentkey.md)).
 
 ### <a name="get-delivery-url"></a>Teslim URL'sini alma
-Önceki adımda oluşturduğunuz içerik anahtarı PlayReady teslim yöntemini teslim URL'sini alma. Bir istemci döndürülen URL PlayReady lisans korumalı içeriği kayıttan yürütme sırada istemek için kullanır. Daha fazla bilgi için bkz: [alma teslim URL](#get_delivery_url).
+İçerik anahtarı önceki adımda oluşturduğunuz PlayReady teslim yöntemi için teslim URL'yi alın. Bir istemci, korumalı içeriği kayıttan yürütme için sırayla PlayReady lisans istemek için döndürülen URL'yi kullanır. Daha fazla bilgi için [teslim URL'sini alma](#get_delivery_url).
 
 ### <a name="create-asset-delivery-policy"></a>Varlık teslim ilkesini oluşturma
-Aşağıdaki HTTP isteği oluşturur **AssetDeliveryPolicy** dinamik ortak şifreleme uygulamak için yapılandırılmış (**DynamicCommonEncryption**) için **kesintisiz akış** Protokolü (Bu örnekte, diğer protokolleri akışla aktarılması engellenir). 
+Aşağıdaki HTTP isteği oluşturur **AssetDeliveryPolicy** dinamik ortak şifreleme uygulamak üzere yapılandırılmış (**DynamicCommonEncryption**) için **kesintisiz akış**Protokolü (Bu örnekte, diğer protokolleri akış verilerinden engellenir). 
 
-Bir AssetDeliveryPolicy oluştururken belirtebilirsiniz değerleri hakkında bilgi için bkz: [AssetDeliveryPolicy tanımlarken kullanılan türleri](#types) bölümü.   
+Bir AssetDeliveryPolicy oluştururken belirtebilirsiniz değerleri hakkında bilgi için bkz [AssetDeliveryPolicy tanımlarken kullanılan türler](#types) bölümü.   
 
-İsteği:
+İstek:
 
     POST https://media.windows.net/api/AssetDeliveryPolicies HTTP/1.1
     Content-Type: application/json
@@ -258,25 +258,25 @@ Bir AssetDeliveryPolicy oluştururken belirtebilirsiniz değerleri hakkında bil
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
 
-Widevine DRM kullanarak içeriğinizi korumak istiyorsanız, (7 değeri olan) WidevineLicenseAcquisitionUrl kullanılacak AssetDeliveryConfiguration değerlerini güncelleştirin ve bir lisans teslimat hizmeti URL'sini belirtin. Widevine lisansları teslim yardımcı olmak için şu AMS ortaklarını kullanabilirsiniz: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+Widevine DRM kullanarak içeriğinizi korumak istiyorsanız, (Bu 7 değerine sahiptir) WidevineLicenseAcquisitionUrl kullanılacak assetdeliveryconfiguration'ı değerlerini güncelleştirin ve bir lisans teslimat hizmeti URL'sini belirtin. Widevine lisansları teslim etmenize yardımcı olmak için şu AMS ortaklarını kullanabilirsiniz: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 Örneğin: 
 
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
 
 > [!NOTE]
-> Widevine ile şifrelerken yalnızca tire kullanarak teslim etmek mümkün olacaktır. Varlık teslim Protokolü tire (2) belirttiğinizden emin olun.
+> Widevine ile şifrelerken yalnızca DASH teslim et mümkün olacaktır. Varlık teslim Protokolü tire (2) belirttiğinizden emin olun.
 > 
 > 
 
 ### <a name="link-asset-with-asset-delivery-policy"></a>Varlık teslim ilkesini bağlantı varlığı
 Bkz: [varlık teslim ilkesini bağlantı varlığı](#link_asset_with_asset_delivery_policy)
 
-## <a id="types"></a>AssetDeliveryPolicy tanımlarken kullanılan türleri
+## <a id="types"></a>AssetDeliveryPolicy tanımlarken kullanılan türler
 
 ### <a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol
 
-Aşağıdaki liste, varlık teslim protokolü için ayarlayabileceğiniz değerler açıklar.
+Aşağıdaki enum değerleri için varlık teslim Protokolü ayarlayabilirsiniz açıklar.
 
     [Flags]
     public enum AssetDeliveryProtocol
@@ -311,7 +311,7 @@ Aşağıdaki liste, varlık teslim protokolü için ayarlayabileceğiniz değerl
 
 ### <a name="assetdeliverypolicytype"></a>AssetDeliveryPolicyType
 
-Aşağıdaki liste varlık teslim İlkesi türü için ayarlayabileceğiniz değerler açıklar.  
+Aşağıdaki enum değerleri için varlık teslim İlkesi türü ayarlayabilirsiniz açıklar.  
 
     public enum AssetDeliveryPolicyType
     {
@@ -377,7 +377,7 @@ Aşağıdaki liste, içerik anahtarının istemciye teslim yöntemini yapıland�
 
 ### <a name="assetdeliverypolicyconfigurationkey"></a>AssetDeliveryPolicyConfigurationKey
 
-Aşağıdaki liste, belirli bir yapılandırma için bir varlık teslim ilkesini almak için kullanılan anahtarları yapılandırmak için ayarlayabilirsiniz değerleri açıklanmaktadır.
+Aşağıdaki enum değerleri için bir varlık teslim ilkesini belirli yapılandırmasını almak için kullanılan anahtarları yapılandırmak için ayarlayabilirsiniz açıklar.
 
     public enum AssetDeliveryPolicyConfigurationKey
     {

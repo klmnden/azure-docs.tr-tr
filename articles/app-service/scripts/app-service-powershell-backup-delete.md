@@ -3,8 +3,8 @@ title: Azure PowerShell Betik Örneği - Web uygulamasının yedeğini silme | M
 description: Azure PowerShell Betik Örneği - Web uygulamasının yedeğini silme
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: ebcadb49-755d-4202-a5eb-f211827a9168
@@ -13,16 +13,16 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 ms.date: 10/30/2017
-ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 6fede6d7c8de473debea927366fca0ab52cf6e5b
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
-ms.translationtype: HT
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: 4a2abe05b6781358355cc264b66673671bc52557
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325821"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185656"
 ---
-# <a name="delete-a-backup-for-a-web-app"></a>Web uygulamasının yedeğini silme
+# <a name="delete-a-backup-for-a-web-using-azure-powershell"></a>Azure PowerShell kullanarak bir web için bir yedek silme
 
 Bu örnek betik, App Service’te ilgili kaynaklarıyla birlikte bir web uygulaması oluşturur ve sonra bu web uygulaması için tek seferlik bir yedekleme oluşturur. 
 

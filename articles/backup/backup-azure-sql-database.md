@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: f6271e8de6be0bcfab7ade4c9e90a69482e7905e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: d38fc727ed7e9e3c47d2fcb9af7894f8a2a7c7a7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878219"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262342"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>SQL Server veritabanlarını Azure'a yedekleme
 
@@ -118,7 +118,7 @@ Bu koşullar, ortamınızda varsa, devam [SQL Server veritabanları için yedekl
 Tüm işlemler için Azure genel IP adreslerine bağlantısı SQL sanal makinesi gerekir. SQL sanal makine işlemleri (veritabanı bulma gibi yedeklemeleri yapılandırma, yedeklemeler zamanlamak, Kurtarma noktalarını geri ve benzeri) genel IP adreslerine bağlantısı olmadan başarısız. Yedekleme trafiği için bir yol sağlamak için aşağıdaki seçeneklerden birini kullanın:
 
 - Beyaz liste Azure veri merkezi IP aralıkları: Azure veri merkezi IP aralıklarını güvenilir listeye kullanın [IP aralıkları ve yönergeleri hakkında ayrıntılı bilgi için İndirme Merkezi sayfasında](https://www.microsoft.com/download/details.aspx?id=41653).
-- Trafiği yönlendirmek için bir HTTP Ara sunucusunu dağıtmak: bir SQL veritabanı'nda VM yedeklediğinizde, VM'deki yedekleme uzantısına Azure Backup ve Azure Depolama'ya veri yönetimi komutları göndermek için HTTPS API'lerini kullanır. Backup uzantısı, Azure Active Directory (Azure AD) kimlik doğrulaması için de kullanır. HTTP proxy üzerinden bu üç hizmeti yedekleme uzantısını trafiği yönlendirme. Uzantı genel internet erişimi için yapılandırılan tek bileşen güçlendirin.
+- Trafiği yönlendirmek için bir HTTP proxy sunucusu dağıtın: Bir SQL veritabanı'nda VM yedeklediğinizde, VM'deki yedekleme uzantısına Azure Backup ve Azure Depolama'ya veri yönetimi komutları göndermek için HTTPS API'lerini kullanır. Backup uzantısı, Azure Active Directory (Azure AD) kimlik doğrulaması için de kullanır. HTTP proxy üzerinden bu üç hizmeti yedekleme uzantısını trafiği yönlendirme. Uzantı genel internet erişimi için yapılandırılan tek bileşen güçlendirin.
 
 Bir denge seçenekleri, yönetilebilirlik, ayrıntılı bir denetim ve Maliyet ' dir.
 
@@ -126,7 +126,7 @@ Bir denge seçenekleri, yönetilebilirlik, ayrıntılı bir denetim ve Maliyet '
 > Hizmet etiketleri Azure Backup'ın, genel kullanılabilirlik tarafından kullanılabilir olması gerekir.
 >
 
-| Seçenek | Avantajları | Dezavantajları |
+| Seçenek | Yararları | Dezavantajları |
 | ------ | ---------- | ------------- |
 | Beyaz liste IP aralıkları | Ek maliyet olmadan. <br/> Bir NSG içinde açmak erişimi için kullandığınız **kümesi AzureNetworkSecurityRule** cmdlet'i. | Etkilenen IP aralıklarını zamanla değişir olduğundan yönetmek için karmaşık. <br/>Azure, yalnızca Azure Storage'nın tam erişim sağlar.|
 | Bir HTTP Ara sunucusunu kullanacak   | Depolama üzerinde ayrıntılı denetim proxy'sinde URL'leri izin verilir. <br/>Vm'leri tek noktası internet erişimi. <br/> Azure IP adresi değişiklikleri tabi değildir. | Bir VM ile Ara yazılım çalıştırmak için ek ücretler. |
@@ -149,7 +149,7 @@ Bir sanal makineyi yedeklemek için Azure Backup gerektirir **AzureBackupWindows
 
     ![SQL Server Azure VM için yedeklemeyi seçin.](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    **Yedekleme hedefi** menü görüntüler iki adımı: **VM'lerin içinde VT Bul** ve **yedeklemeyi Yapılandır**. **VM'lerin içinde VT Bul** adım, Azure sanal makineler için bir arama başlatın.
+    **Yedekleme hedefi** menü iki adımı görüntüler: **VM'lerin içinde VT Bul** ve **yedeklemeyi yapılandırma**. **VM'lerin içinde VT Bul** adım, Azure sanal makineler için bir arama başlatın.
 
     ![İki yedekleme hedefi adımlarını gözden geçirin](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
@@ -231,7 +231,7 @@ Azure yedekleme, SQL Server örneğindeki tüm veritabanlarını bulur. Veritaba
 
     ![SQL Server Azure VM için yedeklemeyi seçin.](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    **Yedekleme hedefi** menü görüntüler iki adımı: **VM'lerin içinde VT Bul** ve **yedeklemeyi Yapılandır**.
+    **Yedekleme hedefi** menü iki adımı görüntüler: **VM'lerin içinde VT Bul** ve **yedeklemeyi yapılandırma**.
 
     ![İki yedekleme hedefi adımlarını gözden geçirin](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
@@ -279,7 +279,7 @@ Bir SQL veritabanı için korumayı yapılandırmak için:
 
     ![SQL Server Azure VM için yedeklemeyi seçin.](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    **Yedekleme hedefi** menü görüntüler iki adımı: **VM'lerin içinde VT Bul** ve **yedeklemeyi Yapılandır**.
+    **Yedekleme hedefi** menü iki adımı görüntüler: **VM'lerin içinde VT Bul** ve **yedeklemeyi yapılandırma**.
 
     Sırayla bu makaledeki adımları tamamladıysanız, korumasız sanal makineleri keşfettiniz ve sahip bir sanal makineyi bu kasaya kayıtlı. Şimdi, SQL veritabanları için koruma yapılandırılamadı hazırsınız demektir.
 
@@ -345,9 +345,9 @@ Bir SQL veritabanı için korumayı yapılandırmak için:
 
 Bir yedekleme İlkesi, bir matris yedekleme zaman alınır ve ne kadar süreyle tutulur tanımlar. Üç tür SQL veritabanları için yedekleme zamanlamak için Azure Backup kullanın:
 
-* Tam yedekleme: tam bir veritabanı yedeği tüm veritabanını yedekler. Tam yedekleme, tüm verileri belirli bir veritabanında veya dosya grubu veya dosya ve verileri kurtarmak için yeterli günlükleri bir dizi içeriyor. En fazla günde bir tam yedekleme tetikleyin. Tam günlük veya haftalık bir aralıkta yedek almak seçebilirsiniz.
-* Değişiklik yedeği: değişiklik yedeği en son, önceki tam veri yedeği temel alır. Değişiklik yedeği, yalnızca tam yedeklemeden bu yana değişmiş olan verileri yakalar. En fazla günde bir fark yedekleme tetikleyebilirsiniz. Aynı gün tam yedekleme ve bir değişiklik yedeği yapılandıramazsınız.
-* İşlem günlüğü yedeklemesi: belirli bir saniye kadar zaman içinde nokta geri yüklemesi bir günlük yedeklemesi sağlar. En fazla 15 dakikada bir işlem günlüğü yedeklemeleri yapılandırabilirsiniz.
+* Tam yedekleme: Tam veritabanı yedeği tüm veritabanını yedekler. Tam yedekleme, tüm verileri belirli bir veritabanında veya dosya grubu veya dosya ve verileri kurtarmak için yeterli günlükleri bir dizi içeriyor. En fazla günde bir tam yedekleme tetikleyin. Tam günlük veya haftalık bir aralıkta yedek almak seçebilirsiniz.
+* Fark yedekleme: Değişiklik yedeği en son, önceki tam veri yedeği temel alır. Değişiklik yedeği, yalnızca tam yedeklemeden bu yana değişmiş olan verileri yakalar. En fazla günde bir fark yedekleme tetikleyebilirsiniz. Aynı gün tam yedekleme ve bir değişiklik yedeği yapılandıramazsınız.
+* İşlem günlüğü yedeklemesi: Bir günlük yedeği, belirli bir saniye kadar zaman içinde nokta geri yükleme sağlar. En fazla 15 dakikada bir işlem günlüğü yedeklemeleri yapılandırabilirsiniz.
 
 İlkenin kurtarma Hizmetleri kasası düzeyi oluşturdunuz. Birden çok kasa ve aynı yedekleme ilkesine kullanabilirsiniz, ancak her kasa için yedekleme ilkesini uygulama. Bir yedekleme ilkesi oluşturduğunuzda, günlük tam yedekleme varsayılandır. Tam yedekleme haftalık olarak gerçekleşecek şekilde yapılandırırsanız, ancak yalnızca bir değişiklik yedeği ekleyebilirsiniz. Aşağıdaki yordam bir Azure sanal makineler'de SQL Server örneği için bir yedekleme ilkesi oluşturma işlemini açıklar.
 
@@ -455,8 +455,8 @@ Belirli bir zaman yerine belirli bir kurtarma noktasını geri yüklemek için b
     ![Geri yükleme Veritabanı Seç](./media/backup-azure-sql-database/restore-db-button.png)
 
     Zaman **geri** menüsü açılır, **geri yükleme Yapılandırması** ayrıca menüsü açılır. **Geri yükleme Yapılandırması** menüsü geri yüklemeyi yapılandırmak için ilk adımı olur. Verileri geri yükleneceği yeri seçmek için bu menüyü kullanın. Seçenekler şunlardır:
-    - **Alternatif konuma**: veritabanını alternatif bir konuma geri yükleyin ve özgün kaynak veritabanını korur.
-    - **Üzerine yaz**: verileri, özgün kaynak aynı SQL Server örneğine geri yükleyin. Bu seçenek, özgün veritabanının üzerine yazmak için etkisidir.
+    - **Alternatif konuma**: Veritabanını alternatif bir konuma geri yükleyin ve özgün kaynak veritabanını korur.
+    - **Üzerine yaz**: Verilerin, özgün kaynak aynı SQL Server örneğine geri yükleyin. Bu seçenek, özgün veritabanının üzerine yazmak için etkisidir.
 
     > [!Important]
     > Seçilen veritabanı bir Always On kullanılabilirlik grubuna dahilse, SQL Server veritabanı üzerine yazılmasına izin vermez. Bu durumda, yalnızca **alternatif bir konuma** seçeneği etkinleştirilir.
@@ -798,19 +798,15 @@ Aşağıdaki bölümde, SQL veritabanı yedeklemesi hakkında ek bilgi sağlar.
 ### <a name="can-i-throttle-the-speed-of-the-sql-server-backup-policy"></a>Ben, SQL Server Yedekleme İlkesi hızına kısıtlayabilir miyim?
 
 Evet. Bir SQL Server örneği üzerindeki etkiyi en aza indirmek için yedekleme ilkesini yürütür oranı kısıtlayabilirsiniz.
-
 Bu ayarı değiştirmek için:
-
-1. SQL Server örneğinde C:\Program Files\Azure iş yükü Backup\bin klasöründe açın **TaskThrottlerSettings.json** dosya.
-
-2. TaskThrottlerSettings.json dosyasında değiştirmek **DefaultBackupTasksThreshold** ayarını daha düşük bir değere (örneğin, 5).
+1. SQL Server örneğinde, *C:\Program Files\Azure iş yükü Backup\bin klasör*, oluşturma **ExtensionSettingsOverrides.json** dosya.
+2. İçinde **ExtensionSettingsOverrides.json** dosya, değişiklik **DefaultBackupTasksThreshold** ayarını daha düşük bir değere (örneğin, 5) <br>
+  ` {"DefaultBackupTasksThreshold": 5}`
 
 3. Yaptığınız değişiklikleri kaydedin. Dosyayı kapatın.
-
-4. SQL Server örneğinde açın **Görev Yöneticisi'ni**. Yeniden **Azure yedekleme iş yükü Coordinator hizmetini**.
+4. SQL Server örneğinde açın **Görev Yöneticisi'ni**. Yeniden **AzureWLBackupCoordinatorSvc** hizmeti.
 
 ### <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Bir ikincil çoğaltma tam yedekleme çalıştırabilir miyim?
-
 Hayır. Bu özellik desteklenmez.
 
 ### <a name="do-successful-backup-jobs-create-alerts"></a>Başarılı yedekleme işleri uyarılar oluşturulur?

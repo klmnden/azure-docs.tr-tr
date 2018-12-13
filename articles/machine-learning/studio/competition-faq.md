@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: c423438e5c8088dba5b9d71e8e50a2e9de1371c6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fe4da412aa779e9861446f8dcbb8a807c282c7c6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104974"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268912"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence Yarışmaları Hakkında SSS
 **Cortana Intelligence Yarışmaları nedir?**
@@ -70,7 +69,7 @@ Yarışma platform şu anda team katılımı desteklemiyor. Her yarışması gir
 
 Yarışmaya katılmak ücretsizdir. Ancak, katılmak için bir Azure Machine Learning çalışma alanına erişim zorunda. Yalnızca geçerli bir Microsoft hesabı veya bir Office 365 hesabıyla oturum açarak, kredi kartı olmadan boş bir çalışma alanı oluşturabilirsiniz. Zaten bir Azure veya Cortana Intelligence Suite müşterisi değilseniz, oluşturabilir ve aynı Azure aboneliği altında standart bir çalışma alanını kullanın. Bir Azure aboneliği satın almak istiyorsanız, Git [Azure fiyatlandırması](https://azure.microsoft.com/pricing) sayfası. Standart ücretler standart bir çalışma alanı, denemeleri oluşturmak için kullanırken geçerli olduğunu unutmayın. Daha fazla bilgi için [Azure Machine Learning fiyatlandırma bilgilerini](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 **Genel ve özel puanları nelerdir?**
 

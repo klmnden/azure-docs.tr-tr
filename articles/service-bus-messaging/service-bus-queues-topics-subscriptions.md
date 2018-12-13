@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: spelluru
-ms.openlocfilehash: 047c4c37090db77f7a7a692604dd63c5effff9fa
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c4899db41f9c60bf6efb40c4d53aaa35f22ad275
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409770"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312893"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus kuyrukları, konu başlıkları ve abonelikleri
 
@@ -32,15 +32,15 @@ Kuyruğa ileti üreticileri ve tüketicileri arasında ara kullanarak devredilen
 
 ### <a name="create-queues"></a>Kuyruk oluşturma
 
-Kuyrukları kullanarak oluşturduğunuz [Azure portalında](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md), veya [Resource Manager şablonları](service-bus-resource-manager-namespace-queue.md). Daha sonra gönderebilir ve kullanarak ileti alma bir [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) nesne. 
+Kuyrukları kullanarak oluşturduğunuz [Azure portalında](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md), veya [Resource Manager şablonları](service-bus-resource-manager-namespace-queue.md). Daha sonra gönderebilir ve kullanarak ileti alma bir [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) nesne.
 
-Hızlıca bir kuyruk oluşturun, sonra göndermek ve ve kuyruktan ileti almak nasıl öğrenmek için bkz. [hızlı başlangıçlar](service-bus-quickstart-portal.md) her yöntem için. Kuyrukları kullanma hakkında daha ayrıntılı bir öğretici için bkz: [Service Bus kuyrukları ile çalışmaya başlama](service-bus-dotnet-get-started-with-queues.md). 
+Hızlıca bir kuyruk oluşturun, sonra göndermek ve ve kuyruktan ileti almak nasıl öğrenmek için bkz. [hızlı başlangıçlar](service-bus-quickstart-portal.md) her yöntem için. Kuyrukları kullanma hakkında daha ayrıntılı bir öğretici için bkz: [Service Bus kuyrukları ile çalışmaya başlama](service-bus-dotnet-get-started-with-queues.md).
 
 Çalışma örnek için bkz: [BasicSendReceiveUsingQueueClient örnek](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) GitHub üzerinde.
 
 ### <a name="receive-modes"></a>Modları alma
 
-Service Bus iletileri alır iki farklı mod belirtebilirsiniz: *ReceiveAndDelete* veya *PeekLock*. İçinde [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) modu alma işlemi tek; diğer bir deyişle, Service Bus bir istek aldığında, iletiyi kullanılıyor olarak işaretler ve uygulamaya döndürür. **ReceiveAndDelete** modu en basit modeldir ve içinde uygulama tolere edebilen bir hata oluşursa bir iletiyi işlememeye izin senaryolarda en iyi şekilde çalışır. Bu senaryo anlamak için hangi tüketici alma isteği bildirdiğini ve ardından işlenmeden önce kilitleniyor bir senaryo düşünün. Service Bus iletisi, uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında, Tüketilmekte olan olarak işaretlendikleri çökmenin öncesinde kullanılan iletiyi atlamış olur.
+Service Bus iletileri aldığı iki farklı mod belirtebilirsiniz: *ReceiveAndDelete* veya *PeekLock*. İçinde [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) modu alma işlemi tek; diğer bir deyişle, Service Bus bir istek aldığında, iletiyi kullanılıyor olarak işaretler ve uygulamaya döndürür. **ReceiveAndDelete** modu en basit modeldir ve içinde uygulama tolere edebilen bir hata oluşursa bir iletiyi işlememeye izin senaryolarda en iyi şekilde çalışır. Bu senaryo anlamak için hangi tüketici alma isteği bildirdiğini ve ardından işlenmeden önce kilitleniyor bir senaryo düşünün. Service Bus iletisi, uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında, Tüketilmekte olan olarak işaretlendikleri çökmenin öncesinde kullanılan iletiyi atlamış olur.
 
 İçinde [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) modu alma işlemi olur iki aşamalı hangi, atlanan iletilere veremeyen uygulamaları desteklemenin mümkün kılar. Service Bus bir istek aldığında, kullanılacak sonraki iletiyi bulur, diğer tüketicilerin iletiyi almasını engellemek için kilitler ve ardından uygulamaya döndürür. Uygulama iletiyi işlemeyi tamamladıktan sonra (veya güvenilir bir şekilde işlemek üzere depolar sonra) çağırarak alma işleminin ikinci aşamasını tamamlar [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) alınan iletide. Service Bus gördüğünde **CompleteAsync** çağrı, iletiyi kullanılıyor olarak işaretler.
 
@@ -56,9 +56,9 @@ Karşılaştırma, yoluyla doğrudan bir konuya bir kuyruğa ileti gönderme iş
 
 ### <a name="create-topics-and-subscriptions"></a>Konuları ve abonelikleri oluşturma
 
-Bir konu oluşturmak önceki bölümde açıklandığı gibi bir kuyruk oluşturma işlemiyle benzerdir. Ardından kullanarak ileti gönderme [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient) sınıfı. İleti almak için konuya bir veya daha fazla abonelik oluşturun. Benzer şekilde, kuyruklar, ileti kullanarak bir abonelik alındığında bir [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) yerine Nesne bir [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) nesne. Konu adı, abonelik ve (isteğe bağlı) alma modu adını parametre olarak geçirmeyi abonelik istemcisi oluşturmak. 
+Bir konu oluşturmak önceki bölümde açıklandığı gibi bir kuyruk oluşturma işlemiyle benzerdir. Ardından kullanarak ileti gönderme [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient) sınıfı. İleti almak için konuya bir veya daha fazla abonelik oluşturun. Benzer şekilde, kuyruklar, ileti kullanarak bir abonelik alındığında bir [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) yerine Nesne bir [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) nesne. Konu adı, abonelik ve (isteğe bağlı) alma modu adını parametre olarak geçirmeyi abonelik istemcisi oluşturmak.
 
-Bir tam örnek, çalışıp [BasicSendReceiveUsingTopicSubscriptionClient örnek](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) Github üzerinde.
+Bir tam örnek, çalışıp [BasicSendReceiveUsingTopicSubscriptionClient örnek](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) GitHub üzerinde.
 
 ### <a name="rules-and-actions"></a>Kurallar ve eylemler
 
@@ -66,14 +66,14 @@ Birçok senaryoda belirli özelliklere sahip iletileri farklı yollarla işlenme
 
 Bir tam örnek, çalışıp [TopicSubscriptionWithRuleOperationsSample örnek](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) GitHub üzerinde.
 
-Olası filtre değerleri hakkında daha fazla bilgi için belgelere bakın [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) ve [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) sınıfları. 
+Olası filtre değerleri hakkında daha fazla bilgi için belgelere bakın [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) ve [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) sınıfları.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Daha fazla bilgi ve Service Bus mesajlaşmasını kullanma örnekleri için aşağıdaki konulara bakın:
 
 * [Service Bus mesajlaşma hizmetine genel bakış](service-bus-messaging-overview.md)
-* [Hızlı Başlangıç: .NET ve Azure portalını kullanarak iletileri gönderip](service-bus-quickstart-portal.md)
-* [Öğretici: Azure portalı ve konular/abonelikler aracılığıyla güncelleştirme envanteri](service-bus-tutorial-topics-subscriptions-portal.md)
+* [Hızlı Başlangıç: Azure portalı ve .NET kullanarak ileti alma ve gönderme](service-bus-quickstart-portal.md)
+* [Öğretici: Azure portalı ve konular/abonelikler aracılığıyla Envanter güncelleştirme](service-bus-tutorial-topics-subscriptions-portal.md)
 
 

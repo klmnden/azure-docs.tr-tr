@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 12/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1d281ebe80c6089c559cfaa77f4875a856566092
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 9a9fe16f562805f1bfd6f51af063531f34ffdde2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079387"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308507"
 ---
 # <a name="deploy-resources-to-an-azure-subscription"></a>Bir Azure aboneliğine kaynakları dağıtma
 
 Genellikle, kaynakları Azure aboneliğinizde bir kaynak grubuna dağıtın. Ancak, bazı kaynaklar, Azure aboneliğinizin düzeyinde dağıtılabilir. Bu kaynaklar, aboneliğiniz uygulanır. [İlkeleri](../azure-policy/azure-policy-introduction.md), [rol tabanlı erişim denetimi](../role-based-access-control/overview.md), ve [Azure Güvenlik Merkezi](../security-center/security-center-intro.md) abonelik yerine düzeyinde şifreleme, kaynak grubu düzeyinde uygulamak isteyebileceğiniz hizmetleridir.
 
-Bu makalede, şablonları dağıtmak için Azure CLI ve PowerShell kullanır.
+Bu makalede, şablonları dağıtmak için Azure CLI ve PowerShell kullanır. Portal, kaynak grubu, Azure aboneliğine portal arabirimi dağıtır çünkü şablon dağıtmak için kullanamazsınız.
 
 ## <a name="name-and-location-for-deployment"></a>Dağıtım için ad ve konum
 

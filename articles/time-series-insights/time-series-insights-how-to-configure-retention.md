@@ -1,5 +1,5 @@
 ---
-title: Azure zaman serisi görüşleri ortamınıza saklamayı yapılandırmak nasıl | Microsoft Docs
+title: Azure Time Series Insights yapılandırması - Azure Time Series Insights ortamınızı saklamayı yapılandırmak nasıl | Microsoft Docs
 description: Bu makalede, Azure zaman serisi görüşleri ortamınıza saklamayı yapılandırmak açıklar.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: a87a12e08e78cf8a7f0b4d2af3e8029b233cf02b
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 2822f99b950a2adca5e097cfa937b7fd68e04a3e
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629897"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277922"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Zaman serisi Öngörülerinde saklama yapılandırma
 Bu makalede nasıl yapılandırılacağını açıklar **veri saklama zamanı** ve **depolama sınırı aştı davranışı** Azure zaman serisi görüşleri'nde.

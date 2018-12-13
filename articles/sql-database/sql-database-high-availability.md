@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 0b2fa1541eafa3acf28690005a6d40fac76deba6
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 9d80f4e7422d881393c8e626ddfc75c4067ef1e2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353484"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250357"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Yüksek kullanılabilirlik ve Azure SQL veritabanı
 
@@ -55,7 +55,7 @@ Premium modelde, Azure SQL veritabanı, işlem ve depolama tek düğümde tümle
 
 ![Veritabanı altyapısı düğüm kümesi](media/sql-database-managed-instance/business-critical-service-tier.png)
 
-Hem SQL veritabanı altyapısı işlem ve arka plandaki mdf/ldf dosyaları aynı düğümde yerel olarak bağlı SSD depolamasında iş yükünüz için düşük gecikme süresi sağlayan yerleştirilir. Yüksek kullanılabilirlik için SQL Server benzer teknolojisi kullanılarak uygulanır [Always On kullanılabilirlik grupları](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Her müşterinin iş yükü ve verilerin kopyalarını içeren üç bir ikincil işlemleri için erişilebilir olan bir birincil veritabanı ile veritabanı düğümden oluşan bir kümede veritabanıdır. Birincil düğümden ikincil düğümlerine değişiklikleri herhangi bir nedenle birincil düğüm kilitlenmesi durumunda, veriler ikincil çoğaltmalarda kullanılabilir olmasını sağlamak için sürekli iter. Yük devretme SQL Server veritabanı altyapısı tarafından gerçekleştirilir: bir ikincil çoğaltma birincil düğüm haline gelir ve yeterli düğümleri sağlamak için yeni bir ikincil çoğaltma oluşturulur. İş yükü, yeni birincil düğüme otomatik olarak yönlendirilir.
+Hem SQL veritabanı altyapısı işlem ve arka plandaki mdf/ldf dosyaları aynı düğümde yerel olarak bağlı SSD depolamasında iş yükünüz için düşük gecikme süresi sağlayan yerleştirilir. Yüksek kullanılabilirlik için SQL Server benzer teknolojisi kullanılarak uygulanır [Always On kullanılabilirlik grupları](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Her müşterinin iş yükü ve verilerin kopyalarını içeren üç bir ikincil işlemleri için erişilebilir olan bir birincil veritabanı ile veritabanı düğümden oluşan bir kümede veritabanıdır. Birincil düğümden ikincil düğümlerine değişiklikleri herhangi bir nedenle birincil düğüm kilitlenmesi durumunda, veriler ikincil çoğaltmalarda kullanılabilir olmasını sağlamak için sürekli iter. Yük devretme, Azure Service Fabric tarafından işlenir: bir ikincil çoğaltma birincil düğüm haline gelir ve yeterli düğümleri sağlamak için yeni bir ikincil çoğaltma oluşturulur. İş yükü, yeni birincil düğüme otomatik olarak yönlendirilir.
 
 Ayrıca, iş açısından kritik küme yerleşiktir [okuma ölçeği genişletme](sql-database-read-scale-out.md) sağlayan ücretsiz, yetenek ücret performans engellememelidir salt okunur sorguları (örneğin, raporları) çalıştırmak için kullanılan yerleşik salt okunur düğüm Birincil iş yükünü.
 

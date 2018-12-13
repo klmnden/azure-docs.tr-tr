@@ -12,18 +12,18 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/19/2018
-ms.openlocfilehash: 6432c6b2c1c224f44b962df63e1502729f69e57f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fb9332832f46dc5c39bf932ce91cd3d3f3d7354f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470668"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269626"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL veritabanı mantıksal sunucuları ve bunların yönetimi
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Bir Azure SQL mantıksal sunucusu nedir
 
-Merkezi bir yönetim noktası için birden çok tek bir mantıksal sunucu görür veya [havuza alınmış](sql-database-elastic-pool.md) veritabanları [oturumları](sql-database-manage-logins.md), [güvenlik duvarı kuralları](sql-database-firewall-configure.md), [kurallarıdenetleme](sql-database-auditing.md), [tehdit algılama ilkeleri](sql-database-threat-detection.md), ve [yük devretme grupları](sql-database-geo-replication-overview.md). Bir mantıksal sunucu, kaynak grubu farklı bir bölgede olabilir. Azure SQL veritabanı oluşturmadan önce mantıksal sunucunun mevcut olması gerekir. Bir sunucudaki tüm veritabanları, mantıksal sunucusuyla aynı bölgede oluşturulur.
+Merkezi bir yönetim noktası için birden çok tek bir mantıksal sunucu görür veya [havuza alınmış](sql-database-elastic-pool.md) veritabanları [oturumları](sql-database-manage-logins.md), [güvenlik duvarı kuralları](sql-database-firewall-configure.md), [kurallarıdenetleme](sql-database-auditing.md), [tehdit algılama ilkeleri](sql-database-threat-detection.md), ve [yük devretme grupları](sql-database-auto-failover-group.md) bir mantıksal sunucu, kaynak grubu farklı bir bölgede olabilir. Azure SQL veritabanı oluşturmadan önce mantıksal sunucunun mevcut olması gerekir. Bir sunucudaki tüm veritabanları, mantıksal sunucusuyla aynı bölgede oluşturulur.
 
 Bir mantıksal sunucu şirket içi dünyada alışkın olabileceğiniz bir SQL Server örneğinden farklı olan mantıksal bir yapıdır. SQL Veritabanı hizmeti, veritabanlarının mantıksal sunuculara göre konumuyla ilgili özel bir garanti vermez ve örnek düzeyinde erişim ya da özellik sunmaz. Buna karşılık, bir SQL veritabanı yönetilen örneği'nde bir sunucuya şirket içi dünyada alışkın olabileceğiniz bir SQL Server örneğine benzer.
 
@@ -162,7 +162,7 @@ Azure SQL server, veritabanları ve Transact-SQL ile güvenlik duvarları oluşt
 |[sp_delete_database_firewall_rule (Azure SQL veritabanı)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Veritabanı düzeyinde güvenlik duvarı ayarı, Azure SQL veritabanı veya SQL veri ambarı kaldırır. |
 
 > [!TIP]
-> Microsoft Windows üzerinde SQL Server Management Studio'yu kullanarak bir hızlı başlangıç için bkz: [Azure SQL veritabanı: bağlanmak ve veri sorgulamak için kullanım SQL Server Management Studio](sql-database-connect-query-ssms.md). MacOS, Linux veya Windows üzerinde Visual Studio Code'u kullanarak bir hızlı başlangıç için bkz: [Azure SQL veritabanı: kullanım Visual Studio Code bağlanmak ve veri sorgulamak için](sql-database-connect-query-vscode.md).
+> Microsoft Windows üzerinde SQL Server Management Studio'yu kullanarak bir hızlı başlangıç için bkz: [Azure SQL veritabanı: Verileri bağlama ve sorgulama için SQL Server Management Studio kullanın](sql-database-connect-query-ssms.md). MacOS, Linux veya Windows üzerinde Visual Studio Code'u kullanarak bir hızlı başlangıç için bkz: [Azure SQL veritabanı: Bağlanmak ve veri sorgulamak için Visual Studio Code'u kullanın](sql-database-connect-query-vscode.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>Azure SQL sunucularını, veritabanlarını ve güvenlik duvarları REST API kullanarak yönetme
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 496a24f79cee1323077c357789628123d082ceac
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 16a392d83cc24aafc7a84b4fa4c50b752508d9c2
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716287"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53215989"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Kullanıcının oturum açmak için Microsoft kimlik doğrulama kitaplığı (MSAL) kullanma
 
@@ -129,7 +129,7 @@ else {
 
 Bir kullanıcı tıklattıktan sonra **oturum** düğmesini ilk kez `signIn` yöntem çağrılarını `loginPopup` kullanıcısı ile oturum. Bu yöntem ile bir açılan pencere açılırken sonuçları *Microsoft Azure Active Directory v2.0 uç noktası* sor ve kullanıcının kimlik bilgilerini doğrulamak için. Bir oturum açma başarılı sonucu olarak, kullanıcının özgün durumuna geri yönlendirilir *index.html* sayfa ve bir belirteç alındığında, tarafından işlenen `msal.js` ve belirtecinde yer alan bilgileri önbelleğe alınır. Bu belirteci olarak da bilinen *kimlik belirteci* ve kullanıcı görünen adı gibi kullanıcıyla ilgili temel bilgileri içerir. Tüm amaçlar için bu belirteci tarafından sağlanan herhangi bir veri kullanmayı planlıyorsanız, bu belirteç, uygulamanız için geçerli bir kullanıcı için belirteç verildiğini güvence altına almak için arka uç sunucunuzu doğrulayan emin olmanız gerekir.
 
-Bu tarafından oluşturulan SPA Kılavuzu çağrıları `acquireTokenSilent` ve/veya `acquireTokenPopup` almak için bir *erişim belirteci* Microsoft Graph API için kullanıcı profili bilgileri sorgulamak için kullanılan. Kimlik belirteci doğrular bir örnek gerekirse göz atın [bu](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Github active-directory-javascript-singlepageapp-dotnet-webapi-v2 örnek") github'da – örnek örnek uygulama bir ASP kullanır Belirteç doğrulama için .NET web API'si.
+Bu tarafından oluşturulan SPA Kılavuzu çağrıları `acquireTokenSilent` ve/veya `acquireTokenPopup` almak için bir *erişim belirteci* Microsoft Graph API için kullanıcı profili bilgileri sorgulamak için kullanılan. Kimlik belirteci doğrular bir örnek gerekirse göz atın [bu](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2 örnek") github'da – örnek örnek uygulama bir ASP kullanır Belirteç doğrulama için .NET web API'si.
 
 #### <a name="getting-a-user-token-interactively"></a>Kullanıcı belirtecini etkileşimli olarak alma
 

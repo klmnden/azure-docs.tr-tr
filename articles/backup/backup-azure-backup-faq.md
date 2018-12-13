@@ -1,6 +1,6 @@
 ---
 title: Azure Yedekleme SSS
-description: 'Kurtarma Hizmetleri kasaları, neleri yedekleyebilir, nasıl çalışır, şifreleme ve limitlerin dahil olduğu Azure Backup özellikleriyle ilgili yaygın soruların yanıtları. '
+description: 'Hakkında sık sorulan sorulara yanıtlar: Kurtarma Hizmetleri kasaları, neleri yedekleyebilir, nasıl çalışır, şifreleme ve sınırları dahil olmak üzere azure yedekleme özellikleri. '
 services: backup
 author: rayne-wiselman
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 61e8a7732b7e6dc7fd521819a135fb1a7a6a13b3
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 647ed64d405424431419da1e693abea2bdf07ace
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261675"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262274"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - sık sorulan sorular
 Bu makalede, Azure Backup hizmeti hakkında sık sorulan sorular yanıtlanmaktadır.
@@ -235,8 +235,8 @@ Evet. Veriler AES256 kullanılarak şirket içi makinede şifrelenir. Veriler g�
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Azure üzerindeki yedekleme verileri de şifreli midir?
 
 Evet. Azure'da bekleyen şifrelenmiş verilerdir.
-- Şirket içi yedekleme için kullanarak Azure'a yedeklerken sağladığınız parola sıfırlama sırasında şifreleme sağlanır.
-- Azure Vm'leri için şifrelenmiş-en-depolama hizmeti şifrelemesi (SSE) kullanarak sıfırlama verilerdir.
+- Şirket içi yedekleme için Azure'a yedeklerken sağladığınız parolayı kullanarak bekleyen şifreleme sağlanır.
+- Azure Vm'leri için şifrelenmiş depolama hizmeti şifrelemesi (SSE) kullanarak bekleyen verilerdir.
 
 Microsoft herhangi bir noktada yedekleme verilerinin şifresini çözmez.
 

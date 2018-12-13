@@ -1,10 +1,10 @@
 ---
-title: Azure CLI Betik Örneği - Web sunucusu günlükleri ile bir web uygulamasını izleme | Microsoft Docs
-description: Azure CLI Betik Örneği - Web sunucusu günlükleri ile bir web uygulamasını izleme
+title: Azure CLI betik örneği - web sunucusu günlükleri ile bir web uygulamasını izleme | Microsoft Docs
+description: Azure CLI betik örneği - web sunucusu günlükleri ile bir web uygulamasını izleme
 services: appservice
 documentationcenter: appservice
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: 0887656f-611c-4627-8247-b5cded7cef60
@@ -14,16 +14,16 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/11/2017
-ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: af7d6315b53a4bbb49a97fd8904536bb59d8465a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: bea6c9a1f975394f4b1cbf7322c9449c52440994
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952403"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188750"
 ---
-# <a name="monitor-a-web-app-with-web-server-logs"></a>Web sunucusu günlükleri ile bir web uygulamasını izleme
+# <a name="monitor-a-web-appwith-web-server-logs-using-azure-cli"></a>Azure CLI kullanarak web sunucusu günlükleri ile bir web uygulamasını izleme
 
 Bu örnek betik bir kaynak grubu, app service planı ve web uygulaması oluşturur ve web uygulamasını web sunucusu günlüklerini etkinleştirecek şekilde yapılandırır. Ardından, gözden geçirmek üzere günlük dosyalarını indirir.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights Gezginini kullanarak verileri keşfedin | Microsoft Docs
+title: Azure Time Series Insights Gezgini veri keşfi - Azure Time Series Insights Gezginini kullanarak verileri keşfedin | Microsoft Docs
 description: Bu makalede hızla büyük verilerinize ilişkin genel bir görünüm görün ve IOT ortamınızı doğrulamak için web tarayıcınızda Azure Time Series Insights gezgininin kullanmayı açıklar.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: f4a9d09aa701d490e8391d68435e672ff49c771c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: 7508db8bd4b7f21308f2e7b0e92c44570dfc7b18
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364244"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273145"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Gezgini
 Bu makalede, çeşitli özellikleri ve seçenekleri Time Series Insights Gezgini web app içinde kullanılabilir keşfediyor. Görselleştirilmiş oluşturmak için web tarayıcınızda Time Series Insights gezginini kullanın.
@@ -55,21 +56,21 @@ Zaman serisi görüşleri ortamınıza olay kaynağınızı bağlanan dakika iç
 
 5. Ardından, seçili zaman aralığı tüm olayların sayısını gösteren bir grafik görürsünüz.  Buraya çeşitli denetimler vardır:
 
-    **Koşulları Düzenleyicisi paneli**: ortamınızı sorgu burada terimi alandır.  Etkinleştirir ekranın sol tarafındaki bulunur 
-      - **Ölçü**: tüm sayısal sütunları (çift) Bu açılan gösterir
-      - **Bölünmüş tarafından**: Bu açılan kategorik sütunlar (dize) gösterir.
+    **Koşulları Düzenleyicisi paneli**:  Ortamınızı sorgu burada terimi alandır.  Etkinleştirir ekranın sol tarafındaki bulunur 
+      - **Ölçü**:  Bu açılan tüm sayısal sütunları (çift) gösterir.
+      - **Bölme ölçütü**: Bu açılan kategorik sütunlar (dize) gösterir.
       - Basamaklı interpolasyon etkinleştirme, minimum ve maksimum Göster ve sonraki ölçmek için Denetim Masası'ndan y ekseni ayarlayın.  Ayrıca, count, average ya da veri toplamını gösterilen verileri olup olmadığını ayarlayabilir.
       - Aynı x eksenine görüntülemek için en fazla beş koşullarını ekleyebilirsiniz.  Kullanım **kopyalama aşağı** düğmesine tıklayın ya da ek bir terim ekleyin **Ekle** düğmesini yeni bir terim ekleyin.
      
         ![Koşulları Düzenleyicisi paneli](media/time-series-insights-explorer/explorer2.png)
 
-      - **Koşul**: koşul olaylarınızı aşağıda listelenen işlenen kümesini kullanarak hızlı bir şekilde filtrelemenize olanak sağlar. Seçme/tıklayarak arama yapma, koşul güncelleştirme otomatik olarak bu arama temel.      Desteklenen işlenen türleri şunlardır:
+      - **Koşul**:  Koşul olaylarınızı aşağıda listelenen işlenen kümesini kullanarak hızlı bir şekilde filtrelemenize olanak sağlar. Seçme/tıklayarak arama yapma, koşul güncelleştirme otomatik olarak bu arama temel.      Desteklenen işlenen türleri şunlardır:
 
          |İşlem  |Desteklenen türler  |Notlar  |
          |---------|---------|---------|
          |<, >, <=, >=     |  Çift, DateTime, zaman aralığı       |         |
          |=, !=, <>     | Dize, Bool, Double, DateTime, zaman aralığı, NULL        |         |
-         |GİRİŞ     | Dize, Bool, Double, DateTime, zaman aralığı, NULL        |  Tüm işlenenler aynı türde veya NULL sabiti olması.        |
+         |IN     | Dize, Bool, Double, DateTime, zaman aralığı, NULL        |  Tüm işlenenler aynı türde veya NULL sabiti olması.        |
          |SAHİP     | Dize        |  Yalnızca sabit dize değişmez değerleri, sağ tarafında izin verilir. Boş dize ve NULL yapılamaz.       |
 
       - **Sorgu örnekleri**
@@ -102,7 +103,7 @@ Zaman serisi görüşleri ortamınıza olay kaynağınızı bağlanan dakika iç
 
    ![Isı Haritası](media/time-series-insights-explorer/explorer6.png)
 
-12. **Olayları**: seçerken olayları keşfet veya üstüne sağ tıklayarak, olayları paneli sunulacağını seçtiğinizde.  Tüm ham olaylarınızı burada görebilirsiniz ve olaylarınızı JSON veya CSV dosyaları olarak dışarı aktarın. Time Series Insights tüm ham verileri içerdiğini unutmayın.
+12. **Olayları**:  Seçeneğini belirlediğinizde seçerek ya da sağ paneli kullanılabilir hale getirileceğini olayları yukarıdaki olayları keşfedin.  Tüm ham olaylarınızı burada görebilirsiniz ve olaylarınızı JSON veya CSV dosyaları olarak dışarı aktarın. Time Series Insights tüm ham verileri içerdiğini unutmayın.
 
    ![Olaylar](media/time-series-insights-explorer/explorer7.png)
 
@@ -110,7 +111,7 @@ Zaman serisi görüşleri ortamınıza olay kaynağınızı bağlanan dakika iç
 
    - **Desenler**: Bu özellik, seçili veri bölgesindeki en istatistiksel açıdan anlamlı desenleri proaktif olarak ortaya çıkarır. Bu, hangi desenleri en zaman ve enerji garanti anlamak için olayları binlerce aramak zorunda kalmamasını. Ayrıca, Time Series Insights analiz yapmadan devam etmek için doğrudan bu istatistiksel desenleri ile bağlantı sağlar. Bu özellik ayrıca, geçmiş verilerin son İnceleme araştırmalar için yararlıdır. 
 
-   - **Sütun istatistikleri**: sütun istatistikleri, grafik ve seçili zaman aralığı seçili veri serisinin her bir sütundan gelen verilerin ayırmanız tablolar sağlar.  
+   - **Sütun istatistikleri**:  Sütun istatistikleri, grafik ve seçili zaman aralığı seçili veri serisinin her bir sütundan gelen verilerin ayırmanız tablolar sağlar.  
  
       ![İSTATİSTİKLER](media/time-series-insights-explorer/explorer8.png) 
 

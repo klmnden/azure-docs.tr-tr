@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: e025d9041358fbb9dee9b64519e012c4c1988024
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 6b1eb36ae661d758f78f98de37f33c4b56741f89
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987269"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320787"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Azure kaynakları için yönetilen kimlikler nedir?
 
@@ -34,7 +34,15 @@ Azure kaynakları için yönetilen kimlikler özelliği, Azure abonelikleri içi
 > [!NOTE]
 > Azure kaynakları için yönetilen kimlikler, Yönetilen Hizmet Kimliği (MSI) olarak bilinen hizmetin yeni adıdır.
 
-## Bu özellik nasıl çalışır?<a name="how-does-it-work"></a>
+## <a name="terminology"></a>Terminoloji
+
+Aşağıdaki terimler yönetilen kimlikleri, Azure kaynaklarını belgeleri kümesi için kullanılır:
+
+- **İstemci kimliği** -ilk kendi sağlama sırasında bir uygulama ve hizmet sorumlusu bağlı Azure AD tarafından oluşturulan benzersiz bir tanımlayıcı.
+- **Sorumlu Kimliği** -nesne kimliğini bir Azure kaynağı için rol tabanlı erişim vermek için kullanılan, yönetilen kimliği için hizmet sorumlusu nesnesi.
+- **Azure örnek meta veri hizmeti (IMDS)** -REST uç noktasını tüm Iaas Vm'leri için erişilebilir Azure Resource Manager aracılığıyla oluşturulan. Uç noktası, yalnızca VM içinden erişilebilir bir bilinen yönlendirilemeyen IP adresinde (169.254.169.254 numaralı) kullanılabilir.
+
+## Azure kaynakları için yönetilen kimlikleri nasıl çalışır?<a name="how-does-it-work"></a>
 
 İki tür yönetilen kimlik vardır:
 

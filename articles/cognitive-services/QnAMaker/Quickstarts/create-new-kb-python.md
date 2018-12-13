@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı başlangıç: Bilgi bankası oluşturma - REST, Python - Soru-Cevap Oluşturma'
+title: 'Hızlı Başlangıç: Bilgi Bankası - REST, Python - soru-cevap Oluşturucu Oluşturma'
 titlesuffix: Azure Cognitive Services
 description: Bu Python REST tabanlı hızlı başlangıçta Bilişsel Hizmetler API hesabınızdaki Azure Panonuzda görünecek olan örnek bir Soru-Cevap Oluşturma bilgi bankasını programlamayla oluşturma adımları gösterilmektedir.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: 598a861c207aaff6e61f7ffcb0fd6bf7a9b506a1
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 423413d07b0c84b5d9461cef37c95f41c112764c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335814"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249710"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Hızlı başlangıç: Python kullanarak Soru-Cevap Oluşturma’da bilgi bankası oluşturma
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Hızlı Başlangıç: Python kullanarak soru-cevap Oluşturucu Bilgi Bankası oluşturma
 
 Bu hızlı başlangıçta program aracılığıyla örnek bir Soru-Cevap Oluşturma bilgi bankası (KB) oluşturma ve yayımlama adımlarında yol gösterilir. Soru-Cevap Oluşturma, [veri kaynaklarından](../Concepts/data-sources-supported.md) ve SSS gibi yarı yapılandırılmış içerikten soru ve cevapları otomatik olarak ayıklar. JSON ile tanımlanan bilgi bankası modeli API isteğinin gövdesinde gönderilir. 
 
@@ -30,7 +30,7 @@ Bu hızlı başlangıç şu Soru-Cevap Oluşturma API'lerini çağırır:
 * [Python 3.7](https://www.python.org/downloads/)
 * Soru-Cevap Oluşturma hizmetine sahip olmanız gerekir. Anahtarınızı almak için, panonuzda Kaynak Yönetimi altında Anahtarlar öğesini seçin.
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
 ## <a name="create-a-knowledge-base-python-file"></a>Bilgi bankası Python dosyası oluşturma
 

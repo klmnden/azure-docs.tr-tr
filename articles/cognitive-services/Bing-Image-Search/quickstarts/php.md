@@ -1,7 +1,7 @@
 ---
-title: 'Hızlı Başlangıç: PHP ile görüntü araması gerçekleştirme - Bing Resim Arama API’si'
+title: "Hızlı Başlangıç: Görüntüleri - Bing resim arama REST API'si ve PHP arayın"
 titleSuffix: Azure Cognitive Services
-description: İlk Bing Resim Arama API’si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın. Bu makaledeki basit uygulama, bir arama sorgusu gönderir ve ham sonuçları görüntüler.
+description: JSON yanıtlar almasına ve bu hızlı başlangıçta, PHP kullanarak Bing resim arama REST API'si için görüntü arama istekleri göndermek için kullanın.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: b3143a34590e41d0222b4e4aa6eeda07ee407e45
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 239ceb7ad88dd711ce082ae70391dae09bfc5e1f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311866"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261135"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-php"></a>Hızlı Başlangıç: Bing Resim Arama REST API’si ve PHP kullanarak arama sorguları gönderme
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Hızlı Başlangıç: PHP ve Bing resim arama REST API'si kullanarak resimler için arama yapın
 
 İlk Bing Resim Arama API’si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın. Bu makaledeki basit uygulama, bir arama sorgusu gönderir ve ham sonuçları görüntüler.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Web Apps’e var olan bir özel SSL sertifikası bağlama | Microsoft Docs
+title: Mevcut özel SSL sertifikası - Azure App Service'ı bağlama | Microsoft Docs
 description: Azure App Service’te web uygulamanıza, mobil uygulama arka ucuna veya API uygulamasına özel bir SSL sertifikası bağlamayı öğrenin.
 services: app-service\web
 documentationcenter: nodejs
@@ -14,15 +14,15 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: df2ab9b16201cdb408cbe028b1814de7a3dfb4c7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 57046b9e199fbe5e88d0ea7fa25248641693508a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962901"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257004"
 ---
-# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Öğretici: Azure Web Apps’e var olan bir özel SSL sertifikası bağlama
+# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Öğretici: Mevcut bir özel SSL sertifikasını Azure Web Apps'e bağlama
 
 Azure Web Apps, yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğreticide, güvenilir bir sertifika yetkilisinden satın aldığınız özel bir SSL sertifikasını [Azure Web Apps](app-service-web-overview.md)’e nasıl bağlayacağınız gösterilmektedir. İşiniz bittiğinde, web uygulamanıza DNS etki alanınızın HTTPS uç noktasından erişebilirsiniz.
 

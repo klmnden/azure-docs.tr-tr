@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 6c16cd95fce7d3f367f0ded73c3635d8cefea7a0
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 0000e5d8bfa7da6ebe1b6702649e56262c9d9cab
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493996"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277378"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Hizmet bölümlere ait çoğaltmaları yönetin.
@@ -30,9 +30,9 @@ Hizmet bölümlere ait çoğaltmaları yönetin.
 | --- | --- |
 | dağıtılan | Bir Service Fabric dağıtıldığını çoğaltma ayrıntılarını alır. |
 | dağıtılan listesi | Bir Service Fabric dağıtıldığını çoğaltmaların listesini alır. |
-| sistem durumu | Bir Service Fabric durum bilgisi olan hizmet çoğaltma veya durum bilgisi olmayan hizmet durumunu alır. |
+| sağlık | Bir Service Fabric durum bilgisi olan hizmet çoğaltma veya durum bilgisi olmayan hizmet durumunu alır. |
 | bilgi | Bir Service Fabric bölümünün bir çoğaltma bilgilerini alır. |
-| liste | Bir Service Fabric hizmeti bölüm çoğaltmaları hakkında daha fazla bilgi alır. |
+| list | Bir Service Fabric hizmeti bölüm çoğaltmaları hakkında daha fazla bilgi alır. |
 | kaldır | Bir düğümde çalışan bir hizmet çoğaltmaya kaldırır. |
 | durumu- | Service Fabric çoğaltma üzerindeki bir sistem durumu raporu gönderir. |
 | restart | Bir düğüm üzerinde çalışan kalıcı bir hizmet hizmeti çoğaltmasını yeniden başlatır. |
@@ -44,7 +44,7 @@ Bir Service Fabric dağıtıldığını çoğaltma ayrıntılarını alır. Hizm
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --[gerekli] düğüm adı | Düğümün adı. |
 | --bölüm kimliği [gerekli] | Bölüm kimliği. |
@@ -53,7 +53,7 @@ Bir Service Fabric dağıtıldığını çoğaltma ayrıntılarını alır. Hizm
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -68,7 +68,7 @@ Bir Service Fabric dağıtıldığını çoğaltmaları hakkında daha fazla bil
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
 | --[gerekli] düğüm adı | Düğümün adı. |
@@ -78,7 +78,7 @@ Bir Service Fabric dağıtıldığını çoğaltmaları hakkında daha fazla bil
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -93,7 +93,7 @@ Bir Service Fabric çoğaltma durumunu alır. Sistem durumu olaylarını sistem 
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --bölüm kimliği [gerekli] | Bölüm kimliği. |
 | --Çoğaltma kimliği [gerekli] | Çoğaltma tanımlayıcısı. |
@@ -102,7 +102,7 @@ Bir Service Fabric çoğaltma durumunu alır. Sistem durumu olaylarını sistem 
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -117,7 +117,7 @@ Yanıt kimliği, rol, durum, sistem durumu, düğüm adı, çalışma süresi ve
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --bölüm kimliği [gerekli] | Bölüm kimliği. |
 | --Çoğaltma kimliği [gerekli] | Çoğaltma tanımlayıcısı. |
@@ -125,7 +125,7 @@ Yanıt kimliği, rol, durum, sistem durumu, düğüm adı, çalışma süresi ve
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -140,7 +140,7 @@ Belirtilen bölüm çoğaltmaları hakkında daha fazla bilgi GetReplicas uç no
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --bölüm kimliği [gerekli] | Bölüm kimliği. |
 | --devamlılık belirteci | Devamlılık belirteci parametresi, sonraki sonuç kümesini almak için kullanılır. Sistem sonuçlardan tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değer ile API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı, API, sonraki sonuç kümesini döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır. |
@@ -148,7 +148,7 @@ Belirtilen bölüm çoğaltmaları hakkında daha fazla bilgi GetReplicas uç no
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -163,7 +163,7 @@ Bu API, bir Service Fabric kümesinden bir çoğaltma kaldırarak bir Service Fa
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --[gerekli] düğüm adı | Düğümün adı. |
 | --bölüm kimliği [gerekli] | Bölüm kimliği. |
@@ -173,7 +173,7 @@ Bu API, bir Service Fabric kümesinden bir çoğaltma kaldırarak bir Service Fa
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -184,28 +184,28 @@ Bu API, bir Service Fabric kümesinden bir çoğaltma kaldırarak bir Service Fa
 ## <a name="sfctl-replica-report-health"></a>sfctl çoğaltma durumu-
 Service Fabric çoğaltma üzerindeki bir sistem durumu raporu gönderir.
 
-Belirtilen Service Fabric çoğaltma sistem durumunu raporlar. Rapor üzerinde bildirilen özellik ve sistem durumu raporu kaynağı hakkındaki bilgileri içermelidir. Rapor, bir Service Fabric ağ geçidine ileten sistem durumu deposu için çoğaltma gönderilir. Rapor ağ geçidi tarafından kabul edilen, ancak sistem durumu deposu tarafından ek doğrulama sonrasında reddedilen. Örneğin, sistem durumu deposu raporu eski sıra numarası gibi geçersiz bir parametre nedeniyle reddedebilir. Health store içinde rapor uygulanıp uygulanmadığını görmek için rapor olayları bölümünde görünür denetleyin.
+Belirtilen Service Fabric çoğaltma sistem durumunu raporlar. Rapor üzerinde bildirilen özellik ve sistem durumu raporu kaynağı hakkındaki bilgileri içermelidir. Rapor, bir Service Fabric ağ geçidine ileten sistem durumu deposu için çoğaltma gönderilir. Rapor ağ geçidi tarafından kabul edilen, ancak sistem durumu deposu tarafından ek doğrulama sonrasında reddedilen. Örneğin, sistem durumu deposu raporu eski sıra numarası gibi geçersiz bir parametre nedeniyle reddedebilir. Çalışma raporu health store içinde uygulanmış olup olmadığını görmek için çoğaltma durumunu ve rapor HealthEvents bölümde görünen onay alın.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --[gerekli] sistem durumu özelliği | Sistem durumu bilgileri özelliği. <br><br> Bir varlık sistem durumu raporlarının farklı özellikler için sahip olabilir. , Bir dize ve rapor tetikleyen durumu koşulu kategorilere ayırmak muhabir esnekliğini tanımak için olmayan bir sabit numaralandırma özelliğidir. Örneğin, "AvailableDisk" özelliği, düğüm üzerinde rapor için bir Raporlayıcı SourceId "LocalWatchdog" ile bir düğümde, kullanılabilir disk durumunu izleyebilirsiniz. Bu özellik "Bağlantı" aynı düğümde raporlamak için aynı muhabir düğüm bağlantısı izleyebilirsiniz. Health store içinde bu raporları belirtilen düğüm için ayrı bir sistem durumu olayları olarak kabul edilir. SourceId birlikte özelliği sistem durumu bilgileri benzersiz olarak tanımlar. |
 | --[gerekli] sistem durumu | Olası değerler şunlardır\: 'Geçersiz', 'Tamam', 'Warning', 'Error', 'Bilinmeyen'. |
 | --bölüm kimliği [gerekli] | Bölüm kimliği. |
 | --Çoğaltma kimliği [gerekli] | Bölüm kimliği. |
-| --Kaynak Kimliği [gerekli] | Sistem durumu bilgileri oluşturulan izleme/istemci/sistem bileşeni tanımlayan kaynak adı. |
+| --Kaynak Kimliği [gerekli] | Kaynak adı, sistem durumu bilgileri oluşturulan izleme/istemci/sistem bileşeni belirtir. |
 | --açıklaması | Sistem durumu bilgileri açıklaması. <br><br> Bu, insan tarafından okunabilir rapor bilgilerini eklemek için kullanılan serbest metin temsil eder. Açıklama maksimum dize uzunluğu 4096 karakter olabilir. Sağlanan dize uzun olduğunda otomatik olarak kesilir. Kesirli kısmı, bir işaretçi "[kesildi]" açıklama son karakterleri içeren ve toplam dize boyutu 4096 karakter. İşaretleyici varlığı kullanıcılara bu kesme gösterir oluştu. Kesirli kısmı, açıklama orijinal dizeden küçüktür 4096 karakter olduğuna dikkat edin. |
 | --hemen | Raporun hemen gönderilmesi gerekip gerekmediğini gösteren bir bayrak. <br><br> Sistem Durumu raporu, Service Fabric için sistem durumu deposu ileten uygulama ağ geçidi için gönderilir. Hemen ayarlanmışsa true, raporun hemen sistem durumu deposu, HTTP ağ geçidi uygulaması kullanarak doku istemci ayarlarına bakılmaksızın HTTP ağ geçidi'ndeki gönderilir. Bu, olabildiğince çabuk gönderilmesi gereken kritik raporlar için kullanışlıdır. Zamanlama ve diğer koşullara bağlı olarak, rapor gönderme yine de, örneğin HTTP ağ geçidini kapalı veya ağ geçidi ileti ulaşmaz başarısız olabilir. Hemen false olarak ayarlarsanız, raporun durumu istemci ayarlarının HTTP ağ geçidi'nden göre gönderilir. Bu nedenle, bunu HealthReportSendInterval yapılandırmasına göre toplu olarak. Sistem Durumu raporu işleme yanı sıra health store iletilere raporlama sistem durumu iyileştirmek sistem durumu istemci izin verdiğinden Önerilen ayar budur. Varsayılan olarak, raporları hemen gönderilmez. |
 | --remove-zaman süresi | Belirtecin süresi dolduğunda, health Store'dan rapor kaldırılmış olup olmadığını gösteren değer. <br><br> Süresi dolduktan sonra health Store'dan true olarak rapor kaldırılırsa. Rapor false olarak ayarlanırsa süresi dolduğunda hata kabul edilir Bu özellik varsayılan olarak false değeridir. İstemciler düzenli aralıklarla bildirdiğinde RemoveWhenExpired false (varsayılan) ayarlamanız gerekir. Bu şekilde muhabir sorunları (örneğin, kilitlenme) ve rapor veremez, varlık sistem durumu raporu süresi dolduğunda hatası değerlendirilir ' dir. Bu varlık sistem durumu hatası olarak işaretler. |
 | --sıra numarası | Bu sistem durumu raporu sayısal dize olarak için sıra numarası. <br><br> Rapor sıra numarası, eski raporlar algılamak için sistem durumu deposu tarafından kullanılır. Bir rapora eklendiğinde belirtilmezse, bir sıra numarası otomatik olarak sistem istemci tarafından üretilir. |
 | --Hizmet türü | Sistem bildirildiğinden tür hizmeti çoğaltma (durum bilgisi olan veya). Olası değerler şunlardır\: 'Durum bilgisiz', 'Durum bilgisi olan'.  Varsayılan\: durum bilgisi olan. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
-| --ttl | Bu sistem durumu raporu geçerli olduğu süre. Bu alan, süresi belirtmek için ISO8601 biçimini kullanıyor. <br><br> İstemciler düzenli aralıklarla rapor, yaşam süresi daha yüksek sıklıkta raporları göndermelisiniz. İstemcileri geçişi bildirirse, bunlar sonsuz için yaşam süresi ayarlayabilirsiniz. Yaşam süresi dolduğunda, sistem durumu bilgilerini içeren sistem durumu olayı RemoveWhenExpired ise health Store'dan kaldırıldı ya da doğru veya hata sırasında değerlendirilen ise RemoveWhenExpired false. Aksi durumda sonsuz değer varsayılan olarak belirtilen, süresi. |
+| --ttl | Bu sistem durumu raporu geçerli olduğu süre. Bu alan, süresi belirtmek için ISO8601 biçimini kullanır. <br><br> İstemciler düzenli aralıklarla rapor, yaşam süresi daha yüksek sıklıkta raporları göndermelisiniz. İstemcileri geçişi bildirirse, bunlar sonsuz için yaşam süresi ayarlayabilirsiniz. Yaşam süresi dolduğunda, sistem durumu bilgilerini içeren sistem durumu olayı RemoveWhenExpired ise health Store'dan kaldırıldı ya da doğru veya hata sırasında değerlendirilen ise RemoveWhenExpired false. Aksi durumda sonsuz değer varsayılan olarak belirtilen, süresi. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -220,7 +220,7 @@ Bir düğüm üzerinde çalışan kalıcı bir hizmet hizmeti çoğaltmasını y
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --[gerekli] düğüm adı | Düğümün adı. |
 | --bölüm kimliği [gerekli] | Bölüm kimliği. |
@@ -229,7 +229,7 @@ Bir düğüm üzerinde çalışan kalıcı bir hizmet hizmeti çoğaltmasını y
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |

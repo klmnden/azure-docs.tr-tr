@@ -14,13 +14,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.component: ''
-ms.openlocfilehash: b40e07743e686f5c9a921fad1e65658fb2f9428d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b68cab9451503ed3634f1086c5711cca1eb6936f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110232"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191283"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>PowerShell kullanarak Log Analytics’i yönetme
 Kullanabileceğiniz [Log Analytics PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) Log Analytics'te, komut satırından veya betik bir parçası olarak çeşitli işlevleri gerçekleştirmek için.  PowerShell ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:

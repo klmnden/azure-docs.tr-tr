@@ -1,21 +1,21 @@
 ---
-title: Azure Container Instances öğreticisi - Uygulamayı dağıtma
-description: Azure Container Instances öğreticisi bölüm 3/3 - Uygulamayı dağıtma
+title: Öğretici - Azure Container Instances'a kapsayıcı uygulaması dağıtma
+description: Azure Container Instances Öğreticisi bölüm 3 / 3 - Azure Container ınstances'a kapsayıcı uygulaması dağıtma
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 9e8a72564151bea9194ef5180589fa8eae001df5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 54fcbe9adc8fbf4a8fba6eabbd7c2f8802fd933a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863729"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191124"
 ---
-# <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>Öğretici: Azure Container Instances’a kapsayıcı dağıtma
+# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Öğretici: Bir Azure Container ınstances'a kapsayıcı uygulaması dağıtma
 
 Bu, üç kısımdan oluşan serinin son öğreticisidir. Serinin önceki kısımlarında [bir kapsayıcı görüntüsü oluşturuldu](container-instances-tutorial-prepare-app.md) ve [Azure Container Registry’ye gönderildi](container-instances-tutorial-prepare-acr.md). Bu makalede, Azure Container Instances’a kapsayıcı dağıtılarak seri tamamlanır.
 

@@ -10,14 +10,14 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: b8cdf6cb07215f4c1e2a472f60513aff765dcfb5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
-ms.translationtype: HT
+ms.openlocfilehash: 1ce74afd8ee2266439a591730686b4f5277e1b03
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603207"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322014"
 ---
-# <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Öğretici - Azure Active Directory B2C kullanarak bir masaüstü uygulamasından Node.js web API'sine erişim izni verme
+# <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C kullanarak bir masaüstü uygulamasından Node.js web API'si için verme erişim
 
 Bu öğreticide bir Windows Presentation Foundation (WPF) masaüstü uygulamasından bir Azure Active Directory (Azure AD) B2C korumalı Node.js web API kaynağını çağırma gösterilmektedir.
 
@@ -31,7 +31,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Bir masaüstü uygulamasında Azure Active Directory B2C ile kullanıcılar için kimlik doğrulaması gerçekleştirme öğreticisini](active-directory-b2c-tutorials-desktop-app.md) tamamlayın.
 * **.NET masaüstü geliştirme** ve **ASP.NET ve web geliştirme** iş yükleriyle [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi yükleyin.
@@ -56,8 +56,8 @@ Web API’si kaynaklarının Azure Active Directory’den bir [erişim belirteci
     | Ayar      | Önerilen değer  | Açıklama                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Ad** | Örnek Basit Node.js web API’m | Web API’nizi geliştiricilere tanıtan bir **Ad** girin. |
-    | **Web uygulamasını / web API'sini dahil etme** | Yes | Web API’si için **Evet**’i seçin. |
-    | **Örtük akışa izin verme** | Yes | API [OpenID Connect oturumu](active-directory-b2c-reference-oidc.md) kullandığından **Evet**’i seçin. |
+    | **Web uygulamasını / web API'sini dahil etme** | Evet | Web API’si için **Evet**’i seçin. |
+    | **Örtük akışa izin verme** | Evet | API [OpenID Connect oturumu](active-directory-b2c-reference-oidc.md) kullandığından **Evet**’i seçin. |
     | **Yanıt URL'si** | `http://localhost:5000` | Yanıt URL'leri, Azure AD B2C'nin, API’niz tarafından istenen belirteçleri döndürdüğü uç noktalardır. Bu öğreticide örnek web API’si yerel olarak (localhost) çalışır ve 5000 numaralı bağlantı noktasını dinler. |
     | **Uygulama Kimliği URI'si** | demoapi | URI, kiracıdaki API’yi benzersiz olarak tanımlar. Bu, kiracı başına birden çok API kaydetmenize olanak sağlar. [Kapsamlar](../active-directory/develop/developer-glossary.md#scopes) korumalı API kaynağına erişimi yönetir ve Uygulama Kimliği URI’si başına tanımlanır. |
     | **Yerel istemci** | Hayır | Bu, bir web API’si olduğu için ve yerel bir istemci olmadığı için Hayır’ı seçin. |
@@ -125,7 +125,7 @@ Node.js web API’si örneği API’ye yapılan çağrıları korumak için Azur
 
 ### <a name="configure-the-web-api"></a>Web API’sini yapılandırma
 
-1. Node.js web API’si örneğinde `index.html` dosyasını açın.
+1. Node.js web API’si örneğinde `index.js` dosyasını açın.
 2. Örneği Azure AD B2C kiracı kayıt bilgileriyle yapılandırın. Aşağıdaki kod satırlarını değiştirin:
 
 ```nodejs

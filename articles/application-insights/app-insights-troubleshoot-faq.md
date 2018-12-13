@@ -12,21 +12,21 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0e934a629edc41ce09cad810b0d3b9b88e36c6d6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 815388db673673a3802f8e5e515b7e16cb180a29
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996541"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323363"
 ---
-# <a name="application-insights-frequently-asked-questions"></a>Application Insights: Sık sorulan sorular
+# <a name="application-insights-frequently-asked-questions"></a>Application Insights: Sık Sorulan Sorular
 
 ## <a name="configuration-problems"></a>Yapılandırma sorunları
 *Ayarlama konusunda sorun yaşıyorum my:*
 
 * [.NET uygulaması](app-insights-asp-net-troubleshoot-no-data.md)
 * [Zaten çalışan bir uygulamayı izleme](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
-* [Azure tanılama](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Azure tanılama](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Java web uygulaması](app-insights-java-troubleshoot.md)
 
 *Benim sunucumdan veri alabilirim*
@@ -118,7 +118,7 @@ Gelen [istemci web sayfaları](app-insights-javascript.md):
 
 Yapılandırmadan, diğer kaynaklardan:
 
-* [Azure tanılama](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Azure tanılama](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Docker kapsayıcıları](app-insights-docker.md)
 * [Analiz için tabloları İçeri Aktar](app-insights-analytics-import.md)
 * [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
@@ -137,7 +137,7 @@ Daha fazla bilgi edinin [ASP.NET](app-insights-api-filtering-sampling.md) veya [
 
 IP adresini kullanarak web istemcisi (IPv4 veya IPv6) baktığımızda [GeoLite2](http://dev.maxmind.com/geoip/geoip2/geolite2/).
 
-* Tarayıcı telemetrisi: Gönderenin IP adresi toplarız.
+* Tarayıcı telemetrisi: Gönderenin IP adresi topluyoruz.
 * Sunucu telemetri: Application Insights modülü için istemci IP adresi toplar. Varsa toplanmaz `X-Forwarded-For` ayarlanır.
 
 Yapılandırabileceğiniz `ClientIpHeaderTelemetryInitializer` farklı bir üst bilgisinden IP adresini almak için. Bazı sistemlerde, örneğin, bir proxy tarafından taşınması, yük dengeleyici veya CDN `X-Originating-IP`. [Daha fazla bilgi edinin](https://apmtips.com/blog/2016/07/05/client-ip-address/).

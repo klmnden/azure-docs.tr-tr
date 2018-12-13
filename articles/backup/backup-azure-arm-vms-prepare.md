@@ -1,5 +1,5 @@
 ---
-title: 'Azure yedekleme: sanal makineleri yedeklemek hazırlama'
+title: 'Azure yedekleme: Sanal makineleri yedeklemek hazırlama'
 description: Azure'da sanal makineleri yedeklemek için ortamınızı hazırlandığından emin olun.
 services: backup
 author: rayne-wiselman
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d24b2773aa056b33a4067d5d84677d186d25b195
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422805"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255083"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Azure sanal makinelerini yedeklemek hazırlama
 
@@ -34,12 +34,12 @@ Bu koşullar, ortamınızda zaten mevcutsa devam [Vm'lerinizi yedekleyin](backup
 
 ## <a name="supported-operating-systems-for-backup"></a>Yedekleme için desteklenen işletim sistemleri
 
- * **Linux**: Azure Backup'ı destekleyen [bir Azure onayladığı bir dağıtım listesini](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), CoreOS Linux ve 32-bit işletim sistemi hariç. Dosyaları geri yükleme destekleyen Linux işletim sistemleri listesi için bkz: [dosyaları sanal makine yedekten kurtarma](backup-azure-restore-files-from-vm.md#for-linux-os).
+ * **Linux**: Azure Backup'ın destekledikleri [bir Azure onayladığı bir dağıtım listesini](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), CoreOS Linux ve 32-bit işletim sistemi hariç. Dosyaları geri yükleme destekleyen Linux işletim sistemleri listesi için bkz: [dosyaları sanal makine yedekten kurtarma](backup-azure-restore-files-from-vm.md#for-linux-os).
 
     > [!NOTE]
     > Diğer Getir your-kendi Linux'unu dağıtımları VM Aracısı sanal makinede kullanılabilir olduğu sürece, çalışma ve Python desteği bulunduğu. Ancak, bu dağıtımları desteklenmez.
     >
- * **Windows Server**, **Windows istemci**: Windows Server 2008 R2 veya Windows 7'de, eski sürümleri desteklenmez.
+ * **Windows Server**, **Windows istemci**:  Windows Server 2008 R2 veya Windows 7'de, eski sürümleri desteklenmez.
 
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Yedekleme ve bir VM geri yüklenirken uygulanan sınırlamalar
@@ -177,7 +177,7 @@ Backup uzantısının çalışması, Azure için [VM Aracısı](../virtual-machi
 
 Aşağıdaki bilgiler nerede durumlar için sağlanan *değil* kullanarak bir VM Azure Market'te oluşturulan. **Örneğin, bir VM'nin bir şirket içi veri merkezlerinden geçişi. Böyle bir durumda, VM Aracısı sanal makineyi korumak için yüklü olması gerekir.**
 
-**Not**: VM Aracısı'nı yükledikten sonra de Azure PowerShell'i Azure VM aracısı yüklü olan bilmesi ProvisionGuestAgent özelliğini güncelleştirmek için kullanmanız gerekir.
+**Not**: VM aracısını yükledikten sonra Azure PowerShell'i Azure VM aracısının yüklü olduğu bilmesi ProvisionGuestAgent özelliği güncelleştirmek için de kullanmalısınız.
 
 Azure VM'yi yedekleme konusunda sorun varsa, Azure VM Aracısı sanal makinede düzgün yüklendiğini kontrol etmek için aşağıdaki tabloyu kullanın. Tablo, Windows ve Linux Vm'leri için VM Aracısı hakkında ek bilgi sağlar.
 
@@ -200,7 +200,7 @@ VM anlık görüntülerini yönetmek için yedek Dahili hat Azure genel IP adres
 
 Hangi seçeneğin kullanılacağını verirken, yönetilebilirlik, ayrıntılı bir denetim ve maliyet arasında tercihlerdir.
 
-| Seçenek | Avantajları | Dezavantajları |
+| Seçenek | Yararları | Dezavantajları |
 | --- | --- | --- |
 | Beyaz liste IP aralıkları |Ek maliyet olmadan.<br><br>Erişim bir NSG içinde açmak için kullanmak **kümesi AzureNetworkSecurityRule** cmdlet'i. |Etkilenen yönetmek için karmaşık IP aralıklarını zamanla değişir.<br><br>Yalnızca depolama ve Azure'nın tam erişim sağlar. |
 | Bir HTTP Ara sunucusunu kullanacak |Depolama üzerinde ayrıntılı denetim proxy'sinde URL'leri izin verilir.<br><br>Vm'leri tek noktası internet erişimi.<br><br>Azure IP adresi değişiklikleri tabi değildir. |Ara yazılımla VM çalıştırmaya yönelik ek maliyet. |
@@ -238,7 +238,7 @@ Genel internet ile iletişim kurmak için bir HTTP proxy kullanmak için aşağ�
 > [!NOTE]
 > Bu adımları, bu örnekte belirli adlarını ve değerlerini kullanın. Ne zaman, girme (veya yapıştırarak) kodunuzla, Ayrıntılar, dağıtımınız için adları ve değerleri kullanın.
 
-#### <a name="step-1-configure-outgoing-network-connections"></a>1. adım: giden ağ bağlantılarını yapılandırma
+#### <a name="step-1-configure-outgoing-network-connections"></a>1. Adım: Giden ağ bağlantılarını yapılandırma
 ###### <a name="for-windows-machines"></a>Windows makineleri için
 Bu yordamı yerel sistem hesabı için proxy sunucusu yapılandırmasını ayarlar.
 
@@ -283,7 +283,7 @@ HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
 ```
 
-#### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>2. adım: proxy sunucusunda gelen bağlantılara izin verin
+#### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>2. Adım: Proxy sunucusuna gelen bağlantılara izin verin
 1. Proxy sunucusunda Windows Güvenlik Duvarı'nı açın. Güvenlik Duvarı erişmek için en kolay yolu için arama gerçekleştirmektir **Gelişmiş Güvenlik Özellikli Windows Güvenlik Duvarı**.
 1. İçinde **Gelişmiş Güvenlik Özellikli Windows Güvenlik Duvarı** iletişim kutusunda sağ **gelen kuralları** seçip **yeni kural**.
 1. Yeni gelen kuralı sihirbazında, üzerinde **kural türü** sayfasında **özel** seçeneğini işaretleyip **sonraki**.
@@ -295,7 +295,7 @@ HttpProxy.Port=<proxy port>
 
 Sonuna ulaşana kadar Sihirbazı için varsayılan ayarları kabul edin. Ardından bu kural, bir ad verin.
 
-#### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>3. adım: bir özel durum kuralı için bir NSG ekleyin.
+#### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>3. adım: NSG ile bir özel durum kuralı ekleyin
 Aşağıdaki komut, NSG ile bir özel durum ekler. Bu özel bağlantı noktası 80 (HTTP) veya 443 (HTTPS) herhangi bir Internet adresi 10.0.0.5 üzerinde herhangi bir bağlantı noktasından TCP trafiğine izin verir. Genel internet üzerindeki belirli bir bağlantı noktası gerekiyorsa, bu bağlantı noktasına eklediğinizden emin olun ```-DestinationPortRange```.
 
 Bir Azure PowerShell komut isteminde aşağıdaki komutu girin:

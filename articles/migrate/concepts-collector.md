@@ -4,15 +4,15 @@ description: Azure geçişi, Toplayıcı gerecini hakkında bilgi sağlar.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 5a542ae23bf500125fd08338b2efd30dd42d9a8d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 255f5b34e53ddfb1a503130f0bccbac16a420f9a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840920"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255984"
 ---
 # <a name="about-the-collector-appliance"></a>Toplayıcı gerecini hakkında
 
@@ -32,13 +32,13 @@ Toplayıcı gerecini sürekli olarak Azure geçişi projesine bağlı olan ve s�
 - Bu model, performans verilerini toplamak için vCenter Server istatistik ayarları üzerinde bağımlı değildir.
 - Sürekli, dilediğiniz zaman Toplayıcı profil oluşturma durdurabilirsiniz.
 
-**Anında keyif:** keşif tamamlandıktan sonra sürekli bulma Gereci ile (birkaç VM sayısına bağlı olarak saat sürer), değerlendirmeler hemen oluşturabilirsiniz. Anında sonuç elde etmek için kullanmak istiyorsanız, Keşif yaslanıp performans veri toplama başlar bu yana değerlendirmede boyutlandırma ölçütü seçmelisiniz *şirket içi olarak*. Performans tabanlı değerlendirmeleri için en az bir gün sonra güvenilir boyut önerileri almak için keşif başlatılmadan için beklemeniz önerilir.
+**Anında keyif:** Bulma tamamlandıktan sonra sürekli bulma Gereci ile (birkaç VM sayısına bağlı olarak saat sürer), değerlendirmeler hemen oluşturabilirsiniz. Anında sonuç elde etmek için kullanmak istiyorsanız, Keşif yaslanıp performans veri toplama başlar bu yana değerlendirmede boyutlandırma ölçütü seçmelisiniz *şirket içi olarak*. Performans tabanlı değerlendirmeleri için en az bir gün sonra güvenilir boyut önerileri almak için keşif başlatılmadan için beklemeniz önerilir.
 
 Gereç yalnızca performans verilerini sürekli olarak toplar, şirket içi ortamda (yani VM ekleme, silme, disk ekleme vb.) herhangi bir yapılandırma değişikliği algılamaz. Şirket içi ortamda bir yapılandırma değişikliği gerçekleşirse değişikliklerin portala yansıması için aşağıdakileri yapabilirsiniz:
 
-- Öğelerin eklenmesi (VM’ler, diskler, çekirdekler vb.): Bu değişiklikleri Azure portala yansıtmak için keşfi gereçten durdurup yeniden başlatabilirsiniz. Bu, değişikliklerin Azure Geçişi projesinde güncelleştirilmesini sağlar.
+- Ayrıca öğeleri (VM'ler, diskler ve çekirdek vb.): Azure portalında bu değişiklikleri yansıtacak şekilde gereç keşiften durdurun ve yeniden başlatın. Bu, değişikliklerin Azure Geçişi projesinde güncelleştirilmesini sağlar.
 
-- VM silme: Gerecin tasarlanma şekli nedeniyle keşfi durdurup başlatsanız bile VM silme yansıtılmaz. Bunun nedeni takip eden keşiflerin eski keşiflerin üzerine yazılması yerine bunlara eklenmesidir. Bu durumda grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplayarak portaldaki VM’yi yoksayabilirsiniz.
+- VM silme: Bulma durdurup bile gereç tasarlandığı şekilde nedeniyle, VM'ler silinmesini yansıtılmaz. Bunun nedeni takip eden keşiflerin eski keşiflerin üzerine yazılması yerine bunlara eklenmesidir. Bu durumda grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplayarak portaldaki VM’yi yoksayabilirsiniz.
 
 > [!NOTE]
 > Bu yöntem, vCenter Server'ın performans veri noktası kullanılabilirlik için istatistik ayarları yararlandı ve sanal makinelerin Azure'a geçiş için eksik boyutlandırma içinde sonuçlanan ortalama performans sayaçlarının toplanan gibi tek seferlik gereç artık kullanım dışı bırakılmıştır.
@@ -48,7 +48,7 @@ Gereç yalnızca performans verilerini sürekli olarak toplar, şirket içi orta
 Bir OVF şablonunu kullanarak Toplayıcı gerecini dağıtın:
 
 - Azure portalında bir Azure geçişi projesi OVF şablonunu indirin. Vcenter Server VM Toplayıcı gerecini ayarlamak için indirilen dosyayı içeri aktarın.
-- OVF 4 çekirdek, 8 GB RAM ve 80 GB'lık bir disk ile VM VMware ayarlar. Windows Server 2012 R2 (64-bit) işletim sistemidir.
+- OVF 8 çekirdek, 16 GB RAM ve 80 GB'lık bir disk ile VM VMware ayarlar. Windows Server 2016 (64-bit) işletim sistemidir.
 - Toplayıcı çalıştırdığınızda, Azure geçişi için toplayıcı bağlanabildiğinden emin olmak için bir dizi önkoşul denetimlerini çalıştırın.
 
 - [Daha fazla bilgi edinin](tutorial-assessment-vmware.md#create-the-collector-vm) Toplayıcı oluşturma hakkında daha fazla.
@@ -58,21 +58,25 @@ Bir OVF şablonunu kullanarak Toplayıcı gerecini dağıtın:
 
 Toplayıcı sağlamak için Azure geçişi hizmetini internet üzerinden bağlanabilir ve verileri karşıya yükleme bulunan birkaç önkoşul denetimleri geçmesi gerekir.
 
-- **İnternet bağlantısı kontrol**: Toplayıcı doğrudan İnternet'e veya bir ara sunucu aracılığıyla bağlanabilirsiniz.
+- **Azure bulut doğrulayın**: Toplayıcı, geçirmeyi planlıyorsanız Azure bulut bilmek ister.
+    - Azure kamu, Azure kamu bulutuna geçirmeyi planlıyorsanız seçin.
+    - Azure ticari buluta geçiş yapmayı planlıyorsanız Azure genel seçin.
+    - Gereç, burada belirtilen bulutta bağlı olarak, ilgili Uç noktalara bulunan meta verileri gönderir.
+- **İnternet bağlantısı kontrol**: Toplayıcı, doğrudan İnternet'e veya bir ara sunucu aracılığıyla bağlanabilirsiniz.
     - Önkoşul denetimi bağlantıyı doğrular [gerekli ve isteğe bağlı URL'leri](#connect-to-urls).
     - İnternet'e doğrudan bir bağlantı varsa, belirli bir eylem, Toplayıcı gerekli URL'lere erişebildiğinden emin emin olma dışında gereklidir.
     - Bir ara sunucu bağlanıyorsanız, Not [aşağıdaki gereksinimleri](#connect-via-a-proxy).
-- **Zaman eşitleme doğrulayın**: Toplayıcı hizmetine yapılan istekler yetkilendirilmesini sağlamak için internet saat sunucusuyla eşitlenmiş.
+- **Zaman eşitleme doğrulayın**: Toplayıcı hizmet isteklerine kimlik doğrulaması sağlamak için internet saat sunucusuyla eşitlenmiş.
     - Böylece zaman doğrulanmış portal.azure.com url Toplayıcısından erişilebilir olmalıdır.
     - Makine eşitlenmemiş ise, saatin geçerli saati eşleştirilecek Toplayıcı VM üzerinde değiştirmeniz gerekir. Bunu yapmak için bir yönetici istemi VM'de çalıştırmak açın **w32tm /tz** saat dilimini denetlemek için. Çalıştırma **w32tm/resync** zaman eşitlenecek.
-- **Toplayıcı hizmeti çalışıyor denetleyin**: Azure geçişi Toplayıcısı hizmeti, Toplayıcı VM üzerinde çalıştırıyor olması gerekir.
+- **Toplayıcı hizmeti çalışıyor denetleyin**:  Azure geçişi Toplayıcısı hizmetinin Toplayıcı VM üzerinde çalışıyor olması gerekir.
     - Makinenin önyükleme işlemi sırasında bu hizmeti otomatik olarak başlatılır.
     - Hizmet çalışmıyorsa başlatın Denetim Masası'ndan.
     - Toplayıcı hizmetinin vCenter Server'a bağlanır, VM meta verileri ve performans verilerini toplar ve Azure geçişi hizmetine gönderir.
-- **VMware Powerclı 6.5 yüklendi denetleyin**: VMware Powerclı 6.5 PowerShell modülü, vCenter Server ile iletişim kurabilmesi için toplayıcı VM üzerinde yüklenmelidir.
+- **VMware Powerclı 6.5 yüklendi denetleyin**: VCenter Server ile iletişim kurabilmesi için toplayıcı VM üzerinde VMware Powerclı 6.5 PowerShell modülü yüklenmelidir.
     - Toplayıcı modülü yüklemek için gereken URL'leri erişebiliyorsa, yükleme otomatik olarak Toplayıcı dağıtımı sırasında olur.
     - Toplayıcı, dağıtım sırasında modülü yükleyemezse, şunları yapmalısınız [el ile yükleyin](#install-vwware-powercli-module-manually).
-- **VCenter sunucusu bağlantısını denetleyin**: toplayıcı için vCenter Server ve Vm'leri, meta verileri ve performans sayaçları için bir sorgu olmalıdır. [Önkoşulları doğrulama](#connect-to-vcenter-server) bağlanma.
+- **VCenter sunucusu bağlantısını denetleyin**: Toplayıcı, vCenter Server ve Vm'leri, meta verileri ve performans sayaçları için sorgu erişebilmelidir. [Önkoşulları doğrulama](#connect-to-vcenter-server) bağlanma.
 
 
 ### <a name="connect-to-the-internet-via-a-proxy"></a>Bir ara sunucu üzerinden İnternet'e bağlanın
@@ -107,7 +111,8 @@ Bağlantı denetimi URL'lerin bir listesini bağlanarak doğrulanır.
 
 **URL** | **Ayrıntılar**  | **Önkoşul denetimi**
 --- | --- | ---
-*.portal.azure.com | Zaman eşitleme ve Azure hizmet bağlantısını denetler. | Erişim URL'si gereklidir.<br/><br/> Bağlantı yoksa Önkoşul denetimi başarısız olur.
+*.portal.azure.com | Azure genel uygulanabilir. Zaman eşitleme ve Azure hizmet bağlantısını denetler. | Erişim URL'si gereklidir.<br/><br/> Bağlantı yoksa Önkoşul denetimi başarısız olur.
+*. portal.azure.us | Yalnızca Azure devlet kurumları için geçerlidir. Zaman eşitleme ve Azure hizmet bağlantısını denetler. | Erişim URL'si gereklidir.<br/><br/> Bağlantı yoksa Önkoşul denetimi başarısız olur.
 *.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *. powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| VCenter Powerclı PowerShell modülünü yüklemek için kullanılır. | İsteğe bağlı URL'lere erişim.<br/><br/> Önkoşul denetimi başarısız olmaz.<br/><br/> Toplayıcı VM üzerinde otomatik Modül yükleme başarısız olur. Modül el ile yüklemeniz gerekir.
 
 
@@ -216,7 +221,7 @@ Toplayıcı gerecini her VM için aşağıdaki yapılandırma meta verileri bulu
 
  Toplayıcı gerecini 20 saniyelik bir aralıkta ESXi konağından her VM için aşağıdaki performans sayaçlarını toplar. Bu sayaçlardan vCenter sayaçları ve terminolojiyi ortalama diyor olsa da, 20 saniye örnekleri gerçek zamanlı sayaçları. VM'ler için performans verilerini iki saat sonra keşif devreye girdi portalda kullanılabilir hale gelmeden başlatır. İçin en az doğru doğru boyutlandırma önerilerini almak için Değerlendirmeler performans tabanlı oluşturmadan önce bir gün beklemeniz önerilir. Anında sonuç elde etmek için arıyorsanız, boyutlandırma ölçütü ile değerlendirmeler oluşturabilirsiniz *şirket içi olarak* hangi değil dikkate alınır doğru boyutlandırma için performans verileri.
 
-**Sayaç** |  **Etki değerlendirmesi**
+**Counter** |  **Etki değerlendirmesi**
 --- | ---
 CPU.Usage.average | Önerilen VM boyutu ve maliyet  
 mem.Usage.average | Önerilen VM boyutu ve maliyet  

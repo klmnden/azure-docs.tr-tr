@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ac91632656e83fc4262f28240525c8fb106b99ec
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 4400430e012dee7caceba62637db1bf626d02b61
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679143"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277356"
 ---
 # <a name="set-alerts-in-application-insights"></a>Uygulama anlayışları'nda uyarılar ayarlayın
 [Azure Application Insights] [ start] web uygulamanızdaki performansı ya da kullanım ölçümleri değişikliklere uyarabilir. 
@@ -43,7 +43,7 @@ Uyarı kuralları dikey penceresini açın ve ardından Ekle düğmesini kullan�
 * Eşik değerini girmeniz istenir birimleri Not dikkat edin.
 * "E-posta sahipleri..." kutuyu işaretlerseniz, uyarılar, bu kaynak grubu erişimi olan herkes için e-posta ile gönderilir. Bu kişi kümesi genişletmek için bunları Ekle [kaynak grubuna veya aboneliğe](app-insights-resources-roles-access-control.md) (kaynak değil).
 * "Ek e-postaları" belirtirseniz, uyarılar, bu kişiler veya gruplara (olsun veya olmasın, "e-posta sahipleri..." onay kutusunun işareti) gönderilir. 
-* Ayarlanmış bir [Web kancası adresi](../monitoring-and-diagnostics/insights-webhooks-alerts.md) uyarılara yanıt veren web uygulaması ayarladıysanız. Uyarı etkinleştirildiğinde hem çözüldüğünde çağrılır. (Ancak şu anda sorgu parametreleri Web kancası özellikleri geçirilecek değil olduğunu unutmayın.)
+* Ayarlanmış bir [Web kancası adresi](../azure-monitor/platform/alerts-webhooks.md) uyarılara yanıt veren web uygulaması ayarladıysanız. Uyarı etkinleştirildiğinde hem çözüldüğünde çağrılır. (Ancak şu anda sorgu parametreleri Web kancası özellikleri geçirilecek değil olduğunu unutmayın.)
 * Devre dışı bırakabilir veya uyarıyı etkinleştir: dikey penceresinin üstündeki düğmeleri bakın.
 
 *Uyarı Ekle düğmesinin göremiyorum.* 
@@ -51,7 +51,7 @@ Uyarı kuralları dikey penceresini açın ve ardından Ekle düğmesini kullan�
 * Bir kuruluş hesabı kullanıyorsunuz? Sahibi veya katkıda bulunan bu uygulama kaynağına erişimi varsa, uyarılar ayarlayabilirsiniz. Erişim denetimi dikey penceresinde göz atın. [Erişim denetimi hakkında bilgi edinin][roles].
 
 > [!NOTE]
-> Uyarılar dikey penceresinde,, zaten var. bir uyarı kümesi bakın: [proaktif tanılama](app-insights-proactive-failure-diagnostics.md). Otomatik uyarı bir belirli ölçüm, istek hata oranı izler. Proaktif uyarı devre dışı bırakmak karar vermediğiniz sürece, istek hata oranı üzerinde kendi uyarı ayarlama gerekmez. 
+> Uyarılar dikey penceresinde,, zaten var. bir uyarı kümesi bakın: [Proaktif tanılama](app-insights-proactive-failure-diagnostics.md). Otomatik uyarı bir belirli ölçüm, istek hata oranı izler. Proaktif uyarı devre dışı bırakmak karar vermediğiniz sürece, istek hata oranı üzerinde kendi uyarı ayarlama gerekmez. 
 > 
 > 
 
@@ -93,7 +93,7 @@ Gerektiğini unutmayın [öngörülü hata oranı tanılama](app-insights-proact
 
 ## <a name="automation"></a>Otomasyon
 * [Uyarıları Ayarlama otomatikleştirmek için PowerShell kullanma](app-insights-powershell-alerts.md)
-* [Uyarılara yanıt verme otomatikleştirmek için Web kancalarını kullanma](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+* [Uyarılara yanıt verme otomatikleştirmek için Web kancalarını kullanma](../azure-monitor/platform/alerts-webhooks.md)
 
 ## <a name="video"></a>Video
 

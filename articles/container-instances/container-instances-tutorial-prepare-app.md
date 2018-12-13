@@ -1,21 +1,21 @@
 ---
-title: Azure Container Instances öğreticisi - Uygulamanızı hazırlama
-description: Azure Container Instances öğreticisi, 1/3. Bölüm - Azure Container Instances’a dağıtılacak uygulamayı hazırlama
+title: Öğretici - kapsayıcı görüntüsü Azure Container Instances için hazırlama
+description: Azure Container Instances Öğreticisi bölüm 1 / 3 - Azure Container Instances'a dağıtılacak uygulamayı içinde bir kapsayıcı görüntüsü hazırlama
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: dfe494eba64f546616e4e6cc9898f9d63d81eaa2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 029b4f2d0f0f88f56ca1f3e282d8c80e76f4d5c7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854788"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186421"
 ---
-# <a name="tutorial-create-container-for-deployment-to-azure-container-instances"></a>Öğretici: Azure Container Instances’a dağıtılacak kapsayıcıyı oluşturma
+# <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Öğretici: Azure Container Instances'a dağıtılacak için kapsayıcı görüntüsü oluşturma
 
 Azure Container Instances, Docker kapsayıcılarının herhangi bir sanal makine sağlama veya herhangi bir üst düzey hizmet benimsenmesi gerekmeden Azure altyapısına dağıtılmasını sağlar. Bu öğreticide, Azure Container Instances kullanılarak çalıştırılabilen bir kapsayıcı görüntüsüne küçük bir Node.js web uygulamasını paketlersiniz.
 

@@ -4,15 +4,15 @@ description: Azure Site Recovery kullanılarak Azure'da şirket içi VMware vm'l
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 83216091c950593b16f158ea3d8df5a194ecee02
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.author: mayg
+ms.openlocfilehash: d7b3919d0f970190238dbc5899a20f2d9e7d8cd4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869832"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256528"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -27,8 +27,8 @@ Gözden geçirme [Azure Site Recovery fiyatlandırma](https://azure.microsoft.co
 Çoğaltma sırasında veriler Azure depolama alanına çoğaltılır ve herhangi bir VM değişiklik ödeme yapmayın. Azure'a yük devretme çalıştırdığınızda, Site Recovery, Azure Iaas sanal makineleri otomatik olarak oluşturur. Ardından Azure'da kullandığınız işlem kaynakları için faturalandırılırsınız.
 
 ### <a name="what-can-i-do-with-vmware-to-azure-replication"></a>VMware ile Azure'a çoğaltma için neler yapabilirim?
-- **Olağanüstü durum kurtarma**: tam olağanüstü durum kurtarması da ayarlayabilirsiniz. Bu senaryoda, şirket içi VMware Vm'lerini Azure depolama alanına çoğaltın. Şirket içi altyapınızı kullanılamıyorsa, daha sonra Azure'a devredebilir. Yük devretme, çoğaltılan verileri kullanarak Azure Vm'leri oluşturulur. Şirket içi veri merkezinizi tekrar kullanılabilir hale gelene kadar uygulamaları ve iş yüklerini Azure vm'lerinde erişebilirsiniz. Ardından, Azure'dan şirket içi sitenize başarısız olabilir.
-- **Geçiş**: şirket içi VMware Vm'leri Azure'a geçirmek için Site RECOVERY'yi kullanabilirsiniz. Bu senaryoda, şirket içi VMware Vm'lerini Azure depolama alanına çoğaltın. Ardından, şirket içinden Azure'a yük devretme. Yük devretme sonrasında kullanılabilir ve Azure vm'lerinde çalışan iş yükleri ve uygulamalar.
+- **Olağanüstü durum kurtarma**: Tam olağanüstü durum kurtarması da ayarlayabilirsiniz. Bu senaryoda, şirket içi VMware Vm'lerini Azure depolama alanına çoğaltın. Şirket içi altyapınızı kullanılamıyorsa, daha sonra Azure'a devredebilir. Yük devretme, çoğaltılan verileri kullanarak Azure Vm'leri oluşturulur. Şirket içi veri merkezinizi tekrar kullanılabilir hale gelene kadar uygulamaları ve iş yüklerini Azure vm'lerinde erişebilirsiniz. Ardından, Azure'dan şirket içi sitenize başarısız olabilir.
+- **Geçiş**: Şirket içi VMware Vm'leri Azure'a geçirmek için Site RECOVERY'yi kullanabilirsiniz. Bu senaryoda, şirket içi VMware Vm'lerini Azure depolama alanına çoğaltın. Ardından, şirket içinden Azure'a yük devretme. Yük devretme sonrasında kullanılabilir ve Azure vm'lerinde çalışan iş yükleri ve uygulamalar.
 
 
 
@@ -146,11 +146,14 @@ Evet. MySQL indirin ve yerleştirebilir **C:\Temp\ASRSetup** klasör. Daha sonra
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Miyim MySQL yüklenmesini önlemek ancak Site Recovery yükleme izin?
 Evet. MySQL yükleyiciyi indirir ve yerleştirebilir **C:\Temp\ASRSetup** klasör.  Yapılandırma sunucusu VM'SİNİN ayarladığınızda, koşulları kabul edin ve tıklayarak **yükleyip**, eklediğiniz MySQL yüklemek için yükleyici portalını kullanacaksınız.
  
-### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>CanL yapılandırma sunucusu sanal makine başka bir şey için kullanabilir miyim?
+### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>Yapılandırma sunucusu sanal makine başka bir şey için kullanabilir miyim?
 Hayır, yapılandırma sunucusu için yalnızca VM kullanmanız gerekir. 
 
+### <a name="can-i-clone-a-configuration-server-and-use-it-for-orchestration"></a>Bir yapılandırma Sunucusu'na kopyalayın ve miyim düzenleme işlemi için kullanılmakta?
+Hayır, kayıt sorunlarını önlemek için yeni yapılandırma sunucusunu ayarlayın.
+
 ### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>Yapılandırma sunucusunda kayıtlı kasayı değiştirebilir miyim?
-Hayır. Yapılandırma sunucusu ile bir kasaya kaydedildikten sonra değiştirilemez.
+Hayır. Yapılandırma sunucusu ile bir kasaya kaydedildikten sonra değiştirilemez. Gözden geçirme [bu makalede](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) yeniden kayıt adımları için.
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Aynı yapılandırma sunucusu VMware Vm'lerini ve fiziksel sunucuları olağanüstü durum kurtarma için kullanabilir miyim
 Evet, ancak bu fiziksel makine olması yalnızca olması başarısız bir VMware VM'sine geri unutmayın.

@@ -1,5 +1,5 @@
 ---
-title: İzleme denemeleri ve eğitim ölçümleri
+title: İzleme denemeleri & eğitim ölçümleri
 titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning hizmeti ile denemelerinizi izleyebilir ve modeli oluşturma işlemi geliştirmek için ölçümleri izleyin. Eğitim betiğinizi günlük ekleme, denemeyi göndermek nasıl, çalışan işin ilerleme durumunu denetlemek nasıl ve çalıştırmanın sonuçlarını görüntüleme öğrenin.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7137d43805065a8f29aa8fcf5307dd5b8947b345
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c45023a462a5c01dfde806d7abbb9714aaf09b85
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101356"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189481"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Denemeler ve Azure Machine learning'de eğitim metriklerini izleme
 
@@ -60,7 +60,7 @@ Günlüğe kaydetme ve deneme gönderme eklemeden önce çalışma alanını aya
                resource_group = <<resource_group>>)
    ```
   
-## <a name="option-1-use-startlogging"></a>1. seçenek: start_logging kullanma
+## <a name="option-1-use-startlogging"></a>1. seçenek: Start_logging kullanın
 
 **start_logging** dizüstü bilgisayarlar gibi senaryolarda kullanım için etkileşimli bir çalışma oluşturur. Oturumu sırasında günlüğe kaydedilen tüm ölçümler, denemeyi çalıştırma kaydı eklenir.
 
@@ -122,7 +122,7 @@ Aşağıdaki örnek, yerel Jupyter not defterini yerel olarak basit bir sklearn 
 
 Komut dosyası ile biter ```run.complete()```, tamamlandı olarak çalıştırmayı işaretler.  Bu işlev, genellikle etkileşimli bir not defteri senaryolarda kullanılır.
 
-## <a name="option-2-use-scriptrunconfig"></a>2. seçenek: ScriptRunConfig kullanma
+## <a name="option-2-use-scriptrunconfig"></a>2. seçenek: ScriptRunConfig kullanın
 
 **ScriptRunConfig** betiği için yapılandırmaları ayarlamayı çalıştırmaları için bir sınıftır. Bu seçenekle tamamlanmasından almak veya izlemek için görsel bir pencere öğesi almak için izleme kodu ekleyebilirsiniz.
 
@@ -330,9 +330,9 @@ Karışıklık matrisi performansını bir sınıflandırma modeli tanımlamak i
 
 Sınıflandırma sorunlar için Azure Machine Learning, bir karışıklık matrisi otomatik olarak oluşturulan her model için sağlar. Her bir karışıklık matrisi için otomatik ML doğru sınıflandırılmış etiketleri kırmızı, yeşil ve yanlış sınıflandırılmış etiket olarak gösterir. Dairenin boyutu bu depo içindeki örnek sayısını temsil eder. Ayrıca, tahmin edilen her etiket ve her true etiket sıklığı sayısı bitişik çubuk grafiklerdeki sağlanır. 
 
-Örnek 1: Bir sınıflandırma modeli ile düşük doğruluk ![düşük doğruluk ile bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
+Örnek 1: Düşük doğruluk sınıflandırma modeliyle ![düşük doğruluk ile bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
 
-Örnek 2: Bir sınıflandırma modeli ile yüksek doğruluk (idealdir) ![yüksek doğruluk ile bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
+Örnek 2: Yüksek doğruluk (idealdir) ile bir sınıflandırma modeli ![yüksek doğruluk ile bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
 
 
 #### <a name="precision-recall-chart"></a>Duyarlık geri çekme grafiği
@@ -341,17 +341,17 @@ Bu grafiği, duyarlık geri çekme eğrileri kesinlik ve belirli iş sorununuz i
 
 Terim duyarlık sınıflandırıcı tüm örnekleri doğru şekilde etiketlemek için bu özelliği temsil eder. Geri çağırma belirli bir etiketi tüm örneklerini bulmak bir sınıflandırıcı özelliği temsil eder. Duyarlık geri çekme eğriyi iki Bu kavramlar arasındaki ilişkiyi gösterir. İdeal olarak, model % 100 kesinlik ve % 100 doğruluğu sahip olması gerekir.
 
-Örnek 1: Bir sınıflandırma modeli ile düşük duyarlılık ve düşük geri çağırma ![düşük duyarlılık ve düşük geri çağırma sahip bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
+Örnek 1: Düşük duyarlılık ve düşük geri çağırma sahip bir sınıflandırma modeli ![düşük duyarlılık ve düşük geri çağırma sahip bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
 
-Örnek 2: ~ %100 kesinlik ve ~ %100 çağırma (idealdir) ile sınıflandırma modeli bir ![sınıflandırma modeli Yüksek duyarlılık ve çağırma](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
+Örnek 2: ~ %100 kesinlik ve ~ %100 çağırma (idealdir) ile bir sınıflandırma modeli ![sınıflandırma modeli Yüksek duyarlılık ve çağırma](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
 
 #### <a name="roc"></a>ROC
 
 Özelliği (veya ROC) çalışan ve belirli bir modelde yanlış sınıflandırılmış etiketlerini doğru sınıflandırılmış etiketlerin bir çizim alıcıdır. Eğitim modeller olarak yüksek sapması veri kümeleri üzerinde yanlış pozitif etiketleri gösterme ROC eğrisi daha bilgilendirici olabilir.
 
-Örnek 1: Bir sınıflandırma modeli ile düşük true etiketleri ve yüksek false etiketleri ![düşük true etiketleri ve yüksek false etiketleri ile sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.PNG)
+Örnek 1: Düşük true etiketleri ve yüksek false etiketleri ile bir sınıflandırma modeli ![düşük true etiketleri ve yüksek false etiketleri ile sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.PNG)
 
-Örnek 2: Bir sınıflandırma modeli ile yüksek true etiketleri ve düşük false etiketleri ![yüksek true etiketleri ve düşük false etiketleri ile bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
+Örnek 2: Yüksek true etiketleri ve düşük false etiketleri ile bir sınıflandırma modeli ![yüksek true etiketleri ve düşük false etiketleri ile bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
 
 #### <a name="lift-curve"></a>Eğri Yükselt
 
@@ -359,9 +359,9 @@ Otomatik olarak bu belirli modelin değeri kazanç görüntülemek için taban �
 
 Lift grafikleri bir sınıflandırma modeli performansını değerlendirmek için kullanılır. Bu, ne kadar daha iyi, bir model karşılaştırıldığında bir model ile yapmak, bekleyebileceğiniz gösterir. 
 
-Örnek 1: Model bir rastgele seçim modeli daha da kötüsü gerçekleştirir ![rastgele seçim daha da kötüsü olarak modelleyen bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.PNG)
+Örnek 1: Model gerçekleştiren bir rastgele seçim modeli daha da kötüsü ![rastgele seçim daha da kötüsü olarak modelleyen bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.PNG)
 
-Örnek 2: Model bir rastgele seçim modeli daha iyi gerçekleştirir ![daha iyi bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.PNG)
+Örnek 2: Model gerçekleştiren bir rastgele seçim modeli daha iyi ![daha iyi bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.PNG)
 
 #### <a name="gains-curve"></a>Kazançlar eğri
 
@@ -369,9 +369,9 @@ Kazançlar grafiği her veri bölümü tarafından bir sınıflandırma modeli p
 
 İstenen bir erişim modelden karşılık gelen bir yüzdesini kullanarak sınıflandırma kesme seçmenize yardımcı olmak için toplam kazancı grafik kullanın. Bu bilgiler eşlik eden lift grafik sonuçları bakarak başka bir yol sağlar.
 
-Örnek 1: Bir sınıflandırma modeli ile en az kazanç ![kazanç en az bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
+Örnek 1: En az kazanç sınıflandırma modeliyle ![kazanç en az bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
 
-Örnek 2: Bir sınıflandırma modeli ile önemli kazanç ![önemli kazanç ile bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
+Örnek 2: Önemli kazanç sınıflandırma modeliyle ![önemli kazanç ile bir sınıflandırma modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
 
 #### <a name="calibration-plot"></a>Ayar çizimi
 
@@ -379,9 +379,9 @@ Tüm sınıflandırma sorunları ayarlama satır micro-ortalama, makro ortalama 
 
 Bir ayar çizim, Tahmine dayalı bir modelin güvenle görüntülemek için kullanılır. Bunu "olasılık" temsil ettiği bazı etiket altında belirli bir örneğine ait olasılığını tahmin edilen olasılığını ve gerçek olasılığını arasındaki ilişkiyi gösteren göre yapar. Y ile de ayarlanmış bir model hizalar = x, Öngörüler makul başarılara olduğu satır. Fazla kişiye modeli ile y hizalar = 0 satırı, burada tahmin olasılık mevcuttur ancak gerçek hiç olasılık yoktur.
 
-1. örnek: Daha iyi ayarlanmış model ![ daha iyi ayarlanmış modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
+Örnek 1: Daha iyi ayarlanmış bir model ![ daha iyi ayarlanmış modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
 
-Örnek 2: Bir aşırı gizli modeli ![fazla kişiye modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
+Örnek 2: Fazla kişiye modeli ![fazla kişiye modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
 
 ### <a name="regression"></a>Regresyon
 Her bir regresyon modeli için otomatik makine öğrenimi özellikleri, Azure Machine Learning kullanarak yapı, aşağıdaki grafikleri görebilirsiniz: 
@@ -398,7 +398,7 @@ Sonrasında her çalıştırma, tahmin edilen bir karşılaştırması için her
 
 Örnek 1: Bir regresyon modeli ile Öngörüler düşük doğruluk ![Öngörüler düşük doğruluk ile bir regresyon modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.PNG)
 
-Örnek 2: Bir regresyon modeli, Öngörüler yüksek doğruluk ile ![kendi Öngörüler yüksek doğruluk ile bir regresyon modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.PNG)
+Örnek 2: Yüksek doğruluk, Öngörüler ile bir regresyon modeli ![kendi Öngörüler yüksek doğruluk ile bir regresyon modeli](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.PNG)
 
 <a name="histo"></a>
 
@@ -408,7 +408,7 @@ Bir fazlalığı gözlemlenen y – tahmin edilen y temsil eder. Bir hata ile d�
 
 Örnek 1: Bir regresyon modeli ile kendi hataları sapması ![SA regresyon modeli ile kendi hataları sapması](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.PNG)
 
-Örnek 2: Bir regresyon modeli ile hataları daha eşit dağıtım ![bir regresyon modeli ile hataları daha eşit dağıtım](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.PNG)
+Örnek 2: Hataları daha eşit dağıtım ile bir regresyon modeli ![bir regresyon modeli ile hataları daha eşit dağıtım](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.PNG)
 
 ### <a name="model-explain-ability-and-feature-importance"></a>Model açıklayan özelliği ve özellik önem derecesi
 

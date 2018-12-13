@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 33d7322bfa3c6e6143dd2d945c5ed86c15da2fb8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: de5d3fcd7eff0042e912e164050f917a0070b2c3
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249974"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164685"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Oluşturma ve Azure'a OpenBSD disk görüntü yükleme
 Bu makalede oluşturma ve sanal sabit OpenBSD işletim sistemi içeren bir disk (VHD) yükleme gösterilmektedir. Karşıya yüklediğiniz sonra bunu kendi görüntünüzü Azure CLI ile azure'daki bir sanal makine (VM) oluşturmak için kullanabilirsiniz.
@@ -68,7 +68,7 @@ OpenBSD işletim Hyper-V eklenen sistemi 6.1, yüklediğiniz VM'de desteği, aş
     ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
     ```
 
-6. Azure Aracısı'nın en son sürümü her zaman bulunabilir [Github](https://github.com/Azure/WALinuxAgent/releases). Aracıyı aşağıdaki gibi yükleyin:
+6. Azure Aracısı'nın en son sürümü her zaman bulunabilir [GitHub](https://github.com/Azure/WALinuxAgent/releases). Aracıyı aşağıdaki gibi yükleyin:
 
     ```sh
     git clone https://github.com/Azure/WALinuxAgent 

@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 9526385eaea8a88f0c22e6420ba39a33f7166f96
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 4d7d1407ff57c5adcc4790db4d2f47b70737fece
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633733"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250501"
 ---
-## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>Bulut hizmeti sağlayıcıları için raporlama altyapınızın kullanımı
+# <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>Bulut hizmeti sağlayıcıları için raporlama altyapınızın kullanımı
 
 Azure Stack gerçekleşir ve Azure'a iletir kullanımını izlemek için gereken altyapıyı içerir. Azure'da, Azure ticaret kullanım verileri işler ve uygun Azure abonelikleri için kullanım ücretlerini. Kullanımı izleme, Azure genel bulutunda izlenen gibi bu yolla gerçekleşir.
 

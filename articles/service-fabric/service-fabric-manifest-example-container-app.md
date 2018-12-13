@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: ryanwi
-ms.openlocfilehash: 6f538fa821e546d12c5a2bdb9585cc85871241fa
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 010fd442419f57f8b53705be8d3f49fdb84e28fd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094161"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262461"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Birden çok kapsayıcılı uygulama ve hizmet bildirimi örnekleri
 Çok kapsayıcılı bir Service Fabric uygulaması için uygulama ve hizmet bildirimleri örnekleri aşağıda verilmiştir. Bu örnekler amacı hangi ayarlar kullanılabilir ve bunların nasıl kullanılacağını göstermektir. Bu uygulama ve hizmet bildirimleri dayalı [Windows Server 2016 kapsayıcı örnek](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) bildirimleri.
@@ -295,7 +295,7 @@ Kapsayıcı konağında etkinleştirdiğiniz için ilkeleri belirtir. Daha fazla
 Kapsayıcı görüntüsünü çekme görüntülerden depoya için kimlik bilgileri. Daha fazla bilgi için [RepositoryCredentials öğesi](service-fabric-service-model-schema-elements.md#RepositoryCredentialsElementRepositoryCredentialsTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
 ### <a name="portbinding-element"></a>PortBinding öğesi
-İfşa edilen kapsayıcı bağlantı noktasına bağlamak üzere hangi uç nokta kaynağı belirtir. Daha fazla bilgi için [PortBinding öğesi](service-fabric-service-model-schema-elements.md#PortBindingElementPortBindingTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
+İfşa edilen kapsayıcı bağlantı noktasına bağlamak üzere hangi uç nokta kaynağı belirtir. Daha fazla bilgi için [PortBinding öğesi](service-fabric-service-model-schema-elements.md#PortBindingElementPortBindingTypeComplexTypeDefinedInServicePackageContainerPolicyTypecomplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
 ### <a name="volume-element"></a>Birim öğesi
 Kapsayıcıya bağlı birimin belirtir. Daha fazla bilgi için [birim öğesi](service-fabric-service-model-schema-elements.md#VolumeElementContainerVolumeTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
@@ -313,7 +313,7 @@ Başlatılacak olan işletim sistemi derleme sürüm numarasına karşılık gel
  Daha fazla bilgi için [EnvironmentOverrides öğesi](service-fabric-service-model-schema-elements.md#EnvironmentOverridesElementEnvironmentOverridesTypeComplexTypeDefinedInServiceManifestImportelement)
 
 ### <a name="environmentvariable-element"></a>Değişkeninin öğesi
-ortam değişkeni. Daha fazla bilgi için [değişkeninin öğesi](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexTypeDefinedInEnvironmentVariablesTypecomplexType)
+ortam değişkeni. Daha fazla bilgi için [değişkeninin öğesi](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
 
 ### <a name="certificateref-element"></a>CertificateRef öğesi
 X X509 hakkında bilgiler için kapsayıcı ortamında kullanıma için olan sertifika. Sertifika yüklü olmalıdır tüm küme düğümlerinin LocalMachine deposundaki.
@@ -356,7 +356,7 @@ Depo ve görüntü https://hub.docker.com veya Azure Container Registry. Daha fa
 Ortam değişkenleri, kapsayıcı veya exe geçirin.  Daha fazla bilgi için [EnvironmentVariables öğesi](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
 ### <a name="environmentvariable-element"></a>Değişkeninin öğesi
-ortam değişkeni. Daha fazla bilgi için [değişkeninin öğesi](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexTypeDefinedInEnvironmentVariablesTypecomplexType)
+ortam değişkeni. Daha fazla bilgi için [değişkeninin öğesi](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
 
 ### <a name="configpackage-element"></a>ConfigPackage öğesi
 Bildiren bir klasör adı özniteliği tarafından adlandırılan bir Settings.xml dosyasının içerir. Bu dosya, çalışma zamanında işlem okuyabilen kullanıcı tanımlı, anahtar-değer çifti ayarları bölümlerini içerir. Yalnızca ConfigPackage sürümü değişti, yükseltme sırasında daha sonra çalışan işlemi yeniden başlatılmaz. Bunun yerine, bunlar dinamik olarak yeniden yüklenebilir, böylece yapılandırma ayarları değişti işlemi bir geri çağırma bildirir. Daha fazla bilgi için [ConfigPackage öğesi](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
@@ -403,7 +403,7 @@ Virgülle ayrılmış listesini komutları kapsayıcıya geçirin. Daha fazla bi
 Ortam değişkenleri, kapsayıcı veya exe geçirin.  Daha fazla bilgi için [EnvironmentVariables öğesi](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
 ### <a name="environmentvariable-element"></a>Değişkeninin öğesi
-ortam değişkeni. Daha fazla bilgi için [değişkeninin öğesi](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexTypeDefinedInEnvironmentVariablesTypecomplexType)
+ortam değişkeni. Daha fazla bilgi için [değişkeninin öğesi](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
 
 ### <a name="configpackage-element"></a>ConfigPackage öğesi
 Bildiren bir klasör adı özniteliği tarafından adlandırılan bir Settings.xml dosyasının içerir. Bu dosya, çalışma zamanında işlem okuyabilen kullanıcı tanımlı, anahtar-değer çifti ayarları bölümlerini içerir. Yalnızca ConfigPackage sürümü değişti, yükseltme sırasında daha sonra çalışan işlemi yeniden başlatılmaz. Bunun yerine, bunlar dinamik olarak yeniden yüklenebilir, böylece yapılandırma ayarları değişti işlemi bir geri çağırma bildirir. Daha fazla bilgi için [ConfigPackage öğesi](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)

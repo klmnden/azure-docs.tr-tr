@@ -1,6 +1,6 @@
 ---
-title: Azure Search'ün API sürümlerini | Microsoft Docs
-description: Azure Search REST API'lerini ve istemci Kitaplığı'nda .NET SDK'sı için sürüm ilkesi.
+title: .NET SDK'sını ve REST API'ler - Azure Search API Sürüm Yönetimi
+description: Azure Search REST API'lerini ve istemci Kitaplığı'ndaki .NET SDK'sı sürüm ilkesi.
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,53 +9,54 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: brjohnst
-ms.openlocfilehash: 8d1e30b0bca3c63fe4528c06e5389d8cbe27a7e6
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.custom: seodec2018
+ms.openlocfilehash: 0cf5cac341cb36029c09ee2da5477323fac79cf5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113614"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311652"
 ---
-# <a name="api-versions-in-azure-search"></a>Azure Search'te API sürümleri
-Azure arama özellik güncelleştirmeleri düzenli olarak yapar. Bazen, ancak her zaman, bu güncelleştirmeleri API geriye dönük uyumluluğu korumak için yeni bir sürümünü gerektirir. Yeni bir sürüm yayımlama nasıl ve ne zaman kodunuzda arama hizmet güncelleştirmeleri tümleştirmek denetlemenize olanak verir.
+# <a name="api-versions-in-azure-search"></a>Azure Search API sürümleri
+Azure arama özelliği güncelleştirmeleri düzenli olarak yapar. Bazen, ancak her zaman, bu güncelleştirmeleri API geriye dönük uyumluluğu korumak için yeni bir sürümü gerektirir. Yeni bir sürüm yayımlama, ne zaman ve nasıl kodunuzda arama hizmet güncelleştirmelerini tümleştirme denetlemenizi sağlar.
 
-Yeni bir API sürümü kullanmak için kodunuzu yükseltmek için bazı çaba içerebileceği bir kural olarak, yeni sürümler yalnızca gerekli olduğunda, Azure Search takım yayımlar. Yalnızca API bazı yönlerinin geriye dönük uyumluluk keser bir şekilde değişirse yeni bir sürümü gereklidir. Bu değişiklikleri nedeniyle var olan özellikleri düzeltmeleri veya varolan API yüzey alanını değiştirme yeni özellikleri nedeniyle gerçekleşebilir.
+Kodunuzu yeni bir API sürümünü kullanacak şekilde yükseltmek için bazı çaba içerebileceği bir kural olarak, yalnızca gerekli olduğunda, yeni sürümleri Azure Search ekibine yayımlar. Yalnızca bazı yönlerini API, geriye dönük uyumluluk keser şekilde değiştiyse yeni bir sürüm gereklidir. Bu tür değişiklikleri nedeniyle var olan özellikleri düzeltmeleri veya var olan API yüzey alanı değiştirmek yeni özellikler nedeniyle oluşabilir.
 
-Aynı kural SDK güncelleştirmeler için geçerlidir. Azure Search SDK izleyen [anlamsal sürüm oluşturma](http://semver.org/) sürümü üç kısma sahip olduğu anlamına gelir kuralları: birincil, ikincil ve yapı numarası (örneğin, 1.1.0). SDK'sının yeni bir ana sürüm yalnızca geriye dönük uyumluluk bölün değişiklikler yayımlanır. Bölünemez özellik güncelleştirmeleri ikincil sürüm artırır ve hata düzeltmeleri yalnızca yapı sürümünü artırır.
+Aynı kural SDK güncelleştirmeleri için geçerlidir. Azure Search SDK'sı aşağıdaki [semantic versioning](http://semver.org/) sürümünün üç bölümden oluşur, yani kuralları: büyük, küçük ve derleme numarası (örneğin, 1.1.0). SDK'sının yeni bir ana sürüm geriye dönük uyumluluk kesme değişiklikleri için yayımlanır. Hataya neden olmayan özellik güncelleştirmeleri, alt sürüm artırır ve hata düzeltmeleri yalnızca derleme sürümü artacaktır.
 
 > [!NOTE]
-> Azure Search Hizmeti örneğinizi son de dahil olmak üzere birkaç REST API sürümlerini destekler. En son artık değildir, ancak en yeni sürümü kullanmak için kodunuzu geçirmek öneririz bir sürümünü kullanmaya devam edebilirsiniz. REST API kullanırken, api-version parametresi aracılığıyla her istekte API sürümü belirtmeniz gerekir. .NET SDK kullanarak, kullanmakta olduğunuz SDK sürümü karşılık gelen REST API sürümü belirler. Eski bir SDK kullanıyorsanız, hizmet daha yeni bir API sürümü desteklemek için yükseltilir olsa bile bu kodu ile herhangi bir değişiklik çalıştırmaya devam edebilirsiniz.
+> Azure Search Hizmeti örneğinizi en son dahil olmak üzere çeşitli REST API sürümlerini destekler. Artık en son değildir, ancak en yeni sürümü kullanmak için kodunuzu geçirme öneririz bir sürümünü kullanmaya devam edebilirsiniz. REST API kullanırken, api-version parametresi aracılığıyla her istekte API sürümü belirtmeniz gerekir. .NET SDK kullanarak, kullanmakta olduğunuz SDK sürümü ilgili REST API sürümünü belirler. Eski bir SDK kullanıyorsanız, hizmet daha yeni bir API sürümü desteklemek üzere yükseltilir bile kod değişikliğine gerek kalmadan çalışmaya devam edebilirsiniz.
 
-## <a name="snapshot-of-current-versions"></a>Geçerli sürümlerinin anlık görüntüsü
-Aşağıda bir anlık görüntü sürümlerinin geçerli tüm Azure arama için programlama arabirimleri.
+## <a name="snapshot-of-current-versions"></a>Anlık görüntü geçerli sürümleri
+Aşağıda tüm geçerli sürümlerinde anlık görüntüsünü Azure Search için programlama arabirimi.
 
-| Arabirimler | Son ana sürümle | Durum |
+| Arabirimler | En son ana sürüm | Durum |
 | --- | --- | --- |
-| [.NET SDK](https://aka.ms/search-sdk) |5.0 |Genellikle Nisan 2018 yayımlanan kullanılabilir |
-| [.NET SDK Önizleme](https://aka.ms/search-sdk-preview) |4.0.1-Preview |Mayıs 2017 yayımlanan Önizleme |
-| [Hizmet REST API'si](https://docs.microsoft.com/rest/api/searchservice/) |2017 11 11 |Genel olarak kullanılabilir |
+| [.NET SDK](https://aka.ms/search-sdk) |5.0 |Genel olarak kullanılabilir, yayımlanan Nisan 2018 |
+| [.NET SDK'sı Önizleme](https://aka.ms/search-sdk-preview) |4.0.1-Preview |Önizleme, Mayıs 2017 tarihinde yayımlandı |
+| [Hizmet REST API'si](https://docs.microsoft.com/rest/api/searchservice/) |2017-11-11 |Genel Kullanıma Sunuldu |
 | [Hizmet REST API 2017-11-11-Önizleme](search-api-2017-11-11-preview.md) |2017-11-11-Önizleme |Önizleme |
-| [.NET Yönetim SDK'sı](https://aka.ms/search-mgmt-sdk) |2.0 |Genel olarak kullanılabilir |
-| [Yönetim REST API'si](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Genel olarak kullanılabilir |
+| [.NET Yönetim SDK'sı](https://aka.ms/search-mgmt-sdk) |2.0 |Genel Kullanıma Sunuldu |
+| [Yönetim REST API'si](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Genel Kullanıma Sunuldu |
 
-REST dahil olmak üzere API'ları için `api-version` her çağrıda gereklidir. Kullanarak `api-version` Önizleme API gibi belirli bir sürümü hedeflemesini daha kolay hale getirir. Aşağıdaki örnek gösterilmektedir nasıl `api-version` parametresi:
+Gibi REST API'leri için `api-version` her çağrıda gereklidir. Kullanarak `api-version` API önizlemesi gibi belirli bir sürümü hedeflemesini daha kolay hale getirir. Aşağıdaki örnekte nasıl `api-version` parametresi belirtildi:
 
     GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2017-11-11
 
 > [!NOTE]
-> Her istek olsa da bir `api-version`, tüm API istekler için aynı sürümünü kullanmanızı öneririz. Bu, özellikle yeni API sürümleri öznitelikler veya önceki sürümleri tarafından tanınmıyor işlemler aldığımızda geçerlidir. API sürümü karıştırma olabilir istenmeyen sonuçlara ve kaçınılmalıdır.
+> Her isteğin olsa da bir `api-version`, tüm API istekleri için aynı sürümü kullanmanızı öneririz. Yeni API sürümlerinde öznitelikler veya önceki sürümleri tarafından tanınmayan işlemler aldığımızda bu özellikle doğrudur. API sürümleri karıştırılması olabilir istenmeyen sonuçları ve kaçınılmalıdır.
 >
-> Yönetim REST API ve hizmeti REST API'si diğer bağımsız olarak sürümlü. Sürüm numaraları herhangi benzerlik içerik olarak farklı olur.
+> Hizmet REST API ve yönetim REST API'si birbirinden tutulur. Herhangi bir benzerlik sürüm numaraları içerik olarak farklı olur.
 
-Genel olarak kullanılabilir (veya GA) API'leri Azure hizmet düzeyi sözleşmelerine tabi olan ve üretimde kullanılabilir. Önizleme sürümleri, her zaman bir GA sürümü geçirilmez Deneysel özellikleri vardır. **Önizleme API'leri üretim uygulamalarında kullanmaktan kaçının önemle önerilir.**
+Genel kullanıma açık (veya GA) API'ler üretimde kullanılabilir ve Azure hizmet düzeyi sözleşmelerine tabidir. Önizleme sürümü için bir GA sürümü her zaman geçirilmez Deneysel özellikler bulunuyor. **Önizleme API'leri üretim uygulamalarında kullanmaktan kaçınmak için kesinlikle önerilir.**
 
-## <a name="about-preview-and-generally-available-versions"></a>Önizleme ve genel olarak kullanılabilir sürümleri hakkında
-Azure arama her zaman REST API'si aracılığıyla Deneysel özellikleri ilk olarak, ardından yayın öncesi sürümlerini .NET SDK'sı önceden serbest bırakır.
+## <a name="about-preview-and-generally-available-versions"></a>Önizleme ve genel kullanıma sunulan sürümleri hakkında
+Azure arama her zaman REST API aracılığıyla Deneysel özellikler ilk olarak, ardından .NET SDK'ın yayın öncesi sürümler ile önceden serbest bırakır.
 
-Önizleme özellikleri, test ve deneme, özellik tasarım ve uygulama geri bildirim toplama hedefi için kullanılabilir. Bu nedenle, Önizleme özellikleri zaman içerisinde, büyük olasılıkla geriye dönük uyumluluk bölün şekilde değiştirebilirsiniz. GA sürümündeki kararlı ve küçük geriye dönük olarak uyumlu düzeltmeler ve geliştirmeler hariç olmak üzere değiştirmek olasılığı olan özellikler aksine budur. Ayrıca, Önizleme özellikleri her zaman bu GA sürümü yapmayın.
+Önizleme özellikleri, test ve deneme, özellik tasarımı ve uygulaması hakkında geri bildirim toplama amacıyla kullanılabilir. Bu nedenle, büyük olasılıkla geriye dönük uyumluluk sonu şekilde zaman içindeki Önizleme özellikleri değiştirebilirsiniz. Bir GA sürümündeki kararlı ve tahmin edilemez küçük geriye dönük olarak uyumlu düzeltmeler ve geliştirmeler hariç olmak üzere değiştirmek özellikler aksine budur. Ayrıca, Önizleme özellikleri her zaman bunu bir GA sürümündeki yapmayın.
 
-Bu nedenlerle, bir bağımlılık Önizleme sürümlerinde alır üretim kod yazmaya karşı öneririz. Eski bir önizleme sürümünü kullanıyorsanız, genel olarak kullanılabilir (GA) sürümüne geçirme öneririz.
+Bu nedenle, bir bağımlılık Önizleme sürümlerinde alan üretim kod yazmaya karşı öneririz. Eski bir önizleme sürümünü kullanıyorsanız, genel kullanıma (GA) sürümüne geçiş öneririz.
 
-.NET SDK'sı: kod geçiş için yönergeler, adresinde bulunabilir [.NET SDK'sı yükseltme](search-dotnet-sdk-migration.md).
+.NET SDK'sı için: Kod geçiş için yönergeler bulunabilir [.NET SDK'yı yükseltme](search-dotnet-sdk-migration.md).
 
-Genel kullanılabilirlik Azure Search hizmet düzeyi sözleşmesi (SLA) altında demektir. SLA bulunabilir [Azure Search hizmet düzeyi sözleşmeleri](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+Genel kullanılabilirlik, Azure Search artık hizmet düzeyi sözleşmesi (SLA) altında olduğunu gösterir. SLA'sı şu yolda bulunabilir: [Azure Search hizmet düzeyi sözleşmeleri](https://azure.microsoft.com/support/legal/sla/search/v1_0/).

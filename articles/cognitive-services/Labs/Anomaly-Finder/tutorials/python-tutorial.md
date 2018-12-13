@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Anomali Algılama, Python'
+title: 'Öğretici: Anomali algılama ve Python'
 titlesuffix: Azure Cognitive Services
 description: Anomali Algılama API'sini kullanan bir Python notebook'u keşfedin. Özgün veri noktalarını API'ye gönderin ve beklenen değerle anomali noktalarını alın.
 services: cognitive-services
@@ -10,20 +10,20 @@ ms.component: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 98f83fbc4db8685526833c3d4f1d15903419ad3f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: d1e9afc32625cdbf97f576ee091d7dc03271e2fc
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887760"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164815"
 ---
-# <a name="tutorial-anomaly-detection-with-python-application"></a>Öğretici: Python uygulaması ile Anomali Algılama
+# <a name="tutorial-anomaly-detection-with-python-application"></a>Öğretici: Python uygulaması ile anomali algılama
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Bu öğreticide, Python’da Anomali Algılama API’sinin nasıl kullanılacağı ve popüler kitaplıklar kullanılarak sonuçlarınızın nasıl görselleştirileceği gösterilmektedir. Öğreticiyi çalıştırmak için Jupyter kullanın ve kendi abonelik anahtarınızı kullanarak elinizdeki verilerle deneme yapın. Etkileşimli Jupyter notebook’ları nasıl kullanmaya başlayacağınızı öğrenmek için [Jupyter Belgeleri](http://jupyter.readthedocs.io/en/latest/index.html)’ne bakın. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Anomali Algılama için abone olun ve abonelik anahtarını alın 
 

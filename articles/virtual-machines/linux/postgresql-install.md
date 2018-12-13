@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: zarhoads
-ms.openlocfilehash: dc7bb0eab9004b9c818a4a7cbbf6102f01b24f45
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e794c191737f14fb06351e345f70edb9f7cddb7c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465240"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322065"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Azure’da PostgreSQL yükleme ve yapılandırma
 PostgreSQL için Oracle ve DB2 benzer bir Gelişmiş açık kaynak veritabanı ' dir. Bu, tam ACID uyumluluk ve güvenilir bir işlem tabanlı işleme çok sürümlü eşzamanlılık denetimi gibi Kurumsal kullanıma hazır özellikler içerir. Ayrıca, ANSI SQL ve SQL/MED (Oracle, MySQL, MongoDB ve diğer birçok için yabancı veri sarmalayıcıları dahil) gibi standartları destekler. 12'den yordam diller, GIN ve GiST dizinleri, uzamsal veri desteği ve birden çok NoSQL benzeri özellikler için destek JSON veya anahtar-değer tabanlı uygulamalar için yüksek oranda genişletilebilir.
@@ -76,7 +76,7 @@ PuTTY üzerinden oluşturulan VM Linux bağlanın. Bu bir Azure Linux VM kulland
 ## <a name="configure-postgresql"></a>PostgreSQL yapılandırın
 1. (İsteğe bağlı) Sürüm numarasını içermeyecek şekilde PostgreSQL başvuru kısaltmak için sembolik bir bağlantısını oluşturun:
    
-        # ln -s /opt/pgsql9.3.5 /opt/pgsql
+        # ln -s /opt/postgresql-9.3.5 /opt/pgsql
 2. Veritabanı için bir dizin oluşturun:
    
         # mkdir -p /opt/pgsql_data
@@ -119,6 +119,7 @@ PuTTY üzerinden oluşturulan VM Linux bağlanın. Bu bir Azure Linux VM kulland
 7. PostgreSQL sürümü de göz atabilirsiniz:
    
         $ psql -V
+
 8. Veritabanı başlatın:
    
         $ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W

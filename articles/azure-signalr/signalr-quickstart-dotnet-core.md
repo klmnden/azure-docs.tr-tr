@@ -1,27 +1,20 @@
 ---
-title: Azure SignalR Hizmeti’ni kullanmayı öğrenmek için hızlı başlangıç | Microsoft Docs
+title: Azure SignalR hizmeti kullanma hakkında bilgi edinmek için hızlı başlangıç
 description: Azure SignalR Hizmeti’ni kullanarak ASP.NET Core MVC uygulamaları ile bir sohbet odası oluşturmaya yönelik hızlı başlangıç.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET
-ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: b667f38c4e3d2a3fad323171a3b3b49ed3619fd9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 805f8d55b1627ad12ce58e8a64728a42867a858e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959487"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260625"
 ---
-# <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Hızlı Başlangıç: SignalR Hizmetiyle sohbet odası oluşturma
+# <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Hızlı Başlangıç: Sohbet odası ile SignalR hizmeti oluşturma
 
 
 Azure SignalR Hizmeti, geliştiricilerin gerçek zamanlı özelliklerle web uygulamalarını kolayca derlemesine yardımcı olan bir Azure hizmetidir. Bu hizmet [ASP.NET Core 2.0 için SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction)’yi temel alır.
@@ -38,10 +31,10 @@ Bu öğreticinin kodu [AzureSignalR-samples GitHub deposundan](https://github.co
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [.NET Core SDK](https://www.microsoft.com/net/download/windows)’sını yükleme
-* [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) github deposunu indirin veya kopyalayın. 
+* İndirin veya kopyalayın [AzureSignalR örnek](https://github.com/aspnet/AzureSignalR-samples) GitHub deposu. 
 
 ## <a name="create-an-azure-signalr-resource"></a>Azure SignalR kaynağı oluşturma
 
@@ -133,8 +126,8 @@ Bu bölümde, projenize [Gizli Dizi Yöneticisi aracını](https://docs.microsof
 
 SignalR’de hub, istemciden çağrılabilen bir yöntemler kümesini kullanıma sunan temel bir bileşendir. Bu bölümde, iki yöntemle bir hub sınıf tanımlayacaksınız: 
 
-* `Broadcast`: Bu yöntem bir iletiyi tüm istemcilere yayınlar.
-* `Echo`: Bu yöntem bir iletiyi çağırana geri gönderir.
+* `Broadcast`: Bu yöntem, tüm istemciler için bir ileti yayımlar.
+* `Echo`: Bu yöntem çağırana geri bir ileti gönderir.
 
 Her iki yöntem de ASP.NET Core SignalR SDK’sı tarafından sağlanan `Clients` arabirimini kullanır. Bu arabirim, istemcilerinize içerik göndermenizi mümkün hale getirerek tüm bağlı istemcilere erişmenizi sağlar.
 

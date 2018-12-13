@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: johndeu;
-ms.openlocfilehash: f1301ba42c63a8241597bfe0e021a69b2a596758
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 038eee18adf94f34a2e10d9ff7be76409c8c4322
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836789"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317432"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Kesintisiz Akış Protokolü (MS-SSTR) değişiklik için HEVC
 
@@ -40,42 +40,41 @@ Aşağıdaki terimler tanımlanan *[MS-GLOS]*:
 
 Aşağıdaki koşulları bu belgeye özgü:
 
->  **oluşturma zamanı:** zaman bir örnek istemcide tanımlandığı şekilde sunulan [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
+>  **oluşturma saati:** Zaman bir örnek istemcide tanımlandığı şekilde sunulan [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 
->   **CENC**: ortak [ISO/IEC 23001-7] İkinci Sürüm'de tanımlandığı gibi şifreleme.
+>   **CENC**: [ISO/IEC 23001-7], tanımlanmış ikinci sürüm olarak ortak şifreleme.
 
->   **kod çözme zamanı:** zamanı örnek sınıfında tanımlandığı gibi istemci üzerinde kodu çözülecek gereklidir [[ISO/IEC http://go.microsoft.com/fwlink/?LinkId=18369514496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
+>   **kod çözme zamanı:** Bir örnek sınıfında tanımlandığı gibi istemcide kodu çözülecek gerekli zamandır [[ISO/IEC http://go.microsoft.com/fwlink/?LinkId=18369514496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 
-**Parça:** bağımsız olarak indirilebilir bir ölçü **medya** bir veya daha fazla oluşur **örnekleri**.
+**Parça:** Bağımsız olarak indirilebilir bir ölçü **medya** bir veya daha fazla oluşur **örnekleri**.
 
->   **HEVC:** yüksek verimlilik Video kodlama, [ISO/IEC 23008 2]'içinde tanımlanan
+>   **HEVC:** Yüksek verimlilik Video kodlama, [ISO/IEC 23008 2]'içinde tanımlanan
 
->   **bildirim:** hakkındaki meta verileri **sunu** olanak sağlayan bir istemci isteği yapmak **medya**. **Medya:** yürütmek için istemcinin kullandığı ses, video ve metin veri sıkıştırılmış bir **sunu**. **medya biçimi:** ses veya video sıkıştırılmış temsil etmek için iyi tanımlanmış bir biçimde **örnek**.
+>   **bildirim:** Hakkındaki meta verileri **sunu** olanak sağlayan bir istemci isteği yapmak **medya**. **ortam:** Oynatmak için istemcinin kullandığı ses, video ve metin veri sıkıştırılmış bir **sunu**. **medya biçimi:** Ses veya video sıkıştırılmış temsil etmek için iyi tanımlanmış bir biçimde **örnek**.
 
->   **Sunu:** tüm kümesini **akışları** ve tek bir filmi yürütmek için gereken ilgili meta veriler. **İstek:** tanımlandığı gibi istemciden sunucuya gönderilen bir HTTP iletisi [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372) **Yanıt:** tanımlandığı gibi sunucudan istemciye gönderilen HTTP iletisi [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372)
+>   **sunumu:** Tüm kümesini **akışları** ve tek bir filmi yürütmek için gereken ilgili meta veriler. **İstek:** Sınıfında tanımlandığı gibi istemciden sunucuya gönderilen bir HTTP iletisi [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372) **Yanıt:** Sınıfında tanımlandığı gibi sunucudan istemciye gönderilen bir HTTP iletisi [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372)
 
->   **Örnek:** , en küçük temel birimi (örneğin, bir çerçeve) **medya** depolanabilir ve işlenebilir.
+>   **Örnek:** Burada küçük temel birimi (örneğin, bir çerçeve) **medya** depolanabilir ve işlenebilir.
 
->   **Mayıs, SHOULD, gerekir, GEREKTİĞİ, gerekir:** işbu koşullarda (tümü büyük harf) bölümünde anlatıldığı gibi kullanılan [[RFC2119].](https://go.microsoft.com/fwlink/?LinkId=90317) İsteğe bağlı bir davranış kullanım tüm deyimler ya da olabilir, SHOULD veya olmamalıdır.
+>   **MAYIS, GEREKİR, GEREKİR, GEREKTİĞİ, GEREKİR:** Bu terimler (tümü büyük harf içinde) açıklandığı gibi kullanılır [[RFC2119].](https://go.microsoft.com/fwlink/?LinkId=90317) İsteğe bağlı bir davranış kullanım tüm deyimler ya da olabilir, SHOULD veya olmamalıdır.
 
-## <a name="12-references"></a>1.2 başvuruları 
------------
+## <a name="12-references"></a>1.2 başvuruları
 
 >   En son sürüme sık sık güncelleştirilir belgelerin bağlantıları olduğundan Microsoft açık belirtimleri belgeleri başvuruları yayımlama yıl içermez. Kullanılabilir olduğunda bir yayımlama bir yıl diğer belgeler için başvurular içerir.
 
- ### <a name="121-normative-references"></a>1.2.1 örnek oluşturan başvurular 
+### <a name="121-normative-references"></a>1.2.1 örnek oluşturan başvurular 
 
 >  [MS-SSTR] Kesintisiz Akış Protokolü *v20140502* [https://msdn.microsoft.com/library/ff469518.aspx](https://msdn.microsoft.com/library/ff469518.aspx)
 
->   [ISO/IEC 14496 12] International Organization for Standardization, "--işitsel nesnelerin kodlama--bilgi teknolojileri bölümü 12: ISO temel medya dosyası biçimi", ISO/IEC 14496-12:2014, sürüm 4 artı Corrigendum 1 tarihli Amendments 1 ve 2.
+>   [ISO/IEC 14496 12] International Organization for Standardization, "--işitsel nesnelerin kodlama--bilgi teknolojileri bölümü 12: ISO temel medya dosyası biçimi", ISO/IEC 14496-12:2014, sürüm 4 artı 1, 1 ve 2 tarihli Amendments Corrigendum.
 >   <http://standards.iso.org/ittf/PubliclyAvailableStandards/c061988_ISO_IEC_14496-12_2012.zip>
 
->   [ISO/IEC 14496 15] International Organization for Standardization, "bilgi teknolojisi--işitsel nesnelerin kodlama--15. Bölüm: satır başı NAL yapısal birim video ISO temel medya dosyası biçiminde", ISO 14496-15:2015, sürüm 3.
+>   [ISO/IEC 14496 15] International Organization for Standardization, "bilgi teknolojisi--işitsel nesnelerin kodlama--15. Bölüm: Satır başı NAL yapısal birim video ISO temel medya dosyası biçiminde", ISO 14496-15:2015, sürüm 3.
 >   <http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=65216>
 
->   [ISO/IEC 23008 2] Bilgi teknolojisi--yüksek verimlilik medya kodlama ve teslim heterojen ortamlarda--bölüm 2: yüksek verimlilik, video kodlama: 2013 veya en yeni sürümü   <http://standards.iso.org/ittf/PubliclyAvailableStandards/c035424_ISO_IEC_23008-2_2013.zip>
+>   [ISO/IEC 23008 2] Bilgi teknolojisi--yüksek verimlilik medya kodlama ve teslim heterojen ortamlarda--bölüm 2: Yüksek verimlilik, video kodlama: 2013 veya en yeni sürümü   <http://standards.iso.org/ittf/PubliclyAvailableStandards/c035424_ISO_IEC_23008-2_2013.zip>
 
->   [ISO/IEC 23001-7] Bilgi teknolojisi — MPEG sistem teknolojilerini — Bölüm 7: ISO, ortak şifreleme temel CENC Edition 2:2015 medya dosyası biçimi dosyaları <http://www.iso.org/iso/catalogue_detail.htm?csnumber=65271>
+>   [ISO/IEC 23001-7] Bilgi teknolojisi — MPEG sistem teknolojilerini — Bölüm 7: ISO temel medya dosyası biçimi dosyaları, CENC Edition 2:2015 ortak şifreleme <http://www.iso.org/iso/catalogue_detail.htm?csnumber=65271>
 
 >   [6381 RFC] IETF RFC-6381 "'Codec' ve 'Profilleri' parametrelerini"demetine"medya türleri" <http://tools.ietf.org/html/rfc6381>
 
@@ -89,44 +88,35 @@ Aşağıdaki koşulları bu belgeye özgü:
 
 >   [RFC3548] Josefsson, S., Ed. "Base16 Base32 ve Base64 veri Kodlamalar", RFC 3548, Temmuz 2003 [http://www.ietf.org/rfc/rfc3548.txt   ](https://go.microsoft.com/fwlink/?LinkId=90432)
 
->   [RFC5234] Crocker, d, Ed. ve Overell, p, "BNF sözdizimi belirtimleri için genişletilmiş: ABNF", 68, RFC 5234'ü, Ocak 2008 STD   [http://www.rfc-editor.org/rfc/rfc5234.txt   ](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   [RFC5234] Crocker, d, Ed. ve Overell, p, "BNF sözdizimi belirtimleri içerikte güncelleştirme yapmıştır: ABNF", 68, RFC 5234'ü, Ocak 2008 STD,   [http://www.rfc-editor.org/rfc/rfc5234.txt   ](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1.3 genel bakış 
----------
 
 >   Kesintisiz akış HEVC teslimat için gerekli belirtimi yalnızca değişiklikler aşağıda belirtilmiştir. Aynı bölüm başlıkları, başvurulan bir kesintisiz akış belirtimi [MS-SSTR] bir konumda saklamak için listelenir.
 
 ## <a name="14-relationship-to-other-protocols"></a>1.4 diğer protokollerle ilişki 
---------------------------------
 
 ## <a name="15-prerequisitespreconditions"></a>1.5 önkoşulları/önkoşulları 
-----------------------------
 
 ## <a name="16-applicability-statement"></a>1.6 Uygulanabilirlik deyimi 
-------------------------
 
 ## <a name="17-versioning-and-capability-negotiation"></a>1.7 Sürüm ve özellik anlaşma 
---------------------------------------
 
 ## <a name="18-vendor-extensible-fields"></a>1.8 satıcı Genişletilebilir alan 
--------------------------
 
 >   Aşağıdaki yöntem kullanılacak HEVC video biçimini kullanarak akışları tanımlayın:
 
->   * **Medya biçimleri için açıklayıcı özel kodları:** bu özellik tarafından sağlanan **FourCC** bölümünde belirtilen alanının *2.2.2.5*.
+>   * **Medya biçimleri için açıklayıcı özel kodları:** Bu özellik tarafından sağlanan **FourCC** bölümünde belirtilen alanının *2.2.2.5*.
 >   Uygulayıcılar, uzantıları ile belirtildiği gibi MPEG4-RA uzantı kodlarını kaydederek çakışmadığından sağlayabilirsiniz [[ISO/IEC-14496-12] ](https://go.microsoft.com/fwlink/?LinkId=183695)
 
 ## <a name="19-standards-assignments"></a>1.9 standartları atamaları 
-----------------------
 
-# <a name="2-messages"></a>2 mesaj 
+## <a name="2-messages"></a>2 mesaj 
 
-## <a name="21-transport"></a>2.1 taşıma 
-----------
+## <a name="21-transport"></a>2.1 taşıma
 
 ## <a name="22-message-syntax"></a>2.2 ileti söz dizimi 
----------------
 
 ### <a name="221-manifest-request"></a>2.2.1 bildirim isteği 
 
@@ -134,9 +124,9 @@ Aşağıdaki koşulları bu belgeye özgü:
 
 #### <a name="2221-smoothstreamingmedia"></a>2.2.2.1 SmoothStreamingMedia 
 
->   **MinorVersion (değişken):** bildirim yanıt iletisinin alt sürümü. 2'ye ayarlamanız gerekir. (Değişiklik)
+>   **MinorVersion (değişken):** Bildirim yanıt iletisinin alt sürümü. 2'ye ayarlamanız gerekir. (Değişiklik)
 
->   **Zaman Çizelgesi (değişken):** artış sayısını bir saniye içinde belirtilen süresi özniteliği zaman ölçeğini. Varsayılan değer:
+>   **Ölçeği (değişken):** Zaman ölçeğini artış sayısını bir saniye içinde belirtilen süre öznitelik. Varsayılan değer:
 >   10000000. (Değişiklik)
 
 >   Tam süresi yakalayın ve kesirli kare hızını video (örneğin, 30/1.001 Hz) içeren parçalarını temsil eden 90000 önerilen değerdir.
@@ -147,7 +137,7 @@ ProtectionElement ortak şifreleme (CENC) için video veya ses akışları uygul
 
 #### <a name="2223-streamelement"></a>2.2.2.3 StreamElement 
 
->   **StreamTimeScale (değişken):** zaman ölçeği artış sayısını bir saniye içinde belirtilen süre ve saat değerleri bu akış için. 90000 değerini HEVC akışlar için önerilir. Oluşturulan dalga biçiminin Örnek sıklığı (örneğin, 48000 veya 44100) ile eşleşen bir değer ses akışları için önerilir.
+>   **StreamTimeScale (değişken):** Zaman ölçeğini artış sayısını bir saniye içinde belirtilen süre ve saat değerleri bu akış için. 90000 değerini HEVC akışlar için önerilir. Oluşturulan dalga biçiminin Örnek sıklığı (örneğin, 48000 veya 44100) ile eşleşen bir değer ses akışları için önerilir.
 
 ##### <a name="22231-streamprotectionelement"></a>2.2.2.3.1 StreamProtectionElement
 
@@ -155,11 +145,11 @@ ProtectionElement ortak şifreleme (CENC) için video veya ses akışları uygul
 
 #### <a name="225-trackelement"></a>2.2.5 TrackElement 
 
->   **FourCC (değişken):** her örnek için kullanılan hangi medya biçimini tanımlayan bir dört karakter kodu. Aşağıdaki değerleri aralığı ile aşağıdaki anlamsal anlamları ayrılmıştır:
+>   **FourCC (değişken):** Hangi medya biçimini tanımlayan bir dört karakterlik kod, her örnek için kullanılır. Aşağıdaki değerleri aralığı ile aşağıdaki anlamsal anlamları ayrılmıştır:
 
->  * "hev1": Bu izleme için Video örnekleri [ISO/IEC-14496-15'te] belirtilen 'hev1' örnek açıklama biçimi kullanarak HEVC video kullanın.
+>  * "hev1": 'Hev1' kullanarak bu track kullan HEVC video için video örnekleri [ISO/IEC-14496-15'te] belirtilen Açıklama biçim örneği.
 
->   **CodecPrivateData (değişken):** izde medya biçimi özgüdür ve tüm örnekleri ortak parametreleri belirtir bir veri bayt onaltılık kodlanmış bir dize olarak temsil edilir. Biçim ve anlam bayt dizisinin değişir değeriyle **FourCC** gibi alan:
+>   **CodecPrivateData (değişken):** İzle'medya biçimi özgüdür ve tüm örnekleri ortak parametreleri belirtir bir veri bayt onaltılık kodlanmış bir dize olarak temsil edilir. Biçim ve anlam bayt dizisinin değişir değeriyle **FourCC** gibi alan:
 
 >   * Bir TrackElement HEVC video açıkladığında **FourCC** alan eşit **"hev1"** ve;
 
@@ -183,7 +173,7 @@ ProtectionElement ortak şifreleme (CENC) için video veya ses akışları uygul
 
 ### <a name="223-fragment-request"></a>2.2.3 parça isteği 
 
->   **Not**: varsayılan medya biçimi için istenen **MinorVersion** 2 'hev1' ise 'iso8' marka [ISO/IEC 14496 12] ISO temel medya dosyası biçimi dördüncü sürümüdür ve [ISO/IEC 23001-7] belirtilen ISO temel medya dosyası biçimi Ortak şifreleme ikinci sürüm.
+>   **Not**: İçin varsayılan medya biçimini istenen **MinorVersion** 2 'hev1' ise 'iso8' marka [ISO/IEC 14496 12] ISO temel medya dosyası biçimi dördüncü sürümüdür ve [ISO/IEC 23001-7] ortak şifreleme ikinci belirtilen ISO temel medya dosyası biçimi Sürüm.
 
 ### <a name="224-fragment-response"></a>2.2.4 parça yanıt 
 
@@ -197,7 +187,7 @@ ProtectionElement ortak şifreleme (CENC) için video veya ses akışları uygul
 
 >   **TfxdBox** kullanım dışıdır ve onun işlevini parça parça kod çözme zamanı 8.8.12 [ISO/IEC 14496 12] bölümünde belirtilen kutusunu ('tfdt') tarafından değiştirildi.
 
->   **Not**: bir istemci izleme çalıştırın ('trun') kutusundaki örnek süreleri toplayarak bir parça süresi hesaplayabilir veya örnekleri sayısı, varsayılan örnek süresi zaman. Sonraki parça URL zaman parametresi 'tfdt' artı parça süresi baseMediaDecodeTime eşittir.
+>   **Not**: Bir istemci izleme çalıştırın ('trun') kutusundaki örnek süreleri toplayarak bir parça süresi hesaplayabilir veya örnekleri sayısı, varsayılan örnek süresi zaman. Sonraki parça URL zaman parametresi 'tfdt' artı parça süresi baseMediaDecodeTime eşittir.
 
 >   Bir üretici başvuru saati kutusu ('prft') bir film parçasını kutusunu ('moof') önce gerektiğinde eklenmesi gereken, parça parça kod çözme süresi olarak film parça kutusu tarafından başvurulan ilk örneğinin karşılık gelen UTC saati göstermek için [ISO/IEC 14496 içinde belirtilen -12] bölümü 8.16.5.
 
@@ -205,19 +195,19 @@ ProtectionElement ortak şifreleme (CENC) için video veya ses akışları uygul
 
 >   **TfrfBox** kullanım dışıdır ve onun işlevini parça parça kod çözme zamanı 8.8.12 [ISO/IEC 14496 12] bölümünde belirtilen kutusunu ('tfdt') tarafından değiştirildi.
 
->   **Not**: bir istemci izleme çalıştırın ('trun') kutusundaki örnek süreleri toplayarak bir parça süresi hesaplayabilir veya örnekleri sayısı, varsayılan örnek süresi zaman. Sonraki parça URL zaman parametresi 'tfdt' artı parça süresi baseMediaDecodeTime eşittir. Canlı akış gecikme nedeniyle görünüm tamamlanan adresleri kullanım dışı bırakılmıştır.
+>   **Not**: Bir istemci izleme çalıştırın ('trun') kutusundaki örnek süreleri toplayarak bir parça süresi hesaplayabilir veya örnekleri sayısı, varsayılan örnek süresi zaman. Sonraki parça URL zaman parametresi 'tfdt' artı parça süresi baseMediaDecodeTime eşittir. Canlı akış gecikme nedeniyle görünüm tamamlanan adresleri kullanım dışı bırakılmıştır.
 
 #### <a name="2246-tfhdbox"></a>2.2.4.6 TfhdBox 
 
 >   **TfhdBox** ve ilgili alanları kapsülle başına örnek meta veri parçası için varsayılan değerleri. Söz dizimi **TfhdBox** alandır parça parça üst bilgisi içinde tanımlanan kutusu söz dizimi özelliklerinin katı bir alt [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695) 8.8.7 bölümü.
 
->   **BaseDataOffset (8 bayt):** başından itibaren bayt uzaklığını **MdatBox** örnek alanı alanı **MdatBox** alan. Bu kısıtlama göstermek için varsayılan-base-olup-moof bayrağı (0x020000) ayarlamanız gerekir.
+>   **BaseDataOffset (8 bayt):** Başından itibaren bayt uzaklığını **MdatBox** örnek alanı alanı **MdatBox** alan. Bu kısıtlama göstermek için varsayılan-base-olup-moof bayrağı (0x020000) ayarlamanız gerekir.
 
 #### <a name="2247-trunbox"></a>2.2.4.7 TrunBox 
 
 >   **TrunBox** ve ilgili alanları kapsülle başına istenen parça için örnek meta verileri. Söz dizimi **TrunBox** sürüm 1 parça parça Çalıştır tanımlanan kutusuna katı bir alt kümesi [[ISO/IEC-14496-](https://go.microsoft.com/fwlink/?LinkId=183695)*12]* 8.8.8 bölümü.
 
->   **SampleCompositionTimeOffset (4 bayt):** her örnek, örnek oluşturma saat farkı ayarlanmış ilk sunulan örnek parçası sunu zamanını ilk kodu çözülmüş örnek kod çözme süresini eşit olmasını sağlayın. Negatif bir video örneği oluşturma uzaklıkları kullanılır,
+>   **SampleCompositionTimeOffset (4 bayt):** Örnek oluşturma saat uzaklığı her örneğinin parçası ilk sunulan örnek sunu zamanını ilk kodu çözülmüş örnek kod çözme süresini eşittir ayarladı. Negatif bir video örneği oluşturma uzaklıkları kullanılır,
 
 >   sınıfında tanımlandığı gibi [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 
@@ -241,9 +231,9 @@ ProtectionElement ortak şifreleme (CENC) için video veya ses akışları uygul
 
 >   **FileType (değişken):** MPEG-4 alt türü ile bir belirtir ([MPEG4-RA)](https://go.microsoft.com/fwlink/?LinkId=327787) dosya ve üst düzey öznitelikleri.
 
->   **MajorBrand (değişken):** medya dosyasının ana marka. "İsml" olarak ayarlanmalıdır
+>   **MajorBrand (değişken):** Medya dosyasının ana marka. "İsml" olarak ayarlanmalıdır
 
->   **MinorVersion (değişken):** medya dosyasını ikincil sürümü. 1 olarak ayarlanması gerekir.
+>   **MinorVersion (değişken):** Medya dosyası ikincil sürümü. 1 olarak ayarlanması gerekir.
 
 >   **CompatibleBrands (değişken):** MPEG-4'ün desteklenen markalar belirtir.
 >   "Ccff" ve "iso8."
@@ -255,7 +245,7 @@ ProtectionElement ortak şifreleme (CENC) için video veya ses akışları uygul
     MinorVersion = STRING_UINT32
     CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
 
-**Not**: parçaları "Ortak kapsayıcı dosya biçimi" ve ortak şifreleme [ISO/IEC 23001-7] ve ISO temel medya dosyası biçim sürümü 4 [ISO/IEC 14496 12] uygun uyumluluk markaları 'ccff' ve 'iso8' belirtin.
+**Not**: Uyumluluk markaları 'ccff' ve 'iso8' parçaları "Ortak kapsayıcı dosya biçimi" ve ortak şifreleme [ISO/IEC 23001-7] ve ISO temel medya dosyası biçim sürümü 4 [ISO/IEC 14496 12] uygun olduğunu gösterir.
 
 #### <a name="2272-streammanifestbox"></a>2.2.7.2 StreamManifestBox 
 
@@ -273,7 +263,7 @@ ProtectionElement ortak şifreleme (CENC) için video veya ses akışları uygul
 
 ### <a name="228-server-to-server-ingest"></a>2.2.8 sunucudan sunucuya alma 
 
-# <a name="3-protocol-details"></a>3 Protokolü ayrıntıları 
+## <a name="3-protocol-details"></a>3 Protokolü ayrıntıları 
 
 
 ## <a name="31-client-details"></a>3.1 istemci ayrıntıları 
@@ -299,13 +289,13 @@ ProtectionElement ortak şifreleme (CENC) için video veya ses akışları uygul
     MajorVersion = 2
     MinorVersion = 2
 
->   LookaheadCount = 0 (Not: kutuları kullanım dışı)
+>   LookaheadCount = 0 (Not: Kullanım dışı olanlar)
 
 >   Sunu de ayarlamanız gerekir:
 
     TimeScale = 90000
 
->   Stream koleksiyonu: Belirtilen bölüm olarak Stream açıklama veri öğelerinin koleksiyonu *3.1.1.1.2*.
+>   Stream koleksiyonu: Stream açıklama veri öğelerinin koleksiyonu içinde belirtilen bölüm olarak *3.1.1.1.2*.
 
 >   Koruma açıklaması: Belirtilen bölüm olarak koruma sistem meta veri açıklamasını veri öğelerinin koleksiyonu *3.1.1.1.1*.
 
@@ -313,7 +303,7 @@ ProtectionElement ortak şifreleme (CENC) için video veya ses akışları uygul
 
 >   Koruma sistem meta veri açıklamasını veri öğesi meta verileri tek bir içerik koruma sistemi belirli saklar. (Değişiklik)
 
->   Koruma üstbilgi açıklaması: tek bir içerik koruma sistemi ilgili içerik koruma meta verileri. Koruma üstbilgi açıklaması bölümünde belirtilen aşağıdaki alanları kapsar *2.2.2.2*:
+>   Koruma üstbilgi açıklaması: Tek bir içerik koruma sisteme ait içerik koruma meta verileri. Koruma üstbilgi açıklaması bölümünde belirtilen aşağıdaki alanları kapsar *2.2.2.2*:
 
 >   * **Systemıd**
 >   * **ProtectionHeaderContent**
@@ -354,19 +344,17 @@ ProtectionElement ortak şifreleme (CENC) için video veya ses akışları uygul
 
 ## <a name="33-live-encoder-details"></a>3.3 gerçek zamanlı Kodlayıcı ayrıntıları 
 
-# <a name="4-protocol-examples"></a>4 Protokolü örnekleri 
+## <a name="4-protocol-examples"></a>4 Protokolü örnekleri 
 
-# <a name="5-security"></a>5 güvenlik 
+## <a name="5-security"></a>5 güvenlik 
 
-## <a name="51-security-considerations-for-implementers"></a>5.1 uygulayıcılar için güvenlik konuları 
------------------------------------------
+## <a name="51-security-considerations-for-implementers"></a>5.1 uygulayıcılar için güvenlik konuları
 
 >   Bu protokolü kullanarak taşınan içerik yüksek ticari değer varsa, içeriği yetkisiz kullanımını önlemek için bir içerik koruma sistemi kullanılmalıdır. **ProtectionElement** bir içerik koruma sisteminin kullanımıyla ilgili meta veriler yürütmek için kullanılabilir. Korumalı ses ve video içeriği şifrelenir MPEG ortak şifreleme ikinci sürüm belirtildiği gibi: 2015 [ISO/IEC 23001-7].
 
 >   **Not**: HEVC video için yalnızca VCL NALs dilim verileri şifrelenir. Dilim üst bilgiler ve diğer NALs sunumu uygulamaları önce şifre çözme erişilebilir. güvenli bir video yolda şifrelenmiş bilgi sunumu uygulamaları için kullanılabilir değil.
 
-# <a name="52-index-of-security-parameters"></a>5.2 güvenlik parametreleri dizini 
------------------------------
+## <a name="52-index-of-security-parameters"></a>5.2 güvenlik parametreleri dizini 
 
 
 | **Güvenlik parametresi**  | **Section**         |
@@ -374,8 +362,7 @@ ProtectionElement ortak şifreleme (CENC) için video veya ses akışları uygul
 | ProtectionElement       | *2.2.2.2*           |
 | Ortak şifreleme kutuları | *[ISO/IEC 23001-7]* |
 
-# <a name="53-common-encryption-boxes"></a>5.3 ortak şifreleme kutuları
------------------------
+## <a name="53-common-encryption-boxes"></a>5.3 ortak şifreleme kutuları
 
 Ortak şifreleme uygulanır ve [ISO/IEC 23001-7] belirtilen aşağıdaki kutuları parça yanıtlarını mevcut olabilir ya da [ISO/IEC 14496 12]:
 

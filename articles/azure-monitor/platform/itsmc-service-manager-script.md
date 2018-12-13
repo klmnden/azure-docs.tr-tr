@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.component: ''
-ms.openlocfilehash: 8b589d57ee1fe7b9868f5fe6c04cb336eb4804f8
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: d4a4bb4ad77b5cfa55ef33b313eff198972edb6a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883452"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186013"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Otomatik komut dosyası kullanarak Service Manager Web uygulaması oluşturma
 

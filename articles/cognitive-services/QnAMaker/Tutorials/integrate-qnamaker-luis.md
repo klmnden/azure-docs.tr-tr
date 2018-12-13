@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: dd030eeefd731ae176e1fe7907d941fff56a9db1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f2d6f956564f01c14edb213f0bc5ae709892c542
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080036"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163321"
 ---
-# <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Soru-cevap oluşturucu ve LUIS bilgi bankanızı dağıtmak için tümleştirin
+# <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Bilgi bankanızı dağıtmak için soru-cevap oluşturucu ve LUIS ile bot kullanın
 Soru-cevap Oluşturucu bankanızı büyük büyüdükçe, tek tek parça bir ayarlayın ve Bilgi Bankası daha küçük mantıksal parçalara bölmek için gerekir bakımını yapmak zor hale gelir.
 
 Soru-cevap oluşturucu içinde birden çok bilgi bankaları oluşturmak kolay olsa da, uygun Bilgi Bankası'na gelen soru yönlendirmek için mantığa ihtiyacınız olacak. LUIS kullanarak bunu yapabilirsiniz.

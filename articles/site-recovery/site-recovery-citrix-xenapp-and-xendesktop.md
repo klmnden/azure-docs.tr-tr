@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 4df7975d4d52e00cce7b57c6f207eb6cb9ea3be3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847907"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310530"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>çok katmanlı Citrix XenApp ve XenDesktop dağıtımı için olağanüstü durum kurtarmayı ayarlama
 
@@ -130,17 +130,17 @@ Bir kurtarma planı grupları birlikte sanal makineler için yük devretme ve ku
 
 1. Kurtarma planı'nda XenApp bileşen sanal makineleri ekleyin.
 2. Kurtarma planları tıklayın -> + kurtarma planı. Kurtarma planı için kullanımı kolay bir ad belirtin.
-3. VMware sanal makineler için: Kaynak Seç VMware işlem sunucusu, hedef olarak Microsoft Azure dağıtım modeli Resource Manager ve öğeleri seçin'e tıklayın.
-4. Hyper-V sanal makineleri için: kaynak VMM sunucusunu seçin, hedef olarak Microsoft Azure ve olarak Resource Manager dağıtım modeli ve öğeleri seçin'e tıklayın ve ardından XenApp dağıtım Vm'leri seçin.
+3. VMware sanal makineleri için: Kaynak seçin VMware işlem sunucusu, hedef olarak Microsoft Azure dağıtım modeli Resource Manager ve öğeleri seçin'e tıklayın.
+4. Hyper-V sanal makineleri için: Kaynak VMM sunucusu, hedef olarak Microsoft Azure ve olarak Resource Manager dağıtım modeli seçin ve öğeleri üzerinde tıklayın ve sonra da VM'ler XenApp dağıtım'ı seçin.
 
 ### <a name="adding-virtual-machines-to-failover-groups"></a>Sanal makineler için yük devretme grupları ekleme
 
 Kurtarma planları, belirli bir başlangıç düzeni, komut dosyaları veya el ile gerçekleştirilen eylemler için yük devretme grupları eklemek için özelleştirilebilir. Aşağıdaki gruplar kurtarma planına eklenmesi gerekir.
 
 1. Yük devretme Group1: AD DNS
-2. Yük devretme grup2: SQL Server Vm'leri
+2. Yük devretme grup2: SQL Server VM’leri
 2. Yük devretme grup3: VDA ana görüntü VM
-3. Yük devretme Grup4: Delivery Controller ve mağaza server Vm'leri
+3. Yük devretme Grup4: Teslim denetleyicisi ve mağaza server Vm'leri
 
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Betikler, kurtarma planına ekleme
@@ -150,15 +150,16 @@ Betikleri önce veya sonra belirli bir grubu bir kurtarma planında çalıştır
 Özelleştirilmiş bir kurtarma planı benzer aşağıda:
 
 1. Yük devretme Group1: AD DNS
-2. Yük devretme grup2: SQL Server Vm'leri
+2. Yük devretme grup2: SQL Server VM’leri
 3. Yük devretme grup3: VDA ana görüntü VM
 
    >[!NOTE]     
    >Adım 4, 6 ve 7 el ile veya betik eylemleri içeren bir şirket içi XenApp için yalnızca geçerli > MCS/PV'ler kataloglarıyla ortam.
 
-4. El ile veya komut dosyası eylemi Grup 3: ana VDA VM ana VDA Azure'a devredilen VM kapatma çalışır durumda olacaktır. Azure barındırma kullanan yeni MCS katalog oluşturma için ana VDA VM (de ayrılan) durdu gereken, durumu. Azure portalından VM'yi kapatın.
+4. El ile veya komut dosyası eylemi Grup 3: Ana VDA VM'yi kapatın.
+Ana VDA Azure'a devredilen VM'nin çalışır durumda olacaktır. Azure barındırma kullanan yeni MCS katalog oluşturma için ana VDA VM (de ayrılan) durdu gereken, durumu. Azure portalından VM'yi kapatın.
 
-5. Yük devretme Grup4: Delivery Controller ve mağaza server Vm'leri
+5. Yük devretme Grup4: Teslim denetleyicisi ve mağaza server Vm'leri
 6. Grup3 el ile veya komut dosyası eylemi 1:
 
     ***Azure RM konak Bağlantısı Ekle***

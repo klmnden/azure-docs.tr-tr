@@ -3,8 +3,8 @@ title: Azure CLI Betik Örneği - Bir web uygulaması için zamanlanmış yedekl
 description: Azure CLI Betik Örneği - Bir web uygulaması için zamanlanmış yedekleme oluşturma
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.service: app-service-web
@@ -12,16 +12,16 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: ce91eeb2e1e48771cda864345f8fa33e67b46c50
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: msangapu;cephalin
+ms.custom: seodec18
+ms.openlocfilehash: 45b4dab3fdb5dc9434ae04f10afc97608971b808
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999554"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188682"
 ---
-# <a name="create-a-scheduled-backup-for-a-web-app"></a>Bir web uygulaması için zamanlanmış yedekleme oluşturma
+# <a name="create-a-scheduled-backup-for-a-web-app-using-cli"></a>CLI kullanarak bir web uygulaması için zamanlanmış yedekleme oluşturma
 
 Bu örnek betik, App Service’te ilgili kaynaklarıyla birlikte bir web uygulaması oluşturur ve sonra bu web uygulaması için zamanlanmış bir yedekleme oluşturur. 
 

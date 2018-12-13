@@ -4,15 +4,15 @@ description: Azure Site Recovery ile VMware vm'lerinin olağanüstü durum kurta
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
-ms.author: nisoneji
-ms.openlocfilehash: 2d418282120ee24a5b5492c18593165fba2c6c12
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: f724837e8cce733680b98a5df5690e6a8dfbf6ee
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839424"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258857"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Kapasite ve ölçeklendirme Vmware'den azure'a olağanüstü durum kurtarma için planlama
 
@@ -26,7 +26,7 @@ Kapasite planlaması ve ölçeklendirme, şirket içi VMware Vm'leri ve fiziksel
 
 **Bileşen** | **Ayrıntılar** |
 --- | --- | ---
-**Çoğaltma** | **Maksimum günlük değişim hızı:** korumalı makine yalnızca bir işlem sunucusu kullanabilirsiniz ve tek işlem sunucusu günlük işleyebilir değişiklik hızı 2 TB'a kadar artırın. Maksimum günlük veri değişikliği bir korumalı makine için desteklenen oranı böylece 2 TB'tır.<br/><br/> **En fazla aktarım hızı:** çoğaltılmış bir makineden bir Azure depolama hesabına ait olabilir. Bir standart depolama hesabı en fazla saniye başına 20.000 istekleri işleyebilir ve 20. 000'için bir kaynak makine arasında (IOPS) saniyede giriş/çıkış işlemi sayısı tutmanızı öneririz. Örneğin, kaynak makinenin 5 disklerle olan ve her disk 120 IOPS (8 K boyut) kaynak makinede oluşturur, ardından bu azure'da 500 IOPS sınırı disk başına olacaktır. (Gerekli depolama hesabı sayısı 20,000 tarafından ayrılmış toplam kaynak makine IOPS, eşittir.)
+**Çoğaltma** | **Maksimum günlük değişikliği oranı:** Korumalı makine yalnızca bir işlem sunucusu kullanabilirsiniz ve tek işlem sunucusu günlük işleyebilir değişiklik hızı 2 TB'a kadar artırın. Maksimum günlük veri değişikliği bir korumalı makine için desteklenen oranı böylece 2 TB'tır.<br/><br/> **En fazla aktarım hızı:** Çoğaltılmış bir makineden, azure'da bir depolama hesabına ait olabilir. Bir standart depolama hesabı en fazla saniye başına 20.000 istekleri işleyebilir ve 20. 000'için bir kaynak makine arasında (IOPS) saniyede giriş/çıkış işlemi sayısı tutmanızı öneririz. Örneğin, kaynak makinenin 5 disklerle olan ve her disk 120 IOPS (8 K boyut) kaynak makinede oluşturur, ardından bu azure'da 500 IOPS sınırı disk başına olacaktır. (Gerekli depolama hesabı sayısı 20,000 tarafından ayrılmış toplam kaynak makine IOPS, eşittir.)
 **Yapılandırma sunucusu** | Yapılandırma sunucusu, korumalı makineler üzerinde çalışan tüm iş yükleri arasında günlük değişiklik hızı kapasitesi işleyebilmesi ve verileri Azure depolama alanına sürekli olarak çoğaltmak için yeterli bant genişliği gerekiyor.<br/><br/> En iyi uygulama, aynı ağ ve LAN kesimi yapılandırma sunucusunda, korumak istediğiniz makinelere bulun. Farklı bir ağda bulunan, ancak korumak istediğiniz makinelere Katman 3 ağ görünürlüğü ona sahip olmalıdır.<br/><br/> Yapılandırma sunucusu için boyut önerileri, aşağıdaki bölümde bulunan tablodaki özetlenmiştir.
 **İşlem sunucusu** | İlk işlem sunucusu yapılandırma sunucusunda varsayılan olarak yüklenir. Ortamınızı ölçeklendirme için ek işlem sunucuları dağıtabilirsiniz. <br/><br/> İşlem sunucusu, korumalı makinelerden çoğaltma verilerini alıp ve önbelleğe alma, sıkıştırma ve şifreleme ile iyileştirir. Daha sonra Azure'a veri gönderir. İşlem sunucusu makinesi, bu görevleri gerçekleştirmek için yeterli kaynak olması gerekir.<br/><br/> İşlem sunucusu, disk tabanlı bir önbelleği kullanır. Bir ağ sorunu ya da kesinti olması durumunda depolanan veri değişikliklerini işlemek için 600 GB veya üzeri bir ayrı önbellek diski kullanın.
 
@@ -75,13 +75,13 @@ Bir ölçek büyütme veya ölçek genişletme modeli için tercihinizi sunucula
 Kullandığınız sonra [dağıtım Planlayıcısı aracını](site-recovery-deployment-planner.md) (ilk çoğaltma ve ardından değişim) çoğaltma için gereken bant genişliğini hesaplamak için birkaç seçenek kullanarak çoğaltma için kullanılan bant genişliği miktarını kontrol edebilirsiniz:
 
 * **Bant genişliğini kısıtlama**: Azure'a çoğaltılan VMware trafiği belirli bir işlem sunucusu üzerinden gider. İşlem sunucusu çalışan makineler üzerinde bant genişliğini kısıtlayabilirsiniz.
-* **Bant genişliği üzerinde etki**: birkaç kayıt defteri anahtarlarını kullanarak çoğaltma için kullanılan bant genişliği üzerinde etki oluşturabilirsiniz:
+* **Bant genişliği üzerinde etki**: Birkaç kayıt defteri anahtarlarını kullanarak çoğaltma için kullanılan bant genişliği üzerinde etki oluşturabilirsiniz:
   * **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** kayıt defteri değeri, veri aktarımı bir disk için (başlangıç ve değişim çoğaltması) kullanılan iş parçacığı sayısını belirtir. Daha yüksek bir değer, çoğaltma işlemi için kullanılan ağ bant genişliğini artırır.
   * **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVM** yeniden çalışma sırasında veri aktarımı için kullanılan iş parçacıklarının sayısını belirtir.
 
 ### <a name="throttle-bandwidth"></a>Bant genişliğini kısıtlama
 
-1. İşlem sunucusu davranan makineye Azure Backup MMC ek bileşenini açın. Varsayılan olarak, bir kısayol yedekleme için masaüstünde veya aşağıdaki klasörde bulunur: C:\Program Files\Microsoft Azure Recovery Services agent\bin\wabadmin yolunda.
+1. İşlem sunucusu davranan makineye Azure Backup MMC ek bileşenini açın. Varsayılan olarak, bir kısayol yedekleme için masaüstünde veya aşağıdaki klasörde bulunur: C:\Program Files\Microsoft Azure Recovery Services Agent\bin.
 2. Ek bileşende **Özellikleri Değiştir**'e tıklayın.
 
     ![Özellikleri değiştirmek için ekran Azure Backup MMC ek bileşenini seçeneği](./media/site-recovery-vmware-to-azure/throttle1.png)

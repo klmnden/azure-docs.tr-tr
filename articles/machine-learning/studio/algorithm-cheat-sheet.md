@@ -4,21 +4,20 @@ description: Bir yazdırılabilir makine öğrenimi algoritma bilgi sayfası Azu
 keywords: Makine öğrenimi algoritmasının algoritma bilgi sayfası, kural sayfası
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=pakalra, author=pakalra)
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.author: amlstudiodocs
-manager: cgronlun
 editor: cgronlun
 ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
 ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 307a2d442fc8cf82630b111b6ea73e180c740c64
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 7ddc3a9829dc05ac1c1df450091789e4cad2b2f5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307429"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274522"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Makine öğrenimi algoritma bilgi sayfasına için Azure Machine Learning Studio
 
@@ -28,9 +27,9 @@ ms.locfileid: "52307429"
 
 ## <a name="download-machine-learning-algorithm-cheat-sheet"></a>İndirin: Makine öğrenimi algoritma bilgi sayfası
 
-**Buradaki ipuçlarını indirin: [makine öğrenimi algoritma kural sayfası (11 x 17 inç)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
+**Buradaki ipuçlarını indirin: [Machine Learning algoritması kopya sayfası (11 x 17 inç)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
 
-![Makine öğrenimi algoritma bilgi sayfası: bir makine öğrenimi algoritma seçme hakkında bilgi edinin.][cheat-sheet]
+![Makine öğrenimi algoritma bilgi sayfasına: Makine öğrenimi algoritma seçme hakkında bilgi edinin.][cheat-sheet]
 
 [cheat-sheet]: ./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
@@ -43,7 +42,7 @@ ms.locfileid: "52307429"
 
 * Bu algoritma bilgi sayfası içinde sunulan yaklaşık kuralları-ın-thumb önerilerdir. Bazı Eğilmiş ve bazı flagrantly ihlal edildi. Bu bir başlangıç noktası önermek için tasarlanmıştır. Verileriniz üzerinde çeşitli algoritmalar arasındaki head-to-head yarışma çalıştırılacak Korkmayın. Ve her bir algoritmanın prensipleri anlama ve verilerinizi oluşturulan sistemini anlama yalnızca hiçbir yedek yok.
 
-* Her makine öğrenimi algoritmasının kendi stilde veya *Endüktif sapması*. Belirli bir sorun için çeşitli algoritmalar uygun olabilir ve bir algoritma diğerlerinden daha uygun olabilir. Ancak, her zaman en uygun olan önceden bilmeniz mümkün değildir. Bu gibi durumlarda, çeşitli algoritmalar kağıdı içinde birlikte listelenir. Uygun bir strateji, bir algoritma deneyebilirsiniz ve sonuçları henüz tatmin edicidir, değilse, diğer deneyin olacaktır. İşte bir örnek [Azure AI Gallery](http://gallery.azure.ai/) aynı verilere karşı çeşitli algoritmalar çalışır ve sonuçları karşılaştıran bir deneme: [çok sınıflı sınıflandırıcılar karşılaştırın: Harf tanıma](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
+* Her makine öğrenimi algoritmasının kendi stilde veya *Endüktif sapması*. Belirli bir sorun için çeşitli algoritmalar uygun olabilir ve bir algoritma diğerlerinden daha uygun olabilir. Ancak, her zaman en uygun olan önceden bilmeniz mümkün değildir. Bu gibi durumlarda, çeşitli algoritmalar kağıdı içinde birlikte listelenir. Uygun bir strateji, bir algoritma deneyebilirsiniz ve sonuçları henüz tatmin edicidir, değilse, diğer deneyin olacaktır. İşte bir örnek [Azure AI Gallery](http://gallery.azure.ai/) aynı verilere karşı çeşitli algoritmalar çalışır ve sonuçları karşılaştıran bir deneme: [Çok sınıflı sınıflandırıcılar karşılaştırın: Harfli tanıma](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 * Machine Learning üç ana kategori vardır: **denetimli öğrenme**, **Denetimsiz öğrenme**, ve **pekiştirmeye dayalı öğrenme**.
 
@@ -73,7 +72,7 @@ ms.locfileid: "52307429"
 
 * Machine Learning Studio'nun işlevlerine genel bir bakış sağlayan bir diyagram indirmek ve yazdırmak için bkz. [Azure Machine Learning Studio'nun işlevlerine genel bakış diyagramı](studio-overview-diagram.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 <!-- Module References -->
 [a-z-list]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list

@@ -1,7 +1,7 @@
 ---
-title: 'Öğretici: Bing Haber Arama tek sayfalı uygulaması'
+title: "Öğretici: Bing haber arama API'si - tek sayfa web uygulaması oluşturma"
 titlesuffix: Azure Cognitive Services
-description: Bing Haber Arama API'sinin tek sayfalı bir Web uygulamasında kullanılmasını açıklar.
+description: Bing haber API'sine arama sorguları göndermek ve sonuçları içinde Web sayfası görüntüleme bir tek sayfalı web uygulaması oluşturmak için bu öğreticiyi kullanın.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,14 +10,16 @@ ms.component: bing-news-search
 ms.topic: tutorial
 ms.date: 10/30/2017
 ms.author: v-gedod
-ms.openlocfilehash: 1d27751d12c82736ca519bb3a0e9bcd49bef4a47
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: 311abe4583d29098ebd26dfcf2214553aa1fe1c9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803656"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262053"
 ---
-# <a name="tutorial-single-page-news-search-app"></a>Öğretici: Tek sayfalı Haber Arama uygulaması
+# <a name="tutorial-create-a-single-page-web-app"></a>Öğretici: Tek sayfa web uygulaması oluşturma
+
 Bing Haber Arama API'si Web'de arama yapmanızı ve arama sorgusuna uyan haber türündeki sonuçları almanızı sağlar. Bu öğreticide, Bing Haber Arama API'sini kullanarak sayfada arama sonuçlarını görüntüleyen tek sayfalı bir Web uygulaması oluşturuyoruz. Uygulama HTML, CSS ve JavaScript bileşenlerini içeriyor.
 
 <!-- Remove until we can replace it with sanitized copy
@@ -27,7 +29,7 @@ Bing Haber Arama API'si Web'de arama yapmanızı ve arama sorgusuna uyan haber t
 > [!NOTE]
 > Sayfanın en altındaki JSON ve HTTP başlıklarına tıklandığında, JSON yanıt ve HTTP istek bilgileri gösterilir. Bu ayrıntılar hizmeti keşfederken yararlı olabilir.
 
-Öğretici uygulaması şunları gösterir:
+Öğretici uygulamasında aşağıdakilerin nasıl yapılacağı gösterilmektedir:
 > [!div class="checklist"]
 > * JavaScript'te Bing Haber Arama API'sine çağrı yapma
 > * Arama seçeneklerini Bing Haber API'sine geçirme
@@ -317,9 +319,9 @@ Bing Haber Arama API'si, her biri kendi üst düzey nesnesinin içinde olmak üz
 
 |İlişki|Açıklama|
 |-|-|
-|`pivotSuggestions`|Özgün aramadaki asıl sözcüğü başka bir sözcükle değiştiren sorgular. Örneğin "kırmızı çiçek" araması yapıyorsanız, asıl sözcük "kırmızı" olabilir ve asıl sözcük önerisi "sarı çiçek" olabilir.|
-|`queryExpansions`|Daha fazla terim ekleyerek özgün aramayı daraltan sorgular. Örneğin, "Microsoft Surface" araması yapıyorsanız sorgu genişletmesi "Microsoft Surface Pro" olabilir.|
-|`relatedSearches`|Özgün aramayı giren diğer kullanıcılar tarafından da girilmiş olan sorgular. Örneğin, "Everest Dağı" araması yaparsanız, ilgili bir arama "Pireneler" araması olabilir.|
+|`pivotSuggestions`|Özgün aramadaki pivot sözcüğü, farklı biriyle değiştiren sorgular. Örneğin, "kırmızı çiçekler" araması yaparsanız pivot sözcüğü "kırmızı" ve pivot öneri de "sarı çiçekler" olabilir.|
+|`queryExpansions`|Daha fazla terim ekleyerek özgün aramayı daraltan sorgular. Örneğin, "Microsoft Surface" araması yaparsanız genişletilmiş sorgu "Microsoft Surface Pro" olabilir.|
+|`relatedSearches`|Özgün aramayı giren diğer kullanıcılar tarafından da girilmiş olan sorgular. Örneğin, "Mount Rainier" araması yaparsanız, ilgili arama "Mt. Saint Helens" olabilir.|
 |`similarTerms`|Özgün aramayla benzer anlamı olan sorgular. Örneğin, "okullar" araması yaparsanız benzer bir terim "eğitim" olabilir.|
 
 `renderSearchResults()` için daha önce gördüğümüz gibi, yalnızca `relatedItems` önerilerini işleriz ve sonuçta elde edilen bağlantıları sayfanın kenar çubuğuna yerleştiririz.
@@ -378,7 +380,7 @@ Haber işleyici işlevi:
 > * Paragraf etiketi oluşturur, bu etiketi `news` sınıfına atar ve html dizisine gönderir.
 > * Resmin küçük resim boyutunu hesaplar (genişlik 60 piksele sabitlenir, yükseklik buna orantılı olarak hesaplanır).
 > * Resmin küçük resmini görüntülemek için HTML `<img>` etiketini oluşturur. 
-> * Resme ve bu resmi içeren sayfaya bağlanan HTML `<a>` etiketlerini oluşturur.
+> * Görüntüye ve bu görüntüyü içeren sayfaya bağlanan HTML `<a>` etiketlerini oluşturur.
 > * Resim ve bu resmin bulunduğu site hakkındaki bilgileri görüntüleyen bir açıklama oluşturur.
 
 Küçük resim boyutu hem `<img>` etiketinde hem de küçük resmin URL'sindeki `h` ve `w` alanlarında kullanılır. Ardından [Bing küçük resim hizmeti](resize-and-crop-thumbnails.md) tam olarak bu boyutta bir küçük resim verir.
@@ -397,7 +399,7 @@ Tarayıcı güvenlik ilkeleri (CORS) `X-MSEdge-ClientID` üst bilgisinin JavaScr
 > [!NOTE]
 > Üretim ortamındaki bir Web uygulamasında, isteği sunucu tarafından gerçekleştirmeniz gerekir. Aksi takdirde, Bing Arama API'si anahtarınızın Web sayfasına eklenmesi gerekir ve bu durumda kaynağı görüntüleyen herkes tarafından görülebilir. API abonelik anahtarınız altında gerçekleştirilen tüm kullanım, yetkisiz tarafların yaptığı istekler bile size faturalandırılır; dolayısıyla anahtarınızı açıklamamanız önemlidir.
 
-Geliştirme amacıyla, Bing Web Araması API'si isteğini CORS ara sunucusu aracılığıyla yapabilirsiniz. Böyle bir ara sunucudan gelen yanıtta, yanıt üst bilgilerini beyaz listeye alan ve JavaScript'in kullanımına sunan `Access-Control-Expose-Headers` üst bilgisi bulunur.
+Geliştirme amacıyla, Bing Web Araması API’si isteğini CORS ara sunucusu aracılığıyla yapabilirsiniz. Böyle bir ara sunucudan gelen yanıtta, yanıt üst bilgilerini beyaz listeye alan ve JavaScript’in kullanımına sunan `Access-Control-Expose-Headers` üst bilgisi bulunur.
 
 Öğretici uygulamamızın istemci kimliği üst bilgisine erişebilmesi için CORS ara sunucusu kolayca yüklenebilir. İlk olarak, henüz yüklemediyseniz [Node.js'yi yükleyin](https://nodejs.org/en/download/). Ardından komut penceresinde aşağıdaki komutu yürütün:
 

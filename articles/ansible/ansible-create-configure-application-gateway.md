@@ -1,21 +1,21 @@
 ---
-title: Ansible (önizleme) kullanarak Azure Application Gateway ile web trafiğini yönetme
+title: Ansible'ı kullanarak Azure Application Gateway ile Web trafiğini yönetin
 description: Web trafiğini yönetmek üzere bir Azure Application Gateway oluşturup yapılandırmak için Ansible kullanmayı öğrenin
 ms.service: ansible
-keywords: ansible, azure, devops, bash, playbook, azure application gateway, yük dengeleyici, web trafiği
+keywords: ansible'ı, azure, devops, bash, playbook, uygulama ağ geçidi, yük dengeleyici, web trafiği
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2018
-ms.openlocfilehash: e3c165c87d6c179141f2ddd44f00f0f62a84b285
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.openlocfilehash: af7f22ae5c289a01e6876d8ce586cb32383c8d3b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912875"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253383"
 ---
-# <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible-preview"></a>Ansible (önizleme) kullanarak Azure Application Gateway ile web trafiğini yönetme
+# <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible"></a>Ansible'ı kullanarak Azure Application Gateway ile Web trafiğini yönetin
 
 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/), web uygulamalarınıza trafiği yönetmenizi sağlayan bir web trafiği yük dengeleyicisidir.
 
@@ -28,13 +28,13 @@ Bu öğretici şunların nasıl yapıldığını gösterir:
 > * HHPD görüntüleriyle iki Azure kapsayıcı örneği oluşturma
 > * Sunucu havuzundaki Azure kapsayıcı örnekleriyle bir uygulama ağ geçidi oluşturma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - **Azure aboneliği** - Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Bu öğreticideki örnek playbook'ları çalıştırmak için Ansible 2.7 gerekir. `sudo pip install ansible[azure]==2.7.0rc2` komutunu çalıştırarak Ansible 2.7 RC'yi yükleyebilirsiniz. Ansible 2.7 kullanıma sunulduktan sonra sürümü belirtmeniz gerekmez.
+> Bu öğreticideki örnek playbook'ları çalıştırmak için Ansible 2.7 gerekir. 
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 

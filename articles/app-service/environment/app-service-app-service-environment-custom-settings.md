@@ -1,6 +1,6 @@
 ---
-title: Uygulama hizmeti ortamları için özel ayarları
-description: Uygulama hizmeti ortamları için özel yapılandırma ayarları
+title: App Service ortamları - Azure için özel ayarlar
+description: App Service ortamları için özel yapılandırma ayarları
 services: app-service
 documentationcenter: ''
 author: stefsch
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/22/2016
 ms.author: stefsch
-ms.custom: mvc
-ms.openlocfilehash: d60cdca78c143996fa5935726db0631321c9e2fe
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: de68c59987a7ec1198c344cc22978ebed09c75e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26129524"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271368"
 ---
-# <a name="custom-configuration-settings-for-app-service-environments"></a>Uygulama hizmeti ortamları için özel yapılandırma ayarları
+# <a name="custom-configuration-settings-for-app-service-environments"></a>App Service ortamları için özel yapılandırma ayarları
 ## <a name="overview"></a>Genel Bakış
-Uygulama hizmeti ortamları tek bir müşteri için yalıtılmış olduğundan, özel olarak App Service ortamları için uygulanabilecek bazı yapılandırma ayarları vardır. Bu makale App Service ortamları için kullanılabilen çeşitli belirli özelleştirmelere içermektedir.
+App Service ortamları tek bir müşteriye ayrılmış olduğu için yalnızca App Service ortamları için uygulanabilecek bazı yapılandırma ayarları vardır. Bu makale, App Service ortamları için kullanılabilen çeşitli belirli özelleştirmeleri içermektedir.
 
-Bir uygulama hizmeti ortamı yoksa bkz [bir uygulama hizmeti ortamı oluşturmak nasıl](app-service-web-how-to-create-an-app-service-environment.md).
+App Service ortamı yoksa bkz [bir App Service ortamı oluşturma](app-service-web-how-to-create-an-app-service-environment.md).
 
-Bir dizi yeni kullanarak uygulama hizmeti ortamı özelleştirmeleri depolayabilirsiniz **clusterSettings** özniteliği. Bu öznitelik "Özellikler" sözlükte bulunan *hostingEnvironments* Azure Resource Manager varlığı.
+Yeni bir dizi kullanarak App Service ortamı özelleştirmeleri depolayabilirsiniz **clusterSettings** özniteliği. Bu öznitelik "Özellikler" sözlükte bulunan *hostingEnvironments* Azure Resource Manager varlığı.
 
-Resource Manager şablonu kod parçacığında gösterildiği aşağıdaki kısaltılmış **clusterSettings** özniteliği:
+Aşağıdaki Resource Manager şablonu kod parçacığında gösterildiği kısaltılmış **clusterSettings** özniteliği:
 
     "resources": [
     {
@@ -50,23 +50,23 @@ Resource Manager şablonu kod parçacığında gösterildiği aşağıdaki kısa
        }
     }
 
-**ClusterSettings** özniteliği uygulama hizmeti ortamı güncelleştirmek için bir Resource Manager şablonu dahil edilebilir.
+**ClusterSettings** özniteliği App Service ortamı güncelleştirmek için bir Resource Manager şablonunda dahil edilebilir.
 
-## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Bir uygulama hizmeti ortamı güncelleştirmek için Azure kaynak Gezgini'ni kullanma
-Alternatif olarak, uygulama hizmeti ortamı kullanarak güncelleştirebileceğinizi [Azure kaynak Gezgini](https://resources.azure.com).  
+## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>App Service ortamı güncelleştirmek için Azure kaynak Gezgini'ni kullanma
+Alternatif olarak, App Service ortamı güncelleştirebilirsiniz [Azure kaynak Gezgini](https://resources.azure.com).  
 
-1. Kaynak Gezgini, uygulama hizmeti ortamı için düğümüne gidin (**abonelikleri** > **resourceGroups** > **sağlayıcıları** > **Microsoft.Web** > **hostingEnvironments**). Güncelleştirmek istediğiniz belirli uygulama hizmeti ortamı'ye tıklayın.
+1. Kaynak Gezgini'nde, App Service ortamı için düğüme gidin (**abonelikleri** > **resourceGroups** > **sağlayıcıları**  >  **Microsoft.Web** > **hostingEnvironments**). Güncelleştirmek istediğiniz belirli App Service Ortamı'ye tıklayın.
 2. Sağ bölmede **okuma/yazma** kaynak Gezgini'nde düzenleme etkileşimli izin vermek için üst araç çubuğunda.  
-3. Mavi tıklatın **Düzenle** Resource Manager şablonu düzenlenebilir olmasını sağlamak için düğmesi.
-4. Sağ bölmede altına gidin. **ClusterSettings** buradan girin veya değerini güncelleştirme çok altındaki bir özniteliktir.
-5. Yazın (veya kopyalayıp yapıştırın), istediğiniz yapılandırma değerleri dizisi **clusterSettings** özniteliği.  
-6. Yeşil tıklatın **PUT** , düğme için uygulama hizmeti ortamı değişikliği kaydetmek için sağ bölmedeki üstünde bulunan.
+3. Mavi tıklayın **Düzenle** düğmesi Resource Manager şablonu düzenlenebilir hale getirin.
+4. Sağ bölmede alt kısmına kaydırın. **ClusterSettings** burada girin veya değerini güncelleştirme çok altındaki bir özniteliktir.
+5. Yazın (veya kopyalayıp yapıştırın) istediğiniz yapılandırma değerleri dizisi **clusterSettings** özniteliği.  
+6. Yeşil tıklayın **PUT** , düğme için App Service ortamı değişikliği kaydetmek için sağ bölmenin üstünde bulunan.
 
-Değişiklik Gönder ancak değişikliğin etkili olması için uygulama hizmeti ortamında ön uçlar sayısı ile çarpılır yaklaşık 30 dakika sürer.
-Örneğin, bir uygulama hizmeti ortamı dört ön uçlar varsa, kabaca tamamlamak yapılandırma güncelleştirmesi için iki saat sürer. Yapılandırma değişikliği alınıyor sırada başka bir ölçeklendirme işlemleri veya yapılandırma değişiklik işlemleri uygulama hizmeti ortamı yerinde alabilir.
+Değişiklik gönderdiğiniz ancak değişikliğin etkili olması için App Service Ortamı'nda ön uçlar sayısıyla çarpımı yaklaşık 30 dakika sürer.
+Örneğin, bir App Service ortamı dört ön uçlar varsa, tamamlanması yapılandırma güncelleştirmesi için yaklaşık iki saat sürer. Yapılandırma değişikliği kullanıma sunulacaktır, ancak başka bir ölçeklendirme işlemleri veya yapılandırma değişiklik işlemleri App Service Ortamı'nda yer alabilir.
 
 ## <a name="disable-tls-10"></a>TLS 1.0 devre dışı bırak
-Yinelenen bir soru müşterilerden özellikle PCI uyumluluğunu ile ilgilenen müşteriler denetimleri, TLS 1.0 için uygulamalarını açıkça devre dışı bırakma.
+Yinelenen soru müşterilerden özellikle PCI uyumluluğu ile ilgilenen müşteriler denetimleri, açıkça uygulamalarını için TLS 1.0 devre dışı bırakma.
 
 TLS 1.0 devre dışı bırakılabilir aşağıdaki aracılığıyla **clusterSettings** girişi:
 
@@ -77,8 +77,8 @@ TLS 1.0 devre dışı bırakılabilir aşağıdaki aracılığıyla **clusterSet
             }
         ],
 
-## <a name="change-tls-cipher-suite-order"></a>Değişiklik TLS şifre paketi sırası
-Başka bir soru müşterilerden kendi sunucu tarafından anlaşılan şifre listesi değiştirebilirsiniz ve bu değiştirerek elde olan **clusterSettings** aşağıda gösterildiği gibi. Şifre paketleri kullanılabilir Listesi penceresinden alınabilir [bu MSDN makalesine](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).
+## <a name="change-tls-cipher-suite-order"></a>TLS şifre paketi sırasını değiştir
+Bunlar, sunucu tarafından anlaşılan şifrelemeleri listesini değiştirebilirsiniz ve bu değiştirerek gerçekleştirilebilir müşterilerden başka bir soru ise **clusterSettings** aşağıda gösterildiği gibi. Şifre paketleri kullanılabilir listesini alınabilir [bu MSDN makalesinde](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).
 
         "clusterSettings": [
             {
@@ -88,12 +88,12 @@ Başka bir soru müşterilerden kendi sunucu tarafından anlaşılan şifre list
         ],
 
 > [!WARNING]
-> SChannel anlayamıyor şifre paketi için yanlış değerleri ayarlarsanız sunucunuza tüm TLS iletişim çalışmasını durdurabilir. Böyle bir durumda kaldırmanız gerekecek *FrontEndSSLCipherSuiteOrder* girdisinden **clusterSettings** ve varsayılan şifre paketi ayarlarına geri dönmek için güncelleştirilmiş Resource Manager şablonu gönderin.  Lütfen bu işlevi dikkatli kullanın.
+> SChannel anlayamıyor şifre paketi için yanlış değerleri ayarlarsanız, tüm TLS iletişim sunucunuza çalışmamaya başlayabilir. Böyle bir durumda kaldırmanız gerekecek *FrontEndSSLCipherSuiteOrder* girdisinden **clusterSettings** ve varsayılan şifre paketi geri dönmek için güncelleştirilmiş Resource Manager şablonu gönderin Ayarlar.  Lütfen bu işlevleri dikkatli kullanın.
 > 
 > 
 
 ## <a name="get-started"></a>başlarken
-Bir şablonu temel tanımıyla Azure hızlı başlangıç Resource Manager şablonu sitesi içeren [bir uygulama hizmeti ortamı oluşturma](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
+Azure hızlı başlangıç Resource Manager şablonu sitenin temel tanımını şablonla içerir [bir App Service ortamı oluşturma](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
 
 <!-- LINKS -->
 

@@ -10,25 +10,23 @@ ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 8f2bf9707d28744707c39a507108120e948dde7f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 61118520e84b53a7669e482694f48d60fd8e67ad
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866687"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193884"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Log analytics'te Görünüm Tasarımcısı görselleştirme bölümü başvurusu Kılavuzu
 Azure Log Analytics'te Görünüm Tasarımcısı kullanarak veri görselleştirmeleri Log Analytics çalışma alanınızın çeşitli sunan Azure portalında özel görünümlerinizi oluşturabilirsiniz. Bu makalede, özel görünümlerde kullanılabilir görselleştirme bölümleri ayarlarını bir başvuru kılavuzudur.
 
 Görünüm Tasarımcısı hakkında daha fazla bilgi için bkz:
 
-* [Görüntüleme Tasarımcısı](view-designer.md): oluşturma ve düzenleme özel görünümler için Görünüm Tasarımcısı ve yordamları hakkında genel bir bakış sağlar.
-* [Başvuru kutucuğuna](view-designer-tiles.md): kendi özel görünümlerinizi de kullanılabilir her döşeme için ayarları bir başvuru sağlar.
+* [Görüntüleme Tasarımcısı](view-designer.md): Oluşturma ve düzenleme özel görünümler için Görünüm Tasarımcısı ve yordamları hakkında genel bir bakış sağlar.
+* [Kutucuk başvurusu](view-designer-tiles.md): Kendi özel görünümlerinizi de kullanılabilir her döşeme için ayarları bir başvuru sağlar.
 
 
 Kullanılabilir Görünüm Tasarımcısı kutucuğu türleri, aşağıdaki tabloda açıklanmıştır:
@@ -143,7 +141,7 @@ Listesi sorguların parçası günlük arama sorgularının listesini görüntü
 | Tıklama Gezinti | Başlığında'a tıkladığınızda gerçekleştirilen eylem.  Daha fazla bilgi için [ortak ayarları](#click-through-navigation). |
 | **Halka** |**> Merkezi** |
 | Metin |Halka içindeki değeri altında görüntülenen metin. |
-| İşlem |Tek bir değer özetlemek için değer özelliği üzerinde gerçekleştirilecek işlem.<ul><li>Toplamı: tüm kayıtların değerlerin ekler.</li><li>Yüzdesi: Değerler tarafından döndürülen kayıtları oranını **neden merkezdeki işlemde kullanılan değerleri** sorgu toplam kayıtlara.</li></ul> |
+| İşlem |Tek bir değer özetlemek için değer özelliği üzerinde gerçekleştirilecek işlem.<ul><li>Toplama: Tüm kayıtların değerleri toplar.</li><li>Yüzdesi: Değerler tarafından döndürülen kayıtları oranını **neden merkezdeki işlemde kullanılan değerleri** sorgu toplam kayıtlara.</li></ul> |
 | Merkezdeki işlemde kullanılan sonuç değerleri |İsteğe bağlı olarak, bir veya daha fazla değer eklemek için artı işaretini (+) seçin. Sorgu sonuçlarını kayıtlarını belirttiğiniz özellik değerleri ile sınırlıdır. Hiçbir değer eklediyseniz tüm kayıtları sorguya dahil edilir. |
 | **Ek Seçenekler** |**> Renkler** |
 | Renkli 1<br>Renk 2<br>Renk 3 |Halka, görüntülenen değerleri için renk seçin. |
@@ -182,7 +180,7 @@ Listesi sorguların parçası günlük arama sorgularının listesini görüntü
 | Gösterge |Belirtme çizgisi ilk serisinin altında görüntülenen metin. |
 | Renk |Sütun serisi için kullanılacak rengi. |
 | Sorgu |İlk seri için çalıştırılacak sorgu. Her zaman aralığı içindeki kayıtları sayısı, grafiğin sütunları tarafından temsil edilir. |
-| İşlem |Belirtme çizgisi için tek bir değer olarak özetlemek için değer özelliğinde gerçekleştirilecek işlem.<ul><li>Toplam: Tüm kayıtlardan değerlerinin toplamı.</li><li>Ortalama: Tüm kayıtlardan değerlerin ortalamasını.</li><li>Son örnek: grafikte dahil son aralığında bir değer.</li><li>İlk örnek: grafiğinde bulunan ilk aralık değeri.</li><li>Sayısı: Sorgu tarafından döndürülen tüm kayıtların sayısı.</li></ul> |
+| İşlem |Belirtme çizgisi için tek bir değer olarak özetlemek için değer özelliğinde gerçekleştirilecek işlem.<ul><li>Toplama: Tüm kayıtların değerlerinin toplamı.</li><li>Ortalama: Tüm kayıtların değerlerin ortalaması.</li><li>Son örnek: Grafikte dahil son aralığı değeri.</li><li>İlk örnek: Grafikte bulunan ilk aralık değeri.</li><li>Sayısı: Sorgu tarafından döndürülen tüm kayıtları sayısı.</li></ul> |
 | **Liste** | |
 | Sorgu |Liste için çalıştırılacak sorgu. Sorgu tarafından döndürülen kayıtları sayısı görüntülenir. |
 | Grafiği gizle |Grafiğin sağ tarafındaki sayısal sütun devre dışı bırakmak için bu bağlantıyı seçin. |
@@ -238,7 +236,7 @@ Listesi sorguların parçası günlük arama sorgularının listesini görüntü
 | **Çizgi grafik** |**> Açıklama balonu** |
 | Belirtme çizgisi başlığı |Belirtme çizgisi değerinin üzerine görüntülenecek metin. |
 | Seri Adı |Belirtme çizgisi değeri için kullanılacak bir seri için özellik değeri. Hiçbir serisi sağlanırsa, sorgudaki tüm kayıtlar kullanılır. |
-| İşlem |Belirtme çizgisi için tek bir değer olarak özetlemek için değer özelliğinde gerçekleştirilecek işlem.<ul><li>Ortalama: Tüm kayıtlardan değerlerin ortalamasını.</li><li>Sayısı: Sorgu tarafından döndürülen tüm kayıtların sayısı.</li><li>Son örnek: grafikte dahil son aralığında bir değer.</li><li>En fazla: Maksimum değeri açığa grafikte yer aralıkları.</li><li>En düşük: En düşük değeri grafikte yer aralıkları.</li><li>Toplam: Tüm kayıtlardan değerlerinin toplamı.</li></ul> |
+| İşlem |Belirtme çizgisi için tek bir değer olarak özetlemek için değer özelliğinde gerçekleştirilecek işlem.<ul><li>Ortalama: Tüm kayıtların değerlerin ortalaması.</li><li>Sayısı: Sorgu tarafından döndürülen tüm kayıtları sayısı.</li><li>Son örnek: Grafikte dahil son aralığı değeri.</li><li>En fazla: Grafikte yer aralıkları maksimum değeri.</li><li>En küçük: Grafikte yer aralıkları en düşük değeri.</li><li>Toplama: Tüm kayıtların değerlerinin toplamı.</li></ul> |
 | **Çizgi grafik** |**> Y ekseni** |
 | Logaritmik Ölçek Kullan |Y ekseni için Logaritmik ölçek kullanmak için bu bağlantıyı seçin. |
 | Birimler |Sorgu tarafından döndürülen değerler için birimlerin belirtin. Bu bilgiler değeri türlerini belirtmek görüntü grafiğini etiketlere ve da isteğe bağlı olarak için kullanılan değerleri dönüştürün. *Birim* türü birim kategorisini belirtir ve kullanılabilir tanımlar *geçerli birim* değerler girin. Bir değer seçerseniz *Dönüştür*, sayısal değerler gelen dönüştürülür *geçerli birim* için yazın *Dönüştür* türü. |
@@ -344,7 +342,7 @@ Aşağıdaki tabloda, Mini Grafikler için ayarları açıklar:
 | Ayar | Açıklama |
 |:--- |:--- |
 | Mini Grafikleri Etkinleştir |Yatay bir çubuk yerine bir mini görüntülemek için bu bağlantıyı seçin. |
-| İşlem |Mini Grafikler etkinleştirildiğinde, Mini Grafik değerleri hesaplamak için listedeki her bir özellik üzerinde gerçekleştirilecek işlem budur.<ul><li>Son örnek: zaman aralığında serinin son değeri.</li><li>En fazla: Zaman aralığında bir seri için en büyük değer.</li><li>En az: Zaman aralığında bir seri için minimum değeri.</li><li>Toplam: Zaman aralığında bir seri için değerlerinin toplamı.</li><li>Özet: ndedir `measure` üst bilgisindeki sorgu olarak komutu.</li></ul> |
+| İşlem |Mini Grafikler etkinleştirildiğinde, Mini Grafik değerleri hesaplamak için listedeki her bir özellik üzerinde gerçekleştirilecek işlem budur.<ul><li>Son örnek: Zaman aralığı üzerinden bir seri için son değeri.</li><li>En fazla: Zaman aralığı üzerinden bir seri için en büyük değer.</li><li>En küçük: Zaman aralığı üzerinden bir seri için minimum değeri.</li><li>Toplama: Zaman aralığı üzerinden bir seri için değerlerinin toplamı.</li><li>Özet: Aynı kullanan `measure` üst bilgisindeki sorgu olarak komutu.</li></ul> |
 
 ### <a name="thresholds"></a>Eşikleri
 Eşikleri kullanarak bir listedeki her öğenin yanında renkli bir simgesi görüntüleyebilirsiniz. Eşikleri belirli bir değeri ya da belirli bir aralıkta öğeleri hızlı bir gösterge sağlar. Örneğin, bir hata değeri aşarsa öğeleri kabul edilebilir bir değer, değer bir uyarı gösterir bir aralıkta ise sarı ve red için yeşil bir simge görüntüleyebilirsiniz.

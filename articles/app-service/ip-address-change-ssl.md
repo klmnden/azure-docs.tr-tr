@@ -1,5 +1,5 @@
 ---
-title: Bir IP SSL adres değişikliği için - Azure hazırlamayı öğrenin
+title: IP SSL adres değişikliği - Azure App Service için hazırlama
 description: SSL IP adresiniz, değiştirilecek olacaksa, böylece uygulamanız için değişiklik sonrasında çalışmaya devam yapmanız gerekenler öğrenin.
 services: app-service\web
 author: cephalin
@@ -10,12 +10,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: e8558b4c3c7dafca8d4fff7e2aae0597a66c031d
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.custom: seodec18
+ms.openlocfilehash: 4de20ba46d3c16d6cd7bde8e17efb0a6212bc771
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576551"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270799"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Nasıl bir IP SSL adresi değişikliğe hazırlanmak için
 
@@ -31,7 +32,7 @@ Azure App Service uygulamanızın IP SSL adresi ile değişiyor bir bildirim ald
 
 4.  Altında **ayarları** başlığını tıklatın **SSL ayarları** sol gezinti bölmesinde.
 
-5. SSL bağlamaları bölümünde, ana bilgisayar adı kaydı seçin. Açılır düzenleyicide seçin **SNI SSL** üzerinde **SSL türü** açılır menüsüne ve ardından **bağlaması Ekle**. İşlem başarılı iletisini gördüğünüzde, mevcut IP adresi piyasaya Sürüldü.
+1. SSL bağlamaları bölümünde, ana bilgisayar adı kaydı seçin. Açılır düzenleyicide seçin **SNI SSL** üzerinde **SSL türü** açılır menüsüne ve ardından **bağlaması Ekle**. İşlem başarılı iletisini gördüğünüzde, mevcut IP adresi piyasaya Sürüldü.
 
 6.  İçinde **SSL bağlamaları** bölümünde, sertifika ile aynı ana bilgisayar adı kaydı yeniden seçin. Bu kez açan düzenleyicide seçin **IP tabanlı SSL** üzerinde **SSL türü** açılır menüsüne ve ardından **bağlaması Ekle**. İşlem başarılı iletisini gördüğünüzde, yeni bir IP adresi edindiğiniz.
 

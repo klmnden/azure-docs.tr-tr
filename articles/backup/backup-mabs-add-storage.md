@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: fa19cdbb6c51248b5361ba747829c4f9e617ce6a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: cc76b15c3cb108b5181e22330954dfee789b01ba
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865395"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251122"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Azure Backup Sunucusu’na depolama alanı ekleme
 
-Azure Backup sunucusu V2 ve daha sonra System Center 2016 veri koruma Yöneticisi'ni Modern yedekleme depolama alanı ile birlikte gelir. Modern yedekleme depolama alanı yüzde 50, üç kat daha hızlı ve daha verimli depolama yedekleme depolama tasarrufu sağlar. Ayrıca, iş yükü algılayan depolamayı da sunar.
+Azure Backup sunucusu V2 ve sonraki destekler, yüzde 50, yedekleme depolama tasarrufu sağlayan Modern yedekleme depolama üç kat daha hızlı ve daha verimli depolama hizmetidir. Ayrıca, iş yükü algılayan depolamayı da sunar.
 
 > [!NOTE]
 > Modern yedekleme depolama alanı kullanmak için Windows Server 2016 veya Windows Server 2019 tarihinde V3 yedekleme sunucusu V2 veya V3 çalıştırmalısınız.
@@ -75,7 +75,7 @@ Backup sunucusu için bir birim eklemek için **Yönetim** bölmesinde depolamay
 
 ### <a name="update-dpmdiskstorage"></a>Update = DPMDiskStorage
 
-İş yükü algılayan depolamayı ayarlama güncelleştirme Data Protection Manager sunucusundaki depolama havuzundaki bir birimin özelliklerini güncelleştiren DPMDiskStorage, PowerShell cmdlet'ini kullanarak ayarlayabilirsiniz.
+İş yükü algılayan depolamayı ayarlama, güncelleştirme bir Azure Backup sunucusu üzerinde depolama havuzundaki bir birimin özelliklerini güncelleştiren DPMDiskStorage, PowerShell cmdlet'ini kullanarak ayarlayabilirsiniz. 
 
 Sözdizimi:
 

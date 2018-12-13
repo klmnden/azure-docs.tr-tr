@@ -1,21 +1,22 @@
 ---
-title: Azure CLI ile Azure ortamınızda uyumlu olmayan kaynakları belirlemek üzere bir ilke ataması oluşturun
-description: Uyumlu olmayan kaynakları belirlemek üzere bir Azure İlkesi ataması oluşturmak için PowerShell kullanın.
+title: Azure CLI ile uyumlu olmayan kaynakları belirlemek üzere bir ilke oluşturun
+description: Uyumlu olmayan kaynakları belirlemek üzere bir Azure İlkesi ataması oluşturmak için Azure CLI'yi kullanın.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
-ms.custom: mvc
-ms.openlocfilehash: 343dee2e23567c2552fc5e7c0c0323227deb21de
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+manager: carmonm
+ms.custom: seodec18
+ms.openlocfilehash: 99e8b782f3f52ed89b5188de19d70cb276a0eb84
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078642"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315851"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Azure CLI ile Azure ortamınızda uyumlu olmayan kaynakları belirlemek üzere bir ilke ataması oluşturun
+# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Azure CLI ile uyumlu olmayan kaynakları belirlemek üzere bir ilke ataması oluşturma
 
 Azure’da uyumluluğu anlamanın ilk adımı, kaynaklarınızın durumunu belirlemektir.
 Bu hızlı başlangıç, yönetilen disk kullanmayan sanal makineleri belirlemek üzere ilke ataması oluşturma işleminde size yol gösterir.

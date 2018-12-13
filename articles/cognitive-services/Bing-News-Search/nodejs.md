@@ -1,7 +1,7 @@
 ---
-title: 'Hızlı başlangıç: Bing Haber Arama API’si, Node.js'
+title: "Hızlı Başlangıç: Node.js - Bing haber arama REST API'si ile bir haber arama yapın"
 titlesuffix: Azure Cognitive Services
-description: Bing Haber Arama API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
+description: Bu hızlı başlangıçta, Node.js kullanarak Bing haber arama REST API'si için bir istek göndermek için kullanın ve bir JSON yanıtı alırsınız.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: d0bb2d9b35c93d8730ca17fbf70e41df5deb1834
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 17307aaac531924b02c92ac37151d10bfbc48143
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316921"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252312"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-nodejs"></a>Hızlı başlangıç: Node.js ile Bing Haber Arama API’si
+# <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Hızlı Başlangıç: Node.js ve Bing haber arama REST API'si kullanarak bir haber arama yapın
 
 Bu makale, Azure'daki Microsoft Bilişsel Hizmetleri'nin parçası olan Bing Haber Arama API'sini kullanmayı göstermektedir. Bu makalede Node.js kullanılmakla birlikte API HTTP istekleri gönderebilecek ve JSON ayrıştırabilecek her programlama diliyle uyumlu bir RESTful Web hizmetidir. 
 

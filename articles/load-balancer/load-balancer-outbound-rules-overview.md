@@ -1,5 +1,6 @@
 ---
-title: Azure Load Balancer giden kuralları | Microsoft Docs
+title: Azure Load Balancer giden kuralları
+titlesuffix: Azure Load Balancer
 description: Giden kuralları giden ağ adresi çevirisi tanımlamak için kullanın
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 34a80a180d4c08027e4c975d4f7955966eec7307
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3848e2caefbc8fdfb30f36272f1b13e120312a7c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086377"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185027"
 ---
 # <a name="load-balancer-outbound-rules"></a>Yük Dengeleyici giden kuralları
 
@@ -191,14 +193,14 @@ Giden bağlantı açıkça bildirilen kadar iç bir Standard Load Balancer kulla
    1. Yük Dengeleme kuralı giden SNAT devre dışı bırakın.
    2. Aynı yük Dengeleyicide bir giden kuralı yapılandırın.
    3. Sanal makineleriniz tarafından zaten kullanılan arka uç havuzu yeniden kullanın.
-   4. Belirtin "protokol": "All" giden kuralı bir parçası olarak.
+   4. "Protokol" belirtin: "Tüm" kapsamında giden kuralı.
 
 - Yalnızca gelen NAT kuralları kullanıldığında, giden NAT sağlanır.
 
    1. Vm'leri bir arka uç havuzuna yerleştirin.
    2. Genel IP adresleri veya ortak IP öneki ile bir veya daha fazla ön uç IP yapılandırmaları tanımlar.
    3. Aynı yük Dengeleyicide bir giden kuralı yapılandırın.
-   4. "Protokol" belirtin: giden kuralı bir parçası olarak "Tüm"
+   4. "Protokol" belirtin: Giden kuralı bir parçası olarak "Tüm"
 
 ## <a name="limitations"></a>Sınırlamalar
 

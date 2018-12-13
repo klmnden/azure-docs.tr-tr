@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 03e67508aab57a825c851f2cb3d361c0aea63f72
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 566ab8d14ebce04a2cba208dd72efc3782d5ad41
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110195"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256307"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Azure İzleyici kapsayıcı Aracısı'nı yönetme
 Kapsayıcılar için Azure İzleyici, Linux için Log Analytics aracısını kapsayıcı bir sürümünü kullanır. İlk dağıtımdan sonra yordamı veya yaşam döngüsü sırasında gerçekleştirmeniz gerekebilir isteğe bağlı görevleri vardır. Bu makale hakkında ayrıntılı bilgi el ile aracı yükseltme ve belirli bir kapsayıcıda ortam değişkenlerinin koleksiyonunu devre dışı bırakın. 
@@ -62,9 +62,9 @@ Durum, aşağıdaki örneğe benzemelidir burada değeri *OMI* ve *omsagent* bel
     docker-cimprov 1.0.0.31
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>Bir kapsayıcı ortam değişkeni koleksiyonunu devre dışı bırakma
-Kapsayıcılar için Azure İzleyici, bir pod içinde çalışan kapsayıcılar ortam değişkenlerini toplar ve bunları seçilen kapsayıcı içindeki özellik bölmesinde sunar **kapsayıcıları** görünümü. Koleksiyon için belirli bir kapsayıcı ya da sonra AKS kümesi ve dağıtım sırasında devre dışı bırakarak bu davranışı denetleyebilirsiniz ortam değişkenini ayarlayarak *AZMON_COLLECT_ENV*. Bu özellik, aracı sürümü – ciprod11292018 kullanılabilir ve daha yüksek.  
+Kapsayıcılar için Azure İzleyici, bir pod içinde çalışan kapsayıcılar ortam değişkenlerini toplar ve bunları seçilen kapsayıcı içindeki özellik bölmesinde sunar **kapsayıcıları** görünümü. AKS kümesi ya da sonra dağıtım sırasında belirli bir kapsayıcı için koleksiyonu devre dışı bırakarak bu davranışı denetleyebilirsiniz ortam değişkenini ayarlayarak *AZMON_COLLECT_ENV*. Bu özellik, aracı sürümü – ciprod11292018 kullanılabilir ve daha yüksek.  
 
-Yeni veya mevcut bir kapsayıcısındaki ortam değişkenlerinin koleksiyonunu devre dışı bırakmak için değişkeni ayarlayın *AZMON_COLLECT_ENV* değeriyle *False* Kubernetes dağıtımı yaml yapılandırma dosyanız için.   
+Yeni veya mevcut bir kapsayıcısındaki ortam değişkenlerinin koleksiyonunu devre dışı bırakmak için değişkeni ayarlayın **AZMON_COLLECT_ENV** değeriyle **False** Kubernetes dağıtımı yaml yapılandırma dosyanızdaki.   
 
 ```  
 - name: AZMON_COLLECT_ENV  
@@ -73,9 +73,9 @@ Yeni veya mevcut bir kapsayıcısındaki ortam değişkenlerinin koleksiyonunu d
 
 AKS kapsayıcı değişikliği uygulamak için aşağıdaki komutu çalıştırın: `kubectl apply -f  <path to yaml file>`.
 
-Geçen etkileyen yapılandırma değişikliğini doğrulamak için bir kapsayıcıda seçin **kapsayıcıları** kapsayıcılar için Azure İzleyici ve özellik paneli görüntülemek için genişletme **ortam değişkenlerini**.  Bölümün yalnızca daha önce - oluşturulan değişken göstermelidir **AZMON_COLLECT_ENV = FALSE**. Diğer tüm kapsayıcılar için ortam değişkenlerini bölümünde bulunan tüm ortam değişkenlerini listelemelisiniz.   
+Yapılandırma değişikliğinin etkili sürdü doğrulamak için bir kapsayıcıda seçin **kapsayıcıları** kapsayıcılar için Azure İzleyici ve özellik paneli görüntülemek için genişletme **ortam değişkenlerini**.  Bölümün yalnızca daha önce - oluşturulan değişken göstermelidir **AZMON_COLLECT_ENV = FALSE**. Diğer tüm kapsayıcılar için ortam değişkenlerini bölümünde bulunan tüm ortam değişkenlerini listelemelisiniz.   
 
-Ortam değişkenlerini bulunmasını yeniden etkinleştirmek için daha önce aynı işlem geçerlidir ve değerini **False** için **True**ve tekrar çalıştırın `kubectl` kapsayıcıyı güncelleştirmeye yönelik komutu.  
+Ortam değişkenlerini bulunmasını yeniden etkinleştirmek için daha önce aynı işlem geçerlidir ve değerini **False** için **True**ve yeniden `kubectl` kapsayıcıyı güncelleştirmeye yönelik komutu.  
 
 ```  
 - name: AZMON_COLLECT_ENV  

@@ -5,20 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9fa18b14b82376a25bb434acd770d340b1ef9262
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: HT
+ms.openlocfilehash: c0ce4e882f270f5e0c789a608aaada5c6c9cba92
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197145"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323830"
 ---
-Bağlanmayla ilgili sorun yaşıyorsanız aşağıdakileri denetleyin:
+Bağlantı sorunları yaşıyorsanız aşağıdakileri denetleyin:
 
-- Bir istemci sertifikasını dışarı aktardıysanız, 'Mümkünse sertifika yolundaki tüm sertifikaları ekle' varsayılan değeri ile bir .pfx dosyası olarak dışarı aktardığınızdan emin olun. Sertifikayı bu değeri kullanarak dışarı aktardığınızda, kök sertifika bilgileri de dışarı aktarılır. Sertifika istemci bilgisayara yüklendiğinde, .pfx dosyasında yer alan kök sertifika da istemci bilgisayara yüklenir. İstemci bilgisayarda kök sertifika bilgileri yüklü olmalıdır. Denetlemek için, **Kullanıcı sertifikalarını yönet** menüsüne ve **Güvenilen Kök Sertifika Yetkilileri\Sertifikalar**’a gidin. Kök sertifikanın listelenmiş olduğunu doğrulayın. Kimlik doğrulamasının çalışması için kök sertifika mevcut olmalıdır.
+- Bir istemci sertifikası ile veriliyorsa **Sertifika Verme Sihirbazı**, .pfx dosyası olarak dışarı ve seçili olduğundan emin olun **mümkünse sertifika yolundaki tüm sertifikaları dahil et**. Bu değer ile dışarı aktardığınızda, kök sertifika bilgileri de dışarı aktarılır. İstemci bilgisayarda sertifika yükledikten sonra kök sertifika .pfx dosyasında da yüklenir. Kök sertifikasının yüklendiğini doğrulamak için açık **kullanıcı sertifikalarını Yönet** seçip **güvenilen kök sertifika Yetkilileri\Sertifikalar**. Hangi kimlik doğrulamasının çalışması için mevcut kök sertifikayı listelendiğini doğrulayın.
 
-- Bir Kuruluş Sertifika Yetkilisi çözümü kullanarak verilen bir sertifika kullanıyor ve kimlik doğrulama sorunu yaşıyorsanız, istemci sertifikasındaki kimlik doğrulama sırasını denetleyin. Kimlik doğrulama listesinin sırasını istemci sertifikasına çift tıklayıp **Ayrıntılar > Gelişmiş Anahtar Kullanımı**’na giderek denetleyebilirsiniz. Listede ilk öğe olarak ‘İstemci Kimlik Doğrulaması’nın göründüğünden emin olun. Aksi takdirde, listedeki ilk öğe olarak İstemci Kimlik Doğrulaması’nı içeren Kullanıcı şablonunu temel alarak oluşturulmuş bir istemci sertifikası vermeniz gerekir.
+- Kimlik doğrulaması yapamaz ve bir kuruluş CA çözümü tarafından verilmiş bir sertifika kullanılan, istemci sertifikası kimlik doğrulama sırasını doğrulayın. Kimlik doğrulama listesinin sırasını istemci sertifikası çift tıklayarak kontrol seçerek **ayrıntıları** sekmesini seçip ardından **Gelişmiş anahtar kullanımı**. Emin *istemci kimlik doğrulaması* listesindeki ilk öğedir. Aksi takdirde sahip kullanıcı şablonu temel alan bir istemci sertifikasını vermek *istemci kimlik doğrulaması* listedeki ilk öğe olarak.
 
 - P2S hakkında ek sorun giderme bilgileri için bkz. [P2S bağlantılarının sorunlarını giderme](../articles/vpn-gateway/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

@@ -1,9 +1,9 @@
 ---
-title: Microsoft Azure VHD'nin dağıtım şablonu (JSON) | Microsoft Docs
-description: Azure portalı için örnek VHD dağıtım şablonu.
+title: Azure VHD'nin dağıtım şablonu | Microsoft Docs
+description: Bir kullanıcı sanal sabit diskten yeni bir Azure sanal makine dağıtmak için gereken Azure Resource Manager şablonu listeler.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
-author: pbutlerm
+author: v-miclar
 manager: Patrick.Butler
 editor: ''
 ms.assetid: ''
@@ -11,22 +11,21 @@ ms.service: marketplace
 ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
-ms.topic: reference
-ms.date: 09/25/2018
+ms.topic: article
+ms.date: 11/29/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 283eb1a7ce9bfcf7f57c7a2770b7b51bddc0be23
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 5b338f0b829a337bccf41af5ab9449a6b39b665d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639986"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186965"
 ---
-# <a name="vhd-deployment-template-json"></a>VHD dağıtım şablon (JSON) 
+# <a name="virtual-hard-disk-deployment-template"></a>Sanal sabit disk dağıtım şablonu 
 
-Aşağıdaki JSON kodunu, Microsoft Azure'da bir sanal makine (VM) görüntüsü dağıtmanızı sağlayan bir dağıtım şablonu temsil eder.  Bir VM kaynağı, Azure Market'te bir VM teklifi oluşturmak için gereklidir. 
+Aşağıdaki Azure Resource Manager şablonu yerel sanal sabit diskten (VHD) oluşturulan yeni bir Azure sanal makinesi (VM) örneği tanımlar.  Bu şablon makalesinde kullanılır [VHD kullanıcının bir Azure VM'den dağıtma](./cpp-deploy-vm-user-image.md). 
 
-
-``` json
+```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
@@ -47,7 +46,7 @@ Aşağıdaki JSON kodunu, Microsoft Azure'da bir sanal makine (VM) görüntüsü
         },
         "adminPassword": {
             "type": "securestring",
-            "defaultValue": ""
+            "defaultValue": "Password@123"
         },
         "osType": {
             "type": "string",
@@ -77,7 +76,25 @@ Aşağıdaki JSON kodunu, Microsoft Azure'da bir sanal makine (VM) görüntüsü
         },
         "nicName": {
             "type": "string"
-        },        
+        },
+        "vaultName": {
+            "type": "string",            
+            "metadata": {
+                "description": "Name of the KeyVault"
+            }
+        },
+        "vaultResourceGroup": {
+            "type": "string",           
+            "metadata": {
+                "description": "Resource Group of the KeyVault"
+            }
+        },
+        "certificateUrl": {
+            "type": "string",
+            "metadata": {
+                "description": "Url of the certificate with version in KeyVault e.g. https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7"
+            }
+        },
         "vhdUrl": {
             "type": "string",
             "metadata": {
@@ -177,7 +194,35 @@ Aşağıdaki JSON kodunu, Microsoft Azure'da bir sanal makine (VM) görüntüsü
                     "osProfile": {
                         "computername": "[parameters('vmName')]",
                         "adminUsername": "[parameters('adminUsername')]",
-                        "adminPassword": "[parameters('adminPassword')]"                       
+                        "adminPassword": "[parameters('adminPassword')]",
+                        "secrets": [
+                            {
+                                "sourceVault": {
+                                    "id": "[resourceId(parameters('vaultResourceGroup'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+                                },
+                                "vaultCertificates": [
+                                    {
+                                        "certificateUrl": "[parameters('certificateUrl')]",
+                                        "certificateStore": "My"
+                                    }
+                                ]
+                            }
+                        ],
+                        "windowsConfiguration": {
+                            "provisionVMAgent": "true",
+                            "winRM": {
+                                "listeners": [
+                                    {
+                                        "protocol": "http"
+                                    },
+                                    {
+                                        "protocol": "https",
+                                        "certificateUrl": "[parameters('certificateUrl')]"
+                                    }
+                                ]
+                            },
+                            "enableAutomaticUpdates": "true"
+                        }
                     },
                     "storageProfile": {
                         "osDisk": {
@@ -199,9 +244,17 @@ Aşağıdaki JSON kodunu, Microsoft Azure'da bir sanal makine (VM) görüntüsü
                                 "id": "[resourceId('Microsoft.Network/networkInterfaces',parameters('nicName'))]"
                             }
                         ]
-                    }                
+                    },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('http://', parameters('userStorageAccountName'), '.blob.core.windows.net')]"
+                    }
+                }
+                
                 }
             }
         ]
     }
+
 ```

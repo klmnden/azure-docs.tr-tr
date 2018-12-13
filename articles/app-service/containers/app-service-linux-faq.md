@@ -1,5 +1,5 @@
 ---
-title: SSS Linux'ta Azure App Service | Microsoft Docs
+title: SSS - Azure Linux'ta App Service | Microsoft Docs
 description: SSS Linux'ta Azure App Service.
 keywords: Azure app service, web uygulaması, SSS, linux, oss, kapsayıcılar, çok kapsayıcılı multicontainer için web app
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
-ms.openlocfilehash: 94e61cf5bf4f629dfd776cf9ea2ae54233e91dc6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: 7fe9fd68e03fc36f5aac5d6c27c07896715af906
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417591"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261169"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service Linux SSS hakkında
 
@@ -74,9 +75,9 @@ Evet, çağrılan ayarlama uygulama ayarlamanız gerekir `WEBSITE_WEBDEPLOY_USE_
 
 Linux web uygulamanızı Git dağıtımı başarısız olursa uygulama kodunuzu dağıtmak için aşağıdaki seçeneklerden birini seçin:
 
-- Sürekli teslim (Önizleme) özelliğini kullanma: uygulamanızın kaynak kodu bir Azure DevOps Git deposu veya Azure sürekli teslim için GitHub deposunu depolayabilirsiniz. Daha fazla bilgi için [Linux web uygulaması için sürekli teslimi yapılandırmak nasıl](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Sürekli teslim (Önizleme) özelliğini kullanın: Uygulamanızın kaynak kodu bir Azure DevOps Git deposu veya Azure sürekli teslim için GitHub deposunu depolayabilirsiniz. Daha fazla bilgi için [Linux web uygulaması için sürekli teslimi yapılandırmak nasıl](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Kullanma [ZIP dağıtma API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Bu API'yi kullanmak için [SSH web uygulamanıza](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) ve kodunuzu dağıtmak istediğiniz klasöre gidin. Aşağıdaki kodu çalıştırın:
+- Kullanım [ZIP dağıtma API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Bu API kullanmak üzere [SSH web uygulamanıza](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) ve kodunuzu dağıtmak istediğiniz klasöre gidin. Aşağıdaki kodu çalıştırın:
 
    ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy

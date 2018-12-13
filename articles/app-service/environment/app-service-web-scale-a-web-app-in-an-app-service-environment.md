@@ -1,5 +1,5 @@
 ---
-title: Bir App Service ortamında bir uygulamayı ölçeklendirme
+title: Bir App Service ortamı - Azure uygulama ölçeklendirme
 description: Bir App Service ortamında bir uygulamayı ölçeklendirme
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
-ms.openlocfilehash: 3b2f93c9763805377ed534d59b1025a5aa1a32e8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: c94e7f761dcbc7e05965e359d7f9a864335c9c6b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955539"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269354"
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>App Service Ortamında uygulamaları ölçeklendirme
 Azure App Service'te normalde ölçeklendirebileceğiniz üç şey vardır:
@@ -39,7 +40,7 @@ Her iki öğe değiştirme ASE'niz App Service planlarında barındırılan içi
 
 ![][1]
 
-ASP içinde çalışan havuzu kullanılabilir bilgi işlem kaynaklarının sayısını aşan ASP yukarı ölçeklendirilemez.  Bilgi işlem kaynaklarını, çalışan havuzunda varsa bunları eklemek için ASE yöneticinize almanız gerekir.  Buradaki bilgileri yeniden ASE'nizi yapılandırma geçici olarak bilgi edinin: [bir App Service ortamını yapılandırma][HowtoConfigureASE].  Kapasite zamanlama veya ölçümleri temel alan eklemek için ASE otomatik ölçeklendirme özelliklerinden yararlanmak isteyebilirsiniz.  ASE ortam için otomatik ölçeklendirmeyi yapılandırma hakkında ayrıntılı bilgi almak için bkz [bir App Service ortamı için otomatik ölçeklendirme yapılandırma][ASEAutoscale].
+ASP içinde çalışan havuzu kullanılabilir bilgi işlem kaynaklarının sayısını aşan ASP yukarı ölçeklendirilemez.  Bilgi işlem kaynaklarını, çalışan havuzunda varsa bunları eklemek için ASE yöneticinize almanız gerekir.  Yeniden yapılandırma geçici olarak bilgi ASE'nizi buradaki bilgileri okuyun: [Bir App Service ortamını yapılandırma][HowtoConfigureASE].  Kapasite zamanlama veya ölçümleri temel alan eklemek için ASE otomatik ölçeklendirme özelliklerinden yararlanmak isteyebilirsiniz.  ASE ortam için otomatik ölçeklendirmeyi yapılandırma hakkında ayrıntılı bilgi almak için bkz [bir App Service ortamı için otomatik ölçeklendirme yapılandırma][ASEAutoscale].
 
 Hizmet planları farklı çalışan havuzlarını işlem kaynakları kullanılarak birden çok uygulama oluşturabilir veya aynı çalışan havuzunu kullanabilirsiniz.  (4) kullanan çalışan havuzu 1'de kullanılabilir bilgi işlem kaynakları (10) varsa, (6) işlem kaynakları kullanılarak bir app service planı oluşturmak seçebilirsiniz ve ikinci bir app service planı örneği için işlem kaynakları.
 

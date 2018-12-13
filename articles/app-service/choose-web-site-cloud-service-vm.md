@@ -1,5 +1,5 @@
 ---
-title: Azure App Service, Sanal Makineler, Service Fabric ve Cloud Services karşılaştırması| Microsoft Docs
+title: App Service, VM, Service Fabric karşılaştırın ve bulut Hizmetleri - Azure | Microsoft Docs
 description: Web uygulamalarını barındırmak için Azure App Service, Sanal Makineler, Service Fabric ve Cloud Services’dan hangisini seçeceğinizi öğrenin.
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 5f04279b63ee5133b9900c475537798f6fa16bff
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 2cf73607f0cb286f06a5aa043fd8b30816e6a80f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958721"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313624"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, Sanal Makineler, Service Fabric ve Cloud Services karşılaştırması
 
-Azure, Web sitelerini barındırmak için çeşitli yollar sunar: [Azure App Service][Azure App Service], [Sanal Makineler][Virtual Machines], [Service Fabric][Service Fabric] ve [Cloud Services][Cloud Services]. Bu makale, Web uygulamanız için seçenekleri anlamanıza ve doğru seçim yapmanıza yardımcı olur.
+Azure web sitelerini barındırmak için çeşitli yollar sunar: [Azure App Service'e][Azure App Service], [sanal makineler][Virtual Machines], [Service Fabric][Service Fabric], ve [Bulut Hizmetleri][Cloud Services]. Bu makale, Web uygulamanız için seçenekleri anlamanıza ve doğru seçim yapmanıza yardımcı olur.
 
 Azure App Service, çoğu Web uygulaması için en iyi seçenektir. Dağıtım ve yönetim süreçleri platform ile tümleştirilmiştir, siteler hızla yüksek trafik yüklerinin altından kalkacak şekilde ölçeklendirilebilir ve yerleşik yük dengeleme ve trafik yöneticisi yüksek kullanılabilirlik sağlar. Mevcut siteleri [çevrimiçi geçiş aracı][migrate-tool] ile kolayca Azure App Service’a taşıyabilir, Web Uygulaması Galerisi'nden açık kaynaklı bir uygulamayı kullanabilir veya istediğiniz çerçeve ve araçları kullanarak yeni bir site oluşturabilirsiniz. [WebJobs][WebJobs] özelliği, App Service Web uygulamanıza arka plan iş işlemleri eklemeyi kolaylaştırır.
 

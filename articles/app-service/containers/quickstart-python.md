@@ -1,5 +1,5 @@
 ---
-title: Linux üzerinde Azure App Service'te bir Python web uygulaması oluşturma | Microsoft Docs
+title: Linux üzerinde - Azure App Service'e Python web uygulaması oluşturma | Microsoft Docs
 description: Linux üzerinde Azure App Service'te ilk Python merhaba dünya uygulamanızı birkaç dakika içinde dağıtın.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 5f9d694d47c0bd0765af7871d7e535a4174c30ff
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: d9d6f3549ec5db914536400fac53de60f2ad4a94
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404741"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261859"
 ---
 # <a name="create-a-python-web-app-in-azure-app-service-on-linux-preview"></a>Linux üzerinde Azure App Service'te bir Python web uygulaması oluşturma (Önizleme)
 
@@ -32,7 +32,7 @@ Mac, Windows veya Linux makinesi kullanarak bu makaledeki adımları izleyebilir
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için:
 

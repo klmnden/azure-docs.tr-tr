@@ -1,10 +1,10 @@
 ---
-title: Azure CLI Betik Örneği - GitHub’dan sürekli dağıtım ile bir web uygulaması oluşturma | Microsoft Docs
+title: Azure CLI betik örneği - github'dan sürekli dağıtım ile uygulama oluşturma | Microsoft Docs
 description: Azure CLI Betik Örneği - GitHub’dan sürekli dağıtım ile bir web uygulaması oluşturma
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: 0205c991-0989-4ca3-bb41-237dcc964460
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 588fc4389df3a1e492b4e06a97dbdc7e86ed2f48
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: f65c993515d0f8ce29c87d75412ae9f6a0c26bf7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970881"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315239"
 ---
-# <a name="create-a-web-app-with-continuous-deployment-from-github"></a>GitHub’dan sürekli dağıtım ile bir web uygulaması oluşturma
+# <a name="create-a-web-app-with-continuous-deployment-from-github-using-cli"></a>CLI kullanarak github'dan sürekli dağıtım ile bir web uygulaması oluşturma
 
 Bu örnek betik, App Service’te ilgili kaynaklarıyla birlikte bir web uygulaması oluşturur ve sonra bir GitHub deposundan sürekli dağıtımı ayarlar. Sürekli dağıtım olmadan GitHub dağıtımı için bkz. [Bir web uygulaması oluşturma ve GitHub’dan kod dağıtma](app-service-cli-deploy-github.md). Bu örnekte şunlar gereklidir:
 

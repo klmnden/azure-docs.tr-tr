@@ -1,5 +1,5 @@
 ---
-title: Linux’ta PHP web uygulaması oluşturma ve App Service’e dağıtma | Microsoft Docs
+title: Linux üzerinde - Azure App Service'te PHP web uygulaması oluşturma | Microsoft Docs
 description: Linux’ta App Service ile birkaç dakika içinde ilk PHP Merhaba Dünya uygulamanızı dağıtın.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 5fdf277eb8f99f2d52600140601b413b51bcdfd8
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 2c9586bb5abce66e4043e3df80b420174a582cbb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885914"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257412"
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Linux’ta App Service’te PHP web uygulaması oluşturma
 
@@ -36,7 +36,7 @@ Mac, Windows veya Linux makinesi kullanarak bu makaledeki adımları izleyebilir
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için:
 

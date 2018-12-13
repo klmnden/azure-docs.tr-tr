@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 20d076e256143683b52cfaa713e25e4d31f0f3d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3e6064b4c202c36e4b63d6e06edfbf3149f6665f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098704"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139882"
 ---
 # <a name="add-intents"></a>Hedef ekleme 
 
@@ -58,7 +58,7 @@ Hedefleri, üst gezinti çubuğundan 's yönetilir **derleme** bölümünden, ar
 
 Bir hedefi olarak bir utterance seçili amaç ve tahmin puanı arasında bir hedefi tahmin uyumsuzluk olabilir. LUIS çevresinde ile bu farklılık gösteren **hedefi etiketli** örnek utterance satırda. 
 
-![Vurgulanan utterance ile ekran görüntüsü, hedefleri Ayrıntıları sayfası](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+![Ekran görüntüsü, hedefleri Ayrıntıları sayfası, utterance tahmin tutarsızlık hataları](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
 
 Üst gezinti bölmesinde **eğitme**. Tahmin tutarsızlık sunulmuştur kayboldu.
 
@@ -107,7 +107,7 @@ Aşağıdaki eylemleri utterance sağındaki üç nokta menüsünden bir bireyse
 
 * Düzen: utterance metnini değiştirme
 * Sil: utterance amacından kaldırın. Utterance hala istiyorsanız taşımak için daha iyi bir yöntem olan **hiçbiri** hedefi. 
-* Bir desen Ekle: ortak utterance alıp değiştirilebilir metin ve böylece daha fazla konuşma amacı, gereksinimini azaltarak Ignorable metin işaretlemek bir desen sağlar. 
+* Bir desen Ekle: Bir desen, bir ortak utterance alıp değiştirilebilir metin ve böylece daha fazla konuşma amacı, gereksinimini azaltarak Ignorable metin işaretlemek sağlar. 
 
 **Hedefi etiketli** sütun utterance amacı değiştirmenize olanak sağlar.
 

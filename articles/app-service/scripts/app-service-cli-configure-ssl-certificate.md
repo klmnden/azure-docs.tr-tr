@@ -4,7 +4,7 @@ description: Azure CLI Betik Örneği - Özel bir SSL sertifikasını bir web uy
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
@@ -14,16 +14,16 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 13651663c7934cf7e065eb1ee27d14a7b59fd1ff
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: bf9e0373e0e74b0d694e02c40857a5381a780a0e
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983829"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186557"
 ---
-# <a name="bind-a-custom-ssl-certificate-to-a-web-app"></a>Özel bir SSL sertifikasını bir web uygulamasına bağlama
+# <a name="bind-a-custom-ssl-certificate-to-a-web-app-using-cli"></a>CLI kullanarak bir web uygulamasına özel bir SSL sertifikası bağlama
 
 Bu örnek betik, App Service'te ilgili kaynaklarıyla birlikte bir web uygulaması oluşturur, ardından bu web uygulamasına özel bir etki alanı adının SSL sertifikasını bağlar. Bu örnekte şunlar gereklidir:
 

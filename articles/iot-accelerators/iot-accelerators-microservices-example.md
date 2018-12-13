@@ -7,16 +7,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0b206d7b56fc8a65c422a4ce22b2f5585e71c8da
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 20e86220fffe95fc38b5fa15dd5603db4331203f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219434"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315766"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Bir mikro hizmeti özelleştirme ve yeniden dağıtma
 
-Bu öğreticide Uzaktan izleme çözümünde mikro hizmetlerin birini düzenlemek, mikro hizmet görüntüsü oluşturun, görüntüyü docker hub'ınızı dağıtmak ve Uzaktan izleme çözümünde kullanmak gösterilmektedir. Bu kavram, öğretici temel senaryo burada bir mikro hizmet API çağrısı ve durum ileti "Etkin tutma ve iyi" değiştirin "Yeni Made burada düzenlemeleri için!" kullanır
+Bu öğreticide birini düzenlemek gösterilir [mikro Hizmetler](http://azure.com/microservices) Uzaktan izleme çözümünde, mikro hizmet görüntüsü oluşturun, görüntüyü docker hub'ınızı dağıtmak ve sonra Uzaktan izleme çözümünde kullanabilirsiniz. Bu kavram, öğretici temel senaryo burada bir mikro hizmet API çağrısı ve durum ileti "Etkin tutma ve iyi" değiştirin "Yeni Made burada düzenlemeleri için!" kullanır
 
 Uzaktan izleme çözümü, bir docker hub'ından çekilir docker görüntüleri kullanılarak oluşturulan bir mikro hizmetler kullanır. 
 
@@ -45,7 +45,7 @@ Bu bölümünde varsayılan IOT hub Yöneticisi mikro hizmet API çağrısı. AP
 1. Uzaktan izleme çözümü makinenizde yerel olarak çalışır durumda olduğundan emin olun.
 2. Postman indirdiğiniz bulun ve açın.
 3. Postman içinde GET aşağıdakileri girin: http://localhost:8080/iothubmanager/v1/status.
-4. Dönüş görüntüleyin ve görmelisiniz, "Durum": "Tamam: etkin ve iyi".
+4. Görünümü "Durum" dönüş ve görmeniz gerekir: "Tamam: etkin ve iyi".
 
     ![Canlı ve iyi Postman iletisi](./media/iot-accelerators-microservices-example/postman-alive-well.png)
 
@@ -54,25 +54,31 @@ Bu bölümünde varsayılan IOT hub Yöneticisi mikro hizmet API çağrısı. AP
 "Yeni düzenlemeler burada yapılan!" için IOT Hub Yöneticisi mikro hizmet durum iletisi şimdi Değiştir ve ardından bu yeni durum docker görüntüsünü yeniden derleyin. Burada sorun yaşarsanız, başvurmak bizim [sorun giderme](#Troubleshoot) bölümü.
 
 1. Terminalinizi açık olduğundan emin olun ve Uzaktan izleme çözümü kopyaladığınız dizine geçin. 
-2. Dizininizi "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/WebService/v1/Controllers için" değiştirin.
-3. Herhangi bir metin düzenleyicisinde ya da istediğiniz gibi IDE StatusController.cs açın. 
-4. Aşağıdaki kodu bulun:
+1. Dizininizi "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/Services için" değiştirin.
+1. Herhangi bir metin düzenleyicisinde ya da istediğiniz gibi IDE StatusService.cs açın. 
+1. Aşağıdaki kodu bulun:
 
     ```csharp
-    return new StatusApiModel(true, "Alive and well");
+    var result = new StatusServiceModel(true, "Alive and well!");
     ```
 
     aşağıdaki kodla değiştirin ve dosyayı kaydedin.
 
     ```csharp
-    return new StatusApiModel(true, "New Edits Made Here!");
+    var result = new StatusServiceModel(true, "New Edits Made Here!");
     ```
 
 5. Terminalinizi için geri dönün, ancak artık aşağıdaki dizine geçin: "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/scripts/docker".
 6. Yeni docker görüntünüzü derlemek için aşağıdakileri yazın
 
-    ```cmd/sh
+    ```sh
     sh build
+    ```
+    
+    veya Windows üzerinde:
+    
+    ```
+    ./build.cmd
     ```
 
 7. Yeni görüntünüzü başarıyla oluşturuldu doğrulamak için aşağıdakileri yazın
@@ -138,7 +144,7 @@ Uzaktan izleme çözümünü yerel bir örneğini dağıtarak ve Postman içinde
     ```
 
 3. Postman indirdiğiniz bulun ve açın.
-4. Postman içinde aşağıdaki isteği Get girin: http://localhost:8080/iothubmanager/v1/status. Artık görmelisiniz, "Durum": "Tamam: yeni düzenlemeler yapılan burada!".
+4. Postman içinde aşağıdaki isteği Get girin: http://localhost:8080/iothubmanager/v1/status. Artık görmelisiniz, "Durum": "TAMAM: Burada yapılan yeni düzenlemeler! ".
 
 ![Yeni burada yaptığınız düzenlemeleri postman iletisi](./media/iot-accelerators-microservices-example/new-postman-message.png)
 

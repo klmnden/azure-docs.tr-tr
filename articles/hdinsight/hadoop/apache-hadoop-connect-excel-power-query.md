@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: d852919b762dd7350b74372acbbbcaa31f0a8f90
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: ee46fd0b846bb2cf2ad3cd674417d598d0d08e2a
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016683"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162911"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Excel'i Power Query kullanarak Apache Hadoop'a bağlama
 Temel özelliklerinden biri, Microsoft büyük veri çözümü, Azure HDInsight, Apache Hadoop kümelerini Microsoft iş zekası (BI) bileşenleriyle tümleştirmedir. Excel için Excel eklentisi, Microsoft Power Query kullanarak Hadoop kümenizle ilişkili verileri içeren Azure depolama hesabına bağlanma olanağı buna birincil bir örnektir. Bu makalede, ayarlama ve HDInsight ile yönetilen Hadoop kümesi ile ilişkili verileri sorgulamak için Power Query kullanma konusunda yol göstermektedir.
@@ -52,9 +52,9 @@ Excel için Power Query eklentisini Excel'e burada BI araçları gibi incelemek 
    
         ![HDI. PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
        
-        **Not:** görmüyorsanız **Power Query** menü, Git **dosya** > **seçenekleri** > **eklentileri**seçip **COM eklentileri** açılır listeden **Yönet** sayfanın alt kısmındaki kutusu. Seçin **Git...**  düğmesine tıklayın ve Excel eklentisi için Power Query onay kutusunun seçili olduğunu doğrulayın.
+        **Not:** Görmüyorsanız **Power Query** menü, Git **dosya** > **seçenekleri** > **eklentileri**, seçin **COM eklentileri** açılır listeden **Yönet** sayfanın alt kısmındaki kutusu. Seçin **Git...**  düğmesine tıklayın ve Excel eklentisi için Power Query onay kutusunun seçili olduğunu doğrulayın.
        
-        **Not:** Power Query de izin verir, tıklayarak verileri HDFS içeri aktarmak **diğer kaynaklardan**.
+        **Not:** Power Query de sayesinde tıklayarak verileri HDFS içeri **diğer kaynaklardan**.
 4. İçin **hesap adı**kümenizle ilişkili Azure Blob Depolama hesabı adını girin ve ardından **Tamam**. Bu hesap olabilir [varsayılan depolama hesabı](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account) ya da bağlantılı bir depolama hesabı.  Biçim *https://&lt;StorageAccountName >.blob.core.windows.net/*.
 5. İçin **hesap anahtarı**, Blob Depolama hesabı anahtarını girin ve ardından **Kaydet**. (Bu deposuna erişim hesabı bilgilerini yalnızca uygulamayı ilk zaman girmeniz gerekir.)
 6. İçinde **Gezgin** sorgu Düzenleyicisi'nin, sol bölmede, Blob Depolama kapsayıcısı adı'na çift tıklayın. Varsayılan olarak, kapsayıcı adını küme adıyla aynı addır.

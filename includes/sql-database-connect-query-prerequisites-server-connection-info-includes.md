@@ -2,28 +2,28 @@
 author: MightyPen
 ms.service: sql-database
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 12/06/2018
 ms.author: genemi
-ms.openlocfilehash: b78d52f23de8d02189f10b32d26e070fb6deea68
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: b3b7027e5ae252eb899d2a44d171ea9c9795ab54
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52339745"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286015"
 ---
 <!-- sql-database-connect-query-prerequisites-server-connection-info-includes.md 
 
-## SQL server connection information
+## Get SQL server connection information
 -->
 
-Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. Sonraki yordamlarda tam sunucu adına, veritabanı adına ve oturum açma bilgilerine ihtiyacınız olacaktır.
+Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. Yaklaşan yordamlar için tam sunucu adını, veritabanı adını ve oturum açma bilgileri gerekir.
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-1. Soldaki menüden **SQL veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın.
+1. Seçin **SQL veritabanları** sol menüden veritabanınız üzerinde seçip **SQL veritabanları** sayfası.
 
-1. Veritabanınızın **Genel Bakış** sayfasında, aşağıdaki görüntüde gösterildiği gibi tam sunucu adını gözden geçirin. Üzerine gelerek **sunucu adı** ortaya çıkarmak için **kopyalamak için tıklayın** seçeneği.  
+1. Üzerinde **genel bakış** sayfasında veritabanınız için tam sunucu adını gözden **sunucu adı**. Sunucu adı kopyalamak için üzerine gelin ve seçin **kopyalama** simgesi.  
 
-   ![server-name](./media/sql-database-connect-query-prerequisites-server-connection-info-includes/server-name.png)
+![server-name](./media/sql-database-connect-query-prerequisites-server-connection-info-includes/server-name.png)
 
-1. Sunucunuzun oturum açma bilgilerini unuttuysanız tıklayabilirsiniz **sunucu adı** gitmek için **SQL server** sayfası ve Görünüm **Sunucu Yöneticisi** adı. Gerekirse, seçin **parolayı Sıfırla**.
+Oturum açma bilgilerinizi unutursanız, açmak için sunucu adını seçin **SQL server** sayfası. Burada görebilirsiniz **Sunucu Yöneticisi** adını ve seçin **parolayı Sıfırla** gerekirse.

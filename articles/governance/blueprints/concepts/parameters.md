@@ -1,5 +1,5 @@
 ---
-title: Azure planlar içinde dinamik bir blueprint'i parametreler aracılığıyla oluşturma
+title: Dinamik şemaları oluşturmak için parametreleri kullanın
 description: Statik ve dinamik parametreleri ve bunları kullanarak dinamik bir blueprint'i nasıl oluşturduğunu öğrenin.
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: f6485b01c391ba336799ceb35ee67402b3603585
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 0eef85fe92682eb3a6fd1dbc036cf547b163db97
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093760"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310326"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Parametreler ile dinamik şemaları oluşturma
 
@@ -51,13 +52,13 @@ Bir şema tanımı içinde tanımlanmış bir parametre değeri olarak adlandır
 
 #### <a name="setting-static-parameters-in-the-portal"></a>Portalda static parametrelerini ayarlama
 
-1. Tıklayarak **tüm hizmetleri** arama ve seçme **ilke** sol bölmesinde. **İlke** sayfasında **Şemalar**’a tıklayın.
+1. **Tüm hizmetler**'e tıklayın ve **İlke** araması yapıp sol taraftaki bölmeden seçin. **İlke** sayfasında **Şemalar**’a tıklayın.
 
 1. Soldaki sayfadan **Şema Tanımları**’nı seçin.
 
 1. Var olan bir şema üzerinde tıklayın ve ardından **Düzenle şema** veya **+ Oluştur şema** ve şirket bilgileri doldurun **Temelleri** sekmesi.
 
-1. Tıklayın **sonraki: Yapıtlar** veya tıkladığınızda **Yapıtları** sekmesi.
+1. Tıklayın **sonraki: Yapıtları** veya tıkladığınızda **Yapıtları** sekmesi.
 
 1. Sahip parametre seçeneklerini görüntülemek için şema eklenen yapıtları **X, Y dolduruldu** içinde **parametreleri** sütun. Yapıt parametrelerini düzenlemek için yapıt satırına tıklayın.
 
@@ -168,7 +169,7 @@ Statik bir parametrenin tersidir bir **dinamik parametre**. Bu parametre, şema 
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Portalda dinamik parametreleri ayarlanıyor
 
-1. Tıklayarak **tüm hizmetleri** arama ve seçme **ilke** sol bölmesinde. **İlke** sayfasında **Şemalar**’a tıklayın.
+1. **Tüm hizmetler**'e tıklayın ve **İlke** araması yapıp sol taraftaki bölmeden seçin. **İlke** sayfasında **Şemalar**’a tıklayın.
 
 1. Soldaki sayfadan **Şema Tanımları**’nı seçin.
 

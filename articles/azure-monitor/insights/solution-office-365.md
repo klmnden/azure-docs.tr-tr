@@ -9,16 +9,15 @@ editor: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 1e819f819561c5fac722ca6954a10d80a482b5cd
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: cc2fe3c71a3da58a00a3b3c65e709f2e371872e8
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889370"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185214"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365 Yönetim çözümüne (Önizleme)
 
@@ -51,16 +50,16 @@ Bu yordama başlamadan önce aşağıdaki bilgileri toplayın.
 
 Log Analytics çalışma alanınızdan:
 
-- Çalışma alanı adı: Office 365 verileri nerede toplanacak çalışma.
-- Kaynak grubu adı: çalışma alanını içeren kaynak grubu.
-- Azure abonelik kimliği: çalışma alanını içeren aboneliği.
+- Çalışma alanı adı: Office 365 verilerine nerede toplanacağını çalışma alanı.
+- Kaynak grubu adı: Çalışma alanını içeren kaynak grubu.
+- Azure abonelik kimliği: Çalışma alanını içeren aboneliği.
 
 Office 365 aboneliğinize:
 
-- Kullanıcı adı: Bir yönetim hesabının e-posta adresi.
-- Kiracı kimliği: Office 365 aboneliği benzersiz kimliği.
+- Kullanıcı Adı: Bir yönetici hesabı e-posta adresi.
+- Kiracı Kimliği: Office 365 aboneliğiniz için benzersiz kimlik.
 - İstemci kimliği: Office 365 istemci temsil eden 16-karakter dizesi.
-- İstemci gizli anahtarı: Şifreli dize kimlik doğrulaması için gerekli.
+- İstemci gizli anahtarı: Kimlik doğrulaması için gereken şifreli dize.
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Azure Active Directory'de bir Office 365 uygulaması oluşturma
 İlk adım, Azure Active Directory yönetim çözümü, Office 365 çözümünüzü erişmek için kullanacağı bir uygulama oluşturmaktır.
@@ -588,7 +587,7 @@ Exchange yapılandırmasını değişiklik yapıldığında bu kayıtları oluş
 | RecordType     | ExchangeAdmin |
 | ExternalAccess |  Cmdlet, kuruluşunuz, Microsoft Veri merkezinde personeli tarafından veya bir veri merkezinde hizmet hesabı bir kullanıcı veya yönetici temsilcisi tarafından çalıştırılıp çalıştırılmadığını belirler. ' % S'değeri False, cmdlet, kuruluşunuzdaki bir kişi tarafından çalıştırıldığı gösterir. Cmdlet'i, veri merkezi personelinin, bir veri merkezinde hizmet hesabı veya yönetici temsilcisi tarafından çalıştırıldı True değerini gösterir. |
 | ModifiedObjectResolvedName |  Bu cmdlet tarafından değiştirilmiş olan nesne kolay adıdır. Bu cmdlet nesne değiştirirse günlüğe kaydedilir. |
-| Kuruluş adı | Kiracı adı. |
+| OrganizationName | Kiracı adı. |
 | OriginatingServer | Cmdlet yürütüldüğü sunucunun adı. |
 | Parametreler | Ad ve işlemleri özelliğinde tanımlanır cmdlet ile kullanılan tüm parametreler için değer. |
 

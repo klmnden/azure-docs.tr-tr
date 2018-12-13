@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0e46caf855bca184ff8a714d2c93d573b910fea8
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7bafc30bbf8661f7054e49c36af420507f37c989
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226568"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53326565"
 ---
-Kolayca [otomatik olarak ölçeklendirme](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) , [sanal makineleri (VM'ler)](../articles/virtual-machines/windows/overview.md) kullandığınızda [sanal makine ölçek kümeleri](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) ve [Azure otomatik ölçeklendirme özelliği İzleyici](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Sanal makinelerinizin bir ölçek kümesinin otomatik olarak ölçeklendirilmesi üyelerinin olması gerekir. Bu makalede, dikey ve yatay otomatik ve el ile yöntemleri kullanarak sanal makinelerinizi ölçeklendirmek nasıl daha iyi anlamak sağlayan bilgiler sağlar.
+Kolayca [otomatik olarak ölçeklendirme](../articles/azure-monitor/platform/autoscale-best-practices.md) , [sanal makineleri (VM'ler)](../articles/virtual-machines/windows/overview.md) kullandığınızda [sanal makine ölçek kümeleri](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) ve [Azure otomatik ölçeklendirme özelliği İzleyici](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Sanal makinelerinizin bir ölçek kümesinin otomatik olarak ölçeklendirilmesi üyelerinin olması gerekir. Bu makalede, dikey ve yatay otomatik ve el ile yöntemleri kullanarak sanal makinelerinizi ölçeklendirmek nasıl daha iyi anlamak sağlayan bilgiler sağlar.
 
 ## <a name="horizontal-or-vertical-scaling"></a>Yatay veya dikey ölçeklendirme
 
@@ -35,7 +35,7 @@ Kullanan ölçek kümesi oluşturduğunuzda, otomatik ölçeklendirme etkinleşt
  
 ### <a name="metrics"></a>Ölçümler
 
-Azure İzleyici otomatik ölçeklendirme özelliği, çalışan VM'lerin sayısını ölçekleyebilmenizi sağlar veya aşağı dayanarak [ölçümleri](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Varsayılan olarak, disk, ağ ve CPU kullanımı için sanal makineleri temel konak düzeyinde ölçümler sağlar. Tanılama uzantısını kullanarak Tanılama verileri toplamayı yapılandırırken, ek bir konuk işletim sistemi performans sayaçları disk, CPU ve bellek için kullanılabilir hale gelir.
+Azure İzleyici otomatik ölçeklendirme özelliği, çalışan VM'lerin sayısını ölçekleyebilmenizi sağlar veya aşağı dayanarak [ölçümleri](../articles/azure-monitor/platform/autoscale-common-metrics.md). Varsayılan olarak, disk, ağ ve CPU kullanımı için sanal makineleri temel konak düzeyinde ölçümler sağlar. Tanılama uzantısını kullanarak Tanılama verileri toplamayı yapılandırırken, ek bir konuk işletim sistemi performans sayaçları disk, CPU ve bellek için kullanılabilir hale gelir.
 
 ![Ölçüm ölçütleri](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
 
@@ -49,7 +49,7 @@ Uygulamanızın ana bilgisayar üzerinden kullanılabilir olmayan olan ölçüml
  
 ### <a name="notifications"></a>Bildirimler
 
-Yapabilecekleriniz [Tetikleyiciler ayarlamak](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) e-postalarının gönderildiği tabanlı otomatik ölçeklendirme kuralları, oluşturduğunuz ya da belirli web URL'lerini çağrılır. Web kancaları, işlem sonrası veya özel bildirimleri için diğer sistemlere Azure uyarı bildirimleri yönlendirmek olanak sağlar.
+Yapabilecekleriniz [Tetikleyiciler ayarlamak](../articles/azure-monitor/platform/autoscale-webhook-email.md) e-postalarının gönderildiği tabanlı otomatik ölçeklendirme kuralları, oluşturduğunuz ya da belirli web URL'lerini çağrılır. Web kancaları, işlem sonrası veya özel bildirimleri için diğer sistemlere Azure uyarı bildirimleri yönlendirmek olanak sağlar.
 
 ## <a name="manually-scale-vms-in-a-scale-set"></a>El ile bir ölçek kümesindeki VM ölçeklendirme
 

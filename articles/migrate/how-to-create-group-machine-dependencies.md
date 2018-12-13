@@ -4,19 +4,21 @@ description: Makine bağımlılıkları kullanan Azure geçişi hizmeti ile bir 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: e83ec29c5ff06e80c09b9328a7bfe545f3a0f6f3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8756809de4ec1a8150610027a8197f1bcae213f0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844830"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252540"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Makine bağımlılık eşlemesi kullanan Grup makineleri
 
 Bu makalede bu makine için bir grup oluşturmak nasıl [Azure geçişi](migrate-overview.md) makinelerin bağımlılıklarını görselleştirme tarafından değerlendirme. Makine bağımlılıklarını arası denetimi, bir değerlendirme çalıştırmadan önce göre daha yüksek güven düzeylerine sahip VM grupları değerlendirmek istediğiniz zaman genellikle bu yöntemi kullanın. Bağımlılık görselleştirmesi etkili bir şekilde azure'a geçişinizi planlamanıza yardımcı olabilir. Hiçbir şey geride bıraktığı ve Azure'a geçirirken şaşkınlık kesintiler meydana gelmediğinden emin olmanıza yardımcı olur. Geçişini birlikte yaptığınız ve çalışan bir sistemi hala kullanıcıya hizmet veren veya geçiş yerine yetkisinin alınması için bir adaydır olup olmadığını belirlemek için gereken tüm bağımlı sistemlere bulabilir.
 
+> [!NOTE]
+> Bağımlılık görselleştirme işlevini Azure Kamu'da kullanılabilir değil.
 
 ## <a name="prepare-for-dependency-visualization"></a>Bağımlılık görselleştirmesi için hazırlama
 Azure geçişi, hizmet eşlemesi çözümünü'makineler için bağımlılık görselleştirme etkinleştirmek için Log analytics'te yararlanır.
@@ -54,7 +56,7 @@ Bir Windows makinede aracı yüklemek için:
 2. **Hoş Geldiniz** sayfasında **İleri**'ye tıklayın. **Lisans Koşulları** sayfasında **Kabul Ediyorum**’a tıklayarak lisansı kabul edin.
 3. İçinde **hedef klasör**, saklamak veya varsayılan yükleme klasörünü değiştirin > **sonraki**.
 4. İçinde **Aracı Kurulum Seçenekleri**seçin **Azure Log Analytics** > **sonraki**.
-5. Tıklayın **Ekle** yeni bir Log Analytics çalışma alanı eklemek için. Çalışma alanı kimliği ve portaldan kopyaladığınız anahtarını yapıştırın. **İleri**’ye tıklayın.
+5. Tıklayın **Ekle** yeni bir Log Analytics çalışma alanı eklemek için. Çalışma alanı kimliği ve portaldan kopyaladığınız anahtarını yapıştırın. **İleri**'ye tıklayın.
 
 [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) hakkında MMA tarafından Windows işletim sistemleri desteği listesi.
 
@@ -89,7 +91,7 @@ Bağımlılık Aracısı desteği hakkında daha fazla bilgi [Windows](../azure-
     - İşlemler, makinenin içinde çalışan işlemleri görüntülemek için her makine kutusunu genişletebilirsiniz.
     - Tam etki alanı adı, işletim sistemi, her makinenin MAC adresi vb. gibi özellikler, bu ayrıntıları görüntülemek için her makine kutusuna tıklayın
 
- ![Makine bağımlılıklarını görüntüleme](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
+      ![Makine bağımlılıklarını görüntüleme](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
 
 4. Zaman aralığı etikette süre tıklayarak için farklı süreler sırasında bağımlılıkları bakabilirsiniz. Varsayılan olarak aralığı bir saattir. Zaman aralığı değiştirmek veya başlangıç ve bitiş tarihlerini ve süresini belirtin.
 5. Gruplamak istediğiniz bağımlı makineler tanımladıktan sonra harita üzerinde birden çok makine seçin ve Ctrl + tıklama kullanın **Grup makineleri**.

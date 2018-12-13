@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Kaynak Yöneticisi şablonunu kullanarak Azure Databricks’te Spark işini çalıştırma '
+title: "Hızlı Başlangıç: Resource Manager şablonu kullanarak Azure Databricks'te Spark işini çalıştırma "
 description: Bu hızlı başlangıçta, Azure Resource Manager şablonunu kullanarak bir Azure Databricks çalışma alanı oluşturma, ardından bir Apache Spark kümesi oluşturma ve bir Spark işi çalıştırma işlemi gösterilmektedir.
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,14 +10,14 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/12/2018
-ms.openlocfilehash: 87aaf7108fabe0e4d96c4a2edd15db8531f1a828
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 793aa52c0eb49d122f520ead3ee80a869e7b62d9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578341"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251343"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Hızlı Başlangıç: Azure Resource Manager şablonunu kullanarak Azure Databricks’te Spark işini çalıştırma
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Hızlı Başlangıç: Azure Resource Manager şablonu kullanarak Azure Databricks'te Spark işini çalıştırma
 
 Bu hızlı başlangıçta, Azure Resource Manager şablonu kullanarak bir Azure Databricks çalışma alanını oluşturma işlemi gösterilmektedir. Apache Spark kümesi oluşturmak ve Databricks kümesinde bir Spark işi çalıştırmak için çalışma alanını kullanırsınız. Azure Databricks hakkında daha fazla bilgi için bkz. [Azure Databricks nedir?](what-is-azure-databricks.md)
 
@@ -80,7 +80,7 @@ Küme oluşturma hakkında daha fazla bilgi için bkz. [Azure Databricks üzerin
 Bu bölüme başlamadan önce aşağıdaki önkoşulları tamamlamanız gerekir:
 
 * [Azure Blob depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md).
-* Örnek JSON dosyasını [Github'dan](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) indirin.
+* Örnek JSON dosyası indirmeniz [github'dan](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
 * Örnek JSON dosyasını, oluşturduğunuz Azure Blob depolama hesabına yükleyin. Dosyaları karşıya yüklemek için [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md)’ni kullanabilirsiniz.
 
 Databricks içinde bir not defteri oluşturmak, not defterini bir Azure Blob depolama hesabındaki verileri okuyacak şekilde yapılandırmak ve sonra veriler üzerinde bir Spark SQL işi çalıştırmak için aşağıdaki görevleri gerçekleştirin.

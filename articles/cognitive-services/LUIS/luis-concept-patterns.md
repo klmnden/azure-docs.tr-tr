@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 12/10/2018
 ms.author: diberry
-ms.openlocfilehash: 3c33612ef76a572bd4bf63a5e7d6f05e36c7847b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 46c9eb99d808874e0f49dee5fa4865a4867873f1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082008"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271530"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Desenlerini tahmin doğruluğunu artırmak
 Desenler, çeşitli konuşma çok benzer olduğunda doğruluğunu artırmak için tasarlanmıştır.  Bir desen çok daha fazla konuşma sağlamadan bir amaç için daha yüksek doğruluk derecesi elde etmek sağlar. 
 
 ## <a name="patterns-solve-low-intent-confidence"></a>Düşük hedefi güvenle desenleri çözün
-Kuruluş şeması ile ilgili olarak çalışan bir rapor bir insan kaynakları uygulamasında göz önünde bulundurun. Bir çalışanın adı ve ilişki LUIS çalışanlar ilgili döndürür. Tom, çalışanın sahip bir yönetici adı Alice ve adlı Astları ekibi dikkate alın: Michael Rebecca ve Carl.
+Kuruluş şeması ile ilgili olarak çalışan bir rapor bir insan kaynakları uygulamasında göz önünde bulundurun. Bir çalışanın adı ve ilişki LUIS çalışanlar ilgili döndürür. Tom, çalışanın sahip bir yönetici adı Alice ve adlı Astları ekibi göz önünde bulundurun: Michael Rebecca ve Carl.
 
 ![Kuruluş Şeması görüntüsü](./media/luis-concept-patterns/org-chart.png)
 
@@ -43,6 +43,8 @@ Desenlerini tahmin teknolojilerinin bir karışımını kullanın. Bir desende b
 
 ## <a name="patterns-do-not-improve-entity-detection"></a>Desenler varlık algılama geliştirmek değil
 Varlıklar desenleri gerektirir, ancak bir düzeni varlık algılamak yardımcı olmaz. Bir desen, yalnızca hedefleri ve roller ile tahmini için tasarlanmıştır.  
+
+Tek bir düzen birden çok konuşma daralttığınızda geliştirilmiş varlık tahmin görmek beklemiyoruz. Ateşlenmesine basit varlıklar için Konuşma ekleme veya başka desen değil ateşlenir listesi varlıkları kullanın gerekir.
 
 ## <a name="patterns-use-entity-roles"></a>Varlık rolleri desenleri kullanın
 İki veya daha fazla varlık desenindeki bağlamsal ilişkiliyse, varlık desenleri kullanın [rolleri](luis-concept-roles.md) varlıklarla ilgili bağlamsal bilgi ayıklamak için. Bu hiyerarşik varlık alt öğelere eşdeğerdir, ancak **yalnızca** desenleri kullanılabilir. 

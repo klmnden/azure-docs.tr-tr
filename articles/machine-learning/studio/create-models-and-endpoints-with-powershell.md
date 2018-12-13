@@ -1,12 +1,11 @@
 ---
-title: Tek bir deneyden - Azure Machine Learning Studio'da birden fazla modeller oluşturun | Microsoft Docs
+title: Birden çok modeli bir Studio denemeden - Azure Machine Learning Studio'da oluşturma | Microsoft Docs
 description: Birden çok makine öğrenimi modelleri ve web hizmeti uç noktaları aynı algoritmayı ancak farklı bir eğitim veri kümeleri oluşturmak için PowerShell kullanın.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: mwinkle
 editor: cgronlun
 ms.assetid: 1076b8eb-5a0d-4ac5-8601-8654d9be229f
 ms.service: machine-learning
@@ -16,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: b6e54fb7fe852ca4e12dc9a9e0f63eac2382c5c8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f54f9f9ff4b55ef1e2e68f61b709cef6635dc231
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093036"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250272"
 ---
-# <a name="use-powershell-to-create-models-and-web-service-endpoints-from-one-experiment"></a>Modelleri ve web hizmeti uç noktaları tek bir deneyden oluşturmak için PowerShell kullanma
+# <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Tek bir deneyden Studio modelleri ve web hizmeti uç noktaları oluşturmak için PowerShell kullanma
 
-Bir ortak makine öğrenimi sorunu şu şekildedir: aynı eğitim iş akışı, sahip ve aynı algoritmayı kullanan çok sayıda model oluşturmak istiyorsunuz. Ancak giriş olarak farklı bir eğitim veri kümesi olmasını istersiniz. Bu makalede tek bir denemede kullanarak uygun ölçekte Azure Machine Learning Studio'da bunun nasıl yapılacağını gösterir.
+Bir ortak makine öğrenimi sorunu şu şekildedir: Aynı eğitim iş akışı, sahip ve aynı algoritmayı kullanan çok sayıda model oluşturmak istiyorsunuz. Ancak giriş olarak farklı bir eğitim veri kümesi olmasını istersiniz. Bu makalede tek bir denemede kullanarak uygun ölçekte Azure Machine Learning Studio'da bunun nasıl yapılacağını gösterir.
 
 Örneğin, bir genel bisiklet kiralama franchise işletme sahibi varsayalım. Geçmiş verileri temel alan kiralama talep tahmin etmek için regresyon modeli oluşturmak istiyorsunuz. Dünya genelinde 1.000 kiralama konumları vardır ve her konum için bir veri kümesi derledik. Bunlar, tarih, saat, hava durumu ve trafiği gibi her bir konuma özgü önemli özellikleri içerir.
 

@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 72c87684e0b3fd40477c468c5cd0988651925fb0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: dc68f00779d7b06b0498ffddbbee75a8396e952b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094687"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186302"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Azure portalında Log Analytics çalışma alanı oluşturma
 Kendi veri deposu, veri kaynakları ve çözümleri olan benzersiz bir Log Analytics ortamı olan Azure portalında, Log Analytics çalışma alanı ayarlayabilirsiniz.  Bu makalede açıklanan adımları aşağıdaki kaynaklardan veri toplama işlemini istiyorsanız gereklidir:
