@@ -17,20 +17,20 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 2d8741f6c65002d7f3701784e5fffe67b0e9bf50
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 7f7ae858f633a910b796f544ed69a582e749beaf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287243"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311074"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Hızlı başlangıç: Android uygulamasından kullanıcıların oturum açma ve Microsoft Graph API'sini çağırma
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir Android uygulamasından Microsoft Graph API çağırma
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
 Android uygulaması geliştiriyorsanız, Microsoft Azure Active Directory (Azure AD) kullanıcılarının oturum açmasını kolaylaştırıyor ve basit hale getirir. Azure AD, Microsoft Graph veya kendi korumalı web API’niz üzerinden uygulamanızın kullanıcı verilerine erişmesini sağlar.
 
-Azure AD Authentication Library (ADAL) Android kitaplığı, endüstri standardı OAuth 2.0 ve OpenID Connect'i kullanarak [Microsoft Azure Active Directory hesapları](https://azure.microsoft.com/services/active-directory/) için destek sağladığından, uygulamanıza [Microsoft Azure Cloud](https://cloud.microsoft.com) & [Microsoft Graph API'si](https://developer.microsoft.com/graph) kullanabilme olanağı getirir.
+Azure AD Authentication Library (ADAL) Android kitaplığı uygulamanızı kullanmaya başlamak olanağı sağlar. [Microsoft Azure bulut](https://cloud.microsoft.com) ve [Microsoft Graph API](https://developer.microsoft.com/graph) destekleyerek [Microsoft Azure Active Directory hesapları](https://azure.microsoft.com/services/active-directory/) sektör kullanarak standart OAuth 2.0 ve Openıd Connect.
 
 Bu hızlı başlangıçta şunları yapmayı öğreneceksiniz:
 
@@ -41,9 +41,9 @@ Bu hızlı başlangıçta şunları yapmayı öğreneceksiniz:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Başlamak için, kullanıcıları oluşturabildiğiniz ve uygulama kaydedebildiğiniz bir Azure AD kiracısına ihtiyacınız vardır. Henüz kiracınız yoksa, [nasıl alabileceğinizi öğrenin](quickstart-create-new-tenant.md).
+Başlamak için, kullanıcıları oluşturabildiğiniz ve uygulama kaydedebildiğiniz bir Azure AD kiracısına ihtiyacınız vardır. Henüz bir kiracınız yoksa [nasıl kiracı alınabileceğini öğrenin](quickstart-create-new-tenant.md).
 
-## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>Senaryo: Kullanıcıların oturumunu açma ve Microsoft Graph'ı çağırma
+## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>Senaryo: Kullanıcılar oturum ve Microsoft Graph'i çağırmaya
 
 ![Topoloji](./media/quickstart-v1-android/active-directory-android-topology.png)
 
@@ -51,23 +51,23 @@ Bu uygulamayı tüm Azure AD hesaplarında kullanabilirsiniz. Hem tek kiracılı
 
 ## <a name="sample-code"></a>Örnek kod
 
-Tam örnek kodu [Github’da](https://github.com/Azure-Samples/active-directory-android) bulabilirsiniz.
+Tam örnek kodu bulabilirsiniz [github'da](https://github.com/Azure-Samples/active-directory-android).
 
 ```Java
 // Initialize your app with MSAL
 AuthenticationContext mAuthContext = new AuthenticationContext(
-        MainActivity.this, 
-        AUTHORITY, 
+        MainActivity.this,
+        AUTHORITY,
         false);
 
 
 // Perform authentication requests
 mAuthContext.acquireToken(
-    getActivity(), 
-    RESOURCE_ID, 
-    CLIENT_ID, 
-    REDIRECT_URI,  
-    PromptBehavior.Auto, 
+    getActivity(),
+    RESOURCE_ID,
+    CLIENT_ID,
+    REDIRECT_URI,
+    PromptBehavior.Auto,
     getAuthInteractiveCallback());
 
 // ...
@@ -76,7 +76,7 @@ mAuthContext.acquireToken(
 mAuthResult.getAccessToken()
 ```
 
-## <a name="step-1-register-and-configure-your-app"></a>1. Adım: Uygulamanızı kaydetme ve yapılandırma
+## <a name="step-1-register-and-configure-your-app"></a>1. Adım: Kaydetme ve uygulamanızı yapılandırma
 
 [Azure portalını](https://portal.azure.com) kullanarak Microsoft'a kaydedilmiş yerel bir istemci uygulamanız olması gerekir.
 
@@ -95,13 +95,13 @@ mAuthResult.getAccessToken()
     - **Ekle**’yi seçin, **Bir API seçin** alanında ***Microsoft Graph***’ı seçin.
     - **Oturum açma ve kullanıcı profilini okuma** iznini seçin ve kaydetmek için **Seç**'e basın.
         - Bu izin `User.Read` kapsamıyla eşleşir.
-    - İsteğe bağlı: **Gerekli izinler > Windows Azure Active Directory**'nin altında, seçilen **Oturum açma ve kullanıcı profilini okuma** iznini kaldırın. Bu, kullanıcı onayı sayfasında iznin iki kez listelemesini önler.
+    - İsteğe bağlı: İçinde **gerekli izinler > Windows Azure Active Directory**, seçili izinleri kaldırmak **oturum açın ve kullanıcı profilini okuma**. Bu, kullanıcı onayı sayfasında iznin iki kez listelemesini önler.
 
 4. Tebrikler! Uygulamanız başarıyla yapılandırıldı. Sonraki bölümde size gerekecekler:
     - `Application ID`
     - `Redirect URI`
 
-## <a name="step-2-get-the-sample-code"></a>2. Adım: Örnek kodu alma
+## <a name="step-2-get-the-sample-code"></a>2. Adım: Örnek kodunu alma
 
 1. Kodu kopyalayın.
     ```
@@ -110,14 +110,14 @@ mAuthResult.getAccessToken()
 2. Örneği Android Studio’da açın.
     - **Var olan Android Studio projesini aç**'ı seçin.
 
-## <a name="step-3-configure-your-code"></a>3. Adım: Kodunuzu yapılandırma
+## <a name="step-3-configure-your-code"></a>3. adım: Kodunuzu yapılandırın
 
 Bu kod örneğinin tüm yapılandırmasını ***src/main/java/com/azuresamples/azuresampleapp/MainActivity.java*** dosyasında bulabilirsiniz.
 
 1. `CLIENT_ID` sabitini `ApplicationID` ile değiştirin.
 2. `REDIRECT URI` sabitini daha önce yapılandırdığınız `Redirect URI` ile (`http://localhost`) değiştirin.
 
-## <a name="step-4-run-the-sample"></a>4. Adım: Örneği çalıştırma
+## <a name="step-4-run-the-sample"></a>4. adım: Örneği çalıştırma
 
 1. **Derle > Projeyi Temizle**’yi seçin.
 2. **Çalıştır > Uygulamayı çalıştır**’ı seçin.

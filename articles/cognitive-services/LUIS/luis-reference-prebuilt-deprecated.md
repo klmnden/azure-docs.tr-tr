@@ -11,19 +11,19 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 2fcd5a784801c3591d76b4c4569a7dda9472686e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7b294b9c528d0b7a93a3e287b37124a26d0851dd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103991"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138067"
 ---
-# <a name="deprecated-entities"></a>Kullanım dışı varlıklar
+# <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Bir LUIS uygulaması kullanım dışı önceden oluşturulmuş varlıklar
 Aşağıdaki önceden oluşturulmuş varlıklar kullanım dışıdır ve yeni LUIS uygulamalara eklenemez.
 
-* **DateTime**: kullanan mevcut LUIS uygulamalar **datetime** geçirilmesi gereken **datetimeV2**, datetime varlığı kullanan önceden mevcut olan uygulamalarda çalışmaya devam etse de.
-* **Coğrafya**: kullanan mevcut LUIS uygulamalar **Coğrafya** aralık 2018'e kadar desteklenir.
-* **Ansiklopedi**: kullanan mevcut LUIS uygulamalar **Ansiklopedi** aralık 2018'e kadar desteklenir.
+* **DateTime**: Kullanan mevcut LUIS uygulamalar **datetime** geçirilmesi gereken **datetimeV2**, datetime varlığı kullanan önceden mevcut olan uygulamalarda çalışmaya devam etse de.
+* **Coğrafya**: Kullanan mevcut LUIS uygulamalar **Coğrafya** aralık 2018'e kadar desteklenir.
+* **Ansiklopedi**: Kullanan mevcut LUIS uygulamalar **Ansiklopedi** aralık 2018'e kadar desteklenir.
 
 ## <a name="geography-culture"></a>Coğrafya kültürü
 **Coğrafya** yalnızca kullanılabilir `en-us` yerel ayar.
@@ -43,7 +43,7 @@ Aşağıdaki önceden oluşturulmuş varlıklar kullanım dışıdır ve yeni LU
 **Ansiklopedi** yalnızca kullanılabilir `en-US` yerel ayar.
 
 #### <a name="encyclopedia-subtypes"></a>Ansiklopedi alt türleri
-Aşağıdaki tabloda Ansiklopedi yerleşik varlık içeren 100'den fazla alt türleri: genellikle birden çok türlerine ek olarak, ansiklopedi varlıkları eşle. Örneğin, sorgu Ronald Reagan verir: 
+Ansiklopedi yerleşik varlık aşağıdaki tabloda 100'den fazla alt türlerini içerir: Ayrıca, ansiklopedi varlıklar, genellikle birden çok türlerine eşlenir. Örneğin, sorgu Ronald Reagan verir: 
 
 ```json
 {

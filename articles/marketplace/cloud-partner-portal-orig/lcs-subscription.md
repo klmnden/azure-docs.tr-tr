@@ -14,15 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 2d75a432e84c3490186da6f8342562fddcaa32e1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: c0109839144775e9064db4f8396f19688fcc13e8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811235"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308643"
 ---
-<a name="lcs-subscription"></a>LCS abonelik
-================
+# <a name="lcs-subscription"></a>LCS abonelik
 
 Bu öğreticide şunları öğreneceksiniz nasıl bir abonelik oluşturun. Bu abonelik bir ortam dağıtabileceğiniz bir Microsoft Online de test kiracılığınız ve Microsoft Dynamics yaşam döngüsü Hizmetleri Proje sağlayacaktır. Ayrıca Microsoft Online kiracınızda ek kullanıcılar ayarlamak ve aşağıdaki özelliklere sahip hizmet yönetim deneyimi elde. Şunları öğreneceksiniz becerileri şunlardır:
 
@@ -32,8 +31,7 @@ Bu öğreticide şunları öğreneceksiniz nasıl bir abonelik oluşturun. Bu ab
 - Ek kullanıcılar, Microsoft Azure Active Directory ve istemci ekleniyor.
 - Abonelik e-postanızı kaynaklarını görüntüleme.
 
-<a name="key-terms"></a>Önemli terimler
-=========
+## <a name="key-terms"></a>Önemli terimler
 
 **Microsoft Online Services Kiracı** -bir kiracının tüm abonelikler ve kuruluşunuz için kullanıcılar grubudur. Kiracı, ilk aboneliğiniz Microsoft Online Services ile aynı anda oluşturulur.
 

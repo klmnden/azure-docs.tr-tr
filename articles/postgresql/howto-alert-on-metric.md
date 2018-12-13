@@ -1,6 +1,6 @@
 ---
-title: Ölçümleri uyarılar için PostgreSQL Azure veritabanı için Azure portalında yapılandırın.
-description: Bu makalede nasıl yapılandırılacağı ve erişim ölçüm uyarıları Azure veritabanı için PostgreSQL için Azure portalından açıklanmaktadır.
+title: Ölçüm uyarıları için Azure veritabanı PostgreSQL için Azure portalında yapılandırma
+description: Bu makalede nasıl yapılandırılacağını ve ölçüm uyarıları erişim için Azure veritabanı, PostgreSQL için Azure portalından açıklanır.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -9,77 +9,77 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: b4b15998276dd6c32e9c15622aa0251c6c066085
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b57827cb4e8c1105c88b6fab217e17d6cf4db056
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29690268"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271246"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Azure portal ölçümleri uyarılar için Azure veritabanı için PostgreSQL ayarlamak için kullanın 
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Ölçümler ile ilgili uyarılar için Azure veritabanı için PostgreSQL ayarlamak için Azure portalını kullanma 
 
-Bu makalede Azure veritabanı için Azure portalını kullanarak PostgreSQL uyarıları ayarlamak nasıl gösterir. Azure hizmetlerinizi ölçümleri izleme dayalı bir uyarı alabilirsiniz.
+Bu makalede, Azure portalını kullanarak PostgreSQL uyarılar için Azure veritabanı ayarlama işlemini göstermektedir. Azure hizmetleriniz için ölçümleri izleme temel alan bir uyarı alabilirsiniz.
 
-Belirtilen bir ölçüm değerini atadığınız bir eşik kestiği olduğunda uyarı tetikler. Uyarı Tetikleyicileri her iki koşulu ilk olduğunda sınamadan ve ardından daha sonra ne zaman, koşul artık karşılanıp. 
+Belirtilen bir ölçüm değerini atadığınız eşiği aştığında uyarı tetiklenir. Uyarı tetiklenmeden her iki koşul ilk olduğunda karşılanması ve ardından daha sonra ne zaman koşulu artık karşılanmıyor. 
 
-Tetikler aşağıdaki işlemleri yapmak için bir uyarı yapılandırabilirsiniz:
-* Hizmet yöneticisini ve ortak Yöneticiler e-posta bildirimleri gönderin.
+Bir uyarı tetiklendiğinde aşağıdaki işlemleri yapmak için yapılandırabilirsiniz:
+* Hizmet Yöneticisi ve ortak yöneticilerine e-posta bildirimleri gönderin.
 * Belirttiğiniz ek e-postalar için e-posta gönderin.
-* Bir Web kancası çağırın.
+* Web kancası çağırma.
 
-Yapılandırın ve uyarı kuralları kullanma hakkında bilgi alın:
-* [Azure portalı](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [Komut satırı arabirimi (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
-* [Azure monitör REST API'si](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+Yapılandırın ve uyarı kuralları kullanma hakkında bilgi edinin:
+* [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
+* [Komut satırı arabirimi (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
+* [Azure İzleyici REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Ölçüm Azure portalından bir uyarı kuralı oluşturma
-1. İçinde [Azure portal](https://portal.azure.com/), PostgreSQL sunucu izlemek istediğiniz Azure veritabanı'nı seçin.
+## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Azure portalından bir ölçüm üzerinde uyarı kuralı oluşturma
+1. İçinde [Azure portalında](https://portal.azure.com/), izlemek istediğiniz PostgreSQL sunucusu için Azure veritabanı'nı seçin.
 
-2. Altında **izleme** kenar, select bölümünü **uyarı kuralları** gösterildiği gibi:
+2. Altında **izleme** select yan bölümünü **uyarı kuralları** gösterildiği gibi:
 
-   ![Uyarı kurallarını seçin](./media/howto-alert-on-metric/1-alert-rules.png)
+   ![Uyarı kuralları seçin](./media/howto-alert-on-metric/1-alert-rules.png)
 
-3. Seçin **ölçüm uyarı Ekle** (+ simgesi). 
+3. Seçin **ölçüm uyarısı Ekle** (+ simgesi). 
 
-4. **Ekle kuralı** sayfası, aşağıda gösterildiği gibi açılır.  Gerekli bilgileri doldurun:
+4. **Kuralı Ekle** sayfası aşağıda gösterildiği gibi açılır.  Gerekli bilgileri doldurun:
 
-   ![Ölçüm uyarı form ekleme](./media/howto-alert-on-metric/2-add-rule-form.png)
+   ![Ölçüm uyarı formu Ekle](./media/howto-alert-on-metric/2-add-rule-form.png)
 
    | Ayar | Açıklama  |
    |---------|---------|
-   | Ad | Uyarı kuralı için bir ad sağlayın. Bu değer uyarı bildirim e-postayla gönderilir. |
-   | Açıklama | Uyarı kuralı kısa bir açıklamasını sağlar. Bu değer uyarı bildirim e-postayla gönderilir. |
+   | Ad | Uyarı kuralı için bir ad belirtin. Bu değer uyarı bildirim e-postayla gönderilir. |
+   | Açıklama | Uyarı kuralı kısa bir açıklamasını sağlayın. Bu değer uyarı bildirim e-postayla gönderilir. |
    | Uyarı verilecek olay | Seçin **ölçümleri** bu tür bir uyarı için. |
-   | Abonelik | Bu alan için PostgreSQL Azure veritabanınızı barındıran abonelik ile önceden doldurulmaz. |
-   | Kaynak grubu | Bu alan, Azure veritabanınızın kaynak grubuyla PostgreSQL için önceden doldurulmaz. |
-   | Kaynak | Bu alan Azure veritabanınızın adı ile PostgreSQL için önceden doldurulmaz. |
-   | Ölçüm | İçin bir uyarı vermek istediğiniz ölçümü seçin. Örneğin, **depolama yüzdesi**. |
-   | Koşul | Koşul ile Karşılaştırılacak ölçüm için seçin. Örneğin, **büyük**. |
-   | Eşik | Eşik değeri (yüzde) ölçümü, örneğin 85 için. |
-   | Dönem | Ölçüm kuralı uyarı Tetikleyicileri önce karşılanması gereken süreyi. Örneğin, **son 30 dakikadan**. |
+   | Abonelik | Bu alan, PostgreSQL için Azure veritabanınızı barındıran abonelik ile doldurulur. |
+   | Kaynak grubu | Bu alan, PostgreSQL için Azure veritabanı ile kaynak grubu doldurulur. |
+   | Kaynak | Bu alan, PostgreSQL için Azure veritabanı adıyla doldurulur. |
+   | Ölçüm | Uyarı vermek istediğiniz ölçümü seçin. Örneğin, **depolama yüzdesi**. |
+   | Koşul | İle Karşılaştırılacak ölçüm için koşul seçin. Örneğin, **büyüktür**. |
+   | Eşik | Ölçüm için eşik değeri, örneğin 85 (yüzde). |
+   | Dönem | Uyarı tetiklenmeden önce ölçüm kuralının karşılanması gereken sürede. Örneğin, **son 30 dakikadan**. |
 
-   Örneği temel alarak, uyarı % 85 üzerinde depolama yüzde 30 dakikalık bir süre içinde arar. Ortalama depolama yüzde 30 dakika boyunca % 85 kaldırıldığında bu uyarı tetikler. İlk tetikleyici oluşur sonra ortalama depolama yüzde 30 dakika boyunca % 85 olduğunda yeniden tetikler.
+   Örneği temel alarak, uyarı % 85 üzerinde depolama yüzde 30 dakikalık dönem boyunca arar. Ortalama depolama yüzde %85 30 dakika boyunca olduğunda bu uyarı tetikler. İlk tetikleyici gerçekleşir sonra ortalama depolama yüzdesi %85 30 dakika içinde olduğunda tekrar tetikler.
 
-5. İçin uyarı kuralı istediğiniz bildirim yöntemini seçin. 
+5. Uyarı kuralı için istediğiniz bildirim yöntemini seçin. 
 
-   Denetleme **sahipleri, Katkıda Bulunanlar ve okuyucular e-posta** abonelik yöneticileri ve ortak Yöneticiler uyarı oluşturulduğunda e-posta gönderilip istiyorsanız seçeneği.
+   Denetleme **e-posta sahipleri, Katkıda Bulunanlar ve okuyucular** abonelik yöneticilerine ve ortak yöneticilerin uyarı tetiklendiğinde almayacağınızı istiyorsanız seçeneği.
 
-   Uyarı oluşturulduğunda bir bildirim almak için ek e-postaları istiyorsanız, bunları ekleyin **ek yönetici email(s)** alan. Birden çok e-postaları - noktalı virgülle ayırın  *email@contoso.com;email2@contoso.com*
+   Uyarı tetiklendiğinde bildirim alacak başka e-postalar istiyorsanız, bunları eklemek **ek yönetici email(s)** alan. Noktalı virgülle - birden çok e-postaları ayırın  *email@contoso.com;email2@contoso.com*
 
-   İsteğe bağlı olarak, geçerli bir URI sağlayın **Web kancası** adlı uyarı oluşturulduğunda istiyorsanız alan.
+   İsteğe bağlı olarak, geçerli bir URI sağlayın **Web kancası** adlı bir uyarı tetiklendiğinde istiyorsanız alan.
 
 6. Seçin **Tamam** uyarı oluşturmak için.
 
-   Birkaç dakika içinde uyarı etkindir ve daha önce açıklandığı şekilde tetikler.
+   Birkaç dakika içinde uyarı etkin ve daha önce açıklandığı gibi tetikler.
 
 ## <a name="manage-your-alerts"></a>Uyarılarınızı yönetme
-Bir uyarı oluşturduktan sonra onu seçin ve aşağıdaki eylemleri gerçekleştirebilirsiniz:
+Bir uyarı oluşturulduktan sonra seçin ve aşağıdaki eylemleri gerçekleştirebilirsiniz:
 
-* Ölçüm eşiği ve önceki gün gerçek değerleri Bu uyarıyla ilgili gösteren bir grafik görüntüleyin.
-* **Düzen** veya **silmek** uyarı kuralı.
-* **Devre dışı** veya **etkinleştirmek** geçici olarak durdurmak veya bildirimleri almaya devam etmek istiyorsanız, uyarı.
+* Ölçüm eşiği ve gerçek değerler önceki günden itibaren Bu uyarıyla ilgili gösteren bir grafiği görüntüleyin.
+* **Düzen** veya **Sil** uyarı kuralı.
+* **Devre dışı** veya **etkinleştirme** geçici olarak durdurmak veya bildirimleri almaya devam etmek istiyorsanız uyarı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Daha fazla bilgi edinmek [Web kancalarını uyarıları yapılandırma](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
-* Alma bir [ölçümleri toplama genel bakış](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) hizmetinizi kullanılabilir ve yanıt verebilir durumda olduğundan emin olmak için.
+* Daha fazla bilgi edinin [uyarıları Web kancalarını yapılandırma](../azure-monitor/platform/alerts-webhooks.md).
+* Alma bir [ölçümleri koleksiyonun genel bakış](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) hizmetinizin kullanılabilir ve yanıt verdiğinden emin olmak için.

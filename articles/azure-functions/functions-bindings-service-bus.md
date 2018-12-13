@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 80091ce94e9798af46348e8ceb658c8db9c30e0e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0a4d5cf4731932ed72e0dc38c13a5f855a937864
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087569"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317517"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure işlevleri için Azure Service Bus bağlamaları
 
@@ -311,7 +311,7 @@ Zehirli ileti işleme denetlenen veya Azure işlevleri'nde yapılandırılır. S
 
 İşlevler çalışma zamanı içinde bir ileti alır [PeekLock modu](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Çağrı `Complete` işlevi başarıyla tamamlanırsa ileti veya çağrı `Abandon` işlev başarısız olursa. İşlev daha uzun çalışırsa `PeekLock` kilit zaman aşımı işlevin çalıştığını sürece otomatik olarak yenilenir. 
 
-İşlevleri 1.x yapılandırmanıza olanak tanır `autoRenewTimeout` içinde *host.json*, eşlenir [OnMessageOptions.AutoRenewTimeout](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout?view=azure-dotnet#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoRenewTimeout). Bu ayar için izin verilen en fazla 10 dakika, 5 dakikalık varsayılan işlevler zaman sınırı artırabilirsiniz ancak Service Bus belgeleri göre 5 dakikadır. Service Bus yenileme sınırı aşacağından için Service Bus işlevleri, daha sonra bunu istemezsiniz.
+`maxAutoRenewDuration` İçinde yapılandırılabilir *host.json*, eşlenir [OnMessageOptions.MaxAutoRenewDuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet). Bu ayar için izin verilen en fazla 10 dakika, 5 dakikalık varsayılan işlevler zaman sınırı artırabilirsiniz ancak Service Bus belgeleri göre 5 dakikadır. Service Bus yenileme sınırı aşacağından için Service Bus işlevleri, daha sonra bunu istemezsiniz.
 
 ## <a name="trigger---message-metadata"></a>Tetikleyici - ileti meta verileri
 

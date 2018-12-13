@@ -7,27 +7,32 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: seguler
-ms.openlocfilehash: 50378fd7739567b0cc56066168ddd33c3ea14141
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2374875512bba55409ef43906acb20238c77158f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957063"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268470"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>BLOB Depolama blobfuse ile bir dosya sistemi olarak takmak nasıl
 
 ## <a name="overview"></a>Genel Bakış
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) Linux dosya sistemi üzerinden mevcut blok blobu verileriniz depolama hesabınızda erişmenize olanak sağlayan Azure Blob Depolama, sanal dosya sistemi sürücüsü içindir. Azure Blob Depolama, bir nesne depolama hizmetidir ve bu nedenle bir hiyerarşik ad alanı yok. Blobfuse ayırıcı olarak eğik çizgi-', '/' kullanarak sanal dizin şeması kullanarak bu ad alanı sağlar.  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) bir Azure Blob Depolama için sanal dosya sistemi sürücüsüdür. Blobfuse Linux dosya sistemi üzerinden mevcut blok blobu verileriniz depolama hesabınızda erişmenize olanak sağlar. Azure Blob Depolama, bir nesne depolama hizmetidir ve hiyerarşik ad alanı yok. Blobfuse sanal dizin şeması, ayırıcı olarak eğik ile '/' kullanarak bu ad alanı sağlar.  
 
 Bu kılavuzda blobfuse kullanın ve Blob Depolama kapsayıcısı üzerinde Linux ve verilere bağlama gösterilmektedir. Blobfuse hakkında daha fazla bilgi edinmek için Ayrıntılar oku [blobfuse depo](https://github.com/Azure/azure-storage-fuse).
 
 > [!WARNING]
-> Yalnızca isteklerine çevirir Blobfuse % 100 POSIX uyumluluk garantilemez [Blob REST API'leri](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api). Örneğin, yeniden adlandırma işlemleri POSIX ancak içinde olmayan blobfuse atomiktir.
+> Yalnızca isteklerine çevirir, Blobfuse % 100 POSIX uyumluluğu garanti etmez [Blob REST API'leri](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api). Örneğin, yeniden adlandırma işlemleri POSIX ancak içinde olmayan blobfuse atomiktir.
 > Bir yerel dosya sistemi ve blobfuse arasındaki farklar tam listesi için ziyaret [blobfuse kaynak kodu deposu](https://github.com/azure/azure-storage-fuse).
 > 
 
 ## <a name="install-blobfuse-on-linux"></a>Linux'ta blobfuse yükleme
-Blobfuse ikili dosyaları, üzerinde kullanılabilir [Linux için Microsoft yazılım depoları](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) Ubuntu ve RHEL'de dağıtımlar için. Bu dağıtımlarında blobfuse yükleyebilmek için liste depolarından birini yapılandırın. Ayrıca, yükleme adımları izleyerek kaynak kodu ikili dosyaları oluşturabilirsiniz [burada](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) dağıtımınız için hiçbir ikili dosyalar yoksa.
+Blobfuse ikili dosyaları, üzerinde kullanılabilir [Linux için Microsoft yazılım depoları](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) Ubuntu ve RHEL'de dağıtımlar için. Bu dağıtımlarında blobfuse yüklemek için listenin depolarından birini yapılandırın. Ayrıca, kaynak kodu aşağıdaki ikili dosyaları oluşturabilirsiniz [Azure Depolama'ya yükleme adımlarını](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) varsa hiçbir ikili dosyaları, dağıtım için kullanılabilir.
+
+Blobfuse Ubuntu 14.04 ve 16.04 yüklemeyi destekler. Dağıtılan bu sürümlerden biri olduğundan emin olmak için şu komutu çalıştırın:
+```
+lsb_release -a
+```
 
 ### <a name="configure-the-microsoft-package-repository"></a>Microsoft Paket Deposu yapılandırın
 Yapılandırma [Microsoft ürünleri için Linux Paket Deposu](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
@@ -37,16 +42,16 @@ Yapılandırma [Microsoft ürünleri için Linux Paket Deposu](https://docs.micr
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/6/packages-microsoft-prod.rpm
 ```
 
-Benzer şekilde, url değiştirme `.../rhel/7/...` bir Enterprise Linux 7 dağıtımına işaret edecek şekilde.
+Benzer şekilde, URL değiştirme `.../rhel/7/...` bir Enterprise Linux 7 dağıtımına işaret edecek şekilde.
 
-Ubuntu 14.04 başka örneğinde:
+Başka bir örnek bir Ubuntu 14.04 dağıtım:
 ```bash
 wget https://packages.microsoft.com/config/ubuntu/14.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-Benzer şekilde, url değiştirme `.../ubuntu/16.04/...` bir Ubuntu 16.04 dağıtımına işaret edecek şekilde.
+Benzer şekilde, URL değiştirme `.../ubuntu/16.04/...` bir Ubuntu 16.04 dağıtımına işaret edecek şekilde.
 
 ### <a name="install-blobfuse"></a>Blobfuse yükleyin
 
@@ -56,27 +61,27 @@ sudo apt-get install blobfuse
 ```
 
 Bir Enterprise Linux dağıtımı:
-```bash
+```bash    
 sudo yum install blobfuse
 ```
 
 ## <a name="prepare-for-mounting"></a>Bağlama için hazırlama
-Blobfuse, arabellek ve önbelleğe yardımcı olan yerel benzer performans sunar, tüm açık dosyaları dosya sistemindeki bir geçici yol gerektirir. Bu geçici bir yol için en yüksek performanslı disk seçin veya bir ramdisk en iyi performans için kullanın. 
+Blobfuse, arabellek ve önbelleğe açık dosyaları dosya sistemindeki bir geçici yol gerektirerek yerel benzer performans sağlar. Bu geçici bir yol için en yüksek performanslı disk seçin veya bir ramdisk en iyi performans için kullanın. 
 
 > [!NOTE]
-> Blobfuse geçici yolu tüm açık dosya içeriğini depolar. Tüm açık dosyalar uyum sağlamak için yeterli alana sahip olduğundan emin olun. 
+> Blobfuse geçici yolu tüm açık dosya içeriğini depolar. Tüm açık dosyaları yerleştirmek için yeterli alanı olduğundan emin olun. 
 > 
 
 ### <a name="optional-use-a-ramdisk-for-the-temporary-path"></a>(İsteğe bağlı) Geçici yol için bir ramdisk kullanın
-Aşağıdaki örnek, bir ramdisk 16 GB olarak blobfuse için bir dizin oluşturma oluşturur. Gereksinimlerinize göre boyutu seçin. Bu ramdisk için blobfuse sağlayan açık dosyaları en fazla 16 GB cinsinden boyutu. 
+Aşağıdaki örnek, bir ramdisk 16 GB ve blobfuse için bir dizin oluşturur. Gereksinimlerinize göre boyutu seçin. Bu ramdisk için blobfuse sağlayan açık dosyaları en fazla 16 GB cinsinden boyutu. 
 ```bash
 sudo mount -t tmpfs -o size=16g tmpfs /mnt/ramdisk
 sudo mkdir /mnt/ramdisk/blobfusetmp
 sudo chown <youruser> /mnt/ramdisk/blobfusetmp
 ```
 
-### <a name="use-an-ssd-for-temporary-path"></a>Geçici yol için bir SSD kullanma
-Azure'da blobfuse için düşük gecikmeli bir arabelleği sağlamak için sanal makinelerinizde geçici diskler (SSD) kullanabilirsiniz. Ubuntu dağıtımları bu kısa ömürlü disk üzerinde takılı ' / mnt' üzerinde oluşturulmuş ise ' / mnt/kaynak /', Red Hat, CentOS dağıtımları.
+### <a name="use-an-ssd-as-a-temporary-path"></a>Geçici bir yolu olarak bir SSD kullanma
+Azure'da blobfuse için düşük gecikmeli bir arabelleği sağlamak için sanal makinelerinizde geçici diskler (SSD) kullanabilirsiniz. Ubuntu dağıtımları bu kısa ömürlü disk üzerinde takılı ' / mnt'. Red Hat ve CentOS dağıtımları, disk üzerinde takılı ' / mnt/kaynak /'.
 
 Geçici yol, kullanıcı erişiminin emin olun:
 ```bash
@@ -99,7 +104,7 @@ chmod 700 fuse_connection.cfg
 ```
 
 > [!NOTE]
-> Windows üzerindeki yapılandırma dosyasını oluşturduysanız çalıştırıldığından emin olun `dos2unix` temizleyin ve UNIX biçimine dönüştürün. 
+> Windows üzerindeki yapılandırma dosyasını oluşturduysanız çalıştırıldığından emin olun `dos2unix` temizleyin ve dosya UNIX biçimine dönüştürün. 
 >
 
 ### <a name="create-an-empty-directory-for-mounting"></a>Bağlama için boş bir dizin oluşturun
@@ -113,13 +118,13 @@ mkdir ~/mycontainer
 > Bağlama seçeneklerinin tam listesi için kontrol [blobfuse depo](https://github.com/Azure/azure-storage-fuse#mount-options).  
 > 
 
-Sırayla bağlama blobfuse kullanıcı ile aşağıdaki komutu çalıştırın. Bu komut belirtilen kapsayıcı bağlar ' / path/to/fuse_connection.cfg' konumu üzerine ' / mycontainer'.
+Bağlama blobfuse için kullanıcı ile aşağıdaki komutu çalıştırın. Bu komut belirtilen kapsayıcı bağlar ' / path/to/fuse_connection.cfg' konumu üzerine ' / mycontainer'.
 
 ```bash
-blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
+sudo blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 ```
 
-Şimdi, normal dosya sistemi API'leri üzerinden, blok blobları için erişimi olmalıdır. Bağlı dizini yalnızca erişim güvenliğini sağlar, bağlama kullanıcı tarafından erişilebilir unutmayın. Tüm kullanıcılar erişime izin vermek istiyorsanız, seçeneği bağlayabilir ```-o allow_other```. 
+Şimdi, normal dosya sistemi API'leri üzerinden, blok blobları için erişimi olmalıdır. Dizin bağlar, erişim güvenliğini sağlar. varsayılan olarak erişebilen tek kişi kullanıcıdır. Tüm kullanıcılar erişime izin vermek için seçeneği bağlayabilir ```-o allow_other```. 
 
 ```bash
 cd ~/mycontainer

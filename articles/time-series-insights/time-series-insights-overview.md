@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights nedir? | Microsoft Docs
+title: Azure zaman serisi görüşleri nedir azure Time Series Insights genel bakış -? | Microsoft Docs
 description: Zaman serisi verilerinin analizi ve IoT çözümleri için yeni bir hizmet olan Azure Time Series Insights'a giriş.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: overview
 ms.date: 12/05/2018
-ms.openlocfilehash: 91ceb98768db2ce8917c17c9def58e65791bf6bf
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: d1d9fd66b60478ce1f80036167eb520b7f5aecf5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955149"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275151"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Azure Time Series Insights nedir?
 
@@ -59,11 +60,11 @@ Bu videoda, bulut tabanlı IoT analizi platformu olan Time Series Insights’ın
 
 ## <a name="capabilities"></a>Özellikler
 
-- **Hemen kullanmaya başlayın:** Azure Time Series Insights verilerin önceden hazırlanmasını gerektirmez. Azure IoT Hub'ınızdaki veya Event Hub'ındaki milyonlarca olaya dakikalar içinde bağlanın. Bağlandıktan sonra, IoT çözümlerinizi hızla doğrulamak için sensör verilerini görselleştirin ve verilerinizle etkileşim kurmaya hemen başlayın. Kod yazmadan verilerinizle etkileşim kurabilirsiniz.
+- **Hızla kullanmaya başlayın:** Azure zaman serisi görüşleri önceden veri hazırlığı gerektirir. Azure IoT Hub'ınızdaki veya Event Hub'ındaki milyonlarca olaya dakikalar içinde bağlanın. Bağlandıktan sonra, IoT çözümlerinizi hızla doğrulamak için sensör verilerini görselleştirin ve verilerinizle etkileşim kurmaya hemen başlayın. Kod yazmadan verilerinizle etkileşim kurabilirsiniz.
 Yeni dil öğrenmek gerekmez; Zaman Serisi Görüşleri ileri düzey kullanıcılara ayrıntılı, serbest metin kullanılan bir sorgu yüzeyi ve üzerine gelip tıklamayla ulaşılan açıklamalar sağlar.
-- **Neredeyse gerçek zamanlı görüşler:** Zaman Serisi Görüşleri her gün, bir dakikalık bir gecikme süresiyle milyonlarca sensör olayını alabilir. Time Series Insights, eğilimleri ve anormallikleri saptamanıza, kök-neden analizleri yürütmenize ve masraflı sistem kapatma sürelerini önlemenize yardımcı olarak sensör verileriniz üzerinde içgörüler kazanmanıza katkıda bulunur. Gerçek zamanlı verilerle geçmiş verileri arasında çapraz bağıntıya olanak tanıdığından, Zaman Serisi Görüşleri verilerindeki gizli eğilimleri ortaya çıkarmanıza yardımcı olur.
-- **Özel çözümler oluşturma:** Azure Time Series Insights verilerini mevcut uygulamalarınıza ekleyin ya da Time Series Insights REST API’leriyle yeni özel çözümler oluşturun. Diğer kişilerin de içgörülerinizi incelemesini sağlamak için paylaşabileceğiniz kişiselleştirilmiş görünümler oluşturun.
-- **Ölçeklenebilirlik:** Zaman Serisi Görüşleri, ölçekli olarak IoT'yi destekleyecek şekilde tasarlanmıştır. Günde 1 milyon ile 100 milyon arası olay alabilir ve varsayılan saklama süresi 31 gündür. Geçmiş verilerine ek olarak canlı veri akışlarını da neredeyse gerçek zamanlı olarak görselleştirebilir ve analiz edebilirsiniz. Kurumsal ölçekle başa çıkmak için ilerletme, giriş ve saklama hızları artırılacaktır.
+- **Gerçek zamanlı içgörüler:** Time Series Insights milyonlarca sensör olayını her gün, bir dakikalık bir gecikmeyle alabilen. Time Series Insights, eğilimleri ve anormallikleri saptamanıza, kök-neden analizleri yürütmenize ve masraflı sistem kapatma sürelerini önlemenize yardımcı olarak sensör verileriniz üzerinde içgörüler kazanmanıza katkıda bulunur. Gerçek zamanlı verilerle geçmiş verileri arasında çapraz bağıntıya olanak tanıdığından, Zaman Serisi Görüşleri verilerindeki gizli eğilimleri ortaya çıkarmanıza yardımcı olur.
+- **Özel çözümler derleme:** Azure zaman serisi öngörüleri verilerini mevcut uygulamalarınıza ekleyin ya da zaman serisi öngörüleri REST API'leriyle yeni özel çözümler oluşturun. Diğer kişilerin de içgörülerinizi incelemesini sağlamak için paylaşabileceğiniz kişiselleştirilmiş görünümler oluşturun.
+- **Ölçeklenebilirlik:** Zaman serisi görüşleri, ölçekli olarak Iot'yi destekleyecek şekilde tasarlanmıştır. Günde 1 milyon ile 100 milyon arası olay alabilir ve varsayılan saklama süresi 31 gündür. Geçmiş verilerine ek olarak canlı veri akışlarını da neredeyse gerçek zamanlı olarak görselleştirebilir ve analiz edebilirsiniz. Kurumsal ölçekle başa çıkmak için ilerletme, giriş ve saklama hızları artırılacaktır.
 
 ## <a name="getting-started"></a>Başlarken
 5 dakikadan daha kısa bir sürede kullanmaya başlayabilirsiniz. 
@@ -74,7 +75,7 @@ Yeni dil öğrenmek gerekmez; Zaman Serisi Görüşleri ileri düzey kullanıcı
 4.  Time Series Insights gezgininde verilerinizi dakikalar halinde görün.
 
 ## <a name="time-series-insights-explorer"></a>Time Series Insights gezgini
-Bu diyagramda ![Time Series Insights gezgininde](media/time-series-insights-explorer/explorer4.png) görüntülenen zaman serisi içgörü verileri örneği gösterilmektedir
+Örnek zaman serisinin Bu diyagramda gösterilmektedir ınsights Veri Gezgini üzerinden görüntülenebilir: ![Time Series Insights Gezgini](media/time-series-insights-explorer/explorer4.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
  - [Bir tanıtım ortamında Time Series Insights gezginini kullanmayı keşfedin](./time-series-quickstart.md)

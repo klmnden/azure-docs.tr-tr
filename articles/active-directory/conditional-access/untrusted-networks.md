@@ -1,8 +1,8 @@
 ---
-title: Nasıl-için koşullu erişim ilkeleri Azure Active Directory'yi Yapılandır güvenilmeyen ağlardan erişimlerin | Microsoft Docs
+title: Azure Active Directory (Azure AD) koşullu erişim ile güvenilmeyen ağlara erişim için çok faktörlü kimlik doğrulaması (MFA) gerektirme | Microsoft Docs
 description: Azure Active Directory'de (Azure AD) koşullu erişim ilkesi için erişim denemesi için güvenilmeyen ağlardan yapılandırmayı öğrenin.
 services: active-directory
-keywords: uygulamalar, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
+keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -14,37 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/23/2018
+ms.date: 12/10/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5ddde65b2a68e71d86af6ce3dcd2847736cf5823
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c40db6c253899d7aab21d277e93b23dd0c6feb97
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627194"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314015"
 ---
-# <a name="how-to-configure-conditional-access-policies-for-access-attempts-from-untrusted-networks"></a>Nasıl yapılır: güvenilmeyen ağlara erişim girişimi için koşullu erişim ilkelerini yapılandırma   
+# <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Nasıl yapılır: Koşullu erişim ile güvenilmeyen ağlara erişim için MFA gerektirme   
 
-Bir mobil öncelikli ve bulut öncelikli dünyada, Azure Active Directory (Azure AD), çoklu oturum açma cihazlar, uygulamalar ve hizmetlere her yerden sağlar. Yalnızca kuruluşunuzun ağ, aynı zamanda her bir güvenilmeyen Internet konumdan bunun bir sonucu olarak, kullanıcılarınızın bulut uygulamalarınızda erişebilirsiniz. İle [Azure Active Directory (Azure AD) koşullu erişim](../active-directory-conditional-access-azure-portal.md), nasıl yetkili kullanıcılar denetleyebilir, bulut uygulamalarınızı erişebilirsiniz. Bu bağlamda bir ortak gereksinim güvenilmeyen ağlardan başlatılan erişim denemesi denetlemektir. Bu makalede, bu gereksinim işleyen bir koşullu erişim ilkesini yapılandırmak gereken bilgileri sağlar. 
+Azure Active Directory (Azure AD) etkinleştirir çoklu oturum açma cihazlar, uygulamalar ve hizmetlere her yerden. Kullanıcılarınıza bulut uygulamalarınızda yalnızca kuruluşunuzun ağ, aynı zamanda her bir güvenilmeyen Internet konumdan erişebilirsiniz. Güvenilmeyen ağlara erişim için ortak bir en iyi yöntem çok faktörlü kimlik doğrulaması (MFA) gerektirmektir.
+
+Bu makalede, güvenilmeyen ağlara erişim için MFA gerektiren bir koşullu erişim ilkesi yapılandırmak gereken bilgileri sağlar. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu makalede, aşina olduğunuzu varsayar: 
 
-- Azure AD koşullu erişim temel kavramları 
-- Azure portalında koşullu erişim ilkelerini yapılandırma
+- [Temel kavramları](overview.md) Azure AD koşullu erişim 
+- [En iyi uygulamalar](best-practices.md) Azure portalında koşullu erişim ilkelerini yapılandırma
 
-Bkz.
-
-- [Azure Active Directory'de koşullu erişim nedir](../active-directory-conditional-access-azure-portal.md) - koşullu erişim genel bakış 
-
-- [Hızlı Başlangıç: Azure Active Directory koşullu erişimiyle belirli uygulamalar için mfa'yı gerekli](app-based-mfa.md) - koşullu erişim ilkelerini yapılandırma ile biraz deneyim alınamıyor. 
 
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
-Güvenlik ve üretkenlik arasındaki dengeyi Yöneticisi için bir parola kullanarak kimlik doğrulaması kullanıcı yalnızca gereksinim için yeterli olabilir. Ancak, bir güvenilmeyen bir ağ konumundan erişim denemesi yapıldığında yoktur artan olmayan oturum açma riski yasal kullanıcılar tarafından gerçekleştirilir. Bu sorunu gidermek için güvenilmeyen ağlara gelen erişim denemelerini engelleyebilir. Alternatif olarak, çok faktörlü kimlik doğrulaması (MFA) hesabının meşru sahibi tarafından bir girişimde bulunuldu geri ek güvence elde etmek için de gerektirebilir. 
+Güvenlik ve üretkenlik arasındaki dengeyi gelmek için yalnızca kuruluşunuzun ağına oturum açma işlemleri için bir parola gerektirme yeterli olabilir. Ancak, bir güvenilmeyen bir ağ konumundan erişim için yoktur artan olmayan oturum açma riski yasal kullanıcılar tarafından gerçekleştirilir. Bu sorunu gidermek için güvenilmeyen ağlara erişimi engelleyebilirsiniz. Alternatif olarak, çok faktörlü kimlik doğrulaması (MFA) hesabının meşru sahibi tarafından bir girişimde bulunuldu geri ek güvence elde etmek için de gerektirebilir. 
 
 Azure AD koşullu erişim ile erişim veren tek bir ilke ile ilgili bu gereksinim karşılayabilirsiniz: 
 
@@ -54,14 +51,14 @@ Azure AD koşullu erişim ile erişim veren tek bir ilke ile ilgili bu gereksini
 
 - Çok faktörlü kimlik doğrulaması gerektiren 
 
-- Ne zaman erişim denemesi gelen yapılır: 
+- Ne zaman erişim kaynaklandığı: 
 
     - Güvenilir olmayan bir konum
 
 
-## <a name="considerations"></a>Dikkat edilmesi gerekenler
+## <a name="implementation"></a>Uygulama
 
-Bu senaryonun çevrilecek zorluktur *zaman erişim denemesi yapıldığında güvenilmeyen bir konumdan* içine bir koşullu erişim koşulu. Bir koşullu erişim ilkesinde yapılandırdığınız [konumları koşul](location-condition.md) ağ konumları için ilgili bir senaryoya. Konum koşulu, IP adres aralıkları, ülke ve bölgelerden mantıksal gruplandırmalarını göstermek adlandırılmış konumlar seçmenizi sağlar.  
+Bu senaryonun çevrilecek zorluktur *güvensiz bir ağa bir konumdan erişim* içine bir koşullu erişim koşulu. Bir koşullu erişim ilkesinde yapılandırdığınız [konumları koşul](location-condition.md) ağ konumları için ilgili bir senaryoya. Konum koşulu mantıksal gruplandırmaları olan IP adres aralıkları, ülke ve bölgelerden adlandırılmış konumlar seçmenize olanak sağlar.  
 
 Genellikle, bir veya daha fazla adres aralıkları, örneğin, 199.30.16.0 - 199.30.16.24 kuruluşunuza ait.
 Adlandırılmış bir konuma göre yapılandırabilirsiniz:
@@ -73,7 +70,7 @@ Adlandırılmış bir konuma göre yapılandırabilirsiniz:
 
 Güvenilir olmayan tüm konumlara nelerdir tanımlamak çalışmak yerine, şunları yapabilirsiniz:
 
-- Ekle 
+- Herhangi bir yere ekleyin 
 
     ![Koşullu erişim](./media/untrusted-networks/02.png)
 
@@ -83,9 +80,9 @@ Güvenilir olmayan tüm konumlara nelerdir tanımlamak çalışmak yerine, şunl
 
 
 
-## <a name="implementation"></a>Uygulama
+## <a name="policy-deployment"></a>İlke dağıtımı
 
-Bu makalede açıklanan yaklaşımda, güvenilmeyen konumlardaki için koşullu erişim ilkesi yapılandırabilirsiniz. Her zaman beklendiği gibi çalıştığından emin olmak için üretim ortamına sunulmadan önce ilkenizi test etmeniz gerekir. İdeal olarak, ilk testlerinizi bir test kiracısında mümkünse yapmanız gerekir. Daha fazla bilgi için [dağıtımı yeni bir ilke](best-practices.md#how-should-you-deploy-a-new-policy). 
+Bu makalede açıklanan yaklaşımda, güvenilmeyen konumlardaki için koşullu erişim ilkesi yapılandırabilirsiniz. İlkenizi beklendiği gibi çalıştığından emin olmak için üretim ortamına sunulmadan önce test etmek için önerilen en iyi yöntem olacaktır. İdeal olarak, bir de test kiracılığınız yeni ilkeniz beklendiği gibi çalıştığını doğrulamak için kullanın. Daha fazla bilgi için [yeni bir ilkeyi dağıtmak nasıl](best-practices.md#how-should-you-deploy-a-new-policy). 
 
 
 

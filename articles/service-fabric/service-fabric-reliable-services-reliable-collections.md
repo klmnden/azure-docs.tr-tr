@@ -1,9 +1,9 @@
 ---
-title: Azure Service Fabric durum bilgisi olan Hizmetleri'ndeki güvenilir koleksiyonlara giriş | Microsoft Docs
-description: Service Fabric durum bilgisi olan hizmetler, yüksek oranda kullanılabilir, ölçeklenebilir ve düşük gecikme süreli bulut uygulamaları yazmak etkinleştirmeniz güvenilir koleksiyonları sağlar.
+title: Azure Service Fabric durum bilgisi olan hizmetler güvenilir koleksiyonlar giriş | Microsoft Docs
+description: Service Fabric durum bilgisi olan hizmetler yüksek oranda kullanılabilir, ölçeklenebilir ve düşük gecikme süreli bulut uygulamaları yazmanıza olanak tanıyan güvenilir koleksiyonlar sağlar.
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
+author: tylermsft
 manager: timlt
 editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,57 +13,57 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/6/2017
-ms.author: mcoskun
-ms.openlocfilehash: 2876d90c02995394104009d1b2d62d5b3ed6a8d9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: caca297afb9ed4e2d85f1068ad3c1122db60c1d7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212934"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191997"
 ---
-# <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure Service Fabric durum bilgisi olan Hizmetleri'ndeki güvenilir koleksiyonlara giriş
-Güvenilir koleksiyonları tek bilgisayar uygulamaları yazıyordunuz gibi sorgulamanıza yüksek oranda kullanılabilir, ölçeklenebilir ve düşük gecikme süreli bulut uygulamaları yazmak etkinleştirin. Sınıflarda **Microsoft.ServiceFabric.Data.Collections** ad alanı, durumu otomatik olarak yüksek oranda kullanılabilir hale koleksiyonları kümesini sağlar. Geliştiriciler yalnızca güvenilir koleksiyonu API'lerini program ve güvenilir çoğaltılır ve yerel durumunu yönetme koleksiyonları izin gerekir.
+# <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure Service Fabric durum bilgisi olan hizmetler güvenilir koleksiyonlar giriş
+Güvenilir koleksiyonlar, tek bir bilgisayar uygulamaları için yazar gibi sorgulamanıza yüksek oranda kullanılabilir, ölçeklenebilir ve düşük gecikme süreli bulut uygulamaları yazmak etkinleştirin. Sınıflarda **Microsoft.ServiceFabric.Data.Collections** ad alanı, durum otomatik olarak yüksek oranda kullanılabilir yap koleksiyonları kümesi sağlar. Güvenilir koleksiyonlar çoğaltılır ve yerel durumunu yönetme ve güvenilir koleksiyon API'leri yalnızca program geliştiriciler gerekir.
 
-Güvenilir koleksiyonları ve diğer yüksek kullanılabilirlik teknolojiler (örneğin, Redis, Azure tablo hizmeti ve Azure kuyruk hizmeti) arasındaki temel farklılık, durumu yerel olarak hizmet örneği de yüksek oranda kullanılabilir yapılan sırasında saklanacağını ' dir. Bunun anlamı:
+Güvenilir koleksiyonlar ve diğer yüksek kullanılabilirlik teknolojilerinin (örneğin, Redis, Azure tablo hizmeti ve Azure kuyruk hizmeti) arasındaki temel fark, durumu yerel olarak hizmet örneğinde ayrıca yüksek oranda kullanılabilir yapılan sırasında tutulduğundan emin olan. Bunun anlamı:
 
-* Tüm okuma yerel, bunlar düşük gecikme sağlar ve yüksek verimlilik okur.
-* Hangi içinde düşük gecikme süresi sonuçları en az sayıda ağ IOs, tüm yazma işlemlerini uygulanır ve yüksek verimlilik yazar.
+* Tüm okuma yerel, düşük gecikme süresine sonuçlanır ve yüksek performanslı okur.
+* Tüm yazma işlemlerini düşük gecikme süresi sonuçları en düşük ağ IOs sayısı uygulanır ve yüksek performanslı yazar.
 
 ![Koleksiyonları evrimi görüntüsü.](media/service-fabric-reliable-services-reliable-collections/ReliableCollectionsEvolution.png)
 
-Güvenilir koleksiyonlar zorlayıcı doğal evrimi **System.Collections** sınıfları: geliştiricisi karmaşıklık artırmadan Bulut ve birden çok bilgisayar uygulamaları için tasarlanmış koleksiyonları yeni bir dizi. Bu nedenle, güvenilir koleksiyonları şunlardır:
+Güvenilir koleksiyonlar düşünülebilir doğal gelişimi **System.Collections** sınıfları: yeni bir karmaşıklık artırmadan cloud ve çoklu bilgisayar uygulamaları için tasarlanmış koleksiyonları Geliştirici. Bu nedenle, güvenilir koleksiyonlar şunlardır:
 
-* Çoğaltılmış: Durum değişiklikleri yüksek kullanılabilirlik için çoğaltılır.
-* Kalıcı: Veri kalıcı büyük ölçekli kesintileri (örneğin, bir veri merkezi güç kesintisi) karşı dayanıklılık için diske.
-* Zaman uyumsuz: API'leri zaman uyumsuz iş parçacığı GÇ yansıtılmasını zaman engellenmez emin olun.
-* İşlem: bir hizmet içinde birden çok güvenilir koleksiyonları kolayca yönetilebilir API işlemleri soyutlama kullanın.
+* Çoğaltılmış: Durum değişiklikleri, yüksek kullanılabilirlik için çoğaltılır.
+* Kalıcı: Kalıcı verileri diske büyük ölçekli kesintiler (örneğin, bir veri merkezinde güç kesintisi) karşı dayanıklılık için.
+* Zaman uyumsuz: API zaman uyumsuz iş parçacıkları, g/ç yansıtılmasını olduğunda engellenmediğinden emin olun.
+* İşlem: Bir hizmet birden çok güvenilir koleksiyon bir kolayca yönetebilirsiniz API'lerini hareketlerinin soyutlama kullanır.
 
-Güvenilir koleksiyonları güçlü tutarlılık mantığı uygulama durumu hakkında kolaylaştırmak için kutu dışı garanti sağlar.
-Güçlü tutarlılık, tüm işlem çoğaltmalar birincil dahil olmak üzere, üzerinde bir çoğunluğu çekirdek yalnızca oturum açılmış sonra işlemeleri son işlem sağlanarak elde edilir.
-Uygulamalar daha zayıf tutarlılık elde etmek için zaman uyumsuz tamamlama döndürmeden önce geri istemci/istemciye kabul.
+Güvenilir koleksiyonlar, mantık uygulaması durumu hakkında daha kolay hale getirmek için kullanıma hazır güçlü tutarlılık garantileri sağlar.
+Yalnızca bir Çoğunluk çekirdeği birincil dahil olmak üzere, tüm işlem açılmış sonra işlemeler son işlem sağlayarak güçlü tutarlılık sağlanır.
+Uygulamaları zayıf tutarlılık elde etmek için zaman uyumsuz tamamlama döndürmeden önce geri istemci/istek sahibine kabul.
 
-Bir eş zamanlı koleksiyonları API'leri evrimi güvenilir koleksiyonları apı'leridir (bulunan **System.Collections.Concurrent** ad alanı):
+Güvenilir koleksiyonlar API'leri bir eş zamanlı koleksiyonlar API'leri aşamasıdır (bulunan **System.Collections.Concurrent** ad alanı):
 
-* Zaman uyumsuz: eşzamanlı koleksiyonlarından farklı işlemler kalıcı ve çoğaltılmasını olduğundan, bir görev döndürür.
-* Hayır out Parametreleri: kullanan `ConditionalValue<T>` bool ve out parametreleri yerine bir değer döndürmek için. `ConditionalValue<T>` benzer `Nullable<T>` T yapı olmasını gerektirmez, ancak.
-* İşlemler: bir işlemde birden çok güvenilir koleksiyonları Grup eylemleri kullanıcıya etkinleştirmek için işlem nesnesi kullanır.
+* Zaman uyumsuz: Eş zamanlı koleksiyonlarından farklı işlemler çoğaltılan ve kalıcı olduğundan, bir görev döndürür.
+* Out parametreleri yok: Kullanan `ConditionalValue<T>` bool ve dış parametrelerin yerine bir değer döndürmek için. `ConditionalValue<T>` benzer `Nullable<T>` T bir yapısı olması gerekmez ancak.
+* İşlemler: Kullanıcı grubu eylemleri bir işlemde birden çok güvenilir koleksiyonlar için etkinleştirmek için bir işlem nesnesini kullanır.
 
-Bugün, **Microsoft.ServiceFabric.Data.Collections** üç koleksiyonları içerir:
+Bugün, **Microsoft.ServiceFabric.Data.Collections** üç koleksiyonu içerir:
 
-* [Güvenilir sözlük](https://msdn.microsoft.com/library/azure/dn971511.aspx): anahtar/değer çiftlerinin çoğaltılmış, işlem ve zaman uyumsuz bir koleksiyonunu temsil eder. Benzer şekilde **ConcurrentDictionary**, anahtar ve değer herhangi bir türde olabilir.
-* [Güvenilir sıra](https://msdn.microsoft.com/library/azure/dn971527.aspx): bir çoğaltılmış, işlem ve zaman uyumsuz katı ilk çıkar (FIFO) sırayı temsil eder. Benzer şekilde **ConcurrentQueue**, değer herhangi bir türde olabilir.
-* [Güvenilir eşzamanlı sıra](service-fabric-reliable-services-reliable-concurrent-queue.md): sıra yüksek verimlilik için sıralama çoğaltılmış, işlem ve zaman uyumsuz bir en iyi çaba temsil eder. Benzer şekilde **ConcurrentQueue**, değer herhangi bir türde olabilir.
+* [Güvenilir bir sözlük](https://msdn.microsoft.com/library/azure/dn971511.aspx): Çoğaltılan, işlemsel ve zaman uyumsuz bir anahtar/değer çifti koleksiyonunu temsil eder. Benzer şekilde **ConcurrentDictionary**, hem anahtar hem de değer herhangi bir türde olabilir.
+* [Güvenilir kuyruk](https://msdn.microsoft.com/library/azure/dn971527.aspx): Bir çoğaltılmış, işlemsel ve zaman uyumsuz katı ilk giren ilk çıkar (FIFO) sırayı temsil eder. Benzer şekilde **ConcurrentQueue**, değer herhangi bir türde olabilir.
+* [Güvenilir eşzamanlı kuyruk](service-fabric-reliable-services-reliable-concurrent-queue.md): Yüksek aktarım hızı için kuyruk sıralama çoğaltılan, işlemsel ve zaman uyumsuz bir en iyi çaba temsil eder. Benzer şekilde **ConcurrentQueue**, değer herhangi bir türde olabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Güvenilir koleksiyonu kılavuzları ve önerileri](service-fabric-reliable-services-reliable-collections-guidelines.md)
+* [Güvenilir koleksiyon ile ilgili Kılavuzlar ve öneriler](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [Güvenilir Koleksiyonlar ile çalışma](service-fabric-work-with-reliable-collections.md)
-* [İşlemler ve kilitleri](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* Veri Yönetimi
+* [İşlemler ve kilitler](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+* Verileri yönetme
   * [Yedekleme ve Geri Yükleme](service-fabric-reliable-services-backup-restore.md)
   * [Bildirimler](service-fabric-reliable-services-notifications.md)
   * [Güvenilir Koleksiyonu serileştirme](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [Seri hale getirme ve yükseltme](service-fabric-application-upgrade-data-serialization.md)
-  * [Güvenilir durum Yöneticisi yapılandırması](service-fabric-reliable-services-configuration.md)
-* Diğerleri
-  * [Güvenilir hizmetler hızlı başlangıç](service-fabric-reliable-services-quick-start.md)
+  * [Güvenilir durum Yöneticisi'ni yapılandırma](service-fabric-reliable-services-configuration.md)
+* Diğer
+  * [Reliable Services hızlı başlangıç](service-fabric-reliable-services-quick-start.md)
   * [Güvenilir koleksiyonlar için Geliştirici Başvurusu](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

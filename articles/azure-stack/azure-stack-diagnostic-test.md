@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 7f4e956601ee25549d0a0828c4c3dd0e8d6ff85b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f754242d0cf7ee30572b21a3f4daf6fd2c0f63ff
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840138"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275916"
 ---
 # <a name="validate-azure-stack-system-state"></a>Azure Stack sistem durumu doğrulama
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Azure Stack operatörü, sistem durumunu ve sistem steğe bağlı durumunu bilmeniz yeteneğine sahip olmanın da önemlidir. Azure Stack doğrulama aracını (**Test AzureStack**) olanak tanıyan bir PowerShell cmdlet'i bir dizi test hataları tanımlamak için sisteminizde çalıştırılır. Genellikle bu aracı istenir [ayrıcalıklı uç noktasına (CESARETLENDİRİCİ)](azure-stack-privileged-endpoint.md) , sizinle Microsoft Müşteri Hizmetleri desteği (CSS) ile ilgili bir sorun. Sistem genelinde durumunu ve durum bilgilerini en el ile CSS toplamak ve ayrıntılı günlükleri analiz ederek, burada bir hata oluştu. ve sorunu çözmek için sizinle çalışma alanı odaklanmak yapabilirsiniz.
 
@@ -45,7 +45,7 @@ Daha önce belirtildiği gibi doğrulama aracını CESARETLENDİRİCİ çalışt
    Test-AzureStack
    ```
 
-   Başvurmak [parametresi konuları](azure-stack-diagnostic-test.md#parameter-considerations) ve [büyük örneklerde](azure-stack-diagnostic-test.md#use-cases) bölümlerde daha fazla bilgi için.
+   Başvurmak [parametresi konuları](azure-stack-diagnostic-test.md#parameter-considerations) ve [büyük örneklerde](azure-stack-diagnostic-test.md#use-case-examples) bölümlerde daha fazla bilgi için.
 
 3. Aşağıdakilerden sınamaktadır rapor **başarısız**çalıştırın:
 
@@ -121,13 +121,13 @@ Aşağıdaki bulut senaryoları doğrulama aracı tarafından test edilen:
 
 - VM bir parçası dağıtılan bir kiracı, bulut senaryosu sınar. Kullanabileceğiniz **DoNotDeployTenantVm** bu devre dışı bırakmak için. 
 
-- Sağlamanız gereken **ServiceAdminCredential** açıklandığı gibi bulut senaryosu testleri çalıştırmak için parametre [büyük örneklerde](azure-stack-diagnostic-test.md#use-cases) bölümü.
+- Sağlamanız gereken **ServiceAdminCredential** açıklandığı gibi bulut senaryosu testleri çalıştırmak için parametre [büyük örneklerde](azure-stack-diagnostic-test.md#use-case-examples) bölümü.
 
-- **BackupSharePath** ve **BackupShareCredential** altyapısını Yedekleme ayarlarını gösterildiği gibi test ederken kullanılan [büyük örneklerde](azure-stack-diagnostic-test.md#use-cases) bölümü.
+- **BackupSharePath** ve **BackupShareCredential** altyapısını Yedekleme ayarlarını gösterildiği gibi test ederken kullanılan [büyük örneklerde](azure-stack-diagnostic-test.md#use-case-examples) bölümü.
 
-- Doğrulama Aracı Ayrıca ortak PowerShell parametrelerini destekler: ayrıntılı, hata ayıklama, ErrorAction ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable ve OutVariable. Daha fazla bilgi için [ortak parametreleri hakkında](http://go.microsoft.com/fwlink/?LinkID=113216).  
+- Doğrulama Aracı Ayrıca ortak PowerShell parametrelerini destekler: Ayrıntılı, hata ayıklama, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable ve OutVariable. Daha fazla bilgi için [ortak parametreleri hakkında](http://go.microsoft.com/fwlink/?LinkID=113216).  
 
-## <a name="use-case-examples"></a>Büyük/küçük harf örneklerini kullanın 
+## <a name="use-case-examples"></a>Büyük/küçük harf örneklerini kullanın
 
 ### <a name="run-validation-without-cloud-scenarios"></a>Doğrulama bulut senaryoları olmadan çalıştırın
 

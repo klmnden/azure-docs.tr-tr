@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 07bbb8e17a9f75bd878c384b5b8d90798d043814
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a81c97cf8883d2a3629d1eb1b9f6137609c6edda
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086238"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135109"
 ---
-# <a name="geographyv2-entity"></a>GeographyV2 varlığı
+# <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>GeographyV2 LUIS uygulaması için önceden oluşturulmuş varlık
 Önceden oluşturulmuş geographyV2 varlık yerler algılar. Bu varlık zaten eğitildi çünkü GeographyV2 içeren uygulama hedefleri için örnek Konuşma ekleme gerekmez. GeographyV2 varlık İngilizce olarak desteklenen [kültür](luis-reference-prebuilt-entities.md).
 
 ## <a name="subtypes"></a>Alt türleri

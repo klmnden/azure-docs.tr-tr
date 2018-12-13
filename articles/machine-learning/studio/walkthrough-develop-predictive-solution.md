@@ -4,9 +4,9 @@ description: Azure Machine Learning Studio'da kredi riski değerlendirmesi için
 keywords: kredi riski, tahmine dayalı analiz çözümü, risk değerlendirmesi
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
+ms.author: garye
 ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
 ms.component: studio
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2017
-ms.openlocfilehash: edbcd1ae128969bb10436afb1dc800c42e69f8c9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: fce8f03adfad348c9daddf3c2a225d6df29552d7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089828"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252536"
 ---
-# <a name="walkthrough-develop-predictive-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>İzlenecek yol: Azure Machine Learning Studio'da kredi riski değerlendirmesi için Tahmine dayalı bir çözüm geliştirin
+# <a name="walkthrough-develop-predictive-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>Çözüm: Azure Machine Learning Studio'da kredi riski değerlendirmesi için Tahmine dayalı bir çözüm geliştirin
 
 Bu kılavuzda, Machine Learning Studio'da tahmine dayalı analiz çözümü geliştirme işleminin ayrıntılarına göz atacağız. Machine Learning Studio'da basit model geliştirecek ve ardından bunu, modelin yeni verileri kullanarak tahmin yapabileceği bir Azure Machine Learning web hizmeti olarak dağıtacağız. 
 
 Bu kılavuzda Machine Learning Studio'yu daha önce en az bir kere kullandığınız ve makine öğrenimi kavramlarıyla ilgili bir fikriniz olduğu kabul edilir. Bununla birlikte, bir uzman olduğunuz da varsayılmaz.
 
-**Azure Machine Learning Studio**'yu daha önce hiç kullanmadıysanız [Azure Machine Learning Studio'da ilk veri bilimi denemenizi oluşturma](create-experiment.md) öğreticisiyle başlamak isteyebilirsiniz. Bu öğretici, Machine Learning Studio’yu ilk kez nasıl kullanacağınızı gösterir. Öğreticide modülleri sürükleyip denemenize bırakma, birbirine bağlama, denemeyi çalıştırma ve sonuçları görme konularında temel bilgiler verilir. Machine Learning Studio’yu kullanmaya başlamanıza yardımcı olabilecek diğer bir araç da hizmetin özelliklerine genel bakış sağlayan bir diyagramdır. Diyagramı şu sayfadan indirip yazdırabilirsiniz: [Azure Machine Learning Studio özelliklerine genel bakış diyagramı](studio-overview-diagram.md).
+**Azure Machine Learning Studio**'yu daha önce hiç kullanmadıysanız [Azure Machine Learning Studio'da ilk veri bilimi denemenizi oluşturma](create-experiment.md) öğreticisiyle başlamak isteyebilirsiniz. Bu öğretici, Machine Learning Studio’yu ilk kez nasıl kullanacağınızı gösterir. Öğreticide modülleri sürükleyip denemenize bırakma, birbirine bağlama, denemeyi çalıştırma ve sonuçları görme konularında temel bilgiler verilir. Machine Learning Studio’yu kullanmaya başlamanıza yardımcı olabilecek diğer bir araç da hizmetin özelliklerine genel bakış sağlayan bir diyagramdır. İndirin ve buradan yazdırın: [Azure Machine Learning Studio işlevlerine genel bakış diyagramı](studio-overview-diagram.md).
  
 Genel olarak makine öğrenimi alanında yeniyseniz size yardımcı olabilecek bir video serisi önerebiliriz. [Yeni Başlayanlar için Veri Bilimleri](data-science-for-beginners-the-5-questions-data-science-answers.md) adlı bu seri, gündelik dil ve kavramlarla makine öğrenimine harika bir giriş yapmanızı sağlayabilir.
 
@@ -58,4 +58,4 @@ Bu kredi riski değerlendirme çözümünü oluşturmak için aşağıdaki adım
 > [!TIP] 
 > Bu kılavuzda geliştirdiğimiz denemenin çalışan bir kopyasını [Azure AI Gallery](https://gallery.cortanaintelligence.com)’de bulabilirsiniz. **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** (Kılavuz - Kredi riski tahmini) sayfasına gidin ve **Open in Studio** (Studio’da Aç) seçeneğine tıklayarak denemenin bir kopyasını Machine Learning Studio çalışma alanınıza indirin.
 > 
-> Bu kılavuz, [Galeri](http://gallery.cortanaintelligence.com/)’den de edinebileceğiniz [Binary Classification: Credit risk prediction](https://go.microsoft.com/fwlink/?LinkID=525270) (İkili Sınıflandırma: Kredi riski tahmini) örnek denemesinin basitleştirilmiş bir biçimini temel alır.
+> Bu kılavuzda, örnek denemesinin basitleştirilmiş bir sürümünü temel [ikili sınıflandırma: Kredi riski tahmini](https://go.microsoft.com/fwlink/?LinkID=525270)de edinebileceğiniz [galeri](http://gallery.cortanaintelligence.com/).

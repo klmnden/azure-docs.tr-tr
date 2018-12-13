@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 426df541def0aa8d4d8b6a81a7364b32ee7f11dd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f3eb5cd62d24ea7251829aed8abba38415835023
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074721"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162826"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir GitHub hesabı ile kaydolma ve oturum açma ayarlama
 
@@ -23,7 +23,7 @@ ms.locfileid: "53074721"
 > Bu özellik önizlemede.
 > 
 
-Bir Github hesabı bir Azure Active Directory (Azure AD) B2C kimlik sağlayıcısı olarak kullanmak için kiracınızda temsil ettiği bir uygulama oluşturmanız gerekir. Bir Github hesabı yoksa adresinden edinebilirsiniz [ https://www.github.com/ ](https://www.github.com/).
+Bir GitHub hesabı bir Azure Active Directory (Azure AD) B2C kimlik sağlayıcısı olarak kullanmak için kiracınızda temsil ettiği bir uygulama oluşturmanız gerekir. Bir GitHub hesabı yoksa adresinden edinebilirsiniz [ https://www.github.com/ ](https://www.github.com/).
 
 ## <a name="create-a-github-oauth-application"></a>GitHub OAuth uygulaması oluşturma
 
@@ -40,7 +40,7 @@ Bir Github hesabı bir Azure Active Directory (Azure AD) B2C kimlik sağlayıcı
 2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
 3. Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD B2C**’yi arayıp seçin.
 4. Seçin **kimlik sağlayıcıları**ve ardından **Ekle**.
-5. Sağlayan bir **adı**. Örneğin, *Github*.
-6. Seçin **kimlik sağlayıcısı türü**seçin **Github (Önizleme)**, tıklatıp **Tamam**.
-7. Seçin **bu kimlik sağlayıcısını ayarlama** ve daha önce olarak kayıtlı istemci kimliğini girin **istemci kimliği** olarak kaydettiğiniz istemci gizli anahtarını girin **gizli**daha önce oluşturduğunuz Github hesabı uygulamanın.
-8. Tıklayın **Tamam** ve ardından **Oluştur** Github hesabı yapılandırmanızı kaydetmek için.
+5. Sağlayan bir **adı**. Örneğin, *GitHub*.
+6. Seçin **kimlik sağlayıcısı türü**seçin **GitHub (Önizleme)**, tıklatıp **Tamam**.
+7. Seçin **bu kimlik sağlayıcısını ayarlama** ve daha önce olarak kayıtlı istemci kimliğini girin **istemci kimliği** olarak kaydettiğiniz istemci gizli anahtarını girin **gizli**daha önce oluşturduğunuz GitHub hesabı uygulamanın.
+8. Tıklayın **Tamam** ve ardından **Oluştur** GitHub hesabı yapılandırmanızı kaydetmek için.

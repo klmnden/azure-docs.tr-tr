@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: f4248922-c961-4d3a-9e1b-aec743210166
 ms.service: machine-learning
@@ -16,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: 74791c3dce543ae9c0489a6c6124e4edba9204d2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 12fb45b00848e5e34760ccb0691998c1f72237b8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096970"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269310"
 ---
-# <a name="discover-experiments-in-azure-ai-gallery"></a>Azure AI Gallery'de denemeleri bulma
+# <a name="discover-azure-machine-learning-studio-experiments-in-azure-ai-gallery"></a>Azure Machine Learning Studio denemeleri Azure AI Gallery'de keşfedin
 
 [Azure AI Gallery](http://gallery.cortanaintelligence.com) çeşitli sahip [denemeleri](https://gallery.cortanaintelligence.com/experiments) de geliştirilmiştir [Azure Machine Learning Studio](https://studio.azureml.net). Belirli bir makine öğrenme, karmaşık makine öğrenimi sorunlar için tam olarak geliştirilen çözümleri için teknik gösteren hızlı kavram kanıtı denemeleri denemeleri çeşitler barındırır.
 
 > [!NOTE]
-> Bir ***deneme*** Machine Learning Studio'da Tahmine dayalı analiz modeli oluşturmak için kullanabileceğiniz bir tuvaldir. Model, ile çeşitli analitik modüllere veri bağlanarak oluşturun. Farklı fikirleri deneyin, deneme çalıştırmaları yapın ve sonunda azure'da bir web hizmeti olarak modelinizi dağıtma. Temel bir deneme oluşturmak nasıl bir örnek için bkz [makine öğrenimi Öğreticisi: Azure Machine Learning Studio'da ilk denemenizi oluşturma](create-experiment.md). Tahmine dayalı analiz çözümü oluşturmak nasıl daha kapsamlı bir kılavuz için bkz: [izlenecek yol: bir Azure Machine learning'de kredi riski değerlendirmesi için Tahmine dayalı analiz çözümü geliştirme](walkthrough-develop-predictive-solution.md).
+> Bir ***deneme*** Machine Learning Studio'da Tahmine dayalı analiz modeli oluşturmak için kullanabileceğiniz bir tuvaldir. Model, ile çeşitli analitik modüllere veri bağlanarak oluşturun. Farklı fikirleri deneyin, deneme çalıştırmaları yapın ve sonunda azure'da bir web hizmeti olarak modelinizi dağıtma. Temel bir deneme oluşturmak nasıl bir örnek için bkz [makine öğrenimi Öğreticisi: Azure Machine Learning Studio'da ilk denemenizi oluşturma](create-experiment.md). Tahmine dayalı analiz çözümü oluşturmak nasıl daha kapsamlı bir kılavuz için bkz: [izlenecek yol: Bir Azure Machine learning'de kredi riski değerlendirmesi için Tahmine dayalı analiz çözümü geliştirme](walkthrough-develop-predictive-solution.md).
 >
 >
 
@@ -189,4 +188,4 @@ Başka bir etiket girmek için bir etiket girdikten sonra SEKME tuşuna basın.
 
 **[Galeriye Dön](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+

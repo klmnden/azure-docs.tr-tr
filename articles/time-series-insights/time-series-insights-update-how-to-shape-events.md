@@ -1,6 +1,6 @@
 ---
-title: Azure zaman serisi öngörüleri önizlemesi ile olayları Şekil | Microsoft Docs
-description: Olayları Azure zaman serisi öngörüleri önizlemesi şekillendirme işlemini anlama
+title: Azure zaman serisi öngörüleri olaylar - Şekil olayları Azure zaman serisi öngörüleri önizlemesi ile şekillendirme Önizleme | Microsoft Docs
+description: Olayları Azure zaman serisi öngörüleri önizlemesi şekli hakkında bilgi edinin.
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -9,12 +9,13 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: dcab5fba62d1a17ba16b541ccbaa6a4a2b2bf2bd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: b0ce3b5bbd58c594147f64de9f06f248f4a87fc3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078506"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269082"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Azure zaman serisi öngörüleri önizlemesi ile şekli olayları
 

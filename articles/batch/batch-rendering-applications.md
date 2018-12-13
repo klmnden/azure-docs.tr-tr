@@ -2,16 +2,16 @@
 title: Toplu işleme uygulamaları
 description: Önceden yüklenmiş işleme uygulamalarıyla
 services: batch
-author: mscurrell
-ms.author: markscu
-ms.date: 08/02/2018
+author: laurenhughes
+ms.author: lahugh
+ms.date: 12/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: 28acd1b7275694d38a52f14d2b2c32b79cc8183e
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 7cc19c8def9e162c752efab776d0b6f5118bfde2
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40034830"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320957"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>VM görüntüleri işleme üzerinde önceden yüklenmiş uygulamalar
 
@@ -34,11 +34,11 @@ Bazı uygulamalar, yalnızca Windows destekler, ancak çoğu, hem Windows hem de
 ## <a name="applications-on-windows-server-2016-rendering-nodes"></a>Windows Server 2016 işleme düğümleri üzerinde uygulamalar
 
 * Autodesk Maya I/O 2017 Güncelleştirme 5 (sürüm 17.4.5459)
-* Autodesk Maya g/ç 2018 güncelleştirme 3 (sürüm 18.3.0.7040)  
-* Autodesk 3ds Max g/ç 2019 güncelleştirme 1'de (sürüm 21.10.1314)
+* Autodesk Maya g/ç 2018 güncelleştirme 4 (sürüm 18.4.0.7622)  
+* Autodesk 3ds Max g/ç 2019 güncelleştirme 1'de (sürüm 21.2.0.2219)
 * Autodesk 3ds Max I/O 2018 Güncelleştirme 4 (sürüm 20.4.0.4254)
-* Autodesk Arnold for Maya (Arnold sürüm 5.0.1.1) MtoA-2.0.1.1-2017
-* Autodesk Arnold for Maya (Arnold sürüm 5.0.1.4) MtoA-2.0.2.3-2018
+* Autodesk Arnold Maya 2017 (sürüm 5.2.0.1 Arnold) MtoA 3.1.0.1 2017
+* Autodesk Arnold (Arnold sürümü 5.2.0.1) Maya 2018 MtoA 3.1.0.1 2018 için
 * Autodesk Arnold for 3ds Max (sürüm 5.0.2.4)(version Arnold 1.2.926)
 * Chaos Group V-Ray for Maya (sürüm 3.52.03)
 * Chaos Group V-Ray for 3ds Max (sürüm 3.60.02)

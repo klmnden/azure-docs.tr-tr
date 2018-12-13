@@ -1,5 +1,6 @@
 ---
-title: İzleme işlemleri, olayları ve sayaçlar için genel temel yük dengeleyici | Microsoft Docs
+title: İzleme işlemleri, olayları ve genel temel yük dengeleyici için sayaçlar
+titlesuffix: Azure Load Balancer
 description: Uyarı olayları etkinleştirmektedir ve genel temel yük dengeleyici için sistem durumu günlüğü araştırma hakkında bilgi edinin
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: e8d38aaff2e7f20a3935608bcf4d610828d2b84f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 00a5e888961a9712db0cd509a39fb0367895ac3f
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261511"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164135"
 ---
 # <a name="log-analytics-for-public-basic-load-balancer"></a>Genel temel Load Balancer için log analytics
 
@@ -25,9 +27,9 @@ ms.locfileid: "51261511"
 
 Günlükleri farklı türde, yönetme ve sorun giderme temel yük Dengeleyiciler için Azure'da kullanabilirsiniz. Bu günlükler bazıları, portal üzerinden erişilebilir. Tüm günlükler Azure blob depolama alanından ayıklanır ve Excel ve Power BI gibi farklı Araçları'nda görüntülenebilir. Günlükleri aşağıdaki listeden farklı türleri hakkında daha fazla bilgi edinebilirsiniz.
 
-* **Denetim günlükleri:** kullanabileceğiniz [Azure denetim günlükleri](../monitoring-and-diagnostics/insights-debugging-with-events.md) (önceden işlem günlükleri olarak da bilinir) Azure Abonelikleriniz ve durumlarını gönderilen tüm işlemleri görüntülemek için. Denetim günlükleri varsayılan olarak etkindir ve Azure portalında görüntülenebilir.
-* **Uyarı olay günlüklerini:** yük dengeleyici tarafından oluşturulan uyarılar görüntülemek için bu günlük kullanabilirsiniz. Yük Dengeleyici için durum beş dakikada toplanır. Bu günlük yalnızca bir yük dengeleyici uyarı olayı tetiklenir yazılır.
-* **Sistem durumu araştırma günlükleri:** istekler yük dengeleyiciden sistem durumu araştırma hatası nedeniyle almıyor örneklerinin arka uç havuzundaki gibi sistem durumu araştırması tarafından algılanan sorunları görüntülemek için bu günlük kullanabilirsiniz. Sistem durumu araştırması durumundaki bir değişiklik olduğunda bu günlüğe yazılır.
+* **Denetim günlükleri:** Kullanabileceğiniz [Azure denetim günlükleri](../monitoring-and-diagnostics/insights-debugging-with-events.md) (önceden işlem günlükleri olarak da bilinir) Azure Abonelikleriniz ve durumlarını gönderilen tüm işlemleri görüntülemek için. Denetim günlükleri varsayılan olarak etkindir ve Azure portalında görüntülenebilir.
+* **Uyarı olay günlükleri:** Bu günlük, yük dengeleyici tarafından oluşturulan uyarılar görüntülemek için kullanabilirsiniz. Yük Dengeleyici için durum beş dakikada toplanır. Bu günlük yalnızca bir yük dengeleyici uyarı olayı tetiklenir yazılır.
+* **Sistem durumu araştırma günlükleri:** Bu günlük, arka uç havuzundaki istekleri sistem durumu araştırma hatası nedeniyle yük dengeleyiciden almıyor örneklerinin gibi sistem durumu araştırması tarafından algılanan sorunları görüntülemek üzere kullanabilirsiniz. Sistem durumu araştırması durumundaki bir değişiklik olduğunda bu günlüğe yazılır.
 
 > [!IMPORTANT]
 > Günlük analizi şu anda yük Dengeleyiciler yalnızca ortak temel çalışır. Günlükleri yalnızca Resource Manager dağıtım modelinde dağıtılan kaynaklar için kullanılabilir. Klasik dağıtım modelinde kaynakların günlükleri'ni kullanamazsınız. Dağıtım modelleri hakkında daha fazla bilgi için bkz. [anlama Resource Manager dağıtımını ve klasik dağıtımı](../azure-resource-manager/resource-manager-deployment-model.md).
@@ -132,7 +134,7 @@ JSON çıkışını özellikleri alanın sistem durumu araştırması için teme
 Görüntüleyebilir ve aşağıdaki yöntemlerden birini kullanarak denetim günlüğü verilerini analiz edin:
 
 * **Azure Araçları:** Azure PowerShell, Azure komut satırı arabirimi (CLI), Azure REST API'si veya Azure preview portal aracılığıyla denetim günlüklerinden bilgi alın. Her yöntem için adım adım yönergeleri ayrıntılı olarak [Resource Manager denetim işlemleri](../azure-resource-manager/resource-group-audit.md) makalesi.
-* **Power BI:** zaten yoksa bir [Power BI](https://powerbi.microsoft.com/pricing) hesabı deneyebilirsiniz, ücretsiz. Kullanarak [Azure denetim günlükleri içerik paketi Power BI için](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), önceden yapılandırılmış Panolar ile verilerinizi analiz edin veya görünümleri gereksinimlerinize uyacak şekilde özelleştirebilirsiniz.
+* **Power BI:** Zaten yoksa bir [Power BI](https://powerbi.microsoft.com/pricing) hesabı deneyebilirsiniz, ücretsiz. Kullanarak [Azure denetim günlükleri içerik paketi Power BI için](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), önceden yapılandırılmış Panolar ile verilerinizi analiz edin veya görünümleri gereksinimlerinize uyacak şekilde özelleştirebilirsiniz.
 
 ## <a name="view-and-analyze-the-health-probe-and-event-log"></a>Durum araştırması ve olay günlüğünü görüntüleme ve çözümleme
 

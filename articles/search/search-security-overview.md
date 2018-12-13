@@ -1,5 +1,5 @@
 ---
-title: Azure Search'teki güvenlik ve veri gizlilik | Microsoft Docs
+title: Güvenlik ve veri gizlilik - Azure Search
 description: Azure arama, SOC 2, HIPAA ve diğer sertifikaları ile uyumludur. Bağlantı ve veri şifreleme, kimlik doğrulaması ve kimlik erişimi aracılığıyla kullanıcı ve grup güvenlik tanımlayıcıları Azure Search'te filtreler.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: heidist
-ms.openlocfilehash: 4b1307aa00fae26d7425c9a95ed673b11ba2e9b4
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.custom: seodec2018
+ms.openlocfilehash: 55558f1483a576e7ac3b9ce027588eceabd5db70
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092640"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311720"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Azure Search'teki güvenlik ve veri gizliliği
 
@@ -21,7 +22,7 @@ Bu şekilde içeriğin özel kalmasını sağlamak için Azure Search'e kapsaml�
 
 Azure arama güvenlik mimarisi, fiziksel güvenlik, şifrelenmiş iletimleri, şifrelenmiş depolama ve platform genelinde standartlara uyum yayılır. İşletimsel olarak, Azure Search yalnızca kimliği doğrulanmış istekleri kabul eder. İsteğe bağlı olarak, güvenlik filtreleri içerikler üzerinde kullanıcı başına erişim denetimlerini ekleyebilirsiniz. Bu makalede güvenlik her katmanında ele alınır, ancak öncelikle nasıl Azure Search'te verileri ve işlemleri güvenlidir odaklanmıştır.
 
-## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>Standartlara uyum: ISO 27001, SOC 2 HIPAA
+## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>Standartları uyumluluğu: ISO 27001, SOC 2, HIPAA
 
 Azure Search'ü sertifika aşağıdaki standartları, olarak [Haziran 2018'de duyurulan](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/):
 

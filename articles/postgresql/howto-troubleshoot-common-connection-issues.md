@@ -10,12 +10,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: 9dd2c5d619920e1205d9d3c64e463c15cf708b31
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 67383db4bd1d57d194e10de2dc1964532b3619a4
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887855"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53160820"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı bağlantı sorunlarını giderme
 
@@ -49,9 +49,9 @@ Bakım, sistem donanım veya yazılım bir hatayla karşılaştığında veya sa
 
 PostgreSQL için Azure veritabanı'na bağlanmak uygulamayı kalıcı olarak başarısız olursa, genellikle aşağıdakilerden biri ile ilgili bir sorun gösterir:
 
-* Güvenlik duvarı yapılandırması: PostgreSQL sunucu veya istemci tarafı güvenlik duvarı için Azure veritabanı bağlantıları engelleme.
-* Ağ Yapılandırması istemci tarafında: yeni bir IP adresi veya bir ara sunucu eklendi.
-* Kullanıcı hatası: Örneğin, bağlantı dizesi veya eksik bir sunucu adı gibi bağlantı parametrelerini yanlış yazmış olabilirsiniz *@servername* kullanıcı adı soneki.
+* Sunucu güvenlik duvarı yapılandırması: PostgreSQL sunucusu güvenlik duvarı için Azure veritabanı, proxy sunucuları ve ağ geçitleri dahil istemcinizden bağlantılarına izin verecek şekilde yapılandırıldığından emin olun.
+* İstemci güvenlik duvarı yapılandırması: İstemci üzerindeki güvenlik duvarı, veritabanı sunucunuza bağlantılar izin vermeniz gerekir. IP adresleri ve bağlantı noktaları için olamaz sunucunun PostgreSQL gibi bazı güvenlik duvarları uygulama adları hem de izin verilmelidir.
+* Kullanıcı hatası: Bağlantı dizesi veya eksik bir sunucu adı gibi bağlantı parametrelerini yazdığınızı *@servername* kullanıcı adı soneki.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Kalıcı bağlantı sorunlarını giderme adımları
 

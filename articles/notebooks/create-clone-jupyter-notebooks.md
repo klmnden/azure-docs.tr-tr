@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: c4325f0c9de0d945d1612a3ab4171a2bfe1be25b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 151d945bbeda9f7dd496f8469f8f858e8369da8f
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106524"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164424"
 ---
 # <a name="create-and-clone-projects"></a>Projeleri oluşturma ve kopyalama
 
@@ -42,7 +42,7 @@ Panoda yapabilecekleriniz kullanıcı kimliği sahip bir hesapla oturum mi oturu
 | **Silme** | Sahip | Seçili proje siler. Bu işlem geri alınamaz. |
 | **Terminal** | Sahip | Project server başlar ve ardından bu sunucu için terminal bash ile yeni bir tarayıcı penceresi açılır. |
 | **+ Yeni Proje** | Sahip | Yeni bir proje oluşturur. Bkz: [yeni bir proje oluşturma](#create-a-new-project). |
-| **Github deposunu karşıya yükleme** | Sahip | Bir projeyi Github'dan içeri aktarır. [Bir projeyi Github'dan alma](#import-a-project-from-github). |
+| **GitHub deposunu karşıya yükleme** | Sahip | Bir projeyi Github'dan içeri aktarır. [Bir projeyi Github'dan alma](#import-a-project-from-github). |
 | **Kopya** | Herkes | Seçilen proje kendi hesabına kopyalar. Oturum imzalamanızı ister. Bkz: [bir projesini kopyalama](#clone-a-project). |
 
 ### <a name="obtain-a-launch-badge"></a>Başlatma rozet alın
@@ -105,9 +105,9 @@ Bir proje kopyalamak için:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Örnek Not Defterleri keşfedin](azure-notebooks-samples.md)
-- [Nasıl yapılır: projeleri yönetme ve yapılandırma](configure-manage-azure-notebooks-projects.md)
-- [Nasıl yapılır: yükleme paketleri içinde bir not defteri](install-packages-jupyter-notebook.md)
-- [Nasıl yapılır: bir slayt gösterisi sunar](present-jupyter-notebooks-slideshow.md)
-- [Nasıl yapılır: veri dosyalarıyla çalışma](work-with-project-data-files.md)
-- [Nasıl yapılır: veri kaynaklarına erişim](access-data-resources-jupyter-notebooks.md)
-- [Nasıl yapılır: Azure Machine Learning Hizmetleri kullanma](use-machine-learning-services-jupyter-notebooks.md)
+- [Nasıl Yapılır: Yapılandırma ve projeleri yönetme](configure-manage-azure-notebooks-projects.md)
+- [Nasıl Yapılır: İçinde bir not defteri paketleri yükleme](install-packages-jupyter-notebook.md)
+- [Nasıl Yapılır: Mevcut bir slayt gösterisi](present-jupyter-notebooks-slideshow.md)
+- [Nasıl Yapılır: Veri dosyaları ile çalışma](work-with-project-data-files.md)
+- [Nasıl Yapılır: Veri kaynaklarına erişim](access-data-resources-jupyter-notebooks.md)
+- [Nasıl Yapılır: Azure Machine Learning Hizmetleri kullanma](use-machine-learning-services-jupyter-notebooks.md)

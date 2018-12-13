@@ -1,5 +1,5 @@
 ---
-title: Kaynak Azure şemaları kilitleme anlama
+title: Kaynak kilitlenmesi anlama
 description: Bir şema atamasını yaparken kaynakları korumak için kilitleme seçenekleri hakkında bilgi edinin.
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4e71797837927fe5f5233bcf88d35fef98f504e9
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.custom: seodec18
+ms.openlocfilehash: 0e272f7137967b545269a408b6e83552de532682
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139451"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309442"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Kaynak Azure şemaları kilitleme anlama
 
@@ -21,9 +22,9 @@ Uygun ölçekte tutarlı ortamların oluşturulması yalnızca o tutarlılık sa
 
 ## <a name="locking-modes-and-states"></a>Kilitleme modları ve durumlar
 
-Kilitleme modu için şema atamasını geçerlidir ve yalnızca iki seçenek vardır: **hiçbiri** veya **tüm kaynakları**. Kilitleme modu blueprint ataması sırasında yapılandırılır ve atama aboneliğine başarıyla uygulandıktan sonra değiştirilemez.
+Kilitleme modu için şema atamasını geçerlidir ve yalnızca iki seçenek vardır: **Hiçbiri** veya **tüm kaynakları**. Kilitleme modu blueprint ataması sırasında yapılandırılır ve atama aboneliğine başarıyla uygulandıktan sonra değiştirilemez.
 
-Şema atamasını yapıları tarafından oluşturulan kaynakları üç durumu vardır: **kilitli**, **salt okunur**, veya **silme / yapamazsınız düzenlemek**. Her bir yapıt olabilir **kilitli** durumu. Bununla birlikte, olmayan bir kaynak grubu yapıtlar vardır **salt okunur** ve kaynak gruplarınız **silme / yapamazsınız düzenlemek** durumları. Bu kaynakların nasıl yönetileceğini de önemli bir ayrımdır farktır.
+Şema atamasını yapıları tarafından oluşturulan kaynakları üç durumu vardır: **Kilitli**, **salt okunur**, veya **silme / yapamazsınız düzenlemek**. Her bir yapıt olabilir **kilitli** durumu. Bununla birlikte, olmayan bir kaynak grubu yapıtlar vardır **salt okunur** ve kaynak gruplarınız **silme / yapamazsınız düzenlemek** durumları. Bu kaynakların nasıl yönetileceğini de önemli bir ayrımdır farktır.
 
 **Salt okunur** durumunda, tam olarak tanımlandığı şekilde: kaynak hiçbir şekilde değiştirilemez--herhangi bir değişiklik ve silinemez. **Silme / yapamazsınız düzenlemek** kaynak grupları "container" yapısı nedeniyle daha inceliklidir. Kaynak Grup nesnesi salt okunur, ancak kilitli olmayan kaynakların kaynak grubunda değişiklik mümkündür.
 

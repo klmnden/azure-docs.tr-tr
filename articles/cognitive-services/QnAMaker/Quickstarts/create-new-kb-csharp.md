@@ -11,14 +11,14 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: ef950978d73659888e76fc89c0db14924f54b6f4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 36f056003ec35f49120a36b15c0809b06daaecbf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092628"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254818"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Hızlı başlangıç: C# kullanarak Soru-Cevap Oluşturma’da bilgi bankası oluşturma
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Hızlı Başlangıç: Soru-cevap Oluşturucu kullanarak Bilgi Bankası oluşturmaC#
 
 Bu hızlı başlangıçta program aracılığıyla örnek bir Soru-Cevap Oluşturma bilgi bankası (KB) oluşturma ve yayımlama adımlarında yol gösterilir. Soru-Cevap Oluşturma, [veri kaynaklarından](../Concepts/data-sources-supported.md) ve SSS gibi yarı yapılandırılmış içerikten soru ve cevapları otomatik olarak ayıklar. JSON ile tanımlanan bilgi bankası modeli API isteğinin gövdesinde gönderilir. 
 
@@ -33,7 +33,7 @@ Bu hızlı başlangıç şu Soru-Cevap Oluşturma API'lerini çağırır:
 * [Soru-Cevap Oluşturma hizmetine](../How-To/set-up-qnamaker-service-azure.md) sahip olmanız gerekir. Anahtarınızı almak için, panonuzda **Kaynak Yönetimi** altında **Anahtarlar** öğesini seçin. 
 
 > [!NOTE] 
-> Eksiksiz çözümün dosyaları [ **Azure-Samples/cognitive-services-qnamaker-csharp** Github deposunda](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp) mevcuttur.
+> Eksiksiz bir çözüm dosyaları kullanılabilir [ **Azure-Samples/bilişsel-services-qnamaker-csharp** GitHub deposu](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp).
 
 ## <a name="create-a-knowledge-base-project"></a>Bilgi bankası projesi oluşturma
 

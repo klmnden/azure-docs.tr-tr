@@ -1,5 +1,5 @@
 ---
-title: Linux'ta Azure App Service için Python uygulamalarını yapılandırma
+title: Linux üzerinde - Azure App Service'e Python uygulamaları yapılandırma
 description: Bu öğreticide Linux'ta Azure App Service için Python uygulamalarını yazma ve yapılandırma seçenekleri anlatılmaktadır.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
-ms.custom: mvc
-ms.openlocfilehash: 22afdc0ae483959940776aecd20b0a29854097d9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 1d9b0e356f0f65be44a533fe098282084b900d89
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970765"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249643"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Python uygulamanızı Linux'ta Azure App Service için yapılandırma
 
@@ -59,9 +59,9 @@ Bu kapsayıcı aşağıdaki özelliklere sahiptir:
 Başlatma sırasında Linux'ta App Service kapsayıcısı şu adımları çalıştırır:
 
 1. Özel bir başlangıç komutu olup olmadığını denetler ve varsa uygular.
-1. Django uygulamasının *wsgi.py* dosyasının olup olmadığını denetler ve varsa bu dosyayı kullanarak Gunicorn'u başlatır.
-1. *application.py* adlı bir dosya olup olmadığını denetler ve varsa Flask uygulaması olduğunu kabul ederek Gunicorn'u `application:app` kullanarak başlatır.
-1. Başka bir uygulama bulunamazsa yoksa kapsayıcıda bulunan varsayılan uygulamayı başlatır.
+2. Django uygulamasının *wsgi.py* dosyasının olup olmadığını denetler ve varsa bu dosyayı kullanarak Gunicorn'u başlatır.
+3. *application.py* adlı bir dosya olup olmadığını denetler ve varsa Flask uygulaması olduğunu kabul ederek Gunicorn'u `application:app` kullanarak başlatır.
+4. Başka bir uygulama bulunamazsa yoksa kapsayıcıda bulunan varsayılan uygulamayı başlatır.
 
 Aşağıdaki bölümlerde bu seçeneklerle ilgili ek ayrıntılar verilmiştir.
 

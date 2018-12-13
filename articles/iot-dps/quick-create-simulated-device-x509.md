@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8b7848392ebd8ec44dcf646b13911aaafe905ae3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 16942e183152720dc958b6c0ccecde1dee2e5cde
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158933"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185180"
 ---
-# <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Hızlı başlangıç: Azure IoT C SDK'sını kullanarak simülasyon X.509 cihazı sağlama
+# <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Hızlı Başlangıç: Azure IOT C SDK'sını kullanarak bir X.509 sanal cihazı sağlama
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
@@ -25,7 +25,7 @@ Bu hızlı başlangıçta bir Windows geliştirme makinesi üzerinde bir X.509 c
 Otomatik sağlama işlemini bilmiyorsanız, [Otomatik sağlama kavramlarını](concepts-auto-provisioning.md) gözden geçirin. Ayrıca, bu hızlı başlangıçla devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalla ayarlama](./quick-setup-auto-provision.md) bölümünde bulunan adımları tamamladığınızdan emin olun. 
 
 Azure IoT Cihaz Sağlama Hizmeti iki tür kaydı destekler:
-- [Kayıt grupları](concepts-service.md#enrollment-group): Birden fazla ilgili cihazı kaydetmek için kullanılır.
+- [Kayıt grupları](concepts-service.md#enrollment-group): Birden çok ilgili cihazları kaydetmek için kullanılır.
 - [Bireysel kayıtlar](concepts-service.md#individual-enrollment): Tek bir cihazı kaydetmek için kullanılır.
 
 Bu makalede bireysel kayıtlar gösterilmektedir.
@@ -33,7 +33,7 @@ Bu makalede bireysel kayıtlar gösterilmektedir.
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * ["C++ ile masaüstü geliştirme"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) iş yükünün etkinleştirildiği Visual Studio 2015 veya [Visual Studio 2017](https://www.visualstudio.com/vs/).
 * [Git](https://git-scm.com/download/)'in en son sürümünün yüklemesi.
@@ -137,13 +137,13 @@ Benzetim cihazının tek kayıt girdisiyle kullanılacak sertifikayı oluşturma
 
 3. **Kayıt Ekle** altında aşağıdaki bilgileri girin ve **Kaydet** düğmesine tıklayın.
 
-    - **Mekanizma:** Kimlik onay *Mekanizması* olarak **X.509**'u seçin.
-    - **Birincil sertifika .pem veya .cer dosyası:** **Dosya seçin**'e tıklayarak önceki adımlarda oluşturduğunuz X509testcert.pem adlı sertifika dosyasını seçin.
-    - **IoT Hub Cihaz kimliği:** Cihaza bir kimlik vermek için **test-docs-cert-device** girin.
+    - **Mekanizması:** Kimlik onay *Mekanizması* olarak X.509'u seçin.
+    - **Birincil sertifika .pem veya .cer dosyası:** Tıklayın **bir dosya seçin** X509testcert.pem, sertifika dosyasını seçmek için daha önce oluşturduğunuz.
+    - **IOT Hub cihaz kimliği:** Girin **test-docs-cert-device** cihaz kimliği vermek için
 
-    [![Portalda X.509 kanıtı için tek kayıt ekleme](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
+      [![Portalda X.509 kanıtı için tek kayıt ekleme](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
-    Kayıt başarıyla tamamlandığında, X.509 cihazınız **Bireysel Kayıtlar** sekmesindeki *Kayıt Kimliği* sütununun altında *riot-device-cert* olarak gösterilir. 
+      Kayıt başarıyla tamamlandığında, X.509 cihazınız **Bireysel Kayıtlar** sekmesindeki *Kayıt Kimliği* sütununun altında *riot-device-cert* olarak gösterilir. 
 
 
 

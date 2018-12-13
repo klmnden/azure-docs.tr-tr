@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: be14b560eb48adc2fcf0ad0a1cf7fe27792a402a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5b8db52623eead2800b0a5d8154a222573808750
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002712"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192439"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Log Analytics ve Application Insights depolanan kişisel verilere yönelik kılavuz
 
@@ -50,32 +49,32 @@ Log Analytics'in, verilerinizin bir şemaya prescribing çalışırken her alan�
     | where * matches regex @'\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b' //RegEx originally provided on https://stackoverflow.com/questions/5284147/validating-ipv4-addresses-with-regexp
     | summarize count() by $table
     ```
-* *Kullanıcı kimliklerini*: büyük çeşitli çözümler ve tablolar kullanıcı kimlikleri bulundu. Belirli bir kullanıcı adı için arama komutunu kullanarak, veri kümesi genelinde arayabilirsiniz:
+* *Kullanıcı kimliklerini*: Çok çeşitli çözümler ve tablolar kullanıcı kimlikleri bulundu. Belirli bir kullanıcı adı için arama komutunu kullanarak, veri kümesi genelinde arayabilirsiniz:
     ```
     search "[username goes here]"
     ```
 Yalnızca kullanıcı tarafından okunabilen kullanıcı adları aynı zamanda doğrudan geri belirli bir kullanıcıya izlenebilir GUID'leri için aranacak unutmayın!
-* *Cihaz kimlikleri*: gibi "kullanıcı kimlikleri, cihaz kimlikleri bazen özel" olarak kabul edilir. Tabloları tanımlamak için kullanıcı kimlikleri için yukarıda listelenen bölgelere aynı yaklaşımı kullanmak olduğunda bu bir sorun olabilir. 
-* *Özel veri*: Log Analytics, çeşitli yöntemler koleksiyonda sağlar: özel günlükleri ve özel alanları [HTTP veri toplayıcı API'sini](../../azure-monitor/platform/data-collector-api.md) , ve özel veri, sistem olay günlüklerini bir parçası olarak toplanır. Bunların tümü, özel veri içeren açıktır ve herhangi bir veri var olup olmadığını doğrulamak için incelenmelidir.
-* *Çözüm Yakalanan veriler*: açık uçlu bir çözüm mekanizması olduğundan, uyumluluk sağlamak için çözümler tarafından oluşturulan tüm tabloları incelemeniz önerilir.
+* *Cihaz kimlikleri*: "Kullanıcı kimlikleri gibi cihaz kimlikleri bazen özel" olarak kabul edilir. Tabloları tanımlamak için kullanıcı kimlikleri için yukarıda listelenen bölgelere aynı yaklaşımı kullanmak olduğunda bu bir sorun olabilir. 
+* *Özel veri*: Log Analytics'e sağlayan çeşitli yöntemler koleksiyonda: özel günlükleri ve özel alanları [HTTP veri toplayıcı API'sini](../../azure-monitor/platform/data-collector-api.md) , ve özel veri, sistem olay günlüklerini bir parçası olarak toplanır. Bunların tümü, özel veri içeren açıktır ve herhangi bir veri var olup olmadığını doğrulamak için incelenmelidir.
+* *Çözüm Yakalanan veriler*: Çözüm mekanizması açık uçlu bir tane olduğundan, uyumluluk sağlamak için çözümler tarafından oluşturulan tüm tabloları incelemeniz önerilir.
 
 ### <a name="application-data"></a>Uygulama verileri
 
-* *IP adresleri*: sırasında Application Insights varsayılan olarak karartmak "0.0.0.0" için tüm IP adresi alanları, oturum bilgilerini korumak için gerçek kullanıcı IP bu değerle geçersiz kılmak için oldukça sık kullanılan bir desendir. Aşağıdaki Analytics sorgusu, son 24 saat boyunca "0.0.0.0" dışındaki IP adresi sütundaki değerleri içeren herhangi bir tabloda bulmak için kullanılabilir:
+* *IP adresleri*: Application Insights varsayılan olarak "0.0.0.0" tüm IP adresi alanlarıyla karartmak, ancak oturum bilgilerini korumak için gerçek kullanıcı IP bu değerle geçersiz kılmak için oldukça sık kullanılan bir desendir. Aşağıdaki Analytics sorgusu, son 24 saat boyunca "0.0.0.0" dışındaki IP adresi sütundaki değerleri içeren herhangi bir tabloda bulmak için kullanılabilir:
     ```
     search client_IP != "0.0.0.0"
     | where timestamp > ago(1d)
     | summarize numNonObfuscatedIPs_24h = count() by $table
     ```
-* *Kullanıcı kimliklerini*: varsayılan olarak, Application Insights rastgele oluşturulmuş kimlikleri kullanıcı ve oturum izleme için kullanır. Ancak, bir kimliği uygulamayla ilgili daha fazla saklamak için geçersiz kılınan bu alanları görmek için yaygındır. Örneğin: kullanıcı adları, AAD GUID'leri, vs. Bu kimlik genellikle olarak değerlendirilir kapsamındaki kişisel verileri olarak ve bu nedenle, uygun şekilde yapılması gerekir. Karartmak veya bu kimliklerinin Anonimleştir denemek için her zaman bizim kullanılması önerilir. Burada bu değerleri yaygın olarak bulunan alanları session_ıd, USER_ID, user_AuthenticatedId, user_AccountId yanı sıra customDimensions içerir.
-* *Özel veri*: Application Insights, herhangi bir veri türü bir dizi özel boyutlar eklenecek olanak sağlar. Bu boyutlara olabilir *herhangi* veri. Son 24 saat boyunca toplanan herhangi bir özel boyutlar tanımlamak için aşağıdaki sorguyu kullanın:
+* *Kullanıcı kimliklerini*: Varsayılan olarak, kullanıcı ve oturum izleme için Application Insights rastgele oluşturulmuş kimlikleri kullanır. Ancak, bir kimliği uygulamayla ilgili daha fazla saklamak için geçersiz kılınan bu alanları görmek için yaygındır. Örneğin: kullanıcı adları, AAD GUID'leri, vs. Bu kimlik genellikle olarak değerlendirilir kapsamındaki kişisel verileri olarak ve bu nedenle, uygun şekilde yapılması gerekir. Karartmak veya bu kimliklerinin Anonimleştir denemek için her zaman bizim kullanılması önerilir. Burada bu değerleri yaygın olarak bulunan alanları session_ıd, USER_ID, user_AuthenticatedId, user_AccountId yanı sıra customDimensions içerir.
+* *Özel veri*: Application Insights için herhangi bir veri türü bir dizi özel boyutlar eklenecek sağlar. Bu boyutlara olabilir *herhangi* veri. Son 24 saat boyunca toplanan herhangi bir özel boyutlar tanımlamak için aşağıdaki sorguyu kullanın:
     ```
     search * 
     | where isnotempty(customDimensions)
     | where timestamp > ago(1d)
     | project $table, timestamp, name, customDimensions 
     ```
-* *Bellek ve aktarım sırasında verileri*: Application Insights, özel durumlar, istekler, bağımlılık çağrıları ve izlemeler izleyecek. Özel veriler genellikle kod ve HTTP çağrısı düzeyinde toplanabilir. Özel durumlar, istekler, bağımlılıklar ve izlemeleri tabloları tür verileri tanımlamak için gözden geçirin. Kullanım [telemetri başlatıcılar](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) mümkün olduğunda bu verileri karartmak.
+* *Bellek ve aktarım sırasında verileri*: Application Insights, özel durumlar, istekler, bağımlılık çağrıları ve izlemeler izler. Özel veriler genellikle kod ve HTTP çağrısı düzeyinde toplanabilir. Özel durumlar, istekler, bağımlılıklar ve izlemeleri tabloları tür verileri tanımlamak için gözden geçirin. Kullanım [telemetri başlatıcılar](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) mümkün olduğunda bu verileri karartmak.
 * *Anlık görüntü hata ayıklayıcısı yakalamaları*: [Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) özellik Application ınsights'da uygulamanızı üretim örneği üzerinde bir özel durum yakalandı her hata ayıklama anlık görüntüleri toplamak sağlar. Anlık görüntüleri, özel durumların yanı sıra, yığındaki her adımda yerel değişkenler için değerler baştaki tam yığın izlemesi açığa çıkarır. Ne yazık ki, bu özellik ek noktalarından veya anlık görüntü verileri programlı erişim seçmeli silme işlemi için izin vermez. Bu nedenle, varsayılan anlık görüntü elde tutma oranı, uyumluluk gereksinimlerini karşılamadığı, özelliği devre dışı bırakmak için kullanılması önerilir.
 
 ## <a name="how-to-export-and-delete-private-data"></a>Dışarı aktarma ve silme özel veriler

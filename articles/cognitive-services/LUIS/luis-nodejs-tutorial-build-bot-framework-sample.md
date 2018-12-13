@@ -1,5 +1,5 @@
 ---
-title: LUIS Bot ile Node.js
+title: Bot - Node.js - v3
 titleSuffix: Azure Cognitive Services
 description: Bot Framework kullanarak bir LUIS uygulaması ile tümleşik bir bot oluşturun.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 7229155b9fbfb93babd45c746d0f36fbab812013
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 71bbb12335292a7614f792c18e1ee63a7843a562
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093413"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135874"
 ---
 # <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot Framework Node.js içindeki robotla LUIS 3.x ve Azure Web app botu
 

@@ -1,10 +1,10 @@
 ---
-title: Azure CLI Betik Örneği - Bir web uygulaması oluşturma ve hazırlama ortamına kod dağıtma | Microsoft Docs
-description: Azure CLI Betik Örneği - Bir web uygulaması oluşturma ve hazırlama ortamına kod dağıtma
+title: Azure CLI betik örneği - uygulaması oluşturma ve hazırlama yuvasını kod dağıtma | Microsoft Docs
+description: Azure CLI betik örneği - bir web uygulaması oluşturma ve hazırlama yuvasına kod dağıtma
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: 2b995dcd-e471-4355-9fda-00babcdb156e
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 8f6bcbf87e998c97b1631e159418d82c6c53f779
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 2ee0d4f5b53bbe8395dccdb8426d06fe946740f3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979437"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314441"
 ---
-# <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>Bir web uygulaması oluşturma ve hazırlama ortamına kod dağıtma
+# <a name="create-a-web-app-and-deploy-code-to-a-staging-environment-using-azure-cli"></a>Bir web uygulaması oluşturma ve Azure CLI kullanarak bir hazırlama ortamına kod dağıtma
 
 Bu örnek betik, App Service’te "hazırlama" adlı ek bir dağıtım yuvası ile bir web uygulaması oluşturur ve sonra "hazırlama" yuvasını örnek bir uygulama dağıtır.
 

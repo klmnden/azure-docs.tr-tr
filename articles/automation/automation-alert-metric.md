@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 65de18445f114f468dd42c5a7e7128dd2f63d44c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f742f6923b7d9f40a8752d77c7702e9b2ea2a4cf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959843"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185877"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Ölçüm uyarıları ile runbook'ları izleme
 
@@ -51,7 +51,7 @@ Azure portalında, Otomasyon hesabınıza gidin. Altında **izleme**seçin **uya
 
 ### <a name="define-the-action-to-take"></a>Gerçekleştirilecek eylemi tanımlayın
 
-1. **3. Eylem grubunu tanımlama** bölümünden **+ Yeni eylem grubu**’na tıklayın. Bir eylem grubu arasında birden fazla uyarı kullanabileceğiniz Eylemler grubudur. Bunlar içerebilir ancak e-posta bildirimleri, runbook'ları, Web kancaları ve çok daha fazlası için sınırlı değildir. Eylem grupları hakkında daha fazla bilgi edinmek için bkz. [Eylem grupları oluşturma ve yönetme](../monitoring-and-diagnostics/monitoring-action-groups.md)
+1. **3. Eylem grubunu tanımlama** bölümünden **+ Yeni eylem grubu**’na tıklayın. Bir eylem grubu arasında birden fazla uyarı kullanabileceğiniz Eylemler grubudur. Bunlar içerebilir ancak e-posta bildirimleri, runbook'ları, Web kancaları ve çok daha fazlası için sınırlı değildir. Eylem grupları hakkında daha fazla bilgi edinmek için bkz. [Eylem grupları oluşturma ve yönetme](../azure-monitor/platform/action-groups.md)
 
 1. **Eylem grubu adı** kutusuna bir kolay ad bir de kısa ad yazın. Bu eylem grubu kullanılarak bildirim gönderildiğinde tam grup adı yerine kısa ad kullanılır.
 

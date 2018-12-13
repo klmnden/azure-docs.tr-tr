@@ -1,7 +1,7 @@
 ---
 title: Uç nokta bölgesiC#
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Bulma uç noktası anahtarı ve uygulama ile bölgeye yayımlama program aracılığıyla LUIS kimliği.
+description: İle C#, bulma uç noktası anahtarı ve uygulama ile bölgeye yayımlama LUIS kimliği.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 39e0451594d0c394589b3e833ffc61f195791ba6
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 5d4c564ac797f40d7f6e9b169a6c864d3ef8147b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016036"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165172"
 ---
 # <a name="find-endpoint-region-with-c"></a>C# ile uç nokta bölgesi bulma 
 LUIS uygulama kimliği ve LUIS abonelik kimliği varsa, hangi bölge için uç nokta sorgular bulabilirsiniz.
 
 > [!NOTE] 
-> Tam C# çözümü kullanılabilir [ **LUIS-Samples** Github deposu](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/).
+> Tam C# çözüm kullanılabilir [ **LUIS-Samples** GitHub deposu](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/).
 
 ## <a name="luis-endpoint-query-strategy"></a>LUIS uç nokta sorgu stratejisi
 Her LUIS uç nokta sorgu gerektirir:

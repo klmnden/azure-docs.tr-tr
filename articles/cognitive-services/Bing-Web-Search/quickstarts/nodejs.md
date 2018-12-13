@@ -1,7 +1,7 @@
 ---
-title: "Hızlı Başlangıç: Node.js ile arama gerçekleştirme - Bing Web Araması API'si"
+title: "Hızlı Başlangıç: Node.js - Bing Web araması REST API'si ile bir web araması"
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, Node.js kullanarak ilk Bing Web Araması API'si çağrınızı yapmayı ve bir JSON yanıtı almayı öğreneceksiniz.
+description: Bu hızlı başlangıçta, Node.js kullanarak Bing Web araması REST API'si için istekleri göndermek için kullanın ve bir JSON yanıtı alırsınız.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 9/26/2018
 ms.author: aahi
-ms.openlocfilehash: 4c6e74d4ce9e3c1f9d81e640f7fa8071f73ec776
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 3d8b323a316dcef10a0d7beb5d1d2dd122b0e2ba
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309314"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255593"
 ---
-# <a name="quickstart-use-nodejs-to-call-the-bing-web-search-api"></a>Hızlı Başlangıç: Bing Web Araması API’sini çağırmak için Node.js kullanma  
+# <a name="search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Bing Web araması REST API'si ve Node.js kullanarak web araması
 
 10 dakikadan daha kısa bir sürede ilk Bing Web Araması API'si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın.
 

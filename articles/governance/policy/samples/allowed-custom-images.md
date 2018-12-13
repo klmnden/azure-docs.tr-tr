@@ -1,5 +1,5 @@
 ---
-title: Azure İlkesi örneği - Onaylı VM görüntüleri
+title: Örnek - onaylanan VM görüntüleri
 description: Bu örnek ilkesi, ortamınızda yalnızca onaylı özel görüntülerin dağıtılmasını gerektirir.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: d4216c785155ac5462dbcb1b48bf58e7bc718601
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: efec6c4e0a677681fd9f1132f4573d99b35236d4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965387"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312672"
 ---
 # <a name="approved-vm-images"></a>Onaylı VM görüntüleri
 
@@ -54,7 +53,7 @@ Azure CLI ve Azure PowerShell tarafından kullanılan, ilke parametrelerini tan�
 
 ## <a name="parameters"></a>Parametreler
 
-|Adı |Tür |Alan |Açıklama |
+|Ad |Tür |Alan |Açıklama |
 |---|---|---|---|
 |imageIds |Dizi |Microsoft.Compute/imageIds |Onaylı VM görüntülerinin listesi|
 
@@ -220,10 +219,10 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 | Hizmet | Grup | İşlem | Notlar |
 |---|---|---|---|
-| Kaynak Yönetimi | İlke Tanımları | [Oluşturma](/rest/api/resources/policydefinitions/createorupdate) | Abonelikte yeni bir Azure İlkesi tanımı oluşturur. Alternatif: [Yönetim grubunda oluşturma](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| Kaynak Yönetimi | İlke Tanımları | [Oluşturma](/rest/api/resources/policydefinitions/createorupdate) | Abonelikte yeni bir Azure İlkesi tanımı oluşturur. Alternatif: [Yönetim grubu oluşturma](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
 | Kaynak Yönetimi | İlke Atamaları | [Oluşturma](/rest/api/resources/policyassignments/create) | Yeni bir Azure İlkesi ataması oluşturur. Bu örnekte bir tanım sağlıyoruz ancak girişim de kullanılabilir. |
 | Kaynak Yönetimi | İlke Atamaları | [Silme](/rest/api/resources/policyassignments/delete) | Var olan bir Azure İlkesi atamasını kaldırır. |
-| Kaynak Yönetimi | İlke Tanımları | [Silme](/rest/api/resources/policydefinitions/delete) | Var olan bir Azure İlkesi tanımını kaldırır. Alternatif: [Yönetim grubunda silme](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
+| Kaynak Yönetimi | İlke Tanımları | [Silme](/rest/api/resources/policydefinitions/delete) | Var olan bir Azure İlkesi tanımını kaldırır. Alternatif: [Yönetim Grubu Sil](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

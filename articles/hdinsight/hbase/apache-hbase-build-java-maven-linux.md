@@ -1,20 +1,20 @@
 ---
-title: Java HBase istemci - Azure HDInsight
+title: Apache Maven - Azure HDInsight'ı kullanarak Java HBase istemci oluşturun
 description: Apache Maven bir Java tabanlı Apache HBase uygulaması oluşturmayı ve ardından Azure HDInsight üzerinde HBase dağıtmak için kullanmayı öğrenin.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.openlocfilehash: 721e37349b406705a2cdfb52c64b5796cb590d78
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: dbcb031b49c529bc2b2524cd0984bbef1945d485
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445660"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164067"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Apache HBase için Java uygulamaları oluşturun
 
@@ -56,8 +56,8 @@ Bu adımları belge kullanım [Apache Maven](https://maven.apache.org/) ve proje
 
     Bu komut aynı ada sahip bir dizin oluşturur. **Artifactıd** parametre (**hbaseapp** Bu örnekte.) Bu dizin, aşağıdaki öğeleri içerir:
 
-   * **pom.xml**: Proje nesne modeli ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) projeyi oluşturmak için kullanılan bilgiler ve yapılandırma ayrıntılarını içerir.
-   * **src**: içeren dizine **main/java/com/microsoft/örnekler** Yazar burada uygulama dizini.
+   * **pom.xml**:  Proje nesne modeli ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) projeyi oluşturmak için kullanılan bilgiler ve yapılandırma ayrıntılarını içerir.
+   * **src**: İçeren dizine **main/java/com/microsoft/örnekler** Yazar burada uygulama dizini.
 
 3. Silme `src/test/java/com/microsoft/examples/apptest.java` dosya. Bu, bu örnekte kullanılmaz.
 

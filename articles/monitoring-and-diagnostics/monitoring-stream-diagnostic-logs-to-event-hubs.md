@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: d178041a420c49480c6043869f139eb3a09c91fd
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b7c2c28ab049f0cce26f306736ec938955156ebb
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959282"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322593"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Olay hub'ına Stream Azure tanılama günlükleri
 **[Azure tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md)**  portalında veya Azure aracılığıyla bir tanılama ayarını olay hub'ı yetkilendirme kuralı kimliği etkinleştirerek yerleşik "Dışarı aktarmak için Event Hubs" seçeneğini kullanarak herhangi bir uygulama için neredeyse gerçek zamanlı akış PowerShell cmdlet'leri veya Azure CLI.
@@ -44,14 +44,14 @@ Akış özelliği için tanılama günlüklerini kullanabilir birkaç yolu vard�
 Tanılama günlüklerini programlı olarak portal, akış veya kullanarak etkinleştirebilirsiniz [Azure İzleyici REST API'leri](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). Tanılama ayarını oluşturduğunuz her iki durumda da bir Event Hubs ad alanı ve günlük kategorileri ve ad alanına göndermek istediğiniz ölçümleri, belirttiğiniz içinde. Bir olay hub'ı etkinleştirdiğiniz her günlük kategorisi için bir ad alanı oluşturulur. Bir tanılama **günlüğü kategorisi** kaynak toplayabilir günlük türüdür.
 
 > [!WARNING]
-> Etkinleştirme ve işlem kaynakları (örneğin, VM'ler veya Service Fabric) tanılama günlüklerinin akışını [farklı bir dizi adım gerektirir](azure-diagnostics-streaming-event-hubs.md).
+> Etkinleştirme ve işlem kaynakları (örneğin, VM'ler veya Service Fabric) tanılama günlüklerinin akışını [farklı bir dizi adım gerektirir](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md).
 
 Event Hubs ad alanı, hem abonelik hem de her iki aboneliğin uygun RBAC erişim ayarı yapılandıran kullanıcının sahip olduğu sürece, günlükleri yayan kaynak ile aynı abonelikte olmak zorunda değil, aynı AAD kiracısındaki bir parçasıdır.
 
 > [!NOTE]
 > Çok boyutlu ölçümlerin tanılama ayarları aracılığıyla gönderilmesi şu anda desteklenmemektedir. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
 >
-> *Örneğin*: Bir Olay Hub'ındaki 'Gelen İletiler' ölçümü, kuyruk düzeyi temelinde araştırılıp grafiği oluşturulabilir. Ancak, tanılama ayarları aracılığıyla dışarı aktarılan ölçüm, Olay Hub’ındaki tüm kuyruklarda tüm gelen iletiler halinde ifade edilir.
+> *Örneğin*: Bir olay Hub'ındaki 'Gelen iletiler' ölçümü temelinde araştırılıp bir kuyruk düzeyi. Ancak, tanılama ayarları aracılığıyla dışarı aktarılan ölçüm, Olay Hub’ındaki tüm kuyruklarda tüm gelen iletiler halinde ifade edilir.
 >
 >
 
@@ -191,7 +191,7 @@ Event Hubs'a akış'ı destekleyen tüm kaynak sağlayıcılarının bir listesi
 
 ## <a name="stream-data-from-compute-resources"></a>Stream verilerden bilgi işlem kaynakları
 
-Ayrıca Windows Azure tanılama aracısını kullanarak işlem kaynaklarını tanılama günlüklerinin akışını yapabilirsiniz. [Bu makaleye bakın](azure-diagnostics-streaming-event-hubs.md) ayarlanacağını öğrenmek için.
+Ayrıca Windows Azure tanılama aracısını kullanarak işlem kaynaklarını tanılama günlüklerinin akışını yapabilirsiniz. [Bu makaleye bakın](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md) ayarlanacağını öğrenmek için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

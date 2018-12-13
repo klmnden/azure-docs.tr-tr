@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: article
-ms.date: 12/6/2017
+ms.date: 12/06/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 84068376f35bc4df6672cffcc0ac3438b12edbb5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2d912f559af98045aaef8fe6fcaa1d83ab5f96bd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979684"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269371"
 ---
 # <a name="model-management-setup"></a>Model Yönetimi Kurulumu
 
@@ -68,7 +68,7 @@ pip install -r https://aka.ms/az-ml-o16n-cli-requirements-file
 ```
 
 ### <a name="configuring-docker-on-linux"></a>Linux'ta Docker'ı yapılandırma
-Kök olmayan kullanıcılar tarafından kullanılması için Linux'ta Docker yapılandırmak için yönergeleri izleyin: [Linux için yükleme sonrası adımlar](https://docs.docker.com/engine/installation/linux/linux-postinstall/)
+Kök olmayan kullanıcılar tarafından kullanılması için Linux'ta Docker yapılandırmak için buradaki yönergeleri izleyin: [Linux için yükleme sonrası adımlar](https://docs.docker.com/engine/installation/linux/linux-postinstall/)
 
 >[!NOTE]
 > Bir Linux DSVM'sini üzerinde Docker doğru şekilde yapılandırmak için aşağıdaki betiği çalıştırabilirsiniz. **Oturumu kapatın ve betiği çalıştırdıktan sonra tekrar oturum açmayı unutmayın.**
@@ -85,7 +85,7 @@ Başlamak için dağıtım ortamı oluşturmanız gerekir. Bir ortam Kurulumu ol
 
 Ortam Kurulumu tamamlanırken:
 - Azure'da oturum açmanız istenir. Oturum açmak için bir web tarayıcısı kullanarak https://aka.ms/devicelogin ve kimlik doğrulaması için sağlanan kod girin.
-- Kimlik doğrulama işlemi sırasında kimlik doğrulaması yapmak bir hesap istenir. Önemli: geçerli bir Azure aboneliği ve kaynak hesabı oluşturmak için yeterli izinlere sahip bir hesap seçin. Oturum açma tamamlandıktan sonra abonelik bilgilerinizi sunulur ve seçili hesapla devam etmek istiyor olup isteniyor.
+- Kimlik doğrulama işlemi sırasında kimlik doğrulaması yapmak bir hesap istenir. Önemli: Geçerli bir Azure aboneliği ve kaynak hesabı oluşturmak için yeterli izinlere sahip bir hesap seçin. Oturum açma tamamlandıktan sonra abonelik bilgilerinizi sunulur ve seçili hesapla devam etmek istiyor olup isteniyor.
 
 ### <a name="environment-setup"></a>Ortam Kurulumu
 Kurulum işlemini başlatmak için aşağıdaki komutları girerek birkaç ortam sağlayıcılarını kaydetme gerekir:

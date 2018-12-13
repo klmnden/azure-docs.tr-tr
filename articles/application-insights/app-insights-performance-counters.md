@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: da6cc943c310b627626b3d2081ffa88ef3185013
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: bcfb3a52793ba0daca980564d5d2248629b5caf4
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727843"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323021"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application ınsights'ta sistem performans sayaçları
 Windows sağlayan çok çeşitli [performans sayaçları](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) CPU doluluğu, bellek, disk ve ağ kullanımı gibi. Ayrıca kendi tanımlayabilirsiniz. [Application Insights](app-insights-overview.md) bu performans sayaçlarını bir şirket içi konak veya sanal makinede yönetimsel erişim sahibi uygulamanızı IIS altında çalışıp çalışmadığını gösterebilir. Grafik Canlı uygulamanızın kullanabileceği kaynakları belirtmek ve sunucu örnekleri arasında dengesiz yük belirlemenize yardımcı olabilir.
@@ -26,7 +26,7 @@ Performans sayaçları, bir tablo, sunucu örneği tarafından bu parçaları i�
 
 ![Uygulama anlayışları'nda bildirilen performans sayaçları](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
-(Performans sayaçları Azure Web Apps için kullanılamaz. Ancak [Application Insights'a Azure Tanılama verileri gönderme](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).)
+(Performans sayaçları Azure Web Apps için kullanılamaz. Ancak [Application Insights'a Azure Tanılama verileri gönderme](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).)
 
 ## <a name="view-counters"></a>Sayaçları görüntüleyin
 Sunucu dikey penceresinde varsayılan birtakım performans sayaçlarını gösterir. 

@@ -8,14 +8,14 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 926609e261c318f22e5c5d2091ea8fbf8f7315d7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0096a7a57cb4a404f5c8e36d8b69eac2c20c1fab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081345"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139820"
 ---
-# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Öğretici: Azure Stream Analytics’i bir IoT Edge modülüne dağıtma (önizleme)
+# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Öğretici: Azure Stream Analytics IOT Edge modülü dağıtma
 
 Çoğu IoT çözümünde, IoT cihazlarından buluta ulaşan veriler hakkında içgörü edinmek için analiz hizmetleri kullanılır. Azure IoT Edge ile [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) mantığını alıp cihazın kendisine aktarabilirsiniz. Telemetri akışlarını uç cihazlarda işleyerek yüklenen veri miktarını ve eyleme dönüştürülebilir içgörülere tepki verme süresini azaltabilirsiniz.
 
@@ -36,8 +36,6 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 ![Diyagram - öğretici mimarisi, aşama ve ASA işi dağıtma](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
->[!NOTE]
->Azure Stream Analytics IoT Edge modülleri [genel önizleme](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) sürümündedir.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

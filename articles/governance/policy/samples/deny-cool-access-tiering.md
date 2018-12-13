@@ -1,5 +1,5 @@
 ---
-title: Azure İlkesi örneği - Depolama hesapları için seyrek erişimli depolama katmanını engelleme
+title: Örnek - seyrek erişimli depolama hesapları için katmanlama Reddet
 description: Bu örnek ilkesi, blob depolama hesapları için seyrek erişimli depolama katmanının kullanılmasını engeller.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: dedf280a6aa704971d54de4677f90685dfccbdb5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: c6b8e293b42d209a8556e85c4348596023dd3fdf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946060"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308558"
 ---
 # <a name="deny-cool-access-tiering-for-storage-accounts"></a>Depolama hesapları için seyrek erişim katmanını reddet
 

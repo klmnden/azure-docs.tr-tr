@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 454f45b692a87dbd47ca1ca70880323912693839
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a1594d3dfe449049258e5ee12bc173c413459f8a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082705"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132883"
 ---
 # <a name="manage-versions"></a>Sürümleri yönetme
 
@@ -45,7 +45,7 @@ Sürümlerinin listesi göster burada yayımlanmalarından ve hangi sürümü ş
 
 Listeden bir sürüm seçin ve ardından **olun etkin** araç çubuğundan. 
 
-[![Yönet bölümünün, sürümler sayfasını](./media/luis-how-to-manage-versions/versions-other.png "Yönet bölümünün, sürümler sayfasını")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
+[![Yönet bölümünün, sürümler sayfasını bir sürüm eylemi olun](./media/luis-how-to-manage-versions/versions-other.png "Yönet bölümünde, sürümler sayfasını bir sürüm eylemi olun")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## <a name="import-version"></a>Alma sürümü
 
@@ -53,7 +53,7 @@ Listeden bir sürüm seçin ve ardından **olun etkin** araç çubuğundan.
 
 2. İçinde **yeni sürüm içeri aktarma** açılır penceresinde, yeni on karakter sürümü adını girin. JSON dosyasındaki sürüm uygulamada zaten varsa, bir sürüm kimliği ayarlamak yeterlidir.
 
-    ![Bölümünde, sürümler sayfasını yönetme](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
+    ![Yönet bölümünde, sürümler sayfasında, yeni sürüm içeri aktarılıyor](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
     Bir sürümü içeri aktardığınızda, yeni sürümü etkin sürümü haline gelir.
 

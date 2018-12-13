@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 31d733ef7e80136641f0b6f6de46589f15567e57
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 9e5b132a7946bdc648e051c9f7327cc7159f291e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097888"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163642"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding hakkında SSS
 
@@ -221,7 +221,7 @@ Videolar:
 * [Build 2018'e - LUIS güncelleştirmeleri](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 Projeler:
-* [Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) tanıtım - Github üzerinde kaynak kodu
+* [Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) tanıtım - GitHub üzerinde kaynak kodu
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

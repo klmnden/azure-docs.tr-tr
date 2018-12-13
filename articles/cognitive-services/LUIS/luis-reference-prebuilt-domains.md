@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: a47fb82b1e6d42bdebff8cc4f3cb4c3c87025831
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3cb85a48a881545e9b2a0df29c35218b999fdbf0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106252"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140974"
 ---
-# <a name="prebuilt-domain-reference"></a>Önceden derlenmiş etki alanı başvurusu
+# <a name="prebuilt-domain-reference-for-your-luis-app"></a>LUIS uygulamanızı için önceden oluşturulmuş etki alanı başvurusu
 Bu başvuru, hakkında bilgi sağlar. [önceden oluşturulmuş etki alanları](luis-how-to-use-prebuilt-domains.md), önceden oluşturulmuş koleksiyon hedefleri ve LUIS sunan varlıkların olduğu.
 
 [Özel etki alanları](luis-how-to-start-new-app.md), aksine, hiçbir hedefleri ve modelleri başlayın. Herhangi bir önceden oluşturulmuş etki alanı hedefleri ve varlıklar için özel bir model ekleyebilirsiniz.
@@ -116,7 +116,7 @@ Hedefleri ve e-posta, iletileri ve telefon aramaları ilgili varlıkları ileti�
 | TurnForwardingOff| Telefon araması yapın.|<br/><br/>|
 | Arama| Arayın veya bir sayı yeniden çağırın.|Arayın.<br/>Benim son çağrı arayın.|
 | Reddet| Bir gelen çağrıyı reddeder.|Çağrı Reddet<br/>Artık yanıt bulamadığınız<br/>Şu anda kullanılamıyor ve daha sonra geri çağırır.|
-| SendEmail| E-posta gönderin. Bu amaç için e-posta ancak metin iletileri için geçerlidir.|Mike sularında e-posta: Mike dinner geçen hafta sende çok iyi.<br/>Bob için bir e-posta Gönder<br/>|
+| SendEmail| E-posta gönderin. Bu amaç için e-posta ancak metin iletileri için geçerlidir.|Mike sularında için e-posta: Mike, Şimdi Akşam geçen hafta sende çok iyi.<br/>Bob için bir e-posta Gönder<br/>|
 | SendMessage| SMS mesajı ya da anlık ileti gönderin.|Chris ve Carol metin Gönder|
 | SetSpeedDial| Kişinin telefon numarası için hızlı arama kısayol ayarlayın.|Carol için hızlı arama birini ayarlayın.<br/>Mom için hızlı arama ayarlayın.|
 | ShowNext| Sonraki öğeyi, örneğin, bir kısa mesaj veya e-postaları listesinde bakın.|Sonrakini Göster.<br/>Bir sonraki sayfasına gidin.|
@@ -242,11 +242,12 @@ Hedefleri ve ışıklar ve cihazları gibi Akıllı Giriş cihazları denetlemek
 Hedefleri ve ayırtmak için film tiyatro filmleri ilgili varlıkları MovieTickets etki alanı sağlar.
 
 ### <a name="examples"></a>Örnekler
-```
-Book me two tickets for Captain Omar and the two Musketeers
-Cancel tickets
-When is Captain Omar showing?
-```
+
+|Örnekler|
+|--|
+|Bana iki biletleri lideri Omar ve iki Musketeers rezervasyonu|
+|Anahtarları iptal et|
+|Ne zaman lideri Omar gösteriliyor?|
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |

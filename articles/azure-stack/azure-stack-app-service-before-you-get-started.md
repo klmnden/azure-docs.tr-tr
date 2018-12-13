@@ -12,18 +12,18 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: 4f669d44582c47cc6c7c090627f957288fee0f1a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: add4a7f1ce8133b5c3891f731fc98ee7fdb26ebd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615883"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275678"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure Stack üzerinde App Service ile çalışmaya başlamadan önce
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Azure Stack'te Azure App Service'ı dağıtmadan önce bu makalede bölümündeki önkoşul adımlarını tamamlamanız gerekir.
 
@@ -152,6 +152,12 @@ Sertifika kimliği şu biçimde eşleşen bir konu içermelidir.
 | Biçimlendir | Örnek |
 | --- | --- |
 | SSO.appservice. \<bölge\>.\< DomainName\>.\< Uzantı\> | sso.appservice.redmond.azurestack.external |
+
+
+### <a name="validate-certificates"></a>Sertifika doğrulama
+App service kaynak sağlayıcısı dağıtmadan önce yapmanız gerekenler [kullanılacak sertifika doğrulama](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) kullanılabilir Azure Stack hazırlık Denetleyicisi aracını kullanarak [PowerShell Galerisi](https://aka.ms/AzsReadinessChecker). Azure Stack hazırlık Denetleyicisi Aracı'nı oluşturulan PKI sertifikalarını uygulama hizmetleri dağıtımı için uygun olduğunu doğrular. 
+
+Tüm gerekli ile çalışırken en iyi bir uygulama olarak [Azure Stack PKI sertifikaları](azure-stack-pki-certs.md), test edin ve gerekirse sertifikalar yeniden gönderin için yeterli zaman bırakmak planlamanız gerekir. 
 
 ## <a name="virtual-network"></a>Sanal ağ
 

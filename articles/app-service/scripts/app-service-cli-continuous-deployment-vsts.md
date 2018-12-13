@@ -1,10 +1,10 @@
 ---
-title: Azure CLI Betik Örneği - Azure DevOps Services’den sürekli dağıtım ile bir web uygulaması oluşturma | Microsoft Docs
-description: Azure CLI Betik Örneği - Azure DevOps Services’den sürekli dağıtım ile bir web uygulaması oluşturma
+title: Azure CLI betik örneği - Azure depoları için sürekli dağıtım ile uygulama oluşturma | Microsoft Docs
+description: Azure CLI betik örneği - Azure depoları için sürekli dağıtım ile bir web uygulaması oluşturma
 services: app-service\web
 documentationcenter: ''
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: 389d3bd3-cd8e-4715-a3a1-031ec061d385
@@ -14,16 +14,16 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: fcb55c72f63a9964f04fba1e2b8abbaf39fe6b46
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: jeconnoc
+ms.custom: seodec18
+ms.openlocfilehash: cb2e427163d4a39c9286126b1774e09610fc328f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967056"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308490"
 ---
-# <a name="create-a-web-app-with-continuous-deployment-from-azure-devops"></a>Azure DevOps’tan sürekli dağıtım ile bir web uygulaması oluşturma
+# <a name="create-a-web-app-with-continuous-deployment-using-azure-cli"></a>Azure CLI kullanarak sürekli dağıtım ile bir web uygulaması oluşturma
 
 Bu örnek betik, App Service’te ilgili kaynaklarıyla birlikte bir web uygulaması oluşturur ve sonra bir Azure DevOps deposundan sürekli dağıtımı ayarlar. Bu örnekte şunlar gereklidir:
 

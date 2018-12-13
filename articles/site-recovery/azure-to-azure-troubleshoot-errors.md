@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: a524c773b0f4f6d3dc14830d4c3200512f8b287c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 84462b98e1006cadf34adecf948efd39ad4f69d6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140923"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313981"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure'dan Azure'a VM çoğaltmayla sorunları giderme
 
@@ -160,7 +160,7 @@ Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP 
     ![COM hatası](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
  
 
-### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Sorun 2: (151196) Site Recovery yapılandırması başarısız oldu
+### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Sorun 2: Site Recovery yapılandırması başarısız oldu (151196)
 - **Olası nedeni** </br>
   - Office 365 kimlik doğrulaması ve kimlik IP4 uç noktaları için bağlantı kurulamıyor.
 
@@ -170,7 +170,7 @@ Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP 
         - Azure Active Directory (AAD) gelecekte yeni adresler eklenir, yeni NSG kuralları oluşturmak gerekir.
 
 
-### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Sorun 3: (151197) Site Recovery yapılandırması başarısız oldu
+### <a name="issue-3-site-recovery-configuration-failed-151197"></a>3. sorun: Site Recovery yapılandırması başarısız oldu (151197)
 - **Olası nedeni** </br>
   - Azure Site Recovery Hizmeti uç noktalarına bağlantı kurulamıyor.
 
@@ -178,7 +178,7 @@ Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP 
   - Azure Site Recovery gerekli erişim [Site kurtarma IP aralıkları](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) bölgeye bağlı olarak. Bu gerekli IP aralıkları sanal makineden erişilebilir olduğundan emin olun.
     
 
-### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>4. sorun: ağ trafiği (151072) şirket içi proxy sunucusu üzerinden geçtiğinde A2A çoğaltması başarısız oldu
+### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>4. sorun: A2A çoğaltması trafiği (151072) şirket içi proxy sunucusu üzerinden geçtiğinde başarısız oldu
  - **Olası nedeni** </br>
    - Özel ara sunucu ayarlarını geçersiz ve ASR Mobility Hizmeti Aracısı otomatik-IE proxy ayarları algılamadı
 
@@ -188,11 +188,12 @@ Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP 
    2.  Ardından yalnızca ASR Mobility hizmeti için proxy ayarlamak isterseniz, konumundaki ProxyInfo.conf proxy ayrıntıları sağlayabilirsiniz:</br>
        - ``/usr/local/InMage/config/`` üzerinde ***Linux***
        - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` üzerinde ***Windows***
-   3.   ProxyInfo.conf proxy ayarlarını aşağıdaki INI biçiminde olmalıdır. </br>
+   3.   ProxyInfo.conf proxy ayarlarını aşağıdaki INI biçiminde olmalıdır.</br>
                    *[proxy]*</br>
                    *Adres =http://1.2.3.4*</br>
                    *Bağlantı noktası 567 =*</br>
    4. ASR Mobility Hizmeti Aracısı destekler yalnızca ***kimliği doğrulanmamış proxy***.
+ 
 
 ### <a name="fix-the-problem"></a>Sorunu
 Güvenilir listeye eklenecek [gerekli URL'leri](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) veya [gerekli IP aralıkları](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), adımları [ağ rehberi belgesi](site-recovery-azure-to-azure-networking-guidance.md).
@@ -203,12 +204,12 @@ VM'ye yeni bir disk başlatılmalıdır.
 
 **Hata kodu** | **Olası nedenler** | **Öneriler**
 --- | --- | ---
-150039<br></br>**İleti**: Azure veri diski (DiskName) (DiskURI) mantıksal birim numarası (LUN) (LUNValue) ile aynı LUN değerine sahip VM içinden bildirilen ilgili disk için eşlenmiş. | -Yeni veri diski VM'ye bağlı, ancak başlatılmamış değildi.</br></br>-VM içindeki veri diski diski VM'ye bağlı LUN değerini doğru şekilde bildirmiyor.| Veri disklerini başlatılır ve ardından işlemi yeniden deneyin emin olun.</br></br>İçin Windows: [Ekeme ve başlatma yeni bir disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Linux: [Linux'ta yeni bir veri diski başlatın](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
+150039<br></br>**İleti**: Mantıksal birim numarası (LUN) (LUNValue) ile (DiskName) (DiskURI) Azure veri diski, aynı LUN değerine sahip VM içinden bildirilen ilgili disk eşlenmedi. | -Yeni veri diski VM'ye bağlı, ancak başlatılmamış değildi.</br></br>-VM içindeki veri diski diski VM'ye bağlı LUN değerini doğru şekilde bildirmiyor.| Veri disklerini başlatılır ve ardından işlemi yeniden deneyin emin olun.</br></br>Windows için: [Ekleme ve yeni bir disk başlatma](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Linux için: [Linux'ta yeni bir veri diski başlatın](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 ### <a name="fix-the-problem"></a>Sorunu
 Veri disklerinin başlatıldığından ve sonra işlemi yeniden deneyin emin olun:
 
-- İçin Windows: [Ekeme ve başlatma yeni bir disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
+- Windows için: [Ekleme ve yeni bir disk başlatma](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
 - Linux: [Linux'ta yeni bir veri diski ekleme](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 Sorun devam ederse desteğe başvurun.
@@ -216,10 +217,10 @@ Sorun devam ederse desteğe başvurun.
 
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Azure VM için "çoğaltmayı etkinleştir" seçimi görülemiyor
 
- **1. neden: Kaynak grubu ve kaynak sanal makine farklı konumlarda** <br>
+ **1. neden:  Kaynak grubu ve kaynak sanal makine farklı konumlarda** <br>
 Azure Site Recovery şu anda kaynak bölge kaynak grubunu ve sanal makineler aynı konumda olması gerektiğini uygulanan. Böyle değilse, ardından, koruma süresi sırasında sanal makineyi bulamadı olmaz.
 
-**Neden 2: Kaynak grubu, seçili abonelik parçası değil** <br>
+**2. neden: Kaynak grubu, seçili abonelik parçası değil** <br>
 Belirtilen abonelik bir parçası değilse, kaynak grubunu koruma süresi bulmak mümkün olmayabilir. Kaynak grubu kullanılıyor aboneliğe ait olduğundan emin olun.
 
  **3. neden: Eski yapılandırma** <br>
@@ -233,9 +234,9 @@ VM için çoğaltmayı etkinleştirmek istediğiniz görmüyorsanız, Azure sana
 Kullanabileceğiniz [kaldırmak eski ASR yapılandırma betiğini](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) ve Azure sanal makinesinde eski Site Recovery yapılandırmayı kaldırmak. Eski yapılandırmayı kaldırdıktan sonra VM görüyor olması gerekir.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>Sanal makine koruma için işaretleyin yapılamıyor 
- **1. neden: sanal makine başarısız veya yanıt vermeyen bir durumda yüklü bazı uzantısı vardır.** <br>
+ **1. neden:  Sanal makine başarısız veya yanıt vermeyen bir durumda yüklü bazı uzantılı** <br>
  Sanal makineler gidin > ayarı > Uzantılar ve başarısız durumda herhangi bir uzantısı var olup olmadığını denetleyin. Başarısız uzantının yüklemesini kaldırmak ve sanal makine korumayı yeniden deneyin.<br>
- **2. neden: [VM'in sağlama durumu geçerli değil](#vms-provisioning-state-is-not-valid-error-code-150019)**
+ **2. neden:  [VM'in sağlama durumu geçerli değil](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
 ## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>VM'in sağlama durumu geçerli değil (hata kodu 150019)
 
@@ -254,12 +255,12 @@ VM üzerinde çoğaltmayı etkinleştirmek için sağlama durumu olmalıdır **b
 
 ## <a name="unable-to-select-target-virtual-network---network-selection-tab-is-grayed-out"></a>Sanal ağ - ağ seçimi sekmesi gri renkte hedefi seçmek yüklenemiyor.
 
-**1. neden: sanal makinenizin 'hedef ağ' için zaten eşlenmiş bir ağa bağlıysa.**
+**1. neden: Sanal makinenizin 'hedef ağ' için zaten eşlenmiş bir ağa bağlıysa.**
 - Kaynak VM sanal ağ bir parçasıdır ve hedef kaynak grubunda bir ağ ile aynı sanal ağdaki başka bir VM'den zaten eşlenmiş, ardından tarafından varsayılan ağ seçimi açılan menüsü devre dışı bırakılır.
 
 ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
 
-**2. neden: daha önce Azure Site Recovery kullanarak VM'yi korumalı ve çoğaltma devre dışı.**
+**2. neden: Varsa daha önce Azure Site Recovery kullanarak VM'yi korumalı ve çoğaltma devre dışı.**
  - Sanal Makinenin çoğaltmasını devre dışı bırakma ağ eşlemesi silmez. Burada VM korunan kurtarma Hizmetleri kasası silinmesi gerekir. </br>
  Kurtarma hizmeti Kasası'na gidin > Site Recovery altyapısı > Ağ eşlemesi. </br>
  ![Delete_NW_Mapping](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
@@ -271,7 +272,7 @@ VM üzerinde çoğaltmayı etkinleştirmek için sağlama durumu olmalıdır **b
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM +/ Birim Gölge Kopyası Hizmeti hatası (hata kodu 151025)
 **Hata kodu** | **Olası nedenler** | **Öneriler**
 --- | --- | ---
-151025<br></br>**İleti**: Site recovery uzantısı yüklenemedi | -'COM + Sistem uygulaması' hizmeti devre dışı.</br></br>-'Birim gölge kopyası' hizmeti devre dışı bırakıldı.| 'COM + Sistem uygulaması' ve 'Birim gölge kopyası' hizmetlerini otomatik veya el ile başlatma moduna ayarlayın.
+151025<br></br>**İleti**: Site kurtarma uzantısı yüklenemedi | -'COM + Sistem uygulaması' hizmeti devre dışı.</br></br>-'Birim gölge kopyası' hizmeti devre dışı bırakıldı.| 'COM + Sistem uygulaması' ve 'Birim gölge kopyası' hizmetlerini otomatik veya el ile başlatma moduna ayarlayın.
 
 ### <a name="fix-the-problem"></a>Sorunu
 

@@ -1,5 +1,5 @@
 ---
-title: Linux üzerinde Azure App Service’te bir Node.js ve MongoDB web uygulaması derleme | Microsoft Docs
+title: Linux - Azure App Service üzerinde MongoDB ile node.js uygulaması derleme | Microsoft Docs
 description: Linux üzerinde Azure App Service'te MongoDB bağlantı dizesine sahip Cosmos DB veritabanı bağlantısıyla bir Node.js uygulamasının nasıl çalıştırılacağı hakkında bilgi edinin.
 services: app-service\web
 documentationcenter: nodejs
@@ -14,13 +14,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: feaaf0df96a1742d071dec5f98b57a69ea85b1ac
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 59173550c0cdff44931e0b686308b39e985dddcf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972329"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254964"
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service’te bir Node.js ve MongoDB web uygulaması derleme
 
@@ -49,9 +49,9 @@ Aşağıdakileri nasıl yapacağınızı öğreneceksiniz:
 Bu öğreticiyi tamamlamak için:
 
 1. [Git'i yükleyin](https://git-scm.com/)
-1. [Node.js v6.0 veya üstünü ve NPM'yi yükleyin](https://nodejs.org/)
-1. [Gulp.js'yi yükleyin](https://gulpjs.com/) ([MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started) için gerekir)
-1. [MongoDB Community Edition’ı yükleyin ve çalıştırın](https://docs.mongodb.com/manual/administration/install-community/)
+2. [Node.js v6.0 veya üstünü ve NPM'yi yükleyin](https://nodejs.org/)
+3. [Gulp.js'yi yükleyin](https://gulpjs.com/) ([MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started) için gerekir)
+4. [MongoDB Community Edition’ı yükleyin ve çalıştırın](https://docs.mongodb.com/manual/administration/install-community/)
 
 ## <a name="test-local-mongodb"></a>Yerel MongoDB’yi test etme
 

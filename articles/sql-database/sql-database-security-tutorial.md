@@ -1,55 +1,59 @@
 ---
-title: Azure SQL veritabanınızın güvenliğini sağlama | Microsoft Docs
-description: Azure SQL veritabanınızın güvenliğini sağlamaya yönelik teknik ve özellikler hakkında bilgi edinin.
+title: Tek bir veritabanını Azure SQL veritabanı'nda güvenli | Microsoft Docs
+description: Teknikleri ve Azure SQL veritabanı'nda tek bir veritabanının güvenliğini sağlamak için özellikleri hakkında bilgi edinin.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: tutorial
-author: DRediske
-ms.author: daredis
-ms.reviewer: vanto, carlrab
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/01/2018
-ms.openlocfilehash: 827b3b6776656619314af3053cb05f8cfc3754c0
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.openlocfilehash: 431781d190a552020989600774fde0f36761699b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914405"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274845"
 ---
-# <a name="tutorial-secure-your-azure-sql-database"></a>Öğretici: Azure SQL Veritabanınızın güvenliğini sağlama
+# <a name="tutorial-secure-a-single-database-in-azure-sql-database"></a>Öğretici: Tek bir veritabanını Azure SQL veritabanı'nda güvenli
 
-SQL Veritabanı aşağıdakileri yaparak verilerinizin güvenliğini sağlar: 
-- Güvenlik duvarı kurallarını kullanarak veritabanınıza erişimi sınırlandırma 
+SQL veritabanı ile tek bir Azure SQL veritabanındaki verilerin güvenliğini sağlar:
+
+- Güvenlik duvarı kurallarını kullanarak veritabanınıza erişimi sınırlandırma
 - Kimlik gerektiren kimlik doğrulama mekanizmaları kullanma
-- Rol temelli üyelikler ve izinler aracılığıyla verilere yetki verme, 
+- Rol temelli üyelikler ve izinler aracılığıyla verilere yetki verme,
 - Satır düzeyi güvenlik
 - Dinamik veri maskeleme
 
-SQL Veritabanı ayrıca çok yönlü izleme, denetleme ve tehdit algılama özelliklerine sahiptir. 
+SQL Veritabanı ayrıca çok yönlü izleme, denetleme ve tehdit algılama özelliklerine sahiptir.
 
-Yalnızca birkaç basit adımda kötü amaçlı kullanıcılara ya da yetkisiz erişime karşı veritabanınızın korumasını artırabilirsiniz. Bu öğreticide şunları öğrenirsiniz: 
+> [!IMPORTANT]
+> Ağ güvenlik kuralları ve özel uç noktaları kullanarak Azure SQL veritabanı yönetilen örneğinde bir veritabanı güvenliğini sağlar. Daha fazla bilgi için [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance-index.yml) ve [Azure SQL veritabanı yönetilen örneği bağlantı mimarisi](sql-database-managed-instance-connectivity-architecture.md).
+
+Yalnızca birkaç basit adımda kötü amaçlı kullanıcılara ya da yetkisiz erişime karşı veritabanınızın korumasını artırabilirsiniz. Bu öğreticide şunları öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Azure portalında sunucunuza yönelik güvenlik duvarı kurallarını ayarlama
-> * SSMS kullanarak veritabanınıza yönelik güvenlik duvarı kurallarını ayarlama
-> * Güvenli bir bağlantı dizesi kullanarak veritabanınıza bağlanma
-> * Kullanıcı erişimini yönetme
-> * Şifreleme ile verilerinizi koruma
-> * SQL Veritabanı denetimini etkinleştirme
-> * SQL Veritabanı tehdit algılamayı etkinleştirme
+> - Azure portalında sunucunuza yönelik güvenlik duvarı kurallarını ayarlama
+> - SSMS kullanarak veritabanınıza yönelik güvenlik duvarı kurallarını ayarlama
+> - Güvenli bir bağlantı dizesi kullanarak veritabanınıza bağlanma
+> - Kullanıcı erişimini yönetme
+> - Şifreleme ile verilerinizi koruma
+> - SQL Veritabanı denetimini etkinleştirme
+> - SQL Veritabanı tehdit algılamayı etkinleştirme
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdakileri yaptığınızdan emin olun:
 
-- [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)’nun (SSMS) en yeni sürümü yüklendi. 
+- [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)’nun (SSMS) en yeni sürümü yüklendi.
 - Microsoft Excel yükleme
-- Bir Azure SQL sunucusu ve veritabanı oluşturma - Bkz. [Azure portalında Azure SQL veritabanı oluşturma](sql-database-get-started-portal.md), [Azure CLI kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-cli-samples.md) ve [PowerShell kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-powershell-samples.md). 
+- Bir Azure SQL sunucusu ve veritabanı oluşturma - Bkz. [Azure portalında Azure SQL veritabanı oluşturma](sql-database-get-started-portal.md), [Azure CLI kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-cli-samples.md) ve [PowerShell kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-powershell-samples.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 
@@ -61,21 +65,20 @@ SQL veritabanları Azure’daki bir güvenlik duvarı tarafından korunur. Varsa
 
 En güvenli yapılandırma, 'Azure hizmetlerine erişime izin ver' ayarının KAPALI olarak belirlenmesidir. Veritabanına bir Azure VM veya bulut hizmetinden bağlanmanız gerekirse bir [Ayrılmış IP (klasik dağıtım)](../virtual-network/virtual-networks-reserved-public-ip.md) oluşturmanız ve yalnızca ayrılmış IP adresinin güvenlik duvarı üzerinden erişmesine izin vermeniz gerekir. [Resource Manager](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) dağıtım modelini kullanıyorsanız, kaynağa ayrılmış bir Genel IP adresi atanır ve güvenlik duvarı üzerinden bu IP adresinin erişmesine izin vermeniz gerekir.
 
-Sunucunuzun belirli bir IP adresinden bağlantılara izin vermesi için bir [SQL Veritabanı sunucu düzeyinde güvenlik duvarı kuralı](sql-database-firewall-configure.md) oluşturmak üzere aşağıdaki adımları izleyin. 
+Sunucunuzun belirli bir IP adresinden bağlantılara izin vermesi için bir [SQL Veritabanı sunucu düzeyinde güvenlik duvarı kuralı](sql-database-firewall-configure.md) oluşturmak üzere aşağıdaki adımları izleyin.
 
 > [!NOTE]
 > Azure’da önceki öğretici ya da hızlı başlangıçları kullanarak örnek bir veritabanı oluşturduysanız ve bu öğreticiyi önceki öğreticilerle aynı IP adresine sahip bir bilgisayarda uyguluyorsanız, sunucu düzeyinde güvenlik duvarı kuralını zaten oluşturmuş olacağınız için bu adımı atlayabilirsiniz.
->
 
 1. Soldaki menüden **SQL veritabanları**’na ve **SQL veritabanları** sayfasında güvenlik duvarı kuralını yapılandırmak istediğiniz veritabanına tıklayın. Veritabanınıza ilişkin genel bakış sayfası açılır ve tam sunucu adı (örneğin, **mynewserver-20170313.database.windows.net**) görüntülenerek daha fazla yapılandırma seçeneği sunulur.
 
-      ![sunucu güvenlik duvarı kuralı](./media/sql-database-security-tutorial/server-firewall-rule.png) 
+      ![sunucu güvenlik duvarı kuralı](./media/sql-database-security-tutorial/server-firewall-rule.png)
 
-2. Önceki görüntüde gösterildiği gibi araç çubuğundaki **sunucu güvenlik duvarı ayarla** öğesine tıklayın. SQL Veritabanı sunucusu için **Güvenlik duvarı ayarları** sayfası açılır. 
+2. Önceki görüntüde gösterildiği gibi araç çubuğundaki **sunucu güvenlik duvarı ayarla** öğesine tıklayın. SQL Veritabanı sunucusu için **Güvenlik duvarı ayarları** sayfası açılır.
 
 3. Araç çubuğundaki **İstemci IP'si ekle**’ye tıklayarak portala bağlı bilgisayarın genel IP adresini ekleyin ya da güvenlik duvarı kuralını el ile girerek **Kaydet**’e tıklayın.
 
-      ![sunucu güvenlik duvarı kuralı ayarla](./media/sql-database-security-tutorial/server-firewall-rule-set.png) 
+      ![sunucu güvenlik duvarı kuralı ayarla](./media/sql-database-security-tutorial/server-firewall-rule-set.png)
 
 4. **Tamam**’a tıklayın ve ardından **Güvenlik duvarı ayarları** sayfasını kapatmak için **X** öğesine tıklayın.
 
@@ -87,7 +90,7 @@ Artık sunucuda belirtilen IP adresine veya IP adresi aralığına sahip herhang
 
 ## <a name="create-a-database-level-firewall-rule-using-ssms"></a>SSMS kullanarak veritabanı düzeyinde güvenlik duvarı kuralı oluşturma
 
-Veritabanı düzeyinde güvenlik duvarı kurallarını kullanarak aynı mantıksal sunucu içinde farklı veritabanları için farklı güvenlik duvarı kuralları oluşturabilir ve taşınabilir özellikte olan (yani SQL sunucusunda depolanmak yerine [yük devretme](sql-database-geo-replication-overview.md) sırasında veritabanını izleyen) güvenlik duvarı kuralları oluşturabilirsiniz. Veritabanı düzeyinde güvenlik duvarı kuralları yalnızca Transact-SQL deyimleri kullanılarak ve ancak ilk sunucu düzeyinde güvenlik duvarı kuralınızı yapılandırmanızdan sonra yapılandırılabilir. Daha fazla bilgi için bkz. [Azure SQL Veritabanı'nda sunucu düzeyinde ve veritabanı düzeyinde güvenlik duvarı kuralları yapılandırma](sql-database-firewall-configure.md).
+Veritabanı düzeyinde güvenlik duvarı kurallarını etkinleştirmek, aynı mantıksal sunucu içinde farklı veritabanları için farklı bir güvenlik duvarı ayarları oluşturun ve taşınabilir - veritabanı yük devretme sırasında izleyin anlamı olan güvenlik duvarı kuralları oluşturmak için depolanmakta olan yerine SQL server üzerinde. Veritabanı düzeyinde güvenlik duvarı kuralları yalnızca Transact-SQL deyimleri kullanılarak ve ancak ilk sunucu düzeyinde güvenlik duvarı kuralınızı yapılandırmanızdan sonra yapılandırılabilir. Daha fazla bilgi için bkz. [Azure SQL Veritabanı'nda sunucu düzeyinde ve veritabanı düzeyinde güvenlik duvarı kuralları yapılandırma](sql-database-firewall-configure.md).
 
 Veritabanına özel bir güvenlik duvarı kuralı oluşturmak için aşağıdaki adımları izleyin.
 
@@ -108,7 +111,7 @@ Veritabanına özel bir güvenlik duvarı kuralı oluşturmak için aşağıdaki
 Bir istemci uygulama ile SQL Veritabanı arasında güvenli, şifreli bir bağlantı sağlamak için bağlantı dizesinin için şu şekilde yapılandırılması gerekir:
 
 - Şifreli bir bağlantı isteyecek ve
-- Sunucu sertifikasına güvenmeyecek şekilde. 
+- Sunucu sertifikasına güvenmeyecek şekilde.
 
 Bu yapılandırma, Aktarım Katmanı Güvenliği (TLS) kullanarak bağlantı kurar ve ortadaki adam saldırılarının riskini azaltır. SQL Veritabanınızın desteklenen istemci sürücüleri için doğru şekilde yapılandırılmış bağlantı dizelerini, bu ekran görüntüsünde ADO.net için gösterildiği gibi Azure portalından alabilirsiniz. TLS ve bağlantı hakkında daha fazla bilgi için bkz. [TLS konuları](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
 
@@ -122,11 +125,11 @@ Bu yapılandırma, Aktarım Katmanı Güvenliği (TLS) kullanarak bağlantı kur
 
 ## <a name="creating-database-users"></a>Veritabanı kullanıcıları oluşturma
 
-Herhangi bir kullanıcı oluşturmadan önce ilk olarak Azure SQL Veritabanı tarafından desteklenen iki kimlik doğrulama türünden birini seçmeniz gerekir: 
+Herhangi bir kullanıcı oluşturmadan önce ilk olarak Azure SQL Veritabanı tarafından desteklenen iki kimlik doğrulama türünden birini seçmeniz gerekir:
 
-Yalnızca bir mantıksal sunucu içindeki belirli bir veritabanı bağlamında geçerli olan oturumlar ve kullanıcılar için kullanıcı adı ve parola kullanan **SQL Kimlik Doğrulaması**. 
+Yalnızca bir mantıksal sunucu içindeki belirli bir veritabanı bağlamında geçerli olan oturumlar ve kullanıcılar için kullanıcı adı ve parola kullanan **SQL Kimlik Doğrulaması**.
 
-Azure Active Directory tarafından yönetilen kimlikleri kullanan **Azure Active Directory Kimlik Doğrulaması**. 
+Azure Active Directory tarafından yönetilen kimlikleri kullanan **Azure Active Directory Kimlik Doğrulaması**.
 
 SQL Veritabanında kimlik doğrulaması yapmak için [Azure Active Directory](./sql-database-aad-authentication.md)’yi kullanmak isterseniz, devam edebilmeniz için doldurulmuş bir Azure Active Directory mevcut olmalıdır.
 
@@ -153,12 +156,11 @@ SQL Kimlik Doğrulaması kullanarak kullanıcı oluşturmak için aşağıdaki a
 
 Yeni kullanıcı oluşturmak gibi yönetici görevleri yürütmeniz gerekmiyorsa, veritabanınıza bağlanmak için yönetici olmayan bu hesapların veritabanı düzeyinde oluşturulması en iyi uygulamadır. Azure Active Directory kullanarak kimlik doğrulama işlemi için lütfen [Azure Active Directory öğreticisini](./sql-database-aad-authentication-configure.md) inceleyin.
 
-
 ## <a name="protect-your-data-with-encryption"></a>Şifreleme ile verilerinizi koruma
 
 Azure SQL Veritabanı saydam veri şifrelemesi (TDE), şifrelenmiş veritabanına erişen uygulamada herhangi bir değişiklik yapılmasını gerektirmeden bekleyen verilerinizi otomatik olarak şifreler. Yeni oluşturulan veritabanları için TDE varsayılan olarak açıktır. Veritabanınız için TDE’yi etkinleştirmek ya da TDE’nin açık olduğunu doğrulamak için şu adımları izleyin:
 
-1. Soldaki menüden **SQL veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
+1. Soldaki menüden **SQL veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın.
 
 2. **Saydam veri şifrelemesi**’ne tıklayarak TDE yapılandırma sayfasını açın.
 
@@ -166,13 +168,13 @@ Azure SQL Veritabanı saydam veri şifrelemesi (TDE), şifrelenmiş veritabanın
 
 3. Gerekirse, **Veri şifreleme** ayarını AÇIK olarak belirleyip **Kaydet**’e tıklayın.
 
-Şifreleme işlemi arka planda başlatılır. [SQL Server Management Studio](./sql-database-connect-query-ssms.md) ile SQL Veritabanına bağlanıp [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017) görünümünün encryption_state sütununu sorgulayarak ilerleme durumunu izleyebilirsiniz. 3 durumu veritabanının şifrelendiğini belirtir. 
+Şifreleme işlemi arka planda başlatılır. [SQL Server Management Studio](./sql-database-connect-query-ssms.md) ile SQL Veritabanına bağlanıp [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017) görünümünün encryption_state sütununu sorgulayarak ilerleme durumunu izleyebilirsiniz. 3 durumu veritabanının şifrelendiğini belirtir.
 
 ## <a name="enable-sql-database-auditing-if-necessary"></a>Gerekirse SQL Veritabanı denetimini etkinleştirin
 
 Azure SQL Veritabanı Denetimi, veritabanı olaylarını izler ve olayları Azure Depolama hesabınızdaki bir denetim günlüğüne yazar. Denetim mevzuatla uyumluluk, veritabanı etkinliğini anlama ve olası güvenlik ihlallerini işaret edebilecek farklılıklar ve anormal durumlar hakkında öngörü sahip olmanıza yardımcı olabilir. SQL veritabanınız için bir varsayılan bir denetim ilkesi oluşturmak üzere aşağıdaki adımları izleyin:
 
-1. Soldaki menüden **SQL veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
+1. Soldaki menüden **SQL veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın.
 
 2. Ayarlar dikey penceresinde **Denetim ve Tehdit Algılama**’yı seçin. Sunucu düzeyinde denetimin devre dışı olduğuna ve bu bağlamdan sunucu denetim ayarlarını görüntülemenize ya da değiştirmenize olanak tanıyan yeni bir **Sunucu ayarlarını görüntüleme** bağlantısı olduğuna dikkat edin.
 
@@ -182,11 +184,10 @@ Azure SQL Veritabanı Denetimi, veritabanı olaylarını izler ve olayları Azur
 
     ![Denetimi açma](./media/sql-database-security-tutorial/auditing-get-started-turn-on.png)
 
-4. **Depolama Ayrıntıları**’nı seçerek Denetim Günlükleri Depolama Dikey Penceresini açın. Günlüklerin kaydedileceği Azure depolama hesabını ve sonrasında eski günlüklerin silineceği elde tutma süresini seçip alt kısımdaki **Tamam** düğmesine tıklayın. 
+4. **Depolama Ayrıntıları**’nı seçerek Denetim Günlükleri Depolama Dikey Penceresini açın. Günlüklerin kaydedileceği Azure depolama hesabını ve sonrasında eski günlüklerin silineceği elde tutma süresini seçip alt kısımdaki **Tamam** düğmesine tıklayın.
 
    > [!TIP]
    > Denetim raporları şablonlarından en iyi şekilde yararlanmak üzere, denetlenen tüm veritabanları için aynı depolama hesabını kullanın.
-   > 
 
 5. **Kaydet**’e tıklayın.
 
@@ -241,20 +242,19 @@ Tehdit Algılama ile sunulan yeni güvenlik katmanı müşterilerin anormal etki
 
 11. Sonuçlar, algılanan anormal etkinliklerin daha derin bir analizini gerçekleştirmenize ve güvenlik olayının uygulamanızdaki etkisini azaltmanıza olanak tanıyan **SQL Denetim Günlüklerini** sayfasında görünür.
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, yalnızca birkaç basit adımda kötü amaçlı kullanıcılara ya da yetkisiz erişime karşı veritabanınızın korumasını artırmayı öğrendiniz.  Şunları öğrendiniz: 
+
+Bu öğreticide, yalnızca birkaç basit adımda kötü amaçlı kullanıcılara ya da yetkisiz erişime karşı veritabanınızın korumasını artırmayı öğrendiniz.  Şunları öğrendiniz:
 
 > [!div class="checklist"]
-> * Sunucunuz ve/veya veritabanınız için güvenlik duvarı kurallarını ayarlama
-> * Güvenli bir bağlantı dizesi kullanarak veritabanınıza bağlanma
-> * Kullanıcı erişimini yönetme
-> * Şifreleme ile verilerinizi koruma
-> * SQL Veritabanı denetimini etkinleştirme
-> * SQL Veritabanı tehdit algılamayı etkinleştirme
+> - Sunucunuz ve/veya veritabanınız için güvenlik duvarı kurallarını ayarlama
+> - Güvenli bir bağlantı dizesi kullanarak veritabanınıza bağlanma
+> - Kullanıcı erişimini yönetme
+> - Şifreleme ile verilerinizi koruma
+> - SQL Veritabanı denetimini etkinleştirme
+> - SQL Veritabanı tehdit algılamayı etkinleştirme
 
 Coğrafi olarak dağıtılmış bir veritabanı uygulama hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
 >[Coğrafi olarak dağıtılmış bir veritabanı uygulama](sql-database-implement-geo-distributed-database.md)
-

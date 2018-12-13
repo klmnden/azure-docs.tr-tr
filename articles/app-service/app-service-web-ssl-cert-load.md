@@ -1,5 +1,5 @@
 ---
-title: Azure App Service'teki uygulama kodunuzda karşıya yüklenmiş SSL sertifikasını kullanma | Microsoft Docs
+title: Uygulama kodunda - Azure App Service istemci SSL sertifikasını kullan | Microsoft Docs
 description: ''
 services: app-service\web
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: cephalin
-ms.openlocfilehash: 87c9cd5955dda1a379733e5ad48d58f8361f0e6b
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.custom: seodec18
+ms.openlocfilehash: 8041d86e21f464e1dee4fba543be7d2c54c10367
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051485"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254335"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Azure App Service'teki uygulama kodunuzda SSL sertifikası kullanma
 
@@ -55,7 +56,7 @@ Sol gezinti bölmesinde tıklayın **uygulama ayarları**.
 
 ![Uygulama ayarı yapılandırın](./media/app-service-web-ssl-cert-load/configure-app-setting.png)
 
-İşiniz bittiğinde tıklayın **Kaydet**.
+İşlemi tamamladıktan sonra **Kaydet**’e tıklayın.
 
 Yapılandırılmış sertifika artık kodunuz tarafından kullanılmak üzere hazırdır.
 

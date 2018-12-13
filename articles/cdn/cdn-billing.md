@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: magattus
-ms.openlocfilehash: 0bb52943eac3e35b5012e3f54bfb841cf491ed18
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: af8e57f39b5b83b1d1be09c29d8b6eb5d49c7b6c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091820"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309297"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Azure CDN faturalamasını anlama
 
@@ -40,7 +40,7 @@ Hangi nesnelerin teslim edilmek üzere Azure CDN from ücretlendirilir belirleme
 
 Varlık noktası (POP) bölgeleri hakkında daha fazla bilgi için bkz: [bölgeye göre Azure CDN POP konumları](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). Örneğin, Meksika'da bulunan POP Kuzey Amerika bölgesi içinde olduğundan ve bu nedenle bölge 1 dahil edilir. 
 
-Azure CDN fiyatlandırması hakkında daha fazla bilgi için bkz: [Content Delivery Network fiyatlandırması](https://azure.microsoft.com/is-is/pricing/details/cdn/).
+Azure CDN fiyatlandırması hakkında daha fazla bilgi için bkz: [Content Delivery Network fiyatlandırması](https://azure.microsoft.com/pricing/details/cdn/).
 
 ## <a name="how-are-delivery-charges-calculated-by-region"></a>Nasıl teslim ücretler bölgeye göre hesaplanır?
 Azure CDN fatura bölgesi içeriği son kullanıcıya teslim kaynak sunucusunun konumunu temel alır. ' % S'hedef (fiziksel konumunu) istemcinin bulunduğu faturalama bölgesinde olarak kabul edilmez.
@@ -55,19 +55,19 @@ Azure CDN kullanarak, ayrıca, nesneler için kaynak kullanılan hizmetler bazı
 
 İçeriğiniz için kaynağı Azure Blob Depolama kullanıyorsanız, önbellek dolguları için aşağıdaki depolama ücretleri de ücretler:
 
-- Gerçek GB kullanıldı: kaynak nesnelerinizin gerçek depolama.
+- Gerçek GB kullanıldı: Depolamanın kaynak nesnelerinizin.
 
 - GB cinsinden aktarımları: CDN önbellekleri doldurmak için aktarılan veri miktarı.
 
-- Önbelleği doldurma gerektiği gibi işlemler:.
+- İşlemler: Önbelleği doldurma gerektiğinde.
 
 Azure depolama faturalamasını hakkında daha fazla bilgi için bkz: [anlama Azure depolama Faturalaması – bant genişliği, işlemler ve kapasite](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
 Kullanıyorsanız *barındırılan hizmet sunumu*, şu şekilde ücretlendirilirsiniz:
 
-- Azure işlem süresi: kaynağı davranan işlem örnekleri.
+- Azure işlem süresi: Kaynak davranan işlem örnekleri.
 
-- Azure işlem aktarım: Azure CDN önbellekleri doldurmak için işlem örneklerden veri aktarır.
+- Azure işlem aktarımı: Azure CDN önbellekleri doldurmak için işlem örneklerden veri aktarır.
 
 İstemci (bağımsız olarak kaynak hizmeti) bayt aralığı isteklerini kullanıyorsa, aşağıdaki maddeler geçerlidir:
 
@@ -78,11 +78,11 @@ Kullanıyorsanız *barındırılan hizmet sunumu*, şu şekilde ücretlendirilir
 ## <a name="how-much-transfer-activity-occurs-to-support-the-cache"></a>Önbellek desteklemek için ne kadar aktarım etkinlik gerçekleşir?
 CDN POP önbelleğini doldurmak için her durumda önbelleğe alınmasını nesne başlangıcı için bir talep gönderir. Sonuç olarak, her önbellek isabetsizliği bir Faturalanabilir işlem kaynağı doğurur. Önbellek kaçaklarının sayısı, bir dizi faktöre bağlıdır:
 
-- İçeriğin nasıl önbelleğe alınabilir olduğu: içeriği yüksek TTL (zaman yaşam) sahip / zaman aşımı değerleri ve ise, uyumlu şekilde ilerlemesi için sık erişilen önbellek, ardından yükünü büyük çoğunluğu, popüler CDN tarafından işlenir. Tipik bir iyi isabetli önbellek okuması oranı iyi istemci isteklerine % 10'küçüktür ' nin başlangıç noktasına döndürmeniz anlamına gelir % 90, bir önbellek isabetsizliği veya nesne için yenileyin.
+- İçeriği nasıl önbelleğe olur: İçeriği yüksek TTL (zaman yaşam) sahip / zaman aşımı değerleri ve ise, uyumlu şekilde ilerlemesi için sık erişilen önbellek, ardından yükünü büyük çoğunluğu, popüler CDN tarafından işlenir. Tipik bir iyi isabetli önbellek okuması oranı iyi istemci isteklerine % 10'küçüktür ' nin başlangıç noktasına döndürmeniz anlamına gelir % 90, bir önbellek isabetsizliği veya nesne için yenileyin.
 
-- Kaç tane düğümleri nesne yüklemeniz gerekir: isteğe bağlı olarak bir düğüm bir nesne ve kaynaktan her yüklenişinde bir Faturalanabilir işlem doğurur. Sonuç olarak, daha fazla küresel içerik (daha fazla düğümünden erişilebilir) içinde daha Faturalandırılabilir sonuçlanır.
+- Kaç tane düğümleri nesne yüklenmeye gerekir: Bir düğüm bir nesne ve kaynaktan her yüklenişinde bir Faturalanabilir işlem doğurur. Sonuç olarak, daha fazla küresel içerik (daha fazla düğümünden erişilebilir) içinde daha Faturalandırılabilir sonuçlanır.
 
-- TTL etkiler: bir nesne için daha yüksek bir TTL kaynaktan daha az sıklıkta getirilmesi için ihtiyaç duyduğu anlamına gelir. Ayrıca, istemciler, tarayıcılar gibi uzun, CDN işlemleri azaltabilirsiniz nesne önbelleğe alabilir anlamına gelir.
+- TTL etkiler: Bir nesne için daha yüksek bir TTL, kaynaktan daha az sıklıkta getirilmesi gereken anlamına gelir. Ayrıca, istemciler, tarayıcılar gibi uzun, CDN işlemleri azaltabilirsiniz nesne önbelleğe alabilir anlamına gelir.
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>My maliyetlerini en etkili bir şekilde nasıl yönetebilirim?
 İçeriğinizi olası en uzun TTL ayarlayın. 

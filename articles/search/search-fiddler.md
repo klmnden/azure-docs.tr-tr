@@ -1,5 +1,5 @@
 ---
-title: Fiddler veya Postman içindeki REST API'lerini keşfetme (Azure Search REST) | Microsoft Docs
+title: Fiddler veya Postman web HTTP test araçları - Azure Search REST API'lerini keşfetme
 description: Azure Search için HTTP istekleri ve REST API çağrıları oluşturmak için Fiddler veya Postman kullanma.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: eba41086da645c2ff5cee65f9395267227cb1c11
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: f73ec81686575efde70b7f90239299ec4deca00c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190194"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312995"
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Fiddler veya Postman kullanarak Azure Search REST API'lerini keşfetme
 
@@ -110,13 +111,13 @@ HTTP 504 yanıtı alırsanız HTTPS'yi belirten URL'yi doğrulayın. HTTP 400 ve
 
 ### <a name="fiddler"></a>Fiddler
 
-Aşağıdaki ekran görüntüsünde gösterildiği şekilde dizin tanımını istek gövdesine kopyalayın ve ardından sağ üst köşedeki **Execute** (Yürüt) öğesine tıklayarak tamamlanan isteği gönderin.
+Aşağıdaki ekran görüntüsüne benzer istek gövdesi dizin tanımını kopyalayın ve ardından **yürütme** üst sağ tamamlanan isteği gönderin.
 
 ![Fiddler isteği gövdesi][7]
 
 ### <a name="postman"></a>Postman
 
-Aşağıdaki ekran görüntüsünde gösterildiği şekilde dizin tanımını istek gövdesine kopyalayın ve ardından sağ üst köşedeki **Send** (Gönder) öğesine tıklayarak tamamlanan isteği gönderin.
+Aşağıdaki ekran görüntüsüne benzer istek gövdesi dizin tanımını kopyalayın ve ardından **Gönder** üst sağ tamamlanan isteği gönderin.
 
 ![Postman isteği gövdesi][8]
 
@@ -200,13 +201,13 @@ Birkaç saniye içinde, oturum listesinde bir HTTP 200 yanıtı görmeniz gereki
 
 ### <a name="fiddler"></a>Fiddler
 
-Fiili **POST** olarak değiştirin. URL'yi `/docs/index` içerecek şekilde değiştirin. Aşağıdaki ekran görüntüsünde gösterilen şekilde belgeleri istek gövdesine kopyalayın ve isteği yürütün.
+Fiili **POST** olarak değiştirin. URL'yi `/docs/index` içerecek şekilde değiştirin. İstek gövdesi, aşağıdaki ekran görüntüsüne benzer belgeler kopyalayın ve ardından isteği yürütün.
 
 ![Fiddler isteği yükü][9]
 
 ### <a name="postman"></a>Postman
 
-Fiili **POST** olarak değiştirin. URL'yi `/docs/index` içerecek şekilde değiştirin. Aşağıdaki ekran görüntüsünde gösterilen şekilde belgeleri istek gövdesine kopyalayın ve isteği yürütün.
+Fiili **POST** olarak değiştirin. URL'yi `/docs/index` içerecek şekilde değiştirin. İstek gövdesi, aşağıdaki ekran görüntüsüne benzer belgeler kopyalayın ve ardından isteği yürütün.
 
 ![Postman isteği yükü][10]
 
@@ -217,7 +218,7 @@ Fiili **POST** olarak değiştirin. URL'yi `/docs/index` içerecek şekilde değ
 + Uç noktayı arama dizeleri dahil olmak üzere sorgu parametrelerini içerecek şekilde değiştirin. Sorgu URL'si `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11` gibi görünmelidir
 + İstek üst bilgilerini değiştirmeyin
 
-Bu sorgu "motel" terimini arar ve arama sonuçlarındaki belgelerin sayısını döndürür. **Send** (Gönder) öğesine tıkladığınızda görünen istek ve yanıt aşağıdaki Postman ekran görüntüsüne benzer olmalıdır. Durum kodu 200 olmalıdır.
+Bu sorgu "motel" terimini arar ve arama sonuçlarındaki belgelerin sayısını döndürür. Tıkladıktan sonra istek ve yanıt için Postman aşağıdaki ekran görüntüsüne benzer görünmelidir **Gönder**. Durum kodu 200 olmalıdır.
 
  ![Postman sorgusu yanıtı][11]
 

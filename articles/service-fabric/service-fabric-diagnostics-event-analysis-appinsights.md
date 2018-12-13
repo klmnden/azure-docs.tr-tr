@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: f9c7a70eae4c49173b3e11b7fbfa901f7e5b89d6
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 815b792f8584e984ff77c32265de65f9b633adb1
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291054"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322798"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Olay analizi ve Application Insights ile Görselleştirme
 
@@ -54,7 +54,7 @@ Application Insights portalında yeteneklerini daha iyi keşfedilebilmesi için 
 >[!NOTE]
 >Bu yalnızca şu anda Windows kümeleri için geçerlidir.
 
-WAD içinde ayrıntılı olarak WAD yapılandırma için bir Application Insights havuz ekleyerek gerçekleştirilir Azure Application Insights veri göndermek için birincil iki yolu vardır [bu makalede](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+WAD içinde ayrıntılı olarak WAD yapılandırma için bir Application Insights havuz ekleyerek gerçekleştirilir Azure Application Insights veri göndermek için birincil iki yolu vardır [bu makalede](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 #### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Azure Portalı'nda bir küme oluştururken, bir Application Insights izleme anahtarı Ekle
 
@@ -88,7 +88,7 @@ Tanılama "On" kapalıysa bir küme oluştururken, bir Application Insights izle
 
 Her iki önceki kod parçacıklarında, adı "Applicationınsights" havuz tanımlamak için kullanıldı. Bu bir gereksinim değildir ve havuz adı "havuzlarını içinde" dahil olduğu sürece, herhangi bir dize adı ayarlayabilirsiniz.
 
-Şu anda, küme günlüklerinden görünmesini olarak **izlemeleri** Application Insights günlük Görüntüleyicisi. En çok platformdan gelen izlemelerin düzeyi "Bilgilendirici" olduğundan, ayrıca yalnızca "Kritik" veya "Error" türündeki günlükleri göndermek için havuz yapılandırmasını değiştirme göz önünde bulundurun Bu havuz, "Kanalı" ekleyerek gösterildiği şekilde yapılabilir [bu makalede](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Şu anda, küme günlüklerinden görünmesini olarak **izlemeleri** Application Insights günlük Görüntüleyicisi. En çok platformdan gelen izlemelerin düzeyi "Bilgilendirici" olduğundan, ayrıca yalnızca "Kritik" veya "Error" türündeki günlükleri göndermek için havuz yapılandırmasını değiştirme göz önünde bulundurun Bu havuz, "Kanalı" ekleyerek gösterildiği şekilde yapılabilir [bu makalede](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 >[!NOTE]
 >Portalı veya Resource Manager şablonunuzu yanlış bir Application Insights anahtarı kullanırsanız, gerekir anahtarı el ile değiştirmeniz ve kümeyi güncelleştir / yeniden dağıtma.

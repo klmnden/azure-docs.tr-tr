@@ -1,5 +1,5 @@
 ---
-title: Açıklamanın girişlerinde ve Azure Search'te bilişsel arama ardışık düzeninde çıkış başvurusu | Microsoft Docs
+title: Ardışık Düzen - Azure Search başvuru girişleri ve çıkışları bilişsel arama
 description: Ek açıklama söz dizimi ve açıklamanın girişleri ve çıkışları Azure Search'te bilişsel arama ardışık düzeninde bir beceri kümesi başvurmak nasıl açıklar.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 1ccc1fb20cb08cfd97d58984676ef4006e693118
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.custom: seodec2018
+ms.openlocfilehash: 57fed710d7d58199fb3cb70640d1f2d3f316f180
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801956"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315841"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Bilişsel arama standartlarındaki şu ek açıklamalarda başvuru yapma
 
@@ -61,7 +62,7 @@ Varsayılan bağlamı olduğundan `"/document"`, kişilerin listesini artık ola
 
 <a name="example-2"></a>
 
-## <a name="example-2-reference-an-array-within-a-document"></a>Örnek 2: bir belge içindeki bir dizi başvuru
+## <a name="example-2-reference-an-array-within-a-document"></a>Örnek 2: Bir belge içindeki bir dizi başvurusu
 
 Bu örnekte, zenginleştirme adım birden çok kez aynı belge üzerinde çağırmak nasıl gösteren Öncekine üzerine inşa edilmiştir. Önceki örnekte, tek bir belgeden 10 kişi adlarını içeren bir dize dizisi oluşturulan varsayılır. Makul bir sonraki adım, bir tam adı soyadı ayıklar ikinci bir zenginleştirme olabilir. 10 adları olduğundan, bu adım 10 kez bu belgede, her kişi için volat pouze istersiniz. 
 
@@ -93,7 +94,7 @@ Ek açıklamalar, dizi veya dize koleksiyonları olduğunda, bir bütün olarak 
 
 <a name="example-3"></a>
 
-## <a name="example-3-reference-members-within-an-array"></a>Örnek 3: Başvuru üyelerinin bir dizi
+## <a name="example-3-reference-members-within-an-array"></a>Örnek 3: Başvuru üyeleri bir dizi
 
 Bazen belirli bir nitelik geçirilecek belli bir türdeki tüm ek açıklamaları grubu gerekir. Örnek 2'de ayıklanan son adlarından en yaygın Soyadı tanımlayan kuramsal özel bir yetenek göz önünde bulundurun. Özel nitelik yalnızca son adlar sağlamak için bağlamı olarak belirtin. `"/document"` ve giriş olarak `"/document/people/*/lastname"`.
 

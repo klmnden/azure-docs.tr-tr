@@ -2,19 +2,20 @@
 title: Azure Arama'da çok kiracılı mimari modelleme | Microsoft Docs
 description: Azure Search kullanarak çok kiracılı SaaS uygulamaları için sık karşılaşılan tasarım desenleri öğrenin.
 manager: jlembicz
-author: ashmaka
+author: LiamCavanagh
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/30/2018
-ms.author: ashmaka
-ms.openlocfilehash: b7befb46da8674e0bec7d3f73ad33a12529ffc3a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: liamca
+ms.custom: seodec2018
+ms.openlocfilehash: 1da9756df4fa05b367665a5fe024528939f22578
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232390"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313046"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Çok kiracılı SaaS uygulamaları ve Azure Search için desenler tasarlama
 Çok müşterili uygulamalarda herhangi bir sayıda göremez veya diğer bir kiracı veri paylaşımı Kiracı aynı Hizmetleri ve özellikleri sağlayan biridir. Bu belge, Azure Search ile derlenen çok kiracılı uygulamalar için Kiracı yalıtımı stratejileri açıklanır.
@@ -57,20 +58,20 @@ Concretely, S3 hizmeti birlikte kadar 1.4 milyar belgeleri barındırabilir 1 il
 ## <a name="considerations-for-multitenant-applications"></a>Çok müşterili uygulamalar için dikkat edilmesi gerekenler
 Çok kiracılı uygulamalar bazı çeşitli kiracılar arasında gizlilik düzeyini korurken kaynakları kiracılar arasında etkili bir şekilde dağıtmanız gerekir. Bu tür bir uygulama mimarisi tasarlanırken bazı önemli noktalar vardır:
 
-* *Kiracı yalıtımı:* uygulama geliştiricileri hiçbir kiracıların yetkisiz veya istenmeyen diğer kiracıların verileri erişimi olduğundan emin olun için uygun önlemleri almanız gerekir. Veri gizliliği açısından, paylaşılan kaynaklar ve gürültücü Komşuları korumadan etkili Yönetimi Kiracı yalıtımı stratejileri gerektirir.
-* *Bulut kaynak maliyeti:* gibi başka herhangi bir uygulama ile yazılım çözümlerini maliyet rekabetçi bir çok kiracılı bir uygulama bileşeni olarak kalması gerekir.
-* *İşlemleri Kolaylığı:* çok kiracılı mimari geliştirirken, uygulamanın işlemler ve karmaşıklık üzerindeki etkisini önemli bir noktadır. Azure Search'ü sahip bir [% 99,9 oranında SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-* *Global Ayak izi:* çok Kiracılı uygulamaları etkili bir şekilde dünya çapında dağıtılan kiracılara hizmet gerekebilir.
-* *Ölçeklenebilirlik:* nasıl, kiracıların sayısı ve kiracıların veri boyutu ile ölçek için uygulama tasarlama ve uygulama karmaşıklığını yeterince düşük düzeyde koruma arasında mutabık göz önünde bulundurun gereken uygulama geliştiriciler ve iş yükü.
+* *Kiracı yalıtımı:* Uygulama geliştiriciler, Kiracı yetkisiz veya istenmeyen diğer kiracıların verileri erişimi olduğundan emin olun için uygun önlemleri almanız gerekir. Veri gizliliği açısından, paylaşılan kaynaklar ve gürültücü Komşuları korumadan etkili Yönetimi Kiracı yalıtımı stratejileri gerektirir.
+* *Bulut kaynak maliyeti:* Diğer herhangi bir uygulamada olduğu gibi yazılım çözümlerini maliyet rekabetçi bir çok kiracılı bir uygulama bileşeni olarak kalması gerekir.
+* *İşlemleri Kolaylığı:* Çok kiracılı mimari geliştirirken, uygulamanın işlemler ve karmaşıklık üzerindeki etkisini önemli bir noktadır. Azure Search'ü sahip bir [% 99,9 oranında SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+* *Global Ayak izi:* Çok kiracılı uygulamaları etkili bir şekilde dünya çapında dağıtılan kiracılara hizmet gerekebilir.
+* *Ölçeklenebilirlik:* Uygulama geliştiricileri nasıl, kiracıların sayısı ve kiracıların verileri ve iş yükü boyutu ile ölçek için uygulama tasarlama ve uygulama karmaşıklığını yeterince düşük düzeyde koruma arasında mutabık göz önünde bulundurmanız gerekir.
 
 Azure arama, kiracıların verileri ve iş yükü ayırmak için kullanılan bazı sınırlar sunar.
 
 ## <a name="modeling-multitenancy-with-azure-search"></a>Azure Search ile çok kiracılı mimari modelleme
 Çok kiracılı bir senaryo, söz konusu olduğunda uygulama geliştiricisinin bir veya daha fazla arama hizmetlerini kullanır ve kiracıları Hizmetleri, dizinleri veya her ikisi arasında bölün. Azure arama, çok kiracılı bir senaryo modelleme, bazı ortak desenleri sahiptir:
 
-1. *Dizin Kiracı başına:* her kiracının kendi dizin diğer kiracılar ile paylaşılan bir arama hizmeti vardır.
-2. *Kiracı başına hizmet:* sunarak yüksek düzeyde veri ve iş yükü ayrımı her kiracının kendi adanmış bir Azure Search hizmeti vardır.
-3. *Her ikisinin karışımı:* daha büyük, daha fazla etkin kiracılar, daha küçük kiracılar Paylaşılan Hizmetleri içindeki tek dizin atanmış durumdayken adanmış Hizmetleri atanır.
+1. *Kiracı başına dizin:* Her kiracının kendi dizin diğer kiracılar ile paylaşılan bir arama hizmeti vardır.
+2. *Kiracı başına hizmeti:* Her kiracının kendi adanmış bir Azure Search Hizmeti sunarak yüksek düzeyde veri ve iş yükü ayrımı vardır.
+3. *Her ikisinin karışımı:* Paylaşılan Hizmetler içinde tek bir dizin daha küçük kiracılar atanmış durumdayken daha büyük, daha fazla etkin kiracılar adanmış Hizmetleri atanır.
 
 ## <a name="1-index-per-tenant"></a>1. Kiracı başına dizin
 ![Kiracı başına dizin modelinin bir portrayal](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)

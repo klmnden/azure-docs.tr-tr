@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 5aeb87538968304d3eaf73873d4c4c762c07329c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 9f0c4789e73659e5965440989c23a8cf673f7cd2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051383"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309170"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>İçinde bir yerel makine dağıtım kurulumunda Hizmetleri izleme ve tanılama
 
@@ -35,7 +35,7 @@ ms.locfileid: "44051383"
 
 ## <a name="debugging-service-fabric-java-applications"></a>Service Fabric Java uygulamalarında hata ayıklama
 
-Java uygulamaları için [birden çok günlük altyapılarına](http://en.wikipedia.org/wiki/Java_logging_framework) kullanılabilir. Bu yana `java.util.logging` varsayılan seçenek JRE ile de için kullanıldığı [kodu github'da örnekleri](http://github.com/Azure-Samples/service-fabric-java-getting-started).  Aşağıdaki tartışma nasıl yapılandırılacağını açıklar `java.util.logging` framework.
+Java uygulamaları için [birden çok günlük altyapılarına](http://en.wikipedia.org/wiki/Java_logging_framework) kullanılabilir. Bu yana `java.util.logging` varsayılan seçenek JRE ile de için kullanıldığı [kodu github'da örnekleri](http://github.com/Azure-Samples/service-fabric-java-getting-started). Aşağıdaki tartışma nasıl yapılandırılacağını açıklar `java.util.logging` framework.
 
 Java.Util.Logging kullanarak uygulama günlüklerinizi bellek, çıkış akışları, konsol dosyaları ya da yuva yönlendirebilirsiniz. Bu seçeneklerin her biri için zaten çerçevesinde sağlanan varsayılan işleyicileri vardır. Oluşturabileceğiniz bir `app.properties` dosya işleyicisi için tüm günlükleri yerel bir dosyaya yeniden yönlendirmek uygulamanızın yapılandırma dosyası.
 
@@ -48,7 +48,7 @@ java.util.logging.FileHandler.level = ALL
 java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 java.util.logging.FileHandler.limit = 1024000
 java.util.logging.FileHandler.count = 10
-java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log             
+java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 ```
 
 Klasör tarafından işaret edilen `app.properties` dosyası bulunmalıdır. Sonra `app.properties` dosyası oluşturulur, aynı zamanda, giriş noktası betiğini değiştirmeniz gerekir `entrypoint.sh` içinde `<applicationfolder>/<servicePkg>/Code/` özelliğini ayarlamak için klasör `java.util.logging.config.file` için `app.propertes` dosya. Giriş, aşağıdaki kod parçacığı gibi görünmelidir:
@@ -64,7 +64,7 @@ Bu yapılandırma günlüklerinde yenilenen bir biçimde toplanan sonuçları `/
 
 Herhangi işleyici açıkça yapılandırdıysanız, varsayılan olarak konsol işleyici kayıtlı. Bir syslog /var/log/syslog altında günlükleri görüntüleyebilirsiniz.
 
-Daha fazla bilgi için [kodu github'da örnekleri](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
+Daha fazla bilgi için [kodu github'da örnekleri](http://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 
 ## <a name="debugging-service-fabric-c-applications"></a>Service Fabric C# uygulamalarında hata ayıklama
@@ -83,8 +83,8 @@ Hizmet olayı için dinler ve ardından bunları izleme dosyaları için uygun �
 
 ```csharp
 
- public class ServiceEventSource : EventSource
- {
+public class ServiceEventSource : EventSource
+{
         public static ServiceEventSource Current = new ServiceEventSource();
 
         [NonEvent]
@@ -105,8 +105,8 @@ Hizmet olayı için dinler ve ardından bunları izleme dosyaları için uygun �
 
 
 ```csharp
-   internal class ServiceEventListener : EventListener
-   {
+internal class ServiceEventListener : EventListener
+{
 
         protected override void OnEventSourceCreated(EventSource eventSource)
         {
@@ -114,20 +114,20 @@ Hizmet olayı için dinler ve ardından bunları izleme dosyaları için uygun �
         }
         protected override void OnEventWritten(EventWrittenEventArgs eventData)
         {
-            using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))           
-        { 
-                 // report all event information               
-         Out.Write(" {0} ",  Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
-                if (eventData.Message != null)              
-            Out.WriteLine(eventData.Message, eventData.Payload.ToArray());              
-            else             
-        { 
-                    string[] sargs = eventData.Payload != null ? eventData.Payload.Select(o => o.ToString()).ToArray() : null; 
-                    Out.WriteLine("({0}).", sargs != null ? string.Join(", ", sargs) : "");             
+                using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))
+                {
+                        // report all event information
+                        Out.Write(" {0} ", Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
+                        if (eventData.Message != null)
+                                Out.WriteLine(eventData.Message, eventData.Payload.ToArray());
+                        else
+                        {
+                                string[] sargs = eventData.Payload != null ? eventData.Payload.Select(o => o.ToString()).ToArray() : null; 
+                                Out.WriteLine("({0}).", sargs != null ? string.Join(", ", sargs) : "");
+                        }
+                }
         }
-           }
-        }
-    }
+}
 ```
 
 

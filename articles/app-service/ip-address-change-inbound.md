@@ -1,5 +1,5 @@
 ---
-title: Bir gelen IP adresi değişikliği için - Azure hazırlamayı öğrenin
+title: Gelen IP adresi değişikliği için - Azure App Service'ı hazırlama
 description: Gelen IP adresiniz, değiştirilecek olacaksa, böylece uygulamanız için değişiklik sonrasında çalışmaya devam yapmanız gerekenler öğrenin.
 services: app-service\web
 author: cephalin
@@ -10,12 +10,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: 28741e858b0c938ec8b2b2ff983106c6b08e18fc
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.custom: seodec18
+ms.openlocfilehash: 2a494b318011d601609033bc877134f0b0eeff09
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578227"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249337"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Nasıl bir gelen IP adresi değişikliğe hazırlanmak için
 
@@ -25,11 +26,11 @@ Azure App Service uygulamanızın gelen IP adresi ile değişiyor bir bildirim a
 
 * 1. seçenek: App Service uygulamanızı özel bir etki alanı yoksa, hiçbir eylem gerekmiyor.
 
-* 2. seçenek: yalnızca bir CNAME kaydı (URI'yı işaret eden DNS kaydı), etki alanı kayıt Portalı'nda (üçüncü taraf DNS sağlayıcısı veya Azure DNS) yapılandırılmışsa, herhangi bir eylemi gerekli değildir.
+* 2. seçenek: Yalnızca bir CNAME kaydı (URI'yı işaret eden DNS kaydı), etki alanı kayıt Portalı'nda (üçüncü taraf DNS sağlayıcısı veya Azure DNS) yapılandırılmışsa, Eylem gerekmiyor.
 
-* Seçenek 3: bir A kaydı (doğrudan IP adresine işaret eden DNS kaydı), etki alanı kayıt Portalı'nda (üçüncü taraf DNS sağlayıcısı veya Azure DNS) yapılandırılmışsa, mevcut IP adresi yenisiyle değiştirin. Sonraki bölümde yönergeleri takip ederek yeni IP adresini bulabilirsiniz.
+* Seçenek 3: Bir A kaydı (doğrudan IP adresine işaret eden DNS kaydı), etki alanı kayıt Portalı'nda (üçüncü taraf DNS sağlayıcısı veya Azure DNS) yapılandırılmışsa, mevcut IP adresini yenisiyle değiştirin. Sonraki bölümde yönergeleri takip ederek yeni IP adresini bulabilirsiniz.
 
-* Seçenek 4: uygulamanız, bir yük dengeleyici, IP filtresi veya uygulamanızın IP adresi gerektiren herhangi bir IP mekanizma ise, mevcut IP adresi yenisiyle değiştirin. Sonraki bölümde yönergeleri takip ederek yeni IP adresini bulabilirsiniz.
+* Seçenek 4: Uygulamanızı bir yük dengeleyici, IP filtresi veya uygulamanızın IP adresi gerektiren herhangi bir IP mekanizma ise, mevcut IP adresi yenisiyle değiştirin. Sonraki bölümde yönergeleri takip ederek yeni IP adresini bulabilirsiniz.
 
 ## <a name="find-the-new-inbound-ip-address-in-the-azure-portal"></a>Azure portalında yeni bir gelen IP adresi Bul
 
@@ -41,7 +42,7 @@ Portalda, uygulamaya verilen yeni gelen IP adresi bulunduğu **sanal IP adresi**
 
 3.  App Service uygulamanızı listeden seçin.
 
-4.  Uygulamayı bir işlev uygulaması, bakın [işlev uygulaması gelen IP adresi](../azure-functions/ip-addresses.md#function-app-inbound-ip-address).
+1.  Uygulamayı bir işlev uygulaması, bakın [işlev uygulaması gelen IP adresi](../azure-functions/ip-addresses.md#function-app-inbound-ip-address).
 
 4.  Altında **ayarları** başlık tıklayın **özellikleri** sol gezinti ve Bul etiketlenmiş bölümü **sanal IP adresi**.
 

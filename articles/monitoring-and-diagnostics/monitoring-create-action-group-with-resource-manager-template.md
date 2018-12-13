@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 583a84fd943f6dab63f94e2811e21853e6e5f6a1
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0023b8aa5d4f79af397b937030c5308a970af991
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959180"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187509"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Resource Manager şablonu ile bir eylem grubu oluştur
 Bu makalede nasıl kullanılacağını gösterir bir [Azure Resource Manager şablonu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) Eylem grupları yapılandırmak için. Şablonları kullanarak, otomatik olarak belirli uyarı türleri yeniden kullanılabilir Eylem grupları ayarlayabilirsiniz. Bu eylem grupları doğru bütün tarafların bir uyarı tetiklendiğinde bildirim aldığından emin olun.
@@ -164,6 +164,6 @@ Resource Manager şablonu kullanarak bir eylem grubu oluşturmak için kaynak t�
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Daha fazla bilgi edinin [Eylem grupları](monitoring-action-groups.md).
+* Daha fazla bilgi edinin [Eylem grupları](../azure-monitor/platform/action-groups.md).
 * Daha fazla bilgi edinin [uyarılar](monitoring-overview-alerts.md).
-* Eklemeyi öğrenin [Resource Manager şablonu kullanarak uyarıları](alert-activity-log.md).
+* Eklemeyi öğrenin [Resource Manager şablonu kullanarak uyarıları](../azure-monitor/platform/alerts-activity-log.md).

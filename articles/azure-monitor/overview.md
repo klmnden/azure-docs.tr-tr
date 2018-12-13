@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: ccdee1963d3d37966f6784e7a7421c500d6a8a51
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2d1f96359512a3c2135909ebf69ec9ec3b801d61
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994208"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190569"
 ---
 # <a name="azure-monitor-overview"></a>Azure İzleyiciye Genel Bakış
 
@@ -48,10 +48,10 @@ Log Analytics sorgu dili basit günlük sorguları için uygundur, ancak ayrıca
 ## <a name="what-data-does-azure-monitor-collect"></a>Azure İzleyici hangi verileri toplar?
 Azure İzleyici, çeşitli kaynaklardan veri toplayabilir. Uygulamanız, herhangi bir işletim sistemi ve platform aşağı, bağımlı hizmetler arasında değişen katmanlarındaki uygulamalarınız için veri izleme düşünebilirsiniz. Azure İzleyici her aşağıdaki katmanları alanından veri toplar:
 
-- **Uygulama izleme verilerini**: kodun işlevselliğini ve performansı hakkındaki verileri yazdığınız, kendi platformları ne olursa olsun.
-- **Konuk işletim sistemi izleme verileri**: uygulamanızın üzerinde çalıştığı işletim sistemi hakkındaki verileri. Bu Azure, başka bir bulutta veya şirket içinde çalışıyor olabilir. 
-- **Azure kaynak verilerini izleme**: bir Azure kaynağının çalışması hakkında veriler.
-- **İzleme verileri bir azure aboneliği**: işlem ve bir Azure aboneliğinin yönetim verileri yanı sıra Azure işlem ve sistem durumu hakkında veriler kendisi. 
+- **Uygulama izleme verilerini**: Performansı ve işlevselliği, platforma bakılmaksızın yazdığınız kodun ilgili veriler.
+- **Konuk işletim sistemi izleme verileri**: Uygulamanızın üzerinde çalıştığı işletim sistemiyle ilgili veriler. Bu Azure, başka bir bulutta veya şirket içinde çalışıyor olabilir. 
+- **Azure kaynak verilerini izleme**: Bir Azure kaynağının çalışması hakkında veriler.
+- **İzleme verileri bir azure aboneliği**: Azure işlem ve sistem durumu hakkında veriler yanı sıra, işlem ve bir Azure aboneliğinin yönetim verileri kendisini. 
 - **İzleme verileri bir azure kiracısı**: Azure Active Directory gibi Azure hizmetlerinin Kiracı düzeyinde çalışması hakkında veriler.
 
 Bir Azure aboneliği ve sanal makineler ve web uygulamaları gibi kaynakları eklemeye başlayın oluşturduğunuz hemen sonra Azure İzleyici, veri toplamaya başlar.  [Etkinlik günlükleri](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) kaynakları, oluşturulacak veya değiştirilecek kayıt. [Ölçümleri](../monitoring-and-diagnostics/monitoring-overview-metrics.md) kaynak nasıl performans gösterdiğini ve onu kullanan kaynakları söyleyin. 
@@ -96,7 +96,7 @@ Azure İzleyici VM içgörüler izler, Azure sanal makineleri (VM) uygun ölçek
 ### <a name="alerts"></a>Uyarılar
 [Azure İzleyici'de uyarılar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) kritik koşulları proaktif olarak bildiren ve olası düzeltici dener. Neredeyse gerçek zamanlı uyarı kuralları günlüklerine göre birden çok kaynaktan veri üzerinde karmaşık mantık için izin verirken, sayısal değerlerine göre ölçümlere göre uyarı kuralları sağlar.
 
-Uyarı kuralları Azure İzleyici kullanımda [Eylem grupları](../monitoring-and-diagnostics/monitoring-action-groups.md), benzersiz alıcı ve birden çok kural arasında paylaşılabilir Eylemler kümesi bulunur. Gereksinimlerinize göre Eylem grupları olarak uyarıları dış eylemleri başlatmak veya ITSM araçlarınıza ile tümleştirmek için Web kancalarını kullanma gibi işlemleri gerçekleştirebilirsiniz.
+Uyarı kuralları Azure İzleyici kullanımda [Eylem grupları](../azure-monitor/platform/action-groups.md), benzersiz alıcı ve birden çok kural arasında paylaşılabilir Eylemler kümesi bulunur. Gereksinimlerinize göre Eylem grupları olarak uyarıları dış eylemleri başlatmak veya ITSM araçlarınıza ile tümleştirmek için Web kancalarını kullanma gibi işlemleri gerçekleştirebilirsiniz.
 
 ![Uyarılar](media/overview/alerts.png)
 

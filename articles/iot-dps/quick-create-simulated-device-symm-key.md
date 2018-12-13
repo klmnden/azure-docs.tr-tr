@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 07be154f05441c94e32b05fc8354f59b88713929
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
-ms.translationtype: HT
+ms.openlocfilehash: 46eebf6b7d68267765ded5ff91610e94960c3679
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456947"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323533"
 ---
-# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Hızlı Başlangıç: Simetrik anahtarlar ile bir simülasyon cihazı sağlama
+# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Hızlı Başlangıç: Simetrik anahtarlar ile bir sanal cihaz sağlama
 
 Bu hızlı başlangıçta, Windows geliştirme makinesi üzerinde bir cihaz simülatörü oluşturmayı ve çalıştırmayı öğreneceksiniz. Bu simülasyon cihazını Cihaz Sağlama Hizmeti örneği ile kimlik doğrulaması yapmak ve bir IoT hub'ına atanmak için bir simetrik anahtar kullanmak üzere yapılandıracaksınız. Sağlamayı başlatan cihaz için önyükleme sırası simülasyonu yapmak için [Azure IoT C SDK'sından](https://github.com/Azure/azure-iot-sdk-c) alınan örnek kod kullanılacaktır. Cihaz, sağlama hizmeti örneği ile ayrı kayıt durumuna göre tanınacak ve bir IoT hub'ına atanacaktır.
 
@@ -32,7 +32,7 @@ Bu makale Windows tabanlı bir iş istasyonuna yöneliktir. Ancak yordamları Li
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * ["C++ ile masaüstü geliştirme"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) iş yükünün etkinleştirildiği Visual Studio 2015 veya [Visual Studio 2017](https://www.visualstudio.com/vs/).
 * [Git](https://git-scm.com/download/)'in en son sürümünün yüklemesi.
@@ -83,7 +83,7 @@ SDK bir simülasyon cihazı için örnek kod içerir. Simülasyon cihazı, cihaz
 4. SDK’nın geliştirme istemci platformunuza ve özgü bir sürümünü oluşturmak için aşağıdaki komutu çalıştırın. `cmake` dizininde simülasyon cihazı için bir Visual Studio çözümü de oluşturulur. 
 
     ```cmd
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
     `cmake`, C++ derleyicinizi bulamazsa yukarıdaki komutu çalıştırırken derleme hatalarıyla karşılaşabilirsiniz. Bu durumda bu komutu [Visual Studio komut isteminde](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs) çalıştırmayı deneyin. 
@@ -91,7 +91,7 @@ SDK bir simülasyon cihazı için örnek kod içerir. Simülasyon cihazı, cihaz
     Derleme başarılı olduktan sonra, son birkaç çıkış satırı aşağıdaki çıkışa benzer olacaktır:
 
     ```cmd/sh
-    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -114,13 +114,13 @@ SDK bir simülasyon cihazı için örnek kod içerir. Simülasyon cihazı, cihaz
 
 3. **Kayıt ekle** altında aşağıdaki bilgileri girin ve **Kaydet** düğmesine tıklayın.
 
-    - **Mekanizma**: Kimlik onay *Mekanizması* olarak **Simetrik Anahtar** seçeneğini belirleyin.
+    - **Mekanizması**: Seçin **simetrik anahtar** kimlik kanıtlama *mekanizması*.
 
-    - **Anahtarları Otomatik Olarak Oluştur**: Bu kutuyu işaretleyin.
+    - **Anahtarları otomatik olarak oluştur**: Bu kutuyu işaretleyin.
 
-    - **Kayıt Kimliği**: Kaydı tanımlamak için bir kayıt kimliği girin. Yalnızca küçük alfasayısal karakterler ile kısa çizgi ('-') karakterlerini kullanın. Örneğin, `symm-key-device-007`.
+    - **Kayıt Kimliği**: Kayıt tanımlamak için bir kayıt kimliği girin. Yalnızca küçük alfasayısal karakterler ile kısa çizgi ('-') karakterlerini kullanın. Örneğin, `symm-key-device-007`.
 
-    - **IoT Hub Cihaz Kimliği:** Bir cihaz tanımlayıcısı girin. Örneğin, **device-007**.
+    - **IOT Hub cihaz kimliği:** Cihaz tanımlayıcısı girin. Örneğin, **device-007**.
 
     ![Portalda simetrik anahtar kanıtı için bireysel kayıt ekleme](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
 

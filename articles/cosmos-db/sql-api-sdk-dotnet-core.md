@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bcd8fe040cb4d36bc98700816d6a7ebe711f13f5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 4452484379b73b978cac7391bce5c71b0f6c32cd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093460"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257208"
 ---
-# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK SQL API'si için: yayın notları ve kaynakları
+# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET değişiklik akışı](sql-api-sdk-dotnet-changefeed.md)
@@ -57,6 +57,16 @@ Azure Cosmos DB .NET Core SDK'sı özellik eşliği ile en son sürümüne sahip
 * Yeni nesne modeli, üst düzey CosmosClient ve yöntemleri ile ilgili CosmosDatabases ve CosmosContainers CosmosItems sınıflar arasında bölün. 
 * Akışları için destek. 
 * Durum kodu döndürür ve yanıt döndürüldüğünde yalnızca durum sunucudan CosmosResponseMessage güncelleştirildi. 
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+
+* Doğrudan/TCP taşıma tanılama için TransportException, SDK'sının bir iç özel durum türü eklediniz. Bu tür, mevcut olduğunda özel durum iletileri, istemci bağlantısı sorunlarını gidermek için ek bilgi yazdırır.
+
+* HttpClient istekleri (örn., HttpClientHandler) göndermek için kullanılacak HTTP işleyici yığını bir HttpMessageHandler alan eklenen yeni oluşturucu aşırı yükleme.
+
+* Burada üstbilgisi null değerlerle düzgün bir şekilde işlenmemiş olan hata düzeltildi.
+
+* Koleksiyon önbellek doğrulama geliştirildi.
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
@@ -109,7 +119,7 @@ Azure Cosmos DB .NET Core SDK'sı özellik eşliği ile en son sürümüne sahip
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 
-* Aralıklı olarak sonuçlanan belirli yarış koşulları altında isabet hata düzeltildi "Microsoft.Azure.Documents.NotFoundException: okuma oturumu giriş Oturum belirteci için kullanılamıyor" oturum tutarlılık düzeyini kullanırken hataları.
+* Aralıklı olarak sonuçlanan belirli yarış koşulları altında isabet hata düzeltildi "Microsoft.Azure.Documents.NotFoundException: Oturum tutarlılık düzeyi kullanılırken okuma oturumu için giriş Oturum belirteci kullanılabilir değil"hata.
 
 ### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 
@@ -182,7 +192,7 @@ Azure Cosmos DB .NET Core SDK'sı özellik eşliği ile en son sürümüne sahip
 
 ### <a name="a-name112112"></a><a name="1.1.2"/>1.1.2
 
-* Bazen bir WebException neden olan sorunu için düzeltme: uzak ad çözümlenemedi.
+* Bazen bir WebException neden olan bir sorunu için düzeltme: Uzak ad çözümlenemedi.
 * Doğrudan ReadDocumentAsync API'sine yeni aşırı yüklemeler ekleyerek türü belirtilmiş bir belgeyi okumak için destek eklendi.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
@@ -206,8 +216,8 @@ Azure Cosmos DB .NET Core SDK'sı hızlı, platformlar arası oluşturmanıza ol
 Azure Cosmos DB .NET Core Önizleme SDK'sı hızlı, platformlar arası oluşturmanıza olanak sağlayan [ASP.NET Core](https://www.asp.net/core) ve [.NET Core](https://www.microsoft.com/net/core#windows) uygulamaları Windows, Mac ve Linux üzerinde çalıştırılacak.
 
 Azure Cosmos DB .NET Core Önizleme SDK'sı özellik eşliği ile en son sürümüne sahip [Azure Cosmos DB .NET SDK'sı](sql-api-sdk-dotnet.md) ve aşağıdakileri destekler:
-* Tüm [bağlantı modları](performance-tips.md#networking): ağ geçidi modu, doğrudan TCP ve doğrudan HTTPs. 
-* Tüm [tutarlılık düzeyleri](consistency-levels.md): güçlü, oturum, sınırlanmış eskime durumu ve nihai.
+* Tüm [bağlantı modları](performance-tips.md#networking): Ağ geçidi modu, doğrudan TCP ve doğrudan HTTPs. 
+* Tüm [tutarlılık düzeyleri](consistency-levels.md): Sınırlanmış eskime durumu, güçlü, oturum ve nihai.
 * [Bölümlenmiş koleksiyonları](partition-data.md). 
 * [Çoklu bölge veritabanı hesapları ve coğrafi çoğaltma](distribute-data-globally.md).
 
@@ -217,6 +227,7 @@ Bu SDK ilgili sorularınız varsa postalayabilir [StackOverflow](https://stackov
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.2.0](#2.2.0) |07 aralık 2018'e |--- |
 | [2.1.3](#2.1.3) |15 Ekim 2018 |--- |
 | [2.1.2'yi](#2.1.2) |04 Ekim 2018 |--- |
 | [2.1.1](#2.1.1) |27 Eylül 2018'den |--- |

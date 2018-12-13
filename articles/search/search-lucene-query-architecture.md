@@ -1,5 +1,5 @@
 ---
-title: Tam metin arama motoru (Lucene) mimarisini Azure Search'te | Microsoft Docs
+title: Tam metin arama motoru (Lucene) mimarisi - Azure Search
 description: İlgili Azure arama için tam metin araması için Lucene sorgu işleme ve belge alma kavramları açıklaması.
 manager: jlembicz
 author: yahnoosh
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 55d361e90dbc5fe48bc118088a6f859d096048ff
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.custom: seodec2018
+ms.openlocfilehash: 8ca9fe72e4bd5272a5303b3bacd8c0960504789d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036879"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315827"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Metin arama Azure Search'te tam nasıl çalışır
 

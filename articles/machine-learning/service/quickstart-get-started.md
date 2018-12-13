@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Kullanın başlatmak için Azure portalı'
+title: Azure portalı üzerinden hızlı başlangıç
 titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning hizmeti ile çalışmaya başlama. Deneme, eğitmek ve makine öğrenimi modelleri dağıtmak için kullandığınız bulut ıaas'yi bloğunda bir çalışma alanı oluşturmak için Azure portalını kullanın.
 services: machine-learning
@@ -11,16 +11,16 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 00ad774caa0fe0dcfb7f41614ec25e6cc802da10
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c215a3947069e572f73692ea54010c77d78ae4fd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103107"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273570"
 ---
-# <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Hızlı başlangıç: Azure portalı kullanarak Azure Machine Learning'i kullanmaya başlama
+# <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için Azure portalını kullanma
 
-Bu hızlı başlangıçta Azure Machine Learning çalışma alanı oluşturmak için Azure portalını kullanacaksınız. Bu çalışma alanı Machine Learning ile bulutta makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için kullanabileceğiniz temel bileşenlerden biridir. Bu hızlı başlangıçta bulut kaynakları kullanılmaktadır ve bu nedenle herhangi bir yükleme yapmanıza gerek yoktur. Kendi Jupyter notebook sunucunuzu yapılandırmak istiyorsanız [Hızlı başlangıç: Machine Learning hizmetini kullanmaya başlamak için Python'ı kullanma](quickstart-create-workspace-with-python.md) sayfasına bakın.
+Bu hızlı başlangıçta Azure Machine Learning çalışma alanı oluşturmak için Azure portalını kullanacaksınız. Bu çalışma alanı Machine Learning ile bulutta makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için kullanabileceğiniz temel bileşenlerden biridir. Bu hızlı başlangıçta bulut kaynakları kullanılmaktadır ve bu nedenle herhangi bir yükleme yapmanıza gerek yoktur. Bunun yerine kendi Jupyter notebook sunucusu yapılandırmak için bkz [hızlı başlangıç: Azure Machine Learning'i kullanmaya başlamak için Python kullanma](quickstart-create-workspace-with-python.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
@@ -39,7 +39,7 @@ Aşağıdaki Azure kaynakları, bölgesel kullanıma sunulduğunda çalışma al
 
 Oluşturduğunuz kaynaklar, diğer Machine Learning hizmeti öğreticileri ve nasıl yapılır makalelerinde önkoşul olarak kullanılabilir. Diğer Azure hizmetleriyle şekilde küme boyutu gibi Machine Learning ile ilişkili belirli kaynaklar barındırabileceğiniz işlem. Daha fazla bilgi edinin [varsayılan limitler ve kotanızı artırmak nasıl](how-to-manage-quotas.md).
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
+Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
 
 
 ## <a name="create-a-workspace"></a>Çalışma alanı oluşturma 
@@ -119,4 +119,4 @@ Deneme ve model dağıtımı için gerekli kaynakları oluşturdunuz. Ayrıca bi
 Ayrıntılı bir iş akışı deneyimi için, Machine Learning öğreticilerini izleyerek bir modeli eğitin ve dağıtın.  
 
 > [!div class="nextstepaction"]
-> [Öğretici: Görüntü sınıflandırma modelini eğitme](tutorial-train-models-with-aml.md)
+> [Öğretici: Bir görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md)

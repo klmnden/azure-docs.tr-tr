@@ -1,19 +1,19 @@
 ---
-title: Azure Cosmos DB Tablo API'si ile kullanmak üzere veri içe aktarma
-description: Azure Cosmos DB Tablo API'si ile kullanmak üzere veri içe aktarma hakkında bilgi edinin.
-services: cosmos-db
+title: Azure Cosmos DB tablo API'si hesabı mevcut verileri geçirme
+description: Bilgi nasıl geçirme veya şirket içi içeri aktarma veya Bulut verileri Azure tablo API'si hesabı Azure Cosmos DB'de.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.topic: tutorial
-ms.date: 11/28/2017
+ms.date: 12/07/2017
 ms.author: sngun
-ms.openlocfilehash: d277df3fa98564ebec92e548fa070e92cf76f200
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: b2256f16d284cb079231e271a7fc06c25c381c8a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874048"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137693"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Verilerinizi Azure Cosmos DB Tablo API'si hesabına geçirme
 
@@ -28,9 +28,9 @@ Bu öğretici aşağıdaki görevleri kapsar:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* **Aktarım hızını artırma:** Veri geçişinizin süresi, tek bir kapsayıcı veya bir kapsayıcı kümesi için ayarladığınız aktarım hızı miktarına bağlıdır. Büyük veri geçişleri için aktarım hızını artırdığınızdan emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak için aktarım hızını azaltın. Azure portalda aktarım hızını artırma hakkında daha fazla bilgi için bkz. Azure Cosmos DB’de performans düzeyleri ve fiyatlandırma katmanları.
+* **Aktarım hızını artırın:** Veri geçiş süresi, aktarım hızı için ayrı bir kapsayıcı ayarlamanız miktarını veya bir dizi kapsayıcıları göre değişir. Büyük veri geçişleri için aktarım hızını artırdığınızdan emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak için aktarım hızını azaltın. Azure portalda aktarım hızını artırma hakkında daha fazla bilgi için bkz. Azure Cosmos DB’de performans düzeyleri ve fiyatlandırma katmanları.
 
-* **Azure Cosmos DB kaynaklarını oluşturma:** Veri geçişini başlatmadan önce Azure portaldan tüm tablolarınızı oluşturun. Veritabanı düzeyinde aktarım hızına sahip olan bir Azure Cosmos DB hesabına geçiş yapıyorsanız Azure Cosmos DB tablolarını oluştururken bölüm anahtarı girdiğinizden emin olun.
+* **Azure Cosmos DB kaynaklarını oluşturan:** Veri geçişi başlatmadan önce tüm tabloları Azure portalından önceden oluşturun. Veritabanı düzeyinde aktarım hızına sahip olan bir Azure Cosmos DB hesabına geçiş yapıyorsanız Azure Cosmos DB tablolarını oluştururken bölüm anahtarı girdiğinizden emin olun.
 
 ## <a name="data-migration-tool"></a>Veri Taşıma aracı
 
@@ -89,7 +89,7 @@ Azure Cosmos DB Tablo API'sini geçiş hedefi olarak tanımlarken aşağıdaki h
     /t.MaxBatchSize: Optional, default is 2MB. Specify the batch size in bytes
 
 <a id="azure-table-storage"></a>
-### <a name="sample-command-source-is-azure-table-storage"></a>Örnek komut: Kaynak Azure Table depolaması
+### <a name="sample-command-source-is-azure-table-storage"></a>Örnek komut: Kaynak Azure tablo depolama
 
 Azure Tablo depolamasından Tablo API'sine içeri aktarmayı gösteren bir komut satırı örneği:
 
@@ -97,7 +97,7 @@ Azure Tablo depolamasından Tablo API'sine içeri aktarmayı gösteren bir komut
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 <a id="table-api-preview"></a>
-### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Örnek komut: Kaynak Azure Cosmos DB Tablo API (önizleme)
+### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Örnek komut: Azure Cosmos DB tablo API'si (Önizleme) kaynaktır
 
 Tablo API önizleme sürümünden Table API GA'ya içeri aktarma için bir komut satırı örneği:
 

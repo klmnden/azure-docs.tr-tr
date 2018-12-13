@@ -1,5 +1,5 @@
 ---
-title: Azure web apps için uygulama performansı ile ilgili SSS | Microsoft Docs
+title: Uygulama performansı ile ilgili SSS - Azure App Service | Microsoft Docs
 description: Azure App Service'in Web Apps özelliği, kullanılabilirlik, performans ve uygulama sorunları hakkında sık sorulan soruların yanıtlarını alın.
 services: app-service\web
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 00563b93a3601ba6299c479c49375fd252841f79
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec18
+ms.openlocfilehash: 62039d379861e9981eb1bf556a78e85fc64e2478
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748128"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255202"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure Web Apps için uygulama performansı ile ilgili SSS
 
@@ -83,7 +84,7 @@ Web uygulamanız için işlem düzeyinde bilgileri görüntülemek için iki se�
 * Portalda web uygulaması durduruldu.
 * Web uygulamasını ücretsiz olarak geçerli olabilecek veya ölçek hizmet planı paylaştığı bir kaynak kotası sınırına ulaştı.
 
-Hataya neden olan bakın ve sorunu gidermek için adımları [Web Apps: "Hata 403 – bu web uygulaması durduruldu"](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
+Hataya neden olan bakın ve sorunu gidermek için adımları [Web uygulamaları: "Hata 403 – bu web uygulaması durduruldu"](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
 
 ## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>Çeşitli App Service planları için kotalar ve sınırlar hakkında nereden bilgi edinebilirim?
 
@@ -166,7 +167,7 @@ Web işleri, arka plan işlemleri için tasarlanmıştır. WebJob içinde istedi
 
 ## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>Bazen App Service'te barındırılan ASP.NET Core uygulamaları, yanıt vermeyi durdurur. Bu sorunu nasıl düzeltebilirim?
 
-Bir önceki bilinen bir sorun [Kestrel sürüm](https://github.com/aspnet/KestrelHttpServer/issues/1182) barındırılan bir ASP.NET Core 1.0 uygulamasını App Service aralıklı olarak yanıt vermeyi durdurmasına neden olabilir. Ayrıca, bu iletiyi görebilirsiniz: "belirtilen CGI uygulaması bir hatayla karşılaştı ve sunucu işlemi sonlandırıldı."
+Bir önceki bilinen bir sorun [Kestrel sürüm](https://github.com/aspnet/KestrelHttpServer/issues/1182) barındırılan bir ASP.NET Core 1.0 uygulamasını App Service aralıklı olarak yanıt vermeyi durdurmasına neden olabilir. Ayrıca, bu iletiyi görebilirsiniz: "Belirtilen CGI uygulaması bir hatayla karşılaştı ve sunucu işlemi sonlandırıldı."
 
 Bu sorun sürüm 1.0.2 Kestrel içinde düzeltilmiştir. Bu sürüm bulunur ASP.NET Core 1.0.3 güncelleştirme. Bu sorunu çözmek için Kestrel 1.0.2 kullanılacak uygulama bağımlılıklarınızı güncelleştirdiğinizden emin olun. Alternatif olarak, blog gönderisinde açıklanan iki geçici çözümlerden birini kullanabilirsiniz [ASP.NET Core 1.0 yavaş performans sorunları App Service web apps'te](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites).
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 4c6765e54dc881c35e344f111e82721be0852052
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 3bf2135e7d4cb0e34d6e38e8673d5d69f262979c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823767"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322406"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure harici bir aracı tarafından veri tüketimi için olay hub'ına izleme
 
@@ -21,17 +21,17 @@ Azure İzleyici, tüm Azure ortamınızı verilerden izleme, iş ortağı SIEM '
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
-## <a name="what-data-can-i-send-into-an-event-hub"></a>Hangi veri bir olay hub'ına gönderebilirim? 
+## <a name="what-data-can-i-send-into-an-event-hub"></a>Hangi veri bir olay hub'ına gönderebilirim?
 
 Azure ortamınızda 'izleme verilerinin çeşitli katmanları' vardır ve her bir katman veri erişimi yöntemi biraz farklılık gösterir. Genellikle, bu Katmanlar olarak açıklanabilir:
 
-- **Uygulama izleme verilerini:** yazmış ve Azure üzerinde çalışan kodun işlevselliğini ve performansı hakkında veriler. İzleme verileri uygulama performans izleme, uygulama günlükleri ve kullanıcı telemetrisi örneklerindendir. Uygulama izleme verileri, genellikle aşağıdaki yollardan biriyle toplanır:
+- **Uygulama izleme verileri:** Performansı ve işlevselliği yazmış ve Azure üzerinde çalışan kodun ilgili veriler. İzleme verileri uygulama performans izleme, uygulama günlükleri ve kullanıcı telemetrisi örneklerindendir. Uygulama izleme verileri, genellikle aşağıdaki yollardan biriyle toplanır:
   - Kodunuzu bir SDK'sı ile gibi işaretleyerek [Application Insights SDK'sı](../application-insights/app-insights-overview.md).
-  - Uygulamanızı, gibi çalıştıran makinede yeni bir uygulama günlüklerini için bekleyen bir izleme Aracısı'nı çalıştırarak [Windows Azure tanılama Aracısı](./azure-diagnostics.md) veya [Linux Azure tanılama Aracısı](../virtual-machines/extensions/diagnostics-linux.md).
-- **Konuk işletim sistemi izleme verileri:** , uygulamanızın üzerinde çalıştığı işletim sistemi hakkındaki verileri. Konuk işletim sistemi izleme verileri örnekleri Linux syslog veya Windows Sistem olaylarını olacaktır. Bu tür veriler toplamak için aşağıdaki gibi bir aracı yüklemeniz gerekir [Windows Azure tanılama Aracısı](./azure-diagnostics.md) veya [Linux Azure tanılama Aracısı](../virtual-machines/extensions/diagnostics-linux.md).
-- **Azure kaynak verilerini izleme:** bir Azure kaynağının çalışması hakkında veriler. Sanal makineler gibi bazı Azure kaynak türleri için var. bir konuk işletim sistemi ve uygulamaları içinde Azure hizmetini izlemek için (Olduğundan hiçbir konuk işletim sistemi veya uygulama kaynaklarla içinde çalışan), ağ güvenlik grupları gibi diğer Azure kaynakları için izleme verileri mevcut veri en yüksek katman kaynaktır. Bu veri kullanarak toplanabilir [kaynak tanılama ayarlarını](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
-- **İzleme verileri bir azure aboneliği:** Azure işlem ve sistem durumu hakkında veriler yanı sıra, işlem ve bir Azure aboneliğinin yönetim verileri kendisini. [Etkinlik günlüğü](./monitoring-overview-activity-logs.md) izleme verileri, hizmet durumu olayları ve Azure Resource Manager denetimleri gibi çoğu abonelik içerir. Günlük profilini kullanarak bu verileri toplayabilir.
-- **İzleme verileri bir azure kiracısı:** gibi Azure Active Directory Kiracı düzeyinde Azure hizmetlerinin çalışması hakkında veriler. Azure Active Directory denetimlerimiz ve oturum açma işlemleri izleme verilerini Kiracı örnekleridir. Bu veriler, bir kiracı tanılama ayarını kullanarak toplanabilir.
+  - Uygulamanızı, gibi çalıştıran makinede yeni bir uygulama günlüklerini için bekleyen bir izleme Aracısı'nı çalıştırarak [Windows Azure tanılama Aracısı](./../azure-monitor/platform/diagnostics-extension-overview.md) veya [Linux Azure tanılama Aracısı](../virtual-machines/extensions/diagnostics-linux.md).
+- **Konuk işletim sistemi izleme verileri:** Uygulamanızın üzerinde çalıştığı işletim sistemiyle ilgili veriler. Konuk işletim sistemi izleme verileri örnekleri Linux syslog veya Windows Sistem olaylarını olacaktır. Bu tür veriler toplamak için aşağıdaki gibi bir aracı yüklemeniz gerekir [Windows Azure tanılama Aracısı](./../azure-monitor/platform/diagnostics-extension-overview.md) veya [Linux Azure tanılama Aracısı](../virtual-machines/extensions/diagnostics-linux.md).
+- **Azure kaynak: izleme verileri** Bir Azure kaynağının çalışması hakkında veriler. Sanal makineler gibi bazı Azure kaynak türleri için var. bir konuk işletim sistemi ve uygulamaları içinde Azure hizmetini izlemek için (Olduğundan hiçbir konuk işletim sistemi veya uygulama kaynaklarla içinde çalışan), ağ güvenlik grupları gibi diğer Azure kaynakları için izleme verileri mevcut veri en yüksek katman kaynaktır. Bu veri kullanarak toplanabilir [kaynak tanılama ayarlarını](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+- **Azure aboneliği: izleme verileri** Azure işlem ve sistem durumu hakkında veriler yanı sıra, işlem ve bir Azure aboneliğinin yönetim verileri kendisini. [Etkinlik günlüğü](./monitoring-overview-activity-logs.md) izleme verileri, hizmet durumu olayları ve Azure Resource Manager denetimleri gibi çoğu abonelik içerir. Günlük profilini kullanarak bu verileri toplayabilir.
+- **İzleme verilerini azure kiracısı:** Azure Active Directory gibi Azure hizmetlerinin Kiracı düzeyinde çalışması hakkında veriler. Azure Active Directory denetimlerimiz ve oturum açma işlemleri izleme verilerini Kiracı örnekleridir. Bu veriler, bir kiracı tanılama ayarını kullanarak toplanabilir.
 
 Herhangi bir katmanı verileri, bir olay hub'ına, burada bir iş ortağı aracına çekilebilir gönderilebilir. Sonraki bölümlerde, verileri olay hub'ına akışla için her katmandan nasıl yapılandırılacağını açıklar. Adımları izlenmesi, o katmanın varlıklar zaten sahip olduğunuzu varsaymaktadır.
 
@@ -91,7 +91,7 @@ Konuk işletim sistemi izleme verileri bir olay hub'ına göndermek için bir ar
 
 ### <a name="windows-data"></a>Windows veri
 
-[Windows Azure tanılama Aracısı](./azure-diagnostics.md) göndermek için kullanılan bir Windows makineden veri bir olay hub'ına izleme. Bunu, privateConfig bölümüne WAD yapılandırma dosyasının bir havuz olarak olay hub'ı ekleyerek yapabilirsiniz. [Bu makalede, Windows Azure tanılama aracısı için olay hub'ı havuzu ekleme hakkında daha fazla bilgi için bkz](./azure-diagnostics-streaming-event-hubs.md).
+[Windows Azure tanılama Aracısı](./../azure-monitor/platform/diagnostics-extension-overview.md) göndermek için kullanılan bir Windows makineden veri bir olay hub'ına izleme. Bunu, privateConfig bölümüne WAD yapılandırma dosyasının bir havuz olarak olay hub'ı ekleyerek yapabilirsiniz. [Bu makalede, Windows Azure tanılama aracısı için olay hub'ı havuzu ekleme hakkında daha fazla bilgi için bkz](./../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md).
 
 > [!NOTE]
 > Konuk işletim sistemi izleme verileri portalda olay hub'ına akış ayarlanamaz. Bunun yerine, yapılandırma dosyasını el ile düzenlemeniz gerekir.
@@ -114,10 +114,10 @@ Bir olay hub'ına Azure İzleyici ile izleme verilerinizi yönlendirme, iş orta
     2. Bir eklenti yükleyemiyorsanız Splunk Örneğinizde (örn.) varsa bir ara sunucu kullanıldığında veya Splunk bulutunda çalışan), bu olayları kullanarak Splunk HTTP Olay Toplayıcısı iletebilir [olay hub'ındaki yeni iletileri tarafından tetiklenen bu işlevin](https://github.com/Microsoft/AzureFunctionforSplunkVS).
 * **SumoLogic** -bir olay hub'ından veri tüketmek SumoLogic ayarlamaya yönelik yönergeler [buradan kullanılabilir](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
 * **ArcSight** -ArcSight Azure olay hub'ı akıllı bağlayıcı olarak kullanılabilir parçası [ArcSight akıllı bağlayıcı koleksiyonu](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852).
-* **Syslog sunucusu** - stream Azure İzleyici verileri doğrudan bir syslog sunucusuna göz atabilirsiniz isterseniz [bu github deposunu](https://github.com/miguelangelopereira/azuremonitor2syslog/).
+* **Syslog sunucusu** - stream Azure İzleyici verileri doğrudan bir syslog sunucusuna göz atabilirsiniz isterseniz [bu GitHub deposunu](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * [Bir depolama hesabı için Etkinlik günlüğünü arşivleme](monitoring-archive-activity-log.md)
 * [Azure etkinlik günlüğüne genel bakış okuyun](monitoring-overview-activity-logs.md)
-* [Bir etkinlik günlüğü olayı temel alan bir uyarı ayarlama](monitor-alerts-unified-log-webhook.md)
+* [Bir etkinlik günlüğü olayı temel alan bir uyarı ayarlama](../azure-monitor/platform/alerts-log-webhook.md)
 

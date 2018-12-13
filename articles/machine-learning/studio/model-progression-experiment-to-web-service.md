@@ -4,9 +4,8 @@ description: Nasıl bir geliştirme, Azure Machine Learning modeli ilerler çal�
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 1254f41d4961956acc8f7abc7d5490fedbb8c5d0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5cfa11042d269353cf33f99d1238265ff9657853
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310108"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253876"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Machine Learning Studio'da model denemeden bir çalışır hale getirilen Web hizmetine nasıl ilerlediğini
 Azure Machine Learning Studio geliştirin, çalıştırın, test etme ve yineleme olanak tanıyan etkileşimli bir tuvale sağlayan bir ***deneme*** Tahmine dayalı bir modeli temsil eden. Çok çeşitli için modüller vardır:
@@ -95,7 +94,7 @@ Bu güncelleştirme için gerekenler üzerinde bağlıdır:
 
 Model değiştirmiyorsanız, ancak yalnızca Web hizmeti verileri nasıl işlediğini değiştirme, Tahmine dayalı denemeyi düzenleyin ve ardından **Web hizmeti Dağıt** seçip **Web hizmeti dağıtma [Klasik]** veya **Web hizmeti dağıtma [Yeni]** yeniden. Web hizmeti durduruldu, güncelleştirilmiş Tahmine dayalı denemeye dağıtılır ve Web hizmeti yeniden başlatılır.
 
-Bir örnek aşağıda verilmiştir: varsayalım, Tahmine dayalı denemeye giriş verilerinin tahmin edilen sonucu ile tüm satırı döndürür. Web hizmetinin yalnızca sonuç döndürmek için istediğinize karar verin. Ekleyebilirsiniz, böylece bir **proje sütunları** önce sonucu dışındaki sütunları dışlamak için şu çıkış bağlantı noktasına, Tahmine dayalı denemeye modülünde. Tıkladığınızda **Web hizmeti Dağıt** seçip **Web hizmeti dağıtma [Klasik]** veya **Web hizmeti dağıtma [Yeni]** Web hizmeti yeniden güncelleştirilir.
+Bir örneği aşağıda verilmiştir: Tahmine dayalı denemenizi giriş verilerinin tahmin edilen sonucu ile tüm satırı döndürür varsayalım. Web hizmetinin yalnızca sonuç döndürmek için istediğinize karar verin. Ekleyebilirsiniz, böylece bir **proje sütunları** önce sonucu dışındaki sütunları dışlamak için şu çıkış bağlantı noktasına, Tahmine dayalı denemeye modülünde. Tıkladığınızda **Web hizmeti Dağıt** seçip **Web hizmeti dağıtma [Klasik]** veya **Web hizmeti dağıtma [Yeni]** Web hizmeti yeniden güncelleştirilir.
 
 **Yeni veri modeli yeniden eğitme istiyorsunuz**
 
@@ -120,5 +119,5 @@ Geliştirme ve deneme işlemi hakkında daha fazla bilgi için aşağıdaki maka
 Bu işlem örnekleri için bkz:
 
 * [Machine learning Öğreticisi: Azure Machine Learning Studio'da ilk denemenizi oluşturma](create-experiment.md)
-* [İzlenecek yol: bir Azure Machine learning'de kredi riski değerlendirmesi için Tahmine dayalı analiz çözümü geliştirin](walkthrough-develop-predictive-solution.md)
+* [İzlenecek yol: Bir Azure Machine learning'de kredi riski değerlendirmesi için Tahmine dayalı analiz çözümü geliştirin](walkthrough-develop-predictive-solution.md)
 

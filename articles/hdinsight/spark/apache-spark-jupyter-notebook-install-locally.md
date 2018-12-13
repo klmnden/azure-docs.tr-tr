@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 3cd6ef1716d455c5ac755122b8696dbc43fdf459
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 92f6bc358fe8cc5ab8f7242d94edc3004eaab4b9
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581876"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163387"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Jupyter not defterine bilgisayarınıza yükleyin ve HDInsight üzerinde Apache spark'a bağlanma
 
@@ -36,9 +36,9 @@ Burada listelenen önkoşulları Jupyter yüklemek için değildir. Bu, Not deft
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>Jupyter not defterine bilgisayarınıza yükleyin.
 
-Jupyter not defterleri yükleyebilmek için önce Python yüklemeniz gerekir. Hem Python hem de Jupyter olarak kullanılabilir parçası [Anaconda dağıtım](https://www.continuum.io/downloads). Anaconda yüklediğinizde, bir Python dağıtımını yükleyin. Anaconda yüklendikten sonra Jupyter yükleme uygun komutları çalıştırarak ekleyin.
+Jupyter not defterleri yükleyebilmek için önce Python yüklemeniz gerekir. Hem Python hem de Jupyter olarak kullanılabilir parçası [Anaconda dağıtım](https://www.anaconda.com/download/). Anaconda yüklediğinizde, bir Python dağıtımını yükleyin. Anaconda yüklendikten sonra Jupyter yükleme uygun komutları çalıştırarak ekleyin.
 
-1. İndirme [Anaconda yükleyici](https://www.continuum.io/downloads) platform ve Kurulumu çalıştırın. Kurulum Sihirbazı çalıştırırken, yol değişkeninize Anaconda ekleme seçeneği seçtiğinizden emin olun.
+1. İndirme [Anaconda yükleyici](https://www.anaconda.com/download/) platform ve Kurulumu çalıştırın. Kurulum Sihirbazı çalıştırırken, yol değişkeninize Anaconda ekleme seçeneği seçtiğinizden emin olun.
 1. Jupyter yüklemek için aşağıdaki komutu çalıştırın.
 
         conda install jupyter
@@ -138,12 +138,12 @@ Pek çok neden Jupyter bilgisayarınıza yükleyin ve HDInsight üzerinde Apache
 >
 
 ## <a name="seealso"></a>Ayrıca bkz.
-* [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md)
+* [Genel Bakış: Azure HDInsight üzerinde Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Senaryolar
-* [BI ile Apache Spark: BI araçlarıyla HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
-* [Machine Learning ile Apache Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark ile BI: BI araçları ile HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
+* [Apache Spark Machine Learning ile: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark Machine Learning ile: Gıda denetimi sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma

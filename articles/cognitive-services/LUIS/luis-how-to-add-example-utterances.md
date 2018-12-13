@@ -1,7 +1,7 @@
 ---
 title: Örnek konuşmalar ekleme
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Language Understanding (LUIS) uygulamalarında konuşma eklemeyi öğrenin.
+description: Örnek konuşma metin kullanıcı sorularınız ya da komutları örnekleridir. Language Understanding (LUIS) öğretmeyi bir amaç için örnek konuşma eklemeniz gerekir.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: ada1d7e922bdd47cfc9fe8139ad83adfa45ed073
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 33c941f84952faca1961bb65687b4098b837a2fd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085527"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139185"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Bir varlık için örnek Konuşma ekleme 
 
@@ -90,7 +90,7 @@ Utterance varsayılarak `Does John Smith work in Seattle?`, bileşik bir utteran
 
 1. Aşağı açılan listeden Bileşik varlık adı girin.
 
-    ![Varlık adı girme ekran görüntüsü](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
+    ![Ekran görüntüsü, aşağı açılan listeden Bileşik varlık adı girin](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
 
     Varlıkları doğru Kaydır yeşil bir çizgi deyimin tamamını altında olur.
 
@@ -118,7 +118,7 @@ Utterance içinde `Move John Smith from Seattle to Cairo`, Seattle kaynak konumu
 
 1. Utterance sözcüğü üst hiyerarşik varlıkla etiketlendi. Word'ün bir alt varlığına atamanız gerekir. Utterance için hedefi ayrıntı sayfasında dönün. Word ' ü seçin sonra oluşturduğunuz varlık adı aşağı açılan listeden seçin ve sağa doğru alt varlığı seçmeniz için menü izleyin.
 
-    ![Vurgulanan ToLocation varlıkla ekran görüntüsü, hedefleri Ayrıntıları sayfası](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
+    ![Word'ün bir alt varlık için Ata gerek duyduğunuz senaryolara ekran görüntüsü, hedefleri Ayrıntıları sayfası](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
 
     >[!CAUTION]
     >Tek bir uygulamada tüm varlıklar üzerinde alt varlık adlarının benzersiz olması gerekir. Alt varlıklar aynı ada sahip iki farklı hiyerarşik varlıklar içerebilir. 
@@ -135,7 +135,7 @@ Utterance kırmızıyla altı çizili olan sözcükleri'ni seçin.
 
 Varlık kutu görüntüler **varlık durumu** tahmin tutarsızlık ise kırmızı ünlem işareti. Varlık durumu ile etiketlenmiş ve tahmin edilen varlıklar arasındaki fark hakkında daha fazla bilgi görmek için seçin **varlık durumu** sonra sağ öğeyi seçin.
 
-![Ekran görüntüsü, varlık durumu tahmin uyuşmazlık](./media/luis-how-to-add-example-utterances/entity-status.png)
+![Öğe tahmin tutarsızlık düzeltmek doğru seçme işleminin ekran görüntüsü](./media/luis-how-to-add-example-utterances/entity-status.png)
 
 Kırmızı çizgi aşağıdaki durumlarda hiçbirini görünebilir:
 
