@@ -1,6 +1,6 @@
 ---
-title: VM başlatma işlemi “Windows Hazırlanıyor. Bilgisayarınızı kapatmayın.” iletisinde takılıyor azure'da | Microsoft Docs
-description: Hangi VM başlatma durumlar sorun giderme adımlarını tanıtmak üzerinde "alma Windows hazır. Bilgisayarınızı kapatmayın".
+title: VM başlatma takılı "alma Windows üzerinde hazır. Azure'da, bilgisayarınızı kapatmayın"| Microsoft Docs
+description: VM başlatma "alma Windows üzerinde hazır. durumunda sorun giderme adımlarını Ekle Bilgisayarınızı kapatmayın.” iletisinde takılıyor
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,46 +14,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: 722bf7b42e500e3e6a46f48646ff1fd2edfb68f1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: eb27b4e6c60f23a55a58cd2aae3cff927ffeaf03
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955745"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316106"
 ---
-# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>VM başlatma işlemi “Windows Hazırlanıyor. Bilgisayarınızı kapatmayın.” iletisinde takılıyor Azure'da
+# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>VM başlatma takılı "alma Windows üzerinde hazır. Azure'da, bilgisayarınızı kapatmayın"
 
-Bu makalede, sanal makine (VM) takıldığında sorunu gidermenize yardımcı olur. üzerinde "alma Windows hazır. Bilgisayarınızı kapatmayın.” iletisinde takılıyor başlangıç aşamasında.
+Bu makalede, sanal makine (VM) takıldığında sorunu gidermenize yardımcı olur. üzerinde "alma Windows hazır. Bilgisayarınızı kapatmayın"başlangıç aşamasında.
 
 ## <a name="symptoms"></a>Belirtiler
 
-Kullanırken **önyükleme tanılaması** bir VM görüntüsü almak için işletim sistemini tam olarak başlatılamadığı bulun. Ayrıca, VM görüntüleyen bir **"alma Windows hazır. Bilgisayarınızı kapatmayın."** İleti.
+Kullanırken **önyükleme tanılaması** bir VM görüntüsü almak için işletim sistemini tam olarak başlatılması değil. VM "alma Windows hazır. ileti görüntüler. Bilgisayarınızı kapatmayın.” iletisinde takılıyor
 
-![İleti örneği](./media/troubleshoot-vm-configure-update-boot/message1.png)
+![Windows Server 2012 R2 için ileti örneği](./media/troubleshoot-vm-configure-update-boot/message1.png)
 
 ![İleti örneği](./media/troubleshoot-vm-configure-update-boot/message2.png)
 
 ## <a name="cause"></a>Nedeni
 
-Yapılandırmanın değiştirilmesinden sonra sunucunun son başlatma işlemi yaparken, genellikle bu sorun oluşur. Yapılandırma değişikliğinin Windows güncelleştirmeleri veya sunucunun rol/özellik değişiklikleri tarafından başlatılabiliyordu. Güncelleştirmeleri boyutu büyük olduğunda, Windows güncelleştirmesi değişiklikleri yeniden yapılandırmak için daha fazla zaman işletim sistemi gerekir.
+Yapılandırmanın değiştirilmesinden sonra sunucunun son başlatma işlemi yaparken, genellikle bu sorun oluşur. Yapılandırma değişikliğinin Windows güncelleştirmeleri veya sunucunun rol/özellik değişiklikleri başlatılması. Güncelleştirmeleri boyutu büyük olduğunda Windows güncelleştirmesi değişiklikleri yeniden yapılandırmak için daha fazla zaman işletim sistemi gerekir.
 
 ## <a name="back-up-the-os-disk"></a>İşletim sistemi diski yedeklemeniz
 
-Bu sorunu düzeltmek denemeden önce işletim sistemi diski yedekleyin:
+Bu sorunu düzeltmek denemeden önce işletim sistemi diski yedekleyin.
 
 ### <a name="for-vms-with-an-encrypted-disk-you-must-unlock-the-disks-first"></a>Şifrelenmiş bir diski olan VM'ler için diskler önce kilidini açmanız gerekir
 
-VM şifreli bir VM ise doğrulayın. Bunu yapmak için şu adımları uygulayın:
+VM şifreli bir VM olup olmadığını belirlemek için aşağıdaki adımları izleyin.
 
-1. Portal, sanal makinenizin açın ve ardından diskleri göz atın.
+1. Azure portalında VM'nizi açın ve ardından diskleri göz atın.
 
-2. "Şifreleme etkin olup olmadığını size bildirir, şifreleme," çağrısı bir sütun görürsünüz.
+2. Bakmak **şifreleme** sütun şifreleme etkin olup olmadığını görmek için.
 
-İşletim sistemi diski şifreli değilse şifrelenmiş diski kilidini açın. Bunu yapmak için şu adımları uygulayın:
+İşletim sistemi diski şifreli değilse şifrelenmiş diski kilidini açın. Diskin kilidini açmak için aşağıdaki adımları izleyin.
 
 1. Aynı kaynak grubu, depolama hesabı ve konum etkilenen VM bulunan bir kurtarma VM oluşturun.
 
-2. Azure portalında etkilenen VM'yi silin ve disk tutun.
+2. Azure portalında, etkilenen VM'yi silin ve disk tutun.
 
 3. PowerShell'i yönetici olarak çalıştırın.
 
@@ -72,7 +72,7 @@ VM şifreli bir VM ise doğrulayın. Bunu yapmak için şu adımları uygulayın
     Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq   $vmName) -and ($_.ContentType -eq ‘BEK’)}
     ```
 
-5. Gizli dizi adı oluşturduktan sonra PowerShell'de aşağıdaki komutları çalıştırın:
+5. Gizli dizi adı oluşturduktan sonra PowerShell'de aşağıdaki komutları çalıştırın.
 
     ```Powershell
     $secretName = 'SecretName'
@@ -80,10 +80,10 @@ VM şifreli bir VM ise doğrulayın. Bunu yapmak için şu adımları uygulayın
     $bekSecretBase64 = $keyVaultSecret.SecretValueText
     ```
 
-6. Base64 kodlu bayta dönüştürün ve çıktıyı bir dosyaya yazın. 
+6. Base64 ile kodlanmış değer bayta dönüştürün ve çıktıyı bir dosyaya yazın. 
 
     > [!Note]
-    > Özgün BEK dosya adı eşleşmelidir BEK USB kullanırsanız GUID kilidini açma seçeneği. Ayrıca, C sürücünüzde aşağıdaki adımları çalışmadan önce "BEK" adlı bir klasör oluşturmanız gerekir.
+    > USB kullanırsanız seçeneği kilidini, özgün BEK GUID BEK dosya adıyla eşleşmelidir. Bu adımları gerçekleştirmeden önce "BEK" adlı C sürücüsünde bir klasör oluşturun.
     
     ```Powershell
     New-Item -ItemType directory -Path C:\BEK
@@ -92,22 +92,22 @@ VM şifreli bir VM ise doğrulayın. Bunu yapmak için şu adımları uygulayın
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7. BEK dosyayı bilgisayarınıza oluşturulduktan sonra bağlı kilitli işletim sistemi diski sahip VM kurtarma dosyasını kopyalayın. Aşağıdaki komutu çalıştırın BEK kullanarak dosya konumu:
+7. BEK dosyayı bilgisayarınıza oluşturulduktan sonra bağlı kilitli işletim sistemi diski sahip VM kurtarma dosyasını kopyalayın. BEK dosya konumu kullanarak aşağıdaki komutları çalıştırın.
 
     ```Powershell
     manage-bde -status F:
     manage-bde -unlock F: -rk C:\BEKFILENAME.BEK
     ```
-    **İsteğe bağlı** bazı senaryolarda bu komutla disk de şifre çözme gerekli olabilir.
+    **İsteğe bağlı**: Bazı senaryolarda bu komutu kullanarak disk şifresini çözmek gerekli olabilir.
    
     ```Powershell
     manage-bde -off F:
     ```
 
     > [!Note]
-    > Bu, disk şifreleme harfi F: olduğunu dikkate almaktır.
+    > Önceki komutun şifrelemek için disk harfi f olduğunu varsayar
 
-8. Günlükleri toplamak istiyorsanız, yolu gidebilirsiniz **sürücü HARFİ: \Windows\System32\winevt\Logs**.
+8. Günlükleri toplamak istiyorsanız, yolu Git **sürücü HARFİ: \Windows\System32\winevt\Logs**.
 
 9. Sürücünün kurtarma makineden çıkarın.
 
@@ -121,17 +121,17 @@ Anlık görüntü oluşturmak için adımları izleyin. [bir diskin anlık gör�
 
 ## <a name="contact-microsoft-support"></a>Microsoft desteğine başvurun
 
-Bilgi döküm dosyası topladıktan sonra başvurun [Microsoft Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) kök neden analizi için.
+Bilgi döküm dosyası topladıktan sonra başvurun [Microsoft Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorunun temel nedenini analiz etmek için.
 
 
-## <a name="rebuild-the-vm-using-powershell"></a>PowerShell kullanarak VM yeniden oluşturun
+## <a name="rebuild-the-vm-by-using-powershell"></a>PowerShell kullanarak sanal Makineyi yeniden oluşturun
 
-Bellek dökümü dosyasına topladıktan sonra VM'yi yeniden oluşturmak için aşağıdaki adımları kullanın.
+Bellek dökümü dosyasına topladıktan sonra VM'yi yeniden oluşturmak için aşağıdaki adımları izleyin.
 
 **Yönetilmeyen diskler için**
 
 ```PowerShell
-# To login to Azure Resource Manager
+# To log in to Azure Resource Manager
 Login-AzureRmAccount
 
 # To view all subscriptions for your account
@@ -162,7 +162,7 @@ New-AzureRmVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
 **Yönetilen diskler için**
 
 ```PowerShell
-# To login to Azure Resource Manager
+# To log in to Azure Resource Manager
 Login-AzureRmAccount
 
 # To view all subscriptions for your account
@@ -183,7 +183,7 @@ $avName = "AvailabilitySetName";
 $osDiskName = "OsDiskName";
 $DataDiskName = "DataDiskName"
 
-#This can be found by selecting the Managed Disks you wish you use in the Azure Portal if the format below doesn't match
+#This can be found by selecting the Managed Disks you wish you use in the Azure portal if the format below doesn't match
 $osDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
 $dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$DataDiskName";
 

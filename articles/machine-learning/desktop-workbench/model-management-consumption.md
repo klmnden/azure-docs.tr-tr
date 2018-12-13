@@ -2,8 +2,8 @@
 title: Azure Machine Learning Model Yönetimi web hizmet tüketimi | Microsoft Docs
 description: Bu belgede adımlar ve kavramlar açıklanır. Azure Machine Learning'de model Yönetimi'ni kullanarak dağıtılan web hizmetleri tüketen söz konusu.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c01198a78a32c460bd147e1e160358271b80eef5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bbd36e5389208b21704f1749beee016e30cc4ec5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950644"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253859"
 ---
 # <a name="consuming-web-services"></a>Web hizmetlerini kullanma
 
@@ -60,7 +60,7 @@ Web hizmeti anahtarı almak için aşağıdaki komutu kullanın:
 ```
 az ml service keys realtime -i <web service id>
 ```
-HTTP isteği oluştururken, anahtar yetkilendirme üst bilgisinde kullanılır: "Yetkilendirme": "taşıyıcı <key>"
+HTTP isteği oluştururken, anahtar yetkilendirme üst bilgisinde kullanın: "Yetkilendirme": "Taşıyıcı <key>"
 
 ## <a name="get-the-service-swagger-description"></a>Hizmet Swagger tanımı Al
 Hizmet API şeması sağlandıysa, hizmet uç noktası, bir Swagger belgesi kullanılabilmesini ```http://<ip>/api/v1/service/<service name>/swagger.json```. Swagger belgesinin otomatik olarak hizmeti istemcisi oluşturur ve beklenen giriş verileri ve hizmetle ilgili diğer ayrıntıları keşfetmek için kullanılabilir.

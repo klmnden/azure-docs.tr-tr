@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning hizmeti nedir?
+title: Hakkında
+titleSuffix: Azure Machine Learning service
 description: --Bir geliştirmek, Uzman veri bilimcilerine yönelik tümleşik, uçtan uca veri bilimi çözümü olan Azure Machine Learning hizmetine genel bakış, denemeler yapın ve bulut ölçeğinde Gelişmiş analiz uygulamaları dağıtın.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c3c0697af739c151f9aa7cbaed65283a365be7a7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f0860982da6a06a3529539768179f9bc28a0695a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077231"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272992"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Azure Machine Learning hizmeti nedir?
 
@@ -48,7 +49,7 @@ Modeliniz dağıtıldıktan sonra elde edilmesi de döndürebilir [gerçek zaman
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile neler yapabilirim?
 
 Azure Machine Learning hizmeti otomatik-bir modeli eğitme ve otomatik-bunu sizin için ayarlama.
-Bir örneği için bkz. [Öğretici: Azure Automated Machine Learning ile bir sınıflandırma modelini otomatik olarak eğitme](tutorial-auto-train-models.md).
+Bir örnek için bkz [Öğreticisi: Otomatik olarak bir Azure Machine Learning otomatik sınıflandırma modeli eğitme](tutorial-auto-train-models.md).
 
 Azure Machine Learning kullanarak <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> Python, açık kaynak Python paketlerini yanı sıra yapı ve yüksek oranda doğru machine learning eğitimi ve derin öğrenme modelleri kendiniz bir Azure Machine Learning hizmeti çalışma alanında.
 Açık kaynaklı Python paketlerinde mevcut olan aşağıdaki gibi çok sayıda makine öğrenimi bileşeni arasından seçim yapabilirsiniz:
@@ -78,7 +79,10 @@ Bir Python ortamında çalışıyorsanız, makine öğrenimi algoritmalarınız 
 > Azure Machine Learning Studio'da oluşturulan modeller, Azure Machine Learning hizmeti tarafından dağıtılamaz veya yönetilemez.
 
 ## <a name="free-trial"></a>Ücretsiz deneme sürümü
-Abone değilseniz, [ücretsiz olarak bir Azure hesabı açabilirsiniz](https://aka.ms/amlfree). Azure hizmetlerinde harcayabileceğiniz krediler alırsınız. Krediler bittikten sonra hesabı tutabilir ve [ücretsiz Azure hizmetlerini](https://azure.microsoft.com/free/) kullanabilirsiniz. Açıkça ayarlarınızı değiştirip ücretlendirme istemediğiniz sürece kredi kartınız asla ücretlendirilmez. Alternatif olarak, [MSDN abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), ücretli Azure Hizmetleri, size için kullanabileceğiniz her ay kredi sağlar.
+
+Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
+
+Azure hizmetlerinde harcayabileceğiniz krediler alırsınız. Krediler bittikten sonra hesabı tutabilir ve [ücretsiz Azure hizmetlerini](https://azure.microsoft.com/free/) kullanabilirsiniz. Açıkça ayarlarınızı değiştirip ücretlendirme istemediğiniz sürece kredi kartınız asla ücretlendirilmez. Alternatif olarak, [MSDN abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), ücretli Azure Hizmetleri, size için kullanabileceğiniz her ay kredi sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

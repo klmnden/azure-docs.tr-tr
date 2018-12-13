@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 1e77dfdec902b64f2524c790bda6742eaa1105fc
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 697815aeca9b8a07e3cece877d610436b2b8ac83
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669183"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278296"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Başlatma, durdurma ve kaos raporda test hizmeti.
@@ -44,17 +44,17 @@ Kaos olayları sonraki segmentini almak için ContinuationToken belirtebilirsini
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --devamlılık belirteci | Devamlılık belirteci parametresi, sonraki sonuç kümesini almak için kullanılır. Sistem sonuçlardan tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değer ile API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı, API, sonraki sonuç kümesini döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır. |
-| --Bitiş zamanı utc | Windows Saati Chaos rapor oluşturulacak olduğu zaman aralığının son saati temsil eden dosya. Başvurun [DateTime.ToFileTimeUtc yöntemi](https://docs.microsoft.com/dotnet/api/system.datetime.tofiletimeutc?redirectedfrom=MSDN&view=netframework-4.7.2#System_DateTime_ToFileTimeUtc) Ayrıntılar için. |
+| --Bitiş zamanı utc | Windows Saati Chaos rapor oluşturulacak olduğu zaman aralığının son saati temsil eden dosya. Başvurun [DateTime.ToFileTimeUtc yöntemi](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) Ayrıntılar için. |
 | --en fazla sonuç | En fazla disk belleğine alınan sorguları bir parçası olarak döndürülecek sonuç sayısı. Bu parametre, döndürülen sonuç sayısı üzerindeki üst sınırını tanımlar. İletinin en büyük ileti boyutu kısıtlamaları göre uymayan, belirtilen en fazla sonuç değerinden yapılandırmada tanımlanabilir sonuç döndürmedi. Bu parametre sıfıra eşit ya da belirtilmemiş disk belleğine alınan sorgu dönüş iletiye sığmayacak mümkün olduğunca çok sonuçları içerir. |
-| --Başlangıç zamanı utc | Windows Saat Chaos rapor oluşturulacak olduğu zaman aralığı başlangıç saati temsil eden dosya. Başvurun [DateTime.ToFileTimeUtc yöntemi](https://docs.microsoft.com/dotnet/api/system.datetime.tofiletimeutc?redirectedfrom=MSDN&view=netframework-4.7.2#System_DateTime_ToFileTimeUtc) Ayrıntılar için. |
+| --Başlangıç zamanı utc | Windows Saat Chaos rapor oluşturulacak olduğu zaman aralığı başlangıç saati temsil eden dosya. Başvurun [DateTime.ToFileTimeUtc yöntemi](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) Ayrıntılar için. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -69,13 +69,13 @@ Kaos çalışıyor olsun veya olmasın, Chaos ve kaos zamanlama durumunu çalı�
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -90,7 +90,7 @@ Kaos kümede çalışmıyorsa Chaos geçirilen ile başlar Chaos parametreleri. 
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --app-türü-sistem durumu-ilkeyi-map | JSON için belirli uygulama türlerinde en yüksek yüzdesi iyi durumda olmayan uygulamalar listesi kodlanmış. Her giriş anahtar uygulama türü adı olarak ve belirtilen uygulama türünde uygulamalar değerlendirmek için kullanılan MaxPercentUnhealthyApplications yüzdeyi temsil eden bir tamsayı değeri olarak belirtir. <br><br> En yüksek yüzdesi iyi durumda olmayan uygulamalar için belirli uygulama türlerinde sahip bir eşleme tanımlar. Her giriş anahtarı uygulama türü adı ve değeri belirtilen uygulama türünde uygulamalar değerlendirmek için kullanılan MaxPercentUnhealthyApplications yüzdeyi temsil eden bir tamsayı olarak belirtir. Uygulama türü sistem durumu ilkesi eşlem küme sistem durumu değerlendirmesi sırasında özel uygulama türlerini tanımlamak için kullanılabilir. Haritada yer uygulama türleri, eşleme ve küme sistem durumu İlkesi'nde tanımlanan genel MaxPercentUnhealthyApplications ile belirtilen yüzde karşı değerlendirilir. Uygulama türleri eşlemesinde belirtilen uygulamaları, uygulamaların genel havuzunun karşı sayılmaz. Örneğin, bazı uygulamalar bir tür kritik ise küme yönetici harita uygulama türü için bir giriş ekleyin ve % 0 değerini atayın (diğer bir deyişle, herhangi bir hata oluştuğunda değil). Diğer tüm uygulamaları ile uygulama örnekleri binlerce dışında bazı hatalar tolerans %20 değerine MaxPercentUnhealthyApplications değerlendirilebilir. Küme bildiriminde HealthManager/EnableApplicationTypeHealthEvaluation yapılandırma girişi kullanarak uygulama türü sistem durumu değerlendirmesi etkinleştirirse uygulama türü sistem durumu ilkesi eşlem kullanılır. |
 | --chaos hedef filtresi | JSON sözlüğü iki dize türü anahtarlarla kodlanmış. İki anahtar chaostargetfilter'daki Nodetypeınclusionlist ve Applicationınclusionlist'in ' dir. Bu anahtarların her ikisini de değerleri dize listesi kullanılır. chaos_target_filter hedeflenen Chaos hataları, örneğin, yalnızca belirli düğüm türleri hataya neden olan veya yalnızca belirli uygulamaların hataya neden olan tüm filtreleri tanımlar. <br><br> Chaos_target_filter kullanılmıyorsa, tüm küme varlıklar Chaos hataları. Chaos_target_filter kullanılırsa, Chaos chaos_target_filter belirtimi karşılayan varlıklar hataları. Chaostargetfilter'daki Nodetypeınclusionlist ve Applicationınclusionlist'in yalnızca bir birleşim semantiği sağlar. Chaostargetfilter'daki Nodetypeınclusionlist ve Applicationınclusionlist'in kesişimini belirtmek mümkün değildir. Örneğin, "Bu uygulama yalnızca söz konusu düğüm türünde olduğunda hata." belirlemek mümkün değil Bir varlık chaostargetfilter'daki Nodetypeınclusionlist veya Applicationınclusionlist'in dahil sonra bu varlık birden kullanarak tutulamaz. ApplicationX Applicationınclusionlist'in görünmez olsa bile, bunu chaostargetfilter'daki Nodetypeınclusionlist içinde bulunan nodeTypeY düğümünde olması gerektiğinden bazı Chaos yinelemede applicationX hatalı. ArgumentException hem chaostargetfilter'daki Nodetypeınclusionlist ve Applicationınclusionlist'in boş ise oluşturulur. Tüm tür hataları (düğümü yeniden başlatın, kod paketi yeniden, çoğaltmayı kaldırmak, çoğaltmayı yeniden başlatın, birincil taşıma ve ikincil Taşı) bu düğüm türü için düğümleri etkinleştirilir. Düğüm türü (NodeTypeX diyelim) chaostargetfilter'daki Nodetypeınclusionlist görünmüyor sonra düğüm düzeyi hataları (gibi NodeRestart) hiçbir zaman NodeTypeX düğümleri için etkinleştirilecek ancak kod paketi ve çoğaltma hataları hala etkinleştirilebilir NodeTypeX için de bir uygulama bildirimi Applicationınclusionlist'in NodeTypeX düğümde olur. Bu sayıyı artırmak için bu listede, en fazla 100 düğüm tipi adları eklenebilir, yapılandırma yükseltme MaxNumberOfNodeTypesInChaosEntityFilter yapılandırma için gereklidir. Bu uygulamaların hizmetlerine ait tüm çoğaltmaları tfs'deki Chaos ile çoğaltma hataları (yeniden başlatma çoğaltma, çoğaltma Kaldır, taşıma birincil ve taşıma ikincil). Kod paketi çoğaltmaları bu uygulamaların yalnızca barındırıyorsa chaos bir kod paketi yeniden başlatılabilir. Bir uygulama bu listede görünmüyorsa, chaostargetfilter'daki Nodetypeınclusionlist içinde bulunan bir düğüm türü, bir düğüm üzerinde uygulama sona ererse, yine de bazı Chaos yinelemede hatalı. Yerleştirme kısıtlamaları ve applicationX aracılığıyla nodeTypeY applicationX bağlıdır, ancak eksik Applicationınclusionlist'in ve nodeTypeY eksik chaostargetfilter'daki Nodetypeınclusionlist sonra applicationX hiçbir zaman hatayla kapatılacak. En fazla 1000 uygulama adları bu sayıyı artırmak için bu listede, eklenebilir, yapılandırma yükseltme MaxNumberOfApplicationsInChaosEntityFilter yapılandırma için gereklidir. |
@@ -104,11 +104,11 @@ Kaos kümede çalışmıyorsa Chaos geçirilen ile başlar Chaos parametreleri. 
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 | --hatalar arasındaki bekleme süresi | Tek bir yineleme içinde art arda hatalar arasındaki bekleme süresi (saniye cinsinden).  Varsayılan\: 20. <br><br> Değer, alt hataları ve basit arasında çakışan durumu dizisini küme geçtiği geçer. 1 ve 5 ve alıştırma uyarı taşırken arasında bir değer ile başlamanız önerilir. |
 | --yinelemeleri arasındaki bekleme süresi | Saati-(saniye cinsinden) arasında ayrım Chaos iki ardışık yinelemesi. Değer, alt hata ekleme oranı.  Varsayılan\: 30. |
-| --hata olarak uyarı | Uyarı hata olarak değerlendirilecek sistem durumu ilkesi ayarlar. |
+| --hata olarak uyarı | Uyarıları hata olarak aynı önem derecesi kabul edilip edilmeyeceğini belirtir. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -123,19 +123,20 @@ Kaos yeni hataların yürütülmesini durdurur. Yürütülen hataları tamamlana
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
 | --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
 | --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Kurulum](service-fabric-cli.md) Service Fabric CLI.

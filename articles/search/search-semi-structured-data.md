@@ -1,5 +1,5 @@
 ---
-title: Azure Search'te Azure bulut depolama alanından yarı yapılandırılmış verileri arama öğreticisi | Microsoft Docs
+title: Azure bulut depolama - Azure Search yarı yapılandırılmış verileri arama Öğreticisi
 description: Bu öğreticide, Azure Search kullanarak yarı yapılandırılmış Azure blob verilerini aramayı öğreneceksiniz.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: heidist
-ms.openlocfilehash: a7b006bd8469ddce1415ab6cb7c52c0171ae11cd
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: 5608495ff2975cabefdb83e5794a7d92b318b5a5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005086"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313835"
 ---
 # <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Öğretici: Azure bulut depolamada yarı yapılandırılmış verileri arama
 
@@ -30,7 +31,7 @@ ms.locfileid: "39005086"
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Önceki öğreticide oluşturulan arama hizmetini ve depolama hesabını sağlayan [önceki öğreticinin](../storage/blobs/storage-unstructured-search.md) tamamlanması.
 
@@ -59,7 +60,7 @@ Sizin için bir örnek veri kümesi hazırlandı. **[clinical-trials-json.zip](h
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[Azure Portal](http://portal.azure.com)’da oturum açın.
+[Azure Portal](http://portal.azure.com) oturum açın.
 
 ## <a name="upload-the-sample-data"></a>Örnek verileri karşıya yükleme
 

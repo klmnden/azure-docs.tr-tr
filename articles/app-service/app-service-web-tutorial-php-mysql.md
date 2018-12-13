@@ -1,5 +1,5 @@
 ---
-title: Azure'da PHP ve MySQL web uygulaması derleme | Microsoft Docs
+title: MySQL - Azure App Service ile PHP uygulaması derleme | Microsoft Docs
 description: Azure’da çalışan ve bir MySQL veritabanı ile bağlantısı olan PHP uygulamasını nasıl edinebileceğinizi öğrenin.
 services: app-service\web
 documentationcenter: php
@@ -14,15 +14,15 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: e5574eee1ac553151f073fe4e398a84c596c55f2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: a20373e43780cea10e550ae968deb2a8720b9a9f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968237"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251683"
 ---
-# <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Öğretici: Azure’da PHP ve MySQL web uygulaması derleme
+# <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Öğretici: Azure'da PHP ve MySQL web uygulaması derleme
 
 > [!NOTE]
 > Bu makalede bir uygulamanın Windows üzerinde App Service'e dağıtımı yapılır. _Linux_ üzerinde App Service'e dağıtım yapmak için bkz. [Linux üzerinde Azure App Service'te PHP ve MySQL web uygulaması derleme](./containers/tutorial-php-mysql-app.md).
@@ -51,8 +51,8 @@ Bu öğreticiyi tamamlamak için:
 * [Git'i yükleyin](https://git-scm.com/)
 * [PHP 5.6.4 veya sonraki sürümü yükleme](https://php.net/downloads.php)
 * [Oluşturucu Yükleme](https://getcomposer.org/doc/00-intro.md)
-* Laravel için gereken şu PHP uzantılarını etkinleştirin: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
-* [MySQL yükleme ve başlatma](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
+* Laravel gereken şu PHP uzantılarını etkinleştirin: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
+* [MySQL'i yükleyin ve başlatın](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>Yerel MySQL hazırlama
 
@@ -66,7 +66,7 @@ Bir terminal penceresinde yerel MySQL sunucunuza bağlanın. Bu öğreticideki t
 mysql -u root -p
 ```
 
-Parola istenirse `root` hesabının parolasını girin. Kök hesap parolanızı hatırlamıyorsanız bkz [MySQL: Kök Parolayı Sıfırlama](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+Parola istenirse `root` hesabının parolasını girin. Kök hesap parolanızı hatırlamıyorsanız bkz [MySQL: Kök parolasını nasıl Sıfırlayacağımı](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
 Komutunuz başarıyla çalışırsa, MySQL sunucunuz çalışıyor demektir. Çalışmıyorsa, yerel MySQL sunucunuzun aşağıdaki [MySQL yükleme sonrası adımları](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html) kullanılarak başlatıldığından emin olun.
 
@@ -600,7 +600,7 @@ Günlük akışını dilediğiniz zaman durdurmak için `Ctrl`+`C` yazın.
 > [!TIP]
 > Bir PHP uygulaması, konsol çıktısı için standart [error_log()](https://php.net/manual/function.error-log.php) seçeneğini kullanabilir. Örnek uygulama _app/Http/routes.php_ içinde bu yaklaşımı kullanır.
 >
-> Bir web çerçevesi olarak, [Laravel, Monolog günlük sağlayıcısını kullanır](https://laravel.com/docs/5.4/errors). İletileri konsola çıkarmak üzere Monolog kullanma hakkında bilgi almak için bkz. [PHP: Konsola çıktı için monolog kullanma (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
+> Bir web çerçevesi olarak, [Laravel, Monolog günlük sağlayıcısını kullanır](https://laravel.com/docs/5.4/errors). Çıktı iletilerini konsola çıkarmak için nasıl görmek için bkz: [PHP: Konsolunda (php://out) oturum için monolog kullanma](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
 >
 >
 

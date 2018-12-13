@@ -4,14 +4,14 @@ description: Azure geçişi hakkında sık sorulan sorular adresleri
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.author: snehaa
-ms.openlocfilehash: 2f04fe103d010a64a77b7d80730cf80007c3c126
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ebc4393341341b3b73165a166a650ae1a6f431ff
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256384"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257803"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure geçişi - sık sorulan sorular (SSS)
 
@@ -40,15 +40,20 @@ Azure geçişi, şirket içi iş yüklerinizi bulmak ve azure'a geçişinizi pla
 
 Azure geçişi planlama aracı geçiş ve Azure Site Recovery dağıtım planlayıcısı aracı planlama bir olağanüstü durum kurtarma (DR).
 
-**Vmware'den azure'a geçiş**: şirket içi iş yüklerinizi Azure'a geçirmek istiyorsanız, Azure geçişi geçiş planlaması için kullanın. Azure geçişi, şirket içi iş yüklerini değerlendirir ve rehberlik, Öngörüler ve Azure'a geçirmenizde yardımcı mekanizmaları sağlar. Geçiş planınızla hazır olduktan sonra makineleri Azure'a geçirmek için Azure Site Recovery ve Azure veritabanı geçiş hizmeti gibi hizmetleri kullanabilirsiniz.
+**Vmware'den azure'a geçiş**: Şirket içi iş yüklerinizi Azure'a geçirmek istiyorsanız, Azure geçişi geçiş planlaması için kullanın. Azure geçişi, şirket içi iş yüklerini değerlendirir ve rehberlik, Öngörüler ve Azure'a geçirmenizde yardımcı mekanizmaları sağlar. Geçiş planınızla hazır olduktan sonra makineleri Azure'a geçirmek için Azure Site Recovery ve Azure veritabanı geçiş hizmeti gibi hizmetleri kullanabilirsiniz.
 
-**Hyper-v'den azure'a geçiş**: Azure geçişi şu anda yalnızca destekler değerlendirme VMware sanal makinelerini Azure'a geçiş için. Hyper-V desteği, Azure geçişi için yol haritası açıktır. Bu arada, Site Recovery dağıtım Planlayıcısı'nı kullanabilirsiniz. Hyper-V desteği, Azure Geçişi'nde etkinleştirildikten sonra Azure geçişi Hyper-V iş yüklerinin geçişini planlama için kullanabilirsiniz.
+**Hyper-v'den azure'a geçiş**: Azure geçişi şu anda yalnızca değerlendirme VMware sanal makinelerini Azure'a geçiş için destekler. Hyper-V desteği, Azure geçişi için yol haritası açıktır. Bu arada, Site Recovery dağıtım Planlayıcısı'nı kullanabilirsiniz. Hyper-V desteği, Azure Geçişi'nde etkinleştirildikten sonra Azure geçişi Hyper-V iş yüklerinin geçişini planlama için kullanabilirsiniz.
 
 **Vmware'den/Hyper-v'den azure'a olağanüstü durum kurtarma**: Azure Site Recovery (Site Recovery) kullanarak azure'da olağanüstü durum kurtarma (DR) yapmak istiyorsanız, Site Recovery dağıtım Planlayıcısı planlama DR için kullanın. Site Recovery dağıtım Planlayıcısı, bir şirket içi ortamınızı kapsamlı ve ASR özgü değerlendirmesinin yapar. Bu, çoğaltma, yük devretme sanal makinelerinizin gibi başarılı DR işlemler için Site Recovery tarafından gerekli önerileri sağlar.  
 
-### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Hangi Azure bölgeleri, Azure geçişi tarafından destekleniyor mu?
+### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Hangi Azure coğrafyaları Azure geçişi tarafından destekleniyor mu?
 
-Azure geçişi şu anda Doğu ABD ve Batı Orta ABD geçiş projesi konumları destekler. Yalnızca Batı Orta ABD ve Doğu ABD geçiş projeleri oluşturabilirsiniz, ancak yine de makineleriniz için değerlendirebilirsiniz [birden çok hedef konumları](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). Proje konumu yalnızca bulunan verileri depolamak için kullanılır.
+Azure geçişi şu anda Amerika Birleşik Devletleri ve Azure kamu proje coğrafi destekler. Geçiş projeleri yalnızca bu coğrafi bölgelerde oluşturabilirsiniz, ancak yine de makineleriniz için değerlendirebilirsiniz [birden çok hedef konumları](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). Proje Coğrafya, yalnızca bulunan meta verileri depolamak için kullanılır.
+
+**Coğrafya** | **Meta veri depolama konumu**
+--- | ---
+Durumları sahip | Batı Orta ABD veya Doğu ABD
+Azure Kamu | ABD Devleti Virginia
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Şirket içi siteyle Azure geçişi için nasıl bağlanıyor?
 
@@ -137,9 +142,12 @@ Tek geçişi projesinde 1500 sanal makineler bulabilir. Daha fazla makine şirke
 Azure geçişi şu anda desteklemediği için maliyet tahmini [Kurumsal Anlaşma teklif](https://azure.microsoft.com/offers/enterprise-agreement-support/). Geçici çözüm, teklif ve indirim yüzdesindeki (abonelik için geçerli) değerlendirme Özellikleri 'İndirim' alanına el ile belirtme olarak Kullandıkça Öde belirtmektir.
 
   ![İndirim](./media/resources-faq/discount.png)
-  
+
 
 ## <a name="dependency-visualization"></a>Bağımlılık görselleştirme
+
+> [!NOTE]
+> Bağımlılık görselleştirme işlevini Azure Kamu'da kullanılabilir değil.
 
 ### <a name="what-is-dependency-visualization"></a>Bağımlılık görselleştirmesi nedir?
 
@@ -151,7 +159,7 @@ Hayır. Azure Geçişi fiyatlandırması hakkında daha fazla bilgiyi [burada](h
 
 ### <a name="do-i-need-to-install-anything-for-dependency-visualization"></a>Bağımlılık görselleştirmesi için herhangi bir şey yüklemeniz gerekiyor mu?
 
-Bağımlılık görselleştirmesi kullanmak için indirip değerlendirmek istediğiniz her bir şirket içi makineye aracılar yüklemeniz gerekir. 
+Bağımlılık görselleştirmesi kullanmak için indirip değerlendirmek istediğiniz her bir şirket içi makineye aracılar yüklemeniz gerekir.
 
 - [Microsoft Monitoring agent(MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) her makinede yüklü olması gerekir.
 - [Bağımlılık aracısını](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) her makinede yüklü olması gerekir.

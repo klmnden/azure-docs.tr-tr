@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: hascipio
-ms.openlocfilehash: 26f856059b381be91b9cdd1f98a11dc90813c0c5
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: bf41953300c3042853118c815dbf64e4474106fa
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715881"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194122"
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Hazırlık döneminde, VM teklifi Azure Marketi için test etme
 Hazırlama, SKU'nuzu özel ", test ve Market'te dağıtmadan önce işlevselliğini doğrulamak korumalı alan" içinde dağıtma anlamına gelir. SKU hazırlama dağıtmış olan bir müşteri için olduğu gibi görüntülenir. VM görüntünüzdeki hazırlamaya için sertifika gerekir.
 
-## <a name="step-1-push-your-offer-to-staging"></a>1. adım: teklifinizi hazırlamaya Gönder
+## <a name="step-1-push-your-offer-to-staging"></a>1. Adım: Teklifinizi hazırlamaya Gönder
 1. Üzerinde **Yayımla** sekmesinde **hazırlama için anında iletme**.
    
     ![Çizim](media/marketplace-publishing-vm-image-test-in-staging/vm-image-push-to-staging.png)
@@ -35,12 +35,12 @@ Hazırlama, SKU'nuzu özel ", test ve Market'te dağıtmadan önce işlevselliğ
    > Sanal makineler durumunda ve çözüm şablonları, lütfen **olmayan** beyaz liste abonelikleri CSP, DreamSpark veya Open ile Azure türü.
    > 
    > 
+   >
+   > Sanal makineler düğmesine tıkladığınızda, durumunda **hazırlamaya Gönder AŞAMASINA**, aşağıdaki adımları Sahne gerçekleştirilir. Yayımlama yayımlama sekmesindeki her bir adımın ilerleme durumunu görüntülemek mümkün olacaktır portalı. (Aşamalı durum gösterilene kadar), sona düzeltme gereken tüm hata bilgileri için bu sayfayı düzenli aralıklarla denetlemelisiniz.
 
-    > Sanal makineler düğmesine tıkladığınızda, durumunda **hazırlamaya Gönder AŞAMASINA**, aşağıdaki adımları Sahne gerçekleştirilir. Yayımlama yayımlama sekmesindeki her bir adımın ilerleme durumunu görüntülemek mümkün olacaktır portalı. (Aşamalı durum gösterilene kadar), sona düzeltme gereken tüm hata bilgileri için bu sayfayı düzenli aralıklarla denetlemelisiniz.
-
-    > - İlk başta hazırlama isteğiniz vhd doğrulamak sertifika takımın gider. İsteğiniz değişiklik yalnızca pazarlama alındı, ancak sonra onaylama adımı atlanır.
-    > - Sertifika işlemi tamamlandıktan sonra çoğaltma teklifi tüm Azure veri merkezleri arasında başlatır. Genellikle, 24-48hours çoğaltmanın tamamlanmasını alır ancak VHD'nin boyutuna bağlı olarak bir hafta sürebilir. İsteğiniz değişiklik yalnızca pazarlama alındı, ancak çoğaltma daha hızlı olur.
-    > - Çoğaltma tamamlandığında, daha sonra teklifin kullanılabilir [Azure portalında](http:/portal.azure.com). Yayımlama durumu süresi en aşamalı hale portalı. Aşamalı bir teklif görülebilir [Azure portalında](http:/portal.azure.com) yalnızca ile teklif aşamalı aboneliğiyle ilişkili e-posta kimlikleri kullanarak.
+   > - İlk başta hazırlama isteğiniz vhd doğrulamak sertifika takımın gider. İsteğiniz değişiklik yalnızca pazarlama alındı, ancak sonra onaylama adımı atlanır.
+   > - Sertifika işlemi tamamlandıktan sonra çoğaltma teklifi tüm Azure veri merkezleri arasında başlatır. Genellikle, 24-48hours çoğaltmanın tamamlanmasını alır ancak VHD'nin boyutuna bağlı olarak bir hafta sürebilir. İsteğiniz değişiklik yalnızca pazarlama alındı, ancak çoğaltma daha hızlı olur.
+   > - Çoğaltma tamamlandığında, daha sonra teklifin kullanılabilir [Azure portalında](http:/portal.azure.com). Yayımlama durumu süresi en aşamalı hale portalı. Aşamalı bir teklif görülebilir [Azure portalında](http:/portal.azure.com) yalnızca ile teklif aşamalı aboneliğiyle ilişkili e-posta kimlikleri kullanarak.
 
 1. Oturum [Azure Önizleme portalı](https://portal.azure.com) önceki adımda listelenen Azure aboneliklerinin birini kullanarak.
 2. Teklifinizi bulun ve VM görüntüsü noktalarınızı doğrulayın:
@@ -58,8 +58,8 @@ Hazırlama, SKU'nuzu özel ", test ve Market'te dağıtmadan önce işlevselliğ
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Teklifinizi "hazırlanılır" ve işlevselliğini test ettiğiniz ve içerik pazarlama, son yayımlama aşamasına geçebilirsiniz **4. adım**: [teklifiniz Market'te dağıtma](marketplace-publishing-push-to-production.md).
+Teklifinizi "hazırlanılır" ve işlevselliğini test ettiğiniz ve içerik pazarlama, son yayımlama aşamasına geçebilirsiniz **4. adım**: [Teklifiniz Market'te dağıtma](marketplace-publishing-push-to-production.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Başlarken: nasıl bir teklifi Azure Marketinde yayımlama](marketplace-publishing-getting-started.md)
+* [Başlarken: Nasıl bir teklifi Azure Marketinde yayımlama](marketplace-publishing-getting-started.md)
 

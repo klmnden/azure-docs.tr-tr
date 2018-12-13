@@ -1,7 +1,7 @@
 ---
-title: 'Hızlı Başlangıç: PHP ile arama gerçekleştirme - Bing Web Araması API’si'
+title: "Hızlı Başlangıç: PHP - Bing Web araması API'si ile bir arama yapın"
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, PHP kullanarak ilk Bing Web Araması API'si çağrınızı yapmayı ve bir JSON yanıtı almayı öğreneceksiniz.
+description: Bu hızlı başlangıçta, PHP kullanarak Bing Web araması REST API'si için istekleri göndermek için kullanın ve bir JSON yanıtı alırsınız.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: f4fb66997b6deb6d5e02da2e9976190f00958752
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 4338d0703bbe8e55d3bf7c79d9bb30a5089ba6d2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314601"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261594"
 ---
-# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Hızlı Başlangıç: Bing Web Araması API’sini çağırmak için PHP kullanma  
+# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Hızlı Başlangıç: Bing Web araması API'si çağırmak için PHP kullanma  
 
 10 dakikadan daha kısa bir sürede ilk Bing Web Araması API'si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın.  
 

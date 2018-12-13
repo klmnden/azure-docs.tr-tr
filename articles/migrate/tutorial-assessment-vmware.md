@@ -4,15 +4,15 @@ description: Azure’a geçiş için şirket içi VMware VM’lerinin Azure Geç
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dddfbab1d40c03659ba346c9f0e898cfefc8d55e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 04bc43093a6edc66cdbb661a94989f5980445027
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847992"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257820"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure’a geçiş için şirket içi VMware VM’lerini bulma ve değerlendirme
 
@@ -30,17 +30,17 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- **VMware**: Geçirmeyi planladığınız sanal makineler, 5.5, 6.0 veya 6.5 sürümünü çalıştıran vCenter Server tarafından yönetilmelidir. Buna ek olarak, toplayıcı VM’yi dağıtmak için 5.0 veya daha sonraki sürüme sahip bir ESXi konağı gerekir.
-- **vCenter Server hesabı**: vCenter Server’a erişmek için salt okunur bir hesabınız olması gerekir. Azure Geçişi, şirket içi VM’leri bulmak için bu hesabı kullanır.
-- **İzinler**: vCenter Server’da, bir dosyayı .OVA biçiminde içeri aktararak VM oluşturma iznine sahip olmanız gerekir.
+- **VMware**: Geçirmeyi planladığınız VM'ler vCenter Server çalışan sürümü tarafından 5.5, 6.0 veya 6.5 ile yönetilmelidir. Buna ek olarak, toplayıcı VM’yi dağıtmak için 5.0 veya daha sonraki sürüme sahip bir ESXi konağı gerekir.
+- **vCenter Server hesabı**: VCenter Server'a erişmek için salt okunur bir hesap gerekir. Azure Geçişi, şirket içi VM’leri bulmak için bu hesabı kullanır.
+- **İzinleri**: VCenter Server'da, bir dosyada içeri aktararak VM oluşturma izni gerekir. OVA biçimi.
 
 ## <a name="create-an-account-for-vm-discovery"></a>VM bulma işlemi için hesap oluşturma
 
 Azure Geçişi’nin, değerlendirme amacıyla VM’leri otomatik olarak bulması için VMware sunucularına erişebilmesi gerekir. Aşağıdaki özelliklere sahip bir VMware hesabı oluşturun. Bu hesabı Azure Geçişi kurulumu sırasında belirtirsiniz.
 
-- Kullanıcı türü: En azından salt okunur bir kullanıcı
-- İzinler: Veri Merkezi nesnesi –> Alt Nesneye Yay, rol=Salt okunur
-- Ayrıntılar: Veri merkezi düzeyinde atanmış ve veri merkezindeki tüm nesnelere erişimi olan kullanıcı.
+- Kullanıcı türü: En az bir salt okunur kullanıcı
+- İzinler: Veri Merkezi nesnesi –> Alt Nesneye Yay, role=Read-only
+- Ayrıntılar: Kullanıcı veri merkezi düzeyinde atandı ve bu veri merkezindeki tüm nesnelere erişimi var.
 - Erişimi kısıtlamak için Alt nesneye yay ile Erişim yok rolünü alt nesnelere (vSphere konakları, veri depoları, VM’ler ve ağlar) atayın.
 
 
@@ -54,9 +54,14 @@ Azure Geçişi’nin, değerlendirme amacıyla VM’leri otomatik olarak bulmas�
 2. **Azure Geçişi** araması yapın ve arana sonuçlarında **Azure Geçişi** hizmetini seçin. Sonra **Oluştur**’a tıklayın.
 3. Proje için bir proje adı ve Azure aboneliği belirtin.
 4. Yeni bir kaynak grubu oluşturun.
-5. Projeyi oluşturmak istediğiniz coğrafyayı belirtin ve ardından **Oluştur**’a tıklayın. Azure Geçişi projesini yalnızca Birleşik Devletler coğrafyasında oluşturabilirsiniz. Ancak yine de herhangi bir hedef Azure konumu için geçişinizi planlayabilirsiniz. Proje için belirtilen coğrafya yalnızca şirket içi VM’lerden toplanan meta verileri depolamak için kullanılır.
+5. Projeyi oluşturmak istediğiniz coğrafyayı belirtin ve ardından **Oluştur**’a tıklayın. Bu gibi durumlarda, Azure geçişi projesini yalnızca aşağıdaki coğrafyalardaki oluşturabilirsiniz. Ancak yine de herhangi bir hedef Azure konumu için geçişinizi planlayabilirsiniz. Proje için belirtilen coğrafya yalnızca şirket içi VM’lerden toplanan meta verileri depolamak için kullanılır.
 
-    ![Azure Geçişi](./media/tutorial-assessment-vmware/project-1.png)
+**Coğrafya** | **Depolama konumu**
+--- | ---
+Durumları sahip | Batı Orta ABD veya Doğu ABD
+Azure Kamu | ABD Devleti Virginia
+
+![Azure Geçişi](./media/tutorial-assessment-vmware/project-1.png)
 
 
 ## <a name="download-the-collector-appliance"></a>Toplayıcı gerecini indirin
@@ -71,13 +76,13 @@ Azure Geçişi, toplayıcı gereci olarak bilinen bir şirket içi VM oluşturur
     > [!NOTE]
     > Bu yöntem, vCenter Server'ın performans veri noktası kullanılabilirlik için istatistik ayarları yararlandı ve sanal makinelerin Azure'a geçiş için eksik boyutlandırma içinde sonuçlanan ortalama performans sayaçlarının toplanan gibi tek seferlik gereç artık kullanım dışı bırakılmıştır.
 
-    **Anında keyif:** bulma olduğunda (alır birkaç saat VM sayısına bağlı olarak), sürekli bulma gereciyle tamamlamak değerlendirmeler hemen oluşturabilirsiniz. Anında sonuç elde etmek için kullanmak istiyorsanız, Keşif yaslanıp performans veri toplama başlar bu yana değerlendirmede boyutlandırma ölçütü seçmelisiniz *şirket içi olarak*. Performans tabanlı değerlendirmeleri için en az bir gün sonra güvenilir boyut önerileri almak için keşif başlatılmadan için beklemeniz önerilir.
+    **Anında keyif:** Bulma olduğunda (alır birkaç saat VM sayısına bağlı olarak), sürekli bulma gereciyle tamamlamak değerlendirmeler hemen oluşturabilirsiniz. Anında sonuç elde etmek için kullanmak istiyorsanız, Keşif yaslanıp performans veri toplama başlar bu yana değerlendirmede boyutlandırma ölçütü seçmelisiniz *şirket içi olarak*. Performans tabanlı değerlendirmeleri için en az bir gün sonra güvenilir boyut önerileri almak için keşif başlatılmadan için beklemeniz önerilir.
 
     Gereç yalnızca performans verilerini sürekli olarak toplar, şirket içi ortamda (yani, VM ekleme, silme, disk ekleme vb.) herhangi bir yapılandırma değişikliği algılamaz. Şirket içi ortamda bir yapılandırma değişikliği gerçekleşirse değişikliklerin portala yansıması için aşağıdakileri yapabilirsiniz:
 
-    - Öğelerin eklenmesi (VM’ler, diskler, çekirdekler vb.): Bu değişiklikleri Azure portala yansıtmak için keşfi gereçten durdurup yeniden başlatabilirsiniz. Bu, değişikliklerin Azure Geçişi projesinde güncelleştirilmesini sağlar.
+    - Ayrıca öğeleri (VM'ler, diskler ve çekirdek vb.): Azure portalında bu değişiklikleri yansıtacak şekilde gereç keşiften durdurun ve yeniden başlatın. Bu, değişikliklerin Azure Geçişi projesinde güncelleştirilmesini sağlar.
 
-    - VM silme: Gerecin tasarlanma şekli nedeniyle keşfi durdurup başlatsanız bile VM silme yansıtılmaz. Bunun nedeni takip eden keşiflerin eski keşiflerin üzerine yazılması yerine bunlara eklenmesidir. Bu durumda grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplayarak portaldaki VM’yi yoksayabilirsiniz.
+    - VM silme: Bulma durdurup bile gereç tasarlandığı şekilde nedeniyle, VM'ler silinmesini yansıtılmaz. Bunun nedeni takip eden keşiflerin eski keşiflerin üzerine yazılması yerine bunlara eklenmesidir. Bu durumda grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplayarak portaldaki VM’yi yoksayabilirsiniz.
 
 
 3. **Proje kimlik bilgilerini kopyala** bölümünde proje kimliğini ve anahtarı kopyalayın. Toplayıcıyı yapılandırırken bu bilgilere ihtiyaç duyarsınız.
@@ -95,6 +100,14 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
 3. Oluşturulan karma bu ayarlara uygun olmalıdır.
 
 #### <a name="continuous-discovery"></a>Sürekli keşif
+
+  OVA sürüm 1.0.10.9
+
+  **Algoritma** | **Karma değeri**
+  --- | ---
+  MD5 | 169f6449cc1955f1514059a4c30d138b
+  SHA1 | f8d0a1d40c46bbbf78cd0caa594d979f1b587c8f
+  SHA256 | d68fe7d94be3127eb35dd80fc5ebc60434c8571dcd0e114b87587f24d6b4ee4d
 
   OVA sürüm 1.0.10.4 için
 
@@ -156,12 +169,13 @@ Bu model kullanım dışı bırakıldı, var olan cihazları sağlanan için des
 3. Masaüstünde **Toplayıcı çalıştır** kısayoluna tıklayın.
 4. Toplayıcı kullanıcı arabiriminin üst çubuğundaki **Güncelleştirmeleri denetle**'ye tıklayın ve toplayıcının en son sürümde çalıştırıldığını doğrulayın. Aksi takdirde, bağlantıdan en son yükseltme paketini indirmeyi seçebilir ve toplayıcıyı güncelleştirebilirsiniz.
 5. Azure Geçişi Toplayıcısı’nda **Önkoşulları ayarla** seçeneğini açın.
+    - (Azure Global veya Azure kamu) geçirmeyi planladığınız Azure Bulutu seçin.
     - Lisans koşullarını kabul edin ve üçüncü taraf bilgilerini okuyun.
     - Toplayıcı, VM’nin İnternet erişimine sahip olup olmadığını denetler.
-    - VM, proxy üzerinden İnternet erişimine sahipse **Proxy ayarları**’na tıklayın ve proxy adresini ve dinleme bağlantı noktasını belirtin. Proxy için kimlik doğrulaması gerekiyorsa kimlik bilgilerini gerekin. İnternet bağlantısı gereksinimleri ve toplayıcının eriştiği URL'lerin listesi hakkında [daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity).
+    - VM, proxy üzerinden İnternet erişimine sahipse **Proxy ayarları**’na tıklayın ve proxy adresini ve dinleme bağlantı noktasını belirtin. Proxy için kimlik doğrulaması gerekiyorsa kimlik bilgilerini gerekin. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) internet bağlantı gereksinimleri hakkında ve [URL'lerin listesini](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) Toplayıcı erişen.
 
-    > [!NOTE]
-    > Proxy adresinin, http://ProxyIPAddress veya http://ProxyFQDN biçiminde girilmesi gerekir. Yalnızca HTTP proxy’si desteklenir. Kesintiye neden olan bir ara sunucunuz varsa ve ara sunucu sertifikasını içeri aktarmadıysanız internet bağlantısı başlangıçta başarısız olabilir. Ara sunucu sertifikasını toplayıcı VM'de güvenilir bir sertifika olarak içeri aktarma yoluyla bu sorunu nasıl giderebileceğiniz hakkında [daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy).
+      > [!NOTE]
+      > Proxy adresinin, http://ProxyIPAddress veya http://ProxyFQDN biçiminde girilmesi gerekir. Yalnızca HTTP proxy’si desteklenir. Kesintiye neden olan bir ara sunucunuz varsa ve ara sunucu sertifikasını içeri aktarmadıysanız internet bağlantısı başlangıçta başarısız olabilir. Ara sunucu sertifikasını toplayıcı VM'de güvenilir bir sertifika olarak içeri aktarma yoluyla bu sorunu nasıl giderebileceğiniz hakkında [daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy).
 
     - Toplayıcı, toplayıcı hizmetinin çalışıp çalışmadığını denetler. Hizmet, toplayıcı VM’ye varsayılan olarak yüklenir.
     - VMware PowerCLI’yı indirin ve yükleyin.

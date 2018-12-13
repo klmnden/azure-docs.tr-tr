@@ -1,27 +1,20 @@
 ---
-title: 'Öğretici: Azure İşlevleri ile Azure SignalR Hizmeti kimlik doğrulaması | Microsoft Docs'
+title: 'Öğretici: Azure SignalR hizmeti kimlik doğrulaması ile Azure işlevleri'
 description: Bu öğreticide, Azure SignalR Hizmeti istemcilerinin kimliğini doğrulamayı öğreneceksiniz
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
-ms.workload: tbd
-ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/18/2018
 ms.author: zhshang
-ms.openlocfilehash: 8af657c39217f3edcadef6ec0981a31ec7e89aa6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 9afb7f989b9d2a94dc73cf2e41d0e10d8e8915d2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978439"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254080"
 ---
-# <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Öğretici: Azure İşlevleri ile Azure SignalR Hizmeti kimlik doğrulaması
+# <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Öğretici: Azure SignalR hizmeti kimlik doğrulaması ile Azure işlevleri
 
 Azure İşlevleri, App Service Kimlik Doğrulaması ve SignalR Hizmeti ile kimlik doğrulaması ve özel mesajlaşma özelliklerine sahip bir sohbet odası oluşturma öğreticisi.
 
@@ -33,7 +26,7 @@ Azure İşlevleri, App Service Kimlik Doğrulaması ve SignalR Hizmeti ile kimli
 * [Azure SignalR Hizmeti](https://azure.microsoft.com/services/signalr-service/?WT.mc_id=serverlesschatlab-tutorial-antchu): Yeni iletileri bağlı sohbet istemcilerine yayınlar
 * [Azure Depolama](https://azure.microsoft.com/services/storage/?WT.mc_id=serverlesschatlab-tutorial-antchu): Sohbet istemcisi arabirimi için statik web sitesini barındırır
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi oluşturmak için aşağıdaki yazılımlar gereklidir.
 
@@ -42,14 +35,12 @@ Bu öğreticiyi oluşturmak için aşağıdaki yazılımlar gereklidir.
 * [.NET SDK](https://www.microsoft.com/net/download) (Sürüm 2.x, İşlevler uzantıları için gereklidir)
 * [Azure İşlevleri Temel Araçları](https://github.com/Azure/azure-functions-core-tools) (Sürüm 2)
 * [Visual Studio Code](https://code.visualstudio.com/) (VS Code) ve aşağıdaki uzantılar
-    * [Azure İşlevleri](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) - VS Code'da Azure İşlevleri ile çalışmak için
-    * [Canlı Sunucu](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) - Test amacıyla yerel ortamda web sayfası sunmak için
-
+  * [Azure İşlevleri](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) - VS Code'da Azure İşlevleri ile çalışmak için
+  * [Canlı Sunucu](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) - Test amacıyla yerel ortamda web sayfası sunmak için
 
 ## <a name="sign-into-the-azure-portal"></a>Azure portalda oturum açma
 
 [Azure portala](https://portal.azure.com/) gidin ve kimlik bilgilerinizle oturum açın.
-
 
 ## <a name="create-an-azure-signalr-service-instance"></a>Azure SignalR Hizmeti örneği oluşturma
 
@@ -63,15 +54,14 @@ Azure İşlevleri uygulamasını yerel ortamda derleyecek ve test edeceksiniz. U
 
 1. Aşağıdaki bilgileri girin.
 
-    | Adı | Değer |
+    | Ad | Değer |
     |---|---|
     | Kaynak adı | SignalR Hizmeti örneği için benzersiz bir ad |
     | Kaynak grubu | Yeni bir kaynak grubu oluşturma |
     | Konum | Size yakın bir konum seçin |
     | Fiyatlandırma Katmanı | Ücretsiz |
-    
-1. **Oluştur**’a tıklayın.
 
+1. **Oluştur**’a tıklayın.
 
 ## <a name="initialize-the-function-app"></a>İşlev uygulamasını başlatma
 
@@ -81,23 +71,23 @@ Azure İşlevleri uygulamasını yerel ortamda derleyecek ve test edeceksiniz. U
 
 1. VS Code Azure İşlevleri uzantısını kullanarak ana proje klasöründe bir İşlev uygulaması başlatın.
     1. Menüden **Görünüm > Komut Paleti** yolunu izleyerek (kısayol `Ctrl-Shift-P`, macOS: `Cmd-Shift-P`) VS Code'da Komut Paletini açın.
-    1. **Azure İşlevleri: Yeni Proje Oluştur** komutunu arayın ve seçin.
+    1. Arama **Azure işlevleri: Yeni proje oluşturma** komut ve bu seçeneği belirleyin.
     1. Ana proje klasörü görünmelidir. Bu klasörü seçin (veya "Gözat" düğmesini kullanarak bulun).
     1. Dil seçmeniz istendiğinde **JavaScript**'i seçin.
 
     ![İşlev uygulaması oluşturma](media/signalr-authenticate-azure-functions/signalr-create-vscode-app.png)
 
-
 ### <a name="install-function-app-extensions"></a>İşlev uygulaması uzantılarını yükleme
 
 Bu öğreticide Azure SignalR Hizmeti ile etkileşim kurmak için Azure İşlevleri bağlamaları kullanılır. Diğer bağlamalar gibi SignalR Hizmeti bağlamaları da kullanılabilmesi için Azure İşlevleri Temel Araçları CLI aracılığıyla yüklenmesi gereken bir uzantı olarak sunulur.
 
-1. VS Code menüsünden **Görünüm > Tümleşik Terminal**'i seçerek (Ctrl-`) bir terminal penceresi açın.
+1. Bir terminal seçerek VS Code'da açın **Görüntüle > tümleşik Terminal** menüsünden (Ctrl -\`).
 
 1. Geçerli dizinin ana proje dizini olduğundan emin olun.
 
 1. SignalR Hizmeti işlev uygulaması uzantısını yükleyin.
-    ```
+
+    ```bash
     func extensions install -p Microsoft.Azure.WebJobs.Extensions.SignalRService -v 1.0.0-preview1-10002
     ```
 
@@ -108,6 +98,7 @@ Azure İşlevleri çalışma zamanını yerel ortamda çalıştırma ve hata ay�
 1. VS Code'un Gezgin bölmesinde **local.settings.json** dosyasını seçerek açın.
 
 1. Dosyanın içeriğini aşağıdakilerle değiştirin.
+
     ```json
     {
         "IsEncrypted": false,
@@ -133,24 +124,23 @@ Azure İşlevleri çalışma zamanını yerel ortamda çalıştırma ve hata ay�
 
     ![Yerel ayarları güncelleştirme](media/signalr-authenticate-azure-functions/signalr-update-local-settings.png)
 
-
 ## <a name="create-a-function-to-authenticate-users-to-signalr-service"></a>Kullanıcıların SignalR Hizmetinde kimlik doğrulamasını sağlayacak işlevi oluşturma
 
 Sohbet uygulaması tarayıcıda ilk açıldığında Azure SignalR Hizmetine bağlanmak için gerekli bağlantı kimlik bilgilerine ihtiyaç duyar. Bu bağlantı bilgilerini döndürmek için işlev uygulamanızda *SignalRInfo* adlı bir HTTP ile tetiklenen işlev oluşturacaksınız.
 
 1. VS Code komut paletini açın (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
 
-1. **Azure İşlevleri: İşlev Oluştur** komutunu arayın ve seçin.
+1. Arayın ve seçin **Azure işlevleri: İşlev oluşturma** komutu.
 
 1. İstendiğinde aşağıdaki bilgileri girin.
 
-    | Adı | Değer |
+    | Ad | Değer |
     |---|---|
     | İşlev uygulamasının klasörü | Ana proje klasörünü seçin |
     | Şablon | HTTP Tetikleyicisi |
-    | Adı | SignalRInfo |
+    | Ad | SignalRInfo |
     | Yetkilendirme düzeyi | Anonim |
-    
+
     Yeni işlevi içeren **SignalRInfo** adlı bir klasör oluşturulur.
 
 1. İşlev bağlamalarını yapılandırmak için **SignalRInfo/function.json** dosyasını açın. Dosyanın içeriğini aşağıdaki kodla değiştirin. Bu kod bir istemcinin `chat` adlı Azure SignalR Hizmeti hub'ına bağlanması için geçerli kimlik bilgileri oluşturan bir giriş bağlaması ekler.
@@ -194,24 +184,23 @@ Sohbet uygulaması tarayıcıda ilk açıldığında Azure SignalR Hizmetine ba�
 
     Bu işlev giriş bağlamasındaki SignalR bağlantısı bilgilerini alır ve HTTP yanıtı gövdesinde istemciye döndürür.
 
-
 ## <a name="create-a-function-to-send-chat-messages"></a>Sohbet iletisi göndermek için işlev oluşturma
 
 Web uygulaması, sohbet iletisi göndermek için bir HTTP API'sine ihtiyaç duyar. SignalR Hizmetini kullanarak bağlı olan tüm istemcilere ileti gönderen *SendMessage* adlı bir HTTP ile tetiklenen işlev oluşturacaksınız.
 
 1. VS Code komut paletini açın (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
 
-1. **Azure İşlevleri: İşlev Oluştur** komutunu arayın ve seçin.
+1. Arayın ve seçin **Azure işlevleri: İşlev oluşturma** komutu.
 
 1. İstendiğinde aşağıdaki bilgileri girin.
 
-    | Adı | Değer |
+    | Ad | Değer |
     |---|---|
     | İşlev uygulamasının klasörü | ana proje klasörünü seçin |
     | Şablon | HTTP Tetikleyicisi |
-    | Adı | SendMessage |
+    | Ad | SendMessage |
     | Yetkilendirme düzeyi | Anonim |
-    
+
     Yeni işlevi içeren **SendMessage** adlı bir klasör oluşturulur.
 
 1. İşlev bağlamalarını yapılandırmak için **SendMessage/function.json** dosyasını açın. Dosyanın içeriğini aşağıdaki kodla değiştirin.
@@ -250,17 +239,18 @@ Web uygulaması, sohbet iletisi göndermek için bir HTTP API'sine ihtiyaç duya
 1. Dosyayı kaydedin.
 
 1. İşlevin gövdesini görüntülemek için **SendMessage/index.js** dosyasını açın. Dosyanın içeriğini aşağıdaki kodla değiştirin.
+
     ```javascript
     module.exports = function (context, req) {
         const message = req.body;
         message.sender = req.headers && req.headers['x-ms-client-principal-name'] || '';
-            
+
         let recipientUserId = '';
         if (message.recipient) {
             recipientUserId = message.recipient;
             message.isPrivate = true;
         }
-    
+
         context.bindings.signalRMessages = [{
             'userId': recipientUserId,
             'target': 'newMessage',
@@ -269,12 +259,12 @@ Web uygulaması, sohbet iletisi göndermek için bir HTTP API'sine ihtiyaç duya
         context.done();
     };
     ```
+
     Bu işlev HTTP isteğinin gövdesini alır ve SignalR Hizmetine bağlı istemcilere göndererek her istemcide `newMessage` adlı bir işlevi çağırır.
 
     İşlev gönderenin kimliğini okuyabilir ve ileti gövdesine eklenebilecek bir *alıcı* değeriyle iletinin tek bir kullanıcıya gönderilmesini sağlayabilir. Bu işlevler öğreticinin ilerleyen bölümlerinde kullanılacaktır.
 
 1. Dosyayı kaydedin.
-
 
 ## <a name="create-and-run-the-chat-client-web-user-interface"></a>Sohbet istemcisi web kullanıcı arabirimini oluşturma ve çalıştırma
 
@@ -290,24 +280,21 @@ Sohbet uygulamasının arabirimi, Vue JavaScript çerçevesiyle oluşturulan bas
 
 1. **F5** tuşuna basarak işlev uygulamasını yerel ortamda çalıştırın ve bir hata ayıklayıcısı ekleyin.
 
-1. **index.html** dosyası açıkken VS Code komut paletini açarak (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`) ve **Canlı Sunucu: Canlı Sunucu ile Aç**'ı seçerek Canlı Sunucuyu başlatın. Canlı Sunucu uygulamayı bir tarayıcıda açar.
+1. İle **index.html** açın, VS Code komut paletini açarak Canlı sunucuyu başlatın (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`) seçerek **Canlı sunucusu: Canlı sunucusuyla açık**. Canlı Sunucu uygulamayı bir tarayıcıda açar.
 
 1. Uygulama açılır. Sohbet kutusuna ileti yazıp Enter tuşuna basın. Yeni iletileri görmek için uygulamayı yenileyin. Kimlik doğrulaması yapılandırılmadığından tüm iletiler "anonim" olarak gönderilir.
-
 
 ## <a name="deploy-to-azure-and-enable-authentication"></a>Azure'a dağıtma ve kimlik doğrulamasını etkinleştirme
 
 Buraya kadar işlev uygulamasını ve sohbet uygulamasını yerel ortamda çalıştırdınız. Şimdi bunları Azure'a dağıtıp kimlik doğrulamasını ve uygulamanın özel mesajlaşma özelliğini etkinleştireceksiniz.
 
-
 ### <a name="log-into-azure-with-vs-code"></a>VS Code ile Azure'da oturum açma
 
 1. VS Code komut paletini açın (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
 
-1. **Azure: Oturum aç** komutunu bulun ve seçin.
+1. Arayın ve seçin **Azure: Oturum** komutu.
 
 1. Yönergeleri izleyerek tarayıcınızda oturum açma işlemlerini tamamlayın.
-
 
 ### <a name="configure-function-app-for-authentication"></a>İşlev uygulamasını kimlik doğrulaması için yapılandırma
 
@@ -331,14 +318,13 @@ Buraya kadar işlev uygulamasını ve sohbet uygulamasını yerel ortamda çalı
 
 1. Dosyayı kaydedin.
 
-
 ### <a name="deploy-function-app"></a>İşlev uygulamasını dağıtma
 
-1. VS Code komut paletini açın (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`) ve **Azure İşlevleri: İşlev Uygulamasına Dağıt** komutunu seçin. 
+1. VS Code komut paletini açın (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`) seçip **Azure işlevleri: İşlev uygulamasına dağıtın**.
 
 1. İstendiğinde aşağıdaki bilgileri girin.
 
-    | Adı | Değer |
+    | Ad | Değer |
     |---|---|
     | Dağıtılacak klasör | Ana proje klasörünü seçin |
     | Abonelik | Aboneliğinizi seçme |
@@ -348,19 +334,18 @@ Buraya kadar işlev uygulamasını ve sohbet uygulamasını yerel ortamda çalı
     | Depolama hesabı | **Yeni depolama hesabı oluştur**'u seçin |
     | Depolama hesabı adı | Benzersiz bir ad girin (3-24 karakter, yalnızca alfasayısal) |
     | Konum | Size yakın bir konum seçin |
-    
-    Azure'da yeni bir işlev uygulaması oluşturulur ve dağıtım başlar. Dağıtımın tamamlanmasını bekleyin.
 
+    Azure'da yeni bir işlev uygulaması oluşturulur ve dağıtım başlar. Dağıtımın tamamlanmasını bekleyin.
 
 ### <a name="upload-function-app-local-settings"></a>İşlev uygulaması yerel ayarlarını karşıya yükleme
 
 1. VS Code komut paletini açın (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
 
-1. **Azure İşlevleri: Yerel ayarları karşıya yükle** komutunu arayın ve seçin.
+1. Arayın ve seçin **Azure işlevleri: Karşıya yükleme yerel ayarları** komutu.
 
 1. İstendiğinde aşağıdaki bilgileri girin.
 
-    | Adı | Değer |
+    | Ad | Değer |
     |---|---|
     | Yerel ayarlar dosyası | local.settings.json |
     | Abonelik | Aboneliğinizi seçme |
@@ -369,14 +354,13 @@ Buraya kadar işlev uygulamasını ve sohbet uygulamasını yerel ortamda çalı
 
 Yerel ayarlar, Azure'daki işlev uygulamasına yüklenir. Geçerli ayarların üzerine yazmak isteyip istemediğiniz sorulduğunda **Tümüne evet**'i seçin.
 
-
 ### <a name="enable-function-app-cross-origin-resource-sharing-cors"></a>İşlev uygulamasında çıkış noktaları arası kaynak paylaşımını (CORS) etkinleştirme
 
 **local.settings.json** dosyasında CORS seçeneği mevcut olsa da Azure'daki işlev uygulamasına yüklenmez. Bunu ayrıca ayarlamanız gerekir.
 
 1. VS Code komut paletini açın (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
 
-1. **Azure İşlevleri: Portalda aç** komutunu arayın ve seçin.
+1. Arayın ve seçin **Azure işlevleri: Açık portalında** komutu.
 
 1. İşlev uygulamasını Azure portalda açmak için aboneliği ve işlev uygulaması adını seçin.
 
@@ -395,7 +379,6 @@ Yerel ayarlar, Azure'daki işlev uygulamasına yüklenir. Geçerli ayarların ü
 > [!NOTE]
 > Gerçek bir uygulamada CORS'ye tüm çıkış noktalarında izin vermek yerine (`*`) yalnızca gerekli olan etki alanları için belirli CORS girişleri kullanarak daha güvenli bir yaklaşım benimsemeniz gerekir.
 
-
 ### <a name="update-the-web-app"></a>Web uygulamasını güncelleştirme
 
 1. Azure portalda işlev uygulamasının genel bakış sayfasına gidin.
@@ -404,13 +387,11 @@ Yerel ayarlar, Azure'daki işlev uygulamasına yüklenir. Geçerli ayarların ü
 
     ![URL'yi alın](media/signalr-authenticate-azure-functions/signalr-get-url.png)
 
-
 1. VS Code'da **index.html** dosyasını açın ve `apiBaseUrl` değerini işlev uygulamasının URL'siyle değiştirin.
 
 1. Uygulama Azure Active Directory, Facebook, Twitter, Microsoft hesabı veya Google ile kimlik doğrulaması gerçekleştirilecek şekilde yapılandırılabilir. `authProvider` değerini ayarlayarak kullanmak istediğiniz kimlik doğrulaması sağlayıcısını seçin.
 
 1. Dosyayı kaydedin.
-
 
 ### <a name="deploy-the-web-application-to-blob-storage"></a>Web uygulamasını blob depolamaya dağıtma
 
@@ -422,9 +403,9 @@ Web uygulamasını Azure Blob Depolama'nın statik web siteleri özelliğini kul
 
 1. Aşağıdaki bilgileri girin.
 
-    | Adı | Değer |
+    | Ad | Değer |
     |---|---|
-    | Adı | Blob depolama hesabı için benzersiz bir ad |
+    | Ad | Blob depolama hesabı için benzersiz bir ad |
     | Hesap türü | StorageV2 (genel amaçlı V2) |
     | Konum | Diğer kaynaklarınızla aynı bölgeyi seçin |
     | Çoğaltma | Yerel olarak yedekli depolama (LRS) |
@@ -454,7 +435,6 @@ Web uygulamasını Azure Blob Depolama'nın statik web siteleri özelliğini kul
 
 1. **Statik web sitesi** sayfasına dönün. **Birincil uç nokta** değerini not edin. Bu, web uygulamasının URL'sidir.
 
-
 ### <a name="enable-app-service-authentication"></a>App Service Kimlik Doğrulamayı Etkinleştirme
 
 App Service Kimlik Doğrulaması; Azure Active Directory, Facebook, Twitter, Microsoft hesabı ve Google ile kimlik doğrulamayı destekler.
@@ -475,7 +455,6 @@ App Service Kimlik Doğrulaması; Azure Active Directory, Facebook, Twitter, Mic
     - [Microsoft hesabı](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication)
     - [Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication)
 
-
 ### <a name="try-the-application"></a>Uygulamayı deneyin
 
 1. Bir tarayıcıdan depolama hesabınızın birincil web uç noktasına gidin.
@@ -490,13 +469,11 @@ Tebrikler! Gerçek zamanlı bir sunucusuz sohbet uygulaması dağıttınız!
 
 ![Tanıtım](media/signalr-authenticate-azure-functions/signalr-serverless-chat.gif)
 
-
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Bu öğretici ile oluşturulan kaynakları temizlemek için Azure portalı kullanarak kaynak grubunu silebilirsiniz.
 
-
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, Azure İşlevleri’ni Azure SignalR Hizmeti ile birlikte kullanmayı öğrendiniz. Azure İşlevleri için SignalR Hizmeti bağlamalarıyla gerçek zamanlı sunucusuz uygulama derleme hakkında daha fazla bilgi edinin.
 

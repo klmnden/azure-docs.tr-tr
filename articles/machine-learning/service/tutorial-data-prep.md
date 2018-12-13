@@ -1,5 +1,5 @@
 ---
-title: 'Regresyon modeli öğretici: verileri hazırlama'
+title: 'Regresyon modeli öğretici: Verileri hazırlama'
 titleSuffix: Azure Machine Learning service
 description: Bu öğreticinin ilk bölümünde Azure ML SDK'sını kullanarak regresyon modelleme python'da verileri hazırlama öğreneceksiniz.
 services: machine-learning
@@ -11,14 +11,14 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 14be60977ef0be3e88a0cb01356446b59ca374e2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: d20ff1fabfb73c899153cf42bb6f2d7a8f233e21
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076449"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314695"
 ---
-# <a name="tutorial-part-1-prepare-data-for-regression-modeling"></a>Öğretici (Kısım 1): gerileme model için verileri hazırlama
+# <a name="tutorial-prepare-data-for-regression-modeling"></a>Öğretici: Regresyon model için verileri hazırlama
 
 Bu öğreticide, Azure Machine Learning veri hazırlığı SDK'sını kullanarak regresyon modelleme için veri hazırlama konusunda bilgi edinin. Filtre ve iki farklı NYC taksi veri kümeleri birleştirmek için çeşitli dönüştürmeleri gerçekleştirebilirsiniz. Toplama saat dahil olmak üzere veri özellikleri bir model eğitip geleceği taksi seyahat maliyetini tahmin etmek için Bu öğretici kümesi son hedefi olduğu gün, hafta sayısı Yolcuların ve koordinatları. Bu öğreticide iki kısımlı öğretici serisinin bir parçasıdır.
 
@@ -1077,4 +1077,4 @@ Bu öğreticinin bir parçası olarak:
 Bu öğretici serisinin bir sonraki kısmına eğitim verileri kullanmaya hazırsınız:
 
 > [!div class="nextstepaction"]
-> [Öğretici #2: regresyon modelini eğitme](tutorial-auto-train-models.md)
+> [Öğretici #2: Regresyon modeli eğitme](tutorial-auto-train-models.md)

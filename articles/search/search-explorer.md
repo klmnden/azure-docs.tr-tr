@@ -1,6 +1,6 @@
 ---
-title: Azure Search'te dizinler sorgulamak için arama Gezgini | Microsoft Docs
-description: Azure Search'te dizin sorgulama için arama Gezgini'ni kullanma hakkında bilgi edinin.
+title: Dizinleri - Azure Search'nı sorgulamak için Azure portalında arama Gezgini
+description: Azure Search'te sorgu dizini arama Gezgini gibi Azure portal araçlarını kullanın. Arama terimleri veya Gelişmiş söz dizimi ile tam arama dizesini girin.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 520d9e7b1899c54d922ff6fb77e0901f9609b029
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.custom: seodec2018
+ms.openlocfilehash: 11f102fcb2a24f9062313f9a3234c29e70a3dfe0
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004142"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315681"
 ---
 # <a name="how-to-use-search-explorer-to-query-indexes-in-azure-search"></a>Azure Search'te sorgu dizinler için arama Gezgini'ni kullanma 
 

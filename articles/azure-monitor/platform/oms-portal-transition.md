@@ -12,13 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: a1189f621b3d4c8846b374cd8369c69daef2fa31
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 6e85d19460d0b1c02ddd6666cf1e441e44e7a03d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002734"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276783"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS portalında Azure'a taşıma
 
@@ -80,7 +79,7 @@ Olan artık yeni çalışma alanları OMS portalını kullanarak oluşturamazsı
 > [!NOTE]
 > Uyarıları artık tam olarak Azure portalında genel bulut için genişletilmiştir. Mevcut uyarı kuralları OMS portalında görüntülenebilir, ancak Azure portalında yalnızca yönetilebilir. Azure portalında uyarıları uzantısını Azure kamu bulutunda Ekim, 2018'de başlayacaktır.
 
-Uyarılar olmuştur [Azure portalında Genişletilmiş](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Bu işlem tamamlandıktan sonra Yönetim eylemleri uyarıları yalnızca Azure portalında kullanılabilir olacaktır. Var olan uyarılar OMS portalında listelenmeye devam eder. Uyarılar programlama yoluyla Log Analytics uyarı REST API veya Log Analytics uyarı kaynak şablonu kullanarak erişirseniz, API çağrıları, Azure Resource Manager şablonları ve PowerShell komutlarında Eylemler yerine eylem gruplarını kullanmanız gerekir.
+Uyarılar olmuştur [Azure portalında Genişletilmiş](../../azure-monitor/platform/alerts-extend.md). Bu işlem tamamlandıktan sonra Yönetim eylemleri uyarıları yalnızca Azure portalında kullanılabilir olacaktır. Var olan uyarılar OMS portalında listelenmeye devam eder. Uyarılar programlama yoluyla Log Analytics uyarı REST API veya Log Analytics uyarı kaynak şablonu kullanarak erişirseniz, API çağrıları, Azure Resource Manager şablonları ve PowerShell komutlarında Eylemler yerine eylem gruplarını kullanmanız gerekir.
 
 ### <a name="alert-management-solution"></a>Uyarı yönetimi çözümü
 Yerine [uyarı yönetimi çözümü](../../azure-monitor/platform/alert-management-solution.md), kullanabileceğiniz [Azure İzleyici'nın birleşik uyarı arabirimi](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) görselleştirip uyarılarınızı yönetme. Bu yeni deneyim, Log Analytics de dahil olmak üzere Azure günlük uyarıları içindeki farklı kaynaklardan uyarılarını toplar. Uyarılarınızı dağıtımlarını görebilir, akıllı grupları ilgili uyarıları otomatik gruplandırması avantajlarından yararlanın ve zengin bir filtre uygulanırken, birden fazla aboneliği analiz uyarıları görüntüleyin. Tüm bu özellikler, 4 Haziran 2018 tarihinden itibaren önizlemede kullanılabilir. Uyarı yönetimi çözümü, Azure portalında kullanılamaz. 
@@ -88,7 +87,7 @@ Yerine [uyarı yönetimi çözümü](../../azure-monitor/platform/alert-manageme
 Uyarı yönetimi çözümü (uyarı türünü kayıtlarla) tarafından toplanan veriler, Log Analytics'e çözüm çalışma alanı için yüklü olduğu sürece olmaya devam eder. Ağustos 2018 itibarıyla, birleştirilmiş çalışma alanları halinde uyarı gelen uyarılar, akış, bu özellik değiştirerek etkinleştirilecektir. Bazı şema değişiklikleri beklenir ve daha sonraki bir tarihte duyurulacaktır.
 
 ## <a name="oms-mobile-app"></a>OMS mobil uygulamasını
-OMS mobil uygulaması ile birlikte OMS portalı sunsetted olacaktır. OMS mobil uygulamasını yerine, BT altyapısı, panolar ve kaydedilmiş sorgular hakkındaki bilgilere erişmek için Azure portalında doğrudan tarayıcınızdan mobil cihazınıza erişebilirsiniz. Uyarıları almak için yapılandırmanız [Azure Eylem grupları](../../monitoring-and-diagnostics/monitoring-action-groups.md) SMS veya sesli çağrı biçiminde bildirimleri almak için
+OMS mobil uygulaması ile birlikte OMS portalı sunsetted olacaktır. OMS mobil uygulamasını yerine, BT altyapısı, panolar ve kaydedilmiş sorgular hakkındaki bilgilere erişmek için Azure portalında doğrudan tarayıcınızdan mobil cihazınıza erişebilirsiniz. Uyarıları almak için yapılandırmanız [Azure Eylem grupları](../../azure-monitor/platform/action-groups.md) SMS veya sesli çağrı biçiminde bildirimleri almak için
 
 ## <a name="application-insights-connector-and-solution"></a>Application Insights Bağlayıcısı ve çözümü
 [Application Insights Bağlayıcısı](../../azure-monitor/platform/app-insights-connector.md) Log Analytics çalışma alanınıza Application Insights verileri getirmek için bir yol sağlar. Bu veri çoğaltma, altyapı ve uygulama veriler üzerinde görünürlük etkinleştirmek için gerekli.

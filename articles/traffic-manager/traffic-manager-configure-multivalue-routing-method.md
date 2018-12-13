@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: d9a0342332c2483b859e916b50fd05c9cb1e3395
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 521a9dd49abee8fdeaa42b1ea8c13b9a648f1875
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986777"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187378"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Trafik Yöneticisi'nde çoklu değer yönlendirme yöntemini yapılandırma
 
@@ -39,6 +39,7 @@ En düşük gecikme süresine uç noktaya göndererek kullanıcı trafiği yönl
 
 1. Ekranın sol üst tarafından **Kaynak oluştur** > **Ağ** > **Traffic Manager profili** > **Oluştur**'u seçin.
 2. İçinde **Traffic Manager profili oluştur**girin veya seçin, aşağıdaki bilgileri, kalan ayarlar için varsayılan değerleri kabul edin ve ardından **Oluştur**:
+    
     | Ayar                 | Değer                                              |
     | ---                     | ---                                                |
     | Ad                   | Bu adın trafficmanager.net bölgesinde benzersiz olması ve Traffic Manager profilinize erişmek için kullanılan trafficmanager.net DNS adı ile sonuçlanması gerekir.                                   |
@@ -46,7 +47,7 @@ En düşük gecikme süresine uç noktaya göndererek kullanıcı trafiği yönl
     | Abonelik            | Aboneliğinizi seçin.                          |
     | Kaynak grubu          | Seçin *myResourceGroupTM1*. |
     | Konum                | Bu ayar, kaynak grubunun konumunu ifade eder ve genel olarak dağıtılacak Traffic Manager profilini etkilemez.                              |
-    |
+    
   
     ![Traffic Manager profili oluşturma](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 

@@ -1,23 +1,23 @@
 ---
-title: Hızlı başlangıç - Azure Container Instances hizmetinde uygulama çalıştırma
-description: Bu hızlı başlangıçta Azure CLI'yi kullanarak Docker kapsayıcısında çalışan bir uygulamayı Azure Container Instances hizmetine dağıtacaksınız
+title: Hızlı Başlangıç - Azure Container Instances - CLI bir uygulama çalıştırma
+description: Bu hızlı başlangıçta, Azure Container ınstances'da bir yalıtılmış kapsayıcıda çalıştırmak için bir Docker kapsayıcı uygulamasını dağıtmak için Azure CLI kullanma
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 7db3d9a076fe9ff5b8bbf970705b82a3f0d5ce54
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 70d1bc9003d98f0154b9f38738f1b8e82b0c506d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855672"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189617"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Hızlı başlangıç: Azure Container Instances hizmetinde uygulama çalıştırma
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>Hızlı Başlangıç: Azure CLI ile Azure Container ınstances'da bir kapsayıcı uygulaması çalıştırma
 
-Docker kapsayıcılarınızı kolay ve hızlı bir şekilde Azure'da çalıştırmak için Azure Container Instances hizmetini kullanın. Sanal makine dağıtmanız veya Kubernetes gibi tam kapsamlı bir düzenleme platformu kullanmanız gerekmez. Bu hızlı başlangıçta, Azure portalı kullanarak Azure’da bir kapsayıcı oluşturacak ve bu uygulamayı tam etki alanı adı (FQDN) ile kullanıma sunacaksınız. Tek bir dağıtım komutu yürüttükten birkaç saniye sonra çalışan uygulamaya göz atabilirsiniz:
+Docker kapsayıcılarınızı kolay ve hızlı bir şekilde Azure'da çalıştırmak için Azure Container Instances hizmetini kullanın. Sanal makine dağıtmanız veya Kubernetes gibi tam kapsamlı bir düzenleme platformu kullanmanız gerekmez. Bu hızlı başlangıçta, bir kapsayıcı oluşturacak ve uygulamayı bir tam etki alanı adı (FQDN) ile kullanılabilir hale getirmek için Azure CLI'yı kullanın. Tek bir dağıtım komutu yürüttükten birkaç saniye sonra çalışan uygulamaya göz atabilirsiniz:
 
 ![Azure Container Instances hizmetine dağıtılmış uygulamanın tarayıcıdaki görüntüsü][aci-app-browser]
 

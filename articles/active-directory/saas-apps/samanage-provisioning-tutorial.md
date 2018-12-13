@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 53b78231dba4f525410f53dc1ae60901c67f043d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d3442710e1e1327dcafc1b4ed6617aeb7ff1bf0f
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634515"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322439"
 ---
-# <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Öğretici: Samanage otomatik kullanıcı hazırlama için yapılandırma
+# <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için Samanage yapılandırın
 
 Bu öğreticinin amacı otomatik olarak sağlamak ve kullanıcılara ve/veya gruplara Samanage sağlamasını Samanage ve Azure Active Directory (Azure AD) Azure AD yapılandırmak için gerçekleştirilmesi gereken adımlar göstermektir.
 
@@ -76,7 +76,9 @@ Yapılandırma ve otomatik kullanıcı hazırlama etkinleştirmeden önce hangi 
 
 ### <a name="important-tips-for-assigning-users-to-samanage"></a>Kullanıcılar için Samanage atamak için önemli ipuçları
 
-*   Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmasını otomatik kullanıcı test etmek için Samanage atanır. Ek kullanıcılar ve/veya grupları daha sonra atanabilir.
+*    Samanage rolleri otomatik olarak ve dinamik olarak Azure portalı kullanıcı arabirimini bugün doldurulur. Kullanıcılara Samanage rol atama önce bir ilk eşitleme Samanage kiracınızda bulunan en son rollerini almak üzere Samanage karşı tamamlandığından emin olun.
+
+*    Önerilir tek bir Azure AD kullanıcı ilk otomatik kullanıcı sağlama yapılandırmasını test etmek için Samanage atanır. Testler başarılı olduktan sonra ek kullanıcılar ve/veya grupları daha sonra atanabilir.
 
 *   Bir kullanıcı için Samanage atarken, (varsa) geçerli bir uygulamaya özgü rol ataması iletişim kutusunda seçmeniz gerekir. Kullanıcılarla **varsayılan erişim** rol sağlamasından dışlanır.
 

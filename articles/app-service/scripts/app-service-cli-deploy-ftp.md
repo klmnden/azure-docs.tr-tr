@@ -3,8 +3,8 @@ title: Azure CLI Betik Örneği - FTP ile bir web uygulaması oluşturma ve dosy
 description: Azure CLI Betik Örneği - FTP ile bir web uygulaması oluşturma ve dosya dağıtma
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.service: app-service-web
@@ -13,16 +13,16 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: sample
 ms.topic: sample
 ms.date: 12/12/2017
-ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 21f3c48da2e91849d476ec4d16a17fd2b67708c4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: b828fd1e7b1135f2e31e7f6e33957983c476edfb
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952520"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183939"
 ---
-# <a name="create-a-web-app-and-deploy-files-with-ftp"></a>FTP ile bir web uygulaması oluşturma ve dosya dağıtma
+# <a name="create-a-web-app-and-deploy-files-with-ftp-using-azure-cli"></a>Bir web uygulaması oluşturma ve Azure CLI kullanarak FTP ile dosya dağıtma
 
 Bu örnek betik, App Service’te ilgili kaynaklarıyla birlikte bir web uygulaması oluşturur ve sonra FTP kullanarak statik bir HTML sayfası dağıtır. FTP yüklemesi için betik örnek olarak [cURL](https://en.wikipedia.org/wiki/CURL) kullanır. Dosyalarınızı karşıya yüklemek için herhangi bir FTP aracını kullanabilirsiniz.
 

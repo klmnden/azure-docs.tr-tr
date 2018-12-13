@@ -1,5 +1,5 @@
 ---
-title: Azure App Service ortamı ile ilgili ağ konuları
+title: App Service ortamı - Azure ile ilgili ağ konuları
 description: ASE ağ trafiği ve Nsg'ler ve Udr ASE'nizi ile nasıl ayarlanacağı açıklanır
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: b39ff01fec9fa51f6e208728b5c8f78c68654484
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: d9a0ab84e133863092f68cc949c2b7933bc5da31
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964892"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271020"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service ortamı ağ konuları #
 
@@ -27,7 +28,7 @@ ms.locfileid: "52964892"
  Azure [App Service ortamı] [ Intro] bir Azure App Service, Azure sanal ağı (VNet) bir alt ağa dağıtımıdır. App Service ortamı (ASE) iki dağıtım türü vardır:
 
 - **Dış ASE**: İnternet'ten erişilebilen bir IP adresi üzerindeki ASE barındırılan uygulamalar sunar. Daha fazla bilgi için [dış ASE oluşturma][MakeExternalASE].
-- **ILB ASE**: ASE barındırılan uygulamaları üzerinde bir IP adresi, sanal ağ içinde kullanıma sunar. ILB ASE çağırdı neden olan bir iç yük dengeleyici (ILB) iç uç noktadır. Daha fazla bilgi için [oluşturma ve kullanma ILB ASE][MakeILBASE].
+- **ILB ASE**: ASE'de barındırılan uygulamaları üzerinde bir IP adresi, sanal ağ içinde kullanıma sunar. ILB ASE çağırdı neden olan bir iç yük dengeleyici (ILB) iç uç noktadır. Daha fazla bilgi için [oluşturma ve kullanma ILB ASE][MakeILBASE].
 
 App Service ortamının iki sürümü vardır: ASEv1 ve ASEv2. ASEv1 hakkında daha fazla bilgi için bkz: [App Service ortamı v1 giriş][ASEv1Intro]. ASEv1, Klasik veya Resource Manager Vnet'i dağıtılabilir. ASEv2 yalnızca bir Resource Manager Vnet'e dağıtılabilir.
 
@@ -73,10 +74,10 @@ ASE gelen bağımlılıklar erişim:
 
 | Kullanım | Kimden | Alıcı |
 |-----|------|----|
-| Yönetim | App Service yönetim adresleri | ASE alt: 454, 455 |
-|  ASE iç iletişimi | ASE alt: tüm bağlantı noktaları | ASE alt: tüm bağlantı noktaları
-|  Azure yük dengeleyici izin gelen | Azure yük dengeleyici | ASE alt: tüm bağlantı noktaları
-|  Uygulama atanmış IP adresleri | Uygulama atanmış adresleri | ASE alt: tüm bağlantı noktaları
+| Yönetim | App Service yönetim adresleri | ASE alt ağı: 454, 455 |
+|  ASE iç iletişimi | ASE alt ağı: Tüm bağlantı noktaları | ASE alt ağı: Tüm bağlantı noktaları
+|  Azure yük dengeleyici izin gelen | Azure yük dengeleyici | ASE alt ağı: Tüm bağlantı noktaları
+|  Uygulama atanmış IP adresleri | Uygulama atanmış adresleri | ASE alt ağı: Tüm bağlantı noktaları
 
 Gelen yönetim trafiğinin komut ve denetim sistemi İzleme ek olarak ase'nin sağlar. Bu trafiğe ait kaynak adresleri listelenen [ASE yönetim adresleri] [ ASEManagement] belge. Tüm IP'lere 454 ve 455 bağlantı noktalarında gelen erişime izin vermek ağ güvenlik yapılandırması gerekir. Bu adreslerden gelen erişimi engellerseniz, ASE'nizi kötü hale gelir ve ardından askıya haline gelir.
 
@@ -136,10 +137,10 @@ Hem işlevler hem de Web işleri üzerinde SCM sitesine bağlıdır ancak taray�
 
 Bir ASE, dikkat edilmesi gereken birkaç IP adresleri bulunur. Bunlar:
 
-- **Gelen genel IP adresi**: bir dış ase'de uygulama trafiğini ve yönetim trafiğinin dış ASE hem de bir ILB ASE için kullanılır.
-- **Giden genel IP**: VPN yönlendirilmesini değil, VNet terk giden bağlantılar ASE için "Kimden" IP kullanılır.
-- **ILB IP adresi**: ILB ASE kullanır.
-- **Uygulama tarafından atanan IP tabanlı SSL adresleri**: dış ASE ile IP tabanlı SSL ile yapılandırıldığı durumlarda mümkün.
+- **Gelen genel IP adresi**: Bir dış ase'de uygulama trafiğini ve yönetim trafiğinin dış ASE hem de bir ILB ASE için kullanılır.
+- **Giden genel IP**: VPN yönlendirilen olmayan VNet terk giden bağlantılar ASE için "Kimden" IP kullanılır.
+- **ILB IP adresi**: ILB ASE kullanıyorsanız.
+- **Uygulama tarafından atanan IP tabanlı SSL adresleri**: Tek olası dış ASE ve ne zaman IP tabanlı SSL yapılandırılır.
 
 Bu IP adresleri ASE kullanıcı Arabiriminden kolayca Azure portalında bir ASEv2'nda görülebilir. ILB ASE, ILB için IP listelenir.
 

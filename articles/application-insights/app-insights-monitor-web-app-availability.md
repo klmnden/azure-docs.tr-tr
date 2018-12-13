@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: a5177293b24ec400714d8f87be4198a76d59214a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 11a421a30508774d976def8d5836451743ecb6ea
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878729"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270391"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Web sitelerinin kullanılabilirlik ve yanıt hızını izleme
 Web uygulamanızı veya web sitenizi herhangi bir sunucuya dağıttıktan sonra kullanılabilirlik ve yanıt hızını izlemeye yönelik testler ayarlayabilirsiniz. [Azure Application Insights](app-insights-overview.md), dünyanın her yerindeki noktalarından uygulamanıza düzenli aralıklarla web istekleri gönderir. Uygulamanız yanıt vermezse veya yavaş yanıt verirse sizi uyarır.
@@ -49,11 +49,11 @@ Kullanılabilirlik dikey penceresini açın ve bir kullanılabilirlik testi ekle
 ![En azından web sitenizin URL'sini doldurma](./media/app-insights-monitor-web-app-availability/001-create-test.png)
 
 * **URL**, test etmek istediğiniz herhangi bir web sayfası olabilir, ancak ortak İnternet’te görünür olmalıdır. URL bir sorgu dizesi içerebilir. Bu nedenle, örneğin, veritabanınızla biraz alıştırma yapabilirsiniz. URL yeniden yönlendirme adresine çözümlenirse, en fazla 10 yeniden yönlendirmeyi izleriz.
-* **Bağımlı istekleri ayrıştır**: Bu seçenek işaretlenirse test, test kapsamındaki web sitesine ait görüntü, betik, stil dosyaları ve diğer dosyaları ister. Kayıtlı yanıt süresi, bu dosyaları almak için geçen süreyi içerir. Testin tamamının zaman aşımı süresi içinde tüm bu kaynaklar sorunsuz yüklenemezse, test başarısız olur. Seçenek işaretlenmezse, test yalnızca belirttiğiniz URL’deki dosyayı ister.
+* **Bağımlı istekleri Ayrıştır**: Bu seçenek işaretlenirse test, görüntüleri, betikleri, Stil dosyaları ve test kapsamındaki web sitesine bir parçası olan diğer dosyaları ister. Kayıtlı yanıt süresi, bu dosyaları almak için geçen süreyi içerir. Testin tamamının zaman aşımı süresi içinde tüm bu kaynaklar sorunsuz yüklenemezse, test başarısız olur. Seçenek işaretlenmezse, test yalnızca belirttiğiniz URL’deki dosyayı ister.
 
-* **Yeniden denemeyi etkinleştir**: Bu seçenek işaretlenirse, test başarısız olduğunda kısa bir süre sonra yeniden denenir. Art arda üç deneme başarısız olursa bir hata bildirilir. Sonraki testler bundan sonra her zamanki test sıklığında gerçekleştirilir. Bir sonraki başarılı olana kadar yeniden deneme geçici olarak askıya alınır. Bu kural her test konuma bağımsız olarak uygulanır. Bu ayar önerilir. Ortalama olarak hataların yaklaşık %80’i yeniden deneme sırasında kaybolur.
+* **Yeniden denemeyi etkinleştir**:  Bu seçenek işaretlenirse, test başarısız olduğunda kısa bir süre sonra yeniden denenir. Art arda üç deneme başarısız olursa bir hata bildirilir. Sonraki testler bundan sonra her zamanki test sıklığında gerçekleştirilir. Bir sonraki başarılı olana kadar yeniden deneme geçici olarak askıya alınır. Bu kural her test konuma bağımsız olarak uygulanır. Bu ayar önerilir. Ortalama olarak hataların yaklaşık %80’i yeniden deneme sırasında kaybolur.
 
-* **Test sıklığı**: Her test konumdan testin ne sıklıkta çalıştırılacağını ayarlar. Beş dakikalık varsayılan sıklıkta ve beş test konumuyla, siteniz ortalama olarak dakikada bir test edilir.
+* **Sınama sıklığı**: Testin her test konumdan ne sıklıkta çalıştırılacağını ayarlar. Beş dakikalık varsayılan sıklıkta ve beş test konumuyla, siteniz ortalama olarak dakikada bir test edilir.
 
 * **Test konumları**, sunucularımızın URL’nize web istekleri gönderdiği yerlerdir. Bizim en az önerilen test konumları beş, sorunları, Web sitenizdeki ağ sorunlarını ayırt edebilirsiniz emin olmak amacıyla sayısıdır. En fazla 16 konum seçebilirsiniz.
 
@@ -69,7 +69,7 @@ Kullanılabilirlik dikey penceresini açın ve bir kullanılabilirlik testi ekle
 
     **İçerik eşleşmesi**: "Hoş geldiniz!" gibi bir dize. Her yanıtta büyük küçük harfe duyarlı bir tam eşleşme oluştuğunu test edebiliriz. Joker karakter bulunmayan düz bir dize olmalıdır. Sayfanızın içeriği değişirse bunu güncelleştirmeniz gerektiğini unutmayın.
 
-* **Uyarı konumu eşiği**: en az 3/5 konumları öneririz. Uyarı konumu eşiği ve test konumları sayısı arasındaki en iyi ilişki **uyarı konumu eşiği** = **test konumları sayısı** - 2, en az beş ile test konumları.
+* **Uyarı konumu eşiği**: En az 3/5 konumları öneririz. Uyarı konumu eşiği ve test konumları sayısı arasındaki en iyi ilişki **uyarı konumu eşiği** = **test konumları sayısı** - 2, en az beş ile test konumları.
 
 ## <a name="multi-step-web-tests"></a>Çok adımlı web testleri
 Bir dizi URL'nin bulunduğu bir senaryoyu izleyebilirsiniz. Örneğin, bir satış web sitesi izliyorsanız, öğelerin alışveriş sepetine doğru eklendiğini test edebilirsiniz.
@@ -160,8 +160,8 @@ Belirli bir testi veya konumu seçin ya da ilgilendiğiniz dönemle ilgili daha 
 
 Ölçüm Gezgini’nde ham sonuçlara ek olarak iki Kullanılabilirlik ölçümü vardır: 
 
-1. Kullanılabilirlik: Tüm test yürütmelerinde başarılı olan testlerin yüzdelik oranı. 
-2. Test Süresi: Tüm test yürütmelerinde ortalama test süresi.
+1. Kullanılabilirlik: Tüm test yürütmelerinde başarılı testlerin yüzdesi. 
+2. Test süresi: Tüm test yürütme ortalama test süresi.
 
 Belirli bir testin ve/veya konumun eğilimlerini analiz etmek için test adına ve konumuna göre filtre uygulayabilirsiniz.
 
@@ -202,7 +202,7 @@ Varsayılan olarak etkin uyarı kuralı Y konumları dışında X [birleştirilm
 
 ![Deneyimi oluşturun](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
-**Önemli**: ile [yeni birleştirilmiş uyarılar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), uyarı kuralının önem derecesi ve bildirim tercihleri ile [Eylem grupları](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **olmalıdır** yapılandırılmış Uyarılar deneyimini yaşayın. Aşağıdaki adımlar olmadan, yalnızca portal bildirim alırsınız. 
+**Önemli**: İle [yeni birleştirilmiş uyarılar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), uyarı kuralının önem derecesi ve bildirim tercihleri ile [Eylem grupları](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **olmalıdır** uyarılar deneyimi yapılandırılmış. Aşağıdaki adımlar olmadan, yalnızca portal bildirim alırsınız. 
 
 1. Kullanılabilirlik testi kaydettikten sonra ayrıntılara gitmek için yeni test adına tıklayın. "Uyarı düzenleme" tıklayın ![Düzenle kaydedildikten sonra](./media/app-insights-monitor-web-app-availability/editaftersave.png)
 
@@ -217,7 +217,7 @@ Varsayılan olarak etkin uyarı kuralı Y konumları dışında X [birleştirilm
 ### <a name="alert-on-availability-metrics"></a>Kullanılabilirlik ölçümler üzerinde uyarı
 Kullanarak [yeni birleştirilmiş uyarılar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), uyarı segmentli toplama kullanılabilirliğine ve süresi ölçümleri test edebilirsiniz:
 
-1. Ölçüm deneyimi bir Application Insights kaynağını seçin ve bir kullanılabilirlik ölçümü seçin: ![kullanılabilirlik ölçümlerini seçimi](./media/app-insights-monitor-web-app-availability/selectmetric.png)
+1. Ölçüm deneyimi bir Application Insights kaynağını seçin ve bir kullanılabilirlik ölçümü seçin:  ![Kullanılabilirlik ölçümlerini seçimi](./media/app-insights-monitor-web-app-availability/selectmetric.png)
 
 2. Menü seçeneğinden belirli testleri veya uyarı kuralı ayarlamak için konumları seçebileceğiniz yeni deneyime sürer uyarıları yapılandırın. Bu uyarı kuralı buraya Eylem grupları da yapılandırabilirsiniz.
     ![Kullanılabilirlik uyarıları yapılandırma](./media/app-insights-monitor-web-app-availability/availabilitymetricalert.png)
@@ -281,7 +281,7 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 
 ## <a name="automation"></a>Otomasyon
 * Otomatik olarak [kullanılabilirlik testi ayarlamak için PowerShell betiklerini kullanın](app-insights-powershell.md#add-an-availability-test).
-* Bir uyarı ortaya çıktığında çağrılan bir [web kancası](../monitoring-and-diagnostics/insights-webhooks-alerts.md) ayarlayın.
+* Bir uyarı ortaya çıktığında çağrılan bir [web kancası](../azure-monitor/platform/alerts-webhooks.md) ayarlayın.
 
 ## <a name="qna"></a> SSS
 
@@ -309,7 +309,7 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 
     Hata ("protokol ihlali..CR’den sonra LF gelmelidir") sunucu (veya bağımlılıklar) ile ilgili bir sorun olduğunu gösterir. Bu durum, yanıtta hatalı biçimlendirilmiş üst bilgiler ayarlandığında meydana gelir. Yük dengeleyiciler veya CDN'lerden kaynaklanabilir. Özellikle bazı üst bilgiler satır sonunu belirtmek için CRLF kullanmıyor olabilir; bu durum HTTP belirtimini ihlal eder ve bu nedenle .NET WebRequest düzeyinde doğrulama başarısız olur. İhlal edici olabilecek nokta üst bilgilerine yanıtı inceleyin.
     
-    Not: URL, HTTP üst bilgilerinin gevşek doğrulaması yapılmış tarayıcılarda başarısız olmayabilir. Bu sorunun ayrıntılı bir açıklaması için bu blog gönderisine bakın: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+    Not: URL, HTTP üst bilgilerinin gevşek doğrulaması tarayıcılarda başarısız olmayabilir. Bu sorunun ayrıntılı bir açıklaması için bu blog gönderisine bakın: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
     
 * *Test hatalarını tanılamak için herhangi bir ilgili sunucu tarafı telemetrisi görmüyorum?*
     

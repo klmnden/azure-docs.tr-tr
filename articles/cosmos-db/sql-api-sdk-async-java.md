@@ -9,14 +9,14 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: moderakh
-ms.openlocfilehash: fadefe09f9f744fabe0f0f3f3cb519b3abb50b41
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 635eb1d373867d238c570c805943df4fe29da1b3
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098892"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253621"
 ---
-# <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK'sı SQL API'si için: yayın notları ve kaynakları
+# <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET değişiklik akışı](sql-api-sdk-dotnet-changefeed.md)
@@ -43,9 +43,9 @@ SQL API Async Java SDK'sı desteği ile zaman uyumsuz işlemleri sağlayarak SQL
 
 <tr><td>**Kullanmaya başlama**</td><td>[Async Java SDK'sı ile çalışmaya başlama](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)</td></tr>
 
-<tr><td>**Kod örneği**</td><td>[Github](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)</td></tr>
+<tr><td>**Kod örneği**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)</td></tr>
 
-<tr><td>**Performans ipuçları**</td><td>[Github Benioku](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)</td></tr>
+<tr><td>**Performans ipuçları**</td><td>[GitHub Benioku](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)</td></tr>
 
 <tr><td>**En düşük desteklenen çalışma zamanı**</td><td>[JDK 8](https://aka.ms/azure-jdks)</td></tr>
 </table></br>
@@ -63,7 +63,7 @@ SQL API Async Java SDK'sı desteği ile zaman uyumsuz işlemleri sağlayarak SQL
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Yazma yeniden deneme yolunda NPE düzeltildi.
 * Uç nokta yönetiminde NPE düzeltildi.
-* Yükseltme savunmasız bağımlılıkları ([github #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
+* Yükseltme savunmasız bağımlılıkları ([GitHub #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
 * Sorun giderme için günlük Netty ağ desteği eklendi.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
@@ -72,16 +72,16 @@ SQL API Async Java SDK'sı desteği ile zaman uyumsuz işlemleri sağlayarak SQL
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Proxy için destek eklendi.
 * Kaynak belirteci yetkilendirme için destek eklendi.
-* Büyük bölüm anahtarlarını işleme içinde bir hata düzeltildi ([github #63](https://github.com/Azure/azure-cosmosdb-java/issues/63)).
+* Büyük bölüm anahtarlarını işleme içinde bir hata düzeltildi ([GitHub #63](https://github.com/Azure/azure-cosmosdb-java/issues/63)).
 * Belgeleri geliştirdik.
 * SDK daha ayrıntılı modüllerine yeniden oluşturulamaz.
 
 ### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
-* İngilizce dışındaki diller için bir hata düzeltildi ([github #51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
+* İngilizce dışındaki diller için bir hata düzeltildi ([GitHub #51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
 * Çakışma kaynağında ek yardımcı yöntemler.
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
-* Performansı artırmak ve lisans nedeniyle org.JSON bağımlılık jackson tarafından değiştirildi ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
+* Performansı artırmak ve lisans nedeniyle org.JSON bağımlılık jackson tarafından değiştirildi ([GitHub #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
 * Kullanım dışı OfferV2 sınıfı kaldırıldı.
 * İçerik aktarım hızı için teklif sınıfı eklendi erişimci yöntemi.
 * Herhangi bir yöntem belge/kaynağında org.json türleri bir jackson nesne türü döndürmek için değiştirildi.
@@ -94,18 +94,18 @@ SQL API Async Java SDK'sı desteği ile zaman uyumsuz işlemleri sağlayarak SQL
 * Benzersiz bir dizin ilke için destek eklendi.
 * Akış seçenekleri yanıt devamlılık belirteci boyutu sınırlama için destek eklendi.
 * Çapraz bölüm sorgusunun bölüm bölmedeki desteği eklendi.
-* Json zaman damgası serileştirme düzeltildi ([github #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
+* Json zaman damgası serileştirme düzeltildi ([GitHub #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
 * Json enum serileştirme düzeltildi.
-* 2 MB boyutunda Belge yönetiminde bir hata düzeltildi ([github #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
-* Bağımlılık com.fasterxml.jackson.core:jackson-databind 2.9.5 bir hata nedeniyle yükseltme ([jackson databind: github #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
-* Bir hata nedeniyle 0.8.0.17 yükseltme rxjava-ek özellikler bağımlılık ([rxjava ek özellikler: #30 github](https://github.com/davidmoten/rxjava-extras/issues/30)).
+* 2 MB boyutunda Belge yönetiminde bir hata düzeltildi ([GitHub #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
+* Bağımlılık com.fasterxml.jackson.core:jackson-databind 2.9.5 bir hata nedeniyle yükseltme ([jackson databind: GitHub #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
+* Bir hata nedeniyle 0.8.0.17 yükseltme rxjava-ek özellikler bağımlılık ([rxjava ek özellikler: GitHub #30](https://github.com/davidmoten/rxjava-extras/issues/30)).
 * Meta veri açıklamasını pom dosyasına satır içi belgeler geri kalanıyla olacak şekilde güncelleştirildi.
-* Söz dizimi geliştirme ([github #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([github #40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
+* Söz dizimi geliştirme ([GitHub #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([GitHub #40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
 
 ### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
 * Sorgu geri baskısı desteği eklendi.
 * Sorgu bölüm anahtar aralığı kimliği desteği eklendi.
-* Daha büyük bir devamlılık belirteci (hata düzeltmesi github #24) istek üst bilgisinde izin verecek şekilde düzeltin.
+* Daha büyük bir devamlılık belirteci (hata düzeltmesi GitHub #24) istek üst bilgisinde izin verecek şekilde düzeltin.
 * Ana iş parçacığı sonlandırıldıktan sonra JVM sağlamak için 4.1.22.Final yükseltilmiş netty bağımlılık kapanır.
 * Oturum belirteci ana kaynaklarını okurken geçirmekten kaçının düzeltin.
 * Daha fazla örnek eklendi.

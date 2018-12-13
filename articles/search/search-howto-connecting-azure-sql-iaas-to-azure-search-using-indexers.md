@@ -1,6 +1,6 @@
 ---
-title: Azure Search SQL VM bağlantı | Microsoft Docs
-description: Şifreli bağlantıları etkinleştirmek ve bir Azure Search oluşturucuda gelen bağlantılara SQL Server'a Azure sanal makine (VM) izin verecek Güvenlik Duvarı'nı yapılandırın.
+title: Azure arama dizini oluşturma - azure SQL sanal makinesi sanal makine bağlantısı arama
+description: Şifrelenmiş bağlantıları etkinleştirmek ve bağlantılar için SQL Server Azure sanal makinesinde (VM) üzerinde Azure Search dizin oluşturucu izin vermek için Güvenlik Duvarı'nı yapılandırın.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,78 +8,79 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: heidist
-ms.openlocfilehash: 7800e83891cb336bb896299b8fd4d6b3ba590178
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.custom: seodec2018
+ms.openlocfilehash: 5f04c98e1337c2b65c9e0bc8401dd6045a84021e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366469"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312043"
 ---
-# <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Bir Azure VM üzerinde SQL Server bir Azure Search dizin oluşturucu arasında bağlantı yapılandırma
-İçinde belirtildiği gibi [dizin oluşturucuları kullanarak Azure Search'te Azure SQL veritabanına bağlanma](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), dizin oluşturucular karşı oluşturma **Azure Vm'lerde SQL Server** (veya **SQL Azure VM'ler** kısaca) Azure araması tarafından desteklenen ancak ilk halletmeniz için birkaç güvenlikle ilgili önkoşulları vardır. 
+# <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Bir Azure sanal makinesinde SQL Server için Azure Search dizin oluşturucu arasında bağlantı yapılandırma
+Belirtilen [Azure Search dizin oluşturucuları kullanarak Azure SQL veritabanına bağlanma](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), dizin oluşturucular karşı oluşturma **Azure vm'lerde SQL Server** (veya **SQL Azure Vm'leri** kısaca) desteklenir Azure Search tarafından ancak ilk halletmeniz için birkaç güvenlikle ilgili Önkoşullar vardır. 
 
-**Görev süresi:** yaklaşık 30 dakika zaten bir sertifika VM'de yüklü.
+**Görev süresi:** Yaklaşık 30 dakika, zaten bir sertifika sanal makinede yüklü.
 
-## <a name="enable-encrypted-connections"></a>Şifreli bağlantıları etkinleştir
-Azure arama şifreli kanal tüm dizin oluşturucu istekleri için ortak bir internet bağlantısı üzerinden gerektirir. Bu bölümde bu çalışmasını sağlamak için adımları listelenir.
+## <a name="enable-encrypted-connections"></a>Şifrelenmiş bağlantılarını etkinleştirme
+Azure arama, tüm dizin oluşturucu istekleri için ortak bir internet bağlantısı üzerinden şifrelenmiş bir kanal gerektirir. Bu bölümde, bunun çalışmasını sağlamak için adımları listelenir.
 
-1. Konu adı tam etki alanı adıdır (FQDN) Azure VM doğrulamak için sertifika özelliklerini denetleyin. Özelliklerini görüntülemek için CertUtils gibi bir araç veya Sertifikalar ek bileşenini kullanabilirsiniz. VM hizmet dikey penceresinin 's Essentials bölümünden de FQDN alabilirsiniz **genel IP adresi/DNS ad etiketi** alanında bulunan [Azure portal](https://portal.azure.com/).
+1. Konu adı tam etki alanı adıdır (FQDN) Azure VM'nin doğrulamak için sertifika özelliklerini denetleyin. Özelliklerini görüntülemek için CertUtils gibi bir araç veya Sertifikalar ek bileşenini kullanabilirsiniz. VM hizmet dikey penceresinin Essentials bölümünden de FQDN alabilirsiniz **genel IP adresi/DNS ad etiketi** alanına [Azure portalında](https://portal.azure.com/).
    
-   * Yeni kullanılarak oluşturulan VM'ler için **Resource Manager** şablonu, FQDN biçimlendirilmiş olarak `<your-VM-name>.<region>.cloudapp.azure.com`. 
-   * Eski VM'ler olarak oluşturulan bir **Klasik** VM, FQDN biçimlendirilmiş olarak `<your-cloud-service-name.cloudapp.net>`. 
-2. SQL Server Kayıt Defteri Düzenleyicisi'ni (regedit) kullanarak sertifikayı kullanacak şekilde yapılandırın. 
+   * Yeni kullanılarak oluşturulan VM'ler için **Resource Manager** şablonu, FQDN olarak biçimlendirildiğinde `<your-VM-name>.<region>.cloudapp.azure.com`. 
+   * Olarak oluşturulmuş eski Vm'leri için bir **Klasik** VM, FQDN olarak biçimlendirildiğinde `<your-cloud-service-name.cloudapp.net>`. 
+2. SQL Server'ın Kayıt Defteri Düzenleyicisi'ni (regedit) kullanarak sertifikayı kullanacak şekilde yapılandırın. 
    
-    SQL Server Configuration Manager bu görev için genellikle kullanılsa da, bu senaryo için kullanamazsınız. Azure VM'de FQDN'sini (etki alanı yerel bilgisayar veya onu katıldığı ağ etki alanı olarak tanımladığı) VM tarafından belirlenen FQDN eşleşmediği için içeri aktarılan sertifika bulamaz. Adları eşleşmediğinde regedit sertifikasını belirtmek için kullanın.
+    SQL Server Configuration Manager bu görev için sık sık kullanılsa da, bu senaryo için kullanamazsınız. Azure VM'de FQDN'sini (etki alanı yerel bilgisayarda veya katılmış ağ etki alanı tanımladığı) VM tarafından belirlenen şekilde bir FQDN eşleşmediği için içeri aktarılan sertifikayı bulmaz. Adları eşleşmediğinde regedit sertifikasını belirtmek için kullanın.
    
    * Regedit içinde bu kayıt defteri anahtarına gidin: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\[MSSQL13.MSSQLSERVER]\MSSQLServer\SuperSocketNetLib\Certificate`.
      
      `[MSSQL13.MSSQLSERVER]` Bölümü sürümü ve örnek adı göre değişir. 
-   * Değerini **sertifika** anahtarını **parmak izi** VM'ye alınan SSL sertifikasının.
+   * Değerini **sertifika** anahtarını **parmak izi** VM'ye aktardığınız SSL sertifikası.
      
-     Parmak izi diğerlerinden bazı daha iyi almak için birkaç yolu vardır. Buradan kopyalarsanız **sertifikaları** ek bileşenini MMC'de, büyük olasılıkla bir görünmez başında karakter çeker [Bu destek makalesinde açıklandığı gibi](https://support.microsoft.com/kb/2023869/), bir bağlantı çalıştığında hatayla sonuçlanır. Birkaç geçici çözüm bu sorunu düzeltmek için mevcut. Üzerinden Al ve ilk karakter regedit anahtar değeri alanında başında karakter kaldırmak için parmak izi yeniden yazmak için en kolay yoludur. Alternatif olarak, parmak izi kopyalamak için farklı bir aracı kullanabilirsiniz.
-3. Hizmet hesabı izinleri verin. 
+     Parmak izi, diğerlerine biraz daha iyi almak için birkaç yolu vardır. Buradan kopyalarsanız **sertifikaları** ek bileşeninde MMC, büyük olasılıkla görünmez önde gelen bir karakter oluşturan çeker [Bu destek makalesinde açıklandığı şekilde](https://support.microsoft.com/kb/2023869/), bağlantı denediklerinde hatayla sonuçlanır . Birkaç geçici çözüm bu sorunu düzeltmek için mevcut. Üzerinden geri alın ve sonra da ilk karakteri regedit anahtar değer alanında önde gelen karakter kaldırmak için parmak izi yeniden yazmak için en kolay yoldur. Alternatif olarak, parmak izini kopyalayın için farklı bir aracı kullanabilirsiniz.
+3. Hizmet hesabı için izinler verir. 
    
-    SQL Server hizmet hesabı uygun özel anahtara SSL sertifikasının izni emin olun. Bu adım overlook, SQL Server başlatılmaz. Kullanabileceğiniz **sertifikaları** ek bileşenini veya **CertUtils** bu görev için.
+    SQL Server hizmet hesabı SSL sertifikasının özel anahtarı üzerinde uygun izin verilir emin olun. Bu adım kolayca gözden kaçabilir, SQL Server başlatılmaz. Kullanabileceğiniz **sertifikaları** ek bileşenini veya **CertUtils** bu görev için.
 4. SQL Server hizmetini yeniden başlatın.
 
-## <a name="configure-sql-server-connectivity-in-the-vm"></a>SQL Server bağlantısı VM'yi Yapılandır
-Azure Search tarafından gerekli şifreli bir bağlantı kurduktan sonra var. ek yapılandırma adımları Azure Vm'lerde SQL Server iç Henüz yapmadıysanız, bu makaleler birini kullanarak yapılandırmayı tamamlamak için sonraki adım içerir:
+## <a name="configure-sql-server-connectivity-in-the-vm"></a>VM'de SQL Server bağlantısı yapılandırma
+Azure Search tarafından gerekli şifreli bağlantı kurduktan sonra var. ek yapılandırma adımları için Azure vm'lerde SQL Server iç Henüz yapmadıysanız, bu makale bunlardan birini kullanarak yapılandırmayı tamamlamak için sonraki adım olan:
 
-* İçin bir **Resource Manager** VM bkz [bir SQL Server sanal makinesine bağlanma Kaynak Yöneticisi'ni kullanarak azure'da](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md). 
-* İçin bir **Klasik** VM bkz [bir SQL Server sanal makinesine bağlanma Klasik Azure üzerinde](../virtual-machines/windows/classic/sql-connect.md).
+* İçin bir **Resource Manager** VM bkz [Resource Manager'ı kullanarak azure'da SQL Server sanal makinesine bağlanma](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md). 
+* İçin bir **Klasik** VM bkz [Klasik Azure üzerinde SQL Server sanal makinesine bağlanma](../virtual-machines/windows/classic/sql-connect.md).
 
-Özellikle, her makalede, "Internet üzerinden bağlanma" bölümüne bakın.
+Özellikle, her bir makaleye "internet üzerinden bağlanma" bölümüne bakın.
 
 ## <a name="configure-the-network-security-group-nsg"></a>Ağ güvenlik grubu (NSG) yapılandırma
-NSG ve karşılık gelen Azure uç noktası veya erişim denetim listesi (ACL) Azure VM'nizi diğer taraflar için erişilebilir kılmak için yapılandırma olağan dışı bir durum değil. SQL Azure VM'nize bağlanmak için kendi uygulama mantığını izin vermek için bu önce yaptıktan yüksektir. Bir Azure Search bağlantı SQL Azure VM için farklı değildir. 
+Azure VM diğer taraflar için erişilebilir hale getirmek için NSG ve karşılık gelen Azure uç noktası veya erişim denetimi listesi (ACL) yapılandırmak alışılmadık bir durum değildir. Önce SQL Azure VM'nize bağlanmak için kendi uygulama mantığını izin verecek şekilde yaptığınızdan yüksektir. Bir Azure Search bağlantı, SQL Azure VM için farklı bir değildir. 
 
-Aşağıdaki bağlantıları VM dağıtımlar için NSG yapılandırma hakkında yönergeler sağlar. ACL kendi IP adresini temel alan bir Azure Search uç nokta için bu yönergeleri kullanın.
+Aşağıdaki bağlantıları VM dağıtımları için NSG yapılandırma yönergeleri sağlar. ACL IP adresine göre bir Azure Search uç nokta için bu yönergeleri kullanın.
 
 > [!NOTE]
-> Arka plan için bkz: [bir ağ güvenlik grubu nedir?](../virtual-network/security-overview.md)
+> Arka plan bilgileri için bkz. [bir ağ güvenlik grubu nedir?](../virtual-network/security-overview.md)
 > 
 > 
 
 * İçin bir **Resource Manager** VM bkz [ARM dağıtımları için Nsg'ler oluşturma](../virtual-network/tutorial-filter-network-traffic.md). 
 * İçin bir **Klasik** VM bkz [Klasik dağıtımlar için Nsg'ler oluşturma](../virtual-network/virtual-networks-create-nsg-classic-ps.md).
 
-IP adresleme sorunu ve olası geçici çözümler farkında olması durumunda, kolayca üstesinden birkaç yol açabilir. Kalan bölümler ACL IP adresleri ile ilgili sorunlar işleme için öneriler sağlar.
+IP adresleme sorun ve olası geçici çözümlerin farkında, kolayca üstesinden bazı zorluklar çıkarabilir. Kalan bölümler IP adresleri ACL sorunları işleme için öneriler sağlar.
 
-#### <a name="restrict-access-to-the-search-service-ip-address"></a>Arama hizmeti IP adresine erişimi kısıtlama
-SQL Azure Vm'leriniz için bağlantı isteklerini açık yapmak yerine ACL arama hizmetinizdeki IP adresine erişimi kısıtlama öneririz. FQDN ping atılarak, IP adresini kolayca bulabilirsiniz (örneğin, `<your-search-service-name>.search.windows.net`) search hizmetinizin.
+#### <a name="restrict-access-to-the-search-service-ip-address"></a>Arama hizmeti IP adresi için erişimi kısıtlama
+SQL Azure Vm'leriniz için bağlantı isteklerini açık yapmak yerine ACL arama hizmetinizdeki IP adresine erişimi kısıtlama kesinlikle öneririz. FQDN ping göndererek, IP adresini kolayca bulabilirsiniz (örneğin, `<your-search-service-name>.search.windows.net`) arama hizmetinizin.
 
 #### <a name="managing-ip-address-fluctuations"></a>IP adresi dalgalanmaları yönetme
-Arama hizmetinizi yalnızca bir arama birimi (diğer bir deyişle, bir çoğaltma ve bir bölüm) varsa, IP adresi rutin hizmet yeniden başlatıldığında, search hizmetinizin IP adresine sahip varolan bir ACL geçersiz kılmalarını sırasında değiştirir.
+Arama hizmetiniz, yalnızca bir arama birimi (diğer bir deyişle, bir çoğaltma ve bir bölüm) varsa, rutin hizmet yeniden başlatıldığında, arama hizmetinizin IP adresi ile var olan bir ACL geçersiz kılmalarını sırasında IP adresi değişir.
 
-Sonraki bağlantı hatayı önlemek için bir yol birden fazla çoğaltma ve bir bölüm Azure Search'te kullanmaktır. Bunun yapılması maliyetini artırır, ancak aynı zamanda bir IP adresi sorununu çözer. Birden fazla arama birimi varsa, Azure Search'te IP adreslerini değiştirmeyin.
+Bir yolu, sonraki bağlantı hatayı önlemek için birden fazla çoğaltma ve bir bölüm Azure Search'te kullanmaktır. Bunun yapılması maliyetini artırır, ancak aynı zamanda bir IP adresi sorunu çözer. Birden fazla arama birimi varsa, IP adresleri Azure arama'yı değiştirmeyin.
 
-Başarısız ve NSG ACL'leri yeniden yapılandırmak bağlantıya izin ikinci bir yaklaşımdır. Ortalama, birkaç haftada değiştirmek için IP adreslerini bekleyebilirsiniz. Denetimli bir sık aralıklarla dizin yapan müşteriler için bu yaklaşım uygun olabilir.
+Başarısız ve NSG ACL'lerinde sonra yeniden bağlanmaya izin ver ikinci bir yaklaşımdır. Ortalama olarak haftada birkaç değiştirmek için IP adresleri bekleyebilirsiniz. Denetlenen bir seyrek olarak dizinleme yapan müşteriler için bu yaklaşım uygun olabilir.
 
-Bir üçüncü uygulanabilir (ancak özellikle güvenli değil) arama hizmetinizi burada sağlanan Azure bölgesinin IP adresi aralığını belirtmek için yaklaşımdır. İçinden ortak IP adresleri için Azure kaynaklarını ayrılır IP aralıkları listesi, yayımlanan [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). 
+Bir üçüncü uygulanabilir (ancak özellikle güvenli olmayan) burada arama hizmetiniz sağlandıktan Azure bölgesinin IP adresi aralığını belirtmek için yaklaşımdır. İçinden genel IP adresleri Azure kaynaklarına ayrılan IP aralıklarının Listesi sayfasında yayımlanır [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). 
 
 #### <a name="include-the-azure-search-portal-ip-addresses"></a>Azure Search portal IP adreslerini içerir
-Bir dizin oluşturucu oluşturmak için Azure portalını kullanıyorsanız, Azure Search portal mantığı oluşturulma zamanı sırasında Ayrıca, SQL Azure VM erişimi olmalıdır. Azure arama portal IP adreslerini ping atılarak bulunabilir `stamp2.search.ext.azure.com`.
+Bir dizin oluşturucu oluşturmak için Azure portalını kullanıyorsanız, Azure Search portal mantığı oluşturma zamanı sırasında SQL Azure VM erişimi de gerekir. Azure search portal IP adresleri, ping göndererek bulunabilir `stamp2.search.ext.azure.com`.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Göz önünden yapılandırma ile artık bir SQL Server Azure VM'de bir Azure Search Dizin Oluşturucu veri kaynağı olarak belirtebilirsiniz. Bkz: [dizin oluşturucuları kullanarak Azure Search'te Azure SQL veritabanına bağlanma](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) daha fazla bilgi için.
+Ortada yapılandırma ile artık SQL Server Azure sanal makinesinde Azure Search dizin oluşturucu için veri kaynağı olarak belirtebilirsiniz. Bkz: [Azure Search dizin oluşturucuları kullanarak Azure SQL veritabanına bağlanma](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) daha fazla bilgi için.
 

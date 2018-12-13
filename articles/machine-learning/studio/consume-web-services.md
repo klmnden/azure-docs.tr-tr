@@ -1,12 +1,11 @@
 ---
-title: Bir Azure Machine Learning Studio web hizmetini kullanma | Microsoft Docs
+title: Web hizmetini - Azure Machine Learning Studio kullanma | Microsoft Docs
 description: Bir machine learning hizmeti Azure Machine Learning Studio dağıtıldıktan sonra RESTFul Web hizmeti gerçek zamanlı istek-yanıt hizmeti ya da bir toplu yürütme hizmeti olarak kullanılabilir.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
-ms.openlocfilehash: df837c64cf0e40f3bfc1c596b2950a9d23c74a90
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d7a48dcb56d2bed0e84714087bb9fda3fae65fc1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309115"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273791"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Bir Azure Machine Learning Studio web hizmetini kullanma
 
@@ -33,7 +32,7 @@ Burada, Machine Learning Studio'yu kullanarak bir Machine Learning Web hizmeti o
 * Bir Web hizmeti dağıtma hakkında daha fazla ayrıntı için bkz. [Machine Learning Web hizmetini dağıtma](publish-a-machine-learning-web-service.md).
 * Genel olarak, Machine Learning hakkında daha fazla bilgi için ziyaret [Machine Learning Belge Merkezi](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="overview"></a>Genel Bakış
 Azure Machine Learning Web hizmeti ile bir dış uygulama, gerçek zamanlı Machine Learning iş akışı Puanlama modeli ile iletişim kurar. Bir Machine Learning Web hizmeti çağrısı bir dış uygulamaya tahmin sonuçlarını döndürür. Machine Learning Web hizmeti çağrısı yapmak için tahmin dağıttığınızda oluşturulan bir API anahtarı geçirirsiniz. Machine Learning Web hizmeti bir web programlama projeleri için popüler bir mimari seçimi olan REST'i temel alır.
@@ -102,13 +101,13 @@ Machine Learning Web hizmetine bağlanmak için **System.NET.http.Formatting** N
 
 **Visual Studio'da System.NET.http.Formatting NuGet yükleyin**
 
-1. UCI indirme kümesinden yayımlama: yetişkin 2 sınıf dataset Web hizmeti.
+1. UCI indirme kümesinden yayımlama: Yetişkin 2 sınıfı veri kümesi Web hizmeti.
 2. **Araçlar** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**’na tıklayın.
 3. Seçin **Install-Package System.NET.http.Formatting**.
 
 **Kod örneği çalıştırmak için**
 
-1. Yayımlama "Örnek 1: veri kümesi UCI ' indirin: yetişkin 2 sınıf dataset" deneme, Machine Learning örnek koleksiyonun parçası.
+1. Yayımlama "Örnek 1: Veri kümesi UCI ' indirin: Yetişkin 2 sınıfı veri kümesi"deneme, Machine Learning örnek koleksiyonun parçası.
 2. ApiKey bir Web hizmetinden anahtarla atayın. Bkz: **bir Azure Machine Learning yetkilendirme anahtarını alma** yukarıda.
 3. İstek URI'si ile serviceUri atayın.
 
@@ -204,7 +203,7 @@ Bir Machine Learning Web hizmetine bağlanmak için kullanmak **urllib2** kitapl
 
 **Kod örneği çalıştırmak için**
 
-1. Dağıtma "Örnek 1: veri kümesi UCI ' indirin: yetişkin 2 sınıf dataset" deneme, Machine Learning örnek koleksiyonun parçası.
+1. Dağıtma "Örnek 1: Veri kümesi UCI ' indirin: Yetişkin 2 sınıfı veri kümesi"deneme, Machine Learning örnek koleksiyonun parçası.
 2. ApiKey bir Web hizmetinden anahtarla atayın. Bkz: **bir Azure Machine Learning yetkilendirme anahtarını alma** başlangıcı yakınında bu makalenin.
 3. İstek URI'si ile serviceUri atayın.
 

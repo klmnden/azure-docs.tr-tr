@@ -11,18 +11,18 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: 807fd49a54c82b0930134beb8413e14c1c28b278
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
-ms.translationtype: HT
+ms.openlocfilehash: 8844260c4364776ad0fc828dcd66932d37474ecf
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115570"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164628"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Node.js için Batch SDK'sını kullanmaya başlama
 
 [Azure Batch Node.js SDK'sını](/javascript/api/overview/azure/batch) kullanarak Node.js’de Batch istemcisi oluşturma hakkında temel bilgileri öğrenin. Batch uygulaması için bir senaryoyu anlayıp ardından bir Node.js istemcisi kullanarak bu senaryoyu ayarlama adımlarından oluşan bir yaklaşım uyguluyoruz.  
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, Node.js hakkında bilgi sahibi olduğunuz ve Linux kullanmaya alışkın olduğunuz varsayılmaktadır. Ayrıca, Batch ve Depolama hizmetleri oluşturmak için erişim haklarına sahip bir Azure hesabınız olduğu varsayılmıştır.
 
 Bu makaledeki adımlara geçmeden önce [Azure Batch Teknik Genel Bakış](batch-technical-overview.md) makalesini okumanızı öneririz.
@@ -35,7 +35,7 @@ Aşağıdaki diyagram, Azure Batch ve bir Node.js istemcisini kullanarak Python 
 
 ![Azure Batch Senaryosu](./media/batch-nodejs-get-started/BatchScenario.png)
 
-Node.js istemcisi, toplu işi bir hazırlama göreviyle (daha sonra ayrıntılı olarak açıklanacaktır) ve depolama hesabında kapsayıcıların sayısına bağlı olarak bir dizi görevle dağıtır. Betikleri github deposundan indirebilirsiniz.
+Node.js istemcisi, toplu işi bir hazırlama göreviyle (daha sonra ayrıntılı olarak açıklanacaktır) ve depolama hesabında kapsayıcıların sayısına bağlı olarak bir dizi görevle dağıtır. Betikleri GitHub deposundan indirebilirsiniz.
 
 * [Node.js istemcisi](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
 * [Hazırlık görevi kabuk betikleri](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
@@ -52,7 +52,7 @@ Node.js istemcisi, toplu işi bir hazırlama göreviyle (daha sonra ayrıntılı
 
 Şimdi, Node.js istemcisini oluşturmamızı sağlayacak süreci adım adım izleyelim:
 
-### <a name="step-1-install-azure-batch-sdk"></a>1. Adım: Azure Batch SDK’sını yükleme
+### <a name="step-1-install-azure-batch-sdk"></a>1. Adım: Azure Batch SDK'sını yükleme
 
 npm install komutunu kullanarak Node.js için Azure Batch SDK'sını yükleyebilirsiniz.
 
@@ -85,7 +85,7 @@ Her Batch hesabının ilgili erişim anahtarları vardır. Bu anahtarlar Azure B
 
 Sonraki adımlarda kullanılacak anahtarı kopyalayın ve saklayın.
 
-### <a name="step-3-create-an-azure-batch-service-client"></a>3. Adım: Azure Batch hizmet istemcisi oluşturma
+### <a name="step-3-create-an-azure-batch-service-client"></a>3. adım: Bir Azure Batch hizmeti istemcisi oluşturma
 Aşağıdaki kod parçacığı ilk olarak azure-batch Node.js modülünü içe aktarır ve ardından bir Batch Hizmeti istemcisi oluşturur. İlk olarak, önceki adımda kopyaladığınız Batch hesabınızın anahtarıyla bir SharedKeyCredentials nesnesi oluşturmanız gerekir.
 
 ```nodejs
@@ -119,7 +119,7 @@ Ekran görüntüsüne bakın:
 
 
 
-### <a name="step-4-create-an-azure-batch-pool"></a>4. Adım: Azure Batch havuzu oluşturma
+### <a name="step-4-create-an-azure-batch-pool"></a>4. adım: Bir Azure Batch havuzu oluşturma
 Bir Azure Batch havuzu birden çok VM’den (Batch Düğümleri olarak da bilinir) oluşur. Azure Batch hizmeti, görevleri bu düğümlere dağıtır ve yönetir. Havuzunuz için aşağıdaki yapılandırma parametrelerini tanımlayabilirsiniz.
 
 * Sanal Makine Türü görüntüsü
@@ -254,7 +254,7 @@ Pool.get işlevi tarafından döndürülen örnek bir sonuç nesnesi aşağıdad
 ```
 
 
-### <a name="step-4-submit-an-azure-batch-job"></a>4. Adım: Azure Batch işi gönderme
+### <a name="step-4-submit-an-azure-batch-job"></a>4. adım: Bir Azure Batch işi gönderme
 Azure Batch işi, benzer görevlerden oluşan bir mantıksal gruptur. Senaryomuzdaki ise "csv'yi JSON’a işle" işidir. Burada her görev her Azure Depolama kapsayıcısında bulunan csv dosyalarını işliyor olabilir.
 
 Bu görevler paralel olarak çalışır ve Azure Batch hizmeti tarafından düzenlenmiş birden çok düğüm arasında dağıtılır.
@@ -279,13 +279,13 @@ Betiği Azure Depolama Hesabına yüklemeyebilir ve betiğe erişmek için bir S
 
 Hazırlık görevi, Azure Batch işi gönderildiği sırada belirtilir. Hazırlık görevi yapılandırma parametreleri şunlardır:
 
-* **ID**: Hazırlık görevi için benzersiz bir tanımlayıcıdır.
-* **commandLine**: Görevin yürütülebilir dosyasını çalıştıran komut satırıdır.
-* **resourceFiles**: Bu görevin çalışması için indirilmesi gereken dosyaların ayrıntılarını sağlayan nesneler dizisidir.  Seçenekleri aşağıda verilmiştir.
-    - blobSource: Dosyanın SAS URI'sıdır.
-    - filePath: Dosyanın indirileceği ve kaydedileceği için yerel yoldur.
-    - fileMode: Yalnızca Linux düğümlerinde kullanılan fileMode, sekizli biçimdedir ve varsayılan değeri 0770’tir.
-* **waitForSuccess**: True olarak ayarlandığında hazırlık görevi hatalarında görev çalışmaz.
+* **KİMLİĞİ**: Hazırlık görevi için benzersiz bir tanımlayıcı
+* **Komut satırı**: Görevin yürütülebilir dosyasını yürütmek için komut satırı
+* **resourceFiles**: Bu görevin çalışması için indirilmesi gereken dosyaların ayrıntılarını sağlayan nesneler dizisi.  Seçenekleri aşağıda verilmiştir.
+    - blobSource: Dosyanın SAS URI
+    - filePath: Dosyasını indirip kaydetmek için yerel yol
+    - fileMode: Yalnızca Linux düğümlerinde, fileMode, sekizli biçimdedir ve varsayılan değeri 0770 geçerlidir
+* **waitForSuccess**: Hazırlık görevi hatalarında görev true olarak çalışmazsa
 * **runElevated**: Görevi çalıştırmak için yükseltilmiş ayrıcalıklar gerekiyorsa true olarak ayarlayın.
 
 Aşağıdaki kod parçacığında, hazırlama görevi betik yapılandırma örneği gösterilmektedir:
@@ -311,14 +311,14 @@ Görevleri çalıştırmak yüklenecek herhangi bir önkoşul yoksa hazırlama g
 ```
 
 
-### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>5. Adım: Bir iş için Azure Batch görevlerini gönderme
+### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>5. adım: Bir iş için Azure Batch görevlerini gönderme
 
 İşlem csv işimiz oluşturulduğuna göre bu iş için görevleri oluşturabiliriz. Dört kapsayıcımız olduğunu varsayarsak, her kapsayıcı için bir tane olmak üzere dört görev oluşturmamız gerekir.
 
 [Python betiğine](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py) baktığımızda iki parametre kabul ettiğini görüyoruz:
 
-* kapsayıcı adı: Dosyaların indirileceği Depolama kapsayıcısı
-* desen: Dosya adı için isteğe bağlı bir desen parametresi
+* Kapsayıcı adı: Dosyaların indirileceği depolama kapsayıcısı
+* Desen: İsteğe bağlı bir parametre dosyası adı deseni
 
 "con1", "con2", "con3" ve "con4" olmak üzere dört kapsayıcımız olduğunu varsayarsak, aşağıdaki kod daha önce oluşturduğumuz "process csv" Azure batch işine görev göndermeyi gösterir.
 

@@ -1,5 +1,5 @@
 ---
-title: App Service Ortamı için Web Uygulaması Güvenlik Duvarı (WAF) Yapılandırma
+title: App Service ortamı - Azure için bir web uygulaması Güvenlik Duvarı (WAF) yapılandırma
 description: App Service Ortamınızın önünde bir web uygulaması güvenlik duvarını yapılandırma hakkında bilgi edinin.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
-ms.custom: mvc
-ms.openlocfilehash: e1c327051982ce36e94cd1fe0f824db5ec424da1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 6bc354ef3451862e3567adbe5ff8ee6da0eacaf6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227000"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314882"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>App Service Ortamı için Web Uygulaması Güvenlik Duvarı (WAF) Yapılandırma
 ## <a name="overview"></a>Genel Bakış

@@ -1,5 +1,5 @@
 ---
-title: Machine learning Microsoft Ürün seçeneklerini karşılaştırın
+title: Karşılaştırma makine öğrenme Microsoft'ta ürün seçenekleri
 description: Makine öğrenmesi modellerinizi derlemek, dağıtmak ve yönetmek için Microsoft’un sunduğu ürün çeşitlerini karşılaştırın. Çözümünüz için hangi ürünün seçileceğine karar verin.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
-ms.openlocfilehash: a778a371e28b0406d43aa07bbc0c0c039654f7b9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: bae28fd24cfbbf9fe36a626af1f0ec9359c8cda0
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073780"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274138"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Microsoft'ta makine öğrenimi ürünlerini nelerdir?
 
@@ -41,8 +41,7 @@ Makine öğrenmesi modellerinizi derlemek, dağıtmak ve yönetmek için Microso
 
 Bulut ölçeğinde Python ve CLI kullanarak ML modellerini eğitmek, dağıtmak ve yönetmek için Azure Machine Learning hizmetini kullanın.
 
->[!Note]
-> Azure Machine Learning’i ücretsiz deneyebilirsiniz. Kredi kartı veya Azure aboneliği gerektirmez. Hemen kullanmaya başlayın. https://azure.microsoft.com/free/
+Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
 
 ## <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
 

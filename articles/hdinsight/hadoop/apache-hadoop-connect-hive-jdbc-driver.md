@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: 225cb3d2f78f41bdb17763d13644c1d95bc62710
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c565ccf7ac04e2a3ba86e2fa256a05a9649d2de4
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014710"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166158"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Apache Hive JDBC sürücüsü, HDInsight ile sorgulama
 
@@ -90,7 +90,7 @@ SQuirreL SQL uzaktan HDInsight kümenizle Hive sorguları çalıştırmak için 
 
     * **Ad**: Hive
     * **Örnek URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
-    * **Ek sınıf yolu**: daha önce indirdiğiniz jar dosyalarının tümü eklemek için Ekle düğmesini kullanın.
+    * **Yol'ekstra sınıf**: Daha önce indirdiğiniz jar dosyalarının tümü eklemek için Ekle düğmesini kullanın.
     * **Sınıf adı**: org.apache.hive.jdbc.HiveDriver
 
    ![sürücü iletişim kutusu Ekle](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)
@@ -103,9 +103,9 @@ SQuirreL SQL uzaktan HDInsight kümenizle Hive sorguları çalıştırmak için 
 
 7. İçin aşağıdaki değerleri kullanın **diğer ad Ekle** iletişim.
 
-    * **Ad**: yığın üzerinde HDInsight
+    * **Ad**: HDInsight üzerinde hive
 
-    * **Sürücü**: seçmek için açılan listeyi kullanın **Hive** sürücü
+    * **Sürücü**: Seçmek için açılan listeyi kullanın **Hive** sürücü
 
     * **URL**: `jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
 
@@ -113,7 +113,7 @@ SQuirreL SQL uzaktan HDInsight kümenizle Hive sorguları çalıştırmak için 
 
     * **Kullanıcı adı**: HDInsight kümeniz için küme oturum açma hesabı adı. Varsayılan değer: `admin`.
 
-    * **Parola**: küme oturum açma hesabı için parola.
+    * **Parola**: Küme oturum açma hesabı için parola.
 
  ![diğer iletişim kutusu Ekle](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
 
@@ -140,7 +140,7 @@ HDInsight üzerinde bir Hive sorgusu için Java istemci kullanma örneği kullan
 
 ### <a name="unexpected-error-occurred-attempting-to-open-an-sql-connection"></a>Bir SQL bağlantı açılmaya çalışılırken beklenmeyen bir hata oluştu
 
-**Belirtiler**: sürüm 3.3 ya da daha büyük olan bir HDInsight kümesine bağlanırken beklenmeyen bir hata oluştu. bir hata alabilirsiniz. Bu hata için yığın izlemesi şu satır ile başlar:
+**Belirtiler**: Sürüm 3.3 ya da daha büyük olan bir HDInsight kümesine bağlanırken beklenmeyen bir hata oluştu. bir hata alabilirsiniz. Bu hata için yığın izlemesi şu satır ile başlar:
 
 ```java
 java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V

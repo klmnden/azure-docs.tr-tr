@@ -1,7 +1,7 @@
 ---
-title: Arama yanıtları - Bing Web araması API'si
+title: Bing Web araması API'si yanıt yapısı ve yanıt türleri
 titleSuffix: Azure Cognitive Services
-description: Yanıt türleri ve Bing Web araması API'si tarafından alınan yanıtları hakkında bilgi edinin.
+description: Bing Web araması API'si tarafından kullanılan yanıtlar ve yanıt türleri hakkında bilgi edinin.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: aahi
-ms.openlocfilehash: c7626f08dcfad76724a4d1f5d88fbd10c78c62c6
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec2018
+ms.openlocfilehash: 1d47d8e35a1be28b5610961c1b1c7b5d1492e871
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164793"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250510"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web araması API'si yanıt yapısı ve yanıt türleri  
 

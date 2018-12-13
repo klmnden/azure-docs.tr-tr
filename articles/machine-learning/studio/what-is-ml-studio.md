@@ -4,9 +4,9 @@ description: Kullanıma hazır bir algoritmalar ve modüller kitaplığından h�
 keywords: azure machine learning,azure ml, ml studio
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
+ms.author: garye
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
 ms.component: studio
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: cc76c7c4b4db448e9ba5b6aaf9c876143aa0e65c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b1c0d3da6dba4bf56baaf583d89c58fdc13ef83f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091705"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250527"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio nedir?
 Microsoft Azure Machine Learning Studio, verilerinizde tahmine dayalı analiz çözümleri oluşturma, test etme ve dağıtma amacıyla kullanabileceğiniz bir işbirliğine dayalı sürükle ve bırak aracıdır. Machine Learning Studio, modelleri özel uygulamalar veya Excel gibi BI araçları tarafından kolayca kullanılabilen web hizmetleri olarak yayımlar.
@@ -41,7 +41,7 @@ Programlama gerekmez; tahmine dayalı analiz modelinizi oluşturmak için veri k
 > 
 > 
 
-![Azure ML Studio diyagramı: Deneme oluşturma, birçok kaynak için veri okuma, puanlanmış veri yazma, model yazma.][ml-studio-overview]
+![Azure ML Studio diyagramı: Denemeleri oluşturmak, birçok kaynak için veri okuma, puanlanmış veri yazma, model yazma.][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>Machine Learning Studio ile çalışmaya başlama
 [Machine Learning Studio](https://studio.azureml.net)'ya ilk girişinizde **Giriş** sayfasını görürsünüz. Buradan belgeleri, videoları, web seminerlerini görüntüleyebilir ve diğer değerli kaynakları bulabilirsiniz.
@@ -146,19 +146,19 @@ Denetimli öğrenmede bir sahtekarlık algılama modelini eğitiyorsanız sahte 
 Bir modeli eğittikten sonra, kalan test verilerini kullanarak modeli değerlendirin. Modelinizin doğru tahmin yapıp yapmadığını anlamanız için sonuçlarını zaten bildiğiniz verileri kullanın.
 
 ## <a name="other-common-machine-learning-terms"></a>Diğer ortak makine öğrenimi terimleri
-* **algoritma**: Veri işleme, matematik veya otomatik mantık aracılığıyla sorunları çözmek için kullanılan bağımsız bir kural kümesi.
-* **anormallik algılama**: Sıra dışı olayları veya değerleri işaretleyen ve sorunları keşfetmenize yardımcı olan bir model. Örneğin, kredi kartı sahtekarlığı algılama modeli sıra dışı satın alama işlemlerini algılar.
-* **kategorik veri**: Kategorilere göre düzenlenmiş ve gruplara bölünebilen veriler. Örneğin, otomobiller için kategorik bir veri kümesi yıl, marka, model ve fiyatı belirtebilir.
-* **sınıflandırma**: Veri noktalarını, kategori gruplandırmalarının önceden bilindiği bir veri kümesini temel alarak kategorilere göre düzenlemeye yönelik bir model.
-* **özellik mühendisliği**: Veri kümesini iyileştirmek ve sonuçları geliştirmek amacıyla bir veri kümesiyle ilgili özellikleri ayıklama veya seçme işlemi. Örneğin, uçak bileti ücreti verileri, haftanın günleri ve tatil günlerine göre iyileştirilebilir. Bkz. [Azure Machine Learning'de özellik seçimi ve özellik mühendisliği](../team-data-science-process/create-features.md).
-* **modül**: Machine Learning Studio'da, küçük veri kümelerini girmeyi ve düzenlemeyi sağlayan Veri Girme modülü gibi işlevsel bir parçadır. Bir algoritma da Machine Learning Studio'da bir modül türüdür.
-* **model**: Denetimli öğrenme modeli; bir eğitim veri kümesi, bir algoritma modülü ve Score Model (Puan Modeli) modülü gibi işlevsel modüllerden oluşan bir makine öğrenimi denemesinin ürünüdür.
-* **sayısal veri**: Ölçümler (sürekli veriler) veya sayımlar (ayrık veriler) olarak anlam ifade eden veriler. *Nicel veri* olarak da adlandırılır.
-* **partition**: Verileri örneklere bölme yöntemi. Daha fazla bilgi için bkz. [Bölüm ve Örnek](https://msdn.microsoft.com/library/azure/dn905960.aspx) 
-* **tahmin**: Tahmin, makine öğrenimi modeline ilişkin bir değerin veya değerlerin öngörüsüdür. "Tahmin edilen puan" terimini de görebilirsiniz. Ancak, tahmin edilen puanlar bir modelin son çıktısı değildir. Puanın ardından modelin değerlendirmesi gelir.
-* **regresyon**: Bir araba fiyatını yılını ve markasını baz alarak tahmin etme gibi bağımsız değişkenlere bağlı bir değeri tahmin etmeye yönelik bir model.
-* **puan**: Machine Learning Studio'daki [Score Model (Model Puanlama) modülü](https://msdn.microsoft.com/library/azure/dn905995.aspx) kullanılarak eğitilmiş bir sınıflandırma veya regresyon modelinden oluşturulan tahmin edilen bir değer. Sınıflandırma modelleri, tahmin edilen değerin olasılığı için de bir puan döndürür. Bir modelden puan oluşturduktan sonra, [Evaluate Model (Model Değerlendirme) modülünü](https://msdn.microsoft.com/library/azure/dn905915.aspx) kullanarak modelin doğruluğunu değerlendirebilirsiniz.
-* **örnek**: Bütünü temsil etmesi hedeflenen bir veri kümesinin bir parçası. Örnekler, rastgele veya veri kümesinin belirli özellikleri temel alınarak seçilebilir.
+* **algoritma**: Kendi içinde veri işleme, matematik veya otomatik mantık aracılığıyla sorunları çözmek için kullanılan kuralları kümesi.
+* **anomali algılama**: Olağan dışı olayları veya değerleri işaretleyen ve yardımcı olan bir model sorunları keşfedin. Örneğin, kredi kartı sahtekarlığı algılama modeli sıra dışı satın alama işlemlerini algılar.
+* **Kategorik veriler**: Kategorilere göre düzenlenmiş ve gruplara bölünebilen veriler. Örneğin, otomobiller için kategorik bir veri kümesi yıl, marka, model ve fiyatı belirtebilir.
+* **Sınıflandırma**: Veri noktalarını, kategori gruplandırmaları zaten bilinen bir veri kümesi temel alınarak kategoriler halinde düzenlemek için bir model.
+* **özellik Mühendisliği**: Bir veri kümesine veri kümesini iyileştirmek ve sonuçları geliştirmek amacıyla ilgili özellikleri ayıklama veya seçme işlemi. Örneğin, uçak bileti ücreti verileri, haftanın günleri ve tatil günlerine göre iyileştirilebilir. Bkz. [Azure Machine Learning'de özellik seçimi ve özellik mühendisliği](../team-data-science-process/create-features.md).
+* **Modül**: Bir Machine Learning Studio modelinde, küçük veri kümelerini girmeyi ve düzenlemeyi sağlayan veri girme modülü gibi işlevsel bir parçası. Bir algoritma da Machine Learning Studio'da bir modül türüdür.
+* **Model**: Denetimli öğrenme modeli bir makine öğrenimi eğitim verileri, bir algoritma modülü ve Score Model modülü gibi işlevsel modüllerden denemesinin ürünüdür.
+* **sayısal veriler**: Ölçümler (sürekli veriler) olarak anlamı veya sayımlar (ayrık veriler) veriler. *Nicel veri* olarak da adlandırılır.
+* **bölüm**: Verileri örneklere bölme yöntemi. Daha fazla bilgi için bkz. [Bölüm ve Örnek](https://msdn.microsoft.com/library/azure/dn905960.aspx) 
+* **Tahmin**: Tahmin değeri ya da makine öğrenme modeli değerleri bir tahmin ' dir. "Tahmin edilen puan" terimini de görebilirsiniz. Ancak, tahmin edilen puanlar bir modelin son çıktısı değildir. Puanın ardından modelin değerlendirmesi gelir.
+* **Regresyon**: Bir değeri tahmin etmeye yönelik bir model, bir yıl temelinde bir araba fiyatını gibi bağımsız değişkenlere bağlı ve olun.
+* **puan**: Bir eğitilmiş bir sınıflandırma veya regresyon modelinden oluşturulan tahmin edilen bir değer kullanarak [Model Puanlama Modülü](https://msdn.microsoft.com/library/azure/dn905995.aspx) Machine Learning Studio'da. Sınıflandırma modelleri, tahmin edilen değerin olasılığı için de bir puan döndürür. Bir modelden puan oluşturduktan sonra, [Evaluate Model (Model Değerlendirme) modülünü](https://msdn.microsoft.com/library/azure/dn905915.aspx) kullanarak modelin doğruluğunu değerlendirebilirsiniz.
+* **örnek**: Tüm temsilcisi olmaya yönelik bir veri kümesinin bir parçası. Örnekler, rastgele veya veri kümesinin belirli özellikleri temel alınarak seçilebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Tahmine dayalı analizin ve makine öğreniminin temellerini, [adım adım öğretici](create-experiment.md) kullanarak ve [örnekler üzerinden giderek](sample-experiments.md) öğrenebilirsiniz.  

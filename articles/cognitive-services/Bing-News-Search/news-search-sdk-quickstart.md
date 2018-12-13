@@ -1,7 +1,7 @@
 ---
-title: "Hızlı başlangıç: Bing Haber Arama SDK'sı, C#"
+title: 'Hızlı Başlangıç: -Bing haber arama SDK için bir haber arama yapınC#'
 titleSuffix: Azure Cognitive Services
-description: Bing Haber Arama SDK'sı konsol uygulaması kurulumu.
+description: Bu hızlı başlangıçta Python için Bing haber arama SDK'sını kullanarak haber aramak için kullanın ve işlem yanıt.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 447c59d45e3b1614ce8dbddc56f9dba0dd156e90
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: d116f2553ce35c2d4041f37cc3fe4567e1595adc
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317067"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258772"
 ---
-# <a name="quickstart-bing-news-search-sdk-with-c"></a>Hızlı başlangıç: C# ile Bing Haber Arama SDK'sı
+# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Hızlı Başlangıç: Bing haber arama için SDK'sı ile bir haber arama yapınC#
 
 Bing Haber Arama SDK'sı, haber sorguları ve sonuçları ayrıştırmak için REST API işlevselliğini içerir. 
 

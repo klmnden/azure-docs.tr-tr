@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 51ae734a62de79d765ef1adc46b59fb98a5ca7e8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 348030d888383c497d80259b279056d8ff892bfe
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089199"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165531"
 ---
-# <a name="temperature-entity"></a>Sıcaklık varlığı
+# <a name="temperature-prebuilt-entity-for-a-luis-app"></a>Sıcaklık LUIS uygulaması için önceden oluşturulmuş varlık
 Sıcaklık sıcaklık türleri çeşitli ayıklar. Bu varlık zaten eğitildi çünkü uygulama sıcaklık içeren örnek Konuşma ekleme gerekmez. Sıcaklık varlık içerisinde desteklendiği [çok kültür](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-temperature"></a>Sıcaklık türleri
-Sıcaklık yönetilen engelle [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819) Github deposu
+Sıcaklık yönetilen engelle [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819) GitHub deposu
 
 ## <a name="resolution-for-prebuilt-temperature-entity"></a>Önceden oluşturulmuş sıcaklık varlık için çözümleme
 Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.temperature** varlık.

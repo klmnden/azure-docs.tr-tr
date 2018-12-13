@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 411ffd9479c3f686495de21b60ef0a811915c260
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e81b87a6cbaddf61492fa1fc41e66950eb7ce1d7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834579"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191640"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Azure Active Directory portalında riskli olarak işaretlenmiş kullanıcıları düzeltme
 
@@ -31,7 +31,7 @@ Bazı kullanıcılarınızın hesaplarına yetkisiz erişimi gösteriyor olabili
 
 ## <a name="access-the-users-flagged-for-risk-report"></a>Riskli olarak işaretlenen kullanıcılar raporuna erişme
 
-Risk için işaretlenmiş kullanıcıları gözden geçirebilirsiniz [risk altındaki kullanıcılar raporu](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) Azure portalında. Azure AD yoksa, ücretsiz, kaydolabilirsiniz [ https://aka.ms/AccessAAD ](https://aka.ms/AccessAAD). 
+Risk için işaretlenmiş kullanıcıları gözden geçirebilirsiniz [risk altındaki kullanıcılar raporu](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) Azure portalında. Azure AD yoksa, ücretsiz, kaydolabilirsiniz [ https://aka.ms/AccessAAD ](https://aka.ms/AccessAAD). 
 
 Risk raporu için işaretlenmiş kullanıcılar, her kullanıcı için aşağıdaki eylemleri gerçekleştirebilirsiniz:
 

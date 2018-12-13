@@ -12,19 +12,19 @@ ms.author: genemi
 ms.reviewer: billgib
 manager: craigg
 ms.date: 05/14/2018
-ms.openlocfilehash: b472baf77cc8f253337aa0780321a6e7dd3fecac
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: ec3f286791a3a2c7a3bebd84ba17a11571e389f8
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056701"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163982"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Video dizini oluşturulan ve Azure SQL veritabanı kullanan çok kiracılı SaaS uygulaması için açıklama
 
 Bu makalede, SaaS kiralama modelleri veya düzenleri hakkında video 81 bir dakikalık zaman konumlara ek açıklamalı bir dizindir. Bu makalede, geriye doğru atlamayı sağlar veya videonun hangi bölümünün için İleri ilginizi çeken. Videoda, Azure SQL veritabanı'nda bir çok kiracılı veritabanı uygulaması için önemli tasarım seçenekleri açıklanmaktadır. Video, tanıtımlar, yönetim kod Kılavuzlar ve yazılı belgelerimizde olabilir daha deneyimi hakkında bilgi sahibi olmak zamanlarda daha fazla ayrıntı içerir.
 
 Video bulunan belgelerimize yazılı olarak bilgi büyüten: 
-- *Kavramsal:* [çok kiracılı SaaS veritabanı kiracılı desenleri][saas-concept-design-patterns-563e]
+- *Kavramsal:* [Çok kiracılı SaaS veritabanı kiracılı desenleri][saas-concept-design-patterns-563e]
 - *Öğretici:* [Wingtip bilet SaaS uygulaması][saas-how-welcome-wingtip-app-679t]
 
 Video ve makale, Azure SQL veritabanı'nda bulut üzerinde çok kiracılı bir uygulama oluşturmanın birçok aşamaları açıklanmaktadır. Azure SQL veritabanı'nın özel özellikler geliştirmek ve çok kiracılı uygulamalar, her ikisi de daha kolay ve güvenilir bir şekilde yüksek performanslı uygulamak kolaylaştırır.
@@ -63,8 +63,8 @@ Aşağıdaki konu başlıklarını bağlantılar için bu makalenin devamındaki
 - [17. Kurallı karma çok kiracılı SaaS uygulaması, 0:47:33](#anchor-image-wtip-min04733)
 - [18. Wingtip SaaS örnek uygulaması, 0:48:10](#anchor-image-wtip-min04810)
 - [19. Senaryoları ve düzenleri öğreticiler, 0 incelediniz: 49:10](#anchor-image-wtip-min04910)
-- [20. Öğreticiler ve Github deposu, 0'ın Tanıtımı: 50:18](#anchor-image-wtip-min05018)
-- [21. Github deposunu Microsoft/WingtipSaaS, 0:50:38](#anchor-image-wtip-min05038)
+- [20. Öğreticiler ve GitHub deposu, 0'ın Tanıtımı: 50:18](#anchor-image-wtip-min05018)
+- [21. GitHub deposunu Microsoft/WingtipSaaS, 0:50:38](#anchor-image-wtip-min05038)
 - [22. Desenler, 0'ı keşfetme: 56:20](#anchor-image-wtip-min05620)
 - [23. Kiracılar ve ekleme, 0 sağlama: 57:44](#anchor-image-wtip-min05744)
 - [24. Kiracılar ve uygulama bağlantısı, 0 sağlama: 58:58](#anchor-image-wtip-min05858)
@@ -94,11 +94,11 @@ Herhangi bir ekran görüntüsünü tıklamak videoyu kesin zaman konumuna göt�
 &nbsp; <a name="anchor-image-wtip-min00001"/>
 #### <a name="1-start-welcome-slide-00001"></a>1. *(Başlangıç)*  Hoş Geldiniz slayt, 0:00:01
 
-*MYOB öğrenme: Azure SQL veritabanı - BRK3120 SaaS uygulamaları için Tasarım Düzenleri*
+*MYOB öğrenme: Azure SQL veritabanı - BRK3120 SaaS uygulamaları için Tasarım desenleri*
 
 [![Hoş Geldiniz slayt][image-wtip-min00003-brk3120-whole-welcome]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=1)
 
-- Başlık: MYOB öğrenme: Azure SQL veritabanı SaaS uygulamaları için Tasarım Düzenleri
+- Başlık: MYOB öğrenme: Azure SQL veritabanı SaaS uygulamaları için Tasarım desenleri
 - Bill.Gibson@microsoft.com
 - Baş Program Yöneticisi, Azure SQL veritabanı
 - Microsoft Ignite oturumu BRK3120, Orlando, FL ABD, 11 Ekim 2017
@@ -121,7 +121,7 @@ Herhangi bir ekran görüntüsünü tıklamak videoyu kesin zaman konumuna göt�
 
 &nbsp; <a name="anchor-image-wtip-min00505"/>
 #### <a name="4-multi-tenant-web-app-00500"></a>4. Çok kiracılı web uygulaması, 0:05:00
-[![Wingtip SaaS uygulaması: çok kiracılı web uygulaması][image-wtip-min00505-web-app]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=300)
+[![Wingtip SaaS uygulaması: Çok kiracılı web uygulaması][image-wtip-min00505-web-app]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=300)
 
 
 &nbsp; <a name="anchor-image-wtip-min00555"/>
@@ -199,13 +199,13 @@ Herhangi bir ekran görüntüsünü tıklamak videoyu kesin zaman konumuna göt�
 
 
 &nbsp; <a name="anchor-image-wtip-min05018"/>
-#### <a name="20-demo-of-tutorials-and-github-repository-05012"></a>20. Öğreticiler ve Github deposu, 0'ın Tanıtımı: 50:12
-[![Tanıtım öğreticilerine ve Github deposu][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
+#### <a name="20-demo-of-tutorials-and-github-repository-05012"></a>20. Öğreticiler ve GitHub deposu, 0'ın Tanıtımı: 50:12
+[![Tanıtım öğreticilerine ve GitHub deposu][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
 
 
 &nbsp; <a name="anchor-image-wtip-min05038"/>
-#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. Github deposunu Microsoft/WingtipSaaS, 0:50:32
-[![Github deposunu Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
+#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. GitHub deposunu Microsoft/WingtipSaaS, 0:50:32
+[![GitHub deposunu Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
 
 
 &nbsp; <a name="anchor-image-wtip-min05620"/>
@@ -294,14 +294,14 @@ Herhangi bir ekran görüntüsünü tıklamak videoyu kesin zaman konumuna göt�
 
 - [Blog gönderisi, 22 Mayıs 2017][resource-blog-saas-patterns-app-dev-sql-db-768h]
 
-- *Kavramsal:* [çok kiracılı SaaS veritabanı kiracılı desenleri][saas-concept-design-patterns-563e]
+- *Kavramsal:* [Çok kiracılı SaaS veritabanı kiracılı desenleri][saas-concept-design-patterns-563e]
 
 - *Öğretici:* [Wingtip bilet SaaS uygulaması][saas-how-welcome-wingtip-app-679t]
 
-- Github depoları için Wingtip bilet SaaS kiralama uygulama türü:
-    - [-Tek başına uygulama modeli için Github deposunu][github-wingtip-standaloneapp].
-    - [-DB başına Kiracı modeli için Github deposunu][github-wingtip-dbpertenant].
-    - [-Çok Kiracılı DB modeli için Github deposunu][github-wingtip-multitenantdb].
+- GitHub depoları için Wingtip bilet SaaS kiralama uygulama türü:
+    - [-Tek başına uygulama modeli için GitHub deposunu][github-wingtip-standaloneapp].
+    - [-DB başına Kiracı modeli için GitHub deposunu][github-wingtip-dbpertenant].
+    - [-Çok Kiracılı DB modeli için GitHub deposunu][github-wingtip-multitenantdb].
 
 
 
@@ -322,7 +322,7 @@ Herhangi bir ekran görüntüsünü tıklamak videoyu kesin zaman konumuna göt�
 
 [image-wtip-min00417-agenda]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00417-agenda-app-management-models-patterns.png "Gündem."
 
-[image-wtip-min00505-web-app]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00505-wingtip-saas-app-mt-web.png "Wingtip SaaS uygulaması: çok kiracılı web uygulaması"
+[image-wtip-min00505-web-app]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00505-wingtip-saas-app-mt-web.png "Wingtip SaaS uygulaması: Çok kiracılı web uygulaması"
 
 [image-wtip-min00555-app-web-form]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00555-app-form-contoso-concert-hall-night-opera.png "Uygulamada uygulama web formu"
 
@@ -354,9 +354,9 @@ Herhangi bir ekran görüntüsünü tıklamak videoyu kesin zaman konumuna göt�
 
 [image-wtip-min04910-scenarios-tutorials]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min04910-scenarios-patterns-explored-tutorials.png "Senaryolar ve öğreticilerde incelediniz desenleri"
 
-[image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "Öğreticiler ve Github deposunun Tanıtımı"
+[image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "Öğreticiler ve GitHub deposunun Tanıtımı"
 
-[image-wtip-min05038-github-wingtipsaas]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05038-github-repo-wingtipsaas.png "Github deposunu Microsoft/WingtipSaaS"
+[image-wtip-min05038-github-wingtipsaas]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05038-github-repo-wingtipsaas.png "GitHub deposunu Microsoft/WingtipSaaS"
 
 [image-wtip-min05620-exploring-patterns]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05620-exploring-patterns-tutorials.png "Desenler keşfetme"
 

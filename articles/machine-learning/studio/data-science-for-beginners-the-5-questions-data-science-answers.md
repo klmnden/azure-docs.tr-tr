@@ -4,10 +4,9 @@ description: Yeni başlayanlar için veri bilimi 5 sorular veri Biliminin yanıt
 keywords: Veri bilimi, veri bilimi yeni başlayanlar, veri bilimi yapmak, yeni başlayanlar, veri bilimi temelleri, veri bilimi soruları, veri bilimi video, veri bilimi giriş
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.author: garye
 editor: cjgronlund
 ms.assetid: a01f93ee-01eb-4afe-abbd-cfa035c119b0
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 1f8de5cca7495c407c4fd7b4bf0b2295b3ae8e16
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 9f6d951dcbb0a0a01961bf3f6c924a0c40fd4d29
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073882"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252924"
 ---
-# <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Yeni Başlayanlar için Veri Bilimi video 1: Veri bilimiyle ilgili 5 sorunun yanıtı
+# <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Veri bilimi video 1 yeni başlayanlar için: 5 veri biliminin yanıtladığı sorular
 Veri bilimi için hızlı bir giriş yapın *yeni başlayanlar için veri bilimi* beş kısa videolardan bir veri bilimi insanı olarak. Bu videolarda temel ancak yararlı veri bilimi ilginizi çeken veya veri uzmanları ile çalışır.
 
 Bu ilk video, veri bilimi neredeyse tümünü cevaplayabilir soru türleri hakkında olur. En yetersiz serisi almak için tüm bunları izleyin. [Videoları listesine Git](#other-videos-in-this-series)
@@ -38,10 +37,10 @@ Bu ilk video, veri bilimi neredeyse tümünü cevaplayabilir soru türleri hakk�
 *Yeni başlayanlar için veri bilimi* veri bilimi yaklaşık 25 dakika toplam alma için hızlı bir giriş niteliğindedir. Tüm beş videosuna göz atın:
 
 * Video 1: 5 veri biliminin yanıtladığı sorular
-* Video 2: [verileriniz veri bilimi için hazır mı?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 dk 56 sn)*
-* Video 3: [verilerle yanıt soru](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 dk 17 sn)*
-* Video 4: [basit model ile yanıtı tahmin etme](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 dk 42 sn)*
-* Video 5: [veri bilimi için başkalarının çalışmalarını kopyalama](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 dk 18 sn)*
+* Video 2: [Verileriniz veri bilimi için hazır mı?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 dk 56 sn)*
+* Video 3: [Yanıt verileri ile soru](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 dk 17 sn)*
+* Video 4: [Basit bir model ile yanıtı tahmin etme](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 dk 42 sn)*
+* Video 5: [Veri bilimi için başkalarının çalışmalarını kopyalama](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 dk 18 sn)*
 
 ## <a name="transcript-the-5-questions-data-science-answers"></a>Transkript: 5 veri biliminin yanıtladığı sorular
 Merhaba! Video serisine Hoş Geldiniz *yeni başlayanlar için veri bilimi*.
@@ -64,10 +63,10 @@ Bu soruların her biri ayrı bir makine öğrenme yöntemleri ve algoritma adı 
 
 Bir tarifi olarak bir algoritma ve verilerinizi malzemeleri gerektiği hakkında düşünmek faydalıdır. Algoritma, birleştirmek ve bir yanıt almak için verileri karıştırın anlatır. Blender'ı gibi bilgisayarlardır. Bunlar algoritmasının sabit işin çoğunu sizin için gerçekleştirmesini ve bunlar oldukça çabuk yapın.
 
-## <a name="question-1-is-this-a-or-b-uses-classification-algorithms"></a>1. Soru: Bu A veya B mi? Sınıflandırma algoritmaları kullanır.
-Sorunun ile başlayalım: Bu A veya B?
+## <a name="question-1-is-this-a-or-b-uses-classification-algorithms"></a>Soru 1: Bu A veya B mi? Sınıflandırma algoritmaları kullanır.
+Sorunun ile başlayalım: Bu A veya B mi?
 
-![Sınıflandırma algoritmaları: Bu A veya B?](./media/data-science-for-beginners-the-5-questions-data-science-answers/classification-algorithms.png)
+![Sınıflandırma algoritmaları: Bu A veya B mi?](./media/data-science-for-beginners-the-5-questions-data-science-answers/classification-algorithms.png)
 
 Bu algoritma ailesi, iki sınıflı sınıflandırma adı verilir.
 
@@ -78,26 +77,26 @@ Yalnızca iki olası yanıtların olan herhangi bir soru için kullanışlıdır
 * Bu Lastik sonraki 1.000 mili başarısız olur: Evet veya Hayır?
 * Daha fazla müşteriye getirir: $5 kupon veya % 25 indirim?
 
-Bu soru da ikiden fazla seçenekleri içerecek şekilde rephrased: Bu bir A veya B veya C veya D, vb..?  Birkaç olduğunda bu çok sınıflı sınıflandırma ya da onun yararlı adlandırılır — ya da birkaç bin — olası yanıtlar. Sınıflı sınıflandırma büyük olasılıkla seçer.
+Bu soruyu ikiden fazla seçenekleri içerecek şekilde de rephrased: Bu bir A veya B veya C veya D, vb..?  Birkaç olduğunda bu çok sınıflı sınıflandırma ya da onun yararlı adlandırılır — ya da birkaç bin — olası yanıtlar. Sınıflı sınıflandırma büyük olasılıkla seçer.
 
-## <a name="question-2-is-this-weird-uses-anomaly-detection-algorithms"></a>2. Soru: Bu tuhaf mi? anomali algılama algoritmalarını kullanır.
-Veri bilimi yanıtlarını alabileceğiniz Sonraki Soru: Bu tuhaf olan? Bu soruyu adlı anomali algılama algoritmalarını ailesi tarafından yanıtlanır.
+## <a name="question-2-is-this-weird-uses-anomaly-detection-algorithms"></a>Soru 2: Bu tuhaf mi? anomali algılama algoritmalarını kullanır.
+Veri bilimi neredeyse tümünü cevaplayabilir sonraki soru da şudur: Bu tuhaf mi? Bu soruyu adlı anomali algılama algoritmalarını ailesi tarafından yanıtlanır.
 
-![Anomali algılama algoritmalarını: Bu tuhaf olan?](./media/data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
+![Anomali algılama algoritmalarını: Bu tuhaf mi?](./media/data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
 
 Bir kredi kartınız varsa, anomali algılama zaten benefited. Böylece bunlar, olası bir sahtekarlık Uyarısı, kredi kartı şirketiniz, satın alma düzenleri analiz eder. Burada, normalde alışveriş olmayan bir mağaza ya da çok pahalı bir öğe satın satın "tuhaf" ücretleri olabilir.
 
 Bu soruyu yolu çok sayıda yararlı olabilir. Örneğin:
 
-* Basınç Ölçerleri içeren bir araba varsa bilmek isteyebilirsiniz: olduğundan bu baskısı normal okuma ölçer?
-* İnternet izliyorsanız bilmek istersiniz: internet'ten bu iletiyi normaldir?
+* Basınç Ölçerleri içeren bir araba varsa bilmek isteyebilirsiniz: Bu baskısı ölçer normal okunuyor?
+* İnternet izliyorsanız bilmek istersiniz: Bu ileti, tipik internet'ten mi?
 
 Anomali algılama, olağan dışı ya da beklenmeyen olaylar veya davranışları işaretler. Bu sorunları aranacağı nedene verir.
 
 ## <a name="question-3-how-much-or-how-many-uses-regression-algorithms"></a>Soru 3: Ne kadar? veya nasıl birçok? regresyon algoritmaları kullanır.
 Machine learning ayrıca nasıl yanıt çok tahmin edebilir? veya nasıl birçok? Bu soruyu yanıtlar algoritması ailesini regresyon çağrılır.
 
-![Regresyon algoritmaları: ne kadar? veya nasıl birçok?](./media/data-science-for-beginners-the-5-questions-data-science-answers/regression-algorithms.png)
+![Regresyon algoritmaları: Ne kadar? veya nasıl birçok?](./media/data-science-for-beginners-the-5-questions-data-science-answers/regression-algorithms.png)
 
 Regresyon algoritmaları gibi sayısal Öngörüler oluşturun:
 
@@ -106,14 +105,14 @@ Regresyon algoritmaları gibi sayısal Öngörüler oluşturun:
 
 Bunlar, bir numarasını sorar herhangi bir sorunun yanıtlanmasına yardımcı olmak.
 
-## <a name="question-4-how-is-this-organized-uses-clustering-algorithms"></a>4. Soru: Bu nasıl düzenlenir? algoritmalar kümeleme kullanır.
+## <a name="question-4-how-is-this-organized-uses-clustering-algorithms"></a>Soru 4: Bu nasıl düzenlendiği? algoritmalar kümeleme kullanır.
 Son iki soruları daha gelişmiş bir bit sunulmuştur.
 
 Bazen bir veri kümesi - yapısını anlamak istediğiniz nasıl bu düzenlenir? Bu soru için sonuçlarını zaten bildiğiniz örnek yok.
 
 Çok sayıda veri yapısını çıkarabilmek için yol vardır. Bir yaklaşım kümeleme. Bu veri doğal "kümeler," daha kolay yorumlanması için ayırır. Kümeleme ile bir doğru yanıt yoktur.
 
-![Algoritmalar kümeleme: nasıl bu düzenlenir?](./media/data-science-for-beginners-the-5-questions-data-science-answers/clustering-algorithms.png)
+![Kümeleme algoritmaları: Bu nasıl düzenlendiği?](./media/data-science-for-beginners-the-5-questions-data-science-answers/clustering-algorithms.png)
 
 Genel kümeleme sorular örnekleri şunlardır:
 
@@ -129,13 +128,13 @@ RAT ve insanlar brains punishment ve ödüller için vereceği tarafından peki�
 
 Genellikle, pekiştirmeye dayalı öğrenme İnsan yönergeler olmayan küçük kararları çok sayıda yapmak zorunda otomatik sistemler için uygun olur.
 
-![Öğrenimi algoritmaları pekiştirmeye: ne yapmalıyım?](./media/data-science-for-beginners-the-5-questions-data-science-answers/reinforcement-learning-algorithms.png)
+![Pekiştirmeye öğrenme algoritmalarını: Ne sonraki yapmalıyım?](./media/data-science-for-beginners-the-5-questions-data-science-answers/reinforcement-learning-algorithms.png)
 
 Bu yanıtlar sorular, hangi eylemi hakkında - genellikle bir makine ya da bir robot tarafından gerçekleştirilmelidir her zaman vardır. Örnekler şunlardır:
 
-* Sıcaklık denetimi Sistemi'nde bir ev 'M: sıcaklık ayarlamak veya olduğu bırakın?  
-* Sürücüsüz araba müşterisiysem,: sarı bir ışık hızınızı veya hızlandırın?  
-* İçin robot elektrikli: vacuuming koruyabilir veya şarj istasyona geri dönün?
+* Sıcaklık denetimi Sistemi'nde bir ev müşterisiysem: Sıcaklık ayarlamak veya olduğu bırakın?  
+* Sürücüsüz araba müşterisiysem: Sarı bir ışık hızınızı veya hızlandırın?  
+* İçin robot elektrikli: Vacuuming koruyabilir veya şarj istasyona geri dönün?
 
 Deneme yanılma öğrenme Git gibi pekiştirmeye öğrenme algoritmalarını verileri toplayın.
 

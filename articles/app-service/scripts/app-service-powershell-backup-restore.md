@@ -3,8 +3,8 @@ title: Azure PowerShell betik örneği - bir web uygulamasını yedekten geri y�
 description: Azure PowerShell betik örneği - bir web uygulamasını yedekten geri yükleme
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: jpconnoc
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
@@ -13,16 +13,16 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 ms.date: 11/21/2018
-ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 6e8d950db6facacd9ae84566c6e85a14657050fe
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: 1f9e35c471ef846a77667eee94f0e048bd914710
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292175"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193357"
 ---
-# <a name="restore-a-web-app-from-a-backup"></a>Bir web uygulamasını yedekten geri yükleme
+# <a name="restore-a-web-app-from-a-backup-using-azure-powershell"></a>Bir web uygulaması, Azure PowerShell kullanarak bir yedekten geri yükleyin
 
 Bu örnek betik, mevcut bir web uygulamasından önceden tamamlanmış bir yedekleme alır ve içeriğinin üzerine yazarak geri yükler. 
 

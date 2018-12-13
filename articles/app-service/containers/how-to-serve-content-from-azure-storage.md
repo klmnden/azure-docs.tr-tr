@@ -1,5 +1,5 @@
 ---
-title: Linux üzerinde App Service'te Azure Depolama'dan içerik sunma
+title: Linux'ta - App Service, Azure Depolama'dan içerik sunma
 description: Yapılandırma ve Linux üzerinde Azure App Service'te Azure Depolama'dan içerik sunma hakkında.
 author: msangapu
 manager: jeconnoc
@@ -8,12 +8,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: msangapu
-ms.openlocfilehash: f28a07d775071a92e6183587add1ceabc48ef416
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 855df2820db6bba2b47d543ab671bee2193d7d9b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968912"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250937"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Linux üzerinde App Service'te Azure Depolama'dan içerik sunma
 

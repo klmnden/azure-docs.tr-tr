@@ -1,5 +1,5 @@
 ---
-title: Azure App Service için Yerel Git Dağıtımı
+title: Yerel Git deposundan - Azure App Service'e dağıtın
 description: Azure App Service için yerel Git dağıtımı nasıl etkinleştireceğinizi öğrenin.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: a4c96ea75bae69fa5a1af13e4e8b908759817e95
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 242eb906c95b373b2edd538be5f06756cac1e8c9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959334"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256527"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service için Yerel Git Dağıtımı
 
@@ -157,23 +158,23 @@ Yaygın hatalar veya sorunlar App Service uygulamanızı Azure'a yayımlamak iç
 ---
 **Belirti**: `Unable to access '[siteURL]': Failed to connect to [scmAddress]`
 
-**Neden**: uygulama çalışmaya değilse bu hata oluşabilir.
+**Neden**: Uygulamayı çalışır duruma gelmezse, bu hata oluşabilir.
 
 **Çözüm**: Azure portalında uygulamayı başlatın. Git dağıtımını Web App durdurulduğunda kullanılamıyor.
 
 ---
 **Belirti**: `Couldn't resolve host 'hostname'`
 
-**Neden**: 'azure' uzak oluştururken girdiğiniz adresi bilgi doğru değilse bu hata oluşabilir.
+**Neden**: 'Azure' uzaktan oluşturma sırasında girilen adres bilgilerini yanlış bu hata oluşabilir.
 
-**Çözüm**: kullanım `git remote -v` ilişkili URL ile birlikte tüm uzaktan kumandalar listelemek için komutu. 'Azure' uzak URL'nin doğru olduğunu doğrulayın. Gerekirse, kaldırmak ve doğru URL'yi kullanarak bu uzaktan yeniden oluşturun.
+**Çözüm**: Kullanım `git remote -v` ilişkili URL ile birlikte tüm uzaktan kumandalar listelemek için komutu. 'Azure' uzak URL'nin doğru olduğunu doğrulayın. Gerekirse, kaldırmak ve doğru URL'yi kullanarak bu uzaktan yeniden oluşturun.
 
 ---
 **Belirti**: `No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`
 
-**Neden**: dal sırasında belirtmezseniz, bu hata oluşabilir `git push`, veya ayarlamasını yapmadığınızı `push.default` değerini `.gitconfig`.
+**Neden**: Bir dal sırasında belirtmezseniz, bu hata oluşabilir `git push`, veya ayarlamasını yapmadığınızı `push.default` değerini `.gitconfig`.
 
-**Çözüm**: çalıştırma `git push` tekrar ana dal belirtme. Örneğin:
+**Çözüm**: Çalıştırma `git push` tekrar ana dal belirtme. Örneğin:
 
 ```bash
 git push azure master
@@ -182,9 +183,9 @@ git push azure master
 ---
 **Belirti**: `src refspec [branchname] does not match any.`
 
-**Neden**: ana dışındaki bir dalı 'azure' uzak deposuna gönderin denerseniz bu hata oluşabilir.
+**Neden**: Ana dışındaki bir dalı 'azure' uzak deposuna gönderin denerseniz bu hata oluşabilir.
 
-**Çözüm**: çalıştırma `git push` tekrar ana dal belirtme. Örneğin:
+**Çözüm**: Çalıştırma `git push` tekrar ana dal belirtme. Örneğin:
 
 ```bash
 git push azure master
@@ -193,9 +194,9 @@ git push azure master
 ---
 **Belirti**: `RPC failed; result=22, HTTP code = 5xx.`
 
-**Neden**: HTTPS üzerinden büyük git deposu göndermeyi denerseniz bu hata oluşabilir.
+**Neden**: Büyük git deposu HTTPS üzerinden göndermeyi denerseniz bu hata oluşabilir.
 
-**Çözüm**: yerel makinede postBuffer büyütmeniz için git yapılandırmasını değiştirme
+**Çözüm**: Yerel makinede postBuffer büyütmeniz için git yapılandırmasını değiştirme
 
 ```bash
 git config --global http.postBuffer 524288000
@@ -204,9 +205,9 @@ git config --global http.postBuffer 524288000
 ---
 **Belirti**: `Error - Changes committed to remote repository but your web app not updated.`
 
-**Neden**: ile bir Node.js uygulaması dağıtırsanız, bu hata oluşabilir bir _package.json_ ek gerekli modülleri belirten dosyası.
+**Neden**: İle bir Node.js uygulaması dağıtırsanız, bu hata oluşabilir bir _package.json_ ek gerekli modülleri belirten dosyası.
 
-**Çözüm**: 'npm hata!' ile ek iletiler önce bu hata oturum açmış olmanız ve ek bağlam hatası sağlayabilir. Aşağıdaki bilinen nedenlerini bu hatayı ve karşılık gelen 'npm hata!' İleti:
+**Çözüm**: 'Npm hata!' ile ek iletiler önce bu hata oturum açmış olmanız ve ek bağlam hatası sağlayabilir. Aşağıdaki bilinen nedenlerini bu hatayı ve karşılık gelen 'npm hata!' İleti:
 
 * **Hatalı biçimlendirilmiş bir package.json dosyası**: npm hata! Bağımlılıkları okunamadı.
 * **İkili bir dağıtım için Windows olmayan yerel modül**:

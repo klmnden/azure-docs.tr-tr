@@ -9,12 +9,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: e1d8f41c55ffd453507804b005d10620665b512c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f1588cac61d0cef821dc15019683f67c2962f049
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222044"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255389"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Azure Cosmos DB Cassandra API'SİNİN verileri Azure Databricks erişim
 
@@ -44,7 +44,7 @@ Bu makalede ayrıntıları veritabanlarıyla Azure Cosmos DB Cassandra API'SİN�
   spark.cassandra.auth.password YOUR_COSMOSDB_KEY
   ```
 
-## <a name="add-the-required-dependencies"></a>Gerekli bağımlılıkları Ekle
+## <a name="add-the-required-dependencies"></a>Gerekli bağımlılıkları ekleme
 
 * **Cassandra Spark Bağlayıcısı:** - Azure Cosmos DB Cassandra API'SİNİN Spark Bağlayıcısı Azure Databricks kümesine bağlı Cassandra ile tümleştirmek için. Kümeye eklemek için:
 
@@ -52,9 +52,9 @@ Bu makalede ayrıntıları veritabanlarıyla Azure Cosmos DB Cassandra API'SİN�
 
 * **Azure Cosmos DB Cassandra API özgü kitaplığı:** -özel bağlantı üreteci için Azure Cosmos DB Cassandra API'SİNİN Cassandra Spark Bağlayıcıdan yeniden deneme ilkesi yapılandırmak için gereklidir. Ekleme `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0` [maven koordinatları](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) kümeye kitaplık ekleme için.
 
-## <a name="sample-notebooks"></a>Örnek Not Defterleri
+## <a name="sample-notebooks"></a>Örnek not defterleri
 
-Azure Databricks listesini [örnek not defterleri](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/notebooks/scala) Github deposunu, karşıdan yüklemek kullanılabilir. Bu örnekler Spark'tan Azure Cosmos DB Cassandra API'sine bağlanmak ve verileri farklı CRUD işlemleri gerçekleştirmek nasıl içerir. Ayrıca [tüm not defterlerinin alma](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/dbc) , Databricks çalışma alanı küme ve çalıştırın. 
+Azure Databricks listesini [örnek not defterleri](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/notebooks/scala) GitHub deposunu, karşıdan yüklemek kullanılabilir. Bu örnekler Spark'tan Azure Cosmos DB Cassandra API'sine bağlanmak ve verileri farklı CRUD işlemleri gerçekleştirmek nasıl içerir. Ayrıca [tüm not defterlerinin alma](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/dbc) , Databricks çalışma alanı küme ve çalıştırın. 
 
 ## <a name="accessing-azure-cosmos-db-cassandra-api-from-spark-scala-programs"></a>Spark Scala programlarından Azure Cosmos DB Cassandra API'sine erişme
 
@@ -67,4 +67,4 @@ Yardımcı olmak için bağlantılar, Azure Cosmos DB Cassandra API ile etkileş
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kullanmaya başlama [Cassandra API hesabı, veritabanı ve tablo oluşturma](create-cassandra-api-account-java.md) bir Java uygulaması kullanarak.
+Java uygulaması kullanarak [Cassandra API hesabı, veritabanı ve tablo oluşturmaya](create-cassandra-api-account-java.md) başlama.

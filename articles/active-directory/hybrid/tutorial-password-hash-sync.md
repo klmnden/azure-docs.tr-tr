@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: parola karması eşitleme (PHS) kullanarak azure'da tek bir AD ormanında tümleştirme | Microsoft Docs"
+title: "Öğretici:  Parola Karması eşitleme (PHS) kullanarak azure'da tek bir AD ormanında tümleştirme | Microsoft Docs"
 description: Parola Karması eşitleme kullanarak bir karma kimlik ortamını ayarlama işlemi gösterilmektedir.
 services: active-directory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4e8a39e16bd67169aac8dd7328338197b604e93f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a8dfe39dc3d32ca96d6252bac96a2e7abc09eee5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426919"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164720"
 ---
-# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Öğretici: parola karması eşitleme (PHS) kullanarak tek bir AD ormanında tümleştirin
+# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Öğretici:  Parola karması eşitleme (PHS) kullanarak tek bir AD ormanında tümleştirme
 
 ![Oluştur](media/tutorial-password-hash-sync/diagram.png)
 
@@ -81,7 +81,7 @@ Sanal makine oluşturma işlemini tamamlamak için işletim sistemi yüklemesini
 5. Tıklayın **Şimdi Yükle**.
 6. Lisans anahtarınızı girip __iade **sonraki**.
 7. Denetleme ** lisans koşullarını kabul edin ve tıklayın **sonraki**.
-8. Seçin **özel: yalnızca Windows yükleyin (Gelişmiş)**
+8. Seçin **özel:  Yalnızca Windows yükleyin (Gelişmiş)**
 9. **İleri**’ye tıklayın
 10. Yükleme tamamlandıktan sonra VM'yi en güncel olduğundan emin olmak için oturum açma ve çalıştırma Windows güncelleştirmeleri, sanal makineyi yeniden başlatın.  En son güncelleştirmeleri yüklersiniz.
 
@@ -192,7 +192,7 @@ Azure AD kiracısı sahibiz, genel yönetici hesabını oluşturacağız.  Bu he
 1.  **Yönet** bölümünde **Kullanıcılar**’ı seçin.</br>
 ![Oluşturma](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Seçin **tüm kullanıcılar** seçip **+ yeni kullanıcı**.
-3.  Bu kullanıcı için bir ad ve kullanıcı adı sağlayın. Bu kiracının genel Yöneticisi olacaktır. Ayrıca değiştirmek isteyeceksiniz **dizin rolü** için **genel yönetici.** Geçici parolayı da gösterebilirsiniz. İşiniz bittiğinde **Oluştur**.</br>
+3.  Bu kullanıcı için bir ad ve kullanıcı adı sağlayın. Bu kiracının genel Yöneticisi olacaktır. Ayrıca değiştirmek isteyeceksiniz **dizin rolü** için **genel yönetici.** Geçici parolayı da gösterebilirsiniz. İşiniz bittiğinde **Oluştur**’u seçin.</br>
 ![Oluşturma](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. Bu tamamlandıktan sonra yeni bir web tarayıcısı açın ve yeni genel yönetici hesabını ve geçici parolayı kullanarak myapps.microsoft.com için oturum açın.
 5. Genel yönetici, hatırlanır bir şey için parolayı değiştirin.
@@ -205,8 +205,8 @@ Artık Azure AD Connect karşıdan yüklenip kurulacak zamanı geldi.  Yüklendi
 3. Hoş Geldiniz ekranında, lisans koşullarını kabul ettiğinizi belirten kutuyu seçin ve **Devam**'a tıklayın.  
 4. Hızlı ayarlar ekranında **Hızlı ayarları kullan**'a tıklayın.</br>  
 ![Oluşturma](media/tutorial-password-hash-sync/express1.png)</br>
-5. Bağlanma ekranında Azure AD, Azure AD için kullanıcı ve genel yönetici parolasını girin. **İleri**’ye tıklayın.  
-6. AD DS'ye Bağlanma ekranında kuruluş yöneticisi hesabına ilişkin kullanıcı adını ve parolayı girin. **İleri**’ye tıklayın.  
+5. Bağlanma ekranında Azure AD, Azure AD için kullanıcı ve genel yönetici parolasını girin. **İleri**'ye tıklayın.  
+6. AD DS'ye Bağlanma ekranında kuruluş yöneticisi hesabına ilişkin kullanıcı adını ve parolayı girin. **İleri**'ye tıklayın.  
 7. Yapılandırma için hazır ekranında **Yükle**'ye tıklayın.
 8. Yükleme tamamlandığında **Çıkış**'a tıklayın.
 9. Yükleme tamamlandıktan sonra oturumu kapatın ve Eşitleme Hizmeti Yöneticisi'ni veya Synchronization Rule Editor'ı kullanmadan önce yeniden oturum açın.

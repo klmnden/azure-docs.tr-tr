@@ -1,5 +1,5 @@
 ---
-title: Linux üzerinde Azure App Service’te .NET Core ve SQL Veritabanı uygulaması oluşturma | Microsoft Docs
+title: Derleme .NET Core uygulaması Linux - Azure App Service üzerinde SQL veritabanı ile | Microsoft Docs
 description: Linux üzerinde, Azure App Service’te çalışan ve bir SQL Veritabanı’na bağlantısı olan bir .NET Core uygulamasını nasıl edinebileceğinizi öğrenin.
 services: app-service\web
 documentationcenter: dotnet
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: ddea4621277303dd6c153205b683b4eea0151db0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: cb81699671bd2a0e86838d043ad0a4442eb79a6c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432271"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254250"
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service’te .NET Core ve SQL Veritabanı uygulaması oluşturma
 
@@ -44,7 +44,7 @@ Aşağıdakileri nasıl yapacağınızı öğreneceksiniz:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -330,7 +330,7 @@ Boş `<th></th>` öğesini arayın. Bu öğenin hemen üstüne aşağıdaki Razo
 
 ```csharp
 <td>
-    @Html.DisplayFor(modelItem => item.CreatedDate)
+    @Html.DisplayFor(modelItem => item.Done)
 </td>
 ```
 

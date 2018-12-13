@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services ile videoları analiz etme | Microsoft Docs
+title: Medya Hizmetleri - Azure ile videoları analiz etme | Microsoft Docs
 description: Azure Media Services kullanarak videoları analiz etmek için bu öğreticideki adımları izleyin.
 services: media-services
 documentationcenter: ''
@@ -9,17 +9,17 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 11/08/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 3f0d6784f7b7c476313c5cc4190cacd99e4c3973
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.custom: seodec18
+ms.openlocfilehash: 42ffecec896265f99a8f1f0b43b47c1988a493d6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612773"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133902"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>Öğretici: API kullanarak videoları Media Services v3 ile analiz
+# <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>Öğretici: Media Services v3 ile API'lerini kullanarak videoları analiz etme
 
 Bu öğreticide Azure Media Services ile videoları analiz etme işlemi gösterilir. Kayıtlı videolar veya ses içerikleri hakkında derin içgörüler kazanmak isteyebileceğiniz çok sayıda senaryo mevcuttur. Örneğin, daha yüksek müşteri memnuniyeti elde etmek isteyen kuruluşlar, müşteri destek kayıtlarını dizinler ve panolarla aranabilir bir katalog haline getirmek için konuşmayı metne dönüştürme işlemini çalıştırabilir. Ardından, kendi iş yaygın şikayetlerinden listesi, kaynaklarına böyle şikayetlerinin ve diğer yararlı bilgiler gibi Öngörüler elde edebilirsiniz.
 
@@ -115,7 +115,7 @@ Bir **Dönüşüm** oluştururken ilk olarak aşağıdaki kodda gösterildiği g
 
 #### <a name="job"></a>İş
 
-Yukarıda bahsedildiği gibi [Transform](https://docs.microsoft.com/rest/api/media/transforms) nesnesi tarif, [Job](https://docs.microsoft.com/rest/api/media/jobs) ise bu **Transform** nesnesini belirli bir giriş videosu veya ses içeriğine uygulamak için Media Services’e gönderilen gerçek istektir. **İş** giriş videosunun konumu ve çıktının konumu gibi bilgileri belirtir. Videonuzun konumunu, Media Services hesabınızda bulunan HTTPS URL’lerini, SAS URL’lerini veya Varlıkları kullanarak belirtebilirsiniz. 
+Yukarıda bahsedildiği gibi [Transform](https://docs.microsoft.com/rest/api/media/transforms) nesnesi tarif, [Job](https://docs.microsoft.com/rest/api/media/jobs) ise bu **Transform** nesnesini belirli bir giriş videosu veya ses içeriğine uygulamak için Media Services’e gönderilen gerçek istektir. **İş** giriş videosunun konumu ve çıktının konumu gibi bilgileri belirtir. Video kullanarak konumu belirtebilirsiniz: HTTPS URL'leri, SAS URL'lerini veya medya hizmeti hesabınızı olan varlıklar. 
 
 Bu örnekte, iş girdisi yerel bir videodur.  
 
@@ -129,7 +129,7 @@ Yoklama, olası gecikme süresi nedeniyle üretim uygulamaları için önerilen 
 
 Event Grid yüksek kullanılabilirlik, tutarlı performans ve dinamik ölçek için tasarlanmıştır. Event Grid ile uygulamalarınız neredeyse tüm Azure hizmetleri ve özel kaynaklardan gelen olayları takip edip bu olaylara yanıt verebilir. Basit, HTTP tabanlı reaktif olay işleme özelliği, olayların akıllı filtrelenmesi ve yönlendirilmesi sayesinde etkili çözümler oluşturmanıza yardımcı olur. Bkz. [Olayları özel bir web uç noktasına yönlendirme](job-state-events-cli-how-to.md).
 
-**İş** genellik şu aşamalardan geçer: **Zamanlandı**, **Kuyruğa Alındı**, **İşleniyor**, **Tamamlandı** (son aşama). İş bir hatayla karşılaştıysa **Hata** durumunu alırsınız. İş iptal edilme sürecindeyse **İptal Ediliyor** ve **İptal Edildi** durumunu alırsınız.
+**İş** genellikle şu durumlardan geçer: **Zamanlanmış**, **sıraya alınan**, **işleme**, **tamamlandı** (son durumu). İş bir hatayla karşılaştıysa **Hata** durumunu alırsınız. İş iptal edilme sürecindeyse **İptal Ediliyor** ve **İptal Edildi** durumunu alırsınız.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#WaitForJobToFinish)]
 

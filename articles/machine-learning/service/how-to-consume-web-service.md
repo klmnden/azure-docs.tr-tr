@@ -1,22 +1,22 @@
 ---
-title: Dağıtılan web hizmetlerini kullanma
+title: Dağıtılmış web hizmetini tüketmeye istemcisi oluşturma
 titleSuffix: Azure Machine Learning service
 description: Bir modeli Azure Machine Learning modeli ile dağıttığınızda, oluşturulan bir web hizmetinin nasıl kullanılacağı hakkında bilgi edinin. REST API, web hizmetidir. İstemciler için tercih ettiğiniz programlama dilini kullanarak bu API oluşturun.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.author: raymondl
-author: raymondlaghaeian
+ms.author: aashishb
+author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0cf585ec3eb95b71080436791fd47d96239dfa9f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: fc1f472cec1b1da26456924885d7905ab2458e14
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100481"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251139"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Bir web hizmeti olarak bir Azure Machine Learning modeli kullanma
 

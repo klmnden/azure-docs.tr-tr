@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: bcb448296313eedebb8f8389b320c5da5f1a80dd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ef86c9ee00fdd4673774640d33eec93e2ead876d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311790"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193104"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Kullanıcı gizliliği ve Azure Active Directory geçişli kimlik doğrulaması
 
@@ -72,7 +72,7 @@ Geçişli kimlik doğrulaması Aracısı ile ilgili günlükleri görüntülemek
 
 ### <a name="delete-authentication-agent-trace-log-files"></a>Kimlik Doğrulama Aracısı izleme günlük dosyalarını silin
 
-İçeriği düzenli olarak denetlemesi gerekir **%ProgramData%\Microsoft\Azure AD Connect kimlik doğrulaması Agent\Trace\**  ve 48 saatte bu klasörün içeriğini silin. 
+İçeriği düzenli olarak denetlemesi gerekir <strong>%ProgramData%\Microsoft\Azure AD Connect kimlik doğrulaması Agent\Trace\</ strong > ve 48 saatte bu klasörün içeriğini silin. 
 
 >[!IMPORTANT]
 >Kimlik Doğrulama Aracısı Hizmeti çalışıyorsa, geçerli günlük dosyası klasörü içinde silmek mümkün olacaktır değil. Yeniden denemeden önce hizmetini durdurun. Kullanıcı oturum açma hatalarını önlemek için zaten geçişli kimlik doğrulaması için yapılandırmış olmanız [yüksek kullanılabilirlik](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/18
 ms.author: jeconnoc
-ms.openlocfilehash: d3aeb930dcb325aebc8c6b0a9dfde3602312618b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b288c6a64572287c460e82cd8746a8504d264933
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001472"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322952"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Azure bulut hizmetiniz için performans sayaçlarını Topla
 
@@ -127,7 +127,7 @@ Bulut Hizmetleri için Azure tanılama uzantısı, toplamak istediğiniz hangi p
 
 Toplamak istediğiniz performans sayaçlarını tanımlanan **diagnostics.wadcfgx** dosya. Visual Studio'da (tanımlanmış olduğu her rolü) bu dosyayı açın ve bulun **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg**  >  **DiagnosticMonitorConfiguration** > **PerformanceCounters** öğesi. Yeni bir **PerformanceCounterConfiguration** alt öğesi olarak. Bu öğe iki öznitelikleri: `counterSpecifier` ve `sampleRate`. `counterSpecifier` Özniteliği, hangi sistem performansı sayaç (önceki bölümde belirtilen) toplayacak tanımlar. `sampleRate` Değeri bu değer ne sıklıkta sorgulandığı zamanı gösterir. Bir bütün olarak göre üst Azure'a tüm performans sayaçlarını aktarılan `PerformanceCounters` öğenin `scheduledTransferPeriod` öznitelik değeri.
 
-Hakkında daha fazla bilgi için `PerformanceCounters` şema öğesi bkz [Azure tanılama şeması](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md#performancecounters-element).
+Hakkında daha fazla bilgi için `PerformanceCounters` şema öğesi bkz [Azure tanılama şeması](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element).
 
 Tarafından tanımlanan süre `sampleRate` XML süre veri türü ne sıklıkla performans sayacı sorgulandığı zamanı belirtmek için özniteliği kullanır. Aşağıdaki örnekte, oranını ayarlamak `PT3M`, yani `[P]eriod[T]ime[3][M]inutes`: üç dakikada bir.
 
@@ -297,4 +297,4 @@ Daha önce belirtildiği gibi toplamak istediğiniz performans sayaçlarını ta
 - [Azure Cloud Services için Application Insights](../application-insights/app-insights-cloudservices.md#performance-counters)
 - [Application ınsights'ta sistem performans sayaçları](../application-insights/app-insights-performance-counters.md)
 - [Bir sayaç yolunu belirtme](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
-- [Azure tanılama şeması - performans sayaçları](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md#performancecounters-element)
+- [Azure tanılama şeması - performans sayaçları](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)
