@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: ef689aec58624495a61f5fde2a8050fb7400f56e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: e86499fea76b8223b161d6cff3bb1231398f63a6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888860"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093532"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS analizi Önizleme çözümü, DNS altyapısıyla ilgili Öngörüler toplayın
 
@@ -45,7 +45,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 | **Bağlı kaynak** | **Destek** | **Açıklama** |
 | --- | --- | --- |
 | [Windows aracıları](../../azure-monitor/platform/agent-windows.md) | Evet | Çözüm, Windows aracılarından DNS bilgilerini toplar. |
-| [Linux aracıları](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Hayır | Çözüm, doğrudan Linux aracılarından DNS bilgi toplamaz. |
+| [Linux aracıları](../../azure-monitor/learn/quick-collect-linux-computer.md) | Hayır | Çözüm, doğrudan Linux aracılarından DNS bilgi toplamaz. |
 | [System Center Operations Manager yönetim grubu](../../azure-monitor/platform/om-agents.md) | Evet | Çözüm, bağlı Operations Manager yönetim grubundaki aracılardan DNS bilgilerini toplar. Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekmez. Verileri yönetim grubundan Log Analytics çalışma alanına iletilir. |
 | [Azure depolama hesabı](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Hayır | Azure depolama çözümü tarafından kullanılmaz. |
 

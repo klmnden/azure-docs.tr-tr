@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 78e432bf526ad270ae8543ad1be40727ed560d4b
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: f155ee7dbea697c72bbd53b933a7410faa828b6c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367908"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089930"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Phoenix Azure Data Factory kullanarak verileri kopyalama 
 
@@ -85,7 +85,12 @@ Phoenix bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Phoenix veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Phoenix verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **PhoenixObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Phoenix verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **PhoenixObject**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **PhoenixObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -97,7 +102,8 @@ Phoenix verileri kopyalamak için dataset öğesinin type özelliği ayarlamak *
         "linkedServiceName": {
             "referenceName": "<Phoenix linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -106,14 +112,14 @@ Phoenix verileri kopyalamak için dataset öğesinin type özelliği ayarlamak *
 
 Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, Phoenix kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
-### <a name="phoenixsource-as-source"></a>Kaynak olarak PhoenixSource
+### <a name="phoenix-as-source"></a>Kaynak olarak Phoenix
 
 Phoenix verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **PhoenixSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **PhoenixSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

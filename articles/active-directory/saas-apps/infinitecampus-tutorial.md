@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 837d18a04a0cd22f29a5cbcb8b06b7e3f5fae255
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9f4adbacf2749e8c8ff2da8f331a007e8dcaaea3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632815"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099962"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Öğretici: Azure Active Directory sonsuz kampüs ile tümleştirme
 
@@ -111,11 +111,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve s
 
     ![Çoklu oturum açmayı yapılandırın](common/editconfigure.png)
 
-5. Üzerinde **temel SAML yapılandırma** varsa, bölüm **hizmet sağlayıcısı meta veri dosyası** (adım **11.b**), aşağıdaki adımları gerçekleştirin:
+5. Üzerinde **temel SAML yapılandırma** varsa, bölüm **hizmet sağlayıcısı meta veri dosyası** (adıma atlayın **11.c**), aşağıdaki adımları gerçekleştirin:
 
     a. Tıklayın **meta veri dosyasını karşıya yükleme**.
 
-    ![image](common/b9_saml.png)
+        ![image](common/b9_saml.png)
 
     b. Tıklayarak **klasör logosu** meta veri dosyası seçin ve **karşıya**.
 
@@ -128,9 +128,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve s
     d. İçinde **oturum açma URL'si** metin kutusuna bir URL (etki alanı barındırma modeliyle göre değişir) aşağıdaki düzeni kullanarak: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
     > [!NOTE]
-    > Size **hizmet sağlayıcısı meta veri dosyası** sonsuz kampüs SSO Servis Sağlayıcı Yapılandırması sayfasında öğreticinin ilerleyen bölümlerinde açıklanmıştır.
+    > Size **hizmet sağlayıcısı meta veri dosyası** sonsuz kampüs SSO Servis Sağlayıcı Yapılandırması sayfasında öğreticinin ilerleyen bölümlerinde açıklanmıştır. Yeni bir hizmet sağlayıcısı SAML yapılandırmasıyla sonsuz kampüs başlatıyorsanız atlamak **11. adım** dışarı aktarma hizmeti sağlayıcısı meta veri dosyasının tamamlanması.
 
-6. Öğeniz yoksa **hizmet sağlayıcısı meta veri dosyası**, aşağıdaki adımları gerçekleştirin:
+6. Öğeniz yoksa **hizmet sağlayıcısı meta veri dosyası**, (etki alanı barındırma modeliyle değişir unutmayın) aşağıdaki adımları gerçekleştirin:
 
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
@@ -169,10 +169,10 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve s
     ![Sso](./media/infinitecampus-tutorial/tutorial_infinitecampus_sso.png)
 
     a. Seçin **etkinleştir SAML çoklu oturum açma**.
+    
+    b. Üzerinde **kimlik sağlayıcısı (IDP) sunucu verilerini almak için bir seçenek belirleyin** bölümünde, seçin **meta veri URL'si**, Yapıştır **uygulama Federasyon meta verileri URL'sini** kutusuna ve ardından tıklayın **eşitleme**.
 
-    b. Tıklayın **hizmet sağlayıcısı meta verileri** kaydetmek için bağlantı **hizmet sağlayıcısı meta veri dosyası** bilgisayarınızdaki ve bunu karşıya **temel SAML yapılandırma** otomatik olarak bölümü polulate **tanımlayıcı** ve **yanıt URL'si** değerleri Azure portalında (5. adıma bakın).
-
-    c. Üzerinde **kimlik sağlayıcısı (IDP) sunucu verilerini almak için bir seçenek belirleyin** bölümünde, seçin **meta veri URL'si** Yapıştır **uygulama Federasyon meta verileri URL'sini** metin kutusuna ve ardından **eşitleme**.
+    c. Tıklayın **hizmet sağlayıcısı meta verileri** kaydetmek için bağlantı **hizmet sağlayıcısı meta veri dosyası** bilgisayarınızda ve bunu karşıya **temel SAML yapılandırma** otomatik olarak bölümü doldurma **tanımlayıcı** ve **yanıt URL'si** değerleri Azure portalında (4. adım karşıya yükleme ve değerlerinin otomatik popülasyonu bakın veya el ile girişi için 5. adım).
 
     d. ' I tıklattıktan sonra **eşitleme** içinde otomatik olarak doldurulan değerleri almak **SSO Servis Sağlayıcı Yapılandırması** sayfası.
 

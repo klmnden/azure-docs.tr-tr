@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/30/2018
 ms.author: cephalin;msangapu
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 6d3f367ce21e9574282805737f2eff6c83ea6157
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 08bef967d456a5fb9a5edf093dca40fb9ea1ca51
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248205"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090644"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure App Service'te Node.js web uygulaması oluşturma
 
@@ -36,7 +36,7 @@ Mac, Windows veya Linux makinesi kullanarak buradaki adımları izleyebilirsiniz
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için:
 
@@ -119,10 +119,10 @@ Node çalışma zamanını 8.11.1 olarak ayarlayın. Desteklenen tüm çalışma
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
 
-Yeni oluşturduğunuz web uygulamasına göz atın. _&lt;app name>_ değerini benzersiz bir uygulama adıyla değiştirin.
+Yeni oluşturduğunuz web uygulamasına göz atın. Değiştirin `<app_name>` benzersiz bir uygulama adına sahip.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app_name>.azurewebsites.net
 ```
 
 Yeni web uygulamanız aşağıdaki gibi görünmelidir:

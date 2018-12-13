@@ -1,20 +1,21 @@
 ---
-title: Olayları, Go kullanarak Azure Event Hubs'a gönderme | Microsoft Docs
-description: Go kullanarak Event Hubs'a olay göndermeye başlama
+title: Git - Azure Event Hubs'ı kullanarak olayları gönderme | Microsoft Docs
+description: Bu makalede, Azure Event Hubs'dan olayları gönderen bir Go uygulaması oluşturmak için bir kılavuz sağlar.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 10/18/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2cc7c19d623427f7c98bbb66089b764bb067136b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 44cbea8cc40f83ed5fdd2863da0cb0a01e8dc2b8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52954919"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091069"
 ---
 # <a name="send-events-to-event-hubs-using-go"></a>Git kullanarak Event Hubs için olayları gönderme
 

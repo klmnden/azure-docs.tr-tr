@@ -1,20 +1,20 @@
 ---
-title: Azure Event Hubs'a gönderilen gerçek zamanlı olaylardaki veri anomalilerini görselleştirme | Microsoft Docs
+title: Veri anormallikleri gerçek zamanlı olayları - Azure Event Hubs, Görselleştirme | Microsoft Docs
 description: "Öğretici: Microsoft Azure Event Hubs'a gönderilen gerçek zamanlı olaylardaki veri anomalilerini görselleştirme"
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
 ms.author: shvija
-ms.date: 08/08/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.custom: mvc
-ms.openlocfilehash: 04a9a3b3df44814d680f01595d70ced08a946591
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
-ms.translationtype: HT
+ms.custom: seodec18
+ms.date: 12/06/2018
+ms.openlocfilehash: add88a24da2e217d705065274f26382c1ffe8e17
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004122"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091689"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Öğretici: Azure Event Hubs'a gönderilen gerçek zamanlı olaylardaki veri anomalilerini görselleştirme
 
@@ -32,7 +32,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bu öğreticiyi tamamlamak için bir Azure aboneliğinizin olması gerekir. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun][].
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -316,7 +316,7 @@ Stream Analytics işinde **Çalıştır**'a, **Şimdi**'ye ve ardından **Çalı
 
    ![Görselleştirme türü ve alan belirtme işleminin ekran görüntüsü.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
-   **İleri**’ye tıklayın.
+   **İleri**'ye tıklayın.
 
 10. Başlığı **Sahtekarlık amaçlı kullanımlar**, alt başlığı da **Son birkaç dakikadaki toplam veriler** yapın. **Uygula**'ya tıklayın. Kutucuk, panonuza kaydedilir.
 
@@ -326,7 +326,7 @@ Stream Analytics işinde **Çalıştır**'a, **Şimdi**'ye ve ardından **Çalı
 
    * **Kutucuk Ekle**'ye tıklayın.
    * **Özel Akış Verileri**'ni seçin. 
-   * **İleri**’ye tıklayın.
+   * **İleri**'ye tıklayın.
    * Veri kümenizi seçin ve **İleri**'ye tıklayın. 
 
 12. **Görselleştirme Türü** olarak **Çizgi grafik** türünü seçin.
@@ -335,7 +335,7 @@ Stream Analytics işinde **Çalıştır**'a, **Şimdi**'ye ve ardından **Çalı
 
 14. **Değerler** bölümünde **Değer ekle**'ye tıklayıp **fraudulentuses** değerini seçin.
 
-15. **Görüntülenecek zaman penceresi** için son beş dakikayı seçin. **İleri**’ye tıklayın.
+15. **Görüntülenecek zaman penceresi** için son beş dakikayı seçin. **İleri**'ye tıklayın.
 
 16. Başlık olarak **Zaman içindeki sahtekarlık amaçlı kullanımları göster** yazın, alt başlığı boş bırakın ve **Uygula**'ya tıklayın. Panonuz açılır.
 

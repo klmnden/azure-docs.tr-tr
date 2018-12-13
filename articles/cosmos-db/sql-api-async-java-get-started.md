@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: 287b8f54fbbc922dec1e00ef3062f1ed64248fa6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 89593db11580a0892022f2ee0e11160c2e912a2e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969436"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083946"
 ---
 # <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>Öğretici: bir SQL API hesabı depolanan verileri yönetmek için zaman uyumsuz Java SDK'sı ile bir Java uygulaması derleme
 
@@ -51,7 +51,7 @@ Aşağıdaki kaynaklara sahip olduğunuzdan emin olun:
 
 * [Java Development Kit (JDK) 8+](https://aka.ms/azure-jdks).
 
-* [Maven](http://maven.apache.org/download.cgi).
+* [Maven](https://maven.apache.org/download.cgi).
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB hesabı oluşturma
 

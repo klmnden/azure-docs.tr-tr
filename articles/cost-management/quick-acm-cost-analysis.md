@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: 41ee462fb071309a5a41eabb37646f353bf4a085
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: a4eaa6f45d164e54d88569f6cba06d91ed35db83
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995657"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099817"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Hızlı Başlangıç: Maliyet analiziyle maliyetleri keşfetme ve analiz etme
 
@@ -43,7 +43,7 @@ Maliyet analizi tüm [Kurumsal Sözleşme (EA)](https://azure.microsoft.com/pric
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-- http://portal.azure.com adresinden Azure portalında oturum açın.
+- https://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="review-costs-in-cost-analysis"></a>Maliyet analizinde maliyetleri gözden geçirme
 
@@ -63,7 +63,7 @@ Veri birleştirmesi sağlamak ve maliyet bilgilerine erişimi denetlemek için s
 
 **Özet (halka) grafikler** – Toplam maliyeti ortak bir standart özellikler kümesine ayırarak dinamik özetler sağlar. Geçerli ay için en fazladan en aza doğru tahakkuk eden maliyeti gösterir. İstediğiniz zaman farklı bir özet seçerek özet grafikleri değiştirebilirsiniz. Maliyetler varsayılan olarak şu kategorilere ayrılır: hizmet (ölçüm kategorisi), konum (bölge) ve alt kapsam. Örneğin, fatura hesapları altında kayıt hesapları, abonelikler altında kaynak grupları ve kaynak grupları altında kaynaklar.
 
-![Maliyet analizinin ilk görünümü](./media/quick-acm-cost-analysis/cost-analysis-01.png)
+![Azure portalında maliyet analizi başlangıç görünümü](./media/quick-acm-cost-analysis/cost-analysis-01.png)
 
 ## <a name="customize-cost-views"></a>Maliyet görünümlerini özelleştirme
 
@@ -76,21 +76,21 @@ Varsayılan görünüm şunlar gibi sorulara hızlı yanıtlar sağlar:
 
 Maliyet analizi, varsayılan olarak geçerli ayın verilerini gösterir. Tarih seçiciyi kullanarak geçen aya, bu aya, bu takvim çeyreğine, bu takvim yılına veya seçtiğiniz özel bir veri aralığına hızla geçebilirsiniz. Geçen ayın seçilmesi en son Azure faturanızı analiz etmenin ve kolayca ücretlerde mutabık kalmanın en hızlı yoludur. Geçerli çeyrek ve yıl seçenekleri daha uzun vadeli bütçelere göre maliyetlerin izlenmesine yardımcı olur. Farklı bir tarih aralığı da seçebilirsiniz. Örneğin, tek bir günü, son yedi günü veya geçerli aydan önce bir yıl geriye giderek istediğiniz tarihleri seçmeniz mümkündür.
 
-![Tarih seçici](./media/quick-acm-cost-analysis/date-selector.png)
+![Bu ay için bir örnek seçimi gösteren tarih seçici](./media/quick-acm-cost-analysis/date-selector.png)
 
 Maliyet analizi varsayılan olarak **birikmiş** maliyetleri gösterir. Birikmiş maliyetler, her günün yanı sıra önceki günlerin de tüm maliyetlerini içerdiğinden, günlük tahakkuk eden maliyetlerinizin sürekli büyüyen bir görünümü elde edilir. Bu görünüm, seçilen zaman aralığı için bütçeye göre nasıl bir eğilim gösterdiğinizi ortaya koymak için iyileştirilmiştir.
 
 Ayrıca, her günün maliyetlerini gösteren bir **günlük** görünüm vardır. Günlük görünüm büyüme eğilimini göstermez. Görünüm, günden güne maliyet sıçrama yaptığında veya iyice düştüğünde ortaya çıkan düzensizlikleri gösterecek şekilde tasarlanmıştır. Bütçe seçtiyseniz, günlük görünüm günlük bütçenizin neye benzeyeceğine ilişkin bir tahmin de gösterir. Günlük maliyetleriniz tutarlı olarak tahmini günlük bütçenin üzerinde olduğunda aylık bütçenizin aşılacağını öngörebilirsiniz. Tahmini günlük bütçe, bütçenizi alt düzeyde görselleştirmeye yardımcı olan bir araçtan başka bir şey değildir. Günlük maliyetlerinizde dalgalanmalar olduğunda tahmini günlük bütçenin aylık bütçeyle karşılaştırılması daha az kesinlik sağlar.
 
-![Günlük görünüm](./media/quick-acm-cost-analysis/daily-view.png)
+![Örnek, geçerli ay için günlük maliyetlerin gösteren günlük görünümü](./media/quick-acm-cost-analysis/daily-view.png)
 
 Grup kategorisi seçip en üstteki toplam alan grafiğinde görüntülenen verileri değiştirmek için **Gruplandır** seçeneğini kullanabilirsiniz. Gruplandırma nasıl harcamalarınızı ortak kaynak ve kullanım özellikler, kaynak grubu veya kaynak etiketleri gibi tarafından kategorilere ayrılmıştır hızlı bir şekilde görmenize olanak tanır. Etiketlere göre gruplandırmak için gruplandırma ölçütü istediğiniz etiket anahtarı seçin ve her bir değer bu etiket için uygulanan bir etiketi olmayan kaynaklar için ek bir segment tarafından ayrılmış maliyetleri görürsünüz. Not maliyet yönetimi, etiketler kaynağa doğrudan uygulanan tarihten itibaren kaynak etiketleri yalnızca destekler. Kaynak grubu etiketleri henüz desteklenmemektedir. Burada, geçen ayın görünümü için Azure hizmet maliyetlerinin bir görünümü yer alır.
 
-![Gruplandırılmış günlük birikmiş görünümü](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
+![Örnek Azure hizmet maliyetlerini geçen aya ait gösteren gruplandırılmış günlük birikmiş görünümü](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
 Özet grafiklerin filtreleri ve seçilen zaman aralığı için genel maliyetleri, daha geniş bir resmini vermek için ana grafiğin Göster farklı gruplandırmaları altında. Bir özellik ya da herhangi bir boyuta göre toplanmış maliyetleri görüntülemek üzere etiketi seçin. Toplam görünüm için veri kümesini genişleterek ekranın altında olan **veri** çekmecesi veya seçerek **Dışarı Aktar > CSV indirme** ekranın üst kısmındaki. Kaynak grupları için veri çekmecesi örneği aşağıda verilmiştir.
 
-![Geçerli görünüm için tüm veriler](./media/quick-acm-cost-analysis/full-data-set.png)
+![Kaynak grubu adları gösteren geçerli görünüm için tam veri](./media/quick-acm-cost-analysis/full-data-set.png)
 
 Önceki resimde kaynak grubunun adları gösterilir. Etiket başına toplam maliyetleri görüntülemek üzere etikete göre gruplandırabilirsiniz, ancak kaynak veya kaynak grubu başına tüm etiketleri görüntüleme görünümlerden herhangi birinde maliyet analizi içinde kullanılabilir değil.
 

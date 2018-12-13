@@ -1,6 +1,6 @@
 ---
-title: Avrupalı müşteriler için Azure AD'nin kimlik verilerini depolama konumu | Microsoft Docs
-description: Microsoft Azure Active Directory'nin Avrupalı müşterileri için kimlikle ilgili verileri depoladığı konum hakkında bilgi edinin.
+title: Avrupalı müşteriler - Azure Active Directory için kimlik verileri depolama | Microsoft Docs
+description: Azure Active Directory kimlik doğrulamayla ilgili veriler, Avrupalı müşteriler için depoladığı hakkında bilgi edinin.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,16 +10,16 @@ ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.custom: it-pro
-ms.openlocfilehash: 6aa2307123d62983f7afde3d871e8aa96e0abb5d
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 371c7b2eb2f2e0e34dc80cf8fe6771620fa76765
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976902"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099948"
 ---
-# <a name="where-does-microsoft-azure-active-directory-azure-ad-store-identity-data-for-european-customers"></a>Microsoft Azure Active Directory (Azure AD), Avrupalı müşterileri için kimlik verilerini nerede depolar?
-Azure AD, kullanıcı kimliklerini yönetmenize ve kuruluşunuzun kaynaklarını korumanıza yardımcı olmak için zeka tabanlı erişim ilkeleri oluşturmanıza yardımcı olur. Kimlik verileri, hizmete abone olurken kuruluşunuzun sağladığı adrese göre belirlenen bir konumda depolanır. Örnek olarak Office 365 veya Azure abonelikleri verilebilir. Kimlik verilerinizin depolandığı yer hakkında belirli bilgiler için Microsoft Güven Merkezi'nin [Verileriniz nerede bulunur?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) bölümünü inceleyebilirsiniz.
+# <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Kimlik Azure Active Directory'de Avrupalı müşteriler için veri depolama
+Azure Active Directory (Azure AD), kullanıcı kimliklerini yönetmenize ve kuruluşunuzun kaynaklarına güvenli hale zeka tabanlı erişim ilkeleri oluşturmak için yardımcı olur. Kimlik verileri, hizmete abone olurken kuruluşunuzun sağladığı adrese göre belirlenen bir konumda depolanır. Örnek olarak Office 365 veya Azure abonelikleri verilebilir. Kimlik verilerinizin depolandığı yer hakkında belirli bilgiler için Microsoft Güven Merkezi'nin [Verileriniz nerede bulunur?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) bölümünü inceleyebilirsiniz.
 
 Azure AD ile ilgili Avrupa kaynaklı kimlik verilerinin çoğu Avrupa veri merkezlerinde depolanıyor olsa da genellikle ABD veri merkezlerinde depolanan beş kullanıcı özniteliği vardır. Bunlar GivenName, Surname, userPrincipalName, Domain, ve PasswordHash özniteliğidir. PasswordHash değerinin Azure AD ile eşitlenmesini durduran şirket içi, federasyon oturumu açma yöntemi kullanıldığında PasswordHash özniteliği özel durum oluşturabilir ve ABD veri merkezlerinde depolanmayabilir. Ayrıca Azure AD'nin normal bir şekilde çalışması için ABD'de depolanan ve kişisel veri içermeyen işleme ve hizmete özgü veriler de bulunur.
 

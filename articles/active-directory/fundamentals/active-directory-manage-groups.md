@@ -1,5 +1,5 @@
 ---
-title: Uygulamalar ve Azure Active Directory grupları kullanarak kaynakları için erişim yönetimi hakkında bilgi edinin | Microsoft Docs
+title: Grupları - Azure Active Directory kullanarak uygulama ve kaynak erişimini yönetme | Microsoft Docs
 description: Kuruluşunuzun bulut tabanlı uygulamalar, şirket içi uygulamalar ve Azure Active Directory grupları kullanarak kaynaklara erişimi yönetme hakkında bilgi edinin.
 services: active-directory
 author: eross-msft
@@ -11,14 +11,15 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.openlocfilehash: 69be2cb8b57b34502d5a5688ac163d7451abe48e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 5a706a2a879ae3b4c4adb2690faa77846474ce49
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223981"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087295"
 ---
-# <a name="learn-about-access-management-using-azure-active-directory-groups"></a>Azure Active Directory grupları kullanarak erişimi yönetimi hakkında bilgi edinin
+# <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Azure Active Directory grupları'nı kullanarak uygulama ve kaynak erişimini yönetme
 Azure Active Directory (Azure AD) bulut tabanlı uygulamalarınızı şirket içi uygulamalar ve kuruluşunuzun grupları kullanarak kaynaklarınızı yönetmenize yardımcı olur. Kaynaklarınızı directory ya da dış dizin rolleri aracılığıyla nesneleri gibi yazılım olarak hizmet (SaaS) uygulamaları için Azure, SharePoint siteleri, hizmetleri ve şirket içi kaynakları yönetmek için izinleri gibi bir dizinin parçası olabilir.
 
 >[!NOTE]

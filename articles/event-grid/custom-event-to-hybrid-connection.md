@@ -1,25 +1,26 @@
 ---
-title: Azure Event Grid için özel olayları karma bağlantıya gönderme | Microsoft Docs
+title: Karma bağlantı - Event Grid, Azure CLI özel olaylar gönderin
 description: Azure Event Grid'i ve Azure CLI'yı kullanarak bir konu yayımlayın ve o olaya abone olun. Uç nokta için karma bir bağlantı kullanılır.
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/30/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: 488f4e09e329ee41fb307dc3579e76b5378d3a9f
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 1f66c75333b41cf399a72b801a7e362672744775
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747788"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099605"
 ---
-# <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Azure CLI ve Event Grid ile özel olayları Azure Relay Karma Bağlantılar’a yönlendirme
+# <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Öğretici: Rota Azure geçiş karma bağlantıları ile Azure CLI ve Event Grid için özel olaylar
 
 Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Azure Relay Karma Bağlantılar, desteklenen olay işleyicilerinden biridir. Genel uç noktası olmayan uygulamalardan alınan olayları işlemeniz gerektiğinde olay işleyicisi olarak karma bağlantıları kullanırsınız. Bu uygulamalar kurumsal ağınızın içinde olabilir. Bu makalede Azure CLI ile özel bir konu oluşturacak, bu özel konuya abone olacak ve olayı tetikleyerek sonucu görüntüleyeceksiniz. Olayları karma bağlantıya gönderirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu makalede zaten bir karma bağlantınız ve dinleyici uygulamanız olduğu varsayılmıştır. Karma bağlantıları kullanmaya başlamak için bkz. [Relay Karma Bağlantılar’ı kullanmaya başlama - .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) veya [Relay Karma Bağlantılar’ı kullanmaya başlama - Düğüm](../service-bus-relay/relay-hybrid-connections-node-get-started.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Şifrelenmiş depolama hesabı dağıtmak için bir Azure Resource Manager şablonu oluşturma | Microsoft Docs
-description: Visual Studio Code'u kullanarak şifrelenmiş depolama hesabı dağıtmak için bir şablon oluşturun.
+title: Azure Resource Manager şablon başvurusu yazılımınız | Microsoft Docs
+description: Şifrelenmiş depolama hesabında dağıtmak için bir şablon oluşturmak için Azure Resource Manager şablon başvurusu kullanır.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -10,17 +10,18 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6c75c0ce7d12f65878ec8cde0f265022c7beeb29
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.custom: seodec18
+ms.openlocfilehash: 1f831f2d962626de6f847e2fe775605b7bfca5b8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613520"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097599"
 ---
-# <a name="tutorial-deploy-an-encrypted-azure-storage-account-with-resource-manager-template"></a>Öğretici: Resource Manager şablonuyla şifrelenmiş Azure Depolama hesabı dağıtma
+# <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>Öğretici: Azure Resource Manager şablon başvurusu kullanır.
 
 Şablon şema bilgilerini bulmayı ve bu bilgileri kullanarak Azure Resource Manager şablonu oluşturmayı öğrenin.
 
@@ -77,9 +78,11 @@ Bu makaleyi tamamlamak için gerekenler:
 
 1. [Azure Şablonları](https://docs.microsoft.com/azure/templates/)'na gidin.
 2. **Başlığa göre filtrele**’ye, **depolama hesapları** girin.
-3. Aşağıdaki ekran görüntüsünde gösterildiği gibi, **Başvuru/Şablon başvurusu/Depolama/Depolama Hesapları**’nı seçin:
+3. Seçin **başvuru/şablon başvurusu/depolama/<Version>/Storage hesapları** aşağıdaki ekran görüntüsünde gösterildiği gibi:
 
     ![Resource Manager şablon başvurusu depolama hesabı](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
+
+    Seçmek için hangi sürümünü bilmiyorsanız, en son sürümünü kullanın.
 
 4. Şifrelemeyle ilgili tanım bilgilerini bulun.  
 

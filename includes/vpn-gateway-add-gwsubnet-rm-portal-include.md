@@ -5,21 +5,24 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a1fa4d58cefa82e70c036d697957254531042b9c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: HT
+ms.openlocfilehash: 29ec30840e550b87f83de67d52348b9723400e0f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30196938"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111618"
 ---
-1. [Portal](http://portal.azure.com)’da, sanal ağ geçidini oluşturmak istediğiniz Resource Manager sanal ağına gidin.
-2. VNet’inizin sayfasının **Ayarlar** bölümünde, Alt Ağlar sayfasını genişletmek için **Alt Ağlar**'a tıklayın.
-3. **Alt ağlar** sayfasında, **+Alt ağ**’a tıklayarak **Alt ağ ekle** sayfasını açın.
+1. İçinde [Azure portalında](http://portal.azure.com), bir sanal ağ geçidini oluşturmak istediğiniz Resource Manager sanal ağı seçin.
+
+2. İçinde **ayarları** sanal ağınızın sayfasında, select bölümünü **alt ağlar** genişletmek için **alt ağlar** sayfası.
+
+3. Üzerinde **alt ağlar** sayfasında **ağ geçidi alt ağı** açmak için **alt ağ Ekle** sayfası.
 
   ![Ağ geçidi alt ağını ekleme](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsub.png "Ağ geçidi alt ağını ekleme")
-4. Alt ağınız için **Ad** alanı otomatik olarak ‘GatewaySubnet’ değeriyle doldurulur. Alt ağın Azure tarafından ağ geçidi alt ağı olarak tanınması için bu değer gereklidir. Otomatik olarak doldurulan **Adres aralığı** değerlerini yapılandırma gereksinimlerinizle eşleşecek şekilde değiştirin ve alt ağı oluşturmak için sayfanın altındaki **Tamam** seçeneğine tıklayın.
+
+4. **Adı** için alt ağınızın otomatik olarak autofilled değerle *GatewaySubnet*. Azure alt ağın ağ geçidi alt ağı tanınması bu değer gereklidir. Autofilled ayarlamak **adres aralığı** değerlerini yapılandırma gereksinimlerinizle eşleşecek şekilde seçip **Tamam** alt ağı oluşturmak için.
 
   ![Alt ağı ekleme](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addsubnetgw.png "Alt ağı ekleme")

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory genel bakış | Microsoft Docs
+title: Azure Active Directory nedir? | Microsoft Docs
 description: Azure Active gerekli terminoloji, hedef kitle dahil olmak üzere temel unsurlarını ve ilgili özellikleri lisanslama Directory hakkında bilgi edinin.
 services: active-directory
 author: eross-msft
@@ -8,12 +8,13 @@ ms.service: active-directory
 ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
-ms.openlocfilehash: 1b1561ed8470c39b13def72774e253db28bf58d8
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 80c3108d468465e68d554b3d36c527c5ccd4a13c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686594"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085935"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory nedir? 
 Azure Active Directory (Azure AD), Microsoft'un bulut tabanlı kimlik ve erişim yönetimi hizmetidir. Azure AD, çalışanlarınızın oturum açın ve kaynaklara erişmesine yardımcı olur:

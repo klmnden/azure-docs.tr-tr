@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory’de kuruluşunuzun grupları ve üyelerini görüntülemek için hızlı başlangıç | Microsoft Docs
-description: Azure portalı kullanarak kuruluşunuzun gruplarını ve atanan üyelerini arama ve görüntülemeye yönelik adımlar içeren hızlı başlangıç.
+title: Kuruluşunuzun gruplar ve üyeler - Azure Active Directory görüntülemek için hızlı başlangıç | Microsoft Docs
+description: Arama ve kuruluşunuzun gruplar ve atanan üyelerini görüntüleme hakkında yönergeler.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,14 +10,14 @@ ms.component: fundamentals
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 9da9f055163f5df4ea064bd46caa811e39fba20c
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
-ms.translationtype: HT
+ms.openlocfilehash: 002b4bb4ab20e531132b461f90857cfab6aecfd3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056412"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087487"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -28,7 +28,7 @@ Bu hızlı başlangıçta, kuruluşunuzun tüm mevcut gruplarını ve atanmış 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Başlamadan önce şunları gerçekleştirmeniz gerekir:
 
 - Bir Azure Active Directory kiracısı oluşturun. Daha fazla bilgi için, bkz. [Azure Active Directory portalına erişme ve yeni bir kiracı oluşturma](active-directory-access-create-new-tenant.md).

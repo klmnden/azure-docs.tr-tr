@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: c370808d06f31f9d79c99ca0f20f613d9e335d60
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0c058cb6547d67469d3138dc331b6181c07e6e65
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339061"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087533"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Mac OS X VPN istemcilerinden noktadan siteye VPN bağlantı sorunlarını giderme
 
@@ -36,13 +36,13 @@ Bu makale, Mac OS X yerel VPN istemcisini ve IKEv2'yi kullanarak noktadan siteye
 ## <a name="VPNClient"></a> Sertifika tabanlı kimlik doğrulaması sorunlarını giderme
 1. VPN istemci ayarlarını kontrol edin. Git **ağ ayarı** tuşuna basarak VPN istemci ayarlarını denetlemek için komut + Shift ve "VPN" yazın. Listeden araştırılması gereken VPN girişe tıklayın.
 
-  ![Ikev2 sertifika tabanlı kimlik doğrulaması](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2cert1.jpg)
+   ![Ikev2 sertifika tabanlı kimlik doğrulaması](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2cert1.jpg)
 2. Doğrulayın **sunucu adresi** tam FQDN ve cloudapp.net içerir.
 3. **Uzak Kimliği** sunucu adresi (ağ geçidi FQDN) ile aynı olması gerekir.
 4. **Yerel kimliği** aynı olmalıdır **konu** istemci sertifikası.
 5. Tıklayarak **kimlik doğrulama ayarları** kimlik doğrulama ayarları sayfasını açın.
 
-  ![Kimlik doğrulama ayarları](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
+   ![Kimlik doğrulama ayarları](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
 6. Doğrulayın **sertifika** açılan listeden seçilir.
 7. Tıklayın **seçin** düğmesine tıklayın ve doğru sertifikanın seçildiğini doğrulayın. Tıklayın **Tamam** yaptığınız değişiklikleri kaydedemezsiniz.
 
@@ -50,13 +50,13 @@ Bu makale, Mac OS X yerel VPN istemcisini ve IKEv2'yi kullanarak noktadan siteye
 
 1. VPN istemci ayarlarını kontrol edin. Git **ağ ayarı** tuşuna basarak VPN istemci ayarlarını denetlemek için komut + Shift ve "VPN" yazın. Listeden araştırılması gereken VPN girişe tıklayın.
 
-  ![Ikev2 kullanıcı adı parola](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2user3.jpg)
+   ![Ikev2 kullanıcı adı parola](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2user3.jpg)
 2. Doğrulayın **sunucu adresi** tam FQDN ve cloudapp.net içerir.
 3. **Uzak Kimliği** sunucu adresi (ağ geçidi FQDN) ile aynı olması gerekir.
 4. **Yerel kimliği** boş olamaz.
 5. Tıklayın **kimlik doğrulama ayarı** düğmesine tıklayın ve açılan menüden "Username" seçili olduğundan emin olun.
 
-  ![Kimlik doğrulama ayarları](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.jpg)
+   ![Kimlik doğrulama ayarları](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.jpg)
 6. Doğru kimlik bilgilerinin girildiğinden emin olun.
 
 ## <a name="additional"></a>Ek adımlar
@@ -66,7 +66,7 @@ Bu makale, Mac OS X yerel VPN istemcisini ve IKEv2'yi kullanarak noktadan siteye
 1. Filtre *ISAKMP* bakın **IKE_SA** paketler. SA Teklif Ayrıntıları altında bakmak olmalıdır **yükü: güvenlik ilişkisi**. 
 2. İstemci ve sunucu bir dizi ortak sahip olduğunuzu doğrulayın.
 
-  ![Paket](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
+   ![Paket](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
   
 3. Azure ağ geçidi Yapılandırması sayfasında Azure Portalı Web sitesinde Ikev2 protokolü etkin ağ izlerini üzerinde hiçbir sunucu yanıtı ise doğrulayın.
 

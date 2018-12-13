@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: moderakh
-ms.openlocfilehash: 01d353d3f1b59fecbb1894d08c6404f441422593
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: fadefe09f9f744fabe0f0f3f3cb519b3abb50b41
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872909"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098892"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK'sı SQL API'si için: yayın notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "52872909"
 > * [Bulkexecutor'a - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulkexecutor'a - Java](sql-api-sdk-bulk-executor-java.md)
 
-SQL API Async Java SDK'sı desteği ile zaman uyumsuz işlemleri sağlayarak SQL API Java SDK'sından farklıdır [Netty Kitaplığı](http://netty.io/). Önceden varolan [SQL API Java SDK'sı](sql-api-sdk-java.md) zaman uyumsuz işlemleri desteklemez. 
+SQL API Async Java SDK'sı desteği ile zaman uyumsuz işlemleri sağlayarak SQL API Java SDK'sından farklıdır [Netty Kitaplığı](https://netty.io/). Önceden varolan [SQL API Java SDK'sı](sql-api-sdk-java.md) zaman uyumsuz işlemleri desteklemez. 
 
 <table>
 
@@ -113,7 +113,7 @@ SQL API Async Java SDK'sı desteği ile zaman uyumsuz işlemleri sağlayarak SQL
 * Uygun java belge oluşturma için sabit Java üst bilgi dosyaları.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* GA SDK'sı ile engelleyici olmayan g/ç kullanarak uçtan uca Destek [Netty Kitaplığı](http://netty.io/) ağ geçidi modunda. 
+* GA SDK'sı ile engelleyici olmayan g/ç kullanarak uçtan uca Destek [Netty Kitaplığı](https://netty.io/) ağ geçidi modunda. 
 
 ## <a name="release-and-retirement-dates"></a>Yayın ve sona erme tarihleri
 Sağlar; Microsoft bildirim en az **12 ay** yeni/desteklenen bir sürüme geçiş hafifletmek için bir SDK'yı devre dışı bırakmadan önce.

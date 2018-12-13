@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1b7499990a049f276bf1af9e31b639ea4944d8f7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 8e2b65f83395c9e8991338864d2037d0572dd269
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167584"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078015"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Netezza'dan verileri kopyalama 
 
@@ -80,7 +80,12 @@ Bu bölümde Netezza veri kümesini destekleyen özelliklerin bir listesini sağ
 
 Bölümleri ve veri kümeleri tanımlamak için kullanılabilir olan özellikleri tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md). 
 
-Netezza'dan verileri kopyalamak için ayarlanmış **türü** veri kümesine özelliği **NetezzaTable**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Netezza'dan verileri kopyalamak için ayarlanmış **türü** veri kümesine özelliği **NetezzaTable**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **NetezzaTable** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -92,7 +97,8 @@ Netezza'dan verileri kopyalamak için ayarlanmış **türü** veri kümesine öz
         "linkedServiceName": {
             "referenceName": "<Netezza linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -110,7 +116,7 @@ Netezza'dan verileri kopyalamak için ayarlanmış **kaynak** türü için kopya
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** kopyalama etkinliği kaynak özelliği ayarlanmalıdır **NetezzaSource**. | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örnek: `"SELECT * FROM MyTable"` | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örnek: `"SELECT * FROM MyTable"` | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 02d21db5c5fadb65ec63e41cbd9e2db8869ed2e7
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 8c3210a560c079f66cd21dbb30be4a4b823a6502
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415840"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078217"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Marketo'dan veri kopyalama
 
@@ -79,7 +79,12 @@ Marketo bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Marketo veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Marketo'dan veri kopyalamak için dataset öğesinin type özelliği ayarlamak **MarketoObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Marketo'dan veri kopyalamak için dataset öğesinin type özelliği ayarlamak **MarketoObject**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **MarketoObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -91,7 +96,8 @@ Marketo'dan veri kopyalamak için dataset öğesinin type özelliği ayarlamak *
         "linkedServiceName": {
             "referenceName": "<Marketo linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -100,14 +106,14 @@ Marketo'dan veri kopyalamak için dataset öğesinin type özelliği ayarlamak *
 
 Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, Marketo kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
-### <a name="marketosource-as-source"></a>Kaynak olarak MarketoSource
+### <a name="marketo-as-source"></a>Marketo kaynağı olarak
 
 Marketo'dan veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **MarketoSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **MarketoSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Activitiy_Types"`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Activitiy_Types"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 0cb82cfcecbb719b357cda46bf969acf6c6cefe7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 98828589832d69ada11205e471314a153a566766
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015305"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080274"
 ---
 # <a name="configure-containers"></a>Kapsayıcıları yapılandırma
 
@@ -84,7 +84,7 @@ Bu ayar, iki yerde bulunabilir:
 |--|------|-----------|-------------|
 |Evet| `Eula` | Dize | Lisans kabulü<br><br>Örnek:<br>`Eula=accept` |
 
-Bilişsel hizmetler kapsayıcılar, Azure kullanımını düzenleyen sözleşmenize altında lisanslanmıştır. Azure kullanımınızı var olan bir anlaşma değilse, Azure'un kullanımını düzenleyen sözleşmenize Microsoft çevrimiçi abonelik (çevrimiçi hizmet koşulları kullanımız) sözleşmesi olduğunu kabul etmiş olursunuz. Önizlemeler için de ek kullanım koşulları için Microsoft Azure önizlemeleri için kabul etmiş olursunuz. Kapsayıcı kullanarak bu koşulları kabul etmiş olursunuz.
+Bilişsel hizmetler kapsayıcıları altında lisanslanır [sözleşmenize](https://go.microsoft.com/fwlink/?linkid=2018657) Azure kullanımınızı. Azure kullanımınızı var olan bir anlaşma değilse, Azure'un kullanımını düzenleyen sözleşmenize olduğunu kabul ediyorum [Microsoft çevrimiçi Abonelik Sözleşmesi](https://go.microsoft.com/fwlink/?linkid=2018755), kullanımımın [çevrimiçi hizmet koşulları ](https://go.microsoft.com/fwlink/?linkid=2018760). Önizlemeler için de kabul [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://go.microsoft.com/fwlink/?linkid=2018815). Kapsayıcı kullanarak bu koşulları kabul etmiş olursunuz.
 
 ## <a name="fluentd-settings"></a>Fluentd ayarları
 

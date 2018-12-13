@@ -1,32 +1,36 @@
 ---
-title: Azure Batch Transkripsiyonu API kullanın
+title: Batch Transkripsiyonu - konuşma hizmetlerini kullanma
 titlesuffix: Azure Cognitive Services
-description: Ses içeriği büyük hacimli fotoğrafını örnekler.
+description: Batch transkripsiyonu, depolama, Azure BLOB'ları gibi ses büyük bir miktarını konuşmaların istiyorsanız idealdir. Adanmış REST API'sini kullanarak bir paylaşılan erişim imzası (SAS) URI ses dosyalarının üzerine gelin ve döküm zaman uyumsuz olarak alır.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 12/06/2018
 ms.author: panosper
-ms.openlocfilehash: 8a180dfada9da92e0b8ed69373a20602b3b0a177
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18
+ms.openlocfilehash: b4e7c11a6077104e874d67b75f5d00e8f481f739
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495587"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086938"
 ---
 # <a name="why-use-batch-transcription"></a>Batch transkripsiyonu neden kullanmalısınız?
 
-Batch tanıma, ses büyük miktarda depolama alanında varsa idealdir. Adanmış REST API'sini kullanarak bir paylaşılan erişim imzası (SAS) URI ses dosyalarının olduğu noktaya ve döküm zaman uyumsuz olarak alır.
+Batch transkripsiyonu, depolama, Azure BLOB'ları gibi ses büyük bir miktarını konuşmaların istiyorsanız idealdir. Adanmış REST API'sini kullanarak bir paylaşılan erişim imzası (SAS) URI ses dosyalarının üzerine gelin ve döküm zaman uyumsuz olarak alır.
+
+>[!NOTE]
+> Konuşma Hizmetleri standart aboneliği (S0), batch transkripsiyonu kullanmak için gereklidir. Ücretsiz Abonelik anahtarları (F0) işe yaramaz. Ek bilgi için bkz: [fiyatlandırma ve limitler](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/).
 
 ## <a name="the-batch-transcription-api"></a>Batch tanıma API'si
 
 Batch tanıma API'si, ek özellikleri ile birlikte zaman uyumsuz konuşma metin tanıma sunar. Bu yöntemleri gösteren bir REST API'si değil:
 
 1. Toplu işlem isteği oluşturma
-1. Sorgu durumu 
+1. Sorgu durumu
 1. Döküm indiriliyor
 
 > [!NOTE]
@@ -75,7 +79,7 @@ Bu parametreleri REST isteğinin sorgu dizesinde eklenebilir.
 
 ## <a name="authorization-token"></a>Yetkilendirme belirteci
 
-Konuşma hizmeti tüm özellikleri ile bir abonelik anahtarı oluştururken [Azure portalında](https://portal.azure.com) izleyerek bizim [Başlarken Kılavuzu](get-started.md). Bizim temel modellerinden döküm almak planlıyorsanız, bir anahtar oluşturmak tek yapmanız gereken bir işlemdir. 
+Konuşma hizmeti tüm özellikleri ile bir abonelik anahtarı oluştururken [Azure portalında](https://portal.azure.com) izleyerek bizim [Başlarken Kılavuzu](get-started.md). Bizim temel modellerinden döküm almak planlıyorsanız, bir anahtar oluşturmak tek yapmanız gereken bir işlemdir.
 
 Abonelik anahtarı özelleştirme ve özel bir model kullanmak planlıyorsanız, aşağıdakileri yaparak özel konuşma tanıma Portalı'na ekleyin:
 
@@ -106,19 +110,19 @@ Aşağıdaki örnek kod bir abonelik anahtarı ve bir API anahtarı ile özelle�
             client.Timeout = TimeSpan.FromMinutes(25);
             client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
-         
+
             return new CrisClient(client);
         }
 ```
 
-Belirteci aldıktan sonra transkripsiyonu gerektiren ses dosyasına işaret eden SAS URI'sini belirtin. Kodun geri kalanını durumu yinelenir ve sonuçları görüntüler. İlk başta, anahtar, bölge, model ve SA aşağıdaki kod parçacığında gösterildiği gibi ayarlayabilirsiniz. Ardından, istemci ve POST isteğinin örneği. 
+Belirteci aldıktan sonra transkripsiyonu gerektiren ses dosyasına işaret eden SAS URI'sini belirtin. Kodun geri kalanını durumu yinelenir ve sonuçları görüntüler. İlk başta, anahtar, bölge, model ve SA aşağıdaki kod parçacığında gösterildiği gibi ayarlayabilirsiniz. Ardından, istemci ve POST isteğinin örneği.
 
 ```cs
             private const string SubscriptionKey = "<your Speech subscription key>";
             private const string HostName = "westus.cris.ai";
             private const int Port = 443;
-    
-            // SAS URI 
+
+            // SAS URI
             private const string RecordingsBlobUri = "SAS URI pointing to the file in Azure Blob Storage";
 
             // adapted model Ids
@@ -127,14 +131,14 @@ Belirteci aldıktan sonra transkripsiyonu gerektiren ses dosyasına işaret eden
 
             // Creating a Batch Transcription API Client
             var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
-            
+
             var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
 ```
 
 İstek yaptığınız, sorgu ve tanıma sonuçları, aşağıdaki kod parçacığında gösterildiği gibi indirin:
 
 ```cs
-  
+
             // get all transcriptions for the user
             transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
 
@@ -152,9 +156,9 @@ Belirteci aldıktan sonra transkripsiyonu gerektiren ses dosyasına işaret eden
                             // not created from here, continue
                             continue;
                         }
-                            
+
                         completed++;
-                            
+
                         // if the transcription was successful, check the results
                         if (transcription.Status == "Succeeded")
                         {
@@ -166,7 +170,7 @@ Belirteci aldıktan sonra transkripsiyonu gerektiren ses dosyasına işaret eden
                             Console.WriteLine("Transcription succeeded. Results: ");
                             Console.WriteLine(results);
                         }
-                    
+
                     break;
                     case "Running":
                     running++;
@@ -174,7 +178,7 @@ Belirteci aldıktan sonra transkripsiyonu gerektiren ses dosyasına işaret eden
                     case "NotStarted":
                     notStarted++;
                     break;
-                    
+
                     }
                 }
             }
@@ -188,7 +192,7 @@ Belirteci aldıktan sonra transkripsiyonu gerektiren ses dosyasına işaret eden
 
 Ses gönderme ve döküm durumu almak için zaman uyumsuz Kurulum not alın. Oluşturduğunuz .NET HTTP istemci istemcisidir. Var. bir `PostTranscriptions` ses dosyası ayrıntılarını göndermek için yöntem ve bir `GetTranscriptions` sonuçları almak için yöntemi. `PostTranscriptions` bir tanıtıcı döndürür ve `GetTranscriptions` transkripsiyonu durumu almak için bir tanıtıcı oluşturmak için kullanır.
 
-Geçerli örnek kod, özel bir model belirtmez. Hizmet, dosya veya dosyalar fotoğrafını için temel modelleri kullanır. Modelleri belirtmek için model kimliklerini akustik ve dil modeli için aynı yönteme geçirebilirsiniz. 
+Geçerli örnek kod, özel bir model belirtmez. Hizmet, dosya veya dosyalar fotoğrafını için temel modelleri kullanır. Modelleri belirtmek için model kimliklerini akustik ve dil modeli için aynı yönteme geçirebilirsiniz.
 
 Taban çizgisi kullanmak istemiyorsanız, hem akustik ve dil modelleri için model kimliklerini geçirin.
 

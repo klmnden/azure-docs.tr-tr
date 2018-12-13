@@ -1,6 +1,6 @@
 ---
-title: Ekleme veya Azure Active Directory Grup sahipleri Kaldır | Microsoft Docs
-description: Azure Active Directory'yi kullanarak Grup sahipleri ekleyip öğrenin.
+title: Grup sahipleri - Azure Active Directory Ekle Kaldır | Microsoft Docs
+description: Azure Active Directory'yi kullanarak sahipleri ekleme veya kaldırma hakkında yönergeler grubu.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
-ms.custom: it-pro
-ms.openlocfilehash: fae68bccbeaa54ca1bab9d77510fe6baecd11fcc
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 8c70378993e0155cbe730a5a351848ca1a1daa0a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139729"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087159"
 ---
-# <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>Nasıl yapılır: ekleme veya Azure Active Directory'de Grup sahipleri kaldırma
+# <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Ekleme veya Azure Active Directory'de Grup sahipleri kaldırma
 Azure Active Directory (Azure AD) gruplarına ait ve Grup sahipleri tarafından yönetilir. Grup sahipleri bir grup ve üyelerini yönetmek için bir kaynak sahibi (Yönetici) atanır. Grup sahipleri güvenlik grubunun üyesi olması gerekmez. Bir grup sahibi atandıktan sonra yalnızca bir kaynak sahibi ekleyebilir veya sahipleri kaldırabilirsiniz.
 
 Bazı durumlarda, yönetici olarak bir grup sahibi atamamayı karar verebilirsiniz. Bu durumda, Grup sahibi olur. Ayrıca, bu grubu ayarlarında kısıtlı sürece sahipleri için Grup, diğer sahipleri atayabilirsiniz.

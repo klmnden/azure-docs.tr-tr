@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5cff0041eb478bcaf007a455a47e56db9b6121bc
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: 8e77e7db5ccaa9861c8e90e2b7038c3f5e0d3e46
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002707"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076092"
 ---
 # <a name="manage-workspaces"></a>Çalışma alanlarını yönetme
 
@@ -239,6 +239,6 @@ Yeni veri planınız, web sayfanızın üst kısmındaki OMS portalı şeridinde
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bkz: [Log Analytics Aracısı genel bakış](../../azure-monitor/platform/log-analytics-agent.md) veri merkezinizde veya diğer bulut ortamında bulunan bilgisayarlardaki verileri toplamak için.
-* Azure VM’lerden veri toplamayı yapılandırmak için bkz. [Azure Sanal Makineler hakkında veri toplama](../../log-analytics/log-analytics-quick-collect-azurevm.md).  
+* Azure VM’lerden veri toplamayı yapılandırmak için bkz. [Azure Sanal Makineler hakkında veri toplama](../../azure-monitor/learn/quick-collect-azurevm.md).  
 * İşlev eklemek ve veri toplamak için bkz. [Çözüm Galerisinden Log Analytics çözümleri ekleme](../../azure-monitor/insights/solutions.md).
 

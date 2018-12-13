@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: fd337d6eb9711bbd82e9e8ba8e4e7caeeac35255
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7f03072c2b7ee1f08fc5fa306da6c5b8368742ae
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019882"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111622"
 ---
 Önbelleğinizi panoya sabitlemediyseniz **Tüm hizmetleri** kullanarak [Azure portalında](https://portal.azure.com) bulabilirsiniz.
 
-![Azure Azure önbelleği için Redis Gözat dikey penceresi](media/redis-cache-browse/redis-cache-browse.png)
+![Azure önbelleği için Redis Gözat dikey penceresi](media/redis-cache-browse/redis-cache-browse.png)
 
-Önbelleklerinizi görüntülemek için tıklayın **tüm hizmetleri** araması **Azure Cache için Rediss**. 
+Önbelleklerinizi görüntülemek için tıklayın **tüm hizmetleri** araması **Azure önbelleği için Redis**. 
 
 Ayarlarını görüntülemek ve yapılandırmak için istediğiniz önbelleği seçin.
 
-![Azure Azure önbelleği için Redis önbelleğe Gözat listesi](media/redis-cache-browse/redis-caches.png)
+![Azure önbelleği için Redis önbelleğe Gözat listesi](media/redis-cache-browse/redis-caches.png)
 
 Görüntüleyebilir ve Önbelleği'ndeki yapılandırma **Azure önbelleği için Redis** dikey penceresi.
 
