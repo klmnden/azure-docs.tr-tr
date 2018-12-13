@@ -1,6 +1,6 @@
 ---
-title: Azure IOT Edge ile saydam bir ağ geçidi oluşturma | Microsoft Docs
-description: Azure IOT Edge cihazı, birden çok cihaza yönelik bilgi işleyebilen saydam bir ağ geçidi olarak kullanma
+title: Saydam bir ağ geçidi cihazı - Azure IOT Edge oluştur | Microsoft Docs
+description: Azure IOT Edge cihazı, aşağı akış cihazlardan bilgi işleyebilen saydam bir ağ geçidi olarak kullanma
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 55968393ff64d9eed1f5b384094a77d0d169dc5d
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.custom: seodec18
+ms.openlocfilehash: 29c7fc279aec79750df48c70be7792869e89ae78
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681203"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094364"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Saydam bir ağ geçidi olarak görev yapacak bir IOT Edge cihazı yapılandırma
 
@@ -31,7 +32,7 @@ Bir aşağı akış cihaz herhangi bir uygulama veya ile oluşturulan bir kimli�
 
 Ağ geçidi cihazı topolojiniz için gerekli güven sağlayan herhangi bir sertifika altyapısı oluşturabilirsiniz. Bu makalede, etkinleştirmek için kullanacağınız aynı sertifika Kurulumu varsayıyoruz [X.509 CA güvenlik](../iot-hub/iot-hub-x509ca-overview.md) belirli bir IOT hub (IOT hub'ı sahibi CA) ve sertifikaları bir dizi için ilişkili bir X.509 CA sertifikası içerir, IOT Hub'ındaki Sınır cihazı için bu CA ve bir CA ile imzalanmış.
 
-![Ağ geçidi](./media/how-to-create-transparent-gateway/gateway-setup.png)
+![Ağ geçidi sertifikası Kurulumu](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
 Ağ geçidi bağlantı başlatma sırasında aşağı akış cihaza Edge cihaz CA sertifikasını sunar. Edge cihaz CA sertifika sahibi CA sertifikası tarafından imzalanmış emin olmak için aşağı akış cihaz denetler. Bu işlem, ağ geçidi güvenilir bir kaynaktan gelen onaylamak aşağı akış cihaz sağlar.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory'yi kullanarak Grup bilgilerinizi düzenlemek nasıl | Microsoft Docs
-description: Azure Active Directory kullanarak bir grup bilgilerini düzenlemeyi öğrenin.
+title: Grup bilgileri - Azure Active Directory Düzenle | Microsoft Docs
+description: Azure Active Directory kullanarak grubunuzun bilgilerini düzenleme hakkında yönergeler.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: a02987fdce3a15cd5d416234e3717df6d33622ec
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: b857b0bd56b479d4301535a4e1f734d8002dcc8e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731351"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099061"
 ---
-# <a name="how-to-edit-your-group-information-using-azure-active-directory"></a>Nasıl yapılır: Azure Active Directory'yi kullanarak, grup bilgilerini Düzenle
+# <a name="edit-your-group-information-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak, grup bilgilerini Düzenle
 
-Azure Active Directory'yi kullanarak, kendi ad, açıklama veya üyelik türü güncelleştirme dahil olmak üzere grubun ayarlarını düzenleyebilir.
+Azure Active Directory (Azure AD) kullanarak, ad, açıklama ve üyelik türünü güncelleştirme dahil olmak üzere grubun ayarlarını düzenleyebilir.
 
 ## <a name="to-edit-your-group-settings"></a>Grup ayarlarınızı düzenlemek için
-1. Oturum [Azure portalında](https://portal.azure.com) dizinde genel yönetici hesabını kullanarak.
+1. Dizin için bir Genel yönetici hesabı kullanarak [Azure portalda](https://portal.azure.com) oturum açın.
 
 2. Seçin **Azure Active Directory**ve ardından **grupları**.
 
@@ -57,7 +57,7 @@ Azure Active Directory'yi kullanarak, kendi ad, açıklama veya üyelik türü g
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
 
-- [Gruplar ve üyeler görüntüleyin](active-directory-groups-view-azure-portal.md)
+- [Grupları ve üyeleri görüntüleme](active-directory-groups-view-azure-portal.md)
 
 - [Temel bir grup oluşturma ve üye ekleme](active-directory-groups-create-azure-portal.md)
 
@@ -69,4 +69,4 @@ Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
 
 - [Grupları kullanarak kaynaklara erişimi yönetme](active-directory-manage-groups.md)
 
-- [Azure Active Directory'ye bir Azure aboneliği ekleme veya ilişkilendirme](active-directory-how-subscriptions-associated-directory.md)
+- [Azure Active Directory’ye bir Azure aboneliğini ekleme veya ilişkilendirme](active-directory-how-subscriptions-associated-directory.md)

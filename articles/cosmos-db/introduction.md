@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 89f5ae27e7ce3ec3155fd3fdbf42bb0f4322aa10
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 50abe2b067770976f19ae9b70c97c2df8354640f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835072"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091587"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB’ye hoş geldiniz
 
@@ -38,7 +38,7 @@ Genel olarak dağıtılan, çok modelli bir veritabanı hizmeti olarak Azure Cos
         * [SQL API](sql-api-introduction.md): Zengin SQL sorgulama özelliklerine sahip şemasız bir JSON veritabanı.
         * [MongoDB API](mongodb-introduction.md): Azure Cosmos DB platformu tarafından desteklenen üst düzeyde ölçeklenebilir bir *Hizmet olarak MongoDB*. Mevcut MongoDB kitaplıkları, sürücüleri, araçları ve uygulamalarıyla uyumludur.
         * [Cassandra API](cassandra-introduction.md): Azure Cosmos DB platformu tarafından desteklenen, genel olarak dağıtımı yapılan bir Hizmet olarak Cassandra. Mevcut [Apache Cassandra](https://cassandra.apache.org/) kitaplıkları, sürücüleri, araçları ve uygulamalarıyla uyumludur.
-        * [Gremlin API](graph-introduction.md): Open Gremlin API'leri desteğine sahip üst düzeyde bağlantılı veri kümeleriyle çalışan uygulamaların oluşturulmasını ve çalıştırılmasını kolaylaştıran, tümüyle yönetilen ve yatay olarak ölçeklenebilen graf veritabanı hizmeti ([Apache TinkerPop belirtimi](http://tinkerpop.apache.org/), Apache Gremlin temelinde).
+        * [Gremlin API](graph-introduction.md): Open Gremlin API'leri desteğine sahip üst düzeyde bağlantılı veri kümeleriyle çalışan uygulamaların oluşturulmasını ve çalıştırılmasını kolaylaştıran, tümüyle yönetilen ve yatay olarak ölçeklenebilen graf veritabanı hizmeti ([Apache TinkerPop belirtimi](https://tinkerpop.apache.org/), Apache Gremlin temelinde).
         * [Tablo API](table-introduction.md): Hiçbir uygulama değişikliği yapmadan mevcut Azure Tablosu uygulamalarına üstün özellikler (örneğin, otomatik dizin oluşturma, garantili düşük gecik süresi, genel dağıtım) sağlamak için tasarlanan bir anahtar-değer veritabanı hizmeti.
         * Çok yakında başka veri modelleri ve API’ler de kullanıma sunulacaktır!
 

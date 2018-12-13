@@ -1,10 +1,10 @@
 ---
-title: Machine Learning Studio web hizmetleri için günlüğe kaydetme | Microsoft Docs
+title: Hizmet günlüğü - Azure Machine Learning Studio web | Microsoft Docs
 description: Machine Learning web hizmetleri için günlüğe kaydetmeyi etkinleştirme konusunda bilgi edinin. Günlük API'leri gidermenize yardımcı olacak ek bilgiler sağlar.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 5ac8712b1f5dbea4ed3225e87b1a6f51312c3529
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 6da5a3c278c237b6139508ba49652deb3166eb1a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310421"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091467"
 ---
 # <a name="enable-logging-for-machine-learning-studio-web-services"></a>Machine Learning Studio web hizmetleri için günlüğe kaydetmeyi etkinleştirme
 Bu belge, Machine Learning web hizmetleri günlüğe kaydetme olanağı hakkında bilgi sağlar. Günlük, yalnızca bir hata numarası ve Machine Learning API'leri aramalarınız gidermenize yardımcı olabilecek bir ileti ötesinde ek bilgi sağlar.  

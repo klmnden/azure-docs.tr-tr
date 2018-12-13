@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure portalı kullanarak Stream Analytics işi oluşturma ve yönetme | Microsoft Docs'
+title: 'Öğretici: Oluşturma ve Azure portalını kullanarak Stream Analytics işi yönetme'
 description: Bu öğreticide, telefon araması akışındaki sahte aramaların analiz edilmesi için Azure Stream Analytics’in nasıl kullanılacağını gösteren kapsamlı bir örnek sunulmaktadır.
 services: stream-analytics
 author: mamccrea
@@ -7,16 +7,16 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.workload: data-services
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 10/30/2018
-ms.openlocfilehash: f35585fc77f085f58b7be2d55e03919cc1e8b248
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.custom: seodec18
+ms.date: 12/07/2018
+ms.openlocfilehash: 83a558289739a2fc54d9602f6454550e7fb79302
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283793"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090576"
 ---
-# <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Telefon araması verilerini analiz etmek ve sonuçları bir Power BI panosunda görselleştirmek için Stream Analytics işi oluşturma
+# <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Stream Analytics ile telefon araması verileri analiz etmek ve Power BI panosunda sonuçlarını Görselleştirme
 
 Bu öğreticide Azure Stream Analytics'i kullanarak telefon araması verilerini analiz etme adımları gösterilmektedir. Bir istemci uygulaması tarafından oluşturulan telefon araması verileri, Stream Analytics işi tarafından filtrelenecek bazı sahte aramalar içermektedir.
 
@@ -30,7 +30,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * İşi test etme ve başlatma
 > * Sonuçları Power BI’da görselleştirme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce şunlara sahip olduğunuzdan emin olun:
 
@@ -48,24 +48,24 @@ Bir olay hub'ı oluşturmak ve arama verilerini bu olay hub'ına göndermek içi
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.  
 2. **Kaynak oluştur** > **Nesnelerin İnterneti** > **Olay Hub'ları** seçeneğini belirleyin.  
 
-   ![Azure Olay Hub’ı oluşturma](media/stream-analytics-manage-job/find-eh.png)
+   ![Portalda bir Azure olay hub'ı oluşturma](media/stream-analytics-manage-job/find-event-hub-resource.png)
 3. **Ad Alanı Oluştur** bölmesini aşağıdaki değerlerle doldurun:  
 
    |**Ayar**  |**Önerilen değer** |**Açıklama**  |
    |---------|---------|---------|
-   |Adı     | myEventHubsNS        |  Olay hub'ı ad alanını tanımlamak için benzersiz bir ad.       |
+   |Ad     | myEventHubsNS        |  Olay hub'ı ad alanını tanımlamak için benzersiz bir ad.       |
    |Abonelik     |   \<Aboneliğiniz\>      |   Olay hub'ını oluşturmak istediğiniz Azure aboneliğini seçin.      |
    |Kaynak grubu     |   MyASADemoRG      |  **Yeni Oluştur**’u seçin ve hesabınız için yeni bir kaynak grubu adı girin.       |
    |Konum     |   Batı ABD 2      |    Olay hub'ı ad alanının dağıtılabildiği konum.     |
 
 4. Kalan ayarlarda varsayılan seçenekleri kullanın ve **Oluştur**’u seçin.  
 
-   ![Olay hub'ı ad alanı oluşturma](media/stream-analytics-manage-job/create-ehns.png)
+   ![Azure portalını kullanarak Event hub'ı ad alanı oluşturma](media/stream-analytics-manage-job/create-event-hub-namespace.png)
 
 5. Ad alanının dağıtımı tamamlandığında **Tüm kaynaklar**’a gidin ve Azure kaynak listesinde *myEventHubsNS* girişini bulun. *myEventHubsNS* girişini seçerek açın.  
 6. Ardından **+Olay hub'ı** öğesini seçin ve **Ad** alanına *MyEventHub* veya istediğiniz başka bir ad yazın. Kalan ayarlarda varsayılan seçenekleri kullanın ve **Oluştur**’u seçin. Ardından dağıtımın başarıyla tamamlanmasını bekleyin.
 
-   ![Olay hub'ı oluşturma](media/stream-analytics-manage-job/create-eh.png)
+   ![Azure Portalı'nda olay hub'ı yapılandırma](media/stream-analytics-manage-job/create-event-hub-portal.png)
 
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Olay hub’ına erişim verme ve bir bağlantı dizesi alma
 
@@ -75,7 +75,7 @@ Bir uygulamanın Azure Olay Hub’larına veri gönderebilmesi için olay hub’
 
 2. İlkeye **MyPolicy** adını verin ve **Yönet** seçeneğinin işaretli olduğundan emin olun. Ardından **Oluştur**’u seçin.  
 
-   ![Olay hub'ı paylaşılan erişim ilkesi oluşturma](media/stream-analytics-manage-job/create-ehpolicy.png)
+   ![Olay hub'ı paylaşılan erişim ilkesi oluşturma](media/stream-analytics-manage-job/create-event-hub-access-policy.png)
 
 3. İçerik oluşturulduktan sonra seçerek açın ve **Bağlantı dizesi-birincil anahtar** değerini bulun. Bağlantı dizesinin yanındaki mavi renkli **kopyala** düğmesini seçin.
 
@@ -104,7 +104,7 @@ TelcoGenerator uygulamasını başlatmadan önce bunu, daha önce oluşturduğun
 4. Dosyayı kaydedin.  
 5. Daha sonra bir komut penceresi açıp, TelcoGenerator uygulamasının sıkıştırmasını açtığınız klasöre geçin. Ardından aşağıdaki komutu girin:
 
-   ```
+   ```cmd
    telcodatagen.exe 1000 0.2 2
    ```
 
@@ -145,7 +145,7 @@ Arama olaylarından oluşan bir akışa sahip olduğunuza göre artık olay hub'
 
 4. Geri kalan ayarlar için varsayılan seçenekleri kullanın, **Oluştur**’u seçip dağıtımın başarılı olmasını bekleyin.
 
-   ![Bir iş oluşturma](media/stream-analytics-manage-job/create-a-job.png)
+   ![Azure Stream Analytics işi oluşturma](media/stream-analytics-manage-job/create-stream-analytics-job.png)
 
 ## <a name="configure-job-input"></a>İş girişi yapılandırma
 
@@ -167,7 +167,7 @@ Bir sonraki adım, önceki bölümde oluşturduğunuz olay hub'ını kullanarak 
 
 4. Kalan ayarlarda varsayılan seçenekleri kullanın ve **Kaydet**’i seçin.
 
-   ![Girişi yapılandırma](media/stream-analytics-manage-job/configure-input.png)
+   ![Azure Stream Analytics erişimini yapılandırma](media/stream-analytics-manage-job/configure-stream-analytics-input.png)
 
 ## <a name="configure-job-output"></a>İş çıkışını yapılandırma 
 
@@ -185,7 +185,7 @@ Son adım, işin dönüştürülmüş verileri yazabileceği bir çıkış havuz
    |Veri kümesi adı  |   ASAdataset  | 
    |Tablo adı |  ASATable  | 
 
-   ![Çıktı yapılandırma](media/stream-analytics-manage-job/configure-output.png)  
+   ![Stream Analytics çıktı yapılandırma](media/stream-analytics-manage-job/configure-stream-analytics-output.png)  
 
 4. **Yetkilendir**'i seçtiğinizde bir açılır pencere görünür ve Power BI hesabınızda kimlik doğrulaması için sizden kimlik bilgilerini sağlamanız istenir. Yetkilendirme başarılı olduktan sonra **Kaydet** seçeneğine tıklayarak ayarları kaydedin. 
 
@@ -218,7 +218,7 @@ Bu örnekte sahte aramalar, aynı kullanıcı tarafından beş saniye içinde an
 
 4. Sorguyu **kaydedin**.  
 
-   ![Stream Analytics sorgusunu tanımlama](media/stream-analytics-manage-job/define-query.png)
+   ![Portalında Stream Analytics sorgusunu tanımlama](media/stream-analytics-manage-job/define-stream-analytics-query.png)
 
 ## <a name="test-your-query"></a>Sorgunuzu test etme
 
@@ -232,11 +232,11 @@ Bu örnekte sahte aramalar, aynı kullanıcı tarafından beş saniye içinde an
 
    Örnek veriler geçici olarak depolanır ve sorgu penceresi açıkken kullanılabilir. Sorgu penceresini kapatırsanız örnek veriler atılır ve test gerçekleştirmek için yeni bir örnek veri kümesi oluşturmanız gerekir. Alternatif olarak, [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json)’daki örnek veriler içeren JSON dosyasını kullanabilir ve ardından bunu *CallStream* girişi için örnek veri olarak kullanmak üzere karşıya yükleyebilirsiniz.
 
-   ![Örnek girişi verileri](media/stream-analytics-manage-job/sample-input-data.png)
+   ![Stream Analytics için girdi verilerini örnekleme konusunda Visual](media/stream-analytics-manage-job/sample-input-data-asa.png)
 
 4. Sorguyu test etmek için **Test**'i seçin. Aşağıdaki sonuçları görmeniz gerekir:  
 
-   ![Test çıkışı](media/stream-analytics-manage-job/test-output.png)
+   ![Stream Analytics sorgu testi koy](media/stream-analytics-manage-job/sample-test-output-restuls.png)
 
 ## <a name="start-the-job-and-visualize-output"></a>İş başlatma ve çıkışı görselleştirme
 
@@ -250,7 +250,7 @@ Bu örnekte sahte aramalar, aynı kullanıcı tarafından beş saniye içinde an
 
 5. Pencerenin üst kısmındaki **Kutucuk ekle**’yi seçin. Ardından **Özel Akış Verileri**'ni ve **İleri**'yi seçin. **Veri kümeleriniz** bölümünden **ASAdataset** girişini seçin. **Görselleştirme türü** açılan menüsünden **Kart**'ı seçin ve **fraudulentcalls** girişini **Alanlar**'a ekleyin. **İleri**'yi seçip ad belirledikten sonra **Uygula**'yı seçerek kutucuğu oluşturun.  
 
-   ![Kutucuk oluşturma](media/stream-analytics-manage-job/create-tiles.png)
+   ![Power BI Pano kutucukları oluşturma](media/stream-analytics-manage-job/create-power-bi-dashboard-tiles.png)
 
 6. Aşağıdaki seçeneklerle 5. adımı tekrar uygulayın:
    * Görselleştirme Türü’ne geldiğinizde Çizgi grafik seçeneğini belirleyin.  
@@ -260,7 +260,7 @@ Bu örnekte sahte aramalar, aynı kullanıcı tarafından beş saniye içinde an
 
 7. İki kutucuk da eklendikten sonra panonuz aşağıdaki örneğe benzer olmalıdır. Olay hub’ı gönderen uygulamanız ve Stream Analytics uygulamanız çalışıyorsa, yeni veriler ulaştıkça Power BI panonuzun düzenli olarak güncelleştirildiğini fark edersiniz.  
 
-   ![Power BI sonuçları](media/stream-analytics-manage-job/power-bi-results.png)
+   ![Power BI panosunda sonuçlarını görüntüle](media/stream-analytics-manage-job/power-bi-results-dashboard.png)
 
 ## <a name="embedding-your-powerbi-dashboard-in-a-web-application"></a>Power BI Panonuzu bir Web Uygulamasına Ekleme
 

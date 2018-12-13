@@ -1,20 +1,20 @@
 ---
-title: Geliştirme ve Visual Studio 2017'de Azure IOT Edge için C# modülleri hata ayıklama | Microsoft Docs
+title: Geliştirme ve hata ayıklama C# Visual Studio - Azure IOT Edge modülleri | Microsoft Docs
 description: Geliştirmek ve Azure IOT Edge için C# modülünde hata ayıklama için Visual Studio 2017 kullanın
 services: iot-edge
-keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
 ms.date: 09/24/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 091eb6af871cc53dff3459c55c668e8ffb227984
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 547989152320678ec195c4e8a93965cfbbd0f341
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567477"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097854"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Geliştirmek ve Azure IOT Edge (Önizleme) için C# modülleri hata ayıklamak için Visual Studio 2017 kullanın
 
@@ -53,7 +53,7 @@ Visual Studio 2017 hazır olduktan sonra ayrıca gerekir:
 
 1. Gelen **Araçları** menüsünde seçin **Uzantılar ve güncelleştirmeler**. Genişletin **yüklü > Araçları** bulabilirsiniz **Azure IOT Edge** ve **Cloud Explorer**.
 
-2. Yüklü sürüm unutmayın. Bu sürüm Visual Studio Market'te en son sürümle karşılaştırabilirsiniz ([Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS), [Azure IOT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.azureiotedgetools))
+2. Yüklü sürüm unutmayın. Bu sürüm Visual Studio Market'te en son sürümle karşılaştırabilirsiniz ([Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS), [Azure IOT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge))
 
 3. Sürümünüzün eski ise, Visual Studio Araçları aşağıdaki bölümde gösterildiği gibi güncelleştirin.
 

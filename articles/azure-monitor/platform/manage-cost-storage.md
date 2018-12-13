@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: be64d299ac61a47dd3c44ee2e422abd09785189e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: 744a0f683f58aed98cea7bdef0b2a36af68ad2f1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002727"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097582"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Veri hacmi ve saklama Log analytics'te kontrol ederek maliyet yönetme
 
@@ -67,7 +67,7 @@ Azure portalı ve, Log Analytics çalışma alanı oluşturma seçtiğinizde *ü
 Günlük sınıra ulaşıldığında, Faturalanabilir veri türlerinin günlük geri kalanı için durdurur. Seçili Log Analytics çalışma alanı için sayfanın üstündeki bir uyarı başlık görünür ve bir işlemi olay gönderilir *işlemi* altında tablo **LogManagement** kategorisi. Veri toplama sürdürür altında sıfırlama zaman tanımlandıktan sonra *günlük sınır ayarlanacak*. Günlük veri sınırına ulaşıldığında bildirmek için yapılandırılmış. Bu işlem olayı temel alan bir uyarı kuralı tanımlayan öneririz. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Tanımlamak için hangi günlük veri sınırınızın tanımlayın 
-Gözden geçirme [Log Analytics kullanımı ve Tahmini maliyetler](../../log-analytics/log-analytics-usage.md) veri alma eğilimi ve tanımlamak için günlük hacim üst sınırını ne olduğunu anlamak için. Sınıra ulaşıldıktan sonra kaynaklarınızı izleyin mümkün olmayacaktır beri dikkatlice değerlendirilmelidir. 
+Gözden geçirme [Log Analytics kullanımı ve Tahmini maliyetler](../../azure-monitor/platform/data-usage.md) veri alma eğilimi ve tanımlamak için günlük hacim üst sınırını ne olduğunu anlamak için. Sınıra ulaşıldıktan sonra kaynaklarınızı izleyin mümkün olmayacaktır beri dikkatlice değerlendirilmelidir. 
 
 ### <a name="manage-the-maximum-daily-data-volume"></a>Maksimum günlük veri hacmini yönetme 
 Log Analytics günlük içe alma veri hacmi yönetmek için bir sınır yapılandırma aşağıdaki adımları açıklanmaktadır.  
@@ -125,4 +125,4 @@ Log Analytics'e UTC saatini kullanır. Sıfırlama zaman, veri alma aynı anda t
 
 ## <a name="next-steps"></a>Sonraki adımlar  
 
-Hangi kaynakları ve farklı türde kullanım ve maliyeti yönetmenize yardımcı olmak için gönderilen veri gönderme ne kadar veri toplandığı belirlemek için bkz: [Log analytics'te veri kullanımını çözümleme](../../log-analytics/log-analytics-usage.md).
+Hangi kaynakları ve farklı türde kullanım ve maliyeti yönetmenize yardımcı olmak için gönderilen veri gönderme ne kadar veri toplandığı belirlemek için bkz: [Log analytics'te veri kullanımını çözümleme](../../azure-monitor/platform/data-usage.md).

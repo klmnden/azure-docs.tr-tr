@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 36afc89ef583baa5484aa4e69c6969e7448c93c1
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 03757aaf13d48730a3061f07ae3138f0aadbdf00
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127593"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077860"
 ---
 # <a name="copy-data-from-magento-using-azure-data-factory-preview"></a>Magento, Azure Data Factory (Önizleme) kullanarak verileri kopyalama
 
@@ -77,7 +77,12 @@ Magento bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Magento veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Magento verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **MagentoObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Magento verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **MagentoObject**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **MagentoObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -89,7 +94,8 @@ Magento verileri kopyalamak için dataset öğesinin type özelliği ayarlamak *
         "linkedServiceName": {
             "referenceName": "<Magento linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -98,14 +104,14 @@ Magento verileri kopyalamak için dataset öğesinin type özelliği ayarlamak *
 
 Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, Magento kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
-### <a name="magentosource-as-source"></a>Kaynak olarak MagentoSource
+### <a name="magento-as-source"></a>Kaynak olarak Magento
 
 Magento verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **MagentoSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **MagentoSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Customers"`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Customers"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

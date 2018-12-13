@@ -1,6 +1,6 @@
 ---
-title: Azure IOT Edge modüllerini anlama | Microsoft Docs
-description: Azure IOT Edge modülleri ve nasıl yapılandırılacağı hakkında bilgi edinin
+title: Modüller mantıksal cihazlarınızda - Azure IOT Edge çalışma şeklini öğrenin | Microsoft Docs
+description: Azure IOT Edge modüllerini dağıtılabilir ve böylece IOT Edge üzerinde iş mantığını cihazlara çalıştırabilirsiniz yönetilmesine mantığı kapsayıcılı birimlerin
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3d76f5931e3636f19c2030c4090116a0791db819
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 90fb6eadb2edb92d4516d8565d8c2c2bd5120c05
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567341"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094194"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Azure IoT Edge modüllerini anlama
 
@@ -31,7 +32,7 @@ Bulutta görüntü var ve bunlar güncelleştirilebilir, değiştirilmiş ve far
 
 Bir modül görüntüsü bir cihaza dağıtılan ve IOT Edge çalışma zamanı tarafından başlatılan her zaman bu modülü yeni bir örneğini oluşturulur. İki cihazı dünyanın farklı bölümleri aynı modülü görüntüsü kullanabilirsiniz; Ancak, modül cihazda başlatıldığında her kendi modül örneğinin sahip olacaktır. 
 
-![Modül görüntüleri - bulutta cihazlarda modülü örnekleri](./media/iot-edge-modules/image_instance.png)
+![Diyagram - bulutta modül görüntüleri, cihazlarda modülü örnekleri](./media/iot-edge-modules/image_instance.png)
 
 Uygulamada, modülleri görüntü deposundaki kapsayıcı görüntüleri olarak mevcut ve cihazlarda modülü örnekleri kapsayıcılardır. 
 
@@ -46,7 +47,7 @@ Cihazın kimliğini bağımlı bir modül örneği ile ilişkili kimlik hangi ö
 
 Açıkça görülebileceği gibi senaryolarda, birden çok kez aynı cihazda, bir modül görüntüsünü dağıtmak ihtiyacınız olduğunda farklı adlar aynı görüntü birden çok kez dağıtabilirsiniz.
 
-![Modül kimlikleri benzersiz](./media/iot-edge-modules/identity.png)
+![Diyagram - modülü kimlikleri benzersiz cihazları içinde ve cihazlar arasında](./media/iot-edge-modules/identity.png)
 
 ## <a name="module-twins"></a>Modül ikizlerini
 

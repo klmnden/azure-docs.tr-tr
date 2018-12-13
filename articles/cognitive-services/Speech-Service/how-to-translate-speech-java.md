@@ -1,21 +1,22 @@
 ---
 title: Java için Speech SDK'sı kullanarak konuşma Çevir
 titleSuffix: Azure Cognitive Services
-description: Java için Speech SDK'sı kullanarak konuşma çevirme işlemi gösterilmektedir.
+description: Bu makalede bir Java ortamında Speech SDK'sı kullanarak konuşma çevirme için örnek kod içerir.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 53d15e56284c24e6bacf382aa9aab7548b930191
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 233c6b33a4b6dea8ae5aea56272d43bee228d71f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464123"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092256"
 ---
 # <a name="translate-speech-with-the-speech-sdk-for-java"></a>Java Speech SDK'sı ile Konuşma Çevir
 

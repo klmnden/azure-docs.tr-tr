@@ -1,5 +1,6 @@
 ---
 title: Azure Machine Learning Workbench’te neler oldu?
+titleSuffix: Azure Machine Learning service
 description: Uygulama, Azure Machine Learning hizmetindeki değişiklikler ve Destek zaman çizelgesi nedir, ne Workbench hakkında öğrenin.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: b6df86d63e897d5cde34fb697ad2364c107a8fbe
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: 2d97ee70c8456bb3b21a14b646756c8024eab018
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011155"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090134"
 ---
 # <a name="what-is-happening-to-workbench-in-azure-machine-learning-service"></a>Workbench'i Azure Machine Learning hizmetinde neler oluyor?
 
@@ -83,13 +84,13 @@ Proje içeriğinin çoğu zaten yerel makinenizde olduğundan, bu dizinde bir ya
  
 Eski model kayıt defterinizde kayıtlı modelleri, bunları kullanmaya devam etmek istiyorsanız yeni çalışma alanınıza geçirilmelidir. [Modelleri indirip yeni çalışma alanınıza kaydederek](how-to-migrate.md) bunu yapabilirsiniz. 
 
-Eski görüntü kayıt defterinizde oluşturduğunuz görüntüleri kullanmaya devam etmek için, bunların yeni çalışma alanında yeniden oluşturulması gerekir. Bu işlemi, [docker görüntüsü oluşturma](how-to-deploy-to-aci.md#configure-an-image) bölümünü uygulayarak gerçekleştirebilirsiniz. 
+Eski görüntü kayıt defterinizde oluşturduğunuz görüntüleri kullanmaya devam etmek için, bunların yeni çalışma alanında yeniden oluşturulması gerekir. Bunu izleyerek yapabilirsiniz [yapılandırma ve görüntü oluşturma](how-to-deploy-and-where.md#configureimage) bölümler. 
 
 ## <a name="what-about-deployed-web-services"></a>Dağıtılan web hizmetlerine ne oldu?
 
 Model Yönetimi hesabınızı kullanıp web hizmetleri olarak dağıttığınız modeller Azure Container Service (ACS) desteklendiği sürece çalışmaya devam edecektir. Bu web hizmetleri, Model Yönetimi hesapları için destek sona erdiğinde bile çalışacaktır. Öte yandan eski CLI için destek sona erdiğinde, bu web hizmetlerini yönetme beceriniz de sona erecektir.
 
-Yeni sürümde, modeller web hizmetleri olarak [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) veya [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS) kümelerine dağıtılır. Ayrıca [FPGA'lara ve IoT Edge’e de dağıtabilirsiniz](how-to-deploy-and-where.md). Puanlama dosyalarınızda, bağımlılıklarınızda ve şemalarınızda hiçbir değişiklik yapmadan yeni SDK’yı veya CLI’yi kullanarak modellerinizi yeniden dağıtabilirsiniz. 
+Ardından yeni sürümü modelleri web hizmetleri için Azure Container Instances(ACI) veya Azure Kubernetes Service (AKS) kümesi olarak dağıtılır. Ayrıca, FPGA ve IOT edge için dağıtabilirsiniz. Daha fazla bilgi için [nasıl dağıtılacağı ve nerede](how-to-deploy-and-where.md) belge. Puanlama dosyalarınızda, bağımlılıklarınızda ve şemalarınızda hiçbir değişiklik yapmadan yeni SDK’yı veya CLI’yi kullanarak modellerinizi yeniden dağıtabilirsiniz. 
 
 ## <a name="what-about-the-old-sdk--cli"></a>Eski SDK ve CLI'ya ne oldu?
 

@@ -1,26 +1,19 @@
 ---
-title: 'ExpressRoute için sanal ağ geçidi bir sanal ağa ekleyin: portalı: Azure | Microsoft Docs'
+title: 'ExpressRoute için bir Azure sanal ağ geçidi ekleme: Portal | Microsoft Docs'
 description: Bu makalede önceden oluşturulmuş bir Resource Manager Vnet'i expressroute için sanal ağ geçidi eklerken size yol gösterir.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/17/2017
+ms.date: 12/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6198c8723ccbb225a4cc60526e66f4651390b26c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 37fe2e2adb947e2e9ddc86a34baf6994b5771be6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255702"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091212"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Azure portalını kullanarak ExpressRoute için sanal ağ geçidi yapılandırma
 > [!div class="op_single_selector"]

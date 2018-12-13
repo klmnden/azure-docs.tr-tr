@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning hizmeti ile bir tahmin sınıfı kullanarak ML modelleri eğitme
+title: Tahmin sınıfı kullanarak ML modelleri eğitme
+titleSuffix: Azure Machine Learning service
 description: Tek düğümlü ve dağıtılmış eğitim, öğrenme ve derin öğrenme modellerini Azure Machine Learning Hizmetleri Estimator sınıfını kullanarak geleneksel makinenin yapmayı öğrenin
 ms.author: minxia
 author: mx-iao
@@ -9,13 +10,13 @@ ms.component: core
 ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.custom: seodec12
-ms.openlocfilehash: 53462fc0aecbb8f5aeef0bb9208264c714ce8394
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: e7157b9546d1f9ca40bab35d9e643c38051db04e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011429"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100761"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Azure Machine Learning ile eğitme modelleri
 

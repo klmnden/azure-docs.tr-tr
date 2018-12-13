@@ -1,6 +1,6 @@
 ---
-title: Azure AD'de Kimlik güvenliği puanı nedir? - önizleme | Microsoft Docs
-description: Azure AD kiracınızın güvenlik duruşunu geliştirmek için kimlik güvenliği puanını nasıl kullanacağınızı öğrenin.
+title: Güvenli kimlik puanı nedir? -Azure Active Directory (genel Önizleme) | Microsoft Docs
+description: Kimlik nasıl kullanabileceğiniz hakkında yönergeler, Azure AD kiracınızın güvenlik duruşunu puanı güvenliğini sağlayın.
 services: active-directory
 keywords: kimlik güvenliği puanı, Azure AD, şirket kaynaklarına güvenli erişim
 documentationcenter: ''
@@ -16,14 +16,15 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: a9bb22cae2e9fcd607a81d442f4fb51f12c43454
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.custom: it-pro
+ms.openlocfilehash: 5a133d0a38852ca3e95e3ae07716c4fbd3c87f5d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224146"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092093"
 ---
-# <a name="what-is-the-identity-secure-score-in-azure-ad---preview"></a>Azure AD'de kimlik güvenliği puanı nedir? - önizleme
+# <a name="what-is-the-identity-secure-score-in-azure-active-directory-public-preview"></a>Azure Active Directory'de kimlik güvenli puanı nedir? (Genel Önizleme)
 
 Azure AD kiracınız ne düzeyde güvenli? Bu soruya nasıl yanıt vereceğinizi bilmiyorsanız, kimlik güvenliği puanının kimlik güvenliği duruşunuzu izlemeye ve geliştirmeye nasıl yardımcı olduğunu öğrenmek için bu makaleyi okuyun. 
 

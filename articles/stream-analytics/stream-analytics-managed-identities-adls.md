@@ -1,20 +1,21 @@
 ---
-title: Azure Stream Analytics işleri için Azure Data Lake depolama Gen1 çıkış (Önizleme) kimliğini doğrulamak için yönetilen kimlikleri kullanmak
-description: ''
+title: Azure Stream Analytics işi Azure Data Lake depolama Gen1 çıkışı için kimlik doğrulaması
+description: Bu makalede, Azure Stream Analytics işinizi Azure Data Lake depolama Gen1 çıkış için kimlik doğrulaması için yönetilen kimlikleri kullanmayı açıklar.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/27/2018
-ms.openlocfilehash: 41b3dcc03f7cfbfee11798738a3b2daaf5e96741
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: bb25f237450a83a34645ad4dfd9a2839c5525c6f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365297"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090440"
 ---
-# <a name="use-managed-identities-to-authenticate-azure-stream-analytics-jobs-to-azure-data-lake-storage-gen1-output-preview"></a>Azure Stream Analytics işleri için Azure Data Lake depolama Gen1 çıkış (Önizleme) kimliğini doğrulamak için yönetilen kimlikleri kullanmak
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Stream Analytics yönetilen kimlikleri (Önizleme) kullanarak Azure Data Lake depolama Gen1 için kimlik doğrulaması
 
 Azure Stream Analytics, Azure Data Lake Storage (ADLS) Gen1 çıktıyla yönetilen kimlik doğrulama destekler. Kimlik Azure Active Directory içinde belirli bir Stream Analytics işi temsil eden kayıtlı bir yönetilen uygulama ve hedeflenen kaynak kimliğini doğrulamak için kullanılabilir. Yönetilen kimlik parola değişikliklerini veya 90 günde gerçekleşen kullanıcı belirteci süre sonu nedeniyle yeniden kimlik doğrulamaya zorlayabilir gerek gibi kullanıcı tabanlı kimlik doğrulama yöntemlerini sınırlamaları ortadan kaldırır. Ayrıca, yönetilen kimlikleri, Azure Data Lake depolama Gen1 output Stream Analytics işi dağıtımlarının Otomasyonu ile yardımcı olur.
 
@@ -32,7 +33,7 @@ Bu makalede, bir Azure Data Lake depolama Gen1 veren Azure Stream Analytics işi
 
    Yapılandırma kaydedilirken, hizmet sorumlusu nesne kimliği (OID) asıl aşağıda gösterildiği gibi kimlik olarak listelenir:
 
-   ![Stream Analytics sorumlusu kimliği](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
+   ![Stream Analytics Hizmet sorumlusu kimliği](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
  
    Hizmet sorumlusu, Stream Analytics işiyle aynı ada sahip. Örneğin, işinizin adı ise **MyASAJob**, oluşturulan hizmet sorumlusu adını da olduğu **MyASAJob**.
 
@@ -56,11 +57,11 @@ Bu makalede, bir Azure Data Lake depolama Gen1 veren Azure Stream Analytics işi
  
 8. İçinde **izinleri** bölmesinde, onay **yazma** ve **yürütme** izinleri atayabilirsiniz **bu klasör ve tüm alt öğeleri**. Ardından **Tamam**.
 
-   ![Bir izin seçin](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
+   ![Yazma ve Yürütme izinleri seçin](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
  
 9. Hizmet sorumlusu altında listelenen **atanan izinler** üzerinde **erişim** aşağıda gösterildiği gibi bölmesi. Şimdi, geri dönün ve Stream Analytics işinizi başlatın.
 
-   ![Erişim listesi](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
+   ![Stream Analytics erişim Portalı'nda listesi](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
 
    Data Lake depolama Gen1 dosya sistemi izinleri hakkında daha fazla bilgi için bkz: [Azure Data Lake depolama Gen1 erişim denetimi](../data-lake-store/data-lake-store-access-control.md).
 

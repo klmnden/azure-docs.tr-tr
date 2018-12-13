@@ -1,122 +1,122 @@
 ---
-title: Azure Stream Analytics tanılama günlükleri kullanarak sorun giderme
-description: Bu makalede, Azure akış analizi, tanılama günlüklerini çözümlemek açıklar.
+title: Azure Stream Analytics, tanılama günlüklerini kullanarak sorun giderme
+description: Bu makalede, Azure Stream analytics'te tanılama günlüklerini çözümleme açıklar.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/20/2017
-ms.openlocfilehash: 9001a2962806ee3e691fa448dde162d12c6ecdd2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: db3c9874676e3240f6896c1e1ff8f873360c20d5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30905872"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090831"
 ---
-# <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Azure Stream Analytics tanılama günlükleri kullanarak sorun giderme
+# <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Azure Stream Analytics, tanılama günlükleri kullanarak sorun giderme
 
-Bazen, bir Azure akış analizi işi beklenmedik bir şekilde işlemeyi durdurur. Bu tür bir olay sorunlarını giderme olması önemlidir. Olay beklenmeyen sorgu sonucu, aygıtlara bağlantı veya bir beklenmeyen hizmet kesintisi tarafından neden olabilir. Stream Analytics tanılama günlüklerine yardımcı olabilecek oluşur ve kurtarma zamanı azaltmak sorunları nedenini belirlemeye.
+Bazen, bir Azure Stream Analytics işi beklenmedik bir şekilde işlemeyi durdurur. Bu tür bir olay sorun giderme önemlidir. Olay beklenmeyen sorgu sonucu, bağlantı cihazlara veya tarafından beklenmeyen bir hizmet kesintisinden kaynaklanıyor olabilir. Stream analytics'te tanılama günlükleri yardımcı olabilecek oluşur ve kurtarma süresini kısaltmak, sorunların nedenini tanımlayın.
 
-## <a name="log-types"></a>Günlük türleri
+## <a name="log-types"></a>Günlük türü
 
-Akış analizi günlükleri iki tür sunar: 
-* [Etkinlik günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) (her zaman açıktır). Etkinlik günlükleri işleri üzerinde gerçekleştirilen işlemler fikir verir.
-* [Tanılama günlüklerini](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (yapılandırılabilir). Tanılama günlükleri daha zengin bir işlemle gerçekleşen her şeyi fikir sağlar. İş silindiğinde tanılama iş oluşturulduğunda, başlangıç ve bitiş günlüğe kaydeder. Bunlar olayları iş güncelleştirildiği ve çalışırken kapsar.
+Stream Analytics, günlükleri iki tür sunar: 
+* [Etkinlik günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) (her zaman açıktır). Etkinlik günlükleri işler üzerinde gerçekleştirilen işlemler hakkında Öngörüler sunar.
+* [Tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (yapılandırılabilir). Tanılama günlükleri ile bir iş gerçekleşen her şeyi daha zengin Öngörüler sağlar. İş silindiğinde tanılama iş oluşturulduğunda başlangıç ve bitiş günlüğe kaydeder. Bunlar, iş güncelleştirildiğinde ve çalışırken olayları kapsar.
 
 > [!NOTE]
-> Azure Storage, Azure Event Hubs'a ve Azure günlük analizi gibi hizmetleri uyumsuz verileri çözümlemek için kullanabilirsiniz. Bu hizmetlere ilişkin fiyatlandırma modeli göre sizden ücret kesilir.
+> Azure depolama, Azure Event Hubs ve Azure Log Analytics gibi hizmetler, uyumsuz verileri çözümlemek için kullanabilirsiniz. Bu hizmetler için fiyatlandırma modeline göre ücretlendirilirsiniz.
 >
 
-## <a name="turn-on-diagnostics-logs"></a>Tanılama günlüklerini Aç
+## <a name="turn-on-diagnostics-logs"></a>Tanılama günlüklerini açın
 
-Tanılama günlükleri **kapalı** varsayılan olarak. Tanılama günlüklerini açmak için şu adımları tamamlayın:
+Tanılama günlükleri **kapalı** varsayılan olarak. Tanılama günlüklerini etkinleştirmek için aşağıdaki adımları tamamlayın:
 
-1.  Azure portalında oturum açın ve akış iş dikey penceresine gidin. Altında **izleme**seçin **tanılama günlükleri**.
+1.  Azure portalında oturum açın ve akış işi dikey penceresine gidin. Altında **izleme**seçin **tanılama günlükleri**.
 
-    ![Tanılama günlüklerini dikey gezinme](./media/stream-analytics-job-diagnostic-logs/image1.png)  
+    ![Tanılama günlükleri dikey penceresinde gezinme](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Seçin **tanılamayı açın**.
+2.  Seçin **tanılamayı Aç**.
 
-    ![Tanılama günlüklerini Aç](./media/stream-analytics-job-diagnostic-logs/image2.png)
+    ![Stream Analytics tanılama günlüklerini açın](./media/stream-analytics-job-diagnostic-logs/turn-on-diagnostic-logs.png)
 
-3.  Üzerinde **tanılama ayarları** sayfası için **durum**seçin **üzerinde**.
+3.  Üzerinde **tanılama ayarları** sayfası için **durumu**seçin **üzerinde**.
 
-    ![Tanılama günlükleri için Durumu Değiştir](./media/stream-analytics-job-diagnostic-logs/image3.png)
+    ![Değişiklik durumu için tanılama günlükleri](./media/stream-analytics-job-diagnostic-logs/save-diagnostic-log-settings.png)
 
-4.  İstediğiniz arşivleme hedefi (depolama hesabı, olay hub'ı, günlük analizi) olarak ayarlayın. Toplamak istediğiniz günlükleri kategorileri seçin (yürütme, yazma). 
+4.  İstediğiniz arşivleme hedef (depolama hesabı, olay hub'ı Log Analytics'e) ayarlayın. Toplamak istediğiniz günlükleri kategorileri seçin (yürütme, yazma). 
 
 5.  Yeni tanılama yapılandırmayı kaydedin.
 
-Tanılama yapılandırması etkili olması için yaklaşık 10 dakika sürer. Bundan sonra günlükler Başlat yapılandırılmış arşivleme hedef görünmesini (bunlar üzerinde görebilirsiniz **tanılama günlükleri** sayfa):
+Tanılama yapılandırması etkili olması için yaklaşık 10 dakika sürer. Bundan sonra günlükleri başlangıç yapılandırılmış arşivleme hedef görünen (bunlar üzerinde görebilirsiniz **tanılama günlükleri** sayfa):
 
-![Tanılama günlükleri - arşivleme hedefleri dikey gezinme](./media/stream-analytics-job-diagnostic-logs/image4.png)
+![Tanılama günlükleri - arşiv hedefleri için dikey penceresinde gezinme](./media/stream-analytics-job-diagnostic-logs/view-diagnostic-logs-page.png)
 
-Tanılama yapılandırma hakkında daha fazla bilgi için bkz: [toplamak ve Azure kaynaklarınızı Tanılama verileri kullanma](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+Tanılama yapılandırma hakkında daha fazla bilgi için bkz. [toplama ve Tanılama verileri Azure kaynaklarınızı kullanma](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
-## <a name="diagnostics-log-categories"></a>Kategoriler tanılama günlük
+## <a name="diagnostics-log-categories"></a>Tanılama günlük kategorileri
 
-Şu anda, tanılama günlüklerini iki kategorisi Yakala:
+Şu anda, tanılama günlüklerinin iki kategoriye Yakala:
 
-* **Yazma**. Yazma işlemleri işi ilgili olayları yakalar oturum: Proje oluşturma, ekleme ve silme girdi ekleme ve sorgu güncelleştirme çıkarır ve başlangıç ve işi durduruluyor.
-* **Yürütme**. İş yürütme sırasında meydana gelen olayları yakalar:
+* **Yazma**. Yakalama işi yazma işlemleri ile ilgili olayları günlüğe: Proje oluşturma, ekleme ve silme girişlerinin ekleme ve güncelleştirme sorgu çıkarır ve başlangıç ve işi durduruluyor.
+* **Yürütme**. İş yürütme sırasında gerçekleşen olayları yakalar:
     * Bağlantı hataları
-    * Dahil olmak üzere, veri işleme hatalar:
-        * Sorgu tanımı (eşleşmeyen alan türleri ve değerleri, eksik alanlar vb.) için uygun olmayan olaylar
+    * Dahil olmak üzere, veri işleme hataları:
+        * Sorgu tanımı (eşleşmeyen alan türleri ve değerleri, eksik alanlar vb.) için uygun olmayan olayları
         * İfade değerlendirme hataları
     * Diğer olayları ve hataları
 
-## <a name="diagnostics-logs-schema"></a>Tanılama günlüklerini şeması
+## <a name="diagnostics-logs-schema"></a>Tanılama günlükleri şeması
 
-Tüm günlükler JSON biçiminde depolanır. Her giriş aşağıdaki ortak alanlarına sahiptir:
+Tüm günlükler, JSON biçiminde depolanır. Her girişin aşağıdaki ortak dize alanlara sahiptir:
 
 Ad | Açıklama
 ------- | -------
-time | Günlük zaman damgası (UTC içinde).
-resourceId | İşlemi bir yerde, büyük harflerle sürdü kaynak kimliği. Abonelik kimliği, kaynak grubu ve iş adı içerir. Örneğin,   **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT. STREAMINGJOBS/STREAMANALYTICS/MYSTREAMINGJOB**.
+time | Zaman damgası (UTC) günlüğü.
+resourceId | İşlem büyük harf, yerinde geçen kaynak kimliği. Bu abonelik kimliği, kaynak grubunu ve iş adı içerir. Örneğin,   **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT. STREAMINGJOBS/STREAMANALYTICS/MYSTREAMINGJOB**.
 category | Kategori ya da oturum **yürütme** veya **yazma**.
-operationName | Oturum açmış işlemin adı. Örneğin, **olayları göndermek: SQL çıktı yazma hatası için mysqloutput**.
-durum | İşlem durumu. Örneğin, **başarısız** veya **başarılı**.
+operationName | Oturum açmış işlemin adı. Örneğin, **olayları gönderme: SQL çıkış yazma hatası için mysqloutput**.
+durum | İşlemin durumu. Örneğin, **başarısız** veya **başarılı**.
 düzey | Günlük düzeyi. Örneğin, **hata**, **uyarı**, veya **bilgilendirici**.
-properties | JSON bir dize olarak serileştirilmiş günlük girişi özgü ayrıntısı. Daha fazla bilgi için aşağıdaki bölümlere bakın.
+properties | Günlük girdisi özgü ayrıntılı olarak serileştirilmiş bir JSON dizesi. Daha fazla bilgi için aşağıdaki bölümlere bakın.
 
 ### <a name="execution-log-properties-schema"></a>Yürütme günlüğü özellikleri şeması
 
-Yürütme günlüklerini Stream Analytics işi yürütme sırasında gerçekleşen olayları hakkında bilgi vardır. Özellikler şeması, olay türüne bağlı olarak değişir. Şu anda, yürütme günlüklerini aşağıdaki türleri vardır:
+Stream Analytics iş yürütme sırasında gerçekleşen olaylar hakkında bilgi yürütme günlükleri vardır. Şema özellikleri, olay türüne bağlı olarak değişir. Şu anda, yürütme günlükleri şu türlerini sunuyoruz:
 
 ### <a name="data-errors"></a>Veri hataları
 
-İş verileri işlerken oluşan herhangi bir hata Bu günlükler kategorisindedir. Bu günlükler en sık okunan, veri seri hale getirme, sırasında oluşturulur ve yazma işlemleri. Bu günlükler bağlantı hataları içermez. Bağlantı hataları, genel olaylar olarak kabul edilir.
+İş verileri işlerken oluşan herhangi bir hata günlükleri Bu kategoride var. Bu günlükler genellikle okuma, oluşturma sırasında yerleşim verilerine seri hale getirme, oluşturulur ve yazma işlemleri. Bu günlükler, bağlantı hataları içermez. Bağlantı hataları genel olayları olarak kabul edilir.
 
 Ad | Açıklama
 ------- | -------
-Kaynak | İş adı giriş veya hatanın oluştuğu çıktı.
-İleti | Şu hata ile ilişkili ileti.
+Kaynak | İş adı, giriş veya hatanın oluştuğu çıktı.
+İleti | Hatayla ilişkili ileti.
 Tür | Hata türü. Örneğin, **DataConversionError**, **CsvParserError**, veya **ServiceBusPropertyColumnMissingError**.
-Veriler | Doğru bir şekilde kullanarak hatanın kaynağı bulmak yararlı olan verileri içerir. Boyutuna bağlı olarak kesilmesi için konu.
+Veriler | Hatanın kaynağını doğru bir şekilde bulmak yararlı olan veriler içerir. Kesilme tabidir, boyutuna bağlı olarak.
 
-Bağlı olarak **operationName** değeri, aşağıdaki şema veri hatalar var:
-* **Olayları sıralamak**. Seri hale olayları olay okuma işlemleri sırasında oluşur. Bunlar durum, giriş verileri şunlardan biri nedeniyle sorgu şeması karşılamadığı oluşur:
-    * *Tür uyumsuzluğu (de) olay sırasında seri*: hataya neden olan alan tanımlar.
-    * *Bir olay, geçersiz bir seri hale getirme okuyamıyor*: hatanın oluştuğu konum giriş verilerindeki hakkında bilgileri listeler. Blob giriş, uzaklık ve bir örnek verileri için BLOB adı içerir.
-* **Olayları göndermek**. Yazma işlemleri sırasında olaylarından gönderin. Bunlar hataya akış olayını tanımlayın.
+Yapılandırmanıza bağlı olarak **operationName** değeri aşağıdaki şema veri hatalar var:
+* **Olayları sıralamak**. Serileştirme olayları olay okuma işlemleri sırasında oluşur. Giriş verileri Bu nedenlerden biri için sorgu şeması karşılamaz bunlar ortaya çıkar:
+    * *Tür uyumsuzluğu (de) olay sırasında serileştirmek*: hataya neden olan bir alan tanımlar.
+    * *Bir olay, geçersiz bir seri hale getirme okunamıyor*: hatanın oluştuğu giriş verilerinin konumu hakkında bilgi listeler. BLOB adı için blob giriş uzaklığı ve verilerin bir örnek içerir.
+* **Olayları gönderme**. Yazma işlemleri sırasında olaylar meydana gönderin. Bunlar, hataya neden olan akış olayı tanımlar.
 
 ### <a name="generic-events"></a>Genel olaylar
 
-Genel olaylar şey kapsar.
+Genel olaylar, diğer her şeyi kapsar.
 
 Ad | Açıklama
 -------- | --------
 Hata | (isteğe bağlı) Hata bilgileri. Genellikle, varsa bu özel durum bilgilerini adıdır.
 İleti| Günlük iletisi.
-Tür | İleti türü. İç kategorilere ayırma hatalarının eşlenir. Örneğin, **JobValidationError** veya **BlobOutputAdapterInitializationFailure**.
-Bağıntı Kimliği | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) , iş yürütme benzersiz şekilde tanımlar. İşi durur aynı kadar tüm yürütme günlük girişlerini zamandan işini başlatır **bağıntı kimliği** değeri.
+Tür | İleti türü. İç hataların kategorilere ayrılması eşlenir. Örneğin, **JobValidationError** veya **BlobOutputAdapterInitializationFailure**.
+Bağıntı Kimliği | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) tanımlamasının, iş yürütme. Aynı işi durur bulunana kadar andan itibaren tüm yürütme günlüğü girişleri işini başlatır. **bağıntı kimliği** değeri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Stream Analytics'e giriş](stream-analytics-introduction.md)
+* [Stream analytics'e giriş](stream-analytics-introduction.md)
 * [Stream Analytics ile çalışmaya başlama](stream-analytics-real-time-fraud-detection.md)
 * [Stream Analytics işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
 * [Stream Analytics sorgu dili başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)

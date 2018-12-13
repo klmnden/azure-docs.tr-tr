@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 80ba42d7eab1726c7add6c4c9426b7dde3b55480
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1486e303e4e94ee6140bcd6ed4f52bc433b9aae6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445974"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100064"
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Azure AD B2C kiracısı için bir Azure aboneliğine bağlama
 
@@ -25,7 +25,7 @@ ms.locfileid: "37445974"
 Azure AD B2C için kullanım ücretleri, bir Azure aboneliğine faturalandırılır. Azure AD B2C kiracısı oluşturulduğunda, Kiracı Yöneticisi açıkça Azure AD B2C kiracısı bir Azure aboneliğine bağlamak gerekir. Bu makalede, nasıl gösterir.
 
 > [!NOTE]
-> Bir Azure AD B2C kiracısıyla bağlantılı bir abonelik yalnızca Azure AD B2C kullanımı, faturalandırma için kullanılır. Aboneliği diğer Azure hizmetlerine veya Office 365 lisansı eklemek için kullanılamaz *Azure AD B2C kiracısı içinde*.
+> Bir Azure AD B2C kiracısıyla bağlantılı bir aboneliği Azure AD B2C kullanımı veya ek Azure AD B2C kaynaklar dahil olmak üzere diğer Azure kaynakları faturalandırma için kullanılabilir.  Diğer Azure Hizmetleri tabanlı lisans ya da Azure AD B2C kiracısı içinde Office 365 lisansı eklemek için kullanılamaz.
 
  Abonelik bağlantısını içinde ' % s'hedef Azure aboneliğinin bir Azure AD B2C "kaynak" oluşturarak elde edilir. Diğer Azure kaynakları (örneğin, VM'ler, veri depolama için LogicApps) ile birlikte tek bir Azure aboneliği içindeki birçok Azure AD B2C "Kaynaklar" oluşturulabilir. Aboneliğin ilişkili olduğu Azure AD kiracısı giderek Abonelikteki kaynakların tümünü görebilirsiniz.
 
@@ -80,7 +80,7 @@ Bu kaynak için kullanabilirsiniz:
 
 ![B2C kaynağı ayarları](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
-## <a name="known-issues"></a>Bilinen sorunlar
+## <a name="known-issues"></a>Bilinen Sorunlar
 
 ### <a name="csp-subscriptions"></a>CSP abonelikleri
 

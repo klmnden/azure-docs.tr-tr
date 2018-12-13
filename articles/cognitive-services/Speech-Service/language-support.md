@@ -1,21 +1,22 @@
 ---
 title: Dil desteği - konuşma tanıma hizmeti API'si
 titleSuffix: Azure Cognitive Services
-description: Doğal konuşma hizmeti tarafından desteklenen dillerin listesi.
+description: Azure konuşma Hizmetleri birlikte konuşma çevirisi, Konuşmayı metne ve metin okuma dönüştürme için çok sayıda dilleri destekler. Bu makalede, hizmet tarafından dil desteği kapsamlı bir listesini sağlar.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: fa4563b84eb0882832a89ccc98396ff487f51b48
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.custom: seodec18
+ms.openlocfilehash: 8cdcdd6c5e0201f8f6af39faab0a67a68920e568
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284770"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094585"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Konuşma hizmeti API'sini dil ve bölge desteği
 
@@ -36,8 +37,8 @@ Microsoft konuşma tanıma API'si aşağıdaki dilleri desteklemektedir. Farklı
  en-GB | İngilizce (Birleşik Krallık) | Hayır | Evet | Evet
  tr-giriş | English (India) | Evet | Evet | Evet
  tr NZ | İngilizce (Yeni Zelanda) | Hayır | Evet | Evet  
- tr-TR | İngilizce (ABD) | Evet | Evet | Evet
- es-ES | İspanyolca (İspanya) | Hayır | Evet | Hayır
+ en-US | İngilizce (ABD) | Evet | Evet | Evet
+ es-ES | İspanyolca (İspanya) | Evet | Evet | Hayır
  es-MX | İspanyolca (Meksika) | Hayır | Evet | Hayır
  FI-FI | Fince (Finlandiya) | Hayır | Hayır | Hayır
  fr-CA | Fransızca (Kanada) | Hayır | Evet | Hayır
@@ -49,7 +50,7 @@ Microsoft konuşma tanıma API'si aşağıdaki dilleri desteklemektedir. Farklı
  NB-yok | Norveççe (Bokmal) (Norveç) | Hayır | Hayır | Hayır
  NL-NL | Hollanda dili (Hollanda) | Hayır | Evet | Hayır
  pl-PL | Lehçe (Polonya) | Hayır | Hayır | Hayır
- pt-BR | Portekizce (Brezilya) | Hayır | Evet | Hayır
+ pt-BR | Portekizce (Brezilya) | Evet | Evet | Hayır
  pt-PT | Portekizce (Portekiz) | Hayır | Evet | Hayır
  ru-RU | Rusça (Rusya) | Evet | Evet | Hayır
  sv-SE | İsveççe (İsveç) | Hayır | Hayır | Hayır
@@ -158,7 +159,7 @@ Ses özelleştirme bizim için İngilizce (en-US), ana kara Çince (zh-CN), Fran
 
 ## <a name="speech-translation"></a>Konuşma Çevirisi
 
-**Konuşma çevirisi** API, konuşma tanıma ve konuşma tanıma ve konuşma metin çevirisi için farklı dilleri destekler. Kaynak dili her zaman aşağıdaki konuşma dilini tablodan olmalıdır. Hedef diller Çeviri hedef konuşma veya metin olmasına göre değişir. Gelen konuşmaya Çevir birden fazla [60 diller](https://www.microsoft.com/translator/business/languages/). Bu dillerin bir alt kümesi için kullanılabilir [konuşma sentezi](language-support.md#text-languages). 
+**Konuşma çevirisi** API, konuşma tanıma ve konuşma tanıma ve konuşma metin çevirisi için farklı dilleri destekler. Kaynak dili her zaman aşağıdaki konuşma dilini tablodan olmalıdır. Hedef diller Çeviri hedef konuşma veya metin olmasına göre değişir. Gelen konuşmaya Çevir birden fazla [60 diller](https://www.microsoft.com/translator/business/languages/). Bu dillerin bir alt kümesi için kullanılabilir [konuşma sentezi](language-support.md#text-languages).
 
 ### <a name="speech-languages"></a>Konuşma dillerini
 

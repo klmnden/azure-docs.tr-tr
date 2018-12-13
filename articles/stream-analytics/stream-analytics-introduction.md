@@ -4,21 +4,20 @@ description: Nesnelerin İnterneti'nden (IoT) sağlanan akış verilerini gerçe
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: overview
 ms.workload: data-services
-ms.custom: mvc
-ms.date: 03/27/2018
-ms.openlocfilehash: 7b38548ce3266d74ffd51ce75ffa92bdb4ac24b9
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
-ms.translationtype: HT
+ms.custom: seodec18
+ms.date: 12/07/2018
+ms.openlocfilehash: 9cd1a8a095c697c4baeaa435f80c136ce49e0313
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437629"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098585"
 ---
-# <a name="what-is-stream-analytics"></a>Stream Analytics nedir?
+# <a name="what-is-azure-stream-analytics"></a>Azure Akış Analizi Nedir?
 
 Azure Stream Analytics, cihazlardan yüksek hacimlerde veri akışı incelemenize olanak tanıyan bir olay işleme altyapısıdır. Gelen veriler cihazlardan, sensörlerden, web sitelerinden, sosyal medya akışlarından, uygulamalardan ve çok daha fazlasından alınabilir. Ayrıca, veri akışlarından bilgi ayıklamayı, desenleri ve ilişkileri tanımlamayı destekler. Daha sonra uyarılar gibi diğer aşağı yönde eylemleri tetiklemek, bir raporlama aracına bilgileri göndermek veya daha sonra kullanmak üzere depolamak için bu desenleri kullanabilirsiniz.
 
@@ -42,13 +41,13 @@ Gelen verileri analiz ettikten sonra dönüştürülen verilerin bir çıktısı
 
 Aşağıdaki görüntüde Stream Analytics işlem hattı gösterilmektedir. Stream Analytics işiniz tümünü veya giriş ve çıkış yapması durumunda seçili bir kümeyi kullanabilir. Bu görüntüde verilerin Stream Analytics’e gönderilmesi, analiz edilmesi ve depolama ya da sunum gibi diğer eylemler için gönderilmesi gösterilmiştir:
 
-![Stream Analytics işlem hattı](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
+![Stream Analytics giriş işlem hattı](./media/stream-analytics-introduction/stream-analytics-intro-pipeline.png)
 
 ## <a name="key-capabilities-and-benefits"></a>Temel işlevler ve avantajlar
 
 Azure Stream Analytics kullanımı kolay, esnek, güvenilir ve her boyuttaki iş için ölçeklenebilir olacak şekilde tasarlanmıştır. Birden çok veri merkezinin yanı sıra bağımsız bulutlarda kullanılabilir. Aşağıdaki görüntüde Azure Stream Analytics’in temel özellikleri gösterilmiştir:
 
-![Stream Analytics temel özellikleri](./media/stream-analytics-introduction/stream_analytics_key_capabilities.png)
+![Stream Analytics temel özellikleri](./media/stream-analytics-introduction/stream-analytics-key-capabilities.png)
 
 ## <a name="ease-of-getting-started"></a>Başlama kolaylığı
 

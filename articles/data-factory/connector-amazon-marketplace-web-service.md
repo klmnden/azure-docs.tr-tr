@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: bcda662790c1af72e28b8968142bab15f62e83bf
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: c58b956a0fc1899b12050daf0fbf61514ca24407
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127192"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095146"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Amazon Market Web hizmetinden veri kopyalama
 
@@ -85,7 +85,12 @@ Amazon Market Web bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Amazon Market Web hizmeti veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Amazon Market Web hizmetinden veri kopyalamak için dataset öğesinin type özelliği ayarlamak **AmazonMWSObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Amazon Market Web hizmetinden veri kopyalamak için dataset öğesinin type özelliği ayarlamak **AmazonMWSObject**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **AmazonMWSObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -97,7 +102,8 @@ Amazon Market Web hizmetinden veri kopyalamak için dataset öğesinin type öze
         "linkedServiceName": {
             "referenceName": "<AmazonMWS linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 
@@ -107,14 +113,14 @@ Amazon Market Web hizmetinden veri kopyalamak için dataset öğesinin type öze
 
 Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, Amazon Market Web hizmeti kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
-### <a name="amazonmwssource-as-source"></a>Kaynak olarak AmazonMWSSource
+### <a name="amazon-mws-as-source"></a>Amazon MWS kaynağı olarak
 
 Amazon Market Web hizmetinden veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **AmazonMWSSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **AmazonMWSSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

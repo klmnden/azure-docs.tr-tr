@@ -1,25 +1,26 @@
 ---
-title: LUIS Bot - Web app Botu - Node.js Bot Framework SDK 3.0 ile
+title: LUIS Bot ile Node.js
 titleSuffix: Azure Cognitive Services
 description: Bot Framework kullanarak bir LUIS uygulaması ile tümleşik bir bot oluşturun.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 0bd191da3f2625bc202ee66100e7dac25d9d65de
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.openlocfilehash: 7229155b9fbfb93babd45c746d0f36fbab812013
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042338"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093413"
 ---
-# <a name="luis-bot-in-nodejs"></a>Node.js'de LUIS bot
+# <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot Framework Node.js içindeki robotla LUIS 3.x ve Azure Web app botu
 
-Node.js kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet Robotu oluşturun. Bu sohbet Robotu, hızlı bir şekilde bir bot çözümü uygulamak için önceden oluşturulmuş HomeAutomation etki alanını kullanır. Bot, Bot Framework ile derlenir 3.x ve Azure Web app botu.
+Node.js'yi kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu oluşturun. Bu sohbet Robotu, hızlı bir şekilde bir bot çözümü uygulamak için önceden oluşturulmuş HomeAutomation etki alanını kullanır. Bot, Bot Framework ile derlenir 3.x ve Azure Web app botu.
 
 ## <a name="prerequisite"></a>Önkoşul
 
@@ -27,7 +28,7 @@ Bot oluşturmadan önce adımları [uygulama oluşturma](./luis-get-started-crea
 
 Bot LUIS uygulaması içinde bulunan HomeAutomation etki alanından hedefleri için yanıt verir. Her biri bu hedefleri için kendisine eşleyen bir hedefi LUIS uygulaması sağlar. Bot LUIS algılar hedefi işleyen bir iletişim kutusu sağlar.
 
-| Amaç | Örnek utterance | Bot işlevi |
+| Amaç | Örnek konuşma | Bot işlevi |
 |:----:|:----------:|---|
 | HomeAutomation.TurnOn | Işıkları aç'ı açın. | Bot çağırır `TurnOnDialog` olduğunda `HomeAutomation.TurnOn` algılandı. Bu iletişim kutusu, burada cihaz kapalıyken üzerinde kullanıcı bir cihazı açın ve bir IOT hizmeti çağırmak ' dir. |
 | HomeAutomation.TurnOff | Yatak odası Işıkları aç. | Bot çağırır `TurnOffDialog` olduğunda `HomeAutomation.TurnOff` algılandı. Burada cihaz devre dışı kullanıcı cihazı kapatıp ve bir IOT hizmeti çağırmak bu iletişim kutusu. |
@@ -78,7 +79,7 @@ Aşağıdaki adımlarla NPM paketlerini yükle:
 
 5. Yeni bir tarayıcı penceresi açılır. Konsolunda, aşağıdaki komutu girin:
 
-    ```
+    ```console
     cd site\wwwroot && npm install
     ```
 
@@ -115,7 +116,7 @@ Yine de açmak veya ilk tarayıcı penceresinde seçin ise ikinci bir tarayıcı
 
 Kod Düzenleyicisi'nde açın `app.js`. Bunu, aşağıdaki kodu içerir:
 
-```javascript
+```nodejs
 /*-----------------------------------------------------------------------------
 A simple Language Understanding (LUIS) bot for the Microsoft Bot Framework. 
 -----------------------------------------------------------------------------*/
@@ -206,7 +207,7 @@ Var olan hedefleri app.js içinde göz ardı edilir. Bunları bırakabilirsiniz.
 
 Aşağıdaki kodu kopyalayın ve eklemeniz `app.js`.
 
-```javascript
+```nodejs
 bot.dialog('TurnOn',
     (session) => {
         session.send('You reached the TurnOn intent. You said \'%s\'.', session.message.text);
@@ -223,7 +224,7 @@ bot.dialog('TurnOn',
 
 Aşağıdaki kodu kopyalayın ve eklemeniz `app.js`.
 
-```javascript
+```nodejs
 bot.dialog('TurnOff',
     (session) => {
         session.send('You reached the TurnOff intent. You said \'%s\'.', session.message.text);

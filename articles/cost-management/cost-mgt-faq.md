@@ -1,21 +1,21 @@
 ---
 title: Cloudyn Azure için sık sorulan sorular | Microsoft Docs
-description: Cloudyn hakkında genel soruların yanıtlarını sağlar.
+description: Bu makalede, Cloudyn hakkında genel soruların yanıtları sağlanır.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: e387ba0a4e20d9b584d88f7d6388ab6472ccc04c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: a27cd45ebec41a90a1627bff157c1058b83a25e6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997287"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098099"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Cloudyn için sık sorulan sorular
 
@@ -62,7 +62,7 @@ Bir hesabı etkinleştirmek için:
 1.  Cloudyn portalında, sağ üst kısımdaki **Ayarlar**’a tıklayın ve **Bulut Hesapları**’nı seçin.
 2.  Microsoft Azure hesapları sekmesinde sahip hesaplar için Ara bir **etkinleştirilmemiş** abonelik.
 3.  Sağa etkinleştirilmemiş bir hesabın tıklayın **Düzenle** benzer bir kalem simgesi.
-4.  Kiracı kimliği ve oran Kimliğinizi otomatik olarak algılanır. **İleri**’ye tıklayın.
+4.  Kiracı kimliği ve oran Kimliğinizi otomatik olarak algılanır. **İleri**'ye tıklayın.
 5.  Azure portalına yönlendirilirsiniz. Portalda oturum açın ve Azure verilerinize erişmek için Cloudyn Toplayıcı yetkisi verin.
 6.  Ardından, Cloudyn hesapları Yönetim sayfasına yönlendirilirsiniz ve aboneliğiniz ile güncelleştirilir **etkin** hesap durumu. Bu, yeşil onay işareti simgesi gösterir.
 7.  Bir veya daha fazla abonelik için bir yeşil onay işareti simgesini görmüyorsanız, (CloudynCollector) abonelik için bir okuyucu uygulaması oluşturmak için gerekli izinlere sahip değilsiniz demektir. Abonelik için daha yüksek izinlere sahip bir kullanıcı, 3 ve 4 gerekiyor.  

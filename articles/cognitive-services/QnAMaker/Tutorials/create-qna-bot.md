@@ -1,21 +1,22 @@
 ---
-title: 'Öğretici: Azure robot hizmeti - soru-cevap Oluşturucu ile soru-cevap Robotu'
+title: Soru-cevap Robotu - Azure robot hizmeti - soru-cevap Oluşturucu
 titleSuffix: Azure Cognitive Services
 description: Bu öğretici Azure portalında Azure Bot hizmeti v3 ile soru-cevap bot oluşturma sürecinde kılavuzluk eder.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker`
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: tulasim
-ms.openlocfilehash: 19c56cf05e307deca52808b0eeba65b8949ffc0b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f5587e14a0250e7312f1c95598b481bd052931c3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212752"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094840"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Öğretici: Azure ile soru-cevap Robotu oluşturun Bot hizmeti v3
 
@@ -60,11 +61,11 @@ Bu öğretici için yayımlanan Bilgi Bankası olması gerekir. Biri yoksa adım
 
 5. Seçin **soru ve yanıt** şablonu için robot şablon alanını, ardından seçerek şablonu ayarlarını kaydedin **seçin**.
 
-    ![bot hizmeti seçimi](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
+    ![bot hizmeti şablonunu Seçimi Kaydet](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
 
 6. Ayarlarınızı gözden geçirin ve ardından **Oluştur**. Bu, oluşturur ve bot hizmeti ile Azure'a dağıtır.
 
-    ![bot hizmeti seçimi](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
+    ![bot oluşturma](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
 
 7. Bot hizmeti dağıtıldığını doğrulayın.
 

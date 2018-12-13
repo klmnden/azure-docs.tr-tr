@@ -1,6 +1,6 @@
 ---
-title: Azure Event Grid ve Event Hubs tümleştirmesi
-description: Azure Event Grid ve Event Hubs kullanarak verileri bir SQL Veri Ambarı’na geçirme işlemini açıklar
+title: Event Hubs verilerini veri ambarı - Event Grid Gönder
+description: Bir SQL Data Warehouse'a veri taşımak için Azure Event Grid ve olay hub'ları kullanmayı açıklar. Yakalama dosyası almak için bir Azure işlevi kullanır.
 services: event-grid
 author: tfitzmac
 manager: timlt
@@ -8,14 +8,14 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: aad7a24d8b0e0bc74815cad3604db1cc21a6db96
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
-ms.translationtype: HT
+ms.openlocfilehash: 0b77d0cc32464fe8b7ac28f491f2cb23b0790ba7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163235"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097616"
 ---
-# <a name="stream-big-data-into-a-data-warehouse"></a>Büyük verileri bir veri ambarına akışla aktarma
+# <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Öğretici: bir veri ambarına büyük veri Stream
 
 Azure [Event Grid](overview.md), uygulama ve hizmetlerden bildirimlere yanıt vermenize olanak tanıyan akıllı bir olay yönlendirme hizmetidir. Örneğin bir Azure İşlevini tetikleyerek Azure Blob depolama alanına veya Data Lake Store'a alınan Event Hubs verilerinin işlenmesini ve verilerin farklı veri depolarına geçirilmesini sağlayabilir. [Event Hubs Capture ve Event Grid örneği](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo), blob depolama alanındaki Event Hubs verilerini SQL Veri Ambarına sorunsuzca geçirmek üzere Event Hubs Capture’ı Event Grid ile birlikte kullanmayı gösterir.
 
@@ -65,7 +65,7 @@ Event Grid, olay verilerini abonelere dağıtır. Aşağıdaki örnekte bir Capt
 ]
 ```
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 

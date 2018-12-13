@@ -1,6 +1,6 @@
 ---
-title: Kullanıcılar Azure Active Directory'ye Dizin rolleri atama | Microsoft Docs
-description: Kullanıcılar Azure Active Directory'ye Dizin rolleri atama hakkında bilgi edinin.
+title: Kullanıcılar - Azure Active Directory dizin rolleri atama | Microsoft Docs
+description: Azure Active Directory ile kullanıcılara yönetici ve yönetici olmayan rol atama hakkında yönergeler.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,14 +11,15 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: b73df5ec0381e83c54c8cd9f8c0335448def0c6d
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: e8646893d6dd57fd3f743f450f438cd962f02b36
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733051"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095129"
 ---
-# <a name="how-to-assign-roles-and-administrators-to-users-with-azure-active-directory"></a>Nasıl yapılır: roller ve yöneticiler kullanıcılara atama Azure Active Directory ile
+# <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Azure Active Directory ile kullanıcılara yönetici ve yönetici olmayan rol atayın
 Kuruluşunuzdaki bir kullanıcı Azure Active Directory (Azure AD) kaynakları yönetme izni gerekiyorsa, kullanıcının uygun bir rol Azure AD'de kullanıcının gerçekleştirme izni gereken eylemler temelinde atamanız gerekir.
 
 Kullanılabilir roller hakkında daha fazla bilgi için bkz: [Azure Active Directory'de yönetici rolleri atama](../users-groups-roles/directory-assign-admin-roles.md). Kullanıcı ekleme hakkında daha fazla bilgi için bkz. [Azure Active Directory'ye yeni kullanıcı ekleme](add-users-azure-active-directory.md).
@@ -29,7 +30,7 @@ Bir kullanıcıya Azure AD rolleri atamak için yaygın bir yolu açıktır **di
 Ayrıca, Privileged Identity Management (PIM) kullanarak rolleri atayabilirsiniz. PIM kullanma hakkında daha ayrıntılı bilgi için bkz: [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
 
 ### <a name="to-assign-a-role-to-a-user"></a>Bir kullanıcıya rol atamak için
-1. Oturum [Azure portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
+1. Dizin için bir Genel yönetici hesabı kullanarak [Azure portalda](https://portal.azure.com/) oturum açın.
 
 2. Seçin **Azure Active Directory**seçin **kullanıcılar**, arayın ve rol ataması almak istediğiniz kullanıcıyı seçin. Örneğin, _Alain Charon_.
 

@@ -1,21 +1,22 @@
 ---
-title: Konuşma Tanıma Hizmeti SDK'sı Belgeleri
+title: Sürüm Notları - konuşma Hizmetleri
 titlesuffix: Azure Cognitive Services
-description: Sürüm Notları - en son sürümlerde nelerin değiştiğini
+description: Azure konuşma Hizmetleri için özellik sürümleri, geliştirmeleri, hata düzeltmeleri ve bilinen sorunlar çalışan günlüğe bakın.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: ff09926d61d64294a4f12ccf959f6685910539f1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: c99f1691618765e8997ef442a506c83b9a7bd4fa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317900"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088315"
 ---
 # <a name="release-notes"></a>Sürüm notları
 

@@ -1,6 +1,6 @@
 ---
-title: Şekil olayları Azure Time Series Insights (Önizleme) ile nasıl | Microsoft Docs
-description: Azure Time Series Insights (Önizleme) ile olayları şekil nasıl anlama
+title: Azure zaman serisi öngörüleri önizlemesi ile olayları Şekil | Microsoft Docs
+description: Olayları Azure zaman serisi öngörüleri önizlemesi şekillendirme işlemini anlama
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -9,39 +9,39 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 17528b148c04f48fa8222f64900bdf5c3b95ee25
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: dcab5fba62d1a17ba16b541ccbaa6a4a2b2bf2bd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873657"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078506"
 ---
-# <a name="shaping-events-with-azure-time-series-insights-preview"></a>Azure Time Series Insights (Önizleme) ile olayları şekillendirme
+# <a name="shape-events-with-azure-time-series-insights-preview"></a>Azure zaman serisi öngörüleri önizlemesi ile şekli olayları
 
-Bu makalede, Azure zaman serisi öngörüleri (TSI) önizleme sorgularınızı verimliliğini en üst düzeye çıkarmak için JSON, şekillendirme yönergeleri sağlanır.
+Bu makale, Azure zaman serisi öngörüleri önizlemesi sorgularınızı verimliliğini en üst düzeye çıkarmak için JSON dosyanızı şekil yardımcı olur.
 
 ## <a name="best-practices"></a>En iyi uygulamalar
 
-Nasıl olayları Azure TSI gönderdiğiniz hakkında düşünmeniz önemlidir. Yani, her zaman bir şunları yapmalısınız:
+Nasıl olayları zaman serisi öngörüleri Önizleme gönderdiğiniz hakkında düşünmeniz önemlidir. Yani, her zaman bir şunları yapmalısınız:
 
-1. verileri ağ üzerinden mümkün olduğunca verimli bir şekilde gönderin.
-1. Verileriniz toplamalar senaryonuz için uygun gerçekleştirmenize olanak sağlayan bir şekilde depolanır emin olun.
+* verileri ağ üzerinden mümkün olduğunca verimli bir şekilde gönderin.
+* Senaryonuz için daha uygun bir şekilde toplama yardımcı olacak şekilde, verilerinizi Store.
 
-Aşağıdaki yönergeler, en iyi olası sorgu performansı elde yardımcı olur:
+En iyi olası sorgu performansı için aşağıdakileri yapın:
 
-1. Gereksiz özellikleri göndermeyin. TSI (Önizleme), kullanımınıza faturalandırır ve bu depolamak için en iyi ve sorgular, işlem verileri.
-1. Ağ üzerinden statik veri göndermekten kaçınmanız statik veriler için örnek alanları kullanın. İş örneği alanları, zaman serisi modeli'nin bir bileşeni gibi başvuru verileri TSI hizmetinde kullanıma sunuldu. Örnek alanı hakkında daha fazla bilgi edinmek için [zaman serisi modelleri](./time-series-insights-update-tsm.md).
-1. Verileri ağ üzerinden daha verimli bir şekilde göndermek için birden çok olayı arasında boyut özellikleri paylaşır.
-1. Kapsamlı bir dizi iç içe kullanmayın. TSI nesneleri içeren iç içe geçen diziler en fazla iki düzeyini destekler. TSI, birden çok olay ile özellik değer çiftleri halinde iletileri dizilerde düzleştirir.
-1. Yalnızca birkaç ölçüleri tüm veya çoğu olaylar için mevcut, bu ölçümleri ayrı Özellikler içinde aynı nesne olarak göndermek daha iyidir. Ayrı olarak göndererek, olay sayısını azaltır ve sorguları daha az olayların işlenmesi gereken daha yüksek performanslı hale getirebilir.
+* Gereksiz özellikleri göndermeyin. Zaman serisi öngörüleri Önizleme, kullanımınıza düzenler. Depolamak ve işlemek, sorgulayacaksınız verileri idealdir.
+* Örnek alanları statik verileri için kullanın. Bu yöntem, ağ üzerinden statik veri göndermekten kaçınmanız yardımcı olur. İş örneği alanları, zaman serisi modeli'nin bir bileşeni gibi başvuru verileri zaman serisi öngörüleri GA hizmetinde. Örnek alanları hakkında daha fazla bilgi için bkz: [zaman serisi modelleri](./time-series-insights-update-tsm.md).
+* İki veya daha fazla olay arasında boyut özellikleri paylaşır. Bu uygulama, verileri ağ üzerinden daha verimli bir şekilde göndermek yardımcı olur.
+* Kapsamlı bir dizi iç içe kullanmayın. Zaman serisi öngörüleri Önizleme nesnelerini içeren iç içe geçen diziler en fazla iki düzeyini destekler. Zaman serisi öngörüleri Önizleme iletilerinde diziler özellik değeri çiftlerinin ile birden çok olaylara düzleştirir.
+* Yalnızca birkaç ölçüleri tüm veya çoğu olaylar için mevcut, bu ölçümleri ayrı Özellikler içinde aynı nesne olarak göndermek daha iyidir. Ayrı olarak göndererek olayları sayısını azaltır ve daha az olayları işlenecek gerektiğinden, uygulama daha yüksek performanslı sorgular neden olabilir.
 
 ## <a name="example"></a>Örnek
 
-Örneğin, burada birden çok cihaz ölçümleri veya sinyaller göndermek senaryoyu temel alır. Ölçümleri veya sinyalleri olabilir **Akış hızı**, **altyapısı Petrol baskısı**, **sıcaklık**, ve **nem**.
+Aşağıdaki örnek, burada iki veya daha fazla cihaz ölçümleri veya sinyaller göndermek bir senaryoya bağlıdır. Ölçümleri veya sinyalleri *Akış hızı*, *altyapısı Petrol baskısı*, *sıcaklık*, ve *nem*.
 
-Aşağıdaki örnekte, yoktur tek bir IOT Hub ileti burada dış dizi boyut değerleri ortak paylaşılan bir bölüm içerir. Dış dizi ileti verimliliğini artırmak için zaman serisi örnek verilerini kullanır. Zaman serisi örneği ile her olay değiştirmez, ancak veri analizi için faydalı özellikler sağlar, cihaz meta verilerini içerir. Bu nedenle ileti daha verimli hale getirir ve kablo üzerinden gönderilen bayt sayısı üzerinde hem ortak boyut değerleri toplu işleme ve zaman serisi örnek meta veri, kullanan kaydeder.
+Aşağıdaki örnekte, burada dış dizi paylaşılan bir bölüm ortak boyut değerleri içeren tek bir IOT Hub ileti yok. Dış dizi ileti verimliliğini artırmak için zaman serisi örnek verilerini kullanır. Zaman serisi örneği ile her olay değiştirmez, cihaz meta verilerini içeriyor ancak, veri analizi için faydalı özellikler sağlar. Kablo üzerinden gönderilen bayt kaydedin ve ileti daha verimli hale getirmek için ortak boyut değerleri toplu işleme ve zaman serisi örnek meta veri kullanan göz önünde bulundurun.
 
-Örnek JSON yükü:
+### <a name="example-json-payload"></a>Örnek JSON yükü
 
 ```JSON
 [
@@ -72,7 +72,9 @@ Aşağıdaki örnekte, yoktur tek bir IOT Hub ileti burada dış dizi boyut değ
 ]
 ```
 
-Zaman serisi örnek (Not: **zaman serisi kimliği** olduğu *DeviceID*):
+### <a name="time-series-instance"></a>Zaman serisi örneği 
+> [!NOTE]
+> Zaman serisi kimliği *DeviceID*.
 
 ```JSON
 {
@@ -105,7 +107,7 @@ Zaman serisi örnek (Not: **zaman serisi kimliği** olduğu *DeviceID*):
   },
 ```
 
-TSI, sorgu süre boyunca (sonra düzleştirme) tablo katıldı. Tablonun türü gibi ek sütunlar dahil edilir. Bu örnek nasıl gösterir [şekli](./time-series-insights-send-events.md#json) telemetri verilerinizi:
+Zaman serisi öngörüleri Önizleme sırasında sorgu süresini (düzleştirme sonra) bir tablo birleştirir. Tabloyu gibi ek sütunlar içeren **türü**. Aşağıdaki örnek nasıl gösterir [şekli](./time-series-insights-send-events.md#json) telemetri verilerinizi:
 
 | deviceId  | Tür | L1 | L2 | timestamp | dizi. Akış hızı ft3/sn | dizi. Petrol baskısı PSI altyapısı |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -113,19 +115,19 @@ TSI, sorgu süre boyunca (sonra düzleştirme) tablo katıldı. Tablonun türü 
 | `FXXX` | LINE_DATA REVOLT | SİMÜLATÖR |    Pil sistem |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |
 | `FYYY` | ORTAK LINE_DATA | SİMÜLATÖR |    Pil sistem |    2018-01-17T01:18:00Z | 0.58015072345733643 |    22.2 |
 
-Önceki örnekte aşağıdakilere dikkat edin:
+Önceki örnekte, aşağıdaki noktalara dikkat edin:
 
-* Statik özellikler, ağ üzerinden gönderilen verilerin en iyi duruma getirme TSI olarak depolanır.
-* TSI veri kullanarak sorgu zamanında katılırsa *timeSeriesId* Örneğinizde tanımlanmış.
-* İç içe geçme TSI tarafından desteklenen maksimum miktarı olan iç içe geçme iki katman kullanılır. İç içe dizi önlemek için önemlidir.
-* Bazı ölçüler olduğundan ölçüler ayrı Özellikler içinde aynı nesne olarak gönderilir. Burada, **serisi. Akış hızı PSI**, serisi **altyapısı Petrol baskısı**, ve **ft3/sn** benzersiz sütun.
+* Statik özellikler, ağ üzerinden gönderilen verilerin iyileştirmek için zaman serisi öngörüleri Önizleme depolanır.
+* Zaman serisi öngörüleri Önizleme verileri kullanarak sorgu zamanında katılırsa *timeSeriesId* örneğinde tanımlanmıştır.
+* İç içe geçme iki katman, en çok, zaman serisi öngörüleri Preview tarafından desteklenen olduğu kullanılır. İç içe dizi önlemek için önemlidir.
+* Bazı ölçüler olduğundan, ayrı Özellikler içinde aynı nesne olarak gönderildiniz. Örnekte, **serisi. Akış hızı PSI**, **serisi. Altyapısı Petrol baskısı PSI**, ve **serisi. Akış hızı ft3/sn** benzersiz sütun.
 
 >[!IMPORTANT]
-> Örnek alanları ile telemetri depolanmaz, meta verilerle depolanan **zaman serisi modeli**.
+> Örnek alanları ile telemetri depolanmaz. Meta veriler ile depolanan **zaman serisi modeli**.
 > Yukarıdaki tabloda, sorgu görünümü temsil eder.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu yönergeleri uygulamaya koymak için bkz: [Azure TSI sorgu söz dizimi](./time-series-insights-query-data-csharp.md) TSI veri erişimi REST API'si için sorgu söz dizimi hakkında daha fazla bilgi edinmek için.
+Bu yönergeleri uygulamaya koymak için bkz: [Azure zaman serisi öngörüleri önizlemesi sorgu söz dizimi](./time-series-insights-query-data-csharp.md). REST API erişimi zaman serisi öngörüleri Önizleme verileri için sorgu sözdizimi hakkında daha fazla bilgi edineceksiniz.
 
-Desteklenen JSON şekilleri hakkında bilgi edinmek [desteklenen JSON şekilleri](./time-series-insights-send-events.md#json).
+Desteklenen JSON şekilleri hakkında bilgi edinmek için [desteklenen JSON şekilleri](./time-series-insights-send-events.md#json).

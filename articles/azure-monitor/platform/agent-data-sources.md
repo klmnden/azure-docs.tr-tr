@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 022dd52e05b9227e3ce0920a083f75413a2eebc8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 29306fa508a2c0702e69f6b6ebcb7571041d57d6
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836925"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890271"
 ---
 # <a name="data-sources-in-log-analytics"></a>Log analytics'te veri kaynakları
 Log Analytics bağlı kaynaklardan veri toplar ve Log Analytics çalışma alanınızda depolar.  Her birinden toplanan veriler, yapılandırdığınız veri kaynakları tarafından tanımlanır.  Log analytics'te verileri, bir kayıt kümesi depolanır.  Her veri kaynağı kendi özellikler kümesini sahip her türüyle belli bir türdeki kayıtları oluşturur.
@@ -59,7 +59,7 @@ Veri kaynaklarından yapılandırma **veri** Log Analytics menüde **Gelişmiş 
 ## <a name="data-collection"></a>Veri toplama
 Veri kaynağı yapılandırmalarını birkaç dakika içinde doğrudan Log Analytics'e bağlı aracılara teslim edilir.  Belirtilen verileri Aracıdan toplanan ve her bir veri kaynağı için belirli aralıklarla doğrudan Log Analytics'e teslim.  Bu özellikleri için her veri kaynağı için belgelere bakın.
 
-System Center Operations Manager aracıları için bir bağlı yönetim grubu, veri kaynağı yapılandırmalarını yönetim paketleri çevrilen ve yönetim grubuna varsayılan olarak 5 dakikada bir teslim.  Aracı gibi diğer yönetim paketi indirir ve belirtilen verileri toplar. Veri kaynağına bağlı olarak ya da Log Analytics'e veri ileten bir yönetim sunucusuna gönderilen veriler olacaktır ya da aracı verileri Log Analytics için yönetim sunucusu üzerinden geçmeden gönderir. Bkz: [veri koleksiyonu ayrıntıları Azure yönetim çözümlerine için](../../azure-monitor/insights/solutions-inventory.md) Ayrıntılar için.  Operations Manager ve Log Analytics'e bağlama ve sıklığını değiştirme hakkında ayrıntılar bu yapılandırma okuyabilir, teslim [System Center Operations Manager tümleştirmesini yapılandırma](../../log-analytics/log-analytics-om-agents.md).
+System Center Operations Manager aracıları için bir bağlı yönetim grubu, veri kaynağı yapılandırmalarını yönetim paketleri çevrilen ve yönetim grubuna varsayılan olarak 5 dakikada bir teslim.  Aracı gibi diğer yönetim paketi indirir ve belirtilen verileri toplar. Veri kaynağına bağlı olarak ya da Log Analytics'e veri ileten bir yönetim sunucusuna gönderilen veriler olacaktır ya da aracı verileri Log Analytics için yönetim sunucusu üzerinden geçmeden gönderir. Bkz: [veri koleksiyonu ayrıntıları Azure yönetim çözümlerine için](../../azure-monitor/insights/solutions-inventory.md) Ayrıntılar için.  Operations Manager ve Log Analytics'e bağlama ve sıklığını değiştirme hakkında ayrıntılar bu yapılandırma okuyabilir, teslim [System Center Operations Manager tümleştirmesini yapılandırma](../../azure-monitor/platform/om-agents.md).
 
 Aracının Log Analytics ya da Operations Manager bağlanamıyor ise, bağlantı kurduğunda teslim eder veri toplamaya devam eder.  Veri miktarı istemci için en yüksek önbellek boyutunu ulaşırsa veya aracıyı 24 saat içinde bir bağlantı kurmak mümkün değilse, verileri kaybolabilir.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure üzerinde Jupyter Notebook gelen veri kaynaklarına erişim | Microsoft Docs
+title: Azure üzerinde Jupyter Notebook erişim veri kaynakları
 description: Jupyter not defteri erişimi dosyalara, REST API'leri, veritabanları ve farklı Azure depolama kaynaklarını nasıl.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: cf03b614826b8da644fbf7817a91f04456c194e7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 425c1019a9c67ac726d03955d60d1389bef7cae2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856895"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084949"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Bir not defteri bulut verilerine erişim
 

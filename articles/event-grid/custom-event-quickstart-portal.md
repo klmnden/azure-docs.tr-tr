@@ -1,21 +1,22 @@
 ---
-title: Azure portalıyla Azure Event Grid için özel olaylar | Microsoft Docs
-description: Azure Event Grid'i ve PowerShell'i kullanarak bir konu yayımlayın ve o olaya abone olun.
+title: Web uç noktası - Event Grid, Azure portalında özel olaylar gönderin
+description: Özel bir konu yayımlayın ve o konu için olaylara abone olmak için Azure Event Grid ve Azure Portalı'nı kullanın. Olaylar, bir web uygulaması tarafından işlenir.
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/02/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 630130bde0440a8a5f51589386f42214f27af59a
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: e93ee410d1d6ac0de0646194c716d64ffb8e4316
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040635"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093478"
 ---
-# <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Azure portalı ve Event Grid ile özel olaylar oluşturma ve yönlendirme
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Hızlı Başlangıç: Azure portalı ve Event Grid ile web uç noktasına özel olaylarını yönlendirme.
 
 Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede, Azure portalını kullanarak özel bir konu oluşturur, bu özel konuya abone olur ve sonucu görüntülemek için olayı tetiklersiniz. Normalde olayları, olay verilerini işleyen ve eylemler gerçekleştiren bir uç noktaya gönderirsiniz. Bununla birlikte, bu makaleyi basitleştirmek için olayları iletilerin toplandığı ve görüntülendiği bir web uygulamasına gönderirsiniz.
 
@@ -45,7 +46,7 @@ Event grid konusu, olaylarınızı göndereceğiniz kullanıcı tanımlı bir u�
 
    ![Başlangıç adımları](./media/custom-event-quickstart-portal/select-create.png)
 
-1. Özel konu için benzersiz bir ad belirtin. Konu adı bir DNS girdisi ile temsil edildiğinden konu adı benzersiz olmalıdır. Görüntüde gösterilen adı kullanmayın. Bunun yerine, kendi adınızı oluşturun. Kaynak grubu için bir ad belirtin. **Oluştur**’u seçin.
+1. Özel konu için benzersiz bir ad belirtin. Konu adı bir DNS girdisi ile temsil edildiğinden konu adı benzersiz olmalıdır. Görüntüde gösterilen adı kullanmayın. Bunun yerine, kendi adınızı oluşturun - 3-50 karakter arasında olması gerekir ve içeren yalnızca a-z, A-Z, 0-9, değerleri ve "-". Kaynak grubu için bir ad belirtin. **Oluştur**’u seçin.
 
    ![Olay kılavuzu konu değerlerini sağlama](./media/custom-event-quickstart-portal/create-custom-topic.png)
 

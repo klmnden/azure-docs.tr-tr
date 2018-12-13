@@ -5,33 +5,33 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 04/05/2018
+ms.date: 12/03/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 66ff1e2e02728e05cb0aeedce90de1882a8804ce
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
-ms.translationtype: HT
+ms.openlocfilehash: 72ddd0b6cd6c3e12417d3698c403f89312b531f4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "30921317"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111583"
 ---
-Sanal Ağdan Sanal Ağa SSS bölümü VPN Gateway bağlantıları için geçerlidir. Sanal Ağ Eşleme konusunu arıyorsanız bkz. [Sanal Ağ Eşleme](../articles/virtual-network/virtual-network-peering-overview.md)
+VNet-VNet SSS VPN gateway bağlantıları için geçerlidir. VNet eşlemesi hakkında daha fazla bilgi için bkz: [sanal ağ eşlemesi](../articles/virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="does-azure-charge-for-traffic-between-vnets"></a>Azure sanal ağlar arasındaki trafik için ücretli midir?
 
-VPN ağ geçidi bağlantısı kullanılırken, aynı bölge içindeki Sanal Ağdan Sanal Ağa trafik her iki yönde de ücretsizdir. Çapraz bölge Sanal Ağdan Sanal Ağa çıkış trafiği ise kaynak bölgelerine bağlı giden Sanal Ağlar arası veri aktarım hızına bağlı olarak ücretlendirilir. Ayrıntılar için [VPN Gateway fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/vpn-gateway/) bakın. Sanal ağlarınızı bağlamak için VPN Gateway yerine Sanal Ağ Eşlemesi kullanıyorsanız bkz. [Sanal Ağ fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-network/).
+VNet-VNet trafiği aynı bölgede bir VPN gateway bağlantısı kullandığınızda, her iki yönde de ücretsizdir. Bölgeler arası sanal ağa çıkış trafiği ise kaynak bölgelerine bağlı giden sanal ağlar arası veri aktarımı fiyatları ile ücretlendirilir. Daha fazla bilgi için [VPN Gateway fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/vpn-gateway/). Sanal ağlarınız VNet eşlemesi bir VPN ağ geçidi yerine kullanarak bağlanıyorsanız bkz [sanal ağ fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-network/).
 
-### <a name="does-vnet-to-vnet-traffic-travel-across-the-internet"></a>Sanal Ağdan Sanal Ağa trafik İnternet üzerinden yolculuk ediyor mu?
+### <a name="does-vnet-to-vnet-traffic-travel-across-the-internet"></a>VNet-VNet trafiği internet üzerinden yolculuk ediyor mu?
 
-Hayır. Sanal Ağdan Sanal Ağa trafiği akışı, İnternet üzerinden değil Microsoft Azure omurgası üzerinden sağlanır.
+Hayır. VNet-VNet trafiği internet değil Microsoft Azure omurgası üzerinden dolaşır.
 
-### <a name="can-i-establish-a-vnet-to-vnet-connection-across-aad-tenants"></a>ADD Kiracıları arasında Sanal Ağdan Sanal Ağa bağlantı kurabilir miyim?
+### <a name="can-i-establish-a-vnet-to-vnet-connection-across-azure-active-directory-aad-tenants"></a>Azure Active Directory (AAD) kiracıları arasında VNet-VNet bağlantı kurabilmesi için?
 
-Evet, Azure VPN ağ geçitleri kullanılarak kurulan Sanal Ağdan Sanal Ağa bağlantılar ADD Kiracılarında çalışır.
+Evet, Azure VPN ağ geçidi kullanan VNet-VNet bağlantıları AAD kiracılar genelinde çalışır.
 
 ### <a name="is-vnet-to-vnet-traffic-secure"></a>Sanal Ağdan Sanal Ağa trafiği güvenli mi?
 
-Evet, IPsec/IKE şifrelemesiyle korunur.
+Evet, bunu yapmak için IPSec/IKE şifrelemesiyle korunur.
 
 ### <a name="do-i-need-a-vpn-device-to-connect-vnets-together"></a>Sanal ağları birbirine bağlamak için bir VPN cihazı gerekiyor mu?
 
@@ -41,13 +41,13 @@ Hayır. İşletmeler arası bağlantı gerekmediği sürece birden fazla Azure s
 
 Hayır. Sanal ağlar aynı ya da farklı Azure bölgelerinde (konumlarında) bulunabilir.
 
-### <a name="if-the-vnets-are-not-in-the-same-subscription-do-the-subscriptions-need-to-be-associated-with-the-same-ad-tenant"></a>Sanal ağlar aynı abonelikte değilse, aboneliklerin aynı AD kiracısıyla ilişkilendirilmesi gerekir mi?
+### <a name="if-the-vnets-arent-in-the-same-subscription-do-the-subscriptions-need-to-be-associated-with-the-same-active-directory-tenant"></a>Sanal ağlar aynı abonelikte değilse, aboneliklerin aynı Active Directory kiracısıyla ilişkilendirilmiş olması gerekiyor mu?
 
 Hayır.
 
 ### <a name="can-i-use-vnet-to-vnet-to-connect-virtual-networks-in-separate-azure-instances"></a>Farklı Azure örneklerinde sanal ağları bağlamak için Sanal Ağdan Sanal Ağa bağlantı kullanabilir miyim? 
 
-Hayır. Sanal Ağdan Sanal Ağa, aynı Azure örneğindeki sanal ağları bağlamayı destekler. Örneğin, genel bir Azure örneği ve Çin / Almanya/ ABD Azure örnekleri arasında bağlantı oluşturamazsınız. Bu senaryolar için Siteden Siteye VPN bağlantısı kullanmak isteyebilirsiniz.
+Hayır. Sanal Ağdan Sanal Ağa, aynı Azure örneğindeki sanal ağları bağlamayı destekler. Örneğin, genel Azure ve Çince/Almanya/ABD kamu Azure arasında bir bağlantı oluşturulamıyor örnekleri. Bu senaryolar için siteden siteye VPN bağlantısı kullanmayı düşünün.
 
 ### <a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>Sanal Ağdan Sanal Ağa bağlantıyı çoklu site bağlantılarıyla birlikte kullanabilir miyim?
 
@@ -55,23 +55,23 @@ Evet. Sanal ağ bağlantısı, çoklu site VPN’leri ile eşzamanlı olarak kul
 
 ### <a name="how-many-on-premises-sites-and-virtual-networks-can-one-virtual-network-connect-to"></a>Bir sanal ağ kaç şirket içi siteye ve sanal ağa bağlanabilir?
 
-[Ağ geçidi gereksinimleri](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#requirements) tablosuna bakın.
+Bkz: [ağ geçidi gereksinimleri](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#requirements) tablo.
 
 ### <a name="can-i-use-vnet-to-vnet-to-connect-vms-or-cloud-services-outside-of-a-vnet"></a>Bir sanal ağın dışındaki sanal makineleri veya bulut hizmetlerini bağlamak için Sanal Ağdan Sanal Ağa bağlantı kullanabilir miyim?
 
-Hayır. Sanal Ağdan Sanal Ağa, sanal ağları bağlamayı destekler. Bir sanal ağ içinde olmayan sanal makineleri veya bulut hizmetlerini bağlamayı desteklemez.
+Hayır. Sanal Ağdan Sanal Ağa, sanal ağları bağlamayı destekler. Bu değil bağlanan sanal makineler veya sanal ağda olmayan bulut hizmetlerini.
 
-### <a name="can-a-cloud-service-or-a-load-balancing-endpoint-span-vnets"></a>Bir bulut hizmeti ya da bir yük dengeleme uç noktası sanal ağlara yayılabilir mi?
+### <a name="can-a-cloud-service-or-a-load-balancing-endpoint-span-vnets"></a>Bir bulut hizmeti ya da bir Yük Dengeleme uç noktası sanal ağlara yayılabilir mi?
 
-Hayır. Bir bulut hizmeti ya da yük dengeleme uç noktası, birbirlerine bağlı olsa da sanal ağlara yayılamaz.
+Hayır. Bile birbirlerine bağlı bir bulut hizmeti ya da bir Yük Dengeleme uç noktası sanal ağlara yayılamaz.
 
-### <a name="can-i-used-a-policybased-vpn-type-for-vnet-to-vnet-or-multi-site-connections"></a>Sanal Ağdan Sanal Ağa veya Çoklu Site bağlantıları için PolicyBased VPN türü kullanabilir miyim?
+### <a name="can-i-use-a-policybased-vpn-type-for-vnet-to-vnet-or-multi-site-connections"></a>VNet-VNet veya çoklu Site bağlantıları için PolicyBased VPN türü kullanabilir miyim?
 
-Hayır. Sanal Ağdan Sanal Ağa ve Çoklu Site bağlantıları, Azure VPN ağ geçitlerinin, önceki adı Dinamik Yönlendirme olan RouteBased VPN türleri ile bağlantılarını VPN geçidi ile bağlamalarını gerektirir.
+Hayır. VNet-VNet ve çok siteli bağlantılar gerektiren Azure VPN ağ geçitleri ile (önceki adı dinamik yönlendirme) RouteBased VPN türleri.
 
 ### <a name="can-i-connect-a-vnet-with-a-routebased-vpn-type-to-another-vnet-with-a-policybased-vpn-type"></a>PolicyBased VPN türüne sahip sanal ağı RouteBased VPN türüne sahip başka bir sanal ağa bağlayabilir miyim?
 
-Hayır, her iki sanal ağın da rota tabanlı (önceki adıyla Dinamik Yönlendirme) VPN kullanıyor olması GEREKİR.
+Hayır, her iki sanal ağın rota tabanlı (önceki adıyla dinamik yönlendirme) VPN'ler kullanmanız gerekir.
 
 ### <a name="do-vpn-tunnels-share-bandwidth"></a>VPN tünelleri bant genişliğini paylaşır mı?
 

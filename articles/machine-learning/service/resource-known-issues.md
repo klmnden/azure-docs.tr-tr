@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning hizmeti için bilinen sorunlar ve sorun giderme
+title: Bilinen sorunlar ve sorun giderme
+titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning hizmeti için sorun giderme ve bilinen sorunlar çözümleriyle birlikte bir listesini alın.
 services: machine-learning
 author: j-martens
@@ -10,12 +11,12 @@ ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 471a7494cefd008e8b32855ff232468701505ce7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: 45eb24bb8a49fb59ae44533e59b2760940ee5c1a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013398"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097718"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bilinen sorunlar ve sorun giderme Azure Machine Learning hizmeti
  
@@ -30,7 +31,7 @@ Python için Azure Machine Learning SDK: PyYAML olan yüklü distutils proje. Bu
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
 
-## <a name="azure-machine-learning-compute-usage-issue"></a>Azure Machine Learning işlem kullanım sorunu
+## <a name="trouble-creating-azure-machine-learning-compute"></a>Azure Machine Learning işlem oluştururken sorun
 GA sürümü önce Azure portalından, Azure Machine Learning çalışma alanı oluşturan bazı kullanıcıların bu çalışma alanında Azure Machine Learning işlem oluşturmak mümkün olmayabilir nadir bir fırsat yoktur. Bir destek isteği hizmetinde yükseltmek veya Portal veya SDK'yı kendiniz hemen engelini kaldırmak için yeni bir çalışma alanı oluşturun. 
 
 ## <a name="image-building-failure"></a>Görüntü oluşturma hatası

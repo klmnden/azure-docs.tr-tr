@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs verilerini SQL Veri Ambarı'na geçirme | Microsoft Docs
+title: SQL veri ambarı - Azure Event Hubs olay verileri geçirme | Microsoft Docs
 description: Bu öğreticide, olay hub'ınızdaki verileri olay kılavuzu tarafından tetiklenen bir Azure işlevini kullanarak SQL veri ambarında nasıl yakalayacağınız gösterilmektedir.
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 56701f039ae2de6d136a2a06fbeb9e99359a0029
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 03ebdabf60882a73eb15cbd36481068591bbd3bc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017074"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086292"
 ---
 # <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Event Grid ve Azure işlevleri'ni kullanarak bir SQL veri ambarı yakalanan Event Hubs verilerini geçirme
 

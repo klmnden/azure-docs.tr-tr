@@ -1,21 +1,22 @@
 ---
-title: Bing yazım denetimi API'si v7 LUIS sorgulara ekleme | Microsoft Docs
+title: Doğru yanlış yazılan sözcükleri
 titleSuffix: Azure
 description: Bing yazım denetimi API'si V7 LUIS uç nokta sorgulara ekleyerek konuşma doğru yanlış yazılan sözcükleri.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 6d197b014d6936b12b34a6d8783d1ebd29dfa28a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 478970c6b5f4035949c8b6579f1021dfa161fd39
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443338"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096800"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Bing yazım denetimi ile doğru yanlış yazılan sözcükleri
 
@@ -75,7 +76,7 @@ Uç nokta URL'si doğru geçirilmesi gereken birkaç değer sahiptir. Bing yazı
 
 4. LUIS yanıt için bir JSON sonucu ile `How far is the mountain?`. Bing yazım denetimi API'si v7 bir yazım hatası algıladığında `query` özgün sorgu LUIS uygulamanın JSON yanıtı içerir ve `alteredQuery` alan LUIS için gönderilen düzeltilmiş sorgu içerir.
 
-```
+```json
 {
   "query": "How far is the mountainn?",
   "alteredQuery": "How far is the mountain?",

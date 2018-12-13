@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: a9078d2f8a738700a30d265d9cfa3cd77ad72f08
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: 4fdb7cf0007af5f92794ebe5f616c1c8a28af0e4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015458"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099674"
 ---
 # <a name="how-to-diagnose-and-troubleshoot"></a>Tanılama ve sorun giderme
 
@@ -91,13 +91,13 @@ Varsa **zaman damgası** özelliği açıkça belirtilmediyse, bir olayın IOT h
 
 1. Bir zaman serisi öngörüleri S1 veya S2 ortam erişiyor olabilir
 
-   Zaman serisi modelleri yalnızca desteklenen **PAYG** ortamları. Zaman serisi öngörüleri güncelleştirme Gezgini'nden S1/S2 ortamınızı erişme hakkında daha fazla bilgi için bu makaleye bakın.
+   Zaman serisi modelleri yalnızca desteklenen **PAYG** ortamları. Zaman serisi öngörüleri Önizleme Gezgini'nden S1/S2 ortamınızı erişim hakkında daha fazla bilgi için bkz. [gezginde verileri görselleştirme](./time-series-insights-update-explorer.md).
 
    ![erişim][5]
 
 1. Görüntüleme ve modelin düzenleme iznine sahip değil
 
-   Kullanıcılar, Düzenle ve kendi zaman serisi modeli görüntülemek için "katılımcı" düzeyinde erişimi gerekir. Geçerli erişim düzeyleri doğrulayın ve Azure Portalı'nda Time Series Insights kaynağınızda veri erişim ilkeler bölümünü ziyaret ederek ek erişim.
+   Kullanıcıların, düzenlemek ve kendi zaman serisi modeli görüntülemek için "katılımcı" düzeyinde erişimi gerekir. Geçerli erişim düzeyleri doğrulayın ve Azure Portalı'nda Time Series Insights kaynağınızda veri erişim ilkeler bölümünü ziyaret ederek ek erişim.
 
 ## <a name="problem-all-my-instances-in-time-series-insights-preview-explorer-dont-have-a-parent"></a>Sorun: Tüm Örneklerim Time Series Insights (Önizleme) Gezgini'nde bir üst öğe yok
 

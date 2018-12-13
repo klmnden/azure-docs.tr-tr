@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 694682264a38d0b35f00fb6611f843ae7e518ba0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8af76c64e755b9c72ae4ebcc223e5f69549b92b9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838183"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076745"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Azure Cosmos DB ile bir Azure Resource Manager şablonu kullanarak Azure App Service Web Apps'e dağıtın
 Bu öğretici bir Azure Resource Manager şablonu dağıtma ve tümleştirme için nasıl kullanılacağını gösterir [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)e [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) web uygulaması ve bir örnek web uygulaması.
@@ -119,7 +119,7 @@ Artık ilk şablonunuzu dağıtalım.
 ## <a name="next-steps"></a>Sonraki adımlar
 Tebrikler! Azure Cosmos DB, App Service web uygulaması ve Azure Resource Manager şablonlarını kullanarak örnek bir web uygulamasına dağıttınız.
 
-* Azure Cosmos DB hakkında daha fazla bilgi edinmek için tıklayın [burada](http://azure.com/docdb).
+* Azure Cosmos DB hakkında daha fazla bilgi edinmek için tıklayın [burada](https://azure.microsoft.com/services/cosmos-db/).
 * Azure App Service Web apps hakkında daha fazla bilgi edinmek için tıklayın [burada](https://go.microsoft.com/fwlink/?LinkId=325362).
 * Azure Resource Manager şablonları hakkında daha fazla bilgi edinmek için tıklayın [burada](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 

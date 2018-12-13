@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning ile PyTorch modellerini eğitin
+title: PyTorch ile eğitme modelleri
+titleSuffix: Azure Machine Learning service
 description: Tek düğümlü ve dağıtılmış eğitimi PyTorch modelleri ile PyTorch estimator çalıştırmayı öğrenin
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +11,14 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: dcd7b58e2c1f4d6e556515ad7db778f2989588b9
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a6401c6059d8f72f344021879828b01c9ce77169
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017432"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100574"
 ---
-# <a name="pytorch-models-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile PyTorch modelleri
+# <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile PyTorch modellerini eğitin
 
 PyTorch kullanarak derin sinir ağı (DNN) eğitim için özel bir Azure Machine Learning sağlar `PyTorch` sınıfının `Estimator`. Azure SDK'ın `PyTorch` estimator kolayca Azure işlem hem tek düğümlü hem de dağıtılmış çalıştırmalar için PyTorch eğitim işleri göndermenizi sağlar.
 

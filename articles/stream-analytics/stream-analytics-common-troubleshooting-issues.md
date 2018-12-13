@@ -2,19 +2,19 @@
 title: Azure Stream Analytics'te sorunlarını gidermek için genel sorunlar
 description: Bu makalede, Azure Stream Analytics ve adımları bu sorunları gidermek için bazı yaygın sorunları açıklar.
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
+author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
-ms.openlocfilehash: 2fe180873f8f410d80b06d29d16881eb49f7fc2a
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: a2c7ceae342124f06fcfe8dc18b1a69f7176f4e1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978457"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090984"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Sık karşılaşılan sorunları gidermek için Stream Analytics ve adımları
 
@@ -24,7 +24,7 @@ ms.locfileid: "50978457"
  
  Bir Stream Analytics işi girdi hatalı bir ileti aldığında, iletiyi bırakır ve kullanıcıya bir uyarı bildirir. Bir uyarı sembolü gösterilir **girişleri** kutucuk Stream Analytics işinizin (Bu uyarı işareti var. işi çalışır durumda olduğu sürece):
 
-![Girişleri kutucuğu](media/stream-analytics-malformed-events/inputs_tile.png)
+![Azure Stream Analytics Pano kutucuğuna girişleri](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
 Daha fazla bilgi için uyarı ayrıntılarını görüntülemek için tanılama günlüklerini etkinleştirin. Giriş yanlış biçimlendirilmiş olaylar için yürütme günlüklerini şuna benzer bir ileti ile bir giriş içeriyor: "ileti: kaynağından giriş olayları seri durumdan çıkarılamadı <blob URI> json olarak". 
 
@@ -34,7 +34,7 @@ Daha fazla bilgi için uyarı ayrıntılarını görüntülemek için tanılama 
 
 2. Giriş Ayrıntıları kutucuğu, sorun hakkında ayrıntılar uyarılarla bir kümesini görüntüler. Aşağıdaki örnek bir uyarı iletisi, bölüm, uzaklığı ve sıra numaraları uyarı iletisini gösteren hatalı biçimlendirilmiş JSON verilerini olduğu. 
 
-   ![Uzaklığı olan uyarı iletisi](media/stream-analytics-malformed-events/warning_message_with_offset.png)
+   ![Uzaklığı olan giriş uyarı iletisi](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 
 3. Yanlış biçimde olduğu JSON verilerini almak için CheckMalformedEvents.cs kodu çalıştırın. Bu örnekte kullanılabilir [GitHub örnekleri depomuzdan](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Bu kod okuma bölüm kimliği, uzaklığı ve bu uzaklık içinde bulunan veri yazdırır. 
 

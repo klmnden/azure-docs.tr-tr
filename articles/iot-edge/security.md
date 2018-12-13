@@ -1,6 +1,6 @@
 ---
-title: Azure IOT Edge güvenlik | Microsoft Docs
-description: Güvenlik, kimlik doğrulama ve yetkilendirme, IOT Edge cihazları
+title: Güvenlik çerçevesi - Azure IOT Edge | Microsoft Docs
+description: Güvenlik, kimlik doğrulaması ve Azure IOT Edge geliştirmek için kullanılan ve çözümünüzü tasarlarken düşünülmesi gereken yetkilendirme standartları hakkında bilgi edinin
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,14 +8,15 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4292dc3abf775d48ee33cc7a48793d080156efb1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 1042f53147122a7370b464f6bfc892dcee70fe70
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568946"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100149"
 ---
-# <a name="securing-azure-iot-edge"></a>Azure IoT Edge’in güvenliğini sağlama
+# <a name="security-standards-for-azure-iot-edge"></a>Azure IOT Edge güvenlik standartlarını
 
 Akıllı uç güvenliğini sağlama işleminin uçtan uca IOT çözümünün güven confer gereklidir. Azure IOT Edge, farklı risk profilleri, dağıtım senaryoları, genişletilebilir ve tüm Azure hizmetlerinden beklediğiniz aynı koruma sunan güvenlik için tasarlanmıştır.
 

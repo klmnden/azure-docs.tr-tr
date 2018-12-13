@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: ce6847accef6290497ff0833901a1c07ee59b7b6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4118e0bb0e42a1eec707b2fdb6682333400e2e1a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998018"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099843"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Cloudyn için bir destek isteği oluşturun
 
@@ -43,7 +43,7 @@ Maliyet yönetimi, altında bir fatura destek bileti oluşturmak istiyorsanız *
 
 Gönderdiğiniz bir olayın durumu denetlemek için bkz: [tüm destek istekleri](../azure-supportability/how-to-create-azure-support-request.md#all-support-requests).
 
-Eski bir Cloudyn kullanıcı olmadan bir Azure hesabı kullanıyorsanız, bir destek isteği açabilirsiniz http://support.microsoft.com/oas/default.aspx?prid=16451.
+Eski bir Cloudyn kullanıcı olmadan bir Azure hesabı kullanıyorsanız, bir destek isteği açabilirsiniz https://support.microsoft.com/oas/default.aspx?prid=16451.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
