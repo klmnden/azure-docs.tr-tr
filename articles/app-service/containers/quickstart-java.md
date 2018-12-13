@@ -1,5 +1,5 @@
 ---
-title: Linux üzerindeki Azure App Service’te Java web uygulaması oluşturma hızlı başlangıcı
+title: Linux üzerinde - Azure App Service'te Java web uygulaması oluşturma
 description: Bu hızlı başlangıçta, Linux üzerindeki Azure App Service’te ilk Java Merhaba Dünya uygulamanızı birkaç dakika içinde dağıtacaksınız.
 services: app-service\web
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 03/07/2018
+ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: e286942f092d2e8c22824a18f5a6503d04a1be0c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
-ms.translationtype: HT
+ms.openlocfilehash: d27491d84d4df1757f77a403cd754496bbff6887
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247564"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252618"
 ---
-# <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Hızlı Başlangıç: Linux üzerindeki App Service’te Java web uygulaması oluşturma
+# <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Hızlı Başlangıç: Linux üzerinde App Service'te Java web uygulaması oluşturma
 
 [Linux üzerindeki App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu hızlı başlangıç, [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)'nın [Azure Web Uygulamaları için Maven Eklentisi (Önizleme)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) bileşeni ile bir Java Web uygulaması Web arşiv (WAR) dosyası dağıtmak için nasıl kullanılacağını göstermektedir.
 
@@ -108,8 +108,10 @@ Dağıtım tamamlandıktan sonra, web tarayıcınızda aşağıdaki URL’yi kul
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta bir Java web uygulaması oluşturmak için Maven kullandınız, [Azure Web Apps için Maven Eklentisi](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) bileşenini yapılandırdınız, ardından Web arşiviyle paketlenmiş bir Java uygulamasını Linux üzerinde App Service'e dağıttınız. Veritabanlarına bağlanma, günlüğe kaydetme ve izleme ayarlarını yapma, güvenlik ayarlarını yapılandırma ve çalışma zamanı seçeneklerini ayarlama hakkında bilgi edinmek için Linux'ta App Service için Java Geliştirici Kılavuzu'na geçin.
+Bu hızlı başlangıçta bir Java web uygulaması oluşturmak için Maven kullandınız, [Azure Web Apps için Maven Eklentisi](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) bileşenini yapılandırdınız, ardından Web arşiviyle paketlenmiş bir Java uygulamasını Linux üzerinde App Service'e dağıttınız. Aşağıdaki öğreticiler ve daha fazla bilgi Linux'ta App Service üzerinde Java uygulamalarını barındırmak için nasıl yapılır makaleleri bakın.
 
-> [!div class="nextstepaction"]
-> [Linux'ta App Service için Java Geliştirici Kılavuzu](app-service-linux-java.md)
+- [Öğretici: Bir Java dağıtma PostgreSQL ile Kurumsal uygulama](tutorial-java-enterprise-postgresql-app.md)
+- [Tomcat veri kaynağını yapılandırma](app-service-linux-java.md#connecting-to-data-sources)
+- [Jenkins ile CI/CD](/azure/jenkins/deploy-jenkins-app-service-plugin)
+- [Uygulama performans izleme araçlarını ayarlama](how-to-java-apm-monitoring.md)
 

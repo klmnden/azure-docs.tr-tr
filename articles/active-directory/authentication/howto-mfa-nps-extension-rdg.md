@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 410e9df588ad4aba52d1d69349f5df67fa1826a3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 013b63d0eb2cc69893dcb4075c1ca26a31ef2474
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100948"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277990"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Ağ İlkesi Sunucusu (NPS) uzantısı ve Azure AD kullanarak Uzak Masaüstü Ağ Geçidi altyapınızı tümleştirin
 
@@ -24,6 +24,9 @@ Bu makalede ayrıntıları Uzak Masaüstü Ağ Geçidi altyapınızı Azure mult
 Ağ İlkesi Sunucusu (NPS) uzantısı için Azure, müşterilerin korumanıza olanak tanır. uzak kimlik denetimi içeri arama kullanıcı hizmeti (RADIUS) istemci kimlik doğrulaması Azure'ı kullanarak bulut tabanlı [multi-Factor Authentication (MFA)](multi-factor-authentication.md). Bu çözüm, kullanıcı oturum açmaları ve işlemleri için ikinci bir güvenlik katmanı eklemek için iki aşamalı doğrulama sağlar.
 
 Bu makalede, Azure için NPS uzantısı kullanarak NPS altyapı ile Azure mfa'yı tümleştirmek için adım adım yönergeler sağlar. Bu, bir Uzak Masaüstü Ağ Geçidi oturum açmaya çalışan kullanıcılar için güvenli doğrulama sağlar.
+
+> [!NOTE]
+> Bu makalede, MFA sunucusu dağıtımları ile kullanılmamalıdır yalnızca Azure mfa'yı (bulut tabanlı).
 
 Ağ İlkesi ve erişim Hizmetleri'ni (NPS) kuruluşlar yeteneği aşağıdakileri sağlar:
 
@@ -68,10 +71,10 @@ Bu bölümde, Uzak Masaüstü Ağ geçidi ile Azure mfa'yı tümleştirme önce 
 
 ### <a name="remote-desktop-services-rds-infrastructure"></a>Uzak Masaüstü Hizmetleri (RDS) altyapısı
 
-Çalışan bir Uzak Masaüstü Hizmetleri (RDS) altyapısının yerinde olması gerekir. Bunu yapmanız durumunda bu altyapı aşağıdaki Hızlı Başlangıç şablonu kullanarak Azure'da hızlıca oluşturabilirsiniz: [Uzak Masaüstü Oturum Koleksiyonu Oluştur dağıtım](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment). 
+Çalışan bir Uzak Masaüstü Hizmetleri (RDS) altyapısının yerinde olması gerekir. Bunu yapmazsanız, hızlı bir şekilde bu altyapı aşağıdaki Hızlı Başlangıç şablonu kullanarak Azure'da oluşturabilirsiniz: [Uzak Masaüstü Oturum koleksiyonuna dağıtımı oluşturmak](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment). 
 
 El ile test etmek için hızlı bir şekilde şirket içi RDS altyapı oluşturmak istiyorsanız, bir dağıtmak için adımları izleyin. 
-**Daha fazla bilgi edinin**: [RDS dağıtma ile Azure Hızlı Başlangıç](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) ve [temel bir RDS altyapı dağıtımı](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure). 
+**Daha fazla bilgi edinin**: [Azure Hızlı Başlangıç ile RDS dağıtma](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) ve [temel bir RDS altyapı dağıtımı](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure). 
 
 ### <a name="azure-mfa-license"></a>Azure MFA lisans
 
@@ -83,7 +86,7 @@ NPS uzantısı, Windows Server 2008 R2 SP1 gerektirir veya üstü yüklü NPS ro
 
 ### <a name="network-policy-and-access-services-nps-role"></a>Ağ İlkesi ve erişim Hizmetleri'ni (NPS) rol
 
-NPS rol hizmetinin işlevselliğinin yanı sıra ağ erişim ilkesi sistem sağlığı hizmeti RADIUS sunucusu ve istemci sağlar. Bu rol altyapınızda en az iki bilgisayara yüklenmesi gerekir: Uzak Masaüstü Ağ geçidi ve başka bir üye sunucu veya etki alanı denetleyicisi. Varsayılan olarak, zaten Uzak Masaüstü Ağ geçidi olarak yapılandırılmış bilgisayarda rolüdür.  Ayrıca NPS rolü üzerinde en az bir etki alanı denetleyicisi veya üye sunucu gibi başka bir bilgisayar üzerinde yüklemeniz gerekir.
+NPS rol hizmetinin işlevselliğinin yanı sıra ağ erişim ilkesi sistem sağlığı hizmeti RADIUS sunucusu ve istemci sağlar. Bu rol, altyapınızda en az iki bilgisayara yüklenmesi gerekir: Uzak Masaüstü Ağ geçidi ve başka bir üye sunucu veya etki alanı denetleyicisi. Varsayılan olarak, zaten Uzak Masaüstü Ağ geçidi olarak yapılandırılmış bilgisayarda rolüdür.  Ayrıca NPS rolü üzerinde en az bir etki alanı denetleyicisi veya üye sunucu gibi başka bir bilgisayar üzerinde yüklemeniz gerekir.
 
 NPS rolü yükleme hakkında bilgi için Windows Server 2012 veya daha eski hizmet bkz [NAP sistem durumu ilkesi sunucusu yükleme](https://technet.microsoft.com/library/dd296890.aspx). NPS, bir etki alanı denetleyicisinde NPS'yi yüklemek için öneri de dahil olmak üzere en iyi bir açıklaması için bkz. [NPS için en iyi](https://technet.microsoft.com/library/cc771746).
 

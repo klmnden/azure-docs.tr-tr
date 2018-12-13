@@ -5,19 +5,19 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: ''
-ms.devlang: pwershell
+ms.devlang: powershell
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 36b03794f4b55af3de89f96ecee02f5542f40f01
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: de395dc4f862e57030fba1d77de78eabe44a3da8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972108"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278466"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>PowerShell (Önizleme) kullanarak SQL veritabanı esnek işler oluşturma ve yönetme
 
@@ -31,7 +31,7 @@ ms.locfileid: "52972108"
 * Azure aboneliği. Ücretsiz deneme için bkz: [ücretsiz bir aylık deneme](https://azure.microsoft.com/pricing/free-trial/).
 * Esnek veritabanı araçları ile oluşturulmuş bir veritabanları kümesi. Bkz: [esnek veritabanı araçlarını kullanmaya başlama](sql-database-elastic-scale-get-started.md).
 * Azure PowerShell. Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/overview).
-* **Elastik veritabanı işleri** PowerShell paketi: bkz [yükleme elastik veritabanı işleri](sql-database-elastic-jobs-service-installation.md)
+* **Elastik veritabanı işleri** PowerShell paketi: Bkz: [yükleme elastik veritabanı işleri](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Azure aboneliğinizi seçin
 Aboneliği seçmek için abonelik kimliği gerekir. (**- Subscriptionıd**) veya abonelik adı (**- SubscriptionName**). Birden fazla aboneliğiniz varsa çalıştırabileceğiniz **Get-AzureRmSubscription** cmdlet ve kopyalama sonuç istenen abonelik bilgilerini ayarlayın. Abonelik bilgilerinizi aldıktan sonra Bu abonelik, işleri oluşturmaya ve yönetmeye için hedef özelliği varsayılan olarak ayarlamak için aşağıdaki cmdlet'i çalıştırın:
@@ -193,8 +193,8 @@ Aşağıdaki tabloda tüm nesne türlerini **elastik veritabanı işleri** açı
 
 Grupların oluşturabileceğiniz iki tür vardır: 
 
-* [Parça eşlemesi](sql-database-elastic-scale-shard-map-management.md) Grup: bir parça eşlemesi hedeflemek için bir iş gönderildiğinde iş parçalar geçerli kümesini belirlemek için parça eşlemesi sorgular ve daha sonra alt işleri her parça parça eşlemesinde oluşturur.
-* Özel Toplama grubu: özel bir veritabanları kümesi tanımlanmış. Bir işi özel bir koleksiyona hedeflediğinde, alt işleri her veritabanı için şu anda özel koleksiyon oluşturur.
+* [Parça eşlemesi](sql-database-elastic-scale-shard-map-management.md) Grup: Parça eşlemesi hedeflemek için bir iş gönderildiğinde iş sorgular, geçerli parça belirlemek için parça eşlemesi ve sonra alt işleri her parça parça eşlemesinde oluşturur.
+* Özel Toplama grubu: Özel bir veritabanları kümesi tanımlanır. Bir işi özel bir koleksiyona hedeflediğinde, alt işleri her veritabanı için şu anda özel koleksiyon oluşturur.
 
 ## <a name="to-set-the-elastic-database-jobs-connection"></a>Elastik veritabanı için bağlantı işler.
 Bir bağlantı işleri için ayarlanması gerekir *denetimi veritabanı* işleri API'leri kullanarak önce. Bu cmdlet'in çalıştırılması, bir kimlik bilgisi kullanıcı adını ve parolayı elastik veritabanı işleri yüklenirken oluşturulan isteyen yukarı açılan pencereye tetikler. Bu konu içinde sağlanan tüm örneklerde, bu ilk adım zaten gerçekleştirildi varsayılır.
@@ -414,21 +414,21 @@ Elastik veritabanı işleri destekler işler başlatılırken uygulanabilen öze
 
 Şu anda yürütme ilkelerini tanımlamak için izin ver:
 
-* Adı: Yürütme İlkesi tanımlayıcısı.
-* İşi zaman aşımı: bir iş tarafından elastik veritabanı işleri iptal edilecek önce toplam süresi.
-* İlk yeniden deneme aralığı: ilk yeniden denemeden önce beklenecek aralık.
-* En fazla yeniden deneme aralığı: kullanılacak uç yeniden deneme aralıkları.
-* Yeniden deneme aralığı geri alma katsayısı: Katsayısı sonraki yeniden deneme aralığını hesaplamak için kullanılır.  Aşağıdaki formülü kullanılır: (ilk yeniden deneme aralığı) * Math.pow ((aralık geri alma katsayısı) (yeniden deneme sayısı) - 2). 
-* En fazla denemesi: Yeniden deneme sayısı içinde bir işi gerçekleştirmek çalışır.
+* Ad: Yürütme ilkesi için tanımlayıcı.
+* İşi zaman aşımı: Toplam süre önce bir iş tarafından elastik veritabanı işleri iptal edilir.
+* İlk yeniden deneme aralığı: İlk yeniden denemeden önce beklenecek aralık.
+* En fazla yeniden deneme aralığı: Kullanılacak yeniden deneme aralıklarını sınır.
+* Yeniden deneme aralığı geri alma katsayısı: Katsayısı, sonraki yeniden deneme aralığını hesaplamak için kullanılır.  Aşağıdaki formülü kullanılır: (İlk yeniden deneme aralığı) * Math.pow ((aralık geri alma katsayısı) (yeniden deneme sayısı) - 2). 
+* En fazla denemesi: İçinde bir işi gerçekleştirmek en fazla yeniden deneme sayısı çalışır.
 
 Varsayılan yürütme ilkesi aşağıdaki değerleri kullanır:
 
-* Adı: Varsayılan yürütme İlkesi
+* Ad: Varsayılan yürütme İlkesi
 * İşi zaman aşımı: 1 hafta
-* İlk yeniden deneme aralığı: 100 milisaniye
+* İlk yeniden deneme aralığı:  100 milisaniye
 * En fazla yeniden deneme aralığı: 30 dakika
 * Yeniden deneme aralığı katsayısı: 2
-* En fazla denemesi: 2.147.483.647
+* En fazla denemesi: 2,147,483,647
 
 İstenen yürütme ilkesi oluşturun:
 
@@ -459,8 +459,8 @@ Elastik veritabanı işleri işlerinin iptal isteklerini destekler.  Elastik ver
 
 Elastik veritabanı işleri iptal gerçekleştirebilirsiniz iki farklı yolu vardır:
 
-1. Yürütülmekte olan görevleri iptal: şu anda yürütülen görev görünümü içinde bir görev şu anda çalışırken iptal algılanırsa, bir iptal denenecek.  Örneğin: iptal çalışırken şu anda gerçekleştirilmekte olan uzun süre çalışan bir sorgu varsa, sorgusunu iptal etme girişimi olur.
-2. Görev yeniden deneme iptal ediliyor: yürütme için bir görev başlatılmadan önce iptal denetimi iş parçacığı tarafından algılanırsa, denetimi iş parçacığı görevi başlatmaktan kaçınmak ve istek iptal edildi olarak bildirin.
+1. Yürütülmekte olan görevleri iptal: Görev şu anda çalışırken iptal algılanırsa, bir iptal şu anda yürütülen görev görünümü içinde yeniden denenecek.  Örneğin: İptal durumunda çalışırken şu anda gerçekleştirilmekte olan uzun süre çalışan bir sorgu varsa, sorgusunu iptal etme girişimi olur.
+2. Görev yeniden deneme iptal ediliyor: Yürütme için bir görev başlatılmadan önce iptal denetimi iş parçacığı tarafından algılanırsa, denetimi iş parçacığı görevi başlatmaktan kaçınmak ve istek iptal edildi olarak bildirin.
 
 Üst iş için bir işi iptal istenirse, üst işin ve tüm alt işlerini iptal isteğini getirilmez.
 

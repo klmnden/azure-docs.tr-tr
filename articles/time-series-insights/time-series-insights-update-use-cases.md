@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights (Önizleme) kullanım örnekleri | Microsoft Docs
-description: Kullanım örnekleri anlama Azure Time Series Insights (Önizleme)
+title: Azure zaman serisi öngörüleri Önizleme kullanım örnekleri | Microsoft Docs
+description: Azure zaman serisi öngörüleri Önizleme kullanım örnekleri anlayın.
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -9,79 +9,92 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 67be21ae7f0cb997563f17130b9d5ecb7d359b31
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: a6ee03197a78a75ca57d0ed049cdd6a8df8b2149
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873878"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272975"
 ---
-# <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights (Önizleme) kullanım örnekleri
+# <a name="azure-time-series-insights-preview-use-cases"></a>Azure zaman serisi öngörüleri Önizleme kullanım örnekleri
 
-Bu makalede, Azure zaman serisi öngörüleri (TSI) için bazı ortak kullanım durumları için genel bir bakış sağlar. Uygulamalar ve çözümlerle TSI geliştirirken bu makaledeki önerileri bir başlangıç noktası olarak hizmet.
+Bu makalede, Azure zaman serisi öngörüleri önizlemesi için bazı ortak kullanım durumları için genel bir bakış sağlar. Uygulama ve çözümlerin Time Series Insights ile geliştirme sırasında bu makaledeki önerileri bir başlangıç noktası olarak işlevi görür.
 
-Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlamak mümkün olacaktır:
+Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlayabilir:
 
-* Azure TSI için yaygın kullanım örnekleri nelerdir?
-* Veri keşfi ve görsel anomali algılama için Azure TSI kullanmanın avantajları nelerdir?
-* Azure TSI operasyonel analiz ve süreç verimliliği için kullanmanın avantajları nelerdir?
-* Gelişmiş analiz için Azure TSI kullanmanın avantajları nelerdir?
+* Time Series Insights için yaygın kullanım örnekleri nelerdir?
+* Veri keşfi ve görsel anomali algılama için Time Series Insights'ı kullanmanın avantajları nelerdir?
+* Time Series Insights operasyonel analiz ve süreç verimliliği için kullanmanın avantajları nelerdir?
+* Gelişmiş analitikler için Time Series Insights'ı kullanmanın avantajları nelerdir?
 
-Bu belge, Azure TSI özel önizlemesi için tasarlanmış kullanım örnekleri için genel bir bakış sağlar.
+Bu belge, Azure zaman serisi öngörüleri önizlemesi için tasarlanmış kullanım örnekleri için genel bir bakış sağlar.
 
 ## <a name="introduction"></a>Giriş
 
-Azure TSI bir uçtan uca hizmet olarak Platform-A-alma, işlem, depolama ve yüksek oranda contextualized, zaman serisi iyileştirilmiş IOT ölçekli veri sorgulamak için ' dir. Bu nedenle, Azure TSI operasyonel analiz yanı sıra geçici veri keşfi için idealdir. TSI karşıladığını endüstriyel IOT dağıtımları geniş gerektiğini sunan benzersiz şekilde genişletilebilir, özelleştirilmiş, hizmetidir.
+Time Series Insights uçtan uca hizmet olarak platform teklifidir. İçe alma, işlem, depolama ve yüksek oranda contextualized, zaman serisi iyileştirilmiş IOT ölçekli veri sorgulamak için kullanılır. Time Series Insights, geçici veri keşfi ve operasyonel analiz için idealdir. Time Series Insights karşıladığını endüstriyel IOT dağıtımları geniş gerektiğini sunan bir benzersiz şekilde genişletilebilir, özelleştirilmiş, hizmetidir.
 
-## <a name="data-exploration-and-visual-anomaly-detection"></a>Veri inceleme ve görsel anormallik algılama
+## <a name="data-exploration-and-visual-anomaly-detection"></a>Veri inceleme ve görsel anormali algılama
 
-Verilerinizdeki anomalileri bulmak ve gizli eğilimleri keşfetmek için milyarlarca olayı anında inceleyip analiz edin. Neredeyse gerçek zamanlı performans, IOT ve DevOps analiz iş yükleri için Azure TSI sunar.
+Verilerinizdeki anomalileri bulmak ve gizli eğilimleri keşfetmek için milyarlarca olayı anında inceleyip analiz edin. Time Series Insights, IoT ve DevOps analiz iş yüklerinize neredeyse gerçek zamanlı performans katar.
 
-![Veri Gezgini][1]
+![Veri gezgini][1]
 
-Tüm Azure TSI'ın gücü müşterilerin çoğu zaman görüşleri arasında güçlü olduğunu kabul etmiş olursunuz. TSI, veriler için ön hazırlık gerektirir ve dakikalar içinde milyarlarca olaya Azure IOT hub'ı veya olay hub'ına bağlanma hızlı çalışır.  Bağlandıktan sonra görselleştirin ve milyarlarca olayı anormallikleri için analiz edin ve verilerinizi gizli eğilimleri keşfedin.  TSI, sezgisel ve kullanması kolay olduğundan, tek satırlık bir kod yazmadan verilerinizle etkileşim kurma başlayacağız. Ayrıca, yeni bir dil öğrenmeniz de gerekmez. Zaman Serisi Öngörüleri, SQL’e alışık olan ileri düzey kullanıcılar için ayrıntılı, metin tabanlı sorgulama olanağı sağlamanın yanı sıra, yeni başlayanlar için seçip tıklayarak gezinme seçeneği de sunar.
+Çoğu müşteri görüşleri zaman Time Series Insights güçlü varlıkları arasında olduğunu kabul etmiş olursunuz. Time Series Insights, veriler için ön hazırlık gerektirir. Hızlı milyarlarca olaya Azure IOT Hub veya Azure Event hubs'ı dakikalar içinde bağlanmaya çalışır. Bağlandıktan sonra görselleştirin ve milyarlarca olayı anormallikleri için analiz edin ve verilerinizi gizli eğilimleri keşfedin. 
 
-Bir IOT çözümündeki ve alanlar tanımlamak bir hatanın kök nedenini araştırmak için veri bilimi girişimlerini almak için DevOps gerçekleştirmede varlık ilgili sorunları hızlı bir şekilde tanılamak için müşteriler bu hızı avantajından yararlanmaya görüyoruz.  
+Time Series Insights, sezgisel ve kullanımı kolaydır. Tek satırlık bir kod yazmadan verilerinizle etkileşim kurabilirsiniz. Yeni dil öğrenmek gerekmez yoktur. Time Series Insights ayrıntılı metin tabanlı SQL ile ilgili bilgi sahibi olan gelişmiş kullanıcılar için sorgulama sağlar. Ayrıca, seçin ve tıklama başlayanlara da sağlar.
 
-TSI içinde depolanan verilerle etkileşim kurmak için başlıca üç yolu vardır:
+Müşteriler, varlık ilgili sorunları hızla tanılayın hızını avantajlarından yararlanın. Bunlar, bir IOT çözümündeki bir hatanın nedenini almak için DevOps gerçekleştirebilirsiniz. Bunlar ayrıca alanlar için veri bilimi girişimlerini araştırmaya belirleyebilir.  
 
-1. Bizim görselleştirme, tüm verilerinizi tek bir yerde hızlı bir şekilde görselleştirmenizi sağlar Gezgini ilk ve kullanmaya başlamak kolay adıdır. Verilerinizi görsel olarak sayede anomalileri basit oluşturan ısı haritası gibi araçlar sağlar. Ayrıca, tek bir pano, bir veya daha fazla TSI ortamlarda dört görünümleri kadar tüm konumlar arasında zaman serisi verilerinin bir görünümünü verir karşılaştırmak hangi etkinleştirir perspektif görünüm sağlar. Daha fazla bilgi edinin [TSI Gezgini](./time-series-insights-update-explorer.md). TSI güncelleştirme ortamınızı planlamak için okuma [TSI güncelleştirme planlama](./time-series-insights-update-plan.md).
+Time Series Insights içinde depolanan verilerle etkileşim kurmak için başlıca üç yolu vardır:
 
-1. İkinci yol hızla güçlü grafikler ve graflar kendi web uygulamasına eklemek için JavaScript SDK'mız kullanmaktır. Yalnızca birkaç kod satırıyla, çizgi grafikler, pasta, çubuk grafikler, ısı Haritaları, veri kılavuzları ve daha fazlasını doldurmak için güçlü sorgular yazabilirsiniz. Tüm bu öğeleri,-SDK'sını kullanarak hazır mevcut. SDK ayrıca TSI sorgu API'leri, böylece bir Panoda göstermek istediğiniz verileri sorgulamak için SQL benzeri koşullar yazmak soyutlar. Karma sunu katmanı çözümler için sorunsuz bağlantı noktaları ile Gezgini'nde derin incelemeler için veri sağlayan parametreli URL'lerin TSI sunar. JavaScript SDK'sı hakkında daha fazla bilgi edinmek için [TSI JS istemci Kitaplığı](https://docs.microsoft.com/azure/time-series-insights/tutorial-explore-js-client-lib) ve [TSI istemci](https://github.com/Microsoft/tsiclient) belgeleri. Makalemizi parametreli URL'lerin hakkında daha fazla bilgi için okumaya [URL'leri parametreli](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-parameterized-urls).  
+- Başlamak için ilk ve en kolay yolu zaman serisi öngörüleri Önizleme Gezgini'yle birlikte ' dir. Hızlı bir şekilde tüm verilerinizi tek bir yerden görselleştirmek için kullanabilirsiniz. Verilerinizdeki anormallikleri yardımcı olması için ısı haritası gibi araçlar sağlar. Ayrıca, bir perspektif görünüm sağlar. Bir veya daha fazla zaman serisi görüşleri ortamları tek bir Panoda en fazla dört görünümleri karşılaştırmak için kullanın. Pano, konumlar arasında zaman serisi verilerinin bir görünümünü sağlar. Daha fazla bilgi edinin [zaman serisi öngörüleri Önizleme Gezgini](./time-series-insights-update-explorer.md). Time Series Insights ortamınızı planlama okuyun [Time Series Insights'ı planlama](./time-series-insights-update-plan.md).
 
-1. Son olarak, TSI TSI içinde depolanan verileri sorgulamak için güçlü bir API sağlar. TSI geçici işleçler gibi ilk ve son olarak, toplama ve dönüştürmeler ortalama, min, max, bölme ölçütü, sıralama ve DateHistogram gibi ve filtreleme gibi işleçler varsa, buna sahip ve, veya, büyüktür, REGEX, vs. Bu işleçler ilginç eğilimleri ve desenleri verilerinizi hızla bulmak aşağı akış uygulamaları etkinleştirmek ve anomalileri görselleştirmeleri ev yapımı doldurmak için kullanılabilir.  
+- İkinci yol başlatmak için hızla güçlü grafikler ve graflar web uygulamanızda eklemek için JavaScript SDK'sı kullanmaktır. Yalnızca birkaç kod satırıyla, güçlü sorgular yazabilirsiniz. Çizgi grafikler, pasta, çubuk grafikler, ısı Haritaları, veri kılavuzları ve daha fazla doldurmak için bunları kullanın. Tüm bu öğeleri kullanıma hazır, SDK'sını kullanarak mevcut. SDK ayrıca Time Series Insights sorgu API'leri soyutlar. Bir Panoda göstermek istediğiniz verileri sorgulamak için SQL benzeri koşullar yazmak için kullanabilirsiniz. Karma sunu katmanı çözümler için parametreli URL'lerin Time Series Insights'ı sunar. Sorunsuz bağlantı noktaları zaman serisi öngörüleri Önizleme Gezgini'yle birlikte verilerin ayrıntılı incelemeler için sağlarlar. JavaScript SDK'sı hakkında daha fazla bilgi edinmek için [zaman serisi öngörüleri JS istemci Kitaplığı](https://docs.microsoft.com/azure/time-series-insights/tutorial-explore-js-client-lib) ve [Time Series Insights istemci](https://github.com/Microsoft/tsiclient) belgeleri. Parametreli URL'lerin hakkında daha fazla bilgi için okuma [parametreli URL'lerin](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-parameterized-urls).
+
+- Başlatmak için üçüncü Time Series Insights içinde depolanan verileri sorgulamak için güçlü API'lerini kullanmaktır. Time Series Insights geçici işleçler gibi ilk ve son sahiptir. Toplamalar sahiptir ve sıralama ve DateHistogram, ortalama, Min., maks, gibi dönüşümleri bölebilirsiniz. Filtreleme de sahip işleçler vardır, buna ve, veya, daha fazla ve normal İFADE. Bu işleçler, ilginç eğilimleri ve desenleri verilerinizi hızla bulmak aşağı akış uygulamaları etkinleştirin. Anomalileri görselleştirmeleri ev yapımı doldurmak için bunları kullanın.
 
 ## <a name="operational-analysis-and-driving-process-efficiency"></a>İşlem analizi ve işlem verimliliğini sağlama
 
-Sistem durumu, kullanım ve performans ekipmanının ın uygun ölçekte, böylece işlem verimliliğini ölçmeye yönelik kolay bir yol sağlayarak izlemeyi etkinleştirin. Time Series Insights, öngörülemeyen çeşitli IoT iş yüklerini, alma ve sorgu performansından ödün vermeden yönetmenize yardımcı olur.
+Time Series Insights, sistem durumu, kullanım ve uygun ölçekte donanım performansını izlemek için kullanın. Time Series Insights, işlem verimliliğini ölçmeye yönelik kolay bir yol sağlar. Time Series Insights, öngörülemeyen çeşitli IoT iş yüklerini, alma ve sorgu performansından ödün vermeden yönetmenize yardımcı olur.
 
-![genel bakış][2]
+![Genel Bakış][2]
 
-Başarıyla akış ve gelen işletimsel işlemlerden veri sürekli işleme tüm işletmeler sağa teknoloji/çözüm ile birlikte durumunda dönüştürebilirsiniz. Çoğunlukla bu çözümler, araştırma birden çok sistemleri birleşimi ve özel IOT bölge içinde sürekli olarak değişir ve yaygın bir düzen paylaşan veri analizini olur.
+Sağa teknoloji veya çözüm ile birlikte kullanıldığında akış ve gelen işletimsel işlemlerden veri sürekli işleme başarıyla tüm işletmeler dönüştürebilirsiniz. Genellikle bu çözümleri birden çok sistem birleşimidir. Bunlar, araştırması ve analizi, IOT bölge özellikle, devamlı olarak değiştirir ve yaygın bir düzen paylaşımları veri sağlar.
 
-Bu düzenleri, genellikle milyarlarca olayı cihazlardan ve sensörlerden çeşitli yerel ayarlara yayılan alma etkin IOT platformları ile başlatın. Bu sistemler işleyebilir ve gerçek zamanlı anlayışlar ve Eylemler türetmek için akış verilerini, verileri neredeyse gerçek zamanlı ve toplu analiz sıcak ve soğuk depolama için genellikle arşivlenir. Toplanan verileri temizlemek ve aşağı akış sorgulama ve analiz senaryoları için bağlama göre ele alınmasına işleme dizi geçer. Microsoft Azure, bu IOT senaryoları (varlık bakım, üretim, vb.) uygulanabilir zengin hizmetleri sunar. Bunlar, Azure TSI, Azure IOT Hub, Azure Event Hubs, Azure Stream Analytics, Azure işlevleri, Azure Logic Apps, Azure Databricks, Azure Machine Learning ve Microsoft Power BI içerir.
+Bu düzenleri, genellikle milyarlarca olayı cihazlardan ve sensörlerden çeşitli yerel ayarlara yayılan içe alma, IOT özellikli platformlar çalışmaya başlayın. Bu sistemler işleyebilir ve gerçek zamanlı anlayışlar ve Eylemler türetmek için akış verilerini analiz edin. Veriler genellikle normal arşivlenir ve soğuk depolama için neredeyse gerçek zamanlı ve toplu. 
 
-Bu çözüm mimarisi ulaşılabilecek gibi – sınıfının en iyisi güvenlik, aktarım hızı ve gecikme süresi için Azure IOT Hub veya Azure olay hub'ı aracılığıyla veri alma. Belirli veri işleme gereksinimlerine bağlı olarak Azure Stream Analytics, Azure Logic Apps, Azure işlevleri gibi hizmetler aracılığıyla alınan verileri funneling tarafından veri işleme ve hesaplamalar gerçekleştirin. Hesaplanan sinyal işleme ardışık düzendeki, depolamak ve analiz için Azure TSI itilir. Azure Time Series Insights, geçmiş veriler üzerinde gerçek zamanlı bir veri keşfi ve varlık temelli öngörüleri sunar. İş gereksinimlerine bağlı olarak, zaman serisi öngörüleri için HDInsight Time Series Insights'ı bağlayarak depolanan veriler MapReduce ve Hive işlerini yeniden çalıştırabilirsiniz. Time Series Insights içinde depolanan verileri Power BI ve diğer Time Series Insights genel yüzey sorgu API'leri ayrıntılı iş ve operasyonel zeka senaryoları için aracılığıyla müşteri uygulamaları için kullanılabilir hale getirilebilir.
+Toplanan verileri bir dizi temizlemeyi ve aşağı akış sorgulama ve analiz senaryoları için bağlama göre ele alınmasına işleme geçer. Azure IOT senaryoları varlık Bakım ve üretim gibi uygulanabilir zengin hizmetleri sunar. Bu hizmetler, zaman serisi görüşleri, IOT Hub, Event Hubs, Azure Stream Analytics, Azure işlevleri, Azure Logic Apps, Azure Databricks, Azure Machine Learning ve Power BI içerir.
 
-## <a name="advanced-analytics"></a>Gelişmiş Analiz
+Çözüm mimarisi, aşağıdaki şekilde sağlanabilir:
 
-Azure Machine Learning ve Azure Databricks gibi gelişmiş Analiz Hizmetleri ile tümleştirin. Time Series Insights, milyonlarca cihazdan ham veri girişi yapar ve bir Azure analiz hizmetleri paketi ile sorunsuzca tüketilebilecek bağlam verileri ekler.
+- Sınıfının en iyisi güvenlik, aktarım hızı ve gecikme süresi için IOT hub'ı veya olay hub'ları aracılığıyla veri alın. 
+- Veri işleme ve hesaplamalar gerçekleştirin. Stream Analytics, Logic Apps ve Azure işlevleri gibi hizmetler aracılığıyla alınan verileri Huni. Kullandığınız hizmetin belirli veri işleme gereksinimlerine bağlıdır. 
+- Hesaplanan sinyal işleme ardışık düzendeki zaman serisi öngörüleri için depolamak ve analiz için gönderilir. 
 
-![analizler][3]
+Time Series Insights, geçmiş veriler üzerinde gerçek zamanlı bir veri keşfi ve varlık temelli öngörüleri sunar. İş gereksinimlerinize bağlı olarak, Azure HDInsight için Time Series Insights'ı bağlayarak Time Series Insights içinde depolanan veriler MapReduce ve Hive işleri çalıştırabilirsiniz. Time Series Insights içinde depolanan veriler, Power BI ve diğer Time Series Insights genel yüzey sorgu API'leri aracılığıyla müşteri uygulamaları için kullanılabilir. Bu verileri kapsamlı iş ve operasyonel zeka senaryoları için kullanılabilir.
 
-Gelişmiş analiz ve makine öğrenimi kullanan ve büyük hacimli veri odaklı kararlar ve Tahmine dayalı analiz gerçekleştirmek için verileri işleyebilirsiniz. IOT kullanım durumlarında, Gelişmiş analiz algoritmaları milyonlarca, verileri birden çok kez saniyede iletebildiği cihazından toplanan verilerden bilgi edinin. Ancak, IOT cihazlarından toplanan verileri ham ve cihaz, sensör okuma vb., bu nedenle verilerin Gelişmiş analiz için doğrudan kullanılması zorlaştıran birimi konumu gibi bağlamsal bilgi içermemektedir.
+## <a name="advanced-analytics"></a>Gelişmiş analiz
 
-Azure Time Series Insights, iki basit ve ekonomik şekilde IOT veri ve Gelişmiş analiz arasındaki boşluk arasında köprü. İlk olarak, zaman serisi görüşleri güncelleştirme milyonlarca IOT hub'ı kullanarak CİHAZDAN ham telemetri verileri toplar, bağlamsal bilgiler verilerle zenginleştirir ve ', Gelişmiş Analiz Hizmetleri bir dizi gibi kolayca tümleştirebilirsiniz parquet biçiminde' verileri dönüştürür Azure Machine Learning, Azure Databricks ve diğer üçüncü taraf uygulamaları.  Time Series Insights kaynak-ın-gerçekte tüm veriler için bir kuruluş genelindeki, böylece aşağı akış analizi için merkezi bir depo kullanmak için iş yükleri oluşturma görebilir.  Time Series Insights itibaren olan neredeyse gerçek zamanlı bir depolama hizmeti, Gelişmiş analiz modelleri daha doğru tahminler elde etmeye gelen IOT telemetri verilerini sürekli olarak bilgi edinin.
+Machine Learning ve Azure Databricks gibi gelişmiş Analiz Hizmetleri ile tümleştirin. Zaman serisi görüşleri ingresses ham verilerden milyonlarca cihazı. Sorunsuz bir şekilde Azure Analiz Hizmetleri paketi tarafından tüketilebilecek bağlamsal veriler ekler.
 
-İkinci olarak, zaman serisi görüşleri çıktıyı görselleştirmek ve bunların sonuçlarını depolamak için makine öğrenme ve tahmin modellerinin bu nedenle kuruluşların en iyi duruma getirmek ve modellerini ince yardımcı veri.  Bunun da ötesinde, zaman serisi görüşleri anomalileri saptayın ve düzenlerini belirleyen veri bilimi ekipleri yardımcı olmak için eğitilen modeli çıkarır gibi aynı düzlemde ilişkin telemetri verilerini akış görselleştirmek kolaylaştırır.  
+![Analiz][3]
+
+Gelişmiş analiz ve makine öğrenimi kullanan ve büyük hacimli verileri işleyebilirsiniz. Bu veriler, veri odaklı kararlar ve Tahmine dayalı analiz gerçekleştirmek için kullanılır. IOT kullanım durumlarında, Gelişmiş analiz algoritmaları milyonlarca CİHAZDAN toplanan verilerden bilgi edinin. Bu cihazlar, birden çok kez saniyede veri aktarır. IOT cihazlarından toplanan verileri ham. Bağlamsal bilgiler konumu gibi cihaz ve sensör okumaya birimi eksik. Sonuç olarak, ham verileri doğrudan Gelişmiş analiz için kullanmak üzere zordur.
+
+Time Series Insights, iki basit ve ekonomik şekilde IOT veri ve Gelişmiş analiz arasındaki boşluk arasında köprü: 
+
+- İlk olarak, zaman serisi görüşleri IOT Hub'ı kullanarak ham telemetri verileri milyonlarca CİHAZDAN toplar. Bağlamsal bilgilerle birlikte veri zenginleştirir ve verileri parquet biçime dönüştürür. Bu biçim, hizmetleri, Machine Learning, Azure Databricks ve üçüncü taraf uygulamalar gibi diğer gelişmiş analiz ile kolayca tümleştirilebilir. 
+
+    Time Series Insights, kuruluş genelinde tüm verileri doğru kaynağı olarak görebilir. Bunu kullanmak için iş yüklerini aşağı akış analizi için merkezi bir depo oluşturur. Time Series Insights'ı olduğu için neredeyse gerçek zamanlı bir depolama hizmeti, Gelişmiş analiz modelleri gelen IOT telemetri verilerini sürekli olarak bilgi edinin. Sonuç olarak, modelleri daha doğru tahminler yapabilir.
+
+- İkinci olarak, zaman serisi görüşleri görselleştirin ve sonuçlarını depolamak için makine öğrenme ve tahmin modellerinin çıkış beslenir. Bu yordamı iyileştirmek ve modellerini ince ayar için kuruluşlara yardımcı olur. Time Series Insights eğitilen model çıktıları gibi aynı düzlemde ilişkin telemetri verilerini akış görselleştirmek basit hale getirir. Bu şekilde, anormallikleri belirlemek ve düzenlerini belirleyen veri bilimi ekipleri yardımcı olur.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla bilgi edinin [TSI Gezgini](./time-series-insights-update-explorer.md).
-
-Ortamınızın planlamak için okuma [TSI (Önizleme) planlama](./time-series-insights-update-plan.md).
-
-Okuma [TSI istemci](https://github.com/Microsoft/tsiclient) belgeleri.
+- Daha fazla bilgi edinin [zaman serisi öngörüleri Önizleme Gezgini](./time-series-insights-update-explorer.md).
+- Ortamınızın planlamak için okuma [zaman serisi öngörüleri Önizleme planlama](./time-series-insights-update-plan.md).
+- Okuma [Time Series Insights istemci](https://github.com/Microsoft/tsiclient) belgeleri.
 
 <!-- Images -->
 [1]: media/v2-update-use-cases/data-explorer.svg

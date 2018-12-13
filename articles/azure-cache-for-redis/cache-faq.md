@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 3af59bd3b19744983a44157e108430620fae3532
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 311a576381927536386f5852336c3713fca5c3bf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020219"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260761"
 ---
-# <a name="azure-cache-for-redis-faq"></a>Azure önbelleği için Redis SSS
+# <a name="azure-cache-for-redis-faq"></a>Redis için Azure Önbelleği SSS
 Sık sorulan sorular, desenleri ve en iyi yanıtları Azure önbelleği için Redis için öğrenin.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Peki sorumun cevabı burada bulamadığınız?
@@ -35,30 +35,30 @@ Sorunuzu burada listelenmiyorsa, bize bildirin ve yanıt bulmanıza yardımcı o
 ## <a name="azure-cache-for-redis-basics"></a>Azure önbelleği için Redis temelleri
 Bu bölümdeki SSS'leri bazı temel işlemleri Azure önbelleği için Redis kapsar.
 
-* [Azure önbelleği için Redis nedir?](#what-is-azure-redis-cache)
-* [Nasıl Azure önbelleği için Redis kullanmaya başlayabilir miyim?](#how-can-i-get-started-with-azure-redis-cache)
+* [Azure önbelleği için Redis nedir?](#what-is-azure-cache-for-redis)
+* [Nasıl Azure önbelleği için Redis kullanmaya başlayabilir miyim?](#how-can-i-get-started-with-azure-cache-for-redis)
 
 Aşağıdaki sık sorulan sorular, Redis için Azure önbelleği hakkında soru ve temel kavramları kapsar ve diğer SSS bölümlerden birine yanıtlanır.
 
-* [Hangi Azure önbelleği için Redis teklifini ve boyutunu kullanmalıyım?](#what-redis-cache-offering-and-size-should-i-use)
-* [Hangi Azure önbelleği için Redis istemcileri kullanabilirim?](#what-redis-cache-clients-can-i-use)
-* [Yerel bir öykünücü Azure önbelleği için Redis mı?](#is-there-a-local-emulator-for-azure-redis-cache)
+* [Hangi Azure önbelleği için Redis teklifini ve boyutunu kullanmalıyım?](#what-azure-cache-for-redis-offering-and-size-should-i-use)
+* [Hangi Azure önbelleği için Redis istemcileri kullanabilirim?](#what-azure-cache-for-redis-clients-can-i-use)
+* [Yerel bir öykünücü Azure önbelleği için Redis mı?](#is-there-a-local-emulator-for-azure-cache-for-redis)
 * [Sistem durumunu ve performansını önbelleğimin nasıl izleyebilirim?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
 
 ## <a name="planning-faqs"></a>Planlama ile ilgili SSS
-* [Hangi Azure önbelleği için Redis teklifini ve boyutunu kullanmalıyım?](#what-redis-cache-offering-and-size-should-i-use)
-* [Azure önbelleği için Redis performans](#azure-redis-cache-performance)
+* [Hangi Azure önbelleği için Redis teklifini ve boyutunu kullanmalıyım?](#what-azure-cache-for-redis-offering-and-size-should-i-use)
+* [Azure önbelleği için Redis performans](#azure-cache-for-redis-performance)
 * [Önbelleğimin hangi bölgede bulabilirim?](#in-what-region-should-i-locate-my-cache)
-* [Azure önbelleği için Redis için nasıl faturalandırılırım?](#how-am-i-billed-for-azure-redis-cache)
-* [Azure önbelleği için Redis Azure kamu Bulutu, Azure Çin Bulutu veya Microsoft Azure Almanya ile kullanabilir?](#can-i-use-azure-redis-cache-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
+* [Azure önbelleği için Redis için nasıl faturalandırılırım?](#how-am-i-billed-for-azure-cache-for-redis)
+* [Azure önbelleği için Redis Azure kamu Bulutu, Azure Çin Bulutu veya Microsoft Azure Almanya ile kullanabilir?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
 
 ## <a name="development-faqs"></a>Geliştirme ile ilgili SSS
 * [StackExchange.Redis yapılandırma seçeneklerini ne?](#what-do-the-stackexchangeredis-configuration-options-do)
-* [Hangi Azure önbelleği için Redis istemcileri kullanabilirim?](#what-redis-cache-clients-can-i-use)
-* [Yerel bir öykünücü Azure önbelleği için Redis mı?](#is-there-a-local-emulator-for-azure-redis-cache)
+* [Hangi Azure önbelleği için Redis istemcileri kullanabilirim?](#what-azure-cache-for-redis-clients-can-i-use)
+* [Yerel bir öykünücü Azure önbelleği için Redis mı?](#is-there-a-local-emulator-for-azure-cache-for-redis)
 * [Redis komutları nasıl çalıştırabilir miyim?](#how-can-i-run-redis-commands)
-* [Neden Azure önbelleği için Redis bazı diğer Azure Hizmetleri gibi bir MSDN sınıf kitaplığı başvurusu yok?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
-* [Azure önbelleği için Redis PHP oturum önbelleği olarak kullanabilir miyim?](#can-i-use-azure-redis-cache-as-a-php-session-cache)
+* [Neden Azure önbelleği için Redis bazı diğer Azure Hizmetleri gibi bir MSDN sınıf kitaplığı başvurusu yok?](#why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
+* [Azure önbelleği için Redis PHP oturum önbelleği olarak kullanabilir miyim?](#can-i-use-azure-cache-for-redis-as-a-php-session-cache)
 * [Redis veritabanı nedir?](#what-are-redis-databases)
 
 ## <a name="security-faqs"></a>Güvenlik hakkında SSS
@@ -104,18 +104,18 @@ Her Azure önbelleği için Redis teklifi farklı düzeylerde sağlar **boyutu**
 
 Bir önbellek teklifi seçmek için dikkat edilecek noktalar aşağıda verilmiştir.
 
-* **Bellek**: temel ve standart katmanları 250 MB – 53 GB. Premium katmanı, 530 GB'a kadar sunar. Daha fazla bilgi için [Azure önbelleği için Redis fiyatlandırma](https://azure.microsoft.com/pricing/details/cache/).
-* **Ağ performansı**: yüksek aktarım hızı gerektiren bir iş yükü varsa, standart veya temel kıyasla daha fazla bant genişliği Premium katmanı sunar. Ayrıca her bir katman içinde önbellek barındıran ve temel alınan VM nedeniyle daha fazla bant genişliği boyutu daha büyük önbellekleri vardır. Bkz: [aşağıdaki tabloda](#cache-performance) daha fazla bilgi için.
+* **Bellek**: Temel ve standart katmanları, 250 MB – 53 GB sunar. Premium katmanı, 530 GB'a kadar sunar. Daha fazla bilgi için [Azure önbelleği için Redis fiyatlandırma](https://azure.microsoft.com/pricing/details/cache/).
+* **Ağ performansı**: Premium katmanı, yüksek aktarım hızı gerektiren bir iş yükü varsa, standart ya da temel sürümüne kıyasla daha fazla bant genişliği sunar. Ayrıca her bir katman içinde önbellek barındıran ve temel alınan VM nedeniyle daha fazla bant genişliği boyutu daha büyük önbellekleri vardır. Bkz: [aşağıdaki tabloda](#cache-performance) daha fazla bilgi için.
 * **Aktarım hızı**: Premium katmanı, en yüksek kullanılabilir aktarım sunar. Önbellek sunucu veya istemci bant genişliği sınırlarını ulaşırsa, istemci tarafındaki zaman aşımı alabilirsiniz. Daha fazla bilgi için aşağıdaki tabloya bakın.
-* **Yüksek kullanılabilirlik SLA**: Azure önbelleği için Redis standart/Premium önbelleğin en az % 99,9 oranında kullanılabilir olduğunu güvence altına alır. Sunduğumuz SLA hakkında daha fazla bilgi için bkz: [Azure önbelleği için Redis fiyatlandırma](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). SLA yalnızca önbellek uç noktalarına bağlantıyı kapsar. SLA, veri kaybından korumayı kapsamaz. Veri kaybına karşı dayanıklılığı artırmak için Premium katmandaki Redis veri dayanıklılığı özelliğinin kullanılmasını öneririz.
-* **Redis veri kalıcılığı**: Premium katman kalıcı önbellek verileri bir Azure depolama hesabı olanak tanır. Temel/standart önbellekte, tüm verileri yalnızca bellekte depolanır. Temel alınan altyapı sorunları, olması durumunda olası veri kaybı olabilir. Veri kaybına karşı dayanıklılığı artırmak için Premium katmandaki Redis veri dayanıklılığı özelliğinin kullanılmasını öneririz. Azure önbelleği için Redis RDB ve (çok yakında) AOF Redis kalıcılığı seçenekleri sunar. Daha fazla bilgi için [Redis için bir Premium Azure Cache için kalıcılığı yapılandırma](cache-how-to-premium-persistence.md).
-* **Redis kümesi**: 53 GB'den büyük önbellekleri oluşturmak için ya da verileri birden çok Redis düğümü arasında parça, Redis kümeleme, Premium katmanda kullanılabilir kullanabilirsiniz. Her düğüm, yüksek kullanılabilirlik için bir birincil/çoğaltma önbellek çiftinin oluşur. Daha fazla bilgi için [Redis için Premium Azure Cache için kümeleri yapılandırma](cache-how-to-premium-clustering.md).
-* **Gelişmiş Güvenlik ve ağ yalıtımı**: Geliştirilmiş güvenlik ve yalıtım, Azure önbelleği için Redis yanı sıra alt ağlar, erişim denetim ilkeleri için Azure sanal ağ (VNET) dağıtımı sağlar ve diğer özellikleri daha da fazla erişimi kısıtlayabilirsiniz. Daha fazla bilgi için [Redis için bir Premium Azure Cache için sanal ağ desteğini yapılandırma](cache-how-to-premium-vnet.md).
-* **Redis'i yapılandırma**: standart ve Premium katmanlarda, Redis için anahtar alanı bildirimleri yapılandırabilirsiniz.
+* **Yüksek kullanılabilirlik SLA**: Azure önbelleği için Redis standart/Premium önbelleğin en az % 99,9 oranında kullanılabilir olduğunu garanti eder. Sunduğumuz SLA hakkında daha fazla bilgi için bkz: [Azure önbelleği için Redis fiyatlandırma](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). SLA yalnızca önbellek uç noktalarına bağlantıyı kapsar. SLA, veri kaybından korumayı kapsamaz. Veri kaybına karşı dayanıklılığı artırmak için Premium katmandaki Redis veri dayanıklılığı özelliğinin kullanılmasını öneririz.
+* **Redis veri kalıcılığı**: Premium katman, kalıcı önbellek verileri bir Azure depolama hesabı olanak tanır. Temel/standart önbellekte, tüm verileri yalnızca bellekte depolanır. Temel alınan altyapı sorunları, olması durumunda olası veri kaybı olabilir. Veri kaybına karşı dayanıklılığı artırmak için Premium katmandaki Redis veri dayanıklılığı özelliğinin kullanılmasını öneririz. Azure önbelleği için Redis RDB ve (çok yakında) AOF Redis kalıcılığı seçenekleri sunar. Daha fazla bilgi için [Redis için bir Premium Azure Cache için kalıcılığı yapılandırma](cache-how-to-premium-persistence.md).
+* **Redis kümesi**: Birden çok Redis düğümü arasında verileri veya 53 GB'den daha büyük önbellekler oluşturmak için Premium katmanda kullanılabilir Redis kümeleme, kullanabilirsiniz. Her düğüm, yüksek kullanılabilirlik için bir birincil/çoğaltma önbellek çiftinin oluşur. Daha fazla bilgi için [Redis için Premium Azure Cache için kümeleri yapılandırma](cache-how-to-premium-clustering.md).
+* **Gelişmiş Güvenlik ve ağ yalıtımı**: Geliştirilmiş güvenlik ve yalıtım, Azure önbelleği için Redis yanı sıra alt ağlar, erişim denetim ilkeleri için Azure sanal ağ (VNET) dağıtımı sağlar ve diğer özellikleri daha da fazla erişimi kısıtlayın. Daha fazla bilgi için [Redis için bir Premium Azure Cache için sanal ağ desteğini yapılandırma](cache-how-to-premium-vnet.md).
+* **Redis'i yapılandırma**: Standart ve Premium katmanlarda, Redis için anahtar alanı bildirimleri yapılandırabilirsiniz.
 * **İstemci bağlantılarının maksimum sayısı**: Premium katmanı, Redis, bağlantıların daha büyük boyutlu önbellekler için daha yüksek bir sayı ile bağlanabilir istemcilerin sayısı sunar. Küme, kümelenmiş bir önbellek için kullanılabilir bağlantı sayısını artırmaz. Daha fazla bilgi için [Azure Cache, Redis fiyatlandırma](https://azure.microsoft.com/pricing/details/cache/).
-* **Redis sunucusu için çekirdek ayrılmış**: Premium katmanında, tüm önbelleği boyutları adanmış çekirdek için Redis sahip. C1 boyutu temel/standart katmanları ve sonraki sürümlerde Redis sunucusu için ayrılmış bir çekirdek vardır.
+* **Redis sunucusu için çekirdek ayrılmış**: Premium katmanında, Redis için adanmış çekirdek tüm önbellek boyutuna sahip. C1 boyutu temel/standart katmanları ve sonraki sürümlerde Redis sunucusu için ayrılmış bir çekirdek vardır.
 * **Redis, tek iş parçacıklı** ikiden fazla çekirdeğe sahip sağlamaz ek bir avantaja sahip iki çekirdek üzerinde ancak daha büyük VM boyutları, genellikle daha fazla bant genişliği daha küçük boyutlara sahip. Bant genişliği sınırlarını ulaşırsa, önbellek sunucu veya istemci, istemci tarafındaki zaman aşımı alırsınız.
-* **Performans iyileştirmeleri**: Premium katmanda önbellekler, temel veya standart katmana kıyasla daha iyi performans verir daha hızlı işlemcilere sahip donanımlarda dağıtılır. Premium katman Önbelleklerinden daha yüksek aktarım hızı ve düşük gecikme sürelerine sahip.
+* **Performans iyileştirmeleri**: Premium katmanda önbellekler, temel veya standart katmana kıyasla daha iyi performans sunar, daha hızlı işlemcilere sahip donanımda dağıtılır. Premium katman Önbelleklerinden daha yüksek aktarım hızı ve düşük gecikme sürelerine sahip.
 
 <a name="cache-performance"></a>
 
@@ -349,7 +349,7 @@ Aşağıdaki komutları kullanarak redis benchmark.exe bir örnek sağlar. Doğr
 
   `redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t SET -n 1000000 -d 1024 -P 50`
 * Test ardışık alın, 1 k yük kullanarak ister.
-  Not: KÜMEDEKİ test çalıştırması ilk önbelleğini doldurmak için yukarıda gösterilen
+  NOT: Önbellek doldurmak için ilk gösterilen KÜMESİ testi çalıştırın
 
   `redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t GET -n 1000000 -d 1024 -P 50`
 
@@ -403,7 +403,7 @@ Bu ayarı yapılandırmak nasıl:
 Etkinleştirme sunucusu GC istemci en iyi duruma getirmek ve StackExchange.Redis kullanırken daha iyi performans ve aktarım hızı sağlar. Sunucusu GC ve nasıl etkinleştirileceği konusunda daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [Sunucu GC etkinleştirmek için](https://msdn.microsoft.com/library/ms229357.aspx)
-* [Çöp toplamanın temelleri](https://msdn.microsoft.com/library/ee787088.aspx)
+* [Atık Toplamanın Temelleri](https://msdn.microsoft.com/library/ee787088.aspx)
 * [Çöp toplama ve performans](https://msdn.microsoft.com/library/ee851764.aspx)
 
 
@@ -455,7 +455,7 @@ Bir önbellek bağlantıyı kes bazı yaygın nedeni aşağıda verilmiştir.
 >
 >
 
-### <a name="azure-cache-for-redis"></a>Redis için Azure Cache
+### <a name="azure-cache-for-redis"></a>Redis için Azure Önbelleği
 Azure önbelleği için Redis sunulmuştur 53 GB'ye varan boyutlarda ve kullanılabilirlik SLA'sı % 99,9 olan ' dir. Yeni [premium katmanı](cache-premium-tier-intro.md) boyutu en fazla sunar 530 GB'a kadar ve kümeleme, sanal ağ ve % 99,9 SLA ile Kalıcılık için destek.
 
 Azure önbelleği için Redis müşteriler için Redis, Microsoft tarafından yönetilen güvenli ve adanmış bir Azure önbelleği kullanma olanağı sunar. Bu teklif ile Redis, güvenilir barındırma ve izleme Microsoft tarafından sağlanan bir ekosistem ve zengin özelliklerle yararlanarak alın.

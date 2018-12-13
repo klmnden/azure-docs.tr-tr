@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1f28bf71805fbdc86fd0733757c7f2587fc15b12
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 1df14d730d83ee367140b4c9a64d0d2bba0aed77
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087720"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163897"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-java"></a>Java ile soru-cevap Oluşturucu REST API'si kullanma 
 <a name="HOLTop"></a>
@@ -38,7 +38,7 @@ Bu makalede nasıl kullanılacağını gösterir [Microsoft soru-cevap Oluşturu
 - [Geçerli sözcük değişiklikleri kümesini alma.](#GetAlterations)
 - [Geçerli sözcük değişiklikleri kümesini değiştirme.](#PutAlterations)
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 

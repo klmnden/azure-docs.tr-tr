@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus IP bağlantı filtreleri | Microsoft Docs
-description: IP bloğu bağlantıları, Azure Service Bus belirli IP adreslerinden filtrelemesini kullanma
+title: Azure hizmet veri yolu güvenlik duvarı kuralları | Microsoft Docs
+description: Azure Service Bus belirli IP adreslerinden bağlantılara izin vermek için güvenlik duvarı kuralları kullanma
 services: service-bus
 documentationcenter: ''
 author: clemensv
@@ -10,29 +10,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: c6e9eef762d4a9eb95685d94c61ce10d499bb155
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: f8771be9a96ae188a9610a1b19dfd6cbd49ba277
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884812"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270442"
 ---
-# <a name="use-ip-filters"></a>IP filtreleri kullanma
+# <a name="use-firewall-rules"></a>Güvenlik duvarı kurallarını kullanın
 
-Azure Service Bus olduğu yalnızca bilinen belirli sitelerden erişilebilir senaryoları için *IP Filtresi* özelliği özel IPv4 adreslerinden gelen trafiği kabul etmesini ya da reddetme kurallarını yapılandırmanıza olanak sağlar. Örneğin, bu adresler kurumsal bir NAT ağ geçidinin bu olabilir.
+Azure Service Bus yalnızca bilinen belirli sitelere erişilebilir olduğu senaryolar için güvenlik duvarı kuralları belirli bir IPv4 adreslerinden gelen trafiği kabul etmek için kurallar yapılandırmanıza olanak sağlar. Örneğin, bu adresler kurumsal bir NAT ağ geçidinin bu olabilir.
 
 ## <a name="when-to-use"></a>Kullanılması gereken durumlar
 
-Service Bus uç noktaları belirli IP adresleri için engellemek yararlı olan iki belirli kullanım örnekleri vardır:
-
-- Service Bus, yalnızca belirtilen IP adreslerinden trafiğini almasına ve diğer her şeyi reddet. Örneğin, Service Bus ile kullandığınız [Azure Express Route] [ express-route] şirket içi altyapınız ile özel bağlantılar oluşturmak için.
-- Service Bus yönetici tarafından kuşkulu olarak belirlenmiştir IP adreslerinden gelen trafiği reddetmek gerekir.
+Service Bus kurulumu için yalnızca belirtilen IP adreslerinden trafiğini almasına ve diğer her şeyi Reddet gerekir ve ardından yararlanabileceğiniz gibi istiyorsanız bir *Güvenlik Duvarı* Service Bus uç noktaları diğer IP adreslerinden engellemek için. Örneğin, Service Bus ile kullandığınız [Azure Express Route] [ express-route] şirket içi altyapınız ile özel bağlantılar oluşturmak için. 
 
 ## <a name="how-filter-rules-are-applied"></a>Filtre kurallarının uygulanma yöntemi
 
 IP Filtresi kurallarının Service Bus ad alanı düzeyinde uygulanır. Bu nedenle, kurallar, istemcilerden herhangi bir desteklenen protokolünü kullanarak tüm bağlantıları için geçerlidir.
 
-Herhangi bir bağlantı denemesi bir IP adresinden yetkisiz eşleşmeler bir Service Bus ad alanı rejecting IP kuralı olarak reddedilir. Yanıt IP kuralı başvurmayacak.
+Herhangi bir Service Bus ad alanı olarak reddedildi izin verilen IP kuralı eşleşmeyen bir IP adresinden bağlantı denemesi yetkisiz. Yanıt IP kuralı başvurmayacak.
 
 ## <a name="default-setting"></a>Varsayılan ayar
 
@@ -42,67 +39,107 @@ Varsayılan olarak, **IP Filtresi** portalında hizmet veri yolu için kılavuz 
 
 IP Filtresi kurallarının sırayla uygulanır ve IP adresi ile eşleşen ilk kural kabul etme veya reddetme eylemi belirler.
 
-Örneğin, aralığı 70.37.104.0/24 adresleri kabul edin ve diğer her şeyi Reddet istiyorsanız, kılavuzdaki ilk kural adres aralığı 70.37.104.0/24 kabul etmelidir. Sonraki kural aralığı 0.0.0.0/0 kullanarak tüm adresleri reddedecek.
+>[!WARNING]
+> Güvenlik duvarı kurallarını uygulama diğer Azure Hizmetleri, Service Bus ile etkileşim engelleyebilirsiniz.
+>
+> Güvenilen Microsoft Hizmetleri desteklenmez zaman IP Filtreleme (güvenlik duvarı kuralları) uygulanır ve yakında kullanıma sunulacaktır.
+>
+> IP Filtresi ile çalışmayan genel Azure senaryoları (liste Not **değil** kapsamlı)-
+> - Azure İzleyici
+> - Azure Stream Analytics
+> - Azure Event Grid ile tümleştirme
+> - Azure IOT hub'ı yönlendirir
+> - Azure IOT Device Explorer
+> - Azure Veri Gezgini
+>
+> Microsoft Hizmetleri bir sanal ağda olması gerekir
+> - Azure Web Apps
+> - Azure İşlevleri
 
-> [!NOTE]
-> Reddetme IP adresleri, diğer Azure Hizmetleri (örneğin, Azure Stream Analytics, Azure sanal makineler veya Portalı'nda Device Explorer) Service Bus ile etkileşim engelleyebilirsiniz.
+### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile bir sanal ağ ve güvenlik duvarı kuralı oluşturma
 
-### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile bir sanal ağ kuralı oluşturuluyor
-
-> ! [ÖNEMLİ] Sanal ağlar yalnızca desteklenen **premium** katman hizmet veri yolu.
+> [!IMPORTANT]
+> Sanal ağlar yalnızca desteklenen **premium** katman hizmet veri yolu.
 
 Aşağıdaki Resource Manager şablonu var olan bir Service Bus ad alanı için bir sanal ağ kuralı ekleyerek sağlar.
 
 Şablon parametreleri:
 
-- **ipFilterRuleName** en fazla 128 karakter benzersiz, büyük/küçük harf, alfasayısal bir dize olmalıdır.
-- **ipFilterAction** ya da **Reddet** veya **kabul** için IP filtresi kuralı uygulamak için eylem olarak.
 - **ipMask** tek bir IPv4 adresi veya IP adresleri CIDR gösteriminde bir bloğu. Örneğin, CIDR gösterimi 70.37.104.0/24 256 IPv4 adresi 70.37.104.0 70.37.104.255, aralığı için önemli bir önek bit sayısını gösteren 24 ile temsil eder.
 
+> [!NOTE]
+> Olası hiçbir Reddet kural varken, Azure Resource Manager şablonu ayarlanmış varsayılan eylem sahip **"İzin ver"** hangi bağlantıları kısıtlama yoktur.
+> Sanal ağ veya güvenlik duvarı kuralları yaparken, ki değiştirmeli ***"Defaultactıon"***
+> 
+> başlangıç
+> ```json
+> "defaultAction": "Allow"
+> ```
+> -
+> ```json
+> "defaultAction": "Deny"
+> ```
+>
+
 ```json
-{  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{     
-          "namespaceName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the namespace"
-             }
-          },
-          "ipFilterRuleName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the Authorization rule"
-             }
-          },
-          "ipFilterAction":{  
-             "type":"string",
-             "allowedValues": ["Reject", "Accept"],
-             "metadata":{  
-                "description":"IP Filter Action"
-             }
-          },
-          "IpMask":{  
-             "type":"string",
-             "metadata":{  
-                "description":"IP Mask"
-             }
-          }
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "servicebusNamespaceName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Service Bus namespace"
+        }
       },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Location for Namespace"
+        }
+      }
+    },
+    "variables": {
+      "namespaceNetworkRuleSetName": "[concat(parameters('servicebusNamespaceName'), concat('/', 'default'))]",
+    },
     "resources": [
-        {
-            "apiVersion": "2018-01-01-preview",
-            "name": "[concat(parameters('namespaceName'), '/', parameters('ipFilterRuleName'))]",
-            "type": "Microsoft.ServiceBus/Namespaces/IPFilterRules",
-            "properties": {
-                "FilterName":"[parameters('ipFilterRuleName')]",
-                "Action":"[parameters('ipFilterAction')]",              
-                "IpMask": "[parameters('IpMask')]"
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[parameters('servicebusNamespaceName')]",
+        "type": "Microsoft.ServiceBus/namespaces",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+        },
+        "properties": { }
+      },
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[variables('namespaceNetworkRuleSetName')]",
+        "type": "Microsoft.ServiceBus/namespaces/networkruleset",
+        "dependsOn": [
+          "[concat('Microsoft.ServiceBus/namespaces/', parameters('servicebusNamespaceName'))]"
+        ],
+        "properties": {
+          "virtualNetworkRules": [<YOUR EXISTING VIRTUAL NETWORK RULES>],
+          "ipRules": 
+          [
+            {
+                "ipMask":"10.1.1.1",
+                "action":"Allow"
+            },
+            {
+                "ipMask":"11.0.0.0/24",
+                "action":"Allow"
             }
-        } 
-    ]
-}
+          ],
+          "defaultAction": "Deny"
+        }
+      }
+    ],
+    "outputs": { }
+  }
 ```
 
 Şablonu dağıtmak için yönergeleri izleyin. [Azure Resource Manager][lnk-deploy].

@@ -1,5 +1,5 @@
 ---
-title: Linux üzerinde Azure App Service’te bir PHP ve MySQL web uygulaması derleme | Microsoft Docs
+title: -Azure App Service Linux üzerinde MySQL ile PHP web uygulaması derleme | Microsoft Docs
 description: Azure’da çalışan ve bir MySQL veritabanı ile bağlantısı olan PHP uygulamasını nasıl edinebileceğinizi öğrenin.
 services: app-service\web
 author: cephalin
@@ -10,13 +10,13 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 2f69f3f8864fc196e9bdc4deec13580fd4b816ab
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: a8fc0b9dee8b496eabf7efded7ab83be0b958244
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967717"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274862"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service’te bir PHP ve MySQL web uygulaması derleme
 
@@ -47,8 +47,8 @@ Bu öğreticiyi tamamlamak için:
 * [Git'i yükleyin](https://git-scm.com/)
 * [PHP 5.6.4 veya sonraki sürümü yükleme](https://php.net/downloads.php)
 * [Oluşturucu Yükleme](https://getcomposer.org/doc/00-intro.md)
-* Laravel için gereken şu PHP uzantılarını etkinleştirin: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
-* [MySQL yükleme ve başlatma](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
+* Laravel gereken şu PHP uzantılarını etkinleştirin: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
+* [MySQL'i yükleyin ve başlatın](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>Yerel MySQL hazırlama
 
@@ -62,7 +62,7 @@ Bir terminal penceresinde yerel MySQL sunucunuza bağlanın. Bu öğreticideki t
 mysql -u root -p
 ```
 
-Parola istenirse `root` hesabının parolasını girin. Kök hesap parolanızı hatırlamıyorsanız bkz [MySQL: Kök Parolayı Sıfırlama](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+Parola istenirse `root` hesabının parolasını girin. Kök hesap parolanızı hatırlamıyorsanız bkz [MySQL: Kök parolasını nasıl Sıfırlayacağımı](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
 Komutunuz başarıyla çalışırsa, MySQL sunucunuz çalışıyor demektir. Çalışmıyorsa, yerel MySQL sunucunuzun aşağıdaki [MySQL yükleme sonrası adımları](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html) kullanılarak başlatıldığından emin olun.
 

@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 2310f007697cf1acbdbc907d4562853a2717eb5d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2f984eb8cb09e5d65c4a366b827f695c739003f3
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097133"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163846"
 ---
 # <a name="about-expressroute-direct-preview"></a>ExpressRoute hakkında doğrudan (Önizleme)
 
-ExpressRoute doğrudan size Microsoft'un küresel ağı dünya genelindeki stratejik dağıtılmış eşleme konumlarda doğrudan bağlanma özelliği. ExpressRoute doğrudan uygun ölçekte etkin/etkin bağlantı destekleyen çift 100 Gbps bağlantı sağlar.
+ExpressRoute doğrudan, Microsoft'un küresel ağı dünya genelindeki stratejik dağıtılmış eşleme konumlarda doğrudan bağlanma özelliği sağlar. ExpressRoute doğrudan uygun ölçekte etkin/etkin bağlantı destekleyen çift 100 Gbps bağlantı sağlar.
 
 ExpressRoute doğrudan sağlayan önemli özellikler dahil ancak bunlarla sınırlı değildir:
 
 * Depolama ve Cosmos DB gibi hizmetler için Büyük Veri Alımı özelliği
-* Fiziksel yalıtım düzenlenen ve gerektiren sektörler için adanmış ve yalıtılmış gibi bağlantı: bankacılık, kamu ve perakende
+* Fiziksel yalıtım gibi özel ve ayrı bağlantı gerektirir ve düzenlenen sektörler için: Banka, devlet ve perakende
 * Bağlantı hattı dağıtımının iş birimine dayalı detaylı denetimi
 
 > [!IMPORTANT]
@@ -45,7 +45,7 @@ ExpressRoute doğrudan kullanmadan önce ilk önizleme aboneliğinizde kaydolman
 | --- | --- |
 | Hızlı ekleme ve mevcut altyapısıyla bağlantısını etkinleştirmek için hizmet sağlayıcıları kullanır. | 100 GB/sn altyapı ve tam yönetim tüm katmanların gerektirir
 | Sağlayıcı Ethernet ve MPLS gibi yüzlerce ile tümleşir | Düzenlenen sektör ve büyük veri alımı için doğrudan/adanmış kapasite |
-| 50 MB/sn devreler SKU'lardan 10 GB/sn | Müşteri, aşağıdaki bağlantı hattı SKU'ları bir birleşimini seçebilir: 5 GB/sn, 10 GB/sn, 40 GB/sn, 100 GB/sn için 200 GB/sn'lik toplam sınırlı -
+| 50 MB/sn devreler SKU'lardan 10 GB/sn | Müşteri, aşağıdaki bağlantı hattı SKU'ları bir birleşimini seçebilirsiniz: 5 GB/sn, 10 GB/sn, 40 GB/sn, 100 GB/sn için 200 GB/sn'lik toplam sınırlı-
 | Tek bir kiracı için en iyi duruma getirilmiş | Tek kiracılı/bulut hizmeti sağlayıcıları için en iyi duruma getirilmiş / birden çok iş birimleri
 
 ## <a name="expressroute-direct-circuits"></a>Doğrudan ExpressRoute bağlantı hatları

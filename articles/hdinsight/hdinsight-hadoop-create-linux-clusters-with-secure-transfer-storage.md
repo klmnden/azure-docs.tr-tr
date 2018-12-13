@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: 07d6b07a583b8a8ce8b490333a87ff659f495e45
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: be379061f738ccee298c9a5aac88d3a95613f214
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867000"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193238"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Apache Hadoop kümesi ile güvenli aktarım depolama hesapları Azure HDInsight oluşturma
 
@@ -23,7 +23,7 @@ ms.locfileid: "52867000"
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce
 
-* **Azure aboneliği** gereklidir. Bir aylık ücretsiz deneme hesabı oluşturmak için [azure.microsoft.com/free](https://azure.microsoft.com/free) adresine gidin.
+* **Azure aboneliği**: Bir aylık ücretsiz bir deneme hesabı oluşturmak için Gözat [azure.microsoft.com/free](https://azure.microsoft.com/free).
 * **Güvenli aktarım özellikli bir Azure depolama hesabı**. Yönergeler için bkz. [Depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md) ve [Güvenli aktarım isteme](../storage/common/storage-require-secure-transfer.md).
 * **Depolama hesabındaki bir Blob kapsayıcı**. 
 
@@ -45,7 +45,7 @@ Bu bölümde, [Azure Resource Manager şablonu](../azure-resource-manager/resour
     - Depolama hesabı için kısa bir ad kullanın.
     - Hem depolama hesabı hem de blob kapsayıcı önceden oluşturulmalıdır. 
 
-    Yönergeler için bkz. [Küme oluşturma](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). 
+      Yönergeler için bkz. [Küme oluşturma](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). 
 
 Kendi yapılandırma dosyalarınızı sağlamak için betik eylemi kullanıyorsanız, aşağıdaki ayarlarda wasbs kullanmanız gerekir:
 

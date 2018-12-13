@@ -10,12 +10,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: cf447ddef0639c35efeb0f396a61ae7bc5fe9781
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 901c8f0c903a7e26e82d89209ea4b0ec69057d23
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890594"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165426"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>MySQL için Azure veritabanı bağlantı sorunlarını giderme
 
@@ -49,9 +49,9 @@ Bakım, sistem donanım veya yazılım bir hatayla karşılaştığında veya sa
 
 MySQL için Azure veritabanı'na bağlanmak üzere uygulamayı kalıcı olarak başarısız olursa, genellikle aşağıdakilerden biri ile ilgili bir sorun gösterir:
 
-* Güvenlik duvarı yapılandırması: MySQL sunucu veya istemci tarafı güvenlik duvarı için Azure veritabanı bağlantıları engelleme.
-* Ağ Yapılandırması istemci tarafında: yeni bir IP adresi veya bir ara sunucu eklendi.
-* Kullanıcı hatası: Örneğin, bağlantı dizesi veya eksik bir sunucu adı gibi bağlantı parametrelerini yanlış yazmış olabilirsiniz *@servername* kullanıcı adı soneki.
+* Sunucu güvenlik duvarı yapılandırması: MySQL sunucusu güvenlik duvarı için Azure veritabanı, proxy sunucuları ve ağ geçitleri dahil istemcinizden bağlantılarına izin verecek şekilde yapılandırıldığından emin olun.
+* İstemci güvenlik duvarı yapılandırması: İstemci üzerindeki güvenlik duvarı, veritabanı sunucunuza bağlantılar izin vermeniz gerekir. IP adresleri ve bağlantı noktaları için olamaz sunucusunun MySQL gibi bazı güvenlik duvarları uygulama adları hem de izin verilmelidir.
+* Kullanıcı hatası: Bağlantı dizesi veya eksik bir sunucu adı gibi bağlantı parametrelerini yazdığınızı *@servername* kullanıcı adı soneki.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Kalıcı bağlantı sorunlarını giderme adımları
 

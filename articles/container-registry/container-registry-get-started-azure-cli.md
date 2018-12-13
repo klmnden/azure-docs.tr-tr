@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Azure CLI ile Azure’da özel bir Docker kayıt defteri oluşturun'
+title: Hızlı Başlangıç - Azure - Azure CLI özel Docker kayıt defteri oluşturma
 description: Azure CLI ile hızlıca özel bir Docker kapsayıcısı kayıt defteri oluşturmayı öğrenin.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: danlep
-ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 57c72056b669865278fa8109cd7f4963a1f0887a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.custom: seodec18, H1Hack27Feb2017, mvc
+ms.openlocfilehash: e75a2d126680c71542aa04bae5a30ea7c376cea1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855247"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255933"
 ---
-# <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>Hızlı başlangıç: Azure CLI kullanarak kapsayıcı kayıt defteri oluşturma
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Hızlı Başlangıç: Azure CLI kullanarak bir özel kapsayıcı kayıt defteri oluşturma
 
 Azure Container Registry, özel Docker kapsayıcı görüntülerini depolamak için kullanılan bir yönetilen Docker kapsayıcı kayıt defteridir. Bu kılavuzda Azure CLI kullanarak bir Azure Container Registry örneği oluşturma, kayıt defterine bir kapsayıcı görüntüsü gönderme ve son olarak kapsayıcıyı kayıt defterinizden Azure Container Instances’a (ACI) dağıtma hakkında ayrıntılı bilgi verilmektedir.
 
@@ -114,7 +114,7 @@ Aşağıdaki örnekte, bir kayıt defterinde yer alan depolar listelenmektedir:
 az acr repository list --name <acrName> --output table
 ```
 
-Çıktı:
+Çıkış:
 
 ```bash
 Result
@@ -128,7 +128,7 @@ Aşağıdaki örnekte, **aci-helloworld** deposunda yer alan etiketlerin listesi
 az acr repository show-tags --name <acrName> --repository aci-helloworld --output table
 ```
 
-Çıktı:
+Çıkış:
 
 ```bash
 Result

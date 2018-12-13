@@ -1,5 +1,5 @@
 ---
-title: Azure İlkesi örneği - Her NIC üzerinde NSG x
+title: Örnek - NSG her NIC üzerinde x
 description: Bu örnek ilkesi, her sanal ağ arabirimiyle belirli bir ağ güvenlik grubunun kullanılmasını gerektirir.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 9e853e293611d58ac936228fd02fcd0c0a6d8dda
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: e24697620b61e942699f2748590c94f1063d3216
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948307"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313488"
 ---
 # <a name="nsg-x-on-every-nic"></a>Her NIC üzerinde NSG x
 

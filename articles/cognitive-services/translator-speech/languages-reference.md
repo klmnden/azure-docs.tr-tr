@@ -10,20 +10,20 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: b7005811898df9132be6bc199e26f6c6dc358618
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: aa0af6f0c075dc555757a9c716a1d0569197287d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345212"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256409"
 ---
-# <a name="translator-speech-api-languages"></a>Translator konuşma tanıma API'si: diller
+# <a name="translator-speech-api-languages"></a>Translator konuşma tanıma API'si: Diller
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 Translator konuşma çevirisi, hizmetleri tarafından desteklenen dillerin listesi sürekli olarak genişletir. Translator konuşma çevirisi hizmeti ile kullanmak için kullanılabilen dilleri kümesini bulmak için bu API'yi kullanın.
 
-Mevcut diller almak için API kullanımını gösteren kod örnekleri web'da [Microsoft Translator Github site](https://github.com/MicrosoftTranslator).
+Mevcut diller almak için API kullanımını gösteren kod örnekleri web'da [Microsoft Translator GitHub site](https://github.com/MicrosoftTranslator).
 
 ## <a name="implementation-notes"></a>Uygulama Notları
 
@@ -33,9 +33,9 @@ Geniş bir dil kümesini okuma, transcribed metinleri çevirin ve Sentezlenen ko
 
 Bir istemcinin kullandığı `scope` sorgu parametresi, ilgileniyor hangi dillerin kümelerini tanımlamak için.
 
-* **Konuşmayı metne dönüştürme:** sorgu parametresini kullanın `scope=speech` Konuşmayı metne konuşmaların kullanılabilen dilleri kümesini almak için.
-* **Metin çevirisi:** sorgu parametresini kullanın `scope=text` transcribed metni çevirmek kullanılabilen dilleri kümesini almak için.
-* **Metinden konuşmaya:** sorgu parametresini kullanın `scope=tts` diller ve sesler çevrilen metni yeniden konuşmaya sentezlemek kullanılabilir kümesini almak için.
+* **Konuşmayı metne dönüştürme:** Sorgu parametresi kullandığınızda `scope=speech` Konuşmayı metne konuşmaların kullanılabilen dilleri kümesini almak için.
+* **Metin çevirisi:** Sorgu parametresi kullandığınızda `scope=text` transcribed metni çevirmek kullanılabilen dilleri kümesini almak için.
+* **Metin okuma:**  Sorgu parametresi kullandığınızda `scope=tts` diller ve sesler çevrilen metni yeniden konuşmaya sentezlemek kullanılabilir kümesini almak için.
 
 Bir istemci birden fazla eşzamanlı olarak virgülle ayrılmış listesi belirterek alabilirsiniz. Örneğin, `scope=speech,text,tts`.
 
@@ -63,7 +63,7 @@ Her bir özellik ile sağlanan değer aşağıdaki gibidir.
 
 Konuşma metin özelliği ile ilişkili değer `speech`, bir sözlük (anahtarın, değer) çiftleri. Her anahtar, Konuşmayı metne dönüştürme için desteklenen bir dil tanımlar. Anahtar tanımlayıcısı olan istemci API'sine geçirir. Anahtarıyla ilişkilendirilmiş değeri, aşağıdaki özelliklere sahip bir nesnedir:
 
-* `name`: Dil görünen adı.
+* `name`: Dil adını görüntüler.
 * `language`: İlişkili dil yazılan dil etiketi. Aşağıdaki "Metin işlem" bölümüne bakın.
 Bir örnek verilmiştir:
 
@@ -79,7 +79,7 @@ Bir örnek verilmiştir:
 
 İlişkili değer `text` özelliği de burada her anahtar tanımlar metin çevirisi için desteklenen bir dil bir sözlük. Dil anahtarıyla ilişkilendirilmiş değeri açıklanmaktadır:
 
-* `name`: Dil görünen adı.
+* `name`: Dil adını görüntüler.
 * `dir`: Olan yönlülüğü `rtl` sağdan sola diller için veya `ltr` sağdan sola diller için.
 
 Bir örnek verilmiştir:
@@ -96,12 +96,12 @@ Bir örnek verilmiştir:
 
 Metin okuma özelliği, tts, ilişkili değer de burada her anahtar, desteklenen bir ses tanımlar sözlüktür. Bir ses nesnesinin öznitelikleri şunlardır:
 
-* `displayName`: Ses görünen adı.
-* `gender`: (Erkek veya Kadın) ses cinsiyeti.
+* `displayName`: Ses için görünen ad.
+* `gender`: Cinsiyet (Erkek veya Kadın) sesinin.
 * `locale`: Birincil dili uzantılarından ve bölge uzantılarından ses dil etiketi.
 * `language`: İlişkili dil yazılan dil etiketi.
-* `languageName`: Dil görünen adı.
-* `regionName`: Bu dil için bölge görünen adı.
+* `languageName`: Dil adını görüntüler.
+* `regionName`: Bu dil için görünen ad alanının.
 
 Bir örnek verilmiştir:
 
@@ -140,7 +140,7 @@ X-RequestId|Değer, istek tanımlamak için sunucu tarafından oluşturulan ve s
 |Parametre|Açıklama|Parametre türü|Veri Türü|
 |:--|:--|:--|:--|
 |API sürümü    |İstemci tarafından istenen API sürümü. İzin verilen değerler: `1.0`.|sorgu|dize|
-|scope  |Desteklenen diller ya da ses istemciye döndürmek için ayarlar. Bu parametre, anahtar sözcükleri virgülle ayrılmış listesi olarak belirtilir. Aşağıdaki anahtar sözcükler vardır:<ul><li>`speech`: Konuşma tanıma özelliği için desteklenen dil kümesini sağlar.</li><li>`tts`: Seslerle metin okuma dönüştürme için desteklenen kümesi sağlar.</li><li>`text`: Metni çevirmek için desteklenen dil kümesini sağlar.</li></ul>Bir değer belirtilmezse, değerini `scope` varsayılan olarak `text`.|sorgu|dize|
+|scope  |Desteklenen diller ya da ses istemciye döndürmek için ayarlar. Bu parametre, anahtar sözcükleri virgülle ayrılmış listesi olarak belirtilir. Aşağıdaki anahtar sözcükler vardır:<ul><li>`speech`: Konuşma tanıma özelliği için desteklenen dil kümesini sağlar.</li><li>`tts`: Metni konuşmaya dönüştürme için desteklenen kişilerden daha fazlasını sunmaktadır.</li><li>`text`: Metin çevirme için desteklenen dil kümesini sağlar.</li></ul>Bir değer belirtilmezse, değerini `scope` varsayılan olarak `text`.|sorgu|dize|
 |X-ClientTraceId    |Bir istek izleme için kullanılan istemci tarafından oluşturulan GUID. İlgili sorunları gidermeyi kolaylaştırmak için istemciler her istek ile yeni bir değer sağlayın ve oturumu.|üst bilgi|dize|
 |Kabul dil    |Bazı alanlar yanıt diller ya da bölgelerdeki adlarıdır. Adları döndürülen dil tanımlamak için bu parametreyi kullanın. Dil, doğru biçimlendirilmiş BCP 47 dil etiketi sağlayarak belirtilir. Etiket ile döndürülen Dil tanımlayıcıları listesinden seçin `text` kapsam. Desteklenmeyen diller için adlarını İngilizce dilinde sağlanır.<br/>Örneğin, değerini kullanın `fr` Fransızca adlarında istek veya değeri kullanmak için `zh-Hant` isteği adlarına Geleneksel Çince.|üst bilgi|dize|
     

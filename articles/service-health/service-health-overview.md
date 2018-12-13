@@ -1,6 +1,6 @@
 ---
 title: Hizmet durumu genel bakış | Microsoft Docs
-description: Geçerli ve gelecekteki Azure hizmeti sorunları ve Bakım Azure uygulamalarınızı nasıl etkilenir kişiselleştirilmiş bilgi.
+description: Azure uygulamalarınızı mevcut ve gelecekteki bir Azure hizmet sorunlarına ve Bakım nasıl etkilenir hakkında kişiselleştirilmiş bilgiler sağlar.
 services: Resource health
 documentationcenter: ''
 author: rboucher
@@ -14,53 +14,53 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 03/27/2018
 ms.author: robb
-ms.openlocfilehash: f7fd27dc9be161059dc62071fee33374106e18ef
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: aa7a925255b0c30b84c3b32bb53ba3f31c11fa6b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061290"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162299"
 ---
 # <a name="service-health"></a>Hizmet Durumu
-Hizmet durumu kullandığınız burada bölgelerdeki Azure hizmetlerinizi durumunu izleyen özelleştirilebilir bir Pano sağlar. Bu Panoda, devam eden hizmet sorunları, gelecek planlı Bakım veya ilgili sistem durumu danışma gibi etkin olayları izleyebilirsiniz. Olayları etkin olmayan duruma geldiğinde sistem durumu geçmişinizde 90 gün boyunca yerleştirilen. Son olarak, hizmet sorunlarını etkileyen bağlandığınızda proaktif olarak sizi uyarır hizmet durumu uyarıları oluşturma ve yönetme için hizmet sistem durumu Panosu'nu kullanabilirsiniz.
+Hizmet durumu, bunları kullandığınız bölgelerde Azure hizmetlerinizin durumunu izleyen özelleştirilebilir bir Pano sağlar. Bu Panoda, sürmekte olan bir hizmet sorunları, yaklaşan planlı Bakım veya ilgili bir sistem durumu danışmanları gibi etkin olayları izleyebilirsiniz. Olayları etkin olmayan duruma geldiğinde, 90 güne kadar sistem durumu geçmişinizde verdiklerine. Son olarak, hizmet durumu panosu oluşturmak ve hizmet sorunları, etkileşimimiz bağlandığınızda proaktif olarak size bildirim hizmeti sistem durumu Uyarıları yönetmek için kullanabilirsiniz.
 
-## <a name="service-health-events"></a>Hizmet sistem durumu olayları
-Hizmet durumu üç tür kaynaklarınızı etkileyebilir sistem durumu olayları izler:
-1. **Hizmet sorunları** -şu anda etkileyen Azure hizmetlerinde sorunları. 
-2. **Planlı Bakım** -gelecekte hizmetlerinizin kullanılabilirliğini etkileyebilecek yaklaşan Bakımı.  
-3. **Sistem durumu danışma** -dikkat etmeniz gereken Azure Hizmetleri değişiklikleri. Azure özellikleri kullanım dışı bırakılmıştır olduğunda veya bir kullanım kotası aşarsa örnek olarak verilebilir.
+## <a name="service-health-events"></a>Hizmet durumu olayları
+Hizmet durumu, kaynaklarınızı etkileyebilecek sistem durumu olaylarını üç tür izler:
+1. **Hizmet sorunları** -şu anda etkileyen Azure hizmetlerindeki sorunların. 
+2. **Planlı Bakım** -hizmetlerinizin kullanılabilirliğini gelecekte etkileyebilir yaklaşan Bakımı.  
+3. **Sistem durumu danışmanları** -Azure hizmetlerindeki dikkat etmeniz gereken değişiklikleri. Azure özellikleri kullanım dışı olduğunda veya bir kullanım kotası aşarsanız örneklerindendir.
 
 ## <a name="get-started-with-service-health"></a>Hizmet durumu ile çalışmaya başlama
-Hizmet durumu panonuz başlatmak için portal panosunda hizmet durumu kutucuğu seçin. Döşeme daha önce kaldırdığınız veya özel Pano kullanıyorsanız, "Daha fazla Hizmetleri" hizmet sistem durumu hizmeti için arama (alt, sol Panonuzda).
+Hizmet durumu panonuzu başlatmak için hizmet durumu kutucuğunu portal panonuza seçin. "Diğer hizmetler" hizmeti sistem sağlığı Hizmeti'nde kutucuğu daha önce kaldırdığınız veya özel bir Pano kullanıyorsanız, arama (alt, sol Panonuzda).
 
 ![Hizmet durumu ile çalışmaya başlama](./media/service-health-overview/azure-service-health-overview-1.png)
 
-## <a name="see-current-issues-which-impact-your-services"></a>Hizmetlerinizin etkiler geçerli sorunları bakın
-**Hizmet sorunları** görünüm kaynaklarınızı etkileyen Azure Hizmetleri'nde devam eden sorunları gösterir. Ne zaman sorun başladı ve hangi Hizmetleri ve bölgeleri etkilenen anlayabilirsiniz. Ayrıca, Azure sorunu çözmek için yaptıklarını anlamak için en son güncelleştirmeyi okuyabilirsiniz. 
+## <a name="see-current-issues-which-impact-your-services"></a>Hizmetlerinizi etkileyen geçerli sorunlara bakın
+**Hizmet sorunları** görünümü, kaynaklarınızı etkileyen Azure hizmetlerini devam eden herhangi bir sorunu gösterir. Sorunun nerede başladığını ve hangi hizmet ve bölgelerin etkilendiğini anlayabilir. Ayrıca, sorunu çözmek için ne Azure yaptığını anlamak için en son güncelleştirmeyi okuyabilirsiniz. 
 
 ![Hizmet sorunu yönetme](./media/service-health-overview/azure-service-health-overview-2.png)
 
-Seçin **olası etkisini** bu sorundan etkilenebilirsiniz sahip olduğunuz kaynakların belirli listesini görmek için sekme. CSV listesini takımınızla paylaşmak için şu kaynaklara indirebilirsiniz.
+Seçin **olası etkisini** sorundan etkilenmiş olabilecek sahip olduğunuz kaynakların belirli listesini görmek için sekmesinde. Takımınızla paylaşmak için bu kaynakları CSV listesini indirebilirsiniz.
 
 ![Hizmet sorunu - etkisi yönetme](./media/service-health-overview/azure-service-health-overview-4.png)
 
-## <a name="get-links-and-downloadable-explanations"></a>Get bağlantılar ve indirilebilir açıklamalar 
-Sorun yönetimi sisteminizi kullanabilmek sorun için bir bağlantı elde edebilirsiniz. Azure portalına erişiminiz yoksa kişilerle paylaşmak için PDF ve bazı durumlarda da CSV dosyası indirebilirsiniz.   
+## <a name="get-links-and-downloadable-explanations"></a>Bağlantılar ve indirilebilir açıklamaları Al 
+Sorun yönetim sisteminizde kullanmak için sorun için bir bağlantı elde edebilirsiniz. Azure portalına erişimi olmayan kişilerle paylaşmak için PDF ve bazen CSV dosyası indirebilirsiniz.   
 
 ![Hizmet sorunu - sorun yönetimi yönetme](./media/service-health-overview/azure-service-health-overview-3.png)
 
 ## <a name="get-support-from-microsoft"></a>Microsoft'tan destek alın
-Sorun çözümlendikten sonra kaynak hatalı bir duruma bırakılırsa desteğe başvurun.  Sayfanın sağ tarafta destek bağlantıları kullanın.  
+Sorun çözümlendikten sonra kaynak hatalı bir durumda bırakılır desteğe başvurun.  Sayfanın sağ tarafındaki destek bağlantıları kullanın.  
 
-## <a name="pin-a-personalized-health-map-to-your-dashboard"></a>Kişiselleştirilmiş sistem durumu harita panonuza sabitleyin
-Hizmet durumu, iş açısından kritik abonelikler, bölgeler ve kaynak türleri göstermek için filtre uygulayın. Filtre kaydedin ve kişiselleştirilmiş sistem durumu world haritaya portalı panonuza sabitleyin. 
+## <a name="pin-a-personalized-health-map-to-your-dashboard"></a>Kişiselleştirilmiş sağlık eşlemde panonuza sabitleyin
+Hizmet durumu'nın, iş açısından önemli abonelik, bölge ve kaynak türlerini göstermek için filtreleyin. Filtreyi kaydedin ve kişiselleştirilmiş sistem durumu dünya Haritası portal panonuza sabitleyin. 
 
-![Filtre kişiselleştirilmiş sistem durumu eşleme](./media/service-health-overview/azure-service-health-overview-6a.png)
+![Kişiselleştirilmiş sağlık harita Filtrele](./media/service-health-overview/azure-service-health-overview-6a.png)
 
-![PIN kişiselleştirilmiş sistem durumu eşleme](./media/service-health-overview/azure-service-health-overview-6b.png)
+![PIN kişiselleştirilmiş sağlık eşleme](./media/service-health-overview/azure-service-health-overview-6b.png)
 
-## <a name="configure-service-health-alerts"></a>Hizmet durumu uyarıları yapılandırma
-Hizmet durumu izleme, iş açısından kritik kaynaklarınızı etkilenen olduğunda e-posta, metin iletileri ve Web kancası bildirimleri sizi uyarmak için Azure tümleştirir. Uygun hizmet sistem durumu olayı için bir etkinlik günlüğü uyarı ayarlayın. Bu uyarı Eylem grupları kullanarak kuruluşunuzdaki uygun kişilerin yönlendirmek. Daha fazla bilgi için bkz: [hizmet sistem durumu için uyarıları Yapılandır](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)
+## <a name="configure-service-health-alerts"></a>Hizmet sistem durumu uyarılarını yapılandırma
+Hizmet durumu Azure İzleyici ile iş açısından kritik kaynaklarınız etkilendiğinde e-posta, kısa mesaj ve Web kancası bildirimleri uyarır tümleştirir. Uygun hizmet sistem durumu olayı için bir etkinlik günlüğü uyarısı ayarlayın. Bu uyarı, Eylem grupları kullanarak kuruluşunuzdaki uygun kişilerle rota. Daha fazla bilgi için [hizmet durumu için uyarıları yapılandırma](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
 
 # <a name="next-steps"></a>Sonraki Adımlar
-Sistem durumu sorunları, bildirim almak için uyarıları ayarlayın. Daha fazla bilgi için bkz: [hizmet durumu uyarıları yapılandırmak](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+Sistem durumu sorunları bildirim almak için uyarılar ayarlayın. Daha fazla bilgi için [hizmet durumu için uyarıları yapılandırın](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 

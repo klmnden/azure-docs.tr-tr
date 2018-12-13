@@ -1,5 +1,5 @@
 ---
-title: Sertifikalar ve Azure App Service ortamı
+title: Sertifikalar ve Azure App Service ortamı-
 description: Bir ASE üzerinde sertifikalar ilgili çeşitli konularda açıklanır
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 3d417d560d8a88100f31def27c7db5f9b2493062
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.custom: seodec18
+ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168071"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271904"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Sertifikalar ve App Service ortamı 
 
@@ -32,8 +33,8 @@ Ardından dış ASE kullanıyorsanız, uygulamalarınızı [appname] ulaşıldı
 
 ILB ASE ile sertifikaları yapılandırma için iki seçenek vardır.  ILB ASE için varsayılan bir joker karakter sertifika ayarlayın veya ASE içindeki tek tek web apps'te sertifikaları ayarlayın.  Yaptığınız seçime bağımsız olarak, aşağıdaki sertifika özniteliklerinin doğru şekilde yapılandırılması gerekir:
 
-- **Konu:** bu özniteliği ayarlanmalıdır *. [ Your-root-domain-here] joker nitelikli bir ILB ASE sertifikası için. Uygulamanız için sertifika oluşturuyorsanız, [appname] olmalıdır. [your-root-domain-here]
-- **Konu diğer adı:** bu öznitelik her ikisini de içermelidir. *. [ Your-root-domain-here] ve *.scm. [your-kök-domain-here] joker ILB ASE sertifikası. Uygulamanız için sertifika oluşturuyorsanız, [appname] olmalıdır. [your-root-domain-here] ve [appname] .scm. [your-root-domain-here].
+- **Konu:** Bu öznitelik ayarlanmalıdır *. [your-root-domain-here] joker nitelikli bir ILB ASE sertifikası için. Uygulamanız için sertifika oluşturuyorsanız, [appname] olmalıdır. [your-root-domain-here]
+- **Konu diğer adı:** Bu öznitelik her ikisini de içermelidir. *. [your-root-domain-here] ve *.scm. [your-kök-domain-here] joker ILB ASE sertifikası. Uygulamanız için sertifika oluşturuyorsanız, [appname] olmalıdır. [your-root-domain-here] ve [appname] .scm. [your-root-domain-here].
 
 Üçüncü bir değişken bir joker karakter başvurusu kullanarak yerine sertifikanın SAN'daki tüm bilgilerinizi tek tek uygulama adları içeren bir ILB ASE sertifika oluşturabilirsiniz. Bu yöntem sorun Önden ASE'de faydalandığını uygulamaları adlarını bilmeniz gereken veya ILB ASE sertifikayı güncelleştirmek için ihtiyacınız olan.
 

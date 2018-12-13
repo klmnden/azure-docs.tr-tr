@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Stream Analytics işleri ile Azure İşlevlerini çalıştırma | Microsoft Docs'
+title: "Öğretici: Azure Stream Analytics işleri ile Azure işlevleri'ni çalıştırma | Microsoft Docs"
 description: Bu öğreticide, Stream Analytics işlerine bir çıktı havuzu olarak Azure İşlevlerini yapılandırma hakkında bilgi edineceksiniz.
 services: stream-analytics
 author: jasonwhowell
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: b4f234099cb39e524beb2d2e5a5d138355d5cb80
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 6a89333f32fb4ccc8fc4d4710266157fca16fe02
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013722"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164169"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Stream Analytics işlerinden Azure İşlevleri’ni çalıştırma 
 
@@ -207,6 +207,8 @@ Azure İşlevleri'ne olay gönderme sırasında hatayla karşılaşılması hali
 ## <a name="known-issues"></a>Bilinen sorunlar
 
 Azure portalında En Büyük Toplu İş Boyutu/En Büyük Toplu İş Sayısı değerini boş (varsayılan) olarak sıfırlamaya çalıştığınızda değer kaydedildikten sonra daha önce girilen değerle değiştirilir. Bu durumda bu alanların varsayılan değerlerini el ile girin.
+
+Kullanımını [Http yönlendirme](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) Azure işlevleriniz üzerinde Stream Analytics tarafından şu anda desteklenmiyor.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

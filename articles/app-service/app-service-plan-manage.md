@@ -1,5 +1,5 @@
 ---
-title: Azure App Service planı yönetme | Microsoft Docs
+title: App Service planı - Azure'ı yönetme | Microsoft Docs
 description: Bir App Service planı yönetmek için farklı görevleri nasıl gerçekleştireceğinizi öğrenin.
 keywords: App service, azure app service, Ölçek, app service planı, Değiştir, oluşturma, yönetme, Yönetim
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: f426982163a5e49264bc4f222f6869d9cbb40c89
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec18
+ms.openlocfilehash: 8f8e5f3d184073a73ca30764542dc56e45974120
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166075"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262138"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Azure App Service planı yönetme
 
@@ -35,7 +36,7 @@ Boş bir App Service planı oluşturabilir veya uygulama oluşturmanın bir par�
 
 1. İçinde [Azure portalında](https://portal.azure.com)seçin **yeni** > **Web + mobil**ve ardından **Web uygulaması** veya başka tür bir App Service uygulaması.
 
-1. Var olan bir App Service planı seçin veya yeni bir uygulama için bir plan oluşturun.
+2. Var olan bir App Service planı seçin veya yeni bir uygulama için bir plan oluşturun.
 
    ![Azure portalında bir uygulama oluşturun.][createWebApp]
 

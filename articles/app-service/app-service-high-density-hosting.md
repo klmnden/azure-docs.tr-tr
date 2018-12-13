@@ -1,5 +1,5 @@
 ---
-title: Azure App Service uygulama içi ölçeklendirme kullanarak yüksek yoğunluklu barındırma | Microsoft Docs
+title: Uygulama başına kullanarak yüksek yoğunluklu barındırma ölçeklendirme - Azure App Service | Microsoft Docs
 description: Azure App Service üzerinde yüksek yoğunluklu barındırma
 author: btardif
 manager: erikre
@@ -14,12 +14,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: byvinyal
-ms.openlocfilehash: e07653db70c5baff038cacf8628351c682e20f7f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: e7ebe3ade66e62e1f42aa304b33c42d96be72c06
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971989"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258925"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Azure App Service uygulama içi ölçeklendirme kullanarak yüksek yoğunluklu barındırma
 Varsayılan olarak, App Service uygulamalarını ölçeklendirerek ölçeği [App Service planı](azure-web-sites-web-hosting-plans-in-depth-overview.md) zaman çalışır. Aynı App Service planında birden fazla uygulama çalıştırıldığında, her genişletilmiş örneği plandaki tüm uygulamaları çalışır.
@@ -129,10 +130,10 @@ Uygulama ölçeklendirme başına iki genel Azure bölgelerinde etkin olan bir �
 Yüksek yoğunluklu barındırma, uygulamalarınız için yapılandırmak için aşağıdaki adımları izleyin:
 
 1. App Service ortamını yapılandırın ve yüksek yoğunluklu barındırma senaryo için adanmış bir çalışan havuzu seçin.
-1. Tek bir App Service planı oluşturun ve tüm kullanılabilir kapasiteyi çalışan havuzunda kullanacak şekilde ölçeklendirin.
-1. Ayarlama `PerSiteScaling` bayrağı true olarak App Service planı.
-1. Yeni uygulamalar oluşturulur ve bu App Service planı ile atanan **numberOfWorkers** özelliğini **1**. Bu yapılandırmayı kullanarak bu çalışan havuzunda olası en yüksek yoğunluklu verir.
-1. Çalışanların sayısını gerektiği gibi ek kaynaklara erişim izni için uygulama bağımsız olarak yapılandırılabilir. Örneğin:
+2. Tek bir App Service planı oluşturun ve tüm kullanılabilir kapasiteyi çalışan havuzunda kullanacak şekilde ölçeklendirin.
+3. Ayarlama `PerSiteScaling` bayrağı true olarak App Service planı.
+4. Yeni uygulamalar oluşturulur ve bu App Service planı ile atanan **numberOfWorkers** özelliğini **1**. Bu yapılandırmayı kullanarak bu çalışan havuzunda olası en yüksek yoğunluklu verir.
+5. Çalışanların sayısını gerektiği gibi ek kaynaklara erişim izni için uygulama bağımsız olarak yapılandırılabilir. Örneğin:
     - Yüksek kullanım uygulama ayarlayabilirsiniz **numberOfWorkers** için **3** bu uygulama için daha fazla işlem kapasitesi için. 
     - Düşük kullanımlı uygulamalar ayarlamak **numberOfWorkers** için **1**.
 

@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 84bc151e8d7acf8d320b5883e8637c321762fb32
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0f438f59da079633fea54758261ce1bd93a8477b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090355"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251394"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Veri içeri aktarma ve veri dışarı aktarma modüllerini kullanan Azure Machine Learning Studio web hizmetlerini dağıtma
 
@@ -29,10 +28,10 @@ Tahmine dayalı bir deneme oluştururken, genellikle bir web hizmeti giriş ve �
 
 Verileri içeri aktar ve dışarı aktarma veri modülleri, okuma ve konumlar gibi HTTP, Hive sorgusu, bir Azure SQL veritabanı, Azure tablo depolama, Azure Blob Depolama, veri akışı aracılığıyla bir Web URL'si sağlayan çeşitli veri veya bir şirket içi SQL veritabanı için yazma.
 
-Bu konuda kullanır "örnek 5: Eğitimi, Test, değerlendir ikili sınıflandırma: yetişkinlere yönelik veri kümesi" örnek ve veri kümesi censusdata adlı bir Azure SQL tablosuna zaten yüklendi varsayar.
+Bu konuda kullanır "örnek 5: Eğitim, Test, değerlendirmek için ikili sınıflandırma: Yetişkinlere yönelik veri kümeleri"örnek veri kümesini censusdata adlı bir Azure SQL tablosuna zaten yüklendi varsayar.
 
 ## <a name="create-the-training-experiment"></a>Eğitim denemenizi oluşturma
-Açtığınızda "örnek 5: Eğitimi, Test, değerlendir ikili sınıflandırma: yetişkinlere yönelik veri kümesi" örnek örnek yetişkinlere yönelik Görselleştirmenizdeki gelir ikili sınıflandırma veri kümesini kullanır. Ve deneme tuvaline aşağıdaki görüntüye benzer olacaktır:
+Açtığınızda "örnek 5: Eğitim, Test, değerlendirmek için ikili sınıflandırma: Yetişkinlere yönelik veri kümeleri"örnek örnek yetişkinlere yönelik Görselleştirmenizdeki gelir ikili sınıflandırma veri kümesini kullanır. Ve deneme tuvaline aşağıdaki görüntüye benzer olacaktır:
 
 ![Denemeyi ilk yapılandırması.](./media/web-services-that-use-import-export-modules/initial-look-of-experiment.png)
 
@@ -104,7 +103,7 @@ Klasik Web hizmeti olarak dağıtma ve bunu kullanmak için bir uygulama oluştu
 2. Çalıştırma tamamlandığında tıklayın **Web hizmeti Dağıt** seçip **Web hizmeti dağıtma [Klasik]**.
 3. Web hizmeti panosunda API anahtarınızı bulun. Kopyalayın ve daha sonra kullanmak üzere kaydedin.
 4. İçinde **varsayılan uç nokta** tablo, tıklayın **toplu iş yürütme** API Yardım sayfası açmak için bağlantı.
-5. Visual Studio'da oluşturma bir C# konsol uygulaması: **yeni** > **proje** > **Visual C#**   >   **Windows Klasik Masaüstü** > **konsol uygulaması (.NET Framework)**.
+5. Visual Studio'da oluşturma bir C# konsol uygulaması: **Yeni** > **proje** > **Visual C#**   >  **Windows Klasik Masaüstü**  >   **Konsol uygulaması (.NET Framework)**.
 6. API Yardım sayfasında bulabilirsiniz **örnek kodu** sayfanın alt kısmındaki bölümde.
 7. Kopyalama ve yapıştırma C# Program.cs dosyanıza örnek kod ve blob depolama için tüm başvuruları kaldırın.
 8. Değerini güncelleştirin *apiKey* değişken daha önce kaydedilmiş API anahtarına sahip.
@@ -133,7 +132,7 @@ Yeni bir Web hizmeti dağıtma ve bunu kullanmak için bir uygulama oluşturmak 
 3. Deneme dağıtma sayfasında, web hizmetiniz için bir ad girin ve fiyatlandırma planı seçin ve ardından'a tıklayın **Dağıt**.
 4. Üzerinde **hızlı** sayfasında **Tüket**.
 5. İçinde **örnek kodu** bölümünde **Batch**.
-6. Visual Studio'da oluşturma bir C# konsol uygulaması: **yeni** > **proje** > **Visual C#**   >   **Windows Klasik Masaüstü** > **konsol uygulaması (.NET Framework)**.
+6. Visual Studio'da oluşturma bir C# konsol uygulaması: **Yeni** > **proje** > **Visual C#**   >  **Windows Klasik Masaüstü**  >   **Konsol uygulaması (.NET Framework)**.
 7. Kopyalama ve yapıştırma C# örnek kodu Program.cs dosyanıza.
 8. Değerini güncelleştirin *apiKey* değişken ile **birincil anahtar** bulunan **temel tüketim bilgileri** bölümü.
 9. Bulun *scoreRequest* bildirimi ve geçirilen bir Web hizmeti parametreleri güncelleştirin *verileri içeri aktarma* ve *verileri dışarı aktarma* modüller. Bu durumda, özgün sorguyu ancak yeni bir tablo adı tanımlayın.

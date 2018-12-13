@@ -4,15 +4,15 @@ description: Azure Geçişi hizmetine genel bir bakış sağlar.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 98ff54bcfe67d79d8c15da666aad0bebfe48f6e0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fcf26b8a5eff407d6dde092ae645084fb20a14a8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839743"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250600"
 ---
 # <a name="about-azure-migrate"></a>Azure Geçişi Hakkında
 
@@ -22,10 +22,10 @@ Azure Geçişi hizmeti, Azure’a geçiş için şirket içi iş yüklerini değ
 
 Azure Geçişi şunları yapmanıza yardımcı olur:
 
-- **Azure için hazır olma durumunu değerlendirme**: Şirket içi makinelerinizin Azure’da çalıştırılmaya uygun olup olmadığını değerlendirme.
-- **Boyut önerileri alma**: Şirket içi VM’lerin performans geçmişine göre Azure VM’leri için boyut önerileri alın.
-- **Aylık maliyetleri tahmin etme**: Azure’da çalışan şirket içi makineler için tahmini maliyetleri alın.  
-- **Yüksek güvenle geçirme**: Birlikte değerlendirip geçireceğiniz makine grupları oluşturmak için şirket içi makinelerin bağımlılıklarını görselleştirin.
+- **Azure için hazır olma değerlendirmek**: Şirket içi makinelerinizin Azure'da çalıştırılmaya uygun olup olmadığını değerlendirin.
+- **Boyut önerileri alma**: Şirket içi sanal makinelerin performans geçmişi temel alarak Azure Vm'leri için boyut önerileri alın.
+- **Aylık maliyetleri tahmin etme**: Şirket içi makineleri Azure'da çalıştırmanın tahmini maliyetleri alın.  
+- **Yüksek güvenle geçiş**: Değerlendirmek ve birlikte geçirmek makine grupları oluşturmak için şirket içi makinelerin bağımlılıklarını görselleştirin.
 
 ## <a name="current-limitations"></a>Geçerli sınırlamalar
 
@@ -34,10 +34,14 @@ Azure Geçişi şunları yapmanıza yardımcı olur:
 - Tek keşifte en fazla 1500 sanal makine ve tek projede en fazla 1500 sanal makine bulabilirsiniz. Ayrıca tek değerlendirmede en fazla 1500 sanal makineyi değerlendirebilirsiniz.
 - Daha büyük bir ortam keşfetmek istiyorsanız keşfi bölüp birden fazla proje oluşturabilirsiniz. [Daha fazla bilgi edinin](how-to-scale-assessment.md). Azure Geçişi, abonelik başına 20’ye kadar projeyi destekler.
 - Azure Geçişi yalnızca yönetilen disklerin geçiş değerlendirmesini destekler.
--  Azure Geçişi projesini yalnızca Birleşik Devletler coğrafyasında oluşturabilirsiniz. Ancak herhangi bir hedef Azure konumu için geçiş planlayabilirsiniz.
-    - Geçiş projesi bölgesinde yalnızca şirket içi ortamında keşfedilen meta veriler depolanır.
-    - Meta veriler seçilen coğrafi bölgelerde biriyle depolanır: Batı Orta ABD/Doğu ABD.
-    - Yeni bir Log Analytics çalışma alanı oluşturarak bağımlılık görselleştirmesi kullanırsanız, çalışma alanını proje ile aynı bölgede oluşturulur.
+-  Bu gibi durumlarda, Azure geçişi projesini yalnızca aşağıdaki coğrafyalardaki oluşturabilirsiniz. Bu ancak diğer değerlendirmeler oluşturup oluşturamayacağınız kısıtlamaz Azure konumları hedefleyin.
+    **Coğrafya** | **Depolama konumu**
+    --- | ---
+    Durumları sahip | Batı Orta ABD veya Doğu ABD
+    Azure Kamu | ABD Devleti Virginia
+
+    Geçiş proje ile ilişkili Coğrafya, şirket içi ortamda bulunan meta verileri depolamak için kullanılır. Meta veri geçiş projesi için belirtilen coğrafyaya göre bölgelerden birine depolanır. Yeni bir Log Analytics çalışma alanı oluşturarak bağımlılık görselleştirmesi kullanırsanız, çalışma alanını proje ile aynı bölgede oluşturulur.
+- Bağımlılık görselleştirme işlevini Azure Kamu'da kullanılabilir değil.
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>Ne için ödeme yapmam gerekiyor?
@@ -93,8 +97,8 @@ Toplayıcı | vCenter Server | Varsayılan olarak toplayıcı, 443 numaralı ba�
 
 Şirket içi makineleri değerlendirdikten sonra, geçiş işlemini gerçekleştirmek üzere birkaç araç kullanabilirsiniz:
 
-- **Azure Site Recovery**: Azure’a geçiş için Azure Site Recovery’yi kullanabilirsiniz. Bunu yapmak için depolama hesabı ve sanal ağ olmak üzere ihtiyacınız olan [Azure bileşenlerini hazırlarsınız](../site-recovery/tutorial-prepare-azure.md). Şirket içinde [VMware ortamınızı hazırlarsınız](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md). Her şey hazır olduğunda Azure'a çoğaltmayı kurup etkinleştirir ve VM'leri geçirirsiniz. [Daha fazla bilgi edinin](../site-recovery/vmware-azure-tutorial.md).
-- **Azure Veritabanı Geçişi**: Şirket içi makineler SQL Server, MySQL veya Oracle gibi bir veritabanı çalıştırıyorsa, bunları Azure’a geçirmek için [Azure Veritabanı Geçiş Hizmeti](../dms/dms-overview.md)'ni kullanabilirsiniz.
+- **Azure Site Recovery**: Azure Site Recovery, Azure'a geçirmek için kullanabilirsiniz. Bunu yapmak için depolama hesabı ve sanal ağ olmak üzere ihtiyacınız olan [Azure bileşenlerini hazırlarsınız](../site-recovery/tutorial-prepare-azure.md). Şirket içinde [VMware ortamınızı hazırlarsınız](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md). Her şey hazır olduğunda Azure'a çoğaltmayı kurup etkinleştirir ve VM'leri geçirirsiniz. [Daha fazla bilgi edinin](../site-recovery/vmware-azure-tutorial.md).
+- **Azure veritabanı geçiş**: Bir veritabanını SQL Server, MySQL veya Oracle gibi şirket içi makineleri çalıştırıyorsanız, kullanabileceğiniz [Azure veritabanı geçiş hizmeti](../dms/dms-overview.md) bunları Azure'a geçirmek için.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

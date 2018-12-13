@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: 84d1a08cd8ec4aafcc382ca74987bc5486f673d7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: e83ba321a98e40f07ff82e68c7961c2a6a49076d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883476"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191844"
 ---
 # <a name="app-expression-in-log-analytics-query"></a>Log Analytics sorgu ifadesinde App()
 
@@ -34,7 +33,7 @@ ms.locfileid: "52883476"
 
 ## <a name="arguments"></a>Bağımsız Değişkenler
 
-- *Tanımlayıcı*: Aşağıdaki tabloda biçimlerden birini kullanarak uygulamayı tanımlar.
+- *tanımlayıcı*: Aşağıdaki tabloda biçimlerden birini kullanarak uygulamayı tanımlar.
 
 | Tanımlayıcı | Açıklama | Örnek
 |:---|:---|:---|

@@ -1,5 +1,5 @@
 ---
-title: Portalda Azure Search dizini oluşturma | Microsoft Docs
+title: Azure portal - Azure Search bir Azure Search dizini oluşturma
 description: Azure portalında yerleşik dizin tasarımcıları kullanarak arama için dizin oluşturmayı öğrenin.
 manager: cgronlun
 author: heidisteen
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: bb1ba5e860dab237b3f6e16205b5e4cbad45e6e3
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: 4bba8b41418dadad1b241d60ab0b7aeee4c046d7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990855"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316718"
 ---
 # <a name="how-to-create-an-azure-search-index-using-the-azure-portal"></a>Azure portalını kullanarak Azure Search dizini oluşturma
 

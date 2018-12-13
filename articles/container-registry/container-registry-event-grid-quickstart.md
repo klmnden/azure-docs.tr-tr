@@ -7,14 +7,15 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: danlep
-ms.openlocfilehash: 60248da2bbdac751845a40720f8967203c562b4a
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: 48fd64908a5cb2488d58f3c078e0ccb17419352f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085759"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260258"
 ---
-# <a name="quickstart-send-container-registry-events-to-event-grid"></a>Hızlı Başlangıç: kapsayıcı kayıt defteri olayları Event Grid'e göndermek.
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Hızlı Başlangıç: Event Grid için özel kapsayıcı kayıt defterinden olayları gönderme
 
 Azure Event Grid; Yayımla kullanarak tek düzen olay tüketimine sağlayan tam olarak yönetilen olay yönlendirme hizmeti-abonelik modeli. Bu hızlı başlangıçta, bir kapsayıcı kayıt defteri oluşturma, kayıt defteri olaylarına abone olma ve olaylarını almak için örnek bir web uygulamasına dağıtmak için Azure CLI'yı kullanın. Son olarak, kapsayıcı görüntüsü tetiklenen `push` ve `delete` olayları ve olay yükü örnek uygulamada görüntüle.
 
@@ -212,7 +213,7 @@ Tebrikler! Görürseniz `ImagePushed` ve `ImageDeleted` olayları, kayıt defter
 
 Bu hızlı başlangıçta oluşturulan kaynakları ile işiniz bittiğinde, tüm aşağıdaki Azure CLI komutu ile silebilirsiniz. Bir kaynak grubu sildiğinizde, içerdiği tüm kaynakları kalıcı olarak silinir.
 
-**Uyarı**: Bu işlemi geri alınamaz bir işlemdir. Komutu çalıştırmadan önce herhangi bir grup içindeki kaynaklara artık ihtiyacınız emin olun.
+**UYARI**: Bu işlem geri alınamaz. Komutu çalıştırmadan önce herhangi bir grup içindeki kaynaklara artık ihtiyacınız emin olun.
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP_NAME

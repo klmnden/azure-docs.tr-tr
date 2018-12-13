@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/10/2018
 ms.author: diberry
-ms.openlocfilehash: 57ad7d680d83e13d9aff1d55a52ab982c585df76
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 62827054a14930cd49f7d80d6c305e60060c0fe6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080206"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271394"
 ---
-# <a name="phrase-list-features-in-luis"></a>LUIS, ifade listesi özellikleri
+# <a name="phrase-list-features-in-your-luis-app"></a>LUIS uygulamanızı ifade listesi özellikleri
 
 Machine learning'de bir *özellik* bir ayırt edici nitelik veya sisteminizin gözlemler veri özniteliği. 
 
@@ -32,9 +32,17 @@ Bir ifade listesi uygulama etki alanının sözlüğü LUIS için ikinci bir sin
 ## <a name="how-to-use-phrase-lists"></a>İfade listeleri kullanma
 İnsan Kaynakları uygulamasının [varlığın öğretici](luis-quickstart-primary-and-secondary-data.md), uygulamanın kullandığı bir **iş** Programcı roofer ve dış gibi iş türleri ifade listesi. Şu değerlerden biri olarak makine öğrenilen bir varlık olarak etiketlerseniz LUIS diğer öğrenir. 
 
-Değiştirilebilir veya değiştirilebilir olmayan bir ifade listesi olabilir. Bir *birbirinin yerine* tümcecik listedir eş anlamlılar için değerler ve *değiştirilebilir olmayan* tümcecik listesi uygulamasında ek bir sinyal eş anlamlı sözcükler, ancak hala olmayan değerlere ihtiyacınız için tasarlanmıştır. 
+Değiştirilebilir veya değiştirilebilir olmayan bir ifade listesi olabilir. Bir *birbirinin yerine* tümcecik listedir eş anlamlılar için değerler ve *değiştirilebilir olmayan* tümcecik listesi, uygulamanın belirli sözlük liste olarak tasarlanmıştır. Uygulama sözlüğü ifade listesi büyüdükçe, bazı terimler sahip birçok form (eş anlamlılar) bulabilirsiniz. Bunlar değiştirilebilir başka bir ifade listesine ayırmak. 
+
+|Liste türü|Amaç|
+|--|--|
+|Değiştirilebilir|Eş Anlamlılar veya sözcük başka bir sözcüğe listesinde değiştirildiğinde aynı amacı ve varlık ayıklama sahip.|
+|Olmayan değiştirilebilir|Uygulama sözlük, uygulamanıza, genellikle daha başka bir dilde sözcükler için daha fazla belirli.|
+
+İfade yalnızca varlık algılama ile ilgili Yardım listeler ancak aynı zamanda hedefi sınıflandırma değiştirilebilir olmayan burada İngilizce dilinde bilinmemesi sözlük sözcükleri dışında ekleme gibi mantıklıdır.
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
+
 ## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Tümcecik listeler Yardım basit birbirinin yerine varlıkları tanımlama
 Birbirinin yerine ifade listeleri LUIS uygulamanızın performansını ayarlamak için iyi bir yoludur. Uygulamanızın doğru amaç konuşma tahmin etme veya varlık tanıma sorun varsa, konuşma olağan dışı bir sözcük veya anlamları belirsiz olabilir sözcükler içeren hakkında düşünün. Bu sözcükler tümcecik listesinde içermek için iyi adaylar değildir.
 
@@ -44,7 +52,7 @@ Bir ifade listesi LUIS sıkı eşleştirme işlemi yapmak veya her zaman deyim l
 Bir ifade listesine eklenmesi, daha fazla örnek konuşma eklemeye yönelik bir amacı bir alternatiftir. 
 
 ## <a name="an-interchangeable-phrase-list"></a>Birbirinin yerine ifade listesi
-Sözcükleri veya aşamaları listesini bir sınıf veya grup oluşturduğunuzda bir birbirinin yerine bir ifade listesini kullanın. Örnek bir ay "Ocak", "Şubat", "Mart"; listesidir. veya, adları "John", "Gamze", "Ferdi" ister.  İfade listesinden farklı bir sözcük kullanıldıysa utterance aynı hedefi veya varlık etiketlenmesi, bu listeleri birbirinin yerine kullanılabilir. Örneğin, "Takvim Ocak ayında aynı Göster" "Şubat Takvimi Göster", ardından sözcükleri birbirinin yerine bir listede olması gerektiği gibi hedefi. 
+Sözcükleri veya aşamaları listesini bir sınıf veya grup oluşturduğunda birbirinin yerine bir ifade listesini kullanın. Örnek bir ay "Ocak", "Şubat", "Mart"; listesidir. veya, adları "John", "Gamze", "Ferdi" ister.  İfade listesinden farklı bir sözcük kullanıldıysa utterance aynı hedefi veya varlık etiketlenmesi, bu listeleri birbirinin yerine kullanılabilir. Örneğin, "Takvim Ocak ayında aynı Göster" "Şubat Takvimi Göster", ardından sözcükleri birbirinin yerine bir listede olması gerektiği gibi hedefi. 
 
 ## <a name="a-non-interchangeable-phrase-list"></a>Değiştirilebilir olmayan bir ifade listesi
 Değiştirilebilir olmayan bir ifade listesini eşanlamlı olmayan sözcükler veya etki alanınızda gruplandırılabilir ifadeler kullanın. 

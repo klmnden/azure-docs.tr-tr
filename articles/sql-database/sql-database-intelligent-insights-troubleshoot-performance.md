@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 60d19f6d598c6090e0dc00c61817a0f8aed35003
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: ae6ddea3860c7fc636e071b3c39c418ff4a10272
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889506"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273944"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Akıllı Öngörüler sayesinde Azure SQL veritabanı performans sorunlarını giderme
 
@@ -109,7 +109,7 @@ En iyi duruma getirme veya elemanı en yüksek bellek kullanımı ile ilgili sor
 
 En iyi duruma getirme veya birden çok veritabanı dağıtma iş yükünü de azaltabilir. Veya iş yükünüz birden fazla veritabanı arasında dağıtabilirsiniz. Bu çözümler mümkün değilse, fiyatlandırma katmanını veritabanına kullanılabilir bellek kaynaklarının miktarını artırmak için SQL veritabanı aboneliğinizi çıkartabilirsiniz.
 
-Ek sorun giderme önerileri için bkz. [bellek meditasyon verir: birçok adlarla gizemli SQL Server bellek tüketici](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
+Ek sorun giderme önerileri için bkz. [bellek meditasyon verir: Gizemli SQL Server bellek tüketici birçok adlarla](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
 
 ## <a name="locking"></a>Kilitleniyor
 
@@ -227,7 +227,7 @@ Bu algılanabilir performans Düzen tempDB kaynaklara erişmeye çalışan iş p
 
 ### <a name="troubleshooting"></a>Sorun giderme
 
-Tanılama Günlüğü tempDB Çekişme ayrıntılarını çıkarır. Sorun giderme için başlangıç noktası olarak bilgileri kullanabilirsiniz. Sizin daha sonra amacınızın bu tür bir çakışma çıkmıştır ve genel iş yükü, aktarım hızını artırmak için iki şey vardır: geçici tablolar'ı kullanmayı bırakabilir. Bellek için iyileştirilmiş tablolar da kullanabilirsiniz. 
+Tanılama Günlüğü tempDB Çekişme ayrıntılarını çıkarır. Sorun giderme için başlangıç noktası olarak bilgileri kullanabilirsiniz. Bu tür bir çakışma çıkmıştır ve genel iş yükü, aktarım hızını artırmak için sonra amacınızın iki şey vardır: Geçici tabloları kullanarak durdurabilirsiniz. Bellek için iyileştirilmiş tablolar da kullanabilirsiniz. 
 
 Daha fazla bilgi için [giriş bellek için iyileştirilmiş tablolara](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
@@ -281,7 +281,7 @@ Daha fazla bilgi için [nasıl SQL Server planı gerilemeyi önler öğrenin](ht
 
 Bu algılanabilir performans düzeni, veritabanı kapsamlı yapılandırma değişikliği son yedi günlük veritabanı iş yükü davranışını karşılaştırıldığında algılanan performans regresyon neden olan bir koşulu belirtir. Bu düzen veritabanı kapsamlı yapılandırmayı yapılan son değişiklik veritabanı performansınızı yararlı yaramadı gösterir.
 
-Veritabanı kapsamlı yapılandırma değişiklikleri tek tek her veritabanı için ayarlanabilir. Bu yapılandırma, tek veritabanı performansını iyileştirmek için olay olarak kullanılır. Tek tek her veritabanı için aşağıdaki seçenekler yapılandırılabilir: MAXDOP, LEGACY_CARDINALITY_ESTIMATION PARAMETER_SNIFFING QUERY_OPTIMIZER_HOTFIXES ve NET PROCEDURE_CACHE.
+Veritabanı kapsamlı yapılandırma değişiklikleri tek tek her veritabanı için ayarlanabilir. Bu yapılandırma, tek veritabanı performansını iyileştirmek için olay olarak kullanılır. Tek tek her veritabanı için aşağıdaki seçenekler yapılandırılabilir: MAXDOP, LEGACY_CARDINALITY_ESTIMATION, PARAMETER_SNIFFING, QUERY_OPTIMIZER_HOTFIXES ve NET PROCEDURE_CACHE.
 
 ### <a name="troubleshooting"></a>Sorun giderme
 

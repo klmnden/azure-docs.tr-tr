@@ -1,5 +1,5 @@
 ---
-title: Azure’da ilk Java web uygulamanızı oluşturma
+title: Java web uygulaması - Azure App Service oluşturma
 description: Basit bir Java uygulaması dağıtarak App Service'te web uygulamalarının nasıl çalıştırılacağını öğrenin.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 4b812cfa2c551e9d2f365f74bebee96626f4dd94
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: b9321241f174a97976b2f150a9bd6c3547f0dc20
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968329"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253174"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Azure’da ilk Java web uygulamanızı oluşturma
 
@@ -121,8 +121,8 @@ Azure hesabınızda oturum açtıktan sonra, **Web Uygulaması Dağıtma** ileti
 * Bir Azure aboneliği seçin.
 * **App Service planı** sekmesinde:
 
-  * **Yeni oluştur**: App Service planının adı olan varsayılan değeri değiştirmeyin.
-  * **Konum**: **Batı Avrupa**’yı veya size yakın olan bir konumu seçin.
+  * **Yeni Oluştur**: App Service planının adı olan varsayılan değeri değiştirmeyin.
+  * **Konum**: Seçin **Batı Avrupa** veya size yakın bir konum.
   * **Fiyatlandırma katmanı**: Ücretsiz seçeneğini belirleyin. Özellikler için bkz. [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
    ![App Service Oluşturma iletişim kutusu](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)

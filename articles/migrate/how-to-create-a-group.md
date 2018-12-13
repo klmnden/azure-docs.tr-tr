@@ -6,16 +6,19 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: 3f90fbb4ae30f8cc7730385730c39321974a94c4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c11d2f22fa08417107b0eecdd902b4521410b358
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850712"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252431"
 ---
 # <a name="group-machines-for-assessment"></a>Makineleri değerlendirme için
 
 Bu makale makine tarafından değerlendirmesi için bir grubu oluşturmayı açıklar [Azure geçişi](migrate-overview.md). Azure geçişi, Azure'a geçiş için uygun ve makine Azure'da çalıştırmak için boyutlandırma ve maliyet tahminleri sağlar olup olmadığını denetlemek için gruptaki makinelerin değerlendirir. Birlikte geçirilmesi makineler biliyorsanız, aşağıdaki yöntemi kullanarak, Azure geçişi, gruba el ile oluşturabilirsiniz. Birlikte gruplanması gereken makineler hakkında çok emin değilseniz, bağımlılık görselleştirme işlevini Azure Geçişi'nde grupları oluşturmak için kullanabilirsiniz. [Daha fazla bilgi edinin.](how-to-create-group-machine-dependencies.md)
+
+> [!NOTE]
+> Bağımlılık görselleştirme işlevini Azure Kamu'da kullanılabilir değil.
 
 ## <a name="create-a-group"></a>Grup oluşturma
 

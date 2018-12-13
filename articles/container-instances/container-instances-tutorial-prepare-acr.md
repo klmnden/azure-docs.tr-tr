@@ -1,21 +1,21 @@
 ---
-title: Azure Container Instances öğreticisi - Azure Container Registry’i Hazırlama
-description: Azure Container Instances öğreticisi, 2/3. Bölüm - Azure Container Registry’i Hazırlama
+title: Öğretici - Azure Container Instances için bir container Registry'yi hazırlama
+description: Azure Container Instances Öğreticisi bölüm 2 / 3 - bir Azure container Registry'yi hazırlama ve bir görüntü gönderme
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: e7cf9c5fad6219e71205c181b2dbb6828595afdd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.custom: seodec18, mvc
+ms.openlocfilehash: eeb0fe5b19f23e101eab9393dca64e1e13bf6922
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855451"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188934"
 ---
-# <a name="tutorial-deploy-and-use-azure-container-registry"></a>Öğretici: Azure Container Registry’yi dağıtma ve kullanma
+# <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>Öğretici: Bir Azure container Registry'yi dağıtma ve kapsayıcı görüntüsü gönderme
 
 Bu öğretici, üç bölümden oluşan bir serinin ikinci bölümüdür. Öğreticinin [birinci bölümünde](container-instances-tutorial-prepare-app.md), Node.js web uygulaması için bir Docker kapsayıcı görüntüsü oluşturuldu. Bu öğreticide, görüntüyü Azure Container Registry’ye göndereceksiniz. Henüz kapsayıcı görüntüsünü oluşturmadıysanız [Öğretici 1 - Kapsayıcı görüntüsü oluşturma](container-instances-tutorial-prepare-app.md) bölümüne geri dönün.
 
@@ -168,7 +168,7 @@ Gönderdiğiniz görüntünün aslında Azure kapsayıcı kayıt defterinizde ol
 az acr repository list --name <acrName> --output table
 ```
 
-Örnek:
+Örneğin:
 
 ```console
 $ az acr repository list --name mycontainerregistry082 --output table

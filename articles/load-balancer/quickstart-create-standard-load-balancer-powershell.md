@@ -1,5 +1,6 @@
 ---
-title: 'Hızlı Başlangıç: Standart Load Balancer oluşturma - Azure PowerShell | Microsoft Docs'
+title: 'Hızlı Başlangıç: Standart yük dengeleyici - Azure PowerShell oluşturma'
+titlesuffix: Azure Load Balancer
 description: Bu hızlı başlangıçta, PowerShell kullanarak bir Standart Load Balancer’ın nasıl oluşturulacağı gösterilmektedir
 services: load-balancer
 documentationcenter: na
@@ -13,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/22/2018
 ms.author: kumud
-ms:custom: mvc
-ms.openlocfilehash: e4e66d18f9dcb7f020cdb881226f6e47118e5186
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms:custom: seodec18
+ms.openlocfilehash: 0db575ee6c04c0fb4639ea2e9e095200da781fe8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578561"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256324"
 ---
-# <a name="get-started"></a>Hızlı Başlangıç: Azure PowerShell kullanarak Standart Load Balancer oluşturma
+# <a name="get-started"></a>Hızlı Başlangıç: Azure PowerShell kullanarak bir Standard Load Balancer oluşturma
 Bu hızlı başlangıçta, Azure PowerShell kullanarak bir Standart Load Balancer’ın nasıl oluşturulacağı gösterilmektedir. Yük dengeleyiciyi test etmek için, Windows sunucusu çalıştıran iki sanal makine (VM) dağıtın ve sanal makineler arasında bir web uygulamasının yük dengelemesini yapın. Standart Load Balancer hakkında daha fazla bilgi için bkz. [Standart Load Balancer nedir](load-balancer-standard-overview.md).
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]

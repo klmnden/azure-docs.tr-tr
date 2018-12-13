@@ -1,6 +1,6 @@
 ---
-title: Uygulama hizmeti ortamları ile katmanlı güvenlik mimarisi
-description: Uygulama hizmeti ortamları katmanlı güvenlik mimarisiyle uygulama.
+title: Katmanlı güvenlik mimarisi App Service ortamları - Azure ile
+description: App Service ortamları ile katmanlı güvenlik mimarisi uygulama.
 services: app-service
 documentationcenter: ''
 author: stefsch
@@ -14,48 +14,49 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
-ms.openlocfilehash: 29c928c7d81eb3a2532f735be9132b49db5da373
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.custom: seodec18
+ms.openlocfilehash: 5e25de1ad2042ac978c3698165b9d9baba20e816
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356214"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274177"
 ---
-# <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Uygulama hizmeti ortamları katmanlı güvenlik mimarisiyle uygulama
+# <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>App Service ortamları ile yüksek katmanlı güvenlik mimarisi uygulama
 ## <a name="overview"></a>Genel Bakış
-Uygulama hizmeti ortamları sanal ağınıza dağıtılmış bir yalıtılmış çalışma zamanı ortamı sağlamak için geliştiriciler için her fiziksel uygulama katmanı düzeyleri farklı ağ erişim sağlayan bir katmanlı güvenlik mimarisi oluşturabilir.
+App Service ortamları dağıtılan bir sanal ağa bir yalıtılmış bir çalışma zamanı ortamı sağlayan olduğundan, geliştiricilere her fiziksel uygulama katmanı için ağ erişim düzeyleri farklı sağlama katmanlı güvenlik mimarisi oluşturabilirsiniz.
 
-API arka uçları genel Internet erişimine karşı gizlemek ve yalnızca Yukarı Akış web uygulamaları tarafından çağrılmasına izin vermek için ortak bir desire var.  [Ağ güvenlik grupları (Nsg'ler)] [ NetworkSecurityGroups] App Service ortamları içeren alt ağlarda API uygulamaları için ortak erişimi kısıtlamak için kullanılabilir.
+Ortak gizliliğinizi korumayı taahhüt eder API arka ucu genel Internet erişiminden gizleme ve yalnızca API'leri Yukarı Akış web uygulamalar tarafından çağrılmasına izin vermektir.  [Ağ güvenlik grupları (Nsg'ler)] [ NetworkSecurityGroups] App Service ortamları içeren alt ağlar, API uygulamaları için ortak erişimi kısıtlamak için kullanılabilir.
 
-Aşağıdaki diyagramda, dağıtılan bir uygulama hizmeti ortamı tabanlı Webapı uygulamayla bir örnek mimari gösterilir.  Üç ayrı uygulama hizmeti ortamları üzerinde dağıtılan üç ayrı web app örnekleri aynı Webapı App arka uç çağrıları yapma.
+Aşağıdaki diyagramda, bir App Service ortamında dağıtılan WebAPI tabanlı uygulama ile bir örnek mimari gösterilmektedir.  Üç ayrı App Service ortamlarında, dağıtılan üç ayrı bir web uygulaması örneği aynı uygulamayı Webapı arka uç çağrı yapmak.
 
-![Kavramsal mimarisi][ConceptualArchitecture] 
+![Kavramsal mimari][ConceptualArchitecture] 
 
-Yeşil artı işaretini "apiase" içeren alt ağ üzerinde ağ güvenlik grubu kendisinden iyi çağrıları Yukarı Akış web uygulamalarından gelen çağrıları izin verdiğini gösterir.  Ancak aynı ağ güvenlik grubu, internetten genel gelen trafik için açıkça reddeder. 
+Yeşil artı işaretini "apiase" içeren alt ağ üzerinde ağ güvenlik grubu kendisinden iyi çağrılar gibi Yukarı Akış web uygulamalarından gelen çağrıları izin verdiğini belirtin.  Ancak bir ağ güvenlik grubunu, açıkça genel gelen trafiği Internet'ten erişimi engeller. 
 
-Bu makalenin sonraki bölümlerinde "apiase." içeren alt ağ üzerinde ağ güvenlik grubunu yapılandırmak için gereken adımlar anlatılmaktadır
+Bu makalenin geri kalanında "apiase." içeren alt ağda ağ güvenlik grubunu yapılandırmak için gereken adımları size gösteriyor
 
 ## <a name="determining-the-network-behavior"></a>Ağ davranışı belirleme
-Hangi ağ güvenlik kuralları gerekli bilmek için hangi ağ istemcileri API uygulamasını içeren uygulama hizmeti ortamı erişmesine izin ve hangi istemcilerin engellenecek belirlemeniz gerekir.
+Hangi ağ güvenliği kuralları gerekli öğrenmek için hangi ağ istemcileri API uygulamasını içeren App Service ortamı erişmesine izin verilecek ve hangi istemcilerinin engelleneceğini belirlemek gerekir.
 
-Bu yana [güvenlik gruplarını (Nsg'ler) ağ] [ NetworkSecurityGroups] alt ağlara uygulanır ve App Service ortamları alt ağa dağıtılırsa, bir NSG kurallarını uygulamak **tüm** uygulamalar bir uygulama hizmeti ortamı üzerinde çalışıyor.  Bir ağ güvenlik grubu "apiase" içeren alt ağa uygulandıktan sonra bu makalede, örnek mimarisi kullanarak, "apiase üzerinde" uygulama hizmeti ortamı çalışan tüm uygulamaların aynı güvenlik kuralları kümesi tarafından korunur. 
+Bu yana [ağ güvenlik grupları (Nsg'ler)] [ NetworkSecurityGroups] alt ağlara uygulanır ve App Service ortamları, alt ağına dağıtılır, içerilen bir NSG'de kurallar uygulamak **tüm** uygulamaları bir App Service ortamında çalışır.  "Apiase" içeren alt ağa bir ağ güvenlik grubu uygulandıktan sonra bu makalede örnek mimarisi kullanarak, "apiase üzerinde" App Service ortamı çalıştırılan tüm uygulamalar aynı güvenlik kuralları kümesi tarafından korunur. 
 
-* **Yukarı Akış arayanlar giden IP adresini belirlemek:** IP adresini veya adreslerini Yukarı Akış arayanlar nedir?  Bu adresler erişim NSG'de açıkça izin verilmesi gerekir.  Uygulama hizmeti ortamları arasında çağrıları "Internet" çağrıları kabul edilen olduğundan, giden bir IP adresi her üç Yukarı Akış App Service ortamları "apiase" alt ağı için NSG içinde erişimine izin gerekiyor atanmış.   Uygulama hizmeti ortamı'nda çalışan uygulamalar için giden IP adresi belirleme hakkında daha fazla bilgi için bkz: [ağ mimarisi] [ NetworkArchitecture] genel bakış makalesi.
-* **Arka uç API uygulaması kendisini çağırması gerekir?**  Bazen gözden kaçan önemli ve zarif noktası burada kendisini çağırmak için arka uç uygulaması gereken bir senaryodur.  Bir uygulama hizmeti ortamı üzerinde bir arka uç API uygulamasının kendisini çağırmak gerekirse, ayrıca davranılır "Internet" çağrısı olarak.  Örnek mimarisinde, bu "apiase" uygulama hizmeti ortamı de giden IP adresinden, erişim gerektirir.
+* **Yukarı Akış çağıranlar giden IP adresini belirler:**  IP adresini veya adreslerini Yukarı Akış çağıranlar nedir?  Bu adresler açıkça bir NSG'de erişimine izin gerekir.  App Service ortamları arasında çağrıları, "Internet" aramaları değerlendirilir olduğundan, giden IP adresi her üç Yukarı Akış App Service ortamları için "apiase" alt ağı için NSG içinde erişimine izin gerekiyor atanmış.   Giden IP adresi için bir App Service ortamında çalışan uygulamaları belirleme hakkında daha fazla bilgi için bkz. [ağ mimarisi] [ NetworkArchitecture] genel bakış makalesi.
+* **Arka uç API uygulaması kendisini çağırması gerekir?**  Bazen kaçan ve ince noktası arka uç uygulama kendisini çağırmak için gereken yere senaryodur.  Bir App Service ortamında bir arka uç API uygulaması kendisini çağrısı yapması gerekiyorsa, ayrıca değerlendirilir "Internet" çağrısı olarak.  Örnek mimaride, bu "apiase" App Service ortamı de giden IP adresinden erişime izin vermeyi gerektirir.
 
 ## <a name="setting-up-the-network-security-group"></a>Ağ güvenlik grubu ayarlama
-Giden IP adresleri kümesini bilinir sonra bir ağ güvenlik grubu oluşturmak için sonraki adım olacaktır.  Sanal ağlar olarak Klasik sanal ağlar hem Resource Manager tabanlı için ağ güvenlik grupları oluşturulabilir.  Aşağıdaki örnekler, oluşturma ve Powershell kullanarak bir Klasik sanal ağda bir NSG yapılandırma gösterir.
+Giden IP adresleri kümesini bilinir sonra ağ güvenlik grubu oluşturmak için sonraki adım gelir.  Klasik sanal ağlarda yanı sıra, sanal ağlar hem de Resource Manager tabanlı için ağ güvenlik gruplarında oluşturulabilir.  Aşağıdaki örnekler, oluşturma ve Powershell kullanarak bir Klasik sanal ağ üzerinde bir NSG yapılandırma gösterir.
 
-Boş bir NSG bu bölgede oluşturulan şekilde örnek mimarisi, Orta Güney ABD içinde ortamlar bulunur:
+Bu bölgede oluşturulan boş bir NSG için örnek mimarisi, Güney Orta ABD, ortamları bulunur:
 
     New-AzureNetworkSecurityGroup -Name "RestrictBackendApi" -Location "South Central US" -Label "Only allow web frontend and loopback traffic"
 
-İlk açık bir izin ver kuralı üzerinde makalesinde belirtildiği gibi Azure Yönetim Altyapısı eklenir [gelen trafiği] [ InboundTraffic] App Service ortamları için.
+İlk açık bir izin ver kuralı üzerinde makalesinde belirtildiği gibi Azure Yönetim Altyapısı için eklenen [gelen trafiği] [ InboundTraffic] App Service ortamları için.
 
     #Open ports for access by Azure management infrastructure
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET' -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
 
-Ardından, iki kural ilk Yukarı Akış uygulama hizmeti ortamı ("fe1ase") gelen HTTP ve HTTPS çağrılarına izin vermek için eklenir.
+Ardından, HTTP ve HTTPS çağrılarından ilk Yukarı Akış App Service ortamı ("fe1ase") izin vermek için iki kural eklenir.
 
     #Grant access to requests from the first upstream web front-end
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe1ase" -Type Inbound -Priority 200 -Action Allow -SourceAddressPrefix '65.52.xx.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
@@ -71,31 +72,31 @@ Parlatıcı ve ikinci ve üçüncü Yukarı Akış App Service ortamları için 
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe3ase" -Type Inbound -Priority 600 -Action Allow -SourceAddressPrefix '23.98.abc.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS fe3ase" -Type Inbound -Priority 700 -Action Allow -SourceAddressPrefix '23.98.abc.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-Son olarak, böylece kendi içine geri çağırabilirsiniz arka uç API'nin uygulama hizmeti ortamı giden IP adresine erişimi verin.
+Son olarak, böylece kendi içine geri çağırabilirsiniz arka uç API'SİNİN App Service ortamı giden IP adresine erişimi verin.
 
     #Allow apps on the apiase environment to call back into itself
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP apiase" -Type Inbound -Priority 800 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS apiase" -Type Inbound -Priority 900 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-Her NSG varsayılan olarak Internet'ten gelen erişimi engellemek varsayılan kuralları kümesi olduğundan başka bir ağ güvenlik kuralları gereklidir.
+Her NSG, varsayılan olarak Internet'ten gelen erişimi engellemek varsayılan kuralları kümesi olduğundan başka bir ağ güvenlik kuralları gereklidir.
 
-Ağ güvenlik grubu kuralları tam listesini aşağıda gösterilmektedir.  Vurgulanmış, son kural blokları açık olarak erişim izni arayanlar dışındaki tüm arayanlar erişimden nasıl gelen unutmayın.
+Ağ güvenlik grubu kurallarında tam listesini aşağıda gösterilmektedir.  Vurgulanır, son kural bloklarını açıkça erişim verilmiş çağıranlar dışındaki tüm çağıranların erişimden nasıl gelen unutmayın.
 
 ![NSG yapılandırma][NSGConfiguration] 
 
-Son adım, "apiase" uygulama hizmeti ortamı içeren alt ağı için NSG uygulamaktır.
+Son adım, "apiase" App Service ortamını içeren alt ağa bir NSG uygulamaktır.
 
      #Apply the NSG to the backend API subnet
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'yourvnetnamehere' -SubnetName 'API-ASE-Subnet'
 
-Alt ağa uygulanan NSG ile yalnızca üç Yukarı Akış App Service ortamları ve API arka uç içeren uygulama hizmeti ortamı, "apiase" ortamına çağırmak için kullanılabilir.
+NSG alt ağa uygulanır, "apiase" ortamına çağırmak için yalnızca üç Yukarı Akış App Service ortamları ve API arka uç içeren App Service ortamı izin verilir.
 
 ## <a name="additional-links-and-information"></a>Ek bağlantıları ve bilgileri
-Hakkında bilgi [ağ güvenlik grubu](../../virtual-network/security-overview.md).
+Hakkında bilgi [ağ güvenlik grupları](../../virtual-network/security-overview.md).
 
-Anlama [giden IP adreslerini] [ NetworkArchitecture] ve uygulama hizmeti ortamları.
+Anlama [giden IP adresleri] [ NetworkArchitecture] ve App Service ortamları.
 
-[Ağ bağlantı noktalarını] [ InboundTraffic] App Service ortamları tarafından kullanılır.
+[Ağ bağlantı noktaları] [ InboundTraffic] App Service ortamları tarafından kullanılır.
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

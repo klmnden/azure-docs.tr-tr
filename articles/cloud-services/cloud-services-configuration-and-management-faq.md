@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 81e41ce6818a6f56ba5e6e888480f8b25979fb81
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: fe096efba5419b283981f27e16c3e30a791412da
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979208"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322679"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services için yapılandırma ve yönetim sorunları: sık sorulan sorular (SSS)
+# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Yapılandırma ve yönetim sorunları Azure bulut Hizmetleri için: Sık sorulan sorular (SSS)
 
 Bu makale için yapılandırma ve yönetim sorunları hakkında sık sorulan sorular içerir [Microsoft Azure bulut Hizmetleri](https://azure.microsoft.com/services/cloud-services). Ayrıca başvurabilirsiniz [bulut Hizmetleri VM boyutu sayfası](cloud-services-sizes-specs.md) boyutu bilgi.
 
@@ -53,7 +53,7 @@ Bu makale için yapılandırma ve yönetim sorunları hakkında sık sorulan sor
 **İzinler**
 
 - [Microsoft bulut hizmeti örnekleri izni olmadan iç mühendisleri Uzak Masaüstü miyim?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
-- [RDP dosyasını kullanarak bulut hizmeti VM'ye Uzak Masaüstü bağlanamıyorum. Hata takip edilenleri Al: kimlik doğrulama hatası oluştu (kod: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
+- [RDP dosyasını kullanarak bulut hizmeti VM'ye Uzak Masaüstü bağlanamıyorum. Hata takip alın: Bir kimlik doğrulama hatası oluştu (kod: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
 **Ölçeklendirme**
 
@@ -170,7 +170,7 @@ Bu gibi hizmet tanımı (csdef) dosyasında zaman aşımını belirtebilirsiniz:
     </Endpoints>
   </WorkerRole>
 ```
-Bkz: [yeni: yapılandırılabilir boşta kalma zaman aşımı için Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) daha fazla bilgi için.
+Bkz: [yeni: Yapılandırılabilir boşta kalma zaman aşımı için Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) daha fazla bilgi için.
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>Bulut Hizmetimde nasıl statik bir IP adresi ilişkilendiririm?
 Bir statik IP adresi ayarlamak için ayrılmış bir IP'yi oluşturmanız gerekir. Bu ayrılmış IP, yeni bir bulut hizmeti veya var olan bir dağıtım ilişkilendirilebilir. Ayrıntılar için aşağıdaki belgelere bakın:
@@ -190,7 +190,7 @@ Microsoft, sunucuları, ağları ve uygulamaları, tehditleri algılamak için s
 HTTP/2 desteği ile Windows 10 ve Windows Server 2016 istemci ve sunucu tarafında gelir. İstemci (tarayıcı) bağlanılıyorsa TLS üzerinden IIS sunucusuna, HTTP/2 TLS uzantıları aracılığıyla belirleyici, ardından sunucu tarafında herhangi bir değişiklik yapmanız gerekmez. Varsayılan olarak TLS üzerinden HTTP/2 kullanımını belirtme h2-14 üst bilgisinin gönderdiğini, olmasıdır. Öte yandan, istemci HTTP/2'ye yükseltmek için yükseltme bir üst bilgi gönderiyorsa, yükseltme çalışır ve zaman ile bir HTTP/2 bağlantı düştüğünden emin olmak için sunucu tarafında aşağıdaki değişikliği yapmanız gerekir. 
 
 1. Regedit.exe'yi çalıştırmak.
-2. Kayıt defteri anahtarına gidin: kullanıp hkey_local_machıne\system\currentcontrolset\services\http\parameters.
+2. Kayıt defteri anahtarına gidin: Kullanıp hkey_local_machıne\system\currentcontrolset\services\http\parameters.
 3. Adlı yeni bir DWORD değeri oluşturun **DuoEnabled**.
 4. Değeri 1 olarak ayarlayın.
 5. Sunucunuzu yeniden başlatın.
@@ -199,7 +199,7 @@ HTTP/2 desteği ile Windows 10 ve Windows Server 2016 istemci ve sunucu tarafın
 Daha fazla bilgi için bkz.
 
 - [IIS HTTP/2](https://blogs.iis.net/davidso/http2)
-- [Video: HTTP/2'de Windows 10: tarayıcı, uygulamaları ve Web sunucusu](https://channel9.msdn.com/Events/Build/2015/3-88)
+- [Video: Windows 10'da HTTP/2: Tarayıcı, uygulamaları ve Web sunucusu](https://channel9.msdn.com/Events/Build/2015/3-88)
          
 
 Böylece her yeni bir PaaS örneği oluşturulduğunda, yukarıda sistem kayıt defterinde değişiklikler yapmak için bu adımları bir başlangıç görevi otomatik olarak. Daha fazla bilgi için [nasıl yapılandırılacağı ve bir bulut hizmeti için başlangıç görevleri çalıştırma](cloud-services-startup-tasks.md).
@@ -224,7 +224,7 @@ Bkz: [farklı rolleri Azure anlamak](../role-based-access-control/rbac-and-direc
 ### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>Microsoft bulut hizmeti örnekleri izni olmadan iç mühendisleri Uzak Masaüstü miyim?
 Microsoft Uzak Masaüstü iç mühendisler, bulut hizmetine (e-posta veya yazılı diğer iletişimi) yazılı izni olmadan izin vermez katı bir işlem sahibi ya da kendi yetkilinin izler.
 
-### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>RDP dosyasını kullanarak bulut hizmeti VM'ye Uzak Masaüstü bağlanamıyorum. Hata takip edilenleri Al: kimlik doğrulama hatası oluştu (kod: 0x80004005)
+### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>RDP dosyasını kullanarak bulut hizmeti VM'ye Uzak Masaüstü bağlanamıyorum. Hata takip alın: Bir kimlik doğrulama hatası oluştu (kod: 0x80004005)
 
 Azure Active Directory'ye katılmış bir makineden RDP dosyası kullanıyorsanız bu hata oluşabilir. Bu sorunu çözmek için aşağıdaki adımları izleyin:
 
@@ -244,7 +244,7 @@ Bu sorunu çözmek için Application ınsights'ı kullanabilirsiniz. Otomatik ö
 
 Özel ölçüm Application Insights'ın bulut hizmetleri üzerinde otomatik ölçeklendirmeyi yapılandırma yoluyla nasıl hakkında daha fazla ayrıntı için bkz. [otomatik ölçeklendirme ile azure'da özel bir ölçü olarak kullanmaya başlayın](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
 
-Azure Tanılama, Cloud Services için Application Insights ile tümleştirme hakkında daha fazla bilgi için bkz. [Application ınsights'a Gönder bulut hizmeti, sanal makine ya da Service Fabric Tanılama verileri](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+Azure Tanılama, Cloud Services için Application Insights ile tümleştirme hakkında daha fazla bilgi için bkz. [Application ınsights'a Gönder bulut hizmeti, sanal makine ya da Service Fabric Tanılama verileri](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 
 Yaklaşık Cloud Services için Application Insights'ı etkinleştirmek daha fazla bilgi için bkz. [Azure Cloud Services için Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
 
@@ -318,7 +318,7 @@ Açıklandığı [burada](https://technet.microsoft.com/library/ee790567.aspx), 
 |2 |Merkezi sertifika Store kullanan bağlama olmayan SNI|
 |3|Merkezi sertifika kullanan SNI bağlama depolayın |
  
-**2. yöntem: kodu kullanın.**
+**2. yöntem: Kodu kullanın**
 
 SNI bağlama Ayrıca rol başlatma kodu aracılığıyla bu konuda açıklandığı gibi yapılandırılabilir [blog gönderisi](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
 

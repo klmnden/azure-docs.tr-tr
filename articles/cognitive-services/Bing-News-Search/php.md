@@ -1,7 +1,7 @@
 ---
-title: 'Hızlı başlangıç: Bing Haber Arama API’si, PHP'
+title: "Hızlı Başlangıç: PHP - Bing haber arama REST API'si ile bir haber arama yapın"
 titlesuffix: Azure Cognitive Services
-description: Bing Haber Arama API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
+description: Bu hızlı başlangıçta, PHP kullanarak Bing haber arama REST API'si için bir istek göndermek için kullanın ve bir JSON yanıtı alırsınız.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: 0fb43bac75d677612f06b37f1ee91afba13417b5
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: f34f86fe7fba09bfbc5a05814fb4e39ee40c003b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312876"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252448"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-php"></a>Hızlı başlangıç: PHP ile Bing Haber Arama API’si
+# <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Hızlı Başlangıç: PHP ve Bing haber arama REST API'si kullanarak bir haber arama yapın
 
 Bu makale, Azure'daki Microsoft Bilişsel Hizmetleri'nin parçası olan Bing Haber Arama API'sini kullanmayı göstermektedir. Bu makalede PHP kullanılmakla birlikte API HTTP istekleri gönderebilecek ve JSON ayrıştırabilecek her programlama diliyle uyumlu bir RESTful Web hizmetidir. 
 

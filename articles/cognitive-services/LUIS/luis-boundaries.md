@@ -8,17 +8,17 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6f2f69fc746da049e8e48f870fc0e03ffd8ee1a7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 716c6b67676bb3421fd5dbd0274ed41c7705c676
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078948"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133528"
 ---
-# <a name="luis-boundaries"></a>LUIS sınırları
+# <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS modeline ve anahtarlar için sınırlar
 LUIS, birden fazla sınır alanlara sahip değildir. İlk [modeli sınır](#model-boundaries), amacı, varlıkları ve LUIS özellikleri denetler. İkinci alanı [kota sınırları](#key-limits) anahtar türüne göre. Üçüncü bir sınırları alanıdır [klavye birleşimi](#keyboard-controls) LUIS Web sitesi denetleme. Dördüncü alan [dünya bölge eşleme](luis-reference-regions.md) LUIS ile Web sitesi geliştirme LUIS arasındaki [uç nokta](luis-glossary.md#endpoint) API'leri. 
 
 
@@ -32,7 +32,7 @@ LUIS, birden fazla sınır alanlara sahip değildir. İlk [modeli sınır](#mode
 | Açık listesi | uygulama başına 50|
 | **[Hiyerarşik](./luis-concept-entity-types.md) |100 ile en fazla 10 alt öğeleri |
 | [Hedefleri][intents]|uygulama başına 500<br>[Gönderim tabanlı](https://aka.ms/dispatch-tool) uygulamanın karşılık gelen 500 gönderme kaynakları var.|
-| [Varlıklar listesi](./luis-concept-entity-types.md) | Üst: 50, alt: 20.000 öğeleri. Kurallı ad * varsayılan karakter maks. Eş anlamlı değerleri herhangi bir uzunluk sınırlaması vardır. |
+| [Varlıklar listesi](./luis-concept-entity-types.md) | Üst öğe: 50, alt: 20.000 öğeleri. Kurallı ad * varsayılan karakter maks. Eş anlamlı değerleri herhangi bir uzunluk sınırlaması vardır. |
 | [Desenleri](luis-concept-patterns.md)|uygulama başına 500 desenleri.<br>Deseni en fazla uzunluğu 400 karakter olabilir.<br>Deseni başına 3 Pattern.any varlıklar<br>En fazla 2 iç içe geçmiş isteğe bağlı metni deseninde|
 | [Pattern.Any](./luis-concept-entity-types.md)|uygulama başına 100 deseni başına 3 pattern.any varlıklar |
 | [İfade listesi][phrase-list]|10 tümcecik listeler, liste başına 5.000 öğeleri|

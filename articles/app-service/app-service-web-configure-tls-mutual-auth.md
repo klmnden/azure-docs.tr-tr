@@ -1,5 +1,5 @@
 ---
-title: Web App için TLS Karşılıklı Kimlik Doğrulamayı Yapılandırma
+title: TLS karşılıklı kimlik doğrulama - Azure App Service'ı yapılandırma
 description: Web uygulamanızı, TLS üzerinde istemci sertifikası kimlik doğrulaması kullanacak şekilde yapılandırmayı öğrenin.
 services: app-service
 documentationcenter: ''
@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
-ms.openlocfilehash: 894a77be05de131ab122f18c62d209e9829357f9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.custom: seodec18
+ms.openlocfilehash: f08e8f60f0e23cce9546e45dcf7b249d38224736
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056217"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252890"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Web App için TLS Karşılıklı Kimlik Doğrulamayı Yapılandırma
 ## <a name="overview"></a>Genel Bakış
 Kimlik doğrulaması için farklı türlerde sağlayarak, Azure web uygulamanıza erişimi kısıtlayabilirsiniz. Bunu yapmak için bir TLS/SSL üzerinden istek olduğunda, bir istemci sertifikası kullanılarak kimlik doğrulaması yoludur. Bu mekanizma, TLS karşılıklı kimlik doğrulaması veya istemci sertifikası kimlik doğrulaması ve bu makalede web uygulamanızın istemci sertifikası kimlik doğrulaması kullanacak şekilde nasıl ayrıntılarıyla çağrılır.
 
-> **Not:** sitenizi HTTP ve HTTPS değil üzerinden erişirseniz, herhangi bir istemci sertifikası almaz. Uygulamanızın istemci sertifikası gerektiriyorsa, bu nedenle, istekleri, uygulamanız için HTTP üzerinden izin vermemelidir.
+> **Not:** Sitenizi HTTP ve HTTPS değil üzerinden erişirseniz, herhangi bir istemci sertifikası almazsınız. Uygulamanızın istemci sertifikası gerektiriyorsa, bu nedenle, istekleri, uygulamanız için HTTP üzerinden izin vermemelidir.
 > 
 > 
 

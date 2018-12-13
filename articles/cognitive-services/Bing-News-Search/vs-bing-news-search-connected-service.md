@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Bing Haber Arama, C#'
+title: Bing haber arama API'si Visual Studio'da bağlı hizmetler ile bağlanın veC#
 titleSuffix: Azure Cognitive Services
 description: Bir ASP.NET Core web uygulamasından Bing Haber Arama hizmetine bağlanın.
 services: cognitive-services
@@ -10,20 +10,20 @@ ms.component: bing-news-search
 ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: f1f5c590216975ce6b0813da6d9d98279d591454
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 6d08250c060184ceb49e5ab263e229ddaa08b6ec
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804353"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257769"
 ---
-# <a name="tutorial-connect-to-bing-news-search-api-by-using-connected-services-in-visual-studio"></a>Öğretici: Visual Studio'daki Bağlı Hizmetleri kullanarak Bing Haber Arama API'sine bağlanma
+# <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Öğretici: Bing haber arama API'si Visual Studio'da bağlı hizmetler ile bağlanın veC#
 
 Bing Haber Arama hizmetini kullanarak uygulamaların ve hizmetlerin web ölçeğindeki reklamsız bir arama motorunun gücünden faydalanmasını sağlayabilirsiniz. Bing Haber Arama, Bilişsel Hizmetler kapsamında sunulan arama hizmetlerinden biridir.
 
 Bu makalede Bing Haber Arama hizmeti için Visual Studio Bağlı Hizmet özelliğini kullanma hakkında ayrıntılı bilgiler verilmektedir. Özellik, Bilişsel Hizmetler uzantısının yüklendiği Visual Studio 2017 15.7 ve sonraki sürümlerde mevcuttur.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Azure aboneliği. Bir aboneliğiniz yoksa [ücretsiz hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
 - Web Geliştirme iş yükünün yüklendiği Visual Studio 2017 sürüm 15.7. [Şimdi indir](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).

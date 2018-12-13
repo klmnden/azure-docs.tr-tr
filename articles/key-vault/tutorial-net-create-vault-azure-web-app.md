@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: defe1a109381c7ee44c6fc5e5db4c6f6ecc5ac6f
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 50a7f3166d677fe1af961866ccae4445a3d810b8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706849"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322150"
 ---
-# <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Öğretici: Azure anahtar kasası ile. NET'te bir Azure web uygulaması
+# <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Öğretici: . NET'te bir Azure web uygulaması ile Azure anahtar kasası
 
 Azure Key Vault, API anahtarları gibi gizli dizileri koruyun ve veritabanı bağlantı dizelerini yardımcı olur. Uygulamaları, hizmetleri ve BT kaynaklarına erişim sağlar.
 
@@ -56,7 +56,7 @@ Devam etmeden önce okuma [Key Vault temel kavramlarını](key-vault-whatis.md#b
 
 Bunlar, kodunuzda kalmayacak azure Key Vault kimlik bilgilerini güvenli bir şekilde depolar. Ancak, Azure Key Vault'a anahtarlarınızı almak için kimlik doğrulaması gerekir. Anahtar Kasası'na kimlik doğrulaması için bir kimlik bilgisi gerekir. Bu, klasik bir önyükleme ikilemle olur. Yönetilen hizmet kimliği (MSI) sağlayarak bu sorunu çözer bir _bootstrap kimlik_ , bu süreci kolaylaştırır.
 
-Bir Azure hizmeti için MSI etkinleştirdiğinizde (örneğin: sanal makineler, App Service ve İşlevler), Azure oluşturur bir [hizmet sorumlusu](key-vault-whatis.md#basic-concepts). MSI kimlik bilgileri, söz konusu örneğine hizmet sorumlusu ekler ve bunun için Azure Active Directory (Azure AD) hizmeti örneğini yapar.
+Bir Azure hizmeti için MSI etkinleştirdiğinizde (örneğin: Sanal makineler, App Service ve İşlevler), Azure oluşturur bir [hizmet sorumlusu](key-vault-whatis.md#basic-concepts). MSI kimlik bilgileri, söz konusu örneğine hizmet sorumlusu ekler ve bunun için Azure Active Directory (Azure AD) hizmeti örneğini yapar.
 
 ![MSI diyagramı](media/MSI.png)
 
@@ -132,7 +132,7 @@ Bu komut, URI dahil olmak üzere gizli dizi bilgilerini gösterir. Bu adımları
    - [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
 3. Aşağıdaki kodu About.cshtml.cs dosyasında içeri aktarın:
 
-   ```
+   ```csharp
     using Microsoft.Azure.KeyVault;
     using Microsoft.Azure.KeyVault.Models;
     using Microsoft.Azure.Services.AppAuthentication;
@@ -140,7 +140,7 @@ Bu komut, URI dahil olmak üzere gizli dizi bilgilerini gösterir. Bu adımları
 
 4. Kodunuzu AboutModel sınıfı aşağıdaki gibi:
 
-   ```
+   ```csharp
     public class AboutModel : PageModel
     {
         public string Message { get; set; }
@@ -220,7 +220,7 @@ Azure Key Vault kimlik bilgileri ve diğer gizli dizileri güvenli bir şekilde 
 
 1. Not `PrincipalId` uygulamayı azure'a yayımlarken. 1. adımda komutunun çıkışı şu biçimde olmalıdır:
 
-   ```
+   ```json
    {
      "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
      "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",

@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/07/2018
 ms.author: magoedte
-ms.openlocfilehash: c7d2004da52d83ceda62dc31583797d9a218ef48
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 69aa2cbcaa6861b1d5c5c71769be2fb8046d9ea5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085460"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188529"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Azure İzleyici VM'ler (Önizleme) nedir?
 
@@ -27,11 +26,11 @@ Azure sanal makinelerinizi (VM) sanal makineler için Azure İzleyici izler ve u
 
 VM'ler için Azure İzleyici, bir çözüm olarak, başka bir bulut sağlayıcısında veya şirket içi VM'ler için performans ve uygulama bağımlılıklarını izlemek için destek içerir. Üç anahtar özellik kapsamlı Öngörüler sunun:
 
-* **Windows ve Linux çalıştıran Azure VM'lerin mantıksal bileşenler**: önceden yapılandırılmış bir sistem durumu ölçütlerine göre ölçülür ve değerlendirilen koşul karşılandığında, sizi uyarır.  
+* **Windows ve Linux çalıştıran Azure VM'lerin mantıksal bileşenler**: Önceden yapılandırılmış bir sistem durumu ölçütlerine göre ölçülür ve değerlendirilen koşul karşılandığında, sizi uyarır.  
 
 * **Performans grafiklerini popüler önceden tanımlanmış**: Konuk VM işletim sisteminden temel performans ölçümlerini görüntüleyin.
 
-* **Bağımlılık Haritası**: çeşitli kaynak gruplarında ve Aboneliklerde VM'den birbirine bağlı bileşenlerle görüntüler.  
+* **Bağımlılık Haritası**: Çeşitli kaynak gruplarında ve Aboneliklerde VM'den birbirine bağlı bileşenlerle görüntüler.  
 
 Özellikler, üç Perspektifler düzenlenmiştir:
 
@@ -46,8 +45,8 @@ Log Analytics ile tümleştirme, güçlü toplama ve filtreleme sunar ve zaman i
 
 Bu veriler tek bir sanal makinede sanal makineden doğrudan görüntüleyebileceğiniz veya sanal makinelerinizin toplu bir görünümünü sunmak için Azure İzleyicisi'ni kullanabilirsiniz. Bu görünüm, her özelliğin perspektif dayanır:
 
-* **Sistem durumu**: VM'ler, bir kaynak grubuna ilişkilidir.
-* **Harita** ve **performans**: Vm'leri belirli bir Log Analytics çalışma alanına rapor şekilde yapılandırılır.
+* **Sistem durumu**: Vm'leri bir kaynak grubuna ilgilidir.
+* **Harita** ve **performans**: VM'ler, belirli bir Log Analytics çalışma alanına rapor için yapılandırılır.
 
 ![Azure portalında sanal makine ınsights perspektifi](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
 

@@ -9,19 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.component: ''
-ms.openlocfilehash: 9e9fdfce9dbb165227f88e9f72bc219dce8f3307
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a4e5440a9b8b6ce36d8472463b35201f39d3ac5a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428693"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192796"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure Ağ Performansı İzleyicisi için fiyatlandırma değişiklikleri
 
@@ -39,8 +37,8 @@ Aşağıdaki bölümlerde, NPM bileşenleri için fiyatlandırma değişiklikler
 **Eski modelde faturalandırılır Performans İzleyicisi'nin kullanım nasıldı?**
 
 NPM faturalandırması kullanım ve iki bileşenden tüketimini temel:
-* **Düğümleri**: tüm yapay işlemler kaynaklanan ve düğümler sonlandırın. Düğümleri de aracıları veya Microsoft Yönetim aracıları adlandırılır.
-* **Veri**: çeşitli ağ testlerin sonuçlarını Azure Log Analytics deposunda depolanır.
+* **Düğümleri**: Tüm yapay işlemler, kaynaklanan ve düğümler sonlandırın. Düğümleri de aracıları veya Microsoft Yönetim aracıları adlandırılır.
+* **Veri**: Çeşitli ağ testlerin sonuçları, Azure Log Analytics deposunda depolanır.
 
 Eski modelde, fatura düğüm sayısını ve oluşturulan veri hacmine bağlı olarak hesaplandı. 
 
@@ -121,5 +119,5 @@ Başvurmak [bağlantı izleme](https://azure.microsoft.com/pricing/details/netwo
 
 ## <a name="references"></a>Başvurular
 
-[Günlük analizi fiyatlandırma SSS](https://azure.microsoft.com/pricing/details/log-analytics/): SSS bölümüne sahip düğüm fiyatlandırması, ücretsiz katman ve diğer fiyatlandırma ayrıntıları hakkında bilgi.
+[Log Analytics fiyatlandırma SSS](https://azure.microsoft.com/pricing/details/log-analytics/): Ücretsiz katman, her düğüm fiyatlandırma ve diğer fiyatlandırma ayrıntıları hakkında bilgi aşağıdaki SSS bölümüne sahiptir.
 

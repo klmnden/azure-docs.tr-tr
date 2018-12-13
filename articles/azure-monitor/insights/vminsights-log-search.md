@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 17d663873639cc36e9727881d990a3f32697c798
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 676baa6947eaf8b3842b0100657f42a1e6438061
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872161"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184891"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Azure İzleyici günlüklerinden VM'ler (Önizleme) için sorgulama
 VM'ler için Azure İzleyici, performansı ve bağlantı ölçümler, bilgisayar ve envanter verileri işlemek ve sistem durumu bilgilerini toplar ve Azure İzleyici'de Log Analytics veri deposuna iletir.  Bu veriler için kullanılabilir [arama](../../azure-monitor/log-query/log-query-overview.md) Log analytics'te. Geçiş planlaması kapasite analizi, bulma ve isteğe bağlı performans sorunlarını giderme senaryoları için bu verileri uygulayabilirsiniz.
@@ -29,8 +28,8 @@ Her bir benzersiz bilgisayar ve işlem, bir işlem veya bilgisayar başlatıldı
 
 Benzersiz işlemleri ve bilgisayarları tanımlamak için kullanabileceğiniz dahili olarak oluşturulan özellikler vardır:
 
-- : Bilgisayar *ResourceId* veya *ResourceName_s* Log Analytics çalışma alanındaki bir bilgisayarı benzersiz olarak tanımlanabilmesi için.
-- İşlem: Kullanın *ResourceId* bir işlem bir Log Analytics çalışma alanı içinde benzersiz olarak tanımlanabilmesi için. *ResourceName_s* işlemi çalıştığı (MachineResourceName_s) makine bağlamında benzersizdir 
+- Bilgisayar: Kullanım *ResourceId* veya *ResourceName_s* Log Analytics çalışma alanındaki bir bilgisayarı benzersiz olarak tanımlanabilmesi için.
+- İşlem: Kullanım *ResourceId* bir işlem bir Log Analytics çalışma alanı içinde benzersiz olarak tanımlanabilmesi için. *ResourceName_s* işlemi çalıştığı (MachineResourceName_s) makine bağlamında benzersizdir 
 
 Sorgular, birden fazla kayıt aynı bilgisayarda veya işlem için belirtilen işlem ve belirtilen zaman aralığında bilgisayar için birden çok kayıt var olabileceğinden döndürebilir. Yalnızca en son kayıt eklemek için Ekle "| Yinelenenleri kaldırma ResourceId"sorgulanamıyor.
 

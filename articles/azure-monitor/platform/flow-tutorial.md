@@ -11,13 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 63f9417a65fbe3141907dc7d7d64da06eec7e93f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 441064d6cbb5b3b2fae77caef3125c8db3467553
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883311"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187458"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Bağlayıcı ile log Analytics işlemlerini otomatikleştirmek için Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) çeşitli hizmetler için Eylemler yüzlerce kullanarak otomatik iş akışları oluşturmanıza olanak sağlar. Bir eylem çıktısını, başka farklı hizmetleri arasında tümleştirme oluşturmanızı sağlayan giriş olarak kullanılabilir.  Azure Log Analytics bağlayıcısını Microsoft Flow için Log analytics'te günlük aramaları tarafından alınan verileri içeren iş akışları oluşturmanıza olanak tanır.
@@ -27,18 +26,18 @@ ms.locfileid: "52883311"
 Bu makalede öğreticide otomatik olarak e-posta, Log Analytics Microsoft Flow nasıl kullanabileceğinize bir örnek Log Analytics günlük araması sonuçlarının gönderen bir akış oluşturma işlemini gösterir. 
 
 
-## <a name="step-1-create-a-flow"></a>1. adım: bir akış oluşturma
+## <a name="step-1-create-a-flow"></a>1. Adım: Akış oluşturun
 1. Oturum [Microsoft Flow](https://flow.microsoft.com)seçip **Akışlarım**.
 2. Tıklayın **+ boş akış Oluştur**.
 
-## <a name="step-2-create-a-trigger-for-your-flow"></a>2. adım: akışınız için bir Tetikleyici oluşturma
+## <a name="step-2-create-a-trigger-for-your-flow"></a>2. Adım: Akışınız için bir Tetikleyici oluşturma
 1. Tıklayın **yüzlerce bağlayıcı ve tetikleyicide arama**.
 2. Tür **zamanlama** arama kutusuna.
 3. Seçin **zamanlama**ve ardından **zamanlama - yinelenme**.
 4. İçinde **sıklığı** seçim kutusunu **gün** ve **aralığı** kutusuna **1**.<br><br>![Microsoft Flow tetikleyici iletişim kutusu](media/flow-tutorial/flow01.png)
 
 
-## <a name="step-3-add-a-log-analytics-action"></a>3. adım: bir Log Analytics eylemi ekleme
+## <a name="step-3-add-a-log-analytics-action"></a>3. adım: Log Analytics eylemi ekleme
 1. Tıklayın **+ yeni adım**ve ardından **Eylem Ekle**.
 2. Arama **Log Analytics**.
 3. Tıklayın **Azure Log Analytics – sorgu çalıştırmak ve sonuçlarını görselleştirme**.<br><br>![Log Analytics sorgu penceresinde çalıştırma](media/flow-tutorial/flow02.png)
@@ -57,7 +56,7 @@ Bu makalede öğreticide otomatik olarak e-posta, Log Analytics Microsoft Flow n
 
 2. Seçin **HTML tablosu** için **grafik türü**.<br><br>![Log Analytics eylemi](media/flow-tutorial/flow03.png)
 
-## <a name="step-5-configure-the-flow-to-send-email"></a>5. adım: e-posta gönderme akışı Yapılandır
+## <a name="step-5-configure-the-flow-to-send-email"></a>5. adım: E-posta gönderme akışı Yapılandır
 
 1. Tıklayın **yeni adım**ve ardından **+ Eylem Ekle**.
 2. Arama **Office 365 Outlook**.
@@ -69,7 +68,7 @@ Bu makalede öğreticide otomatik olarak e-posta, Log Analytics Microsoft Flow n
 6. Tıklayın **Gelişmiş Seçenekleri Göster**.
 7. İçinde **HTML'dir** kutusunda **Evet**.<br><br>![Office 365 e-posta Yapılandırması penceresi](media/flow-tutorial/flow05.png)
 
-## <a name="step-6-save-and-test-your-flow"></a>6. adım: Kaydedin ve akışınızı test edin
+## <a name="step-6-save-and-test-your-flow"></a>6. adım: Akışınızı test edin ve Kaydet
 1. İçinde **Akış adı** kutusuna akışınız için bir ad ekleyin ve ardından **akış oluşturma**.<br><br>![Akışı kaydedin](media/flow-tutorial/flow06.png)
 2. Akış oluşturulur ve belirttiğiniz zamanlamaya olan bir gün çalışır. 
 3. Hemen akışı test etmek için tıklayın **Şimdi Çalıştır** ardından **akış çalıştırması**.<br><br>![Akışı Çalıştır](media/flow-tutorial/flow07.png)

@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fe8806b4cc84bb9a15ce5620366fee23bba328c4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 73788b05cad3abac19b1ef509f1250542d10dba2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106439"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136656"
 ---
 # <a name="publish-your-trained-app"></a>Eğitilen uygulamanızı yayımlayın
 
@@ -38,7 +38,7 @@ Uygulama LUIS Portalı'nda eklenen LUIS kaynaklarla ilişkili tüm bölgeler iç
 
 Uygulamanız başarıyla yayımlandığında bir yeşil bir başarı bildirim tarayıcı üst kısmında görüntülenir. Yeşil bildirim çubuğu, uç noktalarına bağlantıyı da içerir. 
 
-![Açılır pencere yayımlama](./media/luis-how-to-publish-app/publish-success.png)
+![Bağlantı uç noktası ile yayımlama açılır penceresi](./media/luis-how-to-publish-app/publish-success.png)
 
 Uç nokta URL'sini gerekiyorsa, bağlantıyı seçin. Uç nokta URL'leri seçerek de sahip olabilirsiniz **Yönet** üst menüden seçip **anahtarları ve uç noktaları** soldaki menüde. 
 

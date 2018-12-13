@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 2dc965547511d27ed43a88c1f45b50593b30a937
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d8d6df221a8c520cea5e6e938447ffd881e7374c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347945"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322781"
 ---
-# <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için Zendesk yapılandırın.
+# <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Öğretici: Zendesk otomatik kullanıcı hazırlama için yapılandırma
 
 Bu öğreticinin amacı, Zendesk ve Azure Active Directory (Azure AD) Azure AD yapılandırmak için otomatik olarak sağlamak ve kullanıcılara ve/veya gruplara Zendesk sağlamasını için gerçekleştirilmesi gereken adımlar göstermektir. 
 
@@ -77,6 +77,10 @@ Yapılandırma ve otomatik kullanıcı hazırlama etkinleştirmeden önce hangi 
 
 ### <a name="important-tips-for-assigning-users-to-zendesk"></a>Zendesk için kullanıcı atama önemli ipuçları
 
+*    Zendesk rolleri otomatik olarak ve dinamik olarak Azure portalı kullanıcı arabirimini bugün doldurulur. Zendesk roller kullanıcılara atamadan önce bir ilk eşitleme Zendesk kiracınızda bulunan en son rollerini almak üzere Zendesk karşı tamamlandığından emin olun.
+
+*    Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmasını ilk otomatik kullanıcı test etmek için Zendesk atanır. Testler başarılı olduktan sonra ek kullanıcılar ve/veya grupları daha sonra atanabilir.
+  
 *   Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmasını otomatik kullanıcı test etmek için Zendesk atanır. Ek kullanıcılar ve/veya grupları daha sonra atanabilir.
 
 *   Zendesk için kullanıcı atama, atama iletişim kutusunda (varsa) geçerli bir uygulamaya özgü rolü seçmeniz gerekir. Kullanıcılarla **varsayılan erişim** rol sağlamasından dışlanır.
@@ -111,7 +115,7 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
     *   İçinde **gizli belirteç** alanında, adım 6'da açıklandığı gibi gizli belirteç doldurun.
 
     *   İçinde **etki alanı** alan, Zendesk kiracınızın alt etki alanı doldurun.
-    Örnek: Kiracı URL olan bir hesap için https://my-tenant.zendesk.com, kendi alt etki alanı olacaktır **Kiracı my**.
+    Örnek: Bir kiracı URL'si sahip bir hesap https://my-tenant.zendesk.com, kendi alt etki alanı olacaktır **Kiracı my**.
 
 6. **Gizli belirteç** hesabının bulunduğu için Zendesk **yönetici > API > ayarları**. 
 

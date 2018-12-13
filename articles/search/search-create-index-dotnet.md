@@ -1,6 +1,6 @@
 ---
-title: Dizin oluşturma (.NET API - Azure Search) | Microsoft Docs
-description: Azure Search .NET SDK'sını kullanarak kod içinde bir dizin oluşturun.
+title: .NET API - Azure Search kullanarak kod içinde bir dizin oluşturun
+description: Azure Search .NET SDK'sını kullanarak bir tam metin arama yapılabilir bir dizin oluşturmayı öğrenin ve C# örnek kodu.
 author: brjohnstmsft
 manager: jlembicz
 tags: azure-portal
@@ -10,12 +10,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.openlocfilehash: a1c9340acdc2521b9b74f47b0e17d0e4d37aea77
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: 6d111b1be310a345e23c440f1af9da4183efff43
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236576"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312604"
 ---
 # <a name="create-an-azure-search-index-using-the-net-sdk"></a>.NET SDK'yı kullanarak Azure Search dizini oluşturma
 > [!div class="op_single_selector"]

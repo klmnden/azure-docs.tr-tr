@@ -1,5 +1,5 @@
 ---
-title: Azure App Service'te web apps için tanılama günlüğünü etkinleştirme
+title: Web uygulamaları - Azure App Service için tanılama günlüğünü etkinleştirme
 description: Tanılama günlüğünü etkinleştirme ve uygulamanız için izleme ekleme yanı sıra Azure tarafından günlüğe kaydedilen bilgilere nasıl öğrenin.
 services: app-service
 documentationcenter: .net
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 8a58f8722b41944a7be02254e0f00682575c1bbb
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.custom: seodec18
+ms.openlocfilehash: 90f82dcdf60a3a7182f77b3fe028366e079bc2ec
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636977"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273808"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Azure App Service'te web apps için tanılama günlüğünü etkinleştirme
 ## <a name="overview"></a>Genel Bakış
@@ -63,6 +64,11 @@ Etkinleştirdiğinizde **uygulama tanılama**, ayrıca **düzeyi**. Bu ayar içi
 
 İçin **uygulama günlüğü**, geçici hata ayıklama amacıyla için dosya sistemi seçeneğini etkinleştirebilirsiniz. Bu seçenek otomatik olarak 12 saat içinde devre dışı bırakır. Günlüklerin yazılacağı bir blob kapsayıcısını seçmek için blob depolama seçeneğinde kapatabilirsiniz.
 
+> [!NOTE]
+> Şu anda yalnızca .NET uygulama günlükleri, blob depolamaya yazılabilir. Java, PHP, Node.js, Python uygulama günlükleri, dosya sisteminde (kod değişikliklerini dış depolama birimine günlüklerini yazma izni) olmadan yalnızca depolanabilir.
+>
+>
+
 İçin **Web sunucusu günlüğü**, seçebileceğiniz **depolama** veya **dosya sistemi**. Seçme **depolama** bir depolama hesabı ve günlüklere yazılır bir blob kapsayıcısı seçmenizi sağlar. 
 
 Dosya sisteminde günlüklerini depolamak, dosyaları FTP tarafından erişilen veya Azure CLI kullanarak bir ZIP arşivi indirilir.
@@ -85,7 +91,7 @@ Depolama konumlarının her ikisinde de aynı temel bilgileri günlüğe kaydedi
 > Depolanan bilgi **blob depolama** yalnızca depolama istemcisi veya bu depolama sistemleri ile doğrudan çalışabilmeniz için uygulamanın kullanılarak erişilebilir. Örneğin, Visual Studio 2013, blob depolama keşfetmek için kullanılan bir Depolama Gezgini içerir ve HDInsight blob depolamada depolanan verilere erişebilir. Ayrıca, aşağıdakilerden birini kullanarak Azure depolama alanına erişen bir uygulama yazabilirsiniz [Azure SDK'ları](https://azure.microsoft.com/downloads/).
 >
 
-## <a name="download"></a> Nasıl yapılır: indirme günlükleri
+## <a name="download"></a> Nasıl Yapılır: İndirme günlükleri
 Tanılama bilgileri için web uygulaması dosya sistemi depolanan FTP kullanarak doğrudan erişilebilir. Ayrıca Azure CLI kullanarak bir ZIP arşivi indirilebilir.
 
 Günlükleri depolanan dizin yapısı aşağıdaki gibidir:
@@ -114,7 +120,7 @@ Bu komut adlı bir dosyaya ' webappname' adlı web uygulaması için günlükler
 >
 >
 
-## <a name="how-to-view-logs-in-application-insights"></a>Nasıl yapılır: görünüm Application Insights'ta günlüğe kaydeder
+## <a name="how-to-view-logs-in-application-insights"></a>Nasıl yapılır: Application ınsights'ta günlüklerini görüntüle
 Visual Studio Application Insights, filtreleme ve günlük arama ve günlükleri istekleri ve diğer olaylarla ilişkilendirmek için gereken araçları sağlar.
 
 1. Projenizi Visual Studio'da Application Insights SDK'sını ekleyin.
@@ -126,7 +132,7 @@ Visual Studio Application Insights, filtreleme ve günlük arama ve günlükleri
 
 [Application Insights ile izleme performansıyla ilgili daha fazla bilgi edinin](../application-insights/app-insights-azure-web-apps.md)
 
-## <a name="streamlogs"></a> Nasıl yapılır: Stream günlükleri
+## <a name="streamlogs"></a> Nasıl Yapılır: Akış günlükleri
 Bir uygulama geliştirirken, genellikle günlük kaydı bilgilerini neredeyse gerçek zamanlı görmek yararlı olur. Geliştirme ortamınızı Azure CLI'yı kullanarak günlük kaydı bilgilerini akışını yapabilirsiniz.
 
 > [!NOTE]
@@ -157,7 +163,7 @@ HTTP gibi belirli günlük türlerini filtreleyecek şekilde kullanmak **--yolu*
 >
 >
 
-## <a name="understandlogs"></a> Nasıl yapılır: Tanılama günlükleri anlama
+## <a name="understandlogs"></a> Nasıl Yapılır: Tanılama günlükleri anlama
 ### <a name="application-diagnostics-logs"></a>Uygulama tanılama günlükleri
 Uygulama tanılama günlüklerinin dosya sistemi veya blob depolamaya depoladığınız bağlı olarak, .NET uygulamaları için belirli bir biçimde bilgileri depolar. 
 

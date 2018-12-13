@@ -10,17 +10,15 @@ ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 7a8f2fc0d8b9f023e20cf8c4d4939aa3094a13e8
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: c8cc6ccae59b8ee530ad679c492419a348423553
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890186"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184127"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Log Analytics ile Active Directory çoğaltma durumunu izleme
 
@@ -51,7 +49,7 @@ Herhangi bir etki alanı denetleyicilerinizin doğrudan Log Analytics'e bağlanm
 2. [Windows bilgisayarı Log Analytics'e bağlayın](../../azure-monitor/platform/om-agents.md) veya [kullanarak mevcut Operations Manager ortamınızı Log analytics'e bağlanma](../../azure-monitor/platform/om-agents.md), zaten bağlı değil.
 3. Bu bilgisayarda, aşağıdaki kayıt defteri anahtarını ayarlayın:
 
-   * Anahtar: **hkey_local_machıne\system\currentcontrolset\services\healthservice\parameters\management grupları\<ManagementGroupName > \Solutions\ADReplication**
+   * Anahtar: **Hkey_local_machıne\system\currentcontrolset\services\healthservice\parameters\management grupları\<ManagementGroupName > \Solutions\ADReplication**
    * Değer: **IsTarget**
    * Değer verisi: **true**
 
@@ -119,32 +117,32 @@ Ayrıca **dışarı** sonuçları Excel'e. Verileri dışarı aktarma, çoğaltm
 ![Excel dışarı aktarılan AD çoğaltma durumu hataları](./media/ad-replication-status/oms-ad-replication-export.png)
 
 ## <a name="ad-replication-status-faq"></a>AD çoğaltma durumu ile ilgili SSS
-**S: ne sıklıkta AD çoğaltma durumu veriler güncelleştirildi mi?**
-Y: bilgileri beş günde bir güncelleştirilir.
+**S: Ne sıklıkta AD çoğaltma durumu veriler güncelleştirildi mi?**
+Y: Bilgiler, beş günde bir güncelleştirilir.
 
 **S: Bu veriler sıklıkla güncelleştirilir yapılandırmak için bir yol var mı?**
-Y: şu anda değil.
+Y: Şu anda değil.
 
-**S: my etki alanı denetleyicilerinin çoğaltma durumunu görmek için Log Analytics çalışma alanıma Ekle gerekiyor?**
-C: Hayır, yalnızca bir tek etki alanı denetleyicisi eklenmelidir. Log Analytics çalışma alanınızda birden çok etki alanı denetleyiciniz varsa, bunların tümünün verileri Log Analytics'e gönderilir.
+**S: Tüm etki alanı denetleyicilerine my çoğaltma durumunu görmek için Log Analytics çalışma alanıma Ekle gerekiyor mu?**
+Y: Hayır, yalnızca bir tek etki alanı denetleyicisi eklenmelidir. Log Analytics çalışma alanınızda birden çok etki alanı denetleyiciniz varsa, bunların tümünün verileri Log Analytics'e gönderilir.
 
-**S: tüm etki alanı denetleyicileri Log Analytics çalışma alanıma Ekle istemiyorum. AD çoğaltma durumu çözümü kullanabilir miyim?**
-C: Evet. Etkinleştirmek için bir kayıt defteri anahtarının değerini ayarlayabilirsiniz. Bkz: [AD verilerini Log Analytics'e göndermek olmayan etki alanı denetleyicisi etkinleştirmek için](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+**S: Herhangi bir etki alanı denetleyicileri Log Analytics çalışma alanıma Ekle istemiyorum. AD çoğaltma durumu çözümü kullanabilir miyim?**
+Y: Evet. Etkinleştirmek için bir kayıt defteri anahtarının değerini ayarlayabilirsiniz. Bkz: [AD verilerini Log Analytics'e göndermek olmayan etki alanı denetleyicisi etkinleştirmek için](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
-**S: veri koleksiyonu yapan işlemin adı nedir?**
+**S: Veri koleksiyonu yapan işlemin adı nedir?**
 Y: AdvisorAssessment.exe
 
-**S: ne kadar toplanacak veri için sürer?**
-Y: veri toplama süresi, Active Directory ortamında boyutuna bağlıdır, ancak genellikle 15 dakikadan kısa sürer.
+**S: Ne kadar toplanacak veri için sürer?**
+Y: Veri Toplama süresi, Active Directory ortamında boyutuna bağlıdır, ancak genellikle 15 dakikadan kısa sürer.
 
-**S: hangi türde veri toplanır?**
-Y: çoğaltma bilgilerini LDAP toplanır.
+**S: Ne tür verilere toplanır?**
+Y: Çoğaltma bilgileri LDAP toplanır.
 
-**S: verileri toplandığında yapılandırmak için bir yol var mı?**
-Y: şu anda değil.
+**S: Verileri toplandığında yapılandırmak için bir yol var mı?**
+Y: Şu anda değil.
 
-**S: hangi izinlerin verileri toplamak ihtiyacım var?**
-Y: normal kullanıcı izinleri için Active Directory yeterlidir.
+**S: Verileri toplamak hangi izinlerin gerekiyor?**
+Y: Active Directory normal kullanıcı izinlerini yeterlidir.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Veri toplama sorunlarını giderme
 Veri toplamak için Log Analytics çalışma alanınıza bağlı için en az bir etki alanı denetleyicisi AD çoğaltma durumu çözüm paketi gerektirir. Bir etki alanı denetleyicisine bağlanmak kadar belirten bir ileti görünür **veri hala toplanmakta olan**.

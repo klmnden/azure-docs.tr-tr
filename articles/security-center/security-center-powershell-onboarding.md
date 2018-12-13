@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 650c767d6f8ef495bb19886980b6d45bfe53b32a
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ce410e69427f29ce70f8b2136a08bd7e6d00113c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311186"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249734"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>PowerShell kullanarak Azure Güvenlik Merkezi'nin ekleme otomatikleştirin
 
@@ -65,7 +65,7 @@ Güvenlik Merkezi cmdlet'leri çalıştırmadan önce bu adımlar gerçekleştir
         Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.Security' 
 
-2.  İsteğe bağlı: abonelikler kapsam düzeyini (fiyatlandırma katmanı) ayarlayın (tanımlı değilse, fiyatlandırma katmanı ücretsiz olarak ayarlanır):
+2.  İsteğe bağlı: Abonelik kapsamı düzeyini (fiyatlandırma katmanı) ayarlayın (tanımlı değilse, fiyatlandırma katmanı ücretsiz olarak ayarlanır):
 
         Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Set-AzureRmSecurityPricing -Name "default" -PricingTier "Standard"
@@ -92,7 +92,7 @@ Güvenlik Merkezi cmdlet'leri çalıştırmadan önce bu adımlar gerçekleştir
 6.  Varsayılan Güvenlik Merkezi ilke girişimi atama:
 
         Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
-        $Policy = Get-AzureRmPolicySetDefinition -Name ' [Preview]: Enable Monitoring in Azure Security Center'
+        $Policy = Get-AzureRmPolicySetDefinition | where {$_.Properties.displayName -EQ '[Preview]: Enable Monitoring in Azure Security Center'}
         New-AzureRmPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
 
 Başarıyla eklenen Azure Güvenlik Merkezi artık PowerShell ile!

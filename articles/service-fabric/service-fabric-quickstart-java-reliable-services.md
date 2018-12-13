@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a7e71b4f93f3b890ea73e36052570f9047fc8f32
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 43a059e13945be3e39f65995e18ccd552727b874
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228241"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312587"
 ---
-# <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Hızlı başlangıç: Service Fabric'e bir Java güvenilir hizmetler uygulaması dağıtma
+# <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Hızlı Başlangıç: Service Fabric için Java reliable services uygulaması dağıtma
 
 Azure Service Fabric; mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur.
 
@@ -37,7 +37,7 @@ Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
 * Uygulamayı Azure'da bir kümeye dağıtma
 * Birden çok düğüm arasında uygulamanın ölçeğini genişletme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için:
 
@@ -67,7 +67,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 2. Eclipse’i açın.
 3. Dosya -> İçeri Aktar -> Gradle -> Var Olan Gradle Projesi'ne tıklayın ve sihirbazı izleyin.
-4. Dizin’e tıklayın ve GitHub’dan kopyaladığınız `service-fabric-java-quickstart` klasöründe yer alan `Voting` dizinini seçin. Son'a tıklayın. 
+4. Dizin'e tıklayın ve seçin `Voting` yer `service-fabric-java-quickstart` Github'dan kopyaladığınız klasörü. Son'a tıklayın.
 
     ![Eclipse İçeri Aktarma İletişim Kutusu](./media/service-fabric-quickstart-java/eclipseimport.png)
 
@@ -114,11 +114,11 @@ CLI kullanmak için, indirdiğiniz PFX dosyasını temel alarak bir PEM dosyası
 
 Service Fabric Explorer’ı kullanmak için, Grup Kümesi web sitesinden indirdiğiniz sertifika PFX dosyasını sertifika deponuza (Windows veya Mac) ya da tarayıcıya (Ubuntu) aktarmanız gerekir. **BeniOku** sayfasından alabileceğiniz PFX özel anahtar parolası gerekir.
 
-Sisteminizde sertifikayı içeri aktarmak için size en rahat gelen yöntemi kullanın. Örnek:
+Sisteminizde sertifikayı içeri aktarmak için size en rahat gelen yöntemi kullanın. Örneğin:
 
-* Windows üzerinde: PFX dosyasına çift tıklayın ve `Certificates - Current User\Personal\Certificates` dizinindeki kişisel deponuza sertifikayı yüklemek için istemleri izleyin. Alternatif olarak, **BeniOku** yönergelerinde PowerShell komutunu kullanabilirsiniz.
-* Mac üzerinde: PFX dosyasına çift tıklayın ve Anahtarlığınıza sertifikayı yüklemek için istemleri izleyin.
-* Ubuntu üzerinde: Mozilla Firefox, Ubuntu 16.04 sistemindeki varsayılan tarayıcıdır. Sertifikayı Firefox’a aktarmak için, tarayıcınızın sağ üst köşesindeki menü düğmesine ve ardından **Seçenekler**’e tıklayın. **Tercihler** sayfasında arama kutusunu kullanarak "sertifikalar" terimini arayın. **Sertifikaları Görüntüle**’ye tıklayın, **Sertifikalarınız** sekmesini seçin, **İçeri Aktar**’a tıklayın ve sertifikayı içeri aktarma istemlerini izleyin.
+* Windows'da: PFX dosyasına çift tıklayın ve kişisel deponuza sertifikayı yüklemek için istemleri takip edin `Certificates - Current User\Personal\Certificates`. Alternatif olarak, **BeniOku** yönergelerinde PowerShell komutunu kullanabilirsiniz.
+* Mac'te: PFX dosyasına çift tıklayın ve Anahtarlığınıza sertifikayı yüklemek için istemleri takip edin.
+* Ubuntu üzerinde: Mozilla Firefox, Ubuntu 16.04 varsayılan tarayıcıda ' dir. Sertifikayı Firefox’a aktarmak için, tarayıcınızın sağ üst köşesindeki menü düğmesine ve ardından **Seçenekler**’e tıklayın. **Tercihler** sayfasında arama kutusunu kullanarak "sertifikalar" terimini arayın. **Sertifikaları Görüntüle**’ye tıklayın, **Sertifikalarınız** sekmesini seçin, **İçeri Aktar**’a tıklayın ve sertifikayı içeri aktarma istemlerini izleyin.
 
    ![Firefox’ta sertifika yükleme](./media/service-fabric-quickstart-java/install-cert-firefox.png)
 
@@ -132,7 +132,7 @@ Service Fabric programlama modellerini kullandığından, sertifika parmak izini
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. `Voting/VotingApplication/ApplicationManifest.xml` dosyasında, aşağıdaki kod parçacığını **ApplicationManifest** etiketi altına ekleyin. **X509FindValue** önceki adımdaki parmak izi olmalıdır (noktalı virgül olmamalı). 
+2. `Voting/VotingApplication/ApplicationManifest.xml` dosyasında, aşağıdaki kod parçacığını **ApplicationManifest** etiketi altına ekleyin. **X509FindValue** önceki adımdaki parmak izi olmalıdır (noktalı virgül olmamalı).
 
     ```xml
     <Certificates>

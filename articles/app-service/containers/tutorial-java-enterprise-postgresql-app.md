@@ -1,5 +1,5 @@
 ---
-title: Linux üzerinde Azure App Service'te bir Java Kurumsal web uygulaması derleme | Microsoft Docs
+title: Linux üzerinde - Azure App Service Kurumsal Java web uygulaması derleme | Microsoft Docs
 description: Wildfly Linux üzerinde Azure App Service'te çalışan bir Java Enterprise uygulamasını nasıl edinebileceğinizi öğrenin.
 author: JasonFreeberg
 manager: routlaw
@@ -10,14 +10,15 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
-ms.openlocfilehash: 0772dbb1aaa6b00994bd653c19b006114377dc5f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 2b8151117a9093cb58ffe6db45bc5ee1a9abd54b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165467"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259265"
 ---
-# <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Öğretici: azure'da bir Java EE ve Postgres web uygulaması derleme
+# <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Öğretici: Azure'da bir Java EE ve Postgres web uygulaması oluşturma
 
 Bu öğreticide, Azure App Service'te bir Java Enterprise Edition (EE) web uygulaması oluşturma ve Postgres veritabanına bağlanmak nasıl gösterilmektedir. İşlemi tamamladığınızda, olacaktır bir [WildFly](http://www.wildfly.org/about/) veri depolarken uygulama [Postgres için Azure veritabanı](https://azure.microsoft.com/services/postgresql/) Azure üzerinde çalışan [Linux için App Service](app-service-linux-intro.md).
 
@@ -32,8 +33,8 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 ## <a name="prerequisites"></a>Önkoşullar
 
 1. [Git'i indirin ve yükleyin](https://git-scm.com/)
-1. [Maven 3'ü yükleyin ve indirin](https://maven.apache.org/install.html)
-1. [Azure CLI'yı yükleme ve indirme](https://docs.microsoft.com/cli/azure/install-azure-cli)
+2. [Maven 3'ü yükleyin ve indirin](https://maven.apache.org/install.html)
+3. [Azure CLI'yı yükleme ve indirme](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## <a name="clone-and-edit-the-sample-app"></a>Kopyalamak ve örnek uygulamayı Düzenle
 
@@ -160,10 +161,10 @@ Ardından, böylece daha önce kullandığımız bellek içi H2 veritabanı yeri
 
 Yeniden yapılandırılan uygulamamız dağıtmadan önce biz WildFly uygulama sunucusu Postgres modülü ve bağımlılıkları ile güncelleştirmeniz gerekir. Sunucuyu yapılandırmak için şu dört dosyalarında gerekir `wildfly_config/` dizini:
 
-- **postgresql 42.2.5.jar**: Bu JAR Postgres için JDBC sürücüsü dosyasıdır. Daha fazla bilgi için [resmi Web sitesi](https://jdbc.postgresql.org/index.html).
+- **postgresql 42.2.5.jar**: Bu JAR Dosyası Postgres için JDBC sürücüsü içindir. Daha fazla bilgi için [resmi Web sitesi](https://jdbc.postgresql.org/index.html).
 - **postgres module.xml**: Bu XML dosyası (org.postgres) Postgres modül için bir ad bildirir. Ayrıca, kullanılacak modülü için gerekli olan bağımlılıklar ve kaynakları belirtir.
-- **jboss_cli_commands.CL**: Bu dosya JBoss CLI tarafından yürütülecek yapılandırma komutları içerir. Komutlar Postgres modülü WildFly uygulama sunucusuna ekleyin, kimlik bilgilerini sağlayın, JNDI adı bildirmek, vb. zaman aşımı eşiği. JBoss CLI ile alışkın değilseniz bkz [resmi belgelerine](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
-- **startup_script.sh**: App Service örneğinizin başlatıldığında son olarak, bu kabuk betiği yürütülür. Komut dosyası, yalnızca tek bir işlevi gerçekleştirir: komutlar akışkan `jboss_cli_commands.cli` JBoss CLI için.
+- **jboss_cli_commands.CL**: Bu dosya, JBoss CLI tarafından yürütülecek yapılandırma komutları içerir. Komutlar Postgres modülü WildFly uygulama sunucusuna ekleyin, kimlik bilgilerini sağlayın, JNDI adı bildirmek, vb. zaman aşımı eşiği. JBoss CLI ile alışkın değilseniz bkz [resmi belgelerine](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
+- **startup_script.sh**: Son olarak, App Service örneği başlatıldığında bu kabuk betiği yürütülür. Komut dosyası, yalnızca tek bir işlevi gerçekleştirir: komutlar akışkan `jboss_cli_commands.cli` JBoss CLI için.
 
 Bu dosyaların içeriğini özellikle okuma önerisi _jboss_cli_commands.cli_.
 

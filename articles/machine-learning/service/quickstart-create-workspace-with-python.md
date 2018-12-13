@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Python kullanmaya başlayın'
+title: "Hızlı Başlangıç:  Python'da kullanmaya başlayın"
 titleSuffix: Azure Machine Learning service
 description: Python için Azure Machine Learning hizmetinde kullanmaya başlayın. Deneme, eğitmek ve makine öğrenimi modelleri dağıtmak için kullandığınız bulut ıaas'yi bloğunda bir çalışma alanı oluşturmak için Python SDK'sını kullanın.
 services: machine-learning
@@ -11,16 +11,16 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2ca97275848d87ccc03c7839265f867f9c3c3948
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3ab55cec4b8483cf254ec3d9fe68521baca9cdf5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073372"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268527"
 ---
-# <a name="quickstart-use-python-sdk-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak kullanım Python SDK'sı
+# <a name="quickstart-use-python-sdk-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için Python SDK'sını kullanma
 
-Bu hızlı başlangıçta Python için Azure Machine Learning SDK'sını kullanarak bir Machine Learning hizmeti [çalışma alanı](concept-azure-machine-learning-architecture.md) oluşturup kullanacaksınız. Bu çalışma alanı Machine Learning ile bulutta makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için kullanabileceğiniz temel bileşenlerden biridir. Bu hızlı başlangıçta ilk olarak kendi Python ortamınızı ve Jupyter notebook sunucunuzu yapılandıracaksınız. Uygulamaları yükleme yapmadan çalıştırmak için bkz. [Hızlı başlangıç: Azure portalı kullanarak Azure Machine Learning'i kullanmaya başlama](quickstart-get-started.md).
+Bu hızlı başlangıçta Python için Azure Machine Learning SDK'sını kullanarak bir Machine Learning hizmeti [çalışma alanı](concept-azure-machine-learning-architecture.md) oluşturup kullanacaksınız. Bu çalışma alanı Machine Learning ile bulutta makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için kullanabileceğiniz temel bileşenlerden biridir. Bu hızlı başlangıçta ilk olarak kendi Python ortamınızı ve Jupyter notebook sunucunuzu yapılandıracaksınız. Yükleme ile çalıştırmak için bkz: [hızlı başlangıç: Azure Machine Learning'i kullanmaya başlamak için Azure portal'ı kullanmanızı](quickstart-get-started.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
@@ -40,14 +40,12 @@ Aşağıdaki Azure kaynakları, bölgesel kullanıma sunulduğunda çalışma al
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Anahtar Kasası.](https://azure.microsoft.com/services/key-vault/)
 
->[!NOTE]
-> Bu makalede kod gerektiren Azure Machine Learning SDK'sı sürüm 1.0.2 veya üzeri. 
-
-
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
-
+Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
 
 ## <a name="install-the-sdk"></a>SDK yükle
+
+>[!NOTE]
+> Bu makalede kod gerektiren Azure Machine Learning SDK'sı sürüm 1.0.2 veya üzeri. 
 
 *27 Eylül 2018 tarihinden sonra oluşturulan bir veri bilimi sanal makinesini kullanıyorsanız bu bölümü atlayın.* Bu veri bilimi sanal makinelerinde Python SDK önceden yüklenmiştir.
 
@@ -206,6 +204,6 @@ Ortamınızı Machine Learning öğreticilerinde kullanabilmek için birkaç pak
 Bu paketleri yükledikten sonra model eğitme ve dağıtma öğreticilerini izleyin. 
 
 > [!div class="nextstepaction"]
-> [Öğretici: Görüntü sınıflandırma modelini eğitme](tutorial-train-models-with-aml.md)
+> [Öğretici: Bir görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md)
 
 [GitHub'daki daha gelişmiş örnekleri](https://aka.ms/aml-notebooks) de keşfedebilirsiniz.

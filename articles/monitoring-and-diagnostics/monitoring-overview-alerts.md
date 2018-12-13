@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 9340c5a70ac652f1cf0a8b0cddce8488e0a62eee
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: d86e543da5c7000f0140c1b6e53674a0fd22b0e4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978878"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194139"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft azure'da uyarılara genel bakış 
 
@@ -52,7 +52,7 @@ Bir uyarı kuralının önemli öznitelikleri şunlardır:
 
 **Önem derecesi** – uyarının önem derecesini uyarı kuralında belirtilen ölçütler karşılanıyorsa sonra. Önem derecesi 0'dan 4'e kadar değişebilir.
 
-**Eylem** - uyarı tetiklendiğinde gerçekleştirilecek özel bir eylem. Daha fazla bilgi için [Eylem grupları](monitoring-action-groups.md).
+**Eylem** - uyarı tetiklendiğinde gerçekleştirilecek özel bir eylem. Daha fazla bilgi için [Eylem grupları](../azure-monitor/platform/action-groups.md).
 
 ## <a name="what-you-can-alert-on"></a>Üzerinde uyarabilir
 
@@ -122,7 +122,7 @@ Aşağıdaki üç adımı ile yeni bir uyarı kuralı oluşturun:
  
 Bu basitleştirilmiş bir yazma işlemi artık izleme kaynağı veya bir Azure kaynağı seçmeden önce desteklenen sinyalleri bilmesini gerektirmez. Kullanılabilir sinyaller listesini otomatik olarak seçtiğiniz hedef kaynak göre filtrelenir. Ayrıca bu hedefte bağlı olarak, otomatik olarak uyarı kuralı mantığını tanımlama aracılığıyla kılavuzluk edilir.  
 
-Uyarı kuralları oluşturma hakkında daha fazla bilgi [oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Uyarıları yönetme](alert-metric.md).
+Uyarı kuralları oluşturma hakkında daha fazla bilgi [oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Uyarıları yönetme](../azure-monitor/platform/alerts-metric.md).
 
 Uyarılar, çeşitli Azure izleme hizmetleri arasında kullanılabilir. Hakkında bilgi ve bu hizmetlerin her biri kullanıldığı durumlar için bkz: [izleme Azure uygulamalarını ve kaynaklarını](../azure-monitor/overview.md). Aşağıdaki tabloda, Azure genelinde kullanılabilir olan uyarı kuralları türlerinin bir listesini sağlar. Ayrıca, hangi uyarı deneyimi desteklenen özellikler listelenir.
 
@@ -130,7 +130,7 @@ Daha önce Azure İzleyici, Application Insights, Log Analytics ve hizmet durumu
 
 | **Kaynak İzleyicisi** | **Sinyal türü**  | **Açıklama** | 
 |-------------|----------------|-------------|
-| Hizmet durumu | Etkinlik günlüğü  | Desteklenmiyor. Bkz: [etkinlik günlüğü uyarıları hizmet bildirimlerinde oluşturma](monitoring-activity-log-alerts-on-service-notifications.md).  |
+| Hizmet durumu | Etkinlik günlüğü  | Desteklenmiyor. Bkz: [etkinlik günlüğü uyarıları hizmet bildirimlerinde oluşturma](../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
 | Application Insights | Web kullanılabilirlik testleri | Desteklenmiyor. Bkz: [Web test Uyarısı](../application-insights/app-insights-monitor-web-app-availability.md). Application Insights'a veri göndermek için izleme eklenmiş olan tüm Web sitelerinin kullanılabilir. Kullanılabilirlik ve yanıt hızını bir Web sitesinin beklentileri altında olduğunda bir bildirim alırsınız. |
 
 
@@ -174,13 +174,13 @@ Uyarı ayrıntı sayfası aşağıdaki bölümleri içerir.
 
 Özellik Haziran 2018 tarihinden önce uyarı Azure İzleyici ölçümleri ve etkinlik günlüğüne "Uyarılar (Klasik)" olarak adlandırılır. 
 
-Daha fazla bilgi için [Klasik uyarılar](./monitoring-overview-alerts-classic.md)
+Daha fazla bilgi için [Klasik uyarılar](./../azure-monitor/platform/alerts-classic.overview.md)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Akıllı grupları hakkında daha fazla bilgi edinin](https://aka.ms/smart-groups)
-- [Eylem grupları hakkında bilgi edinin](monitoring-action-groups.md)
+- [Eylem grupları hakkında bilgi edinin](../azure-monitor/platform/action-groups.md)
 - [Uyarı örneklerinizi azure'da yönetme](https://aka.ms/managing-alert-instances)
 - [Akıllı grupları yönetme](https://aka.ms/managing-smart-groups)
 

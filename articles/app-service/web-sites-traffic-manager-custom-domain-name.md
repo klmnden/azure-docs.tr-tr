@@ -1,5 +1,5 @@
 ---
-title: Traffic Manager Yük Dengeleme için kullanan Azure App Service'te bir web uygulaması için özel etki alanı adı yapılandırın.
+title: Traffic Manager - Azure App Service kullanan uygulamalar için DNS adlarını yapılandırın
 description: Bir özel etki alanı adı için bir Azure App Service, Traffic Manager Yük Dengeleme için içeren bir web uygulaması.
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
-ms.openlocfilehash: b140ccba2b45dbfb1e4413c9fbeb12e9fec6bc8a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 2b2efbbccedc2478b30a05fe2cd60c063de2a64d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227187"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309493"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Traffic Manager'ı kullanarak Azure App Service içinde bir web uygulaması için özel etki alanı adı yapılandırma
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: b2eff49f94dfcd67cb9741055520d990429051cd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 627bd114504de20517abcd05f45dc6c58fe80117
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098568"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322713"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için çoklu oturum açma
 Uygulamaları Azure Active Directory (Azure AD) yapılandırırken en uygun çoklu oturum açma yöntemi seçin öğrenin. 
@@ -67,7 +67,7 @@ Bir uygulama SAML tabanlı çoklu oturum açma için yapılandırmak üzere bkz 
 SAML Protokolü nasıl çalıştığı hakkında daha fazla bilgi için bkz. [çoklu oturum açma SAML Protokolü](../develop/single-sign-on-saml-protocol.md).
 
 ## <a name="password-based-sso"></a>Parola tabanlı SSO
-Parola tabanlı oturum açma ile uygulama adı ve parola ile uygulama kimliğini doğrular. Son kullanıcılar, erişim uygulama ilk zaman oturum açın. İlk oturum açma işleminden sonra Azure Active Directory kullanıcı ve uygulama parolasını sağlar. 
+Parola tabanlı oturum açma ile son kullanıcıların uygulama için bir kullanıcı adı ve parola ile bunların erişim ilk kez oturum açın. İlk oturum açma işleminden sonra Azure Active Directory kullanıcı ve uygulama parolasını sağlar. 
 
 Parola tabanlı çoklu oturum açma uygulama tarafından sağlanan mevcut kimlik doğrulama işlemi kullanır. Parola çoklu oturum açma bir uygulama için etkinleştirdiğinizde, Azure AD toplar ve kullanıcı adları ve parolalar uygulama için güvenli bir şekilde depolar. Kullanıcı kimlik bilgilerini şifrelenmiş bir duruma dizininde depolanır. 
 
@@ -177,6 +177,6 @@ Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](../fundamentals
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler](../saas-apps/tutorial-list.md)
 * [Çoklu oturum açmayı yapılandırma Öğreticisi](configure-single-sign-on-portal.md)
 * [Uygulamalara erişimi yönetme giriş](what-is-access-management.md)
-* İndirme bağlantısı: [tek oturum açma dağıtım planı](https://aka.ms/SSODeploymentPlan).
+* İndirme bağlantısı: [Çoklu oturum açma dağıtım planı](https://aka.ms/SSODeploymentPlan).
 
 

@@ -10,17 +10,15 @@ ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 5294d5919b6d4d80c61e183866409123a9edbb60
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 5236cff7a4afe508a8e11c6d75484fcdc9d43f91
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082672"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194241"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Bilgisayarları Log Analytics ağ geçidini kullanarak Internet erişimi olmadan bağlayın
 Bu belge, Azure Otomasyonu ile iletişim yapılandırılacağını açıklar ve bağlı olduğunda doğrudan Log Analytics ağ geçidi kullanarak Log Analytics'e veya Operations Manager'ın izlenen bilgisayarların Internet erişimi yoktur.  HTTP HTTP CONNECT komutunu kullanarak tüneli destekleyen bir HTTP iletim proxy'si olan Log Analytics ağ geçidi, veri toplamak ve Log Analytics ve Azure Otomasyonu ile kendi adınıza gönderin.  
@@ -89,8 +87,8 @@ Aşağıdaki tabloda, desteklenen bir ağ geçidi sunucusu ile iletişim kuran a
 
 |Ağ geçidi |Yaklaşık desteklenen aracı sayısı|  
 |--------|----------------------------------|  
-|-CPU: Intel XEON 2660 CPU E5 v3 \@ 2,6 GHz 2 Çekirdek<br> -Bellek: 4 GB<br> -Ağ bant genişliği: 1 GB/sn| 600|  
-|-CPU: Intel XEON 2660 CPU E5 v3 \@ 2,6 GHz 4 çekirdek<br> -Bellek: 8 GB<br> -Ağ bant genişliği: 1 GB/sn| 1000|  
+|-CPU: Intel XEON 2660 CPU E5 v3 \@ 2,6 GHz 2 Çekirdek<br> -Bellek: 4 GB<br> -Ağ bant genişliği: 1 Gbps| 600|  
+|-CPU: Intel XEON 2660 CPU E5 v3 \@ 2,6 GHz 4 çekirdek<br> -Bellek: 8 GB<br> -Ağ bant genişliği: 1 Gbps| 1000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>Log Analytics ağ geçidini indirin
 
@@ -136,7 +134,7 @@ Tasarım ve bir Windows Server 2016 Ağ Yükü Dengeleme kümesi dağıtma hakk�
 1. Bir yönetim hesabıyla NLB kümesinin bir üyesi olan Windows sunucuya oturum açın.  
 1. Sunucu Yöneticisi'nde Ağ Yükü Dengeleme Yöneticisi'ni açın, **Araçları**ve ardından **Ağ Yükü Dengeleme Yöneticisi**.
 1. Microsoft izleme aracısının yüklü olduğu bir Log Analytics Ağ Geçidi sunucusuna bağlanmak için kümenin IP adresine sağ tıklayın ve ardından **konak kümesine Ekle**.<br><br> ![Ağ Yükü Dengeleme Yöneticisi – kümeye konak Ekle](./media/gateway/nlb02.png)<br> 
-1. Bağlamak istediğiniz ağ geçidi sunucusu IP adresini girin.<br><br> ![Ağ Yükü Dengeleme Yöneticisi – kümeye konak Ekle: bağlanma](./media/gateway/nlb03.png) 
+1. Bağlamak istediğiniz ağ geçidi sunucusu IP adresini girin.<br><br> ![Ağ Yükü Dengeleme Yöneticisi – konak kümesine ekleyin: Bağlan](./media/gateway/nlb03.png) 
     
 ## <a name="configure-log-analytics-agent-and-operations-manager-management-group"></a>Log Analytics aracısını ve Operations Manager yönetim grubu yapılandırma
 Aşağıdaki bölümde, Azure Otomasyonu ya da günlük ile iletişim kurmak için Log Analytics ağ geçidi ile doğrudan bağlı Log Analytics aracılarını, bir Operations Manager yönetim grubu veya Azure Otomasyon karma Runbook çalışanlarını yapılandırma adımları içerir Analytics.  
@@ -183,7 +181,7 @@ Büyük veya karmaşık ortamları için Log Analytics ağ geçidi sunucusu kull
 1. Operations Manager konsolunu açın ve seçin **yazma** çalışma.  
 1. Yazma çalışma alanında **kuralları** tıklatıp **kapsam** Operations Manager araç çubuğunda. Bu düğme kullanılamıyorsa, izleme bölmesinde bir nesne seçili bir klasör değil emin olmak için kontrol edin. **Kapsam Yönetim Paketi nesneleri** iletişim kutusunda ortak hedeflenen sınıfları, grupları veya nesneleri listesini görüntüler. 
 1. Tür **sistem sağlığı hizmeti** içinde **Ara** alan ve listeden seçin.  **Tamam** düğmesine tıklayın.  
-1. Kuralını arayın **Advisor Proxy ayarı kural** ve Operations konsolu araç çubuğunda **geçersiz kılar** gelin ve ardından **Rule\For sınıfın belirli bir nesnesi geçersiz kıl: sistem sağlığı hizmeti**  ve belirli bir nesneyi listeden seçin.  İsteğe bağlı olarak, bu geçersiz kılma uygulayın ve ardından bu grup için geçersiz kılmanın istediğiniz sunucuları sistem durumu hizmeti nesnesinin içeren özel bir grup oluşturabilirsiniz.
+1. Kuralını arayın **Advisor Proxy ayarı kural** ve Operations konsolu araç çubuğunda **geçersiz kılmalar** gelin ve ardından **Rule\For sınıfın belirli bir nesnesi geçersiz kıl: Sistem sağlığı hizmeti** ve belirli bir nesneyi listeden seçin.  İsteğe bağlı olarak, bu geçersiz kılma uygulayın ve ardından bu grup için geçersiz kılmanın istediğiniz sunucuları sistem durumu hizmeti nesnesinin içeren özel bir grup oluşturabilirsiniz.
 1. İçinde **geçersiz kılma özellikleri** iletişim kutusu, bir onay işareti koyun **geçersiz kılma** yanındaki sütuna **WebProxyAddress** parametresi.  İçinde **geçersiz kılma değeri** ile başlayan Log Analytics ağ geçidi sunucusu sağlayarak URL'sini girin `http://` önek.  
 
     >[!NOTE]

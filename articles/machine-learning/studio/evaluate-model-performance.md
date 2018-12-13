@@ -4,9 +4,8 @@ description: Bu makalede, Azure Machine Learning Studio'da bir model performans�
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
 ms.service: machine-learning
@@ -16,25 +15,26 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: de013f8deb5e64077aad96bd34d64135f981166d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 501a9834e598fc8b1c11a86ef0ae9db1c19a66a7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311510"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269949"
 ---
-# <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>Azure Machine Learning’de model performansını değerlendirme
+# <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da model performansını değerlendirme
+
 Bu makalede, Azure Machine Learning Studio'da bir model performansını değerlendirme yapmayı gösteren ve bu görev için mevcut olan ölçümler için kısa bir açıklama sağlar. Denetimli öğrenmede senaryoları üç sunulur: 
 
 * Regresyon
 * İkili sınıflandırma 
 * Sınıflı sınıflandırma
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 Model performansını değerlendirme veri bilimi işlemi temel aşamaları biridir. Bunu nasıl başarılı bir veri kümesinin Puanlama (tahminler) eğitilen bir modeli tarafından da olduğunu gösterir. 
 
-Azure Machine Learning modeli değerlendirme iki ana makine öğrenme modülleri aracılığıyla destekler: [Evaluate Model] [ evaluate-model] ve [çapraz doğrulama, Model] [ cross-validate-model]. Bu modüller, makine öğrenimi ve istatistikleri yaygın olarak kullanılan ölçümleri sayısı bakımından modelinizi nasıl performans gösterdiğini görmenize olanak sağlar.
+Azure Machine Learning modeli değerlendirme iki ana makine öğrenme modülleri aracılığıyla destekler: [Modeli değerlendirme] [ evaluate-model] ve [çapraz doğrulama, Model][cross-validate-model]. Bu modüller, makine öğrenimi ve istatistikleri yaygın olarak kullanılan ölçümleri sayısı bakımından modelinizi nasıl performans gösterdiğini görmenize olanak sağlar.
 
 ## <a name="evaluation-vs-cross-validation"></a>Değerlendirme vs. Çapraz doğrulama
 Değerlendirme ve çapraz doğrulama, model performansını ölçmek için standart yolları açıklanmıştır. Her ikisi de inceleme veya bu modeller karşı karşılaştırma değerlendirme ölçümleri oluşturur.
@@ -64,7 +64,7 @@ Aşağıda Şekil 1'de gösterildiği gibi bağlantı bağlayın ve etiket sütu
 Şekil 1. Bir regresyon modeli değerlendiriliyor.
 
 ### <a name="inspecting-the-evaluation-results"></a>Değerlendirme sonuçlarını İnceleme
-Denemeyi çalıştırdıktan sonra çıkış bağlantı noktasına tıklayabilirsiniz [Evaluate Model] [ evaluate-model] modülü ve select *Görselleştir* değerlendirme sonuçlarını görmek için. Değerlendirme ölçümleri, regresyon modelleri için kullanılabilir: *Mean Absolute Error*, *kök Mean Absolute Error*, *göreli mutlak hata*,  *Göreli karesi alınmış hata*ve *katsayısı*.
+Denemeyi çalıştırdıktan sonra çıkış bağlantı noktasına tıklayabilirsiniz [Evaluate Model] [ evaluate-model] modülü ve select *Görselleştir* değerlendirme sonuçlarını görmek için. Regresyon modelleri için mevcut olan değerlendirme ölçümler şunlardır: *Mean Absolute Error*, *kök ortalama mutlak hata*, *göreli mutlak hata*, *göreli karesi alınmış hata*ve *katsayısı Belirleme*.
 
 Terim "error" Buraya tahmin edilen değer true değeri arasındaki farkı temsil eder. Öngörülen ve gerçek değer arasındaki farkı, bazı durumlarda negatif olabileceğinden mutlak değeri veya bu farkı karesini genellikle tüm örneklerinde hata toplam büyüklüğünü yakalamak için hesaplanır. Hata ölçümleri, Tahmine dayalı bir regresyon modeli, Öngörüler true değerlerinin ortalaması sapmasını açısından performansını ölçme. Hata düşük değerler daha doğru tahminler yaparken modelidir anlamına gelir. Genel bir hata ölçümü sıfır model verileri mükemmel bir şekilde uyan anlamına gelir.
 
@@ -106,7 +106,7 @@ Aşağıda Şekil 5'te gösterildiği gibi bağlantı bağlayın ve etiket sütu
 Şekil 5. İkili sınıflandırma modelinde değerlendiriliyor.
 
 ### <a name="inspecting-the-evaluation-results"></a>Değerlendirme sonuçlarını İnceleme
-Denemeyi çalıştırdıktan sonra çıkış bağlantı noktasına tıklayabilirsiniz [Evaluate Model] [ evaluate-model] modülü ve select *Görselleştir* (Şekil 7) değerlendirme sonuçlarını görmek için. İkili sınıflandırma modelleri için kullanılabilir değerlendirme ölçümler şunlardır: *doğruluğu*, *duyarlık*, *geri çağırma*, *F1 puanı*ve  *AUC*. Ayrıca, modül doğru pozitif sonuçlar, yanlış negatif, hatalı pozitif sonuç ve gerçek negatif sayısını gösteren bir karışıklık matrisi çıkışları yanı *ROC*, *duyarlık/geri çağırma*, ve  *Lift* eğrileri.
+Denemeyi çalıştırdıktan sonra çıkış bağlantı noktasına tıklayabilirsiniz [Evaluate Model] [ evaluate-model] modülü ve select *Görselleştir* (Şekil 7) değerlendirme sonuçlarını görmek için. İkili sınıflandırma modelleri için mevcut olan değerlendirme ölçümler şunlardır: *Doğruluk*, *duyarlık*, *geri çağırma*, *F1 puanı*, ve *AUC*. Ayrıca, modül doğru pozitif sonuçlar, yanlış negatif, hatalı pozitif sonuç ve gerçek negatif sayısını gösteren bir karışıklık matrisi çıkışları yanı *ROC*, *duyarlık/geri çağırma*, ve  *Lift* eğrileri.
 
 Doğruluk oranı doğru sınıflandırılmış örnekleri yalnızca ' dir. Genellikle, bir sınıflandırıcı değerlendirirken gözden geçirmeniz ilk ölçüm olur. Ancak, test verileri olduğunda (burada örneklerin çoğu sınıflardan birine ait) dengesiz ya da daha fazla ilgilendiğiniz sınıfların ya da bir performans, kesinlik gerçekten sınıflandırıcı verimliliğini yakalamaz. Gelir düzeyi sınıflandırma senaryosunda, örneklerin % 99 yıl başına 50 bin eşit veya daha az kazanın kişilerin nerede temsil eden bazı verileri sınamakta olduğunuz varsayılır. Sınıfı hakkında tahminde bulunarak 0.99 doğruluk elde etmek mümkündür "< 50 bin =" tüm örnekleri için. Sınıflandırıcı bu durumda genel iyi bir iş çıkarıyor görünüyor, ancak gerçekte herhangi high-income kişilerin (% 1) doğru sınıflandırmak başarısız olur.
 
@@ -116,7 +116,7 @@ Bu nedenle, işlem daha belirli yönlerini değerlendirme yakalama ek ölçümle
 
 Şekil 6. İkili sınıflandırma karışıklık matrisi.
 
-Gelir sınıflandırma sorunu için yukarıda bahsedilen, size yardımcı çeşitli değerlendirme sorularını kullanılan sınıflandırıcı performansını anlama sormak istersiniz. Çok doğal bir soru: ' model kazanmaya olması için tahmin edilen kişilere dışında > 50 K (TP + FP) ne kadar doğru şekilde sınıflandırıldığını (TP)?' Bu soruyu bakarak yanıtlanması gereken **duyarlık** doğru olarak sınıflandırıldığını pozitif sonuç oranı olan modeli: TP/(TP+FP). Başka bir yaygın soru ise "dışında tüm yüksek gelir çalışanlarla kazanmaya > 50 k (TP + FN) kaç sınıflandırıcı doğru sınıflandırma (TP)". Bu, gerçekten **geri çağırma**, ya da gerçek pozitif sonuç oranı: TP/(TP+FN) sınıflandırıcı. Duyarlık ve geri çağırma arasında belirgin bir dengeyi olduğunu fark edebilirsiniz. Örneğin, oldukça dengeli bir veri kümesi göz önünde bulundurulduğunda, çoğunlukla olumlu örnekleri tahmin eden bir sınıflandırıcı haritamın yüksek geri çağırma işlemi, ancak çok düşük bir duyarlılık çoğu negatif gibi çok sayıda hatalı pozitif sonuç elde edilen misclassified. Bu iki ölçüm nasıl farklılık, bir çizim görmek için tıklayabilirsiniz **DUYARLIK/geri ÇAĞIRMA** eğri değerlendirme sonuç çıkış sayfasının (sol üst bölümü Şekil 7).
+Gelir sınıflandırma sorunu için yukarıda bahsedilen, size yardımcı çeşitli değerlendirme sorularını kullanılan sınıflandırıcı performansını anlama sormak istersiniz. Çok doğal bir soru da şudur: ' Model kazanmaya olması için tahmin edilen kişilere dışında > 50 K (TP + FP) ne kadar doğru şekilde sınıflandırıldığını (TP)?' Bu soruyu bakarak yanıtlanması gereken **duyarlık** doğru olarak sınıflandırıldığını pozitif sonuç oranı olan modeli: TP/(TP+FP). Başka bir yaygın soru ise "dışında tüm yüksek gelir çalışanlarla kazanmaya > 50 k (TP + FN) kaç sınıflandırıcı doğru sınıflandırma (TP)". Bu, gerçekten **geri çağırma**, ya da gerçek pozitif sonuç oranı: Sınıflandırıcı tp/(tp+fn). Duyarlık ve geri çağırma arasında belirgin bir dengeyi olduğunu fark edebilirsiniz. Örneğin, oldukça dengeli bir veri kümesi göz önünde bulundurulduğunda, çoğunlukla olumlu örnekleri tahmin eden bir sınıflandırıcı haritamın yüksek geri çağırma işlemi, ancak çok düşük bir duyarlılık çoğu negatif gibi çok sayıda hatalı pozitif sonuç elde edilen misclassified. Bu iki ölçüm nasıl farklılık, bir çizim görmek için tıklayabilirsiniz **DUYARLIK/geri ÇAĞIRMA** eğri değerlendirme sonuç çıkış sayfasının (sol üst bölümü Şekil 7).
 
 ![İkili sınıflandırma değerlendirme sonuçları](./media/evaluate-model-performance/7.png)
 

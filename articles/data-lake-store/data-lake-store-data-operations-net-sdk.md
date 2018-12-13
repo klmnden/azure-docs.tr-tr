@@ -1,5 +1,5 @@
 ---
-title: '.NET SDK: Azure Data Lake depolama Gen1 üzerinde dosya sistemi işlemleri | Microsoft Docs'
+title: ".NET SDK'SI: Azure Data Lake depolama Gen1 gerçekleştirilen dosya sistemi işlemleri | Microsoft Docs"
 description: Dosya sistemi işlemleri Data Lake depolama Gen1 gibi gerçekleştirmek için kullanım Azure Data Lake depolama Gen1 .NET SDK, klasörleri, vb. oluşturun.
 services: data-lake-store
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 71ddbc2363075b721bfbd418bd29e5154baba866
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 57f4485e70bf91713539b3398fc93d6810c3c28e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391496"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163251"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Azure Data Lake depolama Gen1 .NET SDK'sı kullanılarak gerçekleştirilen dosya sistemi işlemleri
 > [!div class="op_single_selector"]
@@ -146,7 +146,7 @@ Aşağıdaki kod parçacığı bir dosya veya dizin ile ilişkili özellikleri d
     var directoryEntry = client.GetDirectoryEntry(fileName);
     PrintDirectoryEntry(directoryEntry);
 
-`PrintDirectoryEntry` yönteminin tanımı, [Github'daki](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) örneğin bir parçası olarak kullanılabilir. 
+Tanımı `PrintDirectoryEntry` yöntemi kullanılabilir örnek bir parçası olarak [github'da](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted). 
 
 ## <a name="rename-a-file"></a>Dosyayı yeniden adlandırma
 Aşağıdaki kod parçacığı Data Lake depolama Gen1 hesabında var olan bir dosyayı yeniden adlandırır.
@@ -164,7 +164,7 @@ Aşağıdaki kod parçacığı Data Lake depolama Gen1 hesabındaki dizinleri li
         PrintDirectoryEntry(entry);
     }
 
-`PrintDirectoryEntry` yönteminin tanımı, [Github'daki](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) örneğin bir parçası olarak kullanılabilir.
+Tanımı `PrintDirectoryEntry` yöntemi kullanılabilir örnek bir parçası olarak [github'da](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
 
 ## <a name="delete-directories-recursively"></a>Dizinleri yinelemeli olarak silme
 Aşağıdaki kod parçacığı bir dizini ve tüm alt dizinlerini yinelemeli olarak siler.
@@ -175,7 +175,7 @@ Aşağıdaki kod parçacığı bir dizini ve tüm alt dizinlerini yinelemeli ola
 ## <a name="samples"></a>Örnekler
 Data Lake depolama Gen1 dosya sistemi SDK'sını kullanma örnekleri aşağıda verilmiştir.
 * [Github'daki temel örnek](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
-* [Github'daki gelişmiş örnek](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
+* [Github'daki Gelişmiş örnek](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Data Lake depolama Gen1 hesap yönetim işlemlerini .NET SDK'sını kullanma](data-lake-store-get-started-net-sdk.md)

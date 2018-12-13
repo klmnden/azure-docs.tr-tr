@@ -1,5 +1,5 @@
 ---
-title: 'Regresyon modeli Öğreticisi: otomatik olarak modellerini eğitin'
+title: 'Regresyon modeli öğretici: Otomatik olarak modellerini eğitin'
 titleSuffix: Azure Machine Learning service
 description: Otomatik makine öğrenimini kullanarak ML model oluşturmayı öğrenin.  Azure Machine Learning, sizin için otomatikleştirilmiş bir yolla veri ön işlemini, algoritma seçimini ve hiper parametre seçimini gerçekleştirebilir. Bundan sonra son model Azure Machine Learning hizmetiyle dağıtılır.
 services: machine-learning
@@ -11,14 +11,14 @@ ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 593274cf66e93051b860ed75d77f13537188f345
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 6bbc2d44ab128aec032ead29bf247cd834f932b6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076041"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315212"
 ---
-# <a name="tutorial-part-2-use-automated-machine-learning-to-build-your-regression-model"></a>Öğretici (Bölüm 2): kullanım otomatik machine learning, regresyon modeli derler
+# <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Öğretici: Otomatik makine öğrenimi, regresyon modeli derler
 
 Bu öğretici, **iki bölümden oluşan bir öğretici serisinin ikinci bölümüdür**. Önceki öğreticide, [NYC taksi verileri regresyon modelleme için hazırlanmış](tutorial-data-prep.md).
 
@@ -36,11 +36,10 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Sonuçları inceleme
 > * En iyi modeli kaydetme
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
+Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
 
 >[!NOTE]
 > Bu makalede kod Azure Machine Learning SDK sürüm 1.0.0 ile test edilmiştir
-
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -599,7 +598,7 @@ from sklearn.model_selection import train_test_split
 x_df = dflow_X.to_pandas_dataframe()
 y_df = dflow_y.to_pandas_dataframe()
 
-x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=123)
+x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=223)
 # flatten y_train to 1d array
 y_train.values.flatten()
 ```
@@ -708,7 +707,7 @@ local_run = experiment.submit(automated_ml_config, show_output=True)
 
 Otomatik eğitim Jupyter pencere öğesi veya deneme geçmişini inceleyerek sonuçları keşfedin.
 
-### <a name="option-1-add-a-jupyter-widget-to-see-results"></a>1. seçenek: sonuçları görmek için Jupyter pencere öğesi ekleyin
+### <a name="option-1-add-a-jupyter-widget-to-see-results"></a>1. seçenek: Sonuçları görmek için Jupyter pencere öğesi ekleyin
 
 Juypter Not Defteri kullanıyorsanız, bir grafik ve tablo tüm sonuçları görmek için bu Jupyter not defteri pencere öğesi kullanın.
 
@@ -721,7 +720,7 @@ RunDetails(local_run).show()
 ![Jupyter pencere öğesi çalıştırması ayrıntıları](./media/tutorial-auto-train-models/automl-dash-output.png)
 ![Jupyter pencere öğesi çizim](./media/tutorial-auto-train-models/automl-chart-output.png)
 
-### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>2. seçenek: Alın ve Python çalışma tüm yinelemelerde inceleyin
+### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>2. seçenek: Alma ve Python çalışma tüm yinelemelerde inceleyin
 
 Alternatif olarak, her deneme geçmişini almak ve her yinelemede çalıştırmak için tek tek ölçümleri keşfedin.
 
@@ -1101,18 +1100,42 @@ y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-Gerçek maliyet değerlerle tahmin edilen maliyet değerini karşılaştırır. Kullanım `y_test` veri çerçevesi ve tahmin edilen değerlere karşılaştırılacak bir listeye dönüştürün. İşlev `mean_squared_error` iki dizi değerlerini alır ve bunlar arasındaki ortalama karesi alınmış hata hesaplar. Sonuç kare kökünü alma aynı birimi (Maliyet) y değişkeni olarak bir hata verir ve kabaca ne kadar tahminlerin gerçek değerini belirtir.
+Gerçek maliyet değerlere kıyasla tahmin edilen maliyet değerleri görselleştirmek için bir dağılım grafiğinde noktalara oluşturun. Aşağıdaki kod `distance` özelliği x ekseni ve geçirmek `cost` y ekseni olarak. İlk 100 öngörülen ve gerçek maliyet değerler her seyahat uzaklık değeri bir tahmin edilen maliyet varyansını karşılaştırmak için ayrı seri olarak oluşturulur. Çizim İnceleme uzaklığı/maliyet neredeyse doğrusal bir ilişkidir ve çoğu durumda çok yakın gerçek maliyet değerlerin aynı seyahat uzaklığı için tahmin edilen maliyet değerler gösterilir.
+
+```python
+import matplotlib.pyplot as plt
+
+fig = plt.figure(figsize=(14, 10))
+ax1 = fig.add_subplot(111)
+
+distance_vals = [x[4] for x in x_test.values]
+y_actual = y_test.values.flatten().tolist()
+
+ax1.scatter(distance_vals[:100], y_predict[:100], s=18, c='b', marker="s", label='Predicted')
+ax1.scatter(distance_vals[:100], y_actual[:100], s=18, c='r', marker="o", label='Actual')
+
+ax1.set_xlabel('distance (mi)')
+ax1.set_title('Predicted and Actual Cost/Distance')
+ax1.set_ylabel('Cost ($)')
+
+plt.legend(loc='upper left', prop={'size': 12})
+plt.rcParams.update({'font.size': 14})
+plt.show()
+```
+
+![Tahmin dağılım grafiğinde noktalara](./media/tutorial-auto-train-models/automl-scatter-plot.png)
+
+Hesapla `root mean squared error` sonuçları. Kullanım `y_test` veri çerçevesi ve tahmin edilen değerlere karşılaştırılacak bir listeye dönüştürün. İşlev `mean_squared_error` iki dizi değerlerini alır ve bunlar arasındaki ortalama karesi alınmış hata hesaplar. Sonuç kare kökünü alma aynı birimi (Maliyet) y değişkeni olarak bir hata verir ve kabaca ne kadar tahminlerin gerçek değerini belirtir.
 
 ```python
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 
-y_actual = y_test.values.flatten().tolist()
 rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
 ```
 
-    4.0317375193408544
+    3.2204936862688798
 
 Tam kullanarak MAPE (ortalama mutlak tamamlanma hata oluştu) hesaplamak için aşağıdaki kodu çalıştırın `y_actual` ve `y_predict` veri kümeleri. Bu ölçüm her öngörülen ve gerçek değer arasındaki mutlak bir farkı hesaplar, tüm farklar toplar ve ardından toplamı gerçek değerlerin toplamının yüzde ifade eder.
 
@@ -1136,10 +1159,10 @@ print(1 - mean_abs_percent_error)
 ```
 
     Model MAPE:
-    0.11334441225861108
-    
+    0.10545153869569586
+
     Model Accuracy:
-    0.8866555877413889
+    0.8945484613043041
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

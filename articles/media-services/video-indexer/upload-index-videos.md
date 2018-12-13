@@ -7,34 +7,33 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/10/2018
 ms.author: juliako
-ms.openlocfilehash: 2261b8fa496beaf2a14c9b949047b6a5cbc6ea32
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: f29adb500401c9f5d6e177a0740ce54719c36a34
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292499"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253213"
 ---
 # <a name="upload-and-index-your-videos"></a>Videolarınızı karşıya yükleme ve dizinleme  
 
-Bu makalede, Azure Video Indexer ile karşıya video yükleme gösterilmektedir. Video Indexer API’si, iki adet karşıya yükleme seçeneği sağlar: 
+Video Indexer API ile videoları karşıya yüklerken iki yükleme seçeneğiniz vardır: 
 
 * Videonuzu bir URL'den karşıya yükleyin (tercih edilir).
 * İstek gövdesinde bir bayt dizisi olarak video dosyasını gönderin,
 * Var olan Azure Media Services varlığını sağlayarak kullanan [varlık kimliği](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (yalnızca ücretli hesaplarında desteklenir).
 
-Bu makalede, videolarınızı bir URL’ye dayalı olarak karşıya yüklemek ve dizinlemek için [Karşıya video yükleme](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API’sinin nasıl kullanılacağı açıklanmaktadır. Makaledeki kod örneği, bayt dizisinin nasıl yükleneceğini gösteren, açıklama satırı haline getirilmiş kod içerir.  
+Bu makalede, videolarınızı bir URL’ye dayalı olarak karşıya yüklemek ve dizinlemek için [Karşıya video yükleme](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API’sinin nasıl kullanılacağı açıklanmaktadır. Makaledeki kod örneği, bayt dizisinin nasıl yükleneceğini gösteren, açıklama satırı haline getirilmiş kod içerir. <br/>Makalede ayrıca API’ye ait süreci ve çıktıyı değiştirmek için API’de ayarlayabileceğiniz parametrelerin bazılarından bahsedilmektedir.
 
-Makalede ayrıca API’ye ait süreci ve çıktıyı değiştirmek için API’de ayarlayabileceğiniz parametrelerin bazılarından bahsedilmektedir.
-
-> [!Note]
-> Video Indexer hesabınızı oluştururken ücretsiz bir deneme hesabı (belirli sayıda ücretsiz dizin oluşturma dakikası elde edersiniz) veya ücretli bir seçenek (kota sınırlaması olmaz) arasından seçim yapabilirsiniz. <br/>Ücretsiz deneme kullanıldığında Video Indexer, web sitesi kullanıcılarına 600 dakikaya kadar ve API kullanıcılarına ise 2400 dakikaya kadar ücretsiz dizin oluşturma olanağı sunar. Ücretli seçenek kullanıldığında [Azure aboneliğinize ve bir Azure Media Services hesabına bağlı](connect-to-azure.md) bir Video Indexer hesabı oluşturulur. Dizin oluşturma faaliyeti yapılan dakika sayısının yanı sıra Medya Hesabı ile ilgili ücretler için ödeme yaparsınız. 
+Videonuz karşıya yüklendikten sonra Video Indexer, isteğe bağlı olarak kodlar videonun (makalesinde açıklanmıştır). Video Indexer hesabınızı oluştururken ücretsiz bir deneme hesabı (belirli sayıda ücretsiz dizin oluşturma dakikası elde edersiniz) veya ücretli bir seçenek (kota sınırlaması olmaz) arasından seçim yapabilirsiniz. Ücretsiz deneme kullanıldığında Video Indexer, web sitesi kullanıcılarına 600 dakikaya kadar ve API kullanıcılarına ise 2400 dakikaya kadar ücretsiz dizin oluşturma olanağı sunar. Ücretli seçenek kullanıldığında [Azure aboneliğinize ve bir Azure Media Services hesabına bağlı](connect-to-azure.md) bir Video Indexer hesabı oluşturulur. Dizin oluşturma faaliyeti yapılan dakika sayısının yanı sıra Medya Hesabı ile ilgili ücretler için ödeme yaparsınız. 
 
 ## <a name="uploading-considerations"></a>Karşıya yükleme konusunda dikkat edilmesi gerekenler
     
 - Videonuzu URL’ye dayalı olarak karşıya yüklerken (tercih edilir) uç noktanın güvenliği TLS 1.2 (veya üzeri) ile sağlanmalıdır
-- Bayt dizisi seçeneği 2 GB ile sınırlıdır ve 30 dakikanın ardından zaman aşımına uğrar
+- URL seçeneği ile karşıya yükleme boyutu 10 GB ile sınırlıdır
+- Bayt dizisi seçeneği ile karşıya yükleme boyutu 2 GB ile sınırlıdır 
+- Bayt dizisi seçeneği 30 dakika sonra zaman aşımına uğruyor
 - `videoURL` parametresinde sağlanan URL kodlanmış olmalıdır
 
 > [!Tip]
@@ -91,7 +90,7 @@ Fiyat, seçilen dizinleme seçeneğine bağlıdır.
 
 ### <a name="priority"></a>öncelik
 
-Videolar, önceliklerine göre Video Indexer tarafından dizine eklenir. Kullanım **öncelik** dizin önceliğini belirtmek için parametre. Aşağıdaki değerler geçerlidir: **düşük**, **Normal** (varsayılan), ve **yüksek**.
+Videolar, önceliklerine göre Video Indexer tarafından dizine eklenir. Kullanım **öncelik** dizin önceliğini belirtmek için parametre. Aşağıdaki değerler geçerlidir: **Düşük**, **Normal** (varsayılan), ve **yüksek**.
 
 **Öncelik** parametresi yalnızca ücretli hesapları için desteklenir.
 

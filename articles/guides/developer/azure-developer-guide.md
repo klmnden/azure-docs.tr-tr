@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 80a32335b8b9b89bdc5bf53cbed994d78a6ca81e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 80f7d93037c0b900608301ebf6463f85be10f2de
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017612"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311329"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure geliştiricileri için kullanmaya başlama kılavuzu
 
@@ -29,7 +29,7 @@ Azure, mevcut uygulamalarınızı barındırın, yeni uygulamaların geliştiril
 
 Uygulamalarınızı Azure üzerinde barındırarak küçükten başlayabilir ve uygulamanızı, Müşteri talebi arttıkça kolayca ölçeklendirin. Azure Ayrıca, hatta farklı bölgeler arasında yük devretme dahil olmak üzere, yüksek oranda kullanılabilir uygulamalar için gereken güvenilirlik sunar. [Azure portalında](https://portal.azure.com) tüm Azure Hizmetleri kolayca yönetmenize olanak tanır. Hizmete özel API'ler ve şablonları kullanarak, hizmetlerinizi program aracılığıyla da yönetebilirsiniz.
 
-**Kimler bu**: Bu kılavuzu uygulama geliştiricileri için Azure platformunda giriş niteliğindedir. Bu, rehberlik ve azure'da yeni uygulamalar oluşturmak veya mevcut uygulamaları azure'a geçirme başlatmanız yönü sağlar.
+**Kimler bu**: Bu kılavuz, uygulama geliştiricileri için Azure platformunda bir giriş niteliğindedir. Bu, rehberlik ve azure'da yeni uygulamalar oluşturmak veya mevcut uygulamaları azure'a geçirme başlatmanız yönü sağlar.
 
 ## <a name="where-do-i-start"></a>Nereden başlamalıyım?
 
@@ -62,11 +62,11 @@ App Service ile DevOps aklınızda tasarlanmıştır. Bu, GitHub Web kancası, J
 
 Kullanarak mevcut uygulamalarınızı App Service'e geçirebilirsiniz [çevrimiçi geçiş aracı](https://www.migratetoazure.net/).
 
->**Ne zaman kullanılacağı**: mevcut geçiş yapıyorsanız, App Service'ı kullanan web uygulamaları ve Azure, web uygulamalarınız için tam olarak yönetilen bir barındırma platformu gerektiğinde. App Service, mobil istemciler veya REST API'leri ile uygulamanızı kullanıma desteklemeye gerektiğinde de kullanabilirsiniz.
+>**Ne zaman kullanılacağı**: App Service, mevcut web uygulamaları azure'a geçirirken ve tam olarak yönetilen bir barındırma platformu, web uygulamalarınız için gerektiğinde kullanın. App Service, mobil istemciler veya REST API'leri ile uygulamanızı kullanıma desteklemeye gerektiğinde de kullanabilirsiniz.
 
 >**Başlama**: App Service ilk oluşturup dağıtmayı kolaylaştırır [web uygulaması](../../app-service/app-service-web-get-started-dotnet.md), [mobil uygulama](../../app-service-mobile/app-service-mobile-ios-get-started.md), veya [API uygulaması](../../app-service/app-service-web-tutorial-rest-api.md).
 
->**Şimdi deneyin**: App Service, Azure hesabı için kaydolun gerek kalmadan, platformu denemek için bir kısa süreli uygulaması sağlama olanak tanır. Platform deneyin ve [Azure App Service uygulamanızı oluşturma](https://tryappservice.azure.com/).
+>**Şimdi deneyin**: App Service, Azure hesabı için kaydolun gerek kalmadan, platformu denemek için bir kısa süreli uygulaması sağlama sağlar. Platform deneyin ve [Azure App Service uygulamanızı oluşturma](https://tryappservice.azure.com/).
 
 #### <a name="azure-virtual-machines"></a>Azure Sanal Makineler
 
@@ -74,29 +74,29 @@ Olarak altyapı (Iaas) sağlayıcısı olarak, Azure, dağıtmak veya uygulaman�
 
 Vm'lerde bulunan denetim düzeyi nedeniyle, bir PaaS modele uymayan Azure'da çok çeşitli sunucu iş yükleri çalıştırabilirsiniz. Bu iş yükleri, veritabanı sunucuları, Windows Server Active Directory ve Microsoft SharePoint içerir. Sanal makineler belgeleri ya da daha fazla bilgi için bkz. [Linux](/azure/virtual-machines/linux/) veya [Windows](/azure/virtual-machines/windows/).
 
->**Ne zaman kullanılacağı**: tam istediğinizde sanal makineleri'ı kullanın, uygulama altyapınızı üzerinden ya da değişiklik yapmak zorunda kalmadan şirket içi uygulama iş yüklerini Azure'a geçirmek için denetleyin.
+>**Ne zaman kullanılacağı**: Sanal makineler, uygulama altyapınızı üzerinden ya da değişiklik yapmak zorunda kalmadan şirket içi uygulama iş yüklerini Azure'a geçirmek için tam denetim istediğinizde kullanın.
 
->**Başlama**: oluşturma bir [Linux VM](../../virtual-machines/virtual-machines-linux-quick-create-portal.md) veya [Windows VM](../../virtual-machines/virtual-machines-windows-hero-tutorial.md) Azure portalından.
+>**Başlama**: Oluşturma bir [Linux VM](../../virtual-machines/virtual-machines-linux-quick-create-portal.md) veya [Windows VM](../../virtual-machines/virtual-machines-windows-hero-tutorial.md) Azure portalından.
 
 #### <a name="azure-functions-serverless"></a>Azure işlevleri (sunucusuz)
 
 Yerine oluşturmak ve bir uygulamanın veya altyapının tamamı kodunuzu çalıştırmak için yönetme hakkında endişelenmeden. Ne artık yalnızca kodunuzu yazın ve yanıtta olayları veya bir zamanlamaya göre çalışmasını?  [Azure işlevleri](../../azure-functions/functions-overview.md) olan "sunucusuz" bir-ihtiyacınız kod yazmanızı sağlayan bir stil teklifi. İşlevler ile HTTP isteklerini, Web kancaları, bulut hizmeti olayları veya bir zamanlamaya göre kod yürütme tetiklenir. C gibi tercih ettiğiniz geliştirme dilini içinde kod\#, F\#, Node.js, Python veya PHP. Kullanıma dayalı faturalandırma ile yalnızca kodunuzu yürütür ve gerektiğinde Azure ölçeklendirilebilen süre için ödeme yaparsınız.
 
->**Ne zaman kullanılacağı**: diğer Azure Hizmetleri tarafından bir zamanlamaya göre veya web tabanlı olaylar tarafından tetiklenen kodu varsa, Azure işlevleri'ı kullanın. Yalnızca kodunuzun çalıştığı süre için ödeme istediğinizde veya tam bir barındırılan projeye ek yükü ihtiyacınız kalmadığında işlevleri de kullanabilirsiniz. Daha fazla bilgi için bkz. [Azure işlevlerine genel bakış](../../azure-functions/functions-overview.md).
+>**Ne zaman kullanılacağı**: Diğer Azure Hizmetleri tarafından web tabanlı olaylar tarafından veya bir zamanlamaya göre tetiklenen kodunuz zaman Azure işlevlerini kullanın. Yalnızca kodunuzun çalıştığı süre için ödeme istediğinizde veya tam bir barındırılan projeye ek yükü ihtiyacınız kalmadığında işlevleri de kullanabilirsiniz. Daha fazla bilgi için bkz. [Azure işlevlerine genel bakış](../../azure-functions/functions-overview.md).
 
->**Başlama**: işlevleri hızlı başlangıç Öğreticisi izleyin [ilk işlevinizi oluşturma](../../azure-functions/functions-create-first-azure-function.md) portalından.
+>**Başlama**: İşlevleri hızlı başlangıç Öğreticisi izleyin [ilk işlevinizi oluşturma](../../azure-functions/functions-create-first-azure-function.md) portalından.
 
->**Şimdi deneyin**: Azure işlevleri, bir Azure hesabı için kaydolun zorunda kalmadan kodunuzu çalıştırmanıza olanak sağlar. Şimdi, deneyin ve [ilk Azure işlevinizi oluşturma](https://tryappservice.azure.com/).
+>**Şimdi deneyin**: Azure işlevleri, bir Azure hesabı için kaydolun zorunda kalmadan kodunuzu çalıştırmanıza olanak tanır. Şimdi, deneyin ve [ilk Azure işlevinizi oluşturma](https://tryappservice.azure.com/).
 
 #### <a name="azure-service-fabric"></a>Azure Service Fabric
 
 Azure Service Fabric, derleme, paketleme, dağıtma ve ölçeklenebilir ve güvenilir mikro Hizmetleri kolay bir dağıtılmış sistemler platformudur. Kapsamlı uygulama yönetim özellikleri de sağlar sağlama, dağıtma, izleme, yükseltmek/düzeltme eki uygulama için ve dağıtılan uygulamalar siliniyor. Paylaşılan makine havuzu üzerinde çalışan, uygulamalar küçükten başlayabilir ve gerektiği gibi yüzlerce veya binlerce makineyi ölçeklendirin.
 
-Service Fabric .NET (OWIN) ve ASP.NET Core için açık Web arabirimi ile Webapı'yi destekler. Bu, Linux'ta .NET Core hem de Java hizmetler oluşturmaya yönelik SDK'lar sağlar. Service Fabric hakkında daha fazla bilgi için bkz: [Service Fabric belgeleri](https://docs.microsoft.com/en-us/azure/service-fabric/).
+Service Fabric .NET (OWIN) ve ASP.NET Core için açık Web arabirimi ile Webapı'yi destekler. Bu, Linux'ta .NET Core hem de Java hizmetler oluşturmaya yönelik SDK'lar sağlar. Service Fabric hakkında daha fazla bilgi için bkz: [Service Fabric belgeleri](https://docs.microsoft.com/azure/service-fabric/).
 
->**Ne zaman kullanılacağı:** uygulama oluşturma ya da bir mikro hizmet mimarisi kullanan mevcut bir uygulamayı yeniden yazma Service Fabric, iyi bir seçimdir. Service Fabric, daha fazla denetime veya doğrudan erişim için temel altyapıyı ihtiyacınız olduğunda kullanın.
+>**Ne zaman kullanılır:** Uygulama oluşturma ya da bir mikro hizmet mimarisi kullanan mevcut bir uygulamayı yeniden yazma Service Fabric iyi bir seçimdir. Service Fabric, daha fazla denetime veya doğrudan erişim için temel altyapıyı ihtiyacınız olduğunda kullanın.
 
->**Kullanmaya başlayın:** [ilk Azure Service Fabric uygulamanızı oluşturma](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md).
+>**Başlarken:** [İlk Azure Service Fabric uygulamanızı oluşturma](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md).
 
 ### <a name="enhance-your-applications-with-azure-services"></a>Uygulamalarınızı Azure hizmetleriyle geliştirin
 
@@ -106,22 +106,22 @@ Uygulama barındırma ek olarak, Azure işlevleri, geliştirme ve Bakım uygulam
 
 Çoğu uygulama verileri, bu nedenle depolaması gereken nasıl uygulamanızı azure'da barındırmak karar bağımsız olarak, bir veya daha fazla aşağıdaki depolama ve Veri Hizmetleri düşünün.
 
--   **Azure Cosmos DB**: dilediğiniz sayıda coğrafi bölgede kapsamlı bir SLA ile aktarım hızını ve depolamayı esnek bir şekilde ölçeklendirmenize olanak sağlayan bir Global olarak dağıtılmış çok modelli veritabanı hizmetidir. 
-    >**Ne zaman kullanılacağı:** belge, tablo veya grafik veritabanları uygulamanızın, birden çok sayıda iyi tanımlanmış tutarlılık modeli ile bir MongoDB veritabanları da dahil olmak üzere. 
+-   **Azure Cosmos DB**: Dilediğiniz sayıda coğrafi bölgede kapsamlı bir SLA ile aktarım hızını ve depolamayı esnek bir şekilde ölçeklendirmenize olanak sağlayan bir Global olarak dağıtılmış çok modelli veritabanı hizmeti. 
+    >**Ne zaman kullanılır:** Uygulamanızı belge, tablo veya grafik veritabanları birden çok sayıda iyi tanımlanmış tutarlılık modeli ile bir MongoDB veritabanları dahil olmak üzere, gerektiğinde. 
 
-    >**Başlama**: [bir Azure Cosmos DB web uygulaması derleme](../../cosmos-db/create-sql-api-dotnet.md). MongoDB geliştiricisiyseniz bkz [Azure Cosmos DB ile MongoDB uygulaması oluşturma](../../cosmos-db/create-mongodb-dotnet.md).
+    >**Başlama**: [Bir Azure Cosmos DB web uygulaması derleme](../../cosmos-db/create-sql-api-dotnet.md). MongoDB geliştiricisiyseniz bkz [Azure Cosmos DB ile MongoDB uygulaması oluşturma](../../cosmos-db/create-mongodb-dotnet.md).
 
--   **Azure depolama**: bloblar, kuyruklar, dosyalar ve başka türden ilişkisel olmayan veriler için dayanıklı, yüksek oranda kullanılabilir depolama alanı sunar. Depolama, sanal makineler için depolama temeli sağlar.
+-   **Azure depolama**: Bloblar, kuyruklar, dosyaları ve diğer ilişkisel olmayan veri türlerinin dayanıklı, yüksek oranda kullanılabilir depolama sağlar. Depolama, sanal makineler için depolama temeli sağlar.
 
-    >**Ne zaman kullanılacağı**: ne zaman uygulamanızı anahtar-değer çiftleri (tablolar) gibi ilişkisel olmayan verileri depolar, BLOB'lar, dosya paylaşımları veya iletileri (kuyruklar).
+    >**Ne zaman kullanılacağı**: Ne zaman uygulamanızı anahtar-değer çiftleri (tablolar), BLOB, dosya paylaşımlarını veya iletileri (kuyruklar) gibi ilişkisel olmayan verileri depolar.
 
     >**Başlama**: Bu tür depolama birini seçin: [blobları](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tabloları](../../cosmos-db/table-storage-how-to-use-dotnet.md), [kuyrukları](../../storage/queues/storage-dotnet-how-to-use-queues.md), veya [dosyaları](../../storage/files/storage-dotnet-how-to-use-files.md).
 
--   **Azure SQL veritabanı**: ilişkisel tablo verilerini bulutta depolamak için Microsoft SQL Server Altyapısı'nın bir Azure tabanlı sürümü. SQL veritabanı, tahmin edilebilir performans, ölçeklenebilirlik hiç kapalı kalma süresi, iş sürekliliği ve veri koruması sağlar.
+-   **Azure SQL veritabanı**: Azure tabanlı sürümü ilişkisel tablo verilerini bulutta depolamak için Microsoft SQL Server altyapısı. SQL veritabanı, tahmin edilebilir performans, ölçeklenebilirlik hiç kapalı kalma süresi, iş sürekliliği ve veri koruması sağlar.
 
-    >**Ne zaman kullanılacağı**: uygulamanızı TSQL sorgular için bilgi tutarlılığını, işlem desteği ve desteği ile veri depolama alanı gerektirdiğinde.
+    >**Ne zaman kullanılacağı**: Uygulamanızın veri depolama ile işlem başvurusal bütünlük gerektirdiğinde desteklemek ve TSQL sorgularını destekler.
 
-    >**Başlama**: [bir SQL veritabanı Azure portalını kullanarak dakikalar içinde oluşturun](../../sql-database/sql-database-get-started.md).
+    >**Başlama**: [Azure portalını kullanarak dakikalar içinde SQL veritabanı oluşturma](../../sql-database/sql-database-get-started.md).
 
 
 Kullanabileceğiniz [Azure Data Factory](../../data-factory/introduction.md) mevcut şirket içi verileri azure'a taşımak için. Verileri buluta taşımaya hazır değilseniz [karma bağlantılar](../../biztalk-services/integration-hybrid-connection-overview.md) bağlandığınız BizTalk Hizmetleri olanak tanır, App Service uygulaması şirket içi kaynaklara barındırılan. Ayrıca, şirket içi uygulamalarınızı Hizmetleri Azure veri ve depolama birimine bağlanabilirsiniz.
@@ -132,21 +132,21 @@ Docker kapsayıcıları, işletim sistemi sanallaştırma, bir form, uygulamalar
 
 Azure kapsayıcılar uygulamalarınızda kullanmak için çeşitli yollar sunar.
 
--   **Azure Docker VM uzantısı**: sanal makinenize bir Docker konağı olarak görev yapacak Docker araçları ile yapılandırmanıza olanak sağlar.
+-   **Azure Docker VM uzantısı**: Sanal makinenize bir Docker konağı olarak görev yapacak Docker araçları ile yapılandırmanıza olanak sağlar.
 
-    >**Ne zaman kullanılacağı**: uygulamalarınız üzerinde bir VM için tutarlı kapsayıcı dağıtımı oluşturmak istediğinizde ya da kullanmak istediğiniz [Docker Compose](https://docs.docker.com/compose/overview/).
+    >**Ne zaman kullanılacağı**: Bir VM'de uygulamalarınız için tutarlı kapsayıcı dağıtımı oluşturmak istediğinizde ya da kullanmak istediğiniz [Docker Compose](https://docs.docker.com/compose/overview/).
 
     >**Başlama**: [Docker VM uzantısını kullanarak Azure'da bir Docker ortamında oluşturma](../../virtual-machines/virtual-machines-linux-dockerextension.md).
 
--   **Azure Container Service**: oluşturma, yapılandırma ve kapsayıcılı uygulamaları çalıştırmak için önceden yapılandırılmış sanal makine kümesi yönetmenize olanak tanır. Container Service hakkında daha fazla bilgi için bkz. [Azure Container Service'e Giriş](../../container-service/container-service-intro.md).
+-   **Azure Container Service'i**: Oluşturma, yapılandırma ve kapsayıcılı uygulamaları çalıştırmak için önceden yapılandırılmış sanal makine kümesi yönetmenize olanak tanır. Container Service hakkında daha fazla bilgi için bkz. [Azure Container Service'e Giriş](../../container-service/container-service-intro.md).
 
-    >**Ne zaman kullanılacağı**: gerektiğinde ek planlama ve yönetim araçları sağlayan veya ne zaman dağıtım Docker Swarm kümesi üretime hazır ve ölçeklenebilir ortamları oluşturun.
+    >**Ne zaman kullanılacağı**: Ek planlama sağlayan yapı üretime hazır ve ölçeklenebilir ortamları ve yönetim araçları veya Docker Swarm kümesi dağıtırken gerektiğinde.
 
-    >**Başlama**: [bir Container Service kümesi dağıtma](../../container-service/dcos-swarm/container-service-deployment.md).
+    >**Başlama**: [Bir kapsayıcı hizmeti kümesini dağıtma](../../container-service/dcos-swarm/container-service-deployment.md).
 
--   **Docker makinesi**: yükleme ve docker-machine komutlarını kullanarak bir Docker altyapısına sanal konaklar yönetmenize olanak sağlar.
+-   **Docker makinesi**: Yükleme ve docker-machine komutlarını kullanarak bir Docker altyapısına sanal konaklar yönetmenize olanak sağlar.
 
-    >**Ne zaman kullanılacağı**: gerektiğinde hızlı bir şekilde prototip için bir uygulama tarafından tek bir Docker konağı oluşturma.
+    >**Ne zaman kullanılacağı**: Ne zaman tek bir Docker konağı oluşturarak hızlı bir şekilde prototip için uygulama gerekir.
 
 -   **App Service için özel Docker görüntüsü**: Linux üzerinde web uygulaması dağıttığınızda Docker kapsayıcılarını bir kapsayıcı kayıt defterinden ya da müşteri kapsayıcı kullanmanıza olanak sağlar.
 
@@ -160,11 +160,11 @@ Uygulamalarınızı kullanan yalnızca bilmek ancak kaynaklarınıza yetkisiz er
 
 -   **Azure Active Directory (Azure AD)**: Microsoft çok kiracılı, bulut tabanlı kimlik ve erişim yönetimi hizmeti. Azure AD ile tümleştirdiğinizde, çoklu oturum açma (SSO), uygulamalarınıza ekleyebilirsiniz. Dizin özellikleri, doğrudan Azure AD Graph API'si veya Microsoft Graph API'sini kullanarak erişebilirsiniz. OAuth2.0 yetkilendirme framework ve Open ID Connect desteği Azure AD ile yerel HTTP/REST uç noktaları ve çok platformlu Azure AD kimlik doğrulama kitaplıkları kullanarak tümleştirebilirsiniz.
 
-    >**Ne zaman kullanılacağı**: SSO bir deneyim sağlamak istediğinizde, grafik tabanlı verileri ile çalışma veya kullanıcıların etki alanı tabanlı kimlik doğrulaması.
+    >**Ne zaman kullanılacağı**: SSO bir deneyim sağlamak istediğinizde, grafik tabanlı verilerle çalışmak veya kullanıcıların etki alanı tabanlı kimlik doğrulaması.
 
-    >**Başlama**: daha fazla bilgi için bkz. [Azure Active Directory Geliştirici Kılavuzu](../../active-directory/develop/v1-overview.md).
+    >**Başlama**: Daha fazla bilgi için bkz. [Azure Active Directory Geliştirici Kılavuzu](../../active-directory/develop/v1-overview.md).
 
--   **App Service kimlik doğrulaması**: uygulamanızı barındırmak için App Service'ı seçtiğinizde, sosyal kimlik sağlayıcıları ile birlikte Azure AD için yerleşik kimlik doğrulama desteği ayrıca Al — Facebook, Google, Microsoft ve Twitter gibi.
+-   **App Service kimlik doğrulaması**: Uygulamanızı barındırmak için App Service'ı seçtiğinizde, sosyal kimlik sağlayıcıları ile birlikte Azure AD için yerleşik kimlik doğrulama desteği ayrıca Al — Facebook, Google, Microsoft ve Twitter gibi.
 
     >**Ne zaman kullanılacağı**: Azure AD kullanarak bir App Service uygulamasında kimlik doğrulamasını etkinleştirmek istediğinizde sosyal kimlik sağlayıcıları ya da her ikisini de.
 
@@ -176,11 +176,11 @@ Azure en iyi güvenlik uygulamaları hakkında daha fazla bilgi için bkz: [Azur
 
 Uygulamanızı ayarlama ve Azure'da çalışan ile performansı izlemek için sorunlarını izleyin ve müşterilerin uygulamanızı nasıl kullandığını görün. Azure izleme çeşitli seçenekler sunar.
 
--   **Visual Studio Application Insights**: Canlı web uygulamalarınızı izleme için Visual Studio ile tümleşen bir Azure'da barındırılan genişletilebilir bir analiz hizmetidir. Azure üzerinde barındırılan da olup olmadığını performansı ve kullanılabilirliği, uygulamalarınızın sürekli olarak geliştirmek için gereken verileri sağlar.
+-   **Visual Studio Application Insights**: Canlı web uygulamalarınızı izleme için Visual Studio ile tümleşen Azure'da barındırılan genişletilebilir bir analiz hizmetidir. Azure üzerinde barındırılan da olup olmadığını performansı ve kullanılabilirliği, uygulamalarınızın sürekli olarak geliştirmek için gereken verileri sağlar.
 
-    >**Başlama**: izleyin [Application Insights öğretici](../../application-insights/app-insights-overview.md).
+    >**Başlama**: İzleyin [Application Insights öğretici](../../application-insights/app-insights-overview.md).
 
--   **Azure İzleyici**: görselleştirin, sorgu, yol, arşiv ve Azure altyapınız ve kaynaklar tarafından oluşturulan günlükleri ve ölçümler üzerinde işlem yapmasına yardımcı olan bir hizmet. İzleyici, Azure portalında görmek ve Azure kaynakları izlemek için tek bir kaynak veri görünümleri sağlar.
+-   **Azure İzleyici**: Görselleştirin, sorgu, yol, arşiv ve Azure altyapınız ve kaynaklar tarafından oluşturulan günlükleri ve ölçümler üzerinde işlem yapmasına yardımcı olan bir hizmet. İzleyici, Azure portalında görmek ve Azure kaynakları izlemek için tek bir kaynak veri görünümleri sağlar.
  
     >**Başlama**: [Azure İzleyici ile çalışmaya başlama](../../monitoring-and-diagnostics/monitoring-get-started.md).
 
@@ -188,9 +188,9 @@ Uygulamanızı ayarlama ve Azure'da çalışan ile performansı izlemek için so
 
 VM'ler sağlamayı veya sürekli tümleştirme ile web uygulamalarınızı yayımlamak ister, Azure ile birçok popüler DevOps araçlarıyla tümleşir. Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, Azure DevOps ve diğerleri gibi araçlar için destekle, zaten yüklü ve mevcut deneyiminizi en üst düzeye araçları ile çalışabilirsiniz.
 
->**Şimdi deneyin:** [birkaç DevOps tümleştirmeleri'ni deneyin](https://azure.microsoft.com/try/devops/).
+>**Şimdi deneyin:** [Birkaç DevOps tümleştirmeleri'ni deneyin](https://azure.microsoft.com/try/devops/).
 
->**Başlama**: bir App Service uygulaması DevOps seçeneklerini görmek için bkz. [Azure uygulama Hizmeti'ne sürekli dağıtım](../../app-service/app-service-continuous-deployment.md).
+>**Başlama**: Bir App Service uygulaması DevOps seçeneklerini görmek için bkz. [Azure uygulama Hizmeti'ne sürekli dağıtım](../../app-service/app-service-continuous-deployment.md).
 
 
 ## <a name="azure-regions"></a>Azure bölgeleri
@@ -205,9 +205,9 @@ Azure'ı kullanmanın avantajları, dünyanın çeşitli veri merkezleri, uygula
 
 Olası olsa da, bu Internet hatası veya doğal afetler gibi bir olay nedeniyle çevrimdışına veri merkezinin tamamı için mümkün değildir. Birden fazla veri merkezinde konak önemli iş uygulamalarının en yüksek kullanılabilirlik sağlamak için en iyi bir yöntemdir. Kullanarak birden çok bölgede de genel kullanıcılar için gecikme süresini azaltın ve uygulamaları güncelleştirme ek esneklik olanaklarını sağlar.
 
-Sanal makine ve uygulama hizmetleri gibi bazı hizmetler kullanan [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) yüksek kullanılabilirlik Kurumsal uygulamaları desteklemek için bölgeler arasında yük devretme ile birden çok bölge desteği etkinleştirmek için. Bir örnek için bkz. [Azure başvuru mimarisi: bir web uygulaması birden çok bölgede çalıştırın](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region).
+Sanal makine ve uygulama hizmetleri gibi bazı hizmetler kullanan [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) yüksek kullanılabilirlik Kurumsal uygulamaları desteklemek için bölgeler arasında yük devretme ile birden çok bölge desteği etkinleştirmek için. Bir örnek için bkz [Azure başvuru mimarisi: Bir web uygulaması birden çok bölgede çalıştırın](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
->**Ne zaman kullanılacağı**: yük devretme ve çoğaltma avantajlarından yararlanarak kuruluş ve yüksek kullanılabilirlik uygulamalarını olduğunda.
+>**Ne zaman kullanılacağı**: Kurumsal ve yük devretme ve çoğaltma avantajlarından yararlanarak yüksek kullanılabilirlik uygulamaları olduğunda.
 
 ## <a name="how-do-i-manage-my-applications-and-projects"></a>Uygulamalarımı ve Projelerimi nasıl yönetebilirim?
 
@@ -217,9 +217,9 @@ Azure deneyimler, Azure kaynakları, uygulamaları ve projeleri oluşturmak ve y
 
 Azure, uygulamalarınızı ve hizmetlerinizi Bash, Terminal, komut istemini veya tercih ettiğiniz, komut satırı aracını kullanarak komut satırından yönetmek için iki yol sunar. Genellikle, Azure portalında olduğu gibi komut satırından aynı görevleri gerçekleştirebilirsiniz: oluşturma ve sanal makineler, sanal ağlar, web uygulamaları ve diğer hizmetleri yapılandırma gibi.
 
--   [Azure komut satırı arabirimi (CLI)](../../xplat-cli-install.md): bir Azure aboneliğine bağlanma ve Azure kaynaklarını komut satırından karşı çeşitli görevleri program olanak tanır.
+-   [Azure komut satırı arabirimi (CLI)](../../xplat-cli-install.md): Bir Azure aboneliğine bağlanma ve Azure kaynaklarını komut satırından karşı çeşitli görevleri program olanak sağlar.
 
--   [Azure PowerShell](../../powershell-install-configure.md): cmdlet'leriyle Windows PowerShell kullanarak Azure kaynaklarını yönetmenizi sağlayan bir modül kümesini sağlar.
+-   [Azure PowerShell](../../powershell-install-configure.md): Windows PowerShell kullanarak Azure kaynaklarını yönetmenizi sağlayan cmdlet'ler ile bir modül kümesini sağlar.
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -251,9 +251,9 @@ Mantıksal olarak gruplandırarak ve ilgili kaynakları yönetme yanı sıra Azu
 
 Bu dağıtımlar, JSON biçimli bir belge olan bir Azure Resource Manager şablonu kullanarak geliştirin. Şablonları, bir dağıtım tanımlayın ve betikler yerine bildirim temelli şablonlar kullanarak uygulamalarınızı yönetmek olanak tanır. Şablonlarınızı test, hazırlık ve üretim gibi farklı ortamlarda da çalışabilir. Örneğin, şablonları kullanarak kod deposundaki bir dizi tek bir tıklamayla Azure Hizmetleri dağıtan bir GitHub deposuna bir düğme ekleyebilirsiniz.
 
->**Ne zaman kullanılacağı**: uygulamanızın REST API'leri, Azure CLI ve Azure PowerShell kullanarak program aracılığıyla yönetebilirsiniz şablon tabanlı bir dağıtım istediğinizde kullanın Resource Manager şablonları.
+>**Ne zaman kullanılacağı**: Resource Manager şablonları, uygulamanızın REST API'leri, Azure CLI ve Azure PowerShell kullanarak program aracılığıyla yönetebilirsiniz şablon tabanlı bir dağıtım istediğinizde kullanın.
 
->**Başlama**: şablonları kullanmaya başlamak için bkz: [Azure Resource Manager şablonları yazma](../../resource-group-authoring-templates.md).
+>**Başlama**: Şablonlar ile çalışmaya başlamak için bkz: [Azure Resource Manager şablonları yazma](../../resource-group-authoring-templates.md).
 
 ## <a name="understanding-accounts-subscriptions-and-billing"></a>Hesapları anlama, abonelik ve faturalandırma
 
@@ -281,15 +281,15 @@ Azure kaynak Gezgini, aboneliğinizde zaten oluşturduğunuz kaynakları görsel
 
 Azure kaynaklarına erişime izin verdiğinizde, her zaman belirli bir görevi gerçekleştirmek için gereken en az ayrıcalık ile kullanıcılara sağlamak için en iyi uygulama olan.
 
--   **Rol tabanlı erişim denetimi (RBAC)**:, Azure, belirli bir kapsamda (asıl hesaplar) kullanıcı hesaplarına erişim vermek: Abonelik, kaynak grubu veya tek tek kaynaklar. RBAC, bir kaynak grubunda bir kaynak kümesini dağıtmak ve belirli kullanıcı veya grup için izinler sağlar. Ayrıca, hedef kaynak grubuna ait kaynaklara erişimini sağlar. Ayrıca, bir sanal makine veya sanal ağ gibi tek bir kaynağa erişim izni verebilirsiniz. Erişim vermek için kullanıcı, Grup veya hizmet sorumlusu için bir rol atayın. Birçok önceden tanımlı roller vardır ve kendi özel rollerinizi de tanımlayabilirsiniz. Daha fazla bilgi için bkz. [rol tabanlı erişim denetimi (RBAC) nedir?](../../role-based-access-control/overview.md).
+-   **Rol tabanlı erişim denetimi (RBAC)**: Azure'da, belirli bir kapsamda kullanıcı hesapları (asıl hesaplar) erişimi verebilir: Abonelik, kaynak grubu veya tek tek kaynaklar. RBAC, bir kaynak grubunda bir kaynak kümesini dağıtmak ve belirli kullanıcı veya grup için izinler sağlar. Ayrıca, hedef kaynak grubuna ait kaynaklara erişimini sağlar. Ayrıca, bir sanal makine veya sanal ağ gibi tek bir kaynağa erişim izni verebilirsiniz. Erişim vermek için kullanıcı, Grup veya hizmet sorumlusu için bir rol atayın. Birçok önceden tanımlı roller vardır ve kendi özel rollerinizi de tanımlayabilirsiniz. Daha fazla bilgi için bkz. [rol tabanlı erişim denetimi (RBAC) nedir?](../../role-based-access-control/overview.md).
 
-    >**Ne zaman kullanılacağı**: Kullanıcıları ve grupları veya bir kullanıcı bir abonelik sahibi olmak gerektiğinde için ayrıntılı erişim yönetimi gerektiğinde.
+    >**Ne zaman kullanılacağı**: Ayrıntılı erişim yönetimi, bir kullanıcı bir abonelik sahibi olmak gerektiğinde veya kullanıcılar ve gruplar için gerektiğinde.
 
-    >**Başlama**: daha fazla bilgi için bkz. [RBAC ve Azure portalını kullanarak erişimini yönetme](../../role-based-access-control/role-assignments-portal.md).
+    >**Başlama**: Daha fazla bilgi için bkz. [RBAC ve Azure portalını kullanarak erişimini yönetme](../../role-based-access-control/role-assignments-portal.md).
 
--   **Hizmet sorumlusu nesneleri**: kullanıcı asıl adları ve gruplara erişim sağlamanın yanı sıra hizmet sorumlusu aynı erişim verebilirsiniz.
+-   **Hizmet sorumlusu nesneleri**: Kullanıcı asıl adları ve gruplara erişim sağlamanın yanı sıra hizmet sorumlusu aynı erişim verebilirsiniz.
 
-    > **Ne zaman kullanılacağı**: ne zaman, program aracılığıyla Azure kaynaklarını yönetmek veya uygulamalar için erişim izni verme. Daha fazla bilgi için [oluşturma Active Directory uygulaması ve hizmet sorumlusu](../../active-directory/develop/howto-create-service-principal-portal.md).
+    > **Ne zaman kullanılacağı**: Ne zaman, program aracılığıyla Azure kaynaklarını yönetmek veya uygulamalar için erişim izni verme. Daha fazla bilgi için [oluşturma Active Directory uygulaması ve hizmet sorumlusu](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### <a name="tags"></a>Etiketler
 
@@ -303,10 +303,10 @@ Azure Resource Manager kaynakların için özel etiketler atama olanak sağlar. 
 
 Azure faturalandırma REST kaynak tüketimi ve Azure abonelikleri için meta veri bilgilerini erişmesini API kümesi sağlar. Bu faturalandırma API'lerini daha iyi tahmin edin ve Azure maliyetleri yönetme olanağı sağlayacak. İzleyebilir ve saatlik artışlarla yaptığı Harcamalar çözümlenmiştir harcama uyarıları oluşturma ve geçerli kullanım eğilimlere gelecek faturalandırma tahmin edin.
 
->**Başlama**: faturalandırma API'lerini kullanma hakkında daha fazla bilgi edinmek için [Azure faturalama kullanım ve RateCard API'leri genel bakış](../../billing-usage-rate-card-overview.md).
+>**Başlama**: Faturalandırma API'lerini kullanma hakkında daha fazla bilgi edinmek için [Azure faturalama kullanım ve RateCard API'leri genel bakış](../../billing-usage-rate-card-overview.md).
 
 #### <a name="predict-future-costs"></a>Gelecekteki maliyetleri tahmin edin
 
 Önceden maliyetlerini tahmin etmek zor olsa da, Azure sahip bir [fiyatlandırma hesaplayıcısını](https://azure.microsoft.com/pricing/calculator/) dağıtılan kaynakların maliyetini tahmin ederken kullanabilirsiniz. Portal ve faturalandırma REST API'lerini faturalama dikey penceresine, geçerli tüketimini temel alarak, gelecekteki maliyetlerini tahmin etmek için de kullanabilirsiniz.
 
->**Başlama**: bkz [Azure faturalama kullanım ve RateCard API'leri genel bakış](../../billing-usage-rate-card-overview.md).
+>**Başlama**: Bkz: [Azure faturalama kullanım ve RateCard API'leri genel bakış](../../billing-usage-rate-card-overview.md).

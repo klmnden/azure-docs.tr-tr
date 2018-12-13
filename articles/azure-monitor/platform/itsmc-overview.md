@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.component: ''
-ms.openlocfilehash: 7227fd68f696e827a076005bcd116e222f23e9b0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: e910a953743e8b43f51add5a1e74b3d612b62ba8
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883609"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190076"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Azure BT Hizmet Yönetimi Bağlayıcısı'nı kullanarak ITSM araçlara bağlayın
 
@@ -95,7 +94,7 @@ ITSM araçlarınıza prepped sonra bir bağlantı oluşturmak için aşağıdaki
     ![ITSM bağlantıları](media/itsmc-overview/itsm-connections.png)
 
     Bu sayfa, bağlantıların listesini görüntüler.
-3.  Tıklayın **Bağlantı Ekle**.
+3.  **Bağlantı Ekle**'ye tıklayın.
 
     ![ITSM Bağlantısı Ekle](media/itsmc-overview/add-new-itsm-connection.png)
 
@@ -162,7 +161,7 @@ Hizmet eşlemesi çözümünü kullanıyorsanız, aşağıdaki örnekte gösteri
 
 ![Log Analytics ekranı](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-Daha fazla bilgi: [hizmet eşlemesi](../../azure-monitor/insights/service-map.md)
+Daha fazla bilgi: [Hizmet Eşlemesi](../../azure-monitor/insights/service-map.md)
 
 
 ## <a name="additional-information"></a>Ek bilgiler
@@ -176,7 +175,7 @@ ITSMC tarafından toplanan veri örnekleri aşağıdaki bilgileri gösterir:
 
 > İş öğesi türüne bağlı olarak içeri Log Analytics'e **ServiceDesk_CL** aşağıdaki alanları içerir:
 
-**İş öğesi:** **olayları**  
+**İş öğesi:** **Olaylar**  
 ServiceDeskWorkItemType_s="Incident"
 
 **Alanları**
@@ -203,7 +202,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Bilgisayar
 
 
-**İş öğesi:** **değişiklik istekleri**
+**İş öğesi:** **Değişiklik istekleri**
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 

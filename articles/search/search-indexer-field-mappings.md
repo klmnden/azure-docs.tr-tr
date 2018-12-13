@@ -1,6 +1,6 @@
 ---
-title: Azure Search dizin oluşturucularında alan eşlemeleri
-description: Alan adları ve veri gösterimleri farklılıkları dikkate almak için Azure Search dizin oluşturucu alan eşlemelerini yapılandırma
+title: Dizin oluşturucular - Azure Search kullanarak dizin oluşturma için alan eşlemelerini otomatik
+description: Alan adları ve veri gösterimleri farklılıkları dikkate almak için Azure Search dizin oluşturucu alan eşlemelerini yapılandırın.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 01edc7001ec463cb16d8b6c715794b0028508143
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: 94a7274c0e950661d118ad5421e7c763fe555434
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404739"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312706"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Azure Search dizin oluşturucularında alan eşlemeleri
 Azure Search dizin oluşturucuyu kullanırken, kendiniz bazen burada giriş verileriniz, hedef dizin şemasını oldukça eşleşmiyor durumlarda bulabilirsiniz. Bu gibi durumlarda, kullandığınız **alan eşlemeleri** verilerinizi istediğiniz şekle dönüştürmek için.
@@ -134,7 +135,7 @@ Tüm belirtmezseniz `parameters`, ardından varsayılan değerini `useHttpServer
 <a name="base64details"></a>
 
 ### <a name="details-of-base64-encoding-and-decoding"></a>Base64 kodlama ve kodunu çözme ayrıntıları
-Azure Search'ü destekleyen iki base64 kodlama: HttpServerUtility URL'sini doldurma olmadan belirteç ve URL güvenli base64 kodlaması. Görünüm için bir belge anahtarını ayarlama kodlayın, dizin oluşturucu tarafından çözülecek bir değer kodlayın veya dizin oluşturucu tarafından kodlanmış bir alan kodunu çözme istiyorsanız aynı kodlama eşleme işlevlerine kullanmanız gerekir.
+Azure arama, iki base64 kodlamaları destekler: HttpServerUtility URL belirtecini ve URL güvenli olmayan doldurma base64 kodlaması. Görünüm için bir belge anahtarını ayarlama kodlayın, dizin oluşturucu tarafından çözülecek bir değer kodlayın veya dizin oluşturucu tarafından kodlanmış bir alan kodunu çözme istiyorsanız aynı kodlama eşleme işlevlerine kullanmanız gerekir.
 
 Varsa `useHttpServerUtilityUrlTokenEncode` veya `useHttpServerUtilityUrlTokenDecode` kodlama ve sırasıyla kod çözme için parametre ayarlanmış `true`, ardından `base64Encode` gibi davranan [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) ve `base64Decode` gibi davranır [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 

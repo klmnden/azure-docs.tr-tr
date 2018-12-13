@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: cf8c82f597cd659911cd66b0b7db8139e8d9d1a5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 6f1cd08e3c786a1d163a22b5da5150fde5f45b95
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416894"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135347"
 ---
-# <a name="tutorial-configure-message-routing-with-iot-hub"></a>Öğretici: IoT Hub'ı ile ileti yönlendirmeyi yapılandırma
+# <a name="tutorial-configure-message-routing-with-iot-hub"></a>Öğretici: IOT Hub ile ileti yönlendirmeyi yapılandırma
 
 [İleti yönlendirme](iot-hub-devguide-messages-d2c.md) IoT cihazlarınızdan yerleşik Olay Hub'ı ile uyumlu uç noktalara veya blob depolama, Service Bus Kuyruğu, Service Bus Konusu ve Olay Hub'ları gibi özel uç noktalara telemetri verileri gönderilmesine olanak tanır. İleti yönlendirmeyi yapılandırırken belirli bir koşula uyan yolu özelleştirmek için [yönlendirme sorguları](iot-hub-devguide-routing-query-syntax.md) oluşturabilirsiniz. Ayarlandıktan sonra, gelen veriler IoT Hub'ı tarafından otomatik olarak uç noktalara yönlendirilir. 
 
@@ -35,7 +35,7 @@ Bu öğreticide, aşağıdaki görevleri gerçekleştireceksiniz:
 > * PowerBI görselleştirmesinde ...
 > * ...sonuçları görüntüleyin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -56,6 +56,10 @@ Aşağıdaki bölümlerde bu gerekli adımların nasıl uygulanacağı açıklan
 1. Bir [kaynak grubu](../azure-resource-manager/resource-group-overview.md) oluşturun. 
 
 2. S1 katmanında IoT hub'ı oluşturun. IOT hub'ınızı bir tüketici grubu ekleyin. Tüketici grubu Azure Stream Analytics tarafından veriler alınırken kullanılır.
+
+   > [!NOTE]
+   > Bu öğreticiyi tamamlamak için ücretli bir katmanda bir IOT hub'ı kullanmanız gerekir. Ücretsiz katman yalnızca bir uç noktasını ayarlamanıza olanak tanır ve Bu öğretici için birden fazla uç noktası gereklidir.
+   > 
 
 3. Standard_LRS çoğaltmasıyla standart bir V1 depolama hesabı oluşturun.
 
@@ -304,13 +308,13 @@ Veriler, blob depolama alanına Avro biçiminde yazılır.
 
    **Ad**: Yönlendirme sorgunuz için bir ad girin. Bu öğreticide **StorageRoute** kullanılır.
 
-   **Uç nokta**: Az önce ayarladığınız uç noktayı gösterir. 
+   **Uç nokta**: Bu yeni ayarladığınız uç nokta gösterir. 
    
-   **Veri kaynağı**: Açılan listeden **Cihaz Telemetri İletileri**'ni seçin.
+   **Veri kaynağı**: Seçin **cihaz Telemetri iletilerini** aşağı açılan listeden.
 
-   **Yolu etkinleştir**: Bunun etkinleştirildiğinden emin olun.
+   **Rota etkinleştirme**: Bu etkin olduğundan emin olun.
    
-   **Yönlendirme sorgusu**: Sorgu dizesi olarak `level="storage"` girin. 
+   **Yönlendirme sorgusu**: Girin `level="storage"` sorgu dizesi olarak. 
 
    ![Depolama hesabı için yönlendirme sorgusu oluşturmayı gösteren ekran görüntüsü.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
    
@@ -330,11 +334,11 @@ Veriler, blob depolama alanına Avro biçiminde yazılır.
 
 4. Şu alanları doldurun:
 
-   **Uç Nokta Adı**: Uç nokta için bir ad girin. Bu öğreticide **CriticalQueue** kullanılır.
+   **Uç nokta adı**: Uç nokta için bir ad girin. Bu öğreticide **CriticalQueue** kullanılır.
    
-   **Service Bus Ad Alanı**: Açılan listeyi görüntülemek için bu alana tıklayın; hazırlık adımlarında ayarladığınız Service Bus ad alanını seçin. Bu öğreticide **ContosoSBNamespace** kullanılır.
+   **Service Bus Namespace**: Açılan listede gösterilmesi için bu alan; tıklayın. Hazırlama adımları sizin ayarladığınız service bus ad alanı seçin. Bu öğreticide **ContosoSBNamespace** kullanılır.
 
-   **Service Bus kuyruğu**: Açılan listeyi görüntülemek için bu alana tıklayın; açılan listeden Service Bus kuyruğunu seçin. Bu öğreticide **contososbqueue** kullanılır.
+   **Service Bus kuyruğu**: Açılan listede gösterilmesi için bu alan; tıklayın. Service Bus kuyruğu, açılır listeden seçin. Bu öğreticide **contososbqueue** kullanılır.
 
 5. Service Bus kuyruğu uç noktasını eklemek için **Oluştur**'a tıklayın. **Yol ekle** bölmesine dönersiniz. 
 
@@ -342,11 +346,11 @@ Veriler, blob depolama alanına Avro biçiminde yazılır.
 
    **Ad**: Yönlendirme sorgunuz için bir ad girin. Bu öğreticide **SBQueueRoute** kullanılır. 
 
-   **Uç nokta**: Az önce ayarladığınız uç noktayı gösterir.
+   **Uç nokta**: Bu yeni ayarladığınız uç nokta gösterir.
 
-   **Veri kaynağı**: Açılan listeden **Cihaz Telemetri İletileri**'ni seçin.
+   **Veri kaynağı**: Seçin **cihaz Telemetri iletilerini** aşağı açılan listeden.
 
-   **Yönlendirme sorgusu**: Sorgu dizesi olarak `level="critical"` girin. 
+   **Yönlendirme sorgusu**: Girin `level="critical"` sorgu dizesi olarak. 
 
    ![Service Bus kuyruğu için yönlendirme sorgusu oluşturmayı gösteren ekran görüntüsü.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 
@@ -366,15 +370,15 @@ Service Bus kuyruğu kritik olarak belirlenmiş iletileri almak için kullanıla
 
 1. [Azure portalında](https://portal.azure.com) **+ Kaynak oluştur**'a tıklayın. Arama kutusuna **mantıksal uygulama** yazın ve Enter tuşuna basın. Görüntülenen arama sonuçlarında Mantıksal Uygulama'yı seçin ve **Mantıksal uygulama oluştur** bölmesinden devam etmek için **Oluştur**'a tıklayın. Alanları doldurun. 
 
-   **Ad**: bu alan, mantıksal uygulamanın adıdır. Bu öğreticide **ContosoLogicApp** kullanılır. 
+   **Ad**: Bu alan, mantıksal uygulama adıdır. Bu öğreticide **ContosoLogicApp** kullanılır. 
 
    **Abonelik**: Azure aboneliğinizi seçin.
 
-   **Kaynak grubu**: **Var olanı kullan**'a tıklayın ve kaynak grubunuzu seçin. Bu öğreticide **ContosoResources** kullanılır. 
+   **Kaynak grubu**: Tıklayın **var olanı kullan** ve kaynak grubunuzu seçin. Bu öğreticide **ContosoResources** kullanılır. 
 
-   **Konum**: Konumunuzu kullanın. Bu öğreticide **West US** kullanılır. 
+   **Konum**: Konumunuz olarak kullanın. Bu öğreticide **West US** kullanılır. 
 
-   **Log Analytics**: Bu iki durumlu düğme kapalı konuma getirilmelidir. 
+   **Log Analytics**: Bu iki durumlu kapatılmalıdır. 
 
    ![Mantıksal Uygulama Oluştur ekranını gösteren ekran görüntüsü.](./media/tutorial-routing/create-logic-app.png)
 
@@ -424,11 +428,11 @@ Verileri Power BI görselleştirmesinde görmek için, önce bir Stream Analytic
 
 2. İş için aşağıdaki bilgileri girin.
 
-   **İş adı**: İşin adı. Adın genel olarak benzersiz olması gerekir. Bu öğreticide **contosoJob** kullanılır.
+   **İş adı**: İş adı. Adın genel olarak benzersiz olması gerekir. Bu öğreticide **contosoJob** kullanılır.
 
-   **Kaynak grubu**: IoT hub'ınız tarafından kullanılan kaynak grubunun aynısını kullanın. Bu öğreticide **ContosoResources** kullanılır. 
+   **Kaynak grubu**: IOT hub tarafından kullanılan aynı kaynak grubunu kullanın. Bu öğreticide **ContosoResources** kullanılır. 
 
-   **Konum**: Kurulum betiğinde kullanılan konumun aynısını kullanın. Bu öğreticide **West US** kullanılır. 
+   **Konum**: Kurulum komut dosyasında kullandığınız konumun aynısını kullanın. Bu öğreticide **West US** kullanılır. 
 
    ![Stream Analytics işi oluşturma işleminin gösterildiği ekran görüntüsü.](./media/tutorial-routing/stream-analytics-create-job.png)
 
@@ -444,13 +448,13 @@ Verileri Power BI görselleştirmesinde görmek için, önce bir Stream Analytic
 
    **Abonelik**: Aboneliğinizi seçin.
 
-   **IOT Hub'ı**: IOT Hub'ını seçin. Bu öğreticide **ContosoTestHub** kullanılır.
+   **IOT hub'ı**: IOT hub'ı seçin. Bu öğreticide **ContosoTestHub** kullanılır.
 
-   **Uç nokta**: **Mesajlaşma**'yı seçin. (İşlem İzleme'yi seçerseniz, gönderdiğiniz veriler yerine IoT hub'ı hakkındaki telemetri verilerini alırsınız.) 
+   **Uç nokta**: Seçin **Mesajlaşma**. (İşlem İzleme'yi seçerseniz, gönderdiğiniz veriler yerine IoT hub'ı hakkındaki telemetri verilerini alırsınız.) 
 
-   **Paylaşılan erişim ilkesi adı**: **iothubowner** öğesini seçin. Paylaşılan Erişim İlkesi Anahtarı'nı portal sizin için doldurur.
+   **Paylaşılan erişim ilkesi adı**: Seçin **iothubowner**. Paylaşılan Erişim İlkesi Anahtarı'nı portal sizin için doldurur.
 
-   **Tüketici grubu**: Daha önce oluşturduğunuz tüketici grubunu seçin. Bu öğreticide **contosoconsumers** kullanılır.
+   **Tüketici grubu**: Daha önce oluşturduğunuz tüketici grubu seçin. Bu öğreticide **contosoconsumers** kullanılır.
    
    Kalan alanlar için varsayılan değerleri kabul edin. 
 
@@ -464,7 +468,7 @@ Verileri Power BI görselleştirmesinde görmek için, önce bir Stream Analytic
 
 2. **Çıkışlar** bölmesinde **Ekle**'ye tıklayın ve **Power BI**'ı seçin. Görüntülenen ekranda aşağıdaki alanları doldurun:
 
-   **Çıkış diğer adı**: Çıkışın benzersiz diğer adı. Bu öğreticide **contosooutputs** kullanılır. 
+   **Çıkış diğer adı**: Çıkış için benzersiz diğer adı. Bu öğreticide **contosooutputs** kullanılır. 
 
    **Veri kümesi adı**: Power BI'da kullanılacak veri kümesinin adı. Bu öğreticide **contosodataset** kullanılır. 
 

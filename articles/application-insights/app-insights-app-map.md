@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 12/12/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 1ecdbdfb657d0372fea87c4260226f9de8ded9ce
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d1c95802889c80baf79eaf0a0af1e30d6bc3fdfd
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682512"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322286"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Uygulama Haritası: Dağıtılmış uygulamalar Önceliklendirme
 
@@ -38,7 +38,7 @@ Tam uygulama topolojisinin birden fazla seviyede ilgili uygulama bileşenleri ar
 
 Bu deneyim, bileşenlerin aşamalı bulma ile başlar. Uygulama Haritası'ı ilk yüklediğinizde, bir sorgu kümesi bu bileşenle ilgili bileşenler bulmak için tetiklenir. Bulundukları anda sol üst köşesinde bir düğme, uygulamanızda bileşen sayısı ile güncelleştirir. 
 
-"Güncelleştirme eşleme bileşenlerini" a tıklandığında, harita noktasında kadar bulunan tüm bileşenleri ile yenilenir.
+"Güncelleştirme eşleme bileşenlerini" a tıklandığında, harita noktasında kadar bulunan tüm bileşenleri ile yenilenir. Uygulamanızı karmaşıklığına bağlı olarak, bu yükleme için bir dakika sürebilir.
 
 Tüm bileşenleri tek bir Application Insights kaynağı içindeki rol varsa, bu bulma adım gerekli değildir. Bu tür bir uygulama için ilk yükleme işlemi, tüm bileşenleri sahip olur.
 
@@ -60,7 +60,7 @@ Seçin **hataları Araştır** hataları bölmesinde başlatmak için.
 
 ### <a name="investigate-performance"></a>Performansı araştır
 
-Performans sorunları seçme sorunlarını gidermek için **performansını araştırın**
+Performans sorunlarını gidermek için seçin **performansını araştırın**.
 
 ![Ekran görüntüsü araştırmak performans düğmesi](media/app-insights-app-map/investigate-performance.png)
 
@@ -76,7 +76,7 @@ Seçin **ayrıntıları Git** çağrı yığın düzeyi için gerçekleştirilen
 
 ### <a name="view-in-analytics"></a>Analytics'de görüntüle
 
-Sorgulamak ve uygulamaların veri başka tıklatın araştırmak için **analytics'te görüntüle**.
+Sorgulamak ve uygulama verilerinizi daha fazla araştırmak için tıklayın **analytics'te görüntüle**.
 
 ![Analytics düğmesinde görünümünün ekran görüntüsü](media/app-insights-app-map/view-in-analytics.png)
 
@@ -84,21 +84,128 @@ Sorgulamak ve uygulamaların veri başka tıklatın araştırmak için **analyti
 
 ### <a name="alerts"></a>Uyarılar
 
-Etkin uyarıları ve Uyarıları tiggered olması neden temel kurallarını görüntülemek için seçin **uyarılar**.
+Etkin uyarıları ve uyarı tetiklenmesi neden temel kurallarını görüntülemek için seçin **uyarılar**.
 
 ![Uyarılar düğmesinin Ekran görüntüsü](media/app-insights-app-map/alerts.png)
 
 ![Analytics deneyiminin ekran görüntüsü](media/app-insights-app-map/alerts-view.png)
 
-## <a name="video"></a>Video
+## <a name="set-cloudrolename"></a>Kümesi cloud_RoleName
 
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
+Uygulama Haritası kullanan `cloud_RoleName` eşlemedeki bileşenleri tanımlamak için özellik. Application Insights SDK'sını otomatik olarak ekler `cloud_RoleName` bileşenleri tarafından yayılan telemetri özelliği. Örneğin, SDK'sı bir web sitesi veya hizmet rol adı için ekleyeceksiniz `cloud_RoleName` özelliği. Bununla birlikte, varsayılan değeri geçersiz kılmak için burada isteyebileceğiniz durumlar vardır. Cloud_RoleName geçersiz kılmak ve uygulama eşlemesinde görüntülenen değiştirmek için:
 
-## <a name="feedback"></a>Geri Bildirim
-Lütfen portalı geri bildirim seçeneği aracılığıyla geri bildirim sağlayın.
+### <a name="net"></a>.NET
+
+```csharp
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
+
+namespace CustomInitializer.Telemetry
+{
+    public class MyTelemetryInitializer : ITelemetryInitializer
+    {
+        public void Initialize(ITelemetry telemetry)
+        {
+            if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+            {
+                //set custom role name here
+                telemetry.Context.Cloud.RoleName = "RoleName";
+            }
+        }
+    }
+}
+```
+
+**Yük, başlatıcı**
+
+Applicationınsights.config dosyasında:
+
+```xml
+    <ApplicationInsights>
+      <TelemetryInitializers>
+        <!-- Fully qualified type name, assembly name: -->
+        <Add Type="CustomInitializer.Telemetry.MyTelemetryInitializer, CustomInitializer"/>
+        ...
+      </TelemetryInitializers>
+    </ApplicationInsights>
+```
+
+Kodda, örneğin Global.aspx.cs başlatıcısında örneklemek için alternatif bir yöntem verilmiştir:
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+    }
+```
+
+### <a name="nodejs"></a>Node.js
+
+```javascript
+var appInsights = require("applicationinsights");
+appInsights.setup('INSTRUMENTATION_KEY').start();
+appInsights.defaultClient.context.tags["ai.cloud.role"] = "your role name";
+appInsights.defaultClient.context.tags["ai.cloud.roleInstance"] = "your role instance";
+```
+
+### <a name="alternate-method-for-nodejs"></a>Node.js için alternatif yöntem
+
+```javascript
+var appInsights = require("applicationinsights");
+appInsights.setup('INSTRUMENTATION_KEY').start();
+
+appInsights.defaultClient.addTelemetryProcessor(envelope => {
+    envelope.tags["ai.cloud.role"] = "your role name";
+    envelope.tags["ai.cloud.roleInstance"] = "your role instance"
+});
+```
+
+### <a name="java"></a>Java
+
+Spring Boot ile Application Insights Spring Boot Başlatıcı kullanırsanız, yalnızca gerekli değişiklik application.properties dosyasında uygulama için kendi özel adınızı ayarlamaktır.
+
+`spring.application.name=<name-of-app>`
+
+Spring Boot Başlatıcı cloudRoleName spring.application.name özelliği için girdiğiniz değer otomatik olarak atar.
+
+Java bağıntı ve cloudRoleName olmayan SpringBoot uygulamalarını kullanıma almak için bu yapılandırma hakkında daha fazla bilgi için [bölümü](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) bağıntı üzerinde.
+
+### <a name="clientbrowser-side-javascript"></a>Tarayıcı/istemci-tarafı JavaScript
+
+```javascript
+appInsights.queue.push(() => {
+appInsights.context.addTelemetryInitializer((envelope) => {
+  envelope.tags["ai.cloud.role"] = "your role name";
+  envelope.tags["ai.cloud.roleInstance"] = "your role instance";
+});
+});
+```
+
+Telemetri başlatıcıları cloud_RoleName özelliği geçersiz kılma hakkında daha fazla bilgi için bkz. [özellikleri ekleyin: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
+
+## <a name="troubleshooting"></a>Sorun giderme
+
+Uygulama Haritası, beklendiği gibi çalışmaya başlama ile ilgili sorunlar yaşıyorsanız, aşağıdaki adımları deneyin:
+
+1. Resmi olarak desteklenen bir SDK'sı kullandığınızdan emin olun. Desteklenmeyen topluluk SDK'ları bağıntı desteklemiyor olabilir.
+
+    Bu [makale](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) desteklenen Sdk'lardan listesi.
+
+2. Tüm bileşenleri en son SDK sürümüne yükseltin.
+
+3. Azure işlevleri ile kullanıyorsanız, C#yükseltmek için [işlevler V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+
+4. Onayla [cloud_RoleName](app-insights-app-map.md#Set-cloud-RoleName) doğru yapılandırılmış.
+
+## <a name="portal-feedback"></a>Portalı geri bildirim
+Geri bildirim sağlamak için portalı geri bildirim seçeneğini kullanın.
 
 ![MapLink 1 görüntüsü](./media/app-insights-app-map/13.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure portal](https://portal.azure.com)
+* [Bağıntı anlama](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)

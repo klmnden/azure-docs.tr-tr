@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 74e963abe5d2798f72bce8212c9f761f8f3297d1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e0a3f5239e9d0f16312894dee598c0fc490f1e73
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256944"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270017"
 ---
 # <a name="the-azure-sql-database-service"></a>Azure SQL veritabanı hizmeti
 
@@ -60,7 +60,7 @@ SQL veritabanı ile her veritabanı birbirine ve taşınabilir, her biri kendi h
 
 SQL Veritabanı bir [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) veya [Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) sunar.
 
-- DTU tabanlı satın alma modeli, basit ve ağır veritabanı iş yüklerini desteklemek için üç hizmet katmanında işlem, bellek ve G/Ç kaynakları karışımını sunar: Temel, Standart ve Premium. İşlem boyutları her katman içinde ek depolama kaynakları ekleyebileceğiniz, bu kaynakları farklı bir karışımını sağlar.
+- DTU tabanlı satın alma modeli, işlem, bellek ve hafif ve ağır veritabanı iş yüklerini desteklemek için üç hizmet katmanı g/ç kaynakları karışımını sunar: Temel, standart ve Premium. İşlem boyutları her katman içinde ek depolama kaynakları ekleyebileceğiniz, bu kaynakları farklı bir karışımını sağlar.
 - Sanal çekirdek tabanlı satın alma modeli, sanal çekirdek sayısını, bellek miktarını ve depolama alanı miktarını ve hızını seçmenize olanak sağlar.
 
 Düşük bir maliyetle genel amaçlı hizmet katmanındaki aylık küçük, tek bir veritabanı üzerinde ilk uygulamanızı oluşturun ve ardından Hizmet katmanını elle veya programlama yoluyla herhangi bir zamanda iş kritik hizmet katmanına çözümünüzün gereksinimlerini karşılayacak şekilde değiştirebilirsiniz. Performansı uygulamanız veya müşterileriniz kesinti yaşamadan ayarlayabilirsiniz. Dinamik ölçeklenebilirlik, veritabanınızın hızla değişen kaynak gereksinimlerine hızlı şekilde yanıt vermesini ve yalnızca ihtiyaç duyduğunuz kaynaklara ve ihtiyaç duyduğunuz süre boyunca ödeme yapmanızı sağlar.
@@ -93,8 +93,8 @@ Peki tek veritabanlarıyla ve elastik havuzların performanslarını nasıl kar�
 
 SQL Veritabanı ayrıca izlemeyi kolaylaştırmak için [ölçümler ve tanılama günlükleri oluşturabilir](sql-database-metrics-diag-logging.md). SQL Veritabanını kaynak kullanımını, çalışanları, oturumları ve bu Azure kaynaklarından birine yapılan bağlantıları kaydedecek şekilde yapılandırabilirsiniz:
 
-- **Azure Depolama**: Küçük maliyetlerle çok sayıda telemetri arşivleme için
-- **Azure Olay Hub'ı**: SQL Veritabanı telemetrisini özel izleme çözümünüz veya yoğun işlem hatlarıyla tümleştirmek için
+- **Azure depolama**: Maliyetlerle çok sayıda küçük için telemetri arşivleme için
+- **Azure olay hub'ı**: SQL veritabanı telemetrisini özel izleme çözümünüz veya yoğun işlem hatlarıyla tümleştirmek için
 - **Azure Log Analytics**: Raporlama, uyarı ve azaltma özelliklerine sahip yerleşik izleme çözümü için.
 
     ![architecture](./media/sql-database-metrics-diag-logging/architecture.png)
@@ -109,10 +109,10 @@ Azure'ın Microsoft yönetimindeki veri merkezlerinin küresel bir ağı tarafı
 - **[Zaman içinde nokta geri yüklemeler](sql-database-recovery-using-backups.md)**:
 
   SQL veritabanı otomatik yedek elde tutma dönemi içinde zaman içinde bir noktaya geri destekler.
-- **[Etkin coğrafi çoğaltma](sql-database-geo-replication-overview.md)**:
+- **[Etkin coğrafi çoğaltma](sql-database-active-geo-replication.md)**:
 
   SQL veritabanı aynı ya da Global olarak dağıtılmış Azure veri merkezlerinde en fazla dört okunabilir ikincil veritabanı yapılandırmanızı sağlar.  Örneğin, yüksek hacimli eşzamanlı salt okunur işlemlere sahip bir katalog veritabanı kullanan bir SaaS uygulamanız varsa, etkin coğrafi çoğaltmayı kullanarak global okuma ölçeğini etkinleştirebilir ve birincil veritabanı üzerindeki okuma iş yükü kaynaklı performans sorunlarını ortadan kaldırabilirsiniz.
-- **[Yük devretme grupları](sql-database-geo-replication-overview.md)**:
+- **[Otomatik Yük devretme grupları](sql-database-auto-failover-group.md)**:
 
   SQL veritabanı, yüksek kullanılabilirliği etkinleştirme ve Yük Dengeleme saydam coğrafi çoğaltma ve yük devretme veritabanları ve elastik havuzların büyük kümeleri dahil olmak üzere global ölçekte olanak tanır. Yük devretme grupları ve etkin coğrafi çoğaltma asgari düzeyde yönetimle global olarak dağıtılmış SaaS uygulamalarının oluşturulmasını sağlar ve tüm karmaşık izleme, yönlendirme ve yük devretme düzenlemesini SQL Veritabanı'na bırakır.
 - **[Bölgesel olarak yedekli veritabanları](sql-database-high-availability.md)**:
@@ -136,7 +136,7 @@ Bugün SQL Veritabanı üzerinde [çok kiracılı SaaS multi-tenant uygulamalar�
 [SQL Veritabanında](sql-database-automatic-tuning.md) iki otomatik ayarlama yöntemi mevcuttur:
 
 - **Otomatik dizin yönetimi**: Veritabanınıza eklenmesi ve veritabanınızdan kaldırılması gereken dizinleri tanımlar.
-- **Otomatik plan düzeltme**: Sorunlu planları tanımlar ve SQL planı performans sorunlarını düzeltir (çok yakında, SQL Server 2017 ile kullanılabilir).
+- **Otomatik plan düzeltme**: Sorunlu planları tanımlar ve SQL planı performans sorunlarını düzeltir (yakında, SQL Server 2017 ile kullanılabilir).
 
 ### <a name="adaptive-query-processing"></a>Uyarlamalı sorgu işleme
 
@@ -197,11 +197,11 @@ SQL Veritabanı MacOS, Linux ve Windows üzerinde Python, Java, Node.js, PHP, Ru
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>SQL Server mühendislik ekibi ile iletişime geçme
 
-- [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Veritabanı yönetimi hakkında sorular için
-- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): Geliştirme hakkında sorular için
-- [MSDN Forumları](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Teknik sorular için
-- [Geri bildirim](https://aka.ms/sqlfeedback): Hata bildirimleri ve özellik istekleri için
-- [Reddit](https://www.reddit.com/r/SQLServer/): SQL Server’ı tartışmak için
+- [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Veritabanı yönetimi hakkında sorular
+- [Yığın Taşması](http://stackoverflow.com/questions/tagged/sql-server): Geliştirme hakkında sorular
+- [MSDN Forumları](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Teknik sorular sorun
+- [Geri bildirim](https://aka.ms/sqlfeedback): Rapor bildirimleri ve özellik istekleri
+- [Reddit](https://www.reddit.com/r/SQLServer/): SQL Server'ı tartışmak
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

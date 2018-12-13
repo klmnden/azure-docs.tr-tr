@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 393b90395698c18fdbd4fc8ba4d8bc79bd6287be
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 15a528bfdc1f23c932d1206dbca4b05af8bd58ba
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495189"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186710"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication'ı edinme
 
@@ -87,17 +87,17 @@ Azure multi-Factor Authentication sağlayıcısı kullanırken, Azure aboneliği
 
 1. **Etkin kullanıcı başına** - sabit sayıda düzenli olarak kimlik doğrulaması gereken çalışanlar için iki aşamalı doğrulamayı etkinleştirmek istediğiniz kuruluşlara yöneliktir. Kullanıcı başına faturalandırma, Azure AD kiracınıza ve Azure MFA sunucunuzu MFA için etkinleştirilen kullanıcı sayısına bağlıdır. Kullanıcılar için mfa'yı hem de Azure AD'de etkin olup olmadığını ve Azure MFA sunucusu ve etki alanı eşitleme (Azure AD Connect) etkin sonra size daha büyük bir kullanıcı kümesine sayısı. Etki alanı eşitleme etkin değil sonra size Azure AD MFA için etkinleştirilmiş tüm kullanıcıların toplam sayısı ve Azure MFA sunucusu. Faturalandırma günlere eşit olarak dağıtılır ve ticaret sisteme günlük bildirdi.
 
-  > [!NOTE]
-  > Faturalandırma örnek 1: 5000 kullanıcılar için mfa'yı bugün etkin olması. MFA sistem bu sayıyı o gün için 31 ve raporları 161.29 kullanıcı tarafından böler. Yarın MFA sistem 161.77 kullanıcı o gün için raporlar için 15 daha fazla kullanıcı sağlar. Fatura dönemi sonunda Azure aboneliğinize faturalandırılır kullanıcıların toplam sayısı 5.000 kadar ekler.
-  >
-  > Faturalandırma örnek 2: bir kullanıcı başına Azure MFA Sağlayıcısı'nın farkını yapmak zorunda lisansların ve kullanıcıların olmadan, bir karışımı vardır. 4.500 vardır Enterprise Mobility + Security Lisanslarımı kiracınıza ancak MFA için etkinleştirilmiş 5.000 kullanıcılar. Azure aboneliğiniz 500 kullanıcı için fatura, günlere eşit olarak dağıtılır ve günlük 16.13 kullanıcılar olarak bildirilen.
-  >
+   > [!NOTE]
+   > Faturalandırma örnek 1: 5.000 kullanıcılar için mfa'yı bugün etkin var. MFA sistem bu sayıyı o gün için 31 ve raporları 161.29 kullanıcı tarafından böler. Yarın MFA sistem 161.77 kullanıcı o gün için raporlar için 15 daha fazla kullanıcı sağlar. Fatura dönemi sonunda Azure aboneliğinize faturalandırılır kullanıcıların toplam sayısı 5.000 kadar ekler.
+   >
+   > Faturalandırma örnek 2: Bir kullanıcı başına Azure MFA Sağlayıcısı'nın farkını yapmak zorunda lisansların ve kullanıcılar olmadan, bir karışımını sahip. 4.500 vardır Enterprise Mobility + Security Lisanslarımı kiracınıza ancak MFA için etkinleştirilmiş 5.000 kullanıcılar. Azure aboneliğiniz 500 kullanıcı için fatura, günlere eşit olarak dağıtılır ve günlük 16.13 kullanıcılar olarak bildirilen.
+   >
 
 1. **Kimlik doğrulaması başına** - çok sayıda seyrek kimlik doğrulaması gereken kullanıcılar için iki aşamalı doğrulamayı etkinleştirmek istediğiniz kuruluşlara yöneliktir. Bu doğrulamaları başarısız veya reddedilen bağımsız olarak iki aşamalı doğrulama isteklerinin sayısı göre faturalandırılır. Bu faturalandırma Azure kullanım ekstreniz 10 kimlik doğrulama paketlerine görünür ve günlük olarak bildirilir.
 
-  > [!NOTE]
-  > Faturalandırma örnek 3: Bugün Azure MFA hizmeti 3,105 iki aşamalı doğrulama isteklerini aldı. Azure aboneliğiniz için 310.5 kimlik doğrulama paketlerini faturalandırılır.
-  >
+   > [!NOTE]
+   > Faturalandırma örnek 3: Bugün Azure MFA hizmeti 3,105 iki aşamalı doğrulama isteklerini aldı. Azure aboneliğiniz için 310.5 kimlik doğrulama paketlerini faturalandırılır.
+   >
 
 Lisansları olabilir, ancak tüketim tabanlı yapılandırma için yine de faturalandırılır mıyım dikkat edin önemlidir. Bir kimlik doğrulaması başına Azure MFA sağlayıcısını ayarlama, olanlar lisansına sahip kullanıcılar tarafından gerçekleştirilen her iki aşamalı doğrulama isteği için faturalandırılırsınız. Azure AD kiracınıza bağlı olmayan bir etki alanındaki bir kullanıcı başına Azure MFA sağlayıcısını ayarlama, kullanıcılarınızın Azure AD lisansına sahip olsa bile etkinleştirilen kullanıcı başına faturalandırılır.
 

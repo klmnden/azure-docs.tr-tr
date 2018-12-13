@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 7578950af2dafdade3c97650dfd212240053dd3b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4c54fe7c9ae5555ad1b8ba6919c70c8f7fa49125
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625462"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252123"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Güvenli bir şekilde bir web uygulaması için gizli uygulama ayarlarını Kaydet
 
 ## <a name="overview"></a>Genel Bakış
 Bu makalede, güvenli bir şekilde Azure uygulamaları için gizli bir uygulama yapılandırma ayarlarını kaydetmek açıklar.
 
-Geleneksel olarak tüm uygulama yapılandırma ayarları gibi Web.config yapılandırma dosyalarında kaydedilir web. Bu yöntem, genel kaynak denetimi sistemlerine Github gibi bulut kimlik bilgileri gibi gizli dizi ayarlarını iade için yol açar. Bu arada, kaynak kodunu değiştirin ve geliştirme ayarlarını yeniden yapılandırmanız için gerekli ek yükü nedeniyle iyi güvenlik uygulamalarını takip zor olabilir.
+Geleneksel olarak tüm uygulama yapılandırma ayarları gibi Web.config yapılandırma dosyalarında kaydedilir web. Bu yöntem, genel kaynak denetimi sistemlerine GitHub gibi bulut kimlik bilgileri gibi gizli dizi ayarlarını iade için yol açar. Bu arada, kaynak kodunu değiştirin ve geliştirme ayarlarını yeniden yapılandırmanız için gerekli ek yükü nedeniyle iyi güvenlik uygulamalarını takip zor olabilir.
 
 Geliştirme işlemi güvenli olduğundan emin olmak için uygulama gizli ayarları güvenli bir şekilde değişikliğiyle veya hiç kaynak kod değişikliği kaydetmek için Araçlar ve framework kitaplıkları oluşturulur.
 

@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: da3edf7bc17240dabcb5519317f38bdb468be9f2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 7a1381ce43056607486a27710cd6ee6181b9a5c1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099996"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257402"
 ---
-# <a name="retrain-machine-learning-studio-models-programmatically"></a>Machine Learning Studio modellerini programlama yoluyla yeniden eğitme
+# <a name="retrain-azure-machine-learning-studio-models-programmatically"></a>Azure Machine Learning Studio modellerini programlama yoluyla yeniden eğitme
 Bu izlenecek yolda, program aracılığıyla bir Azure Machine Learning Studio web hizmeti kullanarak yeniden eğitme hakkında bilgi edineceksiniz C# ve Machine Learning Batch Execution hizmeti.
 
 Model retrained sonra aşağıdaki izlenecek yollar, Tahmine dayalı web hizmeti olarak modeli güncelleştirmek nasıl göster:
@@ -36,14 +35,14 @@ Yeniden eğitme sürecinin genel bakış için bkz. [makine öğrenme modeli yen
 Var olan yeni Azure Resource Manager tabanlı web hizmetiyle başlatmak istiyorsanız, bkz. [mevcut bir Tahmine dayalı web hizmetini yeniden eğitme](retrain-existing-resource-manager-based-web-service.md).
 
 ## <a name="create-a-training-experiment"></a>Eğitim denemenizi oluşturma
-Bu örnekte, kullanacağınız "örnek 5: Eğitimi, Test, değerlendir ikili sınıflandırma: yetişkinlere yönelik veri kümesi" Microsoft Azure Machine Learning örnekleri öğesinden. 
+Bu örnekte, kullanacağınız "örnek 5: Eğitim, Test, değerlendirmek için ikili sınıflandırma: Yetişkinlere yönelik veri kümesinden"Microsoft Azure Machine Learning örnekleri. 
 
 Bir deneme oluşturmak için:
 
 1. Oturum Microsoft Azure Machine Learning Studio'da. 
 2. Üzerinde panosunu sağ alt köşesindeki, tıklayın **yeni**.
 3. Microsoft Samples örnek 5'i seçin.
-4. Deneme tuvalinin üst kısmındaki denemeyi yeniden adlandırma için deneme adını seçin "örnek 5: Eğitimi, Test, değerlendir ikili sınıflandırma: yetişkinlere yönelik veri kümesi".
+4. Deneme tuvalinin üst kısmındaki denemeyi yeniden adlandırma için deneme adını seçin "örnek 5: Eğitim, Test, değerlendirmek için ikili sınıflandırma: Yetişkinlere yönelik veri kümeleri".
 5. Sayım Model türü.
 6. Deneme tuvalinin altındaki tıklatın **çalıştırma**.
 7. Tıklayın **Ayarla web hizmeti** seçip **web hizmetini yeniden eğitme**. 
@@ -93,7 +92,7 @@ Bu örnek için kullanmakta olduğunuz C# yeniden eğitme uygulama oluşturmak i
 
 Yeniden eğitme API'lerini çağırmak için:
 
-1. Visual Studio'da C# konsol uygulaması oluşturun: **yeni** > **proje** > **Visual C#** > **Windows Klasik Masaüstü** > **konsol uygulaması (.NET Framework)**.
+1. Oluşturma bir C# konsol uygulaması Visual Studio'da: **Yeni** > **proje** > **Visual C#**   >  **Windows Klasik Masaüstü**  >   **Konsol uygulaması (.NET Framework)**.
 2. Machine Learning Web hizmetini portalında oturum açın.
 3. Klasik web hizmeti ile çalışıyorsanız, tıklayın **Klasik Web Hizmetleri**.
    1. Çalıştığınız web hizmetine tıklayın.
@@ -159,7 +158,7 @@ Aşağıdaki örneğe bakın:
 
 ![Çıktı yeniden eğitme][6]
 
-Diyagram 4: yeniden eğitme çıktı.
+Diyagram 4: Yeniden eğitme çıktı.
 
 ## <a name="evaluate-the-retraining-results"></a>Yeniden eğitme sonuçları değerlendirin
 Uygulamayı çalıştırdığınızda, çıktı değerlendirme sonuçlarını erişmek gerekli URL'si ve SAS belirteci içerir.

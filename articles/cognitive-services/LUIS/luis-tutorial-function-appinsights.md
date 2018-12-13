@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 4461ac71ba5f9ab5901c5d7b72c15c0c165621e3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4f1372f8b15670472146efc1c4f3a341f4a97c71
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103974"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255610"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>LUIS sonuçlarını Application Insights ve Azure işlevleri ekleme
 Bu öğreticide LUIS istek ve yanıt bilgileri ekler [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri veri depolama. Bu verileri aldıktan sonra bunu Kusto dil veya çözümlemek, toplama, Power BI ile sorgulayabilirsiniz ve hedefleri ve gerçek zamanlı utterance varlıklarının rapor. Bu analiz, eklediğinizde veya amaç ve varlıkları LUIS uygulamanızı düzenlemek, belirlemenize yardımcı olur.
@@ -37,7 +37,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!Tip]
 > Zaten bir aboneliğiniz yoksa, kaydolabilirsiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/).
 
-Bu öğreticideki kod tüm kullanılabilir [LUIS örnekleri github deposunda](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs) ve Bu öğretici ile ilişkili her bir satır ile geçersiz kılınan `//APPINSIGHT:`. 
+Bu öğreticideki kod tüm kullanılabilir [LUIS örnekleri GitHub deposunda](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs) ve Bu öğretici ile ilişkili her bir satır ile geçersiz kılınan `//APPINSIGHT:`. 
 
 ## <a name="web-app-bot-with-luis"></a>LUIS ile Web app botu
 Bu öğreticide kod aşağıdaki gibi görünüyor veya tamamladığınızdan emin olduğunuz varsayılır [diğer öğretici](luis-nodejs-tutorial-build-bot-framework-sample.md): 

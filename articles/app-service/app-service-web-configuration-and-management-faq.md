@@ -1,5 +1,5 @@
 ---
-title: Azure web uygulamaları için yapılandırma hakkında SSS | Microsoft Docs
+title: Yapılandırma SSS - Azure uygulama hizmeti | Microsoft Docs
 description: Azure App Service'in Web Apps özelliği için yapılandırma ve yönetim sorunları hakkında sık sorulan soruların yanıtlarını alın.
 services: app-service\web
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: b98b0ea68e91bad2a62f40d3dc611308f1bed2de
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: c2758084331a487d65235b70bed803a74d0a34b5
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967751"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322542"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure'daki Web uygulamaları için yapılandırma ve yönetim hakkında SSS
 
@@ -199,7 +199,7 @@ Bir HAR dosyasını görüntülemek için kullanabileceğiniz [HAR Görüntüley
 
 ## <a name="why-do-i-get-an-error-when-i-try-to-connect-an-app-service-web-app-to-a-virtual-network-that-is-connected-to-expressroute"></a>Bir App Service bağlanmaya çalışırken neden bir hata Expressroute'a bağlı bir sanal ağ web uygulamasına alırım?
 
-Bir Azure web uygulaması için Azure ExpressRoute bağlı olduğu bir sanal ağa bağlanmaya çalışırsanız, başarısız olur. Aşağıdaki ileti görüntülenir: "Ağ geçidi değil bir VPN ağ geçidi."
+Bir Azure web uygulaması için Azure ExpressRoute bağlı olduğu bir sanal ağa bağlanmaya çalışırsanız, başarısız olur. Aşağıdaki ileti görünür: "Ağ geçidi bir VPN ağ geçidi değil."
 
 Expressroute'a bağlanan bir sanal ağa noktadan siteye VPN bağlantıları şu anda sahip olamaz. Bir noktadan siteye VPN ve ExpressRoute aynı sanal ağ için bir arada bulunamaz. Daha fazla bilgi için [ExpressRoute ve siteden siteye VPN bağlantıları sınırlar ve sınırlamalar](../expressroute/expressroute-howto-coexist-classic.md#limits-and-limitations).
 
@@ -296,7 +296,7 @@ Microsoft .NET, App Service'te yüklü sürümü bulmak için en hızlı yolu, K
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>Neden otomatik ölçeklendirme beklendiği gibi çalışmıyor?
 
-Azure otomatik ölçeklendirme edilmemiş veya ölçeği, beklendiği gibi web app örneğini ölçeği, size bir senaryo, kasıtlı olarak "dalgalanma." nedeniyle sonsuz bir döngüye önlemek için ölçeklendirme değil Seçtiğimiz içine çalışıyor olabilir Bu durum, genellikle genişletmek ve ölçeğini eşiklerin arasında yeterli bir kenar boşluğu olmadığında gerçekleşir. "Dalgalanma" önlemek için ve diğer otomatik ölçeklendirme en iyi yöntemler hakkında okunacak öğrenmek için bkz: [otomatik ölçeklendirme en iyi](../monitoring-and-diagnostics/insights-autoscale-best-practices.md#autoscale-best-practices).
+Azure otomatik ölçeklendirme edilmemiş veya ölçeği, beklendiği gibi web app örneğini ölçeği, size bir senaryo, kasıtlı olarak "dalgalanma." nedeniyle sonsuz bir döngüye önlemek için ölçeklendirme değil Seçtiğimiz içine çalışıyor olabilir Bu durum, genellikle genişletmek ve ölçeğini eşiklerin arasında yeterli bir kenar boşluğu olmadığında gerçekleşir. "Dalgalanma" önlemek için ve diğer otomatik ölçeklendirme en iyi yöntemler hakkında okunacak öğrenmek için bkz: [otomatik ölçeklendirme en iyi](../azure-monitor/platform/autoscale-best-practices.md#autoscale-best-practices).
 
 ## <a name="why-does-autoscale-sometimes-scale-only-partially"></a>Neden otomatik bazen yalnızca kısmen ölçeklendirme?
 

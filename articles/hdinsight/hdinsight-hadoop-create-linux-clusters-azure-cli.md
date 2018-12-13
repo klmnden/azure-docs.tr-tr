@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 03d51cfb03de071f63578717a65eeda4b119bf0d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: f82ac972e54dac6df5a913a8059417b701e2f7e0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497852"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191589"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Klasik Azure CLI kullanarak HDInsight kümeleri oluşturma
 
@@ -80,7 +80,7 @@ PowerShell veya Bash gibi bir komut satırından aşağıdaki adımlar gerçekle
     * Değiştirin `groupname` kaynak grubu adına sahip.
     * Değiştirin `storagename` depolama hesabı adı ile.
 
-     Döndürülen verilerde Kaydet `key` değerini `key1`.
+      Döndürülen verilerde Kaydet `key` değerini `key1`.
 
 6. Bir HDInsight kümesi oluşturun.
 
@@ -90,8 +90,8 @@ PowerShell veya Bash gibi bir komut satırından aşağıdaki adımlar gerçekle
 
     * Değiştirin `Hadoop` oluşturmak istediğiniz küme türüne sahip. Örneğin, `Hadoop`, `HBase`, `Kafka`, `Spark`, veya `Storm`.
 
-     > [!IMPORTANT]
-     > HDInsight kümeleri, çeşitli türleri, küme için ayarlanan teknoloji ve iş yükü karşılık gelen. Bir küme üzerinde Storm ve HBase gibi birden birleştiren bir küme oluşturmak için desteklenen bir yöntem yoktur.
+      > [!IMPORTANT]
+      > HDInsight kümeleri, çeşitli türleri, küme için ayarlanan teknoloji ve iş yükü karşılık gelen. Bir küme üzerinde Storm ve HBase gibi birden birleştiren bir küme oluşturmak için desteklenen bir yöntem yoktur.
 
     * Değiştirin `location` önceki adımlarda kullandığınız konumun aynısını ile.
 
@@ -105,12 +105,12 @@ PowerShell veya Bash gibi bir komut satırından aşağıdaki adımlar gerçekle
 
     * Değiştirin `sshuser` ve `sshuserpassword` kullanıcı adı ve SSH kullanarak kümeye erişirken kullanmak için parola
 
-    > [!IMPORTANT]
-    > Bu örnekte, iki çalışan düğümleri ile bir küme oluşturur. Çalışan düğümü sayısı ayrıca Küme oluşturulduktan sonra ölçeklendirme işlemleri gerçekleştirerek de değiştirebilirsiniz. 32'den fazla çalışan düğümleri kullanmayı planlıyorsanız, bir baş düğüm boyutu en az 8 çekirdek ve 14 GB RAM ile seçmeniz gerekir. Baş düğüm boyutunu kullanarak ayarlayabilirsiniz `--headNodeSize` küme oluşturma sırasında parametre.
-    >
-    > Düğüm boyutları ve ilişkili maliyetler hakkında daha fazla bilgi için bkz. [HDInsight fiyatlandırması](https://azure.microsoft.com/pricing/details/hdinsight/).
-
-    Bu, küme oluşturma işleminin tamamlanması birkaç dakika sürebilir. Genellikle yaklaşık 15.
+      > [!IMPORTANT]
+      > Bu örnekte, iki çalışan düğümleri ile bir küme oluşturur. Çalışan düğümü sayısı ayrıca Küme oluşturulduktan sonra ölçeklendirme işlemleri gerçekleştirerek de değiştirebilirsiniz. 32'den fazla çalışan düğümleri kullanmayı planlıyorsanız, bir baş düğüm boyutu en az 8 çekirdek ve 14 GB RAM ile seçmeniz gerekir. Baş düğüm boyutunu kullanarak ayarlayabilirsiniz `--headNodeSize` küme oluşturma sırasında parametre.
+      >
+      > Düğüm boyutları ve ilişkili maliyetler hakkında daha fazla bilgi için bkz. [HDInsight fiyatlandırması](https://azure.microsoft.com/pricing/details/hdinsight/).
+      
+      Bu, küme oluşturma işleminin tamamlanması birkaç dakika sürebilir. Genellikle yaklaşık 15.
 
 ## <a name="troubleshoot"></a>Sorun giderme
 

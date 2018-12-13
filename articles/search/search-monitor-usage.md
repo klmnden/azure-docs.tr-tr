@@ -1,5 +1,5 @@
 ---
-title: Kullanımı ve istatistikleri Azure Search Hizmeti izleme | Microsoft Docs
+title: Kullanımı ve istatistikleri - Azure Search arama hizmeti için izleme
 description: Microsoft Azure üzerinde barındırılan bulut arama hizmeti olan Azure arama için kaynak tüketimi ve dizin boyutu izleyin.
 author: HeidiSteen
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 274513c7e8ad1ca9ed0452f6237eec4ebb38e9cd
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.custom: seodec2018
+ms.openlocfilehash: 584d1d8ce3285f9f5fb986c9779d3c403ce13d1b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134871"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314168"
 ---
-# <a name="monitoring-an-azure-search-service"></a>Azure Search Hizmeti izleme
+# <a name="monitor-an-azure-search-service-in-azure-portal"></a>Azure portalındaki Azure Search Hizmeti izleme
 
 Azure arama, kullanım ve arama hizmetleri performansını izleme için çeşitli kaynaklar sunar. Ölçümler, günlükler, dizin istatistikleri ve Power bı'da genişletilmiş izleme özellikleri erişmenizi sağlar. Bu makalede, farklı izleme stratejileri etkinleştirme ve sonuçta elde edilen verileri nasıl yorumlayacağınız açıklanmaktadır.
 
@@ -26,9 +27,9 @@ Azure arama, kullanım ve arama hizmetleri performansını izleme için çeşitl
 
 Azure Search'ü üç farklı ölçüm için veri toplar:
 
-* Arama gecikme süresi: arama hizmeti arama sorguları, dakika başına toplanan işlemek için gereken süre.
-* Arama sorguları / saniye (QPS): arama sayısı, saniyede alınan sorguları dakika başına toplanır.
-* Kısıtlanmış arama sorguları yüzdesi: kısıtlanan arama sorguları yüzdesi dakika başına toplanır.
+* Arama gecikme süresi: Arama Hizmeti arama sorguları, dakika başına toplanan işlemek için gereken süre.
+* Arama sorguları / saniye (QPS): Arama sayısı, saniyede alınan sorguları dakika başına toplanır.
+* Kısıtlanmış arama sorguları yüzdesi: Dakika başına toplanan kısıtlanan arama sorguları yüzdesi.
 
 ![Ekran görüntüsü, QPS etkinliği][1]
 
@@ -71,7 +72,7 @@ Hizmetiniz ve ham veri önceki bölümde açıklanan ölçümler için işlem g�
 ### <a name="enabling-monitoring"></a>İzlemeyi etkinleştirme
 Azure Search Hizmeti [Azure portalında](http://portal.azure.com) izlemeyi etkinleştir seçeneğinin altında.
 
-Dışa aktarmak istediğiniz verileri seçin: günlükler, Ölçümler ve her ikisi de. Bir depolama hesabına kopyalayın, bir olay hub'ına gönderme veya Log Analytics'e giriş.
+Dışarı aktarmak istediğiniz verileri seçin: Günlükler, Ölçümler ve her ikisi de. Bir depolama hesabına kopyalayın, bir olay hub'ına gönderme veya Log Analytics'e giriş.
 
 ![Portalda izleme olanağı tanıma][3]
 
@@ -99,7 +100,7 @@ Her blob kayıtlar üzerinde aynı saat boyunca gerçekleşen tüm işlem vardı
 | operationName |dize |"Query.Search" |İşlem adı |
 | operationVersion |dize |"2015-02-28" |Kullanılan api-version |
 | category |dize |"OperationLogs" |Sabit |
-| resultType |dize |"Başarılı" |Olası değerler: başarı veya başarısızlık |
+| resultType |dize |"Başarılı" |Olası değerler: Başarı veya başarısızlık |
 | resultSignature |int |200 |HTTP Sonuç kodu |
 | süre (MS) |int |50 |Milisaniye cinsinden işlem süresi |
 | properties |object |aşağıdaki tabloya bakın |İşlem özgü verileri içeren nesne. |

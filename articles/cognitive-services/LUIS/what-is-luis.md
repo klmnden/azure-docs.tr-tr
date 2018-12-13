@@ -1,20 +1,20 @@
 ---
 title: Language Understanding (LUIS) - Azure Bilişsel Hizmetler | Microsoft Docs
-description: Language Understanding (LUIS), genel anlamı tahmin etmek ve ilgili, ayrıntılı bilgileri çekme amacıyla kullanıcının konuşmasına, doğal dil metnine özel makine öğrenimi zekası uygulayan bulut tabanlı API hizmetidir. LUIS için istemci uygulaması, bir görevi tamamlamak için kullanıcıyla doğal dil kullanarak iletişim kuran konuşma uygulamasıdır. İstemci uygulamalarına örnek olarak sosyal medya uygulamaları, sohbet botları ve konuşma özellikli masaüstü uygulamaları verilebilir.
+description: Language Understanding (LUIS), genel anlamı tahmin etmek ve ilgili, ayrıntılı bilgileri çekme amacıyla kullanıcının konuşmasına, doğal dil metnine özel makine öğrenimi zekası uygulayan bulut tabanlı API hizmetidir.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: overview
-ms.date: 12/06/2018
+ms.date: 12/10/2018
 ms.author: diberry
-ms.openlocfilehash: 470d3ea7a57addd8c275e18a9873054750865337
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ca92a6a2eb92e3b7fed9452d135c0a6bce55a57c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092103"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273247"
 ---
 # <a name="what-is-language-understanding-luis"></a>Language Understanding (LUIS) nedir?
 
@@ -94,7 +94,7 @@ Bir LUIS modeli yayımlandıktan ve gerçek kullanıcı konuşmalarını aldıkt
 
 <a name="using-luis"></a>
 
-## <a name="development-lifecycle"></a>Geliştirme Yaşam Döngüsü
+## <a name="development-lifecycle"></a>Geliştirme yaşam döngüsü
 LUIS, istemci uygulaması ve dil modeli düzeyinde tam geliştirme yaşam döngüsüyle tümleştirmek için kullanılabilecek araçlar, sürüm oluşturma özellikleri ve diğer LUIS yazarlarıyla işbirliği özellikleri sunmaktadır. 
 
 ## <a name="implementing-luis"></a>LUIS uygulama

@@ -1,5 +1,5 @@
 ---
-title: Modelleri dağıtma ve yönetme
+title: Yönetme, kaydetme, dağıtma ve ML modelleri izleyin
 titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning hizmetini dağıtmak, yönetmek ve sürekli olarak geliştirmek için Modellerinizi izleme için kullanmayı öğrenin. Yerel makinenizde veya diğer kaynaklardan Azure Machine Learning hizmeti ile eğitilmiş modeller dağıtabilirsiniz.
 services: machine-learning
@@ -7,16 +7,16 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: hjerez
-ms.author: hjerez
+author: chris-lauren
+ms.author: clauren
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: ec0ab07d6bd35557e173641fbfbbc3621ad0ede2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 25f149ad4df43a7e5b443d6abd72be91072cb47f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097564"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250221"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Yönetin, dağıtın ve modeller Azure Machine Learning hizmeti ile izleme
 
@@ -35,14 +35,14 @@ Her adım, bağımsız olarak veya tek dağıtım komutun bir parçası olarak g
 [ !['Azure Machine Learning sürekli tümleştirme/sürekli dağıtım (CI/CD) döngüsü'](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 
-## <a name="step-1-register-model"></a>1. adım: Kayıt modeli
+## <a name="step-1-register-model"></a>1. Adım: Modeli kaydetme
 
 Model kayıt defteri, Azure Machine Learning hizmeti çalışma alanınızdaki tüm modelleri izler.
 Modelleri, ada ve sürüme göre tanımlanır. Mevcut bir aynı ada sahip bir model her kaydettirdiğinizde, kayıt defteri sürüm artırır. Ek meta veri etiketleri aramak modellerinde kullanılabilir kayıt sırasında de sağlayabilirsiniz.
 
 Görüntü tarafından kullanılmakta olan modeller nelze odstranit.
 
-## <a name="step-2-register-image"></a>2. adım: Kaydı görüntüsü
+## <a name="step-2-register-image"></a>2. Adım: Görüntüyü kaydedin
 
 Model kullanmak için gereken tüm bileşenler birlikte güvenilir model dağıtımı için görüntüler sağlar. Görüntü, aşağıdaki öğeleri içerir:
 
@@ -58,7 +58,7 @@ Azure Machine Learning en popüler çerçeveleri destekler, ancak genel pıp'in 
 Bu nedenle çalışma alanınızı oluştururken diğer birçok diğer Azure kaynakları bu çalışma alanı tarafından kullanıldı.
 Görüntüyü oluşturmak için kullanılan tüm nesneler, çalışma alanınızda Azure depolama hesabında depolanır. Görüntü oluşturulur ve Azure Container Registry'de depolanır. Ayrıca görüntü kayıt depolanır ve görüntünüzü bulmak için sorgulanabilir görüntü oluşturulurken, ek meta veri etiketleri sağlayabilirsiniz.
 
-## <a name="step-3-deploy-image"></a>3. adım: görüntüsü dağıtma
+## <a name="step-3-deploy-image"></a>3. adım: Görüntüsü dağıtma
 
 Buluta veya uç cihazlarında kayıtlı görüntülerini dağıtabilirsiniz. Tüm izlemek için gerekli kaynaklar, Yük Dengeleme ve otomatik ölçeklendirme, dağıtım işlemi modeliniz oluşturur. Dağıtılan hizmetlere erişmek için sertifika tabanlı kimlik doğrulaması ile dağıtım sırasında güvenlik varlıklar sağlayarak güvenliği sağlanabilir. Ayrıca, daha yeni bir görüntüyü kullanmak için mevcut bir dağıtımı yükseltebilirsiniz.
 
@@ -75,7 +75,7 @@ Aşağıdakiler için kendi görüntülerinizi dağıtabilirsiniz [dağıtım he
 
 Hizmetinizi dağıtılan gibi çıkarım isteği otomatik olarak yük dengeli ve isteğe bağlı herhangi bir ani artış karşılamak için küme Ölçeklendirildi. [Hizmetinizi hakkında telemetri tutulabilir](how-to-enable-app-insights.md) çalışma alanınızla ilişkili Azure Application Insights hizmetine.
 
-## <a name="step-4-monitor-models-and-collect-data"></a>4. adım: modelleri izlemek ve veri toplama
+## <a name="step-4-monitor-models-and-collect-data"></a>4. adım: İzleyici modeller ve veri toplama
 
 Giriş, çıkış ve diğer ilgili veri modelinizden izleyebilmek model günlük ve veri yakalama için bir SDK'sı kullanılabilir. Veriler, çalışma alanınız için Azure depolama hesabındaki bir blob olarak depolanır.
 

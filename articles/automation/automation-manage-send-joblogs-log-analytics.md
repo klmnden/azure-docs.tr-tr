@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6170b69d213470b1f5b7e75c9b102e5e07c09209
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 8a1f7e367b3f8f06e33bbcd11f8090c9578c1d30
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682903"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269575"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>İş durumunu ve iş akışları Automation'ı Log Analytics'e iletme
 
@@ -138,10 +138,10 @@ Sık karşılaşılan müşteri birini ister bir şeyler ile bir runbook işi ya
 Bir uyarı kuralı oluşturmak için bir günlük araması uyarı çağırması gereken runbook işi kayıtlar için oluşturarak başlayın. Tıklayın **uyarı** düğmesine oluşturmak ve uyarı kuralını yapılandırın.
 
 1. Log Analytics'e genel bakış sayfasında **günlük araması**.
-2. Aşağıdaki arama sorgu alanına yazarak günlük arama sorgusu için uyarı oluştur: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` kullanarak RunbookName göre de gruplandırabilirsiniz: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. Aşağıdaki arama sorgu alanına yazarak Uyarınız için günlük arama sorgusu oluşturun: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  Kullanarak RunbookName göre gruplandırma yapabilirsiniz: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Günlüklerini birden fazla Otomasyon hesabını veya aboneliğini çalışma alanınıza ayarlarsanız, uyarılarınızı aboneliği ve Automation hesabı göre gruplandırabilirsiniz. Otomasyon hesabı adı, kaynak alanına JobLogs arama bulunabilir.
-1. Açmak için **oluşturma kuralı** ekranında **+ yeni uyarı kuralı** sayfanın üstünde. Uyarı yapılandırma seçenekleri hakkında daha fazla bilgi için bkz. [günlük uyarıları Azure'da](../monitoring-and-diagnostics/monitor-alerts-unified-log.md).
+1. Açmak için **oluşturma kuralı** ekranında **+ yeni uyarı kuralı** sayfanın üstünde. Uyarı yapılandırma seçenekleri hakkında daha fazla bilgi için bkz. [günlük uyarıları Azure'da](../azure-monitor/platform/alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Hatalarla tamamlanan tüm işleri bulun
 Hatalarında uyarı ek olarak, bir runbook işi Sonlandırıcı olmayan bir hata olduğunda bulabilirsiniz. Bu gibi durumlarda, bir hata akışı PowerShell üretir, ancak Sonlandırıcı olmayan hatalara, işi askıya alma veya başarısız olmasına neden olmaz.    

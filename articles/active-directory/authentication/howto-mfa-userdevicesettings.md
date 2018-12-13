@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: cf470ad14c27fd36cf60bb540e823b15fc58eded
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 8d3ffa2664c747f5fbbd4269b23ae54850e0d750
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496906"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321008"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Bulutta Azure multi Factor Authentication ile kullanıcı ayarlarını yönetme
 
@@ -30,8 +30,8 @@ Bu ayar, kullanıcı yeniden kayıt işlemini tamamlamak için zorlar. Tarayıc�
 
 ### <a name="how-to-require-users-to-provide-contact-methods-again"></a>Nasıl kullanıcıların iletişim yöntemlerini yeniden belirtmelerini iste
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Sol tarafta, seçin **Azure Active Directory** > **kullanıcılar ve gruplar** > **tüm kullanıcılar**.
-3. Seçin **çok faktörlü kimlik doğrulaması**. Çok faktörlü kimlik doğrulaması sayfası açılır. 
+2. Sol tarafta, seçin **Azure Active Directory** > **kullanıcılar** > **tüm kullanıcılar**.
+3. Sağ tarafta seçin **multi-Factor Authentication** araç. Çok faktörlü kimlik doğrulaması sayfası açılır. 
 4. Yönetmek istediğiniz kullanıcıları ve kullanıcı yanındaki kutuyu işaretleyin. Hızlı adım seçeneklerin bir listesi, sağda görüntülenir. 
 5. Seçin **kullanıcı ayarlarını Yönet**.
 6. İçin kutuyu **seçilen kullanıcıların iletişim yöntemlerini yeniden belirtmelerini iste**.
@@ -44,8 +44,8 @@ Bu ayar tüm bir kullanıcının oluşturduğu uygulama parolalarını siler. Bu
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>Kullanıcıların uygulama parolaları varolan silme
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Sol tarafta, seçin **Azure Active Directory** > **kullanıcılar ve gruplar** > **tüm kullanıcılar**.
-3. Seçin **çok faktörlü kimlik doğrulaması**. Çok faktörlü kimlik doğrulaması sayfası açılır. 
+2. Sol tarafta, seçin **Azure Active Directory** > **kullanıcılar** > **tüm kullanıcılar**.
+3. Sağ tarafta seçin **multi-Factor Authentication** araç. Çok faktörlü kimlik doğrulaması sayfası açılır. 
 6. Yönetmek istediğiniz kullanıcıları ve kullanıcı yanındaki kutuyu işaretleyin. Hızlı adım seçeneklerin bir listesi, sağda görüntülenir. 
 7. Seçin **kullanıcı ayarlarını Yönet**.
 8. İçin kutuyu **seçilen kullanıcılar tarafından oluşturulan tüm var olan uygulama parolalarını Sil**.
@@ -62,8 +62,8 @@ Kullanıcılar normal cihazlarından gün yapılandırılabilir bir süre için 
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Mfa'yı bir kullanıcı için askıya alınmış tüm cihazlarda geri yükleme
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Sol tarafta, seçin **Azure Active Directory** > **kullanıcılar ve gruplar** > **tüm kullanıcılar**.
-3. Seçin **çok faktörlü kimlik doğrulaması**. Çok faktörlü kimlik doğrulaması sayfası açılır. 
+2. Sol tarafta, seçin **Azure Active Directory** > **kullanıcılar** > **tüm kullanıcılar**.
+3. Sağ tarafta seçin **multi-Factor Authentication** araç. Çok faktörlü kimlik doğrulaması sayfası açılır. 
 6. Yönetmek istediğiniz kullanıcıları ve kullanıcı yanındaki kutuyu işaretleyin. Hızlı adım seçeneklerin bir listesi, sağda görüntülenir. 
 7. Seçin **kullanıcı ayarlarını Yönet**.
 8. İçin kutuyu **geri yükleme multi factor authentication tüm hatırlanan cihazlarda**

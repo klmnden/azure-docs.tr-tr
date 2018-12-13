@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6a53530f-20d5-40ae-9b49-7b499ccb44b7
 ms.service: machine-learning
@@ -16,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: a95004a24a9b136708f948f6a2697563216506fb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ebcae3e8e8f13904936dbe122f285a01a2a71459
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086043"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270459"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio’da deneme yinelemelerini yönetme
 Tahmine dayalı analiz modeli geliştirmek olduğu bir süreçtir - çeşitli işlevleri ve denemenizi parametrelerini değiştirirken, memnun ana kadar sonuçlarınız yakınsanır eğitilmiş ve verimli bir model vardır. Bu işlem için anahtar deneme parametreleri ve yapılandırmaları çeşitli yinelemeler izlemektir.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 Önceki çalıştırmaları, denemelerinizi meydan okuyun, yeniden ziyaret, sonuçta onaylayın veya önceki varsayımlar daraltmak için herhangi bir zamanda gözden geçirebilirsiniz. Machine Learning Studio, bir denemeyi çalıştırırken, veri kümesi, modül ve bağlantı noktası bağlantıları ve parametreleri de dahil olmak üzere çalışma bir geçmişini tutar. Bu geçmiş, ayrıca sonuçları, başlatma ve durdurma zamanları, günlük iletilerini ve yürütme durumu gibi çalışma zamanı bilgileri yakalar. Bu çalıştırmaları birini deneyin ve Ara sonuçlar uygulanmasına geçmişi gözden geçirmek istediğiniz zaman geri bakabilirsiniz. Yoldaki basit, karmaşık veya hatta topluluğu modelleme çözümleri oluşturmak için yeni bir sorgu ve bulma aşaması başlatmak için denemenizi önceki bir çalıştırmada bile kullanabilirsiniz.
 

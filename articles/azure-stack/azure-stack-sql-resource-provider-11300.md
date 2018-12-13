@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: d2dda25c63a6e4a73205b9e4a830a211d025b3ed
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.reviewer: georgel
+ms.openlocfilehash: 7bcec2d17f61345986c1676d13011946a0036666
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51688189"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164737"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>SQL kaynak sağlayıcısı 1.1.30.0 sürüm notları
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Bu sürüm notları, yenilikleri ve bilinen sorunların SQL kaynak sağlayıcısı sürüm 1.1.30.0 açıklar.
 
@@ -58,15 +58,29 @@ Azure Stack SQL kaynak Sağlayıcısı'nın bu sürümü, aşağıdaki geliştir
 
 - **SQL SKU'ları alabilir saate portalda görünür olmasını**. Bu yeni bir saate yeni SQL veritabanı oluşturma sırasında kullanım için görünür olmasını oluşturulan SKU'ları kadar sürebilir. 
 
-    **Geçici çözüm**: yok.
+    **Geçici çözüm**: Yok.
 
 - **SQL oturum açmaları yeniden**. Yeni bir SQL oluşturulmaya çalışılırken oturum açma ile aynı abonelik altında var olan bir oturum olarak aynı kullanıcı adı aynı oturum açma ve mevcut parolayı yeniden kullanma neden olur. 
 
-    **Geçici çözüm**: farklı kullanıcı adları aynı abonelik altında yeni bir oturum açmalar oluşturulurken kullanın veya farklı bir abonelik altında aynı kullanıcı adı ile oturum açma bilgileri oluşturun.
+    **Geçici çözüm**: Farklı kullanıcı adları aynı abonelik altında yeni bir oturum açmalar oluşturulurken kullanın veya farklı bir abonelik altında aynı kullanıcı adı ile oturum açma bilgileri oluşturun.
 
 - **Paylaşılan SQL oturum açmaları veri tutarsızlığına neden**. Bir SQL oturum açma için aynı abonelik altında birden çok SQL veritabanlarını paylaşılıyorsa, oturum açma parolasını değiştirme veri tutarsızlığına neden olur.
 
-    **Geçici çözüm**: her zaman aynı abonelik altında farklı veritabanları için farklı kimlik bilgileri kullanın.
+    **Geçici çözüm**: Her zaman aynı abonelik altında farklı veritabanları için farklı kimlik bilgileri kullanın.
+
+- **TLS 1.2 desteği gereksinim**. Dağıtma veya TLS 1.2 etkin olduğu bir bilgisayardan SQL kaynak sağlayıcısını güncelle denerseniz işlem başarısız olabilir. TLS 1.2 desteklenen verdiğini doğrulamak için kaynak sağlayıcısını güncelle veya dağıtmak için kullanılan bilgisayarda aşağıdaki PowerShell komutunu çalıştırın:
+
+  ```powershell
+  [System.Net.ServicePointManager]::SecurityProtocol
+  ```
+
+  Varsa **Tls12** olan komut çıktısında dahil değil, TLS 1.2 bilgisayarda etkin değil.
+
+    **Geçici çözüm**: TLS 1.2 etkinleştirip sonra kaynak sağlayıcısı dağıtımı başlatın veya aynı PowerShell oturumunda komut dosyasını güncelleştirmek için aşağıdaki PowerShell komutunu çalıştırın:
+
+    ```powershell
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+    ```
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Çalışan Azure Stack bulut yöneticileri için bilinen sorunlar
 Belgeye başvurun [Azure Stack sürüm notları](azure-stack-servicing-policy.md).

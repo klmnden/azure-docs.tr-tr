@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 03a60940b4889671149c49becb0f823da89781ff
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9d1acabd07e7c01445c55a57be9b0c9a36140aa5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135568"
+ms.locfileid: "53163778"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Maliyet ve boyutlandırma iş yükleri için en iyi uygulamaları için Azure geçişi
 
@@ -34,21 +34,21 @@ Bu bölümde en iyi kullanımı tahmini maliyetinizi hesaplayın, VM ve depolama
 
 
 
-## <a name="best-practice-estimate-monthly-workload-costs"></a>En iyi yöntem: aylık iş yükü kullanımı tahmini maliyetinizi hesaplayın
+## <a name="best-practice-estimate-monthly-workload-costs"></a>En iyi yöntem: Aylık iş yükü kullanımı tahmini maliyetinizi hesaplayın
  
 Geçirilen iş yükleri için aylık faturanızı tahmin etmek için kullanabileceğiniz araçlar vardır.
 
-- **Azure fiyatlandırma hesaplayıcısı**: tahmin etmek için örneğin VM ve depolama istediğiniz ürünleri seçin. Maliyetleri tahmin oluşturmak için fiyatlandırma hesaplayıcısını girdiğiniz.
+- **Azure fiyatlandırma hesaplayıcısı**: Tahmin etmek için örneğin VM ve depolama istediğiniz ürünleri seçin. Maliyetleri tahmin oluşturmak için fiyatlandırma hesaplayıcısını girdiğiniz.
 
  ![Azure fiyatlandırma hesaplayıcısı](./media/migrate-best-practices-costs/pricing.png) *Azure fiyatlandırma hesaplayıcısı*
 
-- **Azure geçişi**: maliyetlerini tahmin etmek için gözden geçirmek ve Azure'da iş yüklerinizi çalıştırmak için gereken tüm kaynakları hesabı gerekir. Bu verileri almak için sunucu, VM'ler, veritabanları ve depolama da dahil olmak üzere varlıklarınızı envanterini oluşturun. Bu bilgileri toplamak için Azure Geçişi'ı kullanabilirsiniz.
+- **Azure geçişi**: Maliyetlerini tahmin etmek için gözden geçirin ve Azure'da iş yüklerinizi çalıştırmak için gereken kaynaklar için hesabı gerekir. Bu verileri almak için sunucu, VM'ler, veritabanları ve depolama da dahil olmak üzere varlıklarınızı envanterini oluşturun. Bu bilgileri toplamak için Azure Geçişi'ı kullanabilirsiniz.
 
  - Azure geçişi bulur ve bir envanterini sağlamak üzere şirket içi ortamınızdaki değerlendirir.
  - Azure geçişi, eşleme ve tam resmini sahip sanal makineler arasındaki bağımlılıkları gösterir.
  - Azure geçişi değerlendirmesi tahmini maliyetini içerir.
     - İşlem maliyetleri: Değerlendirme oluşturduğunuzda önerilen Azure VM boyutu kullanarak, Azure geçişi faturalandırma API'si tahmini aylık VM maliyetleri hesaplamak için kullanır. Tahmin işletim sistemi, Yazılım Güvencesi, ayrılmış örnekler, VM çalışma süresi, konum ve para birimi ayarları göz önünde bulundurur. Tüm VM'lerin değerlendirmede maliyeti toplar ve bir toplam aylık işlem maliyeti hesaplar.
-    - Depolama maliyeti: Azure geçişi aylık toplam depolama maliyetlerini değerlendirme içindeki tüm sanal makineleri depolama maliyetlerini toplayarak hesaplar. Aylık depolama maliyeti belirli bir makine için aylık maliyeti bağlı tüm diskleri kullanarak hesaplayabilirsiniz. 
+    - Depolama maliyeti: Azure geçişi, aylık toplam depolama maliyetlerini değerlendirme içindeki tüm sanal makineleri depolama maliyetlerini toplayarak hesaplar. Aylık depolama maliyeti belirli bir makine için aylık maliyeti bağlı tüm diskleri kullanarak hesaplayabilirsiniz. 
 
     ![Azure geçişi](./media/migrate-best-practices-costs/assess.png) *Azure geçişi değerlendirmesi*
 
@@ -58,7 +58,7 @@ Geçirilen iş yükleri için aylık faturanızı tahmin etmek için kullanabile
 - [Hakkında bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation) Azure geçişi değerlendirmeleri.
 - [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/dms/dms-overview) veritabanı geçiş hizmeti (DMS) hakkında.
 
-## <a name="best-practice-right-size-vms"></a>En iyi yöntem: doğru boyuta VM'ler
+## <a name="best-practice-right-size-vms"></a>En iyi yöntem: Doğru boyuta VM'ler
 
 İş yüklerini desteklemek için Azure Vm'leri dağıtırken, bir dizi seçenek seçebilirsiniz. Her VM türünün belirli özellikler ve CPU, bellek ve disk farklı birleşimlerini vardır. Sanal makineleri şu şekilde gruplanır.
 
@@ -80,7 +80,7 @@ Geçirilen iş yükleri için aylık faturanızı tahmin etmek için kullanabile
 - [Plan](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs) VM boyutlandırma.
 - [Gözden geçirme](https://docs.microsoft.com/azure/migrate/contoso-migration-assessment) kurgusal Contoso şirketi için bir örnek değerlendirme.
 
-## <a name="best-practice-select-the-right-storage"></a>En iyi yöntem: doğru depolama alanını seçin
+## <a name="best-practice-select-the-right-storage"></a>En iyi yöntem: Doğru depolama alanını seçin
 
 Ayarlama ve şirket içi depolama (SAN ya da NAS) ve bunları desteklemek için ağları, pahalı ve zaman alıcı olabilir. Dosya (Depolama) verileri, yaygın olarak yönetim sıkıntılarına otomatik çözüm sağlamaya ve işletimsel çözmenize yardımcı buluta geçirilir. Microsoft Azure için verileri taşımak için çeşitli seçenekler sunar ve bu seçenekler hakkında kararlar almak gerekir. Kuruluşunuz, veri için doğru depolama türünü seçmeye yönelik ayda birkaç binlerce dolar kaydedebilirsiniz. Bazı önemli noktalar:
 
@@ -96,7 +96,7 @@ Azure depolama veri farklı türler sağlar.
 --- | --- |  ---
 **Bloblar** | Çok miktarda metin veya ikili veri gibi yapılandırılmamış nesne depolamak için en iyi duruma getirilmiş<br/><br/> | Verilere erişen her yerden HTTP/HTTPS üzerinden. | Akış ve rastgele erişim senaryoları için kullanın. Örneğin, görüntü ve belgelerin doğrudan bir tarayıcıya sunmak için video ve ses akışı ve yedekleme ve olağanüstü durum kurtarma veri depolayın.
 **Dosyalar** | Yönetilen dosya paylaşımları SMB 3.0 üzerinden erişilen | Geçiş dosya paylaşımları, şirket içinde olduğunda kullanın ve birden çok erişim/dosya verileri için bağlantılar sağlar.
-**Diskler** | Sayfa BLOB'ları üzerinde temel.<br/><br/> Disk türü (hızlı): (HDD veya SSD) standart veya Premium (SSD).<br/><br/>Disk Yönetimi ': yönetilmeyen (yönettiğiniz disk ayarlarını ve depolama) veya yönetilen (disk türünü seçin ve Azure tarafından yönetilen disk için). | Premium diskler, VM'ler için kullanın. Basit yönetim ve ölçeklendirme için yönetilen diskleri kullanın.
+**Diskler** | Sayfa BLOB'ları üzerinde temel.<br/><br/> Disk türü (hızlı): Standart (HDD veya SSD) veya Premium (SSD).<br/><br/>Disk Yönetimi: Yönetilmeyen (yönettiğiniz disk ayarlarını ve depolama) veya yönetilen (disk türünü seçin ve Azure tarafından yönetilen disk için). | Premium diskler, VM'ler için kullanın. Basit yönetim ve ölçeklendirme için yönetilen diskleri kullanın.
 **Kuyruklar** | Store ve çok büyük sayılarda mesajı kimliği doğrulanmış aramalar (HTTP veya HTTPS) erişilen alma | Uygulama bileşenleri ile zaman uyumsuz ileti kuyruğu bağlanın.
 **Tabloları** | Tablolar Store. | Artık Azure Cosmos DB tablo API'si, parçası.
 
@@ -129,7 +129,7 @@ Depolama hesapları, esneklik ve yüksek kullanılabilirlik için artıklığı 
 **Tür** | **Ayrıntılar** | **Kullanım**
 --- | --- | ---
 **Yerel olarak yedekli depolama (LRS)** | Bir tek bir depolama birimine ayrı hata etki alanı ve güncelleme etki alanı içinde çoğaltarak, yerel bir kesintiye karşı korur. Bir veri merkezinde verilerinizin birden çok kopyasını tutar. En az % 99,999999999 sağlar (11 9\'s) belirli bir yıl boyunca nesnelerin dayanıklılık. | Uygulamanızı kolayca reconstructed veri depolar, göz önünde bulundurun.
-**Bölgesel olarak yedekli depolama (ZRS)** | Tek bir bölgede üç depolama kümeleri arasında çoğaltarak veri merkezi kesintisi yeniden korur. Her Depolama kümesi fiziksel olarak ayrılmış ve kendi kullanılabilirlik alanı'nda bulunur. Sağlayan en az % 99,9999999999 (12 9\'s) birden çok veri merkezleri veya bölgede verilerinizin birden çok kopyasını tutarak belirli bir yıl boyunca nesnelerin dayanıklılık. | Tutarlılık, dayanıklılık ve yüksek kullanılabilirlik gerekli olup olmadığını düşünün. Birden çok bölge etkilenen permenently olduğunda bölgesel bir olağanüstü durum karşı korumaz.
+**Bölgesel olarak yedekli depolama (ZRS)** | Tek bir bölgede üç depolama kümeleri arasında çoğaltarak veri merkezi kesintisi yeniden korur. Her Depolama kümesi fiziksel olarak ayrılmış ve kendi kullanılabilirlik alanı'nda bulunur. Sağlayan en az % 99,9999999999 (12 9\'s) birden çok veri merkezleri veya bölgede verilerinizin birden çok kopyasını tutarak belirli bir yıl boyunca nesnelerin dayanıklılık. | Tutarlılık, dayanıklılık ve yüksek kullanılabilirlik gerekli olup olmadığını düşünün. Birden çok bölge kalıcı olarak etkilendiğinde bölgesel bir olağanüstü durum karşı korumaz.
 **Coğrafi olarak yedekli depolama (GRS)** | Yüzlerce mil uzaktaki birincil bir ikincil bölgeye veri çoğaltma yaparak bir bölgenin tamamını arızasına karşı korur. En az % 99,99999999999999 sağlar (16 9\'s) belirli bir yıl boyunca nesnelerin dayanıklılık. | Çoğaltma verilerini Microsoft ikincil bölgeye yük devretme başlatır sürece kullanılamaz. Yük devretme gerçekleşirse, okuma ve yazma erişimi yok.
 **Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)** | GRS benzer. En az % 99,99999999999999 sağlar (16 9\'s) belirli bir yıl boyunca nesnelerin dayanıklılık | Sağlar ve % 99,99 kullanılabilirlik GRS için kullanılan ikinci bölgeden okuma erişimine izin vererek okuyun.
 
@@ -144,7 +144,7 @@ Depolama hesapları, esneklik ve yüksek kullanılabilirlik için artıklığı 
 
 
 
-## <a name="best-practice-leverage-azure-hybrid-benefits"></a>En iyi yöntem: yararlanarak Azure hibrit avantajları
+## <a name="best-practice-leverage-azure-hybrid-benefits"></a>En iyi yöntem: Azure hibrit avantajları yararlanın
 
 Yazılım sistemleri Windows Server ve SQL Server gibi yatırım yıllardır nedeniyle, müşterilerin bulutta, diğer bulut sağlayıcılarının mutlaka sağlayamaz önemli indirimler değer sunmak için benzersiz bir konumda Microsoft'tur. 
 
@@ -157,7 +157,7 @@ Tümleşik bir Microsoft şirket içi/Azure ürün Portföyü rekabetçi ve mali
 - [Gözden geçirme](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) SQL Server Azure Vm'leri için fiyatlandırma Kılavuzu.
 
 
-## <a name="best-practice-use-reserved-vm-instances"></a>En iyi yöntem: ayrılmış VM örnekleri kullanın
+## <a name="best-practice-use-reserved-vm-instances"></a>En iyi yöntem: Ayrılmış VM örnekleri kullanın
 
 Çoğu bulut platformu, Kullandıkça Öde ayarlanır. Dinamik iş yükleri mutlaka bilmiyorsanız bu yana bu modeli sunar dezavantajları olacaktır. Bir iş yükü için NET amaçları belirttiğinizde, altyapı planlama katkıda bulunur.
 
@@ -177,7 +177,7 @@ Azure ayrılmış VM örnekleri kullanarak, bir ön ödeme veya üç yıllık s�
 - [Fiyatlandırma Kılavuzu](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) SQL Server Azure Vm'leri için.
 
 
-## <a name="best-practice-aggregate-cloud-spend-across-subscriptions"></a>En iyi yöntem: abonelikler arasında toplama bulut Harcamaları
+## <a name="best-practice-aggregate-cloud-spend-across-subscriptions"></a>En iyi yöntem: Abonelikler arasında toplama bulut Harcamaları
 
 Sonuçta, birden fazla Azure aboneliği gerekir, kaçınılmazdır. Örneğin, geliştirme ve üretim sınırları ayırmak için başka bir abonelik gerekebilir, veya her müşteri için ayrı bir abonelik gerektiren bir platform olabilir. Tek bir platform içinde tüm abonelikleri genelinde raporlama veri toplama yeteneğine sahip olmanın önemli bir özelliktir.
 
@@ -197,7 +197,7 @@ Başarılı bir geçiş iş yüklerinizin ve kullanım verilerini toplama birka�
 
 Bu bölümde en iyi uygulamalar, Azure maliyet Yönetimi maliyet ödemeyle ve analiz, izleme, depolama ve VM'lerin en iyi duruma getirme kaynakları izleme ve kaynak grubu bütçelerini uygulamak için kullanmayı içerir.
 
-## <a name="best-practice-use-azure-cost-management"></a>En iyi yöntem: Azure maliyet Yönetimi
+## <a name="best-practice-use-azure-cost-management"></a>En iyi yöntem: Azure maliyet Yönetimi'ni kullanın
 
 Microsoft, harcama, şu şekilde izlemenize yardımcı olması için Azure maliyet yönetimi sağlar:
 
@@ -210,21 +210,21 @@ Microsoft, harcama, şu şekilde izlemenize yardımcı olması için Azure maliy
 Maliyet Yönetimi'nde, şunları yapabilirsiniz:
 
 
-- **Bir bütçe oluşturmak**: finansal sorumluluk için bütçe oluşturun.
-    - Hizmetleri kullanan veya belirli bir süre (aylık, üç aylık, Yıllık) ve ascope (abonelikler/kaynak grupları) için abone için hesap. Örneğin, bir aylık, üç aylık veya yıllık dönem için bir Azure aboneliği bütçe oluşturabilirsiniz.
+- **Bir bütçe oluşturmak**: Finansal sorumluluk için bütçe oluşturun.
+    - Hizmetleri kullanan veya belirli bir süre (aylık, üç aylık, Yıllık) ve bir kapsamın (abonelikler/kaynak grupları) için abone için hesap. Örneğin, bir aylık, üç aylık veya yıllık dönem için bir Azure aboneliği bütçe oluşturabilirsiniz.
     - Bütçe oluşturduktan sonra maliyet analizi gösterilmektedir. Geçerli harcama karşı bütçenizi görüntüleme maliyetlerinizi analiz edilirken gerektiği ve harcama ilk adımlarından biridir.
     - Bütçe eşiklerine ulaşıldığında, e-posta bildirimleri gönderilebilir.
     - Analiz için Azure depolama için maliyet Yönetimi verilerine dışarı aktarabilirsiniz.
 
     ![Maliyet Yönetimi bütçe](./media/migrate-best-practices-costs/budget.png) *Azure maliyet Yönetimi bütçe*
 
-- **Maliyet analizi yapmak**: keşfedin ve maliyetleri nasıl doğan, anlamanıza yardımcı olması için kuruluş maliyetlerinizi analiz etmek için bir maliyet analizi alın ve harcama eğilimleri belirleyin.
+- **Maliyet analizi yapmak**: Keşfedin ve maliyetleri nasıl doğan, anlamanıza yardımcı olması için kuruluş maliyetlerinizi analiz etmek için bir maliyet analizi alın ve harcama eğilimleri belirleyin.
     - Maliyet analizi EA kullanıcılar tarafından kullanılabilir.
     - Kapsamlar, departman, hesap, abonelik veya kaynak grubu tarafından da dahil olmak üzere bir dizi için maliyet analizi verilerini görüntüleyebilirsiniz.
     - Geçerli aya ait toplam maliyetleri ve birikmiş günlük maliyetlerin gösteren bir maliyet analizi alabilirsiniz. 
 
     ![Maliyet Yönetimi çözümlemesi](./media/migrate-best-practices-costs/analysis.png) *Azure maliyet Yönetimi çözümleme*
-- **Öneri**: nasıl en iyi duruma getirmek ve verimliliği artırmak Göster alma Danışmanı önerileri.
+- **Öneri**: Nasıl en iyi duruma getirmek ve verimliliği artırmak Göster Danışmanı önerileri alın.
 
 
 **Daha fazla bilgi edinin:**
@@ -235,9 +235,9 @@ Maliyet Yönetimi'nde, şunları yapabilirsiniz:
 - [Bir öğretici alma](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json) önerilerden maliyetleri en iyi duruma getirmek.
 - [Gözden geçirme](https://docs.microsoft.com/rest/api/consumption/budgets) Azure tüketim API.
 
-## <a name="best-practice-monitor-resource-utilization"></a>En iyi yöntem: kaynak kullanımını izleme
+## <a name="best-practice-monitor-resource-utilization"></a>En iyi yöntem: Kaynak kullanımını izleme
 
-Azure'da, ne zaman kaynakları tüketilir ve bunlar değilken ödemeyin kullandıklarınız için ödeme yaparsınız. VM'ler için VM ayrılan ve bir VM serbest sonra ücretlendirilmezsiniz faturalandırma gerçekleşir. Bu aklınızda kullanımda Vm'leri izleme ve VM boyutlandırma doğrulamanız gerekir.
+Azure'da, kaynakları tüketilir ve bunlar değilken ödemeyin kullandıklarınız için ödeme yaparsınız. VM'ler için VM ayrılan ve bir VM serbest sonra ücretlendirilmezsiniz faturalandırma gerçekleşir. Bu aklınızda kullanımda Vm'leri izleme ve VM boyutlandırma doğrulamanız gerekir.
 
 - VM iş yüklerinizi temelleri belirlemek için sürekli olarak değerlendirin.
 - Örneğin, iş yükünüz Pazartesi-Cuma 8: 00 için 6 pm, yoğun olarak kullanılan ancak zor o saatleri dışında kullanılan, yoğun saatler dışında Vm'leri düşürme. Bu VM boyutları değiştirme anlamına gelebilir veya sanal makine ölçek kullanarak otomatik ölçeklendirme Vm'leri yukarı veya aşağı ayarlar.
@@ -251,7 +251,7 @@ Azure'da, ne zaman kaynakları tüketilir ve bunlar değilken ödemeyin kulland�
 - [Bilgi nasıl [önerilerden maliyetlerini iyileştirme](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json), ve [beklenmeyen ücretlerden](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
 - [Hakkında bilgi edinin](https://github.com/Azure/azure-quickstart-templates/tree/master/azure-resource-optimization-toolkit/) Azure kaynak iyileştirme (ARO) Araç Seti
 
-## <a name="best-practice-implement-resource-group-budgets"></a>En iyi yöntem: kaynak grubu bütçelerini uygulama
+## <a name="best-practice-implement-resource-group-budgets"></a>En iyi yöntem: Kaynak grubu bütçelerini uygulayın
 
 Genellikle, kaynak grupları, maliyet sınırlarını temsil etmek için kullanılır. Bu kullanım düzeniyle birlikte Azure ekibi, kaynak kaynak grubu ve kaynakları bütçeleri oluşturun olanağı dahil olmak üzere farklı düzeylerde harcama analiz etmek ve izlemek için yeni ve geliştirilmiş yollar geliştirmeye devam eder.  
 
@@ -278,7 +278,7 @@ Kaynakları Azure'a taşıyın ve bunları için tanılama günlüğünü etkinl
 
 - [Hakkında bilgi edinin](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs) kullanım ve Tahmini maliyetler izleme.
  
-## <a name="best-practice-optimize-storage"></a>En iyi yöntem: depolama en iyi duruma getirme
+## <a name="best-practice-optimize-storage"></a>En iyi yöntem: Depolama en iyi duruma getirme
 
 Geçiş işleminden önce depolama seçmeye yönelik en iyi izlediyseniz, büyük olasılıkla bazı avantajlar apps'teki. Ancak, yine de iyileştirebilirsiniz büyük olasılıkla ek depolama alanı maliyeti yoktur. Zamanla, blobları ve dosyaları eski haline gelir. Veriler artık kullanılabilir değil, ancak yasal düzenleme gereksinimleri için belirli bir süre saklamak gerektiği anlamına gelebilir. Bu nedenle, özgün geçiş için kullanılan yüksek performanslı depolama depolamak istediğiniz gerekmeyebilir.
 
@@ -291,7 +291,7 @@ Tanımlama ve ucuz depolama alanlarına eski veri taşıma, aylık depolama büt
 - [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) erişim katmanları hakkında.
 - [Genel bakışın](https://docs.microsoft.com/azure/azure-monitor/overview) , storsimple ve [StorSimple fiyatlandırma](https://azure.microsoft.com/pricing/details/storsimple/).
 
-## <a name="best-practice-automate-vm-optimization"></a>En iyi yöntem: sanal makine iyileştirme otomatikleştirin
+## <a name="best-practice-automate-vm-optimization"></a>En iyi yöntem: VM en iyi duruma getirme otomatikleştirin
 
 Bulutta çalışan bir VM nihai amacıyla CPU, bellek ve kullanılan disk'en üst düzeye çıkarmaktır. İçin optimize edilmediğinden Vm'leri bulmak veya Vm'leri ne zaman kullanılmaz sık sürelerine sahip, onları kapatmanız veya aşağı ölçeklemenizi mantıklıdır bunları sanal makine ölçek kümeleri kullanma.
 
@@ -304,7 +304,7 @@ Azure Otomasyonu, VM ölçek kümeleri, otomatik kapatma ve komut dosyalı veya 
 - [Bilgi edinmek için nasıl](https://docs.microsoft.com/azure/automation/automation-solution-vm-management) başlayın veya Azure automation'da saatleri dışında Vm'leri durdur.
 - [Daha fazla bilgi edinin] [Azure Danışmanı](https://docs.microsoft.com/azure/advisor/advisor-overview)ve [Azure kaynak iyileştirme (ARO) Araç Seti](https://github.com/Azure/azure-quickstart-templates/tree/master/azure-resource-optimization-toolkit/).
 
-## <a name="best-practices-use-logic-apps-and-runbooks-with-budgets-api"></a>En iyi uygulamalar: kullanım Logic Apps ve bütçelerini API'si ile runbook'ları
+## <a name="best-practices-use-logic-apps-and-runbooks-with-budgets-api"></a>En iyi uygulamalar: Logic Apps ve runbook'ları bütçelerini API ile kullanma
 
 Azure Kiracı fatura bilgilerinizi erişimi olan bir REST API'si sağlar.
 
@@ -320,7 +320,7 @@ Azure Kiracı fatura bilgilerinizi erişimi olan bir REST API'si sağlar.
 - [Öngörüler elde edin](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview) faturalandırma API'si ile Azure kullanımı hakkında.
 
 
-## <a name="best-practice-implement-serverless-technologies"></a>En iyi yöntem: sunucusuz teknolojilerini uygulamak
+## <a name="best-practice-implement-serverless-technologies"></a>En iyi yöntem: Sunucusuz teknolojilerini uygulamak
 
 VM iş yükleri genellikle "olduğu gibi" geçiş kapalı kalma süresini önlemek için. Genellikle sanal makineleri çalıştırmak için kısa bir süre alma aralıklı olan görevleri veya alternatif olarak kaç saat barındırabilir. Örneğin, zamanlanmış görevler gibi Windows çalıştıran sanal makineler, Zamanlayıcı veya PowerShell betikleri görev. Bu görevleri çalıştırmadığınız olduğunda, yine de VM azaltırız ve depolama maliyetlerini disk.
 

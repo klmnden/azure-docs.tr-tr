@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights JavaScript istemci kitaplığını keşfetme
+title: Azure zaman serisi öngörüleri JavaScript istemci kitaplığını keşfedin | Microsoft Docs
 description: Azure Time Series Insights JavaScript istemci kitaplığını ve ilgili programlama modelini öğrenin.
 author: ashannon7
 manager: cshankar
@@ -8,12 +8,13 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
-ms.openlocfilehash: 5f31dce98cd873a0bf4b750934384e1bf6d2564a
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: seodec18
+ms.openlocfilehash: 33dcf6f69d1287b4e040b3cccf4164667db2b75f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707002"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269983"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Öğretici: Azure Time Series Insights JavaScript istemci kitaplığını keşfetme
 
@@ -82,7 +83,7 @@ Bu öğreticide, TSI JavaScript istemci kitaplığının kullanımı da dahil ol
 
 3. `<div class="chartsWrapper">` öğesini genişlettiğinizde daha fazla `<div>` öğesi bulabilirsiniz. Bu öğeler her bir grafik denetimi örneğini konumlandırmak için kullanılır. Her grafik örneği için bir tane olmak üzere birkaç `<div>` öğesi çiftine dikkat edin:
 
-   - İlk (`class="rowOfCardsTitle"`) öğe, grafiğin neyi gösterdiğini özetleyen açıklayıcı bir başlık içerir. Örneğin: "Tam Boyutlu Göstergelerle Statik Çizgi Grafikler."
+   - İlk (`class="rowOfCardsTitle"`) öğe, grafiğin neyi gösterdiğini özetleyen açıklayıcı bir başlık içerir. Örneğin: "Tam boyutlu göstergeleri içeren statik çizgi grafikler."
    - İkinci (`class="rowOfCards"`) öğe, bir üst öğedir ve bir satırın içindeki gerçek grafik denetimlerini konumlandıran ek alt `<div>` öğelerini içerir.
 
    ![Gövde div öğeleri](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
@@ -95,8 +96,8 @@ Bu öğreticide, TSI JavaScript istemci kitaplığının kullanımı da dahil ol
 
 Ayrıntılı olarak gözden geçirmesek de, temelde TSI İstemci kitaplığı **tsclient.js** iki önemli kategorinin soyutlamasını sağlar:
 
-- **TSI Sorgu API'lerini çağırmaya yönelik sarmalayıcı yöntemleri**: Toplama ifadelerini kullanarak TSI verilerini sorgulamanıza olanak tanıyan REST API'leri. Yöntemler, kitaplığın `TsiClient.Server` ad alanı altında düzenlenir.
-- **Çeşitli türlerdeki grafik denetimlerini oluşturma ve doldurma yöntemleri**: Bir web sayfasındaki TSI toplama verilerini işlemek için kullanılan yöntemler. Metotlar, kitaplığın `TsiClient.UX` ad alanı altında düzenlenmiştir.
+- **TSI sorgu API'leri çağırmak için sarmalayıcı yöntemleri**: Sorgu olanak tanıyan TSI verilerini toplama ifadesi kullanarak REST API'ler. Metotlar, kitaplığın `TsiClient.Server` ad alanı altında düzenlenmiştir.
+- **Oluşturma ve doldurma denetimleri grafik türleri çeşitli yöntemleri**: TSI çizmek için kullanılan yöntemler bir web sayfasında veri toplama. Metotlar, kitaplığın `TsiClient.UX` ad alanı altında düzenlenmiştir.
 
 Aşağıdaki kavramlar evrenseldir ve genel olarak TSI İstemci kitaplığı API'lerine uygulanabilir.
 
@@ -235,15 +236,15 @@ Gelişmiş işlevselliğin bir başka örneği ise özel açılır menülerdir (
 
 1. İlk olarak bir dizi özel eylem tanımlanır. Her eylem bir veya daha fazla öğe ile bir dizi içerir. Her öğe tek bir bağlam menüsü öğesini tanımlar:
 
-   - `barChartActions`: Bu eylem tek menü öğesini tanımlamak için bir öğe içeren pasta grafik bağlam menüsünü tanımlar:
-     - `name`: Menü öğesinde kullanılan metin: "Parametreleri konsola yazdır."
-     - `action`: Menü öğesiyle ilişkili eylem. Eylem her zaman anonim bir işlevdir ve grafiği oluşturmak için kullanılan toplama ifadesi temelinde üç bağımsız değişken alır. Bu örnekte, bağımsız değişkenler tarayıcı konsol penceresine yazılır:
-       - `ae`: Toplama ifadesi dizisi.
-       - `splitBy`: splitBy değeri.
+   - `barChartActions`: Bu eylem, tek bir öğeyi tanımlamak için bir öğe içeriyorsa pasta grafiği için bağlam menüsünü tanımlar:
+     - `name`: Menü öğesi için kullanılan metin: "Konsol parametreleri yazdırın."
+     - `action`: Menü öğesi ile ilişkili eylem. Eylem her zaman anonim bir işlevdir ve grafiği oluşturmak için kullanılan toplama ifadesi temelinde üç bağımsız değişken alır. Bu örnekte, bağımsız değişkenler tarayıcı konsol penceresine yazılır:
+       - `ae`: Toplama ifadesi dizi.
+       - `splitBy`: SplitBy değeri.
        - `timestamp`: Zaman damgası.
 
-   - `pieChartActions`: Bu eylem tek menü öğesini tanımlamak için bir öğe içeren çubuk grafik bağlam menüsünü tanımlar. Şekil ve şema önceki `barChartActions` öğesi ile aynıdır, ama `action` işlevinin önemli ölçüde farklı olduğuna dikkat edin çünkü bu işlev çubuk grafiği başlatır ve işler. Ayrıca çalışma zamanında menü öğesi açıldığında geçirilen toplama ifadesi dizisini belirtmeye yönelik `ae` bağımsız değişkeninin kullanıldığına dikkat edin. İşlev, `barChartActions` bağlam menüsüyle birlikte `ae.contextMenu` özelliğini de ayarlar.
-   - `contextMenuActions`: Bu eylem üç menü öğesini tanımlamak için üç öğe içeren, çizgi grafiğin bağlam menüsünü tanımlar. Her öğenin şekli ve şeması, açıklanan önceki öğelerle aynıdır. Aynı `barChartActions` öğesi gibi, ilk öğe tarayıcı konsol penceresine üç işlev bağımsız değişkenini yazar. `pieChartActions` öğesine benzer biçimde, ikinci iki öğe sırasıyla pasta ve çubuk grafiklerini başlatır ve işler. İkinci iki öğe sırasıyla `pieChartActions` ve `barChartActions` bağlam menüleriyle `ae.contextMenu` özelliklerini de ayarlar.
+   - `pieChartActions`: Bu eylem, tek bir öğeyi tanımlamak için bir öğe içeriyorsa çubuk grafik için bağlam menüsünü tanımlar. Şekil ve şema önceki `barChartActions` öğesi ile aynıdır, ama `action` işlevinin önemli ölçüde farklı olduğuna dikkat edin çünkü bu işlev çubuk grafiği başlatır ve işler. Ayrıca çalışma zamanında menü öğesi açıldığında geçirilen toplama ifadesi dizisini belirtmeye yönelik `ae` bağımsız değişkeninin kullanıldığına dikkat edin. İşlev, `barChartActions` bağlam menüsüyle birlikte `ae.contextMenu` özelliğini de ayarlar.
+   - `contextMenuActions`: Bu eylem, üç menü öğeleri tanımlamak için üç öğeleri içeren çizgi grafik için bağlam menüsünü tanımlar. Her öğenin şekli ve şeması, açıklanan önceki öğelerle aynıdır. Aynı `barChartActions` öğesi gibi, ilk öğe tarayıcı konsol penceresine üç işlev bağımsız değişkenini yazar. `pieChartActions` öğesine benzer biçimde, ikinci iki öğe sırasıyla pasta ve çubuk grafiklerini başlatır ve işler. İkinci iki öğe sırasıyla `pieChartActions` ve `barChartActions` bağlam menüleriyle `ae.contextMenu` özelliklerini de ayarlar.
 
 2. Sonra, iki toplama ifadesi `aes` toplama ifadesi dizisinin içine gönderilir ve her öğe için `contextMenuActions` dizisi belirtilir. Bu ifadeler, çizgi grafik denetimiyle kullanılır.
 
@@ -262,10 +263,10 @@ Fırçalar, yakınlaştırma ve keşfetme gibi eylemleri tanımlamak üzere zama
 Fırçaları göstermek için kullanılan kod, [Açılan bağlam menüleri](#popup-context-menus-section) konusunu açıklayan önceki "Pasta/Çubuk Grafik Oluşturmak için Bağlam Menüsüyle Çizgi Grafik" örneğinde gösterilmiştir.
 
 1. Fırça eylemleri, fırça için bir dizi özel eylem tanımlaması bakımından bağlam menüsüne benzer. Her eylem bir veya daha fazla öğe ile bir dizi içerir. Her öğe tek bir bağlam menüsü öğesini tanımlar:
-   - `name`: Menü öğesinde kullanılan metin: "Parametreleri konsola yazdır."
-   - `action`: Menü öğesiyle ilişkilendirilmiş eylem; her zaman iki bağımsız değişken alan anonim bir işlevdir. Bu örnekte, bağımsız değişkenler tarayıcı konsol penceresine yazılır:
-      - `fromTime`: Fırça seçiminin "başlangıç" zaman damgası.
-      - `toTime`: Fırça seçiminin "bitiş" zaman damgası.
+   - `name`: Menü öğesi için kullanılan metin: "Konsol parametreleri yazdırın."
+   - `action`: Her zaman iki bağımsız değişken alan anonim bir işlevdir menü öğesi ile ilişkili eylem. Bu örnekte, bağımsız değişkenler tarayıcı konsol penceresine yazılır:
+      - `fromTime`: "Kimden" zaman damgası fırça seçimi.
+      - `toTime`: "Hedef" zaman damgası fırça seçimi.
 
 2. Fırça eylemleri başka bir grafik seçeneği özelliği olarak eklenir. `brushContextMenuActions: brushActions` özelliğinin `linechart.Render` çağrısına geçirildiğine dikkat edin.
 
@@ -285,6 +286,6 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 Daha önce açıklandığı gibi, TSI Örnek uygulamasında tanıtım amaçlı bir veri kümesi kullanılır. Kendi TSI ortamınızı ve veri kümenizi nasıl oluşturabileceğiniz hakkında bilgi edinmek için, şu makaleye ilerleyin:
 
 > [!div class="nextstepaction"]
-> [Öğretici: Azure Time Series Insights ortamı oluşturma](tutorial-create-populate-tsi-environment.md)
+> [Öğretici: Azure zaman serisi görüşleri ortamı oluşturma](tutorial-create-populate-tsi-environment.md)
 
 

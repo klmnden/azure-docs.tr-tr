@@ -2,8 +2,8 @@
 title: Azure Machine Learning Model Yönetimi Kurulumu ve yapılandırması | Microsoft Docs
 description: Bu belgede adımlar ve kavramlar açıklanır ayarlama ve Azure Machine Learning'de Model yönetimi yapılandırma katılan.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6660657141cc5aac532d121b61c7c8db6a24ccda
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d10f61e6276b1ce0a0237e3cf2e35a68edf4a0cf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968722"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257589"
 ---
 # <a name="model-management-setup"></a>Model Yönetimi Kurulumu
 
@@ -91,7 +91,7 @@ Başlamak için dağıtım ortamı oluşturmanız gerekir. Bir ortam Kurulumu ol
 
 Ortam Kurulumu tamamlanırken:
 - Azure'da oturum açmanız istenir. Oturum açmak için bir web tarayıcısı kullanarak https://aka.ms/devicelogin ve kimlik doğrulaması için sağlanan kod girin.
-- Kimlik doğrulama işlemi sırasında kimlik doğrulaması yapmak bir hesap istenir. Önemli: geçerli bir Azure aboneliği ve kaynak hesabı oluşturulamadı. yeterli izinlere sahip bir hesap seçin - oturum açma tamamlandıktan sonra abonelik bilgilerinizi sunulur ve ile devam etmek istiyor olup isteniyor Seçili hesap.
+- Kimlik doğrulama işlemi sırasında kimlik doğrulaması yapmak bir hesap istenir. Önemli: Geçerli bir Azure aboneliği ve kaynak hesabı oluşturulamadı. yeterli izinlere sahip bir hesap seçin - oturum açma tamamlandıktan sonra abonelik bilgilerinizi sunulur ve seçili hesapla devam etmek istiyor olup isteniyor .
 
 ### <a name="environment-setup"></a>Ortam Kurulumu
 Kurulum işlemini başlatmak için aşağıdaki komutu girerek ortam sağlayıcısını kaydetmeniz gerekir:
@@ -114,7 +114,7 @@ Yerel ortam Kurulum komutu aboneliğinizde aşağıdaki kaynakları oluşturur:
 - Bir kaynak grubu (sağlanmadığında)
 - Bir depolama hesabı
 - Azure Container Registry (ACR)
-- Application Insights
+- Application ınsights
 
 Kurulum başarıyla tamamlandıktan sonra aşağıdaki komutu kullanarak kullanılacak ortamı ayarlayın:
 
@@ -136,7 +136,7 @@ Küme ortamı Kurulum komutu aboneliğinizde aşağıdaki kaynakları oluşturur
 - Bir depolama hesabı
 - Azure Container Registry (ACR)
 - Azure Container Service (ACS) kümesinde Kubernetes dağıtımı
-- Application Insights
+- Application ınsights
 
 Kaynak grubu, depolama hesabı ve ACR hızlı bir şekilde oluşturulur. ACS dağıtımı 20 dakikaya kadar sürebilir. 
 

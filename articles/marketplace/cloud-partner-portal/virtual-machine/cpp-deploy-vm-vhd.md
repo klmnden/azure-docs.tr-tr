@@ -3,7 +3,7 @@ title: Azure Market vhd'lerinizden VM dağıtma | Microsoft Docs
 description: Azure ile dağıtılan bir VHD'den VM kaydedileceği açıklanmaktadır.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
-author: pbutlerm
+author: v-miclar
 manager: Patrick.Butler
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 06ef4247d3cd7f87d763feb3f61cb8101d17a2e4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 9157ce7f8f16bc60a6d5c16fa992a5402cf2d7ad
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877125"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190739"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Vhd'lerinizden VM dağıtma
 
-Bu makalede bir Azure ile dağıtılan sanal sabit diskten (VHD) nasıl bir sanal makine (VM) kaydedileceği açıklanmaktadır.  Gereken araçları ve bunları bir kullanıcı VM görüntüsü oluşturun, ardından kullanarak Azure'a dağıtmak için nasıl kullanılacağını listeler [Microsoft Azure Portal'da](https://ms.portal.azure.com/) veya PowerShell betikleri. 
+Bu bölümde, bir sanal makine (VM) dağıtmak nasıl bir Azure ile dağıtılan sanal sabit diskten (VHD) açıklanmaktadır.  Gereken araçları ve bunları bir kullanıcı VM görüntüsü oluşturun ve ardından PowerShell betiklerini kullanarak Azure'a dağıtmak için nasıl kullanılacağını listeler.
 
 Sanal sabit disklerinizin (VHD) yükledikten sonra — genelleştirilmiş işletim sistemi VHD'si ve sıfır veya daha fazla veri diski VHD'leri — Azure depolama hesabınızın, bunları bir kullanıcı VM görüntüsü olarak kaydedebilirsiniz. Ardından bu görüntüyü test edebilirsiniz. İşletim sistemi VHD'si genelleştirilmiş olduğundan VHD URL'sini sağlayarak VM'yi doğrudan dağıtamazsınız.
 
@@ -33,48 +33,23 @@ VM görüntüleri hakkında daha fazla bilgi edinmek için şu blog gönderileri
 - [VM görüntüsü PowerShell 'Nasıl yapılır'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
 
-## <a name="set-up-the-necessary-tools"></a>Gerekli araçları ayarlayın
+## <a name="prerequisite-install-the-necessary-tools"></a>Önkoşul: gerekli araçları yükleyin
 
 Zaten yapmadıysanız, Azure PowerShell ve Azure CLI aşağıdaki yönergeleri kullanarak yükleyin:
-
-<!-- TD: Change the following URLs (in this entire topic) to relative paths.-->
 
 - [PowerShellGet ile Windows üzerindeki Azure PowerShell'i yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 - [Azure CLI 2.0’ı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
-## <a name="create-a-user-vm-image"></a>Bir kullanıcı VM görüntüsü oluşturma
+## <a name="deployment-steps"></a>Dağıtım adımları
 
-Ardından, genelleştirilmiş bir VHD'den yönetilmeyen görüntü oluşturur.
+Oluşturma ve bir kullanıcı VM görüntüsü dağıtmak için aşağıdaki adımları kullanın:
 
-#### <a name="capture-the-vm-image"></a>VM görüntüsü yakalama
+1. Yakalama ve görüntüyü Genelleştirme kapsar kullanıcı VM görüntüsü oluşturun. 
+2. Sertifikaları oluşturun ve bunları yeni bir Azure Key Vault'ta depolar. VM güvenli bir WinRM bağlantı kurmak için bir sertifika gereklidir.  Bir Azure Resource Manager şablonu ve bir Azure PowerShell Betiği sağlanır. 
+3. Sağlanan şablon ve betik kullanarak bir kullanıcı VM görüntüsünden VM dağıtın.
 
-Erişim yaklaşımınızı karşılık gelen VM yakalama üzerinde aşağıdaki makaledeki yönergeleri kullanın:
-
--  PowerShell: [bir Azure VM'den yönetilmeyen bir VM görüntüsü oluşturma](../../../virtual-machines/windows/capture-image-resource.md)
--  Azure CLI: [bir sanal makine veya VHD görüntüsü oluşturma](../../../virtual-machines/linux/capture-image.md)
--  API: [sanal makineler - yakalama](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture)
-
-### <a name="generalize-the-vm-image"></a>VM görüntüyü Genelleştirme
-
-Daha önce genelleştirilmiş bir VHD'den kullanıcı görüntüsü oluşturduğu için bu da genelleştirilmiş.  Yeniden erişim mekanizmanızı karşılık gelen makaleyi seçin.  (Bunu yakalandığında, zaten diskinizi genelleştirildiğinden.)
-
--  PowerShell: [VM'yi Genelleştirme](https://docs.microsoft.com/azure/virtual-machines/windows/sa-copy-generalized#generalize-the-vm)
--  Azure CLI: [2. adım: sanal makine oluşturma görüntüsü](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image#step-2-create-vm-image)
--  API: [sanal makineler - Generalize](https://docs.microsoft.com/rest/api/compute/virtualmachines/generalize)
-
-
-## <a name="deploy-a-vm-from-a-user-vm-image"></a>Bir kullanıcı VM görüntüsünden VM dağıtma
-
-Ardından, Azure portalı veya PowerShell kullanarak bir kullanıcı VM görüntüsünden VM dağıtır.
-
-<!-- TD: Recapture following hilited images and replace with red-box. -->
-
-### <a name="deploy-a-vm-from-azure-portal"></a>Azure portalından bir VM dağıtma
-
-Azure portalından, kullanıcı VM'i dağıtmak için aşağıdaki işlemi kullanın.
-
-1.  [Azure portal](https://portal.azure.com) oturum açın.
+Sanal makinenizin dağıtıldıktan sonra hazır olduğunuz [VM görüntünüzü sertifika](./cpp-certify-vm.md).
 
 2.  Tıklayın **yeni** araması **şablon dağıtımı**, ardından **düzenleyicide kendi şablonunuzu oluşturun**.  <br/>
   ![Azure portalında VHD'yi dağıtım şablonu oluşturma](./media/publishvm_021.png)
@@ -124,4 +99,5 @@ Yeni oluşturulan genelleştirilmiş VM görüntüsünden büyük bir VM'yi dağ
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sanal makinenizin dağıtıldıktan sonra hazır olduğunuz [VM yapılandırma](./cpp-configure-vm.md).
+Sonra [bir kullanıcı VM görüntüsü oluşturma](cpp-create-user-image.md) çözümünüz için.
+

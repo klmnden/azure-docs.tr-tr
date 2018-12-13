@@ -8,19 +8,18 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24ffe9eded908c82750ce5a6d6fbe87991bdae72
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 03a7454aec43963a093dc0d7fcc347dac3ef5d43
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872875"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192932"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Tasarım ve azure'da (Önizleme) bir yönetim çözümü oluşturun
 > [!NOTE]
@@ -58,7 +57,7 @@ Herhangi bir görünüm veya uyarılar tarafından kullanılmayan bile kullanıc
 
 Ardından sorun büyük olasılıkla otomatik bir işlem ile düzeltilebilir, bu düzeltmesi yapmak için Azure Automation'da bir runbook genellikle oluşturacaksınız.  Çoğu Azure hizmeti ile yönetilebilir [cmdlet'leri](/powershell/azure/overview) , bu tür işlevleri gerçekleştirmek için runbook yararlanarak.
 
-Dış işlevler bir uyarıya yanıt olarak çözümünüzün gerektirdiği sonra kullanabileceğiniz bir [Web kancası yanıtı](../../monitoring-and-diagnostics/alert-metric.md).  Bu, uyarıyı bilgi gönderirken bir dış web hizmetini çağırmak sağlar.
+Dış işlevler bir uyarıya yanıt olarak çözümünüzün gerektirdiği sonra kullanabileceğiniz bir [Web kancası yanıtı](../../azure-monitor/platform/alerts-metric.md).  Bu, uyarıyı bilgi gönderirken bir dış web hizmetini çağırmak sağlar.
 
 ### <a name="views"></a>Görünümler
 Log Analytics'teki görünümler, Log Analytics deposuna verilerini görselleştirmek için kullanılır.  Her çözüm, genellikle tek bir görünümle içerecek bir [döşeme](../../azure-monitor/platform/view-designer-tiles.md) kullanıcının ana panosunda görüntülenir.  Görünüm herhangi bir sayıda içerebilir [görselleştirme bölümleri](../../azure-monitor/platform/view-designer-parts.md) kullanıcıya toplanan verilerin farklı görselleştirmeler sağlamak için.

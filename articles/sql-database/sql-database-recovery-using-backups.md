@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: 2d7b50eadc130900cbd69d579f5ebb2997ad46a0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 4d77f8aad07d2fd4b3e2c4ec42b5b0ec328f779d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872960"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269524"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Otomatik veritabanı yedeklerini kullanarak bir Azure SQL veritabanını kurtarma
 
@@ -64,10 +64,10 @@ Tek bir abonelik için bazı sınırlamalar (belirli bir geri yükleme, coğrafi
 |Elastik havuz (başına havuzu)|4|200|
 ||||
 
-Geri yükleme toplu olarak yerleşik işlevi yoktur. [Azure SQL veritabanı: tam sunucu kurtarma](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) betik bu görevi yerine getirmeye bir yolu bir örnektir.
+Geri yükleme toplu olarak yerleşik işlevi yoktur. [Azure SQL veritabanı: Tam sunucu kurtarma](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) betik bu görevi yerine getirmeye bir yolu bir örnektir.
 
 > [!IMPORTANT]
-> Otomatik yedekleri kullanarak kurtarma için bir Abonelikteki SQL Server Katılımcısı rolü üyesi olmanız veya - abonelik sahibi olmanız göz atın [RBAC: yerleşik roller](../role-based-access-control/built-in-roles.md). Verileri Azure portalı, PowerShell veya REST API kullanarak kurtarabilirsiniz. Transact-SQL kullanamazsınız.
+> Otomatik yedekleri kullanarak kurtarma için bir Abonelikteki SQL Server Katılımcısı rolü üyesi olmanız veya - abonelik sahibi olmanız göz atın [RBAC: Yerleşik roller](../role-based-access-control/built-in-roles.md). Verileri Azure portalı, PowerShell veya REST API kullanarak kurtarabilirsiniz. Transact-SQL kullanamazsınız.
 
 ## <a name="point-in-time-restore"></a>Belirli bir noktaya geri yükleme
 
@@ -129,7 +129,7 @@ Coğrafi geri yükleme veritabanı barındırıldığı bölgedeki bir olay nede
 Belirli bir noktaya geri yükleme bir coğrafi-ikincil üzerinde şu anda desteklenmiyor. Belirli bir noktaya geri yükleme, yalnızca birincil veritabanında gerçekleştirilebilir. Kesintiden kurtarma için coğrafi geri yükleme kullanma hakkında ayrıntılı bilgi için bkz: [kesintiden kurtarma](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Kurtarılmasını, olağanüstü durum kurtarma çözümleri uzun kurtarma noktası hedefi (RPO) ve tahmini kurtarma süresi (ERT) ile SQL veritabanı'nda kullanılabilen en temel üyeliktir. Küçük boyut veritabanları (örneğin temel hizmet katmanı veya Kiracı veritabanları elastik havuzlardaki küçük boyut) kullanan çözümler için coğrafi geri yükleme sık makul bir DR çözümü bir ERT 12 saate kadar (genellikle daha az) sahip olduğu. Çözümleri kullanarak büyük veritabanları ve gerektiren daha kısa kurtarma süreleri ve kullanmayı düşünmeniz gerekir [yük devretme grupları ve etkin coğrafi çoğaltma](sql-database-geo-replication-overview.md). Etkin coğrafi çoğaltma, bir çok daha düşük ERT ve RPO yalnızca gerektirir gibi sunar sürekli olarak çoğaltılmış ikincil bir yük devretme başlatın. İş sürekliliği seçenekleri hakkında daha fazla bilgi için bkz. [iş sürekliliğine genel bakış](sql-database-business-continuity.md).
+> Kurtarılmasını, olağanüstü durum kurtarma çözümleri uzun kurtarma noktası hedefi (RPO) ve tahmini kurtarma süresi (ERT) ile SQL veritabanı'nda kullanılabilen en temel üyeliktir. Küçük boyut veritabanları (örneğin temel hizmet katmanı veya Kiracı veritabanları elastik havuzlardaki küçük boyut) kullanan çözümler için coğrafi geri yükleme sık makul bir DR çözümü bir ERT 12 saate kadar (genellikle daha az) sahip olduğu. Çözümleri kullanarak büyük veritabanları ve gerektiren daha kısa kurtarma süreleri ve kullanmayı düşünmeniz gerekir [etkin coğrafi çoğaltma](sql-database-active-geo-replication.md) veya [otomatik yük devretme grupları](sql-database-auto-failover-group.md). Etkin coğrafi çoğaltma, bir çok daha düşük ERT ve RPO yalnızca gerektirir gibi sunar sürekli olarak çoğaltılmış ikincil bir yük devretme başlatın. Otomatik Yük devretme grupları, bir veritabanı grubu için otomatik yük devretme sağlar. İş sürekliliği seçenekleri hakkında daha fazla bilgi için bkz. [iş sürekliliğine genel bakış](sql-database-business-continuity.md).
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Azure portalını kullanarak coğrafi-geri yükleme
 
@@ -177,4 +177,4 @@ Otomatik yedeklemeler, kullanıcı ve uygulama hataları, yanlışlıkla veritab
 - İş sürekliliğine genel bakış ve senaryolar için bkz: [iş sürekliliğine genel bakış](sql-database-business-continuity.md).
 - Veritabanı otomatik yedeklemeler Azure SQL hakkında bilgi edinmek için bkz: [SQL veritabanı otomatik yedeklerinde](sql-database-automated-backups.md).
 - Uzun süreli saklama hakkında bilgi edinmek için bkz: [uzun süreli saklama](sql-database-long-term-retention.md).
-- Daha hızlı kurtarma seçenekleri hakkında bilgi edinmek için [yük devretme grupları ve etkin coğrafi çoğaltma](sql-database-geo-replication-overview.md).
+- Daha hızlı kurtarma seçenekleri hakkında bilgi edinmek için [etkin coğrafi çoğaltma](sql-database-active-geo-replication.md) veya [otomatik yük devretme grupları](sql-database-auto-failover-group.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2018
 ms.author: tomsh
-ms.openlocfilehash: 5feedcd750841be159a7cf4a31f408aec2fffd38
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 214598291e69acfec2064738f798a48180ad05a6
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712985"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323004"
 ---
 # <a name="azure-security-white-papers"></a>Azure güvenlik teknik incelemeler
 | | |
@@ -31,7 +31,7 @@ ms.locfileid: "51712985"
 |[Azure veri şifreleme bekleyen](azure-security-encryption-atrest.md)|Verileri Azure ve veri koruma uygulamasında bölümü alma çeşitli bileşenleri bekleyen nasıl korunduğunu üzerinde odaklanılmıştır. Artıları ve eksileri farklı anahtar yönetimi koruma yaklaşımların inceler.|
 |[Azure günlük kaydı ve denetim](azure-log-audit.md)|Oluşturma, toplama ve Azure'da barındırılan hizmetlerden çözümlenirken güvenlik günlükleri için bir giriş sağlar. Bu günlükler, Azure dağıtımlarınızı güvenlik Öngörüler yardımcı olabilir. |
 |[Azure ağ güvenliği](abstract-azure-network-security.md)|Ağ denetimleri, Azure'da dağıttığınız çözümlerinin güvenliğini geliştirmek için yapılandırabileceğiniz çok sayıda tanıtır. Müşterilere yönelik ağ güvenlik denetimleri biridir.|
-|[Azure işlevleri ve sunucusuz platform güvenliği](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)|Bu indirilebilir Teknik İnceleme, güvenlik hususlarının yanı sıra Azure bağlamında azaltmaları sağlarken sunucusuz bilgi işlem avantajları kapsar. |
+|[Azure işlevleri ve sunucusuz platform güvenliği](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-functions-serverless-platform-security/Microsoft%20Serverless%20Platform.pdf)|Bu indirilebilir Teknik İnceleme, güvenlik hususlarının yanı sıra Azure bağlamında azaltmaları sağlarken sunucusuz bilgi işlem avantajları kapsar. |
 |[Microsoft azure'da kapsayıcı güvenliği](abstract-container-security-microsoft-azure.md)|Kapsayıcılar, kapsayıcı dağıtımı ve yönetimi ve yerel platform hizmetlerini açıklar. Ayrıca, kapsayıcı kullanımını Azure platformunda ortaya çıkan çalışma zamanı güvenlik sorunları açıklar. |
 |[Azure çalışma güvenliği](abstract-azure-operational-security.md)|Azure ile müşteriye dönük işletimsel güvenlik teknolojileri ve Hizmetleri kullanılabilir kapsamlı bir bakış sağlar.|
 |[Azure güvenlik Teknik Özellikler](azure-security-technical-capabilities.md)|Tüm bunları yönetebileceğiniz odaklar güvenlik özellikleri ve işlevselliği Azure depolama, Azure SQL veritabanı, Azure sanal makine model ve araçları ve altyapı destekleme.|

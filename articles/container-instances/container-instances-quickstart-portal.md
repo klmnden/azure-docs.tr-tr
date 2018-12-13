@@ -1,21 +1,21 @@
 ---
-title: Hızlı başlangıç - Azure Container Instances hizmetinde uygulama çalıştırma
-description: Bu hızlı başlangıçta, Azure portalı kullanarak Docker kapsayıcısında çalışan bir uygulamayı Azure Container Instances hizmetine dağıtacaksınız
+title: Hızlı Başlangıç - Azure Container Instances'da bir uygulamayı çalıştırma - Portal
+description: Bu hızlı başlangıçta, Azure Container ınstances'da bir yalıtılmış kapsayıcıda çalıştırmak için bir Docker kapsayıcı uygulaması dağıtmak için Azure portalını kullanın
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 6ab7680559400c0a270142563ecf7e251c2cd1b8
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 8f547977e544854e281e1c6be442607d55149e5e
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857729"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190297"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Hızlı başlangıç: Azure Container Instances hizmetinde uygulama çalıştırma
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Hızlı Başlangıç: Bir kapsayıcı uygulaması, Azure portalında Azure Container Instances'da çalıştırın
 
 Docker kapsayıcılarınızı kolay ve hızlı bir şekilde Azure'da çalıştırmak için Azure Container Instances hizmetini kullanın. Sanal makine dağıtmanız veya Kubernetes gibi tam kapsamlı bir düzenleme platformu kullanmanız gerekmez. Bu hızlı başlangıçta, Azure portalı kullanarak Azure’da bir kapsayıcı oluşturacak ve bu uygulamasını tam etki alanı adı (FQDN) ile kullanıma sunacaksınız. Birkaç ayarı yapılandırdıktan ve kapsayıcıyı dağıttıktan sonra çalışan uygulamaya göz atabilirsiniz:
 
@@ -37,7 +37,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][azure-free-acc
 
 * Kapsayıcı adı: `mycontainer`
 * Kapsayıcı görüntüsü: `microsoft/aci-helloworld`
-* Kaynak grubu: **Yeni oluştur** > `myResourceGroup`
+* Kaynak grubu: **Yeni Oluştur** > `myResourceGroup`
 
 ![Azure portalında yeni bir kapsayıcı örneği için temel ayarları yapılandırma][aci-portal-03]
 

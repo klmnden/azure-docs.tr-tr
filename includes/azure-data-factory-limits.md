@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 06/20/2018
+ms.date: 12/12/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 4aa4809c57eaf26b10053d432f9191580ec143a0
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 856d702bcf1f566d0cc455cdd2676e6c2e23d179
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44381096"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53326581"
 ---
 Veri Fabrikası yerde müşteri aboneliklerini birbirlerinin iş yüklerini korunan emin olmak için aşağıdaki varsayılan sınırlara sahip çok kiracılı bir hizmettir. Çoğu sınırlarını kolayca sınırına kadar aboneliğinizin destekle iletişim kurarak yükseltilebilir.
 
@@ -24,8 +24,7 @@ Veri Fabrikası yerde müşteri aboneliklerini birbirlerinin iş yüklerini koru
 | Bir Azure aboneliğinde veri fabrikaları | 50 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Data factory içindeki varlıklar (işlem hattı, veri kümeleri, Tetikleyiciler, bağlı hizmetler, tümleştirme çalışma zamanları) toplam sayısı | 5000 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Bir abonelik altında Azure-SSIS tümleştirme Runtime(s) için toplam CPU Çekirdeği | 128 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| İşlem hattı eşzamanlı işlem hattını çalışır | 100 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Veri Fabrikası eşzamanlı işlem hattını çalışır | 10,000  | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| (Tüm işlem hatları fabrikasında arasında paylaşılan) veri fabrikası başına eşzamanlı işlem hattını çalışır | 10,000  | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | (Kapsayıcılar için iç etkinlikler dahil) işlem hattı başına en fazla etkinlikleri | 40 | 40 |
 | İşlem hattı başına en fazla parametreleri | 50 | 50 |
 | ForEach öğeleri | 100.000 | 100.000 |

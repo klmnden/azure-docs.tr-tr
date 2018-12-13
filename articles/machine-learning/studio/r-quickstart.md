@@ -5,9 +5,8 @@ keywords: Hızlı Başlangıç, r dili, r programlama dili, r programlama Öğre
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: eea61419e76f4363a286f796e6df28a4e90a9ed7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ddd9c1fd8b51c6ae43878cf50ee16737511c82e9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317679"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278670"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Programlama dili için Azure Machine Learning Studio'da R için hızlı başlangıç Öğreticisi
 
@@ -33,7 +32,7 @@ Bu hızlı başlangıç öğreticisinde, Azure Machine Learning, R programlama d
 
 Microsoft Azure Machine Learning, çok sayıda güçlü makine öğrenimi ve veri işleme modüller içerir. Güçlü R dili en yaygın kullanılan analytics'in açıklanan. Sonsuza dek, analiz ve veri işleme Azure Machine learning'de r kullanarak uzatılabilir Esneklik ve ayrıntılı analizlerle r'ın bu birleşim ölçeklenebilirlik ve Azure Machine Learning, dağıtım kolaylığı sağlar
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ### <a name="forecasting-and-the-dataset"></a>Tahmini ve veri kümesi
 Tahmini bir yaygın olarak çalıştırılan ve oldukça faydalı analitik yöntemidir. Ortak satış macroeconomic değişkenleri tahmin etmek için en iyi stok düzeylerini belirlemek dönemsel öğelerinin tahmin gelen aralığını kullanır. Tahmin, genellikle zaman serisi modelleri ile gerçekleştirilir.
@@ -1211,7 +1210,7 @@ Bu kodu çalıştırmadan şekil 27 sonuç veri kümesinin çıkış bağlantı 
 
 Bu sonuçlardan modele dönemsel Etkenler ekleme RMS hata önemli ölçüde azaltır olduğunu görüyoruz. Çok edilebileceği RMS eğitim verileri için bir bit'den az tahmin için bir hatadır.
 
-## <a id="appendixa"></a>Ek A: RStudio Kılavuzu
+## <a id="appendixa"></a>EK A: RStudio Kılavuzu
 Bu ekte miyim bazı önemli bölümleri başlamanıza yardımcı olmak için RStudio belgelerine bağlantılar sağlayacaktır RStudio oldukça iyi belgelenmiştir.
 
 1. Proje oluşturma
@@ -1228,7 +1227,7 @@ Bu ekte miyim bazı önemli bölümleri başlamanıza yardımcı olmak için RSt
    
    Kesme noktası sorun giderme özellikleri adresinde belgelenen https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
 
-## <a id="appendixb"></a>Ek B: Daha fazla bilgi
+## <a id="appendixb"></a>EK B: Daha fazla bilgi
 R programlama Bu öğretici, Azure Machine Learning Studio ile R dili kullanmak ihtiyacınız olan temel kavramları kapsar. R ile ilgili bilgi sahibi değilseniz, iki tanıtımları CRAN'de kullanılabilir:
 
 * R Emmanuel Paradis tarafından yeni başlayanlar için başlangıç için iyi bir yerdir http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
@@ -1236,7 +1235,7 @@ R programlama Bu öğretici, Azure Machine Learning Studio ile R dili kullanmak 
 
 Başlamanıza yardımcı olabilecek R bir çok kitap mevcuttur. Birkaç faydalı bulabilirim şunlardır:
 
-* R programlama resim: bir tur, istatistiksel yazılım Norman Matloff mükemmel bir r'deki programlamaya giriş tasarlanmıştır  
+* R programlama diline resmi: Bir tur, istatistiksel yazılım Norman Matloff mükemmel bir r'deki programlamaya giriş tasarlanmıştır  
 * Paul Teetor tarafından R Kılavuzu r kullanarak bir sorun ve çözümü yaklaşım sağlar.  
 * R Robert Kabacoff tarafından uygulamada başka yararlı tanıtım defteridir. Yardımcısı hızlı R Web sitesi yararlı kaynaktır http://www.statmethods.net/.
 * Patrick Burns ile R Inferno r'de programlamada karşılaşılan zor ve zor konular sayısı ile ilgilenen yayımladım yanıtlamaya yönelik esprili defteridir Ücretsiz kitap kullanılabilir http://www.burns-stat.com/documents/books/the-r-inferno/.
@@ -1248,7 +1247,7 @@ Kitap tanıtım zaman serisi Paul Cowpertwait ve Andrew Metcalfe R ile zaman ser
 
 Harika bazı internet kaynakları:
 
-* DataCamp: Tarayıcınız video dersler ve kodlama alıştırmalar alışık olduğunuz, R DataCamp öğretir. Etkileşimli öğreticileri son R teknikleri ve paketleri vardır. Ücretsiz etkileşimli R adresindeki Öğreticisi https://www.datacamp.com/courses/introduction-to-r
+* DataCamp: DataCamp tarayıcınız video dersler ve kodlama alıştırmalar alışık olduğunuz, R öğretir. Etkileşimli öğreticileri son R teknikleri ve paketleri vardır. Ücretsiz etkileşimli R adresindeki Öğreticisi https://www.datacamp.com/courses/introduction-to-r
 * R Programiz gelen alma hakkında kılavuz kullanmaya https://www.programiz.com/r-programming
 * Hızlı bir R öğreticiyle Clarkson University'den Kelly siyah http://www.cyclismo.org/tutorial/R/
 * R adresinde listelenmiş 60 + kaynakları http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html

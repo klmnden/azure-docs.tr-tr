@@ -1,5 +1,5 @@
 ---
-title: 'Saas uygulama: pek çok Azure SQL veritabanı performansını izleme | Microsoft Docs'
+title: 'Saas uygulama: Birçok Azure SQL veritabanı performansını izleme | Microsoft Docs'
 description: Azure SQL veritabanlarının ve havuzların bir çok kiracılı SaaS uygulaması performansını izleme ve yönetme
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 86fdd7b0bd8ac76ddb2ac30ff324b80101c177e8
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 1ba98598a88973c5d5ae09cffda931a54d521b74
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353909"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259146"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Azure SQL veritabanlarının ve havuzların bir çok kiracılı SaaS uygulaması performansını izleme ve yönetme
 
@@ -75,7 +75,7 @@ Havuzlar yalnızca iki adet S3 veritabanı ile uygun maliyetli olabilse de, havu
 
 Bu betik, beş dakikadan daha kısa bir süre içinde 17 kiracı dağıtır.
 
-*New-TenantBatch* iç içe veya bağlı bir dizi betiği kullanır [Resource Manager](../azure-resource-manager/index.md) veritabanını kopyalar, varsayılan olarak bir kiracı grubu, oluşturduğunuz şablonlar **basetenantdb**katalog sunucusuna yeni Kiracı veritabanları oluşturmak için ardından kataloğa kaydeden ve son olarak bunları Kiracı adı ve mekan türü ile başlatır. Bu uygulamayı yeni bir kiracı sağlama yöntemiyle tutarlıdır. Yapılan tüm değişiklikler *basetenantdb* sonra sağlanan tüm yeni kiracılara uygulanır. Bkz: [şema yönetimi Öğreticisi](saas-tenancy-schema-management.md) değişiklik yapılacağını görmek için *mevcut* Kiracı veritabanlarında (dahil olmak üzere *basetenantdb* veritabanı).
+*New-TenantBatch* iç içe veya bağlı bir dizi betiği kullanır [Resource Manager](../azure-resource-manager/index.yml) veritabanını kopyalar, varsayılan olarak bir kiracı grubu, oluşturduğunuz şablonlar **basetenantdb**katalog sunucusuna yeni Kiracı veritabanları oluşturmak için ardından kataloğa kaydeden ve son olarak bunları Kiracı adı ve mekan türü ile başlatır. Bu uygulamayı yeni bir kiracı sağlama yöntemiyle tutarlıdır. Yapılan tüm değişiklikler *basetenantdb* sonra sağlanan tüm yeni kiracılara uygulanır. Bkz: [şema yönetimi Öğreticisi](saas-tenancy-schema-management.md) değişiklik yapılacağını görmek için *mevcut* Kiracı veritabanlarında (dahil olmak üzere *basetenantdb* veritabanı).
 
 ## <a name="simulate-usage-on-all-tenant-databases"></a>Tüm kiracı veritabanlarındaki kullanımın benzetimini gerçekleştirme
 

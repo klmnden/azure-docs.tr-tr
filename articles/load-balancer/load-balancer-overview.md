@@ -1,5 +1,6 @@
 ---
-title: Azure Load Balancer'a genel bakış | Microsoft Docs
+title: Azure Load Balancer nedir?
+titlesuffix: Azure Load Balancer
 description: Azure Load Balancer özelliklerine, mimarisine ve uygulamasına genel bakış. Load Balancer'ın nasıl çalıştığını ve bulutta nasıl faydalanabileceğinizi öğrenin.
 services: load-balancer
 documentationcenter: na
@@ -8,16 +9,17 @@ ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ms.devlang: na
 ms.topic: overview
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.openlocfilehash: 6368b47400f6ea06babfe538cf6f58b18cc49117
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: 3b1f2374618a0fdb446c4d0bf59fa14a828639ea
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219588"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185622"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer nedir?
 
@@ -27,7 +29,7 @@ Load Balancer, ön ucuna ulaşan yeni gelen akışları kurallara ve sistem duru
 
 Genel bir Load Balancer ayrıca sanal ağınızdaki sanal makinelerin (VM) özel IP'lerini genel IP adreslerine dönüştürerek giden bağlantı desteği sunabilir.
 
-Azure Load Balancer iki SKU ile sunulur: Temel ve Standart. Bu iki SKU arasında ölçek, özellik ve fiyatlandırma açısından farklar vardır. Temel Load Balancer ile gerçekleştirilebilen tüm senaryolar Standart Load Balancer ile de gerçekleştirilebilir ancak yaklaşımlar biraz farklı olabilir. Load Balancer hakkında bilgi edindikçe temel bilgilere ve SKU'ya özgü farklara hakim olmak önemlidir.
+Azure Load Balancer iki Sku'da kullanılabilir: Temel ve Standart. Bu iki SKU arasında ölçek, özellik ve fiyatlandırma açısından farklar vardır. Temel Load Balancer ile gerçekleştirilebilen tüm senaryolar Standart Load Balancer ile de gerçekleştirilebilir ancak yaklaşımlar biraz farklı olabilir. Load Balancer hakkında bilgi edindikçe temel bilgilere ve SKU'ya özgü farklara hakim olmak önemlidir.
 
 ## <a name="why-use-load-balancer"></a>Neden Azure Load Balancer'ı kullanmalısınız? 
 
@@ -86,7 +88,7 @@ Load Balancer, TCP ve UDP uygulamaları için aşağıdaki temel özellikleri su
      
     Load Balancer TCP, HTTP ve HTTPS uç noktaları için [farklı sistem durumu yoklama türleri](load-balancer-custom-probe-overview.md#types) sunar.
 
-    Ayrıca Klasik bulut hizmetlerinde ek bir tür kullanılabilir: [Konuk aracısı](load-balancer-custom-probe-overview.md#guestagent).  Bu seçenek sistem durumu yoklamaları için yalnızca son çare olarak kullanılmalıdır ve diğerleri kullanılabilir durumda olduğunda kullanılması önerilmez.
+    Ayrıca, Klasik bulut Hizmetleri'ni kullanarak, ek bir tür izin verilir:  [Konuk Aracısı](load-balancer-custom-probe-overview.md#guestagent).  Bu seçenek sistem durumu yoklamaları için yalnızca son çare olarak kullanılmalıdır ve diğerleri kullanılabilir durumda olduğunda kullanılması önerilmez.
     
 * **Giden bağlantılar (SNAT)**
 
@@ -129,7 +131,7 @@ Aşağıdaki şekilde genel ve 80 numaralı TCP bağlantı noktası için üç V
 
 ![Genel Load Balancer örneği](./media/load-balancer-overview/IC727496.png)
 
-*Şekil: Genel Load Balancer kullanarak web trafiğinde yük dengeleme*
+*Şekil: Genel Load Balancer'ı kullanarak Web trafiğini Dengeleme yükleme*
 
 İnternet istemcileri 80 numaralı TCP bağlantı noktası üzerinden bir web uygulamasının genel IP adresine istek gönderdiğinde Azure Load Balancer bu isteği yük dengeleme kümesindeki üç VM arasında dağıtır. Load Balancer algoritmaları hakkında daha fazla bilgi için bu makalenin [Load Balancer özellikleri](load-balancer-overview.md##fundamental-load-balancer-features) bölümüne bakın.
 
@@ -141,14 +143,14 @@ Bir iç Load Balancer, trafiği yalnızca bir sanal ağın içindeki veya Azure 
 
 İç Load Balancer, aşağıdaki yük dengeleme türlerini destekler:
 
-* **Bir sanal ağın içinde**: Sanal ağdaki VM'lerden aynı sanal ağ içinde bulunan bir VM kümesine yük dengeleme.
-* **Şirket içi ve dışı sanal ağ için**: Şirket içi bilgisayarlardan aynı sanal ağ içinde bulunan bir VM kümesine yük dengeleme. 
-* **Çok katmanlı uygulamalar için**: Arka uç katmanların internete yönelik olmadığı durumlarda internete yönelik çok katmanlı uygulamalar için yük dengeleme. Arka uç katmanları için internete yönelik katmandan trafik yük dengelemesi gerekir (aşağıdaki şekilde gösterilmiştir).
-* **İş kolu uygulamaları için**: Ek yük dengeleyici donanım veya yazılım olmadan Azure'da barındırılan iş kolu uygulamaları için yük dengeleme. Bu senaryo, trafiğine yük dengeleme uygulanmış olan bilgisayar kümesinde bulunan şirket içi sunucuları da içerir.
+* **Bir sanal ağ içindeki**: Vm'lerden sanal ağında bir dizi aynı sanal ağda bulunan VM'ler için Yük Dengeleme.
+* **Şirketler arası sanal ağ için**: Şirket içi bilgisayarlardan bir dizi aynı sanal ağda bulunan VM'ler için yük dengelemeyi. 
+* **Çok katmanlı uygulamalar için**: Yük Dengeleme internet'e yönelik çok katmanlı uygulamalar için arka uç katmanlarından internet'e yönelik olmadığı. Arka uç katmanları için internete yönelik katmandan trafik yük dengelemesi gerekir (aşağıdaki şekilde gösterilmiştir).
+* **Satır iş kolu uygulamaları için**: Yük Dengeleme için ek yük dengeleyici donanım veya yazılım Azure üzerinde barındırılan iş kolu satır uygulama. Bu senaryo, trafiğine yük dengeleme uygulanmış olan bilgisayar kümesinde bulunan şirket içi sunucuları da içerir.
 
 ![İç Load Balancer örneği](./media/load-balancer-overview/IC744147.png)
 
-*Şekil: Hem genel hem de iç Load Balancer kullanılan çok katmanlı uygulama yük dengelemesi*
+*Şekil: Çok katmanlı uygulamalar hem genel hem de iç Yük Dengeleyiciyi kullanarak yük dengelemenin*
 
 ## <a name="pricing"></a>Fiyatlandırma
 Standart Load Balancer kullanımı, yapılandırılan yük dengeleme kuralı sayısının yanı sıra işlenen gelen ve giden veri miktarına göre ücretlendirilir. Standart Load Balancer fiyatlandırma bilgileri için [Load Balancer fiyatlandırması](https://azure.microsoft.com/pricing/details/load-balancer/) sayfasını inceleyin.

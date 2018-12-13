@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 1f5984f8f28832c33d3a5a844fde72e7286ad251
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6dc66e551c1bce94b473a356cf4648e5c2353a2b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433798"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271309"
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>ServiceNow ile hizmet sistem durumu uyarılarını yapılandırma
 
@@ -154,15 +154,15 @@ Bu makalede, Azure hizmet durumu uyarıları ServiceNow ile tümleştirmek Web k
 
 ## <a name="create-an-alert-using-servicenow-in-the-azure-portal"></a>Servicenow'ı kullanarak Azure portalında uyarı oluşturma
 ### <a name="for-a-new-action-group"></a>Yeni bir eylem grubu için:
-1. 1 ile 8 arasındaki adımları [bu makalede](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) bir uyarı ile yeni bir eylem grubu oluşturmak için.
+1. 1 ile 8 arasındaki adımları [bu makalede](../azure-monitor/platform/alerts-activity-log-service-notifications.md) bir uyarı ile yeni bir eylem grubu oluşturmak için.
 
 1. Listesinde tanımlamak **Eylemler**:
 
     a. **Eylem türü:** *Web kancası*
 
-    b. **Ayrıntılar:** ServiceNow **tümleştirme URL'sini** , daha önce kaydedildi.
+    b. **Ayrıntılar:** Servicenow'ı **tümleştirme URL'sini** , daha önce kaydedildi.
 
-    c. **Ad:** Web kancası'nın adı, diğer adı veya tanımlayıcısı.
+    c. **Adı:** Web kancası'nın adı, diğer adı veya tanımlayıcısı.
 
 1. Seçin **Kaydet** uyarı oluşturma işlemi tamamlandığında.
 
@@ -177,14 +177,14 @@ Bu makalede, Azure hizmet durumu uyarıları ServiceNow ile tümleştirmek Web k
 
     a. **Eylem türü:** *Web kancası*
 
-    b. **Ayrıntılar:** ServiceNow **tümleştirme URL'sini** , daha önce kaydedildi.
+    b. **Ayrıntılar:** Servicenow'ı **tümleştirme URL'sini** , daha önce kaydedildi.
 
-    c. **Ad:** Web kancası'nın adı, diğer adı veya tanımlayıcısı.
+    c. **Adı:** Web kancası'nın adı, diğer adı veya tanımlayıcısı.
 
 1. Seçin **Kaydet** eylem grubunu güncelleştirmeye işiniz bittiğinde.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Bir HTTP POST isteği üzerinden, Web kancası tümleştirme testi
-1. Göndermek istediğiniz hizmet sistem durumu yükü oluşturun. Bir örnek hizmet sistem durumu Web kancası yükü konumunda bulabilirsiniz [günlük uyarıları Azure etkinlik için Web kancaları](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Göndermek istediğiniz hizmet sistem durumu yükü oluşturun. Bir örnek hizmet sistem durumu Web kancası yükü konumunda bulabilirsiniz [günlük uyarıları Azure etkinlik için Web kancaları](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 1. Bir HTTP POST isteği şu şekilde oluşturun:
 
@@ -201,6 +201,6 @@ Bu makalede, Azure hizmet durumu uyarıları ServiceNow ile tümleştirmek Web k
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Bilgi edinmek için nasıl [mevcut sorun yönetim sistemleri için Web kancası bildirimleri yapılandırma](service-health-alert-webhook-guide.md).
-- Gözden geçirme [etkinlik günlüğü uyarısı Web kancası şeması](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
+- Gözden geçirme [etkinlik günlüğü uyarısı Web kancası şeması](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Hakkında bilgi edinin [hizmet durumu bildirimlerini](../monitoring-and-diagnostics/monitoring-service-notifications.md).
-- Daha fazla bilgi edinin [Eylem grupları](../monitoring-and-diagnostics/monitoring-action-groups.md).
+- Daha fazla bilgi edinin [Eylem grupları](../azure-monitor/platform/action-groups.md).

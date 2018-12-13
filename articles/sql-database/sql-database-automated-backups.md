@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 6fe9a95c891ecd560682d02f14485cc9d198a0a4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.date: 12/10/2018
+ms.openlocfilehash: 2d6df569a2b5b813bd832adf5ef2e1d193de9364
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879169"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187577"
 ---
-# <a name="learn-about-automatic-sql-database-backups"></a>Otomatik SQL veritabanını yedekleme hakkında bilgi edinin
+# <a name="automated-backups"></a>Otomatik yedeklemeler
 
-SQL veritabanı otomatik veritabanı yedeklerini oluşturur ve Azure okuma erişimli coğrafi olarak yedekli depolama (RA-GRS), coğrafi olarak yedeklilik sağlamak için kullanır. Bu yedeklemeler, otomatik olarak ve ek ücret olmadan oluşturulur. Bunları gerçekleştirmek için herhangi bir şey yapmanız gerekmez. Bunlar yanlışlıkla Bozulması veya silinmesi, verilerinizi korumak için veritabanı yedeklerini tüm iş sürekliliği ve olağanüstü durum kurtarma stratejinize önemli bir parçasıdır. Güvenlik kuralları, yedeklemelerinizi uzun bir süre için kullanılabilir olmasını gerektiren bir uzun süreli yedek saklama ilkesini yapılandırabilirsiniz. Daha fazla bilgi için bkz. [Uzun süreli saklama](sql-database-long-term-retention.md).
+SQL veritabanı otomatik olarak 7 ila 35 gün arasında tutulduğu veritabanı yedeklemelerini oluşturur ve veri merkezi kullanılamaz durumda olsa bile, korunan emin olmak için Azure okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) kullanır. Bu yedeklemeler, otomatik olarak ve ek ücret olmadan oluşturulur. Bunları gerçekleştirmek için herhangi bir şey yapmanız gerekmez ve yapabilecekleriniz [yedekleme Bekletme dönemi değiştirme](#how-to-change-the-pitr-backup-retention-period). Bunlar yanlışlıkla Bozulması veya silinmesi, verilerinizi korumak için veritabanı yedeklerini tüm iş sürekliliği ve olağanüstü durum kurtarma stratejinize önemli bir parçasıdır. Güvenlik kuralları, yedeklemelerinizi süre (en fazla 10 yıl) uzun bir süre için kullanılabilir olduğunu gerektiriyorsa, yapılandırabileceğiniz bir [uzun süreli saklama](sql-database-long-term-retention.md).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -102,7 +102,7 @@ Veritabanı DTU tabanlı hizmet katmanı varsayılan PITR bekletme 35 gün ile b
 
 ## <a name="how-to-change-the-pitr-backup-retention-period"></a>PITR yedekleme saklama süresini değiştirme
 
-Azure portalı, PowerShell veya REST API'yi kullanarak varsayılan PITR yedek saklama süresini değiştirebilirsiniz. Desteklenen değerler şunlardır: 7, 14, 21, 28 veya 35 gün. Aşağıdaki örnekler için 28 gün PITR bekletmeyi değiştirme işlemini göstermektedir.
+Azure portalı, PowerShell veya REST API'yi kullanarak varsayılan PITR yedek saklama süresini değiştirebilirsiniz. Desteklenen değerler şunlardır: 7, 14, 21, 28 veya 35 gün sayısı. Aşağıdaki örnekler için 28 gün PITR bekletmeyi değiştirme işlemini göstermektedir.
 
 > [!NOTE]
 > Bu API'leri yalnızca PITR saklama süresini etkiler. Veritabanınız için LTR yapılandırdıysanız, etkilenmeyecektir. LTR bekletme period(s) değiştirme hakkında daha fazla bilgi için bkz. [uzun süreli saklama](sql-database-long-term-retention.md).

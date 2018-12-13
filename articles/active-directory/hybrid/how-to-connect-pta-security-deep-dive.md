@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c0729fd4c6d5e387b38c310a708505c3395ea41f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7f4750dd527aa53624fa977115a120911511b7d5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284889"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185078"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory geçişli kimlik doğrulaması güvenliğe derinlemesine bakış
 
@@ -49,11 +49,11 @@ Bu özellik anahtar güvenlik yönleri şunlardır:
 ## <a name="components-involved"></a>İlgili bileşenleri
 
 Azure AD işletimsel, hizmet ve veri güvenliği hakkındaki genel ayrıntılar için bkz. [Güven Merkezi](https://azure.microsoft.com/support/trust-center/). Kullanıcı oturum açma için geçişli kimlik doğrulaması kullandığınızda aşağıdaki bileşenleri ilgilidir:
-- **Azure AD STS**: oturum açma isteklerini işleyen ve kullanıcıların tarayıcıları, istemcileri veya gerektiği gibi hizmetler için güvenlik belirteçleri durum bilgisi olmayan güvenlik belirteci hizmeti (STS).
-- **Azure Service Bus**: Kurumsal Mesajlaşma ile bulut özellikli iletişim ve yardımcı olan geçişleri iletişim bulutla şirket içi çözümler bağlantı sağlar.
-- **Azure AD Connect kimlik doğrulaması Aracısı**: dinler ve parola doğrulaması isteklerine yanıt verip bir şirket içi bileşenidir.
-- **Azure SQL veritabanı**: kendi meta verileri ve şifreleme anahtarları gibi kiracınızın kimlik doğrulama aracılarının hakkında bilgi içerir.
-- **Active Directory**: şirket içi Active, kullanıcı hesapları ve parolaları depolandığı dizin.
+- **Azure AD STS**: Oturum açma isteklerini işleyen ve kullanıcıların tarayıcıları, istemcileri veya gerektiği gibi hizmetler için güvenlik belirteçleri durum bilgisi olmayan güvenlik belirteci hizmeti (STS).
+- **Azure Service Bus**: Kurumsal Mesajlaşma ile bulut özellikli iletişim ve yardımcı olan geçişleri iletişimi şirket içi çözümlere bulut aracılığıyla bağlanmanızı sağlar.
+- **Azure AD Connect kimlik doğrulaması Aracısı**: Dinler ve parola doğrulaması isteklerine yanıt veren bir şirket içi bileşeni.
+- **Azure SQL veritabanı**: Kiracınızın kimlik doğrulama aracılarının, bunların meta verileri ve şifreleme anahtarları gibi ilgili bilgileri tutar.
+- **Active Directory**: Böylece, şirket içi Active Directory kullanıcı hesaplarınızı ve parolalarını depolandığı.
 
 ## <a name="installation-and-registration-of-the-authentication-agents"></a>Yükleme ve kayıt kimlik doğrulama aracılarının
 
@@ -97,8 +97,8 @@ Kimlik doğrulama aracılarının kendilerini Azure AD ile kaydetmek için aşa�
 5. Ardından Azure AD imzalar ve dijital kimlik sertifikası kimlik doğrulaması aracıya geri gönderir.
     - Azure AD'de kök CA sertifikasını imzalamak için kullanılır. 
 
-     >[!NOTE]
-     > Bu CA _değil_ Windows güvenilen kök sertifika yetkilileri deposunda.
+      > [!NOTE]
+      > Bu CA _değil_ Windows güvenilen kök sertifika yetkilileri deposunda.
     - CA'yı yalnızca doğrudan kimlik doğrulama özelliği tarafından kullanılır. CA, yalnızca kimlik doğrulama aracı kaydı sırasında CSR imzalamak için kullanılır.
     -  Bir Azure AD Hizmetleri hiçbiri bu CA'yı kullanın.
     - Sertifikanın konu (ayırt edici adı veya DN) Kiracı kimliğinizdir ayarlanır Bu DN kiracınızda benzersiz olarak tanımlayan bir GUID'dir. Bu DN yalnızca kiracınız ile kullanmak için sertifika kapsamları.
@@ -207,11 +207,11 @@ Bir kimlik doğrulama Aracısı otomatik güncelleştirme için:
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Geçerli sınırlamalar](how-to-connect-pta-current-limitations.md): hangi senaryolar desteklenir ve hangilerinin olmayan öğrenin.
+- [Geçerli sınırlamalar](how-to-connect-pta-current-limitations.md): Hangi senaryolar desteklenir ve hangilerinin olmayan öğrenin.
 - [Hızlı Başlangıç](how-to-connect-pta-quick-start.md): Azure AD geçişli kimlik doğrulaması ve çalışır duruma getirin.
 - [AD FS'den doğrudan kimlik doğrulamaya geçiş](https://aka.ms/adfstoptadpdownload) -geçişli kimlik doğrulaması için AD FS (veya diğer Federasyon teknolojileri) geçirmek için ayrıntılı bir kılavuz.
-- [Akıllı kilitleme](../authentication/howto-password-smart-lockout.md): kullanıcı hesapları korumak için kiracınızda akıllı kilitleme özelliğini yapılandırın.
+- [Akıllı kilitleme](../authentication/howto-password-smart-lockout.md): Akıllı kilitleme özelliğini, kullanıcı hesapları korumak için kiracınızı yapılandırın.
 - [Nasıl çalıştığını](how-to-connect-pta-how-it-works.md): Azure AD geçişli kimlik doğrulaması nasıl çalıştığına ilişkin temel bilgileri öğrenin.
-- [Sık sorulan sorular](how-to-connect-pta-faq.md): Bul sık sorulan soruların yanıtları.
-- [Sorun giderme](tshoot-connect-pass-through-authentication.md): geçişli kimlik doğrulaması özelliği ile ortak sorunları çözmeyi öğrenin.
-- [Azure AD sorunsuz çoklu oturum açma](how-to-connect-sso.md): tamamlayıcı bu özellik hakkında daha fazla bilgi edinin.
+- [Sık sorulan sorular](how-to-connect-pta-faq.md): Sık sorulan soruların yanıtlarını bulun.
+- [Sorun giderme](tshoot-connect-pass-through-authentication.md): Geçişli kimlik doğrulaması özelliği olan yaygın sorunların nasıl çözümleneceğini öğrenin.
+- [Azure AD sorunsuz çoklu oturum açma](how-to-connect-sso.md): Tamamlayıcı bu özellik hakkında daha fazla bilgi edinin.

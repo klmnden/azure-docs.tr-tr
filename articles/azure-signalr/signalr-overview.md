@@ -1,23 +1,17 @@
 ---
-title: Azure SignalR nedir? | Microsoft Docs
+title: Azure SignalR nedir
 description: Azure SignalR hizmetine genel bakış.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
 ms.service: signalr
-ms.devlang: na
 ms.topic: overview
-ms.workload: tbd
 ms.date: 09/13/2018
 ms.author: zhshang
-ms.openlocfilehash: a159833936ec4762213f063e235fa4f9237af95b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: e66326c6c4d93a92c579255cb00b6614ecc03b8c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951109"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255185"
 ---
 # <a name="what-is-azure-signalr-service"></a>Azure SignalR Hizmeti nedir?
 
@@ -25,7 +19,7 @@ Azure SignalR Hizmeti, HTTP üzerinden uygulamalara gerçek zamanlı web işlevs
 
 Bu makalede Azure SignalR Hizmetine genel bir bakış sunulmaktadır.
 
-## <a name="what-is-azure-signalr-service-used-for"></a>Azure SignalR Hizmeti ne için kullanılır? 
+## <a name="what-is-azure-signalr-service-used-for"></a>Azure SignalR Hizmeti ne için kullanılır?
 
 Gerçek zamanlı içerik güncelleştirmeleri gerektiren çok sayıda uygulama türü vardır. Aşağıdaki örnekler, Azure SignalR Hizmeti’ni kullanmak için iyi adaylardır:
 
@@ -45,4 +39,3 @@ SignalR ayrıca gerçek zamanlı uygulamalar için sunucunun bütün bağlantıl
 - **[Bir ASP.NET Core SignalR Uygulamasını Ölçeklendirme](signalr-overview-scale-aspnet-core.md)** - Yüzbinlerce bağlantıya ölçeklendirmek için Azure SignalR Hizmetini bir ASP.NET Core SignalR uygulaması ile tümleştirin.
 - **[Sunucusuz, gerçek zamanlı uygulamalar oluşturma](signalr-overview-azure-functions.md)** JavaScript, C# ve Java gibi dillerde sunucusuz, gerçek zamanlı uygulamalar oluşturmak için Azure İşlevleri tümleştirmesini Azure SignalR Hizmeti ile kullanın.
 - **[REST API aracılığıyla istemcilere sunucudan iletileri gönderme](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md)** - Azure SignalR Hizmeti, REST kullanılabilen tüm dillerle uygulamaların SignalR Hizmeti ile bağlı istemcilere iletiler gönderebilmesi için REST API’sini sunar.
-

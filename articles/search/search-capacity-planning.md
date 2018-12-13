@@ -1,5 +1,5 @@
 ---
-title: Sorgu ve Azure Search'te dizin oluşturma için bölümleri ve çoğaltmalarını tahsis | Microsoft Docs
+title: Sorgu için bölümleri ve çoğaltmalarını ayırmak ve dizin oluşturma - Azure Search
 description: Azure Search, her kaynak Faturalanabilir arama birimleri cinsinden burada fiyatlandırılır bölüm ve çoğaltma bilgisayar kaynaklarını ayarlayın.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: fa1a13c5c786867f6e92a678c40a491e0a226076
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: e2eff6c854dae48961700341a6db19dc7113901c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238752"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316123"
 ---
 # <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Sorgu ve iş yüklerini Azure Search'te dizin oluşturma için bölümleri ve çoğaltmalarını Ayır
 Çalıştırdıktan sonra [bir fiyatlandırma katmanı seçin](search-sku-tier.md) ve [bir arama hizmeti sağlama](search-create-service-portal.md), isteğe bağlı olarak çoğaltmalar veya bölümler hizmetiniz tarafından kullanılan sayısını artırmak için sonraki adımdır. Her katman, sabit bir faturalandırma birimi sayısı sunar. Bu makalede dengeleyen sorgu yürütme, dizin oluşturma ve depolama gereksinimlerinize en uygun yapılandırmayı elde etmek için bu birimleri ayırma açıklanmaktadır.
@@ -92,12 +93,12 @@ Gerçek zamanlı veri yenileme gerektiren uygulamalarda Ara orantılı olarak da
 
 Daha büyük dizinler için sorgu daha uzun sürer. Bu nedenle, bölümler artımlı her artış çoğaltmaları daha küçük ancak orantılı bir artış gerektiğini fark edebilirsiniz. Sorguları ve sorgu karmaşıklığı, sorgu yürütme nasıl hızlı bir şekilde açık içine faktörü.
 
-## <a name="basic-tier-partition-and-replica-combinations"></a>Temel katman: bölüm ve çoğaltma birleşimleri
+## <a name="basic-tier-partition-and-replica-combinations"></a>Temel katmanı: Bölüm ve çoğaltma birleşimleri
 Temel bir hizmet, tam olarak bir bölüm ve üç kopyaya kadar için en fazla üç SUs sınırlayın. Çoğaltmalar yalnızca ayarlanabilir kaynaktır. Sorgular üzerinde yüksek kullanılabilirlik için en az iki çoğaltmaları gerekir.
 
 <a id="chart"></a>
 
-## <a name="standard-tiers-partition-and-replica-combinations"></a>Standart katmanları: bölüm ve çoğaltma birleşimleri
+## <a name="standard-tiers-partition-and-replica-combinations"></a>Standart katmanları: Bölüm ve çoğaltma birleşimleri
 Bu tablo, tüm standart katmanları için çoğaltmalar ve bölümler, 36 SU sınırına tabi birleşimlerini desteklemek için gereken SUs gösterir.
 
 |   | **Bölüm 1** | **2 bölüm** | **3 bölümleri** | **4 bölüm** | **6 bölümleri** | **12 bölümleri** |

@@ -1,5 +1,5 @@
 ---
-title: Azure App Service karma bağlantılar | Microsoft Docs
+title: Karma bağlantılar - Azure App Service | Microsoft Docs
 description: Oluşturma ve birbirinden tamamen farklı ağlarda bulunan kaynaklara erişmek için karma bağlantıları kullanın
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: ccompy
-ms.openlocfilehash: cdfe1a35dbbf8fa048e0b0ca24f06bb0e73bde61
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 084d5e9453ea5a55bdeeff839e4c70890575c83d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968331"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258024"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service karma bağlantılar #
 
@@ -136,7 +137,7 @@ HCM UI başlattığınızda gördüğünüz ilk şey bu HCM örneği ile yapıla
 Bir veya daha fazla karma bağlantılar için HCM eklemek için:
 
 1. HCM kullanıcı arabirimini Başlat.
-1. Seçin **başka bir karma bağlantı yapılandırma**.
+2. Seçin **başka bir karma bağlantı yapılandırma**.
 ![Ekran görüntüsü yeni karma bağlantılar yapılandırma][8]
 
 1. Azure hesabınızla oturum açın.
@@ -197,7 +198,7 @@ Karma bağlantı ile ilişkili bir JSON nesnesi şu şekilde görünür:
       }
     }
 
-Bu bilgileri yollarından biri olan sayfasından edinebilirsiniz armclient [ARMClient] [ armclient] github projesi. Önceden var olan bir karma bağlantı web uygulamanıza iliştirilirken bir örnek aşağıdadır. Yukarıdaki şemayı gibi her bir JSON dosyası oluşturun:
+Bu bilgileri yollarından biri olan sayfasından edinebilirsiniz armclient [ARMClient] [ armclient] GitHub projesi. Önceden var olan bir karma bağlantı web uygulamanıza iliştirilirken bir örnek aşağıdadır. Yukarıdaki şemayı gibi her bir JSON dosyası oluşturun:
 
     {
       "name": "relay-demo-hc",

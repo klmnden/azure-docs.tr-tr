@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 2063198ab2a7b11e15528e81acb46ba16277782a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 48e3ca0b9910b673491e20e834b38170308aa132
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097650"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272176"
 ---
 # <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Azure Machine Learning Studio'yu kullanarak müşteri değişim sıklığını çözümleme
 ## <a name="overview"></a>Genel Bakış
@@ -31,11 +30,11 @@ Bu makalede, Azure Machine Learning kullanılarak oluşturulan bir müşteri kar
 Bu deneyde geliştirildiği ve Serge Berger, Microsoft'ta asıl veri uzmanı ve eski Microsoft Azure Machine Learning için ürün yöneticisi olan Roger Barga test. Azure belgeleri takımının minnettar uzmanlıklarını bildirir ve bu teknik incelemeyi paylaşmak için teşekkürler.
 
 > [!NOTE]
-> Bu deneme için kullanılan verileri genel olarak kullanılabilir değil. Değişim sıklığı analiz için makine öğrenme modeli oluşturmak nasıl bir örnek için bkz: [perakende karmaşıklığı model şablonunun](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) içinde [Azure AI Gallery](http://gallery.cortanaintelligence.com/)
+> Bu deneme için kullanılan verileri genel olarak kullanılabilir değil. Değişim sıklığı analiz için makine öğrenme modeli oluşturma örneği için bkz: [Perakende karmaşıklığı model şablonunun](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) içinde [Azure AI Gallery](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="the-problem-of-customer-churn"></a>Müşteri karmaşıklığı sorununu
 İşletmeler tüketici pazarında ve tüm kurumsal kesimde, değişim sıklığı ile uğraşmak zorunda. Bazen değişim sıklığı aşırı ve ilke kararlarını etkiler. Geleneksel bir çözümün yüksek eğilimini churners tahmin edin ve kendi ihtiyaçlarına özel dispensations uygulayarak veya pazarlama kampanyaları, bir concierge hizmetini aracılığıyla adres sağlamaktır. Bu yaklaşım, sektör sektör farklılık gösterebilir. Bunlar bile belirli tüketicinin kümeden bir endüstri (örneğin, telekomünikasyon) içinde başka bir farklılık gösterebilir.
@@ -66,7 +65,7 @@ Müşterilerinin büyük veri kümelerini kullanarak, kuruluşların büyük ver
 
 ![][2]
 
-*Şekil 4: çok modelli archetype birleşik*  
+*Şekil 4: Birleşik çok modelli archetype*  
 
 Müşteri bekletme için bütünsel bir yaklaşım sunmak için ise modelleri arasındaki etkileşimi anahtardır. Her model, zaman içinde mutlaka düşürür; Bu nedenle, örtük bir döngü mimaridir (benzer şekilde NET-DM veri araştırma standardına göre ayarlama archetype [***3***]).  
 
@@ -104,15 +103,15 @@ Aşağıdaki diyagramlarda kullanılan verileri gösterilmektedir.
 
 ![][4]
 
-*Şekil 6: Alıntı (farklı) veri kaynağının*  
+*Şekil 6: (Farklı) veri kaynağının Alıntısı*  
 
 ![][5]
 
-*Şekil 7: veri kaynağından ayıklanan özellikleri*
+*Şekil 7: Veri kaynağından ayıklanan özellikleri*
  
 
 > Bu veriler özeldir ve bu nedenle modeli ve veri paylaşılamaz unutmayın.
-> Ancak bu örnek deneme herkese verileri kullanarak benzer bir model için bkz [Azure AI Gallery](http://gallery.cortanaintelligence.com/): [telekomünikasyon müşteri karmaşıklığı](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Ancak bu örnek deneme herkese verileri kullanarak benzer bir model için bkz [Azure AI Gallery](http://gallery.cortanaintelligence.com/): [Telekomünikasyon müşteri dalgalanması](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Cortana Intelligence Suite'i kullanarak bir değişim analiz modeli nasıl uygulayacağınıza dair hakkında daha fazla bilgi için ayrıca öneririz [bu videoyu](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) Kıdemli Program Yöneticisi Wee Hyong Tok tarafından. 
 > 
@@ -147,7 +146,7 @@ Ancak, en önemli değişim sıklığı ölçümü misclassification oranıdır:
 
 ![][7]
 
-*Şekil 9: Passau prototip eğri alanında*
+*Şekil 9: Eğri Passau prototip alanında*
 
 ### <a name="using-auc-to-compare-results"></a>Sonuçları karşılaştırmak için AUC kullanma
 Alanı altında eğri (AUC) genel bir ölçü temsil eden bir ölçüm olan *separability* puanlar pozitif ve negatif yerleştirme için dağıtımlar arasında. Geleneksel alıcı işleci özellikleri (ROC) grafiğe benzer, ancak AUC ölçüm eşiği değeri seçmenizi gerektirmeyeceğini bir önemli fark vardır. Bunun yerine, üzerinden sonuçları özetler **tüm** olası seçenekler. Buna karşılık, dikey eksen ve hatalı pozitif sonuç oranı yatay eksende pozitif sonuç oranı geleneksel ROC grafik gösterir ve sınıflandırma eşiği değişir.   
@@ -168,7 +167,7 @@ Aşağıdaki Wikipedia diyagramdan canlı, anlaşılması kolay bir grafik iliş
 
 ![][8]
 
-*Şekil 10: Etmekten doğruluk ve duyarlık*
+*Şekil 10: Doğruluk ve duyarlık etmekten*
 
 ### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Artırmalı karar ağacı modeli doğruluğu ve duyarlık sonuçları
 Aşağıdaki grafikte en doğru olan dört model arasında özelleştirmede artırmalı karar ağacı modeli için Machine Learning'i prototype kullanarak Puanlama ham sonuçları görüntüler:  
@@ -217,13 +216,13 @@ Bu yazıda, genel framework kullanarak genel müşteri karmaşıklığı sorunun
  
 
 ## <a name="references"></a>Başvurular
-[1] Tahmine dayalı analiz: Öngörüler, Batı McKnight bilgi yönetimi, Temmuz/Ağustos 2011 p.18 20 ötesinde.  
+[1] Tahmine dayalı analiz: Öngörüler, Batı McKnight bilgi yönetimi, Temmuz/Ağustos 2011 p.18 20.  
 
-[2] Wikipedia makalesinin: [doğruluk ve duyarlık](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Wikipedia makalesinin: [Doğruluk ve duyarlık](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
-[3] [NET-DM 1.0: adım adım veri araştırma Kılavuzu](http://www.the-modeling-agency.com/crisp-dm.pdf)   
+[3] [NET-DM 1.0: Adım adım veri araştırma Kılavuzu](http://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-[4] [büyük veri pazarlama: müşterilerinize daha etkili bir şekilde etkileşim kurun ve sürücü değeri](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [büyük veri pazarlama: Müşterileriniz daha etkili bir şekilde etkileşim kurun ve değer sürücü](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
 [5] [Telco karmaşıklığı model şablonunun](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) içinde [Azure AI Gallery](http://gallery.cortanaintelligence.com/) 
  
@@ -231,7 +230,7 @@ Bu yazıda, genel framework kullanarak genel müşteri karmaşıklığı sorunun
 ## <a name="appendix"></a>Ek
 ![][10]
 
-*Şekil 12: Anlık görüntü karmaşası prototipinde sunu*
+*Şekil 12: Değişim sıklığı prototipinde sunu anlık görüntü*
 
 [1]: ./media/azure-ml-customer-churn-scenario/churn-1.png
 [2]: ./media/azure-ml-customer-churn-scenario/churn-2.png

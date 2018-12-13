@@ -1,22 +1,24 @@
 ---
-title: (Klasik) azure'da giden bağlantıları | Microsoft Docs
+title: (Klasik) azure'da giden bağlantıları
+titlesuffix: Azure Load Balancer
 description: Bu makalede Azure nasıl sağladığını açıklar. bulut Hizmetleri, genel internet Hizmetleri ile iletişim kurmak için.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 5cb0647148d2cd90ad4cce6e16de30b72fff8429
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 006d8e28413e0893cafe351577f8a018d13fd268
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219673"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190008"
 ---
 # <a name="outbound-connections-classic"></a>Giden bağlantılar (Klasik)
 
@@ -54,7 +56,7 @@ Klasik dağıtımlarda farklı farklı işlevselliğe sahiptir:
 
 [Ön tahsis kısa ömürlü bağlantı noktaları için kullanılan algoritma](#ephemeralports) için PAT Klasik dağıtımlar için Azure Resource Manager kaynak dağıtımları ile aynıdır.
 
-### <a name="ilpip"></a>Senaryo 1: Bir örnek düzeyinde ortak IP adresine sahip VM
+### <a name="ilpip"></a>Senaryo 1: Örnek düzeyinde ortak IP adresine sahip VM
 
 Bu senaryoda, sanal makine bir örnek düzeyi genel IP (atanmış ILPIP) içeriyor. Giden bağlantılar endişe kadar VM yük dengeli uç noktası olup olmadığını önemi yoktur. Bu senaryo diğer önceliklidir. Bir ILPIP kullanıldığında, VM ILPIP tüm giden akışlar için kullanır.  
 
@@ -74,7 +76,7 @@ Bölümünde anlatıldığı gibi SNAT bağlantı noktaları önceden ayrılmı�
 
 Zaman [birden çok genel yük dengeli uç nokta](load-balancer-multivip.md) mevcut, bu genel IP adresleri olan bir [giden akışlar için aday](#multivipsnat), ve bir rastgele seçili.  
 
-### <a name="defaultsnat"></a>Senaryo 3: ilişkili genel IP adresi yok
+### <a name="defaultsnat"></a>Senaryo 3: İlişkili genel IP adresi yok
 
 Bu senaryoda, VM veya Web çalışanı rolü genel bir yük dengeli uç noktasının bir parçası değil.  Ve VM söz konusu olduğunda, kendisine atanmış bir ILPIP adresi yok. Azure, VM'ye giden bir akış oluşturduğunda, özel kaynak IP adresini bir genel kaynak IP adresine giden akış çevirir. Giden Bu akış için kullanılan genel IP adresini yapılandırılabilir değildir ve bu aboneliğe ait genel IP kaynağı limite karşı sayılmaz.  Azure, otomatik olarak bu adresi ayırır.
 

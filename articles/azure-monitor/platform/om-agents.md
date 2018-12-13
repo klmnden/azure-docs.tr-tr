@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/23/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 1988f5790b719acf4e5dad1a378139c8d74b56f9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 133e617cd6bac1155ba22276887cf0790221e9de
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995339"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186982"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Operations Manager'ı Log Analytics'e bağlama
 Mevcut yatırımınızı korumak için [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) ve Log Analytics ile genişletilmiş özellikleri kullanmak için Operations Manager ile Log Analytics çalışma alanınızın tümleştirebilirsiniz. Bu sayede Operations Manager'ı kullanmaya devam ederken Log Analytics'in avantajlarından yararlanabilir ve:
@@ -103,19 +102,19 @@ Log Analytics ile tümleştirmek için aşağıdaki adımları tamamladıktan so
 1. Operations Manager konsolunda **Yönetim** çalışma alanını seçin.
 1. Operations Management Suite düğümünü genişletin ve **Bağlantı**'ya tıklayın.
 1. **Operations Management Suite'e kaydolun** bağlantısına tıklayın.
-1. **Operations Management Suite Ekleme Sihirbazı: Kimlik Doğrulama** sayfasında, OMS aboneliğinizle ilişkilendirilmiş yönetici hesabının e-posta adresi veya telefon numarasını ve parolasını girin ve **Oturum aç**'a tıklayın.
+1. Üzerinde **Operations Management Suite Ekleme Sihirbazı: Kimlik doğrulaması** sayfasında, e-posta adresi veya telefon numarası ve OMS aboneliğinizle ilişkili yönetici hesabının parolasını girin ve tıklayın **oturum**.
 
    >[!NOTE]
    >OMS, artık Log Analytics da adlandırılır.
    
-1. Başarılı bir şekilde, üzerinde kimlik doğrulaması yaptıktan sonra **Operations Management Suite Ekleme Sihirbazı: çalışma alanı seçin** istenir Azure kiracısı, aboneliğiniz ve Log Analytics çalışma alanı seçin sayfasında. Birden çok çalışma alanınız varsa, açılan listeden Operations Manager yönetim grubuna kaydetmek istediğiniz çalışma alanını seçin ve ardından **İleri**'ye tıklayın.
+1. Başarılı bir şekilde, üzerinde kimlik doğrulaması yaptıktan sonra **Operations Management Suite Ekleme Sihirbazı: Çalışma alanı seçin** istenir Azure kiracısı, aboneliğiniz ve Log Analytics çalışma alanı seçin sayfasında. Birden çok çalışma alanınız varsa, açılan listeden Operations Manager yönetim grubuna kaydetmek istediğiniz çalışma alanını seçin ve ardından **İleri**'ye tıklayın.
    
    > [!NOTE]
    > Operations Manager bir kerede tek bir Log Analytics çalışma alanını destekler. Önceki çalışma alanıyla Log Analytics'e kaydedilmiş olan bilgisayarlar ve bağlantı Log Analytics'ten kaldırılır.
    > 
    > 
-1. **Operations Management Suite Ekleme Sihirbazı: Özet** sayfasında ayarlarınızı onaylayın ve bunlar doğruysa **Oluştur**'a tıklayın.
-1. **Operations Management Suite Ekleme Sihirbazı: Son** sayfasında **Kapat**'a tıklayın.
+1. Üzerinde **Operations Management Suite Ekleme Sihirbazı: Özet** sayfasında, ayarları doğrulayın ve doğru olmaları durumunda tıklayın **Oluştur**.
+1. Üzerinde **Operations Management Suite Ekleme Sihirbazı: Son** sayfasında **Kapat**.
 
 ### <a name="add-agent-managed-computers"></a>Aracı tarafından yönetilen bilgisayarlar ekleme
 Tümleştirme ile Log Analytics çalışma alanınızı yapılandırma sonra yalnızca bir hizmet ile bağlantı kurar, yönetim grubunuza raporlama aracılardan gelen hiçbir veri toplanmadı. Hangi belirli aracıyla yönetilen bilgisayarlar için Log Analytics veri toplama yapılandırdıktan sonra bu kadar gerçekleşmez. Bilgisayar nesnelerini tek tek seçebileceğiniz gibi, Windows bilgisayar nesnelerini içeren bir grup da seçebilirsiniz. Mantıksal diskler veya SQL veritabanları gibi başka bir sınıfın örneklerini içeren grupları seçemezsiniz.
@@ -133,7 +132,7 @@ Bir iç proxy sunucu yönetim grubu ve Log Analytics hizmeti arasında ise aşa�
 1. Operations Manager konsolunu açın ve **Yönetim** çalışma alanını seçin.
 1. Operations Management Suite'i genişletin ve **Bağlantılar**'a tıklayın.
 1. OMS Bağlantısı görünümünde, **Ara Sunucuyu Yapılandır**'a tıklayın.
-1. **Operations Management Suite Sihirbazı: Ara Sunucu** sayfasında **Operations Management Suite erişimi için bir ara sunucu kullan**'ı seçin, ardından bağlantı noktası numarasını içeren URL'yi yazın (örneğin, http://corpproxy:80) ve **Son**'a tıklayın.
+1. Üzerinde **Operations Management Suite Sihirbazı: Proxy sunucusu** sayfasında **Operations Management Suite erişimi için bir proxy sunucusunu kullanmak**, ve ardından URL'si bağlantı noktası numarası ile örneğin http://corpproxy:80 ve ardından **son** .
 
 Ara sunucunuz kimlik doğrulaması gerektiriyorsa, kimlik bilgilerini ve Log Analytics için yönetim grubuna raporlayan yönetilen bilgisayarlara yayılmalıdır ayarlarını yapılandırmak için aşağıdaki adımları gerçekleştirin.
 
@@ -171,7 +170,7 @@ Aşağıdaki üretim yönetim grubunuzdaki Yönetim Paketi sürümleri denetleme
 1. İzleyin **Log Analytics Ekleme Sihirbazı** e-posta adresi veya telefon numarası ve yeni Log Analytics çalışma alanınızla ilişkili yönetici hesabının parolasını girin.
    
    > [!NOTE]
-   > **Operations Management Suite Ekleme Sihirbazı: Çalışma Alanı Seçin** sayfasında kullanımda olan mevcut çalışma alanı gösterilir.
+   > **Operations Management Suite Ekleme Sihirbazı: Çalışma alanı seçin** kullanımda olan mevcut bir çalışma sayfası sunar.
    > 
    > 
 

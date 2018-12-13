@@ -1,5 +1,5 @@
 ---
-title: Visual Studio Code eğitme ve modeli dağıtmak için kullanın
+title: Eğitim ve VS Code modelleri dağıtma
 titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning için Visual Studio Code ve eğitim ve dağıtma makine öğrenimi ve derin öğrenme modelleri Visual Studio Code kullanarak Azure Machine Learning hizmetindeki başlatma hakkında bilgi edinin.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 62c3dd051f9f4c06d8d5b5cd08422b34cf565f2f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0910cce92c410a68dce6e2c44d29e72e594cd153
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100677"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271717"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Visual Studio Code eğitmek ve makine öğrenimi modelleri dağıtmak için kullanın
 
@@ -27,11 +27,11 @@ Ve bu modeli, test ve üretim gereksinimlerine göre dağıtabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
++ Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
+
 + Sahip [VS Code için Azure Machine Learning](how-to-vscode-tools.md) uzantısı ayarlayın.
 
 + Sahip [yüklü Python için Azure Machine Learning SDK](how-to-vscode-tools.md) VS Code ile.
-
-+ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
 
 ## <a name="create-and-manage-compute-targets"></a>Oluşturma ve yönetme işlem hedefleri
 
@@ -55,7 +55,7 @@ Bu uzantı, Azure Machine Learning için birkaç farklı uzak işlem hedeflerini
 
 6. İşiniz bittiğinde işlem hedef yapılandırma, tıklayın **Gönder** sağ alt.
 
-Azure Machine Learning işlem (AMLCompute) için bir örnek aşağıda verilmiştir: [ ![VS code'da AML işlem oluşturma](./media/vscode-tools-for-ai/CreateAMLCompute.gif)](./media/vscode-tools-for-ai/CreateAMLCompute.gif#lightbox)
+Azure Machine Learning işlem (AMLCompute) için bir örnek aşağıda verilmiştir: [![VS Code'da AML işlem oluşturma](./media/vscode-tools-for-ai/CreateAMLCompute.gif)](./media/vscode-tools-for-ai/CreateAMLCompute.gif#lightbox)
 
 ### <a name="use-remote-computes-for-experiments-in-vs-code"></a>VS code'da denemeleri için Uzak hesaplar kullanın
 
@@ -185,6 +185,6 @@ Web hizmeti artık dağıtılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-VS Code dışında Machine Learning ile eğitim talimatları için okuma [öğretici: Azure Machine Learning ile modelleri eğitme](tutorial-train-models-with-aml.md).
+VS Code dışında Machine Learning ile eğitim talimatları için okuma [Öğreticisi: Azure Machine Learning ile modelleri eğitme](tutorial-train-models-with-aml.md).
 
 Çalıştıran ve yerel kodda hata ayıklama düzenleme talimatları için bkz. [Python Hello World Öğreticisi](https://code.visualstudio.com/docs/python/python-tutorial)

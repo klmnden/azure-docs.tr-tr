@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: b52604fa19a5598e8aff5b8a1ea25e7361add553
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 22dab5ecaba71093056e9bb2f6843c19896f845d
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997026"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323397"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services için Application Insights
 [Microsoft Azure Cloud hizmeti uygulamaları](https://azure.microsoft.com/services/cloud-services/), Application Insights SDK'larındaki verilerle Bulut Hizmetlerinizdeki [Azure Tanılama](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) verileri birleştirilerek kullanılabilirlik, performans, hata ve kullanım açısından [Application Insights][start] tarafından izlenebilir. Uygulamanızın gerçek hayattaki performansı ve etkinliğine ilişkin aldığınız geri bildirimlerden yararlanarak her geliştirme yaşam döngüsünde tasarımın yönü konusunda bilinçli kararlar alabilirsiniz.
@@ -95,14 +95,14 @@ Her derleme yapılandırması için ayrı bir Application Insights kaynağı kul
 
 Bu, Application Insights izleme anahtarlarınızın `ServiceConfiguration.*.cscfg` adlı dosyalara eklenmesini sağlar. ([Örnek kod](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)).
 
-Application Insights’a gönderilen tanılama bilgilerinin düzeyini değiştirmek isterseniz [`.cscfg` dosyalarını doğrudan düzenleyerek](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md) bunu gerçekleştirebilirsiniz.
+Application Insights’a gönderilen tanılama bilgilerinin düzeyini değiştirmek isterseniz [`.cscfg` dosyalarını doğrudan düzenleyerek](../azure-monitor/platform/diagnostics-extension-to-application-insights.md) bunu gerçekleştirebilirsiniz.
 
 ## <a name="sdk"></a>Her projede SDK’yı yükleyin
 Bu seçenek, uygulamanızın nasıl kullanıldığını ve performansını daha ayrıntılı olarak analiz etmek için herhangi bir role özel iş telemetrisi ekleme özelliğini ekler.
 
 Visual Studio’da her bulut uygulaması projesi için Application Insights SDK’sını yapılandırın.
 
-1. **Web rolleri**: Projeye sağ tıklayıp **Application Insights’ı Yapılandır**’ı veya **Ekle > Application Insights telemetrisi** seçeneğini belirleyin.
+1. **Web rolleri**: Projeye sağ tıklayıp seçin **Application ınsights'ı Yapılandır** veya **Ekle > Application Insights telemetri**.
 
 2. **Çalışan rolleri**: 
  * Projeye sağ tıklayıp **NuGet paketlerini Yönet**.
@@ -203,7 +203,7 @@ Başarısız veya gecikme süresi yüksek olan bir isteğe neyin neden olduğunu
 Bunu yapmak için:
 
 * [Burada](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36) gösterildiği gibi bağıntı kimliğini bir CallContext’e ayarlayın. Bu örnekte, bağıntı kimliği olarak İstek Kimliği değerini kullanıyoruz
-* Operation.Id değerini yukarıda belirlenen correlationId değerine ayarlamak için, özel bir TelemetryInitializer uygulaması ekleyin. Örnek: [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
+* Operation.Id değerini yukarıda belirlenen correlationId değerine ayarlamak için, özel bir TelemetryInitializer uygulaması ekleyin. Örneği burada verilmiştir: [Itemcorrelationtelemetryınitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
 * Özel telemetri başlatıcısını ekleyin. Bunu Applicationınsights.config dosyasında ya da kodda gösterildiği gibi yapabilirsiniz [burada](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233).
 
 ## <a name="client-telemetry"></a>İstemci telemetrisi
@@ -230,7 +230,7 @@ Sisteminiz tarafından Stream Analytics gibi diğer Azure hizmetleri kullanılı
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Tanılama verilerinin Application Insights’a gönderimini yapılandırma](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Azure Tanılama verilerinin Application Insights’a gönderimini yapılandırma](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Application Insights kaynakları oluşturmayı otomatikleştirme](app-insights-powershell.md)
 * [Azure tanılamayı otomatikleştirme](app-insights-powershell-azure-diagnostics.md)
 * [Azure İşlevleri](https://github.com/christopheranderson/azure-functions-app-insights-sample)

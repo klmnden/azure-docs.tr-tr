@@ -1,5 +1,5 @@
 ---
-title: Uygulamanızı Azure’a geri yükleme
+title: App - Azure uygulama hizmeti geri yükleme
 description: Uygulamanızı yedekten geri yükleme konusunda bilgi edinin.
 services: app-service
 documentationcenter: ''
@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 69e0e8282ee0b8503fe11a57b8ba6037247822dd
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.custom: seodec18
+ms.openlocfilehash: 603a6bab75c4a5da4425bcc57d2cc5ccda728636
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160510"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274148"
 ---
 # <a name="restore-an-app-in-azure"></a>Uygulamanızı Azure’a geri yükleme
 Bu makalede, uygulamanızı geri yükleme işlemini göstermektedir [Azure App Service](../app-service/app-service-web-overview.md) önceden yedeklediğiniz (bkz [uygulamanızı Azure'a yedekleme](web-sites-backup.md)). Uygulamanızı isteğe bağlı olarak bağlı veritabanlarıyla birlikte önceki bir duruma geri yükleyebilir veya özgün uygulamanızın bir yedeğini temel alan yeni bir uygulama oluşturabilirsiniz. Azure App Service, yedekleme ve geri yükleme için şu veritabanlarını destekler:
-- [SQL Database](https://azure.microsoft.com/services/sql-database/)
+- [SQL Veritabanı](https://azure.microsoft.com/services/sql-database/)
 - [MySQL için Azure Veritabanı](https://azure.microsoft.com/services/mysql)
 - [PostgreSQL için Azure Veritabanı](https://azure.microsoft.com/services/postgresql)
 - [Uygulama içi MySQL](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
@@ -59,7 +60,7 @@ Yedeklerden geri yükleme, çalışan uygulamalar için kullanılabilir **standa
    
     Seçebileceğiniz **var olan bir uygulamayı** aynı kaynak grubunda başka bir uygulama için uygulama yedeğini geri yüklemek için. Bu seçeneği kullanmadan önce başka bir uygulama kaynak grubunuzda bir uygulama yedeğini içinde tanımlanan yapılandırma veritabanı yansıtma ile oluşturmuş olmanız. Ayrıca oluşturabileceğiniz bir **yeni** içeriğinize geri yüklemek için uygulama.
 
-4. **Tamam**’a tıklayın.
+4. **Tamam** düğmesine tıklayın.
 
 <a name="StorageAccount"></a>
 

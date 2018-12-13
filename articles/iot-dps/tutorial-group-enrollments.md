@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 3c7a1dd9ba688c5cc9776dbfba0841c9a06065dc
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 6447061e79946abf8070daf29eeb57bad7b6fa55
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419699"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184976"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti için Java cihaz ve hizmet SDK’sı ile grup kayıtları kullanarak sanal bir X.509 cihazı oluşturma ve sağlama
 
@@ -49,20 +49,20 @@ Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarla
             - Yeni oluşturduğunuz **_RootCA.pem_** dosyasını seçin.
             - Tamamlandığında **Kaydet** düğmesine tıklayın.
 
-        ![Sertifika ekleme](./media/tutorial-group-enrollments/add-certificate.png)
+           ![Sertifika ekleme](./media/tutorial-group-enrollments/add-certificate.png)
 
         1. Yeni oluşturulan sertifikayı seçin:
             - **Doğrulama Kodu Oluştur**'a tıklayın. Oluşturulan kodu kopyalayın.
             - Doğrulama adımını çalıştırın. Çalışan PowerShell pencerenize _doğrulama kodunu_ girin veya sağ tıklayarak yapıştırın.  **Enter**'a basın.
             - Azure portalında yeni oluşturulmuş **_verifyCert4.pem_** dosyasını seçin. **Doğrula**’ya tıklayın.
 
-            ![Sertifika doğrulama](./media/tutorial-group-enrollments/validate-certificate.png)
+              ![Sertifika doğrulama](./media/tutorial-group-enrollments/validate-certificate.png)
 
     1. Cihaz sertifikalarınızı oluşturma ve kaynakları temizleme adımlarını çalıştırarak işlemi tamamlayın.
 
-    > [!NOTE]
-    > Cihaz sertifikaları oluştururken, cihazınızın adında yalnızca küçük harf alfasayısal karakterler ve kısa çizgi kullanmaya özen gösterin.
-    >
+       > [!NOTE]
+       > Cihaz sertifikaları oluştururken, cihazınızın adında yalnızca küçük harf alfasayısal karakterler ve kısa çizgi kullanmaya özen gösterin.
+       >
 
 
 ## <a name="create-a-device-enrollment-entry"></a>Cihaz kaydı girişi oluşturma

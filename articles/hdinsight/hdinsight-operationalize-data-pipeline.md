@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 9057d9f5d63598ea249e8f3193b84fd715018829
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 93c2808dc244a86f7a58aa65d649e9c3e8c17f7c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109980"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251717"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Veri analizi işlem hattını kullanıma hazır hale getirme
 
@@ -24,10 +24,10 @@ Bu makalede, veri işlem hatlarınızı yinelenebilirliği, HDInsight Hadoop kü
 
 Aşağıdaki senaryoda, girdi verilerini bir ay için bir dizi uçuş verileri içeren bir düz bir dosyadır. Bu uçuş verileri kaynak ve hedef airport, akışı mil, kalkış ve varış kez ve benzeri gibi bilgileri içerir. Bu işlem hattı ile günlük Havayolu performansı özetlemek için burada her Havayolu dakika ve o gün akışı toplam mil ortalama kalkış ve varış gecikmeleri ile her gün için bir satır var. hedeftir.
 
-| YIL | AY | DAY_OF_MONTH | TAŞIYICI |AVG_DEP_DELAY | AVG_ARR_DELAY |TOTAL_DISTANCE |
+| YEAR | MONTH | DAY_OF_MONTH | TAŞIYICI |AVG_DEP_DELAY | AVG_ARR_DELAY |TOTAL_DISTANCE |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2017 | 1 | 3 | AA | 10.142229 | 7.862926 | 2644539 |
-| 2017 | 1 | 3 | FARKLI | 9.435449 | 5.482143 | 572289 |
+| 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
 Örnek işlem hattı, bir yeni dönemin uçuş verileri ulaşır ve ardından Hive veri ambarınıza yönelik uzun vadeli analizleri ayrıntılı uçuş bilgileri depolar kadar bekler. İşlem hattı yalnızca günlük uçuş verileri özetleyen bir çok daha küçük veri kümesi de oluşturur. Bu günlük uçuş Özet veriler, raporlar gibi bir Web sitesi için sağlamak için bir SQL veritabanı'na gönderilir.
@@ -156,7 +156,7 @@ Düzenleyici ve iş akışı örnekleri durumunu görüntülemek için Oozie Web
 
 ### <a name="configure-hive"></a>Hive'ı yapılandırma
 
-1. Bir ay için uçuş verileri içeren örnek bir CSV dosyası indirin. Kendi ZIP dosyasını indirin `2017-01-FlightData.zip` gelen [HDInsight Github deposu](https://github.com/hdinsight/hdinsight-dev-guide) ve CSV dosyasına sıkıştırmasını `2017-01-FlightData.csv`. 
+1. Bir ay için uçuş verileri içeren örnek bir CSV dosyası indirin. Kendi ZIP dosyasını indirin `2017-01-FlightData.zip` gelen [HDInsight GitHub deposu](https://github.com/hdinsight/hdinsight-dev-guide) ve CSV dosyasına sıkıştırmasını `2017-01-FlightData.csv`. 
 
 2. HDInsight kümenize bağlı Azure depolama hesabına kadar bu CSV dosyasını kopyalayın ve yerleştirebilir `/example/data/flights` klasör.
 
@@ -545,7 +545,7 @@ Günlük (veya bir tarih aralığındaki tüm gün) çalışır, böylece bu iş
 
 Gördüğünüz gibi Düzenleyici çoğunu yalnızca yapılandırma bilgileri için iş akışı örneği geçirme. Ancak, duyurmak için birkaç önemli öğe yok.
 
-* Nokta 1: `start` ve `end` üzerinde öznitelikleri `coordinator-app` öğenin kendisinin denetim Düzenleyici üzerinde çalıştığı zaman aralığı.
+* 1. noktası: `start` Ve `end` üzerinde öznitelikleri `coordinator-app` öğenin kendisinin denetim Düzenleyici üzerinde çalıştığı zaman aralığı.
 
     ```
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
@@ -553,7 +553,7 @@ Gördüğünüz gibi Düzenleyici çoğunu yalnızca yapılandırma bilgileri i�
 
     Bir düzenleyici içinde eylemleri zamanlama için sorumlu `start` ve `end` tarafından belirtilen aralığa göre tarih aralığı, `frequency` özniteliği. Zamanlanmış her eylem iş akışı yapılandırılmış gibi sırayla çalışır. Yukarıdaki Düzenleyicisi tanımında Düzenleyici Eylemler 1 Ocak 2017'den 5 Ocak 2017'ye çalıştıracak şekilde yapılandırılır. Sıklığı tarafından 1 güne ayarlanır [Oozie ifade dili](http://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) sıklığı ifade `${coord:days(1)}`. Bu eylem zamanlama Düzenleyicisi'nde sonuçlanır (ve bu nedenle iş akışı) günde bir kez. Bu örnekte olduğu gibi daha önce olan tarih aralıkları için eylem gecikme olmadan çalıştırmak için zamanlanır. İçinden bir eylem çalışmak üzere zamanlandığı tarih başlangıcı adlı *nominal zaman*. Örneğin, 1 Ocak 2017'ye genel bakış için verileri işlemek için düzenleyici 2017 nominal süresine sahip eylem zamanlayacak-01-01T00:00:00 GMT.
 
-* Noktası 2: iş akışı tarih aralığı içinde `dataset` öğesi HDFS'deki belirli bir tarih aralığı için veri aramak konumu belirtir ve nasıl Oozie verilerin kullanılabilir olup olmadığını belirler. yapılandırır henüz işleme için.
+* Noktası 2: İş akışı tarih aralığı içinde `dataset` öğesi HDFS'deki belirli bir tarih aralığı için veri aramak konumu belirtir ve nasıl Oozie verilerin kullanılabilir olup olmadığını belirler. yapılandırır henüz işleme için.
 
     ```
     <dataset name="ds_input1" frequency="${coord:days(1)}" initial-instance="2016-12-31T00:00Z" timezone="UTC">
@@ -566,7 +566,7 @@ Gördüğünüz gibi Düzenleyici çoğunu yalnızca yapılandırma bilgileri i�
 
     Boş `done-flag` öğesi Oozie kaldırmasını anda giriş veri varlığını denetlediğinde, Oozie veri kullanılabilir olup olmadığını bir dizin veya dosya varlığını tarafından belirlediğini gösterir. Bu durumda bir csv dosyasının varlığını olur. Bir csv dosyası varsa, Oozie varsayar: veri hazırdır ve dosyasını işlemek için bir iş akışı örneği başlatır. Mevcut herhangi bir csv dosyası varsa, Oozie değil hazır ve iş akışı çalıştıran gider henüz bir bekleme durumuna veri olduğunu varsayar.
 
-* Noktası 3: `data-in` öğesi belirtir nominal kullanılacak belirli zaman damgası saat değerleri değiştirirken `uri-template` ilişkili veri kümesi için.
+* 3. noktası: `data-in` Öğesi belirtir nominal kullanılacak belirli zaman damgası saat değerleri değiştirirken `uri-template` ilişkili veri kümesi için.
 
     ```
     <data-in name="event_input1" dataset="ds_input1">
@@ -578,11 +578,11 @@ Gördüğünüz gibi Düzenleyici çoğunu yalnızca yapılandırma bilgileri i�
 
 Düzenleyici kaynak verileri güne göre günlük bir biçimde işlenmesini olduğu zamanlar bir durum elde etmek üzere önceki üç noktanın birleştirin. 
 
-* Nokta 1: 2017-01-01 nominal bir tarihle Düzenleyicisi başlatılır.
+* 1. noktası: Düzenleyici, 2017-01-01 nominal tarihi ile başlar.
 
-* Noktası 2: Veri Oozie arar `sourceDataFolder/2017-01-FlightData.csv`.
+* Noktası 2: Veri arar Oozie `sourceDataFolder/2017-01-FlightData.csv`.
 
-* Noktası 3: Oozie bu dosyayı bulduğunda, 2017-01-01 için veri işleme iş akışı örneği zamanlar. Oozie ardından 2017-01-02 işlenmeye devam eder. Bu değerlendirme kadar ancak 2017-01-05 içermeyen tekrarlar.
+* 3. noktası: Oozie bu dosyayı bulduğunda, 2017-01-01 için veri işleme iş akışı örneği zamanlar. Oozie ardından 2017-01-02 işlenmeye devam eder. Bu değerlendirme kadar ancak 2017-01-05 içermeyen tekrarlar.
 
 İş akışları ile bir düzenleyici yapılandırmasını sınıfında tanımlandığı gibi bir `job.properties` bir üst kümesi olan dosya, iş akışı tarafından kullanılan ayarları.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: andrl
 ms.custom: seodec18
-ms.openlocfilehash: 22a22789f7eed6402d7bf3abd3b356dbcb4caa37
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 5b75f620194a58aa7801fe390148a327a319c4a3
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134895"
+ms.locfileid: "53166651"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>NoSQL veritabanları için belge verilerini modelleme
 
@@ -38,7 +38,7 @@ Biz kolları sıvayın önce çok daha çok, bize birkaç adımda geri alın ve 
 
 İlişkisel veritabanları ile çalışırken, biz normalleştirmek için Normalleştir, Normalleştir yıllardır verilen.
 
-Verilerinizi genellikle normalleştirme bir kişi gibi bir varlık alma ve bunun içinde veri ayrık parçaları için bozucu içerir. Yukarıdaki örnekte, bir kişi, birden çok adresi kayıtları yanı sıra birden çok kişi ayrıntılarını kayıt olabilir. Biz bile bir adım ötesine gidin ve kişi ayrıntılarını ortak başka ayıklayarak kesme alanlarını ister bir tür. Aynı adresi için burada her kaydı gibi bir türe sahip *giriş* veya *iş* 
+Verilerinizi genellikle normalleştirme bir kişi gibi bir varlık alma ve verileri ayrı parçaya bozucu içerir. Yukarıdaki örnekte, bir kişi, birden çok adresi kayıtları yanı sıra birden çok kişi ayrıntı kaydı olabilir. Biz bile bir adım ötesine gidin ve kişi ayrıntılarını ortak başka ayıklayarak kesme alanlarını ister bir tür. Aynı adresi için burada her kaydı gibi bir türe sahip *giriş* veya *iş* 
 
 Kılavuzluk yapar verileri normalleştirmek için olduğunda **yedekli veri depolanmasını önlemek** her kaydı ve bunun yerine veriye başvurmaktadır. Bu örnekte, tüm kişi ayrıntıları ve adresleri olan bir kişi okunacak BİRLEŞTİRMELER etkili bir şekilde çalışma zamanında verilerinizi toplamak için kullanmanız gerekir.
 

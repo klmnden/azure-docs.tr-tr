@@ -11,19 +11,22 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 102a00ac79c91ac4d571c0254570f14e8f2af46f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: d801ed309b0d79dd6655c7dd59ebd17bd37de222
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239092"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164407"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL veritabanı'nı satın alma modeli
 
 Azure SQL veritabanı, performans ve maliyet ihtiyaçlarınıza uygun veritabanı altyapısı tam olarak yönetilen PaaS kolayca satın almanızı sağlar. Azure SQL veritabanı dağıtım modeline bağlı olarak gereksinimlerinize uyan bir satın alma modeli seçebilirsiniz:
+- [Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) (önerilen) depolama kapasitesi miktarda seçin ve iş yükünüz için gereken işlem olanak sağlar.
+- [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) seçebileceğiniz ortak iş yükleri için dengeli işlem ve depolama paketleri paket.
 
-- [Mantıksal sunucu](sql-database-logical-servers.md) içinde [Azure SQL veritabanı](sql-database-technical-overview.md) işlem, depolama ve GÇ kaynakları iki satın alma modeli sunar: bir [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md). Bu satın alma modeli içinde seçtiğiniz [tek veritabanları](sql-database-single-databases-manage.md) veya [elastik havuzlar](sql-database-elastic-pool.md).
+Farklı satın alma modelleri, Azure SQL veritabanı dağıtım modellerinde kullanılabilir:
+- [Mantıksal sunucu](sql-database-logical-servers.md) içinde [Azure SQL veritabanı](sql-database-technical-overview.md) hem teklif [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md). Bu satın alma modeli içinde seçtiğiniz [tek veritabanları](sql-database-single-databases-manage.md) veya [elastik havuzlar](sql-database-elastic-pool.md).
 - [Yönetilen örnekler](sql-database-managed-instance.md) Azure SQL veritabanı yalnızca teklifte [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
@@ -51,7 +54,7 @@ Sanal çekirdek tabanlı satın alma modeli, bağımsız olarak işlem ve depola
 
 > [!IMPORTANT]
 > İşlem, IOs, veri ve günlük depolama, veritabanı veya elastik havuz başına ücretlendirilir. Yedekleme depolama, her veritabanı ücretlendirilir. Yönetilen örnek ücretleri ayrıntılarını başvurmak [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md).
-> **Bölge kısıtlamaları:** sanal çekirdek tabanlı satın alma modeli henüz aşağıdaki bölgelerde kullanılabilir değil: Batı Avrupa, Fransa Orta, Birleşik Krallık Güney, UK Batı ve Avustralya Güneydoğu.
+> **Bölge kısıtlamaları:** Sanal çekirdek tabanlı satın alma modeli aşağıdaki bölgelerde henüz kullanılamıyor: Batı Avrupa, Fransa Orta, Birleşik Krallık Güney, UK Batı ve Avustralya Güneydoğu.
 
 Veritabanı veya elastik Havuzu'nu sanal çekirdek 300'den fazla DTU dönüştürme kullanırsa maliyetinizi azaltabilir. API'nizi tercih ettiğiniz veya kapalı kalma süresi ile Azure portalını kullanarak dönüştürebilirsiniz. Ancak, dönüştürme gerekli değildir. DTU satın alma modeli, performans ve iş gereksinimlerini karşılıyorsa, onu kullanmaya devam etmek. Sanal çekirdek-model DTU modelden dönüştürmeye karar verirseniz, aşağıdaki kural karşısında kullanarak işlem boyutu seçmeniz gerekir: genel amaçlı katmanında; en az 1 sanal çekirdek standart katmandaki her 100 DTU gerektirir Her Premium katmanda 125 DTU, iş açısından kritik katmanında en az 1 sanal çekirdek gerektirir.
 

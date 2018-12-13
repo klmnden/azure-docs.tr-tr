@@ -1,5 +1,5 @@
 ---
-title: Azure App Service için PremiumV2 katmanını yapılandırma | Microsoft Docs
+title: PremiumV2 katmanını - Azure App Service yapılandırma | Microsoft Docs
 description: Performans web, mobil ve API uygulaması Azure App service'taki yeni PremiumV2 fiyatlandırma katmanına ölçeklendirerek daha iyi öğrenin.
 keywords: app service, azure app service, ölçek, ölçeklenebilir, app service planı, app service maliyeti
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: cephalin
-ms.openlocfilehash: 59e5825554843ef7265cbccdd9a63db0426891fa
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.custom: seodec18
+ms.openlocfilehash: ac0a3500956cc81e264c8743d44aa06f018b1a45
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226318"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258908"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Azure App Service için PremiumV2 katmanını yapılandırma
 

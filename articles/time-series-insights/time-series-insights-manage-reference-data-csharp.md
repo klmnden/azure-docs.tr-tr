@@ -1,5 +1,5 @@
 ---
-title: C# kullanarak Azure zaman serisi görüşleri ortamdaki başvuru verilerini yönetme | Microsoft Docs
+title: Azure Time Series Insights C# başvuru verileri - başvuru yönetme Azure zaman serisi görüşleri ortamı kullanarak verileri C# | Microsoft Docs
 description: Bu makalede C# (c-sharp) .NET dilinde yazılan özel bir uygulama oluşturarak bir Azure zaman serisi görüşleri ortamınıza başvuru veri yönetme konusunda açıklanır.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: 52456533d40c8efde6a196d4e480c06bce2f08ab
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 299f1de73b1b0023f55089417b9d9ee5ba98b93f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629194"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276851"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>C# kullanarak bir Azure zaman serisi görüşleri ortamınıza başvuru verilerini yönetme
 

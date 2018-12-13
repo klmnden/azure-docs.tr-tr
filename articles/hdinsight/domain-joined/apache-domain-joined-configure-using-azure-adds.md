@@ -1,5 +1,5 @@
 ---
-title: Azure AD DS kullanarak bir HDInsight kümesi Kurumsal güvenlik paketi ile yapılandırma
+title: Azure Active Directory Domain Services - Azure HDInsight'ı kullanarak kurumsal güvenlik paketi yapılandırması
 description: Ayarlama ve Azure Active Directory Domain Services'ı kullanarak bir HDInsight Kurumsal güvenlik paketi küme yapılandırma hakkında bilgi edinin.
 services: hdinsight
 ms.service: hdinsight
@@ -7,13 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 10/9/2018
-ms.openlocfilehash: 8b92191b60f8eb7e3c63f465926b434e205ef1b4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 10/09/2018
+ms.custom: seodec18
+ms.openlocfilehash: 5e5b8320459561ac2dbbf72a812e29e837e08cd6
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684758"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166668"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services'ı kullanarak bir HDInsight kümesi Kurumsal güvenlik paketi ile yapılandırma
 
@@ -97,11 +98,11 @@ ESP etkinleştirdiğinizde, Azure AD DS ile ilgili sık karşılaşılan hatalı
 
 ESP ile HDInsight kümesi oluşturduğunuzda, aşağıdaki parametreleri belirtmeniz gerekir:
 
-- **Kümenin yönetici kullanıcı**: kümenizin bir yönetici, eşitlenmiş Azure AD-DS'den seçin. Bu etki alanı hesabı eşitlendi ve Azure AD-DS kullanılabilir olması gerekir.
+- **Kümenin yönetici kullanıcı**: Kümenizin bir yönetici, eşitlenmiş Azure AD-DS'den seçin. Bu etki alanı hesabı eşitlendi ve Azure AD-DS kullanılabilir olması gerekir.
 
-- **Erişim grupları küme**: eşitleme ve Küme erişimi olan kullanıcılar Azure AD DS'de kullanılabilir güvenlik grupları. Örneğin, HiveUsers grup. Daha fazla bilgi için [bir grup oluşturun ve Azure Active Directory'de üye ekleme](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+- **Erişim grupları küme**: Kullanıcılar, eşitleme ve Küme erişimi istediğiniz güvenlik grupları, Azure AD DS'de kullanılabilir olmalıdır. Örneğin, HiveUsers grup. Daha fazla bilgi için [bir grup oluşturun ve Azure Active Directory'de üye ekleme](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-- **LDAPS URL'si**: ldaps://contoso.com:636 örneğidir.
+- **LDAPS URL'Sİ**: Ldaps://contoso.com:636 buna bir örnektir.
 
 Aşağıdaki ekran görüntüsünde, başarılı bir yapılandırma Azure portalında gösterir:
 

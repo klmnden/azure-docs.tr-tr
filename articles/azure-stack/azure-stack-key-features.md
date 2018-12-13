@@ -12,38 +12,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 38120b2be2ab7789946a4ad2fe688954e6212189
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 21a6eeb4b0a83574be4c5c996e43d9867c3249d0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959035"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185741"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Temel özellikler ve kavramlar Azure Stack'te
 Microsoft Azure Stack için yeniyseniz, bu hüküm ve özellik açıklamaları faydalı olabilir.
 
 ## <a name="personas"></a>Kişilikler
-Kullanıcı için Microsoft Azure Stack, bulut işleci (sağlayıcı) ve Kiracı (müşteri) iki çeşit vardır.
+Kullanıcıların Microsoft Azure Stack, işleci ve kullanıcı için iki çeşit vardır.
 
-* A **bulut işleci** Azure Stack yapılandırabilir ve tekliflerini, planları, hizmetleri, kotalar ve fiyatlandırma, kiracıları için kaynak sağlamak için yönetin.  Bulut operatörleri kapasitesini yönetmek ve uyarılarını yanıtlama.  
-* A **Kiracı** (bir kullanıcı olarak da bilinir) sunan bulut Yöneticisi hizmetlerini kullanır. Kiracılar sağlama, izleme ve bunlar, Web uygulamaları, depolama ve sanal makineler gibi abone olduğunuz Hizmetleri yönetin.
+* Azure Stack **işleci** Azure Stack yönetme tekliflerini, planları, hizmetler, kotalar ve kullanıcıların kendi Kiracı için kaynak sağlamak için fiyatlandırma yapılandırabilirsiniz. İşleçler kapasitesini yönetmek ve uyarılarını yanıtlama.  
+* Azure Stack **kullanıcı** (Kiracı olarak da bilinir) işleci sağlayan hizmetlerini kullanır. Kullanıcılar sağlama, izleme ve bunlar, web uygulamaları, depolama ve sanal makineler gibi abone olduğunuz Hizmetleri yönetin.
 
 ## <a name="portal"></a>Portal
-Microsoft Azure Stack ile etkileşim kurmanın birincil Yönetici portalı, kullanıcı portalı ve PowerShell yöntemlerdir.
+Microsoft Azure Stack ile etkileşim kurmanın birincil Yönetim Portalı, kullanıcı portalı ve PowerShell yöntemlerdir.
 
-Azure Stack portalı her ayrı örnekleri, Azure Resource Manager tarafından desteklenir.  Bulut operatörü, Azure Stack yönetmek ve Kiracı sunumları oluşturma gibi işlemler yapmak için Yönetici portalını kullanır.  (Kiracı portalı olarak da bilinir) kullanıcı portalı için sanal makineler, depolama hesapları ve Web Apps gibi bulut kaynaklarını kullanım bir Self Servis deneyimi sağlar. Daha fazla bilgi için [Azure Stack yönetici ve Kullanıcı Portalı'nı kullanarak](azure-stack-manage-portals.md).
+Azure Stack portalı her ayrı örnekleri, Azure Resource Manager tarafından desteklenir. Operatör Yönetim Portalı, Azure Stack yönetmek ve Kiracı sunumları oluşturma gibi işlemler yapmak için kullanır. (Kiracı portalı olarak da bilinir) kullanıcı portalı için sanal makineler, depolama hesapları ve web apps gibi bulut kaynaklarını kullanım bir Self Servis deneyimi sağlar. Daha fazla bilgi için [Azure Stack yönetici ve Kullanıcı Portalı'nı kullanarak](azure-stack-manage-portals.md).
 
 ## <a name="identity"></a>Kimlik 
-Azure Stack, kimlik sağlayıcısı olarak Azure Active Directory (AAD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanır.  
+Azure Stack, kimlik sağlayıcısı olarak Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanır.  
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
-Azure Active Directory, Microsoft'un bulut tabanlı, çok kiracılı kimlik sağlayıcıdır.  Karma senaryo, Azure Active Directory kimlik deposu olarak kullanırsınız.
+Azure AD, Microsoft'un bulut tabanlı, çok kiracılı kimlik sağlayıcıdır. Karma senaryo, Azure AD kimlik deposu olarak kullanırsınız.
 
 ### <a name="active-directory-federation-services"></a>Active Directory Federasyon Hizmetleri
-Azure Stack'i bağlantısız dağıtımları için Active Directory Federasyon Hizmetleri (AD FS) kullanmayı tercih edebilirsiniz.  Azure Active Directory ile yaptıkları gibi azure Stack, kaynak sağlayıcıları ve diğer uygulamalar çok AD FS ile aynı şekilde çalışır. Azure Stack, kendi AD FS ve Active Directory örneği ve bir Active Directory Graph API'sini içerir. Azure Stack geliştirme Seti'ni aşağıdaki AD FS senaryoları destekler:
+Azure Stack'i bağlantısız dağıtımları için Active Directory Federasyon Hizmetleri (AD FS) kullanmayı tercih edebilirsiniz. Azure AD ile yaptıkları gibi azure Stack kaynak sağlayıcıları ve diğer uygulamalar çok AD FS ile aynı şekilde çalışır. Azure Stack, kendi Active Directory örneğine ve bir Active Directory Graph API'sini içerir. Azure Stack geliştirme Seti'ni aşağıdaki AD FS senaryoları destekler:
 
 - AD FS kullanarak dağıtım için oturum açın.
 - Gizli anahtar Kasası'nda bir sanal makine oluşturun
@@ -93,9 +93,9 @@ Yöneticisi, dağıtım sırasında varsayılan sağlayıcı aboneliği oluştur
 Azure Resource Manager'ı kullanarak, şablona dayalı, bildirim temelli bir modelde altyapı kaynakları çalışabilir.   Bu, dağıtmak ve çözüm bileşenlerinizi yönetmek için kullanabileceğiniz tek bir arabirim sağlar. Tüm bilgiler ve yönergeler için bkz. [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md).
 
 ### <a name="resource-groups"></a>Kaynak grupları
-Kaynak grupları olan kaynakları, hizmetleri ve uygulamaları koleksiyonları — ve her kaynak sanal makineler, sanal ağlar, genel IP'ler, depolama hesapları ve Web siteleri gibi bir türü vardır. Her kaynak bir kaynak grubu ve kaynak gruplarını mantıksal olarak yardımcı olmak için kaynaklar gibi iş yükü veya konuma göre düzenlemek gerekir.  Microsoft Azure Stack'te planlar ve teklifler gibi kaynakları kaynak gruplarına ayrıca yönetilir.
+Kaynak grupları olan kaynakları, hizmetleri ve uygulamaları koleksiyonları — ve her kaynak sanal makineler, sanal ağlar, genel IP'ler, depolama hesapları ve Web siteleri gibi bir türü vardır. Her kaynak bir kaynak grubu ve kaynak gruplarını mantıksal olarak yardımcı olmak için kaynaklar gibi iş yükü veya konuma göre düzenlemek gerekir. Azure Stack'te planlar ve teklifler gibi kaynakları kaynak gruplarına ayrıca yönetilir.
 
-Farklı [Azure](../azure-resource-manager/resource-group-move-resources.md), kaynak grupları arasında kaynaklar taşınamıyor. Azure Stack Yönetim Portalı'nda bir kaynağa veya kaynak grubu özelliklerini görüntülediğinizde *taşıma* düğmesidir grileştirilmiş ve kullanılamaz. 
+Farklı [Azure](../azure-resource-manager/resource-group-move-resources.md), Azure Stack kaynakların kaynak grupları arasında taşıyamazsınız. Azure Stack Yönetim Portalı'nda bir kaynağa veya kaynak grubu özelliklerini görüntülediğinizde *taşıma* düğmesidir grileştirilmiş ve kullanılamaz. Ayrıca, kullanımını **kaynak grubunu değiştir** veya **değiştirme abonelik** eylemleri kaynak grubu veya kaynak grubu öğesi özelliklerini de desteklenmez. Tüm çalıştı, işlemleri başarısız olacaktır taşıyın.
  
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager şablonları
 Azure Resource Manager ile dağıtım ve uygulamanızı yapılandırmayı tanımlayan bir şablon (JSON biçiminde) oluşturabilirsiniz. Bu şablon, bir Azure Resource Manager şablonu olarak bilinir ve dağıtımı tanımlamanın bildirim temelli bir yöntemini sağlar. Bir şablon kullanarak uygulamanızı yaşam döngüsü boyunca defalarca dağıtabilirsiniz. Kaynaklarınızın tutarlı bir durumda dağıtılması da size güven verir.
@@ -103,7 +103,7 @@ Azure Resource Manager ile dağıtım ve uygulamanızı yapılandırmayı tanım
 ## <a name="resource-providers-rps"></a>Kaynak sağlayıcıları (Rp'ler)
 Kaynak sağlayıcıları için Azure tabanlı tüm Iaas temelini web hizmetleri ve PaaS Hizmetleri altındadır. Azure Resource Manager hizmetine erişim sağlamak için farklı RPs kullanır.
 
-Dört temel RPs vardır: ağ, depolama, işlem ve anahtar kasası. Her biri bu RPs yapılandırın ve ilgili kaynaklarını denetlemenize yardımcı olur. Hizmet yöneticileri, yeni özel kaynak sağlayıcılarını da ekleyebilirsiniz.
+Dört temel RPs vardır: Ağ, depolama, işlem ve anahtar kasası. Her biri bu RPs yapılandırın ve ilgili kaynaklarını denetlemenize yardımcı olur. Hizmet yöneticileri, yeni özel kaynak sağlayıcılarını da ekleyebilirsiniz.
 
 ### <a name="compute-rp"></a>RP işlem
 Azure Stack kiracıların kendi sanal makinelerini oluşturmak işlem kaynak sağlayıcısı (CRP) sağlar. CRP, sanal makine uzantıları yanı sıra, sanal makineler oluşturma özelliği içerir. Sanal makine uzantısı hizmeti, Iaas özelliklerini sağlamak için Windows ve Linux sanal makineleri yardımcı olur.  Örnek olarak, CRP'nin bir Linux sanal makinesi sağlama ve VM'yi yapılandırmak için dağıtım sırasında Bash betikleri çalıştırmak için kullanabilirsiniz.
@@ -129,7 +129,7 @@ Azure Queue depolama birimi, uygulama bileşenleri arasında bulut mesajlaşma �
 KeyVault RP, yönetimi ve parolalar ve sertifikalar gibi gizli denetlenmesini sağlar. Örneğin, bir kiracı yönetici parola veya anahtarlarını VM dağıtımı sırasında sağlamak için KeyVault RP kullanabilirsiniz.
 
 ## <a name="high-availability-for-azure-stack"></a>Azure Stack için yüksek kullanılabilirlik
-*İçin geçerlidir: Azure Stack 1802 veya daha sonraki sürümler*
+*Uygulama hedefi: Azure Stack 1802 veya daha sonraki sürümler*
 
 Bir çoklu VM üretim sisteminin azure'da yüksek kullanılabilirlik elde etmek için birden çok hata etki alanları ve güncelleme etki alanları arasında yayılan bir kullanılabilirlik kümesindeki Vm'leri yerleştirilir. Bu şekilde [kullanılabilirlik kümelerinde dağıtılan Vm'leri](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) birbirinden fiziksel olarak yalıtılmış Aşağıdaki diyagramda da görüldüğü gibi hata dayanıklılığı için izin vermek için ayrı sunucu rafları üzerinde:
 
@@ -150,7 +150,7 @@ Sanal makine ölçek kümeleri için kullanılabilirlik kümesi dahili olarak bi
 ## <a name="role-based-access-control-rbac"></a>Rol tabanlı erişim denetimi (RBAC)
 Sistem yetkili kullanıcılar, gruplar ve Hizmetleri için bir abonelik, kaynak grubu veya tek başına bir kaynak düzeyinde rolleri atayarak erişim için RBAC kullanabilirsiniz. Her bir rol, bir kullanıcı, Grup veya hizmet Microsoft Azure Stack kaynaklara sahip erişim düzeyini tanımlar.
 
-Azure RBAC sahip tüm kaynak türleri için geçerli olan üç temel rol: sahibi, katkıda bulunan ve okuyucu. Sahip tüm kaynaklara temsilci erişimi başkalarına hakkı dahil olmak üzere tam erişimi vardır. Katkıda bulunan oluşturabilir ve tüm Azure kaynakları türlerini yönetmek, ancak diğerleri için erişim izni veremiyor. Okuyucu, mevcut Azure kaynakları yalnızca görüntüleyebilir. Azure RBAC rolleri kalan belirli bir Azure kaynak yönetimi sağlar. Örneğin, sanal makine Katılımcısı rolü oluşturma ve sanal makinelerin yönetimini sağlar ancak Yönetim sanal ağ veya sanal makine bağlanan bir alt ağ izin vermiyor.
+Azure RBAC, tüm kaynak türleri için geçerli olan üç temel rolüne sahiptir: Sahip, katkıda bulunan ve okuyucu. Sahip tüm kaynaklara temsilci erişimi başkalarına hakkı dahil olmak üzere tam erişimi vardır. Katkıda bulunan oluşturabilir ve tüm Azure kaynakları türlerini yönetmek, ancak diğerleri için erişim izni veremiyor. Okuyucu, mevcut Azure kaynakları yalnızca görüntüleyebilir. Azure RBAC rolleri kalan belirli bir Azure kaynak yönetimi sağlar. Örneğin, sanal makine Katılımcısı rolü oluşturma ve sanal makinelerin yönetimini sağlar ancak Yönetim sanal ağ veya sanal makine bağlanan bir alt ağ izin vermiyor.
 
 ## <a name="usage-data"></a>Kullanım verileri
 Microsoft Azure Stack toplar ve tüm kaynak sağlayıcılarını kullanım verilerini toplayan ve bunu Azure'a işleme için Azure ticaret tarafından iletir. Azure Stack'te toplanan kullanım verileri, bir REST API aracılığıyla görüntülenebilir. Bir Azure ile tutarlı Kiracı API'si yanı sıra sağlayıcısı ve sağlayıcı API'leri temsilci tüm Kiracı aboneliklerindeki kullanım verilerini almak için yoktur. Bu veriler, bir dış aracı ya da hizmet için fatura veya geri ödeme ile tümleştirmek için kullanılabilir. Azure ticaret tarafından kullanım işlendikten sonra Azure fatura Portalı'nda görüntülenebilir.

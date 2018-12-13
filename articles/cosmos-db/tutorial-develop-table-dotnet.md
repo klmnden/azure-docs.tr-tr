@@ -1,23 +1,23 @@
 ---
-title: 'Azure Cosmos DB: .NET’te Tablo API’si ile geliştirme'
-description: .NET kullanarak Azure Cosmos DB Tablo API'si ile geliştirmeyi öğrenin
-services: cosmos-db
+title: .NET SDK kullanarak tablo API'si ile geliştirme
+titleSuffix: Azure Cosmos DB
+description: .NET SDK kullanarak Azure Cosmos DB'de tablo API'si ile geliştirmeyi öğrenin
 author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/18/2017
+ms.date: 12/07/2018
 ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: c3749657ae432d8a6c85522b7dac31e31e39ea77
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: f10cb17f0300b6bd21d17b1e2ff204d57e4a7988
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075924"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251190"
 ---
-# <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: .NET’te Tablo API’si ile geliştirme
+# <a name="develop-with-azure-cosmos-dbs-table-api-using-net-sdk"></a>.NET SDK kullanarak Azure Cosmos DB'nin tablo API'si ile geliştirme
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure'da özel Windows kapsayıcısı çalıştırma (Önizleme) | Microsoft Docs
+title: Özel Windows kapsayıcı (Önizleme) - Azure App Service çalıştırma | Microsoft Docs
 description: Azure App Service'e özel bir Windows kapsayıcısı dağıtmayı öğrenin.
 services: app-service\web
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/17/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: e2d058cfe6d6a31f557708277902063e51f54bc5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 9c77bbbf3d2149e905d77355579021d10094496c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971380"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250867"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Azure'da özel Windows kapsayıcısı çalıştırma (Önizleme)
 
@@ -27,7 +27,7 @@ ms.locfileid: "46971380"
 
 ![](media/app-service-web-get-started-windows-container/app-running-vs.png)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 

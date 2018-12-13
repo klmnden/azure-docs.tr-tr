@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: raynew
-ms.openlocfilehash: 0b02ae4b75426b379ad7c124f5ddeb053c142ce6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 068b55e40afc96dbcfae26c8bf7da8a1b9ea349a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730303"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249788"
 ---
 # <a name="migrate-machines-after-assessment"></a>Değerlendirmenin ardından makineleri geçirme
 
@@ -19,6 +19,9 @@ ms.locfileid: "45730303"
 [Azure geçişi](migrate-overview.md) şirket içi makineleri, Azure'a geçiş için uygun ve makine Azure'da çalıştırmak için boyutlandırma ve maliyet tahminleri sağlar olup olmadığını denetlemek için değerlendirir. Şu anda Azure geçişi yalnızca makineler geçiş için değerlendirir. Geçiş, diğer Azure Hizmetleri kullanılarak gerçekleştirilir.
 
 Bu makalede, geçiş değerlendirmesi çalıştırdıktan sonra geçiş aracı için öneriler almak açıklar.
+
+> [!NOTE]
+> Geçiş Aracı önerisini Azure Kamu'da kullanılabilir değil.
 
 ## <a name="migration-tool-suggestion"></a>Geçiş Aracı önerisi
 

@@ -1,12 +1,11 @@
 ---
-title: '2. adım: Karşıya veri Machine Learning Studio denemesine - Azure | Microsoft Docs'
-description: "Adım 2 / geliştirme Tahmine dayalı çözüm Kılavuzu: karşıya yükleme, Azure Machine Learning Studio'ya genel veri depolanan."
+title: '2. Adım: Bir Machine Learning Studio denemesine - Azure veri yükleme | Microsoft Docs'
+description: "Adım 2 / geliştirme Tahmine dayalı çözüm Kılavuzu: Karşıya yükleme, Azure Machine Learning Studio'ya genel veriler depolanır."
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cgronlun
 ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 0dc39d42e1ad7cc955b0bdc91d9a4c5cb49a2f2e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 90a73de4177cec74187da852709137d77d60b4d4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311985"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261460"
 ---
-# <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-studio-experiment"></a>Kılavuz adımı 2: mevcut verileri bir Azure Machine Learning Studio denemesine yükleme
+# <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-studio-experiment"></a>Kılavuz adımı 2: Mevcut verileri bir Azure Machine Learning Studio denemesine yükleme
 Bu kılavuz, ikinci adımıdır [bir Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirin](walkthrough-develop-predictive-solution.md)
 
 1. [Bir Machine Learning çalışma alanı oluşturma](walkthrough-1-create-ml-workspace.md)
@@ -101,7 +100,7 @@ Tıklayarak Studio'ya yüklediğiniz veri kümelerini yönetebilirsiniz **veri K
 
 Bir denemenin diğer veri türleri içeri aktarma hakkında daha fazla bilgi için bkz. [eğitim verilerinizi Azure Machine Learning Studio'ya alma](import-data.md).
 
-**Sonraki: [yeni bir deneme oluşturma](walkthrough-3-create-new-experiment.md)**
+**Sonraki: [Yeni bir deneme oluşturma](walkthrough-3-create-new-experiment.md)**
 
 [1]: media/walkthrough-2-upload-data/menu.png
 [2]: media/walkthrough-2-upload-data/add-dataset.png

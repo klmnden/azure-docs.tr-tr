@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2018
 ms.author: daveba
-ms.openlocfilehash: 5d67d25912df5040665b3a04858be0f3807e8112
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ee4b504cf26456baa7d10eab05305eee5e36c35a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623834"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191912"
 ---
-# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Öğretici: Azure SQL hizmetine erişmek için Windows VM sistem tarafından atanan yönetilen kimlik kullanma
+# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Öğretici: Azure SQL'e erişmek için bir Windows VM sistem tarafından atanan yönetilen kimliği kullanma
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -63,6 +63,8 @@ Bu sonraki adım için, [Microsoft SQL Server Management Studio](https://docs.mi
 
 - [SQL Veritabanı ve SQL Veri Ambarı ile Evrensel Kimlik Doğrulaması (MFA için SSMS desteği)](/azure/sql-database/sql-database-ssms-mfa-authentication)
 - [SQL Veritabanı veya SQL Veri Ambarı ile Azure Active Directory kimlik doğrulamasını yapılandırma ve yönetme](/azure/sql-database/sql-database-aad-authentication-configure)
+
+SQL DB benzersiz AAD görünen adları gerektirir. Bu, kullanıcılara, gruplara veya hizmet sorumlularını (uygulamalar) gibi AAD hesaplarının ve yönetilen kimlik için etkin bir sanal makine adı benzersiz olarak AAD'de görünen adları tanımlanmalıdır. SQL DB denetler: Bu kullanıcılar T-SQL oluşturma sırasında AAD görünen adı ve benzersiz değilse, belirtilen hesap için benzersiz bir AAD görünen ad sağlamak isteyen komutu başarısız olur.
 
 1.  SQL Server Management Studio’yu başlatın.
 2.  **Sunucuya Bağlan** iletişim kutusunda, **Sunucu adı** alanına SQL sunucu adınızı girin.

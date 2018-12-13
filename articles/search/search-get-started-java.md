@@ -1,5 +1,5 @@
 ---
-title: Java’da Azure Search kullanmaya başlama | Microsoft Belgeleri
+title: Azure Search'te Java - Azure Search ile çalışmaya başlama
 description: Azure'da programlama diliniz olarak Java'yı kullanarak barındırılan bulut arama hizmeti uygulaması derleme.
 services: search
 author: jj09
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.openlocfilehash: d1ca905d415eb8ab49c449a69707c56d5c717081
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec2018
+ms.openlocfilehash: d74c9c30932bd2db9059738c8dfbc21e4b1b046a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419308"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316980"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Java'da Azure Search kullanmaya başlama
 > [!div class="op_single_selector"]
@@ -46,12 +47,12 @@ Bu uygulamada **SearchServlet.java** programı, filtrelenmiş USGS veri kümesin
 Aşağıdaki listede, bu örnek ile ilgili dosyalar açıklanmaktadır.
 
 * Search.jsp: Kullanıcı arabirimini sağlar
-* SearchServlet.java: Yöntemler sağlar (MVC'deki denetleyiciye benzer)
+* SearchServlet.java: Sağlar (mvc'deki denetleyiciye benzer) yöntemleri
 * SearchServiceClient.java: HTTP isteklerini işler
 * SearchServiceHelper.java: Statik yöntemler sağlayan bir yardımcı sınıfı
-* Document.Java: Veri modelini sağlar.
-* Config.Properties: Search hizmeti URL'sini ve API anahtarını ayarlar
-* Pom.xml: Maven bağımlılığı
+* Document.Java: Veri modeli sağlar
+* Config.Properties: Ayarlar arama URL'si ve api anahtarını hizmet
+* pom.xml: Maven bağımlılığı
 
 <a id="sub-2"></a>
 
@@ -104,7 +105,7 @@ Sonraki tüm dosya değişiklikleri ve çalıştırma deyimleri bu klasördeki d
 7. **Son**'a tıklayın.
 8. **Window (Pencere)** > **Preferences (Tercihler)** > **Java** > **Installed JREs (Yüklü JRE'ler)** > **Add (Ekle)** seçeneğini belirleyin.
 9. **Add JRE (JRE Ekle)** bölümünde **Standard VM (Standart VM)** öğesini seçin.
-10. **İleri**’ye tıklayın.
+10. **İleri**'ye tıklayın.
 11. JRE Tanımı'nda, JRE giriş alanında **Directory (Dizin)** seçeneğine tıklayın.
 12. **Program Files (Program Dosyaları)** > **Java**'ya gidin ve daha önce yüklediğiniz JDK'yı seçin. JDK'yı JRE olarak seçmek önemlidir.
 13. Yüklü JRE'ler içinde **JDK**'yı seçin. Ayarlarınız aşağıdaki ekran görüntüsüne benzer görünmelidir.

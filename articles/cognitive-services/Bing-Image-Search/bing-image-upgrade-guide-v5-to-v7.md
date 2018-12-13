@@ -1,7 +1,7 @@
 ---
-title: Yükseltme Bing resim arama API'si v5 için v7 - Bing resim arama API'si
+title: Yükseltme Bing resim arama API'si v5 için v7
 titleSuffix: Azure Cognitive Services
-description: Bu Yükseltme Kılavuzu, sürüm 5 ve Bing resim arama API'si 7 sürümü arasındaki değişiklikleri tanımlar. Sürüm 7 kullanılacak güncelleştirmeye gerek duyduğunuz uygulamanızın parçalarını tanımlamanıza yardımcı olması için bu kılavuzu kullanın.
+description: Bu Yükseltme Kılavuzu, sürüm 5 ve Bing resim arama API'si 7 sürümü arasındaki değişiklikleri açıklar. Sürüm 7 kullanılacak güncelleştirmeye gerek duyduğunuz uygulamanızın parçalarını tanımlamanıza yardımcı olması için bu kılavuzu kullanın.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -11,18 +11,18 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 53713a629dbe2682ef393a3a5dbf7845b5075591
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2192e3d2a344a31717c59c813123ed0c807a2841
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296371"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256562"
 ---
-# <a name="image-search-api-upgrade-guide"></a>Görüntü arama API'si Yükseltme Kılavuzu
+# <a name="bing-image-search-api-upgrade-guide"></a>Bing resim arama API'si Yükseltme Kılavuzu
 
 Bu Yükseltme Kılavuzu, sürüm 5 ve Bing resim arama API'si 7 sürümü arasındaki değişiklikleri tanımlar. Sürüm 7 kullanılacak güncelleştirmeye gerek duyduğunuz uygulamanızın parçalarını tanımlamanıza yardımcı olması için bu kılavuzu kullanın.
 
-## <a name="breaking-changes"></a>Hataya neden olan değişiklikler
+## <a name="breaking-changes"></a>Yeni değişiklikler
 
 ### <a name="endpoints"></a>Uç Noktalar
 

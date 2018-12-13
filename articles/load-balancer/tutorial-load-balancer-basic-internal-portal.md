@@ -1,5 +1,6 @@
 ---
-title: 'Öğretici: Azure portalını kullanarak temel bir iç yük dengeleyici oluşturma | Microsoft Docs'
+title: "Öğretici: İç yük dengeleyici - Azure portal'ı oluşturma"
+titlesuffix: Azure Load Balancer
 description: Bu öğretici, Azure portalını kullanarak iç temel yük dengeleyici oluşturma işlemini göstermektedir.
 services: load-balancer
 documentationcenter: na
@@ -12,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 404b667de32e16dc43fa1359a297078ac07b5cfe
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18
+ms.openlocfilehash: 1ed77e8573479665d0caac15941d6b6c6ab790cb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106388"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262359"
 ---
-# <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Öğretici: Bakiye iç trafik yükü ile Azure portalında bir temel yük dengeleyici
+# <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Öğretici: Azure portalında bir temel yük dengeleyici ile iç trafik Yük Dengeleme
 
 Yük Dengeleme, sanal makineye (VM) gelen istekleri yayarak daha yüksek düzeyde kullanılabilirlik ve ölçek sağlar. Basic load balancer oluşturma ve VM'ler arasında iç trafiği dengelemek için Azure portalını kullanabilirsiniz. Bu öğreticide oluşturma ve iç yük dengeleyici, arka uç sunucularının ve ağ kaynakları temel fiyatlandırma katmanında yapılandırma gösterilmektedir.
 
@@ -40,9 +41,9 @@ Bu öğretici adımları yapmak için oturum açın Azure Portal'daki [ https://
    
 1. İçinde **sanal ağ oluştur** bölmesinde yazın veya bu değerleri seçin:
    
-   - **Adı**: türü *MyVNet*.
-   - **ResourceGroup**: seçin **Yeni Oluştur**, enter *MyResourceGroupLB*seçip **Tamam**. 
-   - **Alt ağ** > **adı**: türü *MyBackendSubnet*.
+   - **Ad**: Tür *MyVNet*.
+   - **ResourceGroup**: Seçin **Yeni Oluştur**, enter *MyResourceGroupLB*seçip **Tamam**. 
+   - **Alt ağ** > **adı**: Tür *MyBackendSubnet*.
    
 1. **Oluştur**’u seçin.
 
@@ -53,13 +54,13 @@ Bu öğretici adımları yapmak için oturum açın Azure Portal'daki [ https://
 1. Portalda sol tarafta seçin **kaynak Oluştur** > **işlem** > **Windows Server 2016 Datacenter**. 
    
 1. İçinde **sanal makine oluşturma**yazın veya aşağıdaki değerleri seçin **Temelleri** sekmesinde:
-   - **Abonelik** > **kaynak grubu**: seçin ve aşağı açılan **MyResourceGroupLB**.
-   - **Örnek ayrıntıları** > **sanal makine adı**: türü *MyVM1*.
+   - **Abonelik** > **kaynak grubu**: Açılır listesine tıklayıp **MyResourceGroupLB**.
+   - **Örnek ayrıntıları** > **sanal makine adı**: Tür *MyVM1*.
    - **Örnek ayrıntıları** > **kullanılabilirlik seçeneklerini**: 
      1. Açılır listesine tıklayıp **kullanılabilirlik kümesi**. 
      2. Seçin **Yeni Oluştur**, türü *MyAvailabilitySet*seçip **Tamam**.
    
-1. Seçin **ağ** sekmesinde veya seçin **sonraki: diskleri**, ardından **sonraki: ağ**. 
+1. Seçin **ağ** sekmesinde veya seçin **sonraki: Diskleri**, ardından **sonraki: Ağ**. 
    
    Aşağıdaki seçili olduğundan emin olun:
    - **Sanal ağ**: **MyVNet**
@@ -87,14 +88,14 @@ Portalı kullanarak bir iç temel yük dengeleyici oluşturun. Oluşturduğunuz 
    
 1. İçinde **yük dengeleyici Oluştur** bölmesinde yazın veya bu değerleri seçin:
    
-   - **Adı**: türü *MyLoadBalancer*.
-   - **Tür**: seçin **iç**. 
-   - **SKU**: seçin **temel**.
-   - **Sanal ağ**: seçin **bir sanal ağ seçin**ve ardından **MyVNet**.
-   - **Alt ağ**: seçin **bir alt ağ seçin**ve ardından **MyBackendSubnet**.
-   - **IP adresi ataması**: seçin **statik** seçili değilse.
+   - **Ad**: Tür *MyLoadBalancer*.
+   - **Tür**: Seçin **iç**. 
+   - **SKU**: **Temel**'i seçin.
+   - **Sanal ağ**: Seçin **bir sanal ağ seçin**ve ardından **MyVNet**.
+   - **Alt ağ**: Seçin **bir alt ağ seçin**ve ardından **MyBackendSubnet**.
+   - **IP adresi ataması**: Seçin **statik** seçili değilse.
    - **Özel IP adresi**: Örneğin sanal ağ ve alt ağ, adres alanında olan bir adres *10.3.0.7*.
-   - **ResourceGroup**: açılan **var olanı Seç** seçip **MyResourceGroupLB**. 
+   - **ResourceGroup**: Açılan menü **var olanı Seç** seçip **MyResourceGroupLB**. 
    
 1. **Oluştur**’u seçin.
    
@@ -116,9 +117,9 @@ Trafiği Vm'lere dağıtmak için yük dengeleyici arka uç adres havuzu kullan�
    
 1. Üzerinde **bir arka uç havuzu Ekle** sayfasında yazın veya aşağıdaki değerleri seçin:
    
-   - **Adı**: türü *MyBackendPool*.
-   - **İlişkili**: seçin ve aşağı açılan **kullanılabilirlik kümesi**.
-   - **Kullanılabilirlik kümesi**: seçin **MyAvailabilitySet**.
+   - **Ad**: Tür *MyBackendPool*.
+   - **İlişkili**: Açılır listesine tıklayıp **kullanılabilirlik kümesi**.
+   - **Kullanılabilirlik kümesi**: Seçin **MyAvailabilitySet**.
    
 1. Seçin **hedef ağ IP Yapılandırması Ekle**. 
    1. Ekleme **MyVM1** ve **MyVM2** arka uç havuzuna.
@@ -145,12 +146,12 @@ VM durumunu izlemek için yük dengeleyicisine izin vermek için durum araştır
    
 1. Üzerinde **bir durum araştırması Ekle** sayfasında yazın veya aşağıdaki değerleri seçin:
    
-   - **Adı**: türü *MyHealthProbe*.
-   - **Protokol**: seçin ve aşağı açılan **HTTP**. 
-   - **Bağlantı noktası**: türü *80*. 
-   - **Yol**: kabul */* için varsayılan bir URI. Diğer bir URI ile bu değeri değiştirebilirsiniz. 
-   - **Aralığı**: türü *15*. Araştırma denemeleri arasındaki saniye sayısını aralığıdır.
-   - **Sağlıksız durum eşiği**: türü *2*. Bu değer bir VM kötü olarak kabul edilmeden önce gerçekleşmesi ardışık araştırma hatası sayısıdır.
+   - **Ad**: Tür *MyHealthProbe*.
+   - **Protokol**: Açılır listesine tıklayıp **HTTP**. 
+   - **Bağlantı noktası**: Tür *80*. 
+   - **Yol**: Kabul */* için varsayılan bir URI. Diğer bir URI ile bu değeri değiştirebilirsiniz. 
+   - **Aralığı**: Tür *15*. Araştırma denemeleri arasındaki saniye sayısını aralığıdır.
+   - **Sağlıksız durum eşiği**: Tür *2*. Bu değer bir VM kötü olarak kabul edilmeden önce gerçekleşmesi ardışık araştırma hatası sayısıdır.
    
 1. **Tamam**’ı seçin.
    
@@ -170,13 +171,13 @@ Adlı yük dengeleyici kuralı **MyLoadBalancerRule** ön 80 numaralı bağlant�
    
 1. Üzerinde **Yük Dengeleme Kuralı Ekle** sayfasında, yazın veya aşağıdaki değerleri seçin, zaten mevcut değilse:
    
-   - **Adı**: türü *MyLoadBalancerRule*.
-   - **Ön uç IP adresi:** türü *LoadBalancerFrontEnd* yoksa.
-   - **Protokol**: seçin **TCP**.
-   - **Bağlantı noktası**: türü *80*.
-   - **Arka uç bağlantı noktası**: türü *80*.
-   - **Arka uç havuzu**: seçin **MyBackendPool**.
-   - **Durum araştırması**: seçin **MyHealthProbe**. 
+   - **Ad**: Tür *MyLoadBalancerRule*.
+   - **Ön uç IP adresi:** Tür *LoadBalancerFrontEnd* yoksa.
+   - **Protokol**: Seçin **TCP**.
+   - **Bağlantı noktası**: Tür *80*.
+   - **Arka uç bağlantı noktası**: Tür *80*.
+   - **Arka uç havuzu**: Seçin **MyBackendPool**.
+   - **Durum araştırması**: Seçin **MyHealthProbe**. 
    
 1. **Tamam**’ı seçin.
    

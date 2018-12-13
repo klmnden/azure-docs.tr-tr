@@ -1,21 +1,21 @@
 ---
-title: Öğretici - Azure Container Registry Görevleri ile temel görüntü güncelleştirmesinde kapsayıcı görüntüsü derlemelerini otomatik hale getirme
-description: Bu öğreticide, temel görüntü güncelleştirildiğinde bulutta kapsayıcı görüntü derlemelerini otomatik olarak tetiklemek üzere bir görev yapılandırmayı öğreneceksiniz.
+title: Öğretici - kapsayıcı görüntüsü derlemelerinde temel görüntü güncelleştirme - Azure Container kayıt defteri görevleri otomatikleştirin
+description: Bu öğreticide, temel görüntü güncelleştirildiğinde kapsayıcı görüntüsü yapılarınızı bulutta otomatik olarak tetiklemek için bir Azure kapsayıcı kayıt defteri görevi yapılandırma konusunda bilgi edinin.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 54e8892787fa2b7b093609ee5d09f3a87e103411
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.custom: seodec18, mvc
+ms.openlocfilehash: b3d8c3aea4955d6f95ead69d5bed147cc486e7c8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856590"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254046"
 ---
-# <a name="tutorial-automate-image-builds-on-base-image-update-with-azure-container-registry-tasks"></a>Öğretici: Azure Container Registry Görevleri ile temel görüntü güncelleştirmesinde görüntü derlemelerini otomatik hale getirme
+# <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Öğretici: Temel görüntü Azure container registry güncelleştirildiğinde kapsayıcı görüntü oluşturmayı otomatikleştirme 
 
 ACR Görevleri, kapsayıcının temel görüntüsü güncelleştirildiğinde örneğin temel görüntülerinizden birinde işletim sistemine ve uygulama çerçevesine yama uyguladığınızda otomatik derleme yürütmeyi destekler. Bu öğreticide, ACR Görevlerinde bir kapsayıcı temel görüntüsü kayıt defterinize gönderildiğinde bulutta bir görev tetikleyen derleme görevini oluşturmayı öğreneceksiniz.
 
@@ -32,7 +32,7 @@ Bu öğreticide, serinin son kısmı:
 
 Azure CLI’yı yerel olarak kullanmak istiyorsanız Azure CLI **2.0.46** veya sonraki bir sürüm yüklü olmalıdır. Sürümü bulmak için `az --version` komutunu çalıştırın. CLI’yı yüklemeniz veya yükseltmeniz gerekiyorsa bkz. [Azure CLI’yı yükleme][azure-cli].
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="complete-the-previous-tutorials"></a>Önceki öğreticileri tamamlama
 
@@ -73,9 +73,9 @@ Temel görüntü güncelleştirildiğinde, yeni özellik ve düzeltmelerin eklen
 
 Bu öğreticide, bir temel görüntü güncelleştirme senaryosunda size yol gösterilir. [Kod örneği][code-sample] iki Dockerfile: bir uygulama görüntüsü ve bunun temel olarak belirttiği bir görüntü. Aşağıdaki bölümlerde, kapsayıcı kayıt defterinize yeni bir temel görüntü sürümü gönderildiğinde uygulama görüntüsü oluşturulmasını otomatik olarak tetikleyen bir ACR görevi oluşturursunuz.
 
-[Dockerfile-app][dockerfile-app]: Temel alınan Node.js sürümünün görüntülendiği bir statik web sayfası işleyen küçük bir Node.js web uygulaması. Sürüm dizesinin simülasyonu yapılır ve bu, temel görüntüde tanımlanan `NODE_VERSION` ortam değişkeninin içeriğini görüntüler.
+[Uygulama içi Dockerfile][dockerfile-app]: Statik bir web sayfası, temel Node.js sürümünü görüntüleme işleyen bir küçük Node.js web uygulaması. Sürüm dizesinin simülasyonu yapılır ve bu, temel görüntüde tanımlanan `NODE_VERSION` ortam değişkeninin içeriğini görüntüler.
 
-[Dockerfile-base][dockerfile-base]: `Dockerfile-app` tarafından kendi temeli olarak belirtilen görüntü. Bunun kendisi de [Node][base-node] görüntüsünü temel alır ve `NODE_VERSION` ortam değişkenini içerir.
+[Dockerfile temel][dockerfile-base]: Görüntü, `Dockerfile-app` base belirtir. Bunun kendisi de [Node][base-node] görüntüsünü temel alır ve `NODE_VERSION` ortam değişkenini içerir.
 
 Aşağıdaki bölümlerde bir görev oluşturacak, temel görüntü Dockerfile içinde `NODE_VERSION` değerini güncelleştirecek ve sonra da ACR Görevlerini kullanarak temel görüntü oluşturacaksınız. ACR görevi yeni temel görüntüyü kayıt defterinize gönderdikten sonra, uygulama görüntüsünün derlemesini otomatik olarak tetikler. İsteğe bağlı olarak, derleme görüntülerinde farklı sürüm dizeleri görmek için uygulama kapsayıcısı görüntüsünü yerel olarak çalıştırırsınız.
 
@@ -128,7 +128,7 @@ az acr task run --registry $ACR_NAME --name taskhelloworld
 
 Görev tamamlandıktan sonra, aşağıdaki isteğe bağlı adımı tamamlamak istiyorsanız **Run ID** (örneğin, "da6") değerini not alın.
 
-### <a name="optional-run-application-container-locally"></a>İsteğe bağlı: Uygulama kapsayıcısını yerel olarak çalıştırma
+### <a name="optional-run-application-container-locally"></a>İsteğe bağlı: Uygulama kapsayıcısı yerel olarak çalıştırma
 
 Cloud Shell'de değil de yerel olarak çalışıyorsanız ve Docker'ı yüklediyseniz, temel görüntüsünü oluşturmadan önce web tarayıcısında işlenen uygulamayı görmek için kapsayıcıyı çalıştırın. Cloud Shell kullanıyorsanız bu bölümü atlayın (Cloud Shell `az acr login` veya `docker run` komutunu desteklemez).
 
@@ -214,7 +214,7 @@ da1                       Linux       Succeeded  Manual        2018-09-17T22:29:
 
 Yeni oluşturulan kapsayıcıyı çalıştırıp güncelleştirilmiş sürüm numarasını görmek için aşağıdaki isteğe bağlı adımı uygulamak isterseniz, Görüntü Güncelleştirmesi ile tetiklenen derlemenin **RUN ID** değerini (önceki çıktıda "da8") not alın.
 
-### <a name="optional-run-newly-built-image"></a>İsteğe bağlı: Yeni oluşturulan görüntüyü çalıştırma
+### <a name="optional-run-newly-built-image"></a>İsteğe bağlı: Yeni derlenen görüntü çalıştırma
 
 Cloud Shell'de değil de yerel olarak çalışıyorsanız ve Docker'ı yüklediyseniz, derlemesi tamamlandıktan sonra yeni uygulama görüntüsünü çalıştırın. `<run-id>` değerinin yerine önceki adımda aldığınız RUN ID değerini koyun. Cloud Shell kullanıyorsanız bu bölümü atlayın (Cloud Shell `docker run` komutunu desteklemez).
 

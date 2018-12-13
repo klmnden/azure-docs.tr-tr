@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3d096a2b62dec0eb1ef2bb68099aef2353f29d68
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: c7d38538b3876ae91c0ae3794e14ab11f08993c6
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084167"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162894"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Etkin Directory Role-Based erişim denetimi (Önizleme)
 
@@ -34,7 +34,7 @@ SAS kuralları ve anahtarlar ya da olay hub'ları için belirli diğer herhangi 
 
 Aşağıdaki bölümde oluşturmak ve çalıştırmak için etkileşimli bir Azure ister örnek bir uygulama için gereken adımlar açıklanmaktadır. oturum açma için AD kullanıcı, söz konusu kullanıcı hesabı için Event Hubs erişim izni verme hakkında ve Event Hubs erişmek için bu kimlik kullanma. 
 
-Basit bir konsol uygulaması, bu tanıtımda açıklanmaktadır [kodu, Github üzerinde.](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)
+Basit bir konsol uygulaması, bu tanıtımda açıklanmaktadır [kodu, GitHub üzerinde.](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)
 
 ### <a name="create-an-active-directory-user-account"></a>Bir Active Directory kullanıcı hesabı oluşturma
 
@@ -44,7 +44,7 @@ Yine de bu senaryo için özel bir hesap oluşturmak istiyorsanız [adımları](
 
 ### <a name="create-an-event-hubs-namespace"></a>Event Hubs ad alanı oluşturma
 
-Ardından, [bir Event Hubs ad alanı oluşturma](event-hubs-create.md) RBAC Event Hubs Önizleme desteğine sahip Azure bölgelerinden birini: **ABD Doğu**, **ABD Doğu 2**, veya **Batı Avrupa** . 
+Ardından, [bir Event Hubs ad alanı oluşturma](event-hubs-create.md) RBAC Event Hubs Önizleme desteğine sahip Azure bölgelerinden birini: **ABD Doğu**, **ABD Doğu 2**, veya **Batı Avrupa**. 
 
 Ad alanı oluşturduktan sonra gidin, **erişim denetimi (IAM)** sayfasında portalda ve ardından **rol ataması Ekle** sahip rolü için Azure AD kullanıcı hesabı eklemek için. Kendi kullanıcı hesabı kullanıyorsanız ve oluşturduğunuz ad alanı, zaten sahip rolüne sahiptirler. Rolü için farklı bir hesap eklemek için web uygulamasının adını arayın **izinleri eklemek** paneli **seçin** alan ve sonra giriş'e tıklayın. Daha sonra **Kaydet**'e tıklayın. Kullanıcı hesabı artık Event Hubs ad alanına erişimi olan ve daha önce oluşturduğunuz olay hub'ına.
  
@@ -62,9 +62,9 @@ Ayrıntılı kayıt adımları açıklanmıştır [Bu öğreticide](../active-di
 
 - `tenantId`: Kümesine **Tenantıd** değeri.
 - `clientId`: Kümesine **ApplicationId** değeri. 
-- `clientSecret`: İstemci gizli anahtarı kullanarak oturum açın isterseniz, Azure AD'de oluşturun. Ayrıca, bir web uygulaması veya API yerine yerel bir uygulama kullanın. Ayrıca, altında uygulama Ekle **erişim denetimi (IAM)** daha önce oluşturduğunuz ad alanı içinde.
+- `clientSecret`: İstemci gizli anahtarı kullanarak oturum istiyorsanız, Azure AD'de oluşturun. Ayrıca, bir web uygulaması veya API yerine yerel bir uygulama kullanın. Ayrıca, altında uygulama Ekle **erişim denetimi (IAM)** daha önce oluşturduğunuz ad alanı içinde.
 - `eventHubNamespaceFQDN`: Yeni oluşturulan Event Hubs ad alanınız için tam DNS adı ayarlayın; Örneğin, `example.servicebus.windows.net`.
-- `eventHubName`: Oluşturduğunuz olay hub'ının adını ayarlayın.
+- `eventHubName`: Oluşturduğunuz olay hub'ı adına ayarlayın.
 - Uygulamanıza, önceki adımlarda belirtilen yeniden yönlendirme URI'si.
  
 Konsol uygulamasını çalıştırdığınızda, bir senaryo seçmek istenir; tıklayın **etkileşimli kullanıcı oturum açma** sayısı yazıp ENTER tuşuna basın. Uygulama oturum açma penceresinde görüntülenir, Event Hubs erişmeye için izninizi isteyen ve ardından hizmeti oturum açma kimliğini kullanarak gönderme ve alma senaryosunu çalıştırın için kullanır.

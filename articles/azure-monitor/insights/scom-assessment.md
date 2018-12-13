@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: ddf749dd033771ae9bad09f4548c277c279c2bb5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fc625192464dce174b4c2a6d8a2a98343519699f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839374"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186132"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ortamınızı System Center Operations Manager sistem durumunu denetleyin (Önizleme) çözümü ile en iyi duruma getirme
 
@@ -99,7 +97,7 @@ Farklı Çalıştır hesabı oluşturulduğuna göre hedef yönetim grubundaki y
 2. Üzerinde **dağıtım** sekmesinde **Ekle** için **seçilen bilgisayarlar** kutusunda ve hesaba dağıtmak için yönetim sunucusu ekleyin.  Tıklayın **Tamam** iki kez yaptığınız değişiklikleri kaydedin.
 3. Altında **farklı çalıştır Yapılandırması**, tıklayın **profilleri**.
 4. Arama *SCOM değerlendirmesi profili*.
-5. Profil adı olmalıdır: *Microsoft System Center Advisor SCOM değerlendirmesi farklı çalıştır profili*.
+5. Profil adı olması gerekir: *Microsoft System Center Advisor SCOM değerlendirmesi farklı çalıştır profili*.
 6. Sağ tıklayın ve özelliklerini güncelleştirin ve son oluşturduğunuz farklı çalıştır daha önce oluşturduğunuz hesabı ekleyin.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>Farklı Çalıştır hesabı için ayrıntılı izinler vermek için SQL betiği

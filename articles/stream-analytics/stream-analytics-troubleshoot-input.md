@@ -7,13 +7,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: 0098d532f09ca2fa7ef4434add90729a15809ac5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 6694865909a165842f994501befa404e1bc0a447
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087465"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164390"
 ---
 # <a name="troubleshoot-input-connections"></a>Giriş bağlantı sorunlarını giderme
 
@@ -47,7 +48,7 @@ Giriş olayları seri durumdan çıkarma hataya açık anlamak için ayrıntıl�
 
 2. Giriş Ayrıntıları kutucuğu, her bir sorunun ayrıntılarını içeren uyarıların bir listesini görüntüler. Aşağıdaki örnek uyarı iletisi bölümü, uzaklığı ve seri numaraları içeren JSON verileri hatalı biçimlendirilmiş olduğu. 
 
-   ![Uzaklığı olan uyarı iletisi](media/stream-analytics-malformed-events/warning-message-with-offset.png)
+   ![Uzaklığı olan Stream Analytics uyarı iletisi](media/stream-analytics-malformed-events/warning-message-with-offset.png)
    
 3. Hatalı biçimdeki JSON verilerini bulmak için kullanılabilir CheckMalformedEvents.cs kod çalıştırma [GitHub örnekleri depomuzdan](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Bu kod okuma bölüm kimliği, uzaklığı ve bu uzaklık içinde bulunan veri yazdırır. 
 
@@ -89,9 +90,9 @@ Akış sorgu sözdiziminizin birden çok kez aynı giriş olay hub'ı kaynağa b
 
 Bölüm başına okuyucu sayısıyla beş Event Hubs sınırını aşıyor senaryolar aşağıdakileri içerir:
 
-* Birden çok SELECT deyimine: başvuran birden çok SELECT deyimine kullanırsanız **aynı** olay hub'ı giriş, her SELECT deyiminin oluşturulacak yeni bir alıcı neden olur.
-* BİRLEŞİM: bir birleşim kullandığınızda, başvuruda bulunan birden çok giriş mümkündür **aynı** olay hub'ı ve tüketici grubu.
-* Kendi KENDİNE birleşme: bir SELF JOIN işlemi kullandığınızda başvurmak mümkündür **aynı** olay hub'ı birden çok kez.
+* Birden çok SELECT deyimine: Başvuran birden çok SELECT deyimine kullanırsanız **aynı** olay hub'ı giriş, her SELECT deyiminin oluşturulacak yeni bir alıcı neden olur.
+* BİRLEŞİM: Bir birleşim kullandığınızda, başvuruda bulunan birden çok giriş olası **aynı** olay hub'ı ve tüketici grubu.
+* KENDİ KENDİNE BİRLEŞME: Bir kendi KENDİNE JOIN işlemi kullandığınızda başvurmak olası **aynı** olay hub'ı birden çok kez.
 
 Aşağıdaki en iyi, bölüm başına okuyucu sayısıyla beş Event Hubs sınırını aşıyor senaryoları azaltılmasına yardımcı olur.
 
@@ -101,7 +102,7 @@ WITH yan tümcesiyle sorgusunda FROM yan tümcesi tarafından başvurulan bir ge
 
 Örneğin, bu sorgu yerine:
 
-```
+```SQL
 SELECT foo 
 INTO output1
 FROM inputEventHub
@@ -114,7 +115,7 @@ FROM inputEventHub
 
 Bu sorguyu kullanın:
 
-```
+```SQL
 WITH data AS (
    SELECT * FROM inputEventHub
 )

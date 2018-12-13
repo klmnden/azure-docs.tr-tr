@@ -8,17 +8,17 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: f7dbc124781992ada9c3538cf415b836d8764064
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: HT
+ms.openlocfilehash: f17998957db6fca5b109b5a05aa624e238af8dca
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42810829"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257548"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Ansible'ı kullanarak Azure'da Azure Kubernetes Service kümeleri oluşturma ve yapılandırma
 Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Ansible'ı kullanarak Azure Kubernetes Service (AKS) örneğinizi yönetebilirsiniz. Bu makalede Ansible'ı kullanarak Azure Kubernetes Service kümesi oluşturma ve yapılandırma adımları gösterilmektedir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 - **Azure aboneliği** - Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 - **Azure hizmet sorumlusu** - [Hizmet sorumlusunu oluştururken](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal) şu değerleri not edin: **appId**, **displayName**, **password** ve **tenant**.
 
@@ -79,7 +79,7 @@ Ansible ile AKS kümesi oluşturmak için önceki örnek playbook'u `azure_creat
 
 **ansible-playbook* komutunun çıktısı, aşağıdakine benzer ve AKS kümesinin başarıyla oluşturulduğunu gösterir:
 
-  ```bash
+  ```Output
   PLAY [Create AKS] ****************************************************************************************
 
   TASK [Gathering Facts] ********************************************************************************************
@@ -140,7 +140,7 @@ Azure Kubernetes Service kümesini Ansible ile birlikte ölçeklendirmek için �
 
 Aşağıdaki çıktı, AKS kümesinin başarıyla oluşturulduğunu gösterir:
 
-  ```bash
+  ```Output
   PLAY [Scale AKS cluster] ***************************************************************
 
   TASK [Gathering Facts] ******************************************************************
@@ -178,7 +178,7 @@ Azure Kubernetes Service kümesini Ansible ile birlikte silmek için önceki pla
   ```
 
 Aşağıdaki çıktı, AKS kümesinin başarıyla silindiğini gösterir:
-  ```bash
+  ```Output
 PLAY [Delete a managed Azure Container Services (AKS) cluster] ****************************
 
 TASK [Gathering Facts] ********************************************************************
@@ -192,4 +192,4 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
   
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"] 
-> [Öğretici: Azure Kubernetes Hizmeti’nde (AKS) uygulamayı ölçeklendirme](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)
+> [Öğretici: Azure Kubernetes Service (AKS) uygulama ölçeklendirme](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)

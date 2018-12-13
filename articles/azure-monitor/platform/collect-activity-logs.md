@@ -10,17 +10,15 @@ ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: cb246ad927669ac9b8a3981134142ad9be27c6ae
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 1556c228aa2e00cf18f16cc26eefab4691f6de23
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889540"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184959"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Toplamak ve Log analytics'te Azure etkinlik günlüklerini çözümleme
 
@@ -55,7 +53,7 @@ Diğer Log Analytics çözümlerinin çoğu farklı olarak, etkinlik günlükler
 | Bağlı Kaynak | Desteklenen | Açıklama |
 | --- | --- | --- |
 | [Windows aracıları](../../azure-monitor/platform/agent-windows.md) | Hayır | Çözüm, Windows aracılarından bilgi toplamaz. |
-| [Linux aracıları](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Hayır | Çözüm, Linux aracılarından bilgi toplamaz. |
+| [Linux aracıları](../../azure-monitor/learn/quick-collect-linux-computer.md) | Hayır | Çözüm, Linux aracılarından bilgi toplamaz. |
 | [SCOM yönetim grubu](../../azure-monitor/platform/om-agents.md) | Hayır | Bir bağlı SCOM yönetim grubundaki aracılardan çözüm herhangi bir bilgi toplamaz. |
 | [Azure depolama hesabı](collect-azure-metrics-logs.md) | Hayır | Çözüm, Azure depolama biriminden bir bilgi toplamaz. |
 
@@ -100,5 +98,5 @@ Etkinlik günlüğü verileri bir yalnızca görünür *sonra* etkinliği günl�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Oluşturma bir [uyarı](../../monitoring-and-diagnostics/alert-metric.md) belirli bir etkinlik olduğunda gerçekleşir.
+- Oluşturma bir [uyarı](../../azure-monitor/platform/alerts-metric.md) belirli bir etkinlik olduğunda gerçekleşir.
 - Kullanım [günlük araması](../../azure-monitor/log-query/log-query-overview.md) , etkinlik günlüklerinden daha ayrıntılı bilgi görüntülemek için.

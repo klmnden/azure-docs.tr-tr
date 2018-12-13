@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
 ms.service: machine-learning
@@ -16,34 +15,34 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: b0494a9da422b7c0effc14ff4188d3a5b20b8e9d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 57561c9841297b7ea2991bda1e94065a854597cd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081940"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269422"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da algoritmalarınızı iyileştirmek için parametreleri seçin
 
 Bu konuda, Azure Machine learning'de algoritma için doğru hiper parametre seçin açıklar. Çoğu makine öğrenimi algoritmaları ayarlanacak parametrelere sahip. Bir model eğitip yaparken bu parametrelerin değerlerini sağlamasını gerekir. Eğitilen modelin çalışıp çalışmadığını seçtiğiniz model parametreleri bağlıdır. Parametreleri en uygun kümesini bulma işlemi olarak bilinir *model seçimi*.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 Seçimi modellemek için çeşitli yollar vardır. Machine Learning, çapraz doğrulama model seçimi için en yaygın olarak kullanılan yöntemlerden biridir ve onu varsayılan model seçimi Azure Machine Learning mekanizmasıdır. Azure Machine Learning, R ve Python hem desteklediğinden, R veya Python kullanarak her zaman kendi model seçim mekanizmalarını uygulayabilirsiniz.
 
 En iyi parametre kümesi bulma işlemi dört adım vardır:
 
-1. **Parametre alanı tanımlama**: algoritma için istediğiniz dikkate alınması gereken tam parametre değerlerini ilk karar verin.
-2. **Çapraz doğrulama ayarlarını tanımlayın**: veri kümesi için çapraz doğrulama hatları seçmenizi nasıl karar verin.
-3. **Ölçüm tanımlama**: en iyi doğruluğu gibi parametreleri kümesini belirlemek için kullanılacak hangi ölçüm karar, kök ortalama karesi alınmış hata, kesinlik, geri çağırma veya f puanı.
-4. **Eğitim, değerlendirmek ve karşılaştırma**: her benzersiz birleşimi parametre değerleri için çapraz doğrulama tarafından gerçekleştirilen ve tanımladığınız hata ölçüme göre. Değerlendirme ve karşılaştırma sonra en yüksek performansa modeli seçebilirsiniz.
+1. **Parametre alanı tanımlama**: Algoritma için ilk kullanmayı tam parametre değerlerini karar verin.
+2. **Çapraz doğrulama ayarlarını tanımlayın**: Veri kümesi için çapraz doğrulama hatları seçmenizi nasıl karar verin.
+3. **Ölçüm tanımlama**: En iyi doğruluğu gibi parametreleri kümesini belirlemek için kullanılacak hangi ölçüm karar, hata, kesinlik, geri çağırma veya f puanı kök ortalama karesi alınmış.
+4. **Eğitim, değerlendirmek ve karşılaştırma**: Her benzersiz birleşimi parametre değerleri için çapraz doğrulama tarafından gerçekleştirilen ve tanımladığınız hata ölçüme göre. Değerlendirme ve karşılaştırma sonra en yüksek performansa modeli seçebilirsiniz.
 
 Aşağıdaki görüntüde gösterildiği Azure Machine Learning'de bunu nasıl sağlanabilir gösterir.
 
 ![En iyi parametre kümesi bulma](./media/algorithm-parameters-optimize/fig1.png)
 
 ## <a name="define-the-parameter-space"></a>Parametre alanı tanımlayın
-Model başlatma adım kümesi parametresi tanımlayabilirsiniz. Tüm makine öğrenimi algoritma parametresi bölmesinde iki trainer modu vardır: *tek parametre* ve *parametresi aralık*. Parametre aralık modu seçin. Parametre aralık modunda her parametre için birden çok değer girebilirsiniz. Metin kutusuna, virgülle ayrılmış değerler girebilirsiniz.
+Model başlatma adım kümesi parametresi tanımlayabilirsiniz. Parametre bölmesini tüm machine learning algoritmalarının iki trainer modu vardır: *Tek bir parametre* ve *parametresi aralık*. Parametre aralık modu seçin. Parametre aralık modunda her parametre için birden çok değer girebilirsiniz. Metin kutusuna, virgülle ayrılmış değerler girebilirsiniz.
 
 ![İki sınıflı artırmalı karar ağacı, tek bir parametre](./media/algorithm-parameters-optimize/fig2.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Varlık tanıma bilişsel arama beceri (Azure Search) | Microsoft Docs
+title: Varlık tanıma bilişsel arama beceri - Azure Search
 description: Bir Azure Search bilişsel arama ardışık metinden değişik tür varlıklar ayıklayın.
 services: search
 manager: pablocas
@@ -10,19 +10,23 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: 7599ab7eb7a6ff247548d988c57bdc6c501a5a6b
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: 9745934891cd7ba99fa821377318e38134b7d2a5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450042"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311873"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Varlık tanıma bilişsel beceri
 
 **Varlık tanıma** beceri farklı türde varlıkları metni ayıklar. 
 
 > [!NOTE]
-> Bilişsel Arama, genel önizleme aşamasındadır. Şu anda becerileri yürütme ve görüntü ayıklama ve normalleştirme ücretsiz olarak sunulmaktadır. İlerleyen zamanlarda bu özelliklerin fiyatları duyurulacaktır. 
+> 21 aralık 2018 tarihinden itibaren Bilişsel hizmetler kaynağı bir Azure Search beceri kümesi ile ilişkilendirmek mümkün olmayacak. Bu beceri yürütmesi için ücretlendirme başlatmak için bize izin verir. Bu tarihte, biz de belge çözme aşamasının bir parçası olarak görüntü ayıklama için başlayacağız. Belgelerden metin ayıklama işlemi ek masraf olmadan sağlanmaya devam edecektir.
+>
+> Var olan konumunda yerleşik yetenek yürütülmesini ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/) . Görüntü ayıklama fiyatlandırma Önizleme fiyatıyla ücretlendirilirsiniz ve üzerinde açıklanmıştır [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400). Bilgi [daha fazla](cognitive-search-attach-cognitive-services.md).
+
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.EntityRecognitionSkill
@@ -51,7 +55,7 @@ Parametreleri büyük küçük harfe duyarlıdır ve tümü isteğe bağlıdır.
 
 ## <a name="skill-outputs"></a>Beceri çıkışları
 
-**Not**: tüm varlık kategorileri tüm diller için desteklenir.
+**NOT**: Tüm varlık kategorileri, tüm diller için desteklenir.
 Yalnızca _tr_, _es_ destek ayıklanmasıyla `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"` türleri.
 
 | Çıkış adı     | Açıklama                   |
@@ -64,7 +68,7 @@ Yalnızca _tr_, _es_ destek ayıklanmasıyla `"Quantity"`, `"Datetime"`, `"URL"`
 | URL'leri | Her dize bir URL temsil ettiği bir dize dizisi |
 | e-postalar | Her bir dizenin bir e-posta temsil ettiği bir dize dizisi |
 | namedEntities | Aşağıdaki alanlar içeren karmaşık bir tür dizisi: <ul><li>category</li> <li>değer (gerçek varlık adı)</li><li>uzaklık (Bu metnin bulunduğu konumu)</li><li>güvenle (şimdilik kullanılmayan. -1 değerine ayarlanır)</li></ul> |
-| varlıklar | Şu alanlara sahip bir metin ayıklanan varlıkları hakkında zengin bilgiler içeren karmaşık bir tür dizisi <ul><li> ad (gerçek varlık adı. Bu, "normalleştirilmiş" form temsil eder)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (Wikipedia sayfasında varlık için bir bağlantı)</li><li>bingId</li><li>türü (tanınan bir varlığın kategori)</li><li>alt tür (yalnızca belirli kategorileri için kullanılabilir, bu varlık türünün daha fazla granual görünüm sağlar)</li><li> (içeren karmaşık bir koleksiyon) eşleşir<ul><li>Metin (varlık için ham metin)</li><li>uzaklık (konum burada bulundu)</li><li>uzunluk (ham varlık metnin uzunluğunu)</li></ul></li></ul> |
+| varlıklar | Şu alanlara sahip bir metin ayıklanan varlıkları hakkında zengin bilgiler içeren karmaşık bir tür dizisi <ul><li> ad (gerçek varlık adı. Bu, "normalleştirilmiş" form temsil eder)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (Wikipedia sayfasında varlık için bir bağlantı)</li><li>bingId</li><li>türü (tanınan bir varlığın kategori)</li><li>alt tür (yalnızca belirli kategorileri için kullanılabilir, bu varlık türü daha ayrıntılı bir görünümünü sağlar)</li><li> (içeren karmaşık bir koleksiyon) eşleşir<ul><li>Metin (varlık için ham metin)</li><li>uzaklık (konum burada bulundu)</li><li>uzunluk (ham varlık metnin uzunluğunu)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Örnek tanımı
 

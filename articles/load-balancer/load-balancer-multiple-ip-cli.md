@@ -1,13 +1,11 @@
 ---
-title: Azure CLI kullanarak birden çok IP yapılandırmalarında Yük Dengelemesi | Microsoft Docs
+title: Azure CLI kullanarak birden çok IP yapılandırmalarında Yük Dengelemesi
+titlesuffix: Azure Load Balancer
 description: Azure CLI kullanarak bir sanal makineye birden çok IP adresi atama hakkında bilgi edinin.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: kumud
-ms.openlocfilehash: 4080e4e3e274d64046f46d24b34959542e0ad304
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 1e8911847a555e3b6326f15d15a09344a4472f2c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049601"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165519"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>Azure CLI kullanarak birden çok IP yapılandırmalarında Yük Dengelemesi
 

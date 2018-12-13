@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 41965c4a498cfa4c1f0dfefaf7615e43083eb94c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c8a932ac06b58a8e683e326f082a3a2c038dba66
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011842"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273723"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Azure etkinlik günlüğünün Event Hubs'a Stream
 Akış [Azure etkinlik günlüğü](monitoring-overview-activity-logs.md) neredeyse gerçek zamanlı olarak ya da herhangi bir uygulama için:
@@ -24,8 +24,8 @@ Akış [Azure etkinlik günlüğü](monitoring-overview-activity-logs.md) nerede
 ## <a name="what-you-can-do-with-the-activity-log-and-event-hubs"></a>Etkinlik günlüğü ve olay hub'ları ile yapabilecekleriniz
 Etkinlik günlüğü için akış özelliği kullanabileceğinize iki yolu vardır:
 
-* **Üçüncü taraf günlüğe kaydetme ve telemetri sistemleriyle Stream**: zaman içinde Azure Event Hubs akış etkinlik günlüğünüzü üçüncü taraf Sıem'lerden kanal oluşturarak ve analiz çözümleri oturum için bir mekanizma olur.
-* **Özel telemetri ve günlüğe kaydetme platform derleme**: zaten ürettikleri telemetri platformu varsa veya biri oluşturma hakkında düşünmeye olan yüksek düzeyde ölçeklenebilir Yayımla-doğasını abone ol olay hub'ları esnek etkinlik günlüğü alma olanak sağlar. Daha fazla bilgi için [küresel ölçekli bir telemetri platform Event Hubs'ı kullanma hakkında video Dan Rosanova'nın](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
+* **Üçüncü taraf günlüğe kaydetme ve telemetri sistemleriyle Stream**: Zamanla, Azure Event Hubs akış etkinlik günlüğünüzü üçüncü taraf Sıem'lerden kanal oluşturarak ve analiz çözümleri oturum için bir mekanizma olur.
+* **Özel telemetri ve günlüğe kaydetme platform derleme**: Zaten bir ürettikleri telemetri platformu varsa veya biri oluşturma hakkında düşünmeye olan yüksek düzeyde ölçeklenebilir Yayımla-doğasını abone ol olay hub'ları esnek etkinlik günlüğü alma olanak sağlar. Daha fazla bilgi için [küresel ölçekli bir telemetri platform Event Hubs'ı kullanma hakkında video Dan Rosanova'nın](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## <a name="enable-streaming-of-the-activity-log"></a>Etkinlik günlüğü akışını etkinleştir
 Programlama yoluyla veya portal aracılığıyla etkinlik günlüğü akışını etkinleştirebilirsiniz. Her iki durumda da bir Event Hubs ad alanı ve bu ad alanı için bir paylaşılan erişim ilkesi seçin. İlk yeni etkinlik günlüğü olay gerçekleştiğinde bir olay hub'ı ınsights-günlükleri-operationallogs adı ile o ad alanında oluşturulur. 
@@ -101,5 +101,5 @@ Etkinlik günlüğü için şema kullanılabilir [Azure etkinlik günlüğü ile
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Bir depolama hesabı için Etkinlik günlüğünü arşivleme](monitoring-archive-activity-log.md)
 * [Azure etkinlik günlüğüne genel bakış okuyun](monitoring-overview-activity-logs.md)
-* [Bir etkinlik günlüğü olayı temel alan bir uyarı ayarlama](monitor-alerts-unified-log-webhook.md)
+* [Bir etkinlik günlüğü olayı temel alan bir uyarı ayarlama](../azure-monitor/platform/alerts-log-webhook.md)
 

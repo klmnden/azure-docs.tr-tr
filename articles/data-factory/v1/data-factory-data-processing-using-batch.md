@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0865c8b88788387eff173443d190658cc6488946
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: a20ba54226e5cdcec242e29344110840615a0c95
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976868"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317534"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory ve Batch kullanarak işlem büyük ölçekli veri kümeleri
 > [!NOTE]
@@ -41,7 +41,7 @@ Batch hizmetiyle, uygulamalarınızı paralel olarak ve ölçekte yürütmek iç
 * [Batch temel bilgileri](../../batch/batch-technical-overview.md)
 * [Batch özelliklerine genel bakış](../../batch/batch-api-basics.md)
 
-İsteğe bağlı olarak Batch hakkında daha fazla bilgi için bkz: [Batch documentatnion](https://docs.microsoft.com/en-us/azure/batch/).
+İsteğe bağlı olarak Batch hakkında daha fazla bilgi için bkz: [Batch documentatnion](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Neden Azure Data Factory?
 Data Factory, verilerin taşınmasını ve dönüştürülmesini düzenleyen ve otomatikleştiren bulut tabanlı bir veri tümleştirme hizmetidir. Data Factory, şirket içinden veri taşıma ve merkezi bir veri deposuna veri depolarında bulut yönetilen veri işlem hatları oluşturmak için kullanabilirsiniz. Azure Blob Depolama buna bir örnektir. Data Factory işlem/veri dönüştürme gibi Azure HDInsight ve Azure Machine Learning hizmetlerini kullanarak için kullanabilirsiniz. Ayrıca, zamanlanmış bir şekilde (örneğin, saatlik, günlük ve haftalık) çalıştırmak için veri işlem hatlarını zamanlayabilirsiniz. İzleme ve işlem hatlarını sorunlarını tanımlamak ve eylem için bir bakışta yönetme.
@@ -51,7 +51,7 @@ Data Factory, verilerin taşınmasını ve dönüştürülmesini düzenleyen ve 
 * [Data Factory'ye giriş](data-factory-introduction.md)
 * [İlk veri işlem hattı oluşturma](data-factory-build-your-first-pipeline.md)   
 
-İsteğe bağlı olarak, Data Factory hakkında daha fazla bilgi için bkz: [Data Factory belgeleri](https://docs.microsoft.com/en-us/rest/api/datafactory/v1/data-factory-data-factory).
+İsteğe bağlı olarak, Data Factory hakkında daha fazla bilgi için bkz: [Data Factory belgeleri](https://docs.microsoft.com/rest/api/datafactory/v1/data-factory-data-factory).
 
 ## <a name="data-factory-and-batch-together"></a>Data Factory ve Batch birlikte
 Veri Fabrikası yerleşik etkinlikler içerir. Örneğin, kopyalama etkinliği, kaynak veri deposundan hedef veri deposuna veri kopyalama/taşıma için kullanılır. Hive etkinliği, Azure üzerinde Hadoop kümeleri (HDInsight) kullanarak verileri işlemek için kullanılır. Desteklenen dönüştürme etkinliklerinin listesi için bkz. [veri dönüştürme etkinlikleri](data-factory-data-transformation-activities.md).
@@ -84,7 +84,7 @@ Aşağıdaki listede işleminin temel adımları sağlar. Çözüm, kod ve uçta
 ## <a name="implementation-of-the-sample-solution"></a>Örnek çözüm uygulaması
 Örnek çözüm, kasıtlı olarak basit bir işlemdir. Data Factory ve Batch işlem veri kümelerine arada kullanımını göstermek için tasarlanmıştır. Çözüm zaman serileri düzenlenir giriş dosyaları "Microsoft" arama terimini oluşum sayısını sayar. Ardından, Çıkış dosyalarını sayıyı çıkarır.
 
-**Saat:** Azure Data Factory ve Batch temelleri biliyor ve aşağıdaki önkoşulları tamamladınız, bu çözüm tamamlamak için bir ila iki saat alır.
+**Süre:** Azure Data Factory ve Batch temelleri biliyor ve aşağıdaki önkoşulları tamamladınız, bu çözüm tamamlamak için bir ila iki saat alır.
 
 ### <a name="prerequisites"></a>Önkoşullar
 #### <a name="azure-subscription"></a>Azure aboneliği
@@ -155,7 +155,7 @@ Data factory çözümünde kullanılacak özel toplu etkinlik oluşturmak için 
 ### <a name="create-the-custom-activity"></a>Özel etkinlik oluşturma
 Data factory özel etkinliği, bu örnek çözümde kalbidir. Örnek çözüm, Batch özel etkinliği çalıştırmak için kullanır. Özel etkinlikler geliştirmeyi ve bunları veri fabrikası ardışık kullanma hakkında daha fazla bilgi için bkz. [bir data factory işlem hattında özel etkinlikler kullanma](data-factory-use-custom-activities.md).
 
-Kullanabileceğiniz bir .NET özel etkinliği bir data factory işlem hattı oluşturmak için Idotnetactivity arabiriminin uygulayan bir sınıf ile bir .NET sınıf kitaplığı projesi oluşturun. Bu arabirim yalnızca bir yöntemi vardır: yürütme. Metodun imzası şu şekildedir:
+Kullanabileceğiniz bir .NET özel etkinliği bir data factory işlem hattı oluşturmak için Idotnetactivity arabiriminin uygulayan bir sınıf ile bir .NET sınıf kitaplığı projesi oluşturun. Bu arabirim, yalnızca bir yöntemi vardır: Yürütün. Metodun imzası şu şekildedir:
 
 ```csharp
 public IDictionary<string, string> Execute(
@@ -175,7 +175,7 @@ Yöntemi anlamanız gereken birkaç önemli bileşenden oluşur:
   * **Günlükçü**. Günlükçü işlem hattının "Kullanıcı" günlük olarak, bu surface hata ayıklama yorum yazmak için kullanabilirsiniz.
 * Bu yöntem, özel etkinlikler gelecekte zincir için kullanılan bir sözlüğü döndürür. Bu özellik henüz uygulanmadı, bu nedenle yalnızca boş bir sözlük yöntemi döndürür.
 
-#### <a name="procedure-create-the-custom-activity"></a>Yordam: özel etkinlik oluşturma
+#### <a name="procedure-create-the-custom-activity"></a>Yordam: Özel etkinlik oluşturma
 1. Visual Studio'da .NET sınıf kitaplığı projesi oluşturun.
 
    a. Visual Studio 2012/2013/2015'i başlatın.
@@ -523,7 +523,7 @@ Her etkinlik için bir görev oluşturulur. Bu örnekte, işlem hattında yalnı
 
 Aşağıdaki örneklerde, ek ayrıntılar sağlar.
 
-#### <a name="step-1-create-the-data-factory"></a>1. adım: veri fabrikası oluşturma
+#### <a name="step-1-create-the-data-factory"></a>1. Adım: Veri Fabrikası oluşturma
 1. İçin oturum açtıktan sonra [Azure portalında](https://portal.azure.com/), aşağıdaki adımları uygulayın:
 
    a. Seçin **yeni** sol menüsünde.
@@ -546,7 +546,7 @@ Aşağıdaki örneklerde, ek ayrıntılar sağlar.
 
    ![Veri Fabrikası sayfası](./media/data-factory-data-processing-using-batch/image6.png)
 
-#### <a name="step-2-create-linked-services"></a>2. adım: bağlı hizmetler oluşturma
+#### <a name="step-2-create-linked-services"></a>2. Adım: Bağlı hizmetler oluşturma
 Bağlı hizmetler veri depolarını veya işlem Hizmetleri data factory'ye. Bu adımda, depolama hesabınızın ve Batch hesabı veri fabrikanıza bağlarsınız.
 
 #### <a name="create-an-azure-storage-linked-service"></a>Azure Depolama bağlı hizmeti oluşturma
@@ -595,7 +595,7 @@ Bu adımda, data factory özel etkinliği çalıştırmak için kullanılan Batc
 
 1. Bağlı hizmeti dağıtmak için komut çubuğunda **Dağıt**’ı seçin.
 
-#### <a name="step-3-create-datasets"></a>3. adım: veri kümeleri oluşturma
+#### <a name="step-3-create-datasets"></a>3. adım: Veri kümeleri oluşturma
 Bu adımda, girdi ve çıktı verilerini temsil eden veri kümeleri oluşturun.
 
 #### <a name="create-the-input-dataset"></a>Girdi veri kümesini oluşturma
@@ -805,7 +805,7 @@ Bu adımda, bir etkinlik, daha önce oluşturduğunuz özel etkinliği ile işle
 
 1. İşlem hattını dağıtmak için komut çubuğundan **Dağıt**’ı seçin.
 
-#### <a name="step-5-test-the-pipeline"></a>5. adım: işlem hattını test etme
+#### <a name="step-5-test-the-pipeline"></a>5. adım: İşlem hattını test etme
 Bu adımda, işlem hattının giriş klasörler halinde dosyaları bırakarak sınayın. Her giriş klasörü için bir dosya ile işlem hattı test ederek başlayın.
 
 1. Üzerinde **veri fabrikası** seçin Azure portalındaki dikey penceresinde **diyagram**.
@@ -932,9 +932,9 @@ Data Factory ve Batch özellikleri hakkında daha fazla bilgi edinmek için bu �
 
 1. Aşağıdaki alt klasörlerini ekleyin `inputfolder`: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08 ve 2015-11-16-09. Giriş dosyaları bu klasörlerdeki yerleştirin. Ardışık düzen tarafından bitiş zamanını değiştirin `2015-11-16T05:00:00Z` için `2015-11-16T10:00:00Z`. İçinde **diyagram** görüntülemek için çift **Inputdataset** ve girdi dilimi hazır olduğundan emin olun. Çift **OutputDataset** çıktı dilimleri durumunu görmek için. İçinde iseler **hazır** durum, çıkış dosyaları için çıkış klasörünü denetleyin.
 
-1. Artırma veya azaltma **eşzamanlılık** çözümünüzü, özellikle toplu olarak oluşan işleme performansını nasıl etkilediği anlamak için ayarı. Daha fazla bilgi için **eşzamanlılık** ayar bkz. "4. adım: özel bir etkinlik ile işlem hattı oluşturma oluşturup."
+1. Artırma veya azaltma **eşzamanlılık** çözümünüzü, özellikle toplu olarak oluşan işleme performansını nasıl etkilediği anlamak için ayarı. Daha fazla bilgi için **eşzamanlılık** ayar bkz. "4. adım: Oluşturun ve özel bir etkinlik ile işlem hattını çalıştırın."
 
-1. Daha yüksek/düşük ile havuz oluşturma **VM başına en fazla görev**. Oluşturduğunuz yeni havuz kullanmak için veri fabrikası çözümü bağlı Batch hizmetinde güncelleştirin. Hakkında daha fazla bilgi için **VM başına en fazla görev** ayar bkz. "4. adım: özel bir etkinlik ile işlem hattı oluşturma oluşturup."
+1. Daha yüksek/düşük ile havuz oluşturma **VM başına en fazla görev**. Oluşturduğunuz yeni havuz kullanmak için veri fabrikası çözümü bağlı Batch hizmetinde güncelleştirin. Daha fazla bilgi için **VM başına en fazla görev** ayar bkz. "4. adım: Oluşturun ve özel bir etkinlik ile işlem hattını çalıştırın."
 
 1. İle bir Batch havuzu oluşturma **otomatik ölçeklendirme** özelliği. Batch havuzundaki işlem düğümlerini otomatik ölçeklendirme uygulamanız tarafından kullanılan güç işleme yerleştirmenin dinamik ayarına olur. 
 
@@ -956,13 +956,13 @@ Data Factory ve Batch özellikleri hakkında daha fazla bilgi edinmek için bu �
 
 1. Örnek çözümde **yürütme** yöntemini çağırır **Calculate** bir çıktı veri dilimi üretmek için bir giriş veri dilimi işleyen yöntem. Girdi verilerini işlemek ve değiştirmek için kendi yönteminizi yazabileceğiniz **Calculate** yöntem çağrısı **yürütme** yöntemi, yönteme bir çağrı ile.
 
-### <a name="next-steps-consume-the-data"></a>Sonraki adımlar: verileri kullanır
+### <a name="next-steps-consume-the-data"></a>Sonraki adımlar: Verileri kullanır
 Veri işleme sonra Power BI gibi çevrimiçi araçları kullanabilir. Power BI ve nasıl Azure'da kullanılacağını anlamanıza yardımcı olması için bağlantılar şunlardır:
 
 * [Power bı'da bir veri kümesine keşfedin](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
 * [Power BI Desktop ile çalışmaya başlama](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
 * [Power bı'da veri yenileme](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
-* [Azure ve Power BI: temel genel bakış](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
+* [Azure ve Power BI için: Temel genel bakış](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>Başvurular
 * [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)

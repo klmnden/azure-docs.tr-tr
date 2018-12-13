@@ -8,13 +8,12 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 6eade4a09ee797469d0046715f57d2799b1cba8c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 11384d1bbffb675bd322469d129464f58a48bb6b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097837"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311840"
 ---
 # <a name="what-is-azure-policy"></a>Azure İlkesi nedir?
 
@@ -49,18 +48,18 @@ Azure İlkesi'nde bir ilke oluşturmak ve uygulamak için önce ilke tanımını
 
 Azure İlkesi'nde, varsayılan olarak kullanılabilen çeşitli yerleşik ilkeler sunuyoruz. Örneğin:
 
-- **SQL Server 12.0 gerektirir**: tüm SQL sunucularının 12.0 sürümünü kullanmasını doğrular. Bu ölçütlerini sağlamayan tüm sunucuları reddetmektir kendi etkisidir.
-- **İzin verilen depolama hesabı SKU'ları**: dağıtılan bir depolama hesabı SKU boyutları bir dizi içinde olup olmadığını belirler. Etkisini tanımlı SKU boyutları kümesine bağlı olmayan tüm depolama hesapları engellemektir.
-- **İzin verilen kaynak türüyle**: dağıtabileceğiniz kaynak türlerini tanımlar. Bu tanımlı listenin bir parçası olmayan tüm kaynakları reddetmektir kendi etkisidir.
-- **İzin verilen Konumlar**: yeni kaynaklar için mevcut konumlardan kısıtlar. Sahip olduğu eylem ise coğrafi uyumluluk gereksinimlerinizi uygulamaktır.
-- **Sanal makine SKU'ları izin**: sanal makine SKU'ları dağıtabileceğiniz bir dizi belirtir.
-- **Etiketi ve varsayılan değerini Uygula**: dağıtma isteği tarafından belirtilmezse gerekli etiketi ve varsayılan değerine uygulanır.
-- **Etiketi ve değerini zorunlu kıl**: gerekli bir etiket ve değerini bir kaynağa zorunlu kılar.
-- **İzin verilmeyen kaynak türleri**: kaynak türlerinin bir listesini dağıtılmasını engeller.
+- **SQL Server 12.0 gerektir**: Tüm SQL sunucularının 12.0 sürümünü kullanmasını doğrular. Bu ölçütlerini sağlamayan tüm sunucuları reddetmektir kendi etkisidir.
+- **İzin verilen depolama hesabı SKU'ları**: Dağıtılan bir depolama hesabı SKU boyutları bir dizi içinde olup olmadığını belirler. Etkisini tanımlı SKU boyutları kümesine bağlı olmayan tüm depolama hesapları engellemektir.
+- **İzin verilen kaynak türüyle**: Dağıtabileceğiniz kaynak türlerini tanımlar. Bu tanımlı listenin bir parçası olmayan tüm kaynakları reddetmektir kendi etkisidir.
+- **İzin verilen Konumlar**: Yeni kaynaklar için mevcut konumlardan kısıtlar. Sahip olduğu eylem ise coğrafi uyumluluk gereksinimlerinizi uygulamaktır.
+- **Sanal makine SKU'ları izin**: Sanal makine SKU'ları dağıtabileceğiniz bir dizi belirtir.
+- **Etiketi ve varsayılan değerini Uygula**: Dağıtım isteği tarafından belirtilmezse gerekli etiketi ve varsayılan değerini geçerlidir.
+- **Etiketi ve değerini zorunlu kıl**: Gerekli etiketi ve değerini bir kaynağa zorunlu kılar.
+- **İzin verilmeyen kaynak türleri**: Kaynak türleri listesi dağıtılmasını engeller.
 
 Bu ilke tanımları (yerleşik ve özel tanımları) uygulamak için onları atamanız gerekir. Bu ilkelerden herhangi birini Azure portalı, PowerShell veya Azure CLI üzerinden atayabilirsiniz.
 
-İlke atama veya ilke güncelleştirmeleri gibi çeşitli farklı eylemler ile ilke değerlendirmesi gerçekleşir. Tam bir listesi için bkz. [ilke değerlendirme Tetikleyicileri](./how-to/getting-compliance-data.md#evaluation-triggers).
+İlke atama veya ilke güncelleştirmeleri gibi çeşitli farklı eylemler ile ilke değerlendirmesi gerçekleşir. Tam bir listesi için bkz. [ilke değerlendirme Tetikleyicileri](./how-to/get-compliance-data.md#evaluation-triggers).
 
 İlke tanımlarının yapıları hakkında daha fazla bilgi edinmek için [İlke Tanımı Yapısı](./concepts/definition-structure.md) adlı makaleye göz atın.
 
@@ -111,7 +110,7 @@ Her girişim farklı kapsamlara atanabilir. Her ikisi için de bir girişim atan
 
 Bu senaryoda **initiativeC** için girişim parametreleri tanımlanırken üç seçeneğiniz vardır:
 
-- Bu girişim dahilinde ilke tanımlarının parametrelerini kullanın: Bu örnekte, *allowedLocations* ve *allowedSingleLocation*, **initiativeC** için girişim parametreleri olur.
+- Bu girişim dahilinde ilke tanımlarının parametrelerini kullanın: Bu örnekte, *allowedLocations* ve *allowedSingleLocation* için girişim parametreleri **initiativeC**.
 - Bu girişim tanımındaki ilke tanımlarının parametrelerine değerler sağlayın. Bu örnekte, **policyA’nın parametresi – allowedLocations** ve **policyB’nin parametresi – allowedSingleLocation** için konum listesi sağlayabilirsiniz. Bu girişimin atamasını yaparken değerleri de sağlayabilirsiniz.
 - Bu girişimin atamasını yaparken kullanılabilecek bir *değer* seçenekleri listesi sağlayın. Bu girişimi atadığınızda, girişim dahilindeki ilke tanımlarından alınan parametreler yalnızca bu sağlanan listedeki değerleri alabilir.
 

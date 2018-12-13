@@ -1,5 +1,5 @@
 ---
-title: Bir Azure App Service ortamını kullanma
+title: App Service ortamı - Azure'ı kullanın
 description: Nasıl oluşturmasına, yayımlamasına ve bir Azure App Service ortamında uygulamaları ölçeklendirme
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 5f2959183e1741c8e37db92ede249d83bb3d53a3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: eca6f7996b05e58614c8f15067dacabb13730396
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964705"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274726"
 ---
 # <a name="use-an-app-service-environment"></a>Bir App Service ortamını kullanma #
 
@@ -26,10 +27,10 @@ ms.locfileid: "52964705"
 
 Azure App Service ortamı, Azure App Service'in bir müşterinin Azure sanal ağdaki bir alt ağa dağıtımıdır. Şunlardan oluşur:
 
-- **Ön uçlar**: ön uçlar HTTP/HTTPS bir App Service ortamında (ASE) burada sonlandıran olan.
-- **Çalışanları**: çalışanlar, uygulamalarınızı barındırmak kaynaklardır.
-- **Veritabanı**: ortamı tanımlayan bilgileri veritabanında tutar.
-- **Depolama**: depolama, müşteri tarafından yayımlanan uygulamaları barındırmak için kullanılır.
+- **Ön uçlar**: Ön uçlar HTTP/HTTPS bir App Service ortamında (ASE) burada sonlandıran ' dir.
+- **Çalışanları**: Çalışanlar, uygulamalarınızı barındırmak kaynaklardır.
+- **Veritabanı**: Veritabanı ortamı tanımlayan bilgileri tutar.
+- **Depolama**: Depolama, müşteri tarafından yayımlanan uygulamaları barındırmak için kullanılır.
 
 > [!NOTE]
 > App Service ortamının iki sürümü vardır: ASEv1 ve ASEv2. ASEv1'de kullanabilmeniz için önce kaynakları yönetmeniz gerekir. Yapılandırma ve ASEv1 yönetme konusunda bilgi almak için bkz: [bir App Service ortamı v1 yapılandırma][ConfigureASEv1]. Bu makalenin geri kalanında ASEv2 üzerinde odaklanır.
@@ -51,7 +52,7 @@ Bir ASE bir web uygulaması oluşturmak için:
 
 1. Seçin **kaynak Oluştur** > **Web + mobil** > **Web uygulaması**.
 
-1. Web uygulaması için bir ad girin. Bir ASE'de App Service planı zaten seçili değilse, uygulama etki alanı adını ASE'nin etki alanı adı yansıtır.
+2. Web uygulaması için bir ad girin. Bir ASE'de App Service planı zaten seçili değilse, uygulama etki alanı adını ASE'nin etki alanı adı yansıtır.
 
     ![Web uygulaması adı seçimi][1]
 
@@ -70,7 +71,7 @@ Bir ASE bir web uygulaması oluşturmak için:
 
     b. App Service planınız için adı girin.
 
-    c. ASE'NİZDE seçin **konumu** aşağı açılan listesi. Bir ASE bir Linux uygulaması barındırma yalnızca etkin 6 bölgede şu anda: **Batı ABD, Doğu ABD, Batı Avrupa, Kuzey Avrupa, Doğu Avustralya, Güneydoğu Asya.** 
+    c. ASE'NİZDE seçin **konumu** aşağı açılan listesi. Bir ASE bir Linux uygulaması barındırma yalnızca 6 bölgede şu anda etkindir: **Batı ABD, Doğu ABD, Batı Avrupa, Kuzey Avrupa, Doğu Avustralya, Güneydoğu Asya.** 
 
     d. Seçin bir **yalıtılmış** fiyatlandırma katmanı. Seçin **seçin**.
 

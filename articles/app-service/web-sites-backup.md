@@ -1,5 +1,5 @@
 ---
-title: Uygulamanızı Azure’a yedekleme
+title: -Azure App Service uygulamasını yedekleme
 description: Azure App Service'te uygulamalarınızı yedeklerini oluşturmayı öğrenin.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 8035a704a76d8f6287addff9c5503eb93f8e04fc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 95fc4567248ca8201174494eee2da5922b7d0f0e
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227850"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269235"
 ---
 # <a name="back-up-your-app-in-azure"></a>Uygulamanızı Azure’a yedekleme
 Yedekleme ve geri yükleme özelliği [Azure App Service](app-service-web-overview.md) uygulama yedeklerini el ile veya bir zamanlamaya göre kolayca oluşturmanıza olanak sağlar. Uygulama mevcut uygulamanın üzerine yazarak veya başka bir uygulamaya geri önceki bir durumun anlık görüntüye geri yükleyebilirsiniz. 
@@ -75,7 +76,7 @@ Aşağıdaki veritabanı çözümleri ile yedekleme özelliği desteklenir:
 
 2. İçinde **yedekleme** sayfası, tıklayın **yapılandırma**
 ![Yapılandır'a tıklayın](./media/web-sites-backup/ClickConfigure1.png)
-3. İçinde **yedekleme yapılandırması** sayfasında **Depolama: Yapılandırılmadı** bir depolama hesabı yapılandırmak için.
+3. İçinde **yedekleme yapılandırması** sayfasında **Depolama: Yapılandırılmamış** bir depolama hesabı yapılandırmak için.
    
     ![Depolama hesabı seç][ChooseStorageAccount]
 4. Yedekleme Hedefinizi seçerek bir **depolama hesabı** ve **kapsayıcı**. Depolama hesabının, yedeklemek istediğiniz uygulama ile aynı aboneliğe ait olmalıdır. İsterseniz ilgili sayfaları'nda yeni bir depolama hesabı veya yeni bir kapsayıcı oluşturabilirsiniz. İşiniz bittiğinde tıklayın **seçin**.

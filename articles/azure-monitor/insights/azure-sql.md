@@ -11,12 +11,12 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/26/2018
 ms.author: v-daljep
-ms.openlocfilehash: ce84d1ba16ec75525740a2b799fd78c35474cda9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 7c567cc70a87e7856f511112d3bff692f5af3993
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096646"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194020"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Analytics (Önizleme) kullanarak Azure SQL veritabanı izleme
 
@@ -185,7 +185,7 @@ Koşul sonrasında bir uyarı tetikleyen bir Log Analytics sorgusu karşılanıy
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Uyarılar için Azure SQL veritabanı oluşturma
 
-Kolayca [uyarıları oluşturma](../../monitoring-and-diagnostics/alert-metric.md) ile Azure SQL veritabanı kaynaklardan gelen verileri. İşte bazı yararlı [oturum sorguları](../../azure-monitor/log-query/log-query-overview.md) ile günlük uyarısı kullanabileceğiniz:
+Kolayca [uyarıları oluşturma](../../azure-monitor/platform/alerts-metric.md) ile Azure SQL veritabanı kaynaklardan gelen verileri. İşte bazı yararlı [oturum sorguları](../../azure-monitor/log-query/log-query-overview.md) ile günlük uyarısı kullanabileceğiniz:
 
 #### <a name="high-cpu-on-azure-sql-database"></a>Azure SQL veritabanı yüksek CPU
 

@@ -11,14 +11,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/04/2018
+ms.date: 12/11/2018
 ms.author: kumud
-ms.openlocfilehash: 89ceb6134d19354831a76f814d2ee55053252f62
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: d3e0fd510968abed55e0e3fea2a8689027713a2b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083589"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310411"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer sistem durumu araştırmaları
 
@@ -186,7 +186,7 @@ Yük Dengeleyici sistem durumu araştırmaları ek olarak, aşağıdaki işlemle
 - VM platformu ile iletişim kurmak için bir "Hazır" durumunda olduğu sinyal aracısı sağlar
 - Özel DNS sunucuları tanımlamaz müşterilere filtrelenmiş ad çözümlemesi sağlamak için DNS sanal sunucu ile iletişimi sağlar.  Bu filtreleme müşteriler bunların dağıtım ana bilgisayar adları yalnızca çözümleyebilmesini sağlar.
 
-Örneğiniz, işaretlemek Load Balancer'ın sistem durumu araştırması için **gerekir** bu IP adresi herhangi bir Azure izin [güvenlik grupları](../virtual-network/security-overview.md) ve yerel güvenlik duvarı ilkeleri.
+Örneğiniz, işaretlemek Load Balancer'ın sistem durumu araştırması için **gerekir** bu IP adresi herhangi bir Azure izin [güvenlik grupları](../virtual-network/security-overview.md) ve yerel güvenlik duvarı ilkeleri.  Varsayılan olarak, her bir ağ güvenlik grubu içerir [hizmet etiketi](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer sistem durumu araştırması trafiğe izin vermek için.
 
 Bu IP adresini güvenlik duvarı ilkelerinizi izin verme, örneğinizin ulaşamadık olduğundan durum yoklaması başarısız olur.  Buna karşılık, yük dengeleyici örneğinizin sistem durumu araştırma hatası nedeniyle aşağı işaretler.  Bu, yük dengeli Küme hizmetinin başarısız olmasına neden olabilir. 
 

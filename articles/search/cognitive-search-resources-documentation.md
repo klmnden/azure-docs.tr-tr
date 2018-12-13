@@ -1,5 +1,5 @@
 ---
-title: Bilişsel arama belgeleri kaynakları (Azure Search) | Microsoft Docs
+title: Bilişsel arama belgeleri kaynaklar - Azure Search
 description: Makaleler, öğreticiler, örnekler ve blog ek açıklamalı bir listesini ilgili bilişsel arama iş yükleri, Azure Search'te gönderir.
 services: search
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: bad73d2bf8bdf4adee4ce6e40550e506a35a2083
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec2018
+ms.openlocfilehash: 609b5d990cffce10733f6fc82e6b1032ad0f06bb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165690"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314610"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Bilişsel arama iş yükleri için belge kaynakları
 
@@ -24,8 +25,8 @@ Bilişsel arama için kapsamlı belgeler makaleleridir.
 
 ## <a name="getting-started"></a>Başlarken
 + [Bilişsel arama nedir?](cognitive-search-concept-intro.md)
-+ [Hızlı Başlangıç: portalında bilişsel aramayı deneme](cognitive-search-quickstart-blob.md)
-+ [Öğretici: bilişsel arama API'leri ile bilgi edinin.](cognitive-search-tutorial-blob.md)
++ [Hızlı Başlangıç: Portalında bilişsel aramayı deneme](cognitive-search-quickstart-blob.md)
++ [Öğretici: Bilişsel arama API'leri öğrenin](cognitive-search-tutorial-blob.md)
 + [Örnek: özel bir beceri oluşturma](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>Nasıl yapılır kılavuzları

@@ -1,5 +1,6 @@
 ---
-title: Bir Internet'e yönelik Yük Dengeleyici IPv6 - Azure şablonu ile dağıtma | Microsoft Docs
+title: Bir Internet'e yönelik Yük Dengeleyici IPv6 - Azure şablonu ile dağıtma
+titlesuffix: Azure Load Balancer
 description: Azure Load Balancer ve yük dengeli VM'ler için IPv6 desteği dağıtma
 services: load-balancer
 documentationcenter: na
@@ -8,16 +9,17 @@ keywords: IPv6, azure yük dengeleyici, ikili yığın, genel IP, yerel IPv6, mo
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 14a28fb341692c309ff4f965628b38a767c56633
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 2374df3a457e0f4730dcaa6d69ea3f2e0fa6e9cc
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740757"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163217"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Şablon kullanarak bir Internet'e yönelik Yük Dengeleyici çözümü IPv6 ile dağıtma
 

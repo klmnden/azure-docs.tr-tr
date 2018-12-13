@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 11/15/2018
 ms.author: stbaron
-ms.openlocfilehash: 73e58653c249639d2c2317badcd9995658009b64
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 3abf0268a7a6f84e5c26efc5643d048216fc2215
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710996"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163047"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Kaynak türleri ve sistem durumu Azure kaynak durumu denetler
 Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimleri tam bir listesi aşağıdadır.
@@ -144,4 +144,4 @@ Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimleri tam bir 
 # <a name="next-steps"></a>Sonraki Adımlar
 -  Bkz: [Azure hizmet durumu Panosu giriş](service-health-overview.md) ve [Azure kaynak durumu giriş](resource-health-overview.md) bunları daha iyi anlamak için. 
 -  [Azure kaynak durumu hakkında sık sorulan sorular](resource-health-faq.md)
-- Sistem durumu sorunları bildirim almak için uyarılar ayarlayın. Daha fazla bilgi için [hizmet durumu olayları için uyarıları yapılandırın](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+- Sistem durumu sorunları bildirim almak için uyarılar ayarlayın. Daha fazla bilgi için [hizmet durumu olayları için uyarıları yapılandırın](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 

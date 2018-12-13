@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 49f7e0b19f454e37e70774f3a675bd5094687114
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 686985c705b4026ccc26238fc5919296c98d5cb7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967087"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277531"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure sanal ağına sık sorulan sorular (SSS)
 
@@ -103,8 +103,8 @@ Hayır. Bir VNet için tek bir bölgede sınırlıdır. Bir sanal ağ, ancak kul
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>Bir VNet azure'da başka bir sanal ağa bağlanabilir?
 Evet. Bir sanal ağ kullanarak başka bir sanal ağa bağlayabilirsiniz:
-- **Sanal Ağ eşlemesi**: ayrıntılı bilgi için bkz. [VNet eşlemesi genel bakış](virtual-network-peering-overview.md)
-- **Azure VPN Gateway**: ayrıntılı bilgi için bkz. [bir VNet-VNet bağlantısını yapılandırma](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+- **Sanal Ağ eşlemesi**: Ayrıntılar için bkz [VNet eşlemesi genel bakış](virtual-network-peering-overview.md)
+- **Azure VPN Gateway'i**: Ayrıntılar için bkz [bir VNet-VNet bağlantısını yapılandırma](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ## <a name="name-resolution-dns"></a>Ad çözümleme (DNS)
 
@@ -137,12 +137,12 @@ Hayır. Sanal ağlarınız için özel bir DNS soneki belirtemezsiniz.
 Evet. Resource Manager dağıtım modeliyle dağıtılan bir sanal makineye bağlı tüm ağ arabirimleri (NIC) bir sanal ağa bağlı olması gerekir. Klasik dağıtım modeliyle dağıtılan Vm'leri isteğe bağlı olarak bir sanal ağa bağlanabilir.
 
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>Vm'lere atamak IP adresleri farklı türleri nelerdir?
-* **Özel:** her VM içindeki her bir ağ arabirimi atanmış. Adresi ya da statik veya dinamik yöntem kullanılarak atanır. Özel IP adresleri, sanal ağınızın alt ayarlarında belirtilen bir aralıktan atanır. Bir sanal ağa bağlı olmasanız bile Klasik dağıtım modeliyle dağıtılan kaynakların özel IP adresleri atanır. Ayırma yöntemini davranışını bir kaynak Resource Manager veya Klasik dağıtım modeli ile dağıtılan bağlı olarak farklılık gösterir: 
+* **Özel:** Her sanal makine içindeki her bir ağ arabirimi atanır. Adresi ya da statik veya dinamik yöntem kullanılarak atanır. Özel IP adresleri, sanal ağınızın alt ayarlarında belirtilen bir aralıktan atanır. Bir sanal ağa bağlı olmasanız bile Klasik dağıtım modeliyle dağıtılan kaynakların özel IP adresleri atanır. Ayırma yöntemini davranışını bir kaynak Resource Manager veya Klasik dağıtım modeli ile dağıtılan bağlı olarak farklılık gösterir: 
 
-  - **Kaynak Yöneticisi'ni**: kaynak silinene kadar dinamik veya statik yöntemi ile atanan özel bir IP adresi (Resource Manager) sanal makineye atanmış olarak kalır. , Statik kullanırken atanacak adresini seçin ve dinamik kullanırken, Azure'ı seçti farktır. 
-  - **Klasik**: bir sanal makine zaman (Klasik) dinamik yöntemiyle atanmıştır özel bir IP adresi değişebilir VM durdurulmuş (serbest bırakıldı) durumda olan sonra yeniden. Özel IP adresini Klasik dağıtım modeliyle dağıtılan bir kaynak için hiç değiştirdiğinden emin olmak ihtiyacınız varsa statik bir yöntemi ile özel bir IP adresi atayın.
+  - **Kaynak Yöneticisi'ni**: Kaynak silinene kadar dinamik veya statik yöntemi ile atanan özel bir IP adresi (Resource Manager) sanal makineye atanmış olarak kalır. , Statik kullanırken atanacak adresini seçin ve dinamik kullanırken, Azure'ı seçti farktır. 
+  - **Klasik**: Bir sanal makine zaman (Klasik) dinamik yöntemiyle atanmıştır özel bir IP adresi değişebilir VM durdurulmuş (serbest bırakıldı) durumda olan sonra yeniden. Özel IP adresini Klasik dağıtım modeliyle dağıtılan bir kaynak için hiç değiştirdiğinden emin olmak ihtiyacınız varsa statik bir yöntemi ile özel bir IP adresi atayın.
 
-* **Genel:** isteğe bağlı olarak Azure Resource Manager dağıtım modeliyle dağıtılan vm'lere bağlı ağ arabirimlerine atanmış. Adresi statik veya dinamik ayırma yöntemiyle atanabilir. Klasik dağıtım modeliyle dağıtılan tüm Vm'leri ve Cloud Services rol örnekleri atanmış bir bulut hizmetinde mevcut bir *dinamik*, genel sanal IP (VIP) adresi. Bir ortak *statik* adlı IP adresi, bir [ayrılmış IP adresi](virtual-networks-reserved-public-ip.md), isteğe bağlı olarak bir VIP atanabilir. Tek tek sanal makineleri veya Cloud Services rol örnekleri ilgili Klasik dağıtım modeliyle dağıtılan genel IP adresleri atayabilirsiniz. Bu adresler adlı [örnek düzeyi genel IP (ILPIP](virtual-networks-instance-level-public-ip.md) giderir ve dinamik olarak atanabilir.
+* **Genel:** İsteğe bağlı olarak Azure Resource Manager dağıtım modeliyle dağıtılan vm'lere bağlı ağ arabirimlerine atanmış. Adresi statik veya dinamik ayırma yöntemiyle atanabilir. Klasik dağıtım modeliyle dağıtılan tüm Vm'leri ve Cloud Services rol örnekleri atanmış bir bulut hizmetinde mevcut bir *dinamik*, genel sanal IP (VIP) adresi. Bir ortak *statik* adlı IP adresi, bir [ayrılmış IP adresi](virtual-networks-reserved-public-ip.md), isteğe bağlı olarak bir VIP atanabilir. Tek tek sanal makineleri veya Cloud Services rol örnekleri ilgili Klasik dağıtım modeliyle dağıtılan genel IP adresleri atayabilirsiniz. Bu adresler adlı [örnek düzeyi genel IP (ILPIP](virtual-networks-instance-level-public-ip.md) giderir ve dinamik olarak atanabilir.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>Özel bir IP adresi daha sonraki bir zamanda oluşturma bir VM için ayırabilirsiniz?
 Hayır. Özel bir IP adresi ayıramazsınız. Özel bir IP adresi varsa, DHCP sunucusu tarafından bir sanal makine veya rol örneğine atanır. VM olabilir veya istediğiniz özel IP adresi atanmış bir olabilir. Ancak, önceden oluşturulmuş bir VM'nin özel IP adresini, kullanılabilir tüm özel IP adresi değiştirebilirsiniz.
@@ -326,7 +326,7 @@ Bir sanal ağ içindeki veya birden çok sanal ağda birden fazla alt ağdaki Az
 Sanal ağdan bir Azure hizmetine giden trafiği incelemek veya filtrelemek istiyorsanız, sanal ağda ağ sanal Gereci dağıtabilirsiniz. Ardından, ağ sanal gerecinin dağıtılmış ve güvenli Azure hizmet kaynağını yalnızca bu alt ağ ile sanal ağ ACL'leri olduğu alt ağ hizmet uç noktaları uygulayabilirsiniz. Bu senaryo Azure hizmet erişimini ağ sanal Gereci filtresi kullanarak yalnızca belirli Azure kaynaklarına sanal ağınızdan kısıtlamak istiyorsanız yararlı olabilir. Daha fazla bilgi için bkz. [Ağ sanal gereçleri ile çıkış](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="what-happens-when-you-access-an-azure-service-account-that-has-virtual-network-access-control-list-acl-enabled-from-outside-the-vnet"></a>VNet dışından gelen etkin sanal ağ erişim denetimi listesi (ACL) sahip bir Azure hizmeti hesabına eriştiğinde ne olur?
-HTTP 404 hatası döndürülür.
+HTTP 403 veya HTTP 404 hatası döndürülür.
 
 ### <a name="are-subnets-of-a-virtual-network-created-in-different-regions-allowed-to-access-an-azure-service-account-in-another-region"></a>Başka bir bölgede bir Azure hizmeti hesabına erişmesi için izin verilen farklı bölgelerde oluşturulmuş sanal ağ alt ağları misiniz? 
 Evet, Azure hizmetlerinin çoğu için farklı bölgelerde oluşturulmuş sanal ağlar başka bir bölgede Azure hizmetlerini sanal ağ hizmet uç noktaları yoluyla erişebilirsiniz. Örneğin, bir Azure Cosmos DB hesabı Batı ABD veya Doğu ABD ve sanal ağları birden çok bölgede sanal ağı Azure Cosmos DB erişebilirsiniz. Depolama ve SQL özel durumlar ve doğası gereği Bölgesel ve hem sanal ağ hem de Azure hizmetiyle aynı bölgede olması gerekir.
@@ -366,7 +366,7 @@ Sanal ağ hizmet uç noktaları bir sanal ağdaki toplam sayısına bir sınır 
 |Azure Storage| 100|
 |Azure SQL| 128|
 |Azure SQL Veri Ambarı|  128|
-|Azure anahtar kasası|    128|
+|Azure anahtar kasası|    127|
 |Azure Cosmos DB|   64|
 |Azure Olay Hub'ı|   128|
 |Azure Service Bus| 128|

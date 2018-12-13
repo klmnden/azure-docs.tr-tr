@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 6978360769ba350d85a06116bfee6db9f80b0607
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: da22c09a227069af0eeb42ab67a59189ae494185
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157369"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256681"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Azure veri kutusu ağ geçidi sistem gereksinimleri (Önizleme)
 
@@ -26,6 +26,19 @@ Veri kutusu ağ geçidi sanal cihaz için sistem gereksinimleri şunlardır:
 
 > [!IMPORTANT]
 > Data Box Gateway, Önizleme aşamasındadır. Bu çözümü dağıtmadan önce lütfen [Önizleme için kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin. 
+
+## <a name="specifications-for-the-virtual-device"></a>Sanal cihaz özellikleri
+
+Temel alınan bir konak sistemi veri kutusu ağ geçidi için sanal cihazınızın sağlamak için aşağıdaki kaynakları ayırmanız kuramıyor:
+
+| Belirtimler                                          | Açıklama              |
+|---------------------------------------------------------|--------------------------|
+| Sanal işlemciler (çekirdekler)   | En az 4 |            
+| Bellek  | En az 8 GB|
+| Kullanılabilirlik|Tek düğüm|
+| Diskler| İşletim sistemi diski: 250 GB <br> Veri diski: 2 TB en, ölçülü kaynak sağlanan ve SSD'ler ile desteklenir|
+| Ağ arabirimleri|1 veya daha çok sanal ağ arabirimi|
+
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>Cihaz için bağlanan istemciler için desteklenen işletim sistemi
 

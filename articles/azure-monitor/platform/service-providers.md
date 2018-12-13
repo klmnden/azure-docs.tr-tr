@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
-ms.component: ''
-ms.openlocfilehash: 0c75926943ceb2e77335732445f56099961f7667
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 6ac34df87c3138aa667e57f7112d31b306e4d9f5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099044"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191232"
 ---
 # <a name="log-analytics-for-service-providers"></a>Hizmet sağlayıcıları için log Analytics
 Log Analytics, yönetilen hizmet sağlayıcılarına (msp), büyük kuruluşlar, bağımsız yazılım satıcılarına (ISV) ve müşterinin şirket içi veya Bulut altyapı sunucularını izleme ve yönetme barındırma hizmeti sağlayıcılarına yardımcı olabilir. 
@@ -73,9 +72,9 @@ Bu mimari dezavantajları şunlardır:
 
 Log Analytics'te merkezi bir konum uygulamak için iki seçenek vardır:
 
-1. Merkezi çalışma alanı: hizmet sağlayıcısı, kiracıda bir çalışma alanı oluşturun ve yararlanan bir betik kullan [sorgu API'si](https://dev.loganalytics.io/) ile [veri koleksiyonu API'sini](../../azure-monitor/platform/data-collector-api.md) için çeşitli çalışma alanlarından verileri getirmek için Merkezi bir konum. Bir betik dışındaki başka bir seçenek kullanmaktır [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+1. Merkezi çalışma alanı: Hizmet sağlayıcısı, kiracıda bir çalışma alanı oluşturun ve yararlanan bir betik kullan [sorgu API'si](https://dev.loganalytics.io/) ile [veri koleksiyonu API'sini](../../azure-monitor/platform/data-collector-api.md) bu merkezi bir konuma çeşitli çalışma alanlarından verileri getirmek için. Bir betik dışındaki başka bir seçenek kullanmaktır [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
-2. Power BI olarak merkezi bir konum: çeşitli çalışma alanları için Log Analytics arasındaki tümleştirmeden kullanarak verileri dışarı aktardığınızda, Power BI merkezi konumunuz olarak hareket edebilir ve [Power BI](../../azure-monitor/platform/powerbi.md). 
+2. Power BI olarak merkezi bir konum: Çeşitli çalışma alanları için Log Analytics arasındaki tümleştirmeden kullanarak verileri dışarı aktardığınızda, Power BI merkezi konumunuz olarak hareket edebilir ve [Power BI](../../azure-monitor/platform/powerbi.md). 
 
 
 ## <a name="next-steps"></a>Sonraki Adımlar

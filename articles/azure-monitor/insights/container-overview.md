@@ -8,18 +8,17 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 5b5e8442e6d6762fda875460544aa4369e54d49b
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 574b2ad048ca9572447b55885deb98415c3e3753
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889030"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183208"
 ---
 # <a name="overview-of-monitoring-containers-in-azure"></a>Kapsayıcıları azure'da izlemeye genel bakış
 Azure ile etkili bir şekilde izleyebilir ve Kubernetes veya Docker'ı çalıştıran Azure kapsayıcıları üzerinde dağıtılan iş yüklerinizi yönetin. Uygun ölçekte güvenilir bir hizmet sunun ve izleme planınızı desteklemek için birden fazla mikro hizmet uygulamaları ile kapsayıcıları nasıl gerçekleştiriyorsunuz anlamak önemlidir. Bu makalede, yönetim ve izleme bunları anlamanıza yardımcı olması için Azure işlevlerini kısa bir genel bakış sağlar ve gereksinimlerinize göre uygun olan.

@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: ramamill
-ms.openlocfilehash: 2ef08831706a018422ea3700c8eb63bd6f95c469
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/11/2018
+ms.author: mayg
+ms.openlocfilehash: f2d8d070a8adbe7992795b06722427da2830cb50
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834977"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253689"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Ek işlem sunucusu ile yeniden çalışma için ölçek
 
@@ -23,6 +23,9 @@ Varsayılan olarak, VMware Vm'lerini veya fiziksel sunucuları azure'a çoğalt�
 ### <a name="capacity-planning"></a>Kapasite planlaması
 
 Gerçekleştirdiğiniz emin [kapasite planlaması](site-recovery-plan-capacity-vmware.md) VMware çoğaltması için. Bu, tanımlamanıza yardımcı olur nasıl ve ne zaman ek işlem sunucusu dağıtmanız gerekir.
+
+>[!NOTE]
+Kopyalanan bir işlem sunucusu bileşeni kullanımı desteklenmiyor. Her PS genişleme için bu makaledeki adımları izleyin.
 
 ### <a name="sizing-requirements"></a>Boyutlandırma gereksinimleri 
 

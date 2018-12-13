@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 12/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: d16f05c208e737f7c0095fc95c4272fe216f7a34
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 36cdb8a84c7ec7e05917be1144ae008f90cad03a
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094942"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321144"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -35,7 +35,7 @@ Kaynağın konumu değiştirilemez. Bir kaynak taşıma yalnızca bu yeni bir ka
 
 ## <a name="checklist-before-moving-resources"></a>Kaynakları taşımadan önce Yapılacaklar listesi
 
-Bir kaynağı taşımadan önce gerçekleştirmeniz gereken bazı önemli adımlar vardır. Bu koşulları doğrulayarak hataları önleyebilirsiniz.
+Bir kaynağı taşımadan önce yapmanız gereken bazı önemli adımlar vardır. Bu koşulları doğrulayarak hataları önleyebilirsiniz.
 
 1. Kaynak ve hedef abonelikler aynı içinde bulunmalıdır [Azure Active Directory kiracısı](../active-directory/develop/quickstart-create-new-tenant.md). Her iki aboneliğin aynı Kiracı Kimliğine sahip denetlemek için Azure PowerShell veya Azure CLI'yı kullanın.
 
@@ -58,7 +58,7 @@ Bir kaynağı taşımadan önce gerçekleştirmeniz gereken bazı önemli adıml
   * [Azure aboneliğinin sahipliğini başka bir hesaba devretme](../billing/billing-subscription-transfer.md)
   * [Azure Active Directory'ye bir Azure aboneliğini ekleme veya ilişkilendirme](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-1. Hedef abonelik, taşınan kaynağın kaynak sağlayıcısına kayıtlı olmalıdır. Belirten bir hata alırsanız, **kaynak türü için abonelik kayıtlı değil**. Kaynağı taşıdığınız yeni abonelik, ilgili kaynak türüyle daha önce kullanılmamışsa bu sorunla karşılaşabilirsiniz.
+1. Hedef abonelik, taşınan kaynağın kaynak sağlayıcısına kayıtlı olmalıdır. Belirten bir hata alırsanız, **kaynak türü için abonelik kayıtlı değil**. Abonelik bu kaynak türü ile hiçbir zaman kullanılmış, ancak yeni bir abonelik için bir kaynak taşıma sırasında şu hatayla karşılaşabilirsiniz.
 
   PowerShell için kayıt durumunu almak için aşağıdaki komutları kullanın:
 
@@ -93,7 +93,7 @@ Bir kaynağı taşımadan önce gerçekleştirmeniz gereken bazı önemli adıml
 
 1. Kaynakları taşımadan önce kaynaklara Taşımakta olduğunuz abonelik için abonelik kotaları denetleyin. Kaynakları taşıma abonelik, sınırları aşamaz anlamına gelir, kota artışı isteği olup olmadığını gözden geçirmek gerekir. Limitler ve bir artış istemek nasıl bir listesi için bkz. [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md).
 
-1. Mümkün olduğunda, kesme büyük ayrı taşıma işlemlerini taşır. Kaynak Yöneticisi'ni hemen 800'den fazla kaynakları tek bir işlemde taşıma girişimleri başarısız olur. Ancak, 800'den daha az kaynağı taşımadan da zaman aşımına göre başarısız olabilir.
+1. Mümkün olduğunda, kesme büyük ayrı taşıma işlemlerini taşır. Tek bir işlemde kaynakları 800'den fazla olduğunda, Kaynak Yöneticisi'ni hemen bir hata döndürür. Ancak, 800'den daha az kaynağı taşımadan da zaman aşımına göre başarısız olabilir.
 
 1. Hizmet, kaynakları taşıma olanağını sağlamalıdır. Taşıma başarılı olur olup olmadığını belirlemek için [, taşıma isteği doğrulamak](#validate-move). Bu makalede, aşağıdaki bölümlere bakın [Hizmetleri kaynak taşıma olanağı](#services-that-can-be-moved) ve [Hizmetleri kaynakların taşınması etkinleştirmediğiniz](#services-that-cannot-be-moved).
 
@@ -130,7 +130,7 @@ Content-type: application/json
 
 ```json
 {
- "resources": ['<resource-id-1>', '<resource-id-2>'],
+ "resources": ["<resource-id-1>", "<resource-id-2>"],
  "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
 }
 ```
@@ -169,7 +169,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * Analysis Services
 * API Management
 * App Service uygulamaları (web uygulamaları) - bkz [App Service kısıtlamaları](#app-service-limitations)
-* App Service Sertifikaları
+* App Service sertifikaları - bkz [App Service sertifikası sınırlamaları](#app-service-certificate-limitations)
 * Application Insights
 * Otomasyon
 * Azure Active Directory B2C
@@ -226,7 +226,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * Depolama - depolama hesapları farklı bölgelerde, aynı işlem içinde taşınamaz. Bunun yerine, her bölge için ayrı işlem kullanın.
 * Depolama alanı (Klasik) - [Klasik dağıtım sınırlamalarını](#classic-deployment-limitations)
 * Stream Analytics - Stream Analytics işleri çalıştırırken buna taşınamaz durumu.
-* SQL veritabanı sunucusu - veritabanı ve sunucu, aynı kaynak grubunda bulunmalıdır. Bir SQL server taşıdığınızda, tüm veritabanlarını da taşınır. Bu davranış, Azure SQL veritabanı ve Azure SQL veri ambarı veritabanları için geçerlidir.
+* SQL veritabanı sunucusu - veritabanı ve sunucu, aynı kaynak grubunda olmalıdır. Bir SQL server taşıdığınızda, tüm veritabanlarını da taşınır. Bu davranış, Azure SQL veritabanı ve Azure SQL veri ambarı veritabanları için geçerlidir.
 * Time Series Insights
 * Traffic Manager
 * Sanal makineler - sahip VM'ler için yönetilen diskler için bkz: [sanal makineler sınırlamaları](#virtual-machines-limitations)
@@ -309,18 +309,10 @@ Bu destek, ayrıca geçiş yapabileceğiniz anlamına gelir:
 * Yönetilen anlık görüntüler
 * Yönetilen disklere sahip sanal makineleri ile kullanılabilirlik kümeleri
 
-Henüz desteklenmeyen bazı kısıtlamalar şunlardır:
+Henüz desteklenmeyen kısıtlamaları şunlardır:
 
 * Key Vault'ta depolanan bir sertifika ile sanal makineler için yeni bir kaynak grubu ile aynı abonelikte ancak değil, abonelikler arasında taşınabilir.
-* Azure Backup ile yapılandırılmış sanal makineler. Kullanım bu sanal makineleri taşımak için geçici çözüm aşağıda
-  * Sanal makinenizi konumunu bulun.
-  * Aşağıdaki adlandırma deseni ile bir kaynak grubunu bulun: `AzureBackupRG_<location of your VM>_1` örneğin AzureBackupRG_westus2_1
-  * Azure portalında, ardından onay "gizli türleri Göster ise"
-  * PowerShell'de varsa, kullanmak `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet'i
-  * CLI, kullanın `az resource list -g AzureBackupRG_<location of your VM>_1`
-  * Artık türüyle olan kaynağı bulun `Microsoft.Compute/restorePointCollections` adlandırma deseni sahip `AzureBackup_<name of your VM that you're trying to move>_###########`
-  * Bu kaynağı silme
-  * Silme işlemi tamamlandıktan sonra sanal makinenizi taşımak mümkün olmayacak
+* Sanal makineniz yedekleme için yapılandırılmış olup [kurtarma Hizmetleri sınırlamalarını](#recovery-services-limitations).
 * Standart SKU yük Dengeleyicide veya standart SKU genel IP ile sanal makine ölçek kümeleri taşınamaz.
 * Market kaynaklardan bağlı planlar ile oluşturulan sanal makineler, kaynak grubu veya abonelik arasında taşınamaz. Geçerli Abonelikteki sanal makine sağlamasını kaldırma ve yeni aboneliği yeniden dağıtın.
 
@@ -334,19 +326,17 @@ Bir alt ağ kaynak gezinti bağlantılarının bulunduğu sanal ağı içeriyors
 
 ## <a name="app-service-limitations"></a>App Service kısıtlamaları
 
-App Service kaynaklarını taşımak için sınırlamalar kaynakları bir abonelik içinde veya yeni bir aboneliğe taşıma bağlı olarak farklılık gösterir.
-
-Karşıya yüklenen sertifikalar, App Service sertifikaları şu bölümlerde açıklanan sınırlamalar uygulanır. App Service sertifikaları, yeni kaynak grubu veya abonelik sınırlamaları olmadan taşıyabilirsiniz. Sonra önce tüm web uygulamaları taşıyın aynı App Service sertifikası kullanan birden fazla web uygulaması varsa sertifikayı taşıyın.
+App Service kaynaklarını taşımak için sınırlamalar kaynakları bir abonelik içinde veya yeni bir aboneliğe taşıma bağlı olarak farklılık gösterir. Web uygulamanızı bir App Service sertifikası kullanıyorsa, bkz. [App Service sertifikası sınırlamaları](#app-service-certificate-limitations)
 
 ### <a name="moving-within-the-same-subscription"></a>Aynı abonelik içinde taşıma
 
-Bir Web uygulaması taşınırken _aynı abonelik içindeki_, karşıya yüklenen SSL sertifikaları taşınamıyor. Ancak, kendi karşıya yüklenmiş SSL sertifikasını taşımadan bir Web uygulaması yeni kaynak grubuna taşıyabilirsiniz ve uygulamanızın SSL işlevselliği yine de çalışır.
+Bir Web uygulaması taşınırken _aynı abonelik içindeki_, üçüncü taraf SSL sertifikaları taşınamıyor. Ancak, üçüncü taraf sertifikasını taşımadan bir Web uygulaması yeni kaynak grubuna taşıyabilirsiniz ve uygulamanızın SSL işlevselliği yine de çalışır.
 
 SSL sertifikası ile Web uygulaması taşımak istiyorsanız, şu adımları izleyin:
 
-1. Web uygulamasından yüklenen sertifikayı silin.
+1. Web uygulamasından üçüncü taraf sertifika silin, ancak sertifikanızın birer kopya bulundurun
 2. Web uygulaması taşıyın.
-3. Sertifikayı taşınan Web uygulamasına yükleyin.
+3. Üçüncü taraf sertifika taşınan Web uygulamasına yükleyin.
 
 ### <a name="moving-across-subscriptions"></a>Abonelikler arasında taşıma
 
@@ -359,6 +349,10 @@ Bir Web uygulaması taşınırken _abonelikler arasında_, aşağıdaki sınırl
     - App Service ortamları
 - Kaynak grubundaki tüm App Service kaynakların birlikte taşınması gerekir.
 - App Service kaynaklarını, bunlar ilk olarak oluşturulduğu kaynak grubunun yalnızca taşınabilir. Bir App Service kaynak artık özgün kaynak grubunda değilse, bunu geri özgün kaynak grubunda ilk taşınmalıdır ve ardından abonelikler arasında taşınabilir.
+
+## <a name="app-service-certificate-limitations"></a>App Service sertifikası sınırlamaları
+
+App Service sertifikanız bir yeni kaynak grubuna veya aboneliğe taşıyabilirsiniz. App Service sertifikanız bir web uygulaması ile ilişkili ise, yeni bir abonelik için kaynakları taşımadan önce bazı adımları atmanız gerekir. Özel sertifika ve SSL bağlaması kaynakları taşımadan önce web uygulamasını silin. App Service sertifikası için silinmesi gereken değil yalnızca web App'te özel sertifika.
 
 ## <a name="classic-deployment-limitations"></a>Klasik dağıtım sınırlamalarına
 
@@ -382,7 +376,7 @@ Klasik kaynakları aynı abonelik içindeki yeni bir kaynak grubuna taşımak i�
 Kaynakları yeni bir aboneliğe taşınmasını, aşağıdaki kısıtlamalar uygulanır:
 
 * Abonelikteki tüm Klasik kaynaklar aynı işlem içinde taşınmalıdır.
-* Hedef aboneliği diğer Klasik kaynaklar içermemelidir.
+* Hedef aboneliği diğer Klasik kaynaklar olmaması gerekir.
 * Taşıma, yalnızca klasik taşıma için ayrı bir REST API aracılığıyla istenebilir. Klasik kaynakları için yeni bir abonelik taşırken standart Resource Manager'a taşıma komutlar çalışmaz.
 
 Klasik kaynakları için yeni bir aboneliği taşımak, Klasik kaynakları için özel REST işlemlerini kullanın. REST kullanmak için aşağıdaki adımları gerçekleştirin:
@@ -448,18 +442,21 @@ Klasik kaynakları için yeni bir aboneliği taşımak, Klasik kaynakları için
 
 Bir kurtarma Hizmetleri kasasına taşımak için bir özel önizlemeye kaydolmanız gerekir. Denemek için yazma AskAzureBackupTeam@microsoft.com.
 
-Taşıma, Azure Site Recovery ile olağanüstü durum kurtarma ayarlamak için kullanılan depolama, ağ ve bilgi işlem kaynakları için etkin değil.
+Şu anda bir kurtarma Hizmetleri kasası, bölge başına aynı anda taşıyabilirsiniz. Azure dosyaları, Azure dosya eşitleme veya SQL Iaas sanal makinelerini yedekleme kasaları taşıyamazsınız. 
 
-Örneğin, bir depolama hesabına (Storage1) şirket içi makinelerinizi çoğaltma işlemini ayarladıktan ve bir sanal ağa (Network1) bağlı sanal makine (VM1) olarak Azure'a yük devretme işleminden sonra görünmesi korunan makinenin istediğiniz varsayalım. Azure şu kaynaklara - Storage1, VM1 ve Network1 - aynı abonelik içindeki kaynak grupları arasında veya abonelikler arasında taşıyamazsınız.
+Bir sanal makine Kasayla birlikte hareket etmediği, süreleri doluncaya kadar geçerli sanal makine kurtarma noktaları kasada kalır. Veya, kasa ile sanal makinenin geçirildiğini olsun, kasadaki yedekleme geçmişinden sanal makineyi geri yükleyebilirsiniz.
 
-Kaydedilmiş bir VM'yi taşıma için **Azure yedekleme** kaynak grupları arasında:
- 1. Geçici olarak yedeklemeyi Durdur ve yedekleme verilerini koru
- 2. Hedef kaynak grubu için VM'yi taşıma
- 3. Altında aynı/yeni kasa koruyun
+Kurtarma Hizmetleri kasası, çapraz abonelik yedeklemeleri desteklemez. Abonelikler arasında bir sanal makine yedekleme verileri kasaya taşırsanız, sanal makinelerinizi aynı aboneliğe taşıyın ve yedeklemeler devam etmek için aynı hedef kaynak grubu kullanın.
 
-Kullanıcılar, taşıma işleminden önce oluşturulan mevcut geri yükleme noktalarından geri yükleyebilirsiniz.
+Kasa taşındıktan sonra kasa için tanımlanan yedekleme ilkeleri tutulur. Raporlama ve izleme yeniden için kasayı taşımadan sonra ayarlanması gerekir.
 
-Kullanıcı yedeklenen VM'yi abonelikler arasında taşınırsa, adım 1 ve 2. adım aynı kalır. 3. adımda sanal Makineyi altında mevcut / oluşturulan hedef abonelikte yeni bir kasa korumak kullanıcı gerekir. Kurtarma Hizmetleri kasası, çapraz abonelik yedeklemeleri desteklemez.
+Kurtarma Hizmetleri kasası taşımadan yeni bir abonelik için bir sanal makineyi taşımak için:
+
+ 1. Geçici olarak yedeklemeyi Durdur
+ 2. Yeni Abonelik için sanal makineleri taşıma
+ 3. Yeni bir kasa Bu abonelik altında yeniden koruma
+
+Taşıma, Azure Site Recovery ile olağanüstü durum kurtarma ayarlamak için kullanılan depolama, ağ ve bilgi işlem kaynakları için etkin değil. Örneğin, bir depolama hesabına (Storage1) şirket içi makinelerinizi çoğaltma işlemini ayarladıktan ve bir sanal ağa (Network1) bağlı sanal makine (VM1) olarak Azure'a yük devretme işleminden sonra görünmesi korunan makinenin istediğiniz varsayalım. Azure şu kaynaklara - Storage1, VM1 ve Network1 - aynı abonelik içindeki kaynak grupları arasında veya abonelikler arasında taşıyamazsınız.
 
 ## <a name="hdinsight-limitations"></a>HDInsight sınırlamaları
 
@@ -469,7 +466,7 @@ Bir HDInsight kümesi için yeni bir abonelik taşırken, önce diğer kaynaklar
 
 ## <a name="search-limitations"></a>Arama sınırlamaları
 
-Farklı bölgelerde tümünü tek seferde yerleştirilen birden çok arama kaynaklar taşınamıyor.
+Farklı bölgelerde tamamını aynı anda birden çok arama kaynaklar taşınamıyor.
 Böyle bir durumda, bunları ayrı ayrı taşımanız gerekiyor.
 
 ## <a name="lb-limitations"></a> Yük Dengeleyici sınırlamaları
@@ -504,7 +501,7 @@ Tamamlandığında, sonucunu bildirilir.
 
 ## <a name="use-powershell"></a>PowerShell kullanma
 
-Var olan kaynakları başka bir kaynak grubuna veya aboneliğe taşıma için kullanın [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) komutu. Aşağıdaki örnek, birden çok kaynakları yeni kaynak grubuna taşımak gösterilmektedir.
+Var olan kaynakları başka bir kaynak grubuna veya aboneliğe taşıma için kullanın [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) komutu. Aşağıdaki örnek, çeşitli kaynakları yeni kaynak grubuna taşımak gösterilmektedir.
 
 ```azurepowershell-interactive
 $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
@@ -516,7 +513,7 @@ Yeni bir aboneliğe taşımak için bir değer içerir. `DestinationSubscription
 
 ## <a name="use-azure-cli"></a>Azure CLI kullanma
 
-Var olan kaynakları başka bir kaynak grubuna veya aboneliğe taşıma için kullanın [az kaynak taşıma](/cli/azure/resource?view=azure-cli-latest#az-resource-move) komutu. Kaynak taşımak için kaynak kimliklerini sağlayın. Aşağıdaki örnek, birden çok kaynakları yeni kaynak grubuna taşımak gösterilmektedir. İçinde `--ids` parametresi, kaynak kimliklerini taşımak için boşlukla ayrılmış bir listesini sağlayın.
+Var olan kaynakları başka bir kaynak grubuna veya aboneliğe taşıma için kullanın [az kaynak taşıma](/cli/azure/resource?view=azure-cli-latest#az-resource-move) komutu. Kaynak taşımak için kaynak kimliklerini sağlayın. Aşağıdaki örnek, çeşitli kaynakları yeni kaynak grubuna taşımak gösterilmektedir. İçinde `--ids` parametresi, kaynak kimliklerini taşımak için boşlukla ayrılmış bir listesini sağlayın.
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)

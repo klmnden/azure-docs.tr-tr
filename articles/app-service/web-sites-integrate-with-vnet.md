@@ -1,5 +1,5 @@
 ---
-title: Bir Azure sanal ağı ile bir uygulamayı tümleştirin
+title: Azure sanal ağ ile - uygulama tümleştirme Azure uygulama hizmeti
 description: Azure uygulama Hizmeti'nde bir uygulamanın bir yeni veya var olan Azure sanal ağa bağlama işlemi gösterilmektedir
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
-ms.openlocfilehash: e086c187129799e499c7ac057b1755a35f1f2327
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 265dcccf9202d7b0116bba05b016e8967b68c67a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971156"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273366"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uygulamanızı bir Azure sanal ağı ile tümleştirme
 Bu belge, Azure App Service sanal ağ tümleştirme özelliğini açıklar ve uygulamalar ile ayarlama işlemi gösterilmektedir [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure sanal ağları] [ VNETOverview] (Vnet'ler) birçok Azure kaynaklarınızın bir internet olmayan routeable ağında yerleştirin izin verir. Bu ağlar VPN'si teknolojileri kullanarak, şirket içi ağlara bağlanabilirsiniz. 
@@ -30,7 +31,7 @@ Azure App Service iki biçimi vardır.
 
 Bu belge çok kiracılı App Service içinde kullanılmak üzere tasarlanmıştır VNet tümleştirme özelliğini geçer.  Uygulamanızı ise [App Service ortamı][ASEintro], bir sanal ağda zaten ve aynı sanal ağ kaynaklarına ulaşmak için VNet tümleştirmesi özelliğinin gerektirmez.
 
-VNet tümleştirmesi, web uygulaması sanal ağınızdaki kaynaklara erişmenizi sağlar ancak özel web uygulamanıza sanal ağdan erişim yoktur. Özel site erişimi, uygulamanızı yalnızca özel ağdan gibi bir Azure sanal ağı içinde erişilebilir hale getirmek için ifade eder. Özel site erişimi yalnızca bir iç yük dengeleyici (ILB) ile yapılandırılmış bir ASE ile kullanılabilir. ILB ASE kullanma hakkında daha fazla ayrıntı için buraya makale ile başlayın: [oluşturma ve ILB ASE kullanarak][ILBASE]. 
+VNet tümleştirmesi, web uygulaması sanal ağınızdaki kaynaklara erişmenizi sağlar ancak özel web uygulamanıza sanal ağdan erişim yoktur. Özel site erişimi, uygulamanızı yalnızca özel ağdan gibi bir Azure sanal ağı içinde erişilebilir hale getirmek için ifade eder. Özel site erişimi yalnızca bir iç yük dengeleyici (ILB) ile yapılandırılmış bir ASE ile kullanılabilir. ILB ASE kullanma hakkında daha fazla ayrıntı için buraya makale ile başlayın: [Oluşturma ve ILB ASE kullanma][ILBASE]. 
 
 VNet tümleştirmesi, genellikle bir veritabanlarına uygulamalardan erişime izin verin ve web Hizmetleri, sanal ağda çalışan için kullanılır. VNet Tümleştirmesi ile VM ancak can uygulamaları özel dışı Internet yönlendirilebilir adreslerini kullanmanız için genel bir uç nokta kullanıma sunmak gerekmez. 
 

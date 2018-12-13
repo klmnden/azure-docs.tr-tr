@@ -1,19 +1,18 @@
 ---
 title: include dosyası
 description: include dosyası
-services: signalr
 author: anthonychu
 ms.service: signalr
 ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: c74a0726bbbe635793b48b6fe6ebd6f0c72f95f6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 1e01db73f58c77ff62f7abe707884fc2649fd042
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47006296"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262799"
 ---
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -24,4 +23,3 @@ Bu uygulamayı kullanmaya devam etmeyecekseniz, herhangi bir ücret ödememek i�
 1. Açılan pencerede kaynak grubunu seçin ve **Kaynak grubunu sil**’e tıklayın.
 
 1. Yeni pencerede, silmek için kaynak grubunun adını yazıp **Sil** öğesine tıklayın.
-

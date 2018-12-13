@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: c9b343bba59776ca735fa5c2cbddf03ec5c92b47
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: d7e5553ec48cfda858f2a463a2df0cc60f0e5c65
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242832"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270408"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>SQL veritabanı sık sorulan sorular (SSS)
 
@@ -196,9 +196,9 @@ Sanal çekirdek tabanlı modelde hizmet Hizmet katmanını temel alan öngörül
 > [!NOTE]
 > Bir süreliğine yedekleme ve GÇ ücreti ücretsizdir.
 
-## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Nasıl faturamı üzerinde bir elastik havuz gösteren etkin coğrafi çoğaltma kullanımı?
+## <a name="how-does-the-use-of-active-geo-replication-or-auto-failover-groups-in-an-elastic-pool-show-up-on-my-bill"></a>Nasıl bir elastik havuzdaki etkin coğrafi çoğaltma veya otomatik yük devretme gruplarının kullanımı faturamda gösterilir
 
-Kullanarak, tek veritabanlarının aksine [etkin coğrafi çoğaltma](sql-database-geo-replication-overview.md) esnek veritabanları sayesinde doğrudan bir faturalama etkisi yoktur.  Yalnızca her biri (birincil havuzu ve ikincil havuzu) havuzları için sağlanmış olan kaynakları için ücretlendirilirsiniz
+Kullanarak, tek veritabanlarının aksine [etkin coğrafi çoğaltma](sql-database-active-geo-replication.md) veya [otomatik yük devretme grupları](sql-database-auto-failover-group.md) esnek veritabanları sayesinde doğrudan bir faturalama etkisi yoktur. Yalnızca her biri (birincil havuzu ve ikincil havuzu) havuzları için sağlanmış olan kaynakları için ücretlendirilirsiniz
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>Denetim özelliğinin kullanılması faturamı nasıl etkiler
 

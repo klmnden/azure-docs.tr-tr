@@ -12,23 +12,27 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d3682d18fb849b2d851bae0986f9e61f216aaf2c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: d51fffad897ba2658c7bee51c26e7e3be9f10e88
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639946"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188767"
 ---
 # <a name="virtual-machine-offer"></a>Sanal makine teklifi
 
-Bu bölümde, bir sanal Makine'de (VM) yayımlama öğeleri özetler ve yayımcı için bir kılavuz olarak tasarlanmıştır [Azure Marketi](https://azuremarketplace.microsoft.com).  Bu bakış açısından, aşağıdaki ana bölümlere ayrılmıştır:
+|    |    |
+|-----------------------------------------------------------------|------------------------------------------|
+| Bu bölümde yeni bir sanal makine teklifi yayımlama açıklanmaktadır [Azure Marketi](https://azuremarketplace.microsoft.com). Hem Windows hem de Linux tabanlı sanal bir işletim sistemi sanal sabit disk (VHD) ve sıfır veya daha fazla veri VHD'leri içeren makineler için destek sağlanır. | ![sanal makine simgesi](./media/virtual-machine-icon.png)  |
 
-- [Önkoşullar](./cpp-prerequisites.md) -oluşturma veya VM teklifi yayımlama önce teknik ve işle ilgili gereksinimleriniz listeler
-- [VM teklifi oluşturma](./cpp-create-offer.md) -listeleri yeni bir VM oluşturmak için gerekli adımlar teklif girişini kullanarak [bulut iş ortağı portalı](https://cloudpartner.azure.com)
-- [VM teknik varlıkları oluşturma](./cpp-create-technical-assets.md) - teknik oluşturmak için bir VM çözümü ve bu paket VM olarak nasıl yapılandıracağınızı öğrenmek için varlıklar Azure Marketi'nde teklif nasıl
-- [VM teklifi yayımlama](./cpp-publish-offer.md) -teklifi Azure Marketi yayımlama için gönderme
+
+## <a name="publishing-overview"></a>Yayımlama genel bakış
+
+Aşağıdaki videoda [en iyi duruma getirme bilgisayarınızı Azure Market teklifi](https://channel9.msdn.com/Events/Build/2017/P4026?ocid=player), kullanıcı deneyimini iyileştirmek nasıl (bir sanal makine çözümü kullanarak), bu Market'te yayımlama da dahil olmak üzere Azure marketi, geniş kapsamlı bir bakış sunar Ürün sayfası ve isteğe bağlı Test Sürüşü deneyimi sayesinde nasıl kullanıcı müşteri adayı oluşturulur ve nasıl bunları tüketme ve müşteri bağlılığı iyileştirin.
+
+> [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4026]
 
 
 ## <a name="vm-publishing-process-flow"></a>VM yayımlama işlem akışı

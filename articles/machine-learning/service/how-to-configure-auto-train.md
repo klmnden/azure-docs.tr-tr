@@ -1,5 +1,5 @@
 ---
-title: Otomatik makine öğrenimi denemelerini yapılandırın
+title: Otomatik ML denemeleri oluşturma
 titleSuffix: Azure Machine Learning service
 description: Otomatik machine learning, sizin için bir algoritma seçer ve dağıtım için hazır bir model oluşturur. Otomatik makine öğrenimi denemelerini yapılandırmak için kullanabileceğiniz seçenekleri öğrenin.
 author: nacharya1
@@ -11,18 +11,18 @@ ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e1dd0cf995d7d9c263e49735decc5573107b1add
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f5237ab2b6970772e1f08264bb44223640c33a37
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140175"
+ms.locfileid: "53187271"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Otomatik makine öğrenimi denemelerini yapılandırın
 
 Otomatik machine learning bir algoritmaya ve hiperparametreleri sizin için seçer ve dağıtım için hazır bir model oluşturur. Otomatik makine öğrenimi denemelerini yapılandırmak için kullanabileceğiniz birkaç seçenek vardır. Bu kılavuzda, çeşitli yapılandırma ayarlarını tanımlamayı öğrenin.
 
-Otomatik bir makine öğrenimi denemelerini örnekleri görüntülemek için bkz: [Öğreticisi: otomatik machine learning ile bir sınıflandırma modeli eğitme](tutorial-auto-train-models.md) veya [eğitme modelleribuluttaotomatikmachinelearningile](how-to-auto-train-remote.md).
+Otomatik bir makine öğrenimi denemelerini örnekleri görüntülemek için bkz: [Öğreticisi: Otomatik machine learning ile bir sınıflandırma modeli eğitme](tutorial-auto-train-models.md) veya [eğitme modelleri bulutta otomatik machine learning ile](how-to-auto-train-remote.md).
 
 Otomatik machine learning'de kullanılabilen yapılandırma seçenekleri:
 
@@ -219,7 +219,7 @@ Bu tabloda parametre ayarlarını denemenizi ve varsayılan değerleri için kul
 `iteration_timeout_minutes` |   Belirli bir yinelemeye geçen süreyi (dakika) miktarını sınırlar. Bir yineleme belirtilen miktarı aşarsa, bu yineleme iptal. Aksi durumda ayarlama, yineleme işlemi tamamlanana kadar çalışmaya devam edecektir. |   None
 `n_cross_validations`   |Çapraz doğrulama bölmelerinin sayısı| None
 `validation_size`   |Tüm eğitim örnek bir yüzdesi olarak ayarlanmış doğrulama boyutu.|  None
-`preprocess` | True/False <br/>Giriş ön işleme gerçekleştirmek için doğru etkinleştirir deneyin. Aşağıdaki ön işleme'nın bir alt kümesidir<li>Veriler eksik: eksik veri sayısal ortalama, çoğu geçişi ile birlikte metin ile Imputes </li><li>Kategorik değerlere: veri türü sayısal ve benzersiz değerleri ise daha az yüzde 5'inden, sık erişimli bir kodlama içinde dönüştürür </li><li>Tam liste denetimi vb. [GitHub deposu](https://aka.ms/aml-notebooks)</li><br/>Not: veri seyrek ise kullanamazsınız önişle = true |  False | 
+`preprocess` | True/False <br/>Giriş ön işleme gerçekleştirmek için doğru etkinleştirir deneyin. Aşağıdaki ön işleme'nın bir alt kümesidir<li>Eksik verileri: Eksik veri sayısal ortalama, çoğu geçişi ile birlikte metin ile imputes </li><li>Kategorik değerlere: Veri türü sayısal ve benzersiz değerlerin sayısını küçüktür yüzde 5 ', bir seyrek kodlama içine dönüştürür ise </li><li>Tam liste denetimi vb. [GitHub deposu](https://aka.ms/aml-notebooks)</li><br/>Not: veri seyrek ise kullanamazsınız önişle = true |  False | 
 `blacklist_models`  | Otomatik makine öğrenimi denemesi çalışır birçok farklı algoritma vardır. Bazı algoritmalar deneme hariç tutmak için yapılandırın. Algoritmalarından kümeniz için iyi çalışmaz farkında olması durumunda yararlıdır. Algoritmalar hariç kaydettiğinizde kaynaklar ve eğitim süresini hesaplayabilirsiniz.<br/>Sınıflandırma için izin verilen değerler<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Regresyon için izin verilen değerler<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Tahmin için izin verilen değerler<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   None
 `whitelist_models`  | Otomatik makine öğrenimi denemesi çalışır birçok farklı algoritma vardır. Deneme için bazı algoritmalar içerecek şekilde yapılandırın. Algoritmalarından kümeniz için iyi iş farkında olması durumunda yararlıdır. <br/>Sınıflandırma için izin verilen değerler<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Regresyon için izin verilen değerler<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Tahmin için izin verilen değerler<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  None
 `verbosity` |En ayrıntılı ve kritik olan olan bilgileri günlüğe kaydetme düzeyini denetler en az. Ayrıntı düzeyi, python günlük paketinde tanımlanan aynı değerleri alır. İzin verilen değerler şunlardır:<br/><li>logging.INFO</li><li>günlüğe kaydetme. UYARI</li><li>günlüğe kaydetme. HATA</li><li>günlüğe kaydetme. KRİTİK</li>  | logging.INFO</li> 
@@ -244,8 +244,8 @@ Kullanırsanız `preprocess=True`, ön işleme adımları olarak aşağıdaki ve
     *   Sayısal özellikler için eksik bir sütundaki değerlerin ortalamasını değerlerle impute.
     *   Kategorik özellikler için en sık değeri eksik değerlerle impute.
 1.  Ek özellikler oluşturma
-    * DateTime özellikleri: yıl, ay, gün, haftanın günü, yıl, Çeyrek, yıl, saat, dakika, saniye haftanın günü.
-    * Metin özellikleri: terimi sıklığı temel sözcük unigram, BI-gram ve üç-gram sayısı vektör hale getirici üzerinde.
+    * DateTime özellikleri: Yıl, ay, gün, haftanın günü, yıl, Çeyrek, yıl, saat, dakika, saniye haftanın günü.
+    * Metin özellikleri: Word unigram, BI-gram ve üç-gram sayısı vektör hale getirici hakkında temel terimi sıklığı.
 1.  Dönüşümler ve kodlamaları
     * Sayısal özellikleri kategorik özelliklerini dönüştürülmüş çok az benzersiz değerlere sahip.
     * Etiket kodlama veya (sık erişimli bir kodlama karma) bağlı olarak kardinalite kategorik özelliklerinin gerçekleştirin.

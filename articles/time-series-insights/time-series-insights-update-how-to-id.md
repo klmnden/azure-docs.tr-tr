@@ -1,6 +1,6 @@
 ---
-title: Azure zaman serisi öngörüleri önizlemesinde bir zaman serisi kimliği seçmek için en iyi yöntemler | Microsoft Docs
-description: Azure zaman serisi öngörüleri önizlemesinde bir zaman serisi kimliği seçtiğinizde en iyi yöntemleri anlama
+title: Azure Time Series Insights Önizleme - bir zaman serisi kimliği seçmek için en iyi yöntemler | Microsoft Docs
+description: Azure zaman serisi öngörüleri önizlemesinde bir zaman serisi kimliği seçtiğinizde en iyi yöntemleri anlama.
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -9,12 +9,13 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 5103788afb9bd19978fcdea51f87953e4d7110ac
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 766bd0c838ead707e5af3f43bf7be9f1ffd9658e
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095253"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272550"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Zaman serisi kimliği seçmeye yönelik en iyi uygulamalar
 

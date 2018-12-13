@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4ef312ebd6c329028a556778c24c5e0e41706056
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239058"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311006"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure genel bulutta yalıtım
 ##  <a name="introduction"></a>Giriş
@@ -149,9 +149,7 @@ Azure'nın bilgi işlem platformu üzerinde makine sanallaştırma tabanlı — 
 
 Bir özel kök konak işletim sistemi çalıştıran VM, her düğümü de var. Kritik bir sınır kök VM'yi Konuk Vm'lerden ve Konuk Vm'leri birbirinden, hiper yönetici ve kök işletim sistemi tarafından yönetilen yalıtımının ' dir. Eşleştirme hiper yönetici/kök işletim sistemi, işletim sistemi güvenlik deneyimi ve Microsoft Hyper-v'den Konuk VM'lerin güçlü yalıtım sağlamak için daha yeni öğrenme Microsoft'un yıllardır yararlanır.
 
-Azure platformu, sanallaştırılmış bir ortam kullanır. Kullanıcı örnekleri, bir fiziksel ana bilgisayar sunucusuna erişimi olmayan tek başına sanal makineler olarak çalışır ve bu yalıtım, fiziksel işlemci (halka-0/Halka-3) ayrıcalık düzeyleri kullanılarak uygulanır.
-
-Halka 0 en yüksek, halka 3 ise en düşük ayrıcalıklara sahiptir. Konuk işletim sistemi daha az ayrıcalığa halka 1'de çalışır ve uygulamaları en az ayrıcalıklı Halka 3'te Çalıştır. Bu fiziksel kaynak sanallaştırma yöntemi sayesinde konuk işletim sistemi ve hiper yönetici arasında net bir ayrım sağlanarak bu iki bileşen arasında ek bir güvenlik ayrımı yapılmış olur.
+Azure platformu, sanallaştırılmış bir ortam kullanır. Kullanıcı örnekleri, bir fiziksel ana bilgisayar sunucusuna erişimi olmayan tek başına sanal makineler olarak çalışır.
 
 Azure hiper Yöneticisi mikro çekirdek gibi davranır ve tüm donanım erişim isteklerini Konuk sanal makinelerden işleme için ana VMBus adlı bir paylaşılan bellek arabirimi kullanılarak geçirir. Bu, kullanıcıların sistemde ham okuma/yazma/yürütme erişimine sahip olmasını önler ve sistem kaynaklarının paylaşımıyla ilgili riskleri azaltır.
 
@@ -187,9 +185,9 @@ Bir sanal makine oluşturulduğunda ve yapı denetleme Aracısı kuralları ve y
 
 Programlanmış kuralları iki kategorisi vardır:
 
--   **Makine Yapılandırması veya altyapı kuralları:** varsayılan olarak, tüm iletişim engellenir. Sanal makine DHCP ve DNS trafik gönderip alabilmesine izin veren özel durumlar vardır. Sanal makineler ayrıca "Genel" internet'e trafiği göndermek ve diğer sanal makinelerde aynı Azure sanal ağı ve işletim sistemi Etkinleştirme sunucusu trafiği gönderir. İzin verilen giden hedefleri sanal makinelerin listesini Azure yönlendirici alt ağları, Azure yönetim ve diğer Microsoft özellikleri içermez.
+-   **Makine Yapılandırması veya altyapı kuralları:** Varsayılan olarak, tüm iletişim engellenir. Sanal makine DHCP ve DNS trafik gönderip alabilmesine izin veren özel durumlar vardır. Sanal makineler ayrıca "Genel" internet'e trafiği göndermek ve diğer sanal makinelerde aynı Azure sanal ağı ve işletim sistemi Etkinleştirme sunucusu trafiği gönderir. İzin verilen giden hedefleri sanal makinelerin listesini Azure yönlendirici alt ağları, Azure yönetim ve diğer Microsoft özellikleri içermez.
 
--   **Rol yapılandırma dosyası:** bu gelen erişim denetimi kiracının hizmet modelini temel alarak listeleri (ACL'ler) tanımlar.
+-   **Rol yapılandırma dosyası:** Bu, gelen erişim denetimi kiracının hizmet modelini temel alarak listeleri (ACL'ler) tanımlar.
 
 ### <a name="vlan-isolation"></a>VLAN yalıtımı
 Her kümedeki üç VLAN'ları vardır:
@@ -295,7 +293,7 @@ SQL Veritabanı, piyasa lideri Microsoft SQL Server altyapısını temel alan ve
 
 [Microsoft SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) veritabanı, SQL Server teknolojileri üzerine kurulmuş bir bulut tabanlı bir ilişkisel veritabanı hizmetidir. Bu, Microsoft bulut tarafından barındırılan bir yüksek oranda kullanılabilir, ölçeklenebilir, çok kiracılı veritabanı hizmeti sağlar.
 
-Bir uygulama açısından bakıldığında, SQL Azure aşağıdaki hiyerarşi sağlar: bir çok kapsama aşağıdaki düzeylerinin her düzeyine sahip.
+Bir uygulamadan perspektif SQL Azure aşağıdaki hiyerarşi sağlar: Her düzey aşağıdaki düzeylerinin bir çok kapsama sahiptir.
 
 ![SQL Azure uygulama modeli](./media/azure-isolation/azure-isolation-fig10.png)
 

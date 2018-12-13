@@ -1,6 +1,6 @@
 ---
-title: OCR bilişsel arama beceri (Azure Search) | Microsoft Docs
-description: Metin, görüntü dosyalarını bir Azure Search zenginleştirme ardışık ayıklayın.
+title: OCR bilişsel arama beceri - Azure Search
+description: Metin, görüntü dosyalarını bir Azure Search zenginleştirme işlem hattı, optik karakter tanıma (OCR) kullanarak çıkarın.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 97d594a232c3576d0a0163b2d6847f06328bcd7b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec2018
+ms.openlocfilehash: 097fd93955a4ca3fd96ae6452fa3b503b029ffc3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167520"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313233"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR bilişsel beceri
 
@@ -29,7 +30,12 @@ ms.locfileid: "49167520"
 + . GIF
 
 > [!NOTE]
-> Bilişsel Arama, genel önizleme aşamasındadır. Görüntü ayıklama ve normalleştirme ve beceri yürütmesi şu anda ücretsiz sunulmaktadır. Daha sonraki bir zamanda, bu özelliklerin fiyatlandırması duyurulacaktır. 
+> 21 aralık 2018 tarihinden itibaren Bilişsel hizmetler kaynağı bir Azure Search beceri kümesi ile ilişkilendirmek mümkün olmayacak. Bu beceri yürütmesi için ücretlendirme başlatmak için bize izin verir. Bu tarihte, biz de belge çözme aşamasının bir parçası olarak görüntü ayıklama için başlayacağız. Belgelerden metin ayıklama işlemi ek masraf olmadan sağlanmaya devam edecektir.
+>
+> Var olan konumunda yerleşik yetenek yürütülmesini ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/) . Görüntü ayıklama fiyatlandırma Önizleme fiyatıyla ücretlendirilirsiniz ve üzerinde açıklanmıştır [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400). Bilgi [daha fazla](cognitive-search-attach-cognitive-services.md).
+>
+>  OCR yetenek aşağıdaki bilişsel hizmetler işlevselliğini eşler: TextExtractionAlgorithm için "yazısı", olarak ayarlandığında ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md) işlevi kullanılır.
+>  TextExtractionAlgorithm için "yazdırılan" olarak ayarlandığında ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) işlevselliği, İngilizce dışındaki diller için kullanılır. İngilizce, yeni ["Metin tanıma"](../cognitive-services/computer-vision/concept-recognizing-text.md) işlevselliği yazdırılan metin için kullanılır.
 
 ## <a name="skill-parameters"></a>Yetenek parametreleri
 
@@ -126,7 +132,7 @@ Parametreler büyük/küçük harfe duyarlıdır.
 }
 ```
 
-## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Örnek: belge içeriğini ile katıştırılmış görüntüler ayıklanan metin birleştiriliyor.
+## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Örnek: Metin belgesinin içeriği ile katıştırılmış görüntüler ayıklanan birleştiriliyor.
 
 Metin birleştirme için yaygın bir kullanım örneği görüntülerini (OCR beceri veya görüntünün bir açıklamalı alt yazı metni) değerinin metinsel gösterimini birleştirmek için bir belge içerik alanına olanağıdır. 
 

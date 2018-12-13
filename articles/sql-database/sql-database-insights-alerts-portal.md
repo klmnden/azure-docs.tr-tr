@@ -12,12 +12,12 @@ ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: 56beb9779b0dde7074a2f49fab156c8b6e6577b3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: a48bd66c335981a76a67206f840f4be69aaa8af1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870189"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273356"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure SQL veritabanı ve veri ambarı için Uyarılar oluşturmak için Azure portalını kullanma
 
@@ -38,8 +38,8 @@ Bir uyarı tetiklendiğinde aşağıdakileri yapılandırabilirsiniz:
 Yapılandırma ve uyarı kuralları kullanma hakkında bilgi edinin
 
 * [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [Komut satırı arabirimi (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
+* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
+* [Komut satırı arabirimi (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
 * [Azure İzleyici REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Azure portalı ile bir ölçüm üzerinde uyarı kuralı oluşturma
@@ -48,7 +48,7 @@ Yapılandırma ve uyarı kuralları kullanma hakkında bilgi edinin
    
      ![İzleme](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **SQL DW yalnızca**: tıklayın **DWU kullanımı** grafiği. Seçin **Klasik uyarıları görüntüleme**
+   - **SQL DW**: Tıklayın **DWU kullanımı** grafiği. Seçin **Klasik uyarıları görüntüleme**
 
 3. Seçin **ölçüm uyarısı Ekle (Klasik)** düğmesine tıklayın ve alanları doldurun.
    
@@ -116,6 +116,6 @@ Bir uyarı oluşturulduktan sonra bunu seçebilirsiniz ve:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure izleme genel bakışın](../monitoring-and-diagnostics/monitoring-overview.md) toplamak ve izlemek bilgi türleri dahil olmak üzere.
-* Daha fazla bilgi edinin [uyarıları Web kancalarını yapılandırma](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+* Daha fazla bilgi edinin [uyarıları Web kancalarını yapılandırma](../azure-monitor/platform/alerts-webhooks.md).
 * Alma bir [tanılama günlüklerine genel bakış](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) ve hizmet ayrıntılı yüksek sıklık düzeyindeki ölçümleri toplayın.
 * Alma bir [ölçümleri koleksiyonun genel bakış](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) hizmetinizin kullanılabilir ve yanıt verdiğinden emin olmak için.

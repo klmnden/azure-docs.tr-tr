@@ -1,7 +1,7 @@
 ---
-title: Uzak işlem hedefleri otomatik ML için ayarlayın
+title: Otomatik ML uzak işlem hedefleri
 titleSuffix: Azure Machine Learning service
-description: Bu makalede, Azure Machine Learning hizmeti ile veri bilimi sanal makinesi (DSVM) uzak işlem hedefi üzerinde otomatik makine öğrenimini kullanarak modelleri oluşturmak açıklanmaktadır
+description: Azure Machine Learning hizmeti ile veri bilimi sanal makinesi (DSVM) uzak işlem hedefi üzerinde otomatik makine öğrenimini kullanarak model oluşturmayı öğrenin
 services: machine-learning
 author: nacharya1
 ms.author: nilesha
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e8761b0671de38e7934df56847a5d0a7eafd3649
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 18b2b3df2748392b12b60517604478b120871754
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097724"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256069"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Bulutta otomatik machine learning ile modellerini eğitin
 
@@ -41,7 +41,7 @@ ws = Workspace.from_config()
 
 Çalışma alanınızda DSVM oluşturma (`ws`) zaten mevcut değilse. DSVM daha önce oluşturulmuş olsa bile, bu kod oluşturma işlemini atlar ve mevcut kaynak ayrıntıya yükler `dsvm_compute` nesne.  
 
-**Tahmini Süre**: sanal makinenin oluşturulması yaklaşık 5 dakika sürer.
+**Tahmini Süre**: VM'nin oluşturulması yaklaşık 5 dakika sürer.
 
 ```python
 from azureml.core.compute import DsvmCompute
@@ -250,12 +250,12 @@ Günlükleri altında DSVM bulmak `/tmp/azureml_run/{iterationid}/azureml-logs`.
 
 Model açıklaması verileri alınırken arka ucunda çalışan ne, konusunda saydamlık artırmak için modelleri hakkında ayrıntılı bilgi sağlar. Bu örnekte yalnızca en iyi uygun model için model açıklamaları çalıştırın. İşlem hattındaki tüm modeller için çalıştırırsanız, önemli çalışma zamanında neden olur. Model açıklaması bilgileri içerir:
 
-* shape_values: Şekil lib tarafından oluşturulan açıklama bilgileri
-* expected_values: X_train verilerin ayarlamak için uygulanan model beklenen değeri.
-* overall_summary: model düzeyi özelliği önem değerleri azalan düzende sıralı
-* overall: özellik adları overall_summary olduğu gibi aynı sırada sıralandı
-* per_class_summary: sınıf düzeyi özelliği önem değerleri azalan düzende sıralanır. Yalnızca sınıflandırma çalışması için kullanılabilir
-* per_class: özellik adları per_class_summary olduğu gibi aynı sırada sıralanır. Yalnızca sınıflandırma çalışması için kullanılabilir
+* shap_values: Şekil lib tarafından oluşturulan açıklama bilgileri
+* expected_values: Beklenen değer X_train verilerin ayarlamak için uygulanan modeli.
+* overall_summary: Azalan düzende sıralanmış model düzeyi özelliği önem değerleri
+* overall: Özellik adları overall_summary olduğu gibi aynı sırada sıralandı
+* per_class_summary: Azalan düzende sıralanmış sınıf düzeyi özelliği önem değerleri. Yalnızca sınıflandırma çalışması için kullanılabilir
+* per_class: Özellik adları per_class_summary olduğu gibi aynı sırada sıralanır. Yalnızca sınıflandırma çalışması için kullanılabilir
 
 En iyi işlem hattı yinelemelerinizi seçmek için aşağıdaki kodu kullanın. `get_output` Yöntemi, en iyi çalıştırmanın ve ekrana sığdırılmış modeli son çağırma sığdırmak için döndürür.
 
@@ -268,7 +268,7 @@ best_run, fitted_model = remote_run.get_output()
 ```python
 from azureml.train.automl.automlexplainer import retrieve_model_explanation
 
-shape_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
+shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
     retrieve_model_explanation(best_run)
 ```
 

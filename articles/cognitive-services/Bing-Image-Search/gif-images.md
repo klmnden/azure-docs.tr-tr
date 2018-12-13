@@ -1,7 +1,7 @@
 ---
-title: Bing resim arama API'si .gif görüntüleri - Al
+title: Bing resim arama API'si kullanarak GIF resimler için arama yapın
 titleSuffix: Azure Cognitive Services
-description: .Gif görüntüleri hakkında daha fazla bilgi için Bing resim arama API'si kullanma
+description: Bing resim arama API'si, web üzerinden .gif görüntülerini aramak için kullanın.
 services: cognitive-services
 author: MikeDodaro
 manager: cgronlun
@@ -10,16 +10,17 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: rosh
-ms.openlocfilehash: 82a096ccc1ead9bfb542663ae193539fc227c1fb
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.custom: seodec2018
+ms.openlocfilehash: 7536452d3ed0030b34e4f30deba56d6d8ae1957c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870256"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249320"
 ---
-# <a name="search-for-gif-images-using-the-bing-image-search-api"></a>Bing resim arama API'si kullanarak .gif resimler için arama yapın
+# <a name="search-for-gif-images"></a>GIF görüntülerinin arayın 
 
-Bing resim arama API'si de en uygun .gif görüntüleri için tüm Web aramanızı sağlar.  Geliştiriciler, çeşitli konuşma senaryolarda ilgi çekici GIF'ler tümleştirebilirsiniz. 
+Bing resim arama API'si de en uygun .gif görüntüleri için tüm Web aramanızı sağlar.  Geliştiriciler, çeşitli konuşma senaryolarda ilgi çekici GIF'ler tümleştirebilirsiniz. 
 
 Animasyonlu .gif görüntüleri için bir sorgu URL'dir.
 ````
@@ -206,5 +207,5 @@ Kod, aşağıdaki sonuçları JSON nesnesi alır:
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [C# hızlı başlangıç](quickstarts/csharp.md)
+- [C# hızlı başlangıcı](quickstarts/csharp.md)
 - [Öğretici resim arama tek sayfalı uygulama](tutorial-bing-image-search-single-page-app.md)

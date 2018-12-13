@@ -1,21 +1,21 @@
 ---
-title: 'Öğretici: Azure Container Registry Görevleri ile kapsayıcı görüntüsü derlemelerini otomatik hale getirme'
-description: Bu öğreticide, bir Git deposuna kaynak kodu işlediğinizde bulutta kapsayıcı görüntü derlemelerini otomatik olarak tetiklemek üzere bir görev yapılandırmayı öğreneceksiniz.
+title: Öğretici - kapsayıcı görüntüsü otomatikleştirme - Azure Container kayıt defteri görevleri
+description: Bu öğreticide, kaynak kodu bir Git deposuna kaydedin, kapsayıcı görüntüsü yapılarınızı bulutta otomatik olarak tetiklemek için bir Azure kapsayıcı kayıt defteri görevi yapılandırma konusunda bilgi edinin.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 27dbee3b292a9139ce53ef7b09a4cceba56082e4
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 2d3f4ca269e204a84a10d60aa953dc2f49195c7c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857236"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254675"
 ---
-# <a name="tutorial-automate-container-image-builds-with-azure-container-registry-tasks"></a>Öğretici: Azure Container Registry Görevleri ile kapsayıcı görüntüsü derlemelerini otomatik hale getirme
+# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Öğretici: Kaynak kodu işlerseniz kapsayıcı görüntü bulutta oluşturmayı otomatikleştirme
 
 ACR Görevleri, [hızlı göreve](container-registry-tutorial-quick-task.md) ek olarak *derleme görevi* ile otomatik Docker kapsayıcı görüntüsü derlemesini destekler. Bu öğreticide, bir Git deposuna kaynak kodu işlediğinizde bulutta görüntü derlemelerini otomatik olarak tetikleyen bir görev oluşturmak için Azure CLI kullanacaksınız.
 
@@ -33,7 +33,7 @@ Bu öğreticide, [önceki öğreticide](container-registry-tutorial-quick-task.m
 
 Azure CLI’yı yerel olarak kullanmak istiyorsanız [az login][az-login] ile Azure CLI **2.0.46** veya sonraki bir sürüm yüklü olmalıdır. Sürümü bulmak için `az --version` komutunu çalıştırın. CLI’yı yüklemeniz veya yükseltmeniz gerekiyorsa bkz. [Azure CLI’yı yükleme][azure-cli].
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="get-sample-code"></a>Örnek kodu alma
 
@@ -41,7 +41,7 @@ Bu öğreticide, [önceki öğreticide](container-registry-tutorial-quick-task.m
 
 ### <a name="container-registry"></a>Kapsayıcı kayıt defteri
 
-Bu öğreticiyi tamamlamak için Azure aboneliğinizde bir Azure kapsayıcı kayıt defteri olması gerekir. Bir kayıt defterine ihtiyacınız varsa, [önceki öğreticiye](container-registry-tutorial-quick-task.md) veya [Hızlı Başlangıç: Azure CLI kullanarak kapsayıcı kayıt defteri oluşturma](container-registry-get-started-azure-cli.md) bölümüne bakın.
+Bu öğreticiyi tamamlamak için Azure aboneliğinizde bir Azure kapsayıcı kayıt defteri olması gerekir. Bir kayıt defteri gerekirse bkz [önceki öğreticide](container-registry-tutorial-quick-task.md), veya [hızlı başlangıç: Azure CLI kullanarak bir kapsayıcı kayıt defteri oluşturma](container-registry-get-started-azure-cli.md).
 
 ## <a name="overview-of-acr-tasks"></a>ACR Görevlerine genel bakış
 

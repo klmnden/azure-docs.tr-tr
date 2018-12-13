@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs nedir? | Microsoft Docs
+title: Azure Event Hubs nedir? -bir büyük veri alımı hizmeti | Microsoft Docs
 description: Saniyede milyonlarca olayın eklenmesini sağlayan bir Büyük Veri akış hizmeti olan Azure Event Hubs hakkında daha fazla bilgi edinin.
 services: event-hubs
 documentationcenter: na
@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d7f2bd5487a5eab248f08b408341470dcaf04a93
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: cffa9f566c6b2f4feb0fd7426eeea54a4644fda8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017296"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140158"
 ---
 # <a name="azure-event-hubs---a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs - büyük bir veri akışı platformu ve olay alma hizmetidir
 
@@ -66,11 +66,11 @@ Event Hubs ile megabayt boyutunda veri akışlarıyla başlayıp gigabayt veya t
 
 Event Hubs, ileti akışı işleme olanağı sağlar ancak geleneksel kurumsal mesajlaşmadan farklı özelliklere sahiptir. Event Hubs özellikleri, yüksek işleme ve olay işleme senaryoları üzerine inşa edilmiştir. Event Hubs şu [temel bileşenleri](event-hubs-features.md) içerir:
 
-- **Olay oluşturucuları**: Olay hub'ına veri gönderen tüm varlıklardır. Olay yayımcıları HTTPS, AMQP 1.0 veya Apache Kafka (1.0 ve üzeri) kullanarak olayları yayımlayabilir
-- **Bölümler**: Her tüketici ileti akışının yalnızca belirli bir alt kümesini veya bölümünü okur.
-- **Tüketici grupları**: Tüm olay hub'ının bir görünümüdür (durum, konum veya uzaklık). Tüketici grupları birden çok tüketen uygulamayı her biri olay akışının ayrı bir görünümüne sahip olacak ve akışı kendi hızlarında ve kendi sapmalarıyla bağımsız bir şekilde okuyacak şekilde etkinleştirir.
-- **Aktarım hızı birimleri**:Event Hubs'ın aktarım hızı kapasitesini denetleyen önceden satın alınan kapasite birimleridir.
-- **Olay alıcıları**: Bir olay hub'ından olay verilerini okuyan tüm varlıklardır. Tüm Event Hubs tüketicileri AMQP 1.0 oturumu üzerinden bağlanır ve olaylar, kullanılabilir olduğu anda oturum üzerinden iletilir. Tüm Kafka tüketicileri Kafka protokol 1.0 ve üzeri ile bağlanır.
+- **Olay üreticilerinden**: Olay hub'ına veri gönderen herhangi bir varlık. Olay yayımcıları HTTPS, AMQP 1.0 veya Apache Kafka (1.0 ve üzeri) kullanarak olayları yayımlayabilir
+- **Bölümler**: Her tüketici, yalnızca belirli alt ya da ileti akışı bölümü okur.
+- **Tüketici grupları**: Bir görünümüdür (durum, konum veya uzaklık) tüm olay hub'ı. Tüketici grupları birden çok tüketen uygulamayı her biri olay akışının ayrı bir görünümüne sahip olacak ve akışı kendi hızlarında ve kendi sapmalarıyla bağımsız bir şekilde okuyacak şekilde etkinleştirir.
+- **Üretilen iş birimleri**: Event hubs işleme kapasitesi denetleyen önceden satın alınan kapasite birimleridir.
+- **Olay alıcıları**: Bir olay hub'ından olay verilerini okuyan herhangi bir varlık. Tüm Event Hubs tüketicileri AMQP 1.0 oturumu üzerinden bağlanır ve olaylar, kullanılabilir olduğu anda oturum üzerinden iletilir. Tüm Kafka tüketicileri Kafka protokol 1.0 ve üzeri ile bağlanır.
 
 Aşağıdaki şekilde Event Hubs akış işleme mimarisi gösterilmektedir:
 
@@ -81,7 +81,7 @@ Aşağıdaki şekilde Event Hubs akış işleme mimarisi gösterilmektedir:
 
 Event Hubs'ı kullanmaya başlamak için aşağıdaki makalelere bakın:
 
-1. **Olay hub'ı oluşturma**: [Azure portal](event-hubs-create.md), [Azure CLI](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [Azure Resource Manager şablonu](event-hubs-resource-manager-namespace-event-hub.md)
+1. **Bir olay hub'ı oluşturma**: [Azure portalında](event-hubs-create.md), [Azure CLI](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [Azure Resource Manager şablonu](event-hubs-resource-manager-namespace-event-hub.md)
 2. **Olay hub'ına olayları gönderme**: [.NET Core](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Git](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
 3. **Bir olay hub'ından olay alma**: [.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js ](event-hubs-node-get-started-receive.md), [Git](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)   
 

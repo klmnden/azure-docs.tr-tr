@@ -1,14 +1,11 @@
 ---
-title: 'Öğretici: Kullanılabilirlik alanları arasında Yük Dengeleyici sanal makineleri - Azure portalı | Microsoft Docs'
+title: "Öğretici: Yük Dengeleyici VM'ler kullanılabilirlik bölgelerindeki - Azure portalı"
+titlesuffix: Azure Load Balancer
 description: Bu öğretici, Azure portalı kullanarak kullanılabilirlik alanları arasındaki sanal makinelerin yükünü dengelemek üzere alanlar arası yedekli ön uç ile Standart Load Balancer oluşturma işlemini gösterir
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 5ec1cc42a0c932e47c08493fa632495426abc4c7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 18b5f82a5181f0bbf7024b302b802684ef676c8f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304469"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255345"
 ---
-# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak Standart Yük Dengeleyici ile kullanılabilirlik alanları arasındaki sanal makinelerde yük dengeleme
+# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak bir Standard Load Balancer ile kullanılabilirlik bölgelerindeki Yük Dengeleme sanal makineleri
 
 Yük dengeleme, gelen istekleri birden çok sanal makineye dağıtarak yüksek düzeyde kullanılabilirlik sunar. Bu öğretici, kullanılabilirlik alanları arasındaki VM’lerde yük dengelemesi yapan bir genel Standart Yük Dengeleyici oluşturma adımlarını gösterir. Bu, uygulamalarınızı beklenmeyen hatalardan veya tüm veri merkezinin kaybedilmesinden korumaya yardımcı olur. Bölgesel olarak yedeklilik sayesinde bir veya daha fazla kullanılabilirlik alanı başarısız olurken bölgedeki bir alan sağlıklı kaldıkça veri yolu etkin olmaya devam eder. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
@@ -104,7 +101,7 @@ Bu bölümde, Azure portalı ile HTTP ve RDP kullanarak gelen bağlantılara izi
     - **Öncelik** için *100*
     - *myHTTPRule* - Yük dengeleyici kuralının adı.
     - *HTTP’ye izin ver* - Yük dengeleyici kuralının açıklaması.
-4. **Tamam**’a tıklayın.
+4. **Tamam** düğmesine tıklayın.
  
  ![Sanal ağ oluşturma](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. 2 - 4 arası adımları yineleyerek, aşağıdaki değerlerle 3389 numaralı bağlantı noktasını kullanarak gelen RDP bağlantısına izin vermek için *myRDPRule* adlı başka bir kural oluşturun:
@@ -125,7 +122,7 @@ Yük dengeleyicinin arka uç sunucuları olarak hareket edebilen bölge için fa
     - Sanal makinenin adı için *myVM1*.        
     - Yönetici kullanıcı adı için *azureuser*.    
     - *myResourceGroupLBAZ* - **Kaynak grubu** için **Var olanı kullan**’ı seçin ve sonra *myResourceGroupLBAZ* seçeneğini belirleyin.
-2. **Tamam**’a tıklayın.
+2. **Tamam** düğmesine tıklayın.
 3. Sanal makinenin boyutu için **DS1_V2** seçeneğini belirleyin ve **Seç**’e tıklayın.
 4. Sanal makine ayarları için şu değerleri girin:
     - *bölge 1* - VM’yi yerleştirdiğiniz bölge.
@@ -145,7 +142,7 @@ Yük dengeleyicinin arka uç sunucuları olarak hareket edebilen bölge için fa
 2. Sanal makineye yönelik RDP için **Genel Bakış** sayfasında **Bağlan**’a tıklayın.
 3. *azureuser* kullanıcı adıyla sanal makinede oturum açın.
 4. Sunucu masaüstünde **Windows Yönetimsel Araçları**>**Windows PowerShell** bölümüne gidin.
-5. PowerShell Penceresinde aşağıdaki komutları çalıştırarak IIS sunucusunu yükleyin, varsayılan iisstart.htm dosyasını kaldırın ve ardından VM’nin adını gösteren yeni bir iisstart.htm dosyası ekleyin:
+5. PowerShell Penceresinde aşağıdaki komutları çalıştırarak IIS sunucusunu yükleyin, varsayılan iisstart.htm dosyasını kaldırın ve ardından VM’nin adını gösteren yeni bir iisstart.htm dosyasını ekleyin:
    ```azurepowershell-interactive
     
     # install IIS server role
@@ -195,7 +192,7 @@ Yük dengeleyicinin uygulamanızın durumunu izlemesine izin vermek için durum 
     - Bağlantı noktası numarası için *80*.
     - Araştırma denemeleri arasındaki saniye cinsinden **Aralık** için *15*.
     - Bir sanal makinenin sağlıksız olduğu kanısına varılmadan önce gerçekleşmesi gereken ardışık araştırma hatası veya **Sağlıksız eşik** sayısı için *2*.
-4. **Tamam**’a tıklayın.
+4. **Tamam** düğmesine tıklayın.
 
    ![Araştırma ekleme](./media/load-balancer-standard-public-availability-zones-portal/4-load-balancer-probes.png)
 
@@ -212,7 +209,7 @@ Trafiğin VM’lere dağıtımını tanımlamak için bir yük dengeleyici kural
     - Arka uç bağlantı noktası için *80*.
     - Arka uç havuzunun adı için *myBackendPool*.
     - Durum araştırmasının adı için *myHealthProbe*.
-4. **Tamam**’a tıklayın.
+4. **Tamam** düğmesine tıklayın.
     
     ![Yük dengeleme kuralı ekleme](./media/load-balancer-standard-public-availability-zones-portal/load-balancing-rule.png)
 

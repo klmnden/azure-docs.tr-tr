@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights için Event Hubs olay kaynağı ekleme | Microsoft Docs
+title: Azure Time Series Insights bir event hub - ekleyin bir olay hub'ları Azure zaman serisi öngörüleri olay kaynağı | Microsoft Docs
 description: Bu makalede, Azure Event Hubs için zaman serisi görüşleri ortamınıza bağlı bir olay kaynağı eklemeyi açıklar.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.openlocfilehash: ce76a9dcd8b717b6ab0aef4c3c12c2116ec4f237
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18
+ms.openlocfilehash: 6e7a6a089681ac9f7c0de5244feb3aea67052f25
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104705"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274216"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Zaman serisi görüşleri ortamınıza bir event hub olay kaynağı ekleme
 

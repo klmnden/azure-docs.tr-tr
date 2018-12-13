@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 772807fc0a1378eea662a7c4a7e3c720d7092bef
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7bd63dc991500f1d7f68169342b9612c1b303a07
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013023"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320667"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-Factor Authentication ayarlarını yapılandırma
 
@@ -87,8 +87,8 @@ Yapılandırma _sahtekarlık Uyarısı_ böylece kullanıcılarınız, kullanıc
 
 ### <a name="configuration-options"></a>Yapılandırma seçenekleri
 
-* **Sahtekarlık bildirildiğinde kullanıcıyı engelle**: kullanıcı sahtekarlık bildirirse, hesap 90 gün veya yönetici hesabını engellemesinin kaldırıldığı kadar engellenir. Yönetici oturum açma raporunu kullanarak oturum açma işlemleri gözden geçirin ve gelecekteki sahtekarlığı önlemek, uygun eylemi gerçekleştirin. Yönetici böylece [engellemesini](#unblock-a-user) kullanıcının hesabı.
-* **İlk Karşılama sırasında sahtekarlık bildirme kodu**: kullanıcılar, iki aşamalı doğrulamayı gerçekleştirmek için bir telefon araması aldığında, bunlar normal basın **#** kullanıcıların oturum açma onaylamak için. Rapor sahtekarlık bir kod tuşlarına basarak önce kullanıcının girdiği **#**. Bu kodu **0** varsayılan olarak, ancak bunu özelleştirebilirsiniz.
+* **Sahtekarlık bildirildiğinde kullanıcıyı engelle**: Bir kullanıcı sahtekarlık bildirirse, kendi hesabı 90 gün veya yönetici hesabını engellemesinin kaldırıldığı kadar engellenir. Yönetici oturum açma raporunu kullanarak oturum açma işlemleri gözden geçirin ve gelecekteki sahtekarlığı önlemek, uygun eylemi gerçekleştirin. Yönetici böylece [engellemesini](#unblock-a-user) kullanıcının hesabı.
+* **İlk Karşılama sırasında sahtekarlık bildirme kodu**: Kullanıcılar, iki aşamalı doğrulamayı gerçekleştirmek için bir telefon araması aldığında, bunlar normal basın **#** kullanıcıların oturum açma onaylamak için. Rapor sahtekarlık bir kod tuşlarına basarak önce kullanıcının girdiği **#**. Bu kodu **0** varsayılan olarak, ancak bunu özelleştirebilirsiniz.
 
    >[!NOTE]
    >Microsoft gelen varsayılan sesli karşılamalar basın seçmemelerini **0#** sahtekarlık uyarısı göndermek için. Bir kod dışında kullanmak istiyorsanız **0**, kaydedin ve kullanıcılarınız için uygun yönergelere ile kendi özel sesli karşılamalar karşıya yükleyin.
@@ -257,12 +257,15 @@ Kullanıcılar, uygulama parolaları kayıt sonrasında de oluşturabilirsiniz. 
 
 _Güvenilen IP'ler_ özelliği, Azure multi-Factor Authentication, yönetilen veya Federasyon Kiracı yöneticileri tarafından kullanılır. Bu özellik şirket intranetten oturum kullanıcılar için iki aşamalı doğrulamayı atlar. Bu özellik, Azure multi-Factor Authentication'ın tam sürümünü ve Yöneticiler için değil ücretsiz sürümü ile kullanılabilir. Azure multi-Factor Authentication'ın tam sürümünü alma hakkında daha fazla ayrıntı için bkz. [Azure multi-Factor Authentication](multi-factor-authentication.md).
 
+> [!NOTE]
+> Yalnızca IPv4 adresleriyle iş IP'ler ve koşullu erişim adlandırılmış konumlar MFA güvenilen.
+
 Kuruluşunuz için şirket içi uygulamaları Not MFA NPS uzantısı dağıtır, kaynak IP adresini her zaman kimlik doğrulama denemesi akar NPS sunucusu olarak görünür.
 
 | Azure AD Kiracı türü | Güvenilen IP'ler özellik seçenekleri |
 |:--- |:--- |
 | Yönetilen |**Belirli IP adresleri**: Yöneticiler, kullanıcılar şirket intranetten oturum açmak için iki aşamalı doğrulamayı atlayabilir bir IP adresi aralığı belirtin.|
-| Federasyon |**Tüm Federasyon kullanıcıları**: kuruluşunuzun içinde oturum tüm Federasyon kullanıcıları iki aşamalı doğrulamayı atlayabilir. Kullanıcıların, Active Directory Federasyon Hizmetleri (AD FS) tarafından verilen bir talep kullanarak doğrulamayı atlama.<br/>**Belirli IP adresleri**: Yöneticiler, kullanıcılar şirket intranetten oturum açmak için iki aşamalı doğrulamayı atlayabilir bir IP adresi aralığı belirtin. |
+| Federasyon |**Tüm Federasyon kullanıcıları**: Kuruluşunuzun içinde oturum tüm Federasyon kullanıcıları, iki aşamalı doğrulamayı atlayabilir. Kullanıcıların, Active Directory Federasyon Hizmetleri (AD FS) tarafından verilen bir talep kullanarak doğrulamayı atlama.<br/>**Belirli IP adresleri**: Yöneticiler, kullanıcılar şirket intranetten oturum açmak için iki aşamalı doğrulamayı atlayabilir bir IP adresi aralığı belirtin. |
 
 Güvenilen IP'ler, şirket intraneti içinde yalnızca çalıştığını atlama. Seçerseniz **tüm Federasyon kullanıcıları** seçeneği ve bir kullanıcı oturum açtığında gelen şirket intranet dışından, kullanıcının iki aşamalı doğrulama kullanarak kimlik doğrulaması gerekir. Kullanıcının AD FS talep sunsa bile işlem aynıdır. 
 
@@ -293,11 +296,11 @@ Güvenilen IP'ler özellik etkinleştirilip etkinleştirilmediği bağımsız ol
 3. Seçin **MFA güvenilen Ip'lerini Yapılandır**.
 4. Üzerinde **hizmet ayarları** sayfasındaki **güvenilen IP'ler**, aşağıdaki iki seçenekten birini seçin:
 
-   * **Benim intranet bağlantısı intranetimden gelen Federasyon kullanıcılarının istekleri için**: Bu seçeneği için onay kutusunu seçin. Tüm kullanıcılar, Kurumsal ağda oturum açma AD FS tarafından verilen bir talep kullanarak iki aşamalı doğrulamayı atlama sürümüyle federasyona eklenenler. AD FS uygun trafiği intranet talep eklemek için bir kuralı olduğundan emin olun. Kural yoksa, aşağıdaki kural AD FS'de oluşturun:
+   * **Benim intranet bağlantısı intranetimden gelen Federasyon kullanıcılarının istekleri için**: Bu seçeneği için onay kutusunu işaretleyin. Tüm kullanıcılar, Kurumsal ağda oturum açma AD FS tarafından verilen bir talep kullanarak iki aşamalı doğrulamayı atlama sürümüyle federasyona eklenenler. AD FS uygun trafiği intranet talep eklemek için bir kuralı olduğundan emin olun. Kural yoksa, aşağıdaki kural AD FS'de oluşturun:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
-   * **İstekleri belirli bir aralıktan genel IP'lerin**: Bu seçeneği belirlemek için IP adreslerini metin kutusuna CIDR gösterimini kullanarak girin.
+   * **İstekleri belirli bir aralıktan genel IP'lerin**: Bu seçeneği belirlemek için metin kutusuna CIDR gösterimini kullanarak IP adreslerini girin.
       * Aralık xxx.xxx.xxx.1 xxx.xxx.xxx.254 aracılığıyla bulunan IP adresleri için gibi gösterimi kullanın **xxx.xxx.xxx.0/24**.
       * Tek bir IP adresi gibi gösterimi kullanın **xxx.xxx.xxx.xxx/32**.
       * 50 adede kadar IP adresi aralıklarını girin. Bu IP adreslerinden oturum açma kullanıcıların iki aşamalı doğrulamayı atlama.
@@ -312,11 +315,11 @@ Güvenilen IP'ler özellik etkinleştirilip etkinleştirilmediği bağımsız ol
 4. Multi-Factor Authentication'ın altında seçin **hizmet ayarları**.
 5. Üzerinde **hizmet ayarları** sayfasındaki **güvenilen IP'ler**, aşağıdaki iki seçenekten birini (veya her ikisi de) seçin:
 
-   * **İntranetimde bulunan Federasyon kullanıcılardan gelen istekleri için**: Bu seçeneği için onay kutusunu seçin. Tüm kullanıcılar, Kurumsal ağda oturum açma AD FS tarafından verilen bir talep kullanarak iki aşamalı doğrulamayı atlama sürümüyle federasyona eklenenler. AD FS uygun trafiği intranet talep eklemek için bir kuralı olduğundan emin olun. Kural yoksa, aşağıdaki kural AD FS'de oluşturun:
+   * **İntranetimde bulunan Federasyon kullanıcılardan gelen istekleri için**: Bu seçeneği için onay kutusunu işaretleyin. Tüm kullanıcılar, Kurumsal ağda oturum açma AD FS tarafından verilen bir talep kullanarak iki aşamalı doğrulamayı atlama sürümüyle federasyona eklenenler. AD FS uygun trafiği intranet talep eklemek için bir kuralı olduğundan emin olun. Kural yoksa, aşağıdaki kural AD FS'de oluşturun:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
-   * **Belirtilen IP adresi alt ağları gelen istekleri için**: Bu seçeneği belirlemek için IP adreslerini metin kutusuna CIDR gösterimini kullanarak girin.
+   * **Belirtilen IP adresi alt ağları gelen istekleri için**: Bu seçeneği belirlemek için metin kutusuna CIDR gösterimini kullanarak IP adreslerini girin.
       * Aralık xxx.xxx.xxx.1 xxx.xxx.xxx.254 aracılığıyla bulunan IP adresleri için gibi gösterimi kullanın **xxx.xxx.xxx.0/24**.
       * Tek bir IP adresi gibi gösterimi kullanın **xxx.xxx.xxx.xxx/32**.
       * 50 adede kadar IP adresi aralıklarını girin. Bu IP adreslerinden oturum açma kullanıcıların iki aşamalı doğrulamayı atlama.
@@ -385,6 +388,6 @@ Bu özellik, normal olarak her zaman sor web apps'te, kimlik doğrulama sayısı
 
 Parolayı anımsa çok faktörlü kimlik doğrulaması özelliği etkinleştirdikten sonra kullanıcıların ne zaman güvenilir olarak bir cihaz işaretleyebilirsiniz seçerek oturum **bir daha sorma**.
 
-# <a name="next-steps"></a>Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure AD oturum açma sayfasında bulunan marka değiştirme](..\fundamentals\customize-branding.md)
+[Azure AD oturum açma sayfasında bulunan marka değiştirme](../fundamentals/customize-branding.md)

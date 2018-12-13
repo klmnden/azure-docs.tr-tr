@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Python için Bing Resim Arama SDK’sı ile görüntü arama'
+title: 'Hızlı Başlangıç: Görüntüleri - Python için Bing resim arama SDK arayın'
 titleSuffix: Azure Cognitive Services
 description: Bu öğreticiyi API için bir sarmalayıcı olan ve aynı özellikleri içeren Bing Resim Arama SDK'sını kullanarak ilk görüntü aramanızı yapmak için kullanın. Bu basit Python uygulaması, bir görüntü arama sorgusu gönderir, JSON yanıtını ayrıştırır ve döndürülen ilk görüntünün URL’sini görüntüler.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: a2a39049196e19d29d2b4d845b9cf756392013bf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: c0cb795f2d40963263cbbb15a54ba8af2953f5f0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315044"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250374"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-python"></a>Hızlı Başlangıç: Bing Resim Arama SDK’sı ve Python ile görüntü arama
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-python"></a>Hızlı Başlangıç: Python için Bing resim arama SDK'sı ile görüntüleri arayın
 
 Bu öğreticiyi API için bir sarmalayıcı olan ve aynı özellikleri içeren Bing Resim Arama SDK'sını kullanarak ilk görüntü aramanızı yapmak için kullanın. Bu basit Python uygulaması, bir görüntü arama sorgusu gönderir, JSON yanıtını ayrıştırır ve döndürülen ilk görüntünün URL’sini görüntüler.
 

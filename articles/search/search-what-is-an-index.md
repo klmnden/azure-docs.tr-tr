@@ -1,6 +1,6 @@
 ---
-title: Azure Search'te dizinler | Microsoft Docs
-description: Azure Search'de dizin kavramlarını ve dizinlerin nasıl kullanıldığını öğrenin.
+title: Dizin tanımını ve kavramlar - Azure Search
+description: Azure Search ve dizinlerin nasıl kullanıldığını dizin kavramlarını giriş.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -8,12 +8,13 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/08/2017
-ms.openlocfilehash: cc2c56d4463203aa2561e820540acdfff651d80a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: e1ff28434dab4e63e10d6b14eb671260650d4ada
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793411"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317075"
 ---
 # <a name="indexes-in-azure-search"></a>Azure Search'te dizinler
 > [!div class="op_single_selector"]

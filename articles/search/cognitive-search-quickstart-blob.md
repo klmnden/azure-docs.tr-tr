@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Portalı kullanarak Azure Search’te bilişsel arama işlem hattı oluşturma | Microsoft Docs'
+title: 'Hızlı Başlangıç: Azure portal - Azure Search işlem hattında Bilişsel arama'
 description: Örnek veriler kullanılarak Azure portalında veri ayıklama, doğal dil ve görüntü işleme becerileri örneği.
 manager: cgronlun
 author: HeidiSteen
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: ef4a445539efa27ebd154980a4ea8b70b5aba082
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec2018
+ms.openlocfilehash: 0dc942b7e1779efab5b9fb2477b8358554bbb31d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956917"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310105"
 ---
-# <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Hızlı Başlangıç: Becerileri ve örnek verileri kullanarak bilişsel arama işlem hattı oluşturma
+# <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Hızlı Başlangıç: Bilişsel arama yetenekleri ve örnek verileri kullanarak işlem hattı oluşturma
 
 Bilişsel arama (önizleme), Azure Search dizin oluşturma işlem hattına veri ayıklama, doğal dil işleme (NLP) ve görüntü işleme becerileri ekleyerek aranamayan veya yapılandırılmamış içeriği daha aranabilir hale getirir. Varlık tanıma veya görüntü analizi gibi bir beceri tarafından oluşturulan bilgiler, Azure Search’te bir dizine eklenir.
 
@@ -47,7 +48,9 @@ Aşağıdaki bölgelerde oluşturulan bir Azure Search hizmetinde bilişsel aram
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 > [!NOTE]
-> Bilişsel Arama, genel önizleme aşamasındadır. Şu anda becerileri yürütme ve görüntü ayıklama ve normalleştirme ücretsiz olarak sunulmaktadır. İlerleyen zamanlarda bu özelliklerin fiyatları duyurulacaktır. 
+> 21 aralık 2018 tarihinden itibaren Bilişsel hizmetler kaynağı bir Azure Search beceri kümesi ile ilişkilendirmek mümkün olmayacak. Bu beceri yürütmesi için ücretlendirme başlatmak için bize izin verir. Bu tarihte, biz de belge çözme aşamasının bir parçası olarak görüntü ayıklama için başlayacağız. Belgelerden metin ayıklama işlemi ek masraf olmadan sağlanmaya devam edecektir.
+>
+> Var olan konumunda yerleşik yetenek yürütülmesini ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/) . Görüntü ayıklama fiyatlandırma Önizleme fiyatıyla ücretlendirilirsiniz ve üzerinde açıklanmıştır [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400). Bilgi [daha fazla](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -79,7 +82,7 @@ Bu senaryoda özel olarak Azure hizmetleri kullanılır. İhtiyaç duyduğunuz h
   ![Portalda Hizmet tanım sayfası](./media/cognitive-search-tutorial-blob/create-search-service1.png "portalında hizmet tanımı sayfası")
   ![portalında hizmet tanımı sayfası](./media/cognitive-search-tutorial-blob/create-search-service2.png "hizmet tanımı sayfasında portal")
   > [!NOTE]
-  > Bilişsel arama genel önizleme aşamasındadır. Beceri kümesi yürütme şu anda ücretsiz katman da dahil olmak üzere tüm katmanlarda kullanılabilir. İlerleyen zamanlarda bu özelliğin fiyatlandırması duyurulacaktır.
+  > Bilişsel arama genel önizleme aşamasındadır. Beceri kümesi yürütme şu anda ücretsiz katman da dahil olmak üzere tüm katmanlarda kullanılabilir. Ücretli bir Bilişsel hizmetler kaynağı ilişkilendirmeden zenginleştirmelerinin sınırlı sayıda gerçekleştirmek mümkün olacaktır. Bilgi [daha fazla](cognitive-search-attach-cognitive-services.md).
 
 1. Hizmet bilgilerine hızlı erişim için hizmeti panoya sabitleyin.
 
@@ -112,7 +115,7 @@ Azure Search hizmeti panosu sayfasına geri dönün ve komut çubuğundaki **Ver
 
 **Verileri içeri aktar** sihirbazını kullanmanın bir avantajı, dizininizi de oluşturabilmesidir. Veri kaynağı oluşturulduğunda sihirbaz aynı anda bir dizin şeması oluşturur. Dizin oluşturulması birkaç saniye sürebilir.
 
-### <a name="step-2-add-cognitive-skills"></a>2. Adım: Bilişsel yetenekler ekleme
+### <a name="step-2-add-cognitive-skills"></a>2. Adım: Bilişsel yetenekler Ekle
 
 Daha sonra dizin oluşturma işlem hattına zenginleştirme adımları ekleyin. Portal size görüntü analizi ve metin analizi için önceden tanımlanmış bilişsel beceriler sunar. Portalda beceri kümesi, tek bir kaynak alanının üzerinde çalışır. Bu küçük bir hedef gibi görünebilir, ancak Azure blobları için `content` alanı, blob belgesinin çoğunu içerir (örneğin, Word belgesi veya PowerPoint destesi). Aynı şekilde bir blobun tüm içeriği de bu alanda bulunduğundan bu alan ideal bir giriştir.
 
@@ -126,7 +129,7 @@ Bazen tarayıcı tarafından oluşturulan bir PDF gibi çoğunlukla taranmış g
 
 Doğal dil işleme becerileri, örnek veri kümesindeki metin içeriği üzerinde çalışır. Herhangi bir görüntü işleme seçeneği belirlemediysek, örnek veri kümesinde bulunan JPEG dosyaları bu hızlı başlangıçta işlenmeyecektir. 
 
-### <a name="step-3-configure-the-index"></a>3. Adım: Dizini yapılandırma
+### <a name="step-3-configure-the-index"></a>3. adım: Dizini yapılandırma
 
 Veri kaynağıyla oluşturulan dizini hatırlıyor musunuz? Bu adımda, bunun şemasını görüntüleyebilir ve olası tüm ayarları düzeltebilirsiniz. 
 
@@ -151,7 +154,7 @@ Bir beceri kümesi tanımlamış olduğunuzdan sihirbaz, kaynak veri alanını i
 > [!NOTE]
 > Kalabalığı önlemek için, kullanılmayan alanlar ekran görüntüsünden kesilmiştir. Portalda ilerlerseniz listeniz ek alanları gösterir.
 
-### <a name="step-4-configure-the-indexer"></a>4. Adım: Dizin oluşturucuyu yapılandırma
+### <a name="step-4-configure-the-indexer"></a>4. adım: Dizin oluşturucuyu yapılandırma
 
 Dizin oluşturucu, dizin oluşturma işlemini destekleyen, yüksek düzeyli bir kaynaktır. Veri kaynağı adını, dizini ve yürütme sıklığını belirtir. **Verileri içeri aktar** sihirbazının nihai sonucunda her zaman art arda çalıştırabileceğiniz bir dizin oluşturucu elde edilir.
 
@@ -212,4 +215,4 @@ Farklı beceriler ve kaynak veri alanları ile sihirbazı yeniden çalıştırar
 Alternatif olarak, oluşturduğunuz örnek veri ve hizmetleri yeniden kullanın ve sonraki öğreticide aynı görevleri programlama yoluyla nasıl gerçekleştireceğinizi öğrenin. 
 
 > [!div class="nextstepaction"]
-> [Öğretici: Bilişsel arama REST API’lerini öğrenme](cognitive-search-tutorial-blob.md)
+> [Öğretici: Bilişsel arama REST API'leri öğrenin](cognitive-search-tutorial-blob.md)

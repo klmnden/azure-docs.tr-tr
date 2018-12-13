@@ -1,5 +1,5 @@
 ---
-title: Azure Kapsayıcılar için Web App’te bir Docker/Go uygulaması dağıtma
+title: Linux'ta - Azure App Service Docker/Go uygulaması oluşturma
 description: Kapsayıcılar için Web App’e yönelik Go uygulaması çalıştıran bir Docker görüntüsü dağıtma.
 keywords: azure app service, web uygulaması, go, docker, kapsayıcı
 services: app-service
@@ -11,13 +11,13 @@ ms.devlang: go
 ms.topic: quickstart
 ms.date: 01/17/2018
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: f1d58adcc017367a3de8ee6130a3333f86fb501c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 36a6b73a6e358104f22d64b00f436a219f29bbd4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423254"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251887"
 ---
 # <a name="deploy-a-dockergo-web-app-in-web-app-for-containers"></a>Kapsayıcılar için Web App’te bir Docker/Go web uygulaması dağıtma
 

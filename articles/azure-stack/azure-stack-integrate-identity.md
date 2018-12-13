@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: b59d503b8aadef9e8f9c2d7db71ff60aee3b6387
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 9d9e97d81e33487a5f23197912eba3802e83a32e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300719"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257385"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack veri merkezi tümleştirmesi - kimlik
 Kimlik sağlayıcısı Azure Stack, Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanarak dağıtabilirsiniz. Azure Stack dağıtmadan önce seçim yapmanız gerekir. AD FS dağıtımı da bağlantı kesik moddayken Azure Stack dağıtımı olarak adlandırılır.
@@ -131,7 +131,7 @@ Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
 
 |Parametre|Açıklama|Örnek|
 |---------|---------|---------|
-|CustomAdfsName|Talep sağlayıcı adı. <cr>AD FS giriş sayfasında bu şekilde görünür.|Contoso|
+|CustomAdfsName|Talep sağlayıcı adı.<br>AD FS giriş sayfasında bu şekilde görünür.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Federasyon meta veri bağlantısı|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
@@ -215,7 +215,7 @@ Bu yordam için Azure Stack'te ayrıcalıklı uç noktasıyla iletişim kurabili
 
 Microsoft, talep dönüştürme kuralları dahil olmak üzere bağlı olan taraf güveni yapılandıran bir betik sağlar. Betik kullanarak komutları el ile çalıştırırken isteğe bağlıdır.
 
-Yardımcısı betikten indirebileceğiniz [Azure Stack Araçları](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) Github üzerinde.
+Yardımcısı betikten indirebileceğiniz [Azure Stack Araçları](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) GitHub üzerinde.
 
 El ile komutları çalıştırmak karar verirseniz, aşağıdaki adımları izleyin:
 

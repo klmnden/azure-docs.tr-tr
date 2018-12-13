@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: a2fed45e4ec51fac7d4d04e50616a7e3748d71c4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e5d415593a510acb81eac65242010d1841044857
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834409"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162656"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Service'i (AKS) ile sanal Kubelet kullanın
 
@@ -90,7 +90,7 @@ Bu bağımsız değişkenler kullanılabilir `aks install-connector` komutu.
 | `--connector-name` | ACI Bağlayıcısı adıdır.| Evet |
 | `--name` `-n` | Yönetilen kümesinin adı. | Evet |
 | `--resource-group` `-g` | Kaynak grubunun adı. | Evet |
-| `--os-type` | Kapsayıcı örnekleri işletim sistemi türü. İzin verilen değerler: her ikisi de, Linux, Windows. Varsayılan: Linux. | Hayır |
+| `--os-type` | Kapsayıcı örnekleri işletim sistemi türü. İzin verilen değerler: Her ikisi de, Linux, Windows. Varsayılan: Linux. | Hayır |
 | `--aci-resource-group` | ACI kapsayıcı grubu oluşturulacağı kaynak grubu. | Hayır |
 | `--location` `-l` | ACI kapsayıcı grubu oluşturulacağı konum. | Hayır |
 | `--service-principal` | Hizmet sorumlusu kimlik doğrulaması için Azure API'leri için kullanılır. | Hayır |
@@ -228,7 +228,7 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 
 Virtual Kubelet olası sorunlar için bkz: [bilinen quirks ve geçici çözümler][vk-troubleshooting]. Virtual Kubelet ile yaşayabileceğiniz sorunları [açık bir GitHub sorunu][vk-issues].
 
-Virtual Kubelet hakkında daha fazla bilgiyi [sanal Kubelet Github projesini][vk-github].
+Virtual Kubelet hakkında daha fazla bilgiyi [sanal Kubelet GitHub projesini][vk-github].
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md

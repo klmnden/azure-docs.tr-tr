@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect eşitleme: Azure AD Connect eşitleme hizmeti hesabını değiştirme | Microsoft Docs'
+title: 'Azure AD Connect eşitleme:  Azure AD Connect eşitleme hizmeti hesabını değiştirme | Microsoft Docs'
 description: Bu konuda belge şifreleme anahtar ve parolalar değiştirildikten sonra iptal etmek nasıl açıklar.
 services: active-directory
 keywords: Azure AD eşitleme hizmeti hesabı, parola
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 331c536970445dacdb9afc9d3cfa5711b82bfbf0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: a0cdaa54d0da58a02cbe9fcda36cbaff6b1fab4a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747261"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184908"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Azure AD Connect eşitleme hizmeti hesabı parolasını değiştirme
 Azure AD Connect eşitleme hizmeti hesabı parolasını değiştirirseniz, şifreleme anahtarını terk ve Azure AD Connect eşitleme hizmeti hesabı parolasını yeniden kadar eşitleme hizmeti mümkün başlangıç doğru olmayacak. 
@@ -39,12 +39,12 @@ Hizmet hesabı parolasını değiştirdiğinizde yapılması gereken iki şey va
 
 
 - Windows hizmeti Denetim Yöneticisi'nde Eşitleme Hizmeti'ni başlatmak çalışırsanız hata alırsınız "**Windows yerel bilgisayarda Microsoft Azure AD eşitleme hizmeti başlatılamadı**". **1069. hata: Hizmet, bir oturum açma hatası nedeniyle başlatılamadı.** "
-- Altındaki Windows Olay Görüntüleyicisi, sistem olay günlüğüne bir hata ile içeren **olay kimliği 7038** ve ileti "**ADSync hizmeti şu hata nedeniyle şu anda yapılandırılmış parola olarak oturum açamadı: kullanıcı adı veya parola doğru değil.** "
+- Altındaki Windows Olay Görüntüleyicisi, sistem olay günlüğüne bir hata ile içeren **olay kimliği 7038** ve ileti "**ADSync hizmeti şu hata nedeniyle şu anda yapılandırılmış parola olarak oturum açamadı: Kullanıcı adı veya parola doğru değil.** "
 
 Parola güncelleştirdiyseniz, ikinci olarak, belirli koşullar altında eşitleme hizmeti artık DPAPI ile şifreleme anahtarını geri alabilirsiniz. Şifreleme anahtarı olmadan, eşitleme hizmeti şirket içine/dışına AD ile Azure AD eşitleme için gerekli olan parolaları şifresi çözülemiyor.
 Hataları gibi görürsünüz:
 
-- Windows Hizmet Denetimi Yöneticisi altında eşitleme hizmeti başlatmayı deneyin ve şifreleme anahtarı alınamıyor bu hatayla başarısız oluyor "**Windows yerel bilgisayarda Microsoft Azure AD eşitleme başlatılamadı.** Daha fazla bilgi için sistem olay günlüğünü inceleyin. **Microsoft olmayan bir hizmette varsa hizmet satıcısını ve hizmete özgü hata koduna bakın \*\*-21451857952**\*\*."
+- Windows Hizmet Denetimi Yöneticisi altında eşitleme hizmeti başlatmayı deneyin ve şifreleme anahtarı alınamıyor bu hatayla başarısız oluyor "<strong>Windows yerel bilgisayarda Microsoft Azure AD eşitleme başlatılamadı. Daha fazla bilgi için sistem olay günlüğünü inceleyin. Microsoft olmayan bir hizmette varsa hizmet satıcısını ve-21451857952 hizmete özgü hata koduna bakın</strong>. "
 - Altındaki Windows Olay Görüntüleyicisi, uygulama olay günlüğüne bir hata içeriyor. **olay kimliği 6028** ve hata iletisi *"**sunucu şifreleme anahtarı erişilemez durumda.**"*
 
 Bu hata almazsınız emin olmak için konusundaki yordamları izleyin [Azure AD Connect Sync şifreleme anahtarını bırakıp](#abandoning-the-azure-ad-connect-sync-encryption-key) parola değiştirme.
@@ -121,6 +121,6 @@ Eşitleme hizmeti şifreleme anahtarını ve ihtiyaç duyduğu tüm parolalar er
 ## <a name="next-steps"></a>Sonraki adımlar
 **Genel bakış konuları**
 
-* [Azure AD Connect eşitleme: anlamak ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
+* [Azure AD Connect eşitleme: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
 
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)

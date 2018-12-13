@@ -1,5 +1,5 @@
 ---
-title: Yapılandırma bir App Service ortamı v1
+title: Yapılandırma bir App Service ortamı v1 - Azure
 description: Yapılandırma, yönetim ve izleme App Service ortamı v1
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 60e086197b61d14394cad3d54a7efc4baede1f7b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 85353b68673ea91711e0c3d93e68bec662f406df
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965829"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272142"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Bir App Service ortamı v1
 
@@ -44,14 +45,14 @@ Kiracılar için ana kaynak havuzlarında (ön uçlar ve çalışanlardan) doğr
 Kaynak havuzu miktarı ve boyutu ayarlayabileceğiniz. Bir ASE'de, P1-P4 etiketli dört boyutu seçeneğiniz vardır. Bu boyutlar ve ettikleri ücretler hakkında daha fazla ayrıntı için bkz: [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/).
 Miktarı ve boyutu değiştirme, bir ölçeklendirme işlemi çağrılır.  Yalnızca bir ölçeklendirme işlemi, aynı anda ediyor olabilir.
 
-**Ön uçlar**: ön uçlar, ASE'NİZDE tutulan uygulamalarınız için HTTP/HTTPS noktalarıdır. Ön uçlar iş yüklerini çalıştırma.
+**Ön uçlar**: Ön uçlar, ASE'NİZDE tutulan uygulamalarınız için HTTP/HTTPS uç noktalardır. Ön uçlar iş yüklerini çalıştırma.
 
 * Bir ASE, geliştirme/test iş yükleri ve alt düzey üretim iş yükleri için yeterli olan iki P2s ile başlar. P3s Orta Ağır üretim iş yükleri için önerilir.
 * Orta Ağır üretim iş yükleri için zamanlanan bakım meydana geldiğinde çalışan yeterli ön uçlar olmadığından emin olmak için en az dört P3s sahip olmasını öneririz. Zamanlanmış bakım etkinlikleri, aynı anda bir ön uç çıkarır. Bu genel azaltır bakım etkinlikleri sırasında kullanılabilir ön uç kapasite.
 * Ön uçlar sağlamak için bir saat kadar sürebilir. 
 * Daha fazla ölçek ince ayar için CPU yüzdesi ve bellek yüzdesi ön uç havuzu için etkin istek ölçümlerini izlemeniz gerekir. CPU veya bellek yüzdelerini P3s çalıştırırken yüzde 70 varsa, daha fazla ön uçlar ekleyin. Etkin istek değeri 15.000 ön uç başına 20.000 istekleri için ortalama, daha fazla ön uçlar de eklemeniz gerekir. % 70'in CPU ve bellek yüzdelerini aşağıdaki genel amaç tutmaktır ve P3s çalıştırırken aşağıda ön başına 15.000 istekleri için ortalama etkin istek bitmelidir.  
 
-**Çalışanları**: uygulamalarınızı gerçekten çalıştırdığı çalışanlardır. App Service planlarınızda ölçeğini daralttığınızda, ilişkili çalışan havuzunda çalışan'kurmak kullanır.
+**Çalışanları**: Uygulamalarınızı gerçekten çalıştırdığı çalışanlardır. App Service planlarınızda ölçeğini daralttığınızda, ilişkili çalışan havuzunda çalışan'kurmak kullanır.
 
 * Anında çalışanları ekleyemezsiniz. Bunlar sağlamak için bir saate kadar sürebilir.
 * Herhangi bir havuz için bir işlem kaynağı boyutunu ölçeklendirme güncelleştirme etki alanı başına < 1 saat sürer. Bir ASE'de 20 güncelleme etki alanı vardır. İşlem boyutu 10 örnekleri ile çalışan havuzunda ölçeği, tamamlanması 10 saat sürebilir.
@@ -68,7 +69,7 @@ Uygulamalarınızı daha büyük bir işlem kaynak boyutu gerekiyorsa, önceki k
 * App Service planlarınızda yeni yapılandırılan çalışan havuzunu daha büyük bir boyuta gerekir. uygulamaları barındırma yeniden atayın. Bu tamamlanması bir dakikadan az zamanınızı alarak hızlı bir işlemdir.  
 * Bu örneği artık ihtiyacınız yoksa ilk çalışan havuzunu ölçeklendirin. Bu işlemin tamamlanması birkaç dakika sürer.
 
-**Otomatik ölçeklendirme**: otomatik ölçeklendirmeyi işlem kaynak tüketiminize yönetmenize yardımcı olabilecek Araçlar biridir. Otomatik ölçeklendirme için kullanabileceğiniz ön uç veya çalışan havuzları. Sabah saatlerinde örneklerinizin herhangi bir havuz tür bu artış gibi şeyler ve akşam azaltın. Veya belki de bir çalışan havuzunda kullanılabilir olan çalışanların sayısını belirli bir eşiğin altına düştüğünde örnekler ekleyebilirsiniz.
+**Otomatik ölçeklendirme**: Bir işlem kaynak tüketiminize yönetmenize yardımcı olabilecek Araçları'nın otomatik ölçeklendirme yapıyor. Otomatik ölçeklendirme için kullanabileceğiniz ön uç veya çalışan havuzları. Sabah saatlerinde örneklerinizin herhangi bir havuz tür bu artış gibi şeyler ve akşam azaltın. Veya belki de bir çalışan havuzunda kullanılabilir olan çalışanların sayısını belirli bir eşiğin altına düştüğünde örnekler ekleyebilirsiniz.
 
 Ardından işlem kaynak havuzu ölçümleri etrafında otomatik ölçeklendirme kurallarını ayarlamak istiyorsanız, sağlanması gerekir. zaman göz önünde bulundurun. Otomatik ölçeklendirme App Service ortamları hakkında daha fazla ayrıntı için bkz. [bir App Service ortamında otomatik ölçeklendirme yapılandırma][ASEAutoscale].
 
@@ -132,13 +133,13 @@ Bir ASE'de App Service planları adanmış App Service planları tümü. Bu, App
 ### <a name="settings"></a>Ayarlar
 Yoktur ASE dikey pencerede bir **ayarları** çeşitli önemli özellikleri içeren bölümü:
 
-**Ayarları** > **özellikleri**: **ayarları** dikey penceresi otomatik olarak açılır ASE dikey pencerenizi getirdiğinizde. En üstte **özellikleri**. İçinde gördükleri için yedekli öğeleri burada birçok **Essentials**, ama çok kullanışlı nedir **sanal IP adresi**, yanı **giden IP adresleri**.
+**Ayarları** > **özellikleri**: **Ayarları** dikey penceresi otomatik olarak açılır ASE dikey pencerenizi getirdiğinizde. En üstte **özellikleri**. İçinde gördükleri için yedekli öğeleri burada birçok **Essentials**, ama çok kullanışlı nedir **sanal IP adresi**, yanı **giden IP adresleri**.
 
 ![Ayarlar dikey penceresinde ve Özellikler][4]
 
 **Ayarları** > **IP adresleri**: ASE'NİZDE IP Güvenli Yuva Katmanı (SSL) uygulama oluşturduğunuzda, bir IP SSL adresi gerekir. Bir sertifika edinmeniz için ayrılan belleğe sahip IP SSL adresleri ASE'nizi gerekir. Bir ASE oluşturulurken bu amaç için bir IP SSL adresi vardır, ancak daha ekleyebilirsiniz. Bir ücret yoktur ek IP SSL adresleri için gösterildiği [App Service fiyatlandırması] [ AppServicePricing] (bölümündeki SSL bağlantıları üzerinde). Ek fiyat IP SSL fiyatıdır.
 
-**Ayarları** > **ön uç havuzu** / **çalışan havuzları**: her biri bu kaynak havuzu dikey yalnızca bu kaynak havuzu hakkında bilgi görmek için özelliği sunar Denetim tam olarak bu kaynak havuzu ölçeklendirme sağlamanın yanı sıra.  
+**Ayarları** > **ön uç havuzu** / **çalışan havuzları**: Her biri bu kaynak havuzu dikey tam olarak bu kaynak havuzu ölçeklendirme denetim sağlamanın yanı sıra yalnızca o kaynak havuzundaki, bilgi görme olanağı sunar.  
 
 Her kaynak havuzu için temel dikey pencere, bu kaynak havuzu için bir ölçüm grafiği sağlar. Gibi ASE dikey penceresinden grafiklerle oluşturabilir grafiğe gidin ve istediğiniz gibi uyarıları ayarlama. Belirli bir kaynak havuzu için ASE dikey penceresinden bir uyarı ayarını kaynak havuzundan yapmakta olarak aynı şeyi yapar. Çalışan havuzundan **ayarları** dikey penceresinde App Service planları bu çalışan havuzunda çalışmakta olan veya tüm uygulamalara erişebilirsiniz.
 

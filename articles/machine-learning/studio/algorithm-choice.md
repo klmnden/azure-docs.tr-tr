@@ -1,11 +1,10 @@
 ---
-title: Azure Machine Learning Studio makine öğrenimi algoritmaları - seçme | Microsoft Docs
+title: Azure Machine Learning Studio için algoritma seçme | Microsoft Docs
 description: Azure Machine Learning Studio algoritmaları için denetimli ve Denetimsiz öğrenme kümeleme, sınıflandırma veya regresyon denemeleri nasıl seçeceğinizi öğrenin.
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=pakalra, author=pakalra)
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.author: amlstudiodocs
-manager: cgronlun
 editor: cgronlun
 tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
@@ -13,12 +12,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 7ddfb98a884779385cde643e213bebb98b050436
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9e601464f97a7717a2ccef0e60172357d3169697
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312427"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256936"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio için algoritma seçme
 
@@ -44,7 +43,7 @@ Grafik olarak yolu ve algoritma etiketleri okuyun "için  *&lt;yol etiketinin&gt
 Bazen bunların hiçbiri tam olarak uygun değil. Bunlar tam olan bu konuda endişelenmeyin için thumb kural önerileri olacak şekilde tasarlanmıştır.
 I ile söz konusu açıklandı birkaç veri bilimcileri en iyi algoritmayı bulmak için yalnızca emin tümünü denemek için yoludur.
 
-İşte bir örnek [Azure AI Gallery](http://gallery.cortanaintelligence.com/) aynı verilere karşı çeşitli algoritmalar çalışır ve sonuçları karşılaştıran bir deneme: [çok sınıflı sınıflandırıcılar karşılaştırın: Harf tanıma](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+İşte bir örnek [Azure AI Gallery](http://gallery.cortanaintelligence.com/) aynı verilere karşı çeşitli algoritmalar çalışır ve sonuçları karşılaştıran bir deneme: [Çok sınıflı sınıflandırıcılar karşılaştırın: Harfli tanıma](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > Machine Learning Studio'nun işlevlerine genel bir bakış sağlayan bir diyagram indirmek ve yazdırmak için bkz. [Azure Machine Learning Studio'nun işlevlerine genel bakış diyagramı](studio-overview-diagram.md).

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 37d57b0dc381f0ed2edf1f3debb76e5b54eae157
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b0e0f26abbf8eb5cbf1cf9ba2014204d773ae15d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093837"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187322"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics işleri için uyumluluk düzeyi
  
@@ -38,34 +38,34 @@ Uyumluluk düzeyi 1.1 aşağıdaki önemli değişiklikler yapılmıştır:
 
 * **Service Bus XML biçimi**  
 
-  * **Önceki sürümler:** ileti içeriğini XML etiketleri içerdiği için DataContractSerializer, Azure Stream Analytics kullanılır. Örneğin:
+  * **Önceki sürümler:** İleti içeriğini XML etiketleri içerdiği için DataContractSerializer, azure Stream Analytics kullanılır. Örneğin:
     
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId": "1", "Sıcaklık": 64\}\u0001 
+    @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId": "1", "Sıcaklık": 64\}\u0001 
 
-  * **Geçerli sürüm:** akış hiçbir ek etiketler ile doğrudan ileti içeriği. Örneğin:
+  * **Geçerli sürüm:** İleti içeriğini hiçbir ek etiketler ile doğrudan bir akış içeriyor. Örneğin:
   
-   {"SensorId": "1", "Sıcaklık": 64} 
+    {"SensorId": "1", "Sıcaklık": 64} 
  
 * **Alan adları için kalıcı büyük küçük harf duyarlılığı**  
 
-  * **Önceki sürümler:** alan adları Azure Stream Analytics altyapısı tarafından işlendiğinde küçük harfe değiştirildi. 
+  * **Önceki sürümler:** Azure Stream Analytics altyapısı tarafından işlendiğinde küçük harfe alan adları değiştirildi. 
 
   * **Geçerli sürüm:** Azure Stream Analytics altyapısı tarafından işlendiğinde alan adları için büyük küçük harf duyarlılığı kalıcıdır. 
 
-  > [!NOTE] 
-  > Kalıcı büyük küçük harf duyarlılığı Edge ortamı kullanarak barındırılan bir Stream Analytic işleri için henüz desteklenmiyor. Sonuç olarak, işinizin Edge üzerinde barındırılıyorsa tüm alan adlarının küçük harfe dönüştürülür. 
+    > [!NOTE] 
+    > Kalıcı büyük küçük harf duyarlılığı Edge ortamı kullanarak barındırılan bir Stream Analytic işleri için henüz desteklenmiyor. Sonuç olarak, işinizin Edge üzerinde barındırılıyorsa tüm alan adlarının küçük harfe dönüştürülür. 
 
 * **FloatNaNDeserializationDisabled**  
 
-  * **Önceki sürümler:** CREATE TABLE komutu NaN (bir sayı değil'ile olayları değil filtre. Örneğin, sonsuz, - sonsuz) kayan noktalı sayı sütunundaki bu numaraları için belgelenmiş aralık dışında olduğundan yazın.
+  * **Önceki sürümler:** CREATE TABLE komut olaylarla NaN (bir sayı değil. filtre değil Örneğin, sonsuz, - sonsuz) kayan noktalı sayı sütunundaki bu numaraları için belgelenmiş aralık dışında olduğundan yazın.
 
-  * **Geçerli sürüm:** CREATE TABLE, güçlü bir şema belirtmenize olanak sağlar. Stream Analytics altyapısı, verileri bu şemaya uygun olduğunu doğrular. Bu modelde, komut NaN değerleri ile olayları filtreleyebilirsiniz. 
+  * **Geçerli sürüm:** CREATE TABLE güçlü bir şema belirtmenizi sağlar. Stream Analytics altyapısı, verileri bu şemaya uygun olduğunu doğrular. Bu modelde, komut NaN değerleri ile olayları filtreleyebilirsiniz. 
 
 * **Otomatik yukarı çevrim JSON dizeleri datetime için devre dışı bırakın.**  
 
-  * **Önceki sürümler:** JSON ayrıştırıcı tarih/saat/dilimi bilgileri DateTime değerleri yazın ve ardından UTC'ye dönüştürün otomatik olarak başvurmanıza dize olur. Bu, saat dilimi bilgilerini kesilmesine sonuçlandı.
+  * **Önceki sürümler:** JSON ayrıştırıcının DateTime türü tarih/saat/dilimi bilgileri ile otomatik olarak başvurmanıza dize değerleri olur ve ardından UTC'ye dönüştürün. Bu, saat dilimi bilgilerini kesilmesine sonuçlandı.
 
-  * **Geçerli sürüm:** yoktur artık otomatik olarak başvurmanıza DateTime türü tarih/saat/dilimi bilgileri ile dize değerleri. Sonuç olarak, saat dilimi bilgilerini tutulur. 
+  * **Geçerli sürüm:** Artık otomatik olarak başvurmanıza DateTime türü tarih/saat/dilimi bilgileri ile dize değerlerinin yoktur. Sonuç olarak, saat dilimi bilgilerini tutulur. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Stream Analytics girişleri sorunlarını giderme](stream-analytics-troubleshoot-input.md)

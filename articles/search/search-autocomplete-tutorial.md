@@ -1,5 +1,5 @@
 ---
-title: Azure Search kullanarak arama kutunuza otomatik tamamlama özelliği ekleme öğreticisi | Microsoft Docs
+title: Otomatik Tamamlama, arama kutusuna - Azure Search ekleme Öğreticisi
 description: Azure Search otomatik tamamlama ve öneriler API'lerini kullanarak veri merkezli uygulamalarınızda son kullanıcı deneyimini geliştirme örnekleri.
 manager: pablocas
 author: mrcarter8
@@ -9,14 +9,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 63f4d9f72b9bf81ea772123d65db0659fd3ffa5c
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: 10f86a482fbb35e7276f8f689a7eba184a7b624b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578183"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316191"
 ---
-# <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Öğretici: Azure Search kullanarak arama kutunuza otomatik tamamlama özelliği ekleme
+# <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Öğretici: Azure arama'yı kullanarak, arama kutusu otomatik tamamlama Ekle
 
 Bu öğreticide güçlü bir arama kutusu oluşturmak için [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)'sindeki [öneriler](https://docs.microsoft.com/rest/api/searchservice/suggestions), [otomatik tamamlama](https://docs.microsoft.com/rest/api/searchservice/autocomplete) ve [modeller](search-faceted-navigation.md) özellikleriyle [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet)'sını kullanmayı öğreneceksiniz. *Öneriler*, kullanıcının o ana kadar girdiği metne göre gerçek sonuçlardan öneriler sunar. Azure Search'teki [yeni bir önizleme seçeneği](search-api-preview.md) olan *otomatik tamamlama* özelliği, dizinden kullanıcının yazmakta olduğu girişi tamamlayan terimler önerir. Gelişmiş arama özelliklerini metin girişi sırasında kullanıcıya sunarak kullanıcının üretkenliğini artırmanın yanı sıra aradığını hızla ve kolayca bulmasını sağlayan birden fazla tekniği karşılaştıracağız.
 
@@ -32,7 +33,7 @@ Aşağıdaki görevleri gerçekleştireceksiniz:
 > * .Net SDK'sını ve REST API'sini kullanarak önerileri alma ve otomatik tamamlama
 > * Performansı iyileştirmek için istemci tarafında önbelleğe almayı destekleme 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Visual Studio 2017. Ücretsiz [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)'ı kullanabilirsiniz. 
 
@@ -126,7 +127,7 @@ F5 tuşuna basarak uygulamayı başlatın.
 
 1. Controllers dizinindeki HomeController.cs dosyasını açın. 
 
-1. İlk fark edeceğiniz şey sınıfın en üstünde InitSearch adlı bir metot olduğudur.  Bu, Azure Search hizmeti için kimliği doğrulanmış bir HTTP dizini istemcisi oluşturur.  Bunun çalışması hakkında daha fazla bilgi almak isterseniz şu öğreticiyi ziyaret edin: [Bir .NET Uygulamasından Azure Search kullanma](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+1. İlk fark edeceğiniz şey sınıfın en üstünde InitSearch adlı bir metot olduğudur.  Bu, Azure Search hizmeti için kimliği doğrulanmış bir HTTP dizini istemcisi oluşturur.  Bunun işleyişi hakkında daha fazla bilgi edinmek istiyorsanız, aşağıdaki öğreticiye ziyaret edin: [Bir .NET Uygulamasından Azure Search kullanma](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 1. Suggest işlevine geçelim.
 

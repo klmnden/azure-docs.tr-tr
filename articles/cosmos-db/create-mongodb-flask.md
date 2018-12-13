@@ -10,14 +10,14 @@ ms.custom: quick start connect, mvc, seodec18
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/02/2017
-ms.openlocfilehash: 96ccaf70906d495d1bd2781cf9eeaed7c27bc35e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 09c19f57a2993c0faad3dca708f67526f99d13df
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101390"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165121"
 ---
-# <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: MongoDB API’si ile bir Flask uygulaması derleme
+# <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: MongoDB API'si ile bir Flask uygulaması derleme
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -46,7 +46,7 @@ Bu hızlı başlangıç kılavuzu aşağıdaki [Flask örneğini](https://github
 
 ## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
-Şimdi GitHub'dan bir Flask-MongoDB API'si uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu görüyorsunuz.
+Şimdi github'dan bir Flask-MongoDB API'si uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu görüyorsunuz.
 
 1. Bir komut istemini açın, git-samples adlı yeni bir klasör oluşturun ve komut istemini kapatın.
 
@@ -134,7 +134,7 @@ Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken
 
 ## <a name="deploy-to-azure"></a>Azure’a dağıtma
 
-Bu uygulamayı dağıtmak için Azure'da yeni bir web uygulaması oluşturabilir ve bu github deposunun çatalı ile sürekli dağıtımı etkinleştirebilirsiniz. Azure’da Github ile sürekli dağıtımı ayarlamak için bu [öğreticiyi](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment) izleyin.
+Bu uygulamayı dağıtmak için Azure'da yeni bir web uygulaması oluşturma ve bu GitHub deposunun çatalı ile sürekli dağıtımı etkinleştirme. İzleyin [öğretici](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment) azure'da GitHub ile sürekli dağıtımı ayarlamak için.
 
 Azure'a dağıtırken uygulama anahtarlarınızı kaldırmanız ve aşağıdaki bölümün açıklama satırı yapılmadığından emin olmanız gerekir:
 
@@ -153,7 +153,7 @@ Bu deponun bir çatalını oluşturmak istemiyorsanız, aşağıdaki Azure’a d
 </a>
 
 > [!NOTE]
-> Kodunuzu Github veya diğer kaynak denetimi seçeneklerinde depolamayı planlıyorsanız, lütfen bağlantı dizelerinizi koddan kaldırdığınızdan emin olun. Bağlantı dizeleriniz, bunun yerine web uygulamasının uygulama ayarlarıyla ayarlanabilir.
+> Kodunuzu GitHub veya diğer kaynak denetimi seçeneklerinde depolamayı planlıyorsanız, Lütfen bağlantı dizelerinizi koddan kaldırdığınızdan emin olun. Bağlantı dizeleriniz, bunun yerine web uygulamasının uygulama ayarlarıyla ayarlanabilir.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
 

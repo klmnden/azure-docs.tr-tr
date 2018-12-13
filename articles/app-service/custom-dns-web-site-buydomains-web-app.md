@@ -1,5 +1,5 @@
 ---
-title: Azure Web Apps için bir özel etki alanı adı satın alma
+title: App Service - azure'da özel etki alanı adı satın alın
 description: Azure App Service'te bir web uygulaması ile bir özel etki alanı adı satın alma hakkında bilgi edinin.
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 48e0e68794e83739835d97aa8a2b26516c660357
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.custom: seodec18
+ms.openlocfilehash: 3f587b7e1b051b28d11ad84fcb2d02bd01315de5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345200"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256443"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Azure Web Apps için bir özel etki alanı adı satın alma
 
@@ -153,8 +154,8 @@ Web uygulamanıza satın alma işlemi sırasında bir veya daha fazla varsayıla
 
 App Service etki alanı konak adı başka bir web uygulaması için de atayabilirsiniz. Adımlar olup App Service etki alanı ve web uygulamasını aynı aboneliğe ait üzerinde bağlıdır.
 
-- Farklı bir abonelik: App Service etki alanı özel DNS kayıtları web App gibi harici olarak satın alınan bir etki alanı eşleme. Özel DNS adları bir App Service etki alanı ekleme hakkında daha fazla bilgi için bkz: [özel DNS kayıtlarını yönetme](#custom). Bir web uygulaması bir dış satın alınan etki alanına eşlemek için bkz [mevcut bir özel DNS adını Azure Web Apps ile eşleme](app-service-web-tutorial-custom-domain.md). 
-- Aynı abonelikte: aşağıdaki adımları kullanın.
+- Farklı bir abonelik: Harita özel DNS kayıtları App Service etki alanı web uygulamasına bir harici olarak satın alınan etki alanı ister. Özel DNS adları bir App Service etki alanı ekleme hakkında daha fazla bilgi için bkz: [özel DNS kayıtlarını yönetme](#custom). Bir web uygulaması bir dış satın alınan etki alanına eşlemek için bkz [mevcut bir özel DNS adını Azure Web Apps ile eşleme](app-service-web-tutorial-custom-domain.md). 
+- Aynı abonelik: Aşağıdaki adımları kullanın.
 
 ### <a name="launch-add-hostname"></a>Başlatma, konak adı Ekle
 İçinde **uygulama hizmetleri** sayfasında, seçmek için ana bilgisayar adları atamak istediğiniz web uygulamanızın adını seçin **ayarları**ve ardından **özel etki alanları**.

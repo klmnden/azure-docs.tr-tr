@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 8da42ee6db4b9ec76fa97e94a77076ed347e2952
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 1f772e1a3e5b3e121b968d358166e9018c80d573
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080683"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192704"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux için Log Analytics Aracısı ile ilgili sorunları giderme 
 
@@ -175,7 +173,7 @@ Log Analytics genel aracı yapılandırma dosyasında yer alan `/etc/opt/microso
     |*.blob.core.windows.net | Bağlantı noktası 443| Gelen ve giden |  
     |*.azure-automation.net | Bağlantı noktası 443| Gelen ve giden | 
 
-## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Sorun: Bir 403 hatası ekleme çalışırken alıyorsunuz
+## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Sorun: Ekleme çalışırken bir 403 hatası alıyorsunuz
 
 ### <a name="probable-causes"></a>Olası nedenleri
 * Tarih ve saat Linux sunucusu üzerinde yanlış 
@@ -187,7 +185,7 @@ Log Analytics genel aracı yapılandırma dosyasında yer alan `/etc/opt/microso
 2. Linux için Log Analytics aracısını en son sürümünü yüklediğinizi doğrulayın.  En yeni sürümü artık zaman farkı, onboarding hataya neden olduğunu bildirir.
 3. Doğru çalışma alanı Kimliğiniz ve çalışma alanı anahtarı bu makalenin önceki kısımlarında yükleme yönergelerini kullanarak Reonboard.
 
-## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Sorun: Sağ ekledikten sonra bir 500 ve 404 hatası günlük dosyasına bakın
+## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Sorun: Sağa ekledikten sonra bir 500 ve 404 hatası günlük dosyasına bakın
 Log Analytics çalışma alanına ilk Linux veri yükleme oluşma zamanı bilinen bir sorundur. Bu, gönderilen veya hizmet deneyimi olan verileri etkilemez.
 
 ## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>Sorun: Azure portalında herhangi bir veri görmediğinizden
@@ -243,7 +241,7 @@ Linux tanılama uzantısı (LAD) Log Analytics Linux VM uzantısı ile yan yana 
 3. Omsagent yeniden `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 4. Syslog hizmeti yeniden başlatın.
 
-## <a name="issue-you-are-unable-to-uninstall-omsagent-using-purge-option"></a>Sorun: Omsagent Temizleme seçeneğini kullanarak kaldırmak oluşturulamıyor
+## <a name="issue-you-are-unable-to-uninstall-omsagent-using-purge-option"></a>Sorun: Temizleme seçeneğini kullanarak omsagent kaldırma belirleyemiyoruz
 
 ### <a name="probable-causes"></a>Olası nedenleri
 
@@ -254,7 +252,7 @@ Linux tanılama uzantısı (LAD) Log Analytics Linux VM uzantısı ile yan yana 
 1. Linux tanılama uzantısı (LAD) kaldırın.
 2. Şu konumda mevcut değilse makineden Linux tanılama uzantısı dosyalarını kaldırın: `/var/lib/waagent/Microsoft.Azure.Diagnostics.LinuxDiagnostic-<version>/` ve `/var/opt/microsoft/omsagent/LAD/`.
 
-## <a name="issue-you-cannot-see-data-any-nagios-data"></a>Sorun: Veri Nagios verileri göremez 
+## <a name="issue-you-cannot-see-data-any-nagios-data"></a>Sorun: Nagios veriler veri göremez 
 
 ### <a name="probable-causes"></a>Olası nedenleri
 * Omsagent kullanıcı Nagios günlük dosyasından okumak için gerekli izinlere sahip değil
@@ -277,7 +275,7 @@ Linux tanılama uzantısı (LAD) Log Analytics Linux VM uzantısı ile yan yana 
     </filter>
     ```
 
-## <a name="issue-you-are-not-seeing-any-linux-data"></a>Sorun: Herhangi bir Linux veri görmediğinizden 
+## <a name="issue-you-are-not-seeing-any-linux-data"></a>Sorun: Tüm Linux verileri görme hakkındaki değil 
 
 ### <a name="probable-causes"></a>Olası nedenleri
 * Log Analytics hizmetinin eklenmesi başarısız oldu
@@ -347,7 +345,7 @@ Linux tanılama uzantısı (LAD) Log Analytics Linux VM uzantısı ile yan yana 
     sudo service crond start
     ```
 
-## <a name="issue-when-configuring-collection-from-the-portal-for-syslog-or-linux-performance-counters-the-settings-are-not-applied"></a>Sorun: Koleksiyon Syslog ya da Linux performans sayaçları için portalından yapılandırırken ayarları uygulanmaz
+## <a name="issue-when-configuring-collection-from-the-portal-for-syslog-or-linux-performance-counters-the-settings-are-not-applied"></a>Sorun: Syslog ya da Linux performans sayaçları için portal koleksiyonundan yapılandırırken ayarları uygulanmaz
 
 ### <a name="probable-causes"></a>Olası nedenleri
 * Linux için Log Analytics aracısını en son yapılandırmayı çekilen değil
@@ -380,7 +378,7 @@ Linux tanılama uzantısı (LAD) Log Analytics Linux VM uzantısı ile yan yana 
 
 2. Bu maddeyi `omsconfig` aracı, aşağıdaki komutu çalıştırarak Log Analytics hizmetiyle kurabilir `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  Bu komut, bu aracı yapılandırmasını döndürür Syslog ayarları, Linux performans sayaçları ve özel günlükler de dahil olmak üzere hizmetinden alır. Bu komut başarısız olursa, aşağıdaki komutu çalıştırarak `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`. Bu komut, Log Analytics hizmetinizle iletişim kurmasına ve son yapılandırmayı almak için omsconfig aracı zorlar.
 
-**Arka planı:** - ayrıcalıklı bir kullanıcısı olarak çalışan Linux için Log Analytics aracısını yerine `root`, olarak aracıyı çalıştıran `omsagent` kullanıcı. Çoğu durumda, okumak için bu kullanıcı için belirli dosyaları için sırayla yönelik açık izinlerinin verilmesi gerekir. İzni vermek için `omsagent` kullanıcı, aşağıdaki komutları çalıştırın:
+**Arka planı:** -Ayrıcalıklı bir kullanıcısı olarak çalışan Linux için Log Analytics aracısını yerine `root`, olarak aracıyı çalıştıran `omsagent` kullanıcı. Çoğu durumda, okumak için bu kullanıcı için belirli dosyaları için sırayla yönelik açık izinlerinin verilmesi gerekir. İzni vermek için `omsagent` kullanıcı, aşağıdaki komutları çalıştırın:
 
 1. Ekleme `omsagent` belirli bir grup kullanıcıya `sudo usermod -a -G <GROUPNAME> <USERNAME>`
 2. Gerekli dosya Evrensel okuma erişimi verin `sudo chmod -R ugo+rx <FILE DIRECTORY>`
@@ -401,7 +399,7 @@ sudo sh ./onboard_agent.sh --purge
 
 Reonboard sonra kullanmaya devam edebilirsiniz `--purge` seçeneği
 
-## <a name="log-analytics-agent-extension-in-the-azure-portal-is-marked-with-a-failed-state-provisioning-failed"></a>Azure portalında log Analytics Aracısı uzantısı durumu ile başarısız olarak işaretlenir: sağlama başarısız oldu
+## <a name="log-analytics-agent-extension-in-the-azure-portal-is-marked-with-a-failed-state-provisioning-failed"></a>Azure portalında log Analytics Aracısı uzantısı durumu ile başarısız olarak işaretlenir: Hazırlama başarısız oldu
 
 ### <a name="probable-causes"></a>Olası nedenleri
 * Log Analytics aracısını işletim sisteminden kaldırıldı
@@ -415,7 +413,7 @@ Bu sorunu çözmek için aşağıdaki adımları gerçekleştirin.
 * Birkaç dakika bekleyin ve sağlama durumu değişikliklerini **sağlama başarılı**.
 
 
-## <a name="issue-the-log-analytics-agent-upgrade-on-demand"></a>Sorun: Log Analytics aracısını isteğe bağlı yükseltme
+## <a name="issue-the-log-analytics-agent-upgrade-on-demand"></a>Sorun: Log Analytics aracısını yükseltme isteğe bağlı
 
 ### <a name="probable-causes"></a>Olası nedenleri
 

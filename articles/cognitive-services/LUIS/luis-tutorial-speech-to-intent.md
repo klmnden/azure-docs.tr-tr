@@ -1,7 +1,7 @@
 ---
 title: Konuşarak C# SDK'sı
 titleSuffix: Azure Cognitive Services
-description: Konuşma hizmeti tek bir istek kullanarak ses almanızı ve JSON nesneleriyle LUIS tahmini döndürmenizi sağlar. Bu makalede bir C# projesi indirip Visual Studio'da kullanarak mikrofona konuşacak ve LUIS tahmin bilgilerini alacaksınız. Bu projede Konuşma NuGet paketi kullanılmaktadır ve bu paket başvuru olarak projeye eklenmiştir.
+description: Konuşma hizmeti tek bir istek kullanarak ses almanızı ve JSON nesneleriyle LUIS tahmini döndürmenizi sağlar. Bu makalede bir C# projesi indirip Visual Studio'da kullanarak mikrofona konuşacak ve LUIS tahmin bilgilerini alacaksınız.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 92db504ebfd0f8ad0bef9282bafd62fa9780d5e2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 1bc3b9e016bed59f6453c26371cce7bd089568aa
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099316"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162640"
 ---
 # <a name="integrate-speech-service"></a>Konuşma hizmetini tümleştirme
 [Konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) tek bir istek kullanarak ses almanızı ve JSON nesneleriyle LUIS tahmini döndürmenizi sağlar. Bu makalede bir C# projesi indirip Visual Studio'da kullanarak mikrofona konuşacak ve LUIS tahmin bilgilerini alacaksınız. Bu projede Konuşma [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) paketi kullanılmaktadır ve bu paket başvuru olarak projeye eklenmiştir. 
@@ -27,7 +27,7 @@ Bu makalede uygulamayı içeri aktarmak için ücretsiz bir [LUIS][LUIS] web sit
 Azure portalda bir **Language Understanding** (LUIS) anahtarı [oluşturun](luis-how-to-azure-subscription.md#create-luis-endpoint-key). 
 
 ## <a name="import-human-resources-luis-app"></a>İnsan Kaynakları LUIS uygulamasını içeri aktarma
-Bu makaledeki amaçlar ve konuşmalar, İnsan Kaynakları LUIS uygulamasından alınmıştır. Uygulamaya [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github deposundan ulaşabilirsiniz. [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json) dosyasını indirin, `.json` uzantısıyla kaydedin ve LUIS'e [aktarın](luis-how-to-start-new-app.md#import-new-app). 
+İnsan Kaynakları LUIS uygulaması kullanılabilir amacı ve bu makalede konuşma arasındadır [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) GitHub deposu. [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json) dosyasını indirin, `.json` uzantısıyla kaydedin ve LUIS'e [aktarın](luis-how-to-start-new-app.md#import-new-app). 
 
 Bu uygulamada İnsan Kaynakları alanıyla ilgili amaçlar, varlıklar ve konuşmalar bulunur. Örnek konuşmalar şunlardır:
 

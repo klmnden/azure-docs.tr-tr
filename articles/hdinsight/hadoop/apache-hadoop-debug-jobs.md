@@ -1,5 +1,5 @@
 ---
-title: 'HDInsight, Apache Hadoop hata ayıklama: günlükleri görüntüleyebilir ve hata iletilerini - Azure yorumlama '
+title: 'Apache Hadoop hata ayıklama: Günlükleri görüntülemek ve hata iletilerini - Azure HDInsight yorumlama'
 description: Hata iletileri, PowerShell kullanarak HDInsight yönetirken alabilirsiniz ve kurtarmak için attığınız adımlar hakkında bilgi edinin.
 services: hdinsight
 ms.reviewer: jasonh
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: c997b2644be3798629afce6d826c53b1d9492597
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d52a9411863962528eb0693f735ca0c4ee4c9991
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017023"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166515"
 ---
 # <a name="analyze-hadoop-logs"></a>Hadoop günlüklerini analiz etme
 
@@ -72,7 +72,7 @@ Power Query yüklenebilir [Excel için Microsoft Power Query](https://www.micros
    
     ![HDInsight Hadoop günlüklerini Azure tablo depolamada depolanan](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-table-names.png)
 5. Hadoopservicelog tabloya sağ **Gezgin** bölmesi ve select **Düzenle**. Dört sütun göreceksiniz. İsteğe bağlı olarak silme **bölüm anahtarı**, **satır anahtarı**, ve **zaman damgası** bunları seçip tıklayarak sütunları **sütunları Kaldır** gelen Şeritte seçenekleri.
-6. İçerik sütununda Excel elektronik tablosuna içeri aktarmak istediğiniz sütunları seçmek için genişlet simgesini tıklatın. Bu Tanıtım için TraceLevel ve ComponentName seçtiğim: Bu benim bileşenleri üzerinde sorunları olan bazı temel bilgileri verin.
+6. İçerik sütununda Excel elektronik tablosuna içeri aktarmak istediğiniz sütunları seçmek için genişlet simgesini tıklatın. Bu Tanıtım için TraceLevel ve ComponentName seçmiştir: Bana hangi bileşenlerin sorunlar yaşadım bazı temel bilgileri verebilirsiniz.
    
     ![HDInsight Hadoop günlüklerini sütunları seçin](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
 7. Tıklayın **Tamam** verileri içeri aktarma.
@@ -133,183 +133,183 @@ HDInsight kümelerini yönetmek için kullanıldığında bu hata iletileri baz�
 
 ### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
 * **Açıklama**: Hive ve Oozie meta depolar için özel ayarları kullanmak için lütfen en az bir bileşen için Azure SQL veritabanı ayrıntılarını belirtin.
-* **Risk azaltma**: kullanıcının erişmesi geçerli bir SQL Azure meta veri deposu sağlayın ve isteği yeniden deneyin.  
+* **Risk azaltma**: Kullanıcının geçerli bir SQL Azure meta veri deposu sağlayın ve isteği yeniden denemek gerekir.  
 
 ### <a id="AzureRegionNotSupported"></a>AzureRegionNotSupported
-* **Açıklama**: küme bölgede oluşturulamadı *nameOfYourRegion*. Geçerli bir HDInsight bölge kullanın ve isteği yeniden deneyin.
-* **Risk azaltma**: Müşteri şu anda bunları destekleyen küme bölge oluşturmalıdır: Güneydoğu Asya, Batı Avrupa, Kuzey Avrupa, Doğu ABD ve Batı ABD.  
+* **Açıklama**: Küme bölgede oluşturulamadı *nameOfYourRegion*. Geçerli bir HDInsight bölge kullanın ve isteği yeniden deneyin.
+* **Risk azaltma**: Müşteri, bunları destekleyen küme bölge oluşturmanız gerekir: Güneydoğu Asya, Batı Avrupa, Kuzey Avrupa, Doğu ABD ve Batı ABD.  
 
 ### <a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound
-* **Açıklama**: sunucu istenen küme kaydı bulunamadı.  
-* **Risk azaltma**: işlemi yeniden deneyin.
+* **Açıklama**: Sunucu, istenen küme kaydı bulunamadı.  
+* **Risk azaltma**: İşlemi yeniden deneyin.
 
 ### <a id="ClusterDnsNameInvalidReservedWord"></a>ClusterDnsNameInvalidReservedWord
-* **Açıklama**: küme DNS adı *yourDnsName* geçersiz. Lütfen adı başlar ve alfasayısal biten olduğundan emin olun ve yalnızca '-' özel karakter  
-* **Risk azaltma**: başlar ve alfasayısal biten özel içeren kümenizdeki dash dışındaki karakterleri için geçerli bir DNS adı kullandığınızı doğrulayın '-' ve sonra işlemi yeniden deneyin.
+* **Açıklama**: Küme DNS adını *yourDnsName* geçersiz. Lütfen adı başlar ve alfasayısal biten olduğundan emin olun ve yalnızca '-' özel karakter  
+* **Risk azaltma**: Başlayan ve alfasayısal sona erer ve özel içeren kümenizi dash dışındaki karakterleri için geçerli bir DNS adı kullandığınızı doğrulayın '-' ve sonra işlemi yeniden deneyin.
 
 ### <a id="ClusterNameUnavailable"></a>ClusterNameUnavailable
-* **Açıklama**: küme adını *yourClusterName* kullanılamıyor. Lütfen başka bir ad seçin.  
-* **Risk azaltma**: kullanıcı benzersiz olan bir küme adı belirtin ve mevcut değil, yeniden deneyin. Kullanıcı Portalı kullanıyorsanız, kullanıcı Arabirimi oluşturma adımları sırasında bir küme adı zaten kullanılıyor, bunları bildirir.
+* **Açıklama**: Küme adı *yourClusterName* kullanılamıyor. Lütfen başka bir ad seçin.  
+* **Risk azaltma**: Kullanıcı benzersiz olan bir küme adı belirtin ve mevcut değil, yeniden deneyin. Kullanıcı Portalı kullanıyorsanız, kullanıcı Arabirimi oluşturma adımları sırasında bir küme adı zaten kullanılıyor, bunları bildirir.
 
 ### <a id="ClusterPasswordInvalid"></a>ClusterPasswordInvalid
 * **Açıklama**: Küme parolası geçersiz. Parola en az 10 karakter uzunluğunda olmalıdır ve en az bir rakam, büyük harf, küçük harf ve boşluk içermeyen özel karakter içermelidir ve kullanıcı adı, bir parçası olarak içermemelidir.  
 * **Risk azaltma**: Geçerli Küme parolası sağlayın ve işlemi yeniden deneyin.
 
 ### <a id="ClusterUserNameInvalid"></a>ClusterUserNameInvalid
-* **Açıklama**: küme kullanıcı adı geçersiz. Lütfen kullanıcı adı özel karakterler veya boşluk içermediğinden emin olun.  
-* **Risk azaltma**: geçerli küme kullanıcı adını belirtin ve işlemi yeniden deneyin.
+* **Açıklama**: Küme kullanıcı adı geçersiz. Lütfen kullanıcı adı özel karakterler veya boşluk içermediğinden emin olun.  
+* **Risk azaltma**: Geçerli Küme kullanıcı adını belirtin ve işlemi yeniden deneyin.
 
 ### <a id="ClusterUserNameInvalidReservedWord"></a>ClusterUserNameInvalidReservedWord
-* **Açıklama**: küme DNS adı *yourDnsClusterName* geçersiz. Lütfen adı başlar ve alfasayısal biten olduğundan emin olun ve yalnızca '-' özel karakter  
-* **Risk azaltma**: geçerli bir DNS küme kullanıcı adı sağlayın ve işlemi yeniden deneyin.
+* **Açıklama**: Küme DNS adını *yourDnsClusterName* geçersiz. Lütfen adı başlar ve alfasayısal biten olduğundan emin olun ve yalnızca '-' özel karakter  
+* **Risk azaltma**: Geçerli bir DNS küme kullanıcı adı sağlayın ve işlemi yeniden deneyin.
 
 ### <a id="ContainerNameMisMatchWithDnsName"></a>ContainerNameMisMatchWithDnsName
-* **Açıklama**: kapsayıcı adı URI *yourcontainerURI* ve DNS adı *yourDnsName* istek gövdesi aynı olmalıdır.  
-* **Risk azaltma**: emin olun, kapsayıcınızın adı ve DNS adı aynıdır ve işlemi yeniden deneyin.
+* **Açıklama**: Kapsayıcı adı URI *yourcontainerURI* ve DNS adı *yourDnsName* istek gövdesi aynı olmalıdır.  
+* **Risk azaltma**: Kapsayıcınızın adı ve DNS adı aynıdır ve işlemi yeniden deneyin emin olun.
 
 ### <a id="DataNodeDefinitionNotFound"></a>DataNodeDefinitionNotFound
 * **Açıklama**: Geçersiz küme yapılandırması. Düğüm boyutu içinde herhangi bir veri düğümünü tanımı bulmak yüklenemiyor.  
-* **Risk azaltma**: işlemi yeniden deneyin.
+* **Risk azaltma**: İşlemi yeniden deneyin.
 
 ### <a id="DeploymentDeletionFailure"></a>DeploymentDeletionFailure
-* **Açıklama**: dağıtım silme işlemi, küme için başarısız oldu  
-* **Risk azaltma**: silme işlemini yeniden deneyin.
+* **Açıklama**: Küme için dağıtım silme işlemi başarısız oldu  
+* **Risk azaltma**: Silme işlemini yeniden deneyin.
 
 ### <a id="DnsMappingNotFound"></a>DnsMappingNotFound
-* **Açıklama**: hizmet yapılandırma hatası. Gerekli DNS eşlemesini bilgileri bulunamadı.  
-* **Risk azaltma**: küme silip yeni bir küme oluşturun.
+* **Açıklama**: Hizmet yapılandırma hatası. Gerekli DNS eşlemesini bilgileri bulunamadı.  
+* **Risk azaltma**: Küme silme ve yeni bir küme oluşturun.
 
 ### <a id="DuplicateClusterContainerRequest"></a>DuplicateClusterContainerRequest
 * **Açıklama**: Yinelenen küme kapsayıcı oluşturma girişimi. Kayıt mevcut için *nameOfYourContainer* ancak Etag'ler eşleşmiyor.
-* **Risk azaltma**: kapsayıcısı için benzersiz bir ad belirtin ve oluşturma işlemi yeniden deneyin.
+* **Risk azaltma**: Kapsayıcı için benzersiz bir ad sağlayın ve oluşturma işlemi yeniden deneyin.
 
 ### <a id="DuplicateClusterInHostedService"></a>DuplicateClusterInHostedService
-* **Açıklama**: barındırılan hizmet *nameOfYourHostedService* bir küme zaten içeriyor. Barındırılan bir hizmet birden fazla küme içeremez.  
-* **Risk azaltma**: başka bir barındırılan hizmet kümesinde barındırın.
+* **Açıklama**: Barındırılan hizmet *nameOfYourHostedService* bir küme zaten içeriyor. Barındırılan bir hizmet birden fazla küme içeremez.  
+* **Risk azaltma**: Başka bir barındırılan hizmet kümesinde barındırın.
 
 ### <a id="FailureToUpdateDeploymentStatus"></a>FailureToUpdateDeploymentStatus
-* **Açıklama**: sunucu, küme dağıtım durumu güncelleştirilemedi.  
-* **Risk azaltma**: işlemi yeniden deneyin. Birden çok kez böyle bir durumda, CSS ile iletişime geçin.
+* **Açıklama**: Sunucu, küme dağıtım durumu güncelleştirilemedi.  
+* **Risk azaltma**: İşlemi yeniden deneyin. Birden çok kez böyle bir durumda, CSS ile iletişime geçin.
 
 ### <a id="HdiRestoreClusterAltered"></a>HdiRestoreClusterAltered
-* **Açıklama**: küme *yourClusterName* bakım işleminin bir parçası olarak silindi. Lütfen küme oluşturun.
-* **Risk azaltma**: küme oluşturun.
+* **Açıklama**: Küme *yourClusterName* bakım işleminin bir parçası olarak silindi. Lütfen küme oluşturun.
+* **Risk azaltma**: Kümeyi yeniden oluşturun.
 
 ### <a id="HeadNodeConfigNotFound"></a>HeadNodeConfigNotFound
 * **Açıklama**: Geçersiz küme yapılandırması. Gerekli baş düğüm yapılandırması düğüm boyutu bulunamadı.
-* **Risk azaltma**: işlemi yeniden deneyin.
+* **Risk azaltma**: İşlemi yeniden deneyin.
 
 ### <a id="HostedServiceCreationFailure"></a>HostedServiceCreationFailure
-* **Açıklama**: barındırılan hizmet oluşturulamıyor *nameOfYourHostedService*. Lütfen isteği yeniden deneyin.  
-* **Risk azaltma**: isteği yeniden deneyin.
+* **Açıklama**: Barındırılan hizmet oluşturulamıyor *nameOfYourHostedService*. Lütfen isteği yeniden deneyin.  
+* **Risk azaltma**: İsteği yeniden deneyin.
 
 ### <a id="HostedServiceHasProductionDeployment"></a>HostedServiceHasProductionDeployment
-* **Açıklama**: barındırılan hizmet *nameOfYourHostedService* Üretim dağıtımı zaten sahip. Barındırılan bir hizmet birden çok üretim dağıtımları içeremez. İstek farklı bir küme adı ile yeniden deneyin.
-* **Risk azaltma**: farklı bir küme adı kullanın ve isteği yeniden deneyin.
+* **Açıklama**: Barındırılan hizmet *nameOfYourHostedService* Üretim dağıtımı zaten sahip. Barındırılan bir hizmet birden çok üretim dağıtımları içeremez. İstek farklı bir küme adı ile yeniden deneyin.
+* **Risk azaltma**: Farklı bir küme adı kullanın ve isteği yeniden deneyin.
 
 ### <a id="HostedServiceNotFound"></a>HostedServiceNotFound
-* **Açıklama**: barındırılan hizmet *nameOfYourHostedService* için küme bulunamadı.  
-* **Risk azaltma**: küme hata durumundaysa, silin ve yeniden deneyin.
+* **Açıklama**: Barındırılan hizmet *nameOfYourHostedService* için küme bulunamadı.  
+* **Risk azaltma**: Küme hata durumundaysa, silin ve yeniden deneyin.
 
 ### <a id="HostedServiceWithNoDeployment"></a>HostedServiceWithNoDeployment
-* **Açıklama**: barındırılan hizmet *nameOfYourHostedService* ilişkili dağıtım sahiptir.  
-* **Risk azaltma**: küme hata durumundaysa, silin ve yeniden deneyin.
+* **Açıklama**: Barındırılan hizmet *nameOfYourHostedService* ilişkili dağıtım sahiptir.  
+* **Risk azaltma**: Küme hata durumundaysa, silin ve yeniden deneyin.
 
 ### <a id="InsufficientResourcesCores"></a>InsufficientResourcesCores
 * **Açıklama**: Subscriptionıd *yourSubscriptionId* kümesi oluşturmak için sol çekirdek yok *yourClusterName*. Gerekli: *resourcesRequired*, kullanılabilir: *resourcesAvailable*.  
-* **Risk azaltma**:, aboneliğinizdeki kaynaklar boşaltın veya abonelik için kullanılabilir kaynakları artırın ve küme yeniden oluşturmayı deneyin.
+* **Risk azaltma**: Aboneliğinizdeki kaynakları boşaltmaya veya abonelik için kullanılabilir kaynakları artırın ve küme yeniden oluşturmayı deneyin.
 
 ### <a id="InsufficientResourcesHostedServices"></a>InsufficientResourcesHostedServices
-* **Açıklama**: abonelik kimliği *yourSubscriptionId* kümesi oluşturmak yeni bir HostedService için kota yok *yourClusterName*.  
-* **Risk azaltma**:, aboneliğinizdeki kaynaklar boşaltın veya abonelik için kullanılabilir kaynakları artırın ve küme yeniden oluşturmayı deneyin.
+* **Açıklama**: Abonelik kimliği *yourSubscriptionId* kümesi oluşturmak yeni bir HostedService için kota yok *yourClusterName*.  
+* **Risk azaltma**: Aboneliğinizdeki kaynakları boşaltmaya veya abonelik için kullanılabilir kaynakları artırın ve küme yeniden oluşturmayı deneyin.
 
 ### <a id="InternalErrorRetryRequest"></a>InternalErrorRetryRequest
-* **Açıklama**: sunucu bir iç hatayla karşılaştı. Lütfen isteği yeniden deneyin.  
-* **Risk azaltma**: isteği yeniden deneyin.
+* **Açıklama**: Sunucu bir iç hatayla karşılaştı. Lütfen isteği yeniden deneyin.  
+* **Risk azaltma**: İsteği yeniden deneyin.
 
 ### <a id="InvalidAzureStorageLocation"></a>InvalidAzureStorageLocation
-* **Açıklama**: Azure depolama konumunda *dataRegionName* geçerli bir konum değil. Bölge doğru olduğundan emin olun ve isteği yeniden deneyin.
+* **Açıklama**: Azure depolama konumu *dataRegionName* geçerli bir konum değil. Bölge doğru olduğundan emin olun ve isteği yeniden deneyin.
 * **Risk azaltma**: HDInsight'ı destekleyen bir depolama konumu seçin, kümenizi birlikte bulunan olup olmadığını denetleyin ve işlemi yeniden deneyin.
 
 ### <a id="InvalidNodeSizeForDataNode"></a>InvalidNodeSizeForDataNode
-* **Açıklama**: veri düğümleri için geçersiz VM boyutu. Yalnızca 'Büyük VM' boyutu, tüm veri düğümleri için desteklenir.  
-* **Risk azaltma**: veri düğümü için desteklenen düğüm boyutu belirtin ve işlemi yeniden deneyin.
+* **Açıklama**: Veri düğümleri için VM boyutu geçersiz. Yalnızca 'Büyük VM' boyutu, tüm veri düğümleri için desteklenir.  
+* **Risk azaltma**: Veri düğümü için desteklenen düğüm boyutu belirtin ve işlemi yeniden deneyin.
 
 ### <a id="InvalidNodeSizeForHeadNode"></a>InvalidNodeSizeForHeadNode
-* **Açıklama**: baş düğüm için geçersiz VM boyutu. Yalnızca 'ExtraLarge VM' boyutu, baş düğüm için desteklenir.  
-* **Risk azaltma**: baş düğüm için desteklenen düğüm boyutu belirtin ve işlemi yeniden deneyin
+* **Açıklama**: Baş düğüm için VM boyutu geçersiz. Yalnızca 'ExtraLarge VM' boyutu, baş düğüm için desteklenir.  
+* **Risk azaltma**: Baş düğüm için desteklenen düğüm boyutu belirtin ve işlemi yeniden deneyin
 
 ### <a id="InvalidRightsForDeploymentDeletion"></a>InvalidRightsForDeploymentDeletion
-* **Açıklama**: abonelik kimliği *yourSubscriptionId* kullanılan küme için silme işlemi yürütmek için yeterli izinleri yok *yourClusterName*.  
-* **Risk azaltma**: küme hata durumundaysa, sürükleyip bırakın ve işlemi yeniden deneyin.  
+* **Açıklama**: Abonelik kimliği *yourSubscriptionId* kullanılan küme için silme işlemi yürütmek için yeterli izinleri yok *yourClusterName*.  
+* **Risk azaltma**: Küme hata durumundaysa, sürükleyip bırakın ve işlemi yeniden deneyin.  
 
 ### <a id="InvalidStorageAccountBlobContainerName"></a>InvalidStorageAccountBlobContainerName
-* **Açıklama**: dış depolama hesabına blob kapsayıcısı adı *yourContainerName* geçersiz. Adı bir harfle başlar ve yalnızca küçük harf, rakam ve tire içeren emin olun.  
-* **Risk azaltma**: geçerli bir depolama hesabı blob kapsayıcı adı belirtin ve işlemi yeniden deneyin.
+* **Açıklama**: Dış depolama hesabına blob kapsayıcısı adı *yourContainerName* geçersiz. Adı bir harfle başlar ve yalnızca küçük harf, rakam ve tire içeren emin olun.  
+* **Risk azaltma**: Geçerli bir depolama hesabı blob kapsayıcı adı belirtin ve işlemi yeniden deneyin.
 
 ### <a id="InvalidStorageAccountConfigurationSecretKey"></a>InvalidStorageAccountConfigurationSecretKey
-* **Açıklama**: dış depolama hesabı için yapılandırmayı *yourStorageAccountName* ayarlamak için gizli anahtar ayrıntılarını sahip olması gerekir.  
-* **Risk azaltma**: depolama hesabı için geçerli bir gizli anahtarı belirtin ve işlemi yeniden deneyin.
+* **Açıklama**: Harici depolama hesabı için yapılandırmayı *yourStorageAccountName* ayarlamak için gizli anahtar ayrıntılarını sahip olması gerekir.  
+* **Risk azaltma**: Depolama hesabı için geçerli bir gizli anahtarı belirtin ve işlemi yeniden deneyin.
 
 ### <a id="InvalidVersionHeaderFormat"></a>InvalidVersionHeaderFormat
-* **Açıklama**: sürüm üst bilgisi *yourVersionHeader* yyyy-aa-gg biçiminde geçerli biçimde değil  
-* **Risk azaltma**: sürüm üst bilgisi için geçerli bir biçim belirtin ve isteği yeniden deneyin.
+* **Açıklama**: Sürüm üst bilgisi *yourVersionHeader* yyyy-aa-gg biçiminde geçerli biçimde değil  
+* **Risk azaltma**: Sürüm üst bilgisi için geçerli bir biçim belirtin ve isteği yeniden deneyin.
 
 ### <a id="MoreThanOneHeadNode"></a>MoreThanOneHeadNode
 * **Açıklama**: Geçersiz küme yapılandırması. Birden fazla baş düğüm yapılandırması bulunamadı.  
-* **Risk azaltma**: yalnızca tek bir baş düğüm belirtilen şekilde yapılandırmasını düzenleyin.
+* **Risk azaltma**: Yalnızca tek bir baş düğüm belirtilen şekilde yapılandırmasını düzenleyin.
 
 ### <a id="OperationTimedOutRetryRequest"></a>OperationTimedOutRetryRequest
-* **Açıklama**: işlemi izin verilen sürede tamamlanamadı veya en fazla yeniden deneme mümkün çalışır. Lütfen isteği yeniden deneyin.  
-* **Risk azaltma**: isteği yeniden deneyin.
+* **Açıklama**: İşlemi izin verilen sürede tamamlanamadı veya en fazla yeniden deneme mümkün çalışır. Lütfen isteği yeniden deneyin.  
+* **Risk azaltma**: İsteği yeniden deneyin.
 
 ### <a id="ParameterNullOrEmpty"></a>ParameterNullOrEmpty
-* **Açıklama**: parametre *yourParameterName* null veya boş olamaz.  
-* **Risk azaltma**: parametresi için geçerli bir değer belirtin.
+* **Açıklama**: Parametre *yourParameterName* null veya boş olamaz.  
+* **Risk azaltma**: Parametresi için geçerli bir değer belirtin.
 
 ### <a id="PreClusterCreationValidationFailure"></a>PreClusterCreationValidationFailure
-* **Açıklama**: bir veya daha fazla küme oluşturma isteği girişleri geçerli değil. Giriş değerleri doğru olduğundan ve isteği yeniden deneyin emin olun.  
+* **Açıklama**: Bir veya daha fazla küme oluşturma isteği girişleri geçerli değil. Giriş değerleri doğru olduğundan ve isteği yeniden deneyin emin olun.  
 * **Risk azaltma**: Giriş değerleri doğru olduğundan ve isteği yeniden deneyin emin olun.
 
 ### <a id="RegionCapabilityNotAvailable"></a>RegionCapabilityNotAvailable
-* **Açıklama**: bölge özellik bölgede kullanılamıyor *yourRegionName* ve abonelik Kimliğinin *yourSubscriptionId*.  
-* **Risk azaltma**: HDInsight kümeleri destekleyen bir bölge belirtin. Genel olarak desteklenen bölgeler: Güneydoğu Asya, Batı Avrupa, Kuzey Avrupa, Doğu ABD ve Batı ABD.
+* **Açıklama**: Bölge özellik bölgede kullanılamıyor *yourRegionName* ve abonelik Kimliğinin *yourSubscriptionId*.  
+* **Risk azaltma**: HDInsight kümeleri destekleyen bir bölge belirtin. Genel olarak desteklenen bölgeleri şunlardır: Güneydoğu Asya, Batı Avrupa, Kuzey Avrupa, Doğu ABD ve Batı ABD.
 
 ### <a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
-* **Açıklama**: depolama hesabı *yourStorageAccountName* bölgede *currentRegionName*. Küme bölgede aynı olmalıdır *yourClusterRegionName*.  
-* **Risk azaltma**: kümenizin bulunduğu aynı bölgede bir depolama hesabı belirtin veya veri depolama hesabında zaten ise, depolama hesabınız ile aynı bölgede yeni bir küme oluşturun. UI portalı kullanıyorsanız, bunları bu sorunun önceden bildirir.
+* **Açıklama**: Depolama hesabı *yourStorageAccountName* bölgede *currentRegionName*. Küme bölgede aynı olmalıdır *yourClusterRegionName*.  
+* **Risk azaltma**: Kümenizin bulunduğu aynı bölgede bir depolama hesabı belirtin veya veri depolama hesabında zaten ise, depolama hesabınız ile aynı bölgede yeni bir küme oluşturun. UI portalı kullanıyorsanız, bunları bu sorunun önceden bildirir.
 
 ### <a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive
-* **Açıklama**: Belirtilen abonelik kimliği *yourSubscriptionId* etkin değil.  
-* **Risk azaltma**: aboneliğinizi yeniden etkinleştirmek ya da yeni bir geçerli aboneliği edinin.
+* **Açıklama**: Abonelik kimliği verilen *yourSubscriptionId* etkin değil.  
+* **Risk azaltma**: Aboneliğinizi yeniden etkinleştirmek ya da yeni bir geçerli abonelik alın.
 
 ### <a id="SubscriptionIdNotFound"></a>SubscriptionIdNotFound
-* **Açıklama**: abonelik kimliği *yourSubscriptionId* bulunamadı.  
+* **Açıklama**: Abonelik kimliği *yourSubscriptionId* bulunamadı.  
 * **Risk azaltma**: Abonelik Kimliğinizi geçerli olduğundan emin olun ve işlemi yeniden deneyin.
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 * **Açıklama**: DNS çözümlenemiyor *yourDnsUrl*. Lütfen blob uç noktası için tam URL sağlandığından emin olun.  
-* **Risk azaltma**: geçerli blob URL'sini sağlayın. URL olmalıdır başlayarak dahil olmak üzere tam olarak geçerli *http://* ve sonu *.com*.
+* **Risk azaltma**: Geçerli bir blob URL'sini sağlayın. URL olmalıdır başlayarak dahil olmak üzere tam olarak geçerli *http://* ve sonu *.com*.
 
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
-* **Açıklama**: kaynak konumunu doğrulanamadı *yourDnsUrl*. Lütfen blob uç noktası için tam URL sağlandığından emin olun.  
-* **Risk azaltma**: geçerli blob URL'sini sağlayın. URL olmalıdır başlayarak dahil olmak üzere tam olarak geçerli *http://* ve sonu *.com*.
+* **Açıklama**: Kaynak konumu doğrulanamadı *yourDnsUrl*. Lütfen blob uç noktası için tam URL sağlandığından emin olun.  
+* **Risk azaltma**: Geçerli bir blob URL'sini sağlayın. URL olmalıdır başlayarak dahil olmak üzere tam olarak geçerli *http://* ve sonu *.com*.
 
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
-* **Açıklama**: sürüm için kullanılabilir sürüm özelliği *specifiedVersion* ve abonelik Kimliğinin *yourSubscriptionId*.  
-* **Risk azaltma**: kullanılabilir bir sürümü seçin ve işlemi yeniden deneyin.
+* **Açıklama**: Sürüm için kullanılabilir sürüm özelliği *specifiedVersion* ve abonelik Kimliğinin *yourSubscriptionId*.  
+* **Risk azaltma**: Kullanılabilir bir sürümü seçin ve işlemi yeniden deneyin.
 
 ### <a id="VersionNotSupported"></a>VersionNotSupported
-* **Açıklama**: sürüm *specifiedVersion* desteklenmiyor.
-* **Risk azaltma**: desteklenen bir sürümünü seçin ve işlemi yeniden deneyin.
+* **Açıklama**: Sürüm *specifiedVersion* desteklenmiyor.
+* **Risk azaltma**: Desteklenen bir sürümünü seçin ve işlemi yeniden deneyin.
 
 ### <a id="VersionNotSupportedInRegion"></a>VersionNotSupportedInRegion
-* **Açıklama**: sürüm *specifiedVersion* Azure bölgesinde kullanılamıyor *specifiedRegion*.  
-* **Risk azaltma**: belirtilen bir bölgede desteklenen bir sürümünü seçin ve işlemi yeniden deneyin.
+* **Açıklama**: Sürüm *specifiedVersion* Azure bölgesinde kullanılamıyor *specifiedRegion*.  
+* **Risk azaltma**: Belirtilen bir bölgede desteklenen bir sürümünü seçin ve işlemi yeniden deneyin.
 
 ### <a id="WasbAccountConfigNotFound"></a>WasbAccountConfigNotFound
 * **Açıklama**: Geçersiz küme yapılandırması. Gerekli WASB hesap yapılandırması dış hesapları bulunamadı.  
-* **Risk azaltma**: düzgün yapılandırmasında belirtilen hesabı var ve olduğunu doğrulayın ve işlemi yeniden deneyin.
+* **Risk azaltma**: Doğru yapılandırma dosyasında belirtilen hesabı var ve olduğunu doğrulayın ve işlemi yeniden deneyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

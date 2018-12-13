@@ -1,5 +1,5 @@
 ---
-title: Azure Search'te Azure SQL veritabanlarının dizinini oluşturmak için öğretici | Microsoft Docs
+title: Azure SQL veritabanları Azure portalı - Azure Search dizini oluşturma Öğreticisi
 description: Bu öğreticide, aranabilir verileri ayıklamak ve Azure Search dizinini doldurmak için Azure SQL veritabanında gezinin.
 author: HeidiSteen
 manager: cgronlun
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: b40d3a74904d6814eb01b5d41d10632e8c9af5be
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: 872871d2ab9a9c693ad81081f24c8de68457982d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988804"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312060"
 ---
-# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Öğretici: Azure Search dizin oluşturucuları kullanarak Azure SQL veritabanında gezinme
+# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Öğretici: Azure Search dizin oluşturucuyu kullanarak bir Azure SQL veritabanında gezinin
 
 Bu öğreticide, örnek bir Azure SQL veritabanında aranabilir verileri ayıklamak için dizin oluşturucunun nasıl yapılandırılacağı gösterilir. [Dizin Oluşturucular](search-indexer-overview.md), Azure Search'ün dış veri kaynaklarında gezinen ve [arama dizinini](search-what-is-an-index.md) içerikle dolduran bir bileşenidir. Tüm dizin oluşturucular arasında, en yaygın kullanılan Azure SQL veritabanının dizin oluşturucusudur. 
 
@@ -35,7 +36,7 @@ Bu öğreticide, [Azure Search .NET istemci kitaplıklarını](https://aka.ms/se
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Azure Search hizmeti. Hizmeti ayarlamaya yardımcı olması için bkz. [Arama hizmeti oluşturma](search-create-service-portal.md).
 
@@ -272,7 +273,7 @@ Az önce programlama yoluyla oluşturduğunuz dizin oluşturucu da dahil olmak �
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Öğretici sonrasında temizlemenin en hızlı yolu, Azure Search hizmetini içeren kaynak grubunu silmektir. İçindeki her şeyi kalıcı olarak silmek için şimdi kaynak grubunu silebilirsiniz. Portalda, kaynak grubunun adı Azure Search hizmetinin Genel Bakış sayfasında yer alır.
+Bir öğretici tamamlandıktan sonra temizlemenin en hızlı yolu, Azure Search hizmetini içeren kaynak grubunu silmektir. Kaynak grubunu silerek içindeki her şeyi kalıcı olarak silebilirsiniz. Portalda kaynak grubu adı, Azure Search hizmetinin Genel Bakış sayfasında bulunur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Search'te karmaşık veri türlerini modellemek nasıl | Microsoft Docs
-description: İç içe geçmiş veya hiyerarşik veri yapılarını düzleştirilmiş satır kümesi ve koleksiyonları veri türünü kullanarak Azure Search dizini içinde modellenebilir.
+title: Karmaşık veri türlerini modelleme - Azure Search hakkında
+description: İç içe geçmiş veya hiyerarşik veri yapılarını düzleştirilmiş satır kümesi ve koleksiyon veri türü kullanarak, Azure Search dizini modellenebilir.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -9,20 +9,21 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 81298bedd43a89ea948753dffc5f80248f5429ca
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 973623d6c4cb57518af2012bccf67c969146d23c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799082"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311992"
 ---
-# <a name="how-to-model-complex-data-types-in-azure-search"></a>Azure Search'te model karmaşık veri türleri hakkında
-Azure Search dizini bazen doldurmak için kullanılan dış veri kümeleri düzgünce tablo satır kümesine bozmadığını hiyerarşik veya iç içe substructures içerir. Bu tür yapıları örnekleri birden çok konumda ve telefon numaraları, tek bir rehberi birden çok yazar gibi tek bir SKU için tek bir müşteri, birden çok renkleri ve boyutları içerir ve benzeri. Koşulları modelleme içinde olarak adlandırılan bu yapıları görebilirsiniz *karmaşık veri türlerini*, *bileşik veri türleri*, *bileşik veri türleri*, veya *veri türleri bir araya*, birkaçıdır.
+# <a name="how-to-model-complex-data-types-in-azure-search"></a>Azure Search karmaşık veri türlerini modelleme hakkında
+Bazen bir Azure Search dizinini doldurmak için kullanılan dış veri kümeleri düzgünce tablosal bir satır kümesine kesintiye uğratmadığından hiyerarşik veya iç içe substructures içerir. Bu yapıların örneklerini tek bir müşteri, birden çok renkler ve boyutlar, tek bir kitap için birden çok yazarları gibi tek bir SKU için birden çok konumda ve telefon numaralarını içerir ve benzeri. Koşulları modelleme araçlarındaki olarak adlandırılan bu yapıları görebileceğiniz *karmaşık veri türlerini*, *bileşik veri türleri*, *bileşik veri türleri*, veya *toplama veri türleri*, birkaçıdır.
 
-Karmaşık veri türleri yerel olarak Azure arama desteklenmez, ancak kanıtlanmış bir geçici çözüm yapısı düzleştirme ve ardından kullanarak iki adımlı bir işlem içerir bir **koleksiyonu** veri türü iç yapısı yeniden oluşturma. Bu makalede açıklanan teknikleri aşağıdaki aranması içerik filtre ve sıralanmış modellenmiş, sağlar.
+Karmaşık veri türleri, Azure arama'yı yerel olarak desteklenmez, ancak kendini kanıtlamış bir geçici çözüm yapısı düzleştirme ve ardından kullanarak iki adımlı bir işlem içeren bir **koleksiyon** iç yapıyı yeniden oluşturmak için veri türü. Bu makalede açıklanan tekniği aşağıdaki içeriği aratılmak üzere filtrelenir ve sıralanmış çok yönlü, sağlar.
 
 ## <a name="example-of-a-complex-data-structure"></a>Karmaşık veri yapısı örneği
-Genellikle, söz konusu veri JSON veya XML belgeleri kümesi olarak ya da Azure Cosmos DB gibi bir NoSQL deposundaki öğeleri olarak bulunur. Yapısal olarak, arama ve filtre gereken birden çok alt öğe olmaktan challenge kaynaklandığını.  Geçici çözüm gösteren için başlangıç noktası olarak kişiler bir dizi örnek olarak listeler aşağıdaki JSON belgesini alın:
+Genellikle, söz konusu verileri, JSON veya XML belgeleri bir dizi olarak veya Azure Cosmos DB gibi bir NoSQL deposu öğelerinde yer alıyor. Yapısal olarak, arama ve filtre gereken birden çok alt öğe kalmamasını sınama kaynaklanır.  Geçici çözüm gösteren bir başlangıç noktası olarak, kişiler bir dizi örnek olarak listeleyen aşağıdaki JSON belgesini alın:
 
 ~~~~~
 [
@@ -58,22 +59,22 @@ Genellikle, söz konusu veri JSON veya XML belgeleri kümesi olarak ya da Azure 
 }]
 ~~~~~
 
-'ID' alanları adlı olsa da, 'name' ve 'şirket' kolayca bire bir Azure Search dizini içinde alanlar olarak eşlenebilir, hem bir dizi konumu açıklamaları yanı sıra konumu kimlikleri sahip konumları, bir dizi 'konumları' alan içerir. O Azure Search bu destekleyen bir veri türüne sahip değil, Azure Search'te Bu model için farklı bir şekilde ihtiyacımız var. 
+'İd' alanlar adlandırılmış olsa da 'name' ve 'şirket' kolayca bire bir Azure Search dizini içindeki alanları olarak eşlenebilir, konumları, hem bir dizi konumu kimlikleri ve bunun yanı sıra konumu açıklamaları dizisi 'konum' alanı içerir. Azure Search, bunu destekleyen bir veri türü yok düşünüldüğünde, Azure Search'te Bu model için farklı bir şekilde ihtiyacımız var. 
 
 > [!NOTE]
-> Bu teknik de blog postasına Kirk Evans tarafından açıklanan [Azure Cosmos DB Azure Search dizini oluşturma](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), "veri düzleştirme" adında bir teknik gösterir adlı bir alan olurdu aslına `locationsID` ve `locationsDescription` her ikisi de olan [koleksiyonları](https://msdn.microsoft.com/library/azure/dn798938.aspx) (veya bir dizeler dizisi).   
+> Bu teknik, ayrıca Kirk Evans tarafından bir blog gönderisinde açıklanan [Azure Cosmos DB ile Azure Search dizini oluşturma](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), "veri düzleştirme" olarak adlandırılan tekniği gösterir adlı bir alan yoktur gerçekleştirilmesine `locationsID` ve `locationsDescription` her ikisi de olan [koleksiyonları](https://msdn.microsoft.com/library/azure/dn798938.aspx) (veya dizeler dizisi).   
 > 
 > 
 
-## <a name="part-1-flatten-the-array-into-individual-fields"></a>1. Kısım: dizi tek tek alanlarına düzleştirmek
-Bu veri kümesi düzenler bir Azure Search dizini oluşturmak için iç içe geçmiş düzeltilebilmenize alanları tek tek oluşturun: `locationsID` ve `locationsDescription` veri türüne sahip [koleksiyonları](https://msdn.microsoft.com/library/azure/dn798938.aspx) (veya bir dizeler dizisi). Bu alanları içine değerleri '1' ve '2' dizini `locationsID` alanında Hasan Aydın ve değerleri '3' & '4' için içine `locationsID` Jen Campbell için alan.  
+## <a name="part-1-flatten-the-array-into-individual-fields"></a>1. Bölüm: Her bir alanı dizi düzleştirme
+Bu veri kümesine gönderme bir Azure Search dizini oluşturmak için iç içe geçmiş düzeltilebilmenize alanları tek tek oluşturun: `locationsID` ve `locationsDescription` veri türüne sahip [koleksiyonları](https://msdn.microsoft.com/library/azure/dn798938.aspx) (veya dizeler dizisi). Bu alanlarda içine '1' ve '2' değerlerini dizin `locationsID` alanını John Smith ve '3' & '4' değerleri için `locationsID` Jen Campbell için alan.  
 
-Verilerinizi Azure Search içinde şöyle olabilir: 
+Azure Search içinde verilerinizin şöyle görünür: 
 
 ![Örnek veriler, 2 satır](./media/search-howto-complex-data-types/sample-data.png)
 
-## <a name="part-2-add-a-collection-field-in-the-index-definition"></a>2. Kısım: Dizin tanımı'nda koleksiyonu alan ekleme
-Dizin şemasında alan tanımları bu örneğe benzer görünür.
+## <a name="part-2-add-a-collection-field-in-the-index-definition"></a>2. Bölüm: Dizin tanımında koleksiyon alan ekleme
+Dizin şemasında alan tanımları bu örnektekine benzer görünebilir.
 
 ~~~~
 var index = new Index()
@@ -91,17 +92,17 @@ var index = new Index()
 ~~~~
 
 ## <a name="validate-search-behaviors-and-optionally-extend-the-index"></a>Arama davranışlarını doğrulamak ve isteğe bağlı olarak dizin genişletme
-Dizin oluşturulur ve veriler yüklü olduğu varsayılarak, arama sorgu yürütme dataset karşı doğrulamak için çözüm artık test edebilirsiniz. Her **koleksiyonu** alan olmalıdır **aranabilir**, **filtrelenebilir** ve **modellenebilir**. Sorgular gibi çalışır olması gerekir:
+Dizini oluşturulan ve verileri varsayıldığında, veri kümesini arama sorgu yürütmeyi doğrulamak için çözüm artık test edebilirsiniz. Her **koleksiyon** alana olmalıdır **aranabilir**, **filtrelenebilir** ve **modellenebilir**. Gibi sorguları çalıştırmak alabiliyor olmanız gerekir:
 
 * 'Adventureworks merkezde' çalışan tüm kişilerin bulun.
-* 'Giriş Office' çalışan kişilerin sayısını alır.  
-* Bir 'giriş ofiste' çalışan kişilerin her yerde kişiler sayısını birlikte çalıştıkları diğer ofislerdeki gösterir.  
+* 'Giriş Office' çalışan kişilerin sayısını alın.  
+* Bir 'ana ofiste' çalışan kişiler her yerde kişilerin sayısını birlikte çalıştıkları diğer ofislerdeki gösterir.  
 
-Hem konum kimliği, hem de konum açıklaması birleştiren bir arama yapmak gerektiğinde burada bu yöntem parçalayın döner olur. Örneğin:
+Hem konum kimliği, hem de konum açıklaması birleştiren bir arama yapmanız gereken burada bu yöntem parçalayın denk olur. Örneğin:
 
-* Bir giriş Office sahip oldukları tüm kişileri Bul ve 4'ün bir konum kimliği vardır.  
+* Giriş Office sahip olduğu tüm kişileri bulun ve 4'ün bir konum kimliği vardır.  
 
-Özgün içerik arama şu şekilde geri çağırma varsa:
+Aşağıdaki gibi görünüyordu özgün içerik geri çağırma varsa:
 
 ~~~~
    {
@@ -110,26 +111,26 @@ Hem konum kimliği, hem de konum açıklaması birleştiren bir arama yapmak ger
    }
 ~~~~
 
-Biz verilerin farklı alanlara ayrılmış, Jen Campbell teklifiyle için ancak biz olduğunu bilerek if giriş Office zorlaması `locationsID 3` veya `locationsID 4`.  
+Verileri ayrı alanlara ayırdık, Jen Campbell ilişkili olduğu için ancak biz biri olduğunu bilerek giriş Office zorlaması `locationsID 3` veya `locationsID 4`.  
 
-Bu durumu işlemek için tüm verileri tek bir koleksiyona birleştirir dizindeki başka bir alan tanımlayın.  Bizim örneğimizde, biz Bu alan çağıracak `locationsCombined` ve biz içerikle ayıracak bir `||` düşündüğünüz ayırıcı karakter içeriğiniz için benzersiz bir dizi olacaktır seçebilmenize rağmen. Örneğin: 
+Bu durumu işlemek için başka bir alan tanımlayın dizindeki tüm verileri tek bir koleksiyon birleştirir.  Bizim örneğimizde, biz Bu alan çağıracak `locationsCombined` ve içerikle ayırabiliriz bir `||` düşündüğünüz herhangi bir ayırıcı karakter içeriğiniz için benzersiz bir dizi olacaktır seçebilmenize rağmen. Örneğin: 
 
 ![Örnek veriler, 2 satır ayırıcı ile](./media/search-howto-complex-data-types/sample-data-2.png)
 
-Bu kullanarak `locationsCombined` alan, biz şimdi uyum sağlayacak daha da fazla sorguları gibi:
+Bunu kullanarak `locationsCombined` alan, biz artık uyum sağlayacak daha da fazla sorgular gibi:
 
-* Bir 'giriş ofiste' konum kimliği ile '4' ın çalışan kişilerin sayısını gösterir.  
-* Kimliği '4' konumu ile bir 'giriş ofiste' çalışan kişilerin arayın. 
+* Bir 'ana ofiste' konum kimliği, '4' çalışan kişilerin sayısını gösterir.  
+* Kimliği '4' konumu ile bir 'ana ofiste' çalışan kişiler arayın. 
 
 ## <a name="limitations"></a>Sınırlamalar
-Bu teknik senaryolar sayısı için yararlıdır, ancak her durumda geçerli değil.  Örneğin:
+Bu teknik, çeşitli senaryolar için yararlıdır, ancak her durumda geçerli değildir.  Örneğin:
 
-1. Varsa, karmaşık veri türü statik alanları kümesine sahip değildir ve olası tüm türler için tek bir alanı eşlemek için hiçbir yolu yoktu. 
-2. İç içe geçmiş nesnelerde Güncelleştirme ne Azure Search dizini güncelleştirilmesi gerektiğinde tam olarak belirlemek için bazı ek çalışmalar gerektirir
+1. Varsa, karmaşık veri türü statik alanları kümesine sahip değil ve tüm olası türleri tek bir alan için eşleme yolu yoktu. 
+2. İç içe geçmiş nesnelerde Güncelleştirme ne Azure Search dizini güncelleştirilmesi gerekiyor tam olarak belirlemek için bazı ek çalışmalar gerektirir
 
 ## <a name="sample-code"></a>Örnek kod
-Karmaşık bir JSON veri kümesi Azure Search dizini oluşturmak ve bu veri kümesi bu üzerinden sorguları bir dizi yerine konusunda bir örnek görebilirsiniz [GitHub deposuna](https://github.com/liamca/AzureSearchComplexTypes).
+Karmaşık bir JSON veri kümesi ile Azure Search dizini ve sorgu sayısı üzerinden bu veri kümesi bu gerçekleştirme hakkında bir örnek görebilirsiniz [GitHub deposunu](https://github.com/liamca/AzureSearchComplexTypes).
 
 ## <a name="next-step"></a>Sonraki adım
-[Karmaşık veri türleri için yerel destek için oy](https://feedback.azure.com/forums/263029-azure-search) üzerinde Azure arama UserVoice sayfasında ve bize özellik uygulamasıyla ilgili dikkate alınması gereken istediğiniz herhangi bir ek giriş sağlar. Da bana doğrudan Twitter'da ulaşabilirsiniz @liamca.
+[Karmaşık veri türleri için yerel destek için oy](https://feedback.azure.com/forums/263029-azure-search) Azure arama Uservoice'ta sayfasında ve bize özellik uygulamasıyla ilgili dikkate alınması gereken istediğiniz herhangi bir ek giriş sağlar. Siz de benim için doğrudan Twitter'da ulaşabilir @liamca.
 

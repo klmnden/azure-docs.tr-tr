@@ -1,5 +1,5 @@
 ---
-title: Geliştirme ortamını yapılandırma
+title: Python geliştirme ortamını ayarlama
 titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning hizmeti ile çalışırken, bir geliştirme ortamı yapılandırmayı öğrenin. Bu belgede, Conda ortamları kullanma, yapılandırma dosyalarını oluşturma ve Jupyter not defterleri, Azure not defterleri, IDE, Kod Düzenleyicisi ve veri bilimi sanal makinesi yapılandırma hakkında bilgi edinin.
 services: machine-learning
@@ -12,12 +12,12 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6e2222d56ea37983b1efafedaac8e01058cb44fa
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 59f847dc38cddfd9185cfd169cf1ef34c744f8f7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098058"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192643"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
 
@@ -25,11 +25,11 @@ Bu belgede, bir geliştirme ortamı, Azure Machine Learning hizmeti ile çalış
 
 Bu belge aşağıdaki belirli ortamlara ve araçları odaklanır:
 
-* [Azure not defterleri](#aznotebooks): Azure bulutunda barındırılan A Jupyter Notebook hizmeti. Bu __kolay__ başlama, Azure Machine Learning SDK'sı zaten yüklü olduğu yolu.
-* [Veri bilimi sanal makinesi](#dsvm): A __önceden yapılandırılmış geliştirme/deneme ortamı__ Azure bulut __veri bilimi iş için tasarlanmış__ ve ya da dağıtılabilir Yalnızca sanal makine örnekleri CPU veya GPU örnekleri temel. Python 3, Conda, Jupyter not defterleri ve Azure Machine Learning SDK'sı zaten yüklü. VM popüler ML ile gelir / ML çözümleri geliştirme çerçeveleri, Araçlar ve düzenleyicileri derin öğrenme. Büyük olasılıkla olan __en eksiksiz__ ML için Azure platformunda geliştirme ortamı.
+* [Azure not defterleri](#aznotebooks): Azure bulutunda barındırılan bir Jupyter Notebook hizmeti. Bu __kolay__ başlama, Azure Machine Learning SDK'sı zaten yüklü olduğu yolu.
+* [Veri bilimi sanal makinesi](#dsvm): A __önceden yapılandırılmış geliştirme/deneme ortamı__ Azure bulut __veri bilimi iş için tasarlanmış__ ve VM örnekleri veya GPU örneklerini alan yalnızca iki CPU için dağıtılabilir. Python 3, Conda, Jupyter not defterleri ve Azure Machine Learning SDK'sı zaten yüklü. VM popüler ML ile gelir / ML çözümleri geliştirme çerçeveleri, Araçlar ve düzenleyicileri derin öğrenme. Büyük olasılıkla olan __en eksiksiz__ ML için Azure platformunda geliştirme ortamı.
 * [Jupyter not defterleri](#jupyter): Jupyter not defterleri zaten kullanıyorsanız, SDK'yı yüklemeniz bazı ek özellikler vardır.
-* [Visual Studio Code](#vscode): Visual Studio Code kullanırsanız, yüklemek için kullanabileceğiniz bazı kullanışlı uzantılar vardır.
-* [Azure Databricks](#aml-databricks): Apache Spark tabanlı bir popüler veri analiz platformudur. Modelleri ucunuzun kümenizi üzerine Azure Machine Learning SDK'sı almayı öğrenin.
+* [Visual Studio Code'u](#vscode): Visual Studio Code kullanırsanız, yüklemek için kullanabileceğiniz bazı kullanışlı uzantılar vardır.
+* [Azure Databricks](#aml-databricks): Apache Spark tabanlı bir popüler veri analiz platformu. Modelleri ucunuzun kümenizi üzerine Azure Machine Learning SDK'sı almayı öğrenin.
 
 Python 3 ortam zaten var veya yalnızca SDK'yı yüklemek için temel adımlar istiyorsanız bkz [yerel bilgisayar](#local) bölümü.
 
@@ -212,7 +212,7 @@ Geliştirme için Visual Studio Code'u kullanmak için aşağıdaki adımları k
 
 1. Visual Studio Code için Python geliştirme kullanmayı öğrenmek için bkz. [VSCode Python'da başlama](https://code.visualstudio.com/docs/python/python-tutorial) belge.
 
-1. Conda ortam seçmek için VS Code açın ve ardından __Ctrl-Shift-P__ (Linux ve Windows) veya __komut SHIFT P__ almak için (Mac) __komut paleti__. Girin __Python: yorumlayıcı seçin__ ve ardından conda ortamı seçin.
+1. Conda ortam seçmek için VS Code açın ve ardından __Ctrl-Shift-P__ (Linux ve Windows) veya __komut SHIFT P__ almak için (Mac) __komut paleti__. Girin __Python: Yorumlayıcıyı seçme__ ve ardından conda ortamı seçin.
 
 1. SDK'sını kullanabilirsiniz doğrulamak için aşağıdaki kodu içeren yeni bir Python dosyası (.py) oluşturun. Ardından dosyayı çalıştırın:
 

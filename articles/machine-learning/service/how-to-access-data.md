@@ -1,7 +1,7 @@
 ---
-title: Veri depoları verilerine erişim
+title: Veri depoları eğitim verilerine erişim
 titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning hizmeti ile eğitim sırasında veri erişim veri depolama için depoları kullanma
+description: Azure Machine Learning hizmeti ile eğitim sırasında veri erişim veri depolama için depoları kullanmayı öğrenin
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: bce6d636dd80820732d4911c1b24ef00118b594e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 235ad729be434c8329a74e71abfe713480756316
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073475"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187152"
 ---
 # <a name="access-data-during-training-from-your-datastores"></a>Verilere erişmek, veri depoları eğitimleri sırasında
 Erişim ve Azure Machine Learning iş akışlarında verilerinizle etkileşim kurmak için bir veri deposu kullanın.

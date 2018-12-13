@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights sorgularda JSON şekillendirme işlemi için en iyi yöntemler.
-description: Time Series Insights sorgu verimliliğinizi artırmak öğrenin.
+title: Azure Time Series Insights JSON - JSON Azure Time Series Insights sorgularda şekillendirmek için en iyi yöntemler | Microsoft Docs
+description: Azure Time Series Insights sorgu verimliliğinizi artırmak öğrenin.
 services: time-series-insights
 author: ashannon7
 manager: cshankar
@@ -8,12 +8,13 @@ ms.service: time-series-insights
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: anshan
-ms.openlocfilehash: b9d5e922a9a0a5f50e2ced896f5957fbc90d7eb4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: 284bbf435c7940658753e7bbf1daff00a79d57a1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364385"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273859"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>Sorgu performansını en üst düzeye çıkarmak için JSON şekil nasıl 
 

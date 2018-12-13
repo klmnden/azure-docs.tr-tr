@@ -7,13 +7,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: c437f350e394dc8c264903508a2a5a66fa8225a7
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 7a1e440a8dc8f518e272df9e126771df54390ed5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346970"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161993"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Azure Stream Analytics sorguları sorunlarını giderme
 
@@ -47,47 +48,47 @@ Gerçek zamanlı veri işleme verileri sorgu ortasında nasıl göründüğünü
 
 Azure Stream Analytics işi aşağıdaki örnek sorguda bir akış girişi, iki başvuru verisi girişleri ve Azure tablo depolama için bir çıktı sahiptir. Sorgu adı ve kategori bilgilerini almak için iki başvuru BLOB'ları ve olay hub'ı verileri birleştirir:
 
-![SELECT INTO örnek sorgu](./media/stream-analytics-select-into/stream-analytics-select-into-query1.png)
+![Stream Analytics SELECT INTO örnek sorgu](./media/stream-analytics-select-into/stream-analytics-select-into-query1.png)
 
 İş çalışıyor, ancak çıkış olay üretilen unutmayın. Üzerinde **izleme** kutucuk, giriş, veri üretir, ancak hangi adımında tanımadığınız görürsünüz, burada gösterilen **katılın** tüm olayları bırakılmasına neden oldu.
 
-![İzleme kutucuğu](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
+![Stream Analytics izleme kutucuğu](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
  
 Bu durumda, "Ara sonuçları birleştirme ve girdiden okunan verileri günlüğe kaydetmek için" birkaç ek SELECT INTO deyimleri ekleyebilirsiniz.
 
 Bu örnekte, iki yeni "geçici çıktı." ekledik İstediğiniz herhangi bir havuza olabilirler. Burada Azure depolama örnek olarak kullanırız:
 
-![Ek SELECT INTO deyimleri ekleme](./media/stream-analytics-select-into/stream-analytics-select-into-outputs.png)
+![Ek SELECT INTO deyimleri için Stream Analytics sorgusu ekleme](./media/stream-analytics-select-into/stream-analytics-select-into-outputs.png)
 
 Ardından, böyle bir sorgu yazabilirsiniz:
 
-![SELECT INTO sorgusunu yeniden](./media/stream-analytics-select-into/stream-analytics-select-into-query2.png)
+![Yeniden seçin içine Stream Analytics sorgusu](./media/stream-analytics-select-into/stream-analytics-select-into-query2.png)
 
 Artık işi yeniden başlatın ve birkaç dakikalığına çalışmasına olanak tanır. Ardından sorgu temp1 ve temp2 Gezgini'yle Visual Studio bulut aşağıdaki tablolar oluşturmak için:
 
 **temp1 tablo**
-![SELECT INTO temp1 tablo](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
+![temp1 tabloda Stream Analytics sorgu SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
 
 **temp2 tablo**
-![SELECT INTO temp2 tablo](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
+![temp2 tabloda Stream Analytics sorgu SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
 
 Gördüğünüz gibi temp1 ve temp2 veriniz varsa ve Ad sütununda doğru temp2 doldurulur. Ancak, olduğundan hala veri çıkışında, bir şey yanlış:
 
-![SELECT INTO output1 tabloyla veri yok](./media/stream-analytics-select-into/stream-analytics-select-into-out-table-1.png)
+![SELECT INTO output1 tabloyla veri Stream Analytics sorgu yok](./media/stream-analytics-select-into/stream-analytics-select-into-out-table-1.png)
 
 Verileri yeniden örnekleyerek, sorunu ikinci birleşim ile neredeyse emin olabilirsiniz. Başvuru verileri blob indirmek ve bir göz atalım:
 
-![SELECT INTO başvuru tablosu](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-1.png)
+![Başvuru tablo Stream Analytics sorgu SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-1.png)
 
 Gördüğünüz gibi bu başvuru verilerinde GUID'sinin biçimi biçiminden farklıdır [sütundan] temp2. İşte bu verileri içinde output1 beklendiği gibi geldiğinde kaydetmedi.
 
 Veri biçimi düzeltin, bunu blob başvurusu ve yeniden deneyin:
 
-![SELECT INTO geçici tablo](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-2.png)
+![SELECT INTO geçici tablo Stream Analytics sorgusu](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-2.png)
 
 Bu kez, çıktı verileri biçimlendirilmiş ve beklendiği şekilde doldurulur.
 
-![SELECT INTO tablonun son halini](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
+![Tablonun son halini Stream Analytics sorgu SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
 
 ## <a name="get-help"></a>Yardım alın
 

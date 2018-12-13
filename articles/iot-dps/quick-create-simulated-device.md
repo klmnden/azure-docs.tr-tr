@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c2f5ff778b49ffb544c53b41cf515e820d646249
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 3ae454be8327c1f9ce605899e4b26105d44ab0f6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157862"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189311"
 ---
-# <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Hızlı başlangıç: Azure IoT C SDK'sını kullanarak simülasyon TPM cihazı sağlama
+# <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Hızlı Başlangıç: Azure IOT C SDK'sını kullanarak sanal bir TPM cihazı sağlama
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
@@ -25,14 +25,14 @@ Bu hızlı başlangıçta, Windows geliştirme makinesi üzerinde Güvenilir Pla
 Otomatik sağlama işlemini bilmiyorsanız, [Otomatik sağlama kavramlarını](concepts-auto-provisioning.md) gözden geçirin. Ayrıca, bu hızlı başlangıçla devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalla ayarlama](./quick-setup-auto-provision.md) bölümünde bulunan adımları tamamladığınızdan emin olun. 
 
 Azure IoT Cihaz Sağlama Hizmeti iki tür kaydı destekler:
-- [Kayıt grupları](concepts-service.md#enrollment-group): Birden fazla ilgili cihazı kaydetmek için kullanılır.
+- [Kayıt grupları](concepts-service.md#enrollment-group): Birden çok ilgili cihazları kaydetmek için kullanılır.
 - [Bireysel kayıtlar](concepts-service.md#individual-enrollment): Tek bir cihazı kaydetmek için kullanılır.
 
 Bu makalede bireysel kayıtlar gösterilmektedir.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * ["C++ ile masaüstü geliştirme"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) iş yükünün etkinleştirildiği Visual Studio 2015 veya [Visual Studio 2017](https://www.visualstudio.com/vs/).
 * [Git](https://git-scm.com/download/)'in en son sürümünün yüklemesi.
@@ -142,15 +142,15 @@ Bu bölümde, çalışır ve 2321 ile 2322 numaralı bağlantı noktaları üzer
 
 3. **Kayıt ekle** altında aşağıdaki bilgileri girin ve **Kaydet** düğmesine tıklayın.
 
-    - **Mekanizma**: Kimlik onay *Mekanizması* olarak **TPM** seçeneğini belirleyin.
-    - **Onay anahtarı:** *tpm_device_provision* projesini çalıştırarak TPM cihazınız için oluşturduğunuz *Onay anahtarı*'nı girin.
-    - **Kayıt kimliği:** *tpm_device_provision* projesini çalıştırarak TPM cihazınız için oluşturduğunuz *Kayıt kimliği*'ni girin.
-    - **IoT Edge cihazı:** **Devre dışı bırak**'ı seçin.
-    - **IoT Hub Cihaz kimliği:** Cihaza bir kimlik vermek için **test-docs-device** girin.
+    - **Mekanizması:** Kimlik onay *Mekanizması* olarak TPM seçeneğini belirleyin.
+    - **Onay anahtarı:** Girin *onay anahtarını* çalıştırarak TPM cihazınız için oluşturulan *tpm_device_provision* proje.
+    - **Kayıt Kimliği:** Girin *kayıt kimliği* çalıştırarak TPM cihazınız için oluşturulan *tpm_device_provision* proje.
+    - **IOT Edge cihazı:** Seçin **devre dışı**.
+    - **IOT Hub cihaz kimliği:** Girin **test-docs-device** cihaz kimliği vermek için
 
-    ![Portala cihaz kayıt bilgilerini girme](./media/quick-create-simulated-device/enter-device-enrollment.png)  
+      ![Portala cihaz kayıt bilgilerini girme](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
-    Kayıt başarıyla tamamlanınca cihazınızın *Kayıt Kimliği* listenin altında *Tek Tek Kayıtlar* sekmesinde görünür. 
+      Kayıt başarıyla tamamlanınca cihazınızın *Kayıt Kimliği* listenin altında *Tek Tek Kayıtlar* sekmesinde görünür. 
 
 
 <a id="firstbootsequence"></a>

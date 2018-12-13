@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
-ms.openlocfilehash: 6ce737cb221b948a1cc25b8a441d3b623915662b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ceb3f1da742c79d80398b87b9c4880781175690c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466540"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321520"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Sanal makine ölçek kümesi Azure Portalı'nda otomatik olarak ölçeklendirme
 Ölçek kümesi oluşturduğunuzda, çalıştırmak istediğiniz sanal makine örneği sayısını tanımlarsınız. Uygulamanızın talebi değiştikçe, sanal makine örneklerinin sayısını otomatik olarak artırabilir veya azaltabilirsiniz. Otomatik ölçeklendirme özelliği, uygulamanızın yaşam döngüsü boyunca uygulama performansındaki değişikliklere veya müşteri taleplerine ayak uydurmanıza olanak tanır.
@@ -131,4 +131,4 @@ Bu makalede, yatay olarak genişletmek ve artırmak veya azaltmak için otomatik
 
 Sanal makine örnekleriniz yönetme hakkında daha fazla bilgi için bkz: [Yönet sanal makine ölçek kümeleri Azure PowerShell ile](virtual-machine-scale-sets-windows-manage.md).
 
-Tetikleyici, otomatik ölçeklendirme kuralları taktirde uyarı oluşturma konusunda bilgi almak için bkz: [e-posta ve Web kancası, Azure İzleyici'de uyarı bildirimleri göndermek için otomatik ölçeklendirme eylemleri kullanın](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md). Ayrıca [e-posta ve Web kancası, Azure İzleyici'de uyarı bildirimleri göndermek için Denetim günlükleri kullanın](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
+Tetikleyici, otomatik ölçeklendirme kuralları taktirde uyarı oluşturma konusunda bilgi almak için bkz: [e-posta ve Web kancası, Azure İzleyici'de uyarı bildirimleri göndermek için otomatik ölçeklendirme eylemleri kullanın](../azure-monitor/platform/autoscale-webhook-email.md). Ayrıca [e-posta ve Web kancası, Azure İzleyici'de uyarı bildirimleri göndermek için Denetim günlükleri kullanın](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).

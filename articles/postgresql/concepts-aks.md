@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.date: 11/27/2018
 ms.topic: article
-ms.openlocfilehash: 86474fe612fb93f3a5853f9fea98eb9ab2dd00e5
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 770a583ad09ec1aaa8191f5dafb3db61b2386e68
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52337064"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166243"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql"></a>PostgreSQL için Azure Kubernetes hizmeti ve Azure veritabanına bağlanma
 
@@ -39,7 +39,7 @@ AKS kümenizi accelerated networking olup olmadığını doğrulayabilirsiniz:
 ## <a name="open-service-broker-for-azure"></a>Azure için Açık Hizmet Aracısı 
 [Azure için hizmet Aracısı'nı açın](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA), Azure hizmetlerinden doğrudan Kubernetes veya Cloud Foundry sağlama olanak sağlar. Bu bir [açık hizmet Aracısı API](https://www.openservicebrokerapi.org/) Azure için uygulama.
 
-OSBA ile PostgreSQL için Azure veritabanı oluşturma ve AKS kümenizi Kubernetes doğal dil kullanarak bağlayın. OSBA ve Azure veritabanı için PostgreSQL birlikte üzerinde nasıl kullanılacağı hakkında bilgi edinin [OSBA Github sayfasına](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/postgresql.md). 
+OSBA ile PostgreSQL için Azure veritabanı oluşturma ve AKS kümenizi Kubernetes doğal dil kullanarak bağlayın. OSBA ve Azure veritabanı için PostgreSQL birlikte üzerinde nasıl kullanılacağı hakkında bilgi edinin [OSBA GitHub sayfasına](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/postgresql.md). 
 
 
 ## <a name="connection-pooling"></a>Bağlantı havuzu

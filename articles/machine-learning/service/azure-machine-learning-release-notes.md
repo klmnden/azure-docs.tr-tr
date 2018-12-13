@@ -1,5 +1,5 @@
 ---
-title: Yenilikler
+title: Sürümde yenilikler nelerdir?
 titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning hizmeti için en son güncelleştirmeleri hakkında bilgi edinin.
 services: machine-learning
@@ -11,18 +11,18 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: ea9f8e07b627b7f3554e390063d61ef984f30dad
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 73f4aeb77124c21a07771ab080b88a56231e50da
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105147"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185724"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
 Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin. 
 
-## <a name="2018-12-04-general-availability"></a>2018-12-04: Genel kullanılabilirlik
+## <a name="2018-12-04-general-availability"></a>2018-12-04: Genel Erişilebilirlik
 
 Azure Machine Learning hizmeti genel kullanıma sunulmuştur.
 
@@ -235,7 +235,7 @@ Bkz: [bilinen sorunların listesi](resource-known-issues.md) bilinen hataların 
 
 ## <a name="2018-09-public-preview-refresh"></a>2018-09 (genel Önizleme yenileme)
 
-Bir yeni, tamamen Azure Machine Learning sürümü yenilendi: Bu sürüm hakkında daha fazla bilgi: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
+Azure Machine Learning, yeni ve tümüyle yenilenmiş bir sürüm: Bu sürüm hakkında daha fazlasını okuyun: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
 ## <a name="older-notes-sept-2017---jun-2018"></a>Eski Notlar: Eylül 2017 - Haziran 2018
 ### <a name="2018-05-sprint-5"></a>2018-05 (sprint 5)
@@ -452,7 +452,7 @@ Azure Machine Learning üçüncü güncelleştirmeye Hoş Geldiniz. Bu güncelle
 Bu sürümde, güvenlik, kararlılık ve sürdürülebilirliği workbench uygulaması, CLI ve arka uç Hizmetleri katmanı geliştirmeler yaptık. Ve frowns çok gülümsemeler gönderdiğiniz için teşekkür ederiz. Çoğu güncelleştirmeleri doğrudan geri bildirim sonuçlarını yapılır. Bunları devam ettirmeye kararlıyız!
 
 #### <a name="notable-new-features"></a>Önemli yeni özellikler
-- Azure ML, artık iki yeni Azure bölgelerinde: **Batı Avrupa** ve **Güneydoğu Asya**. Önceki bölgeleri katılmaları **Doğu ABD 2**, **Batı Orta ABD**, ve **Avustralya Doğu**, toplam sayısı getirme dağıtılan bölgeleri için beş.
+- Azure ML, artık iki yeni Azure bölgelerinde kullanılabilir: **Batı Avrupa** ve **Güneydoğu Asya**. Önceki bölgeleri katılmaları **Doğu ABD 2**, **Batı Orta ABD**, ve **Avustralya Doğu**, toplam sayısı getirme dağıtılan bölgeleri için beş.
 - Okuma ve düzenleme Python kaynak kodu daha kolay hale getirmek için Workbench uygulamasında Python kodu, sözdizimi vurgulamalı etkinleştirdik. 
 - Şimdi, doğrudan bir dosyadan yerine tüm projeye en sevdiğiniz IDE de başlatabilirsiniz.  Workbench'te bir dosyanın açılmasını ve "Düzenle"'yi tıklatarak IDE'nizi (şu anda VS Code ve PyCharm desteklenir) geçerli dosya ve proje başlatır.  Ayrıca Workbench metin düzenleyicide dosyayı düzenlemek için Düzenle düğmesini yanındaki oka tıklayabilirsiniz.  Düzenleme, yanlışlıkla yapılan değişiklikleri engelleyerek tıklayana kadar dosyaları salt okunurdur.
 - Popüler çizim kitaplığını `matplotlib` sürüm 2.1.0 artık Workbench uygulaması ile birlikte gönderilir.
@@ -542,7 +542,7 @@ Her bileşen bölümünde Azure Machine Learning'de bu sprint ayrıntılı günc
 - Kullanıcı uygulama oturumunu açtığında Jupyter sunucusu artık düzgün bir şekilde kapanıyorsa öyle kapanır.
 
 ##### <a name="azure-portal"></a>Azure portal
-- Deneme hesabı ve Model Yönetimi hesabı artık oluşturulabilir iki yeni Azure bölgelerinde: Batı Avrupa ve Güneydoğu Asya.
+- Deneme hesabı ve Model Yönetimi hesabı artık iki yeni Azure bölgelerinde oluşturulabilir: Batı Avrupa ve Güneydoğu Asya.
 - Aboneliği için oluşturulan ilk hesaptır, model Yönetimi hesabı geliştirme ve test planı yalnızca kullanıma sunuldu. 
 - Azure portalında Yardım bağlantısı için doğru belgeler sayfası işaret edecek şekilde güncelleştirilir.
 - Geçerli olmadığından açıklama alanı Docker görüntü ayrıntıları sayfasından kaldırılır.

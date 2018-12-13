@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: a27513f9ae3d2b4cfff77f4fd410fdc77e060feb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 8d062108dbb27095e978b4973cb7bc5172a4d814
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081685"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186285"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics SSS
 Bu Microsoft FAQ, Microsoft azure'da Log Analytics hakkında sık sorulan soruların listesini içerir. Log Analytics hakkında ek sorularınız varsa, Git [tartışma forumuna](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
@@ -27,13 +26,13 @@ Bu Microsoft FAQ, Microsoft azure'da Log Analytics hakkında sık sorulan sorula
 
 ## <a name="new-logs-experience"></a>Yeni günlükleri deneyimi
 
-### <a name="q-whats-the-difference-between-the-new-logs-experience-and-log-analytics"></a>S: yeni günlükleri deneyimi ve Log Analytics arasındaki fark nedir?
+### <a name="q-whats-the-difference-between-the-new-logs-experience-and-log-analytics"></a>S: Yeni deneyimi günlükleri ve Log Analytics arasındaki fark nedir?
 
 Y: Bunlar aynı şeydir. [Log Analytics'e tümleşik Azure İzleyici'de bir özellik olarak](../../azure-monitor/azure-monitor-rebrand.md) daha birleşik izleme deneyimi sağlamak. Azure İzleyici'de yeni günlükleri deneyimini tam olarak birçok müşteri zaten kullanmakta olduğunuz Log Analytics sorguları ile aynıdır.
 
-### <a name="q-can-i-still-use-log-search"></a>Günlük araması kullanabilir miyim? 
+### <a name="q-can-i-still-use-log-search"></a>S: Günlük araması kullanmaya devam miyim? 
 
-Y: günlük araması hala kullanılabilir OMS portalında ve adla Azure portalında şu anda **günlükleri (Klasik)**. OMS portalında resmi olarak 15 Ocak 2019 üzerinde kullanımdan kaldırılacaktır. Azure portalında Klasik günlükleri deneyimi yavaş yavaş kullanımdan kaldırılacak ve yerini yeni günlükleri deneyimi. 
+Y: Günlük araması hala kullanılabilir OMS portalında ve adla Azure portalında şu anda **günlükleri (Klasik)**. OMS portalında resmi olarak 15 Ocak 2019 üzerinde kullanımdan kaldırılacaktır. Azure portalında Klasik günlükleri deneyimi yavaş yavaş kullanımdan kaldırılacak ve yerini yeni günlükleri deneyimi. 
 
 ### <a name="q-can-i-still-use-advanced-analytics-portal"></a>S. Gelişmiş analiz portalını kullanabilir miyim? 
 Azure portalında yeni günlükleri deneyimi Gelişmiş analiz portalında bağlıdır, ancak yine de Azure portal dışında erişilebilir. Bu dış portal devre dışı bırakma için yol haritası yakında duyurulacaktır.
@@ -44,7 +43,7 @@ Azure portalında yeni günlükleri deneyimi Gelişmiş analiz portalında bağl
 
 ### <a name="q-how-do-i-extract-custom-fields-in-the-new-logs-experience"></a>S. Özel alanları yeni günlükleri deneyiminde nasıl çıkarabilirim? 
 
-Y: özel alanlar ayıklama günlükleri deneyimi Klasik şu anda desteklenmiyor. 
+Y: Özel alanlar Klasik desteklenen ayıklama günlükleri karşılaşırsınız. 
 
 ### <a name="q-where-do-i-find-list-view-in-the-new-logs"></a>S. Liste Görünümü'ndeki yeni günlükleri nerede bulabilirim? 
 
@@ -52,19 +51,19 @@ Y: Liste Görünümü'ndeki yeni günlükleri kullanılamaz. Sonuçları tabloda
 
 ### <a name="q-after-running-a-query-a-list-of-suggested-filters-shows-up-but-it-doesnt-include-all-filters-how-can-i-see-the-rest"></a>S. Bir sorgu çalıştırdıktan sonra önerilen filtrelerinin listesi gösterilir, ancak tüm filtreleri içermez. Rest nasıl görebilirim? 
 
-Y: şu anda gördüğünüz yeni filtreleri uygulamayı önizlemesidir. Bu artık UI 10.000 kaydı sınırına göre sınırlı kalmak yerine tam Sonuç kümenizi temel alır. Şu anda en popüler filtreleri ve her filtre için en yaygın 10 değerleri listesi budur. 
+Y: Şu anda gördüğünüz yeni filtreleri uygulamayı önizlemesidir. Bu artık UI 10.000 kaydı sınırına göre sınırlı kalmak yerine tam Sonuç kümenizi temel alır. Şu anda en popüler filtreleri ve her filtre için en yaygın 10 değerleri listesi budur. 
 
-### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>S. Neden iletisi alıyorum hata: "Kayıt kaynak Sağlayıcısı 'Bu sorgu etkinleştirmek için Microsoft.Insights' Bu abonelik için" günlüklere sonrası ayrıntılara VM'den? 
+### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>S. Neden bir hata alıyorum: "Kaynak Sağlayıcısı 'Bu sorgu etkinleştirmek için Microsoft.Insights' Bu abonelik için günlüklere sonrası ayrıntılara VM'den Kaydet"? 
 
-Y: varsayılan olarak, birçok kaynak sağlayıcısı otomatik olarak kaydedilir, ancak, bazı kaynak sağlayıcıları elle kaydetmeniz gerekebilir. Bu, aboneliğinizin kaynak sağlayıcısı ile çalışacak şekilde yapılandırır. Kayıt için kapsam her zaman aboneliktir. Daha fazla bilgi için bkz. [Kaynak sağlayıcıları ve türleri](../../azure-resource-manager/resource-manager-supported-services.md#portal).
+Y: Varsayılan olarak, birçok kaynak sağlayıcısı otomatik olarak kaydedilir, ancak, bazı kaynak sağlayıcıları elle kaydetmeniz gerekebilir. Bu, aboneliğinizin kaynak sağlayıcısı ile çalışacak şekilde yapılandırır. Kayıt için kapsam her zaman aboneliktir. Daha fazla bilgi için bkz. [Kaynak sağlayıcıları ve türleri](../../azure-resource-manager/resource-manager-supported-services.md#portal).
 
 ### <a name="q-why-am-i-am-getting-no-access-error-message-when-accessing-logs-from-a-vm-page"></a>S. Ben neden günlükleri bir VM sayfasından erişirken erişim hata iletisi alıyorum? 
 
-Y: VM günlüklerini görüntülemek için VM günlüklerine depolayan okuma izni çalışma alanları verilmesi gerekir. Bu gibi durumlarda yöneticinize ile azure'da izinlerini sağlamanız gerekir.
+Y: Sanal makine günlükleri görüntülemek için VM günlüklerine depolayan okuma izni çalışma alanları verilmesi gerekir. Bu gibi durumlarda yöneticinize ile azure'da izinlerini sağlamanız gerekir.
 
 ### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>S. OMS portalında çalışma Alanım erişebilirim, ancak hata alıyorum neden "Azure portalında erişiminiz yok"?  
 
-Y: azure'da bir çalışma alanına erişmek için atanan Azure izinleri olmalıdır. Burada uygun erişim izni olmayabilir bazı durumlar vardır. Bu gibi durumlarda yöneticinize Azure.See de izinlerle sağlamanız gerekir [Azure'a taşıyarak OMS portalında](/../../azure-monitor/platform/oms-portal-transition.md) daha fazla bilgi için.
+Y: Azure'da bir çalışma alanına erişmek için atanan Azure izinleri olmalıdır. Burada uygun erişim izni olmayabilir bazı durumlar vardır. Bu gibi durumlarda yöneticinize Azure.See de izinlerle sağlamanız gerekir [Azure'a taşıyarak OMS portalında](/../../azure-monitor/platform/oms-portal-transition.md) daha fazla bilgi için.
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>S. Neden Görünüm Tasarımcısı giriş günlüklerinde göremiyorum olamaz? 
 Y: Görünüm Tasarımcısı yalnızca katkıda bulunan izinlerine sahip ya da daha yüksek atanan kullanıcılar için günlüklerde kullanılabilir.
@@ -78,20 +77,20 @@ A. Evet, Azure ve Gelişmiş analiz portalını günlükleri sayfasında aynı k
 
 ### <a name="q-how-can-i-see-my-views-and-solutions-in-azure-portal"></a>S. My görünümler ve çözümler Azure portalında nasıl görebilirim? 
 
-A: Azure portalında görünümleri ve yüklü çözümleri bir listesi bulunur. **Tüm hizmetler**’e tıklayın. Kaynak listesinde seçin **İzleyici**, ardından **... Daha fazla**. Son kullanılan çalışma alanına seçtiğiniz, ancak diğer çalışma alanı seçebilirsiniz. 
+Y: Azure portalında görünümleri ve yüklü çözümleri listesi kullanılabilir. **Tüm hizmetler**’e tıklayın. Kaynak listesinde seçin **İzleyici**, ardından **... Daha fazla**. Son kullanılan çalışma alanına seçtiğiniz, ancak diğer çalışma alanı seçebilirsiniz. 
 
 ### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>S. Batı Orta ABD bölgesinde çalışma alanları neden oluşturamıyorum? 
 
-Cevap: bu bölgedir geçici kapasite üst sınırına ulaştı. Sınır içinde 2019'in ilk yarısında ilgilenilmesi yayılması planlanmaktadır.
+Y: Geçici kapasite sınırında bölgedir. Sınır içinde 2019'in ilk yarısında ilgilenilmesi yayılması planlanmaktadır.
 
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>S. Log Analytics aracı aynı zamanda Azure Güvenlik Merkezi olarak kullanıyor mu?
 
-Y: erken Haziran 2017'de, veri toplamak ve depolamak için Microsoft Monitoring Agent'ı kullanarak Azure Güvenlik Merkezi başladı. Daha fazla bilgi için bkz. [Azure Güvenlik Merkezi Platform geçişi ile ilgili SSS](../../security-center/security-center-enable-data-collection.md).
+Y: Haziran 2017'in, veri toplamak ve depolamak için Microsoft Monitoring Agent'ı kullanarak Azure Güvenlik Merkezi başladı. Daha fazla bilgi için bkz. [Azure Güvenlik Merkezi Platform geçişi ile ilgili SSS](../../security-center/security-center-enable-data-collection.md).
 
 ### <a name="q-what-checks-are-performed-by-the-ad-and-sql-assessment-solutions"></a>S. Hangi denetimleri AD tarafından gerçekleştirilir ve SQL değerlendirmesi çözümleri?
 
-Y: aşağıdaki sorgu, şu anda gerçekleştirilen tüm denetimleri açıklamasını gösterir:
+Y: Aşağıdaki sorgu, şu anda gerçekleştirilen tüm denetimleri açıklamasını gösterir:
 
 ```
 (Type=SQLAssessmentRecommendation OR Type=ADAssessmentRecommendation) | dedup RecommendationId | select FocusArea, ActionArea, Recommendation, Description | sort Type, FocusArea,ActionArea, Recommendation
@@ -101,17 +100,17 @@ Sonuçlar daha sonra daha fazla inceleme için Excel'e aktarılabilir.
 
 ### <a name="q-why-do-i-see-something-different-than-oms-in-the-system-center-operations-manager-console"></a>S. System Center Operations Manager konsolunda OMS farklı bir şey neden görüyorum?
 
-Y: hangi güncelleştirme paketi Operations bulunduğunuz Manager'ın yapılandırmanıza bağlı olarak, bir düğüm görebilirsiniz *System Center Advisor*, *operasyonel İçgörüler*, veya *Log Analytics*.
+Y: Hangi güncelleştirme paketi Operations bulunduğunuz Manager'ın bağlı olarak, bir düğüm görebilirsiniz *System Center Advisor*, *operasyonel İçgörüler*, veya *Log Analytics*.
 
 Metin dizesi güncelleştirmeye *OMS* el ile içeri aktarılması gereken bir yönetim paketinde bulunur. Geçerli metin ve işlevleri görmek için en son System Center Operations Manager güncelleştirme paketi KB makale yönergeleri izleyin ve konsolu yenileyin.
 
-### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>S: bir Log Analytics şirket içi sürümü var mı?
+### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>S: Log analytics'in bir şirket içi sürümü var mı?
 
-C: Hayır. Log Analytics'e işleyen ve büyük miktarlarda veri depolayan bir ölçeklenebilir bir bulut hizmetidir. 
+Y: Hayır. Log Analytics'e işleyen ve büyük miktarlarda veri depolayan bir ölçeklenebilir bir bulut hizmetidir. 
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>S. Log Analytics, artık veri topluyor, sorunlarını nasıl giderebilirim?
 
-Y: için bir abonelik ve açıktır, 2 Nisan 2018 tarihinden önce oluşturulan çalışma alanı *ücretsiz* fiyatlandırma katmanı, günde 500 MB veri gönderdiyseniz, günün geri kalanı için veri toplamayı durdurur. Günlük sınıra ulaşılması Log Analytics Veri toplamayı durdurur ya da veri eksik gibi görünüyor yaygın bir nedenidir.  
+Y: Bir abonelik ve açıktır, 2 Nisan 2018 tarihinden önce oluşturulan çalışma alanı için *ücretsiz* fiyatlandırma katmanı, günde 500 MB veri gönderdiyseniz, günün geri kalanı için veri toplamayı durdurur. Günlük sınıra ulaşılması Log Analytics Veri toplamayı durdurur ya da veri eksik gibi görünüyor yaygın bir nedenidir.  
 
 Log Analytics, olay türü oluşturur *sinyal* ve veri toplamayı durdurur belirlemek için kullanılabilir. 
 
@@ -134,7 +133,7 @@ Log Analytics'e UTC saatini kullanır ve her günün gece yarısı UTC başlatı
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>S. Veri toplama durduğunda nasıl uyarılabilirim?
 
-Y: açıklanan adımları kullanın [yeni günlük uyarısı oluşturma](../../monitoring-and-diagnostics/alert-metric.md) veri toplamayı durdurur bildirilmesini sağlamak için.
+Y: İçinde açıklanan adımları kullanın [yeni günlük uyarısı oluşturma](../../azure-monitor/platform/alerts-metric.md) veri toplamayı durdurur bildirilmesini sağlamak için.
 
 Veri toplama durduğunda için uyarı oluştururken şu ayarları yapın:
 
@@ -148,7 +147,7 @@ Veri toplama durduğunda için uyarı oluştururken şu ayarları yapın:
    - **Adı** için *veri toplama durduruldu*
    - **Önem derecesi**: *Uyarı*
 
-Mevcut bir belirtin veya yeni bir [eylem grubu](../../monitoring-and-diagnostics/monitoring-action-groups.md) zaman günlüğü uyarısı ölçütleri ile eşleşen böylece 15 dakikadan fazla bir süre için eksik sinyal varsa size bildirilir.
+Mevcut bir belirtin veya yeni bir [eylem grubu](../../azure-monitor/platform/action-groups.md) zaman günlüğü uyarısı ölçütleri ile eşleşen böylece 15 dakikadan fazla bir süre için eksik sinyal varsa size bildirilir.
 
 ## <a name="configuration"></a>Yapılandırma
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>S. Azure tanılama (WAD) okumak için kullanılan tablo/blob kapsayıcının adını değiştirebilirim?
@@ -177,34 +176,34 @@ Verileri bir Log Analytics çalışma alanından diğerine taşıma veya Log Ana
 
 ### <a name="q-how-do-i-add-log-analytics-to-system-center-operations-manager"></a>S: System Center Operations Manager için Log Analytics nasıl ekleyebilirim?
 
-A: en son güncelleştirme paketi için güncelleştiriliyor ve yönetim paketlerini içeri aktarma, Operations Manager'ı Log Analytics'e bağlamak sağlar.
+Y:  En son güncelleştirme paketi için güncelleştirme ve yönetim paketlerini içeri aktarma, Operations Manager'ı Log Analytics'e bağlamak sağlar.
 
 >[!NOTE]
 >Log Analytics için Operations Manager bağlantısı, yalnızca System Center Operations Manager 2012 SP1 ve sonraki sürümlerinde kullanılabilir.
 
-### <a name="q-how-can-i-confirm-that-an-agent-is-able-to-communicate-with-log-analytics"></a>S: bir aracının Log Analytics ile iletişim kuramıyor, nasıl doğrulayabilirim?
+### <a name="q-how-can-i-confirm-that-an-agent-is-able-to-communicate-with-log-analytics"></a>S: Bir aracının Log Analytics ile iletişim kuramıyor, nasıl doğrulayabilirim?
 
-Y: aracı OMS ile iletişim kurabildiğinden emin olmak için şu adrese gidin: Denetim Masası, güvenlik ve ayarları **Microsoft Monitoring Agent**.
+Y: Aracı OMS ile iletişim kurabildiğinden emin olmak için şuraya gidin: Denetim Masası, güvenlik & ayarları **Microsoft İzleme Aracısı**.
 
 Altında **Azure Log Analytics (OMS)** sekmesinde, yeşil bir onay işareti için bakın. Yeşil onay işareti simgesine, aracıyı Azure hizmeti ile iletişim kurabildiğini olduğunu doğrular.
 
 Sarı bir uyarı simgesi, aracının Log Analytics ile iletişimi sorunları yaşıyor anlamına gelir. Yaygın nedenlerinden biri, Microsoft Monitoring Agent hizmeti durduruldu ' dir. Hizmeti yeniden başlatmak için Hizmet Denetimi Yöneticisi'ni kullanın.
 
-### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>S: nasıl Log Analytics ile iletişim kurmasını aracıyı durdurulsun mu?
+### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>S: Log Analytics ile iletişim kurmasını Aracı nasıl durdururum?
 
-Y: System Center Operations Manager'da, bilgisayarın OMS yönetilen bilgisayarlar listesinden kaldırın. Operations Manager artık rapor Log analytics'e aracının yapılandırmasını güncelleştirir. Doğrudan log Analytics'e bağlı aracılar için bunları aracılığıyla iletişim kurmasını durdurabilirsiniz: Denetim Masası, güvenlik ve ayarları **Microsoft Monitoring Agent**.
+Y: System Center Operations Manager bilgisayarı OMS yönetilen bilgisayarlar listesinden kaldırın. Operations Manager artık rapor Log analytics'e aracının yapılandırmasını güncelleştirir. Doğrudan log Analytics'e bağlı aracılar için bunları aracılığıyla iletişim kurmasını engellemek: Denetim Masası, güvenlik & ayarları **Microsoft İzleme Aracısı**.
 Altında **Azure Log Analytics (OMS)**, listelenen tüm çalışma alanlarını kaldırın.
 
-### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>S: neden çalışma Alanım'ı bir Azure aboneliğine ait diğerine taşımak çalıştığınızda bir hata alıyorum?
+### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>S: Çalışma Alanım'ı bir Azure aboneliğine ait diğerine taşımak çalıştığınızda bir hata neden alıyorum?
 
-A: bir çalışma alanı farklı bir abonelik veya kaynak grubuna taşımak için önce çalışma alanındaki Otomasyon hesabının bağlantısını kaldırmanız gerekir. Bir Otomasyon hesabının bağlantısını gerektiriyorsa Bu çözümleri kaldırılmasını çalışma alanınızda yüklü: güncelleştirme yönetimi, değişiklik izleme veya Vm'leri çalışma saatleri dışında başlatma/durdurma kaldırılır. Bu çözümleri kaldırdıktan sonra seçerek Otomasyon hesabının bağlantısını kaldırmanız **bağlı çalışma alanları** tıklayın ve sol bölmede Otomasyon hesabı kaynak **çalışma alanının bağlantısını Kaldır** Şerit üzerindeki.
+Y: Bir çalışma alanı farklı bir abonelik veya kaynak grubuna taşımak için önce çalışma alanındaki Otomasyon hesabının bağlantısını kaldırmanız gerekir. Çalışma alanında yüklediyseniz, bir Otomasyon hesabının bağlantısını kaldırma aşağıdaki çözümlerden birini gerektirir: Güncelleştirme yönetimi, değişiklik izleme veya Vm'leri çalışma saatleri dışında başlatma/durdurma kaldırılır. Bu çözümleri kaldırdıktan sonra seçerek Otomasyon hesabının bağlantısını kaldırmanız **bağlı çalışma alanları** tıklayın ve sol bölmede Otomasyon hesabı kaynak **çalışma alanının bağlantısını Kaldır** Şerit üzerindeki.
  > Çözümler çalışma alanında yüklenmesi gerek kaldırıldı ve çalışma alanı Otomasyon bağlantısını taşımadan sonra açıklandı gerekir.
 
 Hem Azure aboneliklerinde izninizin olduğundan emin olun.
 
-### <a name="q-why-am-i-getting-an-error-when-i-try-to-update-a-savedsearch"></a>S: neden bir SavedSearch güncelleştirmeye çalıştığınızda bir hata alıyorum?
+### <a name="q-why-am-i-getting-an-error-when-i-try-to-update-a-savedsearch"></a>S: Neden bir SavedSearch güncelleştirmeye çalıştığınızda bir hata alıyorum?
 
-A: 'etag' API'si veya Azure Resource Manager şablonu özellikleri gövdesinde eklemeniz gerekir:
+Y: API veya Azure Resource Manager şablonu özellikleri gövdesinde 'etag' eklemeniz gerekir:
 ```
 "properties": {
    "etag": "*",

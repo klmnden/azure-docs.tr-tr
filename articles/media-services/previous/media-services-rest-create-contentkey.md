@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 9fb28d618a9375dec19e75d04ef0a6bc5de334b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4e4d01371733a2292c69174e4cb135e995e5e935
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242645"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189107"
 ---
 # <a name="create-content-keys-with-rest"></a>REST ile içerik anahtarı oluşturma
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Media Services, şifrelenmiş varlıklar iletmenizi sağlar. A **ContentKey** g�
 
 Yeni bir varlık oluşturduğunuzda (örneğin, önce [dosyaları karşıya yükleme](media-services-rest-upload-files.md)), aşağıdaki şifreleme seçenekleri belirleyebilirsiniz: **StorageEncrypted**, **CommonEncryptionProtected**, veya **EnvelopeEncryptionProtected**. 
 
-Varlıklar, istemcilere teslim zaman [varlıklarını dinamik olarak şifrelenmesini yapılandırma](media-services-rest-configure-asset-delivery-policy.md) aşağıdaki iki şifrelerinden biri ile: **DynamicEnvelopeEncryption** veya  **DynamicCommonEncryption**.
+Varlıklar, istemcilere teslim zaman [varlıklarını dinamik olarak şifrelenmesini yapılandırma](media-services-rest-configure-asset-delivery-policy.md) aşağıdaki iki şifrelerinden biri ile: **DynamicEnvelopeEncryption** veya **DynamicCommonEncryption**.
 
 Şifrelenmiş varlıklar sahip ilişkilendirilecek **ContentKey**s. Bu makalede, bir içerik anahtarı oluşturma işlemini açıklar.
 
@@ -71,9 +71,9 @@ Varlıklar, istemcilere teslim zaman [varlıklarını dinamik olarak şifrelenme
 
 Bu makalede, bir AES anahtarı oluşturur, anahtar şifreleme ve sağlama toplamı hesaplamak nasıl algılanacağını göstermez. 
 
->[!NOTE]
-
->Varlıklar Media Services erişirken, HTTP isteklerini özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
+> [!NOTE]
+> 
+> Varlıklar Media Services erişirken, HTTP isteklerini özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
 
 ## <a name="connect-to-media-services"></a>Media Services’e bağlanmak
 

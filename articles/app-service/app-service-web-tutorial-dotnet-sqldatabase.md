@@ -1,5 +1,5 @@
 ---
-title: Azure'da SQL Veritabanı ile ASP.NET uygulaması oluşturma | Microsoft Docs
+title: SQL veritabanı - Azure App Service ile ASP.NET uygulaması derleme | Microsoft Docs
 description: Azure'a SQL Server veritabanı ile C# ASP.NET uygulaması dağıtmayı öğrenin.
 services: app-service\web
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 783bf93c8507e76717a4293b2b29a9c11e9a1eed
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 14dbd723772caa0045e9744ddb726060e3a1b8cf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353825"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257786"
 ---
-# <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Öğretici: Azure’da SQL Veritabanı ile ASP.NET uygulaması derleme
+# <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Öğretici: Azure'da SQL Veritabanı ile ASP.NET uygulaması oluşturma
 
 [Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğreticide size, Azure'da veri temelli bir ASP.NET web uygulamasını dağıtma ve bunu [Azure SQL Veritabanı](../sql-database/sql-database-technical-overview.md)'na bağlama işlemleri gösterilir. Tamamladığınızda, Azure'da çalışan ve SQL Veritabanı'na bağlanan bir ASP.NET uygulamanız olur.
 
@@ -40,7 +40,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 

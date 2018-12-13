@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 048579aa6d22144b9de8129042ab9fd2a36d4d00
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 8f1ff88dc917c665d04f7500c8022e6baf4c94bf
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092698"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164475"
 ---
-# <a name="quickstart-change-model-using-nodejs"></a>Hızlı Başlangıç: Node.js kullanarak model değiştirme
+# <a name="quickstart-change-model-using-nodejs"></a>Hızlı Başlangıç: Node.js kullanarak modeli Değiştir
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -29,7 +29,7 @@ ms.locfileid: "53092698"
 * Bu makale için NPM bağımlılıkları: [**request**](https://www.npmjs.com/package/request), [**request-promise**](https://www.npmjs.com/package/request-promise), [**fs-extra**](https://www.npmjs.com/package/fs-extra).  
 * [Visual Studio Code](https://code.visualstudio.com/).
 
-[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in LUIS-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>Örnek konuşmalar JSON dosyası
 

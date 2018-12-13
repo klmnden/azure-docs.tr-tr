@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 7474d76537111ebc9f34bb2632a899b7ceb4e50a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 1c90c85f667e18a80c4673a73867ee2d6b3b6294
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643141"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189906"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows bilgisayarları Azure Log Analytics hizmetine bağlayın
 
@@ -59,7 +57,7 @@ Kullanımını yapılandırmak için [TLS 1.2](https://docs.microsoft.com/window
 
 .NET Framework 4.6 yapılandırabilir veya daha sonra güvenli desteklemek için varsayılan olarak olarak şifreleme devre dışı bırakıldı. [Güçlü şifreleme](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) TLS 1.2 gibi daha güvenli ağ protokollerini kullanır ve güvenli olmayan protokolleri engeller. 
 
-1. Aşağıdaki kayıt defteri alt anahtarını bulun: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\. NETFramework\v4.0.30319**.  
+1. Aşağıdaki kayıt defteri alt anahtarını bulun: **HKEY_LOCAL_MACHINE\Software\Microsoft\\. NETFramework\v4.0.30319**.  
 2. DWORD değeri oluşturun **SchUseStrongCrypto** bu alt anahtar değerine sahip altında **1**.  
 3. Aşağıdaki kayıt defteri alt anahtarını bulun: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\. NETFramework\v4.0.30319**.  
 4. DWORD değeri oluşturun **SchUseStrongCrypto** bu alt anahtar değerine sahip altında **1**. 

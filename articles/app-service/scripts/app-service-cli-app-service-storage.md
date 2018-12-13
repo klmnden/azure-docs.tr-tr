@@ -3,8 +3,8 @@ title: Azure CLI Betik Örneği - Bir web uygulamasını depolama hesabına bağ
 description: Azure CLI Betik Örneği - Bir web uygulamasını depolama hesabına bağlama
 services: appservice
 documentationcenter: appservice
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: bc8345b2-8487-40c6-a91f-77414e8688e6
@@ -14,16 +14,16 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/11/2017
-ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 5e1f2c11ffb177442947636ac48c342d0107354e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: 917642fa7ee1941d1f4031606b64127ea7016aab
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960609"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190314"
 ---
-# <a name="connect-a-web-app-to-a-storage-account"></a>Bir web uygulamasını depolama hesabına bağlama
+# <a name="connect-a-web-app-to-a-storage-account-using-cli"></a>Bir web uygulamasını CLI kullanarak bir depolama hesabına bağlama
 
 Bu örnek betik bir Azure depolama hesabı ile bir Azure web uygulaması oluşturur. Daha sonra uygulama ayarlarını kullanarak depolama hesabını web uygulamasına bağlar.
 

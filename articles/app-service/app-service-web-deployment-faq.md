@@ -1,5 +1,5 @@
 ---
-title: Azure web apps için dağıtım hakkında SSS | Microsoft Docs
+title: Dağıtım hakkında SSS - Azure uygulama hizmeti | Microsoft Docs
 description: Azure App Service'in Web Apps özelliği için dağıtımı hakkında sık sorulan soruların yanıtlarını alın.
 services: app-service\web
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: b38291df576d1dbd180f741659dbc379ca006d8e
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec18
+ms.openlocfilehash: 833b655246035fa3eb9a820316a95b73eed5b2bd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748451"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262121"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure Web Apps'te dağıtım hakkında SSS
 
@@ -39,7 +40,7 @@ Daha fazla bilgi için [uygulamanızı App Service'e dağıtma](app-service-depl
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Visual Studio'dan dağıtmak çalıştığınızda bir hata iletisi konusuna bakın. Bu nasıl giderebilirim?
 
-Şu iletiyi görüyorsanız, SDK'ın eski bir sürümü kullanılarak: "'YourResourceGroup' kaynak grubundaki 'YourResourceName' kaynağının dağıtımı sırasında hata: MissingRegistrationForLocation: Abonelik için kayıtlı değil Kaynak türü ' % s'konum 'Orta ABD', ' Bileşenler'. Lütfen bu sağlayıcı için bu konuma erişimi olması için yeniden kaydedin." 
+Aşağıdaki iletiyi görürseniz, SDK'ın eski bir sürümünü kullanıyor olabilirsiniz: "'YourResourceGroup' kaynak grubundaki 'YourResourceName' kaynağının dağıtımı sırasında hata oluştu: MissingRegistrationForLocation: Abonelik, 'Orta ABD' konum ' Bileşenler' kaynak türü için kayıtlı değil. Lütfen bu sağlayıcı için bu konuma erişimi olması için yeniden kaydedin." 
 
 Bu hatayı gidermek için yükseltme [en son SDK'sı](https://azure.microsoft.com/downloads/). Bu iletiyi görürseniz ve en son SDK'sına sahip bir destek isteği gönderin.
 

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: b26f8448f8f7c20d5b38df04b79b8cb42773f44c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f955e0386cd601212eb992870f02607538b537e2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105725"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252635"
 ---
 # <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: Xamarin ile todo uygulaması derleme
 
@@ -64,7 +64,7 @@ Mac kullanıyorsanız, [Mac için Visual Studio](https://www.visualstudio.com/vs
 
 ## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
-Şimdi Xamarin SQL API uygulamasını github'dan kopyalayın, kodu gözden geçirin, API anahtarlarını edinin ve çalıştırın. Verilerle program aracılığıyla çalışmanın ne kadar kolay olduğunu göreceksiniz.
+Şimdi github'dan Xamarin SQL API'si uygulaması kopyalayalım, kodu gözden geçirin, API anahtarlarını edinin ve uygulamayı çalıştıralım. Verilerle program aracılığıyla çalışmanın ne kadar kolay olduğunu göreceksiniz.
 
 1. Bir komut istemini açın, git-samples adlı yeni bir klasör oluşturun ve komut istemini kapatın.
 
@@ -114,9 +114,9 @@ Bu çözüm, Azure Cosmos DB SQL API ve Xamarin.Forms kullanarak bir ToDo uygula
 
 ToDoItems çözümündeki kod şunları içerir:
 
-* ToDoItems.Core: Azure Cosmos DB’de todo öğelerini sürdüren bir paylaşılan uygulama mantığı ve bir Xamarin.Forms projesi içeren .NET Standard projesidir.
-* ToDoItems.Android: Bu proje Android uygulamasını içerir.
-* ToDoItems.iOS: Bu proje iOS uygulamasını içerir.
+* Todoıtems.Core: Bu, bir Xamarin.Forms projesi ve Azure Cosmos DB'de todo öğelerini sürdüren bir paylaşılan uygulama mantığı kod, .NET standart bir projedir.
+* Todoıtems.Android: Bu proje Android uygulamasını içerir.
+* Todoıtems.iOS: Bu proje iOS uygulamasını içerir.
 
 Şimdi uygulamanın Azure Cosmos DB ile nasıl iletişim kurduğuna hızlıca göz atalım.
 

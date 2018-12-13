@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 208e021dd9025ffff92ed46749346cfb53d0b080
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 8e152bc96293d5e6e801fd23657d0de303093eb6
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002713"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166617"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Ağ Performansı İzleyicisi çözümü ile ilgili SSS
 
@@ -161,17 +161,8 @@ Konak güvenlik duvarı veya Ara Güvenlik Duvarı (ağ güvenlik duvarı ya da 
 Kayıp ve gecikme süresi için farklı değerler, A-B arasında ağ yolları a B arasında ağ yolları farklı olarak gösterilebilir.
 
 ### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>Neden tüm ExpressRoute devreleri ve bulunan eşleme bağlantılarını misiniz?
-Birden çok farklı abonelikler arasında eşleme bağlantıları ve bağlantı hattı dağıtılmışsa bu durum oluşabilir. NPM bulur aynı olan sanal ağları ExpressRoute bağlı yalnızca bu ExpressRoute özel eşleme bağlantılarını NPM çalışma alanı ile bir aboneliğe bağlı. Ayrıca, bu Microsoft eşleme bağlantıları NPM bulur bağlı ExpressRoute bağlantı hattı biri ile aynı abonelikte olan NPM çalışma alanıyla bağlantılı. Bu gelen açıklamıştır aşağıdaki örnekteki:
+NPM artık ExpressRoute bağlantı hatları ve kullanıcı erişimi olan tüm abonelikler eşleme bağlantılarını bulur. Express Route kaynaklarınızın nerede bağlı olan ve bulunan her kaynak için izlemeyi etkinleştirin tüm abonelikleri seçin. NPM arar ve bir özel eşdüzey hizmet sağlama, keşfederken bağlantı nesneleri bu nedenle Lütfen onay bir VNET, eşleme ile ilişkili ise.
 
- 2 VNET - VNET bir abonelikte A ve VNET B aboneliği B sırasıyla, ayrıca c Abonelikteki ExpressRoute bağlı varsa var. başka bir VNET - VNET C c abonelikte ER c abonelikte eşleme MS de vardır. 
-
-Ardından,
-
-* Ardından NPM çalışma alanı bir abonelikle bağlıysa, bağlantı ER VNET a ile izlemeniz mümkün olacaktır.
-* Daha sonra B abonelikle NPM çalışma alanına bağlıysa, bağlantı ile VNET b ER izlemeniz mümkün olacaktır.
-* Ardından NPM çalışma alanı C abonelikle bağlıysa, bağlantı eşlemesi MS yanı sıra, sanal ağ C ER aracılığıyla izlemeniz mümkün olacaktır.
-
-Çapraz abonelik desteği yakında kullanıma sunulacak. Bundan sonra tüm ExpressRoute özel ve Microsoft eşleme bağlantıları bir çalışma alanından farklı Aboneliklerdeki izlemeniz mümkün olacaktır.
 ### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>ER izleme özelliği, bir tanılama iletisi "Trafik bir bağlantı hattı geçmiyor" vardır. Bu ne demektir?
 
 Burada şirket içi arasında sağlıklı bir bağlantı yoktur ve Azure düğümleri ancak trafik düşülmemesini NPM tarafından izlenecek şekilde yapılandırılmış ExpressRoute bağlantı hattı üzerinden bir senaryo olabilir. 

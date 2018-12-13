@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b0b52fc32b2895fdcd994bad5bfc73dbf938add2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ae50581404dceb7b59b2ca145207f7d4ade23440
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102087"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309255"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Azure not defteri projeleri veri dosyalarıyla çalışma
 
@@ -42,17 +42,17 @@ Proje panosunu kullanarak çalışan bir not defteri içinde veya bir projeye do
 
 1. Seçin **karşıya** komutu, sonra da **URL'den** veya **bilgisayardan** ve gerekli bilgileri içeri aktarmak istediğiniz verilerin proje:
 
-    - **URL'den**: kaynak adresi girerek **dosya URL'si** alan ve projenizde not defterine atamak için dosya adı **dosya adı** alan. Ardından **+ Dosya Ekle** URL karşıya yükleme listesine eklenecek. Herhangi bir ek URL için işlemi tekrarlayın ve sonra seçin **Bitti**.
+    - **URL'den**: Kaynak adresi girerek **dosya URL'si** alan ve projenizde not defterine atamak için dosya adı **dosya adı** alan. Ardından **+ Dosya Ekle** URL karşıya yükleme listesine eklenecek. Herhangi bir ek URL için işlemi tekrarlayın ve sonra seçin **Bitti**.
 
     ![URL açılır penceresinden karşıya yükleme](media/quickstarts/upload-from-url-popup.png)
 
-    - **Bilgisayardan**: sürükleyin ve açılan dosyaları açılır ya da seçin **dosya seçin**, ardından gözatın ve içeri aktarmak istediğiniz veri dosyaları seçin. Bırakın veya kod dosyasını açın ve verileri ayrıştırmak için not defterinde olduğu için herhangi bir sayıda herhangi bir türü ve biçim dosyalarını seçin.
+    - **Bilgisayardan**: Sürükleyin ve açılan dosyaları açılır ya da seçin **dosya seçin**, ardından gözatın ve içeri aktarmak istediğiniz veri dosyaları seçin. Bırakın veya kod dosyasını açın ve verileri ayrıştırmak için not defterinde olduğu için herhangi bir sayıda herhangi bir türü ve biçim dosyalarını seçin.
 
     ![Bilgisayar açılır penceresinden karşıya yükleme](media/quickstarts/upload-from-computer-popup.png)
 
 1. İçeri sonra dosyaları proje Panosu üzerinde görünür ve not defteri kodu içeren klasöre göreli yol adları kullanarak içinde erişilebilir.
 
-### <a name="import-files-from-the-data-menu-in-a-notebook"></a>Bir not defteri veri menüsünden dosyalarını içeri aktarın
+### <a name="import-files-from-the-file-menu-in-a-notebook"></a>Bir not defteri Dosya menüsünden dosyalarını içeri aktarın
 
 1. Çalışan bir not defteri içinde seçin **dosya** > **karşıya** komutu:
 
@@ -62,7 +62,7 @@ Proje panosunu kullanarak çalışan bir not defteri içinde veya bir projeye do
 
 1. İçinde **karşıya yükleme durumu** görüntülenirse, seçin açılan bir **hedef klasör** aşağı açılan listeden:
 
-    - Oturum klasörü (*~/* ): dosyaları geçerli not defteri oturuma yükler ancak projedeki dosyaları oluşturmaz. Oturum klasör proje klasörüne eşdüzeyde, ancak oturumu sona erdikten sonra kalmıyor. Kod, oturum dosyalara erişmek için göreli yolu içeren dosya adlarını önek *... /*.
+    - Oturum klasörü (*~/* ): Dosyaları geçerli not defteri oturuma yükler ancak projedeki dosyaları oluşturmaz. Oturum klasör proje klasörüne eşdüzeyde, ancak oturumu sona erdikten sonra kalmıyor. Kod, oturum dosyalara erişmek için göreli yolu içeren dosya adlarını önek *... /*.
 
         Oturum klasörü kullanılarak deneme için yararlıdır ve proje olabilir veya uzun vadeli temelinde gerekmeyebilir dosyalarla karışıklığı ortadan kaldırır. Çakışmalarına neden olmadan ve dosyaları yeniden adlandırmak gerek kalmadan proje dosyalarında aynı adlara sahip oturum klasöre dosyalar da karşıya yükleyebilirsiniz. Örneğin, bir sürümü deyin sahip *data.csv* projede zaten, ancak istediğiniz farklı bir sürümü ile denemeler *data.csv*. Oturum klasöre dosya yükleyerek karşıya yüklenen dosya verileri kullanarak not defterini çalıştırabilirsiniz (kod kullanarak kendisine başvuran *.. /Data.csv*) yerine projenin dosya verileri.
 

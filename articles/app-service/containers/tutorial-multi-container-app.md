@@ -1,5 +1,5 @@
 ---
-title: Kapsayıcılar için Web App uygulamasında çok kapsayıcılı (önizleme) uygulama oluşturma
+title: Kapsayıcı - Azure App Service için Web App'te çoklu kapsayıcı uygulaması oluşturma
 description: Docker Compose ve Kubernetes yapılandırma dosyalarını bir WordPress ve MySQL uygulamasıyla birlikte kullanarak Azure'da birden fazla kapsayıcı kullanmayı öğrenin.
 keywords: azure app service, web uygulaması, linux, docker, oluşturma, çok kapsayıcılı, çoklu kapsayıcı, kapsayıcı, kubernetes, wordpress, mysql için azure db, kapsayıcılara sahip üretim veritabanı
 services: app-service
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: 68e53be5c12eb8032b91e644600dded5467342e7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 7feb168d9cbcb9fc19e6fcd320bbf87c15077a50
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956542"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251649"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Öğretici: Kapsayıcılar için Web App uygulamasında çok kapsayıcılı (önizleme) uygulama oluşturma
 

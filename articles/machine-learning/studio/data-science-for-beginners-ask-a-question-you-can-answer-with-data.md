@@ -4,10 +4,9 @@ description: Video 3 yeni başlayanlar için veri bilimi sharp veri bilimi soru 
 keywords: Veri bilimi sorunları, veri bilimi sorular sorular, regresyon sorular, sınıflandırma sorular, soru sharp formüle
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cjgronlund
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: c6d42ed7920b634994adf5313656c77e2df6dd5b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8f117a8c47d7c98f13101efe0ca5147ce8d8c25a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310846"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250988"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Verilerle yanıtlayabileceğiniz bir soru sorun
 ## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Seri yeni başlayanlar için veri bilimi
@@ -38,18 +37,18 @@ En yetersiz serisi almak için tüm bunları izleyin. [Videoları listesine Git]
 ## <a name="other-videos-in-this-series"></a>Bu serideki diğer videolar
 *Yeni başlayanlar için veri bilimi* beş kısa videoyu veri bilimine hızlı bir giriş niteliğindedir.
 
-* Video 1: [ilgili 5 veri biliminin yanıtladığı](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 en az 14 sn)*
-* Video 2: [verileriniz veri bilimi için hazır mı?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 dk 56 sn)*
-* Video 3: verilerle yanıtlayabileceğiniz bir soru sorun
-* Video 4: [basit model ile yanıtı tahmin etme](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 dk 42 sn)*
-* Video 5: [veri bilimi için başkalarının çalışmalarını kopyalama](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 dk 18 sn)*
+* Video 1: [5 veri biliminin yanıtladığı sorular](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 en az 14 sn)*
+* Video 2: [Verileriniz veri bilimi için hazır mı?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 dk 56 sn)*
+* Video 3: Verilerle yanıtlayabileceğiniz bir soru sorun
+* Video 4: [Basit bir model ile yanıtı tahmin etme](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 dk 42 sn)*
+* Video 5: [Veri bilimi için başkalarının çalışmalarını kopyalama](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 dk 18 sn)*
 
-## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Transkript: verilerle yanıtlayabileceğiniz bir soru sorun
+## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Transkript: Verilerle yanıtlayabileceğiniz bir soru sorun
 Serinin üçüncü videoda "Yeni başlayanlar için veri bilimi." Hoş Geldiniz  
 
 Bunu, verilerle yanıtlayabileceğiniz bir soru formulating için bazı ipuçları elde edersiniz.
 
-İlk iki önceki video bu serisini izleyin, bu video dışında daha fazla bilgi alabilirsiniz: "5 sorular veri bilimi neredeyse tümünü cevaplayabilir" ve "verileriniz veri bilimi için hazır mı?"
+Varsa, ilk iki önceki bu bölümdeki videoları dışında bu videoda, daha fazla bilgi alabilirsiniz: "5 sorular veri bilimi neredeyse tümünü cevaplayabilir" ve "Is. verileriniz veri bilimi için hazır mı?"
 
 ## <a name="ask-a-sharp-question"></a>NET bir soru sorun
 Veri bilimi (kategorileri veya etiketleri olarak da bilinir) adlarını ve numaralarını kullanarak bir soruya yanıtı tahmin etme işleminin ne olduğu hakkında konuştuk. Ancak herhangi bir soru olamaz. olmak zorundadır bir *sharp soru.*
@@ -62,7 +61,7 @@ Genie yanıt "my hisse olmasını neler oluyor?", "fiyat değişir" gibi belirsi
 
 Ancak gibi "ne my stok ait satış fiyatı sonraki hafta?", genie olamaz yardımcı ancak size belirli bir bir sharp soru sorun olsaydı yanıt ve satış fiyatı tahmin edin.
 
-## <a name="examples-of-your-answer-target-data"></a>Yanıtınız örnekleri: hedef veri
+## <a name="examples-of-your-answer-target-data"></a>Yanıtınız örnekleri: Hedef veri
 Sorunuzu formüle sonra verilerinizi yanıt örnekleri sahip olup olmadığını denetleyin.
 
 Bizim soru ise "Ne my stok ait satış fiyatı sonraki hafta olacak?" ardından hisse senedi fiyatı geçmişi verilerimizi içerdiğinden emin olmak sahibiz.

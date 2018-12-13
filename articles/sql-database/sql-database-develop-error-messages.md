@@ -13,14 +13,14 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/31/2018
-ms.openlocfilehash: 71a23e982f1e4ae5609d4f9a160cd1861e043ea1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 00fe4e109df2ac8954e657a1a567842ec5eb7d37
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251824"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317466"
 ---
-# <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL veritabanı istemci uygulamaları için SQL hata kodları: veritabanı bağlantı hataları ve diğer sorunlar
+# <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL veritabanı istemci uygulamaları için SQL hata kodları: Veritabanı bağlantı hataları ve diğer sorunlar
 
 Bu makalede, SQL veritabanı, veritabanı bağlantı hataları, geçici hatalar (geçici hatalar olarak da bilinir), kaynak İdaresi hataları, veritabanı kopyalama sorunlarını, elastik havuz ve başka hatalar da dahil olmak üzere istemci uygulamaları için SQL hata kodları listelenmektedir. Çoğu kategorileri, Azure SQL veritabanı'na özgü ve Microsoft SQL Server için geçerli değildir. Ayrıca bkz: [sistem hata mesajlarına](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx).
 
@@ -37,7 +37,7 @@ Geçici hata hataları genellikle, istemci programlarından aşağıdaki hata il
 * Veritabanı &lt;db_name&gt; sunucusundaki &lt;Azure_instance&gt; şu anda kullanılamıyor. Lütfen bağlantıyı daha sonra yeniden deneyin. Sorun devam ederse müşteri desteğine başvurun ve oturum izleme Kimliğini verin &lt;session_ıd&gt;
 * Veritabanı &lt;db_name&gt; sunucusundaki &lt;Azure_instance&gt; şu anda kullanılamıyor. Lütfen bağlantıyı daha sonra yeniden deneyin. Sorun devam ederse müşteri desteğine başvurun ve oturum izleme Kimliğini verin &lt;session_ıd&gt;. (Microsoft SQL Server, hata: 40613)
 * Varolan bir bağlantı uzak konak tarafından zorla kapatıldı.
-* System.Data.Entity.Core.EntityCommandExecutionException: Komut tanımı yürütülürken bir hata oluştu. Ayrıntılar için iç özel duruma bakın. ---> System.Data.SqlClient.SqlException: sonuçları sunucudan alınırken bir aktarım düzeyinde hata oluştu. (sağlayıcı: oturum sağlayıcısı, hata: 19 - fiziksel bağlantı değilse kullanılabilir)
+* System.Data.Entity.Core.EntityCommandExecutionException: Komut tanımı yürütülürken bir hata oluştu. Ayrıntılar için iç özel duruma bakın. System.Data.SqlClient.SqlException--->: Sonuçları sunucudan alınırken bir aktarım düzeyinde hata oluştu. (sağlayıcısı: Oturum sağlayıcısı, hata: 19 - fiziksel bağlantı değilse kullanılabilir)
 * Yeniden yapılandırma sürecinde veritabanıdır ve birincil veritabanının etkin bir işlem sırasında ortasında yeni sayfalar uygulama meşgul ikincil bir veritabanı bağlantı denemesi başarısız oldu. 
 
 Yeniden deneme mantığı kod örnekleri için bkz:
@@ -90,12 +90,12 @@ Azure SQL veritabanı ile çalışırken kaynakların aşırı kullanımı şu h
 
 İlgili konu başlıkları:
 
-* Daha ayrıntılı bilgi kullanılabilir buraya: [Azure SQL veritabanı kaynak limitleri](sql-database-service-tiers-dtu.md).
+* Daha ayrıntılı bilgi buradan kullanılabilir: [Azure SQL veritabanı kaynak limitleri](sql-database-service-tiers-dtu.md).
 
 | Hata kodu | Severity | Açıklama |
 | ---:| ---:|:--- |
-| 10928 |20 |Kaynak Kimliği: %d. Veritabanı %s sınırı %d şeklindedir ve üst sınırına ulaşıldı. Daha fazla bilgi için bkz. [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>Kaynak Kimliği sınırına kaynak gösterir. Çalışan iş parçacıkları, kaynak kimliği için = 1. Oturumlarının kaynak kimliği = 2.<br/><br/>Bu hata ve nasıl çözümleyeceğiniz hakkında daha fazla bilgi için bkz:<br/>• [Azure SQL veritabanı kaynak limitleri](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |Kaynak Kimliği: %d. %S en az garantisi %d, üst sınır: %d, ve veritabanı için geçerli kullanım %d. Ancak, sunucu şu anda bu veritabanı için %d büyük istekler desteklemek için çok meşgul. Daha fazla bilgi için bkz. [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637). Aksi halde, lütfen daha sonra tekrar deneyin.<br/><br/>Kaynak Kimliği sınırına kaynak gösterir. Çalışan iş parçacıkları, kaynak kimliği için = 1. Oturumlarının kaynak kimliği = 2.<br/><br/>Bu hata ve nasıl çözümleyeceğiniz hakkında daha fazla bilgi için bkz:<br/>• [Azure SQL veritabanı kaynak limitleri](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |Kaynak Kimliği: %d. Veritabanı %s sınırı %d şeklindedir ve üst sınırına ulaşıldı. Daha fazla bilgi için [tek ve havuza alınmış veritabanları için SQL veritabanı kaynak limitleri](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).<br/><br/>Kaynak Kimliği sınırına kaynak gösterir. Çalışan iş parçacıkları, kaynak kimliği için = 1. Oturumlarının kaynak kimliği = 2.<br/><br/>Bu hata ve nasıl çözümleyeceğiniz hakkında daha fazla bilgi için bkz:<br/>• [Azure SQL veritabanı kaynak limitleri](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |Kaynak Kimliği: %d. %S en az garantisi %d, üst sınır: %d, ve veritabanı için geçerli kullanım %d. Ancak, sunucu şu anda bu veritabanı için %d büyük istekler desteklemek için çok meşgul. Daha fazla bilgi için [tek ve havuza alınmış veritabanları için SQL veritabanı kaynak limitleri](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server). Aksi halde, lütfen daha sonra tekrar deneyin.<br/><br/>Kaynak Kimliği sınırına kaynak gösterir. Çalışan iş parçacıkları, kaynak kimliği için = 1. Oturumlarının kaynak kimliği = 2.<br/><br/>Bu hata ve nasıl çözümleyeceğiniz hakkında daha fazla bilgi için bkz:<br/>• [Azure SQL veritabanı kaynak limitleri](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |Veritabanı boyut kotasına ulaştı. Verileri bölün veya silin, dizinleri bırakın veya olası çözümler için belgelere bakın. |
 | 40549 |16 |Uzun süre çalışan bir işlemin olduğundan oturum sonlandırıldı. İşleminiz kısaltmayı deneyin. |
 | 40550 |16 |Oturum, çok fazla sayıda kilit aldığından sonlandırıldı. Try okuma veya tek bir işlemde daha az sayıda satır değiştirme. |
@@ -109,7 +109,7 @@ Oluşturma ve elastik havuzlar kullanarak şu hatalarla ilgili:
 | Hata kodu | Severity | Açıklama | Düzeltici Eylem |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |Esnek havuz depolama sınırına ulaştı. Esnek havuz depolama alanı kullanımı (%d) MB aşamaz. Esnek havuz depolama sınırını ulaşıldığında bir veritabanına veri yazmak çalışıyor. |Dtu'larının artırmayı deneyin ve/veya kendi depolama sınırını artırmak için elastik havuza mümkünse ekleyerek depolama elastik havuz içindeki tek tek veritabanları tarafından kullanılan depolama veya veritabanlarını elastik havuzdan kaldırabilirsiniz. |
-| 10929 | 16 |%S en az garantisi %d, üst sınır: %d, ve veritabanı için geçerli kullanım %d. Ancak, sunucu şu anda bu veritabanı için %d büyük istekler desteklemek için çok meşgul. Bkz: [ http://go.microsoft.com/fwlink/?LinkId=267637 ](https://go.microsoft.com/fwlink/?LinkId=267637) Yardım almak için. Aksi halde, lütfen daha sonra tekrar deneyin. DTU /; veritabanı başına en düşük vCore değeri DTU / veritabanı başına en yüksek vCore değeri. Esnek havuzdaki tüm veritabanları arasında eş zamanlı çalışan (istek) toplam sayısı, havuz sınırı aşan çalışıldı. |Alt sınırını artırmak için Dtu veya sanal çekirdek esnek havuzun mümkünse artırmayı deneyin veya veritabanlarını elastik havuzdan kaldırabilirsiniz. |
+| 10929 | 16 |%S en az garantisi %d, üst sınır: %d, ve veritabanı için geçerli kullanım %d. Ancak, sunucu şu anda bu veritabanı için %d büyük istekler desteklemek için çok meşgul. Bkz: [tek ve havuza alınmış veritabanları için SQL veritabanı kaynak limitleri](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server) Yardım almak için. Aksi halde, lütfen daha sonra tekrar deneyin. DTU /; veritabanı başına en düşük vCore değeri DTU / veritabanı başına en yüksek vCore değeri. Esnek havuzdaki tüm veritabanları arasında eş zamanlı çalışan (istek) toplam sayısı, havuz sınırı aşan çalışıldı. |Alt sınırını artırmak için Dtu veya sanal çekirdek esnek havuzun mümkünse artırmayı deneyin veya veritabanlarını elastik havuzdan kaldırabilirsiniz. |
 | 40844 | 16 |Veritabanı '%ls' sunucusundaki '%ls' bir elastik havuzdaki '%ls' sürümü veritabanıdır ve sürekli kopyalama ilişkiye sahip olamaz.  |Yok |
 | 40857 | 16 |Esnek havuz için sunucu bulunamadı: '%ls', elastik havuz adı: '%ls'. Belirtilen bir elastik havuz, belirtilen sunucuda yok. | Geçerli bir elastik havuz adı sağlayın. |
 | 40858 | 16 |'%Ls' esnek havuzu zaten şu sunucuda: '%ls'. Belirtilen bir elastik havuz, belirtilen mantıksal sunucuda zaten mevcut. | Yeni elastik havuz adı sağlayın. |
@@ -144,7 +144,7 @@ Aşağıdaki hatalar, önceki tüm kategoriye ayrılır değil.
 | 15006 |16 |(AdministratorLogin), geçersiz karakterler içerdiğinden geçerli bir ad değil. |
 | 18452 |14 |Oturum açma başarısız. Oturum açma güvenilmeyen bir etki alanından ve Windows authentication.%.&#x2a;ls ile kullanılamaz ls (Windows oturumu açma desteklenmez SQL Server'ın bu sürümünde.) |
 | 18456 |14 |Oturum açma başarısız oldu, kullanıcı için ' %. &#x2a;ls'.%. &#x2a;ls %. &#x2a;ls (kullanıcısı için oturum açılamadı "%.&#x2a; ls".) |
-| 18470 |14 |Kullanıcı için oturum açma başarısız '%.&#x2a;ls'. Neden: Disabled.%.&#x2a;ls hesaptır ls |
+| 18470 |14 |Kullanıcı için oturum açma başarısız '%.&#x2a;ls'. Neden: Disabled.% hesaptır. &#x2a;ls |
 | 40014 |16 |Birden fazla veritabanı aynı işlemde kullanılamaz. |
 | 40054 |16 |Bu SQL Server sürümünde kümelenmiş dizini olmayan tablolar desteklenmez. Kümelenmiş bir dizin oluşturun ve yeniden deneyin. |
 | 40133 |15 |Bu işlem, SQL Server'ın bu sürümünde desteklenmiyor. |

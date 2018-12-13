@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager şablonlarını kullanarak Azure zaman serisi görüşleri ortamınızı yönetmek nasıl | Microsoft Docs
+title: Azure Time Series Insights şablon Yönetimi - Azure Resource Manager şablonlarını kullanarak Azure zaman serisi görüşleri ortamınızı yönetmek nasıl | Microsoft Docs
 description: Bu makalede, Azure Resource Manager kullanarak program aracılığıyla Azure Time Series Insights ortamınızı yönetmek açıklar.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 3ca9af8c2c504f75322e00fdaaeac9a3e727a820
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 70f82c19bced7618027379fcf9451348ac2591eb
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627136"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270629"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarını kullanarak Time Series Insights kaynakları oluşturma
 
@@ -91,7 +92,7 @@ Bir parametre dosyası oluşturmak için kopyalama [201-timeseriesinsights-ortam
    | --- | --- |
    | eventHubNamespaceName | Kaynak olay hub'ı ad alanı. |
    | eventHubName | Kaynak olay hub'ı adı. |
-   | consumerGroupName | Time Series Insights hizmeti, verileri olay hub'ından okumak için kullanacağı tüketici grubunun adı. **Not:** kaynak çekişmesinden kaçınmak için bu tüketici grubunun Time Series Insights hizmeti için ayrılmış olmalıdır ve diğer okuyucularıyla paylaşılmaz. |
+   | consumerGroupName | Time Series Insights hizmeti, verileri olay hub'ından okumak için kullanacağı tüketici grubunun adı. **NOT:** Kaynak çekişmesinden kaçınmak için bu tüketici grubunun Time Series Insights hizmeti için ayrılmış olmalıdır ve diğer okuyucularıyla paylaşılmaz. |
    | EnvironmentName | Ortam adı. Adı içeremez: ' <', ' >', '%', '&', ': ','\\','?', '/' ve herhangi bir denetim karakterini. Diğer tüm karakterlere izin verilir.|
    | eventSourceName | Olay kaynağı alt kaynak adı. Adı içeremez: ' <', ' >', '%', '&', ': ','\\','?', '/' ve herhangi bir denetim karakterini. Diğer tüm karakterlere izin verilir. |
 
@@ -99,9 +100,9 @@ Bir parametre dosyası oluşturmak için kopyalama [201-timeseriesinsights-ortam
 
    | Parametre | Açıklama |
    | --- | --- |
-   | existingEventHubResourceId | Olay kaynağı aracılığıyla zaman serisi görüşleri ortamına bağlı bir olay Hub'ının bir isteğe bağlı kaynak kimliği. **Not:** şablon dağıtımı kullanıcı olay hub'ı listkeys'i işlemi gerçekleştirmek için ayrıcalıklara sahip olmalıdır. Hiçbir değer iletilmezse, yeni bir olay hub'ı şablon tarafından oluşturulur. |
+   | existingEventHubResourceId | Olay kaynağı aracılığıyla zaman serisi görüşleri ortamına bağlı bir olay Hub'ının bir isteğe bağlı kaynak kimliği. **NOT:** Şablonu dağıtarak kullanıcı olay hub'ı listkeys'i işlemi gerçekleştirmek için ayrıcalıkları olmalıdır. Hiçbir değer iletilmezse, yeni bir olay hub'ı şablon tarafından oluşturulur. |
    | environmentDisplayName | Ortam adı yerine araçları veya kullanıcı arabirimi göstermek için isteğe bağlı bir kolay ad. |
-   | environmentSkuName | Sku adı. Daha fazla bilgi için [zaman serisi öngörüleri Fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
+   | environmentSkuName | Sku'nun adı. Daha fazla bilgi için [zaman serisi öngörüleri Fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
    | environmentSkuCapacity | Birim kapasitesi Sku'ların. Daha fazla bilgi için [zaman serisi öngörüleri Fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/time-series-insights/).|
    | environmentDataRetentionTime | En düşük timespan ortamın olayları sorgu için kullanılabilir. Değer, örneğin "P30D" bir bekletme ilkesi için 30 gün içinde ISO 8601 biçiminde belirtilmelidir. |
    | eventSourceDisplayName | Araç veya kullanıcı arabirimi yerine olay kaynağı adını göstermek için isteğe bağlı bir kolay ad. |

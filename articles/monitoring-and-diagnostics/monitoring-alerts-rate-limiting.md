@@ -1,6 +1,6 @@
 ---
-title: SMS, e-postalar, Azure uygulaması anında iletme bildirimleri ve Web kancası için sınırlama oranı
-description: Azure olası SMS, e-posta, bir eylem grubundan Azure uygulaması anında iletme veya Web kancası bildirimler sayısını nasıl sınırlar anlayın.
+title: SMS, e-postalar, Azure uygulaması anında iletme bildirimleri ve Web kancaları için sınırlama oranı
+description: Nasıl Azure olası SMS, e-posta, Azure uygulaması anında iletme veya Web kancası bildirimleri bir eylem grubu sayısını sınırlayan anlayın.
 author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 3/12/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 1acea47638c75971bad62f28dcd7e96823d84c1d
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 7ac5890769809e3f6f8afe320922facc04195042
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262965"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166022"
 ---
-# <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Ses, SMS, e-postalar, Azure uygulaması anında iletme bildirimleri ve Web kancası için gönderileri sınırlama oranı
-Hız sınırlaması çok fazla belirli telefon numarası, e-posta adresi veya aygıt gönderildiğinde oluşan bildirimleri ertelenmesi olur. Hız sınırlaması uyarıları yönetilebilir ve kullanılabilir olmasını sağlar.
+# <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Ses, SMS, e-postalar, Azure uygulaması anında iletme bildirimleri ve Web kancası gönderileri sınırlama oranı
+Hız sınırlaması, çok fazla belirli bir telefon numarası, e-posta adresi veya cihaz gönderildiğinde oluşan bir askıya alma bildirim olduğu. Hız sınırlaması uyarılar yönetilebilir ve işlem yapılabilir olmasını sağlar.
 
 Hızı sınırı eşikler şunlardır:
 
- - **SMS**: 1'den fazla SMS her 5 dakikada bir.
- - **Sesli**: 1'den fazla sesli arama her 5 dakikada bir.
- - **E-posta**: 100'den fazla e-postaların bir saat içinde.
+ - **SMS**: En fazla 1 SMS 5 dakikada bir.
+ - **Ses**: Sesli çağrı her 5 dakikada en fazla 1.
+ - **e-posta**: En fazla 100 e-postaları bir saat içinde.
  
  Diğer Eylemler oranı sınırlı değildir.
 
 ## <a name="rate-limit-rules"></a>Hızı sınırı kuralları
-- Belirli bir telefon numarası veya e-posta eşiği izin verdiğinden daha fazla ileti aldığında sınırlı hızıdır.
-- Bir telefon numarası veya e-posta çok sayıda abonelikleri eylem gruplarının bir parçası olabilir. Hız sınırlaması abonelikler arasında geçerlidir. Eşiğe ulaşan hemen birden çok aboneliklerden gönderilen iletileri olsa bile geçerlidir.
-- Bir e-posta adresi oranı sınırlı olduğunda, hız sınırlaması iletişim kurmak için başka bir bildirim gönderilir. E-posta, hız sınırlaması sona erdiğinde durumları.
+- Belirli bir telefon numarası veya e-posta eşiği izin verdiğinden daha fazla ileti aldığında sınırlı oranıdır.
+- Bir telefon numarası veya e-posta eylem gruplarının bir parçası, birçok farklı abonelikler arasında olabilir. Oran sınırlandırma için tüm abonelikler arasında geçerlidir. Eşiğine ulaşılmadığı sürece birden fazla aboneliklerden gönderilen iletileri bile geçerlidir.
+- Bir e-posta adresi oranı sınırlı olduğunda, oran sınırlandırma iletişim kurmak için başka bir bildirim gönderilir. E-posta, oran sınırlandırma süresi dolduğunda durumları.
 
 ## <a name="next-steps"></a>Sonraki adımlar ##
-* Daha fazla bilgi edinmek [SMS uyarı davranış](monitoring-sms-alert-behavior.md).
-* Alma bir [etkinlik günlüğü uyarıları genel bakış](monitoring-overview-alerts.md)ve uyarıların nasıl alınacağını öğrenin.  
-* Bilgi edinmek için nasıl [hizmeti sistem durumu bildirimi gönderilen her uyarıları yapılandırmak](monitoring-activity-log-alerts-on-service-notifications.md).
+* Daha fazla bilgi edinin [SMS uyarısı davranışı](monitoring-sms-alert-behavior.md).
+* Alma bir [etkinlik günlüğü uyarılarına genel bakış](monitoring-overview-alerts.md)ve uyarıları alma hakkında bilgi edinin.  
+* Bilgi edinmek için nasıl [hizmet durumu bildirimi gönderilen her uyarıları yapılandırma](../azure-monitor/platform/alerts-activity-log-service-notifications.md).

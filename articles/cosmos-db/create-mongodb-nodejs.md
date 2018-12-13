@@ -1,21 +1,20 @@
 ---
-title: Node.js kullanarak bir MongoDB uygulamasını Azure Cosmos DB'ye bağlanma
-description: Var olan bir Node.js MongoDB uygulamasını Azure Cosmos DB’ye bağlama hakkında bilgi edinin
-services: cosmos-db
+title: Bir Node.js MongoDB uygulamasını Azure Cosmos DB'ye bağlama
+description: Bu hızlı başlangıçta Azure Cosmos DB için node.js'de yazılmış mevcut bir MongoDB uygulamasını na nasıl bağlanacağınız gösterilmiştir.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc, devcenter, seodec2018
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 06/19/2017
-ms.openlocfilehash: 1a5d0c7c2e44d934658434b8ea0b048c238a9bef
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: d9754cf66b05059c986c7ffbff94290e207f706a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097875"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141389"
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: Var olan bir Node.js MongoDB web uygulamasını geçirme 
 

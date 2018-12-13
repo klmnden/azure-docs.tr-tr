@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 9c1c833046c7dff0f26621be57768021dc036846
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 0355b8cf19209509dca2f3cac93c7abb92a63990
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888996"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323329"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Bir erişim belirteci almak için bir Azure sanal makinesinde Azure kaynakları için yönetilen kimliklerini kullanma 
 
@@ -51,6 +51,7 @@ Bir istemci uygulama, Azure kaynakları için yönetilen kimlikleri isteyebilir 
 | [HTTP kullanarak bir belirteç Al](#get-a-token-using-http) | Azure kaynakları için yönetilen kimlikler için protokol ayrıntılarını belirteç uç noktası |
 | [.NET için Microsoft.Azure.Services.AppAuthentication kitaplığını kullanarak bir belirteç Al](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Bir .NET istemcisinden Microsoft.Azure.Services.AppAuthentication kitaplığını kullanma örneği
 | [C# kullanarak bir belirteç Al](#get-a-token-using-c) | Azure kaynaklarını REST uç noktasının bir C# istemciden yönetilen kimliklerle örneği |
+| [Java kullanarak bir belirteç Al](#get-a-token-using-java) | Azure kaynaklarını REST uç noktasının bir Java istemciden yönetilen kimliklerle örneği |
 | [Go kullanarak bir belirteç Al](#get-a-token-using-go) | Azure kaynaklarını REST uç noktasını bir Git istemcisi için yönetilen kimliklerle örneği |
 | [Azure PowerShell kullanarak bir belirteç Al](#get-a-token-using-azure-powershell) | Azure kaynaklarını REST uç noktasını PowerShell istemcisi için yönetilen kimliklerle örneği |
 | [CURL kullanarak bir belirteç Al](#get-a-token-using-curl) | Azure kaynaklarını REST uç noktasının bir Bash/CURL istemciden yönetilen kimliklerle örneği |
@@ -172,6 +173,50 @@ catch (Exception e)
     string errorText = String.Format("{0} \n\n{1}", e.Message, e.InnerException != null ? e.InnerException.Message : "Acquire token failed");
 }
 
+```
+
+## <a name="get-a-token-using-java"></a>Java kullanarak bir belirteç Al
+
+Bunu kullanın [JSON Kitaplığı](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.9.4) Java kullanarak bir belirteç almak için.
+
+```Java
+import java.io.*;
+import java.net.*;
+import com.fasterxml.jackson.core.*;
+ 
+class GetMSIToken {
+    public static void main(String[] args) throws Exception {
+ 
+        URL msiEndpoint = new URL("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/");
+        HttpURLConnection con = (HttpURLConnection) msiEndpoint.openConnection();
+        con.setRequestMethod("GET");
+        con.setRequestProperty("Metadata", "true");
+ 
+        if (con.getResponseCode()!=200) {
+            throw new Exception("Error calling managed identity token endpoint.");
+        }
+ 
+        InputStream responseStream = con.getInputStream();
+ 
+        JsonFactory factory = new JsonFactory();
+        JsonParser parser = factory.createParser(responseStream);
+ 
+        while(!parser.isClosed()){
+            JsonToken jsonToken = parser.nextToken();
+ 
+            if(JsonToken.FIELD_NAME.equals(jsonToken)){
+                String fieldName = parser.getCurrentName();
+                jsonToken = parser.nextToken();
+ 
+                if("access_token".equals(fieldName)){
+                    String accesstoken = parser.getValueAsString();
+                    System.out.println("Access Token: " + accesstoken.substring(0,5)+ "..." + accesstoken.substring(accesstoken.length()-5));
+                    return;
+                }
+            }
+        }
+    }
+}
 ```
 
 ## <a name="get-a-token-using-go"></a>Go kullanarak bir belirteç Al
@@ -327,7 +372,7 @@ Bu bölümde, olası hata yanıtları belgeler. Bir "200 Tamam" durumu başarıl
 
 | Durum kodu | Hata | Hata Açıklaması | Çözüm |
 | ----------- | ----- | ----------------- | -------- |
-| 400 Hatalı istek | invalid_resource | AADSTS50001: uygulama adlı *\<URI\>* adlı kiracıda bulunamadı  *\<KİRACI-kimliği\>*. Uygulama değil Kiracı Yöneticisi tarafından yüklenmemiş veya kiracıdaki herhangi bir kullanıcı tarafından onay varsa bu durum oluşabilir. Kimlik doğrulaması isteğinizi yanlış kiracıya göndermiş olabilirsiniz. \ | (Yalnızca Linux) |
+| 400 Hatalı istek | invalid_resource | AADSTS50001: Adlı uygulama *\<URI\>* adlı kiracıda bulunamadı  *\<KİRACI-kimliği\>*. Uygulama değil Kiracı Yöneticisi tarafından yüklenmemiş veya kiracıdaki herhangi bir kullanıcı tarafından onay varsa bu durum oluşabilir. Kimlik doğrulaması isteğinizi yanlış kiracıya göndermiş olabilirsiniz. \ | (Yalnızca Linux) |
 | 400 Hatalı istek | bad_request_102 | Gerekli meta veriler üst bilgisi belirtilmedi | Her iki `Metadata` isteği üstbilgisi alanının isteğinizden eksik veya hatalı biçimlendirilmiş. Değer olarak belirtilmelidir `true`, tüm alt durumda. "Örnek istek" bölümüne bakın [KALAN bölümü önceki](#rest) örneği.|
 | 401 Yetkisiz | unknown_source | Bilinmeyen kaynak  *\<URI'si\>* | HTTP GET isteği URI doğru şekilde biçimlendirildiğini doğrulayın. `scheme:host/resource-path` Bölümü olarak belirtilmelidir `http://localhost:50342/oauth2/token`. "Örnek istek" bölümüne bakın [KALAN bölümü önceki](#rest) örneği.|
 |           | invalid_request | İstek gerekli parametre eksik, geçersiz bir parametre değeri içerir, birden çok kez bir parametre içerir veya aksi halde yanlış biçimlendirilmiş. |  |

@@ -1,22 +1,24 @@
 ---
-title: Azure'da giden bağlantıları | Microsoft Docs
+title: Azure'da giden bağlantıları
+titlesuffix: Azure Load Balancer
 description: Bu makalede, Azure VM'ler, ortak Internet Hizmetleri ile iletişim kurmak nasıl sağladığını açıklar.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: fdcc039eb71eaeea03aaae856a6d031d4c528669
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 09de0a3aa0303e169d0b90690016909b29dc4a9b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687580"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190977"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure'da giden bağlantıları
 
@@ -46,7 +48,7 @@ Azure Load Balancer ve ilgili kaynakları açıkça tanımlanmış kullanırken 
 
 Azure'da genel IP adresi alanı dışında uç noktaları ile iletişim kurmak için bir VM istemiyorsanız, gerektiğinde erişimi engellemek için ağ güvenlik grupları (Nsg'ler) kullanabilirsiniz. Bölüm [giden bağlantıyı engelliyor](#preventoutbound) Nsg'ler daha ayrıntılı olarak ele alınmaktadır. Tasarım Kılavuzu, uygulama ve tüm giden erişimi olmayan bir sanal ağ yönetme, bu makalenin kapsamı dışında olan.
 
-### <a name="ilpip"></a>Senaryo 1: Bir örnek düzeyinde ortak IP adresine sahip VM
+### <a name="ilpip"></a>Senaryo 1: Örnek düzeyinde ortak IP adresine sahip VM
 
 Bu senaryoda, sanal makine bir örnek düzeyi genel IP (atanmış ILPIP) içeriyor. Giden bağlantılar endişe kadar VM veya yük dengeli olup önemi yoktur. Bu senaryo diğer önceliklidir. Bir ILPIP kullanıldığında, VM ILPIP tüm giden akışlar için kullanır.  
 
@@ -54,7 +56,7 @@ Bir VM'ye atanmış bir genel IP, 1:1 ilişki olduğunu (1 yerine: birçok) ve b
 
 Uygulamanız çok sayıda giden akışlar başlatır ve SNAT bağlantı noktası tükenmesi deneyimi, atamayı göz önünde bulundurun bir [SNAT kısıtlamalarını azaltmak için ILPIP](#assignilpip). Gözden geçirme [yönetme SNAT tükenmesi](#snatexhaust) oluşmaz.
 
-### <a name="lb"></a>Senaryo 2: Sanal makine yük dengeli bir örnek düzeyinde ortak IP adresi olmadan
+### <a name="lb"></a>Senaryo 2: Yük dengeli bir VM örnek düzeyinde ortak IP adresi olmadan
 
 Bu senaryoda, VM'ye bir genel yük dengeleyici arka uç havuzu bir parçasıdır. VM, kendisine atanmış bir genel IP adresi yok. Yük Dengeleyici kaynağı ortak IP ön uç arka uç havuzu arasında bir bağlantı oluşturmak için bir yük dengeleyici kuralı ile yapılandırılması gerekir.
 
@@ -70,7 +72,7 @@ Zaman [birden çok genel IP adresi yük dengeleyici temel ile ilişkili](load-ba
 
 Temel yük dengeleyici giden bağlantı durumunu izlemek için kullanabileceğiniz [Load Balancer için Log Analytics](load-balancer-monitor-log.md) ve [uyarı olay günlüklerini](load-balancer-monitor-log.md#alert-event-log) SNAT bağlantı noktası tükenmesi iletileri izlemek için.
 
-### <a name="defaultsnat"></a>Senaryo 3: Tek başına VM örnek düzeyinde ortak IP adresi olmadan
+### <a name="defaultsnat"></a>Senaryo 3: Örnek düzeyinde ortak IP adresi olmadan tek başına VM
 
 Bu senaryoda, VM'ye bir genel yük dengeleyici havuzu (ve bir iç Load Balancer standart havuz parçası olmayan) bir parçası değil ve kendisine atanmış bir ILPIP adresi yok. Azure, VM'ye giden bir akış oluşturduğunda, özel kaynak IP adresini bir genel kaynak IP adresine giden akış çevirir. Giden Bu akış için kullanılan genel IP adresini yapılandırılabilir değildir ve bu aboneliğe ait genel IP kaynağı limite karşı sayılmaz. Bu genel IP adresi, size ait değilse ve ayrılmış olamaz. VM veya kullanılabilirlik kümesi veya sanal makine ölçek kümesi dağıtmanız durumunda, bu genel IP adresi serbest bırakılacak ve yeni bir genel IP adresi isteniyor. Bu senaryo için IP adreslerini beyaz listeye ekleme özelliğini kullanmayın. Bunun yerine, diğer iki senaryolardan biri, burada açıkça giden senaryo ve giden bağlantı için kullanılacak genel IP adresi bildirdiğiniz kullanın.
 

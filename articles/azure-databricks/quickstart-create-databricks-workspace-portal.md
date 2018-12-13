@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Azure portalını kullanarak Databricks üzerinde bir Spark işi çalıştırma'
+title: "Hızlı Başlangıç: Azure portalını kullanarak Azure Databricks'te Spark işini çalıştırma"
 description: Bu hızlı başlangıçta Azure portalını kullanarak bir Azure Databricks çalışma alanı, bir Apache Spark kümesi oluşturma ve bir Spark işi çalıştırma işlemi gösterilmektedir.
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,14 +10,14 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 080bf465d65199c54e0d09eab8c7bccbc9616ed7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1c8f280d58d12df33b687fa9c09712176987cdd1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568963"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259554"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Databricks üzerinde bir Spark işi çalıştırma
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Azure Databricks'te Spark işini çalıştırma
 
 Bu hızlı başlangıçta bir Azure Databricks çalışma alanı ve bu çalışma alanı içinde bir Apache Spark kümesi oluşturma işlemi gösterilir. Son olarak, Databricks kümesinde bir Spark işi çalıştırma hakkında bilgi edinirsiniz. Azure Databricks hakkında daha fazla bilgi için bkz. [Azure Databricks nedir?](what-is-azure-databricks.md)
 
@@ -86,12 +86,12 @@ Küme oluşturma hakkında daha fazla bilgi için bkz. [Azure Databricks üzerin
 ## <a name="download-a-sample-data-file"></a>Örnek veri dosyası indirme
 Örnek bir JSON veri dosyası indirin ve Azure blob depolama alanına kaydedin.
 
-1. Bu örnek JSON veri dosyasını [Github'dan](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) yerel bilgisayarınıza indirebilirsiniz. Ham dosyayı yerel ortama kaydetmek için sağ tıklayın ve kaydedin.
+1. Bu örnek JSON veri dosyasını indirme [github'dan](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) yerel bilgisayarınıza. Ham dosyayı yerel ortama kaydetmek için sağ tıklayın ve kaydedin.
 
 2. Depolama hesabınız yoksa oluşturabilirsiniz.
     - Azure portalda **Kaynak oluştur**’u seçin. **Depolama** kategorisini ve ardından **Depolama Hesapları**'nı seçin
     - Depolama hesabına benzersiz bir ad verin.
-    - **Hesap Türü**: **Blob Depolama**'yı seçin
+    - Seçin **hesap türü**: **Blob Depolama**
     - **Kaynak Grubu** adı belirleyin. Databricks çalışma alanını oluşturduğunuz aynı kaynak grubunu kullanın.
     
     Daha fazla bilgi için bkz. [Azure Blob depolama hesabını oluşturma](../storage/common/storage-quickstart-create-account.md).

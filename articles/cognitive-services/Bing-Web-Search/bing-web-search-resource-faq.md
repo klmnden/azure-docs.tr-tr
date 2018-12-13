@@ -1,21 +1,22 @@
 ---
 title: Sık sorulan sorular (SSS) - Bing Web araması API'si
 titleSuffix: Azure Cognitive Services
-description: Bing Web araması API'si hakkında sık sorulan soruların yanıtlarını alın.
+description: Bing Web araması API'si kullanma hakkında sık sorulan soruların yanıtlarını alın.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: troubleshooting
 ms.date: 10/06/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 2d43a73d93b24599b28af849ee9d1532441ef6bc
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.author: aahi
+ms.custom: seodec2018
+ms.openlocfilehash: 9098ddc780e6adefa8430fe601e3f4d06634972a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233572"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252992"
 ---
 # <a name="frequently-asked-questions-faq"></a>Sık sorulan sorular (SSS)
 

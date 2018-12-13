@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: f2c9194b07774443a70eef8e879d895efeb338e9
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9d75195656581021253b5787a8bfd46639cc1754
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458200"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323141"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Özel ayırma ilkelerini kullanma
 
@@ -96,13 +96,13 @@ Bu bölümde, özel ayırma ilkesini kullanan yeni bir kayıt grubu oluşturur. 
 
 3. Üzerinde **kayıt grubu Ekle**, aşağıdaki bilgileri girin ve tıklayın **Kaydet** düğmesi.
 
-    **Grup adı**: girin **contoso-özel-ayrılan-cihazları**.
+    **Grup adı**: Girin **contoso-özel-ayrılan-cihazları**.
 
-    **Kanıtlama türü**: seçin **simetrik anahtar**.
+    **Kanıtlama türü**: Seçin **simetrik anahtar**.
 
-    **Anahtarları otomatik Onayla**: zaten bu onay kutusu işaretlenmelidir.
+    **Anahtarları otomatik olarak oluştur**: Bu onay kutusu zaten işaretlenmelidir.
 
-    **Hub'lara cihazları atamak istediğiniz seçin**: seçin **özel (Azure işlevi kullanın)**.
+    **Hub'lara cihazları atamak istediğiniz seçin**: Seçin **özel (Azure işlevi kullanın)**.
 
     ![Simetrik anahtar kanıtı için özel ayırma kayıt grubu Ekle](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
@@ -111,11 +111,11 @@ Bu bölümde, özel ayırma ilkesini kullanan yeni bir kayıt grubu oluşturur. 
 
     Bu adımı her iki bölümsel, IOT hub'larınız için yürütmeniz gerekir.
 
-    **Abonelik**: birden fazla aboneliğiniz varsa bölümsel IOT hub'ları oluşturduğunuz aboneliği seçin.
+    **Abonelik**: Birden fazla aboneliğiniz varsa bölümsel IOT hub'ları oluşturduğunuz aboneliği seçin.
 
-    **IOT hub'ı**: oluşturduğunuz bölümsel hub'ları birini seçin.
+    **IOT hub'ı**: Oluşturduğunuz bölümsel hub'ları birini seçin.
 
-    **Erişim İlkesi**: seçin **iothubowner**.
+    **Erişim İlkesi**: Seçin **iothubowner**.
 
     ![Bölümsel IOT hub'ları sağlama hizmeti ile bağlama](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
 
@@ -129,9 +129,9 @@ Bu bölümde, özel ayırma ilkesini kullanan yeni bir kayıt grubu oluşturur. 
 
 7. Üzerinde **işlev uygulaması** sayfası açılır;'a tıklayın ve yeni işlev için aşağıdaki ayarları girin oluşturma **Oluştur**:
 
-    **Uygulama adı**: benzersiz işlev uygulamanızın adını girin. **işlev uygulaması 1098 contoso** örnek olarak gösterilir.
+    **Uygulama adı**: Benzersiz işlev uygulamanızın adını girin. **işlev uygulaması 1098 contoso** örnek olarak gösterilir.
 
-    **Kaynak grubu**: seçin **var olanı kullan** ve **contoso-us-resource-group** birlikte bu makalede oluşturulan tüm kaynakları korumak için.
+    **Kaynak grubu**: Seçin **var olanı kullan** ve **contoso-us-resource-group** birlikte bu makalede oluşturulan tüm kaynakları korumak için.
 
     **Application Insights**: Bu alıştırma için bu kapatabilirsiniz.
 
@@ -390,7 +390,7 @@ Bu bölüm, Windows tabanlı bir iş istasyonu doğru yönlendirilmiş yönelikt
 4. SDK’nın geliştirme istemci platformunuza ve özgü bir sürümünü oluşturmak için aşağıdaki komutu çalıştırın. `cmake` dizininde simülasyon cihazı için bir Visual Studio çözümü de oluşturulur. 
 
     ```cmd
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
     `cmake`, C++ derleyicinizi bulamazsa yukarıdaki komutu çalıştırırken derleme hatalarıyla karşılaşabilirsiniz. Bu durumda bu komutu [Visual Studio komut isteminde](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs) çalıştırmayı deneyin. 
@@ -398,7 +398,7 @@ Bu bölüm, Windows tabanlı bir iş istasyonu doğru yönlendirilmiş yönelikt
     Derleme başarılı olduktan sonra, son birkaç çıkış satırı aşağıdaki çıkışa benzer olacaktır:
 
     ```cmd/sh
-    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -526,12 +526,12 @@ Aşağıdaki tabloda, beklenen senaryoları ve karşılaşabileceğiniz sonuçla
 
 | Senaryo | Sağlama Hizmeti'nden kayıt sonucu | SDK'sı sonuçları sağlama |
 | -------- | --------------------------------------------- | ------------------------ |
-| Web kancası 200 Tamam 'geçerli bir IOT hub konak adına ayarlayın iotHubHostName' döndürür | Durum neden: atanan  | SDK'sı PROV_DEVICE_RESULT_OK yanı sıra hub bilgilerini döndürür. |
-| Web kancası 200 Tamam 'iotHubHostName' yanıtta sunmak, ancak bir boş dize veya null döndürür. | Sonuç durumu: başarısız oldu<br><br> Hata kodu: CustomAllocationIotHubNotSpecified (400208) | SDK'sı PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED döndürür |
-| Web kancası 401 Yetkisiz döndürür | Sonuç durumu: başarısız oldu<br><br>Hata kodu: CustomAllocationUnauthorizedAccess (400209) | SDK'sı PROV_DEVICE_RESULT_UNAUTHORIZED döndürür |
-| Cihaz devre dışı bırakmak için bireysel kayıt oluşturuldu | Neden durum: devre dışı | SDK'sı PROV_DEVICE_RESULT_DISABLED döndürür |
-| Web kancası hata kodu döndürür > 429 = | DPS düzenleme için birkaç kez yeniden deneyecek. Yeniden deneme ilkesi şu anda şöyledir:<br><br>&nbsp;&nbsp;-Yeniden deneme sayısı: 10<br>&nbsp;&nbsp;-Başlangıç aralığı: 1s<br>&nbsp;&nbsp;-Artır: 9s | SDK'sı hatasını görmezden Gel ve belirtilen süre içinde başka bir get durum iletisi gönderin |
-| Web kancası herhangi bir durum kodu döndürür. | Sonuç durumu: başarısız oldu<br><br>Hata kodu: CustomAllocationFailed (400207) | SDK'sı PROV_DEVICE_RESULT_DEV_AUTH_ERROR döndürür |
+| Web kancası 200 Tamam 'geçerli bir IOT hub konak adına ayarlayın iotHubHostName' döndürür | Sonuç durumu: Atanan  | SDK'sı PROV_DEVICE_RESULT_OK yanı sıra hub bilgilerini döndürür. |
+| Web kancası 200 Tamam 'iotHubHostName' yanıtta sunmak, ancak bir boş dize veya null döndürür. | Sonuç durumu: Başarısız<br><br> Hata kodu: CustomAllocationIotHubNotSpecified (400208) | SDK'sı PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED döndürür |
+| Web kancası 401 Yetkisiz döndürür | Sonuç durumu: Başarısız<br><br>Hata kodu: CustomAllocationUnauthorizedAccess (400209) | SDK'sı PROV_DEVICE_RESULT_UNAUTHORIZED döndürür |
+| Cihaz devre dışı bırakmak için bireysel kayıt oluşturuldu | Sonuç durumu: Devre dışı | SDK'sı PROV_DEVICE_RESULT_DISABLED döndürür |
+| Web kancası hata kodu döndürür > 429 = | DPS düzenleme için birkaç kez yeniden deneyecek. Yeniden deneme ilkesi şu anda şöyledir:<br><br>&nbsp;&nbsp;-Yeniden deneme sayısı: 10<br>&nbsp;&nbsp;-Başlangıç aralığı: 1s<br>&nbsp;&nbsp;-Artış: 9s | SDK'sı hatasını görmezden Gel ve belirtilen süre içinde başka bir get durum iletisi gönderin |
+| Web kancası herhangi bir durum kodu döndürür. | Sonuç durumu: Başarısız<br><br>Hata kodu: CustomAllocationFailed (400207) | SDK'sı PROV_DEVICE_RESULT_DEV_AUTH_ERROR döndürür |
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme

@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Facebook içeriğinin moderasyonu - Azure Content Moderator'
+title: 'Öğretici: Facebook içerik denetleme - Azure Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Facebook sayfalarını Content Moderator ile denetleyin.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: ead8c1d445bf32ecaaf236b4e73c2a583c755049
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: 048f2f40714fd7675c073337825d75443e58039b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223947"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255440"
 ---
-# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Öğretici: Content Moderator ile Facebook içeriğinin moderasyonu
+# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Öğretici: Content Moderator ile Facebook içerik denetleme
 
 Bu öğreticide, makine öğrenmesi tabanlı Content Moderator'ı kullanarak Facebook gönderilerini ve yorumlarını denetlemeyi öğreniyoruz.
 
@@ -61,7 +61,7 @@ Azure İşlevlerinizi oluşturmak için [Azure Yönetim Portalı](https://portal
 4. Aşağıdaki [uygulama ayarlarını](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings) tanımlayın:
 
 > [!NOTE]
-> **cm: Region**, bölgenin adı olmalıdır (boşluk içermemelidir).
+> **Cm: Bölge** (tüm boşluksuz) bölge adı olmalıdır.
 > Örneğin Batı Avrupa değil **westeurope**, Orta Batı ABD değil **westcentralus** kullanılır.
 >
 
@@ -160,7 +160,7 @@ Bu istemci kitaplığı ve örnek de dahil olmak üzere Bilişsel Hizmetler'i ku
 ## <a name="next-steps"></a>Sonraki adımlar
 
 1. Microsoft Build 2017'den bu çözümün [tanıtımını izleyin (video)](https://channel9.msdn.com/Events/Build/2017/T6033).
-1. [GitHub'da Facebook örneği](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
+1. [Github'da Facebook örneği](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
 1. https://docs.microsoft.com/azure/azure-functions/functions-create-github-webhook-triggered-function
 2. http://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
 3. http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token

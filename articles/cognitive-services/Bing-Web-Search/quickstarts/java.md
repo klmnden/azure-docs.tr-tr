@@ -1,7 +1,7 @@
 ---
-title: 'Hızlı Başlangıç: Java ile arama gerçekleştirme - Bing Web Araması API’si'
+title: "Hızlı Başlangıç: Java - Bing Web araması REST API'si ile bir web araması"
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, Java kullanarak ilk Bing Web Araması API'si çağrınızı yapmayı ve bir JSON yanıtı almayı öğreneceksiniz.
+description: Bu hızlı başlangıçta, Java kullanarak Bing Web araması REST API'si için istekleri göndermek için kullanın ve bir JSON yanıtı alırsınız.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: bd6630f67e151dd2ee1e60654352f3070466899b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: f56d64151f36216652c21067d5f3c64270ca266c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312672"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260982"
 ---
-# <a name="quickstart-use-java-to-call-the-bing-web-search-api"></a>Hızlı Başlangıç: Bing Web Araması API’sini çağırmak için Java kullanma  
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-java"></a>Hızlı Başlangıç: Bing Web araması REST API'si ve Java kullanarak web araması
 
 İlk Bing Web Araması API'si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın.  
 

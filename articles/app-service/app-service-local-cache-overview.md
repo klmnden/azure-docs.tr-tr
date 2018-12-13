@@ -1,5 +1,5 @@
 ---
-title: Azure App Service yerel önbelleğe genel bakış | Microsoft Docs
+title: Yerel önbelleğe genel bakış - Azure App Service | Microsoft Docs
 description: Bu makalede, etkinleştirme, yeniden boyutlandırma ve Azure uygulama hizmeti yerel önbelleğinden özellik durumunu sorgulamak açıklanır
 services: app-service
 documentationcenter: app-service
@@ -16,12 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
-ms.openlocfilehash: 6729c87dcc9a85e2e3ccb6b4822213d38e2ba6f7
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.custom: seodec18
+ms.openlocfilehash: 418f471d3b79f09e726f0dc2a5ca05ff5585cf1c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666123"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259180"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service yerel önbelleğe genel bakış
 
@@ -66,7 +67,7 @@ Yerel önbellek, ayrılmış uygulama ayarları bir bileşimini kullanarak yapı
 
 Bu uygulama ayarını kullanarak tek başına-web-app temelinde yerel önbelleği etkinleştir: `WEBSITE_LOCAL_CACHE_OPTION` = `Always`  
 
-![Azure Portalı Uygulama ayarları: yerel önbellek](media/app-service-local-cache-overview/app-service-local-cache-configure-portal.png)
+![Azure Portalı Uygulama ayarları: Yerel Önbellek](media/app-service-local-cache-overview/app-service-local-cache-configure-portal.png)
 
 ### <a name="configure-local-cache-by-using-azure-resource-manager"></a>Azure Resource Manager kullanarak yerel önbelleğini yapılandırma
 <a name="Configure-Local-Cache-ARM"></a>

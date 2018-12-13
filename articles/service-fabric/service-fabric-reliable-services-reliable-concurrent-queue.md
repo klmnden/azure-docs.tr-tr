@@ -1,9 +1,9 @@
 ---
-title: Azure Service Fabric ReliableConcurrentQueue
-description: ReliableConcurrentQueue paralel enqueues sağlar ve dequeues yüksek verimlilik sırasıdır.
+title: Azure Service fabric'te ReliableConcurrentQueue
+description: ReliableConcurrentQueue paralel kaybolmamasının sağlar ve dequeues yüksek performanslı kuyruğudur.
 services: service-fabric
 documentationcenter: .net
-author: sangarg
+author: tylermsft
 manager: timlt
 editor: raja,tyadam,masnider,vturecek
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,49 +13,49 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: sangarg
-ms.openlocfilehash: e04123f7870921a2979564d0f6c68424d4d7711c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: 61b53a23fdbb08b226878d9b702ec6bb2879f8bc
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206586"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185044"
 ---
-# <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Azure Service Fabric ReliableConcurrentQueue giriş
-Güvenilir eşzamanlı sırası bir zaman uyumsuz işlem ve çoğaltılmış hangi özellikleri yüksek eşzamanlılık sıraya alma sıradır ve işlemleri dequeue. Tarafından sağlanan sıralama, katı FIFO gevşetme tarafından yüksek verimlilik ve düşük gecikme süresi sunacak şekilde tasarlanan [güvenilir sıra](https://msdn.microsoft.com/library/azure/dn971527.aspx) ve bunun yerine bir en yüksek çaba sıralama sağlar.
+# <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Azure Service fabric'te ReliableConcurrentQueue giriş
+Güvenilir eşzamanlı kuyruk, bir zaman uyumsuz işlem ve çoğaltılan kuyruğa hangi özellikleri yüksek eşzamanlılık kuyruğudur ve sıradan çıkarma işlemleri. Yüksek aktarım hızına ve düşük gecikme süreli katı FIFO tarafından sağlanan sıralama esneterek sunmak için tasarlanan [güvenilir kuyruk](https://msdn.microsoft.com/library/azure/dn971527.aspx) ve bunun yerine bir mümkün olan en iyi sıralama sağlar.
 
 ## <a name="apis"></a>API'ler
 
-|Eşzamanlı sırası                |Güvenilir Eşzamanlı Kuyruk                                         |
+|Eşzamanlı kuyruk                |Güvenilir Eşzamanlı Kuyruk                                         |
 |--------------------------------|------------------------------------------------------------------|
-| void Enqueue(T item)           | Görev EnqueueAsync (ITransaction tx, T öğe)                       |
+| void Enqueue(T item)           | Görev EnqueueAsync (ITransaction tx, T öğesi)                       |
 | bool TryDequeue (out T sonuç)  | Görev < ConditionalValue < T >> TryDequeueAsync (ITransaction tx)  |
-| int Count()                    | uzun Count()                                                     |
+| Count() int                    | uzun Count()                                                     |
 
 ## <a name="comparison-with-reliable-queuehttpsmsdnmicrosoftcomlibraryazuredn971527aspx"></a>Karşılaştırma [güvenilir sırası](https://msdn.microsoft.com/library/azure/dn971527.aspx)
 
-Alternatif olarak güvenilir eşzamanlı sıra sunulan [güvenilir sıra](https://msdn.microsoft.com/library/azure/dn971527.aspx). Burada katı FIFO sıralama gerekli değildir, durumlarda kullanılmalıdır olarak FIFO gerektiren bir kolaylığını eşzamanlılık ile güvence altına alır.  [Güvenilir sıra](https://msdn.microsoft.com/library/azure/dn971527.aspx) sıraya alma için izin verilen en fazla bir işlem ve aynı anda dequeue izin verilen en fazla bir işlem ile FIFO sıralama zorlamak için kilitler kullanır. Buna karşılık, güvenilir eşzamanlı sıra sıralama kısıtlaması rahatlatır ve bunların enqueue Interleave ve işlemleri dequeue sayı eşzamanlı işlemler sağlar. En yüksek çaba sıralama ancak güvenilir eşzamanlı sıradaki iki değer göreli sıralamasını hiçbir zaman olabilir garanti sağlanmış.
+Güvenilir eşzamanlı kuyruk alternatif olarak sunulur [güvenilir kuyruk](https://msdn.microsoft.com/library/azure/dn971527.aspx). Katı FIFO sıralama olduğu gerekli durumlarda kullanılmalıdır olarak FIFO gerektiren bir tradeoff eşzamanlılık ile güvence altına alır.  [Güvenilir kuyruk](https://msdn.microsoft.com/library/azure/dn971527.aspx) kuyruğa izin verilen en fazla bir işlem ve aynı anda sıradan çıkarma için izin verilen en fazla bir işlem ile FIFO sıralama zorlamak için kilit kullanır. Güvenilir eşzamanlı kuyruk karşılaştırması, sıralama kısıtlamayı rahatlatır; ve kendi kuyruğa ayırma ve işlemleri sıradan çıkarma sayısı eşzamanlı işlemler sağlar. Mümkün olan en iyi sıralama ancak göreli sıralamasını güvenilir eşzamanlı kuyruk iki değerler hiçbir zaman için garanti, sağlanır.
 
-Güvenilir eşzamanlı sıra daha yüksek verimlilik ve daha düşük gecikme sağlar [güvenilir sıra](https://msdn.microsoft.com/library/azure/dn971527.aspx) enqueues gerçekleştirme birden çok eşzamanlı işlem olduğunda ve/veya dequeues.
+Güvenilir eşzamanlı kuyruk daha yüksek verimlilik ve daha düşük gecikme süresi sağlayan [güvenilir kuyruk](https://msdn.microsoft.com/library/azure/dn971527.aspx) kaybolmamasının gerçekleştirme birden çok eş zamanlı işlem olduğunda ve/veya dequeues.
 
-Örnek Kullanım örneği ReliableConcurrentQueue için [Message Queue](https://en.wikipedia.org/wiki/Message_queue) senaryo. Bu senaryoda, bir veya daha fazla ileti üreticileri oluşturun ve öğeleri kuyruğa ekleyin ve bir veya daha fazla ileti tüketiciye sırasından ileti çekmek ve işlenecekleri. Birden çok üreticileri ve tüketicileri sırasını işlemek için eş zamanlı işlemleri kullanarak bağımsız olarak çalışabilir.
+Örnek Kullanım örneği için ReliableConcurrentQueue [ileti kuyruğu](https://en.wikipedia.org/wiki/Message_queue) senaryo. Bu senaryoda, bir veya daha fazla ileti üreticileri oluşturun ve öğeleri kuyruğa ekleyin ve bir veya daha fazla ileti tüketiciler iletileri sıradan çıkarmak ve işlenecekleri. Kuyruğu işlemek için eş zamanlı işlem kullanarak birden çok üreticilerin ve tüketicilerin bağımsız olarak çalışabilir.
 
 ## <a name="usage-guidelines"></a>Kullanım yönergeleri
-* Sıranın kuyruğundaki öğelerin düşük saklama dönemi olmasını bekliyor. Diğer bir deyişle, öğeleri sıraya uzun bir süredir kalmak değil.
+* Sıranın kuyruğundaki öğelerin düşük tutma süresine sahip bekliyor. Diğer bir deyişle, öğeleri kuyruğa uzun bir süredir kalın değil.
 * Sıranın katı FIFO sıralama garanti etmez.
-* Sıranın kendi yazma okumaz. Bir öğe sıraya alınan bir işlem içinde ise, aynı işlem içinde dequeuer için görünür olmaz.
-* Dequeues birbirinden yalıtılmış değildir. Öğesi, *A* işlemde kuyruktan çıkarıldı *txnA*rağmen *txnA* öğe kaydedilmiş, değil *A* eşzamanlı bir işlem için görünür olmaz *txnB*.  Varsa *txnA* durdurur, *A* için görünür olacak *txnB* hemen.
-* *TryPeekAsync* davranışı kullanarak uygulanabilir bir *TryDequeueAsync* ve işlem iptal ediliyor. Buna örnek olarak programlama desenleri bölümünde bulunabilir.
-* İşlem olmayan sayısıdır. Kuyrukta, öğelerin sayısı hakkında bir fikir edinmek için kullanılabilir, ancak bir nokta zaman temsil eder ve bağlı dayanıyordu olamaz.
-* İşlem bir performans etkisi sistemde olabilir uzun süre çalışan işlemleri önlemek için etkin durumdayken dequeued öğeleri üzerindeki pahalı işleme gerçekleştirilmemelidir.
+* Sıranın kendi yazma okumaz. Sıraya alınan bir işlem içinde bir öğe ise aynı işlem içindeki bir dequeuer için görünür olmaz.
+* Dequeues birbirinden yalıtılmış değildir. Öğesi, *A* işlemde sıradan çıkarılan *txnA*rağmen *txnA* öğe yüklü durumda değil *A* eşzamanlı için görünür olmaz işlem *txnB*.  Varsa *txnA* durdurur, *A* için görünür olacak *txnB* hemen.
+* *TryPeekAsync* davranışını kullanarak uygulanabilir bir *TryDequeueAsync* ve sonra işlem iptal ediliyor. Buna örnek olarak Programming Patterns bölümünde bulunabilir.
+* İşlem olmayan sayısıdır. Kuyrukta öğe sayıları hakkında bir fikir edinmek için kullanılabilir ancak bir-belirli bir noktaya temsil eder ve bağlı yararlandı olamaz.
+* İşlem sistemde bir performans etkisi sahip olabilecek uzun süre çalışan işlemleri önlemek için etkin durumdayken dequeued öğelerde pahalı işleme gerçekleştirilmemelidir.
 
-## <a name="code-snippets"></a>Kod parçacıkları
-Bize birkaç kod parçacıkları ve bunların beklenen çıkış bakın. Özel durum işleme, bu bölümde göz ardı edilir.
+## <a name="code-snippets"></a>Kod Parçacıkları
+Bize birkaç kod parçacıkları ve onların beklenen çıkış bakın. Bu bölümde, özel durum işleme göz ardı edilir.
 
 ### <a name="enqueueasync"></a>EnqueueAsync
-Burada, kendi beklenen çıktı tarafından takip EnqueueAsync kullanmak için bazı kod parçacıkları bulunmaktadır.
+Birkaç kod parçacıkları için kendi beklenen çıktı tarafından takip EnqueueAsync kullanarak aşağıda verilmiştir.
 
-- *Durum 1: Tek bir Sıraya alma görevi*
+- *1. durum: Göreve sıraya alma*
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -67,14 +67,14 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-Görevi başarıyla tamamlandı ve o orada sıranın değiştirme eşzamanlı işlem olduğunu varsayalım. Kullanıcı öğelerinin herhangi birinde aşağıdaki siparişleri bulunduğu için kuyruğa bekleyebilirsiniz:
+Görev başarıyla tamamlandı ve bu orada sıranın değiştirme eşzamanlı işlem olduğunu varsayalım. Kullanıcı sıranın öğelerini aşağıdaki sıralardan birine içermesi için geçerli olacaktır:
 
 > 10, 20
 
 > 20, 10
 
 
-- *Durum 2: Sıraya alma görev paralel*
+- *2. durum: Paralel sıraya alma görevi*
 
 ```
 // Parallel Task 1
@@ -96,14 +96,14 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-Görevleri görevleri paralel olarak çalışan ve sıranın değiştirilmesi diğer eşzamanlı işlem vardı işleminin başarıyla tamamlandığını varsayalım. Hiçbir çıkarım kuyruğundaki öğelerin sırasını hakkında yapılabilir. Bu kod parçacığını için öğeleri 4 hiçbirinde görünebilir! olası sıralamalarını.  Sıranın özgün (sıradaki) sırayla öğeleri tutmak deneyecek, ancak bunları eşzamanlı işlem veya hataları nedeniyle yeniden sıralamak için zorlanabilir.
+Görevlerin sırası değiştirme diğer eş zamanlı işlem başlatılmalı ve görevleri paralel olarak çalışan işleminin başarıyla tamamlandığını varsayılır. Hiçbir çıkarımı kuyruğundaki öğelerin sırasını hakkında yapılabilir. Bu kod parçacığı için öğeleri 4 hiçbirinde görünebilir! olası sıralamalarının.  Sıranın özgün (sıraya) sırada öğeleri tutmak deneyecek, ancak eşzamanlı işlem veya hatalar nedeniyle yeniden sıralamak için zorlanabilir.
 
 
 ### <a name="dequeueasync"></a>DequeueAsync
-Burada, beklenen çıktı tarafından takip TryDequeueAsync kullanmak için bazı kod parçacıkları bulunmaktadır. Sıranın sırasındaki aşağıdaki öğelerin ile önceden doldurulur varsayın:
+Beklenen çıktı tarafından takip TryDequeueAsync kullanmak için birkaç kod parçacıklarını aşağıda verilmiştir. Sıranın sırasındaki şu öğeler önceden doldurulur varsayın:
 > 10, 20, 30, 40, 50, 60
 
-- *Durum 1: Tek Dequeue görevi*
+- *1. durum: Tek görev sıradan çıkarma*
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -116,9 +116,9 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-Görevi başarıyla tamamlandı ve o orada sıranın değiştirme eşzamanlı işlem olduğunu varsayalım. Kuyruğundaki öğelerin sırasını hakkında hiçbir çıkarımı yapılan olduğundan, tüm üç öğe, herhangi bir sırada kuyruktan çıkarıldı. Sıranın özgün (sıradaki) sırayla öğeleri tutmak deneyecek, ancak bunları eşzamanlı işlem veya hataları nedeniyle yeniden sıralamak için zorlanabilir.  
+Görev başarıyla tamamlandı ve bu orada sıranın değiştirme eşzamanlı işlem olduğunu varsayalım. Sıradaki öğelerin sırasını hakkında hiçbir çıkarımı yapılan bu yana herhangi üç öğe, herhangi bir sırada sıradan çıkarılan. Sıranın özgün (sıraya) sırada öğeleri tutmak deneyecek, ancak eşzamanlı işlem veya hatalar nedeniyle yeniden sıralamak için zorlanabilir.  
 
-- *Durum 2: Paralel görev Dequeue*
+- *2. durum: Paralel görev sıradan çıkarma*
 
 ```
 // Parallel Task 1
@@ -142,13 +142,13 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-Görevleri görevleri paralel olarak çalışan ve sıranın değiştirilmesi diğer eşzamanlı işlem vardı işleminin başarıyla tamamlandığını varsayalım. Listeler kuyruğundaki öğelerin sırasını hakkında hiçbir çıkarımı yapılan bu yana *dequeue1* ve *dequeue2* her herhangi bir sırada iki tüm öğeleri içerir.
+Görevlerin sırası değiştirme diğer eş zamanlı işlem başlatılmalı ve görevleri paralel olarak çalışan işleminin başarıyla tamamlandığını varsayılır. Listeleri kuyruğundaki öğelerin sırasını hakkında hiçbir çıkarımı yapılan bu yana *dequeue1* ve *dequeue2* her herhangi bir sırada herhangi iki öğe içerir.
 
-Aynı öğe *değil* hem listelerde görüntülenir. Bu nedenle, dequeue1 varsa *10*, *30*, dequeue2 olacaktır *20*, *40*.
+Aynı öğe olacak *değil* her iki listede de görünür. Bu nedenle, dequeue1 varsa *10*, *30*, dequeue2 olacaktır *20*, *40*.
 
-- *Durum 3: İşlem iptali ile sıralama Dequeue*
+- *3. durum: Sıradan çıkarma işlemi iptal ile sıralama*
 
-Yürütülen olan bir işlem durduruluyor sıranın head üzerinde öğeleri geri koyar dequeues. Hangi öğelerin sıra head üzerinde geri getirilme sırasını garanti edilmez. Bize aşağıdaki koda bakın:
+Yürütülen ile bir işlem iptal ediliyor, kuyruğun head üzerinde öğeleri geri koyar dequeues. Hangi öğelerin kuyruğun head üzerinde geri yerleştirilir sırasını garanti edilmez. Bize aşağıdaki koda bakın:
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -160,21 +160,21 @@ using (var txn = this.StateManager.CreateTransaction())
     await txn.AbortAsync();
 }
 ```
-Öğeleri aşağıdaki sırayla kuyruktan çıkarıldı varsayın:
+Öğeler şu sırayla sıradan çıkarılan varsayın:
 > 10, 20
 
-Biz hareketi iptal, öğeleri aşağıdaki siparişleri hiçbirinde sırasının head dön eklenir:
+İşlem iptal ediyoruz, öğeleri aşağıdaki sıralardan birine kuyruğun baş dön eklenir:
 > 10, 20
 
 > 20, 10
 
-Aynı işlem bulunduğu değil başarıyla tüm durumlarda geçerlidir *kabul edilen*.
+Aynı işlem olduğu değil başarıyla tüm durumlarda geçerlidir *kabul edilen*.
 
 ## <a name="programming-patterns"></a>Programlama desenleri
-Bu bölümde, bize en birkaç programlama ara desenleri ReliableConcurrentQueue kullanarak faydalı olabilir.
+Bu bölümde, bize birkaç programlama ara ReliableConcurrentQueue kullanarak yardımcı olabilecek desenler.
 
-### <a name="batch-dequeues"></a>Toplu Dequeues
-A önerilir programlama düzeni toplu tüketici görevi için bir gerçekleştirmek yerine dequeues aynı anda dequeue. Kullanıcının her toplu iş veya toplu iş boyutu arasındaki gecikmelerini kısıtlama seçebilirsiniz. Aşağıdaki kod parçacığını bu programlama modeli gösterir.  Bu örnekte unutmayın, işlem kaydedildikten sonra bir arıza işlenirken meydana olsaydı, işlenmemiş öğeleri işlenmemiş olmadan kaybolacak işlem yapılmaz.  Alternatif olarak, bu performansı üzerinde olumsuz bir etkisi olabilir ve önceden işlenmiş öğelerinin işleme gerektirir ancak işleme işlemdeki kapsamında yapılabilir.
+### <a name="batch-dequeues"></a>Batch Dequeues
+Önerilen bir programlama modelidir tüketici göreve batch için kendi birini gerçekleştirmek yerine dequeues teker teker sıradan çıkarma. Kullanıcı, her batch veya toplu iş boyutu arasında gecikmeler azaltma seçebilirsiniz. Aşağıdaki kod parçacığını bu programlama modelini göstermektedir.  Bu örnekte unutmayın, işlem kaydedildikten sonra bir hata işleme sırasında ortaya çıkacaksa, işlenmemiş öğe işlenen kalmadan kaybolacak işlem yapılmaz.  Alternatif olarak, ancak bu performansı üzerinde olumsuz bir etkiye sahip ve önceden işlenmiş öğelerin gerektirip gerektirmediği hareketin kapsamında, işlem yapılabilir.
 
 ```
 int batchSize = 5;
@@ -220,7 +220,7 @@ while(!cancellationToken.IsCancellationRequested)
 ```
 
 ### <a name="best-effort-notification-based-processing"></a>En yüksek çaba bildirim tabanlı işleme
-Başka bir ilginç programlama modeli sayısı API kullanır. Burada, size en yüksek çaba bildirim tabanlı sıra için işlem uygulayabilirsiniz. Sıra sayısı bir sıraya veya bir dequeue görev kısıtlama için kullanılabilir.  İşlem dışında işleneceğini beri işleme sırasında bir hata oluşursa, önceki örnekte olduğu gibi işlenmemiş öğeleri kayıp olabileceğini unutmayın.
+Başka bir ilgi çekici programlama deseni sayısı API kullanır. Burada, size en yüksek çaba bildirim tabanlı sıra için işleme uygulayabilirsiniz. Kuyruk sayısı, bir kuyruğa veya kuyruktan alma görevi kısıtlama için kullanılabilir.  İşlemin dışında işlemesi bu yana işlenirken bir hata oluşursa, önceki örnekte olduğu gibi işlenmemiş öğeleri kayıp olabileceğine dikkat edin.
 
 ```
 int threshold = 5;
@@ -268,9 +268,9 @@ while(!cancellationToken.IsCancellationRequested)
 ```
 
 ### <a name="best-effort-drain"></a>En yüksek çaba boşaltma
-Sıranın boşaltmayı veri yapısı eşzamanlı yapısı nedeniyle garanti edilemez.  Bu olası TryDequeueAsync belirli bir çağrı, etkinliklerini sırada hiçbir kullanıcı işlemleri yürütülen olsa bile, sıraya alınan önceden olan bir öğeyi döndürmeyebilir ve kaydedilmiş olur.  Sıraya alınan öğe garanti *sonunda* dequeue için bir bant dışı iletişim mekanizması bağımsız bir tüketici sıranın kararlı durum tüm üreticileri durduruldu ve hiç yeni sıraya alma işlemlerine izin verildiğinden olsa bile ulaştı ancak bilemezsiniz görünür hale gelmiştir. Bu nedenle, boşaltma en altına uygulandığı gibi yüksek çaba işlemdir.
+Sıranın bir boşaltma veri yapısı eşzamanlı niteliği nedeniyle garanti edilemez.  Bu sıranın hiçbir kullanıcı işlemlerinde uçuşan olsa bile TryDequeueAsync belirli bir çağrısına sıraya önceden var olan bir öğe döndürebilir değil, olası ve taahhüt olur.  Sıraya alınan öğe garanti *sonunda* sıradan çıkarma için bir bant dışı iletişim mekanizması bağımsız bir tüketici sıranın kararlı bir duruma bile tüm Üreticiler ulaştı ancak bilemezsiniz görünür hale gelir işlemlerine izin durduruldu ve yeni kuyruğa alındı. Bu nedenle, aşağıda uygulanan en yüksek çaba boşaltma işlemi.
 
-Kullanıcı tüm başka üretici ve tüketici görevleri durdurmak ve tamamlanmaya veya iptal, sıranın boşaltmak denemeden önce yürütülen işlemler için beklemeniz gerekir.  Kullanıcı beklenen kuyruğundaki öğelerin sayısı biliyorsa, bunlar tüm öğeleri kuyruktan çıkarıldı sinyalleri bir bildirim ayarlayalım ayarlayabilirsiniz.
+Kullanıcı tüm başka üretici ve tüketici görevleri durdurun ve tamamlama veya iptal, sıranın boşaltma çalışmadan önce yürütülen işlemler için beklemeniz.  Kullanıcı kuyruğundaki öğe sayısı beklenen biliyorsa tüm öğeleri sıradan çıkarılan olmadığını bildiren bir bildirim ayarlayabilirler.
 
 ```
 int numItemsDequeued;
@@ -307,7 +307,7 @@ do
 ```
 
 ### <a name="peek"></a>Göz At
-ReliableConcurrentQueue sağlamaz *TryPeekAsync* API. Kullanıcıların alabilirsiniz gözlem anlamsal kullanarak bir *TryDequeueAsync* ve işlem iptal ediliyor. Bu örnekte, dequeues yalnızca öğenin değeri büyükse işlenen *10*.
+ReliableConcurrentQueue sağlamaz *TryPeekAsync* API. Kullanıcıların elde gözlem anlam kullanarak bir *TryDequeueAsync* ve sonra işlem iptal ediliyor. Bu örnekte, dequeues yalnızca öğenin değeri büyükse işlenen *10*.
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -337,11 +337,11 @@ using (var txn = this.StateManager.CreateTransaction())
 ```
 
 ## <a name="must-read"></a>Okuma olmalıdır
-* [Güvenilir hizmetler hızlı başlangıç](service-fabric-reliable-services-quick-start.md)
+* [Reliable Services hızlı başlangıç](service-fabric-reliable-services-quick-start.md)
 * [Güvenilir Koleksiyonlar ile çalışma](service-fabric-work-with-reliable-collections.md)
-* [Güvenilir hizmetler bildirimleri](service-fabric-reliable-services-notifications.md)
-* [Güvenilir hizmetler yedekleme ve geri yükleme (olağanüstü durum kurtarma)](service-fabric-reliable-services-backup-restore.md)
-* [Güvenilir durum Yöneticisi yapılandırması](service-fabric-reliable-services-configuration.md)
-* [Service Fabric Web API Hizmetleri'ni kullanmaya başlama](service-fabric-reliable-services-communication-webapi.md)
-* [Gelişmiş kullanımını programlama modeli güvenilir hizmetler](service-fabric-reliable-services-advanced-usage.md)
+* [Reliable Services bildirimleri](service-fabric-reliable-services-notifications.md)
+* [Reliable Services yedekleme ve geri yükleme (olağanüstü durum kurtarma)](service-fabric-reliable-services-backup-restore.md)
+* [Güvenilir durum Yöneticisi'ni yapılandırma](service-fabric-reliable-services-configuration.md)
+* [Service Fabric Web API Hizmetleri ile çalışmaya başlama](service-fabric-reliable-services-communication-webapi.md)
+* [Reliable Services programlama modelinin Gelişmiş kullanımı](service-fabric-reliable-services-advanced-usage.md)
 * [Güvenilir koleksiyonlar için Geliştirici Başvurusu](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

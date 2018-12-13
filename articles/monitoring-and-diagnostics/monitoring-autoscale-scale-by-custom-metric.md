@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 9df587d92b9e35db496c787186ff2945db7965ce
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ac4cf9c3fe270b3b2a6d499a90184e8d5274e765
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987824"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309680"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Otomatik ölçeklendirme ile azure'da özel bir ölçü olarak kullanmaya başlayın
 Bu makalede, Azure portalındaki özel ölçüm kaynağınızı ölçeklendirilmesine açıklar.
 
 Azure İzleyici otomatik ölçeklendirme için yalnızca geçerlidir [sanal makine ölçek kümeleri](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), ve [APIManagementHizmetleri](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
-# <a name="lets-get-started"></a>Sağlar kullanmaya başlayın
+## <a name="lets-get-started"></a>Sağlar kullanmaya başlayın
 Bu makalede, application ınsights ile yapılandırılmış bir web uygulaması sahibi olduğunuzu varsayar. Zaten yoksa, şunları yapabilirsiniz [ASP.NET Web siteniz için Application ınsights'ı ayarlama][1]
 
 - Açık [Azure portalı][2]
@@ -36,12 +36,12 @@ Bu makalede, application ınsights ile yapılandırılmış bir web uygulaması 
 - Yukarıdaki adıma benzer şekilde, ölçeklendirme ve özel ölçüm eşiğin altında ise ölçek sayısı 1 ile azaltma ölçek kuralı ekleyin.
   ![CPU üzerinde göre ölçeklendirin][7]
 - Ayarladığınız örnek limitleri. Özel ölçüm dalgalanmaları bağlı olarak 2-5 örnekleri arasında ölçeklendirme istiyorsanız, örneğin, 'minimum' için '2', 'maksimum.', '5' ve 'default' için ' 2' ayarlayın
-> Not: kaynak ölçümlerin okunmasıyla bir sorun olduğunu ve geçerli kapasite, varsayılan kapasitenin altında olduğu durumda, ardından kaynak kullanılabilirliğini sağlamak için otomatik ölçeklendirme varsayılan değer olarak ölçeklendirilir. Geçerli kapasite, varsayılan kapasiteden zaten yüksektir, otomatik ölçeklendirme, ölçeği değil.
+> Not: Kaynak ölçümlerin okunmasıyla bir sorun olduğunu ve geçerli kapasite, varsayılan kapasitenin altında olduğu durumda, ardından kaynak kullanılabilirliğini sağlamak için otomatik ölçeklendirme varsayılan değer olarak ölçeklendirilir. Geçerli kapasite, varsayılan kapasiteden zaten yüksektir, otomatik ölçeklendirme, ölçeği değil.
 - 'Kaydet' tıklayın
 
 Tebrikler. Ölçek kümenizi otomatik olarak ayarlanması başarıyla oluşturulmuş artık, web uygulamanıza özel bir ölçüme göre ölçeklendirin.
 
-> Not: VMSS veya Bulut hizmet rolü ile kullanmaya başlamak için aynı adımları geçerlidir.
+> Not: Aynı adımları VMSS veya Bulut hizmet rolü ile kullanmaya başlamak için geçerlidir.
 
 <!--Reference-->
 [1]: https://docs.microsoft.com/azure/application-insights/app-insights-asp-net

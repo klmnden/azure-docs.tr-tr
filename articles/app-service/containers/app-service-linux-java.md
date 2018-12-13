@@ -1,6 +1,6 @@
 ---
-title: Linux üzerinde Azure App Service için Java dili desteği | Microsoft Docs
-description: Linux üzerinde Azure App Service ile Java uygulaması dağıtma için Geliştirici Kılavuzu.
+title: Linux'ta - Azure App Service için Java Geliştirici Kılavuzu | Microsoft Docs
+description: Linux üzerinde Azure App Service'te çalışan Java uygulamalarını yapılandırmayı öğrenin.
 keywords: Azure app service, web uygulaması, linux, oss, java
 services: app-service
 author: rloutlaw
@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 12/10/2018
 ms.author: routlaw
-ms.openlocfilehash: cf3e5bf6752311881e1266d2fb49aa5b7108e68a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 75410b1338909f98a01b02c0ff86be9b81ab3faf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965573"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250932"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Geliştirici Kılavuzu
 
