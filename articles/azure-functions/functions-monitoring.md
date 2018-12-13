@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: 9fb25f21e9ff54baf0e297fad1601018af45e476
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: aba3d9f33d179c09708464975fa2a929a8bb68d0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497235"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876528"
 ---
 # <a name="monitor-azure-functions"></a>Azure İşlevlerini İzleme
 
@@ -330,6 +330,21 @@ Günlükleri, işlev kodunuzun tarafından yazılan, "İşlev" kategorisi olan v
 ## <a name="configure-sampling"></a>Örnekleme yapılandırma
 
 Application Insights'ı olan bir [örnekleme](../application-insights/app-insights-sampling.md) zamanlarda, yoğun yük çok fazla telemetri verileri üreten gelen Koruyabileceğiniz özelliği. Gelen telemetri oranı belirtilen eşiği aşarsa, rastgele gelen öğelerden bazıları yok saymak Application ınsights'ı başlatır. 5 saniye başına öğe sayısı için varsayılan ayardır. Örnekleme yapılandırabileceğiniz [host.json](functions-host-json.md).  Bir örneği aşağıda verilmiştir:
+
+### <a name="version-2x"></a>Sürüm 2.x 
+
+```json
+{
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "maxTelemetryItemsPerSecond" : 5
+      }
+    }
+  }
+}
+```
 
 ### <a name="version-1x"></a>Sürüm 1.x 
 

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c8edaba8de597e3e76e760e1f5109006338a663c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 2f426ab85d9ab15dd080a487337b8d48358ed040
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238829"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888469"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure haritalar desteklenen eşleme stilleri
-Azure haritalar dört farklı yerleşik eşleme stilleri destekler. Açıklamalarının stillerle aşağıda listelenmiştir.
+Azure haritalar, aşağıda açıklandığı gibi birçok farklı yerleşik eşleme stilleri destekler.
 
 ## <a name="road"></a>Yol
 A **yol** haritasıdır yollar, doğal görüntüler standart bir harita ve bu özellikler için etiketlerin yanı sıra yapay özellikleri.
@@ -49,6 +49,14 @@ Yollar ve etiketleri uydu ve hava tanımayı üzerine yayılan karma bu harita s
 **Koyu gri tonlamalı** yol haritası Stili Koyu bir sürümüdür.
 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
+
+**İlgili API'ler:**
+* JS harita denetimi 
+
+## <a name="night"></a>gece
+**gece** koyu renkli yollar ve semboller yol haritası stiliyle sürümüdür.
+
+![gece](./media/supported-map-styles/night.PNG)
 
 **İlgili API'ler:**
 * JS harita denetimi 

@@ -1,26 +1,29 @@
 ---
-title: Azure Disk şifrelemesi için Iaas Vm'leri genel bakış | Microsoft Docs
+title: Genel Bakış - Iaas Vm'leri için Azure Disk şifrelemesi | Microsoft Docs
 description: Bu makale, Iaas sanal makineleri için Microsoft Azure Disk Şifrelemesi'ne genel bakış sağlar.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/14/2018
-ms.openlocfilehash: 1328effbc495422e5190362c562928fbb1742e1b
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 73a00756928fd476b723e0b43accf46378ae14cc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913215"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093293"
 ---
-# <a name="azure-disk-encryption-for-iaas-vms"></a>Iaas VM'ler için Azure Disk şifrelemesi 
+# <a name="azure-disk-encryption-for-iaas-vms"></a>Iaas VM'ler için Azure Disk şifrelemesi
+
 Microsoft Azure, veri gizliliği ve veri egemenliği sağlamaya yönelik taahhüt eder. Azure, Azure'da barındırılan verilerinizi şifrelemek için Denetim ve şifreleme anahtarlarını ve veri denetimi ve Denetim erişimi yönetmek için Gelişmiş teknolojilerden bir dizi aracılığıyla denetlemenize olanak tanıyor. Bu denetim, Azure müşterilerine iş gereksinimlerini en iyi karşılayan çözümü seçme esnekliği sağlar. Bu makale için bir teknoloji çözümü sunar: "Azure Disk şifrelemesi" Windows ve Linux Iaas sanal makineler (VM). Bu teknoloji, Kurumsal güvenlik ve uyumluluk taahhütlerinizi yerine verilerinizi koruyarak yardımcı olur. 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 
 ## <a name="overview"></a>Genel Bakış
+
 Azure Disk şifrelemesi, Windows ve Linux Iaas sanal makine disklerinizi şifreleyin yardımcı olan bir özelliktir. Disk şifrelemesi, endüstri standardı yararlanır [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) Windows özelliğidir ve [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) Linux işletim sistemi ve veri diskleri için birim şifrelemesi sağlamak için bir özelliğidir. İle tümleşik bir çözüm [Azure anahtar kasası](https://azure.microsoft.com/documentation/services/key-vault/) denetlemek ve disk şifreleme anahtarlarını ve gizli anahtarları yönetme yardımcı olacak. Çözüm Ayrıca, sanal makine disklerindeki tüm veriler Azure depolama alanınızda bekleme sırasında şifrelenir sağlar.
 
 İçin disk şifreleme Windows ve Linux Iaas sanal makineleri, genel kullanıma sunulmuştur tüm Azure genel bölgeler ve standart VM'ler ve Azure Premium depolama ile sanal makineleri için Azure kamu bölgeleri. Disk şifrelemesi yönetim çözümü uyguladığınızda, aşağıdaki iş gereksinimlerini karşılamak:
@@ -37,6 +40,7 @@ Azure Güvenlik Merkezi kullanırsanız, şifreli olmayan VM'ler varsa uyarı. U
 
 
 ## <a name="encryption-scenarios"></a>Şifreleme senaryoları
+
 Disk şifrelemesi çözümü, aşağıdaki müşteri senaryoları destekler:
 
 * Önceden şifrelenmiş VHD ve şifreleme anahtarlarından oluşturulan yeni Windows Iaas Vm'leri şifrelemeyi etkinleştirin.
@@ -87,6 +91,7 @@ Microsoft Azure'da etkin çözüm Iaas Vm'leri için aşağıdaki senaryoları d
 * Windows yazılım tabanlı RAID sistemler ile yapılandırılmış VM'ler.
 
 ## <a name="encryption-features"></a>Şifreleme özellikleri
+
 Etkinleştirme ve Azure Iaas Vm'leri için Disk şifrelemesi dağıtma sağlanan yapılandırmasına bağlı olarak aşağıdaki özellikleri etkinleştirilir:
 
 * İşletim sistemi birimi ve önyükleme birimi depolama alanınızda bekleyen korumak için şifreleme.

@@ -1,21 +1,22 @@
 ---
 title: Kapsayıcıları yapılandırma
-titlesuffix: Text Analytics - Cognitive Services - Azure
-description: Metin analizi kapsayıcılar için yapılandırma ayarları.
+titlesuffix: Text Analytics - Azure Cognitive Services
+description: Metin analizi, ortak bir yapılandırma çerçeve ile her bir kapsayıcı sağlar, böylece kolayca yapılandırabilir ve depolama, günlüğe kaydetme ve telemetri ve güvenlik ayarları için kapsayıcılarınızı yönetin.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 61f435c55d7925554facd9bbaa63767023a779d4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7e993b9ccc57359ac64186765b7b704535eb5a57
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965028"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086683"
 ---
 # <a name="configure-containers"></a>Kapsayıcıları yapılandırma
 
@@ -104,7 +105,7 @@ Aşağıdaki tabloda altında desteklenen yapılandırma ayarları açıklanmakt
 > [!IMPORTANT]
 > [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), Ve [ `Eula` ](#eula-configuration-setting) yapılandırma ayarlarını birlikte kullanılır ve üçünü de için geçerli değerler sağlamanız gerekir bunları; Aksi takdirde kapsayıcınızı başlatılamıyor. Bir kapsayıcı örneği oluşturmak için bu yapılandırma ayarlarını kullanma hakkında daha fazla bilgi için bkz. [faturalama](how-tos/text-analytics-how-to-install-containers.md#billing).
 
-Bilişsel hizmetler kapsayıcılar, Azure kullanımını düzenleyen sözleşmenize altında lisanslanmıştır. Azure kullanımınızı var olan bir anlaşma değilse, Azure'un kullanımını düzenleyen sözleşmenize Microsoft çevrimiçi abonelik (çevrimiçi hizmet koşulları kullanımız) sözleşmesi olduğunu kabul etmiş olursunuz. Önizlemeler için de ek kullanım koşulları için Microsoft Azure önizlemeleri için kabul etmiş olursunuz. Kapsayıcı kullanarak bu koşulları kabul etmiş olursunuz.
+Bilişsel hizmetler kapsayıcıları altında lisanslanır [sözleşmenize](https://go.microsoft.com/fwlink/?linkid=2018657) Azure kullanımınızı. Azure kullanımınızı var olan bir anlaşma değilse, Azure'un kullanımını düzenleyen sözleşmenize olduğunu kabul ediyorum [Microsoft çevrimiçi Abonelik Sözleşmesi](https://go.microsoft.com/fwlink/?linkid=2018755) (kullanımımın [çevrimiçi hizmet koşulları ](https://go.microsoft.com/fwlink/?linkid=2018760)). Önizlemeler için de kabul [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://go.microsoft.com/fwlink/?linkid=2018815). Kapsayıcı kullanarak bu koşulları kabul etmiş olursunuz.
 
 ## <a name="fluentd-configuration-settings"></a>Fluentd yapılandırma ayarları
 
@@ -154,7 +155,7 @@ Aşağıdaki tabloda altında desteklenen yapılandırma ayarları açıklanmakt
 | Ad | Veri türü | Açıklama |
 |------|-----------|-------------|
 | `Input` | Dize | Giriş bağlama hedefi. Varsayılan değer `/input` şeklindedir. |
-| `Output` | Dize | Çıkış bağlama hedefi. Varsayılan değer `/output` şeklindedir. |
+| `Output` | Dize | Çıkış bağlama hedefi. Varsayılan değer `/output`. |
 
 ### <a name="input-and-output-mounts"></a>Giriş ve çıkış başlatmalar
 

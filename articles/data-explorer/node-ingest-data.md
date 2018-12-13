@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/25/2018
-ms.openlocfilehash: fa322ee685d09717ac5b98398d4d1d61de2be1e9
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: c638369efc89ca4442b69c9337827fe3872fd197
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706645"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085969"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Hızlı Başlangıç: Azure Veri Gezgini Node kitaplığını kullanarak verileri alma
 
@@ -54,8 +54,8 @@ Bu kodu çalıştırmadan önce `authorityId`, `kustoUri`, `kustoIngestUri` ve `
 ```javascript
 const authorityId = "<TenantId>";
 const kustoUri = "https://<ClusterName>.<Region>.kusto.windows.net:443/";
-const kustoIngestUri = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/"
-const kustoDatabase  = "<DatabaseName>"
+const kustoIngestUri = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/";
+const kustoDatabase  = "<DatabaseName>";
 ```
 
 Şimdi bağlantı dizesini hazırlayın. Bu örnekte kümeye erişmek için cihaz kimlik doğrulaması kullanılır. Azure Active Directory uygulama sertifikasını, uygulama adını ve kullanıcı adıyla parolasını da kullanabilirsiniz.
@@ -64,9 +64,7 @@ Sonraki bir adımda hedef tabloyu ve eşlemeyi oluşturursunuz.
 
 ```javascript
 const kcsbIngest = KustoConnectionStringBuilder.withAadDeviceAuthentication(kustoIngestUri, authorityId);
-
 const kcsbData = KustoConnectionStringBuilder.withAadDeviceAuthentication(kustoUri, authorityId);
-
 const destTable = "StormEvents";
 const destTableMapping = "StormEvents_CSV_Mapping";
 ```
@@ -81,11 +79,10 @@ from azure.kusto.ingest import KustoIngestClient, IngestionProperties, FileDescr
 
 const container = "samplefiles";
 const account = "kustosamplefiles";
-const sas = "?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D"
+const sas = "?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
 const filePath = "StormEvents.csv";
-const fileSize = 64158321    # in bytes
-
-const blobPath = `https://${account}.blob.core.windows.net/${container}/${filePath}${sas}";
+const fileSize = 64158321; // in bytes
+const blobPath = `https://${account}.blob.core.windows.net/${container}/${filePath}${sas}`;
 ```
 
 ## <a name="create-a-table-on-your-test-cluster"></a>Test kümenizde tablo oluşturma
@@ -94,7 +91,7 @@ const blobPath = `https://${account}.blob.core.windows.net/${container}/${filePa
 
 ```javascript
 const kustoClient = new KustoClient(kcsbData);
-const createTableCommand = ".create table StormEvents (StartTime: datetime, EndTime: datetime, EpisodeId: int, EventId: int, State: string, EventType: string, InjuriesDirect: int, InjuriesIndirect: int, DeathsDirect: int, DeathsIndirect: int, DamageProperty: int, DamageCrops: int, Source: string, BeginLocation: string, EndLocation: string, BeginLat: real, BeginLon: real, EndLat: real, EndLon: real, EpisodeNarrative: string, EventNarrative: string, StormSummary: dynamic)"
+const createTableCommand = ".create table StormEvents (StartTime: datetime, EndTime: datetime, EpisodeId: int, EventId: int, State: string, EventType: string, InjuriesDirect: int, InjuriesIndirect: int, DeathsDirect: int, DeathsIndirect: int, DamageProperty: int, DamageCrops: int, Source: string, BeginLocation: string, EndLocation: string, BeginLat: real, BeginLon: real, EndLat: real, EndLon: real, EpisodeNarrative: string, EventNarrative: string, StormSummary: dynamic)";
 
 kustoClient.executeMgmt(kustoDatabase, createTableCommand, (err, results) => {
     console.log(result.primaryResults[0]);

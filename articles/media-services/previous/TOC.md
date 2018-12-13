@@ -126,13 +126,13 @@
 ### [Uzun süren işlemleri çözme](media-services-dotnet-long-operations.md)
 ### [Bölünmüş MP4 canlı alma belirtimi](media-services-fmp4-live-ingest-overview.md)
 
-## [İçeriği kırpma](media-services-azure-media-clipper-overview.md)
-### [Başlarken](media-services-azure-media-clipper-getting-started.md)
-### [Videoları yükleme](media-services-azure-media-clipper-load-assets.md)
-### [Klavye kısayollarını yapılandırma](media-services-azure-media-clipper-keyboard-shortcuts.md)
-### [Yerelleştirmeyi yapılandırma](media-services-azure-media-clipper-localization.md)
-### [Kırpma işlerini gönderme](media-services-azure-media-clipper-submit-job.md)
-### [Azure Portal](media-services-azure-media-clipper-portal.md)
+<!-- ## [Clip content](media-services-azure-media-clipper-overview.md)
+### [Getting started](media-services-azure-media-clipper-getting-started.md)
+### [Load videos](media-services-azure-media-clipper-load-assets.md)
+### [Configure keyboard shortcuts](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Configure localization](media-services-azure-media-clipper-localization.md)
+### [Submit clipping jobs](media-services-azure-media-clipper-submit-job.md)
+### [Azure portal](media-services-azure-media-clipper-portal.md) -->
 
 ## [İçerik koruma](media-services-content-protection-overview.md)
 ### [Depolama şifrelemesi](media-services-rest-storage-encryption.md)

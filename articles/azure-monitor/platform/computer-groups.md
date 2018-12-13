@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 7575d55f65598d39a8ffe0c3802cf11fa7470180
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 56275a2d37c9b1dc92aad973507204295fbfe06f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837792"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087669"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Bilgisayar grupları Log analytics'te günlük aramaları
 
@@ -70,7 +70,7 @@ Log Analytics, Log Analytics'ten Active Directory güvenlik gruplarını almak i
 
 Grupları içeri aktardığınızda menü grubu üyeliği algılanan bilgisayarların sayısını ve içe aktarılan gruplarının sayısını listeler.  Döndürmek için bu bağlantıları birini tıklayabilirsiniz **ComputerGroup** bu bilgiyi kaydeder.
 
-### <a name="windows-server-update-service"></a>Windows Server Update Service'in
+### <a name="windows-server-update-service"></a>Windows Server Update Service
 WSUS grup üyeliklerini içeri aktarmak için Log Analytics yapılandırdığınızda, herhangi bir Log Analytics aracısını bilgisayarlarla hedefleme grup üyeliğini analiz eder.  İstemci tarafı kullanıyorsanız hedefleme, Log Analytics'e bağlı ve tüm WSUS parçası olan herhangi bir bilgisayar grupları hedefleme Log Analytics'e içe grup üyeliği sahiptir. Sunucu tarafı kullanıyorsanız hedefleme, Log Analytics aracısını Log Analytics'e içeri aktarılacak grup üyeliği bilgileri için sırayla WSUS sunucusunda yüklenmelidir.  Bu üyelik sürekli olarak 4 saatte bir güncelleştirilir. 
 
 Log Analytics, Log Analytics'ten içe aktarma WSUS grupları için yapılandırdığınız **Gelişmiş ayarlar** Azure portalında.  Seçin **bilgisayar grupları**, **WSUS**, ardından **içeri aktarma WSUS grup üyeliklerini**.  Başka bir yapılandırma işlemi gerekmez.
@@ -79,10 +79,10 @@ Log Analytics, Log Analytics'ten içe aktarma WSUS grupları için yapılandırd
 
 Grupları içeri aktardığınızda menü grubu üyeliği algılanan bilgisayarların sayısını ve içe aktarılan gruplarının sayısını listeler.  Döndürmek için bu bağlantıları birini tıklayabilirsiniz **ComputerGroup** bu bilgiyi kaydeder.
 
-### <a name="system-center-configuration-manager"></a>System Center Configuration Manager'a
+### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
 Configuration Manager koleksiyon üyeliklerini içeri aktarmak için Log Analytics yapılandırdığınızda, her bir koleksiyon için bir bilgisayar grubu oluşturur.  Koleksiyon üyeliği bilgilerini, bilgisayar gruplarını güncel kalmasını sağlamak için 3 saatte alınır. 
 
-Configuration Manager koleksiyonları içeri aktarmadan önce şunları yapmalısınız [Configuration Manager'ı Log Analytics'e bağlama](../../log-analytics/log-analytics-sccm.md).  Log Analytics alma daha sonra yapılandırabilirsiniz **Gelişmiş ayarlar** Azure portalında.  Seçin **bilgisayar grupları**, **SCCM**, ardından **alma Configuration Manager koleksiyon üyelikleri**.  Başka bir yapılandırma işlemi gerekmez.
+Configuration Manager koleksiyonları içeri aktarmadan önce şunları yapmalısınız [Configuration Manager'ı Log Analytics'e bağlama](../../azure-monitor/platform/collect-sccm.md).  Log Analytics alma daha sonra yapılandırabilirsiniz **Gelişmiş ayarlar** Azure portalında.  Seçin **bilgisayar grupları**, **SCCM**, ardından **alma Configuration Manager koleksiyon üyelikleri**.  Başka bir yapılandırma işlemi gerekmez.
 
 ![SCCM bilgisayar grupları](media/computer-groups/configure-sccm.png)
 

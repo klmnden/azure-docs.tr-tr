@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: f8ef54393f3de00ae231c45c117e3a16a8d1aad1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 7ebb9d683803a6c5a5a0fa25308b348eeea586c4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725616"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097905"
 ---
 # <a name="supported-metrics-with-azure-monitor-on-azure-stack"></a>Azure Stack'te Azure İzleyici ile desteklenen ölçümler
 
@@ -26,7 +26,7 @@ ms.locfileid: "52725616"
 
 Azure'dan ölçümlerinizi alabilirsiniz izleyicisinde Azure Stack'te genel Azure ile aynı. Portalda, ölçü oluşturma, REST API'SİNDEN alın veya PowerShell veya CLI ile sorgulama.
 
-Aşağıdaki tablolarda Azure İzleyicisi'nin Azure Stack'te ölçüm işlem hattı ile mevcut olan ölçümler listelenmektedir. Sorgulamak ve bu ölçümlere erişmek için için ihtiyacınız olacak **2018-01-01** API profili api sürümü sürümü. API profilleri ve Azure Stack hakkında daha fazla bilgi için bkz. [yönetme API sürümü profillerini Azure Stack'te](azure-stack-version-profiles.md).
+Aşağıdaki tablolarda Azure İzleyicisi'nin Azure Stack'te ölçüm işlem hattı ile mevcut olan ölçümler listelenmektedir. Sorgulamak ve bu ölçümlere erişmek için kullanmanız gerekecektir **2018-01-01** API profili api sürümü sürümü. API profilleri ve Azure Stack hakkında daha fazla bilgi için bkz. [yönetme API sürümü profillerini Azure Stack'te](azure-stack-version-profiles.md).
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 

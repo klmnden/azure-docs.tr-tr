@@ -1,6 +1,6 @@
 ---
-title: Yeni bir Azure IOT Edge cihazı (VS Code) kaydetme | Microsoft Docs
-description: Azure IOT hub'ına yeni bir IOT Edge cihazı oluşturmak için Visual Studio Code'u kullanma
+title: Visual Studio Code - Azure IOT Edge yeni bir CİHAZDAN kaydetme | Microsoft Docs
+description: Azure IOT hub'ına yeni bir IOT Edge cihazı oluşturma ve bağlantı dizesini almak için Visual Studio Code'u kullanın
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 06/14/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cf9603c65454f076a494789e784c9352fb7bef33
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.custom: seodec18
+ms.openlocfilehash: cc812cc7f628f533cbf342edee66e01ce703678f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578714"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099798"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-visual-studio-code"></a>Visual Studio code'dan yeni bir Azure IOT Edge cihazı kaydedin
 
@@ -35,7 +36,7 @@ Visual Studio Code için Azure IOT uzantıları, IOT hub'ınıza işlemleri ger�
 
 2. Explorer alt kısmında, Genişlet **Azure IOT Hub cihazları** bölümü. 
 
-   ![Azure IOT Hub cihazları genişletin](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
+   ![Azure IOT Hub cihazları bölümü genişletin](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
 
 3. Tıklayarak **...**  içinde **Azure IOT Hub cihazları** bölüm başlığı. Üç nokta simgesini görmüyorsanız, tıklayın veya üst bilgisinin üzerinde gezdirin. 
 
@@ -63,7 +64,7 @@ Visual Studio Code için Azure IOT uzantıları, IOT hub'ınıza işlemleri ger�
 
 IOT hub'ınıza bağlanan tüm cihazlar listelenen **Azure IOT Hub cihazları** Visual Studio kod Gezgini bölüm. Ayrılabilen farklı bir simgesi vardır ve bunlar her cihaza dağıtılan modülleri göstermek için Genişletilebilir olgu kenar-olmayan cihazlardan IOT Edge cihazları. 
 
-   ![VS code'da aygıtlarını görüntüle](./media/how-to-register-device-vscode/view-devices.png)
+   ![IOT hub'ına tüm IOT Edge cihazları görüntüle](./media/how-to-register-device-vscode/view-devices.png)
 
 ## <a name="retrieve-the-connection-string"></a>Bağlantı dizesi alma
 

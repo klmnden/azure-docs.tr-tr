@@ -1,23 +1,24 @@
 ---
-title: Node.js ile LUIS Robotu - Öğretici - Web uygulaması Robotu - Bot Framework SDK 4.0
+title: LUIS Bot ile Node.js
 titleSuffix: Azure Cognitive Services
 description: Node.js'yi kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu oluşturun. Bu sohbet robotu, bir robot çözümünü kısa sürede gerçekleştirmek için İnsan Kaynakları uygulamasını kullanır. Robot, Bot Framework 4 sürümü ve Azure Web uygulaması robotu ile geliştirilmiştir.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: ad21754b3f55a0d14bb43a2898d5bd4b8b8150ae
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d9645c1d1c5ee153a4d24ae18f253f33c6557bd1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385915"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099095"
 ---
-# <a name="tutorial-luis-bot-in-nodejs"></a>Öğretici: Node.js'de LUIS robotu
+# <a name="tutorial-luis-bot-in-nodejs-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Öğretici: LUIS bot node.js'de ile Bot Framework 4.x ve Azure Web app botu
 Node.js'yi kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu oluşturabilirsiniz. Bu robot, bir robot çözümü gerçekleştirmek için HomeAutomation uygulamasını kullanır. Robot, [Bot Framework sürümü](https://github.com/Microsoft/botbuilder-js) v4 ile Azure [Web uygulaması robotu](https://docs.microsoft.com/azure/bot-service/) kullanılarak geliştirilmiştir.
 
 **Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:**
@@ -30,10 +31,8 @@ Node.js'yi kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu oluşt
 > * Yeni LUIS amaçları için robot kodunu değiştirme
 > * Robotta konuşma sonuçlarını görüntüleme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-<!--* Samples from 
-https://github.com/Microsoft/BotBuilder-Samples/tree/v4/javascript_nodejs/12.nlp-with-luis-->
 * [Robot öykünücüsü](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 
@@ -115,7 +114,7 @@ Web uygulaması robot kodunu geliştirmek için, yerel bilgisayarınızda kodu i
 
 6. Bot.js dosyasını açın ve `const results = await this.luisRecognizer.recognize(context);` ifadesini arayın. Robota girilen kullanıcı konuşmasının LUIS'e gönderildiği yer burasıdır.
 
-    ```javascript
+    ```nodejs
     /**
      * Driver code that does one of the following:
      * 1. Display a welcome card upon startup
@@ -214,7 +213,7 @@ Herhangi bir kodu veya ayarı değiştirmeden önce robotun çalıştığından 
 
 5. Robot başlatıldığında, terminal penceresinde robotun üzerinde çalıştırıldığı yerel bağlantı noktası görüntülenir:
 
-    ```
+    ```console
     > basic-bot@0.1.0 start C:\Users\pattiowens\repos\BFv4\luis-nodejs-bot-src
     > node ./index.js NODE_ENV=development
 
@@ -248,7 +247,7 @@ Herhangi bir kodu veya ayarı değiştirmeden önce robotun çalıştığından 
 
 1. Dosyanın en üstünde, **Desteklenen LUIS Amaçları** bölümünü bulun ve HomeAutomation amaçları için sabitler ekleyin:
 
-    ```javascript
+    ```nodejs
     // Supported LUIS Intents
     const GREETING_INTENT = 'Greeting';
     const CANCEL_INTENT = 'Cancel';
@@ -262,7 +261,7 @@ Herhangi bir kodu veya ayarı değiştirmeden önce robotun çalıştığından 
 
 2. Konuşmanın LUIS tahminini alan **isTurnInterrupted** öğesini bulun ve konsola sonucun çıkışını almak için bir satır ekleyin.
 
-    ```node
+    ```nodejs
     /**
      * Look at the LUIS results and determine if we need to handle
      * an interruptions due to a Help or Cancel intent
@@ -277,7 +276,7 @@ Herhangi bir kodu veya ayarı değiştirmeden önce robotun çalıştığından 
 
     Robot, bir LUIS REST API isteği ile tam olarak aynı yanıtı vermez, bu nedenle yanıt JSON dosyasına bakarak farkları öğrenmek önemlidir. Burada text (metin) ve intents (amaçlar) özellikleri aynıdır, ancak entities (varlıklar) özelliğinin değerleri değiştirilmiştir. 
 
-    ```JSON
+    ```json
     {
         "$instance": {
             "HomeAutomation_Device": [
@@ -310,7 +309,7 @@ Herhangi bir kodu veya ayarı değiştirmeden önce robotun çalıştığından 
 
 3. `DialogTurnStatus.empty` durumu için onTurn yönteminin switch deyimine amaçları ekleyin:
 
-    ```javascript
+    ```nodejs
     switch (topIntent) {
         case GREETING_INTENT:
             await dc.begin(GREETING_DIALOG);
@@ -343,7 +342,7 @@ Herhangi bir kodu veya ayarı değiştirmeden önce robotun çalıştığından 
 
 2. Robot şu yanıtı verir:
 
-    ```JSON
+    ```json
     TurnOn intent found, entities included: {"$instance":{“HomeAutomation_Device”:[{“startIndex”:23,“endIndex”:29,“score”:0.9776345,“text”:“lights”,“type”:“HomeAutomation.Device”}],“HomeAutomation_Room”:[{“startIndex”:12,“endIndex”:22,“score”:0.9079433,“text”:“livingroom”,“type”:“HomeAutomation.Room”}]},“HomeAutomation_Device”:[“lights”],“HomeAutomation_Room”:[“livingroom”]}
     ```
 

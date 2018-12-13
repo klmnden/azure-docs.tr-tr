@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: e3d0e54c32a08c613407f1a90c78cc63be929078
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: MT
+ms.openlocfilehash: 0e316bf06cc6e2915adca5e7961083e6668bbfc1
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091802"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889132"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Fiyatlandırma katmanları MySQL için Azure veritabanı
 
@@ -23,7 +23,7 @@ ms.locfileid: "49091802"
 |    | **Temel** | **Genel amaçlı** | **Bellek için iyileştirilmiş** |
 |:---|:----------|:--------------------|:---------------------|
 | İşlem oluşturma | Gen 4, 5. nesil | Gen 4, 5. nesil | 5. Nesil |
-| Sanal çekirdekler | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
+| Sanal çekirdekler | 1, 2 | 2, 4, 8, 16, 32 ve 64 |2, 4, 8, 16, 32 |
 | Sanal çekirdek başına bellek | 2 GB | 5 GB | 10 GB |
 | Depolama boyutu | 5 GB ila 1 TB | 5 GB ile 4 TB | 5 GB ile 4 TB |
 | Depolama türü | Azure standart depolama | Azure Premium Depolama | Azure Premium Depolama |

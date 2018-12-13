@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sclyon
 ms.custom: mvc
-ms.openlocfilehash: 04149e12e2926888bab82495a0924df94d6e3450
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a05ca8602ad3b5ea3135ad2ce915bdc38359bfd7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836177"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089569"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: Golang ve Azure portalıyla bir MongoDB API'si konsol uygulaması oluşturma
 
@@ -63,7 +63,7 @@ Diğer bir deyişle, Golang uygulamanız yalnızca MongoDB API’lerini kullanar
     go get gopkg.in/mgo.v2
     ```
 
-[Mgo](http://labix.org/mgo) sürücüsü olan bir [MongoDB](http://www.mongodb.org/) sürücüsü [Go diline](http://golang.org/) özellikleri standart Go izleyen çok basit bir API altında zengin ve seçimi uygular deyimleri.
+[Mgo](https://labix.org/mgo) sürücüsü olan bir [MongoDB](https://www.mongodb.com/) sürücüsü [Go diline](https://golang.org/) özellikleri standart Go izleyen çok basit bir API altında zengin ve seçimi uygular deyimleri.
 
 <a id="connection-string"></a>
 
@@ -95,7 +95,7 @@ Aşağıdaki kod parçacıklarının tamamı, main.go dosyasından alınmıştı
 
 ### <a name="connecting-the-go-app-to-azure-cosmos-db"></a>Azure Cosmos DB’yi kullanarak Go uygulamasına bağlanma
 
-Azure Cosmos DB, SSL kullanan MongoDB’yi destekler. SSL kullanan bir MongoDB’ye bağlanmak için [mgo.DialInfo](http://gopkg.in/mgo.v2#DialInfo)’da **DialServer** işlevini tanımlamanız ve bağlantıyı gerçekleştirmek için [tls.*Dial*](http://golang.org/pkg/crypto/tls#Dial) işlevini kullanmanız gerekir.
+Azure Cosmos DB, SSL kullanan MongoDB’yi destekler. SSL kullanan bir MongoDB’ye bağlanmak için [mgo.DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo)’da **DialServer** işlevini tanımlamanız ve bağlantıyı gerçekleştirmek için [tls.*Dial*](https://golang.org/pkg/crypto/tls#Dial) işlevini kullanmanız gerekir.
 
 Aşağıdaki Golang kod parçacığı, Go uygulaması ile Azure Cosmos DB MongoDB API’si arasında bağlantı kurar. *DialInfo* sınıfı, bir MongoDB kümesiyle oturum bağlantısı kurmak için gereken seçenekleri barındırır.
 

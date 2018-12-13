@@ -1,5 +1,5 @@
 ---
-title: Azure ExpressRoute izleme, Ölçümler ve uyarılar | Microsoft Docs
+title: İzleme, Ölçümler ve uyarılar - Azure ExpressRoute | Microsoft Docs
 description: Bu sayfa ExpressRoute izleme hakkında bilgi sağlar.
 services: expressroute
 author: cherylmc
@@ -7,19 +7,20 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: 90735ac04c95ee3d270853c18eddebd3f11dd8c1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.custom: seodec18
+ms.openlocfilehash: 115b1185575232800e060f67317e4973eea9ea53
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725973"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091773"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute izleme, ölçümler ve uyarılar
 
-Bu makalede, ExpressRoute izleme, Ölçümler ve uyarılar anlamanıza yardımcı olur. Azure İzleyici, uyarıları, tüm Azure tanılama günlükleri sorunlarınız için tüm ölçümleri tek sağlanır.
+Bu makalede izleme, Ölçümler ve uyarılar Azure İzleyicisi'ni kullanarak ExpressRoute anlamanıza yardımcı olur. Azure İzleyici, uyarıları, tüm Azure tanılama günlükleri sorunlarınız için tüm ölçümleri tek sağlanır.
  
 >[!NOTE]
->Kullanarak **Klasik ölçüm** önerilmez. 
+>Kullanarak **Klasik ölçüm** önerilmez.
 >
 
 ## <a name="circuit-metrics"></a>Bağlantı hattı ölçümleri

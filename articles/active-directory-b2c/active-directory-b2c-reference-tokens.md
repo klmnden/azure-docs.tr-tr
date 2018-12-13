@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 81927c4e69f36fbc4859ac2865bc15cbfacb17fb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d1c9101f10342f98803a4ace420abbed5d49ba23
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843878"
+ms.locfileid: "52880123"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Belirteç başvurusu
 
@@ -89,7 +89,7 @@ Kimliği belirteçlere talep herhangi belirli bir sırada döndürülmediğini u
 ### <a name="refresh-tokens"></a>Yenileme belirteçlerini
 Yenileme belirteçler, uygulamanızın yeni kimlik belirteçlerini almak ve bir OAuth 2.0 akışı belirteçlerinde erişmek için kullanabileceğiniz güvenlik belirteçleri. Uygulamanız ile uzun süreli kaynaklara erişimi kullanıcılar adına bu kullanıcılarla etkileşimi gerektirmeden sağlarlar.
 
-Bir yenileme almak için belirteci bir belirteç yanıt uygulamanızı istemelisiniz `offline_acesss` kapsam. Hakkında daha fazla bilgi edinmek için `offline_access` kapsam, başvurmak [Azure AD B2C Protokolü başvurusu](active-directory-b2c-reference-protocols.md).
+Bir yenileme almak için belirteci bir belirteç yanıt uygulamanızı istemelisiniz `offline_access` kapsam. Hakkında daha fazla bilgi edinmek için `offline_access` kapsam, başvurmak [Azure AD B2C Protokolü başvurusu](active-directory-b2c-reference-protocols.md).
 
 Yenileme belirteçlerini olan ve her zaman, uygulamanıza tamamen opak olacaktır. Bunlar Azure AD tarafından verilen inceledi ve yalnızca Azure AD tarafından yorumlanır. Uzun süreli olduklarından, ancak uygulamanızı bir yenileme belirteci belirli bir süre için en son beklentisiyle yazılmamalıdır. Çeşitli nedenlerle için herhangi bir anda yenileme belirteçleri geçersiz olabilir. Azure AD'ye bir belirteç isteğini yaparak kullanmak uygulamanızı bir yenileme belirteci geçerli olup olmadığını öğrenmek için tek yolu denemektir.
 

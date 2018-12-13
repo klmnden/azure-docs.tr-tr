@@ -11,27 +11,27 @@ author: David-Engel
 ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: c270fef40b732f170add32ef52eeadc790d8cd83
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.date: 12/07/2018
+ms.openlocfilehash: 34b3ee54c48040eaa6f7b7569921678869baa84b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913518"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092375"
 ---
 # <a name="quickstart-use-go-to-query-an-azure-sql-database"></a>Hızlı Başlangıç: Go kullanarak Azure SQL veritabanı sorgulama
 
-Bu hızlı başlangıçta [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) kullanarak Azure SQL veritabanına nasıl bağlanacağınız gösterilmiştir. Verileri sorgulamak ve değiştirmek için Transact-SQL bildirimleri de gösterilir.
+Bu hızlı başlangıçta kullanmayı gösterir [Git](https://godoc.org/github.com/denisenkom/go-mssqldb) programlama dilini kullanarak Azure SQL veritabanına bağlanan ve verileri sorgulamak ve değiştirmek için Transact-SQL deyimleri çalıştırın. [Git](https://golang.org/) , bir açık kaynak programlama dilini basit, güvenilir ve verimli yazılım oluşturmayı kolaylaştırır.  
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için aşağıdaki önkoşulların karşılandığından emin olun:
+Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Bu hızlı başlangıçta kullanacağınız bilgisayarın genel IP adresi için [sunucu düzeyinde bir güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md).
+- A [sunucu düzeyinde güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md) bilgisayarınızın genel IP adresi için yapılandırılmış.
 
-- İşletim sisteminiz için Go ve ilgili yazılımları yüklediniz:
+- Go ve ilgili yazılımları yüklü bir işletim sistemi için:
 
     - **MacOS**: Homebrew ve GoLang yükleyin. Bkz. [Adım 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
     - **Ubuntu**:  GoLang yükleyin. Bkz. [Adım 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
@@ -49,7 +49,7 @@ Bu hızlı başlangıcı tamamlamak için aşağıdaki önkoşulların karşıla
    mkdir SqlServerSample
    ```
 
-2. Dizini **SqlServerSample** olarak değiştirin ve Go için SQL Server sürücüsünü alın:
+2. Dizinine **SqlServerSample** ve Go için SQL Server sürücüsünü yükleyin.
 
    ```bash
    cd SqlServerSample
@@ -59,7 +59,7 @@ Bu hızlı başlangıcı tamamlamak için aşağıdaki önkoşulların karşıla
 
 ## <a name="create-sample-data"></a>Örnek veri oluşturma
 
-1. En sevdiğiniz metin düzenleyiciyi kullanarak, **SqlServerSample** klasöründe **CreateTestData.sql** adlı bir dosya oluşturun. Aşağıdaki T-SQL kodunu kopyalayıp içine yapıştırın. Bu kod bir şema ve tablo oluşturup birkaç satır ekler.
+1. Sık kullandığınız metin düzenleyicinizde adlı bir dosya oluşturun **Sqlserversample** içinde **SqlServerSample** klasör. Dosya Kopyala ve Yapıştır bir şema oluşturur, aşağıdaki T-SQL kodu tablosunu ve birkaç satır ekler.
 
    ```sql
    CREATE SCHEMA TestSchema;
@@ -82,7 +82,7 @@ Bu hızlı başlangıcı tamamlamak için aşağıdaki önkoşulların karşıla
    GO
    ```
 
-2. Sqlcmd kullanarak veritabanına bağlanın ve şemayı ve tabloyu oluşturup satır eklemek için SQL betiğini çalıştırın. Sunucunuz, veritabanınız, kullanıcı adınız ve parolanız için uygun değerleri değiştirin.
+2. Kullanım `sqlcmd` veritabanına bağlanmak için yeni oluşturulan SQL betiğini çalıştırın. Sunucunuz, veritabanınız, kullanıcı adınız ve parolanız için uygun değerleri değiştirin.
 
    ```bash
    sqlcmd -S your_server.database.windows.net -U your_username -P your_password -d your_database -i ./CreateTestData.sql
@@ -92,7 +92,7 @@ Bu hızlı başlangıcı tamamlamak için aşağıdaki önkoşulların karşıla
 
 1. **SqlServerSample** klasöründe **sample.go** adlı bir dosya oluşturun.
 
-2. Dosyayı açıp içeriğini aşağıdaki kodla değiştirin. Sunucunuz, veritabanınız, kullanıcı adınız ve parolanız için uygun değerleri ekleyin. Bu örnekte veritabanı sunucusuyla etkin bağlantı olduğundan emin olmak için GoLang Context metotları kullanılmaktadır.
+2. Dosyasını açın ve aşağıdaki kodu yapıştırın. Sunucunuz, veritabanınız, kullanıcı adınız ve parolanız için uygun değerleri ekleyin. Bu örnek, veritabanı sunucusu için etkin bir bağlantı olduğundan emin olmak için GoLang Context metotları kullanır.
 
    ```go
    package main
@@ -288,13 +288,13 @@ Bu hızlı başlangıcı tamamlamak için aşağıdaki önkoşulların karşıla
 
 ## <a name="run-the-code"></a>Kodu çalıştırma
 
-1. Komut isteminde aşağıdaki komutları çalıştırın:
+1. Komut isteminde aşağıdaki komutu çalıştırın.
 
    ```bash
    go run sample.go
    ```
 
-2. Çıktıyı doğrulama:
+2. Çıktıyı doğrulama.
 
    ```text
    Connected!
@@ -311,6 +311,6 @@ Bu hızlı başlangıcı tamamlamak için aşağıdaki önkoşulların karşıla
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [İlk Azure SQL veritabanınızı tasarlama](sql-database-design-first-database.md)
-- [Microsoft SQL Server için Go Sürücüsü](https://github.com/denisenkom/go-mssqldb)
+- [Microsoft SQL Server için go sürücüsü](https://github.com/denisenkom/go-mssqldb)
 - [Sorun bildirin veya soru sorun](https://github.com/denisenkom/go-mssqldb/issues)
 

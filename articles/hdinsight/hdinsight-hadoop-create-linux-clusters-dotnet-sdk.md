@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: 943d5aeccf949c1dd494dc8ec8fda0d782527749
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 06135ff77cb9c2a5b8fa2ae674206406469ed293
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035690"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870614"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Linux tabanlı kümeler .NET SDK kullanarak HDInsight oluşturma
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 
-.NET SDK kullanarak Azure HDInsight kümesinde bir Apache Hadoop kümesi oluşturmayı öğrenin.
+Oluşturmayı bir [Apache Hadoop](https://hadoop.apache.org/) .NET SDK kullanarak Azure HDInsight kümesinde Küme.
 
 > [!IMPORTANT]
 > Bu belgede yer alan adımlar, bir çalışan düğümü ile bir küme oluşturun. 32'den fazla çalışan düğümleri, küme oluşturma sırasında veya Küme oluşturulduktan sonra ölçeklendirme planlıyorsanız, bir baş düğüm boyutu en az 8 çekirdek ve 14 GB ram ile seçmeniz gerekir.
@@ -192,7 +192,7 @@ ms.locfileid: "51035690"
 
 Bootstrap ile küme oluşturma sırasında toplama ayarlarını yapılandırabilirsiniz.  Daha fazla bilgi için [özelleştirme HDInsight kümeleri Bootstrap ile](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-Aşağıdaki örnekte değiştirme [küme oluşturma](#create-clusters) Hive ayarını yapılandırmak için:
+Aşağıdaki örnekte değiştirme [küme oluşturma](#create-clusters) bir Apache Hive ayarını yapılandırmak için:
 
 ```csharp
 static void Main(string[] args)
@@ -372,29 +372,29 @@ HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gere
 ## <a name="next-steps"></a>Sonraki adımlar
 Bir HDInsight kümesi başarıyla oluşturuldu, kümenizi ile çalışma hakkında bilgi almak için aşağıdakileri kullanın. 
 
-### <a name="hadoop-clusters"></a>Hadoop kümeleri
-* [HDInsight ile Hive kullanma](hadoop/hdinsight-use-hive.md)
-* [HDInsight ile Pig kullanma](hadoop/hdinsight-use-pig.md)
-* [HDInsight ile MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
+### <a name="apache-hadoop-clusters"></a>Apache Hadoop kümelerini
+* [Apache Hive, HDInsight ile kullanma](hadoop/hdinsight-use-hive.md)
+* [Apache Pig, HDInsight ile kullanma](hadoop/hdinsight-use-pig.md)
+* [HDInsight ile Apache Hadoop MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
 
-### <a name="hbase-clusters"></a>HBase kümeleri
-* [HDInsight üzerinde HBase kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [HDInsight üzerinde HBase için Java uygulamaları geliştirin](hbase/apache-hbase-build-java-maven-linux.md)
+### <a name="apache-hbase-clusters"></a>Apache HBase kümeleri
+* [HDInsight üzerinde Apache HBase kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [HDInsight üzerinde Apache HBase için Java uygulamaları geliştirin](hbase/apache-hbase-build-java-maven-linux.md)
 
-### <a name="storm-clusters"></a>Storm kümeleri
-* [HDInsight üzerinde Storm için Java topolojileri geliştirme](storm/apache-storm-develop-java-topology.md)
-* [HDInsight üzerinde Storm Python bileşenlerini kullanın](storm/apache-storm-develop-python-topology.md)
-* [HDInsight üzerinde Storm topolojileri dağıtma ve izleme](storm/apache-storm-deploy-monitor-topology-linux.md)
+### <a name="apache-storm-clusters"></a>Apache Storm kümeleri
+* [HDInsight üzerinde Apache Storm için Java topolojileri geliştirme](storm/apache-storm-develop-java-topology.md)
+* [HDInsight üzerinde Apache Storm, Python bileşenlerini kullanma](storm/apache-storm-develop-python-topology.md)
+* [HDInsight üzerinde Apache Storm topolojileri dağıtma ve izleme](storm/apache-storm-deploy-monitor-topology-linux.md)
 
-### <a name="spark-clusters"></a>Spark kümeleri
+### <a name="apache-spark-clusters"></a>Apache Spark kümeleri
 * [Scala kullanarak tek başına uygulama oluşturma](spark/apache-spark-create-standalone-application.md)
-* [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](spark/apache-spark-livy-rest-interface.md)
-* [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](spark/apache-spark-use-bi-tools.md)
-* [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](spark/apache-spark-livy-rest-interface.md)
+* [BI ile Apache Spark: BI araçlarıyla HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](spark/apache-spark-use-bi-tools.md)
+* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](spark/apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="run-jobs"></a>İşleri çalıştırma
-* [.NET SDK kullanarak HDInsight Hive işleri çalıştırma](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [İçinde .NET SDK kullanarak HDInsight pig işleri çalıştırma](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
-* [.NET SDK kullanarak HDInsight içinde Sqoop işleri çalıştırma](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
-* [HDInsight Oozie işleri çalıştırma](hdinsight-use-oozie.md)
+* [.NET SDK kullanarak HDInsight Apache Hive işlerini çalıştırma](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
+* [.NET SDK kullanarak HDInsight Apache Pig işleri çalıştırma](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
+* [.NET SDK kullanarak HDInsight Apache Sqoop işleri çalıştırma](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
+* [HDInsight Apache Oozie işleri çalıştırma](hdinsight-use-oozie.md)
 

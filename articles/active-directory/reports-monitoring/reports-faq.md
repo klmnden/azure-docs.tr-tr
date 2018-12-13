@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5cbf0895274672c053158cf07acb344908b37831
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 98a1dd3fb3fd733cc17ac9c6ccf9d0dfc77737e1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623477"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868030"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Sık sorulan sorular Azure Active Directory raporlarını geçici bir çözüm
 
@@ -94,7 +94,7 @@ Bu makale, Azure Active Directory (Azure AD) hakkında sık sorulan sorular rapo
 
 **S: hangi API'ler Office 365 etkinlik günlükleri hakkında daha fazla bilgi almak için kullanabilirim?**
 
-**Y:** kullanım [Office 365 Yönetim API'leri](https://msdn.microsoft.com/office-365/office-365-managment-apis-overview) bir API aracılığıyla Office 365 etkinlik günlüklerine erişmek için.
+**Y:** kullanım [Office 365 Yönetim API'leri](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview) bir API aracılığıyla Office 365 etkinlik günlüklerine erişmek için.
 
 ---
 

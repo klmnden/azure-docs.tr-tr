@@ -1,5 +1,6 @@
 ---
-title: Yönetme ve Azure Machine Learning hizmeti için kotalar isteği
+title: Yönetme ve kaynak kotaları isteyin
+titleSuffix: Azure Machine Learning service
 description: Bu nasıl yapılır kılavuzunda, Azure Machine Learning ve görüntüleme ve daha fazla kota isteği için kaynaklar üzerinde çeşitli kotalar açıklar.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 12/04/2018
-ms.openlocfilehash: 516e8a9c73fdeacba38d9c81f5cb2d0b8db106c8
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: b868e20ebb1054864116957fd671a17e2d980c0a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867707"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083861"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Yönetme ve Azure kaynakları için kota isteği
 

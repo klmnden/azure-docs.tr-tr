@@ -1,6 +1,6 @@
 ---
-title: Aracılığıyla Azure Event Hubs akış etkinlikleri | Microsoft Docs
-description: Event Hubs yakalama ile telemetri verilerini yakalama
+title: Akış olaylar - Azure Event Hubs yakalama | Microsoft Docs
+description: Bu makalede, Azure Event Hubs ile akış olaylarını yakalamak izin veren yakalama özelliğine genel bakış sağlar.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: fe096c0ee1747b3162f80ba4230ebf470ad50343
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 8e44db9c992a2c4905a392323994c67befea9a9a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011496"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096732"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Azure Blob Depolama veya Azure Data Lake Storage Azure Event Hubs ile olayları yakalama
 Azure olay hub'ları otomatik olarak Event Hubs akış verilerini yakalamanıza olanak sağlayan bir [Azure Blob Depolama](https://azure.microsoft.com/services/storage/blobs/) veya [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) eklenen esnekliğini tercih ettiğiniz Hesapla bir zaman veya boyut aralığı belirtme. Yakalama ayarı hızlı, çalıştırmak için hiçbir yönetim maliyeti yoktur ve Event Hubs ile otomatik olarak ölçeklenen [üretilen iş birimleri](event-hubs-features.md#capacity). Event Hubs yakalama, Azure'a akış verileri yüklemenin en kolay yoludur ve veri yakalama yerine veri işleme odaklanmasını sağlar.

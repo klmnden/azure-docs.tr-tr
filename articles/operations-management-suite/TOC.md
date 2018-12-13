@@ -36,7 +36,7 @@
 #### [Aracı Durumu](oms-solution-agenthealth.md)
 #### [Uyarı Yönetimi](../azure-monitor/platform/alert-management-solution.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Azure Ağ Analizi](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-#### [Kapsayıcılar](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [Kapsayıcılar](../azure-monitor/insights/containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Anahtar Kasası Analizi](../azure-monitor/insights/azure-key-vault.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Ağ Performansı İzleyicisi](../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Office 365](oms-solution-office-365.md)

@@ -4,17 +4,17 @@ description: Stream Analytics yönetim .NET SDK'sı ile çalışmaya başlayın.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/06/2017
-ms.openlocfilehash: d435199401f8ad52edfbfe820ba2c330242e0186
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 53d9345784c16412c643f3b50506bf6abbab93ec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984800"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094911"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Yönetim .NET SDK'sini: Ayarlamak ve .NET için Azure Stream Analytics API'si kullanarak analytics işlerini çalıştırın
 Ayarlama ve Stream Analytics API'si için .NET Yönetim SDK'sını kullanarak .NET kullanarak analytics işlerini çalıştırma hakkında bilgi edinin. Projesini ayarlarsınız, giriş ve çıkış kaynakları, dönüştürme ve başlangıç oluşturma ve işleri durdur. Analytics işleriniz için Blob depolama alanından veya bir olay hub'ından veri akışını yapabilirsiniz.
@@ -33,18 +33,19 @@ Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki i�
 * İndirme ve yükleme [Azure .NET SDK'sı](https://azure.microsoft.com/downloads/).
 * Aboneliğinizde bir Azure kaynak grubu oluşturun. Örnek Azure PowerShell Betiği verilmiştir. Azure PowerShell için bilgi [yüklemek ve Azure PowerShell yapılandırma](/powershell/azure/overview);  
 
-        # Log in to your Azure account
-        Add-AzureAccount
-
-        # Select the Azure subscription you want to use to create the resource group
-        Select-AzureSubscription -SubscriptionName <subscription name>
-
-            # If Stream Analytics has not been registered to the subscription, remove the remark symbol (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
-            #Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
-
-        # Create an Azure resource group
-        New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
-
+   ```powershell
+   # Log in to your Azure account
+   Add-AzureAccount
+   
+   # Select the Azure subscription you want to use to create the resource group
+   Select-AzureSubscription -SubscriptionName <subscription name>
+   
+   # If Stream Analytics has not been registered to the subscription, remove the remark    symbol (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+   #Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
+   
+   # Create an Azure resource group
+   New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
+   ```
 
 * Bir giriş kaynağı ve bağlanmak iş için çıktı hedef ayarlayın.
 
@@ -53,41 +54,53 @@ Bir analiz işi oluşturmak için önce projenizi ayarlayın, .NET için Stream 
 
 1. Visual Studio C# .NET konsol uygulaması oluşturun.
 2. Paket Yöneticisi Konsolu'nda NuGet paketlerini yüklemek için aşağıdaki komutları çalıştırın. Azure Stream Analytics yönetim .NET SDK'sı ilk hesaptır. Azure istemci kimlik doğrulaması için ikinci bir bileşendir.
-   
-        Install-Package Microsoft.Azure.Management.StreamAnalytics -Version 2.0.0
-        Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.3.1
+
+   ```powershell   
+   Install-Package Microsoft.Azure.Management.StreamAnalytics -Version 2.0.0
+   Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.3.1
+   ```
+
 3. Aşağıdaki **appSettings** App.config dosyasına bölümü:
    
-        <appSettings>
-          <add key="ClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
-          <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-          <add key="SubscriptionId" value="YOUR SUBSCRIPTION ID" />
-          <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
-        </appSettings>
+   ```powershell
+   <appSettings>
+       <add key="ClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
+       <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
+       <add key="SubscriptionId" value="YOUR SUBSCRIPTION ID" />
+       <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
+   </appSettings>
+   ```
 
     Değerleri Değiştir **Subscriptionıd** ve **ActiveDirectoryTenantId** Azure abonelik ve Kiracı kimliklerine sahip. Aşağıdaki Azure PowerShell cmdlet'ini çalıştırarak bu değerleri alabilirsiniz:
 
-        Get-AzureAccount
+   ```powershell
+      Get-AzureAccount
+   ```
 
 4. .Csproj dosyanızda şu başvuruyu ekleyin:
 
-        <Reference Include="System.Configuration" />
+   ```csharp
+   <Reference Include="System.Configuration" />
+   ```
 
 5. Aşağıdaki **kullanarak** deyimleri projedeki kaynak dosyasına (Program.cs):
    
-        using System;
-        using System.Collections.Generic;
-        using System.Configuration;
-        using System.Threading;
-        using System.Threading.Tasks;
-        
-        using Microsoft.Azure.Management.StreamAnalytics;
-        using Microsoft.Azure.Management.StreamAnalytics.Models;
-        using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Rest;
+   ```csharp
+   using System;
+   using System.Collections.Generic;
+   using System.Configuration;
+   using System.Threading;
+   using System.Threading.Tasks;
+   
+   using Microsoft.Azure.Management.StreamAnalytics;
+   using Microsoft.Azure.Management.StreamAnalytics.Models;
+   using Microsoft.Rest.Azure.Authentication;
+   using Microsoft.Rest;
+   ```
+
 6. Bir kimlik doğrulama Yardımcısını yöntemi ekleyin:
 
-   ```
+   ```csharp
    private static async Task<ServiceClientCredentials> GetCredentials()
    {
        var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(ConfigurationManager.AppSettings["ClientId"], new Uri("urn:ietf:wg:oauth:2.0:oob"));
@@ -102,7 +115,7 @@ A **StreamAnalyticsManagementClient** nesnesinin, iş ve giriş ve çıkış dö
 
 Aşağıdaki kodu ekleyin başlangıcına **ana** yöntemi:
 
-   ```
+   ```csharp
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
     string streamingJobName = "<YOUR STREAMING JOB NAME>";
     string inputName = "<YOUR JOB INPUT NAME>";
@@ -130,7 +143,7 @@ Bu makalenin kalan bölümünde, bu kod başlangıcında olduğunu varsayın **a
 ## <a name="create-a-stream-analytics-job"></a>Akış Analizi işi oluşturma
 Aşağıdaki kod, tanımladığınız bir kaynak grubundaki bir Stream Analytics işi oluşturur. İş için bir giriş, çıkış ve dönüştürme daha sonra ekleyeceksiniz.
 
-   ```
+   ```csharp
    // Create a streaming job
    StreamingJob streamingJob = new StreamingJob()
    {
@@ -157,7 +170,7 @@ Aşağıdaki kod, tanımladığınız bir kaynak grubundaki bir Stream Analytics
 ## <a name="create-a-stream-analytics-input-source"></a>Stream Analytics giriş kaynağı oluşturma
 Aşağıdaki kod blob giriş kaynağı türü ve CSV serileştirme ile bir Stream Analytics giriş kaynağı oluşturur. Bir olay hub'ı giriş kaynağı oluşturmak için kullanın **EventHubStreamInputDataSource** yerine **BlobStreamInputDataSource**. Benzer şekilde, giriş kaynağı serileştirme türü özelleştirebilirsiniz.
 
-   ```
+   ```csharp
    // Create an input
    StorageAccount storageAccount = new StorageAccount()
    {
@@ -192,7 +205,7 @@ Giriş kaynakları, varsayılan olarak, belirli bir işin için Blob Depolama ve
 ## <a name="test-a-stream-analytics-input-source"></a>Stream Analytics giriş kaynağı test
 **TestConnection** yöntemi, Stream Analytics işi giriş kaynağı türüne özel diğer yönleri için giriş kaynağı bağlanabiliyor olup olmadığını sınar. Örneğin, bir önceki adımda oluşturduğunuz blob giriş kaynağı içinde belirtilen kapsayıcının var olup olmadığını denetleyin yanı sıra depolama hesabına bağlanmak için depolama hesabı adı ve anahtar çifti kullanılabilir yöntemi kontrol eder.
 
-   ```
+   ```csharp
    // Test the connection to the input
    ResourceTestStatus testInputResult = streamAnalyticsManagementClient.Inputs.Test(resourceGroupName, streamingJobName, inputName);
    ```
@@ -202,7 +215,7 @@ Stream Analytics giriş kaynağı oluşturmak için bir çıkış hedefi oluştu
 
 Aşağıdaki kod, bir çıkış hedefi (Azure SQL veritabanı) oluşturur. Çıkış hedefinin veri türü ve/veya serileştirme türü özelleştirebilirsiniz.
 
-   ```
+   ```csharp
    // Create an output
    Output output = new Output()
    {
@@ -221,7 +234,7 @@ Aşağıdaki kod, bir çıkış hedefi (Azure SQL veritabanı) oluşturur. Çık
 ## <a name="test-a-stream-analytics-output-target"></a>Stream Analytics çıkış hedef test
 Bir Stream Analytics çıkış hedef de sahip **TestConnection** bağlantılarını test etme için yöntemi.
 
-   ```
+   ```csharp
    // Test the connection to the output
    ResourceTestStatus testOutputResult = streamAnalyticsManagementClient.Outputs.Test(resourceGroupName, streamingJobName, outputName);
    ```
@@ -229,7 +242,7 @@ Bir Stream Analytics çıkış hedef de sahip **TestConnection** bağlantıları
 ## <a name="create-a-stream-analytics-transformation"></a>Bir Stream Analytics dönüştürme
 Aşağıdaki kod bir Stream Analytics dönüştürme sorgu oluşturur. "seçin * girişten alınan" ve Stream Analytics işi için bir akış birimi ayırmak için belirtir. Akış birimleri ayarlama hakkında daha fazla bilgi için bkz. [ölçek Azure Stream Analytics işleri](stream-analytics-scale-jobs.md).
 
-   ```
+   ```csharp
    // Create a transformation
    Transformation transformation = new Transformation()
    {
@@ -246,7 +259,7 @@ Bir Stream Analytics işi ve kendi girişlere, çıkışlar ve dönüştürme ol
 
 Aşağıdaki örnek bir özel çıkış başlangıç saatine sahip bir Stream Analytics işi, 12:12:12 12 Aralık 2012'ye ayarlayın kod başlatır UTC:
 
-   ```
+   ```csharp
    // Start a streaming job
    StartStreamingJobParameters startStreamingJobParameters = new StartStreamingJobParameters()
    {
@@ -259,7 +272,7 @@ Aşağıdaki örnek bir özel çıkış başlangıç saatine sahip bir Stream An
 ## <a name="stop-a-stream-analytics-job"></a>Stream Analytics işini durdurma
 Çalışan bir Stream Analytics işi çağrı yaparak da durdurabilirsiniz **Durdur** yöntemi.
 
-   ```
+   ```csharp
    // Stop a streaming job
    streamAnalyticsManagementClient.StreamingJobs.Stop(resourceGroupName, streamingJobName);
    ```
@@ -267,7 +280,7 @@ Aşağıdaki örnek bir özel çıkış başlangıç saatine sahip bir Stream An
 ## <a name="delete-a-stream-analytics-job"></a>Stream Analytics işini sil
 **Sil** yöntemi, işi ve bunun yanı sıra iş dönüşümü girişlere ve çıkışlar da dahil olmak üzere temel alınan bir alt kaynakları siler.
 
-   ```
+   ```csharp
    // Delete a streaming job
    streamAnalyticsManagementClient.StreamingJobs.Delete(resourceGroupName, streamingJobName);
    ```

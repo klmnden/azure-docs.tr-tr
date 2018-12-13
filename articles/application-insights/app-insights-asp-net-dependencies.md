@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 034e611f6ea95675dc3169feefe1916a81c50943
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e94af6e50c923d975c6ce71cca94479354891e0d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972380"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097786"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application ınsights'ı: bağımlılık izleme
 A *bağımlılık* uygulamanız tarafından çağrılan bir dış bileşen. Bu genellikle adlı HTTP veya bir veritabanı veya dosya sistemi kullanılarak bir hizmettir. [Application Insights](app-insights-overview.md) ne sıklıkta bağımlılık çağrı başarısız olur ve uygulama bağımlılıkları için bekleyeceği süreyi ölçer. Belirli çağrıları incelemek ve bunları istekler ve özel durumlar için ilişkilendirebilirsiniz.
@@ -32,7 +32,7 @@ Kullanıma hazır bağımlılık İzleyicisi, şu anda bu tür bir bağımlılı
 * Web sayfaları
   * AJAX çağrıları
 
-Kullanarak çalışır izleme [bayt kod Araçları](https://msdn.microsoft.com/library/z9z62c29.aspx) seçili metotları geçici bir çözüm. En düşük performansa getirdiği yüktür.
+Works kullanarak izlemeyi [bayt kod Araçları](https://msdn.microsoft.com/library/z9z62c29.aspx) yaklaşık .NET Framework (içindeki en son .NET SDK'ları) geri çağırmalar DiagnosticSource bağlı veya yöntemlerini seçin. En düşük performansa getirdiği yüktür.
 
 Ayrıca, diğer bağımlılıklar, istemci ve sunucu kodunda her ikisi de izlemek için kendi SDK çağrıları yazabilirsiniz kullanarak [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
 

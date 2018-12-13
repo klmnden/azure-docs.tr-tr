@@ -1,21 +1,22 @@
 ---
 title: 'Öğretici: Konuşma Tanıma Hizmeti ile bir dil modeli oluşturma'
 titlesuffix: Azure Cognitive Services
-description: Konuşma Tanıma Hizmeti ile bir dil modeli oluşturmayı öğrenin.
+description: Konuşma Tanıma Hizmeti ile bir dil modeli oluşturmayı öğrenin. Bu özel dil modeli uygulamanıza sesli etkileşim eklemek için mevcut durumu resim konuşma modelleri Microsoft ile birlikte kullanın.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 12/06/2018
 ms.author: panosper
-ms.openlocfilehash: b8d58450ccc5081e3be3131761d1321a32567df3
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 0eb946babaa3a01ca933a1290122755978fa017b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469002"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093480"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Öğretici: Özel dil modeli oluşturma
 
@@ -29,7 +30,7 @@ Bu belgede aşağıdakileri nasıl gerçekleştireceğiniz açıklanmaktadır:
 
 Bilişsel Hizmetler hesabınız yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/try/cognitive-services/) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [Bilişsel Hizmetler Abonelikler](https://customspeech.ai/Subscriptions) sayfasını açarak Bilişsel Hizmetler hesabınızın bir aboneliğe bağlanmış olduğundan emin olun.
 
@@ -48,7 +49,7 @@ Cümlelerin tam veya dilbilgisi açısından doğru olması gerekmez ama bu cüm
 
 Dil modeli verileri UTF-8 BOM ile yazılmalıdır. Metin dosyasının her satırında bir örnek (cümle, konuşma veya sorgu) bulunmalıdır.
 
-Bazı terimlerin ağırlığının (öneminin) daha fazla olmasını isterseniz, verilerinize o terimleri içeren birden fazla konuşma ekleyebilirsiniz. 
+Bazı terimlerin ağırlığının (öneminin) daha fazla olmasını isterseniz, verilerinize o terimleri içeren birden fazla konuşma ekleyebilirsiniz.
 
 Dil verilerinin ana gereksinimleri aşağıdaki tabloda özetlenmiştir.
 
@@ -75,7 +76,7 @@ Metin içeri aktarıldığında sistem tarafından işlenebilmesi için normalle
 
 Kendi oluşturduğunuz dil veri kümesini içeri aktarmaya hazır olduğunuzda [Konuşma Tanıma Hizmetleri portalında](https://customspeech.ai) oturum açın. İlk olarak, üst şeritteki **Custom Speech** (Özel Konuşma) açılan menüsünü seçin. Ardından **Adaptation Data** (Uyarlama Verileri) öğesini seçin. Konuşma Tanıma Hizmetleri'ne ilk kez veri yüklemek istediğinizde **Datasets** (Veri Kümeleri) adlı boş bir tablo görürsünüz.
 
-Yeni veri kümesini içeri aktarmak için, **Language Datasets** (Dil Veri Kümeleri) satırındaki **Import** (İçeri Aktar) düğmesini seçin. Site, yeni veri kümesinin karşıya yüklenmesi için bir sayfa görüntüler. **Name** (Ad) ve **Description** (Açıklama) alanlarına ileride veri kümesini tanımlamanıza yardımcı olacak bilgiler girin ve yerel ayarı seçin. 
+Yeni veri kümesini içeri aktarmak için, **Language Datasets** (Dil Veri Kümeleri) satırındaki **Import** (İçeri Aktar) düğmesini seçin. Site, yeni veri kümesinin karşıya yüklenmesi için bir sayfa görüntüler. **Name** (Ad) ve **Description** (Açıklama) alanlarına ileride veri kümesini tanımlamanıza yardımcı olacak bilgiler girin ve yerel ayarı seçin.
 
 Ardından **Choose File** (Dosya Seç) düğmesini kullanarak dil verileri metin dosyasını bulun. Bundan sonra **Import** (İçeri Aktar) öğesine tıklayın; veri kümesi karşıya yüklenecektir. Veri kümesinin boyutuna bağlı olarak içeri aktarma işlemi birkaç dakika sürebilir.
 
@@ -97,9 +98,9 @@ Dil verileriniz hazır duruma geldikten sonra özel dil modeli oluşturma işlem
 
 Eylem gerçekleştirilmeden önce uygun dil ayarının seçilmesi gerekir. Geçerli yerel ayar tüm veri, model ve dağıtım sayfalarında tablo başlığında belirtilir. Yerel ayarı değiştirmek için, tablo başlığının altında yer alan **Change Locale** (Yerel Ayarı Değiştir) düğmesini seçin.  Bu düğme size yerel ayar onay sayfasına götürür. Tabloya dönmek için **OK** (Tamam) düğmesini seçin.
 
-Create Language Model (Dil Modeli Oluştur) sayfasında kullanılan veri kümesi gibi bu modelle ilgili bilgileri izlemenize yardımcı olacak **Name** (Ad) ve **Description** (Açıklama) bilgilerini girin. Ardından açılan menüden **Base Language Model** (Temel Dil Modeli) öğesini seçin. Bu model, özelleştirme işlemlerinizin başlangıç noktasıdır. 
+Create Language Model (Dil Modeli Oluştur) sayfasında kullanılan veri kümesi gibi bu modelle ilgili bilgileri izlemenize yardımcı olacak **Name** (Ad) ve **Description** (Açıklama) bilgilerini girin. Ardından açılan menüden **Base Language Model** (Temel Dil Modeli) öğesini seçin. Bu model, özelleştirme işlemlerinizin başlangıç noktasıdır.
 
-İki temel dil modelinden birini seçebilirsiniz. Search and Dictation modeli; komutlar, arama sorguları veya dikte gibi bir uygulamaya yönlendirilen konuşmalar için uygundur. Conversational modeli, günlük konuşma tarzındaki konuşmaları tanımak için uygundur. Bu konuşma türü genelde başka bir kişiye hitaben yapılır ve çağrı merkezlerinde veya toplantılarda kullanılır. 
+İki temel dil modelinden birini seçebilirsiniz. Search and Dictation modeli; komutlar, arama sorguları veya dikte gibi bir uygulamaya yönlendirilen konuşmalar için uygundur. Conversational modeli, günlük konuşma tarzındaki konuşmaları tanımak için uygundur. Bu konuşma türü genelde başka bir kişiye hitaben yapılır ve çağrı merkezlerinde veya toplantılarda kullanılır.
 
 Search and Dictation modeli; komutlar, arama sorguları veya dikte gibi bir uygulamaya yönlendirilen konuşmalar için uygundur. Conversational modeli, günlük konuşma tarzındaki konuşmaları tanımak için uygundur. Bu konuşma türü genelde başka bir kişiye hitaben yapılır ve çağrı merkezlerinde veya toplantılarda kullanılır. "Universal" adlı yeni bir model de genel kullanıma sunulmuştur. Universal, tüm senaryoları kapsamayı hedeflemektedir ve ileride Search and Dictation ile Conversational modellerinin yerini alacaktır.
 

@@ -1,5 +1,5 @@
 ---
-title: Oluşturma ve Azure üzerinde Jupyter notebook paylaşma | Microsoft Docs
+title: Oluşturma ve Azure üzerinde Jupyter notebook paylaşma
 description: Hızlı bir şekilde oluşturun ve Azure not defterleri ile ilgili bir Jupyter not defteri çalıştırın, sonra bu not defterini başkalarıyla paylaşın.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: eddeb251bac3cc0d02573c4c0b3047a2eafd8237
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 96eb6a823299521a071edc87b5bce95409405ffb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865133"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096282"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Hızlı Başlangıç: Oluşturma ve bir not defteri paylaşın
 

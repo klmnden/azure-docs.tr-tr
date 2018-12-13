@@ -1,21 +1,22 @@
 ---
-title: 'Öğretici 4: Tam metin eşleşmesi - LUIS liste varlığı'
+title: Tam metin eşleşmesi
 titleSuffix: Azure Cognitive Services
 description: Bir listedeki önceden tanımlanmış öğelerle eşleşen verileri alma. Listedeki her öğenin tam olarak eşleşen eş anlamlıları da olabilir
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a4e294687b6c3ea2ba6ff8003e7a8f1ac69ea639
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 5706e0b124bb9ceaf1abf7228faf088dc4e510ce
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425080"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096698"
 ---
 # <a name="tutorial-4-extract-exact-text-matches"></a>Öğretici 4: Tam metin eşleşmelerini ayıklama
 Bu öğreticide bir listedeki önceden tanımlı öğelerle eşleşen verileri almayı öğreneceksiniz. Listeden her öğenin bir eşanlamlı sözcükler listesi olabilir. İnsan kaynakları uygulamasında, bir çalışan ad, e-posta, telefon numarası ve ABD federal vergi numarası gibi birkaç başlıca bilgi ile tanımlanabilir. 
@@ -106,11 +107,11 @@ Her öğenin birincil adı olan _kurallı ad_ çalışanın numarasıdır. Bu et
 
 3. Açılan varlık iletişim kutusunda varlık adı olarak `Employee`, varlık türü olarak da **List** (Liste) seçin. **Done** (Bitti) öğesini seçin.  
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Yeni varlık oluşturma açılan iletişim kutusunun ekran görüntüsü")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
+    [![Yeni varlık açılır iletişim kutusu oluşturma işleminin ekran görüntüsü](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "yeni varlık açılır iletişim kutusu oluşturma işleminin ekran görüntüsü")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
 
 4. Employee (Çalışan) varlık sayfasında yeni değer olarak `Employee-24612` girin.
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Değer girme işleminin ekran görüntüsü")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
+    [![Değer girme ekran görüntüsü](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "değeri girme ekran görüntüsü")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
 
 5. Eş anlamlılar için aşağıdaki değerleri ekleyin:
 
@@ -122,7 +123,7 @@ Her öğenin birincil adı olan _kurallı ad_ çalışanın numarasıdır. Bu et
     |Kişisel cep telefonu numarası|425-555-1212|
     |ABD sosyal güvenlik numarası|123-45-6789|
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Eş anlamlıları girme sayfasının ekran görüntüsü")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
+    [![Eş Anlamlılar girme ekran görüntüsü](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "eş anlamlılar girme ekran görüntüsü")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 6. Yeni değer olarak `Employee-45612` girin.
 
@@ -150,7 +151,7 @@ Her öğenin birincil adı olan _kurallı ad_ çalışanın numarasıdır. Bu et
 
 2. Adres çubuğundaki URL'nin sonuna gidip `shift 123-45-6789 from Z-1242 to T-54672` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `MoveEmployee` amacını `Employee` ayıklanmış şekilde döndürmelidir.
 
-  ```JSON
+  ```json
   {
     "query": "shift 123-45-6789 from Z-1242 to T-54672",
     "topScoringIntent": {

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Toplu Yürütücü .NET API, SDK ve kaynakları | Microsoft Docs'
+title: 'Azure Cosmos DB: Toplu Yürütücü .NET API, SDK ve kaynakları'
 description: Tüm toplu Yürütücü .NET API ve yayın tarihleri, sona erme tarihlerini ve her bir Azure Cosmos DB toplu Yürütücü .NET SDK'sı sürümü arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin.
 author: tknandu
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: ae9560296e37ff5492c07e69e6ba0eb5539915c8
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a0d2ab305f0ca819b8dba573a9570ff03682a947
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308504"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875017"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET toplu Yürütücü kitaplığı: karşıdan yükleme bilgileri 
 

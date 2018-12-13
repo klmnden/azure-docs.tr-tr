@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 4275b734a30310c896c397a5ef9cc1b218d89476
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: b2774b53956ad0ca6121189a494d6d4996d4e0c3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842552"
+ms.locfileid: "52870784"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Log analytics'te Windows olay günlüğü veri kaynakları
 Windows olay günlükleri, en sık kullanılan bir [veri kaynakları](agent-data-sources.md) birçok uygulama Windows olay günlüğüne yazma beri Windows aracılarını kullanarak veri toplama için.  İzlemeniz gereken uygulamaları tarafından oluşturulan tüm özel günlükleri belirtmenin yanı sıra sistem ve uygulama gibi standart günlüklerinden olayları toplayabilir.
@@ -77,5 +77,5 @@ Aşağıdaki tabloda, Windows olay kayıtları almak günlük aramaları farklı
 ## <a name="next-steps"></a>Sonraki adımlar
 * Diğer toplamak için log Analytics'i yapılandırma [veri kaynakları](agent-data-sources.md) analiz.
 * Hakkında bilgi edinin [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.  
-* Kullanım [özel alanlar](../../log-analytics/log-analytics-custom-fields.md) olay kayıtları tek tek alanlarına ayrıştırılamıyor.
+* Kullanım [özel alanlar](../../azure-monitor/platform/custom-fields.md) olay kayıtları tek tek alanlarına ayrıştırılamıyor.
 * Yapılandırma [performans sayaçlarını toplamayı](data-sources-performance-counters.md) Windows aracılarınızdan.

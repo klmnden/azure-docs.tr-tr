@@ -14,20 +14,8 @@ items:
   items:
   - name: Hesap oluşturma
     href: cognitive-services-apis-create-account.md
-- name: Öğreticiler
-  items:
-  - name: Görüntü İşleme hizmetini kullanarak uygulama geliştirme
-    href: ./Computer-vision/tutorials/csharptutorial.md
-  - name: Konuşma Tanıma SDK'sı ve LUIS ile amaçları tanıma
-    href: ./speech-service/how-to-recognize-intents-from-speech-csharp.md
-  - name: LUIS uygulaması oluşturma
-    href: ./luis/luis-quickstart-intents-only.md
-  - name: Metin Analizi özelliğini Power BI ile kullanma
-    href: ./Text-Analytics/tutorials/tutorial-power-bi-key-phrases.md
-  - name: Bing Web Araması uygulaması oluşturma
-    href: ./bing-web-search/tutorial-bing-web-search-single-page-app.md
-  - name: Bing Resim Arama uygulaması oluşturma
-    href: ./bing-image-search/tutorial-bing-image-search-single-page-app.md
+  - name: Kimlik Doğrulaması
+    href: authentication.md
 - name: Kaynaklar
   items:
   - name: Azure Yol Haritası
@@ -44,9 +32,9 @@ items:
     href: http://go.microsoft.com/fwlink/?LinkId=698895
   - name: Bilgi Bankası
     href: https://cognitive.uservoice.com/knowledgebase
-ms.openlocfilehash: 43358d176db8642862a49d755a766cc22dbd57b9
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 28b17af092a1e336cb830772541dcdefe472ed3a
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51630988"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320872"

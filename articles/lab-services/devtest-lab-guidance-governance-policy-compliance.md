@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 016daa7ed57650a42b224df4e4173c7593893eb7
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 8165efaa10eb31410f00dfa9bfffb2c02d7396ae
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251171"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872347"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Azure DevTest Labs altyapı - şirket ilke ve uyumluluk İdaresi
 Bu makalede, şirket ilke ve uyumluluk için Azure DevTest Labs altyapı yöneten hakkında rehberlik sağlanır. 
@@ -42,10 +42,10 @@ Bir kuruluş için tek bir depoda plan veya birden çok deposu izin?
 ### <a name="answer"></a>Yanıt
 Kuruluşunuzun genel idare ve yapılandırma yönetimi stratejisi kapsamında, merkezi bir havuz kullanmanızı öneririz. Birden çok deposu kullandığınızda, yönetilmeyen yazılım siloları zamanla durdurabilir. Merkezi bir depo ile birden çok takımı yapıtlar bu depodan kendi projeleri için kullanabilir. Standartlaştırma, güvenlik, yönetim kolaylığı zorlar ve çalışmalarınızı çoğaltma ortadan kaldırır. Merkezi bir parçası olarak, aşağıdaki eylemleri uygulamalar için uzun vadeli yönetimi ve sürdürülebilirlik önerilir:
 
-- Visual Studio Team Services, Azure abonelik kimlik doğrulama ve yetkilendirme için kullandığı aynı Azure Active Directory kiracısı ile ilişkilendirin.
+- Azure aboneliği kimlik doğrulama ve yetkilendirme için kullandığı aynı Azure Active Directory kiracısı ile Azure depoları ilişkilendirin.
 - Adlı bir grup oluşturun **tüm DevTest Labs geliştiriciler** merkezi olarak yönetilen Azure Active Directory'de. Yapıt katkıda herhangi bir geliştirici bu gruba yerleştirilmelidir.
-- Aynı Azure Active Directory grubu, Visual Studio Team Services deposu ve Laboratuvar erişim sağlamak için kullanılabilir.
-- Visual Studio Team Services içinde dallanma veya çatal ayrı bir de geliştirme depoya birincil üretim depodan kullanılmalıdır. İçerik yalnızca ana dala bir çekme isteği ile bir uygun kod gözden geçirdikten sonra eklenir. Kod Gözden Geçiren, değişikliği onayladığında, ana dalın bakım için sorumlu olan, müşteri adayı geliştirici, güncelleştirilmiş kod birleştirir. 
+- Aynı Azure Active Directory grubu, Azure depoları depoya ve Laboratuvar erişim sağlamak için kullanılabilir.
+- Azure depolarda dallanma veya çatal ayrı bir de geliştirme depoya birincil üretim depodan kullanılmalıdır. İçerik yalnızca ana dala bir çekme isteği ile bir uygun kod gözden geçirdikten sonra eklenir. Kod Gözden Geçiren, değişikliği onayladığında, ana dalın bakım için sorumlu olan, müşteri adayı geliştirici, güncelleştirilmiş kod birleştirir. 
 
 ## <a name="corporate-security-policies"></a>Kurumsal güvenlik ilkeleri
 

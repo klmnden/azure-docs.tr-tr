@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 27d27f582c1306d8a8370567fd9c6858ad439ca8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 40f3275b2f16a80f1199afdc0d7965cbd4433f50
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851154"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082467"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde veri toplamayı
 Güvenlik Merkezi, Azure sanal makineleri (VM'ler) ve Azure harici bilgisayarları güvenlik açıklarını ve tehditleri izlemek için veri toplar. Veriler, makineden güvenlikle ilgili çeşitli yapılandırmaları ve olay günlüklerini okuyup verileri analiz için çalışma alanınıza kopyalayan Microsoft Monitoring Agent kullanılarak toplanır. Bu tür verilerin örnekleri şunlardır: işletim sistemi türü ve sürümü, işletim sistemi günlükleri (Windows olay günlükleri) çalışan işlemler, makine adı, IP adresleri ve kullanıcı oturum. Microsoft Monitoring Agent, ayrıca kilitlenme bilgi dökümü dosyalarını çalışma alanınıza kopyalar.
@@ -261,7 +261,7 @@ Güvenlik Merkezi, Vm'lerinizden güvenlik verilerini toplamak ve öneriler ve u
     a.  [Windows için OMS sanal makine uzantısını yükleme](../virtual-machines/extensions/oms-windows.md)
     
     b.  [Linux için OMS sanal makine uzantısını yükleme](../virtual-machines/extensions/oms-linux.md)
-5.  Uzantıları mevcut Vm'lere dağıtmak için yönergeleri izleyin. [Azure sanal makineler hakkında veri toplama](../log-analytics/log-analytics-quick-collect-azurevm.md).
+5.  Uzantıları mevcut Vm'lere dağıtmak için yönergeleri izleyin. [Azure sanal makineler hakkında veri toplama](../azure-monitor/learn/quick-collect-azurevm.md).
 
   > [!NOTE]
   > Bölüm **olay ve performans verileri toplama** isteğe bağlıdır.

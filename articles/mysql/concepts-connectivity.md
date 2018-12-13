@@ -3,19 +3,19 @@ title: Geçici bağlantı hatalarının için MySQL için Azure veritabanı işl
 description: MySQL için Azure veritabanı geçici bağlantı hataları işlemeye öğrenin.
 keywords: MySQL bağlantı, bağlantı dizesi, bağlantı sorunları, geçici bir hata oluştu, bağlantı hatası
 services: mysql
-author: janeng
+author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: 1944b30e5c658f1df896050d0ff43f1058d5dd32
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 2d7b62d5f45f495d36b1ed103155f8f3178451e8
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285023"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887823"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mysql"></a>Geçici bağlantı hatalarının için MySQL için Azure veritabanı işleme
 
@@ -49,4 +49,4 @@ Yeniden deneme mantığı, test etmek emin olun. Örneğin, ölçeği artırıla
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [MySQL için Azure veritabanı bağlantı sorunlarını giderme](howto-troubleshoot-common-connection-issues.md)
+* [MySQL için Azure Veritabanı bağlantı sorunlarını giderme](howto-troubleshoot-common-connection-issues.md)

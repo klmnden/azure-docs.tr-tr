@@ -1,21 +1,22 @@
 ---
-title: LUIS - Language Understanding ile uygulama oluşturmaya yönelik en iyi uygulamalar
-titleSuffix: Azure Cognitive Services
-description: En iyi sonuçları almak için LUIS en iyi adımları öğrenin.
+title: En iyi uygulamalar
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: LUIS uygulama modelinden en iyi sonuçları almak için LUIS en iyi adımları öğrenin.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6b7b9c8a2a3e7da1628ef3e6f93a4b632ce38615
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: e63d6ed584c0e8afc823bbcdc6e70ceabbf43db6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637789"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085289"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Bilişsel hizmetler dil anlama uygulamayla oluşturmaya yönelik en iyi uygulamalar
 LUIS uygulamanızı oluşturmak için yazma işleminin hızlandırılmasının uygulamayı kullanın. 
@@ -50,10 +51,10 @@ Sözlük iki amaçları arasında aynı ise, amacı birleştirin ve varlıkları
 
 Aşağıdaki örnek konuşma göz önünde bulundurun:
 
-```
-Book a flight
-Book a hotel
-```
+|Örnek konuşmalar|
+|--|
+|Kitap bir uçuş|
+|Kitap bir otel|
 
 "Bir kitap" ve "bir otel kitap" aynı sözlüğünü kullanın "kitap bir". Aynı olmalıdır, böylece bu çakışan uçuş ve Otel farklı sözcük hedefle ayıklanan varlıklar. 
 

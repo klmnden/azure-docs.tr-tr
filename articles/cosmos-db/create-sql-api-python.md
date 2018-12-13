@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: a12107fe0dd25a383e7be1adbc717c7c1c654fa5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6f3f1f6eb89127e6b0ac0e2983a27dfd731651cb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846547"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094245"
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB: Python ve Azure portalı ile bir SQL API'si uygulaması derleme
 
@@ -153,7 +153,7 @@ Aşağıdaki kod parçacıklarının tümü `CosmosGetStarted.py` dosyasından a
 
 Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin.
 
-1. [Azure portalında](http://portal.azure.com/), Azure Cosmos DB hesabınızın sol gezinti menüsünden **Anahtarlar**'a tıklayın. Ekranın sağ tarafındaki kopyalama düğmelerini kullanarak **URI** ve **Primary Key** değerlerini kopyalayıp sonraki adımda bunları `CosmosGetStarted.py` dosyasına yapıştırın.
+1. [Azure portalında](https://portal.azure.com/), Azure Cosmos DB hesabınızın sol gezinti menüsünden **Anahtarlar**'a tıklayın. Ekranın sağ tarafındaki kopyalama düğmelerini kullanarak **URI** ve **Primary Key** değerlerini kopyalayıp sonraki adımda bunları `CosmosGetStarted.py` dosyasına yapıştırın.
 
     ![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar dikey penceresi](./media/create-sql-api-dotnet/keys.png)
 

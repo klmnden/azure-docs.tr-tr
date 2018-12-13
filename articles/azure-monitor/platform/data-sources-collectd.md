@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 1a6ccb42e00431c16ce7767f19d6cdc9cbb3cffe
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 25dc4715e4cfd028b6d0f83a32edd3f8ef93d560
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841702"
+ms.locfileid: "52874898"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Log Analytics Linux aracıda toplanan verileri toplamak
 [Toplanan](https://collectd.org/) olduğu bir açık kaynak Linux daemon, düzenli aralıklarla uygulama ve sistem düzeyindeki bilgileri performans ölçümleri toplar. Örnek uygulamalar, Java sanal makinesi (JVM), MySQL sunucusu ve Ngınx içerir. Bu makale, Log analytics'te, toplanan performans veri toplanmasına hakkında bilgi sağlar.
@@ -125,5 +125,5 @@ Linux için Log Analytics aracısını yeni ölçümler ile toplanmış altyapı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 
-* Kullanım [özel alanlar](../../log-analytics/log-analytics-custom-fields.md) syslog kayıtları verilerinden ayrı ayrı alanlara ayrıştırılamıyor.
+* Kullanım [özel alanlar](../../azure-monitor/platform/custom-fields.md) syslog kayıtları verilerinden ayrı ayrı alanlara ayrıştırılamıyor.
 

@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: dağıtma Azure ayrılmış HSM'ler PowerShell kullanarak mevcut bir sanal ağa | Microsoft Docs"
-description: PowerShell kullanarak mevcut bir sanal ağa HSM'ler dağıtma
+title: Öğretici PowerShell - Azure ayrılmış HSM kullanarak mevcut bir sanal ağa dağıtma | Microsoft Docs
+description: PowerShell kullanarak mevcut bir sanal ağa ayrılmış bir HSM dağıtmayı gösteren öğretici.
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
@@ -8,17 +8,17 @@ manager: mbaldwin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: a714a52ecd6398fde459c5814b8a6cf223655eff
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3f165b5d372168ef3ce6fea75547513a0148ae5b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318883"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086322"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Öğretici: PowerShell kullanarak mevcut sanal ağına HSM'ler dağıtma
 
@@ -139,6 +139,14 @@ $compute = New-AzureRmVirtualNetworkSubnetConfig `
 $delegation = New-AzureRmDelegation `
   -Name "myDelegation" `
   -ServiceName "Microsoft.HardwareSecurityModules/dedicatedHSMs"
+
+```
+
+```powershell
+$hsmsubnet = New-AzureRmVirtualNetworkSubnetConfig ` 
+  -Name hsmsubnet ` 
+  -AddressPrefix 10.2.1.0/24 ` 
+  -Delegation $delegation 
 
 ```
 

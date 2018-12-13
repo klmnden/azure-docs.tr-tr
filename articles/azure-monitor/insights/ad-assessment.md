@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 21b3ba88037c7956304fa6a53268e779841b14f3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 53401745d12bb7e0e1cef843cf743fbe9cc7cfb6
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838370"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888851"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Log analytics'te Active Directory sistem durumu denetimi çözümü ile Active Directory ortamınızı en iyi duruma getirme
 
@@ -55,7 +55,7 @@ Değerlendirilecek etki alanının üyesi olan etki alanı denetleyicilerinizin 
 
 1. Yükleme [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) , etki alanı denetleyicisi zaten System Center 2016 - Operations Manager veya Operations Manager 2012 R2 tarafından izlenmiyor.
 2. System Center 2016 - Operations Manager veya Operations Manager 2012 R2 ile izlenir ve yönetim grubunu Log Analytics hizmeti ile tümleştirilmiş değil, etki alanı denetleyicisi veri toplamak ve iletmek için Log Analytics ile birden çok girişli olabilir Hizmet ve Operations Manager tarafından yine de izlenmelidir.  
-3. Operations Manager yönetim grubunuzun hizmeti ile tümleşikse, aksi takdirde, etki alanı denetleyicileri için veri toplama altındaki adımları izleyerek hizmet eklemek ihtiyacınız [aracıyla yönetilen bilgisayarlar ekleme](../../log-analytics/log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) seçeneğini etkinleştirdikten sonra çalışma alanınızda çözümün.  
+3. Operations Manager yönetim grubunuzun hizmeti ile tümleşikse, aksi takdirde, etki alanı denetleyicileri için veri toplama altındaki adımları izleyerek hizmet eklemek ihtiyacınız [aracıyla yönetilen bilgisayarlar ekleme](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics) seçeneğini etkinleştirdikten sonra çalışma alanınızda çözümün.  
 
 Etki alanı denetleyicinize bir Operations Manager yönetim grubu için hangi raporların verileri toplayan aracıda kendi atanan yönetim sunucusuna iletir ve ardından yönetim sunucusundan doğrudan Log Analytics hizmetine gönderilir.  Operations Manager veritabanları için veriler yazılmaz.  
 

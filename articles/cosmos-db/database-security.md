@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: d88a82921e5baee06aacc09fafe274a8c56780c7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0ffd07269570b26b527286f1a0b5a57a6b5c6018
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972414"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093429"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB veritabanı güvenliği
 
@@ -47,7 +47,7 @@ Gereksinimleri, veritabanı sistemleri karşılaştırmak aşağıdaki denetim l
 - Korumalı veri merkezlerindeki sunucular fiziksel koruma
 - Sertifikalar
 
-Ve bunu görünse de açık, son [büyük ölçekli veritabanı ihlallerini](http://thehackernews.com/2017/01/mongodb-database-security.html) bize aşağıdaki gereksinimleri basit ancak kritik önemini hatırlat:
+Ve bunu görünse de açık, son [büyük ölçekli veritabanı ihlallerini](https://thehackernews.com/2017/01/mongodb-database-security.html) bize aşağıdaki gereksinimleri basit ancak kritik önemini hatırlat:
 - Güncel tutulduğu sunucuları düzeltme eki
 - HTTPS varsayılan/SSL şifrelemesi
 - Yönetim hesapları ile güçlü parolalar

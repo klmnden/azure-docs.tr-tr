@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: normesta
-ms.openlocfilehash: 29fe100821e5ad2d9d5d340a1178c19c60c6d821
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: fb0a67a9b3b556a85a2b28989fe15dfeea1f0d72
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995441"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099603"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2 ile'ilgili bilinen sorunlar
 
@@ -27,11 +27,23 @@ Tüm hesabınıza yüklediğiniz içerik çalışmak için aynı aracı kullanma
 
 ## <a name="blob-storage-apis"></a>BLOB Depolama API'leri
 
-BLOB Depolama API'leri henüz Azure Data Lake depolama Gen 2 hesaplarına kullanıma sunulmaz.
+BLOB Depolama API'leri henüz Azure Data Lake depolama Gen2 hesaplarına kullanıma sunulmaz.
 
 Bu API'ler Blob Depolama API'leri henüz Azure Data Lake Gen2 API'leri ile birlikte çalışabilen olmadığından oluşabilecek yanlışlıkla veri erişim sorunları önlemek için devre dışı bırakılır.
 
-Yönetilmeyen sanal makine (VM) disk üzerinde bu API'leri bağlıdır, hiyerarşik ad alanları bir depolama hesabı üzerinde etkinleştirmek istiyorsanız, bu nedenle yönetilmeyen VM disklerini hiyerarşik ad alanları etkin olmayan bir depolama hesabına yerleştirmeyi düşünün.
+Önce devre dışı bırakıldı ve bu verilere erişmek için bir üretim ihtiyacı olan verileri yüklemek için bu API'leri kullandıysanız, lütfen Microsoft Support aşağıdaki bilgilerle başvurun:
+
+* Abonelik kimliği (GUID, adı değil)
+
+* Depolama hesabı adları
+
+* Üretimde etkin bir şekilde etkilendiğini işlenmeyeceğini ve işlenecekse hangi depolama hesapları için?
+
+* Bu verileri başka bir depolama hesabına herhangi bir nedenden dolayı kopyalanması gerekip gerekmediğini ve bu durumda, üretimde etkin bir şekilde etkilenmez olsa bile, bize neden?
+
+Böylece bu verileri hiyerarşik ad alanları etkin olmayan bir depolama hesabına kopyalayabilirsiniz Bu koşullar altında biz erişim Blob API için sınırlı bir süre için geri yükleyebilirsiniz.
+
+Yönetilmeyen sanal makine (VM) diskleri devre dışı Blob Depolama API'leri bağlıdır, hiyerarşik ad alanları bir depolama hesabı üzerinde etkinleştirmek istiyorsanız, bu nedenle yönetilmeyen VM disklerini hiyerarşik ad alanları etkin olmayan bir depolama hesabına yerleştirmeyi düşünün.
 
 ## <a name="azure-storage-explorer"></a>Azure Depolama Gezgini
 

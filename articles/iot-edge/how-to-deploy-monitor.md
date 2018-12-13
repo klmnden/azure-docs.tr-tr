@@ -1,6 +1,6 @@
 ---
-title: Dağıtma, izleme modüller için Azure IOT Edge | Microsoft Docs
-description: Uç cihazlarında çalışan modülleri yönetme
+title: Azure portalından - Azure IOT Edge otomatik dağıtımlar oluşturmayı | Microsoft Docs
+description: Cihazları IOT Edge grupları için otomatik dağıtımlar oluşturmak için Azure portalını kullanma
 keywords: ''
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6ebd2a4e24a5f0bd9a9adad97bf26ae61219c8e0
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 20f50e286e30e32f066fe3d214bfc4c1a155776e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566255"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083929"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Dağıtma ve Azure portalını kullanarak ölçekte IOT Edge modülleri izleme
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: d2b6b7a5d2baf9e46cca18aec97f31beda1e2a38
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a992851deda0659509c0ee4ea5de76b19734f017
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736742"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867623"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>StorSimple sanal dizisi için depolama hesabı kimlik bilgilerini yönetmek için StorSimple cihaz Yöneticisi'ni kullanın
 
@@ -148,7 +148,7 @@ StorSimple cihaz Yöneticisi hizmeti değişikliği bildirmek için StorSimple c
     
 4. StorSimple cihaz Yöneticisi hizmeti, Microsoft Azure depolama hizmetinde önceden değiştirildiği anahtarı güncelleştirmeniz gerekir. İçinde **Eşitle depolama hesabı anahtarı** birincil erişim anahtarını (yeniden oluşturuldu) değiştirildiyse dikey penceresinde, birincil tıklayın ve ardından **eşitleme anahtarı**. İkincil anahtar değiştirildiyse tıklayın **ikincil**ve ardından **eşitleme anahtarı**.
    
-    ![Erişim anahtarını Eşitle](./media/storsimple-virtual-array-manage-storage-accounts/ova-sync-acess-key.png)
+    ![Erişim anahtarını Eşitle](./media/storsimple-virtual-array-manage-storage-accounts/ova-sync-access-key.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bilgi edinmek için nasıl [StorSimple Virtual Array'iniz yönetmek](storsimple-ova-web-ui-admin.md).

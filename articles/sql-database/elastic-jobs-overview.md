@@ -3,7 +3,7 @@ title: Azure SQL Elastik Veritabanı İşleri | Microsoft Docs
 description: Elastik Veritabanı İşlerini kullanarak bir veya daha fazla Azure SQL veritabanında Transact-SQL (T-SQL) betikleri çalıştırmayı öğrenin
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: overview
@@ -12,12 +12,12 @@ ms.author: srinia
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/26/2018
-ms.openlocfilehash: a029697c2fdd3c9bd3b3da2c2b5a1420d0dd0a8c
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
-ms.translationtype: HT
+ms.openlocfilehash: 0d593e52c8dc3bc961df706ccef2da9da2f3f778
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054736"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087142"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Elastik Veritabanı İşleriyle veritabanı gruplarını yönetin
 
@@ -127,7 +127,7 @@ Aşağıdaki örneklerde işin çalıştırılacağı veritabanlarının belirle
 
 ![Hedef grup örnekleri](media/elastic-jobs-overview/targetgroup-examples2.png)
 
-**Örnek 5** ve *Örnek 6*'da Azure SQL Servers, elastik havuz ve veritabanı örneklerinin dahil etme ve hariç tutma kurallarıyla birleştirildiği gelişmiş senaryolar gösterilmektedir.<br>
+**Örnek 5** ve **Örnek 6**'da Azure SQL Servers, elastik havuz ve veritabanı örneklerinin dahil etme ve hariç tutma kurallarıyla birleştirildiği gelişmiş senaryolar gösterilmektedir.<br>
 **Örnek 7**'de parça eşlemesi içinde bulunan ve iş çalıştırma zamanında değerlendirilebilecek parçalar gösterilmektedir.
 
 ### <a name="job"></a>İş

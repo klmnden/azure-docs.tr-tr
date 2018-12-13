@@ -10,16 +10,22 @@ ms.reviewer: anshan
 ms.workload: big-data
 ms.topic: overview
 ms.date: 12/05/2018
-ms.openlocfilehash: 01c3c580027fd682ccd7dc099def6dd6b2770d65
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: 9843a01ed3c96b362e17718e9035c378da6c3cf2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962537"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083402"
 ---
 # <a name="azure-time-series-insights-overview"></a>Azure Time Series Insights genel bakış
 
 Azure zaman serisi öngörüleri (TSI) bir uçtan uca hizmet olarak Platform-A-veri alabilen, işlem, depolama ve geçici veri keşfi, yanı sıra operasyonel analiz için ideal olan, yüksek oranda contextualized, zaman serisi iyileştirilmiş IOT ölçekli veriler sorgu için olan. Azure TSI karşıladığını endüstriyel IOT dağıtımları geniş gerektiğini sunan bir benzersiz şekilde genişletilebilir ve özelleştirilmiş hizmetidir.
+
+## <a name="video"></a>Video
+
+Bu videoda, size Azure Time Series Insights (Önizleme), bulut tabanlı IOT analiz platformu için genel bir bakış sağlar.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics/player]
 
 ## <a name="defining-iot-data"></a>IOT verilerini tanımlama
 
@@ -46,7 +52,7 @@ Müşteriler ham verileri şemasız, bellek içi, bir depolama alanında depolay
 TSI, ayrıca şu anda önizlemede operasyonel içgörüler özellikleri sunar. TSI, etkileşimli veri keşfi ve operasyonel zeka ile birlikte IOT varlıklarından toplanan verilerinizden daha fazla değer türetmek müşterilerin sağlar. Özellikle, Önizleme Teklifi aşağıdaki anahtar özelliklerini destekler:
 
 * Bir ölçeklenebilir, performans ve saniyeler içinde zaman serisi verilerini değerinde eğilim yıl için bulut tabanlı bir IOT çözümü sağlayan maliyet açısından iyileştirilmiş zaman serisi veri deposu.
-* Varlıklar ve cihazlardan türetilmiş ve türetilmeyen sinyaller ile ilişkili meta verileri ve etki alanını tanımlamak için anlam modeli desteği.
+* Varlıklardan ve cihazlardan alınan türetilmiş ve türetilmemiş sinyallerle ilişkili etki alanını ve meta verileri tanımlamak için semantik model desteği.
 * Varlık tabanlı veri öngörüleri, iş ve operasyonel zeka kullanımını zengin analizlerle, geçici verileri birleştiren bir gelişmiş kullanıcı deneyimi
 * Gelişmiş makine öğrenimi ve Azure Databricks, Apache Spark, Azure Machine Learning, Jupyter Notebooks'u, Power BI gibi analiz araçları ile tümleştirme vb. müşterilerin zaman serisi verilerini sorunlarını gidermek ve Operasyonel Verimliliği artırmaya yardımcı olmak için.
 

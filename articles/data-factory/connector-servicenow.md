@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e0bbfafcda77ca48fb22ad919c5848a7670a102
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 67658d75f7ad4a6db1af5db97a525774b0ab6e61
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309683"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095287"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Servicenow'ı Azure Data Factory kullanarak verileri kopyalama
 
@@ -77,7 +77,12 @@ Servicenow'ı bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, ServiceNow veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Servicenow'ı verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **ServiceNowObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Servicenow'ı verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **ServiceNowObject**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **ServiceNowObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -89,7 +94,8 @@ Servicenow'ı verileri kopyalamak için dataset öğesinin type özelliği ayarl
         "linkedServiceName": {
             "referenceName": "<ServiceNow linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -105,7 +111,7 @@ Servicenow'ı verileri kopyalamak için kopyalama etkinliği için kaynak türü
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **ServiceNowSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Actual.alm_asset"`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Actual.alm_asset"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 Şema ve sütun için ServiceNow sorguda belirtirken, aşağıdakilere dikkat edin ve **başvurmak [performans ipuçları](#performance-tips) kopyalama performans olduğu çıkarımında üzerinde**.
 

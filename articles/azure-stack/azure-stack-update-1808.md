@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 12/08/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 88041cf185aeb6ae5cb27f2405b62401cae069d9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7979bbafda6373c7f25c6e9c7d5cd997fbf5c3eb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964262"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098109"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 güncelleştirme
 
@@ -275,6 +275,12 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 <!-- 3179561 - IS --> 
 - Yönetilen diskler kullanımı açıklandığı saat içinde bildirilen [Azure Stack kullanım SSS](azure-stack-usage-related-faq.md#managed-disks). Ancak, yanlış veya öncesinde Eylül 27 yönetilen diskler kullanımı için ücretlendirilirsiniz, böylece bunun yerine Azure Stack faturalandırma aylık fiyat kullanır. Size geçici olarak ücretleri yönetilen diskler için Eylül faturalama sorunu çözümlenene kadar 27 sonra askıya. Yanlış yönetilen diskler kullanımı için herhangi bir ücret, Microsoft faturalama desteği'ne başvurun.
 Azure Stack kullanım API'leri üretilen kullanım raporları, doğru miktarları gösterir ve kullanılabilir.
+
+<!-- 3507629 - IS, ASDK --> 
+- Yönetilen diskler oluşturur iki yeni [kota türleri işlem](azure-stack-quota-types.md#compute-quota-types) sağlanabilir yönetilen diskler hizmetin maksimum kapasitesi sınırlamak için. Varsayılan olarak, 2048 GiB her yönetilen diskler kota türü için ayrılır. Ancak, aşağıdaki sorunlarla karşılaşabilirsiniz:
+
+   - 2048 GiB ayrılır ancak 1808 güncelleştirmeden önce oluşturulan kotalarını 0 değerleri yönetilen diskler kotası yönetici Portalı'nda gösterir. Gerçek gereksinimlerinize ve yeni belirlenen göre değerini azaltın veya artırabilirsiniz kota değeri, 2048 GiB varsayılan'ı geçersiz kılar.
+   - Kota değeri 0'a güncelleştirin, 2048 GiB varsayılan değerini eşdeğer olacaktır. Geçici çözüm olarak, kota değeri 1 olarak ayarlayın.
 
 <!-- 2869209 – IS, ASDK --> 
 - Kullanırken [ **Ekle AzsPlatformImage** cmdlet'i](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), kullanmalısınız **- OsUri** parametre olarak depolama hesabı URI'si disk nereye yüklenir. Yerel yol diskin kullanırsanız, cmdlet şu hatayla başarısız olur: *işlemi uzun süre çalışan 'Başarısız' durumuyla başarısız oldu*. 

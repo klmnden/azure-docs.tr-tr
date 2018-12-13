@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5ad39cab343e17040e0086934e50be580590241d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 42a72edd6f9915e45f57a29509f48b3e0b612de3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834154"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088043"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Toplamak ve Log analytics'te Azure etkinlik günlüklerini çözümleme
 
@@ -55,8 +55,8 @@ Diğer Log Analytics çözümlerinin çoğu farklı olarak, etkinlik günlükler
 | Bağlı Kaynak | Desteklenen | Açıklama |
 | --- | --- | --- |
 | [Windows aracıları](../../azure-monitor/platform/agent-windows.md) | Hayır | Çözüm, Windows aracılarından bilgi toplamaz. |
-| [Linux aracıları](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Hayır | Çözüm, Linux aracılarından bilgi toplamaz. |
-| [SCOM yönetim grubu](../../log-analytics/log-analytics-om-agents.md) | Hayır | Bir bağlı SCOM yönetim grubundaki aracılardan çözüm herhangi bir bilgi toplamaz. |
+| [Linux aracıları](../../azure-monitor/learn/quick-collect-linux-computer.md) | Hayır | Çözüm, Linux aracılarından bilgi toplamaz. |
+| [SCOM yönetim grubu](../../azure-monitor/platform/om-agents.md) | Hayır | Bir bağlı SCOM yönetim grubundaki aracılardan çözüm herhangi bir bilgi toplamaz. |
 | [Azure depolama hesabı](collect-azure-metrics-logs.md) | Hayır | Çözüm, Azure depolama biriminden bir bilgi toplamaz. |
 
 ## <a name="prerequisites"></a>Önkoşullar

@@ -1,7 +1,7 @@
 ---
-title: 'Hızlı Başlangıç: amaca dönüştürme-Java al'
+title: Amaç, Java al
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Bu hızlı başlangıçta, kullanılabilir genel bir LUIS uygulamasını kullanarak konuşma metninden bir kullanıcının amacını belirleyin. Java kullanarak kullanıcının amacını genel uygulamanın HTTP tahmin uç noktasına metin olarak gönderin. Uç noktada, LUIS genel uygulamanın modelini uygulayarak anlam oluşturmak için doğal dil metnini analiz eder, böylece genel amacı belirler ve uygulamanın konu etki alanıyla ilgili verileri ayıklar.
+description: Bu Java hızlı başlangıçta, bir kullanıcının engellemekse damıtarak konuşma bağlamında kullanılabilen metinden belirlemek için kullanılabilir bir genel LUIS uygulaması kullanın.
 author: diberry
 manager: cgronlun
 ms.custom: seodec18
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 417b1138d581a54a3a0a992cebf18ea20fa8dbee
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c55721e803b85c536067a90019f75dd5aa0f7845
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013603"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085357"
 ---
 # <a name="quickstart-get-intent-using-java"></a>Hızlı Başlangıç: Java kullanarak amacı alma
 

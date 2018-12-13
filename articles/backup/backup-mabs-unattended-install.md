@@ -2,18 +2,18 @@
 title: Azure Backup sunucusu V2 sessiz yüklemesi
 description: Azure Backup sunucusu V2 sessizce yüklemek için bir PowerShell betiğini kullanın. Bu tür bir yükleme, katılımsız bir yükleme olarak da adlandırılır.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: markgal
-ms.openlocfilehash: 8f7bda070e613e5495d3733dd1610cb291e12c36
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.author: raynew
+ms.openlocfilehash: dd66710a24ca28b78c6b3e0a8197a078f17524db
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612704"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868150"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Azure Backup sunucusu katılımsız yükleme çalıştırma
 

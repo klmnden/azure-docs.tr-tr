@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 8b982dbddf22393e276437c77007e18bc4d40042
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.date: 12/06/2018
+ms.openlocfilehash: dc20ffb0ce8add08a396a4c0ba5b496e80d04aa1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867198"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083895"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Azure SQL veritabanı için bağlantı sorunlarını gidermek için kaynak durumu kullanın
 
@@ -67,11 +67,11 @@ SQL veritabanınız kesinti yaşandığında analiz bir nedenini belirlemek içi
 
 #### <a name="planned-maintenance"></a>Planlı bakım
 
-Azure altyapısı, düzenli olarak planlanan bakım – veri merkezindeki donanım veya yazılım bileşenlerini yükseltme yapar. Bakım veritabanı uygulanır, ancak SQL var olan bazı bağlantılar sonlandırmak ve yenilerini reddet. Planlanan bakım sırasında karşılaşılan hataları genellikle geçicidir ve yeniden deneme mantığı oturum açma etkisini azaltmaya yardımcı olur. Oturum açma hataları yaşamaya devam ederseniz Lütfen desteğe başvurun.
+Azure altyapısı, düzenli olarak planlanan bakım – veri merkezindeki donanım veya yazılım bileşenlerini yükseltme yapar. Bakım veritabanı uygulanır, ancak SQL var olan bazı bağlantılar sonlandırmak ve yenilerini reddet. Planlanan bakım sırasında karşılaşılan oturum açma hataları genellikle geçicidir ve [yeniden deneme mantığı](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) yardımcı etkisini azaltır. Oturum açma hataları yaşamaya devam ederseniz Lütfen desteğe başvurun.
 
 #### <a name="reconfiguration"></a>Yeniden yapılandırma
 
-Yeniden yapılandırmalar, geçici koşullar kabul edilir ve zaman zaman beklenir. Bu olaylar, Yük Dengeleme veya yazılım/donanım arızaları tetiklenebilir. Bu gibi durumlarda azaltılmasına yardımcı olur ve genellikle hatalarını saydam son kullanıcıya olmanız gerekir bir bulut veritabanı hizmeti için bağlanan her istemci üretim uygulama geri alma mantığıyla bir güçlü bağlantı yeniden deneme mantığı uygulamalıdır.
+Yeniden yapılandırmalar, geçici koşullar kabul edilir ve zaman zaman beklenir. Bu olaylar, Yük Dengeleme veya yazılım/donanım arızaları tetiklenebilir. Bir bulut veritabanına bağlanan herhangi bir istemci üretim uygulama, sağlam bir bağlantı uygulamalıdır [yeniden deneme mantığı](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors), bu gibi durumlarda azaltılmasına yardımcı olur ve genellikle hatalarını saydam son kullanıcıya olmanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
