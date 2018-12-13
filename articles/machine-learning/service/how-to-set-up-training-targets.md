@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning hizmeti ile modeli eğitimi için işlem hedefleri ayarlama | Microsoft Docs
+title: Oluşturma ve model yönetimi için işlem hedeflerini kullan
+titleSuffix: Azure Machine Learning service
 description: Seçin ve makine öğrenimi Modellerinizi eğitmek için kullanılan (hedef işlem) eğitim ortamları yapılandırma hakkında bilgi edinin. Azure Machine Learning hizmeti kolayca geçiş eğitim ortamları sağlar. Yerel olarak eğitim başlatın ve ölçeğini genişletmek gerekiyorsa, bir bulut tabanlı bir işlem hedefine geçiş yapın.
 services: machine-learning
 author: heatherbshapiro
@@ -10,14 +11,15 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: 07ea61ffe3ffc17cd255b826e3506ffe2b1ce9cd
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 1a6533c1ec25eb8500f67cb98494463d7daf752b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017731"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080104"
 ---
-# <a name="select-and-use-a-compute-target-to-train-your-model"></a>Seçme ve modelinizi eğitmek için işlem hedefi kullanma
+# <a name="set-up-compute-targets-for-model-training"></a>İşlem hedeflerine yönelik model eğitiminin ayarlama
 
 Azure Machine Learning hizmeti ile farklı işlem kaynakları, modelinize eğitebilirsiniz. Bu işlem kaynakları, adlı __hedefleri işlem__, yerel veya Bulut üzerinde olabilir. Bu belgede, desteklenen işlem hedefleri ve bunların nasıl kullanıldığı hakkında bilgi edineceksiniz.
 
@@ -249,16 +251,24 @@ Eğitim hedef olarak bir veri bilimi sanal makinesi (DSVM) yapılandırmak için
 1. Mevcut bir sanal makine işlem hedefi olarak eklemek için sanal makine için tam etki alanı adı, oturum açma adı ve parola sağlamalısınız.  Bu örnekte değiştirin ```<fqdn>``` VM veya genel IP adresi genel tam etki alanı adı. Değiştirin ```<username>``` ve ```<password>``` SSH kullanıcı adı ve sanal makine için parola ile:
 
     ```python
-    from azureml.core.compute import RemoteCompute
+    from azureml.core.compute import RemoteCompute, ComputeTarget
+    
+    # Create compute config.
+    attach_config = RemoteCompute.attach_configuration(address = "ipaddress",
+                                                       ssh_port=22,
+                                                       username='<username>',
+                                                       password="<password>")
+    # If using SSH instead of a password, use this:
+    #                                                  ssh_port=22,
+    #                                                   username='<username>',
+    #                                                   password=None,
+    #                                                   private_key_file="path-to-file",
+    #                                                   private_key_passphrase="passphrase")
 
-    dsvm_compute = RemoteCompute.attach(ws,
-                                    name="attach-dsvm",
-                                    username='<username>',
-                                    address="<fqdn>",
-                                    ssh_port=22,
-                                    password="<password>")
+    # Attach the compute
+    compute = ComputeTarget.attach(ws, "attach-dsvm", attach_config)
 
-    dsvm_compute.wait_for_completion(show_output=True)
+    compute.wait_for_completion(show_output=True)
 
 1. Create a configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on DSVM:
 
@@ -303,25 +313,15 @@ Azure Databricks, Azure bulutta Apache Spark tabanlı bir ortam olan. Bir Azure 
 Azure Databricks işlem hedefi olarak eklemek için Azure Machine Learning SDK'yı kullanın ve aşağıdaki bilgileri sağlayın:
 
 * __İşlem adı__: Bu işlem kaynağına atamak istediğiniz ad.
-* __Kaynak Kimliği__: Azure Databricks çalışma alanı kaynak kimliği. Bu değer için biçim örneği aşağıda gösterilmiştir:
-
-    ```text
-    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.Databricks/workspaces/<databricks-workspace-name>
-    ```
-
-    > [!TIP]
-    > Kaynak Kimliğini almak için aşağıdaki Azure CLI komutunu kullanın. Değiştirin `<databricks-ws>` , Databricks çalışma alanı adı:
-    > ```azurecli-interactive
-    > az resource list --name <databricks-ws> --query [].id
-    > ```
-
+* __Databricks çalışma alanı adı__: Azure Databricks çalışma alanı adı.
 * __Erişim belirteci__: Azure Databricks için kimliğini doğrulamak için kullanılan erişim belirteci. Bir erişim belirteci oluşturmak için bkz: [kimlik doğrulaması](https://docs.azuredatabricks.net/api/latest/authentication.html) belge.
 
 Aşağıdaki kod, Azure Databricks işlem hedefi olarak eklemek gösterilmektedir:
 
 ```python
 databricks_compute_name = os.environ.get("AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
-databricks_resource_id = os.environ.get("AML_DATABRICKS_RESOURCE_ID", "<databricks_resource_id>")
+databricks_workspace_name = os.environ.get("AML_DATABRICKS_WORKSPACE", "<databricks_workspace_name>")
+databricks_resource_group = os.environ.get("AML_DATABRICKS_RESOURCE_GROUP", "<databricks_resource_group>")
 databricks_access_token = os.environ.get("AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
 
 try:
@@ -330,13 +330,17 @@ try:
 except ComputeTargetException:
     print('compute not found')
     print('databricks_compute_name {}'.format(databricks_compute_name))
-    print('databricks_resource_id {}'.format(databricks_resource_id))
+    print('databricks_workspace_name {}'.format(databricks_workspace_name))
     print('databricks_access_token {}'.format(databricks_access_token))
-    databricks_compute = DatabricksCompute.attach(
-             workspace=ws,
-             name=databricks_compute_name,
-             resource_id=databricks_resource_id,
-             access_token=databricks_access_token
+
+    # Create attach config
+    attach_config = DatabricksCompute.attach_configuration(resource_group = databricks_resource_group,
+                                                           workspace_name = databricks_workspace_name,
+                                                           access_token = databricks_access_token)
+    databricks_compute = ComputeTarget.attach(
+             ws,
+             databricks_compute_name,
+             attach_config
          )
     
     databricks_compute.wait_for_completion(True)
@@ -354,23 +358,15 @@ Azure Data Lake Analytics, Azure bulutta büyük veri analiz platformudur. Bir A
 Data Lake Analytics işlem hedefi olarak eklemek için Azure Machine Learning SDK'yı kullanın ve aşağıdaki bilgileri sağlayın:
 
 * __İşlem adı__: Bu işlem kaynağına atamak istediğiniz ad.
-* __Kaynak Kimliği__: Data Lake Analytics hesabı kaynak kimliği. Bu değer için biçim örneği aşağıda gösterilmiştir:
-
-    ```text
-    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.DataLakeAnalytics/accounts/<datalakeanalytics-name>
-    ```
-
-    > [!TIP]
-    > Kaynak Kimliğini almak için aşağıdaki Azure CLI komutunu kullanın. Değiştirin `<datalakeanalytics>` Data Lake Analytics hesap adınızı adı:
-    > ```azurecli-interactive
-    > az resource list --name <datalakeanalytics> --query [].id
-    > ```
+* __Kaynak grubu__: Data Lake Analytics hesabını içeren kaynak grubu.
+* __Hesap adı__: Data Lake Analytics hesap adı.
 
 Aşağıdaki kod, Data Lake Analytics işlem hedefi olarak eklemek gösterilmektedir:
 
 ```python
 adla_compute_name = os.environ.get("AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
-adla_resource_id = os.environ.get("AML_ADLA_RESOURCE_ID", "<adla_resource_id>")
+adla_resource_group = os.environ.get("AML_ADLA_RESOURCE_GROUP", "<adla_resource_group>")
+adla_account_name = os.environ.get("AML_ADLA_ACCOUNT_NAME", "<adla_account_name>")
 
 try:
     adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
@@ -378,11 +374,16 @@ try:
 except ComputeTargetException:
     print('compute not found')
     print('adla_compute_name {}'.format(adla_compute_name))
-    print('adla_resource_id {}'.format(adla_resource_id))
-    adla_compute = AdlaCompute.attach(
-             workspace=ws,
-             name=adla_compute_name,
-             resource_id=adla_resource_id
+    print('adla_resource_id {}'.format(adla_resource_group))
+    print('adla_account_name {}'.format(adla_account_name))
+    # create attach config
+    attach_config = AdlaCompute.attach_configuration(resource_group = adla_resource_group,
+                                                     account_name = adla_account_name)
+    # Attach ADLA
+    adla_compute = ComputeTarget.attach(
+             ws,
+             adla_compute_name,
+             attach_config
          )
     
     adla_compute.wait_for_completion(True)
@@ -410,14 +411,17 @@ HDInsight işlem hedefi yapılandırmak için HDInsight kümesi için tam etki a
 > ![Vurgulanan URL girişi ile HDInsight kümesi genel bakış görüntüsü](./media/how-to-set-up-training-targets/hdinsight-overview.png)
 
 ```python
-from azureml.core.compute import HDInsightCompute
+from azureml.core.compute import HDInsightCompute, ComputeTarget
 
 try:
     # Attaches a HDInsight cluster as a compute target.
-    HDInsightCompute.attach(ws,name = "myhdi",
-                            address = "<fqdn>",
-                            username = "<username>",
-                            password = "<password>")
+    attach_config = HDInsightCompute.attach_configuration(address = "fqdn-or-ipaddress",
+                                                          ssh_port = 22,
+                                                          username = "username",
+                                                          password = None, #if using ssh key
+                                                          private_key_file = "path-to-key-file",
+                                                          private_key_phrase = "key-phrase")
+    compute = ComputeTarget.attach(ws, "myhdi", attach_config)
 except UserErrorException as e:
     print("Caught = {}".format(e.message))
     print("Compute config already attached.")

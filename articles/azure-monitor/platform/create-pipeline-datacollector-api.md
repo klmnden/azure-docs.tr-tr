@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 453101b1f5368dba9aa9dbfc89f5b893d42a0542
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
-ms.translationtype: MT
+ms.openlocfilehash: 280df7ff80e637539f85c5d7ddafbb564b8fe562
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52684596"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879570"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Veri Toplayıcı API'si ile veri işlem hattı oluşturma
 
-[Log Analytics Veri Toplayıcı API'sini](../../log-analytics/log-analytics-data-collector-api.md) Log Analytics'e herhangi bir özel veri almanızı sağlar. Verileri JSON biçimli ve 30 MB veya parçaları daha az Böl tek gerekenlerdir. İçine birçok şekilde takılabilen tamamen esnek bir mekanizma budur: doğrudan uygulamanızdan gönderilen verilerden için tek seferlik geçici yükler. Bu makalede, yaygın bir senaryo için bazı başlangıç noktaları özetler: normal, otomatik olarak dosyalarında depolanan verileri karşıya yüklemek için gereken. İşlem hattı sunulan burada kullanılamaz en yüksek performanslı veya aksi halde en iyi duruma getirilmiş, bu bir üretim hattının kendi oluşturmaya yönelik bir başlangıç noktası olarak hizmet verecek içindir.
+[Log Analytics Veri Toplayıcı API'sini](../../azure-monitor/platform/data-collector-api.md) Log Analytics'e herhangi bir özel veri almanızı sağlar. Verileri JSON biçimli ve 30 MB veya parçaları daha az Böl tek gerekenlerdir. İçine birçok şekilde takılabilen tamamen esnek bir mekanizma budur: doğrudan uygulamanızdan gönderilen verilerden için tek seferlik geçici yükler. Bu makalede, yaygın bir senaryo için bazı başlangıç noktaları özetler: normal, otomatik olarak dosyalarında depolanan verileri karşıya yüklemek için gereken. İşlem hattı sunulan burada kullanılamaz en yüksek performanslı veya aksi halde en iyi duruma getirilmiş, bu bir üretim hattının kendi oluşturmaya yönelik bir başlangıç noktası olarak hizmet verecek içindir.
 
 ## <a name="example-problem"></a>Örnek sorun
 Bu makalenin geri kalanında için sayfa görüntüleme verilerini Application ınsights'da inceleyeceğiz. Coğrafi bilgiler nerede biz en çok harcama belirlemek amacıyla dünyanın her ülkesinde popülasyonunu içeren özel verileri için varsayılan olarak Application Insights SDK'sı tarafından toplanan ilişkilendirmek istediğimiz kuramsal senaryomuzdaki ise Pazarlama dolar. 
@@ -173,4 +173,4 @@ Bu makalede, ardındaki mantığı doğru üretim kalitesinde çözüm uygulanab
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi edinin [veri toplayıcı API'sini](../../log-analytics/log-analytics-data-collector-api.md) herhangi bir REST API istemcisinden Log Analytics'e veri yazmak için.
+Daha fazla bilgi edinin [veri toplayıcı API'sini](../../azure-monitor/platform/data-collector-api.md) herhangi bir REST API istemcisinden Log Analytics'e veri yazmak için.

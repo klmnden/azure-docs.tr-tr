@@ -1,21 +1,22 @@
 ---
-title: Azure ExpressRoute sanal ağ geçitleri hakkında | Microsoft Docs
-description: ExpressRoute için sanal ağ geçitleri hakkında öğrenin.
+title: ExpressRoute sanal ağ geçitleri - Azure hakkında | Microsoft Docs
+description: ExpressRoute için sanal ağ geçitleri hakkında öğrenin. Bu makalede, ağ geçidi SKU'ları ve türler hakkında bilgi içerir.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: mialdrid
-ms.openlocfilehash: df0d9c91d1d4f120f934c7375d0c517e3869834e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: dcae78e507597ae2b7f79cc1d6cbb326ee535696
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684775"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076602"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>ExpressRoute için sanal ağ geçitleri hakkında
-Bir sanal ağ geçidi Azure sanal ağları arasında ağ trafiği göndermek için kullanılır ve şirket içi konumlar. Bir sanal ağ geçidi trafiği ExpressRoute veya VPN trafiği için kullanabilirsiniz. Bu makalede, ExpressRoute sanal ağ geçitleri üzerinde odaklanır.
+Bir sanal ağ geçidi Azure sanal ağları arasında ağ trafiği göndermek için kullanılır ve şirket içi konumlar. Bir sanal ağ geçidi trafiği ExpressRoute veya VPN trafiği için kullanabilirsiniz. Bu makalede, ExpressRoute sanal ağ geçitleri üzerinde odaklanır ve tahmini performans SKU ve ağ geçidi türleri, SKU'ları hakkında bilgiler içerir.
 
 ## <a name="gateway-types"></a>Ağ geçidi türleri
 

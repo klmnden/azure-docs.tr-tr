@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: panosper
-ms.openlocfilehash: bf06042d3b820e61d1f5b316a8b7b26d1a366388
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e2c176e35cbc75747230e429d0ddae9d420db8b5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467727"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867589"
 ---
 # <a name="creating-custom-voice-fonts"></a>Özel ses tipi olarak oluşturma
 
@@ -87,7 +87,7 @@ Düz metin dosyası döküm dosyasıdır (ANSI, UTF-8, UTF-8-BOM, UTF-16-LE veya
 Özel ses sistem metni küçük harfe ve kaldırma fazlalık noktalama dönüştürerek dökümleri normalleştirir. Dökümler ilgili ses kayıtları, doğru döküm % 100 olduğunu önemlidir.
 
 > [!TIP]
-> Zaman içinde üretim metin okuma sesleri, konuşma seçin (veya yazma betikler) oluşturma Al fonetik kapsamı hem verimlilik hesap. Sonuçları aşmakta sorun istiyor musunuz? [Özel ses ekibiyle](mailto:tts@microsoft.com) bize sahip hakkında daha fazla inceleyin çıkış bulunacak.
+> Zaman içinde üretim metin okuma sesleri, konuşma seçin (veya yazma betikler) oluşturma Al fonetik kapsamı hem verimlilik hesap. Sonuçları aşmakta sorun istiyor musunuz? [Özel ses ekibiyle](mailto:speechsupport@microsoft.com) bize sahip hakkında daha fazla inceleyin çıkış bulunacak.
 
 ## <a name="upload-your-datasets"></a>Veri kümelerini karşıya yükleme
 

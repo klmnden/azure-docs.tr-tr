@@ -3,7 +3,7 @@ title: Birden çok SQL veritabanı elastik havuzları-Azure ile yönetme | Micro
 description: Yönetin ve ölçeklendirin birden çok SQL veritabanı - yüzlerce ve binlerce kullanarak elastik havuzlar -. Kaynakları gerektiğinde dağıtmak için tek fiyat.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pool
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: a6e2be02f9954a036fdcb67a15c73cc82670834b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: MT
+ms.openlocfilehash: 292d24e8fb6d87174c481cd9dbca616497ff8ca3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283572"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868931"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastik havuzlar, yönetmenize ve birden çok Azure SQL veritabanını ölçeklendirme Yardım
 

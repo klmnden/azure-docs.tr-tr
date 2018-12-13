@@ -1,6 +1,6 @@
 ---
-title: Azure DevTest Labs VSTS sürekli tümleştirme ve teslim ardışık düzeninizi tümleştirme | Microsoft Docs
-description: Azure DevTest Labs, VSTS sürekli tümleştirme ve teslim işlem hattı tümleştirme hakkında bilgi edinin
+title: Azure DevTest Labs, Azure işlem hatları sürekli tümleştirme ve teslim komut zinciriyle tümleştirmeyi | Microsoft Docs
+description: Azure DevTest Labs, Azure işlem hatları sürekli tümleştirme ve teslim işlem hattı tümleştirme hakkında bilgi edinin
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: b7ce07547eccd52a8b10d4cffecaf1456778da4a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 459b06df954d9cc913b6d1503c9f876f93b494e9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301217"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082960"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Azure DevTest Labs, Azure DevOps, sürekli tümleştirme ve teslim işlem hattı tümleştirme
 Kullanabileceğiniz *Azure DevTest Labs görevlerini* Azure DevOps kolayca yüklenir uzantısı, Azure DevTest Labs ile CI/CD derleme ve yayın işlem hattınızı tümleştirin. Üç görevin uzantıyı yükleyen: 
@@ -138,7 +138,7 @@ Dağıtımın sonraki aşamasına sonraki dağıtımlarda "altın görüntü" ku
 1. Yayın işlem hattında seçin **görev ekleme** ve ardından **Dağıt** sekmesinde, ekleme bir *Azure PowerShell* görev. Görev aşağıdaki gibi yapılandırın:
 
    > [!NOTE]
-   > DevTest Labs sanal makinenin ayrıntıları toplamak için bkz: [Dağıt: Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell) betiği yürütün.
+   > DevTest Labs sanal makinenin ayrıntıları toplamak için bkz: [Dağıt: Azure PowerShell](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzurePowerShellV3) betiği yürütün.
 
    a. İçin **Azure bağlantı türü**seçin **Azure Resource Manager**.
 

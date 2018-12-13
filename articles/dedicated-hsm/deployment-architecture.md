@@ -1,24 +1,25 @@
 ---
-title: Azure ayrılmış HSM dağıtım mimarisi | Microsoft Docs
-description: Azure ayrılmış HSM anahtar depolama kapasitesini FIPS karşılayan Azure 140-2 Düzey 3 sertifika sağlar.
+title: Dağıtım mimarisi - Azure ayrılmış HSM | Microsoft Docs
+description: Azure ayrılmış HSM uygulama mimarisinin bir parçası olarak kullanırken, temel tasarım konuları
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 8481f444464135a24d42612f334ac6096cba7b21
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 913be9d1ee6ce92d71f5f0c7eda46a618483ce8d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319417"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078302"
 ---
-# <a name="deployment-architecture"></a>Dağıtım mimarisi
+# <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure ayrılmış HSM dağıtım mimarisi
 
 Azure ayrılmış HSM azure'da şifreleme anahtar depolama alanı sağlar. Bu, katı güvenlik gereksinimleri karşılar. Müşteriler, Azure ayrılmış HSM kullanarak yararlanacaktır bunlar:
 

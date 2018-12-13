@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: ec5e9f92114e9bae1aaa840a1d02f5a42b2fd7bf
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18
+ms.openlocfilehash: 68fcc8b324bebfc7ca4fa94b2633b475137ea580
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857182"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075605"
 ---
-# <a name="knowledge-base-lifecycle"></a>Bilgi Bankası yaşam döngüsü
+# <a name="knowledge-base-lifecycle-in-qna-maker"></a>Soru-cevap Oluşturucu, Bilgi Bankası yaşam döngüsü
 Soru-cevap Oluşturucu, en iyi modeli değişiklikleri, utterance örnekler, yayımlama ve veri toplamayı yinelemeli bir döngüyle uç nokta sorgularından öğrenir. 
 
 ![Yazma döngüsü](../media/qnamaker-concepts-lifecycle/kb-lifecycle.png)
@@ -30,8 +31,8 @@ Bilgi Bankası bilgi bankanızı düzenleyerek veya otomatik ayıklama aracılı
 
 Büyük KB'leri için test generateAnswer API'leri otomatikleştirilebilir. 
 
-## <a name="publish-the-knowledge-base"></a>Bilgi Bankası yayımlama
-İşiniz bittiğinde Bilgi Bankası sınanması, bunu yayımlayabilirsiniz. En son sürümünü test edilmiş Bilgi Bankası'na ayrılmış bir Azure Search dizinini temsil eden bildirim yayımlama **yayımlanan** Bilgi Bankası. Ayrıca, uygulama veya sohbet Robotu çağrılabilen bir uç nokta oluşturur.
+## <a name="publish-the-knowledge-base"></a>Bilgi bankasını yayımlama
+İşiniz bittiğinde Bilgi Bankası sınanması, bunu yayımlayabilirsiniz. En son sürümünü test edilmiş Bilgi Bankası'na ayrılmış bir Azure Search dizinini temsil eden bildirim yayımlama **yayımlanan** Bilgi Bankası. Ayrıca uygulamanızda veya sohbet botunuzda çağrılabilecek bir uç nokta da oluşturulur.
 
 Bu şekilde, bir üretim uygulamasında Canlı olabilecek yayımlanmış sürümüne Bilgi Bankası test sürümüne yapılan her değişikliği etkilemez.
 

@@ -15,7 +15,7 @@ ms.reviewer: antonfr
 ms.author: mbullwin
 ms.openlocfilehash: 1b3b0a1fca01b80459571efff74f1d4da19d133e
 ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/01/2018
 ms.locfileid: "52725208"

@@ -1,5 +1,6 @@
 ---
-title: Regresyon modeli Öğreticisi - Azure Machine Learning hizmeti ile otomatik olarak modeli eğitme
+title: 'Regresyon modeli Öğreticisi: otomatik olarak modellerini eğitin'
+titleSuffix: Azure Machine Learning service
 description: Otomatik makine öğrenimini kullanarak ML model oluşturmayı öğrenin.  Azure Machine Learning, sizin için otomatikleştirilmiş bir yolla veri ön işlemini, algoritma seçimini ve hiper parametre seçimini gerçekleştirebilir. Bundan sonra son model Azure Machine Learning hizmetiyle dağıtılır.
 services: machine-learning
 ms.service: machine-learning
@@ -9,15 +10,15 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.custom: seodec12
-ms.openlocfilehash: 5c732cd6dc707cfb34248414187d8f2d15357572
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 593274cf66e93051b860ed75d77f13537188f345
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013944"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076041"
 ---
-# <a name="tutorial-part-2-use-automated-machine-learning-to-build-and-train-a-regression-model"></a>Öğretici (Bölüm 2): kullanım otomatik yapı ve regresyon modeli eğitmek için machine learning
+# <a name="tutorial-part-2-use-automated-machine-learning-to-build-your-regression-model"></a>Öğretici (Bölüm 2): kullanım otomatik machine learning, regresyon modeli derler
 
 Bu öğretici, **iki bölümden oluşan bir öğretici serisinin ikinci bölümüdür**. Önceki öğreticide, [NYC taksi verileri regresyon modelleme için hazırlanmış](tutorial-data-prep.md).
 
@@ -512,9 +513,9 @@ dflow_prepared.get_profile()
       <td>0.0</td>
       <td>0.0</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>1.</td>
+      <td>1.</td>
+      <td>1.</td>
       <td>1</td>
       <td>5</td>
       <td>5</td>
@@ -653,7 +654,7 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 
 ### <a name="train-the-automatic-regression-model"></a>Otomatik bir regresyon modeli eğitme
 
-Denemeyi yerel olarak çalıştırmak için başlatın. Tanımlanan geçirmek `automated_ml_config` nesne denemeye ve çıktı olarak `true` deneme sırasında ilerleme durumunu görüntülemek için.
+Denemeyi yerel olarak çalıştırmak için başlatın. Tanımlanan geçirmek `automated_ml_config` nesne denemeye ve çıktı olarak `True` deneme sırasında ilerleme durumunu görüntülemek için.
 
 
 ```python
@@ -717,7 +718,8 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 
-![Jupyter çalıştırma ayrıntıları pencere öğesi](./media/tutorial-auto-train-models/jup-widget-auto.png)
+![Jupyter pencere öğesi çalıştırması ayrıntıları](./media/tutorial-auto-train-models/automl-dash-output.png)
+![Jupyter pencere öğesi çizim](./media/tutorial-auto-train-models/automl-chart-output.png)
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>2. seçenek: Alın ve Python çalışma tüm yinelemelerde inceleyin
 
@@ -752,7 +754,7 @@ rundata
     <tr style="text-align: right;">
       <th></th>
       <th>0</th>
-      <th>1</th>
+      <th>1.</th>
       <th>2</th>
       <th>3</th>
       <th>4</th>

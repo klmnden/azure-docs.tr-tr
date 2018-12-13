@@ -1,21 +1,19 @@
 ---
-title: Azure Cosmos DB Bağlayıcısı için Power BI Öğreticisi | Microsoft Docs
+title: Power BI öğretici için Azure Cosmos DB Bağlayıcısı
 description: JSON alma, bilgilendirici raporlar oluşturabilir ve Azure Cosmos DB ile Power BI Bağlayıcısı'nı kullanarak verileri görselleştirmek için Power BI Bu öğreticiyi kullanın.
 keywords: power BI öğretici, verileri, power BI Bağlayıcısı görselleştirin
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: 782de7dc6e099fade0d2f1099ac19b9398562023
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 5f75ada1d37f6bd5cb2d870dd5169de7a4844eb3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622100"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869067"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Power BI Bağlayıcısı'nı kullanarak Azure Cosmos DB verileri Görselleştir
 

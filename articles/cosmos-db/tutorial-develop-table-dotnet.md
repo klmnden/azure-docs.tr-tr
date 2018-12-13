@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/18/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 02c4ead0f41463a70cc7123427193f835d9cca94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: MT
+ms.openlocfilehash: c3749657ae432d8a6c85522b7dac31e31e39ea77
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877744"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075924"
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: .NET’te Tablo API’si ile geliştirme
 
@@ -97,7 +97,7 @@ Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 20
 
 Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin. Bu, uygulamanızın barındırılan veritabanıyla iletişim kurmasına olanak tanır. 
 
-1. [Azure portalında](http://portal.azure.com/) **Bağlantı Dizesi**’ne tıklayın. 
+1. [Azure portalında](https://portal.azure.com/) **Bağlantı Dizesi**’ne tıklayın. 
 
     Ekranın sağ tarafındaki kopyala düğmesini kullanarak PRIMARY CONNECTION STRING’i kopyalayın.
 
@@ -180,7 +180,8 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 Bu istemci, uygulama ayarlarında belirtilmişse `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel` ve `TablePreferredLocations` yapılandırma değerleri kullanılarak başlatılır.
 
 ## <a name="create-a-table"></a>Bir tablo oluşturma
-Ardından, `CloudTable` kullanarak bir tablo oluşturun. Azure Cosmos DB’deki tablolar depolama ve aktarım hızı bakımından bağımsız olarak ölçeklendirilebilir ve bölümleme işlemi hizmet tarafından otomatik olarak gerçekleştirilir. Azure Cosmos DB hem sabit boyutlu hem de sınırsız tabloları destekler. Ayrıntılar için bkz. [Azure Cosmos DB'de Bölümleme](partition-data.md). 
+
+Ardından, `CloudTable` kullanarak bir tablo oluşturun. Azure Cosmos DB’deki tablolar depolama ve aktarım hızı bakımından bağımsız olarak ölçeklendirilebilir ve bölümleme işlemi hizmet tarafından otomatik olarak gerçekleştirilir. 
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");

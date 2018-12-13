@@ -12,16 +12,16 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/04/2018
-ms.openlocfilehash: 70096c8f3a5c07fa757b68494c04519b63435dcd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
-ms.translationtype: MT
+ms.openlocfilehash: 2809dd45042e41c8337ecddccc76ec4e16d7cb8b
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166903"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887704"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Intelligent ınsights'ı Azure SQL veritabanı performans tanılama günlüğünü kullanma
 
-Bu sayfa, Azure SQL veritabanı performans tanılama günlüğü oluşturan kullanma hakkında bilgi sağlar. [Intelligent Insights](sql-database-intelligent-insights.md), biçimi ve özel geliştirme gereksinimleriniz için veriler. Bu tanılama günlüğüne gönderdiğiniz [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure depolama](sql-database-metrics-diag-logging.md#stream-into-storage), veya bir üçüncü taraf çözümü için uyarı ve raporlama özel DevOps özellikleri.
+Bu sayfa, Azure SQL veritabanı performans tanılama günlüğü oluşturan kullanma hakkında bilgi sağlar. [Intelligent Insights](sql-database-intelligent-insights.md), biçimi ve özel geliştirme gereksinimleriniz için veriler. Bu tanılama günlüğüne gönderdiğiniz [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure depolama](sql-database-metrics-diag-logging.md#stream-into-storage), veya bir üçüncü taraf çözümü için uyarı ve raporlama özel DevOps özellikleri.
 
 ## <a name="log-header"></a>Günlük üst bilgisi
 
@@ -39,9 +39,7 @@ Günlük üst bilgisi için ortaktır ve gösteren bir giriş oluşturulduğu za
 
 ## <a name="issue-id-and-database-affected"></a>Sorun kimliği ve etkilenen veritabanı
 
-Sorun kimliği özelliği (issueId_d) onlar çözülene kadar benzersiz performans sorunlarını izleme, bir yol sağlar. Akıllı İçgörüler her sorun yaşam döngüsü "Etkin", "Doğrulama" veya "Tamamlandı" olarak gözlemler. Oturum açma birden çok olay kayıtlarını her bu durum aşamaları akıllı İçgörüler kaydedebilirsiniz. Her biri bu girdiler için sorun numarası benzersiz kalır. Akıllı İçgörüler sorunu yaşam döngüsü aracılığıyla izler ve bir öngörü 15 dakikada bir tanılama günlüğüne oluşturur.
-
-Bir performans sorunu algılanmadığında ve onu sürer sürece, sorunu durumu (status_s) özelliği altında "Etkin" olarak bildirilen için. Algılanan bir sorun giderildikten sonra bu doğrulandı ve durum (status_s) özelliği altında "Doğrulama" olarak bildirilen. Sorunun artık mevcut değilse durumu (status_s) özelliği bu sorunu "Tamamlandı" bildirir.
+Sorun kimliği özelliği (issueId_d) benzersiz şekilde çözülene kadar performans sorunlarını izleme, bir yol sağlar. Birden çok olay kayıtlarını aynı sorunu durumunu raporlama ve günlüğüne aynı sorun kimliği paylaşır
 
 Sorun kimliği yanı sıra tanılama günlüğü (intervalStartTime_t) başlangıç ve bitiş (intervalEndTme_t) zaman damgaları tanılama günlüğüne bir sorunla ilgili belirli bir olay bildirir.
 

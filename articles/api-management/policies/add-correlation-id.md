@@ -1,6 +1,6 @@
 ---
-title: Azure API management İlkesi örnek - bağıntı kimliğini içeren bir üst bilgi Ekle | Microsoft Docs
-description: Azure API management ilke örnek - nasıl gelen istek için bir bağıntı kimliğini içeren bir başlık ekleneceğini gösterir.
+title: Azure API management ilkesi örneği - bir bağıntı kimliğini içeren bir üst bilgi ekleme | Microsoft Docs
+description: Azure API management ilke örneği - gelen istek için bir bağıntı kimliğini içeren bir üst bilgi ekleme işlemini gösterir.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 68f42124369194124ae1f8ebb93834a5be4e0128
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 126701674b6dc529404f5a7854cda9b31c336170
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287386"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868438"
 ---
 # <a name="add-a-header-containing-a-correlation-id"></a>Bağıntı kimliğini içeren bir üst bilgi Ekle
 
-Bu makalede gelen istek için bir bağıntı kimliğini içeren bir başlık eklemek nasıl oluşturulduğunu gösteren bir Azure API management ilke örnek gösterilmektedir. Ayarlamak veya ilke kodu düzenlemek için açıklanan adımları izleyin [ayarlama veya düzenleme bir ilke](../set-edit-policies.md). Diğer örnekleri görmek için bkz: [ilkesi örnekleri](../policy-samples.md).
+Bu makalede, gelen istek için bir bağıntı kimliğini içeren bir başlık eklemek nasıl oluşturulduğunu gösteren bir Azure API management ilke örnek gösterilmektedir. Ayarlama veya ilke kodu düzenleme için açıklanan adımları izleyin [ayarlama veya düzenleme ilke](../set-edit-policies.md). Diğer örnekler için bkz [ilkesi örnekleri](../policy-samples.md).
 
 ## <a name="policy"></a>İlke
 
-Koda Yapıştır **gelen** bloğu.
+Kodun içine yapıştırın **gelen** blok.
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Add correlation id to inbound request.policy.xml)]
 

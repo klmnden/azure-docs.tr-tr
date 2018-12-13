@@ -1,19 +1,20 @@
 ---
-title: Azure IOT Edge sürekli tümleştirme ve sürekli dağıtım | Microsoft Docs
-description: Sürekli tümleştirme ve sürekli dağıtım Azure IOT Edge için genel bakış
+title: Sürekli tümleştirme ve sürekli dağıtım - Azure IOT Edge | Microsoft Docs
+description: Sürekli tümleştirme ve sürekli dağıtım - Azure IOT Edge ile Azure DevOps, Azure işlem hatlarını ayarlama
 author: shizn
-manager: ''
+manager: philmea
 ms.author: xshi
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 16dac996f871241b8c9b5e4c1b797d07d79aeb79
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.custom: seodec18
+ms.openlocfilehash: 4db5fce89df0b5974261788608b785cf16917f1a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632571"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074808"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Sürekli tümleştirme ve sürekli dağıtım için Azure IOT Edge
 
@@ -26,7 +27,7 @@ Bu makalede, öğreneceksiniz nasıl yapılır:
 
 Bu makaledeki adımları tamamlayabilmeniz için 20 dakika sürer.
 
-![CI ve CD](./media/how-to-ci-cd/cd.png)
+![Geliştirme ve üretim için diyagram - CI ve CD dallar](./media/how-to-ci-cd/cd.png)
 
 
 ## <a name="create-a-sample-azure-iot-edge-solution-using-visual-studio-code"></a>Visual Studio Code kullanarak örnek bir Azure IOT Edge çözüm oluşturma
@@ -35,7 +36,7 @@ Bu bölümde, yapı işleminin bir parçası olarak yürütebilen çözüm birim
 
 1. VS Code komut paleti yazın ve şu komutu çalıştırın **Azure IOT Edge: IOT Edge yeni çözüm**. Çalışma alanı klasörünüzde'ı seçin, çözüm adı sağlayın (varsayılan ad **EdgeSolution**) ve bir C# modülü oluşturun (**FilterModule**) Bu çözümdeki ilk kullanıcı modülü olarak. İlk modülünüz için Docker görüntü deposunu da belirtmeniz gerekir. Varsayılan görüntü deposu yerel bir Docker kayıt defteri bağlıdır (`localhost:5000/filtermodule`). Azure Container Registry'ye değiştirme (`<your container registry address>/filtermodule`) veya daha fazla sürekli tümleştirme için Docker hub'ı.
 
-    ![ACR ' ayarlayın](./media/how-to-ci-cd/acr.png)
+    ![Azure kapsayıcı kayıt defterini ayarlayın](./media/how-to-ci-cd/acr.png)
 
 2. VS Code penceresinin, IOT Edge çözüm çalışma alanı yükler. İsteğe bağlı olarak yazın ve çalıştırabilirsiniz **Azure IOT Edge: IOT Edge Modülü Ekle** daha fazla modül eklemek için. Var olan bir `modules` klasöründe bir `.vscode` klasörü ve dağıtım bildirim şablonu dosyası kök klasöründe. Tüm kullanıcı modülü kodları alt klasörü altında olacak `modules`. `deployment.template.json` Dağıtım bildirimi şablonudur. Bazı parametreler bu dosyadaki gelen ayrıştırılacak `module.json`, her modül klasöründe bulunmaktadır.
 
@@ -52,19 +53,19 @@ Bu bölümde, IOT Edge çözüm örnek değişiklikleri iade ettiğinizde otomat
 
 1. Azure DevOps kuruluşunuz oturum ( **https://dev.azure.com/{your kuruluş} /**) ve örnek uygulamada nereye iade projeyi açın.
 
-    ![Kod iade etme](./media/how-to-ci-cd/init-project.png)
+    ![Azure işlem hatları için onay kodu](./media/how-to-ci-cd/init-project.png)
 
 1. Azure işlem hatlarınız açın **yapılar** sekmesini, **+ yeni işlem hattı**. Ya da derleme işlem hatlarını zaten varsa, seçin **+ yeni** düğmesi. Ardından **yeni derleme işlem hattı**.
 
-    ![Yeni ardışık düzen](./media/how-to-ci-cd/add-new-build.png)
+    ![Yeni derleme işlem hattı oluşturma](./media/how-to-ci-cd/add-new-build.png)
 
 1. İstenirse, seçin **Azure DevOps Git** kaynak türü. Ardından, proje, depo ve dal kodunuzu bulunduğu seçin. Seçin **devam**.
 
-    ![Gıt'i seçin](./media/how-to-ci-cd/select-vsts-git.png)
+    ![Azure depoları Git seçin](./media/how-to-ci-cd/select-vsts-git.png)
 
     İçinde **bir şablon seçin** penceresinde seçin **boş bir işlemle başlangıç**.
 
-    ![Bir şablon seçin](./media/how-to-ci-cd/start-with-empty.png)
+    ![Boş bir işlemle başlangıç](./media/how-to-ci-cd/start-with-empty.png)
 
 1. Ardışık Düzen Düzenleyicisi'nde, aracı havuzu seçin. 
     
@@ -72,27 +73,27 @@ Bu bölümde, IOT Edge çözüm örnek değişiklikleri iade ettiğinizde otomat
     * Windows kapsayıcıları için platform amd64, modülleri derleme istiyorsanız seçin **Hosted VS2017** 
     * Linux kapsayıcıları için platform arm32v7, modülleri oluşturmak ister misiniz kümesine kendi Yapı aracınızı tıklayarak gerekirse **Yönet** düğmesi.
     
-    ![Yapı aracısını yapılandırın](./media/how-to-ci-cd/configure-env.png)
+    ![Derleme aracı havuzu yapılandırma](./media/how-to-ci-cd/configure-env.png)
 
 1. Aracı işinde tıklayın "+" derleme işlem hattı, üç görev eklemek için. İlk iki arasındadır **Azure IOT Edge**. Ve üçüncü dandır **derleme Yapıtları yayımlama**
     
-    ![Görev ekleme](./media/how-to-ci-cd/add-tasks.png)
+    ![Derleme işlem hattı için görev ekleyin](./media/how-to-ci-cd/add-tasks.png)
 
 1. İlk **Azure IOT Edge** görev, güncelleştirme **görünen ad** için **Azure IOT Edge - derleme modül görüntüleri**hem de **eylem** açılır listesinden **derleme modül görüntüleri**. İçinde **. template.json dosyasını** denetimi, select **deployment.template.json** IOT Edge çözümünüzü tanımlayan dosya. Ardından **varsayılan platform**, IOT Edge cihazınız olarak aynı platforma seçtiğinizden emin olun. Bu görev, belirtilen hedef platform çözümüyle tüm modüllerdeki oluşturacaksınız. Ve ayrıca **deployment.json** dosya, dosya yolu çıkış değişkenleri bulabilirsiniz. Diğer adı ayarlama `edge` bu değişkeni.
     
-    ![Derleme ve gönderme](./media/how-to-ci-cd/build-and-push.png)
+    ![Derleme modülü görüntüleri görevi yapılandırma](./media/how-to-ci-cd/build-and-push.png)
 
 1. İkinci **Azure IOT Edge** görev, güncelleştirme **görünen ad** için **Azure IOT Edge - anında iletme modül görüntüleri**hem de **eylem** açılır listesinden **modül görüntüleri itme**. Kapsayıcı kayıt defteri türü seçin, yapılandırma ve aynı kayıt defteri içinde code(module.json) seçin emin olun. İçinde **. template.json dosyasını** denetimi, select **deployment.template.json** IOT Edge çözümünüzü tanımlayan dosya. Ardından **varsayılan platform**, yerleşik modülü görüntüleriniz için aynı platforma seçtiğinizden emin olun. Bu görev, tüm modül görüntüleri, seçtiğiniz kapsayıcı kayıt defterine iletilir. Kapsayıcı kayıt defteri kimlik bilgilerini de ekleyin **deployment.json** dosya, dosya yolu çıkış değişkenleri bulabilirsiniz. Diğer adı ayarlama `edge` bu değişkeni. Modül görüntüleri barındırmak için birden çok kapsayıcı kayıt defterleri varsa, bu görev yinelenen, farklı bir kapsayıcı kayıt defteri seçin ve kullanmak gereken **atlama modul** bu olmayan görüntüleri atlamak için Gelişmiş ayarları belirli kayıt defteri.
 
-    ![İstek bildirimi](./media/how-to-ci-cd/push.png)
+    ![Anında iletme modül görüntüleri görevi yapılandırma](./media/how-to-ci-cd/push.png)
 
 1. İçinde **derleme Yapıtları yayımlama** görevi derleme görevi tarafından oluşturulan dağıtım dosyası belirtirsiniz. Ayarlama **yayımlama yolu** için `$(edge.DEPLOYMENT_FILE_PATH)`.
 
-    ![Yapıt yayımlama](./media/how-to-ci-cd/publish-build-artifacts.png)
+    ![Yapılandırma yapıt görev yayımlama](./media/how-to-ci-cd/publish-build-artifacts.png)
 
 1. Açık **Tetikleyicileri** sekmesini ve açma **sürekli tümleştirme** tetikleyici. Kodunuzu içeren dal dahil olduğundan emin olun.
 
-    ![Tetikleyici yapılandırın](./media/how-to-ci-cd/configure-trigger.png)
+    ![Sürekli Tümleştirme tetikleyici Aç](./media/how-to-ci-cd/configure-trigger.png)
 
     Yeni derleme işlem hattı kaydedin. **Kaydet** düğmesine tıklayın.
 
@@ -110,7 +111,7 @@ Bu bölümde, derleme işlem hattı, yapıtlar düştüğünde otomatik olarak �
 
 2. Ardından, yayın ardışık düzeni ile tek bir aşamada başlatmak: **Aşama 1**. Yeniden adlandırma **Aşama 1** için **QA** ve test ortamı olarak değerlendir. Tipik sürekli dağıtım işlem hattında, genellikle birden çok aşama yok, fazla DevOps uygulamanıza dayalı oluşturabilirsiniz.
 
-    ![Aşama oluşturun](./media/how-to-ci-cd/QA-env.png)
+    ![Test ortamı aşama oluşturun](./media/how-to-ci-cd/QA-env.png)
 
 3. Yayın derleme yapılarına bağlar. Tıklayın **Ekle** yapıtları alanında.
 
@@ -118,11 +119,11 @@ Bu bölümde, derleme işlem hattı, yapıtlar düştüğünde otomatik olarak �
     
     İçinde **bir yapıt sayfasını ekleme**, kaynak türünü seçin **yapı**. Ardından, projeyi ve oluşturduğunuz derleme işlem hattı seçin. Ardından **ekleme**.
 
-    ![Bir yapıt ekleme](./media/how-to-ci-cd/add-an-artifact.png)
+    ![Bir derleme yapıtı Ekle](./media/how-to-ci-cd/add-an-artifact.png)
 
     Her seferinde yeni bir derleme kullanılabilir yeni bir yayın oluşturulur böylece, sürekli dağıtım tetikleyicisi açın.
 
-    ![Tetikleyici yapılandırın](./media/how-to-ci-cd/add-a-trigger.png)
+    ![Sürekli dağıtım tetikleyicisi yapılandırın](./media/how-to-ci-cd/add-a-trigger.png)
 
 4. Gidin **QA aşama** ve bu aşamada görevlerini yapılandırın.
 

@@ -1,21 +1,22 @@
 ---
-title: "Öğretici 2: Önceden oluşturulmuş amaçlar ve varlıklar - önceden oluşturulmuş yaygın konuşmaları kullanma - LUIS'de ortak veri ayıklama"
+title: Önceden oluşturulmuş hedefleri ve varlıkları
 titleSuffix: Azure Cognitive Services
 description: Hızlıca amaç tahmini ve veri ayıklaması gerçekleştirmek için İnsan Kaynakları öğretici uygulamasına önceden oluşturulmuş amaçlar ve varlıklar ekleyin. Herhangi bir konuşmayı önceden oluşturulmuş varlıklarla etiketlemeniz gerekmez. Varlık otomatik olarak algılanır.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 3bad68d1a388a5bc8780df633313206afaadcef9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b6fb603b84cdcf3cb0f75d0020fa2047a0a838d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422431"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074092"
 ---
 # <a name="tutorial-2-identify-common-intents-and-entities"></a>Öğretici 2: Ortak amaçları ve varlıkları tanımlama
 Bu öğreticide İnsan Kaynakları uygulamasında değiştireceksiniz. Hızlıca amaç tahmini ve veri ayıklaması gerçekleştirmek için İnsan Kaynakları öğretici uygulamasına önceden oluşturulmuş amaçlar ve varlıklar ekleyin. Varlıklar otomatik algılandığından herhangi bir konuşmayı önceden oluşturulmuş varlıklarla etiketlemeniz gerekmez.
@@ -90,7 +91,7 @@ LUIS, ortak veri ayıklama işlemi için önceden oluşturulmuş birkaç varlık
 
 2. Tarayıcı adres çubuğundaki URL'nin sonuna gidip `I want to cancel on March 3` yazın. Son sorgu dizesi parametresi konuşma **sorgusu** olan `q` öğesidir. 
 
-    ```JSON
+    ```json
     {
       "query": "I want to cancel on March 3",
       "topScoringIntent": {

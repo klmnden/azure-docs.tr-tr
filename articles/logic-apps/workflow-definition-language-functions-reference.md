@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 3450a2ba4a0bf4b1f38806ad4aacf5772c13ed9f
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 179d8fc0f17bf43792db6a9b0e15a6f63349f002
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317798"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890951"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps iş akışı tanımı dil işlevleri başvurusu
 
@@ -4026,7 +4026,7 @@ xml('<value>')
 
 Bu örnek, bir JSON nesnesi içeren bu dize, XML sürümü oluşturur: 
 
-`xml( '{ \"name\": \"Sophia Owen\" }' )`
+`xml(json('{ \"name\": \"Sophia Owen\" }'))`
 
 Ve bu XML sonucunu döndürür: 
 
@@ -4049,7 +4049,7 @@ Bu JSON nesnesinin olduğunu varsayalım:
 
 Bu örnek XML bu JSON nesnesi içeren bir dize oluşturur:
 
-`xml( '{ \"person\": { \"name\": \"Sophia Owen\", \"city\": \"Seattle\" } }' )`
+`xml(json('{\"person\": {\"name\": \"Sophia Owen\", \"city\": \"Seattle\"}}'))`
 
 Ve bu XML sonucunu döndürür: 
 

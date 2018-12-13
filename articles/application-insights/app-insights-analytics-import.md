@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: 40b2959a59acb10443dfa917814f42cf98954640
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 7160232cf511226b26c15e6476ff75fcdf5ad33e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682716"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866609"
 ---
 # <a name="import-data-into-analytics"></a>Analiz verilerini içeri aktarma
 
@@ -368,5 +368,5 @@ Bu kod, her blob için kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Log Analytics sorgu dili turu](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Log Analytics sorgu dili turu](../azure-monitor/log-query/get-started-portal.md)
 * Logstash kullanıyorsanız, [Logstash eklentisini verilerini Application Insights'a gönderme](https://github.com/Microsoft/logstash-output-application-insights)

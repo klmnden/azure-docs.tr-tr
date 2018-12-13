@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 402d4fb0c1eb7c6760f800bdd408e9a4d8161ccc
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 2a17bca6f7b95850f84781b5838719617d45bdd2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44096357"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077826"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory-preview"></a>Google AdWords Azure Data Factory (Önizleme) kullanarak verileri kopyalama
 
@@ -97,7 +97,12 @@ Google AdWords bağlı hizmeti için aşağıdaki özellikler desteklenir:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Google AdWords veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Google AdWords verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **GoogleAdWordsObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Google AdWords verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **GoogleAdWordsObject**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **GoogleAdWordsObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -109,7 +114,8 @@ Google AdWords verileri kopyalamak için dataset öğesinin type özelliği ayar
         "linkedServiceName": {
             "referenceName": "<GoogleAdWords linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 
@@ -126,7 +132,7 @@ Google AdWords verileri kopyalamak için kopyalama etkinliği için kaynak tür�
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **GoogleAdWordsSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

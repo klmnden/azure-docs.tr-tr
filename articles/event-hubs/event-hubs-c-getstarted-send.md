@@ -1,6 +1,6 @@
 ---
-title: Olayları C kullanarak Azure Event Hubs'a gönderme | Microsoft Docs
-description: C kullanarak Azure Event Hubs için olayları gönderme
+title: C - Azure Event Hubs'ı kullanarak olayları gönderme | Microsoft Docs
+description: Bu makalede, Azure Event Hubs'a olayları gönderen bir C uygulaması oluşturmak için bir kılavuz sağlar.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 10/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 95a689b00d67a9f2c24b4deaf5575464923a1e60
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 8c134ae9944517d6ae66fcd22e06bbfc599912b4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961782"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076401"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>C kullanarak Azure Event Hubs için olayları gönderme
 

@@ -1,6 +1,6 @@
 ---
-title: Ayrılmış HSM nedir? | Microsoft Docs
-description: Azure ayrılmış HSM anahtar depolama kapasitesini FIPS karşılayan Azure 140-2 Düzey 3 sertifika sağlar.
+title: Ayrılmış HSM nedir? -Ayrılmış HSM azure | Microsoft Docs
+description: Azure ayrılmış HSM genel bakış 140-2 Düzey 3 sertifika anahtarı depolama alanı kapasitesini FIPS karşılayan Azure sağlar.
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
@@ -10,19 +10,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.custom: mvc
-ms.date: 11/26/2018
+ms.custom: mvc, seodec18
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 92d77ec886a0f37c28f5e3031a7e14f63299c8aa
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 1eeafa33c8c1cdbcd7d0e55e3860dda1b8d451fe
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427123"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080087"
 ---
-# <a name="what-is-dedicated-hsm"></a>Ayrılmış HSM nedir?
+# <a name="what-is-azure-dedicated-hsm"></a>Azure Ayrılmış HSM nedir?
 
-Azure ayrılmış HSM en katı güvenlik gereksinimleri karşılayan azure'da şifreleme anahtar depolama alanı sağlar. Ayrılmış HSM FIPS 140-2 Düzey 3'ü doğrulanmış cihaz ve HSM gerecinin eksiksiz ve özel denetim gerektiren müşteriler için ideal bir çözümdür. HSM cihazlarına birkaç Azure bölgeleri arasında genel olarak dağıtılan ve kolayca cihazların bir çift olarak sağlanabilir ve yüksek kullanılabilirlik için yapılandırılır. HSM'ler düzeyi bölgesel yük devretme karşı güvence altına almak için bölge arasında de sağlanmış. Microsoft teslim ayrılmış HSM hizmetini kullanarak [SafeNet Luna ağ HSM 7 (Model A790)](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/) Gemalto gereçten. Bu cihaz en yüksek düzeyde performans ve şifreleme tümleştirme seçenekleri sunar. Sağlanan HSM'ler doğrudan bir müşterinin sanal ağa bağlı ve noktadan siteye veya siteden siteye VPN bağlantısı yapılandırarak şirket içi uygulama ve yönetim araçları tarafından da erişilebilir. Müşteriler, yazılım ve yapılandırıp Gemalto'nın destek Portalı'ndan HSM cihazları yönetmek için belgeler alacaksınız.
+Azure ayrılmış HSM azure'da şifreleme anahtarı depolama alanı sağlayan bir Azure hizmetidir. Ayrılmış HSM en katı güvenlik gereksinimleri karşılar. FIPS 140-2 Düzey 3'ü doğrulanmış cihaz ve HSM gerecinin eksiksiz ve özel denetim gerektiren müşteriler için ideal çözümdür. HSM cihazlarına birkaç Azure bölgeleri arasında genel olarak dağıtılan ve kolayca cihazların bir çift olarak sağlanabilir ve yüksek kullanılabilirlik için yapılandırılır. HSM'ler düzeyi bölgesel yük devretme karşı güvence altına almak için bölge arasında de sağlanmış. Microsoft teslim ayrılmış HSM hizmetini kullanarak [SafeNet Luna ağ HSM 7 (Model A790)](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/) Gemalto gereçten. Bu cihaz en yüksek düzeyde performans ve şifreleme tümleştirme seçenekleri sunar. Sağlanan HSM'ler doğrudan bir müşterinin sanal ağa bağlı ve noktadan siteye veya siteden siteye VPN bağlantısı yapılandırarak şirket içi uygulama ve yönetim araçları tarafından da erişilebilir. Müşteriler, yazılım ve yapılandırıp Gemalto'nın destek Portalı'ndan HSM cihazları yönetmek için belgeler alacaksınız.
 
 ## <a name="why-use-azure-dedicated-hsm"></a>Azure ayrılmış HSM neden kullanmalısınız?
 

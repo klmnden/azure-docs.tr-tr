@@ -3,19 +3,19 @@ title: Geçici bağlantı hatalarının için PostgreSQL için Azure veritabanı
 description: PostgreSQL için Azure veritabanı için geçici bağlantı hataları işlemeye öğrenin.
 keywords: postgresql bağlantı, bağlantı dizesi, bağlantı sorunları, geçici bir hata oluştu, bağlantı hatası
 services: postgresql
-author: janeng
+author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: 0459c8ff31564adfbaa3e1735535cd24c3064663
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 021fad5e59e76444351711fb529c542d428af189
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285020"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890069"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-postgresql"></a>Geçici bağlantı hatalarının için PostgreSQL için Azure veritabanı işleme
 
@@ -49,4 +49,4 @@ Yeniden deneme mantığı, test etmek emin olun. Örneğin, ölçeği artırıla
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [PostgreSQL için Azure veritabanı bağlantı sorunlarını giderme](howto-troubleshoot-common-connection-issues.md)
+* [PostgreSQL için Azure Veritabanı bağlantısı sorunlarını giderme](howto-troubleshoot-common-connection-issues.md)

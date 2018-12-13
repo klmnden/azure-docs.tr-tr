@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: dc84014f3dce027c830f3f46b4aba16b775251d8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 1e35d650f6fc99bff5bf49e517e2b38fcdc58dde
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853158"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077010"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Hızlı Başlangıç: algılamak için bir Python betiği oluşturmak ve çerçevenin bir resimdeki yüz
 
@@ -28,14 +28,18 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 - Yüz tanıma API'si abonelik anahtarı. Ücretsiz deneme aboneliği anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) yüz tanıma API'si hizmete abone ve anahtarınızı alın.
 - [Python 2.7+ veya 3.5+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installing/) aracı
-- Yüz tanıma API'si Python SDK'sı. Aşağıdaki komutu çalıştırarak yükleyebilirsiniz:
-    ```bash
-    pip install cognitive_face
-    ```
+
+## <a name="get-the-face-sdk"></a>Yüz tanıma SDK'sı Al
+
+Yüz tanıma Python SDK'sı için komut istemini açın ve aşağıdaki komutu çalıştırarak yükleyin:
+
+```shell
+pip install cognitive_face
+```
 
 ## <a name="detect-faces-in-an-image"></a>Görüntüdeki yüzleri algılayın
 
-Yeni bir Python betiği oluşturmak _FaceQuickstart.py_. Aşağıdaki kodu ekleyin. Yüz algılama temel işlevlerini budur. Değiştirmeniz gerekecektir `<Subscription Key>` anahtarınızı değerine sahip. Değerini değiştirmeniz gerekebilir `BASE_URL` doğru bölge tanımlayıcısı için anahtarınızı kullanmak için (bkz [yüz tanıma API'si belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) tüm bölge uç noktalar listesi). Ücretsiz deneme aboneliği anahtarları oluşturulur **westus** bölge. İsteğe bağlı olarak, `img_url` kullanmak istediğiniz herhangi bir görüntü URL'si.
+Adlı yeni bir Python betiği oluşturmak _FaceQuickstart.py_ ve aşağıdaki kodu ekleyin. Yüz algılama temel işlevlerini budur. Değiştirmeniz gerekecektir `<Subscription Key>` anahtarınızı değerine sahip. Değerini değiştirmeniz gerekebilir `BASE_URL` doğru bölge tanımlayıcısı için anahtarınızı kullanmak için (bkz [yüz tanıma API'si belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) tüm bölge uç noktalar listesi). Ücretsiz deneme aboneliği anahtarları oluşturulur **westus** bölge. İsteğe bağlı olarak, `img_url` kullanmak istediğiniz herhangi bir görüntü URL'si.
 
 Betik çağırarak yüzleri algılar **cognitive_face.face.detect** sarmalar yöntemi [Algıla](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API'si ve yüz listesini döndürür.
 

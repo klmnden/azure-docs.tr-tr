@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge cihazına Özel Görüntü İşleme Hizmeti dağıtma | Microsoft Docs
-description: Özel Görüntü İşleme ve IoT Edge hizmetlerini kullanarak bir özel görüntü işleme hizmetini kapsayıcı olarak çalıştırmayı öğrenin.
+title: Öğretici - Azure IOT Edge cihaza Custom Vision sınıflandırıcı dağıtma | Microsoft Docs
+description: Bu öğreticide, bir görüntü işleme modelinizle özel görüntü işleme ve IOT Edge kullanarak bir kapsayıcı çalışmasını sağlamak öğrenin.
 services: iot-edge
 author: kgremban
 manager: philmea
@@ -8,13 +8,13 @@ ms.author: kgremban
 ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: a8f72c62393f6ba470c31a55668382ae0beb290e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 6acdbdf5ed5312dc9bc9aa5120bad6e7cf0935b7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566491"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075837"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Öğretici: Özel Görüntü İşleme Hizmeti ile uçta görüntü sınıflandırması gerçekleştirme
 
@@ -99,7 +99,7 @@ Görüntü sınıflandırıcı oluşturmak için eğitim görüntülerine ve tes
 
 5. **Upload 10 files** (10 dosyayı karşıya yükle) öğesini seçin. 
 
-   ![hemlock etiketli dosyaları yükleme](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
+   ![Köknar etiketlenmiş dosyalar için özel görüntü karşıya yükleme](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
 
 6. Görüntüler başarıyla karşıya yüklendikten sonra **Done** (Bitti) öğesini seçin.
 
@@ -117,7 +117,7 @@ Görüntü sınıflandırıcı oluşturmak için eğitim görüntülerine ve tes
 
 1. Sınıflandırıcınızı eğittikten sonra sınıflandırıcının Performance (Performans) sayfasında **Export** (Dışarı aktar) öğesini seçin. 
 
-   ![Görüntü sınıflandırıcıyı dışarı aktarma](./media/tutorial-deploy-custom-vision/export.png)
+   ![Eğitilen bir görüntü sınıflandırıcınızı dışarı aktarma](./media/tutorial-deploy-custom-vision/export.png)
 
 2. Platform için **DockerFile** girişini seçin. 
 

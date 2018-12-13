@@ -1,6 +1,6 @@
 ---
-title: Atama veya Azure Active Directory lisansları Kaldır | Microsoft Docs
-description: Atayın veya kullanıcıları veya grupları Azure Active Directory'yi kullanarak Azure Active Directory lisansları kaldırın.
+title: Atamayı veya kaldırmayı lisanslar - Azure Active Directory | Microsoft Docs
+description: Atama veya Azure Active Directory lisansları, kullanıcıları veya grupları kaldırma hakkında yönergeler.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-custom: it-pro
-ms.openlocfilehash: e1b0b2f84c67e30c3bb998554dc662b002744003
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 6cf3e9a9b767dfaa6f04d151864f64123e3d6ae7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603901"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077470"
 ---
-# <a name="how-to-assign-or-remove-azure-active-directory-licenses"></a>Nasıl yapılır: atamak veya Azure Active Directory lisansları kaldırın
+# <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Atayın veya Azure Active Directory portalı kullanarak lisansları kaldırın
 Birçok Azure Active Directory (Azure AD) Hizmetleri, Azure AD ürünü etkinleştirmek için ve her biri, kullanıcılar veya gruplar (ve ilişkili üyeler) lisans bu ürün için gerektirir. Etkin bir lisansa sahip kullanıcılar erişebilir ve lisanslı kullanma yalnızca Azure AD Hizmetleri.
 
 ## <a name="available-product-editions"></a>Kullanılabilir ürün sürümleri
@@ -40,7 +40,7 @@ Her ürün sürümünü ve ilişkili lisans ayrıntıları hakkında ayrıntıl�
 Bağımsız lisans dahil olmak üzere ürünlerinizi kullanılabilir tüm bekleyen sona erme tarihleri ve kullanılabilir atamaları sayısı denetleniyor görüntüleyebilirsiniz.
 
 ### <a name="to-find-your-product-and-license-details"></a>Ürün ve lisans bilgilerinizi bulmak için
-1. Oturum [Azure portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
+1. Dizin için bir Genel yönetici hesabı kullanarak [Azure portalda](https://portal.azure.com/) oturum açın.
 
 2. Seçin **Azure Active Directory**ve ardından **lisansları**.
 

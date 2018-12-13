@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: af2ecad79bef0889ca0d1e47171ebaf9777418ca
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 2aa2f4e55d375f6ed7960af8bbe327d45b5ea025
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833406"
+ms.locfileid: "52871770"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Log Analytics'te Görünüm Tasarımcısı kullanarak özel görünümlerini oluşturma
 Görünüm Tasarımcısı'nda kullanarak [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md), Azure portalında Log Analytics çalışma alanınızdaki veri görselleştirmenize yardımcı olabilecek çeşitli özel görünümler oluşturabilirsiniz. Bu makalede, Görünüm Tasarımcısı ve yordamlar oluşturmak ve özel görünümler düzenlemek için genel bir bakış sunar.
@@ -55,7 +55,7 @@ Seçenekler aşağıdaki tabloda açıklanmıştır:
 | Seçenek | Açıklama |
 |:--|:--|
 | Yenile   | En son verileri Görünümü yeniler. | 
-| Analiz | Açılır [Gelişmiş analiz portalını](../../log-analytics/log-analytics-log-search-portals.md) günlük sorguları ile verileri analiz etmek için. |
+| Analiz | Açılır [Gelişmiş analiz portalını](../../azure-monitor/log-query/portals.md) günlük sorguları ile verileri analiz etmek için. |
 | Düzenle       | Görünümün içeriğini ve yapılandırmasını düzenlemek için görünümü Tasarımcısı'nda açılır.  |
 | Kopyala      | Yeni bir görünüm oluşturur ve Görünüm Tasarımcısı'nda açılır. Yeni Görünüm adını özgün adıyla, ancak ile aynıdır *kopyalama* eklenmiş. |
 | Tarih aralığı | Tarih ve saat aralığı filtresi Görünümü'nde bulunan veriler için ayarlayın. Bu tarih aralığı görünümü sorgularda kümesindeki herhangi bir tarih aralıkları önce uygulanır.  |

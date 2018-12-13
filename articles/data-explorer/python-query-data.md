@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: 38a7a4fa3ac0b9bfb554deeb8086dca398e5cdc1
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 14049df1116205ec5e95b052049f53738dcf50b4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956179"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863423"
 ---
 # <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Hızlı başlangıç: Azure Veri Gezgini Python kitaplığını kullanarak verileri sorgulama
 
@@ -21,7 +21,7 @@ Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve üst düzeyd
 
 Bu hızlı başlangıç bir [Azure Not Defteri](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb) olarak da sağlanır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Azure Active Directory (AAD) üyesi olan bir kuruluş e-posta hesabı
 
@@ -32,7 +32,7 @@ Bu hızlı başlangıç bir [Azure Not Defteri](https://notebooks.azure.com/Mano
 *azure-kusto-data*'yı yükleyin.
 
 ```
-pip install azure-kusto-data==0.0.13
+pip install azure-kusto-data
 ```
 
 ## <a name="add-import-statements-and-constants"></a>İçeri aktarma deyimlerini ve sabitlerini ekleme

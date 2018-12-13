@@ -1,21 +1,22 @@
 ---
-title: Language Understanding (LUIS) uç noktası Kotayı artırmak için Microsoft Azure Traffic Manager'ı kullanın
+title: Uç nokta kotasını artırın
 titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS), tek bir anahtarın kota dışında uç nokta isteği Kotayı artırmak olanağı sunar. LUIS için daha fazla anahtarları oluşturma ve bunları LUIS uygulamaya ekleme tarafından yapıldığını **Yayımla** sayfasını **kaynakları ve anahtarları** bölümü.
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 28fc0d0061d1826f0e17c26325ea227e001dccda
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3f3dddca7944403ace6a9779be07b0d458fb3cd1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042185"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076772"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Uç nokta kota anahtarlarını yönetmek için Microsoft Azure Traffic Manager'ı kullanma
 Language Understanding (LUIS), tek bir anahtarın kota dışında uç nokta isteği Kotayı artırmak olanağı sunar. LUIS için daha fazla anahtarları oluşturma ve bunları LUIS uygulamaya ekleme tarafından yapıldığını **Yayımla** sayfasını **kaynakları ve anahtarları** bölümü. 
@@ -36,7 +37,7 @@ Azure kaynakları oluşturmadan önce tüm kaynakları içerecek bir kaynak grub
 
 Kaynak grubu oluşturun **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.2.0)** cmdlet:
 
-```PowerShell
+```powerShell
 New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 ```
 
@@ -69,7 +70,7 @@ Doğu ABD Traffic Manager profili oluşturmak için birkaç adım vardır: profi
 
     Profili oluşturmak için aşağıdaki cmdlet'i kullanın. Değiştirdiğinizden emin olun `appIdLuis` ve `subscriptionKeyLuis`. SubscriptionKey için ABD Doğu LUIS anahtardır. Traffic Manager yoklama yolu LUIS uygulama kimliği ve uç noktası anahtarı dahil olmak üzere doğru değil, durumunun ise `degraded` çünkü trafiği yönetmek LUIS uç noktası başarıyla istenemiyor. Değerini emin `q` olduğu `traffic-manager-east` LUIS uç nokta günlüklerinde bu değeri görebilirsiniz.
 
-    ```PowerShell
+    ```powerShell
     $eastprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
     ```
     
@@ -89,7 +90,7 @@ Doğu ABD Traffic Manager profili oluşturmak için birkaç adım vardır: profi
 
 2. Doğu ABD uç noktası ekleme **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/add-azurermtrafficmanagerendpointconfig?view=azurermps-6.2.0)** cmdlet'i
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
     ```
     Bu tabloda, her bir değişken cmdlet'inde açıklanmaktadır:
@@ -105,7 +106,7 @@ Doğu ABD Traffic Manager profili oluşturmak için birkaç adım vardır: profi
 
     Başarılı yanıt şu şekilde görünür:
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-eastus
     Name                             : luis-profile-eastus
     ResourceGroupName                : luis-traffic-manager
@@ -124,7 +125,7 @@ Doğu ABD Traffic Manager profili oluşturmak için birkaç adım vardır: profi
 
 3. Doğu ABD uç noktası ile Ayarla **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/set-azurermtrafficmanagerprofile?view=azurermps-6.2.0)** cmdlet'i
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $eastprofile
     ```
 
@@ -137,7 +138,7 @@ Batı ABD Traffic Manager profili oluşturmak için aynı adımları izleyin: pr
 
     Profili oluşturmak için aşağıdaki cmdlet'i kullanın. Değiştirdiğinizden emin olun `appIdLuis` ve `subscriptionKeyLuis`. SubscriptionKey için ABD Doğu LUIS anahtardır. Yol LUIS uygulama kimliği ve uç noktası anahtarı dahil olmak üzere doğru değilse, Traffic Manager yoklama durumu olan `degraded` çünkü trafiği yönetmek LUIS uç noktası başarıyla istenemiyor. Değerini emin `q` olduğu `traffic-manager-west` LUIS uç nokta günlüklerinde bu değeri görebilirsiniz.
 
-    ```PowerShell
+    ```powerShell
     $westprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
     ```
     
@@ -157,7 +158,7 @@ Batı ABD Traffic Manager profili oluşturmak için aynı adımları izleyin: pr
 
 2. Batı ABD uç noktası ekleme **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** cmdlet'i
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
     ```
 
@@ -174,7 +175,7 @@ Batı ABD Traffic Manager profili oluşturmak için aynı adımları izleyin: pr
 
     Başarılı yanıt şu şekilde görünür:
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-westus
     Name                             : luis-profile-westus
     ResourceGroupName                : luis-traffic-manager
@@ -193,7 +194,7 @@ Batı ABD Traffic Manager profili oluşturmak için aynı adımları izleyin: pr
 
 3. Batı ABD uç noktası ile Ayarla **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet'i
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $westprofile
     ```
 
@@ -204,7 +205,7 @@ Batı ABD Traffic Manager profili oluşturmak için aynı adımları izleyin: pr
 
 1. Üst profil oluşturma **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/New-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet'i
 
-    ```PowerShell
+    ```powerShell
     $parentprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
     ```
 
@@ -224,7 +225,7 @@ Batı ABD Traffic Manager profili oluşturmak için aynı adımları izleyin: pr
 
 2. Doğu ABD alt profili sahip üst eklemek **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** ve **NestedEndpoints** türü
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-useast -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $eastprofile.Id -EndpointStatus Enabled -EndpointLocation "eastus" -MinChildEndpoints 1
     ```
 
@@ -242,7 +243,7 @@ Batı ABD Traffic Manager profili oluşturmak için aynı adımları izleyin: pr
 
     Başarılı yanıt Ara yeni içerir ve aşağıdaki gibi `child-endpoint-useast` uç noktası:    
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-parent
     Name                             : luis-profile-parent
     ResourceGroupName                : luis-traffic-manager
@@ -261,7 +262,7 @@ Batı ABD Traffic Manager profili oluşturmak için aynı adımları izleyin: pr
 
 3. Batı ABD alt profili sahip üst eklemek **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** cmdlet'i ve **NestedEndpoints** türü
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-uswest -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $westprofile.Id -EndpointStatus Enabled -EndpointLocation "westus" -MinChildEndpoints 1
     ```
 
@@ -279,7 +280,7 @@ Batı ABD Traffic Manager profili oluşturmak için aynı adımları izleyin: pr
 
     Başarılı yanıt Ara hem de önceki içerir ve gibi `child-endpoint-useast` uç noktası ve yeni `child-endpoint-uswest` uç noktası:
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-parent
     Name                             : luis-profile-parent
     ResourceGroupName                : luis-traffic-manager
@@ -298,7 +299,7 @@ Batı ABD Traffic Manager profili oluşturmak için aynı adımları izleyin: pr
 
 4. Uç noktaları ile ayarlanmış **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet'i 
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $parentprofile
     ```
 
@@ -309,7 +310,7 @@ Batı ABD Traffic Manager profili oluşturmak için aynı adımları izleyin: pr
 
 Açılı ayraçlar öğeleri değiştirin `<>`, her gereksinim duyduğunuz üç profil için doğru değerlerle. 
 
-```PowerShell
+```powerShell
 $<variable-name> = Get-AzureRmTrafficManagerProfile -Name <profile-name> -ResourceGroupName luis-traffic-manager
 ```
 
@@ -329,7 +330,7 @@ Traffic Manager çevrimiçi olduğundan emin olmak için her uç nokta yolunu yo
 ### <a name="validate-traffic-manager-polling-works"></a>Traffic Manager'ın çalıştığı yoklama doğrula
 Traffic manager Works yoklama doğrulamak için başka bir LUIS uç nokta günlüklerle yoludur. Üzerinde [LUIS] [ LUIS] Web sitesi uygulamalar listesi sayfasında, uygulama için uç nokta günlüğünü dışarı aktarma. Traffic Manager için iki uç nokta yoklayacağını çünkü girişler vardır günlüklerde bile yalnızca birkaç dakikada silinmiş. Sorgu başladığı ile girdilerini arayın unutmayın `traffic-manager-`.
 
-```text
+```console
 traffic-manager-west    6/7/2018 19:19  {"query":"traffic-manager-west","intents":[{"intent":"None","score":0.944767}],"entities":[]}
 traffic-manager-east    6/7/2018 19:20  {"query":"traffic-manager-east","intents":[{"intent":"None","score":0.944767}],"entities":[]}
 ```
@@ -339,7 +340,7 @@ DNS yanıtı LUIS uç nokta döndürür doğrulamak için bir DNS istemci kitapl
 
 Aşağıdaki Node.js kod üst profili için bir istek gönderir ve LUIS uç noktasına döndürür:
 
-```javascript
+```nodejs
 const dns = require('dns');
 
 dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {

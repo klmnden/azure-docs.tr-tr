@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
 ms.date: 11/28/2018
-ms.openlocfilehash: 02a7a460799a098b6be10a52d6e1a1598b023454
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: d5be25abc634200e0c0afed6946b38fd163fb78e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839146"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890509"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Hızlı Başlangıç: Azure SQL Veritabanı Yönetilen Örneği oluşturma
 
@@ -90,4 +90,4 @@ Dağıtım başarıyla tamamlandıktan sonra oluşturulan kaynakları gözden ge
   - Bir Azure sanal makinesinden bir Yönetilen Örneğe bağlanmayı gösteren bir hızlı başlangıç için bkz: [Azure sanal makine bağlantısı yapılandırma](sql-database-managed-instance-configure-vm.md).
   - Şirket içi bir istemci bilgisayardan noktadan siteye bağlantı kullanarak bir Yönetilen Örneğe bağlanmayı gösteren bir hızlı başlangıç için bkz: [Siteden noktaya bağlantı yapılandırma](sql-database-managed-instance-configure-p2s.md).
 - Mevcut bir SQL Server veritabanını şirket içinden Yönetilen bir örneğe geri yüklerken, veritabanı yedekleme dosyasından geri yükleme işlemini [Geçiş için Azure Veritabanı Geçiş Hizmeti (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) veya [T-SQL RESTORE komutu](sql-database-managed-instance-get-started-restore.md) ile yapabilirsiniz.
-- Gelişmiş sorun giderme yerleşik zekaya sahip yönetilen örnek veritabanı performansını izleme için bkz: [kullanarak Azure SQL Analytics İzleyici Azure SQL veritabanı](../log-analytics/log-analytics-azure-sql.md)
+- Gelişmiş sorun giderme yerleşik zekaya sahip yönetilen örnek veritabanı performansını izleme için bkz: [kullanarak Azure SQL Analytics İzleyici Azure SQL veritabanı](../azure-monitor/insights/azure-sql.md)

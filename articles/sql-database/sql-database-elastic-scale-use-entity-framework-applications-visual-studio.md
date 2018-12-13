@@ -3,7 +3,7 @@ title: Entity Framework ile esnek veritabanı istemci kitaplığını kullanma |
 description: Veritabanları kodlama için elastik veritabanı istemci kitaplığı ve Entity Framework kullanma
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 58b109651408a51ca7505c92d3875de63aae2cc6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 030ec9db16f90430a544ca8715a4e1dea02e2c62
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261936"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873249"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Entity Framework ile esnek veritabanı istemci kitaplığı
 Bu belge, Entity Framework uygulamada tümleştirmek için gereken değişiklikleri gösterir. [esnek veritabanı araçlarını](sql-database-elastic-scale-introduction.md). Buradaki odak noktası olan [parça eşleme Yönetimi](sql-database-elastic-scale-shard-map-management.md) ve [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md) Entity Framework ile **Code First** yaklaşım. [İlk - yeni veritabanı kod](https://msdn.microsoft.com/data/jj193542.aspx) öğretici EF için bu belge boyunca çalışan bir örnek olarak hizmet verir. Bu belge eşlik eden örnek kod, Visual Studio kod örneklerindeki örnekleri kümesi esnek veritabanı araçlarını bir parçası olur.

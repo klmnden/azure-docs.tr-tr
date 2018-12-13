@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: f0bd0a57aff9767c78be63fc918b8689f7b06514
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 61b331c330da5e2083a7a029e3f3137e6d4a1aab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122714"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077843"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory-preview"></a>Jıra Azure Data Factory (Önizleme) kullanarak verileri kopyalama
 
@@ -78,7 +78,12 @@ Jıra bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Jıra veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Jıra verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **JiraObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Jıra verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **JiraObject**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **JiraObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -90,7 +95,8 @@ Jıra verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **J
         "linkedServiceName": {
             "referenceName": "<Jira linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -106,7 +112,7 @@ Jıra verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayar
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **JiraSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

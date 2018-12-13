@@ -1,6 +1,6 @@
 ---
-title: Azure not defterleri genel bakış | Microsoft Docs
-description: Jupyter not defterleri ücretsiz Azure not defterleri hizmetini kullanarak bulutta çalıştırın.
+title: Azure not defterleri genel bakış
+description: Jupyter not defterleri hiçbir Kurulum veya yapılandırma gerekli olduğu ücretsiz Azure not defterleri hizmetini kullanarak bulutta çalıştırın.
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: a84f71c2656c73867ee076d4b993026558a0a504
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 92cfdea12dc51884ea04ed894a79ded7f532d88b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853153"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085408"
 ---
 # <a name="overview-of-azure-notebooks"></a>Azure not defterleri genel bakış
 
-Azure not defterleri geliştirmek ve Jupyter not defterleri yükleme ile bulutta çalıştırmak için ücretsiz bir barındırılan hizmet var. [Jupyter](http://jupyter.org/) (eski adıyla Ipython) kolayca olanak tanıyan bir açık kaynak projesi birleştirmek Markdown metin, yürütülebilir kod, kalıcı verileri, grafik ve görselleştirmeler paylaşılabilir, tek bir tuvaline olan *not defteri* (görüntü jupyter.org sayesinde):
+Azure Notebooks, yükleme yapmadan Jupyter not defterlerini geliştirmeye ve çalıştırmaya yönelik, ücretsiz ve barındırılan bir hizmettir. [Jupyter](https://jupyter.org/) (eski adıyla Ipython) kolayca olanak tanıyan bir açık kaynak projesi birleştirmek Markdown metin, yürütülebilir kod, kalıcı verileri, grafik ve görselleştirmeler paylaşılabilir, tek bir tuvaline olan *not defteri* (görüntü jupyter.org sayesinde):
 
-[![](http://jupyter.org/assets/jupyterpreview.png "Jupyter Not Defterleri")](http://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![](https://jupyter.org/assets/jupyterpreview.png "Jupyter Not Defterleri")](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Jupyter kodu, grafik ve açıklayıcı metin içeren bu güçlü birleşim nedeniyle, veri bilimi yönergesi, veri temizleme ve dönüştürme, sayısal bir simülasyon, modelleme ve geliştirmeye yönelik dahil olmak üzere pek çok kullanımı için popüler hale gelmiştir Makine öğrenimi modelleri.
 
@@ -51,7 +51,7 @@ Azure not defterleri yazma genel bir kod olduğundan, yürütme ve platform, pay
 Kısacası, Azure not defterleri işlerinizi daha verimli bir şekilde gerçekleştirmek ve bu nedenle daha fazla bilgi elde etmenize yardımcı olur.
 
 > [!Note]
-> Jupyter kendisi hakkında daha fazla bilgi bulunabilir [jupyter.org](http://jupyter.org/) ve [Jupyter belgeleri](http://jupyter-notebook.readthedocs.io/en/latest/).
+> Jupyter kendisi hakkında daha fazla bilgi bulunabilir [jupyter.org](https://jupyter.org/) ve [Jupyter belgeleri](https://jupyter-notebook.readthedocs.io/en/latest/).
 
 ## <a name="pricing-and-quotas"></a>Fiyatlandırma ve kotalar
 

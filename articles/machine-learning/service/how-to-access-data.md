@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning hizmetinden veri depoları verilerine erişim
+title: Veri depoları verilerine erişim
+titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning hizmeti ile eğitim sırasında veri erişim veri depolama için depoları kullanma
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +11,14 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 50df0647372832647712d514dd9d4651d8d9cc2d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: bce6d636dd80820732d4911c1b24ef00118b594e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014063"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073475"
 ---
-# <a name="how-to-access-data-during-training"></a>Eğitim sırasında verilere erişmek nasıl
+# <a name="access-data-during-training-from-your-datastores"></a>Verilere erişmek, veri depoları eğitimleri sırasında
 Erişim ve Azure Machine Learning iş akışlarında verilerinizle etkileşim kurmak için bir veri deposu kullanın.
 
 Azure Machine Learning hizmetinde bir veri deposu üzerinde bir Özet, [Azure depolama](https://docs.microsoft.com/azure/storage/common/storage-introduction). Veri deposu ya da başvurabilirsiniz bir [Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) kapsayıcı veya [Azure dosya paylaşımı](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) temel alınan depolama alanı olarak. 

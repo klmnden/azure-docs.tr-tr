@@ -1,6 +1,6 @@
 ---
-title: Azure IOT Edge çalışma zamanı anlama | Microsoft Docs
-description: Azure IOT Edge çalışma zamanı ve bu uç cihazlarınıza nasıl güçlendirdiğini öğrenin
+title: Çalışma zamanı cihazlar - Azure IOT Edge nasıl yönettiğini öğrenin | Microsoft Docs
+description: Bilgi nasıl modülleri, güvenlik, iletişim ve cihazlarınızda raporlama Azure IOT Edge çalışma zamanı tarafından yönetilir
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 05c97d21e9acf1bb49418e3a7d0ccf1657f84435
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 3495d157f1a681e80b6d113acced53d01751690f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685200"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077503"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IOT Edge çalışma zamanı ve mimarisini anlama
 
@@ -29,7 +30,7 @@ IOT Edge çalışma zamanı, IOT Edge cihazlarında aşağıdaki işlevleri ger�
 * IoT Edge cihazında bulunan modüller arasındaki iletişimi kolaylaştırır.
 * IoT Edge cihazıyla bulut arasındaki iletişimi kolaylaştırır.
 
-![IOT Edge çalışma zamanı öngörüleri ve IOT hub'ına modül durumunu iletişim kurar.](./media/iot-edge-runtime/Pipeline.png)
+![Çalışma zamanı öngörüleri ve IOT hub'ına modül durumunu iletişim kurar.](./media/iot-edge-runtime/Pipeline.png)
 
 IOT Edge çalışma zamanı sorumluluklarını iki kategoriye ayrılır: iletişim ve modül yönetimi. Bu iki rolden IOT Edge çalışma zamanını oluşturan iki bileşen tarafından gerçekleştirilir. IOT Edge hub'ı, IOT Edge Aracısı'nı dağıtma ve izleme modüllerini yönetirken siz iletişimi için sorumludur. 
 
@@ -49,7 +50,7 @@ Edge hub'ı yerel olarak çalışan IOT Hub'ın tam bir sürüm değil. Edge hub
 
 Edge hub'ı buluta kaç gerçek bağlantı yapılan iyileştirir, IOT Edge çözümünüzün bant genişliğini azaltmak üzere kullanır. Edge hub'ı, modülleri veya yaprak cihazlar gibi istemcilerden mantıksal bağlantıları alır ve bunları buluta tek bir fiziksel bağlantısı için birleştirir. Bu işlemin ayrıntılarını çözümün geri kalanı için saydamdır. İstemciler, bunların tümü aynı bağlantı üzerinden gönderilen olsa da kendi bağlantı buluta sahip oldukları düşünün. 
 
-![Edge hub'ı birden fazla fiziksel cihazlar ve bulut arasında bir ağ geçidi olarak davranır](./media/iot-edge-runtime/Gateway.png)
+![Edge hub'ı olan IOT Hub ile fiziksel cihazlar arasında ağ geçidi](./media/iot-edge-runtime/Gateway.png)
 
 Edge hub'ı, IOT Hub'ına bağlı olup olmadığını belirleyebilirsiniz. Bağlantı kaybedilirse Edge hub'a iletileri veya ikizi güncelleştirmeleri yerel olarak kaydeder. Bağlantı yeniden sonra tüm verileri eşitler. Bu geçici önbelleği için kullanılan konum, Edge hub'ın modül ikizi bir özelliği tarafından belirlenir. Önbelleğin boyutunu değil tavan ve cihaz depolama kapasitesine sahip sürece büyüyecektir. 
 
@@ -57,7 +58,7 @@ Edge hub'ı, IOT Hub'ına bağlı olup olmadığını belirleyebilirsiniz. Bağl
 
 Edge hub'ı modül için modülü iletişimi kolaylaştırır. Edge hub'ı kullanarak bir ileti aracısı olarak modülleri birbirinden bağımsız tutar. Modüller yalnızca üzerinde iletileri ve bunlar iletileri yazma çıkışları kabul girişleri belirtmeniz gerekir. Bir çözüm geliştirici bu girişlerin bitiştirir ve böylece modüller sırayla bu çözüme özel veri işleme birlikte çıkarır. 
 
-![Edge hub'ı modülü modülü iletişimi kolaylaştırır.](./media/iot-edge-runtime/ModuleEndpoints.png)
+![Edge hub'ı modülü modülü iletişimi kolaylaştırır.](./media/iot-edge-runtime/module-endpoints.png)
 
 Edge hub'ına veri göndermek için bir modül SendEventAsync yöntemi çağırır. İletiyi göndermek için hangi çıkış ilk bağımsız değişken belirtir. Aşağıdaki sözde kod output1 üzerinde bir ileti gönderir:
 
@@ -79,7 +80,7 @@ Tercih ettiğiniz SDK dili için API Başvurusu ModuleClient sınıfı ve kendi 
 
 <!--- For more info on how to declare routes between modules, see []. --->   
 
-![Modüller arasında](./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png)
+![Edge hub'ı aracılığıyla modüller arasında Git](./media/iot-edge-runtime/module-endpoints-with-routes.png)
 
 ## <a name="iot-edge-agent"></a>IOT Edge Aracısı
 

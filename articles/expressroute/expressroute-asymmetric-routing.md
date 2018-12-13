@@ -1,25 +1,20 @@
 ---
-title: Asimetrik Yönlendirme | Microsoft Belgeleri
-description: Bu makalede, bir hedefe birden çok bağlantı içeren bir ağda asimetrik yönlendirme konusunda karşılaşılabilecek sorunlarla ilgili yol gösterilmektedir.
+title: Asimetrik yönlendirme - Azure ExpressRoute | Microsoft Docs
+description: Bu makalede asimetrik bir hedefe birden çok bağlantı olan bir ağa yönlendirme ile yüz sorunları size kılavuzluk eder.
 documentationcenter: na
 services: expressroute
 author: osamazia
-manager: carmonm
-editor: ''
-ms.assetid: a754bff9-95c9-44b5-9796-377fc21e8322
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: article
 ms.date: 10/10/2016
 ms.author: osamam
-ms.openlocfilehash: 8568c13d2834a0643e15ab1814a35c92123837d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 6ece48d892f46a4f8bbeb66d3ebda9f532b621b8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22710023"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076670"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Birden çok ağ yoluyla Asimetrik yönlendirme
 Bu makalede, ağ kaynağı ile hedef arasında birden çok yol varsa iletme ve döndürme ağ trafiğinin nasıl farklı rotalar izleyebileceği açıklanmaktadır.

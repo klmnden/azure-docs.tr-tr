@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs özelliklerine genel bakış | Microsoft Docs
-description: Genel bakış ve Azure Event Hubs özellikleri hakkında ayrıntılar
+title: Özellikler - Azure Event Hubs'a genel bakış | Microsoft Docs
+description: Bu makalede, özellikleri ve Azure Event Hubs'ın terminolojisi hakkında ayrıntılar sağlar.
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e27ac67db6a12b4ebfe04e9e1f89203e5e539318
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 917a551b8a187db6645e523d0189533e333d5371
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012734"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075175"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Özellikler ve Azure Event Hubs terminolojisinde
 

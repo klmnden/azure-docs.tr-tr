@@ -2,19 +2,19 @@
 title: Azure'da VM yedekleme altyapınızı planlama
 description: Azure sanal makinelerini yedeklemek planlama yaparken önemli noktalar
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: vm'leri yedekleme, sanal makineleri yedekleme
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/29/2018
-ms.author: markgal
-ms.openlocfilehash: 806d68370921a7658066a9bad770b36b4e8e59bf
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.author: raynew
+ms.openlocfilehash: 7ebb71c6c5968f8f3548f1accd8d659039e6b545
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680047"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871651"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Azure’da sanal makine yedekleme altyapınızı planlama
 Bu makalede, performans ve sanal makine yedekleme altyapınızı planlama yapmanıza yardımcı olması için kaynak önerileri sağlar. Ayrıca, yedekleme hizmeti önemli yönlerini tanımlar; Bu görünüşler Mimarinizi, belirlemede önemli kapasite planlaması ve zamanlama. Belirttiyseniz [ortamınızı hazırladığınız](backup-azure-arm-vms-prepare.md), planlama, sonraki adıma başlamadan önce [Vm'lerini yedekleme](backup-azure-arm-vms.md). Azure sanal makineleri hakkında daha fazla bilgiye ihtiyacınız varsa bkz [sanal makineler belgeleri](https://azure.microsoft.com/documentation/services/virtual-machines/).

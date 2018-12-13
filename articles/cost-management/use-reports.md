@@ -1,23 +1,23 @@
 ---
 title: Azure'da Cloudyn raporlarını kullanma | Microsoft Docs
-description: Bu makalede, çeşitli raporlar Cloudyn portalında kullanmayı açıklar.
+description: Bu makalede, Cloudyn portalında, etkili bir şekilde kullanmanıza yardımcı olması için dahil edilen Cloudyn raporlarını amacını açıklar.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: c3f1fec21ab2c71f75677e814a6e19e1e540dddb
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: fa322a0521b3b2c408bfe6d50411c62068b77229
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994741"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075889"
 ---
-# <a name="use-cloudyn-reports"></a>Cloudyn raporlarını kullanma
+# <a name="reports-available-in-the-cloudyn-portal"></a>Cloudyn portalında kullanılabilir raporlar
 
 Bu makalede, Cloudyn portalında bulunan Cloudyn raporlarını amacını açıklar. Ayrıca, raporları etkili bir şekilde nasıl kullanabileceğinizi açıklar. Raporların çoğu, sezgisel ve Tekdüzen bir görünümüne sahip. Çoğu bir raporda gerçekleştirebileceğiniz eylemleri, diğer raporları da yapabilirsiniz. Özelleştirme ve kaydedin veya raporları zamanlamak üzere nasıl dahil olmak üzere, Cloudyn raporların nasıl kullanılacağı hakkında genel bir bakış için bkz. [maliyet raporlarını anlama](understanding-cost-reports.md).
 
@@ -59,7 +59,7 @@ Cloudy panoları, raporları üst düzey bir görünümünü sağlar. Pano pence
 
 ## <a name="budget-information-in-reports"></a>Raporlardaki bilgilerin bütçe
 
-El ile bir oluşturduktan sonra birçok Cloudyn raporlarını bütçe bilgileri gösterir. Bu nedenle bir bütçe oluşturana kadar raporlar bütçe bilgileri gösterilmez. Daha fazla bilgi için [ayarları bütçe](#budget-settings).
+El ile bir oluşturduktan sonra birçok Cloudyn raporlarını bütçe bilgileri gösterir. Bu nedenle bir bütçe oluşturana kadar raporlar bütçe bilgileri gösterilmez. Daha fazla bilgi için [bütçe yönetimi ayarları](#budget-management-settings).
 
 ## <a name="reports-and-reporting-features"></a>Raporlar ve raporlama özellikleri
 

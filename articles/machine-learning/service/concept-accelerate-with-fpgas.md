@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
-ms.date: 9/24/2018
-ms.openlocfilehash: 411beacd65915c30338ab415b095acc1a0c8cbe6
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
-ms.translationtype: MT
+ms.date: 10/24/2018
+ms.openlocfilehash: c40837baf66b39d98da17c244f462f356d2b1f26
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238864"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864358"
 ---
 # <a name="what-is-fpga-and-project-brainwave"></a>FPGA ve Project Brainwave nedir?
 
@@ -37,7 +37,7 @@ FPGA dizi programlanabilir mantıksal bloğu içerir ve sunmanın hiyerarşisini
 
 [Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/) tabanlı Intel FPGA cihazlarda, veri uzmanlarının ve geliştiricilerin gerçek zamanlı AI hesaplamalar hızlandırmak için kullanın, Microsoft'un ekonomik donanım mimari.  Bu FPGA özellikli mimarisi sunar **performans**, **esneklik**, ve **ölçek** ve Azure'da kullanıma sunuldu.
 
-**FPGA gerçek zamanlı çıkarım istekleri için düşük gecikme süresine ulaşmanız mümkün kılar.** Toplu işleme, büyük miktarda veri toplama ve donanım kullanımı artırmak için bir işlemci besleme anlamına gelir. Daha fazla veri işlenmesi gerektiğinden, toplu işlem gecikme süresi neden olabilir, ancak üretilen işi artırabilir. Project Brainwave uygulamaları sinir işleme birimi, toplu işleme gerektirmez; Bu nedenle gecikmesi birçok kez daha düşük CPU ve GPU olabilir.
+**FPGA gerçek zamanlı çıkarım istekleri için düşük gecikme süresine ulaşmanız mümkün kılar.** Zaman uyumsuz istekler (toplu) gerekli değildir. Daha fazla veri işlenmesi gerektiğinden, toplu işlem gecikme süresi neden olabilir, ancak bazı bağlamlarda üretilen işi artırabilir. Project Brainwave uygulamaları sinir işleme birimi, toplu işleme gerektirmez; Bu nedenle gecikmesi birçok kez daha düşük CPU ve GPU olabilir.
 
 ### <a name="reconfigurable-power"></a>Sunmanın güç
 **FPGA, makine öğrenimi modelleri farklı türleri için yapılandırılabilen.** Bu esneklik en iyi sayısal duyarlık ve kullanılan bellek modeli göre uygulamaları hızlandırmak kolaylaştırır.
@@ -68,7 +68,7 @@ Aşağıdaki senaryolarda FPGA Project Brainwave mimarisine kullanın:
 
 Azure FPGA dağıtımı için bir özelliği Oluşturucu desteklenen Dnn'leri kullanarak azure'da bir görüntü tanıma hizmeti oluşturmak için iş akışı şu şekildedir:
 
-1. Bir dosya olan bir hizmet tanımı oluşturmak için Python için Azure Machine Learning SDK'sı kullanan temel TensorFlow üzerinde bir işlem hattı grafiklerin (girdi, özelliği oluşturucu ve sınıflandırıcı) açıklayan. Dağıtım komut otomatik olarak grafikler ve tanımı bir ZIP dosyası olarak sıkıştırıp ve ZIP Azure Blob depolama alanına yükleyin.  DNN FPGA üzerinde çalıştırmak için Project Brainwave üzerinde zaten dağıtılmış.
+1. Kullanım [Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) bir hizmet tanımı oluşturmak için bir dosya açıklayan bir işlem hattı üzerinde TensorFlow tabanlı grafikler (girdi, özelliği oluşturucu ve sınıflandırıcı). Dağıtım komut otomatik olarak grafikler ve tanımı bir ZIP dosyası olarak sıkıştırıp ve ZIP Azure Blob depolama alanına yükleyin.  DNN FPGA üzerinde çalıştırmak için Project Brainwave üzerinde zaten dağıtılmış.
 
 1. Azure Blob Depolama alanında ZIP dosyasıyla SDK'sını kullanarak modeli kaydedin.
 

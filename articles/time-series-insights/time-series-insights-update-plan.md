@@ -8,13 +8,13 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.openlocfilehash: 438d71997d2c92e377cd068615d274af6b8b5edb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.date: 12/03/2018
+ms.openlocfilehash: c385d10aac01c844f1d4b390c0bb3d064b9befa3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856951"
+ms.locfileid: "52878712"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Azure Time Series Insights (Önizleme) ortamınızı planlama
 
@@ -22,19 +22,24 @@ Bu makalede planlamak ve hızlı bir şekilde Azure Time Series Insights (Önizl
 
 ## <a name="best-practices-for-planning-and-preparation"></a>Planlama ve hazırlık için en iyi uygulamalar
 
-Hazır başlamadan önce aşağıdaki öğelere sahip en iyisidir:
+Aşağıdaki anlarsanız, zaman serisi öngörüleri (TSI) ile çalışmaya başlamak için en iyisidir:
 
-* Tespit ettik, **zaman serisi kimlikleri**
-* Sahip olduğunuz, **zaman damgası** özelliği hazır
-* Derlediğiniz, **zaman serisi modeli**
-* JSON'da verimli bir şekilde normalleştirilmişlikten çıkarılmış olayları gönderme işlemini anlama
+* TSI (Önizleme) ortamı sağladığınızda ne hazırlanıyoruz.
+* Hangi, **zaman serisi kimlikleri** ve **zaman damgası** özelliklerdir.
+* Hangi yeni **zaman serisi modeli** olduğu ve nasıl kendi uzantınızı oluşturun.
+* Olayları JSON olarak verimli bir şekilde göndermek nasıl.  
+* TSI iş olağanüstü durum kurtarma seçenekleri.
 
-Planlama ve hazırlık basitleştirmek için bu öğeleri hazır yardımcı olması. Ayrıca, önceden planlayın ve iş olağanüstü durum kurtarma (BCDR) gerektiğini örneğinizi oluşturmadan önce akıllıca olur (ve daha sonra değil). Bunun yapılması önceden örneğinizin maximally hazırlanmış sağlamaya yardımcı olur.
+Time Series Insights güncelleştirme Kullandıkça Öde iş modeli kullanır.  Ücretleri ve kapasite hakkında daha fazla bilgi için bkz: [Time Series Insights fiyatlandırması](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
-> [!TIP]
-> Ortamınızı önce ve sonra örneğinizin oluşturmamayı BCDR gereksinimlerinize uyacak şekilde yapılandırın.
+## <a name="the-time-series-insights-preview-environment"></a>Time Series Insights (Önizleme) ortamı
 
-(Önizleme) Azure TSI, Kullandıkça Öde iş modeli kullanır. Ücretleri ve kapasite hakkında daha fazla bilgi için bkz: [Time Series Insights fiyatlandırması](https://azure.microsoft.com/pricing/details/time-series-insights).
+TSI (Önizleme) ortamı sağladığınızda, iki Azure kaynaklarını oluşturun:
+
+* TSI (Önizleme) ortamı
+* Azure depolama genel amaçlı V1 hesabı
+
+Kullanmaya başlamak için üç ek öğeler gerekir.  İlki bir [zaman serisi modeli](./time-series-insights-update-tsm.md), ikinci bir [için zaman serisi görüşleri olay kaynağı bağlı](./time-series-insights-how-to-add-an-event-source-iothub.md), ve üçüncü [olayları Olay kaynağına akan](./time-series-insights-send-events.md) hem de olan modele eşlenen ve geçerli JSON biçimindedir.  
 
 ## <a name="configure-your-time-series-ids-and-timestamp-properties"></a>Zaman serisi kimlikleri ve zaman damgası özelliklerinizi yapılandırın
 
@@ -43,9 +48,9 @@ Yeni bir TSI ortamı oluşturmak için Seç bir **zaman serisi kimliği**. Bunun
 > [!IMPORTANT]
 > **Zaman serisi kimlikleri** olan **değişmez** ve **daha sonra değiştirilemez**. Her son seçim önce doğrulayın ve ilk kullanın.
 
-En fazla seçebileceğiniz **üç** kaynaklarınızı benzersiz olarak ayırt etmek için (3) anahtarları. Okuma [bir zaman serisi kimliği seçmek için en iyi yöntemler](./time-series-insights-update-how-to-id.md) makale daha fazla bilgi için.
+En fazla seçebileceğiniz **üç** kaynaklarınızı benzersiz olarak ayırt etmek için (3) anahtarları. Okuma [bir zaman serisi kimliği seçmek için en iyi yöntemler](./time-series-insights-update-how-to-id.md) ve [depolama ve giriş](./time-series-insights-update-storage-ingress.md) makaleleri daha fazla bilgi için.
 
-İsteğe bağlı her bir olay kaynağı olan **zaman damgası** zamanla izleme olay kaynakları için kullanılan özellik. **Zaman damgası** değerler büyük küçük harfe duyarlıdır ve tek tek her bir olay kaynağı belirtimi için biçimlendirilmiş olması gerekir.
+**Zaman damgası** özelliği de çok önemlidir. Bu özellik, olay kaynakları eklerken belirleyebilirsiniz. İsteğe bağlı her bir olay kaynağı olan **zaman damgası** zamanla izleme olay kaynakları için kullanılan özellik. **Zaman damgası** değerler büyük küçük harfe duyarlıdır ve tek tek her bir olay kaynağı belirtimi için biçimlendirilmiş olması gerekir.
 
 > [!TIP]
 > Olay kaynakları, biçimlendirme ve ayrıştırma gereksinimlerini doğrulayın.
@@ -56,9 +61,9 @@ Boş bırakıldığına **olay sıraya alma süresi** olay kaynağı olay kullan
 
 TSI ortamınızın artık yapılandırabilirsiniz **zaman serisi modeli**. Yeni model bulun ve IOT verilerini analiz etmek kolaylaştırır. Seçki, Bakım ve zaman serisi verilerini iyileştirmesini sağlayarak bunu yapar ve kullanıma hazır veri kümeleri hazırlamak için yardımcı olur. Modeli kullanan **zaman serisi kimlikleri**, benzersiz kaynak hiyerarşileri ve değişkenleri (türleri olarak da bilinir) ile ilişkilendirme örneğine eşleyin. Yeni hakkında okuyun [zaman serisi modeli](./time-series-insights-update-tsm.md).
 
-Oluşturulan için herhangi bir zamanda dinamik bir modeldir. Ancak, oluşturulan ve size TSI veri göndermeye başlamadan önce karşıya daha hızlı bir şekilde kullanmaya başlamak mümkün olacaktır. Modelinizi oluşturmak için gözden [zaman serisi modeli](./time-series-insights-update-tsm.md) makalesi.
+Oluşturulan için herhangi bir zamanda dinamik bir modeldir. Ancak, oluşturulan ve size TSI veri göndermeye başlamadan önce karşıya daha hızlı bir şekilde kullanmaya başlamak mümkün olacaktır. Modelinizi oluşturmak için gözden [TSM kullanmayı](./time-series-insights-update-how-to-tsm.md) makalesi.
 
-Birçok müşteri için bekliyoruz **zaman serisi modeli** bir mevcut varlık modeli veya zaten yerinde ERP sistemi eşlemek için. Mevcut bir model sahip olmayan müşteriler için önceden oluşturulmuş kullanıcı deneyimidir [sağlanan](https://github.com/Microsoft/tsiclient) çalışmaya hızlıca almak için.
+Birçok müşteri için bekliyoruz **zaman serisi modeli** bir mevcut varlık modeli veya zaten yerinde ERP sistemi eşlemek için. Mevcut bir model sahip olmayan müşteriler için önceden oluşturulmuş kullanıcı deneyimidir [sağlanan](https://github.com/Microsoft/tsiclient) çalışmaya hızlıca almak için. Nasıl bir model görüntüleyerek yardımcı olabilecek düşünebilirsiniz bizim [örnek Tanıtım ortamı](https://insights.timeseries.azure.com/preview/demo).  
 
 ## <a name="shaping-your-events"></a>Olaylarınızı şekillendirme
 
@@ -71,7 +76,7 @@ Bir iyi kural karşısında:
   * **Zaman serisi kimliği**
   * **Zaman damgası**
 
-Gözden geçirme [Şekil olayları nasıl](./time-series-insights-update-how-to-shape-events.md) makale daha fazla ayrıntı için.
+Gözden geçirme [Şekil olayları nasıl](./time-series-insights-send-events.md#json) makale daha fazla ayrıntı için.
 
 ## <a name="business-disaster-recovery"></a>İş olağanüstü durum kurtarma
 
@@ -93,7 +98,7 @@ Bunu gerçekleştirmek için belirli adımlar aşağıdaki gibidir:
 
 1. İkinci bir bölgede bir ortam oluşturun. Hakkında bilgi edinin [TSI ortamları](./time-series-insights-get-started.md).
 1. Olay kaynağınız için ikinci bir adanmış bir tüketici grubu oluşturun ve bu olay kaynak yeni ortama bağlanın. İkinci ve adanmış bir tüketici grubu tanımlamak emin olun. Daha fazla bilgi [IOT Hub belgeleri](./time-series-insights-how-to-add-an-event-source-iothub.md) veya [olay hub'ı belgeleri](./time-series-insights-data-access.md).
-1. Bir olağanüstü durum olayı sırasında birincil bölge etkilendiğini, yedekleme TSI ortam işlemleri yeniden yönlendir.
+1. Bir olağanüstü durum olayı sırasında birincil bölge etkilenirse, yedekleme TSI ortam işlemleri yeniden yönlendir.
 
 > [!IMPORTANT]
 > * Bir yük devretme durumunda bir gecikme yaşadı olduğunu unutmayın.
@@ -104,4 +109,4 @@ Bunu gerçekleştirmek için belirli adımlar aşağıdaki gibidir:
 
 Okuma [Azure TSI (Önizleme) depolama ve giriş](./time-series-insights-update-storage-ingress.md).
 
-Yeni hakkında okuyun [zaman serisi modeli](./time-series-insights-update-tsm.md).
+Hakkında bilgi edinin [veri modelleme](./time-series-insights-update-tsm.md).

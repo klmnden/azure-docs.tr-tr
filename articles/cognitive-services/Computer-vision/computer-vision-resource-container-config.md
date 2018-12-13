@@ -1,21 +1,22 @@
 ---
 title: Kapsayıcıları yapılandırma
-titlesuffix: Computer Vision - Cognitive Services - Azure
+titlesuffix: Computer Vision - Azure Cognitive Services
 description: Görüntü işleme kapsayıcıları için yapılandırma ayarları.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 865300f74a74b9768d2d5f5fd532ce9e851b7afb
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f71cbe965e70dfce1b29cf0e5f9ea44faf0a4e27
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964109"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077027"
 ---
 # <a name="configure-containers"></a>Kapsayıcıları yapılandırma
 
@@ -98,7 +99,7 @@ Aşağıdaki tabloda altında desteklenen yapılandırma ayarları açıklanmakt
 > [!IMPORTANT]
 > [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), Ve [ `Eula` ](#eula-configuration-setting) yapılandırma ayarlarını birlikte kullanılır ve üçünü de için geçerli değerler sağlamanız gerekir bunları; Aksi takdirde kapsayıcınızı başlatılamıyor. Bir kapsayıcı örneği oluşturmak için bu yapılandırma ayarlarını kullanma hakkında daha fazla bilgi için bkz. [faturalama](computer-vision-how-to-install-containers.md#billing).
 
-Bilişsel hizmetler kapsayıcılar, Azure kullanımını düzenleyen sözleşmenize altında lisanslanmıştır. Azure kullanımınızı var olan bir anlaşma değilse, Azure'un kullanımını düzenleyen sözleşmenize Microsoft çevrimiçi abonelik (çevrimiçi hizmet koşulları kullanımız) sözleşmesi olduğunu kabul etmiş olursunuz. Önizlemeler için de ek kullanım koşulları için Microsoft Azure önizlemeleri için kabul etmiş olursunuz. Kapsayıcı kullanarak bu koşulları kabul etmiş olursunuz.
+Bilişsel hizmetler kapsayıcıları altında lisanslanır [sözleşmenize](https://go.microsoft.com/fwlink/?linkid=2018657) Azure kullanımınızı. Azure kullanımınızı var olan bir anlaşma değilse, Azure'un kullanımını düzenleyen sözleşmenize olduğunu kabul ediyorum [Microsoft çevrimiçi Abonelik Sözleşmesi](https://go.microsoft.com/fwlink/?linkid=2018755), kullanımımın [çevrimiçi hizmet koşulları ](https://go.microsoft.com/fwlink/?linkid=2018760). Önizlemeler için de kabul [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://go.microsoft.com/fwlink/?linkid=2018815). Kapsayıcı kullanarak bu koşulları kabul etmiş olursunuz.
 
 ## <a name="fluentd-configuration-settings"></a>Fluentd yapılandırma ayarları
 

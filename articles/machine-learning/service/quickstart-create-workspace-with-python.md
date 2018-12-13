@@ -1,5 +1,6 @@
 ---
-title: 'Hızlı Başlangıç: Python Azure Machine Learning hizmeti ile çalışmaya başlama'
+title: 'Hızlı Başlangıç: Python kullanmaya başlayın'
+titleSuffix: Azure Machine Learning service
 description: Python için Azure Machine Learning hizmetinde kullanmaya başlayın. Deneme, eğitmek ve makine öğrenimi modelleri dağıtmak için kullandığınız bulut ıaas'yi bloğunda bir çalışma alanı oluşturmak için Python SDK'sını kullanın.
 services: machine-learning
 ms.service: machine-learning
@@ -9,13 +10,13 @@ ms.reviewer: sgilley
 author: hning86
 ms.author: haining
 ms.date: 12/04/2018
-ms.custom: seodec12
-ms.openlocfilehash: 1a6bb648de251d8764eec52491a918e7cb1de653
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 2ca97275848d87ccc03c7839265f867f9c3c3948
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015390"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073372"
 ---
 # <a name="quickstart-use-python-sdk-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak kullanım Python SDK'sı
 

@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e87cd3742a5dcd52c3a447bb66ea9089c18d5aee
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: MT
+ms.openlocfilehash: e639bd40c877aded1439fe999fcf3f7114b9a727
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214690"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890679"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Veritabanı performansı izleme ve sorun giderme için yapay ZEKA kullanarak akıllı Öngörüler
 
@@ -41,7 +41,7 @@ Akıllı İçgörüler sağlayan aşağıdaki değeri Azure yerleşik zekası, b
 
 Akıllı Öngörüler veritabanı iş yükünden son bir saat son yedi gün temel iş yükü ile karşılaştırarak veritabanı performansı çözümler. Veritabanı iş yükü sorguları en yinelenen ve en büyük sorgular gibi veritabanı performans için en önemli belirlenen oluşur. Her veritabanı alt yapısı, veri, kullanımı ve uygulama göre benzersiz olduğu için oluşturulan her bir iş yükü taban çizgisi tek bir örneği için benzersiz ve özel. Akıllı Öngörüler, iş yükü taban, bağımsız mutlak işletimsel eşikleri izler ve aşırı bekleme süresini, kritik özel durumları ve performansı etkileyebilir sorgu parameterizations sorunları ile ilgili sorunları algılar.
 
-Bir performans düşüşü sorunu yapay zeka kullanarak birden çok gözlemlenen ölçümlerinden algılanmadığında, analiz gerçekleştirilir. Veritabanınız ile neler üzerinde bir akıllı Öngörüler tanılama günlüğü oluşturulur. Akıllı İçgörüler veritabanı performans sorunu çözülene kadar ilk görünümünü izleme kolaylaştırır. Her algılandı. sorunu yaşam döngüsü ile ilk sorunu algılama ve performans iyileştirme doğrulama tamamlanmasını için izlenir. Güncelleştirmeleri, her 15 dakikada tanılama günlüğüne sağlanır.
+Bir performans düşüşü sorunu yapay zeka kullanarak birden çok gözlemlenen ölçümlerinden algılanmadığında, analiz gerçekleştirilir. Veritabanınız ile neler üzerinde bir akıllı Öngörüler tanılama günlüğü oluşturulur. Akıllı İçgörüler veritabanı performans sorunu çözülene kadar ilk görünümünü izleme kolaylaştırır. Her algılandı. sorunu yaşam döngüsü ile ilk sorunu algılama ve performans iyileştirme doğrulama tamamlanmasını için izlenir.
 
 ![Veritabanı Performans Analizi iş akışı](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)
 
@@ -87,7 +87,7 @@ Azure SQL Analytics çözümünü grafik kullanıcı arabirimi, raporlama ve uya
 > Hızlı Başlangıç: Azure SQL Analytics, veritabanı performans sorunlarını grafik kullanıcı arabirimi sağlayan birlikte kullanmak için Intelligent Insights'ı kullanarak hızlı bir başlangıç kapalı almak için en kolay yolu olan. Azure SQL Analytics çözümünü marketten ekleyin, bu çözüm içindeki bir çalışma alanı oluşturun ve üzerinde Intelligent Insights'ı etkinleştirmek istediğiniz her veritabanı için bir veritabanı için tanılama ayarları dikey penceresindeki "SQLInsights" günlük akışını yapılandırın Azure SQL Analytics çalışma alanı.
 >
 
-Ön gereksinim olan Azure SQL Analytics marketten Azure portalı panonuza eklenir ve bir çalışma alanı oluşturmak için bkz. [Azure SQL Analytics yapılandırın](../log-analytics/log-analytics-azure-sql.md#configuration)
+Ön gereksinim olan Azure SQL Analytics marketten Azure portalı panonuza eklenir ve bir çalışma alanı oluşturmak için bkz. [Azure SQL Analytics yapılandırın](../azure-monitor/insights/azure-sql.md#configuration)
 
 Akıllı İçgörüler Azure SQL Analytics ile kullanmak için önceki adımda oluşturduğunuz Azure SQL Analytics çalışma alanına akışını Intelligent Insights günlük verilerini yapılandırma Bkz [Azure SQL veritabanı ölçümleri ve tanılama günlüğü](sql-database-metrics-diag-logging.md).
 
@@ -179,5 +179,5 @@ Akıllı İçgörüler günlük dönemdeki hatalı istek sayısı çıkarır. Bu
 
 - Bilgi edinmek için nasıl [akıllı Öngörüler ile SQL veritabanı performans sorunlarını giderme](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Kullanım [Intelligent Insights SQL veritabanı performans tanılama günlüğü](sql-database-intelligent-insights-use-diagnostics-log.md).
-- Bilgi edinmek için nasıl [SQL Analytics kullanarak SQL veritabanını İzle](../log-analytics/log-analytics-azure-sql.md).
+- Bilgi edinmek için nasıl [SQL Analytics kullanarak SQL veritabanını İzle](../azure-monitor/insights/azure-sql.md).
 - Bilgi edinmek için nasıl [toplamak ve Azure kaynaklarınızdan günlük verilerini kullanma](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).

@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: aahi
-ms.openlocfilehash: 81513819fd60dc088c2ed4a781562684c84e803a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: dec903d8557145701e06ddd588a58eb11fef96f5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415483"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879324"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Translator konuşma API'sini konuşma Service'a dönüştürme
 
@@ -45,7 +45,7 @@ Microsoft Translator konuşma tanıma API'si için uygulamalarınızı geçirmek
 | Zamanlama bilgisi                                       | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                 |
 | Bağıntı Kimliği                                    | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
 | Özel konuşma modelleri                              | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Konuşma hizmeti, konuşma tanıma, kuruluşunuzun benzersiz kelime için özelleştirmenize olanak sağlayan özel konuşma modeli sunar.                                                                                                                                           |
-| Özel çeviri modellerini                         | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Microsoft metin çevirisi API'sine abone kullanmanıza olanak sağlar [özel Translator](https://www.microsoft.com/translator/business/customization/) (için daha doğru çevirileri kendi verilerinizi kullanmak için şu anda Önizleme).                                                 |
+| Özel çeviri modellerini                         | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Microsoft metin çevirisi API'sine abone kullanmanıza olanak sağlar [özel Translator](https://www.microsoft.com/translator/business/customization/) için daha doğru çevirileri kendi verilerinizi kullanmak için.                                                 |
 
 ## <a name="migration-strategies"></a>Geçiş stratejileri
 

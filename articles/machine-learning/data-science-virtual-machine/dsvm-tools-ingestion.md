@@ -1,11 +1,12 @@
 ---
-title: Veri bilimi sanal makine veri alım araçları - Azure | Microsoft Docs
-description: Veri bilimi sanal makine veri alım araçları
-keywords: Veri bilimi araçları, veri bilimi sanal makine, veri bilimi, linux veri bilimi için Araçlar
+title: Veri bilimi sanal makinesi veri alma araçları - Azure | Microsoft Docs
+description: Veri bilimi sanal makinesi, önceden yüklenmiş yardımcı programları ve veri alma araçları hakkında bilgi edinin.
+keywords: veri bilimi araçları, veri bilimi sanal makinesi, veri bilimi için araçlar, linux veri bilimi
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,39 +16,39 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 7aeb0476fffb8c9e5cf2b0b5d89a2a387bd6364a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 75f068a857be33337348958fbc472f37f6d84e12
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411354"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075868"
 ---
-# <a name="data-science-virtual-machine-data-ingestion-tools"></a>Veri bilimi sanal makine veri alım araçları
+# <a name="data-science-virtual-machine-data-ingestion-tools"></a>Veri bilimi sanal makinesi veri alma araçları
 
-Bir veri bilimi veya AI projesini ilk teknik adımlarını kullanılması ve bunları analytics ortamınıza hale getirmek için veri kümeleri belirlemektir. Veri bilimi sanal makine (DSVM) araçları ve Bulut veya şirket içi DSVM yerel olarak veya bir veri platformu analitik veri depolama alanına farklı kaynaklardan veri getirmek için kitaplıkları sağlar. 
+Bir veri bilimi veya AI proje teknik ilk adımlar ve bunları analiz ortamınıza Getir veri kümeleri belirlemektir. Araçlar ve kitaplıklar Bulut veya şirket içi bir analitik veri deposu DSVM üzerinde yerel olarak veya bir veri platformu farklı kaynaklardan verileri getirmek için veri bilimi sanal makinesi (DSVM) sağlar. 
 
-Burada, üzerinde DSVM sağladık bazı veri taşıma araçları bulunmaktadır. 
+DSVM'nin sağladık bazı veri taşıma araçları şunlardır. 
 
 ## <a name="adlcopy"></a>AdlCopy
 
 |    |           |
 | ------------- | ------------- |
-| Nedir?   | Verileri Azure storage bloblarından Azure Data Lake Store kopyalamak için bir araç. Ayrıca, iki Azure Data Lake Store hesapları arasında verileri de kopyalayabilirsiniz.      |
+| Nedir?   | Azure Data Lake Store ile Azure depolama bloblarından veri kopyalamak için bir araç. Ayrıca, verileri iki Azure Data Lake Store hesapları arasında da kopyalayabilirsiniz.      |
 | Desteklenen DSVM sürümleri      | Windows      |
-| Tipik kullanır      | Birden çok BLOB'ları Azure depolama biriminden Azure Data Lake Store aktarma.      |
-|  Kullanın / çalıştırmak için nasıl?    |   Bir komut istemi açın yazın `adlcopy` Yardım almak için.    |
-| Örnekleri bağlantılar      | [AdlCopy’yi kullanma](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Tipik kullanımları      | Birden çok BLOB'ları, Azure Data Lake Store ile Azure depolama alanından içeri aktarılıyor.      |
+|  Kullanma / çalıştırın nasıl?    |   Bir komut istemi açın yazın `adlcopy` Yardım almak için.    |
+| Örneklere bağlantılar      | [AdlCopy’yi kullanma](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | DSVM ilgili araçları      | AzCopy, Azure komut satırı     |
 
 ## <a name="azure-command-line"></a>Azure komut satırı
 
 |    |           |
 | ------------- | ------------- |
-| Nedir?   | Azure için bir yönetim aracı. Ayrıca Azure storage bloblarında, Azure Data Lake Storage gibi Azure veri platformlarda sunucudan veri taşımak için komutu fiiller içerir     |
+| Nedir?   | Azure için bir yönetim aracı. Ayrıca, verileri Azure depolama blobları, Azure Data Lake depolama gibi Azure veri platformları taşıma için komut fiilleri içerir     |
 | Desteklenen DSVM sürümleri      | Windows, Linux     |
-| Tipik kullanır      | İçeri aktarma, verileri Azure storage, Azure Data Lake Store gelen ve dışarı aktarma      |
-|  Kullanın / çalıştırmak için nasıl?    |   Bir komut istemi açın yazın `az` Yardım almak için.    |
-| Örnekleri bağlantılar      | [Azure CLI’yi kullanma](https://docs.microsoft.com/cli/azure)     |
+| Tipik kullanımları      | Azure depolama, Azure Data Lake Store gelen ve giden verileri dışarı aktarma, alma      |
+|  Kullanma / çalıştırın nasıl?    |   Bir komut istemi açın yazın `az` Yardım almak için.    |
+| Örneklere bağlantılar      | [Azure CLI’yi kullanma](https://docs.microsoft.com/cli/azure)     |
 | DSVM ilgili araçları      | AzCopy, AdlCopy      |
 
 
@@ -55,11 +56,11 @@ Burada, üzerinde DSVM sağladık bazı veri taşıma araçları bulunmaktadır.
 
 |    |           |
 | ------------- | ------------- |
-| Nedir?   | Ve yerel dosyaları, Azure storage bloblarında, dosyaları ve tablolarından veri kopyalamak için bir araç.      |
+| Nedir?   | Yerel dosyaları, Azure depolama blobları, dosyalar ve tablolar ve veri kopyalamak için bir araç.      |
 | Desteklenen DSVM sürümleri      | Windows      |
-| Tipik kullanır      | Blob depolama alanına dosyaları kopyalama, hesapları arasında BLOB kopyalama.      |
-|  Kullanın / çalıştırmak için nasıl?    |   Bir komut istemi açın yazın `azcopy` Yardım almak için.    |
-| Örnekleri bağlantılar      | [Windows üzerinde AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
+| Tipik kullanımları      | Dosyaları blob depolama alanına kopyalama, hesapları arasında BLOB'ları kopyalanıyor.      |
+|  Kullanma / çalıştırın nasıl?    |   Bir komut istemi açın yazın `azcopy` Yardım almak için.    |
+| Örneklere bağlantılar      | [Windows üzerinde AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
 | DSVM ilgili araçları      | AdlCopy     |
 
 
@@ -67,11 +68,11 @@ Burada, üzerinde DSVM sağladık bazı veri taşıma araçları bulunmaktadır.
 
 |    |           |
 | ------------- | ------------- |
-| Nedir?   | JSON dosyaları, CSV dosyaları, Azure Cosmos DB SQL, MongoDB, Azure Table storage, Amazon DynamoDB ve Azure Cosmos DB SQL API koleksiyonlara dahil olmak üzere çeşitli kaynaklardan veri almak için aracı.      |
+| Nedir?   | JSON dosyaları, CSV dosyaları, Azure Cosmos DB SQL, MongoDB, Azure tablo depolama, Amazon DynamoDB ve Azure Cosmos DB SQL API koleksiyonlara dahil olmak üzere çeşitli kaynaklardan veri almak için aracı.      |
 | Desteklenen DSVM sürümleri      | Windows      |
-| Tipik kullanır      | Dosyaları bir VM'den veri CosmosDB için Azure tablo depolamasından içeri aktarma veya CosmosDB için bir SQL Server veritabanından veri alma CosmosDB içeri aktarılıyor.     |
-|  Kullanın / çalıştırmak için nasıl?    |   Komut satırını kullanmak için sürüm, açık bir komut istemi yazın `dt`. GUI aracı'nı kullanmak için bir komut istemi açın yazın `dtui`.    |
-| Örnekleri bağlantılar      | [Veri CosmosDB Al](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
+| Tipik kullanımları      | Dosya adı CosmosDB olarak Azure tablo Depolama'dan veri aktarma veya adı CosmosDB olarak bir SQL Server veritabanından veri almayı CosmosDB için bir sanal makineden içeri aktarılıyor.     |
+|  Kullanma / çalıştırın nasıl?    |   Komut satırında kullanmak için açık bir komut istemi sürümünü yazın `dt`. GUI aracını kullanmak için bir komut istemi açın yazın `dtui`.    |
+| Örneklere bağlantılar      | [Verileri CosmosDB İçeri Aktar](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | DSVM ilgili araçları      | AzCopy, AdlCopy      |
 
 
@@ -81,20 +82,20 @@ Burada, üzerinde DSVM sağladık bazı veri taşıma araçları bulunmaktadır.
 | ------------- | ------------- |
 | Nedir?   | SQL Server ve bir veri dosyası arasında veri kopyalamak için SQL Server Aracı'nı tıklatın.      |
 | Desteklenen DSVM sürümleri      | Windows      |
-| Tipik kullanır      | Bir SQL Server tablosuna bir dosyaya dışa aktarma, bir SQL Server tabloya bir CSV dosyası alınıyor.      |
-|  Kullanın / çalıştırmak için nasıl?    |   Bir komut istemi açın yazın `bcp` Yardım almak için.    |
-| Örnekleri bağlantılar      | [Toplu kopyalama yardımcı programı](https://docs.microsoft.com/sql/tools/bcp-utility)      |
+| Tipik kullanımları      | SQL Server tablosunu bir dosyaya dışarı aktarma, bir SQL Server tabloya bir CSV dosyasını içeri.      |
+|  Kullanma / çalıştırın nasıl?    |   Bir komut istemi açın yazın `bcp` Yardım almak için.    |
+| Örneklere bağlantılar      | [Toplu kopyalama yardımcı](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | DSVM ilgili araçları      | SQL Server'ı sqlcmd      |
 
-## <a name="blobfuse"></a>blobfuse
+## <a name="blobfuse"></a>Blobfuse
 
 |    |           |
 | ------------- | ------------- |
 | Nedir?   | Linux dosya sisteminde bir Azure blob kapsayıcısı bağlamak için bir araç.      |
 | Desteklenen DSVM sürümleri      | Linux      |
-| Tipik kullanır      | Okuma ve BLOB'ları bir kapsayıcıda yazma      |
-|  Kullanın / çalıştırmak için nasıl?    |   Çalıştırma _blobfuse_ bir terminal adresindeki.    |
-| Örnekleri bağlantılar      | [github'da blobfuse](https://github.com/Azure/azure-storage-fuse)      |
+| Tipik kullanımları      | Bir kapsayıcıdaki blobları yazma ve okuma      |
+|  Kullanma / çalıştırın nasıl?    |   Çalıştırma _blobfuse_ bir terminal konumunda.    |
+| Örneklere bağlantılar      | [github'da blobfuse](https://github.com/Azure/azure-storage-fuse)      |
 | DSVM ilgili araçları      | Azure komut satırı      |
 
 
@@ -102,9 +103,9 @@ Burada, üzerinde DSVM sağladık bazı veri taşıma araçları bulunmaktadır.
 
 |    |           |
 | ------------- | ------------- |
-| Nedir?   | Bağlanmak için bir aracı bulut hizmetlerine tüketimi için veri kaynakları şirket içi.      |
+| Nedir?   | Bağlanmak için bir aracı veri kaynakları, bulut hizmetlerine tüketim için şirket içi.      |
 | Desteklenen DSVM sürümleri      | Windows      |
-| Tipik kullanır      | VM bir şirket içi veri kaynağına bağlanma.      |
-|  Kullanın / çalıştırmak için nasıl?    |   "Microsoft Veri Yönetimi ağ geçidi" Başlat menüsünden başlatın.    |
-| Örnekleri bağlantılar      | [Veri Yönetimi Ağ Geçidi](https://msdn.microsoft.com/library/dn879362.aspx)      |
+| Tipik kullanımları      | Bir VM, bir şirket içi veri kaynağına bağlanma.      |
+|  Kullanma / çalıştırın nasıl?    |   "Microsoft Veri Yönetimi ağ geçidi" Başlat Menüsü'nden başlatın.    |
+| Örneklere bağlantılar      | [Veri Yönetimi Ağ Geçidi](https://msdn.microsoft.com/library/dn879362.aspx)      |
 | DSVM ilgili araçları      | AzCopy, AdlCopy, bcp    |

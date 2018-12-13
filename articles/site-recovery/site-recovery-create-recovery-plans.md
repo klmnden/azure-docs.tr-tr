@@ -1,17 +1,18 @@
 ---
 title: Oluşturma ve Azure Site Recovery ile olağanüstü durum kurtarma için kurtarma planlarını özelleştirme | Microsoft Docs
 description: Oluşturma ve Azure Site Recovery hizmetini kullanarak olağanüstü durum kurtarma için kurtarma planları özelleştirme hakkında bilgi edinin.
+author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: aed37195f352719f3363992e4cee1e339e6e6056
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 85e649f3065d7f8d601541bbac6e93f4b2a0dc85
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835599"
+ms.locfileid: "52878686"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Oluşturma ve kurtarma planlarını özelleştirme
 
@@ -42,7 +43,7 @@ Bu makalede oluşturma ve bir kurtarma planındaki özelleştirme [Azure Site Re
 
 ## <a name="add-a-group-to-a-plan"></a>Bir plana bir grubu Ekle
 
-Ek grupları oluşturun ve bu makine, farklı gruplara ekleyebilirsiniz, böylece bir grubu tarafından Gru temelinde farklı davranış belirtebilirsiniz. Örneğin, bir gruptaki makinelerin yük devretme işleminden sonra Başlat veya grup başına özelleştirilmiş eylemleri belirtin, belirtebilirsiniz.
+Ek grupları oluşturun ve bu makine, farklı gruplara ekleyebilirsiniz, böylece bir grubu tarafından temelinde farklı davranış belirtebilirsiniz. Örneğin, bir gruptaki makinelerin yük devretme işleminden sonra Başlat veya grup başına özelleştirilmiş eylemleri belirtin, belirtebilirsiniz.
 
 1. İçinde **kurtarma planları**, plan sağ tıklayın > **Özelleştir**. Varsayılan olarak, bir plan oluşturduktan sonra tüm ona eklediğiniz makineleri varsayılan Grup 1 bulunur.
 2. Tıklayın **+ grup**. Varsayılan olarak yeni bir grup eklenmiş sırada numaralandırılmıştır. En fazla yedi grubunuz olabilir.

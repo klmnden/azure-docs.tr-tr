@@ -7,19 +7,19 @@ services: time-series-insights
 ms.service: time-series-insights
 author: kingdomofends
 ms.author: adgera
-ms.date: 11/21/2018
-ms.openlocfilehash: 8d8c6c9a6a4262cae966521ae942c55bcb325abd
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 11/30/2018
+ms.openlocfilehash: b800882f9a841c88d6c242faae0d18df752fc0ab
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52852996"
+ms.locfileid: "52883319"
 ---
-## <a name="private-preview-time-series-insights-update-documents"></a>Özel önizleme zaman serisi öngörüleri güncelleştirme belgeler
+## <a name="azure-time-series-insights-preview-documents"></a>Azure Time Series Insights (Önizleme) belgeleri
 
-* [Özel önizleme Gezgini](../articles/time-series-insights/time-series-insights-update-tsm.md)
-* [Özel önizleme depolama ve giriş](../articles/time-series-insights/time-series-insights-update-storage-ingress.md)
-* [Özel önizleme TSM](../articles/time-series-insights/time-series-insights-update-tsm.md)
-* [Özel önizleme TSQ](../articles/time-series-insights/time-series-insights-update-tsm.md)
-* [Özel önizleme TSI Javascript SDK'sı](../articles/time-series-insights/time-series-insights-update-tsm.md)
-* [Özel önizleme sağlama](../articles/time-series-insights/time-series-insights-update-tsm.md)
+* [Önizleme Gezgini](../articles/time-series-insights/time-series-insights-update-explorer.md)
+* [Önizleme depolama ve giriş](../articles/time-series-insights/time-series-insights-update-storage-ingress.md)
+* [Önizleme veri modelleme](../articles/time-series-insights/time-series-insights-update-tsm.md)
+* [Önizleme verileri Sorgulama](../articles/time-series-insights/time-series-insights-update-tsq.md)
+* [Önizleme TSI Javascript SDK'sı](../articles/time-series-insights/tutorial-explore-js-client-lib.md)
+* [Önizleme sağlama](../articles/time-series-insights/time-series-insights-update-create-environment.md)

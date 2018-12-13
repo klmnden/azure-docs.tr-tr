@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 15b7dce5af984e4eb719024368479df1b5c8320a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e866b205fb5cdd65dc690101503613714271e36c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53010969"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075361"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Azure Cosmos kapsayıcılar ve veritabanları sağlama aktarım hızı
 
@@ -21,7 +21,7 @@ Azure Cosmos DB aktarım hızı iki ayrıntı düzeylerinde - yapılandırmanız
 
 ## <a name="setting-throughput-on-a-container"></a>Bir kapsayıcısında aktarım hızını ayarlama  
 
-Bir Azure Cosmos kapsayıcı sağlanan işleme için kapsayıcı özel olarak ayrılmış. Kapsayıcı, sağlanan aktarım hızı her zaman alır. Bir kapsayıcı sağlanan aktarım hızını finansal SLA'ları tarafından desteklenmektedir. Bir kapsayıcıdaki aktarım hızı yapılandırmak için bkz [nasıl sağlanacağı bir Azure Cosmos kapsayıcısında aktarım hızını](how-to-provision-container-throughput.md).
+Bir Azure Cosmos kapsayıcıdaki sağlanmış olan aktarım hızı için kapsayıcı özel olarak ayrılmış. Kapsayıcı, sağlanan aktarım hızı her zaman alır. Bir kapsayıcı sağlanan aktarım hızını finansal SLA'ları tarafından desteklenmektedir. Bir kapsayıcıdaki aktarım hızı yapılandırmak için bkz [nasıl sağlanacağı bir Azure Cosmos kapsayıcısında aktarım hızını](how-to-provision-container-throughput.md).
 
 Bir kapsayıcı sağlanan aktarım hızı ayarlama yaygın olarak kullanılan bir seçenektir. Herhangi bir miktarda işleme (RU) sağlayarak bir kapsayıcının aktarım hızını esnek olarak ölçeklendirebilirsiniz, ancak mantıksal bölümleri için aktarım hızı seçmeli olarak belirtemezsiniz. Mantıksal bölüm üzerinde çalışan bir iş yükünü birden çok belirli mantıksal bölüm için ayrılan aktarım hızı tüketir, işlemlerinizin oranı sınırlı alırsınız. Hız sınırlama ortaya çıktığında, kapsayıcının tamamı verimliliğini artırmak veya işlemi yeniden deneyin. Bölümleme hakkında daha fazla bilgi için bkz: [mantıksal bölümler](partition-data.md).
 
@@ -67,7 +67,7 @@ Bir veritabanı için sağlanan işleme paylaşımı birden çok mantıksal böl
 
 |**Kota**  |**Bir veritabanı üzerinde sağlanan aktarım hızı**  |**Bir kapsayıcı sağlanan aktarım hızı**|
 |---------|---------|---------|
-|En az ru |400 |400|
+|En az ru |400 (sonra ilk dört kapsayıcılar, her ek kapsayıcı en az 100 RU/sn gerektirir.) |400|
 |Kapsayıcı başına en az ru|100|400|
 |1 GB depolama alanı kullanmak için gereken en düşük ru|40|40|
 |En fazla ru|Veritabanında sınırsız|Kapsayıcıda sınırsız|

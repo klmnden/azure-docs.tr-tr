@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 947a39a3660e0755efbf99b74b66d2c16e331e07
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 29bb495bbbd56ab39964b34db35fb4d222a60179
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837061"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074704"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB SQL API hesabı ile Jeo-uzamsal ve GeoJSON konum verileri kullanın
 
@@ -305,7 +305,7 @@ Benzer şekilde, belirtilen kutusu/Çokgen içinde "Konum" olan belgeleri bulmak
 Biz LINQ ve SQL kullanarak belgeleri sorgulama işlemini Anlamadıysanız ayırdıktan sonra Azure Cosmos DB, uzamsal dizin oluşturma için yapılandırmak nasıl bir göz atalım.
 
 ## <a name="indexing"></a>Dizinleme
-İçinde açıklandığı [belirsiz şema dizinini Azure Cosmos DB ile](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) kağıt tasarladığımız Azure Cosmos DB'nin Veritabanı Altyapısı'olacak şekilde gerçekten şemadan ve JSON için birinci sınıf destek sağlar. Azure Cosmos DB, yazma için iyileştirilmiş veritabanı altyapısı GeoJSON standart olarak temsil edilen uzamsal veriler (noktaları, çokgenler ve satırları) yerel olarak anlıyor.
+İçinde açıklandığı [belirsiz şema dizinini Azure Cosmos DB ile](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) kağıt tasarladığımız Azure Cosmos DB'nin Veritabanı Altyapısı'olacak şekilde gerçekten şemadan ve JSON için birinci sınıf destek sağlar. Azure Cosmos DB, yazma için iyileştirilmiş veritabanı altyapısı GeoJSON standart olarak temsil edilen uzamsal veriler (noktaları, çokgenler ve satırları) yerel olarak anlıyor.
 
 Buna koysalar geometri öngörülen günlerdeki 2B düzlemine üzerine geodetic koordinatları sonra kullanarak hücrelere aşamalı olarak bölünmüş bir **quadtree**. Bu hücre içinde hücrenin konumuna bağlı olarak 1b eşlenir bir **Hilbert boşluk doldurma eğri**, yerleşim yeri noktalarının korur. Konum verileri dizine, ayrıca, bilinen bir işlemle gerekmesi **Mozaik döşeme**, diğer bir deyişle, bir konuma kesişen tüm hücreler tanımlanır ve Azure Cosmos DB dizini anahtar olarak depolanır. Sorgu zamanında noktaları ve Çokgenleri gibi bağımsız değişkenleri ayrıca ilgili hücre kimliği aralıkları ayıklamak için grubun Mozaik ve dizinden veri almak için kullanılır.
 
@@ -389,7 +389,7 @@ Ve İşte bir mevcut koleksiyonu içindeki belgeler depolanan tüm noktaları ü
 Azure Cosmos DB'de Jeo-uzamsal destek kullanmaya başlamak öğrendiniz, sonra şunları yapabilirsiniz:
 
 * İle kodlamaya başlayın [github'da Jeo-uzamsal .NET kodu örnekleri](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
-* Jeo-uzamsal, sorgulama ile yaşayın [Azure Cosmos DB sorgu oyun alanı](http://www.documentdb.com/sql/demo#geospatial)
+* Jeo-uzamsal, sorgulama ile yaşayın [Azure Cosmos DB sorgu oyun alanı](https://www.documentdb.com/sql/demo#geospatial)
 * Daha fazla bilgi edinin [Azure Cosmos DB sorgusu](how-to-sql-query.md)
 * Daha fazla bilgi edinin [Azure Cosmos DB dizinleme ilkeleri](index-policy.md)
 

@@ -1,25 +1,24 @@
 ---
-title: Azure CLI kullanarak Azure Cosmos DB kaynaklarını yönetme | Microsoft Docs
+title: Azure CLI kullanarak Azure Cosmos DB kaynaklarını yönetme
 description: Azure CLI, Azure Cosmos DB hesabı, veritabanı ve kapsayıcıları yönetmek için kullanın.
 services: cosmos-db
 author: markjbrown
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: mjbrown
-ms.openlocfilehash: 3446f4f71349d0b7290a2514edf46efb37203324
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d79cae16c109b407840b8565eb80fb87bbed6432
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019341"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877556"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-cli"></a>Azure CLI kullanarak Azure Cosmos DB kaynaklarını yönetme
 
 Aşağıdaki kılavuzda, Azure Cosmos DB hesapları, veritabanları ve Azure CLI kullanarak kapsayıcı yönetimini otomatikleştirmek için komutları açıklanır. Ayrıca, kapsayıcının aktarım hızını ölçeklendirme komutları içerir. Tüm Azure Cosmos DB CLI komutlarına ait başvuru sayfalarına [Azure CLI Başvurusu](https://docs.microsoft.com/cli/azure/cosmosdb) sayfasından erişilebilir. Daha fazla örnekleri de bulabilirsiniz [Azure Cosmos DB için Azure CLI örnekleri](cli-samples.md), oluşturma ve Cosmos DB hesapları, veritabanları ve kapsayıcılar, MongoDB, Gremlin, Cassandra ve tablo API'si için yönetme de dahil olmak üzere.
 
-Bu örnek CLI betiği, bir Azure Cosmos DB SQL API hesabı, veritabanı ve kapsayıcı oluşturur.  
+Bu örnek CLI betiği, Azure Cosmos DB SQL API hesabı, veritabanı ve kapsayıcısı oluşturur.  
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

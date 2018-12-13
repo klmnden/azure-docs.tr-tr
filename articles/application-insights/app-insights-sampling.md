@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/02/2018
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: d9dfedd89e362f12f97d0106f3e56d465a89bb76
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 103f4b10d5fbb7fbcf9c3721a82fe4075abe0dc4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723867"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877624"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights’ta örnekleme
 
@@ -34,7 +34,7 @@ ms.locfileid: "52723867"
 * Örnekleme el ile de ayarlayabilirsiniz Bu, ya da portal kullanımı ve Tahmini maliyetler sayfasında; veya .config dosyasında; ASP.NET SDK'sı ya da ağ trafiğini azaltmak için Java SDK Applicationınsights.xml dosyasındaki.
 * Özel olay günlükleri kaydetmek ve bir etkinlik kümesi tutulur veya birlikte iptal olduğunu emin olmak istiyorsanız aynı Operationıd değere sahip olduğunuzdan emin olun.
 * Örnekleme bölen *n* özelliğinde her bir kayıttaki bildirilen `itemCount`, arama göründüğü kolay ad "istek sayısı" veya "olayı sayısı" altında. Örnekleme, işlem olmadığında `itemCount==1`.
-* Analytics sorguları yazma durumunda [örnekleme, hesaba](../log-analytics/query-language/aggregations.md). Özellikle, kayıtları yalnızca Sayım yerine kullanmalısınız `summarize sum(itemCount)`.
+* Analytics sorguları yazma durumunda [örnekleme, hesaba](../azure-monitor/log-query/aggregations.md). Özellikle, kayıtları yalnızca Sayım yerine kullanmalısınız `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Örnekleme türleri
 Üç alternatif örnekleme yöntemi vardır:

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Premium sürümüne kaydolma | Microsoft Docs
-description: Azure Active Directory Premium sürümlerine kayıt işlemiyle ilgili adım adım yönergeler.
+title: Azure Active Directory premium sürümleri için - kaydolun | Microsoft Docs
+description: Azure Active Directory Premium sürümleri için kaydolma hakkında yönergeler.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.custom: it-pro
-ms.openlocfilehash: a0a992e62e7b1e375ff2591aa82bdc7733e9d26f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
-ms.translationtype: HT
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 23778a56cfa6440442bd7aab67c5441094a633ae
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394706"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074001"
 ---
-# <a name="how-to-sign-up-for-azure-active-directory-premium"></a>Nasıl yapılır: Azure Active Directory Premium’a kaydolma
-Azure Active Directory (Azure AD) Premium ürününü satın alabilir ve bunu Azure aboneliğinizle ilişkilendirebilirsiniz. Yeni bir Azure aboneliği oluşturmanız gerekiyorsa, lisans planınızı ve Azure AD hizmeti erişimini etkinleştirmeniz gerekir.
+# <a name="sign-up-for-azure-active-directory-premium-editions"></a>Azure Active Directory Premium sürümleri için kaydolun
+Satın alma ve Azure Active Directory (Azure AD) Premium sürümleri, Azure aboneliğinizle ilişkilendirin. Yeni bir Azure aboneliği oluşturmanız gerekiyorsa, lisans planınızı ve Azure AD hizmeti erişimini etkinleştirmeniz gerekir.
 
 > [!NOTE]
 >Azure AD Premium ve Temel sürümleri, Azure Active Directory'nin dünya çapındaki örneğini kullanan Çin'deki müşterilerin kullanımına sunulmuştur. Azure AD Premium ve Temel sürümleri, şu anda Çin’de 21Vianet tarafından işletilen Azure hizmeti kapsamında desteklenmemektedir. Daha fazla bilgi için [Azure Active Directory Forumu](https://feedback.azure.com/forums/169401-azure-active-directory/)’nu kullanarak bizimle görüşün.

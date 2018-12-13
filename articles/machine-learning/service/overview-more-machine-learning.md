@@ -1,5 +1,5 @@
 ---
-title: Microsoft - Azure makine öğrenmesi ürün seçeneklerini karşılaştırma | Microsoft Docs
+title: Machine learning Microsoft Ürün seçeneklerini karşılaştırın
 description: Makine öğrenmesi modellerinizi derlemek, dağıtmak ve yönetmek için Microsoft’un sunduğu ürün çeşitlerini karşılaştırın. Çözümünüz için hangi ürünün seçileceğine karar verin.
 services: machine-learning
 ms.service: machine-learning
@@ -8,36 +8,36 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 09/24/2018
-ms.openlocfilehash: 182504373795b3cb0f2794acbed5e253ac6bc95c
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.date: 12/04/2018
+ms.openlocfilehash: a778a371e28b0406d43aa07bbc0c0c039654f7b9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419568"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073780"
 ---
-# <a name="what-are-the-machine-learning-product-options-from-microsoft"></a>Microsoft tarafından sunulan makine öğrenmesi ürün seçenekleri nelerdir?
+# <a name="what-are-the-machine-learning-products-at-microsoft"></a>Microsoft'ta makine öğrenimi ürünlerini nelerdir?
 
 Makine öğrenmesi modellerinizi derlemek, dağıtmak ve yönetmek için Microsoft çeşitli ürün seçenekleri sağlar. Bu ürünleri karşılaştırın ve makine öğrenmesi çözümlerinizi en verimli şekilde geliştirmek için size gerekeni seçin.
 
 | Makine öğrenmesi ürünü | Nedir? | Bununla neler yapabilirsiniz? |
 |-|-|-|
-| Bulutta | | |
+| ***Bulutta*** | | |
 | [Azure Machine Learning hizmeti](#azure-machine-learning-services) | ML için yönetilen bulut hizmeti  | Python ve CLI kullanarak Azure’da modelleri eğitme, dağıtma ve yönetme |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio) | ML için sürükleyip bırakma görsel arabirimi | Önceden yapılandırılmış algoritmaları kullanarak modelleri derleme, deneme ve dağıtma |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Sürükleme&ndash;ve&ndash;ML için görsel arabirim bırakma | Önceden yapılandırılmış algoritmaları kullanarak modelleri derleme, deneme ve dağıtma |
 | [Azure Databricks](#azure-databricks) | Spark tabanlı analiz platformu | Modelleri ve veri iş akışlarını derleme ve dağıtma |
 | [Azure Bilişsel Hizmetler](#azure-cognitive-services) | Önceden derlenmiş AI ve ML modellerine sahip Azure hizmetleri | Uygulamalarınıza akıllı özellikleri kolayca ekleme |
 | [Azure Veri Bilimi Sanal Makinesi](#azure-data-science-virtual-machine) | Önceden yüklenmiş veri bilimi araçlarına sahip sanal makine | Önceden yapılandırılmış bir ortamda ML çözümleri geliştirme |
-| Şirket içi | | |
+| ***Şirket içi***<br>*(sunucular, bulutta bir sanal makinede de çalıştırılabilir şirket içinde)* | | |
 | [SQL Server Machine Learning Hizmetleri](#sql-server-machine-learning-services) | SQL'e eklenen analiz altyapısı | SQL Server içinde modelleri derleme ve dağıtma |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Tahmin analizi için tek başına kurumsal sunucu | R ve Python ile modelleri derleme ve dağıtma |
-| Geliştirici araçları | | |
+| ***Geliştirici Araçları*** | | |
 | [ML.NET](#mlnet) | Açık kaynak, platformlar arası ML SDK'sı | .NET uygulamaları için ML çözümlerini geliştirme |
 | [Windows ML](#windows-ml) | Windows 10 ML platformu | Windows 10 cihazlarında eğitilen modelleri değerlendirme |
 
 ## <a name="azure-machine-learning-service"></a>Azure Machine Learning hizmeti
 
-[Azure Machine Learning hizmeti](overview-what-is-azure-ml.md) (önizleme), her ölçekte ML modellerini eğitmek, dağıtmak ve yönetmek için kullanılan, tümüyle yönetilen bir bulut hizmetidir. Açık kaynak teknolojilerini tamamen destekler, bu nedenle TensorFlow, PyTorch ve scikit-learn gibi açık kaynak Python paketlerinin on binlercesini kullanabilir. Verileri bulup dönüştürmeyi, sonra da modelleri eğitmeyi ve dağıtmayı kolaylaştırmak için [Azure notebooks](https://notebooks.azure.com/), [Jupyter notebooks](http://jupyter.org) veya [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) gibi zengin araçlar da sağlanır. Azure Machine Learning hizmeti kolaylık, verimlilik ve doğrulukla model oluşturma ve ayarlama işlemini otomatik hale getiren özellikler içerir.
+[Azure Machine Learning hizmeti](overview-what-is-azure-ml.md) eğitmek, dağıtmak ve ML modellerini ölçeğe uygun yönetmek için kullanılan bir tam olarak yönetilen bir bulut hizmetidir. Açık kaynak teknolojilerini tamamen destekler, bu nedenle TensorFlow, PyTorch ve scikit-learn gibi açık kaynak Python paketlerinin on binlercesini kullanabilir. Zengin Araçlar gibi kullanılabilir ayrıca [Azure not defterleri](https://notebooks.azure.com/), [Jupyter not defterleri](http://jupyter.org), veya [Visual Studio Code için Azure Machine Learning](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) keşfetmek kolay hale getirmek için uzantı verileri dönüştürmek ve ardından eğitmek ve Modellerinizi dağıtın. Azure Machine Learning hizmeti kolaylık, verimlilik ve doğrulukla model oluşturma ve ayarlama işlemini otomatik hale getiren özellikler içerir.
 
 Bulut ölçeğinde Python ve CLI kullanarak ML modellerini eğitmek, dağıtmak ve yönetmek için Azure Machine Learning hizmetini kullanın.
 
@@ -74,9 +74,10 @@ Bilişsel Hizmetler'i farklı cihaz ve platformlarda uygulama geliştirmek için
 ## <a name="azure-data-science-virtual-machine"></a>Azure Veri Bilimi Sanal Makinesi
 
 [Azure Veri Bilimi Sanal Makinesi](../data-science-virtual-machine/overview.md) veri bilimi için Microsoft Azure bulutunda derlenmiş olan özel bir sanal makine ortamıdır. Gelişmiş analiz için akıllı uygulamalar derlemeye hızlı giriş yapmak için önceden yüklenmiş ve önceden yapılandırılmış birçok popüler veri bilimi araçlarına ve diğer araçlara sahiptir.
-Veri Bilimi Sanal Makinesi'nin hem Windows hem de Linux Ubuntu için sürümleri vardır (Azure Machine Learning hizmeti Linux CentOS üzerinde desteklenmez).
-Belirli sürüm bilgileri ve dahil olan özelliklerin listesi için bkz. [Azure Veri Bilimi Sanal Makinesi'ne giriş](../data-science-virtual-machine/overview.md).
+
 Veri Bilimi Sanal Makinesi, Azure Machine Learning hizmetinin hedefi olarak desteklenir.
+Hem Windows hem de Linux Ubuntu (Azure Machine hizmeti üzerinde Linux CentOS desteklenmiyor Learning) sürümlerinde kullanılabilir.
+Belirli sürüm bilgileri ve dahil olan özelliklerin listesi için bkz. [Azure Veri Bilimi Sanal Makinesi'ne giriş](../data-science-virtual-machine/overview.md).
 
 Veri Bilimi Sanal Makinesini işlerinizi tek bir düğüm üzerinde çalıştırmanız veya barındırmanız gerektiğinde kullanın. İşlemlerinizi tek bir makinede uzaktan ölçeklendirmeniz gerektiğinde de kullanabilirsiniz.
 

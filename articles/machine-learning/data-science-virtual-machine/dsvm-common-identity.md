@@ -1,11 +1,12 @@
 ---
 title: Ortak bir kimlik ayarlamak için veri bilimi sanal makinesi - Azure | Microsoft Docs
-description: Bir kurumsal takımın DSVM ortamlarda ortak bir kimlik ayarlayın.
+description: Birden çok veri bilimi sanal makinelerde kullanılabilir ortak kullanıcı hesapları oluşturma hakkında bilgi edinin. Azure Active Directory veya bir şirket içi Active Directory, veri bilimi sanal makinesi için kullanıcıların kimliğini doğrulamak için kullanabilirsiniz.
 keywords: derin öğrenme yapay ZEKA, veri bilimi araçları, veri bilimi sanal makinesi, Jeo-uzamsal analiz, team data science Process'i
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 25d40b6a72ab6da61feb1458f5930eb48ef1d900
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6be7c63d3879c7ed89cd97eaecd6d59b6b5aadd4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436310"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075480"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Üzerinde veri bilimi sanal makinesi ortak bir kimlik ayarlayın
 

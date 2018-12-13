@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 2cdc9f780e0d9ddb6e688e53208e5597b000aa56
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 00fc04afd26da2ef5741eec308835bb8c897c26b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632781"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077350"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Bir kümesi için log Analytics'i ayarlama
 
@@ -123,7 +123,7 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup
 
 İşiniz bittiğinde, Log Analytics uygun bir depolama hesabına bağlanmak için önceki bölümdeki adımları izleyin.
 
-Ayrıca, diğer çözümler ekleyin veya PowerShell kullanarak Log Analytics çalışma alanınıza diğer değişiklikleri yapın. Daha fazla bilgi için bkz. [Log Analytics PowerShell kullanarak yönetme](../log-analytics/log-analytics-powershell-workspace-configuration.md).
+Ayrıca, diğer çözümler ekleyin veya PowerShell kullanarak Log Analytics çalışma alanınıza diğer değişiklikleri yapın. Daha fazla bilgi için bkz. [Log Analytics PowerShell kullanarak yönetme](../azure-monitor/platform/powershell-workspace-configuration.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Log Analytics aracısını dağıtmayı](service-fabric-diagnostics-oms-agent.md) üzerine düğümlerinizi performans sayaçları toplamak ve docker istatistikleri ve kapsayıcılarınızı için günlükleri toplamak için

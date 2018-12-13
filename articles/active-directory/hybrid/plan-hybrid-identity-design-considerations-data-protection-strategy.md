@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 9f02c6779b3561f6eea57512ecb27dd2fd451d90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 20782679a4e73c029d6c83fd3bc57914b4d28691
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238157"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865055"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünüz için veri koruma stratejisini tanımlayın
 Bu görevde, tanımladığınız iş gereksinimlerini karşılamak, karma kimlik çözümü için veri koruma stratejisi tanımlarsınız:
@@ -92,7 +92,7 @@ Kimlik doğrulama, yetkilendirme ve erişim denetimi özellikleri Azure AD'de ku
 
 Merkezi Yönetim'i ve tam olarak diğer dizinleri ile tümleştirme
 
-Azure Active Directory, binlerce SaaS uygulamasına çoklu oturum açma sağlar ve şirket içi web uygulamaları. Bkz: [Azure Active Directory Federasyon Uyumluluğu Listesi: çoklu oturum açmayı uygulamak için kullanılan üçüncü taraf kimlik sağlayıcıları](https://msdn.microsoft.com/library/azure/jj679342.aspx) makale Microsoft tarafından sınanan SSO üçüncü taraf hakkında daha fazla ayrıntı için. Bu özellik, kimlik ve erişim yönetim denetimi korurken çeşitli B2B senaryolarını uygulamak kuruluş sağlar. Ancak, sırasında B2B süreci, tasarlama iş ortağı tarafından kullanılan kimlik doğrulama yöntemini anlamak ve bu yöntem, Azure tarafından destekleniyorsa doğrulamak önemli. Şu anda, aşağıdaki yöntemlerden Azure AD tarafından desteklenir:
+Azure Active Directory, binlerce SaaS uygulamasına çoklu oturum açma sağlar ve şirket içi web uygulamaları. Bkz: [Azure Active Directory Federasyon Uyumluluğu Listesi: çoklu oturum açmayı uygulamak için kullanılan üçüncü taraf kimlik sağlayıcıları](how-to-connect-fed-compatibility.md) makale Microsoft tarafından sınanan SSO üçüncü taraf hakkında daha fazla ayrıntı için. Bu özellik, kimlik ve erişim yönetim denetimi korurken çeşitli B2B senaryolarını uygulamak kuruluş sağlar. Ancak, sırasında B2B süreci, tasarlama iş ortağı tarafından kullanılan kimlik doğrulama yöntemini anlamak ve bu yöntem, Azure tarafından destekleniyorsa doğrulamak önemli. Şu anda, aşağıdaki yöntemlerden Azure AD tarafından desteklenir:
 
 * Güvenlik onaylama işlemi biçimlendirme dili (SAML)
 * OAuth

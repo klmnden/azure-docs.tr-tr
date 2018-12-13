@@ -2,19 +2,19 @@
 title: Hangi Azure Backup sunucusu yedekleme yapabilirsiniz
 description: Bu makalede, tüm iş yükleri, veri türleri ve Azure Backup sunucusu koruma yüklemeleri listeleyen bir destek matrisi verilmektedir.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 ms.service: backup
 keywords: ''
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.author: markgal
+ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: a48944beda52e134fcd02f6d12a35789a41aad31
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e0ac5b318939ef576eae0d0caabc8a9c794b9641
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614744"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871260"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure Backup Sunucusu koruma matrisi
 

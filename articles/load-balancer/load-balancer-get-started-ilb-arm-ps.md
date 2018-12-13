@@ -1,5 +1,6 @@
 ---
-title: PowerShell kullanarak Azure iç yük dengeleyici oluşturma | Microsoft Docs
+title: PowerShell kullanarak bir Azure iç yük dengeleyici oluşturma
+titlesuffix: Azure Load Balancer
 description: Azure PowerShell modülünü Azure Resource Manager ile birlikte kullanarak iç yük dengeleyici oluşturmayı öğrenin
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 4e99411ec56f25e249429e4e65bae4a8e7071cc1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0a85c5e90be465b324248f961fd297b15c008d02
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412695"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075879"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Azure PowerShell modülünü kullanarak iç yük dengeleyici oluşturma
 

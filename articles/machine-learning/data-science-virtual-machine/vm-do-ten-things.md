@@ -1,11 +1,13 @@
 ---
-title: Üzerinde veri bilimi sanal makinesi Azure üzerinde yapabileceğiniz on işlem | Microsoft Docs
+title: Veri keşfi ve modelleme ile veri bilimi sanal makinesi
+titleSuffix: Azure
 description: Çeşitli veri keşfi ve modelleme görev veri bilimi sanal makinesi üzerinde gerçekleştirin.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
 editor: cgronlun
+ms.custom: seodec18
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: df9edfee9d8a6a0736a040924bac736cfcb3633c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 52f0a298b1a9e9f3f209f51c1bc0362b8ddf2c4e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250926"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075699"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows veri bilimi sanal makinesi üzerinde yapabileceğiniz on işlem
 
@@ -62,7 +64,7 @@ Python için bir IDE olan Visual Studio (PTVS) uzantısı önceden yüklenmiş i
 
 Özel ortam Kurulumu Visual Studio'da nasıl göründüğünü aşağıda verilmiştir.
 
-![PTVS Kurulumu](./media/vm-do-ten-things/PTVSSetup.png)
+![Ekran görüntüsü, Visual Studio seçili Visual Studio için Python araçları ile](./media/vm-do-ten-things/PTVSSetup.png)
 
 Bkz: [PTVS dokümantasyonu](https://aka.ms/ptvsdocs) Python ortamları oluşturma hakkında daha fazla ayrıntı için.
 
@@ -249,7 +251,7 @@ Kodu bir GitHub deposundan karşıdan yüklemek için kullandığınız ```git c
 
 Visual Studio'da aynı kopyalama işlemi yapabilirsiniz. Aşağıdaki ekran görüntüsünde, Git ve GitHub araçlarını Visual Studio'da nasıl gösterir.
 
-![Visual Studio'da Git](./media/vm-do-ten-things/VSGit.PNG)
+![Ekran görüntüsü, Visual Studio ile görüntülenen GitHub bağlantısı](./media/vm-do-ten-things/VSGit.PNG)
 
 GitHub deponuza kullanılabilen çeşitli kaynaklardan github.com üzerinde çalışmak için Git kullanma hakkında daha fazla bilgi bulabilirsiniz. [Kağıdı](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) yararlı bir başvurudur.
 
@@ -261,12 +263,12 @@ Azure blob, büyük ve küçük veriler için güvenilir, ekonomik bulut depolam
 
 * **Azure Blob Depolama hesabınızı oluşturmak [Azure portalında](https://portal.azure.com).**
 
-![Create_Azure_Blob](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+![Azure portalında depolama hesabı oluşturma işleminin ekran görüntüsü](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * Önceden yüklenmiş komut satırı AzCopy aracı konumunda bulunur onaylayın ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. Bu aracı çalıştırılırken, tam komut yolu yazarak önlemek için yol ortam değişkenine azcopy.exe içeren dizini zaten var. AzCopy aracı hakkında daha fazla bilgi için bkz [AzCopy belgeleri](../../storage/common/storage-use-azcopy.md)
 * Azure Depolama Gezgini aracını başlatın. Dan indirilebilir [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/). 
 
-![AzureStorageExplorer_v4](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
+![Azure depolama Gezgini'nin depolama hesabına erişilirken ekran görüntüsü](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
 **Verileri Azure Blob VM'den taşıma: AzCopy**
 
@@ -276,7 +278,7 @@ Yerel dosyalarınızı ve blob depolama arasında veri taşımak için AzCopy ko
 
 Değiştirin **C:\myfolder** dosyanızı depolandığı yolu **mystorageaccount** blob depolama hesabı adı için **mycontainer** kapsayıcı adı için **depolama hesabı anahtarı** blob depolama erişim anahtarınızı için. Depolama hesabı kimlik bilgilerinizi bulabilirsiniz [Azure portalında](https://portal.azure.com).
 
-![StorageAccountCredential_v2](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
+![Depolama hesabı anahtarları ve Azure portalında kapsayıcı bilgileri ekran görüntüsü](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
 
 AzCopy komutu PowerShell'de veya komut isteminden çalıştırın. Bazı örnek kullanım AzCopy komutu aşağıdadır:
 
@@ -291,20 +293,20 @@ AzCopy komutu PowerShell'de veya komut isteminden çalıştırın. Bazı örnek 
 
 Bir Azure blobuna kopyalamak için AzCopy komutunu çalıştırdıktan sonra dosyanızı kısa bir süre içinde Azure depolama Gezgini'nde gösterilir bakın.
 
-![AzCopy_run_finshed_Storage_Explorer_v3](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
+![CSV dosyası karşıya yüklendi görüntüleme depolama hesabı ekran görüntüsü](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
 **Verileri Azure Blob VM'den taşıma: Azure Depolama Gezgini**
 
 Ayrıca Azure Depolama Gezgini'ni kullanarak, sanal yerel dosyadan verileri karşıya yükleyebilirsiniz:
 
-* Verileri bir kapsayıcıya yüklemek için hedef kapsayıcıyı seçin ve **karşıya** düğmesi.![ Depolama Gezgini'nde karşıya yükleme](./media/vm-do-ten-things/storage-accounts.png)
-* Tıklayarak **...**  sağındaki **dosyaları** kutusunda, dosya sisteminden karşıya yükleyin ve bir veya birden çok dosya seçin **karşıya** dosyalar karşıya yüklenirken başlamaya.![ BLOB için dosyaları karşıya yükleme](./media/vm-do-ten-things/upload-files-to-blob.png)
+* Verileri bir kapsayıcıya yüklemek için hedef kapsayıcıyı seçin ve **karşıya** düğmesi.![ Azure depolama Gezgini'nde karşıya yükleme düğmesinin Ekran görüntüsü](./media/vm-do-ten-things/storage-accounts.png)
+* Tıklayarak **...**  sağındaki **dosyaları** kutusunda, dosya sisteminden karşıya yükleyin ve bir veya birden çok dosya seçin **karşıya** dosyalar karşıya yüklenirken başlamaya.![ Karşıya yükleme dosyaları iletişim kutusunun ekran görüntüsü](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 **Verileri Azure Blobundan okuyun: Machine Learning okuyucu Modülü**
 
 Azure Machine Learning Studio'da kullanabileceğiniz bir **verileri içeri aktarma modülü** , blobundan verileri okumak için.
 
-![AML_ReaderBlob_Module_v3](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
+![Machine Learning Studio'da içeri aktarma verileri modülünün ekran görüntüsü](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
 
 **Verileri Azure Blobundan okuyun: Python ODBC**
 
@@ -352,7 +354,7 @@ Ardından Azure Blob hesabı kimlik bilgilerinizi takın ve BLOB'dan veri okuma:
 
 Verileri bir veri çerçevesi okunan:
 
-![IPNB_data_readin](./media/vm-do-ten-things/IPNB_data_readin.PNG)
+![İlk 10 veri satırlarını ekran görüntüsü](./media/vm-do-ten-things/IPNB_data_readin.PNG)
 
 ### <a name="azure-data-lake"></a>Azure Data Lake
 Azure Data Lake Store, büyük veri analizi iş yükleri ve uyumlu olan Hadoop dağıtılmış dosya sistemi (HDFS) için hiper ölçekli bir depodur. Hadoop, Spark ve Azure Data Lake Analytics ile çalışır. Bu bölümde, verileri Azure Data Lake Store taşıyın ve Azure Data Lake Analytics'i kullanarak Analiz çalıştırma nasıl öğreneceksiniz.
@@ -361,17 +363,17 @@ Azure Data Lake Store, büyük veri analizi iş yükleri ve uyumlu olan Hadoop d
 
 * Azure Data Lake Analytics'te oluşturma [Azure portalında](https://portal.azure.com).
 
-![Azure_Data_Lake_Create_v2](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
+![Data Lake Analytics, Azure portalından oluşturma işleminin ekran görüntüsü](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
 * **Azure Data Lake Araçları** içinde **Visual Studio** şu anda bulunamadı [bağlantı](https://www.microsoft.com/download/details.aspx?id=49504) sanal makinede Visual Studio Community sürümü zaten yüklü. Visual Studio başlangıç ve Azure aboneliğinizde oturum sonra Azure Data Analytics hesabınızı ve depolama Visual Studio'nun sol bölmesinde görmeniz gerekir.
 
-![Azure_Data_Lake_PlugIn_v2](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
+![Visual Studio'da Data Lake Araçları'nın ekran görüntüsü](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
 **Data Lake VM'den veri taşıma: Azure Data Lake Gezgini**
 
 Kullanabileceğiniz **Azure Data Lake Explorer** sanal makinenizde yerel dosyaları verileri Data Lake depolama alanına yüklemek için.
 
-![Azure_Data_Lake_UploadData](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
+![Dosyaları karşıya yüklemek için Data Lake Explorer'ı kullanarak ekran görüntüsü](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
 
 Ayrıca, veri taşıma ya da Azure Data Lake kullanarak hazır hale getirmek için veri işlem hattı oluşturabilirsiniz [Azure veri Factory(ADF)](https://azure.microsoft.com/services/data-factory/). Bu [makale](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) veri oluşturma adımlarında size kılavuzluk etmesi için işlem hatları.
 
@@ -379,11 +381,11 @@ Ayrıca, veri taşıma ya da Azure Data Lake kullanarak hazır hale getirmek iç
 
 Verilerinizi Azure Blob Depolama alanında bulunuyorsa, U-SQL sorgusunu Azure depolama blobunda gelen verileri doğrudan okuyabilir. U-SQL sorgusu oluşturma önce Azure Data Lake için blob depolama hesabınıza bağlı olduğundan emin olun. Git **Azure portalında**, Azure Data Lake Analytics panonuzu bulun, tıklayın **veri kaynağı Ekle**, depolama türü seçin **Azure depolama** ve Azure depolama hesabınızdaki takın Adı ve anahtarı. Ardından depolama hesabında depolanan verilere başvurabilirsiniz.
 
-![Depolama hesabı ve anahtarı girin](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
+![Veri Kaynağı Ekle iletişim kutusunun ekran görüntüsü](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 Visual Studio'da blob depolama alanından verileri okuma, bazı veri işleme yapmak, özellik Mühendisliği ve Azure Data Lake veya Azure Blob Depolama için sonuç verileri çıktı. Blob depolama alanındaki verilere başvuruda bulunduğunuzda kullanın **wasb: / /**; Azure Data Lake, kullanım verileri başvurduğunuzda **swbhdfs: / /**
 
-![Veri çerçevesi](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
+![Vurgulanan WASB girdiyle sorgusunun ekran görüntüsü](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
 Visual Studio'da aşağıdaki U-SQL sorguları kullanabilirsiniz:
 
@@ -429,7 +431,7 @@ Visual Studio'da aşağıdaki U-SQL sorguları kullanabilirsiniz:
 
 Sorgunuzu sunucuya gönderildikten sonra işinizin durumunu gösteren diyagram görüntülenir.
 
-![İş durumu diyagramı](./media/vm-do-ten-things/USQL_Job_Status.PNG)
+![İş iletişim durumunun ekran görüntüsü](./media/vm-do-ten-things/USQL_Job_Status.PNG)
 
 **Veri Gölü'nde veri sorgulama: U-SQL**
 
@@ -437,11 +439,11 @@ Azure Data Lake alınan ve veri kümesi sonra kullanabileceğiniz [U-SQL dili](.
 
 Sonra sorgu tripdata_summary sunucusuna gönderilir. CSV, kısa bir süre içinde bulunabilir **Azure Data Lake Explorer**, sağ tıklama ile veri dosyası önizlenemedi.
 
-![Azure Data Lake Gezgini dosyasında](./media/vm-do-ten-things/USQL_create_summary.png)
+![Data Lake Explorer csv dosyasında ekran görüntüsü](./media/vm-do-ten-things/USQL_create_summary.png)
 
 Dosya bilgileri görmek için:
 
-![Dosya Özeti](./media/vm-do-ten-things/USQL_tripdata_summary.png)
+![Dosya Özeti bilgilerini ekran görüntüsü](./media/vm-do-ten-things/USQL_tripdata_summary.png)
 
 ### <a name="hdinsight-hadoop-clusters"></a>HDInsight Hadoop kümeleri
 Azure HDInsight, bulutta yönetilen bir Apache Hadoop, Spark, HBase ve Storm hizmet özelliğidir. Azure HDInsight kümeleri veri bilimi sanal makineden kolayca çalışabilirsiniz.
@@ -450,7 +452,7 @@ Azure HDInsight, bulutta yönetilen bir Apache Hadoop, Spark, HBase ve Storm hiz
 
 * Azure Blob Depolama hesabınızı oluşturmak [Azure portalında](https://portal.azure.com). Bu depolama hesabı, HDInsight kümeleri için verileri depolamak için kullanılır.
 
-![Azure Blob Depolama hesabı oluşturma](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+![HDInsight'ı Azure portalından oluşturma işleminin ekran görüntüsü](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * Azure HDInsight Hadoop kümeleri aşıp özelleştirme [Azure portalı](../team-data-science-process/customize-hadoop-cluster.md)
   
@@ -460,7 +462,7 @@ Azure HDInsight, bulutta yönetilen bir Apache Hadoop, Spark, HBase ve Storm hiz
 
 * Etkinleştirme **uzaktan erişim** oluşturulduktan sonra kümenin baş düğümüne. Burada belirttiğiniz uzaktan erişim kimlik bilgilerini Hatırla sonraki yordamda ihtiyaç duyacaksınız.
 
-![Uzaktan erişimi etkinleştirin](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
+![HDInsight kümesine uzaktan erişimi etkinleştirin](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
 * Bir Azure Machine Learning çalışma alanı oluşturun. Makine öğrenimi denemeleri bu Machine Learning çalışma alanında depolanır. Vurgulanmış seçenekleri Portalı'nda, aşağıdaki ekran görüntüsünde gösterildiği gibi seçin:
 
@@ -638,7 +640,7 @@ Alma konumu dropoff konum arasındaki mesafeyi Ayrıca işlem ve ardından seyah
     results.head(5)
 
 
-![Toplama ve dropoff tablosu](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
+![Üst satırları alma ve dropoff tablo](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
 
     results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
                        'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
@@ -782,7 +784,7 @@ Bir süre sonra verileri Hadoop kümelerini yüklendi görebilirsiniz:
     pd.read_sql(queryString,connection)
 
 
-![Veri tablosu](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
+![Üst satırları tablodan veri](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
 **Machine Learning kullanarak HDI veri okuma: okuyucu Modülü**
 

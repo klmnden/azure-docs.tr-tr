@@ -16,12 +16,12 @@ ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 65f8eb0752a181eda312515e557bb733c091e2e5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fd511a8a9d17bf79f1237bbfe2dc2ddbc5ec1b2e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505403"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867435"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>.NET için Batch Yönetimi istemci kitaplığı ile batch hesaplarını ve kotalarını yönetme
 
@@ -153,7 +153,7 @@ Batch yönetimi .NET kitaplığı, bir Azure kaynak sağlayıcısı istemci ve i
 
 ## <a name="sample-project-on-github"></a>GitHub üzerinde örnek proje
 
-Batch yönetimi .NET nasıl çalıştığını görmek için kullanıma [AccountManagment] [ acct_mgmt_sample] GitHub üzerinde örnek proje. AccountManagment örnek uygulaması, aşağıdaki işlemleri göstermektedir:
+Batch yönetimi .NET nasıl çalıştığını görmek için kullanıma [hesap yönetimi] [ acct_mgmt_sample] GitHub üzerinde örnek proje. Hesap Yönetimi örnek uygulaması, aşağıdaki işlemleri göstermektedir:
 
 1. Azure AD'de bir güvenlik belirteci kullanarak elde [ADAL][aad_adal]. Kullanıcı zaten oturum açmamış, bunlar Azure kullanıcılardan kimlik bilgileri istenir.
 2. Azure AD'den alınan güvenlik belirteci ile bir [SubscriptionClient] [ resman_subclient] hesapla ilişkili aboneliklerin listesi için Azure sorgulanamıyor. Birden fazla aboneliğiniz varsa, kullanıcı listeden bir abonelik seçebilirsiniz.

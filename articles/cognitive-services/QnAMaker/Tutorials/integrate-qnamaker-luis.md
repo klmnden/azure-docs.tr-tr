@@ -1,7 +1,7 @@
 ---
 title: LUIS ve QnAMaker - Bot tümleştirme
 titleSuffix: Azure Cognitive Services
-description: Soru-cevap oluşturucu ve LUIS içinde bir bot tümleştirme adım adım bir öğretici.
+description: Soru-cevap Oluşturucu bankanızı büyük büyüdükçe, tek tek parça bir ayarlayın ve Bilgi Bankası daha küçük mantıksal parçalara bölmek için gerekir bakımını yapmak zor hale gelir.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: diberry
-ms.openlocfilehash: 27f60f9624af2819663990aeba99b4044045540b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: dd030eeefd731ae176e1fe7907d941fff56a9db1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687376"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080036"
 ---
 # <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Soru-cevap oluşturucu ve LUIS bilgi bankanızı dağıtmak için tümleştirin
 Soru-cevap Oluşturucu bankanızı büyük büyüdükçe, tek tek parça bir ayarlayın ve Bilgi Bankası daha küçük mantıksal parçalara bölmek için gerekir bakımını yapmak zor hale gelir.

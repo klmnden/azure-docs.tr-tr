@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 04/05/2018
+ms.date: 12/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 61db5e9eedc57ef6316cb760499362ed856e38c6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 379e5503900621381bbc27c6604cc8208cfdb80e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822764"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076466"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Toplu ölçümleri, uyarılar ve değerlendirme tanılama ve izleme günlükleri
 
@@ -53,11 +53,17 @@ Tüm Batch hesabı ölçümleri görüntülemek için:
 
 Program aracılığıyla ölçümleri almak için Azure İzleyici API'lerini kullanın. Örneğin, [almak Azure İzleyici ölçümleri .NET ile](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/).
 
+## <a name="batch-metric-reliability"></a>Batch ölçüm güvenilirlik
+
+Ölçümler, eğilimleri belirlemek ve veri analizi için kullanılacak yöneliktir. Ölçüm teslimi garanti edilmez ve sırası teslim, veri kaybı ve/veya çoğaltma tabidir. Uyarı veya tetikleyici işlevleri tek olayları kullanılması önerilmez. Bkz: [toplu ölçüm uyarıları](#batch-metric-alerts) eşikler için uyarı ayarlama konusunda ayrıntılı bilgi için.
+
+Son 3 dakika içinde gösterilen ölçümleri hala toplama. Bu zaman çerçevesi sırasındaki ölçüm değerleri eksik.
+
 ## <a name="batch-metric-alerts"></a>Batch ölçüm uyarıları
 
-İsteğe bağlı olarak, neredeyse gerçek zamanlı yapılandırma *ölçüm uyarıları* belirtilen ölçüm değerini atadığınız bir eşiği geçtiğinde tetikleyin. Bir uyarı oluşturur bir [bildirim](../monitoring-and-diagnostics/insights-alerts-portal.md) uyarı "(eşiği aşıldığında ve uyarı koşulu karşılandığında olduğunda) etkinleştirildiğinde" yanı sıra, seçtiğiniz "Çözülene" (zaman eşiği yeniden çapraz ve koşul yok artık yerine). 
+İsteğe bağlı olarak, neredeyse gerçek zamanlı yapılandırma *ölçüm uyarıları* belirtilen ölçüm değerini atadığınız bir eşiği geçtiğinde tetikleyin. Bir uyarı oluşturur bir [bildirim](../monitoring-and-diagnostics/insights-alerts-portal.md) uyarı "(eşiği aşıldığında ve uyarı koşulu karşılandığında olduğunda) etkinleştirildiğinde" yanı sıra, seçtiğiniz "Çözülene" (zaman eşiği yeniden çapraz ve koşul yok artık yerine). Ölçümleri sırası teslim, veri kaybı ve/veya çoğaltma tabi olarak tek bir veri noktasının temel uyarı önerilmez. Uyarı olmalısınız eşiklerini bu tutarsızlıkları hesap için kullanın.
 
-Örneğin, düşük öncelikli çekirdek sayısı, belirli bir düzeyde, düştüğünde havuzları, oluşumunu ayarlayabilmeniz için ölçüm uyarısı yapılandırmak isteyebilirsiniz.
+Örneğin, düşük öncelikli çekirdek sayısı, belirli bir düzeyde, düştüğünde havuzları, oluşumunu ayarlayabilmeniz için ölçüm uyarısı yapılandırmak isteyebilirsiniz. Burada, ortalama düşük öncelikli çekirdek sayısı tüm dönem için Eşik değerin altına düşerse uyarı tetikleyen bir süre en az 10 dakika ayarlamak için önerilir. 1-5 dakikalık bir süre üzerinde ölçümleri hala toplama gibi uyarmak için önerilmez.
 
 Ölçüm uyarısı portalında yapılandırmak için:
 

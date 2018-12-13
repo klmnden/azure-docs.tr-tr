@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 876cb037aab718a91f469f8862c501bb9a29e4d6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 8f2bf9707d28744707c39a507108120e948dde7f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846444"
+ms.locfileid: "52866687"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Log analytics'te Görünüm Tasarımcısı görselleştirme bölümü başvurusu Kılavuzu
 Azure Log Analytics'te Görünüm Tasarımcısı kullanarak veri görselleştirmeleri Log Analytics çalışma alanınızın çeşitli sunan Azure portalında özel görünümlerinizi oluşturabilirsiniz. Bu makalede, özel görünümlerde kullanılabilir görselleştirme bölümleri ayarlarını bir başvuru kılavuzudur.
@@ -324,7 +324,7 @@ Ad ve değer ayırıcı metin özelliği bir liste sorgusu içinde birden çok d
 Örneğin, adlı bir özellik düşünün *konumu* gibi değerleri dahil *Redmond yapı 41* ve *Bellevue yapı 12*. Bir tire (-) için ad ve değer ayırıcı belirtebilirsiniz ve *Şehir yapı* adı. Bu yaklaşım her değer adlı iki özellik ayrıştırır *Şehir* ve *yapı*.
 
 ### <a name="click-through-navigation"></a>Tıklama aracılığıyla gezinti
-Gezinti tıklama eylemi bir üst bilgi veya liste öğesi görünümünde tıkladığınızda gerçekleştirilecek tanımlar.  Bu sorguda açar [günlük araması portalını](../../log-analytics/log-analytics-log-search-portals.md) veya başka bir görünüme başlatın.
+Gezinti tıklama eylemi bir üst bilgi veya liste öğesi görünümünde tıkladığınızda gerçekleştirilecek tanımlar.  Bu sorguda açar [günlük araması portalını](../../azure-monitor/log-query/portals.md) veya başka bir görünüme başlatın.
 
 Aşağıdaki tabloda, tıklama gezinme için ayarları açıklar.
 

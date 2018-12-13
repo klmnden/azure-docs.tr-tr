@@ -1,5 +1,5 @@
 ---
-title: Konuşma hizmeti REST API - konuşma hizmeti
+title: REST API'ler - konuşma Hizmetleri konuşma Hizmetleri
 titleSuffix: Azure Cognitive Services
 description: Konuşmayı metne ve metin okuma REST API'lerini kullanmayı öğrenin. Bu makalede, sorgu seçenekleri, yetkilendirme seçenekleri hakkında bilgi edineceksiniz yapısı bir istek ve yanıt.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: ce9b3df5093d51eac0a151269b486b5f1310700c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 5a3c160fcb550fc4f0c92145733aa993b95bd112
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584868"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089353"
 ---
 # <a name="speech-service-rest-apis"></a>Konuşma hizmeti REST API'leri
 
@@ -30,7 +31,7 @@ REST API'lerini kullanarak önce anlayın:
 
 Ya da Konuşmayı metne veya metinden konuşmaya REST API'sine yapılan her isteğin yetkilendirme üst bilgisi gerektirir. Bu tablo, hangi üstbilgileri her hizmet için desteklenen gösterilmektedir:
 
-| Desteklenen yetkilendirme üstbilgileri | Konuşmayı Metne Dönüştürme | Metin Okuma |
+| Desteklenen yetkilendirme üstbilgileri | Konuşmayı Metne Dönüştürme | Metin okuma |
 |------------------------|----------------|----------------|
 | Ocp-Apim-Subscription-Key | Evet | Hayır |
 | Yetkilendirme: taşıyıcı | Evet | Evet |

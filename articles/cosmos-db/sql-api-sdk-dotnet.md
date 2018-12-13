@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: SQL .NET API, SDK ve kaynakları | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL .NET API, SDK ve kaynakları'
 description: Tüm SQL .NET API ve yayın tarihleri, sona erme tarihlerini ve her bir Azure Cosmos DB .NET SDK'sı sürümü arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin.
 author: rnagpal
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ec1f9cf7847e0eb3c48599a4d52412c1a37560d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 5af80a387a8b07992a82dac39c23082069419b60
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851171"
+ms.locfileid: "52865922"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SQL API'si için Azure Cosmos DB .NET SDK: indirme ve sürüm notları
 > [!div class="op_single_selector"]

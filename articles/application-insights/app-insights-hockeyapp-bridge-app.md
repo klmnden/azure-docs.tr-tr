@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2e2343c958141032d91c9ea9ee22ed052ff43d60
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 2f9b61a212251332cd94379b40f93eb52d49c729
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728013"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870087"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Application ınsights'ta HockeyApp verileri araştırma
 
@@ -60,7 +60,7 @@ Analytics, geçici tanılayın ve nedenlerini ve desenleri daha hızlı keşfede
 
 ![Analiz](./media/app-insights-hockeyapp-bridge-app/05.png)
 
-* [Analytics hakkında daha fazla bilgi edinin](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Analytics hakkında daha fazla bilgi edinin](../azure-monitor/log-query/get-started-portal.md)
 
 ## <a name="continuous-export"></a>Sürekli dışarı aktarma
 Sürekli dışarı aktarma, bir Azure Blob Depolama kapsayıcısına verilerinizi vermenize olanak sağlar. Verileriniz şu anda Application Insights tarafından sunulan saklama süresinden daha uzun süre tutmanız gerekiyorsa bu çok kullanışlıdır. Blob storage'da verileri tutmak, SQL veritabanı veya depolama çözümü, tercih edilen veri işleyin.
@@ -68,5 +68,5 @@ Sürekli dışarı aktarma, bir Azure Blob Depolama kapsayıcısına verileriniz
 [Sürekli dışarı aktarma hakkında daha fazla bilgi edinin](app-insights-export-telemetry.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Verilerinizi analiz uygulama](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Verilerinizi analiz uygulama](../azure-monitor/log-query/get-started-portal.md)
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 686e878b25c79538f3d228398bcb665622c2c36b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: MT
+ms.openlocfilehash: a5177293b24ec400714d8f87be4198a76d59214a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721672"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878729"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Web sitelerinin kullanılabilirlik ve yanıt hızını izleme
 Web uygulamanızı veya web sitenizi herhangi bir sunucuya dağıttıktan sonra kullanılabilirlik ve yanıt hızını izlemeye yönelik testler ayarlayabilirsiniz. [Azure Application Insights](app-insights-overview.md), dünyanın her yerindeki noktalarından uygulamanıza düzenli aralıklarla web istekleri gönderir. Uygulamanız yanıt vermezse veya yavaş yanıt verirse sizi uyarır.
@@ -182,7 +182,7 @@ Bir kullanılabilirlik testi sonucundan tüm bileşenler genelinde işlem ayrın
 
 * Sunucunuzdan alınan yanıtı denetleme.
 * Başarısız bir kullanılabilirlik testi işlenirken toplanan ilişkili sunucu tarafı telemetrisi ile hata tanılayın.
-* Sorunu izlemek için bir sorunu veya iş öğesini Git’te ya da VSTS’de günlüğe kaydetme. Hata, bu olayın bir bağlantısını içerir.
+* Bir sorun oturum veya bir sorunu izlemek için Git veya Azure panoları iş öğesi. Hata, bu olayın bir bağlantısını içerir.
 * Web testi sonucunu Visual Studio’da açın.
 
 Deneyimi uçtan uca işlem tanılamaları hakkında daha fazla bilgi edinin [burada](app-insights-transaction-diagnostics.md).

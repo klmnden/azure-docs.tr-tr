@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 464e497c806a0b3172cbf4f5ae802693def1b435
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: bf8e0dbb35fadf1c2e19e6d549332e6d1592e81e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832675"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888571"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Log Analytics ile Azure PaaS kaynak ölçümleri koleksiyonunu yapılandırma
 
@@ -69,7 +69,7 @@ Azure tanılama verilerini toplama Ölçümleriyle destekler ve doğrudan Log An
 
 Betik seçilen ölçütlerle eşleşen her kaynak karşı çalıştırma ve bunlara yönelik ölçümleri toplamayı etkinleştirin. Tamamlandıktan sonra yapılandırma tamamlandıktan belirten bir ileti görürsünüz.  
 
-Log Analytics deponuzdaki Azure PaaS kaynak verilerini görmek kısa bir süre içinde tamamlandıktan sonra başlar.  Türünde bir kayıt `AzureMetrics` oluşturulur ve bu kayıtları analiz tarafından desteklenmektedir [Azure SQL Analytics](../../log-analytics/log-analytics-azure-sql.md) ve [Azure Web Apps Analytics](../../log-analytics/log-analytics-azure-web-apps-analytics.md) yönetim çözümleri.   
+Log Analytics deponuzdaki Azure PaaS kaynak verilerini görmek kısa bir süre içinde tamamlandıktan sonra başlar.  Türünde bir kayıt `AzureMetrics` oluşturulur ve bu kayıtları analiz tarafından desteklenmektedir [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md) ve [Azure Web Apps Analytics](../../azure-monitor/insights/azure-web-apps-analytics.md) yönetim çözümleri.   
 
 ## <a name="update-a-resource-to-send-data-to-another-workspace"></a>Başka bir çalışma alanına veri göndermek için kaynak güncelleştirme
 Zaten bir Log Analytics çalışma alanına veri gönderen bir kaynak varsa ve daha sonra başka bir çalışma alanı başvurmak için yeniden yapılandırmaya karar, komut dosyasını çalıştırabilirsiniz `-Update` parametresi.  
@@ -83,6 +83,6 @@ Zaten bir Log Analytics çalışma alanına veri gönderen bir kaynak varsa ve d
 
 * Hakkında bilgi edinin [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 
 
-* Kullanım [özel alanlar](../../log-analytics/log-analytics-custom-fields.md)(olay kayıtları tek tek alanlarına ayrıştırılamadı.
+* Kullanım [özel alanlar](../../azure-monitor/platform/custom-fields.md)(olay kayıtları tek tek alanlarına ayrıştırılamadı.
 
 * Gözden geçirme [Log Analytics'te kullanım için özel bir pano oluşturma](../../azure-monitor/platform/dashboards.md) günlüğünüzün görselleştirmek nasıl anlamak için kuruluş için anlamlı şekillerde arar.

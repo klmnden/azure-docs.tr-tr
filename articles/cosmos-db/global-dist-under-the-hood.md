@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 5db43c6488a4592eb46d9a0fe9a044dde36fc494
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 54511505841f170180bce0fccd8bd289ba24de2b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423356"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073371"
 ---
 # <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Azure Cosmos DB genel dağıtımını - başlık altında
 
@@ -43,7 +43,7 @@ Cosmos DB'nin genel dağıtım üzerinde iki anahtar soyutlama kullanır: çoğa
 
 ## <a name="replica-sets"></a>Çoğaltma-ayarlar
 
-Kaynak bölümü, bir çoğaltma kümesi olarak adlandırılan birden çok hata etki, alanlarına çoğaltmalarının kendi kendini yöneten ve dinamik olarak yük dengelemesi yapılmış bir grup olarak tanımdır. Bu verilerin kaynak bölümü içinde yüksek oranda kullanılabilir, dayanıklı ve tutarlı hale getirmek için çoğaltılan durum makine Protokolü topluca uygular. Çoğaltma kümesi üyelik N dinamik – NMin ve regenerate/kurtarmak için hataları, yönetim işlemleri ve süre başarısız çoğaltmalar için temel NMax arasında geciktirmeye tutar. Üyelik değişiklikleri bağlı olarak, çoğaltma, ayrıca yeniden yapılandırır Okuma boyutu protokolünü ve çekirdekleri yazma. İki fikirleri kullanıyoruz birörnek belirtilen kaynak bölüme atanan aktarım hızı dağıtmak için: ilk olarak, öncü yazma isteklerini işleme maliyeti üzerinde İzleyici güncelleştirmelerini uygulama maliyeti daha yüksek. Öncü ayrılmaması gelenlere, takipçi değerinden daha fazla sistem kaynakları. İkincisi, mümkün olduğunca uzak onaylamaktan okuma çekirdek verilen tutarlılık düzeyi için özel olarak İzleyici çoğaltmaları oluşur. Biz okuma gerekmedikçe hizmet vermek için öncü başvurarak kaçının. Bir dizi arasındaki ilişkiyi üzerinde yapılan araştırma fikirlerinden kullanıyoruz [yükü ve kapasite](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) Cosmos DB, beş tutarlılık modelleri için çekirdek tabanlı sistemlerde destekler.  
+Kaynak bölümü, bir çoğaltma kümesi olarak adlandırılan birden çok hata etki, alanlarına çoğaltmalarının kendi kendini yöneten ve dinamik olarak yük dengelemesi yapılmış bir grup olarak tanımdır. Bu verilerin kaynak bölümü içinde yüksek oranda kullanılabilir, dayanıklı ve tutarlı hale getirmek için çoğaltılan durum makine Protokolü topluca uygular. Çoğaltma kümesi üyelik N dinamik – NMin ve regenerate/kurtarmak için hataları, yönetim işlemleri ve süre başarısız çoğaltmalar için temel NMax arasında geciktirmeye tutar. Üyelik değişiklikleri bağlı olarak, çoğaltma, ayrıca yeniden yapılandırır Okuma boyutu protokolünü ve çekirdekleri yazma. İki fikirleri kullanıyoruz birörnek belirtilen kaynak bölüme atanan aktarım hızı dağıtmak için: ilk olarak, öncü yazma isteklerini işleme maliyeti üzerinde İzleyici güncelleştirmelerini uygulama maliyeti daha yüksek. Öncü ayrılmaması gelenlere, takipçi değerinden daha fazla sistem kaynakları. İkincisi, mümkün olduğunca uzak onaylamaktan okuma çekirdek verilen tutarlılık düzeyi için özel olarak İzleyici çoğaltmaları oluşur. Biz okuma gerekmedikçe hizmet vermek için öncü başvurarak kaçının. Bir dizi arasındaki ilişkiyi üzerinde yapılan araştırma fikirlerinden kullanıyoruz [yükü ve kapasite](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) Cosmos DB, beş tutarlılık modelleri için çekirdek tabanlı sistemlerde destekler.  
 
 ## <a name="partition-sets"></a>Bölüm-ayarlar
 
@@ -57,7 +57,7 @@ Hizmet bir tek bir yazma bölgesi veya birden çok yazma bölgeleri ile Cosmos v
 
 ## <a name="conflict-resolution"></a>Çakışma çözümleme
 
-Güncelleştirme yayma, çakışma çözümü ve izleme nedensellik ilişkilerini bizim tasarımı üzerinde Önceki işten esinlenilmiştir [epidemic algoritmaları](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) ve [Bayou](http://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf) sistem. Fikirleri çekirdekler kurtulan ve Cosmos DB'nin sistem tasarımı iletişim kurmak için kullanışlı bir çerçeve başvuru sağlar, ancak Cosmos DB sistemde uyguladığımız bunları gibi bunlar da önemli dönüştürme yapılmıştır. Önceki sistemleri kaynak İdaresi ne, Cosmos DB çalışmaya (örneğin, sınırlanmış eskime durumu tutarlılık) özellikleri ve katı ve kapsamlı sağlamak ya da ölçekleme ile tasarlanmış çünkü bu, gerekli Cosmos DB, müşterilerine sunduğu SLA'lar.  
+Güncelleştirme yayma, çakışma çözümü ve izleme nedensellik ilişkilerini bizim tasarımı üzerinde Önceki işten esinlenilmiştir [epidemic algoritmaları](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) ve [Bayou](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf) sistem. Fikirleri çekirdekler kurtulan ve Cosmos DB'nin sistem tasarımı iletişim kurmak için kullanışlı bir çerçeve başvuru sağlar, ancak Cosmos DB sistemde uyguladığımız bunları gibi bunlar da önemli dönüştürme yapılmıştır. Önceki sistemleri kaynak İdaresi ne, Cosmos DB çalışmaya (örneğin, sınırlanmış eskime durumu tutarlılık) özellikleri ve katı ve kapsamlı sağlamak ya da ölçekleme ile tasarlanmış çünkü bu, gerekli Cosmos DB, müşterilerine sunduğu SLA'lar.  
 
 Bir bölüm kümesi birden çok bölgede dağıtılır ve belirli bir bölüm kümesi oluşturan fiziksel bölümler arasında veri çoğaltmak için Cosmos Db'ler (çok ana) çoğaltmayı Protokolü aşağıdaki geri çağırma. Her kaynak bölümü (bölüm-kümesi), yazma kabul eder ve bu bölge için yerel istemcileri için okuma tipik olarak görev yapar. Bir bölgede bir kaynak bölümü tarafından kabul edilen yazma arızaya taahhüt verdiniz ve istemciye kabul edildiğini önce kaynak bölümü içinde yüksek oranda kullanılabilir hale. Bunlar belirsiz yazma ve koruma entropi kanalı kullanılarak bölüm kümesi içinde fiziksel diğer bölümlerine yayılır. İstemciler, bir istek üst bilgisi geçirerek belirsiz veya kaydedilmiş yazma isteyebilir. (Yayma sıklığını dahil) koruma entropi yayma dinamik fiziksel bölümler ve tutarlılık düzeyi yapılandırılmış bölüm kümesi, bölgesel yakınlık topolojiye bağlı. Bir bölüm kümesinde Cosmos DB, dinamik olarak seçilen arbiter bölümü olan bir birincil işleme düzeni izler. Arbiter seçimi dinamiktir ve yeniden yapılandırma bölümü kümesinin bir parçası katmana topolojisine dayanır. Taahhüt edilen (çok-row/toplu güncelleştirmeler dahil) yazma sipariş edilmesi garanti edilir. 
 

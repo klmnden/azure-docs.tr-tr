@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge SQL modülüyle veri depolama | Microsoft Docs
+title: Öğretici deposu veri SQL modülü - Azure IOT Edge ile | Microsoft Docs
 description: Bir SQL Server modülüyle IoT Edge cihazınızda yerel veri depolamayı öğrenin
 services: iot-edge
 author: kgremban
@@ -8,13 +8,13 @@ ms.author: kgremban
 ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: b0d26704d287f2e02541cc667250af8e8005f864
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 996964dd7fe52073b19db1b252e511f242b5f955
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834002"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075056"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Öğretici: SQL Server veritabanları ile uç cihazlarda veri depolama
 
@@ -251,7 +251,7 @@ Aşağıdaki adımlarda, Visual Studio Code'u ve Azure IoT Edge uzantısını ku
    }
    ```
 
-   ![SQL Server kapsayıcısı ekleme](./media/tutorial-store-data-sql-server/view_json_sql.png)
+   ![Bildirim için SQL server Modül Ekle](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
 5. IOT Edge Cihazınızı Docker kapsayıcılarında türüne bağlı olarak, güncelleştirme **sql** modül parametrelerini aşağıdaki kod ile:
    * Windows kapsayıcıları:
@@ -416,7 +416,7 @@ SQL komut aracında biçimlendirilmiş tablo verilerinizi görüntülemek için 
    GO
    ```
 
-   ![Yerel verileri görüntüleme](./media/tutorial-store-data-sql-server/view-data.png)
+   ![Yerel veritabanı içeriğini görüntüleyin](./media/tutorial-store-data-sql-server/view-data.png)
 
 
 

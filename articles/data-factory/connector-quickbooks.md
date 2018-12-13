@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a3d079483ecf4ea8cf9a4c6bda050bfe8befcfd0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 51a48576b56413e0e779a49829a6eccaa0266a57
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241693"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076116"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak QuickBooks Online veri kopyalama
 
@@ -89,8 +89,12 @@ QuickBooks bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, QuickBooks veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-QuickBooks Online'dan veri kopyalamak için dataset öğesinin type özelliği ayarlamak **QuickBooksObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+QuickBooks Online'dan veri kopyalamak için dataset öğesinin type özelliği ayarlamak **QuickBooksObject**. Aşağıdaki özellikler desteklenir:
 
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **QuickBooksObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 **Örnek**
 
 ```json
@@ -101,7 +105,8 @@ QuickBooks Online'dan veri kopyalamak için dataset öğesinin type özelliği a
         "linkedServiceName": {
             "referenceName": "<QuickBooks linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -110,14 +115,14 @@ QuickBooks Online'dan veri kopyalamak için dataset öğesinin type özelliği a
 
 Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, QuickBooks kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
-### <a name="quickbookssource-as-source"></a>Kaynak olarak QuickBooksSource
+### <a name="quickbooks-as-source"></a>Kaynak olarak QuickBooks
 
 QuickBooks Online'dan veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **QuickBooksSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **QuickBooksSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

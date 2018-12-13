@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c842efd6c66fd70bbac3969090b71c42c725545
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 24ffe9eded908c82750ce5a6d6fbe87991bdae72
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839648"
+ms.locfileid: "52872875"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Tasarım ve azure'da (Önizleme) bir yönetim çözümü oluşturun
 > [!NOTE]
@@ -46,7 +46,7 @@ Bir çözüm tasarlamanın ilk adımı, Log Analytics depodan ihtiyaç duyduğun
 
 Log Analytics deposunda açıklandığı toplanan veri kaynakları birkaç yol vardır [Log analytics'te veri kaynakları](../../azure-monitor/platform/agent-data-sources.md).  Bu, Windows olay günlüğüne olayları içerir veya Syslog tarafından ek olarak performans sayaçları hem Windows hem de Linux istemcileri için oluşturulan.  Azure İzleyici tarafından toplanan Azure kaynaklarından verileri de toplayabilirsiniz.  
 
-Tüm kullanılabilir veri kaynakları erişilebilir değil veri gerektiren sonra kullanabileceğiniz [HTTP veri toplayıcı API'sini](../../log-analytics/log-analytics-data-collector-api.md) olanak sağlayan bir REST API'sine çağrı yapmadan herhangi bir istemciden Log Analytics depoya veri yazmak.  Özel veri toplama Yönetimi çözümüne en yaygın yolları oluşturmaktır bir [Azure Otomasyonu'nda runbook](../../automation/automation-runbook-types.md) gerekli verileri Azure'a veya dış kaynaklardan toplar ve yazılacak veri toplayıcı API'sini kullanır. Depo.  
+Tüm kullanılabilir veri kaynakları erişilebilir değil veri gerektiren sonra kullanabileceğiniz [HTTP veri toplayıcı API'sini](../../azure-monitor/platform/data-collector-api.md) olanak sağlayan bir REST API'sine çağrı yapmadan herhangi bir istemciden Log Analytics depoya veri yazmak.  Özel veri toplama Yönetimi çözümüne en yaygın yolları oluşturmaktır bir [Azure Otomasyonu'nda runbook](../../automation/automation-runbook-types.md) gerekli verileri Azure'a veya dış kaynaklardan toplar ve yazılacak veri toplayıcı API'sini kullanır. Depo.  
 
 ### <a name="log-searches"></a>Günlük aramaları
 [Günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) ayıklayın ve Log Analytics depodaki verileri analiz etmek için kullanılır.  Bunlar, görünümler ve uyarılar, geçici çözümleme veri deposunda gerçekleştirmesine izin verme yanı sıra tarafından kullanılır.  

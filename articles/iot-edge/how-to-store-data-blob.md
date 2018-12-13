@@ -1,5 +1,5 @@
 ---
-title: Azure IOT Edge cihazlarında Azure Blob Depolama | Microsoft Docs
+title: Blok blobları cihazlarda - Azure IOT Edge Store | Microsoft Docs
 description: IOT Edge cihazınıza uçta veri depolamak için bir Azure Blob Depolama modülü dağıtın.
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fa88ff46b4fb93d55aa0087cca0e6184f3e087a0
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: e56d49208740686b51cdaef1bab778e2c08a9b58
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567290"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077929"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>IOT Edge (Önizleme) Azure Blob Depolama ile uçta veri Store
 
@@ -105,7 +106,7 @@ Blob depolama modülü bulmak için iki yoldan biriyle seçin:
    > [!CAUTION]
    > Değişmez "/ blobroot" Linux ve "C:/BlobRoot" için Windows için  **\<depolama dizini bağlama >** değerleri.
 
-    ![Modül değerlerini güncelleştirin](./media/how-to-store-data-blob/edit-module.png)
+    ![Güncelleştirme modülü kapsayıcı oluşturma seçenekleri - portal](./media/how-to-store-data-blob/edit-module.png)
 
 6. **Kaydet** "IOT Edge özel modüller" değerler
 7. Tıklayın **sonraki** "modülleri ayarlama" bölümünde
@@ -149,7 +150,7 @@ VS Code, sağlanan bir IOT Edge çözümü oluşturur ve ardından yeni bir penc
    {\"Env\": [\"LOCAL_STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME\",\" LOCAL_STORAGE_ACCOUNT_KEY=$STORAGE_ACCOUNT_KEY\"],\"HostConfig\": {\"Binds\": [\"<storage directory bind>\"],\"PortBindings\": {\"11002/tcp\": [{\"HostPort\":\"11002\"}]}}}
    ```
 
-   ![Güncelleştirme modülü oluşturma seçenekleri](./media/how-to-store-data-blob/create-options.png)
+   ![Modül createOptions - VS Code güncelleştir](./media/how-to-store-data-blob/create-options.png)
 
 4. JSON oluşturma seçeneklerinde güncelleştirme `<storage directory bind>` kapsayıcı işletim sisteminize bağlı olarak. Adını sağlayın bir [birim](https://docs.docker.com/storage/volumes/) veya istediğiniz verileri depolamak için blob modülü IOT Edge Cihazınızda dizinine mutlak yolu.  
 

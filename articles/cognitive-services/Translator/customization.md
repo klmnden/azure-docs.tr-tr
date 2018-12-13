@@ -10,20 +10,20 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: bbfffe948080c87feaa8c9f0a46ef9afd90eae96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f02c495c7448334529de2d5b42cda02206daea0d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229688"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877981"
 ---
 # <a name="customize-your-text-translations"></a>Metin çevirilerinizi özelleştirin
 
-Microsoft özel Translator Önizleme çevirirken Translator Text API (yalnızca sürüm 3) kullanarak metin Microsoft Translator'ın gelişmiş sinirsel makine çevirisi özelleştirme olanağı tanıyan Microsoft Translator hizmeti bir özelliğidir.
+Microsoft özel Translator Translator Text API (yalnızca sürüm 3) kullanarak metin çevirme, Microsoft Translator'ın gelişmiş sinirsel makine çevirisi özelleştirme olanağı tanıyan Microsoft Translator hizmeti bir özelliğidir.
 
-Bu özellik ile kullanıldığında konuşma çevirisi özelleştirmek için de kullanılabilir [Bilişsel hizmetler konuşma Önizleme](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+Bu özellik ile kullanıldığında konuşma çevirisi özelleştirmek için de kullanılabilir [Bilişsel hizmetler konuşma](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
-## <a name="custom-translator"></a>Özel Translator
+## <a name="custom-translator"></a>Özel Çevirmen
 
 Özel Translator ile kendi iş ve sektör kullanılan terminolojiyi anladığınızdan sinirsel çeviri sistemleri oluşturabilirsiniz. Özelleştirilmiş çeviri sistemi ardından mevcut uygulamalarınızın, iş akışları ve Web siteleri ile tümleştirin.
 
@@ -48,7 +48,7 @@ Eski Microsoft Translator hub'ı, istatistiksel makine çevirisi çevirmek için
 
 |   | **Hub** | **Özel Translator**|
 |:-----|:----:|:----:|
-|Özelleştirme özelliği durumu   | Genel Erişilebilirlik  | Önizleme |
+|Özelleştirme özelliği durumu   | Genel Erişilebilirlik  | Genel Erişilebilirlik |
 | Metin çevirisi API'si sürümü  | Yalnızca v2   | Yalnızca v3 |
 | SMT özelleştirme | Evet   | Hayır |
 | NMT özelleştirme | Hayır    | Evet |

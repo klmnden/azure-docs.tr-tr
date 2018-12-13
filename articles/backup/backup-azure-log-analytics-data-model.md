@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9cdb11bad5d4aa94fdc083a0fc7dc6a2c5787cd
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f4ecc87a0a7a0c74b02b72164fe129daa6530ea2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635161"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877590"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Verileri Azure Backup için log Analytics veri modeli
 Log Analytics veri modeli, raporlar oluşturmak için kullanın. Veri modeli ile özel sorgular ve panolar oluşturmak veya istediğiniz ancak Azure Backup verileri, özelleştirebilir.
@@ -30,7 +30,7 @@ Bu tabloda uyarı ilgili alanları hakkındaki ayrıntılar verilmektedir.
 | AlertUniqueId_s |Metin |Oluşturulan uyarı benzersiz tanıtıcısı |
 | AlertType_s |Metin |Uyarı, örneğin, yedekleme türü |
 | AlertStatus_s |Metin |Uyarının durumunu, örneğin, etkin |
-| AlertOccurenceDateTime_s |Tarih/Saat |Tarihi ve uyarının oluşturulduğu saat |
+| AlertOccurrenceDateTime_s |Tarih/Saat |Tarihi ve uyarının oluşturulduğu saat |
 | AlertSeverity_s |Metin |Uyarının önem derecesini, örneğin, kritik |
 | EventName_s |Metin |Etkinliğin adı. Her zaman AzureBackupCentralReport |
 | BackupItemUniqueId_s |Metin |Uyarıyla ilişkili yedekleme öğenin benzersiz tanıtıcısı |

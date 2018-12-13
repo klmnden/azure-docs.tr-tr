@@ -1,50 +1,44 @@
 ---
-title: ExpressRoute müşteri yönlendirici yapılandırma örnekleri | Microsoft Docs
-description: Bu sayfa için Cisco ve Juniper yönlendirici yönlendirici yapılandırma örnekleri sağlar.
-documentationcenter: na
+title: Yönlendirici yapılandırma örnekleri - Azure ExpressRoute | Microsoft Docs
+description: Bu sayfa, Cisco ve Juniper yönlendirici için yönlendirici yapılandırma örnekleri sağlar.
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
-ms.assetid: 564826bc-017a-4683-a385-37c9fa814948
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 032e584dc5abf59e9e3e8d80673b402f1fbf721b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 2d7fb060896de8df266489451a11ba343760c747
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23850773"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079968"
 ---
-# <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Yönlendirme ayarlamanıza için yönlendirici yapılandırması örnekleri
-Bu sayfa için Cisco IOS-XE ve Juniper MX series yönlendirici arabirimi ve yönlendirme yapılandırma örnekleri sağlar. Bu yönergeler yalnızca için örnek olacak şekilde tasarlanmıştır ve olarak kullanılmamalıdır. Ağınız için uygun yapılandırmalarla gündeme için satıcınıza çalışabilir. 
+# <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Ayarlama ve yönetme yönlendirme için yönlendirici yapılandırma örnekleri
+Bu sayfa arabirimi ve yönlendirme yapılandırma örnekleri IOS-XE Cisco ve Juniper MX serisi yönlendiriciler için ExpressRoute ile çalışırken sağlar. Bu kılavuzu yalnızca örnekleri olacak şekilde tasarlanmıştır ve olarak kullanılmamalıdır. Ağınızın uygun yapılandırmalarla gündeme için satıcınıza çalışabilirsiniz. 
 
 > [!IMPORTANT]
-> Bu sayfayı örneklerinde zamanıyla ilgili yönergeler için olacak şekilde tasarlanmıştır. Satıcınızın satış / teknik ekip ve ağ ekibinizin gereksinimlerinizi karşılamak için uygun yapılandırmaları gündeme birlikte çalışmalısınız. Microsoft bu sayfada listelenen yapılandırmaları ile ilgili sorunlar desteklemez. Destek sorunları için aygıt satıcınıza başvurmanız gerekir.
+> Bu sayfada örnekleri, tamamen kılavuzunu olacak şekilde tasarlanmıştır. Satıcınızın satış veya teknik ekip ve ağ takımınızın ihtiyaçlarınıza uygun yapılandırmalarla gündeme ile çalışması gerekir. Microsoft bu sayfada listelenen yapılandırmaları ile ilgili sorunlar desteklemez. Destek sorunları için cihaz satıcınıza başvurmanız gerekir.
 > 
 > 
 
-## <a name="mtu-and-tcp-mss-settings-on-router-interfaces"></a>Yönlendirici arabirimleri MTU ve TCP MSS ayarları
-* ExpressRoute arabirimi MTU 1500, bir yönlendiricideki Ethernet arabirimi için tipik varsayılan MTU olduğu ' dir. Yönlendiriciniz varsayılan olarak farklı bir MTU olmadıkça yönlendirici arabirimi bir değer belirtmek için gerek yoktur.
-* Bir Azure VPN ağ geçidi, bir expressroute bağlantı hattı için TCP MSS belirtilmesi gerekmez.
+## <a name="mtu-and-tcp-mss-settings-on-router-interfaces"></a>Yönlendirici arabirimlerinin MTU ve TCP MSS ayarları
+* Bir Ethernet arabirimi yönlendiriciye için tipik varsayılan MTU 1500, ExpressRoute arabirimin MTU var. Yönlendiriciniz varsayılan olarak farklı bir MTU olmadığı sürece, yönlendirici arabirimdeki bir değer belirtmek için gerek yoktur.
+* Azure VPN Gateway, bir ExpressRoute bağlantı hattı için TCP MSS belirtilmesi gerekmez.
 
-Yönlendirici yapılandırma örnekleri aşağıdaki tüm eşlemeleri için geçerlidir. Gözden geçirme [ExpressRoute eşlemeler](expressroute-circuit-peerings.md) ve [ExpressRoute yönlendirme gereksinimleri](expressroute-routing.md) yönlendirme hakkında daha fazla bilgi.
+Yönlendirici yapılandırma örnekleri tüm eşlemeleri için geçerlidir. Gözden geçirme [ExpressRoute eşlemeleri](expressroute-circuit-peerings.md) ve [ExpressRoute yönlendirme gereksinimleri](expressroute-routing.md) yönlendirme hakkında daha fazla ayrıntı için.
 
 
 ## <a name="cisco-ios-xe-based-routers"></a>Yönlendiriciler Cisco IOS-XE tabanlı
-Bu bölümdeki örnekler IOS XE işletim sistemi ailesi çalıştıran herhangi bir yönlendirici için geçerlidir.
+Bu bölümdeki örnekler, XE IOS işletim sistemi ailesi çalıştıran herhangi bir yönlendirici için geçerlidir.
 
 ### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Arabirimleri ve alt arabirimleri yapılandırma
-Bir alt arabirim Microsoft'a bağlanmak her yönlendirici eşliği başına gerektirir. Bir alt arabirimi, bir VLAN kimliği veya yığın çiftinin VLAN kimlikleri ve bir IP adresi ile tanımlanabilir.
+Microsoft'a bağlanmak için her yönlendirici, eşleme başına bir alt arabirimi gerektirir. Bir VLAN kimliği veya VLAN kimlikleri ve bir IP adresi Yığılmış bir çift bir sub arabirimi tanımlanabilir.
 
 **Dot1Q arabirim tanımı**
 
-Bu örnek bir alt arabiriminin tek bir VLAN kimliği ile alt arabirim tanımı sağlar VLAN kimliği eşliği başına benzersizdir. IPv4 adresinizin son sekizli her zaman tek sayı olacaktır.
+Bu örnek, tek bir VLAN kimliği ile bir alt arabirimi alt arabirimi tanımını sağlar. VLAN kimliği, eşleme başına benzersizdir. Son sekizli IPv4 adresinizin, her zaman tek bir sayı olur.
 
     interface GigabitEthernet<Interface_Number>.<Number>
      encapsulation dot1Q <VLAN_ID>
@@ -52,14 +46,14 @@ Bu örnek bir alt arabiriminin tek bir VLAN kimliği ile alt arabirim tanımı s
 
 **QinQ arabirim tanımı**
 
-Bu örnek bir alt arabiriminin iki VLAN kimliği ile alt arabirim tanımı sağlar. Dış VLAN kimliği (s-kullandıysanız etiketi), aynı tüm eşlemeler kalır. İç VLAN kimliği (c-etiketi), eşlemeyi başına benzersizdir. IPv4 adresinizin son sekizli her zaman tek sayı olacaktır.
+Bu örnek, bir iki VLAN kimliği ile bir alt arabirimi alt arabirimi tanımını sağlar. Dış VLAN kimliği (s-kullandıysanız etiketi), eşlemeler arasında aynı kalır. İç VLAN kimliği (c-tag), eşleme başına benzersizdir. Son sekizli IPv4 adresinizin, her zaman tek bir sayı olur.
 
     interface GigabitEthernet<Interface_Number>.<Number>
      encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
      ip address <IPv4_Address><Subnet_Mask>
 
 ### <a name="2-setting-up-ebgp-sessions"></a>2. EBGP oturumları ayarlama
-Her eşleme için Microsoft ile bir BGP oturumu kurmanız gerekir. Aşağıdaki örnek, Microsoft ile bir BGP oturumu oluşturmak sağlar. Sub arabiriminiz için kullanılan IPv4 adresi a.b.c.d olduysa, BGP komşu (Microsoft) IP adresini a.b.c.d+1 olacaktır. BGP komşu'nın IPv4 adresi son sekizlisi her zaman bir çift sayı olacaktır.
+Her eşleme için Microsoft ile bir BGP oturumu ayarlamanız gerekir. Aşağıdaki örnek, Microsoft bir BGP oturumu ayarlamak sağlar. (Microsoft) BGP komşu IP adresini, alt arabiriminiz için kullanılan IPv4 adresi a.b.c.d, a.b.c.d+1 olacaktır. BGP komşu'nin IPv4 adresi son sekizli bir çift sayı her zaman olur.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -70,8 +64,8 @@ Her eşleme için Microsoft ile bir BGP oturumu kurmanız gerekir. Aşağıdaki 
      exit-address-family
     !
 
-### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. BGP oturumu üzerinden tanıtılan önekler ayarlama
-Select öneklerini Microsoft'a yönlendiricinizin yapılandırabilirsiniz. Aşağıdaki örneği kullanarak bunu yapabilirsiniz.
+### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. BGP oturumu üzerinden tanıtılan için ön ekleri ayarlama
+Select öneklerini Microsoft'a yönlendiriciniz yapılandırabilirsiniz. Aşağıdaki örneği kullanarak bunu yapabilirsiniz.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -84,7 +78,7 @@ Select öneklerini Microsoft'a yönlendiricinizin yapılandırabilirsiniz. Aşa�
     !
 
 ### <a name="4-route-maps"></a>4. Rotayı eşler
-Rota haritaları kullanabilirsiniz ve ağınıza yayılan filtre önekler için önek listeler. Görevi gerçekleştirmek için aşağıdaki örneği kullanın. Uygun önek listeleri Kurulum olduğundan emin olun.
+Yol haritaları kullanabilirsiniz ve ağınıza yayılan filtre ön ekleri için önek listeler. Aşağıdaki örnekte, bir görevi gerçekleştirmek için kullanabilirsiniz. Uygun önekle listeleri Kurulum olduğundan emin olun.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -101,14 +95,14 @@ Rota haritaları kullanabilirsiniz ve ağınıza yayılan filtre önekler için 
     !
 
 
-## <a name="juniper-mx-series-routers"></a>Juniper MX series yönlendirici
-Bu bölümdeki örnekler Juniper MX serisi yönlendiricilerden için geçerlidir.
+## <a name="juniper-mx-series-routers"></a>Juniper MX serisi yönlendiriciler
+Bu bölümdeki örnekler tüm Juniper MX serisi yönlendiriciler için geçerlidir.
 
 ### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Arabirimleri ve alt arabirimleri yapılandırma
 
 **Dot1Q arabirim tanımı**
 
-Bu örnek bir alt arabiriminin tek bir VLAN kimliği ile alt arabirim tanımı sağlar VLAN kimliği eşliği başına benzersizdir. IPv4 adresinizin son sekizli her zaman tek sayı olacaktır.
+Bu örnek, tek bir VLAN kimliği ile bir alt arabirimi alt arabirimi tanımını sağlar. VLAN kimliği, eşleme başına benzersizdir. Son sekizli IPv4 adresinizin, her zaman tek bir sayı olur.
 
     interfaces {
         vlan-tagging;
@@ -125,7 +119,7 @@ Bu örnek bir alt arabiriminin tek bir VLAN kimliği ile alt arabirim tanımı s
 
 **QinQ arabirim tanımı**
 
-Bu örnek bir alt arabiriminin iki VLAN kimliği ile alt arabirim tanımı sağlar. Dış VLAN kimliği (s-kullandıysanız etiketi), aynı tüm eşlemeler kalır. İç VLAN kimliği (c-etiketi), eşlemeyi başına benzersizdir. IPv4 adresinizin son sekizli her zaman tek sayı olacaktır.
+Bu örnek, bir iki VLAN kimliği ile bir alt arabirimi alt arabirimi tanımını sağlar. Dış VLAN kimliği (s-kullandıysanız etiketi), eşlemeler arasında aynı kalır. İç VLAN kimliği (c-tag), eşleme başına benzersizdir. Son sekizli IPv4 adresinizin, her zaman tek bir sayı olur.
 
     interfaces {
         <Interface_Number> {
@@ -140,7 +134,7 @@ Bu örnek bir alt arabiriminin iki VLAN kimliği ile alt arabirim tanımı sağl
     }                           
 
 ### <a name="2-setting-up-ebgp-sessions"></a>2. EBGP oturumları ayarlama
-Her eşleme için Microsoft ile bir BGP oturumu kurmanız gerekir. Aşağıdaki örnek, Microsoft ile bir BGP oturumu oluşturmak sağlar. Sub arabiriminiz için kullanılan IPv4 adresi a.b.c.d olduysa, BGP komşu (Microsoft) IP adresini a.b.c.d+1 olacaktır. BGP komşu'nın IPv4 adresi son sekizlisi her zaman bir çift sayı olacaktır.
+Her eşleme için Microsoft ile bir BGP oturumu ayarlamanız gerekir. Aşağıdaki örnek, Microsoft bir BGP oturumu ayarlamak sağlar. (Microsoft) BGP komşu IP adresini, alt arabiriminiz için kullanılan IPv4 adresi a.b.c.d, a.b.c.d+1 olacaktır. BGP komşu'nin IPv4 adresi son sekizli bir çift sayı her zaman olur.
 
     routing-options {
         autonomous-system <Customer_ASN>;
@@ -155,8 +149,8 @@ Her eşleme için Microsoft ile bir BGP oturumu kurmanız gerekir. Aşağıdaki 
         }                                   
     }
 
-### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. BGP oturumu üzerinden tanıtılan önekler ayarlama
-Select öneklerini Microsoft'a yönlendiricinizin yapılandırabilirsiniz. Aşağıdaki örneği kullanarak bunu yapabilirsiniz.
+### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. BGP oturumu üzerinden tanıtılan için ön ekleri ayarlama
+Select öneklerini Microsoft'a yönlendiriciniz yapılandırabilirsiniz. Aşağıdaki örneği kullanarak bunu yapabilirsiniz.
 
     policy-options {
         policy-statement <Policy_Name> {
@@ -181,7 +175,7 @@ Select öneklerini Microsoft'a yönlendiricinizin yapılandırabilirsiniz. Aşa�
 
 
 ### <a name="4-route-maps"></a>4. Rotayı eşler
-Rota haritaları kullanabilirsiniz ve ağınıza yayılan filtre önekler için önek listeler. Görevi gerçekleştirmek için aşağıdaki örneği kullanın. Uygun önek listeleri Kurulum olduğundan emin olun.
+Yol haritaları kullanabilirsiniz ve ağınıza yayılan filtre ön ekleri için önek listeler. Aşağıdaki örnekte, bir görevi gerçekleştirmek için kullanabilirsiniz. Uygun önekle listeleri Kurulum olduğundan emin olun.
 
     policy-options {
         prefix-list MS_Prefixes {

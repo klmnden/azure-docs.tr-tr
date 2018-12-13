@@ -1,6 +1,6 @@
 ---
-title: Portal üzerinden Azure Event Hubs Yakalama özelliğini etkinleştirme | Microsoft Docs
-description: Azure portalını kullanarak Event Hubs Yakalama özelliğini etkinleştirin.
+title: Azure portal - Azure Event Hubs kullanarak akış etkinlikleri | Microsoft Docs
+description: Bu makalede Azure portalını kullanarak Azure Event Hubs ile akış olayların yakalamayı etkinleştirme.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 01c7d9c848465177d5ff1ed7264743437e57d663
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7f57e75f90511ace45198d7516a5d2550123d9be
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014727"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075123"
 ---
-# <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Azure portalını kullanarak Event Hubs Yakalama özelliğini etkinleştirme
+# <a name="enable-capturing-of-events-streaming-through-azure-event-event-hubs"></a>Azure olay Event Hubs ile akış olayların yakalamayı etkinleştirme
 
 Azure [Event Hubs Yakalama][capture-overview] özelliği, Event Hubs’dan akış verilerini seçtiğiniz [Azure Blob depolama](https://azure.microsoft.com/services/storage/blobs/) alanına veya [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) hesabına otomatik olarak iletmenizi sağlar.
 

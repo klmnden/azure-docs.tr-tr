@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 62c89861d784931b2a13297abac578010e0fea5f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 61ec9d0639f4bee950be69ee951492974ac95c64
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251136"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867486"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Azure DevTest Labs uygulamasını düzenleyin
 Bu makalede, hızlı dağıtım ve Azure DevTest Labs uygulaması için önerilen bir yaklaşım sağlar. Aşağıdaki görüntüde, genel işlem sırasında çeşitli sektör gereklilikleri ve senaryoları desteklemek için esneklik gözleme normatif bir Rehber olarak vurgular.
@@ -46,7 +46,7 @@ Ağ topolojisini yerleştirildikten sonra ilk/pilot Laboratuvar aşağıdaki yar
 2. İzin verilen VM görüntüleri ve boyutları lab ile kullanmak için bu seçeneği belirleyin. Özel görüntüleri Azure DevTest Labs ile kullanmak için karşıya yüklenebilir olup olmadığını belirleyin.
 3. Laboratuvar erişim ilk rol temel erişim denetimleri (RBAC) (Laboratuvar sahibini ve Laboratuvar kullanıcıları) Laboratuvar için oluşturarak güvenli hale getirin. DevTest Labs ile kimliği için Azure Active Directory ile eşitlenen active directory hesaplarını kullanmanızı öneririz.
 4. DevTest Labs, zamanlamalar, yönetim, talep edilebilir VM'ler, özel görüntüleri ve formülleri maliyeti gibi ilkelerini kullanmak için yapılandırın.
-5. VSTS/Git gibi çevrimiçi bir depo oluşturun.
+5. Çevrimiçi bir depo gibi Azure depoları/Git kurun.
 6. Genel veya özel depolarda veya ikisinin birleşimi kullanımını karar verin. JSON şablonları, dağıtımlar ve uzun vadeli sustainment için düzenleyin.
 7. Gerekirse, özel yapıtlar oluşturma. Bu adım isteğe bağlıdır. 
 

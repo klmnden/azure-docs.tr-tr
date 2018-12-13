@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: danlep
-ms.openlocfilehash: a52dbdad3842760c447e22f4274ab944750840e7
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b2ab2ad1c31337e006b613ad7f17b4ad22495893
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816795"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870429"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Batch yönetimi çözümleri Active Directory ile kimlik doğrulaması
 
@@ -28,7 +28,7 @@ Azure Batch Management hizmeti çağıran uygulamalar kimlik doğrulaması ile [
 
 Batch yönetimi .NET kitaplığı türleri, Batch hesapları, hesap anahtarları, uygulamalar ve uygulama paketleri ile çalışmak için kullanıma sunar. Batch yönetimi .NET kitaplığı, bir Azure kaynak sağlayıcısı istemci ve ile birlikte kullanılan [Azure Resource Manager] [ resman_overview] bu kaynakları programlama yoluyla yönetme. Azure AD ve Batch yönetimi .NET kitaplığı dahil olmak üzere tüm Azure kaynak sağlayıcısı istemci aracılığıyla yapılan isteklerin kimliğini doğrulamak için gerekli [Azure Resource Manager][resman_overview].
 
-Bu makalede, toplu işlem yönetimi .NET kitaplığını kullanan uygulamalardan kimlik doğrulaması için Azure AD kullanarak keşfedin. Azure AD aboneliğinin Yöneticisi veya ortak yönetici, tümleşik kimlik doğrulamasını kullanarak kimlik doğrulaması yapmak için nasıl kullanılacağını göstereceğiz. Kullandığımız [AccountManagment] [ acct_mgmt_sample] örnek proje, github'da Azure AD ile Batch yönetimi .NET kitaplığını kullanarak izlenecek yol için kullanılabilir.
+Bu makalede, toplu işlem yönetimi .NET kitaplığını kullanan uygulamalardan kimlik doğrulaması için Azure AD kullanarak keşfedin. Azure AD aboneliğinin Yöneticisi veya ortak yönetici, tümleşik kimlik doğrulamasını kullanarak kimlik doğrulaması yapmak için nasıl kullanılacağını göstereceğiz. Kullandığımız [hesap yönetimi] [ acct_mgmt_sample] örnek proje, github'da Azure AD ile Batch yönetimi .NET kitaplığını kullanarak izlenecek yol için kullanılabilir.
 
 Batch yönetimi .NET kitaplığı ve hesap yönetimi örnek kullanma hakkında daha fazla bilgi edinmek için [.NET için Batch Yönetimi istemci kitaplığı ile yönetme Batch hesaplarını ve kotalarını](batch-management-dotnet.md).
 

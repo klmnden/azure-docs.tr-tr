@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: tulasim
-ms.openlocfilehash: cb171a666a4a54660a3bf54b8f26aed23f60d249
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.custom: seodec18
+ms.openlocfilehash: 63025a299f6b7b48936be9702522a832a1d77330
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036312"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074817"
 ---
-# <a name="best-practices"></a>En iyi uygulamalar
+# <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Soru-cevap Oluşturucu Bilgi Bankası en iyi yöntemleri
 [Bilgi Bankası geliştirme yaşam döngüsü](../Concepts/development-lifecycle-knowledge-base.md) başlangıçtan bitişe kadar KB yönetme konusunda size yol gösterir. Bilgi bankanızı artırmak ve uygulama/sohbet Robotu ait son kullanıcılara daha iyi sonuçlar sağlamak için bu en iyi uygulamaları kullanın.
 
 ## <a name="extraction"></a>Ayıklama
@@ -44,7 +45,7 @@ Sohbet chit veri kümesinin parçası olan ve genel yanıtlar oturum doldurulmu�
 
 Aşağıdaki sohbet chit Bankalarıyla daha belirgin hale öneririz:
 
-* Kimsin?
+* Kimsiniz?
 * Ne yapabilirsiniz?
 * Kaç yaşındasınız?
 * Kim, oluşturduğunuz?

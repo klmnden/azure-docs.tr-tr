@@ -1,6 +1,6 @@
 ---
-title: Azure API management İlkesi örnek - Google OAuth belirtecini kullanarak erişim yetkisi | Microsoft Docs
-description: Azure API management ilke örnek - Google OAuth belirteci sağlayıcısı olarak kullanarak noktalarınızı erişim yetkisi vermek nasıl gösterir.
+title: Azure API management ilkesi örneği - Google OAuth belirteci kullanarak erişim yetkisi | Microsoft Docs
+description: Azure API management ilke örneği - bir OAuth belirteci sağlayıcısı olarak Google kullanarak uç noktalarınız erişim yetkisi vermek nasıl gösterir.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 22aed976ef69288aa0e49215a739174786843527
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 430f9e57df163ad345f0740e5bd5beca6e892a4c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284599"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869318"
 ---
-# <a name="authorize-access-using-google-oauth-token"></a>Google OAuth belirtecini kullanarak erişim yetkisi
+# <a name="authorize-access-using-google-oauth-token"></a>Google OAuth belirteci kullanarak erişim yetkisi verme
 
-Bu makalede bir OAuth belirteç sağlayıcısı Google kullanarak noktalarınızı erişim yetkisi vermek nasıl oluşturulduğunu gösteren bir Azure API management ilke örnek gösterilmektedir. Ayarlamak veya ilke kodu düzenlemek için açıklanan adımları izleyin [ayarlama veya düzenleme bir ilke](../set-edit-policies.md). Diğer örnekleri görmek için bkz: [ilkesi örnekleri](../policy-samples.md).
+Bu makalede, Google OAuth belirteci sağlayıcısı olarak kullanarak uç noktalarınız erişim yetkisi vermek nasıl oluşturulduğunu gösteren bir Azure API management ilke örnek gösterilmektedir. Ayarlama veya ilke kodu düzenleme için açıklanan adımları izleyin [ayarlama veya düzenleme ilke](../set-edit-policies.md). Diğer örnekler için bkz [ilkesi örnekleri](../policy-samples.md).
 
 ## <a name="policy"></a>İlke
 
-Koda Yapıştır **gelen** bloğu.
+Kodun içine yapıştırın **gelen** blok.
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Simple Google OAuth validate-jwt.policy.xml)]
 

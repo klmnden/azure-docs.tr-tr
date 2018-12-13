@@ -1,20 +1,18 @@
 ---
-title: Azure Cosmos DB'de veri erişiminin güvenliğini sağlama hakkında bilgi edinin | Microsoft Docs
+title: Azure Cosmos DB'de veri erişiminin güvenliğini sağlama hakkında bilgi edinin
 description: Erişim denetimi kavramlarına ana anahtarları, salt okunur anahtarlar, kullanıcılar ve izinler de dahil olmak üzere Azure Cosmos DB'de hakkında bilgi edinin.
 services: cosmos-db
 author: rafats
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: 0d5243a1dd2a7c9244860da15d39f407b281e1e3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 1d1bc011de579588567fac3debe9d0b4af5d29f7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726806"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878357"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Azure Cosmos DB verilere erişimin güvenliğini sağlama
 Bu makalede depolanan verilere erişimin güvenliğini sağlama genel bir bakış sağlar [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

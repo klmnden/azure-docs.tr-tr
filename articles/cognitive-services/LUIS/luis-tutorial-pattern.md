@@ -1,21 +1,22 @@
 ---
-title: 'Öğretici 3: Desenleri kullanarak LUIS tahminlerini geliştirme'
+title: Desenler
 titleSuffix: Azure Cognitive Services
 description: Daha az örnek konuşma sağlayıp amaç ve varlık tahminini artırmak için desenleri kullanın. Desen, varlıkları ve yok sayılabilir metni tanımlama söz dizimini içeren şablon konuşma örneğiyle sağlanır.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 7ba5db8e50e8da5b274f73046d56f7816ca8834d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: 346d8a83661c487a1d9a11e4da7d7bb67843e0b4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138336"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075531"
 ---
 # <a name="tutorial-3-add-common-utterance-formats"></a>Öğretici 3: Ortak ifade biçimleri ekleme
 
@@ -106,7 +107,7 @@ Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin.
 
 2. Adres çubuğundaki URL'nin sonuna gidip `Who is the boss of Jill Jones?` yazın. Son sorgu dizesi parametresi ifade **s**orgusu olan `q` öğesidir. 
 
-    ```JSON
+    ```json
     {
         "query": "who is the boss of jill jones?",
         "topScoringIntent": {
@@ -196,7 +197,7 @@ Doğru amacın puan yüzdesini bir sonraki en yüksek puandan bir miktar daha y�
 Bu ikinci tarayıcı penceresini açık bırakın. Öğreticinin sonraki bölümlerinde kullanacaksınız. 
 
 ## <a name="template-utterances"></a>Konuşma şablonları
-İnsan Kaynakları etki alanının doğası gereği kuruluşlardaki çalışan ilişkileri hakkında sorulabilecek sorular farklı şekillerde yöneltilebilir. Örnek:
+İnsan Kaynakları etki alanının doğası gereği kuruluşlardaki çalışan ilişkileri hakkında sorulabilecek sorular farklı şekillerde yöneltilebilir. Örneğin:
 
 |Konuşmalar|
 |--|
@@ -229,7 +230,7 @@ Bu öğreticide iki yeni amaç ekleyin: `OrgChart-Manager` ve `OrgChart-Reports`
 
 LUIS istemci uygulamasına tahmin döndürdükten sonra amaç adı istemci uygulamasında işlev adı, Employee varlığı da bu işlevin parametresi olarak kullanılabilir.
 
-```Javascript
+```nodejs
 OrgChartManager(employee){
     ///
 }
@@ -277,7 +278,7 @@ Hatırlayacağınız üzere [Liste varlığı öğreticisinde](luis-quickstart-i
 
 3. Adres çubuğundaki URL'nin sonuna gidip konuşma olarak `Who is the boss of Jill Jones?` yazın. Son sorgu dizesi parametresi ifade **s**orgusu olan `q` öğesidir. 
 
-    ```JSON
+    ```json
     {
         "query": "who is the boss of jill jones?",
         "topScoringIntent": {

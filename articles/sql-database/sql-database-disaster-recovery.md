@@ -3,7 +3,7 @@ title: SQL veritabanı olağanüstü durum kurtarma | Microsoft Docs
 description: Bir veritabanını bölgesel veri merkezi kesintisi veya Azure SQL veritabanı etkin coğrafi çoğaltma ve coğrafi geri yükleme özelliklerini hata kurtarma hakkında bilgi edinin.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: f04b17ec052e4d55ccb39c803b2d690589cb27d2
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
-ms.translationtype: MT
+ms.openlocfilehash: 571ed2b69f078e00ceba44d1526e1783c7602535
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161684"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876738"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Geri yükleme için ikincil bir Azure SQL veritabanı veya yük devretme
 Azure SQL veritabanını kesintiden kurtarma için aşağıdaki özellikleri sunar:

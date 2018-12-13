@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: f0a119bb7a2e18b04caa52319e4908fa5f6241dc
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 45d5cee92ce75c2e13f602d1ea6540698ea8abf3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000342"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078370"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Google Cloud Platform hesaba Bağlan
 
@@ -30,7 +30,7 @@ Projeniz hakkında bilgi toplamak yoluyla başlattığınız.
 
 1. Google Cloud Platform konsola oturum [ https://console.cloud.google.com ](https://console.cloud.google.com).
 2. Cloudyn ve Not eklemek istediğiniz proje bilgileri gözden geçirin **proje adı** ve **proje kimliği**. Sonraki adımlar için kullanışlı bilgiler tutun.  
-    ![Google Cloud Platform Konsolu](./media/connect-google-account/gcp-console01.png)
+    ![Proje adı ve Google Cloud Platform konsolunda gösterilen proje kimliği](./media/connect-google-account/gcp-console01.png)
 3. Faturalandırma etkin değil ve projenize bağlı, bir faturalama hesabı oluşturun. Daha fazla bilgi için [yeni bir faturalama hesabı oluşturma](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create/_a/_new/_billing/_account).
 
 ## <a name="enable-storage-bucket-billing-export"></a>Depolama demetine fatura vermeyi etkinleştir
@@ -41,7 +41,7 @@ Kullanım raporları depolamak için Google bulut depolama kullanarak en az ücr
 
 1. Fatura dışa aktarma dosyasına etkinleştirmediyseniz konumundaki yönergeleri [fatura dışa aktarma dosyasına etkinleştirme](https://cloud.google.com/billing/docs/how-to/export-data-file#how_to_enable_billing_export_to_a_file). JSON veya CSV fatura dışarı aktarma biçimini kullanabilirsiniz.
 2. Google Cloud Platform konsolunda, aksi takdirde gidin **faturalama** > **faturalandırma dışarı aktarma**. Unutmayın, faturalandırma **demet adı** ve **öneki bildirin**.  
-    ![Faturalandırma dışarı aktarma](./media/connect-google-account/billing-export.png)
+    ![Faturalandırma dışarı aktarma sayfasında gösterilen faturalama dışarı aktarma bilgileri](./media/connect-google-account/billing-export.png)
 
 ## <a name="enable-google-cloud-platform-apis"></a>Google Cloud Platform API'leri etkinleştirin
 
@@ -69,7 +69,7 @@ Kullanım ve varlık bilgilerini toplamak için aşağıdaki Google Cloud Platfo
 4. İçinde **Google hesabı adı**, fatura hesap için e-posta adresi girin, ardından tıklayın **sonraki**.
 5. Google kimlik doğrulaması iletişim kutusunu seçin veya Google hesabı girin ve ardından **izin** cloudyn.com hesabınıza erişim sağlayın.
 6. İstek proje bilgileri eklemek önceki olduğunu not. İçerirler **proje kimliği**, **proje** adı **fatura** demet adı ve **fatura dosya** rapor ön eki'e tıklayın  **Kaydet**.  
-    ![Google proje ekleme](./media/connect-google-account/add-project.png)
+    ![Cloudyn hesabınıza Google proje ekleme](./media/connect-google-account/add-project.png)
 
 Google hesabınız hesapları listesinde görünür ve yazması gerekir **doğrulanan**. Bunun altında Google proje adı ve kimliği görünür ve yeşil onay işareti simgesi vardır. Hesap durumu söyleyin **tamamlandı**.
 

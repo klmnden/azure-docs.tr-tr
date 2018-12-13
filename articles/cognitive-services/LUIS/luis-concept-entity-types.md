@@ -1,21 +1,22 @@
 ---
-title: LUIS uygulamalarda - Language Understanding varlık türleri
-titleSuffix: Azure Cognitive Services
+title: Varlık türleri
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Language Understanding Intelligent Service (LUIS) uygulamalarında varlıklar (anahtar, uygulamanızın etki alanı veri) ekleyin.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: fdf81943a7bdbae80f4474915a72bb61f1123a30
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: MT
+ms.openlocfilehash: 761b2101ed7b55de27628882778c51bc86c70ef4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085874"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075667"
 ---
 # <a name="entities-in-luis"></a>LUIS varlıkları
 
@@ -71,7 +72,7 @@ LUIS, çok sayıda varlık türlerini sunar. önceden oluşturulmuş varlıklar,
 | Ad | Etiketleyebilirsiniz | Açıklama |
 | -- |--|--|
 | **Önceden oluşturulmuş** <br/>[Özel](#prebuilt)| |  **Tanım**<br>Genel kavramlar temsil eden yerleşik türler. <br><br>**Liste**<br/>anahtar ifade sayı, sıra, sıcaklık, boyut, para, yaş, yüzde, e-posta, URL, telefon numarası ve anahtar ifade. <br><br>Önceden oluşturulmuş varlık adları ayrılmıştır. <br><br>Uygulamaya eklenen tüm önceden oluşturulmuş varlıklar döndürülür [uç nokta](luis-glossary.md#endpoint) sorgu. Daha fazla bilgi için [önceden oluşturulmuş varlıklarla](./luis-prebuilt-entities.md). <br/><br/>[Varlık için örnek yanıt](luis-concept-data-extraction.md#prebuilt-entity-data)|
-|<!-- added week of 3/21/08 --> **Normal ifade**<br/>[Normal ifade](#regex)||**Tanım**<br>Biçimlendirilmiş ham utterance metin için özel normal ifade. Küçük büyük harf duyarlı ve kültürel bir değişken yok sayar.  <br><br>Bu varlık sözcük ve tümcecikleri tutarlı olan herhangi bir değişim ile tutarlı bir şekilde biçimlendirilmiş için uygundur.<br><br>Normal ifadeyle eşleşen yazım denetimi değişiklikleri sonra uygulanır. <br><br>Normal ifade birçok oluşur. parantez kullanılarak gibi çok karmaşık ise, ifade modele eklemek mümkün değildir. <br><br>**Örnek**<br>`kb[0-9]{6,}` KB123456 eşleşir.<br/><br/>[Hızlı Başlangıç](luis-quickstart-intents-regex-entity.md)<br>[Varlık için örnek yanıt](luis-concept-data-extraction.md)|
+|<!-- added week of 3/21/08 --> **Normal ifade**<br/>[Normal ifade](#regex)||**Tanım**<br>Biçimlendirilmiş ham utterance metin için özel normal ifade. Küçük büyük harf duyarlı ve kültürel bir değişken yok sayar.  <br><br>Bu varlık sözcük ve tümcecikleri tutarlı olan herhangi bir değişim ile tutarlı bir şekilde biçimlendirilmiş için uygundur.<br><br>Normal ifadenin eşleştirilmesi, yazım denetimi değişiklikleri karakter düzeyinde belirteci düzeyinde değil sonra uygulanır. Bölümü ancak bazıları [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) kitaplığı.<br><br>Normal ifade birçok oluşur. parantez kullanılarak gibi çok karmaşık ise, ifade modele eklemek mümkün değildir. <br><br>**Örnek**<br>`kb[0-9]{6,}` KB123456 eşleşir.<br/><br/>[Hızlı Başlangıç](luis-quickstart-intents-regex-entity.md)<br>[Varlık için örnek yanıt](luis-concept-data-extraction.md)|
 | **Basit** <br/>[Makine öğrendiniz](#machine-learned) | ✔ | **Tanım**<br>Bir varlığın tek bir kavram açıklayan ve makine öğrenilen bağlamından öğrenilen genel bir varlıktır. Bağlam, sözcük seçimi, word yerleştirme ve utterance uzunluğu içerir.<br/><br/>Bu, sözcük ve tümcecikleri tutarlı bir şekilde biçimlendirilmemiş, ancak aynı şeyi göstermek için iyi bir varlıktır. <br/><br/>[Hızlı Başlangıç](luis-quickstart-primary-and-secondary-data.md)<br/>[Varlık için örnek yanıt](luis-concept-data-extraction.md#simple-entity-data)|  
 | **Liste** <br/>[Tam eşleşme](#exact-match)|| **Tanım**<br>Liste varlıkları kendi synoymns yanı sıra ilgili sözcükleri sabit, kapalı bir dizi sisteminizde temsil eder. <br><br>Her liste varlığı, bir veya daha fazla form olabilir. Aynı kavram temsil etmek için yol çeşitli bilinen bir dizi için en iyi şekilde kullanılır.<br/><br/>LUIS, liste varlıkları için ek değerler bulmaz. Kullanım **önerilir** yeni sözcükleri sunabileceği önerileri görmek için özellik geçerli listede bağlı.<br/><br>Birden fazla liste varlığı ile aynı değeri varsa, her varlık uç nokta sorguda döndürülür. <br/><br/>[Hızlı Başlangıç](luis-quickstart-intent-and-list-entity.md)<br>[Varlık için örnek yanıt](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.Any** <br/>[Karma](#mixed) | ✔|**Tanım**<br>Patterns.Any yalnızca bir desenin şablon utterance varlık burada başlar ve biter işaretlemek için kullanılan bir değişken uzunluklu yer tutucudur.  <br><br>**Örnek**<br>Başlığa göre kitap için bir utterance arama göz önünde bulundurulduğunda, tam başlık pattern.any ayıklar. Bir şablon utterance pattern.Any kullanarak olan `Who wrote {BookTitle}[?]`.<br/><br/>[Öğretici](luis-tutorial-pattern.md)<br>[Varlık için örnek yanıt](luis-concept-data-extraction.md#composite-entity-data)|  
@@ -98,7 +99,7 @@ Gözden geçirme [sınırları](luis-boundaries.md#model-boundaries) anlamak iç
 
 ## <a name="roles-versus-hierarchical-entities"></a>Hiyerarşik varlıkları ve rolleri
 
-Daha fazla bilgi için [hiyerarşik varlıkları ve rolleri](luis-concept-roles.md#roles-versus-hierarchical-entities).
+Daha fazla bilgi için bkz. [Rollerle hiyerarşik varlıkların karşılaştırması](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="composite-vs-hierarchical-entities"></a>Bileşik vs hiyerarşik varlıklar
 Bileşik varlıkları ve hiyerarşik varlıkları hem üst-alt ilişkileri ve makine öğrendiniz. Makine öğrenimi, farklı bağlamlardaki (bir kelimelerin düzenleme) tabanlı varlıkları anlamak LUIS sağlar. Bileşik varlıklar, bunların alt öğeleri olarak farklı varlık türleri izin verdiğinden daha esnektir. Hiyerarşik bir varlığın alt yalnızca basit varlıklardır. 

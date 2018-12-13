@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 8a015d94304c9b0f9dcfacb24f17af1a19a3d008
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: 635e73a9cbff1c7a18f274db09125be19e1c6bb7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975168"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074477"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Azure CLI 2.0 ile Log Analytics çalışma alanı oluşturma
 
@@ -32,8 +32,8 @@ Azure CLI 2.0, komut satırından veya betik içindeki Azure kaynaklarını olu�
  
 Azure sanal makinelerini ve Windows veya Linux Vm'leri, ortamınızda gibi diğer kaynakları için aşağıdaki konulara bakın:
 
-* [Azure sanal makinelerden veri toplama](../../log-analytics/log-analytics-quick-collect-azurevm.md)
-* [Karma Linux bilgisayarından verileri toplama](../../log-analytics/log-analytics-quick-collect-linux-computer.md)
+* [Azure sanal makinelerden veri toplama](../../azure-monitor/learn/quick-collect-azurevm.md)
+* [Karma Linux bilgisayarından verileri toplama](../../azure-monitor/learn/quick-collect-linux-computer.md)
 * [Karma Windows bilgisayardan veri topla](quick-collect-windows-computer.md)
 
 Azure aboneliğiniz yoksa, oluşturma [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) başlamadan önce.
@@ -129,5 +129,5 @@ Bir çalışma alanı kullanılabilir olduğuna göre telemetri izleme koleksiyo
 
 * Azure Tanılama veya Azure depolama ile Azure kaynaklarından veri toplamayı etkinleştirmek için bkz: [toplamak Azure hizmeti günlükleri ve Log analytics'teki kullanım ölçümlerini](../../azure-monitor/platform/collect-azure-metrics-logs.md).  
 * Ekleme [System Center Operations Manager veri kaynağı olarak](../../azure-monitor/platform/om-agents.md) , Operations Manager yönetim grubuna bildirimde bulunan aracılardan veri toplamak ve Log Analytics çalışma alanınızda depolamak için.  
-* Connect [Configuration Manager](../../log-analytics/log-analytics-sccm.md) hiyerarşideki koleksiyona üye olan bilgisayarlara aktarmak için.  
+* Connect [Configuration Manager](../../azure-monitor/platform/collect-sccm.md) hiyerarşideki koleksiyona üye olan bilgisayarlara aktarmak için.  
 * Gözden geçirme [yönetim çözümleri](../../azure-monitor/insights/solutions.md) kullanılabilir ve ekleme veya bir çözüm çalışma alanınızdan kaldırın.

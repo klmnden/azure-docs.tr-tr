@@ -1,23 +1,23 @@
 ---
 title: Azure Cloudyn bütçelerini yönetin | Microsoft Docs
-description: Bu makale oluşturmak ve Cloudyn bütçelerini yönetmenize yardımcı olur.
+description: Bu makalede, hızlı bir şekilde bütçeleri oluşturun ve bunları Cloudyn'de yönetmeye başlama yardımcı olur.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: ef2ccd1d1fb5583d1356969ca759e5fb58a81936
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 44062670283a15f678da45e13a831e73a7738c39
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997563"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075497"
 ---
-# <a name="manage-budgets"></a>Bütçeleri yönetme
+# <a name="manage-azure-budgets-with-cloudyn"></a>Cloudyn ile Azure bütçelerini yönetin
 
 Ayar bütçelerini'kurmak ve bütçe tabanlı bulut idare ve Sorumluluk geliştirmek için Yardım uyarır. Bu makalede, hızlı bir şekilde bütçeleri oluşturun ve bunları Cloudyn'de yönetmeye başlama yardımcı olur.
 
@@ -40,7 +40,7 @@ Bütçe oluşturun ve bunu bir varlığa atamak için:
 3. Bütçe yılda bütçe oluşturmak istediğiniz yıl seçin.
 4. Her ay için bir bütçe değere ayarlayın. İşiniz bittiğinde tıklayın **Kaydet**.
 Bu örnekte, Haziran 2018 tarihinden itibaren aylık bütçe 135.000 için ayarlanır. Yıl için toplam bütçe $1,615,000.00 olacaktır.
-![Bütçe oluşturun](./media/manage-budgets/set-budget.png)
+![Her ay için bir bütçe ayarlandığı bir bütçe sayfası oluşturma](./media/manage-budgets/set-budget.png)
 
 
 Yıllık bütçenin bir dosyayı içe aktarmak için:
@@ -64,11 +64,11 @@ Bu örnekte, geçerli tarihi 22 Temmuz olduğunu varsayalım. Haziran 2018 için
 
 Raporu görüntülemek için başka bir yolu, bütçenizi birikmiş maliyeti veya aramaktır. Altında birikmiş maliyetleri görmek için **alanları Göster/Gizle**seçin **birikmiş maliyetini** ve **toplam bütçe**. Yılın başlangıcından bu yana birikmiş maliyetini gösteren bir örnek aşağıda verilmiştir.
 
-![Birikmiş bütçe](./media/manage-budgets/accumulated-budget.png)
+![Örnek, maliyet ve maliyet vs gösterilen toplam bütçe toplanır. Zaman içinde Bütçe Raporu](./media/manage-budgets/accumulated-budget.png)
 
 Süre gelecekte birikmiş maliyetini bütçenizi aştığında. Grafik görünümü değiştirirseniz daha kolay görebilirsiniz _satırı_ türü.
 
-![Çizgi grafikte gösterilen bütçe](./media/manage-budgets/budget-line.png)
+![Ay bazında maliyeti çizgi grafikte gösterilen bütçe](./media/manage-budgets/budget-line.png)
 
 ## <a name="create-budget-alerts-for-a-filter"></a>Bütçe uyarılar için bir filtre oluşturun
 
@@ -81,7 +81,7 @@ Bir örneğe göz atalım.
 
 Maliyet vs. Bütçe zaman raporu, tıklayın **eylemleri** seçip **rapor zamanla**. Eşik sekmesinde, bir eşiği ölçümünü seçin. Örneğin, **maliyet yüzdesi vs bütçe**. Bir uyarı türünü seçin ve bütçe yüzdesi değeri girin. Yalnızca bir kez bildirim almak isteyip istemediğinizi seçin **ardışık olarak verilecek uyarı sayısını** yazın _1_. **Kaydet**’e tıklayın.
 
-![Bütçe Uyarısı](./media/manage-budgets/budget-alert.png)
+![Bütçe uyarısı kaydetme ya da bu raporu kutusunda zamanlama oluşturma](./media/manage-budgets/budget-alert.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

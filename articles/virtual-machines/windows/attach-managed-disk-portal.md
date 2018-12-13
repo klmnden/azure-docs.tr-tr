@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 8d83af114ebb5e5ff78372897d3e08ed592d4012
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 854f457e6731f69c64bf2036840d9e1c18a1cbf2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093910"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075100"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Azure portalını kullanarak bir Windows VM'ye yönetilen bir veri diski ekleme
 
@@ -52,30 +52,6 @@ Bu makalede, Azure portalını kullanarak bir Windows sanal makinesi (VM) için 
 8. İçinde **yeni diski Biçimlendir** penceresinde ayarlarını kontrol edin ve ardından **Başlat**.
 9. Diskleri biçimlendirme tüm verileri siler olduğunu bildiren bir uyarı görüntülenir. **Tamam**’ı seçin.
 10. Biçimlendirme tamamlandıktan sonra seçin **Tamam**.
-
-## <a name="use-trim-with-standard-storage"></a>TRIM standart depolama ile kullanma
-
-Standart depolama (HDD) kullanıyorsanız, etkinleştirmelisiniz **TRIM** komutu. **TRIM** komutu, yalnızca gerçekten kullandığınız depolama için faturalandırılırsınız. böylece diskte kullanılmayan blokları atar. Kullanarak **TRIM**, büyük dosyaları oluşturur ve daha sonra bunları silin maliyetlerinden tasarruf edebilirler. 
-
-Denetlenecek **TRIM** ayarı, Windows sanal makinesinde bir komut istemi açın ve aşağıdaki komutu girin:
-
-```
-fsutil behavior query DisableDeleteNotify
-```
-
-Komut, 0, döndürürse **TRIM** doğru şekilde etkinleştirilir. 1 döndürür, aksi takdirde, etkinleştirmek için aşağıdaki komutu çalıştırın **TRIM**:
-
-```
-fsutil behavior set DisableDeleteNotify 0
-```
-
-Diskinizden verileri sildikten sonra sağlayabilirsiniz **TRIM** düzgün şekilde çalıştırarak temizleme işlemleri birleştirme ile **TRIM**:
-
-```
-defrag.exe <volume:> -l
-```
-
-Ayrıca, tüm birim kırpılır emin olmak için birim biçimlendirebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

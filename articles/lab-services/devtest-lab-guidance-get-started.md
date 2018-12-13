@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 1d00dbe23fbd724893ba2b964fc54a3ea9066dcb
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 87baef8ddb5b5d8fc979ba5afb9f9b13cb4fc2ef
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251132"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876545"
 ---
 # <a name="get-started-with-using-azure-devtest-labs"></a>Azure DevTest Labs'i kullanmaya başlama
 DevTest Labs'i keşfedin almaya karar verdiğinizde ilet – iki genel yol vardır kavram kanıtı vs ölçeklendirilmiş dağıtım. 
@@ -51,7 +51,7 @@ Oluşturma ve test ortamları yönetme kuruluş çapında önemli miktarda çaba
 
 - Test ediciler, hızlı bir şekilde yeniden kullanılabilir şablonlar ve yapıtlar aracılığıyla Windows ve Linux ortamları sağlayarak kendi uygulama en son sürümünü test edebilirsiniz.
 - Test ediciler, yük testi birden çok test aracısına sağlayarak ölçeklendirebilirsiniz
-- Yöneticiler, VSTS DevOps senaryolarını etkinleştirmek için laboratuvar bağlanabilir
+- Yöneticiler, DevOps senaryolarını etkinleştirmek için Azure DevOps Laboratuvar bağlanabilir
 - Yöneticiler, sağlayarak maliyetleri denetleyebilirsiniz:
     - Test edenler istedikleri çok daha fazla VM alınamıyor
     - Kullanımda olduğunda VM'ler kapatılır

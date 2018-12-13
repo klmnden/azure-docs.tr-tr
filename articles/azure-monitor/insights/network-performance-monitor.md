@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: be3fb5ab58afd4287bd572842e19dd9e41e8b13b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: e0ea6a82b1dbd9b3fa4a273fae2b79cdc3629904
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839305"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890730"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Ağ Performansı İzleyicisi çözüm azure'da
 
@@ -61,7 +61,7 @@ ExpressRoute İzleyicisi kullanılabilir için desteklenen bölgeler listesi [be
 
 ### <a name="install-and-configure-agents"></a>Aracıları yükleme ve yapılandırma 
 
-Temel işlemler, aracıları yüklemek için kullanmak [Azure Log analytics'e bağlanma Windows bilgisayarları](../../log-analytics/log-analytics-om-agents.md) ve [Log Analytics için Operations Manager'ı bağlama](../../log-analytics/log-analytics-om-agents.md).
+Temel işlemler, aracıları yüklemek için kullanmak [Azure Log analytics'e bağlanma Windows bilgisayarları](../../azure-monitor/platform/om-agents.md) ve [Log Analytics için Operations Manager'ı bağlama](../../azure-monitor/platform/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Aracılarının nasıl yükleneceği 
 
@@ -101,7 +101,7 @@ Ağ Performansı İzleyicisi yapay işlemler, kaynak ve hedef aracılar arası a
    ```
  
 
-### <a name="configure-the-solution"></a>Çözümünüzü yapılandırın 
+### <a name="configure-the-solution"></a>Çözümü yapılandırma 
 
 1. Çalışma alanınızdan Ağ Performansı İzleyicisi çözüm ekleme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Açıklanan işlemi ayrıca kullanabileceğiniz [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../../azure-monitor/insights/solutions.md). 
 2. Log Analytics çalışma alanınızın açın ve seçin **genel bakış** Döşe. 

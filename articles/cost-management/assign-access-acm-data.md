@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 55d0d029e8b22833b61ec3232e0027644296ced7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: secdec18
+ms.openlocfilehash: ab5f334b1c830ea5e9c0164b8e75ef0f4fab8e1b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001704"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075650"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Maliyet Yönetimi verilerine erişim atama
 
@@ -64,12 +64,12 @@ Fatura hesabı kapsamı erişim EA portalında Kurumsal yönetici izni gerektiri
 1. EA portalında oturum açın [ https://ea.azure.com ](https://ea.azure.com) Kurumsal Yönetici hesabı.
 2. Seçin **Yönet** sol bölmesinde.
 3. Üzerinde **kayıt** sekmesinde, yönetmek istediğiniz kaydı seçin.  
-    ![EA portal](./media/assign-access-acm-data/ea-portal.png)
+    ![EA Portalı'nda kaydınız seçin](./media/assign-access-acm-data/ea-portal.png)
 4. Tıklayın **+ yönetici Ekle**.
 5. Yönetici Ekle iletişim kutusunda, kimlik doğrulama türünü seçin ve kullanıcının e-posta adresini yazın.
 6. Kullanıcı altında maliyet ve kullanım verileri, salt okunur erişimi olmaması gerekiyorsa **salt okunur**seçin **Evet**.  Aksi takdirde seçin **Hayır**.
 7. Tıklayın **Ekle** hesabı oluşturmak için.  
-    ![Yönetici kutusu ekleme](./media/assign-access-acm-data/add-admin.png)
+    ![Ekleme Yöneticisi kutusunda gösterilen örnek bilgileri](./media/assign-access-acm-data/add-admin.png)
 
 Bu yeni kullanıcı maliyet Yönetimi'nde verilere erişmeden önce tamamlanması 30 dakika sürebilir.
 
@@ -85,7 +85,7 @@ Departman kapsamı için EA portalında departman Yöneticisi (DA ücretleri gö
 6. Kullanıcı altında maliyet ve kullanım verileri, salt okunur erişimi olmaması gerekiyorsa **salt okunur**seçin **Evet**.  Aksi takdirde seçin **Hayır**.
 7. Departman yönetici izni vermek istediğiniz bölümleri seçin.
 8. Tıklayın **Ekle** hesabı oluşturmak için.  
-    ![Bölüm Yöneticisi kutusu ekleme](./media/assign-access-acm-data/add-depart-admin.png)
+    ![Ekle departman Yöneticisi iletişim kutusunda gerekli bilgileri girin](./media/assign-access-acm-data/add-depart-admin.png)
 
 ## <a name="assign-enrollment-account-scope-access"></a>Kayıt hesabı kapsam erişim atama
 
@@ -99,7 +99,7 @@ Kayıt hesabı kapsam erişim EA portalında hesap sahibi (saniye başına AO g�
 6. Kimlik doğrulaması türünü seçin ve hesap adını yazın.
 7. Kullanıcının e-posta adresini yazın ve isteğe bağlı olarak maliyet merkezini girin.
 8. Tıklayarak **Ekle** hesabı oluşturmak için.  
-    ![Hesap kutusu ekleme](./media/assign-access-acm-data/add-account.png)
+    ![bir kayıt hesabı için Hesap Ekle kutusuna gerekli bilgileri girin](./media/assign-access-acm-data/add-account.png)
 
 Yukarıdaki adımları tamamladıktan sonra kullanıcı hesabının Enterprise portal kayıt hesabı haline gelir ve abonelikleri oluşturabilirsiniz. Kullanıcı, oluşturdukları abonelikler için maliyet ve kullanım verileri erişebilir.
 
@@ -107,7 +107,7 @@ Yukarıdaki adımları tamamladıktan sonra kullanıcı hesabının Enterprise p
 
 Bir yönetim grubu kapsamı erişim, en az maliyet Yönetimi Okuyucu (veya Okuyucu) izni gerektirir. Azure portalında bir yönetim grubu için izinleri yapılandırabilirsiniz. En az, diğerleri için erişimi etkinleştirmek yönetim grubu için kullanıcı erişimi Yöneticisi'ni (veya sahibi) iznine de sahip olmalıdır. Ve ayrıca etkinleştirdiyseniz gerekir **AO ücretleri görüntüle** EA portalında ayarlama.
 
-1. [http://portal.azure.com](http://portal.azure.com) adresinden Azure portalında oturum açın.
+1. [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 2. Seçin **tüm hizmetleri** ve Kenar çubuğunda arama _Yönetim grupları_, ardından **Yönetim grupları**.
 3. Yönetim grubu ve hiyerarşide seçebilirsiniz.
 4. Yönetim grubunuzun adının yanında, tıklayın **ayrıntıları**.
@@ -117,13 +117,13 @@ Bir yönetim grubu kapsamı erişim, en az maliyet Yönetimi Okuyucu (veya Okuyu
 8. Altında **erişim Ata**seçin **Azure AD kullanıcı, Grup veya uygulama**.
 9. Erişim atamak için arama yapın ve ardından kullanıcıyı seçin.
 10. **Kaydet**’e tıklayın.  
-    ![İzinleri Kutusu Ekle](./media/assign-access-acm-data/add-permissions.png)
+    ![bir yönetim grubu için Ekle izinler kutusunda örneği bilgileri](./media/assign-access-acm-data/add-permissions.png)
 
 ## <a name="assign-subscription-scope-access"></a>Abonelik kapsamı erişim atama
 
 Bir aboneliğe erişim, en az maliyet Yönetimi Okuyucu (veya Okuyucu) izni gerektirir. Azure portalında bir aboneliği üzerindeki izinler yapılandırabilirsiniz. En az, diğerleri için erişimi etkinleştirmek abonelik için kullanıcı erişimi Yöneticisi'ni (veya sahibi) iznine de sahip olmalıdır. Ve ayrıca etkinleştirdiyseniz gerekir **AO ücretleri görüntüle** EA portalında ayarlama.
 
-1. [http://portal.azure.com](http://portal.azure.com) adresinden Azure portalında oturum açın.
+1. [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 2. Seçin **tüm hizmetleri** ve Kenar çubuğunda arama _abonelikleri_, ardından **abonelikleri**.
 3. Aboneliğinizi seçin.
 4. Seçin **erişim denetimi (IAM)** sol bölmeden.
@@ -137,7 +137,7 @@ Bir aboneliğe erişim, en az maliyet Yönetimi Okuyucu (veya Okuyucu) izni gere
 
 Bir kaynak grubuna erişim, en az maliyet Yönetimi Okuyucu (veya Okuyucu) izni gerektirir. Azure portalında bir kaynak grubu için izinleri yapılandırabilirsiniz. En az, diğerleri için erişimi etkinleştirmek kaynak grubu için kullanıcı erişimi Yöneticisi'ni (veya sahibi) iznine de sahip olmalıdır. Ve ayrıca etkinleştirdiyseniz gerekir **AO ücretleri görüntüle** EA portalında ayarlama.
 
-1. [http://portal.azure.com](http://portal.azure.com) adresinden Azure portalında oturum açın.
+1. [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 2. Seçin **tüm hizmetleri** ve Kenar çubuğunda arama _kaynak grupları_, ardından **kaynak grupları**.
 3. Kaynak grubunuzu seçin.
 4. Seçin **erişim denetimi (IAM)** sol bölmeden.

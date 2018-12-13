@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 10/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: ab90b4431a0f8d3a4ee70869e053174f89f23dba
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: fdc45f6f1fbbb4580b71a46740fa51278b869ec0
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785224"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889319"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL veri ambarı için bellek ve eşzamanlılık sınırları
 Çeşitli performans düzeylerini ve Azure SQL veri ambarı kaynak sınıflarında ayrılan bellek ve eşzamanlılık sınırları görüntüleyin. Daha fazla bilgi için ve bu özellikler iş yükü yönetimi planınızı uygulamak için bkz: [iş yükü yönetimi için kaynak sınıfları](resource-classes-for-workload-management.md). 
@@ -27,10 +27,14 @@ Aşağıdaki tablolar, farklı performans düzeylerinde veri ambarı için en y�
 
 ### <a name="gen2"></a>Gen2
 
-Gen2 2,5 x Gen1 sorgu başına daha fazla bellek sağlar. Bu ek bellek, hızlı bir performans sunun Gen2'ye yardımcı olur.  Performans düzeyleri için DW30000c ile DW500c Gen2 arasındadır. 
+Gen2 2,5 x Gen1 sorgu başına daha fazla bellek sağlar. Bu ek bellek, hızlı bir performans sunun Gen2'ye yardımcı olur.  Performans düzeyleri için DW30000c ile DW100c Gen2 arasındadır. 
 
 | Performans düzeyi | İşlem düğümleri | İşlem düğümü başına dağıtımları | Bellek (GB) veri ambarı başına |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
+| DW100c            | 1             | 60                             |    60                          |
+| DW200c            | 1             | 60                             |   120                          |
+| DW300c            | 1             | 60                             |   180                          |
+| DW400c            | 1             | 60                             |   240                          |
 | DW500c            | 1             | 60                             |   300                          |
 | DW1000c           | 2             | 30                             |   600                          |
 | DW1500c           | 3             | 20                             |   900                          |
@@ -76,6 +80,10 @@ Aşağıdaki tabloda en fazla eş zamanlı sorguları ve eşzamanlılık yuvalar
 
 | Hizmet Düzeyi | En fazla eş zamanlı sorguları | Eşzamanlılık yuvası yok |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
+| DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
+| DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
+| DW300c        | 12                         |   12                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
+| DW400c        | 16                         |   16                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW500c        | 20                         |   20                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
@@ -92,7 +100,7 @@ Aşağıdaki tabloda en fazla eş zamanlı sorguları ve eşzamanlılık yuvalar
 **Dinamik kaynak sınıfları**
 
 > [!NOTE]
-> Gen2 smallrc kaynak sınıfını dinamik olarak bellek ekler, hizmet düzeyini artırır ve yalnızca DW1000c ve 20 ve DW500c en fazla 32 eş zamanlı sorguları destekler.  Örnek DW1500c, eşzamanlılık yuvaları ve tarafından kullanılan bellek dışında ölçeklendirilir sonra hizmet düzeyi arttıkça smallrc artırır. 
+> Gen2 smallrc kaynak sınıfını dinamik olarak bellek ekler, hizmet düzeyini artırır ve yalnızca DW1000c ve 4 ve DW100c en fazla 32 eş zamanlı sorguları destekler.  Örnek DW1500c, eşzamanlılık yuvaları ve tarafından kullanılan bellek dışında ölçeklendirilir sonra hizmet düzeyi arttıkça smallrc artırır. 
 >
 >
 
@@ -100,6 +108,10 @@ Aşağıdaki tabloda en fazla eş zamanlı sorguları ve eşzamanlılık yuvalar
 
 | Hizmet Düzeyi | En fazla eş zamanlı sorguları | Eşzamanlılık yuvası yok | Smallrc tarafından kullanılan yuvaları | Mediumrc tarafından kullanılan yuvaları | Largerc tarafından kullanılan yuvaları | Xlargerc tarafından kullanılan yuvaları |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
+| DW100c        |  4                         |    4                        | 1                     |  1                     |  1                    |   2                    |
+| DW200c        |  8                         |    8                        | 1                     |  1                     |  1                    |   5                    |
+| DW300c        | 12                         |   12                        | 1                     |  1                     |  2                    |   8                    |
+| DW400c        | 16                         |   16                        | 1                     |  1                     |  3                    |  11                    |
 | DW500c        | 20                         |   20                        | 1                     |  2                     |  4                    |  14                    |
 | DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
 | DW1500c       | 32                         |   60                        | 1                     |  6                     |  13                   |  42                    |

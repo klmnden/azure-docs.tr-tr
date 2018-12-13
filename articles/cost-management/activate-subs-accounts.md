@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 5dee0286f5e8f43527062f6bd9255a5d735651f3
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: secdec18
+ms.openlocfilehash: 9a27efe7908b2a15ceb823d7a85c4a12603731ab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994116"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075990"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Azure aboneliklerini ve hesaplarını Cloudyn ile etkinleştirme
 
@@ -41,7 +41,7 @@ Hesabınıza **Katkıda Bulunan** rolü atandıysa, uygulamayı atamak için yet
 3. Azure Active Directory’de **Kullanıcı ayarları**’nı seçin.
 4. **Uygulama kayıtları** seçeneğini işaretleyin.
     - Bu **Evet** olarak ayarlanırsa, yönetici olmayan kullanıcılar AD uygulamalarını kaydedebilir. Bu ayar, Azure AD kiracısı içindeki herhangi bir kullanıcının bir uygulamayı kaydedebileceği anlamına gelir.  
-    ![Uygulama kayıtları](./media/activate-subs-accounts/app-register.png)
+    ![Kullanıcı Ayarları'nda uygulama kayıtları seçin](./media/activate-subs-accounts/app-register.png)
     - **Uygulama kayıtları** seçeneği **Hayır** olarak ayarlanırsa, yalnızca kiracı yönetici kullanıcıları Azure Active Directory uygulamalarını kaydedebilir. Kiracı yöneticinizin, CloudynCollector uygulamasını kaydetmesi gerekir.
 
 
@@ -53,12 +53,12 @@ Bir aboneliğe hesap güncelleştirme eklediğinizde, Cloudyn'e Azure verilerini
 
 1. Cloudyn portalında, sağ üst kısımdaki dişli simgesine tıklayın ve **Bulut Hesapları**'nı seçin.
 2. **Yeni hesap ekle**’ye tıklayın, böylece **Yeni hesap ekle** kutusu görüntülenir. Gerekli bilgileri girin.  
-    ![Yeni hesap ekle kutusu](./media/activate-subs-accounts//add-new-account.png)
+    ![Ekleme yeni hesap kutusunda gerekli bilgileri girin](./media/activate-subs-accounts/add-new-account.png)
 
 ### <a name="update-a-subscription"></a>Aboneliği güncelleştirme
 
 1. Cloudyn’de önceden mevcut olan _etkinleştirilmemiş_ bir aboneliği güncelleştirmek istiyorsanız, üst _kiracı GUID'si_'nin sağındaki düzenleme kalemi simgesine tıklayın. Abonelikler bir üst kiracı altında gruplanır, bu nedenle abonelikleri tek tek etkinleştirmekten kaçının.
-    ![Abonelikleri yeniden keşfetme](./media/activate-subs-accounts/existing-sub.png)
+    ![Kiracı Kimliğinizi Rediscover abonelik kutuya seçin](./media/activate-subs-accounts/existing-sub.png)
 2. Gerekirse Kiracı Kimliğini girin. Kiracı Kimliğinizi bilmiyorsanız, bulmak için aşağıdaki adımları kullanın:
     1. [Azure Portal](https://portal.azure.com) oturum açın.
     2. Azure portalında **Azure Active Directory** seçeneğini belirleyin.
@@ -106,7 +106,7 @@ Departman yöneticilerine, hesap sahiplerine ve kurumsal yöneticilere Faturalam
 Yalnızca bir Azure hizmet yöneticisi Cloudyn'i etkinleştirebilir. Ortak yönetici izinleri yeterli değil. Ancak, yönetici gereksinimine geçici bir çözüm sunabilirsiniz. Azure Active Directory yöneticinizin PowerShell betiği ile **CloudynAzureCollector**’ı yetkilendirme izni vermesini isteyebilirsiniz. Aşağıdaki betik, **CloudynAzureCollector** adlı Azure Active Directory Hizmet Sorumlusu’nu kaydetme izni verir.
 
 
-```
+```powershell
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #Tenant - enter your tenant ID or Name

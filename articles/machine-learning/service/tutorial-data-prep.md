@@ -1,5 +1,6 @@
 ---
-title: Regresyon modeli Öğreticisi - Azure Machine Learning hizmeti ile verileri hazırlama
+title: 'Regresyon modeli öğretici: verileri hazırlama'
+titleSuffix: Azure Machine Learning service
 description: Bu öğreticinin ilk bölümünde Azure ML SDK'sını kullanarak regresyon modelleme python'da verileri hazırlama öğreneceksiniz.
 services: machine-learning
 ms.service: machine-learning
@@ -9,13 +10,13 @@ author: cforbe
 ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
-ms.custom: seodec12
-ms.openlocfilehash: 94e004c40177298f805336509d649065fc7dfdb7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 14be60977ef0be3e88a0cb01356446b59ca374e2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012377"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076449"
 ---
 # <a name="tutorial-part-1-prepare-data-for-regression-modeling"></a>Öğretici (Kısım 1): gerileme model için verileri hazırlama
 
@@ -160,7 +161,7 @@ tmp_df.head(5)
       <td>0</td>
       <td>2</td>
       <td>.00</td>
-      <td>74.5</td>
+      <td>74,5</td>
     </tr>
     <tr>
       <th>2</th>
@@ -700,7 +701,7 @@ tmp_df.head(5)
       <td>40.758480</td>
       <td>1</td>
       <td>0.0</td>
-      <td>2.5</td>
+      <td>2,5</td>
     </tr>
     <tr>
       <th>1</th>
@@ -718,7 +719,7 @@ tmp_df.head(5)
       <td>40.757843</td>
       <td>1</td>
       <td>0.0</td>
-      <td>2.5</td>
+      <td>2,5</td>
     </tr>
     <tr>
       <th>2</th>
@@ -904,7 +905,7 @@ tmp_df.head(5)
       <td>40.758480</td>
       <td>1</td>
       <td>0.0</td>
-      <td>2.5</td>
+      <td>2,5</td>
     </tr>
     <tr>
       <th>1</th>
@@ -926,7 +927,7 @@ tmp_df.head(5)
       <td>40.757843</td>
       <td>1</td>
       <td>0.0</td>
-      <td>2.5</td>
+      <td>2,5</td>
     </tr>
     <tr>
       <th>2</th>

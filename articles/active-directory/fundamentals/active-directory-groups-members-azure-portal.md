@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory'yi kullanarak grubuna üye ekleme veya kaldırma nasıl | Microsoft Docs
-description: Ekleme veya kullanıcıları ve cihazları Azure Active Directory'yi kullanarak bir gruptan kaldırma konusunda bilgi edinin.
+title: Grup üyeleri - Azure Active Directory Ekle Kaldır | Microsoft Docs
+description: Üye ekleme veya Azure Active Directory'yi kullanarak bir gruptan kaldırma hakkında yönergeler.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,21 +10,21 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 7c1a83d83dcbf247550c66602a6f53d4ef0d7930
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 42b80b53ca7c860143f1de1005a609b3e921e650
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733373"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076175"
 ---
-# <a name="how-to-add-or-remove-group-members-using-azure-active-directory"></a>Nasıl yapılır: Azure Active Directory'yi kullanarak grubuna üye ekleme veya kaldırma
+# <a name="add-or-remove-group-members-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak grubuna üye ekleme veya kaldırma
 Azure Active Directory'yi kullanarak, ekleme ve grubu üyelerini kaldırma devam edebilirsiniz.
 
 ## <a name="to-add-group-members"></a>Grup üyeleri eklemek için
 
-1. Oturum [Azure portalında](https://portal.azure.com) dizinde genel yönetici hesabını kullanarak.
+1. Dizin için bir Genel yönetici hesabı kullanarak [Azure portalda](https://portal.azure.com) oturum açın.
 
 2. Seçin **Azure Active Directory**ve ardından **grupları**.
 
@@ -32,7 +32,7 @@ Azure Active Directory'yi kullanarak, ekleme ve grubu üyelerini kaldırma devam
 
     ![Tüm grupları grupları sayfasında grubu adı vurgulanmış](media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
 
-4. Gelen **MDM İlkesi - Batı genel bakış** sayfasında **üyeleri** gelen **Yönet** alan.
+4. **MDM ilkesi - Batı Genel Bakışı** sayfasında, **Yönet** alanından **Üyeler** seçeneğini belirleyin.
 
     ![MDM İlkesi - üyeleri seçeneğinin vurgulandığı Batı genel bakış sayfası](media/active-directory-groups-members-azure-portal/group-overview-blade.png)
 
@@ -54,12 +54,12 @@ Azure Active Directory'yi kullanarak, ekleme ve grubu üyelerini kaldırma devam
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Gruplar ve üyeler görüntüleyin](active-directory-groups-view-azure-portal.md)
+- [Grupları ve üyeleri görüntüleme](active-directory-groups-view-azure-portal.md)
 
-- [Grup ayarlarınızı düzenleyin](active-directory-groups-settings-azure-portal.md)
+- [Grup ayarlarınızı düzenleme](active-directory-groups-settings-azure-portal.md)
 
 - [Grupları kullanarak kaynaklara erişimi yönetme](active-directory-manage-groups.md)
 
 - [Bir gruptaki kullanıcılar için dinamik kuralları yönetme](../users-groups-roles/groups-create-rule.md)
 
-- [Azure Active Directory'ye bir Azure aboneliği ekleme veya ilişkilendirme](active-directory-how-subscriptions-associated-directory.md)
+- [Azure Active Directory’ye bir Azure aboneliğini ekleme veya ilişkilendirme](active-directory-how-subscriptions-associated-directory.md)

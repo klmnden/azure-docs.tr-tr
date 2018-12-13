@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 166dffc6f79784b9a62cea4cb545aee32001441d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 180489aecc5eb5e937b4c163bc40937f3f6d2d80
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124686"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077673"
 ---
 # <a name="copy-data-from-drill-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak detaya verileri kopyalama
 
@@ -74,7 +74,12 @@ Aşağıdaki özellikler ayrıntıya bağlı hizmeti için desteklenir:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, bağlantılı veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Ayrıntıya verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **DrillTable**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Ayrıntıya verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **DrillTable**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **DrillTable** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -86,7 +91,8 @@ Ayrıntıya verileri kopyalamak için dataset öğesinin type özelliği ayarlam
         "linkedServiceName": {
             "referenceName": "<Drill linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -102,7 +108,7 @@ Ayrıntıya verileri kopyalamak için kopyalama etkinliği için kaynak türün�
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **DrillSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 
