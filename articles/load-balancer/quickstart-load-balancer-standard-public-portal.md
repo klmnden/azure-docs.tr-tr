@@ -83,7 +83,7 @@ Bu bölümde, bir sanal ağ oluşturur, yük dengeleyicinizin arka uç havuzu i�
         2. **Ağ güvenlik grubu oluştur** sayfasının **Ad** bölümüne *myNetworkSecurityGroup* yazın ve **Tamam**'ı seçin.
 5. Önyükleme tanılamalarını devre dışı bırakmak için **Devre Dışı** seçeneğine tıklayın.
 6. **Tamam**’a tıklayın, özet sayfasındaki ayarları gözden geçirin ve sonra **Oluştur**’a tıklayın.
-7. 1-6 arası adımları kullanarak, Kullanılabilirlik kümesi *myAvailabilityset*, sanal ağ *myVnet*, alt ağ *myBackendSubnet* ve ağ güvenlik grubu *myNetworkSecurityGroup* olarak ayarlanmış şekilde *VM2* adlı ikinci bir sanal makine oluşturun. 
+7. 1-6 arası adımları kullanarak, Kullanılabilirlik kümesi *myAvailabilityset*, sanal ağ *myVnet*, alt ağ *myBackendSubnet* ve ağ güvenlik grubu \**myNetworkSecurityGroup* olarak ayarlanmış şekilde *VM2* adlı ikinci bir sanal makine oluşturun. 
 
 ### <a name="create-nsg-rule"></a>NSG kuralı oluşturma
 
