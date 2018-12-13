@@ -1,5 +1,5 @@
 ---
-title: Bir Azure Search dizini veya yenileme aranabilir içeriği yeniden | Microsoft Docs
+title: Azure Search dizini yeniden oluşturmanız veya aranabilir içeriği - Azure Search Yenile
 description: Yeni öğeler eklemek, var olan öğeleri veya belgeleri güncelleştirin veya tam yeniden derleme veya kısmi artımlı bir Azure Search dizini yenilemek için dizin geçersiz belgelerde silme.
 services: search
 author: HeidiSteen
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 374e7601169647f0eb7d3a214cf15567b7b11090
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.custom: seodec2018
+ms.openlocfilehash: 9c9af69e45af6a70c5327393a1c10385ba2c2aed
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34641433"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316905"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Nasıl bir Azure Search dizini yeniden oluşturma
 
@@ -35,7 +36,7 @@ Dizin şemaları flux bir durumda olduğunda sık, tam planında etkin geliştir
 
 | Değiştirme | Durum yeniden oluşturun|
 |--------------|---------------|
-| Veri türü, alan adı, değiştirme veya kendi [dizin öznitelikleri](https://docs.microsoft.com/rest/api/searchservice/create-index) | Bir alan tanımı değiştirilmesi genellikle bunlar dışında bir yeniden derleme cezası doğurur [dizin öznitelikleridir](https://docs.microsoft.com/rest/api/searchservice/create-index): alınabilir, SearchAnalyzer, SynonymMaps. Dizinini yeniden derlemeye gerek kalmadan, mevcut bir alanda alınabilir ve SearchAnalyzer SynonymMaps öznitelikler ekleyebilirsiniz.|
+| Veri türü, alan adı, değiştirme veya kendi [dizin öznitelikleri](https://docs.microsoft.com/rest/api/searchservice/create-index) | Bir alan tanımı değiştirilmesi genellikle bunlar dışında bir yeniden derleme cezası doğurur [dizin öznitelikleridir](https://docs.microsoft.com/rest/api/searchservice/create-index): Alınabilir, SearchAnalyzer, SynonymMaps. Dizinini yeniden derlemeye gerek kalmadan, mevcut bir alanda alınabilir ve SearchAnalyzer SynonymMaps öznitelikler ekleyebilirsiniz.|
 | Bir alan ekleme | Yeniden derleme üzerinde katı gereksinimi yoktur. Var olan dizini oluşturulan belgeler, yeni alan için bir null değer verilir. Gelecekteki bir reindex, Azure Search tarafından eklenen null değerlere kaynak veri değerlerini değiştirin. |
 | Bir alanı silme | Bu gibi durumlarda, bir alan doğrudan bir Azure Search dizini silemezsiniz. Bunun yerine, uygulamanızın yoksay, kullanmaktan kaçınmak için "silindi" alanı olmalıdır. Fiziksel alan tanımı ve içeriği dizine dizininizi söz konusu alanı atlar bir şema kullanılarak yeniden açana kadar kalır.|
 

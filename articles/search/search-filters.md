@@ -1,6 +1,6 @@
 ---
-title: Azure Search'te filtreleri | Microsoft Docs
-description: Kullanıcının güvenlik kimliği, dil, coğrafi konuma veya Azure arama, Microsoft Azure üzerinde barındırılan bulut arama hizmeti sorgularda arama sonuçları azaltmak için sayısal değerleri göre filtreleyin.
+title: Dizin - Azure Search arama sonuçlarında kapsamı için filtreler
+description: Kullanıcı güvenlik kimliği, dil, coğrafi konum veya sorgular, Azure arama, Microsoft Azure üzerinde barındırılan bulut arama hizmeti üzerinde arama sonuçları azaltmak için sayısal değerler göre filtreleyin.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,67 +8,68 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 9f891dbe3f051f2fb5bfd242830f3c30abede487
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: d99196e231d122fcb0e707d30aed4d3b3eb2b89d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191375"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310360"
 ---
 # <a name="filters-in-azure-search"></a>Azure Search'te filtreler 
 
-A *filtre* bir Azure Search sorguda kullanılan belgeler seçmek için ölçüt sağlar. Filtre uygulanmamış arama dizinde tüm belgeleri içerir. Bir filtre, bir arama sorgusu belgelerin alt kapsamları. Örneğin, bir filtre, belirli bir marka veya renk, belirli bir eşiğin üstünde fiyat noktalarda sahip yalnızca bu ürünler için tam metin araması sınırlayabilirsiniz.
+A *filtre* belgeleri bir Azure Search sorguda kullanılan seçmek için ölçütleri sağlar. Filtrelenmemiş arama dizininde tüm belgeleri içerir. Bir filtre, bir arama sorgusu belgelerin alt kapsamlar. Örneğin, bir filtre tam metin araması yalnızca ürünlerin belirli bir marka veya renk, belirli bir eşiğin üstünde fiyat noktalarında sahip kısıtlayabilirsiniz.
 
-Uygulama bir parçası olarak bazı arama deneyimleri filtre gereksinimleri, ancak arama'yı kullanarak kısıtlamak istediğiniz zaman filtreleri kullanabilirsiniz *değeri tabanlı* ölçütleri (kapsam aramak için ürün türü "books" kategorisi" olmayan kurgu""Tarafından Simon & Schuster"yayımlanan).
+Bazı arama deneyimleri, uygulamanın bir parçası filtre gereksinimlerini zorunlu tuttukları ancak arama ile sınırlamak dilediğiniz filtreleri kullanabilirsiniz *değer tabanlı* ölçütleri (kapsam aramak için ürün türü "books" Kategori" kurgu olmayan""Simon & Schuster"tarafından yayımlanan).
 
-Bunun yerine amacınız belirli veri hedeflenen Search'te ise *yapıları* (müşteri incelemelerini alanına kapsam arama), aşağıda açıklanan alternatif yöntemler vardır.
+Bunun yerine belirli veri çubuğunda hedeflenen arama amaçlıyorsanız *yapıları* (müşteri incelemeleri alanına kapsam arama), aşağıda açıklanan diğer yöntemleri vardır.
 
-## <a name="when-to-use-a-filter"></a>Bir filtreyi kullanmak ne zaman
+## <a name="when-to-use-a-filter"></a>Ne zaman bir filtreyi kullanın
 
-Filtreler "modellenmiş bir gezinmede ve güvenlik filtreleri gösteren yalnızca bir kullanıcı görmek için izin verilen belgeleri Bul bana yakın", dahil olmak üzere birkaç arama deneyimleri temel. Bu deneyimler herhangi biri uygularsanız, bir filtre gereklidir. Coğrafi konum koordinatlarını sağlar arama sorgusu kullanıcı veya güvenlik kimliği istek sahibi tarafından seçilen model kategoriye ekli filtredir.
+"Çok yönlü gezinme ve güvenlik filtreleri gösteren bir kullanıcının görmek için verilen belgeleri Yakınımda Bul", dahil olmak üzere çeşitli arama deneyimleri temel filtreler. Bu deneyimler herhangi biri uygularsanız, bir filtre gereklidir. Coğrafi konum koordinatlarını sağlayan arama sorgusu kullanıcı veya güvenlik kimliği istek sahibi tarafından seçilen modeli kategoriye bağlı filtresidir.
 
 Örnek senaryolar aşağıdakileri içerir:
 
-1. Dizindeki veri değerleri temel alarak dizininizi dilim için bir filtre kullanın. Şehir, housing türü ve s şemasıyla verilir, açıkça (, Seattle, apartman dairesi rıhtımının) ölçütlerinizi karşılayan belgeleri seçmek için bir filtre oluşturabilirsiniz. 
+1. Dizin veri değerlere göre dizininizi dilim için filtre kullanın. Şehir, konut türü ve kullanılmıyordu sahip bir şema göz önünde bulundurulduğunda, (içinde Seattle, apartman dairesi, rıhtımının) ölçütlerinizi karşılayan belgeleri açıkça seçmek için bir filtre oluşturabilir. 
 
-  Tam metin araması aynı giriş ile genellikle benzer sonuçlar verir, ancak tam bir eşleşme içeriğinde dizininiz karşı filtre koşulunun gerekir bir filtre daha kesin değildir. 
+  Tam metin araması aynı girişlerle genellikle şuna benzer sonuçlar üretir, ancak tam bir eşleşme içerik dizininize göre filtre döneminin gerektirir, bir filtre daha kesin. 
 
-2. Bir filtre gereksinim ile arama deneyimini geliyorsa, bir filtre kullanın:
+2. Arama deneyimi, bir filtre gereksinimiyle geliyorsa bir filtre kullanın:
 
- * [Modellenmiş bir gezinmede](search-faceted-navigation.md) geri kullanıcı tarafından seçilen model kategori geçirmek için bir filtre kullanır.
- * Coğrafi arama "Bul" Benim yakın geçerli konumda koordinatlarını uygulamaları geçirmek için bir filtre kullanır. 
- * Güvenlik filtreleri güvenlik tanımlayıcıları burada dizindeki bir eşleşme belgeye erişim hakları için proxy olarak hizmet veren filtre ölçütü olarak geçirin.
+ * [Çok yönlü gezinme](search-faceted-navigation.md) kullanıcı tarafından seçilen modeli kategori geri geçirmek için bir filtre kullanır.
+ * Coğrafi arama, "Yakınımda Bul" geçerli konumu koordinatlarını uygulamaları geçirmek için bir filtre kullanır. 
+ * Güvenlik filtreleri güvenlik tanımlayıcıları, burada dizindeki bir eşleşme belgeye erişim hakları için proxy olarak hizmet veren filtre ölçütü olarak geçirin.
 
-3. Bir sayısal alana arama ölçütlerine istiyorsanız bir filtre kullanın. 
+3. Arama ölçütleri sayısal bir alan üzerinde filtre kullanın. 
 
-  Sayısal alanlar belgede alınabilir ve arama sonuçlarında görünebilir, ancak bunlar ayrı ayrı (tam metin araması tabi) aranabilir değil. Sayısal veriler üzerinde dayalı seçim ölçütleri gerekiyorsa, bir filtre kullanın.
+  Sayısal alanlar belge odalı ve arama sonuçlarında görünebilir, ancak bunlar ayrı ayrı (tam metin araması tabidir) aranabilir değil. Sayısal verileri temel alan seçim ölçütü gerekirse bir filtre uygulayın.
 
 ### <a name="alternative-methods-for-reducing-scope"></a>Kapsam azaltmak için alternatif yöntemler
 
-Filtreler Arama sonuçlarınızda daraltma etkisi istiyorsanız, yalnızca tercih ettiğiniz değildir. Bu alternatifleri hedefiniz bağlı olarak daha iyi bir uyum olabilir:
+Filtreler arama sonuçlarınızı daraltma etkisi istiyorsanız, yalnızca seçtiğiniz değildir. Bu alternatifleri hedefiniz bağlı olarak, daha uygun olabilir:
 
- + `searchFields` sorgu parametresi belirli alan arama pegs. Örneğin, dizininiz için İngilizce ve İspanyolca açıklamalar ayrı alanları sağlıyorsa, hangi alanlar için tam metin araması kullanmak için hedef için searchFields kullanabilirsiniz. 
+ + `searchFields` sorgu parametresi belirli alanlarında arama pegs. Örneğin, dizininizin İngilizce ve İspanyolca açıklamaları için ayrı alanlara sağlıyorsa, hangi alanlar tam metin araması için kullanılacak hedef için searchFields kullanabilirsiniz. 
 
-+ `$select` parametre bir sonucunda eklemek için hangi alanları, çağıran uygulama göndermeden önce yanıt etkili bir şekilde kırpma belirlemek için kullanılır. Bu parametre sorgu daraltmayı ya da belge koleksiyonunu azaltmak, ancak ayrıntılı yanıt amacınız ise, bu parametre dikkate alınması gereken bir seçenektir. 
++ `$select` parametre bir sonucuna dahil edilecek hangi alanların, etkili bir şekilde çağıran uygulama için göndermeden önce yanıt kırpma belirlemek için kullanılır. Bu parametre sorguyu daraltmak etmez veya belge koleksiyonunu azaltmak, ancak ayrıntılı yanıt hedefiniz varsa bu parametre dikkate alınması gereken bir seçenektir. 
 
-Her iki parametre hakkında daha fazla bilgi için bkz: [Search belgeleri > İstek > sorgu parametreleri](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
+Her iki parametre hakkında daha fazla bilgi için bkz. [belge Ara > İstek > sorgu parametreleri](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
 
 
-## <a name="filters-in-the-query-pipeline"></a>Sorgu ardışık düzeninde filtreleri
+## <a name="filters-in-the-query-pipeline"></a>Sorgu işlem hattındaki filtreler
 
-Filtre ayrıştırıcı ölçütleri giriş olarak kabul eder sorgu zaman ifade atomik Boolean ifadelere dönüştürür ve ardından dizin filtrelenebilir alanları üzerinde hesaplanan bir filtre ağacı oluşturur.  
+Sorgu zamanında bir filtre ayrıştırıcı ölçütleri giriş olarak kabul eder, atomik Boolean ifadeleri ifade dönüştürür ve dizin filtrelenebilir alanlara üzerinden değerlendirilir bir filtre ağacı oluşturur.  
 
-Filtreleme belge alma için aşağı akış işleme ve ilgi Puanlama dahil edilecek hangi belgeleri niteleme arama önce gerçekleşir. Bir arama dizesi ile eşlenmiş, filtre etkili bir şekilde sonraki arama işlemi'nın yüzey alanını azaltır. Tek başına kullanıldığında (örneğin, sorgu dizesi olduğunda boş nereye `search=*`), filtre ölçütlerini olan tek giriş. 
+Filtreleme, arama, hangi belgeler belge almak için aşağı akış işleme ve ilgi düzeyi Puanlama dahil edilecek uygun önce gerçekleşir. Bir arama dizesi ile birlikte kullanıldığında filtresini etkili bir şekilde sonraki arama işlemi'nın yüzey alanını azaltır. Tek başına kullanıldığında (örneğin, sorgu dizesi iken boş nerede `search=*`), filtre ölçütlerini olan tek giriş. 
 
 ## <a name="filter-definition"></a>Filtre tanımı
 
-Filtreleri kullanarak geliştirilmiştir OData ifadeleri olan bir [Azure Search'te desteklenen OData V4 sözdizimi kısmı](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+OData ifadeleri kullanarak geliştirilmiştir, filtrelerdir bir [alt kümesini Azure Search'te desteklenen OData V4 sözdizimi](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
-Her biri için bir filtre belirtebilirsiniz **arama** işlemi, ancak filtre birden çok alan, birden çok ölçüt içerebilir ve kullanırsanız, bir **IsMatch** işlevi, birden çok ifade. Çok parçalı filtre ifadesinde herhangi bir sırada koşulları belirtebilirsiniz. Belirli bir sırayla koşullarında yeniden denerseniz, performansı fark edilir hiçbir kazanç yoktur.
+Her biri için bir filtre belirtebilirsiniz **arama** işlemi, ancak filtre birden çok alan, birden çok ölçüt içerebilir ve bir **IsMatch** işlevi, birden fazla ifade. Çok parçalı filtre ifadesinde, herhangi bir sırada koşulları belirtebilirsiniz. Belirli bir sırada doğrulamaları yeniden denerseniz, performansta önemli hiçbir kazanç yoktur.
 
-Bir filtre ifadesi sabit sınırı istekte üst sınırı ' dir. Filtre planlayacak tüm istek en fazla 16 MB POST veya GET için 8 KB olabilir. Filtre ifadesi yan tümcelerinde sayısına esnek sınırlar ilişkilendirmek. Bir iyi yan tümceleri yüzlerce varsa, sınırı içinde çalışan risk altındadır udur. Sınırsız boyutunun filtreleri oluşturmaz şekilde uygulamanızı tasarlama öneririz.
+Bir filtre ifadesi sabit sınırı istekte üst sınır:. Filtre tamamlanmıyorsa, tüm istek en fazla 16 MB POST veya GET için 8 KB olabilir. Bulunsa da bu sınırlar, filtre ifadesi yan tümcelerinde sayısına ilişkilendirin. Bir iyi yan tümceleri yüzlerce varsa, sınırı içinde çalışan risk altındadır udur. Sınırsız boyutunun filtreleri oluşturmaz şekilde uygulamanızı tasarlama öneririz.
 
-Aşağıdaki örnekler API'leri Prototipik filtresi tanımlarının temsil eder.
+Aşağıdaki örnekler birkaç API Prototipik filtre tanımlarında temsil eder.
 
 ```http
 # Option 1:  Use $filter for GET
@@ -95,21 +96,21 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ## <a name="filter-design-patterns"></a>Filtre tasarım desenleri
 
-Aşağıdaki örneklerde filtre senaryoları için birkaç tasarım desenleri gösterilmektedir. Daha fazla fikir için bkz: [OData ifade sözdizimini > örnekler](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples).
+Aşağıdaki örnekler, filtre senaryoları için çeşitli tasarım desenleri gösterir. Daha fazla fikir için bkz: [OData ifadesi söz dizimi > örnekler](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples).
 
-+ Tek başına **$filter**, filtre ifadesi ilgi belgeleri tam olarak nitelemek mümkün olduğunda yararlı bir sorgu dizesi olmadan. Bir sorgu dizesi sözcük veya dil çözümleme, hiçbir Puanlama ve herhangi bir derecelendirme yoktur. Arama dizesi boş olduğuna dikkat edin.
++ Tek başına **$filter**, filtre ifadesi ilgi belgeleri tam olarak nitelemek için yararlı bir sorgu dizesi olmadan. Bir sorgu dizesi hiçbir sözlü ya da dil analizi, herhangi bir Puanlama ve hiçbir sıralama yoktur. Arama dizesi boş olduğuna dikkat edin.
 
    ```
    search=*&$filter=(baseRate ge 60 and baseRate lt 300) and accommodation eq 'Hotel' and city eq 'Nogales'
    ```
 
-+ Sorgu dizesi birleşimi ve **$filter**, burada filtre alt oluşturur ve sorgu dizesi terim girişleri için tam metin araması filtrelenmiş alt sağlar. Bir filtre bir sorgu dizesi en yaygın kod düzeni kullanmaktır.
++ Sorgu dizesi birleşimi ve **$filter**, burada filtre alt oluşturur ve sorgu dizesi terimi girişleri tam metin araması için filtrelenmiş bir alt kümesi üzerinde sağlar. Bir sorgu dizesi ile bir filtre kullanarak en yaygın kod modelidir.
 
    ```
    search=hotels ocean$filter=(baseRate ge 60 and baseRate lt 300) and city eq 'Los Angeles'
    ```
 
-+ Ayrılmış sorguları, bileşik "veya", her biri kendi filtre ölçütlerini (örneğin, 'köpek' içinde ' beagles') ya da 'Kat' ' siamese'. VEYA sahip ifadeleri değerlendirilir ayrı ayrı her bir geri çağırma uygulamaya gönderilen bir yanıtı halinde birleştirilmiş yanıt. Bu tasarım deseni search.ismatch işlevi ile elde edilir. Puanlama olmayan sürümünü (search.ismatch) veya Puanlama sürümünü (search.ismatchscoring) kullanabilirsiniz.
++ Sorgular, ayrılmış bileşik "veya", her biri kendi filtre ölçütü (örneğin, 'köpek' içinde ' beagles') ya da 'cat' ' siamese'. VEYA sahip ifadeler değerlendirilir ayrı ayrı her bir geri çağırma uygulamaya gönderilen bir yanıt olarak bir araya yanıt. Bu tasarım deseni search.ismatch işlevi ile elde edilir. Puanlama sürümü (search.ismatch) veya Puanlama sürümünü (search.ismatchscoring) kullanabilirsiniz.
 
    ```
    # Match on hostels rated higher than 4 OR 5-star motels.
@@ -119,17 +120,17 @@ Aşağıdaki örneklerde filtre senaryoları için birkaç tasarım desenleri g�
    $filter=search.ismatchscoring('luxury | high-end', 'description') or category eq 'Luxury'
    ```
 
-Bu makalelerde kapsamlı kılavuzu için üzerinde belirli kullanım durumları izle:
+Bu makalelerde kapsamlı kılavuzu için belirli kullanım durumlarını iletişim kurun:
 
 + [Model filtreleri](search-filters-facets.md)
 + [Dil filtreleri](search-filters-language.md)
 + [Güvenlik kırpma](search-security-trimming-for-azure-search.md) 
 
-## <a name="field-requirements-for-filtering"></a>Filtrelemek için alan gereksinimleri
+## <a name="field-requirements-for-filtering"></a>Alan gereksinimleri filtreleme
 
-REST API filtrelenemez olup *üzerinde* varsayılan olarak. Filtrelenebilir alanları dizin boyutunu artırın; ayarladığınızdan emin olun `filterable=FALSE` gerçekte bir filtre kullanmayı planlıyorsanız olmayan alanlar için. Alan tanımları için ayarları hakkında daha fazla bilgi için bkz: [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+REST API'SİNDE filtrelenemez olup *üzerinde* varsayılan olarak. Filtrelenebilir alanlardan dizin boyutunu artırın; ayarladığınızdan emin olun `filterable=FALSE` aslında bir filtre kullanmayı planlamıyor alanlar için. Alan tanımları için ayarları hakkında daha fazla bilgi için bkz. [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-.NET SDK'ın filtrelenemez olup *kapalı* varsayılan olarak. Filtrelenebilir özelliğini ayarlamak için API [IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). Aşağıda, kendi BaseRate alan tanımı kümesinde örnekte.
+.NET SDK'da filtrelenemez olup *kapalı* varsayılan olarak. Filtrelenebilir özelliği ayarlamak için API [IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). Kendi BaseRate kümesinde aşağıdaki örnekte tanımı alan.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]
@@ -138,37 +139,37 @@ REST API filtrelenemez olup *üzerinde* varsayılan olarak. Filtrelenebilir alan
 
 ### <a name="reindexing-requirements"></a>Tamamlanmasından gereksinimleri
 
-Bir alan filtrelenebilir olmayan ise ve filtrelenebilir yapmak istediğiniz, yeni bir alan eklemek veya var olan alanın yeniden gerekir. Bir alan tanımını değiştirmeyi fiziksel dizin yapısını değiştirir. Azure Search'te tüm izin verilen erişim yolları alan tanımları değiştirdiğinizde, veri yapılarını yeniden gerekir hızlı sorgu hızı için dizinlenir. 
+Bir alan filtrelenebilir olmayan ve filtrelenebilir yapmak istiyorsanız yeni bir alan eklemek veya var olan alanın yeniden oluşturmak zorunda. Bir alan tanımı değiştirilmesi dizinin fiziksel yapısını değiştirir. Azure Search'te tüm izin verilen erişim yollarını, alan tanımları değiştirdiğinizde, veri yapılarının yeniden BIOS'ta hızlı sorgu hızı için dizine eklenir. 
 
-Tek tek alanların yeniden mevcut belge anahtarı ve ilişkili değerleri her belgenin geri kalanında dokunmadan dizinine gönderen bir birleştirme işlemi gerektiren bir düşük etkisi işlemi olabilir. Yeniden gereksinim karşılaşırsanız, yönergeler için aşağıdaki bağlantılara bakın:
+Her bir alanı yeniden dizine her belgenin geri kalanında dokunmadan, mevcut belge anahtarını ve ilişkili değerleri gönderen bir birleştirme işlemi gerektiren bir düşük etki işlemi olabilir. Yeniden derleme gereksinim karşılaşırsanız, yönergeler için aşağıdaki bağlantılara bakın:
 
  + [.NET SDK kullanarak dizin oluşturma eylemleri](https://docs.microsoft.com/azure/search/search-import-data-dotnet#decide-which-indexing-action-to-use)
  + [REST API kullanarak dizin oluşturma eylemleri](https://docs.microsoft.com/azure/search/search-import-data-rest-api#decide-which-indexing-action-to-use)
 
 ## <a name="text-filter-fundamentals"></a>Metin filtresi temelleri
 
-Metin filtreleri arama Gövde içinde değerlere göre belgeleri rasgele bazı topluluğu çekmek istediğiniz dize alanları için geçerlidir.
+Metin filtreleri, bazı rastgele koleksiyonu içinde arama topluluğunuza değerlere göre belgelerin çekmek istediğiniz, dize alanları için geçerlidir.
 
-Dizeleri oluşan metin filtreleri, sözcük analiz veya yoktur Sözcük bölünmesi, yalnızca tam eşleşme karşılaştırmaları; bu nedenle. Örneğin, bir alan varsayın *f* "güneşli gün", içeren `$filter=f eq 'Sunny'`eşleşmiyor, ancak `$filter=f eq 'Sunny day'` olur. 
+Dizeleri oluşan metin filtreleri için sözcük analizi veya yoktur sözcük bölme, bu nedenle karşılaştırmalar yalnızca tam eşleşme. Örneğin, bir alan varsayın *f* "güneşli gün" içeren `$filter=f eq 'Sunny'`eşleşmiyor, ancak `$filter=f eq 'Sunny day'` olur. 
 
-Metin dizelerini büyük/küçük harfe duyarlıdır. Hiçbir alt-büyük/küçük harf üst ortası sözcüklerin yoktur: `$filter=f eq 'Sunny day'` değil bulacaksınız ' güneşli gün ''.
+Metin dizelerinin büyük/küçük harfe duyarlıdır. Hiçbir alt-büyük/küçük harf bir kelimelerin büyük harfleri yoktur: `$filter=f eq 'Sunny day'` bulmaz ' güneşli gün ''.
 
 
 | Yaklaşım | Açıklama | 
 |----------|-------------|
-| [Search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Belirli bir alan için dizelerin virgülle ayrılmış listesi sağlayan işlev. Dizeleri kapsamında sorgu için her alan için uygulanan filtre ölçütünü kapsar. <br/><br/>`search.in(f, ‘a, b, c’)` anlam olarak eşdeğerdir `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, değerler listesinin büyük olduğunda çok daha hızlı yürütür dışında.<br/><br/>Öneririz **search.in** için işlev [güvenlik filtreleri](search-security-trimming-for-azure-search.md) ve belirli bir alandaki değerlere eşleştirilmesini ham metni herhangi bir filtre oluşan için. Bu yaklaşım hızı için tasarlanmıştır. Yüz binlerce değerleri için subsecond yanıt süresi bekleyebilirsiniz. İşleve geçirebilirsiniz öğe sayısını sınırlama yoktur açık olsa da, gecikme sağladığınız dizeleri sayısı orantılı olarak artar. | 
-| [Search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Tam metin araması işlemlerini kesinlikle Boole filtresi işlemlerle aynı filtre ifadesindeki karışık olanak sağlayan bir işlev. Bir istek birden çok sorgu filtresi bileşimlerde sağlar. Bunun için de kullanabilirsiniz bir *içeren* büyük bir dizi içinde kısmi dize üzerinde filtrelemek için. |  
-| [$filter = alan işleci dize](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Kullanıcı tanımlı bir ifade alanları, işleçler ve değerler oluşur. | 
+| [Search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Belirli bir alanı için dizelerin virgülle ayrılmış listesi sağlayan bir işlev. Dizeleri kapsamda sorgu için her alana uygulanan filtre ölçütlerini kapsar. <br/><br/>`search.in(f, ‘a, b, c’)` anlamsal olarak eşdeğer olan `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`dışında değerler listesinin büyük olduğunda çok daha hızlı yürütür.<br/><br/>Öneririz **search.in** için işlev [güvenlik filtreleri](search-security-trimming-for-azure-search.md) ve herhangi bir filtre, belirli bir alandaki değerlere eşleştirilecek ham metin oluşan için. Bu yaklaşım, hız için tasarlanmıştır. Yüz binlerce değerleri için subsecond yanıt süresi bekleyebilirsiniz. Açık sınırsız işlevine geçirilebilecek öğe sayısını olsa da, gecikme süresi derlemekten sağladığınız dizeleri sayısını artırır. | 
+| [Search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Tam metin arama işlemleri kesinlikle Boole filtresi işlemleri aynı filtre ifadesi olan karıştırmak izin veren bir işlev. Bu, birden çok sorgu filtresi kombinasyonları için geçerli bir istek sağlar. Bunun için de kullanabilirsiniz bir *içeren* filtresi üzerinde daha büyük bir dizedeki bir kısmi dize. |  
+| [$filter işleci dizesi alanı =](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Kullanıcı tanımlı bir ifade alanlarını, işleçlerini ve değerlerini oluşur. | 
 
 ## <a name="numeric-filter-fundamentals"></a>Sayısal filtre temelleri
 
-Sayısal alanlar değildir `searchable` tam metin araması bağlamında. Yalnızca tam metin araması tabi dizelerdir. Örneğin, bir arama terimi 99,99 girerseniz, 99,99 fiyatlandırılır öğeleri geri alamazsınız. Bunun yerine, belgenin dize alanları 99 numarasına sahip öğeleri görürsünüz. Sayısal veri varsa, bu nedenle, siz bunları aralıkları, modelleri, grupları ve diğerleri de dahil olmak üzere filtreleri için kullanacağı varsayılır. 
+Sayısal alanlar olmayan `searchable` bağlamında, tam metin araması. Yalnızca tam metin araması tabi dizelerdir. Örneğin, bir arama terimi 99,99 girerseniz, 99,99 ücretlendirilen öğeler geri alamazsınız. Bunun yerine, dize alanlarına belgenin numarası 99 olan öğeleri görürsünüz. Sayısal veri varsa, bu nedenle, bunları aralıkları, modelleri, grupları ve diğerleri dahil olmak üzere, filtreleri için kullanacağı varsayılır. 
 
-Sayısal alanlar (Fiyat, boyut, SKU, kimliği) içeren belgeleri alan işaretlenmişse arama sonuçlarında bu değerleri sağlayın `retrievable`. Burada, tam metin araması sayısal alan türleri için geçerli değildir noktasıdır.
+Sayısal alanlar (Fiyat, boyutunu, SKU, kimliği) içeren belgeleri alan olarak işaretlendiğinden, bu değer arama sonuçlarında sağlamak `retrievable`. Burada nokta, tam metin araması sayısal alan türler için geçerli değil.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Öncelikle, deneyin **arama Gezgini** sorguları göndermek için portalda **$filter** parametreleri. [Gerçek varlıklarının örnek dizin](search-get-started-portal.md) Arama çubuğuna yapıştırın, aşağıdaki sorguları filtre ilginç sonuçlar sağlar:
+İlk olarak, deneyin **arama Gezgini** ile sorguları göndermek için portaldaki **$filter** parametreleri. [Gerçek Emlak örnek dizini](search-get-started-portal.md) Arama çubuğuna yapıştırın, aşağıdaki sorguları filtrelenmiş ilginç sonuçlar sağlar:
 
 ```
 # Geo-filter returning documents within 5 kilometers of Redmond, Washington state
@@ -191,12 +192,12 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
 ```
 
-Daha fazla örnek ile çalışmak için bkz: [OData filtre ifadesi sözdizimi > örnekler](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples).
+Daha fazla örnek ile çalışmak için bkz [OData filtre ifadesinin söz dizimi > örnekler](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-+ [Azure Search'te nasıl tam metin araması çalışır](search-lucene-query-architecture.md)
-+ [REST API belgelerde arama](https://docs.microsoft.com/rest/api/searchservice/search-documents)
++ [Metin arama Azure Search'te tam nasıl çalışır](search-lucene-query-architecture.md)
++ [Search belgeleri REST API'si](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 + [Basit sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Lucene sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 + [Desteklenen veri türleri](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)

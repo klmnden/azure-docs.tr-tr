@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/26/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: cb1392bd70c92ae4f6bfc6707198c3079ad7ecef
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: b0dd0c0c0c300b4db94c1ab22205f9e808556f0b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285907"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166836"
 ---
 ## <a name="state-behavior"></a>Durum davranışı
 
-[Benzetimi](../articles/iot-accelerators/iot-accelerators-device-simulation-device-schema.md#simulation) bölümü cihaz modeli şemasını, bir sanal cihaz iç durumunu tanımlar:
+[Benzetimi](../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#simulation) bölümü cihaz modeli şemasını, bir sanal cihaz iç durumunu tanımlar:
 
 - `InitialState` ilk cihaz durum nesnesinin tüm özelliklerinin değerlerini tanımlar.
 - `Script` cihaz durumunu güncelleştirmek için bir zamanlamaya göre çalışan bir JavaScript dosyası tanımlar.
@@ -143,7 +143,7 @@ Tam görüntüleyebilirsiniz [Soğutucu 01 state.js](https://github.com/Azure/de
 
 ## <a name="method-behavior"></a>Yöntem davranışı
 
-[CloudToDeviceMethods](../articles/iot-accelerators/iot-accelerators-device-simulation-device-schema.md#cloudtodevicemethods) bölümü cihaz modeli şemasını, yanıt veren bir sanal cihaz için yöntemleri tanımlar.
+[CloudToDeviceMethods](../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#cloudtodevicemethods) bölümü cihaz modeli şemasını, yanıt veren bir sanal cihaz için yöntemleri tanımlar.
 
 Aşağıdaki örnek, bir sanal Soğutucu cihaz tarafından desteklenen yöntemlerin listesi gösterir:
 

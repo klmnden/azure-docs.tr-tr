@@ -1,9 +1,9 @@
 ---
-title: Azure PowerShell betik örneği - bir web uygulamasını başka bir abonelikte bir yedekten geri yükleme | Microsoft Docs
+title: Azure PowerShell betik örneği - başka bir aboneliğe uygulama yedeğini geri yükleme | Microsoft Docs
 description: Azure PowerShell betik örneği - bir web uygulamasını başka bir abonelikte bir yedekten geri yükleme
 services: app-service\web
 documentationcenter: ''
-author: cephalin
+author: msangapu
 manager: jpconnoc
 editor: ''
 tags: azure-service-management
@@ -13,16 +13,16 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 ms.date: 11/21/2018
-ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 7ed593e408b57246ef155ff8e36f054aacb2e063
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: 6e06ddf5f8cc814fe2fa5fa48105cf6bf976d63c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292178"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53307861"
 ---
-# <a name="restore-a-web-app-from-a-backup-in-another-subscription"></a>Bir web uygulaması başka bir abonelikte bir yedekten geri yükleme
+# <a name="restore-a-web-app-from-a-backup-in-another-subscription-using-powershell"></a>Bir web uygulamasını PowerShell kullanarak başka bir abonelikte bir yedekten geri yükleme
 
 Bu örnek betik, mevcut bir web uygulamasından önceden tamamlanmış bir yedekleme alır ve başka bir abonelikte bir web uygulamasına yükler. 
 

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL veritabanı dizin oluşturucuları kullanarak Azure Search'e bağlanma | Microsoft Docs
-description: Dizin oluşturucuları kullanarak Azure Search dizini için Azure SQL veritabanından veri almayı öğrenin.
+title: Bağlanmak ve Azure SQL veritabanı dizin oluşturucuları - Azure Search kullanarak içerik dizini
+description: Azure Search'te tam metin arama için dizin oluşturucuları kullanarak Azure SQL veritabanı'nda veri gezinme hakkında bilgi edinin. Bu makale, bağlantılar, dizin oluşturucu yapılandırmasını ve veri alımı kapsar.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,14 +9,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: ba2ce12fcfad14b0910144b1a95efd44be54811f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 28b72f63360b4ce323c1cd82b11c2798b1fbc2ff
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245656"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313403"
 ---
-# <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Azure SQL veritabanı dizin oluşturucuları kullanarak Azure Search'e bağlanma
+# <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Bağlanmak ve Azure SQL veritabanı kullanarak Azure Search dizin oluşturucularında içerik dizini
 
 Sorgu önce bir [Azure Search dizini](search-what-is-an-index.md), kendi verilerinizle doldurabileceğiniz gerekir. Verileri bir Azure SQL veritabanı'nda yaşıyorsa bir **Azure SQL veritabanı için Azure Search dizin oluşturucu** (veya **Azure SQL dizin oluşturucu** kısaca) kod yazmak için daha az ve daha az anlamına gelir dizin oluşturma işlemi, otomatik hale getirebilirsiniz önem verdiğiniz için altyapı.
 
@@ -34,7 +35,7 @@ Bir **dizin oluşturucu** tek bir veri kaynağını hedef arama dizini ile bağl
 * Dizin, veri kaynağındaki bir zamanlamaya göre değişikliklerle güncelleştirin.
 * Bir dizini gerektiği şekilde güncelleştirmek için isteğe bağlı olarak çalıştırın.
 
-Tek bir dizin oluşturucu, yalnızca bir tablo veya Görünüm kullanabilir, ancak birden çok arama dizinleri doldurmak istiyorsanız, birden çok dizin oluşturucu oluşturabilirsiniz. Kavramları hakkında daha fazla bilgi için bkz. [dizinleyici işlemleri: tipik iş akışı](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow).
+Tek bir dizin oluşturucu, yalnızca bir tablo veya Görünüm kullanabilir, ancak birden çok arama dizinleri doldurmak istiyorsanız, birden çok dizin oluşturucu oluşturabilirsiniz. Kavramları hakkında daha fazla bilgi için bkz. [dizinleyici işlemleri: Tipik iş akışı](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow).
 
 Ayarlayabilir ve bir Azure SQL Dizin Oluşturucu kullanarak yapılandırın:
 
@@ -314,31 +315,31 @@ Bu ayarlar kullanılan `parameters.configuration` dizin oluşturucu tanımı nes
 
 ## <a name="faq"></a>SSS
 
-**S: Azure SQL dizin oluşturucu azure'daki Iaas vm'lerinde çalışan SQL veritabanları ile kullanabilir miyim?**
+**S: Azure'daki Iaas vm'lerinde çalışan SQL veritabanları ile Azure SQL dizin oluşturucu kullanabilir miyim?**
 
 Evet. Ancak, veritabanınıza bağlanmak için arama hizmetinize izin vermeniz gerekir. Daha fazla bilgi için [bir Azure sanal makinesinde SQL Server için Azure Search dizin oluşturucu arasında bağlantı yapılandırma](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
 
-**Azure SQL dizin oluşturucu şirket içinde çalışan SQL veritabanları ile kullanabilir miyim?**
+**S: Azure SQL dizin oluşturucu şirket içinde çalışan SQL veritabanları ile kullanabilir miyim?**
 
 Doğrudan yönetilemez. Biz önerilmez ve bunu yapmanız bu nedenle veritabanlarınızı Internet trafiğini açmanız gerekir gibi doğrudan bir bağlantı destekler. Müşteriler, Azure Data Factory gibi köprüsü teknolojilerini kullanarak bu senaryo ile başarılı olduğunda. Daha fazla bilgi için [Azure Data Factory kullanarak Azure Search dizini için veri gönderme](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
 
-**S: Azure SQL dizin oluşturucu dışında Iaas içinde Azure üzerinde çalışan SQL Server veritabanları ile kullanabilir miyim?**
+**S: Iaas, Azure üzerinde çalışan SQL Server dışındaki veritabanları ile Azure SQL dizin oluşturucu kullanabilir miyim?**
 
 Hayır. Dizin Oluşturucu SQL Server dışındaki herhangi bir veritabanına ile test henüz çünkü bu senaryo desteklemiyoruz.  
 
-**Bir zamanlamaya göre çalışan birden çok dizin oluşturucu oluşturabilirim miyim?**
+**S: Bir zamanlamaya göre çalışan birden çok dizin oluşturucular oluşturabilir miyim?**
 
 Evet. Ancak, yalnızca bir dizin oluşturucu bir düğümde aynı anda çalışabilir. Eşzamanlı olarak çalışan birden çok dizin oluşturucu gerekiyorsa, birden fazla arama birimi, arama hizmetinizin'kurmak ölçeklendirmeyi düşünün.
 
-**S: bir dizin oluşturucu etkileyen my sorgu iş yükü çalıştıran mu?**
+**S: Bir dizin oluşturucu çalışan sorgu iş yükümün etkiliyor mu?**
 
 Evet. Dizin Oluşturucu, arama hizmetinizdeki düğümlerinden biri üzerinde çalışır ve o düğümün kaynak dizin oluşturma ve sorgu trafiği ve diğer API isteklerinin hizmet arasında paylaşılır. Dizin oluşturma ve sorgu kullanımı yoğun iş yüklerini çalıştırmak ve 503 hatalarını veya artan yanıt süreleri, yüksek oranda karşılaşırsanız, göz önünde bulundurun [arama hizmetinizi ölçeklendirme](search-capacity-planning.md).
 
-**Bir ikincil çoğaltma kullanma s: bir [yük devretme kümesi](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) veri kaynağı olarak?**
+**S: Bir ikincil çoğaltma kullanabileceğim bir [yük devretme kümesi](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) veri kaynağı olarak?**
 
 Duruma göre değişir. Tam bir tablo veya Görünüm dizin oluşturma işlemi için ikincil bir çoğaltmaya kullanabilirsiniz. 
 
-Azure Search destekleyen iki algılama ilkeleri değiştirme Artımlı dizin oluşturma için: SQL tümleşik değişiklik izleme ve yüksek su işareti.
+Azure Search, artan dizin oluşturma için iki değişiklik algılama ilkeleri destekler: SQL değişiklik izleme ve yüksek su işareti ile Tümleştirildi.
 
 Salt okunur çoğaltmalarda SQL veritabanı, tümleşik değişiklik izleme desteklemez. Bu nedenle, yüksek su işareti İlkesi kullanmanız gerekir. 
 
@@ -348,7 +349,7 @@ Salt okunur bir çoğaltma üzerinde rowversion kullanmayı denerseniz, aşağı
 
     "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
 
-**Yüksek su işareti değişiklik izleme için bir alternatif, rowversion olmayan sütun kullanabilir miyim?**
+**S: Yüksek su işareti değişiklik izleme için bir alternatif, rowversion olmayan sütun kullanabilir miyim?**
 
 Bu işlem önerilmez. Yalnızca **rowversion** için güvenilir veri eşitlenmesine izin verir. Ancak, uygulama mantığınızın bağlı olarak, güvenli olabilir:
 

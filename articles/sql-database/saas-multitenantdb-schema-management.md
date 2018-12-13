@@ -12,15 +12,15 @@ ms.author: genemi
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: e7aeb273d4ae276d3460c3de1f404230276cffb7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 14183475fcca0e12c56f009f105e77aaf11b0c98
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056650"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315225"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Parçalı çok kiracılı SQL veritabanlarını kullanan bir SaaS uygulamasında Şemayı yönetme
- 
+
 Bu öğreticide, bir hizmet (SaaS) uygulaması olarak bir yazılım veritabanlarında filosundan koruma karşılaşılan inceler. Çözümler, şema değişiklikleri filosundan veritabanları arasında fanning için gösterilir.
 
 Herhangi bir uygulama gibi Wingtip bilet SaaS uygulaması zamanla gelişecek ve veritabanında değişiklikler yapılmasını gerektirecektir. Değişiklik etkisi şema ya da başvuru verileri veya veritabanı bakım görevlerini uygulamak. Kiracı deseni başına bir veritabanı'nı kullanan bir SaaS uygulaması ile değişiklikler oldukça büyük olabilecek filosundan Kiracı veritabanları arasında Eşgüdümlü gerekir. Ayrıca, bu değişiklikleri sağlama işlemi oluşturuldukları sırada yeni veritabanları içerdiği emin olmak için veritabanına eklemeniz gerekir.
@@ -64,12 +64,12 @@ Bu örnekte kullanılan parçalı çok kiracılı veritabanı modeli, kiracılar
 ## <a name="elastic-jobs-limited-preview"></a>Esnek İşler sınırlı önizlemesi
 
 Artık Azure SQL veritabanı'nın tümleşik bir özelliği olan esnek işler, yeni bir sürümü var. Esnek İşler’in bu yeni sürümü, şu anda sınırlı önizlemeyle sunulmaktadır. Sınırlı Önizleme şu anda bir iş aracısı ve T-SQL işleri oluşturmak ve yönetmek için oluşturmak için PowerShell kullanılmasını destekler.
-> [!NOTE] 
+> [!NOTE]
 > Bu öğreticide SQL veritabanı hizmetinin sınırlı Önizleme (elastik veritabanı işleri) özellikleri kullanılır. Bu öğreticiyi uygulamak istiyorsanız, abonelik Kimliğinizi sağlamanız SaaSFeedback@microsoft.com konuyla esnek işler önizlemesi yazarak. Aboneliğinizin etkinleştirildiğini belirten onayı aldıktan sonra indirin ve en son ön sürüm işleri cmdlet'lerini yükleyin. Bu önizleme sınırlıdır, bu nedenle başvurun SaaSFeedback@microsoft.com ilgili sorular veya destek için.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip bilet SaaS çok kiracılı veritabanı uygulama kaynak kodu ve betikleri Al
 
-Wingtip bilet SaaS çok kiracılı veritabanı betikleri ve uygulama kaynak kodunu [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) github deposu. Bkz: [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımları indirin ve Wingtip bilet SaaS betikleri engelini kaldırmak için. 
+Wingtip bilet SaaS çok kiracılı veritabanı betikleri ve uygulama kaynak kodunu [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) github deposu. Bkz: [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımları indirin ve Wingtip bilet SaaS betikleri engelini kaldırmak için.
 
 ## <a name="create-a-job-agent-database-and-new-job-agent"></a>İş Aracısı veritabanı ve yeni iş Aracısı oluşturma
 
@@ -84,9 +84,9 @@ Bu öğretici, İş Aracısı ve İş Aracısı veritabanı oluşturmak için Po
 
 #### <a name="prepare"></a>Hazırlama
 
-Her bir kiracının veritabanı mekan türleri kümesi içerir **VenueTypes** tablo. Her mekan türü bir hata mekanda olay türünü tanımlar. Bu mekan türleri, Kiracı etkinlikleri uygulamasında gördüğünüz arka plan görüntüleri karşılık gelir.  Bu alıştırmada, tüm veritabanları için iki ek mekan türünü eklemek için bir güncelleştirme dağıtın: *motosiklet yarışı* ve *yüzme kulübü*. 
+Her bir kiracının veritabanı mekan türleri kümesi içerir **VenueTypes** tablo. Her mekan türü bir hata mekanda olay türünü tanımlar. Bu mekan türleri, Kiracı etkinlikleri uygulamasında gördüğünüz arka plan görüntüleri karşılık gelir.  Bu alıştırmada, tüm veritabanları için iki ek mekan türünü eklemek için bir güncelleştirme dağıtın: *Motosiklet yarışı* ve *yüzme kulübü*.
 
-İlk olarak, her bir kiracı veritabanında bulunan mekan türlerini gözden geçirin. Kiracı veritabanlarını SQL Server Management Studio (SSMS) birine bağlanın ve VenueTypes tabloyu inceleyin.  Ayrıca, Azure portalındaki sorgu Düzenleyicisi'nde bu tabloda sorgulayabilirsiniz veritabanı sayfasından erişilebilir. 
+İlk olarak, her bir kiracı veritabanında bulunan mekan türlerini gözden geçirin. Kiracı veritabanlarını SQL Server Management Studio (SSMS) birine bağlanın ve VenueTypes tabloyu inceleyin.  Ayrıca, Azure portalındaki sorgu Düzenleyicisi'nde bu tabloda sorgulayabilirsiniz veritabanı sayfasından erişilebilir.
 
 1. SSMS'yi açın ve Kiracı sunucuya: *tenants1-dpt -&lt;kullanıcı&gt;. database.windows.net*
 1. Onaylamak için *motosiklet yarışı* ve *yüzme kulübü* **değil** Gözat şu anda dahil, *contosoconcerthall* veritabanına *tenants1-dpt -&lt;kullanıcı&gt;*  sunucusu ve sorgu *VenueTypes* tablo.

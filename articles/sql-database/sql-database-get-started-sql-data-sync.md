@@ -12,14 +12,14 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 7ab1c0f918b5e5b9135e8d1b91f0f97a6c95d05e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 9175ed0b4f362a40e1d29a20a8378854b5f4cc81
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685438"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310395"
 ---
-# <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Öğretici: Azure SQL veritabanı ile şirket içi SQL Server arasında verileri eşitlemek amacıyla SQL Data Sync'i Ayarla
+# <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Öğretici: Azure SQL veritabanı ve SQL Server arasında verileri eşitlemek amacıyla şirket içi SQL Data Sync'i Ayarla
 
 Bu öğreticide, hem Azure SQL veritabanı ve SQL Server örneklerini içeren bir karma eşitleme grubu oluşturarak Azure SQL Data Sync'i ayarlama konusunda bilgi edinin. Yeni eşitleme grubu tam olarak yapılandırılmış ve ayarladığınız zamanlamaya göre eşitler.
 
@@ -199,7 +199,7 @@ Yeni eşitleme grubu üyeleri oluşturulan ve dağıtılan, 3. adım, sonra **ya
 
 ### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>Veri eşitleme, verilerimi ne sıklıkta eşitleyebilir misiniz
 
-En az beş dakikada sıklığıdır.
+Eşitlemeler tetikleme arasında en düşük süre beş dakikadır.
 
 ### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>SQL Data Sync tam olarak oluşturmak ve tabloları sağlama
 

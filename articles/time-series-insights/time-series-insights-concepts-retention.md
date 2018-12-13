@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights ortamınızda veri saklamayı anlama | Microsoft Docs
+title: Azure Time Series Insights veri saklama - Azure Time Series Insights ortamınızda veri saklamayı anlama | Microsoft Docs
 description: Bu makalede, Azure zaman serisi görüşleri ortamınıza veri tutma denetleyen iki ayarları açıklanır.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: e265a66b841530d1133d760ebdcdf56046d1aee1
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: c46e385caaa343fe9ba64e1aa4516f1335039cd3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364148"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272159"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Zaman serisi görüşleri'nde veri saklamayı anlama
 

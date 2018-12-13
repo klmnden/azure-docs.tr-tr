@@ -1,12 +1,11 @@
 ---
 title: "4. adım: Tahmine dayalı analiz modellerini - Azure Machine Learning Studio'da eğitim | Microsoft Docs"
-description: "Tahmine dayalı çözüm Kılavuzu geliştirme, adım 4: eğitme, Puanlama ve Azure Machine Learning Studio'da birden fazla modeli değerlendirin."
+description: "Adım 4 / geliştirme Tahmine dayalı çözüm Kılavuzu: Eğitme, Puanlama ve Azure Machine Learning Studio'da birden fazla modeli değerlendirin."
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cgronlun
 ms.assetid: d905f6b3-9201-4117-b769-5f9ed5ee1cac
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 4b4ffcf8e6c886a2f182c844f940e53c24d1efa0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2464ef0ba89f138834bedfdc9f29347092e5fe99
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313478"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254522"
 ---
 # <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models-in-machine-learning-studio"></a>Kılavuz adımı 4: Eğitme ve Machine Learning Studio'da Tahmine dayalı analiz modellerini değerlendirme
 Bu konu örnek dördüncü adımı içeren [bir Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirin](walkthrough-develop-predictive-solution.md)
@@ -190,7 +189,7 @@ Bilimi bu sonuçları yorumlayarak destek sağlama ve model performansını ayar
 > 
 
 - - -
-**Sonraki: [web hizmetini dağıtma](walkthrough-5-publish-web-service.md)**
+**Sonraki: [Web hizmetini dağıtma](walkthrough-5-publish-web-service.md)**
 
 [0]: ./media/walkthrough-4-train-and-evaluate-models/train-model-select-column.png
 [1]: ./media/walkthrough-4-train-and-evaluate-models/experiment-with-train-model.png

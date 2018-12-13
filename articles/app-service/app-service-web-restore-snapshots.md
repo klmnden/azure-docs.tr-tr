@@ -1,6 +1,6 @@
 ---
-title: Uygulamanızı Azure’a geri yükleme
-description: Uygulamanızı bir anlık görüntüden geri yükleme hakkında bilgi edinin.
+title: -Azure App Service yedekleme dosyasından geri yükler
+description: Uygulamanızı bir anlık görüntüden geri yüklemeyi öğreneceksiniz.
 services: app-service
 documentationcenter: ''
 author: ahmedelnably
@@ -13,35 +13,36 @@ ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: aelnably;nicking
-ms.openlocfilehash: e1ae8fcc30323c865aa96937f43054515f293394
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.custom: seodec18
+ms.openlocfilehash: 174fbd8f3e4c652c25a78911185ef8a98a80bb50
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33767304"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260047"
 ---
-# <a name="restore-an-app-in-azure-from-a-snapshot"></a>Bir Azure uygulamasında bir anlık görüntüden geri yükleme
-Bu makalede, bir uygulamada geri yükleme gösterilmektedir [Azure App Service](../app-service/app-service-web-overview.md) bir anlık. Uygulamanız, uygulamanızın anlık görüntüleri birini temel alan bir önceki durumuna geri yükleyebilirsiniz. Anlık görüntüler yedeklemeyi etkinleştirme gerekmez, platform anlık görüntü veri kurtarma amacıyla tüm uygulamaların otomatik olarak kaydeder.
+# <a name="restore-an-app-in-azure-from-a-snapshot"></a>Uygulamayı azure'daki bir anlık görüntüden geri yükleme
+Bu makalede, uygulamanızı geri yükleme işlemini göstermektedir [Azure App Service](../app-service/app-service-web-overview.md) anlık görüntüden. Uygulamanız, uygulamanızın anlık görüntüleri birini temel alan bir önceki durumuna geri yükleyebilirsiniz. Anlık görüntüleri yedeklemeyi etkinleştirme gerekmez, platform otomatik olarak veri kurtarma amacıyla tüm uygulamalara anlık görüntüsünü kaydeder.
 
-Anlık görüntüleri olan artımlı gölge kopyaları ve normal birkaç avantaj sunar [yedeklemeleri](web-sites-backup.md):
-- Hiçbir dosya kopyalama hatası nedeniyle dosya kilitler.
-- Depolama boyutu sınırlama.
+Anlık görüntüleri olan artımlı gölge kopyaları ve bunlar normal kıyasla çeşitli avantajlar sunar [yedeklemeleri](web-sites-backup.md):
+- Dosya kilitleri nedeniyle dosya kopyalama hatası olmadığını.
+- Depolama boyutu sınırlaması yoktur.
 - Herhangi bir yapılandırma gerekmez.
 
-Anlık görüntülerin geri yüklenmesi, çalışan uygulamalar için kullanılabilir **Premium** katmanı ya da daha yüksek. Uygulamanızı ölçeklendirme hakkında daha fazla bilgi için bkz: [Azure bir uygulamada ölçeklendirin](web-sites-scale.md).
+Anlık görüntülerden geri çalışan uygulamalar için kullanılabilir **Premium** katmanı veya üzeri. Uygulamanızın ölçeğini genişletme hakkında daha fazla bilgi için bkz: [azure'da uygulamanın ölçeğini](web-sites-scale.md).
 
 ## <a name="limitations"></a>Sınırlamalar
 
-- Bu özellik şu anda önizlemede değil.
-- Yalnızca aynı uygulamayı veya bu uygulamaya ait bir yuva geri yükleyebilirsiniz.
-- Uygulama hizmeti, geri yükleme yaparken hedef uygulaması ya da hedef yuva durdurur.
-- Uygulama hizmeti, üç ay değerinde anlık görüntüleri platform veri kurtarma amacıyla tutar.
-- Yalnızca son 30 gün için anlık görüntü geri yükleyebilirsiniz.
+- Bu özellik şu anda Önizleme aşamasındadır.
+- Yalnızca aynı uygulamaya veya bu uygulamaya ait bir yuva geri yükleyebilirsiniz.
+- App Service, geri yükleme yaparken, hedef uygulama veya hedef yuva durdurur.
+- App Service, üç ay değerinde anlık görüntüleri platform veri kurtarma amacıyla tutar.
+- Yalnızca son 30 güne ait anlık görüntü geri yükleyebilirsiniz.
  
 
-## <a name="restore-an-app-from-a-snapshot"></a>Bir uygulama bir anlık görüntüden geri yükleme
+## <a name="restore-an-app-from-a-snapshot"></a>Uygulamayı bir anlık görüntüden geri yükleme
 
-1. Üzerinde **ayarları** uygulamanızda sayfasının [Azure portal](https://portal.azure.com), tıklatın **yedeklemeleri** görüntülemek için **yedeklemeleri** sayfası. Ardından **geri** altında **Snapshot(Preview)** bölümü.
+1. Üzerinde **ayarları** uygulamanızda sayfasının [Azure portalında](https://portal.azure.com), tıklayın **yedeklemeleri** görüntülenecek **yedeklemeleri** sayfası. Ardından **geri** altında **Snapshot(Preview)** bölümü.
    
     ![](./media/app-service-web-restore-snapshots/1.png)
 
@@ -54,19 +55,19 @@ Anlık görüntülerin geri yüklenmesi, çalışan uygulamalar için kullanıla
     ![](./media/app-service-web-restore-snapshots/3.png)
    
    > [!WARNING]
-   > Seçerseniz **üzerine yaz**, tüm uygulamanızın geçerli dosya sistemindeki varolan verileri silinir ve üzerine. Tıklamadan önce **Tamam**, ne yapmak istiyorsunuz olduğundan emin olun.
+   > Seçerseniz **üzerine yaz**tüm uygulamanızın dosya sistemini mevcut veriler silinir ve üzerine. Tıklamadan önce **Tamam**, yapmak istediğiniz olduğundan emin olun.
    > 
    > 
       
    > [!Note]
-   > Geçerli teknik sınırlamaları nedeniyle, aynı ölçek birimi uygulamalarında yalnızca geri yükleyebilirsiniz. Bu sınırlama, bir sonraki sürümde kaldırılacak.
+   > Geçerli teknik sınırlamaları nedeniyle, aynı ölçek birimi uygulamalarında yalnızca geri yükleyebilirsiniz. Bu sınırlama, gelecekteki bir sürümde kaldırılacak.
    > 
    > 
    
-    Seçebileceğiniz **var olan bir uygulamayı** bir yuvaya geri yüklemek için. Bu seçenek kullanmadan önce bir yuva uygulamanızı oluşturmuş.
+    Seçebileceğiniz **var olan bir uygulamayı** bir yuvaya geri yüklemek için. Bu seçeneği kullanmadan önce bir yuva uygulamanızda oluşturmuş olmanız.
 
-4. Site yapılandırmanızı geri yüklemek seçebilirsiniz.
+4. Site yapılandırmanıza geri yüklemeyi tercih edebilirsiniz.
    
     ![](./media/app-service-web-restore-snapshots/4.png)
 
-5. **Tamam**’a tıklayın.
+5. **Tamam** düğmesine tıklayın.

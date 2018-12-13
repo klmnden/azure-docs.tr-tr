@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 53e49099fd3486d51f021528c9354cf32f4952d2
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: abc1e835fa153fc5d061cca5a3eb009931240332
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492798"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276341"
 ---
 # <a name="sfctl-is"></a>sfctl is
 Sorgulamak ve hizmet için altyapı komutlar gönderebilirsiniz.
@@ -38,15 +38,15 @@ Yapılandırılmış altyapı hizmeti bir veya daha fazla örneğe sahip kümele
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --[gerekli] komutu | Çağrılacak komut metni. Komut içeriğini altyapı özeldir. |
-| --Hizmet kimliği | Altyapı hizmeti kimliği. <br><br> Bu hizmet altyapı 'doku' URI düzeni olmadan tam adıdır. Bu parametre yalnızca birden fazla örneğini çalıştıran hizmet altyapı sahip küme için gereklidir. |
+| --Hizmet kimliği | Altyapı hizmeti kimliği. <br><br> Bu hizmet altyapı tam adı, ' fabric\:' URI düzeni. Bu parametre yalnızca birden fazla örneğini çalıştıran hizmet altyapı sahip küme için gereklidir. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -61,7 +61,7 @@ Yapılandırılmış altyapı hizmeti bir veya daha fazla örneğe sahip kümele
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --[gerekli] komutu | Çağrılacak komut metni. Komut içeriğini altyapı özeldir. |
 | --Hizmet kimliği | Altyapı hizmeti kimliği. <br><br> Bu hizmet altyapı tam adı, ' fabric\:' URI düzeni. Bu parametre yalnızca birden fazla örneğini çalıştıran hizmet altyapı sahip küme için gereklidir. |
@@ -69,7 +69,7 @@ Yapılandırılmış altyapı hizmeti bir veya daha fazla örneğe sahip kümele
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |

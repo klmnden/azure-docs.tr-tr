@@ -1,5 +1,5 @@
 ---
-title: Bir dış Azure App Service ortamı oluşturma
+title: Azure - dış App Service ortamı oluşturma
 description: Bir uygulama ya da tek başına oluştururken bir App Service ortamı oluşturma açıklanır
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 6df708c97750c89c850c993d0e1a43ded01934a2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 98d534e20b8e4c6bf6bcc3f483f59b796dc85073
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959977"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274496"
 ---
 # <a name="create-an-external-app-service-environment"></a>Bir dış App Service ortamı oluşturma #
 
@@ -64,27 +65,27 @@ Bir App Service planını oluştururken bir ASE oluşturmak için:
 
     ![Web uygulaması oluşturma][1]
 
-1. Aboneliğinizi seçin. Uygulama ve ASE aynı abonelik içinde oluşturulur.
+2. Aboneliğinizi seçin. Uygulama ve ASE aynı abonelik içinde oluşturulur.
 
-1. Kaynak grubunu seçin veya oluşturun. Kaynak grupları ile ilgili Azure kaynaklarını bir birim olarak yönetebilirsiniz. Kaynak grupları, ayrıca, uygulamalarınız için rol tabanlı erişim denetimi kuralları oluştur olduğunda yararlıdır. Daha fazla bilgi için [Azure Resource Manager'a genel bakış][ARMOverview].
+3. Kaynak grubunu seçin veya oluşturun. Kaynak grupları ile ilgili Azure kaynaklarını bir birim olarak yönetebilirsiniz. Kaynak grupları, ayrıca, uygulamalarınız için rol tabanlı erişim denetimi kuralları oluştur olduğunda yararlıdır. Daha fazla bilgi için [Azure Resource Manager'a genel bakış][ARMOverview].
 
-1. (Windows, Linux ve Docker) işletim sisteminizi seçin. 
+4. (Windows, Linux ve Docker) işletim sisteminizi seçin. 
 
-1. App Service planı seçin ve ardından **Yeni Oluştur**. Linux web uygulamaları ve Windows web uygulamaları aynı App Service planında olamaz, ancak aynı App Service Ortamı'nda olabilir. 
+5. App Service planı seçin ve ardından **Yeni Oluştur**. Linux web uygulamaları ve Windows web uygulamaları aynı App Service planında olamaz, ancak aynı App Service Ortamı'nda olabilir. 
 
     ![Yeni App Service planı][2]
 
-1. İçinde **konumu** aşağı açılan listesinde, istediğiniz bölgeyi seçin, ASE oluşturma. Mevcut bir ASE seçerseniz, yeni bir ASE oluşturulmaz. App Service planı, seçtiğiniz ASE'de oluşturulur. 
+6. İçinde **konumu** aşağı açılan listesinde, istediğiniz bölgeyi seçin, ASE oluşturma. Mevcut bir ASE seçerseniz, yeni bir ASE oluşturulmaz. App Service planı, seçtiğiniz ASE'de oluşturulur. 
 
-1. Seçin **fiyatlandırma katmanı**ve birini **yalıtılmış** fiyatlandırma SKU'ları. Seçerseniz bir **yalıtılmış** SKU kartı ve bir ASE değil bir konum, yeni bir ASE oluşturulduğu konumda. ASE oluşturma işlemini başlatmak için **seçin**. **Yalıtılmış** SKU yalnızca ASE ile birlikte kullanılabilir. Ayrıca herhangi bir fiyatlandırma SKU bir ASE'de dışında kullanamazsınız **yalıtılmış**. 
+7. Seçin **fiyatlandırma katmanı**ve birini **yalıtılmış** fiyatlandırma SKU'ları. Seçerseniz bir **yalıtılmış** SKU kartı ve bir ASE değil bir konum, yeni bir ASE oluşturulduğu konumda. ASE oluşturma işlemini başlatmak için **seçin**. **Yalıtılmış** SKU yalnızca ASE ile birlikte kullanılabilir. Ayrıca herhangi bir fiyatlandırma SKU bir ASE'de dışında kullanamazsınız **yalıtılmış**. 
 
     ![Fiyatlandırma katmanı seçimi][3]
 
-1. ASE'NİZİN adını girin. Bu ad, adreslenebilir adında uygulamalarınız için kullanılır. Ase'nin adı ise _appsvcenvdemo_, etki alanı adı *. appsvcenvdemo.p.azurewebsites.net*. Adlı bir uygulama oluşturursanız *mytestapp*, mytestapp.appsvcenvdemo.p.azurewebsites.net adreslenebilir. Ad boşluk kullanamazsınız. Büyük harf karakterler kullanırsanız, etki alanı adı toplam küçük harfli sürümünü adıdır.
+8. ASE'NİZİN adını girin. Bu ad, adreslenebilir adında uygulamalarınız için kullanılır. Ase'nin adı ise _appsvcenvdemo_, etki alanı adı *. appsvcenvdemo.p.azurewebsites.net*. Adlı bir uygulama oluşturursanız *mytestapp*, mytestapp.appsvcenvdemo.p.azurewebsites.net adreslenebilir. Ad boşluk kullanamazsınız. Büyük harf karakterler kullanırsanız, etki alanı adı toplam küçük harfli sürümünü adıdır.
 
     ![Yeni App Service planı adı][4]
 
-1. Azure sanal ağ ayrıntılarını belirtin. Şunlardan birini seçin **Yeni Oluştur** veya **var olanı Seç**. Seçili bölgesinde bir sanal ağınız varsa var olan bir sanal ağ seçme seçeneği kullanılabilir. Seçerseniz **Yeni Oluştur**, sanal ağ için bir ad girin. Bu ada sahip yeni bir Resource Manager sanal ağı oluşturulur. Adres alanı kullanan `192.168.250.0/23` seçili bölgesinde. Seçerseniz **var olanı Seç**, gerekir:
+9. Azure sanal ağ ayrıntılarını belirtin. Şunlardan birini seçin **Yeni Oluştur** veya **var olanı Seç**. Seçili bölgesinde bir sanal ağınız varsa var olan bir sanal ağ seçme seçeneği kullanılabilir. Seçerseniz **Yeni Oluştur**, sanal ağ için bir ad girin. Bu ada sahip yeni bir Resource Manager sanal ağı oluşturulur. Adres alanı kullanan `192.168.250.0/23` seçili bölgesinde. Seçerseniz **var olanı Seç**, gerekir:
 
     a. Birden fazla aboneliğiniz varsa, sanal ağ adres bloğu seçin.
 
@@ -94,7 +95,7 @@ Bir App Service planını oluştururken bir ASE oluşturmak için:
 
     d. Alt ağ IP aralığı seçin.
 
-1. Seçin **Oluştur** ASE oluşturma. Bu işlem ayrıca App Service planı ve bir uygulama oluşturur. ASE, App Service planı ve app: aynı abonelik altında tümünü ve ayrıca aynı kaynak grubunda. Ayrı bir kaynak grubu, ASE'NİZİN erişmesi gerekiyorsa veya ILB ASE gerekiyorsa, tek başına bir ASE oluşturma adımlarını izleyin.
+10. Seçin **Oluştur** ASE oluşturma. Bu işlem ayrıca App Service planı ve bir uygulama oluşturur. ASE, App Service planı ve app: aynı abonelik altında tümünü ve ayrıca aynı kaynak grubunda. Ayrı bir kaynak grubu, ASE'NİZİN erişmesi gerekiyorsa veya ILB ASE gerekiyorsa, tek başına bir ASE oluşturma adımlarını izleyin.
 
 ## <a name="create-an-ase-and-a-linux-web-app-using-a-custom-docker-image-together"></a>Bir ASE ve özel bir Docker görüntüsü birlikte kullanarak bir Linux web uygulaması oluşturma
 

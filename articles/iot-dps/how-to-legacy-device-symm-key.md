@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9553d1dd5dd8d8ff11ea480618b471b9898985e3
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 60321b2463a535c3f7a0c73e0922010bd12a3e82
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456567"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323244"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Simetrik anahtarlar kullanarak eski cihazları sağlamasını yapma
 
@@ -35,7 +35,7 @@ Benzersiz kayıt kimliği bu cihaza tanımlayan bilgilere göre her bir cihaz i�
 
 Kullanan bir kayıt grubu [simetrik anahtar kanıtı](concepts-symmetric-key-attestation.md) cihaz sağlama hizmeti ile oluşturulur. Kayıt grubu bir grup ana anahtarı içerir. Bu ana anahtar, her cihaz için bir benzersiz cihaz anahtarı oluşturmak için her bir benzersiz kayıt Kimliğini karma için kullanılacak. Cihaz, türetilen cihaz anahtar, cihaz sağlama hizmeti ile onaylamasını ve bir IOT hub'ına atanması için benzersiz kayıt Kimliğini kullanır.
 
-Bu makalede gösterilmiştir cihaz kodu olarak aynı deseni takip [hızlı başlangıç: bir sanal cihaz sağlama simetrik anahtarlarla](quick-create-simulated-device-symm-key.md). Kod, bir örnekten kullanarak bir cihazı benzetimini yapacaksınız [Azure IOT C SDK'sı](https://github.com/Azure/azure-iot-sdk-c). Sanal cihaz kayıt grubu yerine bireysel kayıt ile hızlı başlangıç bölümünde gösterildiği gibi onaylamasını.
+Bu makalede gösterilmiştir cihaz kodu olarak aynı deseni takip [hızlı başlangıç: Simetrik anahtarlar ile bir sanal cihaz sağlama](quick-create-simulated-device-symm-key.md). Kod, bir örnekten kullanarak bir cihazı benzetimini yapacaksınız [Azure IOT C SDK'sı](https://github.com/Azure/azure-iot-sdk-c). Sanal cihaz kayıt grubu yerine bireysel kayıt ile hızlı başlangıç bölümünde gösterildiği gibi onaylamasını.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -90,7 +90,7 @@ SDK'sı sanal cihaz için örnek kod içerir. Simülasyon cihazı, cihazın öny
 4. SDK’nın geliştirme istemci platformunuza ve özgü bir sürümünü oluşturmak için aşağıdaki komutu çalıştırın. `cmake` dizininde simülasyon cihazı için bir Visual Studio çözümü de oluşturulur. 
 
     ```cmd
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
     `cmake`, C++ derleyicinizi bulamazsa yukarıdaki komutu çalıştırırken derleme hatalarıyla karşılaşabilirsiniz. Bu durumda bu komutu [Visual Studio komut isteminde](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs) çalıştırmayı deneyin. 
@@ -98,7 +98,7 @@ SDK'sı sanal cihaz için örnek kod içerir. Simülasyon cihazı, cihazın öny
     Derleme başarılı olduktan sonra, son birkaç çıkış satırı aşağıdaki çıkışa benzer olacaktır:
 
     ```cmd/sh
-    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -120,15 +120,15 @@ SDK'sı sanal cihaz için örnek kod içerir. Simülasyon cihazı, cihazın öny
 
 3. Üzerinde **kayıt grubu Ekle**, aşağıdaki bilgileri girin ve tıklayın **Kaydet** düğmesi.
 
-    - **Grup adı**: girin **mylegacydevices**.
+    - **Grup adı**: Girin **mylegacydevices**.
 
-    - **Kanıtlama türü**: seçin **simetrik anahtar**.
+    - **Kanıtlama türü**: Seçin **simetrik anahtar**.
 
-    - **Anahtarları Otomatik Olarak Oluştur**: Bu kutuyu işaretleyin.
+    - **Anahtarları otomatik olarak oluştur**: Bu kutuyu işaretleyin.
 
-    - **Hub'lara cihazları atamak istediğiniz seçin**: seçin **statik yapılandırma** belirli bir hub'ına atayabilmenizi sağlayacak.
+    - **Hub'lara cihazları atamak istediğiniz seçin**: Seçin **statik yapılandırma** belirli bir hub'ına atayabilmenizi sağlayacak.
 
-    - **Bu grup atanabilen IOT hub'ları seçin**:, hub'larınız birini seçin.
+    - **Bu grup atanabilen IOT hub'ları seçin**: Hubs'ınız birini seçin.
 
     ![Simetrik anahtar kanıtı için kayıt grubu Ekle](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
@@ -290,7 +290,7 @@ Bu önerilen bir güvenlik en iyi uygulaması değildir görüntünün bir parç
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Reprovisioning daha fazla bilgi edinmek için [IOT Hub cihaz reprovisoning kavramları](concepts-device-reprovision.md) 
-* [Hızlı Başlangıç: simetrik anahtarlar ile bir sanal cihaz sağlama](quick-create-simulated-device-symm-key.md)
+* [Hızlı Başlangıç: Simetrik anahtarlar ile bir sanal cihaz sağlama](quick-create-simulated-device-symm-key.md)
 * Daha fazla sağlama kaldırmayı bilgi edinmek için [nasıl daha önce otomatik olarak sağlanan cihazları sağlamasını kaldırmak ](how-to-unprovision-devices.md) 
 
 

@@ -1,7 +1,7 @@
 ---
-title: Modellerin dağıtılacağı yerler
+title: Modelleri web Hizmetleri olarak dağıtma
 titleSuffix: Azure Machine Learning service
-description: Modellerinizi Azure Machine Learning hizmetini kullanarak üretime dağıtabileceğiniz farklı yolları hakkında bilgi edinin.
+description: 'Nasıl ve nerede bilgi dahil olmak üzere Azure Machine Learning hizmeti Modellerinizi dağıtmak için: Azure Container Instances, Azure Kubernetes hizmeti, Azure IOT Edge ve alanda programlanabilir kapı dizileri.'
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/29/2018
+ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 53f3c61a98bc08b453ae894abaa512b94044bcf7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e7840bb3ac6449009b843bb74cc19b960b492205
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100710"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310156"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -30,6 +30,8 @@ Modelleri için aşağıdaki işlem hedeflerine dağıtabilirsiniz:
 | [Azure Kubernetes Service'i (AKS)](#aks) | Web hizmeti | Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
 | [Azure IoT Edge](#iotedge) | IOT Modülü | IOT cihazlarında modelleri dağıtın. Çıkarım cihazda'olmuyor. |
 | [Alanda programlanabilir kapı dizileri (FPGA)](#fpga) | Web hizmeti | Gerçek zamanlı çıkarım için son derece düşük gecikme süresi. |
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Kwk3]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -53,9 +55,9 @@ Tüm işlem hedeflerine yönelik bir model dağıtma işlemini benzer:
 
     * Zaman **bir web hizmeti olarak dağıtma**, üç dağıtım seçeneği vardır:
 
-        * [dağıtma](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-): Bu yöntemi kullanırken, modeli kaydedin veya görüntüyü oluşturmak ihtiyacınız yoktur. Ancak model veya görüntü adını kontrol edemezsiniz veya ilişkili etiketleri ve açıklamaları.
-        * [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-): Bu yöntemi kullanırken, bir görüntü oluşturmak ihtiyacınız yoktur. Ancak, oluşturulan görüntünün adını denetime sahip değilsiniz.
-        * [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-): modeli kaydedin ve bu yöntem kullanmadan önce bir görüntü oluşturun.
+        * [Dağıtma](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-): Bu yöntemi kullanırken, modeli kaydedin veya görüntü oluşturmanız gerekmez. Ancak model veya görüntü adını kontrol edemezsiniz veya ilişkili etiketleri ve açıklamaları.
+        * [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-): Bu yöntemi kullanırken, bir görüntü oluşturmak gerekmez. Ancak, oluşturulan görüntünün adını denetime sahip değilsiniz.
+        * [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-): Modeli kaydedin ve bu yöntem kullanmadan önce bir görüntü oluşturun.
 
         Bu örneklerde belge kullanım `deploy_from_image`.
 
@@ -78,7 +80,7 @@ model = Model.register(model_path = "model.pkl",
 > [!NOTE]
 > Örnekte pickle dosya olarak depolanan bir model kullanarak gösterir, ancak aynı zamanda kullanılan ONNX modelleri kullanabilirsiniz. ONNX modelleri kullanma hakkında daha fazla bilgi için bkz. [ONNX ve Azure Machine Learning](how-to-build-deploy-onnx.md) belge.
 
-Daha fazla bilgi için başvuru belgeleri için bkz. [Model sınıfı](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
+Daha fazla bilgi için başvuru belgeleri için bkz. [Model sınıfı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
 ## <a id="configureimage"></a> Bir görüntü yapılandırması oluşturma
 
@@ -125,11 +127,9 @@ image = ContainerImage.create(name = "myimage",
                               )
 ```
 
-**Tahmini Süre**: yaklaşık 3 dakika.
+**Tahmini Süre**: Yaklaşık 3 dakika.
 
 Aynı ada sahip birden fazla görüntü kayıt yaptırdığınızda görüntüleri otomatik olarak tutulur. İlk resim gibi kayıtlı `myimage` kimliği atanır `myimage:1`. Sonraki bir görüntü olarak Kaydet `myimage`, yeni görüntüyü kimliğidir `myimage:2`.
-
-Görüntü oluşturulması yaklaşık 5 dakika sürer.
 
 Daha fazla bilgi için başvuru belgeleri için bkz. [ContainerImage sınıfı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py).
 
@@ -147,7 +147,7 @@ Dağıtıma aldığınızda, dağıttığınız işlem hedef bağlı olarak bira
 Bir web hizmeti bir veya daha aşağıdaki koşullardan biri Modellerinizi dağıtmak için Azure Container Instances kullanmak doğrudur:
 
 - Hızlı bir şekilde dağıtın ve modelinizi doğrulama gerekir. ACI dağıtım 5 dakikadan daha kısa bir süre içinde tamamlanır.
-- Geliştirilmekte olan bir modeli test edersiniz. ACI, abonelik başına 20 kapsayıcı grubu dağıtmanıza olanak tanır. Daha fazla bilgi için [kotaları ve Azure Container Instances için bölge kullanılabilirliği](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) belge.
+- Geliştirilmekte olan bir modeli test edersiniz. ACI için kotaları ve bölge kullanılabilirliği görmek için bkz [kotaları ve Azure Container Instances için bölge kullanılabilirliği](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) belge.
 
 Azure Container Instances'a dağıtmak için aşağıdaki adımları kullanın:
 
@@ -159,7 +159,7 @@ Azure Container Instances'a dağıtmak için aşağıdaki adımları kullanın:
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option3Deploy)]
 
-    **Tahmini Süre**: yaklaşık 3 dakika.
+    **Tahmini Süre**: Yaklaşık 3 dakika.
 
     > [!TIP]
     > Dağıtım sırasında bir hata varsa, kullanmak `service.get_logs()` AKS hizmeti günlükleri görüntülemek için. Günlüğe kaydedilen bilgileri hatanın nedenini gösterir.
@@ -204,7 +204,7 @@ Azure Kubernetes Service'e dağıtmak için aşağıdaki adımları kullanın:
     print(aks_target.provisioning_errors)
     ```
 
-    **Tahmini Süre**: yaklaşık 20 dakika.
+    **Tahmini Süre**: Yaklaşık 20 dakika.
 
     > [!TIP]
     > AKS kümesini Azure aboneliğinizde zaten ve sürüm 1.11. *, görüntünüzü dağıtmak için kullanın. Aşağıdaki kod, varolan bir kümenin çalışma alanınıza eklemek gösterilmektedir:
@@ -278,8 +278,8 @@ Kimlik bilgilerini aldıktan sonra içindeki adımları kullanın [dağıtma Azu
 > [!NOTE]
 > Azure IOT ile bilmiyorsanız, hizmeti ile çalışmaya başlama bilgi için aşağıdaki belgelere bakın:
 >
-> * [Hızlı Başlangıç: ilk, IOT Edge modülü bir Linux cihazına dağıtma](../../iot-edge/quickstart-linux.md)
-> * [Hızlı Başlangıç: ilk, IOT Edge modülü bir Windows cihazına dağıtma](../../iot-edge/quickstart.md)
+> * [Hızlı Başlangıç: İlk IOT Edge modülü bir Linux cihazına dağıtma](../../iot-edge/quickstart-linux.md)
+> * [Hızlı Başlangıç: İlk IOT Edge modülü bir Windows cihazına dağıtma](../../iot-edge/quickstart.md)
 
 ## <a name="testing-web-service-deployments"></a>Web hizmeti dağıtımları test etme
 

@@ -4,9 +4,8 @@ description: 'Net # kullanarak Azure Machine Learning Studio ile bir özel sinir
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 3aa364e92dd7ce3742d28ac2b36d9a7f16cbebbf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: fb6efad1f1c06349adb877516f5323d8b9ee45e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315316"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272244"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio için NET # sinir ağı belirtim dili Kılavuzu
 
@@ -29,8 +28,8 @@ NET # sinir ağı mimarileri tanımlamak için kullanılan Microsoft tarafından
 
 Bu bağlamda, Net # mimarisi belirtimi kullanabilirsiniz:
 
-+ Microsoft Azure Machine Learning Studio'da tüm sinir ağı modülleri: [veya çoklu sınıflar sinir ağı](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [iki sınıflı sinir ağı](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network), ve [sinir ağı regresyon](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ MicrosoftML sinir ağı İşlevler: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) ve [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)R dili için ve [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) Python için.
++ Microsoft Azure Machine Learning Studio'da tüm sinir ağı modülleri: [Çok sınıflı sinir ağı](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [iki sınıflı sinir ağı](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network), ve [sinir ağı regresyon](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
++ MicrosoftML işlevlerde sinir ağı: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) ve [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)R dili için ve [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) Python için.
 
 
 Bu makalede, Net # kullanarak özel bir sinir ağı geliştirmek için ihtiyaç duyulan sözdizimi ve temel kavramlar açıklanmaktadır: 
@@ -39,7 +38,7 @@ Bu makalede, Net # kullanarak özel bir sinir ağı geliştirmek için ihtiyaç 
 + Söz dizimi ve anahtar sözcükler Net # belirtim dilinin
 + Net # kullanılarak oluşturulan özel sinir ağlarıyla 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="neural-network-basics"></a>Sinir ağı temelleri
 
@@ -114,7 +113,7 @@ output Result[2] from Hidden all;
 ```
 
 + Katmandaki düğüm sayısını boyutları ürünüdür. Bu örnekte, 100 düğüm katmanda olduğu anlamına gelir iki boyutta [5,20] vardır.
-+ Bir istisna dışında herhangi bir sırada katmanları bildirilebilir: birden fazla giriş katman tanımlanmışsa, bildirildikleri girdi verilerini özelliklerin sırasını eşleşmesi gerekir.
++ Bir istisna dışında herhangi bir sırada katmanları bildirilebilir: Birden fazla giriş katman tanımlanmazsa, bildirilmiş olan girdi verilerini özelliklerin sırasını eşleşmesi gerekir.
 
 Bir katmandaki düğüm sayısını otomatik olarak belirlenmesi gerektiğini belirtmek için kullanın `auto` anahtar sözcüğü. `auto` Anahtar sözcüğü katmana bağlı olarak farklı etkileri vardır:
 
@@ -219,7 +218,7 @@ Evrişimsel paketleri aşağıdaki öznitelikleri destekler:
     
     Bir boyut değeri False ise, çekirdekler her tarafındaki solda gösterilmiştir düğüm sayısını (en fazla bir fark 1) aynı olması tanımlanır. Tüm bileşenler için False eşit olan bir tanımlama grubu bu özniteliğin varsayılan değerdir.
 
-+ **UpperPad** ve **LowerPad**: (isteğe bağlı) sağlama daha fazla denetim sahibi kullanmak için doldurma miktarı. **Önemli:** tanımlı ve yalnızca bu öznitelikler olabilir **doldurma** özelliği yukarıdaki ***değil*** tanımlı. Değerleri tamsayı değerli demetleri ile paket kapsamalıdır olan olmalıdır. Bu öznitelikleri belirtildiğinde, "kukla" düğümlerinin her boyut giriş katmanın alt ve üst ucunun eklenir. Her boyuttaki alt ve üst sona eklenen düğüm sayısı tarafından belirlenir **LowerPad**[i] ve **UpperPad**[i] sırasıyla. 
++ **UpperPad** ve **LowerPad**: (isteğe bağlı) sağlama daha fazla denetim sahibi kullanmak için doldurma miktarı. **Önemli:** Bu öznitelikler tanımlanan ve yalnızca olabilir **doldurma** özelliği yukarıdaki ***değil*** tanımlı. Değerleri tamsayı değerli demetleri ile paket kapsamalıdır olan olmalıdır. Bu öznitelikleri belirtildiğinde, "kukla" düğümlerinin her boyut giriş katmanın alt ve üst ucunun eklenir. Her boyuttaki alt ve üst sona eklenen düğüm sayısı tarafından belirlenir **LowerPad**[i] ve **UpperPad**[i] sırasıyla. 
 
     Çekirdekleri yalnızca "gerçek" düğümleri ve "kukla" düğümleri karşılık geldiğinden emin olmak için aşağıdaki koşullar karşılanmalıdır:
       - Her bir bileşeninin **LowerPad** olmalıdır değerinden kesinlikle küçük `KernelShape[d]/2`. 
@@ -375,7 +374,7 @@ Yalnızca tek bir paket katmanları içeriyorsa, kısa biçim kullanabilirsiniz.
 
 Bu bölümde, nasıl Net # gizli katmanları eklemek için tanımlayabilirsiniz gizli katmanları diğer katmanları ile etkileşim kurmak ve karmaşık ağlar oluşturmak için kullanabileceğiniz bazı örnekler sağlar.
 
-### <a name="define-a-simple-custom-neural-network-hello-world-example"></a>Basit bir özel sinir ağı tanımlamak: "Hello World" örnek
+### <a name="define-a-simple-custom-neural-network-hello-world-example"></a>Basit bir özel sinir ağı tanımlayın: "Hello World" örnek
 
 Bu basit örnek, tek bir gizli katman olan sinir ağı modelinin nasıl oluşturulacağını gösterir.
 

@@ -1,13 +1,11 @@
 ---
-title: Azure Standard Load Balancer tanılama | Microsoft Docs
+title: Azure Standard Load Balancer tanılama
+titlesuffix: Azure Load Balancer
 description: Kullanılabilir Ölçümler ve sistem durumu bilgileri tanılama için Azure Standard Load Balancer için kullanın.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2018
 ms.author: Kumud
-ms.openlocfilehash: 258e093acd50946e95360416f89b2ceb96ee35d3
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77c3c595994092ff2ca68f3cefa5eb3c8a54bcd6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426477"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189056"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Standard Load Balancer ölçümleri ve sistem durumu tanılama
 
 Azure Standard Load Balancer Azure Standard Load Balancer verir kaynaklarınızı aşağıdaki tanılama özellikleri sunar:
-* **Çok boyutlu ölçümler**: üzerinden çok boyutlu yeni tanılama özellikleri sağlar [Azure İzleyici](https://docs.microsoft.com/azure/azure-monitor/overview) hem genel hem de iç için yük dengeleyici yapılandırmalarının. İzleme, yönetme ve sorun giderme, yük dengeleyici kaynakları.
+* **Çok boyutlu ölçümler**: Üzerinden çok boyutlu yeni tanılama özellikleri sağlar [Azure İzleyici](https://docs.microsoft.com/azure/azure-monitor/overview) hem genel hem de iç için yük dengeleyici yapılandırmalarının. İzleme, yönetme ve sorun giderme, yük dengeleyici kaynakları.
 
-* **Kaynak durumu**: Azure portalında yük dengeleyici sayfası ve kaynak durumu sayfası (izleme altında) standart Load Balancer'ın herkese açık yük dengeleyici yapılandırması için kaynak durumu bölümünde kullanıma sunar.
+* **Kaynak durumu**: Standart Load Balancer'ın herkese açık yük dengeleyici yapılandırması için kaynak durumu bölümü, Azure portalında yük dengeleyici sayfası ve kaynak durumu sayfası (altında monitör) kullanıma sunar.
 
 Bu makalede bu özelliklerin hızlı bir tura sağlar ve standart Load Balancer için kullanılacak yol sunar.
 
@@ -59,7 +57,7 @@ Standard Load Balancer kaynaklarınız için ölçümleri görüntülemek için:
 
 ![Standard Load Balancer ölçümleri Önizleme](./media/load-balancer-standard-diagnostics/LBMetrics1.png)
 
-*Şekil: Standard Load Balancer için kullanılabilirlik ve sistem durumu araştırma durumu ölçümü DIP*
+*Şekil: Kullanılabilirlik ve sistem durumu araştırma durumu ölçümü için Standard Load Balancer DIP*
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>API'ler aracılığıyla programlama çok boyutlu ölçümleri alma
 
@@ -82,7 +80,7 @@ Standard Load Balancer kaynaklarınız için VIP kullanılabilirlik almak için:
 
 ![Yoklama VIP](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
 
-*Şekil: Yük dengeleyici VIP'sine algılama ayrıntıları*
+*Şekil: Yük Dengeleyici VIP algılama ayrıntıları*
 
 Ölçüm etkin, bant dışı bir ölçüye göre oluşturulur. Bölge içinde bir yoklama hizmeti, ölçüm için trafiğin kaynaklandığı. Hizmet genel ön uç ile bir dağıtımını oluşturun ve ön uç kaldırana kadar devam sürede etkin hale gelir. 
 
@@ -109,7 +107,7 @@ Standard Load Balancer kaynaklarınız için DIP kullanılabilirlik almak için:
 
 ![DIP kullanılabilirlik](./media/load-balancer-standard-diagnostics/LBMetrics-DIPAvailability.png)
 
-*Şekil: Yük dengeleyici VIP kullanılabilirlik*
+*Şekil: Yük Dengeleyici VIP kullanılabilirlik*
 
 Sistem durumu araştırmaları, aşağıdaki nedenlerden dolayı başarısız:
 - Durum araştırması dinlemiyor veya yanıt vermeyen bir bağlantı noktası yapılandırın veya yanlış protokolünü kullanır. Hizmetinizi doğrudan sunucu döndürmeyi (DSR veya kayan IP) kullanıyorsa, kuralları, NIC'ın IP yapılandırmasının IP adresinde dinleyen bir hizmet emin olun ve üzerinde yalnızca ön uç IP adresiyle yapılandırılmış geri döngü adresi.
@@ -129,7 +127,7 @@ SNAT bağlantı istatistiklerini almak için:
 
 ![SNAT bağlantı](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
-*Şekil: Yük dengeleyici SNAT bağlantısı sayısı*
+*Şekil: Yük Dengeleyici SNAT bağlantısı sayısı*
 
 
 #### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>Gelen/giden bağlantı girişimleri için Hizmetimi nasıl denetlerim?
@@ -140,7 +138,7 @@ Kullanım **toplam** çoğu senaryo için toplama olarak.
 
 ![SYN bağlantı](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
-*Şekil: Yük dengeleyici SYN sayısı*
+*Şekil: Yük Dengeleyici SYN sayısı*
 
 
 #### <a name="how-do-i-check-my-network-bandwidth-consumption"></a>My ağ bant genişliği kullanımını nasıl kontrol edebilirim? 
@@ -157,7 +155,7 @@ Bayt veya paket sayısı istatistiklerini almak için:
 
 ![Bayt sayısı](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
 
-*Şekil: Yük dengeleyici bayt sayısı*
+*Şekil: Yük Dengeleyici bayt sayısı*
 
 #### <a name = "vipavailabilityandhealthprobes"></a>Yük Dengeleyici dağıtımım nasıl Tanılama?
 
@@ -169,7 +167,7 @@ Bir adım daha atın ve Azure'nın belirli bir dağıtım için sorumlu olduğu 
 
 ![VIP tanılama](./media/load-balancer-standard-diagnostics/LBMetrics-DIPnVIPAvailability.png)
 
-*Şekil: Birleştirme DIP ve VIP kullanılabilirlik ölçümlerini*
+*Şekil: DIP ve VIP kullanılabilirlik ölçümlerini birleştirme*
 
 Grafik, aşağıdaki bilgileri görüntüler:
 - Altyapı sağlıklı sanal makinelerinizin barındırma altyapısını erişilebilir ve arka uçta birden çok VM'in yerleştirildiği. Bu bilgileri yüzde 100 VIP kullanılabilirlik mavi izleme tarafından belirtilir. 
@@ -199,13 +197,13 @@ Genel bir Standard Load Balancer kaynaklarınızın durumunu görüntülemek iç
 
    ![Kaynak durumu](./media/load-balancer-standard-diagnostics/LBHealth3.png)
 
-   *Şekil: sistem durumu görüntüleme için kaynağı seçin*
+   *Şekil: Sistem durumu görüntüleme için kaynağı seçin*
 
 3. Listede, geçmiş sistem durumunu görüntülemek için yük dengeleyici kaynağı seçin.
 
     ![Load Balancer sistem durumu](./media/load-balancer-standard-diagnostics/LBHealth4.png)
 
-   *Şekil: Yük dengeleyici kaynak durumu görünümünden*
+   *Şekil: Yük Dengeleyici kaynak durumu görünümünden*
  
 Aşağıdaki tabloda çeşitli kaynak sistem durumları ve açıklamalarının listelenmiştir: 
 

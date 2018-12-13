@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: ccfe108b895450e97df1639f6c47eb01823ce5f4
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 8afa6a29d7d97b1d961f8a8ea44a2b62896ec4da
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636773"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323072"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>REST API'sini kullanarak bir Azure kaynağı için özel ölçümler Azure İzleyici ölçüm depoya gönder
 
@@ -94,7 +94,7 @@ Erişim belirteci yanıttan kaydedin.
 1. Bir abonelik veya kaynak grubu karşı ölçümleri, bir Azure kaynağı olarak gönderilemez. 
 1. Bir ölçüm 20 dakikadan eski olan depoya konulamaz. Ölçüm deposu, uyarı ve gerçek zamanlı grafik için optimize edilmiştir. 
 2. Boyut adları sayısını değerlerin eşleşmesi gerekir ve bunun tersi de geçerlidir. Değerleri kontrol edin. 
-2. Özel ölçümler desteklemeyen bir bölge karşı ölçümleri yayma. Bkz: [desteklenen bölgeler](metrics-custom-overview.md#supported-regions). 
+2. Özel ölçümler desteklemeyen bir bölge karşı ölçümleri yayma. Bkz: [desteklenen bölgeler](../azure-monitor/platform/metrics-custom-overview.md#supported-regions). 
 
 
 
@@ -118,4 +118,4 @@ Erişim belirteci yanıttan kaydedin.
 
  
 ## <a name="next-steps"></a>Sonraki adımlar
-- Daha fazla bilgi edinin [özel ölçümler](metrics-custom-overview.md).
+- Daha fazla bilgi edinin [özel ölçümler](../azure-monitor/platform/metrics-custom-overview.md).

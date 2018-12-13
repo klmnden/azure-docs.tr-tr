@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 34b2658ef4b25b3d545932ceffd2f3cf8969034e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3154d5401389d46eb1b9fad335aa18362c5f21f7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309371"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310384"
 ---
-# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Nasıl yapılır: Azure AD join uygulamanızı planlama
+# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Nasıl yapılır: Azure AD katılımınızı uygulamayı planlama
 
 
 Azure AD'ye katılım, Azure AD kullanıcılarınızın üretken ve güvende tutarken şirket içi Active Directory'ye katılmasını gerek kalmadan doğrudan cihazları birleştirmek olanak tanır. Kurumsal kullanıma hazır Azure AD'ye katılım ölçekli hem de kapsamlı dağıtımları için.   
@@ -91,9 +91,9 @@ Bu senaryolar, bir federasyon sunucusu kimlik doğrulaması için yapılandırma
 
 Birleştirilmiş bir ortamda hem WS-Güven ve WS-Federasyon protokollerini destekleyen bir kimlik sağlayıcısına sahip olmalıdır:
 
-- **WS-Federasyon:** bu protokolü bir cihazı Azure AD'ye katılmak için gereklidir.
+- **WS-Federasyon:** Bu protokol, bir cihaz Azure AD'ye için gereklidir.
 
-- **WS-Trust:** bu protokolü, bir Azure AD alanına katılmış cihazda oturum açın gereklidir. 
+- **WS-Güven:** Bu protokol, bir Azure AD alanına katılmış cihaz oturum açmak için gereklidir. 
 
 Kimlik sağlayıcınız bu protokolleri desteklemiyorsa, Azure AD'ye katılım yerel olarak çalışmaz. Windows 10 1809 ile başlayarak, kullanıcılarınızın bir Azure AD alanına katılmış cihaz bir SAML tabanlı kimlik sağlayıcısı ile oturum açabilirsiniz [web oturum açma Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Şu anda web oturumu açma bir yalnızca önizleme özelliğidir.
 
@@ -102,7 +102,7 @@ Kimlik sağlayıcınız bu protokolleri desteklemiyorsa, Azure AD'ye katılım y
 
 Cihazları Azure AD'ye için akıllı kart veya sertifika tabanlı kimlik doğrulaması'nı kullanamazsınız. Ancak, akıllı kartlar, yapılandırılmış AD FS varsa Azure AD'ye katılmış cihazlar için oturum açmak için kullanılabilir.
 
-**Öneri:** uygulama Windows Hello güçlü, parola olmadan kimlik doğrulaması için Windows 10 cihazlarında iş için.
+**Öneri:** Windows iş için Hello güçlü, parola olmadan kimlik doğrulaması için Windows 10 cihazları uygulayın.
 
 
 ### <a name="user-configuration"></a>Kullanıcı Yapılandırması
@@ -127,7 +127,7 @@ Azure AD'ye katılım:
 
 - Windows veya diğer işletim sistemlerinin önceki sürümleri için geçerli değildir. Windows 7/8.1 cihazınız varsa, Azure AD'ye katılım'ı dağıtmak için Windows 10'a yükseltmeniz gerekir.
  
-**Öneri:** güncelleştirilmiş özelliklerden yararlanmak için her zaman en son Windows 10 sürümü kullanın.
+**Öneri:** Güncelleştirilmiş özelliklerden yararlanmak için her zaman en son Windows 10 sürüm kullanın.
 
 
 ### <a name="management-platform"></a>Yönetim platformu
@@ -155,7 +155,7 @@ MDM çözümünüz Azure AD uygulama galerisinde kullanılabilir durumda değils
 
 Ortak yönetim SCCM ilkeleri, MDM platformu teslim edilir olsa bazı yönlerini cihazlarınızı yönetmek için kullanabilirsiniz. Microsoft Intune SCCM ile ortak yönetim sağlar. Daha fazla bilgi için [ortak yönetim için Windows 10 cihazları](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview). Intune dışında bir MDM ürünüyle kullanırsanız, Lütfen geçerli bir ortak yönetim senaryolarında MDM sağlayıcınız ile denetleyin.
 
-**Öneri:** düşünün MDM yönetimi için Azure AD'ye katılmış cihazlar yalnızca.
+**Öneri:** Yönetimi için Azure AD'ye katılmış cihazlar yalnızca MDM göz önünde bulundurun.
 
 
 
@@ -185,13 +185,13 @@ Uygulamalarınızın özel olması durumunda yerleşik ve/veya şirket içinde b
 
 AD FS kullanıyorsanız, bkz. [doğrulayın ve çoklu oturum açma AD FS ile yönetme](https://docs.microsoft.com/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
 
-**Öneri:** (örneğin, Azure) bulutta barındırma ve daha iyi bir deneyim için Azure AD ile tümleştirme göz önünde bulundurun.
+**Öneri:** (Örneğin, Azure) bulutta barındırma ve daha iyi bir deneyim için Azure AD ile tümleştirme göz önünde bulundurun.
 
 ### <a name="on-premises-applications-relying-on-legacy-protocols"></a>Eski protokollerine bağlı olan şirket içi uygulamalar
 
 Cihaz erişimi için bir etki alanı denetleyicisi varsa kullanıcılarınızın Azure ad SSO katılmış cihazlar. 
 
-**Öneri:** Dağıt [Azure AD uygulama ara sunucusu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) uygulamalar için güvenli erişim sağlamak için.
+**Öneri:** Dağıtma [Azure AD uygulama ara sunucusu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) uygulamalar için güvenli erişim sağlamak için.
 
 
 ### <a name="on-premises-network-shares"></a>Şirket içi ağ paylaşımları
@@ -209,11 +209,11 @@ Yazıcılar otomatik olarak yalnızca bulut ortamında bulunamıyorsa olsa da ku
 
 Bağlı olan makine kimlik doğrulamasını şirket içi uygulamaların Azure AD'ye katılmış cihazları desteklemez. 
 
-**Öneri:** bu uygulamaları devre dışı bırakma ve bunların modern alternatifleri taşımayı düşünün.
+**Öneri:** Bu uygulamaları devre dışı bırakma ve bunların modern alternatifleri taşımayı düşünün.
 
 ### <a name="remote-desktop-services"></a>Uzak Masaüstü Hizmetleri
 
-Konak makine ya da Azure AD'ye katılmış olması ya da Azure AD'ye katılmış karma Azure AD'ye katılmış cihazlar için Uzak Masaüstü bağlantısı gerektirir. Uzak Masaüstü katılmamış veya Windows olmayan bir CİHAZDAN desteklenmiyor. Daha fazla bilgi için [uzak Azure ad Connect katılmış bilgisayar](https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc)
+Konak makine ya da Azure AD'ye katılmış olması ya da Azure AD'ye katılmış karma Azure AD'ye katılmış cihazlar için Uzak Masaüstü bağlantısı gerektirir. Uzak Masaüstü katılmamış veya Windows olmayan bir CİHAZDAN desteklenmiyor. Daha fazla bilgi için [uzak Azure ad Connect katılmış bilgisayar](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc)
 
 
 ## <a name="understand-your-provisioning-options"></a>Sağlama seçeneklerinizi anlayın
@@ -310,9 +310,9 @@ Seçin **bazı** veya **tüm** dağıtımınızın kapsamına göre.
 
 Kendi kapsamına göre aşağıdakilerden biri gerçekleşir: 
 
-- **Kullanıcı, MDM kapsamda**: Azure AD Premium aboneliği varsa, MDM kaydı yanı sıra Azure AD'ye katılım otomatikleştirildi. Tüm kapsamlı kullanıcılar, Mdm için uygun bir lisansı olması gerekir Bu senaryoda, MDM kaydı başarısız olursa, Azure AD join Ayrıca geri alınacak.
+- **Kullanıcı, MDM kapsamda**: MDM kaydı bir Azure AD Premium aboneliğiniz varsa, Azure AD katılımı ile birlikte otomatik hale getirilmiştir. Tüm kapsamlı kullanıcılar, Mdm için uygun bir lisansı olması gerekir Bu senaryoda, MDM kaydı başarısız olursa, Azure AD join Ayrıca geri alınacak.
     
-- **Kullanıcı MDM kapsamda değil**: kullanıcıların MDM kapsamda emin değilseniz, herhangi bir MDM kaydı Azure AD'ye katılım tamamlar. Bu yönetilmeyen bir cihazda sonuçlanır.
+- **Kullanıcı MDM kapsamda değil**: Kullanıcılar, MDM kapsamda değildir, herhangi bir MDM kaydı Azure AD'ye katılım tamamlar. Bu yönetilmeyen bir cihazda sonuçlanır.
 
 
 ### <a name="mdm-urls"></a>MDM URL'leri
@@ -340,7 +340,7 @@ MAM Azure AD'ye katılmak için geçerli değildir.
 
 Kullanıcı ayarlarını cihazlar arasında eşitleyebilirsiniz. böylece, Azure AD'ye durumda Dolaşım etkinleştirmek istiyorsanız, bkz. [etkinleştirme Kurumsal durumu dolaşım, Azure Active Directory'de](https://docs.microsoft.com/azure/active-directory/devices/enterprise-state-roaming-enable). 
 
-**Öneri**: Bu hibrit Azure AD'ye katılmış cihazlar için bile ayarı etkinleştirin.
+**Öneri**: Hibrit Azure AD'ye katılmış cihazlar için bile bu ayarı etkinleştirin.
 
 
 ## <a name="configure-conditional-access"></a>Koşullu erişimi yapılandırma

@@ -1,5 +1,5 @@
 ---
-title: Resource Manager şablonu kullanarak bir Azure App Service ortamı oluşturma
+title: Azure Resource Manager şablonu ile - App Service ortamı oluşturma
 description: Resource Manager şablonu kullanarak bir dış veya ILB Azure App Service ortamı oluşturma açıklanır
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: bdd8ac47f709153b17e2dcf44ff9a2c568e650cc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 9056abdd57640026d04779a3c5c3a201095ea045
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958756"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277480"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak bir ASE oluşturma
 
@@ -49,8 +50,8 @@ Bir ASE ve ilişkili parametreler dosyası oluşturan Resource Manager şablonu 
 
 ILB ASE yapmak istiyorsanız, bu Resource Manager şablonu kullanma [örnekler][quickstartilbasecreate]. Bunlar için kullanım örneği yararlanılır. Parametrelerin çoğu *azuredeploy.parameters.json* dosya dış ase, ILB ase oluşturma için ortak. Aşağıdaki listede out Parametreleri özel notun çağırır veya ILB ASE oluşturma zaman benzersiz olan:
 
-* *Internalloadbalancingmode*: Çoğu durumda, bu kanal bağlantı noktası 80/443 numaralı bağlantı noktasındaki HTTP/HTTPS trafiğini hem denetim/veri anlamına gelir ve 3 dinledik için ASE üzerinde FTP hizmeti tarafından kümesi bağımlı bir ILB ayrılan sanal ağına iç adresi. Bu özelliği 2 olarak ayarlanırsa yalnızca FTP hizmeti ile ilgili bağlantı noktaları (Denetim hem de veri kanalı) için bir ILB adresini bağlıdır. HTTP/HTTPS trafiğini, genel VIP üzerinde kalır.
-* *Dnssuffıx*: Bu parametre için ASE atanmış varsayılan kök etki alanı tanımlar. Tüm web uygulamaları için Azure App Service'in genel varyasyonu varsayılan kök etki alanıdır *azurewebsites.net*. ILB ASE, müşterinin sanal ağa iç olduğundan, bu ortak hizmetin varsayılan kök etki alanını kullanmak için anlam ifade etmez. Bunun yerine, ILB ASE şirketin iç sanal ağ içinde kullanmak için anlamlı varsayılan kök etki alanı olmalıdır. Örneğin, Contoso Corporation bir varsayılan kök etki alanını kullanabilir *contoso.com iç* çözümlenebilir ve yalnızca Contoso sanal ağ içinde erişilebilir olacak şekilde tasarlanmıştır uygulamalar için. 
+* *Internalloadbalancingmode*: Çoğu durumda, 80/443 numaralı bağlantı noktasındaki HTTP/HTTPS trafiğini hem denetim/veri kanalı bağlantı noktaları anlamına gelir ve 3 Bu ASE üzerinde FTP hizmeti tarafından dinledik için kümesi bağlı bir ILB ayrılan sanal ağ iç adresi. Bu özelliği 2 olarak ayarlanırsa yalnızca FTP hizmeti ile ilgili bağlantı noktaları (Denetim hem de veri kanalı) için bir ILB adresini bağlıdır. HTTP/HTTPS trafiğini, genel VIP üzerinde kalır.
+* *Dnssuffıx*: Bu parametre, ASE için atanan varsayılan kök etki alanı tanımlar. Tüm web uygulamaları için Azure App Service'in genel varyasyonu varsayılan kök etki alanıdır *azurewebsites.net*. ILB ASE, müşterinin sanal ağa iç olduğundan, bu ortak hizmetin varsayılan kök etki alanını kullanmak için anlam ifade etmez. Bunun yerine, ILB ASE şirketin iç sanal ağ içinde kullanmak için anlamlı varsayılan kök etki alanı olmalıdır. Örneğin, Contoso Corporation bir varsayılan kök etki alanını kullanabilir *contoso.com iç* çözümlenebilir ve yalnızca Contoso sanal ağ içinde erişilebilir olacak şekilde tasarlanmıştır uygulamalar için. 
 * *ipSslAddressCount*: Bu parametre, 0 değerini otomatik olarak varsayılan *azuredeploy.json* ILB ase yalnızca tek bir ILB adresini olduğundan dosya. ILB ASE için açık IP SSL adres yok. Bu nedenle, ILB ASE için IP SSL adresi havuzu, sıfır olarak ayarlanmalıdır. Aksi takdirde, bir sağlama hatası oluşur. 
 
 Sonra *azuredeploy.parameters.json* PowerShell kod parçacığını kullanarak ASE oluşturma, dosya doldurulur. Dosya yolları, Resource Manager şablon dosyası konumları makinenizde eşleşecek şekilde değiştirin. Resource Manager dağıtım adı ve kaynak grubu adı için kendi değerlerinizi sağlamanız unutmayın:
@@ -103,12 +104,12 @@ SSL sertifikası başarıyla oluşturuldu ve base64 ile kodlanmış dizeye dön�
 
 Parametrelerinde *azuredeploy.parameters.json* dosya burada listelenir:
 
-* *appServiceEnvironmentName*: yapılandırılmakta ILB ASE adı.
-* *existingAseLocation*: Burada ILB ASE dağıtıldığı Azure bölgesi içeren metin dizesi.  Örneğin: "Güney Orta ABD".
-* *pfxBlobString*: .pfx dosyasını based64 kodlu bir dize gösterimi. Daha önce gösterilen kod parçacığını kullanın ve yer alan "içinde exportedcert.pfx.b64" dizesini kopyalayın. Değeri olarak yapıştırın *pfxBlobString* özniteliği.
-* *Parola*: .pfx dosyasını güvenliğini sağlamak için kullanılan parola.
-* *certificateThumbprint*: sertifikanın parmak izi. Bu değer Powershell'den alıyorsanız (örneğin, *$certificate. Parmak izi* önceki kod parçacığında), değeri olduğu gibi kullanabilirsiniz. Fazla boşlukları atmak Windows sertifika iletişim kutusundan değeri kopyalarsanız, unutmayın. *CertificateThumbprint* AF3143EB61D43F6727842115BB7F17BBCECAECAE gibi görünmelidir.
-* *certificateName*: sertifika kimlik için kullanılan kendi seçtiğiniz bir kolay dize tanımlayıcısı. Ad, kaynak yöneticisi tanımlayıcısı için bir parçası olarak kullanılıyor *Microsoft.Web/certificates* SSL sertifikası temsil eden varlık. Adı *gerekir* bitiş şu sonekle: \_yourASENameHere_InternalLoadBalancingASE. Azure portalında bu son ek bir gösterge kullanır. sertifikanın ILB özellikli bir ASE'nin güvenliğini sağlamak için kullanılır.
+* *appServiceEnvironmentName*: Yapılandırılan ILB ASE adı.
+* *existingAseLocation*: ILB ASE dağıtıldığı Azure bölgesi içeren metin dizesi.  Örneğin: "Güney Orta ABD".
+* *pfxBlobString*: .Pfx dosyasını based64 kodlu bir dize gösterimi. Daha önce gösterilen kod parçacığını kullanın ve yer alan "içinde exportedcert.pfx.b64" dizesini kopyalayın. Değeri olarak yapıştırın *pfxBlobString* özniteliği.
+* *Parola*: .Pfx dosyasını güvenliğini sağlamak için kullanılan parola.
+* *certificateThumbprint*: Sertifikanın parmak izi. Bu değer Powershell'den alıyorsanız (örneğin, *$certificate. Parmak izi* önceki kod parçacığında), değeri olduğu gibi kullanabilirsiniz. Fazla boşlukları atmak Windows sertifika iletişim kutusundan değeri kopyalarsanız, unutmayın. *CertificateThumbprint* AF3143EB61D43F6727842115BB7F17BBCECAECAE gibi görünmelidir.
+* *certificateName*: Sertifika kimlik için kullanılan bir kolay dize tanımlayıcısı kendi seçme. Ad, kaynak yöneticisi tanımlayıcısı için bir parçası olarak kullanılıyor *Microsoft.Web/certificates* SSL sertifikası temsil eden varlık. Adı *gerekir* bitiş şu sonekle: \_yourASENameHere_InternalLoadBalancingASE. Azure portalında bu son ek bir gösterge kullanır. sertifikanın ILB özellikli bir ASE'nin güvenliğini sağlamak için kullanılır.
 
 Kısaltılmış örneği *azuredeploy.parameters.json* şurada gösterilmiştir:
 
@@ -155,7 +156,7 @@ Değişikliği uygulamak için ön uç ASE başına yaklaşık 40 dakika sürer.
 Ancak, genel çok kiracılı bir hizmet üzerinde çalışan yeni uygulamalar gibi geliştiriciler tek tek uygulamalar için özel bir ana bilgisayar adları yapılandırabilirsiniz. Bunlar, benzersiz SNI SSL sertifikası bağlamaları tek tek uygulamalar için de yapılandırabilirsiniz.
 
 ## <a name="app-service-environment-v1"></a>App Service Ortamı v1 ##
-App Service Ortamının iki sürümü vardır: ASEv1 ve ASEv2. Yukarıdaki bilgiler ASEv2’yi temel alır. Bu bölümde ASEv1 ile ASEv2 arasındaki farklar gösterilmektedir.
+App Service ortamı iki sürümü vardır: ASEv1 ve ASEv2. Yukarıdaki bilgiler ASEv2’yi temel alır. Bu bölümde ASEv1 ile ASEv2 arasındaki farklar gösterilmektedir.
 
 ASEv1'de, tüm kaynakları el ile yönetin. Buna ön uçlar, çalışanlar ve IP tabanlı SSL için kullanılan IP adresleri dahildir. App Service planınızın ölçeğini önce sitemi barındırmak istediğiniz çalışan havuzu Ölçeklendirmesi gerekir.
 

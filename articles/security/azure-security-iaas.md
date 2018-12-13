@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 6033a61351423e65490edfe0b0607f2395c80f86
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d4a2daf10fd864f13982f4d327868ad62d1309b3
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498338"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321469"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure Iaas iş yükleri için en iyi güvenlik uygulamaları
 
@@ -38,21 +38,21 @@ Bir fikrim fikir birliği üzerinde en iyi uygulamaları temel alır ve geçerli
 ## <a name="protect-vms-by-using-authentication-and-access-control"></a>Kimlik doğrulaması ve erişim denetimi kullanarak Vm'leri koruma
 Vm'lerinizi koruma ilk adımı, yeni VM'ler ve VM erişimi, yalnızca yetkili kullanıcıların emin olmak için sonuna ayarlayabilirsiniz ' dir.
 
-**En iyi yöntem**: denetim VM erişimi.   
-**Ayrıntı**: kullanım [Azure ilkeleri](../azure-policy/azure-policy-introduction.md) , kuruluşunuzdaki kaynaklar için kuralları kurmak ve özelleştirilmiş ilkeler oluşturun. Bu ilkeler gibi kaynaklara uygulamak [kaynak grupları](../azure-resource-manager/resource-group-overview.md). Bir kaynak grubuna ait VM'lerin onun ilkelerini devralır.
+**En iyi yöntem**: VM erişimi denetler.   
+**Ayrıntı**: Kullanım [Azure ilkeleri](../azure-policy/azure-policy-introduction.md) , kuruluşunuzdaki kaynaklar için kuralları kurmak ve özelleştirilmiş ilkeler oluşturun. Bu ilkeler gibi kaynaklara uygulamak [kaynak grupları](../azure-resource-manager/resource-group-overview.md). Bir kaynak grubuna ait VM'lerin onun ilkelerini devralır.
 
 Kuruluşunuzun fazla aboneliğiniz varsa, erişim ilkeleri ve bu Aboneliklerdeki uyumluluğunun verimli bir şekilde yönetmek için bir yol gerekebilir. [Azure Yönetim grupları](../azure-resource-manager/management-groups-overview.md) abonelikleri yukarıda kapsam düzeyini sağlamak. Yönetim gruplarına (kapsayıcılar) abonelikleri düzenlemenize ve bu gruplara, idare koşullar geçerlidir. Bir yönetim grubundaki tüm abonelikler otomatik olarak gruba uygulanan koşullar devralır. Yönetim grupları, sahip olabileceğiniz abonelik türüne bakılmaksızın kurumsal düzeyde yönetimi büyük ölçekte sunar.
 
 **En iyi yöntem**: Kurulum ve dağıtım VM'lerin sonuçlarındaki azaltın.   
-**Ayrıntı**: kullanım [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) dağıtım seçenekleriniz güçlendirin ve anlayın ve ortamınızda Vm'leri stok daha kolay hale getirmek için şablonları.
+**Ayrıntı**: Kullanım [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) dağıtım seçenekleriniz güçlendirin ve anlayın ve ortamınızda Vm'leri stok daha kolay hale getirmek için şablonları.
 
-**En iyi yöntem**: ayrıcalıklı erişim güvenliğini sağlama.   
-**Ayrıntı**: kullanım bir [en az ayrıcalık yaklaşım](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) ve kullanıcıların erişim ve sanal makinelerini ayarlayın sağlamak için Azure yerleşik rolleri:
+**En iyi yöntem**: Güvenli ayrıcalıklı erişim.   
+**Ayrıntı**: Kullanım bir [en az ayrıcalık yaklaşım](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) ve kullanıcıların erişim ve sanal makinelerini ayarlayın sağlamak için Azure yerleşik rolleri:
 
-- [Sanal makine Katılımcısı](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): VMs, ancak bunların bağlı sanal ağ veya depolama hesabı değil yönetebilirsiniz.
-- [Klasik sanal makine Katılımcısı](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): Klasik dağıtım modeli, ancak sanal makinelere bağlı olduğu sanal ağ veya depolama hesabı değil kullanılarak oluşturulan sanal makineleri yönetebilir.
-- [Güvenlik Yöneticisi](../role-based-access-control/built-in-roles.md#security-admin): içinde yalnızca Güvenlik Merkezi: görüntüle güvenlik ilkeleri, güvenlik durumlarını görüntülemek, güvenlik ilkeleri, uyarıları görüntüleme ve öneriler Düzenle, uyarıları ve öneriler yok sayın.
-- [DevTest Labs kullanıcısı](../role-based-access-control/built-in-roles.md#devtest-labs-user): her şeyi görüntüleyebilir ve bağlanmak, Başlat, yeniden başlatın ve Vm'lerini kapatın.
+- [Sanal makine Katılımcısı](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): VM'ler, ancak bağlı sanal ağ veya depolama hesabı değil yönetebilirsiniz.
+- [Klasik sanal makine Katılımcısı](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): VM'lerin bağlanacağı sanal ağ veya depolama hesabı değil ancak klasik dağıtım modeli kullanılarak oluşturulan sanal makineleri yönetebilir.
+- [Güvenlik Yöneticisi](../role-based-access-control/built-in-roles.md#security-admin): Güvenlik Merkezi'nde yalnızca: Güvenlik ilkelerini görüntüleyin, güvenlik durumlarını görüntülemek, güvenlik ilkeleri, uyarıları görüntüleme ve öneriler Düzenle, uyarıları ve öneriler kapat.
+- [DevTest Labs kullanıcısı](../role-based-access-control/built-in-roles.md#devtest-labs-user): Her şeyi görüntüleyebilir ve bağlanmak, Başlat, yeniden başlatın ve Vm'lerini kapatın.
 
 Abonelik yöneticileri ve ortak Yöneticiler bir Abonelikteki tüm VM'lerin Yöneticiler yönetilmelerini, bu ayarı değiştirebilirsiniz. Tüm abonelik yöneticileri ve ortak Yöneticiler makinelerinizi birine oturum açmak için güvenilir olduğundan emin olun.
 
@@ -75,17 +75,17 @@ Microsoft Antimalware gerçek zamanlı koruma, zamanlanmış tarama, kötü ama�
 
 Microsoft Antimalware ve iş ortağı çözümleriyle tümleştirilebilir [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/) kolay dağıtım ve yerleşik algılamalar (Uyarılar ve olaylar).
 
-**En iyi yöntem**: kötü amaçlı yazılımlara karşı korumak için bir kötü amaçlı yazılımdan koruma çözümü yükler.   
-**Ayrıntı**: [bir Microsoft iş ortağı çözüm ya da Microsoft Antimalware yükleyin](../security-center/security-center-install-endpoint-protection.md)
+**En iyi yöntem**: Kötü amaçlı yazılımlara karşı korumak için bir kötü amaçlı yazılımdan koruma çözümü yükleyin.   
+**Ayrıntı**: [Bir Microsoft iş ortağı çözüm ya da Microsoft Antimalware yükleyin](../security-center/security-center-install-endpoint-protection.md)
 
-**En iyi yöntem**: kötü amaçlı yazılımdan koruma çözümünüz, koruma durumunu izlemek için Güvenlik Merkezi ile tümleştirin.   
+**En iyi yöntem**: Kötü amaçlı yazılımdan koruma çözümünüz, koruma durumunu izlemek için Güvenlik Merkezi ile tümleştirin.   
 **Ayrıntı**: [Güvenlik Merkezi ile uç nokta koruma sorunları yönetme](../security-center/security-center-partner-integration.md)
 
 ## <a name="manage-your-vm-updates"></a>VM güncelleştirmelerinizi yönetme
 Tüm şirket içi sanal makineler gibi Azure Vm'leri yönetilen kullanıcı yöneliktir. Azure Windows güncelleştirmeleri gönderdiğinizde değil. VM güncelleştirmelerinizi yönetmeniz gerekmez.
 
-**En iyi yöntem**: sanal makinelerinizi güncel kalmasını sağlayın.   
-**Ayrıntı**: kullanım [güncelleştirme yönetimi](../automation/automation-update-management.md) azure'da, şirket içi ortamlarda veya diğer bulutta dağıtılan Windows ve Linux bilgisayarlarınızın işletim sistemi güncelleştirmelerini yönetmek için Azure automation'da çözümü sağlayıcıları. Tüm aracı bilgisayarlardaki kullanılabilir güncelleştirmelerin durumunu hızla değerlendirebilir ve sunucular için gerekli güncelleştirmeleri yükleme işlemini yönetebilirsiniz.
+**En iyi yöntem**: Sanal makinelerinizi güncel kalmasını sağlayın.   
+**Ayrıntı**: Kullanım [güncelleştirme yönetimi](../automation/automation-update-management.md) yönetmek için Azure automation'da işletim sistemi güncelleştirmeleri, Azure'da dağıtılan Windows ve Linux bilgisayarlar için şirket içi ortamlarda veya diğer bulut çözümü sağlayıcıları. Tüm aracı bilgisayarlardaki kullanılabilir güncelleştirmelerin durumunu hızla değerlendirebilir ve sunucular için gerekli güncelleştirmeleri yükleme işlemini yönetebilirsiniz.
 
 Güncelleştirme yönetimi tarafından yönetilen bilgisayarlar değerlendirme gerçekleştirmek ve güncelleştirme dağıtımları için aşağıdaki yapılandırmaları kullanın:
 
@@ -96,17 +96,17 @@ Güncelleştirme yönetimi tarafından yönetilen bilgisayarlar değerlendirme g
 
 Windows Update kullanıyorsanız, otomatik Windows güncelleştirme ayarı etkin bırakın.
 
-**En iyi yöntem**: dağıtım sırasında oluşturulan görüntüleri en son Windows güncelleştirmelerini turu eklediğinizden emin olun.   
-**Ayrıntı**: denetle ve yükle tüm Windows her dağıtımında ilk adım olarak güncelleştirir. Bu ölçü, veya kendi kitaplığı gelen görüntüleri dağıtırken uygulamak özellikle önemlidir. Görüntüleri Azure Market'te varsayılan olarak otomatik olarak güncelleştirilir ancak bir genel yayın sonrasında bir gecikme süresi (en fazla birkaç hafta) olabilir.
+**En iyi yöntem**: Dağıtım sırasında oluşturulan görüntüleri en son Windows güncelleştirmelerini turu eklediğinizden emin olun.   
+**Ayrıntı**: Denetleyin ve her dağıtımın ilk adım olarak tüm Windows güncelleştirmeleri yükleyin. Bu ölçü, veya kendi kitaplığı gelen görüntüleri dağıtırken uygulamak özellikle önemlidir. Görüntüleri Azure Market'te varsayılan olarak otomatik olarak güncelleştirilir ancak bir genel yayın sonrasında bir gecikme süresi (en fazla birkaç hafta) olabilir.
 
-**En iyi yöntem**: düzenli olarak yeni bir işletim sistemi sürümünü zorunlu kılmak için sanal makinelerinizin yeniden dağıtın.   
-**Ayrıntı**: ile sanal makinenize tanımlayan bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) şekilde kolayca yeniden dağıtabilirsiniz. İhtiyacınız olduğunda bir şablon kullanarak düzeltme eki uygulama ve güvenli bir sanal makine sağlar.
+**En iyi yöntem**: Düzenli olarak yeni bir işletim sistemi sürümünü zorunlu kılmak için sanal makinelerinizin yeniden dağıtın.   
+**Ayrıntı**: VM'nizi tanımlayan bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) şekilde kolayca yeniden dağıtabilirsiniz. İhtiyacınız olduğunda bir şablon kullanarak düzeltme eki uygulama ve güvenli bir sanal makine sağlar.
 
-**En iyi yöntem**: en son güvenlik güncelleştirmelerini yükleyin.   
-**Ayrıntı**: müşterilerin Azure'a taşımak ilk iş yüklerinin laboratuvarlar ve dönük sistemleri bazılarıdır. Azure sanal makineleriniz, internet'e erişilmesi gereken uygulamaları veya hizmetleri barındırıyorsanız, düzeltme eki uygulama hakkında dikkatli olun. İşletim sisteminin ötesine geçen eki. İş ortağı uygulamaları Açıklarında güvenlik açıklarını da iyi düzeltme eki yönetimi yerinde olduğunda önlenebilir sorunlara neden olabilir.
+**En iyi yöntem**: En son güvenlik güncelleştirmelerini yükleyin.   
+**Ayrıntı**: Müşterilerin Azure'a taşımak ilk iş yüklerinin laboratuvarlar ve dönük sistemleri bazılarıdır. Azure sanal makineleriniz, internet'e erişilmesi gereken uygulamaları veya hizmetleri barındırıyorsanız, düzeltme eki uygulama hakkında dikkatli olun. İşletim sisteminin ötesine geçen eki. İş ortağı uygulamaları Açıklarında güvenlik açıklarını da iyi düzeltme eki yönetimi yerinde olduğunda önlenebilir sorunlara neden olabilir.
 
-**En iyi yöntem**: dağıtın ve bir yedekleme çözümü test edin.   
-**Ayrıntı**: yedekleme başka bir işlem işleme aynı şekilde ele alınması gerekir. Bu, üretim ortamınızın buluta genişletme parçası olan sistemlerinin geçerlidir.
+**En iyi yöntem**: Dağıtma ve bir yedekleme çözümü test edin.   
+**Ayrıntı**: Bir yedekleme başka bir işlem işleme aynı şekilde ele alınması gerekir. Bu, üretim ortamınızın buluta genişletme parçası olan sistemlerinin geçerlidir.
 
 Test ve geliştirme sistemleri, hangi kullanıcıların dayalı olarak, şirket içi ortamlarla deneyimlerini alışık için benzer bir geri yükleme özelliklerini sağlayın yedekleme stratejileri izlemeniz gerekir. Üretim iş yüklerini Azure'a taşındı. mevcut yedekleme çözümleri ile mümkün olduğunda tümleşmelidir. Veya, kullanabileceğiniz [Azure Backup](../backup/backup-azure-vms-first-look-arm.md) yedekleme gereksinimlerinizi çözümüne yardımcı olmak için.
 
@@ -138,7 +138,7 @@ VM işlem izin verilenden daha fazla kaynak tüketmesine kaynak uygunsuz bir sor
 Kullanmanızı öneririz [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview-metrics.md) kaynağınızın durumu görünürlük elde etmek için. Azure İzleyici özellikleri:
 
 - [Kaynak tanılama günlük dosyaları](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md): VM kaynaklarınızı izler ve performans ve kullanılabilirlik riske atabilirdi olası sorunları tanımlar.
-- [Azure tanılama uzantısını](../monitoring-and-diagnostics/azure-diagnostics.md): Windows Vm'lerinde izleme ve tanılama özellikleri sağlar. Bu özellikler uzantısı bir parçası olarak dahil ederek etkinleştirebilirsiniz [Azure Resource Manager şablonu](../virtual-machines/windows/extensions-diagnostics-template.md).
+- [Azure tanılama uzantısını](../azure-monitor/platform/diagnostics-extension-overview.md): Windows Vm'lerinde izleme ve tanılama olanakları sunar. Bu özellikler uzantısı bir parçası olarak dahil ederek etkinleştirebilirsiniz [Azure Resource Manager şablonu](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 VM performansı izleme kuruluşlar, bazı değişikliklerin performans desenleri normal veya anormal olup olmadığını belirleyemiyor. Normalden daha fazla kaynak tüketmeye bir VM, bir dış kaynağa veya VM'de çalışan güvenliği aşılmış bir işlem bir saldırı olduğunu gösteriyor olabilir.
 
@@ -149,17 +149,17 @@ Sanal sabit disklerinizin (VHD) önyükleme birimi ve depolama, veri birimlerini
 
 Azure Disk şifrelemesi kullanılarak için en iyi uygulamalar aşağıda verilmiştir:
 
-**En iyi yöntem**: vm'lerde şifrelemeyi etkinleştirin.   
+**En iyi yöntem**: VM üzerinde şifrelemeyi etkinleştirir.   
 **Ayrıntı**: Azure Disk şifrelemesi oluşturur ve şifreleme anahtarları için anahtar kasanıza yazar. Anahtar kasanızı şifreleme anahtarları yönetme, Azure AD kimlik doğrulaması gerektirir. Bu amaç için bir Azure AD uygulaması oluşturun. Kimlik doğrulama amacıyla ya da istemci gizli anahtarı tabanlı kimlik doğrulaması kullanabilirsiniz veya [istemci Azure AD'ye sertifika tabanlı kimlik doğrulaması](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
-**En iyi yöntem**: ek bir şifreleme anahtarları için güvenlik katmanı için bir anahtar şifreleme anahtarı (KEK) kullanın. Bir KEK anahtar kasanızı ekleyin.   
-**Ayrıntı**: kullanım [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) anahtar şifreleme anahtarı anahtar kasasını oluşturmak için cmdlet'i. Ayrıca, anahtar yönetimi, şirket içi donanım güvenlik modülü (HSM) gelen bir KEK içeri aktarabilirsiniz. Daha fazla bilgi için [Key Vault belgeleri](../key-vault/key-vault-hsm-protected-keys.md). Anahtar şifreleme anahtarı belirtildiğinde, Azure Disk şifrelemesi anahtar Kasası'na yazmadan önce şifreleme parolaları sarmalamak için bu anahtarı kullanır. Bu anahtarın bir emanet kopyasını tutarak bir şirket içi anahtar yönetimi HSM anahtarları yanlışlıkla silinmesine karşı ek koruma sunar.
+**En iyi yöntem**: Bir ek şifreleme anahtarları için güvenlik katmanı için bir anahtar şifreleme anahtarı (KEK) kullanın. Bir KEK anahtar kasanızı ekleyin.   
+**Ayrıntı**: Kullanım [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) anahtar şifreleme anahtarı anahtar kasasını oluşturmak için cmdlet'i. Ayrıca, anahtar yönetimi, şirket içi donanım güvenlik modülü (HSM) gelen bir KEK içeri aktarabilirsiniz. Daha fazla bilgi için [Key Vault belgeleri](../key-vault/key-vault-hsm-protected-keys.md). Anahtar şifreleme anahtarı belirtildiğinde, Azure Disk şifrelemesi anahtar Kasası'na yazmadan önce şifreleme parolaları sarmalamak için bu anahtarı kullanır. Bu anahtarın bir emanet kopyasını tutarak bir şirket içi anahtar yönetimi HSM anahtarları yanlışlıkla silinmesine karşı ek koruma sunar.
 
-**En iyi yöntem**: ele bir [anlık görüntü](../virtual-machines/windows/snapshot-copy-managed-disk.md) ve/veya disk şifrelenir önce yedekleme. Şifreleme sırasında beklenmeyen bir hata meydana gelirse, yedekleme kurtarma seçeneğini sağlar.   
-**Ayrıntı**: yönetilen disklere sahip VM'ler şifreleme gerçekleşmeden önce yedeklemesini gerektirir. Bir yedekleme yapıldıktan sonra kullanabileceğiniz **Set-AzureRmVMDiskEncryptionExtension** belirterek yönetilen diskleri şifreleme cmdlet'ini *- skipVmBackup* parametresi. Yedekleme ve şifrelenmiş Vm'leri geri yükleme hakkında daha fazla bilgi için bkz. [Azure Backup](../backup/backup-azure-vms-encryption.md) makalesi.
+**En iyi yöntem**: Ele bir [anlık görüntü](../virtual-machines/windows/snapshot-copy-managed-disk.md) ve/veya disk şifrelenir önce yedekleme. Şifreleme sırasında beklenmeyen bir hata meydana gelirse, yedekleme kurtarma seçeneğini sağlar.   
+**Ayrıntı**: Şifreleme gerçekleşmeden önce yönetilen disklere sahip VM'ler yedeklemesini gerektirir. Bir yedekleme yapıldıktan sonra kullanabileceğiniz **Set-AzureRmVMDiskEncryptionExtension** belirterek yönetilen diskleri şifreleme cmdlet'ini *- skipVmBackup* parametresi. Yedekleme ve şifrelenmiş Vm'leri geri yükleme hakkında daha fazla bilgi için bkz. [Azure Backup](../backup/backup-azure-vms-encryption.md) makalesi.
 
-**En iyi yöntem**: şifreleme parolaları bölgesel sınırlar arası yoksa emin olmak için Azure Disk şifrelemesi anahtar kasası ve VM'lerin aynı bölgede olması gerekir.   
-**Ayrıntı**: oluşturma ve şifrelenmiş VM ile aynı bölgede olan bir anahtar Kasası'nı kullanın.
+**En iyi yöntem**: Şifreleme parolaları bölgesel sınırlar arası yoksa emin olmak için Azure Disk şifrelemesi anahtar kasası ve VM'lerin aynı bölgede olması gerekir.   
+**Ayrıntı**: Oluşturun ve şifrelenmiş VM ile aynı bölgede olan bir anahtar Kasası'nı kullanın.
 
 Azure Disk şifrelemesi uyguladığınızda, aşağıdaki iş gereksinimlerini karşılamak:
 

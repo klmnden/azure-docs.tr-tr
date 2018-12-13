@@ -1,5 +1,5 @@
 ---
-title: Etki alanı ve Azure web apps'te SSL sertifikası sorunlarını giderme | Microsoft Docs
+title: Etki alanı ve SSL sertifikaları - Azure App Service'e giderme | Microsoft Docs
 description: Etki alanı ve Azure web apps'te SSL sertifikası sorunları giderme
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 5c5bdb8fad60a2e4196c2c9f74764e27cec5ba62
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 726bc78532cfe621eb3f3787aa05a7a54571a8c3
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970782"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251615"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>Etki alanı ve Azure web apps'te SSL sertifikası sorunları giderme
 
@@ -74,26 +75,26 @@ Bu sorun, aşağıdaki nedenlerle oluşabilir:
 
 - App Service planı, ücretsiz veya paylaşılan ' dir. Bu fiyatlandırma katmanları SSL desteklemez. 
 
-    **Çözüm**: web uygulaması için App Service planı standart sürümüne yükseltebilir.
+    **Çözüm**: Web uygulaması için App Service planı standart sürümüne yükseltebilir.
 
 - Abonelik geçerli bir kredi kartı yok.
 
-    **Çözüm**: aboneliğiniz için geçerli bir kredi kartı ekleyin. 
+    **Çözüm**: Aboneliğiniz için geçerli bir kredi kartı ekleyin. 
 
 - Abonelik teklifi, Microsoft Student gibi bir App Service sertifikası satın almayı desteklemiyor.  
 
-    **Çözüm**: aboneliğinizi yükseltin. 
+    **Çözüm**: Aboneliğinizi yükseltin. 
 
 - Abonelik satın alma işlemleri bir abonelikte izin verilen sınırına ulaştınız.
 
-    **Çözüm**: App Service sertifikaları, Kullandıkça Öde ve EA abonelik türleri için 10 sertifika satın sınırlaması vardır. Diğer abonelik türleri için sınır 3'tür. Sınırı artırmak için kişi [Azure Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- App Service sertifikası sahtekarlık işaretlendi. Aşağıdaki hata iletisi alındı: "sertifikanız olası dolandırıcılık için işaretlendi. İstek şu anda incelenmektedir. Sertifika 24 saat içinde kullanılabilir hale gelmezse, lütfen Azure desteğine başvurun."
+    **Çözüm**: App Service sertifikaları, Kullandıkça Öde ve EA abonelik türleri için 10 sertifika satın bir sınırı vardır. Diğer abonelik türleri için sınır 3'tür. Sınırı artırmak için kişi [Azure Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- App Service sertifikası sahtekarlık işaretlendi. Aşağıdaki hata iletisini aldığınız: "Sertifikanız olası dolandırıcılık için işaretlendi. İstek şu anda incelenmektedir. Sertifika 24 saat içinde kullanılabilir hale gelmezse, lütfen Azure desteğine başvurun."
 
-    **Çözüm**: sertifika dolandırıcılık işaretlenir ve 24 saat sonra çözülmüş değildir, bu adımları izleyin:
+    **Çözüm**: Sertifika dolandırıcılık işaretlenir ve 24 saat sonra çözülmüş değildir, bu adımları izleyin:
 
     1. [Azure Portal](https://portal.azure.com) oturum açın.
     2. Git **App Service sertifikaları**ve sertifikayı seçin.
-    3. Seçin **sertifika yapılandırma** > **2. adım: doğrulama** > **etki alanı doğrulaması**. Bu adım, sorunu çözmek için Azure sertifika sağlayıcısı bir e-posta bildirimi gönderir.
+    3. Seçin **sertifika yapılandırma** > **2. adım: Doğrulama** > **etki alanı doğrulaması**. Bu adım, sorunu çözmek için Azure sertifika sağlayıcısı bir e-posta bildirimi gönderir.
 
 ## <a name="domain-problems"></a>Etki alanı sorunları
 
@@ -163,17 +164,17 @@ Bu sorun, aşağıdaki nedenlerden biri için oluşur:
 
 - Azure aboneliğinde herhangi bir kredi kartı yok veya kredi kartı geçersiz.
 
-    **Çözüm**: aboneliğiniz için geçerli bir kredi kartı ekleyin.
+    **Çözüm**: Aboneliğiniz için geçerli bir kredi kartı ekleyin.
 
 - Abonelik sahibi olmadığınız, böylece bir etki alanı satın almak için izniniz yok.
 
-    **Çözüm**: [sahip rolü atamak](../role-based-access-control/role-assignments-portal.md) hesabınıza. Veya bir etki alanı satın almak için izin almak için abonelik yöneticisine başvurun.
+    **Çözüm**: [Sahip rolü atamak](../role-based-access-control/role-assignments-portal.md) hesabınıza. Veya bir etki alanı satın almak için izin almak için abonelik yöneticisine başvurun.
 - Aboneliğinizde etki alanları satın almak için sınırına ulaştınız. Geçerli sınır 20'dir.
 
-    **Çözüm**: sınır için bir artış istemek için başvurun [Azure Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+    **Çözüm**: Sınır için bir artış istemek için başvurun [Azure Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - Azure abonelik türü, bir App Service etki alanı satın desteklemez.
 
-    **Çözüm**: Azure aboneliğinizi Kullandıkça Öde aboneliği gibi başka bir abonelik türü için yükseltin.
+    **Çözüm**: Bir Kullandıkça Öde aboneliği gibi başka bir abonelik türü için Azure aboneliğinizi yükseltin.
 
 ### <a name="you-cant-add-a-host-name-to-a-web-app"></a>Bir web uygulaması için bir ana bilgisayar adı eklenemiyor 
 
@@ -187,10 +188,10 @@ Bu sorun, aşağıdaki nedenlerden biri için oluşur:
 
 - Bir ana bilgisayar adı eklemek için izniniz yok.
 
-    **Çözüm**: konak adı ekleme izni vermek için abonelik yöneticisine başvurun.
+    **Çözüm**: Bir konak adı ekleme izni vermek için abonelik yöneticisine başvurun.
 - Etki alanı sahipliğiniz doğrulanamadı.
 
-    **Çözüm**:, CNAME veya bir kayıt doğru şekilde yapılandırıldığını doğrulayın. Web uygulamasına özel bir etki alanını eşlemek için bir CNAME kaydı ya da bir A kaydı oluşturun. Bir kök etki alanı kullanmak istiyorsanız, A ve TXT kayıtlarını kullanmanız gerekir:
+    **Çözüm**: CNAME veya bir kayıt doğru şekilde yapılandırıldığını doğrulayın. Web uygulamasına özel bir etki alanını eşlemek için bir CNAME kaydı ya da bir A kaydı oluşturun. Bir kök etki alanı kullanmak istiyorsanız, A ve TXT kayıtlarını kullanmanız gerekir:
 
     |Kayıt türü|Host|Üzerine gelin|
     |------|------|-----|

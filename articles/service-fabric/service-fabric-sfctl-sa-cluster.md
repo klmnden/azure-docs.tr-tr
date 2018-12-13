@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: d7f33bf0657ca2a6888387b7651706f9de537bb4
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: ce10e2c24e89140357df3fa6b724a1f89f389a50
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494365"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275491"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 Tek başına Service Fabric kümeleri yönetin.
@@ -39,14 +39,14 @@ Küme yapılandırması, farklı bir düğüme türlerinin küme, güvenlik yap�
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --configuration-API-VERSION [gerekli] | Tek başına küme json yapılandırma API sürümü. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -61,24 +61,24 @@ Sağlanan yapılandırma yükseltme parametreleri doğrulayın ve küme yapılan
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
-| --Küme yapılandırma [gerekli] | Kümeye uygulanacak küme yapılandırması. |
+| --Küme yapılandırma [gerekli] | Küme yapılandırması. |
 | --Uygulama sistem durumu ilkeleri | Uygulama türü adı ve en yüksek yüzdesi hatası tetiklenmeden önce sağlıksız çiftleri kodlamalı JSON sözlüğü. |
 | --delta iyi durumda olmayan-düğümler | İzin verilen maksimum delta sistem durumu performans düşüşü yükseltme sırasında yüzdesi. İzin verilen değerler sıfırdan 100 tamsayı değerleri. |
-| --Sistem durumu denetimi deneme | Uygulama veya kümenin iyi durumda değilse, bir sistem durumu gerçekleştirmeyi dener arasındaki sürenin uzunluğunu denetler.  Varsayılan\: PT0H0M0S. |
-| --Sistem durumu denetimi kararlı | Sürenin uzunluğunu uygulama veya kümenin iyi durumda kalmalıdır.  Varsayılan\: PT0H0M0S. |
+| --Sistem durumu denetimi deneme | Uygulama veya kümenin iyi durumda değilse, sistem durumu denetimleri gerçekleştirmek için girişimleri arasındaki süre uzunluğu.  Varsayılan\: PT0H0M0S. |
+| --Sistem durumu denetimi kararlı | Süreyi sonraki yükseltme etki alanına yükseltmeye devam etmeden önce uygulama veya kümenin sağlıklı kalmasını gerekir.  Varsayılan\: PT0H0M0S. <br><br> Bu, önce bir ISO 8601 süre temsil eden bir dize olarak yorumlanır. Bu başarısız olursa, milisaniye cinsinden toplam sayısını temsil eden bir sayı olarak yorumlanır. |
 | --Sistem durumu denetimi bekleme | Sistem başlatmadan önce bir yükseltme etki alanını tamamladıktan sonra beklenecek süreyi işlemi denetler.  Varsayılan\: PT0H0M0S. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 | --iyi durumda olmayan uygulamalar | Yükseltme sırasında izin verilen en fazla iyi durumda olmayan uygulamalar yüzdesi. İzin verilen değerler sıfırdan 100 tamsayı değerleri. |
 | --iyi durumda olmayan düğümler | Yükseltme sırasında izin verilen en fazla iyi durumda olmayan düğümler yüzdesi. İzin verilen değerler sıfırdan 100 tamsayı değerleri. |
 | --Yükseltme etki alanı-delta-sağlıksız-düğümler | Yükseltme sırasında yükseltme etki alanı delta sistem durumu performans düşüşü yüzdesi, izin verilen en fazla. İzin verilen değerler sıfırdan 100 tamsayı değerleri. |
-| --Yükseltme-etki-zaman aşımı | Yükseltme etki alanı için zaman aşımı.  Varsayılan\: PT0H0M0S. |
-| --Yükseltme zaman aşımı | Yükseltme zaman aşımı.  Varsayılan\: PT0H0M0S. |
+| --Yükseltme-etki-zaman aşımı | Süreyi FailureAction yürütülmeden önce tamamlamak her bir yükseltme etki alanı vardır.  Varsayılan\: PT0H0M0S. <br><br> Bu, önce bir ISO 8601 süre temsil eden bir dize olarak yorumlanır. Bu başarısız olursa, milisaniye cinsinden toplam sayısını temsil eden bir sayı olarak yorumlanır. |
+| --Yükseltme zaman aşımı | Süreyi genel yükseltme FailureAction yürütülmeden önce tamamlanması gerekir.  Varsayılan\: PT0H0M0S. <br><br> Bu, önce bir ISO 8601 süre temsil eden bir dize olarak yorumlanır. Bu başarısız olursa, milisaniye cinsinden toplam sayısını temsil eden bir sayı olarak yorumlanır. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -88,7 +88,12 @@ Sağlanan yapılandırma yükseltme parametreleri doğrulayın ve küme yapılan
 
 ### <a name="examples"></a>Örnekler
 
-Bir küme yapılandırmasını güncelleştirme sfctl sa-cluster config-yükseltmesi--küme-config Başlat <YOUR CLUSTER CONFIG> --uygulama sistem durumu ilkeleri "{" fabric: / Sistem ": {"ConsiderWarningAsError": true}}"
+Bir küme yapılandırmasını güncelleştirme Başlat
+
+```
+sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-
+policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
+```
 
 ## <a name="sfctl-sa-cluster-upgrade-status"></a>sfctl sa-Küme Yükseltme durumu
 Service Fabric tek başına Küme Küme yapılandırma yükseltme durumunu alın.
@@ -97,13 +102,13 @@ Küme yapılandırmasını yükseltme durumunu Service Fabric tek başına küme
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |

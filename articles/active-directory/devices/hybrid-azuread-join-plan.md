@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: e273568a04ec2a3758684025acf8034b8e788627
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: b22f79195a7246c87a8d5d5b4b5e012cc30a62dd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871362"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274573"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hibrit Azure Active Directory join uygulamanızı planlama
 
@@ -112,7 +112,6 @@ Kuruluşunuz, kimliği doğrulanmış bir giden bağlantı proxy'si aracılığ�
 
 Hibrit Azure AD'ye katılma, Azure AD ile şirket içi etki alanına katılmış cihazlarınızı otomatik olarak kaydedilecek bir işlemdir. Otomatik olarak kaydetmek için tüm cihazlar burada istemediğiniz durumlar vardır. Bu sizin için doğru olup olmadığını [cihazlarınızı hibrit Azure AD'ye katılma denetlemek nasıl](hybrid-azuread-join-control.md).
 
-
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Cihazlarınızı hibrit Azure AD'ye katılma denetlemek nasıl gözden geçirin
 
 Hibrit Azure AD'ye katılma, Azure AD ile şirket içi etki alanına katılmış cihazlarınızı otomatik olarak kaydedilecek bir işlemdir. Otomatik olarak kaydetmek için tüm cihazlar burada istemediğiniz durumlar vardır. Bu örnek için her şeyin beklendiği gibi çalıştığını doğrulamak için ilk dağıtım sırasında true'dur.
@@ -145,7 +144,22 @@ Ortamınızı etki alanları yönettiği, hibrit Azure AD'ye katılım'ı destek
  Azure AD Connect gerekli sürümünü yüklemek sizin için bir seçenek değilse, bkz. [el ile cihaz kaydını yapılandırmak nasıl](../device-management-hybrid-azuread-joined-devices-setup.md). 
 
 
+## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Hibrit Azure AD'ye katılma alternatif oturum açma kimliği desteği
 
+Windows 10 hibrit Azure AD'ye katılım için sınırlı destek sağlar [alternatif oturum açma kimliklerini](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) alternatif oturum açma kimliği türüne göre [kimlik doğrulama yöntemi](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn), etki alanı türü ve Windows 10 sürümü. Ortamınızda bulunabilir alternatif oturum açma kimliklerini iki türü vardır.
+
+ - Yönlendirilebilir alternatif bir oturum açma kimliği: Bir etki alanı kayıt şirketi ile kayıtlı geçerli bir doğrulanmış etki alanı, yönlendirilebilir alternatif bir oturum açma kimliği vardır. Birincil etki alanı contoso.com ise contoso.org ve contoso.co.uk Contoso tarafından sahip olunan geçerli etki alanları gibi cihazlar ve [Azure AD'de doğrulanmış](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain)
+ 
+ - Yönlendirilebilir olmayan alternatif bir oturum açma kimliği: Yönlendirilemeyen alternatif bir oturum açma kimliği doğrulanmış bir etki alanı yok. Yalnızca kuruluşunuzun özel ağına içinde geçerlidir. Örneğin, birincil etki alanı contoso.com ise contoso.local Internet doğrulanabilir bir etki alanı değil ancak Contoso'nun ağ içinde kullanılır.
+ 
+Aşağıdaki tabloda, destek ya da Windows 10 hibrit Azure AD'ye katılma bu alternatif bir oturum açma kimlikleri hakkında ayrıntılı bilgi sağlar.
+
+|Alternatif oturum açma kimliği türü|Etki alanı türü|Windows 10 sürümü|Açıklama|
+|-----|-----|-----|-----|
+|Yönlendirilebilir|Federasyon |1703 sürümünden|Genel kullanıma sunuldu|
+|Yönlendirilebilir|Yönetilen|1709 sürümü|Şu anda özel Önizleme aşamasındadır. Azure AD SSPR desteklenmiyor |
+|Yönlendirilebilir olmayan|Federasyon|1803 sürümü|Genel kullanıma sunuldu|
+|Yönlendirilebilir olmayan|Yönetilen|Desteklenmiyor||
 
 
 

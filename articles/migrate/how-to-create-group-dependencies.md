@@ -4,14 +4,14 @@ description: Azure geçişi hizmeti Grup bağımlılık eşlemesini kullanarak b
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 3b75e8607c85f79bb64c57c2154115c41ebe8366
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9f01e94eb23083ab25dd2cbd41e8bad1297abb54
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835531"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255271"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Grubun bağımlılık eşlemesini kullanarak bir grubu daraltma
 
@@ -24,6 +24,9 @@ Bu makalede, gruptaki tüm makinelerin bağımlılıklarını görselleştirerek
 
 ## <a name="prepare-for-dependency-visualization"></a>Bağımlılık görselleştirmesi için hazırlama
 Azure geçişi, hizmet eşlemesi çözümünü'makineler için bağımlılık görselleştirme etkinleştirmek için Log analytics'te yararlanır.
+
+> [!NOTE]
+> Bağımlılık görselleştirme işlevini Azure Kamu'da kullanılabilir değil.
 
 ### <a name="associate-a-log-analytics-workspace"></a>Log Analytics çalışma alanını ilişkilendir
 Bağımlılık görselleştirmesi yararlanmak için yeni veya var olan, Log Analytics çalışma alanı yeniden eşlemeniz gerekir ile bir Azure geçişi projesi. Yalnızca oluşturma veya geçiş projesi oluşturulduğu aynı Abonelikteki bir çalışma alanı ekleyin.
@@ -55,7 +58,7 @@ Bir Windows makinede aracı yüklemek için:
 2. **Hoş Geldiniz** sayfasında **İleri**'ye tıklayın. **Lisans Koşulları** sayfasında **Kabul Ediyorum**’a tıklayarak lisansı kabul edin.
 3. İçinde **hedef klasör**, saklamak veya varsayılan yükleme klasörünü değiştirin > **sonraki**.
 4. İçinde **Aracı Kurulum Seçenekleri**seçin **Azure Log Analytics** > **sonraki**.
-5. Tıklayın **Ekle** yeni bir Log Analytics çalışma alanı eklemek için. Çalışma alanı kimliği ve portaldan kopyaladığınız anahtarını yapıştırın. **İleri**’ye tıklayın.
+5. Tıklayın **Ekle** yeni bir Log Analytics çalışma alanı eklemek için. Çalışma alanı kimliği ve portaldan kopyaladığınız anahtarını yapıştırın. **İleri**'ye tıklayın.
 
 
 Bir Linux makinesinde aracıyı yüklemek için:

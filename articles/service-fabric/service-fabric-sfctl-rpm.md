@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 57a9f0516175b459723a3dcdb2e3766f0fa039c1
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: a8ac3899b6ae80668c4472f24b508ba6ba7e2644
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495433"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275321"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Sorgulamak ve onarım Yöneticisi hizmetine komutlar gönderebilirsiniz.
@@ -30,7 +30,7 @@ Sorgulamak ve onarım Yöneticisi hizmetine komutlar gönderebilirsiniz.
 | --- | --- |
 | onaylama zorla | Verilen onarım görevi onayını zorlar. |
 | delete | Tamamlanan onarım görevi siler. |
-| liste | Belirtilen filtrelerle eşleşen onarım görevlerinin listesini alır. |
+| list | Belirtilen filtrelerle eşleşen onarım görevlerinin listesini alır. |
 
 ## <a name="sfctl-rpm-approve-force"></a>onaylama sfctl rpm-force
 Verilen onarım görevi onayını zorlar.
@@ -39,14 +39,14 @@ Bu API, Service Fabric platform destekler. doğrudan sizin kodunuzdan kullanılm
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Görev kimliğini [gerekli] | Onarım görevi kimliği. |
 | --sürümü | Onarım görevi geçerli sürüm numarası. Bu değer onarım görevi gerçek geçerli sürümüyle eşleşen sıfır olmayan, ardından istek yalnızca başarılı olur. Ardından sıfır ise, hiçbir sürüm denetimi gerçekleştirilir. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -61,14 +61,14 @@ Bu API, Service Fabric platform destekler. doğrudan sizin kodunuzdan kullanılm
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Görev kimliğini [gerekli] | Silinecek tamamlanmış onarım görevi kimliği. |
 | --sürümü | Onarım görevi geçerli sürüm numarası. Bu değer onarım görevi gerçek geçerli sürümüyle eşleşen sıfır olmayan, ardından istek yalnızca başarılı olur. Ardından sıfır ise, hiçbir sürüm denetimi gerçekleştirilir. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -83,7 +83,7 @@ Bu API, Service Fabric platform destekler. doğrudan sizin kodunuzdan kullanılm
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Yürütücü filtresi | Talep edilen olan görevler listesinde eklenmelidir onarım Yürütücü adı. |
 | --Durumu Filtresi | Sonuç listesinden bir bit düzeyinde OR hangi görev durumları belirtme aşağıdaki değerlerden eklenmelidir. <br> 1 - oluşturuldu <br>2 - talep  <br>4 - hazırlama  <br>8 - Onaylandı  <br>16 - yürütülüyor  <br>32 - geri yükleme  <br>64 - tamamlandı |
@@ -91,7 +91,7 @@ Bu API, Service Fabric platform destekler. doğrudan sizin kodunuzdan kullanılm
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |

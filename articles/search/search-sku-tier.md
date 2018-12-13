@@ -1,6 +1,6 @@
 ---
-title: Azure Search hizmeti için fiyatlandırma katmanı veya SKU seçin | Microsoft Docs
-description: "Azure arama bu SKU'ların sağlanabilir: ücretsiz, temel ve standart, standart kullanılabildiği çeşitli kaynak yapılandırmaları ve kapasite düzeyleri."
+title: Azure Search Hizmeti - Azure arama için fiyatlandırma katmanı veya SKU seçin
+description: "Azure arama bu SKU'ların sağlanabilir: Ücretsiz, temel ve standart, burada standart çeşitli kaynak yapılandırmaları ve kapasite düzeyleri kullanılabilir."
 services: search
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: 0e1a0d299fb794c3aa937cb62dba9a6ce12c0570
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.custom: seodec2018
+ms.openlocfilehash: 3c5e4d568e7118d50ce8779402526fca77ccdda7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785316"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315563"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure arama için bir fiyatlandırma katmanı seçin
 
@@ -43,7 +44,7 @@ Azure Search'te anlamak için en önemli fatura kavramdır bir *arama birimi* (S
 
 SU olan çarpımını *çoğaltma* ve *bölümleri* hizmeti tarafından kullanılan: **`(R X P = SU)`**
 
-Her hizmetin en az 1 SU (bir çoğaltma bir bölüm ile çarpılmış) başlar. Birden çok yolla sağlanabilir 36 su herhangi bir hizmeti için en yüksek değer: 6 bölümler x 6 çoğaltmalar veya 3 bölümler x 12 çoğaltmalar. 
+Her hizmetin en az 1 SU (bir çoğaltma bir bölüm ile çarpılmış) başlar. En büyük herhangi bir hizmet için birden çok yolla sağlanabilir 36 su şöyledir: 6 bölümler x 6 çoğaltmalar veya 3 bölümler x 12 çoğaltmalar. 
 
 Daha azını toplam kapasite kullanımı yaygındır. 9 SUs faturalandırılır. Örneğin, bir yineleme 3, 3 bölümlü hizmeti. 
 
@@ -109,7 +110,7 @@ Bir dizinin boyutunu belirlemek için gerekir [bir yapı](search-create-index-po
 > Dizinler ve depolama için gelecekteki gereksinimlerini tahmin etme gibi kararın düşünüyorsanız olsa da, bunun yapılması değer var. Çok düşük bir katmanın kapasitesini ettik, yeni bir hizmet yüksek katmandan sağlamanız gerekir ve ardından [dizinlerinizi yeniden](search-howto-reindex.md). Hiçbir aynı SKU bir hizmetten diğerine yerinde yükseltmesini yoktur.
 >
 
-### <a name="step-1-develop-rough-estimates-using-the-free-tier"></a>1. adım: ücretsiz katman kullanılarak kaba tahminleri geliştirin
+### <a name="step-1-develop-rough-estimates-using-the-free-tier"></a>1. Adım: Ücretsiz katman kullanılarak kaba tahminleri geliştirin
 
 Kapasitesini tahmin etmek için bir yaklaşım ise başlamak **ücretsiz** katmanı. Bu geri çağırma **ücretsiz** 50 MB depolama alanına ve saat dizin oluşturma, 2 dakika en fazla 3 dizin hizmeti sunar. Bu kısıtlamalar içeren bir öngörülen dizin boyutu tahmin etmek zor, ancak aşağıdaki örnekte, bir yaklaşım gösterilmektedir:
 
@@ -119,7 +120,7 @@ Kapasitesini tahmin etmek için bir yaklaşım ise başlamak **ücretsiz** katma
 
 Tüm belgeler dizine, örnek temsilcisi hem de veri kaynağının tamamı yüzde onuna eşit olduğu varsayılırsa, 30 MB dizin yaklaşık 300 MB olur. Bu ön numarasıyla kullanarak iki dizinler için (geliştirme ve üretim), depolama gereksinimleri 600 MB Toplam bütçeye çift bu tutar olabilir. Bu kolayca tarafından sağlanıyorsa **temel** var. başlar bu nedenle, katman.
 
-### <a name="step-2-develop-refined-estimates-using-a-billable-tier"></a>2. adım: daraltılmış tahminleri Faturalandırılabilir katmandan kullanarak geliştirin
+### <a name="step-2-develop-refined-estimates-using-a-billable-tier"></a>2. Adım: Daraltılmış tahminleri Faturalandırılabilir katmandan kullanarak geliştirin
 
 Bazı müşteriler büyük örnekleme ve işleme sürelerini uyum sağlayacak ve ardından dizin miktarı, boyutu ve sorgu birimleri gerçekçi tahminleri geliştirme sırasında geliştirme ayrılmış kaynaklarla başlatmak tercih eder. Başlangıçta, bir en iyi tahmin tahminine göre sağlanan bir hizmet ve Geliştirme projesinin geliştikçe ardından takımlar genellikle varolan hizmeti üzerinden veya öngörülen üretim iş yükleri için kapasite altında mı olduğunu. 
 

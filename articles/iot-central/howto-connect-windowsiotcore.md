@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d166d490c00a9805ec9cecae6509acc531d8d711
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7d593a992d0ff189d23185b3422dee86a55308d1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959877"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309459"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanızı Windows IOT Core cihazı bağlayın
 
@@ -23,7 +23,7 @@ Bu makalede, Microsoft Azure IOT Central uygulamanızı Windows IOT Core cihazı
 
 Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
-1. Oluşturulan bir Azure IOT Central uygulamasına **örnek Devkits** uygulama şablonu. Daha fazla bilgi için [bir uygulaması hızlı başlangıç oluşturma](quick-deploy-iot-central.md).
+1. Oluşturulan bir Azure IOT Central uygulamasına **örnek Devkits** uygulama şablonu. Daha fazla bilgi için bkz. [Uygulama oluşturma hızlı başlangıcı](quick-deploy-iot-central.md).
 2. Windows 10 IoT Core işletim sistemi çalıştıran bir cihaz. Bu kılavuz için Raspberry Pi'yi kullanacağız.
 
 
@@ -57,9 +57,9 @@ Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **Windows IOT Core
 
 ### <a name="what-youll-need"></a>İhtiyaç duyacaklarınız:
 
-Fiziksel bir Windows 10 IoT Core cihazı ayarlama için öncelikle Windows 10 IoT Core çalıştıran bir cihaza olması gerekir. Bir Windows 10 IoT Core cihazı ayarlama konusunda bilgi [burada](https://developer.microsoft.com/en-us/windows/iot/getstarted/prototype/setupdevice).
+Fiziksel bir Windows 10 IoT Core cihazı ayarlama için öncelikle Windows 10 IoT Core çalıştıran bir cihaza olması gerekir. Bir Windows 10 IoT Core cihazı ayarlama konusunda bilgi [burada](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
 
-Ayrıca, Azure IOT Central ile iletişim kurabilen bir istemci uygulaması gerekir. Azure SDK'sını kullanarak kendi özel uygulamanızı oluşturun ve Visual Studio kullanarak Cihazınızı dağıtın veya karşıdan yükleyebileceğiniz bir [önceden oluşturulmuş bir örnek](https://developer.microsoft.com/en-us/windows/iot/samples) yalnızca dağıtma ve cihazda çalıştırın. 
+Ayrıca, Azure IOT Central ile iletişim kurabilen bir istemci uygulaması gerekir. Azure SDK'sını kullanarak kendi özel uygulamanızı oluşturun ve Visual Studio kullanarak Cihazınızı dağıtın veya karşıdan yükleyebileceğiniz bir [önceden oluşturulmuş bir örnek](https://developer.microsoft.com/windows/iot/samples) yalnızca dağıtma ve cihazda çalıştırın. 
 
 ### <a name="deploying-the-sample-client-application"></a>Örnek istemci uygulaması dağıtma
 

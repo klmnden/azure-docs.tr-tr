@@ -9,30 +9,29 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 9cc88523ee31d80292c7d0d2bf9321dbbfc2ab6b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: d4deeec2c5af5047fa16a2d80f0992409d517910
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093336"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135585"
 ---
-# <a name="tutorial-3-extract-well-formatted-data"></a>Öğretici 3: Düzgün biçimlendirilmiş verileri ayıklama
+# <a name="tutorial-3-extract-well-formatted-data"></a>Öğretici 3: İyi biçimlendirilmiş verileri ayıklama
 Bu öğreticide, **Normal İfade** varlığını kullanarak bir konuşmadan tutarlı olarak biçimlendirilmiş veriler ayıklamak için İnsan Kaynakları uygulamasını değiştirme anlatılmaktadır.
 
 Varlığın amacı, konuşmada bulunan önemli verileri almaktır. Bu uygulama, normal ifade varlığını kullanarak bir konuşmadaki biçimlendirilmiş İnsan Kaynakları (İK) Form numaralarını çekmektedir. Konuşmanın amacı her zaman makine öğrenimi ile belirlenirse de bu özel varlık türü makine öğrenimli değildir. 
 
 **Basit konuşma örnekleri:**
 
-```
-Where is HRF-123456?
-Who authored HRF-123234?
-HRF-456098 is published in French?
-HRF-456098
-HRF-456098 date?
-HRF-456098 title?
-```
+|Örnek konuşmalar|
+|--|
+|HRF 123456 nerede?|
+|Kimin HRF 123234 yazıldı?|
+|HRF 456098 Fransızca yayımlandı mı?|
+|HRF 456098|
+|HRF 456098 tarih?|
  
 Normal bir ifade, şu durumlarda bu tür veri için iyi bir seçimdir:
 

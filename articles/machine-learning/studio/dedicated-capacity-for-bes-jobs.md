@@ -1,12 +1,11 @@
 ---
-title: Adanmış kapasite toplu yürütme hizmeti işlerin - Azure Machine Learning Studio | Microsoft Docs
+title: Machine Learning Studio işleri için Azure Batch hizmeti | Microsoft Docs
 description: Machine Learning işler için Azure Batch hizmetlerine genel bakış. Batch havuzu işleme toplu işleri gönderebilmek için havuzları oluşturmanıza olanak sağlar.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: seodec18
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.service: machine-learning
 ms.component: studio
@@ -15,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 3a7adba53f271cd2f6bb2985d034821136d521b4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 44b63a51049e663e55cc59a623837cf65cab9ccc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075423"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275202"
 ---
-# <a name="azure-batch-service-for-machine-learning-jobs"></a>Machine Learning işler için Azure Batch hizmeti
+# <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Azure Machine Learning Studio işleri için Azure Batch hizmeti
 
 Machine Learning Batch havuzu işleme, Azure Machine Learning Batch yürütme hizmeti için müşteri tarafından yönetilen ölçek sağlar. Machine learning eşzamanlı iş sayısını sınırlayan bir çok kiracılı ortamında, gerçekleşir için Klasik toplu işleme gönderebilir ve ilk-giren ilk çıkar temelinde işi kuyruğa alındı. Bu bir belirsizlik, doğru bir şekilde iş ne zaman çalışacağını tahmin edemezsiniz, anlamına gelir.
 

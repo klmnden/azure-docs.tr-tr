@@ -1,19 +1,20 @@
 ---
-title: Kullanarak Azure şemaları hatalarıyla ilgili sorunları giderme
+title: Sık karşılaşılan hataları giderme
 description: Oluşturma ve atama şemaları sorunları gidermeyi öğrenin
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/25/2018
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b910f90e70af4ce6d4243c06bfe5bd03d25d74d6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 40668fed2fcc2a04e39fa3a4d7e8e8923c75ae05
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092943"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315541"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Kullanarak Azure şemaları hatalarıyla ilgili sorunları giderme
 
@@ -23,7 +24,7 @@ Oluştururken ya da bir blueprint'i atama hatalarla karşılaşırsanız çalı�
 
 Birçok hata, bir şema bir kapsama atama sonucunu olacaktır. Atama başarısız olduğunda, şema dağıtımı başarısız hakkında ayrıntılar sağlar. Bu bilgiler, böylece sonraki dağıtım başarılı olduktan ve düzeltilebilir sorunu gösterir.
 
-1. Tıklayarak **tüm hizmetleri** arama ve seçme **ilke** sol bölmesinde. **İlke** sayfasında **Şemalar**’a tıklayın.
+1. **Tüm hizmetler**'e tıklayın ve **İlke** araması yapıp sol taraftaki bölmeden seçin. **İlke** sayfasında **Şemalar**’a tıklayın.
 
 1. Seçin **atanan şemalar** blueprint ataması başarısız atamanın bulmak için filtre uygulamak için arama kutusunu kullanın ve sol sayfasında. Tablosu atamaları göre de sıralayabilirsiniz **sağlama durumu** tüm başarısız atamalar görmek için sütun gruplandırıldığı.
 
@@ -33,7 +34,7 @@ Birçok hata, bir şema bir kapsama atama sonucunu olacaktır. Atama başarısı
 
 Blueprint bir bütün olarak değil ve bir yapıt tarafından neden olduğu hata yaygındır. Bir yapının bir Key Vault oluşturur ve Azure İlkesi, anahtar kasası oluşturmayı engeller, tüm atama başarısız olur.
 
-## <a name="general-errors"></a>Genel hatalar
+## <a name="general-errors"></a>Genel hata
 
 ### <a name="policy-violation"></a>Senaryo: İlke ihlali
 

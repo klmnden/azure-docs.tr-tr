@@ -9,14 +9,14 @@ ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 996964dd7fe52073b19db1b252e511f242b5f955
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0193d79dec663b089184099c2a4d275c91380c8b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075056"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163421"
 ---
-# <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Öğretici: SQL Server veritabanları ile uç cihazlarda veri depolama
+# <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Öğretici: SQL Server veritabanları ile uçta veri Store
 
 Uç cihazlarda veri depolamak ve sorgulamak için Azure IoT Edge ve SQL Server işlevlerini kullanın. Azure IOT Edge cihaz çevrimdışı olduğunda iletileri önbelleğe alınması ve bağlantı yeniden kurulduğunda bunları iletmek için temel depolama özellikleri vardır. Ancak sorgu verilerini yerel ortamda sorgulayabilme gibi daha gelişmiş depolama özelliklerine ihtiyaç duyabilirsiniz. IoT Edge cihazlarınız yerel veritabanlarını kullanarak sabit IoT Hub bağlantısı olmadan da karmaşık işlemler gerçekleştirebilir. Örneğin, bir makine üzerinde algılayıcı verilerini buluta raporlama ve makine öğrenme modülü geliştirme için ayda bir kez yükler. Ancak, bir Saha teknisyeni makine üzerinde çalışıyorsa, yerel olarak sensör verilerinin son birkaç gün erişebilirsiniz.
 
@@ -87,7 +87,7 @@ Aşağıdaki adımlarda, Visual Studio Code'u ve Azure IoT Edge uzantısını ku
 
 2. **View (Görünüm)** > **Command palette (Komut paleti)** öğesini seçerek VS Code komut paletini açın.
 
-3. Komut paletinde **Azure IoT Edge: New IoT Edge solution** komutunu yazıp çalıştırın. Komut paletinde çözümünüzü oluşturmak için aşağıdaki bilgileri girin: 
+3. Yazın ve şu komutu çalıştırın komut Paleti'nde **Azure IOT Edge: Yeni bir IOT Edge çözüm**. Komut paletinde çözümünüzü oluşturmak için aşağıdaki bilgileri girin: 
 
    | Alan | Değer |
    | ----- | ----- |
@@ -163,7 +163,7 @@ Aşağıdaki adımlarda, Visual Studio Code'u ve Azure IoT Edge uzantısını ku
                        {
                            //Execute the command and log the # rows affected.
                            var rows = await cmd.ExecuteNonQueryAsync();
-                           log.Info($"{rows} rows were updated");
+                           logger.LogInformation($"{rows} rows were updated");
                        }
                    }
 
@@ -324,7 +324,7 @@ Visual Studio Code uygulamasına çözümünüzü derleme komutu verdiğinizde d
 
 IoT Hub üzerinden bir cihazda modül ayarlayabilirsiniz ancak IoT Hub ve cihazlara Visual Studio Code aracılığıyla da erişebilirsiniz. Bu bölümde IoT Hub'ınıza erişim ayarlarını yapacak ve ardından çözümünüzü IoT Edge cihazınıza dağıtmak için VS Code uygulamasını kullanacaksınız. 
 
-1. VS Code komut paletinde **Azure IoT Hub: Select IoT Hub** komutunu seçin.
+1. VS Code komut paletinde seçin **Azure IOT Hub: IOT hub'ını seçin**.
 
 2. Azure hesabınızda oturum açmak için yönergeleri izleyin. 
 

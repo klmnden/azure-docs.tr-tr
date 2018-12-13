@@ -1,6 +1,6 @@
 ---
-title: IP filtreleri - Azure Event Hubs kullanarak erişimi kısıtlama | Microsoft Docs
-description: IP bloğu bağlantıları, Azure Event hubs'a belirli IP adreslerinden filtreleme kullanın.
+title: Azure Event Hubs'a güvenlik duvarı kuralları | Microsoft Docs
+description: Azure Event Hubs belirli IP adreslerinden bağlantılara izin vermek için güvenlik duvarı kurallarını kullanın.
 services: event-hubs
 documentationcenter: ''
 author: spelluru
@@ -11,28 +11,26 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: d21bf32ce804d2c8f6177eb7f789474bc41c9733
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 707290d7bf453ca71dd3c5cf8b39c917b3a1c479
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087516"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268283"
 ---
-# <a name="restrict-access-to-azure-event-hubs-using-ip-filters"></a>Azure Event Hubs'a IP filtreleri kullanarak erişimi kısıtlama
-Hangi Azure Event Hubs erişilebilir olması gerekir yalnızca bilinen belirli sitelerden senaryoları için *IP Filtresi* özelliği özel IPv4 adreslerinden gelen trafiği kabul etmesini ya da reddetme kurallarını yapılandırmanıza olanak sağlar. Örneğin, bu adresler kurumsal bir NAT ağ geçidinin bu olabilir.
+# <a name="use-firewall-rules"></a>Güvenlik duvarı kurallarını kullanın
+
+Hangi Azure Event hubs'ı yalnızca bilinen belirli sitelerden erişilebilir olması gereken senaryoları için güvenlik duvarı kuralları belirli IPv4 adreslerinden gelen trafiği kabul etmek için kurallar yapılandırın olanak sağlar. Örneğin, bu adresler kurumsal bir NAT ağ geçidinin bu olabilir.
 
 ## <a name="when-to-use"></a>Kullanılması gereken durumlar
 
-Önemli bir iki belirli IP adresleri gibi olan Event Hubs engellemek kullanışlı olduğu durumlarda kullanın:
-
-- Event hubs'ınız, yalnızca belirtilen IP adreslerinden trafiğini almasına ve diğer her şeyi reddet. Örneğin, Event Hubs ile kullandığınız [Azure Express Route] [ express-route] şirket içi altyapınız ile özel bağlantılar oluşturmak için. 
-- Event Hubs yönetici tarafından kuşkulu olarak belirlenmiştir IP adreslerinden gelen trafiği reddetmek gerekir.
+Event Hubs ad alanınız Kurulum istiyorsanız alması gereken gibi trafiği yalnızca belirtilen IP adreslerinden ve diğer her şeyi Reddet sonra yararlanabileceğiniz bir *güvenlik duvarı kuralı* olay hub'ı uç noktalarından engellemek için diğer IP adresleri. Örneğin, Event Hubs ile kullandığınız [Azure Express Route] [ express-route] şirket içi altyapınız ile özel bağlantılar oluşturmak için.
 
 ## <a name="how-filter-rules-are-applied"></a>Filtre kurallarının uygulanma yöntemi
 
 IP Filtresi kurallarının Event Hubs ad alanı düzeyinde uygulanır. Bu nedenle, kurallar, istemcilerden herhangi bir desteklenen protokolünü kullanarak tüm bağlantıları için geçerlidir.
 
-Herhangi bir bağlantı denemesi bir IP adresinden yetkisiz eşleşme olarak Event Hubs ad alanında rejecting IP kural reddedilir. Yanıt IP kuralı başvurmayacak.
+Event Hubs ad alanı olarak reddedildi üzerinde bir izin verilen IP kuralıyla eşleşmeyen bir IP adresinden bağlantı girişimleri yetkisiz. Yanıt IP kuralı başvurmayacak.
 
 ## <a name="default-setting"></a>Varsayılan ayar
 
@@ -42,68 +40,107 @@ Varsayılan olarak, **IP Filtresi** portalında Event Hubs için kılavuz boştu
 
 IP Filtresi kurallarının sırayla uygulanır ve IP adresi ile eşleşen ilk kural kabul etme veya reddetme eylemi belirler.
 
-Örneğin, aralığı 70.37.104.0/24 adresleri kabul edin ve diğer her şeyi Reddet istiyorsanız, kılavuzdaki ilk kural adres aralığı 70.37.104.0/24 kabul etmelidir. Sonraki kural aralığı 0.0.0.0/0 kullanarak tüm adresleri reddedecek.
+>[!WARNING]
+> Uygulama güvenlik duvarları, diğer Azure Hizmetleri Event Hubs ile etkileşim engelleyebilirsiniz.
+>
+> Güvenilen Microsoft Hizmetleri desteklenmez zaman IP Filtreleme (güvenlik duvarları) uygulanır ve yakında kullanıma sunulacaktır.
+>
+> IP Filtresi ile çalışmayan genel Azure senaryoları (liste Not **değil** kapsamlı)-
+> - Azure İzleyici
+> - Azure Stream Analytics
+> - Azure Event Grid ile tümleştirme
+> - Azure IOT hub'ı yönlendirir
+> - Azure IOT Device Explorer
+> - Azure Veri Gezgini
+>
+> Microsoft Hizmetleri bir sanal ağda olması gerekir
+> - Azure Web Apps
+> - Azure İşlevleri
 
-> [!NOTE]
-> Reddetme IP adresleri, diğer Azure Hizmetleri (örneğin, Azure Stream Analytics, Azure sanal makineler veya Portalı'nda Device Explorer) Event Hubs ile etkileşim engelleyebilirsiniz.
-
-### <a name="creating-an-ip-filter-rule-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile bir IP filtresi kuralı oluşturma
+### <a name="creating-a-firewall-rule-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile bir güvenlik duvarı kuralı oluşturma
 
 > [!IMPORTANT]
-> Sanal ağlar desteklenir **standart** ve **adanmış** Event Hubs'ın katmanları. Temel katmanda desteklenmiyor. 
+> Güvenlik duvarı kuralları desteklenmektedir **standart** ve **adanmış** Event Hubs'ın katmanları. Temel katmanda desteklenmiyor.
 
 Aşağıdaki Resource Manager şablonu var olan bir Event Hubs ad alanı için bir IP filtresi kuralı ekleme sağlar.
 
 Şablon parametreleri:
 
-- **ipFilterRuleName** en fazla 128 karakter benzersiz, büyük/küçük harf, alfasayısal bir dize olmalıdır.
-- **ipFilterAction** ya da **Reddet** veya **kabul** için IP filtresi kuralı uygulamak için eylem olarak.
 - **ipMask** tek bir IPv4 adresi veya IP adresleri CIDR gösteriminde bir bloğu. Örneğin, CIDR gösterimi 70.37.104.0/24 256 IPv4 adresi 70.37.104.0 70.37.104.255, aralığı için önemli bir önek bit sayısını gösteren 24 ile temsil eder.
 
+> [!NOTE]
+> Olası hiçbir Reddet kural varken, Azure Resource Manager şablonu ayarlanmış varsayılan eylem sahip **"İzin ver"** hangi bağlantıları kısıtlama yoktur.
+> Sanal ağ veya güvenlik duvarı kuralları yaparken, ki değiştirmeli ***"Defaultactıon"***
+> 
+> başlangıç
+> ```json
+> "defaultAction": "Allow"
+> ```
+> -
+> ```json
+> "defaultAction": "Deny"
+> ```
+>
+
 ```json
-{  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{     
-          "namespaceName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the namespace"
-             }
-          },
-          "ipFilterRuleName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the Authorization rule"
-             }
-          },
-          "ipFilterAction":{  
-             "type":"string",
-             "allowedValues": ["Reject", "Accept"],
-             "metadata":{  
-                "description":"IP Filter Action"
-             }
-          },
-          "IpMask":{  
-             "type":"string",
-             "metadata":{  
-                "description":"IP Mask"
-             }
-          }
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "eventhubNamespaceName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Event Hubs namespace"
+        }
       },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Location for Namespace"
+        }
+      }
+    },
+    "variables": {
+      "namespaceNetworkRuleSetName": "[concat(parameters('eventhubNamespaceName'), concat('/', 'default'))]",
+    },
     "resources": [
-        {
-            "apiVersion": "2018-01-01-preview",
-            "name": "[concat(parameters('namespaceName'), '/', parameters('ipFilterRuleName'))]",
-            "type": "Microsoft.EventHub/Namespaces/IPFilterRules",
-            "properties": {
-                "FilterName":"[parameters('ipFilterRuleName')]",
-                "Action":"[parameters('ipFilterAction')]",              
-                "IpMask": "[parameters('IpMask')]"
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[parameters('eventhubNamespaceName')]",
+        "type": "Microsoft.EventHub/namespaces",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+        },
+        "properties": { }
+      },
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[variables('namespaceNetworkRuleSetName')]",
+        "type": "Microsoft.EventHub/namespaces/networkruleset",
+        "dependsOn": [
+          "[concat('Microsoft.EventHub/namespaces/', parameters('eventhubNamespaceName'))]"
+        ],
+        "properties": {
+          "virtualNetworkRules": [<YOUR EXISTING VIRTUAL NETWORK RULES>],
+          "ipRules": 
+          [
+            {
+                "ipMask":"10.1.1.1",
+                "action":"Allow"
+            },
+            {
+                "ipMask":"11.0.0.0/24",
+                "action":"Allow"
             }
-        } 
-    ]
-}
+          ],
+          "defaultAction": "Deny"
+        }
+      }
+    ],
+    "outputs": { }
+  }
 ```
 
 Şablonu dağıtmak için yönergeleri izleyin. [Azure Resource Manager][lnk-deploy].

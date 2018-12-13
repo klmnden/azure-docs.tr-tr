@@ -1,11 +1,11 @@
 ---
-title: Yük Dengeleyici TCP boşta kalma zaman aşımı yapılandırma | Microsoft Docs
-description: Yük Dengeleyici TCP boşta kalma zaman aşımı yapılandırın
+title: Azure'da yük dengeleyici TCP boşta kalma zaman aşımı yapılandırma
+titlesuffix: Azure Load Balancer
+description: Yük Dengeleyici TCP boşta kalma zaman aşımı yapılandırma
 services: load-balancer
 documentationcenter: na
 author: kumudd
-manager: timlt
-ms.assetid: 4625c6a8-5725-47ce-81db-4fa3bd055891
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,40 +13,40 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: f19ac77f7c7f7d4ab8909d628f9dcce08c07c928
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24a7d2354693e362d7709b8817c438555caae0e3
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23855232"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256205"
 ---
-# <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Azure yük dengeleyici için TCP boşta kalma zaman aşımı ayarlarını yapılandırın
+# <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Azure Load Balancer için TCP boşta kalma zaman aşımı ayarlarını yapılandırma
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-Varsayılan yapılandırmasında, Azure yük dengeleyici, 4 dakikalık bir boşta kalma zaman aşımı ayarının. Bir süre işlem yapılmadığında zaman aşımı değeri uzun olması durumunda, TCP veya HTTP oturumu istemci ile bulut hizmetiniz arasında korunur garanti yoktur.
+Varsayılan yapılandırmasında, Azure Load Balancer bir 4 dakikalık boşta kalma zaman aşımı ayarı vardır. Zaman aşımı değerinden daha uzun bir süre işlem yapılmadığında ise, TCP veya HTTP oturumu, istemci ile bulut hizmetinizi arasında korunacağı süreyi garantisi yoktur.
 
-Bağlantı kapalı olduğunda istemci uygulamanızı aşağıdaki hata iletisini alabilirsiniz: "arka plandaki bağlantı kesildi: Canlı tutulacağı beklenen bir bağlantı sunucu tarafından kapatıldı."
+Bağlantı kapalı olduğunda, istemci uygulamanız aşağıdaki hata iletisini alabilirsiniz: "Temel alınan bağlantı kapatıldı: Canlı tutmak için beklenen bir bağlantı sunucu tarafından kapatıldı."
 
-Bir TCP tutma kullanan yaygın bir uygulamadır. Bu uygulama için daha uzun bir süre bağlantıyı etkin tutar. Daha fazla bilgi için bkz: [.NET örnekleri](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Etkin tutma, bağlantıda kaldıktan dönemlerde gönderilen paket. Bu tutma paketler boşta kalma zaman aşımı değeri hiçbir zaman ulaştı ve bağlantı uzun bir süre boyunca tutulur emin olun.
+Bir TCP tutma kullanmak yaygın bir uygulamadır. Bu yöntem daha uzun bir süre bağlantıyı etkin tutar. Daha fazla bilgi için bkz: [.NET örnekleri](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Etkin tutma, paket bağlantısı etkin olmadığı dönemler sırasında gönderilir. Tutma bu paketler, boşta kalma zaman aşımı değeri hiçbir zaman ulaştı ve uzun bir süre için bağlantının korunacağı süreyi emin olun.
 
-Bu ayar yalnızca gelen bağlantılar için çalışır. Bağlantı kaybını önlemek için boşta kalma zaman aşımı ayarını daha küçük bir aralık ile tutma TCP yapılandırın veya boşta kalma zaman aşımı değerini artırın. Bu tür senaryoları desteklemek için yapılandırılabilir boşta kalma zaman aşımı için destek ekledik. Şimdi 4 ila 30 dakika süresince ayarlayabilirsiniz.
+Bu ayar yalnızca gelen bağlantıları için çalışır. Bağlantı kaybını önlemek için tutma TCP boşta kalma zaman aşımı ayarını değerinden küçük bir aralık yapılandırmak veya boşta kalma zaman aşımı değerini artırın. Böyle senaryoları desteklemek için yapılandırılabilir bir boşta kalma zaman aşımı için destek ekledik. Artık 4 ila 30 dakika boyunca ayarlayabilirsiniz.
 
-TCP tutma iyi pil ömrünün bir kısıtlaması olduğu senaryolar için çalışır. Mobil uygulamalar için önerilmez. Bir mobil uygulama tutma bir TCP kullanarak aygıt pil daha hızlı tükenir.
+TCP tutma iyi pil ömrünü kısıtlama olduğu senaryolar için çalışır. Mobil uygulamalar için önerilmez. Bir mobil uygulama tutma bir TCP kullanarak cihaz pilin daha hızlı tükenir.
 
 ![TCP zaman aşımı](./media/load-balancer-tcp-idle-timeout/image1.png)
 
-Aşağıdaki bölümlerde, sanal makineleri boşta kalma zaman aşımı ayarlarını değiştirin ve bulut hizmetlerini açıklar.
+Aşağıdaki bölümlerde, sanal makineler boşta kalma zaman aşımı ayarlarını değiştirin ve bulut hizmetleri nasıl açıklanmaktadır.
 
-## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Örnek düzeyinde ortak IP-15 dakika için TCP zaman aşımı yapılandırın
+## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Örnek düzeyi genel IP ile 15 dakika için TCP zaman aşımı yapılandırma
 
 ```powershell
 Set-AzurePublicIP -PublicIPName webip -VM MyVM -IdleTimeoutInMinutes 15
 ```
 
-`IdleTimeoutInMinutes` isteğe bağlıdır. Ayarlanmazsa, varsayılan zaman aşımı 4 dakikadır. Kabul edilebilir zaman aşımı aralığı 4-30 dakikadır.
+`IdleTimeoutInMinutes` isteğe bağlıdır. Ayarlanmazsa, varsayılan zaman aşımı 4 dakikadır. Kabul edilebilir zaman aşımı aralığı 4 ila 30 dakikadır.
 
-## <a name="set-the-idle-timeout-when-creating-an-azure-endpoint-on-a-virtual-machine"></a>Azure bir uç nokta bir sanal makinede oluştururken boşta kalma zaman aşımını ayarlama
+## <a name="set-the-idle-timeout-when-creating-an-azure-endpoint-on-a-virtual-machine"></a>Bir Azure uç noktası üzerinde bir sanal makine oluştururken boşta kalma zaman aşımını ayarlayın
 
 Bir uç nokta için zaman aşımı ayarını değiştirmek için aşağıdakileri kullanın:
 
@@ -74,19 +74,19 @@ Boşta kalma zaman aşımı yapılandırmanızı almak için aşağıdaki komutu
     InternalLoadBalancerName :
     IdleTimeoutInMinutes : 15
 
-## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>TCP zaman aşımı üzerinde bir yük dengeli uç nokta kümesi
+## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>Yük dengeli uç nokta kümesinde TCP zaman aşımı ayarlayın
 
-Uç nokta yük dengeli uç nokta kümesi parçası ise, TCP zaman aşımı yük dengeli uç nokta kümesi ayarlamanız gerekir. Örneğin:
+Uç noktaları bir yük dengeli uç nokta kümesinin parçasıysa, yük dengeli uç nokta kümesinde TCP zaman aşımı ayarlanmalıdır. Örneğin:
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
 ```
 
-## <a name="change-timeout-settings-for-cloud-services"></a>Bulut Hizmetleri zaman aşımı ayarlarını değiştirme
+## <a name="change-timeout-settings-for-cloud-services"></a>Bulut Hizmetleri için zaman aşımı ayarlarını değiştirme
 
-Bulut hizmeti güncelleştirmek için Azure SDK'sını kullanabilirsiniz. Bulut Hizmetleri için uç nokta ayarlarını .csdef dosyasında yapın. Bir bulut hizmeti dağıtımının TCP zaman aşımı güncelleştirme dağıtımı yükseltme gerektirir. Yalnızca genel IP için TCP zaman aşımı belirtilmezse dışındadır. Genel IP ayarlarını .cscfg dosyasında yer alır ve bunları dağıtım güncelleştirme ve yükseltme güncelleştirebilirsiniz.
+Bulut hizmetinizi güncelleştirme için Azure SDK'sını kullanabilirsiniz. .Csdef dosyasında bulut Hizmetleri için uç nokta ayarları yapmanızı ister. TCP zaman aşımı bir bulut hizmeti dağıtımı için Güncelleştirme dağıtımı yükseltme gerektirir. Yalnızca bir genel IP için TCP zaman aşımı belirtilmiş olup olmadığını bir özel durumdur. .Cscfg dosyasında genel IP ayarlardır ve bunları dağıtım güncelleştirme ve yükseltme güncelleştirebilirsiniz.
 
-Uç noktası ayarları için .csdef değişir:
+Uç noktası için ayarların .csdef değişiklikler şunlardır:
 
 ```xml
 <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
@@ -96,7 +96,7 @@ Uç noktası ayarları için .csdef değişir:
 </WorkerRole>
 ```
 
-Zaman aşımı ayarı genel IP'ler için .cscfg değişiklikleri şunlardır:
+Genel IP'ler zaman aşımı ayarını için .cscfg değişiklikler şunlardır:
 
 ```xml
 <NetworkConfiguration>
@@ -113,7 +113,7 @@ Zaman aşımı ayarı genel IP'ler için .cscfg değişiklikleri şunlardır:
 
 ## <a name="rest-api-example"></a>REST API örneği
 
-Hizmet Yönetimi API kullanarak TCP boşta kalma zaman aşımı yapılandırabilirsiniz. Olduğundan emin olun `x-ms-version` üstbilgisi sürüme ayarlandı `2014-06-01` veya sonraki bir sürümü. Belirtilen yük dengeli giriş uç noktaları bir dağıtımdaki tüm sanal makinelerde yapılandırmasını güncelleştirin.
+Hizmet Yönetimi API'sini kullanarak, TCP boşta kalma zaman aşımı yapılandırabilirsiniz. Emin olun `x-ms-version` üstbilgisi sürümüne ayarlandı `2014-06-01` veya üzeri. Belirtilen yük dengeli giriş uç noktaları bir dağıtımdaki tüm sanal makineler üzerinde yapılandırmasını güncelleştirin.
 
 ### <a name="request"></a>İstek
 
@@ -156,6 +156,6 @@ Hizmet Yönetimi API kullanarak TCP boşta kalma zaman aşımı yapılandırabil
 
 [İç yük dengeleyiciye genel bakış](load-balancer-internal-overview.md)
 
-[Bir Internet'e yönelik Yük Dengeleyici yapılandırma kullanmaya başlama](load-balancer-get-started-internet-arm-ps.md)
+[Bir Internet'e yönelik Yük Dengeleyici yapılandırmaya başlayın](load-balancer-get-started-internet-arm-ps.md)
 
 [Yük dengeleyici dağıtım modu yapılandırma](load-balancer-distribution-mode.md)

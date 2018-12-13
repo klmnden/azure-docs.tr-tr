@@ -1,5 +1,5 @@
 ---
-title: Shaper bilişsel arama beceri (Azure Search) | Microsoft Docs
+title: Shaper bilişsel arama beceri - Azure Search
 description: Meta veriler ve yapılandırılmış bilgiler yapılandırılmamış verileri ayıklayın ve bir Azure Search zenginleştirme işlem hattı karmaşık tür olarak şekil.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 286e1f9d6f6ae09d98aa87b447df7a7524642a1f
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 627c53f7339dbc35d822a0bf6038ca0f1ea5e653
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729012"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313845"
 ---
 #   <a name="shaper-cognitive-skill"></a>Shaper bilişsel beceri
 
@@ -26,9 +27,6 @@ Shaper yetenek, aslında bir yapı oluşturmak, yapı üyelerinin adını tanım
 Varsayılan olarak, bu teknik bir düzey derin olan nesneleri destekler. Daha karmaşık nesneler için çeşitli Shaper adımları zincirleyebilirsiniz.
 
 Yanıt olarak, çıkış adı her zaman "çıkış". Dahili olarak, işlem hattı farklı bir ad eşleyebilirsiniz, "çıkış" ancak Shaper aşağıdaki örneklerde "analyzedText" gibi beceri kendisini "çıkış" yanıt olarak döndürür. Özel bir yetenek oluşturun ve yanıt kendiniz yapılandırılması bu zenginleştirilmiş belgeleri hata ayıklaması yapıyorsanız ve adlandırma tutarsızlık dikkat edin veya önemli olabilir.
-
-> [!NOTE]
-> Bilişsel Arama, genel önizleme aşamasındadır. Görüntü ayıklama ve normalleştirme ve beceri yürütmesi şu anda ücretsiz sunulmaktadır. Daha sonraki bir zamanda, bu özelliklerin fiyatlandırması duyurulacaktır. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill

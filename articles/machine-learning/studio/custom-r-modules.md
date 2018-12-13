@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
@@ -16,18 +15,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: 5cddc767b4652df6753cc57eb7305b46ec45e19d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2bdc8b7b28bee37ae88e466874d2b3d22dcd7556
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098650"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277939"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Özel R modülleri Azure Machine Learning Studio'da tanımlayın
 
 Bu konuda, yazar ve Azure Machine Learning Studio'da özel bir R modülü dağıtma işlemleri açıklanmaktadır. Bu özel R modülleri nedir ve hangi dosyaların bunları tanımlamak için kullanılan açıklar. Bu, bir modül tanımlama dosyaları oluşturmak nasıl ve dağıtım için modül bir Machine Learning çalışma alanında kaydetmeyi nasıl göstermektedir. Ardından, özel modül tanımında kullanılan öznitelikler ve öğeler daha ayrıntılı olarak açıklanmıştır. Yardımcı işlevleri ve dosyaları ve birden çok çıktı nasıl kullanılacağı da ele alınmıştır. 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="what-is-a-custom-r-module"></a>Özel bir R Modülü nedir?
 A **Özel Modül** çalışma alanınıza yüklediğiniz ve bir Azure Machine Learning denemesi bir parçası olarak yürütülen ve kullanıcı tanımlı bir modül. A **özel R Modülü** kullanıcı tanımlı bir R işlevi yürüten özel bir modüldür. **R** istatistiksel bilgi işlem ve istatistikçilerin ve veri uzmanları tarafından algoritmaları uygulamak için yaygın olarak kullanılan grafik için bir programlama dilidir. Şu anda R özel modüller, ancak destek ek diller zamanlandığı için gelecek sürümleri için desteklenen tek bir dildir.
@@ -96,7 +95,7 @@ Bu kullanıma sunmak için `CustomAddRows` belirtmek için bir XML tanım dosyas
     </Module>
 
 
-Dikkat etmeniz önemlidir değerini **kimliği** özniteliklerini **giriş** ve **Arg** XML dosyasında öğeler, R kodu işlevi parametre adları eşleşmelidir Dosya tam olarak CustomAddRows.R: (*dataset1*, *dataset2*, ve *takas* örnekte). Benzer şekilde, değerini **entryPoint** özniteliği **dil** öğesi eşleşmelidir R betiğindeki işlevin adını: (*CustomAddRows* örnekte) . 
+Dikkat etmeniz önemlidir değerini **kimliği** özniteliklerini **giriş** ve **Arg** XML dosyasında öğeler, R kodu işlevi parametre adları eşleşmelidir Dosya tam olarak CustomAddRows.R: (*dataset1*, *dataset2*, ve *takas* örnekte). Benzer şekilde, değerini **entryPoint** özniteliği **dil** öğesi eşleşmelidir R betiğini işlev adı: (*CustomAddRows* örnekte). 
 
 Buna karşılık, **kimliği** özniteliğini **çıkış** öğesi herhangi bir R betiği değişkenlerine karşılık gelmiyor. Birden fazla çıktı gerekli olduğunda, yalnızca R işlevden yerleştirilen sonuçlarıyla dönmesini *aynı sırada* olarak **çıkışları** öğeleri, XML dosyasında bildirilir.
 
@@ -150,7 +149,7 @@ Her giriş ve çıkış bağlantı noktasına isteğe sahip **açıklama** Machi
 ### <a name="input-elements"></a>Giriş öğelerini
 Giriş bağlantı noktaları, R işlevi ve çalışma alanı veri iletmek sağlar. **Veri türleri** giriş bağlantı noktaları gibi için desteklenir: 
 
-**DataTable:** bu tür bir data.frame olarak R işlevinizi geçirilir. Aslında, makine öğrenimi ve, desteklenen tüm türleri (örneğin, CSV dosyaları veya ARFF'ye dosyaları) ile uyumlu **DataTable** bir data.frame için otomatik olarak dönüştürülür. 
+**DataTable:** Bu tür bir data.frame, R işleve geçirilir. Aslında, makine öğrenimi ve, desteklenen tüm türleri (örneğin, CSV dosyaları veya ARFF'ye dosyaları) ile uyumlu **DataTable** bir data.frame için otomatik olarak dönüştürülür. 
 
         <Input id="dataset1" name="Input 1" type="DataTable" isOptional="false">
             <Description>Input Dataset 1</Description>
@@ -159,7 +158,7 @@ Giriş bağlantı noktaları, R işlevi ve çalışma alanı veri iletmek sağla
 **Kimliği** her ilişkilendirilmiş özniteliği **DataTable** giriş bağlantı noktası benzersiz bir değere sahip olması gerekir ve bu değer, kendi R işlevinizi parametresinde belirtilen ilişkili eşleşmesi gerekir.
 İsteğe bağlı **DataTable** Giriş bir deney olarak geçmedi bağlantı noktalarını değere sahip **NULL** giriş bağlı değilse bağlantı noktaları göz ardı R işlevi ve isteğe bağlı zip geçirildi. **İsteğe bağlıdır** özniteliktir hem isteğe bağlı **DataTable** ve **Zip** türleri ve olduğu *false* varsayılan olarak.
 
-**Zip:** Özel Modül zip dosyası olarak girişi kabul edebilir. Bu giriş, işlevinizin R çalışma dizinine açılmış
+**Zip:** Özel modüller bir zip dosyası, girdi olarak kabul edebilir. Bu giriş, işlevinizin R çalışma dizinine açılmış
 
         <Input id="zippedData" name="Zip Input" type="Zip" IsOptional="false">
             <Description>Zip files to be extracted to the R working directory.</Description>
@@ -177,7 +176,7 @@ Giriş bağlantı noktaları, R işlevi ve çalışma alanı veri iletmek sağla
 * Değerini **isteğe bağlıdır** özniteliği **giriş** öğe gerekli değildir (ve *false* belirtilmediğinde varsayılan olarak); ancak belirtilirse, olmalıdır*true* veya *false*.
 
 ### <a name="output-elements"></a>Çıkış öğeleri
-**Standart çıkış bağlantı noktaları:** çıkış bağlantı noktaları ardından sonraki modülleri tarafından kullanılan R işlevinizden gelen dönüş değerleri için eşleştirilir. *DataTable* yalnızca standart çıkış bağlantı noktası türü şu anda desteklenmiyor. (Desteği *Öğrencileriyle* ve *dönüştüren* gelecek olan.) A *DataTable* çıkış olarak tanımlanır:
+**Standart çıkış bağlantı noktaları:** Çıkış bağlantı noktaları ardından sonraki modülleri tarafından kullanılan R işlevinizden gelen dönüş değerine eşlenir. *DataTable* yalnızca standart çıkış bağlantı noktası türü şu anda desteklenmiyor. (Desteği *Öğrencileriyle* ve *dönüştüren* gelecek olan.) A *DataTable* çıkış olarak tanımlanır:
 
     <Output id="dataset" name="Dataset" type="DataTable">
         <Description>Combined dataset</Description>
@@ -215,7 +214,7 @@ Ve doğru sırada 'CustomAddRows.R' listesinde nesneleri listesini döndürür:
     return (list(dataset, dataset1, dataset2)) 
     } 
 
-**Görselleştirme çıkış:** türü çıkış bağlantı noktasını da belirtebilirsiniz *görselleştirme*, R grafik cihazı ve konsol çıkışını çıkışı görüntüler. Bu bağlantı noktası R işlev çıktısının parçası değil ve bir çıkış bağlantı noktası türleri sırasını engellemez. Özel modüller için bir görselleştirme bağlantı noktası eklemek için Ekle bir **çıkış** öğe değerini *görselleştirme* için kendi **türü** özniteliği:
+**Görselleştirme çıktısı:** Türü bir çıkış bağlantı noktasına belirtebilirsiniz *görselleştirme*, R grafik cihazı ve konsol çıkışını çıkışı görüntüler. Bu bağlantı noktası R işlev çıktısının parçası değil ve bir çıkış bağlantı noktası türleri sırasını engellemez. Özel modüller için bir görselleştirme bağlantı noktası eklemek için Ekle bir **çıkış** öğe değerini *görselleştirme* için kendi **türü** özniteliği:
 
     <Output id="deviceOutput" name="View Port" type="Visualization">
       <Description>View the R console graphics device output.</Description>

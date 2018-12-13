@@ -1,5 +1,5 @@
 ---
-title: Azure Search'te hizmet sınırları | Microsoft Docs
+title: Hizmet katmanları ve SKU'ları - Azure Search için sınırlar
 description: Kapasite planlaması için kullanılan hizmet sınırları ve istekleri ve yanıtları Azure Search için en yüksek sınırlar.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: heidist
-ms.openlocfilehash: 8abcc90bf72544e6226d6c8487d2951b60ea6d29
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.custom: seodec2018
+ms.openlocfilehash: 98902c7a27d769b59b20d4560b2cda21bfcff6c6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802161"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310275"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search'te hizmet sınırları
 En fazla depolama, iş yüklerini ve dizinleri, belgeler, miktarlarını sınırlar ve bağımlı nesneler bağımsız olarak, [Azure Search sağlama](search-create-service-portal.md) adresindeki **ücretsiz**, **temel**, veya **Standart** fiyatlandırma katmanları.
@@ -23,7 +24,7 @@ En fazla depolama, iş yüklerini ve dizinleri, belgeler, miktarlarını sınır
 
 + **Temel** daha küçük ölçekli üretim iş yükleri için adanmış işlem kaynakları sağlar.
 
-+ **Standart** ayrılmış makineye daha fazla depolama ve işleme kapasitesi olan her düzeyinde çalışır. Standart dört Düzeyler halinde sunulur: S1, S2, S3 ve S3 HD.
++ **Standart** ayrılmış makineye daha fazla depolama ve işleme kapasitesi olan her düzeyinde çalışır. Standart, içinde dört düzeyi sunar: S1, S2, S3 ve S3 HD.
 
   S3 yüksek yoğunluklu (S3 HD) belirli iş yükleri için tasarlandı: [çok kiracılı](search-modeling-multitenant-saas-applications.md) ve büyük miktarlarda küçük dizinleri (bir milyon dizin başına belge, hizmet başına üç bin dizin). Bu katman sağlamaz [dizin oluşturucu özelliği](search-indexer-overview.md). S3 HD üzerinde dizin kaynaktan veri göndermek için API çağrıları kullanarak anında iletme yaklaşım, veri alımı yararlanarak gerekir. 
 
@@ -45,7 +46,7 @@ En fazla depolama, iş yüklerini ve dizinleri, belgeler, miktarlarını sınır
 | -------- | ---- | ------------------- | --- | --- | --- | --- |
 | En fazla dizin |3 |5 veya 15 |50 |200 |200 |Bölüm başına 1000 veya hizmet başına 3000 |
 | Dizin başına en fazla alanları |1000 |100 |1000 |1000 |1000 |1000 |
-| En fazla [öneri Araçları](https://docs.microsoft.com/rest/api/searchservice/suggesters) dizin başına |1 |1 |1 |1 |1 |1 |
+| En fazla [öneri Araçları](https://docs.microsoft.com/rest/api/searchservice/suggesters) dizin başına |1 |1. |1. |1. |1. |1 |
 | En fazla [Puanlama profilleri](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) dizin başına |100 |100 |100 |100 |100 |100 |
 | Profil başına en fazla işlevleri |8 |8 |8 |8 |8 |8 |
 

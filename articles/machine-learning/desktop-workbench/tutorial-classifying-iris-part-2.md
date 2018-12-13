@@ -11,16 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/15/2018
+ms.date: 03/15/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6faabc3003048c93c08451c537496e762352b50b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 2e4ede4a699eaac1e5f8c632901239fb04ebcd30
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997340"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276766"
 ---
-# <a name="tutorial-2-classify-iris---build-a-model"></a>Öğretici 2: Iris Sınıflandırma: Model derleme
+# <a name="tutorial-2-classify-iris---build-a-model"></a>Eğitmen 2: Iris sınıflandırma: model derleme
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
@@ -39,7 +39,7 @@ Bu öğretici **üç bölümden oluşan bir serinin ikinci bölümüdür**. Öğ
 
 Bu öğreticide zamansız [Iris çiçeği veri kümesi](https://en.wikipedia.org/wiki/Iris_flower_data_set) kullanılmıştır. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 - Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 

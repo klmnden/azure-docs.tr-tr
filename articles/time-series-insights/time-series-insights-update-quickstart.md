@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights (Önizleme) tanıtım ortamı keşfedin | Microsoft Docs
-description: Azure Time Series Insights (Önizleme) tanıtım ortamı anlama
+title: 'Hızlı Başlangıç: Azure zaman serisi öngörüleri önizlemesi tanıtım ortamı keşfedin | Microsoft Docs'
+description: Azure zaman serisi öngörüleri önizlemesi tanıtım ortamı anlayın.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -9,103 +9,103 @@ manager: cshankar
 ms.reviewer: anshan
 ms.topic: quickstart
 ms.workload: big-data
-ms.custom: mvc
+ms.custom: mvc seodec18
 ms.date: 12/03/2018
-ms.openlocfilehash: 76bdc122cab5b4ee87717c9c4df9774ecc3bd8f7
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: de5e853db6c6a0e98dea9251cc07b526288574e1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888792"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276841"
 ---
-# <a name="explore-the-azure-time-series-insights-preview-demo-environment"></a>Azure Time Series Insights (Önizleme) tanıtım ortamı keşfedin
+# <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Hızlı Başlangıç: Azure zaman serisi öngörüleri önizlemesi tanıtım ortamı keşfedin
 
-Bu Hızlı Başlangıç, ücretsiz bir tanıtım ortamında Azure zaman serisi InSight'ı (TSI) önizleme Gezgini ile çalışmaya başlama işlemini göstermektedir. Web tarayıcınız, büyük hacimli geçmiş endüstriyel IOT verileri görselleştirmek ve Azure Time Series Insights (Önizleme) gezgininin temel özelliklerini anlatan bir tura kullanmayı öğrenin.
+Bu hızlı başlangıçta ücretsiz bir tanıtım ortamında Azure zaman serisi Insight önizlemesi Gezgini'ni kullanma gösterilmektedir. Zaman serisi öngörüleri Önizleme gezgininin temel özelliklerini'de büyük hacimli geçmiş endüstriyel IOT verilerini ve, turu görselleştirmek için web tarayıcınızı kullanmayı öğrenin.
 
-Azure TSI bir uçtan uca hizmet olarak Platform-A-alma, işlem, depolama ve operasyonel analiz yanı sıra geçici veri keşfi için yüksek oranda contextualized, zaman serisi iyileştirilmiş IOT ölçekli veriler sorgu sunmasını sağlar. Time Series Insights bir fark yaratan benzersiz ihtiyaçlarını endüstriyel IOT dağıtımlar için özel olarak uyarlanmış bir tekliftir.
+Time Series Insights, hizmet (PaaS) teklifi olarak uçtan uca bir platform sağlar. Alma, işlem, depolama ve improvised veri keşfi için yüksek oranda contextualized, zaman serisi iyileştirilmiş IOT ölçekli veriler sorgu. Ayrıca, operasyonel analiz sağlar. Time Series Insights benzersiz ihtiyaçlarını endüstriyel IOT dağıtımları için uyarlanmış fark yaratan bir tekliftir.
 
-Tanıtım ortamı TSI kullanarak kendi verileri eyleme dönüştürülebilir içgörüler keşfedin ve kısa kök neden analizi yürütebilir bir elektrik nesil Contoso şirketi gösterir. Contoso iki Rüzgar türbinin grupları, her 10 turbines ile çalışır ve her türbinin dakikada Azure IOT Hub'ına raporlama verilerini 20 algılayıcılara sahiptir. Hava koşulları, dikey aralığı & yaw konumu, oluşturucu performans, gearbox davranışı ve güvenilirlik, izleyiciler, sensör bilgilerini toplayın.
+Tanıtım ortamı bir elektrik nesil şirket, Contoso gösterir. Ortamında Time Series Insights Contoso verileri eyleme dönüştürülebilir içgörüler keşfedin ve kısa kök neden analizi gerçekleştirmek için kullanın. Contoso iki Rüzgar türbinin grupları, her 10 turbines ile çalışır. Her türbinin, Azure IOT Hub'ına rapor verilerini dakikada 20 algılayıcılara sahiptir. Sensör hava koşulları, dikey aralığı hakkında bilgi toplamak ve konumu, oluşturucu performans, gearbox davranışı ve güvenliği izleyiciler yaw.
 
-TSI (Önizleme), son iki yıl-40 daha iyi anlamanıza ve kritik hatalar hem de yavaş hareket eden bakım sorunları tahmin GB – şu anda büyüyen veri kümesinden analiz etmek için kullanılır.
+Zaman serisi öngörüleri önizlemesi, şu anda 40 GB olan Contoso büyüyen veri kümesinden son iki yıl çözümlemek için kullanın. Daha iyi anlamanıza ve kritik hatalar hem de yavaş hareket eden bakım sorunları tahmin etmenize yardımcı olabilir.
 
 Azure aboneliğiniz yoksa, oluşturun bir [ücretsiz Azure hesabı](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) başlamadan önce.
 
-## <a name="explore-time-series-insights-explorer-in-a-demo-environment"></a>Bir tanıtım ortamında Time Series Insights gezginini keşfedin
+## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>Bir tanıtım ortamında Time Series Insights gezginini keşfedin
 
-1. Tarayıcınızda gidin [insights.timeseries.azure.com/preview/samples](https://insights.timeseries.azure.com/preview/samples).  
+1. Tarayıcınızda, Git [Contoso Rüzgar grup ortamında](https://insights.timeseries.azure.com/preview/samples).  
 
-1. İstenirse, TSI Gezgini Azure hesabı kimlik bilgilerinizi kullanarak oturum açın.
+1. İstenirse, Time Series Insights gezgininin Azure hesabı kimlik bilgilerinizle oturum açın.
 
-### <a name="demo-step-one"></a>Tanıtım adımları bir
+### <a name="demo-step-1"></a>Adım 1'in Tanıtımı
 
-1. Bir göz atalım **Rüzgar türbinin #7 Rüzgar grubunda #1**.  
+1. Rüzgar türbinin bir göz atalım **W7** içinde **Contoso tesis 1**.  
 
-    * **Eylem**: görüntüleme aralığı için güncelleştirme `1/1/17 20:00 – 3/10/17 20:00 (UTC)` ve ekleme `Farm 1 > W7 > Generator > GeneratorSpeed` algılayıcı. Ardından, elde edilen değerleri görüntüler.
+    * **Eylem**: Görüntüleme aralığı için güncelleştirme **1/1/17 20:00 3/10/17 için 20:00 (UTC)**, ekleme **Contoso tesis 1** > **W7** > **Oluşturucu sistem**   >  **GeneratorSpeed** sensör ve sonra görünen elde edilen değerleri.
 
        ![Hızlı bir başlangıç][1]
 
-1. Yakın zamanda **Contoso bulunan bir Ateş Rüzgar türbinin #7**. Şimdi burada ayrıntılara girin. Ateş döneminde etkinleştirilmiş yangın uyarı algılayıcı görebiliriz.
+1. Kısa bir süre önce Contoso yangın Rüzgar türbinin içinde bulunan **W7**. Şimdi burada ayrıntılara girin. Ateş uyarı algılayıcı sırasında yangın etkinleştirildi görebiliriz.
 
-    * **Eylem**: görüntüleme aralığı için güncelleştirme `3/9/17 20:00 – 3/10/17 20:00 (UTC)` ve ekleme `Safety > FireAlert` algılayıcı.
+    * **Eylem**: Görüntüleme aralığı için güncelleştirme **3/9/17 20:00 3/10/17 için 20:00 (UTC)** ve ekleme **güvenlik sistemi** > **FireAlert** algılayıcı.
 
       ![İki Hızlı Başlangıç][2]
 
-1. Başka ne oluştuğu yangın sırada olduğunu görelim. Her ikisi de baskısı ve etkin uyarıları yangın hemen önce ancak sorunu engellemeye için çok geç olduğu bu nokta civarında Petrol.
+1. Başka ne oluştuğu yangın sırada olduğunu görelim. Petrol baskısı ve sorunu önlemek için çok geç yangın hemen önce ancak o zaman tarafından civarında etkin uyarılar.
 
-    * **Eylem**: ekleme `Pitch > HydraulicOilPressure` sensör ve `Pitch > ActiveWarning` algılayıcı.
+    * **Eylem**: Ekleme **aralık sistem** > **HydraulicOilPressure** sensör ve **aralık sistem** > **ActiveWarning**algılayıcı.
 
       ![Üç Hızlı Başlangıç][3]
 
-1. Biz uzaklaştırabilir, Ateş için öncesinde işaretleri vardı görebiliriz. Her iki algılayıcılar fluctuated. Bu nedenle bu önce oluştu?
+1. Biz uzaklaştırabilir, Ateş için öncesinde işaretleri vardı görebiliriz. Her iki algılayıcılar fluctuated. Bu nedenle, önce bu sorunu oluştu?
 
-    * **Eylem**: görüntüleme aralığı için güncelleştirme `2/24/17 20:00 – 3/10/17 20:00 (UTC)`.
+    * **Eylem**: Görüntüleme aralığı için güncelleştirme **2/24/17 20:00 3/10/17 için 20:00 (UTC)**.
 
       ![Dört hızlı başlangıç][4]
 
-1. Tüm iki yıla ilişkin verileri inceleyeceğiz, önceki bir güvenlik olayı aynı işaretiyle görebiliriz. Bu verileri, sistemleri, bu gibi sorunları erken yakalamak için ekleriz.
+1. Tüm iki yıla ilişkin verileri inceleyeceğiz, önceki bir güvenlik olayı aynı işaretiyle görebiliriz. Bu verilerle Biz bu gibi sorunları yakalamak için sistemleri bir erken oluşturabilirsiniz.
 
-    * **Eylem**: görüntüleme aralığı için güncelleştirme `1/1/16 – 12/31/17` (tüm veriler).
+    * **Eylem**: Görüntüleme aralığı için güncelleştirme **1/1/16 31/12/17 '** (tüm veriler).
 
        ![Hızlı Başlangıç 5][5]
 
-### <a name="demo-step-two"></a>İkinci adımda Tanıtımı
+### <a name="demo-step-2"></a>Tanıtım 2. adım
 
-1. Diğer sorunları, daha hafif ve tanılamak daha zor. Time Series Insights bir zor sorunları izlemenize yardımcı olacak çeşitli özellikler sağlar. Üzerinde bir uyarı algılayıcı kesinti burada görebiliriz `turbine #6` üzerinde `6/25`. Ancak, gerçekte neler olduğunu?
+1. Diğer sorunları, daha hafif ve tanılamak daha zor. Time Series Insights bize zor sorunları izlemenize yardımcı olmak için yol çeşitli sağlar. Üzerinde bir uyarı algılayıcı kesinti burada görebiliriz **W6** üzerinde **6/25**. Ancak, gerçekte neler olduğunu?
 
-    * **Eylem**: geçerli sensörlerden kaldırın. Ardından görüntüleme aralığı için güncelleştirme `6/1/17 20:00 – 7/1/17 20:00 (UTC)` ve ekleme `Farm 1 > W6 > Safety > VoltageActuatorSwitchWarning`.
+    * **Eylem**: Geçerli sensörlerden kaldırmak için görüntüleme aralığı için güncelleştirme **6/1/17 20:00 için 7/1/17 20:00 (UTC)** ve ardından eklemek **Contoso tesis 1** > **W6**  >  **Güvenlik sistemi** > **VoltageActuatorSwitchWarning** algılayıcı.
 
        ![Hızlı Başlangıç altı][6]
 
-1. Uyarı Oluşturucu tarafından çıkış olan voltaj ile bir sorun olduğunu gösterir. Ancak, bunun nedeni nedir? Genel power Oluşturucu görünüyor ince ayrıntılı bir aralıkta çıktı. Ancak, verileri toplayarak kesin bir bırakma görebiliriz devre dışı.
+1. Uyarı Oluşturucu tarafından çıkış olan voltaj ile bir sorun olduğunu gösterir. Ancak, bunun nedeni nedir? Genel power Oluşturucu görünüyor ince ayrıntılı bir aralıkta çıktı. Ancak, verileri toplayarak kesin bir bırakma görebiliriz.
 
-    * **Eylem**: Uzak `VoltageActuatorSwitchWarning` ve ekleme `Generator > ActivePower` ve güncelleştirme aralığı `3d`.
+    * **Eylem**: Kaldırma **VoltageActuatorSwitchWarning** algılayıcısı ekleme **Oluşturucu sistem** > **ActivePower** sensör ve güncelleştirme aralığının**3B**.
 
        ![Hızlı Başlangıç yedi][7]
 
-1. Veri kümesinde biz forward giderseniz, bu yalnızca geçici bir sorun değildir görebiliriz. Sorun devam ediyor.
+1. Veri kümesinde biz forward giderseniz, bu sorun geçici değilse görebiliriz. Bunu devam ediyor.
 
-    * **Eylem**: sağa zaman aralığını genişletin.
-
-       ![Sekiz hızlı başlangıç][8]
-
-1. Şimdi daha fazla ayrıntıya. Voltaj aşaması görüntülemek için diğer algılayıcı veri noktası gerçekleştirebiliriz. Ancak bunların tümü karşılaştırılabilir bakın. Şimdi, gerçek değerleri görmek için bir işaretçi bırakın. Üç aşama 3 çıkış ile ilgili bir sorun olduğu görülüyor.
-
-    * **Eylem**: `Add Generator > GridVoltagePhase1, 2, & 3`. Bir işaret görülebilir alanında son datapoint bırakın.
+    * **Eylem**: Sağa zaman aralığını genişletin.
 
        ![Sekiz hızlı başlangıç][8]
 
-1. Şu üç aynı ölçekte görüntülerseniz, aşama 3 atılacak daha belirgin yapar. Bu noktada, bu sorunu bakım ekibimiz uyarı neden iyi bir müşteri adayı ile başvurmak hazırız.  
+1. Şimdi daha fazla ayrıntıya. Voltaj aşaması görüntülemek için diğer algılayıcı veri noktası ekleyebiliriz. Ancak tüm veri noktaları karşılaştırılabilir bakın. Şimdi, gerçek değerleri görmek için bir işaretçi bırakın. 3. Aşama çıktıyla bir sorun var gibi görünüyor.
 
-    * **Eylem**: aynı grafik ölçeğini tüm algılayıcılar kaplama görüntülenecek güncelleştirin.
+    * **Eylem**: Ekleme **Oluşturucu sistem** > **GridVoltagePhase1**, **GridVoltagePhase2**, ve **GridVoltagePhase3** algılayıcılar. Son görünen alanın veri noktasına bir işaret bırakın.
+
+       ![Sekiz hızlı başlangıç][8]
+
+1. 3. Aşama teslim tüm üç veri noktaları aynı ölçekte görüntülerseniz daha belirgin olarak görünür. Bu noktada, uyarı neden iyi bir müşteri adayı ile bakım ekibimiz sorunu başvurmak hazırız.  
+
+    * **Eylem**: Ekranı kaplama aynı grafik ölçeğini tüm algılayıcılar için güncelleştirin.
 
        ![Dokuz hızlı başlangıç][9]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kendi Azure TSI (Önizleme) ortamınızı oluşturmaya hazırsınız:
+Kendi zaman serisi öngörüleri Önizleme ortamı oluşturmak hazır duruma gelirsiniz:
 
 > [!div class="nextstepaction"]
-> [Azure TSI (Önizleme) ortamınızı planlama](time-series-insights-update-plan.md)
+> [Zaman serisi öngörüleri Önizleme ortamınızı planlama](time-series-insights-update-plan.md)
 
 <!-- Images -->
 [1]: media/v2-update-quickstart/quickstart-one.png

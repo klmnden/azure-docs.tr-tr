@@ -1,6 +1,6 @@
 ---
-title: Zaman serisi modeli | Microsoft Docs
-description: Zaman serisi modeli anlama
+title: Azure Time Series Insights - zaman serisi modeli | Microsoft Docs
+description: Azure Time Series Insights anlama zaman serisi modeli.
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -9,40 +9,45 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: 5d5f94aebcd55474385e903246ce7945586456dd
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 2ead7a9a71c0afe72736bef8796107cae42009f1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890424"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278194"
 ---
 # <a name="time-series-model"></a>Zaman Serisi Modeli
 
-Bu belge ayrıntıları **zaman serisi modeli** Azure zaman serisi öngörüleri (TSI) güncelleştirmenin parçası (TSM). Bu model, özelliklerini ve oluşturmaya ve kendi modelinizi güncelleştirme kullanmaya nasıl başlayacağınızı açıklar.
+Bu makalede Azure zaman serisi öngörüleri önizlemesi zaman serisi modeli parçası. Bu model, özelliklerini ve oluşturmaya ve kendi modelinizi güncelleştirme kullanmaya nasıl başlayacağınızı açıklar.
 
-Geleneksel olarak, IOT cihazlarından toplanan verileri bulmak ve sensörlerden hızlı çözümlemeniz zorlaştıran bağlamsal bilgiler eksik. Bulma ve seçki, Bakım ve kullanıma hazır veri kümeleri hazırlanmalarına yardımcı olması için zaman serisi verilerini iyileştirmesini sağlayarak IOT verilerini analiz etme TSM ana hacktivism kolaylaştırmaktır. Bunlar cihaz ve cihaz olmayan varlıklar bağlama göre ele alınmasına beri TSMs sorgu ve gezinti önemli bir rol oynar. Verileri, bunlarda depolanan formülleri yararlanarak TSM powers zaman serisi sorgularını hesaplamalar kalıcı hale.
+Geleneksel olarak, IOT cihazlarından toplanan verileri bulmak ve sensörlerden hızlı çözümlemeniz zorlaştırır bağlamsal bilgiler eksik. Bulma ve IOT verilerini analiz etme, zaman serisi modelindeki ana hacktivism kolaylaştırmaktır. Bu amaçla, seçki, Bakım ve kullanıma hazır veri kümeleri hazırlanmalarına yardımcı olması için zaman serisi verilerini iyileştirmesini sağlayarak ulaşır. 
+
+Bunlar cihaz ve cihaz olmayan varlıklar bağlama göre ele alınmasına çünkü zaman serisi modelleri sorgu ve gezinti önemli bir rol oynar. Zaman serisi modeli kalıcı veri zaman serisi sorgu hesaplamalar, bunlarda depolanan formülleri avantajlarından yararlanarak çalıştırır.
 
 ![TSM][1]
 
 ## <a name="key-capabilities"></a>Temel işlevler
 
-Basit ve zaman serisi contextualization yönetmek için kolay bir hale getirmek için hedefle TSM Azure TSI (Önizleme) içinde aşağıdaki özellikleri sağlar:
+Basit ve zaman serisi contextualization yönetmek için kolay bir hale getirmek için hedef ile zaman serisi modelindeki zaman serisi öngörüleri önizlemesinde aşağıdaki özellikleri sağlar. Yardımcı olur:
 
-* Yazar ve hesaplamalar veya skaler İşlevler, toplama işlemleri yararlanarak verileri dönüştürmek için formülleri yönetme olanağı.
-* Gezinti ve zaman serisi telemetri bağlam sağlamak amacıyla başvurusu etkinleştirmek için üst alt öğe ilişkilerini tanımlama.
-* Örnek alanları örnekleri bölümü ile ilişkili özellikler tanımlayın ve bunları hiyerarşi oluşturmak için kullanın.
+* Yazar ve hesaplamalar veya formülleri yönetme, skaler işlevler yararlanarak verileri dönüştürme, toplama işlemlerini ve benzeri.
+
+* Gezinti ve başvuru etkinleştirin ve zaman serisi telemetri bağlam sağlamak için üst-alt ilişkileri tanımlayın.
+
+* Örnek bölümü ile ilişkili olan özellikleri tanımlamak *örnek alanları* ve bunları hiyerarşi oluşturmak için kullanın.
 
 ## <a name="times-series-model-key-components"></a>Zaman serisi modelindeki anahtar bileşenleri
 
-TSM üç ana bileşenleri şunlardır:
+Zaman serisi modeli üç önemli bileşeni vardır:
 
-* **Zaman serisi modeli** *türleri*
-* **Zaman serisi modeli** *hiyerarşiler*
-* **Zaman serisi modeli** *örnekleri*
+* Zaman serisi modeli *türleri*
+* Zaman serisi modeli *hiyerarşiler*
+* Zaman serisi modeli *örnekleri*
 
 ## <a name="time-series-model-types"></a>Zaman serisi modeli türleri
 
-**Zaman serisi modeli** *türleri* tanımlayan değişkenleri veya hesaplamalar yapan formüller etkinleştirmeniz ve belirli bir TSI örneği ile ilişkili. Bir türü veya daha fazla değişken olabilir. Örneğin, bir TSI örneği türü olabilir **sıcaklık algılayıcısı**, değişkenleri oluşur: *ortalama sıcaklık*, *min sıcaklık*, ve *max Sıcaklık*. Verileri TSI akan başladığında varsayılan türü oluştururuz. Alınır ve modeli ayarları güncelleştirildi. Varsayılan türleri olayları sayar bir değişkene sahip olur.
+Zaman serisi modeli *türleri* değişkenleri veya hesaplamalar yapan formüller tanımlamanıza yardımcı olur. Belirli bir zaman serisi görüşleri örneğiyle ilişkili türleridir. Bir türü veya daha fazla değişken olabilir. Örneğin, bir zaman serisi görüşleri örneği türü olabilir *sıcaklık algılayıcısı*, değişkenleri oluşur *ortalama sıcaklık*, *min sıcaklık*ve *max sıcaklık*. Time Series Insights akan verileri başladığında varsayılan türü oluştururuz. Varsayılan türü alınır ve modeli ayarları güncelleştirildi. Varsayılan türleri, olayları sayar bir değişkene sahip.
 
 ## <a name="time-series-model-type-json-example"></a>Zaman serisi modeli türü JSON örneği
 
@@ -69,11 +74,11 @@ TSM üç ana bileşenleri şunlardır:
 }
 ``````
 
-Zaman serisi modeli türleri hakkında daha fazla bilgiyi [başvuru belgeleri](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
+Zaman serisi modeli türleri hakkında daha fazla bilgi için bkz. [başvuru belgeleri](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
 ## <a name="variables"></a>Değişkenler
 
-Azure TSI türlerinin değişkenleri, olaylarından değerleri üzerinde adlandırılmış hesaplamalar vardır. TSI değişken tanımlar, formül ve hesaplama kuralları içerir. Tür, değer, filtre, azaltma ve sınırları değişken tanımları içerir. Değişkenleri TSM tür tanımında depolanır ve satır içi saklı tanımını geçersiz kılmak için sorgu API'leri aracılığıyla sağlanabilir.
+Zaman serisi görüşleri türlerinin değişkenleri, olaylarından değerleri üzerinde adlandırılmış hesaplamalar vardır. Zaman serisi görüşleri değişken tanımları formül ve hesaplama kuralları içerir. Değişken tanımları içeren *tür*, *değer*, *filtre*, *azaltma*, ve *sınırları*. Değişkenleri, zaman serisi modelindeki tür tanımında depolanır ve satır içi saklı tanımını geçersiz kılmak için sorgu API'leri aracılığıyla sağlanabilir.
 
 Değişken tanımları için bir gösterge olarak aşağıdaki matris çalışır:
 
@@ -83,8 +88,8 @@ Değişken tanımları için bir gösterge olarak aşağıdaki matris çalışı
 
 Aşağıdaki değişken türleri desteklenir:
 
-* Sayısal
-* Toplama
+* *Sayısal*
+* *Toplama*
 
 ### <a name="variable-filter"></a>Değişken filtresi
 
@@ -96,13 +101,13 @@ Değişken değerleri ve hesaplamayı kullanılmalıdır. Diyoruz olayları süt
 
 ### <a name="variable-aggregation"></a>Değişken toplama
 
-Değişkeni toplu işlevi olan hesaplamayı parçası sağlar. TSI normal toplamalar desteği (yani, **min**, **max**, **ortalama**, **toplam**, ve **sayısı**).
+Toplama işlevi değişkenin hesaplama parçası sağlar. Time Series Insights destekleyen normal toplamlar (yani, *min*, *max*, *ortalama*, *toplam*, ve *sayısı*).
 
 ## <a name="time-series-model-hierarchies"></a>Zaman serisi modeli hiyerarşiler
 
-Hiyerarşileri, özellik adları ve aralarındaki ilişkiler belirterek örneklerini düzenleyin. Tek bir hiyerarşi veya birden çok hiyerarşi olabilir. Ayrıca bunlar, verilerinizi geçerli bir parçası olması gerekmez, ancak her örneği için bir hiyerarşi eşlenmesi gerekir. TSM örneği, tek bir hiyerarşi veya birden çok hiyerarşi eşleyebilirsiniz.
+Hiyerarşileri, özellik adları ve aralarındaki ilişkiler belirterek örneklerini düzenleyin. Tek bir hiyerarşi veya birden çok hiyerarşi olabilir. Verilerinizi geçerli bir parçası olması gerekmez, ancak her örneği için bir hiyerarşi eşlenmesi gerekir. Zaman serisi modeli örneği, tek bir hiyerarşi veya birden çok hiyerarşi eşleyebilirsiniz.
 
-Hiyerarşileri tarafından tanımlanan **hiyerarşi kimliği**, **adı**, ve **kaynak**. Yolları Hiyerarşiler varsa, yukarıdan aşağıya üst-alt öğe sırasını oluşturmak için kullanıcının istediği hiyerarşiyi bir yoludur. Üst/alt özellikleri örnek alanları eşleyin.
+Hiyerarşileri tarafından tanımlanan *hiyerarşi kimliği*, *adı*, ve *kaynak*. Hiyerarşiler kullanıcılar oluşturmak istediğiniz hiyerarşinin yukarıdan aşağıya üst-alt sırasıdır bir yolu vardır. Üst-alt özellikleri harita *örnek alanları*.
 
 ### <a name="time-series-model-hierarchy-json-example"></a>Zaman serisi modeli hiyerarşi JSON örneği
 
@@ -121,33 +126,33 @@ Hiyerarşileri tarafından tanımlanan **hiyerarşi kimliği**, **adı**, ve **k
 }
 ```
 
-Zaman serisi modeli hiyerarşiden hakkında daha fazla bilgiyi [başvuru belgeleri](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
+Zaman serisi modeli Hiyerarşiler hakkında daha fazla bilgi için bkz: [başvuru belgeleri](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
 
 ### <a name="hierarchy-definition-behavior"></a>Hiyerarşi tanımı davranışı
 
-Hiyerarşi H1 "oluşturma", "kat" ve "odası" kendi tanımının bir parçası olarak sahip olduğu aşağıdaki örneği göz önünde bulundurun:
+Hiyerarşi H1 sahip olduğu aşağıdaki örneği göz önünde bulundurun *oluşturmaya*, *kat*, ve *odası* kendi tanımının bir parçası olarak:
 
 ```plaintext
  H1 = [“building”, “floor”, “room”]
 ```
 
-Örnek alanları üzerinde bağlı olarak, hiyerarşisi öznitelikleri ve değerleri görüntülenir gösterir: 
+Yapılandırmanıza bağlı olarak *örnek alanları*, hiyerarşi öznitelikleri ve değerleri aşağıdaki tabloda gösterildiği gibi görünür: 
 
 | Zaman serisi kimliği | Örnek alanları |
 | --- | --- |
 | ID1 | "oluşturma" = "1000"kat "", "10", "odası" = "55" =  |
 | ID2 | "oluşturma" = "1000", "odası" = "55" |
-| ID3 |  "kat" = "10" |
+| ID3 | "kat" = "10" |
 | ID4 | "oluşturma" = "1000"kat "", "10" =  |
 | ID5 | |
 
-Yukarıdaki örnekte, UI/UX, H1 hiyerarşisinde bir parçası olarak ıd1 gösterir sırasında rest altında sınıflandırılan `Unparented Instances` belirtilen veri hiyerarşisine uymayan olduğundan.
+Önceki örnekte, UI/UX H1 hiyerarşisinde bir parçası olarak ıd1 gösterir ve rest altında sınıflandırılan *ana öğesiz örnekleri* belirtilen veri hiyerarşi için uygun değilsiniz için.
 
 ## <a name="time-series-model-instances"></a>Zaman serisi modeli örnekleri
 
-Zaman serisi örneklerdir. Çoğu durumda *DeviceID* veya *AssetID* ortamındaki varlık benzersiz tanımlayıcısı olacaktır. Örneğiniz kendileriyle ilişkili tanımlayıcı bilgiler örnek özelliklerini çağrılır. En az örnek özelliklerini hiyerarşisi bilgileri içerir. Bunlar, üretici, operatör ya da son hizmet tarihi gibi kullanışlı, açıklayıcı verileri de içerebilir.
+Zaman serisi örneklerdir. Çoğu durumda *DeviceID* veya *AssetID* ortamındaki varlık benzersiz tanımlayıcısıdır. Örneğiniz kendileriyle ilişkili tanımlayıcı bilgiler örnek özelliklerini çağrılır. En az örnek özelliklerini hiyerarşisi bilgileri içerir. Bunlar, üretici, operatör ya da son hizmet tarihi gibi kullanışlı, açıklayıcı verileri de içerebilir.
 
-Örnekleri tarafından tanımlanan *timeSeriesId*, *TypeID*, *HierarchyId*, ve *instanceFields*. Her örneği için tek bir eşler *türü*ve bir veya daha fazla hiyerarşi. Örnekleri hiyerarşiden, ek sırasında tüm özellikler devralır *instanceFields* daha fazla örnek özellik tanımı eklenebilir.
+Örnekleri tarafından tanımlanan *timeSeriesId*, *TypeID*, *HierarchyId*, ve *instanceFields*. Her örneği için tek bir eşler *türü*ve bir veya daha fazla hiyerarşi. Örnekleri, hiyerarşileri ve ek tüm özellikler devralır *instanceFields* daha fazla örnek özellik tanımı eklenebilir.
 
 *instanceFields* örneği ve bir örneğini tanımlayan statik verilerin özellikleridir. Arama işlemleri gerçekleştirmek için dizin de desteklerken hiyerarşi veya hiyerarşi olmayan özellik değerlerini tanımlarlar.
 
@@ -170,7 +175,7 @@ Zaman serisi örneklerdir. Çoğu durumda *DeviceID* veya *AssetID* ortamındaki
 }
 ```
 
-Zaman serisi modeli örneklerden hakkında daha fazla bilgiyi [başvuru belgeleri](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
+Zaman serisi modeli örnekleri hakkında daha fazla bilgi için bkz. [başvuru belgeleri](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
 
 ## <a name="time-series-model-settings-example"></a>Zaman serisi modeli ayarları örneği
 
@@ -191,13 +196,13 @@ Zaman serisi modeli örneklerden hakkında daha fazla bilgiyi [başvuru belgeler
 }
 ```
 
-Zaman serisi modeli ayarları hakkında daha fazla bilgiyi [başvuru belgeleri](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
+Zaman serisi modeli ayarları hakkında daha fazla bilgi için bkz. [başvuru belgeleri](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Okuma [Azure TSI (Önizleme) depolama ve giriş](./time-series-insights-update-storage-ingress.md).
+Bkz: [Azure zaman serisi öngörüleri Önizleme depolama ve giriş](./time-series-insights-update-storage-ingress.md).
 
-Okuma hakkında yeni [zaman serisi modeli](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
+Yeni bkz [zaman serisi modeli](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
 
 <!-- Images -->
 [1]: media/v2-update-tsm/tsm.png

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/12/2018
 ms.author: raynew
-ms.openlocfilehash: 2906f6dff84cdd6a09c05734988ee005a3d65aac
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 67a236f592392744978b7d1d7f7e7d129515a9a0
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994624"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321810"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Bir Azure bölgesinden diğerine çoğaltma için destek matrisi
 
@@ -42,7 +42,7 @@ Bu makalede, çoğaltma, yük devretme ve kurtarma Azure vm'leri bir Azure bölg
 
 ## <a name="region-support"></a>Bölge desteği
 
-Çoğaltma ve aynı coğrafi kümedeki herhangi iki bölgeleri arasında Vm'lere'ı kurtarın.
+Çoğaltma ve aynı coğrafi kümedeki herhangi iki bölgeleri arasında Vm'lere'ı kurtarın. Coğrafi kümeleri, veri gecikme süresi ve özerkliği göz önünde bulundurarak tanımlanır.
 
 **Coğrafi küme** | **Azure bölgeleri**
 -- | --
@@ -52,11 +52,12 @@ Asya | Güney Hindistan, Orta Hindistan, Güneydoğu Asya, Doğu Asya, Japonya D
 Avustralya   | Avustralya Doğu, Avustralya Güneydoğu, Avustralya Orta, Avustralya Orta 2
 Azure Kamu    | ABD Devleti Virginia, ABD Devleti Iowa, ABD Devleti Arizona, ABD Devleti Texas, US DOD Doğu, ABD DOD Orta
 Almanya | Almanya Orta, Almanya Kuzeydoğu
-Çin | Çin Doğu, Çin Kuzey
+Çin | Çin Doğu, Kuzey Çin, Çin North2, Çin doğu2
 
 >[!NOTE]
 >
-> Güney Brezilya bölgesinde, çoğaltma ve aşağıdakilerden birini yük devretme: Orta Güney ABD, Batı Orta ABD, Doğu ABD, Doğu ABD 2, Batı ABD, Batı ABD 2 ve orta Kuzey ABD bölgeleri.
+> Güney Brezilya bölgesinde, çoğaltma ve aşağıdakilerden birini yük devretme: Orta Güney ABD, Batı Orta ABD, Doğu ABD, Doğu ABD 2, Batı ABD, Batı ABD 2 ve orta Kuzey ABD bölgeleri.</br>
+> Site Recovery, Brezilya Güney, burada Vm'leri korunabilir gelen bir kaynak bölgesi olarak kullanılmak üzere yalnızca etkinleştirilmiş olduğu unutulmamalıdır. Orta Güney ABD gibi Azure bölgelerinden birini için bir hedef DR bölgesindeki kullanılamaz. Bunun nedeni gecikme süresi, Brezilya Güney dışındaki tüm diğer Amerika'nın bölgeyi seçmek için önerilen nedeniyle coğrafi uzaklıktan gözlemledik.  
 
 ## <a name="cache-storage"></a>Önbellek depolama
 
@@ -126,7 +127,7 @@ Debian 8 | 9.17, 9.18 | 3.16.0-4-AMD64 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 4.9.0
 
 **Yayın** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
-SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.20 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.98-default için</br></br>SP3 4.4.73-5-default 4.4.140-94.69-default için |
+SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.20 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.98-default için</br></br>SP3 4.4.73-5-default 4.4.162-94.69-default için |
 SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.19 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.93-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.80-default için</br></br>SP3 4.4.73-5-default 4.4.140-94.42-default için |
 SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.18 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.93-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.80-default için</br></br>SP3 4.4.73-5-default 4.4.138-94.39-default için |
 SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.17 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.88-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default 4.4.126-94.22-default için |
@@ -135,7 +136,7 @@ SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.17 | SP1 3.12.49-11-default 3
 
 * Dosya sistemleri: ext3, ext4, ReiserFS (Suse Linux Enterprise Server yalnızca), XFS
 * Birim Yöneticisi: LVM2
-* Çok yollu yazılım: cihaz Eşleyici
+* Çok yollu yazılım: Cihaz Eşleyici
 
 
 ## <a name="replicated-machines---compute-settings"></a>Çoğaltılan makineler - işlem ayarları
@@ -178,6 +179,7 @@ Veri diski - standart depolama hesabı | Desteklenen |
 Veri diski - premium depolama hesabı | Desteklenen | Bir VM, premium ve standart depolama hesapları arasında yayılabilir disk varsa, aynı depolama yapılandırması hedef bölgede olduğundan emin olmak için her disk için farklı bir hedef depolama hesabı seçebilirsiniz.
 Yönetilen disk - standart | Azure Site Recovery, desteklenen Azure bölgelerinde desteklenir. |  
 Yönetilen disk - premium | Azure Site Recovery, desteklenen Azure bölgelerinde desteklenir. |
+Standart SSD | Desteklenmiyor |
 Yedeklilik | LRS ve GRS desteklenir.<br/><br/> ZRS desteklenmez.
 Seyrek erişimli ve sık erişimli depolama | Desteklenmiyor | VM diskleri seyrek erişimli ve sık erişimli depolama alanı desteklenmez.
 Depolama alanları | Desteklenen |         
@@ -199,6 +201,18 @@ Genel amaçlı V2 depolama hesaplarının (hem sık erişimli ve seyrek erişiml
 >[!IMPORTANT]
 > VM disk ölçeklenebilirlik ve performans hedefleri için dikkate aldığınızdan emin olun [Linux](../virtual-machines/linux/disk-scalability-targets.md) veya [Windows](../virtual-machines/windows/disk-scalability-targets.md) herhangi bir performans sorunlarından kaçınmak için sanal makineler. Varsayılan ayarları izlerseniz, Site Recovery gerekli diskler ve depolama hesapları kaynak yapılandırmaya göre oluşturun. Özelleştirme ve kendi ayarlarınızı seçin, kaynak için VM'lerin disk ölçeklenebilirlik ve performans hedefleri izleyin emin olun.
 
+## <a name="azure-site-recovery-limits-to-replicate-data-change-rates"></a>Verileri çoğaltmak için azure Site Recovery limitleri değişim oranları
+Aşağıdaki tablo, Azure Site Recovery sınırlarını sağlar. Bu limitler yaptığımız testleri temel alsa da mümkün olan tüm uygulama G/Ç birleşimlerini kapsamamaktadır. Gerçek sonuçlar, uygulamanızın G/Ç karışımına göre değişebilir. Biz de, veri değişim sıklığı ve sanal makinenin veri değişim sıklığı disk başına dikkate alınması gereken iki sınır olmadığını unutmamalısınız.
+Örneğin, P20 Premium disk baktığımızda aşağıdaki tabloda, Site Recovery ile en fazla beş tür disk VM başına 25 MB/sn toplam değişim sıklığı, VM sınırı nedeniyle disk başına 5 MB/sn karmaşası başa çıkabilir.
+
+**Çoğaltma depolama hedefi** | **Ortalama kaynak disk G/Ç boyutu** |**Ortalama kaynak disk veri değişim sıklığı** | **Günlük toplam kaynak disk veri değişim sıklığı**
+---|---|---|---
+Standart depolama | 8 KB | 2 MB/sn | Disk başına 168 GB
+Premium P10 veya P15 disk | 8 KB  | 2 MB/sn | Disk başına 168 GB
+Premium P10 veya P15 disk | 16 KB | 4 MB/sn |  Disk başına 336 GB
+Premium P10 veya P15 disk | 32 KB veya daha büyük | 8 MB/sn | Disk başına 672 GB
+Premium P20 veya P30 veya P40 veya P50 disk | 8 KB    | 5 MB/sn | Disk başına 421 GB
+Premium P20 veya P30 veya P40 veya P50 disk | 16 KB veya daha büyük |10 MB/sn | Disk başına 842 GB
 ## <a name="replicated-machines---networking"></a>Çoğaltılan makineler - ağ
 **Yapılandırma** | **Destek** | **Ayrıntılar**
 --- | --- | ---

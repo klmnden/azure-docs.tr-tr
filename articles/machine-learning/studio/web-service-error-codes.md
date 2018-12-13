@@ -7,7 +7,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: becc8368ebd9b6096a56e2603944384aa6b50d29
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b7f27e981ceb12191e58a3e0824c7e0709a49013
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091739"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251333"
 ---
-# <a name="machine-learning-studio-rest-api-error-codes"></a>Machine Learning Studio REST API hata kodları
+# <a name="azure-machine-learning-studio-rest-api-error-codes"></a>Azure Machine Learning Studio REST API hata kodları
  
 Aşağıdaki hata kodları, bir Azure Machine Learning Studio web hizmeti üzerinde bir işlem tarafından döndürülebilir.
  

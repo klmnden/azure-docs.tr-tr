@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: 77022b442a78c8d14284e06af4f156302c1e6ffc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 43ecc79db977624954109c4565c613e2471cea88
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584409"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312041"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Azure ücretsiz hesaba dahil hizmetler oluşturma
 
 Ücretsiz Azure hesabı, sınırlı bir miktar 12 ay boyunca Ücretsiz Hizmetler içerir. Daha fazla bilgi için [Azure ücretsiz hesabı nedir](https://azure.microsoft.com/free/free-account-faq/). Azure, her hizmet kullanımını izler ve limitlerin sürece ücret uygulamaz. Bu sınırlar içinde ücretsiz Azure hesabı, ihtiyaçlarınızı karşılamak için çeşitli hizmet yapılandırması kullanma esnekliği sağlar. 
 
 ## <a name="create-free-services-in-the-azure-portal"></a>Azure portalında Ücretsiz Hizmetler oluşturma
-Kullanmanızı öneririz [ücretsiz hizmet sayfasında](https://go.microsoft.com/fwlink/?linkid=859151) yeni hizmetler oluşturmak için. Ya da oturum açarak [Azure portalında](http://portal.azure.com)seçin **tüm hizmetleri** solda ve arama **Ücretsiz Hizmetler**. 
+Kullanmanızı öneririz [ücretsiz hizmet sayfasında](https://go.microsoft.com/fwlink/?linkid=859151) yeni hizmetler oluşturmak için. Ya da oturum açarak [Azure portalında](https://portal.azure.com)seçin **tüm hizmetleri** solda ve arama **Ücretsiz Hizmetler**. 
 
 ## <a name="services-can-be-created-in-any-region"></a>Hizmetleri, herhangi bir bölgede oluşturulabilir
 Sınırlar içinde olduğu sürece, hizmetleri kullanılabilir olduğu herhangi bir bölgede Hizmetleri ücretsiz oluşturabilirsiniz. Örneğin, Azure ücretsiz hesabı kapsamında her ay ücretsiz bir B1S Windows sanal makineyi 750 saat alın. B serisi sanal makineler kullanılabilir olduğu herhangi bir bölgesinde sanal makine oluşturabilirsiniz. Azure 750 saat aşan sürece ücret uygulamaz. Örneğin, bir müşteri ABD Batı Avrupa bir B1S Windows sanal makinesi sağlama ve 750 saat boyunca ücretsiz kullanın. 

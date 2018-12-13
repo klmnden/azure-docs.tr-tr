@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5616ee6f6b855cb366f24c79c73d12a03b69b2ac
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 9a859c2a8feeaf60be56404367f126bbd252771b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865667"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164866"
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API'si için Azure Cosmos DB Node.js SDK: yayın notları ve kaynakları
+# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET değişiklik akışı](sql-api-sdk-dotnet-changefeed.md)
@@ -106,8 +106,8 @@ ms.locfileid: "52865667"
 ### <a name="1.12.1"/>1.12.1</a>
 * Bir hata, burada özel Unicode karakterler (LS, PS) ilgili belgelerini b içinde executeStoredProcedure düzeltildi.
 * Bölüm anahtarı Unicode karakter belgelerle işlemedeki hata düzeltildi.
-* Sabit koleksiyonlar ile adı medya oluşturma desteği. Github sorunu #114.
-* Yetkilendirme belirteci izni sabit desteği. Github sorunu #178.
+* Sabit koleksiyonlar ile adı medya oluşturma desteği. GitHub sorunu #114.
+* Yetkilendirme belirteci izni sabit desteği. GitHub sorunu #178.
 
 ### <a name="1.12.0"/>1.12.0</a>
 * Yeni bir desteği eklendi [tutarlılık düzeyi](consistency-levels.md) ConsistentPrefix çağrılır.
@@ -119,8 +119,8 @@ ms.locfileid: "52865667"
 * Çapraz bölüm sorgular için paralellik derecesini denetleme seçeneği eklendi.
 * Azure Cosmos DB öykünücüsüne karşı çalıştırırken SSL doğrulama devre dışı bırakmaya yönelik seçenek eklenmiştir.
 * Bölümlenmiş koleksiyonlardan 10,100 RU/sn 2500 RU/sn için en düşük aktarım hızını düşürdü.
-* Tek bölümlü bir koleksiyon için devamlılık belirteci hata düzeltildi. Github sorunu #107.
-* Tek parametre 0 işlemedeki executeStoredProcedure hata düzeltildi. Github sorunu #155.
+* Tek bölümlü bir koleksiyon için devamlılık belirteci hata düzeltildi. GitHub sorunu #107.
+* Tek parametre 0 işlemedeki executeStoredProcedure hata düzeltildi. GitHub sorunu #155.
 
 ### <a name="1.10.2"/>1.10.2</a>
 * SDK sürümü dahil etmek için sabit bir kullanıcı aracısı üstbilgisi.
@@ -152,10 +152,10 @@ ms.locfileid: "52865667"
 * Burada bir hatalı concat sonuçlarının nedeniyle bağlantıları döndürmeden değil RangePartitionResolver.resolveForRead hata düzeltildi.
 
 ### <a name="1.5.5"/>1.5.5</a>
-* HashPartitionResolver resolveForRead() düzeltildi: ne zaman sağlanan bölüm anahtarı yok atma kayıtlı tüm bağlantıların listesini döndürmek yerine özel durumu.
+* Sabit hashPartitionResolver resolveForRead(): Ne zaman sağlanan hiçbir bölüm anahtarı, kayıtlı tüm bağlantıların listesini döndürmek yerine özel durumu oluşturmaya.
 
 ### <a name="1.5.4"/>1.5.4</a>
-* Sorunu giderir [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -adanmış HTTPS aracı: Azure Cosmos DB amacıyla genel aracı değiştirmekten kaçının. Adanmış bir aracı tüm lib'ın istekleri için kullanın.
+* Sorunu giderir [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -adanmış HTTPS aracı: Azure Cosmos DB amacıyla genel aracı değiştirme kaçının. Adanmış bir aracı tüm lib'ın istekleri için kullanın.
 
 ### <a name="1.5.3"/>1.5.3</a>
 * Sorunu giderir [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - düzgün bir şekilde işlemek ortam kimlikleri tirelerin.

@@ -1,6 +1,6 @@
 ---
-title: Bir Azure Cosmos DB veri kaynağı için Azure Search dizini oluşturma | Microsoft Docs
-description: Bu makalede bir Azure Cosmos DB veri kaynağı ile bir Azure Search dizin oluşturucu oluşturma işlemini gösterir.
+title: Bir Azure Cosmos DB veri kaynağı - Azure Search dizini
+description: Bir Azure Cosmos DB veri kaynağında gezinen ve Azure Search'te tam metin arama yapılabilir bir dizin verileri alma. Dizin oluşturucular veri alımı Azure Cosmos DB gibi seçili veri kaynakları için otomatik hale getirin.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
-ms.openlocfilehash: 07768ee1590fa087a1eb1486cb59ab0f57d02b64
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec2018
+ms.openlocfilehash: 80759394ac920907c74f67cf9ee6dfcb52bfd9a8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747550"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311822"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Dizin oluşturucuları kullanarak Azure Search ile Cosmos DB'ye bağlanma
 
@@ -95,18 +96,18 @@ Bir veri kaynağı oluşturmak için bir GÖNDERİ yapın:
 
 İstek gövdesi aşağıdaki alanları içermelidir veri kaynağı tanımını içerir:
 
-* **ad**: veritabanınızı temsil etmek için herhangi bir ad seçin.
-* **tür**: olmalıdır `documentdb`.
+* **Ad**: Veritabanınızı temsil etmek için herhangi bir ad seçin.
+* **Tür**: Olmalıdır `documentdb`.
 * **kimlik bilgileri**:
   
-  * **connectionString**: gerekli. Azure Cosmos DB veritabanınıza bağlantı bilgisi şu biçimde belirtin: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` koleksiyonlar için MongoDB, ekleme **api türü MongoDb =** bağlantı dizesi: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
+  * **connectionString**: Gereklidir. Azure Cosmos DB veritabanınıza bağlantı bilgisi şu biçimde belirtin: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` MongoDB koleksiyonu için ekleyin **api türü MongoDb =** bağlantı dizesi: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
   Uç nokta URL'si bağlantı noktası numaralarını kaçının. Bağlantı noktası numarası dahil, Azure Search, Azure Cosmos DB veritabanının dizinini oluşturmak mümkün olmayacaktır.
 * **kapsayıcı**:
   
-  * **ad**: gerekli. Sıralanacak veritabanı koleksiyonu kimliği belirtin.
-  * **Sorgu**: isteğe bağlı. Azure Search'ün dizin bir düz şemasına rastgele bir JSON belgesi düzleştirmek için sorgu belirtebilirsiniz. MongoDB koleksiyonlar, sorgular desteklenmez. 
-* **dataChangeDetectionPolicy**: önerilir. Bkz: [değiştirilen belgeler dizin](#DataChangeDetectionPolicy) bölümü.
-* **dataDeletionDetectionPolicy**: isteğe bağlı. Bkz: [silinen belgeler dizin](#DataDeletionDetectionPolicy) bölümü.
+  * **Ad**: Gereklidir. Sıralanacak veritabanı koleksiyonu kimliği belirtin.
+  * **Sorgu**: İsteğe bağlı. Azure Search'ün dizin bir düz şemasına rastgele bir JSON belgesi düzleştirmek için sorgu belirtebilirsiniz. MongoDB koleksiyonlar, sorgular desteklenmez. 
+* **dataChangeDetectionPolicy**: Önerilir. Bkz: [değiştirilen belgeler dizin](#DataChangeDetectionPolicy) bölümü.
+* **dataDeletionDetectionPolicy**: İsteğe bağlı. Bkz: [silinen belgeler dizin](#DataDeletionDetectionPolicy) bölümü.
 
 ### <a name="using-queries-to-shape-indexed-data"></a>Veri şekli sorgularını kullanarak dizini
 İç içe özellikler veya dizileri, proje JSON özellikleri düzleştirmek için bir SQL sorgusunu belirtin ve dizine verileri filtreleyin. 
@@ -187,12 +188,12 @@ Hedef dizin şemasını kaynak JSON belgelerinin şemasını veya kendi özel so
 | Dize |Edm.String |
 | ["A", "b", "c"] Örneğin, ilkel türlerin dizileri |Collection(Edm.String) |
 | Tarihler gibi görünen dizeleri |Edm.DateTimeOffset, Edm.String |
-| GeoJSON nesneleri, örneğin {"type": "Point", "coordinates": [uzun lat]} |Edm.GeographyPoint |
+| GeoJSON nesneleri, örneğin {"type": "Nokta", "koordinatları": [uzun lat]} |Edm.GeographyPoint |
 | Diğer bir JSON nesnesi |Yok |
 
 <a name="CreateIndexer"></a>
 
-## <a name="step-3-create-an-indexer"></a>3. adım: bir dizin oluşturucu oluşturma
+## <a name="step-3-create-an-indexer"></a>3. adım: Dizin oluşturucu oluşturma
 
 Dizinin ve veri kaynağının oluşturulan dizin oluşturucu oluşturmaya hazırsınız:
 

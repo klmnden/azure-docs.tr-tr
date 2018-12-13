@@ -1,5 +1,5 @@
 ---
-title: Nasıl çalışır?
+title: 'ML bulut: hüküm ve mimarisi'
 titleSuffix: Azure Machine Learning service
 description: Mimari, terminolojisi ve Azure Machine Learning hizmeti oluşturan kavramları hakkında bilgi edinin. Ayrıca genel iş akışı hizmeti ve Azure Machine Learning hizmeti tarafından kullanılan Azure hizmetlerini kullanma hakkında bilgi.
 services: machine-learning
@@ -11,12 +11,12 @@ author: hning86
 ms.reviewer: larryfr
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4e006c3ac9684cc9e51e8b3505659864123758d7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3966d4b27f0e3d42f47d84fb5c9f5c8519a27b6c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098007"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184738"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning hizmetinin nasıl çalıştığı: Mimari ve kavramları
 
@@ -75,7 +75,7 @@ Bir model, Azure Machine learning'de bir çalıştırma tarafından oluşturulur
 
 Azure Machine Learning hizmeti framework belirsiz ' dir. Scikit gibi bir modeli oluştururken herhangi bir popüler machine learning çerçeveyi kullanabilirsiniz-xgboost, PyTorch, TensorFlow, Chainer ve CNTK öğrenin.
 
-Modeli ilişkin bir örnek için bkz [hızlı başlangıç: bir machine learning hizmeti çalışma alanını oluşturma](quickstart-get-started.md) belge.
+Modeli ilişkin bir örnek için bkz [hızlı başlangıç: Bir machine learning hizmeti çalışma alanını oluşturma](quickstart-get-started.md) belge.
 
 ### <a name="model-registry"></a>Model kayıt defteri
 
@@ -99,8 +99,8 @@ Görüntüleri modelini kullanmak için gerekli tüm bileşenleri ile birlikte b
 
 Azure Machine Learning tarafından oluşturulan görüntüleri iki tür vardır:
 
-* FPGA görüntüsü: bir alanda programlanabilen geçit dizileri Azure bulutunda dağıtım yapılırken kullanılır.
-* Docker görüntüsü: dağıtırken FPGA dışında hedefleri hesaplamak için kullanılır. Örneğin, Azure Container Instances ve Azure Kubernetes hizmeti.
+* FPGA görüntüsü: Bir alanda programlanabilen geçit dizileri Azure bulutunda dağıtım yapılırken kullanılır.
+* Docker görüntüsü: Dağıtırken FPGA dışında hedefleri hesaplamak için kullanılır. Örneğin, Azure Container Instances ve Azure Kubernetes hizmeti.
 
 Görüntü oluşturma örneği için bkz: [bir Azure Container Instance görüntü sınıflandırma modelinde dağıtma](tutorial-deploy-models-with-aml.md) belge.
 
@@ -227,5 +227,5 @@ Bu işlemlerin ilerleme durumunu kolayca izleyebilmek etkinlikleri SDK veya Web 
 Azure Machine Learning kullanmaya başlamak için aşağıdaki bağlantıları kullanın:
 
 * [Azure Machine Learning hizmeti nedir?](overview-what-is-azure-ml.md)
-* [Hızlı Başlangıç: Python ile çalışma alanı oluşturma](quickstart-get-started.md)
-* [Öğretici: Modeli eğitme](tutorial-train-models-with-aml.md)
+* [Hızlı Başlangıç: Python ile bir çalışma alanı oluşturma](quickstart-get-started.md)
+* [Öğretici: Bir model eğitip](tutorial-train-models-with-aml.md)

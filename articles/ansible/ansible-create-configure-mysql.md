@@ -1,5 +1,5 @@
 ---
-title: Ansible kullanarak MySQL sunucusu için Azure Veritabanı oluşturma ve yapılandırma (önizleme)
+title: Oluşturma ve MySQL için Azure veritabanı, ansible ürününü kullanarak yapılandırma
 description: MySQL sunucusu için Azure Veritabanı oluşturmak ve yapılandırmak için Ansible'ı kullanmayı öğrenin
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, mysql, veritabanı
@@ -8,24 +8,24 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/23/2018
-ms.openlocfilehash: b549aeaf24bd774245ee1f2ff6924ac1f6dbeee3
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.openlocfilehash: 6fd08e21fe0573d48ae7752eb410845062932b5e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427905"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255950"
 ---
-# <a name="create-and-configure-an-azure-database-for-mysql-server-by-using-ansible-preview"></a>Ansible kullanarak MySQL sunucusu için Azure Veritabanı oluşturma ve yapılandırma (önizleme)
+# <a name="create-and-configure-an-azure-database-for-mysql-server-by-using-ansible"></a>Oluşturma ve MySQL için Azure veritabanı, ansible ürününü kullanarak yapılandırma
 [MySQL için Azure Veritabanı](https://docs.microsoft.com/azure/mysql/), bulutta yüksek kullanılabilirlikte MySQL veritabanları çalıştırmak, yönetmek ve ölçeklendirmek için kullanılan yönetilen bir hizmettir. Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. 
 
 Bu hızlı başlangıçta MySQL sunucusu için Azure Veritabanı oluşturmak ve bu veritabanının güvenlik duvarı kuralını yapılandırmak için Ansible kullanma gösterilmektedir. Bu görevleri Azure portalını kullanarak yaklaşık beş dakika içinde tamamlayabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 - **Azure aboneliği** - Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Bu öğreticideki örnek playbook'ları çalıştırmak için Ansible 2.7 gerekir. Ansible 2.7 RC sürümünü `sudo pip install ansible[azure]==2.7.0rc2` çalıştırarak yükleyebilirsiniz. Ansible 2.7 kullanıma sunulduktan sonra varsayılan sürüm 2.7 olacağından sürümü burada belirtmeniz gerekmez.
+> Bu öğreticideki örnek playbook'ları çalıştırmak için Ansible 2.7 gerekir. 
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.  

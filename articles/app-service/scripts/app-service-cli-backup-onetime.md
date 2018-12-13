@@ -3,8 +3,8 @@ title: Azure CLI Betik Örneği - Bir web uygulamasını yedekleme | Microsoft D
 description: Azure CLI Betik Örneği - Bir web uygulamasını yedekleme
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.service: app-service-web
@@ -12,16 +12,16 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 ms.date: 12/07/2017
-ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 816cc1cbe13a43aaaf527fe74ab8a3eb5faab3a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: msangapu;cephalin
+ms.custom: seodec18
+ms.openlocfilehash: 195995d394404af11f277cba9d3de342347f8527
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946196"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183888"
 ---
-# <a name="back-up-a-web-app"></a>Bir web uygulamasını yedekleme
+# <a name="back-up-a-web-app-using-cli"></a>CLI kullanarak bir web uygulamasını yedekleme
 
 Bu örnek betik, App Service’te ilgili kaynaklarıyla birlikte bir web uygulaması oluşturur ve sonra bu web uygulaması için tek seferlik bir yedekleme oluşturur. 
 

@@ -1,5 +1,5 @@
 ---
-title: Linux üzerinde Azure App Service için Java Enterprise desteği | Microsoft Docs
+title: Linux - Azure App Service üzerinde Java Enterprise desteği | Microsoft Docs
 description: Linux üzerinde Azure App Service ile Wildfly kullanarak Java Kurumsal uygulamaları dağıtmak için Geliştirici Kılavuzu.
 keywords: Azure app service, web uygulaması, linux, oss, java, wildfly, enterprise
 services: app-service
@@ -12,12 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: b632ef49f49768c86b7a7ce2efc601f036532a29
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.custom: seodec18
+ms.openlocfilehash: e473326e9f337bfb2fd1202bc3b76e468dd6015e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017595"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315086"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Enterprise Kılavuzu
 
@@ -81,7 +82,7 @@ Wildfly için veri kaynağı bağlantısı yapılandırmak için yukarıdaki mod
 2. "Modülleri ve oluşturup XML modülü tanımlayıcısı, JBoss CLI betiği, başlangıç betiği ve JDBC .jar bağımlılık karşıya bağımlılıklar" adımları anahattı izleyin.
 
 
-Wildfly ile yapılandırma hakkında daha fazla bilgi [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7) , [MySQL](https://dev.mysql.com/doc/connector-j/5.1/connector-j-usagenotes-jboss.html), ve [SQL veritabanı](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898) kullanılabilir. Veri kaynağı tanımlarının sunucunuza eklemek için bu özelleştirilmiş yönergeler genelleştirilmiş bir yaklaşım ile birlikte kullanabilirsiniz.
+Wildfly ile yapılandırma hakkında daha fazla bilgi [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7) , [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource), ve [SQL veritabanı](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898) kullanılabilir. Veri kaynağı tanımlarının sunucunuza eklemek için bu özelleştirilmiş yönergeler genelleştirilmiş bir yaklaşım ile birlikte kullanabilirsiniz.
 
 ## <a name="messaging-providers"></a>Mesajlaşma sağlayıcıları
 

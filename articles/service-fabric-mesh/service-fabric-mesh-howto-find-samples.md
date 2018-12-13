@@ -9,18 +9,18 @@ ms.date: 12/03/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: 04ea8ce82a3263976b3477ce8dd1fd3eea190475
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: d31ee60977bb4ac11a93cfe1e72134c65baf839c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52893517"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161254"
 ---
 # <a name="find-service-fabric-mesh-samples"></a>Service Fabric kafes örnekleri bulun
 
 Bu tabloda mevcut Service Fabric Mesh örnek uygulamalar özetlenmektedir. Bu örnek kaynak kodda, Service Fabric kaynak modeli kullanarak belirli bir senaryo elde etmek gösterilmektedir.
 
-Şablonları doğrudan Azure'a dağıtma hakkında daha fazla bilgi için bkz. [örnek şablonu Github sayfası.](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/README.md)
+Şablonları doğrudan Azure'a dağıtma hakkında daha fazla bilgi için bkz. [örnek şablonu GitHub sayfası.](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/README.md)
 
 
 |Örnek şablonu|Senaryo açıklaması|Kaynak kodu|Geliştirici Araçları|

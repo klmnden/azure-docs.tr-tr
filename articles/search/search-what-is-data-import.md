@@ -1,6 +1,6 @@
 ---
-title: Azure Search'te verileri içeri aktarma | Microsoft Docs
-description: Azure Search'te bir dizine nasıl veri yükleneceğini öğrenin.
+title: Veri alımı için bir arama dizininin - Azure Search veri içeri aktarın
+description: Doldurma ve dış veri kaynaklarından Azure Search'te bir dizine veri yükleyin.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: ab26adb330e69f71d94aa296ede558b44e47a187
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 731519b4e099bd696002af3aa08ada145e490260
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249787"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314865"
 ---
-# <a name="indexing-in-azure-search"></a>Azure Search'te Dizin Oluşturma
+# <a name="indexing-external-data-for-queries-in-azure-search"></a>Azure Search'te sorgular için dış veri dizini oluşturma
 > [!div class="op_single_selector"]
 > * [Genel Bakış](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
@@ -23,7 +24,7 @@ ms.locfileid: "51249787"
 > 
 > 
 
-Azure Search'te sorgular, [arama dizinine](search-what-is-an-index.md) yüklenmiş olan içeriğiniz üzerinde yürütülür. Bu makalede içeriği dizine yüklemeye yönelik iki temel yaklaşım incelenir: verilerinizi programlama yoluyla dizine *gönderme* veya desteklenen veri kaynağında verileri *çekmek* için bir [Azure Search dizin oluşturucuya](search-indexer-overview.md) işaret etme.
+Azure Search'te yüklenmiş ve kaydedilmiş içeriğinize sorguları yürütme bir [arama dizini](search-what-is-an-index.md). Bu makalede dizini doldurmak için iki temel yaklaşım inceler: *anında iletme* verileriniz dizine programlı olarak veya bir [Azure Search dizin oluşturucu](search-indexer-overview.md) için bir desteklenen veri kaynağında  *çekme* veri.
 
 ## <a name="pushing-data-to-an-index"></a>Verileri dizine gönderme
 Verilerinizi programlama yoluyla Azure Search'e göndermek için kullanılan gönderme yöntemi, en esnek yöntemdir. Birincisi, veri kaynağı türüne hiçbir kısıtlama getirmez. Veri kümesindeki her belgede, dizin şemanızda tanımlanan alanlarla eşlenen alanlar bulunduğu varsayımıyla, JSON belgelerinden oluşan tüm veri kümeleri Azure Search dizinine gönderilebilir. İkincisi, yürütme frekansı üzerinde hiçbir kısıtlaması yoktur. Değişiklikleri istediğiniz sıklıkta dizine gönderebilirsiniz. Çok düşük gecikme süresi gereksinimlerine sahip uygulamalar için (örneğin, arama işlemlerinin dinamik stok veritabanlarıyla eşitlenmiş olması gerekiyorsa), tek seçeneğiniz gönderme modelidir.

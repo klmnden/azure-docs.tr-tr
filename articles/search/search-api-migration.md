@@ -1,6 +1,6 @@
 ---
-title: Azure arama hizmeti REST API'si bir en son sürümüne yükseltmeyi | Microsoft Docs
-description: En son Azure Search Hizmeti REST API sürümüne yükseltme
+title: En son Azure arama hizmeti REST API'si sürüme - Azure Search yükseltin
+description: API sürümleri farklılıkları gözden geçirin ve hangi işlemlerin en yeni Azure Search Hizmeti REST API sürümü için mevcut kodu geçirilmesi için gereken bilgi edinin.
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,14 +9,15 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: 2efe7769f68988f3c0d52c8806b78c1b96d8c639
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.custom: seodec2018
+ms.openlocfilehash: f19d584932be6b6706d6f7b03622303f68f08f91
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620238"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312196"
 ---
-# <a name="upgrading-to-the-latest-azure-search-service-rest-api-version"></a>En son Azure Search Hizmeti REST API sürümüne yükseltme
+# <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>En son Azure Search Hizmeti REST API sürümüne yükseltme
 Önceki bir sürümünü kullanıyorsanız, [Azure arama hizmeti REST API'si](https://docs.microsoft.com/rest/api/searchservice/), bu makalede, uygulamanızın en son yükseltme yardımcı olacak genel kullanıma sunulan API Sürüm 2017-11-11.
 
 REST API Sürüm 2017-11-11 bazı değişiklikler daha önceki sürümlerin içerir. Bu çoğunlukla geriye dönük uyumlu yayımlanır; dolayısıyla, kod değiştirme önce kullandığınız bağlı olarak hangi sürümün yalnızca en az çaba istemeniz gerekir. Bkz: [yükseltme adımları](#UpgradeSteps) yeni API sürümünü kullanmak kodunuzu değiştirmek konusunda yönergeler için.

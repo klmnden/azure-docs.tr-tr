@@ -1,5 +1,5 @@
 ---
-title: Kullanım dışı bilişsel beceriler (Azure Search) | Microsoft Docs
+title: Bilişsel beceriler - Azure Search kullanım dışı
 description: Bu sayfa, kullanım dışı olarak kabul edilen bilişsel arama yetenekleri listesini içeren ve yakın gelecekte desteklenmez.
 services: search
 manager: pablocas
@@ -10,21 +10,22 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: 6bd364ea9923b1c8cdd7c96fc29cb91dff88ec95
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: 85f02acf05e89db3e22dd24ecd0e100a9ec4af6f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450039"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311737"
 ---
-#    <a name="deprecated-cognitive-seach-skills"></a>Kullanım dışı Bilişsel arama yetenekleri
+#    <a name="deprecated-cognitive-search-skills"></a>Kullanım dışı Bilişsel arama yetenekleri
 
 Bu belgede, kullanım dışı olarak kabul edilir bilişsel yetenekleri açıklanmaktadır. İçeriği için aşağıdaki kılavuzu kullanın:
 
-* Nitelik adı: Kullanım dışı bırakılacak beceri adını, eşlendiği @odata.type özniteliği.
-* Son kullanılabilir API sürümü: Genel API hangi becerilerini beceri kullanım dışı karşılık gelen içeren oluşturulan/güncelleştirilebilir Azure search'ün son sürümü.
+* Nitelik adı: Eşlendiği kullanım dışı bırakılacak beceri adını, @odata.type özniteliği.
+* Son kullanılabilir API sürümü: Son sürümü Azure arama Genel API hangi becerilerini ilgili kullanım dışı yetenek içeren oluşturulan/güncelleştirilen olabilir.
 * Destek sonu: Desteklenmeyen karşılık gelen beceri kabul edileceği sonra son günü. Daha önce oluşturduğunuz uzmanlık becerileri yine de çalışmaya devam etmelidir ancak kullanıcılar uzağa kullanım dışı bir yetenek geçirmek için önerilir.
-* Öneriler: desteklenen bir yetenek kullanmaya geçiş yolu ilet. Kullanıcıların destek almaya devam etmek için önerilere uyun sürümüne güncelleştirmeleri önerilir.
+* Öneriler: Desteklenen bir yetenek kullanmaya geçiş yolu ilet. Kullanıcıların destek almaya devam etmek için önerilere uyun sürümüne güncelleştirmeleri önerilir.
 
 ## <a name="microsoftskillstextnamedentityrecognitionskill"></a>Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
@@ -42,7 +43,7 @@ Kullanım [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-
 
 Öğesine geçirmeyi [varlık tanıma beceri](cognitive-search-skill-entity-recognition.md), bir veya daha fazla yetenek tanımı aşağıdaki değişiklikleri gerçekleştirmeniz gerekecektir. Beceri tanımı kullanarak güncelleştirebilirsiniz [güncelleştirme beceri kümesi API](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
-_Not_: şu anda, kavram olarak güvenilirlik puanı desteklenmiyor. Yakın gelecekte desteklenecektir. `minimumPrecision` Parametresi var. `EntityRecognitionSkill` ve gelecekte kullanım için geriye dönük uyumluluk.
+_Not_: Şu anda, kavram olarak güvenilirlik puanı desteklenmiyor. Yakın gelecekte desteklenecektir. `minimumPrecision` Parametresi var. `EntityRecognitionSkill` ve gelecekte kullanım için geriye dönük uyumluluk.
 
 1. *(Gerekli)*  Değişiklik `@odata.type` gelen `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` için `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
 

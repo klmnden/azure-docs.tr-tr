@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 12/10/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7819ed3e18092e8b7bdf52225e7025b4b6d8146a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: c0f384dafc4ba30eb3e735ee17ae051245378135
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981891"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254998"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B işbirliği Davetiyesi kullanımı
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) B2B işbirliği aracılığıyla iş ortağı 
 
 ## <a name="redemption-through-a-direct-link"></a>Doğrudan bağlantı üzerinden kullanma
 
-Konuk davet eden, paylaşılan bir uygulamanın doğrudan bağlantısını göndererek Konuk kullanıcı davet edebilirsiniz. Konuk kullanıcı için kullanım deneyimi kendileriyle paylaşılan uygulamasında kadar kolaydır. Bunlar uygulama bağlantısını tıklayın, gözden geçirin ve gizlilik koşullarını kabul edin ve uygulamaya sorunsuz bir şekilde erişmek. Çoğu durumda, Konuk kullanıcıları davet e-posta iletisinde kullanım URL'yi artık gerekir.
+Konuk davet eden göndererek Konuk kullanıcı davet edebilir bir [paylaşılan bir uygulamanın doğrudan bağlantısını](../manage-apps/end-user-experiences.md#direct-sign-on-links). Konuk kullanıcı için kullanım deneyimi kendileriyle paylaşılan uygulamasında kadar kolaydır. Bunlar uygulama bağlantısını tıklayın, gözden geçirin ve gizlilik koşullarını kabul edin ve uygulamaya sorunsuz bir şekilde erişmek. Çoğu durumda, Konuk kullanıcıları davet e-posta iletisinde kullanım URL'yi artık gerekir.
 
 Kullanıcı arabirimi aracılığıyla Konuk kullanıcılar davet ya da PowerShell davet deneyiminin bir parçası davet e-posta göndermek seçtiğiniz, davet edilen kullanıcı yine de bir davet e-posta alır. Bu e-posta, aşağıdaki özel durumlar için kullanışlıdır:
 
@@ -51,7 +51,7 @@ Davet e-posta gönderen bir yöntem aracılığıyla davet, kullanıcılar ayrı
 
 ![Erişim panelinde kullanıcı ayarları gösteren ekran görüntüsü](media/redemption-experience/ConsentScreen.png) 
 
-Kiracı Yöneticisi olarak, kuruluşunuzun gizlilik bildirimini oluşturmak için nasıl bağlantı hakkında daha fazla bilgi için bkz. [nasıl yapılır: Azure Active Directory'de, kuruluşunuzun gizlilik bilgisi eklemek](https://aka.ms/adprivacystatement).
+Kiracı Yöneticisi olarak, kuruluşunuzun gizlilik bildirimini oluşturmak için nasıl bağlantı hakkında daha fazla bilgi için bkz: [nasıl yapılır: Azure Active Directory'de, kuruluşunuzun gizlilik bilgisi eklemek](https://aka.ms/adprivacystatement).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

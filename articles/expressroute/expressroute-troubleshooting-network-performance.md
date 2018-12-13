@@ -1,216 +1,210 @@
 ---
-title: Azure sanal ağı performans sorunlarını giderme | Microsoft Docs
-description: Bu sayfa, Azure ağ bağlantı performansını test etme için standartlaştırılmış bir yöntem sağlar.
+title: 'Sanal ağ performans sorunlarını giderme: Azure | Microsoft Docs'
+description: Bu sayfa, Azure ağ bağlantısı performans testi için standartlaştırılmış bir yöntem sağlar.
 services: expressroute
-documentationcenter: na
 author: tracsman
-manager: rossort
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 12/20/2017
 ms.author: jonor
-ms.openlocfilehash: 56f011632a2aa3ef0632efd5ace472c0fc79a329
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.custom: seodec18
+ms.openlocfilehash: 2572ff3711fb86cda88a86744192980a5b2d5361
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27319263"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277633"
 ---
 # <a name="troubleshooting-network-performance"></a>Ağ performansı sorunlarını giderme
 ## <a name="overview"></a>Genel Bakış
-Azure, şirket içi ağınızdan Azure'a bağlanmak için kararlı ve hızlı yollar sağlar. Siteden siteye VPN yöntemleri gibi ve ExpressRoute başarıyla büyük ve küçük müşteriler tarafından Azure'da işlerini çalıştırmak için kullanılır. Ancak performans Beklenti veya önceki deneyimi karşılamıyor ne olur? Bu belge, test yolu ve temel ortamınıza özgü standartlaştırmak yardımcı olabilir.
+Azure, şirket içi ağınızdan Azure'a bağlanmak için kararlı ve hızlı yollar sunar. Yöntemleri ister siteden siteye VPN ve ExpressRoute başarıyla küçük ve büyük ölçekli müşteriler tarafından Azure'da yürütmek için kullanılır. Ancak, performans özel durumuyla veya önceki deneyime karşılamadığında ne olur? Bu belge, test etme biçimimizi ve temel ortamınıza standartlaştırmak yardımcı olabilir.
 
-Bu belge nasıl kolayca ve sürekli olarak ağ gecikme süresi ve bant genişliği iki ana bilgisayarlar arasında test edebilirsiniz gösterir. Bu belge, Azure ağı bakın ve sorunu noktaları yalıtmak için Yardım yolları bazı öneriler de sağlar. PowerShell Betiği ve açıklanan araçları iki ağdaki ana bilgisayarlara (her iki ucundaki sınanan bağlantı) gerektirir. Diğer Windows ya da Linux olması, bir ana bilgisayar bir Windows Server veya Masaüstü olması gerekir. 
+Bu belge, nasıl kolayca ve sürekli olarak ağ gecikme süresi ve bant genişliği iki konak arasında test edebilirsiniz gösterir. Bu belge, Azure ağı bakın ve sorunu noktaları yalıtmaya yardımcı yolları da bazı öneriler sağlar. Açıklanan araçları ve PowerShell Betiği (başındaki veya sonundaki bir bağlantıya edildiğinin) ağ üzerinde iki ana gerektirir. Bir konak, bir Windows Server ya da Masaüstü olmalıdır, diğer Windows veya Linux olabilir. 
 
 >[!NOTE]
->Sorun giderme yaklaşım, Araçlar ve kullanılan yöntemleri kişisel tercihlerdir. Bu belge, genellikle ele yaklaşım ve araçları açıklanmaktadır. Durum yaklaşımınızı büyük olasılıkla farklılık gösterir, sorunu çözmek için farklı yaklaşımlara ile yanlış bir şey yok. Ancak, yerleşik bir yaklaşım yoksa, bu belgede yöntemlerinizi, araçları ve ağ sorunlarını giderme için Tercihler oluşturmaya yolunda başlamanıza yardımcı.
+>Sorun giderme yaklaşımı, araçları ve kullanılan yöntemleri kişisel tercihlerdir. Bu belgede, genellikle ele yaklaşım ve araçlar açıklanmaktadır. Büyük olasılıkla yaklaşımınızı farklılık gösterir, sorunu çözmek için farklı yaklaşımlara ile yanlış bir şey yoktur. Ancak, bir yaklaşımdır yoksa, bu belge yolunda kendi yöntemlerini, araçları ve ağ sorunlarını gidermek için Tercihler oluşturmaya başlamanızı alabilirsiniz.
 >
 >
 
 ## <a name="network-components"></a>Ağ bileşenleri
-Sorun giderme içine sorunda önce şimdi bazı ortak hüküm ve bileşenleri tartışın. Bu tartışma Azure bağlantısı sağlayan uçtan uca zincirindeki her bir bileşen hakkında düşündüğünüzü sağlar.
+Sorun giderme içine sorunda önce şimdi ortak bazı terimler ve bileşenleri tartışın. Bu tartışma azure'da bağlantıyı sağlayan uçtan uca zincirindeki her bileşenle ilgili düşündüğünüzü sağlar.
 [![1]][1]
 
-Yüksek düzeyde, ı üç ana ağ yönlendirme etki alanları açıklar;
+Yüksek düzeyde, ı üç ana ağ yönlendirme etki alanı açıklamak;
 
 - Azure ağı (sağdaki mavi bulut)
-- Internet veya WAN (Merkezi'ndeki yeşil bulut)
-- Şirket ağı (sol turuncu bulut)
+- Internet veya WAN (yeşil bulutta Merkezi)
+- Şirket ağına (soldaki açık bulut)
 
-Sağdan sola diyagramın baktığınızda, şimdi kısaca her bileşenin ele alınmıştır:
- - **Sanal makine** - sunucunun birden çok NIC, herhangi bir statik yollar, varsayılan yolların emin olabilir ve işletim sistemi ayarlarını gönderiyorsunuz ve onu düşündüğünüz yolu trafiğini alma. Ayrıca, her VM SKU bir bant genişliği sınırlaması vardır. Daha küçük bir VM SKU kullanıyorsanız, trafiğinizin NIC'ye kullanılabilir bant genişliği sınırlıdır Genellikle bir DS5v2 test etme (ve ardından paradan tasarruf testi ile bir kez yapılır Sil) kullanmam VM yeterli bant emin olmak için.
- - **NIC** -söz konusu NIC'ye atanan özel IP bildiğinizden emin olun.
- - **NIC NSG** - var olabilir NIC düzeyinde uygulanan belirli Nsg'ler olması, NSG kural kümesi geçirmeye çalıştığınız trafiği için uygun olduğundan emin olun. Örneğin, RDP 3389 numaralı bağlantı noktalarını 5201 iPerf, emin olun veya SSH için 22 test trafiğinin geçmesine izin vermek için açık.
- - **Sanal alt** -NIC, belirli bir alt ağa atanır, hangi tek ve kuralları bu alt ağ ile ilişkilendirilmiş bildiğiniz emin olun.
- - **Alt ağ NSG** - NIC, Nsg'ler alt yalnızca uygulanabilir gibi. NSG kural kümesi geçirmeye çalıştığınız trafiği için uygun olduğundan emin olun. (NSG ilk uygulandığı alt ağı, sonra NIC NSG NIC'ye gelen trafik için buna karşılık sanal makineden giden trafik için NIC NSG uygulanır ardından alt ağ NSG oyuna gelir).
- - **Alt ağ UDR** -kullanıcı tanımlı yollar, bir ara atlama (örneğin, bir Güvenlik Duvarı'nı veya yük dengeleyici) trafiği yönlendirebilir. UDR trafiğinizi yer ve bu nedenle nereye gidiyor bu sonraki atlama trafiğinizi için ne yapacağını durumunda olup olmadığını bilmek emin olun. (örneğin, bir güvenlik duvarı bazı trafiği geçiş ve aynı iki ana bilgisayarlar arasında diğer trafik reddetme).
- - **Ağ geçidi alt ağı / NSG / UDR** -yalnızca VM alt ağı gibi ağ geçidi alt ağı Nsg'ler ve Udr'ler olabilir. Bunlar vardır ve hangi bunlar trafiğinizi etkileri bildiğinizden emin olun.
- - **Sanal ağ geçidi (ExpressRoute)** -eşleme (ExpressRoute) veya VPN etkinleştirildikten sonra etkileyebilir birçok ayar yok nasıl veya yolları trafiği. Birden çok ExpressRoute bağlantı hatları veya VPN tünelleri aynı sanal ağ geçidine bağlı varsa, bu ayar etkiler bağlantı tercih bağlantı ağırlık ayarlarını bilmeniz gerekir ve trafiğinizi alan yolu etkiler.
- - **Filtre rota** (gösterilmez) - bir rota filtre yalnızca ExpressRoute üzerinde Microsoft Peering uygular, ancak, beklediğiniz yollar Microsoft Peering görmüyorsanız, denetlemek için önemlidir. 
+Sağdan sola diyagramın bakarak, şimdi her bileşenin kısaca açıklanmaktadır:
+ - **Sanal makine** - birden çok NIC herhangi bir statik yollar, varsayılan yollar emin olun, sunucuda yüklü olmayabilir ve işletim sistemi ayarlarını gönderiyorsunuz ve trafik, düşündüğünüz biçimini alan. Ayrıca, her sanal makine SKU'su bant genişliğini kısıtlama vardır. Daha küçük bir VM SKU kullanıyorsanız, trafik NIC'ye kullanılabilir bant genişliğini sınırlıdır Genellikle bir DS5v2 test (ve daha sonra paradan tasarruf etmek için test etme ile bir kez yapılır delete) için kullandığım VM konumunda yeterli bant genişliğini sağlamak için.
+ - **NIC** -söz konusu NIC atanmış özel IP bildiğiniz emin olun.
+ - **NIC NSG** - var olması NIC düzeyinde uygulanan belirli Nsg'ler, NSG kural kümesine geçirmeye çalıştığınız trafiği için uygun olduğundan emin olun. Örneğin, RDP için 3389 numaralı bağlantı noktalarını 5201 iPerf, emin olun veya SSH için 22 test trafiğinin geçmesine izin vermek için açık değil.
+ - **Sanal ağ alt ağı** -NIC, belirli bir alt ağa atanır, hangi tek ve kuralları bu alt ağ ile ilişkili bildiğiniz emin olun.
+ - **Alt ağ NSG'SİNDE** - Nsg, NIC'ye alt yalnızca uygulanabilir gibi. NSG kural kümesi, geçirmeye çalıştığınız trafiği için uygun olduğundan emin olun. (NSG ilk geçerli alt ağ ve NIC NSG'nin NIC'ye gelen trafik için buna karşılık VM'den giden trafik için NIC NSG uygular sonra alt ağın NSG dönüştürülerek).
+ - **Alt ağ UDR** -kullanıcı tanımlı yollar (örneğin, bir güvenlik duvarı veya yük dengeleyici) bir ara atlama trafiği doğrudan. Bir UDR'de trafiğiniz için ve bu nedenle nereye, sonraki atlama trafiğiniz için ne yapacağını, olup olmadığını anlamak emin olun. (örneğin, bir güvenlik duvarı bazı trafik geçirebilir ve aynı iki konak arasında diğer trafiği reddetmeye).
+ - **Ağ geçidi alt ağı / NSG / UDR** -yalnızca VM alt ağı gibi ağ geçidi alt ağı, Nsg ve Udr'ler olabilir. Bunlar vardır ve hangi bunlar trafiğiniz etkileri bildiğinizden emin olun.
+ - **VNet ağ geçidi (ExpressRoute)** -eşleme (ExpressRoute) ya da VPN etkinleştirildikten sonra etkileyebilir birçok ayarı yok nasıl veya yolları trafiği. Birden çok ExpressRoute bağlantı hatları veya bağlı aynı VNet ağ geçidinin VPN tünelleri varsa, bu ayar etkiler bağlantı tercih bağlantı ağırlığı ayarları bilmeniz gerekir ve trafiğiniz alan yolu etkiler.
+ - **Rota filtresi** (gösterilmez) - rota Filtresi Microsoft Peering ExpressRoute üzerinde geçerlidir, ancak, beklediğiniz yolları üzerinde Microsoft Peering görmediğiniz olmadığını denetlemek için önemlidir. 
 
-Bu noktada, bağlantının WAN bölümü üzerinde demektir. Bu yönlendirme etki alanı, hizmet sağlayıcınızı, Kurumsal WAN'ınız veya Internet olabilir. Birçok atlama, teknolojileri ve şirketler bu bağlantıları ile ilgili sorun giderme biraz zor yapabilirsiniz. Genellikle, hem Azure hem de şirket ağlarına çıkışı kuralın ilk şirket ve atlama bu koleksiyona atlama önce çalışır.
+Bu noktada, WAN bağlantısı bölümü temel demektir. Bu yönlendirme etki alanı, hizmet sağlayıcınıza, Kurumsal WAN'ınız veya Internet olabilir. Birçok atlama, teknolojileri ve şirketler bu bağlantıları ile ilgili sorun gidermek biraz zor hale getirir. Genellikle, hem Azure hem de şirket ağlarınızı kullanıma kuralın ilk şirketler ve atlama bu koleksiyona atlama önce çalışırsınız.
 
-Önceki diyagramda solundaki üzerinde şirket ağınıza ' dir. Şirketinizin boyutuna bağlı olarak, bu yönlendirme etki alanı birkaç ağ aygıtları ve WAN veya birden çok katman kampüs/kuruluş ağındaki aygıtların arasında olabilir.
+Yukarıdaki diyagramda, en solda, Kurumsal ağdır. Şirketinizin boyutuna bağlı olarak, bu yönlendirme etki alanı bazı ağ aygıtları ve WAN veya çok katmanlı bir kampüs/kurumsal ağdaki cihazları arasında olabilir.
 
-Bu üç farklı üst düzey ağ ortamları karmaşıklığını verildiğinde, bu genellikle kenarlarında başlatmak için en iyi ve performans iyi olduğu ve burada düşürür göstermek deneyin. Bu yaklaşım, üç sorunu Yönlendirme etki alanını tanımlamak ve bu belirli ortamda sorun gidermeyi odaklanmanıza yardımcı olabilir.
+Bu üç farklı üst düzey ağ ortamları karmaşıklığını göz önünde bulundurulduğunda, bu genellikle kenarlarını başlatmak için en iyi olduğunu ve performansı iyi olduğu ve burada düşürür göstermek deneyin. Bu yaklaşım, sorun, üç yönlendirme etki alanını tanımlamak ve ardından sorun gidermeyi, belirli bir ortamda odak yardımcı olabilir.
 
 ## <a name="tools"></a>Araçlar
-Birçok ağ sorununu çözümlenebilir ve ping ve izleme yolu gibi temel araçlar kullanarak yalıtılmış. Nadir olarak bir paket analiz Wireshark gibi ayrıntılı gitmeniz gerekir. Sorun giderme konusunda yardımcı olmak için Azure bağlantısını Araç Seti (AzureCT) Bu araçlardan bazıları kolay bir pakette koymak için geliştirilmiştir. Performans testi için ı iPerf ve PSPing kullanmak ister. iPerf yaygın olarak kullanılan bir araçtır ve çoğu işletim sistemleri üzerinde çalışır. iPerf temel performanslarını testler için uygundur ve kullanımı oldukça kolaydır. PSPing SysInternals tarafından geliştirilen bir ping aracıdır. PSPing tek bir kullanımı da kolay komutta ICMP ve TCP ping işlemlerini gerçekleştirmek için kolay bir yoludur. Bu araçların her ikisi de basit ve "sadece bir dizin dosyaları ana bilgisayardaki kopyalamayı tarafından yüklenen".
+Birçok ağ sorununu çözümlenebilir ve ping ve traceroute gibi temel araçları kullanarak yalıtılmış. Wireshark gibi bir paket analiz olarak derine gidin gerektiğini nadir olarak rastlanıyor. Azure Connectivity Toolkit (AzureCT) gidermeye yardımcı olması için bu araçlardan bazılarını bir kolayca paketinde koymak için geliştirilmiştir. Performans testi için iPerf ve PSPing kullanmak istiyorum. iPerf yaygın olarak kullanılan bir araçtır ve çoğu işletim sistemlerinde çalışır. iPerf temel performans testleri için geçerlidir ve kullanımı oldukça kolaydır. PSPing SysInternals tarafından geliştirilen bir ping aracıdır. PSPing kullanımı da kolaydır tek bir komutla ICMP ve TCP gerçekleştirmek için kolay bir yoludur. Bu araçlar her ikisi de basit olduğundan ve "yalnızca bir dizine dosyaları konaktaki artıştan tarafından yüklenen".
 
-I tüm bu araçlar ve yöntemlerinin yükleyip kullanmak bir PowerShell modülüne (AzureCT) Sarmalanan.
+Ben tüm bu araçları ve yöntemleri yükleyin ve kullanabileceğiniz bir PowerShell modülünü (AzureCT) Sarmalanan.
 
 ### <a name="azurect---the-azure-connectivity-toolkit"></a>AzureCT - Azure bağlantısı Araç Seti
-AzureCT PowerShell modülü iki bileşenden oluşur [kullanılabilirlik sınama] [ Availability Doc] ve [performans testi][Performance Doc]. Bu belgede yalnızca performans testi ile ilgili, bu nedenle bu PowerShell modülünü iki bağlantı performans komutlarda odaklanmanıza olanak tanır.
+AzureCT PowerShell modülünün iki bileşenden oluşur [kullanılabilirlik testi] [ Availability Doc] ve [performans testi][Performance Doc]. Bu belgede yalnızca performans testi ile ilgili, bu nedenle bu PowerShell modülünü iki bağlantı performans komutlar odaklanmanıza olanak tanır.
 
-Bu araç seti performansını test etmek için kullanılacak üç temel adımdan oluşur. 1) PowerShell modülünü yükleyin, 2) destekleyen uygulamalar iPerf ve PSPing 3 yükleyin) performans testini çalıştırma.
+Performans testi için bu araç seti kullanmak için üç temel adım vardır. (1) PowerShell modülünü yükleyin, 2) destekleyen uygulamalar iPerf ve PSPing 3 yükleyin) performans testini çalıştırın.
 
-1. PowerShell modülü yükleniyor
+1. PowerShell modülünü yükleme
 
     ```powershell
     (new-object Net.WebClient).DownloadString("https://aka.ms/AzureCT") | Invoke-Expression
     
     ```
 
-    Bu komut, PowerShell modülü indirilir ve yerel olarak yüklenir.
+    Bu komut, PowerShell modülünü yükler ve yerel olarak yükler.
 
-2. Destekleyen uygulamaları yükleme
+2. Destekleyici uygulamalar yükleme
     ```powershell
     Install-LinkPerformance
     ```
-    Bu AzureCT komut yeni bir dizinde "C:\ACTTools" iPerf ve PSPing yükler, ayrıca ICMP izin vermek ve 5201 (iPerf) trafiği bağlantı noktası için Windows Güvenlik Duvarı bağlantı noktalarını açar.
+    Bu AzureCT komut yeni bir dizinde "C:\ACTTools" iPerf ve PSPing yükler, ayrıca ICMP'ye izin ve 5201 (iPerf) trafiği bağlantı noktası için Windows Güvenlik Duvarı bağlantı noktalarını açar.
 
-3. Performans testi
+3. Performans testini çalıştırma
 
-    İlk olarak, uzak ana bilgisayarda yüklemeniz ve gerekir iPerf sunucu modunda çalıştırın. Ayrıca uzak ana bilgisayar ya da 3389 (Windows için RDP) dinliyor veya 22 (Linux için SSH) ve üzerinde trafiğe izin 5201 iPerf için bağlantı noktası emin olun. Uzak ana bilgisayarda windows ise, AzureCT yükleyin ve iPerf ve iPerf başarıyla sunucu modunda başlatmak için gereken güvenlik duvarı kuralları ayarlamak için yükleme LinkPerformance komutunu çalıştırın. 
+    İlk olarak, uzak ana bilgisayarda yüklemeli ve iPerf sunucu modunda çalıştırın. Ayrıca uzak konak ya da 3389 (RDP için Windows) dinliyor veya 22 (Linux için SSH) ve trafiğe izin vererek 5201 iPerf için bağlantı noktası emin olun. Windows uzak ana bilgisayar ise AzureCT yükleyin ve iPerf ve iPerf başarıyla sunucu modunda başlatmak için gereken güvenlik duvarı kurallarını ayarlamak için yükleme LinkPerformance komutunu çalıştırın. 
     
-    Uzak makineye hazır olduktan sonra yerel makinede PowerShell'i açın ve test başlatın:
+    Uzak makinenin hazır olduktan sonra yerel makinede PowerShell'i açın ve Testi Başlat:
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 10
     ```
 
-    Bu komut, bir dizi eşzamanlı yük ve bant genişliği kapasitesi tahmin etmeye yardımcı olması için gecikme testleri ve ağ bağlantınızı gecikme çalıştırır.
+    Bu komut bir dizi eşzamanlı yük ve bant genişliği kapasitesi tahmin etmenize yardımcı olmaya testleri gecikme süresi ve gecikme süresi, ağ bağlantısının çalıştırır.
 
-4. Testleri çıkışını gözden geçirin
+4. Test çıkışını gözden geçirin
 
-    PowerShell çıktı biçimi benzer şekilde görünür:
+    PowerShell çıktı biçimini benzer şekilde görünür:
 
     [![4]][4]
 
-    Tüm iPerf ve PSPing testleri ayrıntılı sonuçlarını "C:\ACTTools." AzureCT araçları dizininde bireysel metin dosyaları olan
+    Bireysel metin dosyalarında "C:\ACTTools." AzureCT araçları dizininde bulunan tüm iPerf ve PSPing testler ayrıntılı sonuçlarını olan
 
 ## <a name="troubleshooting"></a>Sorun giderme
-Performans testi değil vermiş, beklenen sonuçları nedenini anlamak, aşamalı bir adım adım işlemi olmalıdır. Bileşenlerin sayısını yolunda verilen, sistematik bir yaklaşım genellikle daha geçici atlama ve potansiyel olarak gereksiz yere birden çok kez aynı test bulunurken çözümleme daha hızlı bir yolunu sağlar.
+Performans testi değil vererek, beklenen sonuçları nedenini anlamak, aşamalı bir işlemi adım adım olmalıdır. Bileşen sayısı için belirtilen yol içinde sistematik bir yaklaşım genellikle etrafında atlama ve gereksiz yere potansiyel olarak birden çok kez aynı testi yapmadan çözümleme daha hızlı bir yolunu sağlar.
 
 >[!NOTE]
->Burada bir performans sorunu, bir bağlantı sorunu senaryodur. Adımları trafiği hiç geçirilirse değildi farklı olacaktır.
+>Burada bir performans sorunu, bir bağlantı sorunu senaryodur. Adımları, trafiği tüm geçirilirse değildi farklı olacaktır.
 >
 >
 
-İlk olarak, varsayımları sınama. Beklenti makul mi? Örneğin, 1 GB/sn expressroute bağlantı hattı ve 100 ms gecikme varsa tam 1 GB/sn TCP performans özellikleri yüksek gecikme bağlantıları üzerinden verilen trafik beklediğiniz aşırı olur. Bkz: [başvuran bölüm](#references) üzerinde daha fazla performans varsayımlar için.
+İlk olarak, bir varsayım meydan okuyun. Makul beklenir? Örneğin, bir 1 Gbps ExpressRoute bağlantı hattı ve 100 ms gecikme süresine sahip tam olarak 1 GB/sn TCP performans özellikleri yüksek gecikme bağlantılarda verilen trafik beklediğiniz mantıksız olabilir. Bkz: [başvurduğu bölüm](#references) üzerinde daha fazla performans varsayımlar için.
 
-Ardından, Yönlendirme etki alanları arasında kenarları başlayarak önerilir ve tek bir ana Yönlendirme etki alanı için sorunu ayırt etmek deneyin; Şirket ağına, WAN veya Azure ağı. Özellikle sorun gerçekten bir alanda değişiklik olanağına sahip olduğunda, "siyah kutusuna" yol nedenlerle siyah kutuyu blaming sırasında yapmak kolaydır kişiler genellikle, bu önemli ölçüde çözümleme gecikmeye neden olabilir. Kapalı, servis sağlayıcınıza veya ISS teslim etmeden önce durum tespitlerini yaptığınızdan emin olun.
+Ardından, Yönlendirme etki alanları arasında kenarlardaki başlamanızı öneririz ve tek bir ana Yönlendirme etki alanı için sorunu yalıtana deneyin; Şirket ağına, WAN veya Azure ağı. Özellikle sorun aslında bir alanda değişiklik olanağına sahip olduğunda, siyah kutu blaming çalışırken "siyah kutu" yolunda sorumluyu yapmak kolaydır insanlar genellikle, önemli ölçüde çözümleme gecikmesine neden. Kapatmak için service provider veya ISS'nize teslim etmeden önce aksaklıkla yaptığınızdan emin olun.
 
-Sorun içeriyor ana Yönlendirme etki alanı tanımladıktan sonra alanın bir diyagram söz konusu oluşturmanız gerekir. Beyaz Tahta, Not Defteri veya Visio diyagram olarak ya da sağlar somut "var olma Savaşının harita" daha fazla ayırma sistemli bir yaklaşım sorun izin vermek için. Test noktaları planlama ve harita alanları veya test ilerledikçe daha derin dıg temizleyin gibi güncelleştirin.
+Sorun var gibi görünüyor ana Yönlendirme etki alanı belirledikten sonra söz konusu alanı diyagramı oluşturmalısınız. Bir pano, Not Defteri veya Visio bir diyagram üzerinde sağlayan bir somut "Savaşı Haritası" daha fazla ayırma sistemli bir yaklaşım sorun izin vermek için. Test noktaları planlama ve alanları veya test ilerledikçe daha derine inin Temizle eşlemeyi güncelleştirin.
 
-Bir diyagram sahip olduğunuza göre ağ parçalara bölmek ve sorun Dar Aşağı başlatın. Burada çalışır ve burada değil öğrenin. Aşağıya doğru sorunlu bileşenini ayırmak için test noktalarınızı taşıma tutun.
+Bir diyagram olduğuna göre ağ parçalara bölmek ve sorunu daraltmak başlatın. Burada değil ve nerede çalıştığını öğrenin. Aşağı soruna neden olan bileşen yalıtmak için testi noktalarınızı taşıma tutun.
 
-Ayrıca, diğer OSI modeli katmanları bakmayı unutmayın. Ağ ve Katman 1-3 (fiziksel, veri ve ağ katmanları) odaklanmak kolaydır ancak sorunları da yukarı katman 7 uygulama katmanında olabilir. Açık bir unutmayın ve varsayımlar doğrulayın.
+Ayrıca, diğer katmanına OSI modeli unutmayın. Ağ ve Katman 1-3 (ağ fiziksel ve veri katmanları) odaklanan kolaydır ancak sorunları da yukarı 7. katmanda uygulama katmanında olabilir. Açık bir göz önünde bulundurun ve varsayımlar doğrulayın.
 
-## <a name="advanced-expressroute-troubleshooting"></a>ExpressRoute Gelişmiş sorun giderme adımları
-Bulut kenarına gerçekte olduğu emin değilseniz Azure bileşenleri yalıtma zor olabilir. ExpressRoute kullanıldığında, kenar Microsoft Enterprise Edge (MSEE) adlı bir ağ bileşenidir. **ExpressRoute kullanırken**, MSEE ilk Microsoft'un ağ ve Microsoft network bırakarak son atlama iletişim noktasıdır. Sanal ağ geçidiniz ile ExpressRoute devresi arasında bir bağlantı nesnesi oluşturduğunuzda, aslında MSEE için bir bağlantı değişiklik yapıyorsunuz. Azure'da sorundur kanıtlamak veya aşağı WAN veya şirket ağı içinde daha fazla (hangi yöne bağlı olarak, oluşturacağız) ilk veya son atlama ya da Azure ağ sorunları yalıtmak için çok önemli olduğu gibi MSEE tanıma. 
+## <a name="advanced-expressroute-troubleshooting"></a>ExpressRoute Gelişmiş sorun giderme
+Edge bulutun aslında olduğu emin değilseniz Azure bileşenlerini ayırma zor olabilir. ExpressRoute kullanıldığında, uç cihazlarında Microsoft Enterprise Edge (MSEE) adlı bir ağ bileşenidir. **Expressroute'u kullanırken**, MSEE ilk Microsoft'un ağ ve son atlama Microsoft network bırakarak iletişim noktasıdır. Sanal ağ geçidiniz ile ExpressRoute bağlantı hattı arasında bir bağlantı nesnesi oluşturduğunuzda, aslında MSEE için bir bağlantı yapılıyor. Azure'da sorun olduğunu kanıtlamak veya WAN veya kurumsal ağ içinde aşağı yönde daha ilk veya son atlama (hangi yöne bağlı olarak, yedekleyeceksiniz) ya da Azure ağ sorunları yalıtmak için önemli olduğundan MSEE tanıma. 
 
 [![2]][2]
 
 >[!NOTE]
-> MSEE Azure bulutunda olmadığına dikkat edin. ExpressRoute azure'da aslında Microsoft ağının gerçekte altındadır. Bir MSEE için ExpressRoute ile bağlandıktan sonra Microsoft'un ağa bağlı değilseniz, buradan sonra Office 365 (ile Microsoft Peering) veya Azure (ile özel ve/veya Microsoft Peering) gibi bulut hizmetlerinden herhangi biri gidebilirsiniz.
+> MSEE Azure bulutunda olmadığına dikkat edin. ExpressRoute, Microsoft ağının gerçekten azure'da aslında altındadır. Bir MSEE için ExpressRoute ile bağlandıktan sonra Microsoft'un ağa bağlı olduğunuzdan, buradan sonra (Microsoft Peering ile) Office 365 veya Azure (ile özel ve/veya Microsoft Peering) gibi bulut hizmetlerinden herhangi birine gidebilirsiniz.
 >
 >
 
-İki sanal ağlar (Vnet'ler A ve B diyagramdaki) bağlıysanız **aynı** expressroute bağlantı hattı, bir dizi yalıtmak Azure (veya Azure'da değil kanıtlamak için) test gerçekleştirebilir
+İki sanal ağ (Vnet A ve B diyagramdaki) bağlıysa **aynı** ExpressRoute bağlantı hattı, bir dizi azure'da sorunu yalıtana (veya Azure'da değil kanıtlamak için) test gerçekleştirebilirsiniz
  
 ### <a name="test-plan"></a>Test planı
-1. Get-LinkPerformance test VM1 ve VM2 arasında çalıştırın. Sorun veya yerel ise, bu test için değerli bilgiler sağlar. Bu test kabul edilebilir gecikme süresi ve bant genişliği sonuçları oluşturursa, yerel VNet ağ iyi işaretleyebilirsiniz.
-2. Yerel VNet varsayılarak VM1 ve VM3 arasında Get-LinkPerformance testi iyi trafiğidir. Bu test MSEE aşağı kaydırın ve Azure uygulamasına geri Microsoft network üzerinden bağlantı uygular. Bu test kabul edilebilir gecikme süresi ve bant genişliği sonuçları oluşturursa, Azure ağını iyi işaretleyebilirsiniz.
-3. Azure çizgili, şirket ağınıza testleri benzer bir dizi gerçekleştirebilirsiniz. Bu da iyi test, WAN bağlantısı tanılamak için hizmet sağlayıcınıza veya ISS çalışma zamanı geldi. Örnek: Bu test masanızın ve bir veri merkezi sunucusu arasında veya iki şube ofisiniz çalıştırın. Ne test ettiğiniz bağlı olarak, uç noktalarını bulma (sunucular, bilgisayarlar, vb.) yol alıştırma.
+1. Get-LinkPerformance test VM2 VM1 arasında çalıştırın. Sorunu yerel değilse veya bu test için öngörü sağlar. Bu test, kabul edilebilir gecikme süresi ve bant genişliği sonuçları oluşturursa, yerel VNet ağ iyi işaretleyebilirsiniz.
+2. Yerel Vnet'e varsayarak trafiği VM1 ve VM3 arasında Get-LinkPerformance test çalıştırması, uygundur. Bu test bağlantı MSEE aşağı ve azure'a geri Microsoft ağı üzerinden uygular. Bu test, kabul edilebilir gecikme süresi ve bant genişliği sonuçları oluşturursa, Azure ağı iyi işaretleyebilirsiniz.
+3. Azure çizgili, testleri benzer bir dizi Kurumsal ağınızda gerçekleştirebilirsiniz. Ayrıca iyi testlerin, WAN bağlantınızı tanılamak için için service provider veya ISS'nize çalışma zamanı olur. Örnek: Bu test masanızın ve bir veri merkezi sunucusu arasında veya iki şube ofisiniz arasında çalıştırın. Hangi test ettiğiniz bağlı olarak, uç noktaları bulun (sunucular, bilgisayarlar, vb.) yol alıştırma.
 
 >[!IMPORTANT]
-> Her test için test çalışmasını günün saatini işaretleyin ve sonuçları (t OneNote veya Excel gibi) bir ortak konuma kaydetmek, kritik öneme sahiptir. Test çalışmaları arasında sonuç verileri karşılaştırmak ve veri "delik" sahip değilse her test çalışması aynı çıktı olması gerekir. Birden çok sınama arasında tutarlılık AzureCT sorun giderme için kullandığım birincil nedenidir. Sihirli çalıştırabilirim, ancak bunun yerine tam yükleme senaryolarda değil *Sihirli* alıyorum gerçeğidir bir *tutarlı test ve veri çıkışı* her test. Zaman kaydetme ve tutarlı verileri tek her zaman sahip daha sonra sorun aralıklı olduğunu fark ederseniz özellikle yardımcı olur. İle veri toplama Önden dikkatli ve saat (ı sabit böylece birçok yıl önce öğrenilen) aynı senaryoları retesting, kaçının.
+> Her test için test çalıştırması günün saatini işaretlemek ve sonuçları (ben OneNote veya Excel gibi), ortak bir konumda olduğunu önemlidir. Her test çalışması, test çalıştırmaları arasında sonuç verileri karşılaştırmak ve verileri "açıklarına" yok aynı çıktı olması gerekir. Birden çok test arasında tutarlılığı sorun giderme için AzureCT kullanmam birincil nedenidir. Magic çalıştırabilir, ancak bunun yerine tam yük senaryolarda değil *Sihirli* alabilirim yükselten bir *tutarlı test ve veri çıkışı* her test. Zaman kaydetme ve tutarlı veri sahip tek her zaman daha sonra sorun ara sıra olduğunu fark ederseniz özellikle yardımcı olur. İle veri toplama Önden dikkatli ve (sabit böylece birçok yıl önce öğrendim) aynı senaryoları çözülüp saatler önlenir.
 >
 >
 
 ## <a name="the-problem-is-isolated-now-what"></a>Sorun yalıtılır şimdi ne?
-Daha fazla sorunu düzeltmek için sorun giderme konusunda daha ayrıntılı ya da daha fazla nereye olamaz noktası ulaşmak ancak genellikle daha kolay olan ayırabilirsiniz. Örnek: Avrupa aracılığıyla atlama alma servis sağlayıcınız üzerinden bağlantıya bakın, ancak tüm Asya'da, beklenen yoludur. Bu noktaya yardımını ulaşmak zamandır. Kimin istenir sorunu yalıtılmış Yönlendirme etki alanı bağımlı veya belirli bir bileşen aşağıya doğru daraltmak tamamlayabilirseniz daha iyi değil.
+Daha fazla, sorunu düzeltmek için sorun giderme konusunda daha ayrıntılı veya başka nereye olamaz noktası ulaşana ancak genellikle daha kolay olan ayırabilirsiniz. Örnek: hizmet sağlayıcınız aracılığıyla Avrupa atlama alma arasında bağlantıya bakın, ancak tüm Asya'da, beklenen yoludur. Yardım için ulaşın, bu noktasıdır. Kimin, sorun bağımlı soruna yalıtılmış bir yönlendirme etki alanı veya belirli bir bileşeni aşağı daraltmak tamamlayabilirseniz daha iyi olur.
 
-Kurumsal ağ sorunları için iç BT departmanına ya da hizmet sağlayıcısı (olabilen donanım üreticisi), ağ destekleyen aygıt yapılandırması veya donanım onarımı yardımcı olmak mümkün olabilir.
+Kurumsal ağ sorunları için iç BT departmanı veya hizmet sağlayıcısı ağınıza (aynı donanım üreticisi olabilir) destekleyen cihaz yapılandırması veya donanım Onarım yardımcı olabilir.
 
-WAN için hizmet sağlayıcısına veya ISS ile test sonuçlarınızı paylaşımı, bunları kullanmaya getirmek ve bazı test ettikten aynı taban kapsayan kaçının yardımcı olabilir. Bunlar, sonuçları doğrulamak istiyorsanız ancak, bilgisayar yok. Sorun giderme diğer kişilerin bildirilen sonuçlarına dayalı "Güven ancak doğrulayın" iyi slogan durumdur.
+WAN için test sonuçlarınız, hizmet sağlayıcısı veya ISS paylaşma, başlatılan alın ve bazı test ettikten aynı yerden kapsayan önlemek yardımcı olabilir. Bunlar, sonuçları doğrulamak istiyorsanız ancak bilgisayar yok. "Güven ancak doğrulama" sorun giderme başkalarının bildirilen sonuçlarına göre iyi bir slogan olur.
 
-Yapabilir, olabildiğince çok ayrıntı sorunu yalıtmak sonra Azure ile gözden geçirmek için zamanı [Azure ağ belgeleri] [ Network Docs] ve ardından IF lazım [Destekbilet][Ticket Link].
+Mümkün olduğunca çok ayrıntı sorunu izole sonra Azure ile gözden geçirmek için zamanı [Azure ağ belgeleri] [ Network Docs] ve sonra hala gerekirse [bir destek bileti oluşturarak][Ticket Link].
 
 ## <a name="references"></a>Başvurular
-### <a name="latencybandwidth-expectations"></a>Gecikme/bant genişliği beklentileri
+### <a name="latencybandwidth-expectations"></a>Gecikme süresi/bant genişliği beklentileri
 >[!TIP]
-> Test ettiğiniz uç noktaları arasındaki coğrafi gecikme (mil veya kilometre) göre şu ana kadar en büyük gecikme bileşenidir. Söz konusu ekipman gecikme (fiziksel ve sanal bileşenleri, atlama, vb. sayısı) olsa Coğrafya genel gecikme süresi en büyük bileşeninin WAN bağlantılarıyla ilgilenirken olduğunu kanıtlamış. Uzaklık değil doğrusal çalıştırmak fiber uzaklığını veya yol haritası uzaklığı olduğunu dikkate almak önemlidir. Bu uzaklık herhangi doğruluk ile almak son derece zordur. Sonuç olarak, t genellikle bir şehir uzaklığı hesaplayıcı Internet'te kullanın ve bu yöntem grossly yanlış ölçü ancak genel bir Beklenti ayarlamak için yeterli olduğunu biliyor.
+> Test ettiğiniz uç noktaları arasındaki coğrafi gecikme (mil veya kilometre) şu ana kadar en büyük gecikme bileşenidir. İlgili donanım gecikme süresi (fiziksel ve sanal bileşenleri, atlama vb. sayısı) olsa Coğrafya toplam gecikme süresi en büyük bileşeninin WAN bağlantılarıyla ilgilenirken olmasını kanıtlanmıştır. Uzaklık yok doğrusal çalıştırma fiber uzaklığı veya yol haritası uzaklık olduğuna dikkat edin önemlidir. Bu uzaklığı ile bir doğruluk almak son derece zordur. Sonuç olarak, miyim genel olarak internet'te bir şehir uzaklık hesaplayıcısını kullanın ve bu yöntem grossly yanlış bir ölçüdür ama genel beklentisi ayarlamak için yeterlidir.
 >
 >
 
-Bir ExpressRoute Kurulum Seattle, Washington ABD'deki açıyor. Aşağıdaki tabloda gecikme süresini gösterir ve bant genişliği ı çeşitli Azure konumlara sınama gördünüz. Testin her bitiş arasındaki coğrafi uzaklığı tahmin.
+Seattle, Washington ABD'deki bir ExpressRoute Kurulum aldım. Aşağıdaki tablo, gecikme süresini gösterir ve bant genişliği için çeşitli Azure konumları sınama olan gördüm. Her bir testin sonu arasındaki coğrafi uzaklık tahmin edilen.
 
-Kurulum test edin:
- - Windows Server 2016 10 ile çalışan bir fiziksel sunucuda Gbps NIC, bir expressroute bağlantı hattı bağlı.
- - Etkin özel eşleme ile belirtilen konumda bir 10 GB/sn Premium expressroute bağlantı hattı.
- - Belirtilen bölgede bir UltraPerformance ağ geçidi ile bir Azure VNet.
- - Windows Server 2016 VNet üzerinde çalışan bir DS5v2 VM. VM birleştirilmiş, varsayılandan farklı Azure resmi (en iyi duruma getirme veya özelleştirme) yüklü AzureCT ile yerleşik etki alanı dışı.
- - Tüm test AzureCT Get-LinkPerformance komutu ile 5 dakikalık yük testi her altı test çalışmaları için kullanıyordu. Örneğin:
+Test Kurulumu:
+ - 10 ile Windows Server 2016 çalıştıran bir fiziksel sunucu GB/sn NIC, bir ExpressRoute bağlantı hattına bağlı.
+ - 10 GB/sn Premium ExpressRoute bağlantı hattı özel eşdüzey hizmet sağlama etkinleştirilmiş ile belirtilen konumda.
+ - Belirtilen bölgede bir UltraPerformance ağ geçidi ile Azure sanal ağı.
+ - VNet üzerinde Windows Server 2016 çalıştıran bir DS5v2 VM. VM katılmış varsayılandan (iyileştirme veya özelleştirme), Azure görüntü yüklü AzureCT ile oluşturulan etki alanı dışı.
+ - Tüm test AzureCT Get-LinkPerformance komut 5 dakikalık yük testi ile her altı test çalıştırması için kullanıyordu. Örneğin:
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
     ```
- - Her sınama için veri akışı (listelenen Azure bölgesinde iPerf sunucusu) Azure VM kadar şirket içi fiziksel sunucu (Seattle'ndaki iPerf istemcisi) akışını yük vardı.
- - "Gecikme" sütun veri Hayır yük testi (bir TCP gecikme test çalıştıran iPerf olmadan) değil.
- - "En fazla bant genişliği" sütun veri 1 Mb pencere boyutu olan 16 TCP akışı yük testi arasındadır.
+ - Her test için veri akışı (iPerf sunucu listelenen bir Azure bölgesinde) Azure VM kadar şirket içi fiziksel sunucu (Seattle'ndaki iPerf istemcisi) akışını yük vardı.
+ - "Gecikme süresi" sütun verileri Hayır yük testi (TCP gecikme olmadan bir test çalıştırma iPerf) arasındadır.
+ - "En fazla bant genişliği" sütun verileri 1 MB'lık pencere boyutu olan 16 TCP akışı yük testi arasındadır.
 
 [![3]][3]
 
-### <a name="latencybandwidth-results"></a>Gecikme/bant genişliği sonuçları
+### <a name="latencybandwidth-results"></a>Gecikme süresi/bant genişliği sonuçları
 >[!IMPORTANT]
-> Bu yalnızca genel başvuru numaralarıdır. Gecikme pek çok etken etkiler ve zaman içinde bu değer genellikle tutarlı olmasına karşın, koşullar Azure veya hizmet sağlayıcılarının ağ içinde herhangi bir zamanda farklı yollar üzerinden trafik gönderebilir, böylece gecikme süresi ve bant genişliği etkilenebilir. Genellikle, bu değişikliklerin etkisini önemli farklılıklar neden yoktur.
+> Bu yalnızca genel başvuru sayılardır. Gecikme süresi faktörlerden etkiler ve zaman içinde bu değerleri genellikle tutarlı olmasına rağmen Azure veya hizmet sağlayıcılarının ağ koşulları, herhangi bir zamanda farklı yollar aracılığıyla trafiği gönderebilirsiniz, böylece gecikme süresi ve bant genişliği etkilenebilir. Genellikle, bu değişikliklerin etkisini önemli farklılıklar neden yoktur.
 >
 >
 
 | | | | | | |
 |-|-|-|-|-|-|
 |ExpressRoute<br/>Konum|Azure<br/>Bölge|Tahmini<br/>Uzaklık (km)|Gecikme süresi|1 oturumu<br/>Bant Genişliği|Maksimum<br/>Bant Genişliği|
-| Seattle | Batı ABD 2        |    191 km |   5 ms | 262.0 Mbit/sn |  3.74 Gbits/sn | 21
-| Seattle | Batı ABD          |  1,094 km |  18 ms |  82.3 Mbit/sn |  3.70 Gbits/sn | 20
-| Seattle | Orta ABD       |  2,357 km |  40 ms |  38.8 Mbit/sn |  2.55 Gbits/sn | 17
-| Seattle | Orta Güney ABD |  2,877 km |  51 ms |  30.6 Mbit/sn |  2.49 Gbits/sn | 19
-| Seattle | Orta Kuzey ABD |  2,792 km |  55 ms |  27,7 Mbit/sn |  2.19 Gbits/sn | 18
-| Seattle | Doğu ABD 2        |  3,769 km |  73 ms |  21.3 Mbit/sn |  1.79 Gbits/sn | 16
-| Seattle | Doğu ABD          |  3,699 km |  74 ms |  21.1 Mbit/sn |  1.78 Gbits/sn | 15
-| Seattle | Japonya Doğu       |  7,705 km | 106 ms |  14,6 Mbit/sn |  1.22 Gbits/sn | 28
-| Seattle | Birleşik Krallık Güney         |  7,708 km | 146 ms |  10.6 Mbit/sn |   896 Mbit/sn | 24
-| Seattle | Batı Avrupa      |  7,834 km | 153 ms |  10.2 Mbit/sn |   761 Mbit/sn | 23
-| Seattle | Avustralya Doğu   | 12,484 km | 165 ms |   9,4 Mbit/sn |   794 Mbit/sn | 26
-| Seattle | Güneydoğu Asya   | 12,989 km | 170 ms |   9.2 Mbit/sn |   756 Mbit/sn | 25
-| Seattle | Brezilya Güney *   | 10,930 km | 189 ms |   8.2 Mbit/sn |   699 Mbit/sn | 22
-| Seattle | Güney Hindistan      | 12,918 km | 202 ms |   7.7 Mbit/sn |   634 Mbit/sn | 27
+| Seattle | Batı ABD 2        |    191 km |   5 ms | 262.0 Mbits/sn |  3.74 Gbits/sn | 21
+| Seattle | Batı ABD          |  1,094 km |  18 ms |  82.3 Mbits/sn |  3.70 Gbits/sn | 20
+| Seattle | Orta ABD       |  2,357 km |  40 ms |  38.8 Mbits/sn |  2.55 Gbits/sn | 17
+| Seattle | Orta Güney ABD |  2,877 km |  51 ms |  30.6 Mbits/sn |  2.49 Gbits/sn | 19
+| Seattle | Orta Kuzey ABD |  2,792 km |  55 ms |  27,7 Mbits/sn |  2.19 Gbits/sn | 18
+| Seattle | Doğu ABD 2        |  3,769 km |  73 ms |  21.3 Mbits/sn |  1.79 Gbits/sn | 16
+| Seattle | Doğu ABD          |  3,699 km |  74 ms |  21.1 Mbits/sn |  1.78 Gbits/sn | 15
+| Seattle | Japonya Doğu       |  7,705 km | 106 ms |  14,6 Mbits/sn |  1.22 Gbits/sn | 28
+| Seattle | Birleşik Krallık Güney         |  7,708 km | 146 ms |  10.6 Mbits/sn |   896 Mbits/sn | 24
+| Seattle | Batı Avrupa      |  7,834 km | 153 ms |  10.2 Mbits/sn |   761 Mbits/sn | 23
+| Seattle | Avustralya Doğu   | 12,484 km | 165 ms |   9.4 sürümünden Mbits/sn |   794 Mbits/sn | 26
+| Seattle | Güneydoğu Asya   | 12,989 km | 170 ms |   9.2 Mbits/sn |   756 Mbits/sn | 25
+| Seattle | Brezilya Güney *   | 10,930 km | 189 ms |   8.2 Mbits/sn |   699 Mbits/sn | 22
+| Seattle | Güney Hindistan      | 12,918 km | 202 ms |   7.7 Mbits/sn |   634 Mbits/sn | 27
 
-\*Gecikme Brezilya için iyi olduğu doğrusal uzaklığı uzaklığı çalıştırmak fiber önemli ölçüde farklı bir örnektir. Gecikme 160 ms Komşuları'nda olacaktır, ancak gerçekte 189 ms olduğu beklemeniz. Bu fark my Beklenti karşı bir yerde bir ağ sorunu olduğunu gösteriyor olabilir, ancak büyük olasılıkla fiber çalıştığını ve Brezilya için bir çizgide geçmez fazladan 1.000 km veya seyahat için Brezilya İstanbul almak için bunu sahiptir.
+\* Brezilya gecikme süresini burada doğrusal uzaklık uzaklık çalıştırma fiber önemli ölçüde farklı iyi bir örnektir. Gecikme süresini 160 MS Komşuları'olacaktır, ancak gerçekte 189 ms olduğunu beklediğiniz gibi. Bu fark karşı Bilgisayarım beklentisi yere bir ağ sorunu olduğunu gösteriyor olabilir, ancak büyük olasılıkla otomatik olarak fiber çalıştığını ve Brezilya için düz bir çizgi geçmez ek bir 1.000 km veya seyahat için Brezilya Seattle'dan almak için bunu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-1. Azure bağlantı Araç Seti adresindeki github'dan indirin [http://aka.ms/AzCT][ACT]
-2. Yönergeleri izleyin [performans testi bağlantı][Performance Doc]
+1. Azure bağlantısı Araç Seti adresindeki github'dan indirin [http://aka.ms/AzCT][ACT]
+2. Yönergelerini izleyin [performans testi bağlantı][Performance Doc]
 
 <!--Image References-->
 [1]: ./media/expressroute-troubleshooting-network-performance/network-components.png "azure ağ bileşenleri"
 [2]: ./media/expressroute-troubleshooting-network-performance/expressroute-troubleshooting.png "ExpressRoute sorun giderme"
-[3]: ./media/expressroute-troubleshooting-network-performance/test-diagram.png "performans sınama ortamı"
+[3]: ./media/expressroute-troubleshooting-network-performance/test-diagram.png "Performans Test Ortamı"
 [4]: ./media/expressroute-troubleshooting-network-performance/powershell-output.png "PowerShell çıkışı"
 
 <!--Link References-->

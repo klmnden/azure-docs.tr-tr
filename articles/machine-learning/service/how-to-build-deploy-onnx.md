@@ -11,14 +11,14 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5fc0e00d9c4404a1c6a757c354a9c7116dfeffa7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 8da2309a16c07440158c1de324eea1fa05b1c98b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094024"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189080"
 ---
-# <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX ve Azure Machine Learning: oluşturma ve birlikte çalışabilen yapay ZEKA modelleri dağıtma
+# <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX ve Azure Machine Learning: Oluşturma ve birlikte çalışabilen yapay ZEKA modelleri dağıtma
 
 [Açın sinir ağı Exchange](https://onnx.ai) (ONNX) biçimidir açık bir standart machine learning modellerini temsil etmek için. ONNX tarafından desteklenen bir [iş ortaklarının topluluk](https://onnx.ai/supported-tools), uyumlu çerçeveleri ve araçları oluşturan Microsoft, dahil. Böylece veri bilimcileri ve geliştiricileri için Microsoft açık ve birlikte çalışabilen yapay ZEKA taahhüt etmektedir:
 

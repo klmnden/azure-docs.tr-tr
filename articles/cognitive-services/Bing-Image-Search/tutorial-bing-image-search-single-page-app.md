@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Tek sayfalı web uygulaması oluşturma - Bing Resim Arama API’si'
+title: "Öğretici: Bing resim arama API'si - tek sayfa web uygulaması oluşturma"
 titleSuffix: Azure cognitive services
 description: Bing Resim Arama API’si, web’de yüksek kaliteli, alakalı görüntüleri aramanıza olanak sağlar. API’ye arama sorguları gönderebilen ve sonuçları web sayfasında görüntüleyebilen tek sayfalı bir web uygulaması derlemek için bu öğreticiyi kullanın.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: tutorial
 ms.date: 9/12/2018
 ms.author: aahi
-ms.openlocfilehash: e37cb9b9412d257ab238f23b90e4a1077070b2b6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: e2013b28e8c829d49efe662a9b0eba245c6d5fab
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297460"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253961"
 ---
-# <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Öğretici: Bing Resim Arama API’sini kullanarak tek sayfalı uygulama oluşturma
+# <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Öğretici: Bing resim arama API'si kullanarak tek sayfalı uygulama oluşturma
 
 Bing Resim Arama API’si, web’de yüksek kaliteli, alakalı görüntüleri aramanıza olanak sağlar. API’ye arama sorguları gönderebilen ve sonuçları web sayfasında görüntüleyebilen tek sayfalı bir web uygulaması derlemek için bu öğreticiyi kullanın. Bu öğretici, Bing Web Araması’nın [ilgili öğreticisine](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) benzerdir.
 
@@ -31,10 +31,10 @@ Bing Resim Arama API’si, web’de yüksek kaliteli, alakalı görüntüleri ar
 
 Bu öğreticinin tam kaynak kodu, [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search)’da mevcuttur.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-* [Node.js](https://nodejs.org/)'in en son sürümü.
-* Node.js için [Express.js](https://expressjs.com/) çerçevesi. Kaynak kodu için yükleme yönergeleri, gitHub örnek benioku dosyasında mevcuttur.
+* [Node.js](https://nodejs.org/)’in en son sürümü.
+* Node.js için [Express.js](https://expressjs.com/) çerçevesi. Yükleme yönergeleri için kaynak kodunu GitHub örnek readme dosyasında kullanılabilir.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 

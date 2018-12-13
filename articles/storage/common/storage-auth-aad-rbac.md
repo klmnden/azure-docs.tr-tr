@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/12/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: ac62800e81cece61e9f51c496ace2868629a49a1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 911b8051530daca57fe26fb22c6dc1be845c6d6d
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960252"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321435"
 ---
 # <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Azure Blob ve kuyruk verisi ile RBAC (Önizleme) için erişim haklarını yönetme
 
@@ -29,6 +29,7 @@ Azure depolama, hem yerleşik hem de özel RBAC rollerini destekler. Azure depol
 
 - [Depolama Blob verileri katkıda bulunan (Önizleme)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)
 - [Depolama Blob verileri Okuyucu (Önizleme)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
+- [Depolama Blob verileri sahibi (Önizleme)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview)
 - [Depolama kuyruk verileri katkıda bulunan (Önizleme)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
 - [Depolama kuyruk verileri Okuyucu (Önizleme)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview)
 
@@ -44,7 +45,7 @@ Kapsayıcıları ve kuyruk depolama hesabınızda izinler vermek için Azure kim
 
 |Kapsam|BLOB veri sahibi|BLOB verileri katkıda bulunan|BLOB veri okuyucusu|Kuyruk verileri katkıda bulunan|Kuyruk verileri okuyucu|
 |---|---|---|---|---|---|
-|Subscrition düzeyi|Tüm kapsayıcılar ve bloblar aboneliği için okuma/yazma erişimi|Tüm kapsayıcılar ve bloblar aboneliği için okuma/yazma erişimi| Tüm kapsayıcılar ve bloblar aboneliği okuma erişimi|Abonelikteki tüm kuyruklar için okuma/yazma erişimi|Abonelikteki tüm kuyrukları okuma erişimi|
+|Abonelik düzeyi|Tüm kapsayıcılar ve bloblar aboneliği için okuma/yazma erişimi|Tüm kapsayıcılar ve bloblar aboneliği için okuma/yazma erişimi| Tüm kapsayıcılar ve bloblar aboneliği okuma erişimi|Abonelikteki tüm kuyruklar için okuma/yazma erişimi|Abonelikteki tüm kuyrukları okuma erişimi|
 |Kaynak grubu düzeyinde|Tüm kapsayıcılar ve bloblar kaynak grubundaki okuma/yazma erişimi|Tüm kapsayıcılar ve bloblar kaynak grubundaki okuma/yazma erişimi|Tüm kapsayıcılar ve bloblar kaynak grubundaki okuma erişimi|Kaynak grubundaki tüm kuyruklar için okuma/yazma erişimi|Kaynak grubundaki tüm kuyrukları okuma erişimi|
 |Depolama hesabı düzeyi|Tüm kapsayıcıları ve blobları depolama hesabındaki okuma/yazma erişimi|Tüm kapsayıcıları ve blobları depolama hesabındaki okuma/yazma erişimi|Tüm kapsayıcıları ve blobları depolama hesabındaki okuma erişimi|Depolama hesabındaki tüm kuyruklar için okuma/yazma erişimi|Depolama hesabındaki tüm kuyrukları okuma erişimi|
 |Kapsayıcı/kuyruk düzeyi|Belirtilen kapsayıcıya ve bloblarına okuma/yazma erişimi|Belirtilen kapsayıcıya ve bloblarına okuma/yazma erişimi|Belirtilen kapsayıcıya ve bloblarına okuma erişimi|Belirtilen sıra okuma/yazma erişimi|Belirtilen sıra okuma erişimi|

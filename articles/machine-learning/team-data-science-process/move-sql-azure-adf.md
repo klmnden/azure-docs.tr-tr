@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 87aa1c30bb567c6820e2d9ecacfc3f8cd2338339
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: a1bb841c1218be0a418583af8ca95b2dff2f67d9
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137778"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309510"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure Data Factory ile SQL Azure için bir şirket içi SQL Server'dan veri taşıma
 
@@ -43,7 +43,7 @@ Zamanlama ve düzenli aralıklarla veri taşıma işlemlerini yönetmek basit JS
 * verileri Azure Blob Depolama hesabından bir Azure SQL veritabanı'na kopyalayın.
 
 > [!NOTE]
-> Burada olduğunu ADF ekibi tarafından sağlanan daha ayrıntılı öğreticiden uyarlanmış gösterilen adımlar: [veri kopyalama bir şirket içi SQL Server veritabanından Azure Blob depolama alanına](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal/) başvuruları, konusunun ilgili bölümlerine ne zaman sağlanır uygun.
+> Burada gösterilen adımları ADF ekibi tarafından sağlanan daha ayrıntılı öğreticiden uyarlanmıştır: [Verileri bir şirket içi SQL Server veritabanından Azure Blob depolama alanına kopyalamak](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) uygun olduğunda o konusunun ilgili bölümlerine başvuruları sağlanır.
 >
 >
 
@@ -71,7 +71,7 @@ Yeni bir Azure Data Factory ve bir kaynak grubu oluşturmak için yönergeleri [
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Yükleme ve Azure Data Factory Integration Runtime'ı yapılandırma 
 Integration Runtime, Azure Data Factory tarafından farklı ağ ortamları veri tümleştirme özellikleri sağlamak için kullanılan bir müşteri yönetilen veri tümleştirme altyapısıdır. Bu çalışma zamanı, eski adıyla "Veri yönetimi ağ geçidi" olarak adlandırılıyordu. 
 
-Ayarlamak için [instrutions bir işlem hattı oluşturmak için izleyin](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
+Ayarlamak için [instrutions bir işlem hattı oluşturmak için izleyin](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
 ## <a name="adflinkedservices"></a>Veri kaynaklarına bağlanmak için bağlı hizmetler oluşturma
 Bağlı hizmet için bir veri kaynağına bağlanmak Azure Data Factory'ye gereken bilgileri tanımlar. Bağlı hizmetler için gerekli olan bu senaryoda üç kaynak sunuyoruz:

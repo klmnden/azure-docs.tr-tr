@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 8a6f0a69f0159a31d9fefcc54a104ebc1ed47ec4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f95d7851241dfd5b077c215e2df893c6ba8ef36c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100353"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139495"
 ---
 # <a name="create-entities-without-utterances"></a>Konuşma olmadan varlık oluşturma
 
@@ -157,13 +157,13 @@ Liste varlık ilgili sözcükler sabit, kapalı bir kümesini temsil eder.
 
 1. Daha fazla normalleştirilmiş öğeleri listesini istiyorsanız seçin **önerilir** seçenekleri görmek için [anlam sözlük](luis-glossary.md#semantic-dictionary).
 
-    ![Kaynak rolü konumu varlığa ekleme işleminin ekran görüntüsü](./media/add-entities/hr-list-2.png)
+    ![Seçenekleri görmek için önerilen özellik seçimi ekran görüntüsü](./media/add-entities/hr-list-2.png)
 
 
 1. Normalleştirilmiş bir değer olarak ekleyin veya seçmek için önerilen listesinden bir öğe seçin **tüm eklemek** tüm öğeleri eklenecek. 
     Değerler şu JSON biçimini kullanarak var olan bir liste varlığa içeri aktarabilirsiniz:
 
-    ```
+    ```JSON
     [
         {
             "canonicalForm": "Blue",

@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 40ec204f105b32c8b7d9e2dda6f6f3c3023b2d44
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 0f608dc89d3a9bc8914fc9be142c442246ce13b5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495467"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278551"
 ---
 # <a name="sfctl-application"></a>sfctl application
 Oluşturma, silme ve uygulama ve uygulama türlerini yönetme.
@@ -33,9 +33,9 @@ Oluşturma, silme ve uygulama ve uygulama türlerini yönetme.
 | dağıtılan | Bir Service Fabric düğüm üzerinde dağıtılan bir uygulama hakkındaki bilgileri alır. |
 | dağıtılan-health | Bir Service Fabric düğüm üzerinde dağıtılmış bir uygulamanın durumu hakkında bilgileri alır. |
 | dağıtılan listesi | Bir Service Fabric düğümde dağıtılan uygulamalar listesini alır. |
-| sistem durumu | Service fabric uygulaması durumunu alır. |
+| sağlık | Service fabric uygulaması durumunu alır. |
 | bilgi | Service Fabric uygulaması hakkındaki bilgileri alır. |
-| liste | Belirtilen filtrelerle eşleşen ve Service Fabric kümesinde oluşturulan uygulamaların listesini alır. |
+| list | Belirtilen filtrelerle eşleşen ve Service Fabric kümesinde oluşturulan uygulamaların listesini alır. |
 | yükleme | Service Fabric uygulaması hakkında bilgi alır yükleyin. |
 | Bildirimi | Bir uygulama türünü tanımlayan bir bildirim alır. |
 | sağlama | Hükümler veya kayıtları .sfpkg paket dış depoda veya görüntü deposundaki uygulama paketi kullanarak küme Service Fabric uygulaması yazın. |
@@ -54,7 +54,7 @@ Belirtilen tanımını kullanarak bir Service Fabric uygulaması oluşturur.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | [gerekli]--uygulama adı | Uygulamanın adı dahil olmak üzere ' fabric\:' URI düzeni. |
 | --uygulama türü [gerekli] | Uygulama bildiriminde bulunan uygulama türü adı. |
@@ -67,7 +67,7 @@ Belirtilen tanımını kullanarak bir Service Fabric uygulaması oluşturur.
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -82,7 +82,7 @@ Uygulamanın silinebilmesi için önce oluşturulması gerekir. Bir uygulama sil
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
 | --force-Kaldır | Bir Service Fabric uygulaması veya hizmeti kapatılmasını sırasıyla gitmeden zorla kaldırın. Bu parametre, zorla bir uygulamayı silmek için kullanılabilir veya hizmet için hangi silme zaman aşımına uğramadan hizmet kodda engelleyen sorunları nedeniyle normal kopyaları kapatın. |
@@ -90,7 +90,7 @@ Uygulamanın silinebilmesi için önce oluşturulması gerekir. Bir uygulama sil
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -105,7 +105,7 @@ Sistem uygulaması için sağlanan uygulama kimliği ise, bu sorgu sistemi uygul
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
 | --[gerekli] düğüm adı | Düğümün adı. |
@@ -114,7 +114,7 @@ Sistem uygulaması için sağlanan uygulama kimliği ise, bu sorgu sistemi uygul
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -129,7 +129,7 @@ Bir Service Fabric düğüm üzerinde dağıtılmış bir uygulamanın durumu ha
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
 | --[gerekli] düğüm adı | Düğümün adı. |
@@ -140,7 +140,7 @@ Bir Service Fabric düğüm üzerinde dağıtılmış bir uygulamanın durumu ha
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -155,7 +155,7 @@ Bir Service Fabric düğümde dağıtılan uygulamalar listesini alır. Sonuçla
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --[gerekli] düğüm adı | Düğümün adı. |
 | --devamlılık belirteci | Devamlılık belirteci parametresi, sonraki sonuç kümesini almak için kullanılır. Sistem sonuçlardan tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değer ile API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı, API, sonraki sonuç kümesini döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır. |
@@ -165,7 +165,7 @@ Bir Service Fabric düğümde dağıtılan uygulamalar listesini alır. Sonuçla
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -180,7 +180,7 @@ Service fabric uygulaması sistem durumu durumunu döndürür. Yanıt, Tamam, ha
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
 | --dağıtılan uygulamalar-sistem durumu-durumunu-filtreleme | Dağıtılan uygulamaları sistem durumu nesnelerini filtreleme, sistem durumuna bağlı uygulama sistem durumu sorgu sonucu döndürdü sağlar. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen dağıtılan uygulamalar döndürülür. Tüm dağıtılan uygulamaları, toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri numaralandırma bayrağı tabanlı olduğundan, değer Bitsel 'Veya' işlecini kullanarak elde ettiğiniz bu değerlerin bir birleşimi olabilir. Örneğin, sağlanan değer 6 ise ardından dağıtılan uygulamalar sistem durumunu Tamam (2) ve (4) uyarı HealthState değeriyle döndürülür.  <br> -Default - varsayılan değer. Tüm HealthState eşleşir. Değer sıfırdır.  <br> -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Belirli bir koleksiyon durumlarının sonuç döndürmek için kullanılır. Değer 1'dir.  <br> -Tamam - eşleşme HealthState değeriyle Tamam giriş filtreleyin. Değeri 2'dir.  <br> -Uyarı - filtre HealthState girişle eşleşir uyarı değeri. Değer 4'tür.  <br> -Hata - giriş hatası HealthState değeri ile eşleşen filtre. Değer 8'dir.  <br> -All - giriş herhangi bir HealthState değeri ile eşleşen filtreleyin. Değer 65535'tir. |
@@ -191,7 +191,7 @@ Service fabric uygulaması sistem durumu durumunu döndürür. Yanıt, Tamam, ha
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -206,7 +206,7 @@ Service Fabric kümesine ve parametre olarak belirtilen bir adı eşleşen oluş
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
 | --exclude uygulama parametreleri | Uygulama parametreleri sonuçtan dışlanan olup olmadığını belirten bayrak. |
@@ -214,7 +214,7 @@ Service Fabric kümesine ve parametre olarak belirtilen bir adı eşleşen oluş
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -229,7 +229,7 @@ Oluşturulan veya Service Fabric'te oluşturulurken küme ve belirtilen filtrele
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Uygulama tanım türü filtresi | Service Fabric uygulaması tanımlamak için kullanılan mekanizma olan ApplicationDefinitionKind üzerinde filtrelemek için kullanılır.  <br> -Default - varsayılan değer, "All" seçerek olarak aynı işlevi gerçekleştirir. Değer 0'dır.  <br> -All - giriş herhangi bir ApplicationDefinitionKind değeri ile eşleşen filtreleyin. Değer 65535'tir.  <br> -ServiceFabricApplicationDescription - giriş ServiceFabricApplicationDescription ApplicationDefinitionKind değeriyle eşleşen filtreleyin. Değer 1'dir.  <br> Giriş oluşturma ApplicationDefinitionKind değeriyle eşleşen - Oluştur - filtre. Değeri 2'dir. |
 | --uygulama türü adı | Sorgulamak için uygulamaları filtrelemek için kullanılan uygulama türü adı. Bu değer, bir uygulama türü sürümü içermemelidir. |
@@ -240,7 +240,7 @@ Oluşturulan veya Service Fabric'te oluşturulurken küme ve belirtilen filtrele
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -255,14 +255,14 @@ Oluşturulan uygulamayla ilgili veya Service Fabric kümesine ve parametre olara
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -277,7 +277,7 @@ Yanıt, uygulama bildirimi XML'i bir dize olarak içerir.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --uygulama-türü-name [gerekli] | Uygulama türü adı. |
 | --uygulama-türü-sürüm [gerekli] | Uygulama türü sürümü. |
@@ -285,7 +285,7 @@ Yanıt, uygulama bildirimi XML'i bir dize olarak içerir.
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -300,7 +300,7 @@ Bir kümedeki Service Fabric uygulama türüyle sağlar. Yeni uygulamalar oluşt
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Uygulama paketi indirme URI'si | Yolun nereden '.sfpkg' uygulama paketi için uygulama paketi HTTP veya HTTPS protokollerini kullanan indirilebilir. <br><br> Dış sağlama türü için yalnızca depolayın. Uygulama paketi dosyasını indirmek için alma işlemi sağlayan bir dış deposunda saklanır. Desteklenen protokoller HTTP ve HTTPS ve yolu okuma erişimine izin vermeniz gerekir. |
 | --uygulama türü derleme yolu | Sağlama türü görüntü deposu için yalnızca. Önceki karşıya yükleme işlemi sırasında belirtilen görüntü deposundaki uygulama paketi için göreli yol. |
@@ -312,7 +312,7 @@ Bir kümedeki Service Fabric uygulama türüyle sağlar. Yeni uygulamalar oluşt
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -327,22 +327,22 @@ Belirtilen Service Fabric uygulaması sistem durumunu raporlar. Rapor üzerinde 
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Uygulama-kimliği [gerekli] | Uygulama kimliği. <br><br> Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış '\~' karakter. Örneğin, uygulama adı ise ' fabric\:/myapp/app1 ', uygulama kimliği olur ' Uygulamam\~app1' 6.0 + ve ' myapp/app1' in önceki sürümlerindeki. |
 | --[gerekli] sistem durumu özelliği | Sistem durumu bilgileri özelliği. <br><br> Bir varlık sistem durumu raporlarının farklı özellikler için sahip olabilir. , Bir dize ve rapor tetikleyen durumu koşulu kategorilere ayırmak muhabir esnekliğini tanımak için olmayan bir sabit numaralandırma özelliğidir. Örneğin, "AvailableDisk" özelliği, düğüm üzerinde rapor için bir Raporlayıcı SourceId "LocalWatchdog" ile bir düğümde, kullanılabilir disk durumunu izleyebilirsiniz. Bu özellik "Bağlantı" aynı düğümde raporlamak için aynı muhabir düğüm bağlantısı izleyebilirsiniz. Health store içinde bu raporları belirtilen düğüm için ayrı bir sistem durumu olayları olarak kabul edilir. SourceId birlikte özelliği sistem durumu bilgileri benzersiz olarak tanımlar. |
 | --[gerekli] sistem durumu | Olası değerler şunlardır\: 'Geçersiz', 'Tamam', 'Warning', 'Error', 'Bilinmeyen'. |
-| --Kaynak Kimliği [gerekli] | Sistem durumu bilgileri oluşturulan izleme/istemci/sistem bileşeni tanımlayan kaynak adı. |
+| --Kaynak Kimliği [gerekli] | Kaynak adı, sistem durumu bilgileri oluşturulan izleme/istemci/sistem bileşeni belirtir. |
 | --açıklaması | Sistem durumu bilgileri açıklaması. <br><br> Bu, insan tarafından okunabilir rapor bilgilerini eklemek için kullanılan serbest metin temsil eder. Açıklama maksimum dize uzunluğu 4096 karakter olabilir. Sağlanan dize uzun olduğunda otomatik olarak kesilir. Kesirli kısmı, bir işaretçi "[kesildi]" açıklama son karakterleri içeren ve toplam dize boyutu 4096 karakter. İşaretleyici varlığı kullanıcılara bu kesme gösterir oluştu. Kesirli kısmı, açıklama orijinal dizeden küçüktür 4096 karakter olduğuna dikkat edin. |
 | --hemen | Raporun hemen gönderilmesi gerekip gerekmediğini gösteren bir bayrak. <br><br> Sistem Durumu raporu, Service Fabric için sistem durumu deposu ileten uygulama ağ geçidi için gönderilir. Hemen ayarlanmışsa true, raporun hemen sistem durumu deposu, HTTP ağ geçidi uygulaması kullanarak doku istemci ayarlarına bakılmaksızın HTTP ağ geçidi'ndeki gönderilir. Bu, olabildiğince çabuk gönderilmesi gereken kritik raporlar için kullanışlıdır. Zamanlama ve diğer koşullara bağlı olarak, rapor gönderme yine de, örneğin HTTP ağ geçidini kapalı veya ağ geçidi ileti ulaşmaz başarısız olabilir. Hemen false olarak ayarlarsanız, raporun durumu istemci ayarlarının HTTP ağ geçidi'nden göre gönderilir. Bu nedenle, bunu HealthReportSendInterval yapılandırmasına göre toplu olarak. Sistem Durumu raporu işleme yanı sıra health store iletilere raporlama sistem durumu iyileştirmek sistem durumu istemci izin verdiğinden Önerilen ayar budur. Varsayılan olarak, raporları hemen gönderilmez. |
 | --remove-zaman süresi | Belirtecin süresi dolduğunda, health Store'dan rapor kaldırılmış olup olmadığını gösteren değer. <br><br> Süresi dolduktan sonra health Store'dan true olarak rapor kaldırılırsa. Rapor false olarak ayarlanırsa süresi dolduğunda hata kabul edilir Bu özellik varsayılan olarak false değeridir. İstemciler düzenli aralıklarla bildirdiğinde RemoveWhenExpired false (varsayılan) ayarlamanız gerekir. Bu şekilde muhabir sorunları (örneğin, kilitlenme) ve rapor veremez, varlık sistem durumu raporu süresi dolduğunda hatası değerlendirilir ' dir. Bu varlık sistem durumu hatası olarak işaretler. |
 | --sıra numarası | Bu sistem durumu raporu sayısal dize olarak için sıra numarası. <br><br> Rapor sıra numarası, eski raporlar algılamak için sistem durumu deposu tarafından kullanılır. Bir rapora eklendiğinde belirtilmezse, bir sıra numarası otomatik olarak sistem istemci tarafından üretilir. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
-| --ttl | Bu sistem durumu raporu geçerli olduğu süre. Bu alan, süresi belirtmek için ISO8601 biçimini kullanıyor. <br><br> İstemciler düzenli aralıklarla rapor, yaşam süresi daha yüksek sıklıkta raporları göndermelisiniz. İstemcileri geçişi bildirirse, bunlar sonsuz için yaşam süresi ayarlayabilirsiniz. Yaşam süresi dolduğunda, sistem durumu bilgilerini içeren sistem durumu olayı RemoveWhenExpired ise health Store'dan kaldırıldı ya da doğru veya hata sırasında değerlendirilen ise RemoveWhenExpired false. Aksi durumda sonsuz değer varsayılan olarak belirtilen, süresi. |
+| --ttl | Bu sistem durumu raporu geçerli olduğu süre. Bu alan, süresi belirtmek için ISO8601 biçimini kullanır. <br><br> İstemciler düzenli aralıklarla rapor, yaşam süresi daha yüksek sıklıkta raporları göndermelisiniz. İstemcileri geçişi bildirirse, bunlar sonsuz için yaşam süresi ayarlayabilirsiniz. Yaşam süresi dolduğunda, sistem durumu bilgilerini içeren sistem durumu olayı RemoveWhenExpired ise health Store'dan kaldırıldı ya da doğru veya hata sırasında değerlendirilen ise RemoveWhenExpired false. Aksi durumda sonsuz değer varsayılan olarak belirtilen, süresi. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -357,7 +357,7 @@ Service Fabric kümesinde sağlanırken sürecinde veya sağlanan uygulama türl
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --uygulama-türü-name [gerekli] | Uygulama türü adı. |
 | --uygulama türü sürümü | Uygulama türü sürümü. |
@@ -368,7 +368,7 @@ Service Fabric kümesinde sağlanırken sürecinde veya sağlanan uygulama türl
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -383,7 +383,7 @@ Service Fabric kümesinde sağlanırken sürecinde veya sağlanan uygulama türl
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --uygulama-türü-definition-Türü-Filtresi | Bir Service Fabric uygulama türünü tanımlamak için kullanılan mekanizma olan ApplicationTypeDefinitionKind filtrelemek için kullanılır.  <br> -Default - varsayılan değer, "All" seçerek olarak aynı işlevi gerçekleştirir. Değer 0'dır.  <br> -All - giriş herhangi bir ApplicationTypeDefinitionKind değeri ile eşleşen filtreleyin. Değer 65535'tir.  <br> -ServiceFabricApplicationPackage - giriş ServiceFabricApplicationPackage ApplicationTypeDefinitionKind değeriyle eşleşen filtreleyin. Değer 1'dir.  <br> Giriş oluşturma ApplicationTypeDefinitionKind değeriyle eşleşen - Oluştur - filtre. Değeri 2'dir. |
 | --devamlılık belirteci | Devamlılık belirteci parametresi, sonraki sonuç kümesini almak için kullanılır. Sistem sonuçlardan tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değer ile API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı, API, sonraki sonuç kümesini döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır. |
@@ -393,7 +393,7 @@ Service Fabric kümesinde sağlanırken sürecinde veya sağlanan uygulama türl
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -408,7 +408,7 @@ Bu işlem, yalnızca tüm uygulama örnekleri uygulama türünün silinmiş olup
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --uygulama-türü-name [gerekli] | Uygulama türü adı. |
 | --uygulama-türü-sürüm [gerekli] | Uygulama bildiriminde tanımlanan uygulama türü sürümü. |
@@ -417,7 +417,7 @@ Bu işlem, yalnızca tüm uygulama örnekleri uygulama türünün silinmiş olup
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -432,29 +432,29 @@ Sağlanan uygulama yükseltme parametreleri doğrular ve geçerliyse parametrele
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
-| --Uygulama-kimliği [gerekli] | Uygulama kimliği. <br><br> Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış '\~' karakter. Örneğin, uygulama adı ise ' fabric\:/myapp/app1 ', uygulama kimliği olur ' Uygulamam\~app1' 6.0 + ve ' myapp/app1' in önceki sürümlerindeki. |
-| --Uygulama sürümü [gerekli] | Hedef uygulama sürümü. |
+| --Uygulama-kimliği [gerekli] | Uygulama kimliği. <br><br> Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
+| --Uygulama sürümü [gerekli] | (Uygulama bildiriminde bulunur) hedef uygulama türü sürümünü uygulama yükseltmesi için. |
 | --Parametreler [gerekli] | Uygulama yükseltme sırasında uygulanacak parametr aplikace JSON olarak kodlanmış listesi geçersiz kılar. |
 | --Varsayılan-hizmet-sistem durumu ilkesi | Varsayılan olarak bir hizmet türünün durumunu değerlendirmek için kullanılan sistem durumu ilkesi belirtimi JSON kodlamalı. |
 | --hatası eylemi | İzlenen yükseltme izleme ilke veya sistem durumu ilke ihlallerini karşılaştığında gerçekleştirilecek eylem. |
 | --force-yeniden başlatma | Zorla kod sürümü değil değiştiğinde işlemleri yükseltme sırasında bile yeniden başlatın. |
-| --Sistem durumu-onay-yeniden-zaman aşımı | Uygulama veya küme hatası eylemi önce sistem durumu kötü olduğunda sistem durumu değerlendirme yeniden denemek için süreyi yürütülür. Milisaniye olarak ölçülür.  Varsayılan\: PT0H10M0S. |
-| --Sistem durumu denetimi kararlı süresi | Süreyi sonraki yükseltme etki alanına yükseltmeye devam etmeden önce uygulama veya kümenin sağlıklı kalmasını gerekir. Milisaniye olarak ölçülür.  Varsayılan\: PT0H2M0S. |
-| --Sistem durumu denetimi bekleme süresi | Sistem durumu ilkeleri uygulanmadan önce bir yükseltme etki alanını tamamladıktan sonra beklenecek süre miktarı. Milisaniye olarak ölçülür.  Varsayılan\: 0. |
+| --Sistem durumu-onay-yeniden-zaman aşımı | Uygulama veya kümenin iyi durumda değilse, sistem durumu denetimleri gerçekleştirmek için girişimleri arasındaki süre uzunluğu.  Varsayılan\: PT0H10M0S. |
+| --Sistem durumu denetimi kararlı süresi | Süreyi sonraki yükseltme etki alanına yükseltmeye devam etmeden önce uygulama veya kümenin sağlıklı kalmasını gerekir.  Varsayılan\: PT0H2M0S. <br><br> Bu, önce bir ISO 8601 süre temsil eden bir dize olarak yorumlanır. Bu başarısız olursa, milisaniye cinsinden toplam sayısını temsil eden bir sayı olarak yorumlanır. |
+| --Sistem durumu denetimi bekleme süresi | Sistem başlatmadan önce bir yükseltme etki alanını tamamladıktan sonra beklenecek süreyi işlemi denetler.  Varsayılan\: 0. |
 | --en fazla sağlıksız-uygulamalar | İyi durumda olmayan dağıtılmış uygulamalar yüzdesi, izin verilen en fazla. 0 ile 100 arasında bir sayı olarak temsil edilir. |
 | --modu | Sıralı yükseltme sırasında durumunu izlemek için kullanılan modu.  Varsayılan\: UnmonitoredAuto. |
 | --çoğaltma-kümesi-onay-zaman aşımı | En uzun süreyi bir yükseltme etki alanını işlenmesini engellemek ve beklenmeyen sorunları kullanılabilirlik kaybını önlemek için. Saniye cinsinden ölçülür. |
 | --Hizmet sistem durumu ilkesi | JSON hizmet türü sistem durumu ilkesi başına hizmet türü adı eşlemeyle kodlanmış. Bir eşlem boşsa, varsayılan olarak. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
-| --Yükseltme-etki-zaman aşımı | Süreyi FailureAction yürütülmeden önce tamamlamak her bir yükseltme etki alanı vardır. Milisaniye olarak ölçülür.  Varsayılan\: P10675199DT02H48M05.4775807S. |
-| --Yükseltme zaman aşımı | Süreyi genel yükseltme FailureAction yürütülmeden önce tamamlanması gerekir. Milisaniye olarak ölçülür.  Varsayılan\: P10675199DT02H48M05.4775807S. |
-| --hata olarak uyarı | Aynı önem derecesi ile sistem durumu değerlendirme uyarıları hata olarak değerlendir. |
+| --Yükseltme-etki-zaman aşımı | Süreyi FailureAction yürütülmeden önce tamamlamak her bir yükseltme etki alanı vardır.  Varsayılan\: P10675199DT02H48M05.4775807S. <br><br> Bu, önce bir ISO 8601 süre temsil eden bir dize olarak yorumlanır. Bu başarısız olursa, milisaniye cinsinden toplam sayısını temsil eden bir sayı olarak yorumlanır. |
+| --Yükseltme zaman aşımı | Süreyi genel yükseltme FailureAction yürütülmeden önce tamamlanması gerekir.  Varsayılan\: P10675199DT02H48M05.4775807S. <br><br> Bu, önce bir ISO 8601 süre temsil eden bir dize olarak yorumlanır. Bu başarısız olursa, milisaniye cinsinden toplam sayısını temsil eden bir sayı olarak yorumlanır. |
+| --hata olarak uyarı | Uyarıları hata olarak aynı önem derecesi kabul edilip edilmeyeceğini belirtir. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -469,7 +469,7 @@ Sürdürür izlenmeyen el ile bir Service Fabric uygulaması yükseltme. Service
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
 | --Yükseltme-etki-name [gerekli] | Yükseltme devam etmek, yükseltme etki alanı adı. |
@@ -477,7 +477,7 @@ Sürdürür izlenmeyen el ile bir Service Fabric uygulaması yükseltme. Service
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -492,14 +492,14 @@ Geçerli uygulamanın geri başlamadan önceki sürüme yükseltin. Bu API, yaln
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -514,14 +514,14 @@ Hata ayıklama uygulama sistem durumu sorunları yardımcı olmak için birlikte
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -536,7 +536,7 @@ Bir Service Fabric uygulama paketi görüntü deposuna kopyalayın.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --yol [gerekli] | Yerel uygulama paketi yolu. |
 | --imagestore dize | Hedef görüntü depolamak için uygulama paketini karşıya yüklemek için.  Varsayılan\: fabric\:ImageStore. |
@@ -544,7 +544,7 @@ Bir Service Fabric uygulama paketi görüntü deposuna kopyalayın.
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |

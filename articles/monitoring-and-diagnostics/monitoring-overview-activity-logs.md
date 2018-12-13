@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: d75df381f1afc17d291fe0a477078acb3435019c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 46b00e102cbf5e981ac7036de65232e869dc9651
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958143"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272718"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 
@@ -21,7 +21,7 @@ ms.locfileid: "52958143"
 
 ![Etkinlik Günlükleri ve diğer tür günlüğü ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
 
-Şekil 1: Etkinlik günlükleri ve diğer tür günlüğü
+Şekil 1: Etkinlik Günlükleri ve diğer tür günlüğü
 
 Etkinlik günlüğü farklıdır [tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md). Etkinlik günlükleri bir dış kaynaktan işlemleri hakkında veri sağlar ("Denetim düzlemi"). Tanılama günlükleri, kaynak tarafından gönderilir ve bu kaynağın ("veri düzlemi") işlemiyle ilgili bilgi sağlar.
 
@@ -33,14 +33,14 @@ Etkinlik günlüğü farklıdır [tanılama günlükleri](monitoring-overview-of
 Azure portalı, CLI, PowerShell cmdlet'lerini kullanarak, etkinlik günlüğünde olayları alabilirsiniz ve Azure İzleyici REST API'si.
 
 > [!NOTE]
-> [Yeni uyarılarda](monitoring-overview-alerts.md) oluşturma ve yönetme etkinlik günlük uyarısı kuralları Gelişmiş bir deneyim sunar.  [Daha fazla bilgi edinin](alert-activity-log.md).
+> [Yeni uyarılarda](monitoring-overview-alerts.md) oluşturma ve yönetme etkinlik günlük uyarısı kuralları Gelişmiş bir deneyim sunar.  [Daha fazla bilgi edinin](../azure-monitor/platform/alerts-activity-log.md).
 
 
 ## <a name="categories-in-the-activity-log"></a>Etkinlik günlüğünde kategorileri
 Etkinlik günlüğü birkaç veri kategorilerini içerir. Bu kategorilerin şemaların ilgili tam Ayrıntılar için [bu makaleye bakın](monitoring-activity-log-schema.md). Bunlar:
 * **Yönetim** -Bu kategoride tüm kaydı oluşturma, güncelleştirme, silme ve eylem işlemlerine Resource Manager aracılığıyla gerçekleştirilir. Görmek Bu kategoride olay türlerini örnekleri arasında "sanal makine oluşturma" ve "bir kullanıcı ya da Resource Manager kullanarak uygulama tarafından gerçekleştirilen her eylemi modellenmiş bir işlemi belirli bir kaynak türü olarak ağ güvenlik grubunu sil". İşlem türü, yazma, silme veya eylem ise, hem Başlangıç hem de başarılı kayıtlar veya bu işlemin başarısız yönetim kategorisi kaydedilir. Yönetim kategorisi, bir abonelikte rol tabanlı erişim denetimi değişiklikleri de içerir.
-* **Hizmet durumu** -bu kategori, Azure'da ortaya çıkan tüm hizmet durumu olayları kaydını içerir. Bu kategoride göreceğiniz olay türünü "SQL Azure Doğu ABD, kesinti yaşanıyor." örneğidir Hizmet durumu olayları beş çeşit olarak gelir: eylem gerekli, Kurtarma Yardımlı, olay, bakım, bilgi veya güvenlik, olaydan etkilenen aboneliğindeki bir kaynak varsa yalnızca görünür.
-* **Kaynak durumu** -bu kategori, Azure kaynaklarınıza ortaya çıkan herhangi bir kaynak sistem durumu olayları kaydını içerir. Bu kategoride göreceğiniz olay türünü, "sanal makine sistem durumu kullanılamaz değiştirildi." örneğidir Kaynak sistem durumu olayları dört durum durumlardan birini temsil edebilir: kullanılabilir kullanılamıyor, Degraded ve bilinmeyen. Ayrıca, kaynak sistem durumu olayları, Platform tarafından başlatılan veya kullanıcı tarafından başlatılan olacak şekilde sınıflandırılabilir.
+* **Hizmet durumu** -bu kategori, Azure'da ortaya çıkan tüm hizmet durumu olayları kaydını içerir. Bu kategoride göreceğiniz olay türünü "SQL Azure Doğu ABD, kesinti yaşanıyor." örneğidir Hizmet durumu olayları beş çeşit olarak bulunur: Yardımlı kurtarma, olay, bakım, bilgi veya güvenlik, gerekli, eylem ve olaydan etkilenen aboneliğindeki bir kaynak varsa yalnızca görünür.
+* **Kaynak durumu** -bu kategori, Azure kaynaklarınıza ortaya çıkan herhangi bir kaynak sistem durumu olayları kaydını içerir. Bu kategoride göreceğiniz olay türünü, "sanal makine sistem durumu kullanılamaz değiştirildi." örneğidir Kaynak sistem durumu olayları dört durum durumlardan birini temsil edebilir: Kullanılabilir, yok, düşürülmüş ve bilinmeyen. Ayrıca, kaynak sistem durumu olayları, Platform tarafından başlatılan veya kullanıcı tarafından başlatılan olacak şekilde sınıflandırılabilir.
 * **Uyarı** -bu kategorideki tüm etkinleştirmeleri Azure uyarıları kaydını içerir. Bu kategoride göreceğiniz olay türünü "myVM üzerindeki CPU % 80'den önceki 5 dakika boyunca bırakıldı." örneğidir Çeşitli Azure sistemleri sahip bir uyarı verme kavramı--tür bir kural tanımlamak ve bu kuralda veya ek koşullarla eşleşen bir bildirim alırsınız. Her bir desteklenen Azure uyarı türü 'etkinleştirir,' veya bir bildirim oluşturmak için koşullar karşılandığında, bir kaydı etkinleştirme etkinlik günlüğü, bu kategoriye de gönderilir.
 * **Otomatik ölçeklendirme** -kayıt işlemi herhangi bir otomatik ölçeklendirme ayarı, aboneliğinizde tanımlanmış temel otomatik ölçeklendirme altyapısı ilgili olayların bu kategorisi içerir. Bu kategoride göreceğiniz olay türünü, "Otomatik ölçek ölçeği artırma eylemi başarısız oldu." örneğidir Otomatik ölçeklendirme kullanarak, otomatik olarak ölçeği genişletme veya ölçeklendirme desteklenen kaynak türü örneği sayısını gün ve/veya yük (ölçüm) verileri kullanarak bir otomatik ölçeklendirme ayarı zamanında temel. Ne zaman ölçeği artırmak veya azaltmak için başlangıç ve başarılı veya başarısız olayları koşulların kaydedilir bu kategorideki.
 * **Öneri** -Azure Danışmanı için öneri olaylardan bu kategorisi içerir.
@@ -57,7 +57,7 @@ Etkinlik günlüğü ile yapabileceğiniz çok şey bazıları şunlardır:
 
 
 * Sorgulamak ve içinde görüntüleyebilir **Azure portalında**.
-* [Bir etkinlik günlüğü olayında uyarı oluşturun.](monitoring-activity-log-alerts.md)
+* [Bir etkinlik günlüğü olayında uyarı oluşturun.](../azure-monitor/platform/activity-log-alerts.md)
 * [Kendisine Stream bir **olay hub'ı** ](monitoring-stream-activity-logs-event-hubs.md) alımı üçüncü taraf hizmeti veya Power BI gibi özel bir analiz çözümü için.
 * Power BI kullanarak Analiz [ **Power BI içerik paketi**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Kaydetmesi bir **depolama hesabı** arşivleme veya el ile İnceleme](monitoring-archive-activity-log.md). Bekletme süresi (gün cinsinden) kullanarak belirtebilirsiniz **günlük profilini**.

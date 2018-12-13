@@ -1,6 +1,6 @@
 ---
 title: "Azure Cosmos DB: SQL API'si için .NET örnekleri"
-description: CRUD işlemleri gibi Azure Cosmos DB SQL API'sinin kullanıldığı yaygın görevler için GitHub'da C# .NET örnekleri bulabilirsiniz.
+description: Bulma C# Azure Cosmos DB SQL CRUD işlemleri dahil olmak üzere API'sini kullanarak ortak görevleri için github'da .NET örnekleri.
 keywords: NoSQL örneği
 author: rnagpal
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.component: cosmosdb-sql
 ms.topic: sample
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.openlocfilehash: c42677d595eae3a6742f4536dcdd0314ff2d20d8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9c16a882e49ceec4fc733cb3a8c1061dd1949e28
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104794"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166634"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: SQL API'si için .NET örnekleri
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ CRUD işlemleri ve Azure Cosmos DB kaynaklarını üzerinde diğer yaygın işle
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
   
-- [Visual Studio abone avantajlarını etkinleştirebilirsiniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Visual Studio aboneliğiniz, her ay size ücretli Azure hizmetleri için kullanabileceğiniz krediler verir.
+- Yapabilecekleriniz [Visual Studio abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Visual Studio aboneliğiniz, ücretli Azure hizmetlerinizi kullanabildiğiniz her ay krediler sunar.
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -146,7 +146,7 @@ Akış değiştirme örneğinde ([azure-documentdb-dotnet/samples/code-samples/C
 | [Değişiklik akışını okuma](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L132) |[DocumentClient.CreateDocumentChangeFeedQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) | 
 | [Bölüm anahtarı aralıklarını okuma](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L118) |[DocumentClient.ReadPartitionKeyRangeFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readpartitionkeyrangefeedasync.aspx) | 
 
-Değişiklik akış işleyicisi örneği:  [Değişiklik Akışı Geçiş Aracı](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool), verileri başka bir Cosmos DB koleksiyonuna çoğaltmak için değişiklik verileri işleyici kitaplığının nasıl kullanılacağını gösterir.   
+Değişiklik akışı işlemci örneği:  [Geçiş aracını akışı](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool) başka bir Cosmos DB koleksiyonu için veri çoğaltmak için değişiklik akışı işlemci kitaplığı nasıl yapılacağı açıklanır.   
 
 ## <a name="server-side-programming-examples"></a>Sunucu tarafı programlama örnekleri
 Sunucu tarafı programlama dosyasında ([azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs)) aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilmektedir.
@@ -161,7 +161,7 @@ Sunucu tarafı programlama dosyasında ([azure-documentdb-dotnet/samples/code-sa
 | [Tetikleme sonrası oluşturma](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L329) |[DocumentClient.CreateTriggerAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createtriggerasync.aspx) |
 | [Kullanıcı Tanımlı İşlev (UDF) Oluşturma](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L389) |[DocumentClient.CreateUserDefinedFunctionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createuserdefinedfunctionasync.aspx) |
 
-Sunucu tarafı programlaması hakkında daha fazla bilgi için bkz. [Azure Cosmos DB sunucu tarafı programlaması: Saklı yordamlar, veritabanı tetikleyicileri ve UDF'leri](programming.md).
+Sunucu tarafı programlama hakkında daha fazla bilgi için bkz. [Azure Cosmos DB sunucu tarafı programlama: Saklı yordamlar, veritabanı Tetikleyicileri ve UDF'leri](programming.md).
 
 ## <a name="user-management-examples"></a>Kullanıcı yönetim örnekleri
 Kullanıcı yönetimi dosyası ([azure-documentdb-dotnet/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/UserManagement/Program.cs)) aşağıdaki görevlerin nasıl gerçekleştirileceğini gösterir.

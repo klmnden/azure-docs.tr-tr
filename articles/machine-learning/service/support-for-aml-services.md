@@ -1,5 +1,5 @@
 ---
-title: Mevcut destek ve eğitim
+title: Kullanılabilir destek ve eğitim
 titleSuffix: Azure Machine Learning service
 description: Bu makalede, destek ve eğitim Azure Machine Learning hizmeti için nasıl alabileceğiniz bildirir.
 services: machine-learning
@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6acebef4481fc3d22cc7186663ce17e2602cde53
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: cbf245b27bc6df9933a4786def42d85f848e09d7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073508"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192099"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-service"></a>Destek ve Azure Machine Learning hizmeti için eğitim alın
 
@@ -37,10 +37,10 @@ Yapabilecekleriniz **gönderme isteklerinin** makalenin sonunda geri bildirim ba
 
 Bu kontrol destek kaynaklarını:
 
-+ **Teknik Destek**: ziyaret [Azure teknik desteğine](https://azure.microsoft.com/support/options/) ve Machine Learning seçin. 
++ **Teknik Destek**: Ziyaret [Azure teknik desteğine](https://azure.microsoft.com/support/options/) ve Machine Learning seçin. 
 
-+ **Kullanıcı forumuna**: sorular sormak, soruları yanıtlamak ve diğer kullanıcılarla connect [MSDN Azure Machine Learning hizmeti Destek Forumu](https://aka.ms/aml-forum-service).
++ **Kullanıcı forumuna**: Sorular sormak, soruları yanıtlamak ve diğer kullanıcılarla connect [MSDN Azure Machine Learning hizmeti Destek Forumu](https://aka.ms/aml-forum-service).
 
-+ **Stack Overflow**: Azure Machine Learning topluluğu ziyaret [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) "Azure-makine öğrenimi ile" etiketli.
++ **Yığın Taşması**: Azure Machine Learning topluluğu ziyaret [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) "Azure-makine öğrenimi ile" etiketli.
 
 + **Paylaşım ürün önerileri** ve özellik isteklerini bizim [Azure Machine Learning geri bildirim kanalı](https://feedback.azure.com/forums/257792-machine-learning), hangi, ayrıca her makalenin altındaki bağlantı kullanılarak erişilebilir. 

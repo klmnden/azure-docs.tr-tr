@@ -1,5 +1,5 @@
 ---
-title: Portalda Azure Blueprint oluşturma
+title: Portalda blueprint oluşturma
 description: Yapıt oluşturmak, tanımlamak ve dağıtmak için Azure Blueprints'i kullanın.
 services: blueprints
 author: DCtheGeek
@@ -8,15 +8,15 @@ ms.date: 10/25/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 2c53c5c51a6e93fa99f32400e512f0e13503b436
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 0eebf1a2d1c173e2e37d24ff083e5d7ae011a900
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092136"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315307"
 ---
-# <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Portalda Azure Blueprint Tanımlama ve Atama
+# <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Tanımlama ve portalda bir Azure şema Ata
 
 Şema oluşturma ve atama süreçlerini anlamak, ortak tutarlılık desenlerini tanımlamanızı ve Resource Manager şablonlarını, ilkelerini, güvenlik düzeyini ve daha fazlasını temel alan yeniden kullanılabilir ve hızla dağıtılabilir yapılandırmalar geliştirmenizi sağlar. Bu öğreticide kuruluşunuzda aşağıdakiler gibi şema oluşturma, yayımlama ve atama konusundaki yaygın görevlerin bazılarını yerine getirmek için Azure Blueprints'i kullanmayı öğreneceksiniz:
 
@@ -47,22 +47,22 @@ Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumd
    > [!NOTE]
    > Şema tanımları yalnızca yönetim gruplarına kaydedilebilir. İlk yönetim grubunuzu oluşturmak için [bu adımları](../management-groups/create.md) izleyin.
 
-1. Bilgilerin doğruluğunu onaylayın (**Şema Adı** ve **Tanım Konumu** alanları daha sonra değiştirilemez) ve sayfanın alt kısmındaki **İleri: Yapıtlar** seçeneğine veya sayfanın üst kısmındaki **Yapıtlar** sekmesine tıklayın.
+1. Bilgilerin doğru olduğunu doğrulayın ( **Blueprint adı** ve **tanım konumunu** alanlar daha sonra değiştirilemez) tıklayıp **sonraki: Yapıtları** sayfanın alt kısmındaki veya **Yapıtları** sayfanın üst kısmındaki sekme.
 
-1. Abonelikte rol ataması ekleme: **Abonelik** altındaki **+ Yapıt ekle...** satırına tıkladığınızda tarayıcının sağ tarafında 'Yapıt ekle' penceresi açılır. _Yapıt türü_ olarak 'Rol Ataması' seçeneğini belirleyin. _Rol_ altında 'Katkıda Bulunan'ı seçin ve _Kullanıcı, Uygulama veya Grup Ekle_ alanını **dinamik parametre** belirtecek şekilde işaretli bırakın. Bu yapıtı şemaya eklemek için **Ekle**’ye tıklayın.
+1. Rol ataması abonelik ekleyin: Üzerinde sol **+ yapıt ekleme...**  altında satır **abonelik** ve tarayıcı sağ tarafında 'Yapıt ekleme' penceresi açılır. _Yapıt türü_ olarak 'Rol Ataması' seçeneğini belirleyin. _Rol_ altında 'Katkıda Bulunan'ı seçin ve _Kullanıcı, Uygulama veya Grup Ekle_ alanını **dinamik parametre** belirtecek şekilde işaretli bırakın. Bu yapıtı şemaya eklemek için **Ekle**’ye tıklayın.
 
    ![Yapıt - Rol Ataması](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > Çoğu _yapıt_, parametreleri destekler. Şema oluşturma sırasında değer atanan bir parametre, **statik parametredir**. Parametre şema ataması sırasında atanırsa **dinamik parametre** olur. Daha fazla bilgi için bkz. [Şema parametreleri](./concepts/parameters.md).
 
-1. Abonelikte ilke ataması ekleme: **Abonelik** öğesinin hemen altındaki **+ Yapıt ekle...** seçeneğine sol tıklayın. _Yapıt türü_ olarak 'İlke Ataması' seçeneğini belirleyin. _Tür_’ü 'Yerleşik' olarak değiştirin ve _Ara_ alanına 'etiket' ifadesini girin. Filtrelemenin yapılması için _Ara_’ya tıklayın. 'Etiket ve varsayılan değerini kaynak gruplara uygula' öğesine tıklayarak seçin. Bu yapıtı şemaya eklemek için **Ekle**’ye tıklayın.
+1. İlke ataması abonelik ekleyin: Üzerinde sol **+ yapıt ekleme...**  doğrudan altında satır **abonelik**. _Yapıt türü_ olarak 'İlke Ataması' seçeneğini belirleyin. _Tür_’ü 'Yerleşik' olarak değiştirin ve _Ara_ alanına 'etiket' ifadesini girin. Filtrelemenin yapılması için _Ara_’ya tıklayın. 'Etiket ve varsayılan değerini kaynak gruplara uygula' öğesine tıklayarak seçin. Bu yapıtı şemaya eklemek için **Ekle**’ye tıklayın.
 
 1. 'Etiket ve varsayılan değerini kaynak gruplara uygula' ilke ataması satırına tıklayın. Şema tanımı kapsamında yapıta parametreleri sağlayacak pencere açılır ve atama sırasında parametre ayarlamak (**dinamik parametreler**) yerine bu şemaya göre tüm atamalar için parametreleri ayarlamaya (**statik parametreler**) olanak tanır. Bu örnekte şema ataması sırasında **dinamik parametreler** kullanılmaktadır. Bu nedenle varsayılan değerleri değiştirmeden **İptal**’e tıklayın.
 
-1. Abonelikte kaynak grubu ekleme: **Abonelik** altındaki **+ Yapıt ekle...** satırına sol tıklayın. _Yapıt türü_ olarak 'Kaynak Grubu'nu seçin. _Kaynak Grubu Adı_ ve _Konum_ alanlarını boş bırakın, diğer yandan **dinamik parametre** yapmak için her bir özelliğin onay kutusunun işaretli olduğundan emin olun. Bu yapıtı şemaya eklemek için **Ekle**’ye tıklayın.
+1. Kaynak grubu aboneliği ekleyin: Üzerinde sol **+ yapıt ekleme...**  altında satır **abonelik**. _Yapıt türü_ olarak 'Kaynak Grubu'nu seçin. _Kaynak Grubu Adı_ ve _Konum_ alanlarını boş bırakın, diğer yandan **dinamik parametre** yapmak için her bir özelliğin onay kutusunun işaretli olduğundan emin olun. Bu yapıtı şemaya eklemek için **Ekle**’ye tıklayın.
 
-1. Kaynak grubu altında şablon ekleme: **ResourceGroup** girişi altındaki **+ Yapıt ekle...** satırına sol tıklayın. _Yapıt türü olarak_ 'Azure Resource Manager şablonu'nu seçin, _Yapıt görünen adı_’nı 'StorageAccount' olarak ayarlayın ve _Açıklama_ alanını boş bırakın. Düzenleyici kutusundaki **Şablon** sekmesinde aşağıdaki Resource Manager şablonunu yapıştırın. Şablonu yapıştırdıktan sonra **Parametreler** sekmesine tıklayın ve **storageAccountType** şablon parametresi ile **Standard_LRS** varsayılan değerinin otomatik olarak algılanıp doldurulduğuna, buna karşılık bir **dinamik parametre** olarak yapılandırıldığına dikkat edin. Onay kutusundaki işareti kaldırın ve açılır listenin yalnızca **allowedValues** altındaki Resource Manager şablonunda yer alan değerleri içerdiğine dikkat edin. Yeniden **dinamik parametre** olarak ayarlamak için kutuyu işaretleyin. Bu yapıtı şemaya eklemek için **Ekle**’ye tıklayın.
+1. Kaynak grubu altında şablon ekleyin: Üzerinde sol **+ yapıt ekleme...** **+ Yapıt ekle...** satırına sol tıklayın. _Yapıt türü olarak_ 'Azure Resource Manager şablonu'nu seçin, _Yapıt görünen adı_’nı 'StorageAccount' olarak ayarlayın ve _Açıklama_ alanını boş bırakın. Düzenleyici kutusundaki **Şablon** sekmesinde aşağıdaki Resource Manager şablonunu yapıştırın. Şablonu yapıştırdıktan sonra **Parametreler** sekmesine tıklayın ve **storageAccountType** şablon parametresi ile **Standard_LRS** varsayılan değerinin otomatik olarak algılanıp doldurulduğuna, buna karşılık bir **dinamik parametre** olarak yapılandırıldığına dikkat edin. Onay kutusundaki işareti kaldırın ve açılır listenin yalnızca **allowedValues** altındaki Resource Manager şablonunda yer alan değerleri içerdiğine dikkat edin. Yeniden **dinamik parametre** olarak ayarlamak için kutuyu işaretleyin. Bu yapıtı şemaya eklemek için **Ekle**’ye tıklayın.
 
    > [!IMPORTANT]
    > Şablon içeri aktarılıyorsa, dosyanın yalnızca JSON biçiminde olduğundan ve HTML içermediğinden emin olun. GitHub’da bir URL’ye işaret ederken, GitHub’da görüntülenmek üzere HTML ile sarmalanmış dosyayı değil, **RAW** öğesine tıklayarak saf JSON dosyasını aldığınızdan emin olun. İçeri aktarılan şablon saf JSON değilse bir hata oluşur.
@@ -125,11 +125,11 @@ Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumd
 
 1. Şema listesinde daha önce oluşturduğunuz şemaya sağ tıklayın ve **Şemayı Düzenle**’yi seçin.
 
-1. **Şema Açıklaması** alanında şema ve onu oluşturan yapıtlar ile ilgili birtakım bilgiler verin.  Bu örnekte şuna benzer bir bilgi girin: "Bu şema, abonelikteki etiket ilkesini ve rol atamasını ayarlar, bir ResourceGroup oluşturur ve bu ResourceGroup’a bir kaynak şablonu ve rol ataması dağıtır."
+1. **Şema Açıklaması** alanında şema ve onu oluşturan yapıtlar ile ilgili birtakım bilgiler verin.  Bu durumda, aşağıdaki gibi girin: "Bu şema etiket ilke ve rol ataması abonelikte ayarlar, bir kaynak grubu oluşturur ve bu kaynak grubu için bir şablon ve rol ataması dağıtır."
 
-1. Sayfanın altındaki **İleri: Yapıtlar**’a veya sayfanın üstündeki **Yapıtlar** sekmesine tıklayın.
+1. Tıklayın **sonraki: Yapıtları** sayfanın alt kısmındaki veya **Yapıtları** sayfanın üst kısmındaki sekme.
 
-1. Kaynak grubu altında rol ataması ekleme: **ResourceGroup** girişinin hemen altındaki **+ Yapıt ekle...** satırına sol tıklayın. _Yapıt türü_ olarak 'Rol Ataması' seçeneğini belirleyin. _Rol_ altında 'Sahip' öğesini seçin ve _Kullanıcı, Uygulama veya Grup Ekle_ alanının işaretini kaldırdıktan sonra eklenecek bir kullanıcı, uygulama veya grup arayıp seçin. Yapıt, bu şemanın tüm atamalarında aynı **statik parametreyi** kullanır. Bu yapıtı şemaya eklemek için **Ekle**’ye tıklayın.
+1. Rol ataması kaynak grubu altında ekleyin: Üzerinde sol **+ yapıt ekleme...**  doğrudan altında satır **ResourceGroup** girişi. _Yapıt türü_ olarak 'Rol Ataması' seçeneğini belirleyin. _Rol_ altında 'Sahip' öğesini seçin ve _Kullanıcı, Uygulama veya Grup Ekle_ alanının işaretini kaldırdıktan sonra eklenecek bir kullanıcı, uygulama veya grup arayıp seçin. Yapıt, bu şemanın tüm atamalarında aynı **statik parametreyi** kullanır. Bu yapıtı şemaya eklemek için **Ekle**’ye tıklayın.
 
    ![Yapıt - Rol Ataması 2](./media/create-blueprint-portal/add-role-assignment-2.png)
 
@@ -173,7 +173,7 @@ Yayımladığınızda şema bir aboneliğe atanmaya hazır hale gelir.
 
 1. **Atamayı Kilitle** seçeneği için varsayılan **Kilitleme** ayarını değiştirmeyin. Daha fazla bilgi için bkz. [şema kaynağı kilitleme](./concepts/resource-locking.md).
 
-1. Abonelik düzeyinde rol ataması **[Kullanıcı grubu veya uygulama adı]:Katkıda bulunan** için bir kullanıcı, uygulama veya grup arayıp seçin.
+1. Abonelik düzeyi rol ataması **[kullanıcı grubu veya uygulama adı]: Katkıda bulunan**, arayın ve bir kullanıcı, uygulama veya grup seçin.
 
 1. Abonelik düzeyinde ilke ataması için **Etiket Adı**’nı 'CostCenter' ve **Etiket Değeri**’ni 'ContosoIT' olarak ayarlayın.
 

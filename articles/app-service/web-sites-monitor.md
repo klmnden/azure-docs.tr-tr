@@ -1,5 +1,5 @@
 ---
-title: Azure App Service'te uygulamaları izleme | Microsoft Docs
+title: Uygulamalar - Azure uygulama hizmeti izleme | Microsoft Docs
 description: Azure portalını kullanarak Azure App Service'te uygulamaları izleme hakkında bilgi edinin.
 services: app-service
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 6334b4cc50bfa6dca709fdc9d65938f0fec3ad1c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 103b5c1d2bc70f187b6e65a9fa9d80a35ad8e0c1
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956781"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321588"
 ---
-# <a name="how-to-monitor-apps-in-azure-app-service"></a>Nasıl yapılır: Azure App Service'te uygulamaları izleme
+# <a name="how-to-monitor-apps-in-azure-app-service"></a>Nasıl yapılır: Azure App Service’te Uygulamaları izleme
 [App Service](https://go.microsoft.com/fwlink/?LinkId=529714) yerleşik izleme işlevselliği sağlayan [Azure portalında](https://portal.azure.com).
 Azure portalında, gözden geçirme olanağı bulunur **kotalar** ve **ölçümleri** ayarlama, App Service planı yanı sıra bir uygulama için **uyarılar** ve hatta **ölçeklendirme**  bu ölçümlere göre otomatik olarak.
 
@@ -53,7 +54,7 @@ Uygulama içinde barındırılıyorsa bir **temel**, **standart** veya **Premium
 
 Barındırılan uygulamalar için geçerli tek kota **temel**, **standart**, ve **Premium** planları olduğu **dosya sistemi**.
 
-Belirli kotalar, sınırlar ve farklı uygulama hizmeti SKU'ları için kullanılabilen özellikler hakkında daha fazla bilgi burada bulunabilir: [Azure abonelik hizmeti limitleri](../azure-subscription-service-limits.md#app-service-limits)
+Belirli kotalar, sınırlar ve farklı uygulama hizmeti SKU'ları için kullanılabilen özellikler hakkında daha fazla bilgi burada bulunabilir: [Azure Aboneliği Hizmet Sınırları](../azure-subscription-service-limits.md#app-service-limits)
 
 #### <a name="quota-enforcement"></a>Kota uygulama
 Bir uygulama aşarsa **CPU (kısa)**, **CPU (gün)**, veya **bant genişliği** kota sıfırlar kadar kota uygulama durduruldu. Bu süre boyunca tüm gelen istekler sonucunda bir **HTTP 403**.
@@ -141,18 +142,18 @@ Bir uygulama ve app service planı ölçümleri günlüğe ve aşağıdaki ayrı
 Farklı durumunu gözden geçirebilirsiniz **kotalar** ve **ölçümleri** uygulamada etkileyen [Azure portalında](https://portal.azure.com).
 
 ![][quotas]
-**Kotalar** ayarlar altında bulunabilir >**kotalar**. UX gözden geçirmenizi sağlar: (1) kotaları adı, (2), sıfırlama aralığı, (3), geçerli sınır ve (4) geçerli bir değer.
+**Kotalar** ayarlar altında bulunabilir >**kotalar**. UX gözden geçirmenizi sağlar: (1) kotaları adı, (2), sıfırlama aralığı, (3) geçerli sınır ve (4) geçerli bir değer.
 
 ![][metrics]
-**Ölçümleri** doğrudan kaynak sayfasından erişilebilir. Grafiği özelleştirebilirsiniz: (1) **tıklayın** ve seçin (2) **grafiği Düzenle**.
+**Ölçümleri** doğrudan kaynak sayfasından erişilebilir. Grafiği daha da özelleştirebilirsiniz: (1) **tıklayın** ve seçin (2) **grafiği Düzenle**.
 Buradan, (3) değiştirebilirsiniz **zaman aralığı**, (4) **grafik türü**ve (5) **ölçümleri** görüntülenecek.  
 
-Buradaki ölçümler hakkında daha fazla bilgi edinebilirsiniz: [hizmet ölçümlerini izleme](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+Buradaki ölçümler hakkında daha fazla bilgi edinebilirsiniz: [Hizmet ölçümlerini izleme](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
 ## <a name="alerts-and-autoscale"></a>Uyarıları ve otomatik ölçeklendirme
 Bir uygulama veya App Service planı ölçümleri için uyarılar bağlanabilir. Hakkında daha fazla bilgi edinmek için [uyarı bildirimleri alma](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-App Service uygulamaları temel, standart veya premium App Service planları destek barındırılan **otomatik ölçeklendirme**. Otomatik ölçeklendirme, App Service planı ölçümleri izleme kuralları yapılandırmanıza olanak sağlar. Kuralları artırabilir veya gerektiği gibi ek kaynaklar sağlayan örnek sayısını azaltabilirsiniz. Kurallar, uygulamanın aşırı sağlanan tam kapasiteye ulaşmadığında tasarruf da yardımcı olabilir. Otomatik ölçeklendirme hakkında daha fazla bilgi edinebilirsiniz: [ölçeklendirme](../monitoring-and-diagnostics/insights-how-to-scale.md) ve burada [Azure İzleyici otomatik ölçeklendirme için en iyi yöntemler](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+App Service uygulamaları temel, standart veya premium App Service planları destek barındırılan **otomatik ölçeklendirme**. Otomatik ölçeklendirme, App Service planı ölçümleri izleme kuralları yapılandırmanıza olanak sağlar. Kuralları artırabilir veya gerektiği gibi ek kaynaklar sağlayan örnek sayısını azaltabilirsiniz. Kurallar, uygulamanın aşırı sağlanan tam kapasiteye ulaşmadığında tasarruf da yardımcı olabilir. Otomatik ölçeklendirme hakkında daha fazla bilgi edinebilirsiniz: [Ölçeklendirme](../monitoring-and-diagnostics/insights-how-to-scale.md) ve burada [Azure İzleyici otomatik ölçeklendirme için en iyi yöntemler](../azure-monitor/platform/autoscale-best-practices.md)
 
 > [!NOTE]
 > Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.

@@ -7,13 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: robb
-ms.component: ''
-ms.openlocfilehash: 450eac3613df18997c5b0f9189555555da20cfcf
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 1ea8fddf2b4e75abba38f011a271aada848a8cb5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585581"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192201"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Klasik dağıtım modeli API'lerini Azure İzleyici emeklilik ölçümleri ve otomatik ölçeklendirme
 
@@ -76,9 +75,9 @@ Azure hizmetlerinizi veya iş yüklerini doğrudan herhangi bir etki olmayacak.
 
 Klasik API'leri daha önce listelenen tüm çağrıları başarısız olur ve aşağıdaki sorguyu benzer hata iletileri döndürür:
 
-Otomatik ölçeklendirme için: *bu API kullanım dışıdır. Otomatik ölçeklendirme ayarlarını yönetmek için Azure portalı, Azure İzleyici SDK'sı, PowerShell, CLI veya Resource Manager şablonlarını kullanma*.  
+Otomatik ölçeklendirme için: *Bu API kullanım dışıdır. Otomatik ölçeklendirme ayarlarını yönetmek için Azure portalı, Azure İzleyici SDK'sı, PowerShell, CLI veya Resource Manager şablonlarını kullanma*.  
 
-Ölçümler: *bu API kullanım dışıdır. Kullanım Azure portalı, Azure İzleyici SDK'sı, PowerShell, CLI sorgulamak için ölçümleri*.
+Ölçümler için: *Bu API kullanım dışıdır. Kullanım Azure portalı, Azure İzleyici SDK'sı, PowerShell, CLI sorgulamak için ölçümleri*.
 
 ## <a name="email-notifications"></a>E-posta bildirimleri
 

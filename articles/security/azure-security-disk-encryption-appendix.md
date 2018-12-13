@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: d6e186f25cc69791d939d93d24a37cadb1113353
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f10a3c02e98db5777b5231aec04951a7ed1ad9ad
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105051"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310693"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Ek Azure Disk şifrelemesi 
 
@@ -132,6 +132,20 @@ Aşağıdaki tabloda, PowerShell betik parametreleri kullanılabileceğini göst
  -  [Çalışan bir Linux VM üzerinde şifrelemeyi devre dışı bırak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - Şifreleme devre dışı bırakıldığında yalnızca veri birimlerinde Linux VM'ler için izin verilir.  
 
+### <a name="encrypt-or-decrypt-vm-scale-sets"></a>Şifreleme veya şifrelerini çözme VM ölçek kümeleri
+
+- [Bir çalışan Linux sanal makine ölçek kümesinde disk şifrelemeyi etkinleştir](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
+
+- [Bir çalışan Windows sanal makine ölçek kümesinde disk şifrelemeyi etkinleştir](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
+
+ - [Bir VM ölçek kümesi, Linux sanal makineleri Linux VMSS bir Sıçrama kutusu ve etkinleştirir şifreleme ile dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+
+ - [Bir VM ölçek kümesi, Windows sanal makineleri Windows VMSS bir Sıçrama kutusu ve etkinleştirir şifreleme ile dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+
+- [Bir çalışan Linux sanal makine ölçek kümesinde disk şifrelemeyi devre dışı bırakma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+
+- [Bir çalışan Windows sanal makine ölçek kümesinde disk şifrelemeyi devre dışı bırakma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
+
 ### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Şifrelemek veya Vm'leri bir Azure AD uygulamasını (önceki sürüm) şifresini çözme 
  
 - [Iaas Windows Vm'leri çalıştırma ya da mevcut disk şifrelemeyi etkinleştir](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)
@@ -162,17 +176,7 @@ Aşağıdaki tabloda, PowerShell betik parametreleri kullanılabileceğini göst
 
 - [Bir Azure AD İstemci sertifikası parmak izi kullanarak çalışan bir Windows VM'de disk şifrelemeyi etkinleştir](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-aad-client-cert)
     
-- [Bir çalışan Linux sanal makine ölçek kümesinde disk şifrelemeyi etkinleştir](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
 
-- [Bir çalışan Windows sanal makine ölçek kümesinde disk şifrelemeyi etkinleştir](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
-
- - [Bir VM ölçek kümesi, Linux sanal makineleri Linux VMSS bir Sıçrama kutusu ve etkinleştirir şifreleme ile dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
-
- - [Bir VM ölçek kümesi, Windows sanal makineleri Windows VMSS bir Sıçrama kutusu ve etkinleştirir şifreleme ile dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
-
-- [Bir çalışan Linux sanal makine ölçek kümesinde disk şifrelemeyi devre dışı bırakma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
-
-- [Bir çalışan Windows sanal makine ölçek kümesinde disk şifrelemeyi devre dışı bırakma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
 ## <a name="bkmk_preWin"></a> Önceden şifrelenmiş bir Windows VHD hazırlama
 Aşağıdaki bölümlerde, önceden şifrelenmiş bir Windows VHD Azure Iaas içinde şifrelenmiş bir VHD olarak dağıtımına hazırlamak gereklidir. Hazırlama ve Azure Site Recovery ya da Azure üzerinde bir yeni Windows VM (VHD) önyükleme bilgileri kullanın. Hazırlama ve bir VHD'yi karşıya yükleme hakkında daha fazla bilgi için bkz. [genelleştirilmiş VHD yükleme ve Azure'da yeni VM'ler oluşturmak için bunu kullanın](../virtual-machines/windows/upload-generalized-managed.md).

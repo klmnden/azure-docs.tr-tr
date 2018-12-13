@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: fb616dc95cc7dd7dbb25f2deb832b517d0747ae4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: HT
+ms.openlocfilehash: 305ea27e787196f648fcb4c536f33b12c924c015
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30315459"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164709"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Öğretici: Azure Batch ile paralel R simülasyonu çalıştırma 
 
@@ -30,7 +30,7 @@ Bu öğreticide bir Batch havuzu dağıtma ve doğrudan RStudio içinde Azure Ba
 > * R oturumunuz için bir paralel arka uç olarak Batch havuzu oluşturma
 > * Havuz üzerinde örnek bir paralel simülasyon çalıştırma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Microsoft R Open](https://mran.microsoft.com/open) gibi yüklü bir [R](https://www.r-project.org/) dağıtımı. R 3.3.1 veya sonraki bir sürümü kullanın.
 
@@ -45,7 +45,7 @@ Bu öğreticide bir Batch havuzu dağıtma ve doğrudan RStudio içinde Azure Ba
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 ## <a name="install-doazureparallel"></a>doAzureParallel yükleme
 
-RStudio konsolunda [doAzureParallel Github paketini](http://www.github.com/Azure/doAzureParallel) yükleyin. Aşağıdaki komutlar, paketi ve bağımlılıklarını geçerli R oturumunuzda indirip yükler: 
+RStudio konsolunda yükleme [doAzureParallel GitHub paketini](http://www.github.com/Azure/doAzureParallel). Aşağıdaki komutlar, paketi ve bağımlılıklarını geçerli R oturumunuzda indirip yükler: 
 
 ```R
 # Install the devtools package  

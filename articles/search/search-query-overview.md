@@ -1,5 +1,5 @@
 ---
-title: Sorgu türleri ve Azure Search birleşimde | Microsoft Docs
+title: Sorgu türleri ve oluşturma - Azure Search
 description: Filtre uygulamak için parametreleri kullanarak Azure Search, arama sorgusu oluşturmak için temel bilgileri seçin ve sonuçları sıralamak.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.openlocfilehash: a1dad30148da9f6b322c75fd40dc01098c4d6b63
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.custom: seodec2018
+ms.openlocfilehash: 03ec588b1627b82a01021a9b71958e9d66aab0ce
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42057424"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315596"
 ---
 # <a name="query-types-and-composition-in-azure-search"></a>Sorgu türleri ve Azure Search oluşturma
 

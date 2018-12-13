@@ -1,13 +1,12 @@
 ---
 title: 'Başkalarının veri bilimi örnekler: Azure Machine Learning Studio kopyalama | Microsoft Docs'
-description: 'Veri bilimi, ticari sır: başkalarının çalışmanıza sizin için gerçekleştirmesini istemeniz alın. Machine learning örnekleri, Azure yapay ZEKA Galeriden alın.'
+description: 'Veri bilimi, ticari sır: Diğer iş sizin için gerçekleştirmesini istemeniz alın. Machine learning örnekleri, Azure yapay ZEKA Galeriden alın.'
 keywords: Veri bilimi örnekler, kümeleme algoritması örnek kümeleme algoritması, machine learning örneği
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.author: garye
 editor: cjgronlund
 ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
-ms.openlocfilehash: c033cc42fd9f57c18242c6e7a6b301238592c0fe
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: acd0899396ac5a47dade5fac16e451b2029ec0c2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075022"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260387"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Veri bilimi için başkalarının çalışmalarını kopyalama
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Seri yeni başlayanlar için veri bilimi
@@ -42,13 +41,13 @@ En yetersiz serisi almak için tüm bunları izleyin. [Videoları listesine Git]
 ## <a name="other-videos-in-this-series"></a>Bu serideki diğer videolar
 *Yeni başlayanlar için veri bilimi* beş kısa videoyu veri bilimine hızlı bir giriş niteliğindedir.
 
-* Video 1: [ilgili 5 veri biliminin yanıtladığı](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 en az 14 sn)*
-* Video 2: [verileriniz veri bilimi için hazır mı?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 dk 56 sn)*
-* Video 3: [verilerle yanıt soru](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 dk 17 sn)*
-* Video 4: [basit model ile yanıtı tahmin etme](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 dk 42 sn)*
-* Video 5: veri bilimi için başkalarının işlerini kopyalama
+* Video 1: [5 veri biliminin yanıtladığı sorular](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 en az 14 sn)*
+* Video 2: [Verileriniz veri bilimi için hazır mı?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 dk 56 sn)*
+* Video 3: [Yanıt verileri ile soru](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 dk 17 sn)*
+* Video 4: [Basit bir model ile yanıtı tahmin etme](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 dk 42 sn)*
+* Video 5: Veri bilimi için başkalarının çalışmalarını kopyalama
 
-## <a name="transcript-copy-other-peoples-work-to-do-data-science"></a>Transkript: veri bilimi için başkalarının işlerini kopyalama
+## <a name="transcript-copy-other-peoples-work-to-do-data-science"></a>Transkript: Veri bilimi için başkalarının çalışmalarını kopyalama
 Serinin beşinci videoda "Yeni başlayanlar için veri bilimi." Hoş Geldiniz
 
 Bu tek bir yerde, gelen bir başlangıç noktası olarak kendi çalışma kullanırım Bul örnekleri keşfedeceksiniz. Öncelikle bu serideki önceki videolar izleyin, en iyi bu videoyu alabilirsiniz.

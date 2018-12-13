@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 3c2a873514c7355cdf7fa08372e1e17409021d56
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3a538886b0137e1069af1fa680374b749a9b3f92
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081073"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165427"
 ---
-# <a name="phonenumber-entity"></a>Telefon numarası varlığı
+# <a name="phonenumber-prebuilt-entity-for-a-luis-app"></a>PhoneNumber LUIS uygulaması için önceden oluşturulmuş varlık
 `phonenumber` Varlık ülke kodunu içeren telefon numaralarını çeşitli ayıklar. Bu varlık zaten eğitildi olduğundan, uygulama için örnek Konuşma ekleme gerekmez. `phonenumber` Varlık içerisinde desteklendiği `en-us` yalnızca kültür. 
 
 ## <a name="types-of-phonenumber"></a>Phonenumber türleri
-PhoneNumber yönetilen engelle [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) Github deposu
+PhoneNumber yönetilen engelle [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) GitHub deposu
 
 ## <a name="resolution-for-prebuilt-phonenumber-entity"></a>Önceden oluşturulmuş phonenumber varlık için çözümleme
 Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.phonenumber** varlık.

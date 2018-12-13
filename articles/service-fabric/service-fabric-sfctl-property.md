@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: f24d273afa47466fe53b93d9c9c22bbcb1fc6959
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 78c04abeea1fdc4771f44d44b973ca0dcd2922ea
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493528"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274998"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Service Fabric adları altında Store ve sorgu özellikleri.
@@ -30,7 +30,7 @@ Service Fabric adları altında Store ve sorgu özellikleri.
 | --- | --- |
 | delete | Belirtilen Service Fabric özelliği siler. |
 | Al | Belirtilen Service Fabric özelliği alır. |
-| liste | Verilen adla tüm Service Fabric özellikleri hakkında bilgi alır. |
+| list | Verilen adla tüm Service Fabric özellikleri hakkında bilgi alır. |
 | yerleştirme | Oluşturur veya bir Service Fabric özelliğini güncelleştirir. |
 
 ## <a name="sfctl-property-delete"></a>sfctl özelliği Sil
@@ -40,7 +40,7 @@ Belirtilen Service Fabric özelliği verilen adla siler. Bir özellik silinebilm
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --ad kimliği [gerekli] | Service Fabric adı, olmadan ' fabric\:' URI düzeni. |
 | --[gerekli] özellik adı | Alınacak özelliğin adını belirtir. |
@@ -48,7 +48,7 @@ Belirtilen Service Fabric özelliği verilen adla siler. Bir özellik silinebilm
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -63,7 +63,7 @@ Verilen adla belirtilen Service Fabric özelliği alır. Bu her zaman hem değer
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --ad kimliği [gerekli] | Service Fabric adı, olmadan ' fabric\:' URI düzeni. |
 | --[gerekli] özellik adı | Alınacak özelliğin adını belirtir. |
@@ -71,7 +71,7 @@ Verilen adla belirtilen Service Fabric özelliği alır. Bu her zaman hem değer
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -86,7 +86,7 @@ Bir Service Fabric adı özel bilgileri depolayan bir veya daha fazla adlandır�
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --ad kimliği [gerekli] | Service Fabric adı, olmadan ' fabric\:' URI düzeni. |
 | --devamlılık belirteci | Devamlılık belirteci parametresi, sonraki sonuç kümesini almak için kullanılır. Sistem sonuçlardan tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değer ile API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı, API, sonraki sonuç kümesini döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır. |
@@ -95,7 +95,7 @@ Bir Service Fabric adı özel bilgileri depolayan bir veya daha fazla adlandır�
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -110,7 +110,7 @@ Oluşturur veya belirli bir ada altında belirtilen Service Fabric özelliğini 
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --ad kimliği [gerekli] | Service Fabric adı, olmadan ' fabric\:' URI düzeni. |
 | --[gerekli] özellik adı | Service Fabric özelliğin adı. |
@@ -120,7 +120,7 @@ Oluşturur veya belirli bir ada altında belirtilen Service Fabric özelliğini 
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |

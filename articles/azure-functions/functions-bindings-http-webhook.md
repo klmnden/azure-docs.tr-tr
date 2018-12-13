@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 3cdedd0c8ddf6d2c724351cf150499434e3886c9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: acd2d5a3448d805b8b3c741139fc5f9a79c40ed2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994719"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317449"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure işlevleri HTTP Tetikleyicileri ve bağlamaları
 
@@ -495,7 +495,7 @@ Varsayılan olarak, tüm işlevi yollar ile ön ekli *API*. Ayrıca özelleştir
 
 Ayrıca, veri bağlama gelen bu bilgileri okuyabilir. Bu özellik yalnızca işlevler 2.x çalışma zamanı için kullanılabilir. Ayrıca şu anda yalnızca .NET dilleri için kullanılabilir.
 
-Bu bilgiler .NET languagues içinde olarak kullanılabilir bir [ClaimsPrincipal](https://docs.microsoft.com/en-us/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). ClaimsPrincipal kullanılabilir aşağıdaki örnekte gösterildiği gibi istek bağlamının bir parçası olarak:
+Bu bilgiler .NET dillerinde olarak kullanılabilir bir [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). ClaimsPrincipal kullanılabilir aşağıdaki örnekte gösterildiği gibi istek bağlamının bir parçası olarak:
 
 ```csharp
 using System.Net;
@@ -541,7 +541,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 İki tür anahtarlar vardır:
 
 * **Ana bilgisayar anahtarları**: Bu anahtarlar işlev uygulamasında tüm işlevleri tarafından paylaşılır. Bir API anahtarı kullanıldığında, bu işlev uygulaması içinde herhangi bir işlev erişime izin verin.
-* **İşlev anahtarları**: Bu anahtarları altında tanımlı yalnızca belirli işlevler için geçerlidir. Bunlar yalnızca, bir API anahtarı kullanıldığında, bu işlev erişim sağlar.
+* **İşlev anahtarları**: Bu anahtarların tanımlandıkları yalnızca belirli işlevler için geçerlidir. Bunlar yalnızca, bir API anahtarı kullanıldığında, bu işlev erişim sağlar.
 
 Her anahtar için başvuru olarak adlandırılır ve işlevi ve ana bilgisayar düzeyinde ("varsayılan" adlı) bir varsayılan anahtar yoktur. İşlev tuşları, ana bilgisayar anahtarlarını önceliklidir. İki anahtar da aynı ada sahip tanımlandığında, işlev anahtarı her zaman kullanılır.
 
@@ -606,8 +606,8 @@ Slack Web kancası Slack belirteçten ile bir işleve özgü anahtar yapılandı
 
 Web kancası yetkilendirme Web kancası alıcı bileşeni tarafından HTTP tetikleyicisi bir parçası olarak işlenir ve mekanizması Web kancası türüne göre değişir. Her mekanizmasının bir anahtara bağlıdır. Varsayılan olarak, "varsayılan" adlı işlev anahtarı kullanılır. Farklı bir anahtar kullanmak için aşağıdaki yollardan biriyle anahtar adı ile istek göndermek için Web kancası sağlayıcı yapılandırın:
 
-* **Sorgu dizesi**: sağlayıcı anahtar adı geçen `clientid` gibi sorgu dizesi parametresi, `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
-* **İstek üstbilgisi**: sağlayıcı anahtar adı geçen `x-functions-clientid` başlığı.
+* **Sorgu dizesi**: Sağlayıcı anahtar adı geçen `clientid` gibi sorgu dizesi parametresi, `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
+* **İstek üstbilgisi**: Sağlayıcı anahtar adı geçen `x-functions-clientid` başlığı.
 
 ## <a name="trigger---limits"></a>Tetikleyici - sınırları
 

@@ -1,6 +1,6 @@
 ---
-title: Verileri karşıya yükleme (REST API - Azure Search) | Microsoft Docs
-description: REST API kullanarak Azure Search'te bir dizine nasıl veri yükleneceğini öğrenin.
+title: Kod arama hizmeti REST API - Azure Search kullanarak verileri yükleme
+description: HTTP istekleri ve REST API kullanarak Azure Search'te tam metin arama yapılabilir bir dizin veri yükleneceğini öğrenin.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -9,12 +9,13 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 04/20/2018
-ms.openlocfilehash: 53b20c9db7efe1f8876eec7c0167dc151aa38786
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: b3044ec3fb21e77c5174ebd5a6b2dabd2282240f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187989"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312867"
 ---
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>REST API kullanarak Azure Search'e veri yükleme
 > [!div class="op_single_selector"]

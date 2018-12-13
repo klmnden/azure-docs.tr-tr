@@ -4,9 +4,8 @@ description: Machine Learning Studio'da bulunan örnek modellerde kullanılan ve
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 57d9e1c7b501b67a441dc3490356261fa29ebb7d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2fde43417ffc907a93b4e568b90ebbda228c4cfe
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308843"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270493"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da örnek veri kümelerini kullanma
 [top]: #machine-learning-sample-datasets
@@ -34,7 +33,7 @@ Bu örnek veri kümeleri kalan kullanılabilir altında çalışma alanınızdak
 Bu veri kümelerini birini kendi denemenizde, deneme tuvaline sürükleyerek kullanabilirsiniz.
 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 <table>
 
@@ -48,9 +47,9 @@ Bu veri kümelerini birini kendi denemenizde, deneme tuvaline sürükleyerek kul
   <td>
 16 yaş ayarlanmış gelir dizin > 100 ile üzerinden çalışma yetişkinler kullanarak 1994 Görselleştirmenizdeki veritabanı bir alt kümesi.
 <p></p>
-<b>Kullanım:</b> demografik bilgileri bir kişinin yılı aşkın 50 bin işletmeyse olup olmadığını tahmin etmek için kullanan kişiler sınıflandırabilir.
+<b>Kullanım:</b> Bir kişi yılı aşkın 50 bin işletmeyse olup olmadığını tahmin etmek için demografik bilgileri kullanan kişiler sınıflandırın.
 <p></p>
-<b>İlgili araştırma:</b> Kohavi, r, Becker, b, (1996). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar Bilimine </td>
+<b>İlgili araştırma:</b> Kohavi, r, Becker, b, (1996). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
 </tr>
 
 <tr>
@@ -69,9 +68,9 @@ Otomobil tarafından hakkında bilgi, marka ve model, fiyata dahil olmak üzere 
 <p></p>
 Risk puanı, başlangıçta otomatik fiyat ile ilişkilidir. Ardından, gerçek riskli aktüerlerin symboling olarak bilinen bir işlem olarak ayarlanır. Otomatik riskli ve -3 değeri olan büyük olasılıkla güvenlidir + 3 arası değerini gösterir.
 <p></p>
-<b>Kullanım:</b> risk puanını regresyon veya çok değişkenli sınıflandırmasını kullanan özellikler tarafından tahmin edin. 
+<b>Kullanım:</b> Risk puanı, gerileme veya çok değişkenli sınıflandırma özellikleri tarafından tahmin edin. 
 <p></p>
-<b>İlgili araştırma:</b> Schlimmer, J.C. (1987). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar Bilimine </td>
+<b>İlgili araştırma:</b> Schlimmer, J.C. (1987). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
 </tr>
 
 <tr>
@@ -100,9 +99,9 @@ Tansiyon Transfusion hizmet Center'ın Hsin Chu Şehir, Tayvan tansiyon Bağış
 <p></p>
 Bağış veri içeren son Bağış itibaren ay) ve sıklığı veya Bağışları, son Bağış daraltılmasından toplam sayısı ve Bağış tansiyon miktarı.
 <p></p>
-<b>Kullanım:</b> Hedef Sınıflandırma Bağış tansiyon burada 1 gösterir bir Bağış hedef dönemi ve 0 sırasında Mart 2007 Bağış olmayan Bağış olup olmadığını tahmin etmektir. 
+<b>Kullanım:</b> Sınıflandırma Bağış tansiyon Mart 2007 burada 1 hedef süreye ve 0 sırasında bir Bağış gösterir, bağış olmayan Bağış olup olmadığını tahmin etmek için kullanılan hedeftir. 
 <p></p>
-<b>İlgili araştırma:</b> Yeh, I.C., (2008). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar Bilimine
+<b>İlgili araştırma:</b> Yeh, I.C., (2008). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri
 <p></p>
 Yeh, ı-Cheng, Yang, Kıng-Jang gönderdi ve Eğerlendirmesi, etiketi mı, "bilgi bulma Bernoulli dizisi,"Uzman sistemler ile uygulamalar, 2008, kullanılarak RFM modeli <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
@@ -113,9 +112,9 @@ Yeh, ı-Cheng, Yang, Kıng-Jang gönderdi ve Eğerlendirmesi, etiketi mı, "bilg
   <td>
 Machine learning belgeleri sık görüntülenen Oncology Enstitüsü tarafından sağlanan üç kanser ilişkili veri kümelerinden birini. 300 dokulu örnekleri laboratuar analiz özellikleri ile tanılama bilgileri bir araya getirir.
 <p></p>
-<b>Kullanım:</b> kanser türünü sınıflandırmak ve 9 özniteliklerine dayalı, bazıları doğrusal olarak kategorik bazılarıdır. 
+<b>Kullanım:</b> Kanser türünü sınıflandırmak, 9 özniteliklerine dayalı, bazıları doğrusal ve bazı kategorik. 
 <p></p>
-<b>İlgili araştırma:</b> Wohlberg, W.H., Sokak, W.N. ve Mangasarian, O.L. (1995). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar Bilimine </td>
+<b>İlgili araştırma:</b> Wohlberg, W.H., Sokak, W.N. ve Mangasarian, O.L. (1995). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
 </tr>
 
 <tr>
@@ -166,9 +165,9 @@ KDD Kupası 2009 müşteri ilişkisi tahmin sınama etiketlerinden (<a href="htt
   <td>
 12 farklı yapı şekline göre benzetimli enerji profil koleksiyonu. Binalar sekiz özellikleri tarafından ayrılır. Bu alan, glazing alan dağıtım ve yönlendirmesini glazing içerir.
 <p></p>
-<b>Kullanım:</b> iki gerçek değerli yanıtları biri olarak göre derecelendirme enerji verimliliğini tahmin etmek için regresyon veya sınıflandırması'nı kullanın. En yakın tamsayıya yanıt değişkeni yuvarlak çok sınıflı sınıflandırma için olur. 
+<b>Kullanım:</b> İki gerçek değerli yanıtları biri olarak tabanlı enerji verimliliğini derecelendirme tahmin etmek için regresyon veya sınıflandırma kullanın. En yakın tamsayıya yanıt değişkeni yuvarlak çok sınıflı sınıflandırma için olur. 
 <p></p>
-<b>İlgili araştırma:</b> Xifara, A. & Tsanas, A. (2012). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar Bilimine </td>
+<b>İlgili araştırma:</b> Xifara, A. & Tsanas, A. (2012). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
 </tr>
 
 <tr>
@@ -181,7 +180,7 @@ Veri kümesi süre Nisan-Ekim 2013 kapsar. Azure Machine Learning Studio'da kar�
   <li>Kıta ABD'si sınırları içinde yalnızca 70'ten en yoğun saatinde havaalanları kapsayacak şekilde filtre veri kümesi</li>
   <li>İptal edilen uçuşlar 15 dakikadan fazla Gecikmeli olarak etiketlenmiş</li>
   <li>Yolu saptırabilir uçuşlar filtrelendi</li>
-  <li>Aşağıdaki sütunlar seçildi: yıl, ay, DayofMonth, DayOfWeek, taşıyıcı, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, iptal edildi</li>
+  <li>Seçilen aşağıdaki sütunlar: Yıl, ay, DayofMonth, DayOfWeek, taşıyıcı, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, iptal edildi</li>
 </ul>
 </td>
 </tr>
@@ -191,9 +190,9 @@ Veri kümesi süre Nisan-Ekim 2013 kapsar. Azure Machine Learning Studio'da kar�
   <td>
 Uçak uçuş varış ve Amerika Birleşik Devletleri Ekim 2011'den departures kaydı.
 <p></p>
-<b>Kullanım:</b> uçuş gecikme tahmin edin. 
+<b>Kullanım:</b> Uçuş gecikme tahmin edin. 
 <p></p>
-<b>İlgili araştırma:</b> , ABD bölüm nakliye gelen <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time"> http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time </a>.
+<b>İlgili araştırma:</b> Öğesinden, ABD bölüm nakliye <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time"> http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time </a>.
   </td>
 </tr>
 
@@ -202,9 +201,9 @@ Uçak uçuş varış ve Amerika Birleşik Devletleri Ekim 2011'den departures ka
   <td>
 Sıcaklık ve nem dizinleri ve Rüzgar hızı gibi hava durumu verileri içerir. Veri alanı orman ateşlenir kayıtlarıyla birlikte Kuzey Doğu Portekiz alınır.
 <p></p>
-<b>Kullanım:</b> amacı orman ateşlenir yazılan alanını tahmin olduğu zor regresyon göreve budur. 
+<b>Kullanım:</b> Bu bir zor regresyon, bir yandan orman ateşlenir yazılan alanını tahmin olduğu görevdir. 
 <p></p>
-<b>İlgili araştırma:</b> Cortez, p & Morais, A. (2008). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar Bilimine
+<b>İlgili araştırma:</b> Cortez, p & Morais, A. (2008). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri
 <p></p>
 [Cortez ve Morais, 2007] P. Cortez ve A. Morais. Veri madenciliği yönelik bir yaklaşım tahmin orman rutin verileri kullanarak ateşlenir. J. Neves, M. f Santos ve J. Machado EDT, yapay zeka, Study of 13 EPIA 2007 - Portekizce konferansı tutanaklarında yapay zeka, aralık, Guimarães, Portekiz, ss. 512-523, 2007 yeni eğilimler. APPIA, ISBN 13 978-989-95618-0-9. Bulunabilir: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"> http://www.dsi.uminho.pt/~pcortez/fires.pdf </a>.
   </td>
@@ -222,7 +221,7 @@ UCI Statlog (Almanca kredi kartı) veri kümesi (<a href="http://archive.ics.uci
 <tr>
   <td>IMDB başlık</td>
   <td>
-Veri kümesini Twitter tweetleri değerlendirildi filmlerle ilgili bilgiler içeren: IMDB film kimliği, film adı, türe ve üretim yılı. Veri kümesinde 17K filmler bulunur. Veri kümesi "S. kağıt kullanılmaya başlandı Dooms, t De Pessemier ve L. Martens. MovieTweetings: Veri kümesi derecelendirme film Twitter'dan toplanır. Atölyesi kitle kaynak ve İnsan hesaplama öneren sistemleri RecSys 2013'te CrowdRec."
+Veri kümesi Twitter tweetleri değerlendirildi filmlerle ilgili bilgiler içerir: IMDB film kimliği, film adı, türe ve üretim yılı. Veri kümesinde 17K filmler bulunur. Veri kümesi "S. kağıt kullanılmaya başlandı Dooms, t De Pessemier ve L. Martens. MovieTweetings: Veri kümesi derecelendirme film Twitter'dan toplanır. Atölyesi kitle kaynak ve İnsan hesaplama öneren sistemleri RecSys 2013'te CrowdRec."
   </td>
 </tr>
 
@@ -231,9 +230,9 @@ Veri kümesini Twitter tweetleri değerlendirildi filmlerle ilgili bilgiler içe
   <td>
 Desen tanıma belgelerinde bulunacak en iyi bilinen veritabanı belki de budur. 50 örnekleri her üç Iris çeşitleri petal ölçümler içeren nispeten küçük veri kümesi.
 <p></p>
-<b>Kullanım:</b> ölçümleri iris türünü tahmin edin.  
+<b>Kullanım:</b> Ölçümler iris türünü tahmin edin.  
 <p></p>
-<b>İlgili araştırma:</b> Fisher, R.A. (1988). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar Bilimine </td>
+<b>İlgili araştırma:</b> Fisher, R.A. (1988). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
 </tr>
 
 <tr>
@@ -250,9 +249,9 @@ Bu veri kümesi Carnegie Mellon University StatLib kitaplığı tarafından sağ
 <p></p>
 Verileri yakıt tüketim galon başına mil içindeki çeşitli otomobiller için listeler. Ayrıca, silindir, altyapısı öteleme, beygir gücü, toplam ağırlığı ve Hızlandırma sayısı gibi bilgileri içerir.
 <p></p>
-<b>Kullanım:</b> yakıt ekonomi birden çok değerli üç farklı özniteliklerin ve sürekli beş özniteliğe göre tahmin edin. 
+<b>Kullanım:</b> Birden çok değerli üç farklı özniteliklerin ve sürekli beş özniteliğe dayalı yakıt ekonomi tahmin edin. 
 <p></p>
-<b>İlgili araştırma:</b> StatLib, Carnegie Mellon University (1993). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar Bilimine </td>
+<b>İlgili araştırma:</b> StatLib, Carnegie Mellon University (1993). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
 </tr>
 
 <tr>
@@ -260,9 +259,9 @@ Verileri yakıt tüketim galon başına mil içindeki çeşitli otomobiller içi
   <td>
 Bir veri alt kümelerinin Digestive ve serbest hastalıklara veritabanı ve Ailelere National Institute. Veri kümesi Pima Hindistan miras, kadın hastalara odaklanmak için filtre. Veriler glucose ve insulin düzeyleri yanı sıra, yaşam faktörler gibi tıbbi veriler içerir.
 <p></p>
-<b>Kullanım:</b> konu ailelere (ikili sınıflandırma) olup olmadığını tahmin edin. 
+<b>Kullanım:</b> Konu ailelere (ikili sınıflandırma) olup olmadığını tahmin edin. 
 <p></p>
-<b>İlgili araştırma:</b> Sigillito, V. (1990). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml"</a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar Bilimine </td>
+<b>İlgili araştırma:</b> Sigillito, V. (1990). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml"</a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
 </tr>
 
 <tr>
@@ -270,9 +269,9 @@ Bir veri alt kümelerinin Digestive ve serbest hastalıklara veritabanı ve Aile
   <td>
 Müşterilerle ilgili demografik bilgileri ve tercihleri de dahil olmak üzere, meta veri kümesi.
 <p></p>
-<b>Kullanım:</b> eğitmek ve öneren sistem test etmek için diğer iki Restoran veri kümeleri ile birlikte bu veri kümesi kullanın. 
+<b>Kullanım:</b> Bu veri kümesi eğitmek ve öneren sistem test etmek için diğer iki Restoran veri kümeleri ile birlikte kullanın. 
 <p></p>
-<b>İlgili araştırma:</b> Bache, K. ve Lichman, M. (2013). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimi.
+<b>İlgili araştırma:</b> Bache, K. ve Lichman, M. (2013). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar Bilimine.
   </td>
 </tr>
 
@@ -281,9 +280,9 @@ Müşterilerle ilgili demografik bilgileri ve tercihleri de dahil olmak üzere, 
   <td>
 Lokantalar ve yemek türü, Yemek stil ve konum gibi bunların özellikleri hakkındaki meta verileri kümesi.
 <p></p>
-<b>Kullanım:</b> eğitmek ve öneren sistem test etmek için diğer iki Restoran veri kümeleri ile birlikte bu veri kümesi kullanın. 
+<b>Kullanım:</b> Bu veri kümesi eğitmek ve öneren sistem test etmek için diğer iki Restoran veri kümeleri ile birlikte kullanın. 
 <p></p>
-<b>İlgili araştırma:</b> Bache, K. ve Lichman, M. (2013). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimi.
+<b>İlgili araştırma:</b> Bache, K. ve Lichman, M. (2013). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar Bilimine.
   </td>
 </tr>
 
@@ -292,9 +291,9 @@ Lokantalar ve yemek türü, Yemek stil ve konum gibi bunların özellikleri hakk
   <td>
 Bir ölçekte kullanıcılar tarafından restoranlar için 2 için 0 ile verilen derecelendirmeleri içerir.
 <p></p>
-<b>Kullanım:</b> eğitmek ve öneren sistem test etmek için diğer iki Restoran veri kümeleri ile birlikte bu veri kümesi kullanın. 
+<b>Kullanım:</b> Bu veri kümesi eğitmek ve öneren sistem test etmek için diğer iki Restoran veri kümeleri ile birlikte kullanın. 
 <p></p>
-<b>İlgili araştırma:</b> Bache, K. ve Lichman, M. (2013). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimi.
+<b>İlgili araştırma:</b> Bache, K. ve Lichman, M. (2013). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar Bilimine.
   </td>
 </tr>
 
@@ -303,11 +302,11 @@ Bir ölçekte kullanıcılar tarafından restoranlar için 2 için 0 ile verilen
   <td>
 Bu veri kümesi, bir dizi denemeler annealing çelik kayıtları içerir. İçerdiği fiziksel öznitelikleri (genişlik, kalınlığı, sonuç türü (serpantini, sayfa, vb.) çelik türleri.
 <p></p>
-<b>Kullanım:</b> iki sayısal sınıfı öznitelikleri; sertlik veya güçlü tahmin edin. Ayrıca öznitelikler arasında bağıntılar analiz.
+<b>Kullanım:</b> İki sayısal sınıfı öznitelikleri tahmin etme; sertlik veya gücü. Ayrıca öznitelikler arasında bağıntılar analiz.
 <p></p>
 Çelik derece izleyin bir kümesi standart SAE ya da diğer kuruluşlar tarafından tanımlanmış. Özel bir 'sınıf' (sınıf değişkeni) arayan ve gerekli değerleri öğrenmek mi istiyorsunuz. 
 <p></p>
-<b>İlgili araştırma:</b> Sterling'le, d & Buntine, W. (NA). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar Bilimine
+<b>İlgili araştırma:</b> Sterling'le, d & Buntine, W. (NA). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri
 <p></p>
 Derece çelik için yararlı bir kılavuz burada bulunabilir: <a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
@@ -322,9 +321,9 @@ Benzetim amacı, taban tabanlı Atmosfer Cherenkov gama telescopes doğruluğunu
 <p></p>
 Önceden işlenmiş hesaplandıktan elongated bir küme ile uzun eksen kamera merkezi yönlendirilmiş oluşturmaktır. Bu üç nokta (Hillas parametreleri olarak da adlandırılır) özelliklerini Ayrımcılığı için kullanılabilir görüntü parametreleri arasındadır.
 <p></p>
-<b>Kullanım:</b> hediye görüntüsü sinyali veya arka plan gürültüsü temsil edip etmediğini tahmin edin.
+<b>Kullanım:</b> Hediye görüntüsü sinyali veya arka plan gürültüsü temsil edip etmediğini tahmin edin.
 <p></p>
-<b>Not:</b> basit sınıflandırma doğruluğu değil Bu veriler için anlamlı bir sinyal olayı arka plan olarak sınıflandırma daha sinyal kötüsü olarak arka plan olay sınıflandırma beri. ROC graf farklı sınıflandırıcılar karşılaştırması için kullanılmalıdır. Sinyal aşağıdaki eşiklerden birine olması gerektiği bir arka plan olayı kabul etme olasılığı: 0,01, 0,02, 0,05, 0,1 veya 0.2.
+<b>Notlar:</b> Sinyal bir sinyal olayı arka plan olarak sınıflandırma değerinden daha kötü olduğu gibi bir arka plan olay sınıflandırma beri özelliği basit sınıflandırma doğruluğu bu veriler için anlamlı değildir. ROC graf farklı sınıflandırıcılar karşılaştırması için kullanılmalıdır. Sinyal aşağıdaki eşiklerden birine olması gerektiği bir arka plan olayı kabul etme olasılığı: 0,01, 0,02, 0,05, 0,1 veya 0.2.
 <p></p>
 Ayrıca, arka plan olayları (hadronic duşlar için h) sayısını önemsememiştir olduğunu unutmayın. Gerçek ölçüleri olayları çoğunu h veya gürültü sınıfı temsil eder. 
 <p></p>
@@ -341,7 +340,7 @@ Hava Durumu verilerini havaalanı hava durumu istasyonlarını Nisan-Ekim 2013 z
   <li>Hava durumu istasyonu kimlikleri karşılık gelen havaalanı kimlikleri eşlendi</li>
   <li>Hava durumu istasyonu 70'ten en yoğun saatinde havaalanları ile ilişkili olmayan filtrelendi</li>
   <li>Tarih sütununu ayrı yıl, ay ve gün sütuna bölmek</li>
-  <li>Aşağıdaki sütunlar seçildi: AirportID, yıl, ay, gün, saat, saat dilimi, SkyCondition, görünürlük, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li>
+  <li>Seçilen aşağıdaki sütunlar: AirportID, yıl, ay, gün, saat, saat dilimi, SkyCondition, görünürlük, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li>
 </ul>
   </td>
 </tr>

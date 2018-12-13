@@ -1,22 +1,24 @@
 ---
-title: Azure için birden çok ön uç yük dengeleyici | Microsoft Docs
+title: Azure Load Balancer için birden çok ön uç
+titlesuffix: Azure Load Balancer
 description: Azure yük dengeleyici ön Uçlarda birden çok genel bakış
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: chkuhtz
-ms.openlocfilehash: d435d2c491cf17356e96f7bbb05b1e22c8e04aca
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: b9a140314b8eba6386c37bdbcf2bb3de58589335
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219367"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163438"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure Load Balancer için birden çok ön uç
 
@@ -46,7 +48,7 @@ Azure Load Balancer, aynı yük dengeleyici yapılandırmasında iki kural türl
 
 Varsayılan davranışı ile başlatarak bu senaryolar daha fazla inceleyeceğiz.
 
-## <a name="rule-type-1-no-backend-port-reuse"></a>Kural türü #1: arka uç bağlantı noktası yeniden yok
+## <a name="rule-type-1-no-backend-port-reuse"></a>Kural türü #1: Herhangi bir arka uç bağlantı noktası yeniden
 
 ![Yeşil ve mor ön uç ile birden çok ön uç çizim](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 

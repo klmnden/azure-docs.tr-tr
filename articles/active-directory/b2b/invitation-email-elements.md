@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: cbb81f62bcea43c3c30abff6b5f76e3a89347813
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8b6edcb70bca480ebe0d53c061c6461745f189e8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985405"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321298"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>B2B işbirliği davet e-- Azure Active Directory öğeleri
 
@@ -26,11 +26,11 @@ Davet e-postalarına, iş ortakları karttaki B2B işbirliği kullanıcıları A
 ## <a name="explaining-the-email"></a>E-posta açıklayan
 En iyi şekilde nasıl yeteneklerini kullanılacak bilmesi e-postanın bazı öğeler bakalım.
 
-### <a name="subject"></a>Konu
-E-postanın şu deseni izler: davet ettiğiniz &lt;kiracıadı&gt; kuruluş
+### <a name="subject"></a>Özne
+E-postanın şu deseni izler: Davet ettiğiniz &lt;kiracıadı&gt; kuruluş
 
 ### <a name="from-address"></a>Gönderici adresi
-Bir LinkedIn desen Kimden adresi için kullanırız.  Davet eden olan temizleyin ve şirket, ve ayrıca bir Microsoft e-posta geldiğini açıklamak e-posta adresi gerekir. Biçim: &lt;davet eden görünen adını&gt; gelen &lt;kiracıadı&gt; (Microsoft aracılığıyla) <invites@microsoft.com>
+Bir LinkedIn desen Kimden adresi için kullanırız.  Davet eden olan temizleyin ve şirket, ve ayrıca bir Microsoft e-posta geldiğini açıklamak e-posta adresi gerekir. Biçimi şu şekildedir: &lt;Davet eden görünen adını&gt; gelen &lt;kiracıadı&gt; (Microsoft aracılığıyla) <invites@microsoft.com>
 
 ### <a name="reply-to"></a>Yanıtla
 Yanıt için e-posta, davet eden'ın e-posta için kullanılabilir olduğunda, yeniden davet eden e-posta göndermesi için e-posta yanıtlama ayarlanır.
@@ -40,7 +40,7 @@ Kiracı kullanım davet e-postaları şirket markası, kiracınız için ayarlam
 
 ### <a name="call-to-action"></a>Eylemini çağırın
 Eylem çağrısı iki bölümden oluşur: alıcı, e-posta neden aldı ve bununla ilgili alıcı ne sorulmaktadır açıklayan.
-- "Neden" bölümünde şu biçimi kullanarak çözülebilir: uygulamalara erişmek üzere davet edildiniz &lt;kiracıadı&gt; kuruluş
+- "Neden" bölümünde şu biçimi kullanarak çözülebilir: Uygulamalara erişmek üzere davet edildiniz &lt;kiracıadı&gt; kuruluş
 
 - Ve "ne, yapmak istenir" bölümünde varlığını tarafından belirtilen **Başlarken** düğmesi. Alıcı davetleri gerek kalmadan eklendiğinde, bu düğmeyi göstermez.
 
@@ -52,7 +52,7 @@ Profil resminizi henüz ayarlamadıysanız, davet eden'ın baş resmi yerine bir
   ![Davet eden'ın baş görüntüleme](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>Gövde
-Davet eden ölçeklemesini veya API davet geçirilir, ileti gövdesi içerir. Güvenlik nedenleriyle HTML etiketlerini işlemek için bir metin alanı var.
+Davet eden ne zaman ölçeklemesini ileti gövdesinde [directory, Grup veya uygulama için Konuk kullanıcı davet](add-users-administrator.md) veya [davet API kullanarak](customize-invitation-api.md). Güvenlik nedenleriyle HTML etiketlerini işlemek için bir metin alanı var.
 
 ### <a name="footer-section"></a>Alt bilgi bölümü
 Alt bilgi, Microsoft şirket markası içerir ve e-posta izlenmeyen bir diğer addan gönderildiğini bilmeniz alıcı olanak tanır. Özel durumlar:

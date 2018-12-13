@@ -1,6 +1,6 @@
 ---
-title: Azure Search nedir? | Microsoft Docs
-description: Azure Search, tam olarak yönetilen bir barındırılan bulut arama hizmetidir. Bu özellik genel bakışında daha fazla bilgi edinin.
+title: Azure Search Hizmeti - Azure Search nedir
+description: Azure Search, tam olarak yönetilen bir barındırılan bulut arama hizmetidir. Özellik açıklamaları, geliştirme iş akışı, Azure Search arama ürünlerin karşılaştırması ve kullanmaya nasıl başlayacağınızı gözden geçirin.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: overview
 ms.date: 11/09/2018
 ms.author: heidist
-ms.openlocfilehash: 85a071017f4394f4ccde297fb229f7786d9249b3
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.custom: seodec2018
+ms.openlocfilehash: 81b9aef553b4cdc214fbcc681a2e5a91b833e6be
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285144"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313505"
 ---
 # <a name="what-is-azure-search"></a>Azure Search nedir?
 Azure Search, geliştiricilere, web uygulamalarındaki, mobil uygulamalardaki ve kurumsal uygulamalardaki özel, heterojen içeriğe yönelik zengin arama deneyimi ekleme araçlarını ve API’lerini sunan, hizmet olarak arama bulut çözümüdür. Sorgu yürütme işlemi, kullanıcı tarafından tanımlanan bir dizine göre gerçekleştirilir.
@@ -43,7 +44,7 @@ Bilgi alma sürecinin karmaşıklığını maskeleyen basit bir [REST API’si](
 | Altyapı | **Yüksek oranda kullanılabilir platform**, son derece güvenilir arama hizmeti deneyimi sağlar. Düzgün şekilde ölçeklendirildiğinde [Azure Search, %99,9 SLA sunar](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> Uçtan uca çözüm olarak **tam olarak yönetilen ve ölçeklendirilebilir** Azure Search kesinlikle bir altyapı yönetimi gerektirmez. Hizmetiniz daha fazla belge depolamayı, daha yüksek sorgu yüklerini veya her ikisini birden işlemek için iki boyutta ölçeklendirilerek ihtiyaçlarınıza göre uyarlanabilir.
 
 ## <a name="how-to-use-azure-search"></a>Azure Search’ü kullanma
-### <a name="step-1-provision-service"></a>1. Adım: Hizmeti sağlama
+### <a name="step-1-provision-service"></a>1. Adım: Sağlama hizmeti
 [Azure portalında](https://portal.azure.com/) veya [Azure Resource Management API’si](/rest/api/searchmanagement/) aracılığıyla Azure Search hizmeti sağlayabilirsiniz. Diğer abonelerle paylaşılan ücretsiz hizmeti veya yalnızca hizmetiniz tarafından kullanılan kaynakları ayıran [ücretli katmanı](https://azure.microsoft.com/pricing/details/search/) seçebilirsiniz. Ücretli katmanlar için bir hizmeti iki boyutta ölçeklendirebilirsiniz: 
 
 - Çoğaltmalar ekleyerek yoğun sorgu yüklerini işlemek için kapasitenizi büyütün.   
@@ -51,19 +52,19 @@ Bilgi alma sürecinin karmaşıklığını maskeleyen basit bir [REST API’si](
 
 Belge depolamayı ve sorgu aktarım hızını ayrı olarak işleyerek üretim gereksinimlerine göre kaynak sağlamayı kalibre edebilirsiniz.
 
-### <a name="step-2-create-index"></a>2. Adım: Dizin oluşturma
+### <a name="step-2-create-index"></a>2. Adım: Dizin oluştur
 Aranabilir içeriği karşıya yükleyebilmeniz için önce bir Azure Search dizini tanımlamanız gerekir. Dizin, verilerinizi bulunduran ve arama sorgularını kabul edebilen bir veritabanı tablosuna benzer. Bir veritabanındaki alanlara benzer şekilde, aramak istediğiniz belgelerin yapısını yansıtmak için eşlenecek dizin şemasını tanımlarsınız.
 
 Azure portalında veya [.NET SDK](search-howto-dotnet-sdk.md) ya da [REST API](/rest/api/searchservice/) kullanılarak programlama yoluyla bir şema oluşturulabilir.
 
-### <a name="step-3-load-data"></a>3. Adım: Verileri yükleme
+### <a name="step-3-load-data"></a>3. adım: Veri yükleme
 Bir dizin tanımladıktan sonra içeriği karşıya yüklemeye hazır olursunuz. Bir itme veya çekme modeli kullanabilirsiniz.
 
 Çekme modeli, dış veri kaynaklarından verileri alır. Verilere bağlanma, verileri okuma ve seri hale getirme gibi veri alımı işlemlerini kolaylaştıran ve otomatikleştiren *dizin oluşturucular* aracılığıyla desteklenir. [Dizin oluşturucular](/rest/api/searchservice/Indexer-operations), bir Azure sanal makinesinde barındırılan Azure Cosmos DB, Azure SQL Veritabanı, Azure Blob Depolama ve SQL Server için kullanılabilir. İsteğe bağlı veya zamanlanan veri yenileme için dizin oluşturucuyu yapılandırabilirsiniz.
 
 Güncelleştirilmiş belgeleri dizine göndermek için kullanılan SDK veya REST API’leri aracılığıyla itme modeli sağlanır. JSON biçimini kullanarak hemen hemen her veri kümesinden verileri itebilirsiniz. Verileri yüklemeye ilişkin kılavuz için bkz. [Belgeler ekleme, güncelleştirme veya silme](/rest/api/searchservice/addupdate-or-delete-documents) veya [.NET SDK’sını kullanma](search-howto-dotnet-sdk.md).
 
-### <a name="step-4-search"></a>4. Adım: Arama
+### <a name="step-4-search"></a>4. adım: Arama
 Bir dizin doldurulduktan sonra, REST API’si veya .NET SDK’sı ile basit HTTP isteklerini kullanarak hizmet uç noktanıza [arama sorguları düzenleyebilirsiniz](/rest/api/searchservice/Search-Documents).
 
 ## <a name="how-it-compares"></a>Karşılaştırma
@@ -73,7 +74,7 @@ Müşteriler genellikle Azure Search’ün diğer aramayla ilgili çözümlerle 
 | Karşılaştırılan | Temel farklılıklar |
 |-------------|-----------------|
 |Bing | [Bing Web Araması API'si](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/), Bing.com adresindeki dizinlerde gönderdiğiniz eşleşen terimleri arar. Dizinler, HTML, XML ve genel sitelerdeki diğer web içeriklerinden derlenir. Aynı temel üzerine oluşturulan [Bing Özel Arama](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/), tek tek web sitelerine kapsamı belirlenmiş şekilde web içeriği türleri için aynı gezgin teknolojisini sunar.<br/><br/>Azure Search, çoğu zaman çeşitli kaynaklardan sahip olduğunuz veri ve belgelerle doldurulmuş şekilde, tanımladığınız bir dizini arar. Azure Search, [dizin oluşturucular](search-indexer-overview.md) aracılığıyla bazı veri kaynakları için gezgin yeteneklerine sahiptir, ancak dizin şemanıza uygun herhangi bir JSON belgesini tek bir birleştirilmiş aranabilir kaynağa itebilirsiniz. |
-|Veritabanı araması | Birçok veritabanı platformu yerleşik bir arama deneyimi içerir. SQL Server'ın [tam metin araması](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) vardır. Cosmos DB ve benzeri teknolojilerin sorgulanabilir dizinleri vardır. Arama ile depolamayı birleştiren ürünler değerlendirilirken, hangisinin tercih edileceğini saptamak zor olabilir. Birçok çözümde her ikisi de kullanılır: Depolama için DBMS ve özelleştirilmiş arama özellikleri için Azure Search.<br/><br/>DBMS Ara karşılaştırıldığında, Azure Search heterojen kaynaklardan içerikleri depolar ve özelleştirilmiş metin gibi (dallanma başsözcüğe, sözcük biçimlerini) işleme dil algılayan metin işleme özellikleri sunar [56 diller](https://docs.microsoft.com/rest/api/searchservice/language-support). Ayrıca yanlış yazılmış sözcükleri otomatik düzeltme, [eş anlamlılar](https://docs.microsoft.com/rest/api/searchservice/synonym-map-operations), [öneriler](https://docs.microsoft.com/rest/api/searchservice/suggestions), [puanlama denetimleri](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [modeller](https://docs.microsoft.com/azure/search/search-filters-facets) ve [özel belirteçlere ayırma](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) özelliklerini de destekler. Azure Search’teki [tam metin araması motoru](search-lucene-query-architecture.md), bilgi alımında sektör standardı olan Apache Lucene’de yerleşiktir. Azure Search'te veriler tersine çevrilen dizin biçiminde kalıcı olur ama nadiren gerçek bir veri depolamanın yerini alır. Daha fazla bilgi için bu [forum gönderisine](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data) bakın. <br/><br/>Kaynak kullanımı, bu kategorideki başka bir çekim noktasıdır. Dizin oluşturma ve bazı sorgu işlemleri çoğunlukla yoğun bilgi işlem içerir. Arama DBMS'den buluttaki ayrılmış bir çözüme aktarıldığında işlem yürütme için sistem kaynakları korunur. Üstelik, aramayı harici hale getirerek, sorgu hacmiyle eşleşecek şekilde kolayca ölçeği ayarlayabilirsiniz.|
+|Veritabanı araması | Birçok veritabanı platformu yerleşik bir arama deneyimi içerir. SQL Server'ın [tam metin araması](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) vardır. Cosmos DB ve benzeri teknolojilerin sorgulanabilir dizinleri vardır. Arama ile depolamayı birleştiren ürünler değerlendirilirken, hangisinin tercih edileceğini saptamak zor olabilir. Birçok çözüm, her ikisi de kullanın: DBMS depolama ve Azure arama için özel arama özellikleri.<br/><br/>DBMS Ara karşılaştırıldığında, Azure Search heterojen kaynaklardan içerikleri depolar ve özelleştirilmiş metin gibi (dallanma başsözcüğe, sözcük biçimlerini) işleme dil algılayan metin işleme özellikleri sunar [56 diller](https://docs.microsoft.com/rest/api/searchservice/language-support). Ayrıca yanlış yazılmış sözcükleri otomatik düzeltme, [eş anlamlılar](https://docs.microsoft.com/rest/api/searchservice/synonym-map-operations), [öneriler](https://docs.microsoft.com/rest/api/searchservice/suggestions), [puanlama denetimleri](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [modeller](https://docs.microsoft.com/azure/search/search-filters-facets) ve [özel belirteçlere ayırma](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) özelliklerini de destekler. Azure Search’teki [tam metin araması motoru](search-lucene-query-architecture.md), bilgi alımında sektör standardı olan Apache Lucene’de yerleşiktir. Azure Search'te veriler tersine çevrilen dizin biçiminde kalıcı olur ama nadiren gerçek bir veri depolamanın yerini alır. Daha fazla bilgi için bu [forum gönderisine](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data) bakın. <br/><br/>Kaynak kullanımı, bu kategorideki başka bir çekim noktasıdır. Dizin oluşturma ve bazı sorgu işlemleri çoğunlukla yoğun bilgi işlem içerir. Arama DBMS'den buluttaki ayrılmış bir çözüme aktarıldığında işlem yürütme için sistem kaynakları korunur. Üstelik, aramayı harici hale getirerek, sorgu hacmiyle eşleşecek şekilde kolayca ölçeği ayarlayabilirsiniz.|
 |Ayrılmış arama çözümü | Tüm işlevleriyle birlikte ayrılmış arama kullanmaya karar verdiğinizi varsayarak, son kategorik karşılaştırma şirket içi çözümlerle bulut hizmetleri arasındadır. Birçok arama teknolojisi dizin oluşturma ve sorgu işlem hatları üzerinde kontrol, daha zengin sorgulama ve filtreleme söz dizimine erişim, derece ve ilgi düzeyi üzerinde kontrol ve kendinden yönlendirmeli ve akıllı arama özellikleri sunar. <br/><br/>[Minimum ek yük ve bakım ile anahtar teslim bir çözüm](#cloud-service-advantage) istiyorsanız bulut hizmeti doğru seçimdir. <br/><br/>Bulut paradigması içinde birçok sağlayıcı, tam metin araması, coğrafi arama ve arama girişlerindeki belirli bir belirsizlik düzeyini işleme yeteneğiyle birlikte karşılaştırılabilir temel özellikler sunar. Genellikle bu [özel bir özellik olup](#feature-drilldown) en iyi uygunluğu belirleyen yönetimin, araçların ve API’lerin kolaylaştırılmasını sağlar. |
 
 Bulut sağlayıcıları arasında Azure Search, Azure’daki içerik depoları ve veritabanları üzerinde tam metin arama iş yükleri için, öncelikli olarak hem bilgi alımı hem de içerik gezintisi için aramayı kullanan uygulamalar için en güçlü seçenektir. 
@@ -105,7 +106,7 @@ Azure aboneleri, [Ücretsiz katmanda bir hizmet sağlayabilir](search-create-ser
 
 Abone değilseniz, [ücretsiz olarak bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Ücretli Azure hizmetlerini denemek için krediler alırsınız. Krediler bittikten sonra hesabı tutabilir ve [ücretsiz Azure hizmetlerini](https://azure.microsoft.com/free/) kullanabilirsiniz. Açıkça ayarlarınızı değiştirip ücretlendirme istemediğiniz sürece kredi kartınız asla ücretlendirilmez.
 
-Alternatif olarak [MSDN abone avantajlarını etkinleştirebilirsiniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): MSDN aboneliğiniz, ücretli Azure hizmetlerinizi kullanabildiğiniz her ay size kredi verir. 
+Alternatif olarak, [MSDN abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): MSDN aboneliğiniz, ücretli Azure hizmetlerinizi kullanabildiğiniz her ay size kredi verir. 
 
 ## <a name="how-to-get-started"></a>Nasıl kullanmaya başlarım
 
@@ -116,7 +117,7 @@ Alternatif olarak [MSDN abone avantajlarını etkinleştirebilirsiniz](https://a
 3. .NET veya REST API'sini kullanarak kod yazmaya yönelin:
 
   + [.NET SDK’sını kullanma](search-howto-dotnet-sdk.md), yönetilen kodda ana iş akışını gösterir.  
-  + [REST API'si ile çalışmaya başlama](https://github.com/Azure-Samples/search-rest-api-getting-started), REST API’sinin kullanımıyla aynı adımları gösterir. REST API'lerini Postman veya Fiddler'dan çağırmak için şu hızlı başlangıcı da kullanabilirsiniz: [Azure Search REST API'lerini keşfetme](search-fiddler.md).
+  + [REST API'si ile çalışmaya başlama](https://github.com/Azure-Samples/search-rest-api-getting-started), REST API’sinin kullanımıyla aynı adımları gösterir. Bu hızlı başlangıçta, Postman veya Fiddler, REST API'leri çağırmak için de kullanabilirsiniz: [Azure Search REST API'lerini keşfetme](search-fiddler.md).
 
 ## <a name="watch-this-video"></a>Bu videoyu izleyin
 

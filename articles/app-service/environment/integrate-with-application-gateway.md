@@ -1,5 +1,5 @@
 ---
-title: ILB App Service ortamınızı Azure Application Gateway ile tümleştirme
+title: Azure Application Gateway ile - ILB App Service ortamı tümleştirin
 description: Bir uygulamada bir ILB App Service ortamınızı bir Application Gateway ile tümleştirme yönergeleri
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
-ms.openlocfilehash: f1e527918086fb003696c09828969e371ff9ca96
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: ea46b5e57e4e508a3311de8633ae61d346b574eb
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968826"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273825"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>ILB App Service ortamınızı Azure Application Gateway ile tümleştirme #
 
@@ -64,7 +65,7 @@ Ayrıca, ILB App Service ortamınızı kullanır alt ağdaki ağ geçidini konul
 
 1. Azure portalında Git **yeni** > **ağ** > **Application Gateway**.
 
-1. İçinde **Temelleri** alan:
+2. İçinde **Temelleri** alan:
 
    a. İçin **adı**, uygulama ağ geçidinin adını girin.
 
@@ -78,7 +79,7 @@ Ayrıca, ILB App Service ortamınızı kullanır alt ağdaki ağ geçidini konul
 
    ![Yeni uygulama ağ geçidi oluşturma temelleri][2]
 
-1. İçinde **ayarları** alan:
+3. İçinde **ayarları** alan:
 
    a. İçin **sanal ağ**, App Service ortamı sanal ağı seçin.
 
@@ -94,25 +95,25 @@ Ayrıca, ILB App Service ortamınızı kullanır alt ağdaki ağ geçidini konul
 
    ![Yeni uygulama ağ geçidi oluşturma ayarları][3]
     
-1. İçinde **özeti** bölümünde ayarları gözden geçirin ve seçin **Tamam**. Application Gateway'iniz Kurulumu tamamlamak için biraz fazla 30 dakika sürebilir.  
+4. İçinde **özeti** bölümünde ayarları gözden geçirin ve seçin **Tamam**. Application Gateway'iniz Kurulumu tamamlamak için biraz fazla 30 dakika sürebilir.  
 
-1. Application Gateway'iniz Kurulum tamamlandıktan sonra uygulama ağ geçidi portalınıza gidin. Seçin **arka uç havuzu**. ILB App Service ortamı için ILB adresini ekleyin.
+5. Application Gateway'iniz Kurulum tamamlandıktan sonra uygulama ağ geçidi portalınıza gidin. Seçin **arka uç havuzu**. ILB App Service ortamı için ILB adresini ekleyin.
 
    ![Arka uç havuzunu yapılandırma][4]
 
-1. Arka uç havuzu yapılandırma işlemi tamamlandıktan sonra seçin **sistem durumu araştırmalarının**. Uygulamanız için kullanmak istediğiniz etki alanı adı için bir durum araştırması oluşturun. 
+6. Arka uç havuzu yapılandırma işlemi tamamlandıktan sonra seçin **sistem durumu araştırmalarının**. Uygulamanız için kullanmak istediğiniz etki alanı adı için bir durum araştırması oluşturun. 
 
    ![Sistem durumu araştırmalarını yapılandırma][5]
     
-1. Sistem durumu araştırmalarını yapılandırma işlemi tamamlandıktan sonra seçin **HTTP ayarları**. Var olan ayarları düzenleme, seçin **kullanım özel araştırma**ve yapılandırdığınız araştırma seçin.
+7. Sistem durumu araştırmalarını yapılandırma işlemi tamamlandıktan sonra seçin **HTTP ayarları**. Var olan ayarları düzenleme, seçin **kullanım özel araştırma**ve yapılandırdığınız araştırma seçin.
 
    ![HTTP ayarları yapılandırma][6]
     
-1. Uygulama ağ geçidinin Git **genel bakış** bölümünde ve kullanan uygulama ağ geçidinizin genel IP adresini kopyalayın. Uygulama etki alanı adınız için bir A kaydı bu IP adresi yap veya bu adres için DNS adı bir CNAME kaydı kullanın. Genel IP adresini seçin ve genel IP adresinin kullanıcı Arabiriminden kopyalamak yerine, uygulama ağ geçidinin bağlantıyı kopyalamak daha kolay **genel bakış** bölümü. 
+8. Uygulama ağ geçidinin Git **genel bakış** bölümünde ve kullanan uygulama ağ geçidinizin genel IP adresini kopyalayın. Uygulama etki alanı adınız için bir A kaydı bu IP adresi yap veya bu adres için DNS adı bir CNAME kaydı kullanın. Genel IP adresini seçin ve genel IP adresinin kullanıcı Arabiriminden kopyalamak yerine, uygulama ağ geçidinin bağlantıyı kopyalamak daha kolay **genel bakış** bölümü. 
 
    ![Uygulama ağ geçidi portalı][7]
 
-1. Uygulamanız için özel etki alanı adı, ILB App Service ortamınızı ayarlayın. Uygulamanızı portalı ve altında Git **ayarları**seçin **özel etki alanları**.
+9. Uygulamanız için özel etki alanı adı, ILB App Service ortamınızı ayarlayın. Uygulamanızı portalı ve altında Git **ayarları**seçin **özel etki alanları**.
 
    ![Uygulama özel etki alanı adı ayarlayın][8]
 

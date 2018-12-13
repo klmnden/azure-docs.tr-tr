@@ -1,7 +1,7 @@
 ---
-title: Oluşturma ve model yönetimi için işlem hedeflerini kullan
+title: İşlem modeli eğitim hedefleri
 titleSuffix: Azure Machine Learning service
-description: Seçin ve makine öğrenimi Modellerinizi eğitmek için kullanılan (hedef işlem) eğitim ortamları yapılandırma hakkında bilgi edinin. Azure Machine Learning hizmeti kolayca geçiş eğitim ortamları sağlar. Yerel olarak eğitim başlatın ve ölçeğini genişletmek gerekiyorsa, bir bulut tabanlı bir işlem hedefine geçiş yapın.
+description: (Hedef işlem) eğitim ortamları için makine öğrenme modeli eğitimi yapılandırın. Eğitim ortamlarını kolayca geçiş yapabilirsiniz. Yerel olarak eğitim başlatın ve ölçeğini genişletmek gerekiyorsa, bir bulut tabanlı bir işlem hedefine geçiş yapın. Databricks
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -12,12 +12,12 @@ ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1a6533c1ec25eb8500f67cb98494463d7daf752b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: c91cc8dabc1fcf4918e64c18e5d5975dc7720c30
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080104"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316004"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>İşlem hedeflerine yönelik model eğitiminin ayarlama
 
@@ -27,11 +27,11 @@ Bir işlem hedefine Burada eğitim betiğinizi çalıştırmak veya modelinizi b
 
 Azure Machine Learning destekleyen işlem hedefleri üç kategoriden vardır:
 
-* __Yerel__: yerel makinenize veya geliştirme/deneme ortamı olarak kullanabileceğiniz bulut tabanlı bir VM. 
+* __Yerel__: Yerel makinenizde veya geliştirme/deneme ortamı olarak kullanabileceğiniz bulut tabanlı bir VM. 
 
-* __İşlem yönetilen__: Azure Machine Learning işlem olduğundan Azure Machine Learning hizmeti tarafından yönetilen bir işlem sunar. Tek veya çok node işlem eğitim, test ve batch çıkarım kolayca oluşturmanıza olanak tanır.
+* __İşlem yönetilen__: Azure Machine Learning işlem teklifini tanımlayan bir işlem Azure Machine Learning hizmeti tarafından yönetilen olur. Tek veya çok node işlem eğitim, test ve batch çıkarım kolayca oluşturmanıza olanak tanır.
 
-* __İşlem bağlı__: Ayrıca kendi Azure bulut bilgi işlem getirin ve Azure Machine Learning ile ekleyin. Daha fazla aşağıda desteklenen işlem türleri ve bunların nasıl kullanıldığı hakkında okuyun.
+* __İşlem bağlı__: Ayrıca, kendi Azure bulut bilgi işlem getirin ve Azure Machine Learning ile ekleyin. Daha fazla aşağıda desteklenen işlem türleri ve bunların nasıl kullanıldığı hakkında okuyun.
 
 
 ## <a name="supported-compute-targets"></a>Desteklenen işlem hedefleri
@@ -43,7 +43,7 @@ Azure Machine Learning hizmeti çeşitli işlem hedef arasında değişen deste�
 |[Yerel bilgisayar](#local)| Belki de | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning işlem](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
 |[Uzak VM](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | ✓ | ✓[*](#pipeline-only) |
 |[Azure Data Lake Analytics'i](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
@@ -170,7 +170,7 @@ Bir kalıcı Azure Machine Learning işlem birden fazla iş arasında yeniden ku
 Azure Machine Learning işlem kalıcı kaynak oluşturmak için belirttiğiniz `vm_size` ve `max_nodes` parametreleri. Azure Machine Learning, ardından parametreleri geri kalanı için akıllı Varsayılanları kullanır.  Örneğin, işlem, otomatik ölçeklendirme kullanılmadığı sıfır düğümleri aşağı ve adanmış sanal makineler oluşturmak için gerektiği şekilde işlerinizi çalıştırmak için ayarlanır. 
 
 * **vm_size**: Azure Machine Learning işlem tarafından oluşturulan düğümler VM ailesi.
-* **max_nodes**: Azure Machine Learning işlem bir işi çalışırken otomatik ölçeklendirme için en fazla düğümü.
+* **max_nodes**: Azure Machine Learning işlem bir işi çalışırken otomatik ölçeklendirme için en fazla düğüm sayısı.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -198,12 +198,12 @@ Ayrıca, Azure Machine Learning işlem oluşturulurken çeşitli gelişmiş öze
 
 Ek olarak `vm_size` ve `max_nodes`, aşağıdaki özellikleri kullanabilirsiniz:
 
-* **min_nodes**: Azure Machine Learning işlemi bir iş çalıştırmak while aşağı ölçeklemenizi için en az düğümler (varsayılan 0 düğümleri).
-* **vm_priority**: Azure Machine Learning işlem oluşturulurken 'ayrılmış' (varsayılan) ve 'lowpriority' VM'ler arasında seçin. Düşük öncelikli VM'ler Azure'nın aşırı kapasitesini kullanın ve bu nedenle ucuz ancak erine olan çalıştırma risk.
-* **idle_seconds_before_scaledown**: otomatik ölçeklendirmeyi min_nodes için önce çalıştırma tamamlandıktan sonra beklenecek boşta kalma süresi (varsayılan 120 saniye).
-* **vnet_resourcegroup_name**: kaynak grubu __mevcut__ sanal ağ. Azure Machine Learning işlem, bu sanal ağ içinde oluşturulur.
-* **vnet_name**: sanal ağ adı. Sanal ağ, Azure Machine Learning çalışma alanı ile aynı bölgede olması gerekir.
-* **subnet_name**: sanal ağ içindeki alt ağın adı. Azure Machine Learning işlem kaynakları, bu alt ağı aralığından IP adresleri atanır.
+* **min_nodes**: Azure Machine Learning işlemi bir iş çalıştırmak while aşağı ölçeklemenizi için en düşük düğüm (0 düğümleri varsayılan).
+* **vm_priority**: (Varsayılan) 'ayrılmış' ve 'lowpriority' VM'ler arasında Azure Machine Learning işlem oluşturulurken'yi seçin. Düşük öncelikli VM'ler Azure'nın aşırı kapasitesini kullanın ve bu nedenle ucuz ancak erine olan çalıştırma risk.
+* **idle_seconds_before_scaledown**: Otomatik ölçeklendirme min_nodes için önce çalıştırma tamamlandıktan sonra beklenecek boşta kalma süresi (varsayılan 120 saniye).
+* **vnet_resourcegroup_name**: Kaynak grubu __mevcut__ sanal ağ. Azure Machine Learning işlem, bu sanal ağ içinde oluşturulur.
+* **vnet_name**: Sanal ağ adı. Sanal ağ, Azure Machine Learning çalışma alanı ile aynı bölgede olması gerekir.
+* **subnet_name**: Sanal ağ içindeki alt ağ adı. Azure Machine Learning işlem kaynakları, bu alt ağı aralığından IP adresleri atanır.
 
 > [!TIP]
 > Azure Machine Learning işlem kalıcı bir kaynak oluştururken de min_nodes veya max_nodes gibi özellikleri güncelleştirmek olanağına da sahip olursunuz. Yalnızca çağrı `update()` işlevi de.
@@ -312,7 +312,7 @@ Azure Databricks, Azure bulutta Apache Spark tabanlı bir ortam olan. Bir Azure 
 
 Azure Databricks işlem hedefi olarak eklemek için Azure Machine Learning SDK'yı kullanın ve aşağıdaki bilgileri sağlayın:
 
-* __İşlem adı__: Bu işlem kaynağına atamak istediğiniz ad.
+* __İşlem adı__: Bu işlem kaynağına atamak istediğiniz adı.
 * __Databricks çalışma alanı adı__: Azure Databricks çalışma alanı adı.
 * __Erişim belirteci__: Azure Databricks için kimliğini doğrulamak için kullanılan erişim belirteci. Bir erişim belirteci oluşturmak için bkz: [kimlik doğrulaması](https://docs.azuredatabricks.net/api/latest/authentication.html) belge.
 
@@ -357,7 +357,7 @@ Azure Data Lake Analytics, Azure bulutta büyük veri analiz platformudur. Bir A
 
 Data Lake Analytics işlem hedefi olarak eklemek için Azure Machine Learning SDK'yı kullanın ve aşağıdaki bilgileri sağlayın:
 
-* __İşlem adı__: Bu işlem kaynağına atamak istediğiniz ad.
+* __İşlem adı__: Bu işlem kaynağına atamak istediğiniz adı.
 * __Kaynak grubu__: Data Lake Analytics hesabını içeren kaynak grubu.
 * __Hesap adı__: Data Lake Analytics hesap adı.
 
@@ -571,6 +571,6 @@ Not Defterleri şu konumlarda bakın:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure Machine Learning SDK başvurusu](https://aka.ms/aml-sdk)
-* [Öğretici: Modeli eğitme](tutorial-train-models-with-aml.md)
+* [Öğretici: Bir model eğitip](tutorial-train-models-with-aml.md)
 * [Modelleri dağıtılacağı yeri](how-to-deploy-and-where.md)
 * [Machine learning işlem hatlarını Azure Machine Learning hizmeti ile derleme](concept-ml-pipelines.md)

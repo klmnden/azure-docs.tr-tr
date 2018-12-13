@@ -1,5 +1,5 @@
 ---
-title: Azure sanal ağları içinde HBase kümesi çoğaltma ayarlama
+title: Azure sanal ağları - Azure HDInsight içinde HBase kümesi çoğaltma ayarlama
 description: HBase çoğaltmanın dışında bir HDInsight sürüm başka bir Yük Dengeleme, yüksek kullanılabilirlik, sıfır kapalı kalma süresiyle geçiş ve güncelleştirmeleri ve olağanüstü durum kurtarma ayarlama konusunda bilgi edinin.
 services: hdinsight,virtual-network
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 44ed4075af290e3253b3d8f090c289ceba9750a6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b03cffe35337ee5720944dc4cfe88c17c3b5b748
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584188"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163845"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure sanal ağlarda bulunan Apache HBase kümesi çoğaltma ayarlama
 
@@ -263,10 +263,10 @@ Oluşturma bir [Apache HBase](http://hbase.apache.org/) her iki sanal ağı aşa
 - **Kaynak grubu adı**: oluşturduğunuz sanal ağlar aynı kaynak grubu adı kullanın.
 - **Küme türü**: HBase
 - **Sürüm**: HBase 1.1.2 (HDI 3.6)
-- **Konum**: sanal makine olarak aynı konumu kullanın.  Varsayılan olarak, vnet1 olduğu *Batı ABD*, ve vnet2 *Doğu ABD*.
-- **Depolama**: küme için yeni bir depolama hesabı oluşturun.
-- **Sanal ağ** (ayarlarından Gelişmiş portal üzerinde): son yordamda oluşturduğunuz vnet1'i seçin.
-- **Alt ağ**: şablonda kullanılan varsayılan addır **subnet1**.
+- **Konum**: Sanal makine olarak aynı konumu kullanın.  Varsayılan olarak, vnet1 olduğu *Batı ABD*, ve vnet2 *Doğu ABD*.
+- **Depolama**: Küme için yeni bir depolama hesabı oluşturun.
+- **Sanal ağ** (ayarlarından Gelişmiş portal üzerinde): Son yordamda oluşturduğunuz vnet1'i seçin.
+- **Alt ağ**: Şablonda kullanılan varsayılan addır **subnet1**.
 
 Ortamı doğru şekilde yapılandırıldığından emin olmak için iki küme arasında baş düğümüne ait FQDN ping mümkün olması gerekir.
 
@@ -288,9 +288,9 @@ Aşağıdaki adımlar komut dosyası eylemi komut dosyası Azure portalından ç
 4. Sayfanın üst kısmında seçin **yeni Gönder**.
 5. Seçin veya aşağıdaki bilgileri girin:
 
-  1. **Adı**: girin **çoğaltmayı etkinleştir**.
-  2. **Bash betiği URL'si**: girin **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
-  3.  **HEAD**: Bu seçildiğinden emin olun. Bir düğüm türleri temizleyin.
+  1. **Ad**: Girin **çoğaltmayı etkinleştir**.
+  2. **Bash betiği URL'si**: Girin **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+  3.  **HEAD**: Bu seçili olduğundan emin olun. Bir düğüm türleri temizleyin.
   4. **Parametreleri**: Aşağıdaki örnek parametreleri mevcut tüm tablolar için çoğaltmayı etkinleştirin ve ardından tüm veri kaynağı kümeden hedef kümeye kopyalayın:
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata

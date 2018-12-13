@@ -1,5 +1,5 @@
 ---
-title: "Hızlı Başlangıç: Tablo API'si ile Node.js - Azure Cosmos DB"
+title: "Hızlı Başlangıç: Tablo API'si Node.js - Azure Cosmos DB ile"
 description: Bu hızlı başlangıçta Azure portalı ve Node.js ile uygulama oluşturmak için Azure Cosmos DB Tablo API’sinin nasıl kullanılacağı gösterilmektedir
 services: cosmos-db
 author: SnehaGunda
@@ -10,14 +10,14 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 1b6a947914b086bc0300c9ff9d7390a7bc80c2a8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 870b07013aa279a20dd231fecc83775fd1aebc5c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079611"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166107"
 ---
-# <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Hızlı Başlangıç: Node.js ve Azure Cosmos DB ile Tablo API’si uygulaması oluşturma
+# <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Hızlı Başlangıç: API uygulaması Node.js ve Azure Cosmos DB ile tablo oluşturma
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)

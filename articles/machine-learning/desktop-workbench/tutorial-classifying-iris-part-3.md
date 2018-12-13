@@ -11,16 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/13/2018
+ms.date: 03/13/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2eb6eb5090b0a68a189e2d4f1148d3238bc3ee0d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 52757098436349d38538f4c2168a70e53ad58421
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946621"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270170"
 ---
-# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Öğretici 3: Iris Sınıflandırma: Model dağıtma
+# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Öğretici 3: Iris sınıflandırma: Model dağıtma
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
@@ -38,7 +38,7 @@ Bu öğretici **üç bölümden oluşan bir serinin üçüncü bölümüdür**. 
 
 Bu öğreticide zamansız [Iris çiçeği veri kümesi](https://en.wikipedia.org/wiki/Iris_flower_data_set) kullanılmıştır. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 - Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
@@ -168,7 +168,7 @@ Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale get
    az provider show -n Microsoft.ContainerRegistry 
    ``` 
 
-   Çıktının üçüncü satırında **"registrationState": "Registering"** ifadesi gösterilir. Birkaç dakika bekleyin ve çıktıda **"registrationState": "Registered"** gösterilene kadar **show** komutunu tekrarlayın.
+   Çıktının üçüncü satırında **"registrationState": "Registering"**. Birkaç dakika bekleyin ve tekrar **Göster** çıktıyı görüntüler kadar komutu **"registrationState": "Registered"**.
 
    >[!NOTE] 
    Bir ACS kümesine dağıtıyorsanız, aynı yaklaşımı kullanarak **Microsoft.ContainerService** kaynak sağlayıcısını da kaydetmeniz gerekir.
@@ -240,7 +240,7 @@ Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale get
 
    * `-s`: Hizmet şeması. Önceki adımda **score_iris.py** betiği yerel olarak çalıştırılarak bu şema oluşturulmuştu.
 
-   * `-n`: Tamamı küçük harfli olması gereken uygulama adı.
+   * `-n`: Uygulama adı tamamen küçük harfli olması gerekir.
 
    * `-r`: Modelin çalışma zamanı. Bu örnekte bir Python modelidir. Geçerli çalışma zamanları: `python` ve `spark-py`.
 
@@ -251,7 +251,7 @@ Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale get
    >[!IMPORTANT]
    >Hizmet adının (aynı zamanda yeni Docker görüntüsünün adıdır) tamamının küçük harf olması gerekir. Aksi takdirde bir hata alırsınız. 
 
-1. Komutu çalıştırdığınızda model ve puanlama dosyaları, ortam kurulumu sırasında oluşturduğunuz depolama hesabına yüklenir. Dağıtım işlemi; modeliniz, şemanız ve içindeki puanlama dosyasıyla bir Docker görüntüsünü derleyip Azure kapsayıcı kayıt defterine iletir: **\<ACR_adı\>.azurecr.io/\<görüntü adı\>:\<sürüm\>**. 
+1. Komutu çalıştırdığınızda model ve puanlama dosyaları, ortam kurulumu sırasında oluşturduğunuz depolama hesabına yüklenir. Dağıtım işlemi, model, şema ve içindeki Puanlama dosyasıyla bir Docker görüntüsünü oluşturur ve ardından Azure container registry'ye gönderir: **\<ACR_name\>.azurecr.io/\<IMAGENAME\>:\<sürüm\>**. 
 
    Komut daha sonra bu görüntüyü yerel bilgisayarınıza çeker ve bu görüntüyle bir Docker kapsayıcısı başlatır. Ortamınız küme modunda yapılandırılmışsa Docker kapsayıcısı Azure Cloud Services Kubernetes kümesine dağıtılır.
 
@@ -357,9 +357,9 @@ Daha önce gösterilen **az ml service create realtime** komutunun bir alternati
 
    * [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/): Bloblardaki CSV verilerinden çekilen verilerle grafik oluşturun.
 
-   * [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): CSV verilerini bir Hive tablosuna yükleyin ve doğrudan bloba SQL sorguları gönderin.
+   * [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): CSV verilerini bir Hive tablosuna yükleyin ve doğrudan bloba SQL sorgusu gerçekleştirme.
 
-   * [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): CSV verilerinin büyük kısmıyla bir DataFrame oluşturun.
+   * [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): CSV verilerinin büyük bir kısmı bir DataFrame oluşturun.
 
       ```python
       var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")

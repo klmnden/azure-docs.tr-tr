@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b8c114ec3fe9b27d0318bf11a8b1fa8e3ce5f1c3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: a4b8d930a2176c16bb9d1cbcd3b67e6f919575ed
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124989"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162231"
 ---
-# <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Öğretici: Service Fabric üzerindeki bir Java uygulamasında CI/CD etkinleştirmek için bir Jenkins ortamı yapılandırma
+# <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Öğretici: Service Fabric üzerinde bir Java uygulaması için CI/CD etkinleştirmek için Jenkins ortamını yapılandırma
 
-Bu öğretici, bir serinin beşinci kısmıdır. Yükseltmeleri uygulamanızda dağıtmak için Jenkins’in nasıl kullanılacağını gösterir. Bu öğreticide Service Fabric Jenkins eklentisi, uygulamayı bir kümede dağıtmak için Oylama uygulamasını barındıran bir Github deposuyla birlikte kullanılır.
+Bu öğretici, bir serinin beşinci kısmıdır. Yükseltmeleri uygulamanızda dağıtmak için Jenkins’in nasıl kullanılacağını gösterir. Bu öğreticide, Service Fabric Jenkins eklentisini birlikte oylama uygulamasını barındıran GitHub deposuyla uygulamayı bir kümeye dağıtmak için kullanılır.
 
 Serinin beşinci kısmında öğrenecekleriniz:
 > [!div class="checklist"]
@@ -40,7 +40,7 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > * [Uygulama için izleme ve tanılamayı ayarlama](service-fabric-tutorial-java-elk.md)
 > * CI/CD ayarlama
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Git indirmeleri sayfasından](https://git-scm.com/downloads) Git’i yerel bilgisayarınıza yükleyin. Git hakkında daha fazla bilgi için [Git belgelerini](https://git-scm.com/docs) okuyun.
 * [Jenkins](https://jenkins.io/) ile çalışma hakkında bilgi sahibi olun.
@@ -84,7 +84,7 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Bir Jenkins işi oluşturma ve yapılandırma
 
-1. İlk olarak, Github'da Oylama projesini barındırmak için kullanabileceğiniz bir deponuz yoksa oluşturun. Bu öğreticinin geri kalan kısmında depo, **dev_test** olarak anılmıştır.
+1. İlk olarak, github'da oylama projesini barındırmak için kullanabileceğiniz bir depo yoksa oluşturun. Bu öğreticinin geri kalan kısmında depo, **dev_test** olarak anılmıştır.
 
 1. ``http://<HOST-IP>:8080`` üzerinden Jenkins panonuzda **yeni öğe** oluşturun.
 
@@ -181,7 +181,7 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
     </CodePackage>
     ```
 
-1. Uygulama yükseltmesi gerçekleştiren bir Jenkins işini başlatmak için yeni değişikliklerinizi Github deponuza gönderin.
+1. Uygulama yükseltmesi gerçekleştiren bir Jenkins işini başlatmak için yeni değişikliklerinizi GitHub deponuza gönderin.
 
 1. Service Fabric Explorer’da **Uygulamalar** açılan listesine tıklayın. Yükseltmenizin durumunu görmek için **Devam Eden Yükseltmeler** sekmesine tıklayın.
 

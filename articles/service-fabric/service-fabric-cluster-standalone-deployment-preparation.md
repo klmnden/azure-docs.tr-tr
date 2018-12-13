@@ -13,17 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 9918c4b022fc2aca4bfc1ddba5649d7f0efe1256
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0b6fae59fbe0fa86cb16b176eb1df47e031d04f1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138798"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317201"
 ---
-<a id="preparemachines"></a>
-
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Plan ve hazırlık, Service Fabric tek başına Küme dağıtımı
-Kümenizi oluşturmadan önce aşağıdaki adımları gerçekleştirin.
+
+<a id="preparemachines"></a>Kümenizi oluşturmadan önce aşağıdaki adımları gerçekleştirin.
 
 ## <a name="plan-your-cluster-infrastructure"></a>Küme altyapınızı planlama
 Hangi tür hatalardan istediğiniz kümenin hayatta kalmak için karar verebilmek için "sahibi", makineler üzerinde bir Service Fabric kümesi oluşturmak üzere olduğunuz. Örneğin, güç satırları veya Internet bağlantıları bu makineler için sağlanan ayrı? Ayrıca, bu makineler, fiziksel güvenlik göz önünde bulundurun. Makineleri nerede bulunuyor ve onlara yönelik erişimi gerek duyan? Bu kararlar yaptıktan sonra makineleri mantıksal olarak (bir sonraki adıma bakın) çeşitli hata etki alanlarına eşleyebilirsiniz. Altyapı planlama üretim kümeleri için test kümeleri için daha daha karmaşıktır.
@@ -104,13 +103,13 @@ Bir Küme Yöneticisi, Service Fabric tek başına küme yapılandırdığında,
    * Uzak Kayıt Defteri hizmeti (uzak kayıt defteri) etkinleştirdiniz mi
    * Dosya Paylaşımı (SMB) etkin
    * Gerekli bağlantı noktaları açıldı, küme yapılandırması bağlantı noktalarına bağlı olan
-   * Gerekli bağlantı noktalarını Windows SMB ve uzak kayıt defteri hizmeti için açılmış olması: 135 ve 137, 138, 139'dur ve 445
+   * Açılan Windows SMB ve uzak kayıt defteri hizmeti için gerekli bağlantı noktaları vardır: 135 ve 137, 138, 139'dur ve 445
    * Başka bir ağ bağlantısına sahip
 3. Küme düğümü makinelerin hiçbirinin bir etki alanı denetleyicisi olmalıdır.
 4. Kümenin dağıtılması için güvenli bir küme ise, Önkoşullar içinde yerleştirin ve yapılandırmanın karşı doğru yapılandırıldığından gerekli güvenlik doğrulayın.
 5. Küme makinelerin İnternet'ten erişilebilen emin değilseniz, aşağıdaki küme yapılandırmasında ayarlayın:
-   * Telemetri devre dışı bırak: altında *özellikleri* ayarlamak *"enableTelemetry": false*
-   * Otomatik yapı sürümü indirme & Geçerli Küme sürümü, destek sonuna yaklaşıyor bildirimleri devre dışı bırak: altında *özellikleri* ayarlamak *"fabricClusterAutoupgradeEnabled": false*
+   * Telemetri devre dışı bırakın: Altında *özellikleri* ayarlamak *"enableTelemetry": false*
+   * Otomatik yapı sürümü indirme & Geçerli Küme sürümü, destek sonuna yaklaşıyor bildirimleri devre dışı bırak: Altında *özellikleri* ayarlamak *"fabricClusterAutoupgradeEnabled": false*
    * Alternatif olarak, ağ internet erişimi beyaz listelenen etki alanları için sınırlı ise, aşağıdaki etki alanlarına otomatik yükseltme için gereken: go.microsoft.com download.microsoft.com
 
 6. Service Fabric uygun virüsten koruma dışlamaları ayarlayın:

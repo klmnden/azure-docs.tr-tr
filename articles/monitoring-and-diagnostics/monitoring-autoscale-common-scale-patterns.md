@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: c7084a10aceafcdd1039893b810fcbd8b74b874b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7fa2cbc831c6bcb734b4a4596a3f75f81e8ee085
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967413"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317041"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>Ortak otomatik ölçeklendirme desenleri genel bakış
 Bu makalede, Azure'da kaynağınızı ölçeklendirmek için ortak desenler bazılarını açıklar.
 
 Azure İzleyici otomatik ölçeklendirme için yalnızca geçerlidir [sanal makine ölçek kümeleri](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), ve [APIManagementHizmetleri](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
-# <a name="lets-get-started"></a>Sağlar kullanmaya başlayın
+## <a name="lets-get-started"></a>Sağlar kullanmaya başlayın
 
 Bu makalede, otomatik ölçeklendirme ile ilgili bilgi sahibi olduğunuz varsayılır. Yapabilecekleriniz [kaynağınızı ölçeklendirmek için buradan başlayın][1]. Ortak ölçek desenleri bazıları aşağıda verilmiştir.
 
@@ -56,7 +56,7 @@ Bir web uygulaması (/ VMSS/bulut hizmeti rolü) sahip ve
 
 Bir web ön uç ve arka ucunuzla iletişim kuran bir API katmanı vardır.
 
-- Ön uç özel olaylar göre API katmanı ölçeklendirmek istediğiniz (örnek: kullanıma alma işleminizi, öğelerin alışveriş sepetine göre ölçeklendirmek istediğiniz)
+- Ön uç özel olaylar göre API katmanı ölçeklendirmek istediğiniz (örnek: Kullanıma alma işleminizi, öğelerin alışveriş sepetine göre ölçeklendirmek istediğiniz)
 
 ![Özel bir ölçüme göre ölçeklendirin][5]
 

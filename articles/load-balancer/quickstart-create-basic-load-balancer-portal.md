@@ -1,5 +1,6 @@
 ---
-title: 'Hızlı Başlangıç: Azure portalını kullanarak genel bir Temel yük dengeleyici oluşturma | Microsoft Docs'
+title: 'Hızlı Başlangıç: Azure portalını kullanarak genel bir temel yük dengeleyici oluşturma'
+titlesuffix: Azure Load Balancer
 description: Bu hızlı başlangıçta, Azure portalını kullanarak genel bir Temel yük dengeleyicinin nasıl oluşturulacağı gösterilmektedir.
 services: load-balancer
 documentationcenter: na
@@ -12,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 9cf1fcda8651cccb82b2de58487becf25541a6e2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: e7055e016abd06d20206d25cb1d7b9eac35142f0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098687"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260234"
 ---
-# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak genel bir Temel yük dengeleyici oluşturma
+# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak genel temel yük dengeleyici oluşturma
 
 Yük Dengeleme, sanal makineye (VM) gelen istekleri yayarak daha yüksek düzeyde kullanılabilirlik ve ölçek sağlar. Yük Dengeleyici oluşturma ve VM'ler arasında trafiği dengelemek için Azure portalını kullanabilirsiniz. Bu hızlı başlangıçta oluşturma ve bir yük dengeleyici, arka uç sunucularının ve ağ kaynakları temel fiyatlandırma katmanında yapılandırma gösterilmektedir.
 
@@ -36,13 +37,13 @@ Portalı kullanarak ilk olarak genel temel yük dengeleyici oluşturun. Oluştur
    
 1. İçinde **yük dengeleyici Oluştur** bölmesinde yazın veya bu değerleri seçin:
    
-   - **Adı**: türü *MyLoadBalancer*.
-   - **Tür**: seçin **genel**. 
-   - **SKU**: seçin **temel**.
-   - **Genel IP adresi:** seçin **Yeni Oluştur**. 
-     - **Genel IP adresi** alan: tür *Mypublicıp*.
-     - **Genel IP adresi yapılandırma** > **atama**: seçin **dinamik**.
-   - **ResourceGroup**: seçin **Yeni Oluştur**, enter *MyResourceGroupLB*seçip **Tamam**. 
+   - **Ad**: Tür *MyLoadBalancer*.
+   - **Tür**: Seçin **genel**. 
+   - **SKU**: **Temel**'i seçin.
+   - **Genel IP adresi:** **Yeni oluştur**’u seçin. 
+     - **Genel IP adresi** alan: Tür *Mypublicıp*.
+     - **Genel IP adresi yapılandırma** > **atama**: Seçin **dinamik**.
+   - **ResourceGroup**: Seçin **Yeni Oluştur**, enter *MyResourceGroupLB*seçip **Tamam**. 
    
 1. **Oluştur**’u seçin.
    
@@ -58,9 +59,9 @@ Ardından, bir sanal ağ ve temel yük dengeleyicinizin arka uç havuzu için ik
    
 1. İçinde **sanal ağ oluştur** bölmesinde yazın veya bu değerleri seçin:
    
-   - **Adı**: türü *MyVnet*.
-   - **ResourceGroup**: açılan **var olanı Seç** seçip **MyResourceGroupLB**. 
-   - **Alt ağ** > **adı**: türü *MyBackendSubnet*.
+   - **Ad**: Tür *MyVnet*.
+   - **ResourceGroup**: Açılan menü **var olanı Seç** seçip **MyResourceGroupLB**. 
+   - **Alt ağ** > **adı**: Tür *MyBackendSubnet*.
    
 1. **Oluştur**’u seçin.
 
@@ -71,16 +72,16 @@ Ardından, bir sanal ağ ve temel yük dengeleyicinizin arka uç havuzu için ik
 1. Portalda sol tarafta seçin **kaynak Oluştur** > **işlem** > **Windows Server 2016 Datacenter**. 
    
 1. İçinde **sanal makine oluşturma**yazın veya aşağıdaki değerleri seçin **Temelleri** sekmesinde:
-   - **Abonelik** > **kaynak grubu**: seçin ve aşağı açılan **MyResourceGroupLB**.
-   - **Örnek ayrıntıları** > **sanal makine adı**: türü *MyVM1*.
+   - **Abonelik** > **kaynak grubu**: Açılır listesine tıklayıp **MyResourceGroupLB**.
+   - **Örnek ayrıntıları** > **sanal makine adı**: Tür *MyVM1*.
    - **Örnek ayrıntıları** > **kullanılabilirlik seçeneklerini**: 
      1. Açılır listesine tıklayıp **kullanılabilirlik kümesi**. 
      2. Seçin **Yeni Oluştur**, türü *MyAvailabilitySet*seçip **Tamam**.
   
-1. Seçin **ağ** sekmesinde veya seçin **sonraki: diskleri**, ardından **sonraki: ağ**. 
+1. Seçin **ağ** sekmesinde veya seçin **sonraki: Diskleri**, ardından **sonraki: Ağ**. 
    
    Aşağıdaki seçili olduğundan emin olun:
-   - **Sanal ağ**: **MyVnet**
+   - **Sanal ağ**: **myVnet**
    - **Alt ağ**: **MyBackendSubnet**
    - **Genel IP**: **MyVM1-ip**
    
@@ -106,24 +107,24 @@ Bu bölümde, ağ güvenlik grubu (NSG) kuralları için gelen İnternet'e (HTTP
    
 1. İçinde **gelen Güvenlik Kuralı Ekle** iletişim kutusunda, HTTP kural, tür veya aşağıdakileri seçin:
    
-   - **Kaynak**: seçin **hizmet etiketi**.  
-   - **Kaynak hizmet etiketi**: seçin **Internet**. 
-   - **Hedef bağlantı noktası aralıkları**: türü *80*.
-   - **Protokol**: seçin **TCP**. 
-   - **Eylem**: seçin **izin**.  
-   - **Öncelik**: türü *100*. 
-   - **Adı**: türü *MyHTTPRule*. 
-   - **Açıklama**: türü *HTTP'ye izin ver*. 
+   - **Kaynak**: Seçin **hizmet etiketi**.  
+   - **Kaynak hizmet etiketi**: Seçin **Internet**. 
+   - **Hedef bağlantı noktası aralıkları**: Tür *80*.
+   - **Protokol**: Seçin **TCP**. 
+   - **Eylem**: Seçin **izin**.  
+   - **Öncelik**: Tür *100*. 
+   - **Ad**: Tür *MyHTTPRule*. 
+   - **Açıklama**: Tür *HTTP'ye izin ver*. 
    
 1. **Add (Ekle)** seçeneğini belirleyin. 
    
    ![NSG kuralı oluşturma](./media/load-balancer-get-started-internet-portal/8-load-balancer-nsg-rules.png)
    
 1. Aşağıdaki farklı değerlerle gelen RDP kuralı için adımları yineleyin:
-   - **Hedef bağlantı noktası aralıkları**: türü *3389*.
-   - **Öncelik**: türü *200*. 
-   - **Adı**: türü *MyRDPRule*. 
-   - **Açıklama**: türü *RDP'ye izin ver*. 
+   - **Hedef bağlantı noktası aralıkları**: Tür *3389*.
+   - **Öncelik**: Tür *200*. 
+   - **Ad**: Tür *MyRDPRule*. 
+   - **Açıklama**: Tür *RDP'ye izin ver*. 
 
 ## <a name="create-resources-for-the-load-balancer"></a>Yük Dengeleyici kaynakları oluşturma
 
@@ -141,9 +142,9 @@ Trafiği Vm'lere dağıtmak için yük dengeleyici arka uç adres havuzu kullan�
    
 1. Üzerinde **bir arka uç havuzu Ekle** sayfasında yazın veya aşağıdaki değerleri seçin:
    
-   - **Adı**: türü *MyBackEndPool*.
-   - **İlişkili**: seçin ve aşağı açılan **kullanılabilirlik kümesi**.
-   - **Kullanılabilirlik kümesi**: seçin **MyAvailabilitySet**.
+   - **Ad**: Tür *MyBackEndPool*.
+   - **İlişkili**: Açılır listesine tıklayıp **kullanılabilirlik kümesi**.
+   - **Kullanılabilirlik kümesi**: Seçin **MyAvailabilitySet**.
    
 1. Seçin **hedef ağ IP Yapılandırması Ekle**. 
    1. Her sanal makine ekleyin (**MyVM1** ve **MyVM2**) arka uç havuzu için oluşturulan.
@@ -167,12 +168,12 @@ VM durumunu izlemek için yük dengeleyicisine izin vermek için durum araştır
    
 1. Üzerinde **bir durum araştırması Ekle** sayfasında yazın veya aşağıdaki değerleri seçin:
    
-   - **Adı**: türü *MyHealthProbe*.
-   - **Protokol**: seçin ve aşağı açılan **HTTP**. 
-   - **Bağlantı noktası**: türü *80*. 
-   - **Yol**: kabul */* için varsayılan bir URI. Diğer bir URI ile bu değeri değiştirebilirsiniz. 
-   - **Aralığı**: türü *15*. Araştırma denemeleri arasındaki saniye sayısını aralığıdır.
-   - **Sağlıksız durum eşiği**: türü *2*. Bu değer bir VM kötü olarak kabul edilmeden önce gerçekleşmesi ardışık araştırma hatası sayısıdır.
+   - **Ad**: Tür *MyHealthProbe*.
+   - **Protokol**: Açılır listesine tıklayıp **HTTP**. 
+   - **Bağlantı noktası**: Tür *80*. 
+   - **Yol**: Kabul */* için varsayılan bir URI. Diğer bir URI ile bu değeri değiştirebilirsiniz. 
+   - **Aralığı**: Tür *15*. Araştırma denemeleri arasındaki saniye sayısını aralığıdır.
+   - **Sağlıksız durum eşiği**: Tür *2*. Bu değer bir VM kötü olarak kabul edilmeden önce gerçekleşmesi ardışık araştırma hatası sayısıdır.
    
 1. **Tamam**’ı seçin.
    
@@ -193,13 +194,13 @@ Adlı yük dengeleyici kuralı **MyLoadBalancerRule** ön 80 numaralı bağlant�
    
 1. Üzerinde **Yük Dengeleme Kuralı Ekle** sayfasında yazın veya aşağıdaki değerleri seçin:
    
-   - **Adı**: türü *MyLoadBalancerRule*.
-   - **Ön uç IP adresi:** türü *LoadBalancerFrontend*.
-   - **Protokol**: seçin **TCP**.
-   - **Bağlantı noktası**: türü *80*.
-   - **Arka uç bağlantı noktası**: türü *80*.
-   - **Arka uç havuzu**: seçin **MyBackendPool**.
-   - **Durum araştırması**: seçin **MyHealthProbe**. 
+   - **Ad**: Tür *MyLoadBalancerRule*.
+   - **Ön uç IP adresi:** Tür *LoadBalancerFrontend*.
+   - **Protokol**: Seçin **TCP**.
+   - **Bağlantı noktası**: Tür *80*.
+   - **Arka uç bağlantı noktası**: Tür *80*.
+   - **Arka uç havuzu**: Seçin **MyBackendPool**.
+   - **Durum araştırması**: Seçin **MyHealthProbe**. 
    
 1. **Tamam**’ı seçin.
    

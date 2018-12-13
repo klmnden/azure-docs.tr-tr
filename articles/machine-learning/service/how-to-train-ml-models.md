@@ -1,5 +1,5 @@
 ---
-title: Tahmin sınıfı kullanarak ML modelleri eğitme
+title: ML modelleri ile estimators eğitin
 titleSuffix: Azure Machine Learning service
 description: Tek düğümlü ve dağıtılmış eğitim, öğrenme ve derin öğrenme modellerini Azure Machine Learning Hizmetleri Estimator sınıfını kullanarak geleneksel makinenin yapmayı öğrenin
 ms.author: minxia
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e7157b9546d1f9ca40bab35d9e643c38051db04e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0ebb12df835cf1c32e02419989b21684e9884c18
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100761"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184364"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Azure Machine Learning ile eğitme modelleri
 
 Eğitim makine öğrenimi modellerini, özellikle derin sinir ağı, genellikle bir saat ve işlem yoğunluklu görevdir. Eğitim betiğinizi yazma ve yerel makinenizde verilerin küçük bir alt kümesi üzerinde çalışan bitirdiğinizde, büyük olasılıkla, iş yükü ölçeklemek istersiniz.
 
-Eğitim kolaylaştırmak için üst düzey bir soyutlamadır, kullanıcıların Azure ekosistemindeki modellerini kolayca eğitin olanak sağlar sınıfını estimator Azure Machine Learning Python SDK'sı sağlar. Oluşturma ve kullanma bir `Estimator` bağlı uzak işlem, çalıştırmak istediğiniz çalıştırma veya dağıtılmış bir tek düğümlü eğitim GPU küme genelinde olup herhangi bir eğitim kod göndermek için nesne. PyTorch ve TensorFlow işler için Azure Machine Learning Ayrıca kendi özel sağlar `PyTorch` ve `TensorFlow` estimators bu çerçeveler kullanmayı kolaylaştırmak için.
+Eğitim kolaylaştırmak için üst düzey bir soyutlamadır, kullanıcıların Azure ekosistemindeki modellerini kolayca eğitin olanak sağlar sınıfını estimator Azure Machine Learning Python SDK'sı sağlar. Oluşturma ve kullanma bir [ `Estimator` nesne](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) uzak işlem üzerinde çalıştırmak istediğiniz herhangi bir eğitim kod gönderebilmek için abonelikte olup bir tek düğümlü çalıştırma veya dağıtılmış eğitim GPU küme genelinde. PyTorch ve TensorFlow işler için Azure Machine Learning Ayrıca kendi özel sağlar `PyTorch` ve `TensorFlow` estimators bu çerçeveler kullanmayı kolaylaştırmak için.
 
 ## <a name="train-with-an-estimator"></a>Bir tahmin ile eğitme
 

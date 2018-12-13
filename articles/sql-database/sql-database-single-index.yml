@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e5943dde86b96dc0f95df0620212daf9a972fccf
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: bc3ab808234ee0759abea0520ea0336489fc60d6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883317"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309612"
 documentType: LandingData
 title: Azure SQL veritabanı - tek veritabanı
 metadata:
@@ -21,7 +21,7 @@ metadata:
   ms.date: 12/01/2018
   ms.author: jovanpop-msft
 abstract:
-  description: Azure SQL Veritabanı, Microsoft SQL Server Veritabanı Altyapısı'nın en son kararlı sürümünü temel alan ilişkisel hizmet olarak veritabanı (DBaaS) ürünüdür. SQL Veritabanı, altyapı yönetimine gerek kalmadan kendi seçtiğiniz programlama dilinde veri odaklı uygulamalar ve web siteleri oluşturmak için kullanabileceğiniz yüksek performanslı, güvenilir ve güvenli bir veritabanıdır. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, SQL Veritabanı’nı kullanmayı öğrenin.
+  description: Azure SQL Veritabanı, Microsoft SQL Server Veritabanı Altyapısı'nın en son kararlı sürümünü temel alan ilişkisel hizmet olarak veritabanı (DBaaS) ürünüdür. SQL veritabanı, yüksek performanslı, -kullanımı kolay, güvenilir ve altyapıyı yönetmek zorunda kalmadan yeni uygulamalar, Web siteleri ve tercih ettiğiniz programlama dilinde mikro hizmetler oluşturmak için kullanabileceğiniz güvenli veritabanı hizmetidir. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, SQL Veritabanı’nı kullanmayı öğrenin.
   aside:
     image:
       alt: 
@@ -68,6 +68,17 @@ sections:
       html: <p>Veritabanınızı Azure AD kimlik doğrulaması, Sanal Ağlar, Güvenlik Duvarları ve Always Encrypted bağlantılar ile koruyun. Yerleşik güvenlik sayesinde tehditleri ve güvenlik açıklarını belirleyin.</p>
       image:
         src: media/index/i_security.svg
+- title: Yeni ve önizleme özellikleri
+  items:
+  - type: paragraph
+    text: 'Sürekli olarak yeni özelliklerle SQL veritabanı geliştirme duyuyoruz ve aşağıdaki yeni özellikler ile ilgili görüşlerinizi duymak isteriz:'
+  - type: list
+    style: unordered
+    items:
+    - html: (Önizleme) <a href="sql-database-service-tier-hyperscale">Hiper ölçekli</a> en fazla 100 TB veritabanları ve birden çok okunabilir çoğaltma destekler katmanı.
+    - html: (Önizleme) Yeni SQL Server 2019 <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">akıllı sorgu işleme</a> gibi özellikleri <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#table-variable-deferred-compilation">tablo değişkeni derleme ertelenmiş</a>, <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#batch-mode-on-rowstore">rowstore tablolarda toplu iş modunda</a>, ve <a href="https://docs.microsoft.com/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=azuresqldb-current&toc=%2Fazure%2Fsql-database%2Ftoc.json"> Satır içi kullanım skaler UDF</a>.
+    - html: (Önizleme) Yeni Transact-SQL dil işlevler gibi <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">approx_count_dıstınct toplama</a> ve <a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">toplu içeri aktarma gelen Azure Blob Depolama</a>.
+    - html: (Önizleme) Yeni SQL Server 2019 çevrimiçi <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">derleme</a> ve kümelenmiş COLUMNSTORE dizin işlemleri yeniden derleyin.
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph

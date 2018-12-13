@@ -1,6 +1,6 @@
 ---
-title: En iyi uygulamalar ve Azure Web Apps üzerinde node.js uygulamaları için sorun giderme kılavuzu
-description: Azure Web Apps üzerinde node.js uygulamaları için sorun giderme adımları ve en iyi uygulamaları öğrenin.
+title: En iyi yöntemler ve sorun giderme - Azure App Service Node.js için
+description: Azure App Service'te node.js uygulamaları için sorun giderme adımları ve en iyi uygulamaları öğrenin.
 services: app-service\web
 documentationcenter: nodejs
 author: ranjithr
@@ -14,14 +14,15 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
-ms.openlocfilehash: 6918d216be11763a34d7738c616e917a2db01ade
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 5a8760bc67125f857998f23ca33733a62a0d8fb5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961459"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315732"
 ---
-# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-web-apps"></a>En iyi uygulamalar ve Azure Web Apps üzerinde node.js uygulamaları için sorun giderme kılavuzu
+# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>En iyi uygulamalar ve Azure App Service Windows üzerinde node.js uygulamaları için sorun giderme kılavuzu
 
 Bu makalede, en iyi yöntemler ve sorun giderme adımları için bilgi [node uygulamaları](app-service-web-get-started-nodejs.md) Azure Web Apps üzerinde çalışan (ile [iisnode](https://github.com/azure/iisnode)).
 
@@ -35,7 +36,7 @@ Bu [şema dosyası](https://github.com/Azure/iisnode/blob/master/src/config/iisn
 
 ### <a name="nodeprocesscountperapplication"></a>nodeProcessCountPerApplication
 
-Bu ayar, IIS uygulaması başlatılan işlemler düğüm sayısını denetler. Varsayılan değer 1'dir. Değer 0 olarak değiştirerek, VM vCPU sayısı olarak çok node.exes başlatabilirsiniz. Önerilen değer uygulamalarının çoğu için 0 olduğundan tüm vcpu makinenizde kullanabilirsiniz. Node.exe tek parçacıklı en fazla 1 vCPU bir node.exe kullanır. Node.js uygulamanızı dışında en yüksek performansı elde etmek için tüm Vcpu kullanmak istiyorsunuz.
+Bu ayar, IIS uygulaması başlatılan işlemler düğüm sayısını denetler. Varsayılan değer 1’dir. Değer 0 olarak değiştirerek, VM vCPU sayısı olarak çok node.exes başlatabilirsiniz. Önerilen değer uygulamalarının çoğu için 0 olduğundan tüm vcpu makinenizde kullanabilirsiniz. Node.exe tek parçacıklı en fazla 1 vCPU bir node.exe kullanır. Node.js uygulamanızı dışında en yüksek performansı elde etmek için tüm Vcpu kullanmak istiyorsunuz.
 
 ### <a name="nodeprocesscommandline"></a>nodeProcessCommandLine
 
@@ -282,6 +283,6 @@ Azure App Service'te node.js uygulamaları hakkında daha fazla bilgi için aşa
 * [Azure App Service'te Node.js Web uygulamalarını kullanmaya başlama](app-service-web-get-started-nodejs.md)
 * [Azure Uygulama Hizmeti’ndeki bir Node.js web uygulamasına hata ayıklama](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [Azure uygulamalarıyla Node.js Modüllerini kullanma](../nodejs-use-node-modules-azure-apps.md)
-* [Azure Uygulama Hizmeti Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Azure App Service Web uygulamaları: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js Geliştirici Merkezi](../nodejs-use-node-modules-azure-apps.md)
 * [Süper Gizli Kudu Hata Ayıklama Konsolunu keşfetme](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

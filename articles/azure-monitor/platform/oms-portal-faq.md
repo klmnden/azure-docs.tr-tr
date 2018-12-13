@@ -12,13 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 61e1a02c3f1c194432750dce8ddf8162a981771d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 108b6cafa185788a66689a4d16bbfba7f30da6c3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002725"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271479"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>OMS portalından Log Analytics kullanıcılar için Azure portalına geçiş için sık sorulan sorular
 Log Analytics, OMS portalında adı verilen kendi portalı başlangıçta yapılandırmasını yönetmek ve toplanan verileri analiz etmek için kullanılır.  Bu Portalı'ndan tüm işlevselliği Azure portalında nerede geliştirilecek sürdürecektir taşındı.
@@ -109,7 +108,7 @@ Bilgisayar grupları yönetmek **Gelişmiş ayarlar** çalışma alanı için me
 OMS portalındaki çözüm galerisinden yönetim çözümlerini yükleme ve bunları kaldırıldı **ayarları**. Azure portalında [yönetim çözümlerini yükleme](../insights/solutions.md#install-a-management-solution) Azure Market'ten. [Çözümleri kaldırma](../insights/solutions.md#remove-a-management-solution) yüklü çözümleri listesinden.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>Nasıl oluştururum ve Uyarıları yönetme?
-Uyarı kuralları log Analytics sorgularına dayalı yönetilen artık [deneyimi uyarı birleşik](../../monitoring-and-diagnostics/alert-metric.md). Bkz: [uyarıları Log Analytics'ten Azure uyarılarına genişletecektir genişletme](../../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) yapılandırma ve Azure portalında uyarıları kullanma hakkında bilgi.
+Uyarı kuralları log Analytics sorgularına dayalı yönetilen artık [deneyimi uyarı birleşik](../../azure-monitor/platform/alerts-metric.md). Bkz: [uyarıları Log Analytics'ten Azure uyarılarına genişletecektir genişletme](../../azure-monitor/platform/alerts-extend-tool.md) yapılandırma ve Azure portalında uyarıları kullanma hakkında bilgi.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Panolarım nasıl erişim sağlanır?
 [Panom'u](dashboards.md) Log analytics'te özelliği kullanımdan kaldırıldı. Bu özellik, bir özel Görünüm Tasarımcısı bölümleri koleksiyonunuz için izin verilen ve yerleşik Azure Panosu işlevselliğe göre almıştır. Log Analytics kullanarak verileri görselleştirmek devam [Görünüm Tasarımcısı](view-designer.md) paylaşılan görünümler için. Görsel öğeler bu görünümden ya da için de sabitleyebilirsiniz [bireysel sorguya](../learn/tutorial-logs-dashboards.md) Azure panolara.

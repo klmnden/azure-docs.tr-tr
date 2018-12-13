@@ -1,6 +1,6 @@
 ---
-title: "Hızlı Başlangıç: Node.js için Bing Görüntü Arama SDK'sı ile görüntü arama"
-description: Bu öğreticiyi API için bir sarmalayıcı olan ve aynı özellikleri içeren Bing Görüntü Arama SDK'sını kullanarak ilk görüntü aramanızı yapmak için kullanın. Bu basit Node.js uygulaması, bir görüntü arama sorgusu gönderir, JSON yanıtını ayrıştırır ve döndürülen ilk görüntünün URL'sini görüntüler.
+title: "Hızlı Başlangıç: Görüntüleri - Bing resim arama SDK'sı için Node.js arayın"
+description: Bu öğreticiyi API için bir sarmalayıcı olan ve aynı özellikleri içeren Bing Resim Arama SDK'sını kullanarak ilk görüntü aramanızı yapmak için kullanın. Bu basit Node.js uygulaması, bir görüntü arama sorgusu gönderir, JSON yanıtını ayrıştırır ve döndürülen ilk görüntünün URL'sini görüntüler.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -10,16 +10,17 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: a1fda703c74549c351d8eb609819198d7e2856cf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: cb01b45e26975d44e30669e066b195f4e3abc90a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311288"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252006"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-nodejs"></a>Hızlı Başlangıç: Bing Görüntü Arama SDK'sı ve Node.js ile görüntü arama
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-nodejs"></a>Hızlı Başlangıç: Node.js için Bing resim arama SDK'sı ile görüntüleri için arama
 
-Bu öğreticiyi API için bir sarmalayıcı olan ve aynı özellikleri içeren Bing Görüntü Arama SDK'sını kullanarak ilk görüntü aramanızı yapmak için kullanın. Bu basit JavaScript uygulaması bir görüntü arama sorgusu gönderir, JSON yanıtını ayrıştırır ve döndürülen ilk görüntünün URL'sini görüntüler.
+Bu öğreticiyi API için bir sarmalayıcı olan ve aynı özellikleri içeren Bing Resim Arama SDK'sını kullanarak ilk görüntü aramanızı yapmak için kullanın. Bu basit JavaScript uygulaması bir görüntü arama sorgusu gönderir, JSON yanıtını ayrıştırır ve döndürülen ilk görüntünün URL'sini görüntüler.
 
 Bu örneğin kaynak kodu, ek hata işleme ve açıklama notları ile [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/imageSearch.js)'da bulunabilir.
 

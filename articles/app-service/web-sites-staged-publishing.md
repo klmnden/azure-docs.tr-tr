@@ -1,5 +1,5 @@
 ---
-title: Hazırlık ortamları Azure App service'taki web apps için ayarlama | Microsoft Docs
+title: Hazırlık web uygulamaları - Azure App Service ortamları ayarlama | Microsoft Docs
 description: Azure App service'taki web apps için hazırlanmış yayımlamayı kullanmayı öğrenin.
 services: app-service
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: c6e28554f86a6a7de5d50027ceb552e15856bc96
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 17bc8fe2e5ccd9888777e11f3ca98e6afefb56b7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970867"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277395"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service ortamlarında hazırlık ayarlama
 <a name="Overview"></a>
@@ -124,8 +125,8 @@ Kullanırken **Önizleme ile değiştirme** seçeneği (bkz [dağıtım yuvalar�
 - Hedef yuvanın yuvanın (örneğin, üretim) var olan iş yükünü etkilemeyecek şekilde değişmeden kalmasını sağlar.
 - Yapılandırma öğelerini hedef yuva, uygulama ayarları ve yuva özel bağlantı dizeleri dahil olmak üzere kaynak yuvaya uygular.
 - Bu yapılandırma yukarıda sözü edilen öğeleri kullanılarak kaynak yuvaya üzerinde çalışan işlemleri yeniden başlatır.
-- Takas tamamlandığında: hedef yuvaya öncesi warmed yukarı kaynak yuvaya taşır. Hedef yuvanın el ile takas olduğu gibi kaynak yuvasına taşınır.
-- Değiştirmeyi iptal zaman: kaynak yuvaya kaynak yuvaya yapılandırma öğelerini yeniden uygular.
+- Takas tamamlandığında: Öncesi warmed yukarı kaynak yuvaya hedef yuvaya taşır. Hedef yuvanın el ile takas olduğu gibi kaynak yuvasına taşınır.
+- Ne zaman değiştirmeyi iptal et: Kaynak yuvaya yapılandırma öğelerini, kaynak yuvaya yeniden uygular.
 
 Uygulamanın hedef yuvanın yapılandırmasını ile tam olarak nasıl davranacağını önizleyebilirsiniz. Doğrulama tamamlandığında, takas ayrı bir adımda tamamlayın. Bu adım, kaynak yuvaya zaten istenen yapılandırma ile warmed ek bir avantajı vardır ve istemciler, kapalı kalma süresi deneyimi yok.  
 

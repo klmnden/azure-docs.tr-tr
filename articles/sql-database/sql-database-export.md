@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: fecc694e5520444be06dab82191b6454fb4ee8f5
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 2d881b9dbc20dbbf95491d023b859a20815091d3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354045"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311210"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Azure SQL veritabanını BACPAC dosyasına dışarı aktarma
 
@@ -39,11 +39,11 @@ Arşivleme veya başka bir platformuna geçmek için bir veritabanı dışarı a
   - Kullanım bir [kümelenmiş dizin](https://msdn.microsoft.com/library/ms190457.aspx) boş olmayan değerlerinin tüm büyük tablolarda ile. 6-12 saatten uzun sürerse Kümelenmiş dizinler bir dışarı aktarım başarısız olabilir. Dışarı aktarma hizmeti tüm tabloyu dışarı aktarmak için bir tablo taraması tamamlaması gereken olmasıdır. Tablolarınızı dışarı aktarma çalıştırmak için iyileştirilmiş, belirlemek için en iyi yolu **DBCC SHOW_STATISTICS** emin olun *RANGE_HI_KEY* null değil ve iyi dağıtım değerine sahiptir. Ayrıntılar için bkz [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx).
 
 > [!NOTE]
-> İşlemlerinde bacpac dosyaları için yedekleme ve geri yükleme işlemleri amaçlanmamıştır. Azure SQL veritabanı, her bir kullanıcı veritabanı için Yedekleme otomatik olarak oluşturur. Ayrıntılar için bkz [iş Sürekliliğine genel bakış](sql-database-business-continuity.md) ve [SQL veritabanı yedeklemelerini](sql-database-automated-backups.md).  
+> İşlemlerinde bacpac dosyaları için yedekleme ve geri yükleme işlemleri amaçlanmamıştır. Azure SQL veritabanı, her bir kullanıcı veritabanı için Yedekleme otomatik olarak oluşturur. Ayrıntılar için bkz [iş Sürekliliğine genel bakış](sql-database-business-continuity.md) ve [SQL veritabanı yedeklemelerini](sql-database-automated-backups.md).
 
 ## <a name="export-to-a-bacpac-file-using-the-azure-portal"></a>Azure portalını kullanarak BACPAC dosyasına dışarı aktarma
 
-Veritabanını kullanarak dışarı aktarmak için [Azure portalında](https://portal.azure.com), veritabanınız için sayfayı açın ve tıklayın **dışarı** araç. BACPAC dosya adını belirtin, dışa aktarma için Azure depolama hesabı ve kapsayıcı sağlayabilir ve kaynak veritabanına bağlanmak için kimlik bilgilerini belirtin.  
+Veritabanını kullanarak dışarı aktarmak için [Azure portalında](https://portal.azure.com), veritabanınız için sayfayı açın ve tıklayın **dışarı** araç. BACPAC dosya adını belirtin, dışa aktarma için Azure depolama hesabı ve kapsayıcı sağlayabilir ve kaynak veritabanına bağlanmak için kimlik bilgilerini belirtin.
 
 ![Veritabanı dışarı aktarma](./media/sql-database-export/database-export.png)
 
@@ -72,13 +72,13 @@ SQL Server Management Studio en yeni sürümleri, Azure SQL veritabanını BACPA
 
 Kullanım [yeni AzureRmSqlDatabaseExport](/powershell/module/azurerm.sql/new-azurermsqldatabaseexport) cmdlet'i bir Azure SQL veritabanı hizmet verme veritabanı isteğini göndermek için. Veritabanınızın boyutuna bağlı olarak, dışarı aktarma işleminin tamamlanması biraz zaman alabilir.
 
- ```powershell
- $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
-   -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
-   -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
- ```
+```powershell
+$exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+  -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
+  -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
+```
 
-Dışarı aktarma isteği durumunu denetlemek için kullanmak [Get-Azurermsqldatabaseımportexportstatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet'i. Bu istekten sonra hemen döndürür genellikle çalıştıran **durumu: Inprogress**. Gördüğünüzde **durumu: başarılı** verme tamamlandı.
+Dışarı aktarma isteği durumunu denetlemek için kullanmak [Get-Azurermsqldatabaseımportexportstatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet'i. Bu istekten sonra hemen döndürür genellikle çalıştıran **durumu: Inprogress**. Gördüğünüzde **durumu: Başarılı** verme tamamlandı.
 
 ```powershell
 $exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink

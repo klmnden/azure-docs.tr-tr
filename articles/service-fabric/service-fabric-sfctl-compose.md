@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 3ce0b63c579412d9d8d35b835803becab09f7ef4
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: d71b0c020fb9ceb305b56216d466bacb42ad21e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494161"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278160"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Oluşturma, silme ve Docker Compose uygulamaları yönetin.
@@ -29,10 +29,11 @@ Oluşturma, silme ve Docker Compose uygulamaları yönetin.
 |Komut|Açıklama|
 | --- | --- |
 | oluşturmaya | Oluşturur bir Service Fabric compose dağıtımı. |
-| liste | Service Fabric kümesinde oluşturulan dağıtımlar alır listesi oluşturun. |
+| list | Service Fabric kümesinde oluşturulan dağıtımlar alır listesi oluşturun. |
 | kaldır | Siler mevcut bir Service Fabric Küme dağıtımı oluşturun. |
 | durum | Compose dağıtımı bir Service Fabric hakkında bilgi alır. |
 | yükselt | Service Fabric kümesindeki bir compose dağıtımı yükseltme işlemini başlatır. |
+| Yükseltmeyi geri alma | Compose dağıtımı geri başladığında, Service Fabric kümesinde yükseltin. |
 | Yükseltme durumu | Yazma dağıtımı bu Service Fabric üzerinde gerçekleştirilen en son yükseltme ayrıntılarını alır. |
 
 ## <a name="sfctl-compose-create"></a>sfctl compose oluşturma
@@ -40,7 +41,7 @@ Oluşturur bir Service Fabric compose dağıtımı.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Dağıtım adı} [gerekli] | Dağıtım adı. |
 | --dosya yolu [gerekli] | Hedef Docker Compose dosyasının yolu. |
@@ -51,7 +52,7 @@ Oluşturur bir Service Fabric compose dağıtımı.
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -66,7 +67,7 @@ Oluşturulan compose dağıtımları hakkında veya Service Fabric kümesinde ol
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --devamlılık belirteci | Devamlılık belirteci parametresi, sonraki sonuç kümesini almak için kullanılır. Sistem sonuçlardan tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değer ile API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı, API, sonraki sonuç kümesini döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır. |
 | --en fazla sonuç | En fazla disk belleğine alınan sorguları bir parçası olarak döndürülecek sonuç sayısı. Bu parametre, döndürülen sonuç sayısı üzerindeki üst sınırını tanımlar. İletinin en büyük ileti boyutu kısıtlamaları göre uymayan, belirtilen en fazla sonuç değerinden yapılandırmada tanımlanabilir sonuç döndürmedi. Bu parametre sıfıra eşit ya da belirtilmemiş disk belleğine alınan sorgu dönüş iletiye sığmayacak mümkün olduğunca çok sonuçları içerir. |
@@ -74,7 +75,7 @@ Oluşturulan compose dağıtımları hakkında veya Service Fabric kümesinde ol
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -89,14 +90,14 @@ Yazma dağıtımı mevcut bir Service Fabric siler.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Dağıtım adı} [gerekli] | Dağıtım kimliği. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -111,14 +112,14 @@ Oluşturulan compose dağıtımı veya Service Fabric kümesine ve parametre ola
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Dağıtım adı} [gerekli] | Dağıtım kimliği. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -133,32 +134,54 @@ Sağlanan yükseltme parametrelerini doğrular ve geçerliyse parametreleri dağ
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Dağıtım adı} [gerekli] | Dağıtım adı. |
 | --dosya yolu [gerekli] | Yol ' % s'hedef Docker compose dosyası. |
 | --Varsayılan-svc-türü-sistem durumu-map | JSON hizmetlerin durumunu değerlendirmek için kullanılan sistem durumu ilkesi açıklayan sözlük kodlanmış. |
 | --şifrelenmiş geçişi | Bir kapsayıcı kayıt defteri parolasını isteyen yerine zaten şifrelenmiş bir parola deyimi kullanın. |
 | --hatası eylemi | Olası değerler şunlardır\: 'Geçersiz', 'Geri', 'Manual'. |
-| --force-yeniden başlatma | Yeniden başlatmaya zorla. |
+| --force-yeniden başlatma | Hatta kod sürümü değiştirilmedi işlemleri zorla yükseltme sırasında yeniden başlatılır. <br><br> Yükseltme, yapılandırma veya veri yalnızca değiştirir. |
 | --sahip geçişi | Kapsayıcı kayıt defterine bir parola sorar. |
-| --Sistem durumu denetimi deneme | Sistem durumu denetimi yeniden deneme zaman aşımı, milisaniye cinsinden ölçülür. |
-| --Sistem durumu denetimi kararlı | Sistem durumu denetimi kararlılık süresi milisaniye olarak ölçülür. |
-| --Sistem durumu denetimi bekleme | Sistem durumu denetimi bekleme süresi, milisaniye cinsinden ölçülür. |
-| --çoğaltma kümesi onay | Yükseltme çoğaltma onay zaman aşımı saniye cinsinden ölçülen ayarlayın. |
+| --Sistem durumu denetimi deneme | Uygulama veya kümenin iyi durumda değilse, sistem durumu denetimleri gerçekleştirmek için girişimleri arasındaki süre uzunluğu. |
+| --Sistem durumu denetimi kararlı | Süreyi sonraki yükseltme etki alanına yükseltmeye devam etmeden önce uygulama veya kümenin sağlıklı kalmasını gerekir. <br><br> Bu, önce bir ISO 8601 süre temsil eden bir dize olarak yorumlanır. Bu başarısız olursa, milisaniye cinsinden toplam sayısını temsil eden bir sayı olarak yorumlanır. |
+| --Sistem durumu denetimi bekleme | Sistem başlatmadan önce bir yükseltme etki alanını tamamladıktan sonra beklenecek süreyi işlemi denetler. |
+| --çoğaltma kümesi onay | En uzun süreyi bir yükseltme etki alanını işlenmesini engellemek ve beklenmeyen sorunları kullanılabilirlik kaybını önlemek için. <br><br> Bu zaman aşımı süresi dolduğunda işlem yükseltme etki alanının kullanılabilirlik kaybı sorunları bağımsız olarak devam eder. Zaman aşımı, her bir yükseltme etki alanı başlangıcında sıfırlanır. Geçerli değerler 0 ile kapsamlı 42949672925 arasındadır. |
 | --svc-türü-sistem durumu-map | JSON kodlamalı farklı hizmet türleri durumunu değerlendirmek için kullanılan sistem durumu ilkeleri açıklayan nesneleri listesi. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 | --Uygulama sağlıksız | İyi durumda olmayan uygulamalar yüzdesi hata raporlamadan önce izin verilen en fazla. <br><br> Örneğin, %10 sağlıksız uygulamalarının izin vermek için bu değer 10 olacaktır. Yüzde küme hata olarak kabul edilmeden önce iyi durumda olmayan uygulamalar maksimum toleranslı yüzdesini temsil eder. Yüzde uyulduğundan, ancak en az bir iyi durumda olmayan uygulama sistem durumu uyarı olarak değerlendirilir. Bu, iyi durumda olmayan uygulamalar uygulama örnekleri kümedeki toplam sayısı üzerinden bölünmesiyle hesaplanır. |
-| --Yükseltme-etki-zaman aşımı | Yükseltme etki alanı zaman aşımı, milisaniye cinsinden ölçülür. |
+| --Yükseltme-etki-zaman aşımı | Süreyi FailureAction yürütülmeden önce tamamlamak her bir yükseltme etki alanı vardır. <br><br> Bu, önce bir ISO 8601 süre temsil eden bir dize olarak yorumlanır. Bu başarısız olursa, milisaniye cinsinden toplam sayısını temsil eden bir sayı olarak yorumlanır. |
 | --yükseltme türü | Varsayılan\: alınıyor. |
 | --Yükseltme modu | Olası değerler şunlardır\: 'Geçersiz', 'UnmonitoredAuto', 'UnmonitoredManual', 'İzlenen'.  Varsayılan\: UnmonitoredAuto. |
-| --Yükseltme zaman aşımı | Yükseltme zaman aşımının milisaniye olarak ölçülür. |
+| --Yükseltme zaman aşımı | Süreyi genel yükseltme FailureAction yürütülmeden önce tamamlanması gerekir. <br><br> Bu, önce bir ISO 8601 süre temsil eden bir dize olarak yorumlanır. Bu başarısız olursa, milisaniye cinsinden toplam sayısını temsil eden bir sayı olarak yorumlanır. |
 | --kullanıcı | Kapsayıcı kayıt defterine bağlanmak için kullanıcı adı. |
-| --hata olarak uyarı | Uyarıları ile aynı önem hata olarak kabul edilir. |
+| --hata olarak uyarı | Uyarıları hata olarak aynı önem derecesi kabul edilip edilmeyeceğini belirtir. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
+| --- | --- |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
+| ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+
+## <a name="sfctl-compose-upgrade-rollback"></a>sfctl compose yükseltmeyi geri alma
+Compose dağıtımı geri başladığında, Service Fabric kümesinde yükseltin.
+
+Geri alma, service fabric compose dağıtımı yükseltme.
+
+### <a name="arguments"></a>Bağımsız Değişkenler
+
+|Bağımsız Değişken|Açıklama|
+| --- | --- |
+| --Dağıtım adı} [gerekli] | Dağıtım kimliği. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
+
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
+
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -173,14 +196,14 @@ Compose dağıtımı yükseltmenin yanı sıra hata ayıklama uygulama sistem du
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --Dağıtım adı} [gerekli] | Dağıtım kimliği. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |

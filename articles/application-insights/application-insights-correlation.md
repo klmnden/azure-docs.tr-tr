@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: da9ec327edc27e2f37f76704d6b5481869621049
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 09db1c7a7d348d866cd131e66102044a37c010a8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997473"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310343"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application ınsights telemetri bağıntısı
 
@@ -31,7 +31,7 @@ Application Insights'ı tanımlayan bir [veri modeli](application-insights-data-
 
 Dağıtılmış bir mantıksal işlemi genellikle bir dizi daha küçük işlemlerini - bileşenlerinden biri tarafından işlenen isteklerin oluşur. Bu işlemler tarafından tanımlanan [istek telemetri](application-insights-data-model-request-telemetry.md). Her istek telemetrisi kendi bölümüne sahiptir `id` , küresel olarak benzersiz şekilde tanımlar. Ve tüm telemetri - izlemelerini, özel durumlar, bu istekle ilişkili vb. ayarlamalısınız `operation_parentId` istek değerine `id`.
 
-Başka bir bileşen tarafından temsil edilen http çağrısı gibi her giden işlem [bağımlılık telemetrisi](application-insights-data-model-dependency-telemetry.md). Bağımlılık telemetrisi ayrıca tanımlar kendi `id` genel olarak benzersiz. Bu bağımlılık çağrısının tarafından başlatılan istek telemetrisi, olarak kullandığı `operation_parentId`.
+Her giden işlemi (örneğin, bir http çağrısıyla başka bir bileşen için) tarafından temsil edilen [bağımlılık telemetrisi](application-insights-data-model-dependency-telemetry.md). Bağımlılık telemetrisi ayrıca tanımlar kendi `id` genel olarak benzersiz. Bu bağımlılık çağrısının tarafından başlatılan istek telemetrisi, olarak kullandığı `operation_parentId`.
 
 Dağıtılmış bir mantıksal işlemi kullanarak görünümü oluşturabilirsiniz `operation_Id`, `operation_parentId`, ve `request.id` ile `dependency.id`. Bu alanlar da nedensellik ilişkilerini çağrı sırasını, telemetri tanımlayın.
 

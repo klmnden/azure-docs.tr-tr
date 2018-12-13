@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 3caa4f2dbe36f86c9b15a83303e90b16d06c56fd
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 14b108a836424e92a251f50b42ed93963038a333
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419410"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192065"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Azure sanal makine Aracısı çevrimdışı modda yükleme 
 
@@ -36,7 +36,7 @@ Aşağıdaki senaryolarda çevrimdışı modda VM aracısını yükleyin:
 
 Çevrimdışı modda VM aracısını yüklemek için aşağıdaki adımları kullanın.
 
-### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>1. adım: sanal Makinenin işletim sistemi diskini başka bir VM'ye veri diski ekleme
+### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>1. Adım: Sanal Makinenin işletim sistemi diskini başka bir VM'ye veri diski olarak ekleyin.
 
 1.  VM'yi silin. Seçtiğinizden emin olun **diskleri tutmak** VM'yi sildiğinizde seçeneği.
 
@@ -44,7 +44,7 @@ Aşağıdaki senaryolarda çevrimdışı modda VM aracısını yükleyin:
 
 3.  Sorun giderici VM bağlanın. Açık **Bilgisayar Yönetimi** > **Disk Yönetimi**. İşletim sistemi diskinin çevrimiçi olduğundan ve disk bölümleri için sürücü harfleri atandığını doğrulayın.
 
-### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>2. adım: Azure VM Aracısı'nı yüklemek için işletim sistemi diskini değiştirme
+### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>2. Adım: Azure VM Aracısı'nı yüklemek için işletim sistemi diskini değiştirme
 
 1.  Uzak Masaüstü Bağlantısı VM sorun giderici olun.
 
@@ -76,7 +76,7 @@ Aşağıdaki senaryolarda çevrimdışı modda VM aracısını yükleyin:
         - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\RdAgent
 
-        ![Kayıt defteri alt anahtarları Dışarı Aktar](./media/install-vm-agent-offline/backup-reg.png)
+          ![Kayıt defteri alt anahtarları Dışarı Aktar](./media/install-vm-agent-offline/backup-reg.png)
 
     2. Kayıt defteri dosyaları düzenleyin. Her dosyada giriş değeri değiştirmek **sistem** için **BROKENSYSTEM** (aşağıdaki görüntüde gösterildiği gibi) ve dosyayı kaydedin. Unutmayın **ImagePath** geçerli VM Aracısı'nın. Biz ekli işletim sistemi diski için ilgili klasörüne kopyalamanız gerekir. 
 

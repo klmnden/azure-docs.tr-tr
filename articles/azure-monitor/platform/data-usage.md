@@ -10,17 +10,15 @@ ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 8a1ee511848cf854374323b356492f374988d5d3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: af41e2af87afbbeb8629d07508d4e5244351a4df
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110148"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277361"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics'te veri kullanımını çözümleme
 
@@ -174,7 +172,7 @@ Bu bölümde, aşağıdaki durumlarda nasıl uyarı oluşturulacağı açıklan�
 - Veri hacmi belirtilen bir miktarı aştığında.
 - Veri hacminin belirtilen bir miktarı aşacağı tahmin edildiğinde.
 
-Azure Uyarıları, arama sorguları kullanan [günlük uyarılarını](../../monitoring-and-diagnostics/monitor-alerts-unified-log.md) destekler. 
+Azure Uyarıları, arama sorguları kullanan [günlük uyarılarını](../../azure-monitor/platform/alerts-unified-log.md) destekler. 
 
 Aşağıdaki sorgu, son 24 saatte 100 GB'den fazla veri toplandığında bir sonuç verir:
 
@@ -186,7 +184,7 @@ Aşağıdaki sorgu, ne zaman bir günde 100 GB'den fazla veri toplanacağını t
 
 Farklı bir veri hacminde uyarıda bulunmak için, sorgulardaki 100 değerini uyarılmak istediğiniz GB sayısıyla değiştirin.
 
-Toplanan veri beklenen miktarı aştığında size bildirilmesini sağlamak için, [yeni günlük uyarısı oluşturma](../../monitoring-and-diagnostics/alert-metric.md) başlığı altında açıklanan adımları kullanın.
+Toplanan veri beklenen miktarı aştığında size bildirilmesini sağlamak için, [yeni günlük uyarısı oluşturma](../../azure-monitor/platform/alerts-metric.md) başlığı altında açıklanan adımları kullanın.
 
 İlk sorgu için, yani 24 saat içinde 100 GB'den fazla veri toplandığında uyarı oluştururken şu ayarları yapın:  
 
@@ -200,7 +198,7 @@ Toplanan veri beklenen miktarı aştığında size bildirilmesini sağlamak içi
    - **Ad**: *24 saat içinde 100 GB'den büyük veri hacmi*
    - **Önem derecesi**: *Uyarı*
 
-Günlük uyarısı ölçütlerle eşleştiğinde bilgilendirme yapılması için var olan bir [Eylem Grubunu](../../monitoring-and-diagnostics/monitoring-action-groups.md) kullanın veya yeni bir tane oluşturun.
+Günlük uyarısı ölçütlerle eşleştiğinde bilgilendirme yapılması için var olan bir [Eylem Grubunu](../../azure-monitor/platform/action-groups.md) kullanın veya yeni bir tane oluşturun.
 
 İkinci sorgu için, yani 24 saat içinde 100 GB'den fazla veri olacağı tahmin edildiğinde uyarı oluştururken şu ayarları yapın:
 
@@ -214,13 +212,13 @@ Günlük uyarısı ölçütlerle eşleştiğinde bilgilendirme yapılması için
    - **Ad**: *24 saat içinde veri hacminin 100 GB'den büyük olacağı tahmin ediliyor*
    - **Önem derecesi**: *Uyarı*
 
-Günlük uyarısı ölçütlerle eşleştiğinde bilgilendirme yapılması için var olan bir [Eylem Grubunu](../../monitoring-and-diagnostics/monitoring-action-groups.md) kullanın veya yeni bir tane oluşturun.
+Günlük uyarısı ölçütlerle eşleştiğinde bilgilendirme yapılması için var olan bir [Eylem Grubunu](../../azure-monitor/platform/action-groups.md) kullanın veya yeni bir tane oluşturun.
 
 Uyarı aldığınızda, kullanımın neden beklenenden fazla olduğu konusundaki sorunları gidermek için aşağıdaki bölümde yer alan adımları kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Arama dilini nasıl kullanacağınızı öğrenmek için bkz. [Log Analytics'te günlük aramaları](../log-query/log-query-overview.md). Kullanım verilerinde başka analizler yapmak için arama sorgularını kullanabilirsiniz.
-* Bir arama ölçütü karşılandığında size bildirilmesini sağlamak için, [yeni günlük uyarısı oluşturma](../../monitoring-and-diagnostics/alert-metric.md) başlığı altında açıklanan adımları kullanın.
+* Bir arama ölçütü karşılandığında size bildirilmesini sağlamak için, [yeni günlük uyarısı oluşturma](../../azure-monitor/platform/alerts-metric.md) başlığı altında açıklanan adımları kullanın.
 * Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../insights/solution-targeting.md) özelliğini kullanın.
 * Etkili bir güvenlik olay koleksiyonu ilkesi yapılandırmak için, [Azure Güvenlik Merkezi filtreleme ilkesi](../../security-center/security-center-enable-data-collection.md) konusunu gözden geçirin.
 * [Performans sayacı yapılandırmasını](data-sources-performance-counters.md) değiştirin.

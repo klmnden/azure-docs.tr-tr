@@ -1,5 +1,5 @@
 ---
-title: Oluşturma bir App Service ortamı v1
+title: Oluşturma bir App Service ortamı v1 - Azure
 description: Bir app service ortamı v1 oluşturma akış açıklaması
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 289ff76e533497a731a4fc51b3e54101a9d34a68
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 1cfe8dae750cb113dd5346bfba261099fd3b6044
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958375"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276749"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Oluşturma bir App Service ortamı v1 
 
@@ -55,21 +56,21 @@ Bir App Service ortamı v1 oluşturmak için Azure Marketi için arama yapabilir
 4. Sanal ağ ve konum seçimlerinizi yapın. Önceden var olan bir VNet seçin veya yeni bir VNet oluşturun seçebilirsiniz. Ardından yeni bir sanal ağ seçerseniz bir ad ve konum belirtin. Yeni sanal ağ adres aralığı 192.168.250.0/23 ve adlı bir alt ağ gerekir **varsayılan** 192.168.250.0/24 tanımlanır. Ayrıca, önceden mevcut olan bir Klasik veya Resource Manager sanal ağı seçebilirsiniz. VIP türü seçimi, ASE'NİZİN doğrudan internet'ten (Dış) erişilebilen bir iç yük dengeleyici (ILB) kullanıyorsa veya belirler. Bunları okuyun hakkında daha fazla bilgi edinmek için [bir App Service ortamı ile bir iç Load Balancer'ı kullanarak][ILBASE]. Dış VIP türü seçerseniz, sistem IPSSL amacıyla oluşturulur kaç dış IP adreslerini seçebilirsiniz. Dahili seçerseniz ASE'niz kullanan alt etki alanı belirtmek gerekir. Ase'ler kullanan sanal ağlara dağıtılabilir *ya da* genel adres aralıklarının *veya* RFC1918 adres alanları (yani özel adresler). Ortak adres aralığı ile bir sanal ağ kullanmak için önceden sanal ağ oluşturmanız gerekir. Önceden var olan bir sanal ağ seçtiğinizde ASE oluşturma sırasında yeni bir alt ağ oluşturmanız gerekir. **Portalda, önceden oluşturulmuş bir alt ağ kullanamazsınız. Resource manager şablonu kullanarak ASE'nizi oluşturmak istiyorsanız, önceden mevcut olan bir alt ağ ile bir ASE oluşturabilirsiniz.** Bir ASE şablon kullanımdan buradaki bilgileri oluşturmak için [şablondan bir App Service ortamı oluşturma] [ ILBAseTemplate] ve burada [şablondanbirILBAppServiceortamıoluşturma] [ASEfromTemplate].
 
 ### <a name="details"></a>Ayrıntılar
-Bir ASE 2 ön uçlar ve 2 çalışan ile oluşturulur. Ön uçlar HTTP/HTTPS uç noktaları olarak davranır ve uygulamalarınızı rolleri olan çalışanlar için trafiği göndermek. ASE oluşturulduktan sonra miktarı ayarlamak ve bu kaynak havuzlarının otomatik ölçeklendirme kurallarını bile ayarlama yapabilirsiniz. Yönetim ve izleme bir App Service ortamı el ile ölçeklendirme etrafında daha fazla ayrıntı için buraya gidin: [bir App Service ortamını yapılandırma][ASEConfig] 
+Bir ASE 2 ön uçlar ve 2 çalışan ile oluşturulur. Ön uçlar HTTP/HTTPS uç noktaları olarak davranır ve uygulamalarınızı rolleri olan çalışanlar için trafiği göndermek. ASE oluşturulduktan sonra miktarı ayarlamak ve bu kaynak havuzlarının otomatik ölçeklendirme kurallarını bile ayarlama yapabilirsiniz. El ile ölçeklendirme etrafında daha fazla bilgi için yönetim ve izleme bir App Service ortamı buraya gidin: [Bir App Service ortamını yapılandırma][ASEConfig] 
 
 Bir ASE yalnızca ASE tarafından kullanılan alt ağ içinde bulunabilir. Alt ağ, ASE'nin dışında her şey için kullanılamaz
 
 ### <a name="after-app-service-environment-v1-creation"></a>App Service ortamı v1 oluşturulduktan sonra
 ASE oluşturulduktan sonra ayarlayabilirsiniz:
 
-* Ön uçlar miktarı (en az: 2)
-* Çalışanları miktarı (en az: 2)
+* Ön uçlar miktarı (en düşük: 2)
+* Çalışanları miktarı (en düşük: 2)
 * IP SSL için kullanılabilir IP adreslerinin miktar
 * Ön uçlar veya çalışanlar tarafından kullanılan kaynak boyutları işlem (P2 ön uç en küçük boyut'dır)
 
-El ile ölçeklendirme, yönetim ve burada App Service ortamları izleme ile ilgili daha fazla ayrıntı: [bir App Service ortamını yapılandırma][ASEConfig] 
+El ile ölçeklendirme, yönetim ve burada App Service ortamları izleme ile ilgili daha fazla ayrıntı vardır: [Bir App Service ortamını yapılandırma][ASEConfig] 
 
-Otomatik ölçeklendirme hakkında bilgi için yok burada bir kılavuz: [bir App Service ortamı için otomatik ölçeklendirmeyi yapılandırma][ASEAutoscale]
+Otomatik ölçeklendirme hakkında bilgi için buraya bir kılavuz vardır: [Bir App Service ortamı için otomatik ölçeklendirmeyi yapılandırma][ASEAutoscale]
 
 Özelleştirme veritabanı ve depolama gibi kullanılabilir olmayan ek bağımlılıklar vardır. Bunlar Azure tarafından işlenen ve sistemiyle birlikte gelir. Sistem deposu tüm App Service ortamı için 500 GB'a kadar destekler ve veritabanı tarafından sistem ölçeği gerektiği gibi Azure tarafından ayarlanır.
 

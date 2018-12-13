@@ -1,5 +1,5 @@
 ---
-title: Web Apps’e Genel Bakış | Microsoft Belgeleri
+title: App Service'e genel bakış - Azure | Microsoft Docs
 description: Azure App Service’in web uygulamaları geliştirmenize ve barındırmanıza nasıl yardımcı olabileceğini öğrenin.
 services: app-service\web
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: d8940a305a672f032f2e4e170f99a2cd70ca2b12
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 17f90d54b31fbc46fc831fca0650417c50937fe6
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318104"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253380"
 ---
-# <a name="web-apps-overview"></a>Web Apps’e Genel Bakış
+# <a name="app-service-overview"></a>App Service’a genel bakış
 
-*Azure App Service Web Apps* (veya yalnızca Web Apps) web uygulamaları, REST API'leri ve mobil arka uçlar barındırmaya yönelik bir hizmettir. .NET, .NET Core, Java, Ruby, Node.js, PHP veya Python dahil en sevdiğiniz dilde geliştirebilirsiniz. Windows tabanlı ortamlarda uygulamalar kolaylıkla çalıştırılıp ölçeklendirilebilir. Linux tabanlı ortamlar için bkz. [Linux’ta App Service](containers/app-service-linux-intro.md). 
+*Azure App Service* mobil arka uçlar ve web uygulamaları, REST API'leri barındırmak için bir hizmettir. .NET, .NET Core, Java, Ruby, Node.js, PHP veya Python dahil en sevdiğiniz dilde geliştirebilirsiniz. Windows tabanlı ortamlarda uygulamalar kolaylıkla çalıştırılıp ölçeklendirilebilir. Linux tabanlı ortamlar için bkz. [Linux’ta App Service](containers/app-service-linux-intro.md). 
 
 Web Apps, uygulamanıza güvenlik, yük dengeleme, otomatik ölçeklendirme ve otomatik yönetim gibi özelliklerle Microsoft Azure’un gücünü katmakla kalmaz. Aynı zamanda Azure DevOps, GitHub, Docker Hub ve diğer kaynaklardan sürekli dağıtım, paket yönetimi, hazırlık ortamları, özel etki alanı ve SSL sertifikaları gibi DevOps özelliklerinden de yararlanabilirsiniz. 
 

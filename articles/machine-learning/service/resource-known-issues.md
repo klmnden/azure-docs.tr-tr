@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 45eb24bb8a49fb59ae44533e59b2760940ee5c1a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 4a4f1691162ab9c9fbd5bc8802ecf7ebc4894d74
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097718"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193680"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bilinen sorunlar ve sorun giderme Azure Machine Learning hizmeti
  
@@ -26,7 +26,7 @@ Bu makalede, bulma ve hataları düzeltin veya Azure Machine Learning hizmeti ku
 
 **Hata iletisi: 'PyYAML' kaldırılamıyor** 
 
-Python için Azure Machine Learning SDK: PyYAML olan yüklü distutils proje. Bu nedenle, biz durumunda kısmi bir kaldırma için hangi dosyaların ait doğru bir şekilde belirlenemiyor. Bu hatayı yoksayma sırasında SDK'sı yüklemeye devam etmek için kullanın:
+Azure Machine için Python SDK'sı öğrenme: PyYAML bir distutils yüklü projesidir. Bu nedenle, biz durumunda kısmi bir kaldırma için hangi dosyaların ait doğru bir şekilde belirlenemiyor. Bu hatayı yoksayma sırasında SDK'sı yüklemeye devam etmek için kullanın:
 ```Python 
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 2511a608a74a04314b5fd56a55f4ae93ca0e2978
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 48b0085e52c1752c0b5ecc89ce229a5a82f74345
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017483"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310445"
 ---
 # <a name="api-management-caching-policies"></a>API Management önbelleğe alma ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -80,7 +80,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 ```  
   
 #### <a name="example-using-policy-expressions"></a>Örnek kullanım ilkesi ifadeleri  
- Bu örnekte, arka uç hizmetinin belirtildiği gibi desteklenen hizmetin yanıt önbelleğe eşleşen API Management yanıt önbelleğe alma süresi yapılandırma işlemi gösterilmektedir `Cache-Control` yönergesi. Yapılandırma ve bu ilkeyi kullanan bir gösterimi için bkz. [Cloud Cover bölümü 177: daha fazla API yönetimi özellikleri ile Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) ve 25:25 için ileri sarma.  
+ Bu örnekte, arka uç hizmetinin belirtildiği gibi desteklenen hizmetin yanıt önbelleğe eşleşen API Management yanıt önbelleğe alma süresi yapılandırma işlemi gösterilmektedir `Cache-Control` yönergesi. Yapılandırma ve bu ilkeyi kullanan bir gösterimi için bkz. [Cloud Cover bölümü 177: Daha fazla API yönetimi özellikleri ile Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) ve 25:25 için ileri sarma.  
   
 ```xml  
 <!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->  
@@ -118,14 +118,14 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 | önbelleği tercihi               | Öznitelik arasındaki aşağıdaki değerleri seçin:<br />- `internal` Yerleşik API Management önbelleği kullanmak için<br />- `external` dış önbellek açıklandığı kullanılacak [bir dış Azure Cache Redis Azure API Yönetimi'nde kullanmak](api-management-howto-cache-external.md),<br />- `prefer-external` yapılandırılmış dış veya iç önbelleğe Aksi takdirde kullanmak için. | Hayır       | `prefer-external` |
 | önbelleğe alma aşağı akış türü        | Bu öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> -Hiçbiri - aşağı akış önbelleğe alma izin verilmiyor.<br />-Özel - aşağı akış özel önbelleğe alma izin verilir.<br />-Ortak - özel ve paylaşılan aşağı akış önbelleğe alma izin verilir.                                                                                                          | Hayır       | yok              |
 | revalidate gerekir                | Aşağı Akış önbelleği etkin olduğunda, bu öznitelik açar veya kapatır `must-revalidate` ağ geçidi yanıtlarındaki önbellek denetimi yönergesi.                                                                                                                                                                                                                      | Hayır       | true              |
-| farklı-tarafından-Geliştirici              | Kümesine `true` Geliştirici anahtarı başına önbellek yanıtları.                                                                                                                                                                                                                                                                                                         | Evet      |                   |
-| farklı-tarafından-developer-groups       | Kümesine `true` kullanıcı rol başına önbellek yanıtları.                                                                                                                                                                                                                                                                                                             | Evet      |                   |  
+| farklı-tarafından-Geliştirici              | Kümesine `true` önbellek yanıtları [abonelik anahtarı](https://docs.microsoft.com/azure/api-management/api-management-subscriptions#what-is-subscriptions).                                                                                                                                                                                                                                                                                                         | Evet      |                   |
+| farklı-tarafından-developer-groups       | Kümesine `true` önbellek yanıtları [kullanıcı grubu](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Evet      |                   |  
 
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümler:** gelen  
--   **İlke kapsamları:** API işlemi, ürün  
+-   **İlke kapsamları:** API, ürün, işlem  
   
 ##  <a name="StoreToCache"></a> Önbelleğe Store  
  `cache-store` İlkesi, belirtilen önbellek ayarlara göre yanıtları önbelleğe alır. Bu ilke, yanıt içeriği bir süre içinde statik kalır olduğu durumlarda uygulanabilir. Yanıtları önbelleğe alma bant genişliğini azaltır ve API tüketiciler tarafından algılanan arka uç web sunucusu ve düşürmeye gecikme süresi gereksinimleri işleme uygulanmaz.  
@@ -159,7 +159,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 ```  
   
 #### <a name="example-using-policy-expressions"></a>Örnek kullanım ilkesi ifadeleri  
- Bu örnekte, arka uç hizmetinin belirtildiği gibi desteklenen hizmetin yanıt önbelleğe eşleşen API Management yanıt önbelleğe alma süresi yapılandırma işlemi gösterilmektedir `Cache-Control` yönergesi. Yapılandırma ve bu ilkeyi kullanan bir gösterimi için bkz. [Cloud Cover bölümü 177: daha fazla API yönetimi özellikleri ile Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) ve 25:25 için ileri sarma.  
+ Bu örnekte, arka uç hizmetinin belirtildiği gibi desteklenen hizmetin yanıt önbelleğe eşleşen API Management yanıt önbelleğe alma süresi yapılandırma işlemi gösterilmektedir `Cache-Control` yönergesi. Yapılandırma ve bu ilkeyi kullanan bir gösterimi için bkz. [Cloud Cover bölümü 177: Daha fazla API yönetimi özellikleri ile Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) ve 25:25 için ileri sarma.  
   
 ```xml  
 <!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->  
@@ -197,7 +197,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
  Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümler:** giden    
--   **İlke kapsamları:** API işlemi, ürün  
+-   **İlke kapsamları:** API, ürün, işlem  
   
 ##  <a name="GetFromCacheByKey"></a> Önbelleğe alınan değeri alır  
  Kullanım `cache-lookup-value` ilke anahtarıyla önbellek araması gerçekleştirin ve önbelleğe alınan değeri döndürür. Anahtar, rastgele bir dize olabilir ve genellikle bir ilke ifadesi kullanılarak sağlanır.  

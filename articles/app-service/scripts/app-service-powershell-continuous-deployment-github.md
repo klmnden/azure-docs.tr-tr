@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Betik Örneği - GitHub’dan sürekli dağıtım ile bir web uygulaması oluşturma | Microsoft Docs
+title: Azure PowerShell betik örneği - GitHub ile sürekli dağıtım uygulaması oluşturma | Microsoft Docs
 description: Azure PowerShell Betik Örneği - GitHub’dan sürekli dağıtım ile bir web uygulaması oluşturma
 services: app-service\web
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 337106de2fc22b38e9377a90470ffa3a8cd1e0de
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
-ms.translationtype: HT
+ms.openlocfilehash: 72e3c85142e0f9f88a9e895dde93ff43de3dd69c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324536"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312842"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-github"></a>GitHub’dan sürekli dağıtım ile bir web uygulaması oluşturma
 

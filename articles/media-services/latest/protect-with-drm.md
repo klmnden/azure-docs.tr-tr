@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/16/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 2a8a00ab034016e7121e4601b3ff5a16d8c721ac
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 84bdc560a135f8f1eb7d6c86fe4f3749135ff7e1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395094"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139053"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>DRM dinamik şifreleme ve lisans teslim hizmetini kullanma
 
@@ -40,7 +41,7 @@ Bu makalede, [DRM ile şifreleme](https://github.com/Azure-Samples/media-service
 
         Uygulama, ilkeye JWT belirteci türü kısıtlaması uygular.
 
-* Belirtilen varlık için belirtilen akış ilkesi adıyla bir StreamingLocator oluşturun. Bu durumda önceden tanımlanmış ilke kullanılmaktadır. StreamingLocator öğesinde iki içerik anahtarı ayarlanmaktadır: AES-128 (zarf) ve CENC (PlayReady ve Widevine).  
+* Belirtilen varlık için belirtilen akış ilkesi adıyla bir StreamingLocator oluşturun. Bu durumda önceden tanımlanmış ilke kullanılmaktadır. İki içerik anahtarı üzerinde StreamingLocator ayarlar: AES-128 (Zarf) ve CENC (PlayReady ve Widevine).  
     
     StreamingLocator oluşturulduktan sonra çıkış varlığı yayımlanır ve istemciler tarafından kayıttan yürütülebilir.
 
@@ -58,9 +59,9 @@ Bu makalede, [DRM ile şifreleme](https://github.com/Azure-Samples/media-service
 
 Bu makalede anlatılan örnek aşağıdaki sonucu üretir:
 
-![DRM ile koruma](./media/protect-with-drm/ams_player.png)
+![AMS DRM ile korunan video](./media/protect-with-drm/ams_player.png)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir.
 
@@ -116,7 +117,7 @@ Bu öğreticide işin girişini doğrudan bir [HTTPs kaynak URL'sinden](job-inpu
 
 İşin tamamlanması biraz sürüyor ve tamamlandığında bildirim almak istiyorsunuz. Aşağıdaki kod örneği, [İş](https://docs.microsoft.com/rest/api/media/jobs)’in durumu için hizmette nasıl yoklama yapılacağını gösterir. Yoklama, olası gecikme süresi nedeniyle üretim uygulamaları için önerilen en iyi uygulamalardan biri değildir. Yoklama, bir hesap üzerinde gereğinden fazla kullanılırsa kısıtlanabilir. Geliştiricilerin onun yerine Event Grid kullanmalıdır. Bkz. [Olayları özel bir web uç noktasına yönlendirme](job-state-events-cli-how-to.md).
 
-**İş** genellik şu aşamalardan geçer: **Zamanlandı**, **Kuyruğa Alındı**, **İşleniyor**, **Tamamlandı** (son aşama). İş bir hatayla karşılaştıysa **Hata** durumunu alırsınız. İş iptal edilme sürecindeyse **İptal Ediliyor** ve **İptal Edildi** durumunu alırsınız.
+**İş** genellikle şu durumlardan geçer: **Zamanlanmış**, **sıraya alınan**, **işleme**, **tamamlandı** (son durumu). İş bir hatayla karşılaştıysa **Hata** durumunu alırsınız. İş iptal edilme sürecindeyse **İptal Ediliyor** ve **İptal Edildi** durumunu alırsınız.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#WaitForJobToFinish)]
 

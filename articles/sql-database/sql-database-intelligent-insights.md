@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e639bd40c877aded1439fe999fcf3f7114b9a727
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 573e0dd1bae584b12cfd3859fe63d7ca20bb7b52
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890679"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278143"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Veritabanı performansı izleme ve sorun giderme için yapay ZEKA kullanarak akıllı Öngörüler
 
@@ -84,7 +84,7 @@ Akıllı İçgörüler günlük kaydını etkinleştirmek ve alıcı ürüne ak�
 Azure SQL Analytics çözümünü grafik kullanıcı arabirimi, raporlama ve uyarı verme özellikleri veritabanı performansını sağlar, yanı sıra akıllı Öngörüler tanılama verilerini günlüğe kaydedebilirsiniz.
 
 > [!TIP]
-> Hızlı Başlangıç: Azure SQL Analytics, veritabanı performans sorunlarını grafik kullanıcı arabirimi sağlayan birlikte kullanmak için Intelligent Insights'ı kullanarak hızlı bir başlangıç kapalı almak için en kolay yolu olan. Azure SQL Analytics çözümünü marketten ekleyin, bu çözüm içindeki bir çalışma alanı oluşturun ve üzerinde Intelligent Insights'ı etkinleştirmek istediğiniz her veritabanı için bir veritabanı için tanılama ayarları dikey penceresindeki "SQLInsights" günlük akışını yapılandırın Azure SQL Analytics çalışma alanı.
+> Hızlı Başlangıç: Veritabanı performans sorunlarını grafik kullanıcı arabirimi sağlayan Azure SQL Analytics ile birlikte kullanmak için Intelligent Insights'ı kullanarak hızlı bir başlangıç kapalı almak için en kolay yolu olan. Azure SQL Analytics çözümünü marketten ekleyin, bu çözüm içindeki bir çalışma alanı oluşturun ve üzerinde Intelligent Insights'ı etkinleştirmek istediğiniz her veritabanı için bir veritabanı için tanılama ayarları dikey penceresindeki "SQLInsights" günlük akışını yapılandırın Azure SQL Analytics çalışma alanı.
 >
 
 Ön gereksinim olan Azure SQL Analytics marketten Azure portalı panonuza eklenir ve bir çalışma alanı oluşturmak için bkz. [Azure SQL Analytics yapılandırın](../azure-monitor/insights/azure-sql.md#configuration)

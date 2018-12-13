@@ -1,5 +1,5 @@
 ---
-title: Oluşturma ve çalıştırma ML işlem hatları
+title: Oluşturun, çalıştırın ve ML işlem hatlarını izleyin
 titleSuffix: Azure Machine Learning service
 description: Oluşturun ve Python için Azure Machine Learning SDK'sı ile işlem hattı öğrenme bir makine çalıştırın.  İşlem hatları oluşturmak ve bu veri hazırlama, model eğitiminin, model dağıtımı ve çıkarım gibi Birleştir birlikte machine learning (ML) aşamaları iş akışları yönetmek için kullanılır.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3038d8978ed3705e9e18be58080afd532b9d72d6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 8478b6760921f4641cd214b1ff19cae9757b6d7e
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100565"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269054"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-using-azure-machine-learning-sdk"></a>Oluşturma ve Azure Machine Learning SDK'sını kullanarak bir makine öğrenimi işlem hattı çalıştırma
 
@@ -26,10 +26,10 @@ Oluşturduğunuz işlem hattı, Azure Machine Learning hizmeti üyelerine görü
 
 İşlem hatları, hesaplama ve bu işlem hattı çalıştırmasıyla ilişkili Ara ve son veri depolama için uzak işlem hedefleri kullanın.  İşlem hatları okuyabilir ve yazma veri ve desteklenen [Azure depolama](https://docs.microsoft.com/azure/storage/) konumları.
 
+>[!Note]
+>Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
 
 ## <a name="prerequisites"></a>Önkoşullar
-
-* Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
 
 * [Geliştirme ortamınızı yapılandırma](how-to-configure-environment.md) Azure Machine Learning SDK'sını yüklemek için.
 

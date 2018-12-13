@@ -1,5 +1,5 @@
 ---
-title: Kullanım kimlik doğrulaması ve yetkilendirme Azure App Service'te Gelişmiş | Microsoft Docs
+title: Kullanım kimlik doğrulaması ve yetkilendirme - Azure App Service Gelişmiş | Microsoft Docs
 description: Kimlik doğrulama ve yetkilendirme App Service'te özelleştirmek ve kullanıcı talepleri ve farklı bir belirteç almak nasıl gösterir.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
-ms.openlocfilehash: e1109ec8cc98c7e5fc72d7f56ade19968b0056cc
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 67d08379d98873fa88ef20b5cc8c87163c067e3a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685336"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310462"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Kimlik doğrulama ve yetkilendirme Azure App Service'te özelliğinin Gelişmiş kullanımı
 
@@ -26,8 +27,8 @@ Bu makalede yerleşik özelleştirmek gösterilmektedir [kimlik doğrulama ve ye
 
 Hızlıca kullanmaya başlamak için aşağıdaki öğreticilerden birine bakın:
 
-* [Öğretici: Kimliğini doğrulama ve kullanıcıları uçtan uca (Windows) Azure App Service'te yetkilendirme](app-service-web-tutorial-auth-aad.md)
-* [Öğretici: Kimliğini doğrulama ve kullanıcıları uçtan uca Azure App Service'te Linux için yetkilendirin](containers/tutorial-auth-aad.md)
+* [Öğretici: Kimlik doğrulama ve kullanıcıları uçtan uca (Windows) Azure App Service'te yetkilendirme](app-service-web-tutorial-auth-aad.md)
+* [Öğretici: Kimlik doğrulama ve kullanıcıları uçtan uca Azure App Service'te Linux için yetkilendirme](containers/tutorial-auth-aad.md)
 * [Uygulamanızı Azure Active Directory oturum açma bilgilerini kullanacak şekilde yapılandırma](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [Uygulamanızı Facebook oturum açma bilgilerini kullanacak şekilde yapılandırma](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [Uygulamanızı Google oturum açma bilgilerini kullanacak şekilde yapılandırma](app-service-mobile-how-to-configure-google-authentication.md)
@@ -179,11 +180,11 @@ Sunucu kodunuzdan kolayca erişebilmeleri için sağlayıcıya özel belirteçle
 
 Sağlayıcınızın erişim belirtecinin süresi dolduğunda, kullanıcının yeniden kimlik doğrulamaya zorlayabilir gerekir. Hale getirerek belirteç süresinin dolmasını engellemek bir `GET` çağrısı `/.auth/refresh` uygulamanızın uç noktası. Çağrıldığında, App Service, erişim belirteçleri belirteç deposundaki kimliği doğrulanmış kullanıcı için otomatik olarak yenilenir. Sonraki istekleri için belirteçleri, uygulama kodunuz ile yenilenmesini belirteç alın. Ancak, çalışma belirteç yenileme işlemi için belirteç deposu içermelidir [yenileme belirteçleri](https://auth0.com/learn/refresh-tokens/) sağlayıcınız için. Yenileme belirteçleri yolu her bir sağlayıcı tarafından belgelenen, ancak liste aşağıda kısa bir özeti verilmiştir:
 
-- **Google**: ekleme bir `access_type=offline` sorgu dizesi parametresi, `/.auth/login/google` API çağrısı. Mobile Apps SDK'sı kullanıyorsanız, parametre birine ekleyebileceğiniz `LogicAsync` aşırı yüklemeler (bkz [Google yenileme belirteçleri](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
-- **Facebook**: yenileme belirteçleri sağlamaz. Uzun süreli belirteçlerin süresi 60 gün içinde (bkz [Facebook zaman aşımı ve erişim belirteçleri uzantısı](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter**: olmayan erişim belirteçlerin süresi (bkz [Twitter OAuth SSS](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq)).
-- **Microsoft Account**: zaman [Microsoft hesabı kimlik doğrulama ayarları yapılandırma](app-service-mobile-how-to-configure-microsoft-authentication.md)seçin `wl.offline_access` kapsam.
-- **Azure Active Directory**: içinde [ https://resources.azure.com ](https://resources.azure.com), aşağıdaki adımları uygulayın:
+- **Google**: Append bir `access_type=offline` sorgu dizesi parametresi, `/.auth/login/google` API çağrısı. Mobile Apps SDK'sı kullanıyorsanız, parametre birine ekleyebileceğiniz `LogicAsync` aşırı yüklemeler (bkz [Google yenileme belirteçleri](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
+- **Facebook**: Yenileme belirteçleri sağlamaz. Uzun süreli belirteçlerin süresi 60 gün içinde (bkz [Facebook zaman aşımı ve erişim belirteçleri uzantısı](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
+- **Twitter**: Erişim belirteçleri olmayan süresi (bkz [Twitter OAuth SSS](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
+- **Microsoft hesabı**: Zaman [Microsoft hesabı kimlik doğrulama ayarları yapılandırma](app-service-mobile-how-to-configure-microsoft-authentication.md)seçin `wl.offline_access` kapsam.
+- **Azure Active Directory**: İçinde [ https://resources.azure.com ](https://resources.azure.com), aşağıdaki adımları uygulayın:
     1. Sayfanın üst kısmında seçin **okuma/yazma**.
     1. Sol tarayıcıda gidin **abonelikleri** > **_\<abonelik\_adı_**   >  **resourceGroups** > _**\<kaynak\_grubu\_adı >**_   >  **sağlayıcıları** > **Microsoft.Web** > **siteleri** > _**\<uygulama \_adı >**_ > **config** > **authsettings**. 
     1. **Düzenle**’ye tıklayın.
@@ -242,5 +243,5 @@ Tıklayın **Düzenle**aşağıdaki özelliğini değiştirin ve ardından **Put
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Öğretici: Kimlik doğrulama ve kullanıcıları uçtan uca (Windows)'ı yetkilendirme](app-service-web-tutorial-auth-aad.md)
-> [Öğreticisi: kimlik doğrulama ve yetkilendirme kullanıcılar için uçtan uca (Linux)](containers/tutorial-auth-aad.md)
+> [Öğretici: Kimlik doğrulama ve kullanıcıları uçtan uca (Windows) yetkilendirme](app-service-web-tutorial-auth-aad.md)
+> [Öğreticisi: Kimlik doğrulama ve yetkilendirme kullanıcılar için uçtan uca (Linux)](containers/tutorial-auth-aad.md)

@@ -6,23 +6,21 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/17/2018
-ms.openlocfilehash: 8103c06e3fec51316e367de903ed84d0023568bc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/11/2018
+ms.openlocfilehash: f47c9ee85348cc96915a0fa637b06b0a73059351
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308163"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322303"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Azure HDInsight, erişim Grafana
 
 
 [Grafana](https://grafana.com/) popüler, açık kaynaklı bir grafik ve Pano Oluşturucusu. Grafana zengin özelliğidir; yalnızca kullanıcılarının özelleştirilebilir oluşturmasına izin vermez ve paylaşılabilir panolar da şablonlu/Script panolar, LDAP tümleştirme, birden çok veri kaynağına ve daha fazlasını sunar.
 
-Şu anda, Grafana yalnızca Azure HDInsight etkileşimli sorgu kümesi türünde tarafından desteğidir.
-
+Şu anda, Azure HDInsight Hbase ve etkileşimli sorgu kümesi türleri ile Grafana desteklenir.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
@@ -65,7 +63,7 @@ Bu bölümde, bir Azure Resource Manager şablonu kullanarak HDInsight içinde b
    
     ![HDInsight Linux yeni başlayanlara yönelik kaynak grubu](./media/hdinsight-grafana/hdinsight-linux-get-started-resource-group.png "Azure HDInsight küme kaynağı grubu")
     
-5. Kutucukta, kümeyle ilişkili varsayılan depolama da listelenir. Her kümenin bir [Azure Depolama hesabı](../hdinsight-hadoop-use-blob-storage.md) veya [Azure Data Lake hesabı](../hdinsight-hadoop-use-data-lake-store.md) bağımlılığı vardır. Bu genellikle varsayılan depolama hesabı olarak ifade edilir. HDInsight kümesi ve kümenin varsayılan depolama hesabının aynı Azure bölgesinde bulunması gerekir. Kümeleri silmek depolama hesabını silmez.
+5. Kutucukta, kümeyle ilişkili varsayılan depolama da listelenir. Her kümenin bir [Azure Depolama hesabı](../hdinsight-hadoop-use-blob-storage.md) veya [Azure Data Lake hesabı](../hdinsight-hadoop-use-data-lake-store.md) bağımlılığı vardır. Bu genellikle varsayılan depolama hesabı olarak ifade edilir. HDInsight kümesi ve kümenin varsayılan depolama hesabının aynı Azure bölgesinde birlikte gerekir. Kümeleri silmek depolama hesabını silmez.
     
 
 > [!NOTE]
@@ -76,16 +74,22 @@ Bu bölümde, bir Azure Resource Manager şablonu kullanarak HDInsight içinde b
 ## <a name="access-the-grafana-dashboard"></a>Grafana panosuna erişim
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
+
 2. Seçin **HDInsight kümeleri**ve ardından son bölümde oluşturduğunuz küme adını seçin.
+
 3. Altında **hızlı bağlantılar**, tıklayın **küme Panosu**.
 
     ![HDInsight küme Panosu portalı](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "portalında HDInsight küme Panosu")
 
-4. Panodan tıklayın **Grafana** Döşe.
+4. Panodan tıklayın **Grafana** Döşe. Alternatif olarak, göz atın `/grafana/` küme URL'niz yolu. Örneğin, `https://<clustername>.azurehdinsight.net/grafana/`.
+
 5. Hadoop kümesi kullanıcı kimlik bilgilerini girin.
-6. Grafana Pano şuna benzer:
+
+6. Grafana panosunun görünür ve şu örnekteki gibi görünür:
 
     ![HDInsight panosunun](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana Panosu")
+
+   
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 Makaleyi tamamladıktan sonra kümeyi silmek isteyebilirsiniz. HDInsight ile, verileriniz Azure Storage’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz. Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Küme ücretleri depolama ücretlerinin birkaç katı olduğundan, kullanılmadığında kümelerin silinmesi mantıklı olandır. 
@@ -137,5 +141,3 @@ HDInsight kümesi oluşturma ve yönetme hakkında daha fazla bilgi edinmek isti
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-
-

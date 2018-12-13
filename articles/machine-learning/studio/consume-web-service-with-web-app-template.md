@@ -1,5 +1,5 @@
 ---
-title: Web hizmetini web uygulaması şablonunu - Azure Machine Learning Studio ile kullanma | Microsoft Docs
+title: Studio web hizmetini web uygulaması şablonunu - Azure Machine Learning Studio ile kullanma | Microsoft Docs
 description: Web uygulaması şablonu, Azure Marketi'nde Azure Machine learning'de Tahmine dayalı web servisini kullanın.
 keywords: Web hizmeti, kullanıma hazır hale getirme, REST API, makine öğrenimi
 services: machine-learning
@@ -7,7 +7,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: e0d71683-61b9-4675-8df5-09ddc2f0d92d
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 3eaf881ea1b8831891588310bfcec5e8fb146978
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 6a6da1af937338637cd875abe4e9d539b2e2b6e2
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078591"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273893"
 ---
-# <a name="consume-an-azure-machine-learning-web-service-by-using-a-web-app-template"></a>Bir web uygulaması şablonunu kullanarak bir Azure Machine Learning web hizmetini kullanma
+# <a name="consume-an-azure-machine-learning-studio-web-service-by-using-a-web-app-template"></a>Bir web uygulaması şablonunu kullanarak bir Azure Machine Learning Studio web hizmetini kullanma
 
 Tahmine dayalı bir model geliştirmektir ve kullanarak bir Azure web hizmeti olarak dağıtacağız:
 - Azure Machine Learning Studio'da.
@@ -36,7 +35,7 @@ Bir REST API'sini kullanmanın ve web hizmetine erişmek için çeşitli yollar 
 
 Ancak, web hizmetine erişmek için hızlı ve en kolay yollarından biri kullanılabilir web uygulaması şablonları sayesinde [Azure Marketi](https://azure.microsoft.com/marketplace/web-applications/all/).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="azure-machine-learning-web-app-templates"></a>Azure Machine Learning web uygulaması şablonları
 Web uygulaması şablonları kullanılabilir Azure Marketi'nde web hizmetinizin girdi verilerini ve beklenen sonuçları bildiği bir özel web uygulaması oluşturabilirsiniz. Tek yapmak için ihtiyacınız olan verileri ve web hizmeti web uygulaması erişimi vermek ve şablon geri kalanını yapar.

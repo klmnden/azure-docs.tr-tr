@@ -1,5 +1,5 @@
 ---
-title: Azure Search'te çözümleyiciler | Microsoft Docs
+title: Çözümleyici için dil ve metin işleme - Azure Search
 description: Standart Lucene özel, önceden tanımlanmış veya dile özgü alternatif metin aranabilir alanları değiştirmek için bir dizin için Ata çözümleyicileri varsayılan.
 services: search
 ms.service: search
@@ -8,14 +8,15 @@ ms.date: 09/11/2017
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
-ms.openlocfilehash: 68ce4fa5536f21d6d66245a9383a4b58c42febff
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.custom: seodec2018
+ms.openlocfilehash: 1de3743d6ec37d263e16b168d32d2b56b0a28295
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116379"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310547"
 ---
-# <a name="analyzers-in-azure-search"></a>Azure Search'te çözümleyiciler
+# <a name="analyzers-for-text-processing-in-azure-search"></a>Metin işleme Azure Search'te çözümleyiciler
 
 Bir *Çözümleyicisi* bir bileşeni olan [tam metin araması](search-lucene-query-architecture.md) sorgu dizeleri ve dizinli belgelerde metin işleme için sorumlu. Aşağıdaki dönüştürmeleri analiz sırasında tipik şunlardır:
 
@@ -149,7 +150,7 @@ Bu örnekte yürüyen:
 ~~~~
 
 <a name="Example2"></a>
-### <a name="example-2-override-the-default-analyzer"></a>Örnek 2: varsayılan Çözümleyicisi geçersiz kıl
+### <a name="example-2-override-the-default-analyzer"></a>Örnek 2: Varsayılan Çözümleyicisi geçersiz kıl
 
 Standart Çözümleyicisi varsayılandır. Desen Çözümleyicisi gibi farklı bir önceden tanımlanmış Çözümleyicisi varsayılan yerine istediğinizi varsayalım. Özel seçenekleri emin değilseniz, yalnızca alan tanımı adı belirtmeniz gerekir.
 

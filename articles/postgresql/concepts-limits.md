@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 12/03/2018
-ms.openlocfilehash: 2f4f5bf19815469f76c1ee18ff42177f77faec28
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/12/2018
+ms.openlocfilehash: 108d2ac83c0dc317dee2f8c66f95f01d3569a7c4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871124"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311669"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı'nda sınırlamaları
 Aşağıdaki bölümlerde, kapasite ve veritabanı hizmetinde işlev sınırlamaları açıklanmaktadır.
@@ -58,6 +58,9 @@ Azure sistem PostgreSQL sunucusu için Azure veritabanı izlemek için beş bağ
 - PITR özelliğini kullanırken, yeni sunucuya bağlı olduğu sunucusu olarak aynı fiyatlandırma katmanı yapılandırmaları ile oluşturulur.
 - Geri yükleme sırasında oluşturulan yeni sunucunun özgün sunucuya vardı güvenlik duvarı kuralları yok. Güvenlik duvarı kuralları bu yeni sunucu için ayrı olarak ayarlanması gerekir.
 - Silinen bir sunucuya geri yükleme desteklenmiyor.
+
+### <a name="utf-8-characters-on-windows"></a>Windows üzerinde UTF-8 karakter
+- Bazı senaryolarda, UTF-8 karakter tamamen açık kaynak PostgreSQL için Azure veritabanı etkileyen Windows üzerinde PostgreSQL desteklenmez. İş parçacığı Lütfen bakın [hata #15476 postgresql arşiv](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) daha fazla bilgi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Anlamak [her fiyatlandırma katmanında nelerin kullanılabildiğini](concepts-pricing-tiers.md)

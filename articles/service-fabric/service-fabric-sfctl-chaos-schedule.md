@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 176b04b9bb16b5f183298c75f16bceb5e885e293
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 665fbbc8668e465c78d93b134f6a314d58791490
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492249"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276460"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Alın ve kaos zamanlamasını ayarlayın.
@@ -29,7 +29,7 @@ Alın ve kaos zamanlamasını ayarlayın.
 |Komut|Açıklama|
 | --- | --- |
 | Al | Ne zaman ve nasıl çalıştırılacağını Chaos tanımlama Chaos zamanlama alın. |
-| Ayarlayın | Kaos tarafından kullanılacak Chaos zamanlamasını ayarlayın. |
+| set | Kaos tarafından kullanılan zamanlamasını ayarlayın. |
 
 ## <a name="sfctl-chaos-schedule-get"></a>sfctl chaos zamanlamasını Al
 Ne zaman ve nasıl çalıştırılacağını Chaos tanımlama Chaos zamanlama alın.
@@ -38,13 +38,13 @@ Kaos zamanlama kullanımda ve ne zaman ve nasıl Chaos çalıştırılacağını
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -53,13 +53,13 @@ Kaos zamanlama kullanımda ve ne zaman ve nasıl Chaos çalıştırılacağını
 | --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
 
 ## <a name="sfctl-chaos-schedule-set"></a>sfctl chaos zamanlaması Ayarla
-Kaos tarafından kullanılacak Chaos zamanlamasını ayarlayın.
+Kaos tarafından kullanılan zamanlamasını ayarlayın.
 
-Kaos zamanlamasını, Chaos tarafından şu anda kullanımda ayarlayın. Chaos çalıştırmaları Chaos bir zamanlamaya göre otomatik olarak zamanlar. Sağlanan giriş zamanlama sürümde sunucuda Chaos zamanlamasını eşleşmelidir. Sunucu sürümünde sağlanan sürüm eşleşmiyorsa, Chaos zamanlama güncelleştirilmez. Sunucu sürümünde sağlanan sürüm eşleşiyorsa, Chaos zamanlama güncelleştirilir ve Chaos zamanlamaya göre sunucu sürümü oluşturan bir ve dön 0 sarar 2.147.483.647 sonra artırılır. Bu çağrı yapıldığında Chaos çalışıyorsa, çağrı başarısız olur.
+Chaos çalıştırmaları Chaos bir zamanlamaya göre otomatik olarak zamanlar. Sağlanan giriş zamanlama sürümde sunucuda Chaos zamanlamasını eşleşmelidir. Sunucu sürümünde sağlanan sürüm eşleşmiyorsa, Chaos zamanlama güncelleştirilmez. Sunucu sürümünde sağlanan sürüm eşleşiyorsa, Chaos zamanlama güncelleştirilir ve Chaos zamanlamaya göre sunucu sürümü oluşturan bir ve dön 0 sarar 2.147.483.647 sonra artırılır. Bu çağrı yapıldığında Chaos çalışıyorsa, çağrı başarısız olur.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --chaos parametreleri sözlüğü | JSON dizesi adlarının bir eşleme işleri tarafından kullanılacak ChaosParameters temsil eden bir liste kodlanmış. |
 | --Bitiş tarihi utc | Tarih ve saat için ne zaman durdurulacağını Chaos zamanlamak için zamanlamayı kullanma.  Varsayılan\: 9999 12 31T23\:59\:59.999Z. |
@@ -70,7 +70,7 @@ Kaos zamanlamasını, Chaos tarafından şu anda kullanımda ayarlayın. Chaos �
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -143,6 +143,7 @@ Aşağıdaki komut, 2016-01-01 başlayıp 2038-01-Chaos 24 saat, haftada 7 gün 
         ]
     }
     ]
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Ayarlanan](service-fabric-cli.md) Service Fabric CLI.

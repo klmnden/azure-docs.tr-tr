@@ -4,22 +4,22 @@ description: Azure Event Grid'in olay yönlendirme hizmetini kullanarak, IoT Hub
 services: iot-hub
 documentationcenter: ''
 author: kgremban
-manager: timlt
+manager: philmea
 editor: ''
 ms.service: iot-hub
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 12/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 9683d2a7ebcf093f2fd56ea302c3de77b3bb1a86
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 7c5030a80ead7e84526e01aa3a8a4a75ee2b276a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086496"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135024"
 ---
-# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Öğretici: Mantıksal uygulamalar'ı kullanarak Azure IOT Hub olayları hakkında e-posta bildirimleri gönderme
+# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Öğretici: Logic Apps kullanarak Azure IoT Hub olayları hakkında e-posta bildirimleri gönderme
 
 Azure Event Grid, aşağı akış iş uygulamalarınızda eylemler tetikleyerek IoT Hub'daki olaylara karşılık vermenize olanak tanır.
 
@@ -37,19 +37,16 @@ Bu makale IoT Hub ve Event Grid kullanan örnek bir yapılandırmada size yol g�
 
 ### <a name="create-a-logic-app-resource"></a>Mantıksal uygulama kaynağı oluşturma
 
-1. [Azure portal](https://portal.azure.com)'da, **Yeni** > **Tümleştirme** > **Logic App**'i seçin.
+1. İçinde [Azure portalında](https://portal.azure.com)seçin **kaynak Oluştur** > **tümleştirme** > **mantıksal uygulama**.
 
    ![Mantıksal uygulama oluşturma](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
 2. Mantıksal uygulamanıza aboneliğiniz içinde benzersiz olan bir ad verin, ardından IoT Hub'ınızla aynı aboneliği, kaynak grubunu ve konumu seçin. 
-3. Hazır olduğunuzda **Panoya sabitle**'yi ve ardından **Oluştur**'u seçin.
+3. **Oluştur**’u seçin.
 
-   Mantıksal uygulamanız için bir Azure kaynağı oluşturdunuz. Azure mantıksal uygulamanızı dağıttıktan sonra Logic Apps Tasarımcısı'nda hızlı bir başlangıç yapmanıza yardımcı olacak ortak desen şablonları gösterilir.
+4. Kaynak oluşturulduktan sonra mantıksal uygulamanıza gidin. 
 
-   > [!NOTE] 
-   > **Panoya sabitle**’yi seçtiğinizde, mantıksal uygulama otomatik olarak Logic Apps Tasarımcısı’nda açılır. Aksi takdirde mantıksal uygulamanızı kendiniz bulup açabilirsiniz.
-
-4. Mantıksal uygulamanızı sıfırdan oluşturabilmek için Logic App Tasarımcısı'nda **Şablonlar**'ın altından **Boş Mantıksal Uygulama**'yı seçin.
+5. Logic Apps Tasarımcısı'nda, daha hızlı başlangıç yapmanıza yardımcı olacak ortak desen şablonları gösterilir. Mantıksal uygulamanızı sıfırdan oluşturabilmek için Logic App Tasarımcısı'nda **Şablonlar**'ın altından **Boş Mantıksal Uygulama**'yı seçin.
 
 ### <a name="select-a-trigger"></a>Tetikleyici seçme
 
@@ -66,51 +63,51 @@ Tetikleyici, mantıksal uygulamanızı başlatan belirli bir olaydır. Bu öğre
 
 4. Aşağıdaki örnek JSON kodunu metin kutusuna yapıştırın ve **Bitti**'yi seçin:
 
-```json
-[{
-  "id": "56afc886-767b-d359-d59e-0da7877166b2",
-  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
-  "subject": "devices/LogicAppTestDevice",
-  "eventType": "Microsoft.Devices.DeviceCreated",
-  "eventTime": "2018-01-02T19:17:44.4383997Z",
-  "data": {
-    "twin": {
-      "deviceId": "LogicAppTestDevice",
-      "etag": "AAAAAAAAAAE=",
-      "deviceEtag": "null",
-      "status": "enabled",
-      "statusUpdateTime": "0001-01-01T00:00:00",
-      "connectionState": "Disconnected",
-      "lastActivityTime": "0001-01-01T00:00:00",
-      "cloudToDeviceMessageCount": 0,
-      "authenticationType": "sas",
-      "x509Thumbprint": {
-        "primaryThumbprint": null,
-        "secondaryThumbprint": null
-      },
-      "version": 2,
-      "properties": {
-        "desired": {
-          "$metadata": {
-            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-          },
-          "$version": 1
-        },
-        "reported": {
-          "$metadata": {
-            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-          },
-          "$version": 1
-        }
-      }
-    },
-    "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}]
-```
+   ```json
+   [{
+     "id": "56afc886-767b-d359-d59e-0da7877166b2",
+     "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
+     "subject": "devices/LogicAppTestDevice",
+     "eventType": "Microsoft.Devices.DeviceCreated",
+     "eventTime": "2018-01-02T19:17:44.4383997Z",
+     "data": {
+       "twin": {
+         "deviceId": "LogicAppTestDevice",
+         "etag": "AAAAAAAAAAE=",
+         "deviceEtag": "null",
+         "status": "enabled",
+         "statusUpdateTime": "0001-01-01T00:00:00",
+         "connectionState": "Disconnected",
+         "lastActivityTime": "0001-01-01T00:00:00",
+         "cloudToDeviceMessageCount": 0,
+         "authenticationType": "sas",
+         "x509Thumbprint": {
+           "primaryThumbprint": null,
+           "secondaryThumbprint": null
+         },
+         "version": 2,
+         "properties": {
+           "desired": {
+             "$metadata": {
+               "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
+             },
+             "$version": 1
+           },
+           "reported": {
+             "$metadata": {
+               "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
+             },
+             "$version": 1
+           }
+         }
+       },
+       "hubName": "egtesthub1",
+       "deviceId": "LogicAppTestDevice"
+     },
+     "dataVersion": "1",
+     "metadataVersion": "1"
+   }]
+   ```
 
 5. **İsteğinize Uygulama/JSON olarak ayarlanmış bir Content-Type üst bilgisi eklemeyi unutmayın** önerisinin bulunduğu bir açılan bildirim alabilirsiniz. Bu öneriyi güvenle yoksayabilir ve sonraki bölüme geçebilirsiniz. 
 
@@ -119,16 +116,20 @@ Tetikleyici, mantıksal uygulamanızı başlatan belirli bir olaydır. Bu öğre
 Eylemler, tetikleyici mantıksal uygulama iş yükünü başlattıktan sonra gerçekleşen adımlardır. Bu öğreticide, e-posta sağlayıcınızdan bir e-posta bildirimi gönderme eylemi kullanılır. 
 
 1. **Yeni adım**'ı seçin. Bu işlemin ardından, **Eylem seçin** penceresi açılır.
+
 2. **E-posta**'yı arayın.
+
 3. E-posta sağlayıcınıza uygun bağlayıcıyı bulun ve seçin. Bu öğreticide **Office 365 Outlook** kullanılır. Diğer e-posta sağlayıcılarının adımları da bunlara benzer. 
 
    ![E-posta sağlayıcısının bağlayıcısını seçme](./media/publish-iot-hub-events-to-logic-apps/o365-outlook.png)
 
 4. **E-posta gönder** eylemini seçin. 
+
 5. İstenirse, e-posta hesabınızda oturum açın. 
+
 6. E-posta şablonunuzu oluşturun. 
-   * **Kime**: Bildirim e-postalarını alacak olan e-posta adresini girin. Bu öğreticide, test etmek için erişebileceğiniz bir e-posta hesabı kullanın. 
-   * **Konu** ve **Gövde**: E-postanızın metnini yazın. Olay verileri temelinde dinamik içerik eklemek için seçici aracından JSON özelliklerini seçin.  
+   * **İçin**: Bildirim e-postaları almak için e-posta adresi girin. Bu öğreticide, test etmek için erişebileceğiniz bir e-posta hesabı kullanın. 
+   * **Konu** ve **gövdesi**: E-posta metni yazın. Olay verileri temelinde dinamik içerik eklemek için seçici aracından JSON özelliklerini seçin.  
 
    E-posta şablonunuz, aşağıdaki örneğe benzer görünebilir:
 
@@ -161,22 +162,24 @@ Bu bölümde, IoT Hub'ınızı gerçekleşen olayları yayımlamak için yapıla
    ![Yeni olay aboneliği oluşturma](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. Olay aboneliğini aşağıdaki değerlerle oluşturun: 
-    * **Olay Türü**: Tüm olay türlerine abone ol'un işaretini kaldırın ve menüde **Cihaz Oluşturuldu**'yu seçin.
-    * **Uç Nokta Ayrıntıları**: Uç Nokta Türü olarak **Web Kancası**'nı seçin, Uç nokta seçin'e tıklayın, mantıksal uygulamanızdan kopyaladığınız URL'yi yapıştırın ve seçimi onaylayın.
+    * **Olay türü**: Tüm olay türlerine abone ol seçeneğinin işaretini kaldırın ve seçin **cihaz oluşturulan** menüsünde.
+    * **Uç noktası ayrıntıları**: Uç nokta türü olarak seçin **Web kancası** ve select uç noktasına tıklayın ve mantıksal uygulamanızdan kopyaladığınız URL'yi yapıştırın ve seçimi onaylayın.
 
     ![uç nokta URL'si seçme](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-    * **Olay Aboneliği Ayrıntıları**: Açıklayıcı bir ad girin ve **Olay Kılavuz Şeması**'nı seçin
-
-  Olay aboneliğini buraya kaydedebilir ve IoT Hub'ınızda oluşturulan her cihaz için bildirimler alabilirsiniz. Öte yandan bu öğretici için, isteğe bağlı alanları kullanıp belirli cihazları filtreleyelim: 
-
-  * **Konu Şununla Başlar**: Building1 içindeki cihaz olaylarını filtrelemek için `devices/Building1_` değerini girin.
-  * **Konu Şununla Biter**: Sıcaklıkla ilgili cihaz olaylarını filtrelemek için `_Temperature` değerini girin.
+    * **Olay aboneliği ayrıntıları**: Açıklayıcı bir ad girin ve seçin **olay ızgarası şeması**
 
   İşiniz bittiğinde, form aşağıdaki örnekteki gibi görünmelidir: 
 
     ![Örnek olay aboneliği formu](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
-    
+
+5. Olay aboneliğini buraya kaydedebilir ve IoT Hub'ınızda oluşturulan her cihaz için bildirimler alabilirsiniz. Bu öğretici için isteğe bağlı alanları belirli cihazlar için filtre uygulamak için kullanalım. Seçin **ek özellikler** formun üstünde. 
+
+6. Aşağıdaki filtreler oluşturun:
+
+  * **Konu ile başlayan**: Girin `devices/Building1_` bina 1'deki cihaz etkinlikleri filtrelemek için.
+  * **Konu ile sona erer**: Girin `_Temperature` yeniden oluşturulan Sıcaklığa ilgili cihaz olayları filtrelemek için.
+
 5. Olay aboneliğini kaydetmek için **Oluştur**'u seçin.
 
 ## <a name="create-a-new-device"></a>Yeni cihaz oluşturma

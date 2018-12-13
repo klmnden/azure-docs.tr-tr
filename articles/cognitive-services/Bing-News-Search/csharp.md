@@ -1,7 +1,7 @@
 ---
-title: 'Hızlı başlangıç: Bing Haber Arama API’si, C#'
+title: "Hızlı Başlangıç: Haber araması ile C# -Bing haber arama REST API'si"
 titlesuffix: Azure Cognitive Services
-description: Bing Haber Arama API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
+description: Bing haber arama REST API'si kullanarak bir istek göndermek için bu hızlı başlangıçta kullanmak C#ve bir JSON yanıtı alırsınız.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: b69e00a31d5746b7f25ef6156b703a4505a89630
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 20a5e24a4fce2bb8dc817cb74c2a58a1bc304fae
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314856"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250425"
 ---
-# <a name="quickstart-bing-news-search-api-with-c"></a>Hızlı başlangıç: C# ile Bing Haber Arama API’si
+# <a name="quickstart-perform-a-news-search-using-c-and-the-bing-news-search-rest-api"></a>Hızlı Başlangıç: Kullanarak bir haber arama gerçekleştirmek C# ve Bing haber arama REST API'si
 
 Bu makale, Azure'daki Microsoft Bilişsel Hizmetleri'nin parçası olan Bing Arama API'sini kullanmayı göstermektedir. Bu makalede C# kullanılmakla birlikte API HTTP istekleri gönderebilecek ve JSON ayrıştırabilecek her programlama diliyle uyumlu bir RESTful Web hizmetidir. 
 

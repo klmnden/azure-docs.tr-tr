@@ -5,9 +5,8 @@ metakeywords: ''
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: d7ff9e157f776ebf683846652fe4788fc35e19af
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c449e86e1ba33425212313103715b8fe48278496
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311067"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276688"
 ---
 # <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da doğrusal regresyon kullanma
 > *Kate Baroni* ve *Ben Boatman* Kurumsal çözüm mimarları, Microsoft'un veri öngörüleri mükemmel Merkezi olan. Bu makalede, bunlar Azure Machine Learning kullanarak bulut tabanlı bir çözüme varolan bir regresyon analiz paketini geçiş deneyimlerini açıklanmaktadır. 
@@ -31,7 +30,7 @@ ms.locfileid: "52311067"
 
 &nbsp; 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="goal"></a>Hedef
 İki hedefleri düşünerek Projemizin kullanmaya: 
@@ -73,7 +72,7 @@ Machine Learning Studio'da bizim deneme oluşturmak için aşağıdaki adımlar�
 Bizim işlemi ve sonuçları veri uzmanları ve geliştiriciler Machine Learning ekibi karşılaştık, bunlar bazı yararlı ipuçları hızla sağlanan. 
 
 * Kullanırken [doğrusal regresyon] [ linear-regression] modülü Machine Learning Studio'da iki yöntem sağlanır:
-  * Çevrimiçi bir gradyan düşüşü: büyük ölçekli sorunları için daha uygun olabilir.
+  * Çevrimiçi gradyan düşüşü: Büyük ölçekli sorunları için daha uygun olabilir
   * Sıradan kareler: Çoğu kişi, doğrusal regresyon duyduğunuzda düşünün yöntem budur. Küçük veri kümeleri için sıradan kareler daha iyi bir seçim olabilir.
 * L2 Kurallaştırma ağırlığı parametresi, performansı artırmak için ince ayar yapma göz önünde bulundurun. 0,001 için varsayılan olarak ayarlanmış, ancak bizim küçük veri kümesi için performansı artırmak için 0.005 için ayarladık. 
 
@@ -86,8 +85,8 @@ Bizim işlemi ve sonuçları veri uzmanları ve geliştiriciler Machine Learning
 | Öğrenici |Excel -> veri analizi, regresyon -> |Doğrusal regresyon. |Doğrusal regresyon |
 | Learner seçenekleri |Yok |Varsayılanlar |sıradan kareler<br />L2 0.005 = |
 | Veri kümesi |26 satırı, 3 özellikleri, 1 etiketi. Tüm sayısal. |Aynı |Aynı |
-| Bölünmüş: eğitme |Son 8 satırlarda test ilk 18 satırlarda Excel eğitim. |Aynı |Aynı |
-| Bölünmüş: Test |Son 8 satırlara uygulanan Excel regresyon formülü |Aynı |Aynı |
+| Bölünmüş: Eğitim |Son 8 satırlarda test ilk 18 satırlarda Excel eğitim. |Aynı |Aynı |
+| Bölünmüş: Test etme |Son 8 satırlara uygulanan Excel regresyon formülü |Aynı |Aynı |
 | **Performans** | | | |
 | R kare ayarlanmış |0.96 |Yok | |
 | Katsayısı |Yok |0.78 |0.952049 |
@@ -145,7 +144,7 @@ Regresyon ile çalışmanıza yardımcı olacak bazı kaynaklar aşağıda veril
 
 * Excel'de regresyon. Excel'de regresyon hiçbir zaman denediyseniz, Bu öğretici, kolaylaştırır: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
 * Tahmin regresyon vs. Tyler Chessman serisi iyi bir başlangıç doğrusal regresyon açıklamasını içeren Excel'de tahmini süreyi açıklayan bir blog makalesi yazıldı. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* Kareler Normal doğrusal regresyon: Açıkları, sorunları ve zorlukları belirlemenizin. Bir giriş ve regresyon hakkında ayrıntılı bilgi için: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* Sıradan az doğrusal regresyon Squares: Açıkları, sorunları ve zorlukları belirlemenizin. Bir giriş ve regresyon hakkında ayrıntılı bilgi için: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
 [2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png

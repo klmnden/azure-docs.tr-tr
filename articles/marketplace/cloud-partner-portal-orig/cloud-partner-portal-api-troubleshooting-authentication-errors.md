@@ -14,26 +14,25 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 82a5ef86d1ca35cddb05cb4e126e64cc3759bcc0
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 12ed395855b9d870f8f6e3564dc5b3b899b9c6c1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811312"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313879"
 ---
-<a name="troubleshooting-common-authentication-errors"></a>Genel kimlik doğrulama hataları sorunlarını giderme
-------------------------------------------
+# <a name="troubleshooting-common-authentication-errors"></a>Genel kimlik doğrulama hataları sorunlarını giderme
 
 Bu makalede, bulut iş ortağı portalı API'lerini kullanırken yaygın kimlik doğrulama hataları ile ilgili Yardım sağlar.
 
-### <a name="unauthorized-error"></a>Yetkisiz hatası
+## <a name="unauthorized-error"></a>Yetkisiz hatası
 
 Tutarlı bir şekilde alırsanız `401 unauthorized` hataları, sahip olduğunuz geçerli bir erişim belirteciyle doğrulayın.  Zaten yapmadıysanız, temel bir Azure Active Directory (Azure AD) uygulama ve hizmet sorumlusu açıklandığı gibi oluşturmak [Azure Active Directorykaynaklaraerişebilenuygulamasıvehizmetsorumlusuoluşturmakiçinportalıkullanma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Ardından, uygulama veya basit bir HTTP POST isteği erişiminizi doğrulamak için kullanın.  Kiracı kimliği, uygulama kimliği, nesne kimliği ve gizli anahtar aşağıdaki görüntüde gösterildiği gibi erişim belirteci almak için dahil edilir:
 
 ![401 hatası sorunlarını giderme](./media/cloud-partner-portal-api-troubleshooting-authentication-errors/troubleshooting-401-error.jpg)
 
 
-### <a name="forbidden-error"></a>Yasak hatası
+## <a name="forbidden-error"></a>Yasak hatası
 
 Alırsanız bir `403 forbidden` hata, doğru hizmet sorumlusu yayımcı hesabınızla bulut iş ortağı Portalı'nda eklediğinizden emin olun.
 Bağlantısındaki [önkoşulları](./cloud-partner-portal-api-prerequisites.md) portalına hizmet sorumlunuzu eklemek için sayfa.

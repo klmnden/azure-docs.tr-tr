@@ -1,5 +1,5 @@
 ---
-title: Azure İlkesi etkilerini anlama
+title: Etkileri nasıl çalıştığını anlama
 description: Azure İlkesi tanım uyumluluk nasıl yönetildiği ve bildirilen belirleyen çeşitli etkileri vardır.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,13 @@ ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 2bed2f52f29d5c97ab576fae73498b60fb7ecc30
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 0fcb30132a83502b8ca5f58364d78129109b8a9d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079809"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310853"
 ---
 # <a name="understand-policy-effects"></a>İlke etkilerini anlama
 
@@ -89,7 +89,7 @@ Bir ekleme yalnızca etkisi bir **ayrıntıları** gerekli olan bir dizi. Olarak
 }
 ```
 
-Örnek 3: Tek **alan/değer** kullanarak pair bir [diğer](definition-structure.md#aliases) bir diziye sahip **değer** bir depolama hesabında IP kurallarını ayarlamak için.
+Örnek 3: Tek **alan/değer** kullanarak pair bir [diğer](definition-structure.md#aliases) dizisiyle **değeri** bir depolama hesabında IP kurallarını ayarlamak için.
 
 ```json
 "then": {
@@ -120,7 +120,7 @@ Ek özellikleri kullanmak için reddetme etkisinin yok **ardından** ilke tanım
 
 ### <a name="deny-example"></a>Örnek Reddet
 
-Örnek: reddetme etkisinin kullanma.
+Örnek: Reddetme etkisinin kullanma.
 
 ```json
 "then": {
@@ -142,7 +142,7 @@ Ek özellikleri kullanmak için bir denetim etkisi yoktur **ardından** ilke tan
 
 ### <a name="audit-example"></a>Denetim örneği
 
-Örnek: denetim etkisiyle kullanma.
+Örnek: Denetim etkisiyle kullanma.
 
 ```json
 "then": {
@@ -187,7 +187,7 @@ Bir kaynak sağlayıcısı oluşturma veya güncelleştirme kaynak isteğiyle i�
 
 ### <a name="auditifnotexists-example"></a>AuditIfNotExists örneği
 
-Örnek: kötü amaçlı yazılımdan koruma uzantısını var, ardından eksik olduğunda denetimleri belirlemek için sanal makineleri değerlendirir.
+Örnek: Sanal makineler, kötü amaçlı yazılımdan koruma uzantısını var, ardından eksik olduğunda denetimleri belirlemek için değerlendirir.
 
 ```json
 {
@@ -265,7 +265,7 @@ Bir değerlendirme döngüsü sırasında kaynaklarla eşleşen ilke tanımları
 
 ### <a name="deployifnotexists-example"></a>Deployıfnotexists örneği
 
-Örnek: SQL Server veritabanlarını transparentDataEncryption etkin olup olmadığını belirlemek için değerlendirir. Aksi durumda, bunu etkinleştirmek için bir dağıtım yürütülür.
+Örnek: SQL Server veritabanlarını transparentDataEncryption etkin olup olmadığını belirlemek için değerlendirir. Aksi durumda, etkinleştirmek için bir dağıtım yürütülür.
 
 ```json
 "if": {

@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0dc92524843f47b1327af5e9d3f237656cad2a37
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: f2e8ce7dc6102471f95f6332d9cb01a6cb4f4f54
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947545"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313794"
 ---
-# <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Öğretici: Linux Service Fabric kümesi üzerinde kapsayıcı görüntüleri oluşturma
+# <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Öğretici: Bir Linux Service Fabric kümesinde kapsayıcı görüntüleri oluşturma
 
 Bu öğretici, Linux Service Fabric kümesinde kapsayıcıları kullanmayı gösteren öğretici serisinin ilk parçasıdır. Bu öğreticide, bir çoklu konteyner uygulaması Service Fabric ile kullanılmak üzere hazırlanmaktadır. Sonraki öğreticilerde, bu görüntüler Service Fabric uygulamasının bir parçası olarak kullanılır. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
@@ -41,7 +41,7 @@ Bu öğretici serisinde şunların nasıl yapıldığını öğrenirsiniz:
 > * [Kapsayıcılara Sahip bir Service Fabric Uygulaması Derleme ve Çalıştırma](service-fabric-tutorial-package-containers.md)
 > * [Service Fabric’de yük devretme ve ölçeklendirme nasıl işlenir?](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Service Fabric için ayarlanan Linux geliştirme ortamı. Linux ortamınızı ayarlamak için [buradaki](service-fabric-get-started-linux.md) yönergeleri izleyin.
 * Bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme]( /cli/azure/install-azure-cli).
@@ -136,7 +136,7 @@ Mevcut görüntülerin listesini görüntülemek için [docker images](https://d
 docker images
 ```
 
-Çıktı:
+Çıkış:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
@@ -166,7 +166,7 @@ docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 
 Etiketledikten sonra, işlemi doğrulamak için ‘docker images’ komutunu çalıştırın.
 
-Çıktı:
+Çıkış:
 
 ```bash
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
@@ -196,7 +196,7 @@ Azure Container Registry’nize gönderilen görüntülerin listesini döndürme
 az acr repository list --name <acrName> --output table
 ```
 
-Çıktı:
+Çıkış:
 
 ```bash
 Result
@@ -208,7 +208,7 @@ azure-vote-front
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide GitHub’dan bir uygulama çekilmiştir, kapsayıcı görüntüleri oluşturulmuş ve bir kayıt defterine gönderilmiştir. Aşağıdaki adımlar tamamlandı:
+Bu öğreticide, Github'dan bir uygulama çekilmiştir ve kapsayıcı görüntüleri oluşturulan ve bir kayıt defterine gönderilmiştir. Aşağıdaki adımlar tamamlandı:
 
 > [!div class="checklist"]
 > * Uygulama kaynağını GitHub’dan kopyalama

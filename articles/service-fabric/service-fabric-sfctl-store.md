@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 2f2da5b38ab39e3636ff0ac09ac2c5515e02b0c1
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 034ae29b5fabae15aa2b6b96e7fefaef23c1c5a1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492344"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275236"
 ---
 # <a name="sfctl-store"></a>sfctl store
 Temel dosya düzeyi kümenin görüntü deposuna işlemleri.
@@ -35,18 +35,18 @@ Temel dosya düzeyi kümenin görüntü deposuna işlemleri.
 ## <a name="sfctl-store-delete"></a>sfctl deposunu Sil
 Görüntü deposu içeriği varolan siler.
 
-Görüntü deposu içeriği içinde belirtilen görüntünün bulunamamasından varolan siler, göreli yol depolayın. Bu, bunlar sağlandıktan sonra karşıya yüklenen uygulama paketleri silmek için kullanılabilir.
+Görüntü deposu içeriği içinde belirtilen görüntünün bulunamamasından varolan siler, göreli yol depolayın. Bu komut, bunlar sağlandıktan sonra karşıya yüklenen uygulama paketleri silmek için kullanılabilir.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --İçerik yolu [gerekli] | Kendi kökünden göreli yol dosya veya klasörün görüntü deposundaki. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -61,13 +61,13 @@ Görüntü deposunun kök dizininde içerik görüntü deposu hakkında bilgi d�
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
@@ -82,14 +82,14 @@ Belirtilen contentPath görüntü deposu içeriği hakkındaki bilgileri döndü
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --İçerik yolu [gerekli] | Kendi kökünden göreli yol dosya veya klasörün görüntü deposundaki. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |

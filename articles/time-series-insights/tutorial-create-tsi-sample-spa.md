@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights tek sayfalı web uygulaması oluşturma
+title: Bir Azure Time Series Insights tek sayfa web uygulaması oluşturma | Microsoft Docs
 description: TSI ortamındaki verileri sorgulayan ve işleyen tek sayfalı bir web uygulamasını nasıl oluşturacağınızı öğrenin.
 author: ashannon7
 ms.service: time-series-insights
@@ -7,12 +7,13 @@ ms.topic: tutorial
 ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
-ms.openlocfilehash: 312e15f976a6782e3f39cfcc5ce0721ac6357a16
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: fccd509d4f16cee86d30feb0e838f1493cae4e0b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626764"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275848"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Öğretici: Azure Time Series Insights tek sayfalı web uygulaması oluşturma
 
@@ -23,7 +24,7 @@ Bu öğretici, kendi TSI verilerinize erişmek için [Time Series Insights (TSI)
 > * Uygulamanızı Azure Active Directory’ye (AD) kaydetme
 > * Web uygulamanızı derleme, yayımlama ve test etme 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Aboneliğiniz yoksa [ücretsiz Azure aboneliğine](https://azure.microsoft.com/free/) kaydolun. 
 
@@ -33,8 +34,8 @@ Aboneliğiniz yoksa [ücretsiz Azure aboneliğine](https://azure.microsoft.com/f
 
 Yukarıda belirtildiği gibi TSI örnek uygulaması bu öğreticide kullanılan tasarım ve kod için temel oluşturur. Kodda TSI İstemcisi JavaScript kitaplığı kullanılır. TSI İstemcisi kitaplığı iki ana API kategorisi için bir özet sunar:
 
-- **TSI Sorgu AP’lerini çağırmaya yönelik sarmalayıcı metotları**: JSON tabanlı ifadeleri kullanarak TSI verilerini sorgulamanıza olanak tanıyan REST API’leri. Metotlar, kitaplığın `TsiClient.server` ad alanı altında düzenlenmiştir.
-- **Çeşitli türlerdeki grafik denetimlerini oluşturma ve doldurma metotları**: Bir web sayfasındaki TSI verilerini görselleştirmek için kullanılan metotlar. Metotlar, kitaplığın `TsiClient.ux` ad alanı altında düzenlenmiştir.
+- **TSI sorgu API'leri çağırmak için sarmalayıcı yöntemleri**: Sorgu olanak tanıyan TSI verileri JSON göre ifadeler kullanarak REST API'ler. Metotlar, kitaplığın `TsiClient.server` ad alanı altında düzenlenmiştir.
+- **Oluşturma ve doldurma denetimleri grafik türleri çeşitli yöntemleri**: Bir web sayfasında TSI verileri görselleştirmek için kullanılan yöntemleri. Metotlar, kitaplığın `TsiClient.ux` ad alanı altında düzenlenmiştir.
 
 Bu öğreticide örnek uygulamanın TSI ortamındaki veriler de kullanılacaktır. TSI örnek uygulamasının yapısı ve TSI İstemci kitaplığının kullanımı hakkında ayrıntılı bilgi için [Azure Time Series Insights JavaScript istemci kitaplığını keşfetme](tutorial-explore-js-client-lib.md) öğreticisine bakın.
 
@@ -177,8 +178,8 @@ Uygulamayı derlemeden önce Azure AD’ye kaydetmeniz gerekir. Kayıt işlemi s
 
 Hata kodu/durumu | Açıklama
 ---------------------| -----------
-*AADSTS50011: Uygulama için kaydedilmiş yanıt adresi yok.* | Azure AD kaydında "Reply URL" özelliği yok. Azure AD uygulama kaydınızın **Ayarlar** / **Yanıt URL’leri** sayfasına gidin. [Uygulamayı Azure AD’ye kaydetme](#register-the-application-with-azure-ad) bölümünün 3. adımında **Oturum açma** URL’sinin belirtildiğinden emin olun. 
-*AADSTS50011: İstekte belirtilen yanıt URL’si uygulama için yapılandırılan yanıt URL’leri ile eşleşmiyor: '<Application ID GUID>'.* | [Web uygulamasını derleme ve yayımlama](#build-and-publish-the-web-application) bölümünün 4.b adımında belirtilen `postLogoutRedirectUri` ile Azure AD uygulama kaydınızın **Ayarlar** / **Yanıt URL’leri** özelliğinde belirtilen değerin eşleşmesi gerekir. Ayrıca adım 5.e’deki gibi, **Hedef URL**’yi `https` kullanacak şekilde değiştirdiğinizden emin olun. [Web uygulamasını derleme ve yayımlama](#build-and-publish-the-web-application).
+*AADSTS50011: Uygulama için kayıtlı yanıt adresi yok.* | Azure AD kaydında "Reply URL" özelliği yok. Azure AD uygulama kaydınızın **Ayarlar** / **Yanıt URL’leri** sayfasına gidin. [Uygulamayı Azure AD’ye kaydetme](#register-the-application-with-azure-ad) bölümünün 3. adımında **Oturum açma** URL’sinin belirtildiğinden emin olun. 
+*AADSTS50011: Yanıt URL'si istekte belirtilen uygulama için yapılandırılan yanıt URL'lerinden eşleşmiyor: '<Application ID GUID>'.* | [Web uygulamasını derleme ve yayımlama](#build-and-publish-the-web-application) bölümünün 4.b adımında belirtilen `postLogoutRedirectUri` ile Azure AD uygulama kaydınızın **Ayarlar** / **Yanıt URL’leri** özelliğinde belirtilen değerin eşleşmesi gerekir. Ayrıca adım 5.e’deki gibi, **Hedef URL**’yi `https` kullanacak şekilde değiştirdiğinizden emin olun. [Web uygulamasını derleme ve yayımlama](#build-and-publish-the-web-application).
 Web uygulaması yükleniyor ancak stil içermeyen, beyaz arka plana sahip salt metin oturum açma sayfası var. | [Web uygulamasını derleme ve yayımlama](#build-and-publish-the-web-application) bölümünün 4.a adımında belirtilen yolların doğru olduğundan emin olun. Web uygulaması .css dosyalarını bulamadığında sayfa stili doğru şekilde uygulanmaz.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme

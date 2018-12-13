@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Apache Hadoop ve Apache Hive, Azure Resource Manager şablonu kullanarak HDInsight ile çalışmaya başlama '
+title: 'Hızlı Başlangıç: Apache Hive - Azure HDInsight ile Resource Manager ve veri kullanarak Apache Hadoop kümeleri oluşturma'
 description: HDInsight kümesi oluşturmayı ve Hive ile veri sorgulamayı öğrenin.
 keywords: hadoop kullanmaya başlama,hadoop linux,hadoop hızlı başlangıç,hive kullanmaya başlama,hive hızlı başlangıç
 services: hdinsight
@@ -7,15 +7,15 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive,hdiseo17may2017,mvc
+ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.openlocfilehash: 7068dd62b8c445950fdfd18197e3f01e730506a3
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 3f5c842a4e902fe6d4aa9f87cb82252a78d0a1c3
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014812"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166396"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>Hızlı Başlangıç: Apache Hadoop ve Apache Hive, Azure Resource Manager şablonu kullanarak HDInsight ile çalışmaya başlama
 
@@ -92,13 +92,13 @@ VSCode için HDInsight Araçları ile, HDInsight etkileşimli sorgu kümelerine 
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-4. Betik düzenleyiciye sağ tıklayın ve **HDInsight: Hive Interactive** seçeneğini belirleyerek sorguyu gönderin. Araçlar, bağlam menüsünü kullanarak betik dosyasının tamamı yerine bir kod bloğu göndermenize de olanak sağlar. Kısa süre içinde sorgu sonuçları yeni bir sekmede görüntülenir.
+4. Kod Düzenleyicisi'ni sağ tıklatın ve ardından **HDInsight: Etkileşimli hive** sorgu göndermek için. Araçlar, bağlam menüsünü kullanarak betik dosyasının tamamı yerine bir kod bloğu göndermenize de olanak sağlar. Kısa süre içinde sorgu sonuçları yeni bir sekmede görüntülenir.
 
    ![Interactive Hive sonucu](./media/apache-hadoop-linux-tutorial-get-started/interactive-hive-result.png)
 
-    - **SONUÇLAR** paneli: Sonucun tamamını CSV, JSON veya Excel dosyası olarak yerel yola kaydedebilir veya yalnızca birkaç satır seçebilirsiniz.
+    - **Sonuçları** paneli: Tüm sonucu yerel yol CSV, JSON veya Excel dosyası olarak kaydetmek veya çok satırlı seçmeniz yeterlidir.
 
-    - **İLETİLER** paneli: **Satır** numarasını seçtiğinizde, çalıştırılmakta olan betiğin birinci satırına atlar.
+    - **İLETİLERİ** paneli: Seçtiğinizde, **satırı** numarası çalışan kodun ilk satırını atlar.
 
 Etkileşimli sorgu çalıştırılması, [bir Hive toplu işinin çalıştırılmasından](#submit-hive-batch-scripts) daha kısa sürer.
 
@@ -113,7 +113,7 @@ Etkileşimli sorgu çalıştırılması, [bir Hive toplu işinin çalıştırıl
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-4. Betik düzenleyiciye sağ tıklayın ve **HDInsight: Hive Toplu İş** seçeneğini belirleyerek bir Hive işi gönderin. 
+4. Kod Düzenleyicisi'ni sağ tıklatın ve ardından **HDInsight: Hive toplu** bir Hive işi göndermek için. 
 
 5. Göndermek istediğiniz kümeyi seçin.  
 
@@ -251,7 +251,7 @@ Bu öğreticide, Kaynak Yöneticisi şablonu kullanarak Linux tabanlı bir HDIns
 Kendi verilerinizle çalışmaya başlamaya hazırsanız ve HDInsight’ın verileri nasıl depoladı veya verileri HDInsight’a alma hakkında daha fazla bilgi edinmek istiyorsanız, aşağıdaki makalelere bakın:
 
 * HDInsight’ın Azure Depolama’yı nasıl kullandığı hakkında daha fazla bilgi için bkz. [HDInsight ile Azure Depolama kullanma](../hdinsight-hadoop-use-blob-storage.md).
-* Data Lake Storage ile HDInsight kümesi oluşturma hakkında bilgi için bkz. [Hızlı başlangıç: HDInsight'ta kümeleri ayarlama](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* Data Lake Store ile HDInsight kümesi oluşturma hakkında daha fazla bilgi için bkz: [hızlı başlangıç: HDInsight kümelerinde ayarlama](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * HDInsight’a veril yükleme hakkında daha fazla bilgi için bkz. [Verileri HDInsight’a yükleme](../hdinsight-upload-data.md).
 
 HDInsight ile veri çözümleme hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
@@ -275,5 +275,3 @@ HDInsight kümesi oluşturma ve yönetme hakkında daha fazla bilgi edinmek isti
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-
-

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: 8080cdf78333eed9541311ba67221c713341a21a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: b961dadbe8743f1485ef0d13a44a1bb0f3ce32b5
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741581"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321384"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Sanal makine ölçek ile dikey otomatik ölçeklendirme ayarlar
 Bu makalede Azure dikey olarak ölçeklendirmek nasıl [sanal makine ölçek kümeleri](https://azure.microsoft.com/services/virtual-machine-scale-sets/) ile veya olmadan çıkış. Dikey Ölçek kümesinde olmayan VM'lerin ölçeklendirme için bkz [Azure Otomasyonu ile Azure sanal makine dikey olarak ölçeklendirme](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -84,7 +84,7 @@ Runbook'ları aktardıktan sonra sanal makine ölçek kümesinden bir uyarı tet
 > 
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Uyarı, sanal makine ölçek kümesine ekleme
-Aşağıda gösteren bir uyarı için bir sanal makine ölçek eklemek bir PowerShell Betiği ayarlanır. Ölçüm uyarı ateşlenmesine adını almak için aşağıdaki makaleye başvurun: [Azure İzleyici otomatik ölçeklendirme ortak ölçümleri](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md).
+Aşağıda gösteren bir uyarı için bir sanal makine ölçek eklemek bir PowerShell Betiği ayarlanır. Ölçüm uyarı ateşlenmesine adını almak için şu makaleye başvurun: [Azure İzleyici otomatik ölçeklendirme ortak ölçümleri](../azure-monitor/platform/autoscale-common-metrics.md).
 
 ```
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail user@contoso.com
@@ -120,7 +120,7 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
 Uyarılar oluşturma hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [Azure İzleyici PowerShell hızlı başlangıç örnekleri](../monitoring-and-diagnostics/insights-powershell-samples.md)
-* [Azure İzleyici platformlar arası CLI hızlı başlangıç örnekleri](../monitoring-and-diagnostics/insights-cli-samples.md)
+* [Azure İzleyici platformlar arası CLI hızlı başlangıç örnekleri](../azure-monitor/platform/cli-samples.md)
 
 ## <a name="summary"></a>Özet
 Bu makalede, basit dikey ölçeklendirme örnekleri gösterilmiştir. Bu yapı taşları ile - Otomasyon hesabı, runbook'ları, Web kancaları, uyarılar - zengin çeşitli olayları özelleştirilmiş bir eylemler kümesi ile bağlanabilirsiniz.

@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/08/2018
 ms.author: magoedte
-ms.openlocfilehash: f5865cf72f413db49e70a08305de54aff955607b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a97a7be0eaa8438a4df27b610106ec6ab9f60d30
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075242"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184401"
 ---
 # <a name="azure-monitor-for-vms-preview-faq"></a>Azure İzleyici VM'ler (Önizleme) ile ilgili SSS
 Bu makalede, sanal makineler için Azure İzleyici hakkında sık sorulan soruların yanıtları. Çözümü hakkında ek sorularınız varsa, Git [Azure tartışma forumumuzdan](https://feedback.azure.com/forums/34192--general-feedback) ve sorularınızı gönderin. Sık sorulan sorular, hızla ve kolayca bulunabilir için bunları bu makaleye ekleriz.
@@ -67,7 +66,7 @@ Hizmet eşlemesinde Vm'leri eşleme özelliğini Azure İzleyicisi'ni temel alı
 * İzlenen Vm'leri olan istemci grubu düğümünü ve halka grafik izlenmeyen için izlenen sanal makineler oranını gösterir. Grup genişletildiğinde ayrıca makineler listesini filtreleyebilirsiniz.
 * İzlenen sanal makineler artık sunucu bağlantı noktası grubu düğümlerin ve izlenen için izlenmeyen makineler oranını halka grafiği görüntüler. Grup genişletildiğinde ayrıca makineler listesini filtreleyebilirsiniz.
 * Harita Stil Uygulama Haritası Azure Application ınsights'tan daha tutarlı olması için güncelleştirildi.
-* Yan paneller güncelleştirildi ancak hizmet eşlemesinde desteklendi tümleştirmeler kümesini henüz mevcut değil: güncelleştirme yönetimi, değişiklik izleme, güvenlik ve hizmet Masası. 
+* Yan paneller güncelleştirildi ancak hizmet eşlemesinde desteklendi tümleştirmeler kümesini henüz mevcut değil: Güncelleştirme yönetimi, değişiklik izleme, güvenlik ve hizmet Masası. 
 * Harita grup ve makineleri seçme seçeneği güncelleştirildi. Şimdi, abonelik, kaynak grupları, Azure sanal makine ölçek kümeleri ve bulut hizmetleri de destekler.
 * Vm'leri Haritası özelliği için Azure İzleyici'de yeni hizmet eşlemesi makine grup oluşturamazsınız. 
 

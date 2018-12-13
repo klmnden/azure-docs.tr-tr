@@ -1,5 +1,5 @@
 ---
-title: Azure İlkesi örneği - SQL Server denetim ayarlarını denetleme
+title: Örnek - denetim SQL Server denetim ayarları
 description: Bu örnek ilke, SQL sunucusu denetim ayarlarını denetler.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 258d56f70349c99faf6053de46886b736ffb95cf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 7a9f5779b8a0c853d938734f82f3bd63e7f0a45b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949628"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53307878"
 ---
 # <a name="audit-sql-server-audit-settings"></a>SQL sunucusu denetim ayarlarını denetle
 

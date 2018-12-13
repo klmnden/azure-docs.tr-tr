@@ -1,6 +1,7 @@
 ---
-title: 'Hızlı Başlangıç: Python ile görüntü araması gerçekleştirme - Bing Resim Arama API’si'
-description: İlk Bing Resim Arama API’si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın. Bu basit Python uygulaması, API’ye bir arama sorgusu gönderir ve ham sonuçları görüntüler.
+title: "Hızlı Başlangıç: Resimler - Bing resim arama REST API'si ve Python için arama yapın"
+titleSuffix: Azure Cognitive Services
+description: JSON yanıtlar almasına ve bu hızlı başlangıçta Python kullanarak Bing resim arama REST API'si için görüntü arama istekleri göndermek için kullanın.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -9,14 +10,15 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: a51935300238235338ec30ec7061101745b0e0e5
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: a93a044279cccd883de5f946bb236cad4b088ae2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314397"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261986"
 ---
-# <a name="quickstart-send-search-queries-using-the-rest-api-and-python"></a>Hızlı Başlangıç: REST API ve Python kullanarak arama sorguları gönderme
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Hızlı Başlangıç: Bing resim arama REST API'si ve Python kullanarak resimler için arama yapın
 
 İlk Bing Resim Arama API’si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın. Bu basit Python uygulaması, API’ye bir arama sorgusu gönderir ve ham sonuçları görüntüler.
 

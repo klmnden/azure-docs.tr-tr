@@ -1,0 +1,122 @@
+---
+title: Video Indexer Web dil modeli - Azure'ı özelleştirmek için kullanın
+titlesuffix: Azure Media Services
+description: Bu makalede, Video Indexer Web sitesiyle bir dil modelini özelleştirin gösterilmektedir.
+services: media-services
+author: anikaz
+manager: johndeu
+ms.service: media-services
+ms.topic: article
+ms.date: 12/03/2018
+ms.author: anzaman
+ms.openlocfilehash: 9bf48a994c3efeb433bcb99342f7a477d87858eb
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53285273"
+---
+# <a name="customize-a-language-model-with-the-video-indexer-website"></a>Video Indexer Web sitesiyle bir dil modelini özelleştirin
+
+Video Indexer, konuşma tanıma uyarlama metinle, yani sözlük uyum sağlamak üzere altyapısı istediğiniz etki alanından karşıya yükleyerek özelleştirmek için özel dil modelleri oluşturmanıza olanak sağlar. Modelinizi eğitin sonra yeni sözcük uyarlama metinli tanınır. 
+
+Ayrıntılı bir genel ve özel dil modelleri için en iyi yöntemler için bkz: [Video Indexer ile bir dil modelini özelleştirin](customize-language-model-overview.md).
+
+Bu konuda açıklandığı gibi oluşturmak ve özel dil modelleri, hesabınızdaki düzenlemek için Video Indexer Web sitesi kullanabilirsiniz. Bölümünde anlatıldığı gibi API de kullanabilirsiniz [özelleştirme dil modeli API'lerini kullanarak](customize-language-model-with-api.md).
+
+## <a name="create-a-language-model"></a>Dil modeli oluşturma
+
+1. [Video Indexer](https://www.videoindexer.ai/) web sitesine gidip oturum açın.
+2. Hesabınızdaki bir model Özelleştirme alanına tıklayarak **içerik modeli özelleştirmesi** sayfanın sağ üst köşesindeki düğmesine.
+
+   ![İçerik modeli özelleştirme](./media/content-model-customization/content-model-customization.png)
+
+3. Seçin **dil** sekmesi.
+
+    Desteklenen dillerin listesini görürsünüz. 
+
+    ![Dil modelini özelleştirin](./media/customize-language-model/customize-language-model.png)
+
+4. İstediğiniz dil altında **Ekle modeli**.
+5. Dil modeli ve isabet girmek için ad yazın.
+
+    Bu modeli oluşturur ve modele metin dosyaları karşıya yükle seçeneği sunar.
+6. Bir metin dosyası eklemek için tıklatın **Dosya Ekle**. Bu, dosya gezgini'nizi açar.
+
+7. Gidin ve metin dosyasını seçin. Birden çok metin dosyaları için bir dil modeli ekleyebilirsiniz.
+
+    Tıklayarak bir metin dosyasına ekleyebilirsiniz **...**  düğmesini dil modeli sağ tarafında ve seçerek **Dosya Ekle**.
+8. İşiniz bittiğinde yeşil tıklayın metin dosyalarını karşıya yükleme **eğitme** seçeneği.
+
+    ![Dil modeli eğitme](./media/customize-language-model/train-model.png)
+
+Eğitim işlemini birkaç dakika sürebilir. Alıştırma tamamlandıktan sonra gördüğünüz **Trained** modelin yanında. Önizleme, indirin ve dosyayı modelden silin.
+
+![Eğitilmiş dil modeli](./media/customize-language-model/preview-model.png)
+
+### <a name="using-a-language-model-on-a-new-video"></a>Dil modeli kullanarak yeni bir video
+
+Yeni bir video, dil modelini kullanmak için aşağıdakilerden birini yapın:
+
+* Tıklayarak **karşıya** sayfanın üstündeki düğmesi 
+
+    ![Karşıya Yükle](./media/customize-language-model/upload.png)
+* Daire, ses veya video dosyası bırakın veya dosyanız için Gözat
+
+    ![Karşıya Yükle](./media/customize-language-model/upload2.png)
+
+Bu tercih yapma seçeneğine verecektir **Video kaynak dili**. Açılan tıklayın ve oluşturduğunuz listeden bir dil modeli seçin. Bu dil, dil modeli ve parantez içinde verdiğiniz ad yazması gerekir.
+
+Tıklayın **karşıya** sayfasının ve yeni videonuzu alt seçeneği dizini dil modelinizi kullanarak.
+
+### <a name="using-a-language-model-to-reindex"></a>Dil modeli yeniden kullanma
+
+Dil modelinizin koleksiyonunuz bulunan bir videoyu yeniden kullanmak için Git, **hesap videoları** üzerinde [Video Indexer](https://www.videoindexer.ai/) giriş sayfası ve yeniden istediğiniz videoya adını üzerine gelin.
+
+Video düzenleme, video, silme ve videonuzu yeniden dizin oluşturma için seçenekler görürsünüz. Videonuzu yeniden seçeneğine tıklayın.
+
+![Arat](./media/customize-language-model/reindex1.png)
+
+Bu belirleme seçeneği sağlar **Video kaynak dili** videonuzu yeniden. Açılan tıklayın ve oluşturduğunuz listeden bir dil modeli seçin. Bu dil, dil modeli ve parantez içinde verdiğiniz ad yazması gerekir.
+
+![Arat](./media/customize-language-model/reindex.png)
+
+Tıklayın **yeniden dizin** düğmesi ve videonuzu indekslenmeli dil modeli kullandığınız.
+
+## <a name="edit-a-language-model"></a>Dil modeli Düzenle
+
+Dil modeli adının değiştirilmesi, dosyaları eklemeyi ve dosyaları silmek düzenleyebilirsiniz.
+
+Ekleyin veya dosyaları dil modelden silin, yeşil renkte tıklayarak modeli yeniden eğitme gerekecektir **eğitme** seçeneği.
+
+### <a name="rename-the-language-model"></a>Dil modeli yeniden adlandır
+
+Dil modeli adını tıklatarak değiştirebilirsiniz **...**  dil sağ tarafında model ve seçerek **Yeniden Adlandır**. 
+
+Yeni tür adı ve isabet girin.
+
+### <a name="add-files"></a>Dosyaları Ekle
+
+Bir metin dosyası eklemek için tıklatın **Dosya Ekle**. Bu, dosya gezgini'nizi açar.
+
+Gidin ve metin dosyasını seçin. Birden çok metin dosyaları için bir dil modeli ekleyebilirsiniz.
+
+Tıklayarak bir metin dosyasına ekleyebilirsiniz **...**  düğmesini dil modeli sağ tarafında ve seçerek **Dosya Ekle**.
+
+### <a name="delete-files"></a>Dosyaları silme
+
+Dil modeli bir dosyayı silmek için tıklayın **...**  düğmesine tıklayın, metin dosyasının sağ tarafta ve belirleyin **Sil**. Bu silme işlemi geri alınamaz olduğunu belirten yeni bir pencere getirir. Tıklayın **Sil** yeni pencerede seçeneği.
+
+Bu eylem dosya, dil modeli tamamen kaldırır.
+
+## <a name="delete-a-language-model"></a>Dil modeli Sil
+
+Dil modeli hesabınızdan silmek için tıklayın **...**  dil modeli sağ tarafında'düğmesine tıklayın ve belirleyin **Sil**.
+
+Bu silme işlemi geri alınamaz olduğunu belirten yeni bir pencere getirir. Tıklayın **Sil** yeni pencerede seçeneği.
+
+Dil modeli, bu eylem hesabınızdan tamamen kaldırır. Videoyu yeniden dizine kadar silinen dil modelini kullanan herhangi bir video aynı dizin tutar. Videoyu yeniden dizine eklerseniz, yeni bir dil modeli videoyu atayabilirsiniz. Aksi takdirde, Video Indexer videoyu yeniden dizine kendi varsayılan modelini kullanır. 
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+[Dil modeli API'lerini kullanarak özelleştirme](customize-language-model-with-api.md)

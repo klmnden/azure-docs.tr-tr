@@ -1,5 +1,5 @@
 ---
-title: Giden IP adresi değişikliği için - Azure hazırlamayı öğrenin
+title: Giden IP adresi değişikliği için - Azure App Service'ı hazırlama
 description: Giden IP adresiniz, değiştirilecek olacaksa, böylece uygulamanız için değişiklik sonrasında çalışmaya devam yapmanız gerekenler öğrenin.
 services: app-service\web
 author: cephalin
@@ -10,12 +10,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: 2355fa5e3e7fd83b5d9f22d87c19f8152659fc97
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.custom: seodec18
+ms.openlocfilehash: f611733400b8bfd18a135fe07f84606f13e59704
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309370"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275729"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>Giden IP adresi değişikliği için hazırlama
 
@@ -23,9 +24,9 @@ Azure App Service uygulamanızı giden IP adreslerini değiştirerek bir bildiri
 
 ## <a name="determine-if-you-have-to-do-anything"></a>Herhangi bir şey gerekip gerekmediğini belirleme
 
-* 1. seçenek: App Service uygulamanızı IP filtreleme, açık ekleme listesi ya da özel işleme giden trafik yönlendirme veya güvenlik duvarı gibi kullanmıyorsa, hiçbir işlem gerekli değildir.
+* 1. seçenek: App Service uygulamanızı IP filtreleme, açık ekleme listesi ya da özel işleme giden trafik yönlendirme veya güvenlik duvarı gibi kullanmıyorsa, hiçbir eylem gerekmiyor.
 
-* 2. seçenek: uygulamanızı (aşağıdaki örneklere bakın) giden IP adresleri için özel işlem varsa, mevcut görünen yeni giden IP adresleri ekleyin. Mevcut IP adreslerini değiştirin yok. Sonraki bölümde yönergeleri takip ederek yeni giden IP adresleri bulabilirsiniz.
+* 2. seçenek: Uygulamanızı (aşağıdaki örneklere bakın) giden IP adresleri için özel işlem varsa, mevcut görünen yeni giden IP adresleri ekleyin. Mevcut IP adreslerini değiştirin yok. Sonraki bölümde yönergeleri takip ederek yeni giden IP adresleri bulabilirsiniz.
 
   Örneğin, bir giden IP adresi açıkça uygulamanızı dışında bir güvenlik duvarı eklenebilir veya bir dış ödeme hizmet uygulamanız için giden IP adresi içeren bir izin verilenler olabilir. Giden adresinizi uygulamanızı dışında herhangi bir yeri listesindeki yapılandırılmışsa, değiştirmesi gerekir.
 
@@ -39,7 +40,7 @@ Etkili olmadan önce portalda yeni giden IP adresleri gösterilir. Eskileri, art
 
 3.  App Service uygulamanızı listeden seçin.
 
-4.  Uygulamayı bir işlev uygulaması, bakın [işlev uygulaması giden IP adresleri](../azure-functions/ip-addresses.md#find-outbound-ip-addresses).
+1.  Uygulamayı bir işlev uygulaması, bakın [işlev uygulaması giden IP adresleri](../azure-functions/ip-addresses.md#find-outbound-ip-addresses).
 
 4.  Altında **ayarları** başlık tıklayın **özellikleri** sol gezinti ve Bul etiketlenmiş bölümü **giden IP adresleri**.
 

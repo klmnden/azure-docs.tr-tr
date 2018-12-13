@@ -1,6 +1,6 @@
 ---
-title: Dizin sorgulama (REST API - Azure Search) | Microsoft Docs
-description: Azure Search'te bir arama sorgusu oluşturun ve arama sonuçlarını filtrelemek ve sıralamak için arama parametrelerini kullanın.
+title: REST API - Azure Search kullanarak kod içinde dizin sorgulama
+description: HTTP komutları ve builidng Azure Search'te bir arama sorgusu için REST API kod. Arama sonuçlarını filtrelemek ve sıralamak için arama parametrelerini ekleyin.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -8,12 +8,13 @@ services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 04/20/2018
-ms.openlocfilehash: 035dc4ac349513867253e5593e01fab4fec62f6b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: ccdb872646dded34cb50cd64f56733445132c4b7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186520"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316955"
 ---
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>REST API kullanarak Azure Search dizininizi sorgulama
 > [!div class="op_single_selector"]

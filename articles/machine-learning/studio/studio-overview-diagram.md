@@ -4,10 +4,9 @@ description: Tahmine dayalı bir analiz denemesi geliştirmek ve bu denemeyi Azu
 keywords: machine learning studio,genel bakış diyagramı,indirme
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
-ms.author: amlstudiodocs
-manager: mwinkle
+author: garyericson
+ms.custom: previous-ms.author=haining, previous-author=hning86
+ms.author: garye
 editor: cgronlun
 ms.assetid: 5b302c6c-41fd-4551-a4ae-0f5b450e1e6b
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/04/2017
-ms.openlocfilehash: d972cc9f162e16d5b688919dcdb5b7b06ad90736
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ce842d11d47529eca2be894a230b60417cea102f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312472"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278024"
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Azure Machine Learning Studio işlevlerine genel bakış diyagramı
 **Microsoft Azure Machine Learning Studio İşlevlerine Genel Bakış** diyagramı, tahmine dayalı bir analiz modeli geliştirmek ve bunu Azure bulutunda faaliyete geçirmek için Studio'yu nasıl kullanacağınız konusunda üst düzey bir genel bakış sağlar.
@@ -40,7 +39,7 @@ Bu şemada bu parçaların nasıl uyumlu bir şekilde bir araya geldiği göster
 ## <a name="download-the-machine-learning-studio-overview-diagram"></a>Machine Learning Studio'ya genel bakış diyagramını indirme
 **Microsoft Azure Machine Learning Studio İşlevlerine Genel Bakış** diyagramını indirin ve Machine Learning Studio işlevlerine üst düzey bir genel bakış elde edin. Diyagramı yakınınızda tutmak için tabloid boyutunda (11 x 17 inç) yazdırabilirsiniz.
 
-**Diyagramı buradan indirin: [Microsoft Azure Machine Learning Studio İşlevlerine Genel Bakış](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+**Diyagramı buradan indirin: [Microsoft Azure Machine Learning Studio işlevlerine genel bakış](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
 
 ![Microsoft Azure Machine Learning Studio İşlevlerine Genel Bakış][studio-overview]
 
@@ -52,5 +51,5 @@ Bu şemada bu parçaların nasıl uyumlu bir şekilde bir araya geldiği göster
 * Machine Learning Studio'ya genel bakış için bkz. [Azure Machine Learning Studio nedir?](what-is-ml-studio.md).
 * Machine Learning Studio'da kullanılabilen makine öğrenimi algoritmalarının ayrıntılı bir incelemesi için bkz. [Microsoft Azure Machine Learning'de algoritma seçme](algorithm-choice.md)
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

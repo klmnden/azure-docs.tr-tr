@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 73ff58148ac68b7aeb782b77385f9f971e02edb5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 6855521475e24b7243a391abdc6e6cf707991159
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457400"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320701"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Çoklu müşteri mimarisi için sağlama 
 
 Sağlama hizmeti tarafından tanımlanan ayırma ilkeleri, çeşitli ayırma senaryolarını destekler. İki yaygın senaryolar şunlardır:
 
-* **Coğrafi konum / GeoLatency**: bir cihaz konumlar arasında hareket ettikçe, ağ gecikmesi sağlanan her bir konuma yakın bir IOT hub için cihaz sağlayarak geliştirilmiştir. Bu senaryoda, bir bölgede yayılma, IOT hub, grup kayıtları için seçilir. **En düşük gecikme** ayırma ilkesi için bu kayıtları seçili. Bu ilke, cihaz gecikme değerlendirmek ve IOT hub IOT hub'ları grubunun dışına kablo belirlemek cihaz sağlama hizmeti neden olur. 
+* **Coğrafi konum / GeoLatency**: Bir cihaz konumlar arasında hareket ettikçe, sağlanan her bir konuma yakın bir IOT hub için cihaz sağlayarak ağ gecikme süresi geliştirildi. Bu senaryoda, bir bölgede yayılma, IOT hub, grup kayıtları için seçilir. **En düşük gecikme** ayırma ilkesi için bu kayıtları seçili. Bu ilke, cihaz gecikme değerlendirmek ve IOT hub IOT hub'ları grubunun dışına kablo belirlemek cihaz sağlama hizmeti neden olur. 
 
-* **Çok kiracılılık**: bir IOT çözümü içinde kullanılan cihazların belirli IOT hub'ı ya da IOT hub'ları grubu atanması gerekebilir. Çözüm, belirli bir IOT hub'ları grubuyla iletişim kurmak belirli bir kiracının tüm cihazlar gerektirebilir. Bazı durumlarda, bir kiracı kendi IOT hub'ları ve kendi IOT hub'ları için atanan cihazların.
+* **Çok kiracılılık**: Bir IOT çözümü içinde kullanılan cihazlar, belirli IOT hub'ı ya da IOT hub'ları grubu atanması gerekebilir. Çözüm, belirli bir IOT hub'ları grubuyla iletişim kurmak belirli bir kiracının tüm cihazlar gerektirebilir. Bazı durumlarda, bir kiracı kendi IOT hub'ları ve kendi IOT hub'ları için atanan cihazların.
 
 Bu iki senaryo birleştirmek için yaygındır. Örneğin, çok kiracılı bir IOT çözümü bölgeler arasında bir grup dağılmış IOT hub kullanarak Kiracı cihazları yaygın olarak atar. Bu Kiracı cihazları coğrafi konum temelinde en düşük gecikme süresine sahip, Grup IOT hub'ına atanabilir.
 
@@ -92,24 +92,24 @@ Kolaylık olması için bu makalede kullanan [simetrik anahtar kanıtı](concept
 
 3. Üzerinde **kayıt grubu Ekle**, aşağıdaki bilgileri girin ve tıklayın **Kaydet** düğmesi.
 
-    **Grup adı**: girin **contoso-us-cihazları**.
+    **Grup adı**: Girin **contoso-us-cihazları**.
 
-    **Kanıtlama türü**: seçin **simetrik anahtar**.
+    **Kanıtlama türü**: Seçin **simetrik anahtar**.
 
-    **Anahtarları otomatik Onayla**: zaten bu onay kutusu işaretlenmelidir.
+    **Anahtarları otomatik olarak oluştur**: Bu onay kutusu zaten işaretlenmelidir.
 
-    **Hub'lara cihazları atamak istediğiniz seçin**: seçin **en düşük gecikme**.
+    **Hub'lara cihazları atamak istediğiniz seçin**: Seçin **en düşük gecikme**.
 
     ![Simetrik anahtar kanıtı için çok kiracılı bir kayıt grubu Ekle](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
 
 
 4. Üzerinde **kayıt grubu Ekle**, tıklayın **yeni bir IOT hub bağlantı** her iki bölgesel, hub'ları bağlamak için.
 
-    **Abonelik**: birden fazla aboneliğiniz varsa, bölgesel IOT hub'ları oluşturduğunuz aboneliği seçin.
+    **Abonelik**: Birden fazla aboneliğiniz varsa, bölgesel IOT hub'ları oluşturduğunuz aboneliği seçin.
 
-    **IOT hub'ı**: oluşturduğunuz bölgesel hub'lar birini seçin.
+    **IOT hub'ı**: Oluşturduğunuz bölgesel hub'lar birini seçin.
 
-    **Erişim İlkesi**: seçin **iothubowner**.
+    **Erişim İlkesi**: Seçin **iothubowner**.
 
     ![Bölgesel IOT hub'ları sağlama hizmeti ile bağlama](./media/how-to-provision-multitenant/link-regional-hubs.png)
 
@@ -130,11 +130,11 @@ Kolay bir şekilde, bu Vm'lere temizleme yapmak için oluşturulmuş olan IOT hu
 
 1. Azure Cloud Shell'de oluşturmak için aşağıdaki komutu yürütün bir **Doğu ABD** komutta aşağıdaki parametre değişiklikleri yaptıktan sonra VM bölgesi:
 
-    **--ad**: benzersiz bir ad girin, **Doğu ABD** bölgesel cihaz VM. 
+    **--ad**: İçin benzersiz bir ad girin, **Doğu ABD** bölgesel cihaz VM. 
 
-    **--Yönetici kullanıcı adı**: kendi yönetici kullanıcı adını kullanın.
+    **--Yönetici kullanıcı adı**: Kendi yönetici kullanıcı adı kullanın.
 
-    **--Yönetici parolası**: kendi yönetici parolasını kullanın.
+    **--Yönetici parolası**: Kendi yönetici parolasını kullanın.
 
     ```azurecli-interactive
     az vm create \
@@ -151,11 +151,11 @@ Kolay bir şekilde, bu Vm'lere temizleme yapmak için oluşturulmuş olan IOT hu
 
 1. Azure Cloud Shell'de oluşturmak için komutu Yürüt bir **Batı ABD** komutta aşağıdaki parametre değişiklikleri yaptıktan sonra VM bölgesi:
 
-    **--ad**: benzersiz bir ad girin, **Batı ABD** bölgesel cihaz VM. 
+    **--ad**: İçin benzersiz bir ad girin, **Batı ABD** bölgesel cihaz VM. 
 
-    **--Yönetici kullanıcı adı**: kendi yönetici kullanıcı adını kullanın.
+    **--Yönetici kullanıcı adı**: Kendi yönetici kullanıcı adı kullanın.
 
-    **--Yönetici parolası**: kendi yönetici parolasını kullanın.
+    **--Yönetici parolası**: Kendi yönetici parolasını kullanın.
 
     ```azurecli-interactive
     az vm create \
@@ -220,7 +220,7 @@ Bu bölümde, her VM üzerindeki Azure IOT C SDK'sı kopyalama. SDK, bir kiracı
 1. Her iki VM için geliştirme istemci platformunuza belirli SDK'nin bir sürümüne yapılar aşağıdaki komutu çalıştırın. 
 
     ```bash
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
     Derleme başarılı olduktan sonra, son birkaç çıkış satırı aşağıdaki çıkışa benzer olacaktır:

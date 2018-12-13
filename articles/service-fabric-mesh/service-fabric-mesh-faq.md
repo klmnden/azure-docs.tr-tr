@@ -5,18 +5,19 @@ services: service-fabric-mesh
 keywords: ''
 author: chackdan
 ms.author: chackdan
-ms.date: 06/25/2018
+ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: f80f61cbfc1f7b719e73d7d29c6948bebe84aa6c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+manager: jeanpaul.connock
+ms.openlocfilehash: 7103557d19b367be0b9f0aa6f4a4642800c14558
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278319"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314848"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Sık sorulan sorular Service Fabric Mesh
+
 Azure Service Fabric Mesh, geliştiricilerin sanal makineleri, depolama alanını veya ağ bileşenlerini yönetmeden mikro hizmet uygulamaları dağıtmasını sağlayan tam olarak yönetilen bir hizmettir. Bu makalede sık sorulan soruların yanıtları bulunur.
 
 ## <a name="how-do-i-report-an-issue-or-ask-a-question"></a>Nasıl bir sorun bildirin veya soru sormak?
@@ -25,31 +26,33 @@ Soru sorun, Microsoft mühendisinin cevaplar ve raporlayın [service-fabric-kafe
 
 ## <a name="quota-and-cost"></a>Kota ve maliyet
 
-**Önizlemede katılım maliyeti nedir?**
+### <a name="what-is-the-cost-of-participating-in-the-preview"></a>Önizlemede katılım maliyeti nedir?
 
 Şu anda uygulamaları dağıtma veya kapsayıcılar ağı Önizleme için ücretlendirme yoktur. Dağıtma ve bunları bırakmamaya kaynakları silmeniz etmenizi öneririz ancak bunları test etkin bir şekilde ettiğiniz sürece çalışıyor.
 
-**Çekirdek sayısını ve RAM'i kota sınırı var mı?**
+### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>Çekirdek sayısını ve RAM'i kota sınırı var mı?
 
-Evet, her abonelik için kotaları şu şekilde ayarlayın:
+Evet. Her abonelik için kotalar şunlardır:
 
-- Uygulamalar - 5 sayısı 
-- Uygulama – 12 başına çekirdek 
-- Uygulama - 48 GB başına toplam RAM 
-- Ağ ve giriş uç noktaları – 5  
-- Ekleyebileceğiniz - azure birimler 10 
-- Hizmet çoğaltma – 3 sayısı 
-- 4 çekirdek, 16 GB RAM dağıtabileceğiniz en büyük kapsayıcı sınırlıdır.
-- En çok 6 çekirdek 0,5 çekirdek artışlarla kapsayıcılarınızı kısmi çekirdek ayırabilirsiniz.
+- Uygulama sayısı: 5
+- Uygulama başına çekirdek sayısı: 12
+- Uygulama başına toplam RAM: 48 GB
+- Ağ ve giriş uç noktaları: 5
+- Ekleyebileceğiniz azure birimler: 10
+- Hizmet yineleme sayısı: 3
+- 4 çekirdek ve 16 GB RAM, dağıtabileceğiniz en büyük kapsayıcı sınırlıdır.
+- 0,5 çekirdek, en çok 6 çekirdek artışlarla kapsayıcılarınızı kısmi çekirdek ayırabilirsiniz.
 
-**Uygulamam için dağıtılan ne kadar süreyle bildirebilirim?**
+### <a name="how-long-can-i-leave-my-application-deployed"></a>Dağıtılan uygulamamı ne kadar süreyle bildirebilirim?
 
-Biz, şu anda iki gün için bir uygulamanın ömrü sınırladınız. Önizleme için ayrılan serbest çekirdeğe kullanımını en üst düzeye çıkarmak budur. Sonuç olarak, yalnızca belirli bir dağıtım 48 saat için sürekli olarak çalışmasına izin verilen kapatabilirler sistem tarafından hangi süre geçtikten sonra. Bunu görürseniz, sistem çalıştırarak kapatabilirler olduğunu doğrulamak için bir `az mesh app show` döndürürse komutunu Azure CLI ve denetleme `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+Biz, şu anda iki gün için bir uygulamanın ömrü sınırladınız. Önizleme için ayrılan serbest çekirdeğe kullanımını en üst düzeye çıkarmak budur. Sonuç olarak, yalnızca belirli bir dağıtım 48 saat için sürekli olarak çalışmasına izin verilen sonra da kapatın, geçen süre.
+
+Bunu görürseniz, sistem çalıştırarak kapatabilirler olduğunu doğrulayabilirsiniz `az mesh app show` Azure CLI komutu. Döndürüp döndürmediğini görmek için işaretleyin `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
 Örneğin: 
 
 ```cli
-chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
 {
   "debugParams": null,
   "description": "Service Fabric Mesh HelloWorld Application!",
@@ -72,28 +75,73 @@ chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name hello
 }
 ```
 
-Kafes aynı uygulamayı dağıtmaya devam etmek için uygulama ile ilişkili kaynak grubunu silin veya tek başına uygulamayı kaldırmak ve tüm ilgili ağ kaynakları (ağ dahil). 
-
-Kaynak grubunu silmek için kullanın `az group delete <nameOfResourceGroup>` komutu. 
+Kaynak grubunu silmek için kullanın `az group delete <nameOfResourceGroup>` komutu.
 
 ## <a name="supported-container-os-images"></a>Desteklenen kapsayıcı işletim sistemi görüntüleri
-Aşağıdaki kapsayıcı işletim sistemi görüntüleri, Hizmetleri dağıtım yaparken kullanılabilir.
+
+Windows Fall Creators Update (1709 sürümü) makinesinde geliştiriyorsanız, yalnızca Windows sürüm 1709 docker docker görüntülerini kullanabilirsiniz.
+
+Bir Windows üzerinde geliştirme yapıyorsanız 10 Nisan 2018 Güncelleştirmesi (sürüm 1803) makine, Windows sürüm 1709 veya Windows sürümü 1803 docker görüntülerini kullanabilirsiniz.
+
+Aşağıdaki kapsayıcı işletim sistemi görüntüleri, hizmetleri dağıtmak için kullanılabilir:
 
 - Windows - windowsservercore ve nanoserver
-    - Windows Server 2016
     - Windows Server 1709 sürümü
+    - Windows Server sürümü 1803
 - Linux
     - Hiçbir bilinen sınırlamalar
 
-## <a name="features-gaps-and-known-issues"></a>Özellikleri boşlukları ve bilinen sorunlar
+## <a name="developer-experience-issues"></a>Geliştirici deneyimi sorunları
 
-**Uygulamamın dağıttıktan sonra kendisiyle ilişkilendirilmiş bir ağ kaynağına bir IP adresi olarak görünmüyor**
+### <a name="dns-resolution-from-an-outbound-container-doesnt-work"></a>DNS çözümlemesi giden bir kapsayıcısından çalışmıyor
 
-Bugün bir gecikmeden sonra geldiğini IP adresi ile ilgili bilinen bir sorun yoktur. İlişkili IP adresi görmek için birkaç dakika içinde ağ kaynak durumunu denetleyin.
+Hizmetten hizmete iletişimi, belirli koşullar altında başarısız olabilir. Bu incelenmektedir. Azaltmak için:
 
-**Uygulamamın doğru ağ/birim kaynağına erişemiyor**
+- Windows Fall Creators update (1709 sürümü) kullanın veya temel kapsayıcı görüntünüzü olarak daha yüksek.
+- Tek başına bir hizmet adı işe yaramazsa, tam adı deneyin: ServiceName.ApplicationName.
+- Hizmetiniz için Docker dosyasına ekleyin `EXPOSE <port>` bağlantı noktası, bağlantı noktası olduğunda, hizmetinizi üzerinde karşı savunmasız bırakıyorsunuz. Örneğin:
 
-Uygulama modelinizde ilişkili kaynak erişebilmesi için ağları ve birimler için tam kaynak Kimliğini kullanmanız gerekir. Hızlı Başlangıç örnek göründüğüne aşağıda verilmiştir:
+```
+EXPOSE 80
+```
+
+### <a name="dns-does-not-work-the-same-as-it-does-for-service-fabric-development-clusters-and-in-mesh"></a>Service Fabric geliştirme kümeleri ve kafes yaptığı gibi DNS aynı çalışmıyor.
+
+Hizmetleri yerel geliştirme kümenizde Azure Mesh içinde farklı başvurmanız gerekir.
+
+Yerel geliştirme kümenizde kullanmak `{serviceName}.{applicationName}`. Azure Service Fabric Mesh, kullanın `{servicename}`. 
+
+Azure ağı uygulamalarda DNS çözümlemesi şu anda desteklemiyor.
+
+Windows 10'da bir Service Fabric geliştirme kümesi çalıştıran ile diğer bilinen DNS sorunları için bkz: [Windows kapsayıcıları hata ayıklama](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) ve [bilinen DNS sorunları](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
+
+### <a name="networking"></a>Ağ
+
+ServiceFabric ağ NAT uygulamanızı yerel makinenizde çalışan kullanırken kaybolabilir. Bu durumun geçerli olup olmadığını tanılamak için bir komut isteminden aşağıdaki komutu çalıştırın:
+
+`docker network ls` Not olmadığını `servicefabric_nat` listelenir.  Aksi durumda, ardından aşağıdaki komutu çalıştırın: `docker network create -d=nat --subnet 10.128.0.0/24 --gateway 10.128.0.1 servicefabric_nat`
+
+Uygulama zaten yerel olarak ve kötü bir durumda dağıtılması durumunda bile bu sorunu ele alınacaktır.
+
+### <a name="issues-running-multiple-apps"></a>Birden fazla uygulama çalıştıran sorunları
+
+CPU kullanılabilirlik ve tüm uygulamalar arasında düzeltilmekte olan sınırları karşılaşabilirsiniz. Azaltmak için:
+- Beş düğümlü bir küme oluşturun.
+- Dağıtılan uygulama Hizmetleri'nde CPU kullanımı azaltın. Örneğin, hizmetinizin service.yaml dosyasında değişiklik `cpu: 1.0` için `cpu: 0.5`
+
+Bir tek düğümlü kümeye birden çok uygulama dağıtılamaz. Azaltmak için:
+- Birden fazla uygulama için yerel bir küme dağıtılırken beş düğümlü bir küme kullanın.
+- Değil, şu anda sınadığınız uygulamaları kaldırın.
+
+## <a name="feature-gaps-and-other-known-issues"></a>Özellik boşluklarına ve ilgili bilinen diğer sorunlar
+
+### <a name="after-deploying-my-application-the-network-resource-associated-with-it-does-not-have-an-ip-address"></a>Uygulamamın dağıttıktan sonra kendisiyle ilişkili bir ağ kaynağına bir IP adresi yok
+
+Hangi IP adresini hemen kullanılabilir olmaz bilinen bir sorun yoktur. İlişkili IP adresi görmek için birkaç dakika içinde ağ kaynak durumunu denetleyin.
+
+### <a name="my-application-fails-to-access-the-right-networkvolume-resource"></a>Uygulamamın doğru ağ/birim kaynağına erişemiyor
+
+Uygulama modelinizde, ilişkili kaynak erişebilmesi için ağları ve birimler için tam kaynak Kimliğini kullanın. Hızlı Başlangıç örnek bir örnek burada verilmiştir:
 
 ```json
 "networkRefs": [
@@ -103,49 +151,9 @@ Uygulama modelinizde ilişkili kaynak erişebilmesi için ağları ve birimler i
 ]
 ```
 
-**My parolaları şifrelemek için bir yol destekleyen geçerli uygulama modeli görmez**
+### <a name="when-i-scale-out-all-of-my-containers-are-affected-including-running-ones"></a>Çıkış ölçeklediğinizde tüm my kapsayıcılar, olanları çalıştırmak dahil etkilenen
 
-Evet, gizli dizileri şifrelemek geçerli özel Önizleme sürümünde desteklenmiyor. 
-
-**DNS kafes ve Service Fabric geliştirme kümem de aynı şekilde çalışmaz**
-
-Burada, yerel geliştirme kümenizin farklı şekillerde ve Azure Ağ Hizmetleri başvuru yapması gerekli olabilir bilinen bir sorun yoktur. {ServiceName}, yerel geliştirme kümenizin kullanın. {applicationName}. Azure Service Fabric Mesh, {servicename} kullanın. Azure ağı uygulamalarda dns çözümlemesi şu anda desteklemiyor.
-
-Burada bir Service Fabric geliştirme kümesi üzerinde Windows 10 çalıştıran ile ilgili bilinen diğer DNS sorunlar için bkz: [hata ayıklama Windows kapsayıcıları](/azure/service-fabric/service-fabric-how-to-debug-windows-containers).
-
-**Bu hata CLI modülünde ImportError kullanırken Al: adı 'sdk_no_wait' içeri aktarılamıyor**
-
-2.0.30 daha eski CLI sürümünü kullanıyorsanız, bu hatayı alabilirler-
-
-```
-cannot import name 'sdk_no_wait'
-Traceback (most recent call last):
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\knack\cli.py", line 193, in invoke cmd_result = self.invocation.execute(args)
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core\commands_init_.py", line 241, in execute self.commands_loader.load_arguments(command)
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core_init_.py", line 201, in load_arguments self.command_table[command].load_arguments() # this loads the arguments via reflection
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core\commands_init_.py", line 142, in load_arguments super(AzCliCommand, self).load_arguments()
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\knack\commands.py", line 76, in load_arguments cmd_args = self.arguments_loader()
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core_init_.py", line 332, in default_arguments_loader op = handler or self.get_op_handler(operation)
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core_init_.py", line 375, in get_op_handler op = import_module(mod_to_import)
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\importlib_init_.py", line 126, in import_module return _bootstrap._gcd_import(name[level:], package, level)
-File "", line 978, in _gcd_import
-File "", line 961, in _find_and_load
-File "", line 950, in _find_and_load_unlocked
-File "", line 655, in _load_unlocked
-File "", line 678, in exec_module
-File "", line 205, in _call_with_frames_removed
-File "C:\Users\annayak.azure\cliextensions\azure-cli-sbz\azext_sbz\custom.py", line 18, in 
-from azure.cli.core.util import get_file_json, shell_safe_json_parse, sdk_no_wait
-ImportError: cannot import name 'sdk_no_wait'.
-```
-
-**Bir türde bir eşleşmeme dağıtım adı hatası CLI uzantı paketi yüklerken Al**
-
-Bu uzantı yüklenmediğini anlamına gelmez. Hala sorun yaşamadan CLI komutları kullanmanız mümkün olması gerekir.
-
-**Çıkış ölçeklediğinizde my tüm kapsayıcıları, my çalışan olanlar da dahil olmak üzere etkilenen olduğunu görüyorum**
-
-Bu bir hatadır ve sonraki çalışma zamanı yenileme düzeltilmelidir.
+Bu bir hatadır ve bir düzeltme uygulanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

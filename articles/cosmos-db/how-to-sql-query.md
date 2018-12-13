@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 86ad385488d9661abd52a2bd1a2d561956f0cbb3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 4f2a8431e353246b1f7304e7bfe30d13a7b4af4b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082569"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139308"
 ---
 # <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Azure Cosmos DB'den verileri sorgulamak için SQL sorgu örnekleri
 
@@ -21,7 +21,7 @@ Azure Cosmos DB SQL API hesabı bir JSON sorgu dili olarak SQL (yapılandırılm
 
 * Azure Cosmos DB, temel olarak JavaScript'in programlama modeli için sorgu dili kullanır. SQL API'si, JavaScript'in tür sistemi, ifade değerlendirmesi ve işlev çağrısını kökü belirtilmemiş. Bu, dönüş JSON öğeleri arasında bir ilişkisel projeksiyonlar için doğal bir programlama modeli, hiyerarşik gezinme sağlar, kendinden birleştirmeler, uzamsal sorgular ve tamamı JavaScript'te bulunan, yanı sıra başka özellikler yazılan çağırma kullanıcı tanımlı işlevler (UDF'ler).
 
-Bu makalede basit JSON öğeleri kullanarak SQL sorguları bazı örnekler gösterilmektedir. Azure Cosmos DB SQL dili sözdizimi hakkında bilgi edinmek için [SQL söz dizimi başvurusu](sql-api-sql-query-reference.md) makalesi.
+Bu makalede basit JSON öğeleri kullanarak SQL sorguları bazı örnekler gösterilmektedir. Azure Cosmos DB SQL dili sözdizimi hakkında bilgi edinmek için [SQL söz dizimi başvurusu](sql-api-query-reference.md) makalesi.
 
 ## <a id="GettingStarted"></a>SQL komutları ile çalışmaya başlama
 
@@ -86,7 +86,7 @@ Bir fark – ikinci bir öğeyle işte `givenName` ve `familyName` yerine kullan
 
 Artık Azure Cosmos DB SQL sorgu dili önemli yönlerini bazıları anlamak için bu verilere karşı birkaç sorgu deneyelim.
 
-**Sorgu1**: Örneğin, aşağıdaki sorgu Kimliği alanı eşleştiği öğeler döndürür `AndersenFamily`. Olduğundan bir `SELECT *`sorgunun çıkışı eksiksiz JSON öğesi, söz dizimi hakkında bilgi edinmek için bkz [SELECT deyimi](sql-api-sql-query-reference.md#select-query):
+**Sorgu1**: Örneğin, aşağıdaki sorgu Kimliği alanı eşleştiği öğeler döndürür `AndersenFamily`. Olduğundan bir `SELECT *`sorgunun çıkışı eksiksiz JSON öğesi, söz dizimi hakkında bilgi edinmek için bkz [SELECT deyimi](sql-api-query-reference.md#select-query):
 
 ```sql
     SELECT *
@@ -116,7 +116,7 @@ Artık Azure Cosmos DB SQL sorgu dili önemli yönlerini bazıları anlamak içi
     }]
 ```
 
-**Sorgu2:** artık burada ihtiyacımız farklı JSON çıkışını yeniden biçimlendirmek için bir durum düşünün. Adresi Şehir durumu olarak aynı ada sahip olduğunda bu sorgu adı ve şehir olmak üzere iki seçili alanları içeren yeni bir JSON nesnesi projelere. Bu durumda, "NY, NY" ile eşleşir.
+**Sorgu2:** Şimdi, burada JSON çıkışını farklı yeniden biçimlendirmek için ihtiyacımız durumu göz önünde bulundurun. Adresi Şehir durumu olarak aynı ada sahip olduğunda bu sorgu adı ve şehir olmak üzere iki seçili alanları içeren yeni bir JSON nesnesi projelere. Bu durumda, "NY, NY" ile eşleşir.
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
@@ -135,7 +135,7 @@ Artık Azure Cosmos DB SQL sorgu dili önemli yönlerini bazıları anlamak içi
     }]
 ```
 
-**Query3**: kimliği eşleşir ailedeki çocukların tüm adlarını Children bu sorgunun döndürdüğü `WakefieldFamily` ikametgahınızda şehirlere göre sıralanmış.
+**Query3**: Kimliği eşleşir ailedeki çocukların tüm adlarını Children bu sorgunun döndürdüğü `WakefieldFamily` ikametgahınızda şehirlere göre sıralanmış.
 
 ```sql
     SELECT c.givenName
@@ -166,7 +166,7 @@ Artık Azure Cosmos DB SQL sorgu dili önemli yönlerini bazıları anlamak içi
 
 ## <a id="SelectClause"></a>select tümcesi
 
-Her sorgu bir SELECT yan tümcesi ve isteğe bağlı FROM oluşur ve WHERE yan tümcelerini başına ANSI SQL standartları. Genellikle, her sorgu için kaynak FROM yan tümcesindeki numaralandırılmış alan şeklinde. Ardından filtre WHERE yan tümcesinde JSON öğelerinin kümesini almak için kaynak uygulanır. Son olarak, SELECT yan tümcesi, select listesindeki istenen JSON değerleri proje için kullanılır. Söz dizimi hakkında bilgi edinmek için [SELECT söz dizimi](sql-api-sql-query-reference.md#bk_select_query).
+Her sorgu bir SELECT yan tümcesi ve isteğe bağlı FROM oluşur ve WHERE yan tümcelerini başına ANSI SQL standartları. Genellikle, her sorgu için kaynak FROM yan tümcesindeki numaralandırılmış alan şeklinde. Ardından filtre WHERE yan tümcesinde JSON öğelerinin kümesini almak için kaynak uygulanır. Son olarak, SELECT yan tümcesi, select listesindeki istenen JSON değerleri proje için kullanılır. Söz dizimi hakkında bilgi edinmek için [SELECT söz dizimi](sql-api-query-reference.md#bk_select_query).
 
 Aşağıdaki örnek, tipik bir SELECT sorgusu gösterir.
 
@@ -260,7 +260,7 @@ Rolü, bakalım `$1` burada. `SELECT` Yan tümcesi bir JSON nesnesi oluşturmak 
 
 ## <a id="FromClause"></a>FROM yan tümcesi
 
-Kaynak filtre veya sorguyu daha sonra öngörülen sürece < from_specification > yan tümcesinin isteğe bağlıdır. Söz dizimi hakkında bilgi edinmek için [SÖZDİZİMİNDEN](sql-api-sql-query-reference.md#bk_from_clause). Bir sorgu ister `SELECT * FROM Families` aileleri kapsayıcının tamamı üzerinden numaralandırmak kaynak olduğunu gösterir. Özel bir tanımlayıcısı kök kapsayıcı adı yerine kapsayıcıyı temsil etmek için kullanılabilir.
+Kaynak filtre veya sorguyu daha sonra öngörülen sürece < from_specification > yan tümcesinin isteğe bağlıdır. Söz dizimi hakkında bilgi edinmek için [SÖZDİZİMİNDEN](sql-api-query-reference.md#bk_from_clause). Bir sorgu ister `SELECT * FROM Families` aileleri kapsayıcının tamamı üzerinden numaralandırmak kaynak olduğunu gösterir. Özel bir tanımlayıcısı kök kapsayıcı adı yerine kapsayıcıyı temsil etmek için kullanılabilir.
 Aşağıdaki listede, sorgu uygulanan kurallar içerir:
 
 * Kapsayıcı gibi diğer adı, olabilir `SELECT f.id FROM Families AS f` ya da yalnızca `SELECT f.id FROM Families f`. Burada `f` eşdeğerdir `Families`. `AS` diğer isteğe bağlı bir anahtar sözcük tanımlayıcısıdır.  
@@ -313,7 +313,7 @@ Kaynak, ayrıca daha küçük bir alt kümesine azaltılabilir. Örneğin, yaln�
     ]
 ```
 
-Yukarıdaki örnekte, bir dizi kaynak olarak kullanılabilir. ancak, bir nesne de, aşağıdaki örnekte gösterilene kaynağı olarak kullanılabilir: sorgu sonucunu eklenmesi için kaynak bulunabilir (tanımsız değil) tüm geçerli JSON değeri olarak kabul edilir. Bazı aileleri yoksa bir `address.state` değeri sorgu sonucu hariç tutulur.
+Yukarıdaki örnekte, bir dizi kaynak olarak kullanılabilir. ancak, bir nesne de, aşağıdaki örnekte gösterilene kaynağı olarak kullanılabilir: Sorgu sonucu edilme kaynakta bulunabilir (tanımsız değil) tüm geçerli JSON değeri olarak kabul edilir. Bazı aileleri yoksa bir `address.state` değeri sorgu sonucu hariç tutulur.
 
 **Sorgu**
 
@@ -333,7 +333,7 @@ Yukarıdaki örnekte, bir dizi kaynak olarak kullanılabilir. ancak, bir nesne d
 
 ## <a id="WhereClause"></a>WHERE yan tümcesi
 
-WHERE yan tümcesi (**`WHERE <filter_condition>`**) isteğe bağlıdır. Bu JSON öğelerinin kaynak tarafından sağlanan koşulları sonucunu bir parçası olarak dahil edilmesi için karşılaması gereken belirtir. Herhangi bir JSON öğesini "için sonuç olarak kabul edilmesi için true olarak" belirli koşullar değerlendirmelidir. WHERE yan tümcesi, sonuç bir parçası olabilir kaynak öğeleri mutlak en küçük kümesini belirlemek için dizin katmanı tarafından kullanılır. Söz dizimi hakkında bilgi edinmek için [nerede söz dizimi](sql-api-sql-query-reference.md#bk_where_clause).
+WHERE yan tümcesi (**`WHERE <filter_condition>`**) isteğe bağlıdır. Bu JSON öğelerinin kaynak tarafından sağlanan koşulları sonucunu bir parçası olarak dahil edilmesi için karşılaması gereken belirtir. Herhangi bir JSON öğesini "için sonuç olarak kabul edilmesi için true olarak" belirli koşullar değerlendirmelidir. WHERE yan tümcesi, sonuç bir parçası olabilir kaynak öğeleri mutlak en küçük kümesini belirlemek için dizin katmanı tarafından kullanılır. Söz dizimi hakkında bilgi edinmek için [nerede söz dizimi](sql-api-query-reference.md#bk_where_clause).
 
 Aşağıdaki sorgu, değeri olan bir ad özelliği içeren öğeleri istekleri `AndersenFamily`. Bir name özelliğine sahip olmayan başka bir öğe veya burada değeri eşleşmiyor `AndersenFamily` çıkarılır.
 
@@ -1627,7 +1627,7 @@ Aşağıdaki resimde, Cosmos DB kullanarak LINQ sorgularını destekleyen mimari
 
 ### <a name="net-and-json-mapping"></a>.NET ve JSON eşleme
 
-.NET nesneleri ile JSON öğeleri arasındaki eşlemeyi doğal - burada nesne "anahtarını" bölümüne alan adı eşlenir ve "value" bölümü eşlenmiş nesne değeri parçası yinelemeli olarak bir JSON nesnesi, her veri üyesi alanı eşlenir. Aşağıdaki örneği göz önünde bulundurun: Aile nesnesi oluşturuldu, aşağıda gösterildiği gibi JSON öğesine eşlendi. Ve tersi, JSON öğesi bir .NET nesnesine eşlendi.
+.NET nesneleri ile JSON öğeleri arasındaki eşlemeyi doğal - burada nesne "anahtarını" bölümüne alan adı eşlenir ve "value" bölümü eşlenmiş nesne değeri parçası yinelemeli olarak bir JSON nesnesi, her veri üyesi alanı eşlenir. Aşağıdaki örnek göz önünde bulundurun: Oluşturulan aile nesnesi, aşağıda gösterildiği gibi JSON öğesine eşlendi. Ve tersi, JSON öğesi bir .NET nesnesine eşlendi.
 
 **C# sınıfı**
 
@@ -1735,19 +1735,19 @@ Cosmos DB sorgu sağlayıcısı bir en iyi çaba eşleme bir Cosmos DB SQL sorgu
 
 SQL .NET SDK'sı ile dahil LINQ Sağlayıcısı'nda desteklenen LINQ işleçlerin bir listesi aşağıda verilmiştir.
 
-* **Seçin**: projeksiyonlar Çevir SQL nesne oluşturmayı da dahil olmak üzere Seç
-* **Burada**: filtreler SQL WHERE için çevir ve Destek arasında çeviri & &, || ve! SQL işleçleri
+* **Seçin**: SQL nesnesi oluşturma da dahil olmak üzere SEÇMEK için projeksiyonlar Çevir
+* **Burada**: Filtreler SQL WHERE için çevir ve Destek arasında çeviri & &, || ve! SQL işleçleri
 * **SelectMany**: SQL JOIN yan tümcesine dizi geriye doğru izleme sağlar. Dizi öğeleri üzerinde filtre ifadeleri zinciri/iç içe yerleştirme için kullanılabilir
 * **OrderBy ve OrderByDescending**: ORDER BY artan/azalan düzene çevirir
 * **Sayısı**, **toplam**, **Min**, **Max**, ve **ortalama** işleçleri toplama ve zaman uyumsuz eşdeğerlerine **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, ve **AverageAsync**.
-* **CompareTo**: aralık karşılaştırmalar çevirir. . NET'te karşılaştırılabilir değilseniz bu yana dizeleri için yaygın olarak kullanılan
+* **CompareTo**: Aralık karşılaştırmalar çevirir. . NET'te karşılaştırılabilir değilseniz bu yana dizeleri için yaygın olarak kullanılan
 * **Ele**: SQL sorgu sonuçlarından sınırlamak için üst çevirir
-* **Matematik işlevleri**: çevrilmesi destekler. NET Abs, Acos, Asin, Atan, Cos, Ceiling, Exp, kat, günlük, Log10, Pow, hepsini, oturum, Sin, Sqrt, Bronz, Truncate eşdeğer SQL yerleşik işlevler.
-* **Dize işlevleri**: çevrilmesi destekler. NET Concat, Contains, EndsWith, IndexOf, sayısı, ToLower, TrimStart, Değiştir, ters, TrimEnd, StartsWith, SubString, ToUpper eşdeğer SQL yerleşik işlevleri.
-* **Dizi işlevleri**: çevrilmesi destekler. NET Concat, içerir ve eşdeğer SQL yerleşik işlevler sayısı.
-* **Jeo-uzamsal uzantı işlevleri**: saptama yöntemleri IsValid ve IsValidDetailed içinde bir uzaklık çevrilecek eşdeğer SQL yerleşik işlevleri destekler.
-* **Kullanıcı tanımlı işlev uzantı işlevi**: çeviri saplama yönteminden UserDefinedFunctionProvider.Invoke karşılık gelen kullanıcı tanımlı işlevi destekler.
-* **Çeşitli**: çeviri Koşullu işleçler ve birleşim destekler. Dize içerir, ARRAY_CONTAINS veya bağlama bağlı olarak SQL IN içerir çevirebilir.
+* **Matematik işlevleri**: ' Den destekler. NET Abs, Acos, Asin, Atan, Cos, Ceiling, Exp, kat, günlük, Log10, Pow, hepsini, oturum, Sin, Sqrt, Bronz, Truncate eşdeğer SQL yerleşik işlevler.
+* **Dize işlevleri**: ' Den destekler. NET Concat, Contains, EndsWith, IndexOf, sayısı, ToLower, TrimStart, Değiştir, ters, TrimEnd, StartsWith, SubString, ToUpper eşdeğer SQL yerleşik işlevleri.
+* **Dizi işlevleri**: ' Den destekler. NET Concat, içerir ve eşdeğer SQL yerleşik işlevler sayısı.
+* **Jeo-uzamsal uzantısı işlevleri**: Saptama yöntemleri IsValid ve IsValidDetailed içinde bir uzaklık çevrilecek eşdeğer SQL yerleşik işlevleri destekler.
+* **Kullanıcı tanımlı işlev uzantı işlevi**: Saplama yönteminden UserDefinedFunctionProvider.Invoke çeviri karşılık gelen kullanıcı tanımlı işlevi destekler.
+* **Çeşitli**: Koşullu işleçler ve birleşim çeviri destekler. Dize içerir, ARRAY_CONTAINS veya bağlama bağlı olarak SQL IN içerir çevirebilir.
 
 ### <a name="sql-query-operators"></a>SQL sorgu işleçleri
 
@@ -2117,7 +2117,7 @@ Sorgular için veri tutarlılık ilkesi yönetmek için kullandığınız `x-ms-
 
 Belirtilen sorgu kapsayıcı üzerindeki yapılandırılmış dizin oluşturma ilkesini destekleyemiyorsa, Azure Cosmos DB sunucusu 400 "Bad Request" döndürür. Aralık sorguları açıkça dizine elmadan hariç yolları yanı sıra, karma (eşitlik) aramaları için yapılandırılan yollar için bu hata iletisini döndürdü. `x-ms-documentdb-query-enable-scan` Bir dizini olmadığında bir tarama gerçekleştirmek sorgu izin vermek için üst bilgi belirtilebilir.
 
-Ayarlayarak, sorgu yürütme ayrıntılı ölçümleri alabilirsiniz `x-ms-documentdb-populatequerymetrics` başlığına `True`. Daha fazla bilgi için [Azure Cosmos DB için SQL sorgu ölçümleri](sql-api-sql-query-metrics.md).
+Ayarlayarak, sorgu yürütme ayrıntılı ölçümleri alabilirsiniz `x-ms-documentdb-populatequerymetrics` başlığına `True`. Daha fazla bilgi için [Azure Cosmos DB için SQL sorgu ölçümleri](sql-api-query-metrics.md).
 
 ### <a id="DotNetSdk"></a>C# (.NET) SDK'SI
 
@@ -2263,7 +2263,7 @@ Aşağıdaki örnek queryDocuments JavaScript Sunucusu API sorgularından yapmak
 9. Değerlendirme tekniklerini büyük veritabanları için sorgu [https://dl.acm.org/citation.cfm?id=152611](https://dl.acm.org/citation.cfm?id=152611)
 10. Sorgu 1994 paralel ilişkisel veritabanı sistemleri, IEEE bilgisayarda topluluğu Press, işleme
 11. Lu, Ooi, Bronz, sorgu 1994 paralel ilişkisel veritabanı sistemleri, IEEE bilgisayarda topluluğu Press, işleme.
-12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: olmayan şekilde yabancı dil için veri işleme, SIGMOD 2008.
+12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin'i: Veri işleme, SIGMOD 2008 olmayan şekilde yabancı dili.
 13. G. Graefe. Basamaklar framework sorgu iyileştirme. IEEE veri Müh Bull., 18(3): 1995.
 
 [1]: ./media/how-to-sql-query/sql-query1.png

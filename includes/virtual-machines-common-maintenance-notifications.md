@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: b8d759c7b55608be780389991e6bb393f4f3fe9f
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 609389460ab18ba947130e64dbe7b599574816a5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981776"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53215952"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Portalda bakım için zamanlanmış Vm'leri görüntüleme
 
@@ -29,7 +29,7 @@ Azure portalını kullanın ve bakım için zamanlanmış Vm'leri arayın.
 
 4. Seçin ve aşağıdaki sütunları ekleyin:
 
-   **Bakım**: Bakım durumu için VM gösterir. Olası değerler şunlardır:
+   **Bakım**: VM için bakım durumu gösterilir. Olası değerler şunlardır:
       
       | Değer | Açıklama |
       |-------|-------------|
@@ -41,15 +41,15 @@ Azure portalını kullanın ve bakım için zamanlanmış Vm'leri arayın.
       | - | Sanal makinenize bir planlı bakım dalgası parçası değil. |
       
 
-   **Bakım - Self Servis pencere**: Bakım kendi Vm'lerinizde başlayabilirsiniz zaman penceresi gösterilir.
+   **Bakım - Self Servis pencere**: Vm'lerinizde kendi kendine Bakımı başlayabilirsiniz zaman penceresi gösterilir.
    
-   **Bakım - zamanlanmış pencere**: Azure sanal makinenizin bakım tamamlamak için bakımını yaparken zaman penceresini gösterir. 
+   **Bakım - zamanlanmış pencere**: Azure, sanal Makinenizin bakım tamamlamak için bakımını yaparken zaman penceresini gösterir. 
 
 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Bildirim ve Portalı'nda uyarılar
 
-Azure aboneliğine sahip ve ikincil sahipler gruba e-posta göndererek planlı bakım için zamanlama iletişim kurar. Azure etkinlik günlüğü uyarıları oluşturarak, bu iletişim için ek alıcılar ve kanallar ekleyebilirsiniz. Daha fazla bilgi için [etkinlik günlüğü uyarıları hizmet bildirimlerinde oluşturma](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
+Azure aboneliğine sahip ve ikincil sahipler gruba e-posta göndererek planlı bakım için zamanlama iletişim kurar. Azure etkinlik günlüğü uyarıları oluşturarak, bu iletişim için ek alıcılar ve kanallar ekleyebilirsiniz. Daha fazla bilgi için [etkinlik günlüğü uyarıları hizmet bildirimlerinde oluşturma](../articles/azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 Ayarladığınızdan emin olun **olay türü** olarak **planlı Bakım** ve **Hizmetleri** olarak **sanal makine ölçek kümeleri** ve/veya **Sanal makineler**
     

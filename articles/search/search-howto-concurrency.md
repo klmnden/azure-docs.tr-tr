@@ -1,5 +1,5 @@
 ---
-title: Kaynakları Azure Search'te eş zamanlı yazma işlemlerini yönetme
+title: Kaynaklar - Azure Search için eş zamanlı yazma yönetme
 description: Güncelleştirme ve silme için Azure Search dizinlerini, dizin oluşturucular veri kaynakları üzerinde Orta hava çarpışmalardan kaçınmak için iyimser eşzamanlılığı kullanın.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
-ms.openlocfilehash: 764c39b6619f42c5b765d53af4cbfbe43f1d8799
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec2018
+ms.openlocfilehash: 017f665f3d0d19746854e2cf566034f801b32a04
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967506"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310274"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Azure Search'te eşzamanlılığı yönetme
 
@@ -24,9 +25,9 @@ ms.locfileid: "52967506"
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
-İyimser eşzamanlılık uygulanan Erişim koşul dizinler, dizin oluşturucular, veri kaynakları ve synonymMap kaynaklara yazma API çağrıları olarak denetler. 
+İyimser eşzamanlılık uygulanan Erişim koşul dizinler, dizin oluşturucular, veri kaynakları ve synonymMap kaynaklara yazma API çağrıları olarak denetler.
 
-Tüm kaynaklara sahip bir [ *varlık etiketi (ETag)* ](https://en.wikipedia.org/wiki/HTTP_ETag) nesne sürüm bilgilerini sağlar. ETag ilk denetleyerek, tipik bir iş akışında eş zamanlı güncelleştirmelerin kaçınabilirsiniz (Al, yerel olarak değiştirmek, güncelleştirme) kaynağın ETag eşleşen yerel kopyanızı sağlayarak. 
+Tüm kaynaklara sahip bir [ *varlık etiketi (ETag)* ](https://en.wikipedia.org/wiki/HTTP_ETag) nesne sürüm bilgilerini sağlar. ETag ilk denetleyerek, tipik bir iş akışında eş zamanlı güncelleştirmelerin kaçınabilirsiniz (Al, yerel olarak değiştirmek, güncelleştirme) kaynağın ETag eşleşen yerel kopyanızı sağlayarak.
 
 + REST API kullanan bir [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) isteği başlığı.
 + .NET SDK'sını ayarlama accessCondition nesneyi aracılığıyla ETag ayarlar [IF-Match | IF-Match-hiçbiri üstbilgi](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) kaynağı. Öğesinden devralan herhangi bir nesne [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) accessCondition nesnesi vardır.
@@ -34,7 +35,7 @@ Tüm kaynaklara sahip bir [ *varlık etiketi (ETag)* ](https://en.wikipedia.org/
 Dosyanın etag değeri, bir kaynak her güncelleştirdiğinizde otomatik olarak değiştirir. Eşzamanlılık yönetimini uyguladığınızda, tüm yaptığınız sokarak önkoşulu güncelleştirme isteğinde uzak kaynak istemcide değiştirilen kaynak kopyası olarak aynı ETag olmasını gerektirir. Eşzamanlı bir işlem zaten uzak kaynak değiştirilmesi durumunda ETag önkoşulu eşleşmez ve İstek HTTP 412 ile başarısız olur. .NET SDK'sı kullanıyorsanız olarak bu bildirimleri bir `CloudException` burada `IsAccessConditionFailed()` genişletme yöntemi true döndürür.
 
 > [!Note]
-> Tek bir eşzamanlılık mekanizması yoktur. Kaynak güncelleştirmeleri için kullanılan API bağımsız olarak her zaman kullanılır. 
+> Tek bir eşzamanlılık mekanizması yoktur. Kaynak güncelleştirmeleri için kullanılan API bağımsız olarak her zaman kullanılır.
 
 <a name="samplecode"></a>
 ## <a name="use-cases-and-sample-code"></a>Kullanım örnekleri ve örnek kod
@@ -111,7 +112,7 @@ Aşağıdaki kod, anahtar güncelleştirme işlemlerinde accessCondition denetle
             {
                 indexForClient2.Fields.Add(new Field("b", DataType.Boolean));
                 serviceClient.Indexes.CreateOrUpdate(
-                    indexForClient2, 
+                    indexForClient2,
                     accessCondition: AccessCondition.IfNotChanged(indexForClient2));
 
                 Console.WriteLine("Whoops; This shouldn't happen");
@@ -167,9 +168,9 @@ Aşağıdaki kod, anahtar güncelleştirme işlemlerinde accessCondition denetle
 
 ## <a name="design-pattern"></a>Tasarım deseni
 
-Uygulamak için bir tasarım deseni iyimser eşzamanlılık erişim koşulu yeniden deneme bir döngü içermelidir, test erişim koşulu için kontrol edin ve isteğe bağlı olarak, değişiklikleri yeniden uygulayın çalışmadan önce güncelleştirilmiş bir kaynak alır. 
+Uygulamak için bir tasarım deseni iyimser eşzamanlılık erişim koşulu yeniden deneme bir döngü içermelidir, test erişim koşulu için kontrol edin ve isteğe bağlı olarak, değişiklikleri yeniden uygulayın çalışmadan önce güncelleştirilmiş bir kaynak alır.
 
-Bu kod parçacığı bir synonymMap zaten bir dizine eklenmesi gösterilmektedir. Bu kod dandır [eş anlamlı (Önizleme) C# Azure Search Öğreticisi](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk). 
+Bu kod parçacığı bir synonymMap zaten bir dizine eklenmesi gösterilmektedir. Bu kod dandır [eş anlamlı (Önizleme) C# Azure Search Öğreticisi](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk).
 
 Kod parçacığı, "hotels" dizinini alır, bir güncelleştirme işlemi nesne sürümünde denetler, koşul başarısız olursa, bir özel durum oluşturur ve en son sürümünü almak için sunucu dizini alma başlayarak bu işlemi (en fazla üç kez), deneme.
 
@@ -211,10 +212,11 @@ Gözden geçirme [eş anlamlılar C# örnek](https://github.com/Azure-Samples/se
 
 Etag'ler veya AccessCondition nesneleri eklemek için aşağıdaki örnekleri birini değiştirmeyi deneyin.
 
-+ [Github'daki örnek REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) 
++ [Github'daki örnek REST API](https://github.com/Azure-Samples/search-rest-api-getting-started)
 + [.NET SDK'sı örneği github'daki](https://github.com/Azure-Samples/search-dotnet-getting-started). Bu çözüm, bu makalede gösterilen kodu içeren "DotNetEtagsExplainer" proje içerir.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-  [Ortak HTTP istek ve yanıt üst bilgileri](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)    
-  [HTTP durum kodları](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) [dizin işlemler (REST API'si)](https://docs.microsoft.com/rest/api/searchservice/index-operations)
+[Ortak HTTP istek ve yanıt üst bilgilerini](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
+[HTTP durum kodları](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)
+[dizin işlemler (REST API'si)](https://docs.microsoft.com/rest/api/searchservice/index-operations)

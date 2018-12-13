@@ -1,6 +1,6 @@
 ---
-title: Azure tablo depolama ile Azure Search dizini oluşturma | Microsoft Docs
-description: Azure arama ile Azure tablo depolama depolanan veri dizini öğrenin
+title: Azure tablo depolaması için tam metin arama - Azure Search dizini içeriği
+description: Azure arama ile Azure tablo depolama depolanan veri dizini öğrenin.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 738518f94869a55cf80db1c87b8c74b167f5cce1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: 39455669dd739309ac0201de49b390c2390e0067
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406934"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317279"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Azure Search dizini Azure tablo depolama
 Bu makalede, Azure Search için Azure tablo depolamada depolanan dizin verilerini nasıl kullanılacağını gösterir.
@@ -29,7 +30,7 @@ Bu kaynakları kullanarak Azure tablo depolama dizin oluşturucu ayarlayabilirsi
 
 Burada biz REST API kullanarak akışı gösterilmektedir. 
 
-### <a name="step-1-create-a-datasource"></a>1. adım: bir veri kaynağı oluşturma
+### <a name="step-1-create-a-datasource"></a>1. Adım: Veritabanı oluşturma
 
 Bir veri kaynağı, hangi verilerin dizin için veriler ve verilerdeki değişikliklerin etkili bir şekilde tanımlamak Azure arama'yı etkinleştirmek ilkeleri erişmek için gerekli kimlik bilgilerini belirtir.
 
@@ -66,9 +67,9 @@ Veri kaynağı oluşturma API'si hakkında daha fazla bilgi için bkz. [veri kay
 
 Bu şekilde tablosu için kimlik bilgileri sağlayabilirsiniz: 
 
-- **Tam erişim depolama hesabı bağlantı dizesi**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` giderek bağlantı dizesini Azure portalından alabilirsiniz **depolama hesabı dikey** > **ayarları**  >  **Anahtarları** (için Klasik depolama hesapları için) veya **ayarları** > **erişim anahtarları** (için Azure Resource Manager depolama hesapları).
-- **Depolama hesabı, paylaşılan erişim imzası bağlantı dizesi**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` paylaşılan erişim imzası listesine sahip ve kapsayıcı (Bu durumda tablolar) ve nesne (tablo satırları) izinlerini okuyun.
--  **Tablo paylaşılan erişim imzası**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` paylaşılan erişim imzası tablosunda (okuma) sorgu izinleri olmalıdır.
+- **Tam erişim depolama hesabı bağlantı dizesi**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Giderek bağlantı dizesini Azure portalından alabilirsiniz **depolama hesabı dikey** > **ayarları** > **anahtarları** (Klasik için Depolama hesapları için) veya **ayarları** > **erişim anahtarları** (için Azure Resource Manager depolama hesaplarında).
+- **Depolama hesabı, paylaşılan erişim imzası bağlantı dizesi**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` Paylaşılan erişim imzası, listesine sahip ve kapsayıcı (Bu durumda tablolar) ve nesne (tablo satırları) izinlerini okuyun.
+-  **Tablo paylaşılan erişim imzası**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` Paylaşılan erişim imzası tablosunda (okuma) sorgu izinleri olmalıdır.
 
 Paylaşılan depolama hakkında daha fazla bilgi için erişim imzaları, bkz: [paylaşılan erişim imzaları kullanma](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -94,7 +95,7 @@ Bir dizin oluşturmak için:
 
 Dizinler oluşturma ile ilgili daha fazla bilgi için bkz: [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-### <a name="step-3-create-an-indexer"></a>3. adım: bir dizin oluşturucu oluşturma
+### <a name="step-3-create-an-indexer"></a>3. adım: Dizin oluşturucu oluşturma
 Bir dizin oluşturucu, bir veri kaynağı ile bir hedef arama dizinine bağlar ve veri yenilemeyi otomatikleştirmek için bir zamanlama sağlar. 
 
 Veri kaynağı ve dizin oluşturulduktan sonra Dizin Oluşturucu oluşturmaya hazırsınız:

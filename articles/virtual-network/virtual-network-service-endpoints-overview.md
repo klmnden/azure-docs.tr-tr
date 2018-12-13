@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 7fa22e6e3eacd3647a426938aa0c3c7862dd0111
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8150774a630e6888dcd3bb5a4d219cfbf2c2c477
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102903"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310173"
 ---
 # <a name="virtual-network-service-endpoints"></a>Sanal Ağ Hizmeti Uç Noktaları
 
@@ -30,19 +30,20 @@ Bu özellik aşağıdaki Azure hizmetleri ve bölgeleri için sağlanır:
 
 **Genel kullanıma sunuldu**
 
-- **[Azure Depolama](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: Tüm Azure bölgelerinde genel kullanıma sunuldu.
-- **[Azure SQL Veritabanı](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure bölgelerinde genel kullanıma sunuldu.
-- **[Azure SQL veri ambarı](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: tüm Azure bölgelerinde kullanıma sunuldu.
-- **[PostgreSQL için Azure Veritabanı sunucusu](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Veritabanı hizmetinin sağlandığı Azure bölgelerinde genel olarak kullanılabilir.
-- **[MySQL için Azure Veritabanı sunucusu](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Veritabanı hizmetinin sağlandığı Azure bölgelerinde genel olarak kullanılabilir.
-- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure genel bulut bölgelerinde Genel Kullanıma sunuldu.
-- **[Azure Key Vault](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**: Tüm Azure genel bulut bölgelerinde genel kullanıma sunuldu.
+- **[Azure depolama](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: Tüm Azure bölgelerinde genel olarak kullanılabilir.
+- **[Azure SQL veritabanı](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure bölgelerinde genel olarak kullanılabilir.
+- **[Azure SQL veri ambarı](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure bölgelerinde genel olarak kullanılabilir.
+- **[PostgreSQL sunucusu için Azure veritabanı](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Veritabanı hizmeti kullanılabilir olduğu Azure bölgelerinde genel olarak kullanılabilir.
+- **[MySQL sunucusu için Azure veritabanı](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Veritabanı hizmeti kullanılabilir olduğu Azure bölgelerinde genel olarak kullanılabilir.
+- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure genel bulut bölgelerinde genel olarak kullanılabilir.
+- **[Azure anahtar kasası](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**: Tüm Azure genel bulut bölgelerinde genel olarak kullanılabilir.
+- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure genel bulut bölgelerinde genel olarak kullanılabilir.
+- **[Azure Event Hubs'a](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure genel bulut bölgelerinde genel olarak kullanılabilir.
 
 **Önizleme**
 
-- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Önizleme sürümünde kullanılabilir.
-- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Önizleme sürümünde kullanılabilir.
-- **[Azure Data Lake Store 1. Nesil](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Önizleme sürümünde kullanılabilir.
+- **[Azure SQL veri ambarı](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure genel bulutunda bölgelerde önizleme olarak kullanılabilir.
+- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Önizleme kullanılabilir.
 
 En güncel bildirimler için [Azure Sanal Ağ güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network) sayfasını inceleyin.
 
@@ -50,11 +51,11 @@ En güncel bildirimler için [Azure Sanal Ağ güncelleştirmeleri](https://azur
 
 Hizmet uç noktaları aşağıdaki avantajları sağlar:
 
-- **Azure hizmet kaynaklarınız için geliştirilmiş güvenlik**: Sanal ağ özel adres alanı çakışabilir ve bu nedenle sanal ağınızdan gelen trafiğin benzersiz olarak tanımlanması için kullanılamaz. Hizmet uç noktaları, sanal ağ kimliğini hizmete taşıyarak Azure hizmeti kaynaklarının sanal ağınıza sunulmasını sağlar. Hizmet uç noktaları sanal ağınızda etkinleştirdikten sonra, kaynaklara bir sanal ağ kuralı ekleyerek sanal ağınıza bağlı olan Azure hizmet kaynaklarının güvenliğini sağlayabilirsiniz. Bu sayede kaynaklara genel İnternet erişimini tamamen kaldırıp yalnızca sanal ağınızdan gelen trafiğe izin vererek güvenliği artırabilirsiniz.
-- **Sanal Ağınızdan gelen Azure trafiği için en uygun yönlendirme**: Günümüzde sanal ağınızda İnternet trafiğini şirket içi ve/veya sanal gereçlerden geçmeye zorlayan tüm rotalar (zorlamalı tünel oluşturma olarak bilinir) Azure hizmet trafiğini de İnternet trafiğiyle aynı rotadan geçmeye zorlar. Hizmet uç noktaları Azure trafiği için en uygun rotayı sunar. 
+- **Azure hizmet kaynaklarınız için geliştirilmiş güvenlik**: Sanal ağ özel adres alanınızı çakışan olabilir ve bu nedenle, ağınızdan kaynaklanan trafik benzersiz olarak tanımlanabilmesi için kullanılamaz. Hizmet uç noktaları, sanal ağ kimliğini hizmete taşıyarak Azure hizmeti kaynaklarının sanal ağınıza sunulmasını sağlar. Hizmet uç noktaları sanal ağınızda etkinleştirdikten sonra, kaynaklara bir sanal ağ kuralı ekleyerek sanal ağınıza bağlı olan Azure hizmet kaynaklarının güvenliğini sağlayabilirsiniz. Bu sayede kaynaklara genel İnternet erişimini tamamen kaldırıp yalnızca sanal ağınızdan gelen trafiğe izin vererek güvenliği artırabilirsiniz.
+- **Sanal ağınızdan gelen Azure trafiği için en iyi yönlendirmeyi**: Günümüzde sanal ağınızda Internet trafiğini şirket içi ve/veya zorlamalı tünel olarak bilinen sanal gereçlerden geçmeye zorlayan tüm rotalar de Azure hizmet trafiğini Internet trafiğiyle aynı rotadan geçmeye zorlar. Hizmet uç noktaları Azure trafiği için en uygun rotayı sunar. 
 
   Uç noktalar her zaman hizmet trafiğini sanal ağınızdan doğrudan Microsoft Azure omurga ağındaki hizmete yönlendirir. Trafiğin Azure omurga ağında tutulması, zorlamalı tünel aracılığıyla hizmet trafiğini etkilemeden, giden İnternet trafiğini sanal ağlarınızdan denetlemeye ve izlemeye devam etmenize olanak sağlar. [Kullanıcı tanımlı rotalar ve zorlamalı tünel oluşturma](virtual-networks-udr-overview.md) hakkında daha fazla bilgi edinin.
-- **Kolay kurulum sayesinde daha az yönetim yükü**: Azure kaynaklarını IP güvenlik duvarı aracılığıyla güvenli hale getirmek için artık sanal ağınızda ayrılmış, ortak IP adresleri olması gerekmez. Hizmet uç noktalarını ayarlamak için herhangi bir NAT veya ağ geçidi cihazı gerekmez. Hizmet uç noktaları alt ağda tek tıklamayla yapılandırılabilir. Uç noktaların bakımını yapma yükü ortadan kalkar.
+- **Kolay kurulum sayesinde daha az yönetim yükü**: Artık, Azure kaynaklarını IP Güvenlik Duvarı aracılığıyla güvenliğini sağlamak için sanal ağlarınızda ayrılmış ve genel IP adresleri gerekir. Hizmet uç noktalarını ayarlamak için herhangi bir NAT veya ağ geçidi cihazı gerekmez. Hizmet uç noktaları alt ağda tek tıklamayla yapılandırılabilir. Uç noktaların bakımını yapma yükü ortadan kalkar.
 
 ## <a name="limitations"></a>Sınırlamalar
 
@@ -74,7 +75,7 @@ Hizmet uç noktaları aşağıdaki avantajları sağlar:
 
   Varsayılan olarak sanal ağlara ayrılmış olan Azure hizmeti kaynaklarına şirket içi ağlardan erişmek mümkün değildir. Şirket içinden gelen trafiğe izin vermek istiyorsanız şirket içi ortamdan veya ExpressRoute üzerinden genel (genelde NAT) IP adreslerine de izin vermeniz gerekir. Azure hizmet kaynakları için bu IP adresleri IP güvenlik duvarı yapılandırma adımından eklenebilir.
 
-  ExpressRoute: Ortak eşleme veya Microsoft eşlemesi için şirket içinden [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) kullanıyorsanız, kullanılan NAT IP adreslerini tanımlamanız gerekir. Ortak eşleme için, her bir ExpressRoute varsayılan olarak bağlantı hattında trafik Microsoft Azure omurga ağına girdiğinde Azure hizmet trafiğine uygulanan iki NAT IP adresi kullanılır. Microsoft eşlemesi için, kullanılan NAT IP adresleri müşteri tarafından sağlanır veya hizmet sağlayıcısı tarafından sağlanır. Hizmet kaynaklarınıza erişime izin vermek için, bu genel IP adreslerine kaynak IP güvenlik duvarı ayarında izin vermeniz gerekir. Ortak eşleme ExpressRoute bağlantı hattı IP adreslerinizi bulmak için [ExpressRoute ile bir destek bileti açın](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) Azure portal aracılığıyla. [ExpressRoute genel ve Microsoft eşlemesi için NAT](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering) hakkında daha fazla bilgi edinin.
+  ExpressRoute: Kullanıyorsanız [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) şirket içinden ortak eşleme veya Microsoft eşlemesi için kullanılan NAT IP adreslerini tanımlamanız gerekecek. Ortak eşleme için, her bir ExpressRoute varsayılan olarak bağlantı hattında trafik Microsoft Azure omurga ağına girdiğinde Azure hizmet trafiğine uygulanan iki NAT IP adresi kullanılır. Microsoft eşlemesi için, kullanılan NAT IP adresleri müşteri tarafından sağlanır veya hizmet sağlayıcısı tarafından sağlanır. Hizmet kaynaklarınıza erişime izin vermek için, bu genel IP adreslerine kaynak IP güvenlik duvarı ayarında izin vermeniz gerekir. Ortak eşleme ExpressRoute bağlantı hattı IP adreslerinizi bulmak için [ExpressRoute ile bir destek bileti açın](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) Azure portal aracılığıyla. [ExpressRoute genel ve Microsoft eşlemesi için NAT](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering) hakkında daha fazla bilgi edinin.
 
 ![Azure hizmetlerini sanal ağlar ile sınırlama](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
@@ -99,10 +100,10 @@ Hizmet uç noktaları aşağıdaki avantajları sağlar:
 
 ### <a name="scenarios"></a>Senaryolar
 
-- **Eşlenmiş, bağlı veya birden çok sanal ağ**: Bir sanal ağ içindeki veya birden fazla sanal ağ üzerinde bulunan birden fazla alt ağdaki Azure hizmetlerinin güvenliğini sağlamak için, her bir alt ağdaki hizmet uç noktasını ayrı ayrı etkinleştirebilir ve bu alt ağlara giden Azure hizmet kaynaklarının güvenliğini sağlayabilirsiniz.
-- **Sanal ağdan bir Azure hizmetine giden trafiği filtreleme**: Sanal ağdan bir Azure hizmetine giden trafiği incelemek veya filtrelemek isterseniz, ilgili sanal ağa bir ağ sanal gereci dağıtabilirsiniz. Ardından hizmet uç noktalarını ağ sanal gerecinin dağıtılmış olduğu alt ağa uygulayabilir ve Azure hizmet kaynağını yalnızca bu alt ağ ile sınırlayabilirsiniz. Bu senaryo, Azure hizmet erişimini ağ sanal gereci filtresi kullanarak sanal ağınızdan yalnızca belirli Azure kaynaklarına gidecek şekilde sınırlamak istediğinizde yararlı olabilir. Daha fazla bilgi için bkz. [Ağ sanal gereçleri ile çıkış](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- **Azure kaynaklarını doğrudan sanal ağlara dağıtılan hizmetler ile sınırlandırma**: Çeşitli Azure hizmetleri doğrudan bir sanal ağdaki belirli alt ağlara dağıtılabilir. Yönetilen hizmet alt ağında bir hizmet uç noktası kurarak Azure hizmet kaynaklarını [yönetilen hizmet](virtual-network-for-azure-services.md) alt ağlarına ayırabilirsiniz.
-- **Azure sanal makinesinden gelen disk trafiği**: Yönetilen veya yönetilmeyen disklere yönelik Sanal Makine Diski trafiği (takılan ve çıkarılan diskIO dahil), Azure Depolama için yapılan hizmet uç noktası yönlendirme değişikliklerinden etkilenmez. Ağ seçmek için hizmet uç noktaları ve [Azure Depolama ağ kuralları](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json) aracılığıyla REST erişimini sayfa bloblarına sınırlayabilirsiniz. 
+- **Eşlenmiş, bağlı veya birden çok sanal ağ**: Bir sanal ağ içindeki veya birden çok sanal ağda birden fazla alt ağdaki Azure hizmetlerinin güvenliğini sağlamak için her alt ağ hizmet uç noktalarını ayrı ayrı etkinleştirebilir ve tüm alt ağların Azure hizmet kaynaklarının güvenliğini.
+- **Sanal ağdan Azure hizmetlerine giden trafik filtreleme**: Sanal ağdan bir Azure hizmetine giden trafiği incelemek veya filtrelemek istiyorsanız, sanal ağda ağ sanal Gereci dağıtabilirsiniz. Ardından hizmet uç noktalarını ağ sanal gerecinin dağıtılmış olduğu alt ağa uygulayabilir ve Azure hizmet kaynağını yalnızca bu alt ağ ile sınırlayabilirsiniz. Bu senaryo, Azure hizmet erişimini ağ sanal gereci filtresi kullanarak sanal ağınızdan yalnızca belirli Azure kaynaklarına gidecek şekilde sınırlamak istediğinizde yararlı olabilir. Daha fazla bilgi için bkz. [Ağ sanal gereçleri ile çıkış](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Azure kaynaklarını doğrudan sanal ağlara dağıtılan hizmetler sınırlama**: Çeşitli Azure Hizmetleri doğrudan bir sanal ağdaki belirli alt ağlara dağıtılabilir. Yönetilen hizmet alt ağında bir hizmet uç noktası kurarak Azure hizmet kaynaklarını [yönetilen hizmet](virtual-network-for-azure-services.md) alt ağlarına ayırabilirsiniz.
+- **Bir Azure sanal makinesinde gelen disk trafiği**: Sanal makine diski trafiği (diskıo ve bağlama dahil), yönetilen ve yönetilmeyen diskler için hizmet uç noktası değişiklikleri Azure depolama için yönlendirme etkilenmez. Ağ seçmek için hizmet uç noktaları ve [Azure Depolama ağ kuralları](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json) aracılığıyla REST erişimini sayfa bloblarına sınırlayabilirsiniz. 
 
 ### <a name="logging-and-troubleshooting"></a>Günlüğe kaydetme ve sorun giderme
 
@@ -135,11 +136,11 @@ Bir Azure hizmet kaynağında (Azure Depolama hesabı gibi), hizmetler kaynağı
 
 ## <a name="virtual-network-service-endpoint-policies"></a>Sanal ağ hizmet uç noktası İlkesi 
 
-Sanal ağ hizmet uç noktası ilkelerini yalnızca belirli bir Azure hizmet kaynakları, hizmet uç noktaları izin vererek, Azure Hizmetleri için sanal ağ trafiğini filtrelemenize olanak tanır. Hizmet uç noktası ilkeleri, Azure Hizmetleri için sanal ağ trafiği için ayrıntılı erişim denetimi sağlar. Daha fazla bilgi: [sanal ağ hizmet uç noktası İlkesi](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+Sanal ağ hizmet uç noktası ilkelerini yalnızca belirli bir Azure hizmet kaynakları, hizmet uç noktaları izin vererek, Azure Hizmetleri için sanal ağ trafiğini filtrelemenize olanak tanır. Hizmet uç noktası ilkeleri, Azure Hizmetleri için sanal ağ trafiği için ayrıntılı erişim denetimi sağlar. Daha fazla bilgi: [Sanal ağ hizmet uç noktası İlkesi](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
 ## <a name="faqs"></a>SSS
 
-Sık sorulan sorular için bakmak [sanal ağ hizmet uç noktası SSS](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints)
+Sık sorulan sorular için bakmak [sanal ağ hizmet uç noktası SSS](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -148,6 +149,6 @@ Sık sorulan sorular için bakmak [sanal ağ hizmet uç noktası SSS](https://do
 - [Bir Azure SQL Veritabanını bir sanal ağ ile nasıl sınırlandıracağınızı](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) öğrenin
 - Bilgi edinmek için nasıl [güvenli bir sanal ağ için bir Azure SQL veri ambarı](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Sanal ağlar için Azure hizmet tümleştirmesi](virtual-network-for-azure-services.md) hakkında bilgi edinin
-- Hakkında bilgi edinin [sanal ağ hizmet uç noktası İlkesi](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
--  Hızlı başlangıç: Bir sanal ağın alt ağında hizmet uç noktası ve bu alt ağda güvenli Azure Depolama hesabı oluşturmak için [Azure resource manager şablonu](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration).
+- Hakkında bilgi edinin [sanal ağ hizmet uç noktası İlkesi](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+-  Hızlı Başlangıç: [Azure resource manager şablonu](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) bir sanal ağın alt ağında hizmet uç noktası ayarlama ve bir Azure depolama hesabını ilgili alt ağ güvenliğini sağlamak için.
 

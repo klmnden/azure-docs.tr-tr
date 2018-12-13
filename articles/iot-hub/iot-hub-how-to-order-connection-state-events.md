@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 77615705ade42a2afcc8e3a9f662b0551a2411fd
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: daf4a6142c0e30fa7b8534e5598cec39c69079c0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582464"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184058"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Bağlantı olayları Azure Cosmos DB kullanarak Azure IOT hub'a cihaz sipariş
 
@@ -200,11 +200,11 @@ Mantıksal uygulama iş akışında, belirli bir koşul denetimini geçtikten so
 
 2. Koşul, yalnızca bu bağlı cihaz ve cihazın bağlantısı olayları yürütmek için aşağıda gösterildiği gibi doldurun:
 
-  * Bir değer seçin: **olay türü**
-  * Değişiklik "eşittir" için **şununla biter**
-  * Bir değer seçin: **nected**
+   * Bir değer seçin: **olay türü**
+   * Değişiklik "eşittir" için **şununla biter**
+   * Bir değer seçin: **nected**
 
-   ![Koşul doldurun](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
+     ![Koşul doldurun](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
 3. Koşul true ise, tıklayın **Eylem Ekle**.
   
@@ -248,13 +248,13 @@ Bu bölümde, IoT Hub'ınızı gerçekleşen olayları yayımlamak için yapıla
 
 4. Olay aboneliğini aşağıdaki değerlerle oluşturun: 
 
-   * **Olay türü**: tüm olay türleri ve seçim işaretini kaldırın abone **cihaz bağlı** ve **cihaz bağlantısı kesildi** menüsünde.
+   * **Olay türü**: Tüm olay türlerine abone ol seçeneğinin işaretini kaldırın ve seçin **cihaz bağlı** ve **cihazın bağlantısı** menüsünde.
 
-   * **Uç Nokta Ayrıntıları**: Uç Nokta Türü olarak **Web Kancası**'nı seçin, Uç nokta seçin'e tıklayın, mantıksal uygulamanızdan kopyaladığınız URL'yi yapıştırın ve seçimi onaylayın.
+   * **Uç noktası ayrıntıları**: Uç nokta türü olarak seçin **Web kancası** ve select uç noktasına tıklayın ve mantıksal uygulamanızdan kopyaladığınız URL'yi yapıştırın ve seçimi onaylayın.
 
        ![uç nokta URL'si seçme](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
 
-   * **Olay aboneliği ayrıntıları**: açıklayıcı bir ad girin ve seçin **Event Grid şema**.
+   * **Olay aboneliği ayrıntıları**: Açıklayıcı bir ad girin ve seçin **Event Grid şema**.
    Form, aşağıdaki örneğe benzer: 
 
        ![Örnek olay aboneliği formu](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)

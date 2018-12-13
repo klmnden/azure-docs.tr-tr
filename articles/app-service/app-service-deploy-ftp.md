@@ -1,5 +1,5 @@
 ---
-title: Uygulamanızı FTP/S kullanarak Azure App Service'e dağıtma | Microsoft Docs
+title: FTP/S - Azure App Service kullanarak içerik dağıtma | Microsoft Docs
 description: Uygulamanızı FTP veya FTPS kullanarak Azure App Service'e dağıtma konusunda bilgi edinin.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 1e3dbe04652be479a327ed9494299f89ef13492a
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.custom: seodec18
+ms.openlocfilehash: f48dc4d91fd5fafda88f518c27c79e151e5b1ebe
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679401"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260081"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Uygulamanızı FTP/S kullanarak Azure App Service'e dağıtma
 
@@ -46,8 +47,8 @@ Kullanmanız önerilir **uygulama kimlik** her uygulama için benzersiz olduğun
 ## <a name="deploy-files-to-azure"></a>Dosyalar Azure'da dağıtma
 
 1. FTP istemcinizden (örneğin, [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/), veya [WinSCP](https://winscp.net/index.php)), uygulamanızı bağlamak için topladığınız bağlantı bilgilerini kullanın.
-3. Dosyalarınızı ve ilgili dizin yapılarını kopyalama [ **/site/wwwroot** dizin](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) azure'da (veya **/site/wwwroot/App_Data/iş/** WebJobs için dizin).
-4. Uygulamanın düzgün çalıştığından doğrulamak için uygulamanızın URL'sine gidin. 
+2. Dosyalarınızı ve ilgili dizin yapılarını kopyalama [ **/site/wwwroot** dizin](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) azure'da (veya **/site/wwwroot/App_Data/iş/** WebJobs için dizin).
+3. Uygulamanın düzgün çalıştığından doğrulamak için uygulamanızın URL'sine gidin. 
 
 > [!NOTE] 
 > Farklı [Git tabanlı dağıtımlar](app-service-deploy-local-git.md), FTP dağıtımı, aşağıdaki dağıtım otomasyonları desteklemez: 

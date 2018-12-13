@@ -1,5 +1,5 @@
 ---
-title: Azure Search için basit bir sorgu örnekleri | Microsoft Docs
+title: Basit Sorgu örnekleri - Azure Search
 description: Tam metin araması, filtre arama, coğrafi arama, çok yönlü arama ve bir Azure Search dizinini sorgulama için kullanılan diğer sorgu dizeleri için basit bir sorgu örnekleri.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: 2d9e69a900f6665aa0ee3034cd6f9d7c394e8f0b
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.custom: seodec2018
+ms.openlocfilehash: 9697b88e23fea0cb06ab0c4a6197b5255e7076bf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42058294"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316276"
 ---
 # <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Azure Search'te sorgular oluşturmaya yönelik basit sözdizimi sorgu örnekleri
 
@@ -84,7 +85,7 @@ Bu sorgu için yanıt, aşağıdaki ekran görüntüsüne benzer görünmelidir.
 
 Yanıt arama puanı fark etmiş olabilirsiniz. 1 Tekdüzen puanları olduğunda hiçbir sıralama veya arama değil, tam metin araması olduğundan veya hiçbir ölçüt uygulandığı nedeniyle oluşur. Hiçbir ölçüt null arama için satırlar rastgele sırayla geri dönün. Gerçek bir ölçüt eklediğinizde, arama puanları anlamlı değerlere evrim Geçiren görürsünüz.
 
-## <a name="example-2-look-up-by-id"></a>Örnek 2: Kimliğine göre arama
+## <a name="example-2-look-up-by-id"></a>Örnek 2: Kimliğe göre arayın
 
 Bu örnek bir bit alışılmadık olduğu, ancak arama davranışlarını değerlendirirken, neden, yer veya Eşleşmeyenler sonuçlara dahil anlamak için belirli bir belge tüm içeriğini incelemek isteyebilirsiniz. Tek bir belge sunabilen döndürmek için bir [arama işlemi](https://docs.microsoft.com/rest/api/searchservice/lookup-document) belge kimliği geçirmek için
 
@@ -100,7 +101,7 @@ Sonraki örnek bir arama sorgusu dayalı belirli bir belge döndürme olan `id` 
 https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2017-11-11&$count=true&search=*
  ```
 
-## <a name="example-3-filter-queries"></a>Örnek 3: Filtre sorgularını
+## <a name="example-3-filter-queries"></a>Örnek 3: Sorguları filtreleme
 
 [Filtre söz dizimi](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) ile kullanabileceğiniz bir OData ifade **arama** veya tek başına. Filtre ifadesi ilgi belgeleri tam olarak nitelemek mümkün olduğunda, bir arama parametresi olmadan bir tek başına filtre yararlıdır. Bir sorgu dizesi hiçbir sözlü ya da dilbilimsel analiz yoktur yok (1 olan tüm puanları) Puanlama ve hiçbir sıralaması. Arama dizesi boş olduğuna dikkat edin.
 
@@ -132,7 +133,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 
 İşlevi hakkında daha fazla bilgi için bkz. ["Filtre örneklerde" search.ismatch](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
 
-## <a name="example-4-range-filters"></a>Örnek 4: Çok aralık filtresi
+## <a name="example-4-range-filters"></a>Örnek 4: Aralık filtresi
 
 Aralık filtresi aracılığıyla desteklenir **`$filter`** ifadeleri herhangi bir veri türü için. Aşağıdaki örnekler, sayısal ve dize alanları üzerinde arayın. 
 
@@ -224,7 +225,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search="fire department"
 ```
 
-## <a name="example-7-booleans-with-searchmode"></a>Örnek 7: Boole değerlerini searchMode ile
+## <a name="example-7-booleans-with-searchmode"></a>Örnek 7: SearchMode ile Boole değerleri
 
 Basit söz dizimi karakter biçiminde Boole işleçleri destekler (`+, -, |`). İle kesinlik ve geri çağırırsanız, bir denge searchMode parametresi bildiren `searchMode=any` geri çağırma öncelik tanıdığından (herhangi bir ölçüte uyan niteleyen sonuç kümesi için bir belge), ve `searchMode=all` öncelik tanıdığından duyarlık (tüm ölçütleri eşleştirilmelidir). Varsayılan `searchMode=any`, hangi kullanılabilir birden çok işleç bir sorgu yığın, kafa karıştırıcı ve daha dar sonuçları yerine daha geniş alınıyor. Burada sonuçlarında "içeren değil" tüm belgeleri NOT ile özellikle, böyle bir terim.
 
@@ -243,7 +244,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 ```
   ![Tüm arama modu](media/search-query-simple-examples/searchmodeall.png)
 
-## <a name="example-8-structuring-results"></a>8. örnek: sonuçları yapılandırma
+## <a name="example-8-structuring-results"></a>8. örnek: Yapılandırma sonuçları
 
 Her batch ve sıralama düzeni döndürülen belgelerin sayısını alanlar aramaya olan birkaç parametre denetimi sonuçlanır. Bu örnek, önceki örneklerde, birkaçını sonuçları belirli alanlara kullanarak sınırlama resurfaces **$select** deyimi ve 82 eşleşme dönmeden verbatim arama ölçütü 
 

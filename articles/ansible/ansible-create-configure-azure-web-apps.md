@@ -1,5 +1,5 @@
 ---
-title: Ansible'ı kullanarak Azure web uygulamaları oluşturma (Önizleme)
+title: Ansible'ı kullanarak Azure web uygulamaları oluşturun
 description: Ansible'ı kullanarak Linux'ta App Service hizmetinde Java 8 ve Tomcat kapsayıcı çalışma zamanı ile web uygulaması oluşturmayı öğrenin
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web Uygulaması, Java
@@ -7,37 +7,38 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2018
-ms.openlocfilehash: 48b4c201b2b96bd4662e8c90be7298a4f418af53
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.date: 12/08/2018
+ms.openlocfilehash: a7e7c04b458575cdc9f2608d0c84f0df105bf202
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426567"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261764"
 ---
-# <a name="create-azure-app-service-web-apps-by-using-ansible-preview"></a>Ansible'ı kullanarak Azure App Service web uygulamaları oluşturma (önizleme)
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (veya yalnızca Web Apps) web uygulamalarını, REST API'lerini ve mobil arka uçları barındırır. .NET, .NET Core, Java, Ruby, Node.js, PHP veya Python dahil en sevdiğiniz dilde geliştirebilirsiniz.
+# <a name="create-azure-app-service-web-apps-by-using-ansible"></a>Ansible'ı kullanarak Azure App Service web uygulamaları oluşturun
+[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (veya yalnızca Web Apps) web uygulamaları, REST API'leri ve mobil arka uçlar konaklar. .NET, .NET Core, Java, Ruby, Node.js, PHP veya Python dahil en sevdiğiniz dilde geliştirebilirsiniz.
 
 Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Bu makalede Ansible'ı kullanarak Java çalışma zamanıyla bir web uygulaması oluşturma adımları gösterilmektedir. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 - **Azure aboneliği** - Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Bu öğreticideki örnek playbook'ları çalıştırmak için Ansible 2.7 gerekir. Ansible 2.7 RC sürümünü `sudo pip install ansible[azure]==2.7.0rc2` çalıştırarak yükleyebilirsiniz. Ansible 2.7 kullanıma sunulduktan sonra varsayılan sürüm 2.7 olacağından sürümü burada belirtmeniz gerekmez. 
+> Bu öğreticideki örnek playbook'ları çalıştırmak için Ansible 2.7 gerekir.
 
 ## <a name="create-a-simple-app-service"></a>Basit bir App Service örneği oluşturma
 Bu bölüm, aşağıdaki kaynakları tanımlayan bir örnek Ansible playbook sunar:
 - App Service planınızın ve web uygulamanızın dağıtılacağı kaynak grubu
 - Linux'ta App Service hizmetinde Java 8 ve Tomcat kapsayıcı çalışma zamanı ile bir Web uygulaması
 
-```
+```yml
 - hosts: localhost
   connection: local
   vars:
-    resource_group: myfirstResourceGroup
+    resource_group: myResourceGroup
     webapp_name: myfirstWebApp
+    plan_name: myAppServicePlan
     location: eastus
   tasks:
     - name: Create a resource group
@@ -51,7 +52,7 @@ Bu bölüm, aşağıdaki kaynakları tanımlayan bir örnek Ansible playbook sun
         name: "{{ webapp_name }}"
         plan:
           resource_group: "{{ resource_group }}"
-          name: myappplan
+          name: "{{ plan_name }}"
           is_linux: true
           sku: S1
           number_of_workers: 1
@@ -71,17 +72,22 @@ ansible-playbook firstwebapp.yml
 
 Ansible playbook'un çalıştırılması sonucu oluşan çıktı web uygulamasının başarıyla oluşturulduğunu gösterir:
 
-```
+```Output
+PLAY [localhost] *************************************************
+
+TASK [Gathering Facts] *************************************************
+ok: [localhost]
+
 TASK [Create a resource group] *************************************************
 changed: [localhost]
 
-TASK [Create App Service on Linux with Java Runtime] ******************************
- [WARNING]: Azure API profile latest does not define an entry for
-WebSiteManagementClient
+TASK [Create App Service on Linux with Java Runtime] *************************************************
+ [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
+
 changed: [localhost]
 
-PLAY RECAP *********************************************************************
-localhost                  : ok=2    changed=2    unreachable=0    failed=0   
+PLAY RECAP *************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0
 ```
 
 ## <a name="create-an-app-service-by-using-traffic-manager"></a>Traffic Manager’ı kullanarak uygulama hizmeti oluşturma
@@ -98,33 +104,33 @@ Bu bölüm, aşağıdaki kaynakları tanımlayan bir örnek Ansible playbook sun
 - Traffic Manager profili
 - Oluşturulan web sitesini kullanan Traffic Manager uç noktası
 
-```
+```yml
 - hosts: localhost
   connection: local
   vars:
+    resource_group_webapp: myResourceGroupWebapp
     resource_group: myResourceGroup
-    plan_resource_group: planResourceGroup
-    app_name: myLinuxWebApp
+    webapp_name: myLinuxWebApp
+    plan_name: myAppServicePlan
     location: eastus
-    linux_plan_name: myAppServicePlan
     traffic_manager_profile_name: myTrafficManagerProfile
     traffic_manager_endpoint_name: myTrafficManagerEndpoint
 
   tasks:
   - name: Create resource group
     azure_rm_resourcegroup:
-        name: "{{ resource_group }}"
+        name: "{{ resource_group_webapp }}"
         location: "{{ location }}"
 
   - name: Create secondary resource group
     azure_rm_resourcegroup:
-        name: "{{ plan_resource_group }}"
+        name: "{{ resource_group }}"
         location: "{{ location }}"
 
   - name: Create App Service Plan
     azure_rm_appserviceplan:
-      resource_group: "{{ plan_resource_group }}"
-      name: "{{ linux_plan_name }}"
+      resource_group: "{{ resource_group }}"
+      name: "{{ plan_name }}"
       location: "{{ location }}"
       is_linux: true
       sku: S1
@@ -132,11 +138,11 @@ Bu bölüm, aşağıdaki kaynakları tanımlayan bir örnek Ansible playbook sun
 
   - name: Create App Service on Linux with Java Runtime
     azure_rm_webapp:
-        resource_group: "{{ resource_group }}"
-        name: "{{ app_name }}"
+        resource_group: "{{ resource_group_webapp }}"
+        name: "{{ webapp_name }}"
         plan:
-          resource_group: "{{ plan_resource_group }}"
-          name: "{{ linux_plan_name }}"
+          resource_group: "{{ resource_group }}"
+          name: "{{ plan_name }}"
           is_linux: true
           sku: S1
           number_of_workers: 1
@@ -151,13 +157,13 @@ Bu bölüm, aşağıdaki kaynakları tanımlayan bir örnek Ansible playbook sun
 
   - name: Get web app facts
     azure_rm_webapp_facts:
-      resource_group: "{{ resource_group }}"
-      name: "{{ app_name }}"
+      resource_group: "{{ resource_group_webapp }}"
+      name: "{{ webapp_name }}"
     register: webapp
     
   - name: Create Traffic Manager Profile
     azure_rm_trafficmanagerprofile:
-      resource_group: "{{ resource_group }}"
+      resource_group: "{{ resource_group_webapp }}"
       name: "{{ traffic_manager_profile_name }}"
       location: global
       routing_method: performance
@@ -171,13 +177,12 @@ Bu bölüm, aşağıdaki kaynakları tanımlayan bir örnek Ansible playbook sun
 
   - name: Add endpoint to traffic manager profile, using created web site
     azure_rm_trafficmanagerendpoint:
-      resource_group: "{{ resource_group }}"
+      resource_group: "{{ resource_group_webapp }}"
       profile_name: "{{ traffic_manager_profile_name }}"
       name: "{{ traffic_manager_endpoint_name }}"
       type: azure_endpoints
       location: "{{ location }}"
       target_resource_id: "{{ webapp.webapps[0].id }}"
-
 ```
 Önceki playbook'u **webapp.yml** olarak kaydedin veya [playbook'u indirin](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml).
 
@@ -187,7 +192,12 @@ ansible-playbook webapp.yml
 ```
 
 Ansible playbook çıktısı App Service planı, web uygulaması, Traffic Manager profili ve uç noktasının başarıyla oluşturulduğunu gösterir:
-```
+```Output
+PLAY [localhost] *************************************************
+
+TASK [Gathering Facts] *************************************************
+ok: [localhost]
+
 TASK [Create resource group] ****************************************************************************
 changed: [localhost]
 
@@ -222,4 +232,4 @@ localhost                  : ok=9    changed=6    unreachable=0    failed=0
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"] 
-> [Azure üzerinde Ansible](https://docs.microsoft.com/azure/ansible/)
+> [Ansible'ı kullanarak Azure App Service web uygulamaları ölçeklendirme](https://docs.microsoft.com/azure/ansible/ansible-scale-azure-web-apps)

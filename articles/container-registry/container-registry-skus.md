@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: danlep
-ms.openlocfilehash: 80ee1033ef7a5fee849126ab2b614de18b71e051
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 3f058a68057d6b84cbbb2dfdb08ea8c2cb12b0b9
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855859"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322106"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU'ları
 
@@ -81,6 +81,8 @@ Klasik kayıt defterinizin yönetilen SKU'lar birine yükseltme hakkında daha f
 ## <a name="pricing"></a>Fiyatlandırma
 
 Fiyatlandırma bilgileri her bir Azure Container Registry SKU'ları için bkz: [kapsayıcı kayıt defteri fiyatlandırması][container-registry-pricing].
+
+Veri aktarımları için fiyatlandırma hakkında daha fazla ayrıntı için bkz [bant genişliği fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

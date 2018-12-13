@@ -4,10 +4,9 @@ description: Bu makine öğrenimi öğreticisi kolay bir veri bilimi deneyinde s
 keywords: deneme,doğrusal regresyon,makine öğrenimi algoritmaları,makine öğrenimi öğreticisi,tahmine dayalı modelleme teknikleri,veri bilimi deneyi
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.author: garye
 editor: cgronlun
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2017
-ms.openlocfilehash: 9564ddcff3dfd910877f40482bc3f5acb2d03d35
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b3d8aa709fefcf0eb8c16117f62cbe3bab8e319a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105402"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262427"
 ---
 # <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Öğretici: Azure Machine Learning Studio'da ilk veri bilimi denemenizi oluşturma
 
@@ -41,7 +40,7 @@ Bu öğreticide, Studio’yu bir makine öğrenimi denemesi oluşturmak için il
 - [Algoritma örnekleri ile makine öğrenimi temelleri](basics-infographic-with-algorithm-examples.md) - Bu bilgi grafiği Machine Learning Studio ile birlikte gelen farklı makine öğrenimi algoritması türleri hakkında daha fazla bilgi almak istiyorsanız kullanışlıdır.
 - [Machine Learning Kılavuzu](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1) - Bu kılavuz yukarıdaki bilgi grafiği ile benze bilgileri kapsar ancak etkileşimli bir biçimdedir.
 - [Makine öğrenimi algoritması bilgi sayfası](algorithm-cheat-sheet.md) ve [Microsoft Azure Machine Learning için algoritma seçme](algorithm-choice.md) - Bu indirilebilir poster ve tamamlayıcı makale Studio algoritmaları hakkında ayrıntılı bilgiler içerir.
-- [Machine Learning Studio: Algoritma ve Modül Yardımı](https://msdn.microsoft.com/library/azure/dn905974.aspx) - Bu makine öğrenimi de dahil tüm Studio modülleri için tam başvurudur.
+- [Machine Learning Studio: Algoritma ve modül Yardımı](https://msdn.microsoft.com/library/azure/dn905974.aspx) -bu makine öğrenimi algoritması da dahil tüm Studio modülleri için tam başvurudur.
 
 
 
@@ -67,19 +66,19 @@ Studio ile çalışmaya başlamak için [https://studio.azureml.net](https://stu
 Bu makine öğrenimi öğreticisinde, modelinizi oluşturmak, eğitmek ve puanlamak amacıyla Machine Learning Studio'da bir deneme oluşturmak için beş temel adımı izleyeceksiniz.
 
 - **Bir model oluşturma**
-    - [1. Adım: Verileri alma]
-    - [2. Adım: Verileri hazırlama]
-    - [3. Adım: Özellikleri tanımlama]
+    - [1. adım: Veri alma]
+    - [2. adım: Verileri hazırlama]
+    - [3. adım: Özellikleri tanımlama]
 - **Modeli eğitme**
-    - [4. Adım: Bir öğrenme algoritması seçme ve uygulama]
+    - [4. adım: Bir öğrenme algoritması seçme ve uygulama]
 - **Modeli puanlama ve test etme**
-    - [5. Adım: Yeni otomobil fiyatlarını tahmin etme]
+    - [5. adım: Yeni otomobil fiyatlarını tahmin etme]
 
-[1. Adım: Verileri alma]: #step-1-get-data
-[2. Adım: Verileri hazırlama]: #step-2-prepare-the-data
-[3. Adım: Özellikleri tanımlama]: #step-3-define-features
-[4. Adım: Bir öğrenme algoritması seçme ve uygulama]: #step-4-choose-and-apply-a-learning-algorithm
-[5. Adım: Yeni otomobil fiyatlarını tahmin etme]: #step-5-predict-new-automobile-prices
+[1. adım: Veri alma]: #step-1-get-data
+[2. adım: Verileri hazırlama]: #step-2-prepare-the-data
+[3. adım: Özellikleri tanımlama]: #step-3-define-features
+[4. adım: Bir öğrenme algoritması seçme ve uygulama]: #step-4-choose-and-apply-a-learning-algorithm
+[5. adım: Yeni otomobil fiyatlarını tahmin etme]: #step-5-predict-new-automobile-prices
 
 > [!TIP] 
 > Aşağıdaki denemenin çalışan bir kopyasını [Azure AI Gallery](https://gallery.cortanaintelligence.com)’de bulabilirsiniz. **[İlk veri bilimi denemeniz - Otomobil fiyat tahmini](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)**’ne gidin ve denemenin bir kopyasını Machine Learning Studio çalışma alanınıza indirmek için **Studio’da Aç**’a tıklayın.
@@ -186,7 +185,7 @@ Denemede bu noktaya kadar yalnızca verileri temizledik. Temizlenen veri kümesi
 
 Artık veriler temizlendiğine göre, tahmine dayalı modelde hangi özellikleri kullanacağımızı belirtmeye hazırız.
 
-## <a name="step-3-define-features"></a>3. Adım: Özellikleri tanımlama
+## <a name="step-3-define-features"></a>3. adım: Özellikleri tanımlama
 
 Machine learning'de *özellikler*, ilgilendiğiniz bir şeyin tek tek ölçülebilir özellikleridir. Veri kümemizde her bir satır bir otomobili temsil eder ve her bir sütun da bu otomobilin bir özelliğidir.
 
@@ -219,7 +218,7 @@ Veri kümemizdeki bir alt özellikler kümesini kullanan bir model oluşturalım
 
 Bu yalnızca bir sonraki adımda kullanacağımız öğrenim algoritmasına geçirmek istediğimiz özellikleri içeren filtrelenmiş bir veri kümesi üretir. Daha sonra geri dönüp farklı özellikler seçerek yeniden deneyebilirsiniz.
 
-## <a name="step-4-choose-and-apply-a-learning-algorithm"></a>4. Adım: Bir öğrenme algoritması seçme ve uygulama
+## <a name="step-4-choose-and-apply-a-learning-algorithm"></a>4. adım: Bir öğrenme algoritması seçme ve uygulama
 
 Artık veriler hazır olduğuna göre, tahmine dayalı bir model oluşturmak için eğitim ve test etme gerekir. Modeli eğitmek ve sonra fiyatları tahmin etmeye ne kadar yaklaştığını görmek üzere modeli test etmek için verilerimizi kullanacağız.
 <!-- For now, don't worry about *why* we need to train and then test a model.-->
@@ -273,7 +272,7 @@ Verilerimizi modeli eğitmek ve verileri ayrı eğitim ve test kümelerine ayır
 <br/>
 ***Çalıştırdıktan sonra, deneme şimdi aşağıdakine benzer görünmelidir***
 
-## <a name="step-5-predict-new-automobile-prices"></a>5. Adım: Yeni otomobil fiyatlarını tahmin etme
+## <a name="step-5-predict-new-automobile-prices"></a>5. adım: Yeni otomobil fiyatlarını tahmin etme
 
 Verilerimizin yüzde 75'ini kullanarak modeli eğittiğimize göre, modelimizin ne kadar iyi işlediğini görmek için verilerimizin diğer yüzde 25'ini puanlama amacıyla kullanabiliriz.
 
@@ -304,11 +303,11 @@ Verilerimizin yüzde 75'ini kullanarak modeli eğittiğimize göre, modelimizin 
 
 Modelimiz için aşağıdaki istatistikler gösterilir:
 
-- **Mean Absolute Error (Ortalama Mutlak Hata)** (MAE): Mutlak hataların ortalaması (*hata*, tahmin edilen değer ile gerçek değer arasındaki farktır).
-- **Root Mean Squared Error (Kök Ortalama Karesi Alınmış Hata)** (RMSE): Test veri kümesinde yapılan tahminlerin karesi alınmış hata ortalamasının kare kökü.
-- **Relative Absolute Error (Göreli Mutlak Hata)**: Gerçek değerler ve tüm gerçek değerlerin ortalaması arasındaki mutlak hataların mutlak farka göreli ortalaması.
-- **Relative Squared Error (Göreli Karesi Alınmış Hata)**: Gerçek değerler ve tüm gerçek değerlerin ortalaması arasındaki karesi alınmış hataların karesi alınmış farka göreli ortalaması.
-- **Coefficient of Determination (Determinasyon Katsayısı)**: **R karesi alınmış değer** olarak da bilinen ve modelin verilere ne kadar iyi uyumlu olduğunu gösteren istatistik ölçümleridir.
+- **Mean Absolute Error** (MAE): Mutlak hataların ortalaması (bir *hata* tahmin edilen değer ile gerçek değer arasındaki farktır).
+- **Kök ortalama karesi alınmış hata** (RMSE): Test veri kümesinde yapılan tahminlerin karesi Ortalama kare kökü.
+- **Göreli mutlak hata**: Mutlak hataların gerçek değerler ve tüm gerçek değerlerin ortalaması arasındaki mutlak farka göreli ortalaması.
+- **Göreli karesi alınmış hata**: Ortalama gerçek değerler ve tüm gerçek değerlerin ortalaması arasındaki karesi alınmış fark göreli karesi.
+- **Katsayısı**: Olarak da bilinen **R karesi alınmış değer**, bir model verileri ne kadar iyi uyumlu olduğunu gösteren istatistik ölçümleridir budur.
 
 Her bir hata istatistiği ne kadar küçük olursa o kadar iyidir. Daha küçük olan bir değer, tahminlerin gerçek değerlerle daha yakından eşleştiğini gösterir. **Coefficient of Determination (Determinasyon Katsayısı)** değeri bire (1.0) ne kadar yakınsa tahminler o kadar iyi olur.
 

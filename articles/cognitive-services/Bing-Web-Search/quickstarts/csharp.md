@@ -1,7 +1,7 @@
 ---
-title: 'Hızlı Başlangıç: C# ile arama gerçekleştirme - Bing Web Araması API’si'
+title: "Hızlı Başlangıç: Bir web araması ile C# -Bing Web araması REST API'si"
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, C# kullanarak ilk Bing Web Araması API'si çağrınızı yapmayı ve bir JSON yanıtı almayı öğreneceksiniz.
+description: Bing Web araması REST API'si kullanarak istekleri göndermek için bu hızlı başlangıçta kullanmak C#ve bir JSON yanıtı alırsınız.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: d868bec1e19ddde556f3c387646c5d7aa898b7d9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 844fe2f65b59caba41697db00e809e34e1fe1017
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313495"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258670"
 ---
-# <a name="quickstart-use-c-to-call-the-bing-web-search-api"></a>Hızlı Başlangıç: Bing Web Araması API’sini çağırmak için C# kullanma  
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Hızlı Başlangıç: Bing Web arama REST API'sini kullanarak Web'de arama veC#
 
 İlk Bing Web Araması API'si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın.  
 

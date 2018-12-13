@@ -1,5 +1,5 @@
 ---
-title: Azure İlkesi tanım yapısı
+title: İlke tanım yapısı ayrıntıları
 description: Kaynak ilke tanımı hangi etkili olması için zaman ilkelerin hiçbiri uygulanmaz ve açıklayarak, kuruluşunuzdaki kaynaklar için kuralları oluşturmak için Azure İlkesi tarafından nasıl kullanıldığını açıklar.
 services: azure-policy
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 456ac392d74db0dc596c24a47d176e19d267bc85
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: c09f1f5af8ef417fc4ed195b8ff17cc23c744319
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079526"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313148"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -216,6 +217,8 @@ Aşağıdaki alanları desteklenir:
 - `kind`
 - `type`
 - `location`
+- `identity.type`
+  - Türünü döndüren [yönetilen kimliği](../../../active-directory/managed-identities-azure-resources/overview.md) kaynakta etkinleştirilmemiş.
 - `tags`
 - `tags.<tagName>`
   - Burada **\<tagName\>** doğrulamak için bir koşul için etiket adıdır.

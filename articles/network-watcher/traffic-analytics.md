@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 6999f51482d38245373a8a7a5081a89f1790b669
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0338ffa13d1b141bb40deaf43fd04fe37bfaf5d2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956772"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252125"
 ---
 # <a name="traffic-analytics"></a>Trafik analizi
 
@@ -39,11 +39,11 @@ Azure sanal ağları hakkında giriş bilgilerini NSG akış günlüklerini sahi
 
 ## <a name="key-components"></a>Başlıca bileşenler
 
-- **Ağ güvenlik grubu (NSG)**: izin veren veya bir Azure sanal ağa bağlı kaynaklara ağ trafiği reddeden güvenlik kurallarının bir listesini içerir. Ağ güvenlik grupları (NSG’ler), alt ağlarla, ayrı ayrı VM’lerle (klasik) veya VM’lere bağlı ağ arabirimleri ile ilişkilendirilebilir (Resource Manager). Daha fazla bilgi için [ağ güvenlik grubu genel bakış](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Ağ güvenlik grubu (NSG) akış günlüklerini**: bir ağ güvenlik grubu üzerinden giriş ve çıkış IP trafiğini hakkındaki bilgileri görüntülemek sağlar. NSG akış günlükleri json biçiminde yazılır ve akış NIC uygulandığı bir kural başına temelinde giden ve gelen akışlar Göster, 5 demet bilgi (kaynak/hedef IP adresi, kaynak/hedef bağlantı noktası ve protokol) akışla ilgili ve trafiğe izin verildi veya reddedildi. NSG akış günlükleri hakkında daha fazla bilgi için bkz: [NSG akış günlüklerini](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics**: izleme verilerini toplayan ve merkezi bir depoya veri depolayan bir Azure hizmeti. Bu veriler, olaylar, performans verilerini ve Azure API aracılığıyla sağlanan özel veriler içerebilir. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir. Ağ Performans İzleyicisi'ni ve trafik analizi temel olarak Log Analytics kullanılarak oluşturulan gibi uygulamalarını izleme. Daha fazla bilgi için [Log analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Günlük analizi çalışma alanı**: log Analytics, bir Azure hesabıyla ilişkili verilerin depolandığı bir örneği. Log analytics çalışma alanları hakkında daha fazla bilgi için bkz: [Log Analytics çalışma alanı oluşturma](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Ağ İzleyicisi**: koşulları azure'da ağ senaryosu düzeyinde izlemenizi ve tanılamanızı sağlayan bölgesel bir hizmet. NSG akış günlüklerini açıp Ağ İzleyicisi ile kapatabilirsiniz. Daha fazla bilgi için [Ağ İzleyicisi](network-watcher-monitoring-overview.md).
+- **Ağ güvenlik grubu (NSG)**: İzin veren veya bir Azure sanal ağa bağlı kaynaklara ağ trafiği reddeden güvenlik kurallarının bir listesini içerir. Ağ güvenlik grupları (NSG’ler), alt ağlarla, ayrı ayrı VM’lerle (klasik) veya VM’lere bağlı ağ arabirimleri ile ilişkilendirilebilir (Resource Manager). Daha fazla bilgi için [ağ güvenlik grubu genel bakış](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Ağ güvenlik grubu (NSG) akış günlüklerini**: Bir ağ güvenlik grubu üzerinden giriş ve çıkış IP trafiğini bilgilerini görüntülemenize olanak sağlar. NSG akış günlükleri json biçiminde yazılır ve akış NIC uygulandığı bir kural başına temelinde giden ve gelen akışlar Göster, 5 demet bilgi (kaynak/hedef IP adresi, kaynak/hedef bağlantı noktası ve protokol) akışla ilgili ve trafiğe izin verildi veya reddedildi. NSG akış günlükleri hakkında daha fazla bilgi için bkz: [NSG akış günlüklerini](network-watcher-nsg-flow-logging-overview.md).
+- **Log Analytics**: İzleme verilerini toplayan ve merkezi bir depoya veri depolayan bir Azure hizmeti. Bu veriler, olaylar, performans verilerini ve Azure API aracılığıyla sağlanan özel veriler içerebilir. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir. Ağ Performans İzleyicisi'ni ve trafik analizi temel olarak Log Analytics kullanılarak oluşturulan gibi uygulamalarını izleme. Daha fazla bilgi için [Log analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Günlük analizi çalışma alanı**: Log analytics, bir Azure hesabıyla ilişkili verilerin depolandığı bir örneği. Log analytics çalışma alanları hakkında daha fazla bilgi için bkz: [Log Analytics çalışma alanı oluşturma](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Ağ İzleyicisi**: Koşulları azure'da ağ senaryosu düzeyinde izlemenizi ve tanılamanızı sağlayan bölgesel bir hizmet. NSG akış günlüklerini açıp Ağ İzleyicisi ile kapatabilirsiniz. Daha fazla bilgi için [Ağ İzleyicisi](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Trafik analizi nasıl çalışır?
 
@@ -291,9 +291,12 @@ Trafik analizi tam olarak yapılandırdıktan sonra elde etmek isteyebileceğini
     ![Sanal ağ dağıtım vitrini Panosu](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - Üst Şerit için bir sanal ağın (Inter sanal ağ bağlantıları/Active/Inactive) gibi parametrelerin seçimi, dış bağlantılar, etkin akışlar ve kötü amaçlı akışlar sanal ağın sanal ağ topolojisini gösterir.
+- Sanal ağ topolojisini Abonelikleri, çalışma alanları, resouece grupları ve zaman aralığına göre filtreleyebilirsiniz. Akış yardımcı olan ek filtreler anlayın: Akış türü (sanal ağlar arası, IntraVNET vb.), akış yönünü (gelen, giden), akış durumu (izin verilen, engellenen) sanal ağlar (hedeflenen ve bağlı), bağlantı türü (eşlemesi veya ağ geçidi - P2S ve S2S) ve NSG. Bu filtreler, ayrıntılı olarak incelemek istediğiniz sanal ağlar odaklanmak için kullanın.
 - Örneğin, sanal ağ topolojisini bakımından akışlar (izin verilen/engellenen/gelen/giden/Benign/kötü amaçlı), uygulama protokolü ve ağ güvenlik grupları, sanal ağa trafik dağılımı gösterir:
 
     ![Trafik dağıtım ve akış ayrıntıları vitrini sanal ağ topolojisi](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
+    
+    ![Üst düzey vitrini sanal ağ topolojisi ve daha fazla filtre](./media/traffic-analytics/virtual-network-filters.png)
 
     ![Ayrıntılar için günlük araması'nda sanal ağ trafik dağılımı akış](./media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
 

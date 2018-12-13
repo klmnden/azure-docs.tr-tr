@@ -1,7 +1,7 @@
 ---
-title: Bing Haber Arama nedir?
+title: Bing haber arama API'si nedir?
 titlesuffix: Azure Cognitive Services
-description: Web’de haber aramak için Bing Haber Arama API'sinin nasıl kullanılacağını gösterir.
+description: Bing haber arama API'si geçerli başlıkları Web'de Popüler Konular ve başlıkları dahil olmak üzere birden çok kategorilerde aramak için kullanmayı öğrenin.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: overview
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 7a5df20358198e7ccb44ccc60be3ab7716f71ba6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: 17383d38b1401149003ad9d1794b3e69284f9033
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227867"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253102"
 ---
-# <a name="what-is-bing-news-search"></a>Bing Haber Arama nedir?
+# <a name="what-is-the-bing-news-search-api"></a>Bing haber arama API'si nedir?
 
 Bing Haber Arama API’si, [Bing Haberler](https://www.bing.com/news) ile benzer (tam olarak aynı değil) bir deneyim sağlar. Bing Haber Arama API’si, Bing’e bir arama sorgusu göndermenize ve ilgili haber makalelerinin bir listesini geri almanıza olanak tanır.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure’da bir Node.js ve MongoDB web uygulaması oluşturma | Microsoft Docs
+title: MongoDB - Azure App Service ile node.js uygulaması derleme | Microsoft Docs
 description: Azure’da MongoDB bağlantı dizesine sahip Cosmos DB veritabanı bağlantısıyla bir Node.js uygulamasının nasıl çalıştırılacağı hakkında bilgi edinin.
 services: app-service\web
 documentationcenter: nodejs
@@ -14,15 +14,15 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: a74360575f1dbaeb86886e0e04240eb97baa521a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 3666af764fa20a8343addedbddcdb12de0daf4a1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971700"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251513"
 ---
-# <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Öğretici: Azure’da bir Node.js ve MongoDB web uygulaması derleme
+# <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Öğretici: Azure’da bir Node.js ve MongoDB web uygulaması oluşturma
 
 > [!NOTE]
 > Bu makalede bir uygulamanın Windows üzerinde App Service'e dağıtımı yapılır. _Linux_ üzerinde App Service'e dağıtım yapmak için bkz. [Linux üzerinde Azure App Service'te Node.js ve MongoDB web uygulaması oluşturma](./containers/tutorial-nodejs-mongodb-app.md).
@@ -49,10 +49,10 @@ Azure Web Apps, yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uyg
 Bu öğreticiyi tamamlamak için:
 
 1. [Git'i yükleyin](https://git-scm.com/)
-1. [Node.js ve NPM'yi yükleyin](https://nodejs.org/)
-1. [Bower yükleme](https://bower.io/) ([MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started) için gerekli)
-1. [Gulp.js yükleme](https://gulpjs.com/) ([MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started) için gerekli)
-1. [MongoDB Community Edition’ı yükleyin ve çalıştırın](https://docs.mongodb.com/manual/administration/install-community/) 
+2. [Node.js ve NPM'yi yükleyin](https://nodejs.org/)
+3. [Bower yükleme](https://bower.io/) ([MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started) için gerekli)
+4. [Gulp.js yükleme](https://gulpjs.com/) ([MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started) için gerekli)
+5. [MongoDB Community Edition’ı yükleyin ve çalıştırın](https://docs.mongodb.com/manual/administration/install-community/) 
 
 ## <a name="test-local-mongodb"></a>Yerel MongoDB’yi test etme
 

@@ -9,16 +9,15 @@ documentationcenter: azure-monitor
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 368cef4ef86e29ea4fe55560e44644e332455b93
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 88a4c6dbe9311a054c6ed93df0005d32e6d21672
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962673"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271802"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Sürekli Azure İzleyici ile izleme
 
@@ -50,7 +49,7 @@ Uygulamalar yalnızca, temel alınan altyapı olarak güvenilirdir. İzleme alty
 
 [Kod olarak altyapı](/devops/learn/what-is-infrastructure-as-code) kullanım için kaynak kodu DevOps ekipleri gibi aynı sürüm oluşturma kullanarak, açıklayıcı bir modelde altyapı yönetimi. Bu, güvenilirlik ve ölçeklenebilirlik ortamınıza ekler ve uygulamalarınızı yönetmek için kullanılan benzer süreçlerden yararlanmanızı sağlar.
 
--  Kullanım [Resource Manager şablonları](../azure-monitor/platform/template-workspace-configuration.md) izlemeyi etkinleştir ve uyarılar üzerinde büyük bir kaynak kümesini yapılandırmak için.
+-  Kullanım [Resource Manager şablonları](platform/template-workspace-configuration.md) izlemeyi etkinleştir ve uyarılar üzerinde büyük bir kaynak kümesini yapılandırmak için.
 - Kullanım [Azure İlkesi](../governance/policy/overview.md) , kaynaklarınız üzerinden farklı kuralları uygulamak için. Bu, bu kaynakları, Kurumsal standartlarınız ve hizmet düzeyi sözleşmeleri ile uyumlu kalmasını sağlar. 
 
 
@@ -65,15 +64,15 @@ Sürekli Tümleştirme / sürekli dağıtım sayesinde otomatik olarak tümleşt
 
 - Kullanım [Azure işlem hatları](/azure/devops/pipelines) sürekli dağıtımı uygulamak ve, kod tamamlama kadar tüm süreci, CI/CD testleri temel üretime otomatikleştirmek için.
 - Kullanım [kalite kapıları](/devops/pipelines/release/approvals/gates) , dağıtım öncesi veya dağıtım sonrası izleme tümleştirmek için. Bu, temel sistem durumu/performans ölçümlerini (KPI'ler) uygulamalarınızı, üretim ve farkları altyapı ortamında geliştirme taşıdığınızda veya ölçek olumsuz Kpı'lerinizi etkileyen değil ulaşmanızı sağlar.
-- [Ayrı izleme örnekleri korumak](../application-insights/app-insights-separate-resources.md) , geliştirme, Test, Kanarya ve üretim gibi farklı dağıtım ortamları arasında. Bu, toplanan veriler ilişkili uygulama ve altyapı arasında uygun olmasını sağlar. Ortamlar arasında verilerin bağıntısını gerekiyorsa, kullanabileceğiniz [ölçüm Gezgini'nde birden çok kaynak grafikleri](../monitoring-and-diagnostics/monitoring-metric-charts.md) veya oluşturma [kaynaklar arası sorgular Log analytics'te](../log-analytics/log-analytics-cross-workspace-search.md).
+- [Ayrı izleme örnekleri korumak](../application-insights/app-insights-separate-resources.md) , geliştirme, Test, Kanarya ve üretim gibi farklı dağıtım ortamları arasında. Bu, toplanan veriler ilişkili uygulama ve altyapı arasında uygun olmasını sağlar. Ortamlar arasında verilerin bağıntısını gerekiyorsa, kullanabileceğiniz [ölçüm Gezgini'nde birden çok kaynak grafikleri](../monitoring-and-diagnostics/monitoring-metric-charts.md) veya oluşturma [kaynaklar arası sorgular Log analytics'te](log-query/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Eyleme dönüştürülebilir uyarı eylemleri ile oluşturma
 İzleme önemli bir özelliği, geçerli ve tahmin edilen sorunları yöneticileri proaktif olarak bildirme. 
 
-- Oluşturma [Azure İzleyici'de uyarılar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) günlükleri ve tahmin edilebilir hata durumlarını tanımlamak için ölçümleri temel alan. Tüm uyarılar eyleme dönüştürülebilir gerçek kritik koşulları temsil eder ve hatalı pozitif sonuçları azaltmak arama yapma bir hedefi olmalıdır. Kullanım [dinamik eşikler](../monitoring-and-diagnostics/monitoring-alerts-dynamic-thresholds.md) temelleri kendi statik eşikler tanımlamak yerine ölçüm verileri otomatik olarak hesaplamak için. 
-- Yöneticilerinize bildiren en etkili yolu kullanmak uyarılar için eylemleri tanımlayın. Kullanılabilir [bildirim eylemlerinde](../monitoring-and-diagnostics/monitoring-action-groups.md#create-an-action-group-by-using-the-azure-portal) SMS, e-postalar, anında iletme bildirimleri veya sesli çağrı.
-- Eylemler için daha gelişmiş [, ITSM aracına bağlanma](../log-analytics/log-analytics-itsmc-overview.md) veya diğer uyarı yönetim sistemleri ile [Web kancaları](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+- Oluşturma [Azure İzleyici'de uyarılar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) günlükleri ve tahmin edilebilir hata durumlarını tanımlamak için ölçümleri temel alan. Tüm uyarılar eyleme dönüştürülebilir gerçek kritik koşulları temsil eder ve hatalı pozitif sonuçları azaltmak arama yapma bir hedefi olmalıdır. Kullanım [dinamik eşikler](platform/alerts-dynamic-thresholds.md) temelleri kendi statik eşikler tanımlamak yerine ölçüm verileri otomatik olarak hesaplamak için. 
+- Yöneticilerinize bildiren en etkili yolu kullanmak uyarılar için eylemleri tanımlayın. Kullanılabilir [bildirim eylemlerinde](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) SMS, e-postalar, anında iletme bildirimleri veya sesli çağrı.
+- Eylemler için daha gelişmiş [, ITSM aracına bağlanma](platform/itsmc-overview.md) veya diğer uyarı yönetim sistemleri ile [Web kancaları](platform/activity-log-alerts-webhook.md).
 - Uyarılarla de tanımlanan durumlar düzeltme [Azure Otomasyonu runbook'ları](../automation/automation-webhooks.md) veya [Logic Apps](/connectors/custom-connectors/create-webhook-trigger) Web kancalarını kullanan bir uyarıdan başlatılabilir. 
 - Kullanım [otomatik ölçeklendirme](../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md) dinamik olarak artırmak ve toplanan ölçümlere göre işlem kaynaklarınızı azaltın.
 

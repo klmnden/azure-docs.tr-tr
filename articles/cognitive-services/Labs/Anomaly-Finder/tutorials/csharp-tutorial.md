@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Anomali Algılama, C#'
+title: 'Öğretici: Anomali algılamaC#'
 titlesuffix: Azure Cognitive Services
 description: Anomali Algılama API'sini kullanan bir C# uygulamasını keşfedin. Özgün veri noktalarını API'ye gönderin ve beklenen değerle anomali noktalarını alın.
 services: cognitive-services
@@ -10,20 +10,20 @@ ms.component: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: f99ce765c1d9417fd5ca88b49214eca8a3b0bf49
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: ea9083d530d9a94825b8c568ef4c3dbc847c44c0
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887658"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162469"
 ---
-# <a name="tutorial-anomaly-detection-with-c-application"></a>Öğretici: C# uygulaması ile Anomali Algılama
+# <a name="tutorial-anomaly-detection-with-c-application"></a>Öğretici: Anomali algılama ile C# uygulama
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Girişteki anomalileri algılamak için Anomali Algılama API'sini kullanan basit bir Windows uygulamasını keşfedin. Örnek, abonelik anahtarınızı kullanarak Anomali Algılama API'sine zaman serisi verileri gönderir ve API'den her bir veri noktasıyla ilgili anomali noktalarını ve beklenen değerleri alır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="platform-requirements"></a>Platform gereksinimleri
 
@@ -35,7 +35,7 @@ Girişteki anomalileri algılamak için Anomali Algılama API'sini kullanan basi
 
 ## <a name="get-and-use-the-example"></a>Örneği alma ve kullanma
 
-Anomali Algılama örnek uygulamasını [Github](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git)'dan bilgisayarınıza kopyalayabilirsiniz. 
+Anomali algılama örnek uygulama bilgisayarınıza kopyalayabilirsiniz [GitHub](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git). 
 <a name="Step1"></a>
 ### <a name="install-the-example"></a>Örneği yükleme
 

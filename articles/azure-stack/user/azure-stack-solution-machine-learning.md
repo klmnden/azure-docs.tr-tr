@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 12/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 057df4260da267254cb764e58fdac749bee3b842
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5a1f0c0ee8a9f6ef6871e19e7722e09f4e96ba7f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106762"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53142079"
 ---
-# <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile çözüm öğrenme bir makine oluşturma
+# <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Öğretici: Bir edge makine öğrenimi çözümünüzü Azure ve Azure Stack ile oluşturma
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Bir edge makine öğrenimi çözümünüzü Azure ve Azure Stack ile oluşturmayı öğrenin.
 
@@ -135,13 +135,13 @@ Azure ve Azure Stack biri gereklidir. Devam etmeden önce daha fazla bilgi için
 
  -  **VSTS barındırılan Linux aracı havuzu oluşturun.** Hızlı, test uygulamaları derlemeye ve dağıtmaya barındırılan aracı kullanma yönetilir ve sürdürülür. Barındırılan VSTS derleme hakkında daha fazla bilgi için bkz: aracıları [barındırılan aracıları](https://docs.microsoft.com/vsts/build-release/concepts/agents/hosted?view=vsts) belgeleri.
 
-## <a name="step-1-create-a-storage-account"></a>1. adım: depolama hesabı oluşturma
+## <a name="step-1-create-a-storage-account"></a>1. Adım: Depolama hesabı oluşturma
 
 Bir depolama hesabı ve kapsayıcı bulunan verileri temizleme için oluşturun.
 
 1.  Oturum [ *Azure portalında*](https://portal.azure.com/).
 
-2.  Azure portalında hizmet menüsünü açın ve sol taraftaki menüyü genişleterek **tüm hizmetleri**. Ekranı aşağı kaydırarak **depolama** ve **depolama hesapları**. İçinde ** depolama hesapları ** pencere **Ekle**.
+2.  Azure portalında hizmet menüsünü açın ve sol taraftaki menüyü genişleterek **tüm hizmetleri**. Ekranı aşağı kaydırarak **depolama** ve **depolama hesapları**. İçinde **depolama hesapları** pencere **Ekle**.
 
 3.  Depolama hesabı için bir ad girin.
 
@@ -150,7 +150,7 @@ Bir depolama hesabı ve kapsayıcı bulunan verileri temizleme için oluşturun.
 
 4.  Kullanılacak dağıtım modelini belirtin: **Resource Manager**.
 
-5.  Depolama hesabı türünü seçin: **genel amaçlı V1**, ardından performans katmanını belirtin: **standart**.
+5.  Depolama hesabı türünü seçin: **Genel amaçlı V1**, ardından performans katmanını belirtin: **Standart**.
 
 6.  Depolama hesabı için çoğaltma seçeneğini seçin: **GRS**.
 
@@ -162,7 +162,7 @@ Bir depolama hesabı ve kapsayıcı bulunan verileri temizleme için oluşturun.
 
 10. Depolama hesabını oluşturmak için **Oluştur**’u seçin.
 
-    ![Alternatif metin](/media/azure-stack-solution-machine-learning/image1.png)
+    ![Alternatif metin](media/azure-stack-solution-machine-learning/image1.png)
 
 11.  Son oluşturulan depolama hesabını seçin.
 
@@ -180,7 +180,7 @@ Bir depolama hesabı ve kapsayıcı bulunan verileri temizleme için oluşturun.
 
     ![Alternatif metin](media/azure-stack-solution-machine-learning/image4.png)
 
-## <a name="step-2-create-a-data-science-virtual-machine"></a>2. adım: bir veri bilimi sanal makinesi oluşturma
+## <a name="step-2-create-a-data-science-virtual-machine"></a>2. Adım: Bir veri bilimi sanal makinesi oluşturma
 
 Azure portalında bir Ubuntu veri bilimi sanal makinesi (DSVM) oluşturun.
 
@@ -194,8 +194,8 @@ Azure portalında bir Ubuntu veri bilimi sanal makinesi (DSVM) oluşturun.
 
     ![Alternatif metin](media/azure-stack-solution-machine-learning/image6.png)
 
-> ! [Önemli]  
-> **Seçin** parola ** olarak*kimlik doğrulama türü*.
+> [!Important]  
+> Seçin **parola** olarak **kimlik doğrulama türü**.
 
 Yeni oluşturulan depolama hesabı aynı kaynak grubunda yeni DSVM yerleştirin. Tüm uç ML nesneleri, bu kaynak grubunda azure'da dağıtılır.
 
@@ -209,7 +209,8 @@ Yeni oluşturulan depolama hesabı aynı kaynak grubunda yeni DSVM yerleştirin.
 
     d.  İçin **tanılama depolama hesabı**, daha önce oluşturduğunuz depolama hesabını seçin.
 
-    e.  Not: Azure kaynakları için yönetilen kimlikleri de Azure aboneliği için yapılandırılmış ve etkin AAD ile etkinleştirilebilir.
+    > [!Note]  
+    > Azure aboneliği için yapılandırılmış ve etkin AAD ile Azure kaynakları için yönetilen kimlikleri de etkinleştirilebilir.
 
 2.  **Tamam**’ı seçin.
 
@@ -312,7 +313,8 @@ Azure Machine Learning hesapları sağlamak için Azure portalını kullanın:
 
 Azure Machine Learning Workbench, Windows veya macOS için sağlanır. [Desteklenen platformların](https://docs.microsoft.com/azure/machine-learning/service/quickstart-installation) listesine bakın.
 
-**Uyarı:** yüklemenin tamamlanması için geçici olarak bir saat sürebilir.
+> [!Warning]  
+> Yüklemeyi tamamlamak için geçici olarak bir saat sürebilir.
 
 1.  En son Workbench yükleyicisini indirin ve başlatın.
 
@@ -321,7 +323,7 @@ Azure Machine Learning Workbench, Windows veya macOS için sağlanır. [Destekle
 
 1.  İzleyin ekrandaki tamamlanma yükleyicideki yönergeleri.
 
-    ** Yüklemenin tamamlanması olarak 30 dakika sürebilir. **
+    **Yüklemenin tamamlanması olarak 30 dakika sürebilir.**
     
     `Windows: C:\\Users\\<user>\\AppData\\Local\\AmlWorkbench`
     
@@ -865,7 +867,7 @@ Betiği uzak Linux makine üzerinde bir Docker kapsayıcısında yürütmek içi
     ```yaml  
     Framework: Python
     ```
-1.  Hedef kullanarak çalıştırdığınız komutu olarak önce CLI penceresinde*<DSVM>* bu kez iris_sklearn.py uzak bir Docker kapsayıcısında yürütmek için: (yedek <DSVM> ile veri bilimi VM adı köşeli ayraçları olmadan).
+1.  Hedef kullanarak çalıştırdığınız komutu olarak önce CLI penceresinde*<DSVM>* bu kez iris_sklearn.py uzak bir Docker kapsayıcısında yürütmek için: (Alternatif <DSVM> ile veri bilimi VM adı köşeli ayraçları olmadan).
 
     ```CLI
         az ml experiment submit -c <DSVM> iris_sklearn.py
@@ -885,7 +887,7 @@ Uzak Linux VM'de yürütülmenin dışında adocker-pythonenvironment gibi komut
 
 4.  **iris_sklearn.py** dosyasını gözden geçirerek pickle dosyasının oluşturulduğu yeri bulun. Ctrl+F kısayolunu seçerek **Bul** iletişim kutusunu açın ve sonra Python kodunda **pickle** sözcüğünü bulun.
 
-Bu kod parçacığı, pickle çıktı dosyasının nasıl oluşturulduğunu gösterir. Pickle çıktı dosyası diskte **model.pkl** olarak adlandırılır.
+    Bu kod parçacığı, pickle çıktı dosyasının nasıl oluşturulduğunu gösterir. Pickle çıktı dosyası diskte **model.pkl** olarak adlandırılır.
 
     ```Python
         print("Export the model to model.pkl")
@@ -923,7 +925,7 @@ Web hizmetini model dosyasıyla birlikte dağıtmak için Puanlama betik gerekli
 
     Bu betik, bir JSON dosyası oluşturur. **çıkışları** bölümünde, model tarafından gerekli giriş verileri şemasını yakalar.
 
-1.  **Proje Panosu** bölmesinin sağ tarafındaki **İşler** bölmesini inceleyin. Yeşil son ** score_iris.py** işin tamamlanmasını bekleyin **tamamlandı** durumu. Ardından, çalıştırma ayrıntılarını görmek için en son iş çalıştırmasına ait **score_iris.py** bağlantısını seçin.
+1.  **Proje Panosu** bölmesinin sağ tarafındaki **İşler** bölmesini inceleyin. En son **score_iris.py** işinin yeşil **Tamamlandı** durumunu göstermesini bekleyin. Ardından, çalıştırma ayrıntılarını görmek için en son iş çalıştırmasına ait **score_iris.py** bağlantısını seçin.
 
 2.  **Çalıştırma Özellikleri** bölmesinin **Çıktılar** bölümünde yeni oluşturulan **service_schema.json** dosyasını seçin. Dosya adının yanındaki onay kutusunu ve sonra **İndir**’i seçin. Dosyayı projenizin kök klasörüne kaydedin.
 
@@ -952,23 +954,23 @@ Web hizmetini model dosyasıyla birlikte dağıtmak için Puanlama betik gerekli
 
 Şimdi, modeli hazır hale getirmek için ortamı hazırlama.
 
-## <a name="step-5-deploy-and-use-azure-container-registry"></a>5. adım: Dağıtma ve Azure Container Registry'yi kullanma
+## <a name="step-5-deploy-and-use-azure-container-registry"></a>5. adım: Azure Container Registry’yi dağıtma ve kullanma
 
 Dağıtma ve Azure Container Registry kullanma.
 
 **az acr create** komutuyla Azure Container kayıt defteri oluşturun. Kaynak defteri adı Azure’da benzersiz olmalı ve 5-50 arası alfasayısal karakter içermelidir. Kaynak grubu aynıdır.
 
-    ```CLI
-        az acr create --resource-group <ResourceGroup> --name  <acrName> --sku Basic
-    ```
+```CLI
+    az acr create --resource-group <ResourceGroup> --name  <acrName> --sku Basic
+```
 
 ### <a name="container-registry-login"></a>Kapsayıcı kayıt defterinde oturum açma
 
 ACR örneğinde oturum açmak için **az acr login** komutunu kullanın. Kapsayıcı kayıt defterine oluşturulduğunda verilen benzersiz adı sağlayın.
 
-    ```CLI
-        az acr login --name <acrName>
-    ```
+```CLI
+    az acr login --name <acrName>
+```
 
 Komut döndürür bir ' tamamlandığında oturum açma başarılı iletisi.
 
@@ -978,11 +980,11 @@ Kullanım *yerel mod* yerel bilgisayarda ve geliştirme ve test için Docker kap
 
 Modeli hazır hale getirmek için aşağıdaki adımları tamamlamak üzere Docker motorunun yerel ortamda çalışıyor olması gerekir. Kullanım `-h` karşılık gelen yardım iletisini görüntülemek için her bir komutun sonunda bayrağı.
 
-    > [!Note]  
-    > If Docker engine is not locally available, proceed by creating a cluster in Azure for deployment and keep the cluster for re-use, or delete it after the tutorial to avoid ongoing charges.
+> [!Note]  
+> Docker altyapısının yerel olarak kullanılabilir durumda değilse, dağıtım için Azure'da bir küme oluşturarak işleme devam ve küme yeniden kullanmak için tutmak veya devam eden ücretlerden kaçınmak için öğreticiden sonra silin.
 
-    > [!Note]  
-    > Web services deployed locally do not appear in Azure Portal's list of services. They will be running in Docker on the local machine.
+> [!Note]  
+> Yerel olarak dağıtılan web Hizmetleri, Azure Portal'ın Hizmetler listesinde görünmez. Bunlar yerel makinede Docker’da çalıştırılır.
 
 1.  Komut satırı arabirimini (CLI) açın. Machine Learning Workbench uygulamasının **Dosya** menüsünde **Komut İstemini Aç**’ı seçin.
 
@@ -1017,7 +1019,7 @@ Modeli hazır hale getirmek için aşağıdaki adımları tamamlamak üzere Dock
     az provider show -n Microsoft.ContainerRegistry
     ```
 
-    Çıktının üçüncü satırında **"registrationState": "Registering"** ifadesi gösterilir. Birkaç dakika bekleyin ve tekrar **Göster** çıktıyı görüntüler kadar komutu **"registrationState": "Registered.**
+    Çıktının üçüncü satırında **"registrationState": "Registering"**. Birkaç dakika bekleyin ve tekrar **Göster** çıktıyı görüntüler kadar komutu **"registrationState": "Kayıtlı.**
 
 1.  Ortamı oluşturun. Bu adımı her ortam için bir kez çalıştırın.
 
@@ -1218,9 +1220,9 @@ Kaynakları oluşturabilir, böylece aboneliği için hizmet sorumlusu erişimi 
 
     ![Çözüm Şablonu Dağıt](media/azure-stack-solution-machine-learning/image59.png)
 
-10\. Seçin **Temelleri** , Kubernetes kümesi oluşturun.
+10. Seçin **Temelleri** , Kubernetes kümesi oluşturun.
 
-    ![Deploy Solution Template](media/azure-stack-solution-machine-learning/image60.png)
+    ![Çözüm Şablonu Dağıt](media/azure-stack-solution-machine-learning/image60.png)
 
 11. Girin **Linux VM yönetici kullanıcı adı**. Kubernetes kümesinin parçası olan bir Linux sanal makineleri ve DVM için kullanıcı adı.
 
@@ -1261,7 +1263,7 @@ WSL ortamında WSL ortamında kubectl yüklemek için aşağıdaki komutları ç
 
 ```PowerShell  
 Install-script -name install-kubectl -scope CurrentUser -force
-Install-kubectl.ps1 -downloadlocation “C:\Users\<Current User>\Documents\Kube
+Install-kubectl.ps1 -downloadlocation "C:\Users\<Current User>\Documents\Kube"
 ```
 
 ### <a name="install-kubectl-on-the-windows-subsystem-for-linux-environment"></a>Kubectl Linux ortamı için Windows alt sisteminde yükleyin.
@@ -1301,7 +1303,7 @@ The connection to the server <server-name:port> was refused -  did you specify t
 Kubectl küme-info döndürürse yanıtı URL'sini küme değildir ancak yine de uygun yapılandırma için erişilebilir, onay kullanarak:
 
 ```Bash  
-> kubectl cluster-info dump
+    kubectl cluster-info dump
 ```
 
 ### <a name="enable-shell-autocompletion"></a>Kabuk otomatik tamamlama etkinleştir
@@ -1349,7 +1351,7 @@ Yeni bir WSL oturumunda, yerel bir JSON dosyası alındığında kümesini yapı
     kubectl proxy
     kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
     kubectl proxy
-    set KUBECONFIG=”/mnt/c/users/<current user>/documents/Kube/kubeconfig.json”
+    set KUBECONFIG="/mnt/c/users/<current user>/documents/Kube/kubeconfig.json"
     kubectl.exe config view
 ```
 
@@ -1408,7 +1410,7 @@ Kaydet **iris_deployment.yaml** dosyası (bulunan /*c/mnt/kullanıcı/<current u
 kubectl.exe create -f /mnt/c/users/<current  user>/documents/Kube/iris_deployment.yaml
 ```
 
-    ![Alt text](media/azure-stack-solution-machine-learning/image67.png)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image67.png)
 
 Dağıtım durumunu kontrol edin:
 
@@ -1416,7 +1418,7 @@ Dağıtım durumunu kontrol edin:
 Kubectl get deployments
 ```
 
-    ![Alt text](media/azure-stack-solution-machine-learning/image68.png)
+![Alternatif metin](media/azure-stack-solution-machine-learning/image68.png)
 
 Dağıtım biraz zaman alabilir.
 
@@ -1553,7 +1555,7 @@ Hizmet uç noktası yapılandırmasının bir parçası olarak, VSTS gerektirir 
 
 Azure Stack aboneliğine kaynakları dağıtmak için hizmet sorumlusu haklar
 
-Abonelikte bulunan kaynaklara erişmek için uygulamanızı bir role atayın. Uygulama için doğru izinlere rolünü karar verin. Kullanılabilir roller hakkında bilgi edinmek için [RBAC: yerleşik roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Abonelikte bulunan kaynaklara erişmek için uygulamanızı bir role atayın. Uygulama için doğru izinlere rolünü karar verin. Kullanılabilir roller hakkında bilgi edinmek için [RBAC: Yerleşik roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 Abonelik, kaynak grubu veya kaynak düzeyinde kapsamı ayarlayın. Daha düşük düzeyde kapsam için izinler devralınmıştır. Örneğin, okuyucu rolünün bir kaynak grubu için bir uygulama eklendiğinde, kaynak grubunu ve içerdiği tüm kaynakları okumak sağlar.
 
@@ -1824,11 +1826,11 @@ Başarı aşağıdakine benzer görünecektir:
 
 1.  Kubernetes hizmeti bağlantısı altında seçin **+ yeni** düğmesini ve**Kubernetes**listeden. Bu uç noktaya bağlanmak için kullanabileceğiniz**VSTS**ve**Azure Container Service (AKS)**.
 
-2.  **Bağlantı adı**: bağlantı adı belirtin.
+2.  **Bağlantı adı**: Bağlantı adı belirtin.
 
-3.  **Sunucu URL'si**: formathttp kapsayıcı hizmeti adresini belirtin: / / {API sunucusu adresi}
+3.  **Sunucu URL'si**: Kapsayıcı hizmeti adresini formathttp belirtin: / / {API sunucusu adresi}
 
-4.  **Kubeconfig'i denetleyin**: kubeconfig'i denetleyin değeri almak için yönetici ayrıcalığı ile başlatılan bir komut isteminde aşağıdaki Azure komutları çalıştırın.
+4.  **Kubeconfig'i denetleyin**: Kubeconfig'i denetleyin değeri almak için yönetici ayrıcalığı ile başlatılan bir komut isteminde aşağıdaki Azure komutları çalıştırın.
 
     > [!Important]  
     > Sonraki adımları gerçekleştirmek için bu CLI penceresini kullanın.
@@ -1855,7 +1857,7 @@ az aks get-credentials resource-group <yourResourceGroup> adı <yourazurecontain
 
 ![Kubernetes hizmet uç noktası](media/azure-stack-solution-machine-learning/image123.png)
 
-1.  Gidin **.kube**giriş dizini altında klasör (ör: C:\\kullanıcılar\\<user>\\belgeleri\\Kube)
+1.  Gidin **.kube**giriş dizini altında klasör (örn: C:\\kullanıcılar\\<user>\\belgeleri\\Kube)
 
 2.  İçeriğini kopyalayın**config**dosyası ve Kubernetes bağlantısı penceresine yapıştırın. Seçin**Tamam**düğmesi.
 
@@ -1914,7 +1916,7 @@ Kubernetes UI çalıştırıldıktan sonra dağıtımı daha göz atın [ **http
 
     ```Bash  
     git add .
-    git commit -m “Added Service YAML” 
+    git commit -m "Added Service YAML" 
     git push
     ```
 
@@ -1959,9 +1961,8 @@ Kubernetes UI çalıştırıldıktan sonra dağıtımı daha göz atın [ **http
 1.  Azure Stack daha önce oluşturduğunuz bağlantı Kubernates hizmet bağlantı ayarlayın ve ardından **yapılandırma dosyalarını kullanın** bir yapılandırma dosyası eklemek için onay kutusu. Bağlı Yapıtlar iris_service.yaml dosyasına göz atın.
 
     ![Alternatif metin](media/azure-stack-solution-machine-learning/image135.png)
-
-
-    ![Alternatif metin](media/azure-stack-solution-machine-learning/image136.png)
+    <!-- -->
+    ![alternatif metin](media/azure-stack-solution-machine-learning/image136.png)
 
 1.  Yayın tanımını kaydedin.
 
@@ -2013,7 +2014,7 @@ Aşağıdakine benzer bir doğrulama iletisi görüntülenmelidir:
 
 Her bir işlevin yürütülmesini barındıran bir işlev uygulaması gerekir. Bir işlev uygulaması, daha kolay yönetimi, dağıtım ve kaynakların paylaşımı için bir mantıksal birim olarak gruplandırma işlevine izin verir.
 
-1.  Azure Stack Kullanıcı Portalı'ndan seçin **+ yeni** düğmesi sol üst köşesinde bulunan üzerinde ardından**Web + mobil** >**işlev uygulaması**.
+1.  Azure Stack Kullanıcı Portalı'ndan seçin **+ yeni** düğmesi sol üst köşesinde bulunan üzerinde ardından **Web + mobil** >**işlev uygulaması**.
 
     ![Alternatif metin](media/azure-stack-solution-machine-learning/image141.png)
 
@@ -2021,13 +2022,13 @@ Her bir işlevin yürütülmesini barındıran bir işlev uygulaması gerekir. B
 
     ![Yeni işlev uygulaması ayarlarını tanımlama](media/azure-stack-solution-machine-learning/image142.png)
 
-1.  Seçin**Oluştur**işlev uygulamasını sağlamak ve dağıtmak için.
+1.  Seçin **Oluştur**işlev uygulamasını sağlamak ve dağıtmak için.
 
-2.  Portalın sağ üst köşesindeki bildirim simgesini seçin ve izlemesi**dağıtım başarılı** ileti.
+2.  Portalın sağ üst köşesindeki Bildirim simgesini seçin ve **Dağıtım başarılı** iletisini bekleyin.
 
     ![Yeni işlev uygulaması ayarlarını tanımlama](media/azure-stack-solution-machine-learning/image143.png)
 
-1.  Seçin**kaynağa Git** yeni işlev uygulaması görüntülemek için.
+1.  Seçin **kaynağa Git** yeni işlev uygulaması görüntülemek için.
 
     ![Alternatif metin](media/azure-stack-solution-machine-learning/image144.png)
 
@@ -2087,7 +2088,7 @@ Kbernetes ve işlevleri ayarlama emin olmak için doğru ücretsiz Postman uygul
 
     ![Alternatif metin](media/azure-stack-solution-machine-learning/image155.png)
 
-## <a name="step-7-create-an-azure-stack-storage-account-and-storage-queue"></a>7. adım: bir Azure Stack depolama hesabını ve depolama kuyruğu oluşturma
+## <a name="step-7-create-an-azure-stack-storage-account-and-storage-queue"></a>7. adım: Bir Azure Stack depolama hesabını ve depolama kuyruğu oluşturun
 
 Verileri bir Azure Stack depolama hesabını ve depolama kuyruğu oluşturun.
 
@@ -2103,13 +2104,13 @@ Verileri bir Azure Stack depolama hesabını ve depolama kuyruğu oluşturun.
 
 6.  Seçin **yerel** depolama hesabı için konum.
 
-7.  Seçin**Oluştur**depolama hesabı oluşturmak için.
+7.  Seçin **Oluştur**depolama hesabı oluşturmak için.
 
     ![Alternatif metin](media/azure-stack-solution-machine-learning/image156.png)
 
 1.  Son oluşturulan depolama hesabını seçin.
 
-2.  SELECT deyiminde**kuyrukları**.
+2.  SELECT deyiminde **kuyrukları**.
 
     ![Alternatif metin](media/azure-stack-solution-machine-learning/image157.png)
 
@@ -2129,7 +2130,7 @@ Verileri bir Azure Stack depolama hesabını ve depolama kuyruğu oluşturun.
 
     ![Alternatif metin](media/azure-stack-solution-machine-learning/image161.png)
 
-1.  Depolama hesabının adını girin **adı** sonuna ekleme alan; _depolama
+1.  Depolama hesabının adını girin **adı** sonuna ekleme alanı `_STORAGE`.
 
 Bu, bir depolama hesabı uç noktası olduğunu anlamak için uygulamayı sağlar.
 
@@ -2159,7 +2160,7 @@ Bu, bir depolama hesabı uç noktası olduğunu anlamak için uygulamayı sağla
 
     ![Alternatif metin](media/azure-stack-solution-machine-learning/image166.png)
 
-## <a name="step-8-create-a-function-to-handle-clean-data"></a>8. adım: verileri temizleme işlemek için bir işlev oluşturma
+## <a name="step-8-create-a-function-to-handle-clean-data"></a>8. adım: Temiz verileri işlemek için bir işlev oluşturma
 
 Verileri temizleme Azure yığını, Azure'a taşımak için yeni bir Azure Stack işlevi oluşturun.
 
@@ -2229,7 +2230,7 @@ Bu, bir depolama hesabı uç noktası olduğunu anlamak için uygulamayı sağla
 
     ![Alternatif metin](media/azure-stack-solution-machine-learning/image178.png)
 
-1.  Verileri görmek için Azure barındırılan depolama hesabına ayrıştırılmış azure'dan buluta denetleyin: başarı benzer şekilde görünür aşağıda.
+1.  Verileri Azure buluta ayrıştırılmış görmek için barındırılan Azure depolama hesabı denetleyin: Başarı benzer şekilde görünür aşağıda.
 
     ![Alternatif metin](media/azure-stack-solution-machine-learning/image179.png)
 

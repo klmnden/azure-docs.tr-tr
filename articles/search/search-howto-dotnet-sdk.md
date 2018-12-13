@@ -1,6 +1,6 @@
 ---
-title: Bir .NET uygulamasından Azure Search kullanma | Microsoft Docs
-description: Bir .NET uygulamasından Azure Search kullanma
+title: -Azure Search bir .NET uygulamasından Azure Search kullanma
+description: Bir .NET uygulaması kullanarak Azure Search kullanma hakkında bilgi edinin C# ve .NET SDK'sı. Kod tabanlı görevler dizin içeriği hizmete bağlanın ve dizin sorgulama.
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,12 +9,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: 19913f9c30992e833e5435af7066611d4662ba56
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.custom: seodec2018
+ms.openlocfilehash: c2dd9d7c7567a7c57def093c4d611ab09c870d84
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525646"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310700"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Bir .NET uygulamasından Azure Search kullanma
 Bu makale ile çalışmaya başlamanızı sağlayacak bir kılavuz niteliğindedir [Azure Search .NET SDK'sı](https://aka.ms/search-sdk). .NET SDK'sı, Azure Search kullanarak uygulamanızda bir zengin arama deneyimi uygulamak için kullanabilirsiniz.
@@ -27,8 +28,8 @@ Ana NuGet paketi `Microsoft.Azure.Search`, bağımlılık olarak diğer tüm pak
 SDK diğer NuGet paketleri şunlardır:
  
   - `Microsoft.Azure.Search.Data`: Azure Search kullanarak bir .NET uygulaması geliştirmeye devam ediyoruz ve sorgu veya dizinleri belgeleri güncelleştirmek yalnızca ihtiyacınız varsa bu paketi kullanın. Ayrıca oluşturmak veya dizinleri güncelleştirme gerekirse eş anlamlı sözcük eşlemelerini veya diğer hizmet düzeyi kaynakları kullanmak `Microsoft.Azure.Search` bunun yerine paket.
-  - `Microsoft.Azure.Search.Service`: Bu paket için Azure Search dizinlerini, eş anlamlı sözcük eşlemelerini, dizin oluşturucular, veri kaynakları veya diğer hizmet düzeyi kaynakları yönetmek için. NET'te Otomasyon geliştiriyorsanız kullanın. Dizinlerinizi içinde sorgu veya güncelleştirme belgelere yalnızca ihtiyacınız varsa `Microsoft.Azure.Search.Data` bunun yerine paket. Azure Search'ün tüm işlevlerine ihtiyacınız varsa, `Microsoft.Azure.Search` bunun yerine paket.
-  - `Microsoft.Azure.Search.Common`: Azure Search .NET kitaplıkları tarafından gerekli genel türler. Bu paket, uygulamanızda doğrudan kullanmak gerekmez; Yalnızca, bir bağımlılık olarak kullanılmak üzere tasarlanmıştır.
+  - `Microsoft.Azure.Search.Service`: Azure Search dizinlerini, eş anlamlı sözcük eşlemelerini, dizin oluşturucular, veri kaynakları veya diğer hizmet düzeyi kaynakları yönetmek için. NET'te Otomasyon geliştiriyorsanız, bu paketi kullanın. Dizinlerinizi içinde sorgu veya güncelleştirme belgelere yalnızca ihtiyacınız varsa `Microsoft.Azure.Search.Data` bunun yerine paket. Azure Search'ün tüm işlevlerine ihtiyacınız varsa, `Microsoft.Azure.Search` bunun yerine paket.
+  - `Microsoft.Azure.Search.Common`: Azure Search .NET kitaplıkları tarafından gereken genel türler. Bu paket, uygulamanızda doğrudan kullanmak gerekmez; Yalnızca, bir bağımlılık olarak kullanılmak üzere tasarlanmıştır.
 
 Sınıflar gibi çeşitli istemci kitaplıkları tanımlamak `Index`, `Field`, ve `Document`, yanı sıra operations ister `Indexes.Create` ve `Documents.Search` üzerinde `SearchServiceClient` ve `SearchIndexClient` sınıfları. Bu sınıfların şu ad alanlarından düzenlenmiştir:
 
@@ -386,7 +387,7 @@ public partial class Hotel
 }
 ```
 
-Fark edilecek ilk şey, `Hotel` öğesinin her bir genel özelliğinin dizin tanımındaki bir alana karşılık geldiği ancak çok önemli bir fark olduğudur: `Hotel` öğesinin her bir genel özelliğinin adı büyük harfle ("Pascal büyük/küçük harfi") başlarken her bir alanın adı küçük harfle ("ortası büyük harf") başlar. Bu durum, hedef şemanın uygulama geliştiricisinin denetimi dışında kaldığı bir veri bağlamayı gerçekleştiren .NET uygulamalarında ortak bir senaryodur. Özellik adlarını ortası büyük harf yaparak .NET adlandırma yönergelerini bozmanın yerine, `[SerializePropertyNamesAsCamelCase]` özniteliğiyle SDK'nın özellik adlarını otomatik olarak ortası büyük harfle eşlenmesini söyleyebilirsiniz.
+Fark edilecek ilk şey her ortak özelliği olan `Hotel` dizin tanımını, ancak çok önemli bir fark bir alana karşılık gelir: Her alanın adı küçük harfle ("ortası büyük harf"), sırasında her bir genel özelliğinin adını başlar `Hotel` büyük harfle ("Pascal harf") başlar. Bu durum, hedef şemanın uygulama geliştiricisinin denetimi dışında kaldığı bir veri bağlamayı gerçekleştiren .NET uygulamalarında ortak bir senaryodur. Özellik adlarını ortası büyük harf yaparak .NET adlandırma yönergelerini bozmanın yerine, `[SerializePropertyNamesAsCamelCase]` özniteliğiyle SDK'nın özellik adlarını otomatik olarak ortası büyük harfle eşlenmesini söyleyebilirsiniz.
 
 > [!NOTE]
 > Azure Search .NET SDK'sı, özel model nesnelerinizi JSON'a ve JSON'dan seri hale getirmek ve seri durumdan çıkarmak için [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) kitaplığını kullanır. Gerekirse bu seri hale getirmeyi özelleştirebilirsiniz. Daha fazla ayrıntı için [JSON.NET ile özel serileştirme](#JsonDotNet).
@@ -408,7 +409,7 @@ Kendi sınıflarınızı belge olarak kullanabilme iki yönde de işe yarar; Ayr
 
 Bir Azure Search dizinine eşlemek için yeni model sınıflarınızı tasarlarken, `bool` ve `int` gibi değer türü özelliklerinin boş değer atanabilir (örneğin, `bool` yerine `bool?`) şeklinde bildirilmesini öneririz. Boş değer atanamayan bir özellik kullanırsanız buna karşılık gelen alan için dizininizdeki hiçbir belgenin boş bir değer içermediğini **garanti etmeniz** gerekir. Bunu zorlamanıza ne SDK ne de Azure Search hizmeti yardımcı olur.
 
-Bu yalnızca kuramsal bir sorun değildir: Var olan `Edm.Int32` türünde bir dizine yeni bir alan eklediğiniz bir senaryoyu düşünün. Dizin tanımını güncelleştirdikten sonra, tüm belgelerin bu yeni alan için boş bir değeri olur (bunun nedeni, Azure Search'te tüm türlerin boş değer atanabilir olmasıdır). Ardından bu alan için boş değer atanamayan bir `int` özelliğiyle bir model sınıfı kullanırsanız belgeleri almaya çalışırken bunun gibi bir `JsonSerializationException` alırsınız:
+Bu yalnızca kuramsal bir sorun değildir: Eklediğiniz yeni alan türü var olan bir dizin için bir senaryoyu düşünün `Edm.Int32`. Dizin tanımını güncelleştirdikten sonra, tüm belgelerin bu yeni alan için boş bir değeri olur (bunun nedeni, Azure Search'te tüm türlerin boş değer atanabilir olmasıdır). Ardından bu alan için boş değer atanamayan bir `int` özelliğiyle bir model sınıfı kullanırsanız belgeleri almaya çalışırken bunun gibi bir `JsonSerializationException` alırsınız:
 
     Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
 

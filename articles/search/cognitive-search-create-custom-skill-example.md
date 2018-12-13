@@ -1,5 +1,5 @@
 ---
-title: 'Örnek: bilişsel arama (Azure Search) işlem hattı, özel bir yetenek oluştur | Microsoft Docs'
+title: 'Örnek: Bilişsel arama hattında - Azure Search özel bir yetenek oluşturma'
 description: Bilişsel arama dizinleme işlem hattı, Azure Search eşlenen özel nitelik içinde metin çevirme API'sini kullanmayı gösterir.
 manager: pablocas
 author: luiscabrer
@@ -9,14 +9,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: luisca
-ms.openlocfilehash: d78959ba415c837e931edcc0278de84daa879bc1
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: seodec2018
+ms.openlocfilehash: d5bbdac74b0afa745993dd848ef73352d996e8b6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393959"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315069"
 ---
-# <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Örnek: metin çevirme API'sini kullanarak özel bir yetenek oluşturma
+# <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Örnek: Metni Çevir API'sini kullanarak özel bir yetenek oluşturma
 
 Bu örnekte, web, herhangi bir dilde kabul eden ve İngilizceye çevirir API özel beceri oluşturma konusunda bilgi edinin. Örnekte bir [Azure işlevi](https://azure.microsoft.com/services/functions/) sarmalamak için [Çevir metin API'si](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) böylece özel bir yetenek arabirimini uygular.
 

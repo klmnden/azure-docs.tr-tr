@@ -1,25 +1,25 @@
 ---
-title: E-postaları ve ekleri işleyen iş akışları oluşturma - Azure Logic Apps | Microsoft Docs
-description: Bu öğretici; Azure Logic Apps, Azure Depolama ve Azure İşlevleri ile e-postaları ve ekleri işlemenizi sağlayan otomatik iş akışlarının nasıl oluşturulacağını gösterir
+title: Öğretici - işleme e-postaları ve ekleri - Azure Logic Apps otomatik hale getirin | Microsoft Docs
+description: Öğretici - e-postaları ve ekleri Azure Logic Apps, Azure depolama ve Azure işlevleri ile otomatik iş akışları oluşturun
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
+ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.reviewer: klam, LADocs
-ms.openlocfilehash: 3d4e91465e2f9986ec1029b304e1c026e39f45b6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: cc3a2e96222e06324500e2203d870c06d0f3e8c0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231977"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140515"
 ---
-# <a name="process-emails-and-attachments-with-azure-logic-apps"></a>Azure Logic Apps ile e-postaları ve ekleri işleme
+# <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Öğretici: İşleme e-postaları ve ekleri Azure Logic Apps ile otomatikleştirme
 
-Azure Logic Apps, Azure hizmetleri, Microsoft hizmetleri ve diğer hizmet olarak yazılım (SaaS) uygulamalarının yanı sıra şirket içi sistemler üzerindeki verileri tümleştirmenize ve iş akışlarını otomatikleştirmenize yardımcı olur. Bu öğretici, gelen e-postaları ve ekleri işleyen bir [mantıksal uygulamayı](../logic-apps/logic-apps-overview.md) nasıl oluşturabileceğinizi gösterir. Bu mantıksal uygulama söz konusu içeriği işler, içeriği Azure Depolama’ya kaydeder ve içeriği gözden geçirmek için bildirimler gönderir. 
+Azure Logic Apps, Azure hizmetleri, Microsoft hizmetleri ve diğer hizmet olarak yazılım (SaaS) uygulamalarının yanı sıra şirket içi sistemler üzerindeki verileri tümleştirmenize ve iş akışlarını otomatikleştirmenize yardımcı olur. Bu öğretici, gelen e-postaları ve ekleri işleyen bir [mantıksal uygulamayı](../logic-apps/logic-apps-overview.md) nasıl oluşturabileceğinizi gösterir. Bu mantıksal uygulama e-posta içeriği çözümler, içeriği Azure Depolama'ya kaydeder ve içeriği gözden geçirmek için bildirimler gönderir. 
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -39,7 +39,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Azure aboneliğiniz yoksa başlamadan önce <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Logic Apps tarafından desteklenen Office 365 Outlook, Outlook.com veya Gmail gibi bir e-posta sağlayıcıdan alınmış e-posta hesabı. Diğer sağlayıcılar için [buradaki bağlayıcı listesini inceleyin](https://docs.microsoft.com/connectors/).
 
@@ -144,7 +144,7 @@ Sonra, gelen e-postadan HTML’yi kaldıran bir [Azure işlevi](../azure-functio
    | **Kaynak Grubu** | LA-Tutorial-RG | Daha önce kullandığınız Azure kaynak grubu | 
    | **Barındırma Planı** | Tüketim Planı | Bu ayar, işlev uygulamanızı çalıştırmak için bilgi işlem gücü gibi kaynakların nasıl ayrılacağını ve ölçekleneceğini belirler. Bkz. [barındırma planları karşılaştırması](../azure-functions/functions-scale.md). | 
    | **Konum** | Batı ABD | Daha önce kullandığınız bölge | 
-   | **Depolama** | cleantextfunctionstorageacct | İşlev uygulamanız için bir depolama hesabı oluşturun. Yalnızca küçük harfleri ve rakamları kullanın. <p>**Not:** Bu depolama hesabı, işlev uygulamalarınızı içerir ve e-posta ekleri için daha önce oluşturduğunuz depolama hesabınızdan farklılık gösterir. | 
+   | **Depolama** | cleantextfunctionstorageacct | İşlev uygulamanız için bir depolama hesabı oluşturun. Yalnızca küçük harfleri ve rakamları kullanın. <p>**Not:** Bu depolama hesabı, işlev uygulamalarınızı içerir ve e-posta ekleri için önceden oluşturulmuş depolama hesabınızdan farklılık gösterir. | 
    | **Application Insights** | Kapalı | [Application Insights](../application-insights/app-insights-overview.md) ile uygulama izlemeyi açar, ancak bu öğretici için **Kapalı** ayarını seçin. | 
    |||| 
 
@@ -246,9 +246,9 @@ Sonra ek içeren gelen e-postaları dinleyen bir [tetikleyici](../logic-apps/log
 
 ## <a name="monitor-incoming-email"></a>Gelen e-postayı izleme
 
-1. Tasarımcının arama kutusuna filtre olarak "yeni e-posta geldiğinde" öğesini seçin. E-posta sağlayıcınız için bu tetikleyiciyi seçin: **Yeni bir e-posta geldiğinde - <*e-posta-sağlayıcınız*>**
+1. Tasarımcının arama kutusuna filtre olarak "yeni e-posta geldiğinde" öğesini seçin. E-posta sağlayıcınız için şu tetikleyiciyi seçin: **Yeni bir e-posta geldiğinde - <*eposta-sağlayıcınız*>**
 
-   Örnek:
+   Örneğin:
 
    ![E-posta sağlayıcısı için şu tetikleyiciyi seçin: "Yeni bir e-posta geldiğinde"](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
@@ -274,8 +274,8 @@ Sonra ek içeren gelen e-postaları dinleyen bir [tetikleyici](../logic-apps/log
 
       | Ayar | Değer | Açıklama | 
       | ------- | ----- | ----------- | 
-      | **Eki Var** | Yes | Yalnızca ek içeren e-postaları alın. <p>**Not:** Tetikleyici, hesabınızdaki e-postaları kaldırmaz, yalnızca yeni iletileri denetler ve yalnızca konu filtresiyle eşleşen e-postaları işler. | 
-      | **Ekleri Dahil Et** | Yes | Yalnızca ekleri denetlemek yerine, iş akışınız için giriş olarak ekleri alın. | 
+      | **Eki Var** | Evet | Yalnızca ek içeren e-postaları alın. <p>**Not:** Tetikleyici her e-postalar yalnızca yeni iletileri denetler ve yalnızca konu filtresiyle eşleşen postalar işleme, hesabınızdan kaldırmaz. | 
+      | **Ekleri Dahil Et** | Evet | Yalnızca ekleri denetlemek yerine, iş akışınız için giriş olarak ekleri alın. | 
       | **Konu Filtresi** | ```Business Analyst 2 #423501``` | E-posta konusunda bulunacak metin | 
       |  |  |  | 
 
@@ -313,7 +313,7 @@ Sonra ek içeren gelen e-postaları dinleyen bir [tetikleyici](../logic-apps/log
 
    2. Ortadaki kutuda **eşittir** işlecini tutun.
 
-   3. Sağdaki kutuda tetikleyicinin **Eki Var** özellik değeri ile karşılaştırılacak değer olarak **True** yazın.
+   3. Sağdaki kutuya girin **true** ile Karşılaştırılacak değer olarak **sahip ek** tetikleyiciden özellik değeri.
 
       ![Koşul derleme](./media/tutorial-process-email-attachments-workflow/finished-condition.png)
 
@@ -328,7 +328,7 @@ Sonra ek içeren gelen e-postaları dinleyen bir [tetikleyici](../logic-apps/log
          "and": [ {
             "equals": [
                "@triggerBody()?['HasAttachment']",
-                 "True"
+                 "true"
             ]
          } ]
       },
@@ -377,15 +377,15 @@ Bu adım, önceden oluşturduğunuz Azure işlevini mantıksal uygulamanıza ekl
 
    !["True ise" bölümünde eylem ekleyin](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-2. Arama kutusuna "azure işlevleri" yazın ve bu eylemi seçin: **Azure işlevi seç - Azure İşlevleri**
+2. Arama kutusuna "azure işlevleri" bulun ve şu eylemi seçin: **Azure işlevleri - Azure işlevi seçin**
 
    !["Azure işlevi seç" eylemini seçin](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
-3. Önceden oluşturduğunuz işlev uygulamasını seçin: **CleanTextFunctionApp**
+3. Önceden oluşturduğunuz işlev uygulamanızı seçin: **CleanTextFunctionApp**
 
    ![Azure işlevi uygulamanızı seçin](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function-app.png)
 
-4. Şimdi **RemoveHTMLFunction** işlevinizi seçin
+4. Artık işlevinizi seçin: **Removehtmlfunction işlevini**
 
    ![Azure işlevinizi seçin](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function.png)
 
@@ -419,7 +419,7 @@ Ardından e-posta gövdesini kaydedebilmek için depolama kapsayıcınızda blob
 
 1. Azure işlevinizin altındaki **True ise** bloğunda **Eylem ekle**'yi seçin. 
 
-2. Arama kutusunda filtre olarak "blob oluştur" yazın ve şu eylemi seçin: **Blob oluştur - Azure Blob Depolama**
+2. Arama kutusuna "filtreniz olarak blob oluştur" girin ve şu eylemi seçin: **BLOB - Azure Blob Depolama oluşturma**
 
    ![E-posta gövdesine ilişkin blob oluşturmak için eylem ekleme](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-email-body.png)
 
@@ -518,7 +518,7 @@ Sonra, her eki **ekler** depolama kapsayıcınızda blob olarak kaydeden eylemi 
 
    ![Döngüye eylem ekleme](./media/tutorial-process-email-attachments-workflow/for-each-add-action.png)
 
-2. Arama kutusunda filtre olarak "blob oluştur" yazın ve ardından şu eylemi seçin: **Blob oluştur - Azure Blob Depolama**
+2. Arama kutusuna "filtreniz olarak blob oluştur" girin ve ardından şu eylemi seçin: **BLOB - Azure Blob Depolama oluşturma**
 
    ![Blob oluşturmak için eylem ekleme](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 
@@ -572,7 +572,7 @@ Sonra mantıksal uygulamanızın ekleri gözden geçirmek üzere e-posta gönder
 
 ## <a name="send-email-notifications"></a>E-posta bildirimleri gönderme
 
-1. **True ise** dalında **Her e-posta eki için** döngüsünün altında **Eylem ekle**’yi seçin. 
+1. İçinde **doğruysa** altında dal **her e-posta eki için** döngü öğesini **Eylem Ekle**. 
 
    !["For each" döngüsünün altına eylem ekleme](./media/tutorial-process-email-attachments-workflow/add-action-send-email.png)
 

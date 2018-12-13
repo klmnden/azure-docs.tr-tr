@@ -1,6 +1,6 @@
 ---
-title: Portalda Azure Search hizmeti oluşturma | Microsoft Docs
-description: Portalda Azure Search hizmeti sağlayın.
+title: Portal - Azure Search bir Azure Search hizmeti oluşturma
+description: Azure portalındaki Azure Search Hizmeti sağlayın. Kaynak grupları, bölgeler ve SKU veya fiyatlandırma katmanı seçin.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 83e34f926ec3133f89ccb90979fc3e6708613a80
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: 2055ad9baff0c6acc05c9287ca1b8fb08731f8bc
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713936"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315994"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Portalda Azure Search hizmeti oluşturma
 
@@ -58,7 +59,7 @@ Kaynak grubu, birlikte kullanılan Azure hizmetleri ve kaynakları koleksiyonudu
 Azure hizmeti olarak Azure Search, dünyanın dört bir yanındaki veri merkezlerinde barındırılabilir. [Fiyatların bölgeye göre değişiklik gösterebileceğini](https://azure.microsoft.com/pricing/details/search/) unutmayın.
 
 ## <a name="select-a-pricing-tier-sku"></a>Fiyatlandırma katmanı (SKU) seçme
-[Azure Search şu anda birden fazla fiyatlandırma katmanında sunulmaktadır](https://azure.microsoft.com/pricing/details/search/): Ücretsiz, Temel veya Standart. Her katmanın kendi [kapasitesi ve sınırları](search-limits-quotas-capacity.md) vardır. Yönergeler için [Fiyatlandırma katmanı veya SKU seçme](search-sku-tier.md) bölümüne bakın.
+[Azure arama şu anda birden fazla fiyatlandırma katmanında sunulan](https://azure.microsoft.com/pricing/details/search/): Ücretsiz, temel veya standart. Her katmanın kendi [kapasitesi ve sınırları](search-limits-quotas-capacity.md) vardır. Yönergeler için [Fiyatlandırma katmanı veya SKU seçme](search-sku-tier.md) bölümüne bakın.
 
 Üretim iş yükleri için genellikle Standart seçilir ancak çoğu müşteri başlangıçta Ücretsiz hizmeti kullanır.
 

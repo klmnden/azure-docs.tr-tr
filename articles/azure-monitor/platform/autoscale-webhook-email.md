@@ -1,0 +1,122 @@
+---
+title: E-posta ve Web kancası uyarı bildirimleri göndermek için otomatik ölçeklendirmeyi kullanma
+description: "Otomatik ölçeklendirme eylemlerinin web URL'leri çağırma veya Azure İzleyici'de e-posta bildirimleri göndermek için nasıl kullanılacağı konusuna bakın. "
+author: anirudhcavale
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 04/03/2017
+ms.author: ancav
+ms.component: autoscale
+ms.openlocfilehash: c655f117009c0c7c682ad92a951edc7e12255bc2
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53326413"
+---
+# <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>E-posta ve Web kancası, Azure İzleyici'de uyarı bildirimleri göndermek için otomatik ölçeklendirme eylemleri kullanın
+Bu makalede, böylece belirli web URL'lerini çağırma veya Azure otomatik ölçeklendirme eylemleri göre e-posta Gönder Tetikleyiciler nasıl kümesi gösterilmektedir.  
+
+## <a name="webhooks"></a>Web Kancaları
+Web kancaları, işlem sonrası veya özel bildirimleri için diğer sistemlere Azure uyarı bildirimleri yönlendirmek olanak sağlar. Örneğin, uyarı vb. sohbet kullanarak veya Mesajlaşma bir team services ile SMS, günlük hataları, bildirim göndermek için bir gelen web isteklerini işleyebilir Hizmetleri için yönlendirme. Web kancası URI geçerli bir HTTP veya HTTPS uç noktası olmalıdır.
+
+## <a name="email"></a>Email
+E-posta, herhangi bir geçerli e-posta adresine gönderilebilir. Kural çalıştığı aboneliğin Yöneticiler ve ortak de bildirim alırsınız.
+
+## <a name="cloud-services-and-web-apps"></a>Bulut Hizmetleri ve Web uygulamaları
+Azure portalından bulut Hizmetleri ve sunucu grupları (Web uygulamaları) için katılımı.
+
+* Seçin **ölçeklendirilmesine** ölçümü.
+
+![göre ölçeklendirin](./media/autoscale-webhook-email/insights-autoscale-notify.png)
+
+## <a name="virtual-machine-scale-sets"></a>Sanal Makine ölçek kümeleri
+Daha yeni Resource Manager (sanal makine ölçek kümeleri) ile oluşturulan sanal makineler için bunu REST API, Resource Manager şablonları, PowerShell ve CLI kullanarak yapılandırabilirsiniz. Bir portal arabirimi henüz kullanılamıyor.
+REST API veya Resource Manager şablonu kullanarak, aşağıdaki seçeneklerle bildirimler öğesi ekleyin.
+
+```
+"notifications": [
+      {
+        "operation": "Scale",
+        "email": {
+          "sendToSubscriptionAdministrator": false,
+          "sendToSubscriptionCoAdministrators": false,
+          "customEmails": [
+              "user1@mycompany.com",
+              "user2@mycompany.com"
+              ]
+        },
+        "webhooks": [
+          {
+            "serviceUri": "https://foo.webhook.example.com?token=abcd1234",
+            "properties": {
+              "optional_key1": "optional_value1",
+              "optional_key2": "optional_value2"
+            }
+          }
+        ]
+      }
+    ]
+```
+| Alan | Zorunlu? | Açıklama |
+| --- | --- | --- |
+| işlem |evet |"Ölçek" değeri olmalıdır |
+| sendToSubscriptionAdministrator |evet |değer "true" veya "false" olmalıdır. |
+| sendToSubscriptionCoAdministrators |evet |değer "true" veya "false" olmalıdır. |
+| customEmails |evet |değer null [] veya e-postaları dize dizisi olabilir |
+| Web kancaları |evet |değer null veya geçerli bir URI olabilir |
+| serviceUri |evet |Geçerli bir https URI |
+| properties |evet |Değer boş olmalıdır {} veya anahtar-değer çiftleri içerebilir |
+
+## <a name="authentication-in-webhooks"></a>Web kancaları kimlik doğrulaması
+Web kancası belirteci kimliği ile bir sorgu parametresi olarak Web kancası URI kaydetmek belirteç tabanlı kimlik doğrulamasını kullanarak kimlik doğrulaması yapabilir. Örneğin, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+
+## <a name="autoscale-notification-webhook-payload-schema"></a>Otomatik ölçeklendirme bildirim Web kancası yükü şeması
+Otomatik ölçeklendirme bildirim oluşturulduğunda, aşağıdaki meta verileri Web kancası yükteki dahildir:
+
+```
+{
+        "version": "1.0",
+        "status": "Activated",
+        "operation": "Scale In",
+        "context": {
+                "timestamp": "2016-03-11T07:31:04.5834118Z",
+                "id": "/subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/autoscalesettings/myautoscaleSetting",
+                "name": "myautoscaleSetting",
+                "details": "Autoscale successfully started scale operation for resource 'MyCSRole' from capacity '3' to capacity '2'",
+                "subscriptionId": "s1",
+                "resourceGroupName": "rg1",
+                "resourceName": "MyCSRole",
+                "resourceType": "microsoft.classiccompute/domainnames/slots/roles",
+                "resourceId": "/subscriptions/s1/resourceGroups/rg1/providers/microsoft.classicCompute/domainNames/myCloudService/slots/Production/roles/MyCSRole",
+                "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/rg1/providers/microsoft.classicCompute/domainNames/myCloudService",
+                "oldCapacity": "3",
+                "newCapacity": "2"
+        },
+        "properties": {
+                "key1": "value1",
+                "key2": "value2"
+        }
+}
+```
+
+
+| Alan | Zorunlu? | Açıklama |
+| --- | --- | --- |
+| durum |evet |Otomatik ölçeklendirme eylemi oluşturulduğunu gösteren durum |
+| işlem |evet |Bir artış örnekleri için "Ölçeği genişletme" olacaktır ve durumlarda bir azaltmak için "ölçek" olacaktır |
+| Bağlam |evet |Otomatik ölçeklendirme eylem bağlamı |
+| timestamp |evet |Otomatik ölçeklendirme eylemi tetiklendiğinde zaman damgası |
+| id |Evet |Resource Manager Kimliğini otomatik ölçeklendirme ayarı |
+| ad |Evet |Otomatik ölçeklendirme ayarının adı |
+| ayrıntılar |Evet |Otomatik ölçeklendirme hizmeti sürdü eylem ve örnek sayısını değişiklik açıklaması |
+| subscriptionId |Evet |Abonelik kimliği ölçeklendirilir hedef kaynak |
+| resourceGroupName |Evet |Ölçeklendirilen hedef kaynağın kaynak grubu adı |
+| resourceName |Evet |Ölçeklendirilen hedef kaynağın adı |
+| Kaynak türü |Evet |Üç desteklenen değerler: "microsoft.classiccompute/domainnames/slots/roles" - bulut hizmeti rolleri, "microsoft.compute/virtualmachinescalesets" - sanal makine ölçek kümeleri ve "Microsoft.Web/serverfarms" - Web uygulaması |
+| resourceId |Evet |Resource Manager Kimliğini ölçeklendirilir hedef kaynak |
+| portalLink |Evet |Özet sayfasında, hedef kaynağı için Azure portal bağlantısı |
+| oldCapacity |Evet |Bir ölçek eylemi otomatik ölçeklendirme geçen zaman geçerli (eski) örnek sayısı |
+| newCapacity |Evet |Otomatik ölçeklendirme kaynağa ölçeği yeni bir örnek sayısı |
+| Özellikler |Hayır |İsteğe bağlı. < Anahtar değer > dizi çiftlerini (örneğin, sözlük < String, String >). Özellikler alanı isteğe bağlıdır. Özel kullanıcı arabirimi veya mantıksal uygulama temel iş akışı, anahtarları ve yükü kullanılarak geçirilebilir değerleri girebilirsiniz. Özel özellikler giden Web kancası çağrısı geçirmek için alternatif bir yolu Web kancası kendisi (olarak URI sorgu parametreleri) kullanmaktır. |

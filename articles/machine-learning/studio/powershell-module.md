@@ -5,9 +5,8 @@ keywords: deneme,doğrusal regresyon,makine öğrenimi algoritmaları,makine ö�
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
+ms.custom: previous-ms.author=haining, previous-author=hning86
 ms.author: amlstudiodocs
-manager: mwinkle
 editor: cgronlun
 ms.assetid: a9001cc2-3aa0-47e1-b175-1f76408ba1d1
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.openlocfilehash: 3191ff845f72c87b85fdd414716ed9a00b022d06
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6539ec36c23feccfa52c8214784590106fa5a01e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312036"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257531"
 ---
 # <a name="powershell-module-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio için PowerShell Modülü
 Azure Machine Learning için PowerShell modülü, çalışma alanlarını, denemeleri, veri kümeleri, Klasik web hizmetleri ve daha fazla yönetmek için Windows PowerShell'i kullanma olanak tanıyan güçlü bir araçtır.
@@ -54,7 +53,7 @@ Bu PowerShell modülü ile gerçekleştirebileceğiniz bazı görevler burada a�
         #Run the Experiment
         Start-AmlExperiment -ExperimentId $exp.ExperimentId 
 
-Sık istenen bir görevi otomatik hale getirmek için PowerShell modülünü kullanma hakkında daha ayrıntılı bir kullanım örneği için şu makaleye bakın: [çok sayıda Machine Learning modeli ve web hizmeti uç noktaları PowerShell kullanarak bir denemeden oluşturma](create-models-and-endpoints-with-powershell.md).
+Daha ayrıntılı bir kullanım durumu için sık istenen bir görevi otomatik hale getirmek için PowerShell modülünü kullanarak bu makaleye bakın: [Çok sayıda Machine Learning modeli ve web hizmeti uç noktaları PowerShell kullanarak bir denemeden oluşturma](create-models-and-endpoints-with-powershell.md).
 
 ## <a name="how-do-i-get-started"></a>Nasıl kullanmaya başlayabilirim?
 Machine Learning PowerShell’i kullanmaya başlamak için GitHub’dan [yayın paketini](https://github.com/hning86/azuremlps/releases) indirin ve [yükleme yönergelerini](https://github.com/hning86/azuremlps/blob/master/README.md) izleyin. Yönergeler, indirilen/sıkıştırması açılan DLL'nin engelini kaldırmanız ve PowerShell ortamında içeri aktarma işlemleri açıklanmaktadır. Cmdlet’lerin çoğu bir çalışma alanı kimliği, çalışma alanı yetkilendirme belirteci ve çalışma alanının bulunduğu Azure bölgesini belirtmenizi gerektirir. Bir varsayılan config.json dosyası aracılığıyla değerlerini sağlamak için en basit yoludur. Yönergeler Ayrıca bu dosya yapılandırma işlemleri açıklanmaktadır. 

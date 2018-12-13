@@ -1,5 +1,5 @@
 ---
-title: Azure App Service ve Azure işlevleri'nde güvenlik | Microsoft Docs
+title: Güvenliğe genel bakış - Azure App Service | Microsoft Docs
 description: App Service güvenli yardımları hakkında uygulamanızı ve nasıl daha fazla uygulamanızı tehditlerden kilitleyebilir öğrenin.
 keywords: Azure app service, web uygulaması, mobil uygulama, API uygulaması, işlev uygulaması, güvenlik, güvenli, güvenli, uyumluluk, uyumlu, sertifika, sertifika, https, ftps, tls, güven, şifreleme, şifreleme, şifrelenmiş, IP kısıtlaması, kimlik doğrulaması, yetkilendirme, authn, autho MSI, yönetilen hizmet kimliği, yönetilen kimlik, gizli anahtarları, gizli, düzeltme eki uygulama, düzeltme eki, düzeltme ekleri, sürüm, yalıtım, ağ yalıtımı, ddos, mıtm
 services: app-service
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 3bacc2bf253a6b8c3b869b7a6d4952d982de3ee6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18
+ms.openlocfilehash: 7c2297fa5f7ebaae1c54794ebbbd37e25d3931ca
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857508"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251479"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Azure App Service ve Azure işlevleri güvenliği
 

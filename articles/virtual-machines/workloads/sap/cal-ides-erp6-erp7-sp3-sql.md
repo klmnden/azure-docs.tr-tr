@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: 93824c8f0e7667fcb58fd6b8292cddfa2b4a482a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: eb5d731fbef22c70aaf970bf64aa90361e47a542
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441470"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194207"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Azure'da SAP ERP 6.0 için SAP IDES EHP7 SP3'ı dağıtma
 Bu makalede, SQL Server ve Windows işletim sistemi ile Azure üzerinde SAP Cloud Appliance Library (SAP CAL) 3.0 çalışan bir SAP IDES sistemi dağıtmayı açıklar. Ekran görüntüleri işlemi adım adım gösterir. Farklı bir çözümü dağıtmak için aynı adımları izleyin.
@@ -29,7 +29,7 @@ Bu makalede, SQL Server ve Windows işletim sistemi ile Azure üzerinde SAP Clou
 SAP CAL ile başlatmak için Git [SAP Cloud Appliance Library](https://cal.sap.com/) Web sitesi. SAP de sahip hakkında yeni bir blog [SAP bulut Gereci kitaplığı 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
 > [!NOTE]
-29 Mayıs 2017'den itibaren SAP CAL'ı dağıtmak için daha az tercih edilen Klasik dağıtım modeli yanı sıra Azure Resource Manager dağıtım modelini kullanabilirsiniz. Yeni Resource Manager dağıtım modelini kullanan ve klasik dağıtım modeli dikkate öneririz.
+> 29 Mayıs 2017'den itibaren SAP CAL'ı dağıtmak için daha az tercih edilen Klasik dağıtım modeli yanı sıra Azure Resource Manager dağıtım modelini kullanabilirsiniz. Yeni Resource Manager dağıtım modelini kullanan ve klasik dağıtım modeli dikkate öneririz.
 
 Klasik modeli kullanan bir SAP CAL hesabı zaten oluşturduysanız *başka bir SAP CAL hesabı oluşturmak için ihtiyacınız*. Yalnızca Resource Manager modelini kullanarak Azure'a dağıtmak bu hesabı gerekir.
 
@@ -96,7 +96,7 @@ Windows ve SQL Server üzerinde SAP IDES çözüm dağıtabilmeniz için önce b
 ### <a name="deploy-a-solution"></a>Bir çözüm dağıtma
 1. SAP CAL hesabınızı ayarladıktan sonra seçin **Windows ve SQL Server üzerinde SAP IDES çözüm** çözüm. Tıklayın **oluşturma örneği**, kullanım ve koşulları koşullar onaylayın. 
 
-1. Üzerinde **temel mod: Örnek Oluştur** sayfasında gerekir:
+1. Üzerinde **temel modu: Örneği oluşturma** sayfasında gerekir:
 
     a. Bir örneği girmeniz **adı**.
 
@@ -104,7 +104,7 @@ Windows ve SQL Server üzerinde SAP IDES çözüm dağıtabilmeniz için önce b
 
     c.  Ana girin **parola** gösterildiği gibi çözüm için:
 
-    ![SAP CAL ana mod: Örneği oluşturma](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
+    ![SAP CAL temel modu: Örneği oluşturma](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
 1. **Oluştur**’a tıklayın. Bir süre sonra büyüklüğü ve karmaşıklığı (SAP CAL bir tahmin sağlar), çözümün bağlı olarak durumu etkin ve kullanıma hazır olarak gösterilir: 
 

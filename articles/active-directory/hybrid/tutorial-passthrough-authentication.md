@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: azure'da geçişli kimlik doğrulaması (PTA) kullanarak tek bir AD ormanında tümleştirme | Microsoft Docs"
+title: "Öğretici:  Geçişli kimlik doğrulaması (PTA) kullanarak Azure'da tek bir AD ormanına tümleştirme | Microsoft Docs"
 description: Geçişli kimlik doğrulaması kullanarak bir karma kimlik ortamını ayarlama işlemi gösterilmektedir.
 services: active-directory
 author: billmath
@@ -10,14 +10,14 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df4a1ef30997bef6b83e66182404d0e2659a5d51
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 140161e88ee572d728a7f9c923c9528ea6755cc1
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422313"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165465"
 ---
-# <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Öğretici: geçişli kimlik doğrulaması (PTA) kullanarak tek bir AD ormanında tümleştirin
+# <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Öğretici:  Geçişli kimlik doğrulaması (PTA) kullanarak tek bir AD ormanında tümleştirme
 
 ![Oluştur](media/tutorial-passthrough-authentication/diagram.png)
 
@@ -84,7 +84,7 @@ Sanal makine oluşturma işlemini tamamlamak için işletim sistemi yüklemesini
 5. Tıklayın **Şimdi Yükle**.
 6. Lisans anahtarınızı girip __iade **sonraki**.
 7. Denetleme ** lisans koşullarını kabul edin ve tıklayın **sonraki**.
-8. Seçin **özel: yalnızca Windows yükleyin (Gelişmiş)**
+8. Seçin **özel:  Yalnızca Windows yükleyin (Gelişmiş)**
 9. **İleri**’ye tıklayın
 10. Yükleme tamamlandıktan sonra VM'yi en güncel olduğundan emin olmak için oturum açma ve çalıştırma Windows güncelleştirmeleri, sanal makineyi yeniden başlatın.  En son güncelleştirmeleri yüklersiniz.
 
@@ -196,7 +196,7 @@ Azure AD kiracısı sahibiz, genel yönetici hesabını oluşturacağız.  Bu he
 1.  **Yönet** bölümünde **Kullanıcılar**’ı seçin.</br>
 ![Oluşturma](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Seçin **tüm kullanıcılar** seçip **+ yeni kullanıcı**.
-3.  Bu kullanıcı için bir ad ve kullanıcı adı sağlayın. Bu kiracının genel Yöneticisi olacaktır. Ayrıca değiştirmek isteyeceksiniz **dizin rolü** için **genel yönetici.** Geçici parolayı da gösterebilirsiniz. İşiniz bittiğinde **Oluştur**.</br>
+3.  Bu kullanıcı için bir ad ve kullanıcı adı sağlayın. Bu kiracının genel Yöneticisi olacaktır. Ayrıca değiştirmek isteyeceksiniz **dizin rolü** için **genel yönetici.** Geçici parolayı da gösterebilirsiniz. İşiniz bittiğinde **Oluştur**’u seçin.</br>
 ![Oluşturma](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. Bu tamamlandıktan sonra yeni bir web tarayıcısı açın ve yeni genel yönetici hesabını ve geçici parolayı kullanarak myapps.microsoft.com için oturum açın.
 5. Genel yönetici, hatırlanır bir şey için parolayı değiştirin.
@@ -226,7 +226,7 @@ Artık Azure AD Connect karşıdan yüklenip kurulacak zamanı geldi.  Yüklendi
 ![PTA](media/tutorial-passthrough-authentication/pta1.png)</b>
 7. Azure AD ekranına bağlanma, kullanıcı ve yukarıda oluşturduğumuz genel yönetici parolasını girin ve tıklatın **sonraki**.
 2. Dizinleri ekranınıza Connect üzerinde tıklayın **Dizin Ekle**.  Ardından **yeni AD hesabı oluştur** contoso\Administrator kullanıcı adı ve parola girip __iade **Tamam**.
-3. **İleri**’ye tıklayın.
+3. **İleri**'ye tıklayın.
 4. Azure AD oturum açma yapılandırması ekranında seçin **tüm UPN soneki, doğrulanmış etki alanlarına eşleme olmadan devam** tıklatıp **sonraki.**
 5. Etki alanı ve OU filtreleme ekran'ı **sonraki**.
 6. Kullanıcıların ekranın tanıtan üzerinde ' a tıklayın **sonraki**.

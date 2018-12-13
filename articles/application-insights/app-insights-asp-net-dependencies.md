@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: e94af6e50c923d975c6ce71cca94479354891e0d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 77e78e6052e1477696eafa84a3e1c913593ec87e
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097786"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268844"
 ---
-# <a name="set-up-application-insights-dependency-tracking"></a>Application ınsights'ı: bağımlılık izleme
+# <a name="set-up-application-insights-dependency-tracking"></a>Application ınsights'ı ayarlayın: Bağımlılık izleme
 A *bağımlılık* uygulamanız tarafından çağrılan bir dış bileşen. Bu genellikle adlı HTTP veya bir veritabanı veya dosya sistemi kullanılarak bir hizmettir. [Application Insights](app-insights-overview.md) ne sıklıkta bağımlılık çağrı başarısız olur ve uygulama bağımlılıkları için bekleyeceği süreyi ölçer. Belirli çağrıları incelemek ve bunları istekler ve özel durumlar için ilişkilendirebilirsiniz.
 
 Kullanıma hazır bağımlılık İzleyicisi, şu anda bu tür bir bağımlılık çağrıları raporları:
@@ -208,8 +208,9 @@ Aşağıdaki tabloya başvurun ve kayıtlarınızın bağımlılık uygulamanız
 | Platform | Yükleme |
 | --- | --- |
 | IIS sunucusu |Her iki [sunucunuza Durum İzleyicisi yükleme](app-insights-monitor-performance-live-website-now.md). Veya [uygulamanızı .NET framework 4.6 veya üzeri için yükseltme](https://go.microsoft.com/fwlink/?LinkId=528259) yükleyip [Application Insights SDK'sı](app-insights-asp-net.md) uygulamanızda. |
+| IIS Express |IIS sunucusu bunun yerine kullanın. |
 | Azure Web Uygulaması |Web uygulaması Denetim Masası'ndaki [Application Insights dikey penceresini açın, web uygulaması Denetim Masası'ndaki](app-insights-azure-web-apps.md) yükleme istenirse seçin. |
-| Azure bulut hizmeti |[Kullanım başlangıç görevi](app-insights-cloudservices.md) veya [yükleme .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
+| Azure bulut hizmeti |[Kullanım başlangıç görevi](app-insights-cloudservices.md) veya [yükleme .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md). |
 
 ## <a name="video"></a>Video
 

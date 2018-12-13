@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 43f1e71486cedbeccb2c02388147a68756581e50
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 7ea4a58f072071f60cf87d1e8817ae19658be5fb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037779"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310428"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Azure ve Dynamics 365 danışmanlık hizmet teklifi
 
 <table> <tr> <td>Bu bölümde, ya da Microsoft Danışmanlık hizmet yayımlamak açıklanmaktadır <a href="https://azuremarketplace.microsoft.com">Azure Marketi</a> veya <a href="https://appsource.microsoft.com">AppSource Market</a>. Microsoft tabanlı çözümler <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://products.office.com">Office 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>, ve <a href="https://powerapps.microsoft.com">PowerApps</a> Appsource'ta listelenmesi uygundur. Diğer teklifler tabanlı diğer Microsoft <a href="https://azure.microsoft.com/services">Azure Hizmetleri</a> Azure Marketi'nde listeleme için uygundur. </td> <td><img src="./media/consulting-services-publishing-offer/consulting-icon1.png"  alt="Microsoft consulting icon" /></td> </tr> </table>
 
 
-# <a name="publishing-benefits"></a>Yayımlama avantajları
+## <a name="publishing-benefits"></a>Yayımlama avantajları
 
 Yayımlama ya da Microsoft marketleri önemli avantajları vardır:
 
@@ -36,13 +36,11 @@ Yayımlama ya da Microsoft marketleri önemli avantajları vardır:
 - Hizmetlerinizi Microsoft alan ve tele-satış ekipleri tarafından yükseltilen alın.
 
 
-<a name="define-your-consulting-services-offer"></a>Danışmanlık Hizmetleri teklifinizi tanımlayın
--------------------------------------
+## <a name="define-your-consulting-services-offer"></a>Danışmanlık Hizmetleri teklifinizi tanımlayın
 
 Paketlenmiş danışmanlık hizmet teklifinizin tanımlayın. Sabit fiyat tahmini, süre, sabit sabit kapsam odaklanın (veya ücretsiz) ve öncelikli olarak öncesi-sales odaklı teklifleri için tek bir müşteri. Popüler ve sizin için yeni iş sürüş en etkili paket yinelenebilir angajmanları seçin.
 
-<a name="publish-a-consulting-service-offer"></a>Danışmanlık bir hizmet teklifi yayımlama
-----------------------------------
+## <a name="publish-a-consulting-service-offer"></a>Danışmanlık bir hizmet teklifi yayımlama
 
 Aşağıdaki bölümlerde, danışmanlık hizmetleri teklifi yayımlama işlemi açıklanmaktadır
 
@@ -80,7 +78,7 @@ Bu tanımlayıcı, hesabınıza ilişkilidir. Kuruluş hesabınızla oturum açt
 
 AppSource veya Azure Marketi'nde teklif adı olarak ne görüntüler bu dizedir.
 
-**Önemli:** yalnızca burada gerçek hizmetin adını girin. Süre ve hizmetin türü içermez.
+**Önemli:** Yalnızca Burada gerçek hizmetin adını girin. Süre ve hizmetin türü içermez.
 
 Teklif adı nasıl derlenip Edgewater Fullscope aşağıdaki örnekte gösterilmektedir. Teklif adı aşağıdaki gibi görünür:
 
@@ -95,17 +93,17 @@ Teklif adı dört bölümden oluşur:
 
 Aşağıdaki listede, çeşitli iyi adlandırılmış teklif adları sağlar:
 
--   Profesyonel hizmetler için temel bileşenleri: 1 saat bilgilendirme
--   Bulut geçişi platformu: 1 saat bilgilendirme
--   PowerApps ve Microsoft Flow: 1 gün Atölyesi
--   Azure Machine Learning Hizmetleri: 3 hafta PoC
--   Tıklayın ve blok perakende çözümü: 1 saat bilgilendirme
+-   Profesyonel hizmetler için temel özellikleri: 1 saatlik bilgilendirme
+-   Bulut geçişi platformu: 1 saatlik bilgilendirme
+-   PowerApps ve Microsoft Flow: 1 günlük Atölyesi
+-   Azure Machine Learning Hizmetleri: PoC 3 hafta
+-   Çözüm perakende blok ve tıklayın: 1 saatlik bilgilendirme
 -   Kendi verilerinizi getirin: 1 hafta Atölyesi
 -   Bulut analizi: 3 günlük Atölyesi
--   Power BI eğitim: 3 günlük Atölyesi
--   Satış yönetimi çözümü: 1 haftalık uygulama
--   CRM hızlı başlangıç: 1 gün Atölyesi
--   Dynamics 365 for Sales: 2 günlük değerlendirme
+-   Power BI Eğitimi: 3 günlük Atölyesi
+-   Satış yönetim çözümü: 1 haftalık uygulama
+-   CRM hızlı başlangıç: 1 günlük Atölyesi
+-   Dynamics 365 satış için: 2 gün değerlendirmesi
 
 Tamamladıktan sonra **teklif ayarları** sekmesi, Gönderiminizi kaydedebilir. Teklif adı Düzenleyicisi artık görünür ve geri tüm sunar içinde bulabilirsiniz.
 
@@ -131,28 +129,28 @@ Teklif, yalnızca teklif adı altında görünür teklifinizi kısa bir açıkla
 
 *Örnek 1*
 
--   **Teklif adı:** bulut analizi: 3 günlük Atölyesi
--   **Özet sunar:** genel bakış, Microsoft Azure ve Power BI, geçerli ortam ve mini POC değerlendirme.
+-   **Teklif adı:** Bulut analizi: 3 günlük Atölyesi
+-   **Teklif özeti:** Microsoft Azure ve Power BI, geçerli ortam ve mini POC değerlendirmesi genel bakış.
 
 *Örnek 2*
 
--   **Teklif adı:** endüstriyel Azure IOT: 30 günlük kavram kanıtı
--   **Özet sunar:** ekipman alanında panolar, raporlar ve bildirimler ile bir Azure IOT hub'ı çözümü güvenli bir şekilde bağlanmak için bir endüstriyel bağlı ürün pilot oluşturun.
+-   **Teklif adı:** Azure IOT endüstriyel: 30 günlük kavram kanıtı
+-   **Teklif özeti:** Donanım alanında panolar, raporlar ve bildirimler ile bir Azure IOT hub'ı çözümü güvenli bir şekilde bağlanmak için bir endüstriyel bağlı ürün pilot oluşturun.
 
 *Örnek 3*
 
--   **Teklif adı:** Profesyonel Hizmetler: 1 saat bilgilendirme
--   **Teklif özeti:** genel bakış ve tanıtım, önceden yapılandırılmış, Dynamics 365 işlemler çözüm sağlayan gelişmiş projeleri, faturalandırma ve Profesyonel hizmetler için kaynak yönetimi için genişletilmiş.
+-   **Teklif adı:** Profesyonel Hizmetler: 1 saatlik bilgilendirme
+-   **Teklif özeti:** Genel bakış ve tanıtım işlemleri çözüm sağlamak için önceden yapılandırılmış, genişletilmiş Dynamics 365, projeler, faturalandırma ve Profesyonel hizmetler için kaynak yönetimi iyileştirdik.
 
 *Örnek 4*
 
--   **Teklif adı:** bilgisayarınızı dünya Power BI'da: 4 saatlik Atölyesi
--   **Özet sunar:** ilk panonuzu ayarlayıp çalıştırmaya başlamasına ve en iyi adımları öğrenin. 12 adede kadar öğrenciler için yerinde yürütülür.
+-   **Teklif adı:** Power BI, dünyada: 4-hr Atölyesi
+-   **Teklif özeti:** İlk panonuzu ayarlayıp çalıştırmaya başlamasına ve en iyi adımları öğrenin. 12 adede kadar öğrenciler için yerinde yürütülür.
 
 *Örnek 5*
 
--   **Teklif adı:** Dynamics ve projeler: 3 günlük değerlendirme
--   **Özet sunar:** gereksinimleri toplama ve profesyonel hizmet şirketleri ve proje temelli işletmeler için tasarlanmış bir ERP çözümü için değerlendirme.
+-   **Teklif adı:** Dynamics ve projeleri: 3 günlük değerlendirme
+-   **Teklif özeti:** Gereksinimleri toplama ve profesyonel hizmet şirketleri ve proje temelli işletmeler için tasarlanmış bir ERP çözümü için değerlendirme.
 
 ##### <a name="offer-description"></a>Teklif açıklaması
 
@@ -168,11 +166,11 @@ Teklif açıklamanızı kısa tutun ve kullanıcıları uzun metin okuma ister d
 
 Aşağıdaki örnek, iyi oluşan bir teklif açıklaması ve ilgili adı ve özeti gösterir:
 
-**Teklif adı:** bulut analizi: 3 günlük Atölyesi
+**Teklif adı:** Bulut analizi: 3 günlük Atölyesi
 
-**Özet sunar:** genel bakış, Microsoft Azure ve Power BI, geçerli ortam ve mini POC değerlendirme.
+**Teklif özeti:** Microsoft Azure ve Power BI, geçerli ortam ve mini POC değerlendirmesi genel bakış.
 
-**Teklif açıklaması:** bu 3 günlük Atölyesi için teknik ve işletmeye liderleri olduğu ve istemcinin olanağı yerinde tutulur.
+**Teklif açıklaması:** Bu 3 günlük Atölyesi için teknik ve işletmeye liderleri olduğu ve istemcinin olanağı yerinde tutulur.
 
 ***Gündem***
 
@@ -236,11 +234,11 @@ Microsoft odaklanan yalnızca sabit kapsam, sabit süre, tahmini ya da sabit bir
 
 Teklifleri aşağıdaki beş türlerini dahil edilir:
 
--   **Değerlendirme:** bir çözüm uygulanabilirliğini belirlemek ve tahmini maliyet ve zamanlama sağlamak için bir müşterinin ortamının değerlendirme.
--   **Bilgilendirme:** Giriş bir çözüm veya çerçeveleri, tanıtımlar ve müşteri örnekleri kullanarak müşteri vade farkı çizmek için danışmanlık hizmeti. Bilgilendirmelerden yararlanıyor gerçekleştirilen yerinde olması gerekir.
--   **Uygulama:** sonuçları tam olarak çalışan bir çözüm içinde tam bir yükleme. Bu Pilot aşaması için uygulanan bir hafta veya daha az çözümlerin sınırlama Microsoft önerir.
--   **Kavram kanıtı:** bir sınırlı kapsamı uygulaması bir çözüm, bir müşterinin gereksinimlerini karşılayıp karşılamadığınızı belirleyin.
--   **Atölyesi:** etkileşimli etkileşim gerçekleştirilen bir müşterinin şirket eğitim oturumları, bilgilendirmelerden yararlanıyor, değerlendirmeler veya müşterinin veri veya ortam oluşturulan tanıtımları içerebilir.
+-   **Değerlendirme:** Bir çözüm uygulanabilirliğini belirlemek ve tahmini maliyet ve zamanlama sağlamak için bir müşterinin ortamının değerlendirme.
+-   **Bilgilendirme:** Bir çözüm veya çerçeveleri, tanıtımlar ve müşteri örnekleri kullanarak müşteri vade farkı çizmek için danışmanlık hizmeti giriş. Bilgilendirmelerden yararlanıyor gerçekleştirilen yerinde olması gerekir.
+-   **Uygulama:** Tam olarak çalışan bir çözüm içinde sonuçları tam bir yükleme. Bu Pilot aşaması için uygulanan bir hafta veya daha az çözümlerin sınırlama Microsoft önerir.
+-   **Kavram kanıtı:** Bir çözüm, bir müşterinin gereksinimlerini karşılayıp karşılamadığını belirlemek için sınırlı kapsamı uygulaması.
+-   **Atölyesi:** Eğitim oturumları, bilgilendirmelerden yararlanıyor, değerlendirmeler veya müşterinin veri veya ortam oluşturulan tanıtımları içerebilen bir müşterinin şirket etkileşimli etkileşim yürütülür.
 
 **Ülke/bölge kullanılabilirliği**
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 15ba584e882dd5a28b74094f949843ed653ad400
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c75d4404cb0892c3d90261af2fb4982ac84041c4
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104076"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163795"
 ---
 # <a name="send-events-to-azure-event-hubs-using-nodejs"></a>Node.js kullanarak Azure Event Hubs için olayları gönderme
 
@@ -36,10 +36,10 @@ Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız ger
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma
 İlk adımda [Azure portalını](https://portal.azure.com) kullanarak Event Hubs türünde bir ad alanı oluşturun, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgilerini edinin. Bir ad alanı ve olay hub'ı oluşturmak için [bu makalede](event-hubs-create.md) verilen yordamı uygulayın, ardından bu öğreticide yer alan aşağıdaki adımlarla devam edin.
 
-Makaledeki yönergeleri izleyerek olay hub'ı ad alanı için bağlantı dizesini alın: [bağlantı dizesi alma](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Bu öğreticide daha sonra'de bağlantı dizesini kullanın.
+Bağlantı dizesi olay hub'ı ad alanı için makaledeki yönergeleri izleyerek alın: [Bağlantı dizesini alma](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Bu öğreticide daha sonra'de bağlantı dizesini kullanın.
 
 ## <a name="clone-the-sample-git-repository"></a>Örnek Git deposunu kopyalayın
-Örnek Git deposundan kopyalama [Github](https://github.com/Azure/azure-event-hubs-node) makinenizde. 
+Örnek Git deposundan kopyalama [GitHub](https://github.com/Azure/azure-event-hubs-node) makinenizde. 
 
 ## <a name="install-nodejs-package"></a>Node.js paketini yükle
 Node.js paketi için Azure Event Hubs makinenize yükleyin. 

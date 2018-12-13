@@ -1,5 +1,5 @@
 ---
-title: Linux üzerinde Azure App Service için SSH desteği | Microsoft Docs
+title: Linux'ta - Azure App Service için SSH desteği | Microsoft Docs
 description: Linux üzerinde Azure App Service ile SSH kullanma hakkında bilgi edinin.
 keywords: Azure app service, web uygulaması, linux, oss
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 4fa5e40b75be933ee62c8ba59449a78ac071dc43
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: ff5c18b08a2921efe72a35b9bd982986c1867812
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958189"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251317"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service için SSH desteği
 
@@ -66,7 +67,7 @@ Azure App Service deposu olarak bu adımları gösterilen [örneği](https://git
         && echo "root:Docker!" | chpasswd
     ```
 
-1. Ekleme bir [ `COPY` yönerge](https://docs.docker.com/engine/reference/builder/#copy) Dockerfile kopyalamak için bir [sshd_config](https://man.openbsd.org/sshd_config) dosyasını */etc/ssh/* dizin. Yapılandırma dosyanızı sshd_config dosyasında Azure App Service GitHub deposunda dayanmalıdır [burada](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
+2. Ekleme bir [ `COPY` yönerge](https://docs.docker.com/engine/reference/builder/#copy) Dockerfile kopyalamak için bir [sshd_config](https://man.openbsd.org/sshd_config) dosyasını */etc/ssh/* dizin. Yapılandırma dosyanızı sshd_config dosyasında Azure App Service GitHub deposunda dayanmalıdır [burada](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
 
     > [!NOTE]
     > *Sshd_config* bağlantı başarısız veya dosyası şunları içermelidir: 
@@ -77,13 +78,13 @@ Azure App Service deposu olarak bu adımları gösterilen [örneği](https://git
     COPY sshd_config /etc/ssh/
     ```
 
-1. Bağlantı noktasına 2222 Et [ `EXPOSE` yönerge](https://docs.docker.com/engine/reference/builder/#expose) Dockerfile için. Kök parolası biliniyor olsa da, 2222 numaralı bağlantı noktasına İnternet üzerinden erişilemez. Bir iç yalnızca bağlantı noktası erişilebilir yalnızca özel bir sanal ağın köprü ağı içinde kapsayıcılara göre var.
+3. Bağlantı noktasına 2222 Et [ `EXPOSE` yönerge](https://docs.docker.com/engine/reference/builder/#expose) Dockerfile için. Kök parolası biliniyor olsa da, 2222 numaralı bağlantı noktasına İnternet üzerinden erişilemez. Bir iç yalnızca bağlantı noktası erişilebilir yalnızca özel bir sanal ağın köprü ağı içinde kapsayıcılara göre var.
 
     ```docker
     EXPOSE 2222 80
     ```
 
-1. Bir kabuk betiği kullanarak SSH hizmetini başlatmak emin olun (bkz örneğe [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)).
+4. Bir kabuk betiği kullanarak SSH hizmetini başlatmak emin olun (bkz örneğe [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)).
 
     ```bash
     #!/bin/bash

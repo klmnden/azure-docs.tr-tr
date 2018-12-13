@@ -1,5 +1,6 @@
 ---
-title: Visual Studio Code için Azure Machine Learning'i kullanmaya başlayın
+title: Visual Studio kodu ile kullanma
+titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning için Visual Studio Code yükleme ve Azure Machine Learning'de basit bir deneme oluşturma hakkında bilgi edinin.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c5d7d3c10b9c8c191144e1e396d28fc53f813623
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 898fd7d0416d1e1b27a25cabf524e72a7de44fde
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012683"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269607"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Visual Studio Code için Azure Machine Learning'i kullanmaya başlayın
 
@@ -24,11 +25,13 @@ Azure Machine Learning uzantısı, veri, eğitin ve test makine öğrenimi model
 
 ## <a name="prerequisite"></a>Önkoşul
 
+
++ Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
+
 + Visual Studio Code yüklenmesi gerekir. VS Code masaüstünüzde çalışan bir hafif ama güçlü bir kaynak kod düzenleyicidir. Python ve daha fazlası için yerleşik destek ile birlikte gelir.  [VS Code yükleme öğrenin](https://code.visualstudio.com/docs/setup/setup-overview).
 
 + [Python 3.5 veya daha fazla yükleme](https://www.anaconda.com/download/).
 
-+ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
 
 ## <a name="install-the-azure-machine-learning-for-vs-code-extension"></a>Azure Machine Learning için VS Code uzantısı yükleme
 

@@ -1,6 +1,6 @@
 ---
-title: Önceden tanımlanmış veri ayıklama, doğal dil, görüntü işleme becerileri (Azure Search) | Microsoft Docs
-description: Veri ayıklama, doğal dil, görüntü işleme bilişsel beceriler Ekle semantiği ve yapısı ham içeriği bir Azure arama işlem hattı.
+title: Yerleşik veri ayıklama, doğal dil işleme - Azure Search görüntü
+description: Veri ayıklama, doğal dil, görüntü işleme bilişsel beceriler Ekle semantiği ve yapısı ham içeriği bir Azure Search işlem hattı.
 manager: pablocas
 author: luiscabrer
 services: search
@@ -9,19 +9,22 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: c342eca8f27db713e139c187147abddd80eb854e
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: bc1353ffb4514622ce0ef6e5c3ced76adc7f999f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734543"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314797"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>İçerik zenginleştirme (Azure Search) için önceden tanımlanmış beceriler
 
 Bu makalede, Azure Search ile sağlanan bilişsel beceriler hakkında bilgi edinin. A *bilişsel beceri* şekilde içeriği dönüştürür bir işlemdir. Genellikle, bu, verileri ayıklayan veya yapısı algılar ve bu nedenle ilişkin giriş verileri çoğaltan bir bileşendir. Neredeyse her zaman, çıktı metin tabanlıdır. A *beceri kümesi* zenginleştirme işlem hattı tanımlayın becerileri koleksiyonudur. 
 
 > [!NOTE]
-> Bilişsel Arama, genel önizleme aşamasındadır. Görüntü ayıklama ve normalleştirme ve beceri yürütmesi şu anda ücretsiz sunulmaktadır. Daha sonraki bir zamanda, bu özelliklerin fiyatlandırması duyurulacaktır. 
+> 21 aralık 2018 tarihinden itibaren Bilişsel hizmetler kaynağı bir Azure Search beceri kümesi ile ilişkilendirmek mümkün olmayacak. Bu beceri yürütmesi için ücretlendirme başlatmak için bize izin verir. Bu tarihte, biz de belge çözme aşamasının bir parçası olarak görüntü ayıklama için başlayacağız. Belgelerden metin ayıklama işlemi ek masraf olmadan sağlanmaya devam edecektir.
+>
+> Var olan konumunda yerleşik yetenek yürütülmesini ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/) . Görüntü ayıklama fiyatlandırma Önizleme fiyatıyla ücretlendirilirsiniz ve üzerinde açıklanmıştır [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400). Bilgi [daha fazla](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="predefined-skills"></a>Önceden tanımlanmış beceriler
 
@@ -43,4 +46,4 @@ Birkaç becerileri ne bunlar kullanma veya üretmek esnektir. Genel olarak, ço�
 
 + [Bir beceri kümesi tanımlama](cognitive-search-defining-skillset.md)
 + [Özel becerileri arabirim tanımı](cognitive-search-custom-skill-interface.md)
-+ [Öğretici: zenginleştirilmiş olup olmadığını bilişsel arama ile dizinleme](cognitive-search-tutorial-blob.md)
++ [Öğretici: Zenginleştirilmiş bilişsel arama ile dizinleme](cognitive-search-tutorial-blob.md)

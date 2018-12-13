@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 367ecd4534a2221e996e706f8b4426ea6f70f213
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d160eb377c3d4d73105cdb61b5722a147d22ed37
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680506"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321191"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama
 Birçok ekip verilerini ve ayarlarını izlemeye erişim kesinlikle düzenleyen gerekir. Özel İzleme (destek mühendisleri, devops mühendislerine) üzerinde çalışan takım üyeleri sahipseniz veya yönetilen hizmet sağlayıcısı kullanıyorsanız, bunları oluşturmak için kendi yeteneği sınırlandırırken yalnızca izleme verilerine erişimi vermek isteyebilirsiniz, örneğin, değiştirme, veya kaynakları silin. Bu makalede, azure'da bir kullanıcı için bir yerleşik izleme RBAC rolü uygulamak veya izleme sınırlı izinlere ihtiyaç duyan bir kullanıcı için kendi özel rol oluşturma gösterilmektedir. Ardından, Azure İzleyici ile ilgili kaynaklarınızı ve içerdikleri verilere erişimi nasıl sınırlamak için güvenlik konuları açıklanmaktadır.
 
 ## <a name="built-in-monitoring-roles"></a>İzleme yerleşik roller
-Azure İzleyicisi'nin yerleşik roller yardımcı olmak için tasarlanmıştır almak ve ihtiyaç duydukları verilere yapılandırmak için altyapı izleme için sorumlu bir etkinleştirme sırasında bir abonelik kaynaklarına erişimi sınırlayın. Azure İzleyici, iki Giden kutusu rol sağlar: bir izleme okuyucusu ve izleme katılımcı.
+Azure İzleyicisi'nin yerleşik roller yardımcı olmak için tasarlanmıştır almak ve ihtiyaç duydukları verilere yapılandırmak için altyapı izleme için sorumlu bir etkinleştirme sırasında bir abonelik kaynaklarına erişimi sınırlayın. Azure İzleyici, iki Giden kutusu rolünü sağlar: İzleme okuyucusu ve izleme Katılımcısı için.
 
 ### <a name="monitoring-reader"></a>İzleme Okuyucusu
 İzleme okuyucu rolüne atanan kişi bir Abonelikteki tüm izleme verilerini görüntülemek, ancak herhangi bir kaynağa değiştiremez veya kaynaklarını izleme ile ilgili herhangi bir ayarı düzenlemek. Bu rol, oluşturabilmek için gereken destek veya işlem mühendisleri gibi bir kuruluştaki kullanıcılar için uygundur:
 
 * Portalda izleme panoları görüntüleme ve kendi özel izleme panolar oluşturun.
 * Tanımlanan uyarı kuralları görüntüleyebiliriz [Azure uyarıları](monitoring-overview-alerts.md)
-* Ölçümleri kullanarak için sorgu [Azure İzleyici REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlet'leri](insights-powershell-samples.md), veya [platformlar arası CLI](insights-cli-samples.md).
+* Ölçümleri kullanarak için sorgu [Azure İzleyici REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlet'leri](insights-powershell-samples.md), veya [platformlar arası CLI](../azure-monitor/platform/cli-samples.md).
 * Portal, Azure İzleyici REST API, PowerShell cmdlet'leri veya platformlar arası CLI kullanarak Etkinlik günlüğü sorgulayın.
 * Görünüm [tanılama ayarları](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) bir kaynak için.
 * Görünüm [günlük profili](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) aboneliği.

@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: c391df27b8ee0d5ceadcd388fffcafe0f756ec40
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.date: 12/10/2018
+ms.openlocfilehash: aecfecda08a6008b931738802bb89054f9d3963c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866185"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274140"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Veritabanı'nda iş sürekliliğine genel bakış
 
-Azure SQL veritabanı, SQL Server veritabanı altyapısı sağlayan Azure bulut ortamı için iyileştirilmiş ve yapılandırılmış en son kararlı uygulaması [yüksek kullanılabilirlik](sql-database-high-availability.md) ve etkileyebilecek hatalara karşı dayanıklılık, İş süreci. **İş sürekliliği** mekanizmaları, ilkeleri ve bir iş, bilgi işlem altyapısı için özellikle kesintisi karşılaşıldığında çalışmaya devam etmeye olanak tanıyan yordamlar Azure SQL veritabanı'nda ifade eder. Örneklerinin çoğunda, Azure SQL veritabanı bulut ortamında gerçekleşir ve İş süreçlerinizi çalıştıran tutmak aksatıcı olayları işler. Ancak, SQL veritabanı tarafından gibi işlenemez bazı aksatıcı olayları vardır:
+**İş sürekliliği** mekanizmaları, ilkeleri ve işletmenizi, bilgi işlem altyapısı için özellikle kesintisi karşılaşıldığında çalışmaya devam etkinleştirme yordamlar Azure SQL veritabanı'nda ifade eder. Örneklerinin çoğunda, Azure SQL veritabanı bulut ortamında gerçekleşir ve uygulamalarınızı ve iş süreçlerini çalıştıran tutmak aksatıcı olayları işler. Ancak, SQL veritabanı tarafından gibi işlenemez bazı aksatıcı olayları vardır:
 
 - Kullanıcı, yanlışlıkla silinmiş veya bir tabloda bir satırın güncelleştirilmiş.
 - Kötü amaçlı bir saldırganın verileri silmek ya da bir veritabanı başarıyla oluşturuldu.
@@ -48,7 +48,8 @@ Ardından, SQL veritabanı yüksek kullanılabilirlik mimarisi ile gibi işlenem
 - [Yerleşik otomatik yedeklerinde](sql-database-automated-backups.md) ve [geri yükleme noktası](sql-database-recovery-using-backups.md#point-in-time-restore) son 35 gün içindeki belirli bir noktada tam veritabanını geri yüklemenize olanak sağlar.
 - Yapabilecekleriniz [silinen bir veritabanını geri yükleme](sql-database-recovery-using-backups.md#deleted-database-restore) başlangıçtan silinmiş varsa noktasına **mantıksal sunucu silinmediğini**.
 - [Uzun süreli yedek saklama](sql-database-long-term-retention.md) yedeklemeleri 10 yıla kadar açık kalmasını sağlar.
-- [Otomatik Yük devretme grubu](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) uygulamayı otomatik olarak bir veri merkezi ölçek kesinti durumunda kurtarma sağlar.
+- [Etkin coğrafi çoğaltma](sql-database-active-geo-replication.md) okunabilir çoğaltma ve el ile bir veri merkezi kesintisi veya uygulama yükseltmesi durumunda herhangi bir çoğaltmaya yük devretme oluşturmanıza olanak sağlar.
+- [Otomatik Yük devretme grubu](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) uygulamayı otomatik olarak bir veri merkezi kesintisi durumunda kurtarma sağlar.
 
 Her özellik, tahmini kurtarma süresi (ERT) ve son işlemler için olası veri kaybı açısından farklı özelliklere sahiptir. Bu seçenekleri kavradıktan sonra aralarından birini seçebilir ve çoğu senaryoda farklı durumlar için birden fazlasını birlikte kullanabilirsiniz. İş sürekliliği planınızı geliştirirken, uygulamanın kesintiden sonra tamamen kurtarır önce kabul edilebilen maksimum süre anlamanız gerekir. Uygulamanın tamamen kurtarmak için gereken süre, Kurtarma süresi hedefi (RTO) bilinir. Ayrıca uygulama edilebilecek son veri güncelleştirmelerinin (zaman aralığı) maksimum süreyi anlamanız gereken kesintiden sonra kurtarılırken. Zaman dilimi kaybetmeyi göze güncelleştirmeleri, kurtarma noktası hedefi (RPO) bilinir.
 
@@ -75,8 +76,7 @@ Otomatik yedekleri kullanın ve [-belirli bir noktaya geri yükleme](sql-databas
 - Veri değişiklik oranı (bir saat içinde gerçekleştirilen işlem sayısı) düşükse ve bir saatlik değişiklik kaybı kabul edilebilirse.
 - Maliyetler önemliyse.
 
-Daha hızlı veri kurtarmaya ihtiyacınız varsa, [yük devretme grupları](sql-database-geo-replication-overview.md#auto-failover-group-capabilities
-) (aşağıda açıklanmıştır). 35 günden daha uzun bir süre veri kurtarma, kullanmak gerekiyorsa [uzun süreli saklama](sql-database-long-term-retention.md).
+Daha hızlı veri kurtarmaya ihtiyacınız varsa, [etkin coğrafi çoğaltma](sql-database-active-geo-replication.md) veya [otomatik yük devretme grupları](sql-database-auto-failover-group.md). 35 günden daha uzun bir süre veri kurtarma, kullanmak gerekiyorsa [uzun süreli saklama](sql-database-long-term-retention.md).
 
 ## <a name="recover-a-database-to-another-region"></a>Bir veritabanını başka bir bölgeye kurtarma
 
@@ -84,14 +84,14 @@ Daha hızlı veri kurtarmaya ihtiyacınız varsa, [yük devretme grupları](sql-
 
 - Seçeneklerden biri, veri merkezi kesintisi sona erdiğinde veritabanınızın çevrimdışı olmasını beklemektir. Bu, veritabanının çevrimdışı olmasının kabul edilebildiği uygulamalar için geçerlidir. Örnek olarak üzerinde sürekli çalışma yapmadığınız bir geliştirme projesi veya ücretsiz deneme sürümü verilebilir. Bir veri merkezinde bir kesinti varsa, böylece veritabanınızı bir süredir ihtiyacınız yoksa bu seçenek yalnızca çalışır, kesinti ne kadar sürebilecek, bilmezsiniz.
 - Bir veritabanını kullanarak herhangi bir Azure bölgesi içinde herhangi bir sunucuda geri yüklemek için başka bir seçenektir [coğrafi olarak yedekli veritabanı yedeklemeleri](sql-database-recovery-using-backups.md#geo-restore) (coğrafi geri yükleme). Coğrafi geri yükleme, coğrafi olarak yedekli bir yedeklemesini, kaynağı olarak kullanır ve veritabanı veya veri merkezinde bir kesinti nedeniyle erişilemez durumda olsa bile bir veritabanını kurtarmak için kullanılabilir.
-- Son olarak, yapılandırdıysanız kesintiden hızla kurtarabilirsiniz bir [otomatik yük devretme grubu](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) veritabanını veya veritabanlarını için. Otomatik veya el ile yük devretme kullanmak için yük devretme İlkesi özelleştirebilirsiniz. Yük devretme kendisi yalnızca birkaç saniye sürer ancak hizmet etkinleştirmek için en az 1 saat sürer. Bu, yük devretme kesinti ölçek tarafından karardır emin olmak gereklidir. Ayrıca, yük devretme zaman uyumsuz çoğaltma niteliği nedeniyle küçük veri kaybına neden olabilir. Ayrıntılar için bu makalenin otomatik yük devretme RTO ve RPO tabloya bakın.
+- Son olarak, kullanarak ya da coğrafi çoğaltmalar yapılandırdıysanız kesintiden hızla kurtarabilirsiniz [etkin coğrafi çoğaltma](sql-database-active-geo-replication.md) veya [otomatik yük devretme grubu](sql-database-auto-failover-group.md) veritabanını veya veritabanlarını için. Bu teknolojilerin dilediğiniz bağlı olarak, el ile veya otomatik yük devretme kullanabilirsiniz. Yük devretme kendisi yalnızca birkaç saniye sürer ancak hizmet etkinleştirmek için en az 1 saat sürer. Bu, yük devretme kesinti ölçek tarafından karardır emin olmak gereklidir. Ayrıca, yük devretme zaman uyumsuz çoğaltma niteliği nedeniyle küçük veri kaybına neden olabilir. Ayrıntılar için bu makalenin otomatik yük devretme RTO ve RPO tabloya bakın.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 > [!IMPORTANT]
 > Etkin coğrafi çoğaltma ve otomatik yük devretme grupları kullanmak için abonelik sahibi olmanız veya SQL Server'da yönetici izinlerine sahip olmalıdır. Yapılandırma ve Azure'ı kullanmaya üzerinden başarısız portal, PowerShell veya Azure aboneliği izinleri veya SQL Server izinleriyle Transact-SQL kullanarak bir REST API.
 
-Uygulamanız aşağıdaki ölçütleri karşılıyorsa etkin otomatik yük devretme grupları kullanın:
+Uygulamanız aşağıdaki ölçütleri karşılıyorsa, otomatik yük devretme grupları kullanın:
 
 - Görev açısından kritikse.
 - 12 saat veya daha fazla kapalı kalma süresi için izin vermeyen bir hizmet düzeyi sözleşmesi (SLA) sahiptir.

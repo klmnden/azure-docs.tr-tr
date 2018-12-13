@@ -10,12 +10,12 @@ ms.service: azure-portal
 ms.custom: ''
 manager: dougeby
 ms.author: cwatson
-ms.openlocfilehash: b2bf674dbb253c7ec698b18776d8752ed6a4c1c8
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 8bbba504f95233db7cf65556b57148771962f507
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394089"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308592"
 ---
 # <a name="export-or-delete-settings-in-the-azure-portal"></a>Dışarı aktarma veya Azure Portalı'ndaki ayarları Sil
 Dışarı aktarma ve Azure portalı Ayarlar menüsünden aşağıdaki ayarları sil:
@@ -23,13 +23,13 @@ Dışarı aktarma ve Azure portalı Ayarlar menüsünden aşağıdaki ayarları 
 * Kullanıcı ayarları sık kullanılan abonelikleri veya dizinleri gibi ve son dizininde günlüğe kaydedilir
 * Temalar ve özelleştirme
 
-Dışarı aktarma ve silmeden önce ayarlarınızı gözden geçirin. öneririz. Zaman panoları oluşturmak ve özelleştirmelerinizi yeniden eklemek için alıcı olabilir.
+Dışarı aktarma ve silmeden önce ayarlarınızı gözden geçirin. öneririz. Zaman panoları oluşturmak ve özelleştirmelerinizi rolleriniz için alıcı olabilir.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 **Dışarı aktarma veya portal ayarlarınızı Sil**
 
-1. [Azure Portal](http://portal.azure.com)’da oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Üstteki portalın sağ seçin **ayarları**.
 
     ![Portal ayarlar dişli simgesini gösteren ekran görüntüsü](media/azure-portal-export-delete-settings/azure-portal-settings-icon.png)

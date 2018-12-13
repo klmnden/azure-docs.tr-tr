@@ -10,17 +10,15 @@ ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: ''
-ms.openlocfilehash: 6a9bc347af471a2ab84cefc25bcd7f48f1d5908d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9f881071559eaba0f6b1c86e8827993d52470baf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846054"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186217"
 ---
 # <a name="service-connectivity-monitor"></a>Hizmet Bağlantısı İzleyicisi
 
@@ -97,11 +95,11 @@ Testin ayrıntılarını görüntülemek için kutucuğu seçin **testleri** say
 
 Kötü uygulama performansı ağ veya uygulama sağlayıcısının son bir sorun nedeniyle uygulama yanıt süresini ve ağ gecikme süresi arasındaki bağıntıyı gözlemleyerek olup olmadığını belirler. 
 
-* **Uygulama sorunu:** söylüyor yanıt süresi bir ani değişiklik ancak ağ gecikme süresi, tutarlılık ağın düzgün çalıştığından ve sorun uygulama ucundaki ilgili bir sorun nedeniyle olabilir. 
+* **Uygulama sorunu:** Yanıt süresi bir ani değişiklik ancak ağ gecikme süresi, tutarlılık ağın düzgün çalıştığından ve sorun uygulama ucundaki ilgili bir sorun nedeniyle olabilir önerir. 
 
     ![Hizmet Bağlantı İzleyicisi uygulama sorunu](media/network-performance-monitor-service-endpoint/service-endpoint-application-issue.png)
 
-* **Ağ sorun:** yanıt süresinde ağ gecikme süresine karşılık gelen bir depo ile birlikte bir ani artış yanıt süresi, ağ gecikme süresi arasında bir artış nedeniyle olabilir önerir. 
+* **Ağ sorun:** Yanıt süresinde ağ gecikme süresine karşılık gelen bir depo ile birlikte bir ani artış yanıt süresi, ağ gecikme süresi arasında bir artış nedeniyle olabilir önerir. 
 
     ![Hizmet Bağlantı İzleyicisi ağ sorunu](media/network-performance-monitor-service-endpoint/service-endpoint-network-issue.png)
 

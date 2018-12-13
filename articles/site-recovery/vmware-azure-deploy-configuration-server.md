@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
-ms.author: ramamill
-ms.openlocfilehash: 5d6510c1e069abe1fc295f2fccd9f2c0a9aad5bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/11/2018
+ms.author: mayg
+ms.openlocfilehash: 58d45036cac6ad985b7b1ffb2736a500fdcb5ce2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837579"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251037"
 ---
 # <a name="deploy-a-configuration-server"></a>Yapılandırma sunucusunu dağıtma
 
@@ -148,6 +148,9 @@ Devam eden çoğaltma kesintileri önlemek için yapılandırma sunucusunu bir k
 7. Kasa kayıt anahtarlarının nereden indirebilirim?
 
     İçinde **kurtarma Hizmetleri kasası**, **yönetme** > **Site Recovery altyapısı** > **yapılandırmasunucusu**. Sunucularda seçin **indirme kayıt anahtarı** kasa kimlik bilgileri dosyası indirilemedi.
+8. Var olan bir yapılandırma sunucusu kopyalayın ve miyim çoğaltma düzenleme işlemi için kullanılmakta?
+
+    **Hayır**, klonlanmış bir yapılandırma sunucusu bileşeni kullanımı desteklenmiyor. 
 
 ## <a name="troubleshoot-deployment-issues"></a>Dağıtım sorunlarını giderme
 

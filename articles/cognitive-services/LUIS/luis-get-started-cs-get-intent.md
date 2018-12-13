@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 22b2faa91be9b4a2504bff542deb559d33b9fa4f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0e58fb35fa29cde16b1ccf50dc20dacc693a4757
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101050"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141773"
 ---
-# <a name="quickstart-get-intent-using-c"></a>Hızlı Başlangıç: C# kullanarak amacı alma
+# <a name="quickstart-get-intent-using-c"></a>Hızlı Başlangıç: Hedefi kullanılarak AlC#
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -47,11 +47,11 @@ ms.locfileid: "53101050"
 
 1. Visual Studio’da yeni bir konsol uygulaması oluşturun. 
 
-    ![LUIS kullanıcı ayarları menüsüne erişime](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
+    ![Visual Studio'da yeni bir konsol uygulaması oluşturma](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
 
 2. Visual Studio projesinde Çözüm Gezgini'nde **Başvuru ekle**'yi ve ardından Derlemeler sekmesinden **System.Web**'i seçin.
 
-    ![LUIS kullanıcı ayarları menüsüne erişime](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
+    ![Başvuru Ekle seçin ve ardından System.Web derlemeleri sekmesinden seçin](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
 
 3. Program.cs içeriğini şu kodla değiştirin:
     

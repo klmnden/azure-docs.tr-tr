@@ -1,5 +1,5 @@
 ---
-title: Azure App Service üzerindeki işletim sistemi işlevi
+title: App Service - Azure işletim sistemi işlevi
 description: Web uygulamaları, mobil uygulama arka uçları ve Azure App Service'te API apps için kullanılabilen işletim sistemi işlevler hakkında bilgi edinin
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
-ms.openlocfilehash: ebb95093d96a3c1fd36565831215355b18ac5d1a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: bb17748968d0875cae132730a02f490eab966690
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968434"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269499"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service üzerindeki işletim sistemi işlevi
 Bu makalede çalışan tüm Windows uygulamaları için kullanılabilir olan ortak temel işletim sistemi işlevi [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Bu işlev, dosya, ağ ve kayıt defteri erişim ve tanılama günlüklerini ve olayları içerir. 

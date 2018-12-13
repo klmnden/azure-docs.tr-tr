@@ -1,6 +1,6 @@
 ---
 title: ASP.NET Core için Azure Application Insights | Microsoft Docs
-description: Web uygulamalarının kullanılabilirliğini, performansını ve kullanımını izleyin.
+description: Kullanılabilirlik, performans ve kullanım için ASP.NET Core web uygulamalarını izleyin.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7bdf53ac7adc8b3165a2483a56247cefeaad7ea5
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 80f4d8544d18535b853323699a174ec5665ad5a3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680321"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277038"
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core için Application Insights
 

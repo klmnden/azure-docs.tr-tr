@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: b1a63862444969bbb7058841fb755e147dcf6909
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 878d9e635d82e52d8a47d47a135ba865f140c9e9
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015849"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321895"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Apache Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen nelerdir?
 
@@ -28,12 +28,12 @@ Azure HDInsight, herhangi bir zamanda dağıtılabilir birden çok Hadoop küme 
 
 HDInsight küme sürümleri ile ilişkili bileşen sürümü aşağıdaki tabloda listelenmiştir: 
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight hizmeti için varsayılan sürüm verilmeksizin. .NET SDK'sı ile Azure PowerShell ve klasik Azure CLI ile kümeleri oluşturduğunuzda, bir sürüm bağımlılığı varsa, HDInsight sürüm belirtin.
 
 | Bileşen | HDInsight (Önizleme) 4.0 | HDInsight 3.6 (varsayılan) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
 | --- | --- | --- | --- | --- | --- | --- | --- |--- |
-| Hortonworks Veri Platformu |3.0 |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
+| Hortonworks Veri Platformu |3,0 |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
 | Apache Hadoop ve YARN |3.1.1 |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
 | Apache Tez |0.9.1 |0.7.0 |0.7.0 |0.7.0 |0.7.0 |0.5.2 |0.4.0 |-|
 | Apache Pig |0.16.0 |0.16.0 |0.16.0 |0.15.0 |0.15.0 |0.14.0 |0.12.1 |0.12.0 |
@@ -60,9 +60,7 @@ HDInsight küme sürümleri ile ilişkili bileşen sürümü aşağıdaki tablod
 
 HDInsight küme sürümleri ile ilişkili Hadoop ekosistemi bileşen sürümü, HDInsight için güncelleştirmeleri ile değiştirebilirsiniz. Hadoop bileşenleri denetimi ve bir küme için hangi sürümlerinin kullanıldığını doğrulamak için Ambari REST API'yi kullanın. **GetComponentInformation** komutu, hizmet bileşenleri hakkında bilgi alır. Ayrıntılar için bkz [Apache Ambari belgeleri][ambari-docs].
 
-Windows kümeleri için bileşen sürümü denetlemek için başka bir Uzak Masaüstü kullanarak bir küme için oturum açın ve C:\apps\dist\ dizininin içeriğini incelemek için yoludur.
-
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux üzerinde HDInsight sürüm 3.4 veya üzeri kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight üzerinde Windows emeklilik](#hdinsight-windows-retirement).
 
 ### <a name="release-notes"></a>Sürüm notları
@@ -84,7 +82,7 @@ Aşağıdaki tabloda, PowerShell ve .NET SDK'sı gibi diğer dağıtım yönteml
 
 *&ast; Spark küme türleri için yalnızca HDInsight 3.5 desteği genişletildi*
 
-> [!NOTE]
+> [!NOTE]  
 > Bir sürümünün süresi doldu için destek sonra onu Microsoft Azure Portalı aracılığıyla kullanılabilir olmayabilir. Ancak, küme sürümleri kullanılabilir kullanarak devam `Version` Windows PowerShell parametresi [New-Azurermhdınsightcluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) komut ve .NET SDK'sı sürüm devre dışı bırakılacağı tarihten kadar.
 >
 
@@ -104,7 +102,7 @@ Aşağıdaki tabloda, HDInsight sürümleri listelenmiştir **değil** Azure Por
 | HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 Ekim 2013 |12 Mayıs 2014 |31 Mayıs 2015 |Evet |Hayır |
 | HDInsight 1.6 |HDP 1.1 | |28 Ekim 2013 |26 Nisan 2014 |31 Mayıs 2015 |Hayır |Hayır |
 
-> [!NOTE]
+> [!NOTE]  
 > İki baş düğümü ile yüksek oranda kullanılabilir kümeleri, HDInsight sürüm 2.1 ve üzeri için varsayılan olarak dağıtılır. HDInsight sürüm 1.6 kümelerinde kullanılamaz.
 
 ## <a name="enterprise-security-package-for-hdinsight"></a>HDInsight için Kurumsal güvenlik paketi
@@ -194,11 +192,11 @@ HDInsight sürüm 3.4 ile başlayarak, Microsoft HDInsight yalnızca Linux işle
 Hizmet düzeyi sözleşmesi (SLA) de tanımlanan bir _destek penceresi_. Destek, Microsoft Müşteri Hizmetleri ve desteği tarafından desteklenen bir HDInsight kümesi sürüm süre penceredir. Sürüm varsa, bir _destek sona erme tarihi_ geçirilen, HDInsight kümesi desteği penceresi dışında. Desteklenen sürümler hakkında daha fazla bilgi için bkz: listesini [desteklenen HDInsight küme sürümleri](hdinsight-migrate-from-windows-to-linux.md). Belirtilen bir HDInsight sürüm (yeni bir X + 1 sürümü kullanıma sunulduktan sonra) X desteği sona erme tarihini sonraki hesaplanır biri:  
 
 * Formül 1: 180 gün boyunca HDInsight kümesi sürüm X serbest bırakıldığında tarihe ekler.
-* Formül 2: 90 gün olduğunda HDInsight kümesi sürüm X + 1 Azure portalında kullanılabilir hale getirileceğini tarih ekleyin.
+* Formül 2: Olduğunda HDInsight kümesi sürüm X + 1 Azure portalında kullanılabilir hale getirileceğini tarihinden 90 gün ekleyin.
 
 _Devre dışı bırakılacağı tarihten_ sonra küme sürümünü oluşturulamıyor HDInsight üzerinde tarihtir. 31 Temmuz 2017'den itibaren o tarihten sonra bir HDInsight kümesi yeniden boyutlandıramazsınız. 
 
-> [!NOTE]
+> [!NOTE]  
 > Azure konuk işletim sistemi ailesi sürüm 4, Windows Server 2012 R2 64 bit sürümünü kullanan Windows HDInsight kümeleri (2.1, 3.0, 3.1, 3.2 ve 3.3 dahil olmak üzere sürümler) çalıştırın. Azure konuk işletim sistemi ailesi 4 sürümü, .NET Framework sürüm 4.0, 4.5, 4.5.1 ve 4.5.2'yi destekler.
 
 ## <a name="hortonworks-release-notes-associated-with-hdinsight-versions"></a>Hortonworks sürüm notları HDInsight sürümleri ile ilişkili
@@ -214,7 +212,7 @@ Bölüm sürüm notları için HDInsight ile kullanılan Apache bileşenleri ve 
   * [Apache Hive sürüm notları](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843) Apache Web sitesinde mevcuttur.
 * HDInsight kümesi sürüm 3.2 temel alan bir Hadoop dağıtımı kullanır [Hortonworks Data Platform 2.2][hdp-2-2].
 
-  * Kullanılabilir gibi olan belirli Apache bileşenler için sürüm notları: [0.14 Hive](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [ortak](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112), ve [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
+  * Belirli Apache bileşenler için sürüm notları gibi kullanılabilir: [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [ortak](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112), ve [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
 * HDInsight kümesi sürüm 3.1 temel alan bir Hadoop dağıtımı kullanır [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. Kasım, 7, 2014'ten önce oluşturulmuş 3.1 HDInsight kümeleri dayanır [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
 * HDInsight kümesi sürüm 3.0 temel alan bir Hadoop dağıtımı kullanır [Hortonworks Data Platform 2.0][hdp-2-0-8].
 * HDInsight kümesi sürüm 2.1 temel alan bir Hadoop dağıtımı kullanır [Hortonworks veri platformu 1.3][hdp-1-3-0].
@@ -222,41 +220,36 @@ Bölüm sürüm notları için HDInsight ile kullanılan Apache bileşenleri ve 
 
 
 
-
-
-
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>Kümeler için varsayılan düğüm yapılandırması ve sanal makine boyutları
-Aşağıdaki tablolar, HDInsight kümeleri için varsayılan sanal makine (VM) boyutları listeler.
+Aşağıdaki tablolar, HDInsight kümeleri için varsayılan sanal makine (VM) boyutları listeler.  Bu grafik, HDInsight kümeleri dağıtmak için PowerShell veya Azure CLI betikleri oluştururken kullanılacak VM boyutlarını anlama gereklidir.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bir kümedeki 32'den fazla alt düğüme ihtiyacınız varsa, bir baş düğüm boyutu en az 8 çekirdek ve 14 GB RAM ile seçmeniz gerekir.
-> 
-> 
 
 * Brezilya Güney ve Japonya Batı dışındaki tüm desteklenen bölgeler:
 
-  | Küme türü | Hadoop | HBase | Interactive Query | Storm | Spark | ML Server |
+  | Küme türü | Hadoop | HBase | Interactive Query | Storm | Spark  | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
-  | HEAD: varsayılan VM boyutu |D3 v2 |D3 v2 | D13, D14 |A4 v2 |D12 v2 |D12 v2 |
-  | HEAD: Önerilen VM boyutları |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A4 v2, A8 v2 A2m v2 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
-  | Çalışan: varsayılan VM boyutu |D3 v2 |D3 v2  | D13, D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
-  | Çalışan: Önerilen VM boyutları |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | HEAD: varsayılan VM boyutu |D3 v2 |D3 v2 | D13,<br/> D14 |A4 v2 |D12 v2 |D12 v2 |
+  | HEAD: Önerilen VM boyutları |D3 v2<br/> D4 v2<br/> D12 v2 |D3 v2<br/> D4 v2<br/> D12 v2  | D13,<br/> D14 |A4 v2<br/> A8 v2<br/> A2m v2 |D12 v2<br/> D13 v2<br/> D14 v2 |D12 v2<br/> D13 v2<br/> D14 v2 |
+  | Çalışan: varsayılan VM boyutu |D3 v2 |D3 v2  | D13,<br/> D14 |D3 v2 |D4 v2 | D4 v2 |
+  | Çalışan: Önerilen VM boyutları |D3 v2<br/> D4 v2<br/> D12 v2 |D3 v2<br/> D4 v2<br/> D12 v2  | D13,<br/> D14 |D3 v2<br/> D4 v2<br/> D12 v2 |D4 v2<br/> D12 v2<br/> D13 v2<br/> D14 v2 |D4 v2<br/> D12 v2<br/> D13 v2<br/> D14 v2 |
   | ZooKeeper: varsayılan VM boyutu | |A4 v2 | |A2 v2 | | |
-  | ZooKeeper: Önerilen VM boyutları | |A4 v2, A8 v2 A2m v2 | | A2 v2 A4 v2, A8 v2 | | |
-  | Edge: varsayılan VM boyutu | | | | | |Windows: D12 v2; Linux: D4 v2 |
-  | Sınırı: Önerilen VM boyut | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | ZooKeeper: Önerilen VM boyutları | |A4 v2<br/> A8 v2<br/> A2m v2 | | A2 v2<br/> A4 v2<br/> A8 v2 | | |
+  | Edge: varsayılan VM boyutu | | | | | |D4 v2 |
+  | Sınırı: Önerilen VM boyut | | | | | |D4 v2<br/> D12 v2<br/> D13 v2<br/> D14 v2 |
 * Brezilya Güney ve yalnızca Japonya Batı (v2 boyutları):
 
   | Küme türü | Hadoop | HBase | Interactive Query |Storm | Spark | ML Services |
   | --- | --- | --- | --- | --- | --- | --- |
-  | HEAD: varsayılan VM boyutu |D3 |D3  | D13, D14 |A3 |D12 |D12 |
-  | HEAD: Önerilen VM boyutları |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
-  | Çalışan: varsayılan VM boyutu |D3 |D3  | D13, D14 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | Çalışan: Önerilen VM boyutları |D3, D4, D12 |D3, D4, D12  | D13, D14 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | HEAD: varsayılan VM boyutu |D3 |D3  | D13,<br/> D14 |A3 |D12 |D12 |
+  | HEAD: Önerilen VM boyutları |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3<br/> A4<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |
+  | Çalışan: varsayılan VM boyutu |D3 |D3  | D13,<br/> D14 |D3 |D4 |D4 |
+  | Çalışan: Önerilen VM boyutları |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
   | ZooKeeper: varsayılan VM boyutu | |A2 | | A2 | | |
-  | ZooKeeper: Önerilen VM boyutları | |A2, A3, A4 | |A2, A3, A4 | | |
-  | Edge: varsayılan VM boyutları | | | | | |Windows: D12; Linux: D4 |
-  | Edge: Önerilen VM boyutları | | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | ZooKeeper: Önerilen VM boyutları | |A2<br/> A3<br/> A4 | |A2<br/> A3<br/> A4 | | |
+  | Edge: varsayılan VM boyutları | | | | | |D4 |
+  | Edge: Önerilen VM boyutları | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
 
 > [!NOTE]
 > - HEAD olarak bilinen *Nimbus* Storm için küme türü.

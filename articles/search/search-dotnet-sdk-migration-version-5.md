@@ -1,6 +1,6 @@
 ---
-title: Azure Search .NET SDK sürüm 5 yükseltme | Microsoft Docs
-description: Azure Search .NET SDK sürüm 5 yükseltme
+title: Azure Search .NET SDK sürüm 5 - Azure Search yükseltme
+description: Azure Search .NET SDK sürüm 5 eski sürümlerinden geçiş kodu. Nelerin yeni olduğunu öğrenin ve hangi kodda değişiklik yapmanız gerekmez.
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,12 +9,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: brjohnst
-ms.openlocfilehash: b08507d7685ce87a4c176385f750a72d6ae51ba3
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.custom: seodec2018
+ms.openlocfilehash: 743ac433418386281acc58ad1deef06ee75e38d9
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091149"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316890"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Azure Search .NET SDK sürüm 5 yükseltme
 4.0 Önizleme veya, eski bir sürümü kullanıyorsanız [Azure Search .NET SDK'sı](https://aka.ms/search-sdk), bu makalede, uygulamanızı 5 sürümünü kullanacak şekilde yükseltmek yardımcı olur.
@@ -58,8 +59,8 @@ Herhangi bir derleme uyarıları düzelttik sonra isterseniz yeni işlevsellikte
 
  - `Microsoft.Azure.Search`: Diğer tüm Azure Search paketleri bağımlılık olarak içeren bir meta-package budur. SDK'ın önceki bir sürümden yükseltiyorsanız, yalnızca bu paket yükseltildikten ve yeniden oluşturma, yeni sürümü kullanmaya başlamak için yeterli olmalıdır.
  - `Microsoft.Azure.Search.Data`: Azure Search kullanarak bir .NET uygulaması geliştirmeye devam ediyoruz ve sorgu veya dizinleri belgeleri güncelleştirmek yalnızca ihtiyacınız varsa bu paketi kullanın. Ayrıca oluşturmak veya dizinleri güncelleştirme gerekirse eş anlamlı sözcük eşlemelerini veya diğer hizmet düzeyi kaynakları kullanmak `Microsoft.Azure.Search` bunun yerine paket.
- - `Microsoft.Azure.Search.Service`: Bu paket için Azure Search dizinlerini, eş anlamlı sözcük eşlemelerini, dizin oluşturucular, veri kaynakları veya diğer hizmet düzeyi kaynakları yönetmek için. NET'te Otomasyon geliştiriyorsanız kullanın. Dizinlerinizi içinde sorgu veya güncelleştirme belgelere yalnızca ihtiyacınız varsa `Microsoft.Azure.Search.Data` bunun yerine paket. Azure Search'ün tüm işlevlerine ihtiyacınız varsa, `Microsoft.Azure.Search` bunun yerine paket.
- - `Microsoft.Azure.Search.Common`: Azure Search .NET kitaplıkları tarafından gerekli genel türler. Bu paket, uygulamanızda doğrudan kullanmak gerekmez; Yalnızca, bir bağımlılık olarak kullanılmak üzere tasarlanmıştır.
+ - `Microsoft.Azure.Search.Service`: Azure Search dizinlerini, eş anlamlı sözcük eşlemelerini, dizin oluşturucular, veri kaynakları veya diğer hizmet düzeyi kaynakları yönetmek için. NET'te Otomasyon geliştiriyorsanız, bu paketi kullanın. Dizinlerinizi içinde sorgu veya güncelleştirme belgelere yalnızca ihtiyacınız varsa `Microsoft.Azure.Search.Data` bunun yerine paket. Azure Search'ün tüm işlevlerine ihtiyacınız varsa, `Microsoft.Azure.Search` bunun yerine paket.
+ - `Microsoft.Azure.Search.Common`: Azure Search .NET kitaplıkları tarafından gereken genel türler. Bu paket, uygulamanızda doğrudan kullanmak gerekmez; Yalnızca, bir bağımlılık olarak kullanılmak üzere tasarlanmıştır.
  
 Derlemeler arasında çok sayıda türü taşınan olduğundan bu değişikliği teknik olarak kesiliyor. Uygulamanızı yeniden SDK'sının 5 sürümüne yükseltmek için gerekli olmasının nedenidir.
 

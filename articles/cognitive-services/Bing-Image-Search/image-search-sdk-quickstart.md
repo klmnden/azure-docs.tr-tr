@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: C# için Bing Resim Arama SDK’sı ile görüntü arama'
+title: "Hızlı Başlangıç: Görüntüleri - arama için Bing resim arama SDK'sıC#"
 description: Bu öğreticiyi API için bir sarmalayıcı olan ve aynı özellikleri içeren Bing Resim Arama SDK'sını kullanarak ilk görüntü aramanızı yapmak için kullanın. Bu basit C# uygulaması bir görüntü arama sorgusu gönderir, JSON yanıtını ayrıştırır ve döndürülen ilk görüntünün URL’sini görüntüler.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: 4058527263e95a75ed3d5d15cd12972170aa28fd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: 2d81c7b22e5d7cae0beb8a549d4e44f3a1ebc132
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096919"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261254"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-c"></a>Hızlı Başlangıç: C# ve Bing Resim Arama SDK’sı ile görüntü arama
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-c"></a>Hızlı Başlangıç: Bing resim arama için SDK'sı ile görüntüleri için arama yapınC#
 
 Bu öğreticiyi API için bir sarmalayıcı olan ve aynı özellikleri içeren Bing Resim Arama SDK'sını kullanarak ilk görüntü aramanızı yapmak için kullanın. Bu basit C# uygulaması bir görüntü arama sorgusu gönderir, JSON yanıtını ayrıştırır ve döndürülen ilk görüntünün URL’sini görüntüler.
 

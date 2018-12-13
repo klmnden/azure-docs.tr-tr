@@ -1,23 +1,17 @@
 ---
-title: Azure İşlevleri ve Azure SignalR ile Gerçek Zamanlı Uygulamalar Geliştirme | Microsoft Docs
+title: Azure işlevleri ve Azure SignalR kullanarak gerçek zamanlı uygulamalar oluşturun
 description: Sunucusuz uygulamalarda Azure SignalR hizmetine kullanmaya genel bakış.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
 ms.service: signalr
-ms.devlang: na
 ms.topic: overview
-ms.workload: tbd
 ms.date: 09/18/2018
 ms.author: zhshang
-ms.openlocfilehash: 587752b25e3c98bbabbd42bd4d838fd19ae9fd45
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: 9380c6434902c6882f84312a3d6999791bf15115
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318716"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256018"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Azure İşlevleri ve Azure SignalR Service ile Gerçek Zamanlı Uygulamalar Geliştirme
 
@@ -71,4 +65,3 @@ Bu makalede, geniş yelpazedeki gerçek zamanlı mesajlaşma senaryolarını etk
 
 * [Azure SignalR Service Sunucusuz Hızlı Başlangıcı - C#](signalr-quickstart-azure-functions-csharp.md)
 * [Azure SignalR Service Sunucusuz Hızlı Başlangıcı - JavaScript](signalr-quickstart-azure-functions-javascript.md)
-

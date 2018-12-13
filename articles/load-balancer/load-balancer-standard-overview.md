@@ -1,12 +1,11 @@
 ---
-title: Azure standart Load Balancer'a genel bakış | Microsoft Docs
+title: Azure Standard Load Balancer nedir?
+titlesuffix: Azure Load Balancer
 description: Azure Standard Load Balancer özelliklerine genel bakış
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-ms.assetid: ''
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 17b4bc68b2dc996134626b1822cfd17f0a9a7572
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 845f991085a4427ab4f4301cab1dc60215374554
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161650"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185775"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer Standard genel bakış
 
@@ -40,7 +39,7 @@ Sanal ağın kaynak için temel bir yönü kapsamıdır.  Temel Load Balancer bi
 Yük Dengeleyici kaynaklarının içinde Azure oluşturmak istediğiniz senaryoyu elde etmek için çok kiracılı altyapısını nasıl program ifade edebilirsiniz nesneleridir.  Yük Dengeleyici kaynakları ve gerçek altyapınız arasında doğrudan bir ilişki yoktur; bir yük dengeleyici oluşturmaya örneğini oluşturmaz, kapasite her zaman kullanılabilir ve hiçbir başlatma ya da dikkate alınması gereken gecikmeler ölçeklendirme vardır. 
 
 >[!NOTE]
-> Azure, tam olarak yönetilen Yük Dengeleme çözümlerinde senaryolarınız için paketi sağlar.  TLS sonlandırma ("SSL yük boşaltma") veya HTTP/HTTPS isteği uygulama katmanı işleme başına arıyorsanız, gözden [Application Gateway](../application-gateway/application-gateway-introduction.md).  Arıyorsanız, Genel DNS için Yük Dengeleme, gözden [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Uçtan uca senaryolarınızı gerektiğinde bu çözümleri birleştirme avantajlı olabilir.
+> Azure, tam olarak yönetilen Yük Dengeleme çözümlerinde senaryolarınız için paketi sağlar.  TLS sonlandırma ("SSL yük boşaltma") veya HTTP/HTTPS isteği uygulama katmanı işleme başına arıyorsanız, gözden [Application Gateway](../application-gateway/application-gateway-introduction.md).  Genel DNS yük dengeleme özelliği arıyorsanız [Traffic Manager](../traffic-manager/traffic-manager-overview.md)'ı inceleyin.  Uçtan uca senaryolarınızı gerektiğinde bu çözümleri birleştirme avantajlı olabilir.
 
 ## <a name="why-use-standard-load-balancer"></a>Standard Load Balancer neden kullanmalısınız?
 
@@ -49,7 +48,7 @@ Standart Load Balancer uygulamalarınızı ölçeklendirmenizi ve küçük ölç
 Standard Load Balancer ile temel yük dengeleyici arasındaki farklar genel bir bakış için aşağıdaki tabloyu gözden geçirin:
 
 >[!NOTE]
-> Yeni Tasarım, Standard Load Balancer benimseyin. 
+> Yeni tasarımlarda Standart Load Balancer kullanılmalıdır. 
 
 [!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
@@ -58,7 +57,7 @@ Gözden geçirme [yük dengeleyici için hizmet sınırları](https://aka.ms/lbl
 
 ### <a name="backend"></a>Arka uç havuzu
 
-Standart yük dengeleyici arka uç havuzları bir sanal ağdaki herhangi bir sanal makine kaynağa genişletir.  Bu, en fazla 1000 arka uç örnekleriyle içerebilir.  Bir NIC kaynağı, bir özellik olan IP yapılandırması, bir arka uç örneğidir.
+Bir sanal ağdaki tüm sanal makine kaynağı için standart yük dengeleyici arka uç havuzları'nı genişletin.  Bu, en fazla 1000 arka uç örnekleriyle içerebilir.  Bir NIC kaynağı, bir özellik olan IP yapılandırması, bir arka uç örneğidir.
 
 Tek başına sanal makineler, kullanılabilirlik kümeleri veya sanal makine ölçek kümeleri, arka uç havuzu içerebilir.  Ayrıca, arka uç Havuzu'ndaki kaynakları karıştırabilirsiniz. Arka uç havuzundaki yük dengeleyici kaynak başına en fazla 150 kaynakları birleştirebilirsiniz.
 
@@ -103,7 +102,7 @@ Gözden geçirme [detaylı tartışılması standart yük dengeleyici tanılama]
 
 Standart Load Balancer, yeni bir kural türünü destekler.  
 
-Yük Dengeleme kuralları, uygulama ölçeklendirme yapın ve yüksek oranda güvenilir yapılandırabilirsiniz. Akış Yük Dengeleme her kısa ömürlü bir iç standart Load Balancer'ın ön uç IP bağlantı noktası üzerinde başına bir HA bağlantı noktaları Yük Dengeleme kuralı, standart Load Balancer kullanırken sağlar.  Bu özellik, pratik ya da tek tek bağlantı noktalarını belirlemek için istenmeyen olduğu diğer senaryolar için kullanışlıdır.
+Uygulama ölçek yapmak ve yüksek oranda güvenilir için Yük Dengeleme kuralları yapılandırabilirsiniz. Bir HA bağlantı noktaları Yük Dengeleme kuralı kullandığınızda, standart yük dengeleyici başına her bir iç standart Load Balancer'ın ön uç IP adresi kısa ömürlü bağlantı noktasında akış Yük Dengelemesi sağlar.  Bu özellik, pratik ya da tek tek bağlantı noktalarını belirlemek için istenmeyen olduğu diğer senaryolar için kullanışlıdır.
 
 Bir HA bağlantı noktaları Yük Dengeleme kuralı, ağ sanal Gereçleri ve gelen bağlantı noktalarının büyük aralıklar gerektiren tüm uygulama için Aktif-Pasif veya aktif-aktif n + 1 senaryoları oluşturmanıza olanak sağlar.  Durum araştırması, hangi arka uçlar yeni akışlar almalıdır belirlemek için kullanılabilir.  Bir bağlantı noktası aralığı senaryo benzetmek için bir ağ güvenlik grubu kullanabilirsiniz.
 
@@ -120,7 +119,7 @@ Nsg'leri ve bunları senaryonuz için uygulama hakkında daha fazla bilgi için 
 
 ### <a name="outbound"></a> Giden bağlantılar
 
-Yük Dengeleyici, gelen ve giden senaryolarını destekler.  Standart yük dengeleyici giden bağlantıları ile ilgili temel yük dengeleyici için önemli ölçüde farklılık gösterir.
+Yük Dengeleyici, gelen ve giden senaryolarını destekler.  Standart Load Balancer, temel yük dengeleyici giden bağlantılara göre önemli ölçüde farklıdır.
 
 Kaynak ağ adresi çevirisi (SNAT), sanal ağınızda özel, iç IP adreslerini ön yük dengeleyicinin genel IP adreslerinde eşleştirmek için kullanılır.
 
@@ -138,7 +137,7 @@ Standart Load Balancer ile çalışırken hatırlamak anahtar sacayakları şunl
 Görmeyi veya zaten giden bağlantılar için çok fazla istek yaşayan olan olduğundan daha fazla SNAT bağlantı noktaları isterseniz de artımlı SNAT bağlantı noktası Envanter ek ön uçlar, kuralları ve arka uç havuzları aynı sanal makineye yapılandırarak ekleyebilirsiniz kaynaklar.
 
 #### <a name="control-which-frontend-is-used-for-outbound"></a>Hangi ön uç için kullanılan denetim giden
-Yalnızca belirli ön uç IP adresinden kaynaklanan giden bağlantıları kısıtlamak istiyorsanız, isteğe bağlı olarak ifade giden eşleme kuralı üzerinde giden SNAT devre dışı bırakabilirsiniz.
+Yalnızca belirli ön uç IP adresinden kaynaklanan giden bağlantıları kısıtlamak istiyorsanız, isteğe bağlı olarak giden eşleme ifade kuralında giden SNAT devre dışı bırakabilirsiniz.
 
 #### <a name="control-outbound-connectivity"></a>Giden bağlantı denetimi
 Standart Load Balancer sanal ağ bağlamında var.  Bir sanal ağ yalıtılmış, özel bir ağdır.  Genel bir IP adresi ile bir ilişki mevcut değilse, genel bağlantı izin verilmiyor.  Size ulaşabildiğimizden [sanal ağ hizmet uç noktaları](../virtual-network/virtual-network-service-endpoints-overview.md) içini ve yerel sanal ağ olduğundan.  Sanal ağınızın dışında bir hedefe giden bağlantı kurmasını istiyorsanız iki seçeneğiniz vardır:
@@ -154,7 +153,7 @@ Giden bağlantı önce standart SKU'ları kalır ile ilişkili olmayan bir sanal
 Gözden geçirme [detaylı tartışılması giden bağlantılar](load-balancer-outbound-connections.md).
 
 ### <a name="multife"></a>Birden çok ön uç
-Load Balancer, birden çok ön uç ile birden çok kural destekler.  Standart yük dengeleyici giden senaryoları için bu genişletir.  Temel olarak gelen bir Yük Dengeleme kuralı tersini giden senaryolardır.  Gelen Yük Dengeleme kuralını de giden bağlantılar için bir ilişkilendirme oluşturur. Standart Load Balancer, Yük Dengeleme kuralı ile bir sanal makine kaynakla ilişkili tüm ön kullanır.  Ayrıca, bir parametre, Yük Dengeleme kuralı ve Yük Dengeleme kuralı hiçbiri dahil olmak üzere belirli ön uçlar seçmeye imkan tanıyan giden bağlantı amacıyla bastırmak sağlar.
+Load Balancer, birden çok ön uç ile birden çok kural destekler.  Standart yük dengeleyici giden senaryoları için bu genişletir.  Temel yük dengeleyici gelen kuralı tersini giden senaryolardır.  Gelen yük dengeleyici kuralı da giden bağlantılar için bir ilişkilendirme oluşturur. Standart Load Balancer, Yük Dengeleme kuralı ile bir sanal makine kaynakla ilişkili tüm ön kullanır.  Ayrıca, Yük Dengeleme kuralındaki parametre ve bir yük dengeleyici kuralı yok dahil olmak üzere belirli ön uçlar seçmeye imkan tanıyan giden bağlantı amacıyla bastır olanak tanır.
 
 Karşılaştırma için temel yük dengeleyici tek bir ön uç rastgele seçer ve hangisinin Seçili denetim olanağı yoktur.
 
@@ -162,7 +161,7 @@ Gözden geçirme [detaylı tartışılması giden bağlantılar](load-balancer-o
 
 ### <a name="operations"></a> Yönetim işlemleri
 
-Standart yük dengeleyici kaynakları tamamen yeni bir altyapı platformda mevcut.  Bu standart SKU'lar için önemli ölçüde daha hızlı yönetim işlemlerini etkinleştirir ve tamamlanma sürelerini genellikle 30 saniyeden kısa bir süre standart SKU kaynak başına bulunurlar.  Arka uç havuzları boyutu arttıkça, arka ucu için gerekli süre havuzu da artış değiştiğine dikkat edin.
+Standart yük dengeleyici kaynakları tamamen yeni bir altyapı platformda mevcut.  Bu standart SKU'lar için daha hızlı yönetim işlemlerini etkinleştirir ve tamamlanma sürelerini genellikle 30 saniyeden kısa bir süre standart SKU kaynak başına bulunurlar.  Arka uç havuzları boyutu arttıkça, arka ucu için gerekli süre havuzu artışı da değişir.
 
 Standart yük dengeleyici kaynakları değiştirebilir ve bir standart genel IP adresini bir sanal makineden daha hızlı bir şekilde diğerine taşıma.
 
@@ -211,7 +210,7 @@ Standart Load Balancer, % 99,99 SLA ile kullanılabilir.  Gözden geçirme [stan
 
 ## <a name="pricing"></a>Fiyatlandırma
 
-Standart Load Balancer, Yük Dengeleme kuralları yapılandırılmış ve işlenen tüm gelen ve giden veri sayısına göre ücretlendirilir bir üründür. Standart fiyatlandırma bilgileri için yük dengeleyici, ziyaret [Load Balancer fiyatlandırması](https://aka.ms/lbpricing) sayfası.
+Standart Load Balancer, Yük Dengeleme kuralları yapılandırılmış sayısına göre ücretlendirilir ürün ve işlenen tüm gelen ve giden veri ' dir. Standart fiyatlandırma bilgileri için yük dengeleyici, ziyaret [Load Balancer fiyatlandırması](https://aka.ms/lbpricing) sayfası.
 
 ## <a name="limitations"></a>Sınırlamalar
 
@@ -221,8 +220,8 @@ Standart Load Balancer, Yük Dengeleme kuralları yapılandırılmış ve işlen
 - Yük Dengeleyici ön uçlar küresel sanal ağ eşlemesi üzerinden erişilebilir.
 - [Abonelik işlemleri taşıma](../azure-resource-manager/resource-group-move-resources.md) standart SKU LB ve PIP kaynaklar için desteklenmez.
 - Web çalışanı rolü bir sanal ağ ve diğer Microsoft platform Hizmetleri olmadan pre-sanal ağ hizmetleri ve platform hizmetleri nasıl işlevi gelen bir yan etkisi nedeniyle yalnızca bir iç standart yük dengeleyici kullanıldığında erişilebilir. Kendisinin veya arka plandaki ilgili hizmet olarak, bu durumda değil platform bildirim olmadan değiştirebilirsiniz. Oluşturmanız gereken her zaman varsaymalısınız [giden bağlantı](load-balancer-outbound-connections.md) açıkça bir iç standart yük dengeleyici yalnızca kullanırken isterseniz.
-- Yük Dengeleyici, Yük Dengeleme ve bu belirli IP protokolleri için bağlantı noktası iletme için TCP veya UDP bir üründür.  Yük Dengeleme kuralları ve gelen NAT kuralları TCP ve UDP için desteklenen ve ICMP gibi diğer IP protokolleri için desteklenmiyor. Aksi takdirde bir UDP veya TCP akışı yükü ile etkileşime veya yanıt veya yük dengeleyici değil sonlandır. Bir proxy değil. Bir ön uç bağlantı başarılı doğrulama gerçekleştirmeniz gereken bant bağlantısı ile bir Yük Dengeleme veya gelen NAT kuralı (TCP veya UDP) kullanılan aynı protokol _ve_ en az bir sanal makinelerinizin gerekir oluşturmak bir yanıt için bir istemci bir ön uç yanıtı görmek için.  Ön uç yük Dengeleyiciden bir bant dışı yanıt almadıktan hiçbir sanal makine yanıt verebilmesi gösterir.  Bir yük dengeleyici sanal makine yanıt verebilmesi ön uç ile etkileşim kurmak mümkün değildir.  Bu durum giden bağlantılar için de geçerlidir burada [bağlantı noktası maske SNAT](load-balancer-outbound-connections.md#snat) olduğu TCP ve UDP; yalnızca ICMP dahil olmak üzere diğer IP protokolleri de başarısız olur.  Azaltmak için bir örnek düzeyi genel IP adresi atayın.
-- Sağlayan ortak yük Dengeleyiciler aksine [giden bağlantılar](load-balancer-outbound-connections.md) sanal ağ içindeki özel IP adresleri için ortak IP adresleri aşamasından geçme, iç yük dengeleyici giden çevrilmemesine kaynağı ön uç için her ikisi de olarak bir iç yük dengeleyicisinin özel IP adres alanı bağlantılardır.  Bu çeviri gerekli olduğu değil, benzersiz, iç IP adresi alanı içindeki SNAT tükenmesi olasılığını ortadan kaldırır.  Arka uç havuzundaki bir VM'den giden bir akışı hangi havuzda bulunduğu iç yük dengeleyicinin ön uç bir akışa çalışırsa, yan etkisi olan _ve_ eşlendi geri kendisine, akışın iki Bacak eşleşmiyor ve akışın başarısız olur .  Akış ön uç için akışı oluşturduğunuz arka uç havuzundaki aynı sanal makine için yeniden eşleyemiyorsanız, akışın başarılı olur.   Kendisine geri akışı eşler giden akış VM'den ön uç için oluşmuş görünür ve karşılık gelen akışta VM'den kendisine oluşmuş görünür. Konuk işletim sisteminin açısından bakıldığında, sanal makinenin içinde aynı akışın gelen ve giden bölümleri eşleşmiyor. TCP yığınına, kaynak ve hedef eşleşmeyen gibi aynı akışı parçası olacak şekilde bu yarısının aynı akışı tanımaz.  Arka uç havuzundaki herhangi bir VM akışı eşlendiği akışı yarısının eşleşir ve VM akışa başarılı bir şekilde yanıt verebilir.  Bu senaryo için aralıklı bağlantı zaman aşımları belirtisidir. Bu senaryo güvenilir bir şekilde elde etmek için kullanabileceğiniz birkaç yaygın geçici çözümler vardır (akışlar bir arka uç havuzundan arka uç için kaynak havuzları ilgili iç yük dengeleyici ön uç) içeren bir üçüncü taraf proxy'nin arkasında iç yük ya da ekleme Dengeleyici veya [DSR stili kurallarını kullanarak](load-balancer-multivip-overview.md).  Elde edilen senaryo azaltmak için bir genel yük dengeleyici kullanabilirken potansiyeli [SNAT tükenmesi](load-balancer-outbound-connections.md#snat) ve dikkatli bir şekilde yönetilen sürece kaçınılmalıdır.
+- Load Balancer, TCP veya UDP IP protokolleri için yük dengeleme ve bağlantı noktası iletme özellikleri sunan bir üründür.  Yük dengeleme kuralları ve gelen NAT kuralları, TCP ve UDP için desteklenir ancak ICMP dahil olmak üzere diğer IP protokolleri için desteklenmez. Load Balancer, UDP veya TCP akışlarının yüklerini sonlandırmaz, yanıtlamaz veya başka bir şekilde etkileşim kurmaz. Bir ara sunucu değildir. Bir ön uç bağlantı başarılı doğrulama gerçekleştirmeniz gereken bant bağlantısı ile bir Yük Dengeleme veya gelen NAT kuralı (TCP veya UDP) kullanılan aynı protokol _ve_ en az bir sanal makinelerinizin gerekir oluşturmak bir yanıt için bir istemci bir ön uç yanıtı görmek için.  Ön uç yük Dengeleyiciden bir bant dışı yanıt almadıktan hiçbir sanal makine yanıt verebilmesi gösterir.  Bir yük dengeleyici sanal makine yanıt verebilmesi ön uç ile etkileşim kurmak mümkün değildir.  Bu durum [port masquerade SNAT](load-balancer-outbound-connections.md#snat) öğesinin yalnızca TCP ve UDP için desteklendiği giden bağlantılar için de geçerlidir. ICMP de dahil olmak üzere diğer bağlantılar başarısız olacaktır.  Azaltmak için bir örnek düzeyinde Genel IP adresi atayın.
+- Sağlayan ortak yük Dengeleyiciler aksine [giden bağlantılar](load-balancer-outbound-connections.md) sanal ağ içindeki özel IP adresleri için ortak IP adresleri aşamasından geçme, iç yük dengeleyici giden çevrilmemesine kaynağı ön uç için her ikisi de olarak bir iç yük dengeleyicisinin özel IP adres alanı bağlantılardır.  Bu çeviri gerekli olduğu değil, benzersiz, iç IP adresi alanı içindeki SNAT tükenmesi olasılığını ortadan kaldırır.  Arka uç havuzundaki bir VM'den giden bir akışı hangi havuzda bulunduğu iç yük dengeleyicinin ön uç bir akışa çalışırsa, yan etkisi olan _ve_ eşlendi geri kendisine, akışın iki Bacak eşleşmiyor ve akışın başarısız olur .  Akış ön uç için akışı oluşturduğunuz arka uç havuzundaki aynı sanal makine için yeniden eşleyemiyorsanız, akışın başarılı olur.   Kendisine geri akışı eşler giden akış VM'den ön uç için oluşmuş görünür ve karşılık gelen akışta VM'den kendisine oluşmuş görünür. Konuk işletim sisteminin açısından bakıldığında aynı akışın gelen ve giden bölümleri sanal makine ile eşleşmez. Kaynak ve hedef eşleşmediğinden TCP yığını aynı akışın iki yarısını aynı akışa ait gibi görmez.  Arka uç havuzundaki herhangi bir VM akışı eşlendiği akışı yarısının eşleşir ve VM akışa başarılı bir şekilde yanıt verebilir.  Bu senaryo için aralıklı bağlantı zaman aşımları belirtisidir. Bu senaryo güvenilir bir şekilde elde etmek için kullanabileceğiniz birkaç yaygın geçici çözümler vardır (akışlar bir arka uç havuzundan arka uç için kaynak havuzları ilgili iç yük dengeleyici ön uç) içeren bir üçüncü taraf proxy'nin arkasında iç yük ya da ekleme Dengeleyici veya [DSR stili kurallarını kullanarak](load-balancer-multivip-overview.md).  Karmaşıklığı azaltmak için genel Load Balancer kullanabilirsiniz ancak elde edeceğiniz senaryo [SNAT tükenmesi](load-balancer-outbound-connections.md#snat) olasılığına sahip olur ve dikkatli bir şekilde yönetilmediği sürece kaçınılmalıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

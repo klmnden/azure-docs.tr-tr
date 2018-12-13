@@ -7,7 +7,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 76898d2b55d5187e12b91dbd6c9a85af6a274726
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 8f82332b02d2e7bbf937a84de42714392e3fccd6
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091722"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258194"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>API Yönetimi'ni kullanarak Azure Machine Learning Studio web hizmetlerini yönetme
 ## <a name="overview"></a>Genel Bakış
@@ -224,7 +223,7 @@ Tıklayın **Evet** denemeyi yayımlamak için.
 ![Evet-yayımlama](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>Web hizmetini test edin
-Bir AzureML web hizmeti, RSS (istek/yanıt hizmeti) ve BES (toplu yürütme hizmeti) uç noktalar oluşur. RSS, zaman uyumlu yürütme için ' dir. BES için zaman uyumsuz iş yürütme ' dir. Aşağıdaki örnek Python kaynağı ile web hizmetini test etmek için indirin ve Python için Azure SDK'yı yükleme gerekebilir (bkz: [Python yükleme](../../python-how-to-install.md)).
+Bir AzureML web hizmeti, RSS (istek/yanıt hizmeti) ve BES (toplu yürütme hizmeti) uç noktalar oluşur. RSS, zaman uyumlu yürütme için ' dir. BES için zaman uyumsuz iş yürütme ' dir. Aşağıdaki örnek Python kaynağı ile web hizmetini test etmek için indirmek ve Python için Azure SDK'sını yüklemek ihtiyacınız (bakın: [Python yükleme](../../python-how-to-install.md)).
 
 Ayrıca gerekir **çalışma**, **hizmet**, ve **apı_key** denemenizin örnek kaynağı için. Çalışma alanını ve hizmet tıklayarak bulabilirsiniz **istek/yanıt** veya **toplu iş yürütme** web hizmeti panosundaki denemeniz için.
 

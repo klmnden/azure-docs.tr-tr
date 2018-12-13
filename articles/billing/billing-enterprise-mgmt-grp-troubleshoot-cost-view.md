@@ -10,39 +10,39 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2017
+ms.date: 02/22/2017
 ms.author: cwatson
-ms.openlocfilehash: be74714667c2fed57a797a972ddcd7949cae5933
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 434f717d9590eff39df161a74931477bdf71bb67
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274679"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309575"
 ---
-# <a name="troubleshoot-enterprise-cost-views"></a>Kurumsal Maliyet görünümleri sorunlarını giderme 
+# <a name="troubleshoot-enterprise-cost-views"></a>Kurumsal Maliyet görünümleri sorunlarını giderme
 
-Kurumsal kayıtları içinde maliyetleri görüntülemek üzere olmayan kullanıcıların kayıt içinde neden olabilecek birden çok ayar vardır.  Kayıt doğrudan Microsoft'tan satın aldıysanız değil, bu ayarlar, kayıt Yöneticisi tarafından veya iş ortağı tarafından yönetilir.  Bu makalede ayarlar nelerdir ve bunların kaydı nasıl etkilediği anlamanıza yardımcı olur. Bu ayarlar bağımsızdır [Azure RBAC rolleri](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
-
+Kurumsal kayıtları içinde maliyetleri görmek, kullanıcılar kayıt içinde neden olabilecek birkaç ayar vardır.  Bu ayarlar kayıt Yöneticisi tarafından yönetilir. Ya da kayıt doğrudan Microsoft aldıysanız, bu değil ayarları iş ortağı tarafından yönetiliyor.  Bu makalede ayarlar nelerdir ve bunların kaydı nasıl etkilediği anlamanıza yardımcı olur. Bu ayarlar, Azure rol tabanlı erişim denetimi (RBAC) rollerini bağımsızdır.
 
 ## <a name="enabling-access-to-costs"></a>Maliyetleri erişimini etkinleştirme
 
-Misiniz, yetkisiz bir iletiyi görmekten veya *"Maliyet görünümleri devre dışı bırakıldı'na kaydınızı."* Maliyet bilgileri ararken? ![yetkisiz](media/billing-enterprise-mgmt-groups/unauthorized.png)
+Misiniz, yetkisiz bir iletiyi görmekten veya *"Maliyet görünümleri devre dışı bırakıldı'na kaydınızı."* Maliyet bilgileri ararken?
+![Abonelik için geçerli Maliyet alanında "yetkisiz" gösteren ekran görüntüsü.](media/billing-enterprise-mgmt-groups/unauthorized.png)
 
-Bunun nedeni aşağıdakilerden biri olabilir:
+Aşağıdakilerden biri olabilir:
 
-1. Azure bir kurumsal iş ortağı aracılığıyla satın aldığınız ve iş ortağı henüz bir fiyatlandırmaya serbest edilmemiş. Fiyatlandırma yayımlamayı içinde ayarını güncelleştirmek için ortağınızla iletişim kurun [kurumsal portal](https://ea.azure.com).
-2. Alternatif olarak, bir EA Direct müşterisiyseniz, birkaç olasılık vardır:
-    * Bir hesap sahibi olduğunuz ve kayıt yöneticiniz "ayarını AO ücretleri görüntüle" devre dışı bıraktı.  
-    * Bir bölüm yöneticisiyseniz ve kayıt yöneticiniz "ayarını DA ücretleri görüntüle" devre dışı bıraktı.
-    * Kayıt erişim almak için yöneticinize başvurun. Kayıt Yöneticisi ziyaret edebilirsiniz [kurumsal portal](https://ea.azure.com/manage/enrollment) ve burada görüldüğü gibi ayarını güncelleştirin:
+1. Azure bir kurumsal iş ortağı aracılığıyla satın aldığım ve iş ortağı henüz bir fiyatlandırmaya sürüm kaydetmedi. Fiyatlandırma içinde ayarını güncelleştirmek için iş ortağınızla iletişime [kurumsal portal](https://ea.azure.com).
+2. Bir doğrudan EA müşterisiyseniz, birkaç olasılık vardır:
+    * Bir hesap sahibi ve devre dışı kayıt yöneticinize işiniz **AO ücretleri görüntüle** ayarı.  
+    * Bir departman Yöneticisi ve devre dışı kayıt yöneticinize işiniz **DA ücretleri görüntüle** ayarı.
+    * Kayıt erişim almak için yöneticinize başvurun. Kayıt yöneticisi ayarlarını güncelleştirebilirsiniz [kurumsal portal](https://ea.azure.com/manage/enrollment).
 
-![Kurumsal Portal ayarları](media/billing-enterprise-mgmt-groups/ea-portal-settings.png)
+      ![Ücretleri görüntüle Kurumsal Portal ayarları gösteren ekran görüntüsü.](media/billing-enterprise-mgmt-groups/ea-portal-settings.png)
 
+## <a name="asset-is-unavailable"></a>Varlık kullanılamıyor
 
-## <a name="asset-is-unavailable"></a>Varlık kullanılamıyor mu? 
-"Bu varlık kullanılamıyor" hata iletisi alıyorsanız, ne zaman bir abonelik veya yönetim grubu, ardından erişmeye gerekmez bu öğeyi görüntülemek için doğru rol.  
+"Bu varlık kullanılamıyor" hata iletisi alırsanız, ne zaman bir abonelik veya yönetim grubu, ardından erişmeye değilsiniz bu öğeyi görüntülemek için doğru rol.  
 
-![Varlık bulunamadı](media/billing-enterprise-mgmt-groups/asset-not-found.png)
+!["Varlık kullanılamıyor" iletisini gösteren ekran görüntüsü.](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
-Yönetici erişim verilmesi için abonelik veya yönetim gruplarının başvurun.  
-* Abonelikler için başvuru [Azure rol tabanlı Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) belge Yardım rolü gereklidir.
+Azure, abonelik veya yönetim grubu yöneticisi erişim isteğinde bulunun. Daha fazla bilgi için [RBAC ve Azure portalını kullanarak erişimini yönetme](../role-based-access-control/role-assignments-portal.md).

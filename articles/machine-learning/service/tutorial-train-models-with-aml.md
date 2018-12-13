@@ -1,5 +1,5 @@
 ---
-title: 'Görüntü sınıflandırma Öğreticisi: eğitme modelleri'
+title: 'Görüntü sınıflandırma Öğreticisi: Modelleri eğitme'
 titleSuffix: Azure Machine Learning service
 description: Bu öğretici, Azure Machine Learning hizmetini kullanarak Python Jupyter not defterinde scikit-learn ile bir görüntü sınıflandırma modelinin nasıl eğitildiğini gösterir. Bu öğretici, iki bölümden oluşan bir serinin birinci bölümüdür.
 services: machine-learning
@@ -11,14 +11,14 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: fc61465615e35c071466c7a1350c8e9794a7f78e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a2208e160d641d762b57668cdc635fe877677ff5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099119"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310122"
 ---
-# <a name="tutorial-part-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>(Kısım 1) öğreticisi: Azure Machine Learning hizmeti ile bir görüntü sınıflandırma modeli eğitme
+# <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Öğretici: Bir Azure Machine Learning hizmeti ile görüntü sınıflandırma modeli eğitme
 
 Bu öğreticide, makine öğrenmesi modelini hem yerel olarak hem de uzak işlem kaynaklarında eğitiyorsunuz. Azure Machine Learning hizmetinde bir Python Jupyter not defteri için eğitim ve dağıtım iş akışı'nı kullanacaksınız.  Ardından not defterini şablon olarak kullanıp kendi verilerinizle kendi makine öğrenmesi modelinizi eğitebilirsiniz. Bu öğretici, **iki bölümden oluşan bir öğretici serisinin birinci bölümüdür**.  
 
@@ -35,7 +35,7 @@ Bu öğretici, Azure Machine Learning hizmeti ile [MNIST](https://yann.lecun.com
 
 Daha sonra [bu öğreticinin ikinci bölümünde](tutorial-deploy-models-with-aml.md) model seçmeyi ve dağıtmayı öğreneceksiniz. 
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
+Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
 
 >[!NOTE]
 > Bu makalede kod Azure Machine Learning SDK sürümü 1.0.2 ile test edilmiştir
@@ -384,15 +384,15 @@ Toplamda, ilk çalıştırma **yaklaşık 10 dakika** sürer. Ama betik bağıml
 
 Siz beklerken şunlar gerçekleştirilir:
 
-- **Görüntü oluşturma**: Tahmin aracının belirttiği Python ortamıyla eşleşen bir Docker görüntüsü oluşturulur. Görüntü, çalışma alanına yüklenir. Görüntüyü oluşturma ve karşıya yükleme **yaklaşık 5 dakika** sürer. 
+- **Görüntü oluşturma**: Tahmin aracı tarafından belirtilen Python ortamı eşleşen bir Docker görüntüsü oluşturulur. Görüntü, çalışma alanına yüklenir. Görüntüyü oluşturma ve karşıya yükleme **yaklaşık 5 dakika** sürer. 
 
   Bu aşama her Python ortamı için tek bir kez gerçekleştirilir çünkü bunu izleyen çalıştırmalar için kapsayıcı önbelleğe alınır.  Görüntü oluşturma sırasında, günlükler çalıştırma geçmişine aktarılır. Bu günlükleri kullanarak görüntü oluşturma işleminin ilerleme durumunu izleyebilirsiniz.
 
-- **Ölçeklendirme**: Çalıştırmayı yürütmek için uzak kümeye şu anda sağlanandan daha fazla düğüm gerekiyorsa, otomatik olarak daha fazla düğüm eklenir. Ölçekleme genellikle **yaklaşık 5 dakika** sürer.
+- **Ölçeklendirme**: Uzak kümeye çalıştırma şu anda kullanılabilir daha yürütmek için daha fazla düğüm gerekiyorsa, ek düğümler otomatik olarak eklenir. Ölçekleme genellikle **yaklaşık 5 dakika** sürer.
 
-- **Çalıştırma**: Bu aşamada, gerekli betikler ve dosyalar işlem hedefine gönderilir, ardından veri depoları bağlanır/kopyalanır ve entry_script çalıştırılır. İş çalıştırılırken, stdout ve ./logs dizini çalıştırma geçmişine aktarılır. Bu günlükleri kullanarak çalıştırma işleminin ilerleme durumunu izleyebilirsiniz.
+- **Çalışan**: Bu aşamada gerekli betikler ve dosyaları işlem hedefine gönderilir sonra bağlı ve kopyalanan veri depoları entry_script çalıştırın. İş çalıştırılırken, stdout ve ./logs dizini çalıştırma geçmişine aktarılır. Bu günlükleri kullanarak çalıştırma işleminin ilerleme durumunu izleyebilirsiniz.
 
-- **Son İşlem**: Çalıştırmanın ./outputs dizini çalışma alanınızdaki çalıştırma geçmişine kopyalanarak bu sonuçlara erişmeniz sağlanır.
+- **İşleme sonrası**: . / Çalıştırma dizinine kopyalanır üzerinden çalıştırma geçmişini çalışma alanınızda bu sonuçları erişebilmesi çıkarır.
 
 
 Çalışan işin ilerleme durumunu çeşitli yollarla denetleyebilirsiniz. Bu öğreticide hem Jupyter pencere öğesi hem de `wait_for_completion` yöntemi kullanılır. 

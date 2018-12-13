@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: d0b804c48f3de4d4ba29ebe0785f6dd991329a53
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2beb5aa7218df25a1af87411d9481d30b259c353
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409263"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256738"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure tanılama günlükleri
 
@@ -98,7 +98,7 @@ Log Analytics, günlükleri depolamak için kullanmak için aşağıdaki adımla
    **Log Analytics çalışma alanları** sayfası görüntülenir.
 
     >[!NOTE] 
-    >OMS çalışma alanları, artık Log Analytics çalışma alanları da adlandırılır.
+    >OMS çalışma alanları artık Log Analytics çalışma alanları olarak adlandırılır.
 
     ![Portalı - tanılama günlükleri](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
@@ -107,7 +107,7 @@ Log Analytics, günlükleri depolamak için kullanmak için aşağıdaki adımla
     **Log Analytics çalışma alanı** sayfası görüntülenir.
 
     >[!NOTE] 
-    >OMS çalışma alanları, artık Log Analytics çalışma alanları da adlandırılır.
+    >OMS çalışma alanları artık Log Analytics çalışma alanları olarak adlandırılır.
 
     ![Portalı - tanılama günlükleri](./media/cdn-diagnostics-log/07_Create-new.png)
 
@@ -189,7 +189,7 @@ Temel analiz verileri bir Azure depolama hesabından erişebilmeniz için önce 
 |-------|---------|
 |Abonelik Kimliği    |GUID biçiminde Azure abonelik kimliği.|
 |Kaynak Grubu Adı |CDN kaynakları ait olduğu kaynak grubunun adı.|
-|Profil adı |CDN profilinin adı|
+|Profil Adı |CDN profilinin adı|
 |Uç nokta adı |CDN uç noktası adı|
 |Yıl|  Örneğin, 2017 yılı dört basamaklı temsili|
 |Ay| İki haneli ay sayısı gösterimi. 01 Ocak =... 12 Aralık =|
@@ -202,7 +202,7 @@ Temel analiz verileri bir Azure depolama hesabından erişebilmeniz için önce 
 
 Aracı'nı nasıl kullanabileceğinizi aşağıda verilmiştir:
 
-1.  Github bağlantıyı ziyaret edin: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
+1.  GitHub bağlantıyı ziyaret edin: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
 2.  Kodu indirin.
 3.  Derleme ve yapılandırma yönergelerini izleyin.
 4.  Aracı çalıştırın.

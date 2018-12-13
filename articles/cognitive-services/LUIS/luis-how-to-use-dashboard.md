@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: fa5560c008270635d0d93b8004e017c810c9c27a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 6f6de278e802b83623413b0bf70e556d083818c8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074427"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140617"
 ---
-# <a name="application-dashboard"></a>Uygulama Panosu
+# <a name="model-and-usage-statistics-in-the-dashboard"></a>Panodaki modeli ve kullanım istatistikleri
 Uygulama Panosu uygulamanız tek bir bakışta izlemenizi sağlar. **Pano** uygulama adını tıklatarak bir uygulamayı açtığınızda görüntüler **uygulamalarım** seçin sayfasında **Pano** üst panelinden. 
 
 > [!CAUTION]
@@ -71,7 +71,7 @@ Uygulamanın uç nokta anahtarından tüketilen isabet sayısı. Uç nokta anaht
 
 Dökümü etiketli konuşma veya uç noktası İsabeti dayalı olup olmadığını denetlemek için:
 
-1. Tıklayın **ek ayarlar** ![ek ayarlar düğmesi](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) aşağıdaki görüntüde gösterildiği gibi listesine erişmek için:
+1. Tıklayın **ek ayarlar** ![erişim listesine ek ayarlar düğmesi](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) aşağıdaki görüntüde gösterildiği gibi listesine erişmek için:
 
     ![Hedefi çözümleme listesi](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
 2. Listeden bir değer seçin ve ardından geri okunu tıklatın ![Geri oku](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) Grafiğe görüntülenecek.
@@ -83,7 +83,7 @@ Pano varlık etiketli konuşma veya uç noktası İsabeti göre dökümünü gö
 
 Dökümü etiketli konuşma veya uç noktası İsabeti dayalı olup olmadığını denetlemek için:
 
-1. Tıklayın **ek ayarlar** ![ek ayarlar düğmesi](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) aşağıdaki görüntüde gösterildiği gibi listesine erişmek için:
+1. Tıklayın **ek ayarlar** ![listesini almak için ek ayarlar düğmesi](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) aşağıdaki görüntüde gösterildiği gibi listesine erişmek için:
 
     ![Varlık çözümleme listesi](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
 2. Listeden bir değer seçin ve ardından geri okunu tıklatın ![Geri oku](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) Grafiği uygun şekilde görüntülemek için.

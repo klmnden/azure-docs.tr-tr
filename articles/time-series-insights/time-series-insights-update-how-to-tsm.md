@@ -1,6 +1,6 @@
 ---
-title: Veri modelleme Azure zaman serisi öngörüleri | Microsoft Docs
-description: Azure zaman serisi Öngörülerinde modelleme verileri anlama
+title: Azure Time Series Insights veri modelleme - veri modelleme Azure zaman serisi öngörüleri önizlemesinde | Microsoft Docs
+description: Azure zaman serisi öngörüleri önizlemesinde modelleme verileri anlayın.
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -8,133 +8,132 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
-ms.openlocfilehash: dc6244b6e263d3fb963d40b2f0c626cdfa9ecff8
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.date: 12/10/2018
+ms.custom: seodec18
+ms.openlocfilehash: e68bc01d2c0781333454fa753992d0136fac0c06
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873470"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269099"
 ---
-# <a name="data-modeling-in-azure-time-series-insights"></a>Azure zaman serisi Öngörülerinde modelleme verileri
+# <a name="data-modeling-in-azure-time-series-insights-preview"></a>Azure zaman serisi öngörüleri önizlemesinde modelleme verileri
 
-Bu belgede ile nasıl çalışılacağı açıklanmaktadır **zaman serisi modelleri** aşağıdaki Azure Time Series Insights (Önizleme). Bu, birkaç ortak veri senaryoları ayrıntıları.
+Bu belge, Azure zaman serisi öngörüleri önizlemesi aşağıdaki zaman serisi modelleri ile çalışacak şekilde açıklar. Bu, birkaç ortak veri senaryoları ayrıntıları.
 
-Okuma [(Önizleme) Azure TSI Gezgini](./time-series-insights-update-explorer.md) güncelleştirme gezinme hakkında daha fazla bilgi için makalede.
+Güncelleştirme kullanma hakkında daha fazla bilgi edinmek için [Azure zaman serisi öngörüleri önizlemesi Gezgini](./time-series-insights-update-explorer.md).
 
 ## <a name="types"></a>Türler
 
-### <a name="how-to-create-a-single-type"></a>Tek bir tür oluşturma
+### <a name="create-a-single-type"></a>Tek bir tür oluşturma
 
-1. TSM model Seçici bölmenin başlığı olarak başlatın ve menüden türlerini seçin. Ardından, TSM türlerinde odaklanmak için Panel'i Daralt:
+1. Zaman serisi modelleri Seçici Masası'na gidin ve seçin **türleri** menüsünde. Zaman serisi modelleri türlerinde odaklanmak için Panel'i Daralt.
 
-    ![portal_one][1]
+    ![Portal_one][1]
 
-1. **Ekle**'ye tıklayın.
-1. Tüm Ayrıntılar türlerine ilişkin giriş ve tıklayın **Oluştur**. Bunun yapılması türleri ortamda oluşturmanız gerekir:
+1. **Add (Ekle)** seçeneğini belirleyin.
+1. Giriş türlerini ilgilidir ve seçin tüm ayrıntıları **Oluştur**. Bu eylem, ortamda türleri oluşturur.
 
-    ![portal_two][2]
+    ![Portal_two][2]
 
-### <a name="how-to-bulk-upload-one-or-more-types"></a>Toplu olarak bir veya daha fazla türlerini karşıya yükle
+### <a name="bulk-upload-one-or-more-types"></a>Toplu karşıya yükleme, bir veya daha fazla türleri
 
-1. Tıklayarak **JSON karşıya**.
-1. Tür yükünü içeren bu dosyayı seçin.
-1. Tıklayarak **karşıya yükleme**
+1. Seçin **karşıya JSON**.
+1. Tür yükü içeren dosyayı seçin.
+1. **Karşıya Yükle**’yi seçin.
 
-    ![portal_three][3]
+    ![Portal_three][3]
 
-### <a name="how-to-edit-a-single-type"></a>Tek bir tür düzenleme
+### <a name="edit-a-single-type"></a>Tek bir türünü Düzenle
 
-* Türünü seçin ve tıklayın **Düzenle** düğmesi. Gerekli değişiklikleri yapın ve tıklayın **Kaydet**:
+Türü seçip **Düzenle**. Gerekli değişiklikleri yapın ve seçin **Kaydet**.
 
-    ![portal_four][4]
+![Portal_four][4]
 
-### <a name="how-to-delete-a-type"></a>Bir tür silme
+### <a name="delete-a-type"></a>Bir türünü Sil
 
-* Türünü seçin ve tıklayın **Sil** düğmesi. Hiçbir örnek türlerine ilişkiliyse, silinecek:
+Türü seçip **Sil**. Hiçbir örnek türleri ile ilişkili ise bu silinir.
 
-    ![portal_five][5]
+![Portal_five][5]
 
 ## <a name="hierarchies"></a>Hiyerarşiler
 
-### <a name="how-to-create-a-single-hierarchy"></a>Tek bir hiyerarşi oluşturma
+### <a name="create-a-single-hierarchy"></a>Tek bir hiyerarşi oluşturun
 
-1. TSM model Seçici bölmenin başlığı olarak başlatın ve hiyerarşileri menüden seçim yapın. Ardından, TSM türlerinde odaklanmak için Panel'i Daralt:
+1. Zaman serisi modelleri Seçici Masası'na gidin ve seçin **hiyerarşileri** menüsünde. Zaman serisi modelleri Hiyerarşiler odaklanmak için Panel'i Daralt.
 
-    ![portal_six][6]
+    ![Portal_six][6]
 
-1. Tıklayarak **Ekle**
+1. **Add (Ekle)** seçeneğini belirleyin.
 
-    ![portal_seven][7]
+    ![Portal_seven][7]
 
-1. Tıklayarak **ekleme düzeyi** sağ bölmede:
+1. Seçin **ekleme düzeyi** sağ bölmede.
 
-    ![portal_eight][8]
+    ![Portal_eight][8]
 
-1. Hiyerarşi ayrıntılarını girin ve tıklayın **Oluştur**:
+1. Hiyerarşi ayrıntılarını girin ve seçin **Oluştur**.
 
-    ![portal_nine][9]
+    ![Portal_nine][9]
 
-### <a name="how-to-bulk-upload-one-or-more-hierarchies"></a>Toplu olarak hiyerarşi bir veya daha fazla karşıya yükleme
+### <a name="bulk-upload-one-or-more-hierarchies"></a>Toplu karşıya yükleme, bir veya daha fazla hiyerarşiler
 
-1. Tıklayarak **karşıya JSON**.
-1. Hiyerarşi yükünü içeren dosyayı seçin.
-1. Tıklayarak **karşıya**:
+1. Seçin **karşıya JSON**.
+1. Hiyerarşi yükü içeren dosyayı seçin.
+1. **Karşıya Yükle**’yi seçin.
 
-    ![portal_ten][10]
+    ![Portal_ten][10]
 
-### <a name="how-to-edit-a-single-hierarchy"></a>Tek bir hiyerarşi düzenleme
+### <a name="edit-a-single-hierarchy"></a>Tek bir hiyerarşiyi Düzenle
 
-* Hiyerarşiyi seçin ve tıklayın **Düzenle** düğmesi. Gerekli değişiklikleri yapın ve tıklayın **Kaydet**:
+Hiyerarşi seçip **Düzenle**. Gerekli değişiklikleri yapın ve seçin **Kaydet**.
 
-    ![portal_eleven][11]
+![Portal_eleven][11]
 
-### <a name="how-to-delete-a-hierarchy"></a>Nasıl bir hiyerarşiyi Sil
+### <a name="delete-a-hierarchy"></a>Bir hiyerarşiyi Sil
 
-* Hiyerarşiyi seçin ve tıklayın **Sil** düğmesi. Hiyerarşi için ilişkili hiçbir örneği silinir.
+Hiyerarşi seçip **Sil**. Örnek hiyerarşi ile ilişkili ise bu silinir.
 
-    ![portal_twelve][12]
+![Portal_twelve][12]
 
 ## <a name="instances"></a>Örnekler
 
-### <a name="how-to-create-a-single-instance"></a>Tek bir örneğini oluşturma
+### <a name="create-a-single-instance"></a>Tek bir örneğini oluşturma
 
-1. TSM model Seçici bölmenin başlığı olarak başlatın ve örnekleri menüden seçim yapın. Ardından, TSM türlerinde odaklanmak için Panel'i Daralt:
+1. Zaman serisi modelleri Seçici Masası'na gidin ve seçin **örnekleri** menüsünde. Zaman serisi modelleri örneklerinde odaklanmak için Panel'i Daralt.
 
-    ![portal_thirteen][13]
+    ![Portal_thirteen][13]
 
-1. Tıklayarak **ekleme**:
+1. **Add (Ekle)** seçeneğini belirleyin.
 
-    ![portal_fourteen][14]
+    ![Portal_fourteen][14]
 
-1. Örnek ayrıntıları girin, türü ve hiyerarşi ilişkisini seçin ve tıklayın **Oluştur**.
+1. Örnek ayrıntıları girin, türü ve hiyerarşi ilişkisi seçip **Oluştur**.
 
-### <a name="how-to-bulk-upload-one-or-more-instances"></a>Toplu olarak bir veya daha fazla karşıya yükleme
+### <a name="bulk-upload-one-or-more-instances"></a>Toplu karşıya yükleme, bir veya daha fazla örnek
 
-1. Tıklayarak **karşıya JSON**.
-1. Örnekleri yükünü içeren dosyayı seçin:
+1. Seçin **karşıya JSON**.
+1. Örnekleri yükü içeren dosyayı seçin.
 
-    ![portal_fifteen][15]
+    ![Portal_fifteen][15]
 
-1. Tıklayarak **karşıya**.
+1. **Karşıya Yükle**’yi seçin.
 
-### <a name="how-to-edit-a-single-instance"></a>Tek bir örneği düzenlemek nasıl
+### <a name="edit-a-single-instance"></a>Tek bir örnek Düzenle
 
-* Örneğini seçin ve tıklayın **Düzenle** düğmesi. Gerekli değişiklikleri yapın ve tıklayın **Kaydet**:
+Örnek seçip **Düzenle**. Gerekli değişiklikleri yapın ve seçin **Kaydet**.
 
-    ![portal_sixteen][16]
+![Portal_sixteen][16]
 
-### <a name="how-to-delete-an-instance"></a>Örneğini silme
+### <a name="delete-an-instance"></a>Örnek silme
 
-* Örneğini seçin ve tıklayın **Sil** düğmesi. Hiçbir olay örnekleri ilişkili silinir.
+Örnek seçip **Sil**. Hiçbir olay örnekleri ile ilişkili ise bu silinir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hakkında bilgi edinin [veri modelleme](./time-series-insights-update-tsm.md) hakkında daha fazla bilgi için **zaman serisi modelleri**.
-
-(Önizleme) Azure TSI Gezgini görünümü [makale](./time-series-insights-update-explorer.md) önizlemesi hakkında daha fazla bilgi için.
-
-Desteklenen JSON şekilleri hakkında bilgi edinmek [desteklenen JSON şekilleri](./time-series-insights-send-events.md#json).
+- Zaman serisi modelleri hakkında daha fazla bilgi için okuma [veri modelleme](./time-series-insights-update-tsm.md).
+- Önizleme hakkında daha fazla bilgi edinmek için [Azure zaman serisi öngörüleri önizlemesi gezginde verileri görselleştirme](./time-series-insights-update-explorer.md).
+- Desteklenen JSON şekilleri hakkında bilgi edinmek için [desteklenen JSON şekilleri](./time-series-insights-send-events.md#json).
 
 <!-- Images -->
 [1]: media/v2-update-how-to-tsm/portal_one.png

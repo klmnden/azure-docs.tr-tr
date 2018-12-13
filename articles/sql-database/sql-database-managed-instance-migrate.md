@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6868b842f22a6d107936fcb1e49c46b0c1f58469
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 5e2599c2089cbd9961b54966df5f0f98d6badcce
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345314"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274675"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği SQL Server örneği geçirme
 
@@ -117,8 +117,7 @@ Uygulama davranışını ve geçişten sonra performansı izleyin. Yönetilen ö
 
 Geçiş risklerini azaltmak için yalnızca performansı izleme sonra veritabanı uyumluluk düzeyini değiştirin. Kullanım Query Store açıklandığı gibi iş yükü performansı önce ve sonra veritabanı uyumluluk düzeyi değiştirme hakkında bilgi almak için en uygun aracı olarak [tutmak performans kararlılık yükseltme sırasında SQL Server sürüme](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 
-Tam olarak yönetilen bir platformda olduktan sonra otomatik olarak SQL veritabanı hizmetinin bir parçası olarak sağlanan avantajlar yararlanın. Örneği için yedeklemeler yönetilen örneği'nde oluşturmanız gerekmez - hizmet yedekleme sizin için otomatik olarak gerçekleştirir. Artık zamanlama, alma ve yedekleri yönetme hakkında endişe gerekir. Yönetilen örnek kullanarak bu elde tutma dönemi içinde zaman içinde herhangi bir noktasına geri yükleme olanağı sağlayan [işaret zaman Kurtarma (PITR) içinde](sql-database-recovery-using-backups.md#point-in-time-restore). Genel Önizleme süresince saklama süresi yedi gün için sabit.
-Ayrıca, yüksek oranda kullanılabilir ayarlama endişelenmeniz gerekmez [yüksek kullanılabilirlik](sql-database-high-availability.md) yerleşiktir.
+Tam olarak yönetilen bir platformda olduktan sonra otomatik olarak SQL veritabanı hizmetinin bir parçası olarak sağlanan avantajlar yararlanın. Örneği için yedeklemeler yönetilen örneği'nde oluşturmanız gerekmez - hizmet yedekleme sizin için otomatik olarak gerçekleştirir. Artık zamanlama, alma ve yedekleri yönetme hakkında endişe gerekir. Yönetilen örnek kullanarak bu elde tutma dönemi içinde zaman içinde herhangi bir noktasına geri yükleme olanağı sağlayan [işaret zaman Kurtarma (PITR) içinde](sql-database-recovery-using-backups.md#point-in-time-restore). Ayrıca, yüksek oranda kullanılabilir ayarlama endişelenmeniz gerekmez [yüksek kullanılabilirlik](sql-database-high-availability.md) yerleşiktir.
 
 Güvenliği güçlendirmek için kullanılabilir olan özelliklerin bazılarını kullanarak göz önünde bulundurun:
 

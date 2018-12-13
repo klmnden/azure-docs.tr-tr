@@ -1,6 +1,6 @@
 ---
-title: Azure Search blob dizin oluşturucu ile JSON bloblarını dizine ekleme
-description: Azure Search blob dizin oluşturucu ile JSON bloblarını dizine ekleme
+title: JSON bloblarını dizine ekleme gelen tam metin arama - Azure Search için Azure Blob dizin oluşturucu
+description: Azure Search Blob Dizin Oluşturucu kullanarak metin içeriği için Azure JSON bloblarını gezinin. Dizin oluşturucular veri alımı Azure Blob Depolama gibi seçili veri kaynakları için otomatik hale getirin.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 0dbf8a44007fbba39f6ac4c20e375a6d13ac9021
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec2018
+ms.openlocfilehash: 7eb215271a8d5d21403cc7c5a49028bb366e61fd
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711081"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312536"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Azure Search blob dizin oluşturucu ile JSON bloblarını dizine ekleme
 Bu makalede bir Azure Search blob dizin oluşturucu JSON BLOB'ları Azure Blob storage'da yapılandırılmış içeriği ayıklamak için yapılandırma gösterilmektedir.
@@ -45,14 +46,14 @@ JSON bloblarını dizine ekleme, üç bölümü iş akışı ortak normal belge 
         "container" : { "name" : "my-container", "query" : "optional, my-folder" }
     }   
 
-### <a name="step-2-create-a-target-search-index"></a>2. adım: hedef arama dizini oluşturma 
+### <a name="step-2-create-a-target-search-index"></a>2. Adım: Bir hedef search dizini oluşturma 
 
 Dizin oluşturucular bir dizin şeması ile eşleştirilmelidir. API (portal yerine) kullanıyorsanız, dizin dizin oluşturucu işlemi belirtebilirsiniz böylece önceden hazırlayın. 
 
 > [!Note]
 > Dizin Oluşturucular, portal üzerinden sunulur **alma** sınırlı sayıda genel kullanıma açık dizin oluşturucular için eylem. Genellikle, iş akışını içeri aktar genellikle meta veri kaynağındaki bağlı ön bir dizin oluşturabilirsiniz. Daha fazla bilgi için [verileri içeri aktarma Azure Search'e portalda](search-import-data-portal.md).
 
-### <a name="step-3-configure-and-run-the-indexer"></a>Adım 3: Yapılandırma ve dizin oluşturucuyu çalıştırma
+### <a name="step-3-configure-and-run-the-indexer"></a>3. adım: Yapılandırma ve dizin oluşturucuyu çalıştırma
 
 Şimdiye kadar veri kaynağı ve dizin tanımlarını parsingMode belirsiz olmuştur. Ancak, adım 3'te dizin oluşturucu yapılandırmasını için JSON blob ayrıştırılır ve bir Azure Search dizini içinde yapılandırılmış içerik nasıl istediğinizi bağlı olarak yol kareninkinden.
 
@@ -186,7 +187,7 @@ Ayrıca, sıfır tabanlı dizinini kullanarak tek bir dizi öğelerine başvurab
 >
 >
 
-## <a name="example-indexer-request-with-field-mappings"></a>Örnek: Dizin Oluşturucu istekle alan eşlemeleri
+## <a name="example-indexer-request-with-field-mappings"></a>Örnek: Alan eşlemelerini istekle dizin oluşturucu
 
 Aşağıdaki örnek, alan eşlemelerini de dahil olmak üzere tam olarak belirtilen dizin oluşturucu yüktür:
 

@@ -8,12 +8,12 @@ ms.author: viviali
 ms.date: 12/4/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 74ea923ccfc88847ae6d2513b3ef592cc8899b8d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9c774a463264a3df859ac097dce4aa21df1c1dd8
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966883"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163370"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>IOT Central, IOT Central için diğer IOT bulutlara bağlanmak için cihaz köprüsü oluşturun
 
@@ -34,7 +34,7 @@ IOT Central cihaz köprüsü, github'da açık kaynaklı bir çözümdür. Çeş
 IOT Central uygulamanızı yönlendirilmiş ileti cihaz tarafından cihaz Kimliğini tanıyorsa bu cihaz için yeni bir ölçüm görünür. Cihaz kimliği, IOT Central uygulamanız tarafından hiçbir zaman görüldü, işlev uygulamanızı yeni bir cihaz, cihaz kimliği ile kaydolmayı deneyecek ve IOT Central uygulamanızda "ilişkilendirilmemiş aygıt" olarak görünür. 
 
 ## <a name="how-do-i-set-it-up"></a>Nasıl, ayarladığım?
-Ayrıntılı Github deposunda ve benioku dosyasındaki yönergeleri listelenir. 
+Ayrıntılı GitHub deposunda ve benioku dosyasındaki yönergeleri listelenir. 
 
 ## <a name="pricing"></a>Fiyatlandırma
 Azure aboneliğinizdeki Azure kaynaklarını barındırılacak. İçinde fiyatlandırması hakkında daha fazla bilgi [Benioku dosyası](https://aka.ms/iotcentralgithubdevicebridge).

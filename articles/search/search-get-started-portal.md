@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: Portal kullanarak Azure Search'te dizin oluşturma, sorgu ve filtreleme | Microsoft Docs"
+title: Dizin oluşturma, sorgulama ve filtreleme Azure portal - Azure Search Öğreticisi
 description: Bu öğreticide Azure portalı ve önceden tanımlanmış örnek verileri kullanarak Azure Search’te bir dizin oluşturacaksınız. Tam metin arama, filtreler, modeller, belirsiz arama, coğrafi arama ve daha fazlasını keşfedin.
 author: HeidiSteen
 manager: cgronlun
@@ -9,14 +9,15 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: aac579da3aaf6ab1507bbc12d79a5b183a82d665
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: d8b95aaab99fc4f0aa5df21374d6ec023f869b7d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592764"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314032"
 ---
-# <a name="tutorial-use-built-in-tools-for-azure-search-indexing-and-queries"></a>Öğretici: Azure Search'te dizin oluşturma ve sorgular için yerleşik araçları kullanma
+# <a name="tutorial-use-built-in-portal-tools-for-azure-search-indexing-and-queries"></a>Öğretici: Azure arama dizini oluşturma ve sorgular için yerleşik portal araçlarını kullanma
 
 Azure Search kavramlarına hızlı bir genel bakış için Azure portaldaki Azure Search hizmet sayfasında bulunan yerleşik araçları kullanabilirsiniz. Bu araçlar, .NET ve REST API'lerinin tüm işlevlerine sahip olmayabilir. Ancak sihirbazlar ve düzenleyiciler, kod yazmadan Azure Search'ü kullanmaya başlamanızı ve doğrudan örnek veri kümesine ilgi çekici sorgular yazmanızı sağlar.
 
@@ -29,7 +30,7 @@ Araçlar sizi çok sınırlıyorsa [.NET ile Azure Search'te programlamaya kod t
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. Bu [Azure Search’e Genel Bakış videosunun](https://channel9.msdn.com/Events/Connect/2016/138) üçüncü dakikasından izlemeye başlayarak bu öğreticideki adımların 6 dakikalık bir gösterimini izleyebilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [Bir Azure Search hizmeti oluşturun](search-create-service-portal.md) veya geçerli aboneliğinizin altında var olan bir hizmeti bulun.
 
@@ -55,7 +56,7 @@ Arama sorguları aranabilir veriler, meta veriler ve arama davranışlarını iy
 
 Bu öğreticide **Verileri içeri aktar** sihirbazı aracılığıyla bir [*dizin oluşturucu*](search-indexer-overview.md) kullanılarak gezilebilen yerleşik bir örnek veri kümesi kullanacağız. Dizin oluşturucu, kaynağa özgü bir gezgindir ve desteklenen Azure veri kaynaklarındaki meta verileri ve içeriği okuyabilir. Bu dizin oluşturuculara portalın **Verileri içeri aktar** sihirbazından ulaşabilirsiniz. Daha sonra programlama ile dizin oluşturucuları bağımsız kaynaklar olarak oluşturabilir ve yönetebilirsiniz.
 
-### <a name="step-1-start-the-import-data-wizard"></a>1. Adım: Verileri içeri aktarma sihirbazını başlatma
+### <a name="step-1-start-the-import-data-wizard"></a>1. Adım: Veri içeri aktarma Sihirbazını Başlat
 
 1. Sihirbazı başlatmak için Azure Search hizmet panosunun komut çubuğundan **Verileri içeri aktar**'a tıklayın. Bu sihirbaz, arama dizini oluşturma ve doldurma konusunda size yardımcı olur.
 
@@ -76,7 +77,7 @@ Bu öğreticide **Verileri içeri aktar** sihirbazı aracılığıyla bir [*dizi
 
    ![Bilişsel beceri adımını atlama][11]
 
-### <a name="step-2-define-the-index"></a>2. Adım: Dizini tanımlama
+### <a name="step-2-define-the-index"></a>2. Adım: Bir dizin tanımla
 
 Dizin oluşturma genelde kod ile gerçekleştirilen bir aşamadır. Bu öğreticide sihirbaz, gezinebileceği tüm veri kaynakları için dizin oluşturabilir. Dizin için en azından bir ad ve alan koleksiyonu gerekir ve her belgenin benzersiz olarak tanımlanabilmesi için bir alanın belge anahtarı olarak işaretlenmiş olması gerekir.
 
@@ -92,7 +93,7 @@ Varsayılan olarak sihirbaz tarafından anahtar alanının temeli olarak benzers
 
 Dizini oluşturmak için **Tamam**’a tıklayın.
 
-### <a name="step-3-define-the-indexer"></a>3. Adım: Dizin oluşturucuyu tanımlama
+### <a name="step-3-define-the-indexer"></a>3. adım: Dizin oluşturucuyu tanımlama
 
 **Verileri içeri aktarma** sihirbazından çıkmadan **Dizin Oluşturucu** > **Ad**’a tıklayın ve dizin oluşturucu için bir ad yazın.
 
@@ -106,7 +107,7 @@ Verilerin içeri aktarılmasını izlemek için hizmet panosuna dönün, sayfay�
 
    ![Dizin oluşturucu ilerleme durumu iletisi][4]
 
-### <a name="step-4-view-the-index"></a>4. Adım: Dizini görüntüleme
+### <a name="step-4-view-the-index"></a>4. adım: Dizini görüntüleme
 
 Hizmet panosundaki kutucuklar, kaynaklardaki çeşitli nesnelerle ilgili özet bilginin yanı sıra ayrıntılı bilgilere erişme imkanı sunar. **Dizinler** kutucuğu, bir önceki adımda oluşturduğunuz *realestate-us-sample* dahil olmak üzere var olan dizinleri listeler.
 

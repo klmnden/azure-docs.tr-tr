@@ -1,6 +1,6 @@
 ---
-title: Azure Search'te modeli filtreleri | Microsoft Docs
-description: Filtre ölçütü kullanıcının güvenlik kimliği, dil, coğrafi konuma veya Azure arama, Microsoft Azure üzerinde barındırılan bulut arama hizmeti sorgularda arama sonuçları azaltmak için sayısal değerleri.
+title: Model filtreleri arama Gezinti uygulamalar - Azure Search için
+description: Filtre ölçütü kullanıcı güvenlik kimliği, coğrafi konum ya da sorgular, Azure arama, Microsoft Azure üzerinde barındırılan bulut arama hizmeti üzerinde arama sonuçları azaltmak için sayısal değerler.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,37 +8,38 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 3f2cfea52d3c3f4bfc75364d0662a4218219152d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 94a0d3f19e595ac040d908ea47d6332ceae0943c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792418"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314814"
 ---
-# <a name="how-to-build-a-facet-filter-in-azure-search"></a>Azure Search'te bir model filtresi oluşturma 
+# <a name="how-to-build-a-facet-filter-in-azure-search"></a>Azure Search'te bir cephe filtresi oluşturma 
 
-Çok yönlü gezinme, kendi kendine yönlendirilmiş Burada, uygulamanız (örneğin, kategori veya markalar) belgelerin gruplarına kapsam arama için kullanıcı Arabirimi denetimlerini sunar ve Azure Search sağlar veri yapısı geri arama uygulamasında, sorgu sonuçlarını filtreleme için kullanılır deneyimi. Bu makalede, hızlı bir şekilde sağlamak istediğiniz arama deneyimi yedekleme modellenmiş bir gezinmede yapısı oluşturmak için temel adımları gözden geçirin. 
+Çok yönlü gezinme, kendinden yönlendirmeli Burada, uygulamanızın kullanıcı Arabirimi denetimleri için kapsam belirleme arama belgeleri (örneğin, kategorileri veya markaları) gruplarına sunar ve Azure arama, yedekleme için veri yapısı sağlar bir arama uygulamasında, sorgu sonuçları üzerinde filtreleme için kullanılır deneyimi. Bu makalede, bir çok yönlü gezinme yapısı arama deneyimi sağlamak için istediğiniz yedekleme oluşturmak için temel adımlar hızlı bir şekilde gözden geçirin. 
 
 > [!div class="checklist"]
-> * Filtreleme ve olduğunu için alanları seçin
-> * Alan özelliklerini ayarla
+> * Filtreleme ve çok yönlü aramaya alanları seçin
+> * Alandaki öznitelikler kümesi
 > * Dizin ve yük verileri oluşturma
-> * Model filtreleri sorguya ekleme
+> * Model filtreleri bir sorguya ekleyin
 > * Sonuçlarını işleme
 
-Dinamik ve bir sorgu üzerinde döndürülen modeller. Arama yanıtları bunlarla sonuçları gezinmek için kullanılan model kategorileri duruma getirin. Modelleri ile alışık değilseniz, aşağıdaki örnekte bir model gezinti yapısında çizimi ' dir.
+Dinamik ve sorguda döndürülen modeller. Araması yanıtlarında, kendileriyle sonuçları gezinmek için kullanılan model kategorileri getirin. Modelleri ile ilgili bilgi sahibi değilseniz, aşağıdaki örnek model gezinti yapısında temsilidir.
 
   ![](./media/search-filters-facets/facet-nav.png)
 
-Yeni çok yönlü gezinme ve istediğiniz daha ayrıntılı bilgi? Bkz: [modellenmiş bir gezinmede Azure Search'te uygulamak nasıl](search-faceted-navigation.md).
+Yeni çok yönlü gezinme ve isterseniz daha ayrıntılı bilgi? Bkz: [Azure Arama'da çok yönlü navigasyon uygulamak nasıl](search-faceted-navigation.md).
 
 ## <a name="choose-fields"></a>Alanları seçin
 
-Modelleri koleksiyonları yanı sıra tek değer alanları hesaplanabilir. En iyi modellenmiş Gezinti bölmesinde çalışma alanlarına sahip düşük önem düzeyi: belgeleri, arama gövde (örneğin, bir listesi renkler, ülke veya marka) boyunca yineleyin farklı değerleri küçük sayısı. 
+Modelleri koleksiyonları yanı sıra tek değer alanlar hesaplanır. En çok yönlü gezinme çalışma alanlarına sahip düşük önem düzeyi: çok az sayıda, arama topluluğunuza (örneğin, renkleri, ülke veya marka adları listesi) belgelerde boyunca yineleyin farklı değerleri. 
 
-Olduğunu, bir alan alanını temelinde etkinleştirilmişse, TRUE olarak aşağıdaki öznitelikler ayarlayarak dizin oluşturduğunuzda: `filterable`, `facetable`. Yalnızca filtrelenebilir alanlardan görünüm oluşturulabilir.
+Model oluşturma aşağıdaki öznitelikleri TRUE olarak ayarlayarak dizini oluştururken bir alanı alanlı temelinde etkin: `filterable`, `facetable`. Yalnızca filtrelenebilir alanlardan görünüm oluşturulabilir.
 
-Tüm [alan türü](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) , büyük olasılıkla kullanılabilirdi içinde modellenmiş bir gezinmede "modellenebilir" işaretlenmiş:
+Tüm [alan türü](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) , büyük olasılıkla kullanılabilen çok yönlü gezinme, "modellenebilir" işaretlenir:
 
 + Edm.String
 + Edm.DateTimeOffset
@@ -46,16 +47,16 @@ Tüm [alan türü](https://docs.microsoft.com/rest/api/searchservice/supported-d
 + Edm.Collections
 + Sayısal alan türleri: EDM.Int32, EDM.Int64, Edm.Double
 
-Modellenmiş bir gezinmede Edm.GeographyPoint kullanamazsınız. Modelleri İnsan okunabilir metin veya sayı oluşturulur. Bu nedenle, modelleri coğrafi koordinatlarına için desteklenmez. Konuma göre modeli için bir şehir veya bölge alanı gerekir.
+Çok yönlü gezinme Edm.GeographyPoint kullanamazsınız. Modelleri, insan tarafından okunabilir metin veya sayı oluşturulur. Bu nedenle, modelleri için coğrafi koordinatları desteklenmez. Konuma göre modeli bir şehir veya bölge alan gerekir.
 
-## <a name="set-attributes"></a>Özelliklerini ayarla
+## <a name="set-attributes"></a>Öznitelikleri Ayarla
 
-Bir alanın nasıl kullanıldığını kontrol dizin öznitelikleri, dizinde tek alan tanımları eklenir. Aşağıdaki örnekte, düşük önem düzeyi, olduğunu için yararlı olan alanlar oluşur: kategorisi (otel, motel, hostel), s ve derecelendirmeleri. 
+Bir alanın nasıl kullanıldığını kontrol dizin öznitelikleri dizindeki tek alan tanımları eklenir. Aşağıdaki örnekte, düşük önem düzeyi, model oluşturma için faydalı alanlarla oluşur: Kategori (otel, motel, hostel) kullanılmıyordu ve derecelendirmeleri. 
 
-.NET API filtreleme öznitelikleri açıkça ayarlanmış olması gerekir. REST API, olduğunu ve filtreleme, yalnızca kapatmak istediğinizde özniteliklerini açıkça ayarlamak ihtiyaç duyacağınız anlamına gelir varsayılan olarak etkinleştirilir. Teknik olarak gerekli olmamasına karşın, nitelikleri aşağıdaki REST örnekte açıklayıcı amacıyla gösteriyoruz. 
+.NET API filtre öznitelikleri açıkça ayarlanmış olması gerekir. REST API, çok yönlü aramaya ve filtreleme, kapatmak istediğinizde öznitelikleri açıkça ayarlamak yalnızca ihtiyacınız olduğu anlamına gelir varsayılan olarak etkinleştirilir. Teknik olarak gerekli olmamasına karşın, atıfları REST örnekte açıklayıcı amacıyla göstereceğiz. 
 
 > [!Tip]
-> Performans ve depolama iyileştirme için en iyi uygulama olarak olduğunu hiçbir zaman bir model kullanılması gereken alanlar için kapatın. Özellikle, dize alanları bir kimliği veya ürün adı gibi singleton değerleri için "Modellenebilir" olarak ayarlanmalıdır: önlemek için false kendi yanlışlıkla (ve etkisiz) modellenmiş bir gezinmede kullanın.
+> Performans ve depolama iyileştirme için en iyi uygulama olarak model oluşturma hiçbir zaman bir model olarak kullanılması gereken alanlar için devre dışı. Özellikle, "Modellenebilir" için dize alanları kimliği veya ürün adı gibi tek değerler için ayarlanmalıdır: önlemek için false, yanlışlıkla (ve verimsiz) çok yönlü gezinme kullanın.
 
 
 ```http
@@ -79,15 +80,15 @@ Bir alanın nasıl kullanıldığını kontrol dizin öznitelikleri, dizinde tek
 ```
 
 > [!Note]
-> Bu dizin tanımı kopyalanır [REST API kullanarak Azure Search dizini oluşturma](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Alan tanımları yüzeysel farklılıklar dışında aynıdır. Filtrelenebilir ve modellenebilir öznitelikleri, kategori, etiketler, parkingIncluded, smokingAllowed ve derecelendirme alanları açıkça eklenir. Uygulamada, filtrelenebilir almak ve modellenebilir için Edm.String, Edm.Boolean ve EDM.Int32 alan türlerine boş. 
+> Bu dizin tanımını kopyalanır [REST API kullanarak Azure Search dizini oluşturma](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Alan tanımları yüzeysel farklılıkları dışında aynıdır. Filtrelenebilir ve modellenebilir öznitelikler, kategori, etiketler, parkingIncluded, smokingAllowed ve derecelendirme alanları üzerinde açıkça eklenir. Uygulamada, modellenebilir için ücretsiz Edm.String Edm.Boolean ve EDM.Int32 alan türlerini ve filtrelenebilir alın. 
 
 ## <a name="build-and-load-an-index"></a>Derleme ve dizin yükleme
 
-Bir ara (ve muhtemelen belirgin) için sahip adımdır [oluşturmak ve dizinini doldurmak](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) bir sorgu formulating önce. Bu adım burada eksiksiz olması için ayarlardan söz eder. Dizin kullanılabilir olup olmadığını belirlemek için bir yoldur dizinler listesi denetleyerek [portal](https://portal.azure.com).
+Ara (ve belki de belirgin) bir adım için sahip olduğu [oluşturun ve dizini doldurma](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) sorgu formulating önce. Biz bu adımı burada bütünlük bahsedebilirsiniz. Dizin kullanılabilir olup olmadığını belirlemenin bir yolu olan dizinler listesi işaretleyerek [portalı](https://portal.azure.com).
 
-## <a name="add-facet-filters-to-a-query"></a>Model filtreleri sorguya ekleme
+## <a name="add-facet-filters-to-a-query"></a>Model filtreleri bir sorguya ekleyin
 
-Uygulama kodunda arama ifadeleri, modelleri, profilleri – formüle bir istek için kullanılan herhangi bir şey Puanlama filtreleri de dahil olmak üzere geçerli bir sorgu tüm parçalarını belirten bir sorgu oluşturun. Aşağıdaki örnek Konaklama, derecelendirme ve diğer s türüne göre model Gezinti oluşturur isteğin oluşturur.
+Uygulama kodunda tüm parçalarını arama ifadeleri, modelleri, Puanlama profillerini – herhangi bir istek düzenleyin için kullanılan filtreler dahil olmak üzere, geçerli bir sorgu belirten bir sorgu oluşturun. Aşağıdaki örnek, Konaklama, derecelendirme ve diğer kullanılmıyordu türüne göre modeli Gezinti oluşturan bir istek oluşturur.
 
 ```csharp
 SearchParameters sp = new SearchParameters()
@@ -98,33 +99,33 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-### <a name="return-filtered-results-on-click-events"></a>Dönüş filtrelenmiş sonuçlar tıklama olayları
+### <a name="return-filtered-results-on-click-events"></a>Filtrelenmiş sonuçlar üzerinde tıklama olayları
 
-Filtre ifadesi model değeri click olayını işler. Bir kategori modeli verildiğinde, "motel" kategorisi tıklatarak aracılığıyla uygulanır bir `$filter` türü konaklamaları seçer ifade. Bir kullanıcı yalnızca motels gösterilen olduğunu belirtmek için "motels" tıkladığında, uygulamanın gönderdiği sonraki sorgu $filter içeren kategori eq 'motels' =.
+Filtre ifadesi modeli değeri click olayını işler. Bir kategori modeli göz önünde bulundurulduğunda, tıklayarak "motel" kategorisi aracılığıyla uygulanır bir `$filter` ifade türü Konaklama seçer. Bir kullanıcı yalnızca motels gösterilen olduğunu belirtmek için "motels" tıkladığında uygulamanın gönderdiği sonraki sorgu, $filter içerir. Kategori eq 'motels' =.
 
-Kullanıcı kategorisi modelin bir değer seçerse aşağıdaki kod parçacığını kategori filtresi ekler.
+Aşağıdaki kod parçacığı, kullanıcı kategorisi modeli bir değer seçerse filtre kategorisi ekler.
 
 ```csharp
 if (categoryFacet != "")
   filter = "category eq '" + categoryFacet + "'";
 ```
-REST API kullanarak, istek olarak geliştirilmiştir `$filter=category eq 'c1'`. Kategoriyi birden çok değerli alan yapmak için aşağıdaki sözdizimini kullanın: `$filter=category/any(c: c eq 'c1')`
+REST API kullanarak, istek olarak geliştirilmiştir `$filter=category eq 'c1'`. Birden çok değerli alan kategoriyi yapmak için aşağıdaki sözdizimini kullanın: `$filter=category/any(c: c eq 'c1')`
 
 ## <a name="tips-and-workarounds"></a>İpuçları ve geçici çözümler
 
-### <a name="initialize-a-page-with-facets-in-place"></a>Bir sayfa yerinde modellerle başlatma
+### <a name="initialize-a-page-with-facets-in-place"></a>Yerinde özellikleri içeren bir sayfa Başlat
 
-Modellerle yerinde bir sayfayı başlatmak istiyorsanız, ilk model yapısını sayfasıyla oluşturmak için sayfa başlatma bir parçası olarak bir sorgu gönderebilirsiniz.
+Yerinde özellikleri içeren bir sayfa başlatmak istiyorsanız, ilk model yapısı sayfası oluşturmak için sayfa başlatma işleminin bir parçası olarak bir sorgu gönderebilirsiniz.
 
-### <a name="preserve-a-facet-navigation-structure-asynchronously-of-filtered-results"></a>Model gezinti yapısında filtrelenmiş sonuçlarını zaman uyumsuz olarak koru
+### <a name="preserve-a-facet-navigation-structure-asynchronously-of-filtered-results"></a>Filtrelenmiş sonuçlarını zaman uyumsuz olarak model gezinti yapısında koru
 
-Azure Search'te model Gezinti zorluklar modelleri yalnızca geçerli sonuçlarını mevcut biridir. Uygulamada, kullanıcı, geriye doğru arama içerik alternatif yollarını keşfetmek için adımları retracing böylece modelleri statik bir dizi korumak için yaygın bir sorundur. 
+Azure Search'te modeli Gezinti zorluklar modelleri yalnızca geçerli sonuçları mevcut biridir. Uygulamada, kullanıcı, geriye doğru arama içeriği alternatif yollarını keşfetmek için adımları retracing gidebilmeniz statik bir modeller kümesi korumak için yaygındır. 
 
-Bu genel bir kullanım örneği olsa da, bunu bir şey değil model gezinti yapısında şu anda Giden kutusu sağlar. Genellikle statik modelleri isteyen geliştiriciler iki filtrelenmiş sorguları vererek sınırlamaya geçici çalışma: biri sonuçları kapsamlı, diğer statik Gezinti amacıyla modelleri listesini oluşturmak için kullanılır.
+Bu yaygın bir kullanım örneği olsa da, bunu bir şey değil model gezinti yapısında şu anda kullanıma hazır sağlar. Genellikle statik modelleri isteyen geliştiriciler iki filtrelenmiş sorgu yayınlayarak sınırlamayı çalışma: bir sonuçları kapsamlı, diğer statik Gezinti amacıyla modellerin listesini oluşturmak için kullanılır.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-+ [Azure Search'te filtreleri](search-filters.md)
++ [Azure Search'te filtreler](search-filters.md)
 + [Dizin REST API'si oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-index)
-+ [REST API belgelerde arama](https://docs.microsoft.com/rest/api/searchservice/search-documents)
++ [Search belgeleri REST API'si](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 

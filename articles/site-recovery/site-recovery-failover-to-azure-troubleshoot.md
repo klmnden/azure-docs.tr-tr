@@ -11,14 +11,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/27/2018
+ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: 5df31c4b2e82ef47c8b94d9aac498cce31f6f243
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 742e7891ec9c7151f23f1ad6eb57e728dd2a1ddd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847193"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255100"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Bir sanal makinenin azure'a yük devri sırasında karşılaşılan sorunları giderme
 
@@ -28,7 +28,7 @@ Azure'da bir sanal makine yük devretmesi yaparken aşağıdaki hatalardan birin
 
 Site kurtarma, başarısız bir yük devredilen Azure sanal makine oluşturmak ulaşamadı. Aşağıdaki nedenlerden biri nedeniyle oluşabilir:
 
-* Sanal makine oluşturmak kullanılabilir yeterli kotası yoktur: kullanılabilir kota aboneliğine giderek denetleyebilirsiniz -> kullanım ve kotalar. Açabileceğiniz bir [yeni destek isteği](http://aka.ms/getazuresupport) Kotayı artırmak için.
+* Sanal makine oluşturmak kullanılabilir yeterli kotası yoktur: Kullanılabilir kota aboneliğine giderek denetleyebilirsiniz -> kullanım ve kotalar. Açabileceğiniz bir [yeni destek isteği](http://aka.ms/getazuresupport) Kotayı artırmak için.
 
 * Yük devretme sanal makineler aynı kullanılabilirlik kümesindeki farklı boyutta ailelerinin deniyorsunuz. Aynı kullanılabilirlik kümesindeki tüm sanal makineler için aynı boyut ailesi seçtiğinizden emin olun. Sanal makinenin işlem ve ağ ayarlarına giderek boyutunu değiştirin ve ardından yük devretmeyi yeniden deneyin.
 
@@ -113,9 +113,6 @@ Varsa **Connect** devredilen VM'nin azure'da düğmesine (gri değil) kullanıla
 Bir Windows VM yük devretme sonrasında, kurtarılan bir VM üzerinde bir beklenmeyen şekilde kapanması iletisi alırsanız, önyükleme yaparken, bir VM kapatma durumuna, yük devretme için kullanılan kurtarma noktasında yakalanamadı gösterir. VM tümüyle kapatılmış değil, bir noktaya kurtarma kullandığınızda ortaya çıkar.
 
 Bu, normalde endişeye neden değildir ve planlanmamış yük devretmeler için genellikle yok sayılabilir. Planlı bir yük devretme durumunda makine düzgün bir şekilde yük devretme öncesinde kapatıldığında emin olun ve çoğaltma verileri Azure'a gönderilecek şirket bekleyen yeterli zaman sağlayın. Ardından **son** seçeneğini [yük devretme ekran](site-recovery-failover.md#run-a-failover) böylece sonra VM yük devretmesi için kullanılan bir kurtarma noktasına azure'da bekleyen tüm veriler işlenir.
-
-## <a name="retaining-drive-letter-after-failover"></a>Yük devretmeden sonra sürücü harfi korunuyor
-Yük devretmeden sonra sanal makinelerde sürücü harfini korumak için ayarlayabileceğiniz **SAN ilkesinin** için sanal makine şirket içine **OnlineAll**. [Daha fazla bilgi edinin](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Sorun giderme [Windows VM ile RDP bağlantısı](../virtual-machines/windows/troubleshoot-rdp-connection.md)

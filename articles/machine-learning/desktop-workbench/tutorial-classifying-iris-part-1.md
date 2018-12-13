@@ -11,16 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
+ms.date: 03/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 272b8250a80fee42780311dec92f6d47c221c160
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: dd10581888da64114debec40cba8564023033864
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990170"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278517"
 ---
-# <a name="tutorial-1-classify-iris---preparing-the-data"></a>Öğretici 1: Iris Sınıflandırması - Verileri hazırlama
+# <a name="tutorial-1-classify-iris---preparing-the-data"></a>Öğretici 1: Iris - verileri hazırlama sınıflandırma
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
@@ -37,7 +37,7 @@ Bu öğreticide zamansız [Iris çiçeği veri kümesi](https://en.wikipedia.org
 
 [!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -45,11 +45,11 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 - Bir Azure Machine Learning Denemesi hesabı
 - Azure Machine Learning Workbench'in yüklü olması
 
-Henüz bu ön gereksinimleri karşılamıyorsanız [Hızlı başlangıç: Yükleme ve başlatma](quickstart-installation.md) makalesindeki adımları izleyerek hesaplarınızı ayarlayın ve Azure Machine Learning Workbench uygulamasını yükleyin. 
+Bu Önkoşullar zaten yoksa, adımları [hızlı başlangıç: Yükleme ve başlatma](quickstart-installation.md) makale hesaplarınızı ayarlayın ve Azure Machine Learning Workbench uygulamasını yükleyin. 
 
 ## <a name="create-a-new-project-in-workbench"></a>Workbench'te yeni proje oluşturma
 
-[Hızlı başlangıç: Yükleme ve başlatma](quickstart-installation.md) makalesindeki adımları izlediyseniz bu projeye zaten sahipsiniz demektir ve bir sonraki bölüme atlayabilirsiniz.
+Adımları izlediyseniz [hızlı başlangıç: Yükleme ve başlatma](quickstart-installation.md) makale zaten bu proje yüklü olmalıdır ve sonraki bölüme atlayabilirsiniz.
 
 1. Azure Machine Learning Workbench uygulamasını açın ve gerekirse oturum açın. 
    
@@ -152,7 +152,7 @@ Bu veri hazırlama paketi, daha sonra bir çalışma zamanına (local-C#/CoreCLR
    1. Seçmek için sağ tıklayın. 
    1. Açılır menüden **Değer Sayıları**’nı seçin. 
 
-   Verilerin altında **Denetçiler** bölmesi açılır. Dört çubuklu bir histogram görüntülenir. Hedef sütunda dört farklı değer bulunur: **Iris-virginica**, **Iris-versicolor**, **Iris-setosa** ve bir **(null)** değer.
+   Verilerin altında **Denetçiler** bölmesi açılır. Dört çubuklu bir histogram görüntülenir. Hedef sütunda dört farklı değer bulunur: **Iris-virginica**, **Iris-versicolor**, **Iris-setosa**ve **(null)** değeri.
 
    ![Değer Sayıları seçme](media/tutorial-classifying-iris/value_count.png)
 

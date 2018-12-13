@@ -1,5 +1,5 @@
 ---
-title: Azure WebJobs SDK Kullanmaya Başlarken
+title: WebJobs SDK - Azure ile çalışmaya başlama
 description: WebJobs SDK olay odaklı arka plan işlemesi için giriş. Azure Hizmetleri ve üçüncü taraf hizmetleri verilere erişmek öğrenin.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: b0f4ef5079ac689827cb49884fa1c6a51529ea83
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 95fd44d5865eb804cb91d7adc2cc17bb5f957b5c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140358"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275219"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay temelli arka planda işleme için Azure WebJobs SDK ile çalışmaya başlama
 
@@ -63,9 +63,9 @@ Bu makalede, sahip olduğunuz varsayılır [bir Azure hesabı](https://azure.mic
 
 1. Visual Studio'da **Dosya > Yeni proje**.
 
-1. Seçin **Windows Klasik Masaüstü > konsol uygulaması (.NET Framework)**.
+2. Seçin **Windows Klasik Masaüstü > konsol uygulaması (.NET Framework)**.
 
-1. Projeyi adlandırın *WebJobsSDKSample*ve ardından **Tamam**.
+3. Projeyi adlandırın *WebJobsSDKSample*ve ardından **Tamam**.
 
    ![Yeni Proje iletişim kutusu](./media/webjobs-sdk-get-started/new-project.png)
 

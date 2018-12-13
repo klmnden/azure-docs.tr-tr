@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/19/2018
 ms.author: wesmc
-ms.openlocfilehash: 28884b9b7d29a3c8da1fee0f0b54269bdaadf926
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b8623acc9d29f083e34c7fa7494e866317146802
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427898"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252567"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Hızlı Başlangıç: bağlı bir IOT hub'ına (Android) cihazı denetleme
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Hızlı Başlangıç: Bir IOT hub'ına (Android) bağlı cihazı denetleme
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
@@ -36,28 +36,28 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="prerequisites"></a>Önkoşullar
 
 
-* Android Studio'da https://developer.android.com/studio/. Android Studio yükleme hakkında daha fazla bilgi için bkz. [android yükleme](https://developer.android.com/studio/install). 
+* Android Studio'da https://developer.android.com/studio/. Android Studio yükleme hakkında daha fazla bilgi için bkz. [android yükleme](https://developer.android.com/studio/install).
 
-* Android SDK 27 bu makaledeki örnek tarafından kullanılır. 
+* Android SDK 27 bu makaledeki örnek tarafından kullanılır.
 
-* İki örnek uygulama, bu hızlı başlangıç ile gereklidir: [cihaz SDK'sı örnek Android uygulama](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) ve [hizmeti SDK'sı örnek Android uygulama](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample). Bu örneklerin her ikisi de Github azure-IOT-samples-java havuzda bir parçasıdır. İndirin veya kopyalayın [azure-IOT-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java) depo.
+* İki örnek uygulama, bu hızlı başlangıç ile gereklidir: [Cihaz SDK'sı örnek Android uygulama](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) ve [hizmeti SDK'sı örnek Android uygulama](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample). Bu örneklerin her ikisi de GitHub azure-IOT-samples-java havuzda bir parçasıdır. İndirin veya kopyalayın [azure-IOT-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java) depo.
 
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
-Önceki tamamladıysanız [hızlı başlangıç: telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-android.md), bu adımı atlayın ve önceden oluşturduğunuz IOT hub'ı kullanın.
+Önceki tamamladıysanız [hızlı başlangıç: Bir IOT hub'ına bir CİHAZDAN telemetri gönderme](quickstart-send-telemetry-android.md), bu adımı atlayın ve önceden oluşturduğunuz IOT hub'ı kullanın.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Cihaz kaydetme
 
-Önceki tamamladıysanız [hızlı başlangıç: telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-android.md), bu adımı atlayabilir ve önceki hızlı başlangıçta kayıtlı aynı cihaz kullanın.
+Önceki tamamladıysanız [hızlı başlangıç: Bir IOT hub'ına bir CİHAZDAN telemetri gönderme](quickstart-send-telemetry-android.md), bu adımı atlayabilir ve önceki hızlı başlangıçta kayıtlı aynı cihaz kullanın.
 
 Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu hızlı başlangıçta Azure Cloud Shell kullanarak bir simülasyon cihazı kaydedeceksiniz.
 
-1. Aşağıdaki komutları Azure Cloud Shell'de çalıştırarak IoT Hub CLI uzantısını ekleyin ve cihaz kimliğini oluşturun. 
+1. Aşağıdaki komutları Azure Cloud Shell'de çalıştırarak IoT Hub CLI uzantısını ekleyin ve cihaz kimliğini oluşturun.
 
-   **YourIoTHubName**: aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adı ile değiştirin.
+   **YourIoTHubName**: Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adı ile değiştirin.
 
    **MyAndroidDevice**: Bu değer için kayıtlı cihaza verilen addır. MyAndroidDevice gösterildiği gibi kullanın. Cihazınız için farklı bir ad seçerseniz, bu makalenin tamamında bu adı kullanın ve bunları çalıştırmadan önce örnek uygulamalar, cihaz adını güncelleştirmek gerekebilir.
 
@@ -69,7 +69,7 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
 
 2. Yeni kaydettiğiniz cihazın _cihaz bağlantı dizesini_ almak için aşağıdaki komutları Azure Cloud Shell'de çalıştırın:
 
-   **YourIoTHubName**: aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adıyla değiştirin.
+   **YourIoTHubName**: Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adıyla değiştirin.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
@@ -87,8 +87,8 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
 ## <a name="retrieve-the-service-connection-string"></a>Hizmet bağlantı dizesini alma
 
 Ayrıca gereksinim duyduğunuz bir _hizmet bağlantı dizesini_ yöntemleri çalıştırma ve iletileri almak için IOT hub'ınıza bağlanmak arka uç hizmet uygulamalarını etkinleştirmek için. Aşağıdaki komut, IoT hub'ınız için hizmeti bağlantı dizesini alır:
-   
-**YourIoTHubName**: aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adı ile değiştirin.
+
+**YourIoTHubName**: Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adı ile değiştirin.
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name YourIoTHubName --output table
@@ -104,7 +104,7 @@ Bu değeri hızlı başlangıcın ilerleyen bölümlerinde kullanacaksınız. Hi
 
 Cihaz SDK'sı örnek uygulama, fiziksel bir Android cihazı veya Android öykünücüsü üzerinde çalıştırılabilir. Örnek, IOT hub'ınızdaki bir cihaza özel uç noktasına bağlanır, sanal telemetri gönderir ve hub'ınıza doğrudan yöntem çağrılarından dinler. Bu hızlı başlangıçta, hub’dan gelen doğrudan yöntem çağrısı, telemetri gönderme aralığını değiştirmesini cihaza bildirir. Simülasyon cihazı, doğrudan yöntemi yürüttükten sonra hub’ınıza geri bir onay gönderir.
 
-1. Android Studio'da github örnek Android projesini açın. Proje kopyalanmış veya indirilen kopyanızı şu dizinde bulunur [azure IOT örnek java](https://github.com/Azure-Samples/azure-iot-samples-java) depo.
+1. Android Studio'da GitHub örnek Android projesini açın. Proje kopyalanmış veya indirilen kopyanızı şu dizinde bulunur [azure IOT örnek java](https://github.com/Azure-Samples/azure-iot-samples-java) depo.
 
         \azure-iot-samples-java\iot-hub\Samples\device\AndroidSample
 
@@ -131,7 +131,7 @@ Bu bölümde, Azure Cloud Shell ile kullanacağınız [IOT uzantısı](https://d
 
 1. Azure Cloud Shell'i kullanarak, IoT hub’ınızdan gelen iletilere bağlanmak ve bu iletileri okumak için aşağıdaki komutu çalıştırın:
 
-   **YourIoTHubName**: aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adıyla değiştirin.
+   **YourIoTHubName**: Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adıyla değiştirin.
 
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table
@@ -145,13 +145,13 @@ Varsayılan olarak telemetri uygulama telemetri Android cihazından 5 saniyede g
 
 ## <a name="call-the-direct-method"></a>Doğrudan yöntem çağırma
 
-Hizmet uygulamasının, IOT hub'ınızdaki bir hizmet tarafı uç noktasına bağlanır. Uygulama, IoT hub’ınız üzerinden bir cihaza doğrudan yöntem çağrıları yapar ve onayları dinler. 
+Hizmet uygulamasının, IOT hub'ınızdaki bir hizmet tarafı uç noktasına bağlanır. Uygulama, IoT hub’ınız üzerinden bir cihaza doğrudan yöntem çağrıları yapar ve onayları dinler.
 
 Bu uygulama bir ayrı fiziksel Android cihaz veya Android öykünücüsünde çalıştırın.
 
-Bir IOT Hub arka uç hizmeti uygulaması genellikle bir IOT Hub'ındaki tüm cihazlar denetleyen hassas bağlantı dizesiyle ilgili riskleri azaltmak daha kolay olduğu bulutta çalışır. Bu örnekte biz bunu yalnızca tanıtım amacıyla bir Android uygulaması olarak çalışır. Bu hızlı başlangıçta diğer dil sürümlerini daha yakından bir arka uç hizmet uygulaması ile hizalanan diğer örnekler sunar. 
+Bir IOT Hub arka uç hizmeti uygulaması genellikle bir IOT Hub'ındaki tüm cihazlar denetleyen hassas bağlantı dizesiyle ilgili riskleri azaltmak daha kolay olduğu bulutta çalışır. Bu örnekte biz bunu yalnızca tanıtım amacıyla bir Android uygulaması olarak çalışır. Bu hızlı başlangıçta diğer dil sürümlerini daha yakından bir arka uç hizmet uygulaması ile hizalanan diğer örnekler sunar.
 
-1. Github hizmeti örnek Android projesi Android Studio'da açın. Proje kopyalanmış veya indirilen kopyanızı şu dizinde bulunur [azure IOT örnek java](https://github.com/Azure-Samples/azure-iot-samples-java) depo.
+1. GitHub hizmeti örnek Android projesi Android Studio'da açın. Proje kopyalanmış veya indirilen kopyanızı şu dizinde bulunur [azure IOT örnek java](https://github.com/Azure-Samples/azure-iot-samples-java) depo.
 
         \azure-iot-samples-java\iot-hub\Samples\service\AndroidSample
 
@@ -159,14 +159,14 @@ Bir IOT Hub arka uç hizmeti uygulaması genellikle bir IOT Hub'ındaki tüm cih
 
     ```
     ConnectionString=HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}
-    DeviceId=MyAndroidDevice    
+    DeviceId=MyAndroidDevice
     ```
 
 3. Android Studio'da **dosya** > **projeyi Gradle dosyalarıyla Eşitle**. Derleme tamamlandığında doğrulayın.
 
 4. Derleme tamamlandıktan sonra tıklayın **çalıştırma** > **'uygulamayı' Çalıştır**. Ayrı bir fiziksel Android cihaz veya Android öykünücüsünde çalıştırmak üzere uygulamayı yapılandırır. Bir Android uygulaması bir fiziksel cihaz veya öykünücü üzerinde çalışan daha fazla bilgi için bkz: [uygulamanızı çalıştırma](https://developer.android.com/training/basics/firstapp/running-app).
 
-5. Uygulama yüklendikten sonra güncelleştirme **ayarlanan Mesajlaşma aralığı** değerini **1000** tıklatıp **Invoke**. 
+5. Uygulama yüklendikten sonra güncelleştirme **ayarlanan Mesajlaşma aralığı** değerini **1000** tıklatıp **Invoke**.
 
     TH telemetri Mesajlaşma aralığını milisaniye cinsindendir. Cihaz örnek telemetri aralığını varsayılan 5 saniye olarak ayarlanır. Bu değişiklik, her saniyede telemetri gönderilmesi Android IOT cihaz güncelleştirir.
 
@@ -189,4 +189,4 @@ Bu hızlı başlangıçta, bir doğrudan yöntem bir cihazda bir arka uç uygula
 Cihazdan buluta iletileri, buluttaki farklı hedeflere yönlendirmeyi öğrenmek için sonraki öğreticiyle devam edin.
 
 > [!div class="nextstepaction"]
-> [Öğretici: Telemetriyi işlenmek üzere farklı uç noktalara yönlendirme](tutorial-routing.md)
+> [Öğretici: Rota telemetri işleme için farklı uç](tutorial-routing.md)

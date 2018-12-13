@@ -1,23 +1,23 @@
 ---
-title: Azure - 5. bölüm için MongoDB, Angular ve Node Öğreticisi
+title: Node.Js, MongoB API (Part5) kullanarak Angular uygulaması
+titleSuffix: Azure Cosmos DB
 description: Azure Cosmos DB üzerinde Angular ve Node ile MongoDB için kullandığınız aynı API'leri kullanarak bir MongoDB uygulaması oluşturma öğreticisi dizisinin 5. bölümü.
-services: cosmos-db
 author: johnpapa
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/05/2017
+ms.date: 12/06/2018
 ms.author: jopapa
-ms.custom: mvc
-ms.openlocfilehash: 303c3553f3f1209aba99f28cb27308bd96347e42
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: bda500c07e2ecccc317b5b669a947a415aaf147f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087839"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134140"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Angular ve Azure Cosmos DB ile bir MongoDB uygulaması oluşturma - 5. Bölüm: Azure Cosmos DB’ye bağlanmak için Mongoose kullanma
+# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-connect-to-azure-cosmos-db"></a>Angular ve Azure Cosmos DB - 5. bölüm ile bir MongoDB uygulaması oluşturun: Azure Cosmos DB’ye bağlanma 
 
 Bu çok bölümlü öğreticide Express ve Angular ile Node.js uygulaması oluşturma ve bunu bir [Azure Cosmos DB MongoDB API](mongodb-introduction.md) hesabına bağlama adımları gösterilmektedir.
 

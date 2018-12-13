@@ -1,5 +1,5 @@
 ---
-title: Azure şema yaşam döngüsünü anlama
+title: Bir blueprint'in yaşam döngüsünü anlama
 description: Her aşamanın ayrıntılarını ve bir şema geçtiği yaşam döngüsü hakkında bilgi edinin.
 services: blueprints
 author: DCtheGeek
@@ -8,16 +8,17 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 882279019a5f321c6af9beab1f4d0f220781bc5c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 84dc86f993b0c1b4c4803525a07bdd34dddd229d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094168"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309815"
 ---
-# <a name="understand-the-life-cycle-of-an-azure-blueprint"></a>Azure şema yaşam döngüsünü anlama
+# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Bir Azure blueprint'in yaşam döngüsünü anlama
 
-Azure içinde birçok kaynaklar gibi Azure şemaları blueprint'te bir tipik ve doğal yaşam döngüsü vardır. Bunlar oluşturulan, dağıtılan ve son olarak, artık gerekli veya ilgili silindi.
+Azure içinde birçok kaynaklar gibi Azure şemaları blueprint'te tipik ve doğal bir yaşam döngüsü vardır. Bunlar oluşturulan, dağıtılan ve son olarak, artık gerekli veya ilgili silindi.
 Blueprint standart yaşam döngüsü işlemleri destekler. Daha sonra bunları kod – DevOps anahtar bir öğe olarak kendi altyapısını yönetme kuruluşlar için yaygın bir sürekli tümleştirme ve sürekli dağıtım işlem hatları destekleyen ek durumu düzeyleri sağlamak için temel oluşturur.
 
 Bir şema ve aşamalar tam olarak anlamak için standart bir yaşam döngüsü değineceğiz:
@@ -68,7 +69,7 @@ Her bir şema sürümü benzersiz bir nesnedir ve ayrı ayrı olabilir **yayıml
 > [!NOTE]
 > Etkin bir ataması yok bir şema silmek mümkün değildir. Atamaları silin ve ardından kaldırmak istediğiniz sürümü silin.
 
-1. Tıklayarak **tüm hizmetleri** arama ve seçme **ilke** sol bölmesinde. **İlke** sayfasında **Şemalar**’a tıklayın.
+1. **Tüm hizmetler**'e tıklayın ve **İlke** araması yapıp sol taraftaki bölmeden seçin. **İlke** sayfasında **Şemalar**’a tıklayın.
 
 1. Seçin **şema tanımları** sayfasında sol ve bir sürümünü silmek istediğiniz şema bulmak için filtre seçeneklerini kullanın. Düzen sayfasını açmak için tıklayın.
 
@@ -87,7 +88,7 @@ Bir şema ile Sil [Azure portalında](../create-blueprint-portal.md#delete-a-blu
 
 ## <a name="assignments"></a>Atamalar
 
-Blueprint bir aboneliğe atanabilir yaşam döngüsü sırasında birkaç nokta vardır. Şema sürümü modunda olduğunda **yayımlanan**, sonra da bu sürüm bir aboneliğe atanabilir. Bu yaşam döngüsü kullanılan ve yeni bir sürüme geliştirilen etkin olarak atanmış bir şema sürümleri sağlar.
+Blueprint bir aboneliğe atanabilir yaşam döngüsü boyunca birkaç nokta vardır. Şema sürümü modunda olduğunda **yayımlanan**, sonra da bu sürüm bir aboneliğe atanabilir. Bu yaşam döngüsünü kullanılan ve yeni bir sürüme geliştirilen etkin olarak atanmış bir şema sürümleri sağlar.
 
 Blueprint sürümlerini atandığından, burada atanmış oldukları ve hangi parametrelerle bunların ile atanan anlamak önemlidir. Parametreleri ya da statik veya dinamik olabilir. Daha fazla bilgi için bkz. [statik ve dinamik parametreleri](parameters.md).
 

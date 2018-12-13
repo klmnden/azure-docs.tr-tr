@@ -1,22 +1,23 @@
 ---
-title: Kurumsal güvenlik paketi Azure HDInsight kümeleriyle Apache Hadoop Oozie iş akışları
-description: Bir Linux tabanlı HDInsight Kurumsal güvenlik paketi Hadoop Oozie kullanma. Bir Oozie iş akışının tanımlayın ve Oozie işi gönderme hakkında bilgi edinin.
+title: Kurumsal güvenlik paketi - Azure HDInsight ile güvenli Apache Oozie iş akışları
+description: Azure HDInsight Kurumsal güvenlik paketi kullanarak güvenli Apache Oozie iş akışları. Bir Oozie iş akışının tanımlayın ve Oozie işi gönderme hakkında bilgi edinin.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: mamccrea
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 298277b720045c06d78f1c4964de2246dac22f08
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: d0bc48e07efeaf8f09f177367da0570cf3c250ec
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633674"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165155"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Apache Oozie HDInsight Hadoop kümeleri Kurumsal güvenlik paketi ile çalıştırın.
+
 Apache Oozie, Apache Hadoop işlerini yöneten bir iş akışı ve koordinasyon sistemidir. Oozie Hadoop yığını ile tümleştirilir ve aşağıdaki işler destekler:
 - Apache MapReduce
 - Apache Pig
@@ -26,6 +27,7 @@ Apache Oozie, Apache Hadoop işlerini yöneten bir iş akışı ve koordinasyon 
 Oozie, Java programları veya kabuk betikleri gibi sisteme özel işleri planlamak için de kullanabilirsiniz.
 
 ## <a name="prerequisite"></a>Önkoşul
+
 - Azure HDInsight Hadoop kümesi ile Kurumsal güvenlik paketi (ESP). Bkz: [yapılandırma HDInsight kümeleri ile ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
     > [!NOTE]
@@ -224,8 +226,11 @@ nano workflow.xml
    Bu özellikler dosyası yerel olarak Oozie işleri çalıştırırken mevcut olması gerekir.
 
 ## <a name="create-custom-hive-scripts-for-oozie-jobs"></a>Özel Hive betiklerini Oozie işleri oluşturma
+
 Hive server 1 ve Hive server 2 Aşağıdaki bölümlerde gösterildiği gibi iki Hive betik oluşturabilirsiniz.
+
 ### <a name="hive-server-1-file"></a>Hive server 1 dosyası
+
 1.  Oluşturun ve Hive sunucusu 1 eylemler için bir dosyayı düzenleyin:
     ```bash
     nano countrowshive1.hql
@@ -244,6 +249,7 @@ Hive server 1 ve Hive server 2 Aşağıdaki bölümlerde gösterildiği gibi iki
     ```
 
 ### <a name="hive-server-2-file"></a>Hive server 2 dosyası
+
 1.  Oluşturma ve Hive server 2 eylemler için bir alanı düzenleme:
     ```bash
     nano countrowshive2.hql
@@ -262,11 +268,13 @@ Hive server 1 ve Hive server 2 Aşağıdaki bölümlerde gösterildiği gibi iki
     ```
 
 ## <a name="submit-oozie-jobs"></a>Oozie işlerini gönderme
+
 ESP kümeleri için Oozie işlerini göndermenin ESP olmayan kümelerinde Oozie işleri gönderme gibi olur.
 
 Daha fazla bilgi için [tanımlamak ve Linux tabanlı Azure HDInsight üzerinde bir iş akışı çalıştırmak için Hadoop ile Oozie kullanma](../hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="results-from-an-oozie-job-submission"></a>Bir Oozie iş gönderme sonuçları
+
 Oozie işleri, kullanıcı için çalıştırılır. Bu nedenle hem Apache YARN ve Apache Ranger günlükleri göster başkasının kimliğine bürünülerek gerçekleştirilen bir kullanıcı olarak çalıştırılan işler denetim. Oozie iş komut satırı arabirimi çıktısı şu kod gibi görünür:
 
 
@@ -304,6 +312,7 @@ Oozie işleri, kullanıcı için çalıştırılır. Bu nedenle hem Apache YARN 
 Hive server 2 Eylemler Ranger denetim günlüklerini çalıştıran kullanıcı için eylem Oozie gösterir. Ranger ve YARN görünümleri yalnızca Küme Yöneticisi için görünür
 
 ## <a name="configure-user-authorization-in-oozie"></a>Kullanıcı yetkilendirmesi Oozie yapılandırın
+
 Oozie kendisi tarafından kullanıcıların durdurma veya diğer kullanıcıların işlerini silme engelleyebilen bir kullanıcı yetkilendirme yapılandırması vardır. Bu yapılandırma etkinleştirmek için `oozie.service.AuthorizationService.security.enabled` için `true`. 
 
 Daha fazla bilgi için [Oozie yükleme ve yapılandırma](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
@@ -311,6 +320,7 @@ Daha fazla bilgi için [Oozie yükleme ve yapılandırma](https://oozie.apache.o
 Hive server burada eklenti Ranger desteklenen veya kullanılabilir değil 1 gibi bileşenleri için parçalı HDFS yetkilendirme mümkündür. Ayrıntılı yetkilendirme yalnızca Ranger eklentileri kullanılabilir.
 
 ## <a name="get-the-oozie-web-ui"></a>Oozie web kullanıcı Arabirimi alın
+
 Oozie web kullanıcı Arabirimi, küme üzerinde Oozie işlerin durumunu web tabanlı bir görünüm sağlar. Web kullanıcı Arabirimi almak için ESP kümeleri, aşağıdaki adımları uygulayın:
 
 1. Ekleme bir [kenar düğümüne](../hdinsight-apps-use-edge-node.md) ve etkinleştirme [SSH Kerberos kimlik doğrulaması](../hdinsight-hadoop-linux-use-ssh-unix.md).
