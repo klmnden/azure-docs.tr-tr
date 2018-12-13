@@ -1,6 +1,6 @@
 ---
-title: DMZ'ler ile kullanmak için örnek uygulama | Microsoft Docs
-description: Trafik akışı senaryolarını sınamak için DMZ oluşturduktan sonra bu basit web uygulaması dağıtma
+title: Azure uygulama DMZ'ler ile kullanmak için | Microsoft Docs
+description: Trafik akışı senaryolarını test etmek için bir DMZ oluşturduktan sonra bu basit bir web uygulaması dağıtma
 services: virtual-network
 documentationcenter: na
 author: tracsman
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 8506238e41c5d9dac8d76d729d4919b30a0528b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ccdb8254551d0009a71cc047b8399a539edb8e2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23883799"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866860"
 ---
-# <a name="sample-application-for-use-with-dmzs"></a>Örnek bir uygulama DMZ'ler ile kullanmak için
-[Güvenlik sınırı en iyi yöntemler sayfasına dön][HOME]
+# <a name="sample-application-for-use-with-dmzs"></a>DMZ'ler ile kullanmak için örnek uygulama
+[Güvenlik sınırı en iyi yöntemler sayfasına geri dönün][HOME]
 
-Bu PowerShell komut dosyalarını yerel olarak yükleyin ve arka uç AppVM01 sunucusundan içerik ile ön uç IIS01 sunucusundan html sayfalarını görüntüleyen basit bir web uygulaması için IIS01 ve AppVM01 sunucularda çalıştırabilirsiniz.
+Bu PowerShell komut dosyalarını, yükleme ve arka uç AppVM01 sunucusundan içerik ile ön uç IIS01 sunucudan bir html sayfası görüntüleyen basit bir web uygulaması ayarlama için IIS01 ve AppVM01 sunucularında yerel olarak çalıştırılabilir.
 
-Bu uygulama basit bir sınama ortamında pek çok DMZ örnekler sağlar ve nasıl değişiklikleri uç noktaları, Nsg'ler, UDR ve güvenlik duvarı kuralları trafik akışına etkileyebilir.
+Bu uygulama DMZ örneklerin çoğu için basit bir test ortamı sağlar ve nasıl değişiklikleri uç noktaları, Nsg'ler, UDR ve güvenlik duvarı kuralları trafik akışları etkileyebilir.
 
-## <a name="firewall-rule-to-allow-icmp"></a>ICMP izin veren güvenlik duvarı kuralı
-Bu basit bir PowerShell ifadesi ICMP (Ping) trafiğine izin vermek için bir Windows VM üzerinde çalıştırılabilir. Windows güvenlik duvarı (çoğu Linux distro'lar ICMP varsayılan olarak etkindir) üzerinden iletmek için daha kolay test ve ping Protokolü vererek sorun giderme için bu Güvenlik Duvarı'nı güncelleştirme sağlar.
+## <a name="firewall-rule-to-allow-icmp"></a>ICMP izin vermek için güvenlik duvarı kuralı
+Bu basit bir PowerShell ifadesi ICMP (Ping) trafiğine izin verecek şekilde bir Windows VM üzerinde çalıştırılabilir. (Varsayılan olarak açık ICMP çoğu Linux dağıtımları için) windows güvenlik duvarı üzerinden geçmek için daha kolay test etme ve sorun giderme ping Protokolü izin vererek bu Güvenlik Duvarı'nı güncelleştirme sağlar.
 
 ```PowerShell
 # Turn On ICMPv4
@@ -37,18 +37,18 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
     -Protocol ICMPv4 -Enabled True -Profile Any -Action Allow
 ```
 
-Aşağıdaki komut dosyaları kullanırsanız, bu güvenlik duvarı kuralı ilk ifade ektir.
+Aşağıdaki betikler kullanırsanız, bu güvenlik duvarı kuralı ekleme ilk açıklamadır.
 
 ## <a name="iis01---web-application-installation-script"></a>IIS01 - Web uygulama yükleme betiği
-Bu komut dosyası aşağıdakileri yapar:
+Bu betik olur:
 
-1. Açık IMCPv4 (Ping) daha kolay test etmek için yerel sunucunun windows güvenlik duvarı
-2. IIS ve .net yükleme Framework v4.5
-3. Bir ASP.NET web sayfası ve Web.config dosyası oluşturma
+1. IMCPv4 açın (Ping) daha kolay test edebilmek için yerel sunucu windows güvenlik duvarı
+2. IIS ve .net Framework v4.5
+3. Bir ASP.NET web sayfası ve bir Web.config dosyası oluşturma
 4. Dosya erişimi kolaylaştırmak için varsayılan uygulama havuzunu Değiştir
-5. Yönetici hesabınız ve parolanız için anonim kullanıcı Ayarla
+5. Anonim kullanıcı, yönetici hesabı ve parola ayarlayın.
 
-RDP IIS01 alırken bu PowerShell komut dosyasını yerel olarak çalıştırmanız gerekir.
+RDP IIS01 içinde bulunduğu sırada bu PowerShell Betiği yerel olarak çalıştırılmalıdır.
 
 ```PowerShell
 # IIS Server Post Build Config Script
@@ -132,8 +132,8 @@ RDP IIS01 alırken bu PowerShell komut dosyasını yerel olarak çalıştırman�
     $MainPage | Out-File -FilePath "C:\inetpub\wwwroot\Home.aspx" -Encoding ascii
     $WebConfig | Out-File -FilePath "C:\inetpub\wwwroot\Web.config" -Encoding ascii
 
-# Set App Pool to Clasic Pipeline to remote file access will work easier
-    Write-Host "Updaing IIS Settings" -ForegroundColor Cyan
+# Set App Pool to Classic Pipeline to remote file access will work easier
+    Write-Host "Updating IIS Settings" -ForegroundColor Cyan
     c:\windows\system32\inetsrv\appcmd.exe set app "Default Web Site/" /applicationPool:".NET v4.5 Classic"
     c:\windows\system32\inetsrv\appcmd.exe set config "Default Web Site/" /section:system.webServer/security/authentication/anonymousAuthentication /userName:$theAdmin /password:$thePassword /commit:apphost
 
@@ -142,25 +142,25 @@ RDP IIS01 alırken bu PowerShell komut dosyasını yerel olarak çalıştırman�
     Restart-Service -Name W3SVC
 
     Write-Host
-    Write-Host "Web App Creation Successfull!" -ForegroundColor Green
+    Write-Host "Web App Creation Successful!" -ForegroundColor Green
     Write-Host
 ```
 
 ## <a name="appvm01---file-server-installation-script"></a>AppVM01 - dosya sunucusu yükleme betiği
-Bu komut dosyası basit bu uygulama için arka uç ayarlar. Bu komut dosyası aşağıdakileri yapar:
+Bu betik bu basit bir uygulama için arka uç ayarlar. Bu betik olur:
 
-1. Açık IMCPv4 (Ping) daha kolay test etmek için Güvenlik Duvarı'nda
+1. IMCPv4 açın (Ping) daha kolay test edebilmek için güvenlik duvarı
 2. Web sitesi için bir dizin oluşturun
-3. Uzaktan Erişim tarafından web sayfasını olması için bir metin dosyası oluşturun
-4. Anonim erişime izin vermek için dosya ve dizin izinlerini ayarlayın
+3. Uzaktan Erişim tarafından web sayfasını olacak şekilde bir metin dosyası oluşturun
+4. Dizin ve dosya anonim erişime izin vermek için izinleri ayarlayın
 5. IE Artırılmış Güvenlik bu sunucudan daha kolay gezinme izin vermek için devre dışı bırakma 
 
 > [!IMPORTANT]
-> **En iyi uygulaması**: hiçbir zaman bir üretim sunucuda IE Artırılmış Güvenlik devre dışı kapatın, artı, genellikle bir üretim sunucusundan Web'de gezinmek için kötü bir fikirdir. Ayrıca, dosya paylaşımları anonim erişim için açma tamamlandı ancak kötü bir fikir burada kolaylık sağlamak için geçerlidir.
+> **En iyi yöntem**: hiçbir zaman bir üretim sunucusunda IE Artırılmış Güvenlik kapatma yanı sıra genel olarak üretim sunucudan Web'de gezinmek için kötü bir fikir olduğunu. Ayrıca, dosya paylaşımlarına anonim erişim için açmayı bitti ancak kötü bir fikir kolaylık olması için aşağıdadır.
 > 
 > 
 
-RDP AppVM01 alırken bu PowerShell komut dosyasını yerel olarak çalıştırmanız gerekir. PowerShell aktarılmadığı sağlamak için yönetici olarak çalıştırmak için gereklidir.
+RDP AppVM01 içinde bulunduğu sırada bu PowerShell Betiği yerel olarak çalıştırılmalıdır. Başarılı yürütme emin olmak için yönetici olarak çalıştırılacak PowerShell gereklidir.
 
 ```PowerShell
 # AppVM01 Server Post Build Config Script
@@ -189,17 +189,17 @@ RDP AppVM01 alırken bu PowerShell komut dosyasını yerel olarak çalıştırma
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0
 
     Write-Host
-    Write-Host "File Server Set up Successfull!" -ForegroundColor Green
+    Write-Host "File Server Set up Successful!" -ForegroundColor Green
     Write-Host
 ```
 
 ## <a name="dns01---dns-server-installation-script"></a>DNS01 - DNS sunucusu yükleme betiği
-DNS sunucusu kurmak için bu örnek uygulama dahil betik yok. Güvenlik duvarı kuralları, NSG veya UDR sınama DNS trafiğinin eklenmesi gerekiyorsa, DNS01 sunucusunun elle ayarlanması gerekir. Ağ yapılandırma xml dosyasını ve Resource Manager şablonu hem örnekleri için birincil DNS sunucusu ve düzeyi 3'ü yedekleme DNS sunucusu tarafından barındırılan ortak DNS sunucusu olarak DNS01 içerir. Düzey 3 DNS sunucusu yerel olmayan trafik için kullanılan gerçek bir DNS sunucusunun ve DNS01 ile ayarlanmadı, DNS oluşacak yerel ağ.
+DNS sunucusu kurmak için bu örnek uygulama dahil hiçbir betik yoktur. Güvenlik duvarı kuralları, NSG veya UDR test DNS trafiği dahil etmek gerekiyorsa DNS01 sunucunun el ile ayarlanması gerekir. Ağ yapılandırma xml dosyasını ve Resource Manager şablonu için örneklerin her ikisi de birincil DNS sunucusu ve Düzey 3'ü yedekleme DNS sunucusu tarafından barındırılan ortak DNS sunucusu olarak DNS01 içerir. Düzey 3 DNS sunucusu yerel olmayan trafik için kullanılan gerçek DNS sunucusu ve ile DNS01 ayarlanmadı, DNS ortaya çıkabilecek herhangi bir yerel ağ.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bir IIS sunucusunda IIS01 komut dosyasını çalıştır
-* AppVM01 üzerinde dosya sunucusu komut dosyasını çalıştır
-* IIS01 yapınızın doğrulamak için ortak IP göz atın
+* Bir IIS sunucusunda IIS01 betiği çalıştırın
+* Dosya sunucusu üzerinde AppVM01 Çalıştır
+* Derleme doğrulamak için IIS01 genel IP için Gözat
 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md

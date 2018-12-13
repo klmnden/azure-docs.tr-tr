@@ -17,19 +17,19 @@ ms.date: 12/01/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 1eea38a5a360d8ab12aa4ff6dac7161828ec1c72
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 2d0530e2d7b97c4b3fda84f796de1a0e2857e2ac
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52683005"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872008"
 ---
 # <a name="v20-protocols---oauth-20-and-openid-connect"></a>v2.0 protokolleri - OAuth 2.0 ve Openıd Connect
 
 V2.0 uç noktası kimlik-bir hizmet olarak sektör standardı protokolleri, Openıd Connect ve OAuth 2.0 ile Azure Active Directory (Azure AD) kullanabilirsiniz. Hizmet standartlara uygun olsa da, bu protokolleri herhangi iki uygulamaları arasındaki farklar olabilir. Buradaki bilgileri kodunuzu doğrudan gönderme ve HTTP isteklerini işlemek yazın veya bir üçüncü taraf açık kaynak kitaplığı kullanmayı tercih ederseniz yararlı olacak birini kullanmak yerine bizim [açık kaynak kitaplıkları](reference-v2-libraries.md).
 
 > [!NOTE]
-> Tüm Azure Azure AD'ye senaryolar ve Özellikler v2.0 uç noktası tarafından desteklenir. V2.0 uç noktası kullanıyorsanız belirlemek için aşağıdaki hakkında bilgi edinin: [v2.0 sınırlamaları](active-directory-v2-limitations.md).
+> Bazı Azure AD senaryoları ve özellikleri v2.0 uç noktasında desteklenmez. V2.0 uç noktası kullanıyorsanız belirlemek için aşağıdaki hakkında bilgi edinin: [v2.0 sınırlamaları](active-directory-v2-limitations.md).
 
 ## <a name="the-basics"></a>Temel bilgiler
 

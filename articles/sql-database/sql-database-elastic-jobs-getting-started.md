@@ -3,7 +3,7 @@ title: Elastik veritabanı işleriyle çalışmaya başlama | Microsoft Docs
 description: Birden çok veritabanını kapsayan T-SQL betiklerini yürütmek için elastik veritabanı işleri'ni kullanın.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,27 +12,27 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: ada95f9fc09aeb7e8dac67bc5f9c4af96f9700df
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 0269a8ea460667d44b6173e4504a9ccb5695d722
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241370"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863542"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Elastik veritabanı işleriyle çalışmaya başlama
 
-
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
-
 
 Elastik veritabanı işleri (Önizleme) Azure SQL veritabanı için güvenilir bir şekilde otomatik olarak yeniden deneniyor ve son tamamlanma garantileri sağlama sırasında birden çok veritabanını kapsayan T-SQL betiklerini yürütme olanak tanır. Elastik veritabanı iş özelliği hakkında daha fazla bilgi için bkz. [esnek işler](sql-database-elastic-jobs-overview.md).
 
 Bu makalede bulunan örnek genişletir [esnek veritabanı araçları ile çalışmaya başlama](sql-database-elastic-scale-get-started.md). Tamamlandığında, ilişkili veritabanlarından oluşan bir grupta yönetmenize işler oluşturma ve yönetme konusunda bilgi edinin. Esnek işler avantajlarından yararlanmak için esnek ölçeklendirme araçları kullanmak için gerekli değildir.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 İndirme ve çalıştırma [esnek veritabanı araçları örnek ile kullanmaya](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Parça eşleme Yöneticisi örnek uygulaması kullanarak oluşturma
+
 Burada Yöneticisi tarafından veri ekleme parçalara ardından birkaç parçalar ile birlikte bir parça eşlemesi oluşturun. Parçalı verileri ayarlama parçalar zaten varsa, aşağıdaki adımları atlayın ve sonraki bölüme Taşı.
 
 1. Derleme ve çalıştırma **esnek veritabanı araçları ile çalışmaya başlama** örnek uygulama. Bölümündeki 7. adım kadar adımları [örnek uygulamasını indirme ve çalıştırma](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Adım 7 sonunda, aşağıdaki komut istemi görürsünüz:
@@ -48,8 +48,9 @@ Burada Yöneticisi tarafından veri ekleme parçalara ardından birkaç parçala
 
 Burada biz genellikle bir parça eşlemesi oluşturacak kullanarak hedef **yeni AzureSqlJobTarget** cmdlet'i. Parça eşleme Yöneticisi veritabanını, veritabanı hedef olarak ayarlamanız gerekir ve ardından belirli parça eşlemesi hedef olarak belirtilir. Sunucudaki tüm veritabanları sıralaması ve ana veritabanı dışında yeni özel koleksiyon veritabanları eklemek için bunun yerine, kullanacağız.
 
-## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Özel bir koleksiyon oluşturur ve ana hariç olmak üzere özel bir koleksiyona hedef sunucuda tüm veritabanları ekleyin.
-   ```
+## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Özel bir koleksiyon oluşturur ve ana hariç olmak üzere özel bir koleksiyona hedef sunucuda tüm veritabanları ekleyin
+
+   ```Powershell
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
@@ -301,23 +302,25 @@ Güncelleştirme için istenen yürütme ilkesini güncelleştirin:
    ```
 
 ## <a name="cancel-a-job"></a>Bir işi iptal et
+
 Elastik veritabanı işleri işleri iptal isteklerini destekler.  Elastik veritabanı işleri şu anda yürütülmekte olan iş için bir iptal isteğine algılarsa, işi durdurmak çalışır.
 
 Elastik veritabanı işleri iptal gerçekleştirebilirsiniz iki farklı yolu vardır:
 
 1. Şu anda yürütme iptal ediliyor görevleri: bir görevi şu anda çalışırken iptal algılanırsa, bir iptal şu anda yürütülen görev görünümü içinde denenir.  Örneğin: iptal çalışırken şu anda gerçekleştirilmekte olan uzun süre çalışan bir sorgu varsa, sorgusunu iptal etme girişimi yoktur.
-2. İptal etme görev yeniden deneme: yürütme için bir görev başlatılmadan önce iptal denetimi iş parçacığı tarafından algılanırsa, denetimi iş parçacığı görevi başlatma önler ve istek iptal edildi olarak bildirin.
+2. İptal etme görev yeniden deneme: yürütme için bir görev başlatılmadan önce iptal denetimi iş parçacığı tarafından algılanırsa, denetimi iş parçacığı görevi başlatma önler ve istek iptal edildi olarak bildirir.
 
 Üst iş için bir işi iptal istenirse, iptal isteğini üst işin ve tüm alt işlerini için uygulanır.
 
 İptal isteği göndermek için kullanabilir **Stop-AzureSqlJobExecution** cmdlet'i ve **JobExecutionId** parametresi.
 
-   ```
+   ```Powershell
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
 
 ## <a name="delete-a-job-by-name-and-the-jobs-history"></a>İş adı ve işin geçmişini sil
+
 Elastik veritabanı işleri, zaman uyumsuz işler silinmesini destekler. Bir işi silinmek üzere işaretlenmiş ve tüm iş yürütmeleri için işini tamamladıktan sonra sistem işin ve buna ait iş geçmişi siler. Sistem etkin iş yürütmeleri otomatik olarak iptal etmez.  
 
 Bunun yerine, Stop-AzureSqlJobExecution etkin iş yürütme iptal etmek için çağrılması gerekir.

@@ -3,7 +3,7 @@ title: Azure SQL veritabanı DTU tabanlı kaynak sınırları elastik havuzlar |
 description: Bu sayfa, Azure SQL veritabanındaki elastik havuzlar için bazı ortak DTU tabanlı kaynak sınırları açıklar.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pools
+ms.subservice: elastic-poolss
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: e3b46620d15f8c08d0da69aef3d8c0920e5ad4ec
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: a31a2bc3fa1edc0f4424dde4b5c8934e26669fc0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830081"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873453"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>DTU tabanlı satın alma modeli kullanarak elastik havuzlar için kaynak sınırları 
 

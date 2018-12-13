@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/08/2018
+ms.date: 12/03/2018
 ms.author: kumud
-ms.openlocfilehash: 9aa3811eb03d38a4c6ab8203512f3e6699098122
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: MT
+ms.openlocfilehash: 3cc4db387c33388d5692fa25ac26f2b6399cd185
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883644"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879851"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer ile TCP boşta kalma (genel Önizleme) Sıfırla
 
@@ -76,7 +76,17 @@ Bu parametre aşağıdaki bölgelerde şu anda etkilidir.  Burada listelenmeyen 
 | Bölge |
 |---|
 | Güneydoğu Asya |
+| Güney Brezilya |
+| Orta Kanada |
 | Batı Avrupa |
+| Hindistan Orta |
+| Hindistan Batı |
+| Japonya Batı |
+| Kore Orta |
+| Kore Güney |
+| UK Kuzey |
+| UK Güney 2 |
+| ABD Doğu |
 | ABD Doğu 2 |
 | ABD Kuzey |
 | ABD Batı |

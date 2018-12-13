@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/25/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: fedb41f6538e0c65114c4a28c8aa43ffc7ef6d7f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: c2edb821eb8bd9a5da7a6cce81269e7d3f611722
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957609"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869900"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Azure Sanal WAN nedir?
 
@@ -29,7 +29,7 @@ Bu makalede, Azure ve Azure dışı iş yüklerinizin ağ bağlantısına hızl�
 
 ## <a name="s2s"></a>Siteden siteye bağlantılar
 
-Sanal WAN kullanarak Siteden Siteye bağlantı oluşturmak için, [Sanal WAN iş ortağı](https://go.microsoft.com/fwlink/p/?linkid=2019615) üzerinden ilerleyebilir veya bağlantıyı el ile oluşturabilirsiniz.
+Sanal WAN kullanarak Siteden Siteye bağlantı oluşturmak için, [Sanal WAN iş ortağı](virtual-wan-locations-partners.md) üzerinden ilerleyebilir veya bağlantıyı el ile oluşturabilirsiniz.
 
 ### <a name="s2spartner"></a>Sanal WAN iş ortağıyla çalışma
 
@@ -46,11 +46,11 @@ Tercih edilen bir iş ortağı kullanmak istemiyorsanız bağlantıyı el ile ya
 
 Noktadan Siteye (P2S) bağlantı, ayrı bir istemci bilgisayardan sanal hub'ınıza güvenli bir bağlantı oluşturmanıza olanak tanır. P2S bağlantısı, istemci bilgisayardan başlatılarak oluşturulur. Bu çözüm, uzak bir konumdan (örneğin, evden veya bir konferanstan) bağlanmak isteyen uzaktan çalışan kişiler için kullanışlıdır. P2S VPN, ayrıca, bağlanması gereken yalnızca birkaç istemciniz olduğunda, S2S VPN yerine kullanabileceğiniz yararlı bir çözümüdür.
 
-Bağlantıyı el ile oluşturmak için bkz. [Sanal WAN ile noktadan siteye bağlantı oluşturma](https://go.microsoft.com/fwlink/p/?linkid=2020051&clcid).
+Bağlantıyı el ile oluşturmak için bkz. [Sanal WAN ile noktadan siteye bağlantı oluşturma](virtual-wan-point-to-site-portal.md).
 
 ## <a name="er"></a>ExpressRoute bağlantıları (Önizleme)
 
-Bağlantıyı el ile oluşturmak için bkz. [Sanal WAN ile ExpressRoute bağlantısı oluşturma](https://go.microsoft.com/fwlink/p/?linkid=2020148&clcid).
+Bağlantıyı el ile oluşturmak için bkz. [Sanal WAN ile ExpressRoute bağlantısı oluşturma](virtual-wan-expressroute-portal.md).
 
 
 ## <a name="resources"></a>Sanal WAN kaynakları
@@ -76,4 +76,4 @@ Uçtan uca sanal WAN'yi yapılandırmak için şu kaynakları oluşturursunuz:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Sanal WAN iş ortakları ve konumları](https://aka.ms/virtualwan) görüntüleyin
+Görünüm [sanal WAN iş ortakları ve konumları](virtual-wan-locations-partners.md) sayfası.

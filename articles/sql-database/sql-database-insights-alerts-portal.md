@@ -3,7 +3,7 @@ title: SQL veritabanı uyarılar oluşturmak için Azure portalını kullanma | 
 description: Belirttiğiniz koşullar karşılandığında bildirimleri veya otomasyonu tetikleyebilir SQL veritabanı uyarılar oluşturmak için Azure portalını kullanın.
 services: sql-database
 ms.service: sql-database
-ms.subservice: performance
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: 11777013eca0ba3a759635ef99c2cfa04104e24b
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: MT
+ms.openlocfilehash: 56beb9779b0dde7074a2f49fab156c8b6e6577b3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979004"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870189"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure SQL veritabanı ve veri ambarı için Uyarılar oluşturmak için Azure portalını kullanma
 

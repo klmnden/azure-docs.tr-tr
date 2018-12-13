@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 18041c95405614768845399f92efac229db53b20
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5ff8f5c51f17375208fdb32e521bfc85ee3f0c77
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250739"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880225"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso taşıma: Azure VM ve SQL Server AlwaysOn Kullanılabilirlik grubu üzerinde şirket içi uygulama yeniden barındırma
 
@@ -186,7 +186,7 @@ Contoso Yöneticiler kümeyi aşağıdaki gibi ayarlayın:
     - Bunlar makineleri Doğu ABD 2 üretim ağında birincil yerleştirmek bölge (**VNET PROD EUS2**), veritabanı alt ağdaki (**PROD DB EUS2**).
     - Yeni bir kullanılabilirlik kümesi oluştururlar: **SQLAOGAVSET**iki hata etki alanı ve beş güncelleştirme etki alanları.
 
-    ![SQL VM](media/contoso-migration-rehost-vm-sql-ag/sql-vm-settings.png)
+      ![SQL VM](media/contoso-migration-rehost-vm-sql-ag/sql-vm-settings.png)
 
 4. İçinde **SQL Server ayarları**, bunlar varsayılan bağlantı noktası 1433'ten sanal ağa (özel), SQL Bağlantısı sınırlamak. Yerinde kullandıkları kimlik doğrulaması için kimlik bilgilerini kullandıkları (**contosoadmin**).
 
@@ -233,13 +233,13 @@ Contoso admins gibi bir depolama hesabı oluşturun:
 
 Kümeyi ayarlamadan önce Contoso yöneticiler her makinede işletim sistemi diskinin anlık görüntüsünü alın.
 
-![Anlık görüntü](media/contoso-migration-rehost-vm-sql-ag/snapshot.png)
+![anlık görüntü](media/contoso-migration-rehost-vm-sql-ag/snapshot.png)
 
-2. Ardından, bunlar koyarlar betik çalıştırma birlikte Windows Yük devretme kümesi oluşturun.
+1. Ardından, bunlar koyarlar betik çalıştırma birlikte Windows Yük devretme kümesi oluşturun.
 
     ![Küme oluşturma](media/contoso-migration-rehost-vm-sql-ag/create-cluster1.png)
 
-3. Bunlar küme oluşturduktan sonra Vm'leri küme düğümü olarak göründüğünü doğrulayın.
+2. Bunlar küme oluşturduktan sonra Vm'leri küme düğümü olarak göründüğünü doğrulayın.
 
      ![Küme oluşturma](media/contoso-migration-rehost-vm-sql-ag/create-cluster2.png)
 
@@ -351,7 +351,7 @@ Contoso yöneticileri bu aşağıdaki ayarlamaları yapın:
     - Standart depolama ve LRS çoğaltma ile genel amaçlı bir hesabını kullanırlar.
     - Hesabı, kasa ile aynı bölgede olmalıdır.
 
-    ![Site Kurtarma Depolama](media/contoso-migration-rehost-vm-sql-ag/asr-storage.png)
+      ![Site Kurtarma Depolama](media/contoso-migration-rehost-vm-sql-ag/asr-storage.png)
 
 3. Ağ ve depolama hesabı ile yerinde, bunlar şimdi bir kurtarma Hizmetleri kasası oluşturun (**ContosoMigrationVault**) ve yerleştirebilir **ContosoFailoverRG** birincil Doğu ABD 2 bölgesinde bir kaynak grubu .
 
@@ -403,15 +403,15 @@ Yük devretme sonrasında Azure Vm'lerinin bağlanabilmesi Contoso istiyor. Bunu
 
 1. İnternet üzerinden erişim için bunlar:
 
- - Yük devretmeden önce şirket içi VM'de RDP'yi etkinleştirin
- - İçin TCP ve UDP kurallarının eklendiğinden emin olun **genel** profili.
- - RDP'ye izin verildiğinden onay **Windows Güvenlik Duvarı** > **verilen uygulamaları** tüm profiller için.
+   - Yük devretmeden önce şirket içi VM'de RDP'yi etkinleştirin
+   - İçin TCP ve UDP kurallarının eklendiğinden emin olun **genel** profili.
+   - RDP'ye izin verildiğinden onay **Windows Güvenlik Duvarı** > **verilen uygulamaları** tüm profiller için.
  
 2. Siteden siteye VPN üzerinden erişim için bunlar:
 
- - Şirket içi makinede RDP'yi etkinleştirin.
- - İçinde RDP'ye izin ver **Windows Güvenlik Duvarı** -> **izin verilen uygulamalar ve Özellikler**, için **etki alanı ve özel** ağlar.
- - Şirket içi VM'deki işletim sisteminin SAN ilkesinin ayarlamak **OnlineAll**.
+   - Şirket içi makinede RDP'yi etkinleştirin.
+   - İçinde RDP'ye izin ver **Windows Güvenlik Duvarı** -> **izin verilen uygulamalar ve Özellikler**, için **etki alanı ve özel** ağlar.
+   - Şirket içi VM'deki işletim sisteminin SAN ilkesinin ayarlamak **OnlineAll**.
 
 Ayrıca, bir yük devretme çalıştırdıklarında bunlar aşağıdakileri denetlemeniz gerekir:
 

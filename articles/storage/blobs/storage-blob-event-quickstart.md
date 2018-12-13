@@ -1,21 +1,22 @@
 ---
-title: Azure Blob depolama olaylarını bir özel web uç noktasına yönlendirme | Microsoft Docs
-description: Blob depolama olaylarına abone olmak için Azure Event Grid’i kullanın.
+title: Web uç noktası - Azure CLI için Azure Blob Depolama olayları gönderme | Microsoft Docs
+description: Blob depolama olaylarına abone olmak için Azure Event Grid’i kullanın. Olayları, Web kancası'na gönderin. Bir web uygulamasında olayları işleyin.
 services: storage,event-grid
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 08/23/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 78ee6f198bf4e16e3b2b0deb8fdb0b68c0fe9b73
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 2586b7f9c2a182ee065daab1d2a43eb5e0e2c99c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735103"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073729"
 ---
-# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Azure CLI ile Blob depolama olaylarını bir özel web uç noktasına yönlendirme
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Hızlı Başlangıç: Azure CLI ile web uç noktasına rota depolama olaylarına
 
 Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede, Azure CLI aracını kullanarak Blob depolama olaylarına abone olur ve sonucu görüntülemek için olayı tetiklersiniz.
 
@@ -30,7 +31,7 @@ Bu makalede açıklanan adımları tamamladıktan sonra olay verilerinin web uyg
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI’nın en son sürümünü (2.0.24 veya sonraki) kullanıyor olmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale, Azure CLI'nin en son sürümünü çalıştırıyorsanız gerekir (2.0.24 veya sonraki). Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
 
 Cloud Shell kullanmıyorsanız önce `az login` kullanarak oturum açmanız gerekir.
 
@@ -117,7 +118,7 @@ touch testfile.txt
 az storage blob upload --file testfile.txt --container-name testcontainer --name testfile.txt
 ```
 
-Olayı tetiklediniz ve Event Grid iletiyi abone olurken yapılandırdığınız uç noktaya gönderdi. Az önce gönderdiğiniz olayı görmek için web uygulamanızı görüntüleyin.
+Olayı tetiklediniz ve Event Grid, iletiyi abone olurken yapılandırdığınız uç noktaya gönderdi. Az önce gönderdiğiniz olayı görmek için web uygulamanızı görüntüleyin.
 
 
 ```json

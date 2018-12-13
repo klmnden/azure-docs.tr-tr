@@ -1,6 +1,6 @@
 ---
 title: Dağıtım Azure Machine Learning hizmeti için sorun giderme kılavuzu
-description: Bilgi nasıl geçici çözüm, çözmek ve Azure Machine Learning hizmeti ile ortak Docker dağıtım hatalarını giderme.
+description: Bilgi nasıl geçici çözüm, çözmek ve AKS ve Azure Machine Learning hizmetini kullanarak ACI ile ortak Docker dağıtım hatalarını giderme.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: jmartens
-ms.date: 10/01/2018
-ms.openlocfilehash: a10b05e95fa719b80775191e48bd4117e3a785fd
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: MT
+ms.date: 12/04/2018
+ms.openlocfilehash: ed6fed58aac236f143345a9504ece21aceae09d2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321691"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865378"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-deployments"></a>Azure Machine Learning hizmet dağıtımıyla ilgili sorunları giderme
+# <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Azure Machine Learning hizmeti AKS ve ACI dağıtım sorunlarını giderme
 
-Bu makalede, Azure Machine Learning hizmeti ile ortak Docker dağıtım hatalarını çözmek veya geçici olarak çözmek öğreneceksiniz.
+Bu makalede, geçici bir çözüm veya Azure Container Instances'a (ACI) ve Azure Machine Learning hizmetini kullanarak Azure Kubernetes Service (AKS) ile ortak Docker dağıtım hatalarını çözmek öğreneceksiniz.
 
 Azure Machine Learning hizmetinde bir model dağıtımına, sistemin bir dizi görevi gerçekleştirir. Bu karmaşık bir olay dizisi ve bazen sorunları ortaya çıkar. Dağıtım görevleri şunlardır:
 
@@ -117,7 +117,7 @@ print(ws.webservices()['mysvc'].get_logs())
 ```
 
 ### <a name="debug-the-docker-image-locally"></a>Docker görüntüsünü yerel olarak hata ayıklama
-Zamanlarda Docker günlüğünü yanlış neler hakkında yeterli bilgi vermez. Bir adım ötesine gidin ve yerleşik Docker görüntüsü çekin, yerel bir kapsayıcı başlatma ve doğrudan Canlı kapsayıcısının içinde etkileşimli olarak hata ayıklayın. Yerel bir kapsayıcı başlatma için Docker altyapısının yerel olarak çalışıyor olmalıdır ve'iniz de çok daha kolay olurdu [azure-cli](/cli/azure/install-azure-cli?view=azure-cli-latest) yüklü.
+Zamanlarda Docker günlüğünü yanlış neler hakkında yeterli bilgi vermez. Bir adım ötesine gidin ve yerleşik Docker görüntüsü çekin, yerel bir kapsayıcı başlatma ve doğrudan Canlı kapsayıcısının içinde etkileşimli olarak hata ayıklayın. Yerel bir kapsayıcı başlatma için Docker altyapısının yerel olarak çalışıyor olmalıdır ve'iniz de çok daha kolay olurdu [azure-cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) yüklü.
 
 İlk olarak biz görüntü konumunu bulmak gerekir:
 

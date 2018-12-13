@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 71c1816020579ae27e221c6b796d17788a4e2477
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a5376aed3e9cdb12be58cb07d7eb00303a03a963
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000668"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074886"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -112,7 +112,7 @@ Ayrılmış Örnek Satın Alma Etkisi raporunda bir VM boyutu (Örnek Türü), K
 
 Öte yandan, yalnızca zamanın %50'sinde çalıştırılırsa, başa baş noktası 10 aya denk gelir ve yıllık tasarruf yalnızca 49,74 ABD Doları olur. Buradaki bu örnek türü için ayırma satın almak sizin için avantajlı olmayabilir. Aşağıdaki resme bakın:
 
-![Azure'da başa baş noktası](./media/tutorial-optimize-reserved-instances/azure04.png)
+![Azure Vm'leri için başa baş noktası örneği](./media/tutorial-optimize-reserved-instances/azure04.png)
 
 ## <a name="view-ri-costs"></a>RI maliyetlerini görüntüleme
 
@@ -127,11 +127,11 @@ Gerçek Maliyet Analizi ve Zamana Göre Analiz raporlarında, satın alındığ�
 
 Cloudyn portalında **Maliyetler** > **Maliyet Analizi**'ne gidin ve ardından **Gerçek Maliyet Analizi**'ni veya **Zamana Göre Gerçek Maliyet**'i seçin. Sonra filtreleri ayarlayın. Örneğin, yalnızca Azure/VM hizmetini filtreleyin ve Kaynak Türü ile Fiyat Modeli'ne göre gruplandırın. Aşağıdaki resme bakın:
 
-![Ayrılmış örneğin gerçek maliyeti](./media/tutorial-optimize-reserved-instances/azure05.png)
+![Ayrılmış örnekler gerçek maliyeti örneği](./media/tutorial-optimize-reserved-instances/azure05.png)
 
 Aşağıdaki resimde gösterildiği gibi hizmete göre filtreleyebilir (bu örnekte, **Azure/VM**) ve **Fiyat Modeli** ile **Kaynak Türü**'ne göre gruplandırabilirsiniz:
 
-![Gerçek Maliyet raporu grupları ve filtreleri](./media/tutorial-optimize-reserved-instances/azure06.png)
+![Gerçek Maliyet raporu grupları ve fiyat model ve kaynak türüne göre gruplandırılmış filtreleri örneği](./media/tutorial-optimize-reserved-instances/azure06.png)
 
 Ayrıca tek seferlik ücretler, kullanım ücretleri ve lisans ücretleri gibi yaptığınız ödeme türlerini de analiz edebilirsiniz.
 
@@ -145,7 +145,7 @@ Gerçek Maliyet raporunda, 16 Kasım'daki RI satın alması için 747 ABD Dolar�
 
 Bunu görüntülemek için, **Maliyetler** > **Maliyet Analizi**'ne gidin ve ardından **Amorti Edilmiş Maliyet Analizi**'ni veya **Zamana Göre Amorti Edilmiş Maliyet**'i seçin.
 
-![Amorti edilmiş ayrılmış örnek maliyeti](./media/tutorial-optimize-reserved-instances/azure07.png)
+![Amorti edilmiş gösteren örnek rapor ayrılmış örnek maliyeti](./media/tutorial-optimize-reserved-instances/azure07.png)
 
 ## <a name="optimize-aws-ri-costs"></a>AWS RI maliyetlerini iyileştirme
 
@@ -166,25 +166,25 @@ Portalın üst kısmındaki raporlar menüsünde **İyileştirici** > **Fiyat İ
 
 Aşağıdaki resimde, rapordaki satın alma önerileri gösterilir.
 
-![Satın alma önerileri](./media/tutorial-optimize-reserved-instances/aws01.png)
+![Satın alma önerileri EC2 satın alma önerileri raporunda örnek gösteriliyor](./media/tutorial-optimize-reserved-instances/aws01.png)
 
 Bu örnekte, Cloudyn\_A hesabının 32 ayrılmış örnek satın alma önerisi vardır. Tüm satın alma önerilerine uyarsanız, yıllık 137.770 AMD Doları tasarruf etme potansiyeliniz olur. Cloudyn tarafından sağlanan satın alma önerilerinde, çalışan iş yüklerinizde kullanımın tutarlı kalacağının varsayıldığını unutmayın.
 
 Her satın almanın neden önerildiğini açıklayan ayrıntıları görüntülemek için, **Gerekçeler**'in altındaki artı simgesine (**+**) tıklayın. Aşağıda, listedeki ilk öneri için bir örnek verilmiştir.
 
-![Satın alma gerekçeleri](./media/tutorial-optimize-reserved-instances/aws02.png)
+![Satın alma gerekçe ayrıntıları gösteren örnek](./media/tutorial-optimize-reserved-instances/aws02.png)
 
 Önceki örnekte, iş yükünü isteğe bağlı çalıştırmanın maliyeti yıllık 90.456 ABD Doları tutarındadır. Öte yandan, ayırmayı önceden satın alırsanız, aynı iş yükü 56.592 ABD Doları tutar ve yıllık 33.864 ABD Doları tasarruf etmiş olursunuz.
 
 Satın alma yatırımınızın yaklaşık olarak ne zaman karşılandığını görmek amacıyla yıl içindeki başa baş noktanızı görüntülemek için **EC2 RI Satın Alma Etkisi**'nin yanındaki artı simgesine tıklayın. Aşağıdaki örnekte, yaklaşık olarak satın almayı izleyen sekizinci ayda, isteğe bağlı birikmiş maliyeti RI birikmiş maliyetini aşmaya başlıyor:
 
-![Satın alma etkisi](./media/tutorial-optimize-reserved-instances/aws03.png)
+![Satın alma etkisi ayrıntıları gösteren örnek](./media/tutorial-optimize-reserved-instances/aws03.png)
 
 Bu noktada tasarruf etmeye başlıyorsunuz.
 
 Satın alma önerisinin doğruluğunu onaylamak için **Zamana Göre Örnekler**'i gözden geçirebilirsiniz. Bu örnekte, son 30 günlük sürede altı örneğin iş yükü için ortalama kullanıldığını görebilirsiniz.
 
-![Zamana göre örnekler](./media/tutorial-optimize-reserved-instances/aws04.png)
+![Zaman içinde örnekleri geçmiş kullanımını gösteren örnek](./media/tutorial-optimize-reserved-instances/aws04.png)
 
 ## <a name="modify-unused-reservations"></a>Kullanılmamış ayırmaları değiştirme
 
@@ -196,23 +196,23 @@ Portalın en üstündeki raporlar menüsünde **İyileştirici** > **Verimsizlik
 
 Aşağıdaki resimlerde kullanılmamış ayrılmış örnekleri içeren rapor gösterilir.
 
-![Kullanılmamış ayırmalar](./media/tutorial-optimize-reserved-instances/unused-ri01.png)
+![Örnek gösteren özetlenmiş kullanılmamış durumdaki ayırmalar hakkında bilgi](./media/tutorial-optimize-reserved-instances/unused-ri01.png)
 
 Belirli bir ayırmanın ayrıntılarını görüntülemek için **Ayrıntılar**'ın altındaki artı simgesine tıklayın.
 
-![Kullanılmamış ayırma ayrıntıları](./media/tutorial-optimize-reserved-instances/unused-ri02.png)
+![Kullanılmamış ayırma ayrıntıları gösteren örnek](./media/tutorial-optimize-reserved-instances/unused-ri02.png)
 
 Önceki örnekte, çeşitli kullanılabilirlik alanlarında toplam 77 kullanılmamış ayırma vardır. İlk ayırmanın 51 örneği kullanılmamıştır. Listede aşağıya doğru bakıldığında, **us-east-1c** kullanılabilirlik alanındaki **m3.2xlarge** örnek türünü kullanarak yapabileceğiniz potansiyel ayırma örneği değişiklikleri vardır.
 
 Listedeki ilk ayırma için **Değiştir**'e tıklayarak, ayırma hakkındaki verilerin gösterildiği **RI'yi Değiştir** sayfasını açın.
 
-![RI'yi Değiştir](./media/tutorial-optimize-reserved-instances/unused-ri03.png)
+![Rezervasyonlar, değiştirebilirsiniz gösteren örnek](./media/tutorial-optimize-reserved-instances/unused-ri03.png)
 
 Değiştirebileceğiniz ayırma örnekleri listelenir. Aşağıdaki örnek resimde, kullanılmamış olan ve değiştirebileceğiniz 51 ayırma vardır ama iki ayırma arasında 54 tane gerekmektedir. Kullanılmamış ayırmalarınızı hepsini kullanacak şekilde değiştirirseniz, dört örnek isteğe bağlı olarak çalıştırılmaya devam edecektir. Bu örnek için, kullanılmamış ayırmalarınızı ilk ayırma 30 ve ikinci ayırma 21 tane kullanacak şekilde bölün.
 
 İlk ayırma girdisi için artı simgesine tıklayın ve **Ayırma miktarı**'nı **30** olarak ayarlayın. İkinci girdi için, ayırma miktarını **21** olarak ayarlayın ve ardından **Uygula**'ya tıklayın.
 
-![Ayırma miktarını değiştirme](./media/tutorial-optimize-reserved-instances/unused-ri04.png)
+![Ayırma miktarını değişiklikleri gösteren örnek](./media/tutorial-optimize-reserved-instances/unused-ri04.png)
 
 Ayırma için tüm kullanılmamış örnekleriniz tümüyle kullanılır ve artık 51 örnek isteğe bağlı olarak çalıştırılmaz. Bu örnekte, isteğe bağlı kullanımı önemli ölçüde azaltarak ve zaten ödenmiş olan ayırmaları kullanarak kuruluşunuzun parasını tasarruf etmiş olursunuz.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 9f7659dadb4c710169ec1e700d31e60cbc957ac1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: eddeb251bac3cc0d02573c4c0b3047a2eafd8237
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856795"
+ms.locfileid: "52865133"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Hızlı Başlangıç: Oluşturma ve bir not defteri paylaşın
 
@@ -97,11 +97,11 @@ ms.locfileid: "52856795"
 
 ## <a name="share-the-notebook"></a>Not defterini paylaşın
 
-1. Dizüstü bilgisayarınızı paylaşmak için gerekirse proje sayfasına geçin, not defteri dosyasını sağ tıklayın, **bağlantıyı Kopyala** (klavye kısayolu: y), bu bağlantıyı uygun bir iletisine yapıştırın (e-posta, anlık ileti, vs.).
+Dizüstü bilgisayarınızı paylaşmak için gerekirse proje sayfasına geçin, not defteri dosyasını sağ tıklayın, **bağlantıyı Kopyala** (klavye kısayolu: y), bu bağlantıyı uygun bir iletisine yapıştırın (e-posta, anlık ileti, vs.).
 
-    De kullanabilirsiniz proje sayfasında **paylaşımı** bağlantısını almak, bağlantı ile bir e-posta iletisi oluşturun veya HTML ve Markdown elde etmek için menü ekleme kodu:
+De kullanabilirsiniz proje sayfasında **paylaşımı** bağlantısını almak, bağlantı ile bir e-posta iletisi oluşturun veya HTML ve Markdown elde etmek için menü ekleme kodu:
 
-    ![Proje paylaşımı komutu](media/quickstarts/share-project-command.png)
+![Proje paylaşımı komutu](media/quickstarts/share-project-command.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

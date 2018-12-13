@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: f4a1ba29e569d4605c3aa6f2fb6c238c8ba22434
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 7722076c3b0031da8580dd88efdc0b575fd5a3be
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006286"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875578"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçiş
 
@@ -51,11 +51,11 @@ Azure Resource Manager ile kullanılabilen yeni komutlar şunlardır:
 ### <a name="deprecated-commands"></a>Kullanımdan kaldırılan komutların
 Kullanırsanız `azure hdinsight job` komutları HDInsight kümenize işleri göndermek için şu komutları Resource Manager komutları kullanılabilir değil. Programlama yoluyla işleri HDInsight için betiklerin göndermek istiyorsanız, bunun yerine HDInsight tarafından sağlanan REST API'leri kullanmanız gerekir. REST API'lerini kullanarak işleri gönderme hakkında daha fazla bilgi için aşağıdaki belgelere bakın.
 
-* [MapReduce işleri cURL kullanarak HDInsight üzerinde Hadoop ile çalıştırın.](hadoop/apache-hadoop-use-mapreduce-curl.md)
-* [CURL kullanarak HDInsight üzerinde Hadoop ile Hive sorguları çalıştırma](hadoop/apache-hadoop-use-hive-curl.md)
-* [Pig işleri cURL kullanarak HDInsight üzerinde Hadoop ile çalıştırın.](hadoop/apache-hadoop-use-pig-curl.md)
+* [Apache Hadoop MapReduce işlerini cURL kullanarak HDInsight üzerinde Hadoop ile çalıştırın.](hadoop/apache-hadoop-use-mapreduce-curl.md)
+* [Apache Hive sorguları cURL kullanarak HDInsight üzerinde Apache Hadoop ile çalıştırın.](hadoop/apache-hadoop-use-hive-curl.md)
+* [Apache Pig işleri cURL kullanarak HDInsight üzerinde Apache Hadoop ile çalıştırın.](hadoop/apache-hadoop-use-pig-curl.md)
 
-MapReduce çalıştırmak için diğer yollar hakkında bilgi için Hive ve etkileşimli olarak Pig, bkz: [HDInsight üzerinde Hadoop ile MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md), [HDInsight üzerinde Hadoop ile Hive kullanma](hadoop/hdinsight-use-hive.md), ve [üzerinde Hadoop ile Pig kullanma HDInsight](hadoop/hdinsight-use-pig.md).
+Apache Hadoop MapReduce, Apache Hive ve Apache Pig etkileşimli olarak çalışacak şekilde diğer yollar hakkında daha fazla bilgi için bkz: [HDInsight üzerinde Hadoop ile Apache Hadoop MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md), [Apache HiveHDInsightüzerindeApacheHadoopilekullanma](hadoop/hdinsight-use-hive.md), ve [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma](hadoop/hdinsight-use-pig.md).
 
 ### <a name="examples"></a>Örnekler
 **Küme oluşturma**
@@ -215,9 +215,9 @@ Yeni komut:
 
 #### <a name="other-samples"></a>Diğer örnekleri
 * [HDInsight kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [Hive işlerini gönderme](hadoop/apache-hadoop-use-hive-powershell.md)
-* [Pig işleri gönderme](hadoop/apache-hadoop-use-pig-powershell.md)
-* [Sqoop işlerini gönderme](hadoop/apache-hadoop-use-sqoop-powershell.md)
+* [Apache Hive işlerini gönderme](hadoop/apache-hadoop-use-hive-powershell.md)
+* [Apache Pig işleri gönderme](hadoop/apache-hadoop-use-pig-powershell.md)
+* [Apache Sqoop işlerini gönderme](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## <a name="migrating-to-the-new-hdinsight-net-sdk"></a>Yeni HDInsight .NET SDK'sı için geçirme
 Azure Hizmet Yönetimi tabanlı [(ASM) HDInsight .NET SDK'sı](https://msdn.microsoft.com/library/azure/mt416619.aspx) kullanım dışı bırakıldı. Azure kaynak yönetimi tabanlı kullanmaları [HDInsight .NET SDK'yı Resource Manager tabanlı](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight). Aşağıdaki ASM tabanlı HDInsight paketler kullanım dışıdır.
@@ -231,11 +231,11 @@ Bu bölüm Resource Manager tabanlı SDK'sını kullanarak belirli görevleri ge
 | --- | --- |
 | .NET SDK kullanarak HDInsight kümeleri oluşturma |Bkz: [oluşturma HDInsight .NET SDK kullanarak kümeleri](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |
 | .NET SDK'sı ile betik eylemi kullanarak bir kümeyi özelleştirme |Bkz: [özelleştirme HDInsight Linux kümeleri betik eylemi kullanarak](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action) |
-| Uygulamaları etkileşimli olarak .NET SDK'sı ile Azure Active Directory'yi kullanarak kimlik doğrulaması |Bkz: [.NET SDK kullanarak Hive sorgularını çalıştırma](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). Bu makalede kod parçacığında, etkileşimli bir kimlik doğrulama yaklaşımı kullanılmaktadır. |
+| Uygulamaları etkileşimli olarak .NET SDK'sı ile Azure Active Directory'yi kullanarak kimlik doğrulaması |Bkz: [.NET SDK kullanarak Apache Hive sorgularını çalıştırma](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). Bu makalede kod parçacığında, etkileşimli bir kimlik doğrulama yaklaşımı kullanılmaktadır. |
 | Uygulamaları etkileşimsiz .NET SDK'sı ile Azure Active Directory'yi kullanarak kimlik doğrulaması |Bkz: [HDInsight için etkileşimli olmayan uygulamalar oluşturun](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
-| .NET SDK'sını kullanarak bir Hive işi gönderdikten |Bkz: [gönderme Hive işleri](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |
-| .NET SDK'sını kullanarak bir Pig işi Gönder |Bkz: [gönderme Pig işleri](hadoop/apache-hadoop-use-pig-dotnet-sdk.md) |
-| .NET SDK'sını kullanarak bir Sqoop işi Gönder |Bkz: [Sqoop gönderme işleri](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md) |
+| .NET SDK'sını kullanarak bir Apache Hive işi Gönder |Bkz: [gönderme Apache Hive işleri](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |
+| .NET SDK'sını kullanarak bir Apache Pig işi Gönder |Bkz: [gönderme Apache Pig işleri](hadoop/apache-hadoop-use-pig-dotnet-sdk.md) |
+| .NET SDK'sını kullanarak bir Apache Sqoop işi Gönder |Bkz: [Apache Sqoop gönderme işleri](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md) |
 | .NET SDK kullanarak HDInsight kümelerini Listele |Bkz: [listesi HDInsight kümeleri](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
 | .NET SDK kullanarak HDInsight kümeleri ölçeklendirme |Bkz: [ölçek HDInsight kümeleri](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |
 | .NET SDK kullanarak HDInsight kümelerine erişim vermek/iptal etmek |Bkz: [HDInsight kümelerine erişim vermek/iptal etmek](hdinsight-administer-use-dotnet-sdk.md#grantrevoke-access) |

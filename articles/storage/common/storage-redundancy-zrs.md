@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
 ms.component: common
-ms.openlocfilehash: b310c06f508395635976009005dd2c4db2917abc
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 1b39de45d5046ce5a59dcaf0648b87aca2a5c6f5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218755"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868353"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Bölgesel olarak yedekli depolama (ZRS): Azure depolama yüksek kullanılabilirliğe sahip uygulamalar
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -81,7 +81,7 @@ Dinamik geçiş aracılığıyla isteyebilir [Azure destek portalı](https://ms.
     - **Sorun türü**: seçin **veri geçişi**.
     - **Kategori**: seçin **ZRS bir bölge içinde geçiş**.
     - **Başlık**: Örneğin, açıklayıcı bir başlık yazın **ZRS hesap geçiş**.
-    - **Ayrıntılar**: ek ayrıntılar yazın **ayrıntıları** kutusunda, örneğin, istediğim [LRS'den, GRS] için ZRS geçirmek ___ bölgede. 
+    - **Ayrıntılar**: ek ayrıntılar yazın **ayrıntıları** kutusunda, örneğin, istediğim [LRS'den, GRS] için ZRS geçirmeyi de \_ \_ bölge. 
 5. **İleri**’yi seçin.
 6. Kişi bilgilerini doğru olduğundan emin olun **iletişim bilgilerini** dikey penceresi.
 7. **Oluştur**’u seçin.

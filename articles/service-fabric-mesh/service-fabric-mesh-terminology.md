@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: rwike77
 ms.author: ryanwi
-ms.date: 07/12/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 925d97658a299bea983b16ae6b507159ef0e9e62
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: fa2c34168423796a82f274db1b60b45ac10b5501
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979140"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888673"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric Mesh terminolojisi
 
@@ -32,7 +32,7 @@ Azure Service Fabric Mesh, geliştiricilerin sanal makineleri, depolama alanın�
 
 **Uygulama**: bir Service Fabric Mesh dağıtım, sürüm ve Mesh uygulaması yaşam süresi birimini uygulamasıdır. Her uygulama örneği yaşam döngüsü bağımsız olarak yönetilebilir.  Uygulamalar, bir veya daha fazla hizmet kod paketleri ve ayarları oluşur. Azure kaynak modeli (RM) şemayı kullanarak bir uygulama ile tanımlanır.  Hizmetleri özellikleri RM şablonunda Uygulama kaynağı olarak açıklanmıştır.  Ağ ve uygulama tarafından kullanılan birimleri uygulama tarafından başvurulur.  Bir uygulama oluştururken, uygulama, hizmetler, ağ ve birimlerin Service Fabric kaynak modelini kullanarak modellenir.
 
-**Hizmet**: bir uygulamada bir hizmeti temsil eden bir mikro hizmet ve eksiksiz ve tek başına bir işlevi gerçekleştirir. Her hizmet kodu paket ile ilişkili kapsayıcı görüntüsünü çalıştırmak için gereken her şeyi açıklayan bir veya daha fazla, kod paketleri oluşur.  Bir uygulama Hizmetleri'nde sayısı yukarı ve aşağı ölçeklendirilebilir.
+**Hizmet**: bir uygulamada bir hizmeti temsil eden bir mikro hizmet ve eksiksiz ve tek başına bir işlevi gerçekleştirir. Her hizmet kodu paket ile ilişkili kapsayıcı görüntüsünü çalıştırmak için gereken her şeyi açıklayan bir veya daha fazla, kod paketleri oluşur.  Bir uygulama hizmeti çoğaltma sayısını giriş ve çıkış ölçeklendirilebilir.
 
 **Kod paketi**: kod paketleri aşağıdakiler dahil olmak üzere kod paket ile ilişkili kapsayıcı görüntüsünü çalıştırmak için gereken her şeyi açıklanmaktadır:
 
@@ -86,4 +86,4 @@ Aşağıdaki tabloda, farklı uygulama modelleri ve bunlar için Service Fabric 
 
 Service Fabric Mesh hakkında daha fazla bilgi edinmek için [Service Fabric Mesh’e genel bakış](service-fabric-mesh-overview.md) makalesini okuyun.
 
-Bul yanıtlar [sık sorulan sorular](service-fabric-mesh-faq.md).
+[Sık sorulan sorulara](service-fabric-mesh-faq.md) yanıtlar bulun.

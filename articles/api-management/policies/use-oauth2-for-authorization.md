@@ -1,6 +1,6 @@
 ---
-title: Azure API management ilke örnek - kullanım OAuth2 yetkilendirme ağ geçidi ve arka uç arasında için | Microsoft Docs
-description: Azure API management ilke örnek - OAuth2 için yetkilendirme ağ geçidi ve arka uç arasında nasıl kullanıldığını gösterir. AAD'den erişim belirtecini alma ve bunu arka uca iletme işlemini de gösterir.
+title: Azure API management ilke örneği - kullanım OAuth2 yetkilendirme arasında ağ geçidi ve arka uç için | Microsoft Docs
+description: Azure API management ilke örneği - ağ geçidi ve arka ucu arasında yetkilendirme için OAuth2 kullanmayı gösterir. AAD'den erişim belirtecini alma ve bunu arka uca iletme işlemini de gösterir.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: d064e918d514b9be1b9fa2dbf30c10edf5167908
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 519233cb9e77bf48f67d869a54af771c17c7827e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287829"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874583"
 ---
-# <a name="use-oauth2-for-authorization-between-the-gateway-and-a-backend"></a>Ağ geçidi ve arka uç arasında yetkilendirme için OAuth2 kullanın
+# <a name="use-oauth2-for-authorization-between-the-gateway-and-a-backend"></a>OAuth2 yetkilendirme arasında ağ geçidi ve arka ucu kullanın
 
-Bu makalede ağ geçidi ve arka uç arasında yetkilendirme OAuth2 kullanılmak üzere nasıl oluşturulduğunu gösteren bir Azure API Yönetimi İlkesi örnek gösterilmektedir. AAD'den erişim belirtecini alma ve bunu arka uca iletme işlemini de gösterir. 
+Bu makalede, OAuth2 yetkilendirme arasında ağ geçidi ve arka ucu için kullanılacak nasıl oluşturulduğunu gösteren bir Azure API management ilke örnek gösterilmektedir. AAD'den erişim belirtecini alma ve bunu arka uca iletme işlemini de gösterir. 
 
-Ayarlamak veya ilke kodu düzenlemek için açıklanan adımları izleyin [ayarlama veya düzenleme bir ilke](../set-edit-policies.md). Diğer örnekleri görmek için bkz: [ilkesi örnekleri](../policy-samples.md).
+Ayarlama veya ilke kodu düzenleme için açıklanan adımları izleyin [ayarlama veya düzenleme ilke](../set-edit-policies.md). Diğer örnekler için bkz [ilkesi örnekleri](../policy-samples.md).
 
-Aşağıdaki komut dosyası {{özelliğinde}} görünmesi özelliklerini kullanır. Özellikleri ve API Management ilkeleri kullanma hakkında bilgi edinmek için [bu](../api-management-howto-properties.md) konu.
+Aşağıdaki komut dosyası, {{özelliği}} özelliklerini kullanır. Özellikleri ve bunları API Management ilkeleri kullanma hakkında bilgi edinmek için bkz. [bu](../api-management-howto-properties.md) konu.
  
 ## <a name="policy"></a>İlke
 
-Koda Yapıştır **gelen** bloğu.
+Kodun içine yapıştırın **gelen** blok.
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Get OAuth2 access token from AAD and forward it to the backend.policy.xml)]
   

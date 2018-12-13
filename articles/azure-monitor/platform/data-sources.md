@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 5b673af317189da1876328c0cad0fa8f510aae4f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: cb38a8a4c6e92dae1ed4d505c810027fb93e4a3c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844065"
+ms.locfileid: "52871447"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Azure İzleyici'de veri kaynakları
 Bu makalede, durumunu ve performansını, kaynakları ve bunlar üzerinde çalışan uygulamaları izlemek için Azure İzleyici tarafından toplanan veri kaynaklarını açıklar. Bu kaynaklara başka bir bulut ya da şirket içi azure'da olabilir.  Bkz: [Azure İzleyici tarafından toplanan veriler](data-collection.md) nasıl görüntüleyebilirsiniz ve bu verilerin nasıl depolandığı ile ilgili ayrıntılar için.
@@ -107,7 +107,7 @@ Standart bir uygulama katmanlarına ek olarak, diğer veri kaynaklarıyla toplan
 ![Özel veri toplama](media/data-sources/custom-collection.png)
 
 ### <a name="data-collector-api"></a>Veri Toplayıcı API’si
-Azure İzleyicisi'ni kullanarak herhangi bir REST istemcisinden günlük verilerini toplayabilir [veri toplayıcı API'sini](../../log-analytics/log-analytics-data-collector-api.md). Bu, özel izleme senaryoları oluşturmanıza ve diğer kaynakları aracılığıyla telemetri sunmayın kaynaklara izleme genişletmek sağlar.
+Azure İzleyicisi'ni kullanarak herhangi bir REST istemcisinden günlük verilerini toplayabilir [veri toplayıcı API'sini](../../azure-monitor/platform/data-collector-api.md). Bu, özel izleme senaryoları oluşturmanıza ve diğer kaynakları aracılığıyla telemetri sunmayın kaynaklara izleme genişletmek sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

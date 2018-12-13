@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/09/2017
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: 776c923910866b3c65271a8acdc00edc6eb6df59
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 0895d31475de5d78c82f3bfedc0765e5a9549339
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723831"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877607"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Akıllı algılama - hata Anomalileri
 [Application Insights](app-insights-overview.md) otomatik olarak web uygulamanızın olağandışı başarısız istek oranı artışı karşılaşırsa neredeyse gerçek zamanlı olarak bildirir. Bu, HTTP isteklerini veya başarısız olarak raporlanır bağımlılık çağrıları oranını olağan dışı bir artış algılar. Başarısız istekler, istekleri için yanıt kodları 400 veya daha yüksek olan genellikle biçimindedir. Önceliklendirmenize ve sorunu tanılamanıza yardımcı olmak için hataları ve ilgili telemetriyi özelliklerini analizini bildiriminde sağlanır. Daha ileri tanılama için Application Insights portalına bağlantıları vardır. Normal hata oranı tahmin etmek için makine öğrenimi algoritmaları kullanır gibi özellik Kurulum ya da yapılandırması gerekir.
@@ -146,7 +146,7 @@ Bu tanılama araçları, uygulamanızdan alınan telemetri incelemenize yardımc
 
 * [Ölçüm Gezgini](app-insights-metrics-explorer.md)
 * [Arama Gezgini](app-insights-diagnostic-search.md)
-* [Analytics - güçlü sorgu dili](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Analytics - güçlü sorgu dili](../azure-monitor/log-query/get-started-portal.md)
 
 Akıllı algılama tamamen otomatik olarak yapılır. Ancak belki de daha fazla bazı uyarıları ayarlamak ister misiniz?
 

@@ -2,18 +2,18 @@
 title: Modern yedekleme depolama alanı ile Azure Backup sunucusu kullanma
 description: Azure Backup sunucusu yeni özellikler hakkında bilgi edinin. Bu makalede, Backup sunucusu yüklemesi yükseltileceği açıklanır.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: 74940c29c4c6c623da569c70a3c0f1ed7194e185
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: MT
+ms.openlocfilehash: fa19cdbb6c51248b5361ba747829c4f9e617ce6a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727442"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865395"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Azure Backup Sunucusu’na depolama alanı ekleme
 

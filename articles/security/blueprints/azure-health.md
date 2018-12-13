@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: c0255ff31353ca8fe0cf684af53a12654b400208
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: MT
+ms.openlocfilehash: ca844c89b657bc3286f3472af3acbf937ef1e20f
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407563"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891070"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure güvenlik ve uyumluluk planı - HIPAA/HITRUST sağlık verileri ve yapay ZEKA
 
@@ -345,8 +345,8 @@ Veri depolama alanı elde etmek için ortak bir API şema hızlı sağlık birli
 ### <a name="machine-learning"></a>Machine Learning
 
 
--   [Günlüğe kaydetme etkinleştirildiğinde](/azure/machine-learning/studio/web-services-logging) için Machine Learning Studio web hizmetleri.
-- kullanarak [Machine Learning Studio](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) workbench çözüm kümesine tahmin etme olanağı sağlayan denemeleri geliştirilmesini gerektirir. [Workbench tümleştirme](/azure/machine-learning/desktop-workbench/using-git-ml-project) denemeleri yönetimini kolaylaştırmaya yardımcı olabilir.
+- [Günlüğe kaydetme etkinleştirildiğinde](/azure/machine-learning/studio/web-services-logging) için Machine Learning Studio web hizmetleri.
+- Kullanarak [Machine Learning Studio](/azure/machine-learning/studio/what-is-ml-studio) geliştirmeye yönelik bir çözüm kümesine tahmin etme olanağı sağlayan denemeleri gerektirir.
 
 ## <a name="security"></a>GÜVENLİK
 

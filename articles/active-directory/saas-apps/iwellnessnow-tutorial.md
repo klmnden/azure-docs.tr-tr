@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: c260b32dc6f659ca4cc1b4c3f59859f75ba999d0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b02a5ec5a68743e148bcfef3c631d7777fd0a067
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447382"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871707"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iwellnessnow"></a>Öğretici: Azure Active Directory iWellnessNow ile tümleştirme
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile iWellnessNow yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik bir iWellnessNow çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de iWellnessNow tümleştirmesini yapılandırmak için iWellnessNow Ga
 
 **Galeriden iWellnessNow eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -179,7 +179,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-an-iwellnessnow-test-user"></a>Bir iWellnessNow test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon iWellnessNow içinde adlı bir kullanıcı oluşturun. Çalışmak [iWellnessNow Destek ekibine](mailto:info@iwellnessnow.com) iWellnessNow platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi
+Bu bölümde, Britta Simon iWellnessNow içinde adlı bir kullanıcı oluşturun. Çalışmak [iWellnessNow Destek ekibine](mailto:info@iwellnessnow.com) iWellnessNow platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

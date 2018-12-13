@@ -1,5 +1,5 @@
 ---
-title: Akıllı gruplarını yönetme
+title: Akıllı grupları yönetme
 description: Akıllı uyarı örneklerinizin oluşturulan grupları yönetme
 author: anantr
 services: monitoring
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: d04684e7d4eed1b997ec803dc9ccc1dcc079bde0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 80d5d667b4edee579afed4a9eaa88996663497f4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959385"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879791"
 ---
-# <a name="manage-smart-groups"></a>Akıllı gruplarını yönetme
+# <a name="manage-smart-groups"></a>Akıllı grupları yönetme
 [Akıllı grupları](https://aka.ms/smart-groups) kullanıcının her bir uyarı ayrı ayrı yönetmek zorunda kalmak yerine akıllı grupları artık yönetebilmeniz için makine öğrenimi algoritmaları ortak oluşum ya da benzerlik, göndermemeniz grubu birlikte uyarılarını kullanın. Bu makalede, erişim ve Azure İzleyici'de akıllı grupları kullanma hakkında yol gösterir.
 1.  Uyarı örnekleriniz için akıllı grupları görmek için şunlardan birini yapabilirsiniz
      1. Tıklayarak **akıllı grupları** gelen **uyarılar özeti** sayfası    

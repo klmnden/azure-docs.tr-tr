@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: aab867e5c58ba9de17b3c68c8e507fca5354eb90
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: MT
+ms.openlocfilehash: 31ea45eba9d15240fc82828b8010ecd1fe0f82bd
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093450"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890526"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Fiyatlandırma katmanları PostgreSQL için Azure veritabanı
 
@@ -23,7 +23,7 @@ ms.locfileid: "49093450"
 |    | **Temel** | **Genel amaçlı** | **Bellek için iyileştirilmiş** |
 |:---|:----------|:--------------------|:---------------------|
 | İşlem oluşturma | Gen 4, 5. nesil | Gen 4, 5. nesil | 5. Nesil |
-| Sanal çekirdekler | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
+| Sanal çekirdekler | 1, 2 | 2, 4, 8, 16, 32 ve 64 |2, 4, 8, 16, 32 |
 | Sanal çekirdek başına bellek | 2 GB | 5 GB | 10 GB |
 | Depolama boyutu | 5 GB ila 1 TB | 5 GB ile 4 TB | 5 GB ile 4 TB |
 | Depolama türü | Azure standart depolama | Azure Premium Depolama | Azure Premium Depolama |

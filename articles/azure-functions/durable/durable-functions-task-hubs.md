@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 7a6346e594c5a7cc4cf02f3ea658aac4977e641a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 68771362c1b3904453eb7c32f58d28122e8660c3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642623"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869476"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri), görev hub'ları
 
@@ -89,6 +89,36 @@ Görev hub adı değeri olarak ayarlanır `MyTaskHub` uygulama ayarı. Aşağıd
   "Values": {
     "MyTaskHub" :  "samplehubname" 
   }
+}
+```
+
+İşte bir önceden derlenmiş C# nasıl yazılacağını kullanan bir işlev örneği bir [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) bir uygulama ayarı yapılandırılmış bir görev hub ile çalışmak için:
+
+```csharp
+[FunctionName("HttpStart")]
+public static async Task<HttpResponseMessage> Run(
+    [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
+    [OrchestrationClient(TaskHub = "%MyTaskHub%")] DurableOrchestrationClientBase starter,
+    string functionName,
+    ILogger log)
+{
+    // Function input comes from the request content.
+    dynamic eventData = await req.Content.ReadAsAsync<object>();
+    string instanceId = await starter.StartNewAsync(functionName, eventData);
+
+    log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
+
+    return starter.CreateCheckStatusResponse(req, instanceId);
+}
+```
+Ve JavaScript için gerekli yapılandırma aşağıda verilmiştir. Görev hub özelliğinde `function.json` dosyası uygulama ayarı ayarlayın:
+
+```javascript
+{
+    "name": "input",
+    "taskHub": "%MyTaskHub%",
+    "type": "orchestrationClient",
+    "direction": "in"
 }
 ```
 

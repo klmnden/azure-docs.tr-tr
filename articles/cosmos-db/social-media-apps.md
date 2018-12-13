@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: maquaran
-ms.openlocfilehash: 669cfdc59fc0b2f509db704afa4867d8f55d86f8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
+ms.openlocfilehash: 73f9de856ac81fcd475f9d77b234ae778f7397fb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083980"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871872"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB ile iletişim
 
@@ -47,14 +47,14 @@ Bu makalede, Azure'nın NoSQL veritabanı ile sosyal platformun veri modelleme i
         "date":"2016-01-01",
         "body":"this is an awesome post stored on NoSQL",
         "createdBy":User,
-        "images":["https://myfirstimage.png","https://mysecondimage.png"],
+        "images":["http://myfirstimage.png","http://mysecondimage.png"],
         "videos":[
-            {"url":"https://myfirstvideo.mp4", "title":"The first video"},
-            {"url":"https://mysecondvideo.mp4", "title":"The second video"}
+            {"url":"http://myfirstvideo.mp4", "title":"The first video"},
+            {"url":"http://mysecondvideo.mp4", "title":"The second video"}
         ],
         "audios":[
-            {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
-            {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
+            {"url":"http://myfirstaudio.mp3", "title":"The first audio"},
+            {"url":"http://mysecondaudio.mp3", "title":"The second audio"}
         ]
     }
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 6c5554c664c4f0f47b2f8341b8e7c428732b0af7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fec1b81ab879865bd690048b992075d45621da27
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086235"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890373"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Kapasite ve performans çözümü (Önizleme) ile Hyper-V sanal makine kapasite planlama
 
@@ -51,7 +51,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 | Bağlı Kaynak | Destek | Açıklama |
 |---|---|---|
 | [Windows aracıları](../../azure-monitor/platform/agent-windows.md) | Evet | Çözüm, Windows aracılarından kapasite ve performans verileri bilgilerini toplar. |
-| [Linux aracıları](../../azure-monitor/learn/quick-collect-linux-computer.md) | Hayır    | Çözüm, doğrudan Linux aracılarından kapasite ve performans verileri bilgi toplamaz.|
+| [Linux aracıları](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Hayır    | Çözüm, doğrudan Linux aracılarından kapasite ve performans verileri bilgi toplamaz.|
 | [SCOM yönetim grubu](../../azure-monitor/platform/om-agents.md) | Evet |Çözüm, bağlı SCOM yönetim grubundaki aracılardan kapasite ve performans verilerini toplar. Log Analytics SCOM Aracısı'ndan doğrudan bir bağlantı gerekli değildir.|
 | [Azure depolama hesabı](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Hayır | Azure depolama kapasite ve performans verilerini dahil etmez.|
 

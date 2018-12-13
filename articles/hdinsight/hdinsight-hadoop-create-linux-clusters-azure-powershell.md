@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 76bef5fcae8e95a52b7a35fdbb657db5dde01bc3
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: af6915a522788f95aaac8ec1b690a7e53b31aac6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035195"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863440"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Linux tabanlı kümeler Azure PowerShell kullanarak HDInsight oluşturma
 
@@ -90,16 +90,16 @@ HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gere
 
 Bir HDInsight kümesi başarıyla oluşturdunuz, bir küme ile çalışmanıza öğrenmek için aşağıdaki kaynakları kullanın.
 
-### <a name="hadoop-clusters"></a>Hadoop kümeleri
+### <a name="apache-hadoop-clusters"></a>Apache Hadoop kümelerini
 
-* [HDInsight ile Hive kullanma](hadoop/hdinsight-use-hive.md)
-* [HDInsight ile Pig kullanma](hadoop/hdinsight-use-pig.md)
-* [HDInsight ile MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
+* [Apache Hive, HDInsight ile kullanma](hadoop/hdinsight-use-hive.md)
+* [Apache Pig, HDInsight ile kullanma](hadoop/hdinsight-use-pig.md)
+* [HDInsight ile Apache HAdoop MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
 
-### <a name="hbase-clusters"></a>HBase kümeleri
+### <a name="apache-hbase-clusters"></a>Apache HBase kümeleri
 
-* [HDInsight üzerinde HBase kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [HDInsight üzerinde HBase için Java uygulamaları geliştirin](hbase/apache-hbase-build-java-maven-linux.md)
+* [HDInsight üzerinde Apache HBase kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [HDInsight üzerinde Apache HBase için Java uygulamaları geliştirin](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm kümeleri
 
@@ -107,10 +107,10 @@ Bir HDInsight kümesi başarıyla oluşturdunuz, bir küme ile çalışmanıza �
 * [HDInsight üzerinde Storm Python bileşenlerini kullanın](storm/apache-storm-develop-python-topology.md)
 * [HDInsight üzerinde Storm topolojileri dağıtma ve izleme](storm/apache-storm-deploy-monitor-topology-linux.md)
 
-### <a name="spark-clusters"></a>Spark kümeleri
+### <a name="apache-spark-clusters"></a>Apache Spark kümeleri
 
 * [Scala kullanarak tek başına uygulama oluşturma](spark/apache-spark-create-standalone-application.md)
-* [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](spark/apache-spark-livy-rest-interface.md)
-* [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](spark/apache-spark-use-bi-tools.md)
-* [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](spark/apache-spark-livy-rest-interface.md)
+* [BI ile Apache Spark: BI araçlarıyla HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](spark/apache-spark-use-bi-tools.md)
+* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](spark/apache-spark-machine-learning-mllib-ipython.md)
 

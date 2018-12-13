@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 32198387be680fd01558e900e4c438cde2cdc5b1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: b2f106edf69b57410fd1990d0888cf9d3a71be56
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52267102"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880191"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Market ticari işlem özelliklerini ve dikkat edilmesi gerekenler
 
@@ -177,8 +177,9 @@ Müşteriler ayrıca kredi kartı ve bir aylık fatura kullanarak ödeme yapabil
 |Ödeme hesaplama tarihi (aylık 15'inden) | 1 Ekim 2018'den |
 |Ödeme tarihi | 15 Ekim 2018 |
 
-Bir Kurumsal Sözleşmesi'ni kullanarak müşterinin satın alıyorsa:  
-|Açıklama    |    Tarih  |
+Bir Kurumsal Sözleşmesi'ni kullanarak müşterinin satın alıyorsa:
+
+| Açıklama |    Tarih  |
 |----------|----------|
 |Siparişi dönemi | 15 Ağu 2018'den itibaren-30 Ağu 2018 |
 |Terim bitiş (üç ay) | 30 Eylül 2018'e |

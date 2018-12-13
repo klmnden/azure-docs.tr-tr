@@ -3,7 +3,7 @@ title: Olağanüstü durum kurtarma çözümleri - Azure SQL veritabanı tasarla
 description: Doğru yük devretme düzeni seçerek olağanüstü durum kurtarma için bulut çözümünüzü tasarlamayı öğrenin.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pools
+ms.subservice: elastic-poolss
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 08/27/2018
-ms.openlocfilehash: 9ed01103a83073d1bbb22f476a9115af816571aa
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
-ms.translationtype: MT
+ms.openlocfilehash: 8c5f6503375302852b9fd603accdffa431aab35f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166563"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877573"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>SQL veritabanı esnek havuzları kullanan uygulamalar için olağanüstü durum kurtarma stratejileri
 Bulut Hizmetleri kusursuz değildir ve yıkıcı olaylara meydana yıllar içinde edindiğimiz. SQL veritabanı, bu olaylar meydana geldiğinde uygulamanız için iş sürekliliği sağlamak için çeşitli özellikleri sağlar. [Elastik havuzlar](sql-database-elastic-pool.md) ve tek veritabanları aynı türde bir olağanüstü durum kurtarma (DR) özellikleri destekler. Elastik havuzlar için bu makalede, çeşitli DR stratejileri açıklanır. Bu SQL veritabanı iş sürekliliği özellikleri yararlanın.

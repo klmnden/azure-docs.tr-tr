@@ -3,7 +3,7 @@ title: XTP bellek içi depolama izleme | Microsoft Docs
 description: Tahmini ve izleme XTP bellek içi depolama alanı, kapasite kullanın. Kapasite hatası 41823 çözümleyin
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: genemi
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 2a9c01eb2c237a7c79464b930c9258f791d8f3ce
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ac7b568d95b9a2c382b1c167965942f0733012c4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161633"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874932"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>İzleyici bellek içi OLTP depolama alanı
 Kullanırken [bellek içi OLTP](sql-database-in-memory.md), bellek için iyileştirilmiş tablolarda ve Tablo değişkenleri veriler bellek içi OLTP depolama alanında bulunur. Her Premium ve iş açısından kritik hizmet katmanında bellek içi OLTP depolama alanı boyut sınırı bulunur. Bkz: [DTU tabanlı kaynak sınırları - tek veritabanı](sql-database-dtu-resource-limits-single-databases.md), [DTU tabanlı kaynak sınırları - elastik havuzlar](sql-database-dtu-resource-limits-elastic-pools.md),[sanal çekirdek tabanlı kaynak sınırları - tek veritabanları](sql-database-vcore-resource-limits-single-databases.md) ve [sanal çekirdek tabanlı kaynak sınırları - elastik havuzlar](sql-database-vcore-resource-limits-elastic-pools.md).

@@ -12,16 +12,16 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 6dff1b2fe40acdef1fde95444d70f0bcfc120a64
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: 60d19f6d598c6090e0dc00c61817a0f8aed35003
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230045"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889506"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Akıllı Öngörüler sayesinde Azure SQL veritabanı performans sorunlarını giderme
 
-Bu sayfa, Azure SQL veritabanı'nda bilgileri sağlar ve yönetilen örnek performans sorunlarını tespit aracılığıyla [Intelligent Insights](sql-database-intelligent-insights.md) veritabanı performans tanılama günlük. Tanılama Günlüğü telemetri için yapılabilen [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure depolama](sql-database-metrics-diag-logging.md#stream-into-storage), veya bir üçüncü taraf çözümü özel DevOps uyarı verme ve raporlama özellikleri.
+Bu sayfa, Azure SQL veritabanı'nda bilgileri sağlar ve yönetilen örnek performans sorunlarını tespit aracılığıyla [Intelligent Insights](sql-database-intelligent-insights.md) veritabanı performans tanılama günlük. Tanılama Günlüğü telemetri için yapılabilen [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure depolama](sql-database-metrics-diag-logging.md#stream-into-storage), veya bir üçüncü taraf çözümü özel DevOps uyarı verme ve raporlama özellikleri.
 
 > [!NOTE]
 > Sorun giderme kılavuzu Intelligent ınsights'ı kullanarak bir hızlı SQL veritabanı performans için bkz: [akışla ilgili sorunları giderme önerilen](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) bu belgedeki akış çizelgesi.

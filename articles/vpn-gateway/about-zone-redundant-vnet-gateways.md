@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: 27bac5265a5e884b808c4ccb58fda0b2fffeb774
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d3dda3bb5fd39b844f50044c1262008e3610e301
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975673"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871413"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Azure kullanılabilirlik alanları, bölgesel olarak yedekli sanal ağ geçitleri hakkında
 
@@ -86,7 +86,7 @@ Evet, yeni SKU'lara dağıtmak için Azure portalını kullanabilirsiniz. Ancak,
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Hangi bölgeler benim için yeni SKU'lara kullanmak kullanılabilir mi?
 
-Yeni SKU'lara Azure kullanılabilirlik alanları - Orta ABD, Fransa Orta ve Batı Avrupa bölgelerinde sahip Azure bölgelerinde kullanılabilir. Bundan sonra bölgesel olarak yedekli ağ geçitleri kullanılabilir, diğer Azure ortak bölgelerde bulunacağız.
+Yeni SKU'lara Azure kullanılabilirlik alanları - Orta ABD, Fransa Orta, Kuzey Avrupa, Batı Avrupa ve Batı ABD 2 bölgelerinde sahip Azure bölgelerinde kullanılabilir. Bundan sonra bölgesel olarak yedekli ağ geçitleri kullanılabilir, diğer Azure ortak bölgelerde bulunacağız.
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Kullanabilir miyim Değiştir/geçiş/yükseltmesi mevcut sanal ağ geçitlerim bölgesel olarak yedekli ya da bölgesel ağ geçitleri?
 
@@ -98,4 +98,4 @@ Aynı sanal ağda hem VPN hem de Express Route ağ geçitlerinin aynı anda var 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-[Bölgesel olarak yedekli sanal ağ geçidi oluşturma](create-zone-redundant-vnet-gateway.md)
+[Alanlar arası yedekli sanal ağ geçidi oluşturma](create-zone-redundant-vnet-gateway.md)

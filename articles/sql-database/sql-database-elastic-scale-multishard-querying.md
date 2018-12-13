@@ -3,7 +3,7 @@ title: Azure SQL veritabanlarını parçalı sorgulama | Microsoft Docs
 description: Elastik veritabanı istemci kitaplığını kullanarak parçalar arasında sorguları çalıştırın.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 93408b266a239e897b49ab2482818a5221742685
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: bc0ca62699c21848e4d5fdc18bef292dce4634bf
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870411"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863474"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Esnek veritabanı araçlarını kullanarak çok parçalı sorgulama
 

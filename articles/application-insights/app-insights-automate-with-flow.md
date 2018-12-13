@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: c53016c6e8760f2fef15c73f460886c46ac8a58c
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: b5d64f374152cc537825bd49210c116deec87533
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679214"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870597"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Microsoft Flow için Azure Application Insights işlemleri Bağlayıcısı ile otomatik hale getirin
 
@@ -124,7 +124,7 @@ Akış çalıştırıldığında, e-posta listede belirttiğiniz alıcılara aş
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Oluşturma hakkında daha fazla bilgi edinin [analiz sorguları](../log-analytics/query-language/get-started-queries.md).
+- Oluşturma hakkında daha fazla bilgi edinin [analiz sorguları](../azure-monitor/log-query/get-started-queries.md).
 - Daha fazla bilgi edinin [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

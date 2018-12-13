@@ -3,7 +3,7 @@ title: Geçişten sonra - Azure SQL veritabanı'nı yönetme | Microsoft Docs
 description: Azure SQL veritabanına geçişten sonra veritabanınızı yönetmeyi öğrenin.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: fd32a00fe83e731321cb5e365f64d0f6acf8732d
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e4f70521fbd081f7e26f56f4175656cca61887d1
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870987"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890713"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Yeni DBA bulutta – veritabanınızı Azure SQL veritabanı'nda yönetme
 
@@ -209,7 +209,7 @@ Bu grafikte, kaynak tarafından uyarıları da yapılandırabilirsiniz. Bu uyar�
 
    ![Sorgu Performansı İçgörüleri](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-- **Azure SQL Analytics (Önizleme) Log analytics'te**: [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md) destekleyen en fazla 150.000 SQL veritabanları ve başına 5.000 SQL elastik havuzları toplamanıza ve anahtar Azure SQL Azure performans ölçümleri görselleştirmenize olanak tanır Çalışma alanı. İzleme ve bildirimler almak için kullanabilirsiniz. Bir uygulama yığınının her katmanında sorunları belirlemek için kullanılabilir ve SQL veritabanı ve elastik havuz ölçümleri birden çok Azure abonelikleri ve elastik havuzlar arasında izleyebilirsiniz.
+- **Azure SQL Analytics (Önizleme) Log analytics'te**: [Azure Log Analytics](../azure-monitor/insights/azure-sql.md) destekleyen en fazla 150.000 SQL veritabanları ve başına 5.000 SQL elastik havuzları toplamanıza ve anahtar Azure SQL Azure performans ölçümleri görselleştirmenize olanak tanır Çalışma alanı. İzleme ve bildirimler almak için kullanabilirsiniz. Bir uygulama yığınının her katmanında sorunları belirlemek için kullanılabilir ve SQL veritabanı ve elastik havuz ölçümleri birden çok Azure abonelikleri ve elastik havuzlar arasında izleyebilirsiniz.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Performans sorunlarını tercihinize: my SQL veritabanı sorun giderme Metodoloji farkı SQL Server'dan?
 Sorun giderme teknikleri önemli bir kısmı, sorgu tanılamak için kullanacağınız ve veritabanı performans sorunlarını aynı kalır. Sonra tüm aynı SQL Server, bulut altyapısı çalıştırır. Ancak, platform - Azure SQL DB 'zekası' oluşturdu. Bu, hatta daha kolay performans sorunlarını tanılama ve giderme yardımcı olabilir. Bu da bu düzeltici eylemler bazılarını sizin adınıza ve bazı durumlarda gerçekleştirmek, proaktif olarak bunları - otomatik olarak düzeltin. 

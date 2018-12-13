@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: ae719e6daa3c07ffe298cfefcc5a0a2846a49032
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 35d2234ee52516c4ebf3e354e1ab6890144cdd5d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231830"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879477"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso geçiş: şirket içi uygulama bir Azure VM ve SQL veritabanı yönetilen örneği yeniden barındırma
 
@@ -186,14 +186,14 @@ Contoso yöneticileri sanal ağı aşağıdaki gibi ayarlayın:
     - **SQLMI DS EUS2** (10.235.0.0.25)
     - **SQLMI SAW EUS2** (10.235.0.128/29). Bu alt ağı, yönetilen örneği'ne bir dizin eklemek için kullanılır.
 
-    ![Yönetilen örnek - sanal ağ oluşturma](media/contoso-migration-rehost-vm-sql-managed-instance/mi-vnet.png)
+      ![Yönetilen örnek - sanal ağ oluşturma](media/contoso-migration-rehost-vm-sql-managed-instance/mi-vnet.png)
 
 4. Sanal ağ ve alt ağları dağıtıldıktan sonra ağları aşağıdaki gibi eş:
 
     - Eş **VNET SQLMI EUS2** ile **VNET HUB EUS2** (hub sanal ağ için Doğu ABD 2).
     - Eş **VNET SQLMI EUS2** ile **VNET PROD EUS2** (üretim ağı).
 
-    ![Ağ eşlemesi](media/contoso-migration-rehost-vm-sql-managed-instance/mi-peering.png)
+      ![Ağ eşlemesi](media/contoso-migration-rehost-vm-sql-managed-instance/mi-peering.png)
 
 5. Bunlar, özel DNS ayarlarını yapın. DNS, Contoso'nun Azure etki alanı denetleyicilerine ilk işaret eder. Azure DNS, ikincil. Contoso Azure etki alanı denetleyicileri bulunduğu konum aşağıda verilmiştir:
 
@@ -202,7 +202,7 @@ Contoso yöneticileri sanal ağı aşağıdaki gibi ayarlayın:
     - **CONTOSODC4** adresi: 10.245.42.5
     - Azure DNS Çözümleyicisi: 168.63.129.16
 
-     ![Ağ DNS sunucularına](media/contoso-migration-rehost-vm-sql-managed-instance/mi-dns.png)
+      ![Ağ DNS sunucularına](media/contoso-migration-rehost-vm-sql-managed-instance/mi-dns.png)
 
 *Daha fazla yardıma mı ihtiyacınız var?*
 
@@ -254,7 +254,7 @@ Artık, Contoso yöneticilerinin bir SQL veritabanı yönetilen örneği sağlay
     - Büyük/küçük harf Contoso sanal bir kümede birden çok yönetilen örneğe sahip.
     - SQL Server veritabanı yönetilen örneği. 
 
-    ![Yönetilen Örnek](media/contoso-migration-rehost-vm-sql-managed-instance/mi-resources.png)
+      ![Yönetilen Örnek](media/contoso-migration-rehost-vm-sql-managed-instance/mi-resources.png)
 
 *Daha fazla yardıma mı ihtiyacınız var?*
 
@@ -615,7 +615,7 @@ VM'ler için önerilen güvenlik uygulamaları hakkında daha fazla bilgi edinme
 
 Contoso, iş sürekliliği ve olağanüstü durum kurtarma (BCDR) için aşağıdaki işlemleri yapar:
 
-- Verileri güvende tutun: Contoso Vm'leri Azure Backup hizmetini kullanarak verileri yedekler. [Daha fazla bilgi edinin] https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+- Verileri güvende tutun: Contoso Vm'leri Azure Backup hizmetini kullanarak verileri yedekler. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - Uygulamalarınızı çalışır halde tutun: Contoso uygulama Azure sanal makinelerini Site Recovery kullanarak ikincil bir bölgeye çoğaltır. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
 - Contoso yönetilen SQL örneği yönetme hakkında daha fazla öğrenir dahil olmak üzere [veritabanı yedeklemeleri](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
 

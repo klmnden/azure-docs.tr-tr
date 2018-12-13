@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: fef4ecd207fd32b5a92a4c072832f3ab45b58300
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 74b421691f5d3536c44af16e99dc54451dfde3f7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627811"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872773"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Belge biçimleri ve adlandırma kuralı Kılavuzu
 
@@ -43,11 +43,13 @@ Sözlük için özel Translator olanlar için Eğitim kümesi desteklenen tüm d
 
 Belgeler, gruplandırılmış bir tek bir ZIP dosyasına ekleyin ve karşıya yüklendi. Özel Translator desteklediği dosya biçimleri (ZIP, GZ ve TGZ) zip.
 
-Zip dosyasındaki her bir belge, bu adlandırma kuralı izlemelisiniz:
+Her belge uzantılı zip dosyasında TXT, HTML, HTM, PDF, DOCX, hizalama, bu adlandırma kuralları izlemelidir:
 
 {Belge adı} \_{language kodu} {dil kodu} burada {belge adı}, belgenin adını, ISO belge o dilde cümleler içerdiğini gösteren LanguageID (iki karakter) karşılık gelir. Dil kodu önce bir alt çizgi (_) olması gerekir.
 
 Örneğin, bir İngilizce, İspanyolca sistemine bir ZIP içindeki iki paralel belgeler karşıya yüklemek için dosyaları "data_en" ve "data_es" adlı olmalıdır.
+
+Çeviri bellek dosyaları (TMX, XLF, XLIFF, LCL, XLSX) belirli bir dil adlandırma kuralını uyguladığınızdan gerekli değildir.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,21 +1,22 @@
 ---
-title: Önceden oluşturulmuş etki alanları için Language Understanding (LUIS)
+title: Dil Understa için önceden oluşturulmuş etki alanları
 titleSuffix: Azure Cognitive Services
 description: LUIS, bir dizi ortak, konuşma kullanıcı senaryoları hızlı bir şekilde eklemek için önceden oluşturulmuş etki alanları içerir.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: b1c7ced4a934ea5d094e0c54a295870986f09933
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 05c6981c4962827154764df0e874824e5398d96d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651897"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074409"
 ---
 # <a name="add-prebuilt-domains-for-common-usage-scenarios"></a>Genel kullanım senaryoları için önceden oluşturulmuş etki alanlarını ekleyin 
 
@@ -49,7 +50,7 @@ Test uç noktasında yeni hedefi için bir değer olarak eklenen **q** parametre
 
 LUIS doğru amacı ve toplantı konu döndürür:
 
-```JSON
+```json
 {
   "query": "Schedule a meeting with John Smith in Seattle next week",
   "topScoringIntent": {

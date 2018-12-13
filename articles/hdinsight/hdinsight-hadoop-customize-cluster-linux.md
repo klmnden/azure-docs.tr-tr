@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 24fecd73876228b3665cde21ae312963ec979df6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5ef7ddc068fea7703dad67b80b96c292bfd26943
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279749"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870716"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Betik eylemlerini kullanarak Linux tabanlı HDInsight kümeleri özelleştirme
 
@@ -111,7 +111,7 @@ Betik eylemi oluşturma işlemi sırasında yürütüldüğünde, aşağıdaki d
 HDInsight yapılandırılırken betiği çalıştırır. Betik, belirtilen kümedeki tüm düğümler üzerinde paralel olarak çalışır ve düğümler üzerinde kök ayrıcalıklarıyla çalıştırır.
 
 > [!NOTE]
-> Durdurulmasını ve başlatılmasını Hadoop ile ilgili hizmetler gibi hizmetler gibi işlemler gerçekleştirebilirsiniz. Hizmetleri durdurun, Ambari hizmet ve önce betik çalıştıran diğer Hadoop ile ilgili hizmetlerin tamamlandığından emin olmanız gerekir. Bu hizmetler, oluşturulurken kümesinin durumunu ve sistem durumu başarılı bir şekilde belirlemek için gereklidir.
+> Durdurma ve Apache Hadoop ile ilgili hizmetler gibi hizmetler başlatma gibi işlemler gerçekleştirebilirsiniz. Hizmetleri durdurun, Ambari hizmet ve önce betik çalıştıran diğer Hadoop ile ilgili hizmetlerin tamamlandığından emin olmanız gerekir. Bu hizmetler, oluşturulurken kümesinin durumunu ve sistem durumu başarılı bir şekilde belirlemek için gereklidir.
 
 
 Küme oluşturma sırasında tek seferde birden çok betik eylemleri kullanabilirsiniz. Bu betikler, belirtilmiş olması sırayla çağrılır.
@@ -168,7 +168,7 @@ Bu bölümde, betik eylemleri bir HDInsight kümesi oluştururken kullanabilece�
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Azure portalından küme oluşturma sırasında bir betik eylemi kullanın
 
-1. Anlatıldığı gibi bir küme oluşturmaya başlayın [Hadoop kümeleri oluşturma HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Küme oluşturma sırasında ulaşırsınız bir __küme özeti__ sayfası. Gelen __küme özeti__ sayfasında __Düzenle__ için bağlantı __Gelişmiş ayarlar__.
+1. Anlatıldığı gibi bir küme oluşturmaya başlayın [Apache Hadoop kümeleri oluşturma HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Küme oluşturma sırasında ulaşırsınız bir __küme özeti__ sayfası. Gelen __küme özeti__ sayfasında __Düzenle__ için bağlantı __Gelişmiş ayarlar__.
 
     ![Gelişmiş ayarlar bağlantısı](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 
@@ -402,11 +402,11 @@ Komut geçmişi bir kümeden almak için .NET SDK'sını kullanarak bir örnek i
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>HDInsight kümelerinde kullanılan açık kaynaklı yazılım desteği
 
-Microsoft Azure HDInsight hizmeti, açık kaynak teknolojilerini Hadoop geçici olarak biçimlendirilmiş bir kaynak ekosisteminiz kullanır. Microsoft Azure için açık kaynak teknolojilerini genel düzeyde destek sağlar. Daha fazla bilgi için **destek kapsamı** bölümünü [Azure desteği SSS Web sitesine](https://azure.microsoft.com/support/faq/). HDInsight hizmeti, yerleşik bileşenler için ek bir destek düzeyi sağlar.
+Microsoft Azure HDInsight hizmeti, açık kaynak teknolojilerini Apache Hadoop geçici olarak biçimlendirilmiş bir kaynak ekosisteminiz kullanır. Microsoft Azure için açık kaynak teknolojilerini genel düzeyde destek sağlar. Daha fazla bilgi için **destek kapsamı** bölümünü [Azure desteği SSS Web sitesine](https://azure.microsoft.com/support/faq/). HDInsight hizmeti, yerleşik bileşenler için ek bir destek düzeyi sağlar.
 
 HDInsight hizmetinde kullanılabilir açık kaynak bileşenleri iki tür vardır:
 
-* **Yerleşik bileşenlerini** -bu bileşenler HDInsight kümelerinde önceden yüklü olan ve kümeyi temel işlevlerini sağlar. Örneğin, YARN ResourceManager, Hive sorgu dili (HiveQL) ve Mahout kitaplığı, bu kategoriye aittir. Tam küme bileşenleri listesini kullanılabilir [HDInsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler](hdinsight-component-versioning.md).
+* **Yerleşik bileşenlerini** -bu bileşenler HDInsight kümelerinde önceden yüklü olan ve kümeyi temel işlevlerini sağlar. Örneğin, [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager, Hive sorgu dili ([HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)) ve [Apache Mahout](https://mahout.apache.org/) kitaplığı, bu kategoriye aittir. Tam küme bileşenleri listesini kullanılabilir [HDInsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler](hdinsight-component-versioning.md).
 * **Özel bileşenler** -, kümenin bir kullanıcı olarak yükleyebilir veya herhangi bir bileşeni Topluluğu'nda kullanılabilir veya sizin tarafınızdan oluşturulan iş yükünüzü kullanın.
 
 > [!WARNING]
@@ -426,7 +426,7 @@ HDInsight hizmeti, özel bileşenler kullanmak için birkaç yol sağlar. Aynı 
 
 Betik eylemleri tarafından günlüğe kaydedilen bilgi görüntülemek için Ambari web kullanıcı Arabirimi kullanabilirsiniz. Betik, küme oluşturma sırasında başarısız olursa, günlükleri kümeyle ilişkilendirilmiş varsayılan depolama hesabını mevcuttur. Bu bölümde, bu seçeneklerin kullanarak günlükleri alma hakkında bilgi sağlar.
 
-### <a name="using-the-ambari-web-ui"></a>Ambari Web kullanıcı arabirimini kullanarak
+### <a name="using-the-apache-ambari-web-ui"></a>Apache Ambari Web kullanıcı arabirimini kullanarak
 
 1. Tarayıcınızda https://CLUSTERNAME.azurehdinsight.net adresine gidin. CLUSTERNAME HDInsight kümenizin adıyla değiştirin.
 
@@ -513,8 +513,8 @@ Kümenize 15 Mart 2016'dan önce oluşturulduysa bir betik eylemi geçmişi giri
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [HDInsight için betik eylemi betikleri geliştirme](hdinsight-hadoop-script-actions-linux.md)
-* [Yükleme ve HDInsight kümelerinde Solr kullanma](hdinsight-hadoop-solr-install-linux.md)
-* [Yükleme ve HDInsight kümelerinde Giraph kullanma](hdinsight-hadoop-giraph-install-linux.md)
+* [Yükleme ve HDInsight kümeleri üzerinde Apache Solr kullanma](hdinsight-hadoop-solr-install-linux.md)
+* [Yükleme ve HDInsight kümeleri üzerinde Apache giraph'ı kullanma](hdinsight-hadoop-giraph-install-linux.md)
 * [Bir HDInsight kümesine ek depolama alanı ekleme](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Küme oluşturma sırasında aşamaları"

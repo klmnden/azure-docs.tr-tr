@@ -8,24 +8,24 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: fd1fa105a880acb0d2b18a3b69ba8d475d8f82a3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
+ms.openlocfilehash: b52305d59803d9fb8e70d89ae13cd5006c74129f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081600"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865463"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Azure Cosmos DB Bağlayıcısı için Apache Spark'ı kullanarak büyük veri analizi hızlandırın
  
-Apache Spark Azure Cosmos DB bağlayıcısı, Azure Cosmos DB'nin Apache Spark işleri için giriş veya çıkış olmasını sağlar. Bağlanma [Spark](https://spark.apache.org//) için [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hızlı ilerleyen veri bilimi çözmekte hızlı şekilde. Azure Cosmos DB, hızlı bir şekilde kalıcı hale getirmek ve veri sorgulamak için kullanabilirsiniz. Bağlayıcı, Azure Cosmos DB tarafından yönetilen dizinleri verimli bir şekilde kullanır. Dizinler hızla değişen ve genel olarak dağıtılmış verilerde analiz ve koşullu filtreleme gerçekleştirdiğinizde güncelleştirilebilir sütunları kullanmanızı sağlar. Bu türdeki nesnelerin Internet ' (IOT) veri bilimi ve analiz senaryolarına değişebilir.
+Apache Spark Azure Cosmos DB bağlayıcısı, Azure Cosmos DB'nin Apache Spark işleri için giriş veya çıkış olmasını sağlar. Bağlanma [Spark](http://spark.apache.org/) için [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hızlı ilerleyen veri bilimi çözmekte hızlı şekilde. Azure Cosmos DB, hızlı bir şekilde kalıcı hale getirmek ve veri sorgulamak için kullanabilirsiniz. Bağlayıcı, Azure Cosmos DB tarafından yönetilen dizinleri verimli bir şekilde kullanır. Dizinler hızla değişen ve genel olarak dağıtılmış verilerde analiz ve koşullu filtreleme gerçekleştirdiğinizde güncelleştirilebilir sütunları kullanmanızı sağlar. Bu türdeki nesnelerin Internet ' (IOT) veri bilimi ve analiz senaryolarına değişebilir.
 
 ## <a name="connector-components"></a>Bağlayıcı bileşenleri
 
 Spark Bağlayıcısı Azure Cosmos DB için aşağıdaki bileşenlere sahiptir:
 
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) sağlama ve hem aktarım hızı ve depolama herhangi sayıda coğrafi bölgesinde esnek bir şekilde ölçeklendirmenizi sağlar.  
+* [Azure Cosmos DB](http://documentdb.com) sağlama ve hem aktarım hızı ve depolama herhangi sayıda coğrafi bölgesinde esnek bir şekilde ölçeklendirmenizi sağlar.  
 
-* [Apache Spark](https://spark.apache.org/) hız, kullanım kolaylığı ve Gelişmiş analiz geçici olarak oluşturulmuş bir güçlü açık kaynak işleme altyapısı.  
+* [Apache Spark](http://spark.apache.org/) hız, kullanım kolaylığı ve Gelişmiş analiz geçici olarak oluşturulmuş bir güçlü açık kaynak işleme altyapısı.  
 
 * [Azure Databricks üzerinde Apache Spark kümesi](https://docs.azuredatabricks.net/getting-started/index.html) , Spark, Spark kümesinde işleri çalıştırma sağlar.
 
@@ -177,7 +177,7 @@ Spark çalışan düğümlerine ve Azure Cosmos DB veri düğümleri (bölümler
 
 4. Twitter akışındaki örnek içeriğini ayıklayın ve config.py dosyasını açın. MasterKey, konak, Databaseıd, CollectionId ve preferredLocations değerlerini güncelleştirin.  
 
-5. Git `https://apps.twitter.com/`ve Twitter uygulama akışındaki kaydedin. Uygulamanız için bir ad seçtikten sonra birlikte sağlanacak bir **tüketici anahtarı, tüketici gizli, erişim belirteci ve erişim belirteci gizli**. Bu değerleri kopyalayın ve Twitter uygulama programlı erişim için Twitter akışı sağlamak üzere config.py dosyasını güncelleştirin.   
+5. Git `http://apps.twitter.com/`ve Twitter uygulama akışındaki kaydedin. Uygulamanız için bir ad seçtikten sonra birlikte sağlanacak bir **tüketici anahtarı, tüketici gizli, erişim belirteci ve erişim belirteci gizli**. Bu değerleri kopyalayın ve Twitter uygulama programlı erişim için Twitter akışı sağlamak üzere config.py dosyasını güncelleştirin.   
 
 6. Config.py dosyasını kaydedin. Bir komut istemi açın ve aşağıdaki komutu kullanarak Python uygulamasını çalıştırın:
 
@@ -511,4 +511,4 @@ Henüz yapmadıysanız, Spark Azure Cosmos DB Bağlayıcısı'ndan indirin [azur
 * [Toplamalar örnekleri](https://github.com/Azure/azure-cosmosdb-spark/wiki/Aggregations-Examples)
 * [Örnek betikler ve Not Defterleri](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)
 
-İncelemek isteyebilirsiniz [Apache Spark SQL ve DataFrames veri kümeleri Kılavuzu](https://spark.apache.org/docs/latest/sql-programming-guide.html)ve [Azure HDInsight üzerinde Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) makalesi.
+İncelemek isteyebilirsiniz [Apache Spark SQL ve DataFrames veri kümeleri Kılavuzu](http://spark.apache.org/docs/latest/sql-programming-guide.html)ve [Azure HDInsight üzerinde Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) makalesi.

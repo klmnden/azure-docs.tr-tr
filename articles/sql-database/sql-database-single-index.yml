@@ -1,0 +1,134 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: e5943dde86b96dc0f95df0620212daf9a972fccf
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52883317"
+documentType: LandingData
+title: Azure SQL veritabanı - tek veritabanı
+metadata:
+  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
+  title: Azure SQL Veritabanı Belgeleri - Öğreticiler, API Başvurusu
+  meta.description: Learn how to use Azure SQL databases.
+  services: sql-database
+  author: jovanpop-msft
+  manager: craigg
+  ms.service: sql-database
+  ms.tgt_pltfrm: na
+  ms.devlang: 
+  ms.topic: overview
+  ms.date: 12/01/2018
+  ms.author: jovanpop-msft
+abstract:
+  description: Azure SQL Veritabanı, Microsoft SQL Server Veritabanı Altyapısı'nın en son kararlı sürümünü temel alan ilişkisel hizmet olarak veritabanı (DBaaS) ürünüdür. SQL Veritabanı, altyapı yönetimine gerek kalmadan kendi seçtiğiniz programlama dilinde veri odaklı uygulamalar ve web siteleri oluşturmak için kullanabileceğiniz yüksek performanslı, güvenilir ve güvenli bir veritabanıdır. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, SQL Veritabanı’nı kullanmayı öğrenin.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: https://docs.microsoft.com/azure/sql-database/media/index/create-sql-database-on-azure.png
+      width: 250
+    title: Azure üzerinde tek bir SQL veritabanı oluşturun. (3:12)
+    href: https://azure.microsoft.com/resources/videos/create-sql-database-on-azure/
+    width: 250
+sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - title: Esnek havuzlar
+      href: /azure/sql-database/sql-database-elastic-pool
+      html: <p>SQL Veritabanı elastik havuzları, kullanım talepleri değişken olan ve öngörülmeyen birden çok veritabanını yönetmeye ve ölçeklendirmeye yönelik kolay ve ekonomik bir çözümdür.</p>
+      image:
+        src: media/index/i_elasticpool.svg
+    - title: Mantıksal sunucu
+      href: /azure/sql-database/sql-database-logical-servers
+      html: <p>Mantıksal sunucu üzerinde bir dizi sunucu içindeki veritabanlarına güvenlik, tunning, yedekleme İlkesi ve diğer yapılandırma özellikleri yapılandırmak için merkezi yönetim noktasıdır.</p>
+      image:
+        src: media/index/i_mi.svg
+    - title: Fiyat/hizmet katmanları
+      href: /azure/sql-database/sql-database-service-tiers
+      html: <p>Aylık 5 ABD Doları gibi makul ücretlerden 80 çekirdekli güçlü veritabanlarına varan esnek hizmet katmanlarıyla fiyat/performans oranını ihtiyaçlarınıza göre uyarlayın.</p>
+      image:
+        src: media/index/i_perftier.svg
+    - title: Ölçeklenebilirlik
+      href: /azure/sql-database/sql-database-scale-resources
+      html: <p>Bizim veritabanını uygulamanızın performansını artırmak için ihtiyaçlarınıza bağlı olarak kolayca ölçeklendirin.</p>
+      image:
+        src: media/index/i_scale.svg
+    - title: Hizmet olarak Platform
+      href: /azure/sql-database/sql-database-paas
+      html: <p>Yerleşik yüksek kullanılabilirlik, otomatik yedeklemeler ve coğrafi çoğaltma özellikleri, bakım işlemlerinin ve altyapı veya donanım hatalarının işletmenizi durdurmasını önler.</p>
+      image:
+        src: media/index/gear.svg
+    - title: Gelişmiş güvenlik
+      href: /azure/sql-database/sql-database-security-index
+      html: <p>Veritabanınızı Azure AD kimlik doğrulaması, Sanal Ağlar, Güvenlik Duvarları ve Always Encrypted bağlantılar ile koruyun. Yerleşik güvenlik sayesinde tehditleri ve güvenlik açıklarını belirleyin.</p>
+      image:
+        src: media/index/i_security.svg
+- title: 5 Dakikalık Hızlı Başlangıçlar
+  items:
+  - type: paragraph
+    text: 'Azure SQL Veritabanı sayesinde Azure portal, Azure CLI ve Azure PowerShell’i kullanarak temel yönetim görevlerini kolayca gerçekleştirebilirsiniz. Aşağıdaki hızlı başlangıç örneklerini kullanarak temel yönetim görevlerini nasıl gerçekleştireceğinizi öğrenin:'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/portal.svg
+      title: Azure portal
+    - image:
+        src: media/index/cli.svg
+      title: Azure CLI
+    - image:
+        src: media/index/logo_powershell.svg
+      title: PowerShell
+    - image:
+        src: media/index/logo_arm.svg
+      title: Azure Resource Manager şablonu
+    rows:
+    - title: Veritabanı Oluştur
+      values:
+      - href: /azure/sql-database/sql-database-get-started-portal
+      - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
+      - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
+      - href: 
+    - title: Elastik havuz oluşturma
+      values:
+      - href: 
+      - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
+      - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
+    - title: Ölçek veritabanı
+      values:
+      - href: 
+      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
+      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
+      - href: 
+    - title: Elastik havuzu ölçeklendirme
+      values:
+      - href: 
+      - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
+      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
+- title: Adım Adım Öğreticiler
+  items:
+  - type: paragraph
+    text: SQL veritabanı kullanarak veritabanları oluşturma, yönetme ve geçirme hakkında bilgi edinin
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> veya <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a> kullanarak yeni SQL Veritabanı için şema oluşturma ve tasarlama
+    - html: Varolan bir veritabanını azure'a geçirme <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">veritabanı geçiş Yardımcısı'nı</a> veya <a href="/azure/sql-database/sql-database-import">BACPAC içeri aktarma</a>
+    - html: <a href="/azure/sql-database/sql-database-security-tutorial">SQL Veritabanınızın güvenliğini sağlama</a>
+    - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Coğrafi olarak dağıtılmış veritabanı</a>’nı kullanarak verilerinizi global olarak dağıtma
+- title: Örnekler
+  items:
+  - type: paragraph
+    text: Genel görevleri yönetmeye yönelik betikleri bulun.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a>
+    - html: <a href="/azure/sql-database/sql-database-cli-samples">Azure CLI</a>

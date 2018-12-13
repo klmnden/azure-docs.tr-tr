@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: jeedes
-ms.openlocfilehash: b288bcbe14050c0f764f348d5e20186570e32866
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 34de89123e75f0c760fbcefa633b9aadf8d2b997
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442209"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878657"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Öğretici: Azure Active Directory Öngörüyor CX Suite ile tümleştirme
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi Öngörüyor CX Suite ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Öngörüyor CX Suite çoklu oturum açma etkin
 
 > [!NOTE]
@@ -61,7 +61,7 @@ Azure AD'de Öngörüyor CX takımının tümleştirmesini yapılandırmak için
 
 **Galeriden Öngörüyor CX paketi eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi][1]
 

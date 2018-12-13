@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: bfa36cfeda514be0941481b0e4ed5ab9b3669b54
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2da89e674b967287150b2e8f3a98fc25df2af81e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238106"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878279"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Bootstrap ile HDInsight kümeleri özelleştirme
 
@@ -50,7 +50,7 @@ Ek bileşenler oluşturma süre boyunca HDInsight kümesinde yükleme hakkında 
 * [Betik eylemi (Linux) kullanarak HDInsight kümelerini özelleştirin](hdinsight-hadoop-customize-cluster-linux.md)
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell kullanma
-Aşağıdaki PowerShell kod bir Hive yapılandırmasını özelleştirir:
+Aşağıdaki PowerShell kod özelleştirir bir [Apache Hive](https://hive.apache.org/) yapılandırma:
 
 ```powershell
 # hive-site.xml configuration
@@ -128,11 +128,11 @@ Resource Manager şablonunda önyükleme kullanabilirsiniz:
 ![HDInsight Hadoop kümesi önyükleme Azure Resource Manager şablonu özelleştirir](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [HDInsight Hadoop kümeleri oluşturma] [ hdinsight-provision-cluster] diğer özel seçenekleri kullanarak bir HDInsight kümesi oluşturma hakkında yönergeler açıklanmaktadır.
+* [HDInsight Apache Hadoop kümeleri oluşturma] [ hdinsight-provision-cluster] diğer özel seçenekleri kullanarak bir HDInsight kümesi oluşturma hakkında yönergeler açıklanmaktadır.
 * [HDInsight için betik eylemi betikleri geliştirme][hdinsight-write-script]
-* [Yükleme ve HDInsight kümelerine Spark kullanma][hdinsight-install-spark]
-* [Yükleme ve HDInsight kümelerinde Solr kullanma](hdinsight-hadoop-solr-install.md).
-* [Yükleme ve HDInsight kümelerinde Giraph kullanma](hdinsight-hadoop-giraph-install.md).
+* [Yükleme ve Apache Spark HDInsight kümeleri kullanma][hdinsight-install-spark]
+* [Yükleme ve HDInsight kümeleri üzerinde Apache Solr kullanma](hdinsight-hadoop-solr-install.md).
+* [Yükleme ve HDInsight kümeleri üzerinde Apache giraph'ı kullanma](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md

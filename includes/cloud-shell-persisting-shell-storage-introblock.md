@@ -4,12 +4,12 @@ ms.service: cloud-shell
 ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
-ms.openlocfilehash: 6055b70c7df2704a334b7f14c9365863ddafbd5a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: a66f5ca9501d09f2ef89f421191f617c177e10eb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44164563"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52886368"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Azure Cloud Shell, dosyaların kalıcı olması
 Cloud Shell'i dosyaları oturumlarda kalıcı hale getirilmesi için Azure dosya depolama kullanır. İlk Başlat, Cloud Shell'i dosyaları oturumlarda kalıcı hale getirmek için yeni veya varolan bir dosya paylaşımını ilişkilendirmek isteyip istemediğinizi sorar.
@@ -35,11 +35,14 @@ Dosya paylaşımını da sizin için otomatik olarak oluşturulduğu bir 5 GB'l�
 
 ## <a name="use-existing-resources"></a>Var olan kaynakları kullan
 
-Gelişmiş seçeneğini kullanarak, mevcut kaynaklar ilişkilendirebilirsiniz. Depolama Kurulum istemi göründüğünde seçin **Gelişmiş ayarları göster** ek seçenekleri görmek için. Yerel olarak yedekli depolama (LRS), coğrafi olarak yedekli depolama (GRS) ve bölgesel olarak yedekli depolama (ZRS) hesapları için doldurulmuş depolama seçenekleri filtre. Git [daha fazla bilgi için buraya](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option) Azure depolama hesabı çoğaltma seçenekleri hakkında.
+Gelişmiş seçeneğini kullanarak, mevcut kaynaklar ilişkilendirebilirsiniz. Cloud Shell bölgesi seçerken birlikte aynı bölgede bulunan bir yedekleme depolama hesabı seçmeniz gerekir. Örneğin, bölgenize atanan ise daha Batı ABD, Batı ABD içinde de bulunduğu bir dosya paylaşımı ilişkilendirmeniz gerekir.
+
+Depolama Kurulum istemi göründüğünde seçin **Gelişmiş ayarları göster** ek seçenekleri görmek için. Yerel olarak yedekli depolama (LRS), coğrafi olarak yedekli depolama (GRS) ve bölgesel olarak yedekli depolama (ZRS) hesapları için doldurulmuş depolama seçenekleri filtre. 
+
+> [!NOTE]
+> GRS veya ZRS kullanan depolama hesapları, yedekleme dosya paylaşımı için ek dayanıklılık için önerilir. Yedeklilik türü, hedefler ve fiyat tercih bağlıdır. [Azure depolama hesapları için çoğaltma seçenekleri hakkında daha fazla bilgi](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option).
 
 ![Kaynak grubu ayarı](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
-
-Cloud Shell bölgesi seçerken de bu bölgedeki bir yedekleme depolama hesabına bağlanacak seçmeniz gerekir.
 
 ### <a name="supported-storage-regions"></a>Desteklenen depolama bölgeleri
 Azure depolama hesapları için bağlama Cloud Shell makine ile aynı bölgede bulunmalıdır ilişkili. Çalışabilir, geçerli bölge bulmayı `env` bash değişkeni bulun `ACC_LOCATION`. Dosya paylaşımları, kalıcı hale getirmek oluşturduğunuz bir 5 GB'lık görüntüsü almak, `$Home` dizin.

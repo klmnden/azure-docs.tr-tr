@@ -1,6 +1,6 @@
 ---
-title: Hızlı Başlangıç - Web uygulaması oluşturup Azure Service Fabric Mesh’e dağıtma | Microsoft Docs
-description: Bu hızlı başlangıçta, bir ASP.NET Core web sitesi oluşturma ve bunu Azure Service Fabric Mesh’te yayımlama işlemi gösterilmektedir.
+title: Hızlı Başlangıç - Azure Service Fabric Mesh için bir web uygulaması dağıtma | Microsoft Docs
+description: Bu hızlı başlangıçta Visual Studio kullanarak bir ASP.NET Core Web sitesi oluşturma ve Azure Service Fabric Mesh için yayımlama gösterir.
 services: service-fabric-mesh
 documentationcenter: .net
 author: tylermsft
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7e324b80968017e0160f41b88fa1824669050ac9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: 35ce19d796a9889d734bd5dde20a7c56485656f1
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407408"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888554"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Hızlı Başlangıç: Web uygulaması oluşturup Azure Service Fabric Mesh’e dağıtma
 
@@ -88,7 +88,7 @@ Yayımla iletişim kutusunda **Yayımla** düğmesine basarak Service Fabric Mes
 
 Azure'da ilk kez uygulama yayımladığınızda, Docker görüntüsü Azure Container Registry (ACR) konumuna iletilir ve bu da görüntünün boyutuna göre zaman alabilir. Aynı projenin sonraki yayımlama işlemleri daha hızlı olacaktır. Visual Studio **Çıktı** açılır penceresinde **Service Fabric Araçları**’nı seçerek dağıtımın ilerleme durumunu izleyebilirsiniz. Dağıtım tamamlandıktan sonra **Service Fabric Araçları** çıktısı, uygulamanızın IP adresini ve bağlantı noktasını URL biçiminde gösterir.
 
-```json
+```
 Packaging Application...
 Building Images...
 Web1 -> C:\Code\ServiceFabricMesh1\Web1\bin\Any CPU\Release\netcoreapp2.0\Web1.dll

@@ -1,21 +1,20 @@
 ---
-title: 'Azure Cosmos DB: .NET değişiklik akışı işlemci API, SDK ve kaynakları | Microsoft Docs'
+title: 'Azure Cosmos DB: .NET değişiklik akışı işlemci API, SDK ve kaynakları'
 description: Değişiklik akışı işlemci API ve yayın tarihleri, sona erme tarihlerini ve her .NET değişiklik akışı işlemci SDK sürümü arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi alın.
 services: cosmos-db
 author: ealsur
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 327873d228fe92a9da495f802c97eb73612caef9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ab4831a4a84e1f96624c5de1e53f9b8688a5c2cd
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632492"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871678"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET değişiklik akışı işlemci SDK: İndirme ve sürüm notları
 > [!div class="op_single_selector"]

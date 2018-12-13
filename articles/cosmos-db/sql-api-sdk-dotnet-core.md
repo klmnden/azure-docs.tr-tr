@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bcd8fe040cb4d36bc98700816d6a7ebe711f13f5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 73876d950a34317365c9fceb865a3c473a75780a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093460"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874354"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK SQL API'si için: yayın notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -211,7 +211,7 @@ Azure Cosmos DB .NET Core Önizleme SDK'sı özellik eşliği ile en son sürüm
 * [Bölümlenmiş koleksiyonları](partition-data.md). 
 * [Çoklu bölge veritabanı hesapları ve coğrafi çoğaltma](distribute-data-globally.md).
 
-Bu SDK ilgili sorularınız varsa postalayabilir [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb), veya bir sorunu bildirin [github deposu](https://github.com/Azure/azure-documentdb-dotnet/issues). 
+Bu SDK ilgili sorularınız varsa postalayabilir [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb), veya bir sorunu bildirin [github deposu](https://github.com/Azure/azure-documentdb-dotnet/issues). 
 
 ## <a name="release--retirement-dates"></a>Yayın ve sona erme tarihlerini
 

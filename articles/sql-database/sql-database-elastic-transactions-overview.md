@@ -3,7 +3,7 @@ title: Bulut veritabanlarında dağıtılmış işlemler
 description: Azure SQL veritabanı elastik veritabanı işlemleri'ne genel bakış
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 02cf72bf9fe06993ef859d1789983b7611c8472e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2418de5c20c34ae82ad36a914955fb338afd2822
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257478"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877193"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Bulut veritabanlarında dağıtılmış işlemler
 Elastik veritabanı işlemleri için Azure SQL veritabanı (SQL DB) SQL DB'de birkaç veritabanlarına yayılan işlemler çalıştırmanıza olanak tanır. SQL veritabanı için elastik veritabanı işlem ADO .NET kullanarak .NET uygulamaları için kullanılabilir ve tanıdık programlama deneyimi kullanarak ile tümleştirme [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) sınıfları. Kitaplık almak için bkz. [.NET Framework 4.6.1 (Web Yükleyicisi)](https://www.microsoft.com/download/details.aspx?id=49981).

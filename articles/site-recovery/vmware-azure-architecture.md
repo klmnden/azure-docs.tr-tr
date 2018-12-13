@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 9dc0ca53433d27a36c21604b8462520c278a8969
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 962ced808f97dd1fea3805fa8c953e6d7563cd17
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845663"
+ms.locfileid: "52871753"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Vmware'den Azure'a olağanüstü durum kurtarma mimarisi
 
@@ -44,7 +44,7 @@ Aşağıdaki tablo ve grafik Vmware'den azure'a olağanüstü durum kurtarma iç
         - **Kurtarma noktası bekletme**. Bu ayar, bir kesinti oluştuğunda gitmek için istediğiniz zaman içinde ne kadar geriye belirtir. Premium depolama maksimum bekletme 24 saattir. Standart depolama alanında, değer 72 saattir. 
         - **Uygulamayla tutarlı anlık görüntüleri**. Uygulamayla tutarlı anlık görüntü olması gerçekleştirebileceğiniz her 1 uygulama gereksinimlerinize bağlı olarak 12 saat. Anlık görüntü, standart Azure blob anlık görüntüleridir. Bir VM'de çalışan Mobility Aracısı, bu ayar ve -belirli bir noktaya tutarlı bir uygulama olarak çoğaltma akışında noktası yer işaretleri uygun olarak bir VSS anlık görüntüsünün ister.
 
-2. Trafik, internet üzerinden genel uç noktaları Azure depolama alanına çoğaltır. Alternatif olarak, Azure ExpressRoute ile kullanabileceğiniz [genel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). Trafiği bir siteden siteye sanal özel ağ (VPN) bir şirket içi siteden Azure'a çoğaltılması desteklenmez.
+2. Trafik, internet üzerinden genel uç noktaları Azure depolama alanına çoğaltır. Alternatif olarak, Azure ExpressRoute ile kullanabileceğiniz [genel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#publicpeering). Trafiği bir siteden siteye sanal özel ağ (VPN) bir şirket içi siteden Azure'a çoğaltılması desteklenmez.
 3. Delta değişikliklerinin azure'a çoğaltılması ilk çoğaltma sonlandırıldıktan sonra başlar. Bir makine için izlenen değişiklikler işlem sunucusuna gönderilir.
 4. İletişim şu şekilde olur:
 

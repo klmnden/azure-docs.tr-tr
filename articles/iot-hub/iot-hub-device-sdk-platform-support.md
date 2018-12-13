@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: 078f6bcd7aa48f2a63118e6dfb625d9b2c69fbb3
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: ebe039c37eb42b0044fa0acf9361edc7e8cbb828
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248032"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879397"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Azure IOT SDK'ları Platform desteği
 
@@ -20,7 +20,7 @@ ms.locfileid: "48248032"
 
 Microsoft, çeşitli işletim sistemlerini/platformları/çerçevesini destekler ve Azure IOT C SDK'sını kullanarak genişletilebilir. Bazı kullanıcılar bekleyebileceğiniz destek düzeyini temsil eden katmanlarına gruplandırılmış ekibi tarafından resmi olarak desteklenir. *Tam olarak desteklenen platformlar* anlamına gelir, Microsoft:
 
-    * Sürekli derlemeler ve ana ve desteklenen LTS sürüm(ler) karşı uçtan uca testleri çalıştırır.
+    * Sürekli derlemeler ve ana ve desteklenen LTS sürüm(ler) karşı uçtan uca testleri çalıştırır.  Test kapsamı, farklı sürümler arasında sağlamak için genellikle en son LTS sürümünü ve en popüler sürüm karşı test ederiz.  Platform sürümü uyumluluğu diğer sürümleri aynı platform desteklenmiyor olabilir.
     * Yükleme yönergeleri veya paketleri varsa sağlar.
     * Tam olarak Github'da platformları destekler.
 
@@ -31,7 +31,6 @@ Ayrıca, iş ortaklarının listesi bağlantı noktalı C SDK'mız daha fazla pl
 * Windows CE 2013 (Ekim 2018'de kullanımdan)
 * .NET Core 2.1 ve .NET Framework 4.7 ile .NET standart 1.3
 * Xamarin iOS, Android, UWP
-* Java ile Android
 
 ## <a name="supported-platforms"></a>Desteklenen platformlar
 
@@ -83,6 +82,7 @@ Desteklenen çeşitli platformlar vardır.
 |---------------------|------|--------------|
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
+| Android API 28 | X64  | Java 8       |
 
 ## <a name="partner-supported-platforms"></a>İş ortağı desteklenen platformlar
 

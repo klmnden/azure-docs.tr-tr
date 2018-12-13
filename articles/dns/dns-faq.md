@@ -1,24 +1,18 @@
 ---
-title: Azure DNS hakkında SSS | Microsoft Docs
+title: Azure DNS hakkında SSS
 description: Azure DNS hakkında sık sorulan sorular
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-editor: ''
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 9/25/2018
+ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: daf65b00ffa753568ab99e64365cc0625792f593
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 663ba97ce96244aa890bef45d1229c12ca170802
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092687"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880157"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS hakkında SSS
 
@@ -26,7 +20,7 @@ ms.locfileid: "50092687"
 
 ### <a name="what-is-azure-dns"></a>Azure DNS nedir?
 
-Etki alanı adı sistemi (DNS) çevirir ve çözümler, IP adresini bir Web sitesi veya hizmet adı. Azure DNS, DNS etki alanları için bir barındırma hizmetidir. Bu, Microsoft Azure altyapısı kullanılarak ad çözümlemesi sağlar. Etki alanlarınızı azure'da barındırarak aynı kimlik bilgileri, API'ler, Araçlar ve diğer Azure hizmetlerinde faturalama tarafından DNS kayıtlarınızı yönetebilirsiniz.
+Etki alanı adı sistemi (DNS) çevirir ve çözümler, IP adresini bir Web sitesi veya hizmet adı. Azure DNS, DNS etki alanları için bir barındırma hizmetidir. Bu, Microsoft Azure altyapısı kullanılarak ad çözümlemesi sağlar. Etki alanlarınızı Azure'da barındırarak DNS kayıtlarınızı diğer Azure hizmetlerinde kullandığınız kimlik bilgileri, API’ler, araçlar ve faturalarla yönetebilirsiniz.
 
 Azure DNS'de DNS etki alanlarını DNS ad sunucuları Azure genel ağda barındırılır. Bu sistem, böylece her DNS sorgusu en yakın kullanılabilir DNS sunucusu tarafından yanıtlanır Anycast ağ kullanır. Azure DNS, hızlı performans ve etki alanınız için yüksek kullanılabilirlik sağlar.
 
@@ -46,7 +40,7 @@ Daha fazla bilgi için [Azure DNS SLA sayfamızda](https://azure.microsoft.com/s
 
 ### <a name="what-is-a-dns-zone-is-it-the-same-as-a-dns-domain"></a>DNS bölgesi nedir? DNS etki alanıyla aynı şey midir? 
 
-Bir etki alanında benzersiz bir ad etki alanı adı sistemi ' dir. Contoso.com buna bir örnektir.
+Bir etki alanında benzersiz bir ad etki alanı adı sistemi ' dir. Örneğin: contoso.com.
 
 DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak için kullanılır. Örneğin, contoso.com etki alanı birden fazla DNS kaydını içerebilir. Kayıtları mail.contoso.com bir posta sunucusu ve bir Web sitesi www.contoso.com içerebilir. Bu kayıtlar, contoso.com bölgesindeki DNS barındırılır.
 
@@ -102,9 +96,9 @@ Evet. Azure DNS TXT kayıt kümeleri için ayarlanan kodlama genişletilmiş ASC
 
 Örneğin, bir kullanıcı bir dize değeri olarak genişletilmiş ASCII karakter \128 içeren bir TXT kaydı için sağlayabilir. "Abcd\128efgh." örneğidir Azure DNS, iç gösteriminde 128'dir, bu karakterin bayt değeri kullanır. DNS çözümlemesi zamanında yanıt olarak bu bayt değeri döndürülür. Ayrıca çözüm endişe kadar "abc" ve "\097\098\099" birbirinin yerine olduğunu unutmayın. 
 
-Sizinle [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) bölge dosyası ana biçim kaçış kuralları TXT kayıtları. Örneğin, "\" gerçekten çıkışları RFC başına her şey şimdi. "A\B" TXT kaydı değer olarak belirtmeniz durumunda temsil ve yalnızca "AB." çözüldü Gerçekten TXT kaydını çözünürlükte "A\B" olmasını istiyorsanız, kaçış gerekir "\" yeniden. Örneğin, belirtin "A\\B". 
+Sizinle [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) bölge dosyası ana biçim kaçış kuralları TXT kayıtları. Örneğin, `\` gerçekten çıkışları RFC başına her şey şimdi. Belirtirseniz `A\B` TXT kaydı değer olarak, bu temsil olup olarak çözümlendi `AB`. TXT kaydı için gerçekten istiyorsanız `A\B` çözünürlükte, kaçış karakteriyle `\` yeniden. Örneğin, belirtin `A\\B`.
 
-Bu destek, Azure portalından oluşturulan TXT kayıtları için şu anda kullanılamıyor. 
+Bu destek, Azure portalından oluşturulan TXT kayıtları için şu anda kullanılamıyor.
 
 ## <a name="alias-records"></a>Diğer ad kayıtları
 
@@ -119,6 +113,7 @@ Diğer kayıt kümeleri, aşağıdaki kayıt türlerinin bir Azure DNS bölgesin
 - CNAME 
 
 ### <a name="what-resources-are-supported-as-targets-for-alias-record-sets"></a>Hangi kaynakların diğer ad kaydı kümeleri için hedefler olarak destekleniyor mu?
+
 - **Bir genel IP kaynağı için bir DNS A/AAAA kayıt kümesi gelin.** A/AAAA kayıt kümesi oluşturma ve bir genel IP kaynağına işaret edecek bir diğer ad kayıt kümesi kolaylaştırır.
 - **Traffic Manager profili için bir DNS A/AAAA/CNAME kayıt kümesi gelin.** Bir DNS CNAME kayıt kümesi için bir Traffic Manager profilinin CNAME işaret edebilir. Contoso.trafficmanager.net buna bir örnektir. Şimdi de dış uç noktalardan gelen bir A veya AAAA kaydı DNS bölgenizi kümesi olan bir Traffic Manager profiline işaret edebilir.
 - **Aynı bölgede başka bir DNS kayıt kümesi gelin.** Diğer ad kayıtlarını aynı türdeki diğer kayıt kümelerine başvurabilir. Örneğin, bir DNS CNAME kayıt kümesinin aynı türdeki başka bir CNAME kayıt kümesine diğer ad olmasını sağlayabilirsiniz. Bu düzenleme, diğer adlar olmasını bazı kayıt kümelerini ve bazı diğer olmayan istiyorsanız kullanışlıdır.
@@ -197,49 +192,63 @@ Azure DNS'de IDN'ler yapılandırmak için kayıt kümesi adı ve bölge adını
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 ### <a name="does-azure-dns-support-private-domains"></a>Azure DNS özel etki alanları destekliyor mu?
+
 Özel etki alanı için destek özel bölgeleri özelliğini kullanarak uygulanır. Bu özellik şu anda genel önizlemede kullanılabilir. Özel bölgeler, internet'e yönelik Azure DNS bölgelerini aynı araçları kullanarak yönetilir. Bunlar, belirtilen sanal ağ dns'sinden yalnızca. Daha fazla bilgi için [genel bakış](private-dns-overview.md).
 
 Azure portalında özel bölgeleri şu anda desteklenmiyor. 
 
 Azure'da diğer iç DNS seçenekleri hakkında daha fazla bilgi için bkz: [VM'ler ve rol örnekleri için ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
-### <a name="whats-the-difference-between-registration-virtual-network-and-resolution-virtual-network-in-the-context-of-private-zones"></a>Özel bölgeler bağlamında kayıt sanal ağı ve çözümleme sanal ağı arasındaki fark nedir? 
+### <a name="whats-the-difference-between-registration-virtual-network-and-resolution-virtual-network-in-the-context-of-private-zones"></a>Özel bölgeler bağlamında kayıt sanal ağı ve çözümleme sanal ağı arasındaki fark nedir?
+
 DNS özel bölgesi için kayıt sanal ağı veya çözümleme sanal ağı olarak sanal ağlara bağlayabilirsiniz. Her iki durumda da, sanal ağdaki sanal makinelerin özel bölgedeki kayıtları karşı başarılı bir şekilde çözün. Kayıt sanal ağı ile DNS kayıtlarını sanal ağdaki sanal makineler için bir bölge içinde otomatik olarak kaydedilir. Bir sanal makine, sanal ağ silinmiş bir kayıt bağlı özel bölge karşılık gelen DNS kaydını otomatik olarak kaldırılır. 
 
 ### <a name="will-azure-dns-private-zones-work-across-azure-regions"></a>Azure bölgeleri arasında Azure DNS özel bölgeleri çalışacak mı?
+
 Evet. Özel bölgeler için DNS çözümlemesi Azure bölgelerindeki sanal ağları arasında desteklenir. Özel bölgeler bile açıkça sanal ağları eşleme olmadan çalışır. Tüm sanal ağları, çözümleme sanal ağları özel bölge olarak belirtilmelidir. Müşteriler, bir bölgeden diğerine Akış TCP/HTTP trafiği için eşlenmiş sanal ağlar gerekebilir.
 
 ### <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>Bağlantı, özel bölgeler için gereken sanal ağlardan Internet'e mi?
+
 Hayır. Özel bölgeler, sanal ağlar ile birlikte çalışır. Müşteriler, bunları sanal makineleri veya diğer kaynaklar içinde hem de sanal ağlar arasında etki alanlarını yönetmek için kullanın. Internet bağlantısı ad çözümlemesi için gerekli değildir. 
 
-### <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>Aynı özel bölge çözümlemesi için birkaç sanal ağlar için kullanılabilir mi? 
+### <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>Aynı özel bölge çözümlemesi için birkaç sanal ağlar için kullanılabilir mi?
+
 Evet. Müşteriler, 10 adede kadar çözümleme sanal ağları tek bir özel bölge ile ilişkilendirebilirsiniz.
 
-### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>Farklı bir aboneliğe ait bir sanal ağ özel bir bölgeye bir çözümleme sanal ağı eklenebilir? 
+### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>Farklı bir aboneliğe ait bir sanal ağ özel bir bölgeye bir çözümleme sanal ağı eklenebilir?
+
 Evet. Kullanıcı, sanal ağlar ve özel DNS bölgesi yazma işlemi iznine sahip olmalıdır. Birkaç RBAC rolleri için yazma izni verilebilir. Örneğin, Klasik ağ Katılımcısı RBAC rolü sanal ağlar için yazma izinlerine sahiptir. RBAC rolleri hakkında daha fazla bilgi için bkz. [rol tabanlı erişim denetimi](../role-based-access-control/overview.md).
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>Özel bir bölge içinde otomatik olarak kayıtlı sanal makinenin DNS kayıtlarını otomatik olarak sanal makineler müşteri tarafından silindiğinde silinir?
+
 Evet. Kayıt sanal ağ içindeki sanal makineyi silme bölgeye kaydedilmiş DNS kayıtlarını otomatik olarak silinir. 
 
-### <a name="can-an-automatically-registered-virtual-machine-record-in-a-private-zone-from-a-registration-virtual-network-be-deleted-manually"></a>Kayıt sanal ağdan özel bir bölgedeki bir sanal makine otomatik olarak kayıtlı kaydı el ile silinebilir? 
+### <a name="can-an-automatically-registered-virtual-machine-record-in-a-private-zone-from-a-registration-virtual-network-be-deleted-manually"></a>Kayıt sanal ağdan özel bir bölgedeki bir sanal makine otomatik olarak kayıtlı kaydı el ile silinebilir?
+
 Hayır. Kayıt sanal ağdan bir özel bölge içinde otomatik olarak kayıtlı sanal makinenin DNS kayıtlarını görünür veya müşteriler tarafından düzenlenebilir değildir. Bölgesinde el ile oluşturulan DNS kaydını otomatik olarak kayıtlı DNS kayıtlarını üzerine yazabilirsiniz. Bu konuda aşağıdaki soru ve yanıt adresi.
 
-### <a name="what-happens-when-we-try-to-manually-create-a-new-dns-record-into-a-private-zone-that-has-the-same-hostname-as-an-automatically-registered-existing-virtual-machine-in-a-registration-virtual-network"></a>El ile kayıt sanal ağda aynı ana bilgisayar adı olarak var olan bir sanal makine otomatik olarak kayıtlı olan bir özel bölge içine yeni bir DNS kaydı oluşturmak çalıştığınızda ne olur? 
+### <a name="what-happens-when-we-try-to-manually-create-a-new-dns-record-into-a-private-zone-that-has-the-same-hostname-as-an-automatically-registered-existing-virtual-machine-in-a-registration-virtual-network"></a>El ile kayıt sanal ağda aynı ana bilgisayar adı olarak var olan bir sanal makine otomatik olarak kayıtlı olan bir özel bölge içine yeni bir DNS kaydı oluşturmak çalıştığınızda ne olur?
+
 El ile kayıt sanal ağı içinde var olan ve otomatik olarak kayıtlı bir sanal makine olarak aynı ana bilgisayar adı olan bir özel bölge içine yeni bir DNS kaydı oluşturma deneyin. Bunu yaptığınızda yeni DNS kaydını otomatik olarak kayıtlı sanal makine kaydı üzerine yazar. El ile oluşturulan bu DNS kaydını yeniden bölgeden silmeye çalışırsanız, silme başarılı olur. Otomatik kayıt, sanal makine hala mevcut olduğundan ve özel bir IP, kendisine eklenmiş sürece yeniden gerçekleşir. DNS kaydını otomatik olarak bölgede yeniden oluşturulur.
 
 ### <a name="what-happens-when-we-unlink-a-registration-virtual-network-from-a-private-zone-will-the-automatically-registered-virtual-machine-records-from-the-virtual-network-be-removed-from-the-zone-too"></a>Özel bir bölgeye kayıt sanal ağdan biz bağlantısını ne olur? Sanal ağdan sanal makine otomatik olarak kayıtlı kayıtları bölgeden çok kaldırılacak?
+
 Evet. Özel bir bölgeye kayıt sanal ağdan bağlantısını kaldırmak için ilişkili kayıt sanal ağı kaldırmak için DNS bölgesini güncelleştirme. Bu işlemde otomatik olarak kaydedilmiş bir sanal makine kayıtları bölgesinden kaldırıldı. 
 
 ### <a name="what-happens-when-we-delete-a-registration-or-resolution-virtual-network-thats-linked-to-a-private-zone-do-we-have-to-manually-update-the-private-zone-to-unlink-the-virtual-network-as-a-registration-or-resolution--virtual-network-from-the-zone"></a>Biz, özel bir bölgeyle bağlantılı kayıt veya çözümleme sanal ağ sildiğinizde ne olur? Sanal ağda bir kayıt veya çözümleme sanal ağını bölgesinden bağlantısını için özel bölge el ile güncelleştirmek zorunda mıyım?
+
 Evet. Bir kayıt veya çözümleme sanal ağ özel bölgesinden ilk bağlantısını olmadan sildiğinizde, silme işlemi başarılı olur. Ancak sanal ağ özel bölgeden varsa otomatik olarak bağlantısız değildir. El ile özel bölge sanal ağdan bağlantısını kaldırmanız gerekir. Bu nedenle, silmeden önce sanal ağınızdan özel bölgenizi bağlantısını Kaldır.
 
-### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-contosolocal-is-linked-to-a-virtual-network"></a>Hatta özel bir bölgesi (örneğin, contoso.local) bir sanal ağa bağlandığında kullanarak FQDN (internal.cloudapp.net) varsayılan DNS çözümlemesi çalışmaya devam eder mi? 
+### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-contosolocal-is-linked-to-a-virtual-network"></a>Hatta özel bir bölgesi (örneğin, contoso.local) bir sanal ağa bağlandığında kullanarak FQDN (internal.cloudapp.net) varsayılan DNS çözümlemesi çalışmaya devam eder mi?
+
 Evet. Özel bölgeler için varsayılan DNS çözümleri, Azure tarafından sağlanan internal.cloudapp.net bölge kullanarak yerini almaz. Bir ek özellik veya geliştirme olarak sunulur. Azure tarafından sağlanan internal.cloudapp.net veya kendi özel bölge kullanan, karşı çözümlemek istediğiniz bölgeyi FQDN'sini kullanın. 
 
-### <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>Bağlı sanal ağ içindeki sanal makinelerde DNS soneki, özel bölge değiştirilecek? 
+### <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>Bağlı sanal ağ içindeki sanal makinelerde DNS soneki, özel bölge değiştirilecek?
+
 Hayır. Sanal makinelere bağlı sanal ağınızdaki DNS soneki, varsayılan Azure tarafından sağlanan sonek olarak kalır ("*. internal.cloudapp.net"). El ile bu DNS soneki üzerindeki sanal makinelerinize, özel bölge değiştirebilirsiniz. 
 
 ### <a name="are-there-any-limitations-for-private-zones-during-this-preview"></a>Bu önizleme boyunca özel bölgeler için sınırlamalar vardır?
+
 Evet. Genel Önizleme sırasında aşağıdaki sınırlamalar bulunmaktadır.
 * Bir kayıt sanal ağı özel bölge başına.
 * En fazla 10 çözümleme sanal ağları özel bölge başına.
@@ -252,9 +261,11 @@ Evet. Genel Önizleme sırasında aşağıdaki sınırlamalar bulunmaktadır.
 * Koşullu iletme, örneğin, Azure ve şirket içi ağlar arasındaki çözümleme etkinleştirmek için desteklenmiyor. Müşteriler, bu senaryo başka mekanizmalar aracılığıyla nasıl hayata geçirebilirsiniz öğrenin. Bkz: [VM'ler ve rol örnekleri için ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>Herhangi bir kota veya bölgeler ve kayıtlar özel bölgeler için sınırlar var mıdır?
+
 Özel bölgeler için abonelik başına izin verilen bölge sayısı sınırı yoktur. Özel bölgeleri için bölge başına kayıt kümelerinin sayısı sınırı yoktur. Genel ve özel bölgeleri Genel DNS sınırları doğru sayısı. Daha fazla bilgi için [Azure aboneliği ve hizmet sınırlamaları](../azure-subscription-service-limits.md#dns-limits)
 
 ### <a name="is-there-portal-support-for-private-zones"></a>Özel bölgeler için portal destek var mı?
+
 API, PowerShell, CLI ve SDK'lar önceden oluşturulmuş özel bölgeler Azure portalında görünür. Ancak müşterilerin yeni özel bölgeler oluşturmak veya sanal ağları ilişkilerini yönetme. Kayıt sanal ağları ilişkili sanal ağlar için otomatik olarak kayıtlı VM kayıt Portalı'ndan görünmez. 
 
 ## <a name="next-steps"></a>Sonraki adımlar

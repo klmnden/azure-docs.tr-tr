@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 93e64aaa436b23390de328a9268dcfcb773c279f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 08a114b7f1ea3c422489a830676d859a9da88b7c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728174"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075312"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Linux için sanal makine uzantısı Analytics oturum
 
@@ -81,7 +81,7 @@ Linux için Log Analytics aracısını uzantısı, hedef sanal makineyi internet
 
 ## <a name="extension-schema"></a>Uzantı şeması
 
-Log Analytics aracısını Uzantı Şeması aşağıdaki JSON'u göstermektedir. Çalışma alanı kimliği ve hedef Log Analytics çalışma alanından bir çalışma alanı anahtarı uzantısı gerektirir; Bu değerleri [Log Analytics çalışma alanınızda bulunan](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) Azure portalında. Çalışma alanı anahtarı hassas verileri olarak değerlendirilip olduğundan, bir korumalı ayarı yapılandırmasında depolanması gerekir. Azure VM uzantısının korumalı ayarı veriler şifrelenir ve yalnızca hedef sanal makinede şifresi. Unutmayın **Workspaceıd** ve **workspaceKey** büyük küçük harfe duyarlıdır.
+Log Analytics aracısını Uzantı Şeması aşağıdaki JSON'u göstermektedir. Çalışma alanı kimliği ve hedef Log Analytics çalışma alanından bir çalışma alanı anahtarı uzantısı gerektirir; Bu değerleri [Log Analytics çalışma alanınızda bulunan](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key) Azure portalında. Çalışma alanı anahtarı hassas verileri olarak değerlendirilip olduğundan, bir korumalı ayarı yapılandırmasında depolanması gerekir. Azure VM uzantısının korumalı ayarı veriler şifrelenir ve yalnızca hedef sanal makinede şifresi. Unutmayın **Workspaceıd** ve **workspaceKey** büyük küçük harfe duyarlıdır.
 
 ```json
 {

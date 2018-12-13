@@ -14,18 +14,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: ambapat
-ms.openlocfilehash: 23f02f87b75cd41d1a56a388e4526be6d9a2e119
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 67f24bbccdd2dcf5cca09e09557d7ebebd0a5c2d
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682750"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891087"
 ---
 # <a name="secure-your-key-vault"></a>Anahtar kasanızın güvenliğini sağlama
 Azure Key Vault, şifreleme anahtarlarını ve gizli anahtarları (örneğin, sertifikalar, bağlantı dizeleri ve parolalar gibi) koruyan bir bulut hizmetidir. Bu veriler hassas ve iş açısından kritik, anahtar kasalarınıza erişimi güvenli gerekir çünkü izin vererek yalnızca uygulamaların ve kullanıcıların yetkilendirdiniz. Bu makalede anahtar kasası erişim modeline genel bakış sağlar. Kimlik doğrulama ve yetkilendirme açıklanmakta ve erişim güvenliğinin nasıl sağlanacağını açıklar.
 
 ## <a name="overview"></a>Genel Bakış
-İki ayrı arabirimler üzerinden bir anahtar kasası erişimi denetleme: *yönetim düzlemi* ve *veri düzlemi*. Her iki düzlem için uygun kimlik doğrulaması ve yetkilendirme, bir anahtar kasasına erişim, bir çağıranın (kullanıcı ya da uygulama) olması gerekir. Arayan kimliğini kimlik doğrulama oluşturur, yetkilendirme işlemleri belirler çağıran gerçekleştirebilirsiniz.
+Bir anahtar kasasına erişim, iki ayrı arabirim ile denetlenir: yönetim düzlemi ve veri düzlemi. 
+**Yönetim düzlemi** kasasını yönetme, örneğin - kasa oluşturma, güncelleştirme bir kasa, bir kasayı silme ile ilgilidir. 
+**Veri düzlemi** anlaşmaları oluşturma, bir kasa içinde gizli güncelleştirme, silme ve kasa içinde bir gizli dizi okumak. Bir çağıranın (kullanıcı ya da uygulama) anahtar kasasına erişim elde edebilmesi her iki düzlem için uygun kimlik doğrulaması ve yetkilendirme gerekli değildir. Kimlik doğrulaması, yetkilendirme çağıranın yapmaya izinli işlemleri belirler arayan kimliğini oluşturur.
+
+Kimlik doğrulaması için yönetim düzlemi ve veri düzleminde Azure Active Directory kullanılır. Yetkilendirme için yönetim düzleminde rol tabanlı erişim denetimi (RBAC), veri düzleminde ise anahtar kasası erişim ilkesi kullanılır.
+
+Ele alınan konulara kısa bir genel bakış aşağıda verilmiştir:
+
+[Azure Active Directory kullanarak kimlik doğrulaması](#authentication-using-azure-active-directory) - Bu bölümde bir çağıranın anahtar kasasına yönetim düzlemi ve veri düzlemi üzerinden erişmek için Azure Active Directory ile kimlik doğrulaması yapma işlemi açıklanmaktadır. 
 
 Kimlik doğrulaması için Azure Active Directory (Azure AD) her iki düzlem kullanın. Veri düzlemi, anahtar kasası erişim ilkesini kullanırken yetkilendirme için yönetim düzleminde rol tabanlı erişim denetimi (RBAC) kullanır.
 

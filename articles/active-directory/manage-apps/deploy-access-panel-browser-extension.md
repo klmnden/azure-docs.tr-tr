@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a21a21f40e731e8bc1d20e01d3671c372df65d84
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: be3950d199b4362caa5fcd3f66b948802cfa1c49
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622049"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877485"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Grup İlkesi'ni kullanarak Internet Explorer için erişim paneli uzantısını dağıtma
 Bu öğreticide, uzaktan erişim paneli uzantısını Internet Explorer için kullanıcılarınızın makinelerde yüklemek için Grup İlkesi kullanımı gösterilmektedir. Bu uzantıyı kullanarak yapılandırılan uygulamalarında oturum açmak için gereken Internet Explorer kullanıcılar için gerekli olan [parola tabanlı çoklu oturum açma](what-is-single-sign-on.md#password-based-sso).

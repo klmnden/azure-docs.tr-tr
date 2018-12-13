@@ -11,15 +11,20 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 15fd86a88c3025f81741d614b03d5c4c7c60262c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 11/30/2018
+ms.openlocfilehash: 7de4415dd332254c595b6687dfb9d8db01c42362
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351751"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871725"
 ---
-# <a name="general-purpose-and-business-critical-service-tiers"></a>Genel amaçlı ve iş açısından kritik hizmet katmanları
+# <a name="azure-sql-database-service-tiers"></a>Azure SQL veritabanı hizmet katmanları
+
+Azure SQL veritabanı altyapı hataları durumda bile % 99,99 kullanılabilirlik sağlamak üzere bulut ortamı için ayarlanmış bir SQL Server veritabanı altyapısı mimarisini temel alır. Azure SQL veritabanı'nda kullanılan üç Mimari modeli vardır:
+- [Genel amaçlı](sql-database-service-tier-general-purpose.md) genel iş yüklerinin çoğu için tasarlanmıştır.
+- [İş açısından kritik](sql-database-service-tier-business-critical.md) bir okunabilir çoğaltma ile düşük gecikme süreli iş yükleri için tasarlanmıştır.
+- [Hiper ölçekli](sql-database-service-tier-hyperscale.md) çok büyük veritabanları için tasarlanan (en fazla 100 TB) birden çok okunabilir çoğaltma ile.
 
 Bu makalede, sanal çekirdek tabanlı satın alma modeli, genel amaçlı ve iş açısından kritik hizmet katmanlarına yönelik depolama ve yedekleme konuları anlatılmaktadır.
 

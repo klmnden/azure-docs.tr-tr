@@ -1,21 +1,20 @@
 ---
-title: Async Java için Azure Cosmos DB performans ipuçları | Microsoft Docs
+title: Async Java için Azure Cosmos DB performans ipuçları
 description: Azure Cosmos DB veritabanı performansını artırmak üzere istemci yapılandırma seçenekleri öğrenin
 keywords: veritabanı performansını artırma
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: a2c66894270a537239c5328eff0acdc4b8339994
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 8cfc62948df679fa900099c0e5dbb33a60e42b08
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443551"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876258"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Azure Cosmos DB ile Async Java için performans ipuçları
 

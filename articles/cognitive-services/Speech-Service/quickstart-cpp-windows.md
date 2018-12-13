@@ -1,5 +1,5 @@
 ---
-title: "Hızlı Başlangıç: Konuşma Tanıma Hizmeti SDK'sını kullanarak Windows üzerinde C++ dilinde konuşma tanıma"
+title: 'Hızlı Başlangıç: C++ (Windows) - konuşma Hizmetleri konuşma tanıma'
 titleSuffix: Azure Cognitive Services
 description: Konuşma Tanıma Hizmeti SDK'sını kullanarak Windows üzerinde C++ dilinde konuşma tanımayı öğrenin
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 8947ba3f39cebf51e956db0d841e393963832bc4
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: 454b84f4ba5e492f61daf67c980b204c82a2090d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218753"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075196"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Konuşma SDK'sını kullanarak Windows üzerinde C++ dilinde konuşma tanıma
 
@@ -23,7 +23,7 @@ ms.locfileid: "51218753"
 
 Bu makalede Windows için bir C++ konsol uygulaması oluşturacaksınız. Bilgisayarınızın mikrofonundan gerçek zamanda konuşmayı metne dönüştürmek için Bilişsel Hizmetler [Konuşma SDK'sı](speech-sdk.md)'nı kullanırsınız. Uygulama [Konuşma SDK'sı NuGet paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017 (herhangi bir sürüm) ile geliştirilmiştir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtarınız olması gerekir. Anahtarı ücretsiz alabilirsiniz. Ayrıntılar için bkz. [Konuşma hizmetini ücretsiz olarak deneme](get-started.md).
 
@@ -31,11 +31,11 @@ Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtar�
 
 1. Visual Studio 2017'yi başlatın.
 
-1. **C++ ile masaüstü geliştirme** iş yükünün kullanılabilir olduğundan emin olun. Visual Studio yükleyicisini açmak için Visual Studio menü çubuğundan **Araçlar** > **Araçları ve Özellikleri Al**'ı seçin. Bu iş yükü zaten etkinse sonraki adıma atlayın. 
+1. **C++ ile masaüstü geliştirme** iş yükünün kullanılabilir olduğundan emin olun. Visual Studio yükleyicisini açmak için Visual Studio menü çubuğundan **Araçlar** > **Araçları ve Özellikleri Al**'ı seçin. Bu iş yükü zaten etkinse sonraki adıma atlayın.
 
     ![Visual Studio İş Yükleri’nin ekran görüntüsü](media/sdk/vs-enable-cpp-workload.png)
 
-    Aksi takdirde, **C++ ile masaüstü geliştirme**’nin yanındaki kutuyu işaretleyin. 
+    Aksi takdirde, **C++ ile masaüstü geliştirme**’nin yanındaki kutuyu işaretleyin.
 
 1. **NuGet paket yöneticisi** bileşeninin kullanılabilir olduğundan emin olun. Visual Studio yükleyicisi iletişim kutusunun **Bağımsız bileşenler** sekmesine geçin ve etkin değilse **NuGet paket yöneticisi**’ni seçin.
 
