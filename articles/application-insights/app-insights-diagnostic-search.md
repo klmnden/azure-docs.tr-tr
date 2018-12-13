@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5bff5c5cfd022134c1d86883a267528717969c59
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c595695f3643522d36b53091656c3655f83a9345
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721689"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877845"
 ---
 # <a name="using-search-in-application-insights"></a>Uygulama anlayışları'nda arama kullanma
 Arama özelliği, [Application Insights](app-insights-overview.md) bulmak ve sayfa görüntülemeleri, özel durumlar gibi tek bir telemetri öğelerini keşfedin veya web istekleri için kullanın. Ve günlük izlemeleri ve kodlanmış olayları görüntüleyebilir.
 
-(Verileriniz üzerinde daha karmaşık sorgular için [Analytics](../log-analytics/query-language/get-started-analytics-portal.md).)
+(Verileriniz üzerinde daha karmaşık sorgular için [Analytics](../azure-monitor/log-query/get-started-portal.md).)
 
 ## <a name="where-do-you-see-search"></a>Burada arama görüyor musunuz?
 
@@ -101,7 +101,7 @@ Aynı özellik değerine sahip tüm öğeleri bulun:
 ## <a name="search-the-data"></a>Veri arama
 
 > [!NOTE]
-> Daha karmaşık sorgular yazmak için açık [ **Analytics** ](../log-analytics/query-language/get-started-analytics-portal.md) arama dikey pencerenin üst.
+> Daha karmaşık sorgular yazmak için açık [ **Analytics** ](../azure-monitor/log-query/get-started-portal.md) arama dikey pencerenin üst.
 > 
 
 Herhangi bir özellik değeri terimlerini arayabilirsiniz. Bu yazdığınız, özellikle yararlı olacaktır [özel olaylar](app-insights-api-custom-events-metrics.md) özellik değerlerine sahip. 
@@ -163,7 +163,7 @@ Gönderme verisi otomatik olarak oturum yok, ancak kullanabileceğiniz [TrackTra
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="add"></a>Sonraki adımlar
-* [Karmaşık sorgular Analytics'te yazma](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Karmaşık sorgular Analytics'te yazma](../azure-monitor/log-query/get-started-portal.md)
 * [Günlükleri ve özel telemetri, Application Insights'a gönderme](app-insights-asp-net-trace-logs.md)
 * [Kullanılabilirlik ve yanıt hızını testleri ayarlama](app-insights-monitor-web-app-availability.md)
 * [Sorun giderme](app-insights-troubleshoot-faq.md)

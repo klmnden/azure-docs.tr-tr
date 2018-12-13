@@ -1,5 +1,6 @@
 ---
-title: Oluşturma ve Azure Machine Learning hizmeti ML işlem hatları - çalıştırma
+title: Oluşturma ve çalıştırma ML işlem hatları
+titleSuffix: Azure Machine Learning service
 description: Oluşturun ve Python için Azure Machine Learning SDK'sı ile işlem hattı öğrenme bir makine çalıştırın.  İşlem hatları oluşturmak ve bu veri hazırlama, model eğitiminin, model dağıtımı ve çıkarım gibi Birleştir birlikte machine learning (ML) aşamaları iş akışları yönetmek için kullanılır.
 services: machine-learning
 ms.service: machine-learning
@@ -9,17 +10,17 @@ ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
 ms.date: 12/04/2018
-ms.custom: seodec12
-ms.openlocfilehash: 0119e60a6493ed13b04b36fc5fccc7227503fe0a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 3038d8978ed3705e9e18be58080afd532b9d72d6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015084"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100565"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-using-azure-machine-learning-sdk"></a>Oluşturma ve Azure Machine Learning SDK'sını kullanarak bir makine öğrenimi işlem hattı çalıştırma
 
-Bu makalede, oluşturmak, yayımlamak, çalıştırmak ve izlemek öğrenin bir [makine öğrenimi işlem hattı](concept-ml-pipelines.md) kullanarak [Azure Machine Learning SDK'sı](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Bu komut zincirleri oluşturmak ve çeşitli makine öğrenme aşamaları birleştirmek iş akışlarını yönetme yardımcı olur. Veri hazırlama ve modeli eğitimi gibi bir Ardışık düzenin her aşaması, bir veya daha fazla adım ekleyebilirsiniz.
+Bu makalede, oluşturmak, yayımlamak, çalıştırmak ve izlemek öğrenin bir [makine öğrenimi işlem hattı](concept-ml-pipelines.md) kullanarak [Azure Machine Learning SDK'sı](https://aka.ms/aml-sdk).  Bu komut zincirleri oluşturmak ve çeşitli makine öğrenme aşamaları birleştirmek iş akışlarını yönetme yardımcı olur. Veri hazırlama ve modeli eğitimi gibi bir Ardışık düzenin her aşaması, bir veya daha fazla adım ekleyebilirsiniz.
 
 Oluşturduğunuz işlem hattı, Azure Machine Learning hizmeti üyelerine görünür [çalışma](how-to-manage-workspace.md). 
 

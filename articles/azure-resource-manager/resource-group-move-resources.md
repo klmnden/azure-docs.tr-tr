@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 27b41655d9a6c9000d9bc3cf98bf3246bb108104
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: d16f05c208e737f7c0095fc95c4272fe216f7a34
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015560"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094942"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -215,6 +215,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * Portalı panoları
 * Power BI - hem Power BI Embedded ve Power BI çalışma alanı koleksiyonu
 * Genel IP - bkz [genel IP kısıtlamaları](#pip-limitations)
+* Kurtarma Hizmetleri kasası - özel önizlemeye kaydedilmesi gerekir. Bkz: [kurtarma Hizmetleri sınırlamalarını](#recovery-services-limitations).
 * Azure önbelleği için Redis - sanal ağ sayesinde, örnek Azure Cache Redis örneği için yapılandırılmışsa, farklı bir aboneliğe taşınamaz. Bkz: [sanal ağlar sınırlamaları](#virtual-networks-limitations).
 * Scheduler
 * Arama
@@ -259,7 +260,6 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınamaz Azure hizmet
 * Microsoft Genomiks
 * NetApp
 * Genel IP - bkz [genel IP kısıtlamaları](#pip-limitations)
-* Kurtarma Hizmetleri kasası - ayrıca yoksa, Kurtarma Hizmetleri kasası ile ilişkili işlem, ağ ve depolama kaynakları taşıma bkz [kurtarma Hizmetleri sınırlamalarını](#recovery-services-limitations).
 * Azure’da SAP HANA
 * Güvenlik
 * Site Recovery
@@ -446,6 +446,8 @@ Klasik kaynakları için yeni bir aboneliği taşımak, Klasik kaynakları için
 
 ## <a name="recovery-services-limitations"></a>Kurtarma Hizmetleri sınırlamalarını
 
+Bir kurtarma Hizmetleri kasasına taşımak için bir özel önizlemeye kaydolmanız gerekir. Denemek için yazma AskAzureBackupTeam@microsoft.com.
+
 Taşıma, Azure Site Recovery ile olağanüstü durum kurtarma ayarlamak için kullanılan depolama, ağ ve bilgi işlem kaynakları için etkin değil.
 
 Örneğin, bir depolama hesabına (Storage1) şirket içi makinelerinizi çoğaltma işlemini ayarladıktan ve bir sanal ağa (Network1) bağlı sanal makine (VM1) olarak Azure'a yük devretme işleminden sonra görünmesi korunan makinenin istediğiniz varsayalım. Azure şu kaynaklara - Storage1, VM1 ve Network1 - aynı abonelik içindeki kaynak grupları arasında veya abonelikler arasında taşıyamazsınız.
@@ -453,7 +455,10 @@ Taşıma, Azure Site Recovery ile olağanüstü durum kurtarma ayarlamak için k
 Kaydedilmiş bir VM'yi taşıma için **Azure yedekleme** kaynak grupları arasında:
  1. Geçici olarak yedeklemeyi Durdur ve yedekleme verilerini koru
  2. Hedef kaynak grubu için VM'yi taşıma
- 3. Kullanıcılar taşıma işleminden önce oluşturulan mevcut geri yükleme noktalarından geri aynı/yeni kasa altında yeniden koruyun.
+ 3. Altında aynı/yeni kasa koruyun
+
+Kullanıcılar, taşıma işleminden önce oluşturulan mevcut geri yükleme noktalarından geri yükleyebilirsiniz.
+
 Kullanıcı yedeklenen VM'yi abonelikler arasında taşınırsa, adım 1 ve 2. adım aynı kalır. 3. adımda sanal Makineyi altında mevcut / oluşturulan hedef abonelikte yeni bir kasa korumak kullanıcı gerekir. Kurtarma Hizmetleri kasası, çapraz abonelik yedeklemeleri desteklemez.
 
 ## <a name="hdinsight-limitations"></a>HDInsight sınırlamaları

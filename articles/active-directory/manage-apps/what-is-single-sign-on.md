@@ -13,7 +13,7 @@ ms.author: barbkess
 ms.reviewer: arvindh
 ms.openlocfilehash: b2eff49f94dfcd67cb9741055520d990429051cd
 ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2018
 ms.locfileid: "53098568"

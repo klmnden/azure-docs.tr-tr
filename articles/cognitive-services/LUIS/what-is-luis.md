@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: overview
 ms.date: 12/06/2018
 ms.author: diberry
-ms.openlocfilehash: ce0dd89a56e94c8ec509a814409ebca8c2853f21
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: 470d3ea7a57addd8c275e18a9873054750865337
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001066"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092103"
 ---
 # <a name="what-is-language-understanding-luis"></a>Language Understanding (LUIS) nedir?
 

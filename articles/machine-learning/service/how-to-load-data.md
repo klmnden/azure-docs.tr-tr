@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning veri hazırlığı SDK - Python ile veri yükleme
+title: Yükleme ve hazırlığı veri veri hazırlığı Python SDK'sı
+titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning veri hazırlığı SDK'sı ile veri yükleme hakkında bilgi edinin. Farklı türde giriş verileri yükleme, dosya türleri ve parametreleri belirtin veya dosya türü otomatik olarak algılamak için SDK'sı akıllı okuma işlevini kullanın.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +11,13 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
-ms.openlocfilehash: 4f4bb4d95548a8c6c373eaa32617245a7ee0910b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: 0d7561c0dc89fb47f88ca6e54616736067262391
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865684"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095078"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Yükleme ve Azure Machine Learning ile veri okuma
 
@@ -128,9 +130,9 @@ dataflow.head(5)
 
 ||Column1|Column2|Sütun3|Sütun4|Sütun5|Sütun6|Column7|Column8|
 |------|------|------|-----|------|-----|-------|----|-----|
-|0|None|None|None|None|None|None|None|None|None|
-|1|None|None|None|None|None|None|None|None|None|
-|2|None|None|None|None|None|None|None|None|None|
+|0|None|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|None|
+|1|None|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|None|
+|2|None|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|None|
 |3|boyut sayısı|Unvan|Studio|Dünya çapında|Yerel / %|Column1|Deniz aşırı / %|Column2|Yıl ^|
 |4|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009 ^|5|
 

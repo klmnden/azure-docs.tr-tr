@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 127438e1e65400daac75cec525197a5cfc8cd46a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 110005469d5ff42af10b29fcee97c2f130ecdc2d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390220"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873841"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory tarafından desteklenen ortam işlem
 Bu makalede, işlem veya dönüşüm veri için kullanabileceğiniz farklı işlem ortamlarında açıklanmaktadır. (İsteğe bağlı ve Getir kendi) farklı yapılandırmalar hakkında ayrıntılar bu bağlama bağlı hizmetler yapılandırırken Data Factory tarafından desteklenen bir Azure data factory'ye ortamları işlem sağlar.
@@ -48,11 +48,7 @@ Aşağıdakilere dikkat edin **önemli** noktaları hakkında isteğe bağlı HD
 * İsteğe bağlı HDInsight kümesi, Azure aboneliği altında oluşturulur. Azure portal'ınızın kümedeki küme yukarı olduğunda görmek mümkün ve çalışan olursunuz. 
 * Bir isteğe bağlı HDInsight kümesi üzerinde çalışan işler için günlükleri, HDInsight kümesi ile ilişkili depolama hesabına kopyalanır. ClusterUserName, clusterPassword clusterSshUserName, bağlı hizmet tanımında clusterSshPassword küme yaşam döngüsü boyunca ayrıntılı sorun giderme için küme oturum açmak için kullanılır. 
 * Yalnızca HDInsight kümesi yukarı olduğunda zaman ve çalışan işleri için ücretlendirilir.
-* Azure HDInsight üzerinde isteğe bağlı hizmeti ile betik eylemi kullanamazsınız. Örneğin, diğer bağımlılıkları yüklemeniz gerekiyorsa aşağıdakileri yapan bir PowerShell betiğini çalıştırmak için Azure Otomasyonu'nu kullanarak dikkate alın:  
-  a. HDInsight kümesi oluşturun.  
-  b. Örneğin diğer bağımlılıkları yüklemeniz için bir betik eylemi çalıştırın.  
-  c. Data Factory işlem hattını çalıştırın.  
-  d. Kümeyi silin.  
+* Betik eylemi, artık Azure HDInsight üzerinde isteğe bağlı hizmeti ile desteklenmektedir.  
 
 > [!IMPORTANT]
 > Genellikle sürer **20 dakika** ya da daha fazla isteğe bağlı bir Azure HDInsight kümesi sağlayın.
@@ -108,7 +104,7 @@ Aşağıdaki JSON, Linux tabanlı bir isteğe bağlı HDInsight bağlı hizmeti 
 | clusterResourceGroup         | HDInsight kümesi bu kaynak grubunda oluşturulur. | Evet      |
 | TimeToLive                   | İsteğe bağlı HDInsight kümesi için izin verilen boşta kalma süresi. Ne kadar süreyle isteğe bağlı HDInsight kümesi kümede hiç bir etkin iş olduğunda çalıştırmak bir etkinlik tamamlandıktan sonra canlı kalmasını belirtir. Değer izin verilen en az 5 dakikadır (00: 05:00).<br/><br/>Örneğin, bir etkinlik çalıştırması 6 dakika sürer ve timetolive 5 dakika olarak ayarlanmıştır, küme etkinlik işleme 6 dakika çalıştırdıktan sonra 5 dakika boyunca Canlı kalır. Başka bir etkinlik çalıştırması 6 dakika penceresiyle yürütülürse, aynı küme tarafından işlenir.<br/><br/>Bir isteğe bağlı HDInsight kümesi oluşturma bir yeniden bir isteğe bağlı HDInsight kümesi kullanarak veri fabrikası performansını artırmak için bu ayarı olarak gerekli bunu kullanmak, pahalı işlem (biraz sürebilir) bağlıdır.<br/><br/>Timetolive değeri 0 olarak ayarlarsanız etkinlik çalıştırma tamamlandıktan hemen sonra küme silinir. Yüksek bir değere ayarlarsanız, kümenin bazı sorun giderme için oturum açmanız için boşta kalır ancak amaçlı ancak içinde yüksek maliyetlere neden olabilir. Bu nedenle, ihtiyaçlarınıza uygun değeri ayarlamak önemlidir.<br/><br/>Timetolive özellik değeri uygun şekilde ayarlarsanız, birden fazla işlem hattını isteğe bağlı HDInsight kümesi örneğini paylaşabilirsiniz. | Evet      |
 | clusterType                  | Oluşturulacak HDInsight küme türü. İzin verilen değerler şunlardır: "hadoop" ve "spark". Belirtilmezse, varsayılan değer hadoop olur. Kurumsal güvenlik paketi etkin küme şu anda desteklenmiyor | Hayır       |
-| sürüm                      | HDInsight küme sürümü. Belirtilmezse, geçerli HDInsight tanımlanan varsayılan sürümü kullanıyor. | Hayır       |
+| version                      | HDInsight küme sürümü. Belirtilmezse, geçerli HDInsight tanımlanan varsayılan sürümü kullanıyor. | Hayır       |
 | hostSubscriptionId           | HDInsight kümesi oluşturmak için kullanılan Azure abonelik kimliği. Belirtilmezse, abonelik kimliği, Azure oturum açma bağlamını kullanır. | Hayır       |
 | clusterNamePrefix           | HDI küme adı, bir zaman damgası öneki, küme adının sonunda otomatik olarak eklenir| Hayır       |
 | sparkVersion                 | Küme türü "Spark" ise spark sürümü | Hayır       |

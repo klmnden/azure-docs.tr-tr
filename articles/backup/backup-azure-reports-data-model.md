@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b1531e23d0e5fd34eff59868055ccd855b423e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 573b7e9c5c44c7162b4020f1ef54b8986003c0b5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444312"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877142"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Azure Backup raporları için veri modeli
 Bu makalede, Azure Backup raporları oluşturmak için kullanılan Power BI veri modeli açıklanmaktadır. Bu veri modelini kullanarak mevcut raporları ilgili alanlara göre filtreleyebilirsiniz ve daha fazla tabloları ve alanları modeli kullanarak da önemlisi, kendi raporlarınızı oluşturun. 
@@ -31,9 +31,9 @@ Bu tabloda, çeşitli uyarı ilgili alanları üzerinde temel alan ve toplamalar
 | Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | #AlertsCreatedInPeriod |Tam sayı |Seçili zaman aralığında oluşturulan uyarıların sayısı |
-| % ActiveAlertsCreatedInPeriod |Yüzde Oranı |Seçilen bir zaman dönemi içindeki etkin uyarılar yüzdesi |
-| % CriticalAlertsCreatedInPeriod |Yüzde Oranı |Seçilen zaman aralığı içinde kritik uyarılar yüzdesi |
-| AlertOccurenceDate |Tarih |Uyarının oluşturulduğu tarih |
+| % ActiveAlertsCreatedInPeriod |Yüzde |Seçilen bir zaman dönemi içindeki etkin uyarılar yüzdesi |
+| % CriticalAlertsCreatedInPeriod |Yüzde |Seçilen zaman aralığı içinde kritik uyarılar yüzdesi |
+| AlertOccurrenceDate |Tarih |Uyarının oluşturulduğu tarih |
 | AlertSeverity |Metin |Örneğin, kritik uyarı önem derecesi |
 | AlertStatus |Metin |Örneğin, etkin uyarı durumu |
 | AlertType |Metin |Örneğin, yedekleme oluşturulan uyarı türü |
@@ -83,7 +83,7 @@ Bu tablo, iş ile ilgili çeşitli alanlarını temel alan ve toplamalar sağlar
 | Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | #JobsCreatedInPeriod |Tam sayı |Seçili zaman aralığında oluşturulan iş sayısı |
-| % FailuresForJobsCreatedInPeriod |Yüzde Oranı |Yüzde seçili zaman aralığında iş hataları genel |
+| % FailuresForJobsCreatedInPeriod |Yüzde |Yüzde seçili zaman aralığında iş hataları genel |
 | 80thPercentileDataTransferredInMBForBackupJobsCreatedInPeriod |Ondalık sayı |aktarılan veri 80. yüzdelik dilim değeri için MB cinsinden **yedekleme** seçili zaman aralığında oluşturulan işler |
 | AsOnDateTime |Tarih/Saat |Seçili satır için son yenileme zamanı |
 | AvgBackupDurationInMinsForJobsCreatedInPeriod |Ondalık sayı |Ortalama süresi için dakika cinsinden **tamamlanmış yedekleme** seçili zaman aralığında oluşturulan işler |

@@ -1,5 +1,5 @@
 ---
-title: Azure ExpressRoute doğrudan hakkında | Microsoft Docs
+title: ExpressRoute doğrudan - Azure hakkında | Microsoft Docs
 description: Bu sayfa ExpressRoute doğrudan (Önizleme) genel bir bakış sağlar.
 services: expressroute
 author: mialdrid
@@ -7,16 +7,17 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: mialdrid
-ms.openlocfilehash: 3b46f24edf10fee7001b35ffdd9fa218aa438e19
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 2310f007697cf1acbdbc907d4562853a2717eb5d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959690"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097133"
 ---
 # <a name="about-expressroute-direct-preview"></a>ExpressRoute hakkında doğrudan (Önizleme)
 
-ExpressRoute Direct, müşterilere Microsoft’un dünya çapında stratejik noktalara yerleştirilmiş eşleme konumlarından oluşan küresel ağına doğrudan bağlanabilme olanağı sağlar. ExpressRoute doğrudan uygun ölçekte etkin/etkin bağlantı destekleyen çift 100 Gbps bağlantı sağlar.
+ExpressRoute doğrudan size Microsoft'un küresel ağı dünya genelindeki stratejik dağıtılmış eşleme konumlarda doğrudan bağlanma özelliği. ExpressRoute doğrudan uygun ölçekte etkin/etkin bağlantı destekleyen çift 100 Gbps bağlantı sağlar.
 
 ExpressRoute doğrudan sağlayan önemli özellikler dahil ancak bunlarla sınırlı değildir:
 

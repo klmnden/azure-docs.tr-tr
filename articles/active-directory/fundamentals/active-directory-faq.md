@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory - SSS | Microsoft Docs
-description: Sık kullanılan sorular ve yanıtlar Azure ve Azure Active Directory, parola yönetimi ve uygulama erişimi hakkında bilgi edinin.
+title: Sık sorulan sorular (SSS) - Azure Active Directory | Microsoft Docs
+description: Ortak hakkında sorular ve cevaplar Azure ve Azure Active Directory, parola yönetimi ve uygulama erişimi.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,14 +11,15 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: lizross
-ms.openlocfilehash: b004968fc53e368497632cb18d6bb7a254d347e6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: a3571ff24c36b7f2129f60348414d4d178ef30d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621760"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084103"
 ---
-# <a name="azure-active-directory-faq"></a>Azure Active Directory ile ilgili SSS
+# <a name="frequently-asked-questions-about-azure-active-directory"></a>Azure Active Directory hakkında sık sorulan sorular
 Azure Active Directory (Azure AD), kimlik, erişim yönetimi ve güvenliği tüm yönleriyle kapsayan bir hizmet olarak kimlik (IDaaS) çözümüdür.
 
 Daha fazla bilgi için bkz. [Azure Active Directory nedir?](active-directory-whatis.md).

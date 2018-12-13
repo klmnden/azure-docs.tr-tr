@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: e301afaa2fed2b00599fbdde8178203965280c0d
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: MT
+ms.openlocfilehash: e2b68982a855b56d97983460f248ef3040d03d79
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365014"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876771"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Azure zaman serisi görüşleri'nde gecikme süresini azaltmak için azaltmayı giderme ve izleme
 Ortamınızın yapılandırmasını gelen veri miktarı aşarsa, gecikme süresi veya Azure zaman serisi Öngörülerinde azaltma karşılaşabilirsiniz.
@@ -56,9 +56,9 @@ Buradan, aşağıdaki ölçümleri kullanarak uyarıları yapılandırabilirsini
 |**Giriş geçersiz ileti alındı.**     | Geçersiz ileti sayısı, tüm Azure Event Hubs veya Azure IOT Hub olay kaynağından okur.      |
 |**Giriş iletileri alındı**   | İletilerin sayısı, tüm olay hub'ları veya IOT hub'ları olay kaynakları okuyun.        |
 |**Giriş bayt depolanan**     | Toplam depolanan olayları boyutuna ve sorgu için kullanılabilir. Yalnızca özellik değerine boyutu hesaplanır.        |
-|**Giriş olayları depolanan**     |   Düzleştirilmiş olayları depolanır ve sorgu için kullanılabilir sayısı.      |
-|**Alınan ileti zaman gecikmesini giriş**    |  İleti sıraya alınan olay olduğu zaman arasındaki saniye cinsinden kaynak ve giriş işlendiği zaman farkı.      |
-|**İleti sayısı Lag giriş alındı**    |  Son sıradaki ileti sıra numarası arasındaki fark, giriş işlenmekte olan ileti bölüm ve sıra sayısı olay kaynağı.      |
+|**Giriş olayları depolanan**     |   Düzleştirilmiş olayları depolanır ve sorgu için kullanılabilir sayısı.      |
+|**Alınan ileti zaman gecikmesini giriş**    |  İleti sıraya alınan olay olduğu zaman arasındaki saniye cinsinden kaynak ve giriş işlendiği zaman farkı.      |
+|**İleti sayısı Lag giriş alındı**    |  Son sıradaki ileti sıra numarası arasındaki fark, giriş işlenmekte olan ileti bölüm ve sıra sayısı olay kaynağı.      |
 
 
 ![Gecikme süresi](media/environment-mitigate-latency/latency.png)

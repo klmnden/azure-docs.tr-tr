@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: a273d0bd4d064cb1c6ac4d3951af8a493e303f51
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 0b3c4a4c21bc9b124a98b1f204f85e6e78ff233e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015900"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099571"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake depolama Gen2 Önizleme giriş
 
@@ -66,20 +66,20 @@ Eşdeğer varlıklar farklı kavramları açıklandığı aşağıda verilmişti
 | BLOB'lar-genel amaçlı nesne depolama | Kapsayıcı              | Sanal dizin (SDK'sı yalnızca – sağlamaz atomik işleme) | Blob           |
 | ADLS Gen2 – depolama analizi          | dosya sistemi             | Dizin                                                           | Dosya           |
 
-## <a name="open-source-platforms-that-work-with-data-lake-storage-gen2"></a>Data Lake depolama 2. nesil ile çalışan açık kaynak platformları
+## <a name="supported-open-source-platforms"></a>Açık kaynak platformlar desteklenir
 
 Data Lake depolama Gen2'ye birden fazla açık kaynak platformları destekler. Bu platformlar aşağıdaki tabloda görüntülenir.
 
 > [!NOTE]
 > Bu tabloda görünen sürümleri desteklenir.
 
-| Platform |  Desteklenen sürümler | Daha fazla bilgi |
+| Platform |  Desteklenen sürümler | Daha Fazla Bilgi |
 | --- | --- | --- |
 | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6 + | [Apache Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen nelerdir?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 | [Hadoop](https://hadoop.apache.org/) | 2.7+ | [Apache Hadoop arşiv serbest bırakır.](https://hadoop.apache.org/release.html) |
-| [Cloudera](https://www.cloudera.com/) | 6.1 + | [Claudera Kurumsal 6.x sürüm notları](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
+| [Cloudera](https://www.cloudera.com/) | 6.1 + | [Cloudera Enterprise 6.x sürüm notları](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 4.2 + | [Databricks çalışma zamanı sürümleri](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
-|[HortenWorks](https://hortonworks.com/)| 2.6 + | [HortenWorks belgeleri](https://docs.hortonworks.com/) |
+|[Hortonworks](https://hortonworks.com/)| 2.6 + | [Hortonworks belgeleri](https://docs.hortonworks.com/) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -87,5 +87,5 @@ Aşağıdaki makaleler bazı ana kavramlar Data Lake depolama Gen2'ye ve ayrınt
 
 -   [Hiyerarşik ad alanı](data-lake-storage-namespace.md)
 -   [Depolama hesabı oluşturma](data-lake-storage-quickstart-create-account.md)
--   [Azure Data Lake depolama 2. nesil ile bir HDInsight kümesi oluşturma](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
--   [Azure Databricks'te bir Azure Data Lake depolama Gen2 hesabı kullanın](data-lake-storage-quickstart-create-databricks-account.md)
+-   [Data Lake depolama Gen2'ile bir HDInsight kümesi oluşturma](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
+-   [Azure Databricks'te bir Data Lake depolama Gen2 hesabı kullanın](data-lake-storage-quickstart-create-databricks-account.md)

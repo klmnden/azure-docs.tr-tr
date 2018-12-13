@@ -1,5 +1,6 @@
 ---
-title: Üretimde - Azure Machine Learning modelleri için veri toplamayı etkinleştirin
+title: Üretimde modelleri için veri toplamayı etkinleştirin
+titleSuffix: Azure Machine Learning service
 description: Azure Blob depolama alanındaki Azure Machine Learning modeli giriş verilerini nasıl toplayacağınızı öğrenin.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3033b049b3d4bbe49b6a30be7ec78e1c2caf49ef
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: e6b6a8e1dd1b3746977062341013b92acff132c4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011156"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100554"
 ---
 # <a name="collect-data-for-models-in-production"></a>Üretimde modelleri için veri toplama
 
@@ -55,7 +56,7 @@ Aşağıdaki veriler toplanabilir:
 
 - Azure Kubernetes Service (AKS) dağıtılması için eğitilen makine öğrenme modeli. Yoksa, bkz. [görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md) öğretici.
 
-- Bir [AKS kümesi](how-to-deploy-to-aks.md).
+- Azure Kubernetes hizmeti kümesi. Oluşturma ve bir dağıtma hakkında daha fazla bilgi için bkz. [nasıl dağıtılacağı ve nerede](how-to-deploy-and-where.md) belge.
 
 - [Ortamınızı ayarlama](how-to-configure-environment.md) yükleyip [izleme SDK](https://aka.ms/aml-monitoring-sdk).
 
@@ -103,7 +104,7 @@ Bunu etkinleştirmek için şunları yapmanız:
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True, enable_app_insights=True)
     ``` 
 
-5. [Yeni görüntü oluşturup hizmetinize dağıtın.](how-to-deploy-to-aks.md) 
+5. Yeni bir görüntü oluşturmak ve hizmeti dağıtmak için bkz: [nasıl dağıtılacağı ve nerede](how-to-deploy-and-where.md) belge.
 
 
 Yüklenen bağımlılıkları olan bir hizmet zaten varsa, **ortam dosyası** ve **Puanlama dosyası**, tarafından veri toplamayı etkinleştirin:

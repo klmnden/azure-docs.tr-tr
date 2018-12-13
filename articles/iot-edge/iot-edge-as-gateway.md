@@ -1,6 +1,6 @@
 ---
-title: Azure IOT Edge cihazları ağ geçidi olarak kullanma | Microsoft Docs
-description: Saydam, donuk oluşturmak için Azure IOT Edge ya da verileri birden çok akış CİHAZDAN buluta gönderiyor veya yerel olarak işleme proxy ağ geçidi cihazı kullanın.
+title: Ağ geçitleri için aşağı akış cihazları - Azure IOT Edge | Microsoft Docs
+description: Azure IOT Edge, verileri birden çok akış CİHAZDAN buluta gönderiyor veya yerel olarak işleyen bir saydam, opak ya da proxy ağ geçidi cihazı oluşturmak için kullanın.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 11/01/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 53f0f1e77f8879807b2fb93b86d825e3bd044f41
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 6e54d28d494a58966ea5312492dc79ced4c50a8d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567222"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092290"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Bir ağ geçidi olarak IOT Edge cihazının nasıl kullanılabileceğini
 
@@ -26,7 +27,7 @@ Bir ağ geçidi olarak IOT Edge cihazı kullanmak için üç desen vardır: sayd
 * **Protokol çevirisi** – bir donuk bir ağ geçidi düzeni da bilinen MQTT, AMQP veya HTTP desteklemeyen cihazlar bir ağ geçidi cihazı IOT Hub'ına onların adına veri göndermesini kullanabilirsiniz. Ağ geçidi aşağı akış cihazlar tarafından kullanılan protokolü anlar; Ancak, IOT Hub'ında kimlik olan yalnızca cihazdır. Tüm bilgiler, bir CİHAZDAN bir ağ geçidi geliyor gibi görünüyor. Aşağı Akış cihazları ek kimlik bilgileri, bulut uygulamalarını cihaz başına temelinde verileri çözümlemek istiyorsanız, iletilerinde katıştırmanız gerekir. Buna ek olarak, IOT hub'ı temelleri ikizlerini ve gibi yöntemler yalnızca olmayan aşağı akış cihazların ağ geçidi cihazı için kullanılabilir.
 * **Kimlik çeviri** -IOT Hub'ına bağlanamıyor cihazlara bağlanabilir bir ağ geçidi cihazı için bunun yerine. Ağ geçidi, IOT Hub adına aşağı akış cihazları kimlik ve protokol çevirisi sağlar. Aşağı Akış cihazlar tarafından kullanılan protokol anlamanıza, bunları kimlik sağlama ve IOT hub'ı temelleri çevirmek akıllı geçididir. Aşağı Akış cihazlar IOT Hub'ında birinci sınıf cihaz ikizleri ve yöntemler olarak görünür. Bir kullanıcı, cihazlar IOT hub'ında etkileşim kurabilir ve ara ağ geçidi cihazı farkında değildir.
 
-![Ağ geçidi desenlerinin diyagramları](./media/iot-edge-as-gateway/edge-as-gateway.png)
+![Diyagram - saydam, protokolü ve kimlik ağ geçidi desenleri](./media/iot-edge-as-gateway/edge-as-gateway.png)
 
 ## <a name="use-cases"></a>Uygulama alanları
 Tüm ağ geçidi desenler aşağıdaki avantajları sağlar:

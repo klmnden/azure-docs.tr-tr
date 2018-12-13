@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 0a130613d6d2086fda55ca015b1c0ca77c909e3d
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: d6a1f2829352e8589c8d132a195a425edcbe62c3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684622"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872958"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>SQL Data Sync'i Log Analytics ile izleme 
 
@@ -97,7 +97,7 @@ Bir runbook oluşturma hakkında daha fazla bilgi için bkz. [ilk PowerShell run
 
     2.  Eşitleme grubu bilgileri.
 
-    3.  Analytics bilgileri günlüğe kaydet. Azure Portalı'nda bu bilgi | Ayarları | Bağlı kaynaklar. Verileri Log Analytics'e gönderme hakkında daha fazla bilgi için bkz. [HTTP veri toplayıcı API'sini (Önizleme) ile Log Analytics veri Gönder](../log-analytics/log-analytics-data-collector-api.md).
+    3.  Analytics bilgileri günlüğe kaydet. Azure Portalı'nda bu bilgi | Ayarları | Bağlı kaynaklar. Verileri Log Analytics'e gönderme hakkında daha fazla bilgi için bkz. [HTTP veri toplayıcı API'sini (Önizleme) ile Log Analytics veri Gönder](../azure-monitor/platform/data-collector-api.md).
 
 11. Runbook'u Test Bölmesi'nde çalıştırın. Başarılı olup olmadığını denetleyin.
 

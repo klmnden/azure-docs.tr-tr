@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 99e42f404fe103f406c4b3835f8c455bc2b91e07
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.custom: seodec18
+ms.openlocfilehash: 77a5b455e3ef86484119983af24b6461a2fba229
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017697"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074496"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Azure maliyet yönetimi ile bulut yatırımınızdan en iyi duruma getirme
 
@@ -64,7 +64,7 @@ Harcamalarınızı azaltmak için harekete geçin. En iyi şekilde planlama ve m
 
 Kuruluşunuzdaki herkes, maliyet Yönetimi yaşam döngüsündeki ilgisini gerekir. Maliyetleri uygun duruma getirmek için sürekli olarak katılan kalmak gerekir. Bu yinelemeli süreci hakkında ayrıntılı ve kuruluşunuzda sorumlu bulut idare anahtar de aynen geçerli yapın.
 
-![Temel ilkeler](./media/cost-mgt-best-practices/principles.png)
+![Görünürlük ve Sorumluluk iyileştirme gösteren temel ilkeler diyagram](./media/cost-mgt-best-practices/principles.png)
 
 ## <a name="plan-with-cost-in-mind"></a>Maliyet aklınızda planlama
 

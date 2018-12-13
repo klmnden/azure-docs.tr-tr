@@ -2,18 +2,18 @@
 title: Azure Stream Analytics işleri için uyumluluk düzeyini anlayın
 description: Son uyumluluk düzeyinde bir Azure Stream Analytics işi ve önemli değişiklikler için uyumluluk düzeyi hakkında bilgi edinin
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/15/2018
-ms.openlocfilehash: e4a4aa7bb944ec15d4283893c0f3e8c647a1d8b4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 37d57b0dc381f0ed2edf1f3debb76e5b54eae157
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968638"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093837"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics işleri için uyumluluk düzeyi
  
@@ -27,7 +27,7 @@ Uyumluluk düzeyi, bir stream analytics işi çalışma zamanı davranışını 
 
 Uyumluluk düzeyini güncelleştirmeden önce işi durdurmanız emin olun. İşinizi çalışır durumda olup olmadığını uyumluluk düzeyini güncelleştirilemiyor. 
 
-![Portalı'nda uyumluluk düzeyi](media/stream-analytics-compatibility-level/image1.png)
+![Azure portalında Stream Analytics uyumluluk düzeyi](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
 
  
 Uyumluluk düzeyini güncelleştirdiğinizde, T-SQL derleyicisi iş seçili uyumluluk düzeyine karşılık gelen söz dizimi ile doğrular. 

@@ -1,5 +1,5 @@
 ---
-title: Grup tabanlı Azure Active Directory lisansı nedir? | Microsoft Docs
+title: Hangi Grup tabanlı lisanslama - Azure Active Directory | Microsoft Docs
 description: Nasıl çalıştığını ve en iyi uygulamalar da dahil olmak üzere Azure Active Directory grup tabanlı lisanslama hakkında bilgi edinin.
 services: active-directory
 keywords: Azure AD lisanslama
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 10/29/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: 3f23b28c1b20155e50fddf17db90cd2a53c04855
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: MT
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: c83eeb78f041b86032f1ebb28949cd035487b81e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209828"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086360"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Grup tabanlı Azure Active Directory lisansı nedir?
 
