@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 49acb9a7945f380c354440823294c9afb43c7afc
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 010d3b5f2993f1bc652f9947317f81b0ba5cfb9e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892648"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097174"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log analytics'te kapsayıcı izleme çözümü
 
@@ -100,7 +100,7 @@ Aşağıdaki tabloda, işletim sistemi desteği kapsayıcı envanteri, performan
 
 2. Yükleyin ve Docker ile bir Log Analytics aracısını kullanın. İşletim sistemi ve Docker orchestrator bağlı olarak, aracınızı yapılandırmak için aşağıdaki yöntemleri kullanabilirsiniz.
   - Tek başına konakları için:
-    - Desteklenen Linux işletim sistemlerinde yüklemek ve Docker'ı çalıştırın ve ardından yükleme ve yapılandırma [Linux için Log Analytics aracısını](../../log-analytics/log-analytics-quick-collect-linux-computer.md).  
+    - Desteklenen Linux işletim sistemlerinde yüklemek ve Docker'ı çalıştırın ve ardından yükleme ve yapılandırma [Linux için Log Analytics aracısını](../../azure-monitor/learn/quick-collect-linux-computer.md).  
     - CoreOS üzerinde Linux için Log Analytics aracısını çalıştıramazsınız. Bunun yerine, Linux için Log Analytics aracısını kapsayıcı bir sürümünü çalıştırın. Gözden geçirme [CoreOS dahil olmak üzere Linux kapsayıcı konağında](#for-all-linux-container-hosts-including-coreos) veya [CoreOS dahil olmak üzere Azure kamu Linux kapsayıcı konağında](#for-all-azure-government-linux-container-hosts-including-coreos) Azure kamu bulutunda kapsayıcılar ile çalışıyorsanız.
     - Windows Server 2016 ve Windows 10, Docker altyapısı ve istemci yükleme ardından bilgi toplamak ve Log Analytics'e göndermek için bir aracı bağlayın. Gözden geçirme [yüklemek ve Windows kapsayıcı konakları yapılandırma](#install-and-configure-windows-container-hosts) bir Windows ortamınız varsa.
   - Docker birden çok konak düzenleme için:
@@ -116,7 +116,7 @@ Aşağıdaki tabloda, işletim sistemi desteği kapsayıcı envanteri, performan
 Gözden geçirme [Windows üzerinden Docker altyapısının](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) makale yüklemek ve Windows çalıştıran bilgisayarlarda, Docker altyapısı yapılandırma hakkında ek bilgi için.
 
 > [!IMPORTANT]
-> Docker çalıştırmalıdır **önce** yüklediğiniz [Linux için Log Analytics aracısını](../../log-analytics/log-analytics-quick-collect-linux-computer.md) kapsayıcı konaklarınız üzerinde. Docker'ı yüklemeden önce aracıyı zaten yüklediyseniz, Linux için Log Analytics aracısını yeniden yüklemeniz gerekir. Docker hakkında daha fazla bilgi için bkz: [Docker Web sitesi](https://www.docker.com).
+> Docker çalıştırmalıdır **önce** yüklediğiniz [Linux için Log Analytics aracısını](../../azure-monitor/learn/quick-collect-linux-computer.md) kapsayıcı konaklarınız üzerinde. Docker'ı yüklemeden önce aracıyı zaten yüklediyseniz, Linux için Log Analytics aracısını yeniden yüklemeniz gerekir. Docker hakkında daha fazla bilgi için bkz: [Docker Web sitesi](https://www.docker.com).
 
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Yükleme ve yapılandırma Linux kapsayıcı konakları
@@ -145,7 +145,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **Geçiş için bir kapsayıcı yüklü bir Linux Aracısı'nı kullanma**
 
-Daha önce yüklenmiş doğrudan Aracısı kullanılan ve bunun yerine bir kapsayıcıda çalışan bir aracının kullanmak istiyorsanız, önce Linux için Log Analytics aracısını kaldırmanız gerekir. Bkz: [Linux için Log Analytics aracısını kaldırma](../../log-analytics/log-analytics-quick-collect-linux-computer.md) başarıyla aracıyı kaldırmak nasıl yapılacağını görmek için.  
+Daha önce yüklenmiş doğrudan Aracısı kullanılan ve bunun yerine bir kapsayıcıda çalışan bir aracının kullanmak istiyorsanız, önce Linux için Log Analytics aracısını kaldırmanız gerekir. Bkz: [Linux için Log Analytics aracısını kaldırma](../../azure-monitor/learn/quick-collect-linux-computer.md) başarıyla aracıyı kaldırmak nasıl yapılacağını görmek için.  
 
 #### <a name="configure-a-log-analytics-agent-for-docker-swarm"></a>Docker Swarm için bir Log Analytics aracısını yapılandırma
 
@@ -189,8 +189,8 @@ Log Analytics aracısını, Docker Swarm hakkında genel bir hizmet olarak çal�
 #### <a name="configure-a-log-analytics-agent-for-red-hat-openshift"></a>Red Hat OpenShift için bir Log Analytics aracısını yapılandırma
 Log Analytics aracısını kapsayıcı izleme verilerini toplamaya başlamak için Red Hat OpenShift için eklemenin üç yolu vardır.
 
-* [Linux için Log Analytics aracısını yükleme](../../log-analytics/log-analytics-quick-collect-linux-computer.md) doğrudan her bir düğümde OpenShift  
-* [Log Analytics VM uzantısını etkinleştirme](../../log-analytics/log-analytics-quick-collect-azurevm.md) Azure'da bulunan her OpenShift düğümde  
+* [Linux için Log Analytics aracısını yükleme](../../azure-monitor/learn/quick-collect-linux-computer.md) doğrudan her bir düğümde OpenShift  
+* [Log Analytics VM uzantısını etkinleştirme](../../azure-monitor/learn/quick-collect-azurevm.md) Azure'da bulunan her OpenShift düğümde  
 * Log Analytics aracısını bir OpenShift arka plan programı kümesi olarak yükleme  
 
 Bu bölümde bir OpenShift arka plan programı kümesi olarak Log Analytics aracısını yüklemek için gerekli adımları ele.  
@@ -523,9 +523,9 @@ Windows kapsayıcıları ile kullanılan Docker daemon yapılandırmasını hakk
 
 #### <a name="install-windows-agents"></a>Windows aracıları yükleyin
 
-Windows ve Hyper-V kapsayıcı izlemeyi etkinleştirmek için kapsayıcı konaklarının Windows bilgisayarlarda Microsoft Monitoring Agent (MMA) yükleyin. Şirket içi ortamınızda Windows çalıştıran bilgisayarlar için bkz: [bağlanmak Windows bilgisayarlarını Log Analytics'e](../../azure-monitor/platform/agent-windows.md). Sanal makineler için Azure'da çalışan bunları Log Analytics için kullanılacak bağlantı [sanal makine uzantısı](../../log-analytics/log-analytics-quick-collect-azurevm.md).
+Windows ve Hyper-V kapsayıcı izlemeyi etkinleştirmek için kapsayıcı konaklarının Windows bilgisayarlarda Microsoft Monitoring Agent (MMA) yükleyin. Şirket içi ortamınızda Windows çalıştıran bilgisayarlar için bkz: [bağlanmak Windows bilgisayarlarını Log Analytics'e](../../azure-monitor/platform/agent-windows.md). Sanal makineler için Azure'da çalışan bunları Log Analytics için kullanılacak bağlantı [sanal makine uzantısı](../../azure-monitor/learn/quick-collect-azurevm.md).
 
-Windows kapsayıcıları Service Fabric üzerinde çalışmasını izleyebilirsiniz. Ancak, yalnızca [Azure'da çalışan sanal makineler](../../log-analytics/log-analytics-quick-collect-azurevm.md) ve [şirket içi ortamınızda Windows çalıştıran bilgisayarlar](../../azure-monitor/platform/agent-windows.md) şu anda Service Fabric için desteklenir.
+Windows kapsayıcıları Service Fabric üzerinde çalışmasını izleyebilirsiniz. Ancak, yalnızca [Azure'da çalışan sanal makineler](../../azure-monitor/learn/quick-collect-azurevm.md) ve [şirket içi ortamınızda Windows çalıştıran bilgisayarlar](../../azure-monitor/platform/agent-windows.md) şu anda Service Fabric için desteklenir.
 
 Kapsayıcı izleme çözümü için Windows düzgün şekilde ayarlandığını doğrulayabilirsiniz. Yönetim Paketi indirme doğru olup olmadığını denetlemek için Aranan *ContainerManagement.xxx*. Dosyaları C:\Program Files\Microsoft Monitoring Agent\Agent\Health hizmet State\Management paketleri klasöründe olmalıdır.
 
@@ -541,9 +541,9 @@ Kapsayıcı izleme çözümü, kapsayıcı konağında ve kapsayıcıları etkin
 
 Verileri üç dakikada bir şu aracı türleri tarafından toplanır.
 
-- [Linux için log Analytics aracısını](../../log-analytics/log-analytics-quick-collect-linux-computer.md)
+- [Linux için log Analytics aracısını](../../azure-monitor/learn/quick-collect-linux-computer.md)
 - [Windows Aracısı](../../azure-monitor/platform/agent-windows.md)
-- [Log Analytics VM uzantısı](../../log-analytics/log-analytics-quick-collect-azurevm.md)
+- [Log Analytics VM uzantısı](../../azure-monitor/learn/quick-collect-azurevm.md)
 
 
 ### <a name="container-records"></a>Kapsayıcı kayıt
