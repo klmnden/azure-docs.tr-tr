@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 03c561001999245b55e6e76b02f8916d0b2d619f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 167f0fd9e06e731a6a2fef15d762d8815f5d4f9b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963241"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189991"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log analytics'te özel günlükler
 Log analytics'te özel günlükleri veri kaynağı, hem Windows hem de Linux bilgisayarlarda metin dosyalarından olaylarını toplamanıza olanak sağlar. Birçok uygulama için Windows olay günlüğü veya Syslog gibi standart günlük hizmetlerinin yerine metin dosyaları bilgileri günlüğe kaydetmek. Toplandığında, verileri ayrı ayrı alanlara sorgularınızdaki ayrıştırmak veya sırasında ayrı alanlar koleksiyonuna olan verileri ayıklayın.
@@ -64,10 +62,10 @@ Zaman damgası ayırıcı kullanılırsa, Log Analytics içinde depolanan her ka
 
 
 1. Tıklayın **Gözat** ve bir örnek dosyasına göz atın.  Bu düğme Not etiketli **Dosya Seç** bazı tarayıcılarda.
-2. **İleri**’ye tıklayın.
+2. **İleri**'ye tıklayın.
 3. Özel günlük Sihirbazı'nı dosyayı yükleyin ve tanımladığı kayıtları listesi.
 4. Yeni bir kayıt tanımlamak ve günlük dosyanız kayıtlara en iyi şekilde tanımlayan bir sınırlayıcı seçmek için kullanılan sınırlayıcıyı değiştirin.
-5. **İleri**’ye tıklayın.
+5. **İleri**'ye tıklayın.
 
 ### <a name="step-3-add-log-collection-paths"></a>3. Adım Günlük koleksiyonu yolları ekle
 Özel günlük burada bulabilirsiniz aracı üzerinde bir veya daha fazla yol tanımlamanız gerekir.  Belirli bir yol ve günlük dosyasının adı ya da sağlayabilir veya adı için joker karakter içeren bir yol belirtebilirsiniz. Bu, her gün veya bir dosyada belirli bir boyuta ulaştığında yeni bir dosya oluşturun, uygulamaları destekler. Ayrıca, tek bir günlük dosyası için birden çok yol sağlayabilir.

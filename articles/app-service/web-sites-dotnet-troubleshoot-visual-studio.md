@@ -1,5 +1,5 @@
 ---
-title: Visual Studio kullanarak Azure App Service'te bir web uygulaması sorunlarını giderme
+title: Visual Studio - Azure App Service kullanarak bir web uygulaması sorunlarını giderme
 description: Uzaktan hata ayıklama, izleme ve Visual Studio 2013 için yerleşik olarak bulunan günlük Araçları'nı kullanarak bir Azure web uygulaması sorunlarını gidermeyi öğrenin.
 services: app-service
 documentationcenter: .net
@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: eafb4e82a319a0fdbe954757158a09aba83e9be0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 689ff528f18a810c35031dd60a65470d4351b9a7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972295"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278534"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Visual Studio kullanarak Azure App Service'te bir web uygulaması sorunlarını giderme
 ## <a name="overview"></a>Genel Bakış
@@ -71,7 +72,7 @@ Visual Studio web uygulaması yönetim işlevlerini ve kullanılabilir yapıland
 
     Bu öğreticide, günlüğe kaydetme ve izleme açılan listeler kullanacaksınız. Uzaktan hata ayıklama kullanacaksınız ancak bunu etkinleştirmek için farklı bir yöntem kullanmanız gerekir.
 
-    Bu pencerede uygulama ayarlarının ve bağlantı dizelerinin kutuları hakkında daha fazla bilgi için bkz: [Azure Web Apps: nasıl uygulama dizeleri ve bağlantı dizeleri çalışma](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+    Bu pencerede uygulama ayarlarının ve bağlantı dizelerinin kutuları hakkında daha fazla bilgi için bkz: [Azure Web Apps: Nasıl uygulama dizeleri ve bağlantı dizeleri çalışma](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
     Bu pencerede yapılamaz bir web uygulaması yönetim görevini gerçekleştirmek istiyorsanız, tıklayın **Yönetim Portalı'nda açmak** Azure portalında bir tarayıcı penceresi açın.
 
@@ -613,7 +614,7 @@ FTP aracılığıyla doğrudan veya bunları yerel bilgisayarınıza indirmek i�
 Nasıl Visual Studio, bir Azure web uygulaması tarafından oluşturulan günlükleri görüntülemek kolaylaştırır gördünüz. Aşağıdaki bölümler, ilgili konular hakkında daha fazla kaynakların bağlantılarını sağlar:
 
 * Azure web uygulaması sorunlarını giderme
-* Visual Studio'da hata ayıklama
+* Visual Studio'da Hata Ayıklama
 * Uzaktan Azure'da hata ayıklama
 * ASP.NET uygulamalarında izleme
 * Web sunucusu günlüklerini analiz etme
@@ -633,7 +634,7 @@ Belirli bir sorun giderme sorunuz konusunda yardım için şu forumlarından bir
 * [MSDN'deki Azure Forumu](https://social.msdn.microsoft.com/Forums/windowsazure/).
 * [StackOverflow.com](https://www.stackoverflow.com).
 
-### <a name="debugging-in-visual-studio"></a>Visual Studio'da hata ayıklama
+### <a name="debugging-in-visual-studio"></a>Visual Studio'da Hata Ayıklama
 Visual Studio'da hata ayıklama modu kullanma hakkında daha fazla bilgi için bkz. [Visual Studio'da hata ayıklama](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) ve [Visual Studio 2010 ile hata ayıklama ipuçları](https://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
 
 ### <a name="remote-debugging-in-azure"></a>Uzaktan Azure'da hata ayıklama

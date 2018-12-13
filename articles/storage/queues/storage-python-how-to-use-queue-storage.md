@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 1e52f199847b9e03eb31da71f1f0577df92d2b51
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 827d3ceac267c78be9740adba6c890460ca3f2e9
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230419"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162996"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Python’dan Kuyruk depolama kullanma
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -47,9 +47,9 @@ pip install azure-storage-queue
 > 
 > 
 
-Diğer yükleme yöntemleri için ziyaret [Github üzerinde Python için Azure depolama SDK'sı](https://github.com/Azure/azure-storage-python/).
+Diğer yükleme yöntemleri için ziyaret [GitHub üzerinde Python için Azure depolama SDK'sı](https://github.com/Azure/azure-storage-python/).
 
-## <a name="how-to-create-a-queue"></a>Nasıl yapılır: bir kuyruk oluşturun.
+## <a name="how-to-create-a-queue"></a>Nasıl Yapılır: Kuyruk oluşturma
 **QueueService** nesne kuyrukları ile çalışmanıza olanak tanır. Aşağıdaki kod oluşturur bir **QueueService** nesne. Aşağıdaki program aracılığıyla Azure depolamaya erişmek istediğiniz herhangi bir Python dosyası üstüne yakın bir yere ekleyin:
 
 ```python
@@ -64,14 +64,14 @@ queue_service = QueueService(account_name='myaccount', account_key='mykey')
 queue_service.create_queue('taskqueue')
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Nasıl yapılır: bir ileti bir kuyruğa yerleştirin.
+## <a name="how-to-insert-a-message-into-a-queue"></a>Nasıl Yapılır: Kuyruğa bir ileti Ekle
 Bir kuyruğa ileti eklemek için kullanın **put\_ileti** yöntemi yeni bir ileti oluşturun ve kuyruğa ekleyin.
 
 ```python
 queue_service.put_message('taskqueue', u'Hello World')
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Nasıl yapılır: sonraki iletiye gözatın
+## <a name="how-to-peek-at-the-next-message"></a>Nasıl Yapılır: Sonraki iletiye gözatın
 Kuyruğun iletiyi kuyruktan kaldırmadan çağırarak peek **gözlem\_iletileri** yöntemi. Varsayılan olarak, **gözlem\_iletileri** peeks tek bir iletiye.
 
 ```python
@@ -80,7 +80,7 @@ for message in messages:
     print(message.content)
 ```
 
-## <a name="how-to-dequeue-messages"></a>Nasıl yapılır: İletileri sıradan çıkarma
+## <a name="how-to-dequeue-messages"></a>Nasıl Yapılır: İletileri sıradan çıkarma
 Kodunuzun bir iletiyi bir kuyruktan iki adımda kaldırır. Çağırdığınızda **alma\_iletileri**, varsayılan olarak sonraki iletiyi kuyruğa alın. Öğesinden döndürülen bir ileti **alma\_iletileri** bu kuyruktan iletileri okuyan herhangi bir kod için görünmez hale gelir. Varsayılan olarak bu ileti 30 saniye görünmez kalır. İletiyi kuyruktan kaldırmayı tamamlamak için de çağırmanız gerekir **Sil\_ileti**. Kodunuzun bir iletiyi donanım veya yazılım hatası nedeniyle başarısız olduğunda, kodunuzun başka bir örneği aynı iletiyi alıp yeniden deneyin, bu iki adımlı işlem, bir iletinin sağlar. Kod çağrılarınızı **Sil\_ileti** ileti işlendikten sonra sağ.
 
 ```python
@@ -100,7 +100,7 @@ for message in messages:
     queue_service.delete_message('taskqueue', message.id, message.pop_receipt)        
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Nasıl yapılır: bir kuyruğa alınan iletinin içeriğini değiştirme
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Nasıl Yapılır: Kuyruğa Alınan iletinin içeriğini değiştirme
 Kuyrukta yer alan bir iletinin içeriğini değiştirebilirsiniz. Eğer ileti bir iş görevini temsil ediyorsa, bu özelliği kullanarak iş görevinin durumunu güncelleştirebilirsiniz. Kullanan aşağıdaki kodu **güncelleştirme\_ileti** bir ileti güncelleştirmek için yöntemi. Görünebilirlik zaman aşımı iletisi hemen gösterilir ve içerik güncelleştirildi 0 olarak ayarlanır.
 
 ```python
@@ -109,7 +109,7 @@ for message in messages:
     queue_service.update_message('taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Nasıl yapılır: kuyruk uzunluğu alma
+## <a name="how-to-get-the-queue-length"></a>Nasıl Yapılır: Kuyruk uzunluğu alma
 Bir kuyruktaki ileti sayısı ile ilgili bir tahmin alabilirsiniz. **Alma\_kuyruk\_meta verileri** yöntemi kuyruk hakkındaki meta verileri döndürmek için kuyruk hizmeti sorar ve **approximate_message_count**. İletileri veya kuyruk hizmeti, isteğine yanıt vermeden sonra kaldırılamaz çünkü yalnızca yaklaşık sonucudur.
 
 ```python
@@ -117,7 +117,7 @@ metadata = queue_service.get_queue_metadata('taskqueue')
 count = metadata.approximate_message_count
 ```
 
-## <a name="how-to-delete-a-queue"></a>Nasıl yapılır: bir kuyruk silme
+## <a name="how-to-delete-a-queue"></a>Nasıl Yapılır: Bir kuyruk silme
 Bir kuyruk ve içerdiği tüm iletileri silmek için çağrı **Sil\_kuyruk** yöntemi.
 
 ```python

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 4fd896e3b26ae66621ba49d1bb8a5d86c0dd63ee
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f5ffc795e6469971d1eaf335d6683f94d05f0807
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963275"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278634"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Mevcut .NET Azure Mobile Services'ı App Service'a yükseltme
 App Service Mobile, Microsoft Azure kullanarak mobil uygulamalar derlemek için yepyeni bir yoludur. Daha fazla bilgi için bkz. [Mobile Apps nedir?].
@@ -68,7 +68,7 @@ Yükseltme sırasında ilk adım, uygulamanızın yeni sürümünü barındırac
 
 Ardından, ikinci uygulama örneğini oluşturma [.NET arka uç oluşturma yönergeleri](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). Seçtiğiniz istendiğinde App Service planı ya da "barındırma planı" geçirilen uygulamanızın planı seçin.
 
-Büyük olasılıkla mobil Hizmetler'de yaptığınız gibi aynı veritabanını ve bildirim hub'ı kullanmak istersiniz. Bu değerleri açarak kopyalayabilirsiniz [Azure portal] ve özgün uygulamasına gidip, ardından **ayarları** > **uygulama ayarları**. Altında **bağlantı dizeleri**, kopyalama `MS_NotificationHubConnectionString` ve `MS_TableConnectionString`. Yeni yükseltme sitenize gidin ve tüm mevcut değerlerin üzerine yazar, yapıştırın. Herhangi bir uygulama ayarları için bu işlemi tekrarlamanız uygulama ihtiyaçlarınızı. Geçirilen hizmet kullanılmıyorsa, bağlantı dizeleri ve uygulama ayarlarını okuyabilirsiniz **yapılandırma** mobil hizmetler bölümünün sekmesinde [Klasik Azure portalı].
+Büyük olasılıkla mobil Hizmetler'de yaptığınız gibi aynı veritabanını ve bildirim hub'ı kullanmak istersiniz. Bu değerleri açarak kopyalayabilirsiniz [Azure portal] ve özgün uygulamasına gidip, ardından **ayarları** > **uygulama ayarları**. Altında **bağlantı dizeleri**, kopyalama `MS_NotificationHubConnectionString` ve `MS_TableConnectionString`. Yeni yükseltme sitenize gidin ve tüm mevcut değerlerin üzerine yazar, yapıştırın. Herhangi bir uygulama ayarları için bu işlemi tekrarlamanız uygulama ihtiyaçlarınızı.
 
 ASP.NET projesi uygulamanız için bir kopyasını oluşturun ve yeni sitenize yayımlayın. Yeni URL ile güncelleştirilmiş istemci uygulamasının bir kopyasını kullanarak, her şeyin beklendiği gibi çalıştığını doğrulayın.
 
@@ -280,7 +280,6 @@ Yeni istemci sürümü hazır olduğunda, yükseltilen sunucu projenizi karşı 
 <!-- URLs. -->
 
 [Azure portal]: https://portal.azure.com/
-[Klasik Azure portalı]: https://manage.windowsazure.com/
 [Mobile Apps nedir?]: app-service-mobile-value-prop.md
 [Mobil uygulama sunucusu SDK]: https://www.nuget.org/packages/microsoft.azure.mobile.server
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md

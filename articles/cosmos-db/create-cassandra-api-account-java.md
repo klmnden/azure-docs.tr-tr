@@ -1,5 +1,5 @@
 ---
-title: Java uygulaması kullanarak Azure Cosmos DB Cassandra API'si hesabı, veritabanı ve tablo oluşturma
+title: Kullanarak bir Java uygulaması - Azure Cosmos DB Cassandra API hesabı oluşturma
 description: Bu makalede, Java uygulaması kullanarak Cassandra API'si hesabı, bu hesaba bir veritabanı (keyspace olarak da adlandırılır) ve tablo oluşturma işlemi gösterilir.
 author: kanshiG
 ms.author: govindk
@@ -8,15 +8,16 @@ services: cosmos-db
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.openlocfilehash: 57b255fc3875adfd411ee8508f238f0e10af85f6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 0bff57d91a777619b825dacef5988dda010c794b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089845"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138849"
 ---
-# <a name="tutorial-create-an-azure-cosmos-db-cassandra-api-account-database-and-a-table-by-using-a-java-application"></a>Öğretici: Java uygulaması kullanarak Azure Cosmos DB Cassandra API hesabı, veritabanı ve tablo oluşturma
+# <a name="tutorial-create-an-azure-cosmos-db-cassandra-api-account-by-using-a-java-application"></a>Öğretici: Bir Java uygulaması kullanarak bir Azure Cosmos DB Cassandra API hesabı oluşturma
 
 Bu öğreticide Azure Cosmos DB'de Cassandra API'si hesabı oluşturmak, bir veritabanı (keyspace olarak da adlandırılır) ve tablo eklemek için Java uygulamasının nasıl kullanıldığı açıklanır. Java uygulaması kullanıcı kimliği, kullanıcı adı ve kullanıcı şehri gibi ayrıntıları içeren bir kullanıcı veritabanı oluşturmak için [Java sürücüsünü](https://github.com/datastax/java-driver) kullanır.  
 

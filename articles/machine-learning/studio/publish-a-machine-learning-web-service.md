@@ -4,9 +4,8 @@ description: Bir eğitim denemesini öngörücü bir denemeye dönüştürme, da
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: d96755f00aa5023d57c9c4c2b2457902c337e29d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 71315b6c36a9e41e5805d5a15bde5b1d1d84f2b5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314277"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269932"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Bir Azure Machine Learning Studio web hizmetini dağıtma
 Azure Machine Learning, derleme, test etme ve Tahmine dayalı analiz çözümlerini dağıtmak sağlar.
@@ -32,7 +31,7 @@ Bir üst düzey noktası-ın-görünümünden, bu üç adımda gerçekleştirili
 * **[Öngörücü bir denemeye dönüştürme]**  -modelinizi mevcut verilerle eğitim almış ve yeni verileri puanlamak için kullanıma hazır sonra hazırlama ve tahminler elde etmek için denemenizin kolaylaştırın.
 * **[Bir web hizmeti olarak dağıtma]**  -deneyiminizi Tahmine dayalı olarak dağıtabileceğiniz bir [yeni] veya [Klasik] Azure web hizmeti. Kullanıcılar, modelinize veri göndermek ve modelinizin Öngörüler alırsınız.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="create-a-training-experiment"></a>Eğitim denemenizi oluşturma
 Tahmine dayalı analiz modeli eğitmek için Azure Machine Learning Studio eğitim denemesini oluşturmak için nereden eğitim veri yükleme, gerektiğinde verileri hazırlama, makine öğrenimi algoritmaları uygulamak ve sonuçları değerlendirmek için çeşitli modül dahil kullanın. Bir deney üzerinde yinelemek ve karşılaştırmak ve sonuçları değerlendirmek için farklı makine öğrenimi algoritmaları deneyin.

@@ -11,12 +11,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim88
-ms.openlocfilehash: ea5d9a86f558187e77017a9d49f43e851192c65a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f3ca99a92d12acbf880a3a95098a90569e2a0f84
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635416"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309408"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Bilgi bankanız hakkında analizler alma
 
@@ -59,9 +59,9 @@ Soru-cevap Oluşturucu, tüm sohbet günlükleri ve diğer telemetriyi App Insig
     | where url endswith "generateAnswer" and name startswith "POST"
     | parse name with *"/knowledgebases/"KbId"/generateAnswer" 
     | summarize ChatCount=count() by bin(timestamp, 1d), KbId
-``` 
+```
 
-### Total question traffic in a given time period
+### <a name="total-question-traffic-in-a-given-time-period"></a>Toplam soru trafiği belirli bir süre içinde
 
 ```query
     //Total Question Traffic in a given time period

@@ -5,7 +5,6 @@ services: machine-learning
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
@@ -13,18 +12,18 @@ ms.component: studio
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: fc201b91ba3e2e7ba0f880445542333e58ed4a8c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e6835afd66d054a79c422a35839d64ae89031de5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079832"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268266"
 ---
-# <a name="create-and-share-an-azure-machine-learning-workspace"></a>Bir Azure Machine Learning çalışma alanı oluşturma ve paylaşma
+# <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>Oluşturma ve bir Azure Machine Learning Studio çalışma paylaşma
 
 Azure Machine Learning Studio'da kullanmak için Machine Learning Studio çalışma alanına sahip olmanız gerekir. Bu çalışma alanı, denemeleri oluşturmak, yönetmek ve yayımlamak için ihtiyacınız olan araçları içerir.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ### <a name="to-create-a-workspace"></a>Bir çalışma alanı oluşturmak için
 1. [Azure portalda](https://portal.azure.com/) oturum açma
@@ -60,7 +59,7 @@ Azure Machine Learning Studio'da kullanmak için Machine Learning Studio çalı�
     ![Açık denemeleri](./media/create-workspace/my-experiments.png)
 
 Çalışma alanınızı yönetme hakkında daha fazla bilgi için bkz: [bir Azure Machine Learning çalışma alanını yönetme](manage-workspace.md).
-Çalışma alanınızı oluşturulurken bir sorunla karşılaşırsanız, bkz [sorun giderme kılavuzu: Machine Learning çalışma alanına bağlamak ve oluşturmak](troubleshooting-creating-ml-workspace.md).
+Çalışma alanınızı oluşturulurken bir sorunla karşılaşırsanız bkz [sorun giderme kılavuzu: Oluşturma ve bir Machine Learning çalışma alanına bağlanma](troubleshooting-creating-ml-workspace.md).
 
 
 ## <a name="sharing-an-azure-machine-learning-workspace"></a>Bir Azure Machine Learning çalışma alanı paylaşımı

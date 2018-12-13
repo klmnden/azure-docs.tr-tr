@@ -1,5 +1,5 @@
 ---
-title: App Service ve Azure işlevleri kimliklerini yönetilen | Microsoft Docs
+title: Kimlikleri genel bakış - Azure App Service yönetilen | Microsoft Docs
 description: Azure App Service ve Azure işlevleri yönetilen kimlikleri için kavramsal başvurusu ve Kurulum Kılavuzu
 services: app-service
 author: mattchenderson
@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 033667500f627a090c6ba6d686224126d217b833
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 40ae45eb401aeb302b2474cd181d29c0ee26c611
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971411"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254369"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service ve Azure işlevleri için yönetilen kimliklerini kullanma
 
@@ -158,7 +158,7 @@ Burada `<TENANTID>` ve `<PRINCIPALID>` GUID'lerini aşağıdaki ile değiştiril
 ## <a name="adding-a-user-assigned-identity-preview"></a>Bir kullanıcı tarafından atanan kimliği (Önizleme) ekleme
 
 > [!NOTE] 
-> Kullanıcı tarafından atanan kimlikleri, şu anda Önizleme aşamasındadır. Sovreign bulut henüz desteklenmemektedir.
+> Kullanıcı tarafından atanan kimlikleri, şu anda Önizleme aşamasındadır. Bağımsız bulutlarda henüz desteklenmemektedir.
 
 Uygulama bir kullanıcı tarafından atanan kimliği oluşturma, kimlik oluşturmak ve ardından, uygulama yapılandırması için kaynak tanımlayıcısını ekleyin gerektirir.
 
@@ -299,7 +299,7 @@ Başarılı 200 Tamam yanıtı bir JSON gövdesi aşağıdaki özellikleri içer
 > |access_token|İstenen erişim belirteci. Çağıran web hizmeti, alıcı web hizmetinde kimlik doğrulaması için bu belirteci kullanabilirsiniz.|
 > |expires_on|Erişim belirtecinin süresinin sona erdiği zaman. Tarih 1970'ten saniye sayısı temsil edilen-01-kadar süre sonu UTC 01T0:0:0Z. Bu değer, önbelleğe alınan belirteç ömrünü belirlemek için kullanılır.|
 > |kaynak|Alıcı web hizmeti uygulama kimliği URI'si.|
-> |token_type|Belirteç türü değeri gösterir. Azure AD destekleyen tek taşıyıcı türüdür. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: taşıyıcı belirteç kullanımı (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
+> |token_type|Belirteç türü değeri gösterir. Azure AD destekleyen tek taşıyıcı türüdür. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: Taşıyıcı belirteç kullanımı (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 
 Bu yanıt aynıdır [AAD hizmetten hizmete erişim belirteci isteği için yanıt](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).

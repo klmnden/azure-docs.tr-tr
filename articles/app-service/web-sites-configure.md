@@ -1,5 +1,5 @@
 ---
-title: Azure Uygulama Hizmeti’nde Web uygulamalarını yapılandırma
+title: Web uygulamaları - Azure App Service'ı yapılandırma
 description: Azure uygulama Hizmetleri'nde bir web uygulamasını yapılandırma
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 60675d7d40dbab863677ea120c25986cff61a308
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 4286aa9cbaf07743c1d420fb1f5caace91bab7ee
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960150"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269439"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Azure Uygulama Hizmeti’nde Web uygulamalarını yapılandırma
 
@@ -41,7 +42,7 @@ Bu konu başlığında, bir web uygulamasını kullanarak yapılandırmak açık
 * **.NET framework**: .NET framework sürümünü ayarlayın. 
 * **PHP**: PHP sürümünü ayarlayın veya **OFF** PHP devre dışı bırakmak için. 
 * **Java**: Java sürümü seçin veya **OFF** Java devre dışı bırakmak için. Kullanım **Web kapsayıcısını** Tomcat ve Jetty sürümleri arasında seçmek için seçeneği.
-* **Python**: Python sürümünü seçin veya **OFF** Python devre dışı bırakmak için.
+* **Python**: Python sürümü seçin veya **OFF** Python devre dışı bırakmak için.
 
 Teknik nedenlerle, uygulamanız için Java'yı etkinleştirme .NET, PHP ve Python seçenekleri devre dışı bırakır.
 
@@ -164,7 +165,7 @@ Dağıtım yuvaları görüntülemek için tıklayın **tüm ayarlar** > **dağ�
 ### <a name="monitoring"></a>İzleme
 Temel veya standart modunda Üçe kadar coğrafi olarak dağıtılmış konumlardan HTTP veya HTTPS uç kullanılabilirliğini test edebilirsiniz. İzleme testi başarısız olursa HTTP yanıt kodunu (4xx veya 5xx) bir hata veya 30 saniyeden uzun yanıt alır. Bir uç nokta izleme testlerinin belirtilen tüm konumlarda başarılı olması için kullanılabilir olarak kabul edilir. 
 
-Daha fazla bilgi için [Nasıl yapılır: izleme web uç noktası durumu].
+Daha fazla bilgi için [Nasıl Yapılır: Web uç noktası durumunu izleme].
 
 > [!NOTE]
 > Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin] sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
@@ -184,7 +185,7 @@ Daha fazla bilgi için [Nasıl yapılır: izleme web uç noktası durumu].
 [Azure App Service'te özel etki alanı adını yapılandırma]: ./app-service-web-tutorial-custom-domain.md
 [Azure App Service'te Web uygulamaları için hazırlama ortamlarını dağıtma]: ./web-sites-staged-publishing.md
 [Azure App Service'te bir uygulama için HTTPS'yi etkinleştirme]: ./app-service-web-tutorial-custom-ssl.md
-[Nasıl yapılır: izleme web uç noktası durumu]: https://go.microsoft.com/fwLink/?LinkID=279906
+[Nasıl Yapılır: Web uç noktası durumunu izleme]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Azure App Service'te Web uygulamaları için temel izleme]: ./web-sites-monitor.md
 [Ardışık Düzen modu]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Azure App Service'te bir web uygulamasını ölçeklendirme]: ./web-sites-scale.md

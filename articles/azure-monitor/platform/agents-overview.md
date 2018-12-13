@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 4255b70746eb1d307617a66714301fa7f8609a77
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5726444033d8da14c213918f409ddf5875e026b9
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634277"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322764"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure İzleme Aracısı genel bakış 
 Microsoft Azure, Microsoft Windows ve Azure, veri merkezinizi veya diğer bulut sağlayıcılarında barındırılan Linux çalıştıran sanal makineler farklı veri türleri toplamak için birden çok yol sağlar. Bir VM'yi izlemek için kullanılabilen aracıları üç tür şunlardır:
@@ -31,7 +30,7 @@ Microsoft Azure, Microsoft Windows ve Azure, veri merkezinizi veya diğer bulut 
 Bu makalede, sırayla, hangi BT Hizmet Yönetimi veya genel izleme gereksinimlerini destekleyecek belirlemek bunları ve bunların özelliklerini arasındaki farklar açıklanmaktadır.  
 
 ## <a name="azure-diagnostic-extension"></a>Azure tanılama uzantısı
-[Azure tanılama uzantısını](../../monitoring-and-diagnostics/azure-diagnostics.md) (genellikle Windows Azure tanılama (WAD) ya da Linux Azure tanılama (LAD) bir uzantısı olarak adlandırılır), sağlanan Azure bulut Hizmetleri için 2010'da genel kullanıma sunulan duyurulduğu tanılama veri koleksiyonu basit bir VM gibi bir Azure işlem kaynağı sunar ve Azure depolama için kalıcı bir aracıdır. Depolama alanında birkaç kullanılabilir araç biriyle gibi görüntülemek için seçtiğiniz sonra [Visual Studio sunucu Gezgini'ndeki](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) ve [Azure Depolama Gezgini](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+[Azure tanılama uzantısını](../../azure-monitor/platform/diagnostics-extension-overview.md) (genellikle Windows Azure tanılama (WAD) ya da Linux Azure tanılama (LAD) bir uzantısı olarak adlandırılır), sağlanan Azure bulut Hizmetleri için 2010'da genel kullanıma sunulan duyurulduğu tanılama veri koleksiyonu basit bir VM gibi bir Azure işlem kaynağı sunar ve Azure depolama için kalıcı bir aracıdır. Depolama alanında birkaç kullanılabilir araç biriyle gibi görüntülemek için seçtiğiniz sonra [Visual Studio sunucu Gezgini'ndeki](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) ve [Azure Depolama Gezgini](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Toplanacak seçebilirsiniz:
 
@@ -46,7 +45,7 @@ Azure Tanılama aracı, aşağıdakileri yapmak istediğinizde kullanılmalıdı
 
 * Arşiv günlükleri ve Azure depolama ölçümleri
 * İzleme verileri, üçüncü taraf araçlarla tümleştirin. Birçok farklı yöntemle sorgulama için iletilen depolama hesabı dahil olmak üzere bu araçları kullanın [Event Hubs](../../event-hubs/event-hubs-about.md), veya ile sorgulama [Azure izleme REST API'si](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
-* Azure portalında ölçüm grafikleri oluşturma veya neredeyse gerçek zamanlı oluşturmak için Azure İzleyici Veril [ölçüm uyarıları](../../monitoring-and-diagnostics/alert-metric-overview.md). 
+* Azure portalında ölçüm grafikleri oluşturma veya neredeyse gerçek zamanlı oluşturmak için Azure İzleyici Veril [ölçüm uyarıları](../../azure-monitor/platform/alerts-metric-overview.md). 
 * Sanal makine ölçek kümelerini otomatik ölçeklendirme ve klasik bulut Hizmetleri, konuk işletim sistemi ölçümlere göre.
 * VM önyükleme sorunlarını denetleyin [önyükleme tanılaması](../../virtual-machines/troubleshooting/boot-diagnostics.md).
 * Uygulamalarınızı nasıl performans gösterdiğini anlamak ve bunlarla etkileyen sorunları proaktif olarak tanımlayan [Application Insights](../../azure-monitor/overview.md).
