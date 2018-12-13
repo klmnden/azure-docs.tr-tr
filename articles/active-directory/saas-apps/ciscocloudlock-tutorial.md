@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 9908dae627ae11a42e8e01a9a4f4d11f35ce0f8d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1fe0db2f0c7fea4b24cc23aaa52deb16376012b2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422969"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092018"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Öğretici: Azure Active Directory bulut güvenlik yapısı tümleştirmesiyle
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile bulut güvenlik yapısı yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir bulut güvenliği yapısı çoklu oturum açma abonelik etkin.
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD bulut güvenlik yapısı tümleştirilmesi yapılandırmak için bulut 
 
 **Bulut güvenlik yapısı Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -108,12 +108,14 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve b
     ![Bulut güvenlik Fabric etki alanı ve URL'ler tek oturum açma bilgileri](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
 
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL:
+
     | |
     |--|
     | `https://platform.cloudlock.com` |
     | `https://app.cloudlock.com` |
 
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
+    
     | |
     |--|
     | `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
@@ -166,7 +168,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 ### <a name="create-a-the-cloud-security-fabric-test-user"></a>Bulut güvenlik yapısı test kullanıcısı oluşturma
 
-Bu bölümde, bulut güvenliği Dokusunda Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [bulut güvenlik Fabric destek ekibi](mailto:support@cloudlock.com) bulut güvenlik Fabric platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
+Bu bölümde, bulut güvenliği Dokusunda Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [bulut güvenlik Fabric destek ekibi](mailto:support@cloudlock.com) bulut güvenlik Fabric platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

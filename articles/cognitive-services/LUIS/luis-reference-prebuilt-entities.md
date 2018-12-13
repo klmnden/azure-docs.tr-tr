@@ -1,21 +1,22 @@
 ---
-title: Önceden oluşturulmuş varlıklar - LUIS
+title: Tüm önceden oluşturulmuş varlıklar
 titleSuffix: Azure Cognitive Services
 description: Bu makale, Language Understanding (LUIS), dahil edilen önceden oluşturulmuş varlıklar listesi içerir.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: ff529e7b828c195be89c9d11fc5f50e04104642e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: MT
+ms.openlocfilehash: 7f8ee1f145495cf5f1fb3c8252c7ce40ab722abe
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567358"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098143"
 ---
 # <a name="entities-per-culture"></a>Kültür başına varlıklar
 

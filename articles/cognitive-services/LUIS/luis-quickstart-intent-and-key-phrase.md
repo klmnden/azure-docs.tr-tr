@@ -1,21 +1,22 @@
 ---
-title: "Öğretici 8: LUIS'de anahtar tümceciği ayıklama"
+title: Anahtar tümcecik ayıklama
 titleSuffix: Azure Cognitive Services
 description: Konuşmaların ana konusunu ayıklamak için önceden oluşturulmuş keyPhrase varlığını kullanın. Herhangi bir konuşmayı önceden oluşturulmuş varlıklarla etiketlemeniz gerekmez. Varlık otomatik olarak algılanır.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: fafb6a6cb986b5bcd795c9bac0fadfce2827c667
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0a064966f118925d2a08e0ff1ce6efc7683cac96
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424821"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096936"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Öğretici 8: Konuşmadaki anahtar tümcecikleri ayıklama
 Bu öğreticide konuşmalardan ana konuyu ayıklamak için önceden oluşturulmuş keyPhrase varlığı kullanılmaktadır. Herhangi bir konuşmayı önceden oluşturulmuş varlıklarla etiketlemeniz gerekmez. Varlık otomatik olarak algılanır.
@@ -31,7 +32,6 @@ Aşağıdaki konuşmalarda anahtar ifade örnekleri gösterilmektedir:
 
 **Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * Mevcut öğretici uygulamasını kullanma
 > * keyPhrase varlığını ekleme 
@@ -84,7 +84,7 @@ Konuşmaların konusunu ayıklamak için önceden oluşturulmuş keyPhrase varl�
 
 2. Adres çubuğundaki URL'nin sonuna gidip `does form hrf-123456 cover the new dental benefits and medical plan` yazın. Son sorgu dizesi parametresi ifade **s**orgusu olan `q` öğesidir. 
     
-    ```JSON
+    ```json
     {
       "query": "does form hrf-123456 cover the new dental benefits and medical plan",
       "topScoringIntent": {

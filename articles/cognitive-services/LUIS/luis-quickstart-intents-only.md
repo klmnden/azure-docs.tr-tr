@@ -1,21 +1,22 @@
 ---
-title: 'Öğretici 1: Özel LUIS uygulamasındaki amaçları bulma'
+title: Amaçları tahmin edin
 titleSuffix: Azure Cognitive Services
 description: Bir kullanıcının amacını tahmin eden özel bir uygulama oluşturun. E-posta adresleri veya tarihler gibi konuşma metinlerinden çeşitli veri öğeleri ayıklamadığından bu uygulama en basit LUIS uygulaması türüdür.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 30c9f572d77caacbeecf5f15d74fd8517e9fa883
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b1a9718fdf7222dae06f7fe9b3a0f14b50293c08
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426868"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097803"
 ---
 # <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Öğretici 1: Kullanıcı amaçlarını belirlemek için özel bir uygulama geliştirin
 
@@ -43,11 +44,11 @@ JSON yanıtı döndürdükten sonra LUIS’in istekle işi biter. LUIS kullanıc
 
 2. **Yeni uygulama oluştur**'u seçin.  
 
-    [![](media/luis-quickstart-intents-only/app-list.png "Language Understanding (LUIS) Uygulamalarım sayfasının ekran görüntüsü")](media/luis-quickstart-intents-only/app-list.png#lightbox)
+    [![Ekran görüntüsü, arama Language Understanding (LUIS) uygulamalarım sayfası](media/luis-quickstart-intents-only/app-list.png "ekran görüntüsü, arama Language Understanding (LUIS) uygulamalarım sayfası")](media/luis-quickstart-intents-only/app-list.png#lightbox)
 
 3. Açılan iletişim kutusunda, `HumanResources` adını girin ve varsayılan kültürü **İngilizce** olarak tutun. Açıklamayı boş bırakın.
 
-    ![Yeni LUIS uygulaması](./media/luis-quickstart-intents-only/create-app.png)
+    ![LUIS yeni İnsanKaynakları uygulaması oluşturma](./media/luis-quickstart-intents-only/create-app.png)
 
     Sonra uygulama **Amaçlar** sayfasını **Yok** amacıyla birlikte gösterir.
 
@@ -55,7 +56,7 @@ JSON yanıtı döndürdükten sonra LUIS’in istekle işi biter. LUIS kullanıc
 
 1. **Create new intent** (Yeni amaç oluştur) öğesini seçin. Yeni amaç adı olarak `GetJobInformation` girin. Kullanıcı, şirketteki açık pozisyonlar hakkında bilgi istediğinde bu amaç tahmin edilir.
 
-    ![](media/luis-quickstart-intents-only/create-intent.png "Language Understanding (LUIS) Yeni amaç iletişim kutusunun ekran görüntüsü")
+    ![Ekran görüntüsü, arama Language Understanding (LUIS) yeni hedefi iletişim](media/luis-quickstart-intents-only/create-intent.png "ekran görüntüsü, arama Language Understanding (LUIS) yeni hedefi iletişim kutusu")
 
 2. _Örnek konuşmalar_ sağlayarak, LUIS’i bu amaç için ne tür konuşmaların tahmin edilmesi gerektiği konusunda eğitiyorsunuz. Bu amaca kullanıcının sormasını beklediğiniz birkaç konuşma girin; örneğin:
 
@@ -69,7 +70,7 @@ JSON yanıtı döndürdükten sonra LUIS’in istekle işi biter. LUIS kullanıc
     |New jobs? (Yeni iş var mı?)|
     |Are there any new positions in the Seattle office? (Seattle ofisinde yeni pozisyon var mı?)|
 
-    [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "MyStore amacı için yeni konuşma girme işleminin ekran görüntüsü")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
+    [![Yeni Konuşma DepolamaAlanım hedefi için girme ekran görüntüsü](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "DepolamaAlanım hedefi için yeni konuşma girme ekran görüntüsü")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
@@ -150,7 +151,7 @@ LUIS web sitesine geri dönün ve kullanıcı konuşmasının bir iş başvurusu
     |Here is my c.v. for position 654234 (654234 numaralı pozisyon için özgeçmişimi gönderiyorum)|
     |Job 567890 and my paperwork (567890 numaralı iş için belgelerim)|
 
-    [![](media/luis-quickstart-intents-only/utterance-applyforjob.png "ApplyForJob amacı için yeni konuşma girme işleminin ekran görüntüsü")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
+    [![Yeni konuşma ApplyForJob hedefi için girme ekran görüntüsü](media/luis-quickstart-intents-only/utterance-applyforjob.png "ApplyForJob hedefi için yeni konuşma girme ekran görüntüsü")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
 
     LUIS, şu an için amacın doğru olduğundan emin olmadığından etiketlenen amaç kırmızıyla işaretlenmiştir. Uygulamayı eğittiğinizde LUIS, konuşmaların doğru amaca ait olduğunu anlar. 
 
@@ -168,7 +169,7 @@ LUIS web sitesine geri dönün ve kullanıcı konuşmasının bir iş başvurusu
 
 2. Yeni tarayıcı penceresinde URL'nin sonuna `Can I submit my resume for job 235986` yazın. 
 
-    ```JSON
+    ```json
     {
       "query": "Can I submit my resume for job 235986",
       "topScoringIntent": {

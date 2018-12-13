@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning ile TensorFlow modellerini eğitin
+title: TensorFlow ile eğitme modelleri
+titleSuffix: Azure Machine Learning service
 description: Tek düğümlü ve dağıtılmış eğitimi TensorFlow modelleri ile TensorFlow estimator çalıştırmayı öğrenin
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +10,15 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.openlocfilehash: 5746180b894da265dfc02176c13b5f9b60f4df96
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: d15d3ed115009ad1395a85d36e833d85197d4d19
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872790"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094125"
 ---
-# <a name="how-to-train-tensorflow-models"></a>TensorFlow modelleri eğitme
+# <a name="train-tensorflow-models-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile TensorFlow modellerini eğitin
 
 TensorFlow kullanarak derin sinir ağı (DNN) eğitim için özel bir Azure Machine Learning sağlar `TensorFlow` sınıfının `Estimator`. Azure SDK'ın `TensorFlow` estimator (ile conflated değil için [ `tf.estimator.Estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) sınıfı) kolayca Azure işlem çalışır hem tek düğümlü hem de dağıtılmış TensorFlow eğitim işleri göndermenizi sağlar.
 

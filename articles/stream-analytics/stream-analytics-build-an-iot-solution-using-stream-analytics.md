@@ -11,7 +11,7 @@ ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 230318dc8e352a3adc970b13f20fa992954e3b15
 ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2018
 ms.locfileid: "53091103"

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: ca3396024fdab31217b00ef7cdd39e4e61504d27
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6989fe88fa17bcd99c99ee3e82d82fb403d1aae4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851103"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096715"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Bulut uygulamalarınızı SaaS erişimi yönetmek için kullanım Kiracı kısıtlamaları
 
@@ -129,18 +129,18 @@ Fiddler yakalamak ve HTTP/HTTPS trafiğini, HTTP üst bilgilerini ekleme dahil o
 1.  [Fiddler'ı yükleyip](https://www.telerik.com/fiddler).
 2.  Başına HTTPS trafiği şifresini çözmek için fiddler'ı yapılandırma [Fiddler'ın Yardım belgeleri](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
 3.  Eklemek için fiddler'ı yapılandırma *kiracılar için kısıtlama erişim* ve *kısıtlama erişim bağlam* üstbilgileri özel kuralları kullanarak:
-  1. Fiddler'ı Web hata ayıklayıcısı Aracı'nda seçin **kuralları** menü ve select **kuralları Özelleştir...** CustomRules dosyayı açmak için.
-  2. Aşağıdaki satırları ekleyin başında *OnBeforeRequest* işlevi. Değiştirin \<Kiracı etki alanı\> bir etki alanında kayıtlı kiracınız ile Örneğin, contoso.onmicrosoft.com. Değiştirin \<dizin kimliği\> , kiracınızın Azure AD GUID tanımlayıcısı.
+    1. Fiddler'ı Web hata ayıklayıcısı Aracı'nda seçin **kuralları** menü ve select **kuralları Özelleştir...** CustomRules dosyayı açmak için.
+    2. Aşağıdaki satırları ekleyin başında *OnBeforeRequest* işlevi. Değiştirin \<Kiracı etki alanı\> bir etki alanında kayıtlı kiracınız ile Örneğin, contoso.onmicrosoft.com. Değiştirin \<dizin kimliği\> , kiracınızın Azure AD GUID tanımlayıcısı.
 
-  ```
-  if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
-  ```
+    ```
+    if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
+    ```
 
-  Birden çok kiracının izin vermeniz gerekiyorsa, Kiracı adını ayırmak için virgül kullanın. Örneğin:
+    Birden çok kiracının izin vermeniz gerekiyorsa, Kiracı adını ayırmak için virgül kullanın. Örneğin:
 
-  ```
-  oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";
-  ```
+    ```
+    oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";
+    ```
 
 4. CustomRules dosyasını kaydedip kapatın.
 
