@@ -140,7 +140,7 @@ Kural tabanlı bir altyapı, veri toplamak ve sürekli performans sorunlarını 
 > [!NOTE] 
 > Şu anda, .NET Framework 4.5 içeren Windows sürümlerini veya sonraki sürümler desteklenir.
 
-### <a name="performance-counter-trace-"></a>Performans sayacı izleme (*)
+### <a name="performance-counter-trace-"></a>Performans sayacı izleme (\*\*)
 
 Aşağıdaki performans sayaçlarını toplar:
 
@@ -156,7 +156,7 @@ Aşağıdaki performans sayaçlarını toplar:
 #### <a name="for-azure-files"></a>Azure dosyaları için
 \SMB istemci paylaşımları
 
-### <a name="diskspd-benchmark-trace-"></a>Diskspd Kıyaslama izleme (*)
+### <a name="diskspd-benchmark-trace-"></a>Diskspd Kıyaslama izleme (\*\*\*)
 Diskspd g/ç iş yükü testleri (işletim sistemi diski [yazma] ve havuzu sürücüleri okuma/yazma)
 
 ## <a name="run-the-perfinsights-tool-on-your-vm"></a>Sanal makinenizde Perfınsights aracı çalıştırın
