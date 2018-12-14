@@ -121,13 +121,13 @@ items:
   - name: Olaylara yanıt verme
     items:
     - name: Uyarılar
-      href: ../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-overview.md
     - name: Klasik uyarılar
       href: platform/alerts-classic.overview.md
     - name: Akıllı gruplar
-      href: ../monitoring-and-diagnostics/monitoring-overview-alerts-smartgroups.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-smartgroups-overview.md
     - name: Otomatik Ölçeklendirme
-      href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=/azure/azure-monitor/toc.json
+      href: platform/autoscale-overview.md
     - name: Ölçüm uyarıları
       href: platform/alerts-metric-overview.md
     - name: Günlük uyarıları
@@ -151,7 +151,7 @@ items:
     - name: Erişimi yönetme
       items:
       - name: Rol izinleri ve güvenlik
-        href: ../monitoring-and-diagnostics/monitoring-roles-permissions-security.md?toc=/azure/azure-monitor/toc.json
+        href: platform/roles-permissions-security.md
       - name: Çalışma Alanları
         href: platform/manage-access.md
       - name: Uygulamalar
@@ -217,7 +217,7 @@ items:
         - name: Sorun giderme
           href: platform/diagnostics-extension-troubleshooting.md
         - name: Tanılama Ayarlarını Kaynak Yöneticisi şablonlarıyla etkinleştirme
-          href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostic-logs-stream-template.md
         - name: JSON Satır tanılama günlükleri biçimine hazırlanma
           href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
         - name: Ölçüm deposu için konuk VM
@@ -441,9 +441,9 @@ items:
     - name: Veri yönlendirme
       items:
       - name: Etkinlik günlüğünü arşivleme
-        href: ../monitoring-and-diagnostics/monitoring-archive-activity-log.md?toc=/azure/azure-monitor/toc.json
+        href: platform/archive-activity-log.md
       - name: Tanılama günlüklerini arşivleme
-        href: ../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=/azure/azure-monitor/toc.json
+        href: platform/archive-diagnostic-logs.md
       - name: Tanılama günlüklerini depolama
         href: ../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md?toc=/azure/azure-monitor/toc.json
       - name: Etkinlik günlüğünün Event Hubs’a akışını sağlama
@@ -655,7 +655,7 @@ items:
   - name: Verileri çözümleme
     items:
     - name: Ölçüm Gezgini’nde ölçüm grafikleri oluşturma
-      href: ../monitoring-and-diagnostics/monitoring-metric-charts.md?toc=/azure/azure-monitor/toc.json
+      href: platform/metrics-charts.md
     - name: Etkinlik günlüğünde olayları görüntüleme
       href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
     - name: Hizmet bildirimlerini görüntüleme
@@ -740,11 +740,11 @@ items:
         - name: Dinamik eşikler ile uyarılar
           href: platform/alerts-dynamic-thresholds.md
         - name: Günlük verileriyle ölçüm uyarılarını yapılandırma
-          href: ../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-metric-logs.md
         - name: Resource Manager şablonu ile daha yeni bir ölçüm uyarısı oluşturma
-          href: ../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-metric-create-templates.md
         - name: Kaynak Yöneticisi şablonu ile klasik ölçüm uyarısı oluşturma
-          href: ../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-enable-template.md
         - name: Klasik bir ölçüm uyarısının bir web kancasını çağırmasını sağlama
           href: platform/alerts-webhooks.md
       - name: Günlük uyarılarını kullanma
@@ -760,7 +760,7 @@ items:
         - name: Bir etkinlik günlüğü olayında uyarı yapılandırma
           href: platform/alerts-activity-log.md
         - name: Etkinlik günlüğü uyarılarına geçirme
-          href: ../monitoring-and-diagnostics/monitoring-migrate-management-alerts.md?toc=/azure/azure-monitor/toc.json
+          href: platform/migrate-management-alerts.md
         - name: Hizmet bildirimlerinde uyarı yapılandırma
           href: platform/alerts-activity-log-service-notifications.md
       - name: Uygulama uyarılarını kullanma
@@ -776,11 +776,11 @@ items:
         - name: Web kancası şeması hakkında bilgi edinme
           href: platform/activity-log-alerts-webhook.md
         - name: SMS uyarısı davranışı
-          href: ../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-sms-behavior.md
         - name: Uyarı hızı sınırlama
-          href: ../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-rate-limiting.md
         - name: Resource Manager ile eylem grupları oluşturma
-          href: ../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md?toc=/azure/azure-monitor/toc.json
+          href: platform/action-groups-create-resource-manager-template.md
         - name: Bir Mantıksal Uygulama eylemi gerçekleştirme
           href: platform/action-groups-logic-app.md
       - name: Operations Manager uyarıları
@@ -790,11 +790,11 @@ items:
         - name: Uyarı örneklerini yönetme
           href: platform/alerts-managing-alert-instances.md
         - name: Akıllı grupları yönetme
-          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-smart-groups.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-managing-smart-groups.md
         - name: Uyarı ve akıllı grup durumlarını yönetme
-          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-alert-states.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-managing-alert-states.md
         - name: Diğer izleme hizmetlerinden gelen uyarıları yönetme
-          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-nagios-zabbix-scom.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-managing-nagios-zabbix-scom.md
     - name: Otomatik Ölçeklendirme
       items:
       - name: Otomatik ölçeklendirmeyle ilgili adım adım kılavuz
@@ -808,7 +808,7 @@ items:
       - name: Ortak desenler
         href: ../monitoring-and-diagnostics/monitoring-autoscale-common-scale-patterns.md?toc=/azure/azure-monitor/toc.json
       - name: Özel ölçüm kullanarak otomatik ölçekleme
-        href: ../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-custom-metric.md
       - name: Resource Manager şablonlarını kullanarak VM ölçek kümelerini otomatik ölçeklendirme
         href: platform/autoscale-virtual-machine-scale-sets.md
       - name: Bir VM ölçek kümesindeki makineleri otomatik ölçeklendirme
@@ -958,9 +958,9 @@ items:
   - name: Şemalar
     items:
     - name: Tanılama günlüklerine yönelik hizmetler, kategoriler ve şemalar
-      href: ../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md?toc=/azure/azure-monitor/toc.json
+      href: platform/tutorial-dashboards.md
     - name: Etkinlik günlüğü olay şeması
-      href: ../monitoring-and-diagnostics/monitoring-activity-log-schema.md?toc=/azure/azure-monitor/toc.json
+      href: platform/activity-log-schema.md
     - name: Azure Tanılama uzantı şeması
       href: platform/diagnostics-extension-schema.md
       items:
@@ -1010,9 +1010,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Kod örnekleri
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 06ea6e43343a0cf9982a6161fbd60d5bfce6b0ba
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 037ec2d246e30725448fb3da98263b557e11186d
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322559"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384438"

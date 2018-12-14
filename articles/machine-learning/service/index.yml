@@ -1,14 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 30a415fb0df910333b81f36cfb925faafd1c8c1b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: da46b78d764465d8b9e5ce438b0843e0b79e16a9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080172"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271156"
 documentType: LandingData
-title: Belgeler - Azure Machine Learning Service
+title: Azure Machine Learning Hizmeti Belgeleri
 metadata:
-  title: Azure Machine Learning Service Belgeleri – Öğreticiler, API başvurusu | Microsoft Docs
+  title: Belgeler - Azure Machine Learning Hizmeti – Öğreticiler, API başvurusu | Microsoft Docs
   description: Uygulamalara ve web sitelerine akıllı algoritmalar eklemeyi öğrenin. Scikit-learn, Tensorflow, Pytorch veya diğer Python tabanlı çerçeveleri kullanarak makine öğrenmesi modelinizi derleyin ve yerel ortamda veya bulutta eğitin. Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.
   services: machine-learning
   author: j-martens
@@ -27,13 +27,13 @@ sections:
 - items:
   - type: list
     style: cards
-    className: cardsB
-    columns: 1
+    className: cardsFTitle
     items:
-    - html: <p>ML modellerinizi bir Azure bulut hizmetinde eğitin ve dağıtın. <a href="overview-what-is-azure-ml.md">Hizmet hakkında daha fazla bilgi edinin...</a></p>
+    - title: Azure Machine Learning hizmetini öğrenmeye başlama
+      href: /azure/machine-learning/service/overview-what-is-azure-ml
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: Azure Machine Learning hizmeti
+        href: /azure/machine-learning/service/overview-what-is-azure-ml
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
@@ -46,16 +46,23 @@ sections:
 - title: Adım Adım Öğreticiler
   items:
   - type: paragraph
-    text: '<b>Öğreticiler</b>: Deneme ayarlama ve modellerinizi kullanıma hazır hale getirme işlemlerini nasıl yapacağınızı öğrenin.'
+    text: Deneme ayarlama ve modellerinizi kullanıma hazır hale getirme işlemlerini nasıl yapacağınızı öğrenin.
+  - type: paragraph
+    text: <b>MNIST verileriyle görüntü sınıflandırma öğreticisi:</b>
   - type: list
     style: unordered
     items:
-    - html: Görüntü sınıflandırması (Bölüm 1)&#58; <a href="tutorial-train-models-with-aml">Kendi makine öğrenmesi modelinizi eğitme</a>
-    - html: Görüntü sınıflandırması (Bölüm 2)&#58; <a href="tutorial-deploy-models-with-aml">Bu modeli dağıtma</a></br>&nbsp;
-    - html: Regresyon (Bölüm 1)&#58; <a href="tutorial-data-prep">NYC Taxi verilerini modelleme için hazırlama</a>
-    - html: Regresyon (Bölüm 2)&#58; <a href="tutorial-auto-train-models">Otomatik makine öğrenmesi kullanarak model oluşturma</a>
+    - html: 1. Bölüm&#58; <a href="tutorial-train-models-with-aml">Kendi makine öğrenme modelinizi eğitme</a>
+    - html: 2. Bölüm&#58; <a href="tutorial-deploy-models-with-aml">Bu modeli dağıtma</a>
   - type: paragraph
-    text: '<b>Örnek not defterleri</b>: GitHub’da bulabileceğiniz <a href="https://aka.ms/aml-notebooks">bu Jupyter notebook’lar</a> ile Azure Machine Learning’i keşfedin.'
+    text: <b>NYC taksi verileriyle regresyon modelleme öğreticisi:</b>
+  - type: list
+    style: unordered
+    items:
+    - html: 1. Bölüm&#58; <a href="tutorial-data-prep">NYC taksi verilerini modelleme için hazırlama</a>
+    - html: 2. Bölüm&#58; <a href="tutorial-auto-train-models">Modelleri oluşturmak için otomatik makine öğrenimini kullanma</a>
+  - type: paragraph
+    text: "<b>Örnek not defterleri</b>: Hizmeti GitHub'daki bu <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"https://aka.ms/aml-notebooks\">Jupyter notebook'lar</a> ile keşfedin."
 - title: Başvuru
   items:
   - type: list
@@ -64,7 +71,7 @@ sections:
     - html: <a href="https://aka.ms/data-prep-sdk">Azure Machine Learning Veri Hazırlama SDK'sı</a>
     - html: <a href="https://aka.ms/aml-sdk">Python için Azure Machine Learning SDK'sı (ana SDK)</a>
     - html: <a href="https://aka.ms/aml-monitoring-sdk">Azure Machine Learning İzleme SDK’sı</a>
-- title: Diğer Azure Machine Learning Teknolojileri
+- title: Diğer Azure Machine Learning teknolojileri
   items:
   - type: list
     style: cards

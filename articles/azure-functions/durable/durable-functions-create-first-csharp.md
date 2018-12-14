@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a0aed1fd65444397b3ca084cc0100aa5af49c918
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a9794c25bd5f0acd48362611d13bac17fc502450
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839523"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341057"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>C'de dayanıklı ilk işlevinizi oluşturma\#
 
@@ -76,7 +76,7 @@ Visual Studio, bir boş işlev uygulaması projesi oluşturur.  Bir uygulama iç
 
 Dayanıklı bir işlev uygulamasına eklenecektir.  İçeriği görüntülemek için yeni dosyasını açın.  Bu kalıcı işlevi zincirleme örneği basit bir işlevdir.  
 
-* `RunOrchestrator` Yöntemi, orchestrator işlevi ile ilişkilendirilmiş.  Bu işlev başlatmak, bir liste oluşturur ve sonucu üç işlev çağrıları listesine ekleyin.  Üç işlev çağrıları tamamlandığında, bir liste döndürür.  Bunu çağırır işlevi `SayHello` yöntemi (varsayılan çağrılır "<NameOfFile>_Hello").
+* `RunOrchestrator` Yöntemi, orchestrator işlevi ile ilişkilendirilmiş.  Bu işlev başlatmak, bir liste oluşturur ve sonucu üç işlev çağrıları listesine ekleyin.  Üç işlev çağrıları tamamlandığında, bir liste döndürür.  Bunu çağırır işlevi `SayHello` yöntemi (varsayılan çağrılır `<NameOfFile>_Hello`).
 * `SayHello` İşlevi bir Merhaba döndürür.
 * `HttpStart` Yöntemi düzenleme örneklerini başlatacak işlevi açıklar.  İle ilişkili bir [HTTP tetikleyicisi](../functions-bindings-http-webhook.md) , orchestrator'ın yeni bir örneği başlatın ve bir onay durumu yanıt geri dönün.
 
@@ -92,7 +92,7 @@ Azure İşlevleri Temel Araçları, Azure İşlevleri projenizi yerel geliştirm
 
     ![Azure yerel çalışma zamanı](./media/durable-functions-create-first-csharp/functions-vs-debugging.png)
 
-3. HTTP isteğinin URL'sini tarayıcınızın adres çubuğuna yapıştırın ve isteği yürütün. İşlevin döndürdüğü yerel GET isteğine tarayıcıda verilen yanıt aşağıda gösterilmiştir: 
+3. HTTP isteğinin URL'sini tarayıcınızın adres çubuğuna yapıştırın ve isteği yürütün. İşlevin döndürdüğü yerel GET isteğine tarayıcıda verilen yanıt aşağıda gösterilmiştir:
 
     ![Tarayıcıdaki işlev localhost yanıtı](./media/durable-functions-create-first-csharp/functions-vs-status.png)
 

@@ -4,30 +4,32 @@ items:
 - name: Genel Bakış
   items:
   - name: Azure Machine Learning hizmeti nedir?
-    displayName: AML, services, overview
+    displayName: AML services overview
     href: overview-what-is-azure-ml.md
   - name: Bu hizmet nasıl çalışır?
-    displayName: architecture
+    displayName: architecture concepts definitions
     href: concept-azure-machine-learning-architecture.md
   - name: Workbench’e neler oluyor?
-    displayName: desktop
+    displayName: desktop ui
     href: overview-what-happened-to-workbench.md
   - name: Sürüm notları
-    displayName: what's new
+    displayName: what's new issues bugs
     href: azure-machine-learning-release-notes.md
   expanded: true
 - name: Hızlı Başlangıçlar
   items:
   - name: Kullanmaya başlayın - Portal
+    displayName: install sdk workspace
     href: quickstart-get-started.md
   - name: Kullanmaya başlama - Python
-    displayName: create workspace
+    displayName: create workspace install sdk
     href: quickstart-create-workspace-with-python.md
 - name: Öğreticiler
   items:
   - name: Görüntü sınıflandırması (MNIST verileri)
     items:
     - name: 1. Modeli eğitme
+      displayName: build modeling
       href: tutorial-train-models-with-aml.md
     - name: 2. Model dağıtma
       href: tutorial-deploy-models-with-aml.md
@@ -43,6 +45,9 @@ items:
   href: samples-notebooks.md
 - name: Kavramlar
   items:
+  - name: Otomatik makine öğrenimi
+    displayName: automl, auto ml
+    href: concept-automated-ml.md
   - name: Model yönetimi
     displayName: deploy, deployment
     href: concept-model-management-and-deployment.md
@@ -68,7 +73,6 @@ items:
         href: how-to-vscode-train-deploy.md
   - name: Verileri hazırlama
     displayName: data prep, etl, elt, data preparation
-    href: how-to-data-prep.md
     items:
     - name: Veri yükleme
       href: how-to-load-data.md
@@ -79,7 +83,7 @@ items:
   - name: Modelleri eğitme
     items:
     - name: Eğitim ortamlarını ayarlama
-      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
+      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, Databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
     - name: Eğitim verilerine erişim
       href: how-to-access-data.md
@@ -96,11 +100,11 @@ items:
       href: how-to-track-experiments.md
   - name: Makine öğrenimini otomatikleştirme
     displayName: automl, auto ml
-    href: how-to-automated-ml.md
     items:
     - name: Otomatik eğitimi yapılandırma
       href: how-to-configure-auto-train.md
     - name: Uzak işlem hedeflerini kullanma
+      displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
   - name: ONNX modelleri
     items:
@@ -109,9 +113,9 @@ items:
   - name: Modelleri dağıtma
     items:
     - name: Modellerin dağıtılacağı yerler
-      displayName: publish, azure kubernetes, azure container instances
+      displayName: publish azure kubernetes azure container instances
       href: how-to-deploy-and-where.md
-    - name: FPGA'lara dağıtma
+    - name: FPGA'lar
       href: how-to-deploy-fpga-web-service.md
     - name: Sorun giderme
       href: how-to-troubleshoot-deployment.md
@@ -120,7 +124,7 @@ items:
   - name: Web hizmetlerini kullanma
     items:
     - name: Gerçek zamanlı kullanma
-      displayName: create client, client, consume
+      displayName: create client consume
       href: how-to-consume-web-service.md
     - name: Toplu tahminleri çalıştırma
       href: how-to-run-batch-predictions.md
@@ -136,18 +140,18 @@ items:
     displayName: limits
     href: how-to-manage-quotas.md
   - name: Machine Learning CLI’yı kullanma
-    displayName: cli, command line, command-line, az,
+    displayName: cli command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
 - name: Başvuru
   items:
   - name: Machine learning SDK
-    displayName: api, core, package
+    displayName: api core package python
     href: https://aka.ms/aml-sdk
   - name: Veri hazırlığı SDK’sı
-    displayName: api, preparation, package
+    displayName: api preparation package python
     href: https://aka.ms/data-prep-sdk
   - name: İzleme SDK’sı
-    displayName: api, package
+    displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
 - name: Kaynaklar
   items:
@@ -158,6 +162,7 @@ items:
   - name: Bölgesel kullanılabilirlik
     href: https://azure.microsoft.com/regions/services/
   - name: Bilinen sorunlar
+    displayName: bugs errors troubleshoot
     href: resource-known-issues.md
   - name: Destek alın
     href: support-for-aml-services.md
@@ -167,19 +172,19 @@ items:
   - name: Kullanım dışı belgeler
     items:
     - name: Workbench'ten geçiş yapma
-      displayName: Workbench, upgrade, update, transfer
+      displayName: Workbench upgrade update transfer
       href: how-to-migrate.md
     - name: Hesap verilerini dışarı aktarma veya silme (kullanım dışı)
       href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
     - name: Workbench hızlı başlangıcı (kullanım dışı)
       href: ../desktop-workbench/quickstart-installation.md
-    - name: 'Öğretici 1: Verileri hazırlama'
+    - name: '1. Öğretici: Verileri hazırlama'
       href: ../desktop-workbench/tutorial-classifying-iris-part-1.md
-    - name: 'Öğretici 2: Modelleri derleme'
+    - name: '2. Öğretici: Modelleri oluşturma'
       href: ../desktop-workbench/tutorial-classifying-iris-part-2.md
-    - name: 'Öğretici 3: Modelleri dağıtma'
+    - name: '3. Öğretici: Modelleri dağıtma'
       href: ../desktop-workbench/tutorial-classifying-iris-part-3.md
-    - name: 'Öğretici 4: Gelişmiş veri hazırlama'
+    - name: '4. Öğretici: Gelişmiş veri hazırlama'
       href: ../desktop-workbench/tutorial-bikeshare-dataprep.md
     - name: Model Yönetimi’ne genel bakış
       href: ../desktop-workbench/model-management-overview.md
@@ -365,9 +370,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Eski Sorunlar
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: a5c26bd2ef020ca737907c8a66776a3769bfeefd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cf7216271dea4bcdda7bea91c1b386a4ba612f8f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101254"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310520"

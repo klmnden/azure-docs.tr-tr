@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 09db1c7a7d348d866cd131e66102044a37c010a8
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6da397927a99c89f4cd82adccab9d7c0defc54e4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310343"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386414"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application ınsights telemetri bağıntısı
 
@@ -52,9 +52,9 @@ Geçerli pazar fiyat STOCKS API olarak adlandırılan harici API kullanarak bir 
 | project timestamp, itemType, name, id, operation_ParentId, operation_Id
 ```
 
-Tüm telemetri öğelerinin kök paylaşmak sonucu görünümü notta `operation_Id`. Ajax çağırdığınızda sayfası - yeni benzersiz kimliği yapılan `qJSXU` bağımlılık telemetrisi için atanan ve sayfa görüntülemesi'nın kimliği olarak kullanılan `operation_ParentId`. Sunucu isteği ajax'ın kimliği olarak sırayla kullanan `operation_ParentId`, vb.
+Tüm telemetri öğelerinin kök paylaşmak sonucu görünümü notta `operation_Id`. Ajax çağırdığınızda sayfası - yeni benzersiz kimliği yapılan `qJSXU` bağımlılık telemetrisi için atanan ve sayfa görüntülemesi'nın kimliği olarak kullanılan `operation_ParentId`. Sunucu isteği ajax'ın kimliği olarak sırayla kullanır `operation_ParentId`vb.
 
-| Itemtype   | ad                      | id           | operation_ParentId | operation_ıd |
+| Itemtype   | ad                      | Kimlik           | operation_ParentId | operation_ıd |
 |------------|---------------------------|--------------|--------------------|--------------|
 | Sayfa görünümü   | Stok sayfası                |              | STYz               | STYz         |
 | bağımlılık | GET /Home/stok           | qJSXU        | STYz               | STYz         |
@@ -65,9 +65,9 @@ Tüm telemetri öğelerinin kök paylaşmak sonucu görünümü notta `operation
 
 ## <a name="correlation-headers"></a>Bağıntı üstbilgileri
 
-RFC teklifi için üzerinde çalıştığımız [bağıntı HTTP Protokolü](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Bu teklif, iki üstbilgi tanımlar:
+İçin bir RFC teklifi üzerinde çalışıyoruz [bağıntı HTTP Protokolü](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Bu teklif, iki üstbilgi tanımlar:
 
-- `Request-Id` çağrı genel olarak benzersiz kimliğini Yürüt
+- `Request-Id` çağrı genel olarak benzersiz Kimliğini Yürüt
 - `Correlation-Context` -Dağıtılmış izleme özellikleri ad değer çiftleri koleksiyonu Yürüt
 
 Standart Ayrıca iki şemaları tanımlar `Request-Id` oluşturma - düz ve hiyerarşik. Düz şemasıyla yoktur iyi bilinen `Id` için tanımlanan anahtar `Correlation-Context` koleksiyonu.
@@ -76,14 +76,14 @@ Application Insights tanımlar [uzantısı](https://github.com/lmolkova/correlat
 
 ### <a name="w3c-distributed-tracing"></a>W3C dağıtılmış izleme
 
-Biz için geçiş [W3C dağıtılmış izleme biçimi](https://w3c.github.io/trace-context/). Tanımlar:
+Biz geçiş [W3C dağıtılmış izleme biçimi](https://w3c.github.io/trace-context/). Tanımlar:
 - `traceparent` -Genel olarak benzersiz işlem kimliği ve aramanın benzersiz tanımlayıcısı
-- `tracestate` -İzleme sistem belirli bağlamı yürütür.
+- `tracestate` -izleme sistemine özgü bağlamını yürütür.
 
 #### <a name="enable-w3c-distributed-tracing-support-for-aspnet-classic-apps"></a>W3C dağıtılmış izleme ASP.NET Klasik uygulamaları desteğini etkinleştirme
 
 Bu özellik, sürüm 2.8.0-beta1 ile başlayan Microsoft.applicationınsights.Web ve Microsoft.ApplicationInsights.DependencyCollector paketlerdeki kullanılabilir.
-Bu **kapalı** etkinleştirmek için varsayılan olarak, değişiklik `ApplicationInsights.config`:
+Sahip **kapalı** etkinleştirmek için varsayılan olarak, değişiklik `ApplicationInsights.config`:
 
 * altında `RequestTrackingTelemetryModule` ekleme `EnableW3CHeadersExtraction` ayarlanan değere sahip öğe `true`
 * altında `DependencyTrackingTelemetryModule` ekleme `EnableW3CHeadersInjection` ayarlanan değere sahip öğe `true`
@@ -91,7 +91,7 @@ Bu **kapalı** etkinleştirmek için varsayılan olarak, değişiklik `Applicati
 #### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>ASP.NET Core uygulamaları için Dağıtılmış W3C İzleme desteğini etkinleştirme
 
 Bu özellik, sürüm 2.5.0-beta1 Microsoft.ApplicationInsights.DependencyCollector sürüm 2.8.0-beta1 ile Microsoft.ApplicationInsights.AspNetCore içinde kullanılabilir.
-Bu **kapalı** etkinleştirmek için varsayılan olarak ayarlanmış `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` için `true`:
+Sahip **kapalı** etkinleştirmek için varsayılan olarak ayarlanmış `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` için `true`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -118,7 +118,6 @@ Application Insights veri modeli hakkında daha fazla bilgi için bkz. [veri mod
 
 Bkz: açık izleme [belirtimi](https://github.com/opentracing/specification/blob/master/specification.md) ve [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) açık izleme kavramları tanımları için.
 
-
 ## <a name="telemetry-correlation-in-net"></a>. NET'te telemetri bağıntısı
 
 Zaman içinde telemetri ve tanılama günlüklerini ilişkilendirmek için çeşitli yöntemler .NET tanımlanır. Var. `System.Diagnostics.CorrelationManager` izlemek için izin verme [LogicalOperationStack ve ActivityID](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). `System.Diagnostics.Tracing.EventSource` ve Windows ETW yöntemi tanımlayabilirsiniz [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx). `ILogger` kullanan [günlük kapsamları](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). WCF ve Http kablo "geçerli" bağlam yayma ayarlama.
@@ -139,11 +138,18 @@ Application Insights SDK'sı başlangıç sürümü `2.4.0-beta1` DiagnosticsSou
 ## <a name="telemetry-correlation-in-the-java-sdk"></a>Java SDK telemetri bağıntısı
 [Application Insights Java SDK'sı](app-insights-java-get-started.md) otomatik sürümü itibarıyla telemetri bağıntısı destekler `2.0.0`. Otomatik olarak doldurulur `operation_id` istek kapsamında verilen tüm telemetri (izlemelerini, özel durumlar, özel olaylar, vb.). Bu da (HTTP aracılığıyla hizmet çağrıları için yukarıda) bağıntı üst bilgileri yayma varsa üstlenir [Java SDK'sı aracı](app-insights-java-agent.md) yapılandırılır. Not: Yalnızca Apache HTTP istemcisi yapılan çağrılar bağıntı özelliği için desteklenir. Spring Rest şablonu veya Feign kullanıyorsanız, her ikisi de bileşenler Apache HTTP istemci ile kullanılabilir.
 
-Mesajlaşma teknolojilerinin (örneğin, Kafka, RabbitMQ, Azure Service Bus) arasında bağlamı otomatik yayma şu anda desteklenmiyor. Ancak, mümkündür kullanarak bu senaryolara el ile kod `trackDependency` ve `trackRequest` verebileceğiniz bir bağımlılık telemetrisi olan bir üretici tarafından sıraya bir ileti ve bir ileti tüketicisi tarafından işlenmekte olan isteği temsil eder API. Bu durumda, her ikisi de `operation_id` ve `operation_parentId` ileti özelliklerinde yayılır.
+Mesajlaşma teknolojilerinin (örneğin, Kafka, RabbitMQ, Azure Service Bus) arasında bağlamı otomatik yayma şu anda desteklenmiyor. Ancak, mümkündür kullanarak bu senaryolara el ile kod `trackDependency` ve `trackRequest` API'leri ile bir bağımlılık telemetrisi olan bir üretici tarafından sıraya bir ileti ve bir ileti tüketicisi tarafından işlenmekte olan istek temsil eder. Bu durumda, her ikisi de `operation_id` ve `operation_parentId` ileti özelliklerinde yayılır.
 
 <a name="java-role-name"></a>
-### <a name="role-name"></a>Rol Adı
-Bazen, bileşen adları görüntülenir şekilde özelleştirmek isteyebilirsiniz [Uygulama Haritası](app-insights-app-map.md). Bunu yapmak için el ile ayarlayabileceğiniz `cloud_roleName` aşağıdakilerden birini yaparak:
+## <a name="role-name"></a>Rol Adı
+
+Bazen, bileşen adları görüntülenir şekilde özelleştirmek isteyebilirsiniz [Uygulama Haritası](app-insights-app-map.md). Bunu yapmak için el ile ayarlayabileceğiniz `cloud_RoleName` aşağıdakilerden birini yaparak:
+
+Spring Boot ile Application Insights Spring Boot Başlatıcı kullanırsanız, yalnızca gerekli değişiklik application.properties dosyasında uygulama için kendi özel adınızı ayarlamaktır.
+
+`spring.application.name=<name-of-app>`
+
+Spring Boot Başlatıcı cloudRoleName spring.application.name özelliği için girdiğiniz değer otomatik olarak atar.
 
 Kullanıyorsanız `WebRequestTrackingFilter`, `WebAppNameContextInitializer` uygulama adını otomatik olarak ayarlayın. Aşağıdaki yapılandırma dosyanız (Applicationınsights.xml) ekleyin:
 ```XML
@@ -151,7 +157,9 @@ Kullanıyorsanız `WebRequestTrackingFilter`, `WebAppNameContextInitializer` uyg
   <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebAppNameContextInitializer" />
 </ContextInitializers>
 ```
+
 Bulut bağlamı sınıfı:
+
 ```Java
 telemetryClient.getContext().getCloud().setRole("My Component Name");
 ```
@@ -159,6 +167,7 @@ telemetryClient.getContext().getCloud().setRole("My Component Name");
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Özel telemetri yazma](app-insights-api-custom-events-metrics.md)
+- [Daha fazla bilgi edinin](app-insights-app-map.md#set-cloudrolename) için diğer SDK'lar cloud_RoleName ayarlama.
 - Yerleşik mikro hizmet Application Insights'ın tüm bileşenleri. Kullanıma [desteklenen platformlar](app-insights-platforms.md).
 - Bkz: [veri modeli](application-insights-data-model.md) için Application Insights türleri ve veri modeli.
 - Bilgi edinmek için nasıl [genişletmek ve telemetri filtreleme](app-insights-api-filtering-sampling.md).

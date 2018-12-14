@@ -1,14 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: aa53bfd0028813479b99e84638eaf6f39dac5008
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: c6b8df95149824f78d9809d14b4b9ebf67728fcb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456295"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255406"
 documentType: LandingData
-title: Bing Haber Arama Belgeleri
+title: Bing Haber Arama API'si Belgeleri
+titleSuffix: Azure Cognitive Services
 metadata:
-  title: Bing Haber Arama Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs
+  title: Bing Haber Arama API'si Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs
   description: Bing Haber Arama API’si kullanarak Web’den kullanıcı sorgularıyla alakalı haberler elde etmeyi öğrenin. Öğreticilerde bu hizmeti kullanan uygulamaların nasıl derleneceği gösterilmektedir.
   services: cognitive-services
   author: mikedodaro

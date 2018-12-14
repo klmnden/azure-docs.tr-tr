@@ -1,16 +1,18 @@
 # [Azure Market ve AppSource belgeleri](index.md)
-## [Derecelendirme ve ilkeleri gözden geçirme](./rating-review-policies.md)   
+
 ## [Azure Market ve AppSource genel bakışı ve avantajları](./marketplace-publishers-guide.md)  
 
 ### [Markette yayımcı olma](./become-publisher.md)  
 #### [Microsoft hesabı oluşturma](./guidelines.md)
 #### [Geliştirme Merkezi'ne Kaydolma](./register-dev-center.md) 
 #### [Azure iş ortağı müşteri kullanımı ilişkilendirmesi](./azure-partner-customer-usage-attribution.md)
-#### [Bulut marketi için müşteri adayı yönetimi](./lead-management-for-cloud-marketplace.md)
 
-### [Vitrinler](./comparing-appsource-azure-marketplace.md)  
+### [Bir market, iki vitrin](./comparing-appsource-azure-marketplace.md)  
 
-### [Çözümünüz için yayımlama seçeneğini belirleme](./determine-your-listing-type.md)  
+### [Yayımlama seçenekleri ve dikkat edilmesi gerekenler](./determine-your-listing-type.md)
+#### [Müşteri adayı yönetimi](./lead-management-for-cloud-marketplace.md)
+#### [Azure Market'te işlem yapma](./marketplace-commercial-transaction-capabilities-and-considerations.md)
+#### [Özel Teklifler](./private-offers.md)
 
 ### [Teklif türüne göre yayımlama kılavuzu](./publisher-guide-by-offer-type.md)
 #### [Sanal Makineler](./marketplace-virtual-machines.md)
@@ -26,8 +28,7 @@
 ### [İşletmenizi market ile büyütme](./grow-your-business-with-azure-marketplace.md)  
 #### [Tercih edilen çözümler](./preferred-solutions.md) 
 #### [Market içerik doğrulaması](./marketplace-criteria-content-validation.md)
-#### [Özel Teklifler](./private-offers.md)
-#### [Market ‎ticari işlem özellikleri ve dikkat edilmesi gereken noktalar](./marketplace-commercial-transaction-capabilities-and-considerations.md)
+#### [Derecelendirme ve ilkeleri gözden geçirme](./rating-review-policies.md)   
 
 ### [Azure Market ve AppSource desteği](./support-azure-marketplace.md)  
 
@@ -67,8 +68,15 @@
 #### [Sık karşılaşılan VHD oluşturma sorunları](./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
 #### [VM’ye bağlanma](./cloud-partner-portal/virtual-machine/cpp-connect-vm.md)
 #### [VM yapılandırması](./cloud-partner-portal/virtual-machine/cpp-configure-vm.md)
-#### [VHD’lerden VM dağıtma](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
-##### [VHD Dağıtım Şablonu (JSON)](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
+#### [Windows Uzaktan Yönetimi](./cloud-partner-portal/virtual-machine/cpp-winrm-over-https.md) 
+##### [VM oluşturulduktan sonra WinRM'yi yapılandırma](./cloud-partner-portal/virtual-machine/cpp-configure-winrm-after-vm-creation.md)
+#### [VM'yi dağıtma](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
+##### [Kullanıcı VM görüntüsü oluşturma](./cloud-partner-portal/virtual-machine/cpp-create-user-image.md)
+##### [Anahtar kasası sertifikası oluşturma](./cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert.md)
+###### [Anahtar kasası dağıtım şablonu](./cloud-partner-portal/virtual-machine/cpp-key-vault-deploy-template.md)
+#### [Kullanıcı VHD'sinden VM'yi dağıtma](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image.md)
+##### [VHD Dağıtım Şablonu](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
+##### [Marketten VM dağıtımı](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md)
 #### [VM görüntüsünü sertifikalandırma](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
 #### [SAS URI’sini alma](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
 #### [Sık karşılaşılan SAS URL’si sorunları](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
@@ -88,21 +96,53 @@
 ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 ### [Automate offer publishing](./cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md)
 -->
+<!-- new section for Azure apps -->
 
-## [Azure uygulama teklifi](./cloud-partner-portal-orig/cpp-azure-app-offer.md)
-### [Yönetilen uygulama oluşturma](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
-### [Çözüm şablonu oluşturma](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)
-### [Yönetim Çözümü Yayımlama](./cloud-partner-portal-orig/cloud-partner-portal-management-solution-publish.md)
-### [SEO kılavuzu](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
-### [Teklifi canlı yayımlama](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md)
-### [Mevcut teklifi güncelleştirme](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md)
-### [Teklifi silme](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md)
-<!-- Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  -->
+## [Azure uygulama teklifi](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
+### [Önkoşullar](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
+### [Azure uygulama teklifi oluşturma](./cloud-partner-portal/azure-applications/cpp-create-offer.md)
+#### [Teklif Ayarları sekmesi](./cloud-partner-portal/azure-applications/cpp-offer-settings-tab.md)
+#### [SKU'lar sekmesi](./cloud-partner-portal/azure-applications/cpp-skus-tab.md)
+#### [Test Sürüşü sekmesi](./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md)
+#### [Market sekmesi](./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md)
+#### [Destek sekmesi](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
+<!-- ### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md) -->
+### [Azure uygulama teklifini yayımlama](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+### [Mevcut teklifi güncelleştirme](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 
-## [SaaS uygulama teklifi](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
-### [SaaS uygulamaları teknik yayımlama kılavuzu](./cloud-partner-portal-orig/cloud-partner-portal-saas-offers-tech-publishing-guide.md)
-### [Azure üzerinden SaaS satışı](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
+<!-- Legacy Azure App section replaced
+## [Azure application offer](./cloud-partner-portal-orig/cpp-azure-app-offer.md)
+    Obsolete ### [Author managed application](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
+### [Author solution template](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)
+### [Publish a Management Solution](./cloud-partner-portal-orig/cloud-partner-portal-management-solution-publish.md)
+### [SEO guidance](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
+### [Make offer live](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md)
+### [Update existing offer](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md)
+### [Delete offer](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md)
+   Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  
+-->
+
+<!-- new for SaaS 12/05/2018 -->
+## [SaaS uygulama teklifi](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
+### [Önkoşullar](./cloud-partner-portal/saas-app/cpp-prerequisites.md)
+### [SaaS uygulama teklifi oluşturma](./cloud-partner-portal/saas-app/cpp-create-offer.md)
+#### [Teklif Ayarları sekmesi](./cloud-partner-portal/saas-app/cpp-offer-settings-tab.md)
+#### [Teknik Bilgiler sekmesi](./cloud-partner-portal/saas-app/cpp-technical-info-tab.md)
+#### [Planlar sekmesi](./cloud-partner-portal/saas-app/cpp-plans-tab.md)
+#### [Kanal Bilgileri sekmesi](./cloud-partner-portal/saas-app/cpp-channel-info-tab.md)
+#### [Test Sürüşü sekmesi](./cloud-partner-portal/saas-app/cpp-testdrive-tab.md)
+#### [Vitrin Ayrıntıları sekmesi](./cloud-partner-portal/saas-app/cpp-storefront-tab.md)
+#### [Kişiler sekmesi](./cloud-partner-portal/saas-app/cpp-contacts-tab.md)
+### [Teklif yayımlama](./cloud-partner-portal/saas-app/cpp-publish-offer.md)
+### [Mevcut teklifi güncelleştirme](./cloud-partner-portal/saas-app/cpp-update-existing-offer.md)
 ### [SaaS API’leri](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
+
+<!-- Legacy SaaS Offer replaced
+## [SaaS application offer](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
+### [SaaS apps technical publishing guide](./cloud-partner-portal-orig/cloud-partner-portal-saas-offers-tech-publishing-guide.md)
+### [SaaS Sell through Azure](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
+### [SaaS APIs](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
+-->
 
 ## [Kapsayıcılar teklifi](./cloud-partner-portal/containers/cpp-containers-offer.md)
 ### [Önkoşullar](./cloud-partner-portal/containers/cpp-prerequisites.md)

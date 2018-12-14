@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 097cfa366746a6f79f95024e82108f1b64058010
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: bb890d8fa1c9a2fce0b2af1dae815f7ffde6af7d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962189"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183752"
 documentType: LandingData
 title: Anahtar Kasası Belgeleri
 metadata:
@@ -62,15 +62,16 @@ sections:
       href: /azure/key-vault/quick-create-node
 - title: Adım Adım Öğreticiler
   items:
+  - type: paragraph
+    text: Çeşitli senaryolarda Key Vault'u kullanmayı öğrenme
   - type: list
-    style: cards
-    className: cardsFTitle
+    style: unordered
     items:
-    - title: Web Uygulamasından Anahtar Kasası’nı kullanmaya başlama
-      href: /azure/key-vault/tutorial-net-create-vault-azure-web-app
-      image:
-        src: media/index/get-started.svg
-        href: /azure/key-vault/key-vault-use-from-web-application
+    - html: <a href="/azure/key-vault/tutorial-net-create-vault-azure-web-app">Web Uygulamasından Key Vault'u kullanmaya başlama</a>
+    - html: <a href="/azure/key-vault/tutorial-net-linux-virtual-machine">Azure Linux Sanal Makinesi ile Azure Key Vault'u kullanma</a></li>
+    - html: <a href="/azure/key-vault/tutorial-net-windows-virtual-machine">Azure Windows Sanal Makinesi ile Azure Key Vault'u kullanma</a>
+    - html: <a href="/azure/key-vault/tutorial-python-linux-virtual-machine">Azure Linux Sanal Makinesi ile Azure Key Vault'u kullanma</a>
+    - html: <a href="/azure/key-vault/tutorial-python-windows-virtual-machine">Azure Windows Sanal Makinesi ile Azure Key Vault'u kullanma</a>
 - title: Microsoft Learn ile becerilerinizi geliştirin
   items:
   - type: list
